@@ -18,25 +18,11 @@ func init() {
     ydk.RegisterEntity("openconfig-optical-amplifier:optical-amplifier", reflect.TypeOf(OpticalAmplifier{}))
 }
 
-type OPTICALAMPLIFIERTYPE struct {
+type LOWGAINRANGE struct {
 }
 
-func (id OPTICALAMPLIFIERTYPE) String() string {
-	return "openconfig-optical-amplifier:OPTICAL_AMPLIFIER_TYPE"
-}
-
-type EDFA struct {
-}
-
-func (id EDFA) String() string {
-	return "openconfig-optical-amplifier:EDFA"
-}
-
-type FORWARDRAMAN struct {
-}
-
-func (id FORWARDRAMAN) String() string {
-	return "openconfig-optical-amplifier:FORWARD_RAMAN"
+func (id LOWGAINRANGE) String() string {
+	return "openconfig-optical-amplifier:LOW_GAIN_RANGE"
 }
 
 type BACKWARDRAMAN struct {
@@ -46,25 +32,18 @@ func (id BACKWARDRAMAN) String() string {
 	return "openconfig-optical-amplifier:BACKWARD_RAMAN"
 }
 
-type HYBRID struct {
+type CONSTANTGAIN struct {
 }
 
-func (id HYBRID) String() string {
-	return "openconfig-optical-amplifier:HYBRID"
+func (id CONSTANTGAIN) String() string {
+	return "openconfig-optical-amplifier:CONSTANT_GAIN"
 }
 
-type GAINRANGE struct {
+type FIXEDGAINRANGE struct {
 }
 
-func (id GAINRANGE) String() string {
-	return "openconfig-optical-amplifier:GAIN_RANGE"
-}
-
-type LOWGAINRANGE struct {
-}
-
-func (id LOWGAINRANGE) String() string {
-	return "openconfig-optical-amplifier:LOW_GAIN_RANGE"
+func (id FIXEDGAINRANGE) String() string {
+	return "openconfig-optical-amplifier:FIXED_GAIN_RANGE"
 }
 
 type MIDGAINRANGE struct {
@@ -81,11 +60,32 @@ func (id HIGHGAINRANGE) String() string {
 	return "openconfig-optical-amplifier:HIGH_GAIN_RANGE"
 }
 
-type FIXEDGAINRANGE struct {
+type HYBRID struct {
 }
 
-func (id FIXEDGAINRANGE) String() string {
-	return "openconfig-optical-amplifier:FIXED_GAIN_RANGE"
+func (id HYBRID) String() string {
+	return "openconfig-optical-amplifier:HYBRID"
+}
+
+type FORWARDRAMAN struct {
+}
+
+func (id FORWARDRAMAN) String() string {
+	return "openconfig-optical-amplifier:FORWARD_RAMAN"
+}
+
+type EDFA struct {
+}
+
+func (id EDFA) String() string {
+	return "openconfig-optical-amplifier:EDFA"
+}
+
+type OPTICALAMPLIFIERTYPE struct {
+}
+
+func (id OPTICALAMPLIFIERTYPE) String() string {
+	return "openconfig-optical-amplifier:OPTICAL_AMPLIFIER_TYPE"
 }
 
 type OPTICALAMPLIFIERMODE struct {
@@ -95,18 +95,18 @@ func (id OPTICALAMPLIFIERMODE) String() string {
 	return "openconfig-optical-amplifier:OPTICAL_AMPLIFIER_MODE"
 }
 
+type GAINRANGE struct {
+}
+
+func (id GAINRANGE) String() string {
+	return "openconfig-optical-amplifier:GAIN_RANGE"
+}
+
 type CONSTANTPOWER struct {
 }
 
 func (id CONSTANTPOWER) String() string {
 	return "openconfig-optical-amplifier:CONSTANT_POWER"
-}
-
-type CONSTANTGAIN struct {
-}
-
-func (id CONSTANTGAIN) String() string {
-	return "openconfig-optical-amplifier:CONSTANT_GAIN"
 }
 
 // OpticalAmplifier
@@ -132,10 +132,13 @@ func (opticalAmplifier *OpticalAmplifier) GetEntityData() *types.CommonEntityDat
     opticalAmplifier.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalAmplifier.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    opticalAmplifier.EntityData.Children = make(map[string]types.YChild)
-    opticalAmplifier.EntityData.Children["amplifiers"] = types.YChild{"Amplifiers", &opticalAmplifier.Amplifiers}
-    opticalAmplifier.EntityData.Children["supervisory-channels"] = types.YChild{"SupervisoryChannels", &opticalAmplifier.SupervisoryChannels}
-    opticalAmplifier.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticalAmplifier.EntityData.Children = types.NewOrderedMap()
+    opticalAmplifier.EntityData.Children.Append("amplifiers", types.YChild{"Amplifiers", &opticalAmplifier.Amplifiers})
+    opticalAmplifier.EntityData.Children.Append("supervisory-channels", types.YChild{"SupervisoryChannels", &opticalAmplifier.SupervisoryChannels})
+    opticalAmplifier.EntityData.Leafs = types.NewOrderedMap()
+
+    opticalAmplifier.EntityData.YListKeys = []string {}
+
     return &(opticalAmplifier.EntityData)
 }
 
@@ -147,7 +150,7 @@ type OpticalAmplifier_Amplifiers struct {
 
     // List of optical amplifiers present in the device. The type is slice of
     // OpticalAmplifier_Amplifiers_Amplifier.
-    Amplifier []OpticalAmplifier_Amplifiers_Amplifier
+    Amplifier []*OpticalAmplifier_Amplifiers_Amplifier
 }
 
 func (amplifiers *OpticalAmplifier_Amplifiers) GetEntityData() *types.CommonEntityData {
@@ -160,12 +163,15 @@ func (amplifiers *OpticalAmplifier_Amplifiers) GetEntityData() *types.CommonEnti
     amplifiers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     amplifiers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    amplifiers.EntityData.Children = make(map[string]types.YChild)
-    amplifiers.EntityData.Children["amplifier"] = types.YChild{"Amplifier", nil}
+    amplifiers.EntityData.Children = types.NewOrderedMap()
+    amplifiers.EntityData.Children.Append("amplifier", types.YChild{"Amplifier", nil})
     for i := range amplifiers.Amplifier {
-        amplifiers.EntityData.Children[types.GetSegmentPath(&amplifiers.Amplifier[i])] = types.YChild{"Amplifier", &amplifiers.Amplifier[i]}
+        amplifiers.EntityData.Children.Append(types.GetSegmentPath(amplifiers.Amplifier[i]), types.YChild{"Amplifier", amplifiers.Amplifier[i]})
     }
-    amplifiers.EntityData.Leafs = make(map[string]types.YLeaf)
+    amplifiers.EntityData.Leafs = types.NewOrderedMap()
+
+    amplifiers.EntityData.YListKeys = []string {}
+
     return &(amplifiers.EntityData)
 }
 
@@ -192,16 +198,19 @@ func (amplifier *OpticalAmplifier_Amplifiers_Amplifier) GetEntityData() *types.C
     amplifier.EntityData.YangName = "amplifier"
     amplifier.EntityData.BundleName = "openconfig"
     amplifier.EntityData.ParentYangName = "amplifiers"
-    amplifier.EntityData.SegmentPath = "amplifier" + "[name='" + fmt.Sprintf("%v", amplifier.Name) + "']"
+    amplifier.EntityData.SegmentPath = "amplifier" + types.AddKeyToken(amplifier.Name, "name")
     amplifier.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     amplifier.EntityData.NamespaceTable = openconfig.GetNamespaces()
     amplifier.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    amplifier.EntityData.Children = make(map[string]types.YChild)
-    amplifier.EntityData.Children["config"] = types.YChild{"Config", &amplifier.Config}
-    amplifier.EntityData.Children["state"] = types.YChild{"State", &amplifier.State}
-    amplifier.EntityData.Leafs = make(map[string]types.YLeaf)
-    amplifier.EntityData.Leafs["name"] = types.YLeaf{"Name", amplifier.Name}
+    amplifier.EntityData.Children = types.NewOrderedMap()
+    amplifier.EntityData.Children.Append("config", types.YChild{"Config", &amplifier.Config})
+    amplifier.EntityData.Children.Append("state", types.YChild{"State", &amplifier.State})
+    amplifier.EntityData.Leafs = types.NewOrderedMap()
+    amplifier.EntityData.Leafs.Append("name", types.YLeaf{"Name", amplifier.Name})
+
+    amplifier.EntityData.YListKeys = []string {"Name"}
+
     return &(amplifier.EntityData)
 }
 
@@ -216,8 +225,8 @@ type OpticalAmplifier_Amplifiers_Amplifier_Config struct {
     Name interface{}
 
     // Type of the amplifier. The type is one of the following:
-    // EDFAFORWARDRAMANBACKWARDRAMANHYBRID.
-    Type_ interface{}
+    // BACKWARDRAMANHYBRIDFORWARDRAMANEDFA.
+    Type interface{}
 
     // Positive gain applied by the amplifier. The type is string with range:
     // 0..92233720368547758.07. Units are dB.
@@ -229,11 +238,11 @@ type OpticalAmplifier_Amplifiers_Amplifier_Config struct {
 
     // Selected gain range.  The gain range is a platform-defined value indicating
     // the switched gain amplifier setting. The type is one of the following:
-    // LOWGAINRANGEMIDGAINRANGEHIGHGAINRANGEFIXEDGAINRANGE.
+    // LOWGAINRANGEFIXEDGAINRANGEMIDGAINRANGEHIGHGAINRANGE.
     GainRange interface{}
 
     // The operating mode of the amplifier. The type is one of the following:
-    // CONSTANTPOWERCONSTANTGAIN.
+    // CONSTANTGAINCONSTANTPOWER.
     AmpMode interface{}
 
     // Output optical power of the amplifier. The type is string with range:
@@ -254,16 +263,19 @@ func (config *OpticalAmplifier_Amplifiers_Amplifier_Config) GetEntityData() *typ
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["type"] = types.YLeaf{"Type_", config.Type_}
-    config.EntityData.Leafs["target-gain"] = types.YLeaf{"TargetGain", config.TargetGain}
-    config.EntityData.Leafs["target-gain-tilt"] = types.YLeaf{"TargetGainTilt", config.TargetGainTilt}
-    config.EntityData.Leafs["gain-range"] = types.YLeaf{"GainRange", config.GainRange}
-    config.EntityData.Leafs["amp-mode"] = types.YLeaf{"AmpMode", config.AmpMode}
-    config.EntityData.Leafs["target-output-power"] = types.YLeaf{"TargetOutputPower", config.TargetOutputPower}
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("type", types.YLeaf{"Type", config.Type})
+    config.EntityData.Leafs.Append("target-gain", types.YLeaf{"TargetGain", config.TargetGain})
+    config.EntityData.Leafs.Append("target-gain-tilt", types.YLeaf{"TargetGainTilt", config.TargetGainTilt})
+    config.EntityData.Leafs.Append("gain-range", types.YLeaf{"GainRange", config.GainRange})
+    config.EntityData.Leafs.Append("amp-mode", types.YLeaf{"AmpMode", config.AmpMode})
+    config.EntityData.Leafs.Append("target-output-power", types.YLeaf{"TargetOutputPower", config.TargetOutputPower})
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -278,8 +290,8 @@ type OpticalAmplifier_Amplifiers_Amplifier_State struct {
     Name interface{}
 
     // Type of the amplifier. The type is one of the following:
-    // EDFAFORWARDRAMANBACKWARDRAMANHYBRID.
-    Type_ interface{}
+    // BACKWARDRAMANHYBRIDFORWARDRAMANEDFA.
+    Type interface{}
 
     // Positive gain applied by the amplifier. The type is string with range:
     // 0..92233720368547758.07. Units are dB.
@@ -291,11 +303,11 @@ type OpticalAmplifier_Amplifiers_Amplifier_State struct {
 
     // Selected gain range.  The gain range is a platform-defined value indicating
     // the switched gain amplifier setting. The type is one of the following:
-    // LOWGAINRANGEMIDGAINRANGEHIGHGAINRANGEFIXEDGAINRANGE.
+    // LOWGAINRANGEFIXEDGAINRANGEMIDGAINRANGEHIGHGAINRANGE.
     GainRange interface{}
 
     // The operating mode of the amplifier. The type is one of the following:
-    // CONSTANTPOWERCONSTANTGAIN.
+    // CONSTANTGAINCONSTANTPOWER.
     AmpMode interface{}
 
     // Output optical power of the amplifier. The type is string with range:
@@ -373,28 +385,31 @@ func (state *OpticalAmplifier_Amplifiers_Amplifier_State) GetEntityData() *types
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["actual-gain"] = types.YChild{"ActualGain", &state.ActualGain}
-    state.EntityData.Children["actual-gain-tilt"] = types.YChild{"ActualGainTilt", &state.ActualGainTilt}
-    state.EntityData.Children["input-power-total"] = types.YChild{"InputPowerTotal", &state.InputPowerTotal}
-    state.EntityData.Children["input-power-c-band"] = types.YChild{"InputPowerCBand", &state.InputPowerCBand}
-    state.EntityData.Children["input-power-l-band"] = types.YChild{"InputPowerLBand", &state.InputPowerLBand}
-    state.EntityData.Children["output-power-total"] = types.YChild{"OutputPowerTotal", &state.OutputPowerTotal}
-    state.EntityData.Children["output-power-c-band"] = types.YChild{"OutputPowerCBand", &state.OutputPowerCBand}
-    state.EntityData.Children["output-power-l-band"] = types.YChild{"OutputPowerLBand", &state.OutputPowerLBand}
-    state.EntityData.Children["laser-bias-current"] = types.YChild{"LaserBiasCurrent", &state.LaserBiasCurrent}
-    state.EntityData.Children["optical-return-loss"] = types.YChild{"OpticalReturnLoss", &state.OpticalReturnLoss}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["type"] = types.YLeaf{"Type_", state.Type_}
-    state.EntityData.Leafs["target-gain"] = types.YLeaf{"TargetGain", state.TargetGain}
-    state.EntityData.Leafs["target-gain-tilt"] = types.YLeaf{"TargetGainTilt", state.TargetGainTilt}
-    state.EntityData.Leafs["gain-range"] = types.YLeaf{"GainRange", state.GainRange}
-    state.EntityData.Leafs["amp-mode"] = types.YLeaf{"AmpMode", state.AmpMode}
-    state.EntityData.Leafs["target-output-power"] = types.YLeaf{"TargetOutputPower", state.TargetOutputPower}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["ingress-port"] = types.YLeaf{"IngressPort", state.IngressPort}
-    state.EntityData.Leafs["egress-port"] = types.YLeaf{"EgressPort", state.EgressPort}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("actual-gain", types.YChild{"ActualGain", &state.ActualGain})
+    state.EntityData.Children.Append("actual-gain-tilt", types.YChild{"ActualGainTilt", &state.ActualGainTilt})
+    state.EntityData.Children.Append("input-power-total", types.YChild{"InputPowerTotal", &state.InputPowerTotal})
+    state.EntityData.Children.Append("input-power-c-band", types.YChild{"InputPowerCBand", &state.InputPowerCBand})
+    state.EntityData.Children.Append("input-power-l-band", types.YChild{"InputPowerLBand", &state.InputPowerLBand})
+    state.EntityData.Children.Append("output-power-total", types.YChild{"OutputPowerTotal", &state.OutputPowerTotal})
+    state.EntityData.Children.Append("output-power-c-band", types.YChild{"OutputPowerCBand", &state.OutputPowerCBand})
+    state.EntityData.Children.Append("output-power-l-band", types.YChild{"OutputPowerLBand", &state.OutputPowerLBand})
+    state.EntityData.Children.Append("laser-bias-current", types.YChild{"LaserBiasCurrent", &state.LaserBiasCurrent})
+    state.EntityData.Children.Append("optical-return-loss", types.YChild{"OpticalReturnLoss", &state.OpticalReturnLoss})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("type", types.YLeaf{"Type", state.Type})
+    state.EntityData.Leafs.Append("target-gain", types.YLeaf{"TargetGain", state.TargetGain})
+    state.EntityData.Leafs.Append("target-gain-tilt", types.YLeaf{"TargetGainTilt", state.TargetGainTilt})
+    state.EntityData.Leafs.Append("gain-range", types.YLeaf{"GainRange", state.GainRange})
+    state.EntityData.Leafs.Append("amp-mode", types.YLeaf{"AmpMode", state.AmpMode})
+    state.EntityData.Leafs.Append("target-output-power", types.YLeaf{"TargetOutputPower", state.TargetOutputPower})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("ingress-port", types.YLeaf{"IngressPort", state.IngressPort})
+    state.EntityData.Leafs.Append("egress-port", types.YLeaf{"EgressPort", state.EgressPort})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -436,12 +451,15 @@ func (actualGain *OpticalAmplifier_Amplifiers_Amplifier_State_ActualGain) GetEnt
     actualGain.EntityData.NamespaceTable = openconfig.GetNamespaces()
     actualGain.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    actualGain.EntityData.Children = make(map[string]types.YChild)
-    actualGain.EntityData.Leafs = make(map[string]types.YLeaf)
-    actualGain.EntityData.Leafs["instant"] = types.YLeaf{"Instant", actualGain.Instant}
-    actualGain.EntityData.Leafs["avg"] = types.YLeaf{"Avg", actualGain.Avg}
-    actualGain.EntityData.Leafs["min"] = types.YLeaf{"Min", actualGain.Min}
-    actualGain.EntityData.Leafs["max"] = types.YLeaf{"Max", actualGain.Max}
+    actualGain.EntityData.Children = types.NewOrderedMap()
+    actualGain.EntityData.Leafs = types.NewOrderedMap()
+    actualGain.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", actualGain.Instant})
+    actualGain.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", actualGain.Avg})
+    actualGain.EntityData.Leafs.Append("min", types.YLeaf{"Min", actualGain.Min})
+    actualGain.EntityData.Leafs.Append("max", types.YLeaf{"Max", actualGain.Max})
+
+    actualGain.EntityData.YListKeys = []string {}
+
     return &(actualGain.EntityData)
 }
 
@@ -483,12 +501,15 @@ func (actualGainTilt *OpticalAmplifier_Amplifiers_Amplifier_State_ActualGainTilt
     actualGainTilt.EntityData.NamespaceTable = openconfig.GetNamespaces()
     actualGainTilt.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    actualGainTilt.EntityData.Children = make(map[string]types.YChild)
-    actualGainTilt.EntityData.Leafs = make(map[string]types.YLeaf)
-    actualGainTilt.EntityData.Leafs["instant"] = types.YLeaf{"Instant", actualGainTilt.Instant}
-    actualGainTilt.EntityData.Leafs["avg"] = types.YLeaf{"Avg", actualGainTilt.Avg}
-    actualGainTilt.EntityData.Leafs["min"] = types.YLeaf{"Min", actualGainTilt.Min}
-    actualGainTilt.EntityData.Leafs["max"] = types.YLeaf{"Max", actualGainTilt.Max}
+    actualGainTilt.EntityData.Children = types.NewOrderedMap()
+    actualGainTilt.EntityData.Leafs = types.NewOrderedMap()
+    actualGainTilt.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", actualGainTilt.Instant})
+    actualGainTilt.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", actualGainTilt.Avg})
+    actualGainTilt.EntityData.Leafs.Append("min", types.YLeaf{"Min", actualGainTilt.Min})
+    actualGainTilt.EntityData.Leafs.Append("max", types.YLeaf{"Max", actualGainTilt.Max})
+
+    actualGainTilt.EntityData.YListKeys = []string {}
+
     return &(actualGainTilt.EntityData)
 }
 
@@ -530,12 +551,15 @@ func (inputPowerTotal *OpticalAmplifier_Amplifiers_Amplifier_State_InputPowerTot
     inputPowerTotal.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPowerTotal.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    inputPowerTotal.EntityData.Children = make(map[string]types.YChild)
-    inputPowerTotal.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPowerTotal.EntityData.Leafs["instant"] = types.YLeaf{"Instant", inputPowerTotal.Instant}
-    inputPowerTotal.EntityData.Leafs["avg"] = types.YLeaf{"Avg", inputPowerTotal.Avg}
-    inputPowerTotal.EntityData.Leafs["min"] = types.YLeaf{"Min", inputPowerTotal.Min}
-    inputPowerTotal.EntityData.Leafs["max"] = types.YLeaf{"Max", inputPowerTotal.Max}
+    inputPowerTotal.EntityData.Children = types.NewOrderedMap()
+    inputPowerTotal.EntityData.Leafs = types.NewOrderedMap()
+    inputPowerTotal.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPowerTotal.Instant})
+    inputPowerTotal.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPowerTotal.Avg})
+    inputPowerTotal.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPowerTotal.Min})
+    inputPowerTotal.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPowerTotal.Max})
+
+    inputPowerTotal.EntityData.YListKeys = []string {}
+
     return &(inputPowerTotal.EntityData)
 }
 
@@ -578,12 +602,15 @@ func (inputPowerCBand *OpticalAmplifier_Amplifiers_Amplifier_State_InputPowerCBa
     inputPowerCBand.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPowerCBand.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    inputPowerCBand.EntityData.Children = make(map[string]types.YChild)
-    inputPowerCBand.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPowerCBand.EntityData.Leafs["instant"] = types.YLeaf{"Instant", inputPowerCBand.Instant}
-    inputPowerCBand.EntityData.Leafs["avg"] = types.YLeaf{"Avg", inputPowerCBand.Avg}
-    inputPowerCBand.EntityData.Leafs["min"] = types.YLeaf{"Min", inputPowerCBand.Min}
-    inputPowerCBand.EntityData.Leafs["max"] = types.YLeaf{"Max", inputPowerCBand.Max}
+    inputPowerCBand.EntityData.Children = types.NewOrderedMap()
+    inputPowerCBand.EntityData.Leafs = types.NewOrderedMap()
+    inputPowerCBand.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPowerCBand.Instant})
+    inputPowerCBand.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPowerCBand.Avg})
+    inputPowerCBand.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPowerCBand.Min})
+    inputPowerCBand.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPowerCBand.Max})
+
+    inputPowerCBand.EntityData.YListKeys = []string {}
+
     return &(inputPowerCBand.EntityData)
 }
 
@@ -626,12 +653,15 @@ func (inputPowerLBand *OpticalAmplifier_Amplifiers_Amplifier_State_InputPowerLBa
     inputPowerLBand.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPowerLBand.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    inputPowerLBand.EntityData.Children = make(map[string]types.YChild)
-    inputPowerLBand.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPowerLBand.EntityData.Leafs["instant"] = types.YLeaf{"Instant", inputPowerLBand.Instant}
-    inputPowerLBand.EntityData.Leafs["avg"] = types.YLeaf{"Avg", inputPowerLBand.Avg}
-    inputPowerLBand.EntityData.Leafs["min"] = types.YLeaf{"Min", inputPowerLBand.Min}
-    inputPowerLBand.EntityData.Leafs["max"] = types.YLeaf{"Max", inputPowerLBand.Max}
+    inputPowerLBand.EntityData.Children = types.NewOrderedMap()
+    inputPowerLBand.EntityData.Leafs = types.NewOrderedMap()
+    inputPowerLBand.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPowerLBand.Instant})
+    inputPowerLBand.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPowerLBand.Avg})
+    inputPowerLBand.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPowerLBand.Min})
+    inputPowerLBand.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPowerLBand.Max})
+
+    inputPowerLBand.EntityData.YListKeys = []string {}
+
     return &(inputPowerLBand.EntityData)
 }
 
@@ -673,12 +703,15 @@ func (outputPowerTotal *OpticalAmplifier_Amplifiers_Amplifier_State_OutputPowerT
     outputPowerTotal.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPowerTotal.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    outputPowerTotal.EntityData.Children = make(map[string]types.YChild)
-    outputPowerTotal.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPowerTotal.EntityData.Leafs["instant"] = types.YLeaf{"Instant", outputPowerTotal.Instant}
-    outputPowerTotal.EntityData.Leafs["avg"] = types.YLeaf{"Avg", outputPowerTotal.Avg}
-    outputPowerTotal.EntityData.Leafs["min"] = types.YLeaf{"Min", outputPowerTotal.Min}
-    outputPowerTotal.EntityData.Leafs["max"] = types.YLeaf{"Max", outputPowerTotal.Max}
+    outputPowerTotal.EntityData.Children = types.NewOrderedMap()
+    outputPowerTotal.EntityData.Leafs = types.NewOrderedMap()
+    outputPowerTotal.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPowerTotal.Instant})
+    outputPowerTotal.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPowerTotal.Avg})
+    outputPowerTotal.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPowerTotal.Min})
+    outputPowerTotal.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPowerTotal.Max})
+
+    outputPowerTotal.EntityData.YListKeys = []string {}
+
     return &(outputPowerTotal.EntityData)
 }
 
@@ -721,12 +754,15 @@ func (outputPowerCBand *OpticalAmplifier_Amplifiers_Amplifier_State_OutputPowerC
     outputPowerCBand.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPowerCBand.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    outputPowerCBand.EntityData.Children = make(map[string]types.YChild)
-    outputPowerCBand.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPowerCBand.EntityData.Leafs["instant"] = types.YLeaf{"Instant", outputPowerCBand.Instant}
-    outputPowerCBand.EntityData.Leafs["avg"] = types.YLeaf{"Avg", outputPowerCBand.Avg}
-    outputPowerCBand.EntityData.Leafs["min"] = types.YLeaf{"Min", outputPowerCBand.Min}
-    outputPowerCBand.EntityData.Leafs["max"] = types.YLeaf{"Max", outputPowerCBand.Max}
+    outputPowerCBand.EntityData.Children = types.NewOrderedMap()
+    outputPowerCBand.EntityData.Leafs = types.NewOrderedMap()
+    outputPowerCBand.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPowerCBand.Instant})
+    outputPowerCBand.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPowerCBand.Avg})
+    outputPowerCBand.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPowerCBand.Min})
+    outputPowerCBand.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPowerCBand.Max})
+
+    outputPowerCBand.EntityData.YListKeys = []string {}
+
     return &(outputPowerCBand.EntityData)
 }
 
@@ -769,12 +805,15 @@ func (outputPowerLBand *OpticalAmplifier_Amplifiers_Amplifier_State_OutputPowerL
     outputPowerLBand.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPowerLBand.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    outputPowerLBand.EntityData.Children = make(map[string]types.YChild)
-    outputPowerLBand.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPowerLBand.EntityData.Leafs["instant"] = types.YLeaf{"Instant", outputPowerLBand.Instant}
-    outputPowerLBand.EntityData.Leafs["avg"] = types.YLeaf{"Avg", outputPowerLBand.Avg}
-    outputPowerLBand.EntityData.Leafs["min"] = types.YLeaf{"Min", outputPowerLBand.Min}
-    outputPowerLBand.EntityData.Leafs["max"] = types.YLeaf{"Max", outputPowerLBand.Max}
+    outputPowerLBand.EntityData.Children = types.NewOrderedMap()
+    outputPowerLBand.EntityData.Leafs = types.NewOrderedMap()
+    outputPowerLBand.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPowerLBand.Instant})
+    outputPowerLBand.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPowerLBand.Avg})
+    outputPowerLBand.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPowerLBand.Min})
+    outputPowerLBand.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPowerLBand.Max})
+
+    outputPowerLBand.EntityData.YListKeys = []string {}
+
     return &(outputPowerLBand.EntityData)
 }
 
@@ -817,12 +856,15 @@ func (laserBiasCurrent *OpticalAmplifier_Amplifiers_Amplifier_State_LaserBiasCur
     laserBiasCurrent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    laserBiasCurrent.EntityData.Children = make(map[string]types.YChild)
-    laserBiasCurrent.EntityData.Leafs = make(map[string]types.YLeaf)
-    laserBiasCurrent.EntityData.Leafs["instant"] = types.YLeaf{"Instant", laserBiasCurrent.Instant}
-    laserBiasCurrent.EntityData.Leafs["avg"] = types.YLeaf{"Avg", laserBiasCurrent.Avg}
-    laserBiasCurrent.EntityData.Leafs["min"] = types.YLeaf{"Min", laserBiasCurrent.Min}
-    laserBiasCurrent.EntityData.Leafs["max"] = types.YLeaf{"Max", laserBiasCurrent.Max}
+    laserBiasCurrent.EntityData.Children = types.NewOrderedMap()
+    laserBiasCurrent.EntityData.Leafs = types.NewOrderedMap()
+    laserBiasCurrent.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", laserBiasCurrent.Instant})
+    laserBiasCurrent.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", laserBiasCurrent.Avg})
+    laserBiasCurrent.EntityData.Leafs.Append("min", types.YLeaf{"Min", laserBiasCurrent.Min})
+    laserBiasCurrent.EntityData.Leafs.Append("max", types.YLeaf{"Max", laserBiasCurrent.Max})
+
+    laserBiasCurrent.EntityData.YListKeys = []string {}
+
     return &(laserBiasCurrent.EntityData)
 }
 
@@ -865,12 +907,15 @@ func (opticalReturnLoss *OpticalAmplifier_Amplifiers_Amplifier_State_OpticalRetu
     opticalReturnLoss.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalReturnLoss.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    opticalReturnLoss.EntityData.Children = make(map[string]types.YChild)
-    opticalReturnLoss.EntityData.Leafs = make(map[string]types.YLeaf)
-    opticalReturnLoss.EntityData.Leafs["instant"] = types.YLeaf{"Instant", opticalReturnLoss.Instant}
-    opticalReturnLoss.EntityData.Leafs["avg"] = types.YLeaf{"Avg", opticalReturnLoss.Avg}
-    opticalReturnLoss.EntityData.Leafs["min"] = types.YLeaf{"Min", opticalReturnLoss.Min}
-    opticalReturnLoss.EntityData.Leafs["max"] = types.YLeaf{"Max", opticalReturnLoss.Max}
+    opticalReturnLoss.EntityData.Children = types.NewOrderedMap()
+    opticalReturnLoss.EntityData.Leafs = types.NewOrderedMap()
+    opticalReturnLoss.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", opticalReturnLoss.Instant})
+    opticalReturnLoss.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", opticalReturnLoss.Avg})
+    opticalReturnLoss.EntityData.Leafs.Append("min", types.YLeaf{"Min", opticalReturnLoss.Min})
+    opticalReturnLoss.EntityData.Leafs.Append("max", types.YLeaf{"Max", opticalReturnLoss.Max})
+
+    opticalReturnLoss.EntityData.YListKeys = []string {}
+
     return &(opticalReturnLoss.EntityData)
 }
 
@@ -882,7 +927,7 @@ type OpticalAmplifier_SupervisoryChannels struct {
 
     // List of supervisory channels. The type is slice of
     // OpticalAmplifier_SupervisoryChannels_SupervisoryChannel.
-    SupervisoryChannel []OpticalAmplifier_SupervisoryChannels_SupervisoryChannel
+    SupervisoryChannel []*OpticalAmplifier_SupervisoryChannels_SupervisoryChannel
 }
 
 func (supervisoryChannels *OpticalAmplifier_SupervisoryChannels) GetEntityData() *types.CommonEntityData {
@@ -895,12 +940,15 @@ func (supervisoryChannels *OpticalAmplifier_SupervisoryChannels) GetEntityData()
     supervisoryChannels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     supervisoryChannels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    supervisoryChannels.EntityData.Children = make(map[string]types.YChild)
-    supervisoryChannels.EntityData.Children["supervisory-channel"] = types.YChild{"SupervisoryChannel", nil}
+    supervisoryChannels.EntityData.Children = types.NewOrderedMap()
+    supervisoryChannels.EntityData.Children.Append("supervisory-channel", types.YChild{"SupervisoryChannel", nil})
     for i := range supervisoryChannels.SupervisoryChannel {
-        supervisoryChannels.EntityData.Children[types.GetSegmentPath(&supervisoryChannels.SupervisoryChannel[i])] = types.YChild{"SupervisoryChannel", &supervisoryChannels.SupervisoryChannel[i]}
+        supervisoryChannels.EntityData.Children.Append(types.GetSegmentPath(supervisoryChannels.SupervisoryChannel[i]), types.YChild{"SupervisoryChannel", supervisoryChannels.SupervisoryChannel[i]})
     }
-    supervisoryChannels.EntityData.Leafs = make(map[string]types.YLeaf)
+    supervisoryChannels.EntityData.Leafs = types.NewOrderedMap()
+
+    supervisoryChannels.EntityData.YListKeys = []string {}
+
     return &(supervisoryChannels.EntityData)
 }
 
@@ -912,8 +960,8 @@ type OpticalAmplifier_SupervisoryChannels_SupervisoryChannel struct {
 
     // This attribute is a key. Reference to the interface of the supervisory
     // channel. The type is string. Refers to
-    // optical_amplifier.OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_Config_Interface_
-    Interface_ interface{}
+    // optical_amplifier.OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_Config_Interface
+    Interface interface{}
 
     // Configuration data for OSCs.
     Config OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_Config
@@ -927,16 +975,19 @@ func (supervisoryChannel *OpticalAmplifier_SupervisoryChannels_SupervisoryChanne
     supervisoryChannel.EntityData.YangName = "supervisory-channel"
     supervisoryChannel.EntityData.BundleName = "openconfig"
     supervisoryChannel.EntityData.ParentYangName = "supervisory-channels"
-    supervisoryChannel.EntityData.SegmentPath = "supervisory-channel" + "[interface='" + fmt.Sprintf("%v", supervisoryChannel.Interface_) + "']"
+    supervisoryChannel.EntityData.SegmentPath = "supervisory-channel" + types.AddKeyToken(supervisoryChannel.Interface, "interface")
     supervisoryChannel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     supervisoryChannel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     supervisoryChannel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    supervisoryChannel.EntityData.Children = make(map[string]types.YChild)
-    supervisoryChannel.EntityData.Children["config"] = types.YChild{"Config", &supervisoryChannel.Config}
-    supervisoryChannel.EntityData.Children["state"] = types.YChild{"State", &supervisoryChannel.State}
-    supervisoryChannel.EntityData.Leafs = make(map[string]types.YLeaf)
-    supervisoryChannel.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", supervisoryChannel.Interface_}
+    supervisoryChannel.EntityData.Children = types.NewOrderedMap()
+    supervisoryChannel.EntityData.Children.Append("config", types.YChild{"Config", &supervisoryChannel.Config})
+    supervisoryChannel.EntityData.Children.Append("state", types.YChild{"State", &supervisoryChannel.State})
+    supervisoryChannel.EntityData.Leafs = types.NewOrderedMap()
+    supervisoryChannel.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", supervisoryChannel.Interface})
+
+    supervisoryChannel.EntityData.YListKeys = []string {"Interface"}
+
     return &(supervisoryChannel.EntityData)
 }
 
@@ -948,7 +999,7 @@ type OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_Config struct {
 
     // List of references to OSC interfaces. The type is slice of string. Refers
     // to interfaces.Interfaces_Interface_Name
-    Interface_ []interface{}
+    Interface []interface{}
 }
 
 func (config *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_Config) GetEntityData() *types.CommonEntityData {
@@ -961,9 +1012,12 @@ func (config *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_Config) Ge
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", config.Interface_}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -975,7 +1029,7 @@ type OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_State struct {
 
     // List of references to OSC interfaces. The type is slice of string. Refers
     // to interfaces.Interfaces_Interface_Name
-    Interface_ []interface{}
+    Interface []interface{}
 
     // The input optical power of this port in units of 0.01dBm. If avg/min/max
     // statistics are not supported, the target is expected to just supply the
@@ -1004,12 +1058,15 @@ func (state *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_State) GetE
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["input-power"] = types.YChild{"InputPower", &state.InputPower}
-    state.EntityData.Children["output-power"] = types.YChild{"OutputPower", &state.OutputPower}
-    state.EntityData.Children["laser-bias-current"] = types.YChild{"LaserBiasCurrent", &state.LaserBiasCurrent}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("input-power", types.YChild{"InputPower", &state.InputPower})
+    state.EntityData.Children.Append("output-power", types.YChild{"OutputPower", &state.OutputPower})
+    state.EntityData.Children.Append("laser-bias-current", types.YChild{"LaserBiasCurrent", &state.LaserBiasCurrent})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1051,12 +1108,15 @@ func (inputPower *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_State_
     inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    inputPower.EntityData.Children = make(map[string]types.YChild)
-    inputPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPower.EntityData.Leafs["instant"] = types.YLeaf{"Instant", inputPower.Instant}
-    inputPower.EntityData.Leafs["avg"] = types.YLeaf{"Avg", inputPower.Avg}
-    inputPower.EntityData.Leafs["min"] = types.YLeaf{"Min", inputPower.Min}
-    inputPower.EntityData.Leafs["max"] = types.YLeaf{"Max", inputPower.Max}
+    inputPower.EntityData.Children = types.NewOrderedMap()
+    inputPower.EntityData.Leafs = types.NewOrderedMap()
+    inputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPower.Instant})
+    inputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPower.Avg})
+    inputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPower.Min})
+    inputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPower.Max})
+
+    inputPower.EntityData.YListKeys = []string {}
+
     return &(inputPower.EntityData)
 }
 
@@ -1098,12 +1158,15 @@ func (outputPower *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_State
     outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    outputPower.EntityData.Children = make(map[string]types.YChild)
-    outputPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPower.EntityData.Leafs["instant"] = types.YLeaf{"Instant", outputPower.Instant}
-    outputPower.EntityData.Leafs["avg"] = types.YLeaf{"Avg", outputPower.Avg}
-    outputPower.EntityData.Leafs["min"] = types.YLeaf{"Min", outputPower.Min}
-    outputPower.EntityData.Leafs["max"] = types.YLeaf{"Max", outputPower.Max}
+    outputPower.EntityData.Children = types.NewOrderedMap()
+    outputPower.EntityData.Leafs = types.NewOrderedMap()
+    outputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPower.Instant})
+    outputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPower.Avg})
+    outputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPower.Min})
+    outputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPower.Max})
+
+    outputPower.EntityData.YListKeys = []string {}
+
     return &(outputPower.EntityData)
 }
 
@@ -1147,12 +1210,15 @@ func (laserBiasCurrent *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_
     laserBiasCurrent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    laserBiasCurrent.EntityData.Children = make(map[string]types.YChild)
-    laserBiasCurrent.EntityData.Leafs = make(map[string]types.YLeaf)
-    laserBiasCurrent.EntityData.Leafs["instant"] = types.YLeaf{"Instant", laserBiasCurrent.Instant}
-    laserBiasCurrent.EntityData.Leafs["avg"] = types.YLeaf{"Avg", laserBiasCurrent.Avg}
-    laserBiasCurrent.EntityData.Leafs["min"] = types.YLeaf{"Min", laserBiasCurrent.Min}
-    laserBiasCurrent.EntityData.Leafs["max"] = types.YLeaf{"Max", laserBiasCurrent.Max}
+    laserBiasCurrent.EntityData.Children = types.NewOrderedMap()
+    laserBiasCurrent.EntityData.Leafs = types.NewOrderedMap()
+    laserBiasCurrent.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", laserBiasCurrent.Instant})
+    laserBiasCurrent.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", laserBiasCurrent.Avg})
+    laserBiasCurrent.EntityData.Leafs.Append("min", types.YLeaf{"Min", laserBiasCurrent.Min})
+    laserBiasCurrent.EntityData.Leafs.Append("max", types.YLeaf{"Max", laserBiasCurrent.Max})
+
+    laserBiasCurrent.EntityData.YListKeys = []string {}
+
     return &(laserBiasCurrent.EntityData)
 }
 

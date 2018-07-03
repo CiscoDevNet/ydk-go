@@ -53,6 +53,10 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-06 {
+    description
+      "SLA thresholds and actions schema/yang added.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -871,7 +875,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
                     "VPN OUI, if Short MA Name format is VPN_ID";
                 }
                 leaf short-ma-name-vpn-index {
-                  type int32;
+                  type uint32;
                   description
                     "VPN Index, if Short MA Name format is
                      VPN_ID";

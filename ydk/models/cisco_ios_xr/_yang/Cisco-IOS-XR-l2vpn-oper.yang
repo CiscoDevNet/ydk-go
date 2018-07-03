@@ -12,13 +12,13 @@ module Cisco-IOS-XR-l2vpn-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub3 {
-    revision-date 2017-06-26;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub2 {
-    revision-date 2017-06-26;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub1 {
-    revision-date 2017-06-26;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -46,6 +46,10 @@ module Cisco-IOS-XR-l2vpn-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
@@ -391,7 +395,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               }
             }
             leaf instance {
-              type int32;
+              type uint32;
               description
                 "Instance";
             }
@@ -527,7 +531,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "G8032 Ring Instance summary information";
               leaf instance {
-                type int32;
+                type uint32;
                 description
                   "Instance";
               }
@@ -547,7 +551,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "G8032 Ring Instance detailed information";
               leaf instance {
-                type int32;
+                type uint32;
                 description
                   "Instance";
               }
@@ -1191,7 +1195,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "IP Address";
               }
               leaf bdid {
-                type int32;
+                type uint32;
                 description
                   "BD ID";
               }
@@ -1221,7 +1225,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "IP Address";
               }
               leaf bdid {
-                type int32;
+                type uint32;
                 description
                   "BD ID";
               }
@@ -1251,7 +1255,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "IP Address";
               }
               leaf bdid {
-                type int32;
+                type uint32;
                 description
                   "BD ID";
               }
@@ -1279,22 +1283,22 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "PTree Type";
               }
               leaf lsm-id {
-                type int32;
+                type uint32;
                 description
                   "LSM Id";
               }
               leaf tunnel-id {
-                type int32;
+                type uint32;
                 description
                   "Tunnel Id";
               }
               leaf p2mp-id {
-                type int32;
+                type uint32;
                 description
                   "P2MP Id";
               }
               leaf extended-tunnel-id {
-                type int32;
+                type uint32;
                 description
                   "Extended Tunnel Id";
               }
@@ -1357,7 +1361,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               "The attributes for a particular EVPN IPv4-MAC
                Entry";
             leaf bdid {
-              type int32;
+              type uint32;
               description
                 "BD ID";
             }
@@ -1434,7 +1438,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                 "Parent interface context";
             }
             leaf msti {
-              type int32;
+              type uint32;
               description
                 "MSTI context";
             }
@@ -1580,12 +1584,12 @@ module Cisco-IOS-XR-l2vpn-oper {
                 "Peer IP Address";
             }
             leaf group-id {
-              type int32;
+              type uint32;
               description
                 "Group Id";
             }
             leaf tunnel-if-handle {
-              type int32;
+              type uint32;
               description
                 "Tunnel Interface Handle";
             }
@@ -1739,7 +1743,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   uses L2FIB-MAIN-INTERFACE-INSTANCE-DETAIL-INFO;
                 }
                 leaf instance {
-                  type int32;
+                  type uint32;
                   description
                     "Instance";
                 }
@@ -1766,7 +1770,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               uses L2FIB-MAIN-INTERFACE-SUMMARY-INFO;
             }
             leaf main-interface-id {
-              type int32;
+              type uint32;
               description
                 "Main interface id";
             }
@@ -1789,7 +1793,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                 "Parent interface context";
             }
             leaf msti {
-              type int32;
+              type uint32;
               description
                 "MSTI context";
             }
@@ -1807,7 +1811,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "L2TPV3 Session";
               leaf session-id {
-                type int32;
+                type uint32;
                 description
                   "SessionID";
               }
@@ -1821,12 +1825,12 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "L2TPV2 Session";
               leaf session-id {
-                type int32;
+                type uint32;
                 description
                   "SessionID";
               }
               leaf tunnel-id {
-                type int32;
+                type uint32;
                 description
                   "TunnelID";
               }
@@ -1862,7 +1866,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   description
                     "G8032 Ring Instance summary information";
                   leaf instance {
-                    type int32;
+                    type uint32;
                     description
                       "Instance";
                   }
@@ -1877,7 +1881,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   description
                     "G8032 Ring Instance detailed information";
                   leaf instance {
-                    type int32;
+                    type uint32;
                     description
                       "Instance";
                   }
@@ -2078,7 +2082,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               "The attributes for a particular EVPN IPv6-MAC
                Entry";
             leaf bdid {
-              type int32;
+              type uint32;
               description
                 "BD ID";
             }

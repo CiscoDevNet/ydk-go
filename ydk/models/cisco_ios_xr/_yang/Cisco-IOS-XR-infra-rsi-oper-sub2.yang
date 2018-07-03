@@ -4,7 +4,7 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
   }
 
   include Cisco-IOS-XR-infra-rsi-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -108,6 +112,11 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
         value 4;
         description
           "Very low";
+      }
+      enum "invald" {
+        value 5;
+        description
+          "Invalid";
       }
     }
     description
@@ -194,6 +203,66 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
     }
   }
 
+  grouping RSI-SRLG-INHLOC-SHOW {
+    description
+      "RSI SRLG INHLOC SHOW";
+    leaf node-name {
+      type string;
+      description
+        "Inherit node name";
+    }
+    leaf node-values {
+      type uint32;
+      description
+        "Node values";
+    }
+    list srlg-attribute {
+      description
+        "SRLG attribute";
+      uses RSI-SRLG-ATTR-BRIEF;
+    }
+  }
+
+  grouping RSI-SRLG-NAME-VALUE-SHOW {
+    description
+      "RSI SRLG NAME VALUE SHOW";
+    leaf srlg-value {
+      type uint32;
+      description
+        "SRLG value";
+    }
+    leaf srlg-name-xr {
+      type string;
+      description
+        "SRLG name";
+    }
+  }
+
+  grouping RSI-SRLG-RSIP-SHOW {
+    description
+      "RSI SRLG RSIP SHOW";
+    leaf optical-layer-interface-name {
+      type string;
+      description
+        "Optical layer interface name";
+    }
+    leaf registrations {
+      type uint32;
+      description
+        "Registrations";
+    }
+    leaf interface-values {
+      type uint32;
+      description
+        "Interface values";
+    }
+    list srlg-attribute {
+      description
+        "SRLG attribute";
+      uses RSI-SRLG-ATTR-BRIEF;
+    }
+  }
+
   grouping RSI-SRLG-INTF-BRIEF-SHOW {
     description
       "RSI SRLG INTF BRIEF SHOW";
@@ -216,26 +285,6 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
       type uint32;
       description
         "SRLG values";
-    }
-  }
-
-  grouping RSI-SRLG-INHLOC-SHOW {
-    description
-      "RSI SRLG INHLOC SHOW";
-    leaf node-name {
-      type string;
-      description
-        "Inherit node name";
-    }
-    leaf node-values {
-      type uint32;
-      description
-        "Node values";
-    }
-    list srlg-attribute {
-      description
-        "SRLG attribute";
-      uses RSI-SRLG-ATTR-BRIEF;
     }
   }
 
@@ -276,21 +325,6 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
       description
         "SRLG attribute";
       uses RSI-SRLG-ATTR-BRIEF;
-    }
-  }
-
-  grouping RSI-SRLG-NAME-VALUE-SHOW {
-    description
-      "RSI SRLG NAME VALUE SHOW";
-    leaf srlg-value {
-      type uint32;
-      description
-        "SRLG value";
-    }
-    leaf srlg-name-xr {
-      type string;
-      description
-        "SRLG name";
     }
   }
 

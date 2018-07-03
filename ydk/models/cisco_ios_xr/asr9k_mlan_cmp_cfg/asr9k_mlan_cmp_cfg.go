@@ -44,9 +44,12 @@ func (mlanDisableCmp *MlanDisableCmp) GetEntityData() *types.CommonEntityData {
     mlanDisableCmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlanDisableCmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mlanDisableCmp.EntityData.Children = make(map[string]types.YChild)
-    mlanDisableCmp.EntityData.Children["nodes"] = types.YChild{"Nodes", &mlanDisableCmp.Nodes}
-    mlanDisableCmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    mlanDisableCmp.EntityData.Children = types.NewOrderedMap()
+    mlanDisableCmp.EntityData.Children.Append("nodes", types.YChild{"Nodes", &mlanDisableCmp.Nodes})
+    mlanDisableCmp.EntityData.Leafs = types.NewOrderedMap()
+
+    mlanDisableCmp.EntityData.YListKeys = []string {}
+
     return &(mlanDisableCmp.EntityData)
 }
 
@@ -58,7 +61,7 @@ type MlanDisableCmp_Nodes struct {
     YFilter yfilter.YFilter
 
     // A node. The type is slice of MlanDisableCmp_Nodes_Node.
-    Node []MlanDisableCmp_Nodes_Node
+    Node []*MlanDisableCmp_Nodes_Node
 }
 
 func (nodes *MlanDisableCmp_Nodes) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (nodes *MlanDisableCmp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -87,7 +93,7 @@ type MlanDisableCmp_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. NodeName. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Disable CMP. The type is interface{}.
@@ -99,15 +105,18 @@ func (node *MlanDisableCmp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
-    node.EntityData.Leafs["disable"] = types.YLeaf{"Disable", node.Disable}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+    node.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", node.Disable})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 

@@ -30,17 +30,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", reflect.TypeOf(FrequencySynchronization{}))
 }
 
-// FsyncSystemTimingMode represents Fsync system timing mode
-type FsyncSystemTimingMode string
-
-const (
-    // Line-interfaces only
-    FsyncSystemTimingMode_line_only FsyncSystemTimingMode = "line-only"
-
-    // Clock-interfaces only
-    FsyncSystemTimingMode_clock_only FsyncSystemTimingMode = "clock-only"
-)
-
 // FsyncClockSource represents Fsync clock source
 type FsyncClockSource string
 
@@ -56,18 +45,31 @@ const (
 type FsyncSourceSelectionLogging string
 
 const (
-    // Log selection changes
+    // Log both selection changes and errors
     FsyncSourceSelectionLogging_changes FsyncSourceSelectionLogging = "changes"
 
     // Log selection errors
     FsyncSourceSelectionLogging_errors FsyncSourceSelectionLogging = "errors"
 )
 
+// FsyncSystemTimingMode represents Fsync system timing mode
+type FsyncSystemTimingMode string
+
+const (
+    // Line-interfaces only
+    FsyncSystemTimingMode_line_only FsyncSystemTimingMode = "line-only"
+
+    // Clock-interfaces only
+    FsyncSystemTimingMode_clock_only FsyncSystemTimingMode = "clock-only"
+)
+
 // FrequencySynchronization
 // frequency synchronization
+// This type is a presence type.
 type FrequencySynchronization struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Quality level option. The type is FsyncQlOption. The default value is
     // option-1.
@@ -77,12 +79,15 @@ type FrequencySynchronization struct {
     Enable interface{}
 
     // Source selection logging option. The type is FsyncSourceSelectionLogging.
+    // This attribute is mandatory.
     SourceSelectionLogging interface{}
 
-    // Clock interface source type. The type is FsyncClockSource.
+    // Clock interface source type. The type is FsyncClockSource. This attribute
+    // is mandatory.
     ClockInterfaceSourceType interface{}
 
-    // System timing mode. The type is FsyncSystemTimingMode.
+    // System timing mode. The type is FsyncSystemTimingMode. This attribute is
+    // mandatory.
     SystemTimingMode interface{}
 }
 
@@ -96,13 +101,16 @@ func (frequencySynchronization *FrequencySynchronization) GetEntityData() *types
     frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    frequencySynchronization.EntityData.Children = make(map[string]types.YChild)
-    frequencySynchronization.EntityData.Leafs = make(map[string]types.YLeaf)
-    frequencySynchronization.EntityData.Leafs["quality-level-option"] = types.YLeaf{"QualityLevelOption", frequencySynchronization.QualityLevelOption}
-    frequencySynchronization.EntityData.Leafs["enable"] = types.YLeaf{"Enable", frequencySynchronization.Enable}
-    frequencySynchronization.EntityData.Leafs["source-selection-logging"] = types.YLeaf{"SourceSelectionLogging", frequencySynchronization.SourceSelectionLogging}
-    frequencySynchronization.EntityData.Leafs["clock-interface-source-type"] = types.YLeaf{"ClockInterfaceSourceType", frequencySynchronization.ClockInterfaceSourceType}
-    frequencySynchronization.EntityData.Leafs["system-timing-mode"] = types.YLeaf{"SystemTimingMode", frequencySynchronization.SystemTimingMode}
+    frequencySynchronization.EntityData.Children = types.NewOrderedMap()
+    frequencySynchronization.EntityData.Leafs = types.NewOrderedMap()
+    frequencySynchronization.EntityData.Leafs.Append("quality-level-option", types.YLeaf{"QualityLevelOption", frequencySynchronization.QualityLevelOption})
+    frequencySynchronization.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", frequencySynchronization.Enable})
+    frequencySynchronization.EntityData.Leafs.Append("source-selection-logging", types.YLeaf{"SourceSelectionLogging", frequencySynchronization.SourceSelectionLogging})
+    frequencySynchronization.EntityData.Leafs.Append("clock-interface-source-type", types.YLeaf{"ClockInterfaceSourceType", frequencySynchronization.ClockInterfaceSourceType})
+    frequencySynchronization.EntityData.Leafs.Append("system-timing-mode", types.YLeaf{"SystemTimingMode", frequencySynchronization.SystemTimingMode})
+
+    frequencySynchronization.EntityData.YListKeys = []string {}
+
     return &(frequencySynchronization.EntityData)
 }
 

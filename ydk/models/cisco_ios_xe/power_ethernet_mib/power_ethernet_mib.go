@@ -49,18 +49,18 @@ type POWERETHERNETMIB struct {
     // will be implemented in managed power Ethernet switches and mid-span
     // devices. Values of all read-write objects in this table are persistent at
     // restart/reboot.
-    Pethpseporttable POWERETHERNETMIB_Pethpseporttable
+    PethPsePortTable POWERETHERNETMIB_PethPsePortTable
 
     // A table of objects that display and control attributes of the main power
     // source in a PSE  device.  Ethernet switches are one example of boxes that
     // would support these objects. Values of all read-write objects in this table
     // are persistent at restart/reboot.
-    Pethmainpsetable POWERETHERNETMIB_Pethmainpsetable
+    PethMainPseTable POWERETHERNETMIB_PethMainPseTable
 
     // A table of objects that display and control the Notification on a PSE 
     // device. Values of all read-write objects in this table are persistent at
     // restart/reboot.
-    Pethnotificationcontroltable POWERETHERNETMIB_Pethnotificationcontroltable
+    PethNotificationControlTable POWERETHERNETMIB_PethNotificationControlTable
 }
 
 func (pOWERETHERNETMIB *POWERETHERNETMIB) GetEntityData() *types.CommonEntityData {
@@ -73,54 +73,60 @@ func (pOWERETHERNETMIB *POWERETHERNETMIB) GetEntityData() *types.CommonEntityDat
     pOWERETHERNETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pOWERETHERNETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pOWERETHERNETMIB.EntityData.Children = make(map[string]types.YChild)
-    pOWERETHERNETMIB.EntityData.Children["pethPsePortTable"] = types.YChild{"Pethpseporttable", &pOWERETHERNETMIB.Pethpseporttable}
-    pOWERETHERNETMIB.EntityData.Children["pethMainPseTable"] = types.YChild{"Pethmainpsetable", &pOWERETHERNETMIB.Pethmainpsetable}
-    pOWERETHERNETMIB.EntityData.Children["pethNotificationControlTable"] = types.YChild{"Pethnotificationcontroltable", &pOWERETHERNETMIB.Pethnotificationcontroltable}
-    pOWERETHERNETMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    pOWERETHERNETMIB.EntityData.Children = types.NewOrderedMap()
+    pOWERETHERNETMIB.EntityData.Children.Append("pethPsePortTable", types.YChild{"PethPsePortTable", &pOWERETHERNETMIB.PethPsePortTable})
+    pOWERETHERNETMIB.EntityData.Children.Append("pethMainPseTable", types.YChild{"PethMainPseTable", &pOWERETHERNETMIB.PethMainPseTable})
+    pOWERETHERNETMIB.EntityData.Children.Append("pethNotificationControlTable", types.YChild{"PethNotificationControlTable", &pOWERETHERNETMIB.PethNotificationControlTable})
+    pOWERETHERNETMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    pOWERETHERNETMIB.EntityData.YListKeys = []string {}
+
     return &(pOWERETHERNETMIB.EntityData)
 }
 
-// POWERETHERNETMIB_Pethpseporttable
+// POWERETHERNETMIB_PethPsePortTable
 // A table of objects that display and control the power
 // characteristics of power Ethernet ports on a Power Source
 // Entity (PSE) device.  This group will be implemented in
 // managed power Ethernet switches and mid-span devices.
 // Values of all read-write objects in this table are
 // persistent at restart/reboot.
-type POWERETHERNETMIB_Pethpseporttable struct {
+type POWERETHERNETMIB_PethPsePortTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of objects that display and control the power characteristics of a
     // power Ethernet PSE port. The type is slice of
-    // POWERETHERNETMIB_Pethpseporttable_Pethpseportentry.
-    Pethpseportentry []POWERETHERNETMIB_Pethpseporttable_Pethpseportentry
+    // POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry.
+    PethPsePortEntry []*POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry
 }
 
-func (pethpseporttable *POWERETHERNETMIB_Pethpseporttable) GetEntityData() *types.CommonEntityData {
-    pethpseporttable.EntityData.YFilter = pethpseporttable.YFilter
-    pethpseporttable.EntityData.YangName = "pethPsePortTable"
-    pethpseporttable.EntityData.BundleName = "cisco_ios_xe"
-    pethpseporttable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
-    pethpseporttable.EntityData.SegmentPath = "pethPsePortTable"
-    pethpseporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    pethpseporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    pethpseporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (pethPsePortTable *POWERETHERNETMIB_PethPsePortTable) GetEntityData() *types.CommonEntityData {
+    pethPsePortTable.EntityData.YFilter = pethPsePortTable.YFilter
+    pethPsePortTable.EntityData.YangName = "pethPsePortTable"
+    pethPsePortTable.EntityData.BundleName = "cisco_ios_xe"
+    pethPsePortTable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
+    pethPsePortTable.EntityData.SegmentPath = "pethPsePortTable"
+    pethPsePortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pethPsePortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pethPsePortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pethpseporttable.EntityData.Children = make(map[string]types.YChild)
-    pethpseporttable.EntityData.Children["pethPsePortEntry"] = types.YChild{"Pethpseportentry", nil}
-    for i := range pethpseporttable.Pethpseportentry {
-        pethpseporttable.EntityData.Children[types.GetSegmentPath(&pethpseporttable.Pethpseportentry[i])] = types.YChild{"Pethpseportentry", &pethpseporttable.Pethpseportentry[i]}
+    pethPsePortTable.EntityData.Children = types.NewOrderedMap()
+    pethPsePortTable.EntityData.Children.Append("pethPsePortEntry", types.YChild{"PethPsePortEntry", nil})
+    for i := range pethPsePortTable.PethPsePortEntry {
+        pethPsePortTable.EntityData.Children.Append(types.GetSegmentPath(pethPsePortTable.PethPsePortEntry[i]), types.YChild{"PethPsePortEntry", pethPsePortTable.PethPsePortEntry[i]})
     }
-    pethpseporttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(pethpseporttable.EntityData)
+    pethPsePortTable.EntityData.Leafs = types.NewOrderedMap()
+
+    pethPsePortTable.EntityData.YListKeys = []string {}
+
+    return &(pethPsePortTable.EntityData)
 }
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry
 // A set of objects that display and control the power
 // characteristics of a power Ethernet PSE port.
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -131,31 +137,31 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // variable, pethMainPseGroupIndex, and pethNotificationControlGroupIndex to
     // refer to a given box in a stack or module in the rack. The type is
     // interface{} with range: 1..2147483647.
-    Pethpseportgroupindex interface{}
+    PethPsePortGroupIndex interface{}
 
     // This attribute is a key. This variable uniquely identifies the power
     // Ethernet PSE port within group pethPsePortGroupIndex to which the power
     // Ethernet PSE entry is connected. The type is interface{} with range:
     // 1..2147483647.
-    Pethpseportindex interface{}
+    PethPsePortIndex interface{}
 
     // true (1) An interface which can provide the PSE functions. false(2) The
     // interface will act as it would if it had no PSE function. The type is bool.
-    Pethpseportadminenable interface{}
+    PethPsePortAdminEnable interface{}
 
     // Describes the capability of controlling the power pairs functionality to
     // switch pins for sourcing power. The value true indicate that the device has
     // the capability to control the power pairs.  When false the PSE Pinout
     // Alternative used cannot be controlled through the PethPsePortAdminEnable
     // attribute. The type is bool.
-    Pethpseportpowerpairscontrolability interface{}
+    PethPsePortPowerPairsControlAbility interface{}
 
     // Describes or controls the pairs in use.  If the value of
     // pethPsePortPowerPairsControl is true, this object is writable. A value of
     // signal(1) means that the signal pairs only are in use. A value of spare(2)
     // means that the spare pairs only are in use. The type is
-    // Pethpseportpowerpairs.
-    Pethpseportpowerpairs interface{}
+    // PethPsePortPowerPairs.
+    PethPsePortPowerPairs interface{}
 
     // Describes the operational status of the port PD detection. A value of
     // disabled(1)- indicates that the PSE State diagram is in the state DISABLED.
@@ -167,8 +173,8 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // otherFault(6) - indicates that the PSE State diagram is in the state IDLE
     // due to the variable error_conditions. A value of searching(2)- indicates
     // the PSE State diagram is in a state other than those listed above. The type
-    // is Pethpseportdetectionstatus.
-    Pethpseportdetectionstatus interface{}
+    // is PethPsePortDetectionStatus.
+    PethPsePortDetectionStatus interface{}
 
     // This object controls the priority of the port from the point of view of a
     // power management algorithm.  The priority that is set by this variable
@@ -176,19 +182,19 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // by disconnecting first ports with lower power priority.  Ports that connect
     // devices critical to the operation of the network - like the E911 telephones
     // ports - should be set to higher priority. The type is
-    // Pethpseportpowerpriority.
-    Pethpseportpowerpriority interface{}
+    // PethPsePortPowerPriority.
+    PethPsePortPowerPriority interface{}
 
     // This counter is incremented when the PSE state diagram transitions directly
     // from the state POWER_ON to the state IDLE due to tmpdo_timer_done being
     // asserted. The type is interface{} with range: 0..4294967295.
-    Pethpseportmpsabsentcounter interface{}
+    PethPsePortMPSAbsentCounter interface{}
 
     // A manager will set the value of this variable to indicate the type of
     // powered device that is connected to the port. The default value supplied by
     // the agent if no value has ever been set should be a zero-length octet
     // string. The type is string.
-    Pethpseporttype interface{}
+    PethPsePortType interface{}
 
     // Classification is a way to tag different terminals on the Power over LAN
     // network according to their power consumption. Devices such as IP
@@ -197,24 +203,24 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // defined in the IEEE specification.  This variable is valid only while a PD
     // is being powered, that is, while the attribute pethPsePortDetectionStatus
     // is reporting the enumeration deliveringPower. The type is
-    // Pethpseportpowerclassifications.
-    Pethpseportpowerclassifications interface{}
+    // PethPsePortPowerClassifications.
+    PethPsePortPowerClassifications interface{}
 
     // This counter is incremented when the PSE state diagram enters the state
     // SIGNATURE_INVALID. The type is interface{} with range: 0..4294967295.
-    Pethpseportinvalidsignaturecounter interface{}
+    PethPsePortInvalidSignatureCounter interface{}
 
     // This counter is incremented when the PSE state diagram enters the state
     // POWER_DENIED. The type is interface{} with range: 0..4294967295.
-    Pethpseportpowerdeniedcounter interface{}
+    PethPsePortPowerDeniedCounter interface{}
 
     // This counter is incremented when the PSE state diagram enters the state
     // ERROR_DELAY_OVER. The type is interface{} with range: 0..4294967295.
-    Pethpseportoverloadcounter interface{}
+    PethPsePortOverLoadCounter interface{}
 
     // This counter is incremented when the PSE state diagram enters the state
     // ERROR_DELAY_SHORT. The type is interface{} with range: 0..4294967295.
-    Pethpseportshortcounter interface{}
+    PethPsePortShortCounter interface{}
 
     // This object is an extension of the pethPsePortAdminEnable object from
     // RFC3621. It allows the user to be more specific when enabling the PSE
@@ -241,8 +247,8 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // PSE port, or cpeExtMainPsePwrMonitorCapable of the PSE port's main group,
     // has the value of 'false', this object can only be set to 'auto', 'static'
     // or 'disable'. Otherwise, this object can be set to 'auto', 'static',
-    // 'limit' or 'disable'. The type is Cpeextpseportenable.
-    Cpeextpseportenable interface{}
+    // 'limit' or 'disable'. The type is CpeExtPsePortEnable.
+    CpeExtPsePortEnable interface{}
 
     // This object indicates the discover mode used by the system to discover the
     // PD.  A value of 'unknown' indicates that the discover mode on the interface
@@ -251,14 +257,14 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // interface is IEEE based.  A value of 'cisco' indicates that the discover
     // mode on the interface is Cisco based.  A value of 'ieeeAndCisco' indicates
     // that the discover mode on the interface is both IEEE and Cisco based. The
-    // type is Cpeextpseportdiscovermode.
-    Cpeextpseportdiscovermode interface{}
+    // type is CpeExtPsePortDiscoverMode.
+    CpeExtPsePortDiscoverMode interface{}
 
     // This object indicates if a Powered Device (PD) has been detected on the
     // interface.  A value of 'true' indicates that a PD has been detected on the
     // interface.  A value of 'false' indicates that no PD has been detected on
     // the interface. The type is bool.
-    Cpeextpseportdevicedetected interface{}
+    CpeExtPsePortDeviceDetected interface{}
 
     // This object indicates whether the Powered Device attached to the interface
     // is an IEEE compliant Powered Device or not.  A value of 'true' indicates
@@ -267,7 +273,7 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // Powered Device. This also means that the value of the corresponding object
     // from the pethPsePortTable, pethPsePortPowerClassifications is irrelevant.
     // The type is bool.
-    Cpeextpseportieeepd interface{}
+    CpeExtPsePortIeeePd interface{}
 
     // This object is an extension of the pethPsePortDetectionStatus object from
     // RFC3621 and provides additional status information.  deny: When set, the PD
@@ -279,17 +285,17 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // interface               is trying to consume more power than it has        
     // been configured to consume, but is not being               denied power.
     // The type is map[string]bool.
-    Cpeextpseportadditionalstatus interface{}
+    CpeExtPsePortAdditionalStatus interface{}
 
     // This indicates the maximum amount of power that the PSE will make available
     // to the PD connected to this interface. The type is interface{} with range:
     // 0..4294967295. Units are milliwatts.
-    Cpeextpseportpwrmax interface{}
+    CpeExtPsePortPwrMax interface{}
 
     // This object indicates the amount of power allocated from the PSE for the
     // PD. The type is interface{} with range: 0..4294967295. Units are
     // milliwatts.
-    Cpeextpseportpwrallocated interface{}
+    CpeExtPsePortPwrAllocated interface{}
 
     // This object indicates the amount of power available for the PD to use. This
     // value may differ from the value cpeExtPsePortPwrAllocated due to the
@@ -298,45 +304,45 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // the lower of the two objects, cpeExtDefaultAllocation and
     // cpeExtPsePortPwrMax. The type is interface{} with range: 0..4294967295.
     // Units are milliwatts.
-    Cpeextpseportpwravailable interface{}
+    CpeExtPsePortPwrAvailable interface{}
 
     // This indicates the actual power consumption of the PD connected to this
     // interface. It may not necessarily be equal to the value of
     // cpeExtPsePortPwrAvailable. The type is interface{} with range:
     // 0..4294967295. Units are milliwatts.
-    Cpeextpseportpwrconsumption interface{}
+    CpeExtPsePortPwrConsumption interface{}
 
     // This indicates the maximum amount of power drawn by the PD connected to
     // this interface, since it was powered on. The type is interface{} with
     // range: 0..4294967295. Units are milliwatts.
-    Cpeextpseportmaxpwrdrawn interface{}
+    CpeExtPsePortMaxPwrDrawn interface{}
 
     // The entPhysicalIndex value that uniquely identifies the PSE port. If the
     // PSE port does not have a corresponding  physical entry in entPhysicalTable
     // or if the  entPhysicalTable is not supported by the management system, this
     // object has the value of zero. The type is interface{} with range:
     // 0..2147483647.
-    Cpeextpseportentphyindex interface{}
+    CpeExtPsePortEntPhyIndex interface{}
 
     // This object indicates whether the PSE port hardware is capable of policing
     // the port for proper power consumption  based on the allocated value. The
     // type is bool.
-    Cpeextpseportpolicingcapable interface{}
+    CpeExtPsePortPolicingCapable interface{}
 
     // This object allows the user to turn on or turn off the power policing of
     // the PSE port. If the instance value of  cpeExtPsePortPolicingCapable is
     // 'TRUE', the user is allowed to set this object to 'on' or 'off'. Otherwise,
     // this object is read-only and always has the value of 'off'. The type is
-    // Cpeextpseportpolicingenable.
-    Cpeextpseportpolicingenable interface{}
+    // CpeExtPsePortPolicingEnable.
+    CpeExtPsePortPolicingEnable interface{}
 
     // This object specifies the power policing action that the device will take
     // on this PSE port when the real-time  power consumption exceeds its max
     // power allocation if  the value of cpeExtPsePortPolicingEnable is 'on'.     
     // 'deny'          - the device will deny the power to                        
     // the PSE port       'logOnly'       - the device will not deny the power    
-    // to the PSE port. The type is Cpeextpseportpolicingaction.
-    Cpeextpseportpolicingaction interface{}
+    // to the PSE port. The type is CpeExtPsePortPolicingAction.
+    CpeExtPsePortPolicingAction interface{}
 
     // This object specifies the manual power allocation that the PSE will
     // allocate to the PD connected to this  interface regardless of the amount
@@ -345,198 +351,204 @@ type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry struct {
     // allocation may  cause damage to the system and void the warranty. Take 
     // precautions not to oversubscribe the power supply. The type is interface{}
     // with range: 0..4294967295. Units are milliwatts.
-    Cpeextpseportpwrmanalloc interface{}
+    CpeExtPsePortPwrManAlloc interface{}
 
     // This object indicates the PSE functionality that this port supports.  If
     // the 'policing' BIT is set, then this PSE port is capable of policing the
     // port for proper power consumption based on the allocated value.  If the
     // 'poePlus' BIT is set, then this PSE port supports PoE Plus functions. The
     // type is map[string]bool.
-    Cpeextpseportcapabilities interface{}
+    CpeExtPsePortCapabilities interface{}
 }
 
-func (pethpseportentry *POWERETHERNETMIB_Pethpseporttable_Pethpseportentry) GetEntityData() *types.CommonEntityData {
-    pethpseportentry.EntityData.YFilter = pethpseportentry.YFilter
-    pethpseportentry.EntityData.YangName = "pethPsePortEntry"
-    pethpseportentry.EntityData.BundleName = "cisco_ios_xe"
-    pethpseportentry.EntityData.ParentYangName = "pethPsePortTable"
-    pethpseportentry.EntityData.SegmentPath = "pethPsePortEntry" + "[pethPsePortGroupIndex='" + fmt.Sprintf("%v", pethpseportentry.Pethpseportgroupindex) + "']" + "[pethPsePortIndex='" + fmt.Sprintf("%v", pethpseportentry.Pethpseportindex) + "']"
-    pethpseportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    pethpseportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    pethpseportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (pethPsePortEntry *POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry) GetEntityData() *types.CommonEntityData {
+    pethPsePortEntry.EntityData.YFilter = pethPsePortEntry.YFilter
+    pethPsePortEntry.EntityData.YangName = "pethPsePortEntry"
+    pethPsePortEntry.EntityData.BundleName = "cisco_ios_xe"
+    pethPsePortEntry.EntityData.ParentYangName = "pethPsePortTable"
+    pethPsePortEntry.EntityData.SegmentPath = "pethPsePortEntry" + types.AddKeyToken(pethPsePortEntry.PethPsePortGroupIndex, "pethPsePortGroupIndex") + types.AddKeyToken(pethPsePortEntry.PethPsePortIndex, "pethPsePortIndex")
+    pethPsePortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pethPsePortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pethPsePortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pethpseportentry.EntityData.Children = make(map[string]types.YChild)
-    pethpseportentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    pethpseportentry.EntityData.Leafs["pethPsePortGroupIndex"] = types.YLeaf{"Pethpseportgroupindex", pethpseportentry.Pethpseportgroupindex}
-    pethpseportentry.EntityData.Leafs["pethPsePortIndex"] = types.YLeaf{"Pethpseportindex", pethpseportentry.Pethpseportindex}
-    pethpseportentry.EntityData.Leafs["pethPsePortAdminEnable"] = types.YLeaf{"Pethpseportadminenable", pethpseportentry.Pethpseportadminenable}
-    pethpseportentry.EntityData.Leafs["pethPsePortPowerPairsControlAbility"] = types.YLeaf{"Pethpseportpowerpairscontrolability", pethpseportentry.Pethpseportpowerpairscontrolability}
-    pethpseportentry.EntityData.Leafs["pethPsePortPowerPairs"] = types.YLeaf{"Pethpseportpowerpairs", pethpseportentry.Pethpseportpowerpairs}
-    pethpseportentry.EntityData.Leafs["pethPsePortDetectionStatus"] = types.YLeaf{"Pethpseportdetectionstatus", pethpseportentry.Pethpseportdetectionstatus}
-    pethpseportentry.EntityData.Leafs["pethPsePortPowerPriority"] = types.YLeaf{"Pethpseportpowerpriority", pethpseportentry.Pethpseportpowerpriority}
-    pethpseportentry.EntityData.Leafs["pethPsePortMPSAbsentCounter"] = types.YLeaf{"Pethpseportmpsabsentcounter", pethpseportentry.Pethpseportmpsabsentcounter}
-    pethpseportentry.EntityData.Leafs["pethPsePortType"] = types.YLeaf{"Pethpseporttype", pethpseportentry.Pethpseporttype}
-    pethpseportentry.EntityData.Leafs["pethPsePortPowerClassifications"] = types.YLeaf{"Pethpseportpowerclassifications", pethpseportentry.Pethpseportpowerclassifications}
-    pethpseportentry.EntityData.Leafs["pethPsePortInvalidSignatureCounter"] = types.YLeaf{"Pethpseportinvalidsignaturecounter", pethpseportentry.Pethpseportinvalidsignaturecounter}
-    pethpseportentry.EntityData.Leafs["pethPsePortPowerDeniedCounter"] = types.YLeaf{"Pethpseportpowerdeniedcounter", pethpseportentry.Pethpseportpowerdeniedcounter}
-    pethpseportentry.EntityData.Leafs["pethPsePortOverLoadCounter"] = types.YLeaf{"Pethpseportoverloadcounter", pethpseportentry.Pethpseportoverloadcounter}
-    pethpseportentry.EntityData.Leafs["pethPsePortShortCounter"] = types.YLeaf{"Pethpseportshortcounter", pethpseportentry.Pethpseportshortcounter}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortEnable"] = types.YLeaf{"Cpeextpseportenable", pethpseportentry.Cpeextpseportenable}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortDiscoverMode"] = types.YLeaf{"Cpeextpseportdiscovermode", pethpseportentry.Cpeextpseportdiscovermode}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortDeviceDetected"] = types.YLeaf{"Cpeextpseportdevicedetected", pethpseportentry.Cpeextpseportdevicedetected}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortIeeePd"] = types.YLeaf{"Cpeextpseportieeepd", pethpseportentry.Cpeextpseportieeepd}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortAdditionalStatus"] = types.YLeaf{"Cpeextpseportadditionalstatus", pethpseportentry.Cpeextpseportadditionalstatus}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortPwrMax"] = types.YLeaf{"Cpeextpseportpwrmax", pethpseportentry.Cpeextpseportpwrmax}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortPwrAllocated"] = types.YLeaf{"Cpeextpseportpwrallocated", pethpseportentry.Cpeextpseportpwrallocated}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortPwrAvailable"] = types.YLeaf{"Cpeextpseportpwravailable", pethpseportentry.Cpeextpseportpwravailable}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortPwrConsumption"] = types.YLeaf{"Cpeextpseportpwrconsumption", pethpseportentry.Cpeextpseportpwrconsumption}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortMaxPwrDrawn"] = types.YLeaf{"Cpeextpseportmaxpwrdrawn", pethpseportentry.Cpeextpseportmaxpwrdrawn}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortEntPhyIndex"] = types.YLeaf{"Cpeextpseportentphyindex", pethpseportentry.Cpeextpseportentphyindex}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortPolicingCapable"] = types.YLeaf{"Cpeextpseportpolicingcapable", pethpseportentry.Cpeextpseportpolicingcapable}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortPolicingEnable"] = types.YLeaf{"Cpeextpseportpolicingenable", pethpseportentry.Cpeextpseportpolicingenable}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortPolicingAction"] = types.YLeaf{"Cpeextpseportpolicingaction", pethpseportentry.Cpeextpseportpolicingaction}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortPwrManAlloc"] = types.YLeaf{"Cpeextpseportpwrmanalloc", pethpseportentry.Cpeextpseportpwrmanalloc}
-    pethpseportentry.EntityData.Leafs["cpeExtPsePortCapabilities"] = types.YLeaf{"Cpeextpseportcapabilities", pethpseportentry.Cpeextpseportcapabilities}
-    return &(pethpseportentry.EntityData)
+    pethPsePortEntry.EntityData.Children = types.NewOrderedMap()
+    pethPsePortEntry.EntityData.Leafs = types.NewOrderedMap()
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortGroupIndex", types.YLeaf{"PethPsePortGroupIndex", pethPsePortEntry.PethPsePortGroupIndex})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortIndex", types.YLeaf{"PethPsePortIndex", pethPsePortEntry.PethPsePortIndex})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortAdminEnable", types.YLeaf{"PethPsePortAdminEnable", pethPsePortEntry.PethPsePortAdminEnable})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortPowerPairsControlAbility", types.YLeaf{"PethPsePortPowerPairsControlAbility", pethPsePortEntry.PethPsePortPowerPairsControlAbility})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortPowerPairs", types.YLeaf{"PethPsePortPowerPairs", pethPsePortEntry.PethPsePortPowerPairs})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortDetectionStatus", types.YLeaf{"PethPsePortDetectionStatus", pethPsePortEntry.PethPsePortDetectionStatus})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortPowerPriority", types.YLeaf{"PethPsePortPowerPriority", pethPsePortEntry.PethPsePortPowerPriority})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortMPSAbsentCounter", types.YLeaf{"PethPsePortMPSAbsentCounter", pethPsePortEntry.PethPsePortMPSAbsentCounter})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortType", types.YLeaf{"PethPsePortType", pethPsePortEntry.PethPsePortType})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortPowerClassifications", types.YLeaf{"PethPsePortPowerClassifications", pethPsePortEntry.PethPsePortPowerClassifications})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortInvalidSignatureCounter", types.YLeaf{"PethPsePortInvalidSignatureCounter", pethPsePortEntry.PethPsePortInvalidSignatureCounter})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortPowerDeniedCounter", types.YLeaf{"PethPsePortPowerDeniedCounter", pethPsePortEntry.PethPsePortPowerDeniedCounter})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortOverLoadCounter", types.YLeaf{"PethPsePortOverLoadCounter", pethPsePortEntry.PethPsePortOverLoadCounter})
+    pethPsePortEntry.EntityData.Leafs.Append("pethPsePortShortCounter", types.YLeaf{"PethPsePortShortCounter", pethPsePortEntry.PethPsePortShortCounter})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortEnable", types.YLeaf{"CpeExtPsePortEnable", pethPsePortEntry.CpeExtPsePortEnable})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortDiscoverMode", types.YLeaf{"CpeExtPsePortDiscoverMode", pethPsePortEntry.CpeExtPsePortDiscoverMode})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortDeviceDetected", types.YLeaf{"CpeExtPsePortDeviceDetected", pethPsePortEntry.CpeExtPsePortDeviceDetected})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortIeeePd", types.YLeaf{"CpeExtPsePortIeeePd", pethPsePortEntry.CpeExtPsePortIeeePd})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortAdditionalStatus", types.YLeaf{"CpeExtPsePortAdditionalStatus", pethPsePortEntry.CpeExtPsePortAdditionalStatus})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortPwrMax", types.YLeaf{"CpeExtPsePortPwrMax", pethPsePortEntry.CpeExtPsePortPwrMax})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortPwrAllocated", types.YLeaf{"CpeExtPsePortPwrAllocated", pethPsePortEntry.CpeExtPsePortPwrAllocated})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortPwrAvailable", types.YLeaf{"CpeExtPsePortPwrAvailable", pethPsePortEntry.CpeExtPsePortPwrAvailable})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortPwrConsumption", types.YLeaf{"CpeExtPsePortPwrConsumption", pethPsePortEntry.CpeExtPsePortPwrConsumption})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortMaxPwrDrawn", types.YLeaf{"CpeExtPsePortMaxPwrDrawn", pethPsePortEntry.CpeExtPsePortMaxPwrDrawn})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortEntPhyIndex", types.YLeaf{"CpeExtPsePortEntPhyIndex", pethPsePortEntry.CpeExtPsePortEntPhyIndex})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortPolicingCapable", types.YLeaf{"CpeExtPsePortPolicingCapable", pethPsePortEntry.CpeExtPsePortPolicingCapable})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortPolicingEnable", types.YLeaf{"CpeExtPsePortPolicingEnable", pethPsePortEntry.CpeExtPsePortPolicingEnable})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortPolicingAction", types.YLeaf{"CpeExtPsePortPolicingAction", pethPsePortEntry.CpeExtPsePortPolicingAction})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortPwrManAlloc", types.YLeaf{"CpeExtPsePortPwrManAlloc", pethPsePortEntry.CpeExtPsePortPwrManAlloc})
+    pethPsePortEntry.EntityData.Leafs.Append("cpeExtPsePortCapabilities", types.YLeaf{"CpeExtPsePortCapabilities", pethPsePortEntry.CpeExtPsePortCapabilities})
+
+    pethPsePortEntry.EntityData.YListKeys = []string {"PethPsePortGroupIndex", "PethPsePortIndex"}
+
+    return &(pethPsePortEntry.EntityData)
 }
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode represents the interface is both IEEE and Cisco based.
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode string
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode represents the interface is both IEEE and Cisco based.
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode string
 
 const (
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode_unknown POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode = "unknown"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode_unknown POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode = "unknown"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode_off POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode = "off"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode_off POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode = "off"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode_ieee POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode = "ieee"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode_ieee POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode = "ieee"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode_cisco POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode = "cisco"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode_cisco POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode = "cisco"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode_ieeeAndCisco POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportdiscovermode = "ieeeAndCisco"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode_ieeeAndCisco POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortDiscoverMode = "ieeeAndCisco"
 )
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable represents 'limit' or 'disable'.
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable string
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable represents 'limit' or 'disable'.
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable string
 
 const (
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable_auto POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable = "auto"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable_auto POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable = "auto"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable_static POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable = "static"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable_static POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable = "static"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable_limit POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable = "limit"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable_limit POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable = "limit"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable_disable POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportenable = "disable"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable_disable POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortEnable = "disable"
 )
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingaction represents                        to the PSE port
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingaction string
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingAction represents                        to the PSE port
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingAction string
 
 const (
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingaction_deny POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingaction = "deny"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingAction_deny POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingAction = "deny"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingaction_logOnly POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingaction = "logOnly"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingAction_logOnly POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingAction = "logOnly"
 )
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingenable represents object is read-only and always has the value of 'off'.
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingenable string
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingEnable represents object is read-only and always has the value of 'off'.
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingEnable string
 
 const (
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingenable_on POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingenable = "on"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingEnable_on POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingEnable = "on"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingenable_off POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Cpeextpseportpolicingenable = "off"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingEnable_off POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_CpeExtPsePortPolicingEnable = "off"
 )
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus represents in a state other than those listed above.
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus string
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus represents in a state other than those listed above.
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus string
 
 const (
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus_disabled POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus = "disabled"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus_disabled POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus = "disabled"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus_searching POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus = "searching"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus_searching POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus = "searching"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus_deliveringPower POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus = "deliveringPower"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus_deliveringPower POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus = "deliveringPower"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus_fault POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus = "fault"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus_fault POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus = "fault"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus_test POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus = "test"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus_test POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus = "test"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus_otherFault POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportdetectionstatus = "otherFault"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus_otherFault POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortDetectionStatus = "otherFault"
 )
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications represents is reporting the enumeration deliveringPower.
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications string
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications represents is reporting the enumeration deliveringPower.
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications string
 
 const (
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications_class0 POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications = "class0"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications_class0 POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications = "class0"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications_class1 POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications = "class1"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications_class1 POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications = "class1"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications_class2 POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications = "class2"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications_class2 POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications = "class2"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications_class3 POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications = "class3"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications_class3 POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications = "class3"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications_class4 POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerclassifications = "class4"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications_class4 POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerClassifications = "class4"
 )
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpairs represents only are in use.
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpairs string
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPairs represents only are in use.
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPairs string
 
 const (
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpairs_signal POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpairs = "signal"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPairs_signal POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPairs = "signal"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpairs_spare POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpairs = "spare"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPairs_spare POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPairs = "spare"
 )
 
-// POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpriority represents telephones ports - should be set to higher priority.
-type POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpriority string
+// POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPriority represents telephones ports - should be set to higher priority.
+type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPriority string
 
 const (
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpriority_critical POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpriority = "critical"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPriority_critical POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPriority = "critical"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpriority_high POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpriority = "high"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPriority_high POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPriority = "high"
 
-    POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpriority_low POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportpowerpriority = "low"
+    POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPriority_low POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortPowerPriority = "low"
 )
 
-// POWERETHERNETMIB_Pethmainpsetable
+// POWERETHERNETMIB_PethMainPseTable
 // A table of objects that display and control attributes
 // of the main power source in a PSE  device.  Ethernet
 // switches are one example of boxes that would support
 // these objects.
 // Values of all read-write objects in this table are
 // persistent at restart/reboot.
-type POWERETHERNETMIB_Pethmainpsetable struct {
+type POWERETHERNETMIB_PethMainPseTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of objects that display and control the Main power of a PSE. . The
-    // type is slice of POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry.
-    Pethmainpseentry []POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry
+    // type is slice of POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry.
+    PethMainPseEntry []*POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry
 }
 
-func (pethmainpsetable *POWERETHERNETMIB_Pethmainpsetable) GetEntityData() *types.CommonEntityData {
-    pethmainpsetable.EntityData.YFilter = pethmainpsetable.YFilter
-    pethmainpsetable.EntityData.YangName = "pethMainPseTable"
-    pethmainpsetable.EntityData.BundleName = "cisco_ios_xe"
-    pethmainpsetable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
-    pethmainpsetable.EntityData.SegmentPath = "pethMainPseTable"
-    pethmainpsetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    pethmainpsetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    pethmainpsetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (pethMainPseTable *POWERETHERNETMIB_PethMainPseTable) GetEntityData() *types.CommonEntityData {
+    pethMainPseTable.EntityData.YFilter = pethMainPseTable.YFilter
+    pethMainPseTable.EntityData.YangName = "pethMainPseTable"
+    pethMainPseTable.EntityData.BundleName = "cisco_ios_xe"
+    pethMainPseTable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
+    pethMainPseTable.EntityData.SegmentPath = "pethMainPseTable"
+    pethMainPseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pethMainPseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pethMainPseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pethmainpsetable.EntityData.Children = make(map[string]types.YChild)
-    pethmainpsetable.EntityData.Children["pethMainPseEntry"] = types.YChild{"Pethmainpseentry", nil}
-    for i := range pethmainpsetable.Pethmainpseentry {
-        pethmainpsetable.EntityData.Children[types.GetSegmentPath(&pethmainpsetable.Pethmainpseentry[i])] = types.YChild{"Pethmainpseentry", &pethmainpsetable.Pethmainpseentry[i]}
+    pethMainPseTable.EntityData.Children = types.NewOrderedMap()
+    pethMainPseTable.EntityData.Children.Append("pethMainPseEntry", types.YChild{"PethMainPseEntry", nil})
+    for i := range pethMainPseTable.PethMainPseEntry {
+        pethMainPseTable.EntityData.Children.Append(types.GetSegmentPath(pethMainPseTable.PethMainPseEntry[i]), types.YChild{"PethMainPseEntry", pethMainPseTable.PethMainPseEntry[i]})
     }
-    pethmainpsetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(pethmainpsetable.EntityData)
+    pethMainPseTable.EntityData.Leafs = types.NewOrderedMap()
+
+    pethMainPseTable.EntityData.YListKeys = []string {}
+
+    return &(pethMainPseTable.EntityData)
 }
 
-// POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry
+// POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry
 // A set of objects that display and control the Main
 // power of a PSE. 
-type POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry struct {
+type POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -547,92 +559,98 @@ type POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry struct {
     // pethPsePortGroupIndex, and pethNotificationControlGroupIndex to refer to a
     // given box in a stack or module in a rack. The type is interface{} with
     // range: 1..2147483647.
-    Pethmainpsegroupindex interface{}
+    PethMainPseGroupIndex interface{}
 
     // The nominal power of the PSE expressed in Watts. The type is interface{}
     // with range: 1..65535. Units are Watts.
-    Pethmainpsepower interface{}
+    PethMainPsePower interface{}
 
-    // The operational status of the main PSE. The type is Pethmainpseoperstatus.
-    Pethmainpseoperstatus interface{}
+    // The operational status of the main PSE. The type is PethMainPseOperStatus.
+    PethMainPseOperStatus interface{}
 
     // Measured usage power expressed in Watts. The type is interface{} with
     // range: 0..4294967295. Units are Watts.
-    Pethmainpseconsumptionpower interface{}
+    PethMainPseConsumptionPower interface{}
 
     // The usage threshold expressed in percents for comparing the measured power
     // and initiating an alarm if the threshold is exceeded. The type is
     // interface{} with range: 1..99. Units are %.
-    Pethmainpseusagethreshold interface{}
+    PethMainPseUsageThreshold interface{}
 }
 
-func (pethmainpseentry *POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry) GetEntityData() *types.CommonEntityData {
-    pethmainpseentry.EntityData.YFilter = pethmainpseentry.YFilter
-    pethmainpseentry.EntityData.YangName = "pethMainPseEntry"
-    pethmainpseentry.EntityData.BundleName = "cisco_ios_xe"
-    pethmainpseentry.EntityData.ParentYangName = "pethMainPseTable"
-    pethmainpseentry.EntityData.SegmentPath = "pethMainPseEntry" + "[pethMainPseGroupIndex='" + fmt.Sprintf("%v", pethmainpseentry.Pethmainpsegroupindex) + "']"
-    pethmainpseentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    pethmainpseentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    pethmainpseentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (pethMainPseEntry *POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry) GetEntityData() *types.CommonEntityData {
+    pethMainPseEntry.EntityData.YFilter = pethMainPseEntry.YFilter
+    pethMainPseEntry.EntityData.YangName = "pethMainPseEntry"
+    pethMainPseEntry.EntityData.BundleName = "cisco_ios_xe"
+    pethMainPseEntry.EntityData.ParentYangName = "pethMainPseTable"
+    pethMainPseEntry.EntityData.SegmentPath = "pethMainPseEntry" + types.AddKeyToken(pethMainPseEntry.PethMainPseGroupIndex, "pethMainPseGroupIndex")
+    pethMainPseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pethMainPseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pethMainPseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pethmainpseentry.EntityData.Children = make(map[string]types.YChild)
-    pethmainpseentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    pethmainpseentry.EntityData.Leafs["pethMainPseGroupIndex"] = types.YLeaf{"Pethmainpsegroupindex", pethmainpseentry.Pethmainpsegroupindex}
-    pethmainpseentry.EntityData.Leafs["pethMainPsePower"] = types.YLeaf{"Pethmainpsepower", pethmainpseentry.Pethmainpsepower}
-    pethmainpseentry.EntityData.Leafs["pethMainPseOperStatus"] = types.YLeaf{"Pethmainpseoperstatus", pethmainpseentry.Pethmainpseoperstatus}
-    pethmainpseentry.EntityData.Leafs["pethMainPseConsumptionPower"] = types.YLeaf{"Pethmainpseconsumptionpower", pethmainpseentry.Pethmainpseconsumptionpower}
-    pethmainpseentry.EntityData.Leafs["pethMainPseUsageThreshold"] = types.YLeaf{"Pethmainpseusagethreshold", pethmainpseentry.Pethmainpseusagethreshold}
-    return &(pethmainpseentry.EntityData)
+    pethMainPseEntry.EntityData.Children = types.NewOrderedMap()
+    pethMainPseEntry.EntityData.Leafs = types.NewOrderedMap()
+    pethMainPseEntry.EntityData.Leafs.Append("pethMainPseGroupIndex", types.YLeaf{"PethMainPseGroupIndex", pethMainPseEntry.PethMainPseGroupIndex})
+    pethMainPseEntry.EntityData.Leafs.Append("pethMainPsePower", types.YLeaf{"PethMainPsePower", pethMainPseEntry.PethMainPsePower})
+    pethMainPseEntry.EntityData.Leafs.Append("pethMainPseOperStatus", types.YLeaf{"PethMainPseOperStatus", pethMainPseEntry.PethMainPseOperStatus})
+    pethMainPseEntry.EntityData.Leafs.Append("pethMainPseConsumptionPower", types.YLeaf{"PethMainPseConsumptionPower", pethMainPseEntry.PethMainPseConsumptionPower})
+    pethMainPseEntry.EntityData.Leafs.Append("pethMainPseUsageThreshold", types.YLeaf{"PethMainPseUsageThreshold", pethMainPseEntry.PethMainPseUsageThreshold})
+
+    pethMainPseEntry.EntityData.YListKeys = []string {"PethMainPseGroupIndex"}
+
+    return &(pethMainPseEntry.EntityData)
 }
 
-// POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpseoperstatus represents The operational status of the main PSE.
-type POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpseoperstatus string
+// POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseOperStatus represents The operational status of the main PSE.
+type POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseOperStatus string
 
 const (
-    POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpseoperstatus_on POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpseoperstatus = "on"
+    POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseOperStatus_on POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseOperStatus = "on"
 
-    POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpseoperstatus_off POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpseoperstatus = "off"
+    POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseOperStatus_off POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseOperStatus = "off"
 
-    POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpseoperstatus_faulty POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpseoperstatus = "faulty"
+    POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseOperStatus_faulty POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseOperStatus = "faulty"
 )
 
-// POWERETHERNETMIB_Pethnotificationcontroltable
+// POWERETHERNETMIB_PethNotificationControlTable
 // A table of objects that display and control the
 // Notification on a PSE  device.
 // Values of all read-write objects in this table are
 // persistent at restart/reboot.
-type POWERETHERNETMIB_Pethnotificationcontroltable struct {
+type POWERETHERNETMIB_PethNotificationControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of objects that control the Notification events. The type is slice of
-    // POWERETHERNETMIB_Pethnotificationcontroltable_Pethnotificationcontrolentry.
-    Pethnotificationcontrolentry []POWERETHERNETMIB_Pethnotificationcontroltable_Pethnotificationcontrolentry
+    // POWERETHERNETMIB_PethNotificationControlTable_PethNotificationControlEntry.
+    PethNotificationControlEntry []*POWERETHERNETMIB_PethNotificationControlTable_PethNotificationControlEntry
 }
 
-func (pethnotificationcontroltable *POWERETHERNETMIB_Pethnotificationcontroltable) GetEntityData() *types.CommonEntityData {
-    pethnotificationcontroltable.EntityData.YFilter = pethnotificationcontroltable.YFilter
-    pethnotificationcontroltable.EntityData.YangName = "pethNotificationControlTable"
-    pethnotificationcontroltable.EntityData.BundleName = "cisco_ios_xe"
-    pethnotificationcontroltable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
-    pethnotificationcontroltable.EntityData.SegmentPath = "pethNotificationControlTable"
-    pethnotificationcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    pethnotificationcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    pethnotificationcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (pethNotificationControlTable *POWERETHERNETMIB_PethNotificationControlTable) GetEntityData() *types.CommonEntityData {
+    pethNotificationControlTable.EntityData.YFilter = pethNotificationControlTable.YFilter
+    pethNotificationControlTable.EntityData.YangName = "pethNotificationControlTable"
+    pethNotificationControlTable.EntityData.BundleName = "cisco_ios_xe"
+    pethNotificationControlTable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
+    pethNotificationControlTable.EntityData.SegmentPath = "pethNotificationControlTable"
+    pethNotificationControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pethNotificationControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pethNotificationControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pethnotificationcontroltable.EntityData.Children = make(map[string]types.YChild)
-    pethnotificationcontroltable.EntityData.Children["pethNotificationControlEntry"] = types.YChild{"Pethnotificationcontrolentry", nil}
-    for i := range pethnotificationcontroltable.Pethnotificationcontrolentry {
-        pethnotificationcontroltable.EntityData.Children[types.GetSegmentPath(&pethnotificationcontroltable.Pethnotificationcontrolentry[i])] = types.YChild{"Pethnotificationcontrolentry", &pethnotificationcontroltable.Pethnotificationcontrolentry[i]}
+    pethNotificationControlTable.EntityData.Children = types.NewOrderedMap()
+    pethNotificationControlTable.EntityData.Children.Append("pethNotificationControlEntry", types.YChild{"PethNotificationControlEntry", nil})
+    for i := range pethNotificationControlTable.PethNotificationControlEntry {
+        pethNotificationControlTable.EntityData.Children.Append(types.GetSegmentPath(pethNotificationControlTable.PethNotificationControlEntry[i]), types.YChild{"PethNotificationControlEntry", pethNotificationControlTable.PethNotificationControlEntry[i]})
     }
-    pethnotificationcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(pethnotificationcontroltable.EntityData)
+    pethNotificationControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    pethNotificationControlTable.EntityData.YListKeys = []string {}
+
+    return &(pethNotificationControlTable.EntityData)
 }
 
-// POWERETHERNETMIB_Pethnotificationcontroltable_Pethnotificationcontrolentry
+// POWERETHERNETMIB_PethNotificationControlTable_PethNotificationControlEntry
 // A set of objects that control the Notification events.
-type POWERETHERNETMIB_Pethnotificationcontroltable_Pethnotificationcontrolentry struct {
+type POWERETHERNETMIB_PethNotificationControlTable_PethNotificationControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -642,28 +660,31 @@ type POWERETHERNETMIB_Pethnotificationcontroltable_Pethnotificationcontrolentry 
     // variable, pethPsePortGroupIndex, and pethMainPseGroupIndex to refer to a
     // given box in a stack or module in a rack. . The type is interface{} with
     // range: 1..2147483647.
-    Pethnotificationcontrolgroupindex interface{}
+    PethNotificationControlGroupIndex interface{}
 
     // This object controls, on a per-group basis, whether or not notifications
     // from the agent are enabled.  The value true(1) means that notifications are
     // enabled; the value false(2) means that they are not. The type is bool.
-    Pethnotificationcontrolenable interface{}
+    PethNotificationControlEnable interface{}
 }
 
-func (pethnotificationcontrolentry *POWERETHERNETMIB_Pethnotificationcontroltable_Pethnotificationcontrolentry) GetEntityData() *types.CommonEntityData {
-    pethnotificationcontrolentry.EntityData.YFilter = pethnotificationcontrolentry.YFilter
-    pethnotificationcontrolentry.EntityData.YangName = "pethNotificationControlEntry"
-    pethnotificationcontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    pethnotificationcontrolentry.EntityData.ParentYangName = "pethNotificationControlTable"
-    pethnotificationcontrolentry.EntityData.SegmentPath = "pethNotificationControlEntry" + "[pethNotificationControlGroupIndex='" + fmt.Sprintf("%v", pethnotificationcontrolentry.Pethnotificationcontrolgroupindex) + "']"
-    pethnotificationcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    pethnotificationcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    pethnotificationcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (pethNotificationControlEntry *POWERETHERNETMIB_PethNotificationControlTable_PethNotificationControlEntry) GetEntityData() *types.CommonEntityData {
+    pethNotificationControlEntry.EntityData.YFilter = pethNotificationControlEntry.YFilter
+    pethNotificationControlEntry.EntityData.YangName = "pethNotificationControlEntry"
+    pethNotificationControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    pethNotificationControlEntry.EntityData.ParentYangName = "pethNotificationControlTable"
+    pethNotificationControlEntry.EntityData.SegmentPath = "pethNotificationControlEntry" + types.AddKeyToken(pethNotificationControlEntry.PethNotificationControlGroupIndex, "pethNotificationControlGroupIndex")
+    pethNotificationControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pethNotificationControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pethNotificationControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pethnotificationcontrolentry.EntityData.Children = make(map[string]types.YChild)
-    pethnotificationcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    pethnotificationcontrolentry.EntityData.Leafs["pethNotificationControlGroupIndex"] = types.YLeaf{"Pethnotificationcontrolgroupindex", pethnotificationcontrolentry.Pethnotificationcontrolgroupindex}
-    pethnotificationcontrolentry.EntityData.Leafs["pethNotificationControlEnable"] = types.YLeaf{"Pethnotificationcontrolenable", pethnotificationcontrolentry.Pethnotificationcontrolenable}
-    return &(pethnotificationcontrolentry.EntityData)
+    pethNotificationControlEntry.EntityData.Children = types.NewOrderedMap()
+    pethNotificationControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    pethNotificationControlEntry.EntityData.Leafs.Append("pethNotificationControlGroupIndex", types.YLeaf{"PethNotificationControlGroupIndex", pethNotificationControlEntry.PethNotificationControlGroupIndex})
+    pethNotificationControlEntry.EntityData.Leafs.Append("pethNotificationControlEnable", types.YLeaf{"PethNotificationControlEnable", pethNotificationControlEntry.PethNotificationControlEnable})
+
+    pethNotificationControlEntry.EntityData.YListKeys = []string {"PethNotificationControlGroupIndex"}
+
+    return &(pethNotificationControlEntry.EntityData)
 }
 

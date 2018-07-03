@@ -44,9 +44,12 @@ func (pppoeEa *PppoeEa) GetEntityData() *types.CommonEntityData {
     pppoeEa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeEa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoeEa.EntityData.Children = make(map[string]types.YChild)
-    pppoeEa.EntityData.Children["nodes"] = types.YChild{"Nodes", &pppoeEa.Nodes}
-    pppoeEa.EntityData.Leafs = make(map[string]types.YLeaf)
+    pppoeEa.EntityData.Children = types.NewOrderedMap()
+    pppoeEa.EntityData.Children.Append("nodes", types.YChild{"Nodes", &pppoeEa.Nodes})
+    pppoeEa.EntityData.Leafs = types.NewOrderedMap()
+
+    pppoeEa.EntityData.YListKeys = []string {}
+
     return &(pppoeEa.EntityData)
 }
 
@@ -58,7 +61,7 @@ type PppoeEa_Nodes struct {
 
     // PPPOE-EA operational data for a particular node. The type is slice of
     // PppoeEa_Nodes_Node.
-    Node []PppoeEa_Nodes_Node
+    Node []*PppoeEa_Nodes_Node
 }
 
 func (nodes *PppoeEa_Nodes) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (nodes *PppoeEa_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -87,7 +93,7 @@ type PppoeEa_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // PPPoE parent interface info.
@@ -102,16 +108,19 @@ func (node *PppoeEa_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["parent-interface-ids"] = types.YChild{"ParentInterfaceIds", &node.ParentInterfaceIds}
-    node.EntityData.Children["interface-ids"] = types.YChild{"InterfaceIds", &node.InterfaceIds}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("parent-interface-ids", types.YChild{"ParentInterfaceIds", &node.ParentInterfaceIds})
+    node.EntityData.Children.Append("interface-ids", types.YChild{"InterfaceIds", &node.InterfaceIds})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -123,7 +132,7 @@ type PppoeEa_Nodes_Node_ParentInterfaceIds struct {
 
     // PPPoE parent interface info. The type is slice of
     // PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId.
-    ParentInterfaceId []PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId
+    ParentInterfaceId []*PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId
 }
 
 func (parentInterfaceIds *PppoeEa_Nodes_Node_ParentInterfaceIds) GetEntityData() *types.CommonEntityData {
@@ -136,12 +145,15 @@ func (parentInterfaceIds *PppoeEa_Nodes_Node_ParentInterfaceIds) GetEntityData()
     parentInterfaceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentInterfaceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentInterfaceIds.EntityData.Children = make(map[string]types.YChild)
-    parentInterfaceIds.EntityData.Children["parent-interface-id"] = types.YChild{"ParentInterfaceId", nil}
+    parentInterfaceIds.EntityData.Children = types.NewOrderedMap()
+    parentInterfaceIds.EntityData.Children.Append("parent-interface-id", types.YChild{"ParentInterfaceId", nil})
     for i := range parentInterfaceIds.ParentInterfaceId {
-        parentInterfaceIds.EntityData.Children[types.GetSegmentPath(&parentInterfaceIds.ParentInterfaceId[i])] = types.YChild{"ParentInterfaceId", &parentInterfaceIds.ParentInterfaceId[i]}
+        parentInterfaceIds.EntityData.Children.Append(types.GetSegmentPath(parentInterfaceIds.ParentInterfaceId[i]), types.YChild{"ParentInterfaceId", parentInterfaceIds.ParentInterfaceId[i]})
     }
-    parentInterfaceIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    parentInterfaceIds.EntityData.Leafs = types.NewOrderedMap()
+
+    parentInterfaceIds.EntityData.YListKeys = []string {}
+
     return &(parentInterfaceIds.EntityData)
 }
 
@@ -152,11 +164,11 @@ type PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     ParentInterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Is in sync. The type is bool.
     IsInSync interface{}
@@ -170,17 +182,20 @@ func (parentInterfaceId *PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId
     parentInterfaceId.EntityData.YangName = "parent-interface-id"
     parentInterfaceId.EntityData.BundleName = "cisco_ios_xr"
     parentInterfaceId.EntityData.ParentYangName = "parent-interface-ids"
-    parentInterfaceId.EntityData.SegmentPath = "parent-interface-id" + "[parent-interface-name='" + fmt.Sprintf("%v", parentInterfaceId.ParentInterfaceName) + "']"
+    parentInterfaceId.EntityData.SegmentPath = "parent-interface-id" + types.AddKeyToken(parentInterfaceId.ParentInterfaceName, "parent-interface-name")
     parentInterfaceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parentInterfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentInterfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentInterfaceId.EntityData.Children = make(map[string]types.YChild)
-    parentInterfaceId.EntityData.Children["srgv-mac"] = types.YChild{"SrgvMac", &parentInterfaceId.SrgvMac}
-    parentInterfaceId.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentInterfaceId.EntityData.Leafs["parent-interface-name"] = types.YLeaf{"ParentInterfaceName", parentInterfaceId.ParentInterfaceName}
-    parentInterfaceId.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", parentInterfaceId.Interface_}
-    parentInterfaceId.EntityData.Leafs["is-in-sync"] = types.YLeaf{"IsInSync", parentInterfaceId.IsInSync}
+    parentInterfaceId.EntityData.Children = types.NewOrderedMap()
+    parentInterfaceId.EntityData.Children.Append("srgv-mac", types.YChild{"SrgvMac", &parentInterfaceId.SrgvMac})
+    parentInterfaceId.EntityData.Leafs = types.NewOrderedMap()
+    parentInterfaceId.EntityData.Leafs.Append("parent-interface-name", types.YLeaf{"ParentInterfaceName", parentInterfaceId.ParentInterfaceName})
+    parentInterfaceId.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", parentInterfaceId.Interface})
+    parentInterfaceId.EntityData.Leafs.Append("is-in-sync", types.YLeaf{"IsInSync", parentInterfaceId.IsInSync})
+
+    parentInterfaceId.EntityData.YListKeys = []string {"ParentInterfaceName"}
+
     return &(parentInterfaceId.EntityData)
 }
 
@@ -191,7 +206,7 @@ type PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId_SrgvMac struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -205,9 +220,12 @@ func (srgvMac *PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId_SrgvMac) 
     srgvMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srgvMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    srgvMac.EntityData.Children = make(map[string]types.YChild)
-    srgvMac.EntityData.Leafs = make(map[string]types.YLeaf)
-    srgvMac.EntityData.Leafs["macaddr"] = types.YLeaf{"Macaddr", srgvMac.Macaddr}
+    srgvMac.EntityData.Children = types.NewOrderedMap()
+    srgvMac.EntityData.Leafs = types.NewOrderedMap()
+    srgvMac.EntityData.Leafs.Append("macaddr", types.YLeaf{"Macaddr", srgvMac.Macaddr})
+
+    srgvMac.EntityData.YListKeys = []string {}
+
     return &(srgvMac.EntityData)
 }
 
@@ -219,7 +237,7 @@ type PppoeEa_Nodes_Node_InterfaceIds struct {
 
     // PPPoE interface info. The type is slice of
     // PppoeEa_Nodes_Node_InterfaceIds_InterfaceId.
-    InterfaceId []PppoeEa_Nodes_Node_InterfaceIds_InterfaceId
+    InterfaceId []*PppoeEa_Nodes_Node_InterfaceIds_InterfaceId
 }
 
 func (interfaceIds *PppoeEa_Nodes_Node_InterfaceIds) GetEntityData() *types.CommonEntityData {
@@ -232,12 +250,15 @@ func (interfaceIds *PppoeEa_Nodes_Node_InterfaceIds) GetEntityData() *types.Comm
     interfaceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceIds.EntityData.Children = make(map[string]types.YChild)
-    interfaceIds.EntityData.Children["interface-id"] = types.YChild{"InterfaceId", nil}
+    interfaceIds.EntityData.Children = types.NewOrderedMap()
+    interfaceIds.EntityData.Children.Append("interface-id", types.YChild{"InterfaceId", nil})
     for i := range interfaceIds.InterfaceId {
-        interfaceIds.EntityData.Children[types.GetSegmentPath(&interfaceIds.InterfaceId[i])] = types.YChild{"InterfaceId", &interfaceIds.InterfaceId[i]}
+        interfaceIds.EntityData.Children.Append(types.GetSegmentPath(interfaceIds.InterfaceId[i]), types.YChild{"InterfaceId", interfaceIds.InterfaceId[i]})
     }
-    interfaceIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceIds.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceIds.EntityData.YListKeys = []string {}
+
     return &(interfaceIds.EntityData)
 }
 
@@ -248,16 +269,16 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Session ID. The type is interface{} with range: 0..65535.
     SessionId interface{}
 
-    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
     ParentInterface interface{}
 
     // Is Priority Set. The type is bool.
@@ -290,25 +311,28 @@ func (interfaceId *PppoeEa_Nodes_Node_InterfaceIds_InterfaceId) GetEntityData() 
     interfaceId.EntityData.YangName = "interface-id"
     interfaceId.EntityData.BundleName = "cisco_ios_xr"
     interfaceId.EntityData.ParentYangName = "interface-ids"
-    interfaceId.EntityData.SegmentPath = "interface-id" + "[interface-name='" + fmt.Sprintf("%v", interfaceId.InterfaceName) + "']"
+    interfaceId.EntityData.SegmentPath = "interface-id" + types.AddKeyToken(interfaceId.InterfaceName, "interface-name")
     interfaceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceId.EntityData.Children = make(map[string]types.YChild)
-    interfaceId.EntityData.Children["peer-mac"] = types.YChild{"PeerMac", &interfaceId.PeerMac}
-    interfaceId.EntityData.Children["local-mac"] = types.YChild{"LocalMac", &interfaceId.LocalMac}
-    interfaceId.EntityData.Children["srgv-mac"] = types.YChild{"SrgvMac", &interfaceId.SrgvMac}
-    interfaceId.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceId.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceId.InterfaceName}
-    interfaceId.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", interfaceId.Interface_}
-    interfaceId.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", interfaceId.SessionId}
-    interfaceId.EntityData.Leafs["parent-interface"] = types.YLeaf{"ParentInterface", interfaceId.ParentInterface}
-    interfaceId.EntityData.Leafs["is-priority-set"] = types.YLeaf{"IsPrioritySet", interfaceId.IsPrioritySet}
-    interfaceId.EntityData.Leafs["priority"] = types.YLeaf{"Priority", interfaceId.Priority}
-    interfaceId.EntityData.Leafs["is-in-sync"] = types.YLeaf{"IsInSync", interfaceId.IsInSync}
-    interfaceId.EntityData.Leafs["is-platform-created"] = types.YLeaf{"IsPlatformCreated", interfaceId.IsPlatformCreated}
-    interfaceId.EntityData.Leafs["vlanid"] = types.YLeaf{"Vlanid", interfaceId.Vlanid}
+    interfaceId.EntityData.Children = types.NewOrderedMap()
+    interfaceId.EntityData.Children.Append("peer-mac", types.YChild{"PeerMac", &interfaceId.PeerMac})
+    interfaceId.EntityData.Children.Append("local-mac", types.YChild{"LocalMac", &interfaceId.LocalMac})
+    interfaceId.EntityData.Children.Append("srgv-mac", types.YChild{"SrgvMac", &interfaceId.SrgvMac})
+    interfaceId.EntityData.Leafs = types.NewOrderedMap()
+    interfaceId.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceId.InterfaceName})
+    interfaceId.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", interfaceId.Interface})
+    interfaceId.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", interfaceId.SessionId})
+    interfaceId.EntityData.Leafs.Append("parent-interface", types.YLeaf{"ParentInterface", interfaceId.ParentInterface})
+    interfaceId.EntityData.Leafs.Append("is-priority-set", types.YLeaf{"IsPrioritySet", interfaceId.IsPrioritySet})
+    interfaceId.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", interfaceId.Priority})
+    interfaceId.EntityData.Leafs.Append("is-in-sync", types.YLeaf{"IsInSync", interfaceId.IsInSync})
+    interfaceId.EntityData.Leafs.Append("is-platform-created", types.YLeaf{"IsPlatformCreated", interfaceId.IsPlatformCreated})
+    interfaceId.EntityData.Leafs.Append("vlanid", types.YLeaf{"Vlanid", interfaceId.Vlanid})
+
+    interfaceId.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(interfaceId.EntityData)
 }
 
@@ -319,7 +343,7 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_PeerMac struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -333,9 +357,12 @@ func (peerMac *PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_PeerMac) GetEntityDat
     peerMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerMac.EntityData.Children = make(map[string]types.YChild)
-    peerMac.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerMac.EntityData.Leafs["macaddr"] = types.YLeaf{"Macaddr", peerMac.Macaddr}
+    peerMac.EntityData.Children = types.NewOrderedMap()
+    peerMac.EntityData.Leafs = types.NewOrderedMap()
+    peerMac.EntityData.Leafs.Append("macaddr", types.YLeaf{"Macaddr", peerMac.Macaddr})
+
+    peerMac.EntityData.YListKeys = []string {}
+
     return &(peerMac.EntityData)
 }
 
@@ -346,7 +373,7 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_LocalMac struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -360,9 +387,12 @@ func (localMac *PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_LocalMac) GetEntityD
     localMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localMac.EntityData.Children = make(map[string]types.YChild)
-    localMac.EntityData.Leafs = make(map[string]types.YLeaf)
-    localMac.EntityData.Leafs["macaddr"] = types.YLeaf{"Macaddr", localMac.Macaddr}
+    localMac.EntityData.Children = types.NewOrderedMap()
+    localMac.EntityData.Leafs = types.NewOrderedMap()
+    localMac.EntityData.Leafs.Append("macaddr", types.YLeaf{"Macaddr", localMac.Macaddr})
+
+    localMac.EntityData.YListKeys = []string {}
+
     return &(localMac.EntityData)
 }
 
@@ -373,7 +403,7 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_SrgvMac struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -387,9 +417,12 @@ func (srgvMac *PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_SrgvMac) GetEntityDat
     srgvMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srgvMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    srgvMac.EntityData.Children = make(map[string]types.YChild)
-    srgvMac.EntityData.Leafs = make(map[string]types.YLeaf)
-    srgvMac.EntityData.Leafs["macaddr"] = types.YLeaf{"Macaddr", srgvMac.Macaddr}
+    srgvMac.EntityData.Children = types.NewOrderedMap()
+    srgvMac.EntityData.Leafs = types.NewOrderedMap()
+    srgvMac.EntityData.Leafs.Append("macaddr", types.YLeaf{"Macaddr", srgvMac.Macaddr})
+
+    srgvMac.EntityData.YListKeys = []string {}
+
     return &(srgvMac.EntityData)
 }
 

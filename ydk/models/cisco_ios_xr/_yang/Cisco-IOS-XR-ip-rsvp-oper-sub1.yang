@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -806,25 +810,33 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
       description
         "Restart state";
     }
-    leaf-list local-node-address {
-      type inet:ipv4-address;
+    list local-node-address {
       description
         "Local node address";
+      leaf entry {
+        type inet:ipv4-address;
+      }
     }
-    leaf-list neighbor-hello-state {
-      type Rsvp-mgmt-hello-state;
+    list neighbor-hello-state {
       description
         "Neighbor Hello state";
+      leaf entry {
+        type Rsvp-mgmt-hello-state;
+      }
     }
-    leaf-list lost-communication-reason {
-      type Rsvp-mgmt-hello-down-reason;
+    list lost-communication-reason {
       description
         "Reason why communication was lost";
+      leaf entry {
+        type Rsvp-mgmt-hello-down-reason;
+      }
     }
-    leaf-list lost-communication-total {
-      type uint16;
+    list lost-communication-total {
       description
         "Total number of times communication got lost";
+      leaf entry {
+        type uint16;
+      }
     }
     list up-time {
       description
@@ -974,30 +986,40 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
       description
         "Number of pending states for this neighbor";
     }
-    leaf-list local-node-address {
-      type inet:ipv4-address;
+    list local-node-address {
       description
         "Local node address";
+      leaf entry {
+        type inet:ipv4-address;
+      }
     }
-    leaf-list interface-neighbor {
-      type inet:ipv4-address;
+    list interface-neighbor {
       description
         "Interface Neighbor List";
+      leaf entry {
+        type inet:ipv4-address;
+      }
     }
-    leaf-list neighbor-hello-state {
-      type Rsvp-mgmt-hello-state;
+    list neighbor-hello-state {
       description
         "Neighbor's hello state";
+      leaf entry {
+        type Rsvp-mgmt-hello-state;
+      }
     }
-    leaf-list lost-communication-reason {
-      type Rsvp-mgmt-hello-down-reason;
+    list lost-communication-reason {
       description
         "Reason why communication was lost";
+      leaf entry {
+        type Rsvp-mgmt-hello-down-reason;
+      }
     }
-    leaf-list lost-communication-total {
-      type uint16;
+    list lost-communication-total {
       description
         "Total number of times communication got lost";
+      leaf entry {
+        type uint16;
+      }
     }
     list up-time {
       description
@@ -1195,10 +1217,12 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
   grouping RSVP-MGMT-REV-LSP-UNSUPPORTED-SUBOBJ {
     description
       "RSVP MGMT REV LSP UNSUPPORTED SUBOBJ";
-    leaf-list rsvp-mgmt-rev-lsp-unsupported-subobj {
-      type uint8;
+    list rsvp-mgmt-rev-lsp-unsupported-subobj {
       description
         "rsvp mgmt rev lsp unsupported subobj";
+      leaf entry {
+        type uint8;
+      }
     }
   }
 
@@ -1356,10 +1380,12 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
       description
         "Global Association Source";
     }
-    leaf-list extended-id {
-      type uint32;
+    list extended-id {
       description
         "Extended Association ID";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 
@@ -1386,10 +1412,12 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
       description
         "Global Association Source";
     }
-    leaf-list extended-id {
-      type uint32;
+    list extended-id {
       description
         "Extended Association ID";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 
@@ -1482,10 +1510,12 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
   grouping RSVP-MGMT-RRO-SRLG-SUBOBJ {
     description
       "RSVP RRO SRLG subobject";
-    leaf-list srl-gs {
-      type uint32;
+    list srl-gs {
       description
         "The RRO Subobject SRLGs";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 
@@ -1567,10 +1597,12 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
       description
         "Is the RRO Subobject Label Variable Length";
     }
-    leaf-list variable-length-label {
-      type uint32;
+    list variable-length-label {
       description
         "The RRO Subobject Variable Length Label";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 
@@ -2866,11 +2898,13 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
       description
         "Sequence window count";
     }
-    leaf-list sequence-window {
-      type uint64;
+    list sequence-window {
       max-elements "64";
       description
         "Sequence window";
+      leaf entry {
+        type uint64;
+      }
     }
   }
 
@@ -3628,10 +3662,12 @@ submodule Cisco-IOS-XR-ip-rsvp-oper-sub1 {
   grouping RSVP-MGMT-GENERALIZED-LABEL {
     description
       "RSVP Generalized Label";
-    leaf-list value {
-      type uint32;
+    list value {
       description
         "Generalized Label Value";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 

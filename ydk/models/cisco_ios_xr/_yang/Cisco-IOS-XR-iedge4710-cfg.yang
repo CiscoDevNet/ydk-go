@@ -39,6 +39,10 @@ module Cisco-IOS-XR-iedge4710-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -123,7 +127,7 @@ module Cisco-IOS-XR-iedge4710-cfg {
       description
         "enable featurette processing";
       leaf enable {
-        type int32;
+        type uint32;
         description
           "instance of featurette";
       }
@@ -137,25 +141,12 @@ module Cisco-IOS-XR-iedge4710-cfg {
   container iedge-license-manager {
     description
       "iedge license manager";
-    list node {
-      key "node-name";
+    leaf session-limit {
+      type uint32 {
+        range "1..200000";
+      }
       description
-        "Location. For eg., 0/1/CPU0";
-      leaf session-limit {
-        type int32;
-        description
-          "Session limit configured on linecard";
-      }
-      leaf session-threshold {
-        type int32;
-        description
-          "Session threshold configured on linecard";
-      }
-      leaf node-name {
-        type xr:Cisco-ios-xr-string;
-        description
-          "The node id to filter on. For eg., 0/1/CPU0";
-      }
+        "Session limit configured on linecard";
     }
   }
   container sub-manager {
@@ -169,7 +160,7 @@ module Cisco-IOS-XR-iedge4710-cfg {
         description
           "Subscriber manager trace";
         leaf trace-level {
-          type int32;
+          type uint32;
           description
             "Subscriber manager trace level";
         }

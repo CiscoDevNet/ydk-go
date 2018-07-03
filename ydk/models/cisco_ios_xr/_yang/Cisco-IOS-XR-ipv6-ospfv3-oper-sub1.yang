@@ -36,6 +36,10 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
     description
       "Added link information in grace LSA.";
   }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -66,6 +70,12 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
     }
     description
       "Ospf nsr sched pri";
+  }
+
+  typedef Ospfv3-string-array {
+    type string;
+    description
+      "Ospfv3 string array";
   }
 
   typedef Ospfv3-graceful-shutdown-state {
@@ -1046,6 +1056,61 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
     }
   }
 
+  grouping OSPFV3-NSR-ERR-INFO-BAG {
+    description
+      "OSPFV3 NSR ERR INFO BAG";
+    container last-err-time {
+      description
+        "Time this error was last hit";
+      uses OSPFV3-EDM-TIME;
+    }
+    leaf err-count {
+      type int32;
+      description
+        "Count this error hit during the Nsr Revision";
+    }
+    leaf err-info-string {
+      type string;
+      description
+        "Error Information";
+    }
+  }
+
+  grouping OSPFV3-NSR-ERR-BLOCK-BAG {
+    description
+      "OSPFV3 NSR ERR BLOCK BAG";
+    leaf nsr-revisionversion {
+      type uint32;
+      description
+        "Nsr Revision version";
+    }
+    leaf total-errors {
+      type int32;
+      description
+        "Total errors for this nsr revision version";
+    }
+    list nsr-error-info {
+      description
+        "List of erros";
+      uses OSPFV3-NSR-ERR-INFO-BAG;
+    }
+  }
+
+  grouping OSPFV3-ISSU-MILESTONE-BAG {
+    description
+      "OSPFV3 ISSU MILESTONE BAG";
+    leaf milestone-name {
+      type string;
+      description
+        "Milestone Name";
+    }
+    leaf milestone-status {
+      type string;
+      description
+        "Milestone Status";
+    }
+  }
+
   grouping OSPF-SH-NSR-STATS-PRI {
     description
       "OSPF SH NSR STATS PRI";
@@ -1264,6 +1329,26 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       type uint64;
       description
         "Conn to active errors";
+    }
+    leaf-list nsr-fsm-flag {
+      type Ospfv3-string-array;
+      description
+        "Nsr Fsm Flags information";
+    }
+    leaf-list nsr-fsm-running-timer {
+      type Ospfv3-string-array;
+      description
+        "Nsr Fsm Running Timers";
+    }
+    list nsr-issu-milestone {
+      description
+        "Nsr Issu Milestones";
+      uses OSPFV3-ISSU-MILESTONE-BAG;
+    }
+    list nsr-err-history {
+      description
+        "Nsr Error History List";
+      uses OSPFV3-NSR-ERR-BLOCK-BAG;
     }
   }
 
@@ -1588,6 +1673,11 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       type boolean;
       description
         "If true, is an AS border router";
+    }
+    leaf capability-prefer-type7 {
+      type boolean;
+      description
+        "If true, prefer type 7 LSAs over type 5";
     }
     leaf metric {
       type uint32;
@@ -3124,6 +3214,16 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
     }
   }
 
+  grouping OSPFV3-SH-NNH-INFO {
+    description
+      "OSPF Neighbor NextHop Information";
+    leaf neighbor-next-hop-intf-index {
+      type uint32;
+      description
+        "Neighbor NextHop Interface Index";
+    }
+  }
+
   grouping OSPFV3-SH-BACKUP-PATH {
     description
       "OSPFv3 Route Backup Path Information";
@@ -3196,6 +3296,11 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       type uint16;
       description
         "Path ID of path";
+    }
+    list neighbor-next-hop {
+      description
+        "NeighborNextHop";
+      uses OSPFV3-SH-NNH-INFO;
     }
   }
 
@@ -4527,6 +4632,11 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       type boolean;
       description
         "If true, perform 7/5 translation";
+    }
+    leaf is-nssa-translated-always {
+      type boolean;
+      description
+        "If true, perform 7/5 translation always";
     }
     leaf is-nssa-default {
       type boolean;

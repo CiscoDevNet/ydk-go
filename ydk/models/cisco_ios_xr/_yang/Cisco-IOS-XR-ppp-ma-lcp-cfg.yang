@@ -32,6 +32,10 @@ module Cisco-IOS-XR-ppp-ma-lcp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -242,7 +246,7 @@ module Cisco-IOS-XR-ppp-ma-lcp-cfg {
           }
         }
         leaf service-type {
-          type int32;
+          type uint32;
           description
             "This specifies whether to allow multiple
              authentication failures and, if so, how many";

@@ -44,9 +44,12 @@ func (mlan *Mlan) GetEntityData() *types.CommonEntityData {
     mlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mlan.EntityData.Children = make(map[string]types.YChild)
-    mlan.EntityData.Children["nodes"] = types.YChild{"Nodes", &mlan.Nodes}
-    mlan.EntityData.Leafs = make(map[string]types.YLeaf)
+    mlan.EntityData.Children = types.NewOrderedMap()
+    mlan.EntityData.Children.Append("nodes", types.YChild{"Nodes", &mlan.Nodes})
+    mlan.EntityData.Leafs = types.NewOrderedMap()
+
+    mlan.EntityData.YListKeys = []string {}
+
     return &(mlan.EntityData)
 }
 
@@ -57,7 +60,7 @@ type Mlan_Nodes struct {
     YFilter yfilter.YFilter
 
     // Number. The type is slice of Mlan_Nodes_Node.
-    Node []Mlan_Nodes_Node
+    Node []*Mlan_Nodes_Node
 }
 
 func (nodes *Mlan_Nodes) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (nodes *Mlan_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -86,7 +92,7 @@ type Mlan_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. node number. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // Table of port status.
@@ -107,18 +113,21 @@ func (node *Mlan_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["port-status-numbers"] = types.YChild{"PortStatusNumbers", &node.PortStatusNumbers}
-    node.EntityData.Children["switch-status-table"] = types.YChild{"SwitchStatusTable", &node.SwitchStatusTable}
-    node.EntityData.Children["port-counters-numbers"] = types.YChild{"PortCountersNumbers", &node.PortCountersNumbers}
-    node.EntityData.Children["atu-entry-numbers"] = types.YChild{"AtuEntryNumbers", &node.AtuEntryNumbers}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node"] = types.YLeaf{"Node", node.Node}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("port-status-numbers", types.YChild{"PortStatusNumbers", &node.PortStatusNumbers})
+    node.EntityData.Children.Append("switch-status-table", types.YChild{"SwitchStatusTable", &node.SwitchStatusTable})
+    node.EntityData.Children.Append("port-counters-numbers", types.YChild{"PortCountersNumbers", &node.PortCountersNumbers})
+    node.EntityData.Children.Append("atu-entry-numbers", types.YChild{"AtuEntryNumbers", &node.AtuEntryNumbers})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node", types.YLeaf{"Node", node.Node})
+
+    node.EntityData.YListKeys = []string {"Node"}
+
     return &(node.EntityData)
 }
 
@@ -130,7 +139,7 @@ type Mlan_Nodes_Node_PortStatusNumbers struct {
 
     // Number. The type is slice of
     // Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber.
-    PortStatusNumber []Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber
+    PortStatusNumber []*Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber
 }
 
 func (portStatusNumbers *Mlan_Nodes_Node_PortStatusNumbers) GetEntityData() *types.CommonEntityData {
@@ -143,12 +152,15 @@ func (portStatusNumbers *Mlan_Nodes_Node_PortStatusNumbers) GetEntityData() *typ
     portStatusNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portStatusNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portStatusNumbers.EntityData.Children = make(map[string]types.YChild)
-    portStatusNumbers.EntityData.Children["port-status-number"] = types.YChild{"PortStatusNumber", nil}
+    portStatusNumbers.EntityData.Children = types.NewOrderedMap()
+    portStatusNumbers.EntityData.Children.Append("port-status-number", types.YChild{"PortStatusNumber", nil})
     for i := range portStatusNumbers.PortStatusNumber {
-        portStatusNumbers.EntityData.Children[types.GetSegmentPath(&portStatusNumbers.PortStatusNumber[i])] = types.YChild{"PortStatusNumber", &portStatusNumbers.PortStatusNumber[i]}
+        portStatusNumbers.EntityData.Children.Append(types.GetSegmentPath(portStatusNumbers.PortStatusNumber[i]), types.YChild{"PortStatusNumber", portStatusNumbers.PortStatusNumber[i]})
     }
-    portStatusNumbers.EntityData.Leafs = make(map[string]types.YLeaf)
+    portStatusNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    portStatusNumbers.EntityData.YListKeys = []string {}
+
     return &(portStatusNumbers.EntityData)
 }
 
@@ -159,7 +171,7 @@ type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. port number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Number interface{}
 
     // mlan port status info.
@@ -171,15 +183,18 @@ func (portStatusNumber *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber) GetE
     portStatusNumber.EntityData.YangName = "port-status-number"
     portStatusNumber.EntityData.BundleName = "cisco_ios_xr"
     portStatusNumber.EntityData.ParentYangName = "port-status-numbers"
-    portStatusNumber.EntityData.SegmentPath = "port-status-number" + "[number='" + fmt.Sprintf("%v", portStatusNumber.Number) + "']"
+    portStatusNumber.EntityData.SegmentPath = "port-status-number" + types.AddKeyToken(portStatusNumber.Number, "number")
     portStatusNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portStatusNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portStatusNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portStatusNumber.EntityData.Children = make(map[string]types.YChild)
-    portStatusNumber.EntityData.Children["port-status"] = types.YChild{"PortStatus", &portStatusNumber.PortStatus}
-    portStatusNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    portStatusNumber.EntityData.Leafs["number"] = types.YLeaf{"Number", portStatusNumber.Number}
+    portStatusNumber.EntityData.Children = types.NewOrderedMap()
+    portStatusNumber.EntityData.Children.Append("port-status", types.YChild{"PortStatus", &portStatusNumber.PortStatus})
+    portStatusNumber.EntityData.Leafs = types.NewOrderedMap()
+    portStatusNumber.EntityData.Leafs.Append("number", types.YLeaf{"Number", portStatusNumber.Number})
+
+    portStatusNumber.EntityData.YListKeys = []string {"Number"}
+
     return &(portStatusNumber.EntityData)
 }
 
@@ -224,16 +239,19 @@ func (portStatus *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus)
     portStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portStatus.EntityData.Children = make(map[string]types.YChild)
-    portStatus.EntityData.Children["config"] = types.YChild{"Config", &portStatus.Config}
-    portStatus.EntityData.Children["phy"] = types.YChild{"Phy", &portStatus.Phy}
-    portStatus.EntityData.Children["serdes"] = types.YChild{"Serdes", &portStatus.Serdes}
-    portStatus.EntityData.Children["mac"] = types.YChild{"Mac", &portStatus.Mac}
-    portStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    portStatus.EntityData.Leafs["port-num"] = types.YLeaf{"PortNum", portStatus.PortNum}
-    portStatus.EntityData.Leafs["phy-valid"] = types.YLeaf{"PhyValid", portStatus.PhyValid}
-    portStatus.EntityData.Leafs["serdes-valid"] = types.YLeaf{"SerdesValid", portStatus.SerdesValid}
-    portStatus.EntityData.Leafs["mac-valid"] = types.YLeaf{"MacValid", portStatus.MacValid}
+    portStatus.EntityData.Children = types.NewOrderedMap()
+    portStatus.EntityData.Children.Append("config", types.YChild{"Config", &portStatus.Config})
+    portStatus.EntityData.Children.Append("phy", types.YChild{"Phy", &portStatus.Phy})
+    portStatus.EntityData.Children.Append("serdes", types.YChild{"Serdes", &portStatus.Serdes})
+    portStatus.EntityData.Children.Append("mac", types.YChild{"Mac", &portStatus.Mac})
+    portStatus.EntityData.Leafs = types.NewOrderedMap()
+    portStatus.EntityData.Leafs.Append("port-num", types.YLeaf{"PortNum", portStatus.PortNum})
+    portStatus.EntityData.Leafs.Append("phy-valid", types.YLeaf{"PhyValid", portStatus.PhyValid})
+    portStatus.EntityData.Leafs.Append("serdes-valid", types.YLeaf{"SerdesValid", portStatus.SerdesValid})
+    portStatus.EntityData.Leafs.Append("mac-valid", types.YLeaf{"MacValid", portStatus.MacValid})
+
+    portStatus.EntityData.YListKeys = []string {}
+
     return &(portStatus.EntityData)
 }
 
@@ -269,13 +287,16 @@ func (config *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Conf
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["speed"] = types.YLeaf{"Speed", config.Speed}
-    config.EntityData.Leafs["duplex"] = types.YLeaf{"Duplex", config.Duplex}
-    config.EntityData.Leafs["pause"] = types.YLeaf{"Pause", config.Pause}
-    config.EntityData.Leafs["my-pause"] = types.YLeaf{"MyPause", config.MyPause}
-    config.EntityData.Leafs["loopback"] = types.YLeaf{"Loopback", config.Loopback}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", config.Speed})
+    config.EntityData.Leafs.Append("duplex", types.YLeaf{"Duplex", config.Duplex})
+    config.EntityData.Leafs.Append("pause", types.YLeaf{"Pause", config.Pause})
+    config.EntityData.Leafs.Append("my-pause", types.YLeaf{"MyPause", config.MyPause})
+    config.EntityData.Leafs.Append("loopback", types.YLeaf{"Loopback", config.Loopback})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -285,8 +306,9 @@ type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reg. The type is slice of interface{} with range: 0..65535.
-    Reg []interface{}
+    // reg. The type is slice of
+    // Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy_Reg.
+    Reg []*Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy_Reg
 }
 
 func (phy *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy) GetEntityData() *types.CommonEntityData {
@@ -299,10 +321,45 @@ func (phy *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy) Ge
     phy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     phy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    phy.EntityData.Children = make(map[string]types.YChild)
-    phy.EntityData.Leafs = make(map[string]types.YLeaf)
-    phy.EntityData.Leafs["reg"] = types.YLeaf{"Reg", phy.Reg}
+    phy.EntityData.Children = types.NewOrderedMap()
+    phy.EntityData.Children.Append("reg", types.YChild{"Reg", nil})
+    for i := range phy.Reg {
+        phy.EntityData.Children.Append(types.GetSegmentPath(phy.Reg[i]), types.YChild{"Reg", phy.Reg[i]})
+    }
+    phy.EntityData.Leafs = types.NewOrderedMap()
+
+    phy.EntityData.YListKeys = []string {}
+
     return &(phy.EntityData)
+}
+
+// Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy_Reg
+// reg
+type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy_Reg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..65535.
+    Entry interface{}
+}
+
+func (reg *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy_Reg) GetEntityData() *types.CommonEntityData {
+    reg.EntityData.YFilter = reg.YFilter
+    reg.EntityData.YangName = "reg"
+    reg.EntityData.BundleName = "cisco_ios_xr"
+    reg.EntityData.ParentYangName = "phy"
+    reg.EntityData.SegmentPath = "reg"
+    reg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    reg.EntityData.Children = types.NewOrderedMap()
+    reg.EntityData.Leafs = types.NewOrderedMap()
+    reg.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", reg.Entry})
+
+    reg.EntityData.YListKeys = []string {}
+
+    return &(reg.EntityData)
 }
 
 // Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes
@@ -311,8 +368,9 @@ type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reg. The type is slice of interface{} with range: 0..65535.
-    Reg []interface{}
+    // reg. The type is slice of
+    // Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes_Reg.
+    Reg []*Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes_Reg
 }
 
 func (serdes *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes) GetEntityData() *types.CommonEntityData {
@@ -325,10 +383,45 @@ func (serdes *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serd
     serdes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serdes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serdes.EntityData.Children = make(map[string]types.YChild)
-    serdes.EntityData.Leafs = make(map[string]types.YLeaf)
-    serdes.EntityData.Leafs["reg"] = types.YLeaf{"Reg", serdes.Reg}
+    serdes.EntityData.Children = types.NewOrderedMap()
+    serdes.EntityData.Children.Append("reg", types.YChild{"Reg", nil})
+    for i := range serdes.Reg {
+        serdes.EntityData.Children.Append(types.GetSegmentPath(serdes.Reg[i]), types.YChild{"Reg", serdes.Reg[i]})
+    }
+    serdes.EntityData.Leafs = types.NewOrderedMap()
+
+    serdes.EntityData.YListKeys = []string {}
+
     return &(serdes.EntityData)
+}
+
+// Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes_Reg
+// reg
+type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes_Reg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..65535.
+    Entry interface{}
+}
+
+func (reg *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes_Reg) GetEntityData() *types.CommonEntityData {
+    reg.EntityData.YFilter = reg.YFilter
+    reg.EntityData.YangName = "reg"
+    reg.EntityData.BundleName = "cisco_ios_xr"
+    reg.EntityData.ParentYangName = "serdes"
+    reg.EntityData.SegmentPath = "reg"
+    reg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    reg.EntityData.Children = types.NewOrderedMap()
+    reg.EntityData.Leafs = types.NewOrderedMap()
+    reg.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", reg.Entry})
+
+    reg.EntityData.YListKeys = []string {}
+
+    return &(reg.EntityData)
 }
 
 // Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac
@@ -337,8 +430,9 @@ type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reg. The type is slice of interface{} with range: 0..65535.
-    Reg []interface{}
+    // reg. The type is slice of
+    // Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac_Reg.
+    Reg []*Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac_Reg
 }
 
 func (mac *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac) GetEntityData() *types.CommonEntityData {
@@ -351,10 +445,45 @@ func (mac *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac) Ge
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mac.EntityData.Children = make(map[string]types.YChild)
-    mac.EntityData.Leafs = make(map[string]types.YLeaf)
-    mac.EntityData.Leafs["reg"] = types.YLeaf{"Reg", mac.Reg}
+    mac.EntityData.Children = types.NewOrderedMap()
+    mac.EntityData.Children.Append("reg", types.YChild{"Reg", nil})
+    for i := range mac.Reg {
+        mac.EntityData.Children.Append(types.GetSegmentPath(mac.Reg[i]), types.YChild{"Reg", mac.Reg[i]})
+    }
+    mac.EntityData.Leafs = types.NewOrderedMap()
+
+    mac.EntityData.YListKeys = []string {}
+
     return &(mac.EntityData)
+}
+
+// Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac_Reg
+// reg
+type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac_Reg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..65535.
+    Entry interface{}
+}
+
+func (reg *Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac_Reg) GetEntityData() *types.CommonEntityData {
+    reg.EntityData.YFilter = reg.YFilter
+    reg.EntityData.YangName = "reg"
+    reg.EntityData.BundleName = "cisco_ios_xr"
+    reg.EntityData.ParentYangName = "mac"
+    reg.EntityData.SegmentPath = "reg"
+    reg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    reg.EntityData.Children = types.NewOrderedMap()
+    reg.EntityData.Leafs = types.NewOrderedMap()
+    reg.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", reg.Entry})
+
+    reg.EntityData.YListKeys = []string {}
+
+    return &(reg.EntityData)
 }
 
 // Mlan_Nodes_Node_SwitchStatusTable
@@ -377,9 +506,12 @@ func (switchStatusTable *Mlan_Nodes_Node_SwitchStatusTable) GetEntityData() *typ
     switchStatusTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     switchStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    switchStatusTable.EntityData.Children = make(map[string]types.YChild)
-    switchStatusTable.EntityData.Children["switch-status"] = types.YChild{"SwitchStatus", &switchStatusTable.SwitchStatus}
-    switchStatusTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    switchStatusTable.EntityData.Children = types.NewOrderedMap()
+    switchStatusTable.EntityData.Children.Append("switch-status", types.YChild{"SwitchStatus", &switchStatusTable.SwitchStatus})
+    switchStatusTable.EntityData.Leafs = types.NewOrderedMap()
+
+    switchStatusTable.EntityData.YListKeys = []string {}
+
     return &(switchStatusTable.EntityData)
 }
 
@@ -413,12 +545,15 @@ func (switchStatus *Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus) GetEntityDat
     switchStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     switchStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    switchStatus.EntityData.Children = make(map[string]types.YChild)
-    switchStatus.EntityData.Children["sw-reg-1"] = types.YChild{"SwReg1", &switchStatus.SwReg1}
-    switchStatus.EntityData.Children["sw-reg-2"] = types.YChild{"SwReg2", &switchStatus.SwReg2}
-    switchStatus.EntityData.Children["sw-status"] = types.YChild{"SwStatus", &switchStatus.SwStatus}
-    switchStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    switchStatus.EntityData.Leafs["rate-limit"] = types.YLeaf{"RateLimit", switchStatus.RateLimit}
+    switchStatus.EntityData.Children = types.NewOrderedMap()
+    switchStatus.EntityData.Children.Append("sw-reg-1", types.YChild{"SwReg1", &switchStatus.SwReg1})
+    switchStatus.EntityData.Children.Append("sw-reg-2", types.YChild{"SwReg2", &switchStatus.SwReg2})
+    switchStatus.EntityData.Children.Append("sw-status", types.YChild{"SwStatus", &switchStatus.SwStatus})
+    switchStatus.EntityData.Leafs = types.NewOrderedMap()
+    switchStatus.EntityData.Leafs.Append("rate-limit", types.YLeaf{"RateLimit", switchStatus.RateLimit})
+
+    switchStatus.EntityData.YListKeys = []string {}
+
     return &(switchStatus.EntityData)
 }
 
@@ -428,8 +563,9 @@ type Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reg. The type is slice of interface{} with range: 0..65535.
-    Reg []interface{}
+    // reg. The type is slice of
+    // Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1_Reg.
+    Reg []*Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1_Reg
 }
 
 func (swReg1 *Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1) GetEntityData() *types.CommonEntityData {
@@ -442,10 +578,45 @@ func (swReg1 *Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1) GetEntityDa
     swReg1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swReg1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swReg1.EntityData.Children = make(map[string]types.YChild)
-    swReg1.EntityData.Leafs = make(map[string]types.YLeaf)
-    swReg1.EntityData.Leafs["reg"] = types.YLeaf{"Reg", swReg1.Reg}
+    swReg1.EntityData.Children = types.NewOrderedMap()
+    swReg1.EntityData.Children.Append("reg", types.YChild{"Reg", nil})
+    for i := range swReg1.Reg {
+        swReg1.EntityData.Children.Append(types.GetSegmentPath(swReg1.Reg[i]), types.YChild{"Reg", swReg1.Reg[i]})
+    }
+    swReg1.EntityData.Leafs = types.NewOrderedMap()
+
+    swReg1.EntityData.YListKeys = []string {}
+
     return &(swReg1.EntityData)
+}
+
+// Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1_Reg
+// reg
+type Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1_Reg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..65535.
+    Entry interface{}
+}
+
+func (reg *Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1_Reg) GetEntityData() *types.CommonEntityData {
+    reg.EntityData.YFilter = reg.YFilter
+    reg.EntityData.YangName = "reg"
+    reg.EntityData.BundleName = "cisco_ios_xr"
+    reg.EntityData.ParentYangName = "sw-reg-1"
+    reg.EntityData.SegmentPath = "reg"
+    reg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    reg.EntityData.Children = types.NewOrderedMap()
+    reg.EntityData.Leafs = types.NewOrderedMap()
+    reg.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", reg.Entry})
+
+    reg.EntityData.YListKeys = []string {}
+
+    return &(reg.EntityData)
 }
 
 // Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2
@@ -454,8 +625,9 @@ type Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reg. The type is slice of interface{} with range: 0..65535.
-    Reg []interface{}
+    // reg. The type is slice of
+    // Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2_Reg.
+    Reg []*Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2_Reg
 }
 
 func (swReg2 *Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2) GetEntityData() *types.CommonEntityData {
@@ -468,10 +640,45 @@ func (swReg2 *Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2) GetEntityDa
     swReg2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swReg2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swReg2.EntityData.Children = make(map[string]types.YChild)
-    swReg2.EntityData.Leafs = make(map[string]types.YLeaf)
-    swReg2.EntityData.Leafs["reg"] = types.YLeaf{"Reg", swReg2.Reg}
+    swReg2.EntityData.Children = types.NewOrderedMap()
+    swReg2.EntityData.Children.Append("reg", types.YChild{"Reg", nil})
+    for i := range swReg2.Reg {
+        swReg2.EntityData.Children.Append(types.GetSegmentPath(swReg2.Reg[i]), types.YChild{"Reg", swReg2.Reg[i]})
+    }
+    swReg2.EntityData.Leafs = types.NewOrderedMap()
+
+    swReg2.EntityData.YListKeys = []string {}
+
     return &(swReg2.EntityData)
+}
+
+// Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2_Reg
+// reg
+type Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2_Reg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..65535.
+    Entry interface{}
+}
+
+func (reg *Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2_Reg) GetEntityData() *types.CommonEntityData {
+    reg.EntityData.YFilter = reg.YFilter
+    reg.EntityData.YangName = "reg"
+    reg.EntityData.BundleName = "cisco_ios_xr"
+    reg.EntityData.ParentYangName = "sw-reg-2"
+    reg.EntityData.SegmentPath = "reg"
+    reg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    reg.EntityData.Children = types.NewOrderedMap()
+    reg.EntityData.Leafs = types.NewOrderedMap()
+    reg.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", reg.Entry})
+
+    reg.EntityData.YListKeys = []string {}
+
+    return &(reg.EntityData)
 }
 
 // Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwStatus
@@ -512,15 +719,18 @@ func (swStatus *Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwStatus) GetEnti
     swStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swStatus.EntityData.Children = make(map[string]types.YChild)
-    swStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    swStatus.EntityData.Leafs["ppu"] = types.YLeaf{"Ppu", swStatus.Ppu}
-    swStatus.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", swStatus.Mtu}
-    swStatus.EntityData.Leafs["mac"] = types.YLeaf{"Mac", swStatus.Mac}
-    swStatus.EntityData.Leafs["cpu-port"] = types.YLeaf{"CpuPort", swStatus.CpuPort}
-    swStatus.EntityData.Leafs["cpu-mac"] = types.YLeaf{"CpuMac", swStatus.CpuMac}
-    swStatus.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", swStatus.Initialized}
-    swStatus.EntityData.Leafs["restarted"] = types.YLeaf{"Restarted", swStatus.Restarted}
+    swStatus.EntityData.Children = types.NewOrderedMap()
+    swStatus.EntityData.Leafs = types.NewOrderedMap()
+    swStatus.EntityData.Leafs.Append("ppu", types.YLeaf{"Ppu", swStatus.Ppu})
+    swStatus.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", swStatus.Mtu})
+    swStatus.EntityData.Leafs.Append("mac", types.YLeaf{"Mac", swStatus.Mac})
+    swStatus.EntityData.Leafs.Append("cpu-port", types.YLeaf{"CpuPort", swStatus.CpuPort})
+    swStatus.EntityData.Leafs.Append("cpu-mac", types.YLeaf{"CpuMac", swStatus.CpuMac})
+    swStatus.EntityData.Leafs.Append("initialized", types.YLeaf{"Initialized", swStatus.Initialized})
+    swStatus.EntityData.Leafs.Append("restarted", types.YLeaf{"Restarted", swStatus.Restarted})
+
+    swStatus.EntityData.YListKeys = []string {}
+
     return &(swStatus.EntityData)
 }
 
@@ -532,7 +742,7 @@ type Mlan_Nodes_Node_PortCountersNumbers struct {
 
     // Number. The type is slice of
     // Mlan_Nodes_Node_PortCountersNumbers_PortCountersNumber.
-    PortCountersNumber []Mlan_Nodes_Node_PortCountersNumbers_PortCountersNumber
+    PortCountersNumber []*Mlan_Nodes_Node_PortCountersNumbers_PortCountersNumber
 }
 
 func (portCountersNumbers *Mlan_Nodes_Node_PortCountersNumbers) GetEntityData() *types.CommonEntityData {
@@ -545,12 +755,15 @@ func (portCountersNumbers *Mlan_Nodes_Node_PortCountersNumbers) GetEntityData() 
     portCountersNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portCountersNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portCountersNumbers.EntityData.Children = make(map[string]types.YChild)
-    portCountersNumbers.EntityData.Children["port-counters-number"] = types.YChild{"PortCountersNumber", nil}
+    portCountersNumbers.EntityData.Children = types.NewOrderedMap()
+    portCountersNumbers.EntityData.Children.Append("port-counters-number", types.YChild{"PortCountersNumber", nil})
     for i := range portCountersNumbers.PortCountersNumber {
-        portCountersNumbers.EntityData.Children[types.GetSegmentPath(&portCountersNumbers.PortCountersNumber[i])] = types.YChild{"PortCountersNumber", &portCountersNumbers.PortCountersNumber[i]}
+        portCountersNumbers.EntityData.Children.Append(types.GetSegmentPath(portCountersNumbers.PortCountersNumber[i]), types.YChild{"PortCountersNumber", portCountersNumbers.PortCountersNumber[i]})
     }
-    portCountersNumbers.EntityData.Leafs = make(map[string]types.YLeaf)
+    portCountersNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    portCountersNumbers.EntityData.YListKeys = []string {}
+
     return &(portCountersNumbers.EntityData)
 }
 
@@ -561,7 +774,7 @@ type Mlan_Nodes_Node_PortCountersNumbers_PortCountersNumber struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. port number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Number interface{}
 
     // mlan port counters info.
@@ -573,15 +786,18 @@ func (portCountersNumber *Mlan_Nodes_Node_PortCountersNumbers_PortCountersNumber
     portCountersNumber.EntityData.YangName = "port-counters-number"
     portCountersNumber.EntityData.BundleName = "cisco_ios_xr"
     portCountersNumber.EntityData.ParentYangName = "port-counters-numbers"
-    portCountersNumber.EntityData.SegmentPath = "port-counters-number" + "[number='" + fmt.Sprintf("%v", portCountersNumber.Number) + "']"
+    portCountersNumber.EntityData.SegmentPath = "port-counters-number" + types.AddKeyToken(portCountersNumber.Number, "number")
     portCountersNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portCountersNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portCountersNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portCountersNumber.EntityData.Children = make(map[string]types.YChild)
-    portCountersNumber.EntityData.Children["port-counters"] = types.YChild{"PortCounters", &portCountersNumber.PortCounters}
-    portCountersNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    portCountersNumber.EntityData.Leafs["number"] = types.YLeaf{"Number", portCountersNumber.Number}
+    portCountersNumber.EntityData.Children = types.NewOrderedMap()
+    portCountersNumber.EntityData.Children.Append("port-counters", types.YChild{"PortCounters", &portCountersNumber.PortCounters})
+    portCountersNumber.EntityData.Leafs = types.NewOrderedMap()
+    portCountersNumber.EntityData.Leafs.Append("number", types.YLeaf{"Number", portCountersNumber.Number})
+
+    portCountersNumber.EntityData.YListKeys = []string {"Number"}
+
     return &(portCountersNumber.EntityData)
 }
 
@@ -608,10 +824,13 @@ func (portCounters *Mlan_Nodes_Node_PortCountersNumbers_PortCountersNumber_PortC
     portCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portCounters.EntityData.Children = make(map[string]types.YChild)
-    portCounters.EntityData.Children["mlan-stats"] = types.YChild{"MlanStats", &portCounters.MlanStats}
-    portCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    portCounters.EntityData.Leafs["port-num"] = types.YLeaf{"PortNum", portCounters.PortNum}
+    portCounters.EntityData.Children = types.NewOrderedMap()
+    portCounters.EntityData.Children.Append("mlan-stats", types.YChild{"MlanStats", &portCounters.MlanStats})
+    portCounters.EntityData.Leafs = types.NewOrderedMap()
+    portCounters.EntityData.Leafs.Append("port-num", types.YLeaf{"PortNum", portCounters.PortNum})
+
+    portCounters.EntityData.YListKeys = []string {}
+
     return &(portCounters.EntityData)
 }
 
@@ -737,43 +956,46 @@ func (mlanStats *Mlan_Nodes_Node_PortCountersNumbers_PortCountersNumber_PortCoun
     mlanStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlanStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mlanStats.EntityData.Children = make(map[string]types.YChild)
-    mlanStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    mlanStats.EntityData.Leafs["in-good-octets-hi"] = types.YLeaf{"InGoodOctetsHi", mlanStats.InGoodOctetsHi}
-    mlanStats.EntityData.Leafs["in-good-octets"] = types.YLeaf{"InGoodOctets", mlanStats.InGoodOctets}
-    mlanStats.EntityData.Leafs["in-bad-octets"] = types.YLeaf{"InBadOctets", mlanStats.InBadOctets}
-    mlanStats.EntityData.Leafs["in-unicast-pkt"] = types.YLeaf{"InUnicastPkt", mlanStats.InUnicastPkt}
-    mlanStats.EntityData.Leafs["in-bcast-pkt"] = types.YLeaf{"InBcastPkt", mlanStats.InBcastPkt}
-    mlanStats.EntityData.Leafs["in-mcast-pkt"] = types.YLeaf{"InMcastPkt", mlanStats.InMcastPkt}
-    mlanStats.EntityData.Leafs["in-pause-pkt"] = types.YLeaf{"InPausePkt", mlanStats.InPausePkt}
-    mlanStats.EntityData.Leafs["in-undersize-pkt"] = types.YLeaf{"InUndersizePkt", mlanStats.InUndersizePkt}
-    mlanStats.EntityData.Leafs["in-fragments"] = types.YLeaf{"InFragments", mlanStats.InFragments}
-    mlanStats.EntityData.Leafs["in-oversize"] = types.YLeaf{"InOversize", mlanStats.InOversize}
-    mlanStats.EntityData.Leafs["in-jabber"] = types.YLeaf{"InJabber", mlanStats.InJabber}
-    mlanStats.EntityData.Leafs["in-rx-err"] = types.YLeaf{"InRxErr", mlanStats.InRxErr}
-    mlanStats.EntityData.Leafs["in-fcs-err"] = types.YLeaf{"InFcsErr", mlanStats.InFcsErr}
-    mlanStats.EntityData.Leafs["out-octets-hi"] = types.YLeaf{"OutOctetsHi", mlanStats.OutOctetsHi}
-    mlanStats.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", mlanStats.OutOctets}
-    mlanStats.EntityData.Leafs["out-unicast-pkt"] = types.YLeaf{"OutUnicastPkt", mlanStats.OutUnicastPkt}
-    mlanStats.EntityData.Leafs["out-bcast-pkt"] = types.YLeaf{"OutBcastPkt", mlanStats.OutBcastPkt}
-    mlanStats.EntityData.Leafs["out-mcast-pkt"] = types.YLeaf{"OutMcastPkt", mlanStats.OutMcastPkt}
-    mlanStats.EntityData.Leafs["out-pause-pkt"] = types.YLeaf{"OutPausePkt", mlanStats.OutPausePkt}
-    mlanStats.EntityData.Leafs["excessive"] = types.YLeaf{"Excessive", mlanStats.Excessive}
-    mlanStats.EntityData.Leafs["collisions"] = types.YLeaf{"Collisions", mlanStats.Collisions}
-    mlanStats.EntityData.Leafs["deferred"] = types.YLeaf{"Deferred", mlanStats.Deferred}
-    mlanStats.EntityData.Leafs["single"] = types.YLeaf{"Single", mlanStats.Single}
-    mlanStats.EntityData.Leafs["multiple"] = types.YLeaf{"Multiple", mlanStats.Multiple}
-    mlanStats.EntityData.Leafs["out-fcs-err"] = types.YLeaf{"OutFcsErr", mlanStats.OutFcsErr}
-    mlanStats.EntityData.Leafs["late"] = types.YLeaf{"Late", mlanStats.Late}
-    mlanStats.EntityData.Leafs["rx-tx-64-octets"] = types.YLeaf{"RxTx64Octets", mlanStats.RxTx64Octets}
-    mlanStats.EntityData.Leafs["rx-tx-65-127-octets"] = types.YLeaf{"RxTx65127Octets", mlanStats.RxTx65127Octets}
-    mlanStats.EntityData.Leafs["rx-tx-128-255-octets"] = types.YLeaf{"RxTx128255Octets", mlanStats.RxTx128255Octets}
-    mlanStats.EntityData.Leafs["rx-tx-256-511-octets"] = types.YLeaf{"RxTx256511Octets", mlanStats.RxTx256511Octets}
-    mlanStats.EntityData.Leafs["rx-tx-512-1023-octets"] = types.YLeaf{"RxTx5121023Octets", mlanStats.RxTx5121023Octets}
-    mlanStats.EntityData.Leafs["rx-tx-1024-max-octets"] = types.YLeaf{"RxTx1024MaxOctets", mlanStats.RxTx1024MaxOctets}
-    mlanStats.EntityData.Leafs["in-discards"] = types.YLeaf{"InDiscards", mlanStats.InDiscards}
-    mlanStats.EntityData.Leafs["in-filtered"] = types.YLeaf{"InFiltered", mlanStats.InFiltered}
-    mlanStats.EntityData.Leafs["out-filtered"] = types.YLeaf{"OutFiltered", mlanStats.OutFiltered}
+    mlanStats.EntityData.Children = types.NewOrderedMap()
+    mlanStats.EntityData.Leafs = types.NewOrderedMap()
+    mlanStats.EntityData.Leafs.Append("in-good-octets-hi", types.YLeaf{"InGoodOctetsHi", mlanStats.InGoodOctetsHi})
+    mlanStats.EntityData.Leafs.Append("in-good-octets", types.YLeaf{"InGoodOctets", mlanStats.InGoodOctets})
+    mlanStats.EntityData.Leafs.Append("in-bad-octets", types.YLeaf{"InBadOctets", mlanStats.InBadOctets})
+    mlanStats.EntityData.Leafs.Append("in-unicast-pkt", types.YLeaf{"InUnicastPkt", mlanStats.InUnicastPkt})
+    mlanStats.EntityData.Leafs.Append("in-bcast-pkt", types.YLeaf{"InBcastPkt", mlanStats.InBcastPkt})
+    mlanStats.EntityData.Leafs.Append("in-mcast-pkt", types.YLeaf{"InMcastPkt", mlanStats.InMcastPkt})
+    mlanStats.EntityData.Leafs.Append("in-pause-pkt", types.YLeaf{"InPausePkt", mlanStats.InPausePkt})
+    mlanStats.EntityData.Leafs.Append("in-undersize-pkt", types.YLeaf{"InUndersizePkt", mlanStats.InUndersizePkt})
+    mlanStats.EntityData.Leafs.Append("in-fragments", types.YLeaf{"InFragments", mlanStats.InFragments})
+    mlanStats.EntityData.Leafs.Append("in-oversize", types.YLeaf{"InOversize", mlanStats.InOversize})
+    mlanStats.EntityData.Leafs.Append("in-jabber", types.YLeaf{"InJabber", mlanStats.InJabber})
+    mlanStats.EntityData.Leafs.Append("in-rx-err", types.YLeaf{"InRxErr", mlanStats.InRxErr})
+    mlanStats.EntityData.Leafs.Append("in-fcs-err", types.YLeaf{"InFcsErr", mlanStats.InFcsErr})
+    mlanStats.EntityData.Leafs.Append("out-octets-hi", types.YLeaf{"OutOctetsHi", mlanStats.OutOctetsHi})
+    mlanStats.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", mlanStats.OutOctets})
+    mlanStats.EntityData.Leafs.Append("out-unicast-pkt", types.YLeaf{"OutUnicastPkt", mlanStats.OutUnicastPkt})
+    mlanStats.EntityData.Leafs.Append("out-bcast-pkt", types.YLeaf{"OutBcastPkt", mlanStats.OutBcastPkt})
+    mlanStats.EntityData.Leafs.Append("out-mcast-pkt", types.YLeaf{"OutMcastPkt", mlanStats.OutMcastPkt})
+    mlanStats.EntityData.Leafs.Append("out-pause-pkt", types.YLeaf{"OutPausePkt", mlanStats.OutPausePkt})
+    mlanStats.EntityData.Leafs.Append("excessive", types.YLeaf{"Excessive", mlanStats.Excessive})
+    mlanStats.EntityData.Leafs.Append("collisions", types.YLeaf{"Collisions", mlanStats.Collisions})
+    mlanStats.EntityData.Leafs.Append("deferred", types.YLeaf{"Deferred", mlanStats.Deferred})
+    mlanStats.EntityData.Leafs.Append("single", types.YLeaf{"Single", mlanStats.Single})
+    mlanStats.EntityData.Leafs.Append("multiple", types.YLeaf{"Multiple", mlanStats.Multiple})
+    mlanStats.EntityData.Leafs.Append("out-fcs-err", types.YLeaf{"OutFcsErr", mlanStats.OutFcsErr})
+    mlanStats.EntityData.Leafs.Append("late", types.YLeaf{"Late", mlanStats.Late})
+    mlanStats.EntityData.Leafs.Append("rx-tx-64-octets", types.YLeaf{"RxTx64Octets", mlanStats.RxTx64Octets})
+    mlanStats.EntityData.Leafs.Append("rx-tx-65-127-octets", types.YLeaf{"RxTx65127Octets", mlanStats.RxTx65127Octets})
+    mlanStats.EntityData.Leafs.Append("rx-tx-128-255-octets", types.YLeaf{"RxTx128255Octets", mlanStats.RxTx128255Octets})
+    mlanStats.EntityData.Leafs.Append("rx-tx-256-511-octets", types.YLeaf{"RxTx256511Octets", mlanStats.RxTx256511Octets})
+    mlanStats.EntityData.Leafs.Append("rx-tx-512-1023-octets", types.YLeaf{"RxTx5121023Octets", mlanStats.RxTx5121023Octets})
+    mlanStats.EntityData.Leafs.Append("rx-tx-1024-max-octets", types.YLeaf{"RxTx1024MaxOctets", mlanStats.RxTx1024MaxOctets})
+    mlanStats.EntityData.Leafs.Append("in-discards", types.YLeaf{"InDiscards", mlanStats.InDiscards})
+    mlanStats.EntityData.Leafs.Append("in-filtered", types.YLeaf{"InFiltered", mlanStats.InFiltered})
+    mlanStats.EntityData.Leafs.Append("out-filtered", types.YLeaf{"OutFiltered", mlanStats.OutFiltered})
+
+    mlanStats.EntityData.YListKeys = []string {}
+
     return &(mlanStats.EntityData)
 }
 
@@ -785,7 +1007,7 @@ type Mlan_Nodes_Node_AtuEntryNumbers struct {
 
     // Entry number. The type is slice of
     // Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber.
-    AtuEntryNumber []Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber
+    AtuEntryNumber []*Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber
 }
 
 func (atuEntryNumbers *Mlan_Nodes_Node_AtuEntryNumbers) GetEntityData() *types.CommonEntityData {
@@ -798,12 +1020,15 @@ func (atuEntryNumbers *Mlan_Nodes_Node_AtuEntryNumbers) GetEntityData() *types.C
     atuEntryNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     atuEntryNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    atuEntryNumbers.EntityData.Children = make(map[string]types.YChild)
-    atuEntryNumbers.EntityData.Children["atu-entry-number"] = types.YChild{"AtuEntryNumber", nil}
+    atuEntryNumbers.EntityData.Children = types.NewOrderedMap()
+    atuEntryNumbers.EntityData.Children.Append("atu-entry-number", types.YChild{"AtuEntryNumber", nil})
     for i := range atuEntryNumbers.AtuEntryNumber {
-        atuEntryNumbers.EntityData.Children[types.GetSegmentPath(&atuEntryNumbers.AtuEntryNumber[i])] = types.YChild{"AtuEntryNumber", &atuEntryNumbers.AtuEntryNumber[i]}
+        atuEntryNumbers.EntityData.Children.Append(types.GetSegmentPath(atuEntryNumbers.AtuEntryNumber[i]), types.YChild{"AtuEntryNumber", atuEntryNumbers.AtuEntryNumber[i]})
     }
-    atuEntryNumbers.EntityData.Leafs = make(map[string]types.YLeaf)
+    atuEntryNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    atuEntryNumbers.EntityData.YListKeys = []string {}
+
     return &(atuEntryNumbers.EntityData)
 }
 
@@ -814,7 +1039,7 @@ type Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. entry number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Entry interface{}
 
     // mlan switch counters info.
@@ -826,15 +1051,18 @@ func (atuEntryNumber *Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber) GetEntityD
     atuEntryNumber.EntityData.YangName = "atu-entry-number"
     atuEntryNumber.EntityData.BundleName = "cisco_ios_xr"
     atuEntryNumber.EntityData.ParentYangName = "atu-entry-numbers"
-    atuEntryNumber.EntityData.SegmentPath = "atu-entry-number" + "[entry='" + fmt.Sprintf("%v", atuEntryNumber.Entry) + "']"
+    atuEntryNumber.EntityData.SegmentPath = "atu-entry-number" + types.AddKeyToken(atuEntryNumber.Entry, "entry")
     atuEntryNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     atuEntryNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     atuEntryNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    atuEntryNumber.EntityData.Children = make(map[string]types.YChild)
-    atuEntryNumber.EntityData.Children["switch-counters"] = types.YChild{"SwitchCounters", &atuEntryNumber.SwitchCounters}
-    atuEntryNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    atuEntryNumber.EntityData.Leafs["entry"] = types.YLeaf{"Entry", atuEntryNumber.Entry}
+    atuEntryNumber.EntityData.Children = types.NewOrderedMap()
+    atuEntryNumber.EntityData.Children.Append("switch-counters", types.YChild{"SwitchCounters", &atuEntryNumber.SwitchCounters})
+    atuEntryNumber.EntityData.Leafs = types.NewOrderedMap()
+    atuEntryNumber.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", atuEntryNumber.Entry})
+
+    atuEntryNumber.EntityData.YListKeys = []string {"Entry"}
+
     return &(atuEntryNumber.EntityData)
 }
 
@@ -861,10 +1089,13 @@ func (switchCounters *Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCount
     switchCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     switchCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    switchCounters.EntityData.Children = make(map[string]types.YChild)
-    switchCounters.EntityData.Children["atu"] = types.YChild{"Atu", &switchCounters.Atu}
-    switchCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    switchCounters.EntityData.Leafs["entry-num"] = types.YLeaf{"EntryNum", switchCounters.EntryNum}
+    switchCounters.EntityData.Children = types.NewOrderedMap()
+    switchCounters.EntityData.Children.Append("atu", types.YChild{"Atu", &switchCounters.Atu})
+    switchCounters.EntityData.Leafs = types.NewOrderedMap()
+    switchCounters.EntityData.Leafs.Append("entry-num", types.YLeaf{"EntryNum", switchCounters.EntryNum})
+
+    switchCounters.EntityData.YListKeys = []string {}
+
     return &(switchCounters.EntityData)
 }
 
@@ -889,8 +1120,9 @@ type Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu struct {
     // es. The type is interface{} with range: 0..255.
     Es interface{}
 
-    // macaddr. The type is slice of interface{} with range: 0..65535.
-    Macaddr []interface{}
+    // macaddr. The type is slice of
+    // Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu_Macaddr.
+    Macaddr []*Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu_Macaddr
 }
 
 func (atu *Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu) GetEntityData() *types.CommonEntityData {
@@ -903,14 +1135,49 @@ func (atu *Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu) Ge
     atu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     atu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    atu.EntityData.Children = make(map[string]types.YChild)
-    atu.EntityData.Leafs = make(map[string]types.YLeaf)
-    atu.EntityData.Leafs["db-num"] = types.YLeaf{"DbNum", atu.DbNum}
-    atu.EntityData.Leafs["priority"] = types.YLeaf{"Priority", atu.Priority}
-    atu.EntityData.Leafs["trunk"] = types.YLeaf{"Trunk", atu.Trunk}
-    atu.EntityData.Leafs["dpv"] = types.YLeaf{"Dpv", atu.Dpv}
-    atu.EntityData.Leafs["es"] = types.YLeaf{"Es", atu.Es}
-    atu.EntityData.Leafs["macaddr"] = types.YLeaf{"Macaddr", atu.Macaddr}
+    atu.EntityData.Children = types.NewOrderedMap()
+    atu.EntityData.Children.Append("macaddr", types.YChild{"Macaddr", nil})
+    for i := range atu.Macaddr {
+        atu.EntityData.Children.Append(types.GetSegmentPath(atu.Macaddr[i]), types.YChild{"Macaddr", atu.Macaddr[i]})
+    }
+    atu.EntityData.Leafs = types.NewOrderedMap()
+    atu.EntityData.Leafs.Append("db-num", types.YLeaf{"DbNum", atu.DbNum})
+    atu.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", atu.Priority})
+    atu.EntityData.Leafs.Append("trunk", types.YLeaf{"Trunk", atu.Trunk})
+    atu.EntityData.Leafs.Append("dpv", types.YLeaf{"Dpv", atu.Dpv})
+    atu.EntityData.Leafs.Append("es", types.YLeaf{"Es", atu.Es})
+
+    atu.EntityData.YListKeys = []string {}
+
     return &(atu.EntityData)
+}
+
+// Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu_Macaddr
+// macaddr
+type Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu_Macaddr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..65535.
+    Entry interface{}
+}
+
+func (macaddr *Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu_Macaddr) GetEntityData() *types.CommonEntityData {
+    macaddr.EntityData.YFilter = macaddr.YFilter
+    macaddr.EntityData.YangName = "macaddr"
+    macaddr.EntityData.BundleName = "cisco_ios_xr"
+    macaddr.EntityData.ParentYangName = "atu"
+    macaddr.EntityData.SegmentPath = "macaddr"
+    macaddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macaddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macaddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    macaddr.EntityData.Children = types.NewOrderedMap()
+    macaddr.EntityData.Leafs = types.NewOrderedMap()
+    macaddr.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", macaddr.Entry})
+
+    macaddr.EntityData.YListKeys = []string {}
+
+    return &(macaddr.EntityData)
 }
 

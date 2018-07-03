@@ -25,7 +25,7 @@ type CISCOIETFPWENETMIB struct {
 
     // This table contains the index to the Ethernet tables   associated with this
     // ETH VC, the VLAN configuration and   VLAN mode.
-    Cpwvcenettable CISCOIETFPWENETMIB_Cpwvcenettable
+    CpwVcEnetTable CISCOIETFPWENETMIB_CpwVcEnetTable
 
     // This table may be used for MPLS PSNs if there is a need   to hold multiple
     // VC, each with different COS, for the same  user service (port + PW VLAN).
@@ -34,10 +34,10 @@ type CISCOIETFPWENETMIB struct {
     // and indicate the PRI bits on the packet recieved from the   user port (or
     // VPLS virtual port) that are  classified to this VC. Note that the EXP bit
     // value of the VC  is configured in the CISCO-IETF-PW-MPLS-MIB.
-    Cpwvcenetmplsprimappingtable CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable
+    CpwVcEnetMplsPriMappingTable CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable
 
     // This table contains statistical counters specific for   Ethernet PW.
-    Cpwvcenetstatstable CISCOIETFPWENETMIB_Cpwvcenetstatstable
+    CpwVcEnetStatsTable CISCOIETFPWENETMIB_CpwVcEnetStatsTable
 }
 
 func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetEntityData() *types.CommonEntityData {
@@ -50,19 +50,22 @@ func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetEntityData() *types.CommonEntit
     cISCOIETFPWENETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFPWENETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIETFPWENETMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIETFPWENETMIB.EntityData.Children["cpwVcEnetTable"] = types.YChild{"Cpwvcenettable", &cISCOIETFPWENETMIB.Cpwvcenettable}
-    cISCOIETFPWENETMIB.EntityData.Children["cpwVcEnetMplsPriMappingTable"] = types.YChild{"Cpwvcenetmplsprimappingtable", &cISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable}
-    cISCOIETFPWENETMIB.EntityData.Children["cpwVcEnetStatsTable"] = types.YChild{"Cpwvcenetstatstable", &cISCOIETFPWENETMIB.Cpwvcenetstatstable}
-    cISCOIETFPWENETMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIETFPWENETMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIETFPWENETMIB.EntityData.Children.Append("cpwVcEnetTable", types.YChild{"CpwVcEnetTable", &cISCOIETFPWENETMIB.CpwVcEnetTable})
+    cISCOIETFPWENETMIB.EntityData.Children.Append("cpwVcEnetMplsPriMappingTable", types.YChild{"CpwVcEnetMplsPriMappingTable", &cISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable})
+    cISCOIETFPWENETMIB.EntityData.Children.Append("cpwVcEnetStatsTable", types.YChild{"CpwVcEnetStatsTable", &cISCOIETFPWENETMIB.CpwVcEnetStatsTable})
+    cISCOIETFPWENETMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIETFPWENETMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIETFPWENETMIB.EntityData)
 }
 
-// CISCOIETFPWENETMIB_Cpwvcenettable
+// CISCOIETFPWENETMIB_CpwVcEnetTable
 // This table contains the index to the Ethernet tables  
 // associated with this ETH VC, the VLAN configuration and  
 // VLAN mode.
-type CISCOIETFPWENETMIB_Cpwvcenettable struct {
+type CISCOIETFPWENETMIB_CpwVcEnetTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -75,30 +78,33 @@ type CISCOIETFPWENETMIB_Cpwvcenettable struct {
     // operator or the agent if multiple entries  are required for the same VC.  
     // This table provides Ethernet port mapping and VLAN   configuration for each
     // Ethernet VC. The type is slice of
-    // CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry.
-    Cpwvcenetentry []CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry
+    // CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry.
+    CpwVcEnetEntry []*CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry
 }
 
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetEntityData() *types.CommonEntityData {
-    cpwvcenettable.EntityData.YFilter = cpwvcenettable.YFilter
-    cpwvcenettable.EntityData.YangName = "cpwVcEnetTable"
-    cpwvcenettable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcenettable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
-    cpwvcenettable.EntityData.SegmentPath = "cpwVcEnetTable"
-    cpwvcenettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcenettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcenettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcEnetTable *CISCOIETFPWENETMIB_CpwVcEnetTable) GetEntityData() *types.CommonEntityData {
+    cpwVcEnetTable.EntityData.YFilter = cpwVcEnetTable.YFilter
+    cpwVcEnetTable.EntityData.YangName = "cpwVcEnetTable"
+    cpwVcEnetTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcEnetTable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
+    cpwVcEnetTable.EntityData.SegmentPath = "cpwVcEnetTable"
+    cpwVcEnetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcEnetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcEnetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcenettable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcenettable.EntityData.Children["cpwVcEnetEntry"] = types.YChild{"Cpwvcenetentry", nil}
-    for i := range cpwvcenettable.Cpwvcenetentry {
-        cpwvcenettable.EntityData.Children[types.GetSegmentPath(&cpwvcenettable.Cpwvcenetentry[i])] = types.YChild{"Cpwvcenetentry", &cpwvcenettable.Cpwvcenetentry[i]}
+    cpwVcEnetTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcEnetTable.EntityData.Children.Append("cpwVcEnetEntry", types.YChild{"CpwVcEnetEntry", nil})
+    for i := range cpwVcEnetTable.CpwVcEnetEntry {
+        cpwVcEnetTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcEnetTable.CpwVcEnetEntry[i]), types.YChild{"CpwVcEnetEntry", cpwVcEnetTable.CpwVcEnetEntry[i]})
     }
-    cpwvcenettable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcenettable.EntityData)
+    cpwVcEnetTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcEnetTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcEnetTable.EntityData)
 }
 
-// CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry
+// CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry
 // This table is indexed by the same index that was created  
 // for the associated entry in the PW VC Table in the 
 // CISCO-IETF-PW-MIB.  The CpwVcIndex and the cpwVcEnetPwVlan 
@@ -113,13 +119,13 @@ func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetEntityData() *types.
 // 
 // This table provides Ethernet port mapping and VLAN  
 // configuration for each Ethernet VC.
-type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry struct {
+type CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // This attribute is a key. This Object defines the VLAN on the VC. The value
     // of 4097  is used if the object is not applicable, for example when  mapping
@@ -128,7 +134,7 @@ type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry struct {
     // example if   cpwVcEnetVlanMode is equal 'removeVLAN' or when  
     // cpwVcEnetVlanMode equal 'noChange' and cpwVcEnetPortVlan  is equal 4096.
     // The type is interface{} with range: 0..4097.
-    Cpwvcenetpwvlan interface{}
+    CpwVcEnetPwVlan interface{}
 
     // Indicate the mode of VLAN handling between the port   associated to the VC
     // and the VC encapsulation itself.   - 'other' indicate operation that is not
@@ -142,8 +148,8 @@ type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry struct {
     // transparency is lost in this case.   - 'addVlan' indicate that a VLAN field
     // will be added    on the PSN bound direction. cpwVcEnetPwVlan indicate   
     // the value that will be added.    - 'removeVlan', 'addVlan' and 'changeVlan'
-    // implementation    is not required. . The type is Cpwvcenetvlanmode.
-    Cpwvcenetvlanmode interface{}
+    // implementation    is not required. . The type is CpwVcEnetVlanMode.
+    CpwVcEnetVlanMode interface{}
 
     // This object define the VLAN value on the physical port (or   VPLS virtual
     // port) if a change is required to the VLAN value  between the VC and the
@@ -155,14 +161,14 @@ type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry struct {
     // untagged   frames) on the port are associated to this VC. This   allows the
     // same behaviors as assigning 'Default VLAN'   to un-tagged frames. . The
     // type is interface{} with range: 0..4097.
-    Cpwvcenetportvlan interface{}
+    CpwVcEnetPortVlan interface{}
 
     // It is sometimes convenient to model the VC PW as a   virtual interface in
     // the ifTable. In these cases this   object hold the value of the ifIndex in
     // the ifTable   representing this VC PW. A value of zero indicate no such  
     // association or association is not yet known. The type is interface{} with
     // range: 0..2147483647.
-    Cpwvcenetvcifindex interface{}
+    CpwVcEnetVcIfIndex interface{}
 
     // This object is used to specify the ifIndex of the ETHERNET  port associated
     // with this VC for point-to-point Ethernet   service, or the ifIndex of the
@@ -174,56 +180,59 @@ type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry struct {
     // VLAN values specified in      cpwVcEnetPortVlan that are associated with
     // this port.   A value of zero indicate that association to an ifIndex is 
     // not yet known. The type is interface{} with range: 0..2147483647.
-    Cpwvcenetportifindex interface{}
+    CpwVcEnetPortIfIndex interface{}
 
     // Enable creating, deleting and modifying this row. The type is RowStatus.
-    Cpwvcenetrowstatus interface{}
+    CpwVcEnetRowStatus interface{}
 
     // Indicates the storage type of this row. The type is StorageType.
-    Cpwvcenetstoragetype interface{}
+    CpwVcEnetStorageType interface{}
 }
 
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetEntityData() *types.CommonEntityData {
-    cpwvcenetentry.EntityData.YFilter = cpwvcenetentry.YFilter
-    cpwvcenetentry.EntityData.YangName = "cpwVcEnetEntry"
-    cpwvcenetentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcenetentry.EntityData.ParentYangName = "cpwVcEnetTable"
-    cpwvcenetentry.EntityData.SegmentPath = "cpwVcEnetEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetentry.Cpwvcindex) + "']" + "[cpwVcEnetPwVlan='" + fmt.Sprintf("%v", cpwvcenetentry.Cpwvcenetpwvlan) + "']"
-    cpwvcenetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcenetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcenetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcEnetEntry *CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcEnetEntry.EntityData.YFilter = cpwVcEnetEntry.YFilter
+    cpwVcEnetEntry.EntityData.YangName = "cpwVcEnetEntry"
+    cpwVcEnetEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcEnetEntry.EntityData.ParentYangName = "cpwVcEnetTable"
+    cpwVcEnetEntry.EntityData.SegmentPath = "cpwVcEnetEntry" + types.AddKeyToken(cpwVcEnetEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwVcEnetEntry.CpwVcEnetPwVlan, "cpwVcEnetPwVlan")
+    cpwVcEnetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcEnetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcEnetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcenetentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcenetentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcenetentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcenetentry.Cpwvcindex}
-    cpwvcenetentry.EntityData.Leafs["cpwVcEnetPwVlan"] = types.YLeaf{"Cpwvcenetpwvlan", cpwvcenetentry.Cpwvcenetpwvlan}
-    cpwvcenetentry.EntityData.Leafs["cpwVcEnetVlanMode"] = types.YLeaf{"Cpwvcenetvlanmode", cpwvcenetentry.Cpwvcenetvlanmode}
-    cpwvcenetentry.EntityData.Leafs["cpwVcEnetPortVlan"] = types.YLeaf{"Cpwvcenetportvlan", cpwvcenetentry.Cpwvcenetportvlan}
-    cpwvcenetentry.EntityData.Leafs["cpwVcEnetVcIfIndex"] = types.YLeaf{"Cpwvcenetvcifindex", cpwvcenetentry.Cpwvcenetvcifindex}
-    cpwvcenetentry.EntityData.Leafs["cpwVcEnetPortIfIndex"] = types.YLeaf{"Cpwvcenetportifindex", cpwvcenetentry.Cpwvcenetportifindex}
-    cpwvcenetentry.EntityData.Leafs["cpwVcEnetRowStatus"] = types.YLeaf{"Cpwvcenetrowstatus", cpwvcenetentry.Cpwvcenetrowstatus}
-    cpwvcenetentry.EntityData.Leafs["cpwVcEnetStorageType"] = types.YLeaf{"Cpwvcenetstoragetype", cpwvcenetentry.Cpwvcenetstoragetype}
-    return &(cpwvcenetentry.EntityData)
+    cpwVcEnetEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcEnetEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcEnetEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcEnetEntry.CpwVcIndex})
+    cpwVcEnetEntry.EntityData.Leafs.Append("cpwVcEnetPwVlan", types.YLeaf{"CpwVcEnetPwVlan", cpwVcEnetEntry.CpwVcEnetPwVlan})
+    cpwVcEnetEntry.EntityData.Leafs.Append("cpwVcEnetVlanMode", types.YLeaf{"CpwVcEnetVlanMode", cpwVcEnetEntry.CpwVcEnetVlanMode})
+    cpwVcEnetEntry.EntityData.Leafs.Append("cpwVcEnetPortVlan", types.YLeaf{"CpwVcEnetPortVlan", cpwVcEnetEntry.CpwVcEnetPortVlan})
+    cpwVcEnetEntry.EntityData.Leafs.Append("cpwVcEnetVcIfIndex", types.YLeaf{"CpwVcEnetVcIfIndex", cpwVcEnetEntry.CpwVcEnetVcIfIndex})
+    cpwVcEnetEntry.EntityData.Leafs.Append("cpwVcEnetPortIfIndex", types.YLeaf{"CpwVcEnetPortIfIndex", cpwVcEnetEntry.CpwVcEnetPortIfIndex})
+    cpwVcEnetEntry.EntityData.Leafs.Append("cpwVcEnetRowStatus", types.YLeaf{"CpwVcEnetRowStatus", cpwVcEnetEntry.CpwVcEnetRowStatus})
+    cpwVcEnetEntry.EntityData.Leafs.Append("cpwVcEnetStorageType", types.YLeaf{"CpwVcEnetStorageType", cpwVcEnetEntry.CpwVcEnetStorageType})
+
+    cpwVcEnetEntry.EntityData.YListKeys = []string {"CpwVcIndex", "CpwVcEnetPwVlan"}
+
+    return &(cpwVcEnetEntry.EntityData)
 }
 
-// CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode represents   is not required. 
-type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode string
+// CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode represents   is not required. 
+type CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode string
 
 const (
-    CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode_other CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode = "other"
+    CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode_other CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode = "other"
 
-    CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode_portBased CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode = "portBased"
+    CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode_portBased CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode = "portBased"
 
-    CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode_noChange CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode = "noChange"
+    CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode_noChange CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode = "noChange"
 
-    CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode_changeVlan CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode = "changeVlan"
+    CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode_changeVlan CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode = "changeVlan"
 
-    CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode_addVlan CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode = "addVlan"
+    CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode_addVlan CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode = "addVlan"
 
-    CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode_removeVlan CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode = "removeVlan"
+    CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode_removeVlan CISCOIETFPWENETMIB_CpwVcEnetTable_CpwVcEnetEntry_CpwVcEnetVlanMode = "removeVlan"
 )
 
-// CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable
+// CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable
 // This table may be used for MPLS PSNs if there is a need  
 // to hold multiple VC, each with different COS, for the same 
 // user service (port + PW VLAN). Such a need may arise if the 
@@ -233,45 +242,48 @@ const (
 // user port (or VPLS virtual port) that are 
 // classified to this VC. Note that the EXP bit value of the VC 
 // is configured in the CISCO-IETF-PW-MPLS-MIB.
-type CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable struct {
+type CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry is created if special classification based on   the PRI bits is
     // required for this VC. The type is slice of
-    // CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry.
-    Cpwvcenetmplsprimappingtableentry []CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry
+    // CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable_CpwVcEnetMplsPriMappingTableEntry.
+    CpwVcEnetMplsPriMappingTableEntry []*CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable_CpwVcEnetMplsPriMappingTableEntry
 }
 
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetEntityData() *types.CommonEntityData {
-    cpwvcenetmplsprimappingtable.EntityData.YFilter = cpwvcenetmplsprimappingtable.YFilter
-    cpwvcenetmplsprimappingtable.EntityData.YangName = "cpwVcEnetMplsPriMappingTable"
-    cpwvcenetmplsprimappingtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcenetmplsprimappingtable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
-    cpwvcenetmplsprimappingtable.EntityData.SegmentPath = "cpwVcEnetMplsPriMappingTable"
-    cpwvcenetmplsprimappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcenetmplsprimappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcenetmplsprimappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcEnetMplsPriMappingTable *CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable) GetEntityData() *types.CommonEntityData {
+    cpwVcEnetMplsPriMappingTable.EntityData.YFilter = cpwVcEnetMplsPriMappingTable.YFilter
+    cpwVcEnetMplsPriMappingTable.EntityData.YangName = "cpwVcEnetMplsPriMappingTable"
+    cpwVcEnetMplsPriMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcEnetMplsPriMappingTable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
+    cpwVcEnetMplsPriMappingTable.EntityData.SegmentPath = "cpwVcEnetMplsPriMappingTable"
+    cpwVcEnetMplsPriMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcEnetMplsPriMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcEnetMplsPriMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcenetmplsprimappingtable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcenetmplsprimappingtable.EntityData.Children["cpwVcEnetMplsPriMappingTableEntry"] = types.YChild{"Cpwvcenetmplsprimappingtableentry", nil}
-    for i := range cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry {
-        cpwvcenetmplsprimappingtable.EntityData.Children[types.GetSegmentPath(&cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry[i])] = types.YChild{"Cpwvcenetmplsprimappingtableentry", &cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry[i]}
+    cpwVcEnetMplsPriMappingTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcEnetMplsPriMappingTable.EntityData.Children.Append("cpwVcEnetMplsPriMappingTableEntry", types.YChild{"CpwVcEnetMplsPriMappingTableEntry", nil})
+    for i := range cpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry {
+        cpwVcEnetMplsPriMappingTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry[i]), types.YChild{"CpwVcEnetMplsPriMappingTableEntry", cpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry[i]})
     }
-    cpwvcenetmplsprimappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcenetmplsprimappingtable.EntityData)
+    cpwVcEnetMplsPriMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcEnetMplsPriMappingTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcEnetMplsPriMappingTable.EntityData)
 }
 
-// CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry
+// CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable_CpwVcEnetMplsPriMappingTableEntry
 // Each entry is created if special classification based on  
 // the PRI bits is required for this VC.
-type CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry struct {
+type CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable_CpwVcEnetMplsPriMappingTableEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // This object defines the groups of user PRI mapped into  this VC. Each bit
     // set indicates that this user priority   is assigned to this VC.   The value
@@ -284,109 +296,118 @@ type CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtabl
     // between rows to   the same service, incoming packets with PRI marking not  
     // configured should be handled by the VC with the lowest   COS. . The type is
     // map[string]bool.
-    Cpwvcenetmplsprimapping interface{}
+    CpwVcEnetMplsPriMapping interface{}
 
     // Enable creating, deleting and modifying this row. The type is RowStatus.
-    Cpwvcenetmplsprimappingrowstatus interface{}
+    CpwVcEnetMplsPriMappingRowStatus interface{}
 
     // Indicates the storage type of this row. The type is StorageType.
-    Cpwvcenetmplsprimappingstoragetype interface{}
+    CpwVcEnetMplsPriMappingStorageType interface{}
 }
 
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetEntityData() *types.CommonEntityData {
-    cpwvcenetmplsprimappingtableentry.EntityData.YFilter = cpwvcenetmplsprimappingtableentry.YFilter
-    cpwvcenetmplsprimappingtableentry.EntityData.YangName = "cpwVcEnetMplsPriMappingTableEntry"
-    cpwvcenetmplsprimappingtableentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcenetmplsprimappingtableentry.EntityData.ParentYangName = "cpwVcEnetMplsPriMappingTable"
-    cpwvcenetmplsprimappingtableentry.EntityData.SegmentPath = "cpwVcEnetMplsPriMappingTableEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetmplsprimappingtableentry.Cpwvcindex) + "']"
-    cpwvcenetmplsprimappingtableentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcenetmplsprimappingtableentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcenetmplsprimappingtableentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcEnetMplsPriMappingTableEntry *CISCOIETFPWENETMIB_CpwVcEnetMplsPriMappingTable_CpwVcEnetMplsPriMappingTableEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.YFilter = cpwVcEnetMplsPriMappingTableEntry.YFilter
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.YangName = "cpwVcEnetMplsPriMappingTableEntry"
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.ParentYangName = "cpwVcEnetMplsPriMappingTable"
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.SegmentPath = "cpwVcEnetMplsPriMappingTableEntry" + types.AddKeyToken(cpwVcEnetMplsPriMappingTableEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcenetmplsprimappingtableentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcenetmplsprimappingtableentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcenetmplsprimappingtableentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcenetmplsprimappingtableentry.Cpwvcindex}
-    cpwvcenetmplsprimappingtableentry.EntityData.Leafs["cpwVcEnetMplsPriMapping"] = types.YLeaf{"Cpwvcenetmplsprimapping", cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimapping}
-    cpwvcenetmplsprimappingtableentry.EntityData.Leafs["cpwVcEnetMplsPriMappingRowStatus"] = types.YLeaf{"Cpwvcenetmplsprimappingrowstatus", cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimappingrowstatus}
-    cpwvcenetmplsprimappingtableentry.EntityData.Leafs["cpwVcEnetMplsPriMappingStorageType"] = types.YLeaf{"Cpwvcenetmplsprimappingstoragetype", cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimappingstoragetype}
-    return &(cpwvcenetmplsprimappingtableentry.EntityData)
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcEnetMplsPriMappingTableEntry.CpwVcIndex})
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.Leafs.Append("cpwVcEnetMplsPriMapping", types.YLeaf{"CpwVcEnetMplsPriMapping", cpwVcEnetMplsPriMappingTableEntry.CpwVcEnetMplsPriMapping})
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.Leafs.Append("cpwVcEnetMplsPriMappingRowStatus", types.YLeaf{"CpwVcEnetMplsPriMappingRowStatus", cpwVcEnetMplsPriMappingTableEntry.CpwVcEnetMplsPriMappingRowStatus})
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.Leafs.Append("cpwVcEnetMplsPriMappingStorageType", types.YLeaf{"CpwVcEnetMplsPriMappingStorageType", cpwVcEnetMplsPriMappingTableEntry.CpwVcEnetMplsPriMappingStorageType})
+
+    cpwVcEnetMplsPriMappingTableEntry.EntityData.YListKeys = []string {"CpwVcIndex"}
+
+    return &(cpwVcEnetMplsPriMappingTableEntry.EntityData)
 }
 
-// CISCOIETFPWENETMIB_Cpwvcenetstatstable
+// CISCOIETFPWENETMIB_CpwVcEnetStatsTable
 // This table contains statistical counters specific for  
 // Ethernet PW.
-type CISCOIETFPWENETMIB_Cpwvcenetstatstable struct {
+type CISCOIETFPWENETMIB_CpwVcEnetStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents the statistics gathered for the   VC carrying the
     // Ethernet packets since this VC was   first created in the cpwVcEnetTable.
     // The type is slice of
-    // CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry.
-    Cpwvcenetstatsentry []CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry
+    // CISCOIETFPWENETMIB_CpwVcEnetStatsTable_CpwVcEnetStatsEntry.
+    CpwVcEnetStatsEntry []*CISCOIETFPWENETMIB_CpwVcEnetStatsTable_CpwVcEnetStatsEntry
 }
 
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetEntityData() *types.CommonEntityData {
-    cpwvcenetstatstable.EntityData.YFilter = cpwvcenetstatstable.YFilter
-    cpwvcenetstatstable.EntityData.YangName = "cpwVcEnetStatsTable"
-    cpwvcenetstatstable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcenetstatstable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
-    cpwvcenetstatstable.EntityData.SegmentPath = "cpwVcEnetStatsTable"
-    cpwvcenetstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcenetstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcenetstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcEnetStatsTable *CISCOIETFPWENETMIB_CpwVcEnetStatsTable) GetEntityData() *types.CommonEntityData {
+    cpwVcEnetStatsTable.EntityData.YFilter = cpwVcEnetStatsTable.YFilter
+    cpwVcEnetStatsTable.EntityData.YangName = "cpwVcEnetStatsTable"
+    cpwVcEnetStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcEnetStatsTable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
+    cpwVcEnetStatsTable.EntityData.SegmentPath = "cpwVcEnetStatsTable"
+    cpwVcEnetStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcEnetStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcEnetStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcenetstatstable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcenetstatstable.EntityData.Children["cpwVcEnetStatsEntry"] = types.YChild{"Cpwvcenetstatsentry", nil}
-    for i := range cpwvcenetstatstable.Cpwvcenetstatsentry {
-        cpwvcenetstatstable.EntityData.Children[types.GetSegmentPath(&cpwvcenetstatstable.Cpwvcenetstatsentry[i])] = types.YChild{"Cpwvcenetstatsentry", &cpwvcenetstatstable.Cpwvcenetstatsentry[i]}
+    cpwVcEnetStatsTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcEnetStatsTable.EntityData.Children.Append("cpwVcEnetStatsEntry", types.YChild{"CpwVcEnetStatsEntry", nil})
+    for i := range cpwVcEnetStatsTable.CpwVcEnetStatsEntry {
+        cpwVcEnetStatsTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcEnetStatsTable.CpwVcEnetStatsEntry[i]), types.YChild{"CpwVcEnetStatsEntry", cpwVcEnetStatsTable.CpwVcEnetStatsEntry[i]})
     }
-    cpwvcenetstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcenetstatstable.EntityData)
+    cpwVcEnetStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcEnetStatsTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcEnetStatsTable.EntityData)
 }
 
-// CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry
+// CISCOIETFPWENETMIB_CpwVcEnetStatsTable_CpwVcEnetStatsEntry
 // Each entry represents the statistics gathered for the  
 // VC carrying the Ethernet packets since this VC was  
 // first created in the cpwVcEnetTable.
-type CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry struct {
+type CISCOIETFPWENETMIB_CpwVcEnetStatsTable_CpwVcEnetStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // The number of packets received (from the PSN) on this VC with   an illegal
     // VLAN field, missing VLAN field that was expected, or   A VLAN field when it
     // was not expected. This counter is not   relevant if the VC type is
     // 'ethernet' (i.e. raw mode), and   should be set to 0 by the agent to
     // indicate this. The type is interface{} with range: 0..18446744073709551615.
-    Cpwvcenetstatsillegalvlan interface{}
+    CpwVcEnetStatsIllegalVlan interface{}
 
     // The number of packets that were received with an illegal   Ethernet packet
     // length on this VC. An illegal length is defined  as being greater than the
     // value in the advertised maximum MTU   supported, or shorter than the
     // allowed Ethernet packet size. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cpwvcenetstatsillegallength interface{}
+    CpwVcEnetStatsIllegalLength interface{}
 }
 
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetEntityData() *types.CommonEntityData {
-    cpwvcenetstatsentry.EntityData.YFilter = cpwvcenetstatsentry.YFilter
-    cpwvcenetstatsentry.EntityData.YangName = "cpwVcEnetStatsEntry"
-    cpwvcenetstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcenetstatsentry.EntityData.ParentYangName = "cpwVcEnetStatsTable"
-    cpwvcenetstatsentry.EntityData.SegmentPath = "cpwVcEnetStatsEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetstatsentry.Cpwvcindex) + "']"
-    cpwvcenetstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcenetstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcenetstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcEnetStatsEntry *CISCOIETFPWENETMIB_CpwVcEnetStatsTable_CpwVcEnetStatsEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcEnetStatsEntry.EntityData.YFilter = cpwVcEnetStatsEntry.YFilter
+    cpwVcEnetStatsEntry.EntityData.YangName = "cpwVcEnetStatsEntry"
+    cpwVcEnetStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcEnetStatsEntry.EntityData.ParentYangName = "cpwVcEnetStatsTable"
+    cpwVcEnetStatsEntry.EntityData.SegmentPath = "cpwVcEnetStatsEntry" + types.AddKeyToken(cpwVcEnetStatsEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcEnetStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcEnetStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcEnetStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcenetstatsentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcenetstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcenetstatsentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcenetstatsentry.Cpwvcindex}
-    cpwvcenetstatsentry.EntityData.Leafs["cpwVcEnetStatsIllegalVlan"] = types.YLeaf{"Cpwvcenetstatsillegalvlan", cpwvcenetstatsentry.Cpwvcenetstatsillegalvlan}
-    cpwvcenetstatsentry.EntityData.Leafs["cpwVcEnetStatsIllegalLength"] = types.YLeaf{"Cpwvcenetstatsillegallength", cpwvcenetstatsentry.Cpwvcenetstatsillegallength}
-    return &(cpwvcenetstatsentry.EntityData)
+    cpwVcEnetStatsEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcEnetStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcEnetStatsEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcEnetStatsEntry.CpwVcIndex})
+    cpwVcEnetStatsEntry.EntityData.Leafs.Append("cpwVcEnetStatsIllegalVlan", types.YLeaf{"CpwVcEnetStatsIllegalVlan", cpwVcEnetStatsEntry.CpwVcEnetStatsIllegalVlan})
+    cpwVcEnetStatsEntry.EntityData.Leafs.Append("cpwVcEnetStatsIllegalLength", types.YLeaf{"CpwVcEnetStatsIllegalLength", cpwVcEnetStatsEntry.CpwVcEnetStatsIllegalLength})
+
+    cpwVcEnetStatsEntry.EntityData.YListKeys = []string {"CpwVcIndex"}
+
+    return &(cpwVcEnetStatsEntry.EntityData)
 }
 

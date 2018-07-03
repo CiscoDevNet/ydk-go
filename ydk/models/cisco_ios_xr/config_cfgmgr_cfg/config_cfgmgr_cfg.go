@@ -44,9 +44,12 @@ func (cfgmgr *Cfgmgr) GetEntityData() *types.CommonEntityData {
     cfgmgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfgmgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cfgmgr.EntityData.Children = make(map[string]types.YChild)
-    cfgmgr.EntityData.Leafs = make(map[string]types.YLeaf)
-    cfgmgr.EntityData.Leafs["mode-exclusive"] = types.YLeaf{"ModeExclusive", cfgmgr.ModeExclusive}
+    cfgmgr.EntityData.Children = types.NewOrderedMap()
+    cfgmgr.EntityData.Leafs = types.NewOrderedMap()
+    cfgmgr.EntityData.Leafs.Append("mode-exclusive", types.YLeaf{"ModeExclusive", cfgmgr.ModeExclusive})
+
+    cfgmgr.EntityData.YListKeys = []string {}
+
     return &(cfgmgr.EntityData)
 }
 

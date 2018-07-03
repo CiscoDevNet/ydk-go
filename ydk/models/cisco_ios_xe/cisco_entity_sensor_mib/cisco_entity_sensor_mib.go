@@ -18,6 +18,30 @@ func init() {
     ydk.RegisterEntity("CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB", reflect.TypeOf(CISCOENTITYSENSORMIB{}))
 }
 
+// SensorThresholdSeverity represents               threshold.
+type SensorThresholdSeverity string
+
+const (
+    SensorThresholdSeverity_other SensorThresholdSeverity = "other"
+
+    SensorThresholdSeverity_minor SensorThresholdSeverity = "minor"
+
+    SensorThresholdSeverity_major SensorThresholdSeverity = "major"
+
+    SensorThresholdSeverity_critical SensorThresholdSeverity = "critical"
+)
+
+// SensorStatus represents readings.
+type SensorStatus string
+
+const (
+    SensorStatus_ok SensorStatus = "ok"
+
+    SensorStatus_unavailable SensorStatus = "unavailable"
+
+    SensorStatus_nonoperational SensorStatus = "nonoperational"
+)
+
 // SensorDataType represents dBm(14):         dB relative to 1mW of power
 type SensorDataType string
 
@@ -49,6 +73,23 @@ const (
     SensorDataType_specialEnum SensorDataType = "specialEnum"
 
     SensorDataType_dBm SensorDataType = "dBm"
+)
+
+// SensorThresholdRelation represents                     the threshold value
+type SensorThresholdRelation string
+
+const (
+    SensorThresholdRelation_lessThan SensorThresholdRelation = "lessThan"
+
+    SensorThresholdRelation_lessOrEqual SensorThresholdRelation = "lessOrEqual"
+
+    SensorThresholdRelation_greaterThan SensorThresholdRelation = "greaterThan"
+
+    SensorThresholdRelation_greaterOrEqual SensorThresholdRelation = "greaterOrEqual"
+
+    SensorThresholdRelation_equalTo SensorThresholdRelation = "equalTo"
+
+    SensorThresholdRelation_notEqualTo SensorThresholdRelation = "notEqualTo"
 )
 
 // SensorDataScale represents International System of Units (SI) prefixes.
@@ -90,62 +131,21 @@ const (
     SensorDataScale_yotta SensorDataScale = "yotta"
 )
 
-// SensorStatus represents readings.
-type SensorStatus string
-
-const (
-    SensorStatus_ok SensorStatus = "ok"
-
-    SensorStatus_unavailable SensorStatus = "unavailable"
-
-    SensorStatus_nonoperational SensorStatus = "nonoperational"
-)
-
-// SensorThresholdSeverity represents               threshold.
-type SensorThresholdSeverity string
-
-const (
-    SensorThresholdSeverity_other SensorThresholdSeverity = "other"
-
-    SensorThresholdSeverity_minor SensorThresholdSeverity = "minor"
-
-    SensorThresholdSeverity_major SensorThresholdSeverity = "major"
-
-    SensorThresholdSeverity_critical SensorThresholdSeverity = "critical"
-)
-
-// SensorThresholdRelation represents                     the threshold value
-type SensorThresholdRelation string
-
-const (
-    SensorThresholdRelation_lessThan SensorThresholdRelation = "lessThan"
-
-    SensorThresholdRelation_lessOrEqual SensorThresholdRelation = "lessOrEqual"
-
-    SensorThresholdRelation_greaterThan SensorThresholdRelation = "greaterThan"
-
-    SensorThresholdRelation_greaterOrEqual SensorThresholdRelation = "greaterOrEqual"
-
-    SensorThresholdRelation_equalTo SensorThresholdRelation = "equalTo"
-
-    SensorThresholdRelation_notEqualTo SensorThresholdRelation = "notEqualTo"
-)
-
 // CISCOENTITYSENSORMIB
 type CISCOENTITYSENSORMIB struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
-    Entsensorglobalobjects CISCOENTITYSENSORMIB_Entsensorglobalobjects
+    EntSensorGlobalObjects CISCOENTITYSENSORMIB_EntSensorGlobalObjects
 
     // This table lists the type, scale, and present value of a sensor listed in
     // the Entity-MIB entPhysicalTable.
-    Entsensorvaluetable CISCOENTITYSENSORMIB_Entsensorvaluetable
+    EntSensorValueTable CISCOENTITYSENSORMIB_EntSensorValueTable
 
     // This table lists the threshold severity, relation, and comparison value,
     // for a sensor listed in the Entity-MIB  entPhysicalTable.
-    Entsensorthresholdtable CISCOENTITYSENSORMIB_Entsensorthresholdtable
+    EntSensorThresholdTable CISCOENTITYSENSORMIB_EntSensorThresholdTable
 }
 
 func (cISCOENTITYSENSORMIB *CISCOENTITYSENSORMIB) GetEntityData() *types.CommonEntityData {
@@ -158,16 +158,19 @@ func (cISCOENTITYSENSORMIB *CISCOENTITYSENSORMIB) GetEntityData() *types.CommonE
     cISCOENTITYSENSORMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENTITYSENSORMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOENTITYSENSORMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOENTITYSENSORMIB.EntityData.Children["entSensorGlobalObjects"] = types.YChild{"Entsensorglobalobjects", &cISCOENTITYSENSORMIB.Entsensorglobalobjects}
-    cISCOENTITYSENSORMIB.EntityData.Children["entSensorValueTable"] = types.YChild{"Entsensorvaluetable", &cISCOENTITYSENSORMIB.Entsensorvaluetable}
-    cISCOENTITYSENSORMIB.EntityData.Children["entSensorThresholdTable"] = types.YChild{"Entsensorthresholdtable", &cISCOENTITYSENSORMIB.Entsensorthresholdtable}
-    cISCOENTITYSENSORMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOENTITYSENSORMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOENTITYSENSORMIB.EntityData.Children.Append("entSensorGlobalObjects", types.YChild{"EntSensorGlobalObjects", &cISCOENTITYSENSORMIB.EntSensorGlobalObjects})
+    cISCOENTITYSENSORMIB.EntityData.Children.Append("entSensorValueTable", types.YChild{"EntSensorValueTable", &cISCOENTITYSENSORMIB.EntSensorValueTable})
+    cISCOENTITYSENSORMIB.EntityData.Children.Append("entSensorThresholdTable", types.YChild{"EntSensorThresholdTable", &cISCOENTITYSENSORMIB.EntSensorThresholdTable})
+    cISCOENTITYSENSORMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOENTITYSENSORMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOENTITYSENSORMIB.EntityData)
 }
 
-// CISCOENTITYSENSORMIB_Entsensorglobalobjects
-type CISCOENTITYSENSORMIB_Entsensorglobalobjects struct {
+// CISCOENTITYSENSORMIB_EntSensorGlobalObjects
+type CISCOENTITYSENSORMIB_EntSensorGlobalObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -177,79 +180,85 @@ type CISCOENTITYSENSORMIB_Entsensorglobalobjects struct {
     // object value is 'true', then whether a  entSensorThresholdNotification for
     // a threshold will be generated or not depends on the instance value of
     // entSensorThresholdNotificationEnable for that threshold. The type is bool.
-    Entsensorthreshnotifglobalenable interface{}
+    EntSensorThreshNotifGlobalEnable interface{}
 }
 
-func (entsensorglobalobjects *CISCOENTITYSENSORMIB_Entsensorglobalobjects) GetEntityData() *types.CommonEntityData {
-    entsensorglobalobjects.EntityData.YFilter = entsensorglobalobjects.YFilter
-    entsensorglobalobjects.EntityData.YangName = "entSensorGlobalObjects"
-    entsensorglobalobjects.EntityData.BundleName = "cisco_ios_xe"
-    entsensorglobalobjects.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
-    entsensorglobalobjects.EntityData.SegmentPath = "entSensorGlobalObjects"
-    entsensorglobalobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entsensorglobalobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entsensorglobalobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entSensorGlobalObjects *CISCOENTITYSENSORMIB_EntSensorGlobalObjects) GetEntityData() *types.CommonEntityData {
+    entSensorGlobalObjects.EntityData.YFilter = entSensorGlobalObjects.YFilter
+    entSensorGlobalObjects.EntityData.YangName = "entSensorGlobalObjects"
+    entSensorGlobalObjects.EntityData.BundleName = "cisco_ios_xe"
+    entSensorGlobalObjects.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
+    entSensorGlobalObjects.EntityData.SegmentPath = "entSensorGlobalObjects"
+    entSensorGlobalObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entSensorGlobalObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entSensorGlobalObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entsensorglobalobjects.EntityData.Children = make(map[string]types.YChild)
-    entsensorglobalobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    entsensorglobalobjects.EntityData.Leafs["entSensorThreshNotifGlobalEnable"] = types.YLeaf{"Entsensorthreshnotifglobalenable", entsensorglobalobjects.Entsensorthreshnotifglobalenable}
-    return &(entsensorglobalobjects.EntityData)
+    entSensorGlobalObjects.EntityData.Children = types.NewOrderedMap()
+    entSensorGlobalObjects.EntityData.Leafs = types.NewOrderedMap()
+    entSensorGlobalObjects.EntityData.Leafs.Append("entSensorThreshNotifGlobalEnable", types.YLeaf{"EntSensorThreshNotifGlobalEnable", entSensorGlobalObjects.EntSensorThreshNotifGlobalEnable})
+
+    entSensorGlobalObjects.EntityData.YListKeys = []string {}
+
+    return &(entSensorGlobalObjects.EntityData)
 }
 
-// CISCOENTITYSENSORMIB_Entsensorvaluetable
+// CISCOENTITYSENSORMIB_EntSensorValueTable
 // This table lists the type, scale, and present value
 // of a sensor listed in the Entity-MIB entPhysicalTable.
-type CISCOENTITYSENSORMIB_Entsensorvaluetable struct {
+type CISCOENTITYSENSORMIB_EntSensorValueTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entSensorValueTable entry describes the present reading of a sensor, the
     // measurement units and scale, and sensor operational status. The type is
-    // slice of CISCOENTITYSENSORMIB_Entsensorvaluetable_Entsensorvalueentry.
-    Entsensorvalueentry []CISCOENTITYSENSORMIB_Entsensorvaluetable_Entsensorvalueentry
+    // slice of CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorValueEntry.
+    EntSensorValueEntry []*CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorValueEntry
 }
 
-func (entsensorvaluetable *CISCOENTITYSENSORMIB_Entsensorvaluetable) GetEntityData() *types.CommonEntityData {
-    entsensorvaluetable.EntityData.YFilter = entsensorvaluetable.YFilter
-    entsensorvaluetable.EntityData.YangName = "entSensorValueTable"
-    entsensorvaluetable.EntityData.BundleName = "cisco_ios_xe"
-    entsensorvaluetable.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
-    entsensorvaluetable.EntityData.SegmentPath = "entSensorValueTable"
-    entsensorvaluetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entsensorvaluetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entsensorvaluetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entSensorValueTable *CISCOENTITYSENSORMIB_EntSensorValueTable) GetEntityData() *types.CommonEntityData {
+    entSensorValueTable.EntityData.YFilter = entSensorValueTable.YFilter
+    entSensorValueTable.EntityData.YangName = "entSensorValueTable"
+    entSensorValueTable.EntityData.BundleName = "cisco_ios_xe"
+    entSensorValueTable.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
+    entSensorValueTable.EntityData.SegmentPath = "entSensorValueTable"
+    entSensorValueTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entSensorValueTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entSensorValueTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entsensorvaluetable.EntityData.Children = make(map[string]types.YChild)
-    entsensorvaluetable.EntityData.Children["entSensorValueEntry"] = types.YChild{"Entsensorvalueentry", nil}
-    for i := range entsensorvaluetable.Entsensorvalueentry {
-        entsensorvaluetable.EntityData.Children[types.GetSegmentPath(&entsensorvaluetable.Entsensorvalueentry[i])] = types.YChild{"Entsensorvalueentry", &entsensorvaluetable.Entsensorvalueentry[i]}
+    entSensorValueTable.EntityData.Children = types.NewOrderedMap()
+    entSensorValueTable.EntityData.Children.Append("entSensorValueEntry", types.YChild{"EntSensorValueEntry", nil})
+    for i := range entSensorValueTable.EntSensorValueEntry {
+        entSensorValueTable.EntityData.Children.Append(types.GetSegmentPath(entSensorValueTable.EntSensorValueEntry[i]), types.YChild{"EntSensorValueEntry", entSensorValueTable.EntSensorValueEntry[i]})
     }
-    entsensorvaluetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(entsensorvaluetable.EntityData)
+    entSensorValueTable.EntityData.Leafs = types.NewOrderedMap()
+
+    entSensorValueTable.EntityData.YListKeys = []string {}
+
+    return &(entSensorValueTable.EntityData)
 }
 
-// CISCOENTITYSENSORMIB_Entsensorvaluetable_Entsensorvalueentry
+// CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorValueEntry
 // An entSensorValueTable entry describes the
 // present reading of a sensor, the measurement units
 // and scale, and sensor operational status.
-type CISCOENTITYSENSORMIB_Entsensorvaluetable_Entsensorvalueentry struct {
+type CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorValueEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This variable indicates the type of data reported by the entSensorValue. 
     // This variable is set by the agent at start-up and the value does not change
     // during operation. The type is SensorDataType.
-    Entsensortype interface{}
+    EntSensorType interface{}
 
     // This variable indicates the exponent to apply to sensor values reported by
     // entSensorValue.  This variable is set by the agent at start-up and the
     // value does not change during operation. The type is SensorDataScale.
-    Entsensorscale interface{}
+    EntSensorScale interface{}
 
     // This variable indicates the number of decimal places of precision in
     // fixed-point sensor values reported by entSensorValue.  This variable is set
@@ -257,7 +266,7 @@ type CISCOENTITYSENSORMIB_Entsensorvaluetable_Entsensorvalueentry struct {
     // 'rpm(10)', 'cmm(11)', or 'truthvalue(12)'.  This variable is set by the
     // agent at start-up and the value does not change during operation. The type
     // is interface{} with range: -8..9.
-    Entsensorprecision interface{}
+    EntSensorPrecision interface{}
 
     // This variable reports the most recent measurement seen by the sensor.  To
     // correctly display or interpret this variable's value,  you must also know
@@ -265,19 +274,19 @@ type CISCOENTITYSENSORMIB_Entsensorvaluetable_Entsensorvalueentry struct {
     // compare entSensorValue with the threshold values given in
     // entSensorThresholdTable without any semantic knowledge. The type is
     // interface{} with range: -1000000000..1073741823.
-    Entsensorvalue interface{}
+    EntSensorValue interface{}
 
     // This variable indicates the present operational status of the sensor. The
     // type is SensorStatus.
-    Entsensorstatus interface{}
+    EntSensorStatus interface{}
 
     // This variable indicates the age of the value reported by entSensorValue.
     // The type is interface{} with range: 0..4294967295.
-    Entsensorvaluetimestamp interface{}
+    EntSensorValueTimeStamp interface{}
 
     // This variable indicates the rate that the agent updates entSensorValue. The
     // type is interface{} with range: 0..999999999. Units are seconds.
-    Entsensorvalueupdaterate interface{}
+    EntSensorValueUpdateRate interface{}
 
     // This object identifies the physical entity for which the sensor is taking
     // measurements.  For example, for a sensor measuring the voltage output of a
@@ -288,38 +297,41 @@ type CISCOENTITYSENSORMIB_Entsensorvaluetable_Entsensorvalueentry struct {
     // which the sensor is taking measurements can not be represented by any one
     // row in the entPhysicalTable, or that there is no such physical entity. The
     // type is interface{} with range: 0..2147483647.
-    Entsensormeasuredentity interface{}
+    EntSensorMeasuredEntity interface{}
 }
 
-func (entsensorvalueentry *CISCOENTITYSENSORMIB_Entsensorvaluetable_Entsensorvalueentry) GetEntityData() *types.CommonEntityData {
-    entsensorvalueentry.EntityData.YFilter = entsensorvalueentry.YFilter
-    entsensorvalueentry.EntityData.YangName = "entSensorValueEntry"
-    entsensorvalueentry.EntityData.BundleName = "cisco_ios_xe"
-    entsensorvalueentry.EntityData.ParentYangName = "entSensorValueTable"
-    entsensorvalueentry.EntityData.SegmentPath = "entSensorValueEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entsensorvalueentry.Entphysicalindex) + "']"
-    entsensorvalueentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entsensorvalueentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entsensorvalueentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entSensorValueEntry *CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorValueEntry) GetEntityData() *types.CommonEntityData {
+    entSensorValueEntry.EntityData.YFilter = entSensorValueEntry.YFilter
+    entSensorValueEntry.EntityData.YangName = "entSensorValueEntry"
+    entSensorValueEntry.EntityData.BundleName = "cisco_ios_xe"
+    entSensorValueEntry.EntityData.ParentYangName = "entSensorValueTable"
+    entSensorValueEntry.EntityData.SegmentPath = "entSensorValueEntry" + types.AddKeyToken(entSensorValueEntry.EntPhysicalIndex, "entPhysicalIndex")
+    entSensorValueEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entSensorValueEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entSensorValueEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entsensorvalueentry.EntityData.Children = make(map[string]types.YChild)
-    entsensorvalueentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entsensorvalueentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", entsensorvalueentry.Entphysicalindex}
-    entsensorvalueentry.EntityData.Leafs["entSensorType"] = types.YLeaf{"Entsensortype", entsensorvalueentry.Entsensortype}
-    entsensorvalueentry.EntityData.Leafs["entSensorScale"] = types.YLeaf{"Entsensorscale", entsensorvalueentry.Entsensorscale}
-    entsensorvalueentry.EntityData.Leafs["entSensorPrecision"] = types.YLeaf{"Entsensorprecision", entsensorvalueentry.Entsensorprecision}
-    entsensorvalueentry.EntityData.Leafs["entSensorValue"] = types.YLeaf{"Entsensorvalue", entsensorvalueentry.Entsensorvalue}
-    entsensorvalueentry.EntityData.Leafs["entSensorStatus"] = types.YLeaf{"Entsensorstatus", entsensorvalueentry.Entsensorstatus}
-    entsensorvalueentry.EntityData.Leafs["entSensorValueTimeStamp"] = types.YLeaf{"Entsensorvaluetimestamp", entsensorvalueentry.Entsensorvaluetimestamp}
-    entsensorvalueentry.EntityData.Leafs["entSensorValueUpdateRate"] = types.YLeaf{"Entsensorvalueupdaterate", entsensorvalueentry.Entsensorvalueupdaterate}
-    entsensorvalueentry.EntityData.Leafs["entSensorMeasuredEntity"] = types.YLeaf{"Entsensormeasuredentity", entsensorvalueentry.Entsensormeasuredentity}
-    return &(entsensorvalueentry.EntityData)
+    entSensorValueEntry.EntityData.Children = types.NewOrderedMap()
+    entSensorValueEntry.EntityData.Leafs = types.NewOrderedMap()
+    entSensorValueEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", entSensorValueEntry.EntPhysicalIndex})
+    entSensorValueEntry.EntityData.Leafs.Append("entSensorType", types.YLeaf{"EntSensorType", entSensorValueEntry.EntSensorType})
+    entSensorValueEntry.EntityData.Leafs.Append("entSensorScale", types.YLeaf{"EntSensorScale", entSensorValueEntry.EntSensorScale})
+    entSensorValueEntry.EntityData.Leafs.Append("entSensorPrecision", types.YLeaf{"EntSensorPrecision", entSensorValueEntry.EntSensorPrecision})
+    entSensorValueEntry.EntityData.Leafs.Append("entSensorValue", types.YLeaf{"EntSensorValue", entSensorValueEntry.EntSensorValue})
+    entSensorValueEntry.EntityData.Leafs.Append("entSensorStatus", types.YLeaf{"EntSensorStatus", entSensorValueEntry.EntSensorStatus})
+    entSensorValueEntry.EntityData.Leafs.Append("entSensorValueTimeStamp", types.YLeaf{"EntSensorValueTimeStamp", entSensorValueEntry.EntSensorValueTimeStamp})
+    entSensorValueEntry.EntityData.Leafs.Append("entSensorValueUpdateRate", types.YLeaf{"EntSensorValueUpdateRate", entSensorValueEntry.EntSensorValueUpdateRate})
+    entSensorValueEntry.EntityData.Leafs.Append("entSensorMeasuredEntity", types.YLeaf{"EntSensorMeasuredEntity", entSensorValueEntry.EntSensorMeasuredEntity})
+
+    entSensorValueEntry.EntityData.YListKeys = []string {"EntPhysicalIndex"}
+
+    return &(entSensorValueEntry.EntityData)
 }
 
-// CISCOENTITYSENSORMIB_Entsensorthresholdtable
+// CISCOENTITYSENSORMIB_EntSensorThresholdTable
 // This table lists the threshold severity, relation, and
 // comparison value, for a sensor listed in the Entity-MIB 
 // entPhysicalTable.
-type CISCOENTITYSENSORMIB_Entsensorthresholdtable struct {
+type CISCOENTITYSENSORMIB_EntSensorThresholdTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -331,30 +343,33 @@ type CISCOENTITYSENSORMIB_Entsensorthresholdtable struct {
     // alarms, Expression-MIB, etc.  Entries are created by the agent at system
     // startup and FRU insertion.  Entries are deleted by the agent at FRU
     // removal. The type is slice of
-    // CISCOENTITYSENSORMIB_Entsensorthresholdtable_Entsensorthresholdentry.
-    Entsensorthresholdentry []CISCOENTITYSENSORMIB_Entsensorthresholdtable_Entsensorthresholdentry
+    // CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntSensorThresholdEntry.
+    EntSensorThresholdEntry []*CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntSensorThresholdEntry
 }
 
-func (entsensorthresholdtable *CISCOENTITYSENSORMIB_Entsensorthresholdtable) GetEntityData() *types.CommonEntityData {
-    entsensorthresholdtable.EntityData.YFilter = entsensorthresholdtable.YFilter
-    entsensorthresholdtable.EntityData.YangName = "entSensorThresholdTable"
-    entsensorthresholdtable.EntityData.BundleName = "cisco_ios_xe"
-    entsensorthresholdtable.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
-    entsensorthresholdtable.EntityData.SegmentPath = "entSensorThresholdTable"
-    entsensorthresholdtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entsensorthresholdtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entsensorthresholdtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entSensorThresholdTable *CISCOENTITYSENSORMIB_EntSensorThresholdTable) GetEntityData() *types.CommonEntityData {
+    entSensorThresholdTable.EntityData.YFilter = entSensorThresholdTable.YFilter
+    entSensorThresholdTable.EntityData.YangName = "entSensorThresholdTable"
+    entSensorThresholdTable.EntityData.BundleName = "cisco_ios_xe"
+    entSensorThresholdTable.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
+    entSensorThresholdTable.EntityData.SegmentPath = "entSensorThresholdTable"
+    entSensorThresholdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entSensorThresholdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entSensorThresholdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entsensorthresholdtable.EntityData.Children = make(map[string]types.YChild)
-    entsensorthresholdtable.EntityData.Children["entSensorThresholdEntry"] = types.YChild{"Entsensorthresholdentry", nil}
-    for i := range entsensorthresholdtable.Entsensorthresholdentry {
-        entsensorthresholdtable.EntityData.Children[types.GetSegmentPath(&entsensorthresholdtable.Entsensorthresholdentry[i])] = types.YChild{"Entsensorthresholdentry", &entsensorthresholdtable.Entsensorthresholdentry[i]}
+    entSensorThresholdTable.EntityData.Children = types.NewOrderedMap()
+    entSensorThresholdTable.EntityData.Children.Append("entSensorThresholdEntry", types.YChild{"EntSensorThresholdEntry", nil})
+    for i := range entSensorThresholdTable.EntSensorThresholdEntry {
+        entSensorThresholdTable.EntityData.Children.Append(types.GetSegmentPath(entSensorThresholdTable.EntSensorThresholdEntry[i]), types.YChild{"EntSensorThresholdEntry", entSensorThresholdTable.EntSensorThresholdEntry[i]})
     }
-    entsensorthresholdtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(entsensorthresholdtable.EntityData)
+    entSensorThresholdTable.EntityData.Leafs = types.NewOrderedMap()
+
+    entSensorThresholdTable.EntityData.YListKeys = []string {}
+
+    return &(entSensorThresholdTable.EntityData)
 }
 
-// CISCOENTITYSENSORMIB_Entsensorthresholdtable_Entsensorthresholdentry
+// CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntSensorThresholdEntry
 // An entSensorThresholdTable entry describes the
 // thresholds for a sensor: the threshold severity,
 // the threshold value, the relation, and the 
@@ -369,23 +384,23 @@ func (entsensorthresholdtable *CISCOENTITYSENSORMIB_Entsensorthresholdtable) Get
 // Entries are created by the agent at system startup and
 // FRU insertion.  Entries are deleted by the agent at
 // FRU removal.
-type CISCOENTITYSENSORMIB_Entsensorthresholdtable_Entsensorthresholdentry struct {
+type CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntSensorThresholdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // entSensorThresholdTable. This index permits the same sensor to have several
     // different thresholds. The type is interface{} with range: 1..99999999.
-    Entsensorthresholdindex interface{}
+    EntSensorThresholdIndex interface{}
 
     // This variable indicates the severity of this threshold. The type is
     // SensorThresholdSeverity.
-    Entsensorthresholdseverity interface{}
+    EntSensorThresholdSeverity interface{}
 
     // This variable indicates the relation between sensor value (entSensorValue)
     // and threshold value (entSensorThresholdValue),  required to trigger the
@@ -397,7 +412,7 @@ type CISCOENTITYSENSORMIB_Entsensorthresholdtable_Entsensorthresholdentry struct
     // (entSensorThresholdNotificationEnable == true))          then            
     // raise_alarm(sensor's entPhysicalIndex);         endif     endif endif ...
     // The type is SensorThresholdRelation.
-    Entsensorthresholdrelation interface{}
+    EntSensorThresholdRelation interface{}
 
     // This variable indicates the value of the threshold.  To correctly display
     // or interpret this variable's value,  you must also know entSensorType,
@@ -405,42 +420,45 @@ type CISCOENTITYSENSORMIB_Entsensorthresholdtable_Entsensorthresholdentry struct
     // entSensorValue  with the threshold values given in entSensorThresholdTable 
     // without any semantic knowledge. The type is interface{} with range:
     // -1000000000..1073741823.
-    Entsensorthresholdvalue interface{}
+    EntSensorThresholdValue interface{}
 
     // This variable indicates the result of the most recent evaluation of the
     // threshold.  If the threshold condition is true,
     // entSensorThresholdEvaluation  is true(1).  If the threshold condition is
     // false,  entSensorThresholdEvaluation is false(2).  Thresholds are evaluated
     // at the rate indicated by  entSensorValueUpdateRate. The type is bool.
-    Entsensorthresholdevaluation interface{}
+    EntSensorThresholdEvaluation interface{}
 
     // This variable controls generation of entSensorThresholdNotification for
     // this threshold.  When this variable is 'true', generation of 
     // entSensorThresholdNotification is enabled for this threshold. When this
     // variable is 'false',  generation of entSensorThresholdNotification is
     // disabled for this threshold. The type is bool.
-    Entsensorthresholdnotificationenable interface{}
+    EntSensorThresholdNotificationEnable interface{}
 }
 
-func (entsensorthresholdentry *CISCOENTITYSENSORMIB_Entsensorthresholdtable_Entsensorthresholdentry) GetEntityData() *types.CommonEntityData {
-    entsensorthresholdentry.EntityData.YFilter = entsensorthresholdentry.YFilter
-    entsensorthresholdentry.EntityData.YangName = "entSensorThresholdEntry"
-    entsensorthresholdentry.EntityData.BundleName = "cisco_ios_xe"
-    entsensorthresholdentry.EntityData.ParentYangName = "entSensorThresholdTable"
-    entsensorthresholdentry.EntityData.SegmentPath = "entSensorThresholdEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entsensorthresholdentry.Entphysicalindex) + "']" + "[entSensorThresholdIndex='" + fmt.Sprintf("%v", entsensorthresholdentry.Entsensorthresholdindex) + "']"
-    entsensorthresholdentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entsensorthresholdentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entsensorthresholdentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entSensorThresholdEntry *CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntSensorThresholdEntry) GetEntityData() *types.CommonEntityData {
+    entSensorThresholdEntry.EntityData.YFilter = entSensorThresholdEntry.YFilter
+    entSensorThresholdEntry.EntityData.YangName = "entSensorThresholdEntry"
+    entSensorThresholdEntry.EntityData.BundleName = "cisco_ios_xe"
+    entSensorThresholdEntry.EntityData.ParentYangName = "entSensorThresholdTable"
+    entSensorThresholdEntry.EntityData.SegmentPath = "entSensorThresholdEntry" + types.AddKeyToken(entSensorThresholdEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(entSensorThresholdEntry.EntSensorThresholdIndex, "entSensorThresholdIndex")
+    entSensorThresholdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entSensorThresholdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entSensorThresholdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entsensorthresholdentry.EntityData.Children = make(map[string]types.YChild)
-    entsensorthresholdentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entsensorthresholdentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", entsensorthresholdentry.Entphysicalindex}
-    entsensorthresholdentry.EntityData.Leafs["entSensorThresholdIndex"] = types.YLeaf{"Entsensorthresholdindex", entsensorthresholdentry.Entsensorthresholdindex}
-    entsensorthresholdentry.EntityData.Leafs["entSensorThresholdSeverity"] = types.YLeaf{"Entsensorthresholdseverity", entsensorthresholdentry.Entsensorthresholdseverity}
-    entsensorthresholdentry.EntityData.Leafs["entSensorThresholdRelation"] = types.YLeaf{"Entsensorthresholdrelation", entsensorthresholdentry.Entsensorthresholdrelation}
-    entsensorthresholdentry.EntityData.Leafs["entSensorThresholdValue"] = types.YLeaf{"Entsensorthresholdvalue", entsensorthresholdentry.Entsensorthresholdvalue}
-    entsensorthresholdentry.EntityData.Leafs["entSensorThresholdEvaluation"] = types.YLeaf{"Entsensorthresholdevaluation", entsensorthresholdentry.Entsensorthresholdevaluation}
-    entsensorthresholdentry.EntityData.Leafs["entSensorThresholdNotificationEnable"] = types.YLeaf{"Entsensorthresholdnotificationenable", entsensorthresholdentry.Entsensorthresholdnotificationenable}
-    return &(entsensorthresholdentry.EntityData)
+    entSensorThresholdEntry.EntityData.Children = types.NewOrderedMap()
+    entSensorThresholdEntry.EntityData.Leafs = types.NewOrderedMap()
+    entSensorThresholdEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", entSensorThresholdEntry.EntPhysicalIndex})
+    entSensorThresholdEntry.EntityData.Leafs.Append("entSensorThresholdIndex", types.YLeaf{"EntSensorThresholdIndex", entSensorThresholdEntry.EntSensorThresholdIndex})
+    entSensorThresholdEntry.EntityData.Leafs.Append("entSensorThresholdSeverity", types.YLeaf{"EntSensorThresholdSeverity", entSensorThresholdEntry.EntSensorThresholdSeverity})
+    entSensorThresholdEntry.EntityData.Leafs.Append("entSensorThresholdRelation", types.YLeaf{"EntSensorThresholdRelation", entSensorThresholdEntry.EntSensorThresholdRelation})
+    entSensorThresholdEntry.EntityData.Leafs.Append("entSensorThresholdValue", types.YLeaf{"EntSensorThresholdValue", entSensorThresholdEntry.EntSensorThresholdValue})
+    entSensorThresholdEntry.EntityData.Leafs.Append("entSensorThresholdEvaluation", types.YLeaf{"EntSensorThresholdEvaluation", entSensorThresholdEntry.EntSensorThresholdEvaluation})
+    entSensorThresholdEntry.EntityData.Leafs.Append("entSensorThresholdNotificationEnable", types.YLeaf{"EntSensorThresholdNotificationEnable", entSensorThresholdEntry.EntSensorThresholdNotificationEnable})
+
+    entSensorThresholdEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "EntSensorThresholdIndex"}
+
+    return &(entSensorThresholdEntry.EntityData)
 }
 

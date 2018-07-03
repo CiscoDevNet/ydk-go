@@ -42,7 +42,7 @@ type ModulesState struct {
 
     // Each entry represents one revision of one module currently supported by the
     // server. The type is slice of ModulesState_Module.
-    Module []ModulesState_Module
+    Module []*ModulesState_Module
 }
 
 func (modulesState *ModulesState) GetEntityData() *types.CommonEntityData {
@@ -55,13 +55,16 @@ func (modulesState *ModulesState) GetEntityData() *types.CommonEntityData {
     modulesState.EntityData.NamespaceTable = ietf.GetNamespaces()
     modulesState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    modulesState.EntityData.Children = make(map[string]types.YChild)
-    modulesState.EntityData.Children["module"] = types.YChild{"Module", nil}
+    modulesState.EntityData.Children = types.NewOrderedMap()
+    modulesState.EntityData.Children.Append("module", types.YChild{"Module", nil})
     for i := range modulesState.Module {
-        modulesState.EntityData.Children[types.GetSegmentPath(&modulesState.Module[i])] = types.YChild{"Module", &modulesState.Module[i]}
+        modulesState.EntityData.Children.Append(types.GetSegmentPath(modulesState.Module[i]), types.YChild{"Module", modulesState.Module[i]})
     }
-    modulesState.EntityData.Leafs = make(map[string]types.YLeaf)
-    modulesState.EntityData.Leafs["module-set-id"] = types.YLeaf{"ModuleSetId", modulesState.ModuleSetId}
+    modulesState.EntityData.Leafs = types.NewOrderedMap()
+    modulesState.EntityData.Leafs.Append("module-set-id", types.YLeaf{"ModuleSetId", modulesState.ModuleSetId})
+
+    modulesState.EntityData.YListKeys = []string {}
+
     return &(modulesState.EntityData)
 }
 
@@ -73,13 +76,13 @@ type ModulesState_Module struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The YANG module or submodule name. The type is
-    // string with pattern: b'[a-zA-Z_][a-zA-Z0-9\\-_.]*'.
+    // string with pattern: [a-zA-Z_][a-zA-Z0-9\-_.]*.
     Name interface{}
 
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: b'\\d{4}-\\d{2}-\\d{2}', or string with length: 0.
+    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
     Revision interface{}
 
     // Contains a URL that represents the YANG schema resource for this module or
@@ -94,7 +97,7 @@ type ModulesState_Module struct {
     // List of YANG feature names from this module that are supported by the
     // server, regardless of whether they are defined in the module or any
     // included submodule. The type is slice of string with pattern:
-    // b'[a-zA-Z_][a-zA-Z0-9\\-_.]*'.
+    // [a-zA-Z_][a-zA-Z0-9\-_.]*.
     Feature []interface{}
 
     // Indicates the type of conformance the server is claiming for the YANG
@@ -109,11 +112,11 @@ type ModulesState_Module struct {
     // module MUST be present in the 'module' list, with the same name and
     // revision values. The 'conformance-type' value will be 'implement' for the
     // deviation module. The type is slice of ModulesState_Module_Deviation.
-    Deviation []ModulesState_Module_Deviation
+    Deviation []*ModulesState_Module_Deviation
 
     // Each entry represents one submodule within the parent module. The type is
     // slice of ModulesState_Module_Submodule.
-    Submodule []ModulesState_Module_Submodule
+    Submodule []*ModulesState_Module_Submodule
 }
 
 func (module *ModulesState_Module) GetEntityData() *types.CommonEntityData {
@@ -121,27 +124,30 @@ func (module *ModulesState_Module) GetEntityData() *types.CommonEntityData {
     module.EntityData.YangName = "module"
     module.EntityData.BundleName = "ietf"
     module.EntityData.ParentYangName = "modules-state"
-    module.EntityData.SegmentPath = "module" + "[name='" + fmt.Sprintf("%v", module.Name) + "']" + "[revision='" + fmt.Sprintf("%v", module.Revision) + "']"
+    module.EntityData.SegmentPath = "module" + types.AddKeyToken(module.Name, "name") + types.AddKeyToken(module.Revision, "revision")
     module.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     module.EntityData.NamespaceTable = ietf.GetNamespaces()
     module.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    module.EntityData.Children = make(map[string]types.YChild)
-    module.EntityData.Children["deviation"] = types.YChild{"Deviation", nil}
+    module.EntityData.Children = types.NewOrderedMap()
+    module.EntityData.Children.Append("deviation", types.YChild{"Deviation", nil})
     for i := range module.Deviation {
-        module.EntityData.Children[types.GetSegmentPath(&module.Deviation[i])] = types.YChild{"Deviation", &module.Deviation[i]}
+        module.EntityData.Children.Append(types.GetSegmentPath(module.Deviation[i]), types.YChild{"Deviation", module.Deviation[i]})
     }
-    module.EntityData.Children["submodule"] = types.YChild{"Submodule", nil}
+    module.EntityData.Children.Append("submodule", types.YChild{"Submodule", nil})
     for i := range module.Submodule {
-        module.EntityData.Children[types.GetSegmentPath(&module.Submodule[i])] = types.YChild{"Submodule", &module.Submodule[i]}
+        module.EntityData.Children.Append(types.GetSegmentPath(module.Submodule[i]), types.YChild{"Submodule", module.Submodule[i]})
     }
-    module.EntityData.Leafs = make(map[string]types.YLeaf)
-    module.EntityData.Leafs["name"] = types.YLeaf{"Name", module.Name}
-    module.EntityData.Leafs["revision"] = types.YLeaf{"Revision", module.Revision}
-    module.EntityData.Leafs["schema"] = types.YLeaf{"Schema", module.Schema}
-    module.EntityData.Leafs["namespace"] = types.YLeaf{"Namespace", module.Namespace}
-    module.EntityData.Leafs["feature"] = types.YLeaf{"Feature", module.Feature}
-    module.EntityData.Leafs["conformance-type"] = types.YLeaf{"ConformanceType", module.ConformanceType}
+    module.EntityData.Leafs = types.NewOrderedMap()
+    module.EntityData.Leafs.Append("name", types.YLeaf{"Name", module.Name})
+    module.EntityData.Leafs.Append("revision", types.YLeaf{"Revision", module.Revision})
+    module.EntityData.Leafs.Append("schema", types.YLeaf{"Schema", module.Schema})
+    module.EntityData.Leafs.Append("namespace", types.YLeaf{"Namespace", module.Namespace})
+    module.EntityData.Leafs.Append("feature", types.YLeaf{"Feature", module.Feature})
+    module.EntityData.Leafs.Append("conformance-type", types.YLeaf{"ConformanceType", module.ConformanceType})
+
+    module.EntityData.YListKeys = []string {"Name", "Revision"}
+
     return &(module.EntityData)
 }
 
@@ -161,13 +167,13 @@ type ModulesState_Module_Deviation struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The YANG module or submodule name. The type is
-    // string with pattern: b'[a-zA-Z_][a-zA-Z0-9\\-_.]*'.
+    // string with pattern: [a-zA-Z_][a-zA-Z0-9\-_.]*.
     Name interface{}
 
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: b'\\d{4}-\\d{2}-\\d{2}', or string with length: 0.
+    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
     Revision interface{}
 }
 
@@ -176,15 +182,18 @@ func (deviation *ModulesState_Module_Deviation) GetEntityData() *types.CommonEnt
     deviation.EntityData.YangName = "deviation"
     deviation.EntityData.BundleName = "ietf"
     deviation.EntityData.ParentYangName = "module"
-    deviation.EntityData.SegmentPath = "deviation" + "[name='" + fmt.Sprintf("%v", deviation.Name) + "']" + "[revision='" + fmt.Sprintf("%v", deviation.Revision) + "']"
+    deviation.EntityData.SegmentPath = "deviation" + types.AddKeyToken(deviation.Name, "name") + types.AddKeyToken(deviation.Revision, "revision")
     deviation.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     deviation.EntityData.NamespaceTable = ietf.GetNamespaces()
     deviation.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    deviation.EntityData.Children = make(map[string]types.YChild)
-    deviation.EntityData.Leafs = make(map[string]types.YLeaf)
-    deviation.EntityData.Leafs["name"] = types.YLeaf{"Name", deviation.Name}
-    deviation.EntityData.Leafs["revision"] = types.YLeaf{"Revision", deviation.Revision}
+    deviation.EntityData.Children = types.NewOrderedMap()
+    deviation.EntityData.Leafs = types.NewOrderedMap()
+    deviation.EntityData.Leafs.Append("name", types.YLeaf{"Name", deviation.Name})
+    deviation.EntityData.Leafs.Append("revision", types.YLeaf{"Revision", deviation.Revision})
+
+    deviation.EntityData.YListKeys = []string {"Name", "Revision"}
+
     return &(deviation.EntityData)
 }
 
@@ -196,13 +205,13 @@ type ModulesState_Module_Submodule struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The YANG module or submodule name. The type is
-    // string with pattern: b'[a-zA-Z_][a-zA-Z0-9\\-_.]*'.
+    // string with pattern: [a-zA-Z_][a-zA-Z0-9\-_.]*.
     Name interface{}
 
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: b'\\d{4}-\\d{2}-\\d{2}', or string with length: 0.
+    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
     Revision interface{}
 
     // Contains a URL that represents the YANG schema resource for this module or
@@ -216,16 +225,19 @@ func (submodule *ModulesState_Module_Submodule) GetEntityData() *types.CommonEnt
     submodule.EntityData.YangName = "submodule"
     submodule.EntityData.BundleName = "ietf"
     submodule.EntityData.ParentYangName = "module"
-    submodule.EntityData.SegmentPath = "submodule" + "[name='" + fmt.Sprintf("%v", submodule.Name) + "']" + "[revision='" + fmt.Sprintf("%v", submodule.Revision) + "']"
+    submodule.EntityData.SegmentPath = "submodule" + types.AddKeyToken(submodule.Name, "name") + types.AddKeyToken(submodule.Revision, "revision")
     submodule.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     submodule.EntityData.NamespaceTable = ietf.GetNamespaces()
     submodule.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    submodule.EntityData.Children = make(map[string]types.YChild)
-    submodule.EntityData.Leafs = make(map[string]types.YLeaf)
-    submodule.EntityData.Leafs["name"] = types.YLeaf{"Name", submodule.Name}
-    submodule.EntityData.Leafs["revision"] = types.YLeaf{"Revision", submodule.Revision}
-    submodule.EntityData.Leafs["schema"] = types.YLeaf{"Schema", submodule.Schema}
+    submodule.EntityData.Children = types.NewOrderedMap()
+    submodule.EntityData.Leafs = types.NewOrderedMap()
+    submodule.EntityData.Leafs.Append("name", types.YLeaf{"Name", submodule.Name})
+    submodule.EntityData.Leafs.Append("revision", types.YLeaf{"Revision", submodule.Revision})
+    submodule.EntityData.Leafs.Append("schema", types.YLeaf{"Schema", submodule.Schema})
+
+    submodule.EntityData.YListKeys = []string {"Name", "Revision"}
+
     return &(submodule.EntityData)
 }
 

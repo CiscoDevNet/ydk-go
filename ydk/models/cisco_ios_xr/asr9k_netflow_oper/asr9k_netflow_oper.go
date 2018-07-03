@@ -44,9 +44,12 @@ func (netFlow *NetFlow) GetEntityData() *types.CommonEntityData {
     netFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netFlow.EntityData.Children = make(map[string]types.YChild)
-    netFlow.EntityData.Children["statistics"] = types.YChild{"Statistics", &netFlow.Statistics}
-    netFlow.EntityData.Leafs = make(map[string]types.YLeaf)
+    netFlow.EntityData.Children = types.NewOrderedMap()
+    netFlow.EntityData.Children.Append("statistics", types.YChild{"Statistics", &netFlow.Statistics})
+    netFlow.EntityData.Leafs = types.NewOrderedMap()
+
+    netFlow.EntityData.YListKeys = []string {}
+
     return &(netFlow.EntityData)
 }
 
@@ -58,7 +61,7 @@ type NetFlow_Statistics struct {
 
     // NetFlow statistics information for a particular node. The type is slice of
     // NetFlow_Statistics_Statistic.
-    Statistic []NetFlow_Statistics_Statistic
+    Statistic []*NetFlow_Statistics_Statistic
 }
 
 func (statistics *NetFlow_Statistics) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (statistics *NetFlow_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["statistic"] = types.YChild{"Statistic", nil}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("statistic", types.YChild{"Statistic", nil})
     for i := range statistics.Statistic {
-        statistics.EntityData.Children[types.GetSegmentPath(&statistics.Statistic[i])] = types.YChild{"Statistic", &statistics.Statistic[i]}
+        statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.Statistic[i]), types.YChild{"Statistic", statistics.Statistic[i]})
     }
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -88,7 +94,7 @@ type NetFlow_Statistics_Statistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // NetFlow producer statistics.
@@ -103,16 +109,19 @@ func (statistic *NetFlow_Statistics_Statistic) GetEntityData() *types.CommonEnti
     statistic.EntityData.YangName = "statistic"
     statistic.EntityData.BundleName = "cisco_ios_xr"
     statistic.EntityData.ParentYangName = "statistics"
-    statistic.EntityData.SegmentPath = "statistic" + "[node='" + fmt.Sprintf("%v", statistic.Node) + "']"
+    statistic.EntityData.SegmentPath = "statistic" + types.AddKeyToken(statistic.Node, "node")
     statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistic.EntityData.Children = make(map[string]types.YChild)
-    statistic.EntityData.Children["producer"] = types.YChild{"Producer", &statistic.Producer}
-    statistic.EntityData.Children["server"] = types.YChild{"Server", &statistic.Server}
-    statistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistic.EntityData.Leafs["node"] = types.YLeaf{"Node", statistic.Node}
+    statistic.EntityData.Children = types.NewOrderedMap()
+    statistic.EntityData.Children.Append("producer", types.YChild{"Producer", &statistic.Producer})
+    statistic.EntityData.Children.Append("server", types.YChild{"Server", &statistic.Server})
+    statistic.EntityData.Leafs = types.NewOrderedMap()
+    statistic.EntityData.Leafs.Append("node", types.YLeaf{"Node", statistic.Node})
+
+    statistic.EntityData.YListKeys = []string {"Node"}
+
     return &(statistic.EntityData)
 }
 
@@ -123,7 +132,7 @@ type NetFlow_Statistics_Statistic_Producer struct {
     YFilter yfilter.YFilter
 
     // Statistics information.
-    Statistics NetFlow_Statistics_Statistic_Producer_Statistics_
+    Statistics NetFlow_Statistics_Statistic_Producer_Statistics
 }
 
 func (producer *NetFlow_Statistics_Statistic_Producer) GetEntityData() *types.CommonEntityData {
@@ -136,15 +145,18 @@ func (producer *NetFlow_Statistics_Statistic_Producer) GetEntityData() *types.Co
     producer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    producer.EntityData.Children = make(map[string]types.YChild)
-    producer.EntityData.Children["statistics"] = types.YChild{"Statistics", &producer.Statistics}
-    producer.EntityData.Leafs = make(map[string]types.YLeaf)
+    producer.EntityData.Children = types.NewOrderedMap()
+    producer.EntityData.Children.Append("statistics", types.YChild{"Statistics", &producer.Statistics})
+    producer.EntityData.Leafs = types.NewOrderedMap()
+
+    producer.EntityData.YListKeys = []string {}
+
     return &(producer.EntityData)
 }
 
-// NetFlow_Statistics_Statistic_Producer_Statistics_
+// NetFlow_Statistics_Statistic_Producer_Statistics
 // Statistics information
-type NetFlow_Statistics_Statistic_Producer_Statistics_ struct {
+type NetFlow_Statistics_Statistic_Producer_Statistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -205,33 +217,36 @@ type NetFlow_Statistics_Statistic_Producer_Statistics_ struct {
     LastCleared interface{}
 }
 
-func (statistics_ *NetFlow_Statistics_Statistic_Producer_Statistics_) GetEntityData() *types.CommonEntityData {
-    statistics_.EntityData.YFilter = statistics_.YFilter
-    statistics_.EntityData.YangName = "statistics"
-    statistics_.EntityData.BundleName = "cisco_ios_xr"
-    statistics_.EntityData.ParentYangName = "producer"
-    statistics_.EntityData.SegmentPath = "statistics"
-    statistics_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    statistics_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    statistics_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (statistics *NetFlow_Statistics_Statistic_Producer_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "producer"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics_.EntityData.Children = make(map[string]types.YChild)
-    statistics_.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistics_.EntityData.Leafs["ipv4-ingress-flows"] = types.YLeaf{"Ipv4IngressFlows", statistics_.Ipv4IngressFlows}
-    statistics_.EntityData.Leafs["ipv4-egress-flows"] = types.YLeaf{"Ipv4EgressFlows", statistics_.Ipv4EgressFlows}
-    statistics_.EntityData.Leafs["ipv6-ingress-flows"] = types.YLeaf{"Ipv6IngressFlows", statistics_.Ipv6IngressFlows}
-    statistics_.EntityData.Leafs["ipv6-egress-flows"] = types.YLeaf{"Ipv6EgressFlows", statistics_.Ipv6EgressFlows}
-    statistics_.EntityData.Leafs["mpls-ingress-flows"] = types.YLeaf{"MplsIngressFlows", statistics_.MplsIngressFlows}
-    statistics_.EntityData.Leafs["mpls-egress-flows"] = types.YLeaf{"MplsEgressFlows", statistics_.MplsEgressFlows}
-    statistics_.EntityData.Leafs["drops-no-space"] = types.YLeaf{"DropsNoSpace", statistics_.DropsNoSpace}
-    statistics_.EntityData.Leafs["drops-others"] = types.YLeaf{"DropsOthers", statistics_.DropsOthers}
-    statistics_.EntityData.Leafs["unknown-ingress-flows"] = types.YLeaf{"UnknownIngressFlows", statistics_.UnknownIngressFlows}
-    statistics_.EntityData.Leafs["unknown-egress-flows"] = types.YLeaf{"UnknownEgressFlows", statistics_.UnknownEgressFlows}
-    statistics_.EntityData.Leafs["waiting-servers"] = types.YLeaf{"WaitingServers", statistics_.WaitingServers}
-    statistics_.EntityData.Leafs["spp-rx-counts"] = types.YLeaf{"SppRxCounts", statistics_.SppRxCounts}
-    statistics_.EntityData.Leafs["flow-packet-counts"] = types.YLeaf{"FlowPacketCounts", statistics_.FlowPacketCounts}
-    statistics_.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", statistics_.LastCleared}
-    return &(statistics_.EntityData)
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+    statistics.EntityData.Leafs.Append("ipv4-ingress-flows", types.YLeaf{"Ipv4IngressFlows", statistics.Ipv4IngressFlows})
+    statistics.EntityData.Leafs.Append("ipv4-egress-flows", types.YLeaf{"Ipv4EgressFlows", statistics.Ipv4EgressFlows})
+    statistics.EntityData.Leafs.Append("ipv6-ingress-flows", types.YLeaf{"Ipv6IngressFlows", statistics.Ipv6IngressFlows})
+    statistics.EntityData.Leafs.Append("ipv6-egress-flows", types.YLeaf{"Ipv6EgressFlows", statistics.Ipv6EgressFlows})
+    statistics.EntityData.Leafs.Append("mpls-ingress-flows", types.YLeaf{"MplsIngressFlows", statistics.MplsIngressFlows})
+    statistics.EntityData.Leafs.Append("mpls-egress-flows", types.YLeaf{"MplsEgressFlows", statistics.MplsEgressFlows})
+    statistics.EntityData.Leafs.Append("drops-no-space", types.YLeaf{"DropsNoSpace", statistics.DropsNoSpace})
+    statistics.EntityData.Leafs.Append("drops-others", types.YLeaf{"DropsOthers", statistics.DropsOthers})
+    statistics.EntityData.Leafs.Append("unknown-ingress-flows", types.YLeaf{"UnknownIngressFlows", statistics.UnknownIngressFlows})
+    statistics.EntityData.Leafs.Append("unknown-egress-flows", types.YLeaf{"UnknownEgressFlows", statistics.UnknownEgressFlows})
+    statistics.EntityData.Leafs.Append("waiting-servers", types.YLeaf{"WaitingServers", statistics.WaitingServers})
+    statistics.EntityData.Leafs.Append("spp-rx-counts", types.YLeaf{"SppRxCounts", statistics.SppRxCounts})
+    statistics.EntityData.Leafs.Append("flow-packet-counts", types.YLeaf{"FlowPacketCounts", statistics.FlowPacketCounts})
+    statistics.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", statistics.LastCleared})
+
+    statistics.EntityData.YListKeys = []string {}
+
+    return &(statistics.EntityData)
 }
 
 // NetFlow_Statistics_Statistic_Server
@@ -254,9 +269,12 @@ func (server *NetFlow_Statistics_Statistic_Server) GetEntityData() *types.Common
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Children["flow-exporters"] = types.YChild{"FlowExporters", &server.FlowExporters}
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Children.Append("flow-exporters", types.YChild{"FlowExporters", &server.FlowExporters})
+    server.EntityData.Leafs = types.NewOrderedMap()
+
+    server.EntityData.YListKeys = []string {}
+
     return &(server.EntityData)
 }
 
@@ -268,7 +286,7 @@ type NetFlow_Statistics_Statistic_Server_FlowExporters struct {
 
     // Exporter information. The type is slice of
     // NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter.
-    FlowExporter []NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter
+    FlowExporter []*NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter
 }
 
 func (flowExporters *NetFlow_Statistics_Statistic_Server_FlowExporters) GetEntityData() *types.CommonEntityData {
@@ -281,12 +299,15 @@ func (flowExporters *NetFlow_Statistics_Statistic_Server_FlowExporters) GetEntit
     flowExporters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowExporters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowExporters.EntityData.Children = make(map[string]types.YChild)
-    flowExporters.EntityData.Children["flow-exporter"] = types.YChild{"FlowExporter", nil}
+    flowExporters.EntityData.Children = types.NewOrderedMap()
+    flowExporters.EntityData.Children.Append("flow-exporter", types.YChild{"FlowExporter", nil})
     for i := range flowExporters.FlowExporter {
-        flowExporters.EntityData.Children[types.GetSegmentPath(&flowExporters.FlowExporter[i])] = types.YChild{"FlowExporter", &flowExporters.FlowExporter[i]}
+        flowExporters.EntityData.Children.Append(types.GetSegmentPath(flowExporters.FlowExporter[i]), types.YChild{"FlowExporter", flowExporters.FlowExporter[i]})
     }
-    flowExporters.EntityData.Leafs = make(map[string]types.YLeaf)
+    flowExporters.EntityData.Leafs = types.NewOrderedMap()
+
+    flowExporters.EntityData.YListKeys = []string {}
+
     return &(flowExporters.EntityData)
 }
 
@@ -297,7 +318,7 @@ type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Exporter name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ExporterName interface{}
 
     // Statistics information for the exporter.
@@ -309,15 +330,18 @@ func (flowExporter *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExport
     flowExporter.EntityData.YangName = "flow-exporter"
     flowExporter.EntityData.BundleName = "cisco_ios_xr"
     flowExporter.EntityData.ParentYangName = "flow-exporters"
-    flowExporter.EntityData.SegmentPath = "flow-exporter" + "[exporter-name='" + fmt.Sprintf("%v", flowExporter.ExporterName) + "']"
+    flowExporter.EntityData.SegmentPath = "flow-exporter" + types.AddKeyToken(flowExporter.ExporterName, "exporter-name")
     flowExporter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowExporter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowExporter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowExporter.EntityData.Children = make(map[string]types.YChild)
-    flowExporter.EntityData.Children["exporter"] = types.YChild{"Exporter", &flowExporter.Exporter}
-    flowExporter.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowExporter.EntityData.Leafs["exporter-name"] = types.YLeaf{"ExporterName", flowExporter.ExporterName}
+    flowExporter.EntityData.Children = types.NewOrderedMap()
+    flowExporter.EntityData.Children.Append("exporter", types.YChild{"Exporter", &flowExporter.Exporter})
+    flowExporter.EntityData.Leafs = types.NewOrderedMap()
+    flowExporter.EntityData.Leafs.Append("exporter-name", types.YLeaf{"ExporterName", flowExporter.ExporterName})
+
+    flowExporter.EntityData.YListKeys = []string {"ExporterName"}
+
     return &(flowExporter.EntityData)
 }
 
@@ -329,7 +353,7 @@ type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter str
 
     // Array of flow exporters. The type is slice of
     // NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic.
-    Statistic []NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_
+    Statistic []*NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic
 }
 
 func (exporter *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter) GetEntityData() *types.CommonEntityData {
@@ -342,18 +366,21 @@ func (exporter *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_E
     exporter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exporter.EntityData.Children = make(map[string]types.YChild)
-    exporter.EntityData.Children["statistic"] = types.YChild{"Statistic", nil}
+    exporter.EntityData.Children = types.NewOrderedMap()
+    exporter.EntityData.Children.Append("statistic", types.YChild{"Statistic", nil})
     for i := range exporter.Statistic {
-        exporter.EntityData.Children[types.GetSegmentPath(&exporter.Statistic[i])] = types.YChild{"Statistic", &exporter.Statistic[i]}
+        exporter.EntityData.Children.Append(types.GetSegmentPath(exporter.Statistic[i]), types.YChild{"Statistic", exporter.Statistic[i]})
     }
-    exporter.EntityData.Leafs = make(map[string]types.YLeaf)
+    exporter.EntityData.Leafs = types.NewOrderedMap()
+
+    exporter.EntityData.YListKeys = []string {}
+
     return &(exporter.EntityData)
 }
 
-// NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_
+// NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic
 // Array of flow exporters
-type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_ struct {
+type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -367,35 +394,38 @@ type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Sta
     UsedByFlowMonitor []interface{}
 
     // Statistics of all collectors. The type is slice of
-    // NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic__Collector.
-    Collector []NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic__Collector
+    // NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_Collector.
+    Collector []*NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_Collector
 }
 
-func (statistic_ *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_) GetEntityData() *types.CommonEntityData {
-    statistic_.EntityData.YFilter = statistic_.YFilter
-    statistic_.EntityData.YangName = "statistic"
-    statistic_.EntityData.BundleName = "cisco_ios_xr"
-    statistic_.EntityData.ParentYangName = "exporter"
-    statistic_.EntityData.SegmentPath = "statistic"
-    statistic_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    statistic_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    statistic_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (statistic *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic) GetEntityData() *types.CommonEntityData {
+    statistic.EntityData.YFilter = statistic.YFilter
+    statistic.EntityData.YangName = "statistic"
+    statistic.EntityData.BundleName = "cisco_ios_xr"
+    statistic.EntityData.ParentYangName = "exporter"
+    statistic.EntityData.SegmentPath = "statistic"
+    statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistic_.EntityData.Children = make(map[string]types.YChild)
-    statistic_.EntityData.Children["collector"] = types.YChild{"Collector", nil}
-    for i := range statistic_.Collector {
-        statistic_.EntityData.Children[types.GetSegmentPath(&statistic_.Collector[i])] = types.YChild{"Collector", &statistic_.Collector[i]}
+    statistic.EntityData.Children = types.NewOrderedMap()
+    statistic.EntityData.Children.Append("collector", types.YChild{"Collector", nil})
+    for i := range statistic.Collector {
+        statistic.EntityData.Children.Append(types.GetSegmentPath(statistic.Collector[i]), types.YChild{"Collector", statistic.Collector[i]})
     }
-    statistic_.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistic_.EntityData.Leafs["name"] = types.YLeaf{"Name", statistic_.Name}
-    statistic_.EntityData.Leafs["memory-usage"] = types.YLeaf{"MemoryUsage", statistic_.MemoryUsage}
-    statistic_.EntityData.Leafs["used-by-flow-monitor"] = types.YLeaf{"UsedByFlowMonitor", statistic_.UsedByFlowMonitor}
-    return &(statistic_.EntityData)
+    statistic.EntityData.Leafs = types.NewOrderedMap()
+    statistic.EntityData.Leafs.Append("name", types.YLeaf{"Name", statistic.Name})
+    statistic.EntityData.Leafs.Append("memory-usage", types.YLeaf{"MemoryUsage", statistic.MemoryUsage})
+    statistic.EntityData.Leafs.Append("used-by-flow-monitor", types.YLeaf{"UsedByFlowMonitor", statistic.UsedByFlowMonitor})
+
+    statistic.EntityData.YListKeys = []string {}
+
+    return &(statistic.EntityData)
 }
 
-// NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic__Collector
+// NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_Collector
 // Statistics of all collectors
-type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic__Collector struct {
+type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_Collector struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -534,7 +564,7 @@ type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Sta
     LastSecondFlowsSent interface{}
 }
 
-func (collector *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic__Collector) GetEntityData() *types.CommonEntityData {
+func (collector *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_Collector) GetEntityData() *types.CommonEntityData {
     collector.EntityData.YFilter = collector.YFilter
     collector.EntityData.YangName = "collector"
     collector.EntityData.BundleName = "cisco_ios_xr"
@@ -544,44 +574,47 @@ func (collector *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_
     collector.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collector.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collector.EntityData.Children = make(map[string]types.YChild)
-    collector.EntityData.Leafs = make(map[string]types.YLeaf)
-    collector.EntityData.Leafs["exporter-state"] = types.YLeaf{"ExporterState", collector.ExporterState}
-    collector.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", collector.DestinationAddress}
-    collector.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", collector.SourceAddress}
-    collector.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", collector.VrfName}
-    collector.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", collector.DestinationPort}
-    collector.EntityData.Leafs["souce-port"] = types.YLeaf{"SoucePort", collector.SoucePort}
-    collector.EntityData.Leafs["transport-protocol"] = types.YLeaf{"TransportProtocol", collector.TransportProtocol}
-    collector.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", collector.PacketsSent}
-    collector.EntityData.Leafs["flows-sent"] = types.YLeaf{"FlowsSent", collector.FlowsSent}
-    collector.EntityData.Leafs["templates-sent"] = types.YLeaf{"TemplatesSent", collector.TemplatesSent}
-    collector.EntityData.Leafs["option-templates-sent"] = types.YLeaf{"OptionTemplatesSent", collector.OptionTemplatesSent}
-    collector.EntityData.Leafs["option-data-sent"] = types.YLeaf{"OptionDataSent", collector.OptionDataSent}
-    collector.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", collector.BytesSent}
-    collector.EntityData.Leafs["flow-bytes-sent"] = types.YLeaf{"FlowBytesSent", collector.FlowBytesSent}
-    collector.EntityData.Leafs["template-bytes-sent"] = types.YLeaf{"TemplateBytesSent", collector.TemplateBytesSent}
-    collector.EntityData.Leafs["option-template-bytes-sent"] = types.YLeaf{"OptionTemplateBytesSent", collector.OptionTemplateBytesSent}
-    collector.EntityData.Leafs["option-data-bytes-sent"] = types.YLeaf{"OptionDataBytesSent", collector.OptionDataBytesSent}
-    collector.EntityData.Leafs["packets-dropped"] = types.YLeaf{"PacketsDropped", collector.PacketsDropped}
-    collector.EntityData.Leafs["flows-dropped"] = types.YLeaf{"FlowsDropped", collector.FlowsDropped}
-    collector.EntityData.Leafs["templates-dropped"] = types.YLeaf{"TemplatesDropped", collector.TemplatesDropped}
-    collector.EntityData.Leafs["option-templates-dropped"] = types.YLeaf{"OptionTemplatesDropped", collector.OptionTemplatesDropped}
-    collector.EntityData.Leafs["option-data-dropped"] = types.YLeaf{"OptionDataDropped", collector.OptionDataDropped}
-    collector.EntityData.Leafs["bytes-dropped"] = types.YLeaf{"BytesDropped", collector.BytesDropped}
-    collector.EntityData.Leafs["flow-bytes-dropped"] = types.YLeaf{"FlowBytesDropped", collector.FlowBytesDropped}
-    collector.EntityData.Leafs["template-bytes-dropped"] = types.YLeaf{"TemplateBytesDropped", collector.TemplateBytesDropped}
-    collector.EntityData.Leafs["option-template-bytes-dropped"] = types.YLeaf{"OptionTemplateBytesDropped", collector.OptionTemplateBytesDropped}
-    collector.EntityData.Leafs["option-data-bytes-dropped"] = types.YLeaf{"OptionDataBytesDropped", collector.OptionDataBytesDropped}
-    collector.EntityData.Leafs["last-hour-packest-sent"] = types.YLeaf{"LastHourPackestSent", collector.LastHourPackestSent}
-    collector.EntityData.Leafs["last-hour-bytes-sent"] = types.YLeaf{"LastHourBytesSent", collector.LastHourBytesSent}
-    collector.EntityData.Leafs["last-hour-flows-sent"] = types.YLeaf{"LastHourFlowsSent", collector.LastHourFlowsSent}
-    collector.EntityData.Leafs["last-minute-packets"] = types.YLeaf{"LastMinutePackets", collector.LastMinutePackets}
-    collector.EntityData.Leafs["last-minute-bytes-sent"] = types.YLeaf{"LastMinuteBytesSent", collector.LastMinuteBytesSent}
-    collector.EntityData.Leafs["last-minute-flows-sent"] = types.YLeaf{"LastMinuteFlowsSent", collector.LastMinuteFlowsSent}
-    collector.EntityData.Leafs["last-second-packets-sent"] = types.YLeaf{"LastSecondPacketsSent", collector.LastSecondPacketsSent}
-    collector.EntityData.Leafs["last-second-bytes-sent"] = types.YLeaf{"LastSecondBytesSent", collector.LastSecondBytesSent}
-    collector.EntityData.Leafs["last-second-flows-sent"] = types.YLeaf{"LastSecondFlowsSent", collector.LastSecondFlowsSent}
+    collector.EntityData.Children = types.NewOrderedMap()
+    collector.EntityData.Leafs = types.NewOrderedMap()
+    collector.EntityData.Leafs.Append("exporter-state", types.YLeaf{"ExporterState", collector.ExporterState})
+    collector.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", collector.DestinationAddress})
+    collector.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", collector.SourceAddress})
+    collector.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", collector.VrfName})
+    collector.EntityData.Leafs.Append("destination-port", types.YLeaf{"DestinationPort", collector.DestinationPort})
+    collector.EntityData.Leafs.Append("souce-port", types.YLeaf{"SoucePort", collector.SoucePort})
+    collector.EntityData.Leafs.Append("transport-protocol", types.YLeaf{"TransportProtocol", collector.TransportProtocol})
+    collector.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", collector.PacketsSent})
+    collector.EntityData.Leafs.Append("flows-sent", types.YLeaf{"FlowsSent", collector.FlowsSent})
+    collector.EntityData.Leafs.Append("templates-sent", types.YLeaf{"TemplatesSent", collector.TemplatesSent})
+    collector.EntityData.Leafs.Append("option-templates-sent", types.YLeaf{"OptionTemplatesSent", collector.OptionTemplatesSent})
+    collector.EntityData.Leafs.Append("option-data-sent", types.YLeaf{"OptionDataSent", collector.OptionDataSent})
+    collector.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", collector.BytesSent})
+    collector.EntityData.Leafs.Append("flow-bytes-sent", types.YLeaf{"FlowBytesSent", collector.FlowBytesSent})
+    collector.EntityData.Leafs.Append("template-bytes-sent", types.YLeaf{"TemplateBytesSent", collector.TemplateBytesSent})
+    collector.EntityData.Leafs.Append("option-template-bytes-sent", types.YLeaf{"OptionTemplateBytesSent", collector.OptionTemplateBytesSent})
+    collector.EntityData.Leafs.Append("option-data-bytes-sent", types.YLeaf{"OptionDataBytesSent", collector.OptionDataBytesSent})
+    collector.EntityData.Leafs.Append("packets-dropped", types.YLeaf{"PacketsDropped", collector.PacketsDropped})
+    collector.EntityData.Leafs.Append("flows-dropped", types.YLeaf{"FlowsDropped", collector.FlowsDropped})
+    collector.EntityData.Leafs.Append("templates-dropped", types.YLeaf{"TemplatesDropped", collector.TemplatesDropped})
+    collector.EntityData.Leafs.Append("option-templates-dropped", types.YLeaf{"OptionTemplatesDropped", collector.OptionTemplatesDropped})
+    collector.EntityData.Leafs.Append("option-data-dropped", types.YLeaf{"OptionDataDropped", collector.OptionDataDropped})
+    collector.EntityData.Leafs.Append("bytes-dropped", types.YLeaf{"BytesDropped", collector.BytesDropped})
+    collector.EntityData.Leafs.Append("flow-bytes-dropped", types.YLeaf{"FlowBytesDropped", collector.FlowBytesDropped})
+    collector.EntityData.Leafs.Append("template-bytes-dropped", types.YLeaf{"TemplateBytesDropped", collector.TemplateBytesDropped})
+    collector.EntityData.Leafs.Append("option-template-bytes-dropped", types.YLeaf{"OptionTemplateBytesDropped", collector.OptionTemplateBytesDropped})
+    collector.EntityData.Leafs.Append("option-data-bytes-dropped", types.YLeaf{"OptionDataBytesDropped", collector.OptionDataBytesDropped})
+    collector.EntityData.Leafs.Append("last-hour-packest-sent", types.YLeaf{"LastHourPackestSent", collector.LastHourPackestSent})
+    collector.EntityData.Leafs.Append("last-hour-bytes-sent", types.YLeaf{"LastHourBytesSent", collector.LastHourBytesSent})
+    collector.EntityData.Leafs.Append("last-hour-flows-sent", types.YLeaf{"LastHourFlowsSent", collector.LastHourFlowsSent})
+    collector.EntityData.Leafs.Append("last-minute-packets", types.YLeaf{"LastMinutePackets", collector.LastMinutePackets})
+    collector.EntityData.Leafs.Append("last-minute-bytes-sent", types.YLeaf{"LastMinuteBytesSent", collector.LastMinuteBytesSent})
+    collector.EntityData.Leafs.Append("last-minute-flows-sent", types.YLeaf{"LastMinuteFlowsSent", collector.LastMinuteFlowsSent})
+    collector.EntityData.Leafs.Append("last-second-packets-sent", types.YLeaf{"LastSecondPacketsSent", collector.LastSecondPacketsSent})
+    collector.EntityData.Leafs.Append("last-second-bytes-sent", types.YLeaf{"LastSecondBytesSent", collector.LastSecondBytesSent})
+    collector.EntityData.Leafs.Append("last-second-flows-sent", types.YLeaf{"LastSecondFlowsSent", collector.LastSecondFlowsSent})
+
+    collector.EntityData.YListKeys = []string {}
+
     return &(collector.EntityData)
 }
 

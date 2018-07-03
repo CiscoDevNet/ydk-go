@@ -47,10 +47,13 @@ func (platformFaultManager *PlatformFaultManager) GetEntityData() *types.CommonE
     platformFaultManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformFaultManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platformFaultManager.EntityData.Children = make(map[string]types.YChild)
-    platformFaultManager.EntityData.Children["exclude"] = types.YChild{"Exclude", &platformFaultManager.Exclude}
-    platformFaultManager.EntityData.Children["racks"] = types.YChild{"Racks", &platformFaultManager.Racks}
-    platformFaultManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformFaultManager.EntityData.Children = types.NewOrderedMap()
+    platformFaultManager.EntityData.Children.Append("exclude", types.YChild{"Exclude", &platformFaultManager.Exclude})
+    platformFaultManager.EntityData.Children.Append("racks", types.YChild{"Racks", &platformFaultManager.Racks})
+    platformFaultManager.EntityData.Leafs = types.NewOrderedMap()
+
+    platformFaultManager.EntityData.YListKeys = []string {}
+
     return &(platformFaultManager.EntityData)
 }
 
@@ -61,7 +64,7 @@ type PlatformFaultManager_Exclude struct {
     YFilter yfilter.YFilter
 
     // Table of Hardware Failure Device.
-    FaultType1S PlatformFaultManager_Exclude_FaultType1S
+    FaultType1s PlatformFaultManager_Exclude_FaultType1s
 }
 
 func (exclude *PlatformFaultManager_Exclude) GetEntityData() *types.CommonEntityData {
@@ -74,215 +77,236 @@ func (exclude *PlatformFaultManager_Exclude) GetEntityData() *types.CommonEntity
     exclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exclude.EntityData.Children = make(map[string]types.YChild)
-    exclude.EntityData.Children["fault-type1s"] = types.YChild{"FaultType1S", &exclude.FaultType1S}
-    exclude.EntityData.Leafs = make(map[string]types.YLeaf)
+    exclude.EntityData.Children = types.NewOrderedMap()
+    exclude.EntityData.Children.Append("fault-type1s", types.YChild{"FaultType1s", &exclude.FaultType1s})
+    exclude.EntityData.Leafs = types.NewOrderedMap()
+
+    exclude.EntityData.YListKeys = []string {}
+
     return &(exclude.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S
+// PlatformFaultManager_Exclude_FaultType1s
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S struct {
+type PlatformFaultManager_Exclude_FaultType1s struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of Hardware Failure Device. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1.
-    FaultType1 []PlatformFaultManager_Exclude_FaultType1S_FaultType1
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1.
+    FaultType1 []*PlatformFaultManager_Exclude_FaultType1s_FaultType1
 }
 
-func (faultType1S *PlatformFaultManager_Exclude_FaultType1S) GetEntityData() *types.CommonEntityData {
-    faultType1S.EntityData.YFilter = faultType1S.YFilter
-    faultType1S.EntityData.YangName = "fault-type1s"
-    faultType1S.EntityData.BundleName = "cisco_ios_xr"
-    faultType1S.EntityData.ParentYangName = "exclude"
-    faultType1S.EntityData.SegmentPath = "fault-type1s"
-    faultType1S.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    faultType1S.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    faultType1S.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (faultType1s *PlatformFaultManager_Exclude_FaultType1s) GetEntityData() *types.CommonEntityData {
+    faultType1s.EntityData.YFilter = faultType1s.YFilter
+    faultType1s.EntityData.YangName = "fault-type1s"
+    faultType1s.EntityData.BundleName = "cisco_ios_xr"
+    faultType1s.EntityData.ParentYangName = "exclude"
+    faultType1s.EntityData.SegmentPath = "fault-type1s"
+    faultType1s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    faultType1s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    faultType1s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultType1S.EntityData.Children = make(map[string]types.YChild)
-    faultType1S.EntityData.Children["fault-type1"] = types.YChild{"FaultType1", nil}
-    for i := range faultType1S.FaultType1 {
-        faultType1S.EntityData.Children[types.GetSegmentPath(&faultType1S.FaultType1[i])] = types.YChild{"FaultType1", &faultType1S.FaultType1[i]}
+    faultType1s.EntityData.Children = types.NewOrderedMap()
+    faultType1s.EntityData.Children.Append("fault-type1", types.YChild{"FaultType1", nil})
+    for i := range faultType1s.FaultType1 {
+        faultType1s.EntityData.Children.Append(types.GetSegmentPath(faultType1s.FaultType1[i]), types.YChild{"FaultType1", faultType1s.FaultType1[i]})
     }
-    faultType1S.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(faultType1S.EntityData)
+    faultType1s.EntityData.Leafs = types.NewOrderedMap()
+
+    faultType1s.EntityData.YListKeys = []string {}
+
+    return &(faultType1s.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1 struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault 1. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType1 interface{}
 
     // Table of Hardware Failure Device.
-    FaultType2S PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S
+    FaultType2s PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s
 
     // Table of racks.
-    Racks PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks
+    Racks PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks
 }
 
-func (faultType1 *PlatformFaultManager_Exclude_FaultType1S_FaultType1) GetEntityData() *types.CommonEntityData {
+func (faultType1 *PlatformFaultManager_Exclude_FaultType1s_FaultType1) GetEntityData() *types.CommonEntityData {
     faultType1.EntityData.YFilter = faultType1.YFilter
     faultType1.EntityData.YangName = "fault-type1"
     faultType1.EntityData.BundleName = "cisco_ios_xr"
     faultType1.EntityData.ParentYangName = "fault-type1s"
-    faultType1.EntityData.SegmentPath = "fault-type1" + "[hw-fault-type1='" + fmt.Sprintf("%v", faultType1.HwFaultType1) + "']"
+    faultType1.EntityData.SegmentPath = "fault-type1" + types.AddKeyToken(faultType1.HwFaultType1, "hw-fault-type1")
     faultType1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     faultType1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultType1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultType1.EntityData.Children = make(map[string]types.YChild)
-    faultType1.EntityData.Children["fault-type2s"] = types.YChild{"FaultType2S", &faultType1.FaultType2S}
-    faultType1.EntityData.Children["racks"] = types.YChild{"Racks", &faultType1.Racks}
-    faultType1.EntityData.Leafs = make(map[string]types.YLeaf)
-    faultType1.EntityData.Leafs["hw-fault-type1"] = types.YLeaf{"HwFaultType1", faultType1.HwFaultType1}
+    faultType1.EntityData.Children = types.NewOrderedMap()
+    faultType1.EntityData.Children.Append("fault-type2s", types.YChild{"FaultType2s", &faultType1.FaultType2s})
+    faultType1.EntityData.Children.Append("racks", types.YChild{"Racks", &faultType1.Racks})
+    faultType1.EntityData.Leafs = types.NewOrderedMap()
+    faultType1.EntityData.Leafs.Append("hw-fault-type1", types.YLeaf{"HwFaultType1", faultType1.HwFaultType1})
+
+    faultType1.EntityData.YListKeys = []string {"HwFaultType1"}
+
     return &(faultType1.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of Hardware Failure Device. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2.
-    FaultType2 []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2.
+    FaultType2 []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2
 }
 
-func (faultType2S *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S) GetEntityData() *types.CommonEntityData {
-    faultType2S.EntityData.YFilter = faultType2S.YFilter
-    faultType2S.EntityData.YangName = "fault-type2s"
-    faultType2S.EntityData.BundleName = "cisco_ios_xr"
-    faultType2S.EntityData.ParentYangName = "fault-type1"
-    faultType2S.EntityData.SegmentPath = "fault-type2s"
-    faultType2S.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    faultType2S.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    faultType2S.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (faultType2s *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s) GetEntityData() *types.CommonEntityData {
+    faultType2s.EntityData.YFilter = faultType2s.YFilter
+    faultType2s.EntityData.YangName = "fault-type2s"
+    faultType2s.EntityData.BundleName = "cisco_ios_xr"
+    faultType2s.EntityData.ParentYangName = "fault-type1"
+    faultType2s.EntityData.SegmentPath = "fault-type2s"
+    faultType2s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    faultType2s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    faultType2s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultType2S.EntityData.Children = make(map[string]types.YChild)
-    faultType2S.EntityData.Children["fault-type2"] = types.YChild{"FaultType2", nil}
-    for i := range faultType2S.FaultType2 {
-        faultType2S.EntityData.Children[types.GetSegmentPath(&faultType2S.FaultType2[i])] = types.YChild{"FaultType2", &faultType2S.FaultType2[i]}
+    faultType2s.EntityData.Children = types.NewOrderedMap()
+    faultType2s.EntityData.Children.Append("fault-type2", types.YChild{"FaultType2", nil})
+    for i := range faultType2s.FaultType2 {
+        faultType2s.EntityData.Children.Append(types.GetSegmentPath(faultType2s.FaultType2[i]), types.YChild{"FaultType2", faultType2s.FaultType2[i]})
     }
-    faultType2S.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(faultType2S.EntityData)
+    faultType2s.EntityData.Leafs = types.NewOrderedMap()
+
+    faultType2s.EntityData.YListKeys = []string {}
+
+    return &(faultType2s.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2 struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault 2. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType2 interface{}
 
     // Table of Hardware Failure Device.
-    FaultType3S PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S
+    FaultType3s PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s
 
     // Table of racks.
-    Racks PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks
+    Racks PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks
 }
 
-func (faultType2 *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2) GetEntityData() *types.CommonEntityData {
+func (faultType2 *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2) GetEntityData() *types.CommonEntityData {
     faultType2.EntityData.YFilter = faultType2.YFilter
     faultType2.EntityData.YangName = "fault-type2"
     faultType2.EntityData.BundleName = "cisco_ios_xr"
     faultType2.EntityData.ParentYangName = "fault-type2s"
-    faultType2.EntityData.SegmentPath = "fault-type2" + "[hw-fault-type2='" + fmt.Sprintf("%v", faultType2.HwFaultType2) + "']"
+    faultType2.EntityData.SegmentPath = "fault-type2" + types.AddKeyToken(faultType2.HwFaultType2, "hw-fault-type2")
     faultType2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     faultType2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultType2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultType2.EntityData.Children = make(map[string]types.YChild)
-    faultType2.EntityData.Children["fault-type3s"] = types.YChild{"FaultType3S", &faultType2.FaultType3S}
-    faultType2.EntityData.Children["racks"] = types.YChild{"Racks", &faultType2.Racks}
-    faultType2.EntityData.Leafs = make(map[string]types.YLeaf)
-    faultType2.EntityData.Leafs["hw-fault-type2"] = types.YLeaf{"HwFaultType2", faultType2.HwFaultType2}
+    faultType2.EntityData.Children = types.NewOrderedMap()
+    faultType2.EntityData.Children.Append("fault-type3s", types.YChild{"FaultType3s", &faultType2.FaultType3s})
+    faultType2.EntityData.Children.Append("racks", types.YChild{"Racks", &faultType2.Racks})
+    faultType2.EntityData.Leafs = types.NewOrderedMap()
+    faultType2.EntityData.Leafs.Append("hw-fault-type2", types.YLeaf{"HwFaultType2", faultType2.HwFaultType2})
+
+    faultType2.EntityData.YListKeys = []string {"HwFaultType2"}
+
     return &(faultType2.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of Hardware Failure Device. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3.
-    FaultType3 []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3.
+    FaultType3 []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3
 }
 
-func (faultType3S *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S) GetEntityData() *types.CommonEntityData {
-    faultType3S.EntityData.YFilter = faultType3S.YFilter
-    faultType3S.EntityData.YangName = "fault-type3s"
-    faultType3S.EntityData.BundleName = "cisco_ios_xr"
-    faultType3S.EntityData.ParentYangName = "fault-type2"
-    faultType3S.EntityData.SegmentPath = "fault-type3s"
-    faultType3S.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    faultType3S.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    faultType3S.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (faultType3s *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s) GetEntityData() *types.CommonEntityData {
+    faultType3s.EntityData.YFilter = faultType3s.YFilter
+    faultType3s.EntityData.YangName = "fault-type3s"
+    faultType3s.EntityData.BundleName = "cisco_ios_xr"
+    faultType3s.EntityData.ParentYangName = "fault-type2"
+    faultType3s.EntityData.SegmentPath = "fault-type3s"
+    faultType3s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    faultType3s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    faultType3s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultType3S.EntityData.Children = make(map[string]types.YChild)
-    faultType3S.EntityData.Children["fault-type3"] = types.YChild{"FaultType3", nil}
-    for i := range faultType3S.FaultType3 {
-        faultType3S.EntityData.Children[types.GetSegmentPath(&faultType3S.FaultType3[i])] = types.YChild{"FaultType3", &faultType3S.FaultType3[i]}
+    faultType3s.EntityData.Children = types.NewOrderedMap()
+    faultType3s.EntityData.Children.Append("fault-type3", types.YChild{"FaultType3", nil})
+    for i := range faultType3s.FaultType3 {
+        faultType3s.EntityData.Children.Append(types.GetSegmentPath(faultType3s.FaultType3[i]), types.YChild{"FaultType3", faultType3s.FaultType3[i]})
     }
-    faultType3S.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(faultType3S.EntityData)
+    faultType3s.EntityData.Leafs = types.NewOrderedMap()
+
+    faultType3s.EntityData.YListKeys = []string {}
+
+    return &(faultType3s.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3 struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault 3. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType3 interface{}
 
     // Table of racks.
-    Racks PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks
+    Racks PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks
 }
 
-func (faultType3 *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3) GetEntityData() *types.CommonEntityData {
+func (faultType3 *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3) GetEntityData() *types.CommonEntityData {
     faultType3.EntityData.YFilter = faultType3.YFilter
     faultType3.EntityData.YangName = "fault-type3"
     faultType3.EntityData.BundleName = "cisco_ios_xr"
     faultType3.EntityData.ParentYangName = "fault-type3s"
-    faultType3.EntityData.SegmentPath = "fault-type3" + "[hw-fault-type3='" + fmt.Sprintf("%v", faultType3.HwFaultType3) + "']"
+    faultType3.EntityData.SegmentPath = "fault-type3" + types.AddKeyToken(faultType3.HwFaultType3, "hw-fault-type3")
     faultType3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     faultType3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultType3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultType3.EntityData.Children = make(map[string]types.YChild)
-    faultType3.EntityData.Children["racks"] = types.YChild{"Racks", &faultType3.Racks}
-    faultType3.EntityData.Leafs = make(map[string]types.YLeaf)
-    faultType3.EntityData.Leafs["hw-fault-type3"] = types.YLeaf{"HwFaultType3", faultType3.HwFaultType3}
+    faultType3.EntityData.Children = types.NewOrderedMap()
+    faultType3.EntityData.Children.Append("racks", types.YChild{"Racks", &faultType3.Racks})
+    faultType3.EntityData.Leafs = types.NewOrderedMap()
+    faultType3.EntityData.Leafs.Append("hw-fault-type3", types.YLeaf{"HwFaultType3", faultType3.HwFaultType3})
+
+    faultType3.EntityData.YListKeys = []string {"HwFaultType3"}
+
     return &(faultType3.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks
 // Table of racks
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack.
-    Rack []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack.
+    Rack []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack
 }
 
-func (racks *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks) GetEntityData() *types.CommonEntityData {
+func (racks *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.YFilter = racks.YFilter
     racks.EntityData.YangName = "racks"
     racks.EntityData.BundleName = "cisco_ios_xr"
@@ -292,58 +316,64 @@ func (racks *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_Fau
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack
 // Number
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Rack interface{}
 
     // Table of slots.
-    Slots PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots
+    Slots PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots
 }
 
-func (rack *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack) GetEntityData() *types.CommonEntityData {
+func (rack *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.YFilter = rack.YFilter
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[rack='" + fmt.Sprintf("%v", rack.Rack) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Rack, "rack")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["rack"] = types.YLeaf{"Rack", rack.Rack}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("rack", types.YLeaf{"Rack", rack.Rack})
+
+    rack.EntityData.YListKeys = []string {"Rack"}
+
     return &(rack.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots
 // Table of slots
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot.
-    Slot []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot.
+    Slot []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot
 }
 
-func (slots *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
+func (slots *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
     slots.EntityData.YFilter = slots.YFilter
     slots.EntityData.YangName = "slots"
     slots.EntityData.BundleName = "cisco_ios_xr"
@@ -353,53 +383,59 @@ func (slots *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_Fau
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot
 // Name
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of Hardware Summary.
-    FaultSummary PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_FaultSummary
+    FaultSummary PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_FaultSummary
 
     // Table of Hardware Failure.
-    HardwareFaultDevices PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices
+    HardwareFaultDevices PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices
 }
 
-func (slot *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
+func (slot *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
     slot.EntityData.YFilter = slot.YFilter
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Slot, "slot")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["fault-summary"] = types.YChild{"FaultSummary", &slot.FaultSummary}
-    slot.EntityData.Children["hardware-fault-devices"] = types.YChild{"HardwareFaultDevices", &slot.HardwareFaultDevices}
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["slot"] = types.YLeaf{"Slot", slot.Slot}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("fault-summary", types.YChild{"FaultSummary", &slot.FaultSummary})
+    slot.EntityData.Children.Append("hardware-fault-devices", types.YChild{"HardwareFaultDevices", &slot.HardwareFaultDevices})
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", slot.Slot})
+
+    slot.EntityData.YListKeys = []string {"Slot"}
+
     return &(slot.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_FaultSummary
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_FaultSummary
 // Table of Hardware Summary
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_FaultSummary struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_FaultSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -420,7 +456,7 @@ type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_
     SeverityErrorCount interface{}
 }
 
-func (faultSummary *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_FaultSummary) GetEntityData() *types.CommonEntityData {
+func (faultSummary *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_FaultSummary) GetEntityData() *types.CommonEntityData {
     faultSummary.EntityData.YFilter = faultSummary.YFilter
     faultSummary.EntityData.YangName = "fault-summary"
     faultSummary.EntityData.BundleName = "cisco_ios_xr"
@@ -430,27 +466,30 @@ func (faultSummary *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultTyp
     faultSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultSummary.EntityData.Children = make(map[string]types.YChild)
-    faultSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    faultSummary.EntityData.Leafs["severity-critical-count"] = types.YLeaf{"SeverityCriticalCount", faultSummary.SeverityCriticalCount}
-    faultSummary.EntityData.Leafs["severity-emergency-or-alert-count"] = types.YLeaf{"SeverityEmergencyOrAlertCount", faultSummary.SeverityEmergencyOrAlertCount}
-    faultSummary.EntityData.Leafs["total"] = types.YLeaf{"Total", faultSummary.Total}
-    faultSummary.EntityData.Leafs["severity-error-count"] = types.YLeaf{"SeverityErrorCount", faultSummary.SeverityErrorCount}
+    faultSummary.EntityData.Children = types.NewOrderedMap()
+    faultSummary.EntityData.Leafs = types.NewOrderedMap()
+    faultSummary.EntityData.Leafs.Append("severity-critical-count", types.YLeaf{"SeverityCriticalCount", faultSummary.SeverityCriticalCount})
+    faultSummary.EntityData.Leafs.Append("severity-emergency-or-alert-count", types.YLeaf{"SeverityEmergencyOrAlertCount", faultSummary.SeverityEmergencyOrAlertCount})
+    faultSummary.EntityData.Leafs.Append("total", types.YLeaf{"Total", faultSummary.Total})
+    faultSummary.EntityData.Leafs.Append("severity-error-count", types.YLeaf{"SeverityErrorCount", faultSummary.SeverityErrorCount})
+
+    faultSummary.EntityData.YListKeys = []string {}
+
     return &(faultSummary.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices
 // Table of Hardware Failure
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of Hardware Failure Device. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice.
-    HardwareFaultDevice []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice.
+    HardwareFaultDevice []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
 }
 
-func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices) GetEntityData() *types.CommonEntityData {
     hardwareFaultDevices.EntityData.YFilter = hardwareFaultDevices.YFilter
     hardwareFaultDevices.EntityData.YangName = "hardware-fault-devices"
     hardwareFaultDevices.EntityData.BundleName = "cisco_ios_xr"
@@ -460,58 +499,64 @@ func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1S_FaultType1_
     hardwareFaultDevices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultDevices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultDevices.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultDevices.EntityData.Children["hardware-fault-device"] = types.YChild{"HardwareFaultDevice", nil}
+    hardwareFaultDevices.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultDevices.EntityData.Children.Append("hardware-fault-device", types.YChild{"HardwareFaultDevice", nil})
     for i := range hardwareFaultDevices.HardwareFaultDevice {
-        hardwareFaultDevices.EntityData.Children[types.GetSegmentPath(&hardwareFaultDevices.HardwareFaultDevice[i])] = types.YChild{"HardwareFaultDevice", &hardwareFaultDevices.HardwareFaultDevice[i]}
+        hardwareFaultDevices.EntityData.Children.Append(types.GetSegmentPath(hardwareFaultDevices.HardwareFaultDevice[i]), types.YChild{"HardwareFaultDevice", hardwareFaultDevices.HardwareFaultDevice[i]})
     }
-    hardwareFaultDevices.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareFaultDevices.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareFaultDevices.EntityData.YListKeys = []string {}
+
     return &(hardwareFaultDevices.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault device list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultDevice interface{}
 
     // Table of Hardware Failure Type. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType.
-    HardwareFaultType []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType.
+    HardwareFaultType []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
 }
 
-func (hardwareFaultDevice *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultDevice *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice) GetEntityData() *types.CommonEntityData {
     hardwareFaultDevice.EntityData.YFilter = hardwareFaultDevice.YFilter
     hardwareFaultDevice.EntityData.YangName = "hardware-fault-device"
     hardwareFaultDevice.EntityData.BundleName = "cisco_ios_xr"
     hardwareFaultDevice.EntityData.ParentYangName = "hardware-fault-devices"
-    hardwareFaultDevice.EntityData.SegmentPath = "hardware-fault-device" + "[hw-fault-device='" + fmt.Sprintf("%v", hardwareFaultDevice.HwFaultDevice) + "']"
+    hardwareFaultDevice.EntityData.SegmentPath = "hardware-fault-device" + types.AddKeyToken(hardwareFaultDevice.HwFaultDevice, "hw-fault-device")
     hardwareFaultDevice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareFaultDevice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultDevice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultDevice.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultDevice.EntityData.Children["hardware-fault-type"] = types.YChild{"HardwareFaultType", nil}
+    hardwareFaultDevice.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultDevice.EntityData.Children.Append("hardware-fault-type", types.YChild{"HardwareFaultType", nil})
     for i := range hardwareFaultDevice.HardwareFaultType {
-        hardwareFaultDevice.EntityData.Children[types.GetSegmentPath(&hardwareFaultDevice.HardwareFaultType[i])] = types.YChild{"HardwareFaultType", &hardwareFaultDevice.HardwareFaultType[i]}
+        hardwareFaultDevice.EntityData.Children.Append(types.GetSegmentPath(hardwareFaultDevice.HardwareFaultType[i]), types.YChild{"HardwareFaultType", hardwareFaultDevice.HardwareFaultType[i]})
     }
-    hardwareFaultDevice.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareFaultDevice.EntityData.Leafs["hw-fault-device"] = types.YLeaf{"HwFaultDevice", hardwareFaultDevice.HwFaultDevice}
+    hardwareFaultDevice.EntityData.Leafs = types.NewOrderedMap()
+    hardwareFaultDevice.EntityData.Leafs.Append("hw-fault-device", types.YLeaf{"HwFaultDevice", hardwareFaultDevice.HwFaultDevice})
+
+    hardwareFaultDevice.EntityData.YListKeys = []string {"HwFaultDevice"}
+
     return &(hardwareFaultDevice.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
 // Table of Hardware Failure Type
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault type list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType interface{}
 
     // Faulty Hardware Condition Description. The type is string.
@@ -541,42 +586,45 @@ type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_
     ConditionSeverity interface{}
 }
 
-func (hardwareFaultType *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_FaultType3S_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultType *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_FaultType3s_FaultType3_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType) GetEntityData() *types.CommonEntityData {
     hardwareFaultType.EntityData.YFilter = hardwareFaultType.YFilter
     hardwareFaultType.EntityData.YangName = "hardware-fault-type"
     hardwareFaultType.EntityData.BundleName = "cisco_ios_xr"
     hardwareFaultType.EntityData.ParentYangName = "hardware-fault-device"
-    hardwareFaultType.EntityData.SegmentPath = "hardware-fault-type" + "[hw-fault-type='" + fmt.Sprintf("%v", hardwareFaultType.HwFaultType) + "']"
+    hardwareFaultType.EntityData.SegmentPath = "hardware-fault-type" + types.AddKeyToken(hardwareFaultType.HwFaultType, "hw-fault-type")
     hardwareFaultType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareFaultType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultType.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultType.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareFaultType.EntityData.Leafs["hw-fault-type"] = types.YLeaf{"HwFaultType", hardwareFaultType.HwFaultType}
-    hardwareFaultType.EntityData.Leafs["condition-description"] = types.YLeaf{"ConditionDescription", hardwareFaultType.ConditionDescription}
-    hardwareFaultType.EntityData.Leafs["condition-name"] = types.YLeaf{"ConditionName", hardwareFaultType.ConditionName}
-    hardwareFaultType.EntityData.Leafs["device-key"] = types.YLeaf{"DeviceKey", hardwareFaultType.DeviceKey}
-    hardwareFaultType.EntityData.Leafs["device-version"] = types.YLeaf{"DeviceVersion", hardwareFaultType.DeviceVersion}
-    hardwareFaultType.EntityData.Leafs["condition-raised-timestamp"] = types.YLeaf{"ConditionRaisedTimestamp", hardwareFaultType.ConditionRaisedTimestamp}
-    hardwareFaultType.EntityData.Leafs["process-id"] = types.YLeaf{"ProcessId", hardwareFaultType.ProcessId}
-    hardwareFaultType.EntityData.Leafs["device-description"] = types.YLeaf{"DeviceDescription", hardwareFaultType.DeviceDescription}
-    hardwareFaultType.EntityData.Leafs["condition-severity"] = types.YLeaf{"ConditionSeverity", hardwareFaultType.ConditionSeverity}
+    hardwareFaultType.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultType.EntityData.Leafs = types.NewOrderedMap()
+    hardwareFaultType.EntityData.Leafs.Append("hw-fault-type", types.YLeaf{"HwFaultType", hardwareFaultType.HwFaultType})
+    hardwareFaultType.EntityData.Leafs.Append("condition-description", types.YLeaf{"ConditionDescription", hardwareFaultType.ConditionDescription})
+    hardwareFaultType.EntityData.Leafs.Append("condition-name", types.YLeaf{"ConditionName", hardwareFaultType.ConditionName})
+    hardwareFaultType.EntityData.Leafs.Append("device-key", types.YLeaf{"DeviceKey", hardwareFaultType.DeviceKey})
+    hardwareFaultType.EntityData.Leafs.Append("device-version", types.YLeaf{"DeviceVersion", hardwareFaultType.DeviceVersion})
+    hardwareFaultType.EntityData.Leafs.Append("condition-raised-timestamp", types.YLeaf{"ConditionRaisedTimestamp", hardwareFaultType.ConditionRaisedTimestamp})
+    hardwareFaultType.EntityData.Leafs.Append("process-id", types.YLeaf{"ProcessId", hardwareFaultType.ProcessId})
+    hardwareFaultType.EntityData.Leafs.Append("device-description", types.YLeaf{"DeviceDescription", hardwareFaultType.DeviceDescription})
+    hardwareFaultType.EntityData.Leafs.Append("condition-severity", types.YLeaf{"ConditionSeverity", hardwareFaultType.ConditionSeverity})
+
+    hardwareFaultType.EntityData.YListKeys = []string {"HwFaultType"}
+
     return &(hardwareFaultType.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks
 // Table of racks
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack.
-    Rack []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack.
+    Rack []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack
 }
 
-func (racks *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks) GetEntityData() *types.CommonEntityData {
+func (racks *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.YFilter = racks.YFilter
     racks.EntityData.YangName = "racks"
     racks.EntityData.BundleName = "cisco_ios_xr"
@@ -586,58 +634,64 @@ func (racks *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_Fau
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack
 // Number
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Rack interface{}
 
     // Table of slots.
-    Slots PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots
+    Slots PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots
 }
 
-func (rack *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack) GetEntityData() *types.CommonEntityData {
+func (rack *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.YFilter = rack.YFilter
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[rack='" + fmt.Sprintf("%v", rack.Rack) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Rack, "rack")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["rack"] = types.YLeaf{"Rack", rack.Rack}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("rack", types.YLeaf{"Rack", rack.Rack})
+
+    rack.EntityData.YListKeys = []string {"Rack"}
+
     return &(rack.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots
 // Table of slots
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot.
-    Slot []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot.
+    Slot []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot
 }
 
-func (slots *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
+func (slots *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
     slots.EntityData.YFilter = slots.YFilter
     slots.EntityData.YangName = "slots"
     slots.EntityData.BundleName = "cisco_ios_xr"
@@ -647,53 +701,59 @@ func (slots *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_Fau
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot
 // Name
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of Hardware Summary.
-    FaultSummary PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_FaultSummary
+    FaultSummary PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_FaultSummary
 
     // Table of Hardware Failure.
-    HardwareFaultDevices PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices
+    HardwareFaultDevices PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices
 }
 
-func (slot *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
+func (slot *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
     slot.EntityData.YFilter = slot.YFilter
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Slot, "slot")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["fault-summary"] = types.YChild{"FaultSummary", &slot.FaultSummary}
-    slot.EntityData.Children["hardware-fault-devices"] = types.YChild{"HardwareFaultDevices", &slot.HardwareFaultDevices}
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["slot"] = types.YLeaf{"Slot", slot.Slot}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("fault-summary", types.YChild{"FaultSummary", &slot.FaultSummary})
+    slot.EntityData.Children.Append("hardware-fault-devices", types.YChild{"HardwareFaultDevices", &slot.HardwareFaultDevices})
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", slot.Slot})
+
+    slot.EntityData.YListKeys = []string {"Slot"}
+
     return &(slot.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_FaultSummary
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_FaultSummary
 // Table of Hardware Summary
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_FaultSummary struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_FaultSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -714,7 +774,7 @@ type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_
     SeverityErrorCount interface{}
 }
 
-func (faultSummary *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_FaultSummary) GetEntityData() *types.CommonEntityData {
+func (faultSummary *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_FaultSummary) GetEntityData() *types.CommonEntityData {
     faultSummary.EntityData.YFilter = faultSummary.YFilter
     faultSummary.EntityData.YangName = "fault-summary"
     faultSummary.EntityData.BundleName = "cisco_ios_xr"
@@ -724,27 +784,30 @@ func (faultSummary *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultTyp
     faultSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultSummary.EntityData.Children = make(map[string]types.YChild)
-    faultSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    faultSummary.EntityData.Leafs["severity-critical-count"] = types.YLeaf{"SeverityCriticalCount", faultSummary.SeverityCriticalCount}
-    faultSummary.EntityData.Leafs["severity-emergency-or-alert-count"] = types.YLeaf{"SeverityEmergencyOrAlertCount", faultSummary.SeverityEmergencyOrAlertCount}
-    faultSummary.EntityData.Leafs["total"] = types.YLeaf{"Total", faultSummary.Total}
-    faultSummary.EntityData.Leafs["severity-error-count"] = types.YLeaf{"SeverityErrorCount", faultSummary.SeverityErrorCount}
+    faultSummary.EntityData.Children = types.NewOrderedMap()
+    faultSummary.EntityData.Leafs = types.NewOrderedMap()
+    faultSummary.EntityData.Leafs.Append("severity-critical-count", types.YLeaf{"SeverityCriticalCount", faultSummary.SeverityCriticalCount})
+    faultSummary.EntityData.Leafs.Append("severity-emergency-or-alert-count", types.YLeaf{"SeverityEmergencyOrAlertCount", faultSummary.SeverityEmergencyOrAlertCount})
+    faultSummary.EntityData.Leafs.Append("total", types.YLeaf{"Total", faultSummary.Total})
+    faultSummary.EntityData.Leafs.Append("severity-error-count", types.YLeaf{"SeverityErrorCount", faultSummary.SeverityErrorCount})
+
+    faultSummary.EntityData.YListKeys = []string {}
+
     return &(faultSummary.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices
 // Table of Hardware Failure
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of Hardware Failure Device. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice.
-    HardwareFaultDevice []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice.
+    HardwareFaultDevice []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
 }
 
-func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices) GetEntityData() *types.CommonEntityData {
     hardwareFaultDevices.EntityData.YFilter = hardwareFaultDevices.YFilter
     hardwareFaultDevices.EntityData.YangName = "hardware-fault-devices"
     hardwareFaultDevices.EntityData.BundleName = "cisco_ios_xr"
@@ -754,58 +817,64 @@ func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1S_FaultType1_
     hardwareFaultDevices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultDevices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultDevices.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultDevices.EntityData.Children["hardware-fault-device"] = types.YChild{"HardwareFaultDevice", nil}
+    hardwareFaultDevices.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultDevices.EntityData.Children.Append("hardware-fault-device", types.YChild{"HardwareFaultDevice", nil})
     for i := range hardwareFaultDevices.HardwareFaultDevice {
-        hardwareFaultDevices.EntityData.Children[types.GetSegmentPath(&hardwareFaultDevices.HardwareFaultDevice[i])] = types.YChild{"HardwareFaultDevice", &hardwareFaultDevices.HardwareFaultDevice[i]}
+        hardwareFaultDevices.EntityData.Children.Append(types.GetSegmentPath(hardwareFaultDevices.HardwareFaultDevice[i]), types.YChild{"HardwareFaultDevice", hardwareFaultDevices.HardwareFaultDevice[i]})
     }
-    hardwareFaultDevices.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareFaultDevices.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareFaultDevices.EntityData.YListKeys = []string {}
+
     return &(hardwareFaultDevices.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault device list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultDevice interface{}
 
     // Table of Hardware Failure Type. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType.
-    HardwareFaultType []PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType.
+    HardwareFaultType []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
 }
 
-func (hardwareFaultDevice *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultDevice *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice) GetEntityData() *types.CommonEntityData {
     hardwareFaultDevice.EntityData.YFilter = hardwareFaultDevice.YFilter
     hardwareFaultDevice.EntityData.YangName = "hardware-fault-device"
     hardwareFaultDevice.EntityData.BundleName = "cisco_ios_xr"
     hardwareFaultDevice.EntityData.ParentYangName = "hardware-fault-devices"
-    hardwareFaultDevice.EntityData.SegmentPath = "hardware-fault-device" + "[hw-fault-device='" + fmt.Sprintf("%v", hardwareFaultDevice.HwFaultDevice) + "']"
+    hardwareFaultDevice.EntityData.SegmentPath = "hardware-fault-device" + types.AddKeyToken(hardwareFaultDevice.HwFaultDevice, "hw-fault-device")
     hardwareFaultDevice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareFaultDevice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultDevice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultDevice.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultDevice.EntityData.Children["hardware-fault-type"] = types.YChild{"HardwareFaultType", nil}
+    hardwareFaultDevice.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultDevice.EntityData.Children.Append("hardware-fault-type", types.YChild{"HardwareFaultType", nil})
     for i := range hardwareFaultDevice.HardwareFaultType {
-        hardwareFaultDevice.EntityData.Children[types.GetSegmentPath(&hardwareFaultDevice.HardwareFaultType[i])] = types.YChild{"HardwareFaultType", &hardwareFaultDevice.HardwareFaultType[i]}
+        hardwareFaultDevice.EntityData.Children.Append(types.GetSegmentPath(hardwareFaultDevice.HardwareFaultType[i]), types.YChild{"HardwareFaultType", hardwareFaultDevice.HardwareFaultType[i]})
     }
-    hardwareFaultDevice.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareFaultDevice.EntityData.Leafs["hw-fault-device"] = types.YLeaf{"HwFaultDevice", hardwareFaultDevice.HwFaultDevice}
+    hardwareFaultDevice.EntityData.Leafs = types.NewOrderedMap()
+    hardwareFaultDevice.EntityData.Leafs.Append("hw-fault-device", types.YLeaf{"HwFaultDevice", hardwareFaultDevice.HwFaultDevice})
+
+    hardwareFaultDevice.EntityData.YListKeys = []string {"HwFaultDevice"}
+
     return &(hardwareFaultDevice.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
 // Table of Hardware Failure Type
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault type list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType interface{}
 
     // Faulty Hardware Condition Description. The type is string.
@@ -835,42 +904,45 @@ type PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_
     ConditionSeverity interface{}
 }
 
-func (hardwareFaultType *PlatformFaultManager_Exclude_FaultType1S_FaultType1_FaultType2S_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultType *PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType) GetEntityData() *types.CommonEntityData {
     hardwareFaultType.EntityData.YFilter = hardwareFaultType.YFilter
     hardwareFaultType.EntityData.YangName = "hardware-fault-type"
     hardwareFaultType.EntityData.BundleName = "cisco_ios_xr"
     hardwareFaultType.EntityData.ParentYangName = "hardware-fault-device"
-    hardwareFaultType.EntityData.SegmentPath = "hardware-fault-type" + "[hw-fault-type='" + fmt.Sprintf("%v", hardwareFaultType.HwFaultType) + "']"
+    hardwareFaultType.EntityData.SegmentPath = "hardware-fault-type" + types.AddKeyToken(hardwareFaultType.HwFaultType, "hw-fault-type")
     hardwareFaultType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareFaultType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultType.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultType.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareFaultType.EntityData.Leafs["hw-fault-type"] = types.YLeaf{"HwFaultType", hardwareFaultType.HwFaultType}
-    hardwareFaultType.EntityData.Leafs["condition-description"] = types.YLeaf{"ConditionDescription", hardwareFaultType.ConditionDescription}
-    hardwareFaultType.EntityData.Leafs["condition-name"] = types.YLeaf{"ConditionName", hardwareFaultType.ConditionName}
-    hardwareFaultType.EntityData.Leafs["device-key"] = types.YLeaf{"DeviceKey", hardwareFaultType.DeviceKey}
-    hardwareFaultType.EntityData.Leafs["device-version"] = types.YLeaf{"DeviceVersion", hardwareFaultType.DeviceVersion}
-    hardwareFaultType.EntityData.Leafs["condition-raised-timestamp"] = types.YLeaf{"ConditionRaisedTimestamp", hardwareFaultType.ConditionRaisedTimestamp}
-    hardwareFaultType.EntityData.Leafs["process-id"] = types.YLeaf{"ProcessId", hardwareFaultType.ProcessId}
-    hardwareFaultType.EntityData.Leafs["device-description"] = types.YLeaf{"DeviceDescription", hardwareFaultType.DeviceDescription}
-    hardwareFaultType.EntityData.Leafs["condition-severity"] = types.YLeaf{"ConditionSeverity", hardwareFaultType.ConditionSeverity}
+    hardwareFaultType.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultType.EntityData.Leafs = types.NewOrderedMap()
+    hardwareFaultType.EntityData.Leafs.Append("hw-fault-type", types.YLeaf{"HwFaultType", hardwareFaultType.HwFaultType})
+    hardwareFaultType.EntityData.Leafs.Append("condition-description", types.YLeaf{"ConditionDescription", hardwareFaultType.ConditionDescription})
+    hardwareFaultType.EntityData.Leafs.Append("condition-name", types.YLeaf{"ConditionName", hardwareFaultType.ConditionName})
+    hardwareFaultType.EntityData.Leafs.Append("device-key", types.YLeaf{"DeviceKey", hardwareFaultType.DeviceKey})
+    hardwareFaultType.EntityData.Leafs.Append("device-version", types.YLeaf{"DeviceVersion", hardwareFaultType.DeviceVersion})
+    hardwareFaultType.EntityData.Leafs.Append("condition-raised-timestamp", types.YLeaf{"ConditionRaisedTimestamp", hardwareFaultType.ConditionRaisedTimestamp})
+    hardwareFaultType.EntityData.Leafs.Append("process-id", types.YLeaf{"ProcessId", hardwareFaultType.ProcessId})
+    hardwareFaultType.EntityData.Leafs.Append("device-description", types.YLeaf{"DeviceDescription", hardwareFaultType.DeviceDescription})
+    hardwareFaultType.EntityData.Leafs.Append("condition-severity", types.YLeaf{"ConditionSeverity", hardwareFaultType.ConditionSeverity})
+
+    hardwareFaultType.EntityData.YListKeys = []string {"HwFaultType"}
+
     return &(hardwareFaultType.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks
 // Table of racks
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack.
-    Rack []PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack.
+    Rack []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack
 }
 
-func (racks *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks) GetEntityData() *types.CommonEntityData {
+func (racks *PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.YFilter = racks.YFilter
     racks.EntityData.YangName = "racks"
     racks.EntityData.BundleName = "cisco_ios_xr"
@@ -880,58 +952,64 @@ func (racks *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks) GetEntit
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack
 // Number
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Rack interface{}
 
     // Table of slots.
-    Slots PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots
+    Slots PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots
 }
 
-func (rack *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack) GetEntityData() *types.CommonEntityData {
+func (rack *PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.YFilter = rack.YFilter
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[rack='" + fmt.Sprintf("%v", rack.Rack) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Rack, "rack")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["rack"] = types.YLeaf{"Rack", rack.Rack}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("rack", types.YLeaf{"Rack", rack.Rack})
+
+    rack.EntityData.YListKeys = []string {"Rack"}
+
     return &(rack.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots
 // Table of slots
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot.
-    Slot []PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot.
+    Slot []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot
 }
 
-func (slots *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
+func (slots *PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
     slots.EntityData.YFilter = slots.YFilter
     slots.EntityData.YangName = "slots"
     slots.EntityData.BundleName = "cisco_ios_xr"
@@ -941,53 +1019,59 @@ func (slots *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slot
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot
 // Name
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of Hardware Summary.
-    FaultSummary PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_FaultSummary
+    FaultSummary PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_FaultSummary
 
     // Table of Hardware Failure.
-    HardwareFaultDevices PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices
+    HardwareFaultDevices PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices
 }
 
-func (slot *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
+func (slot *PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
     slot.EntityData.YFilter = slot.YFilter
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Slot, "slot")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["fault-summary"] = types.YChild{"FaultSummary", &slot.FaultSummary}
-    slot.EntityData.Children["hardware-fault-devices"] = types.YChild{"HardwareFaultDevices", &slot.HardwareFaultDevices}
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["slot"] = types.YLeaf{"Slot", slot.Slot}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("fault-summary", types.YChild{"FaultSummary", &slot.FaultSummary})
+    slot.EntityData.Children.Append("hardware-fault-devices", types.YChild{"HardwareFaultDevices", &slot.HardwareFaultDevices})
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", slot.Slot})
+
+    slot.EntityData.YListKeys = []string {"Slot"}
+
     return &(slot.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_FaultSummary
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_FaultSummary
 // Table of Hardware Summary
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_FaultSummary struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_FaultSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1008,7 +1092,7 @@ type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_F
     SeverityErrorCount interface{}
 }
 
-func (faultSummary *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_FaultSummary) GetEntityData() *types.CommonEntityData {
+func (faultSummary *PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_FaultSummary) GetEntityData() *types.CommonEntityData {
     faultSummary.EntityData.YFilter = faultSummary.YFilter
     faultSummary.EntityData.YangName = "fault-summary"
     faultSummary.EntityData.BundleName = "cisco_ios_xr"
@@ -1018,27 +1102,30 @@ func (faultSummary *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Ra
     faultSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultSummary.EntityData.Children = make(map[string]types.YChild)
-    faultSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    faultSummary.EntityData.Leafs["severity-critical-count"] = types.YLeaf{"SeverityCriticalCount", faultSummary.SeverityCriticalCount}
-    faultSummary.EntityData.Leafs["severity-emergency-or-alert-count"] = types.YLeaf{"SeverityEmergencyOrAlertCount", faultSummary.SeverityEmergencyOrAlertCount}
-    faultSummary.EntityData.Leafs["total"] = types.YLeaf{"Total", faultSummary.Total}
-    faultSummary.EntityData.Leafs["severity-error-count"] = types.YLeaf{"SeverityErrorCount", faultSummary.SeverityErrorCount}
+    faultSummary.EntityData.Children = types.NewOrderedMap()
+    faultSummary.EntityData.Leafs = types.NewOrderedMap()
+    faultSummary.EntityData.Leafs.Append("severity-critical-count", types.YLeaf{"SeverityCriticalCount", faultSummary.SeverityCriticalCount})
+    faultSummary.EntityData.Leafs.Append("severity-emergency-or-alert-count", types.YLeaf{"SeverityEmergencyOrAlertCount", faultSummary.SeverityEmergencyOrAlertCount})
+    faultSummary.EntityData.Leafs.Append("total", types.YLeaf{"Total", faultSummary.Total})
+    faultSummary.EntityData.Leafs.Append("severity-error-count", types.YLeaf{"SeverityErrorCount", faultSummary.SeverityErrorCount})
+
+    faultSummary.EntityData.YListKeys = []string {}
+
     return &(faultSummary.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices
 // Table of Hardware Failure
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of Hardware Failure Device. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice.
-    HardwareFaultDevice []PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice.
+    HardwareFaultDevice []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
 }
 
-func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices) GetEntityData() *types.CommonEntityData {
     hardwareFaultDevices.EntityData.YFilter = hardwareFaultDevices.YFilter
     hardwareFaultDevices.EntityData.YangName = "hardware-fault-devices"
     hardwareFaultDevices.EntityData.BundleName = "cisco_ios_xr"
@@ -1048,58 +1135,64 @@ func (hardwareFaultDevices *PlatformFaultManager_Exclude_FaultType1S_FaultType1_
     hardwareFaultDevices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultDevices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultDevices.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultDevices.EntityData.Children["hardware-fault-device"] = types.YChild{"HardwareFaultDevice", nil}
+    hardwareFaultDevices.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultDevices.EntityData.Children.Append("hardware-fault-device", types.YChild{"HardwareFaultDevice", nil})
     for i := range hardwareFaultDevices.HardwareFaultDevice {
-        hardwareFaultDevices.EntityData.Children[types.GetSegmentPath(&hardwareFaultDevices.HardwareFaultDevice[i])] = types.YChild{"HardwareFaultDevice", &hardwareFaultDevices.HardwareFaultDevice[i]}
+        hardwareFaultDevices.EntityData.Children.Append(types.GetSegmentPath(hardwareFaultDevices.HardwareFaultDevice[i]), types.YChild{"HardwareFaultDevice", hardwareFaultDevices.HardwareFaultDevice[i]})
     }
-    hardwareFaultDevices.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareFaultDevices.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareFaultDevices.EntityData.YListKeys = []string {}
+
     return &(hardwareFaultDevices.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
 // Table of Hardware Failure Device
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault device list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultDevice interface{}
 
     // Table of Hardware Failure Type. The type is slice of
-    // PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType.
-    HardwareFaultType []PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
+    // PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType.
+    HardwareFaultType []*PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
 }
 
-func (hardwareFaultDevice *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultDevice *PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice) GetEntityData() *types.CommonEntityData {
     hardwareFaultDevice.EntityData.YFilter = hardwareFaultDevice.YFilter
     hardwareFaultDevice.EntityData.YangName = "hardware-fault-device"
     hardwareFaultDevice.EntityData.BundleName = "cisco_ios_xr"
     hardwareFaultDevice.EntityData.ParentYangName = "hardware-fault-devices"
-    hardwareFaultDevice.EntityData.SegmentPath = "hardware-fault-device" + "[hw-fault-device='" + fmt.Sprintf("%v", hardwareFaultDevice.HwFaultDevice) + "']"
+    hardwareFaultDevice.EntityData.SegmentPath = "hardware-fault-device" + types.AddKeyToken(hardwareFaultDevice.HwFaultDevice, "hw-fault-device")
     hardwareFaultDevice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareFaultDevice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultDevice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultDevice.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultDevice.EntityData.Children["hardware-fault-type"] = types.YChild{"HardwareFaultType", nil}
+    hardwareFaultDevice.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultDevice.EntityData.Children.Append("hardware-fault-type", types.YChild{"HardwareFaultType", nil})
     for i := range hardwareFaultDevice.HardwareFaultType {
-        hardwareFaultDevice.EntityData.Children[types.GetSegmentPath(&hardwareFaultDevice.HardwareFaultType[i])] = types.YChild{"HardwareFaultType", &hardwareFaultDevice.HardwareFaultType[i]}
+        hardwareFaultDevice.EntityData.Children.Append(types.GetSegmentPath(hardwareFaultDevice.HardwareFaultType[i]), types.YChild{"HardwareFaultType", hardwareFaultDevice.HardwareFaultType[i]})
     }
-    hardwareFaultDevice.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareFaultDevice.EntityData.Leafs["hw-fault-device"] = types.YLeaf{"HwFaultDevice", hardwareFaultDevice.HwFaultDevice}
+    hardwareFaultDevice.EntityData.Leafs = types.NewOrderedMap()
+    hardwareFaultDevice.EntityData.Leafs.Append("hw-fault-device", types.YLeaf{"HwFaultDevice", hardwareFaultDevice.HwFaultDevice})
+
+    hardwareFaultDevice.EntityData.YListKeys = []string {"HwFaultDevice"}
+
     return &(hardwareFaultDevice.EntityData)
 }
 
-// PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
+// PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
 // Table of Hardware Failure Type
-type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType struct {
+type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault type list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType interface{}
 
     // Faulty Hardware Condition Description. The type is string.
@@ -1129,27 +1222,30 @@ type PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_H
     ConditionSeverity interface{}
 }
 
-func (hardwareFaultType *PlatformFaultManager_Exclude_FaultType1S_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType) GetEntityData() *types.CommonEntityData {
+func (hardwareFaultType *PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType) GetEntityData() *types.CommonEntityData {
     hardwareFaultType.EntityData.YFilter = hardwareFaultType.YFilter
     hardwareFaultType.EntityData.YangName = "hardware-fault-type"
     hardwareFaultType.EntityData.BundleName = "cisco_ios_xr"
     hardwareFaultType.EntityData.ParentYangName = "hardware-fault-device"
-    hardwareFaultType.EntityData.SegmentPath = "hardware-fault-type" + "[hw-fault-type='" + fmt.Sprintf("%v", hardwareFaultType.HwFaultType) + "']"
+    hardwareFaultType.EntityData.SegmentPath = "hardware-fault-type" + types.AddKeyToken(hardwareFaultType.HwFaultType, "hw-fault-type")
     hardwareFaultType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareFaultType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultType.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultType.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareFaultType.EntityData.Leafs["hw-fault-type"] = types.YLeaf{"HwFaultType", hardwareFaultType.HwFaultType}
-    hardwareFaultType.EntityData.Leafs["condition-description"] = types.YLeaf{"ConditionDescription", hardwareFaultType.ConditionDescription}
-    hardwareFaultType.EntityData.Leafs["condition-name"] = types.YLeaf{"ConditionName", hardwareFaultType.ConditionName}
-    hardwareFaultType.EntityData.Leafs["device-key"] = types.YLeaf{"DeviceKey", hardwareFaultType.DeviceKey}
-    hardwareFaultType.EntityData.Leafs["device-version"] = types.YLeaf{"DeviceVersion", hardwareFaultType.DeviceVersion}
-    hardwareFaultType.EntityData.Leafs["condition-raised-timestamp"] = types.YLeaf{"ConditionRaisedTimestamp", hardwareFaultType.ConditionRaisedTimestamp}
-    hardwareFaultType.EntityData.Leafs["process-id"] = types.YLeaf{"ProcessId", hardwareFaultType.ProcessId}
-    hardwareFaultType.EntityData.Leafs["device-description"] = types.YLeaf{"DeviceDescription", hardwareFaultType.DeviceDescription}
-    hardwareFaultType.EntityData.Leafs["condition-severity"] = types.YLeaf{"ConditionSeverity", hardwareFaultType.ConditionSeverity}
+    hardwareFaultType.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultType.EntityData.Leafs = types.NewOrderedMap()
+    hardwareFaultType.EntityData.Leafs.Append("hw-fault-type", types.YLeaf{"HwFaultType", hardwareFaultType.HwFaultType})
+    hardwareFaultType.EntityData.Leafs.Append("condition-description", types.YLeaf{"ConditionDescription", hardwareFaultType.ConditionDescription})
+    hardwareFaultType.EntityData.Leafs.Append("condition-name", types.YLeaf{"ConditionName", hardwareFaultType.ConditionName})
+    hardwareFaultType.EntityData.Leafs.Append("device-key", types.YLeaf{"DeviceKey", hardwareFaultType.DeviceKey})
+    hardwareFaultType.EntityData.Leafs.Append("device-version", types.YLeaf{"DeviceVersion", hardwareFaultType.DeviceVersion})
+    hardwareFaultType.EntityData.Leafs.Append("condition-raised-timestamp", types.YLeaf{"ConditionRaisedTimestamp", hardwareFaultType.ConditionRaisedTimestamp})
+    hardwareFaultType.EntityData.Leafs.Append("process-id", types.YLeaf{"ProcessId", hardwareFaultType.ProcessId})
+    hardwareFaultType.EntityData.Leafs.Append("device-description", types.YLeaf{"DeviceDescription", hardwareFaultType.DeviceDescription})
+    hardwareFaultType.EntityData.Leafs.Append("condition-severity", types.YLeaf{"ConditionSeverity", hardwareFaultType.ConditionSeverity})
+
+    hardwareFaultType.EntityData.YListKeys = []string {"HwFaultType"}
+
     return &(hardwareFaultType.EntityData)
 }
 
@@ -1160,7 +1256,7 @@ type PlatformFaultManager_Racks struct {
     YFilter yfilter.YFilter
 
     // Number. The type is slice of PlatformFaultManager_Racks_Rack.
-    Rack []PlatformFaultManager_Racks_Rack
+    Rack []*PlatformFaultManager_Racks_Rack
 }
 
 func (racks *PlatformFaultManager_Racks) GetEntityData() *types.CommonEntityData {
@@ -1173,12 +1269,15 @@ func (racks *PlatformFaultManager_Racks) GetEntityData() *types.CommonEntityData
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
@@ -1189,7 +1288,7 @@ type PlatformFaultManager_Racks_Rack struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Rack interface{}
 
     // Table of slots.
@@ -1201,15 +1300,18 @@ func (rack *PlatformFaultManager_Racks_Rack) GetEntityData() *types.CommonEntity
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[rack='" + fmt.Sprintf("%v", rack.Rack) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Rack, "rack")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["rack"] = types.YLeaf{"Rack", rack.Rack}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("rack", types.YLeaf{"Rack", rack.Rack})
+
+    rack.EntityData.YListKeys = []string {"Rack"}
+
     return &(rack.EntityData)
 }
 
@@ -1220,7 +1322,7 @@ type PlatformFaultManager_Racks_Rack_Slots struct {
     YFilter yfilter.YFilter
 
     // Name. The type is slice of PlatformFaultManager_Racks_Rack_Slots_Slot.
-    Slot []PlatformFaultManager_Racks_Rack_Slots_Slot
+    Slot []*PlatformFaultManager_Racks_Rack_Slots_Slot
 }
 
 func (slots *PlatformFaultManager_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
@@ -1233,12 +1335,15 @@ func (slots *PlatformFaultManager_Racks_Rack_Slots) GetEntityData() *types.Commo
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
@@ -1249,7 +1354,7 @@ type PlatformFaultManager_Racks_Rack_Slots_Slot struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of Hardware Summary.
@@ -1264,16 +1369,19 @@ func (slot *PlatformFaultManager_Racks_Rack_Slots_Slot) GetEntityData() *types.C
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Slot, "slot")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["fault-summary"] = types.YChild{"FaultSummary", &slot.FaultSummary}
-    slot.EntityData.Children["hardware-fault-devices"] = types.YChild{"HardwareFaultDevices", &slot.HardwareFaultDevices}
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["slot"] = types.YLeaf{"Slot", slot.Slot}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("fault-summary", types.YChild{"FaultSummary", &slot.FaultSummary})
+    slot.EntityData.Children.Append("hardware-fault-devices", types.YChild{"HardwareFaultDevices", &slot.HardwareFaultDevices})
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", slot.Slot})
+
+    slot.EntityData.YListKeys = []string {"Slot"}
+
     return &(slot.EntityData)
 }
 
@@ -1310,12 +1418,15 @@ func (faultSummary *PlatformFaultManager_Racks_Rack_Slots_Slot_FaultSummary) Get
     faultSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultSummary.EntityData.Children = make(map[string]types.YChild)
-    faultSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    faultSummary.EntityData.Leafs["severity-critical-count"] = types.YLeaf{"SeverityCriticalCount", faultSummary.SeverityCriticalCount}
-    faultSummary.EntityData.Leafs["severity-emergency-or-alert-count"] = types.YLeaf{"SeverityEmergencyOrAlertCount", faultSummary.SeverityEmergencyOrAlertCount}
-    faultSummary.EntityData.Leafs["total"] = types.YLeaf{"Total", faultSummary.Total}
-    faultSummary.EntityData.Leafs["severity-error-count"] = types.YLeaf{"SeverityErrorCount", faultSummary.SeverityErrorCount}
+    faultSummary.EntityData.Children = types.NewOrderedMap()
+    faultSummary.EntityData.Leafs = types.NewOrderedMap()
+    faultSummary.EntityData.Leafs.Append("severity-critical-count", types.YLeaf{"SeverityCriticalCount", faultSummary.SeverityCriticalCount})
+    faultSummary.EntityData.Leafs.Append("severity-emergency-or-alert-count", types.YLeaf{"SeverityEmergencyOrAlertCount", faultSummary.SeverityEmergencyOrAlertCount})
+    faultSummary.EntityData.Leafs.Append("total", types.YLeaf{"Total", faultSummary.Total})
+    faultSummary.EntityData.Leafs.Append("severity-error-count", types.YLeaf{"SeverityErrorCount", faultSummary.SeverityErrorCount})
+
+    faultSummary.EntityData.YListKeys = []string {}
+
     return &(faultSummary.EntityData)
 }
 
@@ -1327,7 +1438,7 @@ type PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices struct {
 
     // Table of Hardware Failure Device. The type is slice of
     // PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice.
-    HardwareFaultDevice []PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
+    HardwareFaultDevice []*PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice
 }
 
 func (hardwareFaultDevices *PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices) GetEntityData() *types.CommonEntityData {
@@ -1340,12 +1451,15 @@ func (hardwareFaultDevices *PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareF
     hardwareFaultDevices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultDevices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultDevices.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultDevices.EntityData.Children["hardware-fault-device"] = types.YChild{"HardwareFaultDevice", nil}
+    hardwareFaultDevices.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultDevices.EntityData.Children.Append("hardware-fault-device", types.YChild{"HardwareFaultDevice", nil})
     for i := range hardwareFaultDevices.HardwareFaultDevice {
-        hardwareFaultDevices.EntityData.Children[types.GetSegmentPath(&hardwareFaultDevices.HardwareFaultDevice[i])] = types.YChild{"HardwareFaultDevice", &hardwareFaultDevices.HardwareFaultDevice[i]}
+        hardwareFaultDevices.EntityData.Children.Append(types.GetSegmentPath(hardwareFaultDevices.HardwareFaultDevice[i]), types.YChild{"HardwareFaultDevice", hardwareFaultDevices.HardwareFaultDevice[i]})
     }
-    hardwareFaultDevices.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareFaultDevices.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareFaultDevices.EntityData.YListKeys = []string {}
+
     return &(hardwareFaultDevices.EntityData)
 }
 
@@ -1356,12 +1470,12 @@ type PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFau
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault device list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultDevice interface{}
 
     // Table of Hardware Failure Type. The type is slice of
     // PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType.
-    HardwareFaultType []PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
+    HardwareFaultType []*PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice_HardwareFaultType
 }
 
 func (hardwareFaultDevice *PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFaultDevice) GetEntityData() *types.CommonEntityData {
@@ -1369,18 +1483,21 @@ func (hardwareFaultDevice *PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFa
     hardwareFaultDevice.EntityData.YangName = "hardware-fault-device"
     hardwareFaultDevice.EntityData.BundleName = "cisco_ios_xr"
     hardwareFaultDevice.EntityData.ParentYangName = "hardware-fault-devices"
-    hardwareFaultDevice.EntityData.SegmentPath = "hardware-fault-device" + "[hw-fault-device='" + fmt.Sprintf("%v", hardwareFaultDevice.HwFaultDevice) + "']"
+    hardwareFaultDevice.EntityData.SegmentPath = "hardware-fault-device" + types.AddKeyToken(hardwareFaultDevice.HwFaultDevice, "hw-fault-device")
     hardwareFaultDevice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareFaultDevice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultDevice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultDevice.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultDevice.EntityData.Children["hardware-fault-type"] = types.YChild{"HardwareFaultType", nil}
+    hardwareFaultDevice.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultDevice.EntityData.Children.Append("hardware-fault-type", types.YChild{"HardwareFaultType", nil})
     for i := range hardwareFaultDevice.HardwareFaultType {
-        hardwareFaultDevice.EntityData.Children[types.GetSegmentPath(&hardwareFaultDevice.HardwareFaultType[i])] = types.YChild{"HardwareFaultType", &hardwareFaultDevice.HardwareFaultType[i]}
+        hardwareFaultDevice.EntityData.Children.Append(types.GetSegmentPath(hardwareFaultDevice.HardwareFaultType[i]), types.YChild{"HardwareFaultType", hardwareFaultDevice.HardwareFaultType[i]})
     }
-    hardwareFaultDevice.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareFaultDevice.EntityData.Leafs["hw-fault-device"] = types.YLeaf{"HwFaultDevice", hardwareFaultDevice.HwFaultDevice}
+    hardwareFaultDevice.EntityData.Leafs = types.NewOrderedMap()
+    hardwareFaultDevice.EntityData.Leafs.Append("hw-fault-device", types.YLeaf{"HwFaultDevice", hardwareFaultDevice.HwFaultDevice})
+
+    hardwareFaultDevice.EntityData.YListKeys = []string {"HwFaultDevice"}
+
     return &(hardwareFaultDevice.EntityData)
 }
 
@@ -1391,7 +1508,7 @@ type PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFau
     YFilter yfilter.YFilter
 
     // This attribute is a key. hw fault type list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType interface{}
 
     // Faulty Hardware Condition Description. The type is string.
@@ -1426,22 +1543,25 @@ func (hardwareFaultType *PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaul
     hardwareFaultType.EntityData.YangName = "hardware-fault-type"
     hardwareFaultType.EntityData.BundleName = "cisco_ios_xr"
     hardwareFaultType.EntityData.ParentYangName = "hardware-fault-device"
-    hardwareFaultType.EntityData.SegmentPath = "hardware-fault-type" + "[hw-fault-type='" + fmt.Sprintf("%v", hardwareFaultType.HwFaultType) + "']"
+    hardwareFaultType.EntityData.SegmentPath = "hardware-fault-type" + types.AddKeyToken(hardwareFaultType.HwFaultType, "hw-fault-type")
     hardwareFaultType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareFaultType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareFaultType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareFaultType.EntityData.Children = make(map[string]types.YChild)
-    hardwareFaultType.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareFaultType.EntityData.Leafs["hw-fault-type"] = types.YLeaf{"HwFaultType", hardwareFaultType.HwFaultType}
-    hardwareFaultType.EntityData.Leafs["condition-description"] = types.YLeaf{"ConditionDescription", hardwareFaultType.ConditionDescription}
-    hardwareFaultType.EntityData.Leafs["condition-name"] = types.YLeaf{"ConditionName", hardwareFaultType.ConditionName}
-    hardwareFaultType.EntityData.Leafs["device-key"] = types.YLeaf{"DeviceKey", hardwareFaultType.DeviceKey}
-    hardwareFaultType.EntityData.Leafs["device-version"] = types.YLeaf{"DeviceVersion", hardwareFaultType.DeviceVersion}
-    hardwareFaultType.EntityData.Leafs["condition-raised-timestamp"] = types.YLeaf{"ConditionRaisedTimestamp", hardwareFaultType.ConditionRaisedTimestamp}
-    hardwareFaultType.EntityData.Leafs["process-id"] = types.YLeaf{"ProcessId", hardwareFaultType.ProcessId}
-    hardwareFaultType.EntityData.Leafs["device-description"] = types.YLeaf{"DeviceDescription", hardwareFaultType.DeviceDescription}
-    hardwareFaultType.EntityData.Leafs["condition-severity"] = types.YLeaf{"ConditionSeverity", hardwareFaultType.ConditionSeverity}
+    hardwareFaultType.EntityData.Children = types.NewOrderedMap()
+    hardwareFaultType.EntityData.Leafs = types.NewOrderedMap()
+    hardwareFaultType.EntityData.Leafs.Append("hw-fault-type", types.YLeaf{"HwFaultType", hardwareFaultType.HwFaultType})
+    hardwareFaultType.EntityData.Leafs.Append("condition-description", types.YLeaf{"ConditionDescription", hardwareFaultType.ConditionDescription})
+    hardwareFaultType.EntityData.Leafs.Append("condition-name", types.YLeaf{"ConditionName", hardwareFaultType.ConditionName})
+    hardwareFaultType.EntityData.Leafs.Append("device-key", types.YLeaf{"DeviceKey", hardwareFaultType.DeviceKey})
+    hardwareFaultType.EntityData.Leafs.Append("device-version", types.YLeaf{"DeviceVersion", hardwareFaultType.DeviceVersion})
+    hardwareFaultType.EntityData.Leafs.Append("condition-raised-timestamp", types.YLeaf{"ConditionRaisedTimestamp", hardwareFaultType.ConditionRaisedTimestamp})
+    hardwareFaultType.EntityData.Leafs.Append("process-id", types.YLeaf{"ProcessId", hardwareFaultType.ProcessId})
+    hardwareFaultType.EntityData.Leafs.Append("device-description", types.YLeaf{"DeviceDescription", hardwareFaultType.DeviceDescription})
+    hardwareFaultType.EntityData.Leafs.Append("condition-severity", types.YLeaf{"ConditionSeverity", hardwareFaultType.ConditionSeverity})
+
+    hardwareFaultType.EntityData.YListKeys = []string {"HwFaultType"}
+
     return &(hardwareFaultType.EntityData)
 }
 

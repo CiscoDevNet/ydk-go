@@ -39,9 +39,12 @@ func (cpuUsage *CpuUsage) GetEntityData() *types.CommonEntityData {
     cpuUsage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUsage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpuUsage.EntityData.Children = make(map[string]types.YChild)
-    cpuUsage.EntityData.Children["cpu-utilization"] = types.YChild{"CpuUtilization", &cpuUsage.CpuUtilization}
-    cpuUsage.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuUsage.EntityData.Children = types.NewOrderedMap()
+    cpuUsage.EntityData.Children.Append("cpu-utilization", types.YChild{"CpuUtilization", &cpuUsage.CpuUtilization})
+    cpuUsage.EntityData.Leafs = types.NewOrderedMap()
+
+    cpuUsage.EntityData.YListKeys = []string {}
+
     return &(cpuUsage.EntityData)
 }
 
@@ -81,13 +84,16 @@ func (cpuUtilization *CpuUsage_CpuUtilization) GetEntityData() *types.CommonEnti
     cpuUtilization.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUtilization.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpuUtilization.EntityData.Children = make(map[string]types.YChild)
-    cpuUtilization.EntityData.Children["cpu-usage-processes"] = types.YChild{"CpuUsageProcesses", &cpuUtilization.CpuUsageProcesses}
-    cpuUtilization.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpuUtilization.EntityData.Leafs["five-seconds"] = types.YLeaf{"FiveSeconds", cpuUtilization.FiveSeconds}
-    cpuUtilization.EntityData.Leafs["five-seconds-intr"] = types.YLeaf{"FiveSecondsIntr", cpuUtilization.FiveSecondsIntr}
-    cpuUtilization.EntityData.Leafs["one-minute"] = types.YLeaf{"OneMinute", cpuUtilization.OneMinute}
-    cpuUtilization.EntityData.Leafs["five-minutes"] = types.YLeaf{"FiveMinutes", cpuUtilization.FiveMinutes}
+    cpuUtilization.EntityData.Children = types.NewOrderedMap()
+    cpuUtilization.EntityData.Children.Append("cpu-usage-processes", types.YChild{"CpuUsageProcesses", &cpuUtilization.CpuUsageProcesses})
+    cpuUtilization.EntityData.Leafs = types.NewOrderedMap()
+    cpuUtilization.EntityData.Leafs.Append("five-seconds", types.YLeaf{"FiveSeconds", cpuUtilization.FiveSeconds})
+    cpuUtilization.EntityData.Leafs.Append("five-seconds-intr", types.YLeaf{"FiveSecondsIntr", cpuUtilization.FiveSecondsIntr})
+    cpuUtilization.EntityData.Leafs.Append("one-minute", types.YLeaf{"OneMinute", cpuUtilization.OneMinute})
+    cpuUtilization.EntityData.Leafs.Append("five-minutes", types.YLeaf{"FiveMinutes", cpuUtilization.FiveMinutes})
+
+    cpuUtilization.EntityData.YListKeys = []string {}
+
     return &(cpuUtilization.EntityData)
 }
 
@@ -99,7 +105,7 @@ type CpuUsage_CpuUtilization_CpuUsageProcesses struct {
 
     // The list of software processes on the device. The type is slice of
     // CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess.
-    CpuUsageProcess []CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess
+    CpuUsageProcess []*CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess
 }
 
 func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetEntityData() *types.CommonEntityData {
@@ -112,12 +118,15 @@ func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetEntityDat
     cpuUsageProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUsageProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpuUsageProcesses.EntityData.Children = make(map[string]types.YChild)
-    cpuUsageProcesses.EntityData.Children["cpu-usage-process"] = types.YChild{"CpuUsageProcess", nil}
+    cpuUsageProcesses.EntityData.Children = types.NewOrderedMap()
+    cpuUsageProcesses.EntityData.Children.Append("cpu-usage-process", types.YChild{"CpuUsageProcess", nil})
     for i := range cpuUsageProcesses.CpuUsageProcess {
-        cpuUsageProcesses.EntityData.Children[types.GetSegmentPath(&cpuUsageProcesses.CpuUsageProcess[i])] = types.YChild{"CpuUsageProcess", &cpuUsageProcesses.CpuUsageProcess[i]}
+        cpuUsageProcesses.EntityData.Children.Append(types.GetSegmentPath(cpuUsageProcesses.CpuUsageProcess[i]), types.YChild{"CpuUsageProcess", cpuUsageProcesses.CpuUsageProcess[i]})
     }
-    cpuUsageProcesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuUsageProcesses.EntityData.Leafs = types.NewOrderedMap()
+
+    cpuUsageProcesses.EntityData.YListKeys = []string {}
+
     return &(cpuUsageProcesses.EntityData)
 }
 
@@ -167,22 +176,25 @@ func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess
     cpuUsageProcess.EntityData.YangName = "cpu-usage-process"
     cpuUsageProcess.EntityData.BundleName = "cisco_ios_xe"
     cpuUsageProcess.EntityData.ParentYangName = "cpu-usage-processes"
-    cpuUsageProcess.EntityData.SegmentPath = "cpu-usage-process" + "[pid='" + fmt.Sprintf("%v", cpuUsageProcess.Pid) + "']" + "[name='" + fmt.Sprintf("%v", cpuUsageProcess.Name) + "']"
+    cpuUsageProcess.EntityData.SegmentPath = "cpu-usage-process" + types.AddKeyToken(cpuUsageProcess.Pid, "pid") + types.AddKeyToken(cpuUsageProcess.Name, "name")
     cpuUsageProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpuUsageProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUsageProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpuUsageProcess.EntityData.Children = make(map[string]types.YChild)
-    cpuUsageProcess.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpuUsageProcess.EntityData.Leafs["pid"] = types.YLeaf{"Pid", cpuUsageProcess.Pid}
-    cpuUsageProcess.EntityData.Leafs["name"] = types.YLeaf{"Name", cpuUsageProcess.Name}
-    cpuUsageProcess.EntityData.Leafs["tty"] = types.YLeaf{"Tty", cpuUsageProcess.Tty}
-    cpuUsageProcess.EntityData.Leafs["total-run-time"] = types.YLeaf{"TotalRunTime", cpuUsageProcess.TotalRunTime}
-    cpuUsageProcess.EntityData.Leafs["invocation-count"] = types.YLeaf{"InvocationCount", cpuUsageProcess.InvocationCount}
-    cpuUsageProcess.EntityData.Leafs["avg-run-time"] = types.YLeaf{"AvgRunTime", cpuUsageProcess.AvgRunTime}
-    cpuUsageProcess.EntityData.Leafs["five-seconds"] = types.YLeaf{"FiveSeconds", cpuUsageProcess.FiveSeconds}
-    cpuUsageProcess.EntityData.Leafs["one-minute"] = types.YLeaf{"OneMinute", cpuUsageProcess.OneMinute}
-    cpuUsageProcess.EntityData.Leafs["five-minutes"] = types.YLeaf{"FiveMinutes", cpuUsageProcess.FiveMinutes}
+    cpuUsageProcess.EntityData.Children = types.NewOrderedMap()
+    cpuUsageProcess.EntityData.Leafs = types.NewOrderedMap()
+    cpuUsageProcess.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", cpuUsageProcess.Pid})
+    cpuUsageProcess.EntityData.Leafs.Append("name", types.YLeaf{"Name", cpuUsageProcess.Name})
+    cpuUsageProcess.EntityData.Leafs.Append("tty", types.YLeaf{"Tty", cpuUsageProcess.Tty})
+    cpuUsageProcess.EntityData.Leafs.Append("total-run-time", types.YLeaf{"TotalRunTime", cpuUsageProcess.TotalRunTime})
+    cpuUsageProcess.EntityData.Leafs.Append("invocation-count", types.YLeaf{"InvocationCount", cpuUsageProcess.InvocationCount})
+    cpuUsageProcess.EntityData.Leafs.Append("avg-run-time", types.YLeaf{"AvgRunTime", cpuUsageProcess.AvgRunTime})
+    cpuUsageProcess.EntityData.Leafs.Append("five-seconds", types.YLeaf{"FiveSeconds", cpuUsageProcess.FiveSeconds})
+    cpuUsageProcess.EntityData.Leafs.Append("one-minute", types.YLeaf{"OneMinute", cpuUsageProcess.OneMinute})
+    cpuUsageProcess.EntityData.Leafs.Append("five-minutes", types.YLeaf{"FiveMinutes", cpuUsageProcess.FiveMinutes})
+
+    cpuUsageProcess.EntityData.YListKeys = []string {"Pid", "Name"}
+
     return &(cpuUsageProcess.EntityData)
 }
 

@@ -64,7 +64,9 @@ module Cisco-IOS-XR-dot1x-cfg {
         description
           "Dot1x Supplicant Related Configuration";
         leaf eap-profile {
-          type string;
+          type string {
+            length "1..63";
+          }
           description
             "EAP Profile for Supplicant";
         }
@@ -101,7 +103,9 @@ module Cisco-IOS-XR-dot1x-cfg {
           "Dot1x PAE (Port Access Entity) Role";
       }
       leaf profile-name {
-        type xr:Cisco-ios-xr-string;
+        type xr:Cisco-ios-xr-string {
+          length "1..63";
+        }
         description
           "Name of the Dot1x Profile";
       }
@@ -118,18 +122,24 @@ module Cisco-IOS-XR-dot1x-cfg {
         description
           "EAP TLS Configuration";
         leaf pki-trustpoint {
-          type string;
+          type xr:Cisco-ios-xr-string {
+            length "1..63";
+          }
           description
             "Configure PKI Trustpoint";
         }
       }
       leaf identity {
-        type string;
+        type string {
+          length "1..63";
+        }
         description
           "Configure EAP Identity/UserName";
       }
       leaf profile-name {
-        type xr:Cisco-ios-xr-string;
+        type xr:Cisco-ios-xr-string {
+          length "1..63";
+        }
         description
           "Name of the EAP Profile";
       }

@@ -103,10 +103,13 @@ func (routingPolicy *RoutingPolicy) GetEntityData() *types.CommonEntityData {
     routingPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routingPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routingPolicy.EntityData.Children = make(map[string]types.YChild)
-    routingPolicy.EntityData.Children["defined-sets"] = types.YChild{"DefinedSets", &routingPolicy.DefinedSets}
-    routingPolicy.EntityData.Children["policy-definitions"] = types.YChild{"PolicyDefinitions", &routingPolicy.PolicyDefinitions}
-    routingPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingPolicy.EntityData.Children = types.NewOrderedMap()
+    routingPolicy.EntityData.Children.Append("defined-sets", types.YChild{"DefinedSets", &routingPolicy.DefinedSets})
+    routingPolicy.EntityData.Children.Append("policy-definitions", types.YChild{"PolicyDefinitions", &routingPolicy.PolicyDefinitions})
+    routingPolicy.EntityData.Leafs = types.NewOrderedMap()
+
+    routingPolicy.EntityData.YListKeys = []string {}
+
     return &(routingPolicy.EntityData)
 }
 
@@ -140,12 +143,15 @@ func (definedSets *RoutingPolicy_DefinedSets) GetEntityData() *types.CommonEntit
     definedSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     definedSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    definedSets.EntityData.Children = make(map[string]types.YChild)
-    definedSets.EntityData.Children["prefix-sets"] = types.YChild{"PrefixSets", &definedSets.PrefixSets}
-    definedSets.EntityData.Children["neighbor-sets"] = types.YChild{"NeighborSets", &definedSets.NeighborSets}
-    definedSets.EntityData.Children["tag-sets"] = types.YChild{"TagSets", &definedSets.TagSets}
-    definedSets.EntityData.Children["openconfig-bgp-policy:bgp-defined-sets"] = types.YChild{"BgpDefinedSets", &definedSets.BgpDefinedSets}
-    definedSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    definedSets.EntityData.Children = types.NewOrderedMap()
+    definedSets.EntityData.Children.Append("prefix-sets", types.YChild{"PrefixSets", &definedSets.PrefixSets})
+    definedSets.EntityData.Children.Append("neighbor-sets", types.YChild{"NeighborSets", &definedSets.NeighborSets})
+    definedSets.EntityData.Children.Append("tag-sets", types.YChild{"TagSets", &definedSets.TagSets})
+    definedSets.EntityData.Children.Append("openconfig-bgp-policy:bgp-defined-sets", types.YChild{"BgpDefinedSets", &definedSets.BgpDefinedSets})
+    definedSets.EntityData.Leafs = types.NewOrderedMap()
+
+    definedSets.EntityData.YListKeys = []string {}
+
     return &(definedSets.EntityData)
 }
 
@@ -157,7 +163,7 @@ type RoutingPolicy_DefinedSets_PrefixSets struct {
 
     // List of the defined prefix sets. The type is slice of
     // RoutingPolicy_DefinedSets_PrefixSets_PrefixSet.
-    PrefixSet []RoutingPolicy_DefinedSets_PrefixSets_PrefixSet
+    PrefixSet []*RoutingPolicy_DefinedSets_PrefixSets_PrefixSet
 }
 
 func (prefixSets *RoutingPolicy_DefinedSets_PrefixSets) GetEntityData() *types.CommonEntityData {
@@ -170,12 +176,15 @@ func (prefixSets *RoutingPolicy_DefinedSets_PrefixSets) GetEntityData() *types.C
     prefixSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixSets.EntityData.Children = make(map[string]types.YChild)
-    prefixSets.EntityData.Children["prefix-set"] = types.YChild{"PrefixSet", nil}
+    prefixSets.EntityData.Children = types.NewOrderedMap()
+    prefixSets.EntityData.Children.Append("prefix-set", types.YChild{"PrefixSet", nil})
     for i := range prefixSets.PrefixSet {
-        prefixSets.EntityData.Children[types.GetSegmentPath(&prefixSets.PrefixSet[i])] = types.YChild{"PrefixSet", &prefixSets.PrefixSet[i]}
+        prefixSets.EntityData.Children.Append(types.GetSegmentPath(prefixSets.PrefixSet[i]), types.YChild{"PrefixSet", prefixSets.PrefixSet[i]})
     }
-    prefixSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixSets.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixSets.EntityData.YListKeys = []string {}
+
     return &(prefixSets.EntityData)
 }
 
@@ -205,17 +214,20 @@ func (prefixSet *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet) GetEntityData()
     prefixSet.EntityData.YangName = "prefix-set"
     prefixSet.EntityData.BundleName = "openconfig"
     prefixSet.EntityData.ParentYangName = "prefix-sets"
-    prefixSet.EntityData.SegmentPath = "prefix-set" + "[prefix-set-name='" + fmt.Sprintf("%v", prefixSet.PrefixSetName) + "']"
+    prefixSet.EntityData.SegmentPath = "prefix-set" + types.AddKeyToken(prefixSet.PrefixSetName, "prefix-set-name")
     prefixSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixSet.EntityData.Children = make(map[string]types.YChild)
-    prefixSet.EntityData.Children["config"] = types.YChild{"Config", &prefixSet.Config}
-    prefixSet.EntityData.Children["state"] = types.YChild{"State", &prefixSet.State}
-    prefixSet.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &prefixSet.Prefixes}
-    prefixSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixSet.EntityData.Leafs["prefix-set-name"] = types.YLeaf{"PrefixSetName", prefixSet.PrefixSetName}
+    prefixSet.EntityData.Children = types.NewOrderedMap()
+    prefixSet.EntityData.Children.Append("config", types.YChild{"Config", &prefixSet.Config})
+    prefixSet.EntityData.Children.Append("state", types.YChild{"State", &prefixSet.State})
+    prefixSet.EntityData.Children.Append("prefixes", types.YChild{"Prefixes", &prefixSet.Prefixes})
+    prefixSet.EntityData.Leafs = types.NewOrderedMap()
+    prefixSet.EntityData.Leafs.Append("prefix-set-name", types.YLeaf{"PrefixSetName", prefixSet.PrefixSetName})
+
+    prefixSet.EntityData.YListKeys = []string {"PrefixSetName"}
+
     return &(prefixSet.EntityData)
 }
 
@@ -240,9 +252,12 @@ func (config *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Config) GetEntityDa
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["prefix-set-name"] = types.YLeaf{"PrefixSetName", config.PrefixSetName}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("prefix-set-name", types.YLeaf{"PrefixSetName", config.PrefixSetName})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -267,9 +282,12 @@ func (state *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_State) GetEntityData
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["prefix-set-name"] = types.YLeaf{"PrefixSetName", state.PrefixSetName}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("prefix-set-name", types.YLeaf{"PrefixSetName", state.PrefixSetName})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -282,7 +300,7 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes struct {
 
     // List of prefixes in the prefix set. The type is slice of
     // RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix.
-    Prefix []RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix
+    Prefix []*RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix
 }
 
 func (prefixes *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes) GetEntityData() *types.CommonEntityData {
@@ -295,12 +313,15 @@ func (prefixes *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes) GetEnti
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixes.EntityData.Children = make(map[string]types.YChild)
-    prefixes.EntityData.Children["prefix"] = types.YChild{"Prefix", nil}
+    prefixes.EntityData.Children = types.NewOrderedMap()
+    prefixes.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range prefixes.Prefix {
-        prefixes.EntityData.Children[types.GetSegmentPath(&prefixes.Prefix[i])] = types.YChild{"Prefix", &prefixes.Prefix[i]}
+        prefixes.EntityData.Children.Append(types.GetSegmentPath(prefixes.Prefix[i]), types.YChild{"Prefix", prefixes.Prefix[i]})
     }
-    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixes.EntityData.YListKeys = []string {}
+
     return &(prefixes.EntityData)
 }
 
@@ -312,13 +333,13 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix struct {
 
     // This attribute is a key. Reference to the ip-prefix list key. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     IpPrefix interface{}
 
     // This attribute is a key. Reference to the masklength-range list key. The
-    // type is string with pattern: b'^([0-9]+\\.\\.[0-9]+)|exact$'. Refers to
+    // type is string with pattern: ^([0-9]+\.\.[0-9]+)|exact$. Refers to
     // routing_policy.RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Config_MasklengthRange
     MasklengthRange interface{}
 
@@ -334,17 +355,20 @@ func (prefix *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix) Ge
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "openconfig"
     prefix.EntityData.ParentYangName = "prefixes"
-    prefix.EntityData.SegmentPath = "prefix" + "[ip-prefix='" + fmt.Sprintf("%v", prefix.IpPrefix) + "']" + "[masklength-range='" + fmt.Sprintf("%v", prefix.MasklengthRange) + "']"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.IpPrefix, "ip-prefix") + types.AddKeyToken(prefix.MasklengthRange, "masklength-range")
     prefix.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefix.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefix.EntityData.Children = make(map[string]types.YChild)
-    prefix.EntityData.Children["config"] = types.YChild{"Config", &prefix.Config}
-    prefix.EntityData.Children["state"] = types.YChild{"State", &prefix.State}
-    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix.EntityData.Leafs["ip-prefix"] = types.YLeaf{"IpPrefix", prefix.IpPrefix}
-    prefix.EntityData.Leafs["masklength-range"] = types.YLeaf{"MasklengthRange", prefix.MasklengthRange}
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("config", types.YChild{"Config", &prefix.Config})
+    prefix.EntityData.Children.Append("state", types.YChild{"State", &prefix.State})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("ip-prefix", types.YLeaf{"IpPrefix", prefix.IpPrefix})
+    prefix.EntityData.Leafs.Append("masklength-range", types.YLeaf{"MasklengthRange", prefix.MasklengthRange})
+
+    prefix.EntityData.YListKeys = []string {"IpPrefix", "MasklengthRange"}
+
     return &(prefix.EntityData)
 }
 
@@ -359,9 +383,9 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Config struc
     // the same address family.  Mixing address types in the same prefix set is
     // likely to cause an error. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))
     // This attribute is mandatory..
     IpPrefix interface{}
 
@@ -369,7 +393,7 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Config struc
     // length.  Example: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as
     // prefix: 10.3.192.0/21, masklength-range: 21..24.  Example: 10.3.192.0/21
     // would be expressed as prefix: 10.3.192.0/21, masklength-range: exact. The
-    // type is string with pattern: b'^([0-9]+\\.\\.[0-9]+)|exact$'.
+    // type is string with pattern: ^([0-9]+\.\.[0-9]+)|exact$.
     MasklengthRange interface{}
 }
 
@@ -383,10 +407,13 @@ func (config *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Con
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip-prefix"] = types.YLeaf{"IpPrefix", config.IpPrefix}
-    config.EntityData.Leafs["masklength-range"] = types.YLeaf{"MasklengthRange", config.MasklengthRange}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip-prefix", types.YLeaf{"IpPrefix", config.IpPrefix})
+    config.EntityData.Leafs.Append("masklength-range", types.YLeaf{"MasklengthRange", config.MasklengthRange})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -401,9 +428,9 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_State struct
     // the same address family.  Mixing address types in the same prefix set is
     // likely to cause an error. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))
     // This attribute is mandatory..
     IpPrefix interface{}
 
@@ -411,7 +438,7 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_State struct
     // length.  Example: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as
     // prefix: 10.3.192.0/21, masklength-range: 21..24.  Example: 10.3.192.0/21
     // would be expressed as prefix: 10.3.192.0/21, masklength-range: exact. The
-    // type is string with pattern: b'^([0-9]+\\.\\.[0-9]+)|exact$'.
+    // type is string with pattern: ^([0-9]+\.\.[0-9]+)|exact$.
     MasklengthRange interface{}
 }
 
@@ -425,10 +452,13 @@ func (state *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Stat
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip-prefix"] = types.YLeaf{"IpPrefix", state.IpPrefix}
-    state.EntityData.Leafs["masklength-range"] = types.YLeaf{"MasklengthRange", state.MasklengthRange}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip-prefix", types.YLeaf{"IpPrefix", state.IpPrefix})
+    state.EntityData.Leafs.Append("masklength-range", types.YLeaf{"MasklengthRange", state.MasklengthRange})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -441,7 +471,7 @@ type RoutingPolicy_DefinedSets_NeighborSets struct {
 
     // List of defined neighbor sets for use in policies. The type is slice of
     // RoutingPolicy_DefinedSets_NeighborSets_NeighborSet.
-    NeighborSet []RoutingPolicy_DefinedSets_NeighborSets_NeighborSet
+    NeighborSet []*RoutingPolicy_DefinedSets_NeighborSets_NeighborSet
 }
 
 func (neighborSets *RoutingPolicy_DefinedSets_NeighborSets) GetEntityData() *types.CommonEntityData {
@@ -454,12 +484,15 @@ func (neighborSets *RoutingPolicy_DefinedSets_NeighborSets) GetEntityData() *typ
     neighborSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighborSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighborSets.EntityData.Children = make(map[string]types.YChild)
-    neighborSets.EntityData.Children["neighbor-set"] = types.YChild{"NeighborSet", nil}
+    neighborSets.EntityData.Children = types.NewOrderedMap()
+    neighborSets.EntityData.Children.Append("neighbor-set", types.YChild{"NeighborSet", nil})
     for i := range neighborSets.NeighborSet {
-        neighborSets.EntityData.Children[types.GetSegmentPath(&neighborSets.NeighborSet[i])] = types.YChild{"NeighborSet", &neighborSets.NeighborSet[i]}
+        neighborSets.EntityData.Children.Append(types.GetSegmentPath(neighborSets.NeighborSet[i]), types.YChild{"NeighborSet", neighborSets.NeighborSet[i]})
     }
-    neighborSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighborSets.EntityData.Leafs = types.NewOrderedMap()
+
+    neighborSets.EntityData.YListKeys = []string {}
+
     return &(neighborSets.EntityData)
 }
 
@@ -486,16 +519,19 @@ func (neighborSet *RoutingPolicy_DefinedSets_NeighborSets_NeighborSet) GetEntity
     neighborSet.EntityData.YangName = "neighbor-set"
     neighborSet.EntityData.BundleName = "openconfig"
     neighborSet.EntityData.ParentYangName = "neighbor-sets"
-    neighborSet.EntityData.SegmentPath = "neighbor-set" + "[neighbor-set-name='" + fmt.Sprintf("%v", neighborSet.NeighborSetName) + "']"
+    neighborSet.EntityData.SegmentPath = "neighbor-set" + types.AddKeyToken(neighborSet.NeighborSetName, "neighbor-set-name")
     neighborSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighborSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighborSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighborSet.EntityData.Children = make(map[string]types.YChild)
-    neighborSet.EntityData.Children["config"] = types.YChild{"Config", &neighborSet.Config}
-    neighborSet.EntityData.Children["state"] = types.YChild{"State", &neighborSet.State}
-    neighborSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborSet.EntityData.Leafs["neighbor-set-name"] = types.YLeaf{"NeighborSetName", neighborSet.NeighborSetName}
+    neighborSet.EntityData.Children = types.NewOrderedMap()
+    neighborSet.EntityData.Children.Append("config", types.YChild{"Config", &neighborSet.Config})
+    neighborSet.EntityData.Children.Append("state", types.YChild{"State", &neighborSet.State})
+    neighborSet.EntityData.Leafs = types.NewOrderedMap()
+    neighborSet.EntityData.Leafs.Append("neighbor-set-name", types.YLeaf{"NeighborSetName", neighborSet.NeighborSetName})
+
+    neighborSet.EntityData.YListKeys = []string {"NeighborSetName"}
+
     return &(neighborSet.EntityData)
 }
 
@@ -511,9 +547,9 @@ type RoutingPolicy_DefinedSets_NeighborSets_NeighborSet_Config struct {
 
     // List of IP addresses in the neighbor set. The type is one of the following
     // types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address []interface{}
 }
 
@@ -527,10 +563,13 @@ func (config *RoutingPolicy_DefinedSets_NeighborSets_NeighborSet_Config) GetEnti
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["neighbor-set-name"] = types.YLeaf{"NeighborSetName", config.NeighborSetName}
-    config.EntityData.Leafs["address"] = types.YLeaf{"Address", config.Address}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("neighbor-set-name", types.YLeaf{"NeighborSetName", config.NeighborSetName})
+    config.EntityData.Leafs.Append("address", types.YLeaf{"Address", config.Address})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -546,9 +585,9 @@ type RoutingPolicy_DefinedSets_NeighborSets_NeighborSet_State struct {
 
     // List of IP addresses in the neighbor set. The type is one of the following
     // types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address []interface{}
 }
 
@@ -562,10 +601,13 @@ func (state *RoutingPolicy_DefinedSets_NeighborSets_NeighborSet_State) GetEntity
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["neighbor-set-name"] = types.YLeaf{"NeighborSetName", state.NeighborSetName}
-    state.EntityData.Leafs["address"] = types.YLeaf{"Address", state.Address}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("neighbor-set-name", types.YLeaf{"NeighborSetName", state.NeighborSetName})
+    state.EntityData.Leafs.Append("address", types.YLeaf{"Address", state.Address})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -577,7 +619,7 @@ type RoutingPolicy_DefinedSets_TagSets struct {
 
     // List of tag set definitions. The type is slice of
     // RoutingPolicy_DefinedSets_TagSets_TagSet.
-    TagSet []RoutingPolicy_DefinedSets_TagSets_TagSet
+    TagSet []*RoutingPolicy_DefinedSets_TagSets_TagSet
 }
 
 func (tagSets *RoutingPolicy_DefinedSets_TagSets) GetEntityData() *types.CommonEntityData {
@@ -590,12 +632,15 @@ func (tagSets *RoutingPolicy_DefinedSets_TagSets) GetEntityData() *types.CommonE
     tagSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tagSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    tagSets.EntityData.Children = make(map[string]types.YChild)
-    tagSets.EntityData.Children["tag-set"] = types.YChild{"TagSet", nil}
+    tagSets.EntityData.Children = types.NewOrderedMap()
+    tagSets.EntityData.Children.Append("tag-set", types.YChild{"TagSet", nil})
     for i := range tagSets.TagSet {
-        tagSets.EntityData.Children[types.GetSegmentPath(&tagSets.TagSet[i])] = types.YChild{"TagSet", &tagSets.TagSet[i]}
+        tagSets.EntityData.Children.Append(types.GetSegmentPath(tagSets.TagSet[i]), types.YChild{"TagSet", tagSets.TagSet[i]})
     }
-    tagSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    tagSets.EntityData.Leafs = types.NewOrderedMap()
+
+    tagSets.EntityData.YListKeys = []string {}
+
     return &(tagSets.EntityData)
 }
 
@@ -622,16 +667,19 @@ func (tagSet *RoutingPolicy_DefinedSets_TagSets_TagSet) GetEntityData() *types.C
     tagSet.EntityData.YangName = "tag-set"
     tagSet.EntityData.BundleName = "openconfig"
     tagSet.EntityData.ParentYangName = "tag-sets"
-    tagSet.EntityData.SegmentPath = "tag-set" + "[tag-set-name='" + fmt.Sprintf("%v", tagSet.TagSetName) + "']"
+    tagSet.EntityData.SegmentPath = "tag-set" + types.AddKeyToken(tagSet.TagSetName, "tag-set-name")
     tagSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tagSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tagSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    tagSet.EntityData.Children = make(map[string]types.YChild)
-    tagSet.EntityData.Children["config"] = types.YChild{"Config", &tagSet.Config}
-    tagSet.EntityData.Children["state"] = types.YChild{"State", &tagSet.State}
-    tagSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    tagSet.EntityData.Leafs["tag-set-name"] = types.YLeaf{"TagSetName", tagSet.TagSetName}
+    tagSet.EntityData.Children = types.NewOrderedMap()
+    tagSet.EntityData.Children.Append("config", types.YChild{"Config", &tagSet.Config})
+    tagSet.EntityData.Children.Append("state", types.YChild{"State", &tagSet.State})
+    tagSet.EntityData.Leafs = types.NewOrderedMap()
+    tagSet.EntityData.Leafs.Append("tag-set-name", types.YLeaf{"TagSetName", tagSet.TagSetName})
+
+    tagSet.EntityData.YListKeys = []string {"TagSetName"}
+
     return &(tagSet.EntityData)
 }
 
@@ -647,7 +695,7 @@ type RoutingPolicy_DefinedSets_TagSets_TagSet_Config struct {
 
     // Value of the tag set member. The type is one of the following types: slice
     // of int with range: 0..4294967295, or slice of string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     TagValue []interface{}
 }
 
@@ -661,10 +709,13 @@ func (config *RoutingPolicy_DefinedSets_TagSets_TagSet_Config) GetEntityData() *
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["tag-set-name"] = types.YLeaf{"TagSetName", config.TagSetName}
-    config.EntityData.Leafs["tag-value"] = types.YLeaf{"TagValue", config.TagValue}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("tag-set-name", types.YLeaf{"TagSetName", config.TagSetName})
+    config.EntityData.Leafs.Append("tag-value", types.YLeaf{"TagValue", config.TagValue})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -680,7 +731,7 @@ type RoutingPolicy_DefinedSets_TagSets_TagSet_State struct {
 
     // Value of the tag set member. The type is one of the following types: slice
     // of int with range: 0..4294967295, or slice of string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     TagValue []interface{}
 }
 
@@ -694,10 +745,13 @@ func (state *RoutingPolicy_DefinedSets_TagSets_TagSet_State) GetEntityData() *ty
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["tag-set-name"] = types.YLeaf{"TagSetName", state.TagSetName}
-    state.EntityData.Leafs["tag-value"] = types.YLeaf{"TagValue", state.TagValue}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("tag-set-name", types.YLeaf{"TagSetName", state.TagSetName})
+    state.EntityData.Leafs.Append("tag-value", types.YLeaf{"TagValue", state.TagValue})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -727,11 +781,14 @@ func (bgpDefinedSets *RoutingPolicy_DefinedSets_BgpDefinedSets) GetEntityData() 
     bgpDefinedSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgpDefinedSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    bgpDefinedSets.EntityData.Children = make(map[string]types.YChild)
-    bgpDefinedSets.EntityData.Children["community-sets"] = types.YChild{"CommunitySets", &bgpDefinedSets.CommunitySets}
-    bgpDefinedSets.EntityData.Children["ext-community-sets"] = types.YChild{"ExtCommunitySets", &bgpDefinedSets.ExtCommunitySets}
-    bgpDefinedSets.EntityData.Children["as-path-sets"] = types.YChild{"AsPathSets", &bgpDefinedSets.AsPathSets}
-    bgpDefinedSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpDefinedSets.EntityData.Children = types.NewOrderedMap()
+    bgpDefinedSets.EntityData.Children.Append("community-sets", types.YChild{"CommunitySets", &bgpDefinedSets.CommunitySets})
+    bgpDefinedSets.EntityData.Children.Append("ext-community-sets", types.YChild{"ExtCommunitySets", &bgpDefinedSets.ExtCommunitySets})
+    bgpDefinedSets.EntityData.Children.Append("as-path-sets", types.YChild{"AsPathSets", &bgpDefinedSets.AsPathSets})
+    bgpDefinedSets.EntityData.Leafs = types.NewOrderedMap()
+
+    bgpDefinedSets.EntityData.YListKeys = []string {}
+
     return &(bgpDefinedSets.EntityData)
 }
 
@@ -743,7 +800,7 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets struct {
 
     // List of defined BGP community sets. The type is slice of
     // RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet.
-    CommunitySet []RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet
+    CommunitySet []*RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet
 }
 
 func (communitySets *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets) GetEntityData() *types.CommonEntityData {
@@ -756,12 +813,15 @@ func (communitySets *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets) Get
     communitySets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     communitySets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    communitySets.EntityData.Children = make(map[string]types.YChild)
-    communitySets.EntityData.Children["community-set"] = types.YChild{"CommunitySet", nil}
+    communitySets.EntityData.Children = types.NewOrderedMap()
+    communitySets.EntityData.Children.Append("community-set", types.YChild{"CommunitySet", nil})
     for i := range communitySets.CommunitySet {
-        communitySets.EntityData.Children[types.GetSegmentPath(&communitySets.CommunitySet[i])] = types.YChild{"CommunitySet", &communitySets.CommunitySet[i]}
+        communitySets.EntityData.Children.Append(types.GetSegmentPath(communitySets.CommunitySet[i]), types.YChild{"CommunitySet", communitySets.CommunitySet[i]})
     }
-    communitySets.EntityData.Leafs = make(map[string]types.YLeaf)
+    communitySets.EntityData.Leafs = types.NewOrderedMap()
+
+    communitySets.EntityData.YListKeys = []string {}
+
     return &(communitySets.EntityData)
 }
 
@@ -788,16 +848,19 @@ func (communitySet *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_Commu
     communitySet.EntityData.YangName = "community-set"
     communitySet.EntityData.BundleName = "openconfig"
     communitySet.EntityData.ParentYangName = "community-sets"
-    communitySet.EntityData.SegmentPath = "community-set" + "[community-set-name='" + fmt.Sprintf("%v", communitySet.CommunitySetName) + "']"
+    communitySet.EntityData.SegmentPath = "community-set" + types.AddKeyToken(communitySet.CommunitySetName, "community-set-name")
     communitySet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     communitySet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     communitySet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    communitySet.EntityData.Children = make(map[string]types.YChild)
-    communitySet.EntityData.Children["config"] = types.YChild{"Config", &communitySet.Config}
-    communitySet.EntityData.Children["state"] = types.YChild{"State", &communitySet.State}
-    communitySet.EntityData.Leafs = make(map[string]types.YLeaf)
-    communitySet.EntityData.Leafs["community-set-name"] = types.YLeaf{"CommunitySetName", communitySet.CommunitySetName}
+    communitySet.EntityData.Children = types.NewOrderedMap()
+    communitySet.EntityData.Children.Append("config", types.YChild{"Config", &communitySet.Config})
+    communitySet.EntityData.Children.Append("state", types.YChild{"State", &communitySet.State})
+    communitySet.EntityData.Leafs = types.NewOrderedMap()
+    communitySet.EntityData.Leafs.Append("community-set-name", types.YLeaf{"CommunitySetName", communitySet.CommunitySetName})
+
+    communitySet.EntityData.YListKeys = []string {"CommunitySetName"}
+
     return &(communitySet.EntityData)
 }
 
@@ -813,8 +876,8 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet_Config 
 
     // members of the community set. The type is one of the following types: slice
     // of int with range: 65536..4294901759, or slice of string with pattern:
-    // b'([0-9]+:[0-9]+)'., or slice of string, or slice of  
-    // :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // or slice of string, or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     CommunityMember []interface{}
 }
@@ -829,10 +892,13 @@ func (config *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySe
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["community-set-name"] = types.YLeaf{"CommunitySetName", config.CommunitySetName}
-    config.EntityData.Leafs["community-member"] = types.YLeaf{"CommunityMember", config.CommunityMember}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("community-set-name", types.YLeaf{"CommunitySetName", config.CommunitySetName})
+    config.EntityData.Leafs.Append("community-member", types.YLeaf{"CommunityMember", config.CommunityMember})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -848,8 +914,8 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet_State s
 
     // members of the community set. The type is one of the following types: slice
     // of int with range: 65536..4294901759, or slice of string with pattern:
-    // b'([0-9]+:[0-9]+)'., or slice of string, or slice of  
-    // :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // or slice of string, or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     CommunityMember []interface{}
 }
@@ -864,10 +930,13 @@ func (state *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["community-set-name"] = types.YLeaf{"CommunitySetName", state.CommunitySetName}
-    state.EntityData.Leafs["community-member"] = types.YLeaf{"CommunityMember", state.CommunityMember}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("community-set-name", types.YLeaf{"CommunitySetName", state.CommunitySetName})
+    state.EntityData.Leafs.Append("community-member", types.YLeaf{"CommunityMember", state.CommunityMember})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -880,7 +949,7 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets struct {
 
     // List of defined extended BGP community sets. The type is slice of
     // RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommunitySet.
-    ExtCommunitySet []RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommunitySet
+    ExtCommunitySet []*RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommunitySet
 }
 
 func (extCommunitySets *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets) GetEntityData() *types.CommonEntityData {
@@ -893,12 +962,15 @@ func (extCommunitySets *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySet
     extCommunitySets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extCommunitySets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extCommunitySets.EntityData.Children = make(map[string]types.YChild)
-    extCommunitySets.EntityData.Children["ext-community-set"] = types.YChild{"ExtCommunitySet", nil}
+    extCommunitySets.EntityData.Children = types.NewOrderedMap()
+    extCommunitySets.EntityData.Children.Append("ext-community-set", types.YChild{"ExtCommunitySet", nil})
     for i := range extCommunitySets.ExtCommunitySet {
-        extCommunitySets.EntityData.Children[types.GetSegmentPath(&extCommunitySets.ExtCommunitySet[i])] = types.YChild{"ExtCommunitySet", &extCommunitySets.ExtCommunitySet[i]}
+        extCommunitySets.EntityData.Children.Append(types.GetSegmentPath(extCommunitySets.ExtCommunitySet[i]), types.YChild{"ExtCommunitySet", extCommunitySets.ExtCommunitySet[i]})
     }
-    extCommunitySets.EntityData.Leafs = make(map[string]types.YLeaf)
+    extCommunitySets.EntityData.Leafs = types.NewOrderedMap()
+
+    extCommunitySets.EntityData.YListKeys = []string {}
+
     return &(extCommunitySets.EntityData)
 }
 
@@ -925,16 +997,19 @@ func (extCommunitySet *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets
     extCommunitySet.EntityData.YangName = "ext-community-set"
     extCommunitySet.EntityData.BundleName = "openconfig"
     extCommunitySet.EntityData.ParentYangName = "ext-community-sets"
-    extCommunitySet.EntityData.SegmentPath = "ext-community-set" + "[ext-community-set-name='" + fmt.Sprintf("%v", extCommunitySet.ExtCommunitySetName) + "']"
+    extCommunitySet.EntityData.SegmentPath = "ext-community-set" + types.AddKeyToken(extCommunitySet.ExtCommunitySetName, "ext-community-set-name")
     extCommunitySet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extCommunitySet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extCommunitySet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extCommunitySet.EntityData.Children = make(map[string]types.YChild)
-    extCommunitySet.EntityData.Children["config"] = types.YChild{"Config", &extCommunitySet.Config}
-    extCommunitySet.EntityData.Children["state"] = types.YChild{"State", &extCommunitySet.State}
-    extCommunitySet.EntityData.Leafs = make(map[string]types.YLeaf)
-    extCommunitySet.EntityData.Leafs["ext-community-set-name"] = types.YLeaf{"ExtCommunitySetName", extCommunitySet.ExtCommunitySetName}
+    extCommunitySet.EntityData.Children = types.NewOrderedMap()
+    extCommunitySet.EntityData.Children.Append("config", types.YChild{"Config", &extCommunitySet.Config})
+    extCommunitySet.EntityData.Children.Append("state", types.YChild{"State", &extCommunitySet.State})
+    extCommunitySet.EntityData.Leafs = types.NewOrderedMap()
+    extCommunitySet.EntityData.Leafs.Append("ext-community-set-name", types.YLeaf{"ExtCommunitySetName", extCommunitySet.ExtCommunitySetName})
+
+    extCommunitySet.EntityData.YListKeys = []string {"ExtCommunitySetName"}
+
     return &(extCommunitySet.EntityData)
 }
 
@@ -950,17 +1025,23 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommunitySet_C
 
     // members of the extended community set. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.,
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
     // or slice of string.
     ExtCommunityMember []interface{}
 }
@@ -975,10 +1056,13 @@ func (config *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommu
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ext-community-set-name"] = types.YLeaf{"ExtCommunitySetName", config.ExtCommunitySetName}
-    config.EntityData.Leafs["ext-community-member"] = types.YLeaf{"ExtCommunityMember", config.ExtCommunityMember}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ext-community-set-name", types.YLeaf{"ExtCommunitySetName", config.ExtCommunitySetName})
+    config.EntityData.Leafs.Append("ext-community-member", types.YLeaf{"ExtCommunityMember", config.ExtCommunityMember})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -994,17 +1078,23 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommunitySet_S
 
     // members of the extended community set. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.,
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
     // or slice of string.
     ExtCommunityMember []interface{}
 }
@@ -1019,10 +1109,13 @@ func (state *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommun
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ext-community-set-name"] = types.YLeaf{"ExtCommunitySetName", state.ExtCommunitySetName}
-    state.EntityData.Leafs["ext-community-member"] = types.YLeaf{"ExtCommunityMember", state.ExtCommunityMember}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ext-community-set-name", types.YLeaf{"ExtCommunitySetName", state.ExtCommunitySetName})
+    state.EntityData.Leafs.Append("ext-community-member", types.YLeaf{"ExtCommunityMember", state.ExtCommunityMember})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1034,7 +1127,7 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets struct {
 
     // List of defined AS path sets. The type is slice of
     // RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet.
-    AsPathSet []RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet
+    AsPathSet []*RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet
 }
 
 func (asPathSets *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets) GetEntityData() *types.CommonEntityData {
@@ -1047,12 +1140,15 @@ func (asPathSets *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets) GetEntity
     asPathSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    asPathSets.EntityData.Children = make(map[string]types.YChild)
-    asPathSets.EntityData.Children["as-path-set"] = types.YChild{"AsPathSet", nil}
+    asPathSets.EntityData.Children = types.NewOrderedMap()
+    asPathSets.EntityData.Children.Append("as-path-set", types.YChild{"AsPathSet", nil})
     for i := range asPathSets.AsPathSet {
-        asPathSets.EntityData.Children[types.GetSegmentPath(&asPathSets.AsPathSet[i])] = types.YChild{"AsPathSet", &asPathSets.AsPathSet[i]}
+        asPathSets.EntityData.Children.Append(types.GetSegmentPath(asPathSets.AsPathSet[i]), types.YChild{"AsPathSet", asPathSets.AsPathSet[i]})
     }
-    asPathSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    asPathSets.EntityData.Leafs = types.NewOrderedMap()
+
+    asPathSets.EntityData.YListKeys = []string {}
+
     return &(asPathSets.EntityData)
 }
 
@@ -1079,16 +1175,19 @@ func (asPathSet *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet) 
     asPathSet.EntityData.YangName = "as-path-set"
     asPathSet.EntityData.BundleName = "openconfig"
     asPathSet.EntityData.ParentYangName = "as-path-sets"
-    asPathSet.EntityData.SegmentPath = "as-path-set" + "[as-path-set-name='" + fmt.Sprintf("%v", asPathSet.AsPathSetName) + "']"
+    asPathSet.EntityData.SegmentPath = "as-path-set" + types.AddKeyToken(asPathSet.AsPathSetName, "as-path-set-name")
     asPathSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     asPathSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    asPathSet.EntityData.Children = make(map[string]types.YChild)
-    asPathSet.EntityData.Children["config"] = types.YChild{"Config", &asPathSet.Config}
-    asPathSet.EntityData.Children["state"] = types.YChild{"State", &asPathSet.State}
-    asPathSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    asPathSet.EntityData.Leafs["as-path-set-name"] = types.YLeaf{"AsPathSetName", asPathSet.AsPathSetName}
+    asPathSet.EntityData.Children = types.NewOrderedMap()
+    asPathSet.EntityData.Children.Append("config", types.YChild{"Config", &asPathSet.Config})
+    asPathSet.EntityData.Children.Append("state", types.YChild{"State", &asPathSet.State})
+    asPathSet.EntityData.Leafs = types.NewOrderedMap()
+    asPathSet.EntityData.Leafs.Append("as-path-set-name", types.YLeaf{"AsPathSetName", asPathSet.AsPathSetName})
+
+    asPathSet.EntityData.YListKeys = []string {"AsPathSetName"}
+
     return &(asPathSet.EntityData)
 }
 
@@ -1116,10 +1215,13 @@ func (config *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet_Conf
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["as-path-set-name"] = types.YLeaf{"AsPathSetName", config.AsPathSetName}
-    config.EntityData.Leafs["as-path-set-member"] = types.YLeaf{"AsPathSetMember", config.AsPathSetMember}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("as-path-set-name", types.YLeaf{"AsPathSetName", config.AsPathSetName})
+    config.EntityData.Leafs.Append("as-path-set-member", types.YLeaf{"AsPathSetMember", config.AsPathSetMember})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1147,10 +1249,13 @@ func (state *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet_State
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["as-path-set-name"] = types.YLeaf{"AsPathSetName", state.AsPathSetName}
-    state.EntityData.Leafs["as-path-set-member"] = types.YLeaf{"AsPathSetMember", state.AsPathSetMember}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("as-path-set-name", types.YLeaf{"AsPathSetName", state.AsPathSetName})
+    state.EntityData.Leafs.Append("as-path-set-member", types.YLeaf{"AsPathSetMember", state.AsPathSetMember})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1165,7 +1270,7 @@ type RoutingPolicy_PolicyDefinitions struct {
     // definitions are expected to be referenced (by name) in policy chains
     // specified in import or export configuration statements. The type is slice
     // of RoutingPolicy_PolicyDefinitions_PolicyDefinition.
-    PolicyDefinition []RoutingPolicy_PolicyDefinitions_PolicyDefinition
+    PolicyDefinition []*RoutingPolicy_PolicyDefinitions_PolicyDefinition
 }
 
 func (policyDefinitions *RoutingPolicy_PolicyDefinitions) GetEntityData() *types.CommonEntityData {
@@ -1178,12 +1283,15 @@ func (policyDefinitions *RoutingPolicy_PolicyDefinitions) GetEntityData() *types
     policyDefinitions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     policyDefinitions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    policyDefinitions.EntityData.Children = make(map[string]types.YChild)
-    policyDefinitions.EntityData.Children["policy-definition"] = types.YChild{"PolicyDefinition", nil}
+    policyDefinitions.EntityData.Children = types.NewOrderedMap()
+    policyDefinitions.EntityData.Children.Append("policy-definition", types.YChild{"PolicyDefinition", nil})
     for i := range policyDefinitions.PolicyDefinition {
-        policyDefinitions.EntityData.Children[types.GetSegmentPath(&policyDefinitions.PolicyDefinition[i])] = types.YChild{"PolicyDefinition", &policyDefinitions.PolicyDefinition[i]}
+        policyDefinitions.EntityData.Children.Append(types.GetSegmentPath(policyDefinitions.PolicyDefinition[i]), types.YChild{"PolicyDefinition", policyDefinitions.PolicyDefinition[i]})
     }
-    policyDefinitions.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyDefinitions.EntityData.Leafs = types.NewOrderedMap()
+
+    policyDefinitions.EntityData.YListKeys = []string {}
+
     return &(policyDefinitions.EntityData)
 }
 
@@ -1216,17 +1324,20 @@ func (policyDefinition *RoutingPolicy_PolicyDefinitions_PolicyDefinition) GetEnt
     policyDefinition.EntityData.YangName = "policy-definition"
     policyDefinition.EntityData.BundleName = "openconfig"
     policyDefinition.EntityData.ParentYangName = "policy-definitions"
-    policyDefinition.EntityData.SegmentPath = "policy-definition" + "[name='" + fmt.Sprintf("%v", policyDefinition.Name) + "']"
+    policyDefinition.EntityData.SegmentPath = "policy-definition" + types.AddKeyToken(policyDefinition.Name, "name")
     policyDefinition.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     policyDefinition.EntityData.NamespaceTable = openconfig.GetNamespaces()
     policyDefinition.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    policyDefinition.EntityData.Children = make(map[string]types.YChild)
-    policyDefinition.EntityData.Children["config"] = types.YChild{"Config", &policyDefinition.Config}
-    policyDefinition.EntityData.Children["state"] = types.YChild{"State", &policyDefinition.State}
-    policyDefinition.EntityData.Children["statements"] = types.YChild{"Statements", &policyDefinition.Statements}
-    policyDefinition.EntityData.Leafs = make(map[string]types.YLeaf)
-    policyDefinition.EntityData.Leafs["name"] = types.YLeaf{"Name", policyDefinition.Name}
+    policyDefinition.EntityData.Children = types.NewOrderedMap()
+    policyDefinition.EntityData.Children.Append("config", types.YChild{"Config", &policyDefinition.Config})
+    policyDefinition.EntityData.Children.Append("state", types.YChild{"State", &policyDefinition.State})
+    policyDefinition.EntityData.Children.Append("statements", types.YChild{"Statements", &policyDefinition.Statements})
+    policyDefinition.EntityData.Leafs = types.NewOrderedMap()
+    policyDefinition.EntityData.Leafs.Append("name", types.YLeaf{"Name", policyDefinition.Name})
+
+    policyDefinition.EntityData.YListKeys = []string {"Name"}
+
     return &(policyDefinition.EntityData)
 }
 
@@ -1251,9 +1362,12 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Config) GetEntity
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1278,9 +1392,12 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_State) GetEntityDa
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1294,7 +1411,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements struct {
     // They are evaluated in the order specified (see the description of policy
     // evaluation at the top of this module. The type is slice of
     // RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement.
-    Statement []RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement
+    Statement []*RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement
 }
 
 func (statements *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements) GetEntityData() *types.CommonEntityData {
@@ -1307,12 +1424,15 @@ func (statements *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements) G
     statements.EntityData.NamespaceTable = openconfig.GetNamespaces()
     statements.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    statements.EntityData.Children = make(map[string]types.YChild)
-    statements.EntityData.Children["statement"] = types.YChild{"Statement", nil}
+    statements.EntityData.Children = types.NewOrderedMap()
+    statements.EntityData.Children.Append("statement", types.YChild{"Statement", nil})
     for i := range statements.Statement {
-        statements.EntityData.Children[types.GetSegmentPath(&statements.Statement[i])] = types.YChild{"Statement", &statements.Statement[i]}
+        statements.EntityData.Children.Append(types.GetSegmentPath(statements.Statement[i]), types.YChild{"Statement", statements.Statement[i]})
     }
-    statements.EntityData.Leafs = make(map[string]types.YLeaf)
+    statements.EntityData.Leafs = types.NewOrderedMap()
+
+    statements.EntityData.YListKeys = []string {}
+
     return &(statements.EntityData)
 }
 
@@ -1348,18 +1468,21 @@ func (statement *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Sta
     statement.EntityData.YangName = "statement"
     statement.EntityData.BundleName = "openconfig"
     statement.EntityData.ParentYangName = "statements"
-    statement.EntityData.SegmentPath = "statement" + "[name='" + fmt.Sprintf("%v", statement.Name) + "']"
+    statement.EntityData.SegmentPath = "statement" + types.AddKeyToken(statement.Name, "name")
     statement.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     statement.EntityData.NamespaceTable = openconfig.GetNamespaces()
     statement.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    statement.EntityData.Children = make(map[string]types.YChild)
-    statement.EntityData.Children["config"] = types.YChild{"Config", &statement.Config}
-    statement.EntityData.Children["state"] = types.YChild{"State", &statement.State}
-    statement.EntityData.Children["conditions"] = types.YChild{"Conditions", &statement.Conditions}
-    statement.EntityData.Children["actions"] = types.YChild{"Actions", &statement.Actions}
-    statement.EntityData.Leafs = make(map[string]types.YLeaf)
-    statement.EntityData.Leafs["name"] = types.YLeaf{"Name", statement.Name}
+    statement.EntityData.Children = types.NewOrderedMap()
+    statement.EntityData.Children.Append("config", types.YChild{"Config", &statement.Config})
+    statement.EntityData.Children.Append("state", types.YChild{"State", &statement.State})
+    statement.EntityData.Children.Append("conditions", types.YChild{"Conditions", &statement.Conditions})
+    statement.EntityData.Children.Append("actions", types.YChild{"Actions", &statement.Actions})
+    statement.EntityData.Leafs = types.NewOrderedMap()
+    statement.EntityData.Leafs.Append("name", types.YLeaf{"Name", statement.Name})
+
+    statement.EntityData.YListKeys = []string {"Name"}
+
     return &(statement.EntityData)
 }
 
@@ -1383,9 +1506,12 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1409,9 +1535,12 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1445,11 +1574,11 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     // Policy conditions for IGP attributes.
     IgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IgpConditions
 
-    // Top-level container .
-    BgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
-
     // Match conditions relating to the IS-IS protocol.
     IsisConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
+
+    // Top-level container .
+    BgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
 }
 
 func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions) GetEntityData() *types.CommonEntityData {
@@ -1462,17 +1591,20 @@ func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     conditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     conditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    conditions.EntityData.Children = make(map[string]types.YChild)
-    conditions.EntityData.Children["config"] = types.YChild{"Config", &conditions.Config}
-    conditions.EntityData.Children["state"] = types.YChild{"State", &conditions.State}
-    conditions.EntityData.Children["match-interface"] = types.YChild{"MatchInterface", &conditions.MatchInterface}
-    conditions.EntityData.Children["match-prefix-set"] = types.YChild{"MatchPrefixSet", &conditions.MatchPrefixSet}
-    conditions.EntityData.Children["match-neighbor-set"] = types.YChild{"MatchNeighborSet", &conditions.MatchNeighborSet}
-    conditions.EntityData.Children["match-tag-set"] = types.YChild{"MatchTagSet", &conditions.MatchTagSet}
-    conditions.EntityData.Children["igp-conditions"] = types.YChild{"IgpConditions", &conditions.IgpConditions}
-    conditions.EntityData.Children["openconfig-bgp-policy:bgp-conditions"] = types.YChild{"BgpConditions", &conditions.BgpConditions}
-    conditions.EntityData.Children["openconfig-isis-policy:isis-conditions"] = types.YChild{"IsisConditions", &conditions.IsisConditions}
-    conditions.EntityData.Leafs = make(map[string]types.YLeaf)
+    conditions.EntityData.Children = types.NewOrderedMap()
+    conditions.EntityData.Children.Append("config", types.YChild{"Config", &conditions.Config})
+    conditions.EntityData.Children.Append("state", types.YChild{"State", &conditions.State})
+    conditions.EntityData.Children.Append("match-interface", types.YChild{"MatchInterface", &conditions.MatchInterface})
+    conditions.EntityData.Children.Append("match-prefix-set", types.YChild{"MatchPrefixSet", &conditions.MatchPrefixSet})
+    conditions.EntityData.Children.Append("match-neighbor-set", types.YChild{"MatchNeighborSet", &conditions.MatchNeighborSet})
+    conditions.EntityData.Children.Append("match-tag-set", types.YChild{"MatchTagSet", &conditions.MatchTagSet})
+    conditions.EntityData.Children.Append("igp-conditions", types.YChild{"IgpConditions", &conditions.IgpConditions})
+    conditions.EntityData.Children.Append("openconfig-isis-policy:isis-conditions", types.YChild{"IsisConditions", &conditions.IsisConditions})
+    conditions.EntityData.Children.Append("openconfig-bgp-policy:bgp-conditions", types.YChild{"BgpConditions", &conditions.BgpConditions})
+    conditions.EntityData.Leafs = types.NewOrderedMap()
+
+    conditions.EntityData.YListKeys = []string {}
+
     return &(conditions.EntityData)
 }
 
@@ -1495,7 +1627,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
 
     // Condition to check the protocol / method used to install the route into the
     // local routing table. The type is one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     InstallProtocolEq interface{}
 }
 
@@ -1509,10 +1641,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["call-policy"] = types.YLeaf{"CallPolicy", config.CallPolicy}
-    config.EntityData.Leafs["install-protocol-eq"] = types.YLeaf{"InstallProtocolEq", config.InstallProtocolEq}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("call-policy", types.YLeaf{"CallPolicy", config.CallPolicy})
+    config.EntityData.Leafs.Append("install-protocol-eq", types.YLeaf{"InstallProtocolEq", config.InstallProtocolEq})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1535,7 +1670,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
 
     // Condition to check the protocol / method used to install the route into the
     // local routing table. The type is one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     InstallProtocolEq interface{}
 }
 
@@ -1549,10 +1684,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["call-policy"] = types.YLeaf{"CallPolicy", state.CallPolicy}
-    state.EntityData.Leafs["install-protocol-eq"] = types.YLeaf{"InstallProtocolEq", state.InstallProtocolEq}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("call-policy", types.YLeaf{"CallPolicy", state.CallPolicy})
+    state.EntityData.Leafs.Append("install-protocol-eq", types.YLeaf{"InstallProtocolEq", state.InstallProtocolEq})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1579,10 +1717,13 @@ func (matchInterface *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statement
     matchInterface.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchInterface.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    matchInterface.EntityData.Children = make(map[string]types.YChild)
-    matchInterface.EntityData.Children["config"] = types.YChild{"Config", &matchInterface.Config}
-    matchInterface.EntityData.Children["state"] = types.YChild{"State", &matchInterface.State}
-    matchInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    matchInterface.EntityData.Children = types.NewOrderedMap()
+    matchInterface.EntityData.Children.Append("config", types.YChild{"Config", &matchInterface.Config})
+    matchInterface.EntityData.Children.Append("state", types.YChild{"State", &matchInterface.State})
+    matchInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    matchInterface.EntityData.YListKeys = []string {}
+
     return &(matchInterface.EntityData)
 }
 
@@ -1595,7 +1736,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -1615,10 +1756,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", config.Interface_}
-    config.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", config.Subinterface}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1631,7 +1775,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -1651,10 +1795,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
-    state.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", state.Subinterface}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1682,10 +1829,13 @@ func (matchPrefixSet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statement
     matchPrefixSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchPrefixSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    matchPrefixSet.EntityData.Children = make(map[string]types.YChild)
-    matchPrefixSet.EntityData.Children["config"] = types.YChild{"Config", &matchPrefixSet.Config}
-    matchPrefixSet.EntityData.Children["state"] = types.YChild{"State", &matchPrefixSet.State}
-    matchPrefixSet.EntityData.Leafs = make(map[string]types.YLeaf)
+    matchPrefixSet.EntityData.Children = types.NewOrderedMap()
+    matchPrefixSet.EntityData.Children.Append("config", types.YChild{"Config", &matchPrefixSet.Config})
+    matchPrefixSet.EntityData.Children.Append("state", types.YChild{"State", &matchPrefixSet.State})
+    matchPrefixSet.EntityData.Leafs = types.NewOrderedMap()
+
+    matchPrefixSet.EntityData.YListKeys = []string {}
+
     return &(matchPrefixSet.EntityData)
 }
 
@@ -1716,10 +1866,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["prefix-set"] = types.YLeaf{"PrefixSet", config.PrefixSet}
-    config.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", config.MatchSetOptions}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("prefix-set", types.YLeaf{"PrefixSet", config.PrefixSet})
+    config.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", config.MatchSetOptions})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1750,10 +1903,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["prefix-set"] = types.YLeaf{"PrefixSet", state.PrefixSet}
-    state.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", state.MatchSetOptions}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("prefix-set", types.YLeaf{"PrefixSet", state.PrefixSet})
+    state.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", state.MatchSetOptions})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1781,10 +1937,13 @@ func (matchNeighborSet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Stateme
     matchNeighborSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchNeighborSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    matchNeighborSet.EntityData.Children = make(map[string]types.YChild)
-    matchNeighborSet.EntityData.Children["config"] = types.YChild{"Config", &matchNeighborSet.Config}
-    matchNeighborSet.EntityData.Children["state"] = types.YChild{"State", &matchNeighborSet.State}
-    matchNeighborSet.EntityData.Leafs = make(map[string]types.YLeaf)
+    matchNeighborSet.EntityData.Children = types.NewOrderedMap()
+    matchNeighborSet.EntityData.Children.Append("config", types.YChild{"Config", &matchNeighborSet.Config})
+    matchNeighborSet.EntityData.Children.Append("state", types.YChild{"State", &matchNeighborSet.State})
+    matchNeighborSet.EntityData.Leafs = types.NewOrderedMap()
+
+    matchNeighborSet.EntityData.YListKeys = []string {}
+
     return &(matchNeighborSet.EntityData)
 }
 
@@ -1815,10 +1974,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["neighbor-set"] = types.YLeaf{"NeighborSet", config.NeighborSet}
-    config.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", config.MatchSetOptions}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("neighbor-set", types.YLeaf{"NeighborSet", config.NeighborSet})
+    config.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", config.MatchSetOptions})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1849,10 +2011,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["neighbor-set"] = types.YLeaf{"NeighborSet", state.NeighborSet}
-    state.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", state.MatchSetOptions}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("neighbor-set", types.YLeaf{"NeighborSet", state.NeighborSet})
+    state.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", state.MatchSetOptions})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1880,10 +2045,13 @@ func (matchTagSet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_S
     matchTagSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchTagSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    matchTagSet.EntityData.Children = make(map[string]types.YChild)
-    matchTagSet.EntityData.Children["config"] = types.YChild{"Config", &matchTagSet.Config}
-    matchTagSet.EntityData.Children["state"] = types.YChild{"State", &matchTagSet.State}
-    matchTagSet.EntityData.Leafs = make(map[string]types.YLeaf)
+    matchTagSet.EntityData.Children = types.NewOrderedMap()
+    matchTagSet.EntityData.Children.Append("config", types.YChild{"Config", &matchTagSet.Config})
+    matchTagSet.EntityData.Children.Append("state", types.YChild{"State", &matchTagSet.State})
+    matchTagSet.EntityData.Leafs = types.NewOrderedMap()
+
+    matchTagSet.EntityData.YListKeys = []string {}
+
     return &(matchTagSet.EntityData)
 }
 
@@ -1914,10 +2082,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["tag-set"] = types.YLeaf{"TagSet", config.TagSet}
-    config.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", config.MatchSetOptions}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("tag-set", types.YLeaf{"TagSet", config.TagSet})
+    config.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", config.MatchSetOptions})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1948,10 +2119,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["tag-set"] = types.YLeaf{"TagSet", state.TagSet}
-    state.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", state.MatchSetOptions}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("tag-set", types.YLeaf{"TagSet", state.TagSet})
+    state.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", state.MatchSetOptions})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1972,9 +2146,111 @@ func (igpConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements
     igpConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    igpConditions.EntityData.Children = make(map[string]types.YChild)
-    igpConditions.EntityData.Leafs = make(map[string]types.YLeaf)
+    igpConditions.EntityData.Children = types.NewOrderedMap()
+    igpConditions.EntityData.Leafs = types.NewOrderedMap()
+
+    igpConditions.EntityData.YListKeys = []string {}
+
     return &(igpConditions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
+// Match conditions relating to the IS-IS protocol
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration parameters relating to IS-IS match conditions.
+    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
+
+    // Operational state parameters relating to IS-IS match conditions.
+    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
+}
+
+func (isisConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions) GetEntityData() *types.CommonEntityData {
+    isisConditions.EntityData.YFilter = isisConditions.YFilter
+    isisConditions.EntityData.YangName = "isis-conditions"
+    isisConditions.EntityData.BundleName = "openconfig"
+    isisConditions.EntityData.ParentYangName = "conditions"
+    isisConditions.EntityData.SegmentPath = "openconfig-isis-policy:isis-conditions"
+    isisConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    isisConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    isisConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    isisConditions.EntityData.Children = types.NewOrderedMap()
+    isisConditions.EntityData.Children.Append("config", types.YChild{"Config", &isisConditions.Config})
+    isisConditions.EntityData.Children.Append("state", types.YChild{"State", &isisConditions.State})
+    isisConditions.EntityData.Leafs = types.NewOrderedMap()
+
+    isisConditions.EntityData.YListKeys = []string {}
+
+    return &(isisConditions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
+// Configuration parameters relating to IS-IS match
+// conditions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match the level that the IS-IS prefix is within. This can be used in the
+    // case that import or export policies refer to an IS-IS instance that has
+    // multiple levels configured within it. The type is interface{} with range:
+    // 1..2.
+    LevelEq interface{}
+}
+
+func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "isis-conditions"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", config.LevelEq})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
+// Operational state parameters relating to IS-IS match
+// conditions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match the level that the IS-IS prefix is within. This can be used in the
+    // case that import or export policies refer to an IS-IS instance that has
+    // multiple levels configured within it. The type is interface{} with range:
+    // 1..2.
+    LevelEq interface{}
+}
+
+func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "isis-conditions"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", state.LevelEq})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
 }
 
 // RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
@@ -2020,15 +2296,18 @@ func (bgpConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements
     bgpConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgpConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    bgpConditions.EntityData.Children = make(map[string]types.YChild)
-    bgpConditions.EntityData.Children["config"] = types.YChild{"Config", &bgpConditions.Config}
-    bgpConditions.EntityData.Children["state"] = types.YChild{"State", &bgpConditions.State}
-    bgpConditions.EntityData.Children["community-count"] = types.YChild{"CommunityCount", &bgpConditions.CommunityCount}
-    bgpConditions.EntityData.Children["as-path-length"] = types.YChild{"AsPathLength", &bgpConditions.AsPathLength}
-    bgpConditions.EntityData.Children["match-community-set"] = types.YChild{"MatchCommunitySet", &bgpConditions.MatchCommunitySet}
-    bgpConditions.EntityData.Children["match-ext-community-set"] = types.YChild{"MatchExtCommunitySet", &bgpConditions.MatchExtCommunitySet}
-    bgpConditions.EntityData.Children["match-as-path-set"] = types.YChild{"MatchAsPathSet", &bgpConditions.MatchAsPathSet}
-    bgpConditions.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpConditions.EntityData.Children = types.NewOrderedMap()
+    bgpConditions.EntityData.Children.Append("config", types.YChild{"Config", &bgpConditions.Config})
+    bgpConditions.EntityData.Children.Append("state", types.YChild{"State", &bgpConditions.State})
+    bgpConditions.EntityData.Children.Append("community-count", types.YChild{"CommunityCount", &bgpConditions.CommunityCount})
+    bgpConditions.EntityData.Children.Append("as-path-length", types.YChild{"AsPathLength", &bgpConditions.AsPathLength})
+    bgpConditions.EntityData.Children.Append("match-community-set", types.YChild{"MatchCommunitySet", &bgpConditions.MatchCommunitySet})
+    bgpConditions.EntityData.Children.Append("match-ext-community-set", types.YChild{"MatchExtCommunitySet", &bgpConditions.MatchExtCommunitySet})
+    bgpConditions.EntityData.Children.Append("match-as-path-set", types.YChild{"MatchAsPathSet", &bgpConditions.MatchAsPathSet})
+    bgpConditions.EntityData.Leafs = types.NewOrderedMap()
+
+    bgpConditions.EntityData.YListKeys = []string {}
+
     return &(bgpConditions.EntityData)
 }
 
@@ -2048,15 +2327,15 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
 
     // List of next hop addresses to check for in the route update. The type is
     // one of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHopIn []interface{}
 
     // List of address families which the NLRI may be within. The type is slice of
-    // ['IPV4UNICAST', 'IPV6UNICAST', 'IPV4LABELEDUNICAST', 'IPV6LABELEDUNICAST',
-    // 'L3VPNIPV4UNICAST', 'L3VPNIPV6UNICAST', 'L3VPNIPV4MULTICAST',
-    // 'L3VPNIPV6MULTICAST', 'L2VPNVPLS', 'L2VPNEVPN'].
+    // [u'L2VPNEVPN', u'L2VPNVPLS', u'IPV4UNICAST', u'L3VPNIPV6MULTICAST',
+    // u'L3VPNIPV6UNICAST', u'L3VPNIPV4UNICAST', u'L3VPNIPV4MULTICAST',
+    // u'IPV4LABELEDUNICAST', u'IPV6UNICAST', u'IPV6LABELEDUNICAST'].
     AfiSafiIn []interface{}
 
     // Condition to check if the local pref attribute is equal to the specified
@@ -2078,14 +2357,17 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["med-eq"] = types.YLeaf{"MedEq", config.MedEq}
-    config.EntityData.Leafs["origin-eq"] = types.YLeaf{"OriginEq", config.OriginEq}
-    config.EntityData.Leafs["next-hop-in"] = types.YLeaf{"NextHopIn", config.NextHopIn}
-    config.EntityData.Leafs["afi-safi-in"] = types.YLeaf{"AfiSafiIn", config.AfiSafiIn}
-    config.EntityData.Leafs["local-pref-eq"] = types.YLeaf{"LocalPrefEq", config.LocalPrefEq}
-    config.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", config.RouteType}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("med-eq", types.YLeaf{"MedEq", config.MedEq})
+    config.EntityData.Leafs.Append("origin-eq", types.YLeaf{"OriginEq", config.OriginEq})
+    config.EntityData.Leafs.Append("next-hop-in", types.YLeaf{"NextHopIn", config.NextHopIn})
+    config.EntityData.Leafs.Append("afi-safi-in", types.YLeaf{"AfiSafiIn", config.AfiSafiIn})
+    config.EntityData.Leafs.Append("local-pref-eq", types.YLeaf{"LocalPrefEq", config.LocalPrefEq})
+    config.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", config.RouteType})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2117,15 +2399,15 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
 
     // List of next hop addresses to check for in the route update. The type is
     // one of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHopIn []interface{}
 
     // List of address families which the NLRI may be within. The type is slice of
-    // ['IPV4UNICAST', 'IPV6UNICAST', 'IPV4LABELEDUNICAST', 'IPV6LABELEDUNICAST',
-    // 'L3VPNIPV4UNICAST', 'L3VPNIPV6UNICAST', 'L3VPNIPV4MULTICAST',
-    // 'L3VPNIPV6MULTICAST', 'L2VPNVPLS', 'L2VPNEVPN'].
+    // [u'L2VPNEVPN', u'L2VPNVPLS', u'IPV4UNICAST', u'L3VPNIPV6MULTICAST',
+    // u'L3VPNIPV6UNICAST', u'L3VPNIPV4UNICAST', u'L3VPNIPV4MULTICAST',
+    // u'IPV4LABELEDUNICAST', u'IPV6UNICAST', u'IPV6LABELEDUNICAST'].
     AfiSafiIn []interface{}
 
     // Condition to check if the local pref attribute is equal to the specified
@@ -2147,14 +2429,17 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["med-eq"] = types.YLeaf{"MedEq", state.MedEq}
-    state.EntityData.Leafs["origin-eq"] = types.YLeaf{"OriginEq", state.OriginEq}
-    state.EntityData.Leafs["next-hop-in"] = types.YLeaf{"NextHopIn", state.NextHopIn}
-    state.EntityData.Leafs["afi-safi-in"] = types.YLeaf{"AfiSafiIn", state.AfiSafiIn}
-    state.EntityData.Leafs["local-pref-eq"] = types.YLeaf{"LocalPrefEq", state.LocalPrefEq}
-    state.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", state.RouteType}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("med-eq", types.YLeaf{"MedEq", state.MedEq})
+    state.EntityData.Leafs.Append("origin-eq", types.YLeaf{"OriginEq", state.OriginEq})
+    state.EntityData.Leafs.Append("next-hop-in", types.YLeaf{"NextHopIn", state.NextHopIn})
+    state.EntityData.Leafs.Append("afi-safi-in", types.YLeaf{"AfiSafiIn", state.AfiSafiIn})
+    state.EntityData.Leafs.Append("local-pref-eq", types.YLeaf{"LocalPrefEq", state.LocalPrefEq})
+    state.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", state.RouteType})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2193,10 +2478,13 @@ func (communityCount *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statement
     communityCount.EntityData.NamespaceTable = openconfig.GetNamespaces()
     communityCount.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    communityCount.EntityData.Children = make(map[string]types.YChild)
-    communityCount.EntityData.Children["config"] = types.YChild{"Config", &communityCount.Config}
-    communityCount.EntityData.Children["state"] = types.YChild{"State", &communityCount.State}
-    communityCount.EntityData.Leafs = make(map[string]types.YLeaf)
+    communityCount.EntityData.Children = types.NewOrderedMap()
+    communityCount.EntityData.Children.Append("config", types.YChild{"Config", &communityCount.Config})
+    communityCount.EntityData.Children.Append("state", types.YChild{"State", &communityCount.State})
+    communityCount.EntityData.Leafs = types.NewOrderedMap()
+
+    communityCount.EntityData.YListKeys = []string {}
+
     return &(communityCount.EntityData)
 }
 
@@ -2207,7 +2495,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     YFilter yfilter.YFilter
 
     // type of comparison to be performed. The type is one of the following:
-    // ATTRIBUTEEQATTRIBUTEGEATTRIBUTELE.
+    // ATTRIBUTEGEATTRIBUTEEQATTRIBUTELE.
     Operator interface{}
 
     // value to compare with the community count. The type is interface{} with
@@ -2225,10 +2513,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["operator"] = types.YLeaf{"Operator", config.Operator}
-    config.EntityData.Leafs["value"] = types.YLeaf{"Value", config.Value}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", config.Operator})
+    config.EntityData.Leafs.Append("value", types.YLeaf{"Value", config.Value})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2239,7 +2530,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     YFilter yfilter.YFilter
 
     // type of comparison to be performed. The type is one of the following:
-    // ATTRIBUTEEQATTRIBUTEGEATTRIBUTELE.
+    // ATTRIBUTEGEATTRIBUTEEQATTRIBUTELE.
     Operator interface{}
 
     // value to compare with the community count. The type is interface{} with
@@ -2257,10 +2548,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["operator"] = types.YLeaf{"Operator", state.Operator}
-    state.EntityData.Leafs["value"] = types.YLeaf{"Value", state.Value}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", state.Operator})
+    state.EntityData.Leafs.Append("value", types.YLeaf{"Value", state.Value})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2288,10 +2582,13 @@ func (asPathLength *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_
     asPathLength.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathLength.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    asPathLength.EntityData.Children = make(map[string]types.YChild)
-    asPathLength.EntityData.Children["config"] = types.YChild{"Config", &asPathLength.Config}
-    asPathLength.EntityData.Children["state"] = types.YChild{"State", &asPathLength.State}
-    asPathLength.EntityData.Leafs = make(map[string]types.YLeaf)
+    asPathLength.EntityData.Children = types.NewOrderedMap()
+    asPathLength.EntityData.Children.Append("config", types.YChild{"Config", &asPathLength.Config})
+    asPathLength.EntityData.Children.Append("state", types.YChild{"State", &asPathLength.State})
+    asPathLength.EntityData.Leafs = types.NewOrderedMap()
+
+    asPathLength.EntityData.YListKeys = []string {}
+
     return &(asPathLength.EntityData)
 }
 
@@ -2302,7 +2599,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     YFilter yfilter.YFilter
 
     // type of comparison to be performed. The type is one of the following:
-    // ATTRIBUTEEQATTRIBUTEGEATTRIBUTELE.
+    // ATTRIBUTEGEATTRIBUTEEQATTRIBUTELE.
     Operator interface{}
 
     // value to compare with the community count. The type is interface{} with
@@ -2320,10 +2617,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["operator"] = types.YLeaf{"Operator", config.Operator}
-    config.EntityData.Leafs["value"] = types.YLeaf{"Value", config.Value}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", config.Operator})
+    config.EntityData.Leafs.Append("value", types.YLeaf{"Value", config.Value})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2334,7 +2634,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     YFilter yfilter.YFilter
 
     // type of comparison to be performed. The type is one of the following:
-    // ATTRIBUTEEQATTRIBUTEGEATTRIBUTELE.
+    // ATTRIBUTEGEATTRIBUTEEQATTRIBUTELE.
     Operator interface{}
 
     // value to compare with the community count. The type is interface{} with
@@ -2352,10 +2652,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["operator"] = types.YLeaf{"Operator", state.Operator}
-    state.EntityData.Leafs["value"] = types.YLeaf{"Value", state.Value}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", state.Operator})
+    state.EntityData.Leafs.Append("value", types.YLeaf{"Value", state.Value})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2384,10 +2687,13 @@ func (matchCommunitySet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statem
     matchCommunitySet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchCommunitySet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    matchCommunitySet.EntityData.Children = make(map[string]types.YChild)
-    matchCommunitySet.EntityData.Children["config"] = types.YChild{"Config", &matchCommunitySet.Config}
-    matchCommunitySet.EntityData.Children["state"] = types.YChild{"State", &matchCommunitySet.State}
-    matchCommunitySet.EntityData.Leafs = make(map[string]types.YLeaf)
+    matchCommunitySet.EntityData.Children = types.NewOrderedMap()
+    matchCommunitySet.EntityData.Children.Append("config", types.YChild{"Config", &matchCommunitySet.Config})
+    matchCommunitySet.EntityData.Children.Append("state", types.YChild{"State", &matchCommunitySet.State})
+    matchCommunitySet.EntityData.Leafs = types.NewOrderedMap()
+
+    matchCommunitySet.EntityData.YListKeys = []string {}
+
     return &(matchCommunitySet.EntityData)
 }
 
@@ -2416,10 +2722,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["community-set"] = types.YLeaf{"CommunitySet", config.CommunitySet}
-    config.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", config.MatchSetOptions}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("community-set", types.YLeaf{"CommunitySet", config.CommunitySet})
+    config.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", config.MatchSetOptions})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2448,10 +2757,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["community-set"] = types.YLeaf{"CommunitySet", state.CommunitySet}
-    state.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", state.MatchSetOptions}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("community-set", types.YLeaf{"CommunitySet", state.CommunitySet})
+    state.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", state.MatchSetOptions})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2479,10 +2791,13 @@ func (matchExtCommunitySet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Sta
     matchExtCommunitySet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchExtCommunitySet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    matchExtCommunitySet.EntityData.Children = make(map[string]types.YChild)
-    matchExtCommunitySet.EntityData.Children["config"] = types.YChild{"Config", &matchExtCommunitySet.Config}
-    matchExtCommunitySet.EntityData.Children["state"] = types.YChild{"State", &matchExtCommunitySet.State}
-    matchExtCommunitySet.EntityData.Leafs = make(map[string]types.YLeaf)
+    matchExtCommunitySet.EntityData.Children = types.NewOrderedMap()
+    matchExtCommunitySet.EntityData.Children.Append("config", types.YChild{"Config", &matchExtCommunitySet.Config})
+    matchExtCommunitySet.EntityData.Children.Append("state", types.YChild{"State", &matchExtCommunitySet.State})
+    matchExtCommunitySet.EntityData.Leafs = types.NewOrderedMap()
+
+    matchExtCommunitySet.EntityData.YListKeys = []string {}
+
     return &(matchExtCommunitySet.EntityData)
 }
 
@@ -2512,10 +2827,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ext-community-set"] = types.YLeaf{"ExtCommunitySet", config.ExtCommunitySet}
-    config.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", config.MatchSetOptions}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ext-community-set", types.YLeaf{"ExtCommunitySet", config.ExtCommunitySet})
+    config.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", config.MatchSetOptions})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2545,10 +2863,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ext-community-set"] = types.YLeaf{"ExtCommunitySet", state.ExtCommunitySet}
-    state.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", state.MatchSetOptions}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ext-community-set", types.YLeaf{"ExtCommunitySet", state.ExtCommunitySet})
+    state.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", state.MatchSetOptions})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2576,10 +2897,13 @@ func (matchAsPathSet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statement
     matchAsPathSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchAsPathSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    matchAsPathSet.EntityData.Children = make(map[string]types.YChild)
-    matchAsPathSet.EntityData.Children["config"] = types.YChild{"Config", &matchAsPathSet.Config}
-    matchAsPathSet.EntityData.Children["state"] = types.YChild{"State", &matchAsPathSet.State}
-    matchAsPathSet.EntityData.Leafs = make(map[string]types.YLeaf)
+    matchAsPathSet.EntityData.Children = types.NewOrderedMap()
+    matchAsPathSet.EntityData.Children.Append("config", types.YChild{"Config", &matchAsPathSet.Config})
+    matchAsPathSet.EntityData.Children.Append("state", types.YChild{"State", &matchAsPathSet.State})
+    matchAsPathSet.EntityData.Leafs = types.NewOrderedMap()
+
+    matchAsPathSet.EntityData.YListKeys = []string {}
+
     return &(matchAsPathSet.EntityData)
 }
 
@@ -2608,10 +2932,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["as-path-set"] = types.YLeaf{"AsPathSet", config.AsPathSet}
-    config.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", config.MatchSetOptions}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("as-path-set", types.YLeaf{"AsPathSet", config.AsPathSet})
+    config.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", config.MatchSetOptions})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2641,100 +2968,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["as-path-set"] = types.YLeaf{"AsPathSet", state.AsPathSet}
-    state.EntityData.Leafs["match-set-options"] = types.YLeaf{"MatchSetOptions", state.MatchSetOptions}
-    return &(state.EntityData)
-}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("as-path-set", types.YLeaf{"AsPathSet", state.AsPathSet})
+    state.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", state.MatchSetOptions})
 
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
-// Match conditions relating to the IS-IS protocol
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
+    state.EntityData.YListKeys = []string {}
 
-    // Configuration parameters relating to IS-IS match conditions.
-    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
-
-    // Operational state parameters relating to IS-IS match conditions.
-    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
-}
-
-func (isisConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions) GetEntityData() *types.CommonEntityData {
-    isisConditions.EntityData.YFilter = isisConditions.YFilter
-    isisConditions.EntityData.YangName = "isis-conditions"
-    isisConditions.EntityData.BundleName = "openconfig"
-    isisConditions.EntityData.ParentYangName = "conditions"
-    isisConditions.EntityData.SegmentPath = "openconfig-isis-policy:isis-conditions"
-    isisConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    isisConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    isisConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    isisConditions.EntityData.Children = make(map[string]types.YChild)
-    isisConditions.EntityData.Children["config"] = types.YChild{"Config", &isisConditions.Config}
-    isisConditions.EntityData.Children["state"] = types.YChild{"State", &isisConditions.State}
-    isisConditions.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(isisConditions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
-// Configuration parameters relating to IS-IS match
-// conditions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match the level that the IS-IS prefix is within. This can be used in the
-    // case that import or export policies refer to an IS-IS instance that has
-    // multiple levels configured within it. The type is interface{} with range:
-    // 1..2.
-    LevelEq interface{}
-}
-
-func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "isis-conditions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["level-eq"] = types.YLeaf{"LevelEq", config.LevelEq}
-    return &(config.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
-// Operational state parameters relating to IS-IS match
-// conditions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match the level that the IS-IS prefix is within. This can be used in the
-    // case that import or export policies refer to an IS-IS instance that has
-    // multiple levels configured within it. The type is interface{} with range:
-    // 1..2.
-    LevelEq interface{}
-}
-
-func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "isis-conditions"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["level-eq"] = types.YLeaf{"LevelEq", state.LevelEq}
     return &(state.EntityData)
 }
 
@@ -2753,11 +2993,11 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
     // Actions to set IGP route attributes; these actions apply to multiple IGPs.
     IgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IgpActions
 
-    // Top-level container for BGP-specific actions.
-    BgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_BgpActions
-
     // Actions that can be performed by IS-IS within a policy.
     IsisActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
+
+    // Top-level container for BGP-specific actions.
+    BgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_BgpActions
 }
 
 func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions) GetEntityData() *types.CommonEntityData {
@@ -2770,13 +3010,16 @@ func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_State
     actions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     actions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    actions.EntityData.Children = make(map[string]types.YChild)
-    actions.EntityData.Children["config"] = types.YChild{"Config", &actions.Config}
-    actions.EntityData.Children["state"] = types.YChild{"State", &actions.State}
-    actions.EntityData.Children["igp-actions"] = types.YChild{"IgpActions", &actions.IgpActions}
-    actions.EntityData.Children["openconfig-bgp-policy:bgp-actions"] = types.YChild{"BgpActions", &actions.BgpActions}
-    actions.EntityData.Children["openconfig-isis-policy:isis-actions"] = types.YChild{"IsisActions", &actions.IsisActions}
-    actions.EntityData.Leafs = make(map[string]types.YLeaf)
+    actions.EntityData.Children = types.NewOrderedMap()
+    actions.EntityData.Children.Append("config", types.YChild{"Config", &actions.Config})
+    actions.EntityData.Children.Append("state", types.YChild{"State", &actions.State})
+    actions.EntityData.Children.Append("igp-actions", types.YChild{"IgpActions", &actions.IgpActions})
+    actions.EntityData.Children.Append("openconfig-isis-policy:isis-actions", types.YChild{"IsisActions", &actions.IsisActions})
+    actions.EntityData.Children.Append("openconfig-bgp-policy:bgp-actions", types.YChild{"BgpActions", &actions.BgpActions})
+    actions.EntityData.Leafs = types.NewOrderedMap()
+
+    actions.EntityData.YListKeys = []string {}
+
     return &(actions.EntityData)
 }
 
@@ -2803,10 +3046,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["accept-route"] = types.YLeaf{"AcceptRoute", config.AcceptRoute}
-    config.EntityData.Leafs["reject-route"] = types.YLeaf{"RejectRoute", config.RejectRoute}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("accept-route", types.YLeaf{"AcceptRoute", config.AcceptRoute})
+    config.EntityData.Leafs.Append("reject-route", types.YLeaf{"RejectRoute", config.RejectRoute})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2833,10 +3079,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["accept-route"] = types.YLeaf{"AcceptRoute", state.AcceptRoute}
-    state.EntityData.Leafs["reject-route"] = types.YLeaf{"RejectRoute", state.RejectRoute}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("accept-route", types.YLeaf{"AcceptRoute", state.AcceptRoute})
+    state.EntityData.Leafs.Append("reject-route", types.YLeaf{"RejectRoute", state.RejectRoute})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2864,10 +3113,13 @@ func (igpActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     igpActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    igpActions.EntityData.Children = make(map[string]types.YChild)
-    igpActions.EntityData.Children["config"] = types.YChild{"Config", &igpActions.Config}
-    igpActions.EntityData.Children["state"] = types.YChild{"State", &igpActions.State}
-    igpActions.EntityData.Leafs = make(map[string]types.YLeaf)
+    igpActions.EntityData.Children = types.NewOrderedMap()
+    igpActions.EntityData.Children.Append("config", types.YChild{"Config", &igpActions.Config})
+    igpActions.EntityData.Children.Append("state", types.YChild{"State", &igpActions.State})
+    igpActions.EntityData.Leafs = types.NewOrderedMap()
+
+    igpActions.EntityData.YListKeys = []string {}
+
     return &(igpActions.EntityData)
 }
 
@@ -2879,7 +3131,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the tag value for OSPF or IS-IS routes. The type is one of the
     // following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -2893,9 +3145,12 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["set-tag"] = types.YLeaf{"SetTag", config.SetTag}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", config.SetTag})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2907,7 +3162,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the tag value for OSPF or IS-IS routes. The type is one of the
     // following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -2921,9 +3176,125 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["set-tag"] = types.YLeaf{"SetTag", state.SetTag}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", state.SetTag})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
+// Actions that can be performed by IS-IS within a policy
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration parameters relating to IS-IS actions.
+    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
+
+    // Operational state associated with IS-IS actions.
+    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
+}
+
+func (isisActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions) GetEntityData() *types.CommonEntityData {
+    isisActions.EntityData.YFilter = isisActions.YFilter
+    isisActions.EntityData.YangName = "isis-actions"
+    isisActions.EntityData.BundleName = "openconfig"
+    isisActions.EntityData.ParentYangName = "actions"
+    isisActions.EntityData.SegmentPath = "openconfig-isis-policy:isis-actions"
+    isisActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    isisActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    isisActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    isisActions.EntityData.Children = types.NewOrderedMap()
+    isisActions.EntityData.Children.Append("config", types.YChild{"Config", &isisActions.Config})
+    isisActions.EntityData.Children.Append("state", types.YChild{"State", &isisActions.State})
+    isisActions.EntityData.Leafs = types.NewOrderedMap()
+
+    isisActions.EntityData.YListKeys = []string {}
+
+    return &(isisActions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
+// Configuration parameters relating to IS-IS actions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the level that a prefix is to be imported into. The type is interface{}
+    // with range: 1..2.
+    SetLevel interface{}
+
+    // Set the type of metric that is to be specified when the set metric leaf is
+    // specified. The type is interface{} with range: 1..2.
+    SetMetricType interface{}
+
+    // Set the metric of the IS-IS prefix. The type is interface{} with range:
+    // 1..16777215.
+    SetMetric interface{}
+}
+
+func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "isis-actions"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", config.SetLevel})
+    config.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", config.SetMetricType})
+    config.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", config.SetMetric})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
+// Operational state associated with IS-IS actions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the level that a prefix is to be imported into. The type is interface{}
+    // with range: 1..2.
+    SetLevel interface{}
+
+    // Set the type of metric that is to be specified when the set metric leaf is
+    // specified. The type is interface{} with range: 1..2.
+    SetMetricType interface{}
+
+    // Set the metric of the IS-IS prefix. The type is interface{} with range:
+    // 1..16777215.
+    SetMetric interface{}
+}
+
+func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "isis-actions"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", state.SetLevel})
+    state.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", state.SetMetricType})
+    state.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", state.SetMetric})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2965,13 +3336,16 @@ func (bgpActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     bgpActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgpActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    bgpActions.EntityData.Children = make(map[string]types.YChild)
-    bgpActions.EntityData.Children["config"] = types.YChild{"Config", &bgpActions.Config}
-    bgpActions.EntityData.Children["state"] = types.YChild{"State", &bgpActions.State}
-    bgpActions.EntityData.Children["set-as-path-prepend"] = types.YChild{"SetAsPathPrepend", &bgpActions.SetAsPathPrepend}
-    bgpActions.EntityData.Children["set-community"] = types.YChild{"SetCommunity", &bgpActions.SetCommunity}
-    bgpActions.EntityData.Children["set-ext-community"] = types.YChild{"SetExtCommunity", &bgpActions.SetExtCommunity}
-    bgpActions.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpActions.EntityData.Children = types.NewOrderedMap()
+    bgpActions.EntityData.Children.Append("config", types.YChild{"Config", &bgpActions.Config})
+    bgpActions.EntityData.Children.Append("state", types.YChild{"State", &bgpActions.State})
+    bgpActions.EntityData.Children.Append("set-as-path-prepend", types.YChild{"SetAsPathPrepend", &bgpActions.SetAsPathPrepend})
+    bgpActions.EntityData.Children.Append("set-community", types.YChild{"SetCommunity", &bgpActions.SetCommunity})
+    bgpActions.EntityData.Children.Append("set-ext-community", types.YChild{"SetExtCommunity", &bgpActions.SetExtCommunity})
+    bgpActions.EntityData.Leafs = types.NewOrderedMap()
+
+    bgpActions.EntityData.YListKeys = []string {}
+
     return &(bgpActions.EntityData)
 }
 
@@ -2991,15 +3365,15 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // set the next-hop attribute in the route update. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or enumeration BgpNextHopType.
     SetNextHop interface{}
 
     // set the med metric attribute in the route update. The type is one of the
     // following types: int with range: 0..4294967295, or string with pattern:
-    // b'^[+-][0-9]+', or enumeration BgpSetMedType.
+    // ^[+-][0-9]+, or enumeration BgpSetMedType.
     SetMed interface{}
 }
 
@@ -3013,12 +3387,15 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["set-route-origin"] = types.YLeaf{"SetRouteOrigin", config.SetRouteOrigin}
-    config.EntityData.Leafs["set-local-pref"] = types.YLeaf{"SetLocalPref", config.SetLocalPref}
-    config.EntityData.Leafs["set-next-hop"] = types.YLeaf{"SetNextHop", config.SetNextHop}
-    config.EntityData.Leafs["set-med"] = types.YLeaf{"SetMed", config.SetMed}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("set-route-origin", types.YLeaf{"SetRouteOrigin", config.SetRouteOrigin})
+    config.EntityData.Leafs.Append("set-local-pref", types.YLeaf{"SetLocalPref", config.SetLocalPref})
+    config.EntityData.Leafs.Append("set-next-hop", types.YLeaf{"SetNextHop", config.SetNextHop})
+    config.EntityData.Leafs.Append("set-med", types.YLeaf{"SetMed", config.SetMed})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3038,15 +3415,15 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // set the next-hop attribute in the route update. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or enumeration BgpNextHopType.
     SetNextHop interface{}
 
     // set the med metric attribute in the route update. The type is one of the
     // following types: int with range: 0..4294967295, or string with pattern:
-    // b'^[+-][0-9]+', or enumeration BgpSetMedType.
+    // ^[+-][0-9]+, or enumeration BgpSetMedType.
     SetMed interface{}
 }
 
@@ -3060,12 +3437,15 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["set-route-origin"] = types.YLeaf{"SetRouteOrigin", state.SetRouteOrigin}
-    state.EntityData.Leafs["set-local-pref"] = types.YLeaf{"SetLocalPref", state.SetLocalPref}
-    state.EntityData.Leafs["set-next-hop"] = types.YLeaf{"SetNextHop", state.SetNextHop}
-    state.EntityData.Leafs["set-med"] = types.YLeaf{"SetMed", state.SetMed}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("set-route-origin", types.YLeaf{"SetRouteOrigin", state.SetRouteOrigin})
+    state.EntityData.Leafs.Append("set-local-pref", types.YLeaf{"SetLocalPref", state.SetLocalPref})
+    state.EntityData.Leafs.Append("set-next-hop", types.YLeaf{"SetNextHop", state.SetNextHop})
+    state.EntityData.Leafs.Append("set-med", types.YLeaf{"SetMed", state.SetMed})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3093,10 +3473,13 @@ func (setAsPathPrepend *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Stateme
     setAsPathPrepend.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setAsPathPrepend.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    setAsPathPrepend.EntityData.Children = make(map[string]types.YChild)
-    setAsPathPrepend.EntityData.Children["config"] = types.YChild{"Config", &setAsPathPrepend.Config}
-    setAsPathPrepend.EntityData.Children["state"] = types.YChild{"State", &setAsPathPrepend.State}
-    setAsPathPrepend.EntityData.Leafs = make(map[string]types.YLeaf)
+    setAsPathPrepend.EntityData.Children = types.NewOrderedMap()
+    setAsPathPrepend.EntityData.Children.Append("config", types.YChild{"Config", &setAsPathPrepend.Config})
+    setAsPathPrepend.EntityData.Children.Append("state", types.YChild{"State", &setAsPathPrepend.State})
+    setAsPathPrepend.EntityData.Leafs = types.NewOrderedMap()
+
+    setAsPathPrepend.EntityData.YListKeys = []string {}
+
     return &(setAsPathPrepend.EntityData)
 }
 
@@ -3122,9 +3505,12 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["repeat-n"] = types.YLeaf{"RepeatN", config.RepeatN}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("repeat-n", types.YLeaf{"RepeatN", config.RepeatN})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3150,9 +3536,12 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["repeat-n"] = types.YLeaf{"RepeatN", state.RepeatN}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("repeat-n", types.YLeaf{"RepeatN", state.RepeatN})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3189,12 +3578,15 @@ func (setCommunity *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_
     setCommunity.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setCommunity.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    setCommunity.EntityData.Children = make(map[string]types.YChild)
-    setCommunity.EntityData.Children["config"] = types.YChild{"Config", &setCommunity.Config}
-    setCommunity.EntityData.Children["state"] = types.YChild{"State", &setCommunity.State}
-    setCommunity.EntityData.Children["inline"] = types.YChild{"Inline", &setCommunity.Inline}
-    setCommunity.EntityData.Children["reference"] = types.YChild{"Reference", &setCommunity.Reference}
-    setCommunity.EntityData.Leafs = make(map[string]types.YLeaf)
+    setCommunity.EntityData.Children = types.NewOrderedMap()
+    setCommunity.EntityData.Children.Append("config", types.YChild{"Config", &setCommunity.Config})
+    setCommunity.EntityData.Children.Append("state", types.YChild{"State", &setCommunity.State})
+    setCommunity.EntityData.Children.Append("inline", types.YChild{"Inline", &setCommunity.Inline})
+    setCommunity.EntityData.Children.Append("reference", types.YChild{"Reference", &setCommunity.Reference})
+    setCommunity.EntityData.Leafs = types.NewOrderedMap()
+
+    setCommunity.EntityData.YListKeys = []string {}
+
     return &(setCommunity.EntityData)
 }
 
@@ -3224,10 +3616,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["method"] = types.YLeaf{"Method", config.Method}
-    config.EntityData.Leafs["options"] = types.YLeaf{"Options", config.Options}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("method", types.YLeaf{"Method", config.Method})
+    config.EntityData.Leafs.Append("options", types.YLeaf{"Options", config.Options})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3270,10 +3665,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["method"] = types.YLeaf{"Method", state.Method}
-    state.EntityData.Leafs["options"] = types.YLeaf{"Options", state.Options}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("method", types.YLeaf{"Method", state.Method})
+    state.EntityData.Leafs.Append("options", types.YLeaf{"Options", state.Options})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3314,10 +3712,13 @@ func (inline *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     inline.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inline.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    inline.EntityData.Children = make(map[string]types.YChild)
-    inline.EntityData.Children["config"] = types.YChild{"Config", &inline.Config}
-    inline.EntityData.Children["state"] = types.YChild{"State", &inline.State}
-    inline.EntityData.Leafs = make(map[string]types.YLeaf)
+    inline.EntityData.Children = types.NewOrderedMap()
+    inline.EntityData.Children.Append("config", types.YChild{"Config", &inline.Config})
+    inline.EntityData.Children.Append("state", types.YChild{"State", &inline.State})
+    inline.EntityData.Leafs = types.NewOrderedMap()
+
+    inline.EntityData.YListKeys = []string {}
+
     return &(inline.EntityData)
 }
 
@@ -3330,8 +3731,9 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the community values for the update inline with a list. The type is one
     // of the following types: slice of int with range: 65536..4294901759, or
-    // slice of string with pattern: b'([0-9]+:[0-9]+)'., or slice of  
-    // :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
+    // slice of string with pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     Communities []interface{}
 }
@@ -3346,9 +3748,12 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["communities"] = types.YLeaf{"Communities", config.Communities}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("communities", types.YLeaf{"Communities", config.Communities})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3361,8 +3766,9 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the community values for the update inline with a list. The type is one
     // of the following types: slice of int with range: 65536..4294901759, or
-    // slice of string with pattern: b'([0-9]+:[0-9]+)'., or slice of  
-    // :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
+    // slice of string with pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     Communities []interface{}
 }
@@ -3377,9 +3783,12 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["communities"] = types.YLeaf{"Communities", state.Communities}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("communities", types.YLeaf{"Communities", state.Communities})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3409,10 +3818,13 @@ func (reference *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Sta
     reference.EntityData.NamespaceTable = openconfig.GetNamespaces()
     reference.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    reference.EntityData.Children = make(map[string]types.YChild)
-    reference.EntityData.Children["config"] = types.YChild{"Config", &reference.Config}
-    reference.EntityData.Children["state"] = types.YChild{"State", &reference.State}
-    reference.EntityData.Leafs = make(map[string]types.YLeaf)
+    reference.EntityData.Children = types.NewOrderedMap()
+    reference.EntityData.Children.Append("config", types.YChild{"Config", &reference.Config})
+    reference.EntityData.Children.Append("state", types.YChild{"State", &reference.State})
+    reference.EntityData.Leafs = types.NewOrderedMap()
+
+    reference.EntityData.YListKeys = []string {}
+
     return &(reference.EntityData)
 }
 
@@ -3438,9 +3850,12 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["community-set-ref"] = types.YLeaf{"CommunitySetRef", config.CommunitySetRef}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("community-set-ref", types.YLeaf{"CommunitySetRef", config.CommunitySetRef})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3466,9 +3881,12 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["community-set-ref"] = types.YLeaf{"CommunitySetRef", state.CommunitySetRef}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("community-set-ref", types.YLeaf{"CommunitySetRef", state.CommunitySetRef})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3506,12 +3924,15 @@ func (setExtCommunity *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statemen
     setExtCommunity.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setExtCommunity.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    setExtCommunity.EntityData.Children = make(map[string]types.YChild)
-    setExtCommunity.EntityData.Children["config"] = types.YChild{"Config", &setExtCommunity.Config}
-    setExtCommunity.EntityData.Children["state"] = types.YChild{"State", &setExtCommunity.State}
-    setExtCommunity.EntityData.Children["inline"] = types.YChild{"Inline", &setExtCommunity.Inline}
-    setExtCommunity.EntityData.Children["reference"] = types.YChild{"Reference", &setExtCommunity.Reference}
-    setExtCommunity.EntityData.Leafs = make(map[string]types.YLeaf)
+    setExtCommunity.EntityData.Children = types.NewOrderedMap()
+    setExtCommunity.EntityData.Children.Append("config", types.YChild{"Config", &setExtCommunity.Config})
+    setExtCommunity.EntityData.Children.Append("state", types.YChild{"State", &setExtCommunity.State})
+    setExtCommunity.EntityData.Children.Append("inline", types.YChild{"Inline", &setExtCommunity.Inline})
+    setExtCommunity.EntityData.Children.Append("reference", types.YChild{"Reference", &setExtCommunity.Reference})
+    setExtCommunity.EntityData.Leafs = types.NewOrderedMap()
+
+    setExtCommunity.EntityData.YListKeys = []string {}
+
     return &(setExtCommunity.EntityData)
 }
 
@@ -3541,10 +3962,13 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["method"] = types.YLeaf{"Method", config.Method}
-    config.EntityData.Leafs["options"] = types.YLeaf{"Options", config.Options}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("method", types.YLeaf{"Method", config.Method})
+    config.EntityData.Leafs.Append("options", types.YLeaf{"Options", config.Options})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3587,10 +4011,13 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["method"] = types.YLeaf{"Method", state.Method}
-    state.EntityData.Leafs["options"] = types.YLeaf{"Options", state.Options}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("method", types.YLeaf{"Method", state.Method})
+    state.EntityData.Leafs.Append("options", types.YLeaf{"Options", state.Options})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3631,10 +4058,13 @@ func (inline *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     inline.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inline.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    inline.EntityData.Children = make(map[string]types.YChild)
-    inline.EntityData.Children["config"] = types.YChild{"Config", &inline.Config}
-    inline.EntityData.Children["state"] = types.YChild{"State", &inline.State}
-    inline.EntityData.Leafs = make(map[string]types.YLeaf)
+    inline.EntityData.Children = types.NewOrderedMap()
+    inline.EntityData.Children.Append("config", types.YChild{"Config", &inline.Config})
+    inline.EntityData.Children.Append("state", types.YChild{"State", &inline.State})
+    inline.EntityData.Leafs = types.NewOrderedMap()
+
+    inline.EntityData.YListKeys = []string {}
+
     return &(inline.EntityData)
 }
 
@@ -3647,17 +4077,23 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the extended community values for the update inline with a list. The
     // type is one of the following types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.,
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
     // or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     Communities []interface{}
@@ -3673,9 +4109,12 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["communities"] = types.YLeaf{"Communities", config.Communities}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("communities", types.YLeaf{"Communities", config.Communities})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3688,17 +4127,23 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the extended community values for the update inline with a list. The
     // type is one of the following types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.,
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
     // or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     Communities []interface{}
@@ -3714,9 +4159,12 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["communities"] = types.YLeaf{"Communities", state.Communities}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("communities", types.YLeaf{"Communities", state.Communities})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3746,10 +4194,13 @@ func (reference *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Sta
     reference.EntityData.NamespaceTable = openconfig.GetNamespaces()
     reference.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    reference.EntityData.Children = make(map[string]types.YChild)
-    reference.EntityData.Children["config"] = types.YChild{"Config", &reference.Config}
-    reference.EntityData.Children["state"] = types.YChild{"State", &reference.State}
-    reference.EntityData.Leafs = make(map[string]types.YLeaf)
+    reference.EntityData.Children = types.NewOrderedMap()
+    reference.EntityData.Children.Append("config", types.YChild{"Config", &reference.Config})
+    reference.EntityData.Children.Append("state", types.YChild{"State", &reference.State})
+    reference.EntityData.Leafs = types.NewOrderedMap()
+
+    reference.EntityData.YListKeys = []string {}
+
     return &(reference.EntityData)
 }
 
@@ -3776,9 +4227,12 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ext-community-set-ref"] = types.YLeaf{"ExtCommunitySetRef", config.ExtCommunitySetRef}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ext-community-set-ref", types.YLeaf{"ExtCommunitySetRef", config.ExtCommunitySetRef})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3805,113 +4259,12 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ext-community-set-ref"] = types.YLeaf{"ExtCommunitySetRef", state.ExtCommunitySetRef}
-    return &(state.EntityData)
-}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ext-community-set-ref", types.YLeaf{"ExtCommunitySetRef", state.ExtCommunitySetRef})
 
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
-// Actions that can be performed by IS-IS within a policy
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
+    state.EntityData.YListKeys = []string {}
 
-    // Configuration parameters relating to IS-IS actions.
-    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
-
-    // Operational state associated with IS-IS actions.
-    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
-}
-
-func (isisActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions) GetEntityData() *types.CommonEntityData {
-    isisActions.EntityData.YFilter = isisActions.YFilter
-    isisActions.EntityData.YangName = "isis-actions"
-    isisActions.EntityData.BundleName = "openconfig"
-    isisActions.EntityData.ParentYangName = "actions"
-    isisActions.EntityData.SegmentPath = "openconfig-isis-policy:isis-actions"
-    isisActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    isisActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    isisActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    isisActions.EntityData.Children = make(map[string]types.YChild)
-    isisActions.EntityData.Children["config"] = types.YChild{"Config", &isisActions.Config}
-    isisActions.EntityData.Children["state"] = types.YChild{"State", &isisActions.State}
-    isisActions.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(isisActions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
-// Configuration parameters relating to IS-IS actions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the level that a prefix is to be imported into. The type is interface{}
-    // with range: 1..2.
-    SetLevel interface{}
-
-    // Set the type of metric that is to be specified when the set metric leaf is
-    // specified. The type is interface{} with range: 1..2.
-    SetMetricType interface{}
-
-    // Set the metric of the IS-IS prefix. The type is interface{} with range:
-    // 1..16777215.
-    SetMetric interface{}
-}
-
-func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "isis-actions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["set-level"] = types.YLeaf{"SetLevel", config.SetLevel}
-    config.EntityData.Leafs["set-metric-type"] = types.YLeaf{"SetMetricType", config.SetMetricType}
-    config.EntityData.Leafs["set-metric"] = types.YLeaf{"SetMetric", config.SetMetric}
-    return &(config.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
-// Operational state associated with IS-IS actions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the level that a prefix is to be imported into. The type is interface{}
-    // with range: 1..2.
-    SetLevel interface{}
-
-    // Set the type of metric that is to be specified when the set metric leaf is
-    // specified. The type is interface{} with range: 1..2.
-    SetMetricType interface{}
-
-    // Set the metric of the IS-IS prefix. The type is interface{} with range:
-    // 1..16777215.
-    SetMetric interface{}
-}
-
-func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "isis-actions"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["set-level"] = types.YLeaf{"SetLevel", state.SetLevel}
-    state.EntityData.Leafs["set-metric-type"] = types.YLeaf{"SetMetricType", state.SetMetricType}
-    state.EntityData.Leafs["set-metric"] = types.YLeaf{"SetMetric", state.SetMetric}
     return &(state.EntityData)
 }
 

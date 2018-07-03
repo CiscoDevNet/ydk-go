@@ -58,7 +58,7 @@ const (
     AlAlarmSeverity_critical AlAlarmSeverity = "critical"
 
     // error
-    AlAlarmSeverity_error AlAlarmSeverity = "error"
+    AlAlarmSeverity_error_ AlAlarmSeverity = "error"
 
     // warning
     AlAlarmSeverity_warning AlAlarmSeverity = "warning"
@@ -111,10 +111,13 @@ func (suppression *Suppression) GetEntityData() *types.CommonEntityData {
     suppression.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppression.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppression.EntityData.Children = make(map[string]types.YChild)
-    suppression.EntityData.Children["rule-summaries"] = types.YChild{"RuleSummaries", &suppression.RuleSummaries}
-    suppression.EntityData.Children["rule-details"] = types.YChild{"RuleDetails", &suppression.RuleDetails}
-    suppression.EntityData.Leafs = make(map[string]types.YLeaf)
+    suppression.EntityData.Children = types.NewOrderedMap()
+    suppression.EntityData.Children.Append("rule-summaries", types.YChild{"RuleSummaries", &suppression.RuleSummaries})
+    suppression.EntityData.Children.Append("rule-details", types.YChild{"RuleDetails", &suppression.RuleDetails})
+    suppression.EntityData.Leafs = types.NewOrderedMap()
+
+    suppression.EntityData.YListKeys = []string {}
+
     return &(suppression.EntityData)
 }
 
@@ -127,7 +130,7 @@ type Suppression_RuleSummaries struct {
 
     // One of the suppression rules. The type is slice of
     // Suppression_RuleSummaries_RuleSummary.
-    RuleSummary []Suppression_RuleSummaries_RuleSummary
+    RuleSummary []*Suppression_RuleSummaries_RuleSummary
 }
 
 func (ruleSummaries *Suppression_RuleSummaries) GetEntityData() *types.CommonEntityData {
@@ -140,12 +143,15 @@ func (ruleSummaries *Suppression_RuleSummaries) GetEntityData() *types.CommonEnt
     ruleSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSummaries.EntityData.Children = make(map[string]types.YChild)
-    ruleSummaries.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", nil}
+    ruleSummaries.EntityData.Children = types.NewOrderedMap()
+    ruleSummaries.EntityData.Children.Append("rule-summary", types.YChild{"RuleSummary", nil})
     for i := range ruleSummaries.RuleSummary {
-        ruleSummaries.EntityData.Children[types.GetSegmentPath(&ruleSummaries.RuleSummary[i])] = types.YChild{"RuleSummary", &ruleSummaries.RuleSummary[i]}
+        ruleSummaries.EntityData.Children.Append(types.GetSegmentPath(ruleSummaries.RuleSummary[i]), types.YChild{"RuleSummary", ruleSummaries.RuleSummary[i]})
     }
-    ruleSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleSummaries.EntityData.YListKeys = []string {}
+
     return &(ruleSummaries.EntityData)
 }
 
@@ -176,17 +182,20 @@ func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetEntityData() *types
     ruleSummary.EntityData.YangName = "rule-summary"
     ruleSummary.EntityData.BundleName = "cisco_ios_xr"
     ruleSummary.EntityData.ParentYangName = "rule-summaries"
-    ruleSummary.EntityData.SegmentPath = "rule-summary" + "[rule-name='" + fmt.Sprintf("%v", ruleSummary.RuleName) + "']"
+    ruleSummary.EntityData.SegmentPath = "rule-summary" + types.AddKeyToken(ruleSummary.RuleName, "rule-name")
     ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSummary.EntityData.Children = make(map[string]types.YChild)
-    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSummary.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleSummary.RuleName}
-    ruleSummary.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr}
-    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
-    ruleSummary.EntityData.Leafs["suppressed-alarms-count"] = types.YLeaf{"SuppressedAlarmsCount", ruleSummary.SuppressedAlarmsCount}
+    ruleSummary.EntityData.Children = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", ruleSummary.RuleName})
+    ruleSummary.EntityData.Leafs.Append("rule-name-xr", types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr})
+    ruleSummary.EntityData.Leafs.Append("rule-state", types.YLeaf{"RuleState", ruleSummary.RuleState})
+    ruleSummary.EntityData.Leafs.Append("suppressed-alarms-count", types.YLeaf{"SuppressedAlarmsCount", ruleSummary.SuppressedAlarmsCount})
+
+    ruleSummary.EntityData.YListKeys = []string {"RuleName"}
+
     return &(ruleSummary.EntityData)
 }
 
@@ -199,7 +208,7 @@ type Suppression_RuleDetails struct {
 
     // Details of one of the suppression rules. The type is slice of
     // Suppression_RuleDetails_RuleDetail.
-    RuleDetail []Suppression_RuleDetails_RuleDetail
+    RuleDetail []*Suppression_RuleDetails_RuleDetail
 }
 
 func (ruleDetails *Suppression_RuleDetails) GetEntityData() *types.CommonEntityData {
@@ -212,12 +221,15 @@ func (ruleDetails *Suppression_RuleDetails) GetEntityData() *types.CommonEntityD
     ruleDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleDetails.EntityData.Children = make(map[string]types.YChild)
-    ruleDetails.EntityData.Children["rule-detail"] = types.YChild{"RuleDetail", nil}
+    ruleDetails.EntityData.Children = types.NewOrderedMap()
+    ruleDetails.EntityData.Children.Append("rule-detail", types.YChild{"RuleDetail", nil})
     for i := range ruleDetails.RuleDetail {
-        ruleDetails.EntityData.Children[types.GetSegmentPath(&ruleDetails.RuleDetail[i])] = types.YChild{"RuleDetail", &ruleDetails.RuleDetail[i]}
+        ruleDetails.EntityData.Children.Append(types.GetSegmentPath(ruleDetails.RuleDetail[i]), types.YChild{"RuleDetail", ruleDetails.RuleDetail[i]})
     }
-    ruleDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleDetails.EntityData.YListKeys = []string {}
+
     return &(ruleDetails.EntityData)
 }
 
@@ -238,7 +250,7 @@ type Suppression_RuleDetails_RuleDetail struct {
     AlarmSeverity interface{}
 
     // Sources (R/S/M) to which the rule is applied. The type is slice of string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     ApplySource []interface{}
 
     // Rule summary, name, etc.
@@ -246,7 +258,7 @@ type Suppression_RuleDetails_RuleDetail struct {
 
     // Message codes defining the rule. The type is slice of
     // Suppression_RuleDetails_RuleDetail_Codes.
-    Codes []Suppression_RuleDetails_RuleDetail_Codes
+    Codes []*Suppression_RuleDetails_RuleDetail_Codes
 }
 
 func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetEntityData() *types.CommonEntityData {
@@ -254,22 +266,25 @@ func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetEntityData() *types.Com
     ruleDetail.EntityData.YangName = "rule-detail"
     ruleDetail.EntityData.BundleName = "cisco_ios_xr"
     ruleDetail.EntityData.ParentYangName = "rule-details"
-    ruleDetail.EntityData.SegmentPath = "rule-detail" + "[rule-name='" + fmt.Sprintf("%v", ruleDetail.RuleName) + "']"
+    ruleDetail.EntityData.SegmentPath = "rule-detail" + types.AddKeyToken(ruleDetail.RuleName, "rule-name")
     ruleDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleDetail.EntityData.Children = make(map[string]types.YChild)
-    ruleDetail.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", &ruleDetail.RuleSummary}
-    ruleDetail.EntityData.Children["codes"] = types.YChild{"Codes", nil}
+    ruleDetail.EntityData.Children = types.NewOrderedMap()
+    ruleDetail.EntityData.Children.Append("rule-summary", types.YChild{"RuleSummary", &ruleDetail.RuleSummary})
+    ruleDetail.EntityData.Children.Append("codes", types.YChild{"Codes", nil})
     for i := range ruleDetail.Codes {
-        ruleDetail.EntityData.Children[types.GetSegmentPath(&ruleDetail.Codes[i])] = types.YChild{"Codes", &ruleDetail.Codes[i]}
+        ruleDetail.EntityData.Children.Append(types.GetSegmentPath(ruleDetail.Codes[i]), types.YChild{"Codes", ruleDetail.Codes[i]})
     }
-    ruleDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleDetail.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleDetail.RuleName}
-    ruleDetail.EntityData.Leafs["all-alarms"] = types.YLeaf{"AllAlarms", ruleDetail.AllAlarms}
-    ruleDetail.EntityData.Leafs["alarm-severity"] = types.YLeaf{"AlarmSeverity", ruleDetail.AlarmSeverity}
-    ruleDetail.EntityData.Leafs["apply-source"] = types.YLeaf{"ApplySource", ruleDetail.ApplySource}
+    ruleDetail.EntityData.Leafs = types.NewOrderedMap()
+    ruleDetail.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", ruleDetail.RuleName})
+    ruleDetail.EntityData.Leafs.Append("all-alarms", types.YLeaf{"AllAlarms", ruleDetail.AllAlarms})
+    ruleDetail.EntityData.Leafs.Append("alarm-severity", types.YLeaf{"AlarmSeverity", ruleDetail.AlarmSeverity})
+    ruleDetail.EntityData.Leafs.Append("apply-source", types.YLeaf{"ApplySource", ruleDetail.ApplySource})
+
+    ruleDetail.EntityData.YListKeys = []string {"RuleName"}
+
     return &(ruleDetail.EntityData)
 }
 
@@ -301,11 +316,14 @@ func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetEntityData
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSummary.EntityData.Children = make(map[string]types.YChild)
-    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSummary.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr}
-    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
-    ruleSummary.EntityData.Leafs["suppressed-alarms-count"] = types.YLeaf{"SuppressedAlarmsCount", ruleSummary.SuppressedAlarmsCount}
+    ruleSummary.EntityData.Children = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs.Append("rule-name-xr", types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr})
+    ruleSummary.EntityData.Leafs.Append("rule-state", types.YLeaf{"RuleState", ruleSummary.RuleState})
+    ruleSummary.EntityData.Leafs.Append("suppressed-alarms-count", types.YLeaf{"SuppressedAlarmsCount", ruleSummary.SuppressedAlarmsCount})
+
+    ruleSummary.EntityData.YListKeys = []string {}
+
     return &(ruleSummary.EntityData)
 }
 
@@ -336,11 +354,14 @@ func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetEntityData() *types.Co
     codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    codes.EntityData.Children = make(map[string]types.YChild)
-    codes.EntityData.Leafs = make(map[string]types.YLeaf)
-    codes.EntityData.Leafs["category"] = types.YLeaf{"Category", codes.Category}
-    codes.EntityData.Leafs["group"] = types.YLeaf{"Group", codes.Group}
-    codes.EntityData.Leafs["code"] = types.YLeaf{"Code", codes.Code}
+    codes.EntityData.Children = types.NewOrderedMap()
+    codes.EntityData.Leafs = types.NewOrderedMap()
+    codes.EntityData.Leafs.Append("category", types.YLeaf{"Category", codes.Category})
+    codes.EntityData.Leafs.Append("group", types.YLeaf{"Group", codes.Group})
+    codes.EntityData.Leafs.Append("code", types.YLeaf{"Code", codes.Code})
+
+    codes.EntityData.YListKeys = []string {}
+
     return &(codes.EntityData)
 }
 
@@ -382,15 +403,18 @@ func (correlator *Correlator) GetEntityData() *types.CommonEntityData {
     correlator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     correlator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    correlator.EntityData.Children = make(map[string]types.YChild)
-    correlator.EntityData.Children["rules"] = types.YChild{"Rules", &correlator.Rules}
-    correlator.EntityData.Children["buffer-status"] = types.YChild{"BufferStatus", &correlator.BufferStatus}
-    correlator.EntityData.Children["alarms"] = types.YChild{"Alarms", &correlator.Alarms}
-    correlator.EntityData.Children["rule-set-summaries"] = types.YChild{"RuleSetSummaries", &correlator.RuleSetSummaries}
-    correlator.EntityData.Children["rule-set-details"] = types.YChild{"RuleSetDetails", &correlator.RuleSetDetails}
-    correlator.EntityData.Children["rule-details"] = types.YChild{"RuleDetails", &correlator.RuleDetails}
-    correlator.EntityData.Children["rule-summaries"] = types.YChild{"RuleSummaries", &correlator.RuleSummaries}
-    correlator.EntityData.Leafs = make(map[string]types.YLeaf)
+    correlator.EntityData.Children = types.NewOrderedMap()
+    correlator.EntityData.Children.Append("rules", types.YChild{"Rules", &correlator.Rules})
+    correlator.EntityData.Children.Append("buffer-status", types.YChild{"BufferStatus", &correlator.BufferStatus})
+    correlator.EntityData.Children.Append("alarms", types.YChild{"Alarms", &correlator.Alarms})
+    correlator.EntityData.Children.Append("rule-set-summaries", types.YChild{"RuleSetSummaries", &correlator.RuleSetSummaries})
+    correlator.EntityData.Children.Append("rule-set-details", types.YChild{"RuleSetDetails", &correlator.RuleSetDetails})
+    correlator.EntityData.Children.Append("rule-details", types.YChild{"RuleDetails", &correlator.RuleDetails})
+    correlator.EntityData.Children.Append("rule-summaries", types.YChild{"RuleSummaries", &correlator.RuleSummaries})
+    correlator.EntityData.Leafs = types.NewOrderedMap()
+
+    correlator.EntityData.YListKeys = []string {}
+
     return &(correlator.EntityData)
 }
 
@@ -402,7 +426,7 @@ type Correlator_Rules struct {
     YFilter yfilter.YFilter
 
     // One of the correlation rules. The type is slice of Correlator_Rules_Rule.
-    Rule []Correlator_Rules_Rule
+    Rule []*Correlator_Rules_Rule
 }
 
 func (rules *Correlator_Rules) GetEntityData() *types.CommonEntityData {
@@ -415,12 +439,15 @@ func (rules *Correlator_Rules) GetEntityData() *types.CommonEntityData {
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rules.EntityData.Children = make(map[string]types.YChild)
-    rules.EntityData.Children["rule"] = types.YChild{"Rule", nil}
+    rules.EntityData.Children = types.NewOrderedMap()
+    rules.EntityData.Children.Append("rule", types.YChild{"Rule", nil})
     for i := range rules.Rule {
-        rules.EntityData.Children[types.GetSegmentPath(&rules.Rule[i])] = types.YChild{"Rule", &rules.Rule[i]}
+        rules.EntityData.Children.Append(types.GetSegmentPath(rules.Rule[i]), types.YChild{"Rule", rules.Rule[i]})
     }
-    rules.EntityData.Leafs = make(map[string]types.YLeaf)
+    rules.EntityData.Leafs = types.NewOrderedMap()
+
+    rules.EntityData.YListKeys = []string {}
+
     return &(rules.EntityData)
 }
 
@@ -447,7 +474,7 @@ type Correlator_Rules_Rule struct {
     RuleState interface{}
 
     // Locations (R/S/M) to which the rule is  applied. The type is slice of
-    // string with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     ApplyLocation []interface{}
 
     // Contexts (Interfaces) to which the rule is applied. The type is slice of
@@ -456,7 +483,7 @@ type Correlator_Rules_Rule struct {
 
     // Message codes defining the rule. The type is slice of
     // Correlator_Rules_Rule_Codes.
-    Codes []Correlator_Rules_Rule_Codes
+    Codes []*Correlator_Rules_Rule_Codes
 }
 
 func (rule *Correlator_Rules_Rule) GetEntityData() *types.CommonEntityData {
@@ -464,23 +491,26 @@ func (rule *Correlator_Rules_Rule) GetEntityData() *types.CommonEntityData {
     rule.EntityData.YangName = "rule"
     rule.EntityData.BundleName = "cisco_ios_xr"
     rule.EntityData.ParentYangName = "rules"
-    rule.EntityData.SegmentPath = "rule" + "[rule-name='" + fmt.Sprintf("%v", rule.RuleName) + "']"
+    rule.EntityData.SegmentPath = "rule" + types.AddKeyToken(rule.RuleName, "rule-name")
     rule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rule.EntityData.Children = make(map[string]types.YChild)
-    rule.EntityData.Children["codes"] = types.YChild{"Codes", nil}
+    rule.EntityData.Children = types.NewOrderedMap()
+    rule.EntityData.Children.Append("codes", types.YChild{"Codes", nil})
     for i := range rule.Codes {
-        rule.EntityData.Children[types.GetSegmentPath(&rule.Codes[i])] = types.YChild{"Codes", &rule.Codes[i]}
+        rule.EntityData.Children.Append(types.GetSegmentPath(rule.Codes[i]), types.YChild{"Codes", rule.Codes[i]})
     }
-    rule.EntityData.Leafs = make(map[string]types.YLeaf)
-    rule.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", rule.RuleName}
-    rule.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", rule.RuleNameXr}
-    rule.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", rule.Timeout}
-    rule.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", rule.RuleState}
-    rule.EntityData.Leafs["apply-location"] = types.YLeaf{"ApplyLocation", rule.ApplyLocation}
-    rule.EntityData.Leafs["apply-context"] = types.YLeaf{"ApplyContext", rule.ApplyContext}
+    rule.EntityData.Leafs = types.NewOrderedMap()
+    rule.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", rule.RuleName})
+    rule.EntityData.Leafs.Append("rule-name-xr", types.YLeaf{"RuleNameXr", rule.RuleNameXr})
+    rule.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", rule.Timeout})
+    rule.EntityData.Leafs.Append("rule-state", types.YLeaf{"RuleState", rule.RuleState})
+    rule.EntityData.Leafs.Append("apply-location", types.YLeaf{"ApplyLocation", rule.ApplyLocation})
+    rule.EntityData.Leafs.Append("apply-context", types.YLeaf{"ApplyContext", rule.ApplyContext})
+
+    rule.EntityData.YListKeys = []string {"RuleName"}
+
     return &(rule.EntityData)
 }
 
@@ -511,11 +541,14 @@ func (codes *Correlator_Rules_Rule_Codes) GetEntityData() *types.CommonEntityDat
     codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    codes.EntityData.Children = make(map[string]types.YChild)
-    codes.EntityData.Leafs = make(map[string]types.YLeaf)
-    codes.EntityData.Leafs["category"] = types.YLeaf{"Category", codes.Category}
-    codes.EntityData.Leafs["group"] = types.YLeaf{"Group", codes.Group}
-    codes.EntityData.Leafs["code"] = types.YLeaf{"Code", codes.Code}
+    codes.EntityData.Children = types.NewOrderedMap()
+    codes.EntityData.Leafs = types.NewOrderedMap()
+    codes.EntityData.Leafs.Append("category", types.YLeaf{"Category", codes.Category})
+    codes.EntityData.Leafs.Append("group", types.YLeaf{"Group", codes.Group})
+    codes.EntityData.Leafs.Append("code", types.YLeaf{"Code", codes.Code})
+
+    codes.EntityData.YListKeys = []string {}
+
     return &(codes.EntityData)
 }
 
@@ -543,10 +576,13 @@ func (bufferStatus *Correlator_BufferStatus) GetEntityData() *types.CommonEntity
     bufferStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bufferStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bufferStatus.EntityData.Children = make(map[string]types.YChild)
-    bufferStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    bufferStatus.EntityData.Leafs["current-size"] = types.YLeaf{"CurrentSize", bufferStatus.CurrentSize}
-    bufferStatus.EntityData.Leafs["configured-size"] = types.YLeaf{"ConfiguredSize", bufferStatus.ConfiguredSize}
+    bufferStatus.EntityData.Children = types.NewOrderedMap()
+    bufferStatus.EntityData.Leafs = types.NewOrderedMap()
+    bufferStatus.EntityData.Leafs.Append("current-size", types.YLeaf{"CurrentSize", bufferStatus.CurrentSize})
+    bufferStatus.EntityData.Leafs.Append("configured-size", types.YLeaf{"ConfiguredSize", bufferStatus.ConfiguredSize})
+
+    bufferStatus.EntityData.YListKeys = []string {}
+
     return &(bufferStatus.EntityData)
 }
 
@@ -557,7 +593,7 @@ type Correlator_Alarms struct {
     YFilter yfilter.YFilter
 
     // One of the correlated alarms. The type is slice of Correlator_Alarms_Alarm.
-    Alarm []Correlator_Alarms_Alarm
+    Alarm []*Correlator_Alarms_Alarm
 }
 
 func (alarms *Correlator_Alarms) GetEntityData() *types.CommonEntityData {
@@ -570,12 +606,15 @@ func (alarms *Correlator_Alarms) GetEntityData() *types.CommonEntityData {
     alarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarms.EntityData.Children = make(map[string]types.YChild)
-    alarms.EntityData.Children["alarm"] = types.YChild{"Alarm", nil}
+    alarms.EntityData.Children = types.NewOrderedMap()
+    alarms.EntityData.Children.Append("alarm", types.YChild{"Alarm", nil})
     for i := range alarms.Alarm {
-        alarms.EntityData.Children[types.GetSegmentPath(&alarms.Alarm[i])] = types.YChild{"Alarm", &alarms.Alarm[i]}
+        alarms.EntityData.Children.Append(types.GetSegmentPath(alarms.Alarm[i]), types.YChild{"Alarm", alarms.Alarm[i]})
     }
-    alarms.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarms.EntityData.Leafs = types.NewOrderedMap()
+
+    alarms.EntityData.YListKeys = []string {}
+
     return &(alarms.EntityData)
 }
 
@@ -586,7 +625,7 @@ type Correlator_Alarms_Alarm struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Alarm ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     AlarmId interface{}
 
     // Correlation rule name. The type is string.
@@ -604,17 +643,20 @@ func (alarm *Correlator_Alarms_Alarm) GetEntityData() *types.CommonEntityData {
     alarm.EntityData.YangName = "alarm"
     alarm.EntityData.BundleName = "cisco_ios_xr"
     alarm.EntityData.ParentYangName = "alarms"
-    alarm.EntityData.SegmentPath = "alarm" + "[alarm-id='" + fmt.Sprintf("%v", alarm.AlarmId) + "']"
+    alarm.EntityData.SegmentPath = "alarm" + types.AddKeyToken(alarm.AlarmId, "alarm-id")
     alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarm.EntityData.Children = make(map[string]types.YChild)
-    alarm.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", &alarm.AlarmInfo}
-    alarm.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarm.EntityData.Leafs["alarm-id"] = types.YLeaf{"AlarmId", alarm.AlarmId}
-    alarm.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", alarm.RuleName}
-    alarm.EntityData.Leafs["context"] = types.YLeaf{"Context", alarm.Context}
+    alarm.EntityData.Children = types.NewOrderedMap()
+    alarm.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", &alarm.AlarmInfo})
+    alarm.EntityData.Leafs = types.NewOrderedMap()
+    alarm.EntityData.Leafs.Append("alarm-id", types.YLeaf{"AlarmId", alarm.AlarmId})
+    alarm.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", alarm.RuleName})
+    alarm.EntityData.Leafs.Append("context", types.YLeaf{"Context", alarm.Context})
+
+    alarm.EntityData.YListKeys = []string {"AlarmId"}
+
     return &(alarm.EntityData)
 }
 
@@ -669,18 +711,21 @@ func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetEntityData() *types.Commo
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["source-id"] = types.YLeaf{"SourceId", alarmInfo.SourceId}
-    alarmInfo.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", alarmInfo.Timestamp}
-    alarmInfo.EntityData.Leafs["category"] = types.YLeaf{"Category", alarmInfo.Category}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["code"] = types.YLeaf{"Code", alarmInfo.Code}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["state"] = types.YLeaf{"State", alarmInfo.State}
-    alarmInfo.EntityData.Leafs["correlation-id"] = types.YLeaf{"CorrelationId", alarmInfo.CorrelationId}
-    alarmInfo.EntityData.Leafs["is-admin"] = types.YLeaf{"IsAdmin", alarmInfo.IsAdmin}
-    alarmInfo.EntityData.Leafs["additional-text"] = types.YLeaf{"AdditionalText", alarmInfo.AdditionalText}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("source-id", types.YLeaf{"SourceId", alarmInfo.SourceId})
+    alarmInfo.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", alarmInfo.Timestamp})
+    alarmInfo.EntityData.Leafs.Append("category", types.YLeaf{"Category", alarmInfo.Category})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("code", types.YLeaf{"Code", alarmInfo.Code})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", alarmInfo.State})
+    alarmInfo.EntityData.Leafs.Append("correlation-id", types.YLeaf{"CorrelationId", alarmInfo.CorrelationId})
+    alarmInfo.EntityData.Leafs.Append("is-admin", types.YLeaf{"IsAdmin", alarmInfo.IsAdmin})
+    alarmInfo.EntityData.Leafs.Append("additional-text", types.YLeaf{"AdditionalText", alarmInfo.AdditionalText})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -692,7 +737,7 @@ type Correlator_RuleSetSummaries struct {
 
     // Summary of one of the correlation rulesets. The type is slice of
     // Correlator_RuleSetSummaries_RuleSetSummary.
-    RuleSetSummary []Correlator_RuleSetSummaries_RuleSetSummary
+    RuleSetSummary []*Correlator_RuleSetSummaries_RuleSetSummary
 }
 
 func (ruleSetSummaries *Correlator_RuleSetSummaries) GetEntityData() *types.CommonEntityData {
@@ -705,12 +750,15 @@ func (ruleSetSummaries *Correlator_RuleSetSummaries) GetEntityData() *types.Comm
     ruleSetSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSetSummaries.EntityData.Children = make(map[string]types.YChild)
-    ruleSetSummaries.EntityData.Children["rule-set-summary"] = types.YChild{"RuleSetSummary", nil}
+    ruleSetSummaries.EntityData.Children = types.NewOrderedMap()
+    ruleSetSummaries.EntityData.Children.Append("rule-set-summary", types.YChild{"RuleSetSummary", nil})
     for i := range ruleSetSummaries.RuleSetSummary {
-        ruleSetSummaries.EntityData.Children[types.GetSegmentPath(&ruleSetSummaries.RuleSetSummary[i])] = types.YChild{"RuleSetSummary", &ruleSetSummaries.RuleSetSummary[i]}
+        ruleSetSummaries.EntityData.Children.Append(types.GetSegmentPath(ruleSetSummaries.RuleSetSummary[i]), types.YChild{"RuleSetSummary", ruleSetSummaries.RuleSetSummary[i]})
     }
-    ruleSetSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSetSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleSetSummaries.EntityData.YListKeys = []string {}
+
     return &(ruleSetSummaries.EntityData)
 }
 
@@ -733,15 +781,18 @@ func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetEntityData(
     ruleSetSummary.EntityData.YangName = "rule-set-summary"
     ruleSetSummary.EntityData.BundleName = "cisco_ios_xr"
     ruleSetSummary.EntityData.ParentYangName = "rule-set-summaries"
-    ruleSetSummary.EntityData.SegmentPath = "rule-set-summary" + "[rule-set-name='" + fmt.Sprintf("%v", ruleSetSummary.RuleSetName) + "']"
+    ruleSetSummary.EntityData.SegmentPath = "rule-set-summary" + types.AddKeyToken(ruleSetSummary.RuleSetName, "rule-set-name")
     ruleSetSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSetSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSetSummary.EntityData.Children = make(map[string]types.YChild)
-    ruleSetSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSetSummary.EntityData.Leafs["rule-set-name"] = types.YLeaf{"RuleSetName", ruleSetSummary.RuleSetName}
-    ruleSetSummary.EntityData.Leafs["rule-set-name-xr"] = types.YLeaf{"RuleSetNameXr", ruleSetSummary.RuleSetNameXr}
+    ruleSetSummary.EntityData.Children = types.NewOrderedMap()
+    ruleSetSummary.EntityData.Leafs = types.NewOrderedMap()
+    ruleSetSummary.EntityData.Leafs.Append("rule-set-name", types.YLeaf{"RuleSetName", ruleSetSummary.RuleSetName})
+    ruleSetSummary.EntityData.Leafs.Append("rule-set-name-xr", types.YLeaf{"RuleSetNameXr", ruleSetSummary.RuleSetNameXr})
+
+    ruleSetSummary.EntityData.YListKeys = []string {"RuleSetName"}
+
     return &(ruleSetSummary.EntityData)
 }
 
@@ -753,7 +804,7 @@ type Correlator_RuleSetDetails struct {
 
     // Detail of one of the correlation rulesets. The type is slice of
     // Correlator_RuleSetDetails_RuleSetDetail.
-    RuleSetDetail []Correlator_RuleSetDetails_RuleSetDetail
+    RuleSetDetail []*Correlator_RuleSetDetails_RuleSetDetail
 }
 
 func (ruleSetDetails *Correlator_RuleSetDetails) GetEntityData() *types.CommonEntityData {
@@ -766,12 +817,15 @@ func (ruleSetDetails *Correlator_RuleSetDetails) GetEntityData() *types.CommonEn
     ruleSetDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSetDetails.EntityData.Children = make(map[string]types.YChild)
-    ruleSetDetails.EntityData.Children["rule-set-detail"] = types.YChild{"RuleSetDetail", nil}
+    ruleSetDetails.EntityData.Children = types.NewOrderedMap()
+    ruleSetDetails.EntityData.Children.Append("rule-set-detail", types.YChild{"RuleSetDetail", nil})
     for i := range ruleSetDetails.RuleSetDetail {
-        ruleSetDetails.EntityData.Children[types.GetSegmentPath(&ruleSetDetails.RuleSetDetail[i])] = types.YChild{"RuleSetDetail", &ruleSetDetails.RuleSetDetail[i]}
+        ruleSetDetails.EntityData.Children.Append(types.GetSegmentPath(ruleSetDetails.RuleSetDetail[i]), types.YChild{"RuleSetDetail", ruleSetDetails.RuleSetDetail[i]})
     }
-    ruleSetDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSetDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleSetDetails.EntityData.YListKeys = []string {}
+
     return &(ruleSetDetails.EntityData)
 }
 
@@ -790,7 +844,7 @@ type Correlator_RuleSetDetails_RuleSetDetail struct {
 
     // Rules contained in a ruleset. The type is slice of
     // Correlator_RuleSetDetails_RuleSetDetail_Rules.
-    Rules []Correlator_RuleSetDetails_RuleSetDetail_Rules
+    Rules []*Correlator_RuleSetDetails_RuleSetDetail_Rules
 }
 
 func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetEntityData() *types.CommonEntityData {
@@ -798,19 +852,22 @@ func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetEntityData() *t
     ruleSetDetail.EntityData.YangName = "rule-set-detail"
     ruleSetDetail.EntityData.BundleName = "cisco_ios_xr"
     ruleSetDetail.EntityData.ParentYangName = "rule-set-details"
-    ruleSetDetail.EntityData.SegmentPath = "rule-set-detail" + "[rule-set-name='" + fmt.Sprintf("%v", ruleSetDetail.RuleSetName) + "']"
+    ruleSetDetail.EntityData.SegmentPath = "rule-set-detail" + types.AddKeyToken(ruleSetDetail.RuleSetName, "rule-set-name")
     ruleSetDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSetDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSetDetail.EntityData.Children = make(map[string]types.YChild)
-    ruleSetDetail.EntityData.Children["rules"] = types.YChild{"Rules", nil}
+    ruleSetDetail.EntityData.Children = types.NewOrderedMap()
+    ruleSetDetail.EntityData.Children.Append("rules", types.YChild{"Rules", nil})
     for i := range ruleSetDetail.Rules {
-        ruleSetDetail.EntityData.Children[types.GetSegmentPath(&ruleSetDetail.Rules[i])] = types.YChild{"Rules", &ruleSetDetail.Rules[i]}
+        ruleSetDetail.EntityData.Children.Append(types.GetSegmentPath(ruleSetDetail.Rules[i]), types.YChild{"Rules", ruleSetDetail.Rules[i]})
     }
-    ruleSetDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSetDetail.EntityData.Leafs["rule-set-name"] = types.YLeaf{"RuleSetName", ruleSetDetail.RuleSetName}
-    ruleSetDetail.EntityData.Leafs["rule-set-name-xr"] = types.YLeaf{"RuleSetNameXr", ruleSetDetail.RuleSetNameXr}
+    ruleSetDetail.EntityData.Leafs = types.NewOrderedMap()
+    ruleSetDetail.EntityData.Leafs.Append("rule-set-name", types.YLeaf{"RuleSetName", ruleSetDetail.RuleSetName})
+    ruleSetDetail.EntityData.Leafs.Append("rule-set-name-xr", types.YLeaf{"RuleSetNameXr", ruleSetDetail.RuleSetNameXr})
+
+    ruleSetDetail.EntityData.YListKeys = []string {"RuleSetName"}
+
     return &(ruleSetDetail.EntityData)
 }
 
@@ -845,12 +902,15 @@ func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetEntityData() *typ
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rules.EntityData.Children = make(map[string]types.YChild)
-    rules.EntityData.Leafs = make(map[string]types.YLeaf)
-    rules.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", rules.RuleNameXr}
-    rules.EntityData.Leafs["stateful"] = types.YLeaf{"Stateful", rules.Stateful}
-    rules.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", rules.RuleState}
-    rules.EntityData.Leafs["buffered-alarms-count"] = types.YLeaf{"BufferedAlarmsCount", rules.BufferedAlarmsCount}
+    rules.EntityData.Children = types.NewOrderedMap()
+    rules.EntityData.Leafs = types.NewOrderedMap()
+    rules.EntityData.Leafs.Append("rule-name-xr", types.YLeaf{"RuleNameXr", rules.RuleNameXr})
+    rules.EntityData.Leafs.Append("stateful", types.YLeaf{"Stateful", rules.Stateful})
+    rules.EntityData.Leafs.Append("rule-state", types.YLeaf{"RuleState", rules.RuleState})
+    rules.EntityData.Leafs.Append("buffered-alarms-count", types.YLeaf{"BufferedAlarmsCount", rules.BufferedAlarmsCount})
+
+    rules.EntityData.YListKeys = []string {}
+
     return &(rules.EntityData)
 }
 
@@ -863,7 +923,7 @@ type Correlator_RuleDetails struct {
 
     // Details of one of the correlation rules. The type is slice of
     // Correlator_RuleDetails_RuleDetail.
-    RuleDetail []Correlator_RuleDetails_RuleDetail
+    RuleDetail []*Correlator_RuleDetails_RuleDetail
 }
 
 func (ruleDetails *Correlator_RuleDetails) GetEntityData() *types.CommonEntityData {
@@ -876,12 +936,15 @@ func (ruleDetails *Correlator_RuleDetails) GetEntityData() *types.CommonEntityDa
     ruleDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleDetails.EntityData.Children = make(map[string]types.YChild)
-    ruleDetails.EntityData.Children["rule-detail"] = types.YChild{"RuleDetail", nil}
+    ruleDetails.EntityData.Children = types.NewOrderedMap()
+    ruleDetails.EntityData.Children.Append("rule-detail", types.YChild{"RuleDetail", nil})
     for i := range ruleDetails.RuleDetail {
-        ruleDetails.EntityData.Children[types.GetSegmentPath(&ruleDetails.RuleDetail[i])] = types.YChild{"RuleDetail", &ruleDetails.RuleDetail[i]}
+        ruleDetails.EntityData.Children.Append(types.GetSegmentPath(ruleDetails.RuleDetail[i]), types.YChild{"RuleDetail", ruleDetails.RuleDetail[i]})
     }
-    ruleDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleDetails.EntityData.YListKeys = []string {}
+
     return &(ruleDetails.EntityData)
 }
 
@@ -917,7 +980,7 @@ type Correlator_RuleDetails_RuleDetail struct {
     ContextCorrelation interface{}
 
     // Locations (R/S/M) to which the rule is applied. The type is slice of string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     ApplyLocation []interface{}
 
     // Contexts (Interfaces) to which the rule is applied. The type is slice of
@@ -929,7 +992,7 @@ type Correlator_RuleDetails_RuleDetail struct {
 
     // Message codes defining the rule. The type is slice of
     // Correlator_RuleDetails_RuleDetail_Codes.
-    Codes []Correlator_RuleDetails_RuleDetail_Codes
+    Codes []*Correlator_RuleDetails_RuleDetail_Codes
 }
 
 func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetEntityData() *types.CommonEntityData {
@@ -937,27 +1000,30 @@ func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetEntityData() *types.Comm
     ruleDetail.EntityData.YangName = "rule-detail"
     ruleDetail.EntityData.BundleName = "cisco_ios_xr"
     ruleDetail.EntityData.ParentYangName = "rule-details"
-    ruleDetail.EntityData.SegmentPath = "rule-detail" + "[rule-name='" + fmt.Sprintf("%v", ruleDetail.RuleName) + "']"
+    ruleDetail.EntityData.SegmentPath = "rule-detail" + types.AddKeyToken(ruleDetail.RuleName, "rule-name")
     ruleDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleDetail.EntityData.Children = make(map[string]types.YChild)
-    ruleDetail.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", &ruleDetail.RuleSummary}
-    ruleDetail.EntityData.Children["codes"] = types.YChild{"Codes", nil}
+    ruleDetail.EntityData.Children = types.NewOrderedMap()
+    ruleDetail.EntityData.Children.Append("rule-summary", types.YChild{"RuleSummary", &ruleDetail.RuleSummary})
+    ruleDetail.EntityData.Children.Append("codes", types.YChild{"Codes", nil})
     for i := range ruleDetail.Codes {
-        ruleDetail.EntityData.Children[types.GetSegmentPath(&ruleDetail.Codes[i])] = types.YChild{"Codes", &ruleDetail.Codes[i]}
+        ruleDetail.EntityData.Children.Append(types.GetSegmentPath(ruleDetail.Codes[i]), types.YChild{"Codes", ruleDetail.Codes[i]})
     }
-    ruleDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleDetail.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleDetail.RuleName}
-    ruleDetail.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ruleDetail.Timeout}
-    ruleDetail.EntityData.Leafs["root-cause-timeout"] = types.YLeaf{"RootCauseTimeout", ruleDetail.RootCauseTimeout}
-    ruleDetail.EntityData.Leafs["internal"] = types.YLeaf{"Internal", ruleDetail.Internal}
-    ruleDetail.EntityData.Leafs["reissue-non-bistate"] = types.YLeaf{"ReissueNonBistate", ruleDetail.ReissueNonBistate}
-    ruleDetail.EntityData.Leafs["reparent"] = types.YLeaf{"Reparent", ruleDetail.Reparent}
-    ruleDetail.EntityData.Leafs["context-correlation"] = types.YLeaf{"ContextCorrelation", ruleDetail.ContextCorrelation}
-    ruleDetail.EntityData.Leafs["apply-location"] = types.YLeaf{"ApplyLocation", ruleDetail.ApplyLocation}
-    ruleDetail.EntityData.Leafs["apply-context"] = types.YLeaf{"ApplyContext", ruleDetail.ApplyContext}
+    ruleDetail.EntityData.Leafs = types.NewOrderedMap()
+    ruleDetail.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", ruleDetail.RuleName})
+    ruleDetail.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", ruleDetail.Timeout})
+    ruleDetail.EntityData.Leafs.Append("root-cause-timeout", types.YLeaf{"RootCauseTimeout", ruleDetail.RootCauseTimeout})
+    ruleDetail.EntityData.Leafs.Append("internal", types.YLeaf{"Internal", ruleDetail.Internal})
+    ruleDetail.EntityData.Leafs.Append("reissue-non-bistate", types.YLeaf{"ReissueNonBistate", ruleDetail.ReissueNonBistate})
+    ruleDetail.EntityData.Leafs.Append("reparent", types.YLeaf{"Reparent", ruleDetail.Reparent})
+    ruleDetail.EntityData.Leafs.Append("context-correlation", types.YLeaf{"ContextCorrelation", ruleDetail.ContextCorrelation})
+    ruleDetail.EntityData.Leafs.Append("apply-location", types.YLeaf{"ApplyLocation", ruleDetail.ApplyLocation})
+    ruleDetail.EntityData.Leafs.Append("apply-context", types.YLeaf{"ApplyContext", ruleDetail.ApplyContext})
+
+    ruleDetail.EntityData.YListKeys = []string {"RuleName"}
+
     return &(ruleDetail.EntityData)
 }
 
@@ -992,12 +1058,15 @@ func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetEntityData(
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSummary.EntityData.Children = make(map[string]types.YChild)
-    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSummary.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr}
-    ruleSummary.EntityData.Leafs["stateful"] = types.YLeaf{"Stateful", ruleSummary.Stateful}
-    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
-    ruleSummary.EntityData.Leafs["buffered-alarms-count"] = types.YLeaf{"BufferedAlarmsCount", ruleSummary.BufferedAlarmsCount}
+    ruleSummary.EntityData.Children = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs.Append("rule-name-xr", types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr})
+    ruleSummary.EntityData.Leafs.Append("stateful", types.YLeaf{"Stateful", ruleSummary.Stateful})
+    ruleSummary.EntityData.Leafs.Append("rule-state", types.YLeaf{"RuleState", ruleSummary.RuleState})
+    ruleSummary.EntityData.Leafs.Append("buffered-alarms-count", types.YLeaf{"BufferedAlarmsCount", ruleSummary.BufferedAlarmsCount})
+
+    ruleSummary.EntityData.YListKeys = []string {}
+
     return &(ruleSummary.EntityData)
 }
 
@@ -1028,11 +1097,14 @@ func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetEntityData() *types.Com
     codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    codes.EntityData.Children = make(map[string]types.YChild)
-    codes.EntityData.Leafs = make(map[string]types.YLeaf)
-    codes.EntityData.Leafs["category"] = types.YLeaf{"Category", codes.Category}
-    codes.EntityData.Leafs["group"] = types.YLeaf{"Group", codes.Group}
-    codes.EntityData.Leafs["code"] = types.YLeaf{"Code", codes.Code}
+    codes.EntityData.Children = types.NewOrderedMap()
+    codes.EntityData.Leafs = types.NewOrderedMap()
+    codes.EntityData.Leafs.Append("category", types.YLeaf{"Category", codes.Category})
+    codes.EntityData.Leafs.Append("group", types.YLeaf{"Group", codes.Group})
+    codes.EntityData.Leafs.Append("code", types.YLeaf{"Code", codes.Code})
+
+    codes.EntityData.YListKeys = []string {}
+
     return &(codes.EntityData)
 }
 
@@ -1045,7 +1117,7 @@ type Correlator_RuleSummaries struct {
 
     // One of the correlation rules. The type is slice of
     // Correlator_RuleSummaries_RuleSummary.
-    RuleSummary []Correlator_RuleSummaries_RuleSummary
+    RuleSummary []*Correlator_RuleSummaries_RuleSummary
 }
 
 func (ruleSummaries *Correlator_RuleSummaries) GetEntityData() *types.CommonEntityData {
@@ -1058,12 +1130,15 @@ func (ruleSummaries *Correlator_RuleSummaries) GetEntityData() *types.CommonEnti
     ruleSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSummaries.EntityData.Children = make(map[string]types.YChild)
-    ruleSummaries.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", nil}
+    ruleSummaries.EntityData.Children = types.NewOrderedMap()
+    ruleSummaries.EntityData.Children.Append("rule-summary", types.YChild{"RuleSummary", nil})
     for i := range ruleSummaries.RuleSummary {
-        ruleSummaries.EntityData.Children[types.GetSegmentPath(&ruleSummaries.RuleSummary[i])] = types.YChild{"RuleSummary", &ruleSummaries.RuleSummary[i]}
+        ruleSummaries.EntityData.Children.Append(types.GetSegmentPath(ruleSummaries.RuleSummary[i]), types.YChild{"RuleSummary", ruleSummaries.RuleSummary[i]})
     }
-    ruleSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleSummaries.EntityData.YListKeys = []string {}
+
     return &(ruleSummaries.EntityData)
 }
 
@@ -1097,18 +1172,21 @@ func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetEntityData() *types.
     ruleSummary.EntityData.YangName = "rule-summary"
     ruleSummary.EntityData.BundleName = "cisco_ios_xr"
     ruleSummary.EntityData.ParentYangName = "rule-summaries"
-    ruleSummary.EntityData.SegmentPath = "rule-summary" + "[rule-name='" + fmt.Sprintf("%v", ruleSummary.RuleName) + "']"
+    ruleSummary.EntityData.SegmentPath = "rule-summary" + types.AddKeyToken(ruleSummary.RuleName, "rule-name")
     ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSummary.EntityData.Children = make(map[string]types.YChild)
-    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSummary.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleSummary.RuleName}
-    ruleSummary.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr}
-    ruleSummary.EntityData.Leafs["stateful"] = types.YLeaf{"Stateful", ruleSummary.Stateful}
-    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
-    ruleSummary.EntityData.Leafs["buffered-alarms-count"] = types.YLeaf{"BufferedAlarmsCount", ruleSummary.BufferedAlarmsCount}
+    ruleSummary.EntityData.Children = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", ruleSummary.RuleName})
+    ruleSummary.EntityData.Leafs.Append("rule-name-xr", types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr})
+    ruleSummary.EntityData.Leafs.Append("stateful", types.YLeaf{"Stateful", ruleSummary.Stateful})
+    ruleSummary.EntityData.Leafs.Append("rule-state", types.YLeaf{"RuleState", ruleSummary.RuleState})
+    ruleSummary.EntityData.Leafs.Append("buffered-alarms-count", types.YLeaf{"BufferedAlarmsCount", ruleSummary.BufferedAlarmsCount})
+
+    ruleSummary.EntityData.YListKeys = []string {"RuleName"}
+
     return &(ruleSummary.EntityData)
 }
 

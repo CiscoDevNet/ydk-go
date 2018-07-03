@@ -9,13 +9,13 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
-    revision-date 2017-05-01;
+    revision-date 2017-10-26;
   }
   include Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
-    revision-date 2017-05-01;
+    revision-date 2017-10-26;
   }
   include Cisco-IOS-XR-ipv4-ospf-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-10-26;
   }
 
   organization
@@ -41,6 +41,14 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-26 {
+    description
+      "Fixed some field name and values for better interpretation";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -172,6 +180,30 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
     }
   }
 
+  grouping SEGMENT-ROUTING {
+    description
+      "Common node of default-vrf, vrf";
+    container segment-routing {
+      description
+        "Container for Segment Routing";
+      container sr-endpoint-policies {
+        description
+          "Container for SR Policies";
+        list sr-endpoint-policy {
+          key "endpoint-ip";
+          description
+            "SR Endpoint Policy Bag";
+          leaf endpoint-ip {
+            type inet:ip-address-no-zone;
+            description
+              "Endpoint IP Address";
+          }
+          uses OSPF-SH-SR-ENDPOINT;
+        }
+      }
+    }
+  }
+
   grouping AREA-TABLE {
     description
       "Common node of default-vrf, vrf";
@@ -188,7 +220,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
           uses FLOOD-LIST;
         }
         leaf area-id {
-          type int32;
+          type uint32;
           description
             "Area ID";
         }
@@ -307,7 +339,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
           description
             "Area information";
           leaf area-id {
-            type int32;
+            type uint32;
             description
               "Area ID if in integer format";
           }
@@ -350,7 +382,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
           description
             "Detailed information for a particular area";
           leaf area-id {
-            type int32;
+            type uint32;
             description
               "Area ID if in integer format";
           }
@@ -417,7 +449,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
         description
           "LSA summary information";
         leaf area-id {
-          type int32;
+          type uint32;
           description
             "Area ID";
         }
@@ -671,7 +703,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
             }
           }
           leaf area-id {
-            type int32;
+            type uint32;
             description
               "Area ID";
           }
@@ -722,7 +754,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
               "Router ID";
           }
           leaf area-id {
-            type int32;
+            type uint32;
             description
               "Area ID";
           }
@@ -763,7 +795,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
           description
             "MPLS TE link information";
           leaf area-id {
-            type int32;
+            type uint32;
             description
               "Area ID";
           }
@@ -778,7 +810,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
           description
             "MPLS TE Fragment";
           leaf area-id {
-            type int32;
+            type uint32;
             description
               "Area ID";
           }
@@ -934,7 +966,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
           description
             "Per-Area Link State Database data";
           leaf area-id {
-            type int32;
+            type uint32;
             description
               "Area ID";
           }
@@ -951,7 +983,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
             "Link State Database summary for a particular
              area";
           leaf area-id {
-            type int32;
+            type uint32;
             description
               "Area ID";
           }
@@ -1028,7 +1060,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
         description
           "Link State Advertisement information";
         leaf area-id {
-          type int32;
+          type uint32;
           description
             "Area ID";
         }
@@ -1102,6 +1134,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
                 "VRF Name";
             }
             uses FLOOD-LIST-TABLE;
+            uses SEGMENT-ROUTING;
             uses MPLS-TE;
             uses STATISTICS;
             uses ADJACENCY-INFORMATION;
@@ -1145,6 +1178,7 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
             "Operational data for the default VRF
              (instance) in the OSPF process";
           uses FLOOD-LIST-TABLE;
+          uses SEGMENT-ROUTING;
           uses MPLS-TE;
           uses STATISTICS;
           uses ADJACENCY-INFORMATION;

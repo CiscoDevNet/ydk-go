@@ -26,7 +26,7 @@ type Set struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Set_Asic.
-    Asic []Set_Asic
+    Asic []*Set_Asic
 }
 
 func (set *Set) GetEntityData() *types.CommonEntityData {
@@ -39,12 +39,15 @@ func (set *Set) GetEntityData() *types.CommonEntityData {
     set.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     set.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    set.EntityData.Children = make(map[string]types.YChild)
-    set.EntityData.Children["asic"] = types.YChild{"Asic", nil}
+    set.EntityData.Children = types.NewOrderedMap()
+    set.EntityData.Children.Append("asic", types.YChild{"Asic", nil})
     for i := range set.Asic {
-        set.EntityData.Children[types.GetSegmentPath(&set.Asic[i])] = types.YChild{"Asic", &set.Asic[i]}
+        set.EntityData.Children.Append(types.GetSegmentPath(set.Asic[i]), types.YChild{"Asic", set.Asic[i]})
     }
-    set.EntityData.Leafs = make(map[string]types.YLeaf)
+    set.EntityData.Leafs = types.NewOrderedMap()
+
+    set.EntityData.YListKeys = []string {}
+
     return &(set.EntityData)
 }
 
@@ -57,7 +60,7 @@ type Set_Asic struct {
     AsicName interface{}
 
     // The type is slice of Set_Asic_Instance.
-    Instance []Set_Asic_Instance
+    Instance []*Set_Asic_Instance
 }
 
 func (asic *Set_Asic) GetEntityData() *types.CommonEntityData {
@@ -65,18 +68,21 @@ func (asic *Set_Asic) GetEntityData() *types.CommonEntityData {
     asic.EntityData.YangName = "asic"
     asic.EntityData.BundleName = "cisco_ios_xr"
     asic.EntityData.ParentYangName = "set"
-    asic.EntityData.SegmentPath = "asic" + "[asic-name='" + fmt.Sprintf("%v", asic.AsicName) + "']"
+    asic.EntityData.SegmentPath = "asic" + types.AddKeyToken(asic.AsicName, "asic-name")
     asic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asic.EntityData.Children = make(map[string]types.YChild)
-    asic.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    asic.EntityData.Children = types.NewOrderedMap()
+    asic.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range asic.Instance {
-        asic.EntityData.Children[types.GetSegmentPath(&asic.Instance[i])] = types.YChild{"Instance", &asic.Instance[i]}
+        asic.EntityData.Children.Append(types.GetSegmentPath(asic.Instance[i]), types.YChild{"Instance", asic.Instance[i]})
     }
-    asic.EntityData.Leafs = make(map[string]types.YLeaf)
-    asic.EntityData.Leafs["asic-name"] = types.YLeaf{"AsicName", asic.AsicName}
+    asic.EntityData.Leafs = types.NewOrderedMap()
+    asic.EntityData.Leafs.Append("asic-name", types.YLeaf{"AsicName", asic.AsicName})
+
+    asic.EntityData.YListKeys = []string {"AsicName"}
+
     return &(asic.EntityData)
 }
 
@@ -97,15 +103,18 @@ func (instance *Set_Asic_Instance) GetEntityData() *types.CommonEntityData {
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "asic"
-    instance.EntityData.SegmentPath = "instance" + "[instance-ids='" + fmt.Sprintf("%v", instance.InstanceIds) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceIds, "instance-ids")
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["fault-injection"] = types.YChild{"FaultInjection", &instance.FaultInjection}
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-ids"] = types.YLeaf{"InstanceIds", instance.InstanceIds}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("fault-injection", types.YChild{"FaultInjection", &instance.FaultInjection})
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-ids", types.YLeaf{"InstanceIds", instance.InstanceIds})
+
+    instance.EntityData.YListKeys = []string {"InstanceIds"}
+
     return &(instance.EntityData)
 }
 
@@ -115,7 +124,7 @@ type Set_Asic_Instance_FaultInjection struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Set_Asic_Instance_FaultInjection_Module.
-    Module []Set_Asic_Instance_FaultInjection_Module
+    Module []*Set_Asic_Instance_FaultInjection_Module
 }
 
 func (faultInjection *Set_Asic_Instance_FaultInjection) GetEntityData() *types.CommonEntityData {
@@ -128,12 +137,15 @@ func (faultInjection *Set_Asic_Instance_FaultInjection) GetEntityData() *types.C
     faultInjection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultInjection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultInjection.EntityData.Children = make(map[string]types.YChild)
-    faultInjection.EntityData.Children["module"] = types.YChild{"Module", nil}
+    faultInjection.EntityData.Children = types.NewOrderedMap()
+    faultInjection.EntityData.Children.Append("module", types.YChild{"Module", nil})
     for i := range faultInjection.Module {
-        faultInjection.EntityData.Children[types.GetSegmentPath(&faultInjection.Module[i])] = types.YChild{"Module", &faultInjection.Module[i]}
+        faultInjection.EntityData.Children.Append(types.GetSegmentPath(faultInjection.Module[i]), types.YChild{"Module", faultInjection.Module[i]})
     }
-    faultInjection.EntityData.Leafs = make(map[string]types.YLeaf)
+    faultInjection.EntityData.Leafs = types.NewOrderedMap()
+
+    faultInjection.EntityData.YListKeys = []string {}
+
     return &(faultInjection.EntityData)
 }
 
@@ -154,15 +166,18 @@ func (module *Set_Asic_Instance_FaultInjection_Module) GetEntityData() *types.Co
     module.EntityData.YangName = "module"
     module.EntityData.BundleName = "cisco_ios_xr"
     module.EntityData.ParentYangName = "fault-injection"
-    module.EntityData.SegmentPath = "module" + "[module-name='" + fmt.Sprintf("%v", module.ModuleName) + "']"
+    module.EntityData.SegmentPath = "module" + types.AddKeyToken(module.ModuleName, "module-name")
     module.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     module.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     module.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    module.EntityData.Children = make(map[string]types.YChild)
-    module.EntityData.Children["fault-type"] = types.YChild{"FaultType", &module.FaultType}
-    module.EntityData.Leafs = make(map[string]types.YLeaf)
-    module.EntityData.Leafs["module-name"] = types.YLeaf{"ModuleName", module.ModuleName}
+    module.EntityData.Children = types.NewOrderedMap()
+    module.EntityData.Children.Append("fault-type", types.YChild{"FaultType", &module.FaultType})
+    module.EntityData.Leafs = types.NewOrderedMap()
+    module.EntityData.Leafs.Append("module-name", types.YLeaf{"ModuleName", module.ModuleName})
+
+    module.EntityData.YListKeys = []string {"ModuleName"}
+
     return &(module.EntityData)
 }
 
@@ -191,11 +206,14 @@ func (faultType *Set_Asic_Instance_FaultInjection_Module_FaultType) GetEntityDat
     faultType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faultType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    faultType.EntityData.Children = make(map[string]types.YChild)
-    faultType.EntityData.Children["ecc"] = types.YChild{"Ecc", &faultType.Ecc}
-    faultType.EntityData.Children["parity"] = types.YChild{"Parity", &faultType.Parity}
-    faultType.EntityData.Children["other"] = types.YChild{"Other", &faultType.Other}
-    faultType.EntityData.Leafs = make(map[string]types.YLeaf)
+    faultType.EntityData.Children = types.NewOrderedMap()
+    faultType.EntityData.Children.Append("ecc", types.YChild{"Ecc", &faultType.Ecc})
+    faultType.EntityData.Children.Append("parity", types.YChild{"Parity", &faultType.Parity})
+    faultType.EntityData.Children.Append("other", types.YChild{"Other", &faultType.Other})
+    faultType.EntityData.Leafs = types.NewOrderedMap()
+
+    faultType.EntityData.YListKeys = []string {}
+
     return &(faultType.EntityData)
 }
 
@@ -209,7 +227,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc struct {
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst.
-    BlockNameLst []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst
+    BlockNameLst []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst
 }
 
 func (ecc *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc) GetEntityData() *types.CommonEntityData {
@@ -222,13 +240,16 @@ func (ecc *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc) GetEntityData(
     ecc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ecc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ecc.EntityData.Children = make(map[string]types.YChild)
-    ecc.EntityData.Children["all"] = types.YChild{"All", &ecc.All}
-    ecc.EntityData.Children["block-name-lst"] = types.YChild{"BlockNameLst", nil}
+    ecc.EntityData.Children = types.NewOrderedMap()
+    ecc.EntityData.Children.Append("all", types.YChild{"All", &ecc.All})
+    ecc.EntityData.Children.Append("block-name-lst", types.YChild{"BlockNameLst", nil})
     for i := range ecc.BlockNameLst {
-        ecc.EntityData.Children[types.GetSegmentPath(&ecc.BlockNameLst[i])] = types.YChild{"BlockNameLst", &ecc.BlockNameLst[i]}
+        ecc.EntityData.Children.Append(types.GetSegmentPath(ecc.BlockNameLst[i]), types.YChild{"BlockNameLst", ecc.BlockNameLst[i]})
     }
-    ecc.EntityData.Leafs = make(map[string]types.YLeaf)
+    ecc.EntityData.Leafs = types.NewOrderedMap()
+
+    ecc.EntityData.YListKeys = []string {}
+
     return &(ecc.EntityData)
 }
 
@@ -239,11 +260,11 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All struct {
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold.
-    Threshold []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold
+    Threshold []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Location
 }
 
 func (all *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All) GetEntityData() *types.CommonEntityData {
@@ -256,16 +277,19 @@ func (all *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All) GetEntityD
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["threshold"] = types.YChild{"Threshold", nil}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("threshold", types.YChild{"Threshold", nil})
     for i := range all.Threshold {
-        all.EntityData.Children[types.GetSegmentPath(&all.Threshold[i])] = types.YChild{"Threshold", &all.Threshold[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.Threshold[i]), types.YChild{"Threshold", all.Threshold[i]})
     }
-    all.EntityData.Children["location"] = types.YChild{"Location", nil}
+    all.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range all.Location {
-        all.EntityData.Children[types.GetSegmentPath(&all.Location[i])] = types.YChild{"Location", &all.Location[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.Location[i]), types.YChild{"Location", all.Location[i]})
     }
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -280,7 +304,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold struct 
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold_Location
 }
 
 func (threshold *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold) GetEntityData() *types.CommonEntityData {
@@ -288,18 +312,21 @@ func (threshold *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Thres
     threshold.EntityData.YangName = "threshold"
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "all"
-    threshold.EntityData.SegmentPath = "threshold" + "[num-seconds='" + fmt.Sprintf("%v", threshold.NumSeconds) + "']"
+    threshold.EntityData.SegmentPath = "threshold" + types.AddKeyToken(threshold.NumSeconds, "num-seconds")
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Children["location"] = types.YChild{"Location", nil}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range threshold.Location {
-        threshold.EntityData.Children[types.GetSegmentPath(&threshold.Location[i])] = types.YChild{"Location", &threshold.Location[i]}
+        threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.Location[i]), types.YChild{"Location", threshold.Location[i]})
     }
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", threshold.NumSeconds}
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", threshold.NumSeconds})
+
+    threshold.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(threshold.EntityData)
 }
 
@@ -309,7 +336,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Threshold_Locatio
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -318,14 +345,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Thresh
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "threshold"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -335,7 +365,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -344,14 +374,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_All_Locati
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "all"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -378,17 +411,20 @@ func (blockNameLst *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockN
     blockNameLst.EntityData.YangName = "block-name-lst"
     blockNameLst.EntityData.BundleName = "cisco_ios_xr"
     blockNameLst.EntityData.ParentYangName = "ecc"
-    blockNameLst.EntityData.SegmentPath = "block-name-lst" + "[block-name='" + fmt.Sprintf("%v", blockNameLst.BlockName) + "']"
+    blockNameLst.EntityData.SegmentPath = "block-name-lst" + types.AddKeyToken(blockNameLst.BlockName, "block-name")
     blockNameLst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     blockNameLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     blockNameLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    blockNameLst.EntityData.Children = make(map[string]types.YChild)
-    blockNameLst.EntityData.Children["one"] = types.YChild{"One", &blockNameLst.One}
-    blockNameLst.EntityData.Children["continuous"] = types.YChild{"Continuous", &blockNameLst.Continuous}
-    blockNameLst.EntityData.Children["stop"] = types.YChild{"Stop", &blockNameLst.Stop}
-    blockNameLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    blockNameLst.EntityData.Leafs["block-name"] = types.YLeaf{"BlockName", blockNameLst.BlockName}
+    blockNameLst.EntityData.Children = types.NewOrderedMap()
+    blockNameLst.EntityData.Children.Append("one", types.YChild{"One", &blockNameLst.One})
+    blockNameLst.EntityData.Children.Append("continuous", types.YChild{"Continuous", &blockNameLst.Continuous})
+    blockNameLst.EntityData.Children.Append("stop", types.YChild{"Stop", &blockNameLst.Stop})
+    blockNameLst.EntityData.Leafs = types.NewOrderedMap()
+    blockNameLst.EntityData.Leafs.Append("block-name", types.YLeaf{"BlockName", blockNameLst.BlockName})
+
+    blockNameLst.EntityData.YListKeys = []string {"BlockName"}
+
     return &(blockNameLst.EntityData)
 }
 
@@ -402,7 +438,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One stru
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Location
 }
 
 func (one *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One) GetEntityData() *types.CommonEntityData {
@@ -415,13 +451,16 @@ func (one *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_On
     one.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     one.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    one.EntityData.Children = make(map[string]types.YChild)
-    one.EntityData.Children["rate"] = types.YChild{"Rate", &one.Rate}
-    one.EntityData.Children["location"] = types.YChild{"Location", nil}
+    one.EntityData.Children = types.NewOrderedMap()
+    one.EntityData.Children.Append("rate", types.YChild{"Rate", &one.Rate})
+    one.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range one.Location {
-        one.EntityData.Children[types.GetSegmentPath(&one.Location[i])] = types.YChild{"Location", &one.Location[i]}
+        one.EntityData.Children.Append(types.GetSegmentPath(one.Location[i]), types.YChild{"Location", one.Location[i]})
     }
-    one.EntityData.Leafs = make(map[string]types.YLeaf)
+    one.EntityData.Leafs = types.NewOrderedMap()
+
+    one.EntityData.YListKeys = []string {}
+
     return &(one.EntityData)
 }
 
@@ -432,7 +471,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber.
-    ErrorNumber []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber
+    ErrorNumber []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber
 }
 
 func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate) GetEntityData() *types.CommonEntityData {
@@ -445,12 +484,15 @@ func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_O
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rate.EntityData.Children = make(map[string]types.YChild)
-    rate.EntityData.Children["error-number"] = types.YChild{"ErrorNumber", nil}
+    rate.EntityData.Children = types.NewOrderedMap()
+    rate.EntityData.Children.Append("error-number", types.YChild{"ErrorNumber", nil})
     for i := range rate.ErrorNumber {
-        rate.EntityData.Children[types.GetSegmentPath(&rate.ErrorNumber[i])] = types.YChild{"ErrorNumber", &rate.ErrorNumber[i]}
+        rate.EntityData.Children.Append(types.GetSegmentPath(rate.ErrorNumber[i]), types.YChild{"ErrorNumber", rate.ErrorNumber[i]})
     }
-    rate.EntityData.Leafs = make(map[string]types.YLeaf)
+    rate.EntityData.Leafs = types.NewOrderedMap()
+
+    rate.EntityData.YListKeys = []string {}
+
     return &(rate.EntityData)
 }
 
@@ -464,7 +506,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber_Duration.
-    Duration []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber_Duration
+    Duration []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber_Duration
 }
 
 func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber) GetEntityData() *types.CommonEntityData {
@@ -472,18 +514,21 @@ func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNa
     errorNumber.EntityData.YangName = "error-number"
     errorNumber.EntityData.BundleName = "cisco_ios_xr"
     errorNumber.EntityData.ParentYangName = "rate"
-    errorNumber.EntityData.SegmentPath = "error-number" + "[num-errs='" + fmt.Sprintf("%v", errorNumber.NumErrs) + "']"
+    errorNumber.EntityData.SegmentPath = "error-number" + types.AddKeyToken(errorNumber.NumErrs, "num-errs")
     errorNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorNumber.EntityData.Children = make(map[string]types.YChild)
-    errorNumber.EntityData.Children["duration"] = types.YChild{"Duration", nil}
+    errorNumber.EntityData.Children = types.NewOrderedMap()
+    errorNumber.EntityData.Children.Append("duration", types.YChild{"Duration", nil})
     for i := range errorNumber.Duration {
-        errorNumber.EntityData.Children[types.GetSegmentPath(&errorNumber.Duration[i])] = types.YChild{"Duration", &errorNumber.Duration[i]}
+        errorNumber.EntityData.Children.Append(types.GetSegmentPath(errorNumber.Duration[i]), types.YChild{"Duration", errorNumber.Duration[i]})
     }
-    errorNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorNumber.EntityData.Leafs["num-errs"] = types.YLeaf{"NumErrs", errorNumber.NumErrs}
+    errorNumber.EntityData.Leafs = types.NewOrderedMap()
+    errorNumber.EntityData.Leafs.Append("num-errs", types.YLeaf{"NumErrs", errorNumber.NumErrs})
+
+    errorNumber.EntityData.YListKeys = []string {"NumErrs"}
+
     return &(errorNumber.EntityData)
 }
 
@@ -497,7 +542,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber_Duration_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber_Duration_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber_Duration_Location
 }
 
 func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate_ErrorNumber_Duration) GetEntityData() *types.CommonEntityData {
@@ -505,18 +550,21 @@ func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameL
     duration.EntityData.YangName = "duration"
     duration.EntityData.BundleName = "cisco_ios_xr"
     duration.EntityData.ParentYangName = "error-number"
-    duration.EntityData.SegmentPath = "duration" + "[num-seconds='" + fmt.Sprintf("%v", duration.NumSeconds) + "']"
+    duration.EntityData.SegmentPath = "duration" + types.AddKeyToken(duration.NumSeconds, "num-seconds")
     duration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    duration.EntityData.Children = make(map[string]types.YChild)
-    duration.EntityData.Children["location"] = types.YChild{"Location", nil}
+    duration.EntityData.Children = types.NewOrderedMap()
+    duration.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range duration.Location {
-        duration.EntityData.Children[types.GetSegmentPath(&duration.Location[i])] = types.YChild{"Location", &duration.Location[i]}
+        duration.EntityData.Children.Append(types.GetSegmentPath(duration.Location[i]), types.YChild{"Location", duration.Location[i]})
     }
-    duration.EntityData.Leafs = make(map[string]types.YLeaf)
-    duration.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", duration.NumSeconds}
+    duration.EntityData.Leafs = types.NewOrderedMap()
+    duration.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", duration.NumSeconds})
+
+    duration.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(duration.EntityData)
 }
 
@@ -526,7 +574,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Rate
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -535,14 +583,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameL
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "duration"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -552,7 +603,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_One_Loca
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -561,14 +612,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameL
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "one"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -582,7 +636,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuo
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Location
 }
 
 func (continuous *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous) GetEntityData() *types.CommonEntityData {
@@ -595,13 +649,16 @@ func (continuous *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNam
     continuous.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     continuous.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    continuous.EntityData.Children = make(map[string]types.YChild)
-    continuous.EntityData.Children["rate"] = types.YChild{"Rate", &continuous.Rate}
-    continuous.EntityData.Children["location"] = types.YChild{"Location", nil}
+    continuous.EntityData.Children = types.NewOrderedMap()
+    continuous.EntityData.Children.Append("rate", types.YChild{"Rate", &continuous.Rate})
+    continuous.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range continuous.Location {
-        continuous.EntityData.Children[types.GetSegmentPath(&continuous.Location[i])] = types.YChild{"Location", &continuous.Location[i]}
+        continuous.EntityData.Children.Append(types.GetSegmentPath(continuous.Location[i]), types.YChild{"Location", continuous.Location[i]})
     }
-    continuous.EntityData.Leafs = make(map[string]types.YLeaf)
+    continuous.EntityData.Leafs = types.NewOrderedMap()
+
+    continuous.EntityData.YListKeys = []string {}
+
     return &(continuous.EntityData)
 }
 
@@ -612,7 +669,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuo
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber.
-    ErrorNumber []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber
+    ErrorNumber []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber
 }
 
 func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate) GetEntityData() *types.CommonEntityData {
@@ -625,12 +682,15 @@ func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_C
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rate.EntityData.Children = make(map[string]types.YChild)
-    rate.EntityData.Children["error-number"] = types.YChild{"ErrorNumber", nil}
+    rate.EntityData.Children = types.NewOrderedMap()
+    rate.EntityData.Children.Append("error-number", types.YChild{"ErrorNumber", nil})
     for i := range rate.ErrorNumber {
-        rate.EntityData.Children[types.GetSegmentPath(&rate.ErrorNumber[i])] = types.YChild{"ErrorNumber", &rate.ErrorNumber[i]}
+        rate.EntityData.Children.Append(types.GetSegmentPath(rate.ErrorNumber[i]), types.YChild{"ErrorNumber", rate.ErrorNumber[i]})
     }
-    rate.EntityData.Leafs = make(map[string]types.YLeaf)
+    rate.EntityData.Leafs = types.NewOrderedMap()
+
+    rate.EntityData.YListKeys = []string {}
+
     return &(rate.EntityData)
 }
 
@@ -644,7 +704,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuo
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber_Duration.
-    Duration []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber_Duration
+    Duration []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber_Duration
 }
 
 func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber) GetEntityData() *types.CommonEntityData {
@@ -652,18 +712,21 @@ func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNa
     errorNumber.EntityData.YangName = "error-number"
     errorNumber.EntityData.BundleName = "cisco_ios_xr"
     errorNumber.EntityData.ParentYangName = "rate"
-    errorNumber.EntityData.SegmentPath = "error-number" + "[num-errs='" + fmt.Sprintf("%v", errorNumber.NumErrs) + "']"
+    errorNumber.EntityData.SegmentPath = "error-number" + types.AddKeyToken(errorNumber.NumErrs, "num-errs")
     errorNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorNumber.EntityData.Children = make(map[string]types.YChild)
-    errorNumber.EntityData.Children["duration"] = types.YChild{"Duration", nil}
+    errorNumber.EntityData.Children = types.NewOrderedMap()
+    errorNumber.EntityData.Children.Append("duration", types.YChild{"Duration", nil})
     for i := range errorNumber.Duration {
-        errorNumber.EntityData.Children[types.GetSegmentPath(&errorNumber.Duration[i])] = types.YChild{"Duration", &errorNumber.Duration[i]}
+        errorNumber.EntityData.Children.Append(types.GetSegmentPath(errorNumber.Duration[i]), types.YChild{"Duration", errorNumber.Duration[i]})
     }
-    errorNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorNumber.EntityData.Leafs["num-errs"] = types.YLeaf{"NumErrs", errorNumber.NumErrs}
+    errorNumber.EntityData.Leafs = types.NewOrderedMap()
+    errorNumber.EntityData.Leafs.Append("num-errs", types.YLeaf{"NumErrs", errorNumber.NumErrs})
+
+    errorNumber.EntityData.YListKeys = []string {"NumErrs"}
+
     return &(errorNumber.EntityData)
 }
 
@@ -677,7 +740,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuo
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location
 }
 
 func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuous_Rate_ErrorNumber_Duration) GetEntityData() *types.CommonEntityData {
@@ -685,18 +748,21 @@ func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameL
     duration.EntityData.YangName = "duration"
     duration.EntityData.BundleName = "cisco_ios_xr"
     duration.EntityData.ParentYangName = "error-number"
-    duration.EntityData.SegmentPath = "duration" + "[num-seconds='" + fmt.Sprintf("%v", duration.NumSeconds) + "']"
+    duration.EntityData.SegmentPath = "duration" + types.AddKeyToken(duration.NumSeconds, "num-seconds")
     duration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    duration.EntityData.Children = make(map[string]types.YChild)
-    duration.EntityData.Children["location"] = types.YChild{"Location", nil}
+    duration.EntityData.Children = types.NewOrderedMap()
+    duration.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range duration.Location {
-        duration.EntityData.Children[types.GetSegmentPath(&duration.Location[i])] = types.YChild{"Location", &duration.Location[i]}
+        duration.EntityData.Children.Append(types.GetSegmentPath(duration.Location[i]), types.YChild{"Location", duration.Location[i]})
     }
-    duration.EntityData.Leafs = make(map[string]types.YLeaf)
-    duration.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", duration.NumSeconds}
+    duration.EntityData.Leafs = types.NewOrderedMap()
+    duration.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", duration.NumSeconds})
+
+    duration.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(duration.EntityData)
 }
 
@@ -706,7 +772,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuo
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -715,14 +781,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameL
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "duration"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -732,7 +801,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Continuo
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -741,14 +810,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameL
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "continuous"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -759,7 +831,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Stop str
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Stop_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Stop_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Stop_Location
 }
 
 func (stop *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Stop) GetEntityData() *types.CommonEntityData {
@@ -772,12 +844,15 @@ func (stop *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_S
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stop.EntityData.Children = make(map[string]types.YChild)
-    stop.EntityData.Children["location"] = types.YChild{"Location", nil}
+    stop.EntityData.Children = types.NewOrderedMap()
+    stop.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range stop.Location {
-        stop.EntityData.Children[types.GetSegmentPath(&stop.Location[i])] = types.YChild{"Location", &stop.Location[i]}
+        stop.EntityData.Children.Append(types.GetSegmentPath(stop.Location[i]), types.YChild{"Location", stop.Location[i]})
     }
-    stop.EntityData.Leafs = make(map[string]types.YLeaf)
+    stop.EntityData.Leafs = types.NewOrderedMap()
+
+    stop.EntityData.YListKeys = []string {}
+
     return &(stop.EntityData)
 }
 
@@ -787,7 +862,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameLst_Stop_Loc
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -796,14 +871,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Ecc_BlockNameL
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "stop"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -817,7 +895,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity struct {
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst.
-    BlockNameLst []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst
+    BlockNameLst []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst
 }
 
 func (parity *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity) GetEntityData() *types.CommonEntityData {
@@ -830,13 +908,16 @@ func (parity *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity) GetEntit
     parity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parity.EntityData.Children = make(map[string]types.YChild)
-    parity.EntityData.Children["all"] = types.YChild{"All", &parity.All}
-    parity.EntityData.Children["block-name-lst"] = types.YChild{"BlockNameLst", nil}
+    parity.EntityData.Children = types.NewOrderedMap()
+    parity.EntityData.Children.Append("all", types.YChild{"All", &parity.All})
+    parity.EntityData.Children.Append("block-name-lst", types.YChild{"BlockNameLst", nil})
     for i := range parity.BlockNameLst {
-        parity.EntityData.Children[types.GetSegmentPath(&parity.BlockNameLst[i])] = types.YChild{"BlockNameLst", &parity.BlockNameLst[i]}
+        parity.EntityData.Children.Append(types.GetSegmentPath(parity.BlockNameLst[i]), types.YChild{"BlockNameLst", parity.BlockNameLst[i]})
     }
-    parity.EntityData.Leafs = make(map[string]types.YLeaf)
+    parity.EntityData.Leafs = types.NewOrderedMap()
+
+    parity.EntityData.YListKeys = []string {}
+
     return &(parity.EntityData)
 }
 
@@ -847,11 +928,11 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All struct {
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold.
-    Threshold []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold
+    Threshold []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Location
 }
 
 func (all *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All) GetEntityData() *types.CommonEntityData {
@@ -864,16 +945,19 @@ func (all *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All) GetEnti
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["threshold"] = types.YChild{"Threshold", nil}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("threshold", types.YChild{"Threshold", nil})
     for i := range all.Threshold {
-        all.EntityData.Children[types.GetSegmentPath(&all.Threshold[i])] = types.YChild{"Threshold", &all.Threshold[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.Threshold[i]), types.YChild{"Threshold", all.Threshold[i]})
     }
-    all.EntityData.Children["location"] = types.YChild{"Location", nil}
+    all.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range all.Location {
-        all.EntityData.Children[types.GetSegmentPath(&all.Location[i])] = types.YChild{"Location", &all.Location[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.Location[i]), types.YChild{"Location", all.Location[i]})
     }
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -888,7 +972,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold stru
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold_Location
 }
 
 func (threshold *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold) GetEntityData() *types.CommonEntityData {
@@ -896,18 +980,21 @@ func (threshold *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Th
     threshold.EntityData.YangName = "threshold"
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "all"
-    threshold.EntityData.SegmentPath = "threshold" + "[num-seconds='" + fmt.Sprintf("%v", threshold.NumSeconds) + "']"
+    threshold.EntityData.SegmentPath = "threshold" + types.AddKeyToken(threshold.NumSeconds, "num-seconds")
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Children["location"] = types.YChild{"Location", nil}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range threshold.Location {
-        threshold.EntityData.Children[types.GetSegmentPath(&threshold.Location[i])] = types.YChild{"Location", &threshold.Location[i]}
+        threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.Location[i]), types.YChild{"Location", threshold.Location[i]})
     }
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", threshold.NumSeconds}
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", threshold.NumSeconds})
+
+    threshold.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(threshold.EntityData)
 }
 
@@ -917,7 +1004,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Threshold_Loca
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -926,14 +1013,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Thr
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "threshold"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -943,7 +1033,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Location struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -952,14 +1042,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_All_Loc
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "all"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -986,17 +1079,20 @@ func (blockNameLst *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_Blo
     blockNameLst.EntityData.YangName = "block-name-lst"
     blockNameLst.EntityData.BundleName = "cisco_ios_xr"
     blockNameLst.EntityData.ParentYangName = "parity"
-    blockNameLst.EntityData.SegmentPath = "block-name-lst" + "[block-name='" + fmt.Sprintf("%v", blockNameLst.BlockName) + "']"
+    blockNameLst.EntityData.SegmentPath = "block-name-lst" + types.AddKeyToken(blockNameLst.BlockName, "block-name")
     blockNameLst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     blockNameLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     blockNameLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    blockNameLst.EntityData.Children = make(map[string]types.YChild)
-    blockNameLst.EntityData.Children["one"] = types.YChild{"One", &blockNameLst.One}
-    blockNameLst.EntityData.Children["continuous"] = types.YChild{"Continuous", &blockNameLst.Continuous}
-    blockNameLst.EntityData.Children["stop"] = types.YChild{"Stop", &blockNameLst.Stop}
-    blockNameLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    blockNameLst.EntityData.Leafs["block-name"] = types.YLeaf{"BlockName", blockNameLst.BlockName}
+    blockNameLst.EntityData.Children = types.NewOrderedMap()
+    blockNameLst.EntityData.Children.Append("one", types.YChild{"One", &blockNameLst.One})
+    blockNameLst.EntityData.Children.Append("continuous", types.YChild{"Continuous", &blockNameLst.Continuous})
+    blockNameLst.EntityData.Children.Append("stop", types.YChild{"Stop", &blockNameLst.Stop})
+    blockNameLst.EntityData.Leafs = types.NewOrderedMap()
+    blockNameLst.EntityData.Leafs.Append("block-name", types.YLeaf{"BlockName", blockNameLst.BlockName})
+
+    blockNameLst.EntityData.YListKeys = []string {"BlockName"}
+
     return &(blockNameLst.EntityData)
 }
 
@@ -1010,7 +1106,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One s
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Location
 }
 
 func (one *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One) GetEntityData() *types.CommonEntityData {
@@ -1023,13 +1119,16 @@ func (one *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst
     one.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     one.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    one.EntityData.Children = make(map[string]types.YChild)
-    one.EntityData.Children["rate"] = types.YChild{"Rate", &one.Rate}
-    one.EntityData.Children["location"] = types.YChild{"Location", nil}
+    one.EntityData.Children = types.NewOrderedMap()
+    one.EntityData.Children.Append("rate", types.YChild{"Rate", &one.Rate})
+    one.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range one.Location {
-        one.EntityData.Children[types.GetSegmentPath(&one.Location[i])] = types.YChild{"Location", &one.Location[i]}
+        one.EntityData.Children.Append(types.GetSegmentPath(one.Location[i]), types.YChild{"Location", one.Location[i]})
     }
-    one.EntityData.Leafs = make(map[string]types.YLeaf)
+    one.EntityData.Leafs = types.NewOrderedMap()
+
+    one.EntityData.YListKeys = []string {}
+
     return &(one.EntityData)
 }
 
@@ -1040,7 +1139,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_R
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber.
-    ErrorNumber []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber
+    ErrorNumber []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber
 }
 
 func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate) GetEntityData() *types.CommonEntityData {
@@ -1053,12 +1152,15 @@ func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLs
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rate.EntityData.Children = make(map[string]types.YChild)
-    rate.EntityData.Children["error-number"] = types.YChild{"ErrorNumber", nil}
+    rate.EntityData.Children = types.NewOrderedMap()
+    rate.EntityData.Children.Append("error-number", types.YChild{"ErrorNumber", nil})
     for i := range rate.ErrorNumber {
-        rate.EntityData.Children[types.GetSegmentPath(&rate.ErrorNumber[i])] = types.YChild{"ErrorNumber", &rate.ErrorNumber[i]}
+        rate.EntityData.Children.Append(types.GetSegmentPath(rate.ErrorNumber[i]), types.YChild{"ErrorNumber", rate.ErrorNumber[i]})
     }
-    rate.EntityData.Leafs = make(map[string]types.YLeaf)
+    rate.EntityData.Leafs = types.NewOrderedMap()
+
+    rate.EntityData.YListKeys = []string {}
+
     return &(rate.EntityData)
 }
 
@@ -1072,7 +1174,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_R
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber_Duration.
-    Duration []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber_Duration
+    Duration []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber_Duration
 }
 
 func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber) GetEntityData() *types.CommonEntityData {
@@ -1080,18 +1182,21 @@ func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_Bloc
     errorNumber.EntityData.YangName = "error-number"
     errorNumber.EntityData.BundleName = "cisco_ios_xr"
     errorNumber.EntityData.ParentYangName = "rate"
-    errorNumber.EntityData.SegmentPath = "error-number" + "[num-errs='" + fmt.Sprintf("%v", errorNumber.NumErrs) + "']"
+    errorNumber.EntityData.SegmentPath = "error-number" + types.AddKeyToken(errorNumber.NumErrs, "num-errs")
     errorNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorNumber.EntityData.Children = make(map[string]types.YChild)
-    errorNumber.EntityData.Children["duration"] = types.YChild{"Duration", nil}
+    errorNumber.EntityData.Children = types.NewOrderedMap()
+    errorNumber.EntityData.Children.Append("duration", types.YChild{"Duration", nil})
     for i := range errorNumber.Duration {
-        errorNumber.EntityData.Children[types.GetSegmentPath(&errorNumber.Duration[i])] = types.YChild{"Duration", &errorNumber.Duration[i]}
+        errorNumber.EntityData.Children.Append(types.GetSegmentPath(errorNumber.Duration[i]), types.YChild{"Duration", errorNumber.Duration[i]})
     }
-    errorNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorNumber.EntityData.Leafs["num-errs"] = types.YLeaf{"NumErrs", errorNumber.NumErrs}
+    errorNumber.EntityData.Leafs = types.NewOrderedMap()
+    errorNumber.EntityData.Leafs.Append("num-errs", types.YLeaf{"NumErrs", errorNumber.NumErrs})
+
+    errorNumber.EntityData.YListKeys = []string {"NumErrs"}
+
     return &(errorNumber.EntityData)
 }
 
@@ -1105,7 +1210,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_R
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber_Duration_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber_Duration_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber_Duration_Location
 }
 
 func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_Rate_ErrorNumber_Duration) GetEntityData() *types.CommonEntityData {
@@ -1113,18 +1218,21 @@ func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNa
     duration.EntityData.YangName = "duration"
     duration.EntityData.BundleName = "cisco_ios_xr"
     duration.EntityData.ParentYangName = "error-number"
-    duration.EntityData.SegmentPath = "duration" + "[num-seconds='" + fmt.Sprintf("%v", duration.NumSeconds) + "']"
+    duration.EntityData.SegmentPath = "duration" + types.AddKeyToken(duration.NumSeconds, "num-seconds")
     duration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    duration.EntityData.Children = make(map[string]types.YChild)
-    duration.EntityData.Children["location"] = types.YChild{"Location", nil}
+    duration.EntityData.Children = types.NewOrderedMap()
+    duration.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range duration.Location {
-        duration.EntityData.Children[types.GetSegmentPath(&duration.Location[i])] = types.YChild{"Location", &duration.Location[i]}
+        duration.EntityData.Children.Append(types.GetSegmentPath(duration.Location[i]), types.YChild{"Location", duration.Location[i]})
     }
-    duration.EntityData.Leafs = make(map[string]types.YLeaf)
-    duration.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", duration.NumSeconds}
+    duration.EntityData.Leafs = types.NewOrderedMap()
+    duration.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", duration.NumSeconds})
+
+    duration.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(duration.EntityData)
 }
 
@@ -1134,7 +1242,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_R
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1143,14 +1251,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNa
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "duration"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1160,7 +1271,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_One_L
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1169,14 +1280,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNa
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "one"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1190,7 +1304,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Conti
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Location
 }
 
 func (continuous *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous) GetEntityData() *types.CommonEntityData {
@@ -1203,13 +1317,16 @@ func (continuous *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_Block
     continuous.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     continuous.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    continuous.EntityData.Children = make(map[string]types.YChild)
-    continuous.EntityData.Children["rate"] = types.YChild{"Rate", &continuous.Rate}
-    continuous.EntityData.Children["location"] = types.YChild{"Location", nil}
+    continuous.EntityData.Children = types.NewOrderedMap()
+    continuous.EntityData.Children.Append("rate", types.YChild{"Rate", &continuous.Rate})
+    continuous.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range continuous.Location {
-        continuous.EntityData.Children[types.GetSegmentPath(&continuous.Location[i])] = types.YChild{"Location", &continuous.Location[i]}
+        continuous.EntityData.Children.Append(types.GetSegmentPath(continuous.Location[i]), types.YChild{"Location", continuous.Location[i]})
     }
-    continuous.EntityData.Leafs = make(map[string]types.YLeaf)
+    continuous.EntityData.Leafs = types.NewOrderedMap()
+
+    continuous.EntityData.YListKeys = []string {}
+
     return &(continuous.EntityData)
 }
 
@@ -1220,7 +1337,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Conti
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber.
-    ErrorNumber []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber
+    ErrorNumber []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber
 }
 
 func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate) GetEntityData() *types.CommonEntityData {
@@ -1233,12 +1350,15 @@ func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLs
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rate.EntityData.Children = make(map[string]types.YChild)
-    rate.EntityData.Children["error-number"] = types.YChild{"ErrorNumber", nil}
+    rate.EntityData.Children = types.NewOrderedMap()
+    rate.EntityData.Children.Append("error-number", types.YChild{"ErrorNumber", nil})
     for i := range rate.ErrorNumber {
-        rate.EntityData.Children[types.GetSegmentPath(&rate.ErrorNumber[i])] = types.YChild{"ErrorNumber", &rate.ErrorNumber[i]}
+        rate.EntityData.Children.Append(types.GetSegmentPath(rate.ErrorNumber[i]), types.YChild{"ErrorNumber", rate.ErrorNumber[i]})
     }
-    rate.EntityData.Leafs = make(map[string]types.YLeaf)
+    rate.EntityData.Leafs = types.NewOrderedMap()
+
+    rate.EntityData.YListKeys = []string {}
+
     return &(rate.EntityData)
 }
 
@@ -1252,7 +1372,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Conti
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber_Duration.
-    Duration []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber_Duration
+    Duration []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber_Duration
 }
 
 func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber) GetEntityData() *types.CommonEntityData {
@@ -1260,18 +1380,21 @@ func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_Bloc
     errorNumber.EntityData.YangName = "error-number"
     errorNumber.EntityData.BundleName = "cisco_ios_xr"
     errorNumber.EntityData.ParentYangName = "rate"
-    errorNumber.EntityData.SegmentPath = "error-number" + "[num-errs='" + fmt.Sprintf("%v", errorNumber.NumErrs) + "']"
+    errorNumber.EntityData.SegmentPath = "error-number" + types.AddKeyToken(errorNumber.NumErrs, "num-errs")
     errorNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorNumber.EntityData.Children = make(map[string]types.YChild)
-    errorNumber.EntityData.Children["duration"] = types.YChild{"Duration", nil}
+    errorNumber.EntityData.Children = types.NewOrderedMap()
+    errorNumber.EntityData.Children.Append("duration", types.YChild{"Duration", nil})
     for i := range errorNumber.Duration {
-        errorNumber.EntityData.Children[types.GetSegmentPath(&errorNumber.Duration[i])] = types.YChild{"Duration", &errorNumber.Duration[i]}
+        errorNumber.EntityData.Children.Append(types.GetSegmentPath(errorNumber.Duration[i]), types.YChild{"Duration", errorNumber.Duration[i]})
     }
-    errorNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorNumber.EntityData.Leafs["num-errs"] = types.YLeaf{"NumErrs", errorNumber.NumErrs}
+    errorNumber.EntityData.Leafs = types.NewOrderedMap()
+    errorNumber.EntityData.Leafs.Append("num-errs", types.YLeaf{"NumErrs", errorNumber.NumErrs})
+
+    errorNumber.EntityData.YListKeys = []string {"NumErrs"}
+
     return &(errorNumber.EntityData)
 }
 
@@ -1285,7 +1408,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Conti
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location
 }
 
 func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Continuous_Rate_ErrorNumber_Duration) GetEntityData() *types.CommonEntityData {
@@ -1293,18 +1416,21 @@ func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNa
     duration.EntityData.YangName = "duration"
     duration.EntityData.BundleName = "cisco_ios_xr"
     duration.EntityData.ParentYangName = "error-number"
-    duration.EntityData.SegmentPath = "duration" + "[num-seconds='" + fmt.Sprintf("%v", duration.NumSeconds) + "']"
+    duration.EntityData.SegmentPath = "duration" + types.AddKeyToken(duration.NumSeconds, "num-seconds")
     duration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    duration.EntityData.Children = make(map[string]types.YChild)
-    duration.EntityData.Children["location"] = types.YChild{"Location", nil}
+    duration.EntityData.Children = types.NewOrderedMap()
+    duration.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range duration.Location {
-        duration.EntityData.Children[types.GetSegmentPath(&duration.Location[i])] = types.YChild{"Location", &duration.Location[i]}
+        duration.EntityData.Children.Append(types.GetSegmentPath(duration.Location[i]), types.YChild{"Location", duration.Location[i]})
     }
-    duration.EntityData.Leafs = make(map[string]types.YLeaf)
-    duration.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", duration.NumSeconds}
+    duration.EntityData.Leafs = types.NewOrderedMap()
+    duration.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", duration.NumSeconds})
+
+    duration.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(duration.EntityData)
 }
 
@@ -1314,7 +1440,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Conti
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1323,14 +1449,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNa
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "duration"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1340,7 +1469,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Conti
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1349,14 +1478,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNa
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "continuous"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1367,7 +1499,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Stop 
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Stop_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Stop_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Stop_Location
 }
 
 func (stop *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Stop) GetEntityData() *types.CommonEntityData {
@@ -1380,12 +1512,15 @@ func (stop *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLs
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stop.EntityData.Children = make(map[string]types.YChild)
-    stop.EntityData.Children["location"] = types.YChild{"Location", nil}
+    stop.EntityData.Children = types.NewOrderedMap()
+    stop.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range stop.Location {
-        stop.EntityData.Children[types.GetSegmentPath(&stop.Location[i])] = types.YChild{"Location", &stop.Location[i]}
+        stop.EntityData.Children.Append(types.GetSegmentPath(stop.Location[i]), types.YChild{"Location", stop.Location[i]})
     }
-    stop.EntityData.Leafs = make(map[string]types.YLeaf)
+    stop.EntityData.Leafs = types.NewOrderedMap()
+
+    stop.EntityData.YListKeys = []string {}
+
     return &(stop.EntityData)
 }
 
@@ -1395,7 +1530,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNameLst_Stop_
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1404,14 +1539,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Parity_BlockNa
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "stop"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1425,7 +1563,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other struct {
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst.
-    BlockNameLst []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst
+    BlockNameLst []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst
 }
 
 func (other *Set_Asic_Instance_FaultInjection_Module_FaultType_Other) GetEntityData() *types.CommonEntityData {
@@ -1438,13 +1576,16 @@ func (other *Set_Asic_Instance_FaultInjection_Module_FaultType_Other) GetEntityD
     other.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     other.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    other.EntityData.Children = make(map[string]types.YChild)
-    other.EntityData.Children["all"] = types.YChild{"All", &other.All}
-    other.EntityData.Children["block-name-lst"] = types.YChild{"BlockNameLst", nil}
+    other.EntityData.Children = types.NewOrderedMap()
+    other.EntityData.Children.Append("all", types.YChild{"All", &other.All})
+    other.EntityData.Children.Append("block-name-lst", types.YChild{"BlockNameLst", nil})
     for i := range other.BlockNameLst {
-        other.EntityData.Children[types.GetSegmentPath(&other.BlockNameLst[i])] = types.YChild{"BlockNameLst", &other.BlockNameLst[i]}
+        other.EntityData.Children.Append(types.GetSegmentPath(other.BlockNameLst[i]), types.YChild{"BlockNameLst", other.BlockNameLst[i]})
     }
-    other.EntityData.Leafs = make(map[string]types.YLeaf)
+    other.EntityData.Leafs = types.NewOrderedMap()
+
+    other.EntityData.YListKeys = []string {}
+
     return &(other.EntityData)
 }
 
@@ -1455,11 +1596,11 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All struct {
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold.
-    Threshold []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold
+    Threshold []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Location
 }
 
 func (all *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All) GetEntityData() *types.CommonEntityData {
@@ -1472,16 +1613,19 @@ func (all *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All) GetEntit
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["threshold"] = types.YChild{"Threshold", nil}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("threshold", types.YChild{"Threshold", nil})
     for i := range all.Threshold {
-        all.EntityData.Children[types.GetSegmentPath(&all.Threshold[i])] = types.YChild{"Threshold", &all.Threshold[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.Threshold[i]), types.YChild{"Threshold", all.Threshold[i]})
     }
-    all.EntityData.Children["location"] = types.YChild{"Location", nil}
+    all.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range all.Location {
-        all.EntityData.Children[types.GetSegmentPath(&all.Location[i])] = types.YChild{"Location", &all.Location[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.Location[i]), types.YChild{"Location", all.Location[i]})
     }
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -1496,7 +1640,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold struc
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold_Location
 }
 
 func (threshold *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold) GetEntityData() *types.CommonEntityData {
@@ -1504,18 +1648,21 @@ func (threshold *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Thr
     threshold.EntityData.YangName = "threshold"
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "all"
-    threshold.EntityData.SegmentPath = "threshold" + "[num-seconds='" + fmt.Sprintf("%v", threshold.NumSeconds) + "']"
+    threshold.EntityData.SegmentPath = "threshold" + types.AddKeyToken(threshold.NumSeconds, "num-seconds")
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Children["location"] = types.YChild{"Location", nil}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range threshold.Location {
-        threshold.EntityData.Children[types.GetSegmentPath(&threshold.Location[i])] = types.YChild{"Location", &threshold.Location[i]}
+        threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.Location[i]), types.YChild{"Location", threshold.Location[i]})
     }
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", threshold.NumSeconds}
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", threshold.NumSeconds})
+
+    threshold.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(threshold.EntityData)
 }
 
@@ -1525,7 +1672,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Threshold_Locat
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1534,14 +1681,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Thre
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "threshold"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1551,7 +1701,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Location struct
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1560,14 +1710,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_All_Loca
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "all"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1594,17 +1747,20 @@ func (blockNameLst *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_Bloc
     blockNameLst.EntityData.YangName = "block-name-lst"
     blockNameLst.EntityData.BundleName = "cisco_ios_xr"
     blockNameLst.EntityData.ParentYangName = "other"
-    blockNameLst.EntityData.SegmentPath = "block-name-lst" + "[block-name='" + fmt.Sprintf("%v", blockNameLst.BlockName) + "']"
+    blockNameLst.EntityData.SegmentPath = "block-name-lst" + types.AddKeyToken(blockNameLst.BlockName, "block-name")
     blockNameLst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     blockNameLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     blockNameLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    blockNameLst.EntityData.Children = make(map[string]types.YChild)
-    blockNameLst.EntityData.Children["one"] = types.YChild{"One", &blockNameLst.One}
-    blockNameLst.EntityData.Children["continuous"] = types.YChild{"Continuous", &blockNameLst.Continuous}
-    blockNameLst.EntityData.Children["stop"] = types.YChild{"Stop", &blockNameLst.Stop}
-    blockNameLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    blockNameLst.EntityData.Leafs["block-name"] = types.YLeaf{"BlockName", blockNameLst.BlockName}
+    blockNameLst.EntityData.Children = types.NewOrderedMap()
+    blockNameLst.EntityData.Children.Append("one", types.YChild{"One", &blockNameLst.One})
+    blockNameLst.EntityData.Children.Append("continuous", types.YChild{"Continuous", &blockNameLst.Continuous})
+    blockNameLst.EntityData.Children.Append("stop", types.YChild{"Stop", &blockNameLst.Stop})
+    blockNameLst.EntityData.Leafs = types.NewOrderedMap()
+    blockNameLst.EntityData.Leafs.Append("block-name", types.YLeaf{"BlockName", blockNameLst.BlockName})
+
+    blockNameLst.EntityData.YListKeys = []string {"BlockName"}
+
     return &(blockNameLst.EntityData)
 }
 
@@ -1618,7 +1774,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One st
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Location
 }
 
 func (one *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One) GetEntityData() *types.CommonEntityData {
@@ -1631,13 +1787,16 @@ func (one *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_
     one.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     one.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    one.EntityData.Children = make(map[string]types.YChild)
-    one.EntityData.Children["rate"] = types.YChild{"Rate", &one.Rate}
-    one.EntityData.Children["location"] = types.YChild{"Location", nil}
+    one.EntityData.Children = types.NewOrderedMap()
+    one.EntityData.Children.Append("rate", types.YChild{"Rate", &one.Rate})
+    one.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range one.Location {
-        one.EntityData.Children[types.GetSegmentPath(&one.Location[i])] = types.YChild{"Location", &one.Location[i]}
+        one.EntityData.Children.Append(types.GetSegmentPath(one.Location[i]), types.YChild{"Location", one.Location[i]})
     }
-    one.EntityData.Leafs = make(map[string]types.YLeaf)
+    one.EntityData.Leafs = types.NewOrderedMap()
+
+    one.EntityData.YListKeys = []string {}
+
     return &(one.EntityData)
 }
 
@@ -1648,7 +1807,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Ra
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber.
-    ErrorNumber []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber
+    ErrorNumber []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber
 }
 
 func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate) GetEntityData() *types.CommonEntityData {
@@ -1661,12 +1820,15 @@ func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rate.EntityData.Children = make(map[string]types.YChild)
-    rate.EntityData.Children["error-number"] = types.YChild{"ErrorNumber", nil}
+    rate.EntityData.Children = types.NewOrderedMap()
+    rate.EntityData.Children.Append("error-number", types.YChild{"ErrorNumber", nil})
     for i := range rate.ErrorNumber {
-        rate.EntityData.Children[types.GetSegmentPath(&rate.ErrorNumber[i])] = types.YChild{"ErrorNumber", &rate.ErrorNumber[i]}
+        rate.EntityData.Children.Append(types.GetSegmentPath(rate.ErrorNumber[i]), types.YChild{"ErrorNumber", rate.ErrorNumber[i]})
     }
-    rate.EntityData.Leafs = make(map[string]types.YLeaf)
+    rate.EntityData.Leafs = types.NewOrderedMap()
+
+    rate.EntityData.YListKeys = []string {}
+
     return &(rate.EntityData)
 }
 
@@ -1680,7 +1842,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Ra
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber_Duration.
-    Duration []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber_Duration
+    Duration []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber_Duration
 }
 
 func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber) GetEntityData() *types.CommonEntityData {
@@ -1688,18 +1850,21 @@ func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_Block
     errorNumber.EntityData.YangName = "error-number"
     errorNumber.EntityData.BundleName = "cisco_ios_xr"
     errorNumber.EntityData.ParentYangName = "rate"
-    errorNumber.EntityData.SegmentPath = "error-number" + "[num-errs='" + fmt.Sprintf("%v", errorNumber.NumErrs) + "']"
+    errorNumber.EntityData.SegmentPath = "error-number" + types.AddKeyToken(errorNumber.NumErrs, "num-errs")
     errorNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorNumber.EntityData.Children = make(map[string]types.YChild)
-    errorNumber.EntityData.Children["duration"] = types.YChild{"Duration", nil}
+    errorNumber.EntityData.Children = types.NewOrderedMap()
+    errorNumber.EntityData.Children.Append("duration", types.YChild{"Duration", nil})
     for i := range errorNumber.Duration {
-        errorNumber.EntityData.Children[types.GetSegmentPath(&errorNumber.Duration[i])] = types.YChild{"Duration", &errorNumber.Duration[i]}
+        errorNumber.EntityData.Children.Append(types.GetSegmentPath(errorNumber.Duration[i]), types.YChild{"Duration", errorNumber.Duration[i]})
     }
-    errorNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorNumber.EntityData.Leafs["num-errs"] = types.YLeaf{"NumErrs", errorNumber.NumErrs}
+    errorNumber.EntityData.Leafs = types.NewOrderedMap()
+    errorNumber.EntityData.Leafs.Append("num-errs", types.YLeaf{"NumErrs", errorNumber.NumErrs})
+
+    errorNumber.EntityData.YListKeys = []string {"NumErrs"}
+
     return &(errorNumber.EntityData)
 }
 
@@ -1713,7 +1878,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Ra
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber_Duration_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber_Duration_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber_Duration_Location
 }
 
 func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Rate_ErrorNumber_Duration) GetEntityData() *types.CommonEntityData {
@@ -1721,18 +1886,21 @@ func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNam
     duration.EntityData.YangName = "duration"
     duration.EntityData.BundleName = "cisco_ios_xr"
     duration.EntityData.ParentYangName = "error-number"
-    duration.EntityData.SegmentPath = "duration" + "[num-seconds='" + fmt.Sprintf("%v", duration.NumSeconds) + "']"
+    duration.EntityData.SegmentPath = "duration" + types.AddKeyToken(duration.NumSeconds, "num-seconds")
     duration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    duration.EntityData.Children = make(map[string]types.YChild)
-    duration.EntityData.Children["location"] = types.YChild{"Location", nil}
+    duration.EntityData.Children = types.NewOrderedMap()
+    duration.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range duration.Location {
-        duration.EntityData.Children[types.GetSegmentPath(&duration.Location[i])] = types.YChild{"Location", &duration.Location[i]}
+        duration.EntityData.Children.Append(types.GetSegmentPath(duration.Location[i]), types.YChild{"Location", duration.Location[i]})
     }
-    duration.EntityData.Leafs = make(map[string]types.YLeaf)
-    duration.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", duration.NumSeconds}
+    duration.EntityData.Leafs = types.NewOrderedMap()
+    duration.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", duration.NumSeconds})
+
+    duration.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(duration.EntityData)
 }
 
@@ -1742,7 +1910,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Ra
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1751,14 +1919,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNam
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "duration"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1768,7 +1939,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_One_Lo
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1777,14 +1948,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNam
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "one"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1798,7 +1972,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Contin
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Location
 }
 
 func (continuous *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous) GetEntityData() *types.CommonEntityData {
@@ -1811,13 +1985,16 @@ func (continuous *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockN
     continuous.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     continuous.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    continuous.EntityData.Children = make(map[string]types.YChild)
-    continuous.EntityData.Children["rate"] = types.YChild{"Rate", &continuous.Rate}
-    continuous.EntityData.Children["location"] = types.YChild{"Location", nil}
+    continuous.EntityData.Children = types.NewOrderedMap()
+    continuous.EntityData.Children.Append("rate", types.YChild{"Rate", &continuous.Rate})
+    continuous.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range continuous.Location {
-        continuous.EntityData.Children[types.GetSegmentPath(&continuous.Location[i])] = types.YChild{"Location", &continuous.Location[i]}
+        continuous.EntityData.Children.Append(types.GetSegmentPath(continuous.Location[i]), types.YChild{"Location", continuous.Location[i]})
     }
-    continuous.EntityData.Leafs = make(map[string]types.YLeaf)
+    continuous.EntityData.Leafs = types.NewOrderedMap()
+
+    continuous.EntityData.YListKeys = []string {}
+
     return &(continuous.EntityData)
 }
 
@@ -1828,7 +2005,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Contin
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber.
-    ErrorNumber []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber
+    ErrorNumber []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber
 }
 
 func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate) GetEntityData() *types.CommonEntityData {
@@ -1841,12 +2018,15 @@ func (rate *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rate.EntityData.Children = make(map[string]types.YChild)
-    rate.EntityData.Children["error-number"] = types.YChild{"ErrorNumber", nil}
+    rate.EntityData.Children = types.NewOrderedMap()
+    rate.EntityData.Children.Append("error-number", types.YChild{"ErrorNumber", nil})
     for i := range rate.ErrorNumber {
-        rate.EntityData.Children[types.GetSegmentPath(&rate.ErrorNumber[i])] = types.YChild{"ErrorNumber", &rate.ErrorNumber[i]}
+        rate.EntityData.Children.Append(types.GetSegmentPath(rate.ErrorNumber[i]), types.YChild{"ErrorNumber", rate.ErrorNumber[i]})
     }
-    rate.EntityData.Leafs = make(map[string]types.YLeaf)
+    rate.EntityData.Leafs = types.NewOrderedMap()
+
+    rate.EntityData.YListKeys = []string {}
+
     return &(rate.EntityData)
 }
 
@@ -1860,7 +2040,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Contin
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber_Duration.
-    Duration []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber_Duration
+    Duration []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber_Duration
 }
 
 func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber) GetEntityData() *types.CommonEntityData {
@@ -1868,18 +2048,21 @@ func (errorNumber *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_Block
     errorNumber.EntityData.YangName = "error-number"
     errorNumber.EntityData.BundleName = "cisco_ios_xr"
     errorNumber.EntityData.ParentYangName = "rate"
-    errorNumber.EntityData.SegmentPath = "error-number" + "[num-errs='" + fmt.Sprintf("%v", errorNumber.NumErrs) + "']"
+    errorNumber.EntityData.SegmentPath = "error-number" + types.AddKeyToken(errorNumber.NumErrs, "num-errs")
     errorNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorNumber.EntityData.Children = make(map[string]types.YChild)
-    errorNumber.EntityData.Children["duration"] = types.YChild{"Duration", nil}
+    errorNumber.EntityData.Children = types.NewOrderedMap()
+    errorNumber.EntityData.Children.Append("duration", types.YChild{"Duration", nil})
     for i := range errorNumber.Duration {
-        errorNumber.EntityData.Children[types.GetSegmentPath(&errorNumber.Duration[i])] = types.YChild{"Duration", &errorNumber.Duration[i]}
+        errorNumber.EntityData.Children.Append(types.GetSegmentPath(errorNumber.Duration[i]), types.YChild{"Duration", errorNumber.Duration[i]})
     }
-    errorNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorNumber.EntityData.Leafs["num-errs"] = types.YLeaf{"NumErrs", errorNumber.NumErrs}
+    errorNumber.EntityData.Leafs = types.NewOrderedMap()
+    errorNumber.EntityData.Leafs.Append("num-errs", types.YLeaf{"NumErrs", errorNumber.NumErrs})
+
+    errorNumber.EntityData.YListKeys = []string {"NumErrs"}
+
     return &(errorNumber.EntityData)
 }
 
@@ -1893,7 +2076,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Contin
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber_Duration_Location
 }
 
 func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Continuous_Rate_ErrorNumber_Duration) GetEntityData() *types.CommonEntityData {
@@ -1901,18 +2084,21 @@ func (duration *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNam
     duration.EntityData.YangName = "duration"
     duration.EntityData.BundleName = "cisco_ios_xr"
     duration.EntityData.ParentYangName = "error-number"
-    duration.EntityData.SegmentPath = "duration" + "[num-seconds='" + fmt.Sprintf("%v", duration.NumSeconds) + "']"
+    duration.EntityData.SegmentPath = "duration" + types.AddKeyToken(duration.NumSeconds, "num-seconds")
     duration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    duration.EntityData.Children = make(map[string]types.YChild)
-    duration.EntityData.Children["location"] = types.YChild{"Location", nil}
+    duration.EntityData.Children = types.NewOrderedMap()
+    duration.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range duration.Location {
-        duration.EntityData.Children[types.GetSegmentPath(&duration.Location[i])] = types.YChild{"Location", &duration.Location[i]}
+        duration.EntityData.Children.Append(types.GetSegmentPath(duration.Location[i]), types.YChild{"Location", duration.Location[i]})
     }
-    duration.EntityData.Leafs = make(map[string]types.YLeaf)
-    duration.EntityData.Leafs["num-seconds"] = types.YLeaf{"NumSeconds", duration.NumSeconds}
+    duration.EntityData.Leafs = types.NewOrderedMap()
+    duration.EntityData.Leafs.Append("num-seconds", types.YLeaf{"NumSeconds", duration.NumSeconds})
+
+    duration.EntityData.YListKeys = []string {"NumSeconds"}
+
     return &(duration.EntityData)
 }
 
@@ -1922,7 +2108,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Contin
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1931,14 +2117,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNam
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "duration"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1948,7 +2137,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Contin
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -1957,14 +2146,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNam
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "continuous"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1975,7 +2167,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Stop s
 
     // The type is slice of
     // Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Stop_Location.
-    Location []Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Stop_Location
+    Location []*Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Stop_Location
 }
 
 func (stop *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Stop) GetEntityData() *types.CommonEntityData {
@@ -1988,12 +2180,15 @@ func (stop *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stop.EntityData.Children = make(map[string]types.YChild)
-    stop.EntityData.Children["location"] = types.YChild{"Location", nil}
+    stop.EntityData.Children = types.NewOrderedMap()
+    stop.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range stop.Location {
-        stop.EntityData.Children[types.GetSegmentPath(&stop.Location[i])] = types.YChild{"Location", &stop.Location[i]}
+        stop.EntityData.Children.Append(types.GetSegmentPath(stop.Location[i]), types.YChild{"Location", stop.Location[i]})
     }
-    stop.EntityData.Leafs = make(map[string]types.YLeaf)
+    stop.EntityData.Leafs = types.NewOrderedMap()
+
+    stop.EntityData.YListKeys = []string {}
+
     return &(stop.EntityData)
 }
 
@@ -2003,7 +2198,7 @@ type Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNameLst_Stop_L
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     FitLocationName interface{}
 }
 
@@ -2012,14 +2207,17 @@ func (location *Set_Asic_Instance_FaultInjection_Module_FaultType_Other_BlockNam
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "stop"
-    location.EntityData.SegmentPath = "location" + "[fit-location-name='" + fmt.Sprintf("%v", location.FitLocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.FitLocationName, "fit-location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["fit-location-name"] = types.YLeaf{"FitLocationName", location.FitLocationName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("fit-location-name", types.YLeaf{"FitLocationName", location.FitLocationName})
+
+    location.EntityData.YListKeys = []string {"FitLocationName"}
+
     return &(location.EntityData)
 }
 

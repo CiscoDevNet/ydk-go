@@ -24,10 +24,14 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-act:key-generate-rsa", reflect.TypeOf(KeyGenerateRsa{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-act key-generate-dsa}", reflect.TypeOf(KeyGenerateDsa{}))
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-act:key-generate-dsa", reflect.TypeOf(KeyGenerateDsa{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-act key-generate-ecdsa}", reflect.TypeOf(KeyGenerateEcdsa{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-crypto-act:key-generate-ecdsa", reflect.TypeOf(KeyGenerateEcdsa{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-act key-zeroize-rsa}", reflect.TypeOf(KeyZeroizeRsa{}))
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-act:key-zeroize-rsa", reflect.TypeOf(KeyZeroizeRsa{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-act key-zeroize-dsa}", reflect.TypeOf(KeyZeroizeDsa{}))
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-act:key-zeroize-dsa", reflect.TypeOf(KeyZeroizeDsa{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-act key-zeroize-ecdsa}", reflect.TypeOf(KeyZeroizeEcdsa{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-crypto-act:key-zeroize-ecdsa", reflect.TypeOf(KeyZeroizeEcdsa{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-act key-zeroize-authentication-rsa}", reflect.TypeOf(KeyZeroizeAuthenticationRsa{}))
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-act:key-zeroize-authentication-rsa", reflect.TypeOf(KeyZeroizeAuthenticationRsa{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-act key-import-authentication-rsa}", reflect.TypeOf(KeyImportAuthenticationRsa{}))
@@ -68,9 +72,12 @@ func (keyGenerateRsaGeneralKeys *KeyGenerateRsaGeneralKeys) GetEntityData() *typ
     keyGenerateRsaGeneralKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateRsaGeneralKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyGenerateRsaGeneralKeys.EntityData.Children = make(map[string]types.YChild)
-    keyGenerateRsaGeneralKeys.EntityData.Children["input"] = types.YChild{"Input", &keyGenerateRsaGeneralKeys.Input}
-    keyGenerateRsaGeneralKeys.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyGenerateRsaGeneralKeys.EntityData.Children = types.NewOrderedMap()
+    keyGenerateRsaGeneralKeys.EntityData.Children.Append("input", types.YChild{"Input", &keyGenerateRsaGeneralKeys.Input})
+    keyGenerateRsaGeneralKeys.EntityData.Leafs = types.NewOrderedMap()
+
+    keyGenerateRsaGeneralKeys.EntityData.YListKeys = []string {}
+
     return &(keyGenerateRsaGeneralKeys.EntityData)
 }
 
@@ -98,10 +105,13 @@ func (input *KeyGenerateRsaGeneralKeys_Input) GetEntityData() *types.CommonEntit
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["key-label"] = types.YLeaf{"KeyLabel", input.KeyLabel}
-    input.EntityData.Leafs["key-modulus"] = types.YLeaf{"KeyModulus", input.KeyModulus}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("key-label", types.YLeaf{"KeyLabel", input.KeyLabel})
+    input.EntityData.Leafs.Append("key-modulus", types.YLeaf{"KeyModulus", input.KeyModulus})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -125,9 +135,12 @@ func (keyGenerateRsaUsageKeys *KeyGenerateRsaUsageKeys) GetEntityData() *types.C
     keyGenerateRsaUsageKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateRsaUsageKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyGenerateRsaUsageKeys.EntityData.Children = make(map[string]types.YChild)
-    keyGenerateRsaUsageKeys.EntityData.Children["input"] = types.YChild{"Input", &keyGenerateRsaUsageKeys.Input}
-    keyGenerateRsaUsageKeys.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyGenerateRsaUsageKeys.EntityData.Children = types.NewOrderedMap()
+    keyGenerateRsaUsageKeys.EntityData.Children.Append("input", types.YChild{"Input", &keyGenerateRsaUsageKeys.Input})
+    keyGenerateRsaUsageKeys.EntityData.Leafs = types.NewOrderedMap()
+
+    keyGenerateRsaUsageKeys.EntityData.YListKeys = []string {}
+
     return &(keyGenerateRsaUsageKeys.EntityData)
 }
 
@@ -155,10 +168,13 @@ func (input *KeyGenerateRsaUsageKeys_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["key-label"] = types.YLeaf{"KeyLabel", input.KeyLabel}
-    input.EntityData.Leafs["key-modulus"] = types.YLeaf{"KeyModulus", input.KeyModulus}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("key-label", types.YLeaf{"KeyLabel", input.KeyLabel})
+    input.EntityData.Leafs.Append("key-modulus", types.YLeaf{"KeyModulus", input.KeyModulus})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -182,9 +198,12 @@ func (keyGenerateRsa *KeyGenerateRsa) GetEntityData() *types.CommonEntityData {
     keyGenerateRsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateRsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyGenerateRsa.EntityData.Children = make(map[string]types.YChild)
-    keyGenerateRsa.EntityData.Children["input"] = types.YChild{"Input", &keyGenerateRsa.Input}
-    keyGenerateRsa.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyGenerateRsa.EntityData.Children = types.NewOrderedMap()
+    keyGenerateRsa.EntityData.Children.Append("input", types.YChild{"Input", &keyGenerateRsa.Input})
+    keyGenerateRsa.EntityData.Leafs = types.NewOrderedMap()
+
+    keyGenerateRsa.EntityData.YListKeys = []string {}
+
     return &(keyGenerateRsa.EntityData)
 }
 
@@ -212,10 +231,13 @@ func (input *KeyGenerateRsa_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["key-label"] = types.YLeaf{"KeyLabel", input.KeyLabel}
-    input.EntityData.Leafs["key-modulus"] = types.YLeaf{"KeyModulus", input.KeyModulus}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("key-label", types.YLeaf{"KeyLabel", input.KeyLabel})
+    input.EntityData.Leafs.Append("key-modulus", types.YLeaf{"KeyModulus", input.KeyModulus})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -239,9 +261,12 @@ func (keyGenerateDsa *KeyGenerateDsa) GetEntityData() *types.CommonEntityData {
     keyGenerateDsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateDsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyGenerateDsa.EntityData.Children = make(map[string]types.YChild)
-    keyGenerateDsa.EntityData.Children["input"] = types.YChild{"Input", &keyGenerateDsa.Input}
-    keyGenerateDsa.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyGenerateDsa.EntityData.Children = types.NewOrderedMap()
+    keyGenerateDsa.EntityData.Children.Append("input", types.YChild{"Input", &keyGenerateDsa.Input})
+    keyGenerateDsa.EntityData.Leafs = types.NewOrderedMap()
+
+    keyGenerateDsa.EntityData.YListKeys = []string {}
+
     return &(keyGenerateDsa.EntityData)
 }
 
@@ -266,11 +291,86 @@ func (input *KeyGenerateDsa_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["key-modulus"] = types.YLeaf{"KeyModulus", input.KeyModulus}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("key-modulus", types.YLeaf{"KeyModulus", input.KeyModulus})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
+
+// KeyGenerateEcdsa
+// Generate a ECDSA key of curve type nistp256 | nistp384 | nistp521
+type KeyGenerateEcdsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Input KeyGenerateEcdsa_Input
+}
+
+func (keyGenerateEcdsa *KeyGenerateEcdsa) GetEntityData() *types.CommonEntityData {
+    keyGenerateEcdsa.EntityData.YFilter = keyGenerateEcdsa.YFilter
+    keyGenerateEcdsa.EntityData.YangName = "key-generate-ecdsa"
+    keyGenerateEcdsa.EntityData.BundleName = "cisco_ios_xr"
+    keyGenerateEcdsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
+    keyGenerateEcdsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-generate-ecdsa"
+    keyGenerateEcdsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keyGenerateEcdsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keyGenerateEcdsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keyGenerateEcdsa.EntityData.Children = types.NewOrderedMap()
+    keyGenerateEcdsa.EntityData.Children.Append("input", types.YChild{"Input", &keyGenerateEcdsa.Input})
+    keyGenerateEcdsa.EntityData.Leafs = types.NewOrderedMap()
+
+    keyGenerateEcdsa.EntityData.YListKeys = []string {}
+
+    return &(keyGenerateEcdsa.EntityData)
+}
+
+// KeyGenerateEcdsa_Input
+type KeyGenerateEcdsa_Input struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is KeyModulus. This attribute is mandatory.
+    KeyModulus interface{}
+
+    // ECDSA key label. The type is string.
+    KeyLabel interface{}
+}
+
+func (input *KeyGenerateEcdsa_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "key-generate-ecdsa"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("key-modulus", types.YLeaf{"KeyModulus", input.KeyModulus})
+    input.EntityData.Leafs.Append("key-label", types.YLeaf{"KeyLabel", input.KeyLabel})
+
+    input.EntityData.YListKeys = []string {}
+
+    return &(input.EntityData)
+}
+
+// KeyGenerateEcdsa_Input_KeyModulus
+type KeyGenerateEcdsa_Input_KeyModulus string
+
+const (
+    KeyGenerateEcdsa_Input_KeyModulus_nistp256 KeyGenerateEcdsa_Input_KeyModulus = "nistp256"
+
+    KeyGenerateEcdsa_Input_KeyModulus_nistp384 KeyGenerateEcdsa_Input_KeyModulus = "nistp384"
+
+    KeyGenerateEcdsa_Input_KeyModulus_nistp521 KeyGenerateEcdsa_Input_KeyModulus = "nistp521"
+)
 
 // KeyZeroizeRsa
 // Remove RSA keys
@@ -292,9 +392,12 @@ func (keyZeroizeRsa *KeyZeroizeRsa) GetEntityData() *types.CommonEntityData {
     keyZeroizeRsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyZeroizeRsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyZeroizeRsa.EntityData.Children = make(map[string]types.YChild)
-    keyZeroizeRsa.EntityData.Children["input"] = types.YChild{"Input", &keyZeroizeRsa.Input}
-    keyZeroizeRsa.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyZeroizeRsa.EntityData.Children = types.NewOrderedMap()
+    keyZeroizeRsa.EntityData.Children.Append("input", types.YChild{"Input", &keyZeroizeRsa.Input})
+    keyZeroizeRsa.EntityData.Leafs = types.NewOrderedMap()
+
+    keyZeroizeRsa.EntityData.YListKeys = []string {}
+
     return &(keyZeroizeRsa.EntityData)
 }
 
@@ -317,9 +420,12 @@ func (input *KeyZeroizeRsa_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["key-label"] = types.YLeaf{"KeyLabel", input.KeyLabel}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("key-label", types.YLeaf{"KeyLabel", input.KeyLabel})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -340,10 +446,85 @@ func (keyZeroizeDsa *KeyZeroizeDsa) GetEntityData() *types.CommonEntityData {
     keyZeroizeDsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyZeroizeDsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyZeroizeDsa.EntityData.Children = make(map[string]types.YChild)
-    keyZeroizeDsa.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyZeroizeDsa.EntityData.Children = types.NewOrderedMap()
+    keyZeroizeDsa.EntityData.Leafs = types.NewOrderedMap()
+
+    keyZeroizeDsa.EntityData.YListKeys = []string {}
+
     return &(keyZeroizeDsa.EntityData)
 }
+
+// KeyZeroizeEcdsa
+// Remove ECDSA key of curve type nistp256 | nistp384 | nistp521
+type KeyZeroizeEcdsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Input KeyZeroizeEcdsa_Input
+}
+
+func (keyZeroizeEcdsa *KeyZeroizeEcdsa) GetEntityData() *types.CommonEntityData {
+    keyZeroizeEcdsa.EntityData.YFilter = keyZeroizeEcdsa.YFilter
+    keyZeroizeEcdsa.EntityData.YangName = "key-zeroize-ecdsa"
+    keyZeroizeEcdsa.EntityData.BundleName = "cisco_ios_xr"
+    keyZeroizeEcdsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
+    keyZeroizeEcdsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-zeroize-ecdsa"
+    keyZeroizeEcdsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keyZeroizeEcdsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keyZeroizeEcdsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keyZeroizeEcdsa.EntityData.Children = types.NewOrderedMap()
+    keyZeroizeEcdsa.EntityData.Children.Append("input", types.YChild{"Input", &keyZeroizeEcdsa.Input})
+    keyZeroizeEcdsa.EntityData.Leafs = types.NewOrderedMap()
+
+    keyZeroizeEcdsa.EntityData.YListKeys = []string {}
+
+    return &(keyZeroizeEcdsa.EntityData)
+}
+
+// KeyZeroizeEcdsa_Input
+type KeyZeroizeEcdsa_Input struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is KeyModulus. This attribute is mandatory.
+    KeyModulus interface{}
+
+    // ECDSA key label. The type is string.
+    KeyLabel interface{}
+}
+
+func (input *KeyZeroizeEcdsa_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "key-zeroize-ecdsa"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("key-modulus", types.YLeaf{"KeyModulus", input.KeyModulus})
+    input.EntityData.Leafs.Append("key-label", types.YLeaf{"KeyLabel", input.KeyLabel})
+
+    input.EntityData.YListKeys = []string {}
+
+    return &(input.EntityData)
+}
+
+// KeyZeroizeEcdsa_Input_KeyModulus
+type KeyZeroizeEcdsa_Input_KeyModulus string
+
+const (
+    KeyZeroizeEcdsa_Input_KeyModulus_nistp256 KeyZeroizeEcdsa_Input_KeyModulus = "nistp256"
+
+    KeyZeroizeEcdsa_Input_KeyModulus_nistp384 KeyZeroizeEcdsa_Input_KeyModulus = "nistp384"
+
+    KeyZeroizeEcdsa_Input_KeyModulus_nistp521 KeyZeroizeEcdsa_Input_KeyModulus = "nistp521"
+)
 
 // KeyZeroizeAuthenticationRsa
 // Remove RSA authentication key
@@ -362,8 +543,11 @@ func (keyZeroizeAuthenticationRsa *KeyZeroizeAuthenticationRsa) GetEntityData() 
     keyZeroizeAuthenticationRsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyZeroizeAuthenticationRsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyZeroizeAuthenticationRsa.EntityData.Children = make(map[string]types.YChild)
-    keyZeroizeAuthenticationRsa.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyZeroizeAuthenticationRsa.EntityData.Children = types.NewOrderedMap()
+    keyZeroizeAuthenticationRsa.EntityData.Leafs = types.NewOrderedMap()
+
+    keyZeroizeAuthenticationRsa.EntityData.YListKeys = []string {}
+
     return &(keyZeroizeAuthenticationRsa.EntityData)
 }
 
@@ -387,9 +571,12 @@ func (keyImportAuthenticationRsa *KeyImportAuthenticationRsa) GetEntityData() *t
     keyImportAuthenticationRsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyImportAuthenticationRsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyImportAuthenticationRsa.EntityData.Children = make(map[string]types.YChild)
-    keyImportAuthenticationRsa.EntityData.Children["input"] = types.YChild{"Input", &keyImportAuthenticationRsa.Input}
-    keyImportAuthenticationRsa.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyImportAuthenticationRsa.EntityData.Children = types.NewOrderedMap()
+    keyImportAuthenticationRsa.EntityData.Children.Append("input", types.YChild{"Input", &keyImportAuthenticationRsa.Input})
+    keyImportAuthenticationRsa.EntityData.Leafs = types.NewOrderedMap()
+
+    keyImportAuthenticationRsa.EntityData.YListKeys = []string {}
+
     return &(keyImportAuthenticationRsa.EntityData)
 }
 
@@ -412,9 +599,12 @@ func (input *KeyImportAuthenticationRsa_Input) GetEntityData() *types.CommonEnti
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["path"] = types.YLeaf{"Path", input.Path}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("path", types.YLeaf{"Path", input.Path})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -438,9 +628,12 @@ func (caAuthenticate *CaAuthenticate) GetEntityData() *types.CommonEntityData {
     caAuthenticate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caAuthenticate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    caAuthenticate.EntityData.Children = make(map[string]types.YChild)
-    caAuthenticate.EntityData.Children["input"] = types.YChild{"Input", &caAuthenticate.Input}
-    caAuthenticate.EntityData.Leafs = make(map[string]types.YLeaf)
+    caAuthenticate.EntityData.Children = types.NewOrderedMap()
+    caAuthenticate.EntityData.Children.Append("input", types.YChild{"Input", &caAuthenticate.Input})
+    caAuthenticate.EntityData.Leafs = types.NewOrderedMap()
+
+    caAuthenticate.EntityData.YListKeys = []string {}
+
     return &(caAuthenticate.EntityData)
 }
 
@@ -463,9 +656,12 @@ func (input *CaAuthenticate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["server-name"] = types.YLeaf{"ServerName", input.ServerName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("server-name", types.YLeaf{"ServerName", input.ServerName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -489,9 +685,12 @@ func (caEnroll *CaEnroll) GetEntityData() *types.CommonEntityData {
     caEnroll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caEnroll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    caEnroll.EntityData.Children = make(map[string]types.YChild)
-    caEnroll.EntityData.Children["input"] = types.YChild{"Input", &caEnroll.Input}
-    caEnroll.EntityData.Leafs = make(map[string]types.YLeaf)
+    caEnroll.EntityData.Children = types.NewOrderedMap()
+    caEnroll.EntityData.Children.Append("input", types.YChild{"Input", &caEnroll.Input})
+    caEnroll.EntityData.Leafs = types.NewOrderedMap()
+
+    caEnroll.EntityData.YListKeys = []string {}
+
     return &(caEnroll.EntityData)
 }
 
@@ -514,9 +713,12 @@ func (input *CaEnroll_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["server-name"] = types.YLeaf{"ServerName", input.ServerName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("server-name", types.YLeaf{"ServerName", input.ServerName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -540,9 +742,12 @@ func (caImportCertificate *CaImportCertificate) GetEntityData() *types.CommonEnt
     caImportCertificate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caImportCertificate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    caImportCertificate.EntityData.Children = make(map[string]types.YChild)
-    caImportCertificate.EntityData.Children["input"] = types.YChild{"Input", &caImportCertificate.Input}
-    caImportCertificate.EntityData.Leafs = make(map[string]types.YLeaf)
+    caImportCertificate.EntityData.Children = types.NewOrderedMap()
+    caImportCertificate.EntityData.Children.Append("input", types.YChild{"Input", &caImportCertificate.Input})
+    caImportCertificate.EntityData.Leafs = types.NewOrderedMap()
+
+    caImportCertificate.EntityData.YListKeys = []string {}
+
     return &(caImportCertificate.EntityData)
 }
 
@@ -565,9 +770,12 @@ func (input *CaImportCertificate_Input) GetEntityData() *types.CommonEntityData 
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["server-name"] = types.YLeaf{"ServerName", input.ServerName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("server-name", types.YLeaf{"ServerName", input.ServerName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -591,9 +799,12 @@ func (caCancelEnroll *CaCancelEnroll) GetEntityData() *types.CommonEntityData {
     caCancelEnroll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caCancelEnroll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    caCancelEnroll.EntityData.Children = make(map[string]types.YChild)
-    caCancelEnroll.EntityData.Children["input"] = types.YChild{"Input", &caCancelEnroll.Input}
-    caCancelEnroll.EntityData.Leafs = make(map[string]types.YLeaf)
+    caCancelEnroll.EntityData.Children = types.NewOrderedMap()
+    caCancelEnroll.EntityData.Children.Append("input", types.YChild{"Input", &caCancelEnroll.Input})
+    caCancelEnroll.EntityData.Leafs = types.NewOrderedMap()
+
+    caCancelEnroll.EntityData.YListKeys = []string {}
+
     return &(caCancelEnroll.EntityData)
 }
 
@@ -616,9 +827,12 @@ func (input *CaCancelEnroll_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["server-name"] = types.YLeaf{"ServerName", input.ServerName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("server-name", types.YLeaf{"ServerName", input.ServerName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -645,10 +859,13 @@ func (caCrlRequest *CaCrlRequest) GetEntityData() *types.CommonEntityData {
     caCrlRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caCrlRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    caCrlRequest.EntityData.Children = make(map[string]types.YChild)
-    caCrlRequest.EntityData.Children["input"] = types.YChild{"Input", &caCrlRequest.Input}
-    caCrlRequest.EntityData.Children["output"] = types.YChild{"Output", &caCrlRequest.Output}
-    caCrlRequest.EntityData.Leafs = make(map[string]types.YLeaf)
+    caCrlRequest.EntityData.Children = types.NewOrderedMap()
+    caCrlRequest.EntityData.Children.Append("input", types.YChild{"Input", &caCrlRequest.Input})
+    caCrlRequest.EntityData.Children.Append("output", types.YChild{"Output", &caCrlRequest.Output})
+    caCrlRequest.EntityData.Leafs = types.NewOrderedMap()
+
+    caCrlRequest.EntityData.YListKeys = []string {}
+
     return &(caCrlRequest.EntityData)
 }
 
@@ -672,9 +889,12 @@ func (input *CaCrlRequest_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["uri"] = types.YLeaf{"Uri", input.Uri}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("uri", types.YLeaf{"Uri", input.Uri})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -697,9 +917,12 @@ func (output *CaCrlRequest_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["certificate"] = types.YLeaf{"Certificate", output.Certificate}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("certificate", types.YLeaf{"Certificate", output.Certificate})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -723,9 +946,12 @@ func (caTrustpoolImportUrl *CaTrustpoolImportUrl) GetEntityData() *types.CommonE
     caTrustpoolImportUrl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caTrustpoolImportUrl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    caTrustpoolImportUrl.EntityData.Children = make(map[string]types.YChild)
-    caTrustpoolImportUrl.EntityData.Children["input"] = types.YChild{"Input", &caTrustpoolImportUrl.Input}
-    caTrustpoolImportUrl.EntityData.Leafs = make(map[string]types.YLeaf)
+    caTrustpoolImportUrl.EntityData.Children = types.NewOrderedMap()
+    caTrustpoolImportUrl.EntityData.Children.Append("input", types.YChild{"Input", &caTrustpoolImportUrl.Input})
+    caTrustpoolImportUrl.EntityData.Leafs = types.NewOrderedMap()
+
+    caTrustpoolImportUrl.EntityData.YListKeys = []string {}
+
     return &(caTrustpoolImportUrl.EntityData)
 }
 
@@ -748,9 +974,12 @@ func (input *CaTrustpoolImportUrl_Input) GetEntityData() *types.CommonEntityData
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["url"] = types.YLeaf{"Url", input.Url}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("url", types.YLeaf{"Url", input.Url})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -774,9 +1003,12 @@ func (caTrustpoolImportUrlClean *CaTrustpoolImportUrlClean) GetEntityData() *typ
     caTrustpoolImportUrlClean.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caTrustpoolImportUrlClean.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    caTrustpoolImportUrlClean.EntityData.Children = make(map[string]types.YChild)
-    caTrustpoolImportUrlClean.EntityData.Children["input"] = types.YChild{"Input", &caTrustpoolImportUrlClean.Input}
-    caTrustpoolImportUrlClean.EntityData.Leafs = make(map[string]types.YLeaf)
+    caTrustpoolImportUrlClean.EntityData.Children = types.NewOrderedMap()
+    caTrustpoolImportUrlClean.EntityData.Children.Append("input", types.YChild{"Input", &caTrustpoolImportUrlClean.Input})
+    caTrustpoolImportUrlClean.EntityData.Leafs = types.NewOrderedMap()
+
+    caTrustpoolImportUrlClean.EntityData.YListKeys = []string {}
+
     return &(caTrustpoolImportUrlClean.EntityData)
 }
 
@@ -799,9 +1031,12 @@ func (input *CaTrustpoolImportUrlClean_Input) GetEntityData() *types.CommonEntit
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["url"] = types.YLeaf{"Url", input.Url}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("url", types.YLeaf{"Url", input.Url})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

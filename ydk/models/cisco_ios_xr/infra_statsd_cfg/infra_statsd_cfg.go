@@ -48,9 +48,12 @@ func (statistics *Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["period"] = types.YChild{"Period", &statistics.Period}
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("period", types.YChild{"Period", &statistics.Period})
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -74,9 +77,12 @@ func (period *Statistics_Period) GetEntityData() *types.CommonEntityData {
     period.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     period.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    period.EntityData.Children = make(map[string]types.YChild)
-    period.EntityData.Children["service-accounting"] = types.YChild{"ServiceAccounting", &period.ServiceAccounting}
-    period.EntityData.Leafs = make(map[string]types.YLeaf)
+    period.EntityData.Children = types.NewOrderedMap()
+    period.EntityData.Children.Append("service-accounting", types.YChild{"ServiceAccounting", &period.ServiceAccounting})
+    period.EntityData.Leafs = types.NewOrderedMap()
+
+    period.EntityData.YListKeys = []string {}
+
     return &(period.EntityData)
 }
 
@@ -88,7 +94,7 @@ type Statistics_Period_ServiceAccounting struct {
     YFilter yfilter.YFilter
 
     // Collection polling period for service accounting collectors. The type is
-    // interface{} with range: 30..3600.
+    // interface{} with range: 30..3600. The default value is 900.
     PollingPeriod interface{}
 
     // Disable periodic statistics polling for service accounting collectors. The
@@ -106,10 +112,13 @@ func (serviceAccounting *Statistics_Period_ServiceAccounting) GetEntityData() *t
     serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceAccounting.EntityData.Children = make(map[string]types.YChild)
-    serviceAccounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceAccounting.EntityData.Leafs["polling-period"] = types.YLeaf{"PollingPeriod", serviceAccounting.PollingPeriod}
-    serviceAccounting.EntityData.Leafs["polling-disable"] = types.YLeaf{"PollingDisable", serviceAccounting.PollingDisable}
+    serviceAccounting.EntityData.Children = types.NewOrderedMap()
+    serviceAccounting.EntityData.Leafs = types.NewOrderedMap()
+    serviceAccounting.EntityData.Leafs.Append("polling-period", types.YLeaf{"PollingPeriod", serviceAccounting.PollingPeriod})
+    serviceAccounting.EntityData.Leafs.Append("polling-disable", types.YLeaf{"PollingDisable", serviceAccounting.PollingDisable})
+
+    serviceAccounting.EntityData.YListKeys = []string {}
+
     return &(serviceAccounting.EntityData)
 }
 

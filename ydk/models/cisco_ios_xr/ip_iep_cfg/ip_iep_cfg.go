@@ -24,15 +24,15 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths", reflect.TypeOf(IpExplicitPaths{}))
 }
 
-// IpIepNum represents Ip iep num
-type IpIepNum string
+// IpIepPath represents Ip iep path
+type IpIepPath string
 
 const (
-    // Unnumbered
-    IpIepNum_unnumbered IpIepNum = "unnumbered"
+    // Identifier
+    IpIepPath_identifier IpIepPath = "identifier"
 
-    // Numbered
-    IpIepNum_numbered IpIepNum = "numbered"
+    // Name
+    IpIepPath_name IpIepPath = "name"
 )
 
 // IpIepHop represents Ip iep hop
@@ -55,15 +55,15 @@ const (
     IpIepHop_next_label IpIepHop = "next-label"
 )
 
-// IpIepPath represents Ip iep path
-type IpIepPath string
+// IpIepNum represents Ip iep num
+type IpIepNum string
 
 const (
-    // Identifier
-    IpIepPath_identifier IpIepPath = "identifier"
+    // Unnumbered
+    IpIepNum_unnumbered IpIepNum = "unnumbered"
 
-    // Name
-    IpIepPath_name IpIepPath = "name"
+    // Numbered
+    IpIepNum_numbered IpIepNum = "numbered"
 )
 
 // IpExplicitPaths
@@ -86,9 +86,12 @@ func (ipExplicitPaths *IpExplicitPaths) GetEntityData() *types.CommonEntityData 
     ipExplicitPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipExplicitPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipExplicitPaths.EntityData.Children = make(map[string]types.YChild)
-    ipExplicitPaths.EntityData.Children["paths"] = types.YChild{"Paths", &ipExplicitPaths.Paths}
-    ipExplicitPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipExplicitPaths.EntityData.Children = types.NewOrderedMap()
+    ipExplicitPaths.EntityData.Children.Append("paths", types.YChild{"Paths", &ipExplicitPaths.Paths})
+    ipExplicitPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    ipExplicitPaths.EntityData.YListKeys = []string {}
+
     return &(ipExplicitPaths.EntityData)
 }
 
@@ -100,7 +103,7 @@ type IpExplicitPaths_Paths struct {
 
     // Config data for a specific explicit path. The type is slice of
     // IpExplicitPaths_Paths_Path.
-    Path []IpExplicitPaths_Paths_Path
+    Path []*IpExplicitPaths_Paths_Path
 }
 
 func (paths *IpExplicitPaths_Paths) GetEntityData() *types.CommonEntityData {
@@ -113,12 +116,15 @@ func (paths *IpExplicitPaths_Paths) GetEntityData() *types.CommonEntityData {
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    paths.EntityData.Children = make(map[string]types.YChild)
-    paths.EntityData.Children["path"] = types.YChild{"Path", nil}
+    paths.EntityData.Children = types.NewOrderedMap()
+    paths.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range paths.Path {
-        paths.EntityData.Children[types.GetSegmentPath(&paths.Path[i])] = types.YChild{"Path", &paths.Path[i]}
+        paths.EntityData.Children.Append(types.GetSegmentPath(paths.Path[i]), types.YChild{"Path", paths.Path[i]})
     }
-    paths.EntityData.Leafs = make(map[string]types.YLeaf)
+    paths.EntityData.Leafs = types.NewOrderedMap()
+
+    paths.EntityData.YListKeys = []string {}
+
     return &(paths.EntityData)
 }
 
@@ -129,13 +135,13 @@ type IpExplicitPaths_Paths_Path struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Path type. The type is IpIepPath.
-    Type_ interface{}
+    Type interface{}
 
     // name. The type is slice of IpExplicitPaths_Paths_Path_Name.
-    Name []IpExplicitPaths_Paths_Path_Name
+    Name []*IpExplicitPaths_Paths_Path_Name
 
     // identifier. The type is slice of IpExplicitPaths_Paths_Path_Identifier.
-    Identifier []IpExplicitPaths_Paths_Path_Identifier
+    Identifier []*IpExplicitPaths_Paths_Path_Identifier
 }
 
 func (path *IpExplicitPaths_Paths_Path) GetEntityData() *types.CommonEntityData {
@@ -143,22 +149,25 @@ func (path *IpExplicitPaths_Paths_Path) GetEntityData() *types.CommonEntityData 
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
-    path.EntityData.SegmentPath = "path" + "[type='" + fmt.Sprintf("%v", path.Type_) + "']"
+    path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.Type, "type")
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    path.EntityData.Children = make(map[string]types.YChild)
-    path.EntityData.Children["name"] = types.YChild{"Name", nil}
+    path.EntityData.Children = types.NewOrderedMap()
+    path.EntityData.Children.Append("name", types.YChild{"Name", nil})
     for i := range path.Name {
-        path.EntityData.Children[types.GetSegmentPath(&path.Name[i])] = types.YChild{"Name", &path.Name[i]}
+        path.EntityData.Children.Append(types.GetSegmentPath(path.Name[i]), types.YChild{"Name", path.Name[i]})
     }
-    path.EntityData.Children["identifier"] = types.YChild{"Identifier", nil}
+    path.EntityData.Children.Append("identifier", types.YChild{"Identifier", nil})
     for i := range path.Identifier {
-        path.EntityData.Children[types.GetSegmentPath(&path.Identifier[i])] = types.YChild{"Identifier", &path.Identifier[i]}
+        path.EntityData.Children.Append(types.GetSegmentPath(path.Identifier[i]), types.YChild{"Identifier", path.Identifier[i]})
     }
-    path.EntityData.Leafs = make(map[string]types.YLeaf)
-    path.EntityData.Leafs["type"] = types.YLeaf{"Type_", path.Type_}
+    path.EntityData.Leafs = types.NewOrderedMap()
+    path.EntityData.Leafs.Append("type", types.YLeaf{"Type", path.Type})
+
+    path.EntityData.YListKeys = []string {"Type"}
+
     return &(path.EntityData)
 }
 
@@ -169,7 +178,7 @@ type IpExplicitPaths_Paths_Path_Name struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Path name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Disable the explicit path. The type is interface{}.
@@ -184,16 +193,19 @@ func (name *IpExplicitPaths_Paths_Path_Name) GetEntityData() *types.CommonEntity
     name.EntityData.YangName = "name"
     name.EntityData.BundleName = "cisco_ios_xr"
     name.EntityData.ParentYangName = "path"
-    name.EntityData.SegmentPath = "name" + "[name='" + fmt.Sprintf("%v", name.Name) + "']"
+    name.EntityData.SegmentPath = "name" + types.AddKeyToken(name.Name, "name")
     name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    name.EntityData.Children = make(map[string]types.YChild)
-    name.EntityData.Children["hops"] = types.YChild{"Hops", &name.Hops}
-    name.EntityData.Leafs = make(map[string]types.YLeaf)
-    name.EntityData.Leafs["name"] = types.YLeaf{"Name", name.Name}
-    name.EntityData.Leafs["disable"] = types.YLeaf{"Disable", name.Disable}
+    name.EntityData.Children = types.NewOrderedMap()
+    name.EntityData.Children.Append("hops", types.YChild{"Hops", &name.Hops})
+    name.EntityData.Leafs = types.NewOrderedMap()
+    name.EntityData.Leafs.Append("name", types.YLeaf{"Name", name.Name})
+    name.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", name.Disable})
+
+    name.EntityData.YListKeys = []string {"Name"}
+
     return &(name.EntityData)
 }
 
@@ -205,7 +217,7 @@ type IpExplicitPaths_Paths_Path_Name_Hops struct {
 
     // Hop Information. The type is slice of
     // IpExplicitPaths_Paths_Path_Name_Hops_Hop.
-    Hop []IpExplicitPaths_Paths_Path_Name_Hops_Hop
+    Hop []*IpExplicitPaths_Paths_Path_Name_Hops_Hop
 }
 
 func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetEntityData() *types.CommonEntityData {
@@ -218,12 +230,15 @@ func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetEntityData() *types.CommonE
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hops.EntityData.Children = make(map[string]types.YChild)
-    hops.EntityData.Children["hop"] = types.YChild{"Hop", nil}
+    hops.EntityData.Children = types.NewOrderedMap()
+    hops.EntityData.Children.Append("hop", types.YChild{"Hop", nil})
     for i := range hops.Hop {
-        hops.EntityData.Children[types.GetSegmentPath(&hops.Hop[i])] = types.YChild{"Hop", &hops.Hop[i]}
+        hops.EntityData.Children.Append(types.GetSegmentPath(hops.Hop[i]), types.YChild{"Hop", hops.Hop[i]})
     }
-    hops.EntityData.Leafs = make(map[string]types.YLeaf)
+    hops.EntityData.Leafs = types.NewOrderedMap()
+
+    hops.EntityData.YListKeys = []string {}
+
     return &(hops.EntityData)
 }
 
@@ -238,7 +253,7 @@ type IpExplicitPaths_Paths_Path_Name_Hops_Hop struct {
     IndexNumber interface{}
 
     // IP address of the hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     IpAddress interface{}
 
@@ -246,8 +261,8 @@ type IpExplicitPaths_Paths_Path_Name_Hops_Hop struct {
     // value is next-strict.
     HopType interface{}
 
-    // Ifindex value. The type is interface{} with range: -2147483648..2147483647.
-    // The default value is 0.
+    // Ifindex value. The type is interface{} with range: 0..4294967295. The
+    // default value is 0.
     IfIndex interface{}
 
     // Number type Numbered or Unnumbered. The type is IpIepNum. The default value
@@ -263,19 +278,22 @@ func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetEntityData() *types.Comm
     hop.EntityData.YangName = "hop"
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
-    hop.EntityData.SegmentPath = "hop" + "[index-number='" + fmt.Sprintf("%v", hop.IndexNumber) + "']"
+    hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.IndexNumber, "index-number")
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hop.EntityData.Children = make(map[string]types.YChild)
-    hop.EntityData.Leafs = make(map[string]types.YLeaf)
-    hop.EntityData.Leafs["index-number"] = types.YLeaf{"IndexNumber", hop.IndexNumber}
-    hop.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", hop.IpAddress}
-    hop.EntityData.Leafs["hop-type"] = types.YLeaf{"HopType", hop.HopType}
-    hop.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", hop.IfIndex}
-    hop.EntityData.Leafs["num-type"] = types.YLeaf{"NumType", hop.NumType}
-    hop.EntityData.Leafs["mpls-label"] = types.YLeaf{"MplsLabel", hop.MplsLabel}
+    hop.EntityData.Children = types.NewOrderedMap()
+    hop.EntityData.Leafs = types.NewOrderedMap()
+    hop.EntityData.Leafs.Append("index-number", types.YLeaf{"IndexNumber", hop.IndexNumber})
+    hop.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", hop.IpAddress})
+    hop.EntityData.Leafs.Append("hop-type", types.YLeaf{"HopType", hop.HopType})
+    hop.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", hop.IfIndex})
+    hop.EntityData.Leafs.Append("num-type", types.YLeaf{"NumType", hop.NumType})
+    hop.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", hop.MplsLabel})
+
+    hop.EntityData.YListKeys = []string {"IndexNumber"}
+
     return &(hop.EntityData)
 }
 
@@ -301,16 +319,19 @@ func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetEntityData() *types.
     identifier.EntityData.YangName = "identifier"
     identifier.EntityData.BundleName = "cisco_ios_xr"
     identifier.EntityData.ParentYangName = "path"
-    identifier.EntityData.SegmentPath = "identifier" + "[id='" + fmt.Sprintf("%v", identifier.Id) + "']"
+    identifier.EntityData.SegmentPath = "identifier" + types.AddKeyToken(identifier.Id, "id")
     identifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     identifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     identifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    identifier.EntityData.Children = make(map[string]types.YChild)
-    identifier.EntityData.Children["hops"] = types.YChild{"Hops", &identifier.Hops}
-    identifier.EntityData.Leafs = make(map[string]types.YLeaf)
-    identifier.EntityData.Leafs["id"] = types.YLeaf{"Id", identifier.Id}
-    identifier.EntityData.Leafs["disable"] = types.YLeaf{"Disable", identifier.Disable}
+    identifier.EntityData.Children = types.NewOrderedMap()
+    identifier.EntityData.Children.Append("hops", types.YChild{"Hops", &identifier.Hops})
+    identifier.EntityData.Leafs = types.NewOrderedMap()
+    identifier.EntityData.Leafs.Append("id", types.YLeaf{"Id", identifier.Id})
+    identifier.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", identifier.Disable})
+
+    identifier.EntityData.YListKeys = []string {"Id"}
+
     return &(identifier.EntityData)
 }
 
@@ -322,7 +343,7 @@ type IpExplicitPaths_Paths_Path_Identifier_Hops struct {
 
     // Hop Information. The type is slice of
     // IpExplicitPaths_Paths_Path_Identifier_Hops_Hop.
-    Hop []IpExplicitPaths_Paths_Path_Identifier_Hops_Hop
+    Hop []*IpExplicitPaths_Paths_Path_Identifier_Hops_Hop
 }
 
 func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetEntityData() *types.CommonEntityData {
@@ -335,12 +356,15 @@ func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetEntityData() *types.C
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hops.EntityData.Children = make(map[string]types.YChild)
-    hops.EntityData.Children["hop"] = types.YChild{"Hop", nil}
+    hops.EntityData.Children = types.NewOrderedMap()
+    hops.EntityData.Children.Append("hop", types.YChild{"Hop", nil})
     for i := range hops.Hop {
-        hops.EntityData.Children[types.GetSegmentPath(&hops.Hop[i])] = types.YChild{"Hop", &hops.Hop[i]}
+        hops.EntityData.Children.Append(types.GetSegmentPath(hops.Hop[i]), types.YChild{"Hop", hops.Hop[i]})
     }
-    hops.EntityData.Leafs = make(map[string]types.YLeaf)
+    hops.EntityData.Leafs = types.NewOrderedMap()
+
+    hops.EntityData.YListKeys = []string {}
+
     return &(hops.EntityData)
 }
 
@@ -355,7 +379,7 @@ type IpExplicitPaths_Paths_Path_Identifier_Hops_Hop struct {
     IndexNumber interface{}
 
     // IP address of the hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     IpAddress interface{}
 
@@ -363,8 +387,8 @@ type IpExplicitPaths_Paths_Path_Identifier_Hops_Hop struct {
     // value is next-strict.
     HopType interface{}
 
-    // Ifindex value. The type is interface{} with range: -2147483648..2147483647.
-    // The default value is 0.
+    // Ifindex value. The type is interface{} with range: 0..4294967295. The
+    // default value is 0.
     IfIndex interface{}
 
     // Number type Numbered or Unnumbered. The type is IpIepNum. The default value
@@ -380,19 +404,22 @@ func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetEntityData() *type
     hop.EntityData.YangName = "hop"
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
-    hop.EntityData.SegmentPath = "hop" + "[index-number='" + fmt.Sprintf("%v", hop.IndexNumber) + "']"
+    hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.IndexNumber, "index-number")
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hop.EntityData.Children = make(map[string]types.YChild)
-    hop.EntityData.Leafs = make(map[string]types.YLeaf)
-    hop.EntityData.Leafs["index-number"] = types.YLeaf{"IndexNumber", hop.IndexNumber}
-    hop.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", hop.IpAddress}
-    hop.EntityData.Leafs["hop-type"] = types.YLeaf{"HopType", hop.HopType}
-    hop.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", hop.IfIndex}
-    hop.EntityData.Leafs["num-type"] = types.YLeaf{"NumType", hop.NumType}
-    hop.EntityData.Leafs["mpls-label"] = types.YLeaf{"MplsLabel", hop.MplsLabel}
+    hop.EntityData.Children = types.NewOrderedMap()
+    hop.EntityData.Leafs = types.NewOrderedMap()
+    hop.EntityData.Leafs.Append("index-number", types.YLeaf{"IndexNumber", hop.IndexNumber})
+    hop.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", hop.IpAddress})
+    hop.EntityData.Leafs.Append("hop-type", types.YLeaf{"HopType", hop.HopType})
+    hop.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", hop.IfIndex})
+    hop.EntityData.Leafs.Append("num-type", types.YLeaf{"NumType", hop.NumType})
+    hop.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", hop.MplsLabel})
+
+    hop.EntityData.YListKeys = []string {"IndexNumber"}
+
     return &(hop.EntityData)
 }
 

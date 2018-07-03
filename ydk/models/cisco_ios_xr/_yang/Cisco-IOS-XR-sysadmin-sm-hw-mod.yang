@@ -154,6 +154,11 @@ module Cisco-IOS-XR-sysadmin-sm-hw-mod {
           mandatory false;
           tailf:info "Do not prompt user for confirmation";
         }
+        leaf warm {
+          type empty;
+          mandatory false;
+          tailf:info "Fast reload";
+        }
       }
       output {
         leaf result {

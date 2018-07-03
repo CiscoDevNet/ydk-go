@@ -6,7 +6,7 @@ module Cisco-IOS-XR-procmem-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-procmem-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -32,6 +32,10 @@ module Cisco-IOS-XR-procmem-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -64,7 +68,7 @@ module Cisco-IOS-XR-procmem-oper {
             description
               "Process Id";
             leaf process-id {
-              type int32;
+              type uint32;
               description
                 "Process Id";
             }

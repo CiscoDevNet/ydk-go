@@ -405,7 +405,7 @@ module Cisco-IOS-XR-sysadmin-alarm-mgr {
         "Alarms agent id of the client";
     }
     leaf agent_location {
-      type calvados:location-id;
+      type string;
       description
         "The location of this client";
     }

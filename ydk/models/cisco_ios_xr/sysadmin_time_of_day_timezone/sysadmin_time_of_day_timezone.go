@@ -1,3 +1,6 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR syadmin TOD configuration and cli.
 // 
@@ -6,6 +9,9 @@
 // Time of the Day(TOD) Cli and configuration data
 // 
 // Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_time_of_day_timezone
 
@@ -45,9 +51,12 @@ func (clock *Clock) GetEntityData() *types.CommonEntityData {
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clock.EntityData.Children = make(map[string]types.YChild)
-    clock.EntityData.Children["timezone"] = types.YChild{"Timezone", &clock.Timezone}
-    clock.EntityData.Leafs = make(map[string]types.YLeaf)
+    clock.EntityData.Children = types.NewOrderedMap()
+    clock.EntityData.Children.Append("timezone", types.YChild{"Timezone", &clock.Timezone})
+    clock.EntityData.Leafs = types.NewOrderedMap()
+
+    clock.EntityData.YListKeys = []string {}
+
     return &(clock.EntityData)
 }
 
@@ -73,10 +82,13 @@ func (timezone *Clock_Timezone) GetEntityData() *types.CommonEntityData {
     timezone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timezone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timezone.EntityData.Children = make(map[string]types.YChild)
-    timezone.EntityData.Leafs = make(map[string]types.YLeaf)
-    timezone.EntityData.Leafs["tzname"] = types.YLeaf{"Tzname", timezone.Tzname}
-    timezone.EntityData.Leafs["area"] = types.YLeaf{"Area", timezone.Area}
+    timezone.EntityData.Children = types.NewOrderedMap()
+    timezone.EntityData.Leafs = types.NewOrderedMap()
+    timezone.EntityData.Leafs.Append("tzname", types.YLeaf{"Tzname", timezone.Tzname})
+    timezone.EntityData.Leafs.Append("area", types.YLeaf{"Area", timezone.Area})
+
+    timezone.EntityData.YListKeys = []string {}
+
     return &(timezone.EntityData)
 }
 
@@ -102,10 +114,13 @@ func (trace *Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace.EntityData.Children = make(map[string]types.YChild)
-    trace.EntityData.Children["timezone_config"] = types.YChild{"TimezoneConfig", &trace.TimezoneConfig}
-    trace.EntityData.Children["timezone_notify"] = types.YChild{"TimezoneNotify", &trace.TimezoneNotify}
-    trace.EntityData.Leafs = make(map[string]types.YLeaf)
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Children.Append("timezone_config", types.YChild{"TimezoneConfig", &trace.TimezoneConfig})
+    trace.EntityData.Children.Append("timezone_notify", types.YChild{"TimezoneNotify", &trace.TimezoneNotify})
+    trace.EntityData.Leafs = types.NewOrderedMap()
+
+    trace.EntityData.YListKeys = []string {}
+
     return &(trace.EntityData)
 }
 
@@ -115,7 +130,7 @@ type Trace_TimezoneConfig struct {
     YFilter yfilter.YFilter
 
     // show traceable processes. The type is slice of Trace_TimezoneConfig_Trace.
-    Trace []Trace_TimezoneConfig_Trace_
+    Trace []*Trace_TimezoneConfig_Trace
 }
 
 func (timezoneConfig *Trace_TimezoneConfig) GetEntityData() *types.CommonEntityData {
@@ -128,82 +143,91 @@ func (timezoneConfig *Trace_TimezoneConfig) GetEntityData() *types.CommonEntityD
     timezoneConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timezoneConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timezoneConfig.EntityData.Children = make(map[string]types.YChild)
-    timezoneConfig.EntityData.Children["trace"] = types.YChild{"Trace", nil}
+    timezoneConfig.EntityData.Children = types.NewOrderedMap()
+    timezoneConfig.EntityData.Children.Append("trace", types.YChild{"Trace", nil})
     for i := range timezoneConfig.Trace {
-        timezoneConfig.EntityData.Children[types.GetSegmentPath(&timezoneConfig.Trace[i])] = types.YChild{"Trace", &timezoneConfig.Trace[i]}
+        timezoneConfig.EntityData.Children.Append(types.GetSegmentPath(timezoneConfig.Trace[i]), types.YChild{"Trace", timezoneConfig.Trace[i]})
     }
-    timezoneConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    timezoneConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    timezoneConfig.EntityData.YListKeys = []string {}
+
     return &(timezoneConfig.EntityData)
 }
 
-// Trace_TimezoneConfig_Trace_
+// Trace_TimezoneConfig_Trace
 // show traceable processes
-type Trace_TimezoneConfig_Trace_ struct {
+type Trace_TimezoneConfig_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string.
     Buffer interface{}
 
-    // The type is slice of Trace_TimezoneConfig_Trace__Location.
-    Location []Trace_TimezoneConfig_Trace__Location
+    // The type is slice of Trace_TimezoneConfig_Trace_Location.
+    Location []*Trace_TimezoneConfig_Trace_Location
 }
 
-func (trace_ *Trace_TimezoneConfig_Trace_) GetEntityData() *types.CommonEntityData {
-    trace_.EntityData.YFilter = trace_.YFilter
-    trace_.EntityData.YangName = "trace"
-    trace_.EntityData.BundleName = "cisco_ios_xr"
-    trace_.EntityData.ParentYangName = "timezone_config"
-    trace_.EntityData.SegmentPath = "trace" + "[buffer='" + fmt.Sprintf("%v", trace_.Buffer) + "']"
-    trace_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    trace_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    trace_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (trace *Trace_TimezoneConfig_Trace) GetEntityData() *types.CommonEntityData {
+    trace.EntityData.YFilter = trace.YFilter
+    trace.EntityData.YangName = "trace"
+    trace.EntityData.BundleName = "cisco_ios_xr"
+    trace.EntityData.ParentYangName = "timezone_config"
+    trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace_.EntityData.Children = make(map[string]types.YChild)
-    trace_.EntityData.Children["location"] = types.YChild{"Location", nil}
-    for i := range trace_.Location {
-        trace_.EntityData.Children[types.GetSegmentPath(&trace_.Location[i])] = types.YChild{"Location", &trace_.Location[i]}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Children.Append("location", types.YChild{"Location", nil})
+    for i := range trace.Location {
+        trace.EntityData.Children.Append(types.GetSegmentPath(trace.Location[i]), types.YChild{"Location", trace.Location[i]})
     }
-    trace_.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace_.EntityData.Leafs["buffer"] = types.YLeaf{"Buffer", trace_.Buffer}
-    return &(trace_.EntityData)
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("buffer", types.YLeaf{"Buffer", trace.Buffer})
+
+    trace.EntityData.YListKeys = []string {"Buffer"}
+
+    return &(trace.EntityData)
 }
 
-// Trace_TimezoneConfig_Trace__Location
-type Trace_TimezoneConfig_Trace__Location struct {
+// Trace_TimezoneConfig_Trace_Location
+type Trace_TimezoneConfig_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string.
     LocationName interface{}
 
-    // The type is slice of Trace_TimezoneConfig_Trace__Location_AllOptions.
-    AllOptions []Trace_TimezoneConfig_Trace__Location_AllOptions
+    // The type is slice of Trace_TimezoneConfig_Trace_Location_AllOptions.
+    AllOptions []*Trace_TimezoneConfig_Trace_Location_AllOptions
 }
 
-func (location *Trace_TimezoneConfig_Trace__Location) GetEntityData() *types.CommonEntityData {
+func (location *Trace_TimezoneConfig_Trace_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.YFilter = location.YFilter
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
-    location.EntityData.SegmentPath = "location" + "[location_name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["all-options"] = types.YChild{"AllOptions", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("all-options", types.YChild{"AllOptions", nil})
     for i := range location.AllOptions {
-        location.EntityData.Children[types.GetSegmentPath(&location.AllOptions[i])] = types.YChild{"AllOptions", &location.AllOptions[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.AllOptions[i]), types.YChild{"AllOptions", location.AllOptions[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location_name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location_name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
-// Trace_TimezoneConfig_Trace__Location_AllOptions
-type Trace_TimezoneConfig_Trace__Location_AllOptions struct {
+// Trace_TimezoneConfig_Trace_Location_AllOptions
+type Trace_TimezoneConfig_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -211,32 +235,35 @@ type Trace_TimezoneConfig_Trace__Location_AllOptions struct {
     Option interface{}
 
     // The type is slice of
-    // Trace_TimezoneConfig_Trace__Location_AllOptions_TraceBlocks.
-    TraceBlocks []Trace_TimezoneConfig_Trace__Location_AllOptions_TraceBlocks
+    // Trace_TimezoneConfig_Trace_Location_AllOptions_TraceBlocks.
+    TraceBlocks []*Trace_TimezoneConfig_Trace_Location_AllOptions_TraceBlocks
 }
 
-func (allOptions *Trace_TimezoneConfig_Trace__Location_AllOptions) GetEntityData() *types.CommonEntityData {
+func (allOptions *Trace_TimezoneConfig_Trace_Location_AllOptions) GetEntityData() *types.CommonEntityData {
     allOptions.EntityData.YFilter = allOptions.YFilter
     allOptions.EntityData.YangName = "all-options"
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
-    allOptions.EntityData.SegmentPath = "all-options" + "[option='" + fmt.Sprintf("%v", allOptions.Option) + "']"
+    allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allOptions.EntityData.Children = make(map[string]types.YChild)
-    allOptions.EntityData.Children["trace-blocks"] = types.YChild{"TraceBlocks", nil}
+    allOptions.EntityData.Children = types.NewOrderedMap()
+    allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
-        allOptions.EntityData.Children[types.GetSegmentPath(&allOptions.TraceBlocks[i])] = types.YChild{"TraceBlocks", &allOptions.TraceBlocks[i]}
+        allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
-    allOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    allOptions.EntityData.Leafs["option"] = types.YLeaf{"Option", allOptions.Option}
+    allOptions.EntityData.Leafs = types.NewOrderedMap()
+    allOptions.EntityData.Leafs.Append("option", types.YLeaf{"Option", allOptions.Option})
+
+    allOptions.EntityData.YListKeys = []string {"Option"}
+
     return &(allOptions.EntityData)
 }
 
-// Trace_TimezoneConfig_Trace__Location_AllOptions_TraceBlocks
-type Trace_TimezoneConfig_Trace__Location_AllOptions_TraceBlocks struct {
+// Trace_TimezoneConfig_Trace_Location_AllOptions_TraceBlocks
+type Trace_TimezoneConfig_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -244,7 +271,7 @@ type Trace_TimezoneConfig_Trace__Location_AllOptions_TraceBlocks struct {
     Data interface{}
 }
 
-func (traceBlocks *Trace_TimezoneConfig_Trace__Location_AllOptions_TraceBlocks) GetEntityData() *types.CommonEntityData {
+func (traceBlocks *Trace_TimezoneConfig_Trace_Location_AllOptions_TraceBlocks) GetEntityData() *types.CommonEntityData {
     traceBlocks.EntityData.YFilter = traceBlocks.YFilter
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
@@ -254,9 +281,12 @@ func (traceBlocks *Trace_TimezoneConfig_Trace__Location_AllOptions_TraceBlocks) 
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traceBlocks.EntityData.Children = make(map[string]types.YChild)
-    traceBlocks.EntityData.Leafs = make(map[string]types.YLeaf)
-    traceBlocks.EntityData.Leafs["data"] = types.YLeaf{"Data", traceBlocks.Data}
+    traceBlocks.EntityData.Children = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs.Append("data", types.YLeaf{"Data", traceBlocks.Data})
+
+    traceBlocks.EntityData.YListKeys = []string {}
+
     return &(traceBlocks.EntityData)
 }
 
@@ -266,7 +296,7 @@ type Trace_TimezoneNotify struct {
     YFilter yfilter.YFilter
 
     // show traceable processes. The type is slice of Trace_TimezoneNotify_Trace.
-    Trace []Trace_TimezoneNotify_Trace_
+    Trace []*Trace_TimezoneNotify_Trace
 }
 
 func (timezoneNotify *Trace_TimezoneNotify) GetEntityData() *types.CommonEntityData {
@@ -279,82 +309,91 @@ func (timezoneNotify *Trace_TimezoneNotify) GetEntityData() *types.CommonEntityD
     timezoneNotify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timezoneNotify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timezoneNotify.EntityData.Children = make(map[string]types.YChild)
-    timezoneNotify.EntityData.Children["trace"] = types.YChild{"Trace", nil}
+    timezoneNotify.EntityData.Children = types.NewOrderedMap()
+    timezoneNotify.EntityData.Children.Append("trace", types.YChild{"Trace", nil})
     for i := range timezoneNotify.Trace {
-        timezoneNotify.EntityData.Children[types.GetSegmentPath(&timezoneNotify.Trace[i])] = types.YChild{"Trace", &timezoneNotify.Trace[i]}
+        timezoneNotify.EntityData.Children.Append(types.GetSegmentPath(timezoneNotify.Trace[i]), types.YChild{"Trace", timezoneNotify.Trace[i]})
     }
-    timezoneNotify.EntityData.Leafs = make(map[string]types.YLeaf)
+    timezoneNotify.EntityData.Leafs = types.NewOrderedMap()
+
+    timezoneNotify.EntityData.YListKeys = []string {}
+
     return &(timezoneNotify.EntityData)
 }
 
-// Trace_TimezoneNotify_Trace_
+// Trace_TimezoneNotify_Trace
 // show traceable processes
-type Trace_TimezoneNotify_Trace_ struct {
+type Trace_TimezoneNotify_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string.
     Buffer interface{}
 
-    // The type is slice of Trace_TimezoneNotify_Trace__Location.
-    Location []Trace_TimezoneNotify_Trace__Location
+    // The type is slice of Trace_TimezoneNotify_Trace_Location.
+    Location []*Trace_TimezoneNotify_Trace_Location
 }
 
-func (trace_ *Trace_TimezoneNotify_Trace_) GetEntityData() *types.CommonEntityData {
-    trace_.EntityData.YFilter = trace_.YFilter
-    trace_.EntityData.YangName = "trace"
-    trace_.EntityData.BundleName = "cisco_ios_xr"
-    trace_.EntityData.ParentYangName = "timezone_notify"
-    trace_.EntityData.SegmentPath = "trace" + "[buffer='" + fmt.Sprintf("%v", trace_.Buffer) + "']"
-    trace_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    trace_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    trace_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (trace *Trace_TimezoneNotify_Trace) GetEntityData() *types.CommonEntityData {
+    trace.EntityData.YFilter = trace.YFilter
+    trace.EntityData.YangName = "trace"
+    trace.EntityData.BundleName = "cisco_ios_xr"
+    trace.EntityData.ParentYangName = "timezone_notify"
+    trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace_.EntityData.Children = make(map[string]types.YChild)
-    trace_.EntityData.Children["location"] = types.YChild{"Location", nil}
-    for i := range trace_.Location {
-        trace_.EntityData.Children[types.GetSegmentPath(&trace_.Location[i])] = types.YChild{"Location", &trace_.Location[i]}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Children.Append("location", types.YChild{"Location", nil})
+    for i := range trace.Location {
+        trace.EntityData.Children.Append(types.GetSegmentPath(trace.Location[i]), types.YChild{"Location", trace.Location[i]})
     }
-    trace_.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace_.EntityData.Leafs["buffer"] = types.YLeaf{"Buffer", trace_.Buffer}
-    return &(trace_.EntityData)
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("buffer", types.YLeaf{"Buffer", trace.Buffer})
+
+    trace.EntityData.YListKeys = []string {"Buffer"}
+
+    return &(trace.EntityData)
 }
 
-// Trace_TimezoneNotify_Trace__Location
-type Trace_TimezoneNotify_Trace__Location struct {
+// Trace_TimezoneNotify_Trace_Location
+type Trace_TimezoneNotify_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string.
     LocationName interface{}
 
-    // The type is slice of Trace_TimezoneNotify_Trace__Location_AllOptions.
-    AllOptions []Trace_TimezoneNotify_Trace__Location_AllOptions
+    // The type is slice of Trace_TimezoneNotify_Trace_Location_AllOptions.
+    AllOptions []*Trace_TimezoneNotify_Trace_Location_AllOptions
 }
 
-func (location *Trace_TimezoneNotify_Trace__Location) GetEntityData() *types.CommonEntityData {
+func (location *Trace_TimezoneNotify_Trace_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.YFilter = location.YFilter
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
-    location.EntityData.SegmentPath = "location" + "[location_name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["all-options"] = types.YChild{"AllOptions", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("all-options", types.YChild{"AllOptions", nil})
     for i := range location.AllOptions {
-        location.EntityData.Children[types.GetSegmentPath(&location.AllOptions[i])] = types.YChild{"AllOptions", &location.AllOptions[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.AllOptions[i]), types.YChild{"AllOptions", location.AllOptions[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location_name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location_name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
-// Trace_TimezoneNotify_Trace__Location_AllOptions
-type Trace_TimezoneNotify_Trace__Location_AllOptions struct {
+// Trace_TimezoneNotify_Trace_Location_AllOptions
+type Trace_TimezoneNotify_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -362,32 +401,35 @@ type Trace_TimezoneNotify_Trace__Location_AllOptions struct {
     Option interface{}
 
     // The type is slice of
-    // Trace_TimezoneNotify_Trace__Location_AllOptions_TraceBlocks.
-    TraceBlocks []Trace_TimezoneNotify_Trace__Location_AllOptions_TraceBlocks
+    // Trace_TimezoneNotify_Trace_Location_AllOptions_TraceBlocks.
+    TraceBlocks []*Trace_TimezoneNotify_Trace_Location_AllOptions_TraceBlocks
 }
 
-func (allOptions *Trace_TimezoneNotify_Trace__Location_AllOptions) GetEntityData() *types.CommonEntityData {
+func (allOptions *Trace_TimezoneNotify_Trace_Location_AllOptions) GetEntityData() *types.CommonEntityData {
     allOptions.EntityData.YFilter = allOptions.YFilter
     allOptions.EntityData.YangName = "all-options"
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
-    allOptions.EntityData.SegmentPath = "all-options" + "[option='" + fmt.Sprintf("%v", allOptions.Option) + "']"
+    allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allOptions.EntityData.Children = make(map[string]types.YChild)
-    allOptions.EntityData.Children["trace-blocks"] = types.YChild{"TraceBlocks", nil}
+    allOptions.EntityData.Children = types.NewOrderedMap()
+    allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
-        allOptions.EntityData.Children[types.GetSegmentPath(&allOptions.TraceBlocks[i])] = types.YChild{"TraceBlocks", &allOptions.TraceBlocks[i]}
+        allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
-    allOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    allOptions.EntityData.Leafs["option"] = types.YLeaf{"Option", allOptions.Option}
+    allOptions.EntityData.Leafs = types.NewOrderedMap()
+    allOptions.EntityData.Leafs.Append("option", types.YLeaf{"Option", allOptions.Option})
+
+    allOptions.EntityData.YListKeys = []string {"Option"}
+
     return &(allOptions.EntityData)
 }
 
-// Trace_TimezoneNotify_Trace__Location_AllOptions_TraceBlocks
-type Trace_TimezoneNotify_Trace__Location_AllOptions_TraceBlocks struct {
+// Trace_TimezoneNotify_Trace_Location_AllOptions_TraceBlocks
+type Trace_TimezoneNotify_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -395,7 +437,7 @@ type Trace_TimezoneNotify_Trace__Location_AllOptions_TraceBlocks struct {
     Data interface{}
 }
 
-func (traceBlocks *Trace_TimezoneNotify_Trace__Location_AllOptions_TraceBlocks) GetEntityData() *types.CommonEntityData {
+func (traceBlocks *Trace_TimezoneNotify_Trace_Location_AllOptions_TraceBlocks) GetEntityData() *types.CommonEntityData {
     traceBlocks.EntityData.YFilter = traceBlocks.YFilter
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
@@ -405,9 +447,12 @@ func (traceBlocks *Trace_TimezoneNotify_Trace__Location_AllOptions_TraceBlocks) 
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traceBlocks.EntityData.Children = make(map[string]types.YChild)
-    traceBlocks.EntityData.Leafs = make(map[string]types.YLeaf)
-    traceBlocks.EntityData.Leafs["data"] = types.YLeaf{"Data", traceBlocks.Data}
+    traceBlocks.EntityData.Children = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs.Append("data", types.YLeaf{"Data", traceBlocks.Data})
+
+    traceBlocks.EntityData.YListKeys = []string {}
+
     return &(traceBlocks.EntityData)
 }
 

@@ -256,7 +256,7 @@ type AaaData struct {
     YFilter yfilter.YFilter
 
     // List of current users. The type is slice of AaaData_AaaUsers.
-    AaaUsers []AaaData_AaaUsers
+    AaaUsers []*AaaData_AaaUsers
 }
 
 func (aaaData *AaaData) GetEntityData() *types.CommonEntityData {
@@ -269,12 +269,15 @@ func (aaaData *AaaData) GetEntityData() *types.CommonEntityData {
     aaaData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aaaData.EntityData.Children = make(map[string]types.YChild)
-    aaaData.EntityData.Children["aaa-users"] = types.YChild{"AaaUsers", nil}
+    aaaData.EntityData.Children = types.NewOrderedMap()
+    aaaData.EntityData.Children.Append("aaa-users", types.YChild{"AaaUsers", nil})
     for i := range aaaData.AaaUsers {
-        aaaData.EntityData.Children[types.GetSegmentPath(&aaaData.AaaUsers[i])] = types.YChild{"AaaUsers", &aaaData.AaaUsers[i]}
+        aaaData.EntityData.Children.Append(types.GetSegmentPath(aaaData.AaaUsers[i]), types.YChild{"AaaUsers", aaaData.AaaUsers[i]})
     }
-    aaaData.EntityData.Leafs = make(map[string]types.YLeaf)
+    aaaData.EntityData.Leafs = types.NewOrderedMap()
+
+    aaaData.EntityData.YListKeys = []string {}
+
     return &(aaaData.EntityData)
 }
 
@@ -290,7 +293,7 @@ type AaaData_AaaUsers struct {
 
     // Sessions associated with the users. The type is slice of
     // AaaData_AaaUsers_AaaSessions.
-    AaaSessions []AaaData_AaaUsers_AaaSessions
+    AaaSessions []*AaaData_AaaUsers_AaaSessions
 }
 
 func (aaaUsers *AaaData_AaaUsers) GetEntityData() *types.CommonEntityData {
@@ -298,18 +301,21 @@ func (aaaUsers *AaaData_AaaUsers) GetEntityData() *types.CommonEntityData {
     aaaUsers.EntityData.YangName = "aaa-users"
     aaaUsers.EntityData.BundleName = "cisco_ios_xe"
     aaaUsers.EntityData.ParentYangName = "aaa-data"
-    aaaUsers.EntityData.SegmentPath = "aaa-users" + "[username='" + fmt.Sprintf("%v", aaaUsers.Username) + "']"
+    aaaUsers.EntityData.SegmentPath = "aaa-users" + types.AddKeyToken(aaaUsers.Username, "username")
     aaaUsers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaaUsers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaUsers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aaaUsers.EntityData.Children = make(map[string]types.YChild)
-    aaaUsers.EntityData.Children["aaa-sessions"] = types.YChild{"AaaSessions", nil}
+    aaaUsers.EntityData.Children = types.NewOrderedMap()
+    aaaUsers.EntityData.Children.Append("aaa-sessions", types.YChild{"AaaSessions", nil})
     for i := range aaaUsers.AaaSessions {
-        aaaUsers.EntityData.Children[types.GetSegmentPath(&aaaUsers.AaaSessions[i])] = types.YChild{"AaaSessions", &aaaUsers.AaaSessions[i]}
+        aaaUsers.EntityData.Children.Append(types.GetSegmentPath(aaaUsers.AaaSessions[i]), types.YChild{"AaaSessions", aaaUsers.AaaSessions[i]})
     }
-    aaaUsers.EntityData.Leafs = make(map[string]types.YLeaf)
-    aaaUsers.EntityData.Leafs["username"] = types.YLeaf{"Username", aaaUsers.Username}
+    aaaUsers.EntityData.Leafs = types.NewOrderedMap()
+    aaaUsers.EntityData.Leafs.Append("username", types.YLeaf{"Username", aaaUsers.Username})
+
+    aaaUsers.EntityData.YListKeys = []string {"Username"}
+
     return &(aaaUsers.EntityData)
 }
 
@@ -328,9 +334,9 @@ type AaaData_AaaUsers_AaaSessions struct {
 
     // Source IP address that initiated the session. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // AAA protocol type Protocol used in this session. The type is
@@ -338,8 +344,7 @@ type AaaData_AaaUsers_AaaSessions struct {
     Protocol interface{}
 
     // Login-time for this session present in aaa code. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LoginTime interface{}
 }
 
@@ -348,18 +353,21 @@ func (aaaSessions *AaaData_AaaUsers_AaaSessions) GetEntityData() *types.CommonEn
     aaaSessions.EntityData.YangName = "aaa-sessions"
     aaaSessions.EntityData.BundleName = "cisco_ios_xe"
     aaaSessions.EntityData.ParentYangName = "aaa-users"
-    aaaSessions.EntityData.SegmentPath = "aaa-sessions" + "[aaa-uid='" + fmt.Sprintf("%v", aaaSessions.AaaUid) + "']"
+    aaaSessions.EntityData.SegmentPath = "aaa-sessions" + types.AddKeyToken(aaaSessions.AaaUid, "aaa-uid")
     aaaSessions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaaSessions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaSessions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aaaSessions.EntityData.Children = make(map[string]types.YChild)
-    aaaSessions.EntityData.Leafs = make(map[string]types.YLeaf)
-    aaaSessions.EntityData.Leafs["aaa-uid"] = types.YLeaf{"AaaUid", aaaSessions.AaaUid}
-    aaaSessions.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", aaaSessions.SessionId}
-    aaaSessions.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", aaaSessions.IpAddr}
-    aaaSessions.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", aaaSessions.Protocol}
-    aaaSessions.EntityData.Leafs["login-time"] = types.YLeaf{"LoginTime", aaaSessions.LoginTime}
+    aaaSessions.EntityData.Children = types.NewOrderedMap()
+    aaaSessions.EntityData.Leafs = types.NewOrderedMap()
+    aaaSessions.EntityData.Leafs.Append("aaa-uid", types.YLeaf{"AaaUid", aaaSessions.AaaUid})
+    aaaSessions.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", aaaSessions.SessionId})
+    aaaSessions.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", aaaSessions.IpAddr})
+    aaaSessions.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", aaaSessions.Protocol})
+    aaaSessions.EntityData.Leafs.Append("login-time", types.YLeaf{"LoginTime", aaaSessions.LoginTime})
+
+    aaaSessions.EntityData.YListKeys = []string {"AaaUid"}
+
     return &(aaaSessions.EntityData)
 }
 

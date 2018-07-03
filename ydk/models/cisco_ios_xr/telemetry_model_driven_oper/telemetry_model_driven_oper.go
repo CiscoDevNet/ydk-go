@@ -24,6 +24,89 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven", reflect.TypeOf(TelemetryModelDriven{}))
 }
 
+// MdtTransportEnum represents MDT Transport
+type MdtTransportEnum string
+
+const (
+    // PROTOCOL NOT SET
+    MdtTransportEnum_not_set MdtTransportEnum = "not-set"
+
+    // GRPC
+    MdtTransportEnum_grpc MdtTransportEnum = "grpc"
+
+    // TCP
+    MdtTransportEnum_tcp MdtTransportEnum = "tcp"
+
+    // UDP
+    MdtTransportEnum_udp MdtTransportEnum = "udp"
+
+    // DIALIN
+    MdtTransportEnum_dialin MdtTransportEnum = "dialin"
+)
+
+// MdtInternalPathStatus represents Internal Subscription Path Status
+type MdtInternalPathStatus string
+
+const (
+    // Active
+    MdtInternalPathStatus_active MdtInternalPathStatus = "active"
+
+    // Internal Error
+    MdtInternalPathStatus_internal_err MdtInternalPathStatus = "internal-err"
+
+    // Plugin Active
+    MdtInternalPathStatus_plugin_active MdtInternalPathStatus = "plugin-active"
+
+    // Plugin Not Initialized
+    MdtInternalPathStatus_plugin_not_initialized MdtInternalPathStatus = "plugin-not-initialized"
+
+    // Plugin Unsupported Cadence
+    MdtInternalPathStatus_plugin_invalid_cadence MdtInternalPathStatus = "plugin-invalid-cadence"
+
+    // Plugin Subscription Error
+    MdtInternalPathStatus_plugin_err MdtInternalPathStatus = "plugin-err"
+
+    // Filter Error
+    MdtInternalPathStatus_filter_err MdtInternalPathStatus = "filter-err"
+
+    // Paused
+    MdtInternalPathStatus_paused MdtInternalPathStatus = "paused"
+
+    // Eventing Active
+    MdtInternalPathStatus_event_ing_active MdtInternalPathStatus = "event-ing-active"
+
+    // Eventing Not Active
+    MdtInternalPathStatus_event_ing_not_active MdtInternalPathStatus = "event-ing-not-active"
+
+    // Eventing Error
+    MdtInternalPathStatus_event_ing_err MdtInternalPathStatus = "event-ing-err"
+)
+
+// MdtIp represents IP Type
+type MdtIp string
+
+const (
+    // IPv4
+    MdtIp_ipv4 MdtIp = "ipv4"
+
+    // IPv6
+    MdtIp_ipv6 MdtIp = "ipv6"
+)
+
+// MdtSubsStateEnum represents Subscription State
+type MdtSubsStateEnum string
+
+const (
+    // NA
+    MdtSubsStateEnum_not_active MdtSubsStateEnum = "not-active"
+
+    // Active
+    MdtSubsStateEnum_active MdtSubsStateEnum = "active"
+
+    // Paused
+    MdtSubsStateEnum_paused MdtSubsStateEnum = "paused"
+)
+
 // MdtSourceQosMarking represents DSCP source qos value for subscription
 type MdtSourceQosMarking string
 
@@ -92,58 +175,6 @@ const (
     MdtSourceQosMarking_dscp_cs7 MdtSourceQosMarking = "dscp-cs7"
 )
 
-// MdtSubsStateEnum represents Subscription State
-type MdtSubsStateEnum string
-
-const (
-    // NA
-    MdtSubsStateEnum_not_active MdtSubsStateEnum = "not-active"
-
-    // Active
-    MdtSubsStateEnum_active MdtSubsStateEnum = "active"
-
-    // Paused
-    MdtSubsStateEnum_paused MdtSubsStateEnum = "paused"
-)
-
-// MdtInternalPathStatus represents Internal Subscription Path Status
-type MdtInternalPathStatus string
-
-const (
-    // Active
-    MdtInternalPathStatus_active MdtInternalPathStatus = "active"
-
-    // Internal Error
-    MdtInternalPathStatus_internal_err MdtInternalPathStatus = "internal-err"
-
-    // Plugin Active
-    MdtInternalPathStatus_plugin_active MdtInternalPathStatus = "plugin-active"
-
-    // Plugin Not Initialized
-    MdtInternalPathStatus_plugin_not_initialized MdtInternalPathStatus = "plugin-not-initialized"
-
-    // Plugin Unsupported Cadence
-    MdtInternalPathStatus_plugin_invalid_cadence MdtInternalPathStatus = "plugin-invalid-cadence"
-
-    // Plugin Subscription Error
-    MdtInternalPathStatus_plugin_err MdtInternalPathStatus = "plugin-err"
-
-    // Filter Error
-    MdtInternalPathStatus_filter_err MdtInternalPathStatus = "filter-err"
-
-    // Paused
-    MdtInternalPathStatus_paused MdtInternalPathStatus = "paused"
-
-    // Eventing Active
-    MdtInternalPathStatus_event_ing_active MdtInternalPathStatus = "event-ing-active"
-
-    // Eventing Not Active
-    MdtInternalPathStatus_event_ing_not_active MdtInternalPathStatus = "event-ing-not-active"
-
-    // Eventing Error
-    MdtInternalPathStatus_event_ing_err MdtInternalPathStatus = "event-ing-err"
-)
-
 // MdtDestStateEnum represents Destination state
 type MdtDestStateEnum string
 
@@ -167,26 +198,6 @@ const (
     MdtDestStateEnum_dest_channel_not_found MdtDestStateEnum = "dest-channel-not-found"
 )
 
-// MdtTransportEnum represents MDT Transport
-type MdtTransportEnum string
-
-const (
-    // PROTOCOL NOT SET
-    MdtTransportEnum_not_set MdtTransportEnum = "not-set"
-
-    // GRPC
-    MdtTransportEnum_grpc MdtTransportEnum = "grpc"
-
-    // TCP
-    MdtTransportEnum_tcp MdtTransportEnum = "tcp"
-
-    // UDP
-    MdtTransportEnum_udp MdtTransportEnum = "udp"
-
-    // DIALIN
-    MdtTransportEnum_dialin MdtTransportEnum = "dialin"
-)
-
 // MdtEncodingEnum represents MDT Encoding
 type MdtEncodingEnum string
 
@@ -202,17 +213,6 @@ const (
 
     // JSON
     MdtEncodingEnum_json MdtEncodingEnum = "json"
-)
-
-// MdtIp represents IP Type
-type MdtIp string
-
-const (
-    // IPv4
-    MdtIp_ipv4 MdtIp = "ipv4"
-
-    // IPv6
-    MdtIp_ipv6 MdtIp = "ipv6"
 )
 
 // TelemetryModelDriven
@@ -241,11 +241,14 @@ func (telemetryModelDriven *TelemetryModelDriven) GetEntityData() *types.CommonE
     telemetryModelDriven.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telemetryModelDriven.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telemetryModelDriven.EntityData.Children = make(map[string]types.YChild)
-    telemetryModelDriven.EntityData.Children["destinations"] = types.YChild{"Destinations", &telemetryModelDriven.Destinations}
-    telemetryModelDriven.EntityData.Children["subscriptions"] = types.YChild{"Subscriptions", &telemetryModelDriven.Subscriptions}
-    telemetryModelDriven.EntityData.Children["sensor-groups"] = types.YChild{"SensorGroups", &telemetryModelDriven.SensorGroups}
-    telemetryModelDriven.EntityData.Leafs = make(map[string]types.YLeaf)
+    telemetryModelDriven.EntityData.Children = types.NewOrderedMap()
+    telemetryModelDriven.EntityData.Children.Append("destinations", types.YChild{"Destinations", &telemetryModelDriven.Destinations})
+    telemetryModelDriven.EntityData.Children.Append("subscriptions", types.YChild{"Subscriptions", &telemetryModelDriven.Subscriptions})
+    telemetryModelDriven.EntityData.Children.Append("sensor-groups", types.YChild{"SensorGroups", &telemetryModelDriven.SensorGroups})
+    telemetryModelDriven.EntityData.Leafs = types.NewOrderedMap()
+
+    telemetryModelDriven.EntityData.YListKeys = []string {}
+
     return &(telemetryModelDriven.EntityData)
 }
 
@@ -257,7 +260,7 @@ type TelemetryModelDriven_Destinations struct {
 
     // Telemetry Destination. The type is slice of
     // TelemetryModelDriven_Destinations_Destination.
-    Destination []TelemetryModelDriven_Destinations_Destination
+    Destination []*TelemetryModelDriven_Destinations_Destination
 }
 
 func (destinations *TelemetryModelDriven_Destinations) GetEntityData() *types.CommonEntityData {
@@ -270,12 +273,15 @@ func (destinations *TelemetryModelDriven_Destinations) GetEntityData() *types.Co
     destinations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destinations.EntityData.Children = make(map[string]types.YChild)
-    destinations.EntityData.Children["destination"] = types.YChild{"Destination", nil}
+    destinations.EntityData.Children = types.NewOrderedMap()
+    destinations.EntityData.Children.Append("destination", types.YChild{"Destination", nil})
     for i := range destinations.Destination {
-        destinations.EntityData.Children[types.GetSegmentPath(&destinations.Destination[i])] = types.YChild{"Destination", &destinations.Destination[i]}
+        destinations.EntityData.Children.Append(types.GetSegmentPath(destinations.Destination[i]), types.YChild{"Destination", destinations.Destination[i]})
     }
-    destinations.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinations.EntityData.Leafs = types.NewOrderedMap()
+
+    destinations.EntityData.YListKeys = []string {}
+
     return &(destinations.EntityData)
 }
 
@@ -286,7 +292,7 @@ type TelemetryModelDriven_Destinations_Destination struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Id of the destination. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     DestinationId interface{}
 
     // Destination Group name. The type is string.
@@ -298,7 +304,7 @@ type TelemetryModelDriven_Destinations_Destination struct {
 
     // list of destinations defined in this group. The type is slice of
     // TelemetryModelDriven_Destinations_Destination_Destination.
-    Destination []TelemetryModelDriven_Destinations_Destination_Destination_
+    Destination []*TelemetryModelDriven_Destinations_Destination_Destination
 }
 
 func (destination *TelemetryModelDriven_Destinations_Destination) GetEntityData() *types.CommonEntityData {
@@ -306,60 +312,66 @@ func (destination *TelemetryModelDriven_Destinations_Destination) GetEntityData(
     destination.EntityData.YangName = "destination"
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "destinations"
-    destination.EntityData.SegmentPath = "destination" + "[destination-id='" + fmt.Sprintf("%v", destination.DestinationId) + "']"
+    destination.EntityData.SegmentPath = "destination" + types.AddKeyToken(destination.DestinationId, "destination-id")
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destination.EntityData.Children = make(map[string]types.YChild)
-    destination.EntityData.Children["destination"] = types.YChild{"Destination", nil}
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Children.Append("destination", types.YChild{"Destination", nil})
     for i := range destination.Destination {
-        destination.EntityData.Children[types.GetSegmentPath(&destination.Destination[i])] = types.YChild{"Destination", &destination.Destination[i]}
+        destination.EntityData.Children.Append(types.GetSegmentPath(destination.Destination[i]), types.YChild{"Destination", destination.Destination[i]})
     }
-    destination.EntityData.Leafs = make(map[string]types.YLeaf)
-    destination.EntityData.Leafs["destination-id"] = types.YLeaf{"DestinationId", destination.DestinationId}
-    destination.EntityData.Leafs["id"] = types.YLeaf{"Id", destination.Id}
-    destination.EntityData.Leafs["configured"] = types.YLeaf{"Configured", destination.Configured}
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("destination-id", types.YLeaf{"DestinationId", destination.DestinationId})
+    destination.EntityData.Leafs.Append("id", types.YLeaf{"Id", destination.Id})
+    destination.EntityData.Leafs.Append("configured", types.YLeaf{"Configured", destination.Configured})
+
+    destination.EntityData.YListKeys = []string {"DestinationId"}
+
     return &(destination.EntityData)
 }
 
-// TelemetryModelDriven_Destinations_Destination_Destination_
+// TelemetryModelDriven_Destinations_Destination_Destination
 // list of destinations defined in this group
-type TelemetryModelDriven_Destinations_Destination_Destination_ struct {
+type TelemetryModelDriven_Destinations_Destination_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination.
-    Destination TelemetryModelDriven_Destinations_Destination_Destination__Destination_
+    Destination TelemetryModelDriven_Destinations_Destination_Destination_Destination
 
     // List of collection groups for this destination group. The type is slice of
-    // TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup.
-    CollectionGroup []TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup
+    // TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup.
+    CollectionGroup []*TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup
 }
 
-func (destination_ *TelemetryModelDriven_Destinations_Destination_Destination_) GetEntityData() *types.CommonEntityData {
-    destination_.EntityData.YFilter = destination_.YFilter
-    destination_.EntityData.YangName = "destination"
-    destination_.EntityData.BundleName = "cisco_ios_xr"
-    destination_.EntityData.ParentYangName = "destination"
-    destination_.EntityData.SegmentPath = "destination"
-    destination_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    destination_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    destination_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "destination"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destination_.EntityData.Children = make(map[string]types.YChild)
-    destination_.EntityData.Children["destination"] = types.YChild{"Destination", &destination_.Destination}
-    destination_.EntityData.Children["collection-group"] = types.YChild{"CollectionGroup", nil}
-    for i := range destination_.CollectionGroup {
-        destination_.EntityData.Children[types.GetSegmentPath(&destination_.CollectionGroup[i])] = types.YChild{"CollectionGroup", &destination_.CollectionGroup[i]}
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Children.Append("destination", types.YChild{"Destination", &destination.Destination})
+    destination.EntityData.Children.Append("collection-group", types.YChild{"CollectionGroup", nil})
+    for i := range destination.CollectionGroup {
+        destination.EntityData.Children.Append(types.GetSegmentPath(destination.CollectionGroup[i]), types.YChild{"CollectionGroup", destination.CollectionGroup[i]})
     }
-    destination_.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(destination_.EntityData)
+    destination.EntityData.Leafs = types.NewOrderedMap()
+
+    destination.EntityData.YListKeys = []string {}
+
+    return &(destination.EntityData)
 }
 
-// TelemetryModelDriven_Destinations_Destination_Destination__Destination_
+// TelemetryModelDriven_Destinations_Destination_Destination_Destination
 // Destination
-type TelemetryModelDriven_Destinations_Destination_Destination__Destination_ struct {
+type TelemetryModelDriven_Destinations_Destination_Destination_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -420,44 +432,47 @@ type TelemetryModelDriven_Destinations_Destination_Destination__Destination_ str
     SubId []interface{}
 
     // Destination IP Address.
-    DestIpAddress TelemetryModelDriven_Destinations_Destination_Destination__Destination__DestIpAddress
+    DestIpAddress TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress
 }
 
-func (destination_ *TelemetryModelDriven_Destinations_Destination_Destination__Destination_) GetEntityData() *types.CommonEntityData {
-    destination_.EntityData.YFilter = destination_.YFilter
-    destination_.EntityData.YangName = "destination"
-    destination_.EntityData.BundleName = "cisco_ios_xr"
-    destination_.EntityData.ParentYangName = "destination"
-    destination_.EntityData.SegmentPath = "destination"
-    destination_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    destination_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    destination_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "destination"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destination_.EntityData.Children = make(map[string]types.YChild)
-    destination_.EntityData.Children["dest-ip-address"] = types.YChild{"DestIpAddress", &destination_.DestIpAddress}
-    destination_.EntityData.Leafs = make(map[string]types.YLeaf)
-    destination_.EntityData.Leafs["id"] = types.YLeaf{"Id", destination_.Id}
-    destination_.EntityData.Leafs["sub-id-str"] = types.YLeaf{"SubIdStr", destination_.SubIdStr}
-    destination_.EntityData.Leafs["dest-port"] = types.YLeaf{"DestPort", destination_.DestPort}
-    destination_.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", destination_.Encoding}
-    destination_.EntityData.Leafs["transport"] = types.YLeaf{"Transport", destination_.Transport}
-    destination_.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", destination_.Vrf}
-    destination_.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", destination_.VrfId}
-    destination_.EntityData.Leafs["state"] = types.YLeaf{"State", destination_.State}
-    destination_.EntityData.Leafs["udp-mtu"] = types.YLeaf{"UdpMtu", destination_.UdpMtu}
-    destination_.EntityData.Leafs["tls"] = types.YLeaf{"Tls", destination_.Tls}
-    destination_.EntityData.Leafs["tls-host"] = types.YLeaf{"TlsHost", destination_.TlsHost}
-    destination_.EntityData.Leafs["total-num-of-packets-sent"] = types.YLeaf{"TotalNumOfPacketsSent", destination_.TotalNumOfPacketsSent}
-    destination_.EntityData.Leafs["total-num-of-bytes-sent"] = types.YLeaf{"TotalNumOfBytesSent", destination_.TotalNumOfBytesSent}
-    destination_.EntityData.Leafs["last-collection-time"] = types.YLeaf{"LastCollectionTime", destination_.LastCollectionTime}
-    destination_.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", destination_.Dscp}
-    destination_.EntityData.Leafs["sub-id"] = types.YLeaf{"SubId", destination_.SubId}
-    return &(destination_.EntityData)
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Children.Append("dest-ip-address", types.YChild{"DestIpAddress", &destination.DestIpAddress})
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("id", types.YLeaf{"Id", destination.Id})
+    destination.EntityData.Leafs.Append("sub-id-str", types.YLeaf{"SubIdStr", destination.SubIdStr})
+    destination.EntityData.Leafs.Append("dest-port", types.YLeaf{"DestPort", destination.DestPort})
+    destination.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", destination.Encoding})
+    destination.EntityData.Leafs.Append("transport", types.YLeaf{"Transport", destination.Transport})
+    destination.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", destination.Vrf})
+    destination.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", destination.VrfId})
+    destination.EntityData.Leafs.Append("state", types.YLeaf{"State", destination.State})
+    destination.EntityData.Leafs.Append("udp-mtu", types.YLeaf{"UdpMtu", destination.UdpMtu})
+    destination.EntityData.Leafs.Append("tls", types.YLeaf{"Tls", destination.Tls})
+    destination.EntityData.Leafs.Append("tls-host", types.YLeaf{"TlsHost", destination.TlsHost})
+    destination.EntityData.Leafs.Append("total-num-of-packets-sent", types.YLeaf{"TotalNumOfPacketsSent", destination.TotalNumOfPacketsSent})
+    destination.EntityData.Leafs.Append("total-num-of-bytes-sent", types.YLeaf{"TotalNumOfBytesSent", destination.TotalNumOfBytesSent})
+    destination.EntityData.Leafs.Append("last-collection-time", types.YLeaf{"LastCollectionTime", destination.LastCollectionTime})
+    destination.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", destination.Dscp})
+    destination.EntityData.Leafs.Append("sub-id", types.YLeaf{"SubId", destination.SubId})
+
+    destination.EntityData.YListKeys = []string {}
+
+    return &(destination.EntityData)
 }
 
-// TelemetryModelDriven_Destinations_Destination_Destination__Destination__DestIpAddress
+// TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress
 // Destination IP Address
-type TelemetryModelDriven_Destinations_Destination_Destination__Destination__DestIpAddress struct {
+type TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -465,15 +480,15 @@ type TelemetryModelDriven_Destinations_Destination_Destination__Destination__Des
     IpType interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination__Destination__DestIpAddress) GetEntityData() *types.CommonEntityData {
+func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetEntityData() *types.CommonEntityData {
     destIpAddress.EntityData.YFilter = destIpAddress.YFilter
     destIpAddress.EntityData.YangName = "dest-ip-address"
     destIpAddress.EntityData.BundleName = "cisco_ios_xr"
@@ -483,18 +498,21 @@ func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination__
     destIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destIpAddress.EntityData.Children = make(map[string]types.YChild)
-    destIpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    destIpAddress.EntityData.Leafs["ip-type"] = types.YLeaf{"IpType", destIpAddress.IpType}
-    destIpAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", destIpAddress.Ipv4Address}
-    destIpAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", destIpAddress.Ipv6Address}
+    destIpAddress.EntityData.Children = types.NewOrderedMap()
+    destIpAddress.EntityData.Leafs = types.NewOrderedMap()
+    destIpAddress.EntityData.Leafs.Append("ip-type", types.YLeaf{"IpType", destIpAddress.IpType})
+    destIpAddress.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", destIpAddress.Ipv4Address})
+    destIpAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", destIpAddress.Ipv6Address})
+
+    destIpAddress.EntityData.YListKeys = []string {}
+
     return &(destIpAddress.EntityData)
 }
 
-// TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup
+// TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup
 // List of collection groups for this destination
 // group
-type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup struct {
+type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -562,16 +580,16 @@ type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup 
 
     // Array of information for sensor paths within collection group. The type is
     // slice of
-    // TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath.
-    CollectionPath []TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath
+    // TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath.
+    CollectionPath []*TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath
 
     // Array of information for sysdb paths within collection group. The type is
     // slice of
-    // TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup.
-    InternalCollectionGroup []TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup
+    // TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup.
+    InternalCollectionGroup []*TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup
 }
 
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup) GetEntityData() *types.CommonEntityData {
+func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetEntityData() *types.CommonEntityData {
     collectionGroup.EntityData.YFilter = collectionGroup.YFilter
     collectionGroup.EntityData.YangName = "collection-group"
     collectionGroup.EntityData.BundleName = "cisco_ios_xr"
@@ -581,39 +599,42 @@ func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination
     collectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collectionGroup.EntityData.Children = make(map[string]types.YChild)
-    collectionGroup.EntityData.Children["collection-path"] = types.YChild{"CollectionPath", nil}
+    collectionGroup.EntityData.Children = types.NewOrderedMap()
+    collectionGroup.EntityData.Children.Append("collection-path", types.YChild{"CollectionPath", nil})
     for i := range collectionGroup.CollectionPath {
-        collectionGroup.EntityData.Children[types.GetSegmentPath(&collectionGroup.CollectionPath[i])] = types.YChild{"CollectionPath", &collectionGroup.CollectionPath[i]}
+        collectionGroup.EntityData.Children.Append(types.GetSegmentPath(collectionGroup.CollectionPath[i]), types.YChild{"CollectionPath", collectionGroup.CollectionPath[i]})
     }
-    collectionGroup.EntityData.Children["internal-collection-group"] = types.YChild{"InternalCollectionGroup", nil}
+    collectionGroup.EntityData.Children.Append("internal-collection-group", types.YChild{"InternalCollectionGroup", nil})
     for i := range collectionGroup.InternalCollectionGroup {
-        collectionGroup.EntityData.Children[types.GetSegmentPath(&collectionGroup.InternalCollectionGroup[i])] = types.YChild{"InternalCollectionGroup", &collectionGroup.InternalCollectionGroup[i]}
+        collectionGroup.EntityData.Children.Append(types.GetSegmentPath(collectionGroup.InternalCollectionGroup[i]), types.YChild{"InternalCollectionGroup", collectionGroup.InternalCollectionGroup[i]})
     }
-    collectionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    collectionGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", collectionGroup.Id}
-    collectionGroup.EntityData.Leafs["cadence"] = types.YLeaf{"Cadence", collectionGroup.Cadence}
-    collectionGroup.EntityData.Leafs["total-collections"] = types.YLeaf{"TotalCollections", collectionGroup.TotalCollections}
-    collectionGroup.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", collectionGroup.Encoding}
-    collectionGroup.EntityData.Leafs["last-collection-start-time"] = types.YLeaf{"LastCollectionStartTime", collectionGroup.LastCollectionStartTime}
-    collectionGroup.EntityData.Leafs["last-collection-end-time"] = types.YLeaf{"LastCollectionEndTime", collectionGroup.LastCollectionEndTime}
-    collectionGroup.EntityData.Leafs["max-collection-time"] = types.YLeaf{"MaxCollectionTime", collectionGroup.MaxCollectionTime}
-    collectionGroup.EntityData.Leafs["min-collection-time"] = types.YLeaf{"MinCollectionTime", collectionGroup.MinCollectionTime}
-    collectionGroup.EntityData.Leafs["min-total-time"] = types.YLeaf{"MinTotalTime", collectionGroup.MinTotalTime}
-    collectionGroup.EntityData.Leafs["max-total-time"] = types.YLeaf{"MaxTotalTime", collectionGroup.MaxTotalTime}
-    collectionGroup.EntityData.Leafs["avg-total-time"] = types.YLeaf{"AvgTotalTime", collectionGroup.AvgTotalTime}
-    collectionGroup.EntityData.Leafs["total-other-errors"] = types.YLeaf{"TotalOtherErrors", collectionGroup.TotalOtherErrors}
-    collectionGroup.EntityData.Leafs["total-on-data-instances"] = types.YLeaf{"TotalOnDataInstances", collectionGroup.TotalOnDataInstances}
-    collectionGroup.EntityData.Leafs["total-not-ready"] = types.YLeaf{"TotalNotReady", collectionGroup.TotalNotReady}
-    collectionGroup.EntityData.Leafs["total-send-errors"] = types.YLeaf{"TotalSendErrors", collectionGroup.TotalSendErrors}
-    collectionGroup.EntityData.Leafs["total-send-drops"] = types.YLeaf{"TotalSendDrops", collectionGroup.TotalSendDrops}
+    collectionGroup.EntityData.Leafs = types.NewOrderedMap()
+    collectionGroup.EntityData.Leafs.Append("id", types.YLeaf{"Id", collectionGroup.Id})
+    collectionGroup.EntityData.Leafs.Append("cadence", types.YLeaf{"Cadence", collectionGroup.Cadence})
+    collectionGroup.EntityData.Leafs.Append("total-collections", types.YLeaf{"TotalCollections", collectionGroup.TotalCollections})
+    collectionGroup.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", collectionGroup.Encoding})
+    collectionGroup.EntityData.Leafs.Append("last-collection-start-time", types.YLeaf{"LastCollectionStartTime", collectionGroup.LastCollectionStartTime})
+    collectionGroup.EntityData.Leafs.Append("last-collection-end-time", types.YLeaf{"LastCollectionEndTime", collectionGroup.LastCollectionEndTime})
+    collectionGroup.EntityData.Leafs.Append("max-collection-time", types.YLeaf{"MaxCollectionTime", collectionGroup.MaxCollectionTime})
+    collectionGroup.EntityData.Leafs.Append("min-collection-time", types.YLeaf{"MinCollectionTime", collectionGroup.MinCollectionTime})
+    collectionGroup.EntityData.Leafs.Append("min-total-time", types.YLeaf{"MinTotalTime", collectionGroup.MinTotalTime})
+    collectionGroup.EntityData.Leafs.Append("max-total-time", types.YLeaf{"MaxTotalTime", collectionGroup.MaxTotalTime})
+    collectionGroup.EntityData.Leafs.Append("avg-total-time", types.YLeaf{"AvgTotalTime", collectionGroup.AvgTotalTime})
+    collectionGroup.EntityData.Leafs.Append("total-other-errors", types.YLeaf{"TotalOtherErrors", collectionGroup.TotalOtherErrors})
+    collectionGroup.EntityData.Leafs.Append("total-on-data-instances", types.YLeaf{"TotalOnDataInstances", collectionGroup.TotalOnDataInstances})
+    collectionGroup.EntityData.Leafs.Append("total-not-ready", types.YLeaf{"TotalNotReady", collectionGroup.TotalNotReady})
+    collectionGroup.EntityData.Leafs.Append("total-send-errors", types.YLeaf{"TotalSendErrors", collectionGroup.TotalSendErrors})
+    collectionGroup.EntityData.Leafs.Append("total-send-drops", types.YLeaf{"TotalSendDrops", collectionGroup.TotalSendDrops})
+
+    collectionGroup.EntityData.YListKeys = []string {}
+
     return &(collectionGroup.EntityData)
 }
 
-// TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath
+// TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath
 // Array of information for sensor paths within
 // collection group
-type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath struct {
+type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -628,7 +649,7 @@ type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_
     StatusStr interface{}
 }
 
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath) GetEntityData() *types.CommonEntityData {
+func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetEntityData() *types.CommonEntityData {
     collectionPath.EntityData.YFilter = collectionPath.YFilter
     collectionPath.EntityData.YangName = "collection-path"
     collectionPath.EntityData.BundleName = "cisco_ios_xr"
@@ -638,18 +659,21 @@ func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_
     collectionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collectionPath.EntityData.Children = make(map[string]types.YChild)
-    collectionPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    collectionPath.EntityData.Leafs["path"] = types.YLeaf{"Path", collectionPath.Path}
-    collectionPath.EntityData.Leafs["state"] = types.YLeaf{"State", collectionPath.State}
-    collectionPath.EntityData.Leafs["status-str"] = types.YLeaf{"StatusStr", collectionPath.StatusStr}
+    collectionPath.EntityData.Children = types.NewOrderedMap()
+    collectionPath.EntityData.Leafs = types.NewOrderedMap()
+    collectionPath.EntityData.Leafs.Append("path", types.YLeaf{"Path", collectionPath.Path})
+    collectionPath.EntityData.Leafs.Append("state", types.YLeaf{"State", collectionPath.State})
+    collectionPath.EntityData.Leafs.Append("status-str", types.YLeaf{"StatusStr", collectionPath.StatusStr})
+
+    collectionPath.EntityData.YListKeys = []string {}
+
     return &(collectionPath.EntityData)
 }
 
-// TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup
+// TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup
 // Array of information for sysdb paths within
 // collection group
-type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup struct {
+type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -760,7 +784,7 @@ type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_
     Status interface{}
 }
 
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup) GetEntityData() *types.CommonEntityData {
+func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetEntityData() *types.CommonEntityData {
     internalCollectionGroup.EntityData.YFilter = internalCollectionGroup.YFilter
     internalCollectionGroup.EntityData.YangName = "internal-collection-group"
     internalCollectionGroup.EntityData.BundleName = "cisco_ios_xr"
@@ -770,35 +794,38 @@ func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Des
     internalCollectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalCollectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    internalCollectionGroup.EntityData.Children = make(map[string]types.YChild)
-    internalCollectionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    internalCollectionGroup.EntityData.Leafs["path"] = types.YLeaf{"Path", internalCollectionGroup.Path}
-    internalCollectionGroup.EntityData.Leafs["cadence"] = types.YLeaf{"Cadence", internalCollectionGroup.Cadence}
-    internalCollectionGroup.EntityData.Leafs["total-get-count"] = types.YLeaf{"TotalGetCount", internalCollectionGroup.TotalGetCount}
-    internalCollectionGroup.EntityData.Leafs["total-list-count"] = types.YLeaf{"TotalListCount", internalCollectionGroup.TotalListCount}
-    internalCollectionGroup.EntityData.Leafs["total-datalist-count"] = types.YLeaf{"TotalDatalistCount", internalCollectionGroup.TotalDatalistCount}
-    internalCollectionGroup.EntityData.Leafs["total-finddata-count"] = types.YLeaf{"TotalFinddataCount", internalCollectionGroup.TotalFinddataCount}
-    internalCollectionGroup.EntityData.Leafs["total-get-bulk-count"] = types.YLeaf{"TotalGetBulkCount", internalCollectionGroup.TotalGetBulkCount}
-    internalCollectionGroup.EntityData.Leafs["total-item-count"] = types.YLeaf{"TotalItemCount", internalCollectionGroup.TotalItemCount}
-    internalCollectionGroup.EntityData.Leafs["total-get-errors"] = types.YLeaf{"TotalGetErrors", internalCollectionGroup.TotalGetErrors}
-    internalCollectionGroup.EntityData.Leafs["total-list-errors"] = types.YLeaf{"TotalListErrors", internalCollectionGroup.TotalListErrors}
-    internalCollectionGroup.EntityData.Leafs["total-datalist-errors"] = types.YLeaf{"TotalDatalistErrors", internalCollectionGroup.TotalDatalistErrors}
-    internalCollectionGroup.EntityData.Leafs["total-finddata-errors"] = types.YLeaf{"TotalFinddataErrors", internalCollectionGroup.TotalFinddataErrors}
-    internalCollectionGroup.EntityData.Leafs["total-get-bulk-errors"] = types.YLeaf{"TotalGetBulkErrors", internalCollectionGroup.TotalGetBulkErrors}
-    internalCollectionGroup.EntityData.Leafs["total-encode-errors"] = types.YLeaf{"TotalEncodeErrors", internalCollectionGroup.TotalEncodeErrors}
-    internalCollectionGroup.EntityData.Leafs["total-encode-notready"] = types.YLeaf{"TotalEncodeNotready", internalCollectionGroup.TotalEncodeNotready}
-    internalCollectionGroup.EntityData.Leafs["total-send-errors"] = types.YLeaf{"TotalSendErrors", internalCollectionGroup.TotalSendErrors}
-    internalCollectionGroup.EntityData.Leafs["total-send-drops"] = types.YLeaf{"TotalSendDrops", internalCollectionGroup.TotalSendDrops}
-    internalCollectionGroup.EntityData.Leafs["total-sent-bytes"] = types.YLeaf{"TotalSentBytes", internalCollectionGroup.TotalSentBytes}
-    internalCollectionGroup.EntityData.Leafs["total-send-packets"] = types.YLeaf{"TotalSendPackets", internalCollectionGroup.TotalSendPackets}
-    internalCollectionGroup.EntityData.Leafs["total-send-bytes-dropped"] = types.YLeaf{"TotalSendBytesDropped", internalCollectionGroup.TotalSendBytesDropped}
-    internalCollectionGroup.EntityData.Leafs["total-collections"] = types.YLeaf{"TotalCollections", internalCollectionGroup.TotalCollections}
-    internalCollectionGroup.EntityData.Leafs["total-collections-missed"] = types.YLeaf{"TotalCollectionsMissed", internalCollectionGroup.TotalCollectionsMissed}
-    internalCollectionGroup.EntityData.Leafs["max-collection-time"] = types.YLeaf{"MaxCollectionTime", internalCollectionGroup.MaxCollectionTime}
-    internalCollectionGroup.EntityData.Leafs["min-collection-time"] = types.YLeaf{"MinCollectionTime", internalCollectionGroup.MinCollectionTime}
-    internalCollectionGroup.EntityData.Leafs["avg-collection-time"] = types.YLeaf{"AvgCollectionTime", internalCollectionGroup.AvgCollectionTime}
-    internalCollectionGroup.EntityData.Leafs["collection-method"] = types.YLeaf{"CollectionMethod", internalCollectionGroup.CollectionMethod}
-    internalCollectionGroup.EntityData.Leafs["status"] = types.YLeaf{"Status", internalCollectionGroup.Status}
+    internalCollectionGroup.EntityData.Children = types.NewOrderedMap()
+    internalCollectionGroup.EntityData.Leafs = types.NewOrderedMap()
+    internalCollectionGroup.EntityData.Leafs.Append("path", types.YLeaf{"Path", internalCollectionGroup.Path})
+    internalCollectionGroup.EntityData.Leafs.Append("cadence", types.YLeaf{"Cadence", internalCollectionGroup.Cadence})
+    internalCollectionGroup.EntityData.Leafs.Append("total-get-count", types.YLeaf{"TotalGetCount", internalCollectionGroup.TotalGetCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-list-count", types.YLeaf{"TotalListCount", internalCollectionGroup.TotalListCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-datalist-count", types.YLeaf{"TotalDatalistCount", internalCollectionGroup.TotalDatalistCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-finddata-count", types.YLeaf{"TotalFinddataCount", internalCollectionGroup.TotalFinddataCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-get-bulk-count", types.YLeaf{"TotalGetBulkCount", internalCollectionGroup.TotalGetBulkCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-item-count", types.YLeaf{"TotalItemCount", internalCollectionGroup.TotalItemCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-get-errors", types.YLeaf{"TotalGetErrors", internalCollectionGroup.TotalGetErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-list-errors", types.YLeaf{"TotalListErrors", internalCollectionGroup.TotalListErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-datalist-errors", types.YLeaf{"TotalDatalistErrors", internalCollectionGroup.TotalDatalistErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-finddata-errors", types.YLeaf{"TotalFinddataErrors", internalCollectionGroup.TotalFinddataErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-get-bulk-errors", types.YLeaf{"TotalGetBulkErrors", internalCollectionGroup.TotalGetBulkErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-encode-errors", types.YLeaf{"TotalEncodeErrors", internalCollectionGroup.TotalEncodeErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-encode-notready", types.YLeaf{"TotalEncodeNotready", internalCollectionGroup.TotalEncodeNotready})
+    internalCollectionGroup.EntityData.Leafs.Append("total-send-errors", types.YLeaf{"TotalSendErrors", internalCollectionGroup.TotalSendErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-send-drops", types.YLeaf{"TotalSendDrops", internalCollectionGroup.TotalSendDrops})
+    internalCollectionGroup.EntityData.Leafs.Append("total-sent-bytes", types.YLeaf{"TotalSentBytes", internalCollectionGroup.TotalSentBytes})
+    internalCollectionGroup.EntityData.Leafs.Append("total-send-packets", types.YLeaf{"TotalSendPackets", internalCollectionGroup.TotalSendPackets})
+    internalCollectionGroup.EntityData.Leafs.Append("total-send-bytes-dropped", types.YLeaf{"TotalSendBytesDropped", internalCollectionGroup.TotalSendBytesDropped})
+    internalCollectionGroup.EntityData.Leafs.Append("total-collections", types.YLeaf{"TotalCollections", internalCollectionGroup.TotalCollections})
+    internalCollectionGroup.EntityData.Leafs.Append("total-collections-missed", types.YLeaf{"TotalCollectionsMissed", internalCollectionGroup.TotalCollectionsMissed})
+    internalCollectionGroup.EntityData.Leafs.Append("max-collection-time", types.YLeaf{"MaxCollectionTime", internalCollectionGroup.MaxCollectionTime})
+    internalCollectionGroup.EntityData.Leafs.Append("min-collection-time", types.YLeaf{"MinCollectionTime", internalCollectionGroup.MinCollectionTime})
+    internalCollectionGroup.EntityData.Leafs.Append("avg-collection-time", types.YLeaf{"AvgCollectionTime", internalCollectionGroup.AvgCollectionTime})
+    internalCollectionGroup.EntityData.Leafs.Append("collection-method", types.YLeaf{"CollectionMethod", internalCollectionGroup.CollectionMethod})
+    internalCollectionGroup.EntityData.Leafs.Append("status", types.YLeaf{"Status", internalCollectionGroup.Status})
+
+    internalCollectionGroup.EntityData.YListKeys = []string {}
+
     return &(internalCollectionGroup.EntityData)
 }
 
@@ -810,7 +837,7 @@ type TelemetryModelDriven_Subscriptions struct {
 
     // Telemetry Subscription. The type is slice of
     // TelemetryModelDriven_Subscriptions_Subscription.
-    Subscription []TelemetryModelDriven_Subscriptions_Subscription
+    Subscription []*TelemetryModelDriven_Subscriptions_Subscription
 }
 
 func (subscriptions *TelemetryModelDriven_Subscriptions) GetEntityData() *types.CommonEntityData {
@@ -823,12 +850,15 @@ func (subscriptions *TelemetryModelDriven_Subscriptions) GetEntityData() *types.
     subscriptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriptions.EntityData.Children = make(map[string]types.YChild)
-    subscriptions.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
+    subscriptions.EntityData.Children = types.NewOrderedMap()
+    subscriptions.EntityData.Children.Append("subscription", types.YChild{"Subscription", nil})
     for i := range subscriptions.Subscription {
-        subscriptions.EntityData.Children[types.GetSegmentPath(&subscriptions.Subscription[i])] = types.YChild{"Subscription", &subscriptions.Subscription[i]}
+        subscriptions.EntityData.Children.Append(types.GetSegmentPath(subscriptions.Subscription[i]), types.YChild{"Subscription", subscriptions.Subscription[i]})
     }
-    subscriptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriptions.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriptions.EntityData.YListKeys = []string {}
+
     return &(subscriptions.EntityData)
 }
 
@@ -839,15 +869,15 @@ type TelemetryModelDriven_Subscriptions_Subscription struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Id of the subscription. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SubscriptionId interface{}
 
     // Subscription.
-    Subscription TelemetryModelDriven_Subscriptions_Subscription_Subscription_
+    Subscription TelemetryModelDriven_Subscriptions_Subscription_Subscription
 
     // List of collection groups active for this subscription. The type is slice
     // of TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup.
-    CollectionGroup []TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup
+    CollectionGroup []*TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup
 }
 
 func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetEntityData() *types.CommonEntityData {
@@ -855,25 +885,28 @@ func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetEntityDa
     subscription.EntityData.YangName = "subscription"
     subscription.EntityData.BundleName = "cisco_ios_xr"
     subscription.EntityData.ParentYangName = "subscriptions"
-    subscription.EntityData.SegmentPath = "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
+    subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
     subscription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscription.EntityData.Children = make(map[string]types.YChild)
-    subscription.EntityData.Children["subscription"] = types.YChild{"Subscription", &subscription.Subscription}
-    subscription.EntityData.Children["collection-group"] = types.YChild{"CollectionGroup", nil}
+    subscription.EntityData.Children = types.NewOrderedMap()
+    subscription.EntityData.Children.Append("subscription", types.YChild{"Subscription", &subscription.Subscription})
+    subscription.EntityData.Children.Append("collection-group", types.YChild{"CollectionGroup", nil})
     for i := range subscription.CollectionGroup {
-        subscription.EntityData.Children[types.GetSegmentPath(&subscription.CollectionGroup[i])] = types.YChild{"CollectionGroup", &subscription.CollectionGroup[i]}
+        subscription.EntityData.Children.Append(types.GetSegmentPath(subscription.CollectionGroup[i]), types.YChild{"CollectionGroup", subscription.CollectionGroup[i]})
     }
-    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", subscription.SubscriptionId}
+    subscription.EntityData.Leafs = types.NewOrderedMap()
+    subscription.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", subscription.SubscriptionId})
+
+    subscription.EntityData.YListKeys = []string {"SubscriptionId"}
+
     return &(subscription.EntityData)
 }
 
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription_
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription
 // Subscription
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription_ struct {
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -887,47 +920,50 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_ struct {
     SourceQosMarking interface{}
 
     // configured source interface.
-    SourceInterface TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterface
+    SourceInterface TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface
 
     // List of sensor groups within a subscription. The type is slice of
-    // TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile.
-    SensorProfile []TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile
+    // TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile.
+    SensorProfile []*TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile
 
     // Array of destinations within a subscription. The type is slice of
-    // TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp.
-    DestinationGrp []TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp
+    // TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp.
+    DestinationGrp []*TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp
 }
 
-func (subscription_ *TelemetryModelDriven_Subscriptions_Subscription_Subscription_) GetEntityData() *types.CommonEntityData {
-    subscription_.EntityData.YFilter = subscription_.YFilter
-    subscription_.EntityData.YangName = "subscription"
-    subscription_.EntityData.BundleName = "cisco_ios_xr"
-    subscription_.EntityData.ParentYangName = "subscription"
-    subscription_.EntityData.SegmentPath = "subscription"
-    subscription_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    subscription_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    subscription_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetEntityData() *types.CommonEntityData {
+    subscription.EntityData.YFilter = subscription.YFilter
+    subscription.EntityData.YangName = "subscription"
+    subscription.EntityData.BundleName = "cisco_ios_xr"
+    subscription.EntityData.ParentYangName = "subscription"
+    subscription.EntityData.SegmentPath = "subscription"
+    subscription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscription_.EntityData.Children = make(map[string]types.YChild)
-    subscription_.EntityData.Children["source-interface"] = types.YChild{"SourceInterface", &subscription_.SourceInterface}
-    subscription_.EntityData.Children["sensor-profile"] = types.YChild{"SensorProfile", nil}
-    for i := range subscription_.SensorProfile {
-        subscription_.EntityData.Children[types.GetSegmentPath(&subscription_.SensorProfile[i])] = types.YChild{"SensorProfile", &subscription_.SensorProfile[i]}
+    subscription.EntityData.Children = types.NewOrderedMap()
+    subscription.EntityData.Children.Append("source-interface", types.YChild{"SourceInterface", &subscription.SourceInterface})
+    subscription.EntityData.Children.Append("sensor-profile", types.YChild{"SensorProfile", nil})
+    for i := range subscription.SensorProfile {
+        subscription.EntityData.Children.Append(types.GetSegmentPath(subscription.SensorProfile[i]), types.YChild{"SensorProfile", subscription.SensorProfile[i]})
     }
-    subscription_.EntityData.Children["destination-grp"] = types.YChild{"DestinationGrp", nil}
-    for i := range subscription_.DestinationGrp {
-        subscription_.EntityData.Children[types.GetSegmentPath(&subscription_.DestinationGrp[i])] = types.YChild{"DestinationGrp", &subscription_.DestinationGrp[i]}
+    subscription.EntityData.Children.Append("destination-grp", types.YChild{"DestinationGrp", nil})
+    for i := range subscription.DestinationGrp {
+        subscription.EntityData.Children.Append(types.GetSegmentPath(subscription.DestinationGrp[i]), types.YChild{"DestinationGrp", subscription.DestinationGrp[i]})
     }
-    subscription_.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscription_.EntityData.Leafs["id"] = types.YLeaf{"Id", subscription_.Id}
-    subscription_.EntityData.Leafs["state"] = types.YLeaf{"State", subscription_.State}
-    subscription_.EntityData.Leafs["source-qos-marking"] = types.YLeaf{"SourceQosMarking", subscription_.SourceQosMarking}
-    return &(subscription_.EntityData)
+    subscription.EntityData.Leafs = types.NewOrderedMap()
+    subscription.EntityData.Leafs.Append("id", types.YLeaf{"Id", subscription.Id})
+    subscription.EntityData.Leafs.Append("state", types.YLeaf{"State", subscription.State})
+    subscription.EntityData.Leafs.Append("source-qos-marking", types.YLeaf{"SourceQosMarking", subscription.SourceQosMarking})
+
+    subscription.EntityData.YListKeys = []string {}
+
+    return &(subscription.EntityData)
 }
 
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterface
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface
 // configured source interface
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterface struct {
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -938,18 +974,18 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterfa
     State interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // Src Vrf Id. The type is interface{} with range: 0..4294967295.
     VrfId interface{}
 }
 
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterface) GetEntityData() *types.CommonEntityData {
+func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetEntityData() *types.CommonEntityData {
     sourceInterface.EntityData.YFilter = sourceInterface.YFilter
     sourceInterface.EntityData.YangName = "source-interface"
     sourceInterface.EntityData.BundleName = "cisco_ios_xr"
@@ -959,19 +995,22 @@ func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscript
     sourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceInterface.EntityData.Children = make(map[string]types.YChild)
-    sourceInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", sourceInterface.InterfaceName}
-    sourceInterface.EntityData.Leafs["state"] = types.YLeaf{"State", sourceInterface.State}
-    sourceInterface.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", sourceInterface.Ipv4Address}
-    sourceInterface.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", sourceInterface.Ipv6Address}
-    sourceInterface.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", sourceInterface.VrfId}
+    sourceInterface.EntityData.Children = types.NewOrderedMap()
+    sourceInterface.EntityData.Leafs = types.NewOrderedMap()
+    sourceInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", sourceInterface.InterfaceName})
+    sourceInterface.EntityData.Leafs.Append("state", types.YLeaf{"State", sourceInterface.State})
+    sourceInterface.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", sourceInterface.Ipv4Address})
+    sourceInterface.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", sourceInterface.Ipv6Address})
+    sourceInterface.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", sourceInterface.VrfId})
+
+    sourceInterface.EntityData.YListKeys = []string {}
+
     return &(sourceInterface.EntityData)
 }
 
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile
 // List of sensor groups within a subscription
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile struct {
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -987,10 +1026,10 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile
     SuppressRedundant interface{}
 
     // sensor group.
-    SensorGroup TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup
+    SensorGroup TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup
 }
 
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile) GetEntityData() *types.CommonEntityData {
+func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetEntityData() *types.CommonEntityData {
     sensorProfile.EntityData.YFilter = sensorProfile.YFilter
     sensorProfile.EntityData.YangName = "sensor-profile"
     sensorProfile.EntityData.BundleName = "cisco_ios_xr"
@@ -1000,18 +1039,21 @@ func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscriptio
     sensorProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensorProfile.EntityData.Children = make(map[string]types.YChild)
-    sensorProfile.EntityData.Children["sensor-group"] = types.YChild{"SensorGroup", &sensorProfile.SensorGroup}
-    sensorProfile.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorProfile.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", sensorProfile.SampleInterval}
-    sensorProfile.EntityData.Leafs["heartbeat-interval"] = types.YLeaf{"HeartbeatInterval", sensorProfile.HeartbeatInterval}
-    sensorProfile.EntityData.Leafs["suppress-redundant"] = types.YLeaf{"SuppressRedundant", sensorProfile.SuppressRedundant}
+    sensorProfile.EntityData.Children = types.NewOrderedMap()
+    sensorProfile.EntityData.Children.Append("sensor-group", types.YChild{"SensorGroup", &sensorProfile.SensorGroup})
+    sensorProfile.EntityData.Leafs = types.NewOrderedMap()
+    sensorProfile.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", sensorProfile.SampleInterval})
+    sensorProfile.EntityData.Leafs.Append("heartbeat-interval", types.YLeaf{"HeartbeatInterval", sensorProfile.HeartbeatInterval})
+    sensorProfile.EntityData.Leafs.Append("suppress-redundant", types.YLeaf{"SuppressRedundant", sensorProfile.SuppressRedundant})
+
+    sensorProfile.EntityData.YListKeys = []string {}
+
     return &(sensorProfile.EntityData)
 }
 
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup
 // sensor group
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup struct {
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1024,11 +1066,11 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile
 
     // Array of information for sensor paths within sensor group. The type is
     // slice of
-    // TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath.
-    SensorPath []TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath
+    // TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath.
+    SensorPath []*TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath
 }
 
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup) GetEntityData() *types.CommonEntityData {
+func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetEntityData() *types.CommonEntityData {
     sensorGroup.EntityData.YFilter = sensorGroup.YFilter
     sensorGroup.EntityData.YangName = "sensor-group"
     sensorGroup.EntityData.BundleName = "cisco_ios_xr"
@@ -1038,21 +1080,24 @@ func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_
     sensorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensorGroup.EntityData.Children = make(map[string]types.YChild)
-    sensorGroup.EntityData.Children["sensor-path"] = types.YChild{"SensorPath", nil}
+    sensorGroup.EntityData.Children = types.NewOrderedMap()
+    sensorGroup.EntityData.Children.Append("sensor-path", types.YChild{"SensorPath", nil})
     for i := range sensorGroup.SensorPath {
-        sensorGroup.EntityData.Children[types.GetSegmentPath(&sensorGroup.SensorPath[i])] = types.YChild{"SensorPath", &sensorGroup.SensorPath[i]}
+        sensorGroup.EntityData.Children.Append(types.GetSegmentPath(sensorGroup.SensorPath[i]), types.YChild{"SensorPath", sensorGroup.SensorPath[i]})
     }
-    sensorGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", sensorGroup.Id}
-    sensorGroup.EntityData.Leafs["configured"] = types.YLeaf{"Configured", sensorGroup.Configured}
+    sensorGroup.EntityData.Leafs = types.NewOrderedMap()
+    sensorGroup.EntityData.Leafs.Append("id", types.YLeaf{"Id", sensorGroup.Id})
+    sensorGroup.EntityData.Leafs.Append("configured", types.YLeaf{"Configured", sensorGroup.Configured})
+
+    sensorGroup.EntityData.YListKeys = []string {}
+
     return &(sensorGroup.EntityData)
 }
 
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath
 // Array of information for sensor paths within
 // sensor group
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath struct {
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1067,7 +1112,7 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile
     StatusStr interface{}
 }
 
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath) GetEntityData() *types.CommonEntityData {
+func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetEntityData() *types.CommonEntityData {
     sensorPath.EntityData.YFilter = sensorPath.YFilter
     sensorPath.EntityData.YangName = "sensor-path"
     sensorPath.EntityData.BundleName = "cisco_ios_xr"
@@ -1077,17 +1122,20 @@ func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription__
     sensorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensorPath.EntityData.Children = make(map[string]types.YChild)
-    sensorPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorPath.EntityData.Leafs["path"] = types.YLeaf{"Path", sensorPath.Path}
-    sensorPath.EntityData.Leafs["state"] = types.YLeaf{"State", sensorPath.State}
-    sensorPath.EntityData.Leafs["status-str"] = types.YLeaf{"StatusStr", sensorPath.StatusStr}
+    sensorPath.EntityData.Children = types.NewOrderedMap()
+    sensorPath.EntityData.Leafs = types.NewOrderedMap()
+    sensorPath.EntityData.Leafs.Append("path", types.YLeaf{"Path", sensorPath.Path})
+    sensorPath.EntityData.Leafs.Append("state", types.YLeaf{"State", sensorPath.State})
+    sensorPath.EntityData.Leafs.Append("status-str", types.YLeaf{"StatusStr", sensorPath.StatusStr})
+
+    sensorPath.EntityData.YListKeys = []string {}
+
     return &(sensorPath.EntityData)
 }
 
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp
 // Array of destinations within a subscription
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp struct {
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1099,11 +1147,11 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGr
     Configured interface{}
 
     // list of destinations defined in this group. The type is slice of
-    // TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination.
-    Destination []TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination
+    // TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination.
+    Destination []*TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination
 }
 
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp) GetEntityData() *types.CommonEntityData {
+func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetEntityData() *types.CommonEntityData {
     destinationGrp.EntityData.YFilter = destinationGrp.YFilter
     destinationGrp.EntityData.YangName = "destination-grp"
     destinationGrp.EntityData.BundleName = "cisco_ios_xr"
@@ -1113,20 +1161,23 @@ func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscripti
     destinationGrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationGrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destinationGrp.EntityData.Children = make(map[string]types.YChild)
-    destinationGrp.EntityData.Children["destination"] = types.YChild{"Destination", nil}
+    destinationGrp.EntityData.Children = types.NewOrderedMap()
+    destinationGrp.EntityData.Children.Append("destination", types.YChild{"Destination", nil})
     for i := range destinationGrp.Destination {
-        destinationGrp.EntityData.Children[types.GetSegmentPath(&destinationGrp.Destination[i])] = types.YChild{"Destination", &destinationGrp.Destination[i]}
+        destinationGrp.EntityData.Children.Append(types.GetSegmentPath(destinationGrp.Destination[i]), types.YChild{"Destination", destinationGrp.Destination[i]})
     }
-    destinationGrp.EntityData.Leafs = make(map[string]types.YLeaf)
-    destinationGrp.EntityData.Leafs["id"] = types.YLeaf{"Id", destinationGrp.Id}
-    destinationGrp.EntityData.Leafs["configured"] = types.YLeaf{"Configured", destinationGrp.Configured}
+    destinationGrp.EntityData.Leafs = types.NewOrderedMap()
+    destinationGrp.EntityData.Leafs.Append("id", types.YLeaf{"Id", destinationGrp.Id})
+    destinationGrp.EntityData.Leafs.Append("configured", types.YLeaf{"Configured", destinationGrp.Configured})
+
+    destinationGrp.EntityData.YListKeys = []string {}
+
     return &(destinationGrp.EntityData)
 }
 
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination
 // list of destinations defined in this group
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination struct {
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1187,10 +1238,10 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGr
     SubId []interface{}
 
     // Destination IP Address.
-    DestIpAddress TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination_DestIpAddress
+    DestIpAddress TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress
 }
 
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination) GetEntityData() *types.CommonEntityData {
+func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetEntityData() *types.CommonEntityData {
     destination.EntityData.YFilter = destination.YFilter
     destination.EntityData.YangName = "destination"
     destination.EntityData.BundleName = "cisco_ios_xr"
@@ -1200,31 +1251,34 @@ func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destination.EntityData.Children = make(map[string]types.YChild)
-    destination.EntityData.Children["dest-ip-address"] = types.YChild{"DestIpAddress", &destination.DestIpAddress}
-    destination.EntityData.Leafs = make(map[string]types.YLeaf)
-    destination.EntityData.Leafs["id"] = types.YLeaf{"Id", destination.Id}
-    destination.EntityData.Leafs["sub-id-str"] = types.YLeaf{"SubIdStr", destination.SubIdStr}
-    destination.EntityData.Leafs["dest-port"] = types.YLeaf{"DestPort", destination.DestPort}
-    destination.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", destination.Encoding}
-    destination.EntityData.Leafs["transport"] = types.YLeaf{"Transport", destination.Transport}
-    destination.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", destination.Vrf}
-    destination.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", destination.VrfId}
-    destination.EntityData.Leafs["state"] = types.YLeaf{"State", destination.State}
-    destination.EntityData.Leafs["udp-mtu"] = types.YLeaf{"UdpMtu", destination.UdpMtu}
-    destination.EntityData.Leafs["tls"] = types.YLeaf{"Tls", destination.Tls}
-    destination.EntityData.Leafs["tls-host"] = types.YLeaf{"TlsHost", destination.TlsHost}
-    destination.EntityData.Leafs["total-num-of-packets-sent"] = types.YLeaf{"TotalNumOfPacketsSent", destination.TotalNumOfPacketsSent}
-    destination.EntityData.Leafs["total-num-of-bytes-sent"] = types.YLeaf{"TotalNumOfBytesSent", destination.TotalNumOfBytesSent}
-    destination.EntityData.Leafs["last-collection-time"] = types.YLeaf{"LastCollectionTime", destination.LastCollectionTime}
-    destination.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", destination.Dscp}
-    destination.EntityData.Leafs["sub-id"] = types.YLeaf{"SubId", destination.SubId}
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Children.Append("dest-ip-address", types.YChild{"DestIpAddress", &destination.DestIpAddress})
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("id", types.YLeaf{"Id", destination.Id})
+    destination.EntityData.Leafs.Append("sub-id-str", types.YLeaf{"SubIdStr", destination.SubIdStr})
+    destination.EntityData.Leafs.Append("dest-port", types.YLeaf{"DestPort", destination.DestPort})
+    destination.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", destination.Encoding})
+    destination.EntityData.Leafs.Append("transport", types.YLeaf{"Transport", destination.Transport})
+    destination.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", destination.Vrf})
+    destination.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", destination.VrfId})
+    destination.EntityData.Leafs.Append("state", types.YLeaf{"State", destination.State})
+    destination.EntityData.Leafs.Append("udp-mtu", types.YLeaf{"UdpMtu", destination.UdpMtu})
+    destination.EntityData.Leafs.Append("tls", types.YLeaf{"Tls", destination.Tls})
+    destination.EntityData.Leafs.Append("tls-host", types.YLeaf{"TlsHost", destination.TlsHost})
+    destination.EntityData.Leafs.Append("total-num-of-packets-sent", types.YLeaf{"TotalNumOfPacketsSent", destination.TotalNumOfPacketsSent})
+    destination.EntityData.Leafs.Append("total-num-of-bytes-sent", types.YLeaf{"TotalNumOfBytesSent", destination.TotalNumOfBytesSent})
+    destination.EntityData.Leafs.Append("last-collection-time", types.YLeaf{"LastCollectionTime", destination.LastCollectionTime})
+    destination.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", destination.Dscp})
+    destination.EntityData.Leafs.Append("sub-id", types.YLeaf{"SubId", destination.SubId})
+
+    destination.EntityData.YListKeys = []string {}
+
     return &(destination.EntityData)
 }
 
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination_DestIpAddress
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress
 // Destination IP Address
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination_DestIpAddress struct {
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1232,15 +1286,15 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGr
     IpType interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination_DestIpAddress) GetEntityData() *types.CommonEntityData {
+func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetEntityData() *types.CommonEntityData {
     destIpAddress.EntityData.YFilter = destIpAddress.YFilter
     destIpAddress.EntityData.YangName = "dest-ip-address"
     destIpAddress.EntityData.BundleName = "cisco_ios_xr"
@@ -1250,11 +1304,14 @@ func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscriptio
     destIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destIpAddress.EntityData.Children = make(map[string]types.YChild)
-    destIpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    destIpAddress.EntityData.Leafs["ip-type"] = types.YLeaf{"IpType", destIpAddress.IpType}
-    destIpAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", destIpAddress.Ipv4Address}
-    destIpAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", destIpAddress.Ipv6Address}
+    destIpAddress.EntityData.Children = types.NewOrderedMap()
+    destIpAddress.EntityData.Leafs = types.NewOrderedMap()
+    destIpAddress.EntityData.Leafs.Append("ip-type", types.YLeaf{"IpType", destIpAddress.IpType})
+    destIpAddress.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", destIpAddress.Ipv4Address})
+    destIpAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", destIpAddress.Ipv6Address})
+
+    destIpAddress.EntityData.YListKeys = []string {}
+
     return &(destIpAddress.EntityData)
 }
 
@@ -1330,12 +1387,12 @@ type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup struct {
     // Array of information for sensor paths within collection group. The type is
     // slice of
     // TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath.
-    CollectionPath []TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath
+    CollectionPath []*TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath
 
     // Array of information for sysdb paths within collection group. The type is
     // slice of
     // TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup.
-    InternalCollectionGroup []TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup
+    InternalCollectionGroup []*TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup
 }
 
 func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetEntityData() *types.CommonEntityData {
@@ -1348,32 +1405,35 @@ func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_Collectio
     collectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collectionGroup.EntityData.Children = make(map[string]types.YChild)
-    collectionGroup.EntityData.Children["collection-path"] = types.YChild{"CollectionPath", nil}
+    collectionGroup.EntityData.Children = types.NewOrderedMap()
+    collectionGroup.EntityData.Children.Append("collection-path", types.YChild{"CollectionPath", nil})
     for i := range collectionGroup.CollectionPath {
-        collectionGroup.EntityData.Children[types.GetSegmentPath(&collectionGroup.CollectionPath[i])] = types.YChild{"CollectionPath", &collectionGroup.CollectionPath[i]}
+        collectionGroup.EntityData.Children.Append(types.GetSegmentPath(collectionGroup.CollectionPath[i]), types.YChild{"CollectionPath", collectionGroup.CollectionPath[i]})
     }
-    collectionGroup.EntityData.Children["internal-collection-group"] = types.YChild{"InternalCollectionGroup", nil}
+    collectionGroup.EntityData.Children.Append("internal-collection-group", types.YChild{"InternalCollectionGroup", nil})
     for i := range collectionGroup.InternalCollectionGroup {
-        collectionGroup.EntityData.Children[types.GetSegmentPath(&collectionGroup.InternalCollectionGroup[i])] = types.YChild{"InternalCollectionGroup", &collectionGroup.InternalCollectionGroup[i]}
+        collectionGroup.EntityData.Children.Append(types.GetSegmentPath(collectionGroup.InternalCollectionGroup[i]), types.YChild{"InternalCollectionGroup", collectionGroup.InternalCollectionGroup[i]})
     }
-    collectionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    collectionGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", collectionGroup.Id}
-    collectionGroup.EntityData.Leafs["cadence"] = types.YLeaf{"Cadence", collectionGroup.Cadence}
-    collectionGroup.EntityData.Leafs["total-collections"] = types.YLeaf{"TotalCollections", collectionGroup.TotalCollections}
-    collectionGroup.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", collectionGroup.Encoding}
-    collectionGroup.EntityData.Leafs["last-collection-start-time"] = types.YLeaf{"LastCollectionStartTime", collectionGroup.LastCollectionStartTime}
-    collectionGroup.EntityData.Leafs["last-collection-end-time"] = types.YLeaf{"LastCollectionEndTime", collectionGroup.LastCollectionEndTime}
-    collectionGroup.EntityData.Leafs["max-collection-time"] = types.YLeaf{"MaxCollectionTime", collectionGroup.MaxCollectionTime}
-    collectionGroup.EntityData.Leafs["min-collection-time"] = types.YLeaf{"MinCollectionTime", collectionGroup.MinCollectionTime}
-    collectionGroup.EntityData.Leafs["min-total-time"] = types.YLeaf{"MinTotalTime", collectionGroup.MinTotalTime}
-    collectionGroup.EntityData.Leafs["max-total-time"] = types.YLeaf{"MaxTotalTime", collectionGroup.MaxTotalTime}
-    collectionGroup.EntityData.Leafs["avg-total-time"] = types.YLeaf{"AvgTotalTime", collectionGroup.AvgTotalTime}
-    collectionGroup.EntityData.Leafs["total-other-errors"] = types.YLeaf{"TotalOtherErrors", collectionGroup.TotalOtherErrors}
-    collectionGroup.EntityData.Leafs["total-on-data-instances"] = types.YLeaf{"TotalOnDataInstances", collectionGroup.TotalOnDataInstances}
-    collectionGroup.EntityData.Leafs["total-not-ready"] = types.YLeaf{"TotalNotReady", collectionGroup.TotalNotReady}
-    collectionGroup.EntityData.Leafs["total-send-errors"] = types.YLeaf{"TotalSendErrors", collectionGroup.TotalSendErrors}
-    collectionGroup.EntityData.Leafs["total-send-drops"] = types.YLeaf{"TotalSendDrops", collectionGroup.TotalSendDrops}
+    collectionGroup.EntityData.Leafs = types.NewOrderedMap()
+    collectionGroup.EntityData.Leafs.Append("id", types.YLeaf{"Id", collectionGroup.Id})
+    collectionGroup.EntityData.Leafs.Append("cadence", types.YLeaf{"Cadence", collectionGroup.Cadence})
+    collectionGroup.EntityData.Leafs.Append("total-collections", types.YLeaf{"TotalCollections", collectionGroup.TotalCollections})
+    collectionGroup.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", collectionGroup.Encoding})
+    collectionGroup.EntityData.Leafs.Append("last-collection-start-time", types.YLeaf{"LastCollectionStartTime", collectionGroup.LastCollectionStartTime})
+    collectionGroup.EntityData.Leafs.Append("last-collection-end-time", types.YLeaf{"LastCollectionEndTime", collectionGroup.LastCollectionEndTime})
+    collectionGroup.EntityData.Leafs.Append("max-collection-time", types.YLeaf{"MaxCollectionTime", collectionGroup.MaxCollectionTime})
+    collectionGroup.EntityData.Leafs.Append("min-collection-time", types.YLeaf{"MinCollectionTime", collectionGroup.MinCollectionTime})
+    collectionGroup.EntityData.Leafs.Append("min-total-time", types.YLeaf{"MinTotalTime", collectionGroup.MinTotalTime})
+    collectionGroup.EntityData.Leafs.Append("max-total-time", types.YLeaf{"MaxTotalTime", collectionGroup.MaxTotalTime})
+    collectionGroup.EntityData.Leafs.Append("avg-total-time", types.YLeaf{"AvgTotalTime", collectionGroup.AvgTotalTime})
+    collectionGroup.EntityData.Leafs.Append("total-other-errors", types.YLeaf{"TotalOtherErrors", collectionGroup.TotalOtherErrors})
+    collectionGroup.EntityData.Leafs.Append("total-on-data-instances", types.YLeaf{"TotalOnDataInstances", collectionGroup.TotalOnDataInstances})
+    collectionGroup.EntityData.Leafs.Append("total-not-ready", types.YLeaf{"TotalNotReady", collectionGroup.TotalNotReady})
+    collectionGroup.EntityData.Leafs.Append("total-send-errors", types.YLeaf{"TotalSendErrors", collectionGroup.TotalSendErrors})
+    collectionGroup.EntityData.Leafs.Append("total-send-drops", types.YLeaf{"TotalSendDrops", collectionGroup.TotalSendDrops})
+
+    collectionGroup.EntityData.YListKeys = []string {}
+
     return &(collectionGroup.EntityData)
 }
 
@@ -1405,11 +1465,14 @@ func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_Collection
     collectionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collectionPath.EntityData.Children = make(map[string]types.YChild)
-    collectionPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    collectionPath.EntityData.Leafs["path"] = types.YLeaf{"Path", collectionPath.Path}
-    collectionPath.EntityData.Leafs["state"] = types.YLeaf{"State", collectionPath.State}
-    collectionPath.EntityData.Leafs["status-str"] = types.YLeaf{"StatusStr", collectionPath.StatusStr}
+    collectionPath.EntityData.Children = types.NewOrderedMap()
+    collectionPath.EntityData.Leafs = types.NewOrderedMap()
+    collectionPath.EntityData.Leafs.Append("path", types.YLeaf{"Path", collectionPath.Path})
+    collectionPath.EntityData.Leafs.Append("state", types.YLeaf{"State", collectionPath.State})
+    collectionPath.EntityData.Leafs.Append("status-str", types.YLeaf{"StatusStr", collectionPath.StatusStr})
+
+    collectionPath.EntityData.YListKeys = []string {}
+
     return &(collectionPath.EntityData)
 }
 
@@ -1537,35 +1600,38 @@ func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_C
     internalCollectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalCollectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    internalCollectionGroup.EntityData.Children = make(map[string]types.YChild)
-    internalCollectionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    internalCollectionGroup.EntityData.Leafs["path"] = types.YLeaf{"Path", internalCollectionGroup.Path}
-    internalCollectionGroup.EntityData.Leafs["cadence"] = types.YLeaf{"Cadence", internalCollectionGroup.Cadence}
-    internalCollectionGroup.EntityData.Leafs["total-get-count"] = types.YLeaf{"TotalGetCount", internalCollectionGroup.TotalGetCount}
-    internalCollectionGroup.EntityData.Leafs["total-list-count"] = types.YLeaf{"TotalListCount", internalCollectionGroup.TotalListCount}
-    internalCollectionGroup.EntityData.Leafs["total-datalist-count"] = types.YLeaf{"TotalDatalistCount", internalCollectionGroup.TotalDatalistCount}
-    internalCollectionGroup.EntityData.Leafs["total-finddata-count"] = types.YLeaf{"TotalFinddataCount", internalCollectionGroup.TotalFinddataCount}
-    internalCollectionGroup.EntityData.Leafs["total-get-bulk-count"] = types.YLeaf{"TotalGetBulkCount", internalCollectionGroup.TotalGetBulkCount}
-    internalCollectionGroup.EntityData.Leafs["total-item-count"] = types.YLeaf{"TotalItemCount", internalCollectionGroup.TotalItemCount}
-    internalCollectionGroup.EntityData.Leafs["total-get-errors"] = types.YLeaf{"TotalGetErrors", internalCollectionGroup.TotalGetErrors}
-    internalCollectionGroup.EntityData.Leafs["total-list-errors"] = types.YLeaf{"TotalListErrors", internalCollectionGroup.TotalListErrors}
-    internalCollectionGroup.EntityData.Leafs["total-datalist-errors"] = types.YLeaf{"TotalDatalistErrors", internalCollectionGroup.TotalDatalistErrors}
-    internalCollectionGroup.EntityData.Leafs["total-finddata-errors"] = types.YLeaf{"TotalFinddataErrors", internalCollectionGroup.TotalFinddataErrors}
-    internalCollectionGroup.EntityData.Leafs["total-get-bulk-errors"] = types.YLeaf{"TotalGetBulkErrors", internalCollectionGroup.TotalGetBulkErrors}
-    internalCollectionGroup.EntityData.Leafs["total-encode-errors"] = types.YLeaf{"TotalEncodeErrors", internalCollectionGroup.TotalEncodeErrors}
-    internalCollectionGroup.EntityData.Leafs["total-encode-notready"] = types.YLeaf{"TotalEncodeNotready", internalCollectionGroup.TotalEncodeNotready}
-    internalCollectionGroup.EntityData.Leafs["total-send-errors"] = types.YLeaf{"TotalSendErrors", internalCollectionGroup.TotalSendErrors}
-    internalCollectionGroup.EntityData.Leafs["total-send-drops"] = types.YLeaf{"TotalSendDrops", internalCollectionGroup.TotalSendDrops}
-    internalCollectionGroup.EntityData.Leafs["total-sent-bytes"] = types.YLeaf{"TotalSentBytes", internalCollectionGroup.TotalSentBytes}
-    internalCollectionGroup.EntityData.Leafs["total-send-packets"] = types.YLeaf{"TotalSendPackets", internalCollectionGroup.TotalSendPackets}
-    internalCollectionGroup.EntityData.Leafs["total-send-bytes-dropped"] = types.YLeaf{"TotalSendBytesDropped", internalCollectionGroup.TotalSendBytesDropped}
-    internalCollectionGroup.EntityData.Leafs["total-collections"] = types.YLeaf{"TotalCollections", internalCollectionGroup.TotalCollections}
-    internalCollectionGroup.EntityData.Leafs["total-collections-missed"] = types.YLeaf{"TotalCollectionsMissed", internalCollectionGroup.TotalCollectionsMissed}
-    internalCollectionGroup.EntityData.Leafs["max-collection-time"] = types.YLeaf{"MaxCollectionTime", internalCollectionGroup.MaxCollectionTime}
-    internalCollectionGroup.EntityData.Leafs["min-collection-time"] = types.YLeaf{"MinCollectionTime", internalCollectionGroup.MinCollectionTime}
-    internalCollectionGroup.EntityData.Leafs["avg-collection-time"] = types.YLeaf{"AvgCollectionTime", internalCollectionGroup.AvgCollectionTime}
-    internalCollectionGroup.EntityData.Leafs["collection-method"] = types.YLeaf{"CollectionMethod", internalCollectionGroup.CollectionMethod}
-    internalCollectionGroup.EntityData.Leafs["status"] = types.YLeaf{"Status", internalCollectionGroup.Status}
+    internalCollectionGroup.EntityData.Children = types.NewOrderedMap()
+    internalCollectionGroup.EntityData.Leafs = types.NewOrderedMap()
+    internalCollectionGroup.EntityData.Leafs.Append("path", types.YLeaf{"Path", internalCollectionGroup.Path})
+    internalCollectionGroup.EntityData.Leafs.Append("cadence", types.YLeaf{"Cadence", internalCollectionGroup.Cadence})
+    internalCollectionGroup.EntityData.Leafs.Append("total-get-count", types.YLeaf{"TotalGetCount", internalCollectionGroup.TotalGetCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-list-count", types.YLeaf{"TotalListCount", internalCollectionGroup.TotalListCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-datalist-count", types.YLeaf{"TotalDatalistCount", internalCollectionGroup.TotalDatalistCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-finddata-count", types.YLeaf{"TotalFinddataCount", internalCollectionGroup.TotalFinddataCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-get-bulk-count", types.YLeaf{"TotalGetBulkCount", internalCollectionGroup.TotalGetBulkCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-item-count", types.YLeaf{"TotalItemCount", internalCollectionGroup.TotalItemCount})
+    internalCollectionGroup.EntityData.Leafs.Append("total-get-errors", types.YLeaf{"TotalGetErrors", internalCollectionGroup.TotalGetErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-list-errors", types.YLeaf{"TotalListErrors", internalCollectionGroup.TotalListErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-datalist-errors", types.YLeaf{"TotalDatalistErrors", internalCollectionGroup.TotalDatalistErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-finddata-errors", types.YLeaf{"TotalFinddataErrors", internalCollectionGroup.TotalFinddataErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-get-bulk-errors", types.YLeaf{"TotalGetBulkErrors", internalCollectionGroup.TotalGetBulkErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-encode-errors", types.YLeaf{"TotalEncodeErrors", internalCollectionGroup.TotalEncodeErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-encode-notready", types.YLeaf{"TotalEncodeNotready", internalCollectionGroup.TotalEncodeNotready})
+    internalCollectionGroup.EntityData.Leafs.Append("total-send-errors", types.YLeaf{"TotalSendErrors", internalCollectionGroup.TotalSendErrors})
+    internalCollectionGroup.EntityData.Leafs.Append("total-send-drops", types.YLeaf{"TotalSendDrops", internalCollectionGroup.TotalSendDrops})
+    internalCollectionGroup.EntityData.Leafs.Append("total-sent-bytes", types.YLeaf{"TotalSentBytes", internalCollectionGroup.TotalSentBytes})
+    internalCollectionGroup.EntityData.Leafs.Append("total-send-packets", types.YLeaf{"TotalSendPackets", internalCollectionGroup.TotalSendPackets})
+    internalCollectionGroup.EntityData.Leafs.Append("total-send-bytes-dropped", types.YLeaf{"TotalSendBytesDropped", internalCollectionGroup.TotalSendBytesDropped})
+    internalCollectionGroup.EntityData.Leafs.Append("total-collections", types.YLeaf{"TotalCollections", internalCollectionGroup.TotalCollections})
+    internalCollectionGroup.EntityData.Leafs.Append("total-collections-missed", types.YLeaf{"TotalCollectionsMissed", internalCollectionGroup.TotalCollectionsMissed})
+    internalCollectionGroup.EntityData.Leafs.Append("max-collection-time", types.YLeaf{"MaxCollectionTime", internalCollectionGroup.MaxCollectionTime})
+    internalCollectionGroup.EntityData.Leafs.Append("min-collection-time", types.YLeaf{"MinCollectionTime", internalCollectionGroup.MinCollectionTime})
+    internalCollectionGroup.EntityData.Leafs.Append("avg-collection-time", types.YLeaf{"AvgCollectionTime", internalCollectionGroup.AvgCollectionTime})
+    internalCollectionGroup.EntityData.Leafs.Append("collection-method", types.YLeaf{"CollectionMethod", internalCollectionGroup.CollectionMethod})
+    internalCollectionGroup.EntityData.Leafs.Append("status", types.YLeaf{"Status", internalCollectionGroup.Status})
+
+    internalCollectionGroup.EntityData.YListKeys = []string {}
+
     return &(internalCollectionGroup.EntityData)
 }
 
@@ -1577,7 +1643,7 @@ type TelemetryModelDriven_SensorGroups struct {
 
     // Telemetry Sensor Groups. The type is slice of
     // TelemetryModelDriven_SensorGroups_SensorGroup.
-    SensorGroup []TelemetryModelDriven_SensorGroups_SensorGroup
+    SensorGroup []*TelemetryModelDriven_SensorGroups_SensorGroup
 }
 
 func (sensorGroups *TelemetryModelDriven_SensorGroups) GetEntityData() *types.CommonEntityData {
@@ -1590,12 +1656,15 @@ func (sensorGroups *TelemetryModelDriven_SensorGroups) GetEntityData() *types.Co
     sensorGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensorGroups.EntityData.Children = make(map[string]types.YChild)
-    sensorGroups.EntityData.Children["sensor-group"] = types.YChild{"SensorGroup", nil}
+    sensorGroups.EntityData.Children = types.NewOrderedMap()
+    sensorGroups.EntityData.Children.Append("sensor-group", types.YChild{"SensorGroup", nil})
     for i := range sensorGroups.SensorGroup {
-        sensorGroups.EntityData.Children[types.GetSegmentPath(&sensorGroups.SensorGroup[i])] = types.YChild{"SensorGroup", &sensorGroups.SensorGroup[i]}
+        sensorGroups.EntityData.Children.Append(types.GetSegmentPath(sensorGroups.SensorGroup[i]), types.YChild{"SensorGroup", sensorGroups.SensorGroup[i]})
     }
-    sensorGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    sensorGroups.EntityData.YListKeys = []string {}
+
     return &(sensorGroups.EntityData)
 }
 
@@ -1606,7 +1675,7 @@ type TelemetryModelDriven_SensorGroups_SensorGroup struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Id of the sensor group. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SensorGroupId interface{}
 
     // Sensor Group name. The type is string.
@@ -1618,7 +1687,7 @@ type TelemetryModelDriven_SensorGroups_SensorGroup struct {
 
     // Array of information for sensor paths within sensor group. The type is
     // slice of TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath.
-    SensorPath []TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath
+    SensorPath []*TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath
 }
 
 func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetEntityData() *types.CommonEntityData {
@@ -1626,20 +1695,23 @@ func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetEntityData(
     sensorGroup.EntityData.YangName = "sensor-group"
     sensorGroup.EntityData.BundleName = "cisco_ios_xr"
     sensorGroup.EntityData.ParentYangName = "sensor-groups"
-    sensorGroup.EntityData.SegmentPath = "sensor-group" + "[sensor-group-id='" + fmt.Sprintf("%v", sensorGroup.SensorGroupId) + "']"
+    sensorGroup.EntityData.SegmentPath = "sensor-group" + types.AddKeyToken(sensorGroup.SensorGroupId, "sensor-group-id")
     sensorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensorGroup.EntityData.Children = make(map[string]types.YChild)
-    sensorGroup.EntityData.Children["sensor-path"] = types.YChild{"SensorPath", nil}
+    sensorGroup.EntityData.Children = types.NewOrderedMap()
+    sensorGroup.EntityData.Children.Append("sensor-path", types.YChild{"SensorPath", nil})
     for i := range sensorGroup.SensorPath {
-        sensorGroup.EntityData.Children[types.GetSegmentPath(&sensorGroup.SensorPath[i])] = types.YChild{"SensorPath", &sensorGroup.SensorPath[i]}
+        sensorGroup.EntityData.Children.Append(types.GetSegmentPath(sensorGroup.SensorPath[i]), types.YChild{"SensorPath", sensorGroup.SensorPath[i]})
     }
-    sensorGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorGroup.EntityData.Leafs["sensor-group-id"] = types.YLeaf{"SensorGroupId", sensorGroup.SensorGroupId}
-    sensorGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", sensorGroup.Id}
-    sensorGroup.EntityData.Leafs["configured"] = types.YLeaf{"Configured", sensorGroup.Configured}
+    sensorGroup.EntityData.Leafs = types.NewOrderedMap()
+    sensorGroup.EntityData.Leafs.Append("sensor-group-id", types.YLeaf{"SensorGroupId", sensorGroup.SensorGroupId})
+    sensorGroup.EntityData.Leafs.Append("id", types.YLeaf{"Id", sensorGroup.Id})
+    sensorGroup.EntityData.Leafs.Append("configured", types.YLeaf{"Configured", sensorGroup.Configured})
+
+    sensorGroup.EntityData.YListKeys = []string {"SensorGroupId"}
+
     return &(sensorGroup.EntityData)
 }
 
@@ -1671,11 +1743,14 @@ func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetE
     sensorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensorPath.EntityData.Children = make(map[string]types.YChild)
-    sensorPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorPath.EntityData.Leafs["path"] = types.YLeaf{"Path", sensorPath.Path}
-    sensorPath.EntityData.Leafs["state"] = types.YLeaf{"State", sensorPath.State}
-    sensorPath.EntityData.Leafs["status-str"] = types.YLeaf{"StatusStr", sensorPath.StatusStr}
+    sensorPath.EntityData.Children = types.NewOrderedMap()
+    sensorPath.EntityData.Leafs = types.NewOrderedMap()
+    sensorPath.EntityData.Leafs.Append("path", types.YLeaf{"Path", sensorPath.Path})
+    sensorPath.EntityData.Leafs.Append("state", types.YLeaf{"State", sensorPath.State})
+    sensorPath.EntityData.Leafs.Append("status-str", types.YLeaf{"StatusStr", sensorPath.StatusStr})
+
+    sensorPath.EntityData.YListKeys = []string {}
+
     return &(sensorPath.EntityData)
 }
 

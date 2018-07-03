@@ -540,10 +540,6 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
         description
           "OTN Framing Error";
       }
-      enum "shutdown" {
-        description
-          "Link is shutdown";
-      }
     }
     description
       "Ethernet link state: IEEE 802.3/802.3ae clause 30
@@ -2073,14 +2069,6 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
       enum "ethernet-10gbase-acu10m" {
         description
           "Active Twinax cable assembly 10m";
-      }
-      enum "ethernet-40gbase-aoc" {
-        description
-          "Active optical cable";
-      }
-      enum "ethernet-4x10g-base-lr" {
-        description
-          "fiber over 4 lane optics (long reach)";
       }
       enum "ethernet-base-max" {
         description

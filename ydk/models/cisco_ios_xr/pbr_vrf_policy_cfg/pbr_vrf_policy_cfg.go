@@ -31,7 +31,7 @@ type VrfPolicy struct {
     YFilter yfilter.YFilter
 
     // VRF Name. The type is slice of VrfPolicy_Vrf.
-    Vrf []VrfPolicy_Vrf
+    Vrf []*VrfPolicy_Vrf
 }
 
 func (vrfPolicy *VrfPolicy) GetEntityData() *types.CommonEntityData {
@@ -44,12 +44,15 @@ func (vrfPolicy *VrfPolicy) GetEntityData() *types.CommonEntityData {
     vrfPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfPolicy.EntityData.Children = make(map[string]types.YChild)
-    vrfPolicy.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfPolicy.EntityData.Children = types.NewOrderedMap()
+    vrfPolicy.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfPolicy.Vrf {
-        vrfPolicy.EntityData.Children[types.GetSegmentPath(&vrfPolicy.Vrf[i])] = types.YChild{"Vrf", &vrfPolicy.Vrf[i]}
+        vrfPolicy.EntityData.Children.Append(types.GetSegmentPath(vrfPolicy.Vrf[i]), types.YChild{"Vrf", vrfPolicy.Vrf[i]})
     }
-    vrfPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfPolicy.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfPolicy.EntityData.YListKeys = []string {}
+
     return &(vrfPolicy.EntityData)
 }
 
@@ -60,11 +63,11 @@ type VrfPolicy_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // address family. The type is slice of VrfPolicy_Vrf_Afi.
-    Afi []VrfPolicy_Vrf_Afi
+    Afi []*VrfPolicy_Vrf_Afi
 }
 
 func (vrf *VrfPolicy_Vrf) GetEntityData() *types.CommonEntityData {
@@ -72,18 +75,21 @@ func (vrf *VrfPolicy_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrf-policy"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["afi"] = types.YChild{"Afi", nil}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("afi", types.YChild{"Afi", nil})
     for i := range vrf.Afi {
-        vrf.EntityData.Children[types.GetSegmentPath(&vrf.Afi[i])] = types.YChild{"Afi", &vrf.Afi[i]}
+        vrf.EntityData.Children.Append(types.GetSegmentPath(vrf.Afi[i]), types.YChild{"Afi", vrf.Afi[i]})
     }
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -93,8 +99,7 @@ type VrfPolicy_Vrf_Afi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. AFI name. The type is string with pattern:
-    // b'(ipv4)|(ipv6)'.
+    // This attribute is a key. AFI name. The type is string with pattern: (ipv4).
     AfiType interface{}
 
     // Policy map name. The type is string.
@@ -106,15 +111,18 @@ func (afi *VrfPolicy_Vrf_Afi) GetEntityData() *types.CommonEntityData {
     afi.EntityData.YangName = "afi"
     afi.EntityData.BundleName = "cisco_ios_xr"
     afi.EntityData.ParentYangName = "vrf"
-    afi.EntityData.SegmentPath = "afi" + "[afi-type='" + fmt.Sprintf("%v", afi.AfiType) + "']"
+    afi.EntityData.SegmentPath = "afi" + types.AddKeyToken(afi.AfiType, "afi-type")
     afi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    afi.EntityData.Children = make(map[string]types.YChild)
-    afi.EntityData.Leafs = make(map[string]types.YLeaf)
-    afi.EntityData.Leafs["afi-type"] = types.YLeaf{"AfiType", afi.AfiType}
-    afi.EntityData.Leafs["service-policy-in"] = types.YLeaf{"ServicePolicyIn", afi.ServicePolicyIn}
+    afi.EntityData.Children = types.NewOrderedMap()
+    afi.EntityData.Leafs = types.NewOrderedMap()
+    afi.EntityData.Leafs.Append("afi-type", types.YLeaf{"AfiType", afi.AfiType})
+    afi.EntityData.Leafs.Append("service-policy-in", types.YLeaf{"ServicePolicyIn", afi.ServicePolicyIn})
+
+    afi.EntityData.YListKeys = []string {"AfiType"}
+
     return &(afi.EntityData)
 }
 

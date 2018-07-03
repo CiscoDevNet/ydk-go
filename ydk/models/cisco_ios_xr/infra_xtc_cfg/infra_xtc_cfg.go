@@ -24,23 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-xtc-cfg:pce", reflect.TypeOf(Pce{}))
 }
 
-// PceDisjointPath represents Pce disjoint path
-type PceDisjointPath string
-
-const (
-    // Link
-    PceDisjointPath_link PceDisjointPath = "link"
-
-    // Node
-    PceDisjointPath_node PceDisjointPath = "node"
-
-    // SRLG
-    PceDisjointPath_srlg PceDisjointPath = "srlg"
-
-    // SRLG Node
-    PceDisjointPath_srlg_node PceDisjointPath = "srlg-node"
-)
-
 // PceExplicitPathHop represents Pce explicit path hop
 type PceExplicitPathHop string
 
@@ -58,6 +41,23 @@ const (
     PceExplicitPathHop_binding_sid PceExplicitPathHop = "binding-sid"
 )
 
+// PceDisjointPath represents Pce disjoint path
+type PceDisjointPath string
+
+const (
+    // Link
+    PceDisjointPath_link PceDisjointPath = "link"
+
+    // Node
+    PceDisjointPath_node PceDisjointPath = "node"
+
+    // SRLG
+    PceDisjointPath_srlg PceDisjointPath = "srlg"
+
+    // SRLG Node
+    PceDisjointPath_srlg_node PceDisjointPath = "srlg-node"
+)
+
 // Pce
 // PCE configuration data
 type Pce struct {
@@ -65,14 +65,21 @@ type Pce struct {
     YFilter yfilter.YFilter
 
     // IPv4 address of PCE server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ServerAddress interface{}
 
-    // MD5 password. The type is string with pattern: b'(!.+)|([^!].+)'.
+    // IPv6 address of PCE server. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6ServerAddress interface{}
+
+    // MD5 password. The type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 
     // True only. The type is interface{}.
     Enable interface{}
+
+    // Standby IPv6 PCE configuration.
+    Ipv6StateSyncs Pce_Ipv6StateSyncs
 
     // Path computation client configuration.
     PccAddresses Pce_PccAddresses
@@ -83,7 +90,7 @@ type Pce struct {
     // PCE backoff configuration.
     Backoff Pce_Backoff
 
-    // Standby PCE configuration.
+    // Standby IPv4 PCE configuration.
     StateSyncs Pce_StateSyncs
 
     // PCE segment-routing configuration.
@@ -112,21 +119,89 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pce.EntityData.Children = make(map[string]types.YChild)
-    pce.EntityData.Children["pcc-addresses"] = types.YChild{"PccAddresses", &pce.PccAddresses}
-    pce.EntityData.Children["logging"] = types.YChild{"Logging", &pce.Logging}
-    pce.EntityData.Children["backoff"] = types.YChild{"Backoff", &pce.Backoff}
-    pce.EntityData.Children["state-syncs"] = types.YChild{"StateSyncs", &pce.StateSyncs}
-    pce.EntityData.Children["segment-routing"] = types.YChild{"SegmentRouting", &pce.SegmentRouting}
-    pce.EntityData.Children["timers"] = types.YChild{"Timers", &pce.Timers}
-    pce.EntityData.Children["netconf"] = types.YChild{"Netconf", &pce.Netconf}
-    pce.EntityData.Children["disjoint-path"] = types.YChild{"DisjointPath", &pce.DisjointPath}
-    pce.EntityData.Children["explicit-paths"] = types.YChild{"ExplicitPaths", &pce.ExplicitPaths}
-    pce.EntityData.Leafs = make(map[string]types.YLeaf)
-    pce.EntityData.Leafs["server-address"] = types.YLeaf{"ServerAddress", pce.ServerAddress}
-    pce.EntityData.Leafs["password"] = types.YLeaf{"Password", pce.Password}
-    pce.EntityData.Leafs["enable"] = types.YLeaf{"Enable", pce.Enable}
+    pce.EntityData.Children = types.NewOrderedMap()
+    pce.EntityData.Children.Append("ipv6-state-syncs", types.YChild{"Ipv6StateSyncs", &pce.Ipv6StateSyncs})
+    pce.EntityData.Children.Append("pcc-addresses", types.YChild{"PccAddresses", &pce.PccAddresses})
+    pce.EntityData.Children.Append("logging", types.YChild{"Logging", &pce.Logging})
+    pce.EntityData.Children.Append("backoff", types.YChild{"Backoff", &pce.Backoff})
+    pce.EntityData.Children.Append("state-syncs", types.YChild{"StateSyncs", &pce.StateSyncs})
+    pce.EntityData.Children.Append("segment-routing", types.YChild{"SegmentRouting", &pce.SegmentRouting})
+    pce.EntityData.Children.Append("timers", types.YChild{"Timers", &pce.Timers})
+    pce.EntityData.Children.Append("netconf", types.YChild{"Netconf", &pce.Netconf})
+    pce.EntityData.Children.Append("disjoint-path", types.YChild{"DisjointPath", &pce.DisjointPath})
+    pce.EntityData.Children.Append("explicit-paths", types.YChild{"ExplicitPaths", &pce.ExplicitPaths})
+    pce.EntityData.Leafs = types.NewOrderedMap()
+    pce.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", pce.ServerAddress})
+    pce.EntityData.Leafs.Append("ipv6-server-address", types.YLeaf{"Ipv6ServerAddress", pce.Ipv6ServerAddress})
+    pce.EntityData.Leafs.Append("password", types.YLeaf{"Password", pce.Password})
+    pce.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pce.Enable})
+
+    pce.EntityData.YListKeys = []string {}
+
     return &(pce.EntityData)
+}
+
+// Pce_Ipv6StateSyncs
+// Standby IPv6 PCE configuration
+type Pce_Ipv6StateSyncs struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Standby PCE ipv6 address. The type is slice of
+    // Pce_Ipv6StateSyncs_Ipv6StateSync.
+    Ipv6StateSync []*Pce_Ipv6StateSyncs_Ipv6StateSync
+}
+
+func (ipv6StateSyncs *Pce_Ipv6StateSyncs) GetEntityData() *types.CommonEntityData {
+    ipv6StateSyncs.EntityData.YFilter = ipv6StateSyncs.YFilter
+    ipv6StateSyncs.EntityData.YangName = "ipv6-state-syncs"
+    ipv6StateSyncs.EntityData.BundleName = "cisco_ios_xr"
+    ipv6StateSyncs.EntityData.ParentYangName = "pce"
+    ipv6StateSyncs.EntityData.SegmentPath = "ipv6-state-syncs"
+    ipv6StateSyncs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6StateSyncs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6StateSyncs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6StateSyncs.EntityData.Children = types.NewOrderedMap()
+    ipv6StateSyncs.EntityData.Children.Append("ipv6-state-sync", types.YChild{"Ipv6StateSync", nil})
+    for i := range ipv6StateSyncs.Ipv6StateSync {
+        ipv6StateSyncs.EntityData.Children.Append(types.GetSegmentPath(ipv6StateSyncs.Ipv6StateSync[i]), types.YChild{"Ipv6StateSync", ipv6StateSyncs.Ipv6StateSync[i]})
+    }
+    ipv6StateSyncs.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6StateSyncs.EntityData.YListKeys = []string {}
+
+    return &(ipv6StateSyncs.EntityData)
+}
+
+// Pce_Ipv6StateSyncs_Ipv6StateSync
+// Standby PCE ipv6 address
+type Pce_Ipv6StateSyncs_Ipv6StateSync struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. IPv6 address. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Address interface{}
+}
+
+func (ipv6StateSync *Pce_Ipv6StateSyncs_Ipv6StateSync) GetEntityData() *types.CommonEntityData {
+    ipv6StateSync.EntityData.YFilter = ipv6StateSync.YFilter
+    ipv6StateSync.EntityData.YangName = "ipv6-state-sync"
+    ipv6StateSync.EntityData.BundleName = "cisco_ios_xr"
+    ipv6StateSync.EntityData.ParentYangName = "ipv6-state-syncs"
+    ipv6StateSync.EntityData.SegmentPath = "ipv6-state-sync" + types.AddKeyToken(ipv6StateSync.Address, "address")
+    ipv6StateSync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6StateSync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6StateSync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6StateSync.EntityData.Children = types.NewOrderedMap()
+    ipv6StateSync.EntityData.Leafs = types.NewOrderedMap()
+    ipv6StateSync.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6StateSync.Address})
+
+    ipv6StateSync.EntityData.YListKeys = []string {"Address"}
+
+    return &(ipv6StateSync.EntityData)
 }
 
 // Pce_PccAddresses
@@ -137,7 +212,7 @@ type Pce_PccAddresses struct {
 
     // Path computation client address. The type is slice of
     // Pce_PccAddresses_PccAddress.
-    PccAddress []Pce_PccAddresses_PccAddress
+    PccAddress []*Pce_PccAddresses_PccAddress
 }
 
 func (pccAddresses *Pce_PccAddresses) GetEntityData() *types.CommonEntityData {
@@ -150,12 +225,15 @@ func (pccAddresses *Pce_PccAddresses) GetEntityData() *types.CommonEntityData {
     pccAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pccAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pccAddresses.EntityData.Children = make(map[string]types.YChild)
-    pccAddresses.EntityData.Children["pcc-address"] = types.YChild{"PccAddress", nil}
+    pccAddresses.EntityData.Children = types.NewOrderedMap()
+    pccAddresses.EntityData.Children.Append("pcc-address", types.YChild{"PccAddress", nil})
     for i := range pccAddresses.PccAddress {
-        pccAddresses.EntityData.Children[types.GetSegmentPath(&pccAddresses.PccAddress[i])] = types.YChild{"PccAddress", &pccAddresses.PccAddress[i]}
+        pccAddresses.EntityData.Children.Append(types.GetSegmentPath(pccAddresses.PccAddress[i]), types.YChild{"PccAddress", pccAddresses.PccAddress[i]})
     }
-    pccAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    pccAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    pccAddresses.EntityData.YListKeys = []string {}
+
     return &(pccAddresses.EntityData)
 }
 
@@ -166,7 +244,7 @@ type Pce_PccAddresses_PccAddress struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // True only. The type is interface{}.
@@ -181,16 +259,19 @@ func (pccAddress *Pce_PccAddresses_PccAddress) GetEntityData() *types.CommonEnti
     pccAddress.EntityData.YangName = "pcc-address"
     pccAddress.EntityData.BundleName = "cisco_ios_xr"
     pccAddress.EntityData.ParentYangName = "pcc-addresses"
-    pccAddress.EntityData.SegmentPath = "pcc-address" + "[address='" + fmt.Sprintf("%v", pccAddress.Address) + "']"
+    pccAddress.EntityData.SegmentPath = "pcc-address" + types.AddKeyToken(pccAddress.Address, "address")
     pccAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pccAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pccAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pccAddress.EntityData.Children = make(map[string]types.YChild)
-    pccAddress.EntityData.Children["lsp-names"] = types.YChild{"LspNames", &pccAddress.LspNames}
-    pccAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    pccAddress.EntityData.Leafs["address"] = types.YLeaf{"Address", pccAddress.Address}
-    pccAddress.EntityData.Leafs["enable"] = types.YLeaf{"Enable", pccAddress.Enable}
+    pccAddress.EntityData.Children = types.NewOrderedMap()
+    pccAddress.EntityData.Children.Append("lsp-names", types.YChild{"LspNames", &pccAddress.LspNames})
+    pccAddress.EntityData.Leafs = types.NewOrderedMap()
+    pccAddress.EntityData.Leafs.Append("address", types.YLeaf{"Address", pccAddress.Address})
+    pccAddress.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pccAddress.Enable})
+
+    pccAddress.EntityData.YListKeys = []string {"Address"}
+
     return &(pccAddress.EntityData)
 }
 
@@ -202,7 +283,7 @@ type Pce_PccAddresses_PccAddress_LspNames struct {
 
     // MPLS label switched path. The type is slice of
     // Pce_PccAddresses_PccAddress_LspNames_LspName.
-    LspName []Pce_PccAddresses_PccAddress_LspNames_LspName
+    LspName []*Pce_PccAddresses_PccAddress_LspNames_LspName
 }
 
 func (lspNames *Pce_PccAddresses_PccAddress_LspNames) GetEntityData() *types.CommonEntityData {
@@ -215,12 +296,15 @@ func (lspNames *Pce_PccAddresses_PccAddress_LspNames) GetEntityData() *types.Com
     lspNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspNames.EntityData.Children = make(map[string]types.YChild)
-    lspNames.EntityData.Children["lsp-name"] = types.YChild{"LspName", nil}
+    lspNames.EntityData.Children = types.NewOrderedMap()
+    lspNames.EntityData.Children.Append("lsp-name", types.YChild{"LspName", nil})
     for i := range lspNames.LspName {
-        lspNames.EntityData.Children[types.GetSegmentPath(&lspNames.LspName[i])] = types.YChild{"LspName", &lspNames.LspName[i]}
+        lspNames.EntityData.Children.Append(types.GetSegmentPath(lspNames.LspName[i]), types.YChild{"LspName", lspNames.LspName[i]})
     }
-    lspNames.EntityData.Leafs = make(map[string]types.YLeaf)
+    lspNames.EntityData.Leafs = types.NewOrderedMap()
+
+    lspNames.EntityData.YListKeys = []string {}
+
     return &(lspNames.EntityData)
 }
 
@@ -231,13 +315,13 @@ type Pce_PccAddresses_PccAddress_LspNames_LspName struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. LSP name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Undelegate LSP. The type is interface{}.
     Undelegate interface{}
 
-    // Explicit-path name. The type is string.
+    // Explicit-path name. The type is string. This attribute is mandatory.
     ExplicitPathName interface{}
 
     // True only. The type is interface{}.
@@ -252,32 +336,37 @@ func (lspName *Pce_PccAddresses_PccAddress_LspNames_LspName) GetEntityData() *ty
     lspName.EntityData.YangName = "lsp-name"
     lspName.EntityData.BundleName = "cisco_ios_xr"
     lspName.EntityData.ParentYangName = "lsp-names"
-    lspName.EntityData.SegmentPath = "lsp-name" + "[name='" + fmt.Sprintf("%v", lspName.Name) + "']"
+    lspName.EntityData.SegmentPath = "lsp-name" + types.AddKeyToken(lspName.Name, "name")
     lspName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspName.EntityData.Children = make(map[string]types.YChild)
-    lspName.EntityData.Children["rsvp-te"] = types.YChild{"RsvpTe", &lspName.RsvpTe}
-    lspName.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspName.EntityData.Leafs["name"] = types.YLeaf{"Name", lspName.Name}
-    lspName.EntityData.Leafs["undelegate"] = types.YLeaf{"Undelegate", lspName.Undelegate}
-    lspName.EntityData.Leafs["explicit-path-name"] = types.YLeaf{"ExplicitPathName", lspName.ExplicitPathName}
-    lspName.EntityData.Leafs["enable"] = types.YLeaf{"Enable", lspName.Enable}
+    lspName.EntityData.Children = types.NewOrderedMap()
+    lspName.EntityData.Children.Append("rsvp-te", types.YChild{"RsvpTe", &lspName.RsvpTe})
+    lspName.EntityData.Leafs = types.NewOrderedMap()
+    lspName.EntityData.Leafs.Append("name", types.YLeaf{"Name", lspName.Name})
+    lspName.EntityData.Leafs.Append("undelegate", types.YLeaf{"Undelegate", lspName.Undelegate})
+    lspName.EntityData.Leafs.Append("explicit-path-name", types.YLeaf{"ExplicitPathName", lspName.ExplicitPathName})
+    lspName.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", lspName.Enable})
+
+    lspName.EntityData.YListKeys = []string {"Name"}
+
     return &(lspName.EntityData)
 }
 
 // Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe
 // RSVP-TE configuration
+// This type is a presence type.
 type Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable fast protection. The type is interface{}.
     FastProtect interface{}
 
-    // Bandwidth configuration. The type is interface{} with range:
-    // -2147483648..2147483647. Units are kbit/s.
+    // Bandwidth configuration. The type is interface{} with range: 0..4294967295.
+    // This attribute is mandatory. Units are kbit/s.
     Bandwidth interface{}
 
     // True only. The type is interface{}.
@@ -300,13 +389,16 @@ func (rsvpTe *Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe) GetEntityData
     rsvpTe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpTe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rsvpTe.EntityData.Children = make(map[string]types.YChild)
-    rsvpTe.EntityData.Children["affinity"] = types.YChild{"Affinity", &rsvpTe.Affinity}
-    rsvpTe.EntityData.Children["priority"] = types.YChild{"Priority", &rsvpTe.Priority}
-    rsvpTe.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpTe.EntityData.Leafs["fast-protect"] = types.YLeaf{"FastProtect", rsvpTe.FastProtect}
-    rsvpTe.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", rsvpTe.Bandwidth}
-    rsvpTe.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rsvpTe.Enable}
+    rsvpTe.EntityData.Children = types.NewOrderedMap()
+    rsvpTe.EntityData.Children.Append("affinity", types.YChild{"Affinity", &rsvpTe.Affinity})
+    rsvpTe.EntityData.Children.Append("priority", types.YChild{"Priority", &rsvpTe.Priority})
+    rsvpTe.EntityData.Leafs = types.NewOrderedMap()
+    rsvpTe.EntityData.Leafs.Append("fast-protect", types.YLeaf{"FastProtect", rsvpTe.FastProtect})
+    rsvpTe.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", rsvpTe.Bandwidth})
+    rsvpTe.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rsvpTe.Enable})
+
+    rsvpTe.EntityData.YListKeys = []string {}
+
     return &(rsvpTe.EntityData)
 }
 
@@ -317,15 +409,15 @@ type Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe_Affinity struct {
     YFilter yfilter.YFilter
 
     // Include-any affinity value. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     IncludeAny interface{}
 
     // Include-all affinity value. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     IncludeAll interface{}
 
     // Exclude-any affinity value. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     ExcludeAny interface{}
 }
 
@@ -339,11 +431,14 @@ func (affinity *Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe_Affinity) Ge
     affinity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    affinity.EntityData.Children = make(map[string]types.YChild)
-    affinity.EntityData.Leafs = make(map[string]types.YLeaf)
-    affinity.EntityData.Leafs["include-any"] = types.YLeaf{"IncludeAny", affinity.IncludeAny}
-    affinity.EntityData.Leafs["include-all"] = types.YLeaf{"IncludeAll", affinity.IncludeAll}
-    affinity.EntityData.Leafs["exclude-any"] = types.YLeaf{"ExcludeAny", affinity.ExcludeAny}
+    affinity.EntityData.Children = types.NewOrderedMap()
+    affinity.EntityData.Leafs = types.NewOrderedMap()
+    affinity.EntityData.Leafs.Append("include-any", types.YLeaf{"IncludeAny", affinity.IncludeAny})
+    affinity.EntityData.Leafs.Append("include-all", types.YLeaf{"IncludeAll", affinity.IncludeAll})
+    affinity.EntityData.Leafs.Append("exclude-any", types.YLeaf{"ExcludeAny", affinity.ExcludeAny})
+
+    affinity.EntityData.YListKeys = []string {}
+
     return &(affinity.EntityData)
 }
 
@@ -353,6 +448,7 @@ func (affinity *Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe_Affinity) Ge
 type Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Setup Priority. The type is interface{} with range: 0..7. This attribute is
     // mandatory.
@@ -373,10 +469,13 @@ func (priority *Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe_Priority) Ge
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    priority.EntityData.Children = make(map[string]types.YChild)
-    priority.EntityData.Leafs = make(map[string]types.YLeaf)
-    priority.EntityData.Leafs["setup-priority"] = types.YLeaf{"SetupPriority", priority.SetupPriority}
-    priority.EntityData.Leafs["hold-priority"] = types.YLeaf{"HoldPriority", priority.HoldPriority}
+    priority.EntityData.Children = types.NewOrderedMap()
+    priority.EntityData.Leafs = types.NewOrderedMap()
+    priority.EntityData.Leafs.Append("setup-priority", types.YLeaf{"SetupPriority", priority.SetupPriority})
+    priority.EntityData.Leafs.Append("hold-priority", types.YLeaf{"HoldPriority", priority.HoldPriority})
+
+    priority.EntityData.YListKeys = []string {}
+
     return &(priority.EntityData)
 }
 
@@ -406,19 +505,24 @@ func (logging *Pce_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logging.EntityData.Children = make(map[string]types.YChild)
-    logging.EntityData.Leafs = make(map[string]types.YLeaf)
-    logging.EntityData.Leafs["no-path"] = types.YLeaf{"NoPath", logging.NoPath}
-    logging.EntityData.Leafs["pcerr"] = types.YLeaf{"Pcerr", logging.Pcerr}
-    logging.EntityData.Leafs["fallback"] = types.YLeaf{"Fallback", logging.Fallback}
+    logging.EntityData.Children = types.NewOrderedMap()
+    logging.EntityData.Leafs = types.NewOrderedMap()
+    logging.EntityData.Leafs.Append("no-path", types.YLeaf{"NoPath", logging.NoPath})
+    logging.EntityData.Leafs.Append("pcerr", types.YLeaf{"Pcerr", logging.Pcerr})
+    logging.EntityData.Leafs.Append("fallback", types.YLeaf{"Fallback", logging.Fallback})
+
+    logging.EntityData.YListKeys = []string {}
+
     return &(logging.EntityData)
 }
 
 // Pce_Backoff
 // PCE backoff configuration
+// This type is a presence type.
 type Pce_Backoff struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Backoff common ratio configuration. The type is interface{} with range:
     // 0..255. The default value is 2.
@@ -443,22 +547,25 @@ func (backoff *Pce_Backoff) GetEntityData() *types.CommonEntityData {
     backoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backoff.EntityData.Children = make(map[string]types.YChild)
-    backoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    backoff.EntityData.Leafs["ratio"] = types.YLeaf{"Ratio", backoff.Ratio}
-    backoff.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", backoff.Threshold}
-    backoff.EntityData.Leafs["difference"] = types.YLeaf{"Difference", backoff.Difference}
+    backoff.EntityData.Children = types.NewOrderedMap()
+    backoff.EntityData.Leafs = types.NewOrderedMap()
+    backoff.EntityData.Leafs.Append("ratio", types.YLeaf{"Ratio", backoff.Ratio})
+    backoff.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", backoff.Threshold})
+    backoff.EntityData.Leafs.Append("difference", types.YLeaf{"Difference", backoff.Difference})
+
+    backoff.EntityData.YListKeys = []string {}
+
     return &(backoff.EntityData)
 }
 
 // Pce_StateSyncs
-// Standby PCE configuration
+// Standby IPv4 PCE configuration
 type Pce_StateSyncs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Standby PCE ipv4 address. The type is slice of Pce_StateSyncs_StateSync.
-    StateSync []Pce_StateSyncs_StateSync
+    StateSync []*Pce_StateSyncs_StateSync
 }
 
 func (stateSyncs *Pce_StateSyncs) GetEntityData() *types.CommonEntityData {
@@ -471,12 +578,15 @@ func (stateSyncs *Pce_StateSyncs) GetEntityData() *types.CommonEntityData {
     stateSyncs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateSyncs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateSyncs.EntityData.Children = make(map[string]types.YChild)
-    stateSyncs.EntityData.Children["state-sync"] = types.YChild{"StateSync", nil}
+    stateSyncs.EntityData.Children = types.NewOrderedMap()
+    stateSyncs.EntityData.Children.Append("state-sync", types.YChild{"StateSync", nil})
     for i := range stateSyncs.StateSync {
-        stateSyncs.EntityData.Children[types.GetSegmentPath(&stateSyncs.StateSync[i])] = types.YChild{"StateSync", &stateSyncs.StateSync[i]}
+        stateSyncs.EntityData.Children.Append(types.GetSegmentPath(stateSyncs.StateSync[i]), types.YChild{"StateSync", stateSyncs.StateSync[i]})
     }
-    stateSyncs.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateSyncs.EntityData.Leafs = types.NewOrderedMap()
+
+    stateSyncs.EntityData.YListKeys = []string {}
+
     return &(stateSyncs.EntityData)
 }
 
@@ -487,7 +597,7 @@ type Pce_StateSyncs_StateSync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -496,14 +606,17 @@ func (stateSync *Pce_StateSyncs_StateSync) GetEntityData() *types.CommonEntityDa
     stateSync.EntityData.YangName = "state-sync"
     stateSync.EntityData.BundleName = "cisco_ios_xr"
     stateSync.EntityData.ParentYangName = "state-syncs"
-    stateSync.EntityData.SegmentPath = "state-sync" + "[address='" + fmt.Sprintf("%v", stateSync.Address) + "']"
+    stateSync.EntityData.SegmentPath = "state-sync" + types.AddKeyToken(stateSync.Address, "address")
     stateSync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateSync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateSync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateSync.EntityData.Children = make(map[string]types.YChild)
-    stateSync.EntityData.Leafs = make(map[string]types.YLeaf)
-    stateSync.EntityData.Leafs["address"] = types.YLeaf{"Address", stateSync.Address}
+    stateSync.EntityData.Children = types.NewOrderedMap()
+    stateSync.EntityData.Leafs = types.NewOrderedMap()
+    stateSync.EntityData.Leafs.Append("address", types.YLeaf{"Address", stateSync.Address})
+
+    stateSync.EntityData.YListKeys = []string {"Address"}
+
     return &(stateSync.EntityData)
 }
 
@@ -530,18 +643,23 @@ func (segmentRouting *Pce_SegmentRouting) GetEntityData() *types.CommonEntityDat
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    segmentRouting.EntityData.Children = make(map[string]types.YChild)
-    segmentRouting.EntityData.Leafs = make(map[string]types.YLeaf)
-    segmentRouting.EntityData.Leafs["te-latency"] = types.YLeaf{"TeLatency", segmentRouting.TeLatency}
-    segmentRouting.EntityData.Leafs["strict-sid-only"] = types.YLeaf{"StrictSidOnly", segmentRouting.StrictSidOnly}
+    segmentRouting.EntityData.Children = types.NewOrderedMap()
+    segmentRouting.EntityData.Leafs = types.NewOrderedMap()
+    segmentRouting.EntityData.Leafs.Append("te-latency", types.YLeaf{"TeLatency", segmentRouting.TeLatency})
+    segmentRouting.EntityData.Leafs.Append("strict-sid-only", types.YLeaf{"StrictSidOnly", segmentRouting.StrictSidOnly})
+
+    segmentRouting.EntityData.YListKeys = []string {}
+
     return &(segmentRouting.EntityData)
 }
 
 // Pce_Timers
 // PCE Timers configuration
+// This type is a presence type.
 type Pce_Timers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Topology reoptimization timer configuration. The type is interface{} with
     // range: 10..3600. Units are second. The default value is 60.
@@ -566,11 +684,14 @@ func (timers *Pce_Timers) GetEntityData() *types.CommonEntityData {
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["reoptimization-timer"] = types.YLeaf{"ReoptimizationTimer", timers.ReoptimizationTimer}
-    timers.EntityData.Leafs["keepalive"] = types.YLeaf{"Keepalive", timers.Keepalive}
-    timers.EntityData.Leafs["minimum-peer-keepalive"] = types.YLeaf{"MinimumPeerKeepalive", timers.MinimumPeerKeepalive}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("reoptimization-timer", types.YLeaf{"ReoptimizationTimer", timers.ReoptimizationTimer})
+    timers.EntityData.Leafs.Append("keepalive", types.YLeaf{"Keepalive", timers.Keepalive})
+    timers.EntityData.Leafs.Append("minimum-peer-keepalive", types.YLeaf{"MinimumPeerKeepalive", timers.MinimumPeerKeepalive})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -594,23 +715,29 @@ func (netconf *Pce_Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconf.EntityData.Children = make(map[string]types.YChild)
-    netconf.EntityData.Children["netconf-ssh"] = types.YChild{"NetconfSsh", &netconf.NetconfSsh}
-    netconf.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconf.EntityData.Children = types.NewOrderedMap()
+    netconf.EntityData.Children.Append("netconf-ssh", types.YChild{"NetconfSsh", &netconf.NetconfSsh})
+    netconf.EntityData.Leafs = types.NewOrderedMap()
+
+    netconf.EntityData.YListKeys = []string {}
+
     return &(netconf.EntityData)
 }
 
 // Pce_Netconf_NetconfSsh
 // NETCONF SSH configuration
+// This type is a presence type.
 type Pce_Netconf_NetconfSsh struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Password to use for NETCONF SSH connections. The type is string with
-    // pattern: b'(!.+)|([^!].+)'.
+    // pattern: (!.+)|([^!].+). This attribute is mandatory.
     NetconfSshPassword interface{}
 
-    // User name to use for NETCONF SSH connections. The type is string.
+    // User name to use for NETCONF SSH connections. The type is string. This
+    // attribute is mandatory.
     NetconfSshUser interface{}
 }
 
@@ -624,10 +751,13 @@ func (netconfSsh *Pce_Netconf_NetconfSsh) GetEntityData() *types.CommonEntityDat
     netconfSsh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfSsh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconfSsh.EntityData.Children = make(map[string]types.YChild)
-    netconfSsh.EntityData.Leafs = make(map[string]types.YLeaf)
-    netconfSsh.EntityData.Leafs["netconf-ssh-password"] = types.YLeaf{"NetconfSshPassword", netconfSsh.NetconfSshPassword}
-    netconfSsh.EntityData.Leafs["netconf-ssh-user"] = types.YLeaf{"NetconfSshUser", netconfSsh.NetconfSshUser}
+    netconfSsh.EntityData.Children = types.NewOrderedMap()
+    netconfSsh.EntityData.Leafs = types.NewOrderedMap()
+    netconfSsh.EntityData.Leafs.Append("netconf-ssh-password", types.YLeaf{"NetconfSshPassword", netconfSsh.NetconfSshPassword})
+    netconfSsh.EntityData.Leafs.Append("netconf-ssh-user", types.YLeaf{"NetconfSshUser", netconfSsh.NetconfSshUser})
+
+    netconfSsh.EntityData.YListKeys = []string {}
+
     return &(netconfSsh.EntityData)
 }
 
@@ -654,10 +784,13 @@ func (disjointPath *Pce_DisjointPath) GetEntityData() *types.CommonEntityData {
     disjointPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disjointPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    disjointPath.EntityData.Children = make(map[string]types.YChild)
-    disjointPath.EntityData.Children["groups"] = types.YChild{"Groups", &disjointPath.Groups}
-    disjointPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    disjointPath.EntityData.Leafs["enable"] = types.YLeaf{"Enable", disjointPath.Enable}
+    disjointPath.EntityData.Children = types.NewOrderedMap()
+    disjointPath.EntityData.Children.Append("groups", types.YChild{"Groups", &disjointPath.Groups})
+    disjointPath.EntityData.Leafs = types.NewOrderedMap()
+    disjointPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", disjointPath.Enable})
+
+    disjointPath.EntityData.YListKeys = []string {}
+
     return &(disjointPath.EntityData)
 }
 
@@ -669,7 +802,7 @@ type Pce_DisjointPath_Groups struct {
 
     // Association Group Configuration. The type is slice of
     // Pce_DisjointPath_Groups_Group.
-    Group []Pce_DisjointPath_Groups_Group
+    Group []*Pce_DisjointPath_Groups_Group
 }
 
 func (groups *Pce_DisjointPath_Groups) GetEntityData() *types.CommonEntityData {
@@ -682,12 +815,15 @@ func (groups *Pce_DisjointPath_Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -723,19 +859,22 @@ func (group *Pce_DisjointPath_Groups_Group) GetEntityData() *types.CommonEntityD
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group-id='" + fmt.Sprintf("%v", group.GroupId) + "']" + "[dp-type='" + fmt.Sprintf("%v", group.DpType) + "']" + "[sub-id='" + fmt.Sprintf("%v", group.SubId) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id") + types.AddKeyToken(group.DpType, "dp-type") + types.AddKeyToken(group.SubId, "sub-id")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Children["group-lsp-records"] = types.YChild{"GroupLspRecords", &group.GroupLspRecords}
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", group.GroupId}
-    group.EntityData.Leafs["dp-type"] = types.YLeaf{"DpType", group.DpType}
-    group.EntityData.Leafs["sub-id"] = types.YLeaf{"SubId", group.SubId}
-    group.EntityData.Leafs["strict"] = types.YLeaf{"Strict", group.Strict}
-    group.EntityData.Leafs["enable"] = types.YLeaf{"Enable", group.Enable}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Children.Append("group-lsp-records", types.YChild{"GroupLspRecords", &group.GroupLspRecords})
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", group.GroupId})
+    group.EntityData.Leafs.Append("dp-type", types.YLeaf{"DpType", group.DpType})
+    group.EntityData.Leafs.Append("sub-id", types.YLeaf{"SubId", group.SubId})
+    group.EntityData.Leafs.Append("strict", types.YLeaf{"Strict", group.Strict})
+    group.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", group.Enable})
+
+    group.EntityData.YListKeys = []string {"GroupId", "DpType", "SubId"}
+
     return &(group.EntityData)
 }
 
@@ -748,7 +887,7 @@ type Pce_DisjointPath_Groups_Group_GroupLspRecords struct {
     // LSP first/second PCC record tuple containingIpAddr, LspName, DisjPath. The
     // type is slice of
     // Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspRecord.
-    GroupLspRecord []Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspRecord
+    GroupLspRecord []*Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspRecord
 }
 
 func (groupLspRecords *Pce_DisjointPath_Groups_Group_GroupLspRecords) GetEntityData() *types.CommonEntityData {
@@ -761,12 +900,15 @@ func (groupLspRecords *Pce_DisjointPath_Groups_Group_GroupLspRecords) GetEntityD
     groupLspRecords.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupLspRecords.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupLspRecords.EntityData.Children = make(map[string]types.YChild)
-    groupLspRecords.EntityData.Children["group-lsp-record"] = types.YChild{"GroupLspRecord", nil}
+    groupLspRecords.EntityData.Children = types.NewOrderedMap()
+    groupLspRecords.EntityData.Children.Append("group-lsp-record", types.YChild{"GroupLspRecord", nil})
     for i := range groupLspRecords.GroupLspRecord {
-        groupLspRecords.EntityData.Children[types.GetSegmentPath(&groupLspRecords.GroupLspRecord[i])] = types.YChild{"GroupLspRecord", &groupLspRecords.GroupLspRecord[i]}
+        groupLspRecords.EntityData.Children.Append(types.GetSegmentPath(groupLspRecords.GroupLspRecord[i]), types.YChild{"GroupLspRecord", groupLspRecords.GroupLspRecord[i]})
     }
-    groupLspRecords.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupLspRecords.EntityData.Leafs = types.NewOrderedMap()
+
+    groupLspRecords.EntityData.YListKeys = []string {}
+
     return &(groupLspRecords.EntityData)
 }
 
@@ -781,14 +923,14 @@ type Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspRecord struct {
     LspId interface{}
 
     // IP address of PCC. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // Identifying name for LSP. The type is string.
     LspName interface{}
 
     // Set LSP to follow shortest-path. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     DisjPath interface{}
 }
 
@@ -797,17 +939,20 @@ func (groupLspRecord *Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspReco
     groupLspRecord.EntityData.YangName = "group-lsp-record"
     groupLspRecord.EntityData.BundleName = "cisco_ios_xr"
     groupLspRecord.EntityData.ParentYangName = "group-lsp-records"
-    groupLspRecord.EntityData.SegmentPath = "group-lsp-record" + "[lsp-id='" + fmt.Sprintf("%v", groupLspRecord.LspId) + "']"
+    groupLspRecord.EntityData.SegmentPath = "group-lsp-record" + types.AddKeyToken(groupLspRecord.LspId, "lsp-id")
     groupLspRecord.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupLspRecord.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupLspRecord.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupLspRecord.EntityData.Children = make(map[string]types.YChild)
-    groupLspRecord.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupLspRecord.EntityData.Leafs["lsp-id"] = types.YLeaf{"LspId", groupLspRecord.LspId}
-    groupLspRecord.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", groupLspRecord.IpAddr}
-    groupLspRecord.EntityData.Leafs["lsp-name"] = types.YLeaf{"LspName", groupLspRecord.LspName}
-    groupLspRecord.EntityData.Leafs["disj-path"] = types.YLeaf{"DisjPath", groupLspRecord.DisjPath}
+    groupLspRecord.EntityData.Children = types.NewOrderedMap()
+    groupLspRecord.EntityData.Leafs = types.NewOrderedMap()
+    groupLspRecord.EntityData.Leafs.Append("lsp-id", types.YLeaf{"LspId", groupLspRecord.LspId})
+    groupLspRecord.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", groupLspRecord.IpAddr})
+    groupLspRecord.EntityData.Leafs.Append("lsp-name", types.YLeaf{"LspName", groupLspRecord.LspName})
+    groupLspRecord.EntityData.Leafs.Append("disj-path", types.YLeaf{"DisjPath", groupLspRecord.DisjPath})
+
+    groupLspRecord.EntityData.YListKeys = []string {"LspId"}
+
     return &(groupLspRecord.EntityData)
 }
 
@@ -819,7 +964,7 @@ type Pce_ExplicitPaths struct {
 
     // Explicit-path configuration. The type is slice of
     // Pce_ExplicitPaths_ExplicitPath.
-    ExplicitPath []Pce_ExplicitPaths_ExplicitPath
+    ExplicitPath []*Pce_ExplicitPaths_ExplicitPath
 }
 
 func (explicitPaths *Pce_ExplicitPaths) GetEntityData() *types.CommonEntityData {
@@ -832,12 +977,15 @@ func (explicitPaths *Pce_ExplicitPaths) GetEntityData() *types.CommonEntityData 
     explicitPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitPaths.EntityData.Children = make(map[string]types.YChild)
-    explicitPaths.EntityData.Children["explicit-path"] = types.YChild{"ExplicitPath", nil}
+    explicitPaths.EntityData.Children = types.NewOrderedMap()
+    explicitPaths.EntityData.Children.Append("explicit-path", types.YChild{"ExplicitPath", nil})
     for i := range explicitPaths.ExplicitPath {
-        explicitPaths.EntityData.Children[types.GetSegmentPath(&explicitPaths.ExplicitPath[i])] = types.YChild{"ExplicitPath", &explicitPaths.ExplicitPath[i]}
+        explicitPaths.EntityData.Children.Append(types.GetSegmentPath(explicitPaths.ExplicitPath[i]), types.YChild{"ExplicitPath", explicitPaths.ExplicitPath[i]})
     }
-    explicitPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    explicitPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    explicitPaths.EntityData.YListKeys = []string {}
+
     return &(explicitPaths.EntityData)
 }
 
@@ -848,7 +996,7 @@ type Pce_ExplicitPaths_ExplicitPath struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Explicit-path name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // True only. The type is interface{}.
@@ -863,16 +1011,19 @@ func (explicitPath *Pce_ExplicitPaths_ExplicitPath) GetEntityData() *types.Commo
     explicitPath.EntityData.YangName = "explicit-path"
     explicitPath.EntityData.BundleName = "cisco_ios_xr"
     explicitPath.EntityData.ParentYangName = "explicit-paths"
-    explicitPath.EntityData.SegmentPath = "explicit-path" + "[name='" + fmt.Sprintf("%v", explicitPath.Name) + "']"
+    explicitPath.EntityData.SegmentPath = "explicit-path" + types.AddKeyToken(explicitPath.Name, "name")
     explicitPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitPath.EntityData.Children = make(map[string]types.YChild)
-    explicitPath.EntityData.Children["path-hops"] = types.YChild{"PathHops", &explicitPath.PathHops}
-    explicitPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitPath.EntityData.Leafs["name"] = types.YLeaf{"Name", explicitPath.Name}
-    explicitPath.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitPath.Enable}
+    explicitPath.EntityData.Children = types.NewOrderedMap()
+    explicitPath.EntityData.Children.Append("path-hops", types.YChild{"PathHops", &explicitPath.PathHops})
+    explicitPath.EntityData.Leafs = types.NewOrderedMap()
+    explicitPath.EntityData.Leafs.Append("name", types.YLeaf{"Name", explicitPath.Name})
+    explicitPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitPath.Enable})
+
+    explicitPath.EntityData.YListKeys = []string {"Name"}
+
     return &(explicitPath.EntityData)
 }
 
@@ -884,7 +1035,7 @@ type Pce_ExplicitPaths_ExplicitPath_PathHops struct {
 
     // Explicit path hop configuration. The type is slice of
     // Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop.
-    PathHop []Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop
+    PathHop []*Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop
 }
 
 func (pathHops *Pce_ExplicitPaths_ExplicitPath_PathHops) GetEntityData() *types.CommonEntityData {
@@ -897,12 +1048,15 @@ func (pathHops *Pce_ExplicitPaths_ExplicitPath_PathHops) GetEntityData() *types.
     pathHops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathHops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathHops.EntityData.Children = make(map[string]types.YChild)
-    pathHops.EntityData.Children["path-hop"] = types.YChild{"PathHop", nil}
+    pathHops.EntityData.Children = types.NewOrderedMap()
+    pathHops.EntityData.Children.Append("path-hop", types.YChild{"PathHop", nil})
     for i := range pathHops.PathHop {
-        pathHops.EntityData.Children[types.GetSegmentPath(&pathHops.PathHop[i])] = types.YChild{"PathHop", &pathHops.PathHop[i]}
+        pathHops.EntityData.Children.Append(types.GetSegmentPath(pathHops.PathHop[i]), types.YChild{"PathHop", pathHops.PathHop[i]})
     }
-    pathHops.EntityData.Leafs = make(map[string]types.YLeaf)
+    pathHops.EntityData.Leafs = types.NewOrderedMap()
+
+    pathHops.EntityData.YListKeys = []string {}
+
     return &(pathHops.EntityData)
 }
 
@@ -920,12 +1074,12 @@ type Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop struct {
     HopType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     Address interface{}
 
     // Remote IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     RemoteAddress interface{}
 
@@ -939,18 +1093,21 @@ func (pathHop *Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop) GetEntityData() 
     pathHop.EntityData.YangName = "path-hop"
     pathHop.EntityData.BundleName = "cisco_ios_xr"
     pathHop.EntityData.ParentYangName = "path-hops"
-    pathHop.EntityData.SegmentPath = "path-hop" + "[index='" + fmt.Sprintf("%v", pathHop.Index) + "']"
+    pathHop.EntityData.SegmentPath = "path-hop" + types.AddKeyToken(pathHop.Index, "index")
     pathHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathHop.EntityData.Children = make(map[string]types.YChild)
-    pathHop.EntityData.Leafs = make(map[string]types.YLeaf)
-    pathHop.EntityData.Leafs["index"] = types.YLeaf{"Index", pathHop.Index}
-    pathHop.EntityData.Leafs["hop-type"] = types.YLeaf{"HopType", pathHop.HopType}
-    pathHop.EntityData.Leafs["address"] = types.YLeaf{"Address", pathHop.Address}
-    pathHop.EntityData.Leafs["remote-address"] = types.YLeaf{"RemoteAddress", pathHop.RemoteAddress}
-    pathHop.EntityData.Leafs["mpls-label"] = types.YLeaf{"MplsLabel", pathHop.MplsLabel}
+    pathHop.EntityData.Children = types.NewOrderedMap()
+    pathHop.EntityData.Leafs = types.NewOrderedMap()
+    pathHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", pathHop.Index})
+    pathHop.EntityData.Leafs.Append("hop-type", types.YLeaf{"HopType", pathHop.HopType})
+    pathHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", pathHop.Address})
+    pathHop.EntityData.Leafs.Append("remote-address", types.YLeaf{"RemoteAddress", pathHop.RemoteAddress})
+    pathHop.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", pathHop.MplsLabel})
+
+    pathHop.EntityData.YListKeys = []string {"Index"}
+
     return &(pathHop.EntityData)
 }
 

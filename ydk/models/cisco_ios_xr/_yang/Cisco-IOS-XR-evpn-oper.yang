@@ -12,7 +12,7 @@ module Cisco-IOS-XR-evpn-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-evpn-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -38,6 +38,10 @@ module Cisco-IOS-XR-evpn-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -153,7 +157,7 @@ module Cisco-IOS-XR-evpn-oper {
         description
           "L2VPN EVPN EVI Entry";
         leaf evi {
-          type int32;
+          type uint32;
           description
             "EVPN id";
         }
@@ -172,12 +176,12 @@ module Cisco-IOS-XR-evpn-oper {
         description
           "EVPN AC ID table";
         leaf evi {
-          type int32;
+          type uint32;
           description
             "EVPN id";
         }
         leaf ac-id {
-          type int32;
+          type uint32;
           description
             "AC ID";
         }
@@ -200,7 +204,7 @@ module Cisco-IOS-XR-evpn-oper {
           description
             "EVI BGP RT Detail Info";
           leaf evi {
-            type int32;
+            type uint32;
             description
               "EVPN id";
           }
@@ -217,7 +221,7 @@ module Cisco-IOS-XR-evpn-oper {
             description
               "EVPN Neighbor table";
             leaf evi {
-              type int32;
+              type uint32;
               description
                 "EVPN id";
             }
@@ -236,7 +240,7 @@ module Cisco-IOS-XR-evpn-oper {
             description
               "EVPN Ethernet Auto-Discovery Entry";
             leaf evi {
-              type int32;
+              type uint32;
               description
                 "EVPN id";
             }
@@ -266,7 +270,7 @@ module Cisco-IOS-XR-evpn-oper {
                 "ES id (part 5/5)";
             }
             leaf ethernet-tag {
-              type int32;
+              type uint32;
               description
                 "Ethernet Tag ID";
             }
@@ -280,12 +284,12 @@ module Cisco-IOS-XR-evpn-oper {
             description
               "L2VPN EVPN IMCAST table";
             leaf evi {
-              type int32;
+              type uint32;
               description
                 "EVPN id";
             }
             leaf ethernet-tag {
-              type int32;
+              type uint32;
               description
                 "Ethernet Tag";
             }
@@ -304,7 +308,7 @@ module Cisco-IOS-XR-evpn-oper {
             description
               "L2VPN EVPN EVI RT Table";
             leaf evi {
-              type int32;
+              type uint32;
               description
                 "EVPN id";
             }
@@ -353,12 +357,12 @@ module Cisco-IOS-XR-evpn-oper {
             description
               "L2VPN EVPN MAC table";
             leaf evi {
-              type int32;
+              type uint32;
               description
                 "EVPN id";
             }
             leaf ethernet-tag {
-              type int32;
+              type uint32;
               description
                 "Ethernet Tag ID";
             }
@@ -423,6 +427,16 @@ module Cisco-IOS-XR-evpn-oper {
     }
   }
 
+  grouping CLIENT {
+    description
+      "Common node of active, standby, node";
+    container client {
+      description
+        "L2VPN EVPN Client";
+      uses L2VPN-EVPN-CLIENT;
+    }
+  }
+
   grouping SUMMARY {
     description
       "Common node of active, standby, node";
@@ -430,6 +444,28 @@ module Cisco-IOS-XR-evpn-oper {
       description
         "L2VPN EVPN Summary";
       uses L2VPN-EVPN-SUMMARY;
+    }
+  }
+
+  grouping EVPN-GROUP-TABLE {
+    description
+      "Common node of active, standby, node";
+    container evpn-groups {
+      description
+        "EVPN Group Table";
+      list evpn-group {
+        key "group-number";
+        description
+          "EVPN Group information";
+        leaf group-number {
+          type uint32 {
+            range "1..4294967295";
+          }
+          description
+            "EVPN group number";
+        }
+        uses EVPN-GRP-INFO;
+      }
     }
   }
 
@@ -443,7 +479,7 @@ module Cisco-IOS-XR-evpn-oper {
         description
           "L2VPN EVPN Internal Label";
         leaf evi {
-          type int32;
+          type uint32;
           description
             "EVPN id";
         }
@@ -473,7 +509,7 @@ module Cisco-IOS-XR-evpn-oper {
             "ES id (part 5/5)";
         }
         leaf ethernet-tag {
-          type int32;
+          type uint32;
           description
             "Ethernet Tag ID";
         }
@@ -499,6 +535,8 @@ module Cisco-IOS-XR-evpn-oper {
           description
             "Location";
         }
+        uses EVPN-GROUP-TABLE;
+        uses CLIENT;
         uses EVI-TABLE;
         uses SUMMARY;
         uses EVI-DETAIL;
@@ -510,6 +548,8 @@ module Cisco-IOS-XR-evpn-oper {
     container active {
       description
         "Active EVPN operational data";
+      uses EVPN-GROUP-TABLE;
+      uses CLIENT;
       uses EVI-TABLE;
       uses SUMMARY;
       uses EVI-DETAIL;
@@ -520,6 +560,8 @@ module Cisco-IOS-XR-evpn-oper {
     container standby {
       description
         "Standby EVPN operational data";
+      uses EVPN-GROUP-TABLE;
+      uses CLIENT;
       uses EVI-TABLE;
       uses SUMMARY;
       uses EVI-DETAIL;

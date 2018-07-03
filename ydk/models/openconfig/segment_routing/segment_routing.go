@@ -58,5 +58,11 @@ const (
     // to distinguish between entropy label and applicaiton
     // labels RFC 6790
     MplsLabel_ENTROPY_LABEL_INDICATOR MplsLabel = "ENTROPY_LABEL_INDICATOR"
+
+    // This value is utilised to indicate that the packet that
+    // is forwarded by the local system does not have an MPLS
+    // header applied to it. Typically, this is used at the
+    // egress of an LSP
+    MplsLabel_NO_LABEL MplsLabel = "NO_LABEL"
 )
 

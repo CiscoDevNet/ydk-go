@@ -163,7 +163,7 @@ module Cisco-IOS-XR-asr9k-sc-envmon-admin-oper {
           }
         }
         leaf rack {
-          type int32;
+          type uint32;
           description
             "Rack number";
         }

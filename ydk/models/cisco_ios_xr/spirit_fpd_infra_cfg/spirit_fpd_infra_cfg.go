@@ -55,9 +55,12 @@ func (fpd *Fpd) GetEntityData() *types.CommonEntityData {
     fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpd.EntityData.Children = make(map[string]types.YChild)
-    fpd.EntityData.Leafs = make(map[string]types.YLeaf)
-    fpd.EntityData.Leafs["auto-upgrade"] = types.YLeaf{"AutoUpgrade", fpd.AutoUpgrade}
+    fpd.EntityData.Children = types.NewOrderedMap()
+    fpd.EntityData.Leafs = types.NewOrderedMap()
+    fpd.EntityData.Leafs.Append("auto-upgrade", types.YLeaf{"AutoUpgrade", fpd.AutoUpgrade})
+
+    fpd.EntityData.YListKeys = []string {}
+
     return &(fpd.EntityData)
 }
 

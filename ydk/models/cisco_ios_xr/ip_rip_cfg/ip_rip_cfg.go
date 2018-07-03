@@ -24,6 +24,59 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-rip-cfg:rip", reflect.TypeOf(Rip{}))
 }
 
+// RipAuthMode represents Rip auth mode
+type RipAuthMode string
+
+const (
+    // Text mode
+    RipAuthMode_text RipAuthMode = "text"
+
+    // MD5 mode
+    RipAuthMode_md5 RipAuthMode = "md5"
+)
+
+// IsisRedistRoute represents Isis redist route
+type IsisRedistRoute string
+
+const (
+    // Level-1 routes only
+    IsisRedistRoute_level1 IsisRedistRoute = "level1"
+
+    // Level-1 routes only
+    IsisRedistRoute_level2 IsisRedistRoute = "level2"
+
+    // Level-1 and level-2 routes
+    IsisRedistRoute_level1_and2 IsisRedistRoute = "level1-and2"
+)
+
+// DefaultInformationOption represents Default information option
+type DefaultInformationOption string
+
+const (
+    // Always
+    DefaultInformationOption_always DefaultInformationOption = "always"
+
+    // Use route-policy
+    DefaultInformationOption_policy DefaultInformationOption = "policy"
+)
+
+// BgpRedistRoute represents Bgp redist route
+type BgpRedistRoute string
+
+const (
+    // All routes
+    BgpRedistRoute_all BgpRedistRoute = "all"
+
+    // Internal routes only
+    BgpRedistRoute_internal BgpRedistRoute = "internal"
+
+    // External routes only
+    BgpRedistRoute_external BgpRedistRoute = "external"
+
+    // Local routes only
+    BgpRedistRoute_local BgpRedistRoute = "local"
+)
+
 // RipExtCommunity represents Rip ext community
 type RipExtCommunity string
 
@@ -44,59 +97,6 @@ type DefaultRedistRoute string
 const (
     // All routes
     DefaultRedistRoute_all DefaultRedistRoute = "all"
-)
-
-// DefaultInformationOption represents Default information option
-type DefaultInformationOption string
-
-const (
-    // Always
-    DefaultInformationOption_always DefaultInformationOption = "always"
-
-    // Use route-policy
-    DefaultInformationOption_policy DefaultInformationOption = "policy"
-)
-
-// IsisRedistRoute represents Isis redist route
-type IsisRedistRoute string
-
-const (
-    // Level-1 routes only
-    IsisRedistRoute_level1 IsisRedistRoute = "level1"
-
-    // Level-1 routes only
-    IsisRedistRoute_level2 IsisRedistRoute = "level2"
-
-    // Level-1 and level-2 routes
-    IsisRedistRoute_level1_and2 IsisRedistRoute = "level1-and2"
-)
-
-// BgpRedistRoute represents Bgp redist route
-type BgpRedistRoute string
-
-const (
-    // All routes
-    BgpRedistRoute_all BgpRedistRoute = "all"
-
-    // Internal routes only
-    BgpRedistRoute_internal BgpRedistRoute = "internal"
-
-    // External routes only
-    BgpRedistRoute_external BgpRedistRoute = "external"
-
-    // Local routes only
-    BgpRedistRoute_local BgpRedistRoute = "local"
-)
-
-// RipAuthMode represents Rip auth mode
-type RipAuthMode string
-
-const (
-    // Text mode
-    RipAuthMode_text RipAuthMode = "text"
-
-    // MD5 mode
-    RipAuthMode_md5 RipAuthMode = "md5"
 )
 
 // Rip
@@ -122,10 +122,13 @@ func (rip *Rip) GetEntityData() *types.CommonEntityData {
     rip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rip.EntityData.Children = make(map[string]types.YChild)
-    rip.EntityData.Children["default-vrf"] = types.YChild{"DefaultVrf", &rip.DefaultVrf}
-    rip.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &rip.Vrfs}
-    rip.EntityData.Leafs = make(map[string]types.YLeaf)
+    rip.EntityData.Children = types.NewOrderedMap()
+    rip.EntityData.Children.Append("default-vrf", types.YChild{"DefaultVrf", &rip.DefaultVrf})
+    rip.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &rip.Vrfs})
+    rip.EntityData.Leafs = types.NewOrderedMap()
+
+    rip.EntityData.YListKeys = []string {}
+
     return &(rip.EntityData)
 }
 
@@ -202,25 +205,28 @@ func (defaultVrf *Rip_DefaultVrf) GetEntityData() *types.CommonEntityData {
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultVrf.EntityData.Children = make(map[string]types.YChild)
-    defaultVrf.EntityData.Children["default-information"] = types.YChild{"DefaultInformation", &defaultVrf.DefaultInformation}
-    defaultVrf.EntityData.Children["redistribution"] = types.YChild{"Redistribution", &defaultVrf.Redistribution}
-    defaultVrf.EntityData.Children["ip-distances"] = types.YChild{"IpDistances", &defaultVrf.IpDistances}
-    defaultVrf.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &defaultVrf.Interfaces}
-    defaultVrf.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &defaultVrf.Neighbors}
-    defaultVrf.EntityData.Children["timers"] = types.YChild{"Timers", &defaultVrf.Timers}
-    defaultVrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultVrf.EntityData.Leafs["enable"] = types.YLeaf{"Enable", defaultVrf.Enable}
-    defaultVrf.EntityData.Leafs["broadcast-for-v2"] = types.YLeaf{"BroadcastForV2", defaultVrf.BroadcastForV2}
-    defaultVrf.EntityData.Leafs["distance"] = types.YLeaf{"Distance", defaultVrf.Distance}
-    defaultVrf.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", defaultVrf.DefaultMetric}
-    defaultVrf.EntityData.Leafs["output-delay"] = types.YLeaf{"OutputDelay", defaultVrf.OutputDelay}
-    defaultVrf.EntityData.Leafs["auto-summary"] = types.YLeaf{"AutoSummary", defaultVrf.AutoSummary}
-    defaultVrf.EntityData.Leafs["policy-out"] = types.YLeaf{"PolicyOut", defaultVrf.PolicyOut}
-    defaultVrf.EntityData.Leafs["validate-source-disable"] = types.YLeaf{"ValidateSourceDisable", defaultVrf.ValidateSourceDisable}
-    defaultVrf.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", defaultVrf.MaximumPaths}
-    defaultVrf.EntityData.Leafs["nsf"] = types.YLeaf{"Nsf", defaultVrf.Nsf}
-    defaultVrf.EntityData.Leafs["policy-in"] = types.YLeaf{"PolicyIn", defaultVrf.PolicyIn}
+    defaultVrf.EntityData.Children = types.NewOrderedMap()
+    defaultVrf.EntityData.Children.Append("default-information", types.YChild{"DefaultInformation", &defaultVrf.DefaultInformation})
+    defaultVrf.EntityData.Children.Append("redistribution", types.YChild{"Redistribution", &defaultVrf.Redistribution})
+    defaultVrf.EntityData.Children.Append("ip-distances", types.YChild{"IpDistances", &defaultVrf.IpDistances})
+    defaultVrf.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &defaultVrf.Interfaces})
+    defaultVrf.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &defaultVrf.Neighbors})
+    defaultVrf.EntityData.Children.Append("timers", types.YChild{"Timers", &defaultVrf.Timers})
+    defaultVrf.EntityData.Leafs = types.NewOrderedMap()
+    defaultVrf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", defaultVrf.Enable})
+    defaultVrf.EntityData.Leafs.Append("broadcast-for-v2", types.YLeaf{"BroadcastForV2", defaultVrf.BroadcastForV2})
+    defaultVrf.EntityData.Leafs.Append("distance", types.YLeaf{"Distance", defaultVrf.Distance})
+    defaultVrf.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", defaultVrf.DefaultMetric})
+    defaultVrf.EntityData.Leafs.Append("output-delay", types.YLeaf{"OutputDelay", defaultVrf.OutputDelay})
+    defaultVrf.EntityData.Leafs.Append("auto-summary", types.YLeaf{"AutoSummary", defaultVrf.AutoSummary})
+    defaultVrf.EntityData.Leafs.Append("policy-out", types.YLeaf{"PolicyOut", defaultVrf.PolicyOut})
+    defaultVrf.EntityData.Leafs.Append("validate-source-disable", types.YLeaf{"ValidateSourceDisable", defaultVrf.ValidateSourceDisable})
+    defaultVrf.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", defaultVrf.MaximumPaths})
+    defaultVrf.EntityData.Leafs.Append("nsf", types.YLeaf{"Nsf", defaultVrf.Nsf})
+    defaultVrf.EntityData.Leafs.Append("policy-in", types.YLeaf{"PolicyIn", defaultVrf.PolicyIn})
+
+    defaultVrf.EntityData.YListKeys = []string {}
+
     return &(defaultVrf.EntityData)
 }
 
@@ -230,6 +236,7 @@ func (defaultVrf *Rip_DefaultVrf) GetEntityData() *types.CommonEntityData {
 type Rip_DefaultVrf_DefaultInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Route policy name. The type is string.
     RoutePolicyName interface{}
@@ -249,10 +256,13 @@ func (defaultInformation *Rip_DefaultVrf_DefaultInformation) GetEntityData() *ty
     defaultInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultInformation.EntityData.Children = make(map[string]types.YChild)
-    defaultInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultInformation.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", defaultInformation.RoutePolicyName}
-    defaultInformation.EntityData.Leafs["option"] = types.YLeaf{"Option", defaultInformation.Option}
+    defaultInformation.EntityData.Children = types.NewOrderedMap()
+    defaultInformation.EntityData.Leafs = types.NewOrderedMap()
+    defaultInformation.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", defaultInformation.RoutePolicyName})
+    defaultInformation.EntityData.Leafs.Append("option", types.YLeaf{"Option", defaultInformation.Option})
+
+    defaultInformation.EntityData.YListKeys = []string {}
+
     return &(defaultInformation.EntityData)
 }
 
@@ -292,14 +302,17 @@ func (redistribution *Rip_DefaultVrf_Redistribution) GetEntityData() *types.Comm
     redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redistribution.EntityData.Children = make(map[string]types.YChild)
-    redistribution.EntityData.Children["connected"] = types.YChild{"Connected", &redistribution.Connected}
-    redistribution.EntityData.Children["bgps"] = types.YChild{"Bgps", &redistribution.Bgps}
-    redistribution.EntityData.Children["isises"] = types.YChild{"Isises", &redistribution.Isises}
-    redistribution.EntityData.Children["eigrp-s"] = types.YChild{"EigrpS", &redistribution.EigrpS}
-    redistribution.EntityData.Children["static"] = types.YChild{"Static", &redistribution.Static}
-    redistribution.EntityData.Children["ospfs"] = types.YChild{"Ospfs", &redistribution.Ospfs}
-    redistribution.EntityData.Leafs = make(map[string]types.YLeaf)
+    redistribution.EntityData.Children = types.NewOrderedMap()
+    redistribution.EntityData.Children.Append("connected", types.YChild{"Connected", &redistribution.Connected})
+    redistribution.EntityData.Children.Append("bgps", types.YChild{"Bgps", &redistribution.Bgps})
+    redistribution.EntityData.Children.Append("isises", types.YChild{"Isises", &redistribution.Isises})
+    redistribution.EntityData.Children.Append("eigrp-s", types.YChild{"EigrpS", &redistribution.EigrpS})
+    redistribution.EntityData.Children.Append("static", types.YChild{"Static", &redistribution.Static})
+    redistribution.EntityData.Children.Append("ospfs", types.YChild{"Ospfs", &redistribution.Ospfs})
+    redistribution.EntityData.Leafs = types.NewOrderedMap()
+
+    redistribution.EntityData.YListKeys = []string {}
+
     return &(redistribution.EntityData)
 }
 
@@ -309,6 +322,7 @@ func (redistribution *Rip_DefaultVrf_Redistribution) GetEntityData() *types.Comm
 type Rip_DefaultVrf_Redistribution_Connected struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Route Policy name. The type is string.
     RoutePolicyName interface{}
@@ -327,10 +341,13 @@ func (connected *Rip_DefaultVrf_Redistribution_Connected) GetEntityData() *types
     connected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    connected.EntityData.Children = make(map[string]types.YChild)
-    connected.EntityData.Leafs = make(map[string]types.YLeaf)
-    connected.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", connected.RoutePolicyName}
-    connected.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", connected.RouteType}
+    connected.EntityData.Children = types.NewOrderedMap()
+    connected.EntityData.Leafs = types.NewOrderedMap()
+    connected.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", connected.RoutePolicyName})
+    connected.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", connected.RouteType})
+
+    connected.EntityData.YListKeys = []string {}
+
     return &(connected.EntityData)
 }
 
@@ -342,7 +359,7 @@ type Rip_DefaultVrf_Redistribution_Bgps struct {
 
     // Autonomous system number. The type is slice of
     // Rip_DefaultVrf_Redistribution_Bgps_Bgp.
-    Bgp []Rip_DefaultVrf_Redistribution_Bgps_Bgp
+    Bgp []*Rip_DefaultVrf_Redistribution_Bgps_Bgp
 }
 
 func (bgps *Rip_DefaultVrf_Redistribution_Bgps) GetEntityData() *types.CommonEntityData {
@@ -355,12 +372,15 @@ func (bgps *Rip_DefaultVrf_Redistribution_Bgps) GetEntityData() *types.CommonEnt
     bgps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgps.EntityData.Children = make(map[string]types.YChild)
-    bgps.EntityData.Children["bgp"] = types.YChild{"Bgp", nil}
+    bgps.EntityData.Children = types.NewOrderedMap()
+    bgps.EntityData.Children.Append("bgp", types.YChild{"Bgp", nil})
     for i := range bgps.Bgp {
-        bgps.EntityData.Children[types.GetSegmentPath(&bgps.Bgp[i])] = types.YChild{"Bgp", &bgps.Bgp[i]}
+        bgps.EntityData.Children.Append(types.GetSegmentPath(bgps.Bgp[i]), types.YChild{"Bgp", bgps.Bgp[i]})
     }
-    bgps.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgps.EntityData.Leafs = types.NewOrderedMap()
+
+    bgps.EntityData.YListKeys = []string {}
+
     return &(bgps.EntityData)
 }
 
@@ -382,7 +402,7 @@ type Rip_DefaultVrf_Redistribution_Bgps_Bgp struct {
     Policy interface{}
 
     // Route type. The type is BgpRedistRoute.
-    Type_ interface{}
+    Type interface{}
 }
 
 func (bgp *Rip_DefaultVrf_Redistribution_Bgps_Bgp) GetEntityData() *types.CommonEntityData {
@@ -390,17 +410,20 @@ func (bgp *Rip_DefaultVrf_Redistribution_Bgps_Bgp) GetEntityData() *types.Common
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "bgps"
-    bgp.EntityData.SegmentPath = "bgp" + "[asnxx='" + fmt.Sprintf("%v", bgp.Asnxx) + "']" + "[asnyy='" + fmt.Sprintf("%v", bgp.Asnyy) + "']"
+    bgp.EntityData.SegmentPath = "bgp" + types.AddKeyToken(bgp.Asnxx, "asnxx") + types.AddKeyToken(bgp.Asnyy, "asnyy")
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    bgp.EntityData.Leafs["asnxx"] = types.YLeaf{"Asnxx", bgp.Asnxx}
-    bgp.EntityData.Leafs["asnyy"] = types.YLeaf{"Asnyy", bgp.Asnyy}
-    bgp.EntityData.Leafs["policy"] = types.YLeaf{"Policy", bgp.Policy}
-    bgp.EntityData.Leafs["type"] = types.YLeaf{"Type_", bgp.Type_}
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+    bgp.EntityData.Leafs.Append("asnxx", types.YLeaf{"Asnxx", bgp.Asnxx})
+    bgp.EntityData.Leafs.Append("asnyy", types.YLeaf{"Asnyy", bgp.Asnyy})
+    bgp.EntityData.Leafs.Append("policy", types.YLeaf{"Policy", bgp.Policy})
+    bgp.EntityData.Leafs.Append("type", types.YLeaf{"Type", bgp.Type})
+
+    bgp.EntityData.YListKeys = []string {"Asnxx", "Asnyy"}
+
     return &(bgp.EntityData)
 }
 
@@ -412,7 +435,7 @@ type Rip_DefaultVrf_Redistribution_Isises struct {
 
     // Redistribute IS-IS routes. The type is slice of
     // Rip_DefaultVrf_Redistribution_Isises_Isis.
-    Isis []Rip_DefaultVrf_Redistribution_Isises_Isis
+    Isis []*Rip_DefaultVrf_Redistribution_Isises_Isis
 }
 
 func (isises *Rip_DefaultVrf_Redistribution_Isises) GetEntityData() *types.CommonEntityData {
@@ -425,12 +448,15 @@ func (isises *Rip_DefaultVrf_Redistribution_Isises) GetEntityData() *types.Commo
     isises.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isises.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    isises.EntityData.Children = make(map[string]types.YChild)
-    isises.EntityData.Children["isis"] = types.YChild{"Isis", nil}
+    isises.EntityData.Children = types.NewOrderedMap()
+    isises.EntityData.Children.Append("isis", types.YChild{"Isis", nil})
     for i := range isises.Isis {
-        isises.EntityData.Children[types.GetSegmentPath(&isises.Isis[i])] = types.YChild{"Isis", &isises.Isis[i]}
+        isises.EntityData.Children.Append(types.GetSegmentPath(isises.Isis[i]), types.YChild{"Isis", isises.Isis[i]})
     }
-    isises.EntityData.Leafs = make(map[string]types.YLeaf)
+    isises.EntityData.Leafs = types.NewOrderedMap()
+
+    isises.EntityData.YListKeys = []string {}
+
     return &(isises.EntityData)
 }
 
@@ -441,7 +467,7 @@ type Rip_DefaultVrf_Redistribution_Isises_Isis struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IS-IS instance name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     IsisName interface{}
 
     // Route Policy name. The type is string.
@@ -456,16 +482,19 @@ func (isis *Rip_DefaultVrf_Redistribution_Isises_Isis) GetEntityData() *types.Co
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "isises"
-    isis.EntityData.SegmentPath = "isis" + "[isis-name='" + fmt.Sprintf("%v", isis.IsisName) + "']"
+    isis.EntityData.SegmentPath = "isis" + types.AddKeyToken(isis.IsisName, "isis-name")
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    isis.EntityData.Children = make(map[string]types.YChild)
-    isis.EntityData.Leafs = make(map[string]types.YLeaf)
-    isis.EntityData.Leafs["isis-name"] = types.YLeaf{"IsisName", isis.IsisName}
-    isis.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", isis.RoutePolicyName}
-    isis.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", isis.RouteType}
+    isis.EntityData.Children = types.NewOrderedMap()
+    isis.EntityData.Leafs = types.NewOrderedMap()
+    isis.EntityData.Leafs.Append("isis-name", types.YLeaf{"IsisName", isis.IsisName})
+    isis.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", isis.RoutePolicyName})
+    isis.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", isis.RouteType})
+
+    isis.EntityData.YListKeys = []string {"IsisName"}
+
     return &(isis.EntityData)
 }
 
@@ -477,7 +506,7 @@ type Rip_DefaultVrf_Redistribution_EigrpS struct {
 
     // Redistribute EIGRP routes. The type is slice of
     // Rip_DefaultVrf_Redistribution_EigrpS_Eigrp.
-    Eigrp []Rip_DefaultVrf_Redistribution_EigrpS_Eigrp
+    Eigrp []*Rip_DefaultVrf_Redistribution_EigrpS_Eigrp
 }
 
 func (eigrpS *Rip_DefaultVrf_Redistribution_EigrpS) GetEntityData() *types.CommonEntityData {
@@ -490,12 +519,15 @@ func (eigrpS *Rip_DefaultVrf_Redistribution_EigrpS) GetEntityData() *types.Commo
     eigrpS.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpS.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eigrpS.EntityData.Children = make(map[string]types.YChild)
-    eigrpS.EntityData.Children["eigrp"] = types.YChild{"Eigrp", nil}
+    eigrpS.EntityData.Children = types.NewOrderedMap()
+    eigrpS.EntityData.Children.Append("eigrp", types.YChild{"Eigrp", nil})
     for i := range eigrpS.Eigrp {
-        eigrpS.EntityData.Children[types.GetSegmentPath(&eigrpS.Eigrp[i])] = types.YChild{"Eigrp", &eigrpS.Eigrp[i]}
+        eigrpS.EntityData.Children.Append(types.GetSegmentPath(eigrpS.Eigrp[i]), types.YChild{"Eigrp", eigrpS.Eigrp[i]})
     }
-    eigrpS.EntityData.Leafs = make(map[string]types.YLeaf)
+    eigrpS.EntityData.Leafs = types.NewOrderedMap()
+
+    eigrpS.EntityData.YListKeys = []string {}
+
     return &(eigrpS.EntityData)
 }
 
@@ -521,16 +553,19 @@ func (eigrp *Rip_DefaultVrf_Redistribution_EigrpS_Eigrp) GetEntityData() *types.
     eigrp.EntityData.YangName = "eigrp"
     eigrp.EntityData.BundleName = "cisco_ios_xr"
     eigrp.EntityData.ParentYangName = "eigrp-s"
-    eigrp.EntityData.SegmentPath = "eigrp" + "[as='" + fmt.Sprintf("%v", eigrp.As) + "']"
+    eigrp.EntityData.SegmentPath = "eigrp" + types.AddKeyToken(eigrp.As, "as")
     eigrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eigrp.EntityData.Children = make(map[string]types.YChild)
-    eigrp.EntityData.Leafs = make(map[string]types.YLeaf)
-    eigrp.EntityData.Leafs["as"] = types.YLeaf{"As", eigrp.As}
-    eigrp.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", eigrp.RoutePolicyName}
-    eigrp.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", eigrp.RouteType}
+    eigrp.EntityData.Children = types.NewOrderedMap()
+    eigrp.EntityData.Leafs = types.NewOrderedMap()
+    eigrp.EntityData.Leafs.Append("as", types.YLeaf{"As", eigrp.As})
+    eigrp.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", eigrp.RoutePolicyName})
+    eigrp.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", eigrp.RouteType})
+
+    eigrp.EntityData.YListKeys = []string {"As"}
+
     return &(eigrp.EntityData)
 }
 
@@ -540,6 +575,7 @@ func (eigrp *Rip_DefaultVrf_Redistribution_EigrpS_Eigrp) GetEntityData() *types.
 type Rip_DefaultVrf_Redistribution_Static struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Route Policy name. The type is string.
     RoutePolicyName interface{}
@@ -558,10 +594,13 @@ func (static *Rip_DefaultVrf_Redistribution_Static) GetEntityData() *types.Commo
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    static.EntityData.Children = make(map[string]types.YChild)
-    static.EntityData.Leafs = make(map[string]types.YLeaf)
-    static.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", static.RoutePolicyName}
-    static.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", static.RouteType}
+    static.EntityData.Children = types.NewOrderedMap()
+    static.EntityData.Leafs = types.NewOrderedMap()
+    static.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", static.RoutePolicyName})
+    static.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", static.RouteType})
+
+    static.EntityData.YListKeys = []string {}
+
     return &(static.EntityData)
 }
 
@@ -573,7 +612,7 @@ type Rip_DefaultVrf_Redistribution_Ospfs struct {
 
     // Redistribute OSPF routes. The type is slice of
     // Rip_DefaultVrf_Redistribution_Ospfs_Ospf.
-    Ospf []Rip_DefaultVrf_Redistribution_Ospfs_Ospf
+    Ospf []*Rip_DefaultVrf_Redistribution_Ospfs_Ospf
 }
 
 func (ospfs *Rip_DefaultVrf_Redistribution_Ospfs) GetEntityData() *types.CommonEntityData {
@@ -586,12 +625,15 @@ func (ospfs *Rip_DefaultVrf_Redistribution_Ospfs) GetEntityData() *types.CommonE
     ospfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfs.EntityData.Children = make(map[string]types.YChild)
-    ospfs.EntityData.Children["ospf"] = types.YChild{"Ospf", nil}
+    ospfs.EntityData.Children = types.NewOrderedMap()
+    ospfs.EntityData.Children.Append("ospf", types.YChild{"Ospf", nil})
     for i := range ospfs.Ospf {
-        ospfs.EntityData.Children[types.GetSegmentPath(&ospfs.Ospf[i])] = types.YChild{"Ospf", &ospfs.Ospf[i]}
+        ospfs.EntityData.Children.Append(types.GetSegmentPath(ospfs.Ospf[i]), types.YChild{"Ospf", ospfs.Ospf[i]})
     }
-    ospfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfs.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfs.EntityData.YListKeys = []string {}
+
     return &(ospfs.EntityData)
 }
 
@@ -602,7 +644,7 @@ type Rip_DefaultVrf_Redistribution_Ospfs_Ospf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Process ID for the OSPF instance. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     OspfName interface{}
 
     // Route Policy name. The type is string.
@@ -629,20 +671,23 @@ func (ospf *Rip_DefaultVrf_Redistribution_Ospfs_Ospf) GetEntityData() *types.Com
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "ospfs"
-    ospf.EntityData.SegmentPath = "ospf" + "[ospf-name='" + fmt.Sprintf("%v", ospf.OspfName) + "']"
+    ospf.EntityData.SegmentPath = "ospf" + types.AddKeyToken(ospf.OspfName, "ospf-name")
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospf.EntityData.Children = make(map[string]types.YChild)
-    ospf.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospf.EntityData.Leafs["ospf-name"] = types.YLeaf{"OspfName", ospf.OspfName}
-    ospf.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", ospf.RoutePolicyName}
-    ospf.EntityData.Leafs["internal"] = types.YLeaf{"Internal", ospf.Internal}
-    ospf.EntityData.Leafs["external"] = types.YLeaf{"External", ospf.External}
-    ospf.EntityData.Leafs["external-type"] = types.YLeaf{"ExternalType", ospf.ExternalType}
-    ospf.EntityData.Leafs["nssa-external"] = types.YLeaf{"NssaExternal", ospf.NssaExternal}
-    ospf.EntityData.Leafs["nssa-external-type"] = types.YLeaf{"NssaExternalType", ospf.NssaExternalType}
+    ospf.EntityData.Children = types.NewOrderedMap()
+    ospf.EntityData.Leafs = types.NewOrderedMap()
+    ospf.EntityData.Leafs.Append("ospf-name", types.YLeaf{"OspfName", ospf.OspfName})
+    ospf.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", ospf.RoutePolicyName})
+    ospf.EntityData.Leafs.Append("internal", types.YLeaf{"Internal", ospf.Internal})
+    ospf.EntityData.Leafs.Append("external", types.YLeaf{"External", ospf.External})
+    ospf.EntityData.Leafs.Append("external-type", types.YLeaf{"ExternalType", ospf.ExternalType})
+    ospf.EntityData.Leafs.Append("nssa-external", types.YLeaf{"NssaExternal", ospf.NssaExternal})
+    ospf.EntityData.Leafs.Append("nssa-external-type", types.YLeaf{"NssaExternalType", ospf.NssaExternalType})
+
+    ospf.EntityData.YListKeys = []string {"OspfName"}
+
     return &(ospf.EntityData)
 }
 
@@ -654,7 +699,7 @@ type Rip_DefaultVrf_IpDistances struct {
 
     // IP specific administrative distance. The type is slice of
     // Rip_DefaultVrf_IpDistances_IpDistance.
-    IpDistance []Rip_DefaultVrf_IpDistances_IpDistance
+    IpDistance []*Rip_DefaultVrf_IpDistances_IpDistance
 }
 
 func (ipDistances *Rip_DefaultVrf_IpDistances) GetEntityData() *types.CommonEntityData {
@@ -667,12 +712,15 @@ func (ipDistances *Rip_DefaultVrf_IpDistances) GetEntityData() *types.CommonEnti
     ipDistances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDistances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDistances.EntityData.Children = make(map[string]types.YChild)
-    ipDistances.EntityData.Children["ip-distance"] = types.YChild{"IpDistance", nil}
+    ipDistances.EntityData.Children = types.NewOrderedMap()
+    ipDistances.EntityData.Children.Append("ip-distance", types.YChild{"IpDistance", nil})
     for i := range ipDistances.IpDistance {
-        ipDistances.EntityData.Children[types.GetSegmentPath(&ipDistances.IpDistance[i])] = types.YChild{"IpDistance", &ipDistances.IpDistance[i]}
+        ipDistances.EntityData.Children.Append(types.GetSegmentPath(ipDistances.IpDistance[i]), types.YChild{"IpDistance", ipDistances.IpDistance[i]})
     }
-    ipDistances.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipDistances.EntityData.Leafs = types.NewOrderedMap()
+
+    ipDistances.EntityData.YListKeys = []string {}
+
     return &(ipDistances.EntityData)
 }
 
@@ -684,11 +732,11 @@ type Rip_DefaultVrf_IpDistances_IpDistance struct {
 
     // This attribute is a key. IP Source address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP address mask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Administrative distance. The type is interface{} with range: 0..255. This
@@ -701,16 +749,19 @@ func (ipDistance *Rip_DefaultVrf_IpDistances_IpDistance) GetEntityData() *types.
     ipDistance.EntityData.YangName = "ip-distance"
     ipDistance.EntityData.BundleName = "cisco_ios_xr"
     ipDistance.EntityData.ParentYangName = "ip-distances"
-    ipDistance.EntityData.SegmentPath = "ip-distance" + "[address='" + fmt.Sprintf("%v", ipDistance.Address) + "']" + "[netmask='" + fmt.Sprintf("%v", ipDistance.Netmask) + "']"
+    ipDistance.EntityData.SegmentPath = "ip-distance" + types.AddKeyToken(ipDistance.Address, "address") + types.AddKeyToken(ipDistance.Netmask, "netmask")
     ipDistance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDistance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDistance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDistance.EntityData.Children = make(map[string]types.YChild)
-    ipDistance.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDistance.EntityData.Leafs["address"] = types.YLeaf{"Address", ipDistance.Address}
-    ipDistance.EntityData.Leafs["netmask"] = types.YLeaf{"Netmask", ipDistance.Netmask}
-    ipDistance.EntityData.Leafs["distance"] = types.YLeaf{"Distance", ipDistance.Distance}
+    ipDistance.EntityData.Children = types.NewOrderedMap()
+    ipDistance.EntityData.Leafs = types.NewOrderedMap()
+    ipDistance.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipDistance.Address})
+    ipDistance.EntityData.Leafs.Append("netmask", types.YLeaf{"Netmask", ipDistance.Netmask})
+    ipDistance.EntityData.Leafs.Append("distance", types.YLeaf{"Distance", ipDistance.Distance})
+
+    ipDistance.EntityData.YListKeys = []string {"Address", "Netmask"}
+
     return &(ipDistance.EntityData)
 }
 
@@ -721,8 +772,8 @@ type Rip_DefaultVrf_Interfaces struct {
     YFilter yfilter.YFilter
 
     // RIP interface name. The type is slice of
-    // Rip_DefaultVrf_Interfaces_Interface_.
-    Interface_ []Rip_DefaultVrf_Interfaces_Interface
+    // Rip_DefaultVrf_Interfaces_Interface.
+    Interface []*Rip_DefaultVrf_Interfaces_Interface
 }
 
 func (interfaces *Rip_DefaultVrf_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -735,12 +786,15 @@ func (interfaces *Rip_DefaultVrf_Interfaces) GetEntityData() *types.CommonEntity
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -751,7 +805,7 @@ type Rip_DefaultVrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Send RIP v2 output packets to broadcast address. The type is interface{}.
@@ -796,26 +850,29 @@ func (self *Rip_DefaultVrf_Interfaces_Interface) GetEntityData() *types.CommonEn
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["authentication"] = types.YChild{"Authentication", &self.Authentication}
-    self.EntityData.Children["site-of-origin"] = types.YChild{"SiteOfOrigin", &self.SiteOfOrigin}
-    self.EntityData.Children["receive-version"] = types.YChild{"ReceiveVersion", &self.ReceiveVersion}
-    self.EntityData.Children["send-version"] = types.YChild{"SendVersion", &self.SendVersion}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["broadcast-for-v2"] = types.YLeaf{"BroadcastForV2", self.BroadcastForV2}
-    self.EntityData.Leafs["poison-reverse"] = types.YLeaf{"PoisonReverse", self.PoisonReverse}
-    self.EntityData.Leafs["passive"] = types.YLeaf{"Passive", self.Passive}
-    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
-    self.EntityData.Leafs["policy-out"] = types.YLeaf{"PolicyOut", self.PolicyOut}
-    self.EntityData.Leafs["accept-metric-zero"] = types.YLeaf{"AcceptMetricZero", self.AcceptMetricZero}
-    self.EntityData.Leafs["policy-in"] = types.YLeaf{"PolicyIn", self.PolicyIn}
-    self.EntityData.Leafs["split-horizon-disable"] = types.YLeaf{"SplitHorizonDisable", self.SplitHorizonDisable}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("authentication", types.YChild{"Authentication", &self.Authentication})
+    self.EntityData.Children.Append("site-of-origin", types.YChild{"SiteOfOrigin", &self.SiteOfOrigin})
+    self.EntityData.Children.Append("receive-version", types.YChild{"ReceiveVersion", &self.ReceiveVersion})
+    self.EntityData.Children.Append("send-version", types.YChild{"SendVersion", &self.SendVersion})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("broadcast-for-v2", types.YLeaf{"BroadcastForV2", self.BroadcastForV2})
+    self.EntityData.Leafs.Append("poison-reverse", types.YLeaf{"PoisonReverse", self.PoisonReverse})
+    self.EntityData.Leafs.Append("passive", types.YLeaf{"Passive", self.Passive})
+    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
+    self.EntityData.Leafs.Append("policy-out", types.YLeaf{"PolicyOut", self.PolicyOut})
+    self.EntityData.Leafs.Append("accept-metric-zero", types.YLeaf{"AcceptMetricZero", self.AcceptMetricZero})
+    self.EntityData.Leafs.Append("policy-in", types.YLeaf{"PolicyIn", self.PolicyIn})
+    self.EntityData.Leafs.Append("split-horizon-disable", types.YLeaf{"SplitHorizonDisable", self.SplitHorizonDisable})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -825,6 +882,7 @@ func (self *Rip_DefaultVrf_Interfaces_Interface) GetEntityData() *types.CommonEn
 type Rip_DefaultVrf_Interfaces_Interface_Authentication struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Name of keychain. The type is string. This attribute is mandatory.
     Keychain interface{}
@@ -843,10 +901,13 @@ func (authentication *Rip_DefaultVrf_Interfaces_Interface_Authentication) GetEnt
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["keychain"] = types.YLeaf{"Keychain", authentication.Keychain}
-    authentication.EntityData.Leafs["mode"] = types.YLeaf{"Mode", authentication.Mode}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("keychain", types.YLeaf{"Keychain", authentication.Keychain})
+    authentication.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", authentication.Mode})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -858,7 +919,7 @@ type Rip_DefaultVrf_Interfaces_Interface_SiteOfOrigin struct {
     YFilter yfilter.YFilter
 
     // Extended community type. The type is RipExtCommunity.
-    Type_ interface{}
+    Type interface{}
 
     // AS Number for AS:nn format. The type is interface{} with range: 0..65535.
     AsXx interface{}
@@ -871,7 +932,7 @@ type Rip_DefaultVrf_Interfaces_Interface_SiteOfOrigin struct {
     AsIndex interface{}
 
     // IPV4 address for IPV4Address:nn format. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // 16bit value for IPV4Address:nn format. The type is interface{} with range:
@@ -889,14 +950,17 @@ func (siteOfOrigin *Rip_DefaultVrf_Interfaces_Interface_SiteOfOrigin) GetEntityD
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siteOfOrigin.EntityData.Children = make(map[string]types.YChild)
-    siteOfOrigin.EntityData.Leafs = make(map[string]types.YLeaf)
-    siteOfOrigin.EntityData.Leafs["type"] = types.YLeaf{"Type_", siteOfOrigin.Type_}
-    siteOfOrigin.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", siteOfOrigin.AsXx}
-    siteOfOrigin.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", siteOfOrigin.AsYy}
-    siteOfOrigin.EntityData.Leafs["as-index"] = types.YLeaf{"AsIndex", siteOfOrigin.AsIndex}
-    siteOfOrigin.EntityData.Leafs["address"] = types.YLeaf{"Address", siteOfOrigin.Address}
-    siteOfOrigin.EntityData.Leafs["address-index"] = types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex}
+    siteOfOrigin.EntityData.Children = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs.Append("type", types.YLeaf{"Type", siteOfOrigin.Type})
+    siteOfOrigin.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", siteOfOrigin.AsXx})
+    siteOfOrigin.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", siteOfOrigin.AsYy})
+    siteOfOrigin.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", siteOfOrigin.AsIndex})
+    siteOfOrigin.EntityData.Leafs.Append("address", types.YLeaf{"Address", siteOfOrigin.Address})
+    siteOfOrigin.EntityData.Leafs.Append("address-index", types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex})
+
+    siteOfOrigin.EntityData.YListKeys = []string {}
+
     return &(siteOfOrigin.EntityData)
 }
 
@@ -924,10 +988,13 @@ func (receiveVersion *Rip_DefaultVrf_Interfaces_Interface_ReceiveVersion) GetEnt
     receiveVersion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveVersion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveVersion.EntityData.Children = make(map[string]types.YChild)
-    receiveVersion.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveVersion.EntityData.Leafs["version1"] = types.YLeaf{"Version1", receiveVersion.Version1}
-    receiveVersion.EntityData.Leafs["version2"] = types.YLeaf{"Version2", receiveVersion.Version2}
+    receiveVersion.EntityData.Children = types.NewOrderedMap()
+    receiveVersion.EntityData.Leafs = types.NewOrderedMap()
+    receiveVersion.EntityData.Leafs.Append("version1", types.YLeaf{"Version1", receiveVersion.Version1})
+    receiveVersion.EntityData.Leafs.Append("version2", types.YLeaf{"Version2", receiveVersion.Version2})
+
+    receiveVersion.EntityData.YListKeys = []string {}
+
     return &(receiveVersion.EntityData)
 }
 
@@ -955,10 +1022,13 @@ func (sendVersion *Rip_DefaultVrf_Interfaces_Interface_SendVersion) GetEntityDat
     sendVersion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendVersion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendVersion.EntityData.Children = make(map[string]types.YChild)
-    sendVersion.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendVersion.EntityData.Leafs["version1"] = types.YLeaf{"Version1", sendVersion.Version1}
-    sendVersion.EntityData.Leafs["version2"] = types.YLeaf{"Version2", sendVersion.Version2}
+    sendVersion.EntityData.Children = types.NewOrderedMap()
+    sendVersion.EntityData.Leafs = types.NewOrderedMap()
+    sendVersion.EntityData.Leafs.Append("version1", types.YLeaf{"Version1", sendVersion.Version1})
+    sendVersion.EntityData.Leafs.Append("version2", types.YLeaf{"Version2", sendVersion.Version2})
+
+    sendVersion.EntityData.YListKeys = []string {}
+
     return &(sendVersion.EntityData)
 }
 
@@ -969,7 +1039,7 @@ type Rip_DefaultVrf_Neighbors struct {
     YFilter yfilter.YFilter
 
     // Neighbor address. The type is slice of Rip_DefaultVrf_Neighbors_Neighbor.
-    Neighbor []Rip_DefaultVrf_Neighbors_Neighbor
+    Neighbor []*Rip_DefaultVrf_Neighbors_Neighbor
 }
 
 func (neighbors *Rip_DefaultVrf_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -982,12 +1052,15 @@ func (neighbors *Rip_DefaultVrf_Neighbors) GetEntityData() *types.CommonEntityDa
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -998,7 +1071,7 @@ type Rip_DefaultVrf_Neighbors_Neighbor struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 }
 
@@ -1007,14 +1080,17 @@ func (neighbor *Rip_DefaultVrf_Neighbors_Neighbor) GetEntityData() *types.Common
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-address='" + fmt.Sprintf("%v", neighbor.NeighborAddress) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", neighbor.NeighborAddress}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborAddress"}
+
     return &(neighbor.EntityData)
 }
 
@@ -1024,6 +1100,7 @@ func (neighbor *Rip_DefaultVrf_Neighbors_Neighbor) GetEntityData() *types.Common
 type Rip_DefaultVrf_Timers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Interval between updates. The type is interface{} with range: 5..50000.
     // This attribute is mandatory.
@@ -1052,12 +1129,15 @@ func (timers *Rip_DefaultVrf_Timers) GetEntityData() *types.CommonEntityData {
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["update-timer"] = types.YLeaf{"UpdateTimer", timers.UpdateTimer}
-    timers.EntityData.Leafs["invalid-timer"] = types.YLeaf{"InvalidTimer", timers.InvalidTimer}
-    timers.EntityData.Leafs["holddown-timer"] = types.YLeaf{"HolddownTimer", timers.HolddownTimer}
-    timers.EntityData.Leafs["flush-timer"] = types.YLeaf{"FlushTimer", timers.FlushTimer}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("update-timer", types.YLeaf{"UpdateTimer", timers.UpdateTimer})
+    timers.EntityData.Leafs.Append("invalid-timer", types.YLeaf{"InvalidTimer", timers.InvalidTimer})
+    timers.EntityData.Leafs.Append("holddown-timer", types.YLeaf{"HolddownTimer", timers.HolddownTimer})
+    timers.EntityData.Leafs.Append("flush-timer", types.YLeaf{"FlushTimer", timers.FlushTimer})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -1068,7 +1148,7 @@ type Rip_Vrfs struct {
     YFilter yfilter.YFilter
 
     // RIP configuration for a particular VRF. The type is slice of Rip_Vrfs_Vrf.
-    Vrf []Rip_Vrfs_Vrf
+    Vrf []*Rip_Vrfs_Vrf
 }
 
 func (vrfs *Rip_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -1081,12 +1161,15 @@ func (vrfs *Rip_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -1097,7 +1180,7 @@ type Rip_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Starts RIP configuration for a particular VRF. The type is interface{}.
@@ -1162,31 +1245,34 @@ func (vrf *Rip_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["default-information"] = types.YChild{"DefaultInformation", &vrf.DefaultInformation}
-    vrf.EntityData.Children["redistribution"] = types.YChild{"Redistribution", &vrf.Redistribution}
-    vrf.EntityData.Children["ip-distances"] = types.YChild{"IpDistances", &vrf.IpDistances}
-    vrf.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &vrf.Interfaces}
-    vrf.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &vrf.Neighbors}
-    vrf.EntityData.Children["timers"] = types.YChild{"Timers", &vrf.Timers}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["enable"] = types.YLeaf{"Enable", vrf.Enable}
-    vrf.EntityData.Leafs["broadcast-for-v2"] = types.YLeaf{"BroadcastForV2", vrf.BroadcastForV2}
-    vrf.EntityData.Leafs["distance"] = types.YLeaf{"Distance", vrf.Distance}
-    vrf.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", vrf.DefaultMetric}
-    vrf.EntityData.Leafs["output-delay"] = types.YLeaf{"OutputDelay", vrf.OutputDelay}
-    vrf.EntityData.Leafs["auto-summary"] = types.YLeaf{"AutoSummary", vrf.AutoSummary}
-    vrf.EntityData.Leafs["policy-out"] = types.YLeaf{"PolicyOut", vrf.PolicyOut}
-    vrf.EntityData.Leafs["validate-source-disable"] = types.YLeaf{"ValidateSourceDisable", vrf.ValidateSourceDisable}
-    vrf.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", vrf.MaximumPaths}
-    vrf.EntityData.Leafs["nsf"] = types.YLeaf{"Nsf", vrf.Nsf}
-    vrf.EntityData.Leafs["policy-in"] = types.YLeaf{"PolicyIn", vrf.PolicyIn}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("default-information", types.YChild{"DefaultInformation", &vrf.DefaultInformation})
+    vrf.EntityData.Children.Append("redistribution", types.YChild{"Redistribution", &vrf.Redistribution})
+    vrf.EntityData.Children.Append("ip-distances", types.YChild{"IpDistances", &vrf.IpDistances})
+    vrf.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &vrf.Interfaces})
+    vrf.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &vrf.Neighbors})
+    vrf.EntityData.Children.Append("timers", types.YChild{"Timers", &vrf.Timers})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrf.Enable})
+    vrf.EntityData.Leafs.Append("broadcast-for-v2", types.YLeaf{"BroadcastForV2", vrf.BroadcastForV2})
+    vrf.EntityData.Leafs.Append("distance", types.YLeaf{"Distance", vrf.Distance})
+    vrf.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", vrf.DefaultMetric})
+    vrf.EntityData.Leafs.Append("output-delay", types.YLeaf{"OutputDelay", vrf.OutputDelay})
+    vrf.EntityData.Leafs.Append("auto-summary", types.YLeaf{"AutoSummary", vrf.AutoSummary})
+    vrf.EntityData.Leafs.Append("policy-out", types.YLeaf{"PolicyOut", vrf.PolicyOut})
+    vrf.EntityData.Leafs.Append("validate-source-disable", types.YLeaf{"ValidateSourceDisable", vrf.ValidateSourceDisable})
+    vrf.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", vrf.MaximumPaths})
+    vrf.EntityData.Leafs.Append("nsf", types.YLeaf{"Nsf", vrf.Nsf})
+    vrf.EntityData.Leafs.Append("policy-in", types.YLeaf{"PolicyIn", vrf.PolicyIn})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -1196,6 +1282,7 @@ func (vrf *Rip_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
 type Rip_Vrfs_Vrf_DefaultInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Route policy name. The type is string.
     RoutePolicyName interface{}
@@ -1215,10 +1302,13 @@ func (defaultInformation *Rip_Vrfs_Vrf_DefaultInformation) GetEntityData() *type
     defaultInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultInformation.EntityData.Children = make(map[string]types.YChild)
-    defaultInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultInformation.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", defaultInformation.RoutePolicyName}
-    defaultInformation.EntityData.Leafs["option"] = types.YLeaf{"Option", defaultInformation.Option}
+    defaultInformation.EntityData.Children = types.NewOrderedMap()
+    defaultInformation.EntityData.Leafs = types.NewOrderedMap()
+    defaultInformation.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", defaultInformation.RoutePolicyName})
+    defaultInformation.EntityData.Leafs.Append("option", types.YLeaf{"Option", defaultInformation.Option})
+
+    defaultInformation.EntityData.YListKeys = []string {}
+
     return &(defaultInformation.EntityData)
 }
 
@@ -1258,14 +1348,17 @@ func (redistribution *Rip_Vrfs_Vrf_Redistribution) GetEntityData() *types.Common
     redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redistribution.EntityData.Children = make(map[string]types.YChild)
-    redistribution.EntityData.Children["connected"] = types.YChild{"Connected", &redistribution.Connected}
-    redistribution.EntityData.Children["bgps"] = types.YChild{"Bgps", &redistribution.Bgps}
-    redistribution.EntityData.Children["isises"] = types.YChild{"Isises", &redistribution.Isises}
-    redistribution.EntityData.Children["eigrp-s"] = types.YChild{"EigrpS", &redistribution.EigrpS}
-    redistribution.EntityData.Children["static"] = types.YChild{"Static", &redistribution.Static}
-    redistribution.EntityData.Children["ospfs"] = types.YChild{"Ospfs", &redistribution.Ospfs}
-    redistribution.EntityData.Leafs = make(map[string]types.YLeaf)
+    redistribution.EntityData.Children = types.NewOrderedMap()
+    redistribution.EntityData.Children.Append("connected", types.YChild{"Connected", &redistribution.Connected})
+    redistribution.EntityData.Children.Append("bgps", types.YChild{"Bgps", &redistribution.Bgps})
+    redistribution.EntityData.Children.Append("isises", types.YChild{"Isises", &redistribution.Isises})
+    redistribution.EntityData.Children.Append("eigrp-s", types.YChild{"EigrpS", &redistribution.EigrpS})
+    redistribution.EntityData.Children.Append("static", types.YChild{"Static", &redistribution.Static})
+    redistribution.EntityData.Children.Append("ospfs", types.YChild{"Ospfs", &redistribution.Ospfs})
+    redistribution.EntityData.Leafs = types.NewOrderedMap()
+
+    redistribution.EntityData.YListKeys = []string {}
+
     return &(redistribution.EntityData)
 }
 
@@ -1275,6 +1368,7 @@ func (redistribution *Rip_Vrfs_Vrf_Redistribution) GetEntityData() *types.Common
 type Rip_Vrfs_Vrf_Redistribution_Connected struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Route Policy name. The type is string.
     RoutePolicyName interface{}
@@ -1293,10 +1387,13 @@ func (connected *Rip_Vrfs_Vrf_Redistribution_Connected) GetEntityData() *types.C
     connected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    connected.EntityData.Children = make(map[string]types.YChild)
-    connected.EntityData.Leafs = make(map[string]types.YLeaf)
-    connected.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", connected.RoutePolicyName}
-    connected.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", connected.RouteType}
+    connected.EntityData.Children = types.NewOrderedMap()
+    connected.EntityData.Leafs = types.NewOrderedMap()
+    connected.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", connected.RoutePolicyName})
+    connected.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", connected.RouteType})
+
+    connected.EntityData.YListKeys = []string {}
+
     return &(connected.EntityData)
 }
 
@@ -1308,7 +1405,7 @@ type Rip_Vrfs_Vrf_Redistribution_Bgps struct {
 
     // Autonomous system number. The type is slice of
     // Rip_Vrfs_Vrf_Redistribution_Bgps_Bgp.
-    Bgp []Rip_Vrfs_Vrf_Redistribution_Bgps_Bgp
+    Bgp []*Rip_Vrfs_Vrf_Redistribution_Bgps_Bgp
 }
 
 func (bgps *Rip_Vrfs_Vrf_Redistribution_Bgps) GetEntityData() *types.CommonEntityData {
@@ -1321,12 +1418,15 @@ func (bgps *Rip_Vrfs_Vrf_Redistribution_Bgps) GetEntityData() *types.CommonEntit
     bgps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgps.EntityData.Children = make(map[string]types.YChild)
-    bgps.EntityData.Children["bgp"] = types.YChild{"Bgp", nil}
+    bgps.EntityData.Children = types.NewOrderedMap()
+    bgps.EntityData.Children.Append("bgp", types.YChild{"Bgp", nil})
     for i := range bgps.Bgp {
-        bgps.EntityData.Children[types.GetSegmentPath(&bgps.Bgp[i])] = types.YChild{"Bgp", &bgps.Bgp[i]}
+        bgps.EntityData.Children.Append(types.GetSegmentPath(bgps.Bgp[i]), types.YChild{"Bgp", bgps.Bgp[i]})
     }
-    bgps.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgps.EntityData.Leafs = types.NewOrderedMap()
+
+    bgps.EntityData.YListKeys = []string {}
+
     return &(bgps.EntityData)
 }
 
@@ -1348,7 +1448,7 @@ type Rip_Vrfs_Vrf_Redistribution_Bgps_Bgp struct {
     Policy interface{}
 
     // Route type. The type is BgpRedistRoute.
-    Type_ interface{}
+    Type interface{}
 }
 
 func (bgp *Rip_Vrfs_Vrf_Redistribution_Bgps_Bgp) GetEntityData() *types.CommonEntityData {
@@ -1356,17 +1456,20 @@ func (bgp *Rip_Vrfs_Vrf_Redistribution_Bgps_Bgp) GetEntityData() *types.CommonEn
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "bgps"
-    bgp.EntityData.SegmentPath = "bgp" + "[asnxx='" + fmt.Sprintf("%v", bgp.Asnxx) + "']" + "[asnyy='" + fmt.Sprintf("%v", bgp.Asnyy) + "']"
+    bgp.EntityData.SegmentPath = "bgp" + types.AddKeyToken(bgp.Asnxx, "asnxx") + types.AddKeyToken(bgp.Asnyy, "asnyy")
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    bgp.EntityData.Leafs["asnxx"] = types.YLeaf{"Asnxx", bgp.Asnxx}
-    bgp.EntityData.Leafs["asnyy"] = types.YLeaf{"Asnyy", bgp.Asnyy}
-    bgp.EntityData.Leafs["policy"] = types.YLeaf{"Policy", bgp.Policy}
-    bgp.EntityData.Leafs["type"] = types.YLeaf{"Type_", bgp.Type_}
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+    bgp.EntityData.Leafs.Append("asnxx", types.YLeaf{"Asnxx", bgp.Asnxx})
+    bgp.EntityData.Leafs.Append("asnyy", types.YLeaf{"Asnyy", bgp.Asnyy})
+    bgp.EntityData.Leafs.Append("policy", types.YLeaf{"Policy", bgp.Policy})
+    bgp.EntityData.Leafs.Append("type", types.YLeaf{"Type", bgp.Type})
+
+    bgp.EntityData.YListKeys = []string {"Asnxx", "Asnyy"}
+
     return &(bgp.EntityData)
 }
 
@@ -1378,7 +1481,7 @@ type Rip_Vrfs_Vrf_Redistribution_Isises struct {
 
     // Redistribute IS-IS routes. The type is slice of
     // Rip_Vrfs_Vrf_Redistribution_Isises_Isis.
-    Isis []Rip_Vrfs_Vrf_Redistribution_Isises_Isis
+    Isis []*Rip_Vrfs_Vrf_Redistribution_Isises_Isis
 }
 
 func (isises *Rip_Vrfs_Vrf_Redistribution_Isises) GetEntityData() *types.CommonEntityData {
@@ -1391,12 +1494,15 @@ func (isises *Rip_Vrfs_Vrf_Redistribution_Isises) GetEntityData() *types.CommonE
     isises.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isises.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    isises.EntityData.Children = make(map[string]types.YChild)
-    isises.EntityData.Children["isis"] = types.YChild{"Isis", nil}
+    isises.EntityData.Children = types.NewOrderedMap()
+    isises.EntityData.Children.Append("isis", types.YChild{"Isis", nil})
     for i := range isises.Isis {
-        isises.EntityData.Children[types.GetSegmentPath(&isises.Isis[i])] = types.YChild{"Isis", &isises.Isis[i]}
+        isises.EntityData.Children.Append(types.GetSegmentPath(isises.Isis[i]), types.YChild{"Isis", isises.Isis[i]})
     }
-    isises.EntityData.Leafs = make(map[string]types.YLeaf)
+    isises.EntityData.Leafs = types.NewOrderedMap()
+
+    isises.EntityData.YListKeys = []string {}
+
     return &(isises.EntityData)
 }
 
@@ -1407,7 +1513,7 @@ type Rip_Vrfs_Vrf_Redistribution_Isises_Isis struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IS-IS instance name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     IsisName interface{}
 
     // Route Policy name. The type is string.
@@ -1422,16 +1528,19 @@ func (isis *Rip_Vrfs_Vrf_Redistribution_Isises_Isis) GetEntityData() *types.Comm
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "isises"
-    isis.EntityData.SegmentPath = "isis" + "[isis-name='" + fmt.Sprintf("%v", isis.IsisName) + "']"
+    isis.EntityData.SegmentPath = "isis" + types.AddKeyToken(isis.IsisName, "isis-name")
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    isis.EntityData.Children = make(map[string]types.YChild)
-    isis.EntityData.Leafs = make(map[string]types.YLeaf)
-    isis.EntityData.Leafs["isis-name"] = types.YLeaf{"IsisName", isis.IsisName}
-    isis.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", isis.RoutePolicyName}
-    isis.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", isis.RouteType}
+    isis.EntityData.Children = types.NewOrderedMap()
+    isis.EntityData.Leafs = types.NewOrderedMap()
+    isis.EntityData.Leafs.Append("isis-name", types.YLeaf{"IsisName", isis.IsisName})
+    isis.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", isis.RoutePolicyName})
+    isis.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", isis.RouteType})
+
+    isis.EntityData.YListKeys = []string {"IsisName"}
+
     return &(isis.EntityData)
 }
 
@@ -1443,7 +1552,7 @@ type Rip_Vrfs_Vrf_Redistribution_EigrpS struct {
 
     // Redistribute EIGRP routes. The type is slice of
     // Rip_Vrfs_Vrf_Redistribution_EigrpS_Eigrp.
-    Eigrp []Rip_Vrfs_Vrf_Redistribution_EigrpS_Eigrp
+    Eigrp []*Rip_Vrfs_Vrf_Redistribution_EigrpS_Eigrp
 }
 
 func (eigrpS *Rip_Vrfs_Vrf_Redistribution_EigrpS) GetEntityData() *types.CommonEntityData {
@@ -1456,12 +1565,15 @@ func (eigrpS *Rip_Vrfs_Vrf_Redistribution_EigrpS) GetEntityData() *types.CommonE
     eigrpS.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpS.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eigrpS.EntityData.Children = make(map[string]types.YChild)
-    eigrpS.EntityData.Children["eigrp"] = types.YChild{"Eigrp", nil}
+    eigrpS.EntityData.Children = types.NewOrderedMap()
+    eigrpS.EntityData.Children.Append("eigrp", types.YChild{"Eigrp", nil})
     for i := range eigrpS.Eigrp {
-        eigrpS.EntityData.Children[types.GetSegmentPath(&eigrpS.Eigrp[i])] = types.YChild{"Eigrp", &eigrpS.Eigrp[i]}
+        eigrpS.EntityData.Children.Append(types.GetSegmentPath(eigrpS.Eigrp[i]), types.YChild{"Eigrp", eigrpS.Eigrp[i]})
     }
-    eigrpS.EntityData.Leafs = make(map[string]types.YLeaf)
+    eigrpS.EntityData.Leafs = types.NewOrderedMap()
+
+    eigrpS.EntityData.YListKeys = []string {}
+
     return &(eigrpS.EntityData)
 }
 
@@ -1487,16 +1599,19 @@ func (eigrp *Rip_Vrfs_Vrf_Redistribution_EigrpS_Eigrp) GetEntityData() *types.Co
     eigrp.EntityData.YangName = "eigrp"
     eigrp.EntityData.BundleName = "cisco_ios_xr"
     eigrp.EntityData.ParentYangName = "eigrp-s"
-    eigrp.EntityData.SegmentPath = "eigrp" + "[as='" + fmt.Sprintf("%v", eigrp.As) + "']"
+    eigrp.EntityData.SegmentPath = "eigrp" + types.AddKeyToken(eigrp.As, "as")
     eigrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eigrp.EntityData.Children = make(map[string]types.YChild)
-    eigrp.EntityData.Leafs = make(map[string]types.YLeaf)
-    eigrp.EntityData.Leafs["as"] = types.YLeaf{"As", eigrp.As}
-    eigrp.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", eigrp.RoutePolicyName}
-    eigrp.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", eigrp.RouteType}
+    eigrp.EntityData.Children = types.NewOrderedMap()
+    eigrp.EntityData.Leafs = types.NewOrderedMap()
+    eigrp.EntityData.Leafs.Append("as", types.YLeaf{"As", eigrp.As})
+    eigrp.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", eigrp.RoutePolicyName})
+    eigrp.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", eigrp.RouteType})
+
+    eigrp.EntityData.YListKeys = []string {"As"}
+
     return &(eigrp.EntityData)
 }
 
@@ -1506,6 +1621,7 @@ func (eigrp *Rip_Vrfs_Vrf_Redistribution_EigrpS_Eigrp) GetEntityData() *types.Co
 type Rip_Vrfs_Vrf_Redistribution_Static struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Route Policy name. The type is string.
     RoutePolicyName interface{}
@@ -1524,10 +1640,13 @@ func (static *Rip_Vrfs_Vrf_Redistribution_Static) GetEntityData() *types.CommonE
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    static.EntityData.Children = make(map[string]types.YChild)
-    static.EntityData.Leafs = make(map[string]types.YLeaf)
-    static.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", static.RoutePolicyName}
-    static.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", static.RouteType}
+    static.EntityData.Children = types.NewOrderedMap()
+    static.EntityData.Leafs = types.NewOrderedMap()
+    static.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", static.RoutePolicyName})
+    static.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", static.RouteType})
+
+    static.EntityData.YListKeys = []string {}
+
     return &(static.EntityData)
 }
 
@@ -1539,7 +1658,7 @@ type Rip_Vrfs_Vrf_Redistribution_Ospfs struct {
 
     // Redistribute OSPF routes. The type is slice of
     // Rip_Vrfs_Vrf_Redistribution_Ospfs_Ospf.
-    Ospf []Rip_Vrfs_Vrf_Redistribution_Ospfs_Ospf
+    Ospf []*Rip_Vrfs_Vrf_Redistribution_Ospfs_Ospf
 }
 
 func (ospfs *Rip_Vrfs_Vrf_Redistribution_Ospfs) GetEntityData() *types.CommonEntityData {
@@ -1552,12 +1671,15 @@ func (ospfs *Rip_Vrfs_Vrf_Redistribution_Ospfs) GetEntityData() *types.CommonEnt
     ospfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfs.EntityData.Children = make(map[string]types.YChild)
-    ospfs.EntityData.Children["ospf"] = types.YChild{"Ospf", nil}
+    ospfs.EntityData.Children = types.NewOrderedMap()
+    ospfs.EntityData.Children.Append("ospf", types.YChild{"Ospf", nil})
     for i := range ospfs.Ospf {
-        ospfs.EntityData.Children[types.GetSegmentPath(&ospfs.Ospf[i])] = types.YChild{"Ospf", &ospfs.Ospf[i]}
+        ospfs.EntityData.Children.Append(types.GetSegmentPath(ospfs.Ospf[i]), types.YChild{"Ospf", ospfs.Ospf[i]})
     }
-    ospfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfs.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfs.EntityData.YListKeys = []string {}
+
     return &(ospfs.EntityData)
 }
 
@@ -1568,7 +1690,7 @@ type Rip_Vrfs_Vrf_Redistribution_Ospfs_Ospf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Process ID for the OSPF instance. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     OspfName interface{}
 
     // Route Policy name. The type is string.
@@ -1595,20 +1717,23 @@ func (ospf *Rip_Vrfs_Vrf_Redistribution_Ospfs_Ospf) GetEntityData() *types.Commo
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "ospfs"
-    ospf.EntityData.SegmentPath = "ospf" + "[ospf-name='" + fmt.Sprintf("%v", ospf.OspfName) + "']"
+    ospf.EntityData.SegmentPath = "ospf" + types.AddKeyToken(ospf.OspfName, "ospf-name")
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospf.EntityData.Children = make(map[string]types.YChild)
-    ospf.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospf.EntityData.Leafs["ospf-name"] = types.YLeaf{"OspfName", ospf.OspfName}
-    ospf.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", ospf.RoutePolicyName}
-    ospf.EntityData.Leafs["internal"] = types.YLeaf{"Internal", ospf.Internal}
-    ospf.EntityData.Leafs["external"] = types.YLeaf{"External", ospf.External}
-    ospf.EntityData.Leafs["external-type"] = types.YLeaf{"ExternalType", ospf.ExternalType}
-    ospf.EntityData.Leafs["nssa-external"] = types.YLeaf{"NssaExternal", ospf.NssaExternal}
-    ospf.EntityData.Leafs["nssa-external-type"] = types.YLeaf{"NssaExternalType", ospf.NssaExternalType}
+    ospf.EntityData.Children = types.NewOrderedMap()
+    ospf.EntityData.Leafs = types.NewOrderedMap()
+    ospf.EntityData.Leafs.Append("ospf-name", types.YLeaf{"OspfName", ospf.OspfName})
+    ospf.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", ospf.RoutePolicyName})
+    ospf.EntityData.Leafs.Append("internal", types.YLeaf{"Internal", ospf.Internal})
+    ospf.EntityData.Leafs.Append("external", types.YLeaf{"External", ospf.External})
+    ospf.EntityData.Leafs.Append("external-type", types.YLeaf{"ExternalType", ospf.ExternalType})
+    ospf.EntityData.Leafs.Append("nssa-external", types.YLeaf{"NssaExternal", ospf.NssaExternal})
+    ospf.EntityData.Leafs.Append("nssa-external-type", types.YLeaf{"NssaExternalType", ospf.NssaExternalType})
+
+    ospf.EntityData.YListKeys = []string {"OspfName"}
+
     return &(ospf.EntityData)
 }
 
@@ -1620,7 +1745,7 @@ type Rip_Vrfs_Vrf_IpDistances struct {
 
     // IP specific administrative distance. The type is slice of
     // Rip_Vrfs_Vrf_IpDistances_IpDistance.
-    IpDistance []Rip_Vrfs_Vrf_IpDistances_IpDistance
+    IpDistance []*Rip_Vrfs_Vrf_IpDistances_IpDistance
 }
 
 func (ipDistances *Rip_Vrfs_Vrf_IpDistances) GetEntityData() *types.CommonEntityData {
@@ -1633,12 +1758,15 @@ func (ipDistances *Rip_Vrfs_Vrf_IpDistances) GetEntityData() *types.CommonEntity
     ipDistances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDistances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDistances.EntityData.Children = make(map[string]types.YChild)
-    ipDistances.EntityData.Children["ip-distance"] = types.YChild{"IpDistance", nil}
+    ipDistances.EntityData.Children = types.NewOrderedMap()
+    ipDistances.EntityData.Children.Append("ip-distance", types.YChild{"IpDistance", nil})
     for i := range ipDistances.IpDistance {
-        ipDistances.EntityData.Children[types.GetSegmentPath(&ipDistances.IpDistance[i])] = types.YChild{"IpDistance", &ipDistances.IpDistance[i]}
+        ipDistances.EntityData.Children.Append(types.GetSegmentPath(ipDistances.IpDistance[i]), types.YChild{"IpDistance", ipDistances.IpDistance[i]})
     }
-    ipDistances.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipDistances.EntityData.Leafs = types.NewOrderedMap()
+
+    ipDistances.EntityData.YListKeys = []string {}
+
     return &(ipDistances.EntityData)
 }
 
@@ -1650,11 +1778,11 @@ type Rip_Vrfs_Vrf_IpDistances_IpDistance struct {
 
     // This attribute is a key. IP Source address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP address mask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Administrative distance. The type is interface{} with range: 0..255. This
@@ -1667,16 +1795,19 @@ func (ipDistance *Rip_Vrfs_Vrf_IpDistances_IpDistance) GetEntityData() *types.Co
     ipDistance.EntityData.YangName = "ip-distance"
     ipDistance.EntityData.BundleName = "cisco_ios_xr"
     ipDistance.EntityData.ParentYangName = "ip-distances"
-    ipDistance.EntityData.SegmentPath = "ip-distance" + "[address='" + fmt.Sprintf("%v", ipDistance.Address) + "']" + "[netmask='" + fmt.Sprintf("%v", ipDistance.Netmask) + "']"
+    ipDistance.EntityData.SegmentPath = "ip-distance" + types.AddKeyToken(ipDistance.Address, "address") + types.AddKeyToken(ipDistance.Netmask, "netmask")
     ipDistance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDistance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDistance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDistance.EntityData.Children = make(map[string]types.YChild)
-    ipDistance.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDistance.EntityData.Leafs["address"] = types.YLeaf{"Address", ipDistance.Address}
-    ipDistance.EntityData.Leafs["netmask"] = types.YLeaf{"Netmask", ipDistance.Netmask}
-    ipDistance.EntityData.Leafs["distance"] = types.YLeaf{"Distance", ipDistance.Distance}
+    ipDistance.EntityData.Children = types.NewOrderedMap()
+    ipDistance.EntityData.Leafs = types.NewOrderedMap()
+    ipDistance.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipDistance.Address})
+    ipDistance.EntityData.Leafs.Append("netmask", types.YLeaf{"Netmask", ipDistance.Netmask})
+    ipDistance.EntityData.Leafs.Append("distance", types.YLeaf{"Distance", ipDistance.Distance})
+
+    ipDistance.EntityData.YListKeys = []string {"Address", "Netmask"}
+
     return &(ipDistance.EntityData)
 }
 
@@ -1686,9 +1817,8 @@ type Rip_Vrfs_Vrf_Interfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // RIP interface name. The type is slice of
-    // Rip_Vrfs_Vrf_Interfaces_Interface_.
-    Interface_ []Rip_Vrfs_Vrf_Interfaces_Interface
+    // RIP interface name. The type is slice of Rip_Vrfs_Vrf_Interfaces_Interface.
+    Interface []*Rip_Vrfs_Vrf_Interfaces_Interface
 }
 
 func (interfaces *Rip_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -1701,12 +1831,15 @@ func (interfaces *Rip_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityDa
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -1717,7 +1850,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Send RIP v2 output packets to broadcast address. The type is interface{}.
@@ -1762,26 +1895,29 @@ func (self *Rip_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["authentication"] = types.YChild{"Authentication", &self.Authentication}
-    self.EntityData.Children["site-of-origin"] = types.YChild{"SiteOfOrigin", &self.SiteOfOrigin}
-    self.EntityData.Children["receive-version"] = types.YChild{"ReceiveVersion", &self.ReceiveVersion}
-    self.EntityData.Children["send-version"] = types.YChild{"SendVersion", &self.SendVersion}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["broadcast-for-v2"] = types.YLeaf{"BroadcastForV2", self.BroadcastForV2}
-    self.EntityData.Leafs["poison-reverse"] = types.YLeaf{"PoisonReverse", self.PoisonReverse}
-    self.EntityData.Leafs["passive"] = types.YLeaf{"Passive", self.Passive}
-    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
-    self.EntityData.Leafs["policy-out"] = types.YLeaf{"PolicyOut", self.PolicyOut}
-    self.EntityData.Leafs["accept-metric-zero"] = types.YLeaf{"AcceptMetricZero", self.AcceptMetricZero}
-    self.EntityData.Leafs["policy-in"] = types.YLeaf{"PolicyIn", self.PolicyIn}
-    self.EntityData.Leafs["split-horizon-disable"] = types.YLeaf{"SplitHorizonDisable", self.SplitHorizonDisable}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("authentication", types.YChild{"Authentication", &self.Authentication})
+    self.EntityData.Children.Append("site-of-origin", types.YChild{"SiteOfOrigin", &self.SiteOfOrigin})
+    self.EntityData.Children.Append("receive-version", types.YChild{"ReceiveVersion", &self.ReceiveVersion})
+    self.EntityData.Children.Append("send-version", types.YChild{"SendVersion", &self.SendVersion})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("broadcast-for-v2", types.YLeaf{"BroadcastForV2", self.BroadcastForV2})
+    self.EntityData.Leafs.Append("poison-reverse", types.YLeaf{"PoisonReverse", self.PoisonReverse})
+    self.EntityData.Leafs.Append("passive", types.YLeaf{"Passive", self.Passive})
+    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
+    self.EntityData.Leafs.Append("policy-out", types.YLeaf{"PolicyOut", self.PolicyOut})
+    self.EntityData.Leafs.Append("accept-metric-zero", types.YLeaf{"AcceptMetricZero", self.AcceptMetricZero})
+    self.EntityData.Leafs.Append("policy-in", types.YLeaf{"PolicyIn", self.PolicyIn})
+    self.EntityData.Leafs.Append("split-horizon-disable", types.YLeaf{"SplitHorizonDisable", self.SplitHorizonDisable})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1791,6 +1927,7 @@ func (self *Rip_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
 type Rip_Vrfs_Vrf_Interfaces_Interface_Authentication struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Name of keychain. The type is string. This attribute is mandatory.
     Keychain interface{}
@@ -1809,10 +1946,13 @@ func (authentication *Rip_Vrfs_Vrf_Interfaces_Interface_Authentication) GetEntit
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["keychain"] = types.YLeaf{"Keychain", authentication.Keychain}
-    authentication.EntityData.Leafs["mode"] = types.YLeaf{"Mode", authentication.Mode}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("keychain", types.YLeaf{"Keychain", authentication.Keychain})
+    authentication.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", authentication.Mode})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -1824,7 +1964,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface_SiteOfOrigin struct {
     YFilter yfilter.YFilter
 
     // Extended community type. The type is RipExtCommunity.
-    Type_ interface{}
+    Type interface{}
 
     // AS Number for AS:nn format. The type is interface{} with range: 0..65535.
     AsXx interface{}
@@ -1837,7 +1977,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface_SiteOfOrigin struct {
     AsIndex interface{}
 
     // IPV4 address for IPV4Address:nn format. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // 16bit value for IPV4Address:nn format. The type is interface{} with range:
@@ -1855,14 +1995,17 @@ func (siteOfOrigin *Rip_Vrfs_Vrf_Interfaces_Interface_SiteOfOrigin) GetEntityDat
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siteOfOrigin.EntityData.Children = make(map[string]types.YChild)
-    siteOfOrigin.EntityData.Leafs = make(map[string]types.YLeaf)
-    siteOfOrigin.EntityData.Leafs["type"] = types.YLeaf{"Type_", siteOfOrigin.Type_}
-    siteOfOrigin.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", siteOfOrigin.AsXx}
-    siteOfOrigin.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", siteOfOrigin.AsYy}
-    siteOfOrigin.EntityData.Leafs["as-index"] = types.YLeaf{"AsIndex", siteOfOrigin.AsIndex}
-    siteOfOrigin.EntityData.Leafs["address"] = types.YLeaf{"Address", siteOfOrigin.Address}
-    siteOfOrigin.EntityData.Leafs["address-index"] = types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex}
+    siteOfOrigin.EntityData.Children = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs.Append("type", types.YLeaf{"Type", siteOfOrigin.Type})
+    siteOfOrigin.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", siteOfOrigin.AsXx})
+    siteOfOrigin.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", siteOfOrigin.AsYy})
+    siteOfOrigin.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", siteOfOrigin.AsIndex})
+    siteOfOrigin.EntityData.Leafs.Append("address", types.YLeaf{"Address", siteOfOrigin.Address})
+    siteOfOrigin.EntityData.Leafs.Append("address-index", types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex})
+
+    siteOfOrigin.EntityData.YListKeys = []string {}
+
     return &(siteOfOrigin.EntityData)
 }
 
@@ -1890,10 +2033,13 @@ func (receiveVersion *Rip_Vrfs_Vrf_Interfaces_Interface_ReceiveVersion) GetEntit
     receiveVersion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveVersion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveVersion.EntityData.Children = make(map[string]types.YChild)
-    receiveVersion.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveVersion.EntityData.Leafs["version1"] = types.YLeaf{"Version1", receiveVersion.Version1}
-    receiveVersion.EntityData.Leafs["version2"] = types.YLeaf{"Version2", receiveVersion.Version2}
+    receiveVersion.EntityData.Children = types.NewOrderedMap()
+    receiveVersion.EntityData.Leafs = types.NewOrderedMap()
+    receiveVersion.EntityData.Leafs.Append("version1", types.YLeaf{"Version1", receiveVersion.Version1})
+    receiveVersion.EntityData.Leafs.Append("version2", types.YLeaf{"Version2", receiveVersion.Version2})
+
+    receiveVersion.EntityData.YListKeys = []string {}
+
     return &(receiveVersion.EntityData)
 }
 
@@ -1921,10 +2067,13 @@ func (sendVersion *Rip_Vrfs_Vrf_Interfaces_Interface_SendVersion) GetEntityData(
     sendVersion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendVersion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendVersion.EntityData.Children = make(map[string]types.YChild)
-    sendVersion.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendVersion.EntityData.Leafs["version1"] = types.YLeaf{"Version1", sendVersion.Version1}
-    sendVersion.EntityData.Leafs["version2"] = types.YLeaf{"Version2", sendVersion.Version2}
+    sendVersion.EntityData.Children = types.NewOrderedMap()
+    sendVersion.EntityData.Leafs = types.NewOrderedMap()
+    sendVersion.EntityData.Leafs.Append("version1", types.YLeaf{"Version1", sendVersion.Version1})
+    sendVersion.EntityData.Leafs.Append("version2", types.YLeaf{"Version2", sendVersion.Version2})
+
+    sendVersion.EntityData.YListKeys = []string {}
+
     return &(sendVersion.EntityData)
 }
 
@@ -1935,7 +2084,7 @@ type Rip_Vrfs_Vrf_Neighbors struct {
     YFilter yfilter.YFilter
 
     // Neighbor address. The type is slice of Rip_Vrfs_Vrf_Neighbors_Neighbor.
-    Neighbor []Rip_Vrfs_Vrf_Neighbors_Neighbor
+    Neighbor []*Rip_Vrfs_Vrf_Neighbors_Neighbor
 }
 
 func (neighbors *Rip_Vrfs_Vrf_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -1948,12 +2097,15 @@ func (neighbors *Rip_Vrfs_Vrf_Neighbors) GetEntityData() *types.CommonEntityData
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -1964,7 +2116,7 @@ type Rip_Vrfs_Vrf_Neighbors_Neighbor struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 }
 
@@ -1973,14 +2125,17 @@ func (neighbor *Rip_Vrfs_Vrf_Neighbors_Neighbor) GetEntityData() *types.CommonEn
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-address='" + fmt.Sprintf("%v", neighbor.NeighborAddress) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", neighbor.NeighborAddress}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborAddress"}
+
     return &(neighbor.EntityData)
 }
 
@@ -1990,6 +2145,7 @@ func (neighbor *Rip_Vrfs_Vrf_Neighbors_Neighbor) GetEntityData() *types.CommonEn
 type Rip_Vrfs_Vrf_Timers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Interval between updates. The type is interface{} with range: 5..50000.
     // This attribute is mandatory.
@@ -2018,12 +2174,15 @@ func (timers *Rip_Vrfs_Vrf_Timers) GetEntityData() *types.CommonEntityData {
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["update-timer"] = types.YLeaf{"UpdateTimer", timers.UpdateTimer}
-    timers.EntityData.Leafs["invalid-timer"] = types.YLeaf{"InvalidTimer", timers.InvalidTimer}
-    timers.EntityData.Leafs["holddown-timer"] = types.YLeaf{"HolddownTimer", timers.HolddownTimer}
-    timers.EntityData.Leafs["flush-timer"] = types.YLeaf{"FlushTimer", timers.FlushTimer}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("update-timer", types.YLeaf{"UpdateTimer", timers.UpdateTimer})
+    timers.EntityData.Leafs.Append("invalid-timer", types.YLeaf{"InvalidTimer", timers.InvalidTimer})
+    timers.EntityData.Leafs.Append("holddown-timer", types.YLeaf{"HolddownTimer", timers.HolddownTimer})
+    timers.EntityData.Leafs.Append("flush-timer", types.YLeaf{"FlushTimer", timers.FlushTimer})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 

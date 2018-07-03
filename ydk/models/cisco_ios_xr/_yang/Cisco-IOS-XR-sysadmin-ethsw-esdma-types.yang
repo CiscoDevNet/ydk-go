@@ -49,6 +49,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
       enum "BSC" {
         tailf:code-name "esdma-rack-type-bsc";
       }
+      enum "COMPUTE" {
+        tailf:code-name "esdma-rack-type-compute";
+      }
     }
     description
       "The valid chassis types supported supported in Sysadmin.";
@@ -115,6 +118,12 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
       }
       enum "F3" {
         tailf:code-name "esdma-rack-num-F3";
+      }
+      enum "B0" {
+        tailf:code-name "esdma-rack-num-B0";
+      }
+      enum "B1" {
+        tailf:code-name "esdma-rack-num-B1";
       }
     }
     description
@@ -216,6 +225,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
       enum "FC5" {
         tailf:code-name "esdma-cpu-fc5";
       }
+      enum "CB0" {
+        tailf:code-name "esdma-cpu-cb0";
+      }
     }
     description
       "The set of CPU enumerations that have control plane Ethernet switches or run the MLAP protocol.";
@@ -246,6 +258,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
       }
       enum "EPC-SW" {
         tailf:code-name "esdma-switch_type-epc-sw";
+      }
+      enum "CB-SW" {
+        tailf:code-name "esdma-switch_type-cb-sw";
       }
       enum "Unknown" {
         tailf:code-name "esdma-switch_type-unknown";
@@ -496,6 +511,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
       }
       enum "F-SW" {
         tailf:code-name "mlap-ep-type-f-sw";
+      }
+      enum "CB" {
+        tailf:code-name "mlap-ep-type-cb";
       }
     }
   }

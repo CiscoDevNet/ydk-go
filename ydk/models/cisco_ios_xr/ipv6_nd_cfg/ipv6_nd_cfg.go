@@ -29,17 +29,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor", reflect.TypeOf(Ipv6Neighbor{}))
 }
 
-// Ipv6srpEncapsulation represents Ipv6srp encapsulation
-type Ipv6srpEncapsulation string
-
-const (
-    // Encapsulation type SRP, prefer side A
-    Ipv6srpEncapsulation_srpa Ipv6srpEncapsulation = "srpa"
-
-    // Encapsulation type SRP, prefer side B
-    Ipv6srpEncapsulation_srpb Ipv6srpEncapsulation = "srpb"
-)
-
 // Ipv6ndMonth represents Ipv6nd month
 type Ipv6ndMonth string
 
@@ -95,6 +84,17 @@ const (
     Ipv6NdRouterPref_low Ipv6NdRouterPref = "low"
 )
 
+// Ipv6srpEncapsulation represents Ipv6srp encapsulation
+type Ipv6srpEncapsulation string
+
+const (
+    // Encapsulation type SRP, prefer side A
+    Ipv6srpEncapsulation_srpa Ipv6srpEncapsulation = "srpa"
+
+    // Encapsulation type SRP, prefer side B
+    Ipv6srpEncapsulation_srpb Ipv6srpEncapsulation = "srpb"
+)
+
 // Ipv6Neighbor
 // IPv6 neighbor or neighbor discovery configuration
 type Ipv6Neighbor struct {
@@ -119,10 +119,13 @@ func (ipv6Neighbor *Ipv6Neighbor) GetEntityData() *types.CommonEntityData {
     ipv6Neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Neighbor.EntityData.Children = make(map[string]types.YChild)
-    ipv6Neighbor.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &ipv6Neighbor.Neighbors}
-    ipv6Neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Neighbor.EntityData.Leafs["scavenge-timeout"] = types.YLeaf{"ScavengeTimeout", ipv6Neighbor.ScavengeTimeout}
+    ipv6Neighbor.EntityData.Children = types.NewOrderedMap()
+    ipv6Neighbor.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &ipv6Neighbor.Neighbors})
+    ipv6Neighbor.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Neighbor.EntityData.Leafs.Append("scavenge-timeout", types.YLeaf{"ScavengeTimeout", ipv6Neighbor.ScavengeTimeout})
+
+    ipv6Neighbor.EntityData.YListKeys = []string {}
+
     return &(ipv6Neighbor.EntityData)
 }
 
@@ -134,7 +137,7 @@ type Ipv6Neighbor_Neighbors struct {
 
     // IPv6 neighbor configuration. The type is slice of
     // Ipv6Neighbor_Neighbors_Neighbor.
-    Neighbor []Ipv6Neighbor_Neighbors_Neighbor
+    Neighbor []*Ipv6Neighbor_Neighbors_Neighbor
 }
 
 func (neighbors *Ipv6Neighbor_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -147,12 +150,15 @@ func (neighbors *Ipv6Neighbor_Neighbors) GetEntityData() *types.CommonEntityData
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -163,18 +169,18 @@ type Ipv6Neighbor_Neighbors_Neighbor struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // IPv6 address zone. The type is string. The default value is 0.
     Zone interface{}
 
     // 48-bit hardware address H.H.H. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. This attribute is mandatory.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
     MacAddress interface{}
 
     // Encapsulation type only if interface type is SRP. The type is
@@ -187,18 +193,21 @@ func (neighbor *Ipv6Neighbor_Neighbors_Neighbor) GetEntityData() *types.CommonEn
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-address='" + fmt.Sprintf("%v", neighbor.NeighborAddress) + "']" + "[interface-name='" + fmt.Sprintf("%v", neighbor.InterfaceName) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address") + types.AddKeyToken(neighbor.InterfaceName, "interface-name")
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", neighbor.NeighborAddress}
-    neighbor.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", neighbor.InterfaceName}
-    neighbor.EntityData.Leafs["zone"] = types.YLeaf{"Zone", neighbor.Zone}
-    neighbor.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", neighbor.MacAddress}
-    neighbor.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", neighbor.Encapsulation}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
+    neighbor.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighbor.InterfaceName})
+    neighbor.EntityData.Leafs.Append("zone", types.YLeaf{"Zone", neighbor.Zone})
+    neighbor.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", neighbor.MacAddress})
+    neighbor.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", neighbor.Encapsulation})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborAddress", "InterfaceName"}
+
     return &(neighbor.EntityData)
 }
 

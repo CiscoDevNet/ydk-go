@@ -28,7 +28,7 @@ type CISCOUBEMIB struct {
     YFilter yfilter.YFilter
 
     
-    Ciscoubemibobjects CISCOUBEMIB_Ciscoubemibobjects
+    CiscoUbeMIBObjects CISCOUBEMIB_CiscoUbeMIBObjects
 }
 
 func (cISCOUBEMIB *CISCOUBEMIB) GetEntityData() *types.CommonEntityData {
@@ -41,14 +41,17 @@ func (cISCOUBEMIB *CISCOUBEMIB) GetEntityData() *types.CommonEntityData {
     cISCOUBEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOUBEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOUBEMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOUBEMIB.EntityData.Children["ciscoUbeMIBObjects"] = types.YChild{"Ciscoubemibobjects", &cISCOUBEMIB.Ciscoubemibobjects}
-    cISCOUBEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOUBEMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOUBEMIB.EntityData.Children.Append("ciscoUbeMIBObjects", types.YChild{"CiscoUbeMIBObjects", &cISCOUBEMIB.CiscoUbeMIBObjects})
+    cISCOUBEMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOUBEMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOUBEMIB.EntityData)
 }
 
-// CISCOUBEMIB_Ciscoubemibobjects
-type CISCOUBEMIB_Ciscoubemibobjects struct {
+// CISCOUBEMIB_CiscoUbeMIBObjects
+type CISCOUBEMIB_CiscoUbeMIBObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -56,33 +59,36 @@ type CISCOUBEMIB_Ciscoubemibobjects struct {
     // enabled  on the device or not.  The value 'true' means that the CUBE
     // feature  is enabled on the device.  The value 'false' means that the CUBE
     // feature  is disabled. The type is bool.
-    Cubeenabled interface{}
+    CubeEnabled interface{}
 
     // This object represents the version of Cisco Unified Border Element on the
     // device. The type is string.
-    Cubeversion interface{}
+    CubeVersion interface{}
 
     // This object provides the total number of CUBE session allowed on the
     // device. The value zero  means no sessions are allowed with CUBE. The type
     // is interface{} with range: 0..999999. Units are session.
-    Cubetotalsessionallowed interface{}
+    CubeTotalSessionAllowed interface{}
 }
 
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetEntityData() *types.CommonEntityData {
-    ciscoubemibobjects.EntityData.YFilter = ciscoubemibobjects.YFilter
-    ciscoubemibobjects.EntityData.YangName = "ciscoUbeMIBObjects"
-    ciscoubemibobjects.EntityData.BundleName = "cisco_ios_xe"
-    ciscoubemibobjects.EntityData.ParentYangName = "CISCO-UBE-MIB"
-    ciscoubemibobjects.EntityData.SegmentPath = "ciscoUbeMIBObjects"
-    ciscoubemibobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoubemibobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoubemibobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoUbeMIBObjects *CISCOUBEMIB_CiscoUbeMIBObjects) GetEntityData() *types.CommonEntityData {
+    ciscoUbeMIBObjects.EntityData.YFilter = ciscoUbeMIBObjects.YFilter
+    ciscoUbeMIBObjects.EntityData.YangName = "ciscoUbeMIBObjects"
+    ciscoUbeMIBObjects.EntityData.BundleName = "cisco_ios_xe"
+    ciscoUbeMIBObjects.EntityData.ParentYangName = "CISCO-UBE-MIB"
+    ciscoUbeMIBObjects.EntityData.SegmentPath = "ciscoUbeMIBObjects"
+    ciscoUbeMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoUbeMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoUbeMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoubemibobjects.EntityData.Children = make(map[string]types.YChild)
-    ciscoubemibobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoubemibobjects.EntityData.Leafs["cubeEnabled"] = types.YLeaf{"Cubeenabled", ciscoubemibobjects.Cubeenabled}
-    ciscoubemibobjects.EntityData.Leafs["cubeVersion"] = types.YLeaf{"Cubeversion", ciscoubemibobjects.Cubeversion}
-    ciscoubemibobjects.EntityData.Leafs["cubeTotalSessionAllowed"] = types.YLeaf{"Cubetotalsessionallowed", ciscoubemibobjects.Cubetotalsessionallowed}
-    return &(ciscoubemibobjects.EntityData)
+    ciscoUbeMIBObjects.EntityData.Children = types.NewOrderedMap()
+    ciscoUbeMIBObjects.EntityData.Leafs = types.NewOrderedMap()
+    ciscoUbeMIBObjects.EntityData.Leafs.Append("cubeEnabled", types.YLeaf{"CubeEnabled", ciscoUbeMIBObjects.CubeEnabled})
+    ciscoUbeMIBObjects.EntityData.Leafs.Append("cubeVersion", types.YLeaf{"CubeVersion", ciscoUbeMIBObjects.CubeVersion})
+    ciscoUbeMIBObjects.EntityData.Leafs.Append("cubeTotalSessionAllowed", types.YLeaf{"CubeTotalSessionAllowed", ciscoUbeMIBObjects.CubeTotalSessionAllowed})
+
+    ciscoUbeMIBObjects.EntityData.YListKeys = []string {}
+
+    return &(ciscoUbeMIBObjects.EntityData)
 }
 

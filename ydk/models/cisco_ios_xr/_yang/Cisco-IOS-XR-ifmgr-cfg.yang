@@ -31,6 +31,10 @@ module Cisco-IOS-XR-ifmgr-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-07-30 {
     description
       "Descriptions updated.";
@@ -165,7 +169,8 @@ module Cisco-IOS-XR-ifmgr-cfg {
         leaf half-life {
           when "../args = 'specify-half-life' or ../args = 'specify-all' or ../args = 'specify-rp'" {
             description
-              "../Args = 1 or ../Args = 4 or ../Args = 5";
+              "../Args = SpecifyHalfLife or ../Args =
+               SpecifyAll or ../Args = SpecifyRP";
           }
           type uint32 {
             range "1..45";
@@ -177,7 +182,7 @@ module Cisco-IOS-XR-ifmgr-cfg {
         leaf reuse-threshold {
           when "../args = 'specify-all' or ../args = 'specify-rp'" {
             description
-              "../Args = 4 or ../Args = 5";
+              "../Args = SpecifyAll or ../Args = SpecifyRP";
           }
           type uint32 {
             range "1..20000";
@@ -188,7 +193,7 @@ module Cisco-IOS-XR-ifmgr-cfg {
         leaf suppress-threshold {
           when "../args = 'specify-all' or ../args = 'specify-rp'" {
             description
-              "../Args = 4 or ../Args = 5";
+              "../Args = SpecifyAll or ../Args = SpecifyRP";
           }
           type uint32 {
             range "1..20000";
@@ -199,7 +204,7 @@ module Cisco-IOS-XR-ifmgr-cfg {
         leaf suppress-time {
           when "../args = 'specify-all' or ../args = 'specify-rp'" {
             description
-              "../Args = 4 or ../Args = 5";
+              "../Args = SpecifyAll or ../Args = SpecifyRP";
           }
           type uint32 {
             range "1..255";
@@ -211,7 +216,7 @@ module Cisco-IOS-XR-ifmgr-cfg {
         leaf restart-penalty {
           when "../args = 'specify-rp'" {
             description
-              "../Args = 5";
+              "../Args = SpecifyRP";
           }
           type uint32 {
             range "0..20000";
@@ -252,7 +257,7 @@ module Cisco-IOS-XR-ifmgr-cfg {
             "The encapsulation - e.g. hdlc, ppp";
         }
         leaf capsulation-options {
-          type int32;
+          type uint32;
           description
             "The options for this capsulation, usually '0'";
         }

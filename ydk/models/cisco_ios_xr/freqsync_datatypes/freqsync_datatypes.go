@@ -28,17 +28,6 @@ const (
     FsyncQlOption_option_2__COMMA___generation_2 FsyncQlOption = "option-2,-generation-2"
 )
 
-// FsyncClock represents Fsync clock
-type FsyncClock string
-
-const (
-    // Synchronous clock
-    FsyncClock_sync FsyncClock = "sync"
-
-    // Internal clock
-    FsyncClock_internal FsyncClock = "internal"
-)
-
 // FsyncQlValue represents Fsync ql value
 type FsyncQlValue string
 
@@ -107,5 +96,50 @@ const (
 
     // ITU-T Option 2, Generation 2: Stratum 4 freerun
     FsyncQlValue_o2_g2_st4 FsyncQlValue = "o2-g2-st4"
+)
+
+// FsyncClock represents Fsync clock
+type FsyncClock string
+
+const (
+    // Synchronous clock
+    FsyncClock_sync FsyncClock = "sync"
+
+    // Internal clock
+    FsyncClock_internal FsyncClock = "internal"
+
+    // GNSS receiver
+    FsyncClock_gnss FsyncClock = "gnss"
+)
+
+// GnssConstellation represents Gnss constellation
+type GnssConstellation string
+
+const (
+    // Unicast communication
+    GnssConstellation_auto GnssConstellation = "auto"
+
+    // GPS constellation
+    GnssConstellation_gps GnssConstellation = "gps"
+
+    // Galileo constellation
+    GnssConstellation_galileo GnssConstellation = "galileo"
+
+    // BeiDou constellation
+    GnssConstellation_bei_dou GnssConstellation = "bei-dou"
+
+    // QZSS constellation
+    GnssConstellation_qzss GnssConstellation = "qzss"
+)
+
+// Gnss1ppsPolarity represents Gnss1pps polarity
+type Gnss1ppsPolarity string
+
+const (
+    // Positive 1PPS polarity
+    Gnss1ppsPolarity_positive Gnss1ppsPolarity = "positive"
+
+    // Negative 1PPS polarity
+    Gnss1ppsPolarity_negative Gnss1ppsPolarity = "negative"
 )
 

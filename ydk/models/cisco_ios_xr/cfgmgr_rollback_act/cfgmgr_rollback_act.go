@@ -46,9 +46,12 @@ func (rollBackConfigurationLast *RollBackConfigurationLast) GetEntityData() *typ
     rollBackConfigurationLast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rollBackConfigurationLast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rollBackConfigurationLast.EntityData.Children = make(map[string]types.YChild)
-    rollBackConfigurationLast.EntityData.Children["input"] = types.YChild{"Input", &rollBackConfigurationLast.Input}
-    rollBackConfigurationLast.EntityData.Leafs = make(map[string]types.YLeaf)
+    rollBackConfigurationLast.EntityData.Children = types.NewOrderedMap()
+    rollBackConfigurationLast.EntityData.Children.Append("input", types.YChild{"Input", &rollBackConfigurationLast.Input})
+    rollBackConfigurationLast.EntityData.Leafs = types.NewOrderedMap()
+
+    rollBackConfigurationLast.EntityData.YListKeys = []string {}
+
     return &(rollBackConfigurationLast.EntityData)
 }
 
@@ -85,13 +88,16 @@ func (input *RollBackConfigurationLast_Input) GetEntityData() *types.CommonEntit
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["count"] = types.YLeaf{"Count", input.Count}
-    input.EntityData.Leafs["force"] = types.YLeaf{"Force", input.Force}
-    input.EntityData.Leafs["best-effort"] = types.YLeaf{"BestEffort", input.BestEffort}
-    input.EntityData.Leafs["label"] = types.YLeaf{"Label", input.Label}
-    input.EntityData.Leafs["comment"] = types.YLeaf{"Comment", input.Comment}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("count", types.YLeaf{"Count", input.Count})
+    input.EntityData.Leafs.Append("force", types.YLeaf{"Force", input.Force})
+    input.EntityData.Leafs.Append("best-effort", types.YLeaf{"BestEffort", input.BestEffort})
+    input.EntityData.Leafs.Append("label", types.YLeaf{"Label", input.Label})
+    input.EntityData.Leafs.Append("comment", types.YLeaf{"Comment", input.Comment})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -115,9 +121,12 @@ func (rollBackConfigurationTo *RollBackConfigurationTo) GetEntityData() *types.C
     rollBackConfigurationTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rollBackConfigurationTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rollBackConfigurationTo.EntityData.Children = make(map[string]types.YChild)
-    rollBackConfigurationTo.EntityData.Children["input"] = types.YChild{"Input", &rollBackConfigurationTo.Input}
-    rollBackConfigurationTo.EntityData.Leafs = make(map[string]types.YLeaf)
+    rollBackConfigurationTo.EntityData.Children = types.NewOrderedMap()
+    rollBackConfigurationTo.EntityData.Children.Append("input", types.YChild{"Input", &rollBackConfigurationTo.Input})
+    rollBackConfigurationTo.EntityData.Leafs = types.NewOrderedMap()
+
+    rollBackConfigurationTo.EntityData.YListKeys = []string {}
+
     return &(rollBackConfigurationTo.EntityData)
 }
 
@@ -153,13 +162,16 @@ func (input *RollBackConfigurationTo_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["commit-id"] = types.YLeaf{"CommitId", input.CommitId}
-    input.EntityData.Leafs["force"] = types.YLeaf{"Force", input.Force}
-    input.EntityData.Leafs["best-effort"] = types.YLeaf{"BestEffort", input.BestEffort}
-    input.EntityData.Leafs["label"] = types.YLeaf{"Label", input.Label}
-    input.EntityData.Leafs["comment"] = types.YLeaf{"Comment", input.Comment}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("commit-id", types.YLeaf{"CommitId", input.CommitId})
+    input.EntityData.Leafs.Append("force", types.YLeaf{"Force", input.Force})
+    input.EntityData.Leafs.Append("best-effort", types.YLeaf{"BestEffort", input.BestEffort})
+    input.EntityData.Leafs.Append("label", types.YLeaf{"Label", input.Label})
+    input.EntityData.Leafs.Append("comment", types.YLeaf{"Comment", input.Comment})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -183,9 +195,12 @@ func (rollBackConfigurationToExclude *RollBackConfigurationToExclude) GetEntityD
     rollBackConfigurationToExclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rollBackConfigurationToExclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rollBackConfigurationToExclude.EntityData.Children = make(map[string]types.YChild)
-    rollBackConfigurationToExclude.EntityData.Children["input"] = types.YChild{"Input", &rollBackConfigurationToExclude.Input}
-    rollBackConfigurationToExclude.EntityData.Leafs = make(map[string]types.YLeaf)
+    rollBackConfigurationToExclude.EntityData.Children = types.NewOrderedMap()
+    rollBackConfigurationToExclude.EntityData.Children.Append("input", types.YChild{"Input", &rollBackConfigurationToExclude.Input})
+    rollBackConfigurationToExclude.EntityData.Leafs = types.NewOrderedMap()
+
+    rollBackConfigurationToExclude.EntityData.YListKeys = []string {}
+
     return &(rollBackConfigurationToExclude.EntityData)
 }
 
@@ -221,13 +236,16 @@ func (input *RollBackConfigurationToExclude_Input) GetEntityData() *types.Common
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["commit-id"] = types.YLeaf{"CommitId", input.CommitId}
-    input.EntityData.Leafs["force"] = types.YLeaf{"Force", input.Force}
-    input.EntityData.Leafs["best-effort"] = types.YLeaf{"BestEffort", input.BestEffort}
-    input.EntityData.Leafs["label"] = types.YLeaf{"Label", input.Label}
-    input.EntityData.Leafs["comment"] = types.YLeaf{"Comment", input.Comment}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("commit-id", types.YLeaf{"CommitId", input.CommitId})
+    input.EntityData.Leafs.Append("force", types.YLeaf{"Force", input.Force})
+    input.EntityData.Leafs.Append("best-effort", types.YLeaf{"BestEffort", input.BestEffort})
+    input.EntityData.Leafs.Append("label", types.YLeaf{"Label", input.Label})
+    input.EntityData.Leafs.Append("comment", types.YLeaf{"Comment", input.Comment})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -251,9 +269,12 @@ func (rollBackConfiguration *RollBackConfiguration) GetEntityData() *types.Commo
     rollBackConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rollBackConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rollBackConfiguration.EntityData.Children = make(map[string]types.YChild)
-    rollBackConfiguration.EntityData.Children["input"] = types.YChild{"Input", &rollBackConfiguration.Input}
-    rollBackConfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    rollBackConfiguration.EntityData.Children = types.NewOrderedMap()
+    rollBackConfiguration.EntityData.Children.Append("input", types.YChild{"Input", &rollBackConfiguration.Input})
+    rollBackConfiguration.EntityData.Leafs = types.NewOrderedMap()
+
+    rollBackConfiguration.EntityData.YListKeys = []string {}
+
     return &(rollBackConfiguration.EntityData)
 }
 
@@ -289,13 +310,16 @@ func (input *RollBackConfiguration_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["commit-id"] = types.YLeaf{"CommitId", input.CommitId}
-    input.EntityData.Leafs["force"] = types.YLeaf{"Force", input.Force}
-    input.EntityData.Leafs["best-effort"] = types.YLeaf{"BestEffort", input.BestEffort}
-    input.EntityData.Leafs["label"] = types.YLeaf{"Label", input.Label}
-    input.EntityData.Leafs["comment"] = types.YLeaf{"Comment", input.Comment}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("commit-id", types.YLeaf{"CommitId", input.CommitId})
+    input.EntityData.Leafs.Append("force", types.YLeaf{"Force", input.Force})
+    input.EntityData.Leafs.Append("best-effort", types.YLeaf{"BestEffort", input.BestEffort})
+    input.EntityData.Leafs.Append("label", types.YLeaf{"Label", input.Label})
+    input.EntityData.Leafs.Append("comment", types.YLeaf{"Comment", input.Comment})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

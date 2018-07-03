@@ -79,7 +79,7 @@ module Cisco-IOS-XR-asr9k-asic-errors-oper {
           }
         }
         leaf rack {
-          type int32;
+          type uint32;
           description
             "Rack number";
         }

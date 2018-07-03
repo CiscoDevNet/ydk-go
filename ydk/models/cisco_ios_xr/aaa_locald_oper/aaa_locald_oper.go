@@ -57,14 +57,14 @@ type Aaa struct {
     // Specific Usergroup Information.
     CurrentUsergroup Aaa_CurrentUsergroup
 
+    // TACACS operational data.
+    Tacacs Aaa_Tacacs
+
     // Diameter operational data.
     Diameter Aaa_Diameter
 
     // RADIUS operational data.
     Radius Aaa_Radius
-
-    // TACACS operational data.
-    Tacacs Aaa_Tacacs
 }
 
 func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
@@ -77,20 +77,23 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aaa.EntityData.Children = make(map[string]types.YChild)
-    aaa.EntityData.Children["all-tasks"] = types.YChild{"AllTasks", &aaa.AllTasks}
-    aaa.EntityData.Children["currentuser-detail"] = types.YChild{"CurrentuserDetail", &aaa.CurrentuserDetail}
-    aaa.EntityData.Children["task-map"] = types.YChild{"TaskMap", &aaa.TaskMap}
-    aaa.EntityData.Children["taskgroups"] = types.YChild{"Taskgroups", &aaa.Taskgroups}
-    aaa.EntityData.Children["users"] = types.YChild{"Users", &aaa.Users}
-    aaa.EntityData.Children["password-policies"] = types.YChild{"PasswordPolicies", &aaa.PasswordPolicies}
-    aaa.EntityData.Children["usergroups"] = types.YChild{"Usergroups", &aaa.Usergroups}
-    aaa.EntityData.Children["authen-method"] = types.YChild{"AuthenMethod", &aaa.AuthenMethod}
-    aaa.EntityData.Children["current-usergroup"] = types.YChild{"CurrentUsergroup", &aaa.CurrentUsergroup}
-    aaa.EntityData.Children["Cisco-IOS-XR-aaa-diameter-oper:diameter"] = types.YChild{"Diameter", &aaa.Diameter}
-    aaa.EntityData.Children["Cisco-IOS-XR-aaa-protocol-radius-oper:radius"] = types.YChild{"Radius", &aaa.Radius}
-    aaa.EntityData.Children["Cisco-IOS-XR-aaa-tacacs-oper:tacacs"] = types.YChild{"Tacacs", &aaa.Tacacs}
-    aaa.EntityData.Leafs = make(map[string]types.YLeaf)
+    aaa.EntityData.Children = types.NewOrderedMap()
+    aaa.EntityData.Children.Append("all-tasks", types.YChild{"AllTasks", &aaa.AllTasks})
+    aaa.EntityData.Children.Append("currentuser-detail", types.YChild{"CurrentuserDetail", &aaa.CurrentuserDetail})
+    aaa.EntityData.Children.Append("task-map", types.YChild{"TaskMap", &aaa.TaskMap})
+    aaa.EntityData.Children.Append("taskgroups", types.YChild{"Taskgroups", &aaa.Taskgroups})
+    aaa.EntityData.Children.Append("users", types.YChild{"Users", &aaa.Users})
+    aaa.EntityData.Children.Append("password-policies", types.YChild{"PasswordPolicies", &aaa.PasswordPolicies})
+    aaa.EntityData.Children.Append("usergroups", types.YChild{"Usergroups", &aaa.Usergroups})
+    aaa.EntityData.Children.Append("authen-method", types.YChild{"AuthenMethod", &aaa.AuthenMethod})
+    aaa.EntityData.Children.Append("current-usergroup", types.YChild{"CurrentUsergroup", &aaa.CurrentUsergroup})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", types.YChild{"Tacacs", &aaa.Tacacs})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-diameter-oper:diameter", types.YChild{"Diameter", &aaa.Diameter})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", types.YChild{"Radius", &aaa.Radius})
+    aaa.EntityData.Leafs = types.NewOrderedMap()
+
+    aaa.EntityData.YListKeys = []string {}
+
     return &(aaa.EntityData)
 }
 
@@ -114,9 +117,12 @@ func (allTasks *Aaa_AllTasks) GetEntityData() *types.CommonEntityData {
     allTasks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allTasks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allTasks.EntityData.Children = make(map[string]types.YChild)
-    allTasks.EntityData.Leafs = make(map[string]types.YLeaf)
-    allTasks.EntityData.Leafs["task-id"] = types.YLeaf{"TaskId", allTasks.TaskId}
+    allTasks.EntityData.Children = types.NewOrderedMap()
+    allTasks.EntityData.Leafs = types.NewOrderedMap()
+    allTasks.EntityData.Leafs.Append("task-id", types.YLeaf{"TaskId", allTasks.TaskId})
+
+    allTasks.EntityData.YListKeys = []string {}
+
     return &(allTasks.EntityData)
 }
 
@@ -150,12 +156,15 @@ func (currentuserDetail *Aaa_CurrentuserDetail) GetEntityData() *types.CommonEnt
     currentuserDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currentuserDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    currentuserDetail.EntityData.Children = make(map[string]types.YChild)
-    currentuserDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    currentuserDetail.EntityData.Leafs["name"] = types.YLeaf{"Name", currentuserDetail.Name}
-    currentuserDetail.EntityData.Leafs["authenmethod"] = types.YLeaf{"Authenmethod", currentuserDetail.Authenmethod}
-    currentuserDetail.EntityData.Leafs["usergroup"] = types.YLeaf{"Usergroup", currentuserDetail.Usergroup}
-    currentuserDetail.EntityData.Leafs["taskmap"] = types.YLeaf{"Taskmap", currentuserDetail.Taskmap}
+    currentuserDetail.EntityData.Children = types.NewOrderedMap()
+    currentuserDetail.EntityData.Leafs = types.NewOrderedMap()
+    currentuserDetail.EntityData.Leafs.Append("name", types.YLeaf{"Name", currentuserDetail.Name})
+    currentuserDetail.EntityData.Leafs.Append("authenmethod", types.YLeaf{"Authenmethod", currentuserDetail.Authenmethod})
+    currentuserDetail.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", currentuserDetail.Usergroup})
+    currentuserDetail.EntityData.Leafs.Append("taskmap", types.YLeaf{"Taskmap", currentuserDetail.Taskmap})
+
+    currentuserDetail.EntityData.YListKeys = []string {}
+
     return &(currentuserDetail.EntityData)
 }
 
@@ -189,12 +198,15 @@ func (taskMap *Aaa_TaskMap) GetEntityData() *types.CommonEntityData {
     taskMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     taskMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    taskMap.EntityData.Children = make(map[string]types.YChild)
-    taskMap.EntityData.Leafs = make(map[string]types.YLeaf)
-    taskMap.EntityData.Leafs["name"] = types.YLeaf{"Name", taskMap.Name}
-    taskMap.EntityData.Leafs["authenmethod"] = types.YLeaf{"Authenmethod", taskMap.Authenmethod}
-    taskMap.EntityData.Leafs["usergroup"] = types.YLeaf{"Usergroup", taskMap.Usergroup}
-    taskMap.EntityData.Leafs["taskmap"] = types.YLeaf{"Taskmap", taskMap.Taskmap}
+    taskMap.EntityData.Children = types.NewOrderedMap()
+    taskMap.EntityData.Leafs = types.NewOrderedMap()
+    taskMap.EntityData.Leafs.Append("name", types.YLeaf{"Name", taskMap.Name})
+    taskMap.EntityData.Leafs.Append("authenmethod", types.YLeaf{"Authenmethod", taskMap.Authenmethod})
+    taskMap.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", taskMap.Usergroup})
+    taskMap.EntityData.Leafs.Append("taskmap", types.YLeaf{"Taskmap", taskMap.Taskmap})
+
+    taskMap.EntityData.YListKeys = []string {}
+
     return &(taskMap.EntityData)
 }
 
@@ -206,7 +218,7 @@ type Aaa_Taskgroups struct {
 
     // Specific Taskgroup Information. The type is slice of
     // Aaa_Taskgroups_Taskgroup.
-    Taskgroup []Aaa_Taskgroups_Taskgroup
+    Taskgroup []*Aaa_Taskgroups_Taskgroup
 }
 
 func (taskgroups *Aaa_Taskgroups) GetEntityData() *types.CommonEntityData {
@@ -219,12 +231,15 @@ func (taskgroups *Aaa_Taskgroups) GetEntityData() *types.CommonEntityData {
     taskgroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     taskgroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    taskgroups.EntityData.Children = make(map[string]types.YChild)
-    taskgroups.EntityData.Children["taskgroup"] = types.YChild{"Taskgroup", nil}
+    taskgroups.EntityData.Children = types.NewOrderedMap()
+    taskgroups.EntityData.Children.Append("taskgroup", types.YChild{"Taskgroup", nil})
     for i := range taskgroups.Taskgroup {
-        taskgroups.EntityData.Children[types.GetSegmentPath(&taskgroups.Taskgroup[i])] = types.YChild{"Taskgroup", &taskgroups.Taskgroup[i]}
+        taskgroups.EntityData.Children.Append(types.GetSegmentPath(taskgroups.Taskgroup[i]), types.YChild{"Taskgroup", taskgroups.Taskgroup[i]})
     }
-    taskgroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    taskgroups.EntityData.Leafs = types.NewOrderedMap()
+
+    taskgroups.EntityData.YListKeys = []string {}
+
     return &(taskgroups.EntityData)
 }
 
@@ -252,17 +267,20 @@ func (taskgroup *Aaa_Taskgroups_Taskgroup) GetEntityData() *types.CommonEntityDa
     taskgroup.EntityData.YangName = "taskgroup"
     taskgroup.EntityData.BundleName = "cisco_ios_xr"
     taskgroup.EntityData.ParentYangName = "taskgroups"
-    taskgroup.EntityData.SegmentPath = "taskgroup" + "[name='" + fmt.Sprintf("%v", taskgroup.Name) + "']"
+    taskgroup.EntityData.SegmentPath = "taskgroup" + types.AddKeyToken(taskgroup.Name, "name")
     taskgroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     taskgroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     taskgroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    taskgroup.EntityData.Children = make(map[string]types.YChild)
-    taskgroup.EntityData.Children["included-task-ids"] = types.YChild{"IncludedTaskIds", &taskgroup.IncludedTaskIds}
-    taskgroup.EntityData.Children["task-map"] = types.YChild{"TaskMap", &taskgroup.TaskMap}
-    taskgroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    taskgroup.EntityData.Leafs["name"] = types.YLeaf{"Name", taskgroup.Name}
-    taskgroup.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", taskgroup.NameXr}
+    taskgroup.EntityData.Children = types.NewOrderedMap()
+    taskgroup.EntityData.Children.Append("included-task-ids", types.YChild{"IncludedTaskIds", &taskgroup.IncludedTaskIds})
+    taskgroup.EntityData.Children.Append("task-map", types.YChild{"TaskMap", &taskgroup.TaskMap})
+    taskgroup.EntityData.Leafs = types.NewOrderedMap()
+    taskgroup.EntityData.Leafs.Append("name", types.YLeaf{"Name", taskgroup.Name})
+    taskgroup.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", taskgroup.NameXr})
+
+    taskgroup.EntityData.YListKeys = []string {"Name"}
+
     return &(taskgroup.EntityData)
 }
 
@@ -274,7 +292,7 @@ type Aaa_Taskgroups_Taskgroup_IncludedTaskIds struct {
 
     // List of permitted tasks. The type is slice of
     // Aaa_Taskgroups_Taskgroup_IncludedTaskIds_Tasks.
-    Tasks []Aaa_Taskgroups_Taskgroup_IncludedTaskIds_Tasks
+    Tasks []*Aaa_Taskgroups_Taskgroup_IncludedTaskIds_Tasks
 }
 
 func (includedTaskIds *Aaa_Taskgroups_Taskgroup_IncludedTaskIds) GetEntityData() *types.CommonEntityData {
@@ -287,12 +305,15 @@ func (includedTaskIds *Aaa_Taskgroups_Taskgroup_IncludedTaskIds) GetEntityData()
     includedTaskIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     includedTaskIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    includedTaskIds.EntityData.Children = make(map[string]types.YChild)
-    includedTaskIds.EntityData.Children["tasks"] = types.YChild{"Tasks", nil}
+    includedTaskIds.EntityData.Children = types.NewOrderedMap()
+    includedTaskIds.EntityData.Children.Append("tasks", types.YChild{"Tasks", nil})
     for i := range includedTaskIds.Tasks {
-        includedTaskIds.EntityData.Children[types.GetSegmentPath(&includedTaskIds.Tasks[i])] = types.YChild{"Tasks", &includedTaskIds.Tasks[i]}
+        includedTaskIds.EntityData.Children.Append(types.GetSegmentPath(includedTaskIds.Tasks[i]), types.YChild{"Tasks", includedTaskIds.Tasks[i]})
     }
-    includedTaskIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    includedTaskIds.EntityData.Leafs = types.NewOrderedMap()
+
+    includedTaskIds.EntityData.YListKeys = []string {}
+
     return &(includedTaskIds.EntityData)
 }
 
@@ -328,13 +349,16 @@ func (tasks *Aaa_Taskgroups_Taskgroup_IncludedTaskIds_Tasks) GetEntityData() *ty
     tasks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tasks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tasks.EntityData.Children = make(map[string]types.YChild)
-    tasks.EntityData.Leafs = make(map[string]types.YLeaf)
-    tasks.EntityData.Leafs["task-id"] = types.YLeaf{"TaskId", tasks.TaskId}
-    tasks.EntityData.Leafs["read"] = types.YLeaf{"Read", tasks.Read}
-    tasks.EntityData.Leafs["write"] = types.YLeaf{"Write", tasks.Write}
-    tasks.EntityData.Leafs["execute"] = types.YLeaf{"Execute", tasks.Execute}
-    tasks.EntityData.Leafs["debug"] = types.YLeaf{"Debug", tasks.Debug}
+    tasks.EntityData.Children = types.NewOrderedMap()
+    tasks.EntityData.Leafs = types.NewOrderedMap()
+    tasks.EntityData.Leafs.Append("task-id", types.YLeaf{"TaskId", tasks.TaskId})
+    tasks.EntityData.Leafs.Append("read", types.YLeaf{"Read", tasks.Read})
+    tasks.EntityData.Leafs.Append("write", types.YLeaf{"Write", tasks.Write})
+    tasks.EntityData.Leafs.Append("execute", types.YLeaf{"Execute", tasks.Execute})
+    tasks.EntityData.Leafs.Append("debug", types.YLeaf{"Debug", tasks.Debug})
+
+    tasks.EntityData.YListKeys = []string {}
+
     return &(tasks.EntityData)
 }
 
@@ -346,7 +370,7 @@ type Aaa_Taskgroups_Taskgroup_TaskMap struct {
 
     // List of permitted tasks. The type is slice of
     // Aaa_Taskgroups_Taskgroup_TaskMap_Tasks.
-    Tasks []Aaa_Taskgroups_Taskgroup_TaskMap_Tasks
+    Tasks []*Aaa_Taskgroups_Taskgroup_TaskMap_Tasks
 }
 
 func (taskMap *Aaa_Taskgroups_Taskgroup_TaskMap) GetEntityData() *types.CommonEntityData {
@@ -359,12 +383,15 @@ func (taskMap *Aaa_Taskgroups_Taskgroup_TaskMap) GetEntityData() *types.CommonEn
     taskMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     taskMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    taskMap.EntityData.Children = make(map[string]types.YChild)
-    taskMap.EntityData.Children["tasks"] = types.YChild{"Tasks", nil}
+    taskMap.EntityData.Children = types.NewOrderedMap()
+    taskMap.EntityData.Children.Append("tasks", types.YChild{"Tasks", nil})
     for i := range taskMap.Tasks {
-        taskMap.EntityData.Children[types.GetSegmentPath(&taskMap.Tasks[i])] = types.YChild{"Tasks", &taskMap.Tasks[i]}
+        taskMap.EntityData.Children.Append(types.GetSegmentPath(taskMap.Tasks[i]), types.YChild{"Tasks", taskMap.Tasks[i]})
     }
-    taskMap.EntityData.Leafs = make(map[string]types.YLeaf)
+    taskMap.EntityData.Leafs = types.NewOrderedMap()
+
+    taskMap.EntityData.YListKeys = []string {}
+
     return &(taskMap.EntityData)
 }
 
@@ -400,13 +427,16 @@ func (tasks *Aaa_Taskgroups_Taskgroup_TaskMap_Tasks) GetEntityData() *types.Comm
     tasks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tasks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tasks.EntityData.Children = make(map[string]types.YChild)
-    tasks.EntityData.Leafs = make(map[string]types.YLeaf)
-    tasks.EntityData.Leafs["task-id"] = types.YLeaf{"TaskId", tasks.TaskId}
-    tasks.EntityData.Leafs["read"] = types.YLeaf{"Read", tasks.Read}
-    tasks.EntityData.Leafs["write"] = types.YLeaf{"Write", tasks.Write}
-    tasks.EntityData.Leafs["execute"] = types.YLeaf{"Execute", tasks.Execute}
-    tasks.EntityData.Leafs["debug"] = types.YLeaf{"Debug", tasks.Debug}
+    tasks.EntityData.Children = types.NewOrderedMap()
+    tasks.EntityData.Leafs = types.NewOrderedMap()
+    tasks.EntityData.Leafs.Append("task-id", types.YLeaf{"TaskId", tasks.TaskId})
+    tasks.EntityData.Leafs.Append("read", types.YLeaf{"Read", tasks.Read})
+    tasks.EntityData.Leafs.Append("write", types.YLeaf{"Write", tasks.Write})
+    tasks.EntityData.Leafs.Append("execute", types.YLeaf{"Execute", tasks.Execute})
+    tasks.EntityData.Leafs.Append("debug", types.YLeaf{"Debug", tasks.Debug})
+
+    tasks.EntityData.YListKeys = []string {}
+
     return &(tasks.EntityData)
 }
 
@@ -417,7 +447,7 @@ type Aaa_Users struct {
     YFilter yfilter.YFilter
 
     // Specific local user information. The type is slice of Aaa_Users_User.
-    User []Aaa_Users_User
+    User []*Aaa_Users_User
 }
 
 func (users *Aaa_Users) GetEntityData() *types.CommonEntityData {
@@ -430,12 +460,15 @@ func (users *Aaa_Users) GetEntityData() *types.CommonEntityData {
     users.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     users.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    users.EntityData.Children = make(map[string]types.YChild)
-    users.EntityData.Children["user"] = types.YChild{"User", nil}
+    users.EntityData.Children = types.NewOrderedMap()
+    users.EntityData.Children.Append("user", types.YChild{"User", nil})
     for i := range users.User {
-        users.EntityData.Children[types.GetSegmentPath(&users.User[i])] = types.YChild{"User", &users.User[i]}
+        users.EntityData.Children.Append(types.GetSegmentPath(users.User[i]), types.YChild{"User", users.User[i]})
     }
-    users.EntityData.Leafs = make(map[string]types.YLeaf)
+    users.EntityData.Leafs = types.NewOrderedMap()
+
+    users.EntityData.YListKeys = []string {}
+
     return &(users.EntityData)
 }
 
@@ -469,19 +502,22 @@ func (user *Aaa_Users_User) GetEntityData() *types.CommonEntityData {
     user.EntityData.YangName = "user"
     user.EntityData.BundleName = "cisco_ios_xr"
     user.EntityData.ParentYangName = "users"
-    user.EntityData.SegmentPath = "user" + "[name='" + fmt.Sprintf("%v", user.Name) + "']"
+    user.EntityData.SegmentPath = "user" + types.AddKeyToken(user.Name, "name")
     user.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     user.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     user.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    user.EntityData.Children = make(map[string]types.YChild)
-    user.EntityData.Children["task-map"] = types.YChild{"TaskMap", &user.TaskMap}
-    user.EntityData.Leafs = make(map[string]types.YLeaf)
-    user.EntityData.Leafs["name"] = types.YLeaf{"Name", user.Name}
-    user.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", user.NameXr}
-    user.EntityData.Leafs["admin-user"] = types.YLeaf{"AdminUser", user.AdminUser}
-    user.EntityData.Leafs["first-user"] = types.YLeaf{"FirstUser", user.FirstUser}
-    user.EntityData.Leafs["usergroup"] = types.YLeaf{"Usergroup", user.Usergroup}
+    user.EntityData.Children = types.NewOrderedMap()
+    user.EntityData.Children.Append("task-map", types.YChild{"TaskMap", &user.TaskMap})
+    user.EntityData.Leafs = types.NewOrderedMap()
+    user.EntityData.Leafs.Append("name", types.YLeaf{"Name", user.Name})
+    user.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", user.NameXr})
+    user.EntityData.Leafs.Append("admin-user", types.YLeaf{"AdminUser", user.AdminUser})
+    user.EntityData.Leafs.Append("first-user", types.YLeaf{"FirstUser", user.FirstUser})
+    user.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", user.Usergroup})
+
+    user.EntityData.YListKeys = []string {"Name"}
+
     return &(user.EntityData)
 }
 
@@ -492,7 +528,7 @@ type Aaa_Users_User_TaskMap struct {
     YFilter yfilter.YFilter
 
     // List of permitted tasks. The type is slice of Aaa_Users_User_TaskMap_Tasks.
-    Tasks []Aaa_Users_User_TaskMap_Tasks
+    Tasks []*Aaa_Users_User_TaskMap_Tasks
 }
 
 func (taskMap *Aaa_Users_User_TaskMap) GetEntityData() *types.CommonEntityData {
@@ -505,12 +541,15 @@ func (taskMap *Aaa_Users_User_TaskMap) GetEntityData() *types.CommonEntityData {
     taskMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     taskMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    taskMap.EntityData.Children = make(map[string]types.YChild)
-    taskMap.EntityData.Children["tasks"] = types.YChild{"Tasks", nil}
+    taskMap.EntityData.Children = types.NewOrderedMap()
+    taskMap.EntityData.Children.Append("tasks", types.YChild{"Tasks", nil})
     for i := range taskMap.Tasks {
-        taskMap.EntityData.Children[types.GetSegmentPath(&taskMap.Tasks[i])] = types.YChild{"Tasks", &taskMap.Tasks[i]}
+        taskMap.EntityData.Children.Append(types.GetSegmentPath(taskMap.Tasks[i]), types.YChild{"Tasks", taskMap.Tasks[i]})
     }
-    taskMap.EntityData.Leafs = make(map[string]types.YLeaf)
+    taskMap.EntityData.Leafs = types.NewOrderedMap()
+
+    taskMap.EntityData.YListKeys = []string {}
+
     return &(taskMap.EntityData)
 }
 
@@ -546,13 +585,16 @@ func (tasks *Aaa_Users_User_TaskMap_Tasks) GetEntityData() *types.CommonEntityDa
     tasks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tasks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tasks.EntityData.Children = make(map[string]types.YChild)
-    tasks.EntityData.Leafs = make(map[string]types.YLeaf)
-    tasks.EntityData.Leafs["task-id"] = types.YLeaf{"TaskId", tasks.TaskId}
-    tasks.EntityData.Leafs["read"] = types.YLeaf{"Read", tasks.Read}
-    tasks.EntityData.Leafs["write"] = types.YLeaf{"Write", tasks.Write}
-    tasks.EntityData.Leafs["execute"] = types.YLeaf{"Execute", tasks.Execute}
-    tasks.EntityData.Leafs["debug"] = types.YLeaf{"Debug", tasks.Debug}
+    tasks.EntityData.Children = types.NewOrderedMap()
+    tasks.EntityData.Leafs = types.NewOrderedMap()
+    tasks.EntityData.Leafs.Append("task-id", types.YLeaf{"TaskId", tasks.TaskId})
+    tasks.EntityData.Leafs.Append("read", types.YLeaf{"Read", tasks.Read})
+    tasks.EntityData.Leafs.Append("write", types.YLeaf{"Write", tasks.Write})
+    tasks.EntityData.Leafs.Append("execute", types.YLeaf{"Execute", tasks.Execute})
+    tasks.EntityData.Leafs.Append("debug", types.YLeaf{"Debug", tasks.Debug})
+
+    tasks.EntityData.YListKeys = []string {}
+
     return &(tasks.EntityData)
 }
 
@@ -565,7 +607,7 @@ type Aaa_PasswordPolicies struct {
 
     // Password policy details. The type is slice of
     // Aaa_PasswordPolicies_PasswordPolicy.
-    PasswordPolicy []Aaa_PasswordPolicies_PasswordPolicy
+    PasswordPolicy []*Aaa_PasswordPolicies_PasswordPolicy
 }
 
 func (passwordPolicies *Aaa_PasswordPolicies) GetEntityData() *types.CommonEntityData {
@@ -578,12 +620,15 @@ func (passwordPolicies *Aaa_PasswordPolicies) GetEntityData() *types.CommonEntit
     passwordPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passwordPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    passwordPolicies.EntityData.Children = make(map[string]types.YChild)
-    passwordPolicies.EntityData.Children["password-policy"] = types.YChild{"PasswordPolicy", nil}
+    passwordPolicies.EntityData.Children = types.NewOrderedMap()
+    passwordPolicies.EntityData.Children.Append("password-policy", types.YChild{"PasswordPolicy", nil})
     for i := range passwordPolicies.PasswordPolicy {
-        passwordPolicies.EntityData.Children[types.GetSegmentPath(&passwordPolicies.PasswordPolicy[i])] = types.YChild{"PasswordPolicy", &passwordPolicies.PasswordPolicy[i]}
+        passwordPolicies.EntityData.Children.Append(types.GetSegmentPath(passwordPolicies.PasswordPolicy[i]), types.YChild{"PasswordPolicy", passwordPolicies.PasswordPolicy[i]})
     }
-    passwordPolicies.EntityData.Leafs = make(map[string]types.YLeaf)
+    passwordPolicies.EntityData.Leafs = types.NewOrderedMap()
+
+    passwordPolicies.EntityData.YListKeys = []string {}
+
     return &(passwordPolicies.EntityData)
 }
 
@@ -649,29 +694,32 @@ func (passwordPolicy *Aaa_PasswordPolicies_PasswordPolicy) GetEntityData() *type
     passwordPolicy.EntityData.YangName = "password-policy"
     passwordPolicy.EntityData.BundleName = "cisco_ios_xr"
     passwordPolicy.EntityData.ParentYangName = "password-policies"
-    passwordPolicy.EntityData.SegmentPath = "password-policy" + "[name='" + fmt.Sprintf("%v", passwordPolicy.Name) + "']"
+    passwordPolicy.EntityData.SegmentPath = "password-policy" + types.AddKeyToken(passwordPolicy.Name, "name")
     passwordPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     passwordPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passwordPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    passwordPolicy.EntityData.Children = make(map[string]types.YChild)
-    passwordPolicy.EntityData.Children["life-time"] = types.YChild{"LifeTime", &passwordPolicy.LifeTime}
-    passwordPolicy.EntityData.Children["lock-out-time"] = types.YChild{"LockOutTime", &passwordPolicy.LockOutTime}
-    passwordPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
-    passwordPolicy.EntityData.Leafs["name"] = types.YLeaf{"Name", passwordPolicy.Name}
-    passwordPolicy.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", passwordPolicy.NameXr}
-    passwordPolicy.EntityData.Leafs["min-len"] = types.YLeaf{"MinLen", passwordPolicy.MinLen}
-    passwordPolicy.EntityData.Leafs["max-len"] = types.YLeaf{"MaxLen", passwordPolicy.MaxLen}
-    passwordPolicy.EntityData.Leafs["spl-char"] = types.YLeaf{"SplChar", passwordPolicy.SplChar}
-    passwordPolicy.EntityData.Leafs["upper-case"] = types.YLeaf{"UpperCase", passwordPolicy.UpperCase}
-    passwordPolicy.EntityData.Leafs["lower-case"] = types.YLeaf{"LowerCase", passwordPolicy.LowerCase}
-    passwordPolicy.EntityData.Leafs["numeric"] = types.YLeaf{"Numeric", passwordPolicy.Numeric}
-    passwordPolicy.EntityData.Leafs["min-char-change"] = types.YLeaf{"MinCharChange", passwordPolicy.MinCharChange}
-    passwordPolicy.EntityData.Leafs["num-of-users"] = types.YLeaf{"NumOfUsers", passwordPolicy.NumOfUsers}
-    passwordPolicy.EntityData.Leafs["max-fail-attempts"] = types.YLeaf{"MaxFailAttempts", passwordPolicy.MaxFailAttempts}
-    passwordPolicy.EntityData.Leafs["usr-count"] = types.YLeaf{"UsrCount", passwordPolicy.UsrCount}
-    passwordPolicy.EntityData.Leafs["err-count"] = types.YLeaf{"ErrCount", passwordPolicy.ErrCount}
-    passwordPolicy.EntityData.Leafs["lock-out-count"] = types.YLeaf{"LockOutCount", passwordPolicy.LockOutCount}
+    passwordPolicy.EntityData.Children = types.NewOrderedMap()
+    passwordPolicy.EntityData.Children.Append("life-time", types.YChild{"LifeTime", &passwordPolicy.LifeTime})
+    passwordPolicy.EntityData.Children.Append("lock-out-time", types.YChild{"LockOutTime", &passwordPolicy.LockOutTime})
+    passwordPolicy.EntityData.Leafs = types.NewOrderedMap()
+    passwordPolicy.EntityData.Leafs.Append("name", types.YLeaf{"Name", passwordPolicy.Name})
+    passwordPolicy.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", passwordPolicy.NameXr})
+    passwordPolicy.EntityData.Leafs.Append("min-len", types.YLeaf{"MinLen", passwordPolicy.MinLen})
+    passwordPolicy.EntityData.Leafs.Append("max-len", types.YLeaf{"MaxLen", passwordPolicy.MaxLen})
+    passwordPolicy.EntityData.Leafs.Append("spl-char", types.YLeaf{"SplChar", passwordPolicy.SplChar})
+    passwordPolicy.EntityData.Leafs.Append("upper-case", types.YLeaf{"UpperCase", passwordPolicy.UpperCase})
+    passwordPolicy.EntityData.Leafs.Append("lower-case", types.YLeaf{"LowerCase", passwordPolicy.LowerCase})
+    passwordPolicy.EntityData.Leafs.Append("numeric", types.YLeaf{"Numeric", passwordPolicy.Numeric})
+    passwordPolicy.EntityData.Leafs.Append("min-char-change", types.YLeaf{"MinCharChange", passwordPolicy.MinCharChange})
+    passwordPolicy.EntityData.Leafs.Append("num-of-users", types.YLeaf{"NumOfUsers", passwordPolicy.NumOfUsers})
+    passwordPolicy.EntityData.Leafs.Append("max-fail-attempts", types.YLeaf{"MaxFailAttempts", passwordPolicy.MaxFailAttempts})
+    passwordPolicy.EntityData.Leafs.Append("usr-count", types.YLeaf{"UsrCount", passwordPolicy.UsrCount})
+    passwordPolicy.EntityData.Leafs.Append("err-count", types.YLeaf{"ErrCount", passwordPolicy.ErrCount})
+    passwordPolicy.EntityData.Leafs.Append("lock-out-count", types.YLeaf{"LockOutCount", passwordPolicy.LockOutCount})
+
+    passwordPolicy.EntityData.YListKeys = []string {"Name"}
+
     return &(passwordPolicy.EntityData)
 }
 
@@ -710,14 +758,17 @@ func (lifeTime *Aaa_PasswordPolicies_PasswordPolicy_LifeTime) GetEntityData() *t
     lifeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lifeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lifeTime.EntityData.Children = make(map[string]types.YChild)
-    lifeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lifeTime.EntityData.Leafs["years"] = types.YLeaf{"Years", lifeTime.Years}
-    lifeTime.EntityData.Leafs["months"] = types.YLeaf{"Months", lifeTime.Months}
-    lifeTime.EntityData.Leafs["days"] = types.YLeaf{"Days", lifeTime.Days}
-    lifeTime.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lifeTime.Hours}
-    lifeTime.EntityData.Leafs["mins"] = types.YLeaf{"Mins", lifeTime.Mins}
-    lifeTime.EntityData.Leafs["secs"] = types.YLeaf{"Secs", lifeTime.Secs}
+    lifeTime.EntityData.Children = types.NewOrderedMap()
+    lifeTime.EntityData.Leafs = types.NewOrderedMap()
+    lifeTime.EntityData.Leafs.Append("years", types.YLeaf{"Years", lifeTime.Years})
+    lifeTime.EntityData.Leafs.Append("months", types.YLeaf{"Months", lifeTime.Months})
+    lifeTime.EntityData.Leafs.Append("days", types.YLeaf{"Days", lifeTime.Days})
+    lifeTime.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lifeTime.Hours})
+    lifeTime.EntityData.Leafs.Append("mins", types.YLeaf{"Mins", lifeTime.Mins})
+    lifeTime.EntityData.Leafs.Append("secs", types.YLeaf{"Secs", lifeTime.Secs})
+
+    lifeTime.EntityData.YListKeys = []string {}
+
     return &(lifeTime.EntityData)
 }
 
@@ -756,14 +807,17 @@ func (lockOutTime *Aaa_PasswordPolicies_PasswordPolicy_LockOutTime) GetEntityDat
     lockOutTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lockOutTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lockOutTime.EntityData.Children = make(map[string]types.YChild)
-    lockOutTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lockOutTime.EntityData.Leafs["years"] = types.YLeaf{"Years", lockOutTime.Years}
-    lockOutTime.EntityData.Leafs["months"] = types.YLeaf{"Months", lockOutTime.Months}
-    lockOutTime.EntityData.Leafs["days"] = types.YLeaf{"Days", lockOutTime.Days}
-    lockOutTime.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lockOutTime.Hours}
-    lockOutTime.EntityData.Leafs["mins"] = types.YLeaf{"Mins", lockOutTime.Mins}
-    lockOutTime.EntityData.Leafs["secs"] = types.YLeaf{"Secs", lockOutTime.Secs}
+    lockOutTime.EntityData.Children = types.NewOrderedMap()
+    lockOutTime.EntityData.Leafs = types.NewOrderedMap()
+    lockOutTime.EntityData.Leafs.Append("years", types.YLeaf{"Years", lockOutTime.Years})
+    lockOutTime.EntityData.Leafs.Append("months", types.YLeaf{"Months", lockOutTime.Months})
+    lockOutTime.EntityData.Leafs.Append("days", types.YLeaf{"Days", lockOutTime.Days})
+    lockOutTime.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lockOutTime.Hours})
+    lockOutTime.EntityData.Leafs.Append("mins", types.YLeaf{"Mins", lockOutTime.Mins})
+    lockOutTime.EntityData.Leafs.Append("secs", types.YLeaf{"Secs", lockOutTime.Secs})
+
+    lockOutTime.EntityData.YListKeys = []string {}
+
     return &(lockOutTime.EntityData)
 }
 
@@ -775,7 +829,7 @@ type Aaa_Usergroups struct {
 
     // Specific Usergroup Information. The type is slice of
     // Aaa_Usergroups_Usergroup.
-    Usergroup []Aaa_Usergroups_Usergroup
+    Usergroup []*Aaa_Usergroups_Usergroup
 }
 
 func (usergroups *Aaa_Usergroups) GetEntityData() *types.CommonEntityData {
@@ -788,12 +842,15 @@ func (usergroups *Aaa_Usergroups) GetEntityData() *types.CommonEntityData {
     usergroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usergroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usergroups.EntityData.Children = make(map[string]types.YChild)
-    usergroups.EntityData.Children["usergroup"] = types.YChild{"Usergroup", nil}
+    usergroups.EntityData.Children = types.NewOrderedMap()
+    usergroups.EntityData.Children.Append("usergroup", types.YChild{"Usergroup", nil})
     for i := range usergroups.Usergroup {
-        usergroups.EntityData.Children[types.GetSegmentPath(&usergroups.Usergroup[i])] = types.YChild{"Usergroup", &usergroups.Usergroup[i]}
+        usergroups.EntityData.Children.Append(types.GetSegmentPath(usergroups.Usergroup[i]), types.YChild{"Usergroup", usergroups.Usergroup[i]})
     }
-    usergroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    usergroups.EntityData.Leafs = types.NewOrderedMap()
+
+    usergroups.EntityData.YListKeys = []string {}
+
     return &(usergroups.EntityData)
 }
 
@@ -814,7 +871,7 @@ type Aaa_Usergroups_Usergroup struct {
 
     // Component taskgroups. The type is slice of
     // Aaa_Usergroups_Usergroup_Taskgroup.
-    Taskgroup []Aaa_Usergroups_Usergroup_Taskgroup
+    Taskgroup []*Aaa_Usergroups_Usergroup_Taskgroup
 }
 
 func (usergroup *Aaa_Usergroups_Usergroup) GetEntityData() *types.CommonEntityData {
@@ -822,20 +879,23 @@ func (usergroup *Aaa_Usergroups_Usergroup) GetEntityData() *types.CommonEntityDa
     usergroup.EntityData.YangName = "usergroup"
     usergroup.EntityData.BundleName = "cisco_ios_xr"
     usergroup.EntityData.ParentYangName = "usergroups"
-    usergroup.EntityData.SegmentPath = "usergroup" + "[name='" + fmt.Sprintf("%v", usergroup.Name) + "']"
+    usergroup.EntityData.SegmentPath = "usergroup" + types.AddKeyToken(usergroup.Name, "name")
     usergroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usergroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usergroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usergroup.EntityData.Children = make(map[string]types.YChild)
-    usergroup.EntityData.Children["task-map"] = types.YChild{"TaskMap", &usergroup.TaskMap}
-    usergroup.EntityData.Children["taskgroup"] = types.YChild{"Taskgroup", nil}
+    usergroup.EntityData.Children = types.NewOrderedMap()
+    usergroup.EntityData.Children.Append("task-map", types.YChild{"TaskMap", &usergroup.TaskMap})
+    usergroup.EntityData.Children.Append("taskgroup", types.YChild{"Taskgroup", nil})
     for i := range usergroup.Taskgroup {
-        usergroup.EntityData.Children[types.GetSegmentPath(&usergroup.Taskgroup[i])] = types.YChild{"Taskgroup", &usergroup.Taskgroup[i]}
+        usergroup.EntityData.Children.Append(types.GetSegmentPath(usergroup.Taskgroup[i]), types.YChild{"Taskgroup", usergroup.Taskgroup[i]})
     }
-    usergroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    usergroup.EntityData.Leafs["name"] = types.YLeaf{"Name", usergroup.Name}
-    usergroup.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", usergroup.NameXr}
+    usergroup.EntityData.Leafs = types.NewOrderedMap()
+    usergroup.EntityData.Leafs.Append("name", types.YLeaf{"Name", usergroup.Name})
+    usergroup.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", usergroup.NameXr})
+
+    usergroup.EntityData.YListKeys = []string {"Name"}
+
     return &(usergroup.EntityData)
 }
 
@@ -847,7 +907,7 @@ type Aaa_Usergroups_Usergroup_TaskMap struct {
 
     // List of permitted tasks. The type is slice of
     // Aaa_Usergroups_Usergroup_TaskMap_Tasks.
-    Tasks []Aaa_Usergroups_Usergroup_TaskMap_Tasks
+    Tasks []*Aaa_Usergroups_Usergroup_TaskMap_Tasks
 }
 
 func (taskMap *Aaa_Usergroups_Usergroup_TaskMap) GetEntityData() *types.CommonEntityData {
@@ -860,12 +920,15 @@ func (taskMap *Aaa_Usergroups_Usergroup_TaskMap) GetEntityData() *types.CommonEn
     taskMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     taskMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    taskMap.EntityData.Children = make(map[string]types.YChild)
-    taskMap.EntityData.Children["tasks"] = types.YChild{"Tasks", nil}
+    taskMap.EntityData.Children = types.NewOrderedMap()
+    taskMap.EntityData.Children.Append("tasks", types.YChild{"Tasks", nil})
     for i := range taskMap.Tasks {
-        taskMap.EntityData.Children[types.GetSegmentPath(&taskMap.Tasks[i])] = types.YChild{"Tasks", &taskMap.Tasks[i]}
+        taskMap.EntityData.Children.Append(types.GetSegmentPath(taskMap.Tasks[i]), types.YChild{"Tasks", taskMap.Tasks[i]})
     }
-    taskMap.EntityData.Leafs = make(map[string]types.YLeaf)
+    taskMap.EntityData.Leafs = types.NewOrderedMap()
+
+    taskMap.EntityData.YListKeys = []string {}
+
     return &(taskMap.EntityData)
 }
 
@@ -901,13 +964,16 @@ func (tasks *Aaa_Usergroups_Usergroup_TaskMap_Tasks) GetEntityData() *types.Comm
     tasks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tasks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tasks.EntityData.Children = make(map[string]types.YChild)
-    tasks.EntityData.Leafs = make(map[string]types.YLeaf)
-    tasks.EntityData.Leafs["task-id"] = types.YLeaf{"TaskId", tasks.TaskId}
-    tasks.EntityData.Leafs["read"] = types.YLeaf{"Read", tasks.Read}
-    tasks.EntityData.Leafs["write"] = types.YLeaf{"Write", tasks.Write}
-    tasks.EntityData.Leafs["execute"] = types.YLeaf{"Execute", tasks.Execute}
-    tasks.EntityData.Leafs["debug"] = types.YLeaf{"Debug", tasks.Debug}
+    tasks.EntityData.Children = types.NewOrderedMap()
+    tasks.EntityData.Leafs = types.NewOrderedMap()
+    tasks.EntityData.Leafs.Append("task-id", types.YLeaf{"TaskId", tasks.TaskId})
+    tasks.EntityData.Leafs.Append("read", types.YLeaf{"Read", tasks.Read})
+    tasks.EntityData.Leafs.Append("write", types.YLeaf{"Write", tasks.Write})
+    tasks.EntityData.Leafs.Append("execute", types.YLeaf{"Execute", tasks.Execute})
+    tasks.EntityData.Leafs.Append("debug", types.YLeaf{"Debug", tasks.Debug})
+
+    tasks.EntityData.YListKeys = []string {}
+
     return &(tasks.EntityData)
 }
 
@@ -937,11 +1003,14 @@ func (taskgroup *Aaa_Usergroups_Usergroup_Taskgroup) GetEntityData() *types.Comm
     taskgroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     taskgroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    taskgroup.EntityData.Children = make(map[string]types.YChild)
-    taskgroup.EntityData.Children["included-task-ids"] = types.YChild{"IncludedTaskIds", &taskgroup.IncludedTaskIds}
-    taskgroup.EntityData.Children["task-map"] = types.YChild{"TaskMap", &taskgroup.TaskMap}
-    taskgroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    taskgroup.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", taskgroup.NameXr}
+    taskgroup.EntityData.Children = types.NewOrderedMap()
+    taskgroup.EntityData.Children.Append("included-task-ids", types.YChild{"IncludedTaskIds", &taskgroup.IncludedTaskIds})
+    taskgroup.EntityData.Children.Append("task-map", types.YChild{"TaskMap", &taskgroup.TaskMap})
+    taskgroup.EntityData.Leafs = types.NewOrderedMap()
+    taskgroup.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", taskgroup.NameXr})
+
+    taskgroup.EntityData.YListKeys = []string {}
+
     return &(taskgroup.EntityData)
 }
 
@@ -953,7 +1022,7 @@ type Aaa_Usergroups_Usergroup_Taskgroup_IncludedTaskIds struct {
 
     // List of permitted tasks. The type is slice of
     // Aaa_Usergroups_Usergroup_Taskgroup_IncludedTaskIds_Tasks.
-    Tasks []Aaa_Usergroups_Usergroup_Taskgroup_IncludedTaskIds_Tasks
+    Tasks []*Aaa_Usergroups_Usergroup_Taskgroup_IncludedTaskIds_Tasks
 }
 
 func (includedTaskIds *Aaa_Usergroups_Usergroup_Taskgroup_IncludedTaskIds) GetEntityData() *types.CommonEntityData {
@@ -966,12 +1035,15 @@ func (includedTaskIds *Aaa_Usergroups_Usergroup_Taskgroup_IncludedTaskIds) GetEn
     includedTaskIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     includedTaskIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    includedTaskIds.EntityData.Children = make(map[string]types.YChild)
-    includedTaskIds.EntityData.Children["tasks"] = types.YChild{"Tasks", nil}
+    includedTaskIds.EntityData.Children = types.NewOrderedMap()
+    includedTaskIds.EntityData.Children.Append("tasks", types.YChild{"Tasks", nil})
     for i := range includedTaskIds.Tasks {
-        includedTaskIds.EntityData.Children[types.GetSegmentPath(&includedTaskIds.Tasks[i])] = types.YChild{"Tasks", &includedTaskIds.Tasks[i]}
+        includedTaskIds.EntityData.Children.Append(types.GetSegmentPath(includedTaskIds.Tasks[i]), types.YChild{"Tasks", includedTaskIds.Tasks[i]})
     }
-    includedTaskIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    includedTaskIds.EntityData.Leafs = types.NewOrderedMap()
+
+    includedTaskIds.EntityData.YListKeys = []string {}
+
     return &(includedTaskIds.EntityData)
 }
 
@@ -1007,13 +1079,16 @@ func (tasks *Aaa_Usergroups_Usergroup_Taskgroup_IncludedTaskIds_Tasks) GetEntity
     tasks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tasks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tasks.EntityData.Children = make(map[string]types.YChild)
-    tasks.EntityData.Leafs = make(map[string]types.YLeaf)
-    tasks.EntityData.Leafs["task-id"] = types.YLeaf{"TaskId", tasks.TaskId}
-    tasks.EntityData.Leafs["read"] = types.YLeaf{"Read", tasks.Read}
-    tasks.EntityData.Leafs["write"] = types.YLeaf{"Write", tasks.Write}
-    tasks.EntityData.Leafs["execute"] = types.YLeaf{"Execute", tasks.Execute}
-    tasks.EntityData.Leafs["debug"] = types.YLeaf{"Debug", tasks.Debug}
+    tasks.EntityData.Children = types.NewOrderedMap()
+    tasks.EntityData.Leafs = types.NewOrderedMap()
+    tasks.EntityData.Leafs.Append("task-id", types.YLeaf{"TaskId", tasks.TaskId})
+    tasks.EntityData.Leafs.Append("read", types.YLeaf{"Read", tasks.Read})
+    tasks.EntityData.Leafs.Append("write", types.YLeaf{"Write", tasks.Write})
+    tasks.EntityData.Leafs.Append("execute", types.YLeaf{"Execute", tasks.Execute})
+    tasks.EntityData.Leafs.Append("debug", types.YLeaf{"Debug", tasks.Debug})
+
+    tasks.EntityData.YListKeys = []string {}
+
     return &(tasks.EntityData)
 }
 
@@ -1025,7 +1100,7 @@ type Aaa_Usergroups_Usergroup_Taskgroup_TaskMap struct {
 
     // List of permitted tasks. The type is slice of
     // Aaa_Usergroups_Usergroup_Taskgroup_TaskMap_Tasks.
-    Tasks []Aaa_Usergroups_Usergroup_Taskgroup_TaskMap_Tasks
+    Tasks []*Aaa_Usergroups_Usergroup_Taskgroup_TaskMap_Tasks
 }
 
 func (taskMap *Aaa_Usergroups_Usergroup_Taskgroup_TaskMap) GetEntityData() *types.CommonEntityData {
@@ -1038,12 +1113,15 @@ func (taskMap *Aaa_Usergroups_Usergroup_Taskgroup_TaskMap) GetEntityData() *type
     taskMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     taskMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    taskMap.EntityData.Children = make(map[string]types.YChild)
-    taskMap.EntityData.Children["tasks"] = types.YChild{"Tasks", nil}
+    taskMap.EntityData.Children = types.NewOrderedMap()
+    taskMap.EntityData.Children.Append("tasks", types.YChild{"Tasks", nil})
     for i := range taskMap.Tasks {
-        taskMap.EntityData.Children[types.GetSegmentPath(&taskMap.Tasks[i])] = types.YChild{"Tasks", &taskMap.Tasks[i]}
+        taskMap.EntityData.Children.Append(types.GetSegmentPath(taskMap.Tasks[i]), types.YChild{"Tasks", taskMap.Tasks[i]})
     }
-    taskMap.EntityData.Leafs = make(map[string]types.YLeaf)
+    taskMap.EntityData.Leafs = types.NewOrderedMap()
+
+    taskMap.EntityData.YListKeys = []string {}
+
     return &(taskMap.EntityData)
 }
 
@@ -1079,13 +1157,16 @@ func (tasks *Aaa_Usergroups_Usergroup_Taskgroup_TaskMap_Tasks) GetEntityData() *
     tasks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tasks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tasks.EntityData.Children = make(map[string]types.YChild)
-    tasks.EntityData.Leafs = make(map[string]types.YLeaf)
-    tasks.EntityData.Leafs["task-id"] = types.YLeaf{"TaskId", tasks.TaskId}
-    tasks.EntityData.Leafs["read"] = types.YLeaf{"Read", tasks.Read}
-    tasks.EntityData.Leafs["write"] = types.YLeaf{"Write", tasks.Write}
-    tasks.EntityData.Leafs["execute"] = types.YLeaf{"Execute", tasks.Execute}
-    tasks.EntityData.Leafs["debug"] = types.YLeaf{"Debug", tasks.Debug}
+    tasks.EntityData.Children = types.NewOrderedMap()
+    tasks.EntityData.Leafs = types.NewOrderedMap()
+    tasks.EntityData.Leafs.Append("task-id", types.YLeaf{"TaskId", tasks.TaskId})
+    tasks.EntityData.Leafs.Append("read", types.YLeaf{"Read", tasks.Read})
+    tasks.EntityData.Leafs.Append("write", types.YLeaf{"Write", tasks.Write})
+    tasks.EntityData.Leafs.Append("execute", types.YLeaf{"Execute", tasks.Execute})
+    tasks.EntityData.Leafs.Append("debug", types.YLeaf{"Debug", tasks.Debug})
+
+    tasks.EntityData.YListKeys = []string {}
+
     return &(tasks.EntityData)
 }
 
@@ -1119,12 +1200,15 @@ func (authenMethod *Aaa_AuthenMethod) GetEntityData() *types.CommonEntityData {
     authenMethod.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenMethod.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenMethod.EntityData.Children = make(map[string]types.YChild)
-    authenMethod.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenMethod.EntityData.Leafs["name"] = types.YLeaf{"Name", authenMethod.Name}
-    authenMethod.EntityData.Leafs["authenmethod"] = types.YLeaf{"Authenmethod", authenMethod.Authenmethod}
-    authenMethod.EntityData.Leafs["usergroup"] = types.YLeaf{"Usergroup", authenMethod.Usergroup}
-    authenMethod.EntityData.Leafs["taskmap"] = types.YLeaf{"Taskmap", authenMethod.Taskmap}
+    authenMethod.EntityData.Children = types.NewOrderedMap()
+    authenMethod.EntityData.Leafs = types.NewOrderedMap()
+    authenMethod.EntityData.Leafs.Append("name", types.YLeaf{"Name", authenMethod.Name})
+    authenMethod.EntityData.Leafs.Append("authenmethod", types.YLeaf{"Authenmethod", authenMethod.Authenmethod})
+    authenMethod.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", authenMethod.Usergroup})
+    authenMethod.EntityData.Leafs.Append("taskmap", types.YLeaf{"Taskmap", authenMethod.Taskmap})
+
+    authenMethod.EntityData.YListKeys = []string {}
+
     return &(authenMethod.EntityData)
 }
 
@@ -1158,13 +1242,505 @@ func (currentUsergroup *Aaa_CurrentUsergroup) GetEntityData() *types.CommonEntit
     currentUsergroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currentUsergroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    currentUsergroup.EntityData.Children = make(map[string]types.YChild)
-    currentUsergroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    currentUsergroup.EntityData.Leafs["name"] = types.YLeaf{"Name", currentUsergroup.Name}
-    currentUsergroup.EntityData.Leafs["authenmethod"] = types.YLeaf{"Authenmethod", currentUsergroup.Authenmethod}
-    currentUsergroup.EntityData.Leafs["usergroup"] = types.YLeaf{"Usergroup", currentUsergroup.Usergroup}
-    currentUsergroup.EntityData.Leafs["taskmap"] = types.YLeaf{"Taskmap", currentUsergroup.Taskmap}
+    currentUsergroup.EntityData.Children = types.NewOrderedMap()
+    currentUsergroup.EntityData.Leafs = types.NewOrderedMap()
+    currentUsergroup.EntityData.Leafs.Append("name", types.YLeaf{"Name", currentUsergroup.Name})
+    currentUsergroup.EntityData.Leafs.Append("authenmethod", types.YLeaf{"Authenmethod", currentUsergroup.Authenmethod})
+    currentUsergroup.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", currentUsergroup.Usergroup})
+    currentUsergroup.EntityData.Leafs.Append("taskmap", types.YLeaf{"Taskmap", currentUsergroup.Taskmap})
+
+    currentUsergroup.EntityData.YListKeys = []string {}
+
     return &(currentUsergroup.EntityData)
+}
+
+// Aaa_Tacacs
+// TACACS operational data
+type Aaa_Tacacs struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TACACS Active Request List.
+    Requests Aaa_Tacacs_Requests
+
+    // TACACS server Information.
+    Servers Aaa_Tacacs_Servers
+
+    // TACACS sg Information.
+    ServerGroups Aaa_Tacacs_ServerGroups
+}
+
+func (tacacs *Aaa_Tacacs) GetEntityData() *types.CommonEntityData {
+    tacacs.EntityData.YFilter = tacacs.YFilter
+    tacacs.EntityData.YangName = "tacacs"
+    tacacs.EntityData.BundleName = "cisco_ios_xr"
+    tacacs.EntityData.ParentYangName = "aaa"
+    tacacs.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
+    tacacs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tacacs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tacacs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tacacs.EntityData.Children = types.NewOrderedMap()
+    tacacs.EntityData.Children.Append("requests", types.YChild{"Requests", &tacacs.Requests})
+    tacacs.EntityData.Children.Append("servers", types.YChild{"Servers", &tacacs.Servers})
+    tacacs.EntityData.Children.Append("server-groups", types.YChild{"ServerGroups", &tacacs.ServerGroups})
+    tacacs.EntityData.Leafs = types.NewOrderedMap()
+
+    tacacs.EntityData.YListKeys = []string {}
+
+    return &(tacacs.EntityData)
+}
+
+// Aaa_Tacacs_Requests
+// TACACS Active Request List
+type Aaa_Tacacs_Requests struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // request. The type is slice of Aaa_Tacacs_Requests_Request.
+    Request []*Aaa_Tacacs_Requests_Request
+}
+
+func (requests *Aaa_Tacacs_Requests) GetEntityData() *types.CommonEntityData {
+    requests.EntityData.YFilter = requests.YFilter
+    requests.EntityData.YangName = "requests"
+    requests.EntityData.BundleName = "cisco_ios_xr"
+    requests.EntityData.ParentYangName = "tacacs"
+    requests.EntityData.SegmentPath = "requests"
+    requests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    requests.EntityData.Children = types.NewOrderedMap()
+    requests.EntityData.Children.Append("request", types.YChild{"Request", nil})
+    for i := range requests.Request {
+        requests.EntityData.Children.Append(types.GetSegmentPath(requests.Request[i]), types.YChild{"Request", requests.Request[i]})
+    }
+    requests.EntityData.Leafs = types.NewOrderedMap()
+
+    requests.EntityData.YListKeys = []string {}
+
+    return &(requests.EntityData)
+}
+
+// Aaa_Tacacs_Requests_Request
+// request
+type Aaa_Tacacs_Requests_Request struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // tacacs requestbag. The type is slice of
+    // Aaa_Tacacs_Requests_Request_TacacsRequestbag.
+    TacacsRequestbag []*Aaa_Tacacs_Requests_Request_TacacsRequestbag
+}
+
+func (request *Aaa_Tacacs_Requests_Request) GetEntityData() *types.CommonEntityData {
+    request.EntityData.YFilter = request.YFilter
+    request.EntityData.YangName = "request"
+    request.EntityData.BundleName = "cisco_ios_xr"
+    request.EntityData.ParentYangName = "requests"
+    request.EntityData.SegmentPath = "request"
+    request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    request.EntityData.Children = types.NewOrderedMap()
+    request.EntityData.Children.Append("tacacs-requestbag", types.YChild{"TacacsRequestbag", nil})
+    for i := range request.TacacsRequestbag {
+        request.EntityData.Children.Append(types.GetSegmentPath(request.TacacsRequestbag[i]), types.YChild{"TacacsRequestbag", request.TacacsRequestbag[i]})
+    }
+    request.EntityData.Leafs = types.NewOrderedMap()
+
+    request.EntityData.YListKeys = []string {}
+
+    return &(request.EntityData)
+}
+
+// Aaa_Tacacs_Requests_Request_TacacsRequestbag
+// tacacs requestbag
+type Aaa_Tacacs_Requests_Request_TacacsRequestbag struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // time remaining for this request. The type is interface{} with range:
+    // 0..4294967295.
+    TimeRemaining interface{}
+
+    // bytes written. The type is interface{} with range: 0..4294967295. Units are
+    // byte.
+    BytesOut interface{}
+
+    // size of the packet to be sent. The type is interface{} with range:
+    // 0..4294967295.
+    OutPakSize interface{}
+
+    // bytes read from socket. The type is interface{} with range: 0..4294967295.
+    // Units are byte.
+    BytesIn interface{}
+
+    // size of the packet to be received. The type is interface{} with range:
+    // 0..4294967295.
+    InPakSize interface{}
+
+    // the type of packet. The type is string.
+    PakType interface{}
+
+    // same as in pkt hdr. The type is interface{} with range:
+    // -2147483648..2147483647.
+    SessionId interface{}
+
+    // socket number. The type is interface{} with range: -2147483648..2147483647.
+    Sock interface{}
+}
+
+func (tacacsRequestbag *Aaa_Tacacs_Requests_Request_TacacsRequestbag) GetEntityData() *types.CommonEntityData {
+    tacacsRequestbag.EntityData.YFilter = tacacsRequestbag.YFilter
+    tacacsRequestbag.EntityData.YangName = "tacacs-requestbag"
+    tacacsRequestbag.EntityData.BundleName = "cisco_ios_xr"
+    tacacsRequestbag.EntityData.ParentYangName = "request"
+    tacacsRequestbag.EntityData.SegmentPath = "tacacs-requestbag"
+    tacacsRequestbag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tacacsRequestbag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tacacsRequestbag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tacacsRequestbag.EntityData.Children = types.NewOrderedMap()
+    tacacsRequestbag.EntityData.Leafs = types.NewOrderedMap()
+    tacacsRequestbag.EntityData.Leafs.Append("time-remaining", types.YLeaf{"TimeRemaining", tacacsRequestbag.TimeRemaining})
+    tacacsRequestbag.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", tacacsRequestbag.BytesOut})
+    tacacsRequestbag.EntityData.Leafs.Append("out-pak-size", types.YLeaf{"OutPakSize", tacacsRequestbag.OutPakSize})
+    tacacsRequestbag.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", tacacsRequestbag.BytesIn})
+    tacacsRequestbag.EntityData.Leafs.Append("in-pak-size", types.YLeaf{"InPakSize", tacacsRequestbag.InPakSize})
+    tacacsRequestbag.EntityData.Leafs.Append("pak-type", types.YLeaf{"PakType", tacacsRequestbag.PakType})
+    tacacsRequestbag.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", tacacsRequestbag.SessionId})
+    tacacsRequestbag.EntityData.Leafs.Append("sock", types.YLeaf{"Sock", tacacsRequestbag.Sock})
+
+    tacacsRequestbag.EntityData.YListKeys = []string {}
+
+    return &(tacacsRequestbag.EntityData)
+}
+
+// Aaa_Tacacs_Servers
+// TACACS server Information
+type Aaa_Tacacs_Servers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // server. The type is slice of Aaa_Tacacs_Servers_Server.
+    Server []*Aaa_Tacacs_Servers_Server
+}
+
+func (servers *Aaa_Tacacs_Servers) GetEntityData() *types.CommonEntityData {
+    servers.EntityData.YFilter = servers.YFilter
+    servers.EntityData.YangName = "servers"
+    servers.EntityData.BundleName = "cisco_ios_xr"
+    servers.EntityData.ParentYangName = "tacacs"
+    servers.EntityData.SegmentPath = "servers"
+    servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servers.EntityData.Children = types.NewOrderedMap()
+    servers.EntityData.Children.Append("server", types.YChild{"Server", nil})
+    for i := range servers.Server {
+        servers.EntityData.Children.Append(types.GetSegmentPath(servers.Server[i]), types.YChild{"Server", servers.Server[i]})
+    }
+    servers.EntityData.Leafs = types.NewOrderedMap()
+
+    servers.EntityData.YListKeys = []string {}
+
+    return &(servers.EntityData)
+}
+
+// Aaa_Tacacs_Servers_Server
+// server
+type Aaa_Tacacs_Servers_Server struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // internet address of T+ server. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Addr interface{}
+
+    // per-server timeout. The type is interface{} with range: 0..4294967295.
+    Timeout interface{}
+
+    // per server port to use. The type is interface{} with range: 0..4294967295.
+    Port interface{}
+
+    // # of bytes read. The type is interface{} with range: 0..4294967295. Units
+    // are byte.
+    BytesIn interface{}
+
+    // # of bytes out. The type is interface{} with range: 0..4294967295. Units
+    // are byte.
+    BytesOut interface{}
+
+    // socket closes. The type is interface{} with range: 0..4294967295.
+    Closes interface{}
+
+    // socket opens. The type is interface{} with range: 0..4294967295.
+    Opens interface{}
+
+    // error count. The type is interface{} with range: 0..4294967295.
+    Errors interface{}
+
+    // abort count. The type is interface{} with range: 0..4294967295.
+    Aborts interface{}
+
+    // # of incoming packets read. The type is interface{} with range:
+    // 0..4294967295.
+    PaksIn interface{}
+
+    // # of outgoing packets sent. The type is interface{} with range:
+    // 0..4294967295.
+    PaksOut interface{}
+
+    // # of replies expected to arrive. The type is interface{} with range:
+    // 0..4294967295.
+    RepliesExpected interface{}
+
+    // is the server UP or down ?. The type is bool.
+    Up interface{}
+
+    // is the server connected ?. The type is bool.
+    ConnUp interface{}
+
+    // is this a single connect server ?. The type is bool.
+    SingleConnect interface{}
+
+    // is this a private server ?. The type is bool.
+    IsPrivate interface{}
+
+    // VRF in which server is reachable. The type is string with length: 0..33.
+    VrfName interface{}
+
+    // IP address buffer. The type is string with length: 0..46.
+    AddrBuf interface{}
+
+    // IP address Family. The type is string with length: 0..5.
+    Family interface{}
+}
+
+func (server *Aaa_Tacacs_Servers_Server) GetEntityData() *types.CommonEntityData {
+    server.EntityData.YFilter = server.YFilter
+    server.EntityData.YangName = "server"
+    server.EntityData.BundleName = "cisco_ios_xr"
+    server.EntityData.ParentYangName = "servers"
+    server.EntityData.SegmentPath = "server"
+    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", server.Addr})
+    server.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", server.Timeout})
+    server.EntityData.Leafs.Append("port", types.YLeaf{"Port", server.Port})
+    server.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", server.BytesIn})
+    server.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", server.BytesOut})
+    server.EntityData.Leafs.Append("closes", types.YLeaf{"Closes", server.Closes})
+    server.EntityData.Leafs.Append("opens", types.YLeaf{"Opens", server.Opens})
+    server.EntityData.Leafs.Append("errors", types.YLeaf{"Errors", server.Errors})
+    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
+    server.EntityData.Leafs.Append("paks-in", types.YLeaf{"PaksIn", server.PaksIn})
+    server.EntityData.Leafs.Append("paks-out", types.YLeaf{"PaksOut", server.PaksOut})
+    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
+    server.EntityData.Leafs.Append("up", types.YLeaf{"Up", server.Up})
+    server.EntityData.Leafs.Append("conn-up", types.YLeaf{"ConnUp", server.ConnUp})
+    server.EntityData.Leafs.Append("single-connect", types.YLeaf{"SingleConnect", server.SingleConnect})
+    server.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", server.IsPrivate})
+    server.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", server.VrfName})
+    server.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", server.AddrBuf})
+    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
+
+    server.EntityData.YListKeys = []string {}
+
+    return &(server.EntityData)
+}
+
+// Aaa_Tacacs_ServerGroups
+// TACACS sg Information
+type Aaa_Tacacs_ServerGroups struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // server group. The type is slice of Aaa_Tacacs_ServerGroups_ServerGroup.
+    ServerGroup []*Aaa_Tacacs_ServerGroups_ServerGroup
+}
+
+func (serverGroups *Aaa_Tacacs_ServerGroups) GetEntityData() *types.CommonEntityData {
+    serverGroups.EntityData.YFilter = serverGroups.YFilter
+    serverGroups.EntityData.YangName = "server-groups"
+    serverGroups.EntityData.BundleName = "cisco_ios_xr"
+    serverGroups.EntityData.ParentYangName = "tacacs"
+    serverGroups.EntityData.SegmentPath = "server-groups"
+    serverGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serverGroups.EntityData.Children = types.NewOrderedMap()
+    serverGroups.EntityData.Children.Append("server-group", types.YChild{"ServerGroup", nil})
+    for i := range serverGroups.ServerGroup {
+        serverGroups.EntityData.Children.Append(types.GetSegmentPath(serverGroups.ServerGroup[i]), types.YChild{"ServerGroup", serverGroups.ServerGroup[i]})
+    }
+    serverGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    serverGroups.EntityData.YListKeys = []string {}
+
+    return &(serverGroups.EntityData)
+}
+
+// Aaa_Tacacs_ServerGroups_ServerGroup
+// server group
+type Aaa_Tacacs_ServerGroups_ServerGroup struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name of the server group. The type is string.
+    GroupName interface{}
+
+    // server group mapped number. The type is interface{} with range:
+    // 0..4294967295.
+    SgMapNum interface{}
+
+    // vrf of the group. The type is string with length: 0..33.
+    VrfName interface{}
+
+    // list of servers in this group. The type is slice of
+    // Aaa_Tacacs_ServerGroups_ServerGroup_Server.
+    Server []*Aaa_Tacacs_ServerGroups_ServerGroup_Server
+}
+
+func (serverGroup *Aaa_Tacacs_ServerGroups_ServerGroup) GetEntityData() *types.CommonEntityData {
+    serverGroup.EntityData.YFilter = serverGroup.YFilter
+    serverGroup.EntityData.YangName = "server-group"
+    serverGroup.EntityData.BundleName = "cisco_ios_xr"
+    serverGroup.EntityData.ParentYangName = "server-groups"
+    serverGroup.EntityData.SegmentPath = "server-group"
+    serverGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serverGroup.EntityData.Children = types.NewOrderedMap()
+    serverGroup.EntityData.Children.Append("server", types.YChild{"Server", nil})
+    for i := range serverGroup.Server {
+        serverGroup.EntityData.Children.Append(types.GetSegmentPath(serverGroup.Server[i]), types.YChild{"Server", serverGroup.Server[i]})
+    }
+    serverGroup.EntityData.Leafs = types.NewOrderedMap()
+    serverGroup.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", serverGroup.GroupName})
+    serverGroup.EntityData.Leafs.Append("sg-map-num", types.YLeaf{"SgMapNum", serverGroup.SgMapNum})
+    serverGroup.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", serverGroup.VrfName})
+
+    serverGroup.EntityData.YListKeys = []string {}
+
+    return &(serverGroup.EntityData)
+}
+
+// Aaa_Tacacs_ServerGroups_ServerGroup_Server
+// list of servers in this group
+type Aaa_Tacacs_ServerGroups_ServerGroup_Server struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // internet address of T+ server. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Addr interface{}
+
+    // per-server timeout. The type is interface{} with range: 0..4294967295.
+    Timeout interface{}
+
+    // per server port to use. The type is interface{} with range: 0..4294967295.
+    Port interface{}
+
+    // # of bytes read. The type is interface{} with range: 0..4294967295. Units
+    // are byte.
+    BytesIn interface{}
+
+    // # of bytes out. The type is interface{} with range: 0..4294967295. Units
+    // are byte.
+    BytesOut interface{}
+
+    // socket closes. The type is interface{} with range: 0..4294967295.
+    Closes interface{}
+
+    // socket opens. The type is interface{} with range: 0..4294967295.
+    Opens interface{}
+
+    // error count. The type is interface{} with range: 0..4294967295.
+    Errors interface{}
+
+    // abort count. The type is interface{} with range: 0..4294967295.
+    Aborts interface{}
+
+    // # of incoming packets read. The type is interface{} with range:
+    // 0..4294967295.
+    PaksIn interface{}
+
+    // # of outgoing packets sent. The type is interface{} with range:
+    // 0..4294967295.
+    PaksOut interface{}
+
+    // # of replies expected to arrive. The type is interface{} with range:
+    // 0..4294967295.
+    RepliesExpected interface{}
+
+    // is the server UP or down ?. The type is bool.
+    Up interface{}
+
+    // is the server connected ?. The type is bool.
+    ConnUp interface{}
+
+    // is this a single connect server ?. The type is bool.
+    SingleConnect interface{}
+
+    // is this a private server ?. The type is bool.
+    IsPrivate interface{}
+
+    // VRF in which server is reachable. The type is string with length: 0..33.
+    VrfName interface{}
+
+    // IP address buffer. The type is string with length: 0..46.
+    AddrBuf interface{}
+
+    // IP address Family. The type is string with length: 0..5.
+    Family interface{}
+}
+
+func (server *Aaa_Tacacs_ServerGroups_ServerGroup_Server) GetEntityData() *types.CommonEntityData {
+    server.EntityData.YFilter = server.YFilter
+    server.EntityData.YangName = "server"
+    server.EntityData.BundleName = "cisco_ios_xr"
+    server.EntityData.ParentYangName = "server-group"
+    server.EntityData.SegmentPath = "server"
+    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", server.Addr})
+    server.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", server.Timeout})
+    server.EntityData.Leafs.Append("port", types.YLeaf{"Port", server.Port})
+    server.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", server.BytesIn})
+    server.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", server.BytesOut})
+    server.EntityData.Leafs.Append("closes", types.YLeaf{"Closes", server.Closes})
+    server.EntityData.Leafs.Append("opens", types.YLeaf{"Opens", server.Opens})
+    server.EntityData.Leafs.Append("errors", types.YLeaf{"Errors", server.Errors})
+    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
+    server.EntityData.Leafs.Append("paks-in", types.YLeaf{"PaksIn", server.PaksIn})
+    server.EntityData.Leafs.Append("paks-out", types.YLeaf{"PaksOut", server.PaksOut})
+    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
+    server.EntityData.Leafs.Append("up", types.YLeaf{"Up", server.Up})
+    server.EntityData.Leafs.Append("conn-up", types.YLeaf{"ConnUp", server.ConnUp})
+    server.EntityData.Leafs.Append("single-connect", types.YLeaf{"SingleConnect", server.SingleConnect})
+    server.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", server.IsPrivate})
+    server.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", server.VrfName})
+    server.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", server.AddrBuf})
+    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
+
+    server.EntityData.YListKeys = []string {}
+
+    return &(server.EntityData)
 }
 
 // Aaa_Diameter
@@ -1214,18 +1790,21 @@ func (diameter *Aaa_Diameter) GetEntityData() *types.CommonEntityData {
     diameter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diameter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diameter.EntityData.Children = make(map[string]types.YChild)
-    diameter.EntityData.Children["gy"] = types.YChild{"Gy", &diameter.Gy}
-    diameter.EntityData.Children["gx-statistics"] = types.YChild{"GxStatistics", &diameter.GxStatistics}
-    diameter.EntityData.Children["gx"] = types.YChild{"Gx", &diameter.Gx}
-    diameter.EntityData.Children["peers"] = types.YChild{"Peers", &diameter.Peers}
-    diameter.EntityData.Children["nas"] = types.YChild{"Nas", &diameter.Nas}
-    diameter.EntityData.Children["nas-summary"] = types.YChild{"NasSummary", &diameter.NasSummary}
-    diameter.EntityData.Children["gy-session-ids"] = types.YChild{"GySessionIds", &diameter.GySessionIds}
-    diameter.EntityData.Children["gy-statistics"] = types.YChild{"GyStatistics", &diameter.GyStatistics}
-    diameter.EntityData.Children["gx-session-ids"] = types.YChild{"GxSessionIds", &diameter.GxSessionIds}
-    diameter.EntityData.Children["nas-session"] = types.YChild{"NasSession", &diameter.NasSession}
-    diameter.EntityData.Leafs = make(map[string]types.YLeaf)
+    diameter.EntityData.Children = types.NewOrderedMap()
+    diameter.EntityData.Children.Append("gy", types.YChild{"Gy", &diameter.Gy})
+    diameter.EntityData.Children.Append("gx-statistics", types.YChild{"GxStatistics", &diameter.GxStatistics})
+    diameter.EntityData.Children.Append("gx", types.YChild{"Gx", &diameter.Gx})
+    diameter.EntityData.Children.Append("peers", types.YChild{"Peers", &diameter.Peers})
+    diameter.EntityData.Children.Append("nas", types.YChild{"Nas", &diameter.Nas})
+    diameter.EntityData.Children.Append("nas-summary", types.YChild{"NasSummary", &diameter.NasSummary})
+    diameter.EntityData.Children.Append("gy-session-ids", types.YChild{"GySessionIds", &diameter.GySessionIds})
+    diameter.EntityData.Children.Append("gy-statistics", types.YChild{"GyStatistics", &diameter.GyStatistics})
+    diameter.EntityData.Children.Append("gx-session-ids", types.YChild{"GxSessionIds", &diameter.GxSessionIds})
+    diameter.EntityData.Children.Append("nas-session", types.YChild{"NasSession", &diameter.NasSession})
+    diameter.EntityData.Leafs = types.NewOrderedMap()
+
+    diameter.EntityData.YListKeys = []string {}
+
     return &(diameter.EntityData)
 }
 
@@ -1256,11 +1835,14 @@ func (gy *Aaa_Diameter_Gy) GetEntityData() *types.CommonEntityData {
     gy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gy.EntityData.Children = make(map[string]types.YChild)
-    gy.EntityData.Leafs = make(map[string]types.YLeaf)
-    gy.EntityData.Leafs["is-enabled"] = types.YLeaf{"IsEnabled", gy.IsEnabled}
-    gy.EntityData.Leafs["tx-timer"] = types.YLeaf{"TxTimer", gy.TxTimer}
-    gy.EntityData.Leafs["retransmits"] = types.YLeaf{"Retransmits", gy.Retransmits}
+    gy.EntityData.Children = types.NewOrderedMap()
+    gy.EntityData.Leafs = types.NewOrderedMap()
+    gy.EntityData.Leafs.Append("is-enabled", types.YLeaf{"IsEnabled", gy.IsEnabled})
+    gy.EntityData.Leafs.Append("tx-timer", types.YLeaf{"TxTimer", gy.TxTimer})
+    gy.EntityData.Leafs.Append("retransmits", types.YLeaf{"Retransmits", gy.Retransmits})
+
+    gy.EntityData.YListKeys = []string {}
+
     return &(gy.EntityData)
 }
 
@@ -1393,40 +1975,43 @@ func (gxStatistics *Aaa_Diameter_GxStatistics) GetEntityData() *types.CommonEnti
     gxStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gxStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gxStatistics.EntityData.Children = make(map[string]types.YChild)
-    gxStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    gxStatistics.EntityData.Leafs["ccr-init-messages"] = types.YLeaf{"CcrInitMessages", gxStatistics.CcrInitMessages}
-    gxStatistics.EntityData.Leafs["ccr-init-failed-messages"] = types.YLeaf{"CcrInitFailedMessages", gxStatistics.CcrInitFailedMessages}
-    gxStatistics.EntityData.Leafs["ccr-init-timed-out-messages"] = types.YLeaf{"CcrInitTimedOutMessages", gxStatistics.CcrInitTimedOutMessages}
-    gxStatistics.EntityData.Leafs["ccr-init-retry-messages"] = types.YLeaf{"CcrInitRetryMessages", gxStatistics.CcrInitRetryMessages}
-    gxStatistics.EntityData.Leafs["ccr-update-messages"] = types.YLeaf{"CcrUpdateMessages", gxStatistics.CcrUpdateMessages}
-    gxStatistics.EntityData.Leafs["ccr-update-failed-messages"] = types.YLeaf{"CcrUpdateFailedMessages", gxStatistics.CcrUpdateFailedMessages}
-    gxStatistics.EntityData.Leafs["ccr-update-timed-out-messages"] = types.YLeaf{"CcrUpdateTimedOutMessages", gxStatistics.CcrUpdateTimedOutMessages}
-    gxStatistics.EntityData.Leafs["ccr-update-retry-messages"] = types.YLeaf{"CcrUpdateRetryMessages", gxStatistics.CcrUpdateRetryMessages}
-    gxStatistics.EntityData.Leafs["ccr-final-messages"] = types.YLeaf{"CcrFinalMessages", gxStatistics.CcrFinalMessages}
-    gxStatistics.EntityData.Leafs["ccr-final-failed-messages"] = types.YLeaf{"CcrFinalFailedMessages", gxStatistics.CcrFinalFailedMessages}
-    gxStatistics.EntityData.Leafs["ccr-final-timed-out-messages"] = types.YLeaf{"CcrFinalTimedOutMessages", gxStatistics.CcrFinalTimedOutMessages}
-    gxStatistics.EntityData.Leafs["ccr-final-retry-messages"] = types.YLeaf{"CcrFinalRetryMessages", gxStatistics.CcrFinalRetryMessages}
-    gxStatistics.EntityData.Leafs["cca-init-messages"] = types.YLeaf{"CcaInitMessages", gxStatistics.CcaInitMessages}
-    gxStatistics.EntityData.Leafs["cca-init-error-messages"] = types.YLeaf{"CcaInitErrorMessages", gxStatistics.CcaInitErrorMessages}
-    gxStatistics.EntityData.Leafs["cca-update-messages"] = types.YLeaf{"CcaUpdateMessages", gxStatistics.CcaUpdateMessages}
-    gxStatistics.EntityData.Leafs["cca-update-error-messages"] = types.YLeaf{"CcaUpdateErrorMessages", gxStatistics.CcaUpdateErrorMessages}
-    gxStatistics.EntityData.Leafs["cca-final-messages"] = types.YLeaf{"CcaFinalMessages", gxStatistics.CcaFinalMessages}
-    gxStatistics.EntityData.Leafs["cca-final-error-messages"] = types.YLeaf{"CcaFinalErrorMessages", gxStatistics.CcaFinalErrorMessages}
-    gxStatistics.EntityData.Leafs["rar-received-messages"] = types.YLeaf{"RarReceivedMessages", gxStatistics.RarReceivedMessages}
-    gxStatistics.EntityData.Leafs["rar-received-error-messages"] = types.YLeaf{"RarReceivedErrorMessages", gxStatistics.RarReceivedErrorMessages}
-    gxStatistics.EntityData.Leafs["raa-sent-messages"] = types.YLeaf{"RaaSentMessages", gxStatistics.RaaSentMessages}
-    gxStatistics.EntityData.Leafs["raa-sent-error-messages"] = types.YLeaf{"RaaSentErrorMessages", gxStatistics.RaaSentErrorMessages}
-    gxStatistics.EntityData.Leafs["asr-received-messages"] = types.YLeaf{"AsrReceivedMessages", gxStatistics.AsrReceivedMessages}
-    gxStatistics.EntityData.Leafs["asr-received-error-messages"] = types.YLeaf{"AsrReceivedErrorMessages", gxStatistics.AsrReceivedErrorMessages}
-    gxStatistics.EntityData.Leafs["asa-sent-messsages"] = types.YLeaf{"AsaSentMesssages", gxStatistics.AsaSentMesssages}
-    gxStatistics.EntityData.Leafs["asa-sent-error-messages"] = types.YLeaf{"AsaSentErrorMessages", gxStatistics.AsaSentErrorMessages}
-    gxStatistics.EntityData.Leafs["session-termination-messages"] = types.YLeaf{"SessionTerminationMessages", gxStatistics.SessionTerminationMessages}
-    gxStatistics.EntityData.Leafs["unknown-request-messages"] = types.YLeaf{"UnknownRequestMessages", gxStatistics.UnknownRequestMessages}
-    gxStatistics.EntityData.Leafs["restore-sessions"] = types.YLeaf{"RestoreSessions", gxStatistics.RestoreSessions}
-    gxStatistics.EntityData.Leafs["open-sessions"] = types.YLeaf{"OpenSessions", gxStatistics.OpenSessions}
-    gxStatistics.EntityData.Leafs["close-sessions"] = types.YLeaf{"CloseSessions", gxStatistics.CloseSessions}
-    gxStatistics.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", gxStatistics.ActiveSessions}
+    gxStatistics.EntityData.Children = types.NewOrderedMap()
+    gxStatistics.EntityData.Leafs = types.NewOrderedMap()
+    gxStatistics.EntityData.Leafs.Append("ccr-init-messages", types.YLeaf{"CcrInitMessages", gxStatistics.CcrInitMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-init-failed-messages", types.YLeaf{"CcrInitFailedMessages", gxStatistics.CcrInitFailedMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-init-timed-out-messages", types.YLeaf{"CcrInitTimedOutMessages", gxStatistics.CcrInitTimedOutMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-init-retry-messages", types.YLeaf{"CcrInitRetryMessages", gxStatistics.CcrInitRetryMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-update-messages", types.YLeaf{"CcrUpdateMessages", gxStatistics.CcrUpdateMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-update-failed-messages", types.YLeaf{"CcrUpdateFailedMessages", gxStatistics.CcrUpdateFailedMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-update-timed-out-messages", types.YLeaf{"CcrUpdateTimedOutMessages", gxStatistics.CcrUpdateTimedOutMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-update-retry-messages", types.YLeaf{"CcrUpdateRetryMessages", gxStatistics.CcrUpdateRetryMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-final-messages", types.YLeaf{"CcrFinalMessages", gxStatistics.CcrFinalMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-final-failed-messages", types.YLeaf{"CcrFinalFailedMessages", gxStatistics.CcrFinalFailedMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-final-timed-out-messages", types.YLeaf{"CcrFinalTimedOutMessages", gxStatistics.CcrFinalTimedOutMessages})
+    gxStatistics.EntityData.Leafs.Append("ccr-final-retry-messages", types.YLeaf{"CcrFinalRetryMessages", gxStatistics.CcrFinalRetryMessages})
+    gxStatistics.EntityData.Leafs.Append("cca-init-messages", types.YLeaf{"CcaInitMessages", gxStatistics.CcaInitMessages})
+    gxStatistics.EntityData.Leafs.Append("cca-init-error-messages", types.YLeaf{"CcaInitErrorMessages", gxStatistics.CcaInitErrorMessages})
+    gxStatistics.EntityData.Leafs.Append("cca-update-messages", types.YLeaf{"CcaUpdateMessages", gxStatistics.CcaUpdateMessages})
+    gxStatistics.EntityData.Leafs.Append("cca-update-error-messages", types.YLeaf{"CcaUpdateErrorMessages", gxStatistics.CcaUpdateErrorMessages})
+    gxStatistics.EntityData.Leafs.Append("cca-final-messages", types.YLeaf{"CcaFinalMessages", gxStatistics.CcaFinalMessages})
+    gxStatistics.EntityData.Leafs.Append("cca-final-error-messages", types.YLeaf{"CcaFinalErrorMessages", gxStatistics.CcaFinalErrorMessages})
+    gxStatistics.EntityData.Leafs.Append("rar-received-messages", types.YLeaf{"RarReceivedMessages", gxStatistics.RarReceivedMessages})
+    gxStatistics.EntityData.Leafs.Append("rar-received-error-messages", types.YLeaf{"RarReceivedErrorMessages", gxStatistics.RarReceivedErrorMessages})
+    gxStatistics.EntityData.Leafs.Append("raa-sent-messages", types.YLeaf{"RaaSentMessages", gxStatistics.RaaSentMessages})
+    gxStatistics.EntityData.Leafs.Append("raa-sent-error-messages", types.YLeaf{"RaaSentErrorMessages", gxStatistics.RaaSentErrorMessages})
+    gxStatistics.EntityData.Leafs.Append("asr-received-messages", types.YLeaf{"AsrReceivedMessages", gxStatistics.AsrReceivedMessages})
+    gxStatistics.EntityData.Leafs.Append("asr-received-error-messages", types.YLeaf{"AsrReceivedErrorMessages", gxStatistics.AsrReceivedErrorMessages})
+    gxStatistics.EntityData.Leafs.Append("asa-sent-messsages", types.YLeaf{"AsaSentMesssages", gxStatistics.AsaSentMesssages})
+    gxStatistics.EntityData.Leafs.Append("asa-sent-error-messages", types.YLeaf{"AsaSentErrorMessages", gxStatistics.AsaSentErrorMessages})
+    gxStatistics.EntityData.Leafs.Append("session-termination-messages", types.YLeaf{"SessionTerminationMessages", gxStatistics.SessionTerminationMessages})
+    gxStatistics.EntityData.Leafs.Append("unknown-request-messages", types.YLeaf{"UnknownRequestMessages", gxStatistics.UnknownRequestMessages})
+    gxStatistics.EntityData.Leafs.Append("restore-sessions", types.YLeaf{"RestoreSessions", gxStatistics.RestoreSessions})
+    gxStatistics.EntityData.Leafs.Append("open-sessions", types.YLeaf{"OpenSessions", gxStatistics.OpenSessions})
+    gxStatistics.EntityData.Leafs.Append("close-sessions", types.YLeaf{"CloseSessions", gxStatistics.CloseSessions})
+    gxStatistics.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", gxStatistics.ActiveSessions})
+
+    gxStatistics.EntityData.YListKeys = []string {}
+
     return &(gxStatistics.EntityData)
 }
 
@@ -1457,11 +2042,14 @@ func (gx *Aaa_Diameter_Gx) GetEntityData() *types.CommonEntityData {
     gx.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gx.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gx.EntityData.Children = make(map[string]types.YChild)
-    gx.EntityData.Leafs = make(map[string]types.YLeaf)
-    gx.EntityData.Leafs["is-enabled"] = types.YLeaf{"IsEnabled", gx.IsEnabled}
-    gx.EntityData.Leafs["tx-timer"] = types.YLeaf{"TxTimer", gx.TxTimer}
-    gx.EntityData.Leafs["retransmits"] = types.YLeaf{"Retransmits", gx.Retransmits}
+    gx.EntityData.Children = types.NewOrderedMap()
+    gx.EntityData.Leafs = types.NewOrderedMap()
+    gx.EntityData.Leafs.Append("is-enabled", types.YLeaf{"IsEnabled", gx.IsEnabled})
+    gx.EntityData.Leafs.Append("tx-timer", types.YLeaf{"TxTimer", gx.TxTimer})
+    gx.EntityData.Leafs.Append("retransmits", types.YLeaf{"Retransmits", gx.Retransmits})
+
+    gx.EntityData.YListKeys = []string {}
+
     return &(gx.EntityData)
 }
 
@@ -1504,7 +2092,7 @@ type Aaa_Diameter_Peers struct {
     TransMax interface{}
 
     // Peer List. The type is slice of Aaa_Diameter_Peers_Peer.
-    Peer []Aaa_Diameter_Peers_Peer
+    Peer []*Aaa_Diameter_Peers_Peer
 }
 
 func (peers *Aaa_Diameter_Peers) GetEntityData() *types.CommonEntityData {
@@ -1517,21 +2105,24 @@ func (peers *Aaa_Diameter_Peers) GetEntityData() *types.CommonEntityData {
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
-    peers.EntityData.Leafs["origin-host"] = types.YLeaf{"OriginHost", peers.OriginHost}
-    peers.EntityData.Leafs["origin-realm"] = types.YLeaf{"OriginRealm", peers.OriginRealm}
-    peers.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", peers.SourceInterface}
-    peers.EntityData.Leafs["tls-trustpoint"] = types.YLeaf{"TlsTrustpoint", peers.TlsTrustpoint}
-    peers.EntityData.Leafs["conn-retry-timer"] = types.YLeaf{"ConnRetryTimer", peers.ConnRetryTimer}
-    peers.EntityData.Leafs["watchdog-timer"] = types.YLeaf{"WatchdogTimer", peers.WatchdogTimer}
-    peers.EntityData.Leafs["transaction-timer"] = types.YLeaf{"TransactionTimer", peers.TransactionTimer}
-    peers.EntityData.Leafs["trans-total"] = types.YLeaf{"TransTotal", peers.TransTotal}
-    peers.EntityData.Leafs["trans-max"] = types.YLeaf{"TransMax", peers.TransMax}
+    peers.EntityData.Leafs = types.NewOrderedMap()
+    peers.EntityData.Leafs.Append("origin-host", types.YLeaf{"OriginHost", peers.OriginHost})
+    peers.EntityData.Leafs.Append("origin-realm", types.YLeaf{"OriginRealm", peers.OriginRealm})
+    peers.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", peers.SourceInterface})
+    peers.EntityData.Leafs.Append("tls-trustpoint", types.YLeaf{"TlsTrustpoint", peers.TlsTrustpoint})
+    peers.EntityData.Leafs.Append("conn-retry-timer", types.YLeaf{"ConnRetryTimer", peers.ConnRetryTimer})
+    peers.EntityData.Leafs.Append("watchdog-timer", types.YLeaf{"WatchdogTimer", peers.WatchdogTimer})
+    peers.EntityData.Leafs.Append("transaction-timer", types.YLeaf{"TransactionTimer", peers.TransactionTimer})
+    peers.EntityData.Leafs.Append("trans-total", types.YLeaf{"TransTotal", peers.TransTotal})
+    peers.EntityData.Leafs.Append("trans-max", types.YLeaf{"TransMax", peers.TransMax})
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -1745,70 +2336,73 @@ func (peer *Aaa_Diameter_Peers_Peer) GetEntityData() *types.CommonEntityData {
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["peer-name"] = types.YLeaf{"PeerName", peer.PeerName}
-    peer.EntityData.Leafs["peer-index"] = types.YLeaf{"PeerIndex", peer.PeerIndex}
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
-    peer.EntityData.Leafs["port"] = types.YLeaf{"Port", peer.Port}
-    peer.EntityData.Leafs["port-connect"] = types.YLeaf{"PortConnect", peer.PortConnect}
-    peer.EntityData.Leafs["protocol-type"] = types.YLeaf{"ProtocolType", peer.ProtocolType}
-    peer.EntityData.Leafs["security-type"] = types.YLeaf{"SecurityType", peer.SecurityType}
-    peer.EntityData.Leafs["conn-retry-timer"] = types.YLeaf{"ConnRetryTimer", peer.ConnRetryTimer}
-    peer.EntityData.Leafs["watchdog-timer"] = types.YLeaf{"WatchdogTimer", peer.WatchdogTimer}
-    peer.EntityData.Leafs["transaction-timer"] = types.YLeaf{"TransactionTimer", peer.TransactionTimer}
-    peer.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", peer.VrfName}
-    peer.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", peer.SourceInterface}
-    peer.EntityData.Leafs["destination-host"] = types.YLeaf{"DestinationHost", peer.DestinationHost}
-    peer.EntityData.Leafs["destination-realm"] = types.YLeaf{"DestinationRealm", peer.DestinationRealm}
-    peer.EntityData.Leafs["peer-type"] = types.YLeaf{"PeerType", peer.PeerType}
-    peer.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", peer.FirmwareRevision}
-    peer.EntityData.Leafs["state-duration"] = types.YLeaf{"StateDuration", peer.StateDuration}
-    peer.EntityData.Leafs["last-disconnect-cause"] = types.YLeaf{"LastDisconnectCause", peer.LastDisconnectCause}
-    peer.EntityData.Leafs["who-init-disconnect"] = types.YLeaf{"WhoInitDisconnect", peer.WhoInitDisconnect}
-    peer.EntityData.Leafs["in-as-rs"] = types.YLeaf{"InAsRs", peer.InAsRs}
-    peer.EntityData.Leafs["out-as-rs"] = types.YLeaf{"OutAsRs", peer.OutAsRs}
-    peer.EntityData.Leafs["in-as-as"] = types.YLeaf{"InAsAs", peer.InAsAs}
-    peer.EntityData.Leafs["out-as-as"] = types.YLeaf{"OutAsAs", peer.OutAsAs}
-    peer.EntityData.Leafs["in-ac-rs"] = types.YLeaf{"InAcRs", peer.InAcRs}
-    peer.EntityData.Leafs["out-ac-rs"] = types.YLeaf{"OutAcRs", peer.OutAcRs}
-    peer.EntityData.Leafs["in-ac-as"] = types.YLeaf{"InAcAs", peer.InAcAs}
-    peer.EntityData.Leafs["out-ac-as"] = types.YLeaf{"OutAcAs", peer.OutAcAs}
-    peer.EntityData.Leafs["in-ce-rs"] = types.YLeaf{"InCeRs", peer.InCeRs}
-    peer.EntityData.Leafs["out-ce-rs"] = types.YLeaf{"OutCeRs", peer.OutCeRs}
-    peer.EntityData.Leafs["in-ce-as"] = types.YLeaf{"InCeAs", peer.InCeAs}
-    peer.EntityData.Leafs["out-ce-as"] = types.YLeaf{"OutCeAs", peer.OutCeAs}
-    peer.EntityData.Leafs["in-dw-rs"] = types.YLeaf{"InDwRs", peer.InDwRs}
-    peer.EntityData.Leafs["out-dw-rs"] = types.YLeaf{"OutDwRs", peer.OutDwRs}
-    peer.EntityData.Leafs["in-dw-as"] = types.YLeaf{"InDwAs", peer.InDwAs}
-    peer.EntityData.Leafs["out-dw-as"] = types.YLeaf{"OutDwAs", peer.OutDwAs}
-    peer.EntityData.Leafs["in-dp-rs"] = types.YLeaf{"InDpRs", peer.InDpRs}
-    peer.EntityData.Leafs["out-dp-rs"] = types.YLeaf{"OutDpRs", peer.OutDpRs}
-    peer.EntityData.Leafs["in-dp-as"] = types.YLeaf{"InDpAs", peer.InDpAs}
-    peer.EntityData.Leafs["out-dp-as"] = types.YLeaf{"OutDpAs", peer.OutDpAs}
-    peer.EntityData.Leafs["in-ra-rs"] = types.YLeaf{"InRaRs", peer.InRaRs}
-    peer.EntityData.Leafs["out-ra-rs"] = types.YLeaf{"OutRaRs", peer.OutRaRs}
-    peer.EntityData.Leafs["in-ra-as"] = types.YLeaf{"InRaAs", peer.InRaAs}
-    peer.EntityData.Leafs["out-ra-as"] = types.YLeaf{"OutRaAs", peer.OutRaAs}
-    peer.EntityData.Leafs["in-st-rs"] = types.YLeaf{"InStRs", peer.InStRs}
-    peer.EntityData.Leafs["out-st-rs"] = types.YLeaf{"OutStRs", peer.OutStRs}
-    peer.EntityData.Leafs["in-st-as"] = types.YLeaf{"InStAs", peer.InStAs}
-    peer.EntityData.Leafs["out-st-as"] = types.YLeaf{"OutStAs", peer.OutStAs}
-    peer.EntityData.Leafs["in-cc-rs"] = types.YLeaf{"InCcRs", peer.InCcRs}
-    peer.EntityData.Leafs["out-cc-rs"] = types.YLeaf{"OutCcRs", peer.OutCcRs}
-    peer.EntityData.Leafs["in-cc-as"] = types.YLeaf{"InCcAs", peer.InCcAs}
-    peer.EntityData.Leafs["out-cc-as"] = types.YLeaf{"OutCcAs", peer.OutCcAs}
-    peer.EntityData.Leafs["out-aa-rs"] = types.YLeaf{"OutAaRs", peer.OutAaRs}
-    peer.EntityData.Leafs["in-aa-as"] = types.YLeaf{"InAaAs", peer.InAaAs}
-    peer.EntityData.Leafs["malformed-requests"] = types.YLeaf{"MalformedRequests", peer.MalformedRequests}
-    peer.EntityData.Leafs["received-proto-errors"] = types.YLeaf{"ReceivedProtoErrors", peer.ReceivedProtoErrors}
-    peer.EntityData.Leafs["sent-proto-errors"] = types.YLeaf{"SentProtoErrors", peer.SentProtoErrors}
-    peer.EntityData.Leafs["received-transient-fails"] = types.YLeaf{"ReceivedTransientFails", peer.ReceivedTransientFails}
-    peer.EntityData.Leafs["sent-transient-fails"] = types.YLeaf{"SentTransientFails", peer.SentTransientFails}
-    peer.EntityData.Leafs["received-permanent-fails"] = types.YLeaf{"ReceivedPermanentFails", peer.ReceivedPermanentFails}
-    peer.EntityData.Leafs["sent-permanent-fails"] = types.YLeaf{"SentPermanentFails", peer.SentPermanentFails}
-    peer.EntityData.Leafs["transport-down"] = types.YLeaf{"TransportDown", peer.TransportDown}
-    peer.EntityData.Leafs["state"] = types.YLeaf{"State", peer.State}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("peer-name", types.YLeaf{"PeerName", peer.PeerName})
+    peer.EntityData.Leafs.Append("peer-index", types.YLeaf{"PeerIndex", peer.PeerIndex})
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+    peer.EntityData.Leafs.Append("port", types.YLeaf{"Port", peer.Port})
+    peer.EntityData.Leafs.Append("port-connect", types.YLeaf{"PortConnect", peer.PortConnect})
+    peer.EntityData.Leafs.Append("protocol-type", types.YLeaf{"ProtocolType", peer.ProtocolType})
+    peer.EntityData.Leafs.Append("security-type", types.YLeaf{"SecurityType", peer.SecurityType})
+    peer.EntityData.Leafs.Append("conn-retry-timer", types.YLeaf{"ConnRetryTimer", peer.ConnRetryTimer})
+    peer.EntityData.Leafs.Append("watchdog-timer", types.YLeaf{"WatchdogTimer", peer.WatchdogTimer})
+    peer.EntityData.Leafs.Append("transaction-timer", types.YLeaf{"TransactionTimer", peer.TransactionTimer})
+    peer.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", peer.VrfName})
+    peer.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", peer.SourceInterface})
+    peer.EntityData.Leafs.Append("destination-host", types.YLeaf{"DestinationHost", peer.DestinationHost})
+    peer.EntityData.Leafs.Append("destination-realm", types.YLeaf{"DestinationRealm", peer.DestinationRealm})
+    peer.EntityData.Leafs.Append("peer-type", types.YLeaf{"PeerType", peer.PeerType})
+    peer.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", peer.FirmwareRevision})
+    peer.EntityData.Leafs.Append("state-duration", types.YLeaf{"StateDuration", peer.StateDuration})
+    peer.EntityData.Leafs.Append("last-disconnect-cause", types.YLeaf{"LastDisconnectCause", peer.LastDisconnectCause})
+    peer.EntityData.Leafs.Append("who-init-disconnect", types.YLeaf{"WhoInitDisconnect", peer.WhoInitDisconnect})
+    peer.EntityData.Leafs.Append("in-as-rs", types.YLeaf{"InAsRs", peer.InAsRs})
+    peer.EntityData.Leafs.Append("out-as-rs", types.YLeaf{"OutAsRs", peer.OutAsRs})
+    peer.EntityData.Leafs.Append("in-as-as", types.YLeaf{"InAsAs", peer.InAsAs})
+    peer.EntityData.Leafs.Append("out-as-as", types.YLeaf{"OutAsAs", peer.OutAsAs})
+    peer.EntityData.Leafs.Append("in-ac-rs", types.YLeaf{"InAcRs", peer.InAcRs})
+    peer.EntityData.Leafs.Append("out-ac-rs", types.YLeaf{"OutAcRs", peer.OutAcRs})
+    peer.EntityData.Leafs.Append("in-ac-as", types.YLeaf{"InAcAs", peer.InAcAs})
+    peer.EntityData.Leafs.Append("out-ac-as", types.YLeaf{"OutAcAs", peer.OutAcAs})
+    peer.EntityData.Leafs.Append("in-ce-rs", types.YLeaf{"InCeRs", peer.InCeRs})
+    peer.EntityData.Leafs.Append("out-ce-rs", types.YLeaf{"OutCeRs", peer.OutCeRs})
+    peer.EntityData.Leafs.Append("in-ce-as", types.YLeaf{"InCeAs", peer.InCeAs})
+    peer.EntityData.Leafs.Append("out-ce-as", types.YLeaf{"OutCeAs", peer.OutCeAs})
+    peer.EntityData.Leafs.Append("in-dw-rs", types.YLeaf{"InDwRs", peer.InDwRs})
+    peer.EntityData.Leafs.Append("out-dw-rs", types.YLeaf{"OutDwRs", peer.OutDwRs})
+    peer.EntityData.Leafs.Append("in-dw-as", types.YLeaf{"InDwAs", peer.InDwAs})
+    peer.EntityData.Leafs.Append("out-dw-as", types.YLeaf{"OutDwAs", peer.OutDwAs})
+    peer.EntityData.Leafs.Append("in-dp-rs", types.YLeaf{"InDpRs", peer.InDpRs})
+    peer.EntityData.Leafs.Append("out-dp-rs", types.YLeaf{"OutDpRs", peer.OutDpRs})
+    peer.EntityData.Leafs.Append("in-dp-as", types.YLeaf{"InDpAs", peer.InDpAs})
+    peer.EntityData.Leafs.Append("out-dp-as", types.YLeaf{"OutDpAs", peer.OutDpAs})
+    peer.EntityData.Leafs.Append("in-ra-rs", types.YLeaf{"InRaRs", peer.InRaRs})
+    peer.EntityData.Leafs.Append("out-ra-rs", types.YLeaf{"OutRaRs", peer.OutRaRs})
+    peer.EntityData.Leafs.Append("in-ra-as", types.YLeaf{"InRaAs", peer.InRaAs})
+    peer.EntityData.Leafs.Append("out-ra-as", types.YLeaf{"OutRaAs", peer.OutRaAs})
+    peer.EntityData.Leafs.Append("in-st-rs", types.YLeaf{"InStRs", peer.InStRs})
+    peer.EntityData.Leafs.Append("out-st-rs", types.YLeaf{"OutStRs", peer.OutStRs})
+    peer.EntityData.Leafs.Append("in-st-as", types.YLeaf{"InStAs", peer.InStAs})
+    peer.EntityData.Leafs.Append("out-st-as", types.YLeaf{"OutStAs", peer.OutStAs})
+    peer.EntityData.Leafs.Append("in-cc-rs", types.YLeaf{"InCcRs", peer.InCcRs})
+    peer.EntityData.Leafs.Append("out-cc-rs", types.YLeaf{"OutCcRs", peer.OutCcRs})
+    peer.EntityData.Leafs.Append("in-cc-as", types.YLeaf{"InCcAs", peer.InCcAs})
+    peer.EntityData.Leafs.Append("out-cc-as", types.YLeaf{"OutCcAs", peer.OutCcAs})
+    peer.EntityData.Leafs.Append("out-aa-rs", types.YLeaf{"OutAaRs", peer.OutAaRs})
+    peer.EntityData.Leafs.Append("in-aa-as", types.YLeaf{"InAaAs", peer.InAaAs})
+    peer.EntityData.Leafs.Append("malformed-requests", types.YLeaf{"MalformedRequests", peer.MalformedRequests})
+    peer.EntityData.Leafs.Append("received-proto-errors", types.YLeaf{"ReceivedProtoErrors", peer.ReceivedProtoErrors})
+    peer.EntityData.Leafs.Append("sent-proto-errors", types.YLeaf{"SentProtoErrors", peer.SentProtoErrors})
+    peer.EntityData.Leafs.Append("received-transient-fails", types.YLeaf{"ReceivedTransientFails", peer.ReceivedTransientFails})
+    peer.EntityData.Leafs.Append("sent-transient-fails", types.YLeaf{"SentTransientFails", peer.SentTransientFails})
+    peer.EntityData.Leafs.Append("received-permanent-fails", types.YLeaf{"ReceivedPermanentFails", peer.ReceivedPermanentFails})
+    peer.EntityData.Leafs.Append("sent-permanent-fails", types.YLeaf{"SentPermanentFails", peer.SentPermanentFails})
+    peer.EntityData.Leafs.Append("transport-down", types.YLeaf{"TransportDown", peer.TransportDown})
+    peer.EntityData.Leafs.Append("state", types.YLeaf{"State", peer.State})
+
+    peer.EntityData.YListKeys = []string {}
+
     return &(peer.EntityData)
 }
 
@@ -1822,7 +2416,7 @@ type Aaa_Diameter_Nas struct {
     AaanasId interface{}
 
     // List of NAS Entries. The type is slice of Aaa_Diameter_Nas_ListOfNas.
-    ListOfNas []Aaa_Diameter_Nas_ListOfNas
+    ListOfNas []*Aaa_Diameter_Nas_ListOfNas
 }
 
 func (nas *Aaa_Diameter_Nas) GetEntityData() *types.CommonEntityData {
@@ -1835,13 +2429,16 @@ func (nas *Aaa_Diameter_Nas) GetEntityData() *types.CommonEntityData {
     nas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nas.EntityData.Children = make(map[string]types.YChild)
-    nas.EntityData.Children["list-of-nas"] = types.YChild{"ListOfNas", nil}
+    nas.EntityData.Children = types.NewOrderedMap()
+    nas.EntityData.Children.Append("list-of-nas", types.YChild{"ListOfNas", nil})
     for i := range nas.ListOfNas {
-        nas.EntityData.Children[types.GetSegmentPath(&nas.ListOfNas[i])] = types.YChild{"ListOfNas", &nas.ListOfNas[i]}
+        nas.EntityData.Children.Append(types.GetSegmentPath(nas.ListOfNas[i]), types.YChild{"ListOfNas", nas.ListOfNas[i]})
     }
-    nas.EntityData.Leafs = make(map[string]types.YLeaf)
-    nas.EntityData.Leafs["aaanas-id"] = types.YLeaf{"AaanasId", nas.AaanasId}
+    nas.EntityData.Leafs = types.NewOrderedMap()
+    nas.EntityData.Leafs.Append("aaanas-id", types.YLeaf{"AaanasId", nas.AaanasId})
+
+    nas.EntityData.YListKeys = []string {}
+
     return &(nas.EntityData)
 }
 
@@ -1899,19 +2496,22 @@ func (listOfNas *Aaa_Diameter_Nas_ListOfNas) GetEntityData() *types.CommonEntity
     listOfNas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     listOfNas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    listOfNas.EntityData.Children = make(map[string]types.YChild)
-    listOfNas.EntityData.Leafs = make(map[string]types.YLeaf)
-    listOfNas.EntityData.Leafs["aaa-session-id"] = types.YLeaf{"AaaSessionId", listOfNas.AaaSessionId}
-    listOfNas.EntityData.Leafs["diameter-session-id"] = types.YLeaf{"DiameterSessionId", listOfNas.DiameterSessionId}
-    listOfNas.EntityData.Leafs["authentication-status"] = types.YLeaf{"AuthenticationStatus", listOfNas.AuthenticationStatus}
-    listOfNas.EntityData.Leafs["authorization-status"] = types.YLeaf{"AuthorizationStatus", listOfNas.AuthorizationStatus}
-    listOfNas.EntityData.Leafs["accounting-status"] = types.YLeaf{"AccountingStatus", listOfNas.AccountingStatus}
-    listOfNas.EntityData.Leafs["accounting-status-stop"] = types.YLeaf{"AccountingStatusStop", listOfNas.AccountingStatusStop}
-    listOfNas.EntityData.Leafs["disconnect-status"] = types.YLeaf{"DisconnectStatus", listOfNas.DisconnectStatus}
-    listOfNas.EntityData.Leafs["accounting-intrim-in-packets"] = types.YLeaf{"AccountingIntrimInPackets", listOfNas.AccountingIntrimInPackets}
-    listOfNas.EntityData.Leafs["accounting-intrim-out-packets"] = types.YLeaf{"AccountingIntrimOutPackets", listOfNas.AccountingIntrimOutPackets}
-    listOfNas.EntityData.Leafs["method-list"] = types.YLeaf{"MethodList", listOfNas.MethodList}
-    listOfNas.EntityData.Leafs["server-used-list"] = types.YLeaf{"ServerUsedList", listOfNas.ServerUsedList}
+    listOfNas.EntityData.Children = types.NewOrderedMap()
+    listOfNas.EntityData.Leafs = types.NewOrderedMap()
+    listOfNas.EntityData.Leafs.Append("aaa-session-id", types.YLeaf{"AaaSessionId", listOfNas.AaaSessionId})
+    listOfNas.EntityData.Leafs.Append("diameter-session-id", types.YLeaf{"DiameterSessionId", listOfNas.DiameterSessionId})
+    listOfNas.EntityData.Leafs.Append("authentication-status", types.YLeaf{"AuthenticationStatus", listOfNas.AuthenticationStatus})
+    listOfNas.EntityData.Leafs.Append("authorization-status", types.YLeaf{"AuthorizationStatus", listOfNas.AuthorizationStatus})
+    listOfNas.EntityData.Leafs.Append("accounting-status", types.YLeaf{"AccountingStatus", listOfNas.AccountingStatus})
+    listOfNas.EntityData.Leafs.Append("accounting-status-stop", types.YLeaf{"AccountingStatusStop", listOfNas.AccountingStatusStop})
+    listOfNas.EntityData.Leafs.Append("disconnect-status", types.YLeaf{"DisconnectStatus", listOfNas.DisconnectStatus})
+    listOfNas.EntityData.Leafs.Append("accounting-intrim-in-packets", types.YLeaf{"AccountingIntrimInPackets", listOfNas.AccountingIntrimInPackets})
+    listOfNas.EntityData.Leafs.Append("accounting-intrim-out-packets", types.YLeaf{"AccountingIntrimOutPackets", listOfNas.AccountingIntrimOutPackets})
+    listOfNas.EntityData.Leafs.Append("method-list", types.YLeaf{"MethodList", listOfNas.MethodList})
+    listOfNas.EntityData.Leafs.Append("server-used-list", types.YLeaf{"ServerUsedList", listOfNas.ServerUsedList})
+
+    listOfNas.EntityData.YListKeys = []string {}
+
     return &(listOfNas.EntityData)
 }
 
@@ -2122,56 +2722,59 @@ func (nasSummary *Aaa_Diameter_NasSummary) GetEntityData() *types.CommonEntityDa
     nasSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nasSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nasSummary.EntityData.Children = make(map[string]types.YChild)
-    nasSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    nasSummary.EntityData.Leafs["authen-response-in-packets"] = types.YLeaf{"AuthenResponseInPackets", nasSummary.AuthenResponseInPackets}
-    nasSummary.EntityData.Leafs["authen-request-out-packets"] = types.YLeaf{"AuthenRequestOutPackets", nasSummary.AuthenRequestOutPackets}
-    nasSummary.EntityData.Leafs["authen-request-in-packets"] = types.YLeaf{"AuthenRequestInPackets", nasSummary.AuthenRequestInPackets}
-    nasSummary.EntityData.Leafs["authen-response-out-packets"] = types.YLeaf{"AuthenResponseOutPackets", nasSummary.AuthenResponseOutPackets}
-    nasSummary.EntityData.Leafs["authen-success-packets"] = types.YLeaf{"AuthenSuccessPackets", nasSummary.AuthenSuccessPackets}
-    nasSummary.EntityData.Leafs["authen-response-fail-packets"] = types.YLeaf{"AuthenResponseFailPackets", nasSummary.AuthenResponseFailPackets}
-    nasSummary.EntityData.Leafs["authorization-in-packets"] = types.YLeaf{"AuthorizationInPackets", nasSummary.AuthorizationInPackets}
-    nasSummary.EntityData.Leafs["authorization-out-packets"] = types.YLeaf{"AuthorizationOutPackets", nasSummary.AuthorizationOutPackets}
-    nasSummary.EntityData.Leafs["authorization-request-in-packets"] = types.YLeaf{"AuthorizationRequestInPackets", nasSummary.AuthorizationRequestInPackets}
-    nasSummary.EntityData.Leafs["authorization-response-out-packets"] = types.YLeaf{"AuthorizationResponseOutPackets", nasSummary.AuthorizationResponseOutPackets}
-    nasSummary.EntityData.Leafs["authorization-response-success-packets"] = types.YLeaf{"AuthorizationResponseSuccessPackets", nasSummary.AuthorizationResponseSuccessPackets}
-    nasSummary.EntityData.Leafs["authorization-response-fail-packets"] = types.YLeaf{"AuthorizationResponseFailPackets", nasSummary.AuthorizationResponseFailPackets}
-    nasSummary.EntityData.Leafs["accounting-response-in-packets"] = types.YLeaf{"AccountingResponseInPackets", nasSummary.AccountingResponseInPackets}
-    nasSummary.EntityData.Leafs["accounting-request-out-packets"] = types.YLeaf{"AccountingRequestOutPackets", nasSummary.AccountingRequestOutPackets}
-    nasSummary.EntityData.Leafs["accounting-start-request-packets"] = types.YLeaf{"AccountingStartRequestPackets", nasSummary.AccountingStartRequestPackets}
-    nasSummary.EntityData.Leafs["accounting-start-response-packets"] = types.YLeaf{"AccountingStartResponsePackets", nasSummary.AccountingStartResponsePackets}
-    nasSummary.EntityData.Leafs["accounting-start-success-packets"] = types.YLeaf{"AccountingStartSuccessPackets", nasSummary.AccountingStartSuccessPackets}
-    nasSummary.EntityData.Leafs["accounting-start-failed-packets"] = types.YLeaf{"AccountingStartFailedPackets", nasSummary.AccountingStartFailedPackets}
-    nasSummary.EntityData.Leafs["accounting-stop-response-in-packets"] = types.YLeaf{"AccountingStopResponseInPackets", nasSummary.AccountingStopResponseInPackets}
-    nasSummary.EntityData.Leafs["accounting-stop-request-out-packets"] = types.YLeaf{"AccountingStopRequestOutPackets", nasSummary.AccountingStopRequestOutPackets}
-    nasSummary.EntityData.Leafs["accounting-stop-request-in-packets"] = types.YLeaf{"AccountingStopRequestInPackets", nasSummary.AccountingStopRequestInPackets}
-    nasSummary.EntityData.Leafs["accounting-stop-response-out-packets"] = types.YLeaf{"AccountingStopResponseOutPackets", nasSummary.AccountingStopResponseOutPackets}
-    nasSummary.EntityData.Leafs["accounting-stop-success-response-packets"] = types.YLeaf{"AccountingStopSuccessResponsePackets", nasSummary.AccountingStopSuccessResponsePackets}
-    nasSummary.EntityData.Leafs["accounting-stop-failed-packets"] = types.YLeaf{"AccountingStopFailedPackets", nasSummary.AccountingStopFailedPackets}
-    nasSummary.EntityData.Leafs["accounting-intrim-response-in-packets"] = types.YLeaf{"AccountingIntrimResponseInPackets", nasSummary.AccountingIntrimResponseInPackets}
-    nasSummary.EntityData.Leafs["accounting-interim-request-out-packets"] = types.YLeaf{"AccountingInterimRequestOutPackets", nasSummary.AccountingInterimRequestOutPackets}
-    nasSummary.EntityData.Leafs["accounting-interim-request-in-packets"] = types.YLeaf{"AccountingInterimRequestInPackets", nasSummary.AccountingInterimRequestInPackets}
-    nasSummary.EntityData.Leafs["accounting-interim-response-out-packets"] = types.YLeaf{"AccountingInterimResponseOutPackets", nasSummary.AccountingInterimResponseOutPackets}
-    nasSummary.EntityData.Leafs["accounting-interim-success-packets"] = types.YLeaf{"AccountingInterimSuccessPackets", nasSummary.AccountingInterimSuccessPackets}
-    nasSummary.EntityData.Leafs["accounting-interim-failed-packets"] = types.YLeaf{"AccountingInterimFailedPackets", nasSummary.AccountingInterimFailedPackets}
-    nasSummary.EntityData.Leafs["disconnect-response-in-packets"] = types.YLeaf{"DisconnectResponseInPackets", nasSummary.DisconnectResponseInPackets}
-    nasSummary.EntityData.Leafs["disconnect-request-out-packets"] = types.YLeaf{"DisconnectRequestOutPackets", nasSummary.DisconnectRequestOutPackets}
-    nasSummary.EntityData.Leafs["disconnect-request-in-packets"] = types.YLeaf{"DisconnectRequestInPackets", nasSummary.DisconnectRequestInPackets}
-    nasSummary.EntityData.Leafs["disconnect-response-out-packets"] = types.YLeaf{"DisconnectResponseOutPackets", nasSummary.DisconnectResponseOutPackets}
-    nasSummary.EntityData.Leafs["disconnect-success-response-packets"] = types.YLeaf{"DisconnectSuccessResponsePackets", nasSummary.DisconnectSuccessResponsePackets}
-    nasSummary.EntityData.Leafs["disconnect-failed-response-packets"] = types.YLeaf{"DisconnectFailedResponsePackets", nasSummary.DisconnectFailedResponsePackets}
-    nasSummary.EntityData.Leafs["coa-request-in-packets"] = types.YLeaf{"CoaRequestInPackets", nasSummary.CoaRequestInPackets}
-    nasSummary.EntityData.Leafs["coa-response-out-packets"] = types.YLeaf{"CoaResponseOutPackets", nasSummary.CoaResponseOutPackets}
-    nasSummary.EntityData.Leafs["coa-request-packets"] = types.YLeaf{"CoaRequestPackets", nasSummary.CoaRequestPackets}
-    nasSummary.EntityData.Leafs["coa-response-packets"] = types.YLeaf{"CoaResponsePackets", nasSummary.CoaResponsePackets}
-    nasSummary.EntityData.Leafs["coa-success-packets"] = types.YLeaf{"CoaSuccessPackets", nasSummary.CoaSuccessPackets}
-    nasSummary.EntityData.Leafs["coa-failed-packets"] = types.YLeaf{"CoaFailedPackets", nasSummary.CoaFailedPackets}
-    nasSummary.EntityData.Leafs["pod-in-packets"] = types.YLeaf{"PodInPackets", nasSummary.PodInPackets}
-    nasSummary.EntityData.Leafs["pod-out-packets"] = types.YLeaf{"PodOutPackets", nasSummary.PodOutPackets}
-    nasSummary.EntityData.Leafs["pod-request-in-packets"] = types.YLeaf{"PodRequestInPackets", nasSummary.PodRequestInPackets}
-    nasSummary.EntityData.Leafs["pod-response-out-packets"] = types.YLeaf{"PodResponseOutPackets", nasSummary.PodResponseOutPackets}
-    nasSummary.EntityData.Leafs["pod-success-packets"] = types.YLeaf{"PodSuccessPackets", nasSummary.PodSuccessPackets}
-    nasSummary.EntityData.Leafs["pod-failed-packets"] = types.YLeaf{"PodFailedPackets", nasSummary.PodFailedPackets}
+    nasSummary.EntityData.Children = types.NewOrderedMap()
+    nasSummary.EntityData.Leafs = types.NewOrderedMap()
+    nasSummary.EntityData.Leafs.Append("authen-response-in-packets", types.YLeaf{"AuthenResponseInPackets", nasSummary.AuthenResponseInPackets})
+    nasSummary.EntityData.Leafs.Append("authen-request-out-packets", types.YLeaf{"AuthenRequestOutPackets", nasSummary.AuthenRequestOutPackets})
+    nasSummary.EntityData.Leafs.Append("authen-request-in-packets", types.YLeaf{"AuthenRequestInPackets", nasSummary.AuthenRequestInPackets})
+    nasSummary.EntityData.Leafs.Append("authen-response-out-packets", types.YLeaf{"AuthenResponseOutPackets", nasSummary.AuthenResponseOutPackets})
+    nasSummary.EntityData.Leafs.Append("authen-success-packets", types.YLeaf{"AuthenSuccessPackets", nasSummary.AuthenSuccessPackets})
+    nasSummary.EntityData.Leafs.Append("authen-response-fail-packets", types.YLeaf{"AuthenResponseFailPackets", nasSummary.AuthenResponseFailPackets})
+    nasSummary.EntityData.Leafs.Append("authorization-in-packets", types.YLeaf{"AuthorizationInPackets", nasSummary.AuthorizationInPackets})
+    nasSummary.EntityData.Leafs.Append("authorization-out-packets", types.YLeaf{"AuthorizationOutPackets", nasSummary.AuthorizationOutPackets})
+    nasSummary.EntityData.Leafs.Append("authorization-request-in-packets", types.YLeaf{"AuthorizationRequestInPackets", nasSummary.AuthorizationRequestInPackets})
+    nasSummary.EntityData.Leafs.Append("authorization-response-out-packets", types.YLeaf{"AuthorizationResponseOutPackets", nasSummary.AuthorizationResponseOutPackets})
+    nasSummary.EntityData.Leafs.Append("authorization-response-success-packets", types.YLeaf{"AuthorizationResponseSuccessPackets", nasSummary.AuthorizationResponseSuccessPackets})
+    nasSummary.EntityData.Leafs.Append("authorization-response-fail-packets", types.YLeaf{"AuthorizationResponseFailPackets", nasSummary.AuthorizationResponseFailPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-response-in-packets", types.YLeaf{"AccountingResponseInPackets", nasSummary.AccountingResponseInPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-request-out-packets", types.YLeaf{"AccountingRequestOutPackets", nasSummary.AccountingRequestOutPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-start-request-packets", types.YLeaf{"AccountingStartRequestPackets", nasSummary.AccountingStartRequestPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-start-response-packets", types.YLeaf{"AccountingStartResponsePackets", nasSummary.AccountingStartResponsePackets})
+    nasSummary.EntityData.Leafs.Append("accounting-start-success-packets", types.YLeaf{"AccountingStartSuccessPackets", nasSummary.AccountingStartSuccessPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-start-failed-packets", types.YLeaf{"AccountingStartFailedPackets", nasSummary.AccountingStartFailedPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-stop-response-in-packets", types.YLeaf{"AccountingStopResponseInPackets", nasSummary.AccountingStopResponseInPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-stop-request-out-packets", types.YLeaf{"AccountingStopRequestOutPackets", nasSummary.AccountingStopRequestOutPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-stop-request-in-packets", types.YLeaf{"AccountingStopRequestInPackets", nasSummary.AccountingStopRequestInPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-stop-response-out-packets", types.YLeaf{"AccountingStopResponseOutPackets", nasSummary.AccountingStopResponseOutPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-stop-success-response-packets", types.YLeaf{"AccountingStopSuccessResponsePackets", nasSummary.AccountingStopSuccessResponsePackets})
+    nasSummary.EntityData.Leafs.Append("accounting-stop-failed-packets", types.YLeaf{"AccountingStopFailedPackets", nasSummary.AccountingStopFailedPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-intrim-response-in-packets", types.YLeaf{"AccountingIntrimResponseInPackets", nasSummary.AccountingIntrimResponseInPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-interim-request-out-packets", types.YLeaf{"AccountingInterimRequestOutPackets", nasSummary.AccountingInterimRequestOutPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-interim-request-in-packets", types.YLeaf{"AccountingInterimRequestInPackets", nasSummary.AccountingInterimRequestInPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-interim-response-out-packets", types.YLeaf{"AccountingInterimResponseOutPackets", nasSummary.AccountingInterimResponseOutPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-interim-success-packets", types.YLeaf{"AccountingInterimSuccessPackets", nasSummary.AccountingInterimSuccessPackets})
+    nasSummary.EntityData.Leafs.Append("accounting-interim-failed-packets", types.YLeaf{"AccountingInterimFailedPackets", nasSummary.AccountingInterimFailedPackets})
+    nasSummary.EntityData.Leafs.Append("disconnect-response-in-packets", types.YLeaf{"DisconnectResponseInPackets", nasSummary.DisconnectResponseInPackets})
+    nasSummary.EntityData.Leafs.Append("disconnect-request-out-packets", types.YLeaf{"DisconnectRequestOutPackets", nasSummary.DisconnectRequestOutPackets})
+    nasSummary.EntityData.Leafs.Append("disconnect-request-in-packets", types.YLeaf{"DisconnectRequestInPackets", nasSummary.DisconnectRequestInPackets})
+    nasSummary.EntityData.Leafs.Append("disconnect-response-out-packets", types.YLeaf{"DisconnectResponseOutPackets", nasSummary.DisconnectResponseOutPackets})
+    nasSummary.EntityData.Leafs.Append("disconnect-success-response-packets", types.YLeaf{"DisconnectSuccessResponsePackets", nasSummary.DisconnectSuccessResponsePackets})
+    nasSummary.EntityData.Leafs.Append("disconnect-failed-response-packets", types.YLeaf{"DisconnectFailedResponsePackets", nasSummary.DisconnectFailedResponsePackets})
+    nasSummary.EntityData.Leafs.Append("coa-request-in-packets", types.YLeaf{"CoaRequestInPackets", nasSummary.CoaRequestInPackets})
+    nasSummary.EntityData.Leafs.Append("coa-response-out-packets", types.YLeaf{"CoaResponseOutPackets", nasSummary.CoaResponseOutPackets})
+    nasSummary.EntityData.Leafs.Append("coa-request-packets", types.YLeaf{"CoaRequestPackets", nasSummary.CoaRequestPackets})
+    nasSummary.EntityData.Leafs.Append("coa-response-packets", types.YLeaf{"CoaResponsePackets", nasSummary.CoaResponsePackets})
+    nasSummary.EntityData.Leafs.Append("coa-success-packets", types.YLeaf{"CoaSuccessPackets", nasSummary.CoaSuccessPackets})
+    nasSummary.EntityData.Leafs.Append("coa-failed-packets", types.YLeaf{"CoaFailedPackets", nasSummary.CoaFailedPackets})
+    nasSummary.EntityData.Leafs.Append("pod-in-packets", types.YLeaf{"PodInPackets", nasSummary.PodInPackets})
+    nasSummary.EntityData.Leafs.Append("pod-out-packets", types.YLeaf{"PodOutPackets", nasSummary.PodOutPackets})
+    nasSummary.EntityData.Leafs.Append("pod-request-in-packets", types.YLeaf{"PodRequestInPackets", nasSummary.PodRequestInPackets})
+    nasSummary.EntityData.Leafs.Append("pod-response-out-packets", types.YLeaf{"PodResponseOutPackets", nasSummary.PodResponseOutPackets})
+    nasSummary.EntityData.Leafs.Append("pod-success-packets", types.YLeaf{"PodSuccessPackets", nasSummary.PodSuccessPackets})
+    nasSummary.EntityData.Leafs.Append("pod-failed-packets", types.YLeaf{"PodFailedPackets", nasSummary.PodFailedPackets})
+
+    nasSummary.EntityData.YListKeys = []string {}
+
     return &(nasSummary.EntityData)
 }
 
@@ -2183,7 +2786,7 @@ type Aaa_Diameter_GySessionIds struct {
 
     // Diameter Gy Session data. The type is slice of
     // Aaa_Diameter_GySessionIds_GySessionId.
-    GySessionId []Aaa_Diameter_GySessionIds_GySessionId
+    GySessionId []*Aaa_Diameter_GySessionIds_GySessionId
 }
 
 func (gySessionIds *Aaa_Diameter_GySessionIds) GetEntityData() *types.CommonEntityData {
@@ -2196,12 +2799,15 @@ func (gySessionIds *Aaa_Diameter_GySessionIds) GetEntityData() *types.CommonEnti
     gySessionIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gySessionIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gySessionIds.EntityData.Children = make(map[string]types.YChild)
-    gySessionIds.EntityData.Children["gy-session-id"] = types.YChild{"GySessionId", nil}
+    gySessionIds.EntityData.Children = types.NewOrderedMap()
+    gySessionIds.EntityData.Children.Append("gy-session-id", types.YChild{"GySessionId", nil})
     for i := range gySessionIds.GySessionId {
-        gySessionIds.EntityData.Children[types.GetSegmentPath(&gySessionIds.GySessionId[i])] = types.YChild{"GySessionId", &gySessionIds.GySessionId[i]}
+        gySessionIds.EntityData.Children.Append(types.GetSegmentPath(gySessionIds.GySessionId[i]), types.YChild{"GySessionId", gySessionIds.GySessionId[i]})
     }
-    gySessionIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    gySessionIds.EntityData.Leafs = types.NewOrderedMap()
+
+    gySessionIds.EntityData.YListKeys = []string {}
+
     return &(gySessionIds.EntityData)
 }
 
@@ -2212,7 +2818,7 @@ type Aaa_Diameter_GySessionIds_GySessionId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Id. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SessionId interface{}
 
     // AAA session id. The type is interface{} with range: 0..4294967295.
@@ -2242,21 +2848,24 @@ func (gySessionId *Aaa_Diameter_GySessionIds_GySessionId) GetEntityData() *types
     gySessionId.EntityData.YangName = "gy-session-id"
     gySessionId.EntityData.BundleName = "cisco_ios_xr"
     gySessionId.EntityData.ParentYangName = "gy-session-ids"
-    gySessionId.EntityData.SegmentPath = "gy-session-id" + "[session-id='" + fmt.Sprintf("%v", gySessionId.SessionId) + "']"
+    gySessionId.EntityData.SegmentPath = "gy-session-id" + types.AddKeyToken(gySessionId.SessionId, "session-id")
     gySessionId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gySessionId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gySessionId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gySessionId.EntityData.Children = make(map[string]types.YChild)
-    gySessionId.EntityData.Leafs = make(map[string]types.YLeaf)
-    gySessionId.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", gySessionId.SessionId}
-    gySessionId.EntityData.Leafs["aaa-session-id"] = types.YLeaf{"AaaSessionId", gySessionId.AaaSessionId}
-    gySessionId.EntityData.Leafs["parent-aaa-session-id"] = types.YLeaf{"ParentAaaSessionId", gySessionId.ParentAaaSessionId}
-    gySessionId.EntityData.Leafs["diameter-session-id"] = types.YLeaf{"DiameterSessionId", gySessionId.DiameterSessionId}
-    gySessionId.EntityData.Leafs["request-number"] = types.YLeaf{"RequestNumber", gySessionId.RequestNumber}
-    gySessionId.EntityData.Leafs["session-state"] = types.YLeaf{"SessionState", gySessionId.SessionState}
-    gySessionId.EntityData.Leafs["request-type"] = types.YLeaf{"RequestType", gySessionId.RequestType}
-    gySessionId.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", gySessionId.RetryCount}
+    gySessionId.EntityData.Children = types.NewOrderedMap()
+    gySessionId.EntityData.Leafs = types.NewOrderedMap()
+    gySessionId.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", gySessionId.SessionId})
+    gySessionId.EntityData.Leafs.Append("aaa-session-id", types.YLeaf{"AaaSessionId", gySessionId.AaaSessionId})
+    gySessionId.EntityData.Leafs.Append("parent-aaa-session-id", types.YLeaf{"ParentAaaSessionId", gySessionId.ParentAaaSessionId})
+    gySessionId.EntityData.Leafs.Append("diameter-session-id", types.YLeaf{"DiameterSessionId", gySessionId.DiameterSessionId})
+    gySessionId.EntityData.Leafs.Append("request-number", types.YLeaf{"RequestNumber", gySessionId.RequestNumber})
+    gySessionId.EntityData.Leafs.Append("session-state", types.YLeaf{"SessionState", gySessionId.SessionState})
+    gySessionId.EntityData.Leafs.Append("request-type", types.YLeaf{"RequestType", gySessionId.RequestType})
+    gySessionId.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", gySessionId.RetryCount})
+
+    gySessionId.EntityData.YListKeys = []string {"SessionId"}
+
     return &(gySessionId.EntityData)
 }
 
@@ -2385,39 +2994,42 @@ func (gyStatistics *Aaa_Diameter_GyStatistics) GetEntityData() *types.CommonEnti
     gyStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gyStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gyStatistics.EntityData.Children = make(map[string]types.YChild)
-    gyStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    gyStatistics.EntityData.Leafs["ccr-init-messages"] = types.YLeaf{"CcrInitMessages", gyStatistics.CcrInitMessages}
-    gyStatistics.EntityData.Leafs["ccr-init-failed-messages"] = types.YLeaf{"CcrInitFailedMessages", gyStatistics.CcrInitFailedMessages}
-    gyStatistics.EntityData.Leafs["ccr-init-timed-out-messages"] = types.YLeaf{"CcrInitTimedOutMessages", gyStatistics.CcrInitTimedOutMessages}
-    gyStatistics.EntityData.Leafs["ccr-init-retry-messages"] = types.YLeaf{"CcrInitRetryMessages", gyStatistics.CcrInitRetryMessages}
-    gyStatistics.EntityData.Leafs["ccr-update-messages"] = types.YLeaf{"CcrUpdateMessages", gyStatistics.CcrUpdateMessages}
-    gyStatistics.EntityData.Leafs["ccr-update-failed-messages"] = types.YLeaf{"CcrUpdateFailedMessages", gyStatistics.CcrUpdateFailedMessages}
-    gyStatistics.EntityData.Leafs["ccr-update-timed-out-messages"] = types.YLeaf{"CcrUpdateTimedOutMessages", gyStatistics.CcrUpdateTimedOutMessages}
-    gyStatistics.EntityData.Leafs["ccr-update-retry-messages"] = types.YLeaf{"CcrUpdateRetryMessages", gyStatistics.CcrUpdateRetryMessages}
-    gyStatistics.EntityData.Leafs["ccr-final-messages"] = types.YLeaf{"CcrFinalMessages", gyStatistics.CcrFinalMessages}
-    gyStatistics.EntityData.Leafs["ccr-final-failed-messages"] = types.YLeaf{"CcrFinalFailedMessages", gyStatistics.CcrFinalFailedMessages}
-    gyStatistics.EntityData.Leafs["ccr-final-timed-out-messages"] = types.YLeaf{"CcrFinalTimedOutMessages", gyStatistics.CcrFinalTimedOutMessages}
-    gyStatistics.EntityData.Leafs["ccr-final-retry-messages"] = types.YLeaf{"CcrFinalRetryMessages", gyStatistics.CcrFinalRetryMessages}
-    gyStatistics.EntityData.Leafs["cca-init-messages"] = types.YLeaf{"CcaInitMessages", gyStatistics.CcaInitMessages}
-    gyStatistics.EntityData.Leafs["cca-init-error-messages"] = types.YLeaf{"CcaInitErrorMessages", gyStatistics.CcaInitErrorMessages}
-    gyStatistics.EntityData.Leafs["cca-update-messages"] = types.YLeaf{"CcaUpdateMessages", gyStatistics.CcaUpdateMessages}
-    gyStatistics.EntityData.Leafs["cca-update-error-messages"] = types.YLeaf{"CcaUpdateErrorMessages", gyStatistics.CcaUpdateErrorMessages}
-    gyStatistics.EntityData.Leafs["cca-final-messages"] = types.YLeaf{"CcaFinalMessages", gyStatistics.CcaFinalMessages}
-    gyStatistics.EntityData.Leafs["cca-final-error-messages"] = types.YLeaf{"CcaFinalErrorMessages", gyStatistics.CcaFinalErrorMessages}
-    gyStatistics.EntityData.Leafs["rar-received-messages"] = types.YLeaf{"RarReceivedMessages", gyStatistics.RarReceivedMessages}
-    gyStatistics.EntityData.Leafs["rar-received-error-messages"] = types.YLeaf{"RarReceivedErrorMessages", gyStatistics.RarReceivedErrorMessages}
-    gyStatistics.EntityData.Leafs["raa-sent-messages"] = types.YLeaf{"RaaSentMessages", gyStatistics.RaaSentMessages}
-    gyStatistics.EntityData.Leafs["raa-sent-error-messages"] = types.YLeaf{"RaaSentErrorMessages", gyStatistics.RaaSentErrorMessages}
-    gyStatistics.EntityData.Leafs["asr-received-messages"] = types.YLeaf{"AsrReceivedMessages", gyStatistics.AsrReceivedMessages}
-    gyStatistics.EntityData.Leafs["asr-received-error-messages"] = types.YLeaf{"AsrReceivedErrorMessages", gyStatistics.AsrReceivedErrorMessages}
-    gyStatistics.EntityData.Leafs["asa-sent-messages"] = types.YLeaf{"AsaSentMessages", gyStatistics.AsaSentMessages}
-    gyStatistics.EntityData.Leafs["asa-sent-error-messages"] = types.YLeaf{"AsaSentErrorMessages", gyStatistics.AsaSentErrorMessages}
-    gyStatistics.EntityData.Leafs["unknown-request-messages"] = types.YLeaf{"UnknownRequestMessages", gyStatistics.UnknownRequestMessages}
-    gyStatistics.EntityData.Leafs["restore-sessions"] = types.YLeaf{"RestoreSessions", gyStatistics.RestoreSessions}
-    gyStatistics.EntityData.Leafs["open-sessions"] = types.YLeaf{"OpenSessions", gyStatistics.OpenSessions}
-    gyStatistics.EntityData.Leafs["close-sessions"] = types.YLeaf{"CloseSessions", gyStatistics.CloseSessions}
-    gyStatistics.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", gyStatistics.ActiveSessions}
+    gyStatistics.EntityData.Children = types.NewOrderedMap()
+    gyStatistics.EntityData.Leafs = types.NewOrderedMap()
+    gyStatistics.EntityData.Leafs.Append("ccr-init-messages", types.YLeaf{"CcrInitMessages", gyStatistics.CcrInitMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-init-failed-messages", types.YLeaf{"CcrInitFailedMessages", gyStatistics.CcrInitFailedMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-init-timed-out-messages", types.YLeaf{"CcrInitTimedOutMessages", gyStatistics.CcrInitTimedOutMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-init-retry-messages", types.YLeaf{"CcrInitRetryMessages", gyStatistics.CcrInitRetryMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-update-messages", types.YLeaf{"CcrUpdateMessages", gyStatistics.CcrUpdateMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-update-failed-messages", types.YLeaf{"CcrUpdateFailedMessages", gyStatistics.CcrUpdateFailedMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-update-timed-out-messages", types.YLeaf{"CcrUpdateTimedOutMessages", gyStatistics.CcrUpdateTimedOutMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-update-retry-messages", types.YLeaf{"CcrUpdateRetryMessages", gyStatistics.CcrUpdateRetryMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-final-messages", types.YLeaf{"CcrFinalMessages", gyStatistics.CcrFinalMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-final-failed-messages", types.YLeaf{"CcrFinalFailedMessages", gyStatistics.CcrFinalFailedMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-final-timed-out-messages", types.YLeaf{"CcrFinalTimedOutMessages", gyStatistics.CcrFinalTimedOutMessages})
+    gyStatistics.EntityData.Leafs.Append("ccr-final-retry-messages", types.YLeaf{"CcrFinalRetryMessages", gyStatistics.CcrFinalRetryMessages})
+    gyStatistics.EntityData.Leafs.Append("cca-init-messages", types.YLeaf{"CcaInitMessages", gyStatistics.CcaInitMessages})
+    gyStatistics.EntityData.Leafs.Append("cca-init-error-messages", types.YLeaf{"CcaInitErrorMessages", gyStatistics.CcaInitErrorMessages})
+    gyStatistics.EntityData.Leafs.Append("cca-update-messages", types.YLeaf{"CcaUpdateMessages", gyStatistics.CcaUpdateMessages})
+    gyStatistics.EntityData.Leafs.Append("cca-update-error-messages", types.YLeaf{"CcaUpdateErrorMessages", gyStatistics.CcaUpdateErrorMessages})
+    gyStatistics.EntityData.Leafs.Append("cca-final-messages", types.YLeaf{"CcaFinalMessages", gyStatistics.CcaFinalMessages})
+    gyStatistics.EntityData.Leafs.Append("cca-final-error-messages", types.YLeaf{"CcaFinalErrorMessages", gyStatistics.CcaFinalErrorMessages})
+    gyStatistics.EntityData.Leafs.Append("rar-received-messages", types.YLeaf{"RarReceivedMessages", gyStatistics.RarReceivedMessages})
+    gyStatistics.EntityData.Leafs.Append("rar-received-error-messages", types.YLeaf{"RarReceivedErrorMessages", gyStatistics.RarReceivedErrorMessages})
+    gyStatistics.EntityData.Leafs.Append("raa-sent-messages", types.YLeaf{"RaaSentMessages", gyStatistics.RaaSentMessages})
+    gyStatistics.EntityData.Leafs.Append("raa-sent-error-messages", types.YLeaf{"RaaSentErrorMessages", gyStatistics.RaaSentErrorMessages})
+    gyStatistics.EntityData.Leafs.Append("asr-received-messages", types.YLeaf{"AsrReceivedMessages", gyStatistics.AsrReceivedMessages})
+    gyStatistics.EntityData.Leafs.Append("asr-received-error-messages", types.YLeaf{"AsrReceivedErrorMessages", gyStatistics.AsrReceivedErrorMessages})
+    gyStatistics.EntityData.Leafs.Append("asa-sent-messages", types.YLeaf{"AsaSentMessages", gyStatistics.AsaSentMessages})
+    gyStatistics.EntityData.Leafs.Append("asa-sent-error-messages", types.YLeaf{"AsaSentErrorMessages", gyStatistics.AsaSentErrorMessages})
+    gyStatistics.EntityData.Leafs.Append("unknown-request-messages", types.YLeaf{"UnknownRequestMessages", gyStatistics.UnknownRequestMessages})
+    gyStatistics.EntityData.Leafs.Append("restore-sessions", types.YLeaf{"RestoreSessions", gyStatistics.RestoreSessions})
+    gyStatistics.EntityData.Leafs.Append("open-sessions", types.YLeaf{"OpenSessions", gyStatistics.OpenSessions})
+    gyStatistics.EntityData.Leafs.Append("close-sessions", types.YLeaf{"CloseSessions", gyStatistics.CloseSessions})
+    gyStatistics.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", gyStatistics.ActiveSessions})
+
+    gyStatistics.EntityData.YListKeys = []string {}
+
     return &(gyStatistics.EntityData)
 }
 
@@ -2429,7 +3041,7 @@ type Aaa_Diameter_GxSessionIds struct {
 
     // Diameter Gx Session data. The type is slice of
     // Aaa_Diameter_GxSessionIds_GxSessionId.
-    GxSessionId []Aaa_Diameter_GxSessionIds_GxSessionId
+    GxSessionId []*Aaa_Diameter_GxSessionIds_GxSessionId
 }
 
 func (gxSessionIds *Aaa_Diameter_GxSessionIds) GetEntityData() *types.CommonEntityData {
@@ -2442,12 +3054,15 @@ func (gxSessionIds *Aaa_Diameter_GxSessionIds) GetEntityData() *types.CommonEnti
     gxSessionIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gxSessionIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gxSessionIds.EntityData.Children = make(map[string]types.YChild)
-    gxSessionIds.EntityData.Children["gx-session-id"] = types.YChild{"GxSessionId", nil}
+    gxSessionIds.EntityData.Children = types.NewOrderedMap()
+    gxSessionIds.EntityData.Children.Append("gx-session-id", types.YChild{"GxSessionId", nil})
     for i := range gxSessionIds.GxSessionId {
-        gxSessionIds.EntityData.Children[types.GetSegmentPath(&gxSessionIds.GxSessionId[i])] = types.YChild{"GxSessionId", &gxSessionIds.GxSessionId[i]}
+        gxSessionIds.EntityData.Children.Append(types.GetSegmentPath(gxSessionIds.GxSessionId[i]), types.YChild{"GxSessionId", gxSessionIds.GxSessionId[i]})
     }
-    gxSessionIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    gxSessionIds.EntityData.Leafs = types.NewOrderedMap()
+
+    gxSessionIds.EntityData.YListKeys = []string {}
+
     return &(gxSessionIds.EntityData)
 }
 
@@ -2458,7 +3073,7 @@ type Aaa_Diameter_GxSessionIds_GxSessionId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Id. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SessionId interface{}
 
     // AAA session id. The type is interface{} with range: 0..4294967295.
@@ -2485,20 +3100,23 @@ func (gxSessionId *Aaa_Diameter_GxSessionIds_GxSessionId) GetEntityData() *types
     gxSessionId.EntityData.YangName = "gx-session-id"
     gxSessionId.EntityData.BundleName = "cisco_ios_xr"
     gxSessionId.EntityData.ParentYangName = "gx-session-ids"
-    gxSessionId.EntityData.SegmentPath = "gx-session-id" + "[session-id='" + fmt.Sprintf("%v", gxSessionId.SessionId) + "']"
+    gxSessionId.EntityData.SegmentPath = "gx-session-id" + types.AddKeyToken(gxSessionId.SessionId, "session-id")
     gxSessionId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gxSessionId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gxSessionId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gxSessionId.EntityData.Children = make(map[string]types.YChild)
-    gxSessionId.EntityData.Leafs = make(map[string]types.YLeaf)
-    gxSessionId.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", gxSessionId.SessionId}
-    gxSessionId.EntityData.Leafs["aaa-session-id"] = types.YLeaf{"AaaSessionId", gxSessionId.AaaSessionId}
-    gxSessionId.EntityData.Leafs["diameter-session-id"] = types.YLeaf{"DiameterSessionId", gxSessionId.DiameterSessionId}
-    gxSessionId.EntityData.Leafs["request-number"] = types.YLeaf{"RequestNumber", gxSessionId.RequestNumber}
-    gxSessionId.EntityData.Leafs["session-state"] = types.YLeaf{"SessionState", gxSessionId.SessionState}
-    gxSessionId.EntityData.Leafs["request-type"] = types.YLeaf{"RequestType", gxSessionId.RequestType}
-    gxSessionId.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", gxSessionId.RetryCount}
+    gxSessionId.EntityData.Children = types.NewOrderedMap()
+    gxSessionId.EntityData.Leafs = types.NewOrderedMap()
+    gxSessionId.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", gxSessionId.SessionId})
+    gxSessionId.EntityData.Leafs.Append("aaa-session-id", types.YLeaf{"AaaSessionId", gxSessionId.AaaSessionId})
+    gxSessionId.EntityData.Leafs.Append("diameter-session-id", types.YLeaf{"DiameterSessionId", gxSessionId.DiameterSessionId})
+    gxSessionId.EntityData.Leafs.Append("request-number", types.YLeaf{"RequestNumber", gxSessionId.RequestNumber})
+    gxSessionId.EntityData.Leafs.Append("session-state", types.YLeaf{"SessionState", gxSessionId.SessionState})
+    gxSessionId.EntityData.Leafs.Append("request-type", types.YLeaf{"RequestType", gxSessionId.RequestType})
+    gxSessionId.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", gxSessionId.RetryCount})
+
+    gxSessionId.EntityData.YListKeys = []string {"SessionId"}
+
     return &(gxSessionId.EntityData)
 }
 
@@ -2513,7 +3131,7 @@ type Aaa_Diameter_NasSession struct {
 
     // List of NAS Entries. The type is slice of
     // Aaa_Diameter_NasSession_ListOfNas.
-    ListOfNas []Aaa_Diameter_NasSession_ListOfNas
+    ListOfNas []*Aaa_Diameter_NasSession_ListOfNas
 }
 
 func (nasSession *Aaa_Diameter_NasSession) GetEntityData() *types.CommonEntityData {
@@ -2526,13 +3144,16 @@ func (nasSession *Aaa_Diameter_NasSession) GetEntityData() *types.CommonEntityDa
     nasSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nasSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nasSession.EntityData.Children = make(map[string]types.YChild)
-    nasSession.EntityData.Children["list-of-nas"] = types.YChild{"ListOfNas", nil}
+    nasSession.EntityData.Children = types.NewOrderedMap()
+    nasSession.EntityData.Children.Append("list-of-nas", types.YChild{"ListOfNas", nil})
     for i := range nasSession.ListOfNas {
-        nasSession.EntityData.Children[types.GetSegmentPath(&nasSession.ListOfNas[i])] = types.YChild{"ListOfNas", &nasSession.ListOfNas[i]}
+        nasSession.EntityData.Children.Append(types.GetSegmentPath(nasSession.ListOfNas[i]), types.YChild{"ListOfNas", nasSession.ListOfNas[i]})
     }
-    nasSession.EntityData.Leafs = make(map[string]types.YLeaf)
-    nasSession.EntityData.Leafs["aaanas-id"] = types.YLeaf{"AaanasId", nasSession.AaanasId}
+    nasSession.EntityData.Leafs = types.NewOrderedMap()
+    nasSession.EntityData.Leafs.Append("aaanas-id", types.YLeaf{"AaanasId", nasSession.AaanasId})
+
+    nasSession.EntityData.YListKeys = []string {}
+
     return &(nasSession.EntityData)
 }
 
@@ -2590,19 +3211,22 @@ func (listOfNas *Aaa_Diameter_NasSession_ListOfNas) GetEntityData() *types.Commo
     listOfNas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     listOfNas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    listOfNas.EntityData.Children = make(map[string]types.YChild)
-    listOfNas.EntityData.Leafs = make(map[string]types.YLeaf)
-    listOfNas.EntityData.Leafs["aaa-session-id"] = types.YLeaf{"AaaSessionId", listOfNas.AaaSessionId}
-    listOfNas.EntityData.Leafs["diameter-session-id"] = types.YLeaf{"DiameterSessionId", listOfNas.DiameterSessionId}
-    listOfNas.EntityData.Leafs["authentication-status"] = types.YLeaf{"AuthenticationStatus", listOfNas.AuthenticationStatus}
-    listOfNas.EntityData.Leafs["authorization-status"] = types.YLeaf{"AuthorizationStatus", listOfNas.AuthorizationStatus}
-    listOfNas.EntityData.Leafs["accounting-status"] = types.YLeaf{"AccountingStatus", listOfNas.AccountingStatus}
-    listOfNas.EntityData.Leafs["accounting-status-stop"] = types.YLeaf{"AccountingStatusStop", listOfNas.AccountingStatusStop}
-    listOfNas.EntityData.Leafs["disconnect-status"] = types.YLeaf{"DisconnectStatus", listOfNas.DisconnectStatus}
-    listOfNas.EntityData.Leafs["accounting-intrim-in-packets"] = types.YLeaf{"AccountingIntrimInPackets", listOfNas.AccountingIntrimInPackets}
-    listOfNas.EntityData.Leafs["accounting-intrim-out-packets"] = types.YLeaf{"AccountingIntrimOutPackets", listOfNas.AccountingIntrimOutPackets}
-    listOfNas.EntityData.Leafs["method-list"] = types.YLeaf{"MethodList", listOfNas.MethodList}
-    listOfNas.EntityData.Leafs["server-used-list"] = types.YLeaf{"ServerUsedList", listOfNas.ServerUsedList}
+    listOfNas.EntityData.Children = types.NewOrderedMap()
+    listOfNas.EntityData.Leafs = types.NewOrderedMap()
+    listOfNas.EntityData.Leafs.Append("aaa-session-id", types.YLeaf{"AaaSessionId", listOfNas.AaaSessionId})
+    listOfNas.EntityData.Leafs.Append("diameter-session-id", types.YLeaf{"DiameterSessionId", listOfNas.DiameterSessionId})
+    listOfNas.EntityData.Leafs.Append("authentication-status", types.YLeaf{"AuthenticationStatus", listOfNas.AuthenticationStatus})
+    listOfNas.EntityData.Leafs.Append("authorization-status", types.YLeaf{"AuthorizationStatus", listOfNas.AuthorizationStatus})
+    listOfNas.EntityData.Leafs.Append("accounting-status", types.YLeaf{"AccountingStatus", listOfNas.AccountingStatus})
+    listOfNas.EntityData.Leafs.Append("accounting-status-stop", types.YLeaf{"AccountingStatusStop", listOfNas.AccountingStatusStop})
+    listOfNas.EntityData.Leafs.Append("disconnect-status", types.YLeaf{"DisconnectStatus", listOfNas.DisconnectStatus})
+    listOfNas.EntityData.Leafs.Append("accounting-intrim-in-packets", types.YLeaf{"AccountingIntrimInPackets", listOfNas.AccountingIntrimInPackets})
+    listOfNas.EntityData.Leafs.Append("accounting-intrim-out-packets", types.YLeaf{"AccountingIntrimOutPackets", listOfNas.AccountingIntrimOutPackets})
+    listOfNas.EntityData.Leafs.Append("method-list", types.YLeaf{"MethodList", listOfNas.MethodList})
+    listOfNas.EntityData.Leafs.Append("server-used-list", types.YLeaf{"ServerUsedList", listOfNas.ServerUsedList})
+
+    listOfNas.EntityData.YListKeys = []string {}
+
     return &(listOfNas.EntityData)
 }
 
@@ -2632,11 +3256,14 @@ func (radius *Aaa_Radius) GetEntityData() *types.CommonEntityData {
     radius.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     radius.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    radius.EntityData.Children = make(map[string]types.YChild)
-    radius.EntityData.Children["servers"] = types.YChild{"Servers", &radius.Servers}
-    radius.EntityData.Children["radius-source-interface"] = types.YChild{"RadiusSourceInterface", &radius.RadiusSourceInterface}
-    radius.EntityData.Children["global"] = types.YChild{"Global", &radius.Global}
-    radius.EntityData.Leafs = make(map[string]types.YLeaf)
+    radius.EntityData.Children = types.NewOrderedMap()
+    radius.EntityData.Children.Append("servers", types.YChild{"Servers", &radius.Servers})
+    radius.EntityData.Children.Append("radius-source-interface", types.YChild{"RadiusSourceInterface", &radius.RadiusSourceInterface})
+    radius.EntityData.Children.Append("global", types.YChild{"Global", &radius.Global})
+    radius.EntityData.Leafs = types.NewOrderedMap()
+
+    radius.EntityData.YListKeys = []string {}
+
     return &(radius.EntityData)
 }
 
@@ -2647,7 +3274,7 @@ type Aaa_Radius_Servers struct {
     YFilter yfilter.YFilter
 
     // RADIUS Server. The type is slice of Aaa_Radius_Servers_Server.
-    Server []Aaa_Radius_Servers_Server
+    Server []*Aaa_Radius_Servers_Server
 }
 
 func (servers *Aaa_Radius_Servers) GetEntityData() *types.CommonEntityData {
@@ -2660,12 +3287,15 @@ func (servers *Aaa_Radius_Servers) GetEntityData() *types.CommonEntityData {
     servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    servers.EntityData.Children = make(map[string]types.YChild)
-    servers.EntityData.Children["server"] = types.YChild{"Server", nil}
+    servers.EntityData.Children = types.NewOrderedMap()
+    servers.EntityData.Children.Append("server", types.YChild{"Server", nil})
     for i := range servers.Server {
-        servers.EntityData.Children[types.GetSegmentPath(&servers.Server[i])] = types.YChild{"Server", &servers.Server[i]}
+        servers.EntityData.Children.Append(types.GetSegmentPath(servers.Server[i]), types.YChild{"Server", servers.Server[i]})
     }
-    servers.EntityData.Leafs = make(map[string]types.YLeaf)
+    servers.EntityData.Leafs = types.NewOrderedMap()
+
+    servers.EntityData.YListKeys = []string {}
+
     return &(servers.EntityData)
 }
 
@@ -2677,9 +3307,9 @@ type Aaa_Radius_Servers_Server struct {
 
     // IP address of RADIUS server. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Authentication Port number (standard port 1645). The type is interface{}
@@ -2691,7 +3321,7 @@ type Aaa_Radius_Servers_Server struct {
     AcctPortNumber interface{}
 
     // IP address of RADIUS server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // A number that indicates the priority             of the server. The type is
@@ -3029,96 +3659,99 @@ func (server *Aaa_Radius_Servers_Server) GetEntityData() *types.CommonEntityData
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
-    server.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", server.IpAddress}
-    server.EntityData.Leafs["auth-port-number"] = types.YLeaf{"AuthPortNumber", server.AuthPortNumber}
-    server.EntityData.Leafs["acct-port-number"] = types.YLeaf{"AcctPortNumber", server.AcctPortNumber}
-    server.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", server.Ipv4Address}
-    server.EntityData.Leafs["priority"] = types.YLeaf{"Priority", server.Priority}
-    server.EntityData.Leafs["timeout-xr"] = types.YLeaf{"TimeoutXr", server.TimeoutXr}
-    server.EntityData.Leafs["retransmit"] = types.YLeaf{"Retransmit", server.Retransmit}
-    server.EntityData.Leafs["dead-time"] = types.YLeaf{"DeadTime", server.DeadTime}
-    server.EntityData.Leafs["dead-detect-time"] = types.YLeaf{"DeadDetectTime", server.DeadDetectTime}
-    server.EntityData.Leafs["dead-detect-tries"] = types.YLeaf{"DeadDetectTries", server.DeadDetectTries}
-    server.EntityData.Leafs["authentication-port"] = types.YLeaf{"AuthenticationPort", server.AuthenticationPort}
-    server.EntityData.Leafs["accounting-port"] = types.YLeaf{"AccountingPort", server.AccountingPort}
-    server.EntityData.Leafs["state"] = types.YLeaf{"State", server.State}
-    server.EntityData.Leafs["current-state-duration"] = types.YLeaf{"CurrentStateDuration", server.CurrentStateDuration}
-    server.EntityData.Leafs["previous-state-duration"] = types.YLeaf{"PreviousStateDuration", server.PreviousStateDuration}
-    server.EntityData.Leafs["packets-in"] = types.YLeaf{"PacketsIn", server.PacketsIn}
-    server.EntityData.Leafs["packets-out"] = types.YLeaf{"PacketsOut", server.PacketsOut}
-    server.EntityData.Leafs["timeouts"] = types.YLeaf{"Timeouts", server.Timeouts}
-    server.EntityData.Leafs["aborts"] = types.YLeaf{"Aborts", server.Aborts}
-    server.EntityData.Leafs["replies-expected"] = types.YLeaf{"RepliesExpected", server.RepliesExpected}
-    server.EntityData.Leafs["redirected-requests"] = types.YLeaf{"RedirectedRequests", server.RedirectedRequests}
-    server.EntityData.Leafs["authentication-rtt"] = types.YLeaf{"AuthenticationRtt", server.AuthenticationRtt}
-    server.EntityData.Leafs["access-requests"] = types.YLeaf{"AccessRequests", server.AccessRequests}
-    server.EntityData.Leafs["access-request-retransmits"] = types.YLeaf{"AccessRequestRetransmits", server.AccessRequestRetransmits}
-    server.EntityData.Leafs["access-accepts"] = types.YLeaf{"AccessAccepts", server.AccessAccepts}
-    server.EntityData.Leafs["access-rejects"] = types.YLeaf{"AccessRejects", server.AccessRejects}
-    server.EntityData.Leafs["access-challenges"] = types.YLeaf{"AccessChallenges", server.AccessChallenges}
-    server.EntityData.Leafs["bad-access-responses"] = types.YLeaf{"BadAccessResponses", server.BadAccessResponses}
-    server.EntityData.Leafs["bad-access-authenticators"] = types.YLeaf{"BadAccessAuthenticators", server.BadAccessAuthenticators}
-    server.EntityData.Leafs["pending-access-requests"] = types.YLeaf{"PendingAccessRequests", server.PendingAccessRequests}
-    server.EntityData.Leafs["access-timeouts"] = types.YLeaf{"AccessTimeouts", server.AccessTimeouts}
-    server.EntityData.Leafs["unknown-access-types"] = types.YLeaf{"UnknownAccessTypes", server.UnknownAccessTypes}
-    server.EntityData.Leafs["dropped-access-responses"] = types.YLeaf{"DroppedAccessResponses", server.DroppedAccessResponses}
-    server.EntityData.Leafs["throttled-access-reqs"] = types.YLeaf{"ThrottledAccessReqs", server.ThrottledAccessReqs}
-    server.EntityData.Leafs["throttled-timed-out-reqs"] = types.YLeaf{"ThrottledTimedOutReqs", server.ThrottledTimedOutReqs}
-    server.EntityData.Leafs["throttled-dropped-reqs"] = types.YLeaf{"ThrottledDroppedReqs", server.ThrottledDroppedReqs}
-    server.EntityData.Leafs["max-throttled-access-reqs"] = types.YLeaf{"MaxThrottledAccessReqs", server.MaxThrottledAccessReqs}
-    server.EntityData.Leafs["currently-throttled-access-reqs"] = types.YLeaf{"CurrentlyThrottledAccessReqs", server.CurrentlyThrottledAccessReqs}
-    server.EntityData.Leafs["authen-response-time"] = types.YLeaf{"AuthenResponseTime", server.AuthenResponseTime}
-    server.EntityData.Leafs["authen-transaction-successess"] = types.YLeaf{"AuthenTransactionSuccessess", server.AuthenTransactionSuccessess}
-    server.EntityData.Leafs["authen-transaction-failure"] = types.YLeaf{"AuthenTransactionFailure", server.AuthenTransactionFailure}
-    server.EntityData.Leafs["authen-unexpected-responses"] = types.YLeaf{"AuthenUnexpectedResponses", server.AuthenUnexpectedResponses}
-    server.EntityData.Leafs["authen-server-error-responses"] = types.YLeaf{"AuthenServerErrorResponses", server.AuthenServerErrorResponses}
-    server.EntityData.Leafs["authen-incorrect-responses"] = types.YLeaf{"AuthenIncorrectResponses", server.AuthenIncorrectResponses}
-    server.EntityData.Leafs["author-requests"] = types.YLeaf{"AuthorRequests", server.AuthorRequests}
-    server.EntityData.Leafs["author-request-timeouts"] = types.YLeaf{"AuthorRequestTimeouts", server.AuthorRequestTimeouts}
-    server.EntityData.Leafs["author-response-time"] = types.YLeaf{"AuthorResponseTime", server.AuthorResponseTime}
-    server.EntityData.Leafs["author-transaction-successess"] = types.YLeaf{"AuthorTransactionSuccessess", server.AuthorTransactionSuccessess}
-    server.EntityData.Leafs["author-transaction-failure"] = types.YLeaf{"AuthorTransactionFailure", server.AuthorTransactionFailure}
-    server.EntityData.Leafs["author-unexpected-responses"] = types.YLeaf{"AuthorUnexpectedResponses", server.AuthorUnexpectedResponses}
-    server.EntityData.Leafs["author-server-error-responses"] = types.YLeaf{"AuthorServerErrorResponses", server.AuthorServerErrorResponses}
-    server.EntityData.Leafs["author-incorrect-responses"] = types.YLeaf{"AuthorIncorrectResponses", server.AuthorIncorrectResponses}
-    server.EntityData.Leafs["accounting-rtt"] = types.YLeaf{"AccountingRtt", server.AccountingRtt}
-    server.EntityData.Leafs["accounting-requests"] = types.YLeaf{"AccountingRequests", server.AccountingRequests}
-    server.EntityData.Leafs["accounting-retransmits"] = types.YLeaf{"AccountingRetransmits", server.AccountingRetransmits}
-    server.EntityData.Leafs["accounting-responses"] = types.YLeaf{"AccountingResponses", server.AccountingResponses}
-    server.EntityData.Leafs["bad-accounting-responses"] = types.YLeaf{"BadAccountingResponses", server.BadAccountingResponses}
-    server.EntityData.Leafs["bad-accounting-authenticators"] = types.YLeaf{"BadAccountingAuthenticators", server.BadAccountingAuthenticators}
-    server.EntityData.Leafs["pending-accounting-requets"] = types.YLeaf{"PendingAccountingRequets", server.PendingAccountingRequets}
-    server.EntityData.Leafs["accounting-timeouts"] = types.YLeaf{"AccountingTimeouts", server.AccountingTimeouts}
-    server.EntityData.Leafs["unknown-accounting-types"] = types.YLeaf{"UnknownAccountingTypes", server.UnknownAccountingTypes}
-    server.EntityData.Leafs["dropped-accounting-responses"] = types.YLeaf{"DroppedAccountingResponses", server.DroppedAccountingResponses}
-    server.EntityData.Leafs["is-a-private-server"] = types.YLeaf{"IsAPrivateServer", server.IsAPrivateServer}
-    server.EntityData.Leafs["total-test-auth-reqs"] = types.YLeaf{"TotalTestAuthReqs", server.TotalTestAuthReqs}
-    server.EntityData.Leafs["total-test-auth-timeouts"] = types.YLeaf{"TotalTestAuthTimeouts", server.TotalTestAuthTimeouts}
-    server.EntityData.Leafs["total-test-auth-response"] = types.YLeaf{"TotalTestAuthResponse", server.TotalTestAuthResponse}
-    server.EntityData.Leafs["total-test-auth-pending"] = types.YLeaf{"TotalTestAuthPending", server.TotalTestAuthPending}
-    server.EntityData.Leafs["total-test-acct-reqs"] = types.YLeaf{"TotalTestAcctReqs", server.TotalTestAcctReqs}
-    server.EntityData.Leafs["total-test-acct-timeouts"] = types.YLeaf{"TotalTestAcctTimeouts", server.TotalTestAcctTimeouts}
-    server.EntityData.Leafs["total-test-acct-response"] = types.YLeaf{"TotalTestAcctResponse", server.TotalTestAcctResponse}
-    server.EntityData.Leafs["total-test-acct-pending"] = types.YLeaf{"TotalTestAcctPending", server.TotalTestAcctPending}
-    server.EntityData.Leafs["throttled-acct-transactions"] = types.YLeaf{"ThrottledAcctTransactions", server.ThrottledAcctTransactions}
-    server.EntityData.Leafs["throttled-acct-timed-out-stats"] = types.YLeaf{"ThrottledAcctTimedOutStats", server.ThrottledAcctTimedOutStats}
-    server.EntityData.Leafs["throttled-acct-failures-stats"] = types.YLeaf{"ThrottledAcctFailuresStats", server.ThrottledAcctFailuresStats}
-    server.EntityData.Leafs["max-acct-throttled"] = types.YLeaf{"MaxAcctThrottled", server.MaxAcctThrottled}
-    server.EntityData.Leafs["throttleda-acct-transactions"] = types.YLeaf{"ThrottledaAcctTransactions", server.ThrottledaAcctTransactions}
-    server.EntityData.Leafs["acct-unexpected-responses"] = types.YLeaf{"AcctUnexpectedResponses", server.AcctUnexpectedResponses}
-    server.EntityData.Leafs["acct-server-error-responses"] = types.YLeaf{"AcctServerErrorResponses", server.AcctServerErrorResponses}
-    server.EntityData.Leafs["acct-incorrect-responses"] = types.YLeaf{"AcctIncorrectResponses", server.AcctIncorrectResponses}
-    server.EntityData.Leafs["acct-response-time"] = types.YLeaf{"AcctResponseTime", server.AcctResponseTime}
-    server.EntityData.Leafs["acct-transaction-successess"] = types.YLeaf{"AcctTransactionSuccessess", server.AcctTransactionSuccessess}
-    server.EntityData.Leafs["acct-transaction-failure"] = types.YLeaf{"AcctTransactionFailure", server.AcctTransactionFailure}
-    server.EntityData.Leafs["total-deadtime"] = types.YLeaf{"TotalDeadtime", server.TotalDeadtime}
-    server.EntityData.Leafs["last-deadtime"] = types.YLeaf{"LastDeadtime", server.LastDeadtime}
-    server.EntityData.Leafs["is-quarantined"] = types.YLeaf{"IsQuarantined", server.IsQuarantined}
-    server.EntityData.Leafs["group-name"] = types.YLeaf{"GroupName", server.GroupName}
-    server.EntityData.Leafs["ip-address-xr"] = types.YLeaf{"IpAddressXr", server.IpAddressXr}
-    server.EntityData.Leafs["family"] = types.YLeaf{"Family", server.Family}
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", server.IpAddress})
+    server.EntityData.Leafs.Append("auth-port-number", types.YLeaf{"AuthPortNumber", server.AuthPortNumber})
+    server.EntityData.Leafs.Append("acct-port-number", types.YLeaf{"AcctPortNumber", server.AcctPortNumber})
+    server.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", server.Ipv4Address})
+    server.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", server.Priority})
+    server.EntityData.Leafs.Append("timeout-xr", types.YLeaf{"TimeoutXr", server.TimeoutXr})
+    server.EntityData.Leafs.Append("retransmit", types.YLeaf{"Retransmit", server.Retransmit})
+    server.EntityData.Leafs.Append("dead-time", types.YLeaf{"DeadTime", server.DeadTime})
+    server.EntityData.Leafs.Append("dead-detect-time", types.YLeaf{"DeadDetectTime", server.DeadDetectTime})
+    server.EntityData.Leafs.Append("dead-detect-tries", types.YLeaf{"DeadDetectTries", server.DeadDetectTries})
+    server.EntityData.Leafs.Append("authentication-port", types.YLeaf{"AuthenticationPort", server.AuthenticationPort})
+    server.EntityData.Leafs.Append("accounting-port", types.YLeaf{"AccountingPort", server.AccountingPort})
+    server.EntityData.Leafs.Append("state", types.YLeaf{"State", server.State})
+    server.EntityData.Leafs.Append("current-state-duration", types.YLeaf{"CurrentStateDuration", server.CurrentStateDuration})
+    server.EntityData.Leafs.Append("previous-state-duration", types.YLeaf{"PreviousStateDuration", server.PreviousStateDuration})
+    server.EntityData.Leafs.Append("packets-in", types.YLeaf{"PacketsIn", server.PacketsIn})
+    server.EntityData.Leafs.Append("packets-out", types.YLeaf{"PacketsOut", server.PacketsOut})
+    server.EntityData.Leafs.Append("timeouts", types.YLeaf{"Timeouts", server.Timeouts})
+    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
+    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
+    server.EntityData.Leafs.Append("redirected-requests", types.YLeaf{"RedirectedRequests", server.RedirectedRequests})
+    server.EntityData.Leafs.Append("authentication-rtt", types.YLeaf{"AuthenticationRtt", server.AuthenticationRtt})
+    server.EntityData.Leafs.Append("access-requests", types.YLeaf{"AccessRequests", server.AccessRequests})
+    server.EntityData.Leafs.Append("access-request-retransmits", types.YLeaf{"AccessRequestRetransmits", server.AccessRequestRetransmits})
+    server.EntityData.Leafs.Append("access-accepts", types.YLeaf{"AccessAccepts", server.AccessAccepts})
+    server.EntityData.Leafs.Append("access-rejects", types.YLeaf{"AccessRejects", server.AccessRejects})
+    server.EntityData.Leafs.Append("access-challenges", types.YLeaf{"AccessChallenges", server.AccessChallenges})
+    server.EntityData.Leafs.Append("bad-access-responses", types.YLeaf{"BadAccessResponses", server.BadAccessResponses})
+    server.EntityData.Leafs.Append("bad-access-authenticators", types.YLeaf{"BadAccessAuthenticators", server.BadAccessAuthenticators})
+    server.EntityData.Leafs.Append("pending-access-requests", types.YLeaf{"PendingAccessRequests", server.PendingAccessRequests})
+    server.EntityData.Leafs.Append("access-timeouts", types.YLeaf{"AccessTimeouts", server.AccessTimeouts})
+    server.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", server.UnknownAccessTypes})
+    server.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", server.DroppedAccessResponses})
+    server.EntityData.Leafs.Append("throttled-access-reqs", types.YLeaf{"ThrottledAccessReqs", server.ThrottledAccessReqs})
+    server.EntityData.Leafs.Append("throttled-timed-out-reqs", types.YLeaf{"ThrottledTimedOutReqs", server.ThrottledTimedOutReqs})
+    server.EntityData.Leafs.Append("throttled-dropped-reqs", types.YLeaf{"ThrottledDroppedReqs", server.ThrottledDroppedReqs})
+    server.EntityData.Leafs.Append("max-throttled-access-reqs", types.YLeaf{"MaxThrottledAccessReqs", server.MaxThrottledAccessReqs})
+    server.EntityData.Leafs.Append("currently-throttled-access-reqs", types.YLeaf{"CurrentlyThrottledAccessReqs", server.CurrentlyThrottledAccessReqs})
+    server.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", server.AuthenResponseTime})
+    server.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", server.AuthenTransactionSuccessess})
+    server.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", server.AuthenTransactionFailure})
+    server.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", server.AuthenUnexpectedResponses})
+    server.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", server.AuthenServerErrorResponses})
+    server.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", server.AuthenIncorrectResponses})
+    server.EntityData.Leafs.Append("author-requests", types.YLeaf{"AuthorRequests", server.AuthorRequests})
+    server.EntityData.Leafs.Append("author-request-timeouts", types.YLeaf{"AuthorRequestTimeouts", server.AuthorRequestTimeouts})
+    server.EntityData.Leafs.Append("author-response-time", types.YLeaf{"AuthorResponseTime", server.AuthorResponseTime})
+    server.EntityData.Leafs.Append("author-transaction-successess", types.YLeaf{"AuthorTransactionSuccessess", server.AuthorTransactionSuccessess})
+    server.EntityData.Leafs.Append("author-transaction-failure", types.YLeaf{"AuthorTransactionFailure", server.AuthorTransactionFailure})
+    server.EntityData.Leafs.Append("author-unexpected-responses", types.YLeaf{"AuthorUnexpectedResponses", server.AuthorUnexpectedResponses})
+    server.EntityData.Leafs.Append("author-server-error-responses", types.YLeaf{"AuthorServerErrorResponses", server.AuthorServerErrorResponses})
+    server.EntityData.Leafs.Append("author-incorrect-responses", types.YLeaf{"AuthorIncorrectResponses", server.AuthorIncorrectResponses})
+    server.EntityData.Leafs.Append("accounting-rtt", types.YLeaf{"AccountingRtt", server.AccountingRtt})
+    server.EntityData.Leafs.Append("accounting-requests", types.YLeaf{"AccountingRequests", server.AccountingRequests})
+    server.EntityData.Leafs.Append("accounting-retransmits", types.YLeaf{"AccountingRetransmits", server.AccountingRetransmits})
+    server.EntityData.Leafs.Append("accounting-responses", types.YLeaf{"AccountingResponses", server.AccountingResponses})
+    server.EntityData.Leafs.Append("bad-accounting-responses", types.YLeaf{"BadAccountingResponses", server.BadAccountingResponses})
+    server.EntityData.Leafs.Append("bad-accounting-authenticators", types.YLeaf{"BadAccountingAuthenticators", server.BadAccountingAuthenticators})
+    server.EntityData.Leafs.Append("pending-accounting-requets", types.YLeaf{"PendingAccountingRequets", server.PendingAccountingRequets})
+    server.EntityData.Leafs.Append("accounting-timeouts", types.YLeaf{"AccountingTimeouts", server.AccountingTimeouts})
+    server.EntityData.Leafs.Append("unknown-accounting-types", types.YLeaf{"UnknownAccountingTypes", server.UnknownAccountingTypes})
+    server.EntityData.Leafs.Append("dropped-accounting-responses", types.YLeaf{"DroppedAccountingResponses", server.DroppedAccountingResponses})
+    server.EntityData.Leafs.Append("is-a-private-server", types.YLeaf{"IsAPrivateServer", server.IsAPrivateServer})
+    server.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", server.TotalTestAuthReqs})
+    server.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", server.TotalTestAuthTimeouts})
+    server.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", server.TotalTestAuthResponse})
+    server.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", server.TotalTestAuthPending})
+    server.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", server.TotalTestAcctReqs})
+    server.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", server.TotalTestAcctTimeouts})
+    server.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", server.TotalTestAcctResponse})
+    server.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", server.TotalTestAcctPending})
+    server.EntityData.Leafs.Append("throttled-acct-transactions", types.YLeaf{"ThrottledAcctTransactions", server.ThrottledAcctTransactions})
+    server.EntityData.Leafs.Append("throttled-acct-timed-out-stats", types.YLeaf{"ThrottledAcctTimedOutStats", server.ThrottledAcctTimedOutStats})
+    server.EntityData.Leafs.Append("throttled-acct-failures-stats", types.YLeaf{"ThrottledAcctFailuresStats", server.ThrottledAcctFailuresStats})
+    server.EntityData.Leafs.Append("max-acct-throttled", types.YLeaf{"MaxAcctThrottled", server.MaxAcctThrottled})
+    server.EntityData.Leafs.Append("throttleda-acct-transactions", types.YLeaf{"ThrottledaAcctTransactions", server.ThrottledaAcctTransactions})
+    server.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", server.AcctUnexpectedResponses})
+    server.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", server.AcctServerErrorResponses})
+    server.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", server.AcctIncorrectResponses})
+    server.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", server.AcctResponseTime})
+    server.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", server.AcctTransactionSuccessess})
+    server.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", server.AcctTransactionFailure})
+    server.EntityData.Leafs.Append("total-deadtime", types.YLeaf{"TotalDeadtime", server.TotalDeadtime})
+    server.EntityData.Leafs.Append("last-deadtime", types.YLeaf{"LastDeadtime", server.LastDeadtime})
+    server.EntityData.Leafs.Append("is-quarantined", types.YLeaf{"IsQuarantined", server.IsQuarantined})
+    server.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", server.GroupName})
+    server.EntityData.Leafs.Append("ip-address-xr", types.YLeaf{"IpAddressXr", server.IpAddressXr})
+    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
+
+    server.EntityData.YListKeys = []string {}
+
     return &(server.EntityData)
 }
 
@@ -3130,7 +3763,7 @@ type Aaa_Radius_RadiusSourceInterface struct {
 
     // List of source interfaces. The type is slice of
     // Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface.
-    ListOfSourceInterface []Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
+    ListOfSourceInterface []*Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
 }
 
 func (radiusSourceInterface *Aaa_Radius_RadiusSourceInterface) GetEntityData() *types.CommonEntityData {
@@ -3143,12 +3776,15 @@ func (radiusSourceInterface *Aaa_Radius_RadiusSourceInterface) GetEntityData() *
     radiusSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     radiusSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    radiusSourceInterface.EntityData.Children = make(map[string]types.YChild)
-    radiusSourceInterface.EntityData.Children["list-of-source-interface"] = types.YChild{"ListOfSourceInterface", nil}
+    radiusSourceInterface.EntityData.Children = types.NewOrderedMap()
+    radiusSourceInterface.EntityData.Children.Append("list-of-source-interface", types.YChild{"ListOfSourceInterface", nil})
     for i := range radiusSourceInterface.ListOfSourceInterface {
-        radiusSourceInterface.EntityData.Children[types.GetSegmentPath(&radiusSourceInterface.ListOfSourceInterface[i])] = types.YChild{"ListOfSourceInterface", &radiusSourceInterface.ListOfSourceInterface[i]}
+        radiusSourceInterface.EntityData.Children.Append(types.GetSegmentPath(radiusSourceInterface.ListOfSourceInterface[i]), types.YChild{"ListOfSourceInterface", radiusSourceInterface.ListOfSourceInterface[i]})
     }
-    radiusSourceInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    radiusSourceInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    radiusSourceInterface.EntityData.YListKeys = []string {}
+
     return &(radiusSourceInterface.EntityData)
 }
 
@@ -3181,12 +3817,15 @@ func (listOfSourceInterface *Aaa_Radius_RadiusSourceInterface_ListOfSourceInterf
     listOfSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     listOfSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    listOfSourceInterface.EntityData.Children = make(map[string]types.YChild)
-    listOfSourceInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    listOfSourceInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", listOfSourceInterface.InterfaceName}
-    listOfSourceInterface.EntityData.Leafs["ipaddrv4"] = types.YLeaf{"Ipaddrv4", listOfSourceInterface.Ipaddrv4}
-    listOfSourceInterface.EntityData.Leafs["ipaddrv6"] = types.YLeaf{"Ipaddrv6", listOfSourceInterface.Ipaddrv6}
-    listOfSourceInterface.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", listOfSourceInterface.Vrfid}
+    listOfSourceInterface.EntityData.Children = types.NewOrderedMap()
+    listOfSourceInterface.EntityData.Leafs = types.NewOrderedMap()
+    listOfSourceInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", listOfSourceInterface.InterfaceName})
+    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv4", types.YLeaf{"Ipaddrv4", listOfSourceInterface.Ipaddrv4})
+    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv6", types.YLeaf{"Ipaddrv6", listOfSourceInterface.Ipaddrv6})
+    listOfSourceInterface.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", listOfSourceInterface.Vrfid})
+
+    listOfSourceInterface.EntityData.YListKeys = []string {}
+
     return &(listOfSourceInterface.EntityData)
 }
 
@@ -3221,474 +3860,15 @@ func (global *Aaa_Radius_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
-    global.EntityData.Leafs["unknown-authentication-response"] = types.YLeaf{"UnknownAuthenticationResponse", global.UnknownAuthenticationResponse}
-    global.EntityData.Leafs["authentication-nas-id"] = types.YLeaf{"AuthenticationNasId", global.AuthenticationNasId}
-    global.EntityData.Leafs["unknown-accounting-response"] = types.YLeaf{"UnknownAccountingResponse", global.UnknownAccountingResponse}
-    global.EntityData.Leafs["accounting-nas-id"] = types.YLeaf{"AccountingNasId", global.AccountingNasId}
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Leafs = types.NewOrderedMap()
+    global.EntityData.Leafs.Append("unknown-authentication-response", types.YLeaf{"UnknownAuthenticationResponse", global.UnknownAuthenticationResponse})
+    global.EntityData.Leafs.Append("authentication-nas-id", types.YLeaf{"AuthenticationNasId", global.AuthenticationNasId})
+    global.EntityData.Leafs.Append("unknown-accounting-response", types.YLeaf{"UnknownAccountingResponse", global.UnknownAccountingResponse})
+    global.EntityData.Leafs.Append("accounting-nas-id", types.YLeaf{"AccountingNasId", global.AccountingNasId})
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
-}
-
-// Aaa_Tacacs
-// TACACS operational data
-type Aaa_Tacacs struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // TACACS Active Request List.
-    Requests Aaa_Tacacs_Requests
-
-    // TACACS server Information.
-    Servers Aaa_Tacacs_Servers
-
-    // TACACS sg Information.
-    ServerGroups Aaa_Tacacs_ServerGroups
-}
-
-func (tacacs *Aaa_Tacacs) GetEntityData() *types.CommonEntityData {
-    tacacs.EntityData.YFilter = tacacs.YFilter
-    tacacs.EntityData.YangName = "tacacs"
-    tacacs.EntityData.BundleName = "cisco_ios_xr"
-    tacacs.EntityData.ParentYangName = "aaa"
-    tacacs.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
-    tacacs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tacacs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tacacs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tacacs.EntityData.Children = make(map[string]types.YChild)
-    tacacs.EntityData.Children["requests"] = types.YChild{"Requests", &tacacs.Requests}
-    tacacs.EntityData.Children["servers"] = types.YChild{"Servers", &tacacs.Servers}
-    tacacs.EntityData.Children["server-groups"] = types.YChild{"ServerGroups", &tacacs.ServerGroups}
-    tacacs.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tacacs.EntityData)
-}
-
-// Aaa_Tacacs_Requests
-// TACACS Active Request List
-type Aaa_Tacacs_Requests struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // request. The type is slice of Aaa_Tacacs_Requests_Request.
-    Request []Aaa_Tacacs_Requests_Request
-}
-
-func (requests *Aaa_Tacacs_Requests) GetEntityData() *types.CommonEntityData {
-    requests.EntityData.YFilter = requests.YFilter
-    requests.EntityData.YangName = "requests"
-    requests.EntityData.BundleName = "cisco_ios_xr"
-    requests.EntityData.ParentYangName = "tacacs"
-    requests.EntityData.SegmentPath = "requests"
-    requests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    requests.EntityData.Children = make(map[string]types.YChild)
-    requests.EntityData.Children["request"] = types.YChild{"Request", nil}
-    for i := range requests.Request {
-        requests.EntityData.Children[types.GetSegmentPath(&requests.Request[i])] = types.YChild{"Request", &requests.Request[i]}
-    }
-    requests.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(requests.EntityData)
-}
-
-// Aaa_Tacacs_Requests_Request
-// request
-type Aaa_Tacacs_Requests_Request struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // tacacs requestbag. The type is slice of
-    // Aaa_Tacacs_Requests_Request_TacacsRequestbag.
-    TacacsRequestbag []Aaa_Tacacs_Requests_Request_TacacsRequestbag
-}
-
-func (request *Aaa_Tacacs_Requests_Request) GetEntityData() *types.CommonEntityData {
-    request.EntityData.YFilter = request.YFilter
-    request.EntityData.YangName = "request"
-    request.EntityData.BundleName = "cisco_ios_xr"
-    request.EntityData.ParentYangName = "requests"
-    request.EntityData.SegmentPath = "request"
-    request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    request.EntityData.Children = make(map[string]types.YChild)
-    request.EntityData.Children["tacacs-requestbag"] = types.YChild{"TacacsRequestbag", nil}
-    for i := range request.TacacsRequestbag {
-        request.EntityData.Children[types.GetSegmentPath(&request.TacacsRequestbag[i])] = types.YChild{"TacacsRequestbag", &request.TacacsRequestbag[i]}
-    }
-    request.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(request.EntityData)
-}
-
-// Aaa_Tacacs_Requests_Request_TacacsRequestbag
-// tacacs requestbag
-type Aaa_Tacacs_Requests_Request_TacacsRequestbag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // time remaining for this request. The type is interface{} with range:
-    // 0..4294967295.
-    TimeRemaining interface{}
-
-    // bytes written. The type is interface{} with range: 0..4294967295. Units are
-    // byte.
-    BytesOut interface{}
-
-    // size of the packet to be sent. The type is interface{} with range:
-    // 0..4294967295.
-    OutPakSize interface{}
-
-    // bytes read from socket. The type is interface{} with range: 0..4294967295.
-    // Units are byte.
-    BytesIn interface{}
-
-    // size of the packet to be received. The type is interface{} with range:
-    // 0..4294967295.
-    InPakSize interface{}
-
-    // the type of packet. The type is string.
-    PakType interface{}
-
-    // same as in pkt hdr. The type is interface{} with range:
-    // -2147483648..2147483647.
-    SessionId interface{}
-
-    // socket number. The type is interface{} with range: -2147483648..2147483647.
-    Sock interface{}
-}
-
-func (tacacsRequestbag *Aaa_Tacacs_Requests_Request_TacacsRequestbag) GetEntityData() *types.CommonEntityData {
-    tacacsRequestbag.EntityData.YFilter = tacacsRequestbag.YFilter
-    tacacsRequestbag.EntityData.YangName = "tacacs-requestbag"
-    tacacsRequestbag.EntityData.BundleName = "cisco_ios_xr"
-    tacacsRequestbag.EntityData.ParentYangName = "request"
-    tacacsRequestbag.EntityData.SegmentPath = "tacacs-requestbag"
-    tacacsRequestbag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tacacsRequestbag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tacacsRequestbag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tacacsRequestbag.EntityData.Children = make(map[string]types.YChild)
-    tacacsRequestbag.EntityData.Leafs = make(map[string]types.YLeaf)
-    tacacsRequestbag.EntityData.Leafs["time-remaining"] = types.YLeaf{"TimeRemaining", tacacsRequestbag.TimeRemaining}
-    tacacsRequestbag.EntityData.Leafs["bytes-out"] = types.YLeaf{"BytesOut", tacacsRequestbag.BytesOut}
-    tacacsRequestbag.EntityData.Leafs["out-pak-size"] = types.YLeaf{"OutPakSize", tacacsRequestbag.OutPakSize}
-    tacacsRequestbag.EntityData.Leafs["bytes-in"] = types.YLeaf{"BytesIn", tacacsRequestbag.BytesIn}
-    tacacsRequestbag.EntityData.Leafs["in-pak-size"] = types.YLeaf{"InPakSize", tacacsRequestbag.InPakSize}
-    tacacsRequestbag.EntityData.Leafs["pak-type"] = types.YLeaf{"PakType", tacacsRequestbag.PakType}
-    tacacsRequestbag.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", tacacsRequestbag.SessionId}
-    tacacsRequestbag.EntityData.Leafs["sock"] = types.YLeaf{"Sock", tacacsRequestbag.Sock}
-    return &(tacacsRequestbag.EntityData)
-}
-
-// Aaa_Tacacs_Servers
-// TACACS server Information
-type Aaa_Tacacs_Servers struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // server. The type is slice of Aaa_Tacacs_Servers_Server.
-    Server []Aaa_Tacacs_Servers_Server
-}
-
-func (servers *Aaa_Tacacs_Servers) GetEntityData() *types.CommonEntityData {
-    servers.EntityData.YFilter = servers.YFilter
-    servers.EntityData.YangName = "servers"
-    servers.EntityData.BundleName = "cisco_ios_xr"
-    servers.EntityData.ParentYangName = "tacacs"
-    servers.EntityData.SegmentPath = "servers"
-    servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    servers.EntityData.Children = make(map[string]types.YChild)
-    servers.EntityData.Children["server"] = types.YChild{"Server", nil}
-    for i := range servers.Server {
-        servers.EntityData.Children[types.GetSegmentPath(&servers.Server[i])] = types.YChild{"Server", &servers.Server[i]}
-    }
-    servers.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(servers.EntityData)
-}
-
-// Aaa_Tacacs_Servers_Server
-// server
-type Aaa_Tacacs_Servers_Server struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // internet address of T+ server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Addr interface{}
-
-    // per-server timeout. The type is interface{} with range: 0..4294967295.
-    Timeout interface{}
-
-    // per server port to use. The type is interface{} with range: 0..4294967295.
-    Port interface{}
-
-    // # of bytes read. The type is interface{} with range: 0..4294967295. Units
-    // are byte.
-    BytesIn interface{}
-
-    // # of bytes out. The type is interface{} with range: 0..4294967295. Units
-    // are byte.
-    BytesOut interface{}
-
-    // socket closes. The type is interface{} with range: 0..4294967295.
-    Closes interface{}
-
-    // socket opens. The type is interface{} with range: 0..4294967295.
-    Opens interface{}
-
-    // error count. The type is interface{} with range: 0..4294967295.
-    Errors interface{}
-
-    // abort count. The type is interface{} with range: 0..4294967295.
-    Aborts interface{}
-
-    // # of incoming packets read. The type is interface{} with range:
-    // 0..4294967295.
-    PaksIn interface{}
-
-    // # of outgoing packets sent. The type is interface{} with range:
-    // 0..4294967295.
-    PaksOut interface{}
-
-    // # of replies expected to arrive. The type is interface{} with range:
-    // 0..4294967295.
-    RepliesExpected interface{}
-
-    // is the server UP or down ?. The type is bool.
-    Up interface{}
-
-    // is the server connected ?. The type is bool.
-    ConnUp interface{}
-
-    // is this a single connect server ?. The type is bool.
-    SingleConnect interface{}
-
-    // is this a private server ?. The type is bool.
-    IsPrivate interface{}
-
-    // VRF in which server is reachable. The type is string with length: 0..33.
-    VrfName interface{}
-
-    // IP address buffer. The type is string with length: 0..46.
-    AddrBuf interface{}
-
-    // IP address Family. The type is string with length: 0..5.
-    Family interface{}
-}
-
-func (server *Aaa_Tacacs_Servers_Server) GetEntityData() *types.CommonEntityData {
-    server.EntityData.YFilter = server.YFilter
-    server.EntityData.YangName = "server"
-    server.EntityData.BundleName = "cisco_ios_xr"
-    server.EntityData.ParentYangName = "servers"
-    server.EntityData.SegmentPath = "server"
-    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
-    server.EntityData.Leafs["addr"] = types.YLeaf{"Addr", server.Addr}
-    server.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", server.Timeout}
-    server.EntityData.Leafs["port"] = types.YLeaf{"Port", server.Port}
-    server.EntityData.Leafs["bytes-in"] = types.YLeaf{"BytesIn", server.BytesIn}
-    server.EntityData.Leafs["bytes-out"] = types.YLeaf{"BytesOut", server.BytesOut}
-    server.EntityData.Leafs["closes"] = types.YLeaf{"Closes", server.Closes}
-    server.EntityData.Leafs["opens"] = types.YLeaf{"Opens", server.Opens}
-    server.EntityData.Leafs["errors"] = types.YLeaf{"Errors", server.Errors}
-    server.EntityData.Leafs["aborts"] = types.YLeaf{"Aborts", server.Aborts}
-    server.EntityData.Leafs["paks-in"] = types.YLeaf{"PaksIn", server.PaksIn}
-    server.EntityData.Leafs["paks-out"] = types.YLeaf{"PaksOut", server.PaksOut}
-    server.EntityData.Leafs["replies-expected"] = types.YLeaf{"RepliesExpected", server.RepliesExpected}
-    server.EntityData.Leafs["up"] = types.YLeaf{"Up", server.Up}
-    server.EntityData.Leafs["conn-up"] = types.YLeaf{"ConnUp", server.ConnUp}
-    server.EntityData.Leafs["single-connect"] = types.YLeaf{"SingleConnect", server.SingleConnect}
-    server.EntityData.Leafs["is-private"] = types.YLeaf{"IsPrivate", server.IsPrivate}
-    server.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", server.VrfName}
-    server.EntityData.Leafs["addr-buf"] = types.YLeaf{"AddrBuf", server.AddrBuf}
-    server.EntityData.Leafs["family"] = types.YLeaf{"Family", server.Family}
-    return &(server.EntityData)
-}
-
-// Aaa_Tacacs_ServerGroups
-// TACACS sg Information
-type Aaa_Tacacs_ServerGroups struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // server group. The type is slice of Aaa_Tacacs_ServerGroups_ServerGroup.
-    ServerGroup []Aaa_Tacacs_ServerGroups_ServerGroup
-}
-
-func (serverGroups *Aaa_Tacacs_ServerGroups) GetEntityData() *types.CommonEntityData {
-    serverGroups.EntityData.YFilter = serverGroups.YFilter
-    serverGroups.EntityData.YangName = "server-groups"
-    serverGroups.EntityData.BundleName = "cisco_ios_xr"
-    serverGroups.EntityData.ParentYangName = "tacacs"
-    serverGroups.EntityData.SegmentPath = "server-groups"
-    serverGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    serverGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    serverGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    serverGroups.EntityData.Children = make(map[string]types.YChild)
-    serverGroups.EntityData.Children["server-group"] = types.YChild{"ServerGroup", nil}
-    for i := range serverGroups.ServerGroup {
-        serverGroups.EntityData.Children[types.GetSegmentPath(&serverGroups.ServerGroup[i])] = types.YChild{"ServerGroup", &serverGroups.ServerGroup[i]}
-    }
-    serverGroups.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(serverGroups.EntityData)
-}
-
-// Aaa_Tacacs_ServerGroups_ServerGroup
-// server group
-type Aaa_Tacacs_ServerGroups_ServerGroup struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // name of the server group. The type is string.
-    GroupName interface{}
-
-    // server group mapped number. The type is interface{} with range:
-    // 0..4294967295.
-    SgMapNum interface{}
-
-    // vrf of the group. The type is string with length: 0..33.
-    VrfName interface{}
-
-    // list of servers in this group. The type is slice of
-    // Aaa_Tacacs_ServerGroups_ServerGroup_Server.
-    Server []Aaa_Tacacs_ServerGroups_ServerGroup_Server
-}
-
-func (serverGroup *Aaa_Tacacs_ServerGroups_ServerGroup) GetEntityData() *types.CommonEntityData {
-    serverGroup.EntityData.YFilter = serverGroup.YFilter
-    serverGroup.EntityData.YangName = "server-group"
-    serverGroup.EntityData.BundleName = "cisco_ios_xr"
-    serverGroup.EntityData.ParentYangName = "server-groups"
-    serverGroup.EntityData.SegmentPath = "server-group"
-    serverGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    serverGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    serverGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    serverGroup.EntityData.Children = make(map[string]types.YChild)
-    serverGroup.EntityData.Children["server"] = types.YChild{"Server", nil}
-    for i := range serverGroup.Server {
-        serverGroup.EntityData.Children[types.GetSegmentPath(&serverGroup.Server[i])] = types.YChild{"Server", &serverGroup.Server[i]}
-    }
-    serverGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    serverGroup.EntityData.Leafs["group-name"] = types.YLeaf{"GroupName", serverGroup.GroupName}
-    serverGroup.EntityData.Leafs["sg-map-num"] = types.YLeaf{"SgMapNum", serverGroup.SgMapNum}
-    serverGroup.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", serverGroup.VrfName}
-    return &(serverGroup.EntityData)
-}
-
-// Aaa_Tacacs_ServerGroups_ServerGroup_Server
-// list of servers in this group
-type Aaa_Tacacs_ServerGroups_ServerGroup_Server struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // internet address of T+ server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Addr interface{}
-
-    // per-server timeout. The type is interface{} with range: 0..4294967295.
-    Timeout interface{}
-
-    // per server port to use. The type is interface{} with range: 0..4294967295.
-    Port interface{}
-
-    // # of bytes read. The type is interface{} with range: 0..4294967295. Units
-    // are byte.
-    BytesIn interface{}
-
-    // # of bytes out. The type is interface{} with range: 0..4294967295. Units
-    // are byte.
-    BytesOut interface{}
-
-    // socket closes. The type is interface{} with range: 0..4294967295.
-    Closes interface{}
-
-    // socket opens. The type is interface{} with range: 0..4294967295.
-    Opens interface{}
-
-    // error count. The type is interface{} with range: 0..4294967295.
-    Errors interface{}
-
-    // abort count. The type is interface{} with range: 0..4294967295.
-    Aborts interface{}
-
-    // # of incoming packets read. The type is interface{} with range:
-    // 0..4294967295.
-    PaksIn interface{}
-
-    // # of outgoing packets sent. The type is interface{} with range:
-    // 0..4294967295.
-    PaksOut interface{}
-
-    // # of replies expected to arrive. The type is interface{} with range:
-    // 0..4294967295.
-    RepliesExpected interface{}
-
-    // is the server UP or down ?. The type is bool.
-    Up interface{}
-
-    // is the server connected ?. The type is bool.
-    ConnUp interface{}
-
-    // is this a single connect server ?. The type is bool.
-    SingleConnect interface{}
-
-    // is this a private server ?. The type is bool.
-    IsPrivate interface{}
-
-    // VRF in which server is reachable. The type is string with length: 0..33.
-    VrfName interface{}
-
-    // IP address buffer. The type is string with length: 0..46.
-    AddrBuf interface{}
-
-    // IP address Family. The type is string with length: 0..5.
-    Family interface{}
-}
-
-func (server *Aaa_Tacacs_ServerGroups_ServerGroup_Server) GetEntityData() *types.CommonEntityData {
-    server.EntityData.YFilter = server.YFilter
-    server.EntityData.YangName = "server"
-    server.EntityData.BundleName = "cisco_ios_xr"
-    server.EntityData.ParentYangName = "server-group"
-    server.EntityData.SegmentPath = "server"
-    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
-    server.EntityData.Leafs["addr"] = types.YLeaf{"Addr", server.Addr}
-    server.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", server.Timeout}
-    server.EntityData.Leafs["port"] = types.YLeaf{"Port", server.Port}
-    server.EntityData.Leafs["bytes-in"] = types.YLeaf{"BytesIn", server.BytesIn}
-    server.EntityData.Leafs["bytes-out"] = types.YLeaf{"BytesOut", server.BytesOut}
-    server.EntityData.Leafs["closes"] = types.YLeaf{"Closes", server.Closes}
-    server.EntityData.Leafs["opens"] = types.YLeaf{"Opens", server.Opens}
-    server.EntityData.Leafs["errors"] = types.YLeaf{"Errors", server.Errors}
-    server.EntityData.Leafs["aborts"] = types.YLeaf{"Aborts", server.Aborts}
-    server.EntityData.Leafs["paks-in"] = types.YLeaf{"PaksIn", server.PaksIn}
-    server.EntityData.Leafs["paks-out"] = types.YLeaf{"PaksOut", server.PaksOut}
-    server.EntityData.Leafs["replies-expected"] = types.YLeaf{"RepliesExpected", server.RepliesExpected}
-    server.EntityData.Leafs["up"] = types.YLeaf{"Up", server.Up}
-    server.EntityData.Leafs["conn-up"] = types.YLeaf{"ConnUp", server.ConnUp}
-    server.EntityData.Leafs["single-connect"] = types.YLeaf{"SingleConnect", server.SingleConnect}
-    server.EntityData.Leafs["is-private"] = types.YLeaf{"IsPrivate", server.IsPrivate}
-    server.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", server.VrfName}
-    server.EntityData.Leafs["addr-buf"] = types.YLeaf{"AddrBuf", server.AddrBuf}
-    server.EntityData.Leafs["family"] = types.YLeaf{"Family", server.Family}
-    return &(server.EntityData)
 }
 

@@ -67,7 +67,7 @@ module Cisco-IOS-XR-prm-server-oper {
                 description
                   "Queue Stats";
                 leaf index {
-                  type int32;
+                  type uint32;
                   description
                     "Index value";
                 }
@@ -86,7 +86,7 @@ module Cisco-IOS-XR-prm-server-oper {
                 description
                   "Captured packets";
                 leaf index {
-                  type int32;
+                  type uint32;
                   description
                     "Index value";
                 }
@@ -101,7 +101,7 @@ module Cisco-IOS-XR-prm-server-oper {
                 description
                   "Drop Stats";
                 leaf index {
-                  type int32;
+                  type uint32;
                   description
                     "Index value";
                 }
@@ -143,7 +143,7 @@ module Cisco-IOS-XR-prm-server-oper {
                 description
                   "Data for software resource";
                 leaf index {
-                  type int32;
+                  type uint32;
                   description
                     "Index value";
                 }

@@ -48,9 +48,12 @@ func (subscriberAccounting *SubscriberAccounting) GetEntityData() *types.CommonE
     subscriberAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberAccounting.EntityData.Children = make(map[string]types.YChild)
-    subscriberAccounting.EntityData.Children["prepaid-configurations"] = types.YChild{"PrepaidConfigurations", &subscriberAccounting.PrepaidConfigurations}
-    subscriberAccounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriberAccounting.EntityData.Children = types.NewOrderedMap()
+    subscriberAccounting.EntityData.Children.Append("prepaid-configurations", types.YChild{"PrepaidConfigurations", &subscriberAccounting.PrepaidConfigurations})
+    subscriberAccounting.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriberAccounting.EntityData.YListKeys = []string {}
+
     return &(subscriberAccounting.EntityData)
 }
 
@@ -62,7 +65,7 @@ type SubscriberAccounting_PrepaidConfigurations struct {
 
     // Prepaid configuration name or default. The type is slice of
     // SubscriberAccounting_PrepaidConfigurations_PrepaidConfiguration.
-    PrepaidConfiguration []SubscriberAccounting_PrepaidConfigurations_PrepaidConfiguration
+    PrepaidConfiguration []*SubscriberAccounting_PrepaidConfigurations_PrepaidConfiguration
 }
 
 func (prepaidConfigurations *SubscriberAccounting_PrepaidConfigurations) GetEntityData() *types.CommonEntityData {
@@ -75,12 +78,15 @@ func (prepaidConfigurations *SubscriberAccounting_PrepaidConfigurations) GetEnti
     prepaidConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepaidConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prepaidConfigurations.EntityData.Children = make(map[string]types.YChild)
-    prepaidConfigurations.EntityData.Children["prepaid-configuration"] = types.YChild{"PrepaidConfiguration", nil}
+    prepaidConfigurations.EntityData.Children = types.NewOrderedMap()
+    prepaidConfigurations.EntityData.Children.Append("prepaid-configuration", types.YChild{"PrepaidConfiguration", nil})
     for i := range prepaidConfigurations.PrepaidConfiguration {
-        prepaidConfigurations.EntityData.Children[types.GetSegmentPath(&prepaidConfigurations.PrepaidConfiguration[i])] = types.YChild{"PrepaidConfiguration", &prepaidConfigurations.PrepaidConfiguration[i]}
+        prepaidConfigurations.EntityData.Children.Append(types.GetSegmentPath(prepaidConfigurations.PrepaidConfiguration[i]), types.YChild{"PrepaidConfiguration", prepaidConfigurations.PrepaidConfiguration[i]})
     }
-    prepaidConfigurations.EntityData.Leafs = make(map[string]types.YLeaf)
+    prepaidConfigurations.EntityData.Leafs = types.NewOrderedMap()
+
+    prepaidConfigurations.EntityData.YListKeys = []string {}
+
     return &(prepaidConfigurations.EntityData)
 }
 
@@ -131,22 +137,25 @@ func (prepaidConfiguration *SubscriberAccounting_PrepaidConfigurations_PrepaidCo
     prepaidConfiguration.EntityData.YangName = "prepaid-configuration"
     prepaidConfiguration.EntityData.BundleName = "cisco_ios_xr"
     prepaidConfiguration.EntityData.ParentYangName = "prepaid-configurations"
-    prepaidConfiguration.EntityData.SegmentPath = "prepaid-configuration" + "[prepaid-config-name='" + fmt.Sprintf("%v", prepaidConfiguration.PrepaidConfigName) + "']"
+    prepaidConfiguration.EntityData.SegmentPath = "prepaid-configuration" + types.AddKeyToken(prepaidConfiguration.PrepaidConfigName, "prepaid-config-name")
     prepaidConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prepaidConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepaidConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prepaidConfiguration.EntityData.Children = make(map[string]types.YChild)
-    prepaidConfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    prepaidConfiguration.EntityData.Leafs["prepaid-config-name"] = types.YLeaf{"PrepaidConfigName", prepaidConfiguration.PrepaidConfigName}
-    prepaidConfiguration.EntityData.Leafs["password"] = types.YLeaf{"Password", prepaidConfiguration.Password}
-    prepaidConfiguration.EntityData.Leafs["volume-threshold"] = types.YLeaf{"VolumeThreshold", prepaidConfiguration.VolumeThreshold}
-    prepaidConfiguration.EntityData.Leafs["accounting-method-list"] = types.YLeaf{"AccountingMethodList", prepaidConfiguration.AccountingMethodList}
-    prepaidConfiguration.EntityData.Leafs["time-hold"] = types.YLeaf{"TimeHold", prepaidConfiguration.TimeHold}
-    prepaidConfiguration.EntityData.Leafs["author-method-list"] = types.YLeaf{"AuthorMethodList", prepaidConfiguration.AuthorMethodList}
-    prepaidConfiguration.EntityData.Leafs["traffic-direction"] = types.YLeaf{"TrafficDirection", prepaidConfiguration.TrafficDirection}
-    prepaidConfiguration.EntityData.Leafs["time-threshold"] = types.YLeaf{"TimeThreshold", prepaidConfiguration.TimeThreshold}
-    prepaidConfiguration.EntityData.Leafs["time-valid"] = types.YLeaf{"TimeValid", prepaidConfiguration.TimeValid}
+    prepaidConfiguration.EntityData.Children = types.NewOrderedMap()
+    prepaidConfiguration.EntityData.Leafs = types.NewOrderedMap()
+    prepaidConfiguration.EntityData.Leafs.Append("prepaid-config-name", types.YLeaf{"PrepaidConfigName", prepaidConfiguration.PrepaidConfigName})
+    prepaidConfiguration.EntityData.Leafs.Append("password", types.YLeaf{"Password", prepaidConfiguration.Password})
+    prepaidConfiguration.EntityData.Leafs.Append("volume-threshold", types.YLeaf{"VolumeThreshold", prepaidConfiguration.VolumeThreshold})
+    prepaidConfiguration.EntityData.Leafs.Append("accounting-method-list", types.YLeaf{"AccountingMethodList", prepaidConfiguration.AccountingMethodList})
+    prepaidConfiguration.EntityData.Leafs.Append("time-hold", types.YLeaf{"TimeHold", prepaidConfiguration.TimeHold})
+    prepaidConfiguration.EntityData.Leafs.Append("author-method-list", types.YLeaf{"AuthorMethodList", prepaidConfiguration.AuthorMethodList})
+    prepaidConfiguration.EntityData.Leafs.Append("traffic-direction", types.YLeaf{"TrafficDirection", prepaidConfiguration.TrafficDirection})
+    prepaidConfiguration.EntityData.Leafs.Append("time-threshold", types.YLeaf{"TimeThreshold", prepaidConfiguration.TimeThreshold})
+    prepaidConfiguration.EntityData.Leafs.Append("time-valid", types.YLeaf{"TimeValid", prepaidConfiguration.TimeValid})
+
+    prepaidConfiguration.EntityData.YListKeys = []string {"PrepaidConfigName"}
+
     return &(prepaidConfiguration.EntityData)
 }
 

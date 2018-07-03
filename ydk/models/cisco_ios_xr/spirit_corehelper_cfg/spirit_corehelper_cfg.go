@@ -44,9 +44,12 @@ func (exception *Exception) GetEntityData() *types.CommonEntityData {
     exception.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exception.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exception.EntityData.Children = make(map[string]types.YChild)
-    exception.EntityData.Children["file"] = types.YChild{"File", &exception.File}
-    exception.EntityData.Leafs = make(map[string]types.YLeaf)
+    exception.EntityData.Children = types.NewOrderedMap()
+    exception.EntityData.Children.Append("file", types.YChild{"File", &exception.File})
+    exception.EntityData.Leafs = types.NewOrderedMap()
+
+    exception.EntityData.YListKeys = []string {}
+
     return &(exception.EntityData)
 }
 
@@ -76,11 +79,14 @@ func (file *Exception_File) GetEntityData() *types.CommonEntityData {
     file.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     file.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    file.EntityData.Children = make(map[string]types.YChild)
-    file.EntityData.Leafs = make(map[string]types.YLeaf)
-    file.EntityData.Leafs["choice2"] = types.YLeaf{"Choice2", file.Choice2}
-    file.EntityData.Leafs["choice1"] = types.YLeaf{"Choice1", file.Choice1}
-    file.EntityData.Leafs["choice3"] = types.YLeaf{"Choice3", file.Choice3}
+    file.EntityData.Children = types.NewOrderedMap()
+    file.EntityData.Leafs = types.NewOrderedMap()
+    file.EntityData.Leafs.Append("choice2", types.YLeaf{"Choice2", file.Choice2})
+    file.EntityData.Leafs.Append("choice1", types.YLeaf{"Choice1", file.Choice1})
+    file.EntityData.Leafs.Append("choice3", types.YLeaf{"Choice3", file.Choice3})
+
+    file.EntityData.YListKeys = []string {}
+
     return &(file.EntityData)
 }
 

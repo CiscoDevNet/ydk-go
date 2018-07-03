@@ -29,6 +29,10 @@ module Cisco-IOS-XR-controller-optics-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -329,7 +333,7 @@ module Cisco-IOS-XR-controller-optics-cfg {
               "Configure description for this Lane";
           }
           leaf index {
-            type int32;
+            type uint32;
             description
               "Lane Number";
           }

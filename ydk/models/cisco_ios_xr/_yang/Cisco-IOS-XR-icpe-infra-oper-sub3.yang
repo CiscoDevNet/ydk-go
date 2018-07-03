@@ -346,6 +346,25 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub3 {
       "Icpe oper conflict";
   }
 
+  typedef Icpe-oper-reload-level {
+    type enumeration {
+      enum "icpe-oper-reload-level-unknown" {
+        description
+          "Unknown";
+      }
+      enum "icpe-oper-reload-level-system" {
+        description
+          "System";
+      }
+      enum "icpe-oper-reload-level-container" {
+        description
+          "Container";
+      }
+    }
+    description
+      "Icpe oper reload level";
+  }
+
   typedef Icpe-optical-sync-state {
     type enumeration {
       enum "icpe-optical-sync-state-unknown" {
@@ -409,6 +428,10 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub3 {
       enum "icpe-oper-fabric-port-n-v-fabric-ten-gig-e" {
         description
           "n v fabric- ten gig e";
+      }
+      enum "icpe-oper-fabric-port-n-v-fabric-forty-gig-e" {
+        description
+          "n v fabric- forty gig e";
       }
       enum "icpe-oper-fabric-port-n-v-fabric-hundred-gig-e" {
         description
@@ -612,6 +635,26 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub3 {
       description
         "Discovered Links table";
       uses ICPE-OPER-DISCD-LINK-TYPE;
+    }
+  }
+
+  grouping ICPE-OPER-RELOAD-DATA-TYPE {
+    description
+      "ICPE OPER RELOAD DATA TYPE";
+    leaf level {
+      type Icpe-oper-reload-level;
+      description
+        "Level";
+    }
+    leaf time {
+      type uint64;
+      description
+        "Time";
+    }
+    leaf info {
+      type Xr-yang-string;
+      description
+        "Info";
     }
   }
 
@@ -938,6 +981,11 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub3 {
       type Xr-yang-string;
       description
         "Remote version";
+    }
+    list reload-data {
+      description
+        "Reload Information table";
+      uses ICPE-OPER-RELOAD-DATA-TYPE;
     }
     list configured-link {
       description

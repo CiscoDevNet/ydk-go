@@ -26,14 +26,14 @@ type CISCOIETFFRRMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cmplsfrrscalars CISCOIETFFRRMIB_Cmplsfrrscalars
+    CmplsFrrScalars CISCOIETFFRRMIB_CmplsFrrScalars
 
     // This table shows detour setup constraints.
-    Cmplsfrrconsttable CISCOIETFFRRMIB_Cmplsfrrconsttable
+    CmplsFrrConstTable CISCOIETFFRRMIB_CmplsFrrConstTable
 
     // The fast reroute log table records fast reroute events such as protected
     // links going up or down or the FRR feature kicking in.
-    Cmplsfrrlogtable CISCOIETFFRRMIB_Cmplsfrrlogtable
+    CmplsFrrLogTable CISCOIETFFRRMIB_CmplsFrrLogTable
 
     // The mplsFrrFacRouteDBTable provides information about the  fast reroute
     // database.  Each entry belongs to an interface, protecting backup tunnel and
@@ -49,7 +49,7 @@ type CISCOIETFFRRMIB struct {
     // mplsFrrFacRouteProtectedTunInstance, 
     // mplsFrrFacRouteProtectedTunIngressLSRId, and 
     // mplsFrrFacRouteProtectedTunEgressLSRId.
-    Cmplsfrrfacroutedbtable CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable
+    CmplsFrrFacRouteDBTable CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable
 }
 
 func (cISCOIETFFRRMIB *CISCOIETFFRRMIB) GetEntityData() *types.CommonEntityData {
@@ -62,17 +62,20 @@ func (cISCOIETFFRRMIB *CISCOIETFFRRMIB) GetEntityData() *types.CommonEntityData 
     cISCOIETFFRRMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFFRRMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIETFFRRMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIETFFRRMIB.EntityData.Children["cmplsFrrScalars"] = types.YChild{"Cmplsfrrscalars", &cISCOIETFFRRMIB.Cmplsfrrscalars}
-    cISCOIETFFRRMIB.EntityData.Children["cmplsFrrConstTable"] = types.YChild{"Cmplsfrrconsttable", &cISCOIETFFRRMIB.Cmplsfrrconsttable}
-    cISCOIETFFRRMIB.EntityData.Children["cmplsFrrLogTable"] = types.YChild{"Cmplsfrrlogtable", &cISCOIETFFRRMIB.Cmplsfrrlogtable}
-    cISCOIETFFRRMIB.EntityData.Children["cmplsFrrFacRouteDBTable"] = types.YChild{"Cmplsfrrfacroutedbtable", &cISCOIETFFRRMIB.Cmplsfrrfacroutedbtable}
-    cISCOIETFFRRMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIETFFRRMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIETFFRRMIB.EntityData.Children.Append("cmplsFrrScalars", types.YChild{"CmplsFrrScalars", &cISCOIETFFRRMIB.CmplsFrrScalars})
+    cISCOIETFFRRMIB.EntityData.Children.Append("cmplsFrrConstTable", types.YChild{"CmplsFrrConstTable", &cISCOIETFFRRMIB.CmplsFrrConstTable})
+    cISCOIETFFRRMIB.EntityData.Children.Append("cmplsFrrLogTable", types.YChild{"CmplsFrrLogTable", &cISCOIETFFRRMIB.CmplsFrrLogTable})
+    cISCOIETFFRRMIB.EntityData.Children.Append("cmplsFrrFacRouteDBTable", types.YChild{"CmplsFrrFacRouteDBTable", &cISCOIETFFRRMIB.CmplsFrrFacRouteDBTable})
+    cISCOIETFFRRMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIETFFRRMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIETFFRRMIB.EntityData)
 }
 
-// CISCOIETFFRRMIB_Cmplsfrrscalars
-type CISCOIETFFRRMIB_Cmplsfrrscalars struct {
+// CISCOIETFFRRMIB_CmplsFrrScalars
+type CISCOIETFFRRMIB_CmplsFrrScalars struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -80,69 +83,69 @@ type CISCOIETFFRRMIB_Cmplsfrrscalars struct {
     // mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or or 0 if
     // mplsFrrConstProtectionMethod is set to facilityBackup(1). The type is
     // interface{} with range: 0..4294967295.
-    Cmplsfrrdetourincoming interface{}
+    CmplsFrrDetourIncoming interface{}
 
     // The number of detour LSPs leaving the device if
     // mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or 0 if
     // mplsFrrConstProtectionMethod is set to  to facilityBackup(1). The type is
     // interface{} with range: 0..4294967295.
-    Cmplsfrrdetouroutgoing interface{}
+    CmplsFrrDetourOutgoing interface{}
 
     // The number of detour LSPs originating at this PLR if
     // mplsFrrConstProtectionMethod is set to oneToOneBackup(0). This object MUST
     // return 0 if the mplsFrrConstProtectionMethod  is set to facilityBackup(1).
     // The type is interface{} with range: 0..4294967295.
-    Cmplsfrrdetouroriginating interface{}
+    CmplsFrrDetourOriginating interface{}
 
     // The number of tunnel instances that are switched over to their
     // corresponding detour LSP if mplsFrrConstProtectionMethod is set to
     // oneToOneBackup(0), or tunnels being switched over if
     // mplsFrrConstProtectionMethod is set to facilityBackup(1). The type is
     // interface{} with range: 0..4294967295.
-    Cmplsfrrswitchover interface{}
+    CmplsFrrSwitchover interface{}
 
     // Indicates the number of MPLS interfaces configured for  protection by the
     // FRR feature, otherwise this value MUST return 0 to indicate that LSPs
     // traversing any  interface may be protected. The type is interface{} with
     // range: 0..4294967295.
-    Cmplsfrrnumofconfifs interface{}
+    CmplsFrrNumOfConfIfs interface{}
 
     // Indicates the number of interfaces currently being protected  by the FRR
     // feature if mplsFrrConstProtectionMethod is set to facilityBackup(1),
     // otherwise this value should return 0 to indicate that LSPs traversing any
     // interface may be protected. This value MUST be less than or equal to
     // mplsFrrConfIfs. The type is interface{} with range: 0..4294967295.
-    Cmplsfrractprotectedifs interface{}
+    CmplsFrrActProtectedIfs interface{}
 
     // Indicates the number of bypass tunnels configured to  protect facilities on
     // this LSR using the FRR feature  if mplsFrrConstProtectionMethod is set to 
     // facilityBackup(1), otherwise this value MUST return  0. The type is
     // interface{} with range: 0..4294967295.
-    Cmplsfrrconfprotectingtuns interface{}
+    CmplsFrrConfProtectingTuns interface{}
 
     // Indicates the number of bypass tunnels indicated in
     // mplsFrrConfProtectingTuns whose operStatus is up(1) indicating that they
     // are currently protecting facilities on this LSR using the FRR feature. This
     // object MUST return 0 if mplsFrrConstProtectionMethod  is set to
     // facilityBackup(1). The type is interface{} with range: 0..4294967295.
-    Cmplsfrractprotectedtuns interface{}
+    CmplsFrrActProtectedTuns interface{}
 
     // Indicates the number of LSPs currently protected by  the FRR feature. If
     // mplsFrrConstProtectionMethod is set  to facilityBackup(1)this object MUST
     // return 0. The type is interface{} with range: 0..4294967295.
-    Cmplsfrractprotectedlsps interface{}
+    CmplsFrrActProtectedLSPs interface{}
 
     // Indicates which protection method is to be used for fast reroute. Some
     // devices may require a reboot of their routing processors if this variable
     // is changed. An agent which does not wish to reboot or modify its FRR mode 
     // MUST return an inconsistentValue error. Please  consult the device's agent
     // capability statement  for more details. The type is
-    // Cmplsfrrconstprotectionmethod.
-    Cmplsfrrconstprotectionmethod interface{}
+    // CmplsFrrConstProtectionMethod.
+    CmplsFrrConstProtectionMethod interface{}
 
     // Enables or disables FRR notifications defined in this MIB module.
     // Notifications are disabled by default. The type is bool.
-    Cmplsfrrnotifsenabled interface{}
+    CmplsFrrNotifsEnabled interface{}
 
     // Indicates the maximum number of entries allowed in the FRR Log table.
     // Agents receiving SETs for values that cannot be used must return an
@@ -157,11 +160,11 @@ type CISCOIETFFRRMIB_Cmplsfrrscalars struct {
     // table,  although existing ones may remain.  Furthermore, an agent may begin
     // to delete existing (perhaps the oldest entries) entries to make room for
     // new ones. The type is interface{} with range: 0..4294967295.
-    Cmplsfrrlogtablemaxentries interface{}
+    CmplsFrrLogTableMaxEntries interface{}
 
     // Indicates the current number of entries in the FRR log table. The type is
     // interface{} with range: 0..4294967295.
-    Cmplsfrrlogtablecurrentries interface{}
+    CmplsFrrLogTableCurrEntries interface{}
 
     // This variable indicates the number of milliseconds that must elapse between
     // notification emissions. If events occur more rapidly, the implementation
@@ -169,50 +172,53 @@ type CISCOIETFFRRMIB_Cmplsfrrscalars struct {
     // queue them until an appropriate time in the future. A value of 0 means no
     // minimum  elapsed period is specified. The type is interface{} with range:
     // 0..4294967295.
-    Cmplsfrrnotifmaxrate interface{}
+    CmplsFrrNotifMaxRate interface{}
 }
 
-func (cmplsfrrscalars *CISCOIETFFRRMIB_Cmplsfrrscalars) GetEntityData() *types.CommonEntityData {
-    cmplsfrrscalars.EntityData.YFilter = cmplsfrrscalars.YFilter
-    cmplsfrrscalars.EntityData.YangName = "cmplsFrrScalars"
-    cmplsfrrscalars.EntityData.BundleName = "cisco_ios_xe"
-    cmplsfrrscalars.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
-    cmplsfrrscalars.EntityData.SegmentPath = "cmplsFrrScalars"
-    cmplsfrrscalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsfrrscalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsfrrscalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsFrrScalars *CISCOIETFFRRMIB_CmplsFrrScalars) GetEntityData() *types.CommonEntityData {
+    cmplsFrrScalars.EntityData.YFilter = cmplsFrrScalars.YFilter
+    cmplsFrrScalars.EntityData.YangName = "cmplsFrrScalars"
+    cmplsFrrScalars.EntityData.BundleName = "cisco_ios_xe"
+    cmplsFrrScalars.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
+    cmplsFrrScalars.EntityData.SegmentPath = "cmplsFrrScalars"
+    cmplsFrrScalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsFrrScalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsFrrScalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsfrrscalars.EntityData.Children = make(map[string]types.YChild)
-    cmplsfrrscalars.EntityData.Leafs = make(map[string]types.YLeaf)
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrDetourIncoming"] = types.YLeaf{"Cmplsfrrdetourincoming", cmplsfrrscalars.Cmplsfrrdetourincoming}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrDetourOutgoing"] = types.YLeaf{"Cmplsfrrdetouroutgoing", cmplsfrrscalars.Cmplsfrrdetouroutgoing}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrDetourOriginating"] = types.YLeaf{"Cmplsfrrdetouroriginating", cmplsfrrscalars.Cmplsfrrdetouroriginating}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrSwitchover"] = types.YLeaf{"Cmplsfrrswitchover", cmplsfrrscalars.Cmplsfrrswitchover}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrNumOfConfIfs"] = types.YLeaf{"Cmplsfrrnumofconfifs", cmplsfrrscalars.Cmplsfrrnumofconfifs}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrActProtectedIfs"] = types.YLeaf{"Cmplsfrractprotectedifs", cmplsfrrscalars.Cmplsfrractprotectedifs}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrConfProtectingTuns"] = types.YLeaf{"Cmplsfrrconfprotectingtuns", cmplsfrrscalars.Cmplsfrrconfprotectingtuns}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrActProtectedTuns"] = types.YLeaf{"Cmplsfrractprotectedtuns", cmplsfrrscalars.Cmplsfrractprotectedtuns}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrActProtectedLSPs"] = types.YLeaf{"Cmplsfrractprotectedlsps", cmplsfrrscalars.Cmplsfrractprotectedlsps}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrConstProtectionMethod"] = types.YLeaf{"Cmplsfrrconstprotectionmethod", cmplsfrrscalars.Cmplsfrrconstprotectionmethod}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrNotifsEnabled"] = types.YLeaf{"Cmplsfrrnotifsenabled", cmplsfrrscalars.Cmplsfrrnotifsenabled}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrLogTableMaxEntries"] = types.YLeaf{"Cmplsfrrlogtablemaxentries", cmplsfrrscalars.Cmplsfrrlogtablemaxentries}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrLogTableCurrEntries"] = types.YLeaf{"Cmplsfrrlogtablecurrentries", cmplsfrrscalars.Cmplsfrrlogtablecurrentries}
-    cmplsfrrscalars.EntityData.Leafs["cmplsFrrNotifMaxRate"] = types.YLeaf{"Cmplsfrrnotifmaxrate", cmplsfrrscalars.Cmplsfrrnotifmaxrate}
-    return &(cmplsfrrscalars.EntityData)
+    cmplsFrrScalars.EntityData.Children = types.NewOrderedMap()
+    cmplsFrrScalars.EntityData.Leafs = types.NewOrderedMap()
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrDetourIncoming", types.YLeaf{"CmplsFrrDetourIncoming", cmplsFrrScalars.CmplsFrrDetourIncoming})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrDetourOutgoing", types.YLeaf{"CmplsFrrDetourOutgoing", cmplsFrrScalars.CmplsFrrDetourOutgoing})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrDetourOriginating", types.YLeaf{"CmplsFrrDetourOriginating", cmplsFrrScalars.CmplsFrrDetourOriginating})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrSwitchover", types.YLeaf{"CmplsFrrSwitchover", cmplsFrrScalars.CmplsFrrSwitchover})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrNumOfConfIfs", types.YLeaf{"CmplsFrrNumOfConfIfs", cmplsFrrScalars.CmplsFrrNumOfConfIfs})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrActProtectedIfs", types.YLeaf{"CmplsFrrActProtectedIfs", cmplsFrrScalars.CmplsFrrActProtectedIfs})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrConfProtectingTuns", types.YLeaf{"CmplsFrrConfProtectingTuns", cmplsFrrScalars.CmplsFrrConfProtectingTuns})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrActProtectedTuns", types.YLeaf{"CmplsFrrActProtectedTuns", cmplsFrrScalars.CmplsFrrActProtectedTuns})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrActProtectedLSPs", types.YLeaf{"CmplsFrrActProtectedLSPs", cmplsFrrScalars.CmplsFrrActProtectedLSPs})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrConstProtectionMethod", types.YLeaf{"CmplsFrrConstProtectionMethod", cmplsFrrScalars.CmplsFrrConstProtectionMethod})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrNotifsEnabled", types.YLeaf{"CmplsFrrNotifsEnabled", cmplsFrrScalars.CmplsFrrNotifsEnabled})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrLogTableMaxEntries", types.YLeaf{"CmplsFrrLogTableMaxEntries", cmplsFrrScalars.CmplsFrrLogTableMaxEntries})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrLogTableCurrEntries", types.YLeaf{"CmplsFrrLogTableCurrEntries", cmplsFrrScalars.CmplsFrrLogTableCurrEntries})
+    cmplsFrrScalars.EntityData.Leafs.Append("cmplsFrrNotifMaxRate", types.YLeaf{"CmplsFrrNotifMaxRate", cmplsFrrScalars.CmplsFrrNotifMaxRate})
+
+    cmplsFrrScalars.EntityData.YListKeys = []string {}
+
+    return &(cmplsFrrScalars.EntityData)
 }
 
-// CISCOIETFFRRMIB_Cmplsfrrscalars_Cmplsfrrconstprotectionmethod represents for more details.
-type CISCOIETFFRRMIB_Cmplsfrrscalars_Cmplsfrrconstprotectionmethod string
+// CISCOIETFFRRMIB_CmplsFrrScalars_CmplsFrrConstProtectionMethod represents for more details.
+type CISCOIETFFRRMIB_CmplsFrrScalars_CmplsFrrConstProtectionMethod string
 
 const (
-    CISCOIETFFRRMIB_Cmplsfrrscalars_Cmplsfrrconstprotectionmethod_oneToOneBackup CISCOIETFFRRMIB_Cmplsfrrscalars_Cmplsfrrconstprotectionmethod = "oneToOneBackup"
+    CISCOIETFFRRMIB_CmplsFrrScalars_CmplsFrrConstProtectionMethod_oneToOneBackup CISCOIETFFRRMIB_CmplsFrrScalars_CmplsFrrConstProtectionMethod = "oneToOneBackup"
 
-    CISCOIETFFRRMIB_Cmplsfrrscalars_Cmplsfrrconstprotectionmethod_facilityBackup CISCOIETFFRRMIB_Cmplsfrrscalars_Cmplsfrrconstprotectionmethod = "facilityBackup"
+    CISCOIETFFRRMIB_CmplsFrrScalars_CmplsFrrConstProtectionMethod_facilityBackup CISCOIETFFRRMIB_CmplsFrrScalars_CmplsFrrConstProtectionMethod = "facilityBackup"
 )
 
-// CISCOIETFFRRMIB_Cmplsfrrconsttable
+// CISCOIETFFRRMIB_CmplsFrrConstTable
 // This table shows detour setup constraints.
-type CISCOIETFFRRMIB_Cmplsfrrconsttable struct {
+type CISCOIETFFRRMIB_CmplsFrrConstTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -222,30 +228,33 @@ type CISCOIETFFRRMIB_Cmplsfrrconsttable struct {
     // tunnel instances that require fast-reroute. Entries indexed with
     // mplsFrrConstIfIndex set to 0 apply to all interfaces on this device for
     // which the FRR feature can operate on. The type is slice of
-    // CISCOIETFFRRMIB_Cmplsfrrconsttable_Cmplsfrrconstentry.
-    Cmplsfrrconstentry []CISCOIETFFRRMIB_Cmplsfrrconsttable_Cmplsfrrconstentry
+    // CISCOIETFFRRMIB_CmplsFrrConstTable_CmplsFrrConstEntry.
+    CmplsFrrConstEntry []*CISCOIETFFRRMIB_CmplsFrrConstTable_CmplsFrrConstEntry
 }
 
-func (cmplsfrrconsttable *CISCOIETFFRRMIB_Cmplsfrrconsttable) GetEntityData() *types.CommonEntityData {
-    cmplsfrrconsttable.EntityData.YFilter = cmplsfrrconsttable.YFilter
-    cmplsfrrconsttable.EntityData.YangName = "cmplsFrrConstTable"
-    cmplsfrrconsttable.EntityData.BundleName = "cisco_ios_xe"
-    cmplsfrrconsttable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
-    cmplsfrrconsttable.EntityData.SegmentPath = "cmplsFrrConstTable"
-    cmplsfrrconsttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsfrrconsttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsfrrconsttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsFrrConstTable *CISCOIETFFRRMIB_CmplsFrrConstTable) GetEntityData() *types.CommonEntityData {
+    cmplsFrrConstTable.EntityData.YFilter = cmplsFrrConstTable.YFilter
+    cmplsFrrConstTable.EntityData.YangName = "cmplsFrrConstTable"
+    cmplsFrrConstTable.EntityData.BundleName = "cisco_ios_xe"
+    cmplsFrrConstTable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
+    cmplsFrrConstTable.EntityData.SegmentPath = "cmplsFrrConstTable"
+    cmplsFrrConstTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsFrrConstTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsFrrConstTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsfrrconsttable.EntityData.Children = make(map[string]types.YChild)
-    cmplsfrrconsttable.EntityData.Children["cmplsFrrConstEntry"] = types.YChild{"Cmplsfrrconstentry", nil}
-    for i := range cmplsfrrconsttable.Cmplsfrrconstentry {
-        cmplsfrrconsttable.EntityData.Children[types.GetSegmentPath(&cmplsfrrconsttable.Cmplsfrrconstentry[i])] = types.YChild{"Cmplsfrrconstentry", &cmplsfrrconsttable.Cmplsfrrconstentry[i]}
+    cmplsFrrConstTable.EntityData.Children = types.NewOrderedMap()
+    cmplsFrrConstTable.EntityData.Children.Append("cmplsFrrConstEntry", types.YChild{"CmplsFrrConstEntry", nil})
+    for i := range cmplsFrrConstTable.CmplsFrrConstEntry {
+        cmplsFrrConstTable.EntityData.Children.Append(types.GetSegmentPath(cmplsFrrConstTable.CmplsFrrConstEntry[i]), types.YChild{"CmplsFrrConstEntry", cmplsFrrConstTable.CmplsFrrConstEntry[i]})
     }
-    cmplsfrrconsttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cmplsfrrconsttable.EntityData)
+    cmplsFrrConstTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cmplsFrrConstTable.EntityData.YListKeys = []string {}
+
+    return &(cmplsFrrConstTable.EntityData)
 }
 
-// CISCOIETFFRRMIB_Cmplsfrrconsttable_Cmplsfrrconstentry
+// CISCOIETFFRRMIB_CmplsFrrConstTable_CmplsFrrConstEntry
 // An entry in this table represents detour LSP or bypass tunnel 
 // setup constraints for a tunnel instance to be protected by 
 // detour LSPs or a tunnel. Agents must allow entries in this table 
@@ -253,7 +262,7 @@ func (cmplsfrrconsttable *CISCOIETFFRRMIB_Cmplsfrrconsttable) GetEntityData() *t
 // Entries indexed with mplsFrrConstIfIndex set to 0 apply to all
 // interfaces on this device for which the FRR feature can operate
 // on.
-type CISCOIETFFRRMIB_Cmplsfrrconsttable_Cmplsfrrconstentry struct {
+type CISCOIETFFRRMIB_CmplsFrrConstTable_CmplsFrrConstEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -261,95 +270,98 @@ type CISCOIETFFRRMIB_Cmplsfrrconsttable_Cmplsfrrconstentry struct {
     // reroute is configured. Tabular entries indexed with a 0 value apply to all
     // interfaces on this device for which the FRR feature can operate on. The
     // type is interface{} with range: 0..2147483647.
-    Cmplsfrrconstifindex interface{}
+    CmplsFrrConstIfIndex interface{}
 
     // This attribute is a key. Uniquely identifies a tunnel for which fast
     // reroute is requested. The type is interface{} with range: 0..65535.
-    Cmplsfrrconsttunnelindex interface{}
+    CmplsFrrConstTunnelIndex interface{}
 
     // This attribute is a key. Uniquely identifies an instance of this tunnel for
     // which fast reroute is requested. The type is interface{} with range:
     // 0..4294967295.
-    Cmplsfrrconsttunnelinstance interface{}
+    CmplsFrrConstTunnelInstance interface{}
 
     // Indicates the setup priority of detour LSP. The type is interface{} with
     // range: 0..7.
-    Cmplsfrrconstsetupprio interface{}
+    CmplsFrrConstSetupPrio interface{}
 
     // Indicates the holding priority for detour LSP. The type is interface{} with
     // range: 0..7.
-    Cmplsfrrconstholdingprio interface{}
+    CmplsFrrConstHoldingPrio interface{}
 
     // A link satisfies the include-any constraint if and only if the constraint
     // is zero, or the link and the constraint have a resource class in common.
     // The type is interface{} with range: 0..4294967295.
-    Cmplsfrrconstinclanyaffinity interface{}
+    CmplsFrrConstInclAnyAffinity interface{}
 
     // A link satisfies the include-all constraint if and only if the link
     // contains all of the administrative groups specified in the constraint. The
     // type is interface{} with range: 0..4294967295.
-    Cmplsfrrconstinclallaffinity interface{}
+    CmplsFrrConstInclAllAffinity interface{}
 
     // A link satisfies the exclude-all constraint if and only if the link
     // contains none of the administrative groups specified in the constraint. The
     // type is interface{} with range: 0..4294967295.
-    Cmplsfrrconstexclallaffinity interface{}
+    CmplsFrrConstExclAllAffinity interface{}
 
     // The maximum number of hops that the detour LSP may traverse. The type is
     // interface{} with range: 1..65535.
-    Cmplsfrrconsthoplimit interface{}
+    CmplsFrrConstHopLimit interface{}
 
     // This variable represents the bandwidth for detour LSPs of this tunnel, in
     // units of thousands of bits per second (Kbps). The type is interface{} with
     // range: 0..4294967295.
-    Cmplsfrrconstbandwidth interface{}
+    CmplsFrrConstBandwidth interface{}
 
     // This object is used to create, modify, and/or delete a row in this table.
     // The type is RowStatus.
-    Cmplsfrrconstrowstatus interface{}
+    CmplsFrrConstRowStatus interface{}
 
     // The number of backup tunnels protecting the specified interface. The type
     // is interface{} with range: 0..4294967295.
-    Cmplsfrrconstnumprotectingtunonif interface{}
+    CmplsFrrConstNumProtectingTunOnIf interface{}
 
     // The number of tunnels protected on this interface. The type is interface{}
     // with range: 0..4294967295.
-    Cmplsfrrconstnumprotectedtunonif interface{}
+    CmplsFrrConstNumProtectedTunOnIf interface{}
 }
 
-func (cmplsfrrconstentry *CISCOIETFFRRMIB_Cmplsfrrconsttable_Cmplsfrrconstentry) GetEntityData() *types.CommonEntityData {
-    cmplsfrrconstentry.EntityData.YFilter = cmplsfrrconstentry.YFilter
-    cmplsfrrconstentry.EntityData.YangName = "cmplsFrrConstEntry"
-    cmplsfrrconstentry.EntityData.BundleName = "cisco_ios_xe"
-    cmplsfrrconstentry.EntityData.ParentYangName = "cmplsFrrConstTable"
-    cmplsfrrconstentry.EntityData.SegmentPath = "cmplsFrrConstEntry" + "[cmplsFrrConstIfIndex='" + fmt.Sprintf("%v", cmplsfrrconstentry.Cmplsfrrconstifindex) + "']" + "[cmplsFrrConstTunnelIndex='" + fmt.Sprintf("%v", cmplsfrrconstentry.Cmplsfrrconsttunnelindex) + "']" + "[cmplsFrrConstTunnelInstance='" + fmt.Sprintf("%v", cmplsfrrconstentry.Cmplsfrrconsttunnelinstance) + "']"
-    cmplsfrrconstentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsfrrconstentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsfrrconstentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsFrrConstEntry *CISCOIETFFRRMIB_CmplsFrrConstTable_CmplsFrrConstEntry) GetEntityData() *types.CommonEntityData {
+    cmplsFrrConstEntry.EntityData.YFilter = cmplsFrrConstEntry.YFilter
+    cmplsFrrConstEntry.EntityData.YangName = "cmplsFrrConstEntry"
+    cmplsFrrConstEntry.EntityData.BundleName = "cisco_ios_xe"
+    cmplsFrrConstEntry.EntityData.ParentYangName = "cmplsFrrConstTable"
+    cmplsFrrConstEntry.EntityData.SegmentPath = "cmplsFrrConstEntry" + types.AddKeyToken(cmplsFrrConstEntry.CmplsFrrConstIfIndex, "cmplsFrrConstIfIndex") + types.AddKeyToken(cmplsFrrConstEntry.CmplsFrrConstTunnelIndex, "cmplsFrrConstTunnelIndex") + types.AddKeyToken(cmplsFrrConstEntry.CmplsFrrConstTunnelInstance, "cmplsFrrConstTunnelInstance")
+    cmplsFrrConstEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsFrrConstEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsFrrConstEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsfrrconstentry.EntityData.Children = make(map[string]types.YChild)
-    cmplsfrrconstentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstIfIndex"] = types.YLeaf{"Cmplsfrrconstifindex", cmplsfrrconstentry.Cmplsfrrconstifindex}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstTunnelIndex"] = types.YLeaf{"Cmplsfrrconsttunnelindex", cmplsfrrconstentry.Cmplsfrrconsttunnelindex}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstTunnelInstance"] = types.YLeaf{"Cmplsfrrconsttunnelinstance", cmplsfrrconstentry.Cmplsfrrconsttunnelinstance}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstSetupPrio"] = types.YLeaf{"Cmplsfrrconstsetupprio", cmplsfrrconstentry.Cmplsfrrconstsetupprio}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstHoldingPrio"] = types.YLeaf{"Cmplsfrrconstholdingprio", cmplsfrrconstentry.Cmplsfrrconstholdingprio}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstInclAnyAffinity"] = types.YLeaf{"Cmplsfrrconstinclanyaffinity", cmplsfrrconstentry.Cmplsfrrconstinclanyaffinity}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstInclAllAffinity"] = types.YLeaf{"Cmplsfrrconstinclallaffinity", cmplsfrrconstentry.Cmplsfrrconstinclallaffinity}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstExclAllAffinity"] = types.YLeaf{"Cmplsfrrconstexclallaffinity", cmplsfrrconstentry.Cmplsfrrconstexclallaffinity}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstHopLimit"] = types.YLeaf{"Cmplsfrrconsthoplimit", cmplsfrrconstentry.Cmplsfrrconsthoplimit}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstBandwidth"] = types.YLeaf{"Cmplsfrrconstbandwidth", cmplsfrrconstentry.Cmplsfrrconstbandwidth}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstRowStatus"] = types.YLeaf{"Cmplsfrrconstrowstatus", cmplsfrrconstentry.Cmplsfrrconstrowstatus}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstNumProtectingTunOnIf"] = types.YLeaf{"Cmplsfrrconstnumprotectingtunonif", cmplsfrrconstentry.Cmplsfrrconstnumprotectingtunonif}
-    cmplsfrrconstentry.EntityData.Leafs["cmplsFrrConstNumProtectedTunOnIf"] = types.YLeaf{"Cmplsfrrconstnumprotectedtunonif", cmplsfrrconstentry.Cmplsfrrconstnumprotectedtunonif}
-    return &(cmplsfrrconstentry.EntityData)
+    cmplsFrrConstEntry.EntityData.Children = types.NewOrderedMap()
+    cmplsFrrConstEntry.EntityData.Leafs = types.NewOrderedMap()
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstIfIndex", types.YLeaf{"CmplsFrrConstIfIndex", cmplsFrrConstEntry.CmplsFrrConstIfIndex})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstTunnelIndex", types.YLeaf{"CmplsFrrConstTunnelIndex", cmplsFrrConstEntry.CmplsFrrConstTunnelIndex})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstTunnelInstance", types.YLeaf{"CmplsFrrConstTunnelInstance", cmplsFrrConstEntry.CmplsFrrConstTunnelInstance})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstSetupPrio", types.YLeaf{"CmplsFrrConstSetupPrio", cmplsFrrConstEntry.CmplsFrrConstSetupPrio})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstHoldingPrio", types.YLeaf{"CmplsFrrConstHoldingPrio", cmplsFrrConstEntry.CmplsFrrConstHoldingPrio})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstInclAnyAffinity", types.YLeaf{"CmplsFrrConstInclAnyAffinity", cmplsFrrConstEntry.CmplsFrrConstInclAnyAffinity})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstInclAllAffinity", types.YLeaf{"CmplsFrrConstInclAllAffinity", cmplsFrrConstEntry.CmplsFrrConstInclAllAffinity})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstExclAllAffinity", types.YLeaf{"CmplsFrrConstExclAllAffinity", cmplsFrrConstEntry.CmplsFrrConstExclAllAffinity})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstHopLimit", types.YLeaf{"CmplsFrrConstHopLimit", cmplsFrrConstEntry.CmplsFrrConstHopLimit})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstBandwidth", types.YLeaf{"CmplsFrrConstBandwidth", cmplsFrrConstEntry.CmplsFrrConstBandwidth})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstRowStatus", types.YLeaf{"CmplsFrrConstRowStatus", cmplsFrrConstEntry.CmplsFrrConstRowStatus})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstNumProtectingTunOnIf", types.YLeaf{"CmplsFrrConstNumProtectingTunOnIf", cmplsFrrConstEntry.CmplsFrrConstNumProtectingTunOnIf})
+    cmplsFrrConstEntry.EntityData.Leafs.Append("cmplsFrrConstNumProtectedTunOnIf", types.YLeaf{"CmplsFrrConstNumProtectedTunOnIf", cmplsFrrConstEntry.CmplsFrrConstNumProtectedTunOnIf})
+
+    cmplsFrrConstEntry.EntityData.YListKeys = []string {"CmplsFrrConstIfIndex", "CmplsFrrConstTunnelIndex", "CmplsFrrConstTunnelInstance"}
+
+    return &(cmplsFrrConstEntry.EntityData)
 }
 
-// CISCOIETFFRRMIB_Cmplsfrrlogtable
+// CISCOIETFFRRMIB_CmplsFrrLogTable
 // The fast reroute log table records fast reroute events such
 // as protected links going up or down or the FRR feature
 // kicking in.
-type CISCOIETFFRRMIB_Cmplsfrrlogtable struct {
+type CISCOIETFFRRMIB_CmplsFrrLogTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -357,95 +369,101 @@ type CISCOIETFFRRMIB_Cmplsfrrlogtable struct {
     // Entries in this table are only created and destroyed by the agent
     // implementation. The maximum number  of entries in this log is governed by
     // the scalar. The type is slice of
-    // CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry.
-    Cmplsfrrlogentry []CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry
+    // CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry.
+    CmplsFrrLogEntry []*CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry
 }
 
-func (cmplsfrrlogtable *CISCOIETFFRRMIB_Cmplsfrrlogtable) GetEntityData() *types.CommonEntityData {
-    cmplsfrrlogtable.EntityData.YFilter = cmplsfrrlogtable.YFilter
-    cmplsfrrlogtable.EntityData.YangName = "cmplsFrrLogTable"
-    cmplsfrrlogtable.EntityData.BundleName = "cisco_ios_xe"
-    cmplsfrrlogtable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
-    cmplsfrrlogtable.EntityData.SegmentPath = "cmplsFrrLogTable"
-    cmplsfrrlogtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsfrrlogtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsfrrlogtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsFrrLogTable *CISCOIETFFRRMIB_CmplsFrrLogTable) GetEntityData() *types.CommonEntityData {
+    cmplsFrrLogTable.EntityData.YFilter = cmplsFrrLogTable.YFilter
+    cmplsFrrLogTable.EntityData.YangName = "cmplsFrrLogTable"
+    cmplsFrrLogTable.EntityData.BundleName = "cisco_ios_xe"
+    cmplsFrrLogTable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
+    cmplsFrrLogTable.EntityData.SegmentPath = "cmplsFrrLogTable"
+    cmplsFrrLogTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsFrrLogTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsFrrLogTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsfrrlogtable.EntityData.Children = make(map[string]types.YChild)
-    cmplsfrrlogtable.EntityData.Children["cmplsFrrLogEntry"] = types.YChild{"Cmplsfrrlogentry", nil}
-    for i := range cmplsfrrlogtable.Cmplsfrrlogentry {
-        cmplsfrrlogtable.EntityData.Children[types.GetSegmentPath(&cmplsfrrlogtable.Cmplsfrrlogentry[i])] = types.YChild{"Cmplsfrrlogentry", &cmplsfrrlogtable.Cmplsfrrlogentry[i]}
+    cmplsFrrLogTable.EntityData.Children = types.NewOrderedMap()
+    cmplsFrrLogTable.EntityData.Children.Append("cmplsFrrLogEntry", types.YChild{"CmplsFrrLogEntry", nil})
+    for i := range cmplsFrrLogTable.CmplsFrrLogEntry {
+        cmplsFrrLogTable.EntityData.Children.Append(types.GetSegmentPath(cmplsFrrLogTable.CmplsFrrLogEntry[i]), types.YChild{"CmplsFrrLogEntry", cmplsFrrLogTable.CmplsFrrLogEntry[i]})
     }
-    cmplsfrrlogtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cmplsfrrlogtable.EntityData)
+    cmplsFrrLogTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cmplsFrrLogTable.EntityData.YListKeys = []string {}
+
+    return &(cmplsFrrLogTable.EntityData)
 }
 
-// CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry
+// CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry
 // An entry in this table is created to describe one fast
 // reroute event.  Entries in this table are only created and
 // destroyed by the agent implementation. The maximum number 
 // of entries in this log is governed by the scalar.
-type CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry struct {
+type CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies a fast reroute event entry.
     // The type is interface{} with range: 0..4294967295.
-    Cmplsfrrlogindex interface{}
+    CmplsFrrLogIndex interface{}
 
     // This object provides the amount of time ticks since this event occured. The
     // type is interface{} with range: 0..4294967295.
-    Cmplsfrrlogeventtime interface{}
+    CmplsFrrLogEventTime interface{}
 
     // This object indicates which interface was affected by this FRR event. This
     // value may be set to 0 if mplsFrrConstProtectionMethod is set to
     // oneToOneBackup(0). The type is interface{} with range: 0..2147483647.
-    Cmplsfrrloginterface interface{}
+    CmplsFrrLogInterface interface{}
 
     // This object describes what type of fast reroute event occured. The type is
-    // Cmplsfrrlogeventtype.
-    Cmplsfrrlogeventtype interface{}
+    // CmplsFrrLogEventType.
+    CmplsFrrLogEventType interface{}
 
     // This object describes the duration of this event. The type is interface{}
     // with range: 0..4294967295.
-    Cmplsfrrlogeventduration interface{}
+    CmplsFrrLogEventDuration interface{}
 
     // This object contains an implementation-specific explanation of the event.
     // The type is string with length: 128.
-    Cmplsfrrlogeventreasonstring interface{}
+    CmplsFrrLogEventReasonString interface{}
 }
 
-func (cmplsfrrlogentry *CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry) GetEntityData() *types.CommonEntityData {
-    cmplsfrrlogentry.EntityData.YFilter = cmplsfrrlogentry.YFilter
-    cmplsfrrlogentry.EntityData.YangName = "cmplsFrrLogEntry"
-    cmplsfrrlogentry.EntityData.BundleName = "cisco_ios_xe"
-    cmplsfrrlogentry.EntityData.ParentYangName = "cmplsFrrLogTable"
-    cmplsfrrlogentry.EntityData.SegmentPath = "cmplsFrrLogEntry" + "[cmplsFrrLogIndex='" + fmt.Sprintf("%v", cmplsfrrlogentry.Cmplsfrrlogindex) + "']"
-    cmplsfrrlogentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsfrrlogentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsfrrlogentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsFrrLogEntry *CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry) GetEntityData() *types.CommonEntityData {
+    cmplsFrrLogEntry.EntityData.YFilter = cmplsFrrLogEntry.YFilter
+    cmplsFrrLogEntry.EntityData.YangName = "cmplsFrrLogEntry"
+    cmplsFrrLogEntry.EntityData.BundleName = "cisco_ios_xe"
+    cmplsFrrLogEntry.EntityData.ParentYangName = "cmplsFrrLogTable"
+    cmplsFrrLogEntry.EntityData.SegmentPath = "cmplsFrrLogEntry" + types.AddKeyToken(cmplsFrrLogEntry.CmplsFrrLogIndex, "cmplsFrrLogIndex")
+    cmplsFrrLogEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsFrrLogEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsFrrLogEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsfrrlogentry.EntityData.Children = make(map[string]types.YChild)
-    cmplsfrrlogentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cmplsfrrlogentry.EntityData.Leafs["cmplsFrrLogIndex"] = types.YLeaf{"Cmplsfrrlogindex", cmplsfrrlogentry.Cmplsfrrlogindex}
-    cmplsfrrlogentry.EntityData.Leafs["cmplsFrrLogEventTime"] = types.YLeaf{"Cmplsfrrlogeventtime", cmplsfrrlogentry.Cmplsfrrlogeventtime}
-    cmplsfrrlogentry.EntityData.Leafs["cmplsFrrLogInterface"] = types.YLeaf{"Cmplsfrrloginterface", cmplsfrrlogentry.Cmplsfrrloginterface}
-    cmplsfrrlogentry.EntityData.Leafs["cmplsFrrLogEventType"] = types.YLeaf{"Cmplsfrrlogeventtype", cmplsfrrlogentry.Cmplsfrrlogeventtype}
-    cmplsfrrlogentry.EntityData.Leafs["cmplsFrrLogEventDuration"] = types.YLeaf{"Cmplsfrrlogeventduration", cmplsfrrlogentry.Cmplsfrrlogeventduration}
-    cmplsfrrlogentry.EntityData.Leafs["cmplsFrrLogEventReasonString"] = types.YLeaf{"Cmplsfrrlogeventreasonstring", cmplsfrrlogentry.Cmplsfrrlogeventreasonstring}
-    return &(cmplsfrrlogentry.EntityData)
+    cmplsFrrLogEntry.EntityData.Children = types.NewOrderedMap()
+    cmplsFrrLogEntry.EntityData.Leafs = types.NewOrderedMap()
+    cmplsFrrLogEntry.EntityData.Leafs.Append("cmplsFrrLogIndex", types.YLeaf{"CmplsFrrLogIndex", cmplsFrrLogEntry.CmplsFrrLogIndex})
+    cmplsFrrLogEntry.EntityData.Leafs.Append("cmplsFrrLogEventTime", types.YLeaf{"CmplsFrrLogEventTime", cmplsFrrLogEntry.CmplsFrrLogEventTime})
+    cmplsFrrLogEntry.EntityData.Leafs.Append("cmplsFrrLogInterface", types.YLeaf{"CmplsFrrLogInterface", cmplsFrrLogEntry.CmplsFrrLogInterface})
+    cmplsFrrLogEntry.EntityData.Leafs.Append("cmplsFrrLogEventType", types.YLeaf{"CmplsFrrLogEventType", cmplsFrrLogEntry.CmplsFrrLogEventType})
+    cmplsFrrLogEntry.EntityData.Leafs.Append("cmplsFrrLogEventDuration", types.YLeaf{"CmplsFrrLogEventDuration", cmplsFrrLogEntry.CmplsFrrLogEventDuration})
+    cmplsFrrLogEntry.EntityData.Leafs.Append("cmplsFrrLogEventReasonString", types.YLeaf{"CmplsFrrLogEventReasonString", cmplsFrrLogEntry.CmplsFrrLogEventReasonString})
+
+    cmplsFrrLogEntry.EntityData.YListKeys = []string {"CmplsFrrLogIndex"}
+
+    return &(cmplsFrrLogEntry.EntityData)
 }
 
-// CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry_Cmplsfrrlogeventtype represents occured.
-type CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry_Cmplsfrrlogeventtype string
+// CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry_CmplsFrrLogEventType represents occured.
+type CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry_CmplsFrrLogEventType string
 
 const (
-    CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry_Cmplsfrrlogeventtype_other CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry_Cmplsfrrlogeventtype = "other"
+    CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry_CmplsFrrLogEventType_other CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry_CmplsFrrLogEventType = "other"
 
-    CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry_Cmplsfrrlogeventtype_protected CISCOIETFFRRMIB_Cmplsfrrlogtable_Cmplsfrrlogentry_Cmplsfrrlogeventtype = "protected"
+    CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry_CmplsFrrLogEventType_protected CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry_CmplsFrrLogEventType = "protected"
 )
 
-// CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable
+// CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable
 // The mplsFrrFacRouteDBTable provides information about the 
 // fast reroute database.  Each entry belongs to an interface,
 // protecting backup tunnel and protected tunnel. MPLS 
@@ -463,7 +481,7 @@ const (
 // mplsFrrFacRouteProtectedTunInstance, 
 // mplsFrrFacRouteProtectedTunIngressLSRId, and 
 // mplsFrrFacRouteProtectedTunEgressLSRId.
-type CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable struct {
+type CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -473,30 +491,33 @@ type CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable struct {
     // the MPLS-TE MIB for additional information about the protecting and
     // protected tunnels, and the ifEntry in the IF-MIB for the protected
     // interface. The type is slice of
-    // CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry.
-    Cmplsfrrfacroutedbentry []CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry
+    // CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry.
+    CmplsFrrFacRouteDBEntry []*CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry
 }
 
-func (cmplsfrrfacroutedbtable *CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable) GetEntityData() *types.CommonEntityData {
-    cmplsfrrfacroutedbtable.EntityData.YFilter = cmplsfrrfacroutedbtable.YFilter
-    cmplsfrrfacroutedbtable.EntityData.YangName = "cmplsFrrFacRouteDBTable"
-    cmplsfrrfacroutedbtable.EntityData.BundleName = "cisco_ios_xe"
-    cmplsfrrfacroutedbtable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
-    cmplsfrrfacroutedbtable.EntityData.SegmentPath = "cmplsFrrFacRouteDBTable"
-    cmplsfrrfacroutedbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsfrrfacroutedbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsfrrfacroutedbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsFrrFacRouteDBTable *CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable) GetEntityData() *types.CommonEntityData {
+    cmplsFrrFacRouteDBTable.EntityData.YFilter = cmplsFrrFacRouteDBTable.YFilter
+    cmplsFrrFacRouteDBTable.EntityData.YangName = "cmplsFrrFacRouteDBTable"
+    cmplsFrrFacRouteDBTable.EntityData.BundleName = "cisco_ios_xe"
+    cmplsFrrFacRouteDBTable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
+    cmplsFrrFacRouteDBTable.EntityData.SegmentPath = "cmplsFrrFacRouteDBTable"
+    cmplsFrrFacRouteDBTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsFrrFacRouteDBTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsFrrFacRouteDBTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsfrrfacroutedbtable.EntityData.Children = make(map[string]types.YChild)
-    cmplsfrrfacroutedbtable.EntityData.Children["cmplsFrrFacRouteDBEntry"] = types.YChild{"Cmplsfrrfacroutedbentry", nil}
-    for i := range cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry {
-        cmplsfrrfacroutedbtable.EntityData.Children[types.GetSegmentPath(&cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry[i])] = types.YChild{"Cmplsfrrfacroutedbentry", &cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry[i]}
+    cmplsFrrFacRouteDBTable.EntityData.Children = types.NewOrderedMap()
+    cmplsFrrFacRouteDBTable.EntityData.Children.Append("cmplsFrrFacRouteDBEntry", types.YChild{"CmplsFrrFacRouteDBEntry", nil})
+    for i := range cmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry {
+        cmplsFrrFacRouteDBTable.EntityData.Children.Append(types.GetSegmentPath(cmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry[i]), types.YChild{"CmplsFrrFacRouteDBEntry", cmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry[i]})
     }
-    cmplsfrrfacroutedbtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cmplsfrrfacroutedbtable.EntityData)
+    cmplsFrrFacRouteDBTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cmplsFrrFacRouteDBTable.EntityData.YListKeys = []string {}
+
+    return &(cmplsFrrFacRouteDBTable.EntityData)
 }
 
-// CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry
+// CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry
 // An entry in the mplsFrrDBTable represents a single protected
 // LSP, protected by a backup tunnel and defined for a specific
 // protected interface. Note that for brevity, managers should
@@ -504,43 +525,43 @@ func (cmplsfrrfacroutedbtable *CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable) GetEntit
 // additional information about the protecting and protected
 // tunnels, and the ifEntry in the IF-MIB for the protected
 // interface.
-type CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry struct {
+type CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies the interface configured for
     // FRR protection. The type is interface{} with range: 1..2147483647.
-    Cmplsfrrfacrouteprotectedifindex interface{}
+    CmplsFrrFacRouteProtectedIfIndex interface{}
 
     // This attribute is a key. Uniquely identifies the mplsTunnelEntry primary
     // index for the tunnel head interface designated to protect the  interface as
     // specified in the mplsFrrFacRouteIfProtectedIndex (and all of the tunnels
     // using this interface). The type is interface{} with range: 0..65535.
-    Cmplsfrrfacrouteprotectingtunindex interface{}
+    CmplsFrrFacRouteProtectingTunIndex interface{}
 
     // This attribute is a key. Uniquely identifies an mplsTunnelEntry that is
     // being protected by FRR. The type is interface{} with range: 0..65535.
-    Cmplsfrrfacrouteprotectedtunindex interface{}
+    CmplsFrrFacRouteProtectedTunIndex interface{}
 
     // This attribute is a key. Uniquely identifies an mplsTunnelEntry that is
     // being protected by FRR. The type is interface{} with range: 0..4294967295.
-    Cmplsfrrfacrouteprotectedtuninstance interface{}
+    CmplsFrrFacRouteProtectedTunInstance interface{}
 
     // This attribute is a key. Uniquely identifies an mplsTunnelEntry that is
     // being protected by FRR. The type is string with length: 4.
-    Cmplsfrrfacrouteprotectedtuningresslsrid interface{}
+    CmplsFrrFacRouteProtectedTunIngressLSRId interface{}
 
     // This attribute is a key. Uniquely identifies an mplsTunnelEntry that is
     // being protected by FRR. The type is string with length: 4.
-    Cmplsfrrfacrouteprotectedtunegresslsrid interface{}
+    CmplsFrrFacRouteProtectedTunEgressLSRId interface{}
 
     // Specifies the state of the protected tunnel.  active  This tunnel's label
     // has been placed in the          LFIB and is ready to be applied to incoming
     // packets.           ready -  This tunnel's label entry has been created but
     // is          not yet in the LFIB.           partial - This tunnel's label
     // entry as not been fully           created. The type is
-    // Cmplsfrrfacrouteprotectedtunstatus.
-    Cmplsfrrfacrouteprotectedtunstatus interface{}
+    // CmplsFrrFacRouteProtectedTunStatus.
+    CmplsFrrFacRouteProtectedTunStatus interface{}
 
     // Specifies the amount of bandwidth in megabytes per second that is actually
     // reserved by the backup tunnel for facility backup. This value is repeated
@@ -549,54 +570,57 @@ type CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry struct {
     // backup tunnels so as to not over-book bandwidth. However, internal
     // reservations are typically made on the PLR, thus this value should be
     // revealed here. The type is interface{} with range: 0..4294967295.
-    Cmplsfrrfacrouteprotectingtunresvbw interface{}
+    CmplsFrrFacRouteProtectingTunResvBw interface{}
 
     // Indicates type of the resource protection. The type is
-    // Cmplsfrrfacrouteprotectingtunprotectiontype.
-    Cmplsfrrfacrouteprotectingtunprotectiontype interface{}
+    // CmplsFrrFacRouteProtectingTunProtectionType.
+    CmplsFrrFacRouteProtectingTunProtectionType interface{}
 }
 
-func (cmplsfrrfacroutedbentry *CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry) GetEntityData() *types.CommonEntityData {
-    cmplsfrrfacroutedbentry.EntityData.YFilter = cmplsfrrfacroutedbentry.YFilter
-    cmplsfrrfacroutedbentry.EntityData.YangName = "cmplsFrrFacRouteDBEntry"
-    cmplsfrrfacroutedbentry.EntityData.BundleName = "cisco_ios_xe"
-    cmplsfrrfacroutedbentry.EntityData.ParentYangName = "cmplsFrrFacRouteDBTable"
-    cmplsfrrfacroutedbentry.EntityData.SegmentPath = "cmplsFrrFacRouteDBEntry" + "[cmplsFrrFacRouteProtectedIfIndex='" + fmt.Sprintf("%v", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedifindex) + "']" + "[cmplsFrrFacRouteProtectingTunIndex='" + fmt.Sprintf("%v", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectingtunindex) + "']" + "[cmplsFrrFacRouteProtectedTunIndex='" + fmt.Sprintf("%v", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtunindex) + "']" + "[cmplsFrrFacRouteProtectedTunInstance='" + fmt.Sprintf("%v", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtuninstance) + "']" + "[cmplsFrrFacRouteProtectedTunIngressLSRId='" + fmt.Sprintf("%v", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtuningresslsrid) + "']" + "[cmplsFrrFacRouteProtectedTunEgressLSRId='" + fmt.Sprintf("%v", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtunegresslsrid) + "']"
-    cmplsfrrfacroutedbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsfrrfacroutedbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsfrrfacroutedbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsFrrFacRouteDBEntry *CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry) GetEntityData() *types.CommonEntityData {
+    cmplsFrrFacRouteDBEntry.EntityData.YFilter = cmplsFrrFacRouteDBEntry.YFilter
+    cmplsFrrFacRouteDBEntry.EntityData.YangName = "cmplsFrrFacRouteDBEntry"
+    cmplsFrrFacRouteDBEntry.EntityData.BundleName = "cisco_ios_xe"
+    cmplsFrrFacRouteDBEntry.EntityData.ParentYangName = "cmplsFrrFacRouteDBTable"
+    cmplsFrrFacRouteDBEntry.EntityData.SegmentPath = "cmplsFrrFacRouteDBEntry" + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedIfIndex, "cmplsFrrFacRouteProtectedIfIndex") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectingTunIndex, "cmplsFrrFacRouteProtectingTunIndex") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunIndex, "cmplsFrrFacRouteProtectedTunIndex") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunInstance, "cmplsFrrFacRouteProtectedTunInstance") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunIngressLSRId, "cmplsFrrFacRouteProtectedTunIngressLSRId") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunEgressLSRId, "cmplsFrrFacRouteProtectedTunEgressLSRId")
+    cmplsFrrFacRouteDBEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsFrrFacRouteDBEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsFrrFacRouteDBEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsfrrfacroutedbentry.EntityData.Children = make(map[string]types.YChild)
-    cmplsfrrfacroutedbentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectedIfIndex"] = types.YLeaf{"Cmplsfrrfacrouteprotectedifindex", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedifindex}
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectingTunIndex"] = types.YLeaf{"Cmplsfrrfacrouteprotectingtunindex", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectingtunindex}
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectedTunIndex"] = types.YLeaf{"Cmplsfrrfacrouteprotectedtunindex", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtunindex}
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectedTunInstance"] = types.YLeaf{"Cmplsfrrfacrouteprotectedtuninstance", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtuninstance}
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectedTunIngressLSRId"] = types.YLeaf{"Cmplsfrrfacrouteprotectedtuningresslsrid", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtuningresslsrid}
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectedTunEgressLSRId"] = types.YLeaf{"Cmplsfrrfacrouteprotectedtunegresslsrid", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtunegresslsrid}
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectedTunStatus"] = types.YLeaf{"Cmplsfrrfacrouteprotectedtunstatus", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtunstatus}
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectingTunResvBw"] = types.YLeaf{"Cmplsfrrfacrouteprotectingtunresvbw", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectingtunresvbw}
-    cmplsfrrfacroutedbentry.EntityData.Leafs["cmplsFrrFacRouteProtectingTunProtectionType"] = types.YLeaf{"Cmplsfrrfacrouteprotectingtunprotectiontype", cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectingtunprotectiontype}
-    return &(cmplsfrrfacroutedbentry.EntityData)
+    cmplsFrrFacRouteDBEntry.EntityData.Children = types.NewOrderedMap()
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs = types.NewOrderedMap()
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectedIfIndex", types.YLeaf{"CmplsFrrFacRouteProtectedIfIndex", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedIfIndex})
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectingTunIndex", types.YLeaf{"CmplsFrrFacRouteProtectingTunIndex", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectingTunIndex})
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectedTunIndex", types.YLeaf{"CmplsFrrFacRouteProtectedTunIndex", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunIndex})
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectedTunInstance", types.YLeaf{"CmplsFrrFacRouteProtectedTunInstance", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunInstance})
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectedTunIngressLSRId", types.YLeaf{"CmplsFrrFacRouteProtectedTunIngressLSRId", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunIngressLSRId})
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectedTunEgressLSRId", types.YLeaf{"CmplsFrrFacRouteProtectedTunEgressLSRId", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunEgressLSRId})
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectedTunStatus", types.YLeaf{"CmplsFrrFacRouteProtectedTunStatus", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunStatus})
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectingTunResvBw", types.YLeaf{"CmplsFrrFacRouteProtectingTunResvBw", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectingTunResvBw})
+    cmplsFrrFacRouteDBEntry.EntityData.Leafs.Append("cmplsFrrFacRouteProtectingTunProtectionType", types.YLeaf{"CmplsFrrFacRouteProtectingTunProtectionType", cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectingTunProtectionType})
+
+    cmplsFrrFacRouteDBEntry.EntityData.YListKeys = []string {"CmplsFrrFacRouteProtectedIfIndex", "CmplsFrrFacRouteProtectingTunIndex", "CmplsFrrFacRouteProtectedTunIndex", "CmplsFrrFacRouteProtectedTunInstance", "CmplsFrrFacRouteProtectedTunIngressLSRId", "CmplsFrrFacRouteProtectedTunEgressLSRId"}
+
+    return &(cmplsFrrFacRouteDBEntry.EntityData)
 }
 
-// CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectedtunstatus represents           created.
-type CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectedtunstatus string
+// CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectedTunStatus represents           created.
+type CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectedTunStatus string
 
 const (
-    CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectedtunstatus_active CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectedtunstatus = "active"
+    CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectedTunStatus_active CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectedTunStatus = "active"
 
-    CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectedtunstatus_ready CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectedtunstatus = "ready"
+    CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectedTunStatus_ready CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectedTunStatus = "ready"
 
-    CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectedtunstatus_partial CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectedtunstatus = "partial"
+    CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectedTunStatus_partial CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectedTunStatus = "partial"
 )
 
-// CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectingtunprotectiontype represents Indicates type of the resource protection.
-type CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectingtunprotectiontype string
+// CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectingTunProtectionType represents Indicates type of the resource protection.
+type CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectingTunProtectionType string
 
 const (
-    CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectingtunprotectiontype_linkProtection CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectingtunprotectiontype = "linkProtection"
+    CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectingTunProtectionType_linkProtection CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectingTunProtectionType = "linkProtection"
 
-    CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectingtunprotectiontype_nodeProtection CISCOIETFFRRMIB_Cmplsfrrfacroutedbtable_Cmplsfrrfacroutedbentry_Cmplsfrrfacrouteprotectingtunprotectiontype = "nodeProtection"
+    CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectingTunProtectionType_nodeProtection CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry_CmplsFrrFacRouteProtectingTunProtectionType = "nodeProtection"
 )
 

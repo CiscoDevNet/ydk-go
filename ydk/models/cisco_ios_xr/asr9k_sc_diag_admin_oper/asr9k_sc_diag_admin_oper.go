@@ -25,6 +25,14 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-sc-diag-admin-oper:diag", reflect.TypeOf(Diag{}))
 }
 
+// DiagProcessor represents Processor types
+type DiagProcessor string
+
+const (
+    // Processor type 8614D
+    DiagProcessor_mpc8614d DiagProcessor = "mpc8614d"
+)
+
 // DiagSlot represents Slot types
 type DiagSlot string
 
@@ -37,25 +45,6 @@ const (
 
     // Slot type is module
     DiagSlot_module DiagSlot = "module"
-)
-
-// DiagNode represents Node types
-type DiagNode string
-
-const (
-    // Node type is node
-    DiagNode_node DiagNode = "node"
-
-    // Node type is SPA
-    DiagNode_spa DiagNode = "spa"
-)
-
-// DiagProcessor represents Processor types
-type DiagProcessor string
-
-const (
-    // Processor type 8614D
-    DiagProcessor_mpc8614d DiagProcessor = "mpc8614d"
 )
 
 // NodeState represents Node state detail
@@ -216,6 +205,17 @@ const (
     NodeState_unknown NodeState = "unknown"
 )
 
+// DiagNode represents Node types
+type DiagNode string
+
+const (
+    // Node type is node
+    DiagNode_node DiagNode = "node"
+
+    // Node type is SPA
+    DiagNode_spa DiagNode = "spa"
+)
+
 // Diag
 // Diag admin operational data
 type Diag struct {
@@ -236,9 +236,12 @@ func (diag *Diag) GetEntityData() *types.CommonEntityData {
     diag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diag.EntityData.Children = make(map[string]types.YChild)
-    diag.EntityData.Children["racks"] = types.YChild{"Racks", &diag.Racks}
-    diag.EntityData.Leafs = make(map[string]types.YLeaf)
+    diag.EntityData.Children = types.NewOrderedMap()
+    diag.EntityData.Children.Append("racks", types.YChild{"Racks", &diag.Racks})
+    diag.EntityData.Leafs = types.NewOrderedMap()
+
+    diag.EntityData.YListKeys = []string {}
+
     return &(diag.EntityData)
 }
 
@@ -250,7 +253,7 @@ type Diag_Racks struct {
 
     // Diag operational data for a particular rack. The type is slice of
     // Diag_Racks_Rack.
-    Rack []Diag_Racks_Rack
+    Rack []*Diag_Racks_Rack
 }
 
 func (racks *Diag_Racks) GetEntityData() *types.CommonEntityData {
@@ -263,12 +266,15 @@ func (racks *Diag_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
@@ -279,7 +285,7 @@ type Diag_Racks_Rack struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack name. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     RackName interface{}
 
     // Fan tray table operational data.
@@ -303,19 +309,22 @@ func (rack *Diag_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[rack-name='" + fmt.Sprintf("%v", rack.RackName) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.RackName, "rack-name")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["fan-traies"] = types.YChild{"FanTraies", &rack.FanTraies}
-    rack.EntityData.Children["power-supplies"] = types.YChild{"PowerSupplies", &rack.PowerSupplies}
-    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
-    rack.EntityData.Children["chassis"] = types.YChild{"Chassis", &rack.Chassis}
-    rack.EntityData.Children["summary"] = types.YChild{"Summary", &rack.Summary}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["rack-name"] = types.YLeaf{"RackName", rack.RackName}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("fan-traies", types.YChild{"FanTraies", &rack.FanTraies})
+    rack.EntityData.Children.Append("power-supplies", types.YChild{"PowerSupplies", &rack.PowerSupplies})
+    rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
+    rack.EntityData.Children.Append("chassis", types.YChild{"Chassis", &rack.Chassis})
+    rack.EntityData.Children.Append("summary", types.YChild{"Summary", &rack.Summary})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("rack-name", types.YLeaf{"RackName", rack.RackName})
+
+    rack.EntityData.YListKeys = []string {"RackName"}
+
     return &(rack.EntityData)
 }
 
@@ -327,7 +336,7 @@ type Diag_Racks_Rack_FanTraies struct {
 
     // Fan tray operational data. The type is slice of
     // Diag_Racks_Rack_FanTraies_FanTray.
-    FanTray []Diag_Racks_Rack_FanTraies_FanTray
+    FanTray []*Diag_Racks_Rack_FanTraies_FanTray
 }
 
 func (fanTraies *Diag_Racks_Rack_FanTraies) GetEntityData() *types.CommonEntityData {
@@ -340,12 +349,15 @@ func (fanTraies *Diag_Racks_Rack_FanTraies) GetEntityData() *types.CommonEntityD
     fanTraies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanTraies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fanTraies.EntityData.Children = make(map[string]types.YChild)
-    fanTraies.EntityData.Children["fan-tray"] = types.YChild{"FanTray", nil}
+    fanTraies.EntityData.Children = types.NewOrderedMap()
+    fanTraies.EntityData.Children.Append("fan-tray", types.YChild{"FanTray", nil})
     for i := range fanTraies.FanTray {
-        fanTraies.EntityData.Children[types.GetSegmentPath(&fanTraies.FanTray[i])] = types.YChild{"FanTray", &fanTraies.FanTray[i]}
+        fanTraies.EntityData.Children.Append(types.GetSegmentPath(fanTraies.FanTray[i]), types.YChild{"FanTray", fanTraies.FanTray[i]})
     }
-    fanTraies.EntityData.Leafs = make(map[string]types.YLeaf)
+    fanTraies.EntityData.Leafs = types.NewOrderedMap()
+
+    fanTraies.EntityData.YListKeys = []string {}
+
     return &(fanTraies.EntityData)
 }
 
@@ -356,7 +368,7 @@ type Diag_Racks_Rack_FanTraies_FanTray struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fan tray name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FanTrayName interface{}
 
     // Diag detailed information.
@@ -368,15 +380,18 @@ func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetEntityData() *types.CommonE
     fanTray.EntityData.YangName = "fan-tray"
     fanTray.EntityData.BundleName = "cisco_ios_xr"
     fanTray.EntityData.ParentYangName = "fan-traies"
-    fanTray.EntityData.SegmentPath = "fan-tray" + "[fan-tray-name='" + fmt.Sprintf("%v", fanTray.FanTrayName) + "']"
+    fanTray.EntityData.SegmentPath = "fan-tray" + types.AddKeyToken(fanTray.FanTrayName, "fan-tray-name")
     fanTray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanTray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanTray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fanTray.EntityData.Children = make(map[string]types.YChild)
-    fanTray.EntityData.Children["detail"] = types.YChild{"Detail", &fanTray.Detail}
-    fanTray.EntityData.Leafs = make(map[string]types.YLeaf)
-    fanTray.EntityData.Leafs["fan-tray-name"] = types.YLeaf{"FanTrayName", fanTray.FanTrayName}
+    fanTray.EntityData.Children = types.NewOrderedMap()
+    fanTray.EntityData.Children.Append("detail", types.YChild{"Detail", &fanTray.Detail})
+    fanTray.EntityData.Leafs = types.NewOrderedMap()
+    fanTray.EntityData.Leafs.Append("fan-tray-name", types.YLeaf{"FanTrayName", fanTray.FanTrayName})
+
+    fanTray.EntityData.YListKeys = []string {"FanTrayName"}
+
     return &(fanTray.EntityData)
 }
 
@@ -403,10 +418,13 @@ func (detail *Diag_Racks_Rack_FanTraies_FanTray_Detail) GetEntityData() *types.C
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["node"] = types.YChild{"Node", &detail.Node}
-    detail.EntityData.Children["spa"] = types.YChild{"Spa", &detail.Spa}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("node", types.YChild{"Node", &detail.Node})
+    detail.EntityData.Children.Append("spa", types.YChild{"Spa", &detail.Spa})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -481,26 +499,29 @@ func (node *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node) GetEntityData() *type
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["pld"] = types.YChild{"Pld", &node.Pld}
-    node.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", &node.HardwareRevision}
-    node.EntityData.Children["cbc-active-partition"] = types.YChild{"CbcActivePartition", &node.CbcActivePartition}
-    node.EntityData.Children["cbc-inactive-partition"] = types.YChild{"CbcInactivePartition", &node.CbcInactivePartition}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["description"] = types.YLeaf{"Description", node.Description}
-    node.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", node.SerialNumber}
-    node.EntityData.Leafs["tan"] = types.YLeaf{"Tan", node.Tan}
-    node.EntityData.Leafs["pid"] = types.YLeaf{"Pid", node.Pid}
-    node.EntityData.Leafs["vid"] = types.YLeaf{"Vid", node.Vid}
-    node.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", node.ChipHardwareRevision}
-    node.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", node.NewDeviationNumber}
-    node.EntityData.Leafs["clei"] = types.YLeaf{"Clei", node.Clei}
-    node.EntityData.Leafs["board-state"] = types.YLeaf{"BoardState", node.BoardState}
-    node.EntityData.Leafs["pld-motherboard"] = types.YLeaf{"PldMotherboard", node.PldMotherboard}
-    node.EntityData.Leafs["pld-power"] = types.YLeaf{"PldPower", node.PldPower}
-    node.EntityData.Leafs["monlib"] = types.YLeaf{"Monlib", node.Monlib}
-    node.EntityData.Leafs["rommon"] = types.YLeaf{"Rommon", node.Rommon}
-    node.EntityData.Leafs["cpu0"] = types.YLeaf{"Cpu0", node.Cpu0}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("pld", types.YChild{"Pld", &node.Pld})
+    node.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", &node.HardwareRevision})
+    node.EntityData.Children.Append("cbc-active-partition", types.YChild{"CbcActivePartition", &node.CbcActivePartition})
+    node.EntityData.Children.Append("cbc-inactive-partition", types.YChild{"CbcInactivePartition", &node.CbcInactivePartition})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("description", types.YLeaf{"Description", node.Description})
+    node.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", node.SerialNumber})
+    node.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", node.Tan})
+    node.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", node.Pid})
+    node.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", node.Vid})
+    node.EntityData.Leafs.Append("chip-hardware-revision", types.YLeaf{"ChipHardwareRevision", node.ChipHardwareRevision})
+    node.EntityData.Leafs.Append("new-deviation-number", types.YLeaf{"NewDeviationNumber", node.NewDeviationNumber})
+    node.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", node.Clei})
+    node.EntityData.Leafs.Append("board-state", types.YLeaf{"BoardState", node.BoardState})
+    node.EntityData.Leafs.Append("pld-motherboard", types.YLeaf{"PldMotherboard", node.PldMotherboard})
+    node.EntityData.Leafs.Append("pld-power", types.YLeaf{"PldPower", node.PldPower})
+    node.EntityData.Leafs.Append("monlib", types.YLeaf{"Monlib", node.Monlib})
+    node.EntityData.Leafs.Append("rommon", types.YLeaf{"Rommon", node.Rommon})
+    node.EntityData.Leafs.Append("cpu0", types.YLeaf{"Cpu0", node.Cpu0})
+
+    node.EntityData.YListKeys = []string {}
+
     return &(node.EntityData)
 }
 
@@ -511,7 +532,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_Pld struct {
     YFilter yfilter.YFilter
 
     // Processor PLD version. The type is interface{} with range: 0..4294967295.
-    Type_ interface{}
+    Type interface{}
 
     // HigherVerion. The type is interface{} with range: 0..4294967295.
     ProcessorHigherVersion interface{}
@@ -530,11 +551,14 @@ func (pld *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_Pld) GetEntityData() *t
     pld.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pld.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pld.EntityData.Children = make(map[string]types.YChild)
-    pld.EntityData.Leafs = make(map[string]types.YLeaf)
-    pld.EntityData.Leafs["type"] = types.YLeaf{"Type_", pld.Type_}
-    pld.EntityData.Leafs["processor-higher-version"] = types.YLeaf{"ProcessorHigherVersion", pld.ProcessorHigherVersion}
-    pld.EntityData.Leafs["processor-lower-version"] = types.YLeaf{"ProcessorLowerVersion", pld.ProcessorLowerVersion}
+    pld.EntityData.Children = types.NewOrderedMap()
+    pld.EntityData.Leafs = types.NewOrderedMap()
+    pld.EntityData.Leafs.Append("type", types.YLeaf{"Type", pld.Type})
+    pld.EntityData.Leafs.Append("processor-higher-version", types.YLeaf{"ProcessorHigherVersion", pld.ProcessorHigherVersion})
+    pld.EntityData.Leafs.Append("processor-lower-version", types.YLeaf{"ProcessorLowerVersion", pld.ProcessorLowerVersion})
+
+    pld.EntityData.YListKeys = []string {}
+
     return &(pld.EntityData)
 }
 
@@ -546,7 +570,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision struct {
 
     // Board FPGA/CPLD/ASIC hardware revision. The type is slice of
     // Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision.
-    HardwareRevision []Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_
+    HardwareRevision []*Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision
 }
 
 func (hardwareRevision *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision) GetEntityData() *types.CommonEntityData {
@@ -559,18 +583,21 @@ func (hardwareRevision *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRe
     hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", nil}
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", nil})
     for i := range hardwareRevision.HardwareRevision {
-        hardwareRevision.EntityData.Children[types.GetSegmentPath(&hardwareRevision.HardwareRevision[i])] = types.YChild{"HardwareRevision", &hardwareRevision.HardwareRevision[i]}
+        hardwareRevision.EntityData.Children.Append(types.GetSegmentPath(hardwareRevision.HardwareRevision[i]), types.YChild{"HardwareRevision", hardwareRevision.HardwareRevision[i]})
     }
-    hardwareRevision.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
     return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision
 // Board FPGA/CPLD/ASIC hardware revision
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_ struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -581,46 +608,49 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevi
     Version interface{}
 
     // Hardware version.
-    HwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__HwRev
+    HwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_HwRev
 
     // Firmware version.
-    FwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__FwRev
+    FwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_FwRev
 
     // Software version.
-    SwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__SwRev
+    SwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_SwRev
 
     // DIMM version information.
-    DimmRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__DimmRev
+    DimmRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_DimmRev
 
     // SSD version information.
-    SsdRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__SsdRev
+    SsdRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_SsdRev
 }
 
-func (hardwareRevision_ *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_) GetEntityData() *types.CommonEntityData {
-    hardwareRevision_.EntityData.YFilter = hardwareRevision_.YFilter
-    hardwareRevision_.EntityData.YangName = "hardware-revision"
-    hardwareRevision_.EntityData.BundleName = "cisco_ios_xr"
-    hardwareRevision_.EntityData.ParentYangName = "hardware-revision"
-    hardwareRevision_.EntityData.SegmentPath = "hardware-revision"
-    hardwareRevision_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareRevision_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareRevision_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (hardwareRevision *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision) GetEntityData() *types.CommonEntityData {
+    hardwareRevision.EntityData.YFilter = hardwareRevision.YFilter
+    hardwareRevision.EntityData.YangName = "hardware-revision"
+    hardwareRevision.EntityData.BundleName = "cisco_ios_xr"
+    hardwareRevision.EntityData.ParentYangName = "hardware-revision"
+    hardwareRevision.EntityData.SegmentPath = "hardware-revision"
+    hardwareRevision.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision_.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision_.EntityData.Children["hw-rev"] = types.YChild{"HwRev", &hardwareRevision_.HwRev}
-    hardwareRevision_.EntityData.Children["fw-rev"] = types.YChild{"FwRev", &hardwareRevision_.FwRev}
-    hardwareRevision_.EntityData.Children["sw-rev"] = types.YChild{"SwRev", &hardwareRevision_.SwRev}
-    hardwareRevision_.EntityData.Children["dimm-rev"] = types.YChild{"DimmRev", &hardwareRevision_.DimmRev}
-    hardwareRevision_.EntityData.Children["ssd-rev"] = types.YChild{"SsdRev", &hardwareRevision_.SsdRev}
-    hardwareRevision_.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareRevision_.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", hardwareRevision_.NodeDescription}
-    hardwareRevision_.EntityData.Leafs["version"] = types.YLeaf{"Version", hardwareRevision_.Version}
-    return &(hardwareRevision_.EntityData)
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hw-rev", types.YChild{"HwRev", &hardwareRevision.HwRev})
+    hardwareRevision.EntityData.Children.Append("fw-rev", types.YChild{"FwRev", &hardwareRevision.FwRev})
+    hardwareRevision.EntityData.Children.Append("sw-rev", types.YChild{"SwRev", &hardwareRevision.SwRev})
+    hardwareRevision.EntityData.Children.Append("dimm-rev", types.YChild{"DimmRev", &hardwareRevision.DimmRev})
+    hardwareRevision.EntityData.Children.Append("ssd-rev", types.YChild{"SsdRev", &hardwareRevision.SsdRev})
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+    hardwareRevision.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", hardwareRevision.NodeDescription})
+    hardwareRevision.EntityData.Leafs.Append("version", types.YLeaf{"Version", hardwareRevision.Version})
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
+    return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__HwRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_HwRev
 // Hardware version
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__HwRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_HwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -631,7 +661,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevi
     MinorRevision interface{}
 }
 
-func (hwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__HwRev) GetEntityData() *types.CommonEntityData {
+func (hwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_HwRev) GetEntityData() *types.CommonEntityData {
     hwRev.EntityData.YFilter = hwRev.YFilter
     hwRev.EntityData.YangName = "hw-rev"
     hwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -641,16 +671,19 @@ func (hwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_Hard
     hwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwRev.EntityData.Children = make(map[string]types.YChild)
-    hwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", hwRev.MajorRevision}
-    hwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", hwRev.MinorRevision}
+    hwRev.EntityData.Children = types.NewOrderedMap()
+    hwRev.EntityData.Leafs = types.NewOrderedMap()
+    hwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", hwRev.MajorRevision})
+    hwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", hwRev.MinorRevision})
+
+    hwRev.EntityData.YListKeys = []string {}
+
     return &(hwRev.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__FwRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_FwRev
 // Firmware version
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__FwRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_FwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -661,7 +694,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevi
     MinorRevision interface{}
 }
 
-func (fwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__FwRev) GetEntityData() *types.CommonEntityData {
+func (fwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_FwRev) GetEntityData() *types.CommonEntityData {
     fwRev.EntityData.YFilter = fwRev.YFilter
     fwRev.EntityData.YangName = "fw-rev"
     fwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -671,16 +704,19 @@ func (fwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_Hard
     fwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fwRev.EntityData.Children = make(map[string]types.YChild)
-    fwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    fwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", fwRev.MajorRevision}
-    fwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", fwRev.MinorRevision}
+    fwRev.EntityData.Children = types.NewOrderedMap()
+    fwRev.EntityData.Leafs = types.NewOrderedMap()
+    fwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", fwRev.MajorRevision})
+    fwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", fwRev.MinorRevision})
+
+    fwRev.EntityData.YListKeys = []string {}
+
     return &(fwRev.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__SwRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_SwRev
 // Software version
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__SwRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_SwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -691,7 +727,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevi
     MinorRevision interface{}
 }
 
-func (swRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__SwRev) GetEntityData() *types.CommonEntityData {
+func (swRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_SwRev) GetEntityData() *types.CommonEntityData {
     swRev.EntityData.YFilter = swRev.YFilter
     swRev.EntityData.YangName = "sw-rev"
     swRev.EntityData.BundleName = "cisco_ios_xr"
@@ -701,16 +737,19 @@ func (swRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_Hard
     swRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swRev.EntityData.Children = make(map[string]types.YChild)
-    swRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    swRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", swRev.MajorRevision}
-    swRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", swRev.MinorRevision}
+    swRev.EntityData.Children = types.NewOrderedMap()
+    swRev.EntityData.Leafs = types.NewOrderedMap()
+    swRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", swRev.MajorRevision})
+    swRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", swRev.MinorRevision})
+
+    swRev.EntityData.YListKeys = []string {}
+
     return &(swRev.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__DimmRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_DimmRev
 // DIMM version information
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__DimmRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_DimmRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -728,7 +767,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevi
     Cas interface{}
 }
 
-func (dimmRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__DimmRev) GetEntityData() *types.CommonEntityData {
+func (dimmRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_DimmRev) GetEntityData() *types.CommonEntityData {
     dimmRev.EntityData.YFilter = dimmRev.YFilter
     dimmRev.EntityData.YangName = "dimm-rev"
     dimmRev.EntityData.BundleName = "cisco_ios_xr"
@@ -738,18 +777,21 @@ func (dimmRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_Ha
     dimmRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dimmRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dimmRev.EntityData.Children = make(map[string]types.YChild)
-    dimmRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    dimmRev.EntityData.Leafs["size"] = types.YLeaf{"Size", dimmRev.Size}
-    dimmRev.EntityData.Leafs["speed"] = types.YLeaf{"Speed", dimmRev.Speed}
-    dimmRev.EntityData.Leafs["locator"] = types.YLeaf{"Locator", dimmRev.Locator}
-    dimmRev.EntityData.Leafs["cas"] = types.YLeaf{"Cas", dimmRev.Cas}
+    dimmRev.EntityData.Children = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs.Append("size", types.YLeaf{"Size", dimmRev.Size})
+    dimmRev.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", dimmRev.Speed})
+    dimmRev.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", dimmRev.Locator})
+    dimmRev.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", dimmRev.Cas})
+
+    dimmRev.EntityData.YListKeys = []string {}
+
     return &(dimmRev.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__SsdRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_SsdRev
 // SSD version information
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__SsdRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_SsdRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -763,7 +805,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevi
     SerialNumber interface{}
 }
 
-func (ssdRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision__SsdRev) GetEntityData() *types.CommonEntityData {
+func (ssdRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_HardwareRevision_SsdRev) GetEntityData() *types.CommonEntityData {
     ssdRev.EntityData.YFilter = ssdRev.YFilter
     ssdRev.EntityData.YangName = "ssd-rev"
     ssdRev.EntityData.BundleName = "cisco_ios_xr"
@@ -773,11 +815,14 @@ func (ssdRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_HardwareRevision_Har
     ssdRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssdRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssdRev.EntityData.Children = make(map[string]types.YChild)
-    ssdRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssdRev.EntityData.Leafs["number"] = types.YLeaf{"Number", ssdRev.Number}
-    ssdRev.EntityData.Leafs["fw-rev"] = types.YLeaf{"FwRev", ssdRev.FwRev}
-    ssdRev.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", ssdRev.SerialNumber}
+    ssdRev.EntityData.Children = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs.Append("number", types.YLeaf{"Number", ssdRev.Number})
+    ssdRev.EntityData.Leafs.Append("fw-rev", types.YLeaf{"FwRev", ssdRev.FwRev})
+    ssdRev.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", ssdRev.SerialNumber})
+
+    ssdRev.EntityData.YListKeys = []string {}
+
     return &(ssdRev.EntityData)
 }
 
@@ -804,10 +849,13 @@ func (cbcActivePartition *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_CbcActiv
     cbcActivePartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbcActivePartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbcActivePartition.EntityData.Children = make(map[string]types.YChild)
-    cbcActivePartition.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbcActivePartition.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", cbcActivePartition.MajorRevision}
-    cbcActivePartition.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", cbcActivePartition.MinorRevision}
+    cbcActivePartition.EntityData.Children = types.NewOrderedMap()
+    cbcActivePartition.EntityData.Leafs = types.NewOrderedMap()
+    cbcActivePartition.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", cbcActivePartition.MajorRevision})
+    cbcActivePartition.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", cbcActivePartition.MinorRevision})
+
+    cbcActivePartition.EntityData.YListKeys = []string {}
+
     return &(cbcActivePartition.EntityData)
 }
 
@@ -834,10 +882,13 @@ func (cbcInactivePartition *Diag_Racks_Rack_FanTraies_FanTray_Detail_Node_CbcIna
     cbcInactivePartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbcInactivePartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbcInactivePartition.EntityData.Children = make(map[string]types.YChild)
-    cbcInactivePartition.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbcInactivePartition.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", cbcInactivePartition.MajorRevision}
-    cbcInactivePartition.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", cbcInactivePartition.MinorRevision}
+    cbcInactivePartition.EntityData.Children = types.NewOrderedMap()
+    cbcInactivePartition.EntityData.Leafs = types.NewOrderedMap()
+    cbcInactivePartition.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", cbcInactivePartition.MajorRevision})
+    cbcInactivePartition.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", cbcInactivePartition.MinorRevision})
+
+    cbcInactivePartition.EntityData.YListKeys = []string {}
+
     return &(cbcInactivePartition.EntityData)
 }
 
@@ -848,7 +899,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa struct {
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // SPA name. The type is string.
@@ -890,18 +941,21 @@ func (spa *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa) GetEntityData() *types.
     spa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spa.EntityData.Children = make(map[string]types.YChild)
-    spa.EntityData.Children["main"] = types.YChild{"Main", &spa.Main}
-    spa.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", &spa.HardwareRevision}
-    spa.EntityData.Leafs = make(map[string]types.YLeaf)
-    spa.EntityData.Leafs["node"] = types.YLeaf{"Node", spa.Node}
-    spa.EntityData.Leafs["name"] = types.YLeaf{"Name", spa.Name}
-    spa.EntityData.Leafs["pca-unit-number"] = types.YLeaf{"PcaUnitNumber", spa.PcaUnitNumber}
-    spa.EntityData.Leafs["pca-revision"] = types.YLeaf{"PcaRevision", spa.PcaRevision}
-    spa.EntityData.Leafs["pid"] = types.YLeaf{"Pid", spa.Pid}
-    spa.EntityData.Leafs["vid"] = types.YLeaf{"Vid", spa.Vid}
-    spa.EntityData.Leafs["clei"] = types.YLeaf{"Clei", spa.Clei}
-    spa.EntityData.Leafs["node-state"] = types.YLeaf{"NodeState", spa.NodeState}
+    spa.EntityData.Children = types.NewOrderedMap()
+    spa.EntityData.Children.Append("main", types.YChild{"Main", &spa.Main})
+    spa.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", &spa.HardwareRevision})
+    spa.EntityData.Leafs = types.NewOrderedMap()
+    spa.EntityData.Leafs.Append("node", types.YLeaf{"Node", spa.Node})
+    spa.EntityData.Leafs.Append("name", types.YLeaf{"Name", spa.Name})
+    spa.EntityData.Leafs.Append("pca-unit-number", types.YLeaf{"PcaUnitNumber", spa.PcaUnitNumber})
+    spa.EntityData.Leafs.Append("pca-revision", types.YLeaf{"PcaRevision", spa.PcaRevision})
+    spa.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", spa.Pid})
+    spa.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", spa.Vid})
+    spa.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", spa.Clei})
+    spa.EntityData.Leafs.Append("node-state", types.YLeaf{"NodeState", spa.NodeState})
+
+    spa.EntityData.YListKeys = []string {}
+
     return &(spa.EntityData)
 }
 
@@ -937,13 +991,16 @@ func (main *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_Main) GetEntityData() *
     main.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     main.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    main.EntityData.Children = make(map[string]types.YChild)
-    main.EntityData.Leafs = make(map[string]types.YLeaf)
-    main.EntityData.Leafs["board-type"] = types.YLeaf{"BoardType", main.BoardType}
-    main.EntityData.Leafs["tan"] = types.YLeaf{"Tan", main.Tan}
-    main.EntityData.Leafs["tan-revision"] = types.YLeaf{"TanRevision", main.TanRevision}
-    main.EntityData.Leafs["deviation-number"] = types.YLeaf{"DeviationNumber", main.DeviationNumber}
-    main.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", main.SerialNumber}
+    main.EntityData.Children = types.NewOrderedMap()
+    main.EntityData.Leafs = types.NewOrderedMap()
+    main.EntityData.Leafs.Append("board-type", types.YLeaf{"BoardType", main.BoardType})
+    main.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", main.Tan})
+    main.EntityData.Leafs.Append("tan-revision", types.YLeaf{"TanRevision", main.TanRevision})
+    main.EntityData.Leafs.Append("deviation-number", types.YLeaf{"DeviationNumber", main.DeviationNumber})
+    main.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", main.SerialNumber})
+
+    main.EntityData.YListKeys = []string {}
+
     return &(main.EntityData)
 }
 
@@ -955,7 +1012,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision struct {
 
     // Board FPGA/CPLD/ASIC hardware revision. The type is slice of
     // Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision.
-    HardwareRevision []Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_
+    HardwareRevision []*Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision
 }
 
 func (hardwareRevision *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision) GetEntityData() *types.CommonEntityData {
@@ -968,18 +1025,21 @@ func (hardwareRevision *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRev
     hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", nil}
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", nil})
     for i := range hardwareRevision.HardwareRevision {
-        hardwareRevision.EntityData.Children[types.GetSegmentPath(&hardwareRevision.HardwareRevision[i])] = types.YChild{"HardwareRevision", &hardwareRevision.HardwareRevision[i]}
+        hardwareRevision.EntityData.Children.Append(types.GetSegmentPath(hardwareRevision.HardwareRevision[i]), types.YChild{"HardwareRevision", hardwareRevision.HardwareRevision[i]})
     }
-    hardwareRevision.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
     return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision
 // Board FPGA/CPLD/ASIC hardware revision
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_ struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -990,46 +1050,49 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevis
     Version interface{}
 
     // Hardware version.
-    HwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__HwRev
+    HwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_HwRev
 
     // Firmware version.
-    FwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__FwRev
+    FwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_FwRev
 
     // Software version.
-    SwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__SwRev
+    SwRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_SwRev
 
     // DIMM version information.
-    DimmRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev
+    DimmRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev
 
     // SSD version information.
-    SsdRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev
+    SsdRev Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev
 }
 
-func (hardwareRevision_ *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_) GetEntityData() *types.CommonEntityData {
-    hardwareRevision_.EntityData.YFilter = hardwareRevision_.YFilter
-    hardwareRevision_.EntityData.YangName = "hardware-revision"
-    hardwareRevision_.EntityData.BundleName = "cisco_ios_xr"
-    hardwareRevision_.EntityData.ParentYangName = "hardware-revision"
-    hardwareRevision_.EntityData.SegmentPath = "hardware-revision"
-    hardwareRevision_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareRevision_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareRevision_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (hardwareRevision *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision) GetEntityData() *types.CommonEntityData {
+    hardwareRevision.EntityData.YFilter = hardwareRevision.YFilter
+    hardwareRevision.EntityData.YangName = "hardware-revision"
+    hardwareRevision.EntityData.BundleName = "cisco_ios_xr"
+    hardwareRevision.EntityData.ParentYangName = "hardware-revision"
+    hardwareRevision.EntityData.SegmentPath = "hardware-revision"
+    hardwareRevision.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision_.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision_.EntityData.Children["hw-rev"] = types.YChild{"HwRev", &hardwareRevision_.HwRev}
-    hardwareRevision_.EntityData.Children["fw-rev"] = types.YChild{"FwRev", &hardwareRevision_.FwRev}
-    hardwareRevision_.EntityData.Children["sw-rev"] = types.YChild{"SwRev", &hardwareRevision_.SwRev}
-    hardwareRevision_.EntityData.Children["dimm-rev"] = types.YChild{"DimmRev", &hardwareRevision_.DimmRev}
-    hardwareRevision_.EntityData.Children["ssd-rev"] = types.YChild{"SsdRev", &hardwareRevision_.SsdRev}
-    hardwareRevision_.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareRevision_.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", hardwareRevision_.NodeDescription}
-    hardwareRevision_.EntityData.Leafs["version"] = types.YLeaf{"Version", hardwareRevision_.Version}
-    return &(hardwareRevision_.EntityData)
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hw-rev", types.YChild{"HwRev", &hardwareRevision.HwRev})
+    hardwareRevision.EntityData.Children.Append("fw-rev", types.YChild{"FwRev", &hardwareRevision.FwRev})
+    hardwareRevision.EntityData.Children.Append("sw-rev", types.YChild{"SwRev", &hardwareRevision.SwRev})
+    hardwareRevision.EntityData.Children.Append("dimm-rev", types.YChild{"DimmRev", &hardwareRevision.DimmRev})
+    hardwareRevision.EntityData.Children.Append("ssd-rev", types.YChild{"SsdRev", &hardwareRevision.SsdRev})
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+    hardwareRevision.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", hardwareRevision.NodeDescription})
+    hardwareRevision.EntityData.Leafs.Append("version", types.YLeaf{"Version", hardwareRevision.Version})
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
+    return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__HwRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_HwRev
 // Hardware version
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__HwRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_HwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1040,7 +1103,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevis
     MinorRevision interface{}
 }
 
-func (hwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__HwRev) GetEntityData() *types.CommonEntityData {
+func (hwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_HwRev) GetEntityData() *types.CommonEntityData {
     hwRev.EntityData.YFilter = hwRev.YFilter
     hwRev.EntityData.YangName = "hw-rev"
     hwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1050,16 +1113,19 @@ func (hwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_Hardw
     hwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwRev.EntityData.Children = make(map[string]types.YChild)
-    hwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", hwRev.MajorRevision}
-    hwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", hwRev.MinorRevision}
+    hwRev.EntityData.Children = types.NewOrderedMap()
+    hwRev.EntityData.Leafs = types.NewOrderedMap()
+    hwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", hwRev.MajorRevision})
+    hwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", hwRev.MinorRevision})
+
+    hwRev.EntityData.YListKeys = []string {}
+
     return &(hwRev.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__FwRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_FwRev
 // Firmware version
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__FwRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_FwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1070,7 +1136,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevis
     MinorRevision interface{}
 }
 
-func (fwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__FwRev) GetEntityData() *types.CommonEntityData {
+func (fwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_FwRev) GetEntityData() *types.CommonEntityData {
     fwRev.EntityData.YFilter = fwRev.YFilter
     fwRev.EntityData.YangName = "fw-rev"
     fwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1080,16 +1146,19 @@ func (fwRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_Hardw
     fwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fwRev.EntityData.Children = make(map[string]types.YChild)
-    fwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    fwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", fwRev.MajorRevision}
-    fwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", fwRev.MinorRevision}
+    fwRev.EntityData.Children = types.NewOrderedMap()
+    fwRev.EntityData.Leafs = types.NewOrderedMap()
+    fwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", fwRev.MajorRevision})
+    fwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", fwRev.MinorRevision})
+
+    fwRev.EntityData.YListKeys = []string {}
+
     return &(fwRev.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__SwRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_SwRev
 // Software version
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__SwRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_SwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1100,7 +1169,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevis
     MinorRevision interface{}
 }
 
-func (swRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__SwRev) GetEntityData() *types.CommonEntityData {
+func (swRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_SwRev) GetEntityData() *types.CommonEntityData {
     swRev.EntityData.YFilter = swRev.YFilter
     swRev.EntityData.YangName = "sw-rev"
     swRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1110,16 +1179,19 @@ func (swRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_Hardw
     swRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swRev.EntityData.Children = make(map[string]types.YChild)
-    swRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    swRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", swRev.MajorRevision}
-    swRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", swRev.MinorRevision}
+    swRev.EntityData.Children = types.NewOrderedMap()
+    swRev.EntityData.Leafs = types.NewOrderedMap()
+    swRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", swRev.MajorRevision})
+    swRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", swRev.MinorRevision})
+
+    swRev.EntityData.YListKeys = []string {}
+
     return &(swRev.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev
 // DIMM version information
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1137,7 +1209,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevis
     Cas interface{}
 }
 
-func (dimmRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev) GetEntityData() *types.CommonEntityData {
+func (dimmRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev) GetEntityData() *types.CommonEntityData {
     dimmRev.EntityData.YFilter = dimmRev.YFilter
     dimmRev.EntityData.YangName = "dimm-rev"
     dimmRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1147,18 +1219,21 @@ func (dimmRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_Har
     dimmRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dimmRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dimmRev.EntityData.Children = make(map[string]types.YChild)
-    dimmRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    dimmRev.EntityData.Leafs["size"] = types.YLeaf{"Size", dimmRev.Size}
-    dimmRev.EntityData.Leafs["speed"] = types.YLeaf{"Speed", dimmRev.Speed}
-    dimmRev.EntityData.Leafs["locator"] = types.YLeaf{"Locator", dimmRev.Locator}
-    dimmRev.EntityData.Leafs["cas"] = types.YLeaf{"Cas", dimmRev.Cas}
+    dimmRev.EntityData.Children = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs.Append("size", types.YLeaf{"Size", dimmRev.Size})
+    dimmRev.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", dimmRev.Speed})
+    dimmRev.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", dimmRev.Locator})
+    dimmRev.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", dimmRev.Cas})
+
+    dimmRev.EntityData.YListKeys = []string {}
+
     return &(dimmRev.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev
+// Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev
 // SSD version information
-type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev struct {
+type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1172,7 +1247,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevis
     SerialNumber interface{}
 }
 
-func (ssdRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev) GetEntityData() *types.CommonEntityData {
+func (ssdRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev) GetEntityData() *types.CommonEntityData {
     ssdRev.EntityData.YFilter = ssdRev.YFilter
     ssdRev.EntityData.YangName = "ssd-rev"
     ssdRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1182,11 +1257,14 @@ func (ssdRev *Diag_Racks_Rack_FanTraies_FanTray_Detail_Spa_HardwareRevision_Hard
     ssdRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssdRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssdRev.EntityData.Children = make(map[string]types.YChild)
-    ssdRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssdRev.EntityData.Leafs["number"] = types.YLeaf{"Number", ssdRev.Number}
-    ssdRev.EntityData.Leafs["fw-rev"] = types.YLeaf{"FwRev", ssdRev.FwRev}
-    ssdRev.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", ssdRev.SerialNumber}
+    ssdRev.EntityData.Children = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs.Append("number", types.YLeaf{"Number", ssdRev.Number})
+    ssdRev.EntityData.Leafs.Append("fw-rev", types.YLeaf{"FwRev", ssdRev.FwRev})
+    ssdRev.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", ssdRev.SerialNumber})
+
+    ssdRev.EntityData.YListKeys = []string {}
+
     return &(ssdRev.EntityData)
 }
 
@@ -1198,7 +1276,7 @@ type Diag_Racks_Rack_PowerSupplies struct {
 
     // Power supply operational data. The type is slice of
     // Diag_Racks_Rack_PowerSupplies_PowerSupply.
-    PowerSupply []Diag_Racks_Rack_PowerSupplies_PowerSupply
+    PowerSupply []*Diag_Racks_Rack_PowerSupplies_PowerSupply
 }
 
 func (powerSupplies *Diag_Racks_Rack_PowerSupplies) GetEntityData() *types.CommonEntityData {
@@ -1211,12 +1289,15 @@ func (powerSupplies *Diag_Racks_Rack_PowerSupplies) GetEntityData() *types.Commo
     powerSupplies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerSupplies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    powerSupplies.EntityData.Children = make(map[string]types.YChild)
-    powerSupplies.EntityData.Children["power-supply"] = types.YChild{"PowerSupply", nil}
+    powerSupplies.EntityData.Children = types.NewOrderedMap()
+    powerSupplies.EntityData.Children.Append("power-supply", types.YChild{"PowerSupply", nil})
     for i := range powerSupplies.PowerSupply {
-        powerSupplies.EntityData.Children[types.GetSegmentPath(&powerSupplies.PowerSupply[i])] = types.YChild{"PowerSupply", &powerSupplies.PowerSupply[i]}
+        powerSupplies.EntityData.Children.Append(types.GetSegmentPath(powerSupplies.PowerSupply[i]), types.YChild{"PowerSupply", powerSupplies.PowerSupply[i]})
     }
-    powerSupplies.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerSupplies.EntityData.Leafs = types.NewOrderedMap()
+
+    powerSupplies.EntityData.YListKeys = []string {}
+
     return &(powerSupplies.EntityData)
 }
 
@@ -1227,7 +1308,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Power supply name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PowerSupplyName interface{}
 
     // Diag detailed information.
@@ -1239,15 +1320,18 @@ func (powerSupply *Diag_Racks_Rack_PowerSupplies_PowerSupply) GetEntityData() *t
     powerSupply.EntityData.YangName = "power-supply"
     powerSupply.EntityData.BundleName = "cisco_ios_xr"
     powerSupply.EntityData.ParentYangName = "power-supplies"
-    powerSupply.EntityData.SegmentPath = "power-supply" + "[power-supply-name='" + fmt.Sprintf("%v", powerSupply.PowerSupplyName) + "']"
+    powerSupply.EntityData.SegmentPath = "power-supply" + types.AddKeyToken(powerSupply.PowerSupplyName, "power-supply-name")
     powerSupply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerSupply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerSupply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    powerSupply.EntityData.Children = make(map[string]types.YChild)
-    powerSupply.EntityData.Children["detail"] = types.YChild{"Detail", &powerSupply.Detail}
-    powerSupply.EntityData.Leafs = make(map[string]types.YLeaf)
-    powerSupply.EntityData.Leafs["power-supply-name"] = types.YLeaf{"PowerSupplyName", powerSupply.PowerSupplyName}
+    powerSupply.EntityData.Children = types.NewOrderedMap()
+    powerSupply.EntityData.Children.Append("detail", types.YChild{"Detail", &powerSupply.Detail})
+    powerSupply.EntityData.Leafs = types.NewOrderedMap()
+    powerSupply.EntityData.Leafs.Append("power-supply-name", types.YLeaf{"PowerSupplyName", powerSupply.PowerSupplyName})
+
+    powerSupply.EntityData.YListKeys = []string {"PowerSupplyName"}
+
     return &(powerSupply.EntityData)
 }
 
@@ -1274,10 +1358,13 @@ func (detail *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail) GetEntityData() 
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["node"] = types.YChild{"Node", &detail.Node}
-    detail.EntityData.Children["spa"] = types.YChild{"Spa", &detail.Spa}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("node", types.YChild{"Node", &detail.Node})
+    detail.EntityData.Children.Append("spa", types.YChild{"Spa", &detail.Spa})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -1352,26 +1439,29 @@ func (node *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node) GetEntityData
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["pld"] = types.YChild{"Pld", &node.Pld}
-    node.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", &node.HardwareRevision}
-    node.EntityData.Children["cbc-active-partition"] = types.YChild{"CbcActivePartition", &node.CbcActivePartition}
-    node.EntityData.Children["cbc-inactive-partition"] = types.YChild{"CbcInactivePartition", &node.CbcInactivePartition}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["description"] = types.YLeaf{"Description", node.Description}
-    node.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", node.SerialNumber}
-    node.EntityData.Leafs["tan"] = types.YLeaf{"Tan", node.Tan}
-    node.EntityData.Leafs["pid"] = types.YLeaf{"Pid", node.Pid}
-    node.EntityData.Leafs["vid"] = types.YLeaf{"Vid", node.Vid}
-    node.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", node.ChipHardwareRevision}
-    node.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", node.NewDeviationNumber}
-    node.EntityData.Leafs["clei"] = types.YLeaf{"Clei", node.Clei}
-    node.EntityData.Leafs["board-state"] = types.YLeaf{"BoardState", node.BoardState}
-    node.EntityData.Leafs["pld-motherboard"] = types.YLeaf{"PldMotherboard", node.PldMotherboard}
-    node.EntityData.Leafs["pld-power"] = types.YLeaf{"PldPower", node.PldPower}
-    node.EntityData.Leafs["monlib"] = types.YLeaf{"Monlib", node.Monlib}
-    node.EntityData.Leafs["rommon"] = types.YLeaf{"Rommon", node.Rommon}
-    node.EntityData.Leafs["cpu0"] = types.YLeaf{"Cpu0", node.Cpu0}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("pld", types.YChild{"Pld", &node.Pld})
+    node.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", &node.HardwareRevision})
+    node.EntityData.Children.Append("cbc-active-partition", types.YChild{"CbcActivePartition", &node.CbcActivePartition})
+    node.EntityData.Children.Append("cbc-inactive-partition", types.YChild{"CbcInactivePartition", &node.CbcInactivePartition})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("description", types.YLeaf{"Description", node.Description})
+    node.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", node.SerialNumber})
+    node.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", node.Tan})
+    node.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", node.Pid})
+    node.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", node.Vid})
+    node.EntityData.Leafs.Append("chip-hardware-revision", types.YLeaf{"ChipHardwareRevision", node.ChipHardwareRevision})
+    node.EntityData.Leafs.Append("new-deviation-number", types.YLeaf{"NewDeviationNumber", node.NewDeviationNumber})
+    node.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", node.Clei})
+    node.EntityData.Leafs.Append("board-state", types.YLeaf{"BoardState", node.BoardState})
+    node.EntityData.Leafs.Append("pld-motherboard", types.YLeaf{"PldMotherboard", node.PldMotherboard})
+    node.EntityData.Leafs.Append("pld-power", types.YLeaf{"PldPower", node.PldPower})
+    node.EntityData.Leafs.Append("monlib", types.YLeaf{"Monlib", node.Monlib})
+    node.EntityData.Leafs.Append("rommon", types.YLeaf{"Rommon", node.Rommon})
+    node.EntityData.Leafs.Append("cpu0", types.YLeaf{"Cpu0", node.Cpu0})
+
+    node.EntityData.YListKeys = []string {}
+
     return &(node.EntityData)
 }
 
@@ -1382,7 +1472,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_Pld struct {
     YFilter yfilter.YFilter
 
     // Processor PLD version. The type is interface{} with range: 0..4294967295.
-    Type_ interface{}
+    Type interface{}
 
     // HigherVerion. The type is interface{} with range: 0..4294967295.
     ProcessorHigherVersion interface{}
@@ -1401,11 +1491,14 @@ func (pld *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_Pld) GetEntityD
     pld.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pld.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pld.EntityData.Children = make(map[string]types.YChild)
-    pld.EntityData.Leafs = make(map[string]types.YLeaf)
-    pld.EntityData.Leafs["type"] = types.YLeaf{"Type_", pld.Type_}
-    pld.EntityData.Leafs["processor-higher-version"] = types.YLeaf{"ProcessorHigherVersion", pld.ProcessorHigherVersion}
-    pld.EntityData.Leafs["processor-lower-version"] = types.YLeaf{"ProcessorLowerVersion", pld.ProcessorLowerVersion}
+    pld.EntityData.Children = types.NewOrderedMap()
+    pld.EntityData.Leafs = types.NewOrderedMap()
+    pld.EntityData.Leafs.Append("type", types.YLeaf{"Type", pld.Type})
+    pld.EntityData.Leafs.Append("processor-higher-version", types.YLeaf{"ProcessorHigherVersion", pld.ProcessorHigherVersion})
+    pld.EntityData.Leafs.Append("processor-lower-version", types.YLeaf{"ProcessorLowerVersion", pld.ProcessorLowerVersion})
+
+    pld.EntityData.YListKeys = []string {}
+
     return &(pld.EntityData)
 }
 
@@ -1417,7 +1510,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision stru
 
     // Board FPGA/CPLD/ASIC hardware revision. The type is slice of
     // Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision.
-    HardwareRevision []Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_
+    HardwareRevision []*Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision
 }
 
 func (hardwareRevision *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision) GetEntityData() *types.CommonEntityData {
@@ -1430,18 +1523,21 @@ func (hardwareRevision *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_Ha
     hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", nil}
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", nil})
     for i := range hardwareRevision.HardwareRevision {
-        hardwareRevision.EntityData.Children[types.GetSegmentPath(&hardwareRevision.HardwareRevision[i])] = types.YChild{"HardwareRevision", &hardwareRevision.HardwareRevision[i]}
+        hardwareRevision.EntityData.Children.Append(types.GetSegmentPath(hardwareRevision.HardwareRevision[i]), types.YChild{"HardwareRevision", hardwareRevision.HardwareRevision[i]})
     }
-    hardwareRevision.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
     return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision
 // Board FPGA/CPLD/ASIC hardware revision
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_ struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1452,46 +1548,49 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_Hard
     Version interface{}
 
     // Hardware version.
-    HwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__HwRev
+    HwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_HwRev
 
     // Firmware version.
-    FwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__FwRev
+    FwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_FwRev
 
     // Software version.
-    SwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__SwRev
+    SwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_SwRev
 
     // DIMM version information.
-    DimmRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__DimmRev
+    DimmRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_DimmRev
 
     // SSD version information.
-    SsdRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__SsdRev
+    SsdRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_SsdRev
 }
 
-func (hardwareRevision_ *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_) GetEntityData() *types.CommonEntityData {
-    hardwareRevision_.EntityData.YFilter = hardwareRevision_.YFilter
-    hardwareRevision_.EntityData.YangName = "hardware-revision"
-    hardwareRevision_.EntityData.BundleName = "cisco_ios_xr"
-    hardwareRevision_.EntityData.ParentYangName = "hardware-revision"
-    hardwareRevision_.EntityData.SegmentPath = "hardware-revision"
-    hardwareRevision_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareRevision_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareRevision_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (hardwareRevision *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision) GetEntityData() *types.CommonEntityData {
+    hardwareRevision.EntityData.YFilter = hardwareRevision.YFilter
+    hardwareRevision.EntityData.YangName = "hardware-revision"
+    hardwareRevision.EntityData.BundleName = "cisco_ios_xr"
+    hardwareRevision.EntityData.ParentYangName = "hardware-revision"
+    hardwareRevision.EntityData.SegmentPath = "hardware-revision"
+    hardwareRevision.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision_.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision_.EntityData.Children["hw-rev"] = types.YChild{"HwRev", &hardwareRevision_.HwRev}
-    hardwareRevision_.EntityData.Children["fw-rev"] = types.YChild{"FwRev", &hardwareRevision_.FwRev}
-    hardwareRevision_.EntityData.Children["sw-rev"] = types.YChild{"SwRev", &hardwareRevision_.SwRev}
-    hardwareRevision_.EntityData.Children["dimm-rev"] = types.YChild{"DimmRev", &hardwareRevision_.DimmRev}
-    hardwareRevision_.EntityData.Children["ssd-rev"] = types.YChild{"SsdRev", &hardwareRevision_.SsdRev}
-    hardwareRevision_.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareRevision_.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", hardwareRevision_.NodeDescription}
-    hardwareRevision_.EntityData.Leafs["version"] = types.YLeaf{"Version", hardwareRevision_.Version}
-    return &(hardwareRevision_.EntityData)
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hw-rev", types.YChild{"HwRev", &hardwareRevision.HwRev})
+    hardwareRevision.EntityData.Children.Append("fw-rev", types.YChild{"FwRev", &hardwareRevision.FwRev})
+    hardwareRevision.EntityData.Children.Append("sw-rev", types.YChild{"SwRev", &hardwareRevision.SwRev})
+    hardwareRevision.EntityData.Children.Append("dimm-rev", types.YChild{"DimmRev", &hardwareRevision.DimmRev})
+    hardwareRevision.EntityData.Children.Append("ssd-rev", types.YChild{"SsdRev", &hardwareRevision.SsdRev})
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+    hardwareRevision.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", hardwareRevision.NodeDescription})
+    hardwareRevision.EntityData.Leafs.Append("version", types.YLeaf{"Version", hardwareRevision.Version})
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
+    return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__HwRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_HwRev
 // Hardware version
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__HwRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_HwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1502,7 +1601,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_Hard
     MinorRevision interface{}
 }
 
-func (hwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__HwRev) GetEntityData() *types.CommonEntityData {
+func (hwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_HwRev) GetEntityData() *types.CommonEntityData {
     hwRev.EntityData.YFilter = hwRev.YFilter
     hwRev.EntityData.YangName = "hw-rev"
     hwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1512,16 +1611,19 @@ func (hwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevis
     hwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwRev.EntityData.Children = make(map[string]types.YChild)
-    hwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", hwRev.MajorRevision}
-    hwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", hwRev.MinorRevision}
+    hwRev.EntityData.Children = types.NewOrderedMap()
+    hwRev.EntityData.Leafs = types.NewOrderedMap()
+    hwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", hwRev.MajorRevision})
+    hwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", hwRev.MinorRevision})
+
+    hwRev.EntityData.YListKeys = []string {}
+
     return &(hwRev.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__FwRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_FwRev
 // Firmware version
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__FwRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_FwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1532,7 +1634,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_Hard
     MinorRevision interface{}
 }
 
-func (fwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__FwRev) GetEntityData() *types.CommonEntityData {
+func (fwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_FwRev) GetEntityData() *types.CommonEntityData {
     fwRev.EntityData.YFilter = fwRev.YFilter
     fwRev.EntityData.YangName = "fw-rev"
     fwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1542,16 +1644,19 @@ func (fwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevis
     fwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fwRev.EntityData.Children = make(map[string]types.YChild)
-    fwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    fwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", fwRev.MajorRevision}
-    fwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", fwRev.MinorRevision}
+    fwRev.EntityData.Children = types.NewOrderedMap()
+    fwRev.EntityData.Leafs = types.NewOrderedMap()
+    fwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", fwRev.MajorRevision})
+    fwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", fwRev.MinorRevision})
+
+    fwRev.EntityData.YListKeys = []string {}
+
     return &(fwRev.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__SwRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_SwRev
 // Software version
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__SwRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_SwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1562,7 +1667,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_Hard
     MinorRevision interface{}
 }
 
-func (swRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__SwRev) GetEntityData() *types.CommonEntityData {
+func (swRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_SwRev) GetEntityData() *types.CommonEntityData {
     swRev.EntityData.YFilter = swRev.YFilter
     swRev.EntityData.YangName = "sw-rev"
     swRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1572,16 +1677,19 @@ func (swRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevis
     swRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swRev.EntityData.Children = make(map[string]types.YChild)
-    swRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    swRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", swRev.MajorRevision}
-    swRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", swRev.MinorRevision}
+    swRev.EntityData.Children = types.NewOrderedMap()
+    swRev.EntityData.Leafs = types.NewOrderedMap()
+    swRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", swRev.MajorRevision})
+    swRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", swRev.MinorRevision})
+
+    swRev.EntityData.YListKeys = []string {}
+
     return &(swRev.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__DimmRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_DimmRev
 // DIMM version information
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__DimmRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_DimmRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1599,7 +1707,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_Hard
     Cas interface{}
 }
 
-func (dimmRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__DimmRev) GetEntityData() *types.CommonEntityData {
+func (dimmRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_DimmRev) GetEntityData() *types.CommonEntityData {
     dimmRev.EntityData.YFilter = dimmRev.YFilter
     dimmRev.EntityData.YangName = "dimm-rev"
     dimmRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1609,18 +1717,21 @@ func (dimmRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRev
     dimmRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dimmRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dimmRev.EntityData.Children = make(map[string]types.YChild)
-    dimmRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    dimmRev.EntityData.Leafs["size"] = types.YLeaf{"Size", dimmRev.Size}
-    dimmRev.EntityData.Leafs["speed"] = types.YLeaf{"Speed", dimmRev.Speed}
-    dimmRev.EntityData.Leafs["locator"] = types.YLeaf{"Locator", dimmRev.Locator}
-    dimmRev.EntityData.Leafs["cas"] = types.YLeaf{"Cas", dimmRev.Cas}
+    dimmRev.EntityData.Children = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs.Append("size", types.YLeaf{"Size", dimmRev.Size})
+    dimmRev.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", dimmRev.Speed})
+    dimmRev.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", dimmRev.Locator})
+    dimmRev.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", dimmRev.Cas})
+
+    dimmRev.EntityData.YListKeys = []string {}
+
     return &(dimmRev.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__SsdRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_SsdRev
 // SSD version information
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__SsdRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_SsdRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1634,7 +1745,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_Hard
     SerialNumber interface{}
 }
 
-func (ssdRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision__SsdRev) GetEntityData() *types.CommonEntityData {
+func (ssdRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevision_HardwareRevision_SsdRev) GetEntityData() *types.CommonEntityData {
     ssdRev.EntityData.YFilter = ssdRev.YFilter
     ssdRev.EntityData.YangName = "ssd-rev"
     ssdRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1644,11 +1755,14 @@ func (ssdRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_HardwareRevi
     ssdRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssdRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssdRev.EntityData.Children = make(map[string]types.YChild)
-    ssdRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssdRev.EntityData.Leafs["number"] = types.YLeaf{"Number", ssdRev.Number}
-    ssdRev.EntityData.Leafs["fw-rev"] = types.YLeaf{"FwRev", ssdRev.FwRev}
-    ssdRev.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", ssdRev.SerialNumber}
+    ssdRev.EntityData.Children = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs.Append("number", types.YLeaf{"Number", ssdRev.Number})
+    ssdRev.EntityData.Leafs.Append("fw-rev", types.YLeaf{"FwRev", ssdRev.FwRev})
+    ssdRev.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", ssdRev.SerialNumber})
+
+    ssdRev.EntityData.YListKeys = []string {}
+
     return &(ssdRev.EntityData)
 }
 
@@ -1675,10 +1789,13 @@ func (cbcActivePartition *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Node_
     cbcActivePartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbcActivePartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbcActivePartition.EntityData.Children = make(map[string]types.YChild)
-    cbcActivePartition.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbcActivePartition.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", cbcActivePartition.MajorRevision}
-    cbcActivePartition.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", cbcActivePartition.MinorRevision}
+    cbcActivePartition.EntityData.Children = types.NewOrderedMap()
+    cbcActivePartition.EntityData.Leafs = types.NewOrderedMap()
+    cbcActivePartition.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", cbcActivePartition.MajorRevision})
+    cbcActivePartition.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", cbcActivePartition.MinorRevision})
+
+    cbcActivePartition.EntityData.YListKeys = []string {}
+
     return &(cbcActivePartition.EntityData)
 }
 
@@ -1705,10 +1822,13 @@ func (cbcInactivePartition *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Nod
     cbcInactivePartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbcInactivePartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbcInactivePartition.EntityData.Children = make(map[string]types.YChild)
-    cbcInactivePartition.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbcInactivePartition.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", cbcInactivePartition.MajorRevision}
-    cbcInactivePartition.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", cbcInactivePartition.MinorRevision}
+    cbcInactivePartition.EntityData.Children = types.NewOrderedMap()
+    cbcInactivePartition.EntityData.Leafs = types.NewOrderedMap()
+    cbcInactivePartition.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", cbcInactivePartition.MajorRevision})
+    cbcInactivePartition.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", cbcInactivePartition.MinorRevision})
+
+    cbcInactivePartition.EntityData.YListKeys = []string {}
+
     return &(cbcInactivePartition.EntityData)
 }
 
@@ -1719,7 +1839,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa struct {
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // SPA name. The type is string.
@@ -1761,18 +1881,21 @@ func (spa *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa) GetEntityData()
     spa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spa.EntityData.Children = make(map[string]types.YChild)
-    spa.EntityData.Children["main"] = types.YChild{"Main", &spa.Main}
-    spa.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", &spa.HardwareRevision}
-    spa.EntityData.Leafs = make(map[string]types.YLeaf)
-    spa.EntityData.Leafs["node"] = types.YLeaf{"Node", spa.Node}
-    spa.EntityData.Leafs["name"] = types.YLeaf{"Name", spa.Name}
-    spa.EntityData.Leafs["pca-unit-number"] = types.YLeaf{"PcaUnitNumber", spa.PcaUnitNumber}
-    spa.EntityData.Leafs["pca-revision"] = types.YLeaf{"PcaRevision", spa.PcaRevision}
-    spa.EntityData.Leafs["pid"] = types.YLeaf{"Pid", spa.Pid}
-    spa.EntityData.Leafs["vid"] = types.YLeaf{"Vid", spa.Vid}
-    spa.EntityData.Leafs["clei"] = types.YLeaf{"Clei", spa.Clei}
-    spa.EntityData.Leafs["node-state"] = types.YLeaf{"NodeState", spa.NodeState}
+    spa.EntityData.Children = types.NewOrderedMap()
+    spa.EntityData.Children.Append("main", types.YChild{"Main", &spa.Main})
+    spa.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", &spa.HardwareRevision})
+    spa.EntityData.Leafs = types.NewOrderedMap()
+    spa.EntityData.Leafs.Append("node", types.YLeaf{"Node", spa.Node})
+    spa.EntityData.Leafs.Append("name", types.YLeaf{"Name", spa.Name})
+    spa.EntityData.Leafs.Append("pca-unit-number", types.YLeaf{"PcaUnitNumber", spa.PcaUnitNumber})
+    spa.EntityData.Leafs.Append("pca-revision", types.YLeaf{"PcaRevision", spa.PcaRevision})
+    spa.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", spa.Pid})
+    spa.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", spa.Vid})
+    spa.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", spa.Clei})
+    spa.EntityData.Leafs.Append("node-state", types.YLeaf{"NodeState", spa.NodeState})
+
+    spa.EntityData.YListKeys = []string {}
+
     return &(spa.EntityData)
 }
 
@@ -1808,13 +1931,16 @@ func (main *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_Main) GetEntity
     main.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     main.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    main.EntityData.Children = make(map[string]types.YChild)
-    main.EntityData.Leafs = make(map[string]types.YLeaf)
-    main.EntityData.Leafs["board-type"] = types.YLeaf{"BoardType", main.BoardType}
-    main.EntityData.Leafs["tan"] = types.YLeaf{"Tan", main.Tan}
-    main.EntityData.Leafs["tan-revision"] = types.YLeaf{"TanRevision", main.TanRevision}
-    main.EntityData.Leafs["deviation-number"] = types.YLeaf{"DeviationNumber", main.DeviationNumber}
-    main.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", main.SerialNumber}
+    main.EntityData.Children = types.NewOrderedMap()
+    main.EntityData.Leafs = types.NewOrderedMap()
+    main.EntityData.Leafs.Append("board-type", types.YLeaf{"BoardType", main.BoardType})
+    main.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", main.Tan})
+    main.EntityData.Leafs.Append("tan-revision", types.YLeaf{"TanRevision", main.TanRevision})
+    main.EntityData.Leafs.Append("deviation-number", types.YLeaf{"DeviationNumber", main.DeviationNumber})
+    main.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", main.SerialNumber})
+
+    main.EntityData.YListKeys = []string {}
+
     return &(main.EntityData)
 }
 
@@ -1826,7 +1952,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision struc
 
     // Board FPGA/CPLD/ASIC hardware revision. The type is slice of
     // Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision.
-    HardwareRevision []Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_
+    HardwareRevision []*Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision
 }
 
 func (hardwareRevision *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision) GetEntityData() *types.CommonEntityData {
@@ -1839,18 +1965,21 @@ func (hardwareRevision *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_Har
     hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", nil}
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", nil})
     for i := range hardwareRevision.HardwareRevision {
-        hardwareRevision.EntityData.Children[types.GetSegmentPath(&hardwareRevision.HardwareRevision[i])] = types.YChild{"HardwareRevision", &hardwareRevision.HardwareRevision[i]}
+        hardwareRevision.EntityData.Children.Append(types.GetSegmentPath(hardwareRevision.HardwareRevision[i]), types.YChild{"HardwareRevision", hardwareRevision.HardwareRevision[i]})
     }
-    hardwareRevision.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
     return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision
 // Board FPGA/CPLD/ASIC hardware revision
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_ struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1861,46 +1990,49 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_Hardw
     Version interface{}
 
     // Hardware version.
-    HwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__HwRev
+    HwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_HwRev
 
     // Firmware version.
-    FwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__FwRev
+    FwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_FwRev
 
     // Software version.
-    SwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__SwRev
+    SwRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_SwRev
 
     // DIMM version information.
-    DimmRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev
+    DimmRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev
 
     // SSD version information.
-    SsdRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev
+    SsdRev Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev
 }
 
-func (hardwareRevision_ *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_) GetEntityData() *types.CommonEntityData {
-    hardwareRevision_.EntityData.YFilter = hardwareRevision_.YFilter
-    hardwareRevision_.EntityData.YangName = "hardware-revision"
-    hardwareRevision_.EntityData.BundleName = "cisco_ios_xr"
-    hardwareRevision_.EntityData.ParentYangName = "hardware-revision"
-    hardwareRevision_.EntityData.SegmentPath = "hardware-revision"
-    hardwareRevision_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareRevision_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareRevision_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (hardwareRevision *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision) GetEntityData() *types.CommonEntityData {
+    hardwareRevision.EntityData.YFilter = hardwareRevision.YFilter
+    hardwareRevision.EntityData.YangName = "hardware-revision"
+    hardwareRevision.EntityData.BundleName = "cisco_ios_xr"
+    hardwareRevision.EntityData.ParentYangName = "hardware-revision"
+    hardwareRevision.EntityData.SegmentPath = "hardware-revision"
+    hardwareRevision.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision_.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision_.EntityData.Children["hw-rev"] = types.YChild{"HwRev", &hardwareRevision_.HwRev}
-    hardwareRevision_.EntityData.Children["fw-rev"] = types.YChild{"FwRev", &hardwareRevision_.FwRev}
-    hardwareRevision_.EntityData.Children["sw-rev"] = types.YChild{"SwRev", &hardwareRevision_.SwRev}
-    hardwareRevision_.EntityData.Children["dimm-rev"] = types.YChild{"DimmRev", &hardwareRevision_.DimmRev}
-    hardwareRevision_.EntityData.Children["ssd-rev"] = types.YChild{"SsdRev", &hardwareRevision_.SsdRev}
-    hardwareRevision_.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareRevision_.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", hardwareRevision_.NodeDescription}
-    hardwareRevision_.EntityData.Leafs["version"] = types.YLeaf{"Version", hardwareRevision_.Version}
-    return &(hardwareRevision_.EntityData)
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hw-rev", types.YChild{"HwRev", &hardwareRevision.HwRev})
+    hardwareRevision.EntityData.Children.Append("fw-rev", types.YChild{"FwRev", &hardwareRevision.FwRev})
+    hardwareRevision.EntityData.Children.Append("sw-rev", types.YChild{"SwRev", &hardwareRevision.SwRev})
+    hardwareRevision.EntityData.Children.Append("dimm-rev", types.YChild{"DimmRev", &hardwareRevision.DimmRev})
+    hardwareRevision.EntityData.Children.Append("ssd-rev", types.YChild{"SsdRev", &hardwareRevision.SsdRev})
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+    hardwareRevision.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", hardwareRevision.NodeDescription})
+    hardwareRevision.EntityData.Leafs.Append("version", types.YLeaf{"Version", hardwareRevision.Version})
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
+    return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__HwRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_HwRev
 // Hardware version
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__HwRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_HwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1911,7 +2043,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_Hardw
     MinorRevision interface{}
 }
 
-func (hwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__HwRev) GetEntityData() *types.CommonEntityData {
+func (hwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_HwRev) GetEntityData() *types.CommonEntityData {
     hwRev.EntityData.YFilter = hwRev.YFilter
     hwRev.EntityData.YangName = "hw-rev"
     hwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1921,16 +2053,19 @@ func (hwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevisi
     hwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwRev.EntityData.Children = make(map[string]types.YChild)
-    hwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", hwRev.MajorRevision}
-    hwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", hwRev.MinorRevision}
+    hwRev.EntityData.Children = types.NewOrderedMap()
+    hwRev.EntityData.Leafs = types.NewOrderedMap()
+    hwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", hwRev.MajorRevision})
+    hwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", hwRev.MinorRevision})
+
+    hwRev.EntityData.YListKeys = []string {}
+
     return &(hwRev.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__FwRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_FwRev
 // Firmware version
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__FwRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_FwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1941,7 +2076,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_Hardw
     MinorRevision interface{}
 }
 
-func (fwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__FwRev) GetEntityData() *types.CommonEntityData {
+func (fwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_FwRev) GetEntityData() *types.CommonEntityData {
     fwRev.EntityData.YFilter = fwRev.YFilter
     fwRev.EntityData.YangName = "fw-rev"
     fwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1951,16 +2086,19 @@ func (fwRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevisi
     fwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fwRev.EntityData.Children = make(map[string]types.YChild)
-    fwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    fwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", fwRev.MajorRevision}
-    fwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", fwRev.MinorRevision}
+    fwRev.EntityData.Children = types.NewOrderedMap()
+    fwRev.EntityData.Leafs = types.NewOrderedMap()
+    fwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", fwRev.MajorRevision})
+    fwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", fwRev.MinorRevision})
+
+    fwRev.EntityData.YListKeys = []string {}
+
     return &(fwRev.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__SwRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_SwRev
 // Software version
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__SwRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_SwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1971,7 +2109,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_Hardw
     MinorRevision interface{}
 }
 
-func (swRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__SwRev) GetEntityData() *types.CommonEntityData {
+func (swRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_SwRev) GetEntityData() *types.CommonEntityData {
     swRev.EntityData.YFilter = swRev.YFilter
     swRev.EntityData.YangName = "sw-rev"
     swRev.EntityData.BundleName = "cisco_ios_xr"
@@ -1981,16 +2119,19 @@ func (swRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevisi
     swRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swRev.EntityData.Children = make(map[string]types.YChild)
-    swRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    swRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", swRev.MajorRevision}
-    swRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", swRev.MinorRevision}
+    swRev.EntityData.Children = types.NewOrderedMap()
+    swRev.EntityData.Leafs = types.NewOrderedMap()
+    swRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", swRev.MajorRevision})
+    swRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", swRev.MinorRevision})
+
+    swRev.EntityData.YListKeys = []string {}
+
     return &(swRev.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev
 // DIMM version information
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2008,7 +2149,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_Hardw
     Cas interface{}
 }
 
-func (dimmRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev) GetEntityData() *types.CommonEntityData {
+func (dimmRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev) GetEntityData() *types.CommonEntityData {
     dimmRev.EntityData.YFilter = dimmRev.YFilter
     dimmRev.EntityData.YangName = "dimm-rev"
     dimmRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2018,18 +2159,21 @@ func (dimmRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevi
     dimmRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dimmRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dimmRev.EntityData.Children = make(map[string]types.YChild)
-    dimmRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    dimmRev.EntityData.Leafs["size"] = types.YLeaf{"Size", dimmRev.Size}
-    dimmRev.EntityData.Leafs["speed"] = types.YLeaf{"Speed", dimmRev.Speed}
-    dimmRev.EntityData.Leafs["locator"] = types.YLeaf{"Locator", dimmRev.Locator}
-    dimmRev.EntityData.Leafs["cas"] = types.YLeaf{"Cas", dimmRev.Cas}
+    dimmRev.EntityData.Children = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs.Append("size", types.YLeaf{"Size", dimmRev.Size})
+    dimmRev.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", dimmRev.Speed})
+    dimmRev.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", dimmRev.Locator})
+    dimmRev.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", dimmRev.Cas})
+
+    dimmRev.EntityData.YListKeys = []string {}
+
     return &(dimmRev.EntityData)
 }
 
-// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev
+// Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev
 // SSD version information
-type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev struct {
+type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2043,7 +2187,7 @@ type Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_Hardw
     SerialNumber interface{}
 }
 
-func (ssdRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev) GetEntityData() *types.CommonEntityData {
+func (ssdRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev) GetEntityData() *types.CommonEntityData {
     ssdRev.EntityData.YFilter = ssdRev.YFilter
     ssdRev.EntityData.YangName = "ssd-rev"
     ssdRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2053,11 +2197,14 @@ func (ssdRev *Diag_Racks_Rack_PowerSupplies_PowerSupply_Detail_Spa_HardwareRevis
     ssdRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssdRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssdRev.EntityData.Children = make(map[string]types.YChild)
-    ssdRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssdRev.EntityData.Leafs["number"] = types.YLeaf{"Number", ssdRev.Number}
-    ssdRev.EntityData.Leafs["fw-rev"] = types.YLeaf{"FwRev", ssdRev.FwRev}
-    ssdRev.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", ssdRev.SerialNumber}
+    ssdRev.EntityData.Children = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs.Append("number", types.YLeaf{"Number", ssdRev.Number})
+    ssdRev.EntityData.Leafs.Append("fw-rev", types.YLeaf{"FwRev", ssdRev.FwRev})
+    ssdRev.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", ssdRev.SerialNumber})
+
+    ssdRev.EntityData.YListKeys = []string {}
+
     return &(ssdRev.EntityData)
 }
 
@@ -2069,7 +2216,7 @@ type Diag_Racks_Rack_Slots struct {
 
     // Diag operational data for a particular slot. The type is slice of
     // Diag_Racks_Rack_Slots_Slot.
-    Slot []Diag_Racks_Rack_Slots_Slot
+    Slot []*Diag_Racks_Rack_Slots_Slot
 }
 
 func (slots *Diag_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
@@ -2082,12 +2229,15 @@ func (slots *Diag_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
@@ -2098,7 +2248,7 @@ type Diag_Racks_Rack_Slots_Slot struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SlotName interface{}
 
     // Slot detailed information.
@@ -2113,16 +2263,19 @@ func (slot *Diag_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData 
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[slot-name='" + fmt.Sprintf("%v", slot.SlotName) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.SlotName, "slot-name")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["detail"] = types.YChild{"Detail", &slot.Detail}
-    slot.EntityData.Children["instances"] = types.YChild{"Instances", &slot.Instances}
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["slot-name"] = types.YLeaf{"SlotName", slot.SlotName}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("detail", types.YChild{"Detail", &slot.Detail})
+    slot.EntityData.Children.Append("instances", types.YChild{"Instances", &slot.Instances})
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("slot-name", types.YLeaf{"SlotName", slot.SlotName})
+
+    slot.EntityData.YListKeys = []string {"SlotName"}
+
     return &(slot.EntityData)
 }
 
@@ -2134,11 +2287,11 @@ type Diag_Racks_Rack_Slots_Slot_Detail struct {
 
     // Detail information for slot. The type is slice of
     // Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail.
-    NodeDetail []Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail
+    NodeDetail []*Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail
 
     // Detail information for spa. The type is slice of
     // Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail.
-    SpaDetail []Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail
+    SpaDetail []*Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail
 }
 
 func (detail *Diag_Racks_Rack_Slots_Slot_Detail) GetEntityData() *types.CommonEntityData {
@@ -2151,16 +2304,19 @@ func (detail *Diag_Racks_Rack_Slots_Slot_Detail) GetEntityData() *types.CommonEn
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["node-detail"] = types.YChild{"NodeDetail", nil}
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("node-detail", types.YChild{"NodeDetail", nil})
     for i := range detail.NodeDetail {
-        detail.EntityData.Children[types.GetSegmentPath(&detail.NodeDetail[i])] = types.YChild{"NodeDetail", &detail.NodeDetail[i]}
+        detail.EntityData.Children.Append(types.GetSegmentPath(detail.NodeDetail[i]), types.YChild{"NodeDetail", detail.NodeDetail[i]})
     }
-    detail.EntityData.Children["spa-detail"] = types.YChild{"SpaDetail", nil}
+    detail.EntityData.Children.Append("spa-detail", types.YChild{"SpaDetail", nil})
     for i := range detail.SpaDetail {
-        detail.EntityData.Children[types.GetSegmentPath(&detail.SpaDetail[i])] = types.YChild{"SpaDetail", &detail.SpaDetail[i]}
+        detail.EntityData.Children.Append(types.GetSegmentPath(detail.SpaDetail[i]), types.YChild{"SpaDetail", detail.SpaDetail[i]})
     }
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -2235,26 +2391,29 @@ func (nodeDetail *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail) GetEntityData() 
     nodeDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeDetail.EntityData.Children = make(map[string]types.YChild)
-    nodeDetail.EntityData.Children["pld"] = types.YChild{"Pld", &nodeDetail.Pld}
-    nodeDetail.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", &nodeDetail.HardwareRevision}
-    nodeDetail.EntityData.Children["cbc-active-partition"] = types.YChild{"CbcActivePartition", &nodeDetail.CbcActivePartition}
-    nodeDetail.EntityData.Children["cbc-inactive-partition"] = types.YChild{"CbcInactivePartition", &nodeDetail.CbcInactivePartition}
-    nodeDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeDetail.EntityData.Leafs["description"] = types.YLeaf{"Description", nodeDetail.Description}
-    nodeDetail.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", nodeDetail.SerialNumber}
-    nodeDetail.EntityData.Leafs["tan"] = types.YLeaf{"Tan", nodeDetail.Tan}
-    nodeDetail.EntityData.Leafs["pid"] = types.YLeaf{"Pid", nodeDetail.Pid}
-    nodeDetail.EntityData.Leafs["vid"] = types.YLeaf{"Vid", nodeDetail.Vid}
-    nodeDetail.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", nodeDetail.ChipHardwareRevision}
-    nodeDetail.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", nodeDetail.NewDeviationNumber}
-    nodeDetail.EntityData.Leafs["clei"] = types.YLeaf{"Clei", nodeDetail.Clei}
-    nodeDetail.EntityData.Leafs["board-state"] = types.YLeaf{"BoardState", nodeDetail.BoardState}
-    nodeDetail.EntityData.Leafs["pld-motherboard"] = types.YLeaf{"PldMotherboard", nodeDetail.PldMotherboard}
-    nodeDetail.EntityData.Leafs["pld-power"] = types.YLeaf{"PldPower", nodeDetail.PldPower}
-    nodeDetail.EntityData.Leafs["monlib"] = types.YLeaf{"Monlib", nodeDetail.Monlib}
-    nodeDetail.EntityData.Leafs["rommon"] = types.YLeaf{"Rommon", nodeDetail.Rommon}
-    nodeDetail.EntityData.Leafs["cpu0"] = types.YLeaf{"Cpu0", nodeDetail.Cpu0}
+    nodeDetail.EntityData.Children = types.NewOrderedMap()
+    nodeDetail.EntityData.Children.Append("pld", types.YChild{"Pld", &nodeDetail.Pld})
+    nodeDetail.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", &nodeDetail.HardwareRevision})
+    nodeDetail.EntityData.Children.Append("cbc-active-partition", types.YChild{"CbcActivePartition", &nodeDetail.CbcActivePartition})
+    nodeDetail.EntityData.Children.Append("cbc-inactive-partition", types.YChild{"CbcInactivePartition", &nodeDetail.CbcInactivePartition})
+    nodeDetail.EntityData.Leafs = types.NewOrderedMap()
+    nodeDetail.EntityData.Leafs.Append("description", types.YLeaf{"Description", nodeDetail.Description})
+    nodeDetail.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", nodeDetail.SerialNumber})
+    nodeDetail.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", nodeDetail.Tan})
+    nodeDetail.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", nodeDetail.Pid})
+    nodeDetail.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", nodeDetail.Vid})
+    nodeDetail.EntityData.Leafs.Append("chip-hardware-revision", types.YLeaf{"ChipHardwareRevision", nodeDetail.ChipHardwareRevision})
+    nodeDetail.EntityData.Leafs.Append("new-deviation-number", types.YLeaf{"NewDeviationNumber", nodeDetail.NewDeviationNumber})
+    nodeDetail.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", nodeDetail.Clei})
+    nodeDetail.EntityData.Leafs.Append("board-state", types.YLeaf{"BoardState", nodeDetail.BoardState})
+    nodeDetail.EntityData.Leafs.Append("pld-motherboard", types.YLeaf{"PldMotherboard", nodeDetail.PldMotherboard})
+    nodeDetail.EntityData.Leafs.Append("pld-power", types.YLeaf{"PldPower", nodeDetail.PldPower})
+    nodeDetail.EntityData.Leafs.Append("monlib", types.YLeaf{"Monlib", nodeDetail.Monlib})
+    nodeDetail.EntityData.Leafs.Append("rommon", types.YLeaf{"Rommon", nodeDetail.Rommon})
+    nodeDetail.EntityData.Leafs.Append("cpu0", types.YLeaf{"Cpu0", nodeDetail.Cpu0})
+
+    nodeDetail.EntityData.YListKeys = []string {}
+
     return &(nodeDetail.EntityData)
 }
 
@@ -2265,7 +2424,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_Pld struct {
     YFilter yfilter.YFilter
 
     // Processor PLD version. The type is interface{} with range: 0..4294967295.
-    Type_ interface{}
+    Type interface{}
 
     // HigherVerion. The type is interface{} with range: 0..4294967295.
     ProcessorHigherVersion interface{}
@@ -2284,11 +2443,14 @@ func (pld *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_Pld) GetEntityData() *ty
     pld.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pld.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pld.EntityData.Children = make(map[string]types.YChild)
-    pld.EntityData.Leafs = make(map[string]types.YLeaf)
-    pld.EntityData.Leafs["type"] = types.YLeaf{"Type_", pld.Type_}
-    pld.EntityData.Leafs["processor-higher-version"] = types.YLeaf{"ProcessorHigherVersion", pld.ProcessorHigherVersion}
-    pld.EntityData.Leafs["processor-lower-version"] = types.YLeaf{"ProcessorLowerVersion", pld.ProcessorLowerVersion}
+    pld.EntityData.Children = types.NewOrderedMap()
+    pld.EntityData.Leafs = types.NewOrderedMap()
+    pld.EntityData.Leafs.Append("type", types.YLeaf{"Type", pld.Type})
+    pld.EntityData.Leafs.Append("processor-higher-version", types.YLeaf{"ProcessorHigherVersion", pld.ProcessorHigherVersion})
+    pld.EntityData.Leafs.Append("processor-lower-version", types.YLeaf{"ProcessorLowerVersion", pld.ProcessorLowerVersion})
+
+    pld.EntityData.YListKeys = []string {}
+
     return &(pld.EntityData)
 }
 
@@ -2300,7 +2462,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision struct {
 
     // Board FPGA/CPLD/ASIC hardware revision. The type is slice of
     // Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision.
-    HardwareRevision []Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_
+    HardwareRevision []*Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision
 }
 
 func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision) GetEntityData() *types.CommonEntityData {
@@ -2313,18 +2475,21 @@ func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRev
     hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", nil}
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", nil})
     for i := range hardwareRevision.HardwareRevision {
-        hardwareRevision.EntityData.Children[types.GetSegmentPath(&hardwareRevision.HardwareRevision[i])] = types.YChild{"HardwareRevision", &hardwareRevision.HardwareRevision[i]}
+        hardwareRevision.EntityData.Children.Append(types.GetSegmentPath(hardwareRevision.HardwareRevision[i]), types.YChild{"HardwareRevision", hardwareRevision.HardwareRevision[i]})
     }
-    hardwareRevision.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
     return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_
+// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision
 // Board FPGA/CPLD/ASIC hardware revision
-type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_ struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2335,46 +2500,49 @@ type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevis
     Version interface{}
 
     // Hardware version.
-    HwRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__HwRev
+    HwRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_HwRev
 
     // Firmware version.
-    FwRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__FwRev
+    FwRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_FwRev
 
     // Software version.
-    SwRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__SwRev
+    SwRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_SwRev
 
     // DIMM version information.
-    DimmRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__DimmRev
+    DimmRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_DimmRev
 
     // SSD version information.
-    SsdRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__SsdRev
+    SsdRev Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_SsdRev
 }
 
-func (hardwareRevision_ *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_) GetEntityData() *types.CommonEntityData {
-    hardwareRevision_.EntityData.YFilter = hardwareRevision_.YFilter
-    hardwareRevision_.EntityData.YangName = "hardware-revision"
-    hardwareRevision_.EntityData.BundleName = "cisco_ios_xr"
-    hardwareRevision_.EntityData.ParentYangName = "hardware-revision"
-    hardwareRevision_.EntityData.SegmentPath = "hardware-revision"
-    hardwareRevision_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareRevision_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareRevision_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision) GetEntityData() *types.CommonEntityData {
+    hardwareRevision.EntityData.YFilter = hardwareRevision.YFilter
+    hardwareRevision.EntityData.YangName = "hardware-revision"
+    hardwareRevision.EntityData.BundleName = "cisco_ios_xr"
+    hardwareRevision.EntityData.ParentYangName = "hardware-revision"
+    hardwareRevision.EntityData.SegmentPath = "hardware-revision"
+    hardwareRevision.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision_.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision_.EntityData.Children["hw-rev"] = types.YChild{"HwRev", &hardwareRevision_.HwRev}
-    hardwareRevision_.EntityData.Children["fw-rev"] = types.YChild{"FwRev", &hardwareRevision_.FwRev}
-    hardwareRevision_.EntityData.Children["sw-rev"] = types.YChild{"SwRev", &hardwareRevision_.SwRev}
-    hardwareRevision_.EntityData.Children["dimm-rev"] = types.YChild{"DimmRev", &hardwareRevision_.DimmRev}
-    hardwareRevision_.EntityData.Children["ssd-rev"] = types.YChild{"SsdRev", &hardwareRevision_.SsdRev}
-    hardwareRevision_.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareRevision_.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", hardwareRevision_.NodeDescription}
-    hardwareRevision_.EntityData.Leafs["version"] = types.YLeaf{"Version", hardwareRevision_.Version}
-    return &(hardwareRevision_.EntityData)
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hw-rev", types.YChild{"HwRev", &hardwareRevision.HwRev})
+    hardwareRevision.EntityData.Children.Append("fw-rev", types.YChild{"FwRev", &hardwareRevision.FwRev})
+    hardwareRevision.EntityData.Children.Append("sw-rev", types.YChild{"SwRev", &hardwareRevision.SwRev})
+    hardwareRevision.EntityData.Children.Append("dimm-rev", types.YChild{"DimmRev", &hardwareRevision.DimmRev})
+    hardwareRevision.EntityData.Children.Append("ssd-rev", types.YChild{"SsdRev", &hardwareRevision.SsdRev})
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+    hardwareRevision.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", hardwareRevision.NodeDescription})
+    hardwareRevision.EntityData.Leafs.Append("version", types.YLeaf{"Version", hardwareRevision.Version})
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
+    return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__HwRev
+// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_HwRev
 // Hardware version
-type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__HwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_HwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2385,7 +2553,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevis
     MinorRevision interface{}
 }
 
-func (hwRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__HwRev) GetEntityData() *types.CommonEntityData {
+func (hwRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_HwRev) GetEntityData() *types.CommonEntityData {
     hwRev.EntityData.YFilter = hwRev.YFilter
     hwRev.EntityData.YangName = "hw-rev"
     hwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2395,16 +2563,19 @@ func (hwRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_Hardw
     hwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwRev.EntityData.Children = make(map[string]types.YChild)
-    hwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", hwRev.MajorRevision}
-    hwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", hwRev.MinorRevision}
+    hwRev.EntityData.Children = types.NewOrderedMap()
+    hwRev.EntityData.Leafs = types.NewOrderedMap()
+    hwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", hwRev.MajorRevision})
+    hwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", hwRev.MinorRevision})
+
+    hwRev.EntityData.YListKeys = []string {}
+
     return &(hwRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__FwRev
+// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_FwRev
 // Firmware version
-type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__FwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_FwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2415,7 +2586,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevis
     MinorRevision interface{}
 }
 
-func (fwRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__FwRev) GetEntityData() *types.CommonEntityData {
+func (fwRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_FwRev) GetEntityData() *types.CommonEntityData {
     fwRev.EntityData.YFilter = fwRev.YFilter
     fwRev.EntityData.YangName = "fw-rev"
     fwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2425,16 +2596,19 @@ func (fwRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_Hardw
     fwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fwRev.EntityData.Children = make(map[string]types.YChild)
-    fwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    fwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", fwRev.MajorRevision}
-    fwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", fwRev.MinorRevision}
+    fwRev.EntityData.Children = types.NewOrderedMap()
+    fwRev.EntityData.Leafs = types.NewOrderedMap()
+    fwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", fwRev.MajorRevision})
+    fwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", fwRev.MinorRevision})
+
+    fwRev.EntityData.YListKeys = []string {}
+
     return &(fwRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__SwRev
+// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_SwRev
 // Software version
-type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__SwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_SwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2445,7 +2619,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevis
     MinorRevision interface{}
 }
 
-func (swRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__SwRev) GetEntityData() *types.CommonEntityData {
+func (swRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_SwRev) GetEntityData() *types.CommonEntityData {
     swRev.EntityData.YFilter = swRev.YFilter
     swRev.EntityData.YangName = "sw-rev"
     swRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2455,16 +2629,19 @@ func (swRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_Hardw
     swRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swRev.EntityData.Children = make(map[string]types.YChild)
-    swRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    swRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", swRev.MajorRevision}
-    swRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", swRev.MinorRevision}
+    swRev.EntityData.Children = types.NewOrderedMap()
+    swRev.EntityData.Leafs = types.NewOrderedMap()
+    swRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", swRev.MajorRevision})
+    swRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", swRev.MinorRevision})
+
+    swRev.EntityData.YListKeys = []string {}
+
     return &(swRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__DimmRev
+// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_DimmRev
 // DIMM version information
-type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__DimmRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_DimmRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2482,7 +2659,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevis
     Cas interface{}
 }
 
-func (dimmRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__DimmRev) GetEntityData() *types.CommonEntityData {
+func (dimmRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_DimmRev) GetEntityData() *types.CommonEntityData {
     dimmRev.EntityData.YFilter = dimmRev.YFilter
     dimmRev.EntityData.YangName = "dimm-rev"
     dimmRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2492,18 +2669,21 @@ func (dimmRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_Har
     dimmRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dimmRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dimmRev.EntityData.Children = make(map[string]types.YChild)
-    dimmRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    dimmRev.EntityData.Leafs["size"] = types.YLeaf{"Size", dimmRev.Size}
-    dimmRev.EntityData.Leafs["speed"] = types.YLeaf{"Speed", dimmRev.Speed}
-    dimmRev.EntityData.Leafs["locator"] = types.YLeaf{"Locator", dimmRev.Locator}
-    dimmRev.EntityData.Leafs["cas"] = types.YLeaf{"Cas", dimmRev.Cas}
+    dimmRev.EntityData.Children = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs.Append("size", types.YLeaf{"Size", dimmRev.Size})
+    dimmRev.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", dimmRev.Speed})
+    dimmRev.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", dimmRev.Locator})
+    dimmRev.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", dimmRev.Cas})
+
+    dimmRev.EntityData.YListKeys = []string {}
+
     return &(dimmRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__SsdRev
+// Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_SsdRev
 // SSD version information
-type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__SsdRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_SsdRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2517,7 +2697,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevis
     SerialNumber interface{}
 }
 
-func (ssdRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision__SsdRev) GetEntityData() *types.CommonEntityData {
+func (ssdRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_HardwareRevision_SsdRev) GetEntityData() *types.CommonEntityData {
     ssdRev.EntityData.YFilter = ssdRev.YFilter
     ssdRev.EntityData.YangName = "ssd-rev"
     ssdRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2527,11 +2707,14 @@ func (ssdRev *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_HardwareRevision_Hard
     ssdRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssdRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssdRev.EntityData.Children = make(map[string]types.YChild)
-    ssdRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssdRev.EntityData.Leafs["number"] = types.YLeaf{"Number", ssdRev.Number}
-    ssdRev.EntityData.Leafs["fw-rev"] = types.YLeaf{"FwRev", ssdRev.FwRev}
-    ssdRev.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", ssdRev.SerialNumber}
+    ssdRev.EntityData.Children = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs.Append("number", types.YLeaf{"Number", ssdRev.Number})
+    ssdRev.EntityData.Leafs.Append("fw-rev", types.YLeaf{"FwRev", ssdRev.FwRev})
+    ssdRev.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", ssdRev.SerialNumber})
+
+    ssdRev.EntityData.YListKeys = []string {}
+
     return &(ssdRev.EntityData)
 }
 
@@ -2558,10 +2741,13 @@ func (cbcActivePartition *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_CbcActive
     cbcActivePartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbcActivePartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbcActivePartition.EntityData.Children = make(map[string]types.YChild)
-    cbcActivePartition.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbcActivePartition.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", cbcActivePartition.MajorRevision}
-    cbcActivePartition.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", cbcActivePartition.MinorRevision}
+    cbcActivePartition.EntityData.Children = types.NewOrderedMap()
+    cbcActivePartition.EntityData.Leafs = types.NewOrderedMap()
+    cbcActivePartition.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", cbcActivePartition.MajorRevision})
+    cbcActivePartition.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", cbcActivePartition.MinorRevision})
+
+    cbcActivePartition.EntityData.YListKeys = []string {}
+
     return &(cbcActivePartition.EntityData)
 }
 
@@ -2588,10 +2774,13 @@ func (cbcInactivePartition *Diag_Racks_Rack_Slots_Slot_Detail_NodeDetail_CbcInac
     cbcInactivePartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbcInactivePartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbcInactivePartition.EntityData.Children = make(map[string]types.YChild)
-    cbcInactivePartition.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbcInactivePartition.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", cbcInactivePartition.MajorRevision}
-    cbcInactivePartition.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", cbcInactivePartition.MinorRevision}
+    cbcInactivePartition.EntityData.Children = types.NewOrderedMap()
+    cbcInactivePartition.EntityData.Leafs = types.NewOrderedMap()
+    cbcInactivePartition.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", cbcInactivePartition.MajorRevision})
+    cbcInactivePartition.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", cbcInactivePartition.MinorRevision})
+
+    cbcInactivePartition.EntityData.YListKeys = []string {}
+
     return &(cbcInactivePartition.EntityData)
 }
 
@@ -2602,7 +2791,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail struct {
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // SPA name. The type is string.
@@ -2644,18 +2833,21 @@ func (spaDetail *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail) GetEntityData() *t
     spaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spaDetail.EntityData.Children = make(map[string]types.YChild)
-    spaDetail.EntityData.Children["main"] = types.YChild{"Main", &spaDetail.Main}
-    spaDetail.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", &spaDetail.HardwareRevision}
-    spaDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    spaDetail.EntityData.Leafs["node"] = types.YLeaf{"Node", spaDetail.Node}
-    spaDetail.EntityData.Leafs["name"] = types.YLeaf{"Name", spaDetail.Name}
-    spaDetail.EntityData.Leafs["pca-unit-number"] = types.YLeaf{"PcaUnitNumber", spaDetail.PcaUnitNumber}
-    spaDetail.EntityData.Leafs["pca-revision"] = types.YLeaf{"PcaRevision", spaDetail.PcaRevision}
-    spaDetail.EntityData.Leafs["pid"] = types.YLeaf{"Pid", spaDetail.Pid}
-    spaDetail.EntityData.Leafs["vid"] = types.YLeaf{"Vid", spaDetail.Vid}
-    spaDetail.EntityData.Leafs["clei"] = types.YLeaf{"Clei", spaDetail.Clei}
-    spaDetail.EntityData.Leafs["node-state"] = types.YLeaf{"NodeState", spaDetail.NodeState}
+    spaDetail.EntityData.Children = types.NewOrderedMap()
+    spaDetail.EntityData.Children.Append("main", types.YChild{"Main", &spaDetail.Main})
+    spaDetail.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", &spaDetail.HardwareRevision})
+    spaDetail.EntityData.Leafs = types.NewOrderedMap()
+    spaDetail.EntityData.Leafs.Append("node", types.YLeaf{"Node", spaDetail.Node})
+    spaDetail.EntityData.Leafs.Append("name", types.YLeaf{"Name", spaDetail.Name})
+    spaDetail.EntityData.Leafs.Append("pca-unit-number", types.YLeaf{"PcaUnitNumber", spaDetail.PcaUnitNumber})
+    spaDetail.EntityData.Leafs.Append("pca-revision", types.YLeaf{"PcaRevision", spaDetail.PcaRevision})
+    spaDetail.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", spaDetail.Pid})
+    spaDetail.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", spaDetail.Vid})
+    spaDetail.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", spaDetail.Clei})
+    spaDetail.EntityData.Leafs.Append("node-state", types.YLeaf{"NodeState", spaDetail.NodeState})
+
+    spaDetail.EntityData.YListKeys = []string {}
+
     return &(spaDetail.EntityData)
 }
 
@@ -2691,13 +2883,16 @@ func (main *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_Main) GetEntityData() *t
     main.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     main.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    main.EntityData.Children = make(map[string]types.YChild)
-    main.EntityData.Leafs = make(map[string]types.YLeaf)
-    main.EntityData.Leafs["board-type"] = types.YLeaf{"BoardType", main.BoardType}
-    main.EntityData.Leafs["tan"] = types.YLeaf{"Tan", main.Tan}
-    main.EntityData.Leafs["tan-revision"] = types.YLeaf{"TanRevision", main.TanRevision}
-    main.EntityData.Leafs["deviation-number"] = types.YLeaf{"DeviationNumber", main.DeviationNumber}
-    main.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", main.SerialNumber}
+    main.EntityData.Children = types.NewOrderedMap()
+    main.EntityData.Leafs = types.NewOrderedMap()
+    main.EntityData.Leafs.Append("board-type", types.YLeaf{"BoardType", main.BoardType})
+    main.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", main.Tan})
+    main.EntityData.Leafs.Append("tan-revision", types.YLeaf{"TanRevision", main.TanRevision})
+    main.EntityData.Leafs.Append("deviation-number", types.YLeaf{"DeviationNumber", main.DeviationNumber})
+    main.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", main.SerialNumber})
+
+    main.EntityData.YListKeys = []string {}
+
     return &(main.EntityData)
 }
 
@@ -2709,7 +2904,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision struct {
 
     // Board FPGA/CPLD/ASIC hardware revision. The type is slice of
     // Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision.
-    HardwareRevision []Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_
+    HardwareRevision []*Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision
 }
 
 func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision) GetEntityData() *types.CommonEntityData {
@@ -2722,18 +2917,21 @@ func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevi
     hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", nil}
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", nil})
     for i := range hardwareRevision.HardwareRevision {
-        hardwareRevision.EntityData.Children[types.GetSegmentPath(&hardwareRevision.HardwareRevision[i])] = types.YChild{"HardwareRevision", &hardwareRevision.HardwareRevision[i]}
+        hardwareRevision.EntityData.Children.Append(types.GetSegmentPath(hardwareRevision.HardwareRevision[i]), types.YChild{"HardwareRevision", hardwareRevision.HardwareRevision[i]})
     }
-    hardwareRevision.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
     return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_
+// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision
 // Board FPGA/CPLD/ASIC hardware revision
-type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_ struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2744,46 +2942,49 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevisi
     Version interface{}
 
     // Hardware version.
-    HwRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__HwRev
+    HwRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_HwRev
 
     // Firmware version.
-    FwRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__FwRev
+    FwRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_FwRev
 
     // Software version.
-    SwRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__SwRev
+    SwRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_SwRev
 
     // DIMM version information.
-    DimmRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__DimmRev
+    DimmRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_DimmRev
 
     // SSD version information.
-    SsdRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__SsdRev
+    SsdRev Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_SsdRev
 }
 
-func (hardwareRevision_ *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_) GetEntityData() *types.CommonEntityData {
-    hardwareRevision_.EntityData.YFilter = hardwareRevision_.YFilter
-    hardwareRevision_.EntityData.YangName = "hardware-revision"
-    hardwareRevision_.EntityData.BundleName = "cisco_ios_xr"
-    hardwareRevision_.EntityData.ParentYangName = "hardware-revision"
-    hardwareRevision_.EntityData.SegmentPath = "hardware-revision"
-    hardwareRevision_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareRevision_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareRevision_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision) GetEntityData() *types.CommonEntityData {
+    hardwareRevision.EntityData.YFilter = hardwareRevision.YFilter
+    hardwareRevision.EntityData.YangName = "hardware-revision"
+    hardwareRevision.EntityData.BundleName = "cisco_ios_xr"
+    hardwareRevision.EntityData.ParentYangName = "hardware-revision"
+    hardwareRevision.EntityData.SegmentPath = "hardware-revision"
+    hardwareRevision.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision_.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision_.EntityData.Children["hw-rev"] = types.YChild{"HwRev", &hardwareRevision_.HwRev}
-    hardwareRevision_.EntityData.Children["fw-rev"] = types.YChild{"FwRev", &hardwareRevision_.FwRev}
-    hardwareRevision_.EntityData.Children["sw-rev"] = types.YChild{"SwRev", &hardwareRevision_.SwRev}
-    hardwareRevision_.EntityData.Children["dimm-rev"] = types.YChild{"DimmRev", &hardwareRevision_.DimmRev}
-    hardwareRevision_.EntityData.Children["ssd-rev"] = types.YChild{"SsdRev", &hardwareRevision_.SsdRev}
-    hardwareRevision_.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareRevision_.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", hardwareRevision_.NodeDescription}
-    hardwareRevision_.EntityData.Leafs["version"] = types.YLeaf{"Version", hardwareRevision_.Version}
-    return &(hardwareRevision_.EntityData)
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hw-rev", types.YChild{"HwRev", &hardwareRevision.HwRev})
+    hardwareRevision.EntityData.Children.Append("fw-rev", types.YChild{"FwRev", &hardwareRevision.FwRev})
+    hardwareRevision.EntityData.Children.Append("sw-rev", types.YChild{"SwRev", &hardwareRevision.SwRev})
+    hardwareRevision.EntityData.Children.Append("dimm-rev", types.YChild{"DimmRev", &hardwareRevision.DimmRev})
+    hardwareRevision.EntityData.Children.Append("ssd-rev", types.YChild{"SsdRev", &hardwareRevision.SsdRev})
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+    hardwareRevision.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", hardwareRevision.NodeDescription})
+    hardwareRevision.EntityData.Leafs.Append("version", types.YLeaf{"Version", hardwareRevision.Version})
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
+    return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__HwRev
+// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_HwRev
 // Hardware version
-type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__HwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_HwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2794,7 +2995,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevisi
     MinorRevision interface{}
 }
 
-func (hwRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__HwRev) GetEntityData() *types.CommonEntityData {
+func (hwRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_HwRev) GetEntityData() *types.CommonEntityData {
     hwRev.EntityData.YFilter = hwRev.YFilter
     hwRev.EntityData.YangName = "hw-rev"
     hwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2804,16 +3005,19 @@ func (hwRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_Hardwa
     hwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwRev.EntityData.Children = make(map[string]types.YChild)
-    hwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", hwRev.MajorRevision}
-    hwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", hwRev.MinorRevision}
+    hwRev.EntityData.Children = types.NewOrderedMap()
+    hwRev.EntityData.Leafs = types.NewOrderedMap()
+    hwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", hwRev.MajorRevision})
+    hwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", hwRev.MinorRevision})
+
+    hwRev.EntityData.YListKeys = []string {}
+
     return &(hwRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__FwRev
+// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_FwRev
 // Firmware version
-type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__FwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_FwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2824,7 +3028,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevisi
     MinorRevision interface{}
 }
 
-func (fwRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__FwRev) GetEntityData() *types.CommonEntityData {
+func (fwRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_FwRev) GetEntityData() *types.CommonEntityData {
     fwRev.EntityData.YFilter = fwRev.YFilter
     fwRev.EntityData.YangName = "fw-rev"
     fwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2834,16 +3038,19 @@ func (fwRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_Hardwa
     fwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fwRev.EntityData.Children = make(map[string]types.YChild)
-    fwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    fwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", fwRev.MajorRevision}
-    fwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", fwRev.MinorRevision}
+    fwRev.EntityData.Children = types.NewOrderedMap()
+    fwRev.EntityData.Leafs = types.NewOrderedMap()
+    fwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", fwRev.MajorRevision})
+    fwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", fwRev.MinorRevision})
+
+    fwRev.EntityData.YListKeys = []string {}
+
     return &(fwRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__SwRev
+// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_SwRev
 // Software version
-type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__SwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_SwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2854,7 +3061,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevisi
     MinorRevision interface{}
 }
 
-func (swRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__SwRev) GetEntityData() *types.CommonEntityData {
+func (swRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_SwRev) GetEntityData() *types.CommonEntityData {
     swRev.EntityData.YFilter = swRev.YFilter
     swRev.EntityData.YangName = "sw-rev"
     swRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2864,16 +3071,19 @@ func (swRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_Hardwa
     swRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swRev.EntityData.Children = make(map[string]types.YChild)
-    swRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    swRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", swRev.MajorRevision}
-    swRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", swRev.MinorRevision}
+    swRev.EntityData.Children = types.NewOrderedMap()
+    swRev.EntityData.Leafs = types.NewOrderedMap()
+    swRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", swRev.MajorRevision})
+    swRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", swRev.MinorRevision})
+
+    swRev.EntityData.YListKeys = []string {}
+
     return &(swRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__DimmRev
+// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_DimmRev
 // DIMM version information
-type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__DimmRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_DimmRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2891,7 +3101,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevisi
     Cas interface{}
 }
 
-func (dimmRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__DimmRev) GetEntityData() *types.CommonEntityData {
+func (dimmRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_DimmRev) GetEntityData() *types.CommonEntityData {
     dimmRev.EntityData.YFilter = dimmRev.YFilter
     dimmRev.EntityData.YangName = "dimm-rev"
     dimmRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2901,18 +3111,21 @@ func (dimmRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_Hard
     dimmRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dimmRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dimmRev.EntityData.Children = make(map[string]types.YChild)
-    dimmRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    dimmRev.EntityData.Leafs["size"] = types.YLeaf{"Size", dimmRev.Size}
-    dimmRev.EntityData.Leafs["speed"] = types.YLeaf{"Speed", dimmRev.Speed}
-    dimmRev.EntityData.Leafs["locator"] = types.YLeaf{"Locator", dimmRev.Locator}
-    dimmRev.EntityData.Leafs["cas"] = types.YLeaf{"Cas", dimmRev.Cas}
+    dimmRev.EntityData.Children = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs.Append("size", types.YLeaf{"Size", dimmRev.Size})
+    dimmRev.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", dimmRev.Speed})
+    dimmRev.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", dimmRev.Locator})
+    dimmRev.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", dimmRev.Cas})
+
+    dimmRev.EntityData.YListKeys = []string {}
+
     return &(dimmRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__SsdRev
+// Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_SsdRev
 // SSD version information
-type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__SsdRev struct {
+type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_SsdRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2926,7 +3139,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevisi
     SerialNumber interface{}
 }
 
-func (ssdRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision__SsdRev) GetEntityData() *types.CommonEntityData {
+func (ssdRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_HardwareRevision_SsdRev) GetEntityData() *types.CommonEntityData {
     ssdRev.EntityData.YFilter = ssdRev.YFilter
     ssdRev.EntityData.YangName = "ssd-rev"
     ssdRev.EntityData.BundleName = "cisco_ios_xr"
@@ -2936,11 +3149,14 @@ func (ssdRev *Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail_HardwareRevision_Hardw
     ssdRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssdRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssdRev.EntityData.Children = make(map[string]types.YChild)
-    ssdRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssdRev.EntityData.Leafs["number"] = types.YLeaf{"Number", ssdRev.Number}
-    ssdRev.EntityData.Leafs["fw-rev"] = types.YLeaf{"FwRev", ssdRev.FwRev}
-    ssdRev.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", ssdRev.SerialNumber}
+    ssdRev.EntityData.Children = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs.Append("number", types.YLeaf{"Number", ssdRev.Number})
+    ssdRev.EntityData.Leafs.Append("fw-rev", types.YLeaf{"FwRev", ssdRev.FwRev})
+    ssdRev.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", ssdRev.SerialNumber})
+
+    ssdRev.EntityData.YListKeys = []string {}
+
     return &(ssdRev.EntityData)
 }
 
@@ -2953,7 +3169,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances struct {
 
     // Diag operational data for a particular instance. The type is slice of
     // Diag_Racks_Rack_Slots_Slot_Instances_Instance.
-    Instance []Diag_Racks_Rack_Slots_Slot_Instances_Instance
+    Instance []*Diag_Racks_Rack_Slots_Slot_Instances_Instance
 }
 
 func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetEntityData() *types.CommonEntityData {
@@ -2966,12 +3182,15 @@ func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetEntityData() *types.Co
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instances.EntityData.Children = make(map[string]types.YChild)
-    instances.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    instances.EntityData.Children = types.NewOrderedMap()
+    instances.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range instances.Instance {
-        instances.EntityData.Children[types.GetSegmentPath(&instances.Instance[i])] = types.YChild{"Instance", &instances.Instance[i]}
+        instances.EntityData.Children.Append(types.GetSegmentPath(instances.Instance[i]), types.YChild{"Instance", instances.Instance[i]})
     }
-    instances.EntityData.Leafs = make(map[string]types.YLeaf)
+    instances.EntityData.Leafs = types.NewOrderedMap()
+
+    instances.EntityData.YListKeys = []string {}
+
     return &(instances.EntityData)
 }
 
@@ -2983,7 +3202,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Instance name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Diag detailed information.
@@ -2995,15 +3214,18 @@ func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetEntityData() *
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
-    instance.EntityData.SegmentPath = "instance" + "[instance-name='" + fmt.Sprintf("%v", instance.InstanceName) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceName, "instance-name")
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["detail"] = types.YChild{"Detail", &instance.Detail}
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", instance.InstanceName}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("detail", types.YChild{"Detail", &instance.Detail})
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", instance.InstanceName})
+
+    instance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(instance.EntityData)
 }
 
@@ -3030,10 +3252,13 @@ func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetEntityDat
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["node"] = types.YChild{"Node", &detail.Node}
-    detail.EntityData.Children["spa"] = types.YChild{"Spa", &detail.Spa}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("node", types.YChild{"Node", &detail.Node})
+    detail.EntityData.Children.Append("spa", types.YChild{"Spa", &detail.Spa})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -3108,26 +3333,29 @@ func (node *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node) GetEntity
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["pld"] = types.YChild{"Pld", &node.Pld}
-    node.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", &node.HardwareRevision}
-    node.EntityData.Children["cbc-active-partition"] = types.YChild{"CbcActivePartition", &node.CbcActivePartition}
-    node.EntityData.Children["cbc-inactive-partition"] = types.YChild{"CbcInactivePartition", &node.CbcInactivePartition}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["description"] = types.YLeaf{"Description", node.Description}
-    node.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", node.SerialNumber}
-    node.EntityData.Leafs["tan"] = types.YLeaf{"Tan", node.Tan}
-    node.EntityData.Leafs["pid"] = types.YLeaf{"Pid", node.Pid}
-    node.EntityData.Leafs["vid"] = types.YLeaf{"Vid", node.Vid}
-    node.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", node.ChipHardwareRevision}
-    node.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", node.NewDeviationNumber}
-    node.EntityData.Leafs["clei"] = types.YLeaf{"Clei", node.Clei}
-    node.EntityData.Leafs["board-state"] = types.YLeaf{"BoardState", node.BoardState}
-    node.EntityData.Leafs["pld-motherboard"] = types.YLeaf{"PldMotherboard", node.PldMotherboard}
-    node.EntityData.Leafs["pld-power"] = types.YLeaf{"PldPower", node.PldPower}
-    node.EntityData.Leafs["monlib"] = types.YLeaf{"Monlib", node.Monlib}
-    node.EntityData.Leafs["rommon"] = types.YLeaf{"Rommon", node.Rommon}
-    node.EntityData.Leafs["cpu0"] = types.YLeaf{"Cpu0", node.Cpu0}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("pld", types.YChild{"Pld", &node.Pld})
+    node.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", &node.HardwareRevision})
+    node.EntityData.Children.Append("cbc-active-partition", types.YChild{"CbcActivePartition", &node.CbcActivePartition})
+    node.EntityData.Children.Append("cbc-inactive-partition", types.YChild{"CbcInactivePartition", &node.CbcInactivePartition})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("description", types.YLeaf{"Description", node.Description})
+    node.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", node.SerialNumber})
+    node.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", node.Tan})
+    node.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", node.Pid})
+    node.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", node.Vid})
+    node.EntityData.Leafs.Append("chip-hardware-revision", types.YLeaf{"ChipHardwareRevision", node.ChipHardwareRevision})
+    node.EntityData.Leafs.Append("new-deviation-number", types.YLeaf{"NewDeviationNumber", node.NewDeviationNumber})
+    node.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", node.Clei})
+    node.EntityData.Leafs.Append("board-state", types.YLeaf{"BoardState", node.BoardState})
+    node.EntityData.Leafs.Append("pld-motherboard", types.YLeaf{"PldMotherboard", node.PldMotherboard})
+    node.EntityData.Leafs.Append("pld-power", types.YLeaf{"PldPower", node.PldPower})
+    node.EntityData.Leafs.Append("monlib", types.YLeaf{"Monlib", node.Monlib})
+    node.EntityData.Leafs.Append("rommon", types.YLeaf{"Rommon", node.Rommon})
+    node.EntityData.Leafs.Append("cpu0", types.YLeaf{"Cpu0", node.Cpu0})
+
+    node.EntityData.YListKeys = []string {}
+
     return &(node.EntityData)
 }
 
@@ -3138,7 +3366,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_Pld struct {
     YFilter yfilter.YFilter
 
     // Processor PLD version. The type is interface{} with range: 0..4294967295.
-    Type_ interface{}
+    Type interface{}
 
     // HigherVerion. The type is interface{} with range: 0..4294967295.
     ProcessorHigherVersion interface{}
@@ -3157,11 +3385,14 @@ func (pld *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_Pld) GetEnt
     pld.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pld.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pld.EntityData.Children = make(map[string]types.YChild)
-    pld.EntityData.Leafs = make(map[string]types.YLeaf)
-    pld.EntityData.Leafs["type"] = types.YLeaf{"Type_", pld.Type_}
-    pld.EntityData.Leafs["processor-higher-version"] = types.YLeaf{"ProcessorHigherVersion", pld.ProcessorHigherVersion}
-    pld.EntityData.Leafs["processor-lower-version"] = types.YLeaf{"ProcessorLowerVersion", pld.ProcessorLowerVersion}
+    pld.EntityData.Children = types.NewOrderedMap()
+    pld.EntityData.Leafs = types.NewOrderedMap()
+    pld.EntityData.Leafs.Append("type", types.YLeaf{"Type", pld.Type})
+    pld.EntityData.Leafs.Append("processor-higher-version", types.YLeaf{"ProcessorHigherVersion", pld.ProcessorHigherVersion})
+    pld.EntityData.Leafs.Append("processor-lower-version", types.YLeaf{"ProcessorLowerVersion", pld.ProcessorLowerVersion})
+
+    pld.EntityData.YListKeys = []string {}
+
     return &(pld.EntityData)
 }
 
@@ -3173,7 +3404,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision 
 
     // Board FPGA/CPLD/ASIC hardware revision. The type is slice of
     // Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision.
-    HardwareRevision []Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_
+    HardwareRevision []*Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision
 }
 
 func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision) GetEntityData() *types.CommonEntityData {
@@ -3186,18 +3417,21 @@ func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Nod
     hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", nil}
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", nil})
     for i := range hardwareRevision.HardwareRevision {
-        hardwareRevision.EntityData.Children[types.GetSegmentPath(&hardwareRevision.HardwareRevision[i])] = types.YChild{"HardwareRevision", &hardwareRevision.HardwareRevision[i]}
+        hardwareRevision.EntityData.Children.Append(types.GetSegmentPath(hardwareRevision.HardwareRevision[i]), types.YChild{"HardwareRevision", hardwareRevision.HardwareRevision[i]})
     }
-    hardwareRevision.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
     return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision
 // Board FPGA/CPLD/ASIC hardware revision
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_ struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3208,46 +3442,49 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_
     Version interface{}
 
     // Hardware version.
-    HwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__HwRev
+    HwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_HwRev
 
     // Firmware version.
-    FwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__FwRev
+    FwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_FwRev
 
     // Software version.
-    SwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__SwRev
+    SwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_SwRev
 
     // DIMM version information.
-    DimmRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__DimmRev
+    DimmRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_DimmRev
 
     // SSD version information.
-    SsdRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__SsdRev
+    SsdRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_SsdRev
 }
 
-func (hardwareRevision_ *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_) GetEntityData() *types.CommonEntityData {
-    hardwareRevision_.EntityData.YFilter = hardwareRevision_.YFilter
-    hardwareRevision_.EntityData.YangName = "hardware-revision"
-    hardwareRevision_.EntityData.BundleName = "cisco_ios_xr"
-    hardwareRevision_.EntityData.ParentYangName = "hardware-revision"
-    hardwareRevision_.EntityData.SegmentPath = "hardware-revision"
-    hardwareRevision_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareRevision_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareRevision_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision) GetEntityData() *types.CommonEntityData {
+    hardwareRevision.EntityData.YFilter = hardwareRevision.YFilter
+    hardwareRevision.EntityData.YangName = "hardware-revision"
+    hardwareRevision.EntityData.BundleName = "cisco_ios_xr"
+    hardwareRevision.EntityData.ParentYangName = "hardware-revision"
+    hardwareRevision.EntityData.SegmentPath = "hardware-revision"
+    hardwareRevision.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision_.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision_.EntityData.Children["hw-rev"] = types.YChild{"HwRev", &hardwareRevision_.HwRev}
-    hardwareRevision_.EntityData.Children["fw-rev"] = types.YChild{"FwRev", &hardwareRevision_.FwRev}
-    hardwareRevision_.EntityData.Children["sw-rev"] = types.YChild{"SwRev", &hardwareRevision_.SwRev}
-    hardwareRevision_.EntityData.Children["dimm-rev"] = types.YChild{"DimmRev", &hardwareRevision_.DimmRev}
-    hardwareRevision_.EntityData.Children["ssd-rev"] = types.YChild{"SsdRev", &hardwareRevision_.SsdRev}
-    hardwareRevision_.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareRevision_.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", hardwareRevision_.NodeDescription}
-    hardwareRevision_.EntityData.Leafs["version"] = types.YLeaf{"Version", hardwareRevision_.Version}
-    return &(hardwareRevision_.EntityData)
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hw-rev", types.YChild{"HwRev", &hardwareRevision.HwRev})
+    hardwareRevision.EntityData.Children.Append("fw-rev", types.YChild{"FwRev", &hardwareRevision.FwRev})
+    hardwareRevision.EntityData.Children.Append("sw-rev", types.YChild{"SwRev", &hardwareRevision.SwRev})
+    hardwareRevision.EntityData.Children.Append("dimm-rev", types.YChild{"DimmRev", &hardwareRevision.DimmRev})
+    hardwareRevision.EntityData.Children.Append("ssd-rev", types.YChild{"SsdRev", &hardwareRevision.SsdRev})
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+    hardwareRevision.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", hardwareRevision.NodeDescription})
+    hardwareRevision.EntityData.Leafs.Append("version", types.YLeaf{"Version", hardwareRevision.Version})
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
+    return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__HwRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_HwRev
 // Hardware version
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__HwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_HwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3258,7 +3495,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_
     MinorRevision interface{}
 }
 
-func (hwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__HwRev) GetEntityData() *types.CommonEntityData {
+func (hwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_HwRev) GetEntityData() *types.CommonEntityData {
     hwRev.EntityData.YFilter = hwRev.YFilter
     hwRev.EntityData.YangName = "hw-rev"
     hwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3268,16 +3505,19 @@ func (hwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareR
     hwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwRev.EntityData.Children = make(map[string]types.YChild)
-    hwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", hwRev.MajorRevision}
-    hwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", hwRev.MinorRevision}
+    hwRev.EntityData.Children = types.NewOrderedMap()
+    hwRev.EntityData.Leafs = types.NewOrderedMap()
+    hwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", hwRev.MajorRevision})
+    hwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", hwRev.MinorRevision})
+
+    hwRev.EntityData.YListKeys = []string {}
+
     return &(hwRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__FwRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_FwRev
 // Firmware version
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__FwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_FwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3288,7 +3528,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_
     MinorRevision interface{}
 }
 
-func (fwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__FwRev) GetEntityData() *types.CommonEntityData {
+func (fwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_FwRev) GetEntityData() *types.CommonEntityData {
     fwRev.EntityData.YFilter = fwRev.YFilter
     fwRev.EntityData.YangName = "fw-rev"
     fwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3298,16 +3538,19 @@ func (fwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareR
     fwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fwRev.EntityData.Children = make(map[string]types.YChild)
-    fwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    fwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", fwRev.MajorRevision}
-    fwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", fwRev.MinorRevision}
+    fwRev.EntityData.Children = types.NewOrderedMap()
+    fwRev.EntityData.Leafs = types.NewOrderedMap()
+    fwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", fwRev.MajorRevision})
+    fwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", fwRev.MinorRevision})
+
+    fwRev.EntityData.YListKeys = []string {}
+
     return &(fwRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__SwRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_SwRev
 // Software version
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__SwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_SwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3318,7 +3561,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_
     MinorRevision interface{}
 }
 
-func (swRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__SwRev) GetEntityData() *types.CommonEntityData {
+func (swRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_SwRev) GetEntityData() *types.CommonEntityData {
     swRev.EntityData.YFilter = swRev.YFilter
     swRev.EntityData.YangName = "sw-rev"
     swRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3328,16 +3571,19 @@ func (swRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareR
     swRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swRev.EntityData.Children = make(map[string]types.YChild)
-    swRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    swRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", swRev.MajorRevision}
-    swRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", swRev.MinorRevision}
+    swRev.EntityData.Children = types.NewOrderedMap()
+    swRev.EntityData.Leafs = types.NewOrderedMap()
+    swRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", swRev.MajorRevision})
+    swRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", swRev.MinorRevision})
+
+    swRev.EntityData.YListKeys = []string {}
+
     return &(swRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__DimmRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_DimmRev
 // DIMM version information
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__DimmRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_DimmRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3355,7 +3601,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_
     Cas interface{}
 }
 
-func (dimmRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__DimmRev) GetEntityData() *types.CommonEntityData {
+func (dimmRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_DimmRev) GetEntityData() *types.CommonEntityData {
     dimmRev.EntityData.YFilter = dimmRev.YFilter
     dimmRev.EntityData.YangName = "dimm-rev"
     dimmRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3365,18 +3611,21 @@ func (dimmRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_Hardwar
     dimmRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dimmRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dimmRev.EntityData.Children = make(map[string]types.YChild)
-    dimmRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    dimmRev.EntityData.Leafs["size"] = types.YLeaf{"Size", dimmRev.Size}
-    dimmRev.EntityData.Leafs["speed"] = types.YLeaf{"Speed", dimmRev.Speed}
-    dimmRev.EntityData.Leafs["locator"] = types.YLeaf{"Locator", dimmRev.Locator}
-    dimmRev.EntityData.Leafs["cas"] = types.YLeaf{"Cas", dimmRev.Cas}
+    dimmRev.EntityData.Children = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs.Append("size", types.YLeaf{"Size", dimmRev.Size})
+    dimmRev.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", dimmRev.Speed})
+    dimmRev.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", dimmRev.Locator})
+    dimmRev.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", dimmRev.Cas})
+
+    dimmRev.EntityData.YListKeys = []string {}
+
     return &(dimmRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__SsdRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_SsdRev
 // SSD version information
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__SsdRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_SsdRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3390,7 +3639,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_
     SerialNumber interface{}
 }
 
-func (ssdRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision__SsdRev) GetEntityData() *types.CommonEntityData {
+func (ssdRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_HardwareRevision_HardwareRevision_SsdRev) GetEntityData() *types.CommonEntityData {
     ssdRev.EntityData.YFilter = ssdRev.YFilter
     ssdRev.EntityData.YangName = "ssd-rev"
     ssdRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3400,11 +3649,14 @@ func (ssdRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Node_Hardware
     ssdRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssdRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssdRev.EntityData.Children = make(map[string]types.YChild)
-    ssdRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssdRev.EntityData.Leafs["number"] = types.YLeaf{"Number", ssdRev.Number}
-    ssdRev.EntityData.Leafs["fw-rev"] = types.YLeaf{"FwRev", ssdRev.FwRev}
-    ssdRev.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", ssdRev.SerialNumber}
+    ssdRev.EntityData.Children = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs.Append("number", types.YLeaf{"Number", ssdRev.Number})
+    ssdRev.EntityData.Leafs.Append("fw-rev", types.YLeaf{"FwRev", ssdRev.FwRev})
+    ssdRev.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", ssdRev.SerialNumber})
+
+    ssdRev.EntityData.YListKeys = []string {}
+
     return &(ssdRev.EntityData)
 }
 
@@ -3431,10 +3683,13 @@ func (cbcActivePartition *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_N
     cbcActivePartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbcActivePartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbcActivePartition.EntityData.Children = make(map[string]types.YChild)
-    cbcActivePartition.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbcActivePartition.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", cbcActivePartition.MajorRevision}
-    cbcActivePartition.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", cbcActivePartition.MinorRevision}
+    cbcActivePartition.EntityData.Children = types.NewOrderedMap()
+    cbcActivePartition.EntityData.Leafs = types.NewOrderedMap()
+    cbcActivePartition.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", cbcActivePartition.MajorRevision})
+    cbcActivePartition.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", cbcActivePartition.MinorRevision})
+
+    cbcActivePartition.EntityData.YListKeys = []string {}
+
     return &(cbcActivePartition.EntityData)
 }
 
@@ -3461,10 +3716,13 @@ func (cbcInactivePartition *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail
     cbcInactivePartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbcInactivePartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbcInactivePartition.EntityData.Children = make(map[string]types.YChild)
-    cbcInactivePartition.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbcInactivePartition.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", cbcInactivePartition.MajorRevision}
-    cbcInactivePartition.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", cbcInactivePartition.MinorRevision}
+    cbcInactivePartition.EntityData.Children = types.NewOrderedMap()
+    cbcInactivePartition.EntityData.Leafs = types.NewOrderedMap()
+    cbcInactivePartition.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", cbcInactivePartition.MajorRevision})
+    cbcInactivePartition.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", cbcInactivePartition.MinorRevision})
+
+    cbcInactivePartition.EntityData.YListKeys = []string {}
+
     return &(cbcInactivePartition.EntityData)
 }
 
@@ -3475,7 +3733,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa struct {
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // SPA name. The type is string.
@@ -3517,18 +3775,21 @@ func (spa *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa) GetEntityDa
     spa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spa.EntityData.Children = make(map[string]types.YChild)
-    spa.EntityData.Children["main"] = types.YChild{"Main", &spa.Main}
-    spa.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", &spa.HardwareRevision}
-    spa.EntityData.Leafs = make(map[string]types.YLeaf)
-    spa.EntityData.Leafs["node"] = types.YLeaf{"Node", spa.Node}
-    spa.EntityData.Leafs["name"] = types.YLeaf{"Name", spa.Name}
-    spa.EntityData.Leafs["pca-unit-number"] = types.YLeaf{"PcaUnitNumber", spa.PcaUnitNumber}
-    spa.EntityData.Leafs["pca-revision"] = types.YLeaf{"PcaRevision", spa.PcaRevision}
-    spa.EntityData.Leafs["pid"] = types.YLeaf{"Pid", spa.Pid}
-    spa.EntityData.Leafs["vid"] = types.YLeaf{"Vid", spa.Vid}
-    spa.EntityData.Leafs["clei"] = types.YLeaf{"Clei", spa.Clei}
-    spa.EntityData.Leafs["node-state"] = types.YLeaf{"NodeState", spa.NodeState}
+    spa.EntityData.Children = types.NewOrderedMap()
+    spa.EntityData.Children.Append("main", types.YChild{"Main", &spa.Main})
+    spa.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", &spa.HardwareRevision})
+    spa.EntityData.Leafs = types.NewOrderedMap()
+    spa.EntityData.Leafs.Append("node", types.YLeaf{"Node", spa.Node})
+    spa.EntityData.Leafs.Append("name", types.YLeaf{"Name", spa.Name})
+    spa.EntityData.Leafs.Append("pca-unit-number", types.YLeaf{"PcaUnitNumber", spa.PcaUnitNumber})
+    spa.EntityData.Leafs.Append("pca-revision", types.YLeaf{"PcaRevision", spa.PcaRevision})
+    spa.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", spa.Pid})
+    spa.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", spa.Vid})
+    spa.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", spa.Clei})
+    spa.EntityData.Leafs.Append("node-state", types.YLeaf{"NodeState", spa.NodeState})
+
+    spa.EntityData.YListKeys = []string {}
+
     return &(spa.EntityData)
 }
 
@@ -3564,13 +3825,16 @@ func (main *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_Main) GetEn
     main.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     main.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    main.EntityData.Children = make(map[string]types.YChild)
-    main.EntityData.Leafs = make(map[string]types.YLeaf)
-    main.EntityData.Leafs["board-type"] = types.YLeaf{"BoardType", main.BoardType}
-    main.EntityData.Leafs["tan"] = types.YLeaf{"Tan", main.Tan}
-    main.EntityData.Leafs["tan-revision"] = types.YLeaf{"TanRevision", main.TanRevision}
-    main.EntityData.Leafs["deviation-number"] = types.YLeaf{"DeviationNumber", main.DeviationNumber}
-    main.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", main.SerialNumber}
+    main.EntityData.Children = types.NewOrderedMap()
+    main.EntityData.Leafs = types.NewOrderedMap()
+    main.EntityData.Leafs.Append("board-type", types.YLeaf{"BoardType", main.BoardType})
+    main.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", main.Tan})
+    main.EntityData.Leafs.Append("tan-revision", types.YLeaf{"TanRevision", main.TanRevision})
+    main.EntityData.Leafs.Append("deviation-number", types.YLeaf{"DeviationNumber", main.DeviationNumber})
+    main.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", main.SerialNumber})
+
+    main.EntityData.YListKeys = []string {}
+
     return &(main.EntityData)
 }
 
@@ -3582,7 +3846,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision s
 
     // Board FPGA/CPLD/ASIC hardware revision. The type is slice of
     // Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision.
-    HardwareRevision []Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_
+    HardwareRevision []*Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision
 }
 
 func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision) GetEntityData() *types.CommonEntityData {
@@ -3595,18 +3859,21 @@ func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa
     hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision.EntityData.Children["hardware-revision"] = types.YChild{"HardwareRevision", nil}
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hardware-revision", types.YChild{"HardwareRevision", nil})
     for i := range hardwareRevision.HardwareRevision {
-        hardwareRevision.EntityData.Children[types.GetSegmentPath(&hardwareRevision.HardwareRevision[i])] = types.YChild{"HardwareRevision", &hardwareRevision.HardwareRevision[i]}
+        hardwareRevision.EntityData.Children.Append(types.GetSegmentPath(hardwareRevision.HardwareRevision[i]), types.YChild{"HardwareRevision", hardwareRevision.HardwareRevision[i]})
     }
-    hardwareRevision.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
     return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision
 // Board FPGA/CPLD/ASIC hardware revision
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_ struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3617,46 +3884,49 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_H
     Version interface{}
 
     // Hardware version.
-    HwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__HwRev
+    HwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_HwRev
 
     // Firmware version.
-    FwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__FwRev
+    FwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_FwRev
 
     // Software version.
-    SwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__SwRev
+    SwRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_SwRev
 
     // DIMM version information.
-    DimmRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev
+    DimmRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev
 
     // SSD version information.
-    SsdRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev
+    SsdRev Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev
 }
 
-func (hardwareRevision_ *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_) GetEntityData() *types.CommonEntityData {
-    hardwareRevision_.EntityData.YFilter = hardwareRevision_.YFilter
-    hardwareRevision_.EntityData.YangName = "hardware-revision"
-    hardwareRevision_.EntityData.BundleName = "cisco_ios_xr"
-    hardwareRevision_.EntityData.ParentYangName = "hardware-revision"
-    hardwareRevision_.EntityData.SegmentPath = "hardware-revision"
-    hardwareRevision_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareRevision_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareRevision_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (hardwareRevision *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision) GetEntityData() *types.CommonEntityData {
+    hardwareRevision.EntityData.YFilter = hardwareRevision.YFilter
+    hardwareRevision.EntityData.YangName = "hardware-revision"
+    hardwareRevision.EntityData.BundleName = "cisco_ios_xr"
+    hardwareRevision.EntityData.ParentYangName = "hardware-revision"
+    hardwareRevision.EntityData.SegmentPath = "hardware-revision"
+    hardwareRevision.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareRevision.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareRevision.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareRevision_.EntityData.Children = make(map[string]types.YChild)
-    hardwareRevision_.EntityData.Children["hw-rev"] = types.YChild{"HwRev", &hardwareRevision_.HwRev}
-    hardwareRevision_.EntityData.Children["fw-rev"] = types.YChild{"FwRev", &hardwareRevision_.FwRev}
-    hardwareRevision_.EntityData.Children["sw-rev"] = types.YChild{"SwRev", &hardwareRevision_.SwRev}
-    hardwareRevision_.EntityData.Children["dimm-rev"] = types.YChild{"DimmRev", &hardwareRevision_.DimmRev}
-    hardwareRevision_.EntityData.Children["ssd-rev"] = types.YChild{"SsdRev", &hardwareRevision_.SsdRev}
-    hardwareRevision_.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareRevision_.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", hardwareRevision_.NodeDescription}
-    hardwareRevision_.EntityData.Leafs["version"] = types.YLeaf{"Version", hardwareRevision_.Version}
-    return &(hardwareRevision_.EntityData)
+    hardwareRevision.EntityData.Children = types.NewOrderedMap()
+    hardwareRevision.EntityData.Children.Append("hw-rev", types.YChild{"HwRev", &hardwareRevision.HwRev})
+    hardwareRevision.EntityData.Children.Append("fw-rev", types.YChild{"FwRev", &hardwareRevision.FwRev})
+    hardwareRevision.EntityData.Children.Append("sw-rev", types.YChild{"SwRev", &hardwareRevision.SwRev})
+    hardwareRevision.EntityData.Children.Append("dimm-rev", types.YChild{"DimmRev", &hardwareRevision.DimmRev})
+    hardwareRevision.EntityData.Children.Append("ssd-rev", types.YChild{"SsdRev", &hardwareRevision.SsdRev})
+    hardwareRevision.EntityData.Leafs = types.NewOrderedMap()
+    hardwareRevision.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", hardwareRevision.NodeDescription})
+    hardwareRevision.EntityData.Leafs.Append("version", types.YLeaf{"Version", hardwareRevision.Version})
+
+    hardwareRevision.EntityData.YListKeys = []string {}
+
+    return &(hardwareRevision.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__HwRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_HwRev
 // Hardware version
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__HwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_HwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3667,7 +3937,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_H
     MinorRevision interface{}
 }
 
-func (hwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__HwRev) GetEntityData() *types.CommonEntityData {
+func (hwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_HwRev) GetEntityData() *types.CommonEntityData {
     hwRev.EntityData.YFilter = hwRev.YFilter
     hwRev.EntityData.YangName = "hw-rev"
     hwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3677,16 +3947,19 @@ func (hwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRe
     hwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwRev.EntityData.Children = make(map[string]types.YChild)
-    hwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", hwRev.MajorRevision}
-    hwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", hwRev.MinorRevision}
+    hwRev.EntityData.Children = types.NewOrderedMap()
+    hwRev.EntityData.Leafs = types.NewOrderedMap()
+    hwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", hwRev.MajorRevision})
+    hwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", hwRev.MinorRevision})
+
+    hwRev.EntityData.YListKeys = []string {}
+
     return &(hwRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__FwRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_FwRev
 // Firmware version
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__FwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_FwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3697,7 +3970,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_H
     MinorRevision interface{}
 }
 
-func (fwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__FwRev) GetEntityData() *types.CommonEntityData {
+func (fwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_FwRev) GetEntityData() *types.CommonEntityData {
     fwRev.EntityData.YFilter = fwRev.YFilter
     fwRev.EntityData.YangName = "fw-rev"
     fwRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3707,16 +3980,19 @@ func (fwRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRe
     fwRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fwRev.EntityData.Children = make(map[string]types.YChild)
-    fwRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    fwRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", fwRev.MajorRevision}
-    fwRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", fwRev.MinorRevision}
+    fwRev.EntityData.Children = types.NewOrderedMap()
+    fwRev.EntityData.Leafs = types.NewOrderedMap()
+    fwRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", fwRev.MajorRevision})
+    fwRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", fwRev.MinorRevision})
+
+    fwRev.EntityData.YListKeys = []string {}
+
     return &(fwRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__SwRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_SwRev
 // Software version
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__SwRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_SwRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3727,7 +4003,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_H
     MinorRevision interface{}
 }
 
-func (swRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__SwRev) GetEntityData() *types.CommonEntityData {
+func (swRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_SwRev) GetEntityData() *types.CommonEntityData {
     swRev.EntityData.YFilter = swRev.YFilter
     swRev.EntityData.YangName = "sw-rev"
     swRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3737,16 +4013,19 @@ func (swRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRe
     swRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    swRev.EntityData.Children = make(map[string]types.YChild)
-    swRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    swRev.EntityData.Leafs["major-revision"] = types.YLeaf{"MajorRevision", swRev.MajorRevision}
-    swRev.EntityData.Leafs["minor-revision"] = types.YLeaf{"MinorRevision", swRev.MinorRevision}
+    swRev.EntityData.Children = types.NewOrderedMap()
+    swRev.EntityData.Leafs = types.NewOrderedMap()
+    swRev.EntityData.Leafs.Append("major-revision", types.YLeaf{"MajorRevision", swRev.MajorRevision})
+    swRev.EntityData.Leafs.Append("minor-revision", types.YLeaf{"MinorRevision", swRev.MinorRevision})
+
+    swRev.EntityData.YListKeys = []string {}
+
     return &(swRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev
 // DIMM version information
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3764,7 +4043,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_H
     Cas interface{}
 }
 
-func (dimmRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__DimmRev) GetEntityData() *types.CommonEntityData {
+func (dimmRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_DimmRev) GetEntityData() *types.CommonEntityData {
     dimmRev.EntityData.YFilter = dimmRev.YFilter
     dimmRev.EntityData.YangName = "dimm-rev"
     dimmRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3774,18 +4053,21 @@ func (dimmRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_Hardware
     dimmRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dimmRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dimmRev.EntityData.Children = make(map[string]types.YChild)
-    dimmRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    dimmRev.EntityData.Leafs["size"] = types.YLeaf{"Size", dimmRev.Size}
-    dimmRev.EntityData.Leafs["speed"] = types.YLeaf{"Speed", dimmRev.Speed}
-    dimmRev.EntityData.Leafs["locator"] = types.YLeaf{"Locator", dimmRev.Locator}
-    dimmRev.EntityData.Leafs["cas"] = types.YLeaf{"Cas", dimmRev.Cas}
+    dimmRev.EntityData.Children = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs = types.NewOrderedMap()
+    dimmRev.EntityData.Leafs.Append("size", types.YLeaf{"Size", dimmRev.Size})
+    dimmRev.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", dimmRev.Speed})
+    dimmRev.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", dimmRev.Locator})
+    dimmRev.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", dimmRev.Cas})
+
+    dimmRev.EntityData.YListKeys = []string {}
+
     return &(dimmRev.EntityData)
 }
 
-// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev
+// Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev
 // SSD version information
-type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev struct {
+type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3799,7 +4081,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_H
     SerialNumber interface{}
 }
 
-func (ssdRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision__SsdRev) GetEntityData() *types.CommonEntityData {
+func (ssdRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareRevision_HardwareRevision_SsdRev) GetEntityData() *types.CommonEntityData {
     ssdRev.EntityData.YFilter = ssdRev.YFilter
     ssdRev.EntityData.YangName = "ssd-rev"
     ssdRev.EntityData.BundleName = "cisco_ios_xr"
@@ -3809,11 +4091,14 @@ func (ssdRev *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa_HardwareR
     ssdRev.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssdRev.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssdRev.EntityData.Children = make(map[string]types.YChild)
-    ssdRev.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssdRev.EntityData.Leafs["number"] = types.YLeaf{"Number", ssdRev.Number}
-    ssdRev.EntityData.Leafs["fw-rev"] = types.YLeaf{"FwRev", ssdRev.FwRev}
-    ssdRev.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", ssdRev.SerialNumber}
+    ssdRev.EntityData.Children = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs = types.NewOrderedMap()
+    ssdRev.EntityData.Leafs.Append("number", types.YLeaf{"Number", ssdRev.Number})
+    ssdRev.EntityData.Leafs.Append("fw-rev", types.YLeaf{"FwRev", ssdRev.FwRev})
+    ssdRev.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", ssdRev.SerialNumber})
+
+    ssdRev.EntityData.YListKeys = []string {}
+
     return &(ssdRev.EntityData)
 }
 
@@ -3852,14 +4137,17 @@ func (chassis *Diag_Racks_Rack_Chassis) GetEntityData() *types.CommonEntityData 
     chassis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    chassis.EntityData.Children = make(map[string]types.YChild)
-    chassis.EntityData.Leafs = make(map[string]types.YLeaf)
-    chassis.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", chassis.SerialNumber}
-    chassis.EntityData.Leafs["pid"] = types.YLeaf{"Pid", chassis.Pid}
-    chassis.EntityData.Leafs["vid"] = types.YLeaf{"Vid", chassis.Vid}
-    chassis.EntityData.Leafs["description"] = types.YLeaf{"Description", chassis.Description}
-    chassis.EntityData.Leafs["clei"] = types.YLeaf{"Clei", chassis.Clei}
-    chassis.EntityData.Leafs["tan"] = types.YLeaf{"Tan", chassis.Tan}
+    chassis.EntityData.Children = types.NewOrderedMap()
+    chassis.EntityData.Leafs = types.NewOrderedMap()
+    chassis.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", chassis.SerialNumber})
+    chassis.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", chassis.Pid})
+    chassis.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", chassis.Vid})
+    chassis.EntityData.Leafs.Append("description", types.YLeaf{"Description", chassis.Description})
+    chassis.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", chassis.Clei})
+    chassis.EntityData.Leafs.Append("tan", types.YLeaf{"Tan", chassis.Tan})
+
+    chassis.EntityData.YListKeys = []string {}
+
     return &(chassis.EntityData)
 }
 
@@ -3870,7 +4158,7 @@ type Diag_Racks_Rack_Summary struct {
     YFilter yfilter.YFilter
 
     // Summary data. The type is slice of Diag_Racks_Rack_Summary_Summary.
-    Summary []Diag_Racks_Rack_Summary_Summary_
+    Summary []*Diag_Racks_Rack_Summary_Summary
 }
 
 func (summary *Diag_Racks_Rack_Summary) GetEntityData() *types.CommonEntityData {
@@ -3883,26 +4171,29 @@ func (summary *Diag_Racks_Rack_Summary) GetEntityData() *types.CommonEntityData 
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["summary"] = types.YChild{"Summary", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("summary", types.YChild{"Summary", nil})
     for i := range summary.Summary {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.Summary[i])] = types.YChild{"Summary", &summary.Summary[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.Summary[i]), types.YChild{"Summary", summary.Summary[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
-// Diag_Racks_Rack_Summary_Summary_
+// Diag_Racks_Rack_Summary_Summary
 // Summary data
-type Diag_Racks_Rack_Summary_Summary_ struct {
+type Diag_Racks_Rack_Summary_Summary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node type. The type is DiagNode.
-    Type_ interface{}
+    Type interface{}
 
     // Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // Slot type. The type is DiagSlot.
@@ -3912,22 +4203,25 @@ type Diag_Racks_Rack_Summary_Summary_ struct {
     Description interface{}
 }
 
-func (summary_ *Diag_Racks_Rack_Summary_Summary_) GetEntityData() *types.CommonEntityData {
-    summary_.EntityData.YFilter = summary_.YFilter
-    summary_.EntityData.YangName = "summary"
-    summary_.EntityData.BundleName = "cisco_ios_xr"
-    summary_.EntityData.ParentYangName = "summary"
-    summary_.EntityData.SegmentPath = "summary"
-    summary_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    summary_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    summary_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (summary *Diag_Racks_Rack_Summary_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "summary"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary_.EntityData.Children = make(map[string]types.YChild)
-    summary_.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary_.EntityData.Leafs["type"] = types.YLeaf{"Type_", summary_.Type_}
-    summary_.EntityData.Leafs["node"] = types.YLeaf{"Node", summary_.Node}
-    summary_.EntityData.Leafs["slot-type"] = types.YLeaf{"SlotType", summary_.SlotType}
-    summary_.EntityData.Leafs["description"] = types.YLeaf{"Description", summary_.Description}
-    return &(summary_.EntityData)
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("type", types.YLeaf{"Type", summary.Type})
+    summary.EntityData.Leafs.Append("node", types.YLeaf{"Node", summary.Node})
+    summary.EntityData.Leafs.Append("slot-type", types.YLeaf{"SlotType", summary.SlotType})
+    summary.EntityData.Leafs.Append("description", types.YLeaf{"Description", summary.Description})
+
+    summary.EntityData.YListKeys = []string {}
+
+    return &(summary.EntityData)
 }
 

@@ -76,10 +76,10 @@ type CISCOENTITYQFPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Ciscoentityqfp CISCOENTITYQFPMIB_Ciscoentityqfp
+    CiscoEntityQfp CISCOENTITYQFPMIB_CiscoEntityQfp
 
     
-    Ciscoentityqfpnotif CISCOENTITYQFPMIB_Ciscoentityqfpnotif
+    CiscoEntityQfpNotif CISCOENTITYQFPMIB_CiscoEntityQfpNotif
 
     // This table maintains the QFP system information for each QFP physical
     // entity.  An agent creates a conceptual row to this table corresponding to a
@@ -87,7 +87,7 @@ type CISCOENTITYQFPMIB struct {
     // system information.  An agent destroys a conceptual row from this table    
     // corresponding to a QFP physical entity upon removal of the QFP host
     // physical entity.
-    Ceqfpsystemtable CISCOENTITYQFPMIB_Ceqfpsystemtable
+    CeqfpSystemTable CISCOENTITYQFPMIB_CeqfpSystemTable
 
     // This table maintains the utilization statistics collected by each QFP
     // physical entity at various time interval such as last 5 seconds, 1 minute,
@@ -99,7 +99,7 @@ type CISCOENTITYQFPMIB struct {
     // entity or it does not receive the utilization statistics update for a
     // certain time period. The time period to wait before deleting an entry from
     // this table would be the discretion of the supporting device.
-    Ceqfputilizationtable CISCOENTITYQFPMIB_Ceqfputilizationtable
+    CeqfpUtilizationTable CISCOENTITYQFPMIB_CeqfpUtilizationTable
 
     // This table maintains the memory resources statistics for each QFP physical
     // entity.  An agent creates a conceptual row to this table corresponding to a
@@ -111,7 +111,7 @@ type CISCOENTITYQFPMIB struct {
     // memory resource statistics update for a certain time period. The time
     // period to wait before deleting an entry from this table would be the
     // discretion of the supporting device.
-    Ceqfpmemoryresourcetable CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable
+    CeqfpMemoryResourceTable CISCOENTITYQFPMIB_CeqfpMemoryResourceTable
 
     // This table maintains the throughput information for each QFP physical
     // entity.          An agent creates a conceptual row to this table
@@ -119,7 +119,7 @@ type CISCOENTITYQFPMIB struct {
     // supporting the QFP throughput information.          An agent destroys a
     // conceptual row from this table       corresponding to a QFP physical entity
     // upon removal of the QFP host physical entity.
-    Ceqfpthroughputtable CISCOENTITYQFPMIB_Ceqfpthroughputtable
+    CeqfpThroughputTable CISCOENTITYQFPMIB_CeqfpThroughputTable
 }
 
 func (cISCOENTITYQFPMIB *CISCOENTITYQFPMIB) GetEntityData() *types.CommonEntityData {
@@ -132,19 +132,22 @@ func (cISCOENTITYQFPMIB *CISCOENTITYQFPMIB) GetEntityData() *types.CommonEntityD
     cISCOENTITYQFPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENTITYQFPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOENTITYQFPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOENTITYQFPMIB.EntityData.Children["ciscoEntityQfp"] = types.YChild{"Ciscoentityqfp", &cISCOENTITYQFPMIB.Ciscoentityqfp}
-    cISCOENTITYQFPMIB.EntityData.Children["ciscoEntityQfpNotif"] = types.YChild{"Ciscoentityqfpnotif", &cISCOENTITYQFPMIB.Ciscoentityqfpnotif}
-    cISCOENTITYQFPMIB.EntityData.Children["ceqfpSystemTable"] = types.YChild{"Ceqfpsystemtable", &cISCOENTITYQFPMIB.Ceqfpsystemtable}
-    cISCOENTITYQFPMIB.EntityData.Children["ceqfpUtilizationTable"] = types.YChild{"Ceqfputilizationtable", &cISCOENTITYQFPMIB.Ceqfputilizationtable}
-    cISCOENTITYQFPMIB.EntityData.Children["ceqfpMemoryResourceTable"] = types.YChild{"Ceqfpmemoryresourcetable", &cISCOENTITYQFPMIB.Ceqfpmemoryresourcetable}
-    cISCOENTITYQFPMIB.EntityData.Children["ceqfpThroughputTable"] = types.YChild{"Ceqfpthroughputtable", &cISCOENTITYQFPMIB.Ceqfpthroughputtable}
-    cISCOENTITYQFPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOENTITYQFPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOENTITYQFPMIB.EntityData.Children.Append("ciscoEntityQfp", types.YChild{"CiscoEntityQfp", &cISCOENTITYQFPMIB.CiscoEntityQfp})
+    cISCOENTITYQFPMIB.EntityData.Children.Append("ciscoEntityQfpNotif", types.YChild{"CiscoEntityQfpNotif", &cISCOENTITYQFPMIB.CiscoEntityQfpNotif})
+    cISCOENTITYQFPMIB.EntityData.Children.Append("ceqfpSystemTable", types.YChild{"CeqfpSystemTable", &cISCOENTITYQFPMIB.CeqfpSystemTable})
+    cISCOENTITYQFPMIB.EntityData.Children.Append("ceqfpUtilizationTable", types.YChild{"CeqfpUtilizationTable", &cISCOENTITYQFPMIB.CeqfpUtilizationTable})
+    cISCOENTITYQFPMIB.EntityData.Children.Append("ceqfpMemoryResourceTable", types.YChild{"CeqfpMemoryResourceTable", &cISCOENTITYQFPMIB.CeqfpMemoryResourceTable})
+    cISCOENTITYQFPMIB.EntityData.Children.Append("ceqfpThroughputTable", types.YChild{"CeqfpThroughputTable", &cISCOENTITYQFPMIB.CeqfpThroughputTable})
+    cISCOENTITYQFPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOENTITYQFPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOENTITYQFPMIB.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ciscoentityqfp
-type CISCOENTITYQFPMIB_Ciscoentityqfp struct {
+// CISCOENTITYQFPMIB_CiscoEntityQfp
+type CISCOENTITYQFPMIB_CiscoEntityQfp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -153,91 +156,94 @@ type CISCOENTITYQFPMIB_Ciscoentityqfp struct {
     // (1) - The calculation method is unknown fiveSecSample (2) - The value is
     // calculated based on the last                     5 second sampling period
     // of utilization                     data. The type is
-    // Ceqfpfivesecondutilalgo.
-    Ceqfpfivesecondutilalgo interface{}
+    // CeqfpFiveSecondUtilAlgo.
+    CeqfpFiveSecondUtilAlgo interface{}
 
     // This objects represents the method used to calculate 1 Minute interval
     // utilization data. The enumerated values are described below.  unknown   
     // (1) - The calculation method is unknown fiveSecSMA (2) - The value is
     // calculated using Simple Moving                    Average of last 12 five
     // seconds utilization                  data. The type is
-    // Ceqfponeminuteutilalgo.
-    Ceqfponeminuteutilalgo interface{}
+    // CeqfpOneMinuteUtilAlgo.
+    CeqfpOneMinuteUtilAlgo interface{}
 
     // This objects represents the method used to calculate 5 Minutes interval
     // utilization data. The enumerated values are described below.  unknown   
     // (1) - The calculation method is unknown fiveSecSMA (2) - The value is
     // calculated using Simple Moving                    Average of last 60 five
     // seconds utilization                  data. The type is
-    // Ceqfpfiveminutesutilalgo.
-    Ceqfpfiveminutesutilalgo interface{}
+    // CeqfpFiveMinutesUtilAlgo.
+    CeqfpFiveMinutesUtilAlgo interface{}
 
     // This objects represents the method used to calculate 60 Minutes interval
     // utilization data. The enumerated values are described below.  unknown   
     // (1) - The calculation method is unknown fiveSecSMA (1) - The value is
     // calculated using Simple Moving                    Average of last 720 five
     // seconds utilization                  data. The type is
-    // Ceqfpsixtyminutesutilalgo.
-    Ceqfpsixtyminutesutilalgo interface{}
+    // CeqfpSixtyMinutesUtilAlgo.
+    CeqfpSixtyMinutesUtilAlgo interface{}
 }
 
-func (ciscoentityqfp *CISCOENTITYQFPMIB_Ciscoentityqfp) GetEntityData() *types.CommonEntityData {
-    ciscoentityqfp.EntityData.YFilter = ciscoentityqfp.YFilter
-    ciscoentityqfp.EntityData.YangName = "ciscoEntityQfp"
-    ciscoentityqfp.EntityData.BundleName = "cisco_ios_xe"
-    ciscoentityqfp.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
-    ciscoentityqfp.EntityData.SegmentPath = "ciscoEntityQfp"
-    ciscoentityqfp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoentityqfp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoentityqfp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEntityQfp *CISCOENTITYQFPMIB_CiscoEntityQfp) GetEntityData() *types.CommonEntityData {
+    ciscoEntityQfp.EntityData.YFilter = ciscoEntityQfp.YFilter
+    ciscoEntityQfp.EntityData.YangName = "ciscoEntityQfp"
+    ciscoEntityQfp.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEntityQfp.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
+    ciscoEntityQfp.EntityData.SegmentPath = "ciscoEntityQfp"
+    ciscoEntityQfp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEntityQfp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEntityQfp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoentityqfp.EntityData.Children = make(map[string]types.YChild)
-    ciscoentityqfp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoentityqfp.EntityData.Leafs["ceqfpFiveSecondUtilAlgo"] = types.YLeaf{"Ceqfpfivesecondutilalgo", ciscoentityqfp.Ceqfpfivesecondutilalgo}
-    ciscoentityqfp.EntityData.Leafs["ceqfpOneMinuteUtilAlgo"] = types.YLeaf{"Ceqfponeminuteutilalgo", ciscoentityqfp.Ceqfponeminuteutilalgo}
-    ciscoentityqfp.EntityData.Leafs["ceqfpFiveMinutesUtilAlgo"] = types.YLeaf{"Ceqfpfiveminutesutilalgo", ciscoentityqfp.Ceqfpfiveminutesutilalgo}
-    ciscoentityqfp.EntityData.Leafs["ceqfpSixtyMinutesUtilAlgo"] = types.YLeaf{"Ceqfpsixtyminutesutilalgo", ciscoentityqfp.Ceqfpsixtyminutesutilalgo}
-    return &(ciscoentityqfp.EntityData)
+    ciscoEntityQfp.EntityData.Children = types.NewOrderedMap()
+    ciscoEntityQfp.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEntityQfp.EntityData.Leafs.Append("ceqfpFiveSecondUtilAlgo", types.YLeaf{"CeqfpFiveSecondUtilAlgo", ciscoEntityQfp.CeqfpFiveSecondUtilAlgo})
+    ciscoEntityQfp.EntityData.Leafs.Append("ceqfpOneMinuteUtilAlgo", types.YLeaf{"CeqfpOneMinuteUtilAlgo", ciscoEntityQfp.CeqfpOneMinuteUtilAlgo})
+    ciscoEntityQfp.EntityData.Leafs.Append("ceqfpFiveMinutesUtilAlgo", types.YLeaf{"CeqfpFiveMinutesUtilAlgo", ciscoEntityQfp.CeqfpFiveMinutesUtilAlgo})
+    ciscoEntityQfp.EntityData.Leafs.Append("ceqfpSixtyMinutesUtilAlgo", types.YLeaf{"CeqfpSixtyMinutesUtilAlgo", ciscoEntityQfp.CeqfpSixtyMinutesUtilAlgo})
+
+    ciscoEntityQfp.EntityData.YListKeys = []string {}
+
+    return &(ciscoEntityQfp.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfiveminutesutilalgo represents                  data.
-type CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfiveminutesutilalgo string
+// CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveMinutesUtilAlgo represents                  data.
+type CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveMinutesUtilAlgo string
 
 const (
-    CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfiveminutesutilalgo_unknown CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfiveminutesutilalgo = "unknown"
+    CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveMinutesUtilAlgo_unknown CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveMinutesUtilAlgo = "unknown"
 
-    CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfiveminutesutilalgo_fiveSecSMA CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfiveminutesutilalgo = "fiveSecSMA"
+    CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveMinutesUtilAlgo_fiveSecSMA CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveMinutesUtilAlgo = "fiveSecSMA"
 )
 
-// CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfivesecondutilalgo represents                     data.
-type CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfivesecondutilalgo string
+// CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveSecondUtilAlgo represents                     data.
+type CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveSecondUtilAlgo string
 
 const (
-    CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfivesecondutilalgo_unknown CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfivesecondutilalgo = "unknown"
+    CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveSecondUtilAlgo_unknown CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveSecondUtilAlgo = "unknown"
 
-    CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfivesecondutilalgo_fiveSecSample CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpfivesecondutilalgo = "fiveSecSample"
+    CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveSecondUtilAlgo_fiveSecSample CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpFiveSecondUtilAlgo = "fiveSecSample"
 )
 
-// CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfponeminuteutilalgo represents                  data.
-type CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfponeminuteutilalgo string
+// CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpOneMinuteUtilAlgo represents                  data.
+type CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpOneMinuteUtilAlgo string
 
 const (
-    CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfponeminuteutilalgo_unknown CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfponeminuteutilalgo = "unknown"
+    CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpOneMinuteUtilAlgo_unknown CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpOneMinuteUtilAlgo = "unknown"
 
-    CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfponeminuteutilalgo_fiveSecSMA CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfponeminuteutilalgo = "fiveSecSMA"
+    CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpOneMinuteUtilAlgo_fiveSecSMA CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpOneMinuteUtilAlgo = "fiveSecSMA"
 )
 
-// CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpsixtyminutesutilalgo represents                  data.
-type CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpsixtyminutesutilalgo string
+// CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpSixtyMinutesUtilAlgo represents                  data.
+type CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpSixtyMinutesUtilAlgo string
 
 const (
-    CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpsixtyminutesutilalgo_unknown CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpsixtyminutesutilalgo = "unknown"
+    CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpSixtyMinutesUtilAlgo_unknown CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpSixtyMinutesUtilAlgo = "unknown"
 
-    CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpsixtyminutesutilalgo_fiveSecSMA CISCOENTITYQFPMIB_Ciscoentityqfp_Ceqfpsixtyminutesutilalgo = "fiveSecSMA"
+    CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpSixtyMinutesUtilAlgo_fiveSecSMA CISCOENTITYQFPMIB_CiscoEntityQfp_CeqfpSixtyMinutesUtilAlgo = "fiveSecSMA"
 )
 
-// CISCOENTITYQFPMIB_Ciscoentityqfpnotif
-type CISCOENTITYQFPMIB_Ciscoentityqfpnotif struct {
+// CISCOENTITYQFPMIB_CiscoEntityQfpNotif
+type CISCOENTITYQFPMIB_CiscoEntityQfpNotif struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -246,33 +252,36 @@ type CISCOENTITYQFPMIB_Ciscoentityqfpnotif struct {
     // memory resource threshold notification is enabled. If this object contains
     // a value 'false', then generation of memory resource threshold notification
     // is disabled. The type is bool.
-    Ceqfpmemoryresthreshnotifenabled interface{}
+    CeqfpMemoryResThreshNotifEnabled interface{}
 
     // This object controls throughput rate notification.  When this object
     // contains a value 'true', then generation of ceqfpThroughputNotif is
     // enabled. If this object contains a value 'false', then generation of
     // ceqfpThroughputNotif is disabled. The type is interface{} with range: 0..2.
-    Ceqfpthroughputnotifenabled interface{}
+    CeqfpThroughputNotifEnabled interface{}
 }
 
-func (ciscoentityqfpnotif *CISCOENTITYQFPMIB_Ciscoentityqfpnotif) GetEntityData() *types.CommonEntityData {
-    ciscoentityqfpnotif.EntityData.YFilter = ciscoentityqfpnotif.YFilter
-    ciscoentityqfpnotif.EntityData.YangName = "ciscoEntityQfpNotif"
-    ciscoentityqfpnotif.EntityData.BundleName = "cisco_ios_xe"
-    ciscoentityqfpnotif.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
-    ciscoentityqfpnotif.EntityData.SegmentPath = "ciscoEntityQfpNotif"
-    ciscoentityqfpnotif.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoentityqfpnotif.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoentityqfpnotif.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEntityQfpNotif *CISCOENTITYQFPMIB_CiscoEntityQfpNotif) GetEntityData() *types.CommonEntityData {
+    ciscoEntityQfpNotif.EntityData.YFilter = ciscoEntityQfpNotif.YFilter
+    ciscoEntityQfpNotif.EntityData.YangName = "ciscoEntityQfpNotif"
+    ciscoEntityQfpNotif.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEntityQfpNotif.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
+    ciscoEntityQfpNotif.EntityData.SegmentPath = "ciscoEntityQfpNotif"
+    ciscoEntityQfpNotif.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEntityQfpNotif.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEntityQfpNotif.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoentityqfpnotif.EntityData.Children = make(map[string]types.YChild)
-    ciscoentityqfpnotif.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoentityqfpnotif.EntityData.Leafs["ceqfpMemoryResThreshNotifEnabled"] = types.YLeaf{"Ceqfpmemoryresthreshnotifenabled", ciscoentityqfpnotif.Ceqfpmemoryresthreshnotifenabled}
-    ciscoentityqfpnotif.EntityData.Leafs["ceqfpThroughputNotifEnabled"] = types.YLeaf{"Ceqfpthroughputnotifenabled", ciscoentityqfpnotif.Ceqfpthroughputnotifenabled}
-    return &(ciscoentityqfpnotif.EntityData)
+    ciscoEntityQfpNotif.EntityData.Children = types.NewOrderedMap()
+    ciscoEntityQfpNotif.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEntityQfpNotif.EntityData.Leafs.Append("ceqfpMemoryResThreshNotifEnabled", types.YLeaf{"CeqfpMemoryResThreshNotifEnabled", ciscoEntityQfpNotif.CeqfpMemoryResThreshNotifEnabled})
+    ciscoEntityQfpNotif.EntityData.Leafs.Append("ceqfpThroughputNotifEnabled", types.YLeaf{"CeqfpThroughputNotifEnabled", ciscoEntityQfpNotif.CeqfpThroughputNotifEnabled})
+
+    ciscoEntityQfpNotif.EntityData.YListKeys = []string {}
+
+    return &(ciscoEntityQfpNotif.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfpsystemtable
+// CISCOENTITYQFPMIB_CeqfpSystemTable
 // This table maintains the QFP system information for each QFP
 // physical entity.
 // 
@@ -283,55 +292,58 @@ func (ciscoentityqfpnotif *CISCOENTITYQFPMIB_Ciscoentityqfpnotif) GetEntityData(
 // An agent destroys a conceptual row from this table       
 // corresponding to a QFP physical entity upon removal
 // of the QFP host physical entity.
-type CISCOENTITYQFPMIB_Ceqfpsystemtable struct {
+type CISCOENTITYQFPMIB_CeqfpSystemTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the ceqfpSystemTable. There is an entry in this table
     // for each QFP entity, as defined by a value of entPhysicalIndex. The type is
-    // slice of CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry.
-    Ceqfpsystementry []CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry
+    // slice of CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry.
+    CeqfpSystemEntry []*CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry
 }
 
-func (ceqfpsystemtable *CISCOENTITYQFPMIB_Ceqfpsystemtable) GetEntityData() *types.CommonEntityData {
-    ceqfpsystemtable.EntityData.YFilter = ceqfpsystemtable.YFilter
-    ceqfpsystemtable.EntityData.YangName = "ceqfpSystemTable"
-    ceqfpsystemtable.EntityData.BundleName = "cisco_ios_xe"
-    ceqfpsystemtable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
-    ceqfpsystemtable.EntityData.SegmentPath = "ceqfpSystemTable"
-    ceqfpsystemtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ceqfpsystemtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ceqfpsystemtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ceqfpSystemTable *CISCOENTITYQFPMIB_CeqfpSystemTable) GetEntityData() *types.CommonEntityData {
+    ceqfpSystemTable.EntityData.YFilter = ceqfpSystemTable.YFilter
+    ceqfpSystemTable.EntityData.YangName = "ceqfpSystemTable"
+    ceqfpSystemTable.EntityData.BundleName = "cisco_ios_xe"
+    ceqfpSystemTable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
+    ceqfpSystemTable.EntityData.SegmentPath = "ceqfpSystemTable"
+    ceqfpSystemTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceqfpSystemTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceqfpSystemTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ceqfpsystemtable.EntityData.Children = make(map[string]types.YChild)
-    ceqfpsystemtable.EntityData.Children["ceqfpSystemEntry"] = types.YChild{"Ceqfpsystementry", nil}
-    for i := range ceqfpsystemtable.Ceqfpsystementry {
-        ceqfpsystemtable.EntityData.Children[types.GetSegmentPath(&ceqfpsystemtable.Ceqfpsystementry[i])] = types.YChild{"Ceqfpsystementry", &ceqfpsystemtable.Ceqfpsystementry[i]}
+    ceqfpSystemTable.EntityData.Children = types.NewOrderedMap()
+    ceqfpSystemTable.EntityData.Children.Append("ceqfpSystemEntry", types.YChild{"CeqfpSystemEntry", nil})
+    for i := range ceqfpSystemTable.CeqfpSystemEntry {
+        ceqfpSystemTable.EntityData.Children.Append(types.GetSegmentPath(ceqfpSystemTable.CeqfpSystemEntry[i]), types.YChild{"CeqfpSystemEntry", ceqfpSystemTable.CeqfpSystemEntry[i]})
     }
-    ceqfpsystemtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ceqfpsystemtable.EntityData)
+    ceqfpSystemTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ceqfpSystemTable.EntityData.YListKeys = []string {}
+
+    return &(ceqfpSystemTable.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry
+// CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry
 // A conceptual row in the ceqfpSystemTable. There is an entry
 // in this table for each QFP entity, as defined by a value of
 // entPhysicalIndex.
-type CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry struct {
+type CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This object represents the traffic direction that this QFP is assigned to
     // process. The enumerated values are described below.  none (1)    - The QFP
     // is not assigned to processes any traffic               yet ingress (2) -
     // The QFP processes inbound traffic egress (3)  - The QFP processes outbound
     // traffic both (4)    - The QFP processes both inbound and outbound          
-    // traffic. The type is Ceqfpsystemtrafficdirection.
-    Ceqfpsystemtrafficdirection interface{}
+    // traffic. The type is CeqfpSystemTrafficDirection.
+    CeqfpSystemTrafficDirection interface{}
 
     // This object represents the current QFP state. The enumerated values are
     // described below.  unknown (1)    - The state of the QFP is unknown reset
@@ -343,70 +355,73 @@ type CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry struct {
     // active, so that a switchover in this state                  will preserve
     // state of the active. Stateful                   datapath features are
     // synchronized between the                  active QFP and standby QFP. The
-    // type is Ceqfpsystemstate.
-    Ceqfpsystemstate interface{}
+    // type is CeqfpSystemState.
+    CeqfpSystemState interface{}
 
     // This object represents the number of times the QFP is loaded, since the QFP
     // host is up. The type is interface{} with range: 0..4294967295.
-    Ceqfpnumbersystemloads interface{}
+    CeqfpNumberSystemLoads interface{}
 
     // This object represents the QFP last load time. The type is string.
-    Ceqfpsystemlastloadtime interface{}
+    CeqfpSystemLastLoadTime interface{}
 }
 
-func (ceqfpsystementry *CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry) GetEntityData() *types.CommonEntityData {
-    ceqfpsystementry.EntityData.YFilter = ceqfpsystementry.YFilter
-    ceqfpsystementry.EntityData.YangName = "ceqfpSystemEntry"
-    ceqfpsystementry.EntityData.BundleName = "cisco_ios_xe"
-    ceqfpsystementry.EntityData.ParentYangName = "ceqfpSystemTable"
-    ceqfpsystementry.EntityData.SegmentPath = "ceqfpSystemEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceqfpsystementry.Entphysicalindex) + "']"
-    ceqfpsystementry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ceqfpsystementry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ceqfpsystementry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ceqfpSystemEntry *CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry) GetEntityData() *types.CommonEntityData {
+    ceqfpSystemEntry.EntityData.YFilter = ceqfpSystemEntry.YFilter
+    ceqfpSystemEntry.EntityData.YangName = "ceqfpSystemEntry"
+    ceqfpSystemEntry.EntityData.BundleName = "cisco_ios_xe"
+    ceqfpSystemEntry.EntityData.ParentYangName = "ceqfpSystemTable"
+    ceqfpSystemEntry.EntityData.SegmentPath = "ceqfpSystemEntry" + types.AddKeyToken(ceqfpSystemEntry.EntPhysicalIndex, "entPhysicalIndex")
+    ceqfpSystemEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceqfpSystemEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceqfpSystemEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ceqfpsystementry.EntityData.Children = make(map[string]types.YChild)
-    ceqfpsystementry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ceqfpsystementry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", ceqfpsystementry.Entphysicalindex}
-    ceqfpsystementry.EntityData.Leafs["ceqfpSystemTrafficDirection"] = types.YLeaf{"Ceqfpsystemtrafficdirection", ceqfpsystementry.Ceqfpsystemtrafficdirection}
-    ceqfpsystementry.EntityData.Leafs["ceqfpSystemState"] = types.YLeaf{"Ceqfpsystemstate", ceqfpsystementry.Ceqfpsystemstate}
-    ceqfpsystementry.EntityData.Leafs["ceqfpNumberSystemLoads"] = types.YLeaf{"Ceqfpnumbersystemloads", ceqfpsystementry.Ceqfpnumbersystemloads}
-    ceqfpsystementry.EntityData.Leafs["ceqfpSystemLastLoadTime"] = types.YLeaf{"Ceqfpsystemlastloadtime", ceqfpsystementry.Ceqfpsystemlastloadtime}
-    return &(ceqfpsystementry.EntityData)
+    ceqfpSystemEntry.EntityData.Children = types.NewOrderedMap()
+    ceqfpSystemEntry.EntityData.Leafs = types.NewOrderedMap()
+    ceqfpSystemEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", ceqfpSystemEntry.EntPhysicalIndex})
+    ceqfpSystemEntry.EntityData.Leafs.Append("ceqfpSystemTrafficDirection", types.YLeaf{"CeqfpSystemTrafficDirection", ceqfpSystemEntry.CeqfpSystemTrafficDirection})
+    ceqfpSystemEntry.EntityData.Leafs.Append("ceqfpSystemState", types.YLeaf{"CeqfpSystemState", ceqfpSystemEntry.CeqfpSystemState})
+    ceqfpSystemEntry.EntityData.Leafs.Append("ceqfpNumberSystemLoads", types.YLeaf{"CeqfpNumberSystemLoads", ceqfpSystemEntry.CeqfpNumberSystemLoads})
+    ceqfpSystemEntry.EntityData.Leafs.Append("ceqfpSystemLastLoadTime", types.YLeaf{"CeqfpSystemLastLoadTime", ceqfpSystemEntry.CeqfpSystemLastLoadTime})
+
+    ceqfpSystemEntry.EntityData.YListKeys = []string {"EntPhysicalIndex"}
+
+    return &(ceqfpSystemEntry.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate represents                  active QFP and standby QFP
-type CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate string
+// CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState represents                  active QFP and standby QFP
+type CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState string
 
 const (
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate_unknown CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate = "unknown"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState_unknown CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState = "unknown"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate_reset CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate = "reset"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState_reset CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState = "reset"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate_init CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate = "init"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState_init CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState = "init"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate_active CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate = "active"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState_active CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState = "active"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate_activeSolo CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate = "activeSolo"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState_activeSolo CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState = "activeSolo"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate_standby CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate = "standby"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState_standby CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState = "standby"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate_hotStandby CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemstate = "hotStandby"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState_hotStandby CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemState = "hotStandby"
 )
 
-// CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection represents               traffic
-type CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection string
+// CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection represents               traffic
+type CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection string
 
 const (
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection_none CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection = "none"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection_none CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection = "none"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection_ingress CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection = "ingress"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection_ingress CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection = "ingress"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection_egress CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection = "egress"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection_egress CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection = "egress"
 
-    CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection_both CISCOENTITYQFPMIB_Ceqfpsystemtable_Ceqfpsystementry_Ceqfpsystemtrafficdirection = "both"
+    CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection_both CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry_CeqfpSystemTrafficDirection = "both"
 )
 
-// CISCOENTITYQFPMIB_Ceqfputilizationtable
+// CISCOENTITYQFPMIB_CeqfpUtilizationTable
 // This table maintains the utilization statistics collected
 // by each QFP physical entity at various time interval such as
 // last 5 seconds, 1 minute, etc.
@@ -422,7 +437,7 @@ const (
 // receive the utilization statistics update for a certain time
 // period. The time period to wait before deleting an entry from
 // this table would be the discretion of the supporting device.
-type CISCOENTITYQFPMIB_Ceqfputilizationtable struct {
+type CISCOENTITYQFPMIB_CeqfpUtilizationTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -433,30 +448,33 @@ type CISCOENTITYQFPMIB_Ceqfputilizationtable struct {
     // through the respective interval scalar objects. For example the utilizaiton
     // data calculation method for 'fiveSecond' interval can be identified by
     // ceqfpFiveSecondUtilAlgo. The type is slice of
-    // CISCOENTITYQFPMIB_Ceqfputilizationtable_Ceqfputilizationentry.
-    Ceqfputilizationentry []CISCOENTITYQFPMIB_Ceqfputilizationtable_Ceqfputilizationentry
+    // CISCOENTITYQFPMIB_CeqfpUtilizationTable_CeqfpUtilizationEntry.
+    CeqfpUtilizationEntry []*CISCOENTITYQFPMIB_CeqfpUtilizationTable_CeqfpUtilizationEntry
 }
 
-func (ceqfputilizationtable *CISCOENTITYQFPMIB_Ceqfputilizationtable) GetEntityData() *types.CommonEntityData {
-    ceqfputilizationtable.EntityData.YFilter = ceqfputilizationtable.YFilter
-    ceqfputilizationtable.EntityData.YangName = "ceqfpUtilizationTable"
-    ceqfputilizationtable.EntityData.BundleName = "cisco_ios_xe"
-    ceqfputilizationtable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
-    ceqfputilizationtable.EntityData.SegmentPath = "ceqfpUtilizationTable"
-    ceqfputilizationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ceqfputilizationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ceqfputilizationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ceqfpUtilizationTable *CISCOENTITYQFPMIB_CeqfpUtilizationTable) GetEntityData() *types.CommonEntityData {
+    ceqfpUtilizationTable.EntityData.YFilter = ceqfpUtilizationTable.YFilter
+    ceqfpUtilizationTable.EntityData.YangName = "ceqfpUtilizationTable"
+    ceqfpUtilizationTable.EntityData.BundleName = "cisco_ios_xe"
+    ceqfpUtilizationTable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
+    ceqfpUtilizationTable.EntityData.SegmentPath = "ceqfpUtilizationTable"
+    ceqfpUtilizationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceqfpUtilizationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceqfpUtilizationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ceqfputilizationtable.EntityData.Children = make(map[string]types.YChild)
-    ceqfputilizationtable.EntityData.Children["ceqfpUtilizationEntry"] = types.YChild{"Ceqfputilizationentry", nil}
-    for i := range ceqfputilizationtable.Ceqfputilizationentry {
-        ceqfputilizationtable.EntityData.Children[types.GetSegmentPath(&ceqfputilizationtable.Ceqfputilizationentry[i])] = types.YChild{"Ceqfputilizationentry", &ceqfputilizationtable.Ceqfputilizationentry[i]}
+    ceqfpUtilizationTable.EntityData.Children = types.NewOrderedMap()
+    ceqfpUtilizationTable.EntityData.Children.Append("ceqfpUtilizationEntry", types.YChild{"CeqfpUtilizationEntry", nil})
+    for i := range ceqfpUtilizationTable.CeqfpUtilizationEntry {
+        ceqfpUtilizationTable.EntityData.Children.Append(types.GetSegmentPath(ceqfpUtilizationTable.CeqfpUtilizationEntry[i]), types.YChild{"CeqfpUtilizationEntry", ceqfpUtilizationTable.CeqfpUtilizationEntry[i]})
     }
-    ceqfputilizationtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ceqfputilizationtable.EntityData)
+    ceqfpUtilizationTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ceqfpUtilizationTable.EntityData.YListKeys = []string {}
+
+    return &(ceqfpUtilizationTable.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfputilizationtable_Ceqfputilizationentry
+// CISCOENTITYQFPMIB_CeqfpUtilizationTable_CeqfpUtilizationEntry
 // A conceptual row in the ceqfpUtilizationTable. There is
 // an entry in this table for each QFP entity by a value of
 // entPhysicalIndex and the supported time interval by a value 
@@ -467,121 +485,124 @@ func (ceqfputilizationtable *CISCOENTITYQFPMIB_Ceqfputilizationtable) GetEntityD
 // scalar objects. For example the utilizaiton data calculation
 // method for 'fiveSecond' interval can be identified by
 // ceqfpFiveSecondUtilAlgo.
-type CISCOENTITYQFPMIB_Ceqfputilizationtable_Ceqfputilizationentry struct {
+type CISCOENTITYQFPMIB_CeqfpUtilizationTable_CeqfpUtilizationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. This object identifies the time interval for which
     // the utilization statistics being collected. The interval  values can be 5
     // second, 1 minute, etc. as specified in  the CiscoQfpTimeInterval. The type
     // is CiscoQfpTimeInterval.
-    Ceqfputiltimeinterval interface{}
+    CeqfpUtilTimeInterval interface{}
 
     // This object represents the QFP input channel priority packet rate during
     // this interval. The type is interface{} with range: 0..18446744073709551615.
     // Units are packets per second.
-    Ceqfputilinputprioritypktrate interface{}
+    CeqfpUtilInputPriorityPktRate interface{}
 
     // This object represents the QFP input channel priority bit rate during this
     // interval. The type is interface{} with range: 0..18446744073709551615.
     // Units are bits per second.
-    Ceqfputilinputprioritybitrate interface{}
+    CeqfpUtilInputPriorityBitRate interface{}
 
     // This object represents the QFP input channel non-priority packet rate
     // during this interval. The type is interface{} with range:
     // 0..18446744073709551615. Units are packets per second.
-    Ceqfputilinputnonprioritypktrate interface{}
+    CeqfpUtilInputNonPriorityPktRate interface{}
 
     // This object represents the QFP input channel non-priority bit rate during
     // this interval. The type is interface{} with range: 0..18446744073709551615.
     // Units are bits per second.
-    Ceqfputilinputnonprioritybitrate interface{}
+    CeqfpUtilInputNonPriorityBitRate interface{}
 
     // This object represents the QFP input channel total packet rate during this
     // interval, which includes both priority and non-priority input packet rate.
     // The type is interface{} with range: 0..18446744073709551615. Units are
     // packets per second.
-    Ceqfputilinputtotalpktrate interface{}
+    CeqfpUtilInputTotalPktRate interface{}
 
     // This object represents the QFP input channel total bit rate during this
     // interval, which includes both priority and non-priority input bit rate. The
     // type is interface{} with range: 0..18446744073709551615. Units are bits per
     // second.
-    Ceqfputilinputtotalbitrate interface{}
+    CeqfpUtilInputTotalBitRate interface{}
 
     // This object represents the QFP output channel priority packet rate during
     // this interval. The type is interface{} with range: 0..18446744073709551615.
     // Units are packets per second.
-    Ceqfputiloutputprioritypktrate interface{}
+    CeqfpUtilOutputPriorityPktRate interface{}
 
     // This object represents the QFP output channel priority bit rate during this
     // interval. The type is interface{} with range: 0..18446744073709551615.
     // Units are bits per second.
-    Ceqfputiloutputprioritybitrate interface{}
+    CeqfpUtilOutputPriorityBitRate interface{}
 
     // This object represents the QFP output channel non-priority packet rate
     // during this interval. The type is interface{} with range:
     // 0..18446744073709551615. Units are packets per second.
-    Ceqfputiloutputnonprioritypktrate interface{}
+    CeqfpUtilOutputNonPriorityPktRate interface{}
 
     // This object represents the QFP output channel non-priority bit rate during
     // this interval. The type is interface{} with range: 0..18446744073709551615.
     // Units are bits per second.
-    Ceqfputiloutputnonprioritybitrate interface{}
+    CeqfpUtilOutputNonPriorityBitRate interface{}
 
     // This object represents the QFP output channel total packet rate during this
     // interval, which includes both priority and non-priority output packet rate.
     // The type is interface{} with range: 0..18446744073709551615. Units are
     // packets per second.
-    Ceqfputiloutputtotalpktrate interface{}
+    CeqfpUtilOutputTotalPktRate interface{}
 
     // This object represents the QFP output channel total bit rate during this
     // interval, which includes both priority and non-priority bit rate. The type
     // is interface{} with range: 0..18446744073709551615. Units are bits per
     // second.
-    Ceqfputiloutputtotalbitrate interface{}
+    CeqfpUtilOutputTotalBitRate interface{}
 
     // This object represents the QFP processing load during this interval. The
     // type is interface{} with range: 0..100. Units are percent.
-    Ceqfputilprocessingload interface{}
+    CeqfpUtilProcessingLoad interface{}
 }
 
-func (ceqfputilizationentry *CISCOENTITYQFPMIB_Ceqfputilizationtable_Ceqfputilizationentry) GetEntityData() *types.CommonEntityData {
-    ceqfputilizationentry.EntityData.YFilter = ceqfputilizationentry.YFilter
-    ceqfputilizationentry.EntityData.YangName = "ceqfpUtilizationEntry"
-    ceqfputilizationentry.EntityData.BundleName = "cisco_ios_xe"
-    ceqfputilizationentry.EntityData.ParentYangName = "ceqfpUtilizationTable"
-    ceqfputilizationentry.EntityData.SegmentPath = "ceqfpUtilizationEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceqfputilizationentry.Entphysicalindex) + "']" + "[ceqfpUtilTimeInterval='" + fmt.Sprintf("%v", ceqfputilizationentry.Ceqfputiltimeinterval) + "']"
-    ceqfputilizationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ceqfputilizationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ceqfputilizationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ceqfpUtilizationEntry *CISCOENTITYQFPMIB_CeqfpUtilizationTable_CeqfpUtilizationEntry) GetEntityData() *types.CommonEntityData {
+    ceqfpUtilizationEntry.EntityData.YFilter = ceqfpUtilizationEntry.YFilter
+    ceqfpUtilizationEntry.EntityData.YangName = "ceqfpUtilizationEntry"
+    ceqfpUtilizationEntry.EntityData.BundleName = "cisco_ios_xe"
+    ceqfpUtilizationEntry.EntityData.ParentYangName = "ceqfpUtilizationTable"
+    ceqfpUtilizationEntry.EntityData.SegmentPath = "ceqfpUtilizationEntry" + types.AddKeyToken(ceqfpUtilizationEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(ceqfpUtilizationEntry.CeqfpUtilTimeInterval, "ceqfpUtilTimeInterval")
+    ceqfpUtilizationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceqfpUtilizationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceqfpUtilizationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ceqfputilizationentry.EntityData.Children = make(map[string]types.YChild)
-    ceqfputilizationentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ceqfputilizationentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", ceqfputilizationentry.Entphysicalindex}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilTimeInterval"] = types.YLeaf{"Ceqfputiltimeinterval", ceqfputilizationentry.Ceqfputiltimeinterval}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilInputPriorityPktRate"] = types.YLeaf{"Ceqfputilinputprioritypktrate", ceqfputilizationentry.Ceqfputilinputprioritypktrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilInputPriorityBitRate"] = types.YLeaf{"Ceqfputilinputprioritybitrate", ceqfputilizationentry.Ceqfputilinputprioritybitrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilInputNonPriorityPktRate"] = types.YLeaf{"Ceqfputilinputnonprioritypktrate", ceqfputilizationentry.Ceqfputilinputnonprioritypktrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilInputNonPriorityBitRate"] = types.YLeaf{"Ceqfputilinputnonprioritybitrate", ceqfputilizationentry.Ceqfputilinputnonprioritybitrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilInputTotalPktRate"] = types.YLeaf{"Ceqfputilinputtotalpktrate", ceqfputilizationentry.Ceqfputilinputtotalpktrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilInputTotalBitRate"] = types.YLeaf{"Ceqfputilinputtotalbitrate", ceqfputilizationentry.Ceqfputilinputtotalbitrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilOutputPriorityPktRate"] = types.YLeaf{"Ceqfputiloutputprioritypktrate", ceqfputilizationentry.Ceqfputiloutputprioritypktrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilOutputPriorityBitRate"] = types.YLeaf{"Ceqfputiloutputprioritybitrate", ceqfputilizationentry.Ceqfputiloutputprioritybitrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilOutputNonPriorityPktRate"] = types.YLeaf{"Ceqfputiloutputnonprioritypktrate", ceqfputilizationentry.Ceqfputiloutputnonprioritypktrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilOutputNonPriorityBitRate"] = types.YLeaf{"Ceqfputiloutputnonprioritybitrate", ceqfputilizationentry.Ceqfputiloutputnonprioritybitrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilOutputTotalPktRate"] = types.YLeaf{"Ceqfputiloutputtotalpktrate", ceqfputilizationentry.Ceqfputiloutputtotalpktrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilOutputTotalBitRate"] = types.YLeaf{"Ceqfputiloutputtotalbitrate", ceqfputilizationentry.Ceqfputiloutputtotalbitrate}
-    ceqfputilizationentry.EntityData.Leafs["ceqfpUtilProcessingLoad"] = types.YLeaf{"Ceqfputilprocessingload", ceqfputilizationentry.Ceqfputilprocessingload}
-    return &(ceqfputilizationentry.EntityData)
+    ceqfpUtilizationEntry.EntityData.Children = types.NewOrderedMap()
+    ceqfpUtilizationEntry.EntityData.Leafs = types.NewOrderedMap()
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", ceqfpUtilizationEntry.EntPhysicalIndex})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilTimeInterval", types.YLeaf{"CeqfpUtilTimeInterval", ceqfpUtilizationEntry.CeqfpUtilTimeInterval})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilInputPriorityPktRate", types.YLeaf{"CeqfpUtilInputPriorityPktRate", ceqfpUtilizationEntry.CeqfpUtilInputPriorityPktRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilInputPriorityBitRate", types.YLeaf{"CeqfpUtilInputPriorityBitRate", ceqfpUtilizationEntry.CeqfpUtilInputPriorityBitRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilInputNonPriorityPktRate", types.YLeaf{"CeqfpUtilInputNonPriorityPktRate", ceqfpUtilizationEntry.CeqfpUtilInputNonPriorityPktRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilInputNonPriorityBitRate", types.YLeaf{"CeqfpUtilInputNonPriorityBitRate", ceqfpUtilizationEntry.CeqfpUtilInputNonPriorityBitRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilInputTotalPktRate", types.YLeaf{"CeqfpUtilInputTotalPktRate", ceqfpUtilizationEntry.CeqfpUtilInputTotalPktRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilInputTotalBitRate", types.YLeaf{"CeqfpUtilInputTotalBitRate", ceqfpUtilizationEntry.CeqfpUtilInputTotalBitRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilOutputPriorityPktRate", types.YLeaf{"CeqfpUtilOutputPriorityPktRate", ceqfpUtilizationEntry.CeqfpUtilOutputPriorityPktRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilOutputPriorityBitRate", types.YLeaf{"CeqfpUtilOutputPriorityBitRate", ceqfpUtilizationEntry.CeqfpUtilOutputPriorityBitRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilOutputNonPriorityPktRate", types.YLeaf{"CeqfpUtilOutputNonPriorityPktRate", ceqfpUtilizationEntry.CeqfpUtilOutputNonPriorityPktRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilOutputNonPriorityBitRate", types.YLeaf{"CeqfpUtilOutputNonPriorityBitRate", ceqfpUtilizationEntry.CeqfpUtilOutputNonPriorityBitRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilOutputTotalPktRate", types.YLeaf{"CeqfpUtilOutputTotalPktRate", ceqfpUtilizationEntry.CeqfpUtilOutputTotalPktRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilOutputTotalBitRate", types.YLeaf{"CeqfpUtilOutputTotalBitRate", ceqfpUtilizationEntry.CeqfpUtilOutputTotalBitRate})
+    ceqfpUtilizationEntry.EntityData.Leafs.Append("ceqfpUtilProcessingLoad", types.YLeaf{"CeqfpUtilProcessingLoad", ceqfpUtilizationEntry.CeqfpUtilProcessingLoad})
+
+    ceqfpUtilizationEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "CeqfpUtilTimeInterval"}
+
+    return &(ceqfpUtilizationEntry.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable
+// CISCOENTITYQFPMIB_CeqfpMemoryResourceTable
 // This table maintains the memory resources statistics for
 // each QFP physical entity.
 // 
@@ -597,72 +618,75 @@ func (ceqfputilizationentry *CISCOENTITYQFPMIB_Ceqfputilizationtable_Ceqfputiliz
 // update for a certain time period. The time period to wait
 // before deleting an entry from this table would be the
 // discretion of the supporting device.
-type CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable struct {
+type CISCOENTITYQFPMIB_CeqfpMemoryResourceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the ceqfpMemoryResourceTable. There is an entry in this
     // table for each QFP entity by a value  of entPhysicalIndex and the supported
     // memory resource type  by a value of ceqfpMemoryResType. The type is slice
-    // of CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable_Ceqfpmemoryresourceentry.
-    Ceqfpmemoryresourceentry []CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable_Ceqfpmemoryresourceentry
+    // of CISCOENTITYQFPMIB_CeqfpMemoryResourceTable_CeqfpMemoryResourceEntry.
+    CeqfpMemoryResourceEntry []*CISCOENTITYQFPMIB_CeqfpMemoryResourceTable_CeqfpMemoryResourceEntry
 }
 
-func (ceqfpmemoryresourcetable *CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable) GetEntityData() *types.CommonEntityData {
-    ceqfpmemoryresourcetable.EntityData.YFilter = ceqfpmemoryresourcetable.YFilter
-    ceqfpmemoryresourcetable.EntityData.YangName = "ceqfpMemoryResourceTable"
-    ceqfpmemoryresourcetable.EntityData.BundleName = "cisco_ios_xe"
-    ceqfpmemoryresourcetable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
-    ceqfpmemoryresourcetable.EntityData.SegmentPath = "ceqfpMemoryResourceTable"
-    ceqfpmemoryresourcetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ceqfpmemoryresourcetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ceqfpmemoryresourcetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ceqfpMemoryResourceTable *CISCOENTITYQFPMIB_CeqfpMemoryResourceTable) GetEntityData() *types.CommonEntityData {
+    ceqfpMemoryResourceTable.EntityData.YFilter = ceqfpMemoryResourceTable.YFilter
+    ceqfpMemoryResourceTable.EntityData.YangName = "ceqfpMemoryResourceTable"
+    ceqfpMemoryResourceTable.EntityData.BundleName = "cisco_ios_xe"
+    ceqfpMemoryResourceTable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
+    ceqfpMemoryResourceTable.EntityData.SegmentPath = "ceqfpMemoryResourceTable"
+    ceqfpMemoryResourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceqfpMemoryResourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceqfpMemoryResourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ceqfpmemoryresourcetable.EntityData.Children = make(map[string]types.YChild)
-    ceqfpmemoryresourcetable.EntityData.Children["ceqfpMemoryResourceEntry"] = types.YChild{"Ceqfpmemoryresourceentry", nil}
-    for i := range ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry {
-        ceqfpmemoryresourcetable.EntityData.Children[types.GetSegmentPath(&ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry[i])] = types.YChild{"Ceqfpmemoryresourceentry", &ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry[i]}
+    ceqfpMemoryResourceTable.EntityData.Children = types.NewOrderedMap()
+    ceqfpMemoryResourceTable.EntityData.Children.Append("ceqfpMemoryResourceEntry", types.YChild{"CeqfpMemoryResourceEntry", nil})
+    for i := range ceqfpMemoryResourceTable.CeqfpMemoryResourceEntry {
+        ceqfpMemoryResourceTable.EntityData.Children.Append(types.GetSegmentPath(ceqfpMemoryResourceTable.CeqfpMemoryResourceEntry[i]), types.YChild{"CeqfpMemoryResourceEntry", ceqfpMemoryResourceTable.CeqfpMemoryResourceEntry[i]})
     }
-    ceqfpmemoryresourcetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ceqfpmemoryresourcetable.EntityData)
+    ceqfpMemoryResourceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ceqfpMemoryResourceTable.EntityData.YListKeys = []string {}
+
+    return &(ceqfpMemoryResourceTable.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable_Ceqfpmemoryresourceentry
+// CISCOENTITYQFPMIB_CeqfpMemoryResourceTable_CeqfpMemoryResourceEntry
 // A conceptual row in the ceqfpMemoryResourceTable. There
 // is an entry in this table for each QFP entity by a value 
 // of entPhysicalIndex and the supported memory resource type 
 // by a value of ceqfpMemoryResType.
-type CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable_Ceqfpmemoryresourceentry struct {
+type CISCOENTITYQFPMIB_CeqfpMemoryResourceTable_CeqfpMemoryResourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. This object indicates the type of the memory
     // resource used by the QFP. This object is one of the indices to uniquely
     // identify the QFP memory resource type. The type is CiscoQfpMemoryResource.
-    Ceqfpmemoryrestype interface{}
+    CeqfpMemoryResType interface{}
 
     // This object represents total memory available on this memory resource. The
     // type is interface{} with range: 0..4294967295. Units are kilo bytes.
-    Ceqfpmemoryrestotal interface{}
+    CeqfpMemoryResTotal interface{}
 
     // This object represents the memory which is currently under use on this
     // memory resource. The type is interface{} with range: 0..4294967295. Units
     // are kilo bytes.
-    Ceqfpmemoryresinuse interface{}
+    CeqfpMemoryResInUse interface{}
 
     // This object represents the memory which is currently free on this memory
     // resource. The type is interface{} with range: 0..4294967295. Units are kilo
     // bytes.
-    Ceqfpmemoryresfree interface{}
+    CeqfpMemoryResFree interface{}
 
     // This object represents lowest free water mark on this memory resource. The
     // type is interface{} with range: 0..4294967295. Units are kilo bytes.
-    Ceqfpmemoryreslowfreewatermark interface{}
+    CeqfpMemoryResLowFreeWatermark interface{}
 
     // This object represents the rising threshold value for this memory resource.
     // A value of zero means that the rising threshold is not supported for this
@@ -674,7 +698,7 @@ type CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable_Ceqfpmemoryresourceentry struct 
     // notification will not be generated until the  ceqfpMemoryResInUse falls
     // below this value and reaches  the ceqfpMemoryResFallingThreshold. The type
     // is interface{} with range: 0..100. Units are percent.
-    Ceqfpmemoryresrisingthreshold interface{}
+    CeqfpMemoryResRisingThreshold interface{}
 
     // This object represents the falling threshold value for this memory
     // resource. A value of zero means that the falling threshold is not supported
@@ -686,82 +710,85 @@ type CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable_Ceqfpmemoryresourceentry struct 
     // notification will not be generated until the  ceqfpMemoryResInUse rises
     // above this value and reaches  the ceqfpMemoryResRisingThreshold. The type
     // is interface{} with range: 0..100. Units are percent.
-    Ceqfpmemoryresfallingthreshold interface{}
+    CeqfpMemoryResFallingThreshold interface{}
 
     // This object represents the upper 32-bit of ceqfpMemoryResTotal. This object
     // needs to be supported only when the value of ceqfpMemoryResTotal exceeds
     // 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are kilo bytes.
-    Ceqfpmemoryrestotalovrflw interface{}
+    CeqfpMemoryResTotalOvrflw interface{}
 
     // This object is a 64-bit version of ceqfpMemoryResTotal. The type is
     // interface{} with range: 0..18446744073709551615. Units are kilo bytes.
-    Ceqfpmemoryhcrestotal interface{}
+    CeqfpMemoryHCResTotal interface{}
 
     // This object represents the upper 32-bit of ceqfpMemoryResInUse. This object
     // needs to be supported only when the value of ceqfpMemoryResInUse exceeds
     // 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are kilo bytes.
-    Ceqfpmemoryresinuseovrflw interface{}
+    CeqfpMemoryResInUseOvrflw interface{}
 
     // This object is a 64-bit version of ceqfpMemoryInRes. The type is
     // interface{} with range: 0..18446744073709551615. Units are kilo bytes.
-    Ceqfpmemoryhcresinuse interface{}
+    CeqfpMemoryHCResInUse interface{}
 
     // This object represents the upper 32-bit of ceqfpMemoryResFree. This object
     // needs to be supported only when the value of ceqfpMemoryResFree exceeds
     // 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are kilo bytes.
-    Ceqfpmemoryresfreeovrflw interface{}
+    CeqfpMemoryResFreeOvrflw interface{}
 
     // This object is a 64-bit version of ceqfpMemoryResFree. The type is
     // interface{} with range: 0..18446744073709551615. Units are kilo bytes.
-    Ceqfpmemoryhcresfree interface{}
+    CeqfpMemoryHCResFree interface{}
 
     // This object represents the upper 32-bit of ceqfpMemoryResLowFreeWatermark.
     // This object needs to be supported only when the value of
     // ceqfpMemoryResLowFreeWatermark exceeds 32-bit, otherwise this object value
     // would be set to 0. The type is interface{} with range: 0..4294967295. Units
     // are kilo bytes.
-    Ceqfpmemoryreslowfreewatermarkovrflw interface{}
+    CeqfpMemoryResLowFreeWatermarkOvrflw interface{}
 
     // This object is a 64-bit version of ceqfpMemoryResLowFreeWatermark. The type
     // is interface{} with range: 0..18446744073709551615. Units are kilo bytes.
-    Ceqfpmemoryhcreslowfreewatermark interface{}
+    CeqfpMemoryHCResLowFreeWatermark interface{}
 }
 
-func (ceqfpmemoryresourceentry *CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable_Ceqfpmemoryresourceentry) GetEntityData() *types.CommonEntityData {
-    ceqfpmemoryresourceentry.EntityData.YFilter = ceqfpmemoryresourceentry.YFilter
-    ceqfpmemoryresourceentry.EntityData.YangName = "ceqfpMemoryResourceEntry"
-    ceqfpmemoryresourceentry.EntityData.BundleName = "cisco_ios_xe"
-    ceqfpmemoryresourceentry.EntityData.ParentYangName = "ceqfpMemoryResourceTable"
-    ceqfpmemoryresourceentry.EntityData.SegmentPath = "ceqfpMemoryResourceEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceqfpmemoryresourceentry.Entphysicalindex) + "']" + "[ceqfpMemoryResType='" + fmt.Sprintf("%v", ceqfpmemoryresourceentry.Ceqfpmemoryrestype) + "']"
-    ceqfpmemoryresourceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ceqfpmemoryresourceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ceqfpmemoryresourceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ceqfpMemoryResourceEntry *CISCOENTITYQFPMIB_CeqfpMemoryResourceTable_CeqfpMemoryResourceEntry) GetEntityData() *types.CommonEntityData {
+    ceqfpMemoryResourceEntry.EntityData.YFilter = ceqfpMemoryResourceEntry.YFilter
+    ceqfpMemoryResourceEntry.EntityData.YangName = "ceqfpMemoryResourceEntry"
+    ceqfpMemoryResourceEntry.EntityData.BundleName = "cisco_ios_xe"
+    ceqfpMemoryResourceEntry.EntityData.ParentYangName = "ceqfpMemoryResourceTable"
+    ceqfpMemoryResourceEntry.EntityData.SegmentPath = "ceqfpMemoryResourceEntry" + types.AddKeyToken(ceqfpMemoryResourceEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(ceqfpMemoryResourceEntry.CeqfpMemoryResType, "ceqfpMemoryResType")
+    ceqfpMemoryResourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceqfpMemoryResourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceqfpMemoryResourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ceqfpmemoryresourceentry.EntityData.Children = make(map[string]types.YChild)
-    ceqfpmemoryresourceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ceqfpmemoryresourceentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", ceqfpmemoryresourceentry.Entphysicalindex}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResType"] = types.YLeaf{"Ceqfpmemoryrestype", ceqfpmemoryresourceentry.Ceqfpmemoryrestype}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResTotal"] = types.YLeaf{"Ceqfpmemoryrestotal", ceqfpmemoryresourceentry.Ceqfpmemoryrestotal}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResInUse"] = types.YLeaf{"Ceqfpmemoryresinuse", ceqfpmemoryresourceentry.Ceqfpmemoryresinuse}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResFree"] = types.YLeaf{"Ceqfpmemoryresfree", ceqfpmemoryresourceentry.Ceqfpmemoryresfree}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResLowFreeWatermark"] = types.YLeaf{"Ceqfpmemoryreslowfreewatermark", ceqfpmemoryresourceentry.Ceqfpmemoryreslowfreewatermark}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResRisingThreshold"] = types.YLeaf{"Ceqfpmemoryresrisingthreshold", ceqfpmemoryresourceentry.Ceqfpmemoryresrisingthreshold}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResFallingThreshold"] = types.YLeaf{"Ceqfpmemoryresfallingthreshold", ceqfpmemoryresourceentry.Ceqfpmemoryresfallingthreshold}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResTotalOvrflw"] = types.YLeaf{"Ceqfpmemoryrestotalovrflw", ceqfpmemoryresourceentry.Ceqfpmemoryrestotalovrflw}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryHCResTotal"] = types.YLeaf{"Ceqfpmemoryhcrestotal", ceqfpmemoryresourceentry.Ceqfpmemoryhcrestotal}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResInUseOvrflw"] = types.YLeaf{"Ceqfpmemoryresinuseovrflw", ceqfpmemoryresourceentry.Ceqfpmemoryresinuseovrflw}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryHCResInUse"] = types.YLeaf{"Ceqfpmemoryhcresinuse", ceqfpmemoryresourceentry.Ceqfpmemoryhcresinuse}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResFreeOvrflw"] = types.YLeaf{"Ceqfpmemoryresfreeovrflw", ceqfpmemoryresourceentry.Ceqfpmemoryresfreeovrflw}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryHCResFree"] = types.YLeaf{"Ceqfpmemoryhcresfree", ceqfpmemoryresourceentry.Ceqfpmemoryhcresfree}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryResLowFreeWatermarkOvrflw"] = types.YLeaf{"Ceqfpmemoryreslowfreewatermarkovrflw", ceqfpmemoryresourceentry.Ceqfpmemoryreslowfreewatermarkovrflw}
-    ceqfpmemoryresourceentry.EntityData.Leafs["ceqfpMemoryHCResLowFreeWatermark"] = types.YLeaf{"Ceqfpmemoryhcreslowfreewatermark", ceqfpmemoryresourceentry.Ceqfpmemoryhcreslowfreewatermark}
-    return &(ceqfpmemoryresourceentry.EntityData)
+    ceqfpMemoryResourceEntry.EntityData.Children = types.NewOrderedMap()
+    ceqfpMemoryResourceEntry.EntityData.Leafs = types.NewOrderedMap()
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", ceqfpMemoryResourceEntry.EntPhysicalIndex})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResType", types.YLeaf{"CeqfpMemoryResType", ceqfpMemoryResourceEntry.CeqfpMemoryResType})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResTotal", types.YLeaf{"CeqfpMemoryResTotal", ceqfpMemoryResourceEntry.CeqfpMemoryResTotal})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResInUse", types.YLeaf{"CeqfpMemoryResInUse", ceqfpMemoryResourceEntry.CeqfpMemoryResInUse})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResFree", types.YLeaf{"CeqfpMemoryResFree", ceqfpMemoryResourceEntry.CeqfpMemoryResFree})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResLowFreeWatermark", types.YLeaf{"CeqfpMemoryResLowFreeWatermark", ceqfpMemoryResourceEntry.CeqfpMemoryResLowFreeWatermark})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResRisingThreshold", types.YLeaf{"CeqfpMemoryResRisingThreshold", ceqfpMemoryResourceEntry.CeqfpMemoryResRisingThreshold})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResFallingThreshold", types.YLeaf{"CeqfpMemoryResFallingThreshold", ceqfpMemoryResourceEntry.CeqfpMemoryResFallingThreshold})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResTotalOvrflw", types.YLeaf{"CeqfpMemoryResTotalOvrflw", ceqfpMemoryResourceEntry.CeqfpMemoryResTotalOvrflw})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryHCResTotal", types.YLeaf{"CeqfpMemoryHCResTotal", ceqfpMemoryResourceEntry.CeqfpMemoryHCResTotal})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResInUseOvrflw", types.YLeaf{"CeqfpMemoryResInUseOvrflw", ceqfpMemoryResourceEntry.CeqfpMemoryResInUseOvrflw})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryHCResInUse", types.YLeaf{"CeqfpMemoryHCResInUse", ceqfpMemoryResourceEntry.CeqfpMemoryHCResInUse})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResFreeOvrflw", types.YLeaf{"CeqfpMemoryResFreeOvrflw", ceqfpMemoryResourceEntry.CeqfpMemoryResFreeOvrflw})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryHCResFree", types.YLeaf{"CeqfpMemoryHCResFree", ceqfpMemoryResourceEntry.CeqfpMemoryHCResFree})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryResLowFreeWatermarkOvrflw", types.YLeaf{"CeqfpMemoryResLowFreeWatermarkOvrflw", ceqfpMemoryResourceEntry.CeqfpMemoryResLowFreeWatermarkOvrflw})
+    ceqfpMemoryResourceEntry.EntityData.Leafs.Append("ceqfpMemoryHCResLowFreeWatermark", types.YLeaf{"CeqfpMemoryHCResLowFreeWatermark", ceqfpMemoryResourceEntry.CeqfpMemoryHCResLowFreeWatermark})
+
+    ceqfpMemoryResourceEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "CeqfpMemoryResType"}
+
+    return &(ceqfpMemoryResourceEntry.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfpthroughputtable
+// CISCOENTITYQFPMIB_CeqfpThroughputTable
 // This table maintains the throughput information for each
 // QFP physical entity.
 // 
@@ -773,106 +800,112 @@ func (ceqfpmemoryresourceentry *CISCOENTITYQFPMIB_Ceqfpmemoryresourcetable_Ceqfp
 // 
 // corresponding to a QFP physical entity upon removal of the QFP
 // host physical entity.
-type CISCOENTITYQFPMIB_Ceqfpthroughputtable struct {
+type CISCOENTITYQFPMIB_CeqfpThroughputTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the ceqfpThroughputTable. There is an entry in this
     // table for each QFP entity, as defined by a value of entPhysicalIndex. The
     // type is slice of
-    // CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry.
-    Ceqfpthroughputentry []CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry
+    // CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry.
+    CeqfpThroughputEntry []*CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry
 }
 
-func (ceqfpthroughputtable *CISCOENTITYQFPMIB_Ceqfpthroughputtable) GetEntityData() *types.CommonEntityData {
-    ceqfpthroughputtable.EntityData.YFilter = ceqfpthroughputtable.YFilter
-    ceqfpthroughputtable.EntityData.YangName = "ceqfpThroughputTable"
-    ceqfpthroughputtable.EntityData.BundleName = "cisco_ios_xe"
-    ceqfpthroughputtable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
-    ceqfpthroughputtable.EntityData.SegmentPath = "ceqfpThroughputTable"
-    ceqfpthroughputtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ceqfpthroughputtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ceqfpthroughputtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ceqfpThroughputTable *CISCOENTITYQFPMIB_CeqfpThroughputTable) GetEntityData() *types.CommonEntityData {
+    ceqfpThroughputTable.EntityData.YFilter = ceqfpThroughputTable.YFilter
+    ceqfpThroughputTable.EntityData.YangName = "ceqfpThroughputTable"
+    ceqfpThroughputTable.EntityData.BundleName = "cisco_ios_xe"
+    ceqfpThroughputTable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
+    ceqfpThroughputTable.EntityData.SegmentPath = "ceqfpThroughputTable"
+    ceqfpThroughputTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceqfpThroughputTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceqfpThroughputTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ceqfpthroughputtable.EntityData.Children = make(map[string]types.YChild)
-    ceqfpthroughputtable.EntityData.Children["ceqfpThroughputEntry"] = types.YChild{"Ceqfpthroughputentry", nil}
-    for i := range ceqfpthroughputtable.Ceqfpthroughputentry {
-        ceqfpthroughputtable.EntityData.Children[types.GetSegmentPath(&ceqfpthroughputtable.Ceqfpthroughputentry[i])] = types.YChild{"Ceqfpthroughputentry", &ceqfpthroughputtable.Ceqfpthroughputentry[i]}
+    ceqfpThroughputTable.EntityData.Children = types.NewOrderedMap()
+    ceqfpThroughputTable.EntityData.Children.Append("ceqfpThroughputEntry", types.YChild{"CeqfpThroughputEntry", nil})
+    for i := range ceqfpThroughputTable.CeqfpThroughputEntry {
+        ceqfpThroughputTable.EntityData.Children.Append(types.GetSegmentPath(ceqfpThroughputTable.CeqfpThroughputEntry[i]), types.YChild{"CeqfpThroughputEntry", ceqfpThroughputTable.CeqfpThroughputEntry[i]})
     }
-    ceqfpthroughputtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ceqfpthroughputtable.EntityData)
+    ceqfpThroughputTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ceqfpThroughputTable.EntityData.YListKeys = []string {}
+
+    return &(ceqfpThroughputTable.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry
+// CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry
 // A conceptual row in the ceqfpThroughputTable. There is an entry
 // in this table for each QFP entity, as defined by a value of
 // entPhysicalIndex.
-type CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry struct {
+type CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This object represents the bandwidth for installed throughput license. The
     // type is interface{} with range: 0..18446744073709551615. Units are bits per
     // second.
-    Ceqfpthroughputlicensedbw interface{}
+    CeqfpThroughputLicensedBW interface{}
 
     // This object represents the current throughput level for installed
     // throughput license.                  normal  (1) - Throughput usage is
     // normal                 warning (2) - Throughput usage has crossed the      
     // configured threshold limit                 exceed  (3) - Throughput usage
     // has exceeded the                               total licensed bandwidth.
-    // The type is Ceqfpthroughputlevel.
-    Ceqfpthroughputlevel interface{}
+    // The type is CeqfpThroughputLevel.
+    CeqfpThroughputLevel interface{}
 
     // The object represents the configured time interval at which the
     // ceqfpThroughputLevel is checked. The type is interface{} with range:
     // 10..86400. Units are seconds.
-    Ceqfpthroughputinterval interface{}
+    CeqfpThroughputInterval interface{}
 
     // The object represents the configured throughput threshold. The type is
     // interface{} with range: 75..95. Units are percent.
-    Ceqfpthroughputthreshold interface{}
+    CeqfpThroughputThreshold interface{}
 
     // The object represents the average throughput rate in the interval
     // ceqfpThroughputInterval. The type is interface{} with range:
     // 0..18446744073709551615. Units are bits per second.
-    Ceqfpthroughputavgrate interface{}
+    CeqfpThroughputAvgRate interface{}
 }
 
-func (ceqfpthroughputentry *CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry) GetEntityData() *types.CommonEntityData {
-    ceqfpthroughputentry.EntityData.YFilter = ceqfpthroughputentry.YFilter
-    ceqfpthroughputentry.EntityData.YangName = "ceqfpThroughputEntry"
-    ceqfpthroughputentry.EntityData.BundleName = "cisco_ios_xe"
-    ceqfpthroughputentry.EntityData.ParentYangName = "ceqfpThroughputTable"
-    ceqfpthroughputentry.EntityData.SegmentPath = "ceqfpThroughputEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceqfpthroughputentry.Entphysicalindex) + "']"
-    ceqfpthroughputentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ceqfpthroughputentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ceqfpthroughputentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ceqfpThroughputEntry *CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry) GetEntityData() *types.CommonEntityData {
+    ceqfpThroughputEntry.EntityData.YFilter = ceqfpThroughputEntry.YFilter
+    ceqfpThroughputEntry.EntityData.YangName = "ceqfpThroughputEntry"
+    ceqfpThroughputEntry.EntityData.BundleName = "cisco_ios_xe"
+    ceqfpThroughputEntry.EntityData.ParentYangName = "ceqfpThroughputTable"
+    ceqfpThroughputEntry.EntityData.SegmentPath = "ceqfpThroughputEntry" + types.AddKeyToken(ceqfpThroughputEntry.EntPhysicalIndex, "entPhysicalIndex")
+    ceqfpThroughputEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceqfpThroughputEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceqfpThroughputEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ceqfpthroughputentry.EntityData.Children = make(map[string]types.YChild)
-    ceqfpthroughputentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ceqfpthroughputentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", ceqfpthroughputentry.Entphysicalindex}
-    ceqfpthroughputentry.EntityData.Leafs["ceqfpThroughputLicensedBW"] = types.YLeaf{"Ceqfpthroughputlicensedbw", ceqfpthroughputentry.Ceqfpthroughputlicensedbw}
-    ceqfpthroughputentry.EntityData.Leafs["ceqfpThroughputLevel"] = types.YLeaf{"Ceqfpthroughputlevel", ceqfpthroughputentry.Ceqfpthroughputlevel}
-    ceqfpthroughputentry.EntityData.Leafs["ceqfpThroughputInterval"] = types.YLeaf{"Ceqfpthroughputinterval", ceqfpthroughputentry.Ceqfpthroughputinterval}
-    ceqfpthroughputentry.EntityData.Leafs["ceqfpThroughputThreshold"] = types.YLeaf{"Ceqfpthroughputthreshold", ceqfpthroughputentry.Ceqfpthroughputthreshold}
-    ceqfpthroughputentry.EntityData.Leafs["ceqfpThroughputAvgRate"] = types.YLeaf{"Ceqfpthroughputavgrate", ceqfpthroughputentry.Ceqfpthroughputavgrate}
-    return &(ceqfpthroughputentry.EntityData)
+    ceqfpThroughputEntry.EntityData.Children = types.NewOrderedMap()
+    ceqfpThroughputEntry.EntityData.Leafs = types.NewOrderedMap()
+    ceqfpThroughputEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", ceqfpThroughputEntry.EntPhysicalIndex})
+    ceqfpThroughputEntry.EntityData.Leafs.Append("ceqfpThroughputLicensedBW", types.YLeaf{"CeqfpThroughputLicensedBW", ceqfpThroughputEntry.CeqfpThroughputLicensedBW})
+    ceqfpThroughputEntry.EntityData.Leafs.Append("ceqfpThroughputLevel", types.YLeaf{"CeqfpThroughputLevel", ceqfpThroughputEntry.CeqfpThroughputLevel})
+    ceqfpThroughputEntry.EntityData.Leafs.Append("ceqfpThroughputInterval", types.YLeaf{"CeqfpThroughputInterval", ceqfpThroughputEntry.CeqfpThroughputInterval})
+    ceqfpThroughputEntry.EntityData.Leafs.Append("ceqfpThroughputThreshold", types.YLeaf{"CeqfpThroughputThreshold", ceqfpThroughputEntry.CeqfpThroughputThreshold})
+    ceqfpThroughputEntry.EntityData.Leafs.Append("ceqfpThroughputAvgRate", types.YLeaf{"CeqfpThroughputAvgRate", ceqfpThroughputEntry.CeqfpThroughputAvgRate})
+
+    ceqfpThroughputEntry.EntityData.YListKeys = []string {"EntPhysicalIndex"}
+
+    return &(ceqfpThroughputEntry.EntityData)
 }
 
-// CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry_Ceqfpthroughputlevel represents                               total licensed bandwidth
-type CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry_Ceqfpthroughputlevel string
+// CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry_CeqfpThroughputLevel represents                               total licensed bandwidth
+type CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry_CeqfpThroughputLevel string
 
 const (
-    CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry_Ceqfpthroughputlevel_normal CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry_Ceqfpthroughputlevel = "normal"
+    CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry_CeqfpThroughputLevel_normal CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry_CeqfpThroughputLevel = "normal"
 
-    CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry_Ceqfpthroughputlevel_warning CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry_Ceqfpthroughputlevel = "warning"
+    CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry_CeqfpThroughputLevel_warning CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry_CeqfpThroughputLevel = "warning"
 
-    CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry_Ceqfpthroughputlevel_exceed CISCOENTITYQFPMIB_Ceqfpthroughputtable_Ceqfpthroughputentry_Ceqfpthroughputlevel = "exceed"
+    CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry_CeqfpThroughputLevel_exceed CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry_CeqfpThroughputLevel = "exceed"
 )
 

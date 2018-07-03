@@ -223,27 +223,27 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
                         description
                           "Opaque item ";
                         leaf opaque-clientid {
-                          type int32;
+                          type uint32;
                           description
                             "Opaque Client ID";
                         }
                         leaf opaque-protoid {
-                          type int32;
+                          type uint32;
                           description
                             "Opaque Proto ID";
                         }
                         leaf opaque-key-type {
-                          type int32;
+                          type uint32;
                           description
                             "Opaque key type";
                         }
                         leaf opaque-key-size {
-                          type int32;
+                          type uint32;
                           description
                             "Opaque key size";
                         }
                         leaf opaque-data-size {
-                          type int32;
+                          type uint32;
                           description
                             "Opaque data size";
                         }
@@ -383,7 +383,7 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
                             "Prefix Length";
                         }
                         leaf protoid {
-                          type int32;
+                          type uint32;
                           description
                             "Proto ID";
                         }
@@ -486,7 +486,7 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
               "Route summary information for a specific
                table/protocol ";
             leaf protoid {
-              type int32;
+              type uint32;
               description
                 "Proto ID";
             }
@@ -501,7 +501,7 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
             description
               "Interface handle";
             leaf handle {
-              type int32;
+              type uint32;
               description
                 "Itf Handle";
             }

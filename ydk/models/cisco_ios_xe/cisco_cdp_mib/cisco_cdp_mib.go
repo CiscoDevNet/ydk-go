@@ -23,26 +23,26 @@ type CISCOCDPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cdpglobal CISCOCDPMIB_Cdpglobal
+    CdpGlobal CISCOCDPMIB_CdpGlobal
 
     // The (conceptual) table containing the status of CDP on the device's
     // interfaces.
-    Cdpinterfacetable CISCOCDPMIB_Cdpinterfacetable
+    CdpInterfaceTable CISCOCDPMIB_CdpInterfaceTable
 
     // This table contains the additional CDP configuration on the device's
     // interfaces.
-    Cdpinterfaceexttable CISCOCDPMIB_Cdpinterfaceexttable
+    CdpInterfaceExtTable CISCOCDPMIB_CdpInterfaceExtTable
 
     // The (conceptual) table containing the cached information obtained via
     // receiving CDP messages.
-    Cdpcachetable CISCOCDPMIB_Cdpcachetable
+    CdpCacheTable CISCOCDPMIB_CdpCacheTable
 
     // The (conceptual) table containing the list of  network-layer addresses of a
     // neighbor interface, as reported in the Address TLV of the most recently
     // received CDP message. The first address included in the Address TLV is
     // saved in cdpCacheAddress.  This table contains the remainder of the
     // addresses in the Address TLV.
-    Cdpctaddresstable CISCOCDPMIB_Cdpctaddresstable
+    CdpCtAddressTable CISCOCDPMIB_CdpCtAddressTable
 }
 
 func (cISCOCDPMIB *CISCOCDPMIB) GetEntityData() *types.CommonEntityData {
@@ -55,45 +55,48 @@ func (cISCOCDPMIB *CISCOCDPMIB) GetEntityData() *types.CommonEntityData {
     cISCOCDPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCDPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOCDPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOCDPMIB.EntityData.Children["cdpGlobal"] = types.YChild{"Cdpglobal", &cISCOCDPMIB.Cdpglobal}
-    cISCOCDPMIB.EntityData.Children["cdpInterfaceTable"] = types.YChild{"Cdpinterfacetable", &cISCOCDPMIB.Cdpinterfacetable}
-    cISCOCDPMIB.EntityData.Children["cdpInterfaceExtTable"] = types.YChild{"Cdpinterfaceexttable", &cISCOCDPMIB.Cdpinterfaceexttable}
-    cISCOCDPMIB.EntityData.Children["cdpCacheTable"] = types.YChild{"Cdpcachetable", &cISCOCDPMIB.Cdpcachetable}
-    cISCOCDPMIB.EntityData.Children["cdpCtAddressTable"] = types.YChild{"Cdpctaddresstable", &cISCOCDPMIB.Cdpctaddresstable}
-    cISCOCDPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOCDPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOCDPMIB.EntityData.Children.Append("cdpGlobal", types.YChild{"CdpGlobal", &cISCOCDPMIB.CdpGlobal})
+    cISCOCDPMIB.EntityData.Children.Append("cdpInterfaceTable", types.YChild{"CdpInterfaceTable", &cISCOCDPMIB.CdpInterfaceTable})
+    cISCOCDPMIB.EntityData.Children.Append("cdpInterfaceExtTable", types.YChild{"CdpInterfaceExtTable", &cISCOCDPMIB.CdpInterfaceExtTable})
+    cISCOCDPMIB.EntityData.Children.Append("cdpCacheTable", types.YChild{"CdpCacheTable", &cISCOCDPMIB.CdpCacheTable})
+    cISCOCDPMIB.EntityData.Children.Append("cdpCtAddressTable", types.YChild{"CdpCtAddressTable", &cISCOCDPMIB.CdpCtAddressTable})
+    cISCOCDPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOCDPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOCDPMIB.EntityData)
 }
 
-// CISCOCDPMIB_Cdpglobal
-type CISCOCDPMIB_Cdpglobal struct {
+// CISCOCDPMIB_CdpGlobal
+type CISCOCDPMIB_CdpGlobal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An indication of whether the Cisco Discovery Protocol is currently running.
     // Entries in cdpCacheTable are deleted when CDP is disabled. The type is
     // bool.
-    Cdpglobalrun interface{}
+    CdpGlobalRun interface{}
 
     // The interval at which CDP messages are to be generated. The default value
     // is 60 seconds. The type is interface{} with range: 5..254. Units are
     // seconds.
-    Cdpglobalmessageinterval interface{}
+    CdpGlobalMessageInterval interface{}
 
     // The time for the receiving device holds CDP message. The default value is
     // 180 seconds. The type is interface{} with range: 10..255. Units are
     // seconds.
-    Cdpglobalholdtime interface{}
+    CdpGlobalHoldTime interface{}
 
     // The device ID advertised by this device. The format of this device id is
     // characterized by the value of  cdpGlobalDeviceIdFormat object. The type is
     // string.
-    Cdpglobaldeviceid interface{}
+    CdpGlobalDeviceId interface{}
 
     // Indicates the time when the cache table was last changed. It is the most
     // recent time at which any row was last created, modified or deleted. The
     // type is interface{} with range: 0..4294967295.
-    Cdpgloballastchange interface{}
+    CdpGlobalLastChange interface{}
 
     // Indicate the Device-Id format capability of the device.  serialNumber(0)
     // indicates that the device supports using serial number as the format for
@@ -101,7 +104,7 @@ type CISCOCDPMIB_Cdpglobal struct {
     // 2 MAC address as the format for its DeviceId.  other(2) indicates that the
     // device supports using its platform specific format as the format for its
     // DeviceId. The type is map[string]bool.
-    Cdpglobaldeviceidformatcpb interface{}
+    CdpGlobalDeviceIdFormatCpb interface{}
 
     // An indication of the format of Device-Id contained in the corresponding
     // instance of cdpGlobalDeviceId. User can only specify the formats that the
@@ -113,79 +116,85 @@ type CISCOCDPMIB_Cdpglobal struct {
     // cdpGlobalDeviceId object is in the form of a platform specific ASCII string
     // contain info that identifies the device. For example: ASCII string contains
     // serialNumber appended/prepened with system name. The type is
-    // Cdpglobaldeviceidformat.
-    Cdpglobaldeviceidformat interface{}
+    // CdpGlobalDeviceIdFormat.
+    CdpGlobalDeviceIdFormat interface{}
 }
 
-func (cdpglobal *CISCOCDPMIB_Cdpglobal) GetEntityData() *types.CommonEntityData {
-    cdpglobal.EntityData.YFilter = cdpglobal.YFilter
-    cdpglobal.EntityData.YangName = "cdpGlobal"
-    cdpglobal.EntityData.BundleName = "cisco_ios_xe"
-    cdpglobal.EntityData.ParentYangName = "CISCO-CDP-MIB"
-    cdpglobal.EntityData.SegmentPath = "cdpGlobal"
-    cdpglobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpglobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpglobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpGlobal *CISCOCDPMIB_CdpGlobal) GetEntityData() *types.CommonEntityData {
+    cdpGlobal.EntityData.YFilter = cdpGlobal.YFilter
+    cdpGlobal.EntityData.YangName = "cdpGlobal"
+    cdpGlobal.EntityData.BundleName = "cisco_ios_xe"
+    cdpGlobal.EntityData.ParentYangName = "CISCO-CDP-MIB"
+    cdpGlobal.EntityData.SegmentPath = "cdpGlobal"
+    cdpGlobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpGlobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpglobal.EntityData.Children = make(map[string]types.YChild)
-    cdpglobal.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdpglobal.EntityData.Leafs["cdpGlobalRun"] = types.YLeaf{"Cdpglobalrun", cdpglobal.Cdpglobalrun}
-    cdpglobal.EntityData.Leafs["cdpGlobalMessageInterval"] = types.YLeaf{"Cdpglobalmessageinterval", cdpglobal.Cdpglobalmessageinterval}
-    cdpglobal.EntityData.Leafs["cdpGlobalHoldTime"] = types.YLeaf{"Cdpglobalholdtime", cdpglobal.Cdpglobalholdtime}
-    cdpglobal.EntityData.Leafs["cdpGlobalDeviceId"] = types.YLeaf{"Cdpglobaldeviceid", cdpglobal.Cdpglobaldeviceid}
-    cdpglobal.EntityData.Leafs["cdpGlobalLastChange"] = types.YLeaf{"Cdpgloballastchange", cdpglobal.Cdpgloballastchange}
-    cdpglobal.EntityData.Leafs["cdpGlobalDeviceIdFormatCpb"] = types.YLeaf{"Cdpglobaldeviceidformatcpb", cdpglobal.Cdpglobaldeviceidformatcpb}
-    cdpglobal.EntityData.Leafs["cdpGlobalDeviceIdFormat"] = types.YLeaf{"Cdpglobaldeviceidformat", cdpglobal.Cdpglobaldeviceidformat}
-    return &(cdpglobal.EntityData)
+    cdpGlobal.EntityData.Children = types.NewOrderedMap()
+    cdpGlobal.EntityData.Leafs = types.NewOrderedMap()
+    cdpGlobal.EntityData.Leafs.Append("cdpGlobalRun", types.YLeaf{"CdpGlobalRun", cdpGlobal.CdpGlobalRun})
+    cdpGlobal.EntityData.Leafs.Append("cdpGlobalMessageInterval", types.YLeaf{"CdpGlobalMessageInterval", cdpGlobal.CdpGlobalMessageInterval})
+    cdpGlobal.EntityData.Leafs.Append("cdpGlobalHoldTime", types.YLeaf{"CdpGlobalHoldTime", cdpGlobal.CdpGlobalHoldTime})
+    cdpGlobal.EntityData.Leafs.Append("cdpGlobalDeviceId", types.YLeaf{"CdpGlobalDeviceId", cdpGlobal.CdpGlobalDeviceId})
+    cdpGlobal.EntityData.Leafs.Append("cdpGlobalLastChange", types.YLeaf{"CdpGlobalLastChange", cdpGlobal.CdpGlobalLastChange})
+    cdpGlobal.EntityData.Leafs.Append("cdpGlobalDeviceIdFormatCpb", types.YLeaf{"CdpGlobalDeviceIdFormatCpb", cdpGlobal.CdpGlobalDeviceIdFormatCpb})
+    cdpGlobal.EntityData.Leafs.Append("cdpGlobalDeviceIdFormat", types.YLeaf{"CdpGlobalDeviceIdFormat", cdpGlobal.CdpGlobalDeviceIdFormat})
+
+    cdpGlobal.EntityData.YListKeys = []string {}
+
+    return &(cdpGlobal.EntityData)
 }
 
-// CISCOCDPMIB_Cdpglobal_Cdpglobaldeviceidformat represents contains serialNumber appended/prepened with system name.
-type CISCOCDPMIB_Cdpglobal_Cdpglobaldeviceidformat string
+// CISCOCDPMIB_CdpGlobal_CdpGlobalDeviceIdFormat represents contains serialNumber appended/prepened with system name.
+type CISCOCDPMIB_CdpGlobal_CdpGlobalDeviceIdFormat string
 
 const (
-    CISCOCDPMIB_Cdpglobal_Cdpglobaldeviceidformat_serialNumber CISCOCDPMIB_Cdpglobal_Cdpglobaldeviceidformat = "serialNumber"
+    CISCOCDPMIB_CdpGlobal_CdpGlobalDeviceIdFormat_serialNumber CISCOCDPMIB_CdpGlobal_CdpGlobalDeviceIdFormat = "serialNumber"
 
-    CISCOCDPMIB_Cdpglobal_Cdpglobaldeviceidformat_macAddress CISCOCDPMIB_Cdpglobal_Cdpglobaldeviceidformat = "macAddress"
+    CISCOCDPMIB_CdpGlobal_CdpGlobalDeviceIdFormat_macAddress CISCOCDPMIB_CdpGlobal_CdpGlobalDeviceIdFormat = "macAddress"
 
-    CISCOCDPMIB_Cdpglobal_Cdpglobaldeviceidformat_other CISCOCDPMIB_Cdpglobal_Cdpglobaldeviceidformat = "other"
+    CISCOCDPMIB_CdpGlobal_CdpGlobalDeviceIdFormat_other CISCOCDPMIB_CdpGlobal_CdpGlobalDeviceIdFormat = "other"
 )
 
-// CISCOCDPMIB_Cdpinterfacetable
+// CISCOCDPMIB_CdpInterfaceTable
 // The (conceptual) table containing the status of CDP on
 // the device's interfaces.
-type CISCOCDPMIB_Cdpinterfacetable struct {
+type CISCOCDPMIB_CdpInterfaceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the cdpInterfaceTable, containing the status
     // of CDP on an interface. The type is slice of
-    // CISCOCDPMIB_Cdpinterfacetable_Cdpinterfaceentry.
-    Cdpinterfaceentry []CISCOCDPMIB_Cdpinterfacetable_Cdpinterfaceentry
+    // CISCOCDPMIB_CdpInterfaceTable_CdpInterfaceEntry.
+    CdpInterfaceEntry []*CISCOCDPMIB_CdpInterfaceTable_CdpInterfaceEntry
 }
 
-func (cdpinterfacetable *CISCOCDPMIB_Cdpinterfacetable) GetEntityData() *types.CommonEntityData {
-    cdpinterfacetable.EntityData.YFilter = cdpinterfacetable.YFilter
-    cdpinterfacetable.EntityData.YangName = "cdpInterfaceTable"
-    cdpinterfacetable.EntityData.BundleName = "cisco_ios_xe"
-    cdpinterfacetable.EntityData.ParentYangName = "CISCO-CDP-MIB"
-    cdpinterfacetable.EntityData.SegmentPath = "cdpInterfaceTable"
-    cdpinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpInterfaceTable *CISCOCDPMIB_CdpInterfaceTable) GetEntityData() *types.CommonEntityData {
+    cdpInterfaceTable.EntityData.YFilter = cdpInterfaceTable.YFilter
+    cdpInterfaceTable.EntityData.YangName = "cdpInterfaceTable"
+    cdpInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
+    cdpInterfaceTable.EntityData.ParentYangName = "CISCO-CDP-MIB"
+    cdpInterfaceTable.EntityData.SegmentPath = "cdpInterfaceTable"
+    cdpInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpinterfacetable.EntityData.Children = make(map[string]types.YChild)
-    cdpinterfacetable.EntityData.Children["cdpInterfaceEntry"] = types.YChild{"Cdpinterfaceentry", nil}
-    for i := range cdpinterfacetable.Cdpinterfaceentry {
-        cdpinterfacetable.EntityData.Children[types.GetSegmentPath(&cdpinterfacetable.Cdpinterfaceentry[i])] = types.YChild{"Cdpinterfaceentry", &cdpinterfacetable.Cdpinterfaceentry[i]}
+    cdpInterfaceTable.EntityData.Children = types.NewOrderedMap()
+    cdpInterfaceTable.EntityData.Children.Append("cdpInterfaceEntry", types.YChild{"CdpInterfaceEntry", nil})
+    for i := range cdpInterfaceTable.CdpInterfaceEntry {
+        cdpInterfaceTable.EntityData.Children.Append(types.GetSegmentPath(cdpInterfaceTable.CdpInterfaceEntry[i]), types.YChild{"CdpInterfaceEntry", cdpInterfaceTable.CdpInterfaceEntry[i]})
     }
-    cdpinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdpinterfacetable.EntityData)
+    cdpInterfaceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdpInterfaceTable.EntityData.YListKeys = []string {}
+
+    return &(cdpInterfaceTable.EntityData)
 }
 
-// CISCOCDPMIB_Cdpinterfacetable_Cdpinterfaceentry
+// CISCOCDPMIB_CdpInterfaceTable_CdpInterfaceEntry
 // An entry (conceptual row) in the cdpInterfaceTable,
 // containing the status of CDP on an interface.
-type CISCOCDPMIB_Cdpinterfacetable_Cdpinterfaceentry struct {
+type CISCOCDPMIB_CdpInterfaceTable_CdpInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -197,101 +206,107 @@ type CISCOCDPMIB_Cdpinterfacetable_Cdpinterfaceentry struct {
     // cdpInterfacePort, where these values correspond to the group number and
     // port number values of RFC 1516. The type is interface{} with range:
     // 0..2147483647.
-    Cdpinterfaceifindex interface{}
+    CdpInterfaceIfIndex interface{}
 
     // An indication of whether the Cisco Discovery Protocol is currently running
     // on this interface.  This variable has no effect when CDP is disabled
     // (cdpGlobalRun = FALSE). The type is bool.
-    Cdpinterfaceenable interface{}
+    CdpInterfaceEnable interface{}
 
     // The interval at which CDP messages are to be generated on this interface. 
     // The default value is 60 seconds. The type is interface{} with range:
     // 0..254. Units are seconds.
-    Cdpinterfacemessageinterval interface{}
+    CdpInterfaceMessageInterval interface{}
 
     // This object is only relevant to interfaces which are repeater ports on
     // 802.3 repeaters.  In this situation, it indicates the RFC1516 group number
     // of the repeater port which corresponds to this interface. The type is
     // interface{} with range: -2147483648..2147483647.
-    Cdpinterfacegroup interface{}
+    CdpInterfaceGroup interface{}
 
     // This object is only relevant to interfaces which are repeater ports on
     // 802.3 repeaters.  In this situation, it indicates the RFC1516 port number
     // of the repeater port which corresponds to this interface. The type is
     // interface{} with range: -2147483648..2147483647.
-    Cdpinterfaceport interface{}
+    CdpInterfacePort interface{}
 
     // The name of the local interface as advertised by CDP in the Port-ID TLV.
     // The type is string.
-    Cdpinterfacename interface{}
+    CdpInterfaceName interface{}
 }
 
-func (cdpinterfaceentry *CISCOCDPMIB_Cdpinterfacetable_Cdpinterfaceentry) GetEntityData() *types.CommonEntityData {
-    cdpinterfaceentry.EntityData.YFilter = cdpinterfaceentry.YFilter
-    cdpinterfaceentry.EntityData.YangName = "cdpInterfaceEntry"
-    cdpinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
-    cdpinterfaceentry.EntityData.ParentYangName = "cdpInterfaceTable"
-    cdpinterfaceentry.EntityData.SegmentPath = "cdpInterfaceEntry" + "[cdpInterfaceIfIndex='" + fmt.Sprintf("%v", cdpinterfaceentry.Cdpinterfaceifindex) + "']"
-    cdpinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpInterfaceEntry *CISCOCDPMIB_CdpInterfaceTable_CdpInterfaceEntry) GetEntityData() *types.CommonEntityData {
+    cdpInterfaceEntry.EntityData.YFilter = cdpInterfaceEntry.YFilter
+    cdpInterfaceEntry.EntityData.YangName = "cdpInterfaceEntry"
+    cdpInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdpInterfaceEntry.EntityData.ParentYangName = "cdpInterfaceTable"
+    cdpInterfaceEntry.EntityData.SegmentPath = "cdpInterfaceEntry" + types.AddKeyToken(cdpInterfaceEntry.CdpInterfaceIfIndex, "cdpInterfaceIfIndex")
+    cdpInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpinterfaceentry.EntityData.Children = make(map[string]types.YChild)
-    cdpinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdpinterfaceentry.EntityData.Leafs["cdpInterfaceIfIndex"] = types.YLeaf{"Cdpinterfaceifindex", cdpinterfaceentry.Cdpinterfaceifindex}
-    cdpinterfaceentry.EntityData.Leafs["cdpInterfaceEnable"] = types.YLeaf{"Cdpinterfaceenable", cdpinterfaceentry.Cdpinterfaceenable}
-    cdpinterfaceentry.EntityData.Leafs["cdpInterfaceMessageInterval"] = types.YLeaf{"Cdpinterfacemessageinterval", cdpinterfaceentry.Cdpinterfacemessageinterval}
-    cdpinterfaceentry.EntityData.Leafs["cdpInterfaceGroup"] = types.YLeaf{"Cdpinterfacegroup", cdpinterfaceentry.Cdpinterfacegroup}
-    cdpinterfaceentry.EntityData.Leafs["cdpInterfacePort"] = types.YLeaf{"Cdpinterfaceport", cdpinterfaceentry.Cdpinterfaceport}
-    cdpinterfaceentry.EntityData.Leafs["cdpInterfaceName"] = types.YLeaf{"Cdpinterfacename", cdpinterfaceentry.Cdpinterfacename}
-    return &(cdpinterfaceentry.EntityData)
+    cdpInterfaceEntry.EntityData.Children = types.NewOrderedMap()
+    cdpInterfaceEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdpInterfaceEntry.EntityData.Leafs.Append("cdpInterfaceIfIndex", types.YLeaf{"CdpInterfaceIfIndex", cdpInterfaceEntry.CdpInterfaceIfIndex})
+    cdpInterfaceEntry.EntityData.Leafs.Append("cdpInterfaceEnable", types.YLeaf{"CdpInterfaceEnable", cdpInterfaceEntry.CdpInterfaceEnable})
+    cdpInterfaceEntry.EntityData.Leafs.Append("cdpInterfaceMessageInterval", types.YLeaf{"CdpInterfaceMessageInterval", cdpInterfaceEntry.CdpInterfaceMessageInterval})
+    cdpInterfaceEntry.EntityData.Leafs.Append("cdpInterfaceGroup", types.YLeaf{"CdpInterfaceGroup", cdpInterfaceEntry.CdpInterfaceGroup})
+    cdpInterfaceEntry.EntityData.Leafs.Append("cdpInterfacePort", types.YLeaf{"CdpInterfacePort", cdpInterfaceEntry.CdpInterfacePort})
+    cdpInterfaceEntry.EntityData.Leafs.Append("cdpInterfaceName", types.YLeaf{"CdpInterfaceName", cdpInterfaceEntry.CdpInterfaceName})
+
+    cdpInterfaceEntry.EntityData.YListKeys = []string {"CdpInterfaceIfIndex"}
+
+    return &(cdpInterfaceEntry.EntityData)
 }
 
-// CISCOCDPMIB_Cdpinterfaceexttable
+// CISCOCDPMIB_CdpInterfaceExtTable
 // This table contains the additional CDP configuration on
 // the device's interfaces.
-type CISCOCDPMIB_Cdpinterfaceexttable struct {
+type CISCOCDPMIB_CdpInterfaceExtTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the cdpInterfaceExtTable contains the values configured for
     // Extented Trust TLV and COS (Class of Service) for Untrusted Ports TLV on an
     // interface which supports the sending of these TLVs. The type is slice of
-    // CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry.
-    Cdpinterfaceextentry []CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry
+    // CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry.
+    CdpInterfaceExtEntry []*CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry
 }
 
-func (cdpinterfaceexttable *CISCOCDPMIB_Cdpinterfaceexttable) GetEntityData() *types.CommonEntityData {
-    cdpinterfaceexttable.EntityData.YFilter = cdpinterfaceexttable.YFilter
-    cdpinterfaceexttable.EntityData.YangName = "cdpInterfaceExtTable"
-    cdpinterfaceexttable.EntityData.BundleName = "cisco_ios_xe"
-    cdpinterfaceexttable.EntityData.ParentYangName = "CISCO-CDP-MIB"
-    cdpinterfaceexttable.EntityData.SegmentPath = "cdpInterfaceExtTable"
-    cdpinterfaceexttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpinterfaceexttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpinterfaceexttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpInterfaceExtTable *CISCOCDPMIB_CdpInterfaceExtTable) GetEntityData() *types.CommonEntityData {
+    cdpInterfaceExtTable.EntityData.YFilter = cdpInterfaceExtTable.YFilter
+    cdpInterfaceExtTable.EntityData.YangName = "cdpInterfaceExtTable"
+    cdpInterfaceExtTable.EntityData.BundleName = "cisco_ios_xe"
+    cdpInterfaceExtTable.EntityData.ParentYangName = "CISCO-CDP-MIB"
+    cdpInterfaceExtTable.EntityData.SegmentPath = "cdpInterfaceExtTable"
+    cdpInterfaceExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpInterfaceExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpInterfaceExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpinterfaceexttable.EntityData.Children = make(map[string]types.YChild)
-    cdpinterfaceexttable.EntityData.Children["cdpInterfaceExtEntry"] = types.YChild{"Cdpinterfaceextentry", nil}
-    for i := range cdpinterfaceexttable.Cdpinterfaceextentry {
-        cdpinterfaceexttable.EntityData.Children[types.GetSegmentPath(&cdpinterfaceexttable.Cdpinterfaceextentry[i])] = types.YChild{"Cdpinterfaceextentry", &cdpinterfaceexttable.Cdpinterfaceextentry[i]}
+    cdpInterfaceExtTable.EntityData.Children = types.NewOrderedMap()
+    cdpInterfaceExtTable.EntityData.Children.Append("cdpInterfaceExtEntry", types.YChild{"CdpInterfaceExtEntry", nil})
+    for i := range cdpInterfaceExtTable.CdpInterfaceExtEntry {
+        cdpInterfaceExtTable.EntityData.Children.Append(types.GetSegmentPath(cdpInterfaceExtTable.CdpInterfaceExtEntry[i]), types.YChild{"CdpInterfaceExtEntry", cdpInterfaceExtTable.CdpInterfaceExtEntry[i]})
     }
-    cdpinterfaceexttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdpinterfaceexttable.EntityData)
+    cdpInterfaceExtTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdpInterfaceExtTable.EntityData.YListKeys = []string {}
+
+    return &(cdpInterfaceExtTable.EntityData)
 }
 
-// CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry
+// CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry
 // An entry in the cdpInterfaceExtTable contains the values
 // configured for Extented Trust TLV and COS (Class of Service)
 // for Untrusted Ports TLV on an interface which supports the
 // sending of these TLVs.
-type CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry struct {
+type CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // Indicates the value to be sent by Extended Trust TLV.  If trusted(1) is
     // configured, the value of Extended Trust TLV is one byte in length with its
@@ -299,45 +314,48 @@ type CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry struct {
     // are 0.  If noTrust(2) is configured, the value of Extended Trust TLV is one
     // byte in length with its least significant bit equal to 0 to indicate no
     // extended trust. All other bits are 0. The type is
-    // Cdpinterfaceextendedtrust.
-    Cdpinterfaceextendedtrust interface{}
+    // CdpInterfaceExtendedTrust.
+    CdpInterfaceExtendedTrust interface{}
 
     // Indicates the value to be sent by COS for Untrusted Ports TLV. The type is
     // interface{} with range: 0..7.
-    Cdpinterfacecosforuntrustedport interface{}
+    CdpInterfaceCosForUntrustedPort interface{}
 }
 
-func (cdpinterfaceextentry *CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry) GetEntityData() *types.CommonEntityData {
-    cdpinterfaceextentry.EntityData.YFilter = cdpinterfaceextentry.YFilter
-    cdpinterfaceextentry.EntityData.YangName = "cdpInterfaceExtEntry"
-    cdpinterfaceextentry.EntityData.BundleName = "cisco_ios_xe"
-    cdpinterfaceextentry.EntityData.ParentYangName = "cdpInterfaceExtTable"
-    cdpinterfaceextentry.EntityData.SegmentPath = "cdpInterfaceExtEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdpinterfaceextentry.Ifindex) + "']"
-    cdpinterfaceextentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpinterfaceextentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpinterfaceextentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpInterfaceExtEntry *CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry) GetEntityData() *types.CommonEntityData {
+    cdpInterfaceExtEntry.EntityData.YFilter = cdpInterfaceExtEntry.YFilter
+    cdpInterfaceExtEntry.EntityData.YangName = "cdpInterfaceExtEntry"
+    cdpInterfaceExtEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdpInterfaceExtEntry.EntityData.ParentYangName = "cdpInterfaceExtTable"
+    cdpInterfaceExtEntry.EntityData.SegmentPath = "cdpInterfaceExtEntry" + types.AddKeyToken(cdpInterfaceExtEntry.IfIndex, "ifIndex")
+    cdpInterfaceExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpInterfaceExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpInterfaceExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpinterfaceextentry.EntityData.Children = make(map[string]types.YChild)
-    cdpinterfaceextentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdpinterfaceextentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdpinterfaceextentry.Ifindex}
-    cdpinterfaceextentry.EntityData.Leafs["cdpInterfaceExtendedTrust"] = types.YLeaf{"Cdpinterfaceextendedtrust", cdpinterfaceextentry.Cdpinterfaceextendedtrust}
-    cdpinterfaceextentry.EntityData.Leafs["cdpInterfaceCosForUntrustedPort"] = types.YLeaf{"Cdpinterfacecosforuntrustedport", cdpinterfaceextentry.Cdpinterfacecosforuntrustedport}
-    return &(cdpinterfaceextentry.EntityData)
+    cdpInterfaceExtEntry.EntityData.Children = types.NewOrderedMap()
+    cdpInterfaceExtEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdpInterfaceExtEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cdpInterfaceExtEntry.IfIndex})
+    cdpInterfaceExtEntry.EntityData.Leafs.Append("cdpInterfaceExtendedTrust", types.YLeaf{"CdpInterfaceExtendedTrust", cdpInterfaceExtEntry.CdpInterfaceExtendedTrust})
+    cdpInterfaceExtEntry.EntityData.Leafs.Append("cdpInterfaceCosForUntrustedPort", types.YLeaf{"CdpInterfaceCosForUntrustedPort", cdpInterfaceExtEntry.CdpInterfaceCosForUntrustedPort})
+
+    cdpInterfaceExtEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cdpInterfaceExtEntry.EntityData)
 }
 
-// CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry_Cdpinterfaceextendedtrust represents 0 to indicate no extended trust. All other bits are 0.
-type CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry_Cdpinterfaceextendedtrust string
+// CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry_CdpInterfaceExtendedTrust represents 0 to indicate no extended trust. All other bits are 0.
+type CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry_CdpInterfaceExtendedTrust string
 
 const (
-    CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry_Cdpinterfaceextendedtrust_trusted CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry_Cdpinterfaceextendedtrust = "trusted"
+    CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry_CdpInterfaceExtendedTrust_trusted CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry_CdpInterfaceExtendedTrust = "trusted"
 
-    CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry_Cdpinterfaceextendedtrust_noTrust CISCOCDPMIB_Cdpinterfaceexttable_Cdpinterfaceextentry_Cdpinterfaceextendedtrust = "noTrust"
+    CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry_CdpInterfaceExtendedTrust_noTrust CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry_CdpInterfaceExtendedTrust = "noTrust"
 )
 
-// CISCOCDPMIB_Cdpcachetable
+// CISCOCDPMIB_CdpCacheTable
 // The (conceptual) table containing the cached
 // information obtained via receiving CDP messages.
-type CISCOCDPMIB_Cdpcachetable struct {
+type CISCOCDPMIB_CdpCacheTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -345,37 +363,40 @@ type CISCOCDPMIB_Cdpcachetable struct {
     // received via CDP on one interface from one device.  Entries appear when a
     // CDP advertisement is received from a neighbor device.  Entries disappear
     // when CDP is disabled on the interface, or globally. The type is slice of
-    // CISCOCDPMIB_Cdpcachetable_Cdpcacheentry.
-    Cdpcacheentry []CISCOCDPMIB_Cdpcachetable_Cdpcacheentry
+    // CISCOCDPMIB_CdpCacheTable_CdpCacheEntry.
+    CdpCacheEntry []*CISCOCDPMIB_CdpCacheTable_CdpCacheEntry
 }
 
-func (cdpcachetable *CISCOCDPMIB_Cdpcachetable) GetEntityData() *types.CommonEntityData {
-    cdpcachetable.EntityData.YFilter = cdpcachetable.YFilter
-    cdpcachetable.EntityData.YangName = "cdpCacheTable"
-    cdpcachetable.EntityData.BundleName = "cisco_ios_xe"
-    cdpcachetable.EntityData.ParentYangName = "CISCO-CDP-MIB"
-    cdpcachetable.EntityData.SegmentPath = "cdpCacheTable"
-    cdpcachetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpcachetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpcachetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpCacheTable *CISCOCDPMIB_CdpCacheTable) GetEntityData() *types.CommonEntityData {
+    cdpCacheTable.EntityData.YFilter = cdpCacheTable.YFilter
+    cdpCacheTable.EntityData.YangName = "cdpCacheTable"
+    cdpCacheTable.EntityData.BundleName = "cisco_ios_xe"
+    cdpCacheTable.EntityData.ParentYangName = "CISCO-CDP-MIB"
+    cdpCacheTable.EntityData.SegmentPath = "cdpCacheTable"
+    cdpCacheTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpCacheTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpCacheTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpcachetable.EntityData.Children = make(map[string]types.YChild)
-    cdpcachetable.EntityData.Children["cdpCacheEntry"] = types.YChild{"Cdpcacheentry", nil}
-    for i := range cdpcachetable.Cdpcacheentry {
-        cdpcachetable.EntityData.Children[types.GetSegmentPath(&cdpcachetable.Cdpcacheentry[i])] = types.YChild{"Cdpcacheentry", &cdpcachetable.Cdpcacheentry[i]}
+    cdpCacheTable.EntityData.Children = types.NewOrderedMap()
+    cdpCacheTable.EntityData.Children.Append("cdpCacheEntry", types.YChild{"CdpCacheEntry", nil})
+    for i := range cdpCacheTable.CdpCacheEntry {
+        cdpCacheTable.EntityData.Children.Append(types.GetSegmentPath(cdpCacheTable.CdpCacheEntry[i]), types.YChild{"CdpCacheEntry", cdpCacheTable.CdpCacheEntry[i]})
     }
-    cdpcachetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdpcachetable.EntityData)
+    cdpCacheTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdpCacheTable.EntityData.YListKeys = []string {}
+
+    return &(cdpCacheTable.EntityData)
 }
 
-// CISCOCDPMIB_Cdpcachetable_Cdpcacheentry
+// CISCOCDPMIB_CdpCacheTable_CdpCacheEntry
 // An entry (conceptual row) in the cdpCacheTable,
 // containing the information received via CDP on one
 // interface from one device.  Entries appear when
 // a CDP advertisement is received from a neighbor
 // device.  Entries disappear when CDP is disabled
 // on the interface, or globally.
-type CISCOCDPMIB_Cdpcachetable_Cdpcacheentry struct {
+type CISCOCDPMIB_CdpCacheTable_CdpCacheEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -385,16 +406,16 @@ type CISCOCDPMIB_Cdpcachetable_Cdpcacheentry struct {
     // greater than any ifIndex value supported by the repeater; the specific port
     // number in this case, is given by the corresponding value of
     // cdpInterfacePort. The type is interface{} with range: 0..2147483647.
-    Cdpcacheifindex interface{}
+    CdpCacheIfIndex interface{}
 
     // This attribute is a key. A unique value for each device from which CDP
     // messages are being received. The type is interface{} with range:
     // 0..2147483647.
-    Cdpcachedeviceindex interface{}
+    CdpCacheDeviceIndex interface{}
 
     // An indication of the type of address contained in the corresponding
     // instance of cdpCacheAddress. The type is CiscoNetworkProtocol.
-    Cdpcacheaddresstype interface{}
+    CdpCacheAddressType interface{}
 
     // The (first) network-layer address of the device as reported in the Address
     // TLV of the most recently received CDP message.  For example, if the
@@ -404,93 +425,93 @@ type CISCOCDPMIB_Cdpcachetable_Cdpcacheentry struct {
     // address is one at which it will receive SNMP messages. Use
     // cdpCtAddressTable to extract the remaining addresses from the Address TLV
     // received most recently. The type is string.
-    Cdpcacheaddress interface{}
+    CdpCacheAddress interface{}
 
     // The Version string as reported in the most recent CDP message.  The
     // zero-length string indicates no Version field (TLV) was reported in the
     // most recent CDP message. The type is string.
-    Cdpcacheversion interface{}
+    CdpCacheVersion interface{}
 
     // The Device-ID string as reported in the most recent CDP message.  The
     // zero-length string indicates no Device-ID field (TLV) was reported in the
     // most recent CDP message. The type is string.
-    Cdpcachedeviceid interface{}
+    CdpCacheDeviceId interface{}
 
     // The Port-ID string as reported in the most recent CDP message.  This will
     // typically be the value of the ifName object (e.g., 'Ethernet0').  The
     // zero-length string indicates no Port-ID field (TLV) was reported in the
     // most recent CDP message. The type is string.
-    Cdpcachedeviceport interface{}
+    CdpCacheDevicePort interface{}
 
     // The Device's Hardware Platform as reported in the most recent CDP message. 
     // The zero-length string indicates that no Platform field (TLV) was reported
     // in the most recent CDP message. The type is string.
-    Cdpcacheplatform interface{}
+    CdpCachePlatform interface{}
 
     // The Device's Functional Capabilities as reported in the most recent CDP
     // message.  For latest set of specific values, see the latest version of the
     // CDP specification. The zero-length string indicates no Capabilities field
     // (TLV) was reported in the most recent CDP message. The type is string with
     // length: 0..4.
-    Cdpcachecapabilities interface{}
+    CdpCacheCapabilities interface{}
 
     // The VTP Management Domain for the remote device's interface,  as reported
     // in the most recently received CDP message. This object is not instantiated
     // if no VTP Management Domain field (TLV) was reported in the most recently
     // received CDP message. The type is string with length: 0..32.
-    Cdpcachevtpmgmtdomain interface{}
+    CdpCacheVTPMgmtDomain interface{}
 
     // The remote device's interface's native VLAN, as reported in the  most
     // recent CDP message.  The value 0 indicates no native VLAN field (TLV) was
     // reported in the most recent CDP message. The type is interface{} with
     // range: 0..4095.
-    Cdpcachenativevlan interface{}
+    CdpCacheNativeVLAN interface{}
 
     // The remote device's interface's duplex mode, as reported in the  most
     // recent CDP message.  The value unknown(1) indicates no duplex mode field
     // (TLV) was reported in the most recent CDP message. The type is
-    // Cdpcacheduplex.
-    Cdpcacheduplex interface{}
+    // CdpCacheDuplex.
+    CdpCacheDuplex interface{}
 
     // The remote device's Appliance ID, as reported in the  most recent CDP
     // message. This object is not instantiated if no Appliance VLAN-ID field
     // (TLV) was reported in the most recently received CDP message. The type is
     // interface{} with range: 0..255.
-    Cdpcacheapplianceid interface{}
+    CdpCacheApplianceID interface{}
 
     // The remote device's VoIP VLAN ID, as reported in the  most recent CDP
     // message. This object is not instantiated if no Appliance VLAN-ID field
     // (TLV) was reported in the most recently received CDP message. The type is
     // interface{} with range: 0..4095.
-    Cdpcachevlanid interface{}
+    CdpCacheVlanID interface{}
 
     // The amount of power consumed by remote device, as reported in the most
     // recent CDP message. This object is not instantiated if no Power Consumption
     // field (TLV) was reported in the most recently received CDP message. The
     // type is interface{} with range: 0..4294967295. Units are milliwatts.
-    Cdpcachepowerconsumption interface{}
+    CdpCachePowerConsumption interface{}
 
     // Indicates the size of the largest datagram that can be sent/received by
     // remote device, as reported in the most recent CDP message. This object is
     // not instantiated if no MTU field (TLV) was reported in the most recently
     // received CDP message. The type is interface{} with range: 0..4294967295.
-    Cdpcachemtu interface{}
+    CdpCacheMTU interface{}
 
     // Indicates the value of the remote device's sysName MIB object. By
     // convention, it is the device's fully qualified domain name. This object is
     // not instantiated if no sysName field (TLV) was reported in the most
     // recently received CDP message. The type is string with length: 0..255.
-    Cdpcachesysname interface{}
+    CdpCacheSysName interface{}
 
     // Indicates the value of the remote device's sysObjectID MIB object. This
     // object is not instantiated if no sysObjectID field (TLV) was reported in
     // the most recently received CDP message. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cdpcachesysobjectid interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CdpCacheSysObjectID interface{}
 
     // An indication of the type of address contained in the corresponding
     // instance of cdpCachePrimaryMgmtAddress. The type is CiscoNetworkProtocol.
-    Cdpcacheprimarymgmtaddrtype interface{}
+    CdpCachePrimaryMgmtAddrType interface{}
 
     // This object indicates the (first) network layer address at which the device
     // will accept SNMP messages as reported in the first address in the 
@@ -502,11 +523,11 @@ type CISCOCDPMIB_Cdpcachetable_Cdpcacheentry struct {
     // in this object.  If the most recently received CDP message did not contain
     // the Management-Address TLV, then this object is not instanstiated. The type
     // is string.
-    Cdpcacheprimarymgmtaddr interface{}
+    CdpCachePrimaryMgmtAddr interface{}
 
     // An indication of the type of address contained in the corresponding
     // instance of cdpCacheSecondaryMgmtAddress. The type is CiscoNetworkProtocol.
-    Cdpcachesecondarymgmtaddrtype interface{}
+    CdpCacheSecondaryMgmtAddrType interface{}
 
     // This object indicates the alternate network layer address at which the
     // device will accept SNMP messages as reported in the second address in the 
@@ -517,74 +538,77 @@ type CISCOCDPMIB_Cdpcachetable_Cdpcacheentry struct {
     // recorded in  this object.  If the most recently received CDP message did
     // not contain the Management-Address TLV, or if that TLV contained only one
     // address, then this object is not instanstiated. The type is string.
-    Cdpcachesecondarymgmtaddr interface{}
+    CdpCacheSecondaryMgmtAddr interface{}
 
     // Indicates the physical location, as reported by the most recent CDP
     // message, of a connector which is on, or physically connected to, the remote
     // device's interface over which the CDP packet is sent. This object is not
     // instantiated if no Physical Location field (TLV) was reported by the most
     // recently received CDP message. The type is string.
-    Cdpcachephyslocation interface{}
+    CdpCachePhysLocation interface{}
 
     // Indicates the time when this cache entry was last changed. This object is
     // initialised to the current time when the entry gets created and updated to
     // the current time whenever the value of any (other) object instance in the
     // corresponding row is modified. The type is interface{} with range:
     // 0..4294967295.
-    Cdpcachelastchange interface{}
+    CdpCacheLastChange interface{}
 }
 
-func (cdpcacheentry *CISCOCDPMIB_Cdpcachetable_Cdpcacheentry) GetEntityData() *types.CommonEntityData {
-    cdpcacheentry.EntityData.YFilter = cdpcacheentry.YFilter
-    cdpcacheentry.EntityData.YangName = "cdpCacheEntry"
-    cdpcacheentry.EntityData.BundleName = "cisco_ios_xe"
-    cdpcacheentry.EntityData.ParentYangName = "cdpCacheTable"
-    cdpcacheentry.EntityData.SegmentPath = "cdpCacheEntry" + "[cdpCacheIfIndex='" + fmt.Sprintf("%v", cdpcacheentry.Cdpcacheifindex) + "']" + "[cdpCacheDeviceIndex='" + fmt.Sprintf("%v", cdpcacheentry.Cdpcachedeviceindex) + "']"
-    cdpcacheentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpcacheentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpcacheentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpCacheEntry *CISCOCDPMIB_CdpCacheTable_CdpCacheEntry) GetEntityData() *types.CommonEntityData {
+    cdpCacheEntry.EntityData.YFilter = cdpCacheEntry.YFilter
+    cdpCacheEntry.EntityData.YangName = "cdpCacheEntry"
+    cdpCacheEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdpCacheEntry.EntityData.ParentYangName = "cdpCacheTable"
+    cdpCacheEntry.EntityData.SegmentPath = "cdpCacheEntry" + types.AddKeyToken(cdpCacheEntry.CdpCacheIfIndex, "cdpCacheIfIndex") + types.AddKeyToken(cdpCacheEntry.CdpCacheDeviceIndex, "cdpCacheDeviceIndex")
+    cdpCacheEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpCacheEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpCacheEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpcacheentry.EntityData.Children = make(map[string]types.YChild)
-    cdpcacheentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdpcacheentry.EntityData.Leafs["cdpCacheIfIndex"] = types.YLeaf{"Cdpcacheifindex", cdpcacheentry.Cdpcacheifindex}
-    cdpcacheentry.EntityData.Leafs["cdpCacheDeviceIndex"] = types.YLeaf{"Cdpcachedeviceindex", cdpcacheentry.Cdpcachedeviceindex}
-    cdpcacheentry.EntityData.Leafs["cdpCacheAddressType"] = types.YLeaf{"Cdpcacheaddresstype", cdpcacheentry.Cdpcacheaddresstype}
-    cdpcacheentry.EntityData.Leafs["cdpCacheAddress"] = types.YLeaf{"Cdpcacheaddress", cdpcacheentry.Cdpcacheaddress}
-    cdpcacheentry.EntityData.Leafs["cdpCacheVersion"] = types.YLeaf{"Cdpcacheversion", cdpcacheentry.Cdpcacheversion}
-    cdpcacheentry.EntityData.Leafs["cdpCacheDeviceId"] = types.YLeaf{"Cdpcachedeviceid", cdpcacheentry.Cdpcachedeviceid}
-    cdpcacheentry.EntityData.Leafs["cdpCacheDevicePort"] = types.YLeaf{"Cdpcachedeviceport", cdpcacheentry.Cdpcachedeviceport}
-    cdpcacheentry.EntityData.Leafs["cdpCachePlatform"] = types.YLeaf{"Cdpcacheplatform", cdpcacheentry.Cdpcacheplatform}
-    cdpcacheentry.EntityData.Leafs["cdpCacheCapabilities"] = types.YLeaf{"Cdpcachecapabilities", cdpcacheentry.Cdpcachecapabilities}
-    cdpcacheentry.EntityData.Leafs["cdpCacheVTPMgmtDomain"] = types.YLeaf{"Cdpcachevtpmgmtdomain", cdpcacheentry.Cdpcachevtpmgmtdomain}
-    cdpcacheentry.EntityData.Leafs["cdpCacheNativeVLAN"] = types.YLeaf{"Cdpcachenativevlan", cdpcacheentry.Cdpcachenativevlan}
-    cdpcacheentry.EntityData.Leafs["cdpCacheDuplex"] = types.YLeaf{"Cdpcacheduplex", cdpcacheentry.Cdpcacheduplex}
-    cdpcacheentry.EntityData.Leafs["cdpCacheApplianceID"] = types.YLeaf{"Cdpcacheapplianceid", cdpcacheentry.Cdpcacheapplianceid}
-    cdpcacheentry.EntityData.Leafs["cdpCacheVlanID"] = types.YLeaf{"Cdpcachevlanid", cdpcacheentry.Cdpcachevlanid}
-    cdpcacheentry.EntityData.Leafs["cdpCachePowerConsumption"] = types.YLeaf{"Cdpcachepowerconsumption", cdpcacheentry.Cdpcachepowerconsumption}
-    cdpcacheentry.EntityData.Leafs["cdpCacheMTU"] = types.YLeaf{"Cdpcachemtu", cdpcacheentry.Cdpcachemtu}
-    cdpcacheentry.EntityData.Leafs["cdpCacheSysName"] = types.YLeaf{"Cdpcachesysname", cdpcacheentry.Cdpcachesysname}
-    cdpcacheentry.EntityData.Leafs["cdpCacheSysObjectID"] = types.YLeaf{"Cdpcachesysobjectid", cdpcacheentry.Cdpcachesysobjectid}
-    cdpcacheentry.EntityData.Leafs["cdpCachePrimaryMgmtAddrType"] = types.YLeaf{"Cdpcacheprimarymgmtaddrtype", cdpcacheentry.Cdpcacheprimarymgmtaddrtype}
-    cdpcacheentry.EntityData.Leafs["cdpCachePrimaryMgmtAddr"] = types.YLeaf{"Cdpcacheprimarymgmtaddr", cdpcacheentry.Cdpcacheprimarymgmtaddr}
-    cdpcacheentry.EntityData.Leafs["cdpCacheSecondaryMgmtAddrType"] = types.YLeaf{"Cdpcachesecondarymgmtaddrtype", cdpcacheentry.Cdpcachesecondarymgmtaddrtype}
-    cdpcacheentry.EntityData.Leafs["cdpCacheSecondaryMgmtAddr"] = types.YLeaf{"Cdpcachesecondarymgmtaddr", cdpcacheentry.Cdpcachesecondarymgmtaddr}
-    cdpcacheentry.EntityData.Leafs["cdpCachePhysLocation"] = types.YLeaf{"Cdpcachephyslocation", cdpcacheentry.Cdpcachephyslocation}
-    cdpcacheentry.EntityData.Leafs["cdpCacheLastChange"] = types.YLeaf{"Cdpcachelastchange", cdpcacheentry.Cdpcachelastchange}
-    return &(cdpcacheentry.EntityData)
+    cdpCacheEntry.EntityData.Children = types.NewOrderedMap()
+    cdpCacheEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheIfIndex", types.YLeaf{"CdpCacheIfIndex", cdpCacheEntry.CdpCacheIfIndex})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheDeviceIndex", types.YLeaf{"CdpCacheDeviceIndex", cdpCacheEntry.CdpCacheDeviceIndex})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheAddressType", types.YLeaf{"CdpCacheAddressType", cdpCacheEntry.CdpCacheAddressType})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheAddress", types.YLeaf{"CdpCacheAddress", cdpCacheEntry.CdpCacheAddress})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheVersion", types.YLeaf{"CdpCacheVersion", cdpCacheEntry.CdpCacheVersion})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheDeviceId", types.YLeaf{"CdpCacheDeviceId", cdpCacheEntry.CdpCacheDeviceId})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheDevicePort", types.YLeaf{"CdpCacheDevicePort", cdpCacheEntry.CdpCacheDevicePort})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCachePlatform", types.YLeaf{"CdpCachePlatform", cdpCacheEntry.CdpCachePlatform})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheCapabilities", types.YLeaf{"CdpCacheCapabilities", cdpCacheEntry.CdpCacheCapabilities})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheVTPMgmtDomain", types.YLeaf{"CdpCacheVTPMgmtDomain", cdpCacheEntry.CdpCacheVTPMgmtDomain})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheNativeVLAN", types.YLeaf{"CdpCacheNativeVLAN", cdpCacheEntry.CdpCacheNativeVLAN})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheDuplex", types.YLeaf{"CdpCacheDuplex", cdpCacheEntry.CdpCacheDuplex})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheApplianceID", types.YLeaf{"CdpCacheApplianceID", cdpCacheEntry.CdpCacheApplianceID})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheVlanID", types.YLeaf{"CdpCacheVlanID", cdpCacheEntry.CdpCacheVlanID})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCachePowerConsumption", types.YLeaf{"CdpCachePowerConsumption", cdpCacheEntry.CdpCachePowerConsumption})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheMTU", types.YLeaf{"CdpCacheMTU", cdpCacheEntry.CdpCacheMTU})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheSysName", types.YLeaf{"CdpCacheSysName", cdpCacheEntry.CdpCacheSysName})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheSysObjectID", types.YLeaf{"CdpCacheSysObjectID", cdpCacheEntry.CdpCacheSysObjectID})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCachePrimaryMgmtAddrType", types.YLeaf{"CdpCachePrimaryMgmtAddrType", cdpCacheEntry.CdpCachePrimaryMgmtAddrType})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCachePrimaryMgmtAddr", types.YLeaf{"CdpCachePrimaryMgmtAddr", cdpCacheEntry.CdpCachePrimaryMgmtAddr})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheSecondaryMgmtAddrType", types.YLeaf{"CdpCacheSecondaryMgmtAddrType", cdpCacheEntry.CdpCacheSecondaryMgmtAddrType})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheSecondaryMgmtAddr", types.YLeaf{"CdpCacheSecondaryMgmtAddr", cdpCacheEntry.CdpCacheSecondaryMgmtAddr})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCachePhysLocation", types.YLeaf{"CdpCachePhysLocation", cdpCacheEntry.CdpCachePhysLocation})
+    cdpCacheEntry.EntityData.Leafs.Append("cdpCacheLastChange", types.YLeaf{"CdpCacheLastChange", cdpCacheEntry.CdpCacheLastChange})
+
+    cdpCacheEntry.EntityData.YListKeys = []string {"CdpCacheIfIndex", "CdpCacheDeviceIndex"}
+
+    return &(cdpCacheEntry.EntityData)
 }
 
-// CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheduplex represents recent CDP message.
-type CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheduplex string
+// CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDuplex represents recent CDP message.
+type CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDuplex string
 
 const (
-    CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheduplex_unknown CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheduplex = "unknown"
+    CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDuplex_unknown CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDuplex = "unknown"
 
-    CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheduplex_halfduplex CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheduplex = "halfduplex"
+    CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDuplex_halfduplex CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDuplex = "halfduplex"
 
-    CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheduplex_fullduplex CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheduplex = "fullduplex"
+    CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDuplex_fullduplex CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDuplex = "fullduplex"
 )
 
-// CISCOCDPMIB_Cdpctaddresstable
+// CISCOCDPMIB_CdpCtAddressTable
 // The (conceptual) table containing the list of 
 // network-layer addresses of a neighbor interface,
 // as reported in the Address TLV of the most recently
@@ -592,7 +616,7 @@ const (
 // the Address TLV is saved in cdpCacheAddress.  This
 // table contains the remainder of the addresses in the
 // Address TLV.
-type CISCOCDPMIB_Cdpctaddresstable struct {
+type CISCOCDPMIB_CdpCtAddressTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -603,30 +627,33 @@ type CISCOCDPMIB_Cdpctaddresstable struct {
     // disabled on the interface, or globally. An entry  or entries would also
     // disappear if the most recently received CDP packet contain fewer address
     // entries in the Address TLV, than are currently present in the CDP cache.
-    // The type is slice of CISCOCDPMIB_Cdpctaddresstable_Cdpctaddressentry.
-    Cdpctaddressentry []CISCOCDPMIB_Cdpctaddresstable_Cdpctaddressentry
+    // The type is slice of CISCOCDPMIB_CdpCtAddressTable_CdpCtAddressEntry.
+    CdpCtAddressEntry []*CISCOCDPMIB_CdpCtAddressTable_CdpCtAddressEntry
 }
 
-func (cdpctaddresstable *CISCOCDPMIB_Cdpctaddresstable) GetEntityData() *types.CommonEntityData {
-    cdpctaddresstable.EntityData.YFilter = cdpctaddresstable.YFilter
-    cdpctaddresstable.EntityData.YangName = "cdpCtAddressTable"
-    cdpctaddresstable.EntityData.BundleName = "cisco_ios_xe"
-    cdpctaddresstable.EntityData.ParentYangName = "CISCO-CDP-MIB"
-    cdpctaddresstable.EntityData.SegmentPath = "cdpCtAddressTable"
-    cdpctaddresstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpctaddresstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpctaddresstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpCtAddressTable *CISCOCDPMIB_CdpCtAddressTable) GetEntityData() *types.CommonEntityData {
+    cdpCtAddressTable.EntityData.YFilter = cdpCtAddressTable.YFilter
+    cdpCtAddressTable.EntityData.YangName = "cdpCtAddressTable"
+    cdpCtAddressTable.EntityData.BundleName = "cisco_ios_xe"
+    cdpCtAddressTable.EntityData.ParentYangName = "CISCO-CDP-MIB"
+    cdpCtAddressTable.EntityData.SegmentPath = "cdpCtAddressTable"
+    cdpCtAddressTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpCtAddressTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpCtAddressTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpctaddresstable.EntityData.Children = make(map[string]types.YChild)
-    cdpctaddresstable.EntityData.Children["cdpCtAddressEntry"] = types.YChild{"Cdpctaddressentry", nil}
-    for i := range cdpctaddresstable.Cdpctaddressentry {
-        cdpctaddresstable.EntityData.Children[types.GetSegmentPath(&cdpctaddresstable.Cdpctaddressentry[i])] = types.YChild{"Cdpctaddressentry", &cdpctaddresstable.Cdpctaddressentry[i]}
+    cdpCtAddressTable.EntityData.Children = types.NewOrderedMap()
+    cdpCtAddressTable.EntityData.Children.Append("cdpCtAddressEntry", types.YChild{"CdpCtAddressEntry", nil})
+    for i := range cdpCtAddressTable.CdpCtAddressEntry {
+        cdpCtAddressTable.EntityData.Children.Append(types.GetSegmentPath(cdpCtAddressTable.CdpCtAddressEntry[i]), types.YChild{"CdpCtAddressEntry", cdpCtAddressTable.CdpCtAddressEntry[i]})
     }
-    cdpctaddresstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdpctaddresstable.EntityData)
+    cdpCtAddressTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdpCtAddressTable.EntityData.YListKeys = []string {}
+
+    return &(cdpCtAddressTable.EntityData)
 }
 
-// CISCOCDPMIB_Cdpctaddresstable_Cdpctaddressentry
+// CISCOCDPMIB_CdpCtAddressTable_CdpCtAddressEntry
 // An entry (conceptual row) in the cdpCtAddressTable,
 // containing the information on one address received via CDP 
 // on one interface from one device.  Entries appear 
@@ -636,29 +663,29 @@ func (cdpctaddresstable *CISCOCDPMIB_Cdpctaddresstable) GetEntityData() *types.C
 // or entries would also disappear if the most recently
 // received CDP packet contain fewer address entries in the
 // Address TLV, than are currently present in the CDP cache.
-type CISCOCDPMIB_Cdpctaddresstable_Cdpctaddressentry struct {
+type CISCOCDPMIB_CdpCtAddressTable_CdpCtAddressEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
-    // cisco_cdp_mib.CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcacheifindex
-    Cdpcacheifindex interface{}
+    // cisco_cdp_mib.CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheIfIndex
+    CdpCacheIfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
-    // cisco_cdp_mib.CISCOCDPMIB_Cdpcachetable_Cdpcacheentry_Cdpcachedeviceindex
-    Cdpcachedeviceindex interface{}
+    // cisco_cdp_mib.CISCOCDPMIB_CdpCacheTable_CdpCacheEntry_CdpCacheDeviceIndex
+    CdpCacheDeviceIndex interface{}
 
     // This attribute is a key. The index of the address entry for a given 
     // cdpCacheIfIndex,cdpCacheDeviceIndex pair. It has the value N-1 for the N-th
     // address in the Address TLV. The type is interface{} with range:
     // 1..2147483647.
-    Cdpctaddressindex interface{}
+    CdpCtAddressIndex interface{}
 
     // An indication of the type of address contained in the corresponding
     // instance of cdpCtAddress. The type is CiscoNetworkProtocol.
-    Cdpctaddresstype interface{}
+    CdpCtAddressType interface{}
 
     // The N-th network-layer address of the device as reported in the most recent
     // CDP message's Address TLV, where N-1 is given by the value of
@@ -666,26 +693,29 @@ type CISCOCDPMIB_Cdpctaddresstable_Cdpctaddressentry struct {
     // cdpCtAddressType had the value 'ip(1)', then this object would be an
     // IPv4-address. NOTE - The 1st address received in the Address TLV is       
     // available using cdpCacheAddress. The type is string.
-    Cdpctaddress interface{}
+    CdpCtAddress interface{}
 }
 
-func (cdpctaddressentry *CISCOCDPMIB_Cdpctaddresstable_Cdpctaddressentry) GetEntityData() *types.CommonEntityData {
-    cdpctaddressentry.EntityData.YFilter = cdpctaddressentry.YFilter
-    cdpctaddressentry.EntityData.YangName = "cdpCtAddressEntry"
-    cdpctaddressentry.EntityData.BundleName = "cisco_ios_xe"
-    cdpctaddressentry.EntityData.ParentYangName = "cdpCtAddressTable"
-    cdpctaddressentry.EntityData.SegmentPath = "cdpCtAddressEntry" + "[cdpCacheIfIndex='" + fmt.Sprintf("%v", cdpctaddressentry.Cdpcacheifindex) + "']" + "[cdpCacheDeviceIndex='" + fmt.Sprintf("%v", cdpctaddressentry.Cdpcachedeviceindex) + "']" + "[cdpCtAddressIndex='" + fmt.Sprintf("%v", cdpctaddressentry.Cdpctaddressindex) + "']"
-    cdpctaddressentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdpctaddressentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdpctaddressentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdpCtAddressEntry *CISCOCDPMIB_CdpCtAddressTable_CdpCtAddressEntry) GetEntityData() *types.CommonEntityData {
+    cdpCtAddressEntry.EntityData.YFilter = cdpCtAddressEntry.YFilter
+    cdpCtAddressEntry.EntityData.YangName = "cdpCtAddressEntry"
+    cdpCtAddressEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdpCtAddressEntry.EntityData.ParentYangName = "cdpCtAddressTable"
+    cdpCtAddressEntry.EntityData.SegmentPath = "cdpCtAddressEntry" + types.AddKeyToken(cdpCtAddressEntry.CdpCacheIfIndex, "cdpCacheIfIndex") + types.AddKeyToken(cdpCtAddressEntry.CdpCacheDeviceIndex, "cdpCacheDeviceIndex") + types.AddKeyToken(cdpCtAddressEntry.CdpCtAddressIndex, "cdpCtAddressIndex")
+    cdpCtAddressEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpCtAddressEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpCtAddressEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpctaddressentry.EntityData.Children = make(map[string]types.YChild)
-    cdpctaddressentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdpctaddressentry.EntityData.Leafs["cdpCacheIfIndex"] = types.YLeaf{"Cdpcacheifindex", cdpctaddressentry.Cdpcacheifindex}
-    cdpctaddressentry.EntityData.Leafs["cdpCacheDeviceIndex"] = types.YLeaf{"Cdpcachedeviceindex", cdpctaddressentry.Cdpcachedeviceindex}
-    cdpctaddressentry.EntityData.Leafs["cdpCtAddressIndex"] = types.YLeaf{"Cdpctaddressindex", cdpctaddressentry.Cdpctaddressindex}
-    cdpctaddressentry.EntityData.Leafs["cdpCtAddressType"] = types.YLeaf{"Cdpctaddresstype", cdpctaddressentry.Cdpctaddresstype}
-    cdpctaddressentry.EntityData.Leafs["cdpCtAddress"] = types.YLeaf{"Cdpctaddress", cdpctaddressentry.Cdpctaddress}
-    return &(cdpctaddressentry.EntityData)
+    cdpCtAddressEntry.EntityData.Children = types.NewOrderedMap()
+    cdpCtAddressEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdpCtAddressEntry.EntityData.Leafs.Append("cdpCacheIfIndex", types.YLeaf{"CdpCacheIfIndex", cdpCtAddressEntry.CdpCacheIfIndex})
+    cdpCtAddressEntry.EntityData.Leafs.Append("cdpCacheDeviceIndex", types.YLeaf{"CdpCacheDeviceIndex", cdpCtAddressEntry.CdpCacheDeviceIndex})
+    cdpCtAddressEntry.EntityData.Leafs.Append("cdpCtAddressIndex", types.YLeaf{"CdpCtAddressIndex", cdpCtAddressEntry.CdpCtAddressIndex})
+    cdpCtAddressEntry.EntityData.Leafs.Append("cdpCtAddressType", types.YLeaf{"CdpCtAddressType", cdpCtAddressEntry.CdpCtAddressType})
+    cdpCtAddressEntry.EntityData.Leafs.Append("cdpCtAddress", types.YLeaf{"CdpCtAddress", cdpCtAddressEntry.CdpCtAddress})
+
+    cdpCtAddressEntry.EntityData.YListKeys = []string {"CdpCacheIfIndex", "CdpCacheDeviceIndex", "CdpCtAddressIndex"}
+
+    return &(cdpCtAddressEntry.EntityData)
 }
 

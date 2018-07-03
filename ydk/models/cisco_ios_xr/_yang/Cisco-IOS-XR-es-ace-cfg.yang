@@ -22,6 +22,11 @@ submodule Cisco-IOS-XR-es-ace-cfg {
      Copyright (c) 2015-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-03 {
+    description
+      "6.4.1 revision.
+       Fixed a few typos in the description.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -45,7 +50,7 @@ submodule Cisco-IOS-XR-es-ace-cfg {
       }
     }
     description
-      "ES acl grant enum";
+      "ES acl forwarding action.";
   }
 
   typedef es-acl-address {
@@ -60,8 +65,8 @@ submodule Cisco-IOS-XR-es-ace-cfg {
     leaf grant {
       type es-acl-grant-enum;
       description
-        "Whether to forward or drop packets matching the
-         ACE.";
+        "Forwarding action for the packet. This is required
+         for any non-remark ACE. Leave unspecified otherwise.";
     }
     container source-network {
       description
@@ -100,63 +105,92 @@ submodule Cisco-IOS-XR-es-ace-cfg {
     leaf vlan1 {
       type uint16;
       description
-        "VLAN ID/range lower limit";
+        "This 12-bit VLAN-ID in the VLAN Tag header uniquely
+         identifies the VLAN. It can be used for the lower bound
+         (in range) or single value. Any value not in the
+         permissible range will be rejected.";
+      reference "IEEE 802.1Q";
     }
     leaf vlan2 {
       type uint16;
       description
-        "VLAN ID range higher limit";
+        "This 12 bit VLAN-ID in the VLAN Tag header uniquely
+         identifies the VLAN. It is used in the upper bound
+         (in range). Any value not in the permissible range
+         will be rejected.";
+      reference "IEEE 802.1Q";
     }
     leaf cos {
       type uint8;
       description
-        "COS value";
+        "Class of Service value. Any value not in the
+         permissible range will be rejected.";
+      reference "IEEE 802.1p";
     }
     leaf dei {
       type uint8;
       description
-        "DEI bit";
+        "Discard Eligibility Indication bit. User can specify
+         1 to indicate the bit is set. Leave unspecified
+         otherwise.";
+      reference "RFC 7180 Section 7";
     }
     leaf inner-vlan1 {
       type uint16;
       description
-        "Inner VLAN ID/range lower limit";
+        "This represents the QinQ vlan identifier. It can be used for
+         the lower bound (in range) or single value. Any value not
+         in the permissible range will be rejected.";
+      reference "IEEE 802.1Q";
     }
     leaf inner-vlan2 {
       type uint16;
       description
-        "Inner VLAN ID range higher limit";
+        "This represents the QinQ vlan identifier. It is used in
+         the upper bound (in range). Any value not in the permissible
+         range will be rejected.";
+      reference "IEEE 802.1Q";
     }
     leaf inner-cos {
       type uint8;
       description
-        "Inner COS value";
+        "Class of Service of Inner Header. Range from 0 to 7.
+         Any value beyond this range will be rejected by ACL
+         verifier.";
+      reference "IEEE 802.1p";
     }
     leaf inner-dei {
       type uint8;
       description
-        "Inner DEI bit";
+        "Class of Service of Inner Header. Any value not in the
+         permissible range will be rejected.";
+      reference "RFC 7180 Section 7";
     }
     leaf remark {
-      type string;
+      type string {
+        length "0..255";
+      }
       description
-        "Comments or a description for the access list.";
+        "Description for the access-list-entry/rule.";
     }
     leaf ether-type-number {
       type uint16;
       description
-        "Ethernet type Number";
+        "Ethernet type Number in Hex. Any value not in the
+         permissible range will be rejected.";
+      reference "IEEE 802 Ether types";
     }
     leaf capture {
       type boolean;
       description
-        "Enable capture.";
+        "Enable capture if set to TRUE.";
     }
     leaf log-option {
       type uint8;
       description
-        "Whether and how to log matches against this
-         entry.";
+        "Log the packet on this access-list-entry/rule.
+         User can specify 1 to enable logging
+         the match, leave unspecified otherwise.";
     }
     leaf sequence-str {
       type string {

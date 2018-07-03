@@ -49,9 +49,12 @@ func (ssrp *Ssrp) GetEntityData() *types.CommonEntityData {
     ssrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssrp.EntityData.Children = make(map[string]types.YChild)
-    ssrp.EntityData.Children["profiles"] = types.YChild{"Profiles", &ssrp.Profiles}
-    ssrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssrp.EntityData.Children = types.NewOrderedMap()
+    ssrp.EntityData.Children.Append("profiles", types.YChild{"Profiles", &ssrp.Profiles})
+    ssrp.EntityData.Leafs = types.NewOrderedMap()
+
+    ssrp.EntityData.YListKeys = []string {}
+
     return &(ssrp.EntityData)
 }
 
@@ -62,7 +65,7 @@ type Ssrp_Profiles struct {
     YFilter yfilter.YFilter
 
     // SSRP Profile configuration. The type is slice of Ssrp_Profiles_Profile.
-    Profile []Ssrp_Profiles_Profile
+    Profile []*Ssrp_Profiles_Profile
 }
 
 func (profiles *Ssrp_Profiles) GetEntityData() *types.CommonEntityData {
@@ -75,12 +78,15 @@ func (profiles *Ssrp_Profiles) GetEntityData() *types.CommonEntityData {
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profiles.EntityData.Children = make(map[string]types.YChild)
-    profiles.EntityData.Children["profile"] = types.YChild{"Profile", nil}
+    profiles.EntityData.Children = types.NewOrderedMap()
+    profiles.EntityData.Children.Append("profile", types.YChild{"Profile", nil})
     for i := range profiles.Profile {
-        profiles.EntityData.Children[types.GetSegmentPath(&profiles.Profile[i])] = types.YChild{"Profile", &profiles.Profile[i]}
+        profiles.EntityData.Children.Append(types.GetSegmentPath(profiles.Profile[i]), types.YChild{"Profile", profiles.Profile[i]})
     }
-    profiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    profiles.EntityData.Leafs = types.NewOrderedMap()
+
+    profiles.EntityData.YListKeys = []string {}
+
     return &(profiles.EntityData)
 }
 
@@ -91,7 +97,7 @@ type Ssrp_Profiles_Profile struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the profile. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // This specifies the maximum number of hops for packets on the SSO channel.
@@ -100,7 +106,7 @@ type Ssrp_Profiles_Profile struct {
 
     // This specifies the remote end's IPv4-address for the SSO channel. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerIpv4Address interface{}
 }
 
@@ -109,16 +115,19 @@ func (profile *Ssrp_Profiles_Profile) GetEntityData() *types.CommonEntityData {
     profile.EntityData.YangName = "profile"
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
-    profile.EntityData.SegmentPath = "profile" + "[name='" + fmt.Sprintf("%v", profile.Name) + "']"
+    profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.Name, "name")
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profile.EntityData.Children = make(map[string]types.YChild)
-    profile.EntityData.Leafs = make(map[string]types.YLeaf)
-    profile.EntityData.Leafs["name"] = types.YLeaf{"Name", profile.Name}
-    profile.EntityData.Leafs["max-hops"] = types.YLeaf{"MaxHops", profile.MaxHops}
-    profile.EntityData.Leafs["peer-ipv4-address"] = types.YLeaf{"PeerIpv4Address", profile.PeerIpv4Address}
+    profile.EntityData.Children = types.NewOrderedMap()
+    profile.EntityData.Leafs = types.NewOrderedMap()
+    profile.EntityData.Leafs.Append("name", types.YLeaf{"Name", profile.Name})
+    profile.EntityData.Leafs.Append("max-hops", types.YLeaf{"MaxHops", profile.MaxHops})
+    profile.EntityData.Leafs.Append("peer-ipv4-address", types.YLeaf{"PeerIpv4Address", profile.PeerIpv4Address})
+
+    profile.EntityData.YListKeys = []string {"Name"}
+
     return &(profile.EntityData)
 }
 

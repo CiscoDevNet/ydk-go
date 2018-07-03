@@ -32,6 +32,10 @@ module Cisco-IOS-XR-lib-mpp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-07-28 {
     description
       "Fixing Third Party Applications schema.";

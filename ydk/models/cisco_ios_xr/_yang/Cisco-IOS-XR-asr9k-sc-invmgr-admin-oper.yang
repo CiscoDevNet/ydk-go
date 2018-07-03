@@ -56,7 +56,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
           uses BASIC-ATTRIBUTES;
         }
         leaf number {
-          type int32;
+          type uint32;
           description
             "portslot number";
         }
@@ -77,7 +77,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
         description
           "Sensor number in the Module";
         leaf number {
-          type int32;
+          type uint32;
           description
             "sensor number";
         }
@@ -142,7 +142,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
             description
               "Power Supply Shelf number";
             leaf number {
-              type int32;
+              type uint32;
               description
                 "Power Shelf number";
             }
@@ -179,7 +179,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
                       uses BASIC-ATTRIBUTES;
                     }
                     leaf number {
-                      type int32;
+                      type uint32;
                       description
                         "subslot number";
                     }
@@ -195,7 +195,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
                     description
                       "HWComponent number";
                     leaf number {
-                      type int32;
+                      type uint32;
                       description
                         "node number";
                     }
@@ -204,7 +204,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
                   }
                 }
                 leaf number {
-                  type int32;
+                  type uint32;
                   description
                     "card number";
                 }
@@ -214,7 +214,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
               }
             }
             leaf number {
-              type int32;
+              type uint32;
               description
                 "Slot number";
             }
@@ -229,7 +229,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
             description
               "Fan tray number";
             leaf number {
-              type int32;
+              type uint32;
               description
                 "Fan tray number";
             }
@@ -253,14 +253,14 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper {
               }
             }
             leaf number {
-              type int32;
+              type uint32;
               description
                 "Power Zone number";
             }
           }
         }
         leaf number {
-          type int32;
+          type uint32;
           description
             "Rack number";
         }

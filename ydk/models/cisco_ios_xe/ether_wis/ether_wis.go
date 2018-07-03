@@ -50,16 +50,16 @@ type ETHERWIS struct {
     YFilter yfilter.YFilter
 
     // The table for Ethernet WIS devices.
-    Etherwisdevicetable ETHERWIS_Etherwisdevicetable
+    EtherWisDeviceTable ETHERWIS_EtherWisDeviceTable
 
     // The table for the current state of Ethernet WIS sections.
-    Etherwissectioncurrenttable ETHERWIS_Etherwissectioncurrenttable
+    EtherWisSectionCurrentTable ETHERWIS_EtherWisSectionCurrentTable
 
     // The table for the current state of Ethernet WIS paths.
-    Etherwispathcurrenttable ETHERWIS_Etherwispathcurrenttable
+    EtherWisPathCurrentTable ETHERWIS_EtherWisPathCurrentTable
 
     // The table for the current far-end state of Ethernet WIS paths.
-    Etherwisfarendpathcurrenttable ETHERWIS_Etherwisfarendpathcurrenttable
+    EtherWisFarEndPathCurrentTable ETHERWIS_EtherWisFarEndPathCurrentTable
 }
 
 func (eTHERWIS *ETHERWIS) GetEntityData() *types.CommonEntityData {
@@ -72,57 +72,63 @@ func (eTHERWIS *ETHERWIS) GetEntityData() *types.CommonEntityData {
     eTHERWIS.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     eTHERWIS.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    eTHERWIS.EntityData.Children = make(map[string]types.YChild)
-    eTHERWIS.EntityData.Children["etherWisDeviceTable"] = types.YChild{"Etherwisdevicetable", &eTHERWIS.Etherwisdevicetable}
-    eTHERWIS.EntityData.Children["etherWisSectionCurrentTable"] = types.YChild{"Etherwissectioncurrenttable", &eTHERWIS.Etherwissectioncurrenttable}
-    eTHERWIS.EntityData.Children["etherWisPathCurrentTable"] = types.YChild{"Etherwispathcurrenttable", &eTHERWIS.Etherwispathcurrenttable}
-    eTHERWIS.EntityData.Children["etherWisFarEndPathCurrentTable"] = types.YChild{"Etherwisfarendpathcurrenttable", &eTHERWIS.Etherwisfarendpathcurrenttable}
-    eTHERWIS.EntityData.Leafs = make(map[string]types.YLeaf)
+    eTHERWIS.EntityData.Children = types.NewOrderedMap()
+    eTHERWIS.EntityData.Children.Append("etherWisDeviceTable", types.YChild{"EtherWisDeviceTable", &eTHERWIS.EtherWisDeviceTable})
+    eTHERWIS.EntityData.Children.Append("etherWisSectionCurrentTable", types.YChild{"EtherWisSectionCurrentTable", &eTHERWIS.EtherWisSectionCurrentTable})
+    eTHERWIS.EntityData.Children.Append("etherWisPathCurrentTable", types.YChild{"EtherWisPathCurrentTable", &eTHERWIS.EtherWisPathCurrentTable})
+    eTHERWIS.EntityData.Children.Append("etherWisFarEndPathCurrentTable", types.YChild{"EtherWisFarEndPathCurrentTable", &eTHERWIS.EtherWisFarEndPathCurrentTable})
+    eTHERWIS.EntityData.Leafs = types.NewOrderedMap()
+
+    eTHERWIS.EntityData.YListKeys = []string {}
+
     return &(eTHERWIS.EntityData)
 }
 
-// ETHERWIS_Etherwisdevicetable
+// ETHERWIS_EtherWisDeviceTable
 // The table for Ethernet WIS devices
-type ETHERWIS_Etherwisdevicetable struct {
+type ETHERWIS_EtherWisDeviceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the Ethernet WIS device table.  For each instance of this
     // object there MUST be a corresponding instance of sonetMediumEntry. The type
-    // is slice of ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry.
-    Etherwisdeviceentry []ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry
+    // is slice of ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry.
+    EtherWisDeviceEntry []*ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry
 }
 
-func (etherwisdevicetable *ETHERWIS_Etherwisdevicetable) GetEntityData() *types.CommonEntityData {
-    etherwisdevicetable.EntityData.YFilter = etherwisdevicetable.YFilter
-    etherwisdevicetable.EntityData.YangName = "etherWisDeviceTable"
-    etherwisdevicetable.EntityData.BundleName = "cisco_ios_xe"
-    etherwisdevicetable.EntityData.ParentYangName = "ETHER-WIS"
-    etherwisdevicetable.EntityData.SegmentPath = "etherWisDeviceTable"
-    etherwisdevicetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    etherwisdevicetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    etherwisdevicetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (etherWisDeviceTable *ETHERWIS_EtherWisDeviceTable) GetEntityData() *types.CommonEntityData {
+    etherWisDeviceTable.EntityData.YFilter = etherWisDeviceTable.YFilter
+    etherWisDeviceTable.EntityData.YangName = "etherWisDeviceTable"
+    etherWisDeviceTable.EntityData.BundleName = "cisco_ios_xe"
+    etherWisDeviceTable.EntityData.ParentYangName = "ETHER-WIS"
+    etherWisDeviceTable.EntityData.SegmentPath = "etherWisDeviceTable"
+    etherWisDeviceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherWisDeviceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherWisDeviceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherwisdevicetable.EntityData.Children = make(map[string]types.YChild)
-    etherwisdevicetable.EntityData.Children["etherWisDeviceEntry"] = types.YChild{"Etherwisdeviceentry", nil}
-    for i := range etherwisdevicetable.Etherwisdeviceentry {
-        etherwisdevicetable.EntityData.Children[types.GetSegmentPath(&etherwisdevicetable.Etherwisdeviceentry[i])] = types.YChild{"Etherwisdeviceentry", &etherwisdevicetable.Etherwisdeviceentry[i]}
+    etherWisDeviceTable.EntityData.Children = types.NewOrderedMap()
+    etherWisDeviceTable.EntityData.Children.Append("etherWisDeviceEntry", types.YChild{"EtherWisDeviceEntry", nil})
+    for i := range etherWisDeviceTable.EtherWisDeviceEntry {
+        etherWisDeviceTable.EntityData.Children.Append(types.GetSegmentPath(etherWisDeviceTable.EtherWisDeviceEntry[i]), types.YChild{"EtherWisDeviceEntry", etherWisDeviceTable.EtherWisDeviceEntry[i]})
     }
-    etherwisdevicetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(etherwisdevicetable.EntityData)
+    etherWisDeviceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    etherWisDeviceTable.EntityData.YListKeys = []string {}
+
+    return &(etherWisDeviceTable.EntityData)
 }
 
-// ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry
+// ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry
 // An entry in the Ethernet WIS device table.  For each
 // instance of this object there MUST be a corresponding
 // instance of sonetMediumEntry.
-type ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry struct {
+type ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This variable controls the transmit test pattern mode. The value none(1)
     // puts the the WIS transmit path into the normal operating mode.  The value
@@ -137,8 +143,8 @@ type ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry struct {
     // any attempt to set the corresponding instance of ifAdminStatus to the value
     // up(1) when an instance of this object has a value other than none(1) MUST
     // be rejected with the error inconsistentValue. The type is
-    // Etherwisdevicetxtestpatternmode.
-    Etherwisdevicetxtestpatternmode interface{}
+    // EtherWisDeviceTxTestPatternMode.
+    EtherWisDeviceTxTestPatternMode interface{}
 
     // This variable controls the receive test pattern mode. The value none(1)
     // puts the the WIS receive path into the normal operating mode.  The value
@@ -151,8 +157,8 @@ type ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry struct {
     // rejected with the error inconsistentValue, and any attempt to set the
     // corresponding instance of ifAdminStatus to the value up(1) when an instance
     // of this object has a value other than none(1) MUST be rejected with the
-    // error inconsistentValue. The type is Etherwisdevicerxtestpatternmode.
-    Etherwisdevicerxtestpatternmode interface{}
+    // error inconsistentValue. The type is EtherWisDeviceRxTestPatternMode.
+    EtherWisDeviceRxTestPatternMode interface{}
 
     // This object counts the number of errors detected when the WIS receive path
     // is operating in the PRBS31 test pattern mode.  It is reset to zero when the
@@ -163,168 +169,180 @@ type ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry struct {
     // request of a command generator application while the WIS receive path
     // continues to operate in PRBS31 test pattern mode. The type is interface{}
     // with range: 0..65535.
-    Etherwisdevicerxtestpatternerrors interface{}
+    EtherWisDeviceRxTestPatternErrors interface{}
 }
 
-func (etherwisdeviceentry *ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry) GetEntityData() *types.CommonEntityData {
-    etherwisdeviceentry.EntityData.YFilter = etherwisdeviceentry.YFilter
-    etherwisdeviceentry.EntityData.YangName = "etherWisDeviceEntry"
-    etherwisdeviceentry.EntityData.BundleName = "cisco_ios_xe"
-    etherwisdeviceentry.EntityData.ParentYangName = "etherWisDeviceTable"
-    etherwisdeviceentry.EntityData.SegmentPath = "etherWisDeviceEntry" + "[ifIndex='" + fmt.Sprintf("%v", etherwisdeviceentry.Ifindex) + "']"
-    etherwisdeviceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    etherwisdeviceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    etherwisdeviceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (etherWisDeviceEntry *ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry) GetEntityData() *types.CommonEntityData {
+    etherWisDeviceEntry.EntityData.YFilter = etherWisDeviceEntry.YFilter
+    etherWisDeviceEntry.EntityData.YangName = "etherWisDeviceEntry"
+    etherWisDeviceEntry.EntityData.BundleName = "cisco_ios_xe"
+    etherWisDeviceEntry.EntityData.ParentYangName = "etherWisDeviceTable"
+    etherWisDeviceEntry.EntityData.SegmentPath = "etherWisDeviceEntry" + types.AddKeyToken(etherWisDeviceEntry.IfIndex, "ifIndex")
+    etherWisDeviceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherWisDeviceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherWisDeviceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherwisdeviceentry.EntityData.Children = make(map[string]types.YChild)
-    etherwisdeviceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    etherwisdeviceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", etherwisdeviceentry.Ifindex}
-    etherwisdeviceentry.EntityData.Leafs["etherWisDeviceTxTestPatternMode"] = types.YLeaf{"Etherwisdevicetxtestpatternmode", etherwisdeviceentry.Etherwisdevicetxtestpatternmode}
-    etherwisdeviceentry.EntityData.Leafs["etherWisDeviceRxTestPatternMode"] = types.YLeaf{"Etherwisdevicerxtestpatternmode", etherwisdeviceentry.Etherwisdevicerxtestpatternmode}
-    etherwisdeviceentry.EntityData.Leafs["etherWisDeviceRxTestPatternErrors"] = types.YLeaf{"Etherwisdevicerxtestpatternerrors", etherwisdeviceentry.Etherwisdevicerxtestpatternerrors}
-    return &(etherwisdeviceentry.EntityData)
+    etherWisDeviceEntry.EntityData.Children = types.NewOrderedMap()
+    etherWisDeviceEntry.EntityData.Leafs = types.NewOrderedMap()
+    etherWisDeviceEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", etherWisDeviceEntry.IfIndex})
+    etherWisDeviceEntry.EntityData.Leafs.Append("etherWisDeviceTxTestPatternMode", types.YLeaf{"EtherWisDeviceTxTestPatternMode", etherWisDeviceEntry.EtherWisDeviceTxTestPatternMode})
+    etherWisDeviceEntry.EntityData.Leafs.Append("etherWisDeviceRxTestPatternMode", types.YLeaf{"EtherWisDeviceRxTestPatternMode", etherWisDeviceEntry.EtherWisDeviceRxTestPatternMode})
+    etherWisDeviceEntry.EntityData.Leafs.Append("etherWisDeviceRxTestPatternErrors", types.YLeaf{"EtherWisDeviceRxTestPatternErrors", etherWisDeviceEntry.EtherWisDeviceRxTestPatternErrors})
+
+    etherWisDeviceEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(etherWisDeviceEntry.EntityData)
 }
 
-// ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicerxtestpatternmode represents none(1) MUST be rejected with the error inconsistentValue.
-type ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicerxtestpatternmode string
+// ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceRxTestPatternMode represents none(1) MUST be rejected with the error inconsistentValue.
+type ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceRxTestPatternMode string
 
 const (
-    ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicerxtestpatternmode_none ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicerxtestpatternmode = "none"
+    ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceRxTestPatternMode_none ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceRxTestPatternMode = "none"
 
-    ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicerxtestpatternmode_prbs31 ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicerxtestpatternmode = "prbs31"
+    ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceRxTestPatternMode_prbs31 ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceRxTestPatternMode = "prbs31"
 
-    ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicerxtestpatternmode_mixedFrequency ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicerxtestpatternmode = "mixedFrequency"
+    ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceRxTestPatternMode_mixedFrequency ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceRxTestPatternMode = "mixedFrequency"
 )
 
-// ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode represents MUST be rejected with the error inconsistentValue.
-type ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode string
+// ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode represents MUST be rejected with the error inconsistentValue.
+type ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode string
 
 const (
-    ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode_none ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode = "none"
+    ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode_none ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode = "none"
 
-    ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode_squareWave ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode = "squareWave"
+    ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode_squareWave ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode = "squareWave"
 
-    ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode_prbs31 ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode = "prbs31"
+    ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode_prbs31 ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode = "prbs31"
 
-    ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode_mixedFrequency ETHERWIS_Etherwisdevicetable_Etherwisdeviceentry_Etherwisdevicetxtestpatternmode = "mixedFrequency"
+    ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode_mixedFrequency ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry_EtherWisDeviceTxTestPatternMode = "mixedFrequency"
 )
 
-// ETHERWIS_Etherwissectioncurrenttable
+// ETHERWIS_EtherWisSectionCurrentTable
 // The table for the current state of Ethernet WIS sections.
-type ETHERWIS_Etherwissectioncurrenttable struct {
+type ETHERWIS_EtherWisSectionCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the etherWisSectionCurrentTable.  For each instance of this
     // object there MUST be a corresponding instance of sonetSectionCurrentEntry.
     // The type is slice of
-    // ETHERWIS_Etherwissectioncurrenttable_Etherwissectioncurrententry.
-    Etherwissectioncurrententry []ETHERWIS_Etherwissectioncurrenttable_Etherwissectioncurrententry
+    // ETHERWIS_EtherWisSectionCurrentTable_EtherWisSectionCurrentEntry.
+    EtherWisSectionCurrentEntry []*ETHERWIS_EtherWisSectionCurrentTable_EtherWisSectionCurrentEntry
 }
 
-func (etherwissectioncurrenttable *ETHERWIS_Etherwissectioncurrenttable) GetEntityData() *types.CommonEntityData {
-    etherwissectioncurrenttable.EntityData.YFilter = etherwissectioncurrenttable.YFilter
-    etherwissectioncurrenttable.EntityData.YangName = "etherWisSectionCurrentTable"
-    etherwissectioncurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    etherwissectioncurrenttable.EntityData.ParentYangName = "ETHER-WIS"
-    etherwissectioncurrenttable.EntityData.SegmentPath = "etherWisSectionCurrentTable"
-    etherwissectioncurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    etherwissectioncurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    etherwissectioncurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (etherWisSectionCurrentTable *ETHERWIS_EtherWisSectionCurrentTable) GetEntityData() *types.CommonEntityData {
+    etherWisSectionCurrentTable.EntityData.YFilter = etherWisSectionCurrentTable.YFilter
+    etherWisSectionCurrentTable.EntityData.YangName = "etherWisSectionCurrentTable"
+    etherWisSectionCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    etherWisSectionCurrentTable.EntityData.ParentYangName = "ETHER-WIS"
+    etherWisSectionCurrentTable.EntityData.SegmentPath = "etherWisSectionCurrentTable"
+    etherWisSectionCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherWisSectionCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherWisSectionCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherwissectioncurrenttable.EntityData.Children = make(map[string]types.YChild)
-    etherwissectioncurrenttable.EntityData.Children["etherWisSectionCurrentEntry"] = types.YChild{"Etherwissectioncurrententry", nil}
-    for i := range etherwissectioncurrenttable.Etherwissectioncurrententry {
-        etherwissectioncurrenttable.EntityData.Children[types.GetSegmentPath(&etherwissectioncurrenttable.Etherwissectioncurrententry[i])] = types.YChild{"Etherwissectioncurrententry", &etherwissectioncurrenttable.Etherwissectioncurrententry[i]}
+    etherWisSectionCurrentTable.EntityData.Children = types.NewOrderedMap()
+    etherWisSectionCurrentTable.EntityData.Children.Append("etherWisSectionCurrentEntry", types.YChild{"EtherWisSectionCurrentEntry", nil})
+    for i := range etherWisSectionCurrentTable.EtherWisSectionCurrentEntry {
+        etherWisSectionCurrentTable.EntityData.Children.Append(types.GetSegmentPath(etherWisSectionCurrentTable.EtherWisSectionCurrentEntry[i]), types.YChild{"EtherWisSectionCurrentEntry", etherWisSectionCurrentTable.EtherWisSectionCurrentEntry[i]})
     }
-    etherwissectioncurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(etherwissectioncurrenttable.EntityData)
+    etherWisSectionCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    etherWisSectionCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(etherWisSectionCurrentTable.EntityData)
 }
 
-// ETHERWIS_Etherwissectioncurrenttable_Etherwissectioncurrententry
+// ETHERWIS_EtherWisSectionCurrentTable_EtherWisSectionCurrentEntry
 // An entry in the etherWisSectionCurrentTable.  For each
 // instance of this object there MUST be a corresponding
 // instance of sonetSectionCurrentEntry.
-type ETHERWIS_Etherwissectioncurrenttable_Etherwissectioncurrententry struct {
+type ETHERWIS_EtherWisSectionCurrentTable_EtherWisSectionCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This is the 16-octet section trace message that is transmitted in the J0
     // byte.  The value SHOULD be '89'h followed by fifteen octets of '00'h (or
     // some cyclic shift thereof) when the section trace function is not used, and
     // the implementation SHOULD use that value (or a cyclic shift thereof) as a
     // default if no other value has been set. The type is string with length: 16.
-    Etherwissectioncurrentj0Transmitted interface{}
+    EtherWisSectionCurrentJ0Transmitted interface{}
 
     // This is the 16-octet section trace message that was most recently received
     // in the J0 byte. The type is string with length: 16.
-    Etherwissectioncurrentj0Received interface{}
+    EtherWisSectionCurrentJ0Received interface{}
 }
 
-func (etherwissectioncurrententry *ETHERWIS_Etherwissectioncurrenttable_Etherwissectioncurrententry) GetEntityData() *types.CommonEntityData {
-    etherwissectioncurrententry.EntityData.YFilter = etherwissectioncurrententry.YFilter
-    etherwissectioncurrententry.EntityData.YangName = "etherWisSectionCurrentEntry"
-    etherwissectioncurrententry.EntityData.BundleName = "cisco_ios_xe"
-    etherwissectioncurrententry.EntityData.ParentYangName = "etherWisSectionCurrentTable"
-    etherwissectioncurrententry.EntityData.SegmentPath = "etherWisSectionCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", etherwissectioncurrententry.Ifindex) + "']"
-    etherwissectioncurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    etherwissectioncurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    etherwissectioncurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (etherWisSectionCurrentEntry *ETHERWIS_EtherWisSectionCurrentTable_EtherWisSectionCurrentEntry) GetEntityData() *types.CommonEntityData {
+    etherWisSectionCurrentEntry.EntityData.YFilter = etherWisSectionCurrentEntry.YFilter
+    etherWisSectionCurrentEntry.EntityData.YangName = "etherWisSectionCurrentEntry"
+    etherWisSectionCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    etherWisSectionCurrentEntry.EntityData.ParentYangName = "etherWisSectionCurrentTable"
+    etherWisSectionCurrentEntry.EntityData.SegmentPath = "etherWisSectionCurrentEntry" + types.AddKeyToken(etherWisSectionCurrentEntry.IfIndex, "ifIndex")
+    etherWisSectionCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherWisSectionCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherWisSectionCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherwissectioncurrententry.EntityData.Children = make(map[string]types.YChild)
-    etherwissectioncurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    etherwissectioncurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", etherwissectioncurrententry.Ifindex}
-    etherwissectioncurrententry.EntityData.Leafs["etherWisSectionCurrentJ0Transmitted"] = types.YLeaf{"Etherwissectioncurrentj0Transmitted", etherwissectioncurrententry.Etherwissectioncurrentj0Transmitted}
-    etherwissectioncurrententry.EntityData.Leafs["etherWisSectionCurrentJ0Received"] = types.YLeaf{"Etherwissectioncurrentj0Received", etherwissectioncurrententry.Etherwissectioncurrentj0Received}
-    return &(etherwissectioncurrententry.EntityData)
+    etherWisSectionCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    etherWisSectionCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    etherWisSectionCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", etherWisSectionCurrentEntry.IfIndex})
+    etherWisSectionCurrentEntry.EntityData.Leafs.Append("etherWisSectionCurrentJ0Transmitted", types.YLeaf{"EtherWisSectionCurrentJ0Transmitted", etherWisSectionCurrentEntry.EtherWisSectionCurrentJ0Transmitted})
+    etherWisSectionCurrentEntry.EntityData.Leafs.Append("etherWisSectionCurrentJ0Received", types.YLeaf{"EtherWisSectionCurrentJ0Received", etherWisSectionCurrentEntry.EtherWisSectionCurrentJ0Received})
+
+    etherWisSectionCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(etherWisSectionCurrentEntry.EntityData)
 }
 
-// ETHERWIS_Etherwispathcurrenttable
+// ETHERWIS_EtherWisPathCurrentTable
 // The table for the current state of Ethernet WIS paths.
-type ETHERWIS_Etherwispathcurrenttable struct {
+type ETHERWIS_EtherWisPathCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the etherWisPathCurrentTable.  For each instance of this object
     // there MUST be a corresponding instance of sonetPathCurrentEntry. The type
-    // is slice of ETHERWIS_Etherwispathcurrenttable_Etherwispathcurrententry.
-    Etherwispathcurrententry []ETHERWIS_Etherwispathcurrenttable_Etherwispathcurrententry
+    // is slice of ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCurrentEntry.
+    EtherWisPathCurrentEntry []*ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCurrentEntry
 }
 
-func (etherwispathcurrenttable *ETHERWIS_Etherwispathcurrenttable) GetEntityData() *types.CommonEntityData {
-    etherwispathcurrenttable.EntityData.YFilter = etherwispathcurrenttable.YFilter
-    etherwispathcurrenttable.EntityData.YangName = "etherWisPathCurrentTable"
-    etherwispathcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    etherwispathcurrenttable.EntityData.ParentYangName = "ETHER-WIS"
-    etherwispathcurrenttable.EntityData.SegmentPath = "etherWisPathCurrentTable"
-    etherwispathcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    etherwispathcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    etherwispathcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (etherWisPathCurrentTable *ETHERWIS_EtherWisPathCurrentTable) GetEntityData() *types.CommonEntityData {
+    etherWisPathCurrentTable.EntityData.YFilter = etherWisPathCurrentTable.YFilter
+    etherWisPathCurrentTable.EntityData.YangName = "etherWisPathCurrentTable"
+    etherWisPathCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    etherWisPathCurrentTable.EntityData.ParentYangName = "ETHER-WIS"
+    etherWisPathCurrentTable.EntityData.SegmentPath = "etherWisPathCurrentTable"
+    etherWisPathCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherWisPathCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherWisPathCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherwispathcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    etherwispathcurrenttable.EntityData.Children["etherWisPathCurrentEntry"] = types.YChild{"Etherwispathcurrententry", nil}
-    for i := range etherwispathcurrenttable.Etherwispathcurrententry {
-        etherwispathcurrenttable.EntityData.Children[types.GetSegmentPath(&etherwispathcurrenttable.Etherwispathcurrententry[i])] = types.YChild{"Etherwispathcurrententry", &etherwispathcurrenttable.Etherwispathcurrententry[i]}
+    etherWisPathCurrentTable.EntityData.Children = types.NewOrderedMap()
+    etherWisPathCurrentTable.EntityData.Children.Append("etherWisPathCurrentEntry", types.YChild{"EtherWisPathCurrentEntry", nil})
+    for i := range etherWisPathCurrentTable.EtherWisPathCurrentEntry {
+        etherWisPathCurrentTable.EntityData.Children.Append(types.GetSegmentPath(etherWisPathCurrentTable.EtherWisPathCurrentEntry[i]), types.YChild{"EtherWisPathCurrentEntry", etherWisPathCurrentTable.EtherWisPathCurrentEntry[i]})
     }
-    etherwispathcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(etherwispathcurrenttable.EntityData)
+    etherWisPathCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    etherWisPathCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(etherWisPathCurrentTable.EntityData)
 }
 
-// ETHERWIS_Etherwispathcurrenttable_Etherwispathcurrententry
+// ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCurrentEntry
 // An entry in the etherWisPathCurrentTable.  For each
 // instance of this object there MUST be a corresponding
 // instance of sonetPathCurrentEntry.
-type ETHERWIS_Etherwispathcurrenttable_Etherwispathcurrententry struct {
+type ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This variable indicates the current status of the path payload with a bit
     // map that can indicate multiple defects at once.  The bit positions are
@@ -344,83 +362,89 @@ type ETHERWIS_Etherwispathcurrenttable_Etherwispathcurrententry struct {
     // defect is detected by the PCS and not by    the path layer itself, there is
     // no    corresponding bit in sonetPathCurrentStatus. The type is
     // map[string]bool.
-    Etherwispathcurrentstatus interface{}
+    EtherWisPathCurrentStatus interface{}
 
     // This is the 16-octet path trace message that is transmitted in the J1 byte.
     // The value SHOULD be '89'h followed by fifteen octets of '00'h (or some
     // cyclic shift thereof) when the path trace function is not used, and the
     // implementation SHOULD use that value (or a cyclic shift thereof) as a
     // default if no other value has been set. The type is string with length: 16.
-    Etherwispathcurrentj1Transmitted interface{}
+    EtherWisPathCurrentJ1Transmitted interface{}
 
     // This is the 16-octet path trace message that was most recently received in
     // the J1 byte. The type is string with length: 16.
-    Etherwispathcurrentj1Received interface{}
+    EtherWisPathCurrentJ1Received interface{}
 }
 
-func (etherwispathcurrententry *ETHERWIS_Etherwispathcurrenttable_Etherwispathcurrententry) GetEntityData() *types.CommonEntityData {
-    etherwispathcurrententry.EntityData.YFilter = etherwispathcurrententry.YFilter
-    etherwispathcurrententry.EntityData.YangName = "etherWisPathCurrentEntry"
-    etherwispathcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    etherwispathcurrententry.EntityData.ParentYangName = "etherWisPathCurrentTable"
-    etherwispathcurrententry.EntityData.SegmentPath = "etherWisPathCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", etherwispathcurrententry.Ifindex) + "']"
-    etherwispathcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    etherwispathcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    etherwispathcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (etherWisPathCurrentEntry *ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCurrentEntry) GetEntityData() *types.CommonEntityData {
+    etherWisPathCurrentEntry.EntityData.YFilter = etherWisPathCurrentEntry.YFilter
+    etherWisPathCurrentEntry.EntityData.YangName = "etherWisPathCurrentEntry"
+    etherWisPathCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    etherWisPathCurrentEntry.EntityData.ParentYangName = "etherWisPathCurrentTable"
+    etherWisPathCurrentEntry.EntityData.SegmentPath = "etherWisPathCurrentEntry" + types.AddKeyToken(etherWisPathCurrentEntry.IfIndex, "ifIndex")
+    etherWisPathCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherWisPathCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherWisPathCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherwispathcurrententry.EntityData.Children = make(map[string]types.YChild)
-    etherwispathcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    etherwispathcurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", etherwispathcurrententry.Ifindex}
-    etherwispathcurrententry.EntityData.Leafs["etherWisPathCurrentStatus"] = types.YLeaf{"Etherwispathcurrentstatus", etherwispathcurrententry.Etherwispathcurrentstatus}
-    etherwispathcurrententry.EntityData.Leafs["etherWisPathCurrentJ1Transmitted"] = types.YLeaf{"Etherwispathcurrentj1Transmitted", etherwispathcurrententry.Etherwispathcurrentj1Transmitted}
-    etherwispathcurrententry.EntityData.Leafs["etherWisPathCurrentJ1Received"] = types.YLeaf{"Etherwispathcurrentj1Received", etherwispathcurrententry.Etherwispathcurrentj1Received}
-    return &(etherwispathcurrententry.EntityData)
+    etherWisPathCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    etherWisPathCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    etherWisPathCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", etherWisPathCurrentEntry.IfIndex})
+    etherWisPathCurrentEntry.EntityData.Leafs.Append("etherWisPathCurrentStatus", types.YLeaf{"EtherWisPathCurrentStatus", etherWisPathCurrentEntry.EtherWisPathCurrentStatus})
+    etherWisPathCurrentEntry.EntityData.Leafs.Append("etherWisPathCurrentJ1Transmitted", types.YLeaf{"EtherWisPathCurrentJ1Transmitted", etherWisPathCurrentEntry.EtherWisPathCurrentJ1Transmitted})
+    etherWisPathCurrentEntry.EntityData.Leafs.Append("etherWisPathCurrentJ1Received", types.YLeaf{"EtherWisPathCurrentJ1Received", etherWisPathCurrentEntry.EtherWisPathCurrentJ1Received})
+
+    etherWisPathCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(etherWisPathCurrentEntry.EntityData)
 }
 
-// ETHERWIS_Etherwisfarendpathcurrenttable
+// ETHERWIS_EtherWisFarEndPathCurrentTable
 // The table for the current far-end state of Ethernet WIS
 // paths.
-type ETHERWIS_Etherwisfarendpathcurrenttable struct {
+type ETHERWIS_EtherWisFarEndPathCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the etherWisFarEndPathCurrentTable.  For each instance of this
     // object there MUST be a corresponding instance of
     // sonetFarEndPathCurrentEntry. The type is slice of
-    // ETHERWIS_Etherwisfarendpathcurrenttable_Etherwisfarendpathcurrententry.
-    Etherwisfarendpathcurrententry []ETHERWIS_Etherwisfarendpathcurrenttable_Etherwisfarendpathcurrententry
+    // ETHERWIS_EtherWisFarEndPathCurrentTable_EtherWisFarEndPathCurrentEntry.
+    EtherWisFarEndPathCurrentEntry []*ETHERWIS_EtherWisFarEndPathCurrentTable_EtherWisFarEndPathCurrentEntry
 }
 
-func (etherwisfarendpathcurrenttable *ETHERWIS_Etherwisfarendpathcurrenttable) GetEntityData() *types.CommonEntityData {
-    etherwisfarendpathcurrenttable.EntityData.YFilter = etherwisfarendpathcurrenttable.YFilter
-    etherwisfarendpathcurrenttable.EntityData.YangName = "etherWisFarEndPathCurrentTable"
-    etherwisfarendpathcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    etherwisfarendpathcurrenttable.EntityData.ParentYangName = "ETHER-WIS"
-    etherwisfarendpathcurrenttable.EntityData.SegmentPath = "etherWisFarEndPathCurrentTable"
-    etherwisfarendpathcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    etherwisfarendpathcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    etherwisfarendpathcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (etherWisFarEndPathCurrentTable *ETHERWIS_EtherWisFarEndPathCurrentTable) GetEntityData() *types.CommonEntityData {
+    etherWisFarEndPathCurrentTable.EntityData.YFilter = etherWisFarEndPathCurrentTable.YFilter
+    etherWisFarEndPathCurrentTable.EntityData.YangName = "etherWisFarEndPathCurrentTable"
+    etherWisFarEndPathCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    etherWisFarEndPathCurrentTable.EntityData.ParentYangName = "ETHER-WIS"
+    etherWisFarEndPathCurrentTable.EntityData.SegmentPath = "etherWisFarEndPathCurrentTable"
+    etherWisFarEndPathCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherWisFarEndPathCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherWisFarEndPathCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherwisfarendpathcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    etherwisfarendpathcurrenttable.EntityData.Children["etherWisFarEndPathCurrentEntry"] = types.YChild{"Etherwisfarendpathcurrententry", nil}
-    for i := range etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry {
-        etherwisfarendpathcurrenttable.EntityData.Children[types.GetSegmentPath(&etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry[i])] = types.YChild{"Etherwisfarendpathcurrententry", &etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry[i]}
+    etherWisFarEndPathCurrentTable.EntityData.Children = types.NewOrderedMap()
+    etherWisFarEndPathCurrentTable.EntityData.Children.Append("etherWisFarEndPathCurrentEntry", types.YChild{"EtherWisFarEndPathCurrentEntry", nil})
+    for i := range etherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry {
+        etherWisFarEndPathCurrentTable.EntityData.Children.Append(types.GetSegmentPath(etherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry[i]), types.YChild{"EtherWisFarEndPathCurrentEntry", etherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry[i]})
     }
-    etherwisfarendpathcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(etherwisfarendpathcurrenttable.EntityData)
+    etherWisFarEndPathCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    etherWisFarEndPathCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(etherWisFarEndPathCurrentTable.EntityData)
 }
 
-// ETHERWIS_Etherwisfarendpathcurrenttable_Etherwisfarendpathcurrententry
+// ETHERWIS_EtherWisFarEndPathCurrentTable_EtherWisFarEndPathCurrentEntry
 // An entry in the etherWisFarEndPathCurrentTable.  For each
 // instance of this object there MUST be a corresponding
 // instance of sonetFarEndPathCurrentEntry.
-type ETHERWIS_Etherwisfarendpathcurrenttable_Etherwisfarendpathcurrententry struct {
+type ETHERWIS_EtherWisFarEndPathCurrentTable_EtherWisFarEndPathCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This variable indicates the current status at the far end of the path using
     // a bit map that can indicate multiple defects at once.  The bit positions
@@ -431,23 +455,26 @@ type ETHERWIS_Etherwisfarendpathcurrenttable_Etherwisfarendpathcurrententry stru
     // in G1 bits 5-7.  Note:  when this bit is set,    sonetPathSTSRDI MUST be
     // set in the corresponding    instance of sonetPathCurrentStatus. The type is
     // map[string]bool.
-    Etherwisfarendpathcurrentstatus interface{}
+    EtherWisFarEndPathCurrentStatus interface{}
 }
 
-func (etherwisfarendpathcurrententry *ETHERWIS_Etherwisfarendpathcurrenttable_Etherwisfarendpathcurrententry) GetEntityData() *types.CommonEntityData {
-    etherwisfarendpathcurrententry.EntityData.YFilter = etherwisfarendpathcurrententry.YFilter
-    etherwisfarendpathcurrententry.EntityData.YangName = "etherWisFarEndPathCurrentEntry"
-    etherwisfarendpathcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    etherwisfarendpathcurrententry.EntityData.ParentYangName = "etherWisFarEndPathCurrentTable"
-    etherwisfarendpathcurrententry.EntityData.SegmentPath = "etherWisFarEndPathCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", etherwisfarendpathcurrententry.Ifindex) + "']"
-    etherwisfarendpathcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    etherwisfarendpathcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    etherwisfarendpathcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (etherWisFarEndPathCurrentEntry *ETHERWIS_EtherWisFarEndPathCurrentTable_EtherWisFarEndPathCurrentEntry) GetEntityData() *types.CommonEntityData {
+    etherWisFarEndPathCurrentEntry.EntityData.YFilter = etherWisFarEndPathCurrentEntry.YFilter
+    etherWisFarEndPathCurrentEntry.EntityData.YangName = "etherWisFarEndPathCurrentEntry"
+    etherWisFarEndPathCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    etherWisFarEndPathCurrentEntry.EntityData.ParentYangName = "etherWisFarEndPathCurrentTable"
+    etherWisFarEndPathCurrentEntry.EntityData.SegmentPath = "etherWisFarEndPathCurrentEntry" + types.AddKeyToken(etherWisFarEndPathCurrentEntry.IfIndex, "ifIndex")
+    etherWisFarEndPathCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherWisFarEndPathCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherWisFarEndPathCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherwisfarendpathcurrententry.EntityData.Children = make(map[string]types.YChild)
-    etherwisfarendpathcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    etherwisfarendpathcurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", etherwisfarendpathcurrententry.Ifindex}
-    etherwisfarendpathcurrententry.EntityData.Leafs["etherWisFarEndPathCurrentStatus"] = types.YLeaf{"Etherwisfarendpathcurrentstatus", etherwisfarendpathcurrententry.Etherwisfarendpathcurrentstatus}
-    return &(etherwisfarendpathcurrententry.EntityData)
+    etherWisFarEndPathCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    etherWisFarEndPathCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    etherWisFarEndPathCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", etherWisFarEndPathCurrentEntry.IfIndex})
+    etherWisFarEndPathCurrentEntry.EntityData.Leafs.Append("etherWisFarEndPathCurrentStatus", types.YLeaf{"EtherWisFarEndPathCurrentStatus", etherWisFarEndPathCurrentEntry.EtherWisFarEndPathCurrentStatus})
+
+    etherWisFarEndPathCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(etherWisFarEndPathCurrentEntry.EntityData)
 }
 

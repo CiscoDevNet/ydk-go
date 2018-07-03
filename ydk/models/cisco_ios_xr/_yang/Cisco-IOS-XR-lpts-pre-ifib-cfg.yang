@@ -36,6 +36,10 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -645,6 +649,23 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
       "Lpts flow";
   }
 
+  typedef Lptsafi {
+    type enumeration {
+      enum "ipv4" {
+        value 1;
+        description
+          "IPv4 type";
+      }
+      enum "ipv6" {
+        value 2;
+        description
+          "IPv6 type";
+      }
+    }
+    description
+      "Lptsafi";
+  }
+
   grouping NODE-CFG {
     description
       "active/preconfigured nodes configuration";
@@ -706,7 +727,7 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
             description
               "Selected flow type";
             leaf max {
-              type int32;
+              type uint32;
               description
                 "Configured Max TCAM value";
             }
@@ -784,31 +805,45 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
       presence "Indicates a ipolicer node is configured.";
       description
         "Pre IFiB Configuration ";
-      container ipv4acls {
+      container acls {
         description
           "Table for ACLs";
-        list ipv4acl {
+        list acl {
           key "acl-name";
           description
             "ACL name";
-          container ipv4vrf-names {
+          container afi-types {
             description
-              "VRF list";
-            list ipv4vrf-name {
-              key "vrf-name";
+              "AFI Family";
+            list afi-type {
+              key "afi-family-type";
               description
-                "VRF name";
-              leaf acl-rate {
-                type uint32 {
-                  range "0..100000";
+                "AFI Family type";
+              container vrf-names {
+                description
+                  "VRF list";
+                list vrf-name {
+                  key "vrf-name";
+                  description
+                    "VRF name";
+                  leaf acl-rate {
+                    type uint32 {
+                      range "0..100000";
+                    }
+                    description
+                      "pre-ifib policer rate config commands";
+                  }
+                  leaf vrf-name {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "VRF name";
+                  }
                 }
-                description
-                  "pre-ifib policer rate config commands";
               }
-              leaf vrf-name {
-                type xr:Cisco-ios-xr-string;
+              leaf afi-family-type {
+                type Lptsafi;
                 description
-                  "VRF name";
+                  "AFI Family Type";
               }
             }
           }

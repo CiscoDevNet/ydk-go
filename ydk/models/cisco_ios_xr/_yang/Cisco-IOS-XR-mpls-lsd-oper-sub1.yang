@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -98,6 +102,25 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       "Mgmt lsd rw id";
   }
 
+  typedef Mpls-lsd-nnh {
+    type enumeration {
+      enum "none" {
+        description
+          "None - Invalid";
+      }
+      enum "ipv4-address" {
+        description
+          "IPv4 Address";
+      }
+      enum "interface-name" {
+        description
+          "Interface";
+      }
+    }
+    description
+      "Mpls lsd nnh";
+  }
+
   typedef Mgmt-lsd-moi {
     type enumeration {
       enum "mgmt-lsd-moi-type-pop-and-lkup-ipv4" {
@@ -155,6 +178,10 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       enum "mgmt-lsd-moi-type-dmtc-ext-intf" {
         description
           "Demand Matrix Traffic-Collector";
+      }
+      enum "mgmt-lsd-moi-type-ipv4-nnh-stack" {
+        description
+          "IPv4 Next-Next-Hop";
       }
     }
     description
@@ -917,6 +944,49 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
     }
   }
 
+  grouping MPLS-LSD-MOI-NNH {
+    description
+      "IPV4/IPV6 NNH installed in LSD";
+    leaf nnh-type {
+      type Mpls-lsd-nnh;
+      description
+        "nnh type";
+    }
+    leaf address {
+      when "../nnh-type = 'ipv4-address'" {
+        description
+          "../nnh_type = 'IPv4Address'";
+      }
+      type inet:ipv4-address;
+      description
+        "IPv4 Address";
+    }
+    leaf interface-name {
+      when "../nnh-type = 'interface-name'" {
+        description
+          "../nnh_type = 'InterfaceName'";
+      }
+      type xr:Interface-name;
+      description
+        "Interface";
+    }
+  }
+
+  grouping MPLS-LSD-MOI-IPV4-NNH-STACK {
+    description
+      "IPv4 NNH STACK MOI";
+    container ipv4-stack {
+      description
+        "IPv4 stack";
+      uses MPLS-LSD-MOI-IPV4-STACK;
+    }
+    list next-next-hop {
+      description
+        "List of Next Next Hops";
+      uses MPLS-LSD-MOI-NNH;
+    }
+  }
+
   grouping MPLS-LSD-MOI-DMTC-EXT-INTF {
     description
       "Demand Matrix Traffic-Collector MOI";
@@ -1323,6 +1393,11 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       description
         "Tunnel class";
     }
+    leaf ipv4-next-next-hop {
+      type inet:ipv4-address;
+      description
+        "IPv4 next nexthop";
+    }
   }
 
   grouping MPLS-LSD-MOI-IPV6 {
@@ -1636,6 +1711,15 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       description
         "dmtc data";
       uses MPLS-LSD-MOI-DMTC-EXT-INTF;
+    }
+    container nnh-stackv4-data {
+      when "../moi-type = 'mgmt-lsd-moi-type-ipv4-nnh-stack'" {
+        description
+          "../MoiType = 'MGMT_LSD_MOI_TYPE_IPV4_NNH_STACK'";
+      }
+      description
+        "nnh stackv4 data";
+      uses MPLS-LSD-MOI-IPV4-NNH-STACK;
     }
     leaf moi-type {
       type Mgmt-lsd-moi;

@@ -32,6 +32,10 @@ module Cisco-IOS-XR-ipv4-mfwd-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
   revision 2016-06-01 {
     description
       "Initial IOS-XR MFWD native model";
@@ -245,11 +249,9 @@ module Cisco-IOS-XR-ipv4-mfwd-cfg {
   }
 
   container mfwd {
-    presence "Indicates a mfwd node is configured.";
     description
       "Multicast routing configuration";
     container default-context {
-      presence "Indicates a default-context node is configured.";
       description
         "Default Context";
       container ipv6 {

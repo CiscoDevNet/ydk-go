@@ -26,52 +26,52 @@ type SONETMIB struct {
     YFilter yfilter.YFilter
 
     
-    Sonetmedium SONETMIB_Sonetmedium
+    SonetMedium SONETMIB_SonetMedium
 
     // The SONET/SDH Medium table.
-    Sonetmediumtable SONETMIB_Sonetmediumtable
+    SonetMediumTable SONETMIB_SonetMediumTable
 
     // The SONET/SDH Section Current table.
-    Sonetsectioncurrenttable SONETMIB_Sonetsectioncurrenttable
+    SonetSectionCurrentTable SONETMIB_SonetSectionCurrentTable
 
     // The SONET/SDH Section Interval table.
-    Sonetsectionintervaltable SONETMIB_Sonetsectionintervaltable
+    SonetSectionIntervalTable SONETMIB_SonetSectionIntervalTable
 
     // The SONET/SDH Line Current table.
-    Sonetlinecurrenttable SONETMIB_Sonetlinecurrenttable
+    SonetLineCurrentTable SONETMIB_SonetLineCurrentTable
 
     // The SONET/SDH Line Interval table.
-    Sonetlineintervaltable SONETMIB_Sonetlineintervaltable
+    SonetLineIntervalTable SONETMIB_SonetLineIntervalTable
 
     // The SONET/SDH Far End Line Current table.
-    Sonetfarendlinecurrenttable SONETMIB_Sonetfarendlinecurrenttable
+    SonetFarEndLineCurrentTable SONETMIB_SonetFarEndLineCurrentTable
 
     // The SONET/SDH Far End Line Interval table.
-    Sonetfarendlineintervaltable SONETMIB_Sonetfarendlineintervaltable
+    SonetFarEndLineIntervalTable SONETMIB_SonetFarEndLineIntervalTable
 
     // The SONET/SDH Path Current table.
-    Sonetpathcurrenttable SONETMIB_Sonetpathcurrenttable
+    SonetPathCurrentTable SONETMIB_SonetPathCurrentTable
 
     // The SONET/SDH Path Interval table.
-    Sonetpathintervaltable SONETMIB_Sonetpathintervaltable
+    SonetPathIntervalTable SONETMIB_SonetPathIntervalTable
 
     // The SONET/SDH Far End Path Current table.
-    Sonetfarendpathcurrenttable SONETMIB_Sonetfarendpathcurrenttable
+    SonetFarEndPathCurrentTable SONETMIB_SonetFarEndPathCurrentTable
 
     // The SONET/SDH Far End Path Interval table.
-    Sonetfarendpathintervaltable SONETMIB_Sonetfarendpathintervaltable
+    SonetFarEndPathIntervalTable SONETMIB_SonetFarEndPathIntervalTable
 
     // The SONET/SDH VT Current table.
-    Sonetvtcurrenttable SONETMIB_Sonetvtcurrenttable
+    SonetVTCurrentTable SONETMIB_SonetVTCurrentTable
 
     // The SONET/SDH VT Interval table.
-    Sonetvtintervaltable SONETMIB_Sonetvtintervaltable
+    SonetVTIntervalTable SONETMIB_SonetVTIntervalTable
 
     // The SONET/SDH Far End VT Current table.
-    Sonetfarendvtcurrenttable SONETMIB_Sonetfarendvtcurrenttable
+    SonetFarEndVTCurrentTable SONETMIB_SonetFarEndVTCurrentTable
 
     // The SONET/SDH Far End VT Interval table.
-    Sonetfarendvtintervaltable SONETMIB_Sonetfarendvtintervaltable
+    SonetFarEndVTIntervalTable SONETMIB_SonetFarEndVTIntervalTable
 }
 
 func (sONETMIB *SONETMIB) GetEntityData() *types.CommonEntityData {
@@ -84,29 +84,32 @@ func (sONETMIB *SONETMIB) GetEntityData() *types.CommonEntityData {
     sONETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sONETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sONETMIB.EntityData.Children = make(map[string]types.YChild)
-    sONETMIB.EntityData.Children["sonetMedium"] = types.YChild{"Sonetmedium", &sONETMIB.Sonetmedium}
-    sONETMIB.EntityData.Children["sonetMediumTable"] = types.YChild{"Sonetmediumtable", &sONETMIB.Sonetmediumtable}
-    sONETMIB.EntityData.Children["sonetSectionCurrentTable"] = types.YChild{"Sonetsectioncurrenttable", &sONETMIB.Sonetsectioncurrenttable}
-    sONETMIB.EntityData.Children["sonetSectionIntervalTable"] = types.YChild{"Sonetsectionintervaltable", &sONETMIB.Sonetsectionintervaltable}
-    sONETMIB.EntityData.Children["sonetLineCurrentTable"] = types.YChild{"Sonetlinecurrenttable", &sONETMIB.Sonetlinecurrenttable}
-    sONETMIB.EntityData.Children["sonetLineIntervalTable"] = types.YChild{"Sonetlineintervaltable", &sONETMIB.Sonetlineintervaltable}
-    sONETMIB.EntityData.Children["sonetFarEndLineCurrentTable"] = types.YChild{"Sonetfarendlinecurrenttable", &sONETMIB.Sonetfarendlinecurrenttable}
-    sONETMIB.EntityData.Children["sonetFarEndLineIntervalTable"] = types.YChild{"Sonetfarendlineintervaltable", &sONETMIB.Sonetfarendlineintervaltable}
-    sONETMIB.EntityData.Children["sonetPathCurrentTable"] = types.YChild{"Sonetpathcurrenttable", &sONETMIB.Sonetpathcurrenttable}
-    sONETMIB.EntityData.Children["sonetPathIntervalTable"] = types.YChild{"Sonetpathintervaltable", &sONETMIB.Sonetpathintervaltable}
-    sONETMIB.EntityData.Children["sonetFarEndPathCurrentTable"] = types.YChild{"Sonetfarendpathcurrenttable", &sONETMIB.Sonetfarendpathcurrenttable}
-    sONETMIB.EntityData.Children["sonetFarEndPathIntervalTable"] = types.YChild{"Sonetfarendpathintervaltable", &sONETMIB.Sonetfarendpathintervaltable}
-    sONETMIB.EntityData.Children["sonetVTCurrentTable"] = types.YChild{"Sonetvtcurrenttable", &sONETMIB.Sonetvtcurrenttable}
-    sONETMIB.EntityData.Children["sonetVTIntervalTable"] = types.YChild{"Sonetvtintervaltable", &sONETMIB.Sonetvtintervaltable}
-    sONETMIB.EntityData.Children["sonetFarEndVTCurrentTable"] = types.YChild{"Sonetfarendvtcurrenttable", &sONETMIB.Sonetfarendvtcurrenttable}
-    sONETMIB.EntityData.Children["sonetFarEndVTIntervalTable"] = types.YChild{"Sonetfarendvtintervaltable", &sONETMIB.Sonetfarendvtintervaltable}
-    sONETMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    sONETMIB.EntityData.Children = types.NewOrderedMap()
+    sONETMIB.EntityData.Children.Append("sonetMedium", types.YChild{"SonetMedium", &sONETMIB.SonetMedium})
+    sONETMIB.EntityData.Children.Append("sonetMediumTable", types.YChild{"SonetMediumTable", &sONETMIB.SonetMediumTable})
+    sONETMIB.EntityData.Children.Append("sonetSectionCurrentTable", types.YChild{"SonetSectionCurrentTable", &sONETMIB.SonetSectionCurrentTable})
+    sONETMIB.EntityData.Children.Append("sonetSectionIntervalTable", types.YChild{"SonetSectionIntervalTable", &sONETMIB.SonetSectionIntervalTable})
+    sONETMIB.EntityData.Children.Append("sonetLineCurrentTable", types.YChild{"SonetLineCurrentTable", &sONETMIB.SonetLineCurrentTable})
+    sONETMIB.EntityData.Children.Append("sonetLineIntervalTable", types.YChild{"SonetLineIntervalTable", &sONETMIB.SonetLineIntervalTable})
+    sONETMIB.EntityData.Children.Append("sonetFarEndLineCurrentTable", types.YChild{"SonetFarEndLineCurrentTable", &sONETMIB.SonetFarEndLineCurrentTable})
+    sONETMIB.EntityData.Children.Append("sonetFarEndLineIntervalTable", types.YChild{"SonetFarEndLineIntervalTable", &sONETMIB.SonetFarEndLineIntervalTable})
+    sONETMIB.EntityData.Children.Append("sonetPathCurrentTable", types.YChild{"SonetPathCurrentTable", &sONETMIB.SonetPathCurrentTable})
+    sONETMIB.EntityData.Children.Append("sonetPathIntervalTable", types.YChild{"SonetPathIntervalTable", &sONETMIB.SonetPathIntervalTable})
+    sONETMIB.EntityData.Children.Append("sonetFarEndPathCurrentTable", types.YChild{"SonetFarEndPathCurrentTable", &sONETMIB.SonetFarEndPathCurrentTable})
+    sONETMIB.EntityData.Children.Append("sonetFarEndPathIntervalTable", types.YChild{"SonetFarEndPathIntervalTable", &sONETMIB.SonetFarEndPathIntervalTable})
+    sONETMIB.EntityData.Children.Append("sonetVTCurrentTable", types.YChild{"SonetVTCurrentTable", &sONETMIB.SonetVTCurrentTable})
+    sONETMIB.EntityData.Children.Append("sonetVTIntervalTable", types.YChild{"SonetVTIntervalTable", &sONETMIB.SonetVTIntervalTable})
+    sONETMIB.EntityData.Children.Append("sonetFarEndVTCurrentTable", types.YChild{"SonetFarEndVTCurrentTable", &sONETMIB.SonetFarEndVTCurrentTable})
+    sONETMIB.EntityData.Children.Append("sonetFarEndVTIntervalTable", types.YChild{"SonetFarEndVTIntervalTable", &sONETMIB.SonetFarEndVTIntervalTable})
+    sONETMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    sONETMIB.EntityData.YListKeys = []string {}
+
     return &(sONETMIB.EntityData)
 }
 
-// SONETMIB_Sonetmedium
-type SONETMIB_Sonetmedium struct {
+// SONETMIB_SonetMedium
+type SONETMIB_SonetMedium struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -119,91 +122,97 @@ type SONETMIB_Sonetmedium struct {
     // ITU Recommendation G.826, 1995 [G.826]  ansi1997(5)   ANSI T1.231, 1997
     // [T1.231b]  If a manager changes the value of this object then the SES
     // statistics collected prior to this change must be invalidated. The type is
-    // Sonetsesthresholdset.
-    Sonetsesthresholdset interface{}
+    // SonetSESthresholdSet.
+    SonetSESthresholdSet interface{}
 }
 
-func (sonetmedium *SONETMIB_Sonetmedium) GetEntityData() *types.CommonEntityData {
-    sonetmedium.EntityData.YFilter = sonetmedium.YFilter
-    sonetmedium.EntityData.YangName = "sonetMedium"
-    sonetmedium.EntityData.BundleName = "cisco_ios_xe"
-    sonetmedium.EntityData.ParentYangName = "SONET-MIB"
-    sonetmedium.EntityData.SegmentPath = "sonetMedium"
-    sonetmedium.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetmedium.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetmedium.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetMedium *SONETMIB_SonetMedium) GetEntityData() *types.CommonEntityData {
+    sonetMedium.EntityData.YFilter = sonetMedium.YFilter
+    sonetMedium.EntityData.YangName = "sonetMedium"
+    sonetMedium.EntityData.BundleName = "cisco_ios_xe"
+    sonetMedium.EntityData.ParentYangName = "SONET-MIB"
+    sonetMedium.EntityData.SegmentPath = "sonetMedium"
+    sonetMedium.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetMedium.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetMedium.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetmedium.EntityData.Children = make(map[string]types.YChild)
-    sonetmedium.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetmedium.EntityData.Leafs["sonetSESthresholdSet"] = types.YLeaf{"Sonetsesthresholdset", sonetmedium.Sonetsesthresholdset}
-    return &(sonetmedium.EntityData)
+    sonetMedium.EntityData.Children = types.NewOrderedMap()
+    sonetMedium.EntityData.Leafs = types.NewOrderedMap()
+    sonetMedium.EntityData.Leafs.Append("sonetSESthresholdSet", types.YLeaf{"SonetSESthresholdSet", sonetMedium.SonetSESthresholdSet})
+
+    sonetMedium.EntityData.YListKeys = []string {}
+
+    return &(sonetMedium.EntityData)
 }
 
-// SONETMIB_Sonetmedium_Sonetsesthresholdset represents prior to this change must be invalidated.
-type SONETMIB_Sonetmedium_Sonetsesthresholdset string
+// SONETMIB_SonetMedium_SonetSESthresholdSet represents prior to this change must be invalidated.
+type SONETMIB_SonetMedium_SonetSESthresholdSet string
 
 const (
-    SONETMIB_Sonetmedium_Sonetsesthresholdset_other SONETMIB_Sonetmedium_Sonetsesthresholdset = "other"
+    SONETMIB_SonetMedium_SonetSESthresholdSet_other SONETMIB_SonetMedium_SonetSESthresholdSet = "other"
 
-    SONETMIB_Sonetmedium_Sonetsesthresholdset_bellcore1991 SONETMIB_Sonetmedium_Sonetsesthresholdset = "bellcore1991"
+    SONETMIB_SonetMedium_SonetSESthresholdSet_bellcore1991 SONETMIB_SonetMedium_SonetSESthresholdSet = "bellcore1991"
 
-    SONETMIB_Sonetmedium_Sonetsesthresholdset_ansi1993 SONETMIB_Sonetmedium_Sonetsesthresholdset = "ansi1993"
+    SONETMIB_SonetMedium_SonetSESthresholdSet_ansi1993 SONETMIB_SonetMedium_SonetSESthresholdSet = "ansi1993"
 
-    SONETMIB_Sonetmedium_Sonetsesthresholdset_itu1995 SONETMIB_Sonetmedium_Sonetsesthresholdset = "itu1995"
+    SONETMIB_SonetMedium_SonetSESthresholdSet_itu1995 SONETMIB_SonetMedium_SonetSESthresholdSet = "itu1995"
 
-    SONETMIB_Sonetmedium_Sonetsesthresholdset_ansi1997 SONETMIB_Sonetmedium_Sonetsesthresholdset = "ansi1997"
+    SONETMIB_SonetMedium_SonetSESthresholdSet_ansi1997 SONETMIB_SonetMedium_SonetSESthresholdSet = "ansi1997"
 )
 
-// SONETMIB_Sonetmediumtable
+// SONETMIB_SonetMediumTable
 // The SONET/SDH Medium table.
-type SONETMIB_Sonetmediumtable struct {
+type SONETMIB_SonetMediumTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Medium table. The type is slice of
-    // SONETMIB_Sonetmediumtable_Sonetmediumentry.
-    Sonetmediumentry []SONETMIB_Sonetmediumtable_Sonetmediumentry
+    // SONETMIB_SonetMediumTable_SonetMediumEntry.
+    SonetMediumEntry []*SONETMIB_SonetMediumTable_SonetMediumEntry
 }
 
-func (sonetmediumtable *SONETMIB_Sonetmediumtable) GetEntityData() *types.CommonEntityData {
-    sonetmediumtable.EntityData.YFilter = sonetmediumtable.YFilter
-    sonetmediumtable.EntityData.YangName = "sonetMediumTable"
-    sonetmediumtable.EntityData.BundleName = "cisco_ios_xe"
-    sonetmediumtable.EntityData.ParentYangName = "SONET-MIB"
-    sonetmediumtable.EntityData.SegmentPath = "sonetMediumTable"
-    sonetmediumtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetmediumtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetmediumtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetMediumTable *SONETMIB_SonetMediumTable) GetEntityData() *types.CommonEntityData {
+    sonetMediumTable.EntityData.YFilter = sonetMediumTable.YFilter
+    sonetMediumTable.EntityData.YangName = "sonetMediumTable"
+    sonetMediumTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetMediumTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetMediumTable.EntityData.SegmentPath = "sonetMediumTable"
+    sonetMediumTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetMediumTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetMediumTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetmediumtable.EntityData.Children = make(map[string]types.YChild)
-    sonetmediumtable.EntityData.Children["sonetMediumEntry"] = types.YChild{"Sonetmediumentry", nil}
-    for i := range sonetmediumtable.Sonetmediumentry {
-        sonetmediumtable.EntityData.Children[types.GetSegmentPath(&sonetmediumtable.Sonetmediumentry[i])] = types.YChild{"Sonetmediumentry", &sonetmediumtable.Sonetmediumentry[i]}
+    sonetMediumTable.EntityData.Children = types.NewOrderedMap()
+    sonetMediumTable.EntityData.Children.Append("sonetMediumEntry", types.YChild{"SonetMediumEntry", nil})
+    for i := range sonetMediumTable.SonetMediumEntry {
+        sonetMediumTable.EntityData.Children.Append(types.GetSegmentPath(sonetMediumTable.SonetMediumEntry[i]), types.YChild{"SonetMediumEntry", sonetMediumTable.SonetMediumEntry[i]})
     }
-    sonetmediumtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetmediumtable.EntityData)
+    sonetMediumTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetMediumTable.EntityData.YListKeys = []string {}
+
+    return &(sonetMediumTable.EntityData)
 }
 
-// SONETMIB_Sonetmediumtable_Sonetmediumentry
+// SONETMIB_SonetMediumTable_SonetMediumEntry
 // An entry in the SONET/SDH Medium table.
-type SONETMIB_Sonetmediumtable_Sonetmediumentry struct {
+type SONETMIB_SonetMediumTable_SonetMediumEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This variable identifies whether a SONET or a SDH signal is used across
-    // this interface. The type is Sonetmediumtype.
-    Sonetmediumtype interface{}
+    // this interface. The type is SonetMediumType.
+    SonetMediumType interface{}
 
     // The number of seconds, including partial seconds, that have elapsed since
     // the beginning of the current measurement period. If, for some reason, such
     // as an adjustment in the system's time-of-day clock, the current interval
     // exceeds the maximum value, the agent will return the maximum value. The
     // type is interface{} with range: 1..900.
-    Sonetmediumtimeelapsed interface{}
+    SonetMediumTimeElapsed interface{}
 
     // The number of previous 15-minute intervals for which data was collected. A
     // SONET/SDH interface must be capable of supporting at least n intervals. The
@@ -215,32 +224,32 @@ type SONETMIB_Sonetmediumtable_Sonetmediumentry struct {
     // that some intervals are unavailable.  In this case, this interval is the
     // maximum interval number for which data is available. . The type is
     // interface{} with range: 0..96.
-    Sonetmediumvalidintervals interface{}
+    SonetMediumValidIntervals interface{}
 
     // This variable describes the line coding for this interface. The B3ZS and
     // CMI are used for electrical SONET/SDH signals (STS-1 and STS-3). The
     // Non-Return to Zero (NRZ) and the Return to Zero are used for optical
-    // SONET/SDH signals. The type is Sonetmediumlinecoding.
-    Sonetmediumlinecoding interface{}
+    // SONET/SDH signals. The type is SonetMediumLineCoding.
+    SonetMediumLineCoding interface{}
 
     // This variable describes the line type for this interface. The line types
     // are Short and Long Range Single Mode fiber or Multi-Mode fiber interfaces,
     // and coax and UTP for electrical interfaces.  The value sonetOther should be
     // used when the Line Type is not one of the listed values. The type is
-    // Sonetmediumlinetype.
-    Sonetmediumlinetype interface{}
+    // SonetMediumLineType.
+    SonetMediumLineType interface{}
 
     // This variable contains the transmission vendor's circuit identifier, for
     // the purpose of facilitating troubleshooting. Note that the circuit
     // identifier, if available, is also represented by ifPhysAddress. The type is
     // string with length: 0..255.
-    Sonetmediumcircuitidentifier interface{}
+    SonetMediumCircuitIdentifier interface{}
 
     // The number of intervals in the range from 0 to sonetMediumValidIntervals
     // for which no data is available. This object will typically be zero except
     // in cases where the data for some intervals are not available (e.g., in
     // proxy situations). The type is interface{} with range: 0..96.
-    Sonetmediuminvalidintervals interface{}
+    SonetMediumInvalidIntervals interface{}
 
     // The current loopback state of the SONET/SDH interface.  The values mean:   
     // sonetNoLoop      Not in the loopback state. A device that is not     
@@ -251,113 +260,119 @@ type SONETMIB_Sonetmediumtable_Sonetmediumentry struct {
     // transmitted is connected      to the associated incoming receiver.   
     // sonetOtherLoop      Loopbacks that are not defined here. The type is
     // map[string]bool.
-    Sonetmediumloopbackconfig interface{}
+    SonetMediumLoopbackConfig interface{}
 }
 
-func (sonetmediumentry *SONETMIB_Sonetmediumtable_Sonetmediumentry) GetEntityData() *types.CommonEntityData {
-    sonetmediumentry.EntityData.YFilter = sonetmediumentry.YFilter
-    sonetmediumentry.EntityData.YangName = "sonetMediumEntry"
-    sonetmediumentry.EntityData.BundleName = "cisco_ios_xe"
-    sonetmediumentry.EntityData.ParentYangName = "sonetMediumTable"
-    sonetmediumentry.EntityData.SegmentPath = "sonetMediumEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetmediumentry.Ifindex) + "']"
-    sonetmediumentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetmediumentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetmediumentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetMediumEntry *SONETMIB_SonetMediumTable_SonetMediumEntry) GetEntityData() *types.CommonEntityData {
+    sonetMediumEntry.EntityData.YFilter = sonetMediumEntry.YFilter
+    sonetMediumEntry.EntityData.YangName = "sonetMediumEntry"
+    sonetMediumEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetMediumEntry.EntityData.ParentYangName = "sonetMediumTable"
+    sonetMediumEntry.EntityData.SegmentPath = "sonetMediumEntry" + types.AddKeyToken(sonetMediumEntry.IfIndex, "ifIndex")
+    sonetMediumEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetMediumEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetMediumEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetmediumentry.EntityData.Children = make(map[string]types.YChild)
-    sonetmediumentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetmediumentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetmediumentry.Ifindex}
-    sonetmediumentry.EntityData.Leafs["sonetMediumType"] = types.YLeaf{"Sonetmediumtype", sonetmediumentry.Sonetmediumtype}
-    sonetmediumentry.EntityData.Leafs["sonetMediumTimeElapsed"] = types.YLeaf{"Sonetmediumtimeelapsed", sonetmediumentry.Sonetmediumtimeelapsed}
-    sonetmediumentry.EntityData.Leafs["sonetMediumValidIntervals"] = types.YLeaf{"Sonetmediumvalidintervals", sonetmediumentry.Sonetmediumvalidintervals}
-    sonetmediumentry.EntityData.Leafs["sonetMediumLineCoding"] = types.YLeaf{"Sonetmediumlinecoding", sonetmediumentry.Sonetmediumlinecoding}
-    sonetmediumentry.EntityData.Leafs["sonetMediumLineType"] = types.YLeaf{"Sonetmediumlinetype", sonetmediumentry.Sonetmediumlinetype}
-    sonetmediumentry.EntityData.Leafs["sonetMediumCircuitIdentifier"] = types.YLeaf{"Sonetmediumcircuitidentifier", sonetmediumentry.Sonetmediumcircuitidentifier}
-    sonetmediumentry.EntityData.Leafs["sonetMediumInvalidIntervals"] = types.YLeaf{"Sonetmediuminvalidintervals", sonetmediumentry.Sonetmediuminvalidintervals}
-    sonetmediumentry.EntityData.Leafs["sonetMediumLoopbackConfig"] = types.YLeaf{"Sonetmediumloopbackconfig", sonetmediumentry.Sonetmediumloopbackconfig}
-    return &(sonetmediumentry.EntityData)
+    sonetMediumEntry.EntityData.Children = types.NewOrderedMap()
+    sonetMediumEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetMediumEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetMediumEntry.IfIndex})
+    sonetMediumEntry.EntityData.Leafs.Append("sonetMediumType", types.YLeaf{"SonetMediumType", sonetMediumEntry.SonetMediumType})
+    sonetMediumEntry.EntityData.Leafs.Append("sonetMediumTimeElapsed", types.YLeaf{"SonetMediumTimeElapsed", sonetMediumEntry.SonetMediumTimeElapsed})
+    sonetMediumEntry.EntityData.Leafs.Append("sonetMediumValidIntervals", types.YLeaf{"SonetMediumValidIntervals", sonetMediumEntry.SonetMediumValidIntervals})
+    sonetMediumEntry.EntityData.Leafs.Append("sonetMediumLineCoding", types.YLeaf{"SonetMediumLineCoding", sonetMediumEntry.SonetMediumLineCoding})
+    sonetMediumEntry.EntityData.Leafs.Append("sonetMediumLineType", types.YLeaf{"SonetMediumLineType", sonetMediumEntry.SonetMediumLineType})
+    sonetMediumEntry.EntityData.Leafs.Append("sonetMediumCircuitIdentifier", types.YLeaf{"SonetMediumCircuitIdentifier", sonetMediumEntry.SonetMediumCircuitIdentifier})
+    sonetMediumEntry.EntityData.Leafs.Append("sonetMediumInvalidIntervals", types.YLeaf{"SonetMediumInvalidIntervals", sonetMediumEntry.SonetMediumInvalidIntervals})
+    sonetMediumEntry.EntityData.Leafs.Append("sonetMediumLoopbackConfig", types.YLeaf{"SonetMediumLoopbackConfig", sonetMediumEntry.SonetMediumLoopbackConfig})
+
+    sonetMediumEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(sonetMediumEntry.EntityData)
 }
 
-// SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding represents to Zero are used for optical SONET/SDH signals.
-type SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding string
+// SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding represents to Zero are used for optical SONET/SDH signals.
+type SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding string
 
 const (
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding_sonetMediumOther SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding = "sonetMediumOther"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding_sonetMediumOther SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding = "sonetMediumOther"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding_sonetMediumB3ZS SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding = "sonetMediumB3ZS"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding_sonetMediumB3ZS SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding = "sonetMediumB3ZS"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding_sonetMediumCMI SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding = "sonetMediumCMI"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding_sonetMediumCMI SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding = "sonetMediumCMI"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding_sonetMediumNRZ SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding = "sonetMediumNRZ"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding_sonetMediumNRZ SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding = "sonetMediumNRZ"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding_sonetMediumRZ SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinecoding = "sonetMediumRZ"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding_sonetMediumRZ SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineCoding = "sonetMediumRZ"
 )
 
-// SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype represents not one of the listed values.
-type SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype string
+// SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType represents not one of the listed values.
+type SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType string
 
 const (
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype_sonetOther SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype = "sonetOther"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType_sonetOther SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType = "sonetOther"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype_sonetShortSingleMode SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype = "sonetShortSingleMode"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType_sonetShortSingleMode SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType = "sonetShortSingleMode"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype_sonetLongSingleMode SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype = "sonetLongSingleMode"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType_sonetLongSingleMode SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType = "sonetLongSingleMode"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype_sonetMultiMode SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype = "sonetMultiMode"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType_sonetMultiMode SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType = "sonetMultiMode"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype_sonetCoax SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype = "sonetCoax"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType_sonetCoax SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType = "sonetCoax"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype_sonetUTP SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumlinetype = "sonetUTP"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType_sonetUTP SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumLineType = "sonetUTP"
 )
 
-// SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumtype represents or a SDH signal is used across this interface.
-type SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumtype string
+// SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumType represents or a SDH signal is used across this interface.
+type SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumType string
 
 const (
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumtype_sonet SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumtype = "sonet"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumType_sonet SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumType = "sonet"
 
-    SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumtype_sdh SONETMIB_Sonetmediumtable_Sonetmediumentry_Sonetmediumtype = "sdh"
+    SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumType_sdh SONETMIB_SonetMediumTable_SonetMediumEntry_SonetMediumType = "sdh"
 )
 
-// SONETMIB_Sonetsectioncurrenttable
+// SONETMIB_SonetSectionCurrentTable
 // The SONET/SDH Section Current table.
-type SONETMIB_Sonetsectioncurrenttable struct {
+type SONETMIB_SonetSectionCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Section Current table. The type is slice of
-    // SONETMIB_Sonetsectioncurrenttable_Sonetsectioncurrententry.
-    Sonetsectioncurrententry []SONETMIB_Sonetsectioncurrenttable_Sonetsectioncurrententry
+    // SONETMIB_SonetSectionCurrentTable_SonetSectionCurrentEntry.
+    SonetSectionCurrentEntry []*SONETMIB_SonetSectionCurrentTable_SonetSectionCurrentEntry
 }
 
-func (sonetsectioncurrenttable *SONETMIB_Sonetsectioncurrenttable) GetEntityData() *types.CommonEntityData {
-    sonetsectioncurrenttable.EntityData.YFilter = sonetsectioncurrenttable.YFilter
-    sonetsectioncurrenttable.EntityData.YangName = "sonetSectionCurrentTable"
-    sonetsectioncurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    sonetsectioncurrenttable.EntityData.ParentYangName = "SONET-MIB"
-    sonetsectioncurrenttable.EntityData.SegmentPath = "sonetSectionCurrentTable"
-    sonetsectioncurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetsectioncurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetsectioncurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetSectionCurrentTable *SONETMIB_SonetSectionCurrentTable) GetEntityData() *types.CommonEntityData {
+    sonetSectionCurrentTable.EntityData.YFilter = sonetSectionCurrentTable.YFilter
+    sonetSectionCurrentTable.EntityData.YangName = "sonetSectionCurrentTable"
+    sonetSectionCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetSectionCurrentTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetSectionCurrentTable.EntityData.SegmentPath = "sonetSectionCurrentTable"
+    sonetSectionCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetSectionCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetSectionCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetsectioncurrenttable.EntityData.Children = make(map[string]types.YChild)
-    sonetsectioncurrenttable.EntityData.Children["sonetSectionCurrentEntry"] = types.YChild{"Sonetsectioncurrententry", nil}
-    for i := range sonetsectioncurrenttable.Sonetsectioncurrententry {
-        sonetsectioncurrenttable.EntityData.Children[types.GetSegmentPath(&sonetsectioncurrenttable.Sonetsectioncurrententry[i])] = types.YChild{"Sonetsectioncurrententry", &sonetsectioncurrenttable.Sonetsectioncurrententry[i]}
+    sonetSectionCurrentTable.EntityData.Children = types.NewOrderedMap()
+    sonetSectionCurrentTable.EntityData.Children.Append("sonetSectionCurrentEntry", types.YChild{"SonetSectionCurrentEntry", nil})
+    for i := range sonetSectionCurrentTable.SonetSectionCurrentEntry {
+        sonetSectionCurrentTable.EntityData.Children.Append(types.GetSegmentPath(sonetSectionCurrentTable.SonetSectionCurrentEntry[i]), types.YChild{"SonetSectionCurrentEntry", sonetSectionCurrentTable.SonetSectionCurrentEntry[i]})
     }
-    sonetsectioncurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetsectioncurrenttable.EntityData)
+    sonetSectionCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetSectionCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(sonetSectionCurrentTable.EntityData)
 }
 
-// SONETMIB_Sonetsectioncurrenttable_Sonetsectioncurrententry
+// SONETMIB_SonetSectionCurrentTable_SonetSectionCurrentEntry
 // An entry in the SONET/SDH Section Current table.
-type SONETMIB_Sonetsectioncurrenttable_Sonetsectioncurrententry struct {
+type SONETMIB_SonetSectionCurrentTable_SonetSectionCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This variable indicates the status of the interface. The
     // sonetSectionCurrentStatus is a bit map represented as a sum, therefore, it
@@ -365,183 +380,195 @@ type SONETMIB_Sonetsectioncurrenttable_Sonetsectioncurrententry struct {
     // should be set if and only if no other flag is set.  The various bit
     // positions are:       1   sonetSectionNoDefect       2   sonetSectionLOS    
     // 4   sonetSectionLOF. The type is interface{} with range: 1..6.
-    Sonetsectioncurrentstatus interface{}
+    SonetSectionCurrentStatus interface{}
 
     // The counter associated with the number of Errored Seconds encountered by a
     // SONET/SDH Section in the current 15 minute interval. The type is
     // interface{} with range: 0..4294967295.
-    Sonetsectioncurrentess interface{}
+    SonetSectionCurrentESs interface{}
 
     // The counter associated with the number of Severely Errored Seconds
     // encountered by a SONET/SDH Section in the current 15 minute interval. The
     // type is interface{} with range: 0..4294967295.
-    Sonetsectioncurrentsess interface{}
+    SonetSectionCurrentSESs interface{}
 
     // The counter associated with the number of Severely Errored Framing Seconds
     // encountered by a SONET/SDH Section in the current 15 minute interval. The
     // type is interface{} with range: 0..4294967295.
-    Sonetsectioncurrentsefss interface{}
+    SonetSectionCurrentSEFSs interface{}
 
     // The counter associated with the number of Coding Violations encountered by
     // a SONET/SDH Section in the current 15 minute interval. The type is
     // interface{} with range: 0..4294967295.
-    Sonetsectioncurrentcvs interface{}
+    SonetSectionCurrentCVs interface{}
 }
 
-func (sonetsectioncurrententry *SONETMIB_Sonetsectioncurrenttable_Sonetsectioncurrententry) GetEntityData() *types.CommonEntityData {
-    sonetsectioncurrententry.EntityData.YFilter = sonetsectioncurrententry.YFilter
-    sonetsectioncurrententry.EntityData.YangName = "sonetSectionCurrentEntry"
-    sonetsectioncurrententry.EntityData.BundleName = "cisco_ios_xe"
-    sonetsectioncurrententry.EntityData.ParentYangName = "sonetSectionCurrentTable"
-    sonetsectioncurrententry.EntityData.SegmentPath = "sonetSectionCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetsectioncurrententry.Ifindex) + "']"
-    sonetsectioncurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetsectioncurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetsectioncurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetSectionCurrentEntry *SONETMIB_SonetSectionCurrentTable_SonetSectionCurrentEntry) GetEntityData() *types.CommonEntityData {
+    sonetSectionCurrentEntry.EntityData.YFilter = sonetSectionCurrentEntry.YFilter
+    sonetSectionCurrentEntry.EntityData.YangName = "sonetSectionCurrentEntry"
+    sonetSectionCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetSectionCurrentEntry.EntityData.ParentYangName = "sonetSectionCurrentTable"
+    sonetSectionCurrentEntry.EntityData.SegmentPath = "sonetSectionCurrentEntry" + types.AddKeyToken(sonetSectionCurrentEntry.IfIndex, "ifIndex")
+    sonetSectionCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetSectionCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetSectionCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetsectioncurrententry.EntityData.Children = make(map[string]types.YChild)
-    sonetsectioncurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetsectioncurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetsectioncurrententry.Ifindex}
-    sonetsectioncurrententry.EntityData.Leafs["sonetSectionCurrentStatus"] = types.YLeaf{"Sonetsectioncurrentstatus", sonetsectioncurrententry.Sonetsectioncurrentstatus}
-    sonetsectioncurrententry.EntityData.Leafs["sonetSectionCurrentESs"] = types.YLeaf{"Sonetsectioncurrentess", sonetsectioncurrententry.Sonetsectioncurrentess}
-    sonetsectioncurrententry.EntityData.Leafs["sonetSectionCurrentSESs"] = types.YLeaf{"Sonetsectioncurrentsess", sonetsectioncurrententry.Sonetsectioncurrentsess}
-    sonetsectioncurrententry.EntityData.Leafs["sonetSectionCurrentSEFSs"] = types.YLeaf{"Sonetsectioncurrentsefss", sonetsectioncurrententry.Sonetsectioncurrentsefss}
-    sonetsectioncurrententry.EntityData.Leafs["sonetSectionCurrentCVs"] = types.YLeaf{"Sonetsectioncurrentcvs", sonetsectioncurrententry.Sonetsectioncurrentcvs}
-    return &(sonetsectioncurrententry.EntityData)
+    sonetSectionCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    sonetSectionCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetSectionCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetSectionCurrentEntry.IfIndex})
+    sonetSectionCurrentEntry.EntityData.Leafs.Append("sonetSectionCurrentStatus", types.YLeaf{"SonetSectionCurrentStatus", sonetSectionCurrentEntry.SonetSectionCurrentStatus})
+    sonetSectionCurrentEntry.EntityData.Leafs.Append("sonetSectionCurrentESs", types.YLeaf{"SonetSectionCurrentESs", sonetSectionCurrentEntry.SonetSectionCurrentESs})
+    sonetSectionCurrentEntry.EntityData.Leafs.Append("sonetSectionCurrentSESs", types.YLeaf{"SonetSectionCurrentSESs", sonetSectionCurrentEntry.SonetSectionCurrentSESs})
+    sonetSectionCurrentEntry.EntityData.Leafs.Append("sonetSectionCurrentSEFSs", types.YLeaf{"SonetSectionCurrentSEFSs", sonetSectionCurrentEntry.SonetSectionCurrentSEFSs})
+    sonetSectionCurrentEntry.EntityData.Leafs.Append("sonetSectionCurrentCVs", types.YLeaf{"SonetSectionCurrentCVs", sonetSectionCurrentEntry.SonetSectionCurrentCVs})
+
+    sonetSectionCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(sonetSectionCurrentEntry.EntityData)
 }
 
-// SONETMIB_Sonetsectionintervaltable
+// SONETMIB_SonetSectionIntervalTable
 // The SONET/SDH Section Interval table.
-type SONETMIB_Sonetsectionintervaltable struct {
+type SONETMIB_SonetSectionIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Section Interval table. The type is slice of
-    // SONETMIB_Sonetsectionintervaltable_Sonetsectionintervalentry.
-    Sonetsectionintervalentry []SONETMIB_Sonetsectionintervaltable_Sonetsectionintervalentry
+    // SONETMIB_SonetSectionIntervalTable_SonetSectionIntervalEntry.
+    SonetSectionIntervalEntry []*SONETMIB_SonetSectionIntervalTable_SonetSectionIntervalEntry
 }
 
-func (sonetsectionintervaltable *SONETMIB_Sonetsectionintervaltable) GetEntityData() *types.CommonEntityData {
-    sonetsectionintervaltable.EntityData.YFilter = sonetsectionintervaltable.YFilter
-    sonetsectionintervaltable.EntityData.YangName = "sonetSectionIntervalTable"
-    sonetsectionintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    sonetsectionintervaltable.EntityData.ParentYangName = "SONET-MIB"
-    sonetsectionintervaltable.EntityData.SegmentPath = "sonetSectionIntervalTable"
-    sonetsectionintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetsectionintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetsectionintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetSectionIntervalTable *SONETMIB_SonetSectionIntervalTable) GetEntityData() *types.CommonEntityData {
+    sonetSectionIntervalTable.EntityData.YFilter = sonetSectionIntervalTable.YFilter
+    sonetSectionIntervalTable.EntityData.YangName = "sonetSectionIntervalTable"
+    sonetSectionIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetSectionIntervalTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetSectionIntervalTable.EntityData.SegmentPath = "sonetSectionIntervalTable"
+    sonetSectionIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetSectionIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetSectionIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetsectionintervaltable.EntityData.Children = make(map[string]types.YChild)
-    sonetsectionintervaltable.EntityData.Children["sonetSectionIntervalEntry"] = types.YChild{"Sonetsectionintervalentry", nil}
-    for i := range sonetsectionintervaltable.Sonetsectionintervalentry {
-        sonetsectionintervaltable.EntityData.Children[types.GetSegmentPath(&sonetsectionintervaltable.Sonetsectionintervalentry[i])] = types.YChild{"Sonetsectionintervalentry", &sonetsectionintervaltable.Sonetsectionintervalentry[i]}
+    sonetSectionIntervalTable.EntityData.Children = types.NewOrderedMap()
+    sonetSectionIntervalTable.EntityData.Children.Append("sonetSectionIntervalEntry", types.YChild{"SonetSectionIntervalEntry", nil})
+    for i := range sonetSectionIntervalTable.SonetSectionIntervalEntry {
+        sonetSectionIntervalTable.EntityData.Children.Append(types.GetSegmentPath(sonetSectionIntervalTable.SonetSectionIntervalEntry[i]), types.YChild{"SonetSectionIntervalEntry", sonetSectionIntervalTable.SonetSectionIntervalEntry[i]})
     }
-    sonetsectionintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetsectionintervaltable.EntityData)
+    sonetSectionIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetSectionIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(sonetSectionIntervalTable.EntityData)
 }
 
-// SONETMIB_Sonetsectionintervaltable_Sonetsectionintervalentry
+// SONETMIB_SonetSectionIntervalTable_SonetSectionIntervalEntry
 // An entry in the SONET/SDH Section Interval table.
-type SONETMIB_Sonetsectionintervaltable_Sonetsectionintervalentry struct {
+type SONETMIB_SonetSectionIntervalTable_SonetSectionIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, which identifies the
     // interval for which the set of statistics is available. The interval
     // identified by 1 is the most recently completed 15 minute interval, and the
     // interval identified by N is the interval immediately preceding the one
     // identified by N-1. The type is interface{} with range: 1..96.
-    Sonetsectionintervalnumber interface{}
+    SonetSectionIntervalNumber interface{}
 
     // The counter associated with the number of Errored Seconds encountered by a
     // SONET/SDH Section in a particular 15-minute interval in the past 24 hours.
     // The type is interface{} with range: 0..4294967295.
-    Sonetsectionintervaless interface{}
+    SonetSectionIntervalESs interface{}
 
     // The counter associated with the number of Severely Errored Seconds
     // encountered by a SONET/SDH Section in a particular 15-minute interval in
     // the past 24 hours. The type is interface{} with range: 0..4294967295.
-    Sonetsectionintervalsess interface{}
+    SonetSectionIntervalSESs interface{}
 
     // The counter associated with the number of Severely Errored Framing Seconds
     // encountered by a SONET/SDH Section in a particular 15-minute interval in
     // the past 24 hours. The type is interface{} with range: 0..4294967295.
-    Sonetsectionintervalsefss interface{}
+    SonetSectionIntervalSEFSs interface{}
 
     // The counter associated with the number of Coding Violations encountered by
     // a SONET/SDH Section in a particular 15-minute interval in the past 24
     // hours. The type is interface{} with range: 0..4294967295.
-    Sonetsectionintervalcvs interface{}
+    SonetSectionIntervalCVs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Sonetsectionintervalvaliddata interface{}
+    SonetSectionIntervalValidData interface{}
 }
 
-func (sonetsectionintervalentry *SONETMIB_Sonetsectionintervaltable_Sonetsectionintervalentry) GetEntityData() *types.CommonEntityData {
-    sonetsectionintervalentry.EntityData.YFilter = sonetsectionintervalentry.YFilter
-    sonetsectionintervalentry.EntityData.YangName = "sonetSectionIntervalEntry"
-    sonetsectionintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    sonetsectionintervalentry.EntityData.ParentYangName = "sonetSectionIntervalTable"
-    sonetsectionintervalentry.EntityData.SegmentPath = "sonetSectionIntervalEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetsectionintervalentry.Ifindex) + "']" + "[sonetSectionIntervalNumber='" + fmt.Sprintf("%v", sonetsectionintervalentry.Sonetsectionintervalnumber) + "']"
-    sonetsectionintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetsectionintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetsectionintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetSectionIntervalEntry *SONETMIB_SonetSectionIntervalTable_SonetSectionIntervalEntry) GetEntityData() *types.CommonEntityData {
+    sonetSectionIntervalEntry.EntityData.YFilter = sonetSectionIntervalEntry.YFilter
+    sonetSectionIntervalEntry.EntityData.YangName = "sonetSectionIntervalEntry"
+    sonetSectionIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetSectionIntervalEntry.EntityData.ParentYangName = "sonetSectionIntervalTable"
+    sonetSectionIntervalEntry.EntityData.SegmentPath = "sonetSectionIntervalEntry" + types.AddKeyToken(sonetSectionIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetSectionIntervalEntry.SonetSectionIntervalNumber, "sonetSectionIntervalNumber")
+    sonetSectionIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetSectionIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetSectionIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetsectionintervalentry.EntityData.Children = make(map[string]types.YChild)
-    sonetsectionintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetsectionintervalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetsectionintervalentry.Ifindex}
-    sonetsectionintervalentry.EntityData.Leafs["sonetSectionIntervalNumber"] = types.YLeaf{"Sonetsectionintervalnumber", sonetsectionintervalentry.Sonetsectionintervalnumber}
-    sonetsectionintervalentry.EntityData.Leafs["sonetSectionIntervalESs"] = types.YLeaf{"Sonetsectionintervaless", sonetsectionintervalentry.Sonetsectionintervaless}
-    sonetsectionintervalentry.EntityData.Leafs["sonetSectionIntervalSESs"] = types.YLeaf{"Sonetsectionintervalsess", sonetsectionintervalentry.Sonetsectionintervalsess}
-    sonetsectionintervalentry.EntityData.Leafs["sonetSectionIntervalSEFSs"] = types.YLeaf{"Sonetsectionintervalsefss", sonetsectionintervalentry.Sonetsectionintervalsefss}
-    sonetsectionintervalentry.EntityData.Leafs["sonetSectionIntervalCVs"] = types.YLeaf{"Sonetsectionintervalcvs", sonetsectionintervalentry.Sonetsectionintervalcvs}
-    sonetsectionintervalentry.EntityData.Leafs["sonetSectionIntervalValidData"] = types.YLeaf{"Sonetsectionintervalvaliddata", sonetsectionintervalentry.Sonetsectionintervalvaliddata}
-    return &(sonetsectionintervalentry.EntityData)
+    sonetSectionIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    sonetSectionIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetSectionIntervalEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetSectionIntervalEntry.IfIndex})
+    sonetSectionIntervalEntry.EntityData.Leafs.Append("sonetSectionIntervalNumber", types.YLeaf{"SonetSectionIntervalNumber", sonetSectionIntervalEntry.SonetSectionIntervalNumber})
+    sonetSectionIntervalEntry.EntityData.Leafs.Append("sonetSectionIntervalESs", types.YLeaf{"SonetSectionIntervalESs", sonetSectionIntervalEntry.SonetSectionIntervalESs})
+    sonetSectionIntervalEntry.EntityData.Leafs.Append("sonetSectionIntervalSESs", types.YLeaf{"SonetSectionIntervalSESs", sonetSectionIntervalEntry.SonetSectionIntervalSESs})
+    sonetSectionIntervalEntry.EntityData.Leafs.Append("sonetSectionIntervalSEFSs", types.YLeaf{"SonetSectionIntervalSEFSs", sonetSectionIntervalEntry.SonetSectionIntervalSEFSs})
+    sonetSectionIntervalEntry.EntityData.Leafs.Append("sonetSectionIntervalCVs", types.YLeaf{"SonetSectionIntervalCVs", sonetSectionIntervalEntry.SonetSectionIntervalCVs})
+    sonetSectionIntervalEntry.EntityData.Leafs.Append("sonetSectionIntervalValidData", types.YLeaf{"SonetSectionIntervalValidData", sonetSectionIntervalEntry.SonetSectionIntervalValidData})
+
+    sonetSectionIntervalEntry.EntityData.YListKeys = []string {"IfIndex", "SonetSectionIntervalNumber"}
+
+    return &(sonetSectionIntervalEntry.EntityData)
 }
 
-// SONETMIB_Sonetlinecurrenttable
+// SONETMIB_SonetLineCurrentTable
 // The SONET/SDH Line Current table.
-type SONETMIB_Sonetlinecurrenttable struct {
+type SONETMIB_SonetLineCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Line Current table. The type is slice of
-    // SONETMIB_Sonetlinecurrenttable_Sonetlinecurrententry.
-    Sonetlinecurrententry []SONETMIB_Sonetlinecurrenttable_Sonetlinecurrententry
+    // SONETMIB_SonetLineCurrentTable_SonetLineCurrentEntry.
+    SonetLineCurrentEntry []*SONETMIB_SonetLineCurrentTable_SonetLineCurrentEntry
 }
 
-func (sonetlinecurrenttable *SONETMIB_Sonetlinecurrenttable) GetEntityData() *types.CommonEntityData {
-    sonetlinecurrenttable.EntityData.YFilter = sonetlinecurrenttable.YFilter
-    sonetlinecurrenttable.EntityData.YangName = "sonetLineCurrentTable"
-    sonetlinecurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    sonetlinecurrenttable.EntityData.ParentYangName = "SONET-MIB"
-    sonetlinecurrenttable.EntityData.SegmentPath = "sonetLineCurrentTable"
-    sonetlinecurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetlinecurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetlinecurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetLineCurrentTable *SONETMIB_SonetLineCurrentTable) GetEntityData() *types.CommonEntityData {
+    sonetLineCurrentTable.EntityData.YFilter = sonetLineCurrentTable.YFilter
+    sonetLineCurrentTable.EntityData.YangName = "sonetLineCurrentTable"
+    sonetLineCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetLineCurrentTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetLineCurrentTable.EntityData.SegmentPath = "sonetLineCurrentTable"
+    sonetLineCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetLineCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetLineCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetlinecurrenttable.EntityData.Children = make(map[string]types.YChild)
-    sonetlinecurrenttable.EntityData.Children["sonetLineCurrentEntry"] = types.YChild{"Sonetlinecurrententry", nil}
-    for i := range sonetlinecurrenttable.Sonetlinecurrententry {
-        sonetlinecurrenttable.EntityData.Children[types.GetSegmentPath(&sonetlinecurrenttable.Sonetlinecurrententry[i])] = types.YChild{"Sonetlinecurrententry", &sonetlinecurrenttable.Sonetlinecurrententry[i]}
+    sonetLineCurrentTable.EntityData.Children = types.NewOrderedMap()
+    sonetLineCurrentTable.EntityData.Children.Append("sonetLineCurrentEntry", types.YChild{"SonetLineCurrentEntry", nil})
+    for i := range sonetLineCurrentTable.SonetLineCurrentEntry {
+        sonetLineCurrentTable.EntityData.Children.Append(types.GetSegmentPath(sonetLineCurrentTable.SonetLineCurrentEntry[i]), types.YChild{"SonetLineCurrentEntry", sonetLineCurrentTable.SonetLineCurrentEntry[i]})
     }
-    sonetlinecurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetlinecurrenttable.EntityData)
+    sonetLineCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetLineCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(sonetLineCurrentTable.EntityData)
 }
 
-// SONETMIB_Sonetlinecurrenttable_Sonetlinecurrententry
+// SONETMIB_SonetLineCurrentTable_SonetLineCurrentEntry
 // An entry in the SONET/SDH Line Current table.
-type SONETMIB_Sonetlinecurrenttable_Sonetlinecurrententry struct {
+type SONETMIB_SonetLineCurrentTable_SonetLineCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This variable indicates the status of the interface. The
     // sonetLineCurrentStatus is a bit map represented as a sum, therefore, it can
@@ -549,371 +576,395 @@ type SONETMIB_Sonetlinecurrenttable_Sonetlinecurrententry struct {
     // set if and only if no other flag is set.  The various bit positions are:  1
     // sonetLineNoDefect  2   sonetLineAIS  4   sonetLineRDI. The type is
     // interface{} with range: 1..6.
-    Sonetlinecurrentstatus interface{}
+    SonetLineCurrentStatus interface{}
 
     // The counter associated with the number of Errored Seconds encountered by a
     // SONET/SDH Line in the current 15 minute interval. The type is interface{}
     // with range: 0..4294967295.
-    Sonetlinecurrentess interface{}
+    SonetLineCurrentESs interface{}
 
     // The counter associated with the number of Severely Errored Seconds
     // encountered by a SONET/SDH Line in the current 15 minute interval. The type
     // is interface{} with range: 0..4294967295.
-    Sonetlinecurrentsess interface{}
+    SonetLineCurrentSESs interface{}
 
     // The counter associated with the number of Coding Violations encountered by
     // a SONET/SDH Line in the current 15 minute interval. The type is interface{}
     // with range: 0..4294967295.
-    Sonetlinecurrentcvs interface{}
+    SonetLineCurrentCVs interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered
     // by a SONET/SDH Line in the current 15 minute interval. The type is
     // interface{} with range: 0..4294967295.
-    Sonetlinecurrentuass interface{}
+    SonetLineCurrentUASs interface{}
 }
 
-func (sonetlinecurrententry *SONETMIB_Sonetlinecurrenttable_Sonetlinecurrententry) GetEntityData() *types.CommonEntityData {
-    sonetlinecurrententry.EntityData.YFilter = sonetlinecurrententry.YFilter
-    sonetlinecurrententry.EntityData.YangName = "sonetLineCurrentEntry"
-    sonetlinecurrententry.EntityData.BundleName = "cisco_ios_xe"
-    sonetlinecurrententry.EntityData.ParentYangName = "sonetLineCurrentTable"
-    sonetlinecurrententry.EntityData.SegmentPath = "sonetLineCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetlinecurrententry.Ifindex) + "']"
-    sonetlinecurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetlinecurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetlinecurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetLineCurrentEntry *SONETMIB_SonetLineCurrentTable_SonetLineCurrentEntry) GetEntityData() *types.CommonEntityData {
+    sonetLineCurrentEntry.EntityData.YFilter = sonetLineCurrentEntry.YFilter
+    sonetLineCurrentEntry.EntityData.YangName = "sonetLineCurrentEntry"
+    sonetLineCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetLineCurrentEntry.EntityData.ParentYangName = "sonetLineCurrentTable"
+    sonetLineCurrentEntry.EntityData.SegmentPath = "sonetLineCurrentEntry" + types.AddKeyToken(sonetLineCurrentEntry.IfIndex, "ifIndex")
+    sonetLineCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetLineCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetLineCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetlinecurrententry.EntityData.Children = make(map[string]types.YChild)
-    sonetlinecurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetlinecurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetlinecurrententry.Ifindex}
-    sonetlinecurrententry.EntityData.Leafs["sonetLineCurrentStatus"] = types.YLeaf{"Sonetlinecurrentstatus", sonetlinecurrententry.Sonetlinecurrentstatus}
-    sonetlinecurrententry.EntityData.Leafs["sonetLineCurrentESs"] = types.YLeaf{"Sonetlinecurrentess", sonetlinecurrententry.Sonetlinecurrentess}
-    sonetlinecurrententry.EntityData.Leafs["sonetLineCurrentSESs"] = types.YLeaf{"Sonetlinecurrentsess", sonetlinecurrententry.Sonetlinecurrentsess}
-    sonetlinecurrententry.EntityData.Leafs["sonetLineCurrentCVs"] = types.YLeaf{"Sonetlinecurrentcvs", sonetlinecurrententry.Sonetlinecurrentcvs}
-    sonetlinecurrententry.EntityData.Leafs["sonetLineCurrentUASs"] = types.YLeaf{"Sonetlinecurrentuass", sonetlinecurrententry.Sonetlinecurrentuass}
-    return &(sonetlinecurrententry.EntityData)
+    sonetLineCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    sonetLineCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetLineCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetLineCurrentEntry.IfIndex})
+    sonetLineCurrentEntry.EntityData.Leafs.Append("sonetLineCurrentStatus", types.YLeaf{"SonetLineCurrentStatus", sonetLineCurrentEntry.SonetLineCurrentStatus})
+    sonetLineCurrentEntry.EntityData.Leafs.Append("sonetLineCurrentESs", types.YLeaf{"SonetLineCurrentESs", sonetLineCurrentEntry.SonetLineCurrentESs})
+    sonetLineCurrentEntry.EntityData.Leafs.Append("sonetLineCurrentSESs", types.YLeaf{"SonetLineCurrentSESs", sonetLineCurrentEntry.SonetLineCurrentSESs})
+    sonetLineCurrentEntry.EntityData.Leafs.Append("sonetLineCurrentCVs", types.YLeaf{"SonetLineCurrentCVs", sonetLineCurrentEntry.SonetLineCurrentCVs})
+    sonetLineCurrentEntry.EntityData.Leafs.Append("sonetLineCurrentUASs", types.YLeaf{"SonetLineCurrentUASs", sonetLineCurrentEntry.SonetLineCurrentUASs})
+
+    sonetLineCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(sonetLineCurrentEntry.EntityData)
 }
 
-// SONETMIB_Sonetlineintervaltable
+// SONETMIB_SonetLineIntervalTable
 // The SONET/SDH Line Interval table.
-type SONETMIB_Sonetlineintervaltable struct {
+type SONETMIB_SonetLineIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Line Interval table. The type is slice of
-    // SONETMIB_Sonetlineintervaltable_Sonetlineintervalentry.
-    Sonetlineintervalentry []SONETMIB_Sonetlineintervaltable_Sonetlineintervalentry
+    // SONETMIB_SonetLineIntervalTable_SonetLineIntervalEntry.
+    SonetLineIntervalEntry []*SONETMIB_SonetLineIntervalTable_SonetLineIntervalEntry
 }
 
-func (sonetlineintervaltable *SONETMIB_Sonetlineintervaltable) GetEntityData() *types.CommonEntityData {
-    sonetlineintervaltable.EntityData.YFilter = sonetlineintervaltable.YFilter
-    sonetlineintervaltable.EntityData.YangName = "sonetLineIntervalTable"
-    sonetlineintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    sonetlineintervaltable.EntityData.ParentYangName = "SONET-MIB"
-    sonetlineintervaltable.EntityData.SegmentPath = "sonetLineIntervalTable"
-    sonetlineintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetlineintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetlineintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetLineIntervalTable *SONETMIB_SonetLineIntervalTable) GetEntityData() *types.CommonEntityData {
+    sonetLineIntervalTable.EntityData.YFilter = sonetLineIntervalTable.YFilter
+    sonetLineIntervalTable.EntityData.YangName = "sonetLineIntervalTable"
+    sonetLineIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetLineIntervalTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetLineIntervalTable.EntityData.SegmentPath = "sonetLineIntervalTable"
+    sonetLineIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetLineIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetLineIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetlineintervaltable.EntityData.Children = make(map[string]types.YChild)
-    sonetlineintervaltable.EntityData.Children["sonetLineIntervalEntry"] = types.YChild{"Sonetlineintervalentry", nil}
-    for i := range sonetlineintervaltable.Sonetlineintervalentry {
-        sonetlineintervaltable.EntityData.Children[types.GetSegmentPath(&sonetlineintervaltable.Sonetlineintervalentry[i])] = types.YChild{"Sonetlineintervalentry", &sonetlineintervaltable.Sonetlineintervalentry[i]}
+    sonetLineIntervalTable.EntityData.Children = types.NewOrderedMap()
+    sonetLineIntervalTable.EntityData.Children.Append("sonetLineIntervalEntry", types.YChild{"SonetLineIntervalEntry", nil})
+    for i := range sonetLineIntervalTable.SonetLineIntervalEntry {
+        sonetLineIntervalTable.EntityData.Children.Append(types.GetSegmentPath(sonetLineIntervalTable.SonetLineIntervalEntry[i]), types.YChild{"SonetLineIntervalEntry", sonetLineIntervalTable.SonetLineIntervalEntry[i]})
     }
-    sonetlineintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetlineintervaltable.EntityData)
+    sonetLineIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetLineIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(sonetLineIntervalTable.EntityData)
 }
 
-// SONETMIB_Sonetlineintervaltable_Sonetlineintervalentry
+// SONETMIB_SonetLineIntervalTable_SonetLineIntervalEntry
 // An entry in the SONET/SDH Line Interval table.
-type SONETMIB_Sonetlineintervaltable_Sonetlineintervalentry struct {
+type SONETMIB_SonetLineIntervalTable_SonetLineIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, which identifies the
     // interval for which the set of statistics is available. The interval
     // identified by 1 is the most recently completed 15 minute interval, and the
     // interval identified by N is the interval immediately preceding the one
     // identified by N-1. The type is interface{} with range: 1..96.
-    Sonetlineintervalnumber interface{}
+    SonetLineIntervalNumber interface{}
 
     // The counter associated with the number of Errored Seconds encountered by a
     // SONET/SDH Line in a particular 15-minute interval in the past 24 hours. The
     // type is interface{} with range: 0..4294967295.
-    Sonetlineintervaless interface{}
+    SonetLineIntervalESs interface{}
 
     // The counter associated with the number of Severely Errored Seconds
     // encountered by a SONET/SDH Line in a particular 15-minute interval in the
     // past 24 hours. The type is interface{} with range: 0..4294967295.
-    Sonetlineintervalsess interface{}
+    SonetLineIntervalSESs interface{}
 
     // The counter associated with the number of Coding Violations encountered by
     // a SONET/SDH Line in a particular 15-minute interval in the past 24 hours.
     // The type is interface{} with range: 0..4294967295.
-    Sonetlineintervalcvs interface{}
+    SonetLineIntervalCVs interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered
     // by a SONET/SDH Line in a particular 15-minute interval in the past 24
     // hours. The type is interface{} with range: 0..4294967295.
-    Sonetlineintervaluass interface{}
+    SonetLineIntervalUASs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Sonetlineintervalvaliddata interface{}
+    SonetLineIntervalValidData interface{}
 }
 
-func (sonetlineintervalentry *SONETMIB_Sonetlineintervaltable_Sonetlineintervalentry) GetEntityData() *types.CommonEntityData {
-    sonetlineintervalentry.EntityData.YFilter = sonetlineintervalentry.YFilter
-    sonetlineintervalentry.EntityData.YangName = "sonetLineIntervalEntry"
-    sonetlineintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    sonetlineintervalentry.EntityData.ParentYangName = "sonetLineIntervalTable"
-    sonetlineintervalentry.EntityData.SegmentPath = "sonetLineIntervalEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetlineintervalentry.Ifindex) + "']" + "[sonetLineIntervalNumber='" + fmt.Sprintf("%v", sonetlineintervalentry.Sonetlineintervalnumber) + "']"
-    sonetlineintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetlineintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetlineintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetLineIntervalEntry *SONETMIB_SonetLineIntervalTable_SonetLineIntervalEntry) GetEntityData() *types.CommonEntityData {
+    sonetLineIntervalEntry.EntityData.YFilter = sonetLineIntervalEntry.YFilter
+    sonetLineIntervalEntry.EntityData.YangName = "sonetLineIntervalEntry"
+    sonetLineIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetLineIntervalEntry.EntityData.ParentYangName = "sonetLineIntervalTable"
+    sonetLineIntervalEntry.EntityData.SegmentPath = "sonetLineIntervalEntry" + types.AddKeyToken(sonetLineIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetLineIntervalEntry.SonetLineIntervalNumber, "sonetLineIntervalNumber")
+    sonetLineIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetLineIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetLineIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetlineintervalentry.EntityData.Children = make(map[string]types.YChild)
-    sonetlineintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetlineintervalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetlineintervalentry.Ifindex}
-    sonetlineintervalentry.EntityData.Leafs["sonetLineIntervalNumber"] = types.YLeaf{"Sonetlineintervalnumber", sonetlineintervalentry.Sonetlineintervalnumber}
-    sonetlineintervalentry.EntityData.Leafs["sonetLineIntervalESs"] = types.YLeaf{"Sonetlineintervaless", sonetlineintervalentry.Sonetlineintervaless}
-    sonetlineintervalentry.EntityData.Leafs["sonetLineIntervalSESs"] = types.YLeaf{"Sonetlineintervalsess", sonetlineintervalentry.Sonetlineintervalsess}
-    sonetlineintervalentry.EntityData.Leafs["sonetLineIntervalCVs"] = types.YLeaf{"Sonetlineintervalcvs", sonetlineintervalentry.Sonetlineintervalcvs}
-    sonetlineintervalentry.EntityData.Leafs["sonetLineIntervalUASs"] = types.YLeaf{"Sonetlineintervaluass", sonetlineintervalentry.Sonetlineintervaluass}
-    sonetlineintervalentry.EntityData.Leafs["sonetLineIntervalValidData"] = types.YLeaf{"Sonetlineintervalvaliddata", sonetlineintervalentry.Sonetlineintervalvaliddata}
-    return &(sonetlineintervalentry.EntityData)
+    sonetLineIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    sonetLineIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetLineIntervalEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetLineIntervalEntry.IfIndex})
+    sonetLineIntervalEntry.EntityData.Leafs.Append("sonetLineIntervalNumber", types.YLeaf{"SonetLineIntervalNumber", sonetLineIntervalEntry.SonetLineIntervalNumber})
+    sonetLineIntervalEntry.EntityData.Leafs.Append("sonetLineIntervalESs", types.YLeaf{"SonetLineIntervalESs", sonetLineIntervalEntry.SonetLineIntervalESs})
+    sonetLineIntervalEntry.EntityData.Leafs.Append("sonetLineIntervalSESs", types.YLeaf{"SonetLineIntervalSESs", sonetLineIntervalEntry.SonetLineIntervalSESs})
+    sonetLineIntervalEntry.EntityData.Leafs.Append("sonetLineIntervalCVs", types.YLeaf{"SonetLineIntervalCVs", sonetLineIntervalEntry.SonetLineIntervalCVs})
+    sonetLineIntervalEntry.EntityData.Leafs.Append("sonetLineIntervalUASs", types.YLeaf{"SonetLineIntervalUASs", sonetLineIntervalEntry.SonetLineIntervalUASs})
+    sonetLineIntervalEntry.EntityData.Leafs.Append("sonetLineIntervalValidData", types.YLeaf{"SonetLineIntervalValidData", sonetLineIntervalEntry.SonetLineIntervalValidData})
+
+    sonetLineIntervalEntry.EntityData.YListKeys = []string {"IfIndex", "SonetLineIntervalNumber"}
+
+    return &(sonetLineIntervalEntry.EntityData)
 }
 
-// SONETMIB_Sonetfarendlinecurrenttable
+// SONETMIB_SonetFarEndLineCurrentTable
 // The SONET/SDH Far End Line Current table.
-type SONETMIB_Sonetfarendlinecurrenttable struct {
+type SONETMIB_SonetFarEndLineCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Far End Line Current table. The type is slice of
-    // SONETMIB_Sonetfarendlinecurrenttable_Sonetfarendlinecurrententry.
-    Sonetfarendlinecurrententry []SONETMIB_Sonetfarendlinecurrenttable_Sonetfarendlinecurrententry
+    // SONETMIB_SonetFarEndLineCurrentTable_SonetFarEndLineCurrentEntry.
+    SonetFarEndLineCurrentEntry []*SONETMIB_SonetFarEndLineCurrentTable_SonetFarEndLineCurrentEntry
 }
 
-func (sonetfarendlinecurrenttable *SONETMIB_Sonetfarendlinecurrenttable) GetEntityData() *types.CommonEntityData {
-    sonetfarendlinecurrenttable.EntityData.YFilter = sonetfarendlinecurrenttable.YFilter
-    sonetfarendlinecurrenttable.EntityData.YangName = "sonetFarEndLineCurrentTable"
-    sonetfarendlinecurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendlinecurrenttable.EntityData.ParentYangName = "SONET-MIB"
-    sonetfarendlinecurrenttable.EntityData.SegmentPath = "sonetFarEndLineCurrentTable"
-    sonetfarendlinecurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendlinecurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendlinecurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndLineCurrentTable *SONETMIB_SonetFarEndLineCurrentTable) GetEntityData() *types.CommonEntityData {
+    sonetFarEndLineCurrentTable.EntityData.YFilter = sonetFarEndLineCurrentTable.YFilter
+    sonetFarEndLineCurrentTable.EntityData.YangName = "sonetFarEndLineCurrentTable"
+    sonetFarEndLineCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndLineCurrentTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetFarEndLineCurrentTable.EntityData.SegmentPath = "sonetFarEndLineCurrentTable"
+    sonetFarEndLineCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndLineCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndLineCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendlinecurrenttable.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendlinecurrenttable.EntityData.Children["sonetFarEndLineCurrentEntry"] = types.YChild{"Sonetfarendlinecurrententry", nil}
-    for i := range sonetfarendlinecurrenttable.Sonetfarendlinecurrententry {
-        sonetfarendlinecurrenttable.EntityData.Children[types.GetSegmentPath(&sonetfarendlinecurrenttable.Sonetfarendlinecurrententry[i])] = types.YChild{"Sonetfarendlinecurrententry", &sonetfarendlinecurrenttable.Sonetfarendlinecurrententry[i]}
+    sonetFarEndLineCurrentTable.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndLineCurrentTable.EntityData.Children.Append("sonetFarEndLineCurrentEntry", types.YChild{"SonetFarEndLineCurrentEntry", nil})
+    for i := range sonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry {
+        sonetFarEndLineCurrentTable.EntityData.Children.Append(types.GetSegmentPath(sonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry[i]), types.YChild{"SonetFarEndLineCurrentEntry", sonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry[i]})
     }
-    sonetfarendlinecurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetfarendlinecurrenttable.EntityData)
+    sonetFarEndLineCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetFarEndLineCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(sonetFarEndLineCurrentTable.EntityData)
 }
 
-// SONETMIB_Sonetfarendlinecurrenttable_Sonetfarendlinecurrententry
+// SONETMIB_SonetFarEndLineCurrentTable_SonetFarEndLineCurrentEntry
 // An entry in the SONET/SDH Far End Line Current table.
-type SONETMIB_Sonetfarendlinecurrenttable_Sonetfarendlinecurrententry struct {
+type SONETMIB_SonetFarEndLineCurrentTable_SonetFarEndLineCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The counter associated with the number of Far End Errored Seconds
     // encountered by a SONET/SDH interface in the current 15 minute interval. The
     // type is interface{} with range: 0..4294967295.
-    Sonetfarendlinecurrentess interface{}
+    SonetFarEndLineCurrentESs interface{}
 
     // The counter associated with the number of Far End Severely Errored Seconds
     // encountered by a SONET/SDH Medium/Section/Line interface in the current 15
     // minute interval. The type is interface{} with range: 0..4294967295.
-    Sonetfarendlinecurrentsess interface{}
+    SonetFarEndLineCurrentSESs interface{}
 
     // The counter associated with the number of Far End Coding Violations
     // reported via the far end block error count encountered by a SONET/SDH
     // Medium/Section/Line interface in the current 15 minute interval. The type
     // is interface{} with range: 0..4294967295.
-    Sonetfarendlinecurrentcvs interface{}
+    SonetFarEndLineCurrentCVs interface{}
 
     // The counter associated with the number of Far End Unavailable Seconds
     // encountered by a SONET/SDH Medium/Section/Line interface in the current 15
     // minute interval. The type is interface{} with range: 0..4294967295.
-    Sonetfarendlinecurrentuass interface{}
+    SonetFarEndLineCurrentUASs interface{}
 }
 
-func (sonetfarendlinecurrententry *SONETMIB_Sonetfarendlinecurrenttable_Sonetfarendlinecurrententry) GetEntityData() *types.CommonEntityData {
-    sonetfarendlinecurrententry.EntityData.YFilter = sonetfarendlinecurrententry.YFilter
-    sonetfarendlinecurrententry.EntityData.YangName = "sonetFarEndLineCurrentEntry"
-    sonetfarendlinecurrententry.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendlinecurrententry.EntityData.ParentYangName = "sonetFarEndLineCurrentTable"
-    sonetfarendlinecurrententry.EntityData.SegmentPath = "sonetFarEndLineCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetfarendlinecurrententry.Ifindex) + "']"
-    sonetfarendlinecurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendlinecurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendlinecurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndLineCurrentEntry *SONETMIB_SonetFarEndLineCurrentTable_SonetFarEndLineCurrentEntry) GetEntityData() *types.CommonEntityData {
+    sonetFarEndLineCurrentEntry.EntityData.YFilter = sonetFarEndLineCurrentEntry.YFilter
+    sonetFarEndLineCurrentEntry.EntityData.YangName = "sonetFarEndLineCurrentEntry"
+    sonetFarEndLineCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndLineCurrentEntry.EntityData.ParentYangName = "sonetFarEndLineCurrentTable"
+    sonetFarEndLineCurrentEntry.EntityData.SegmentPath = "sonetFarEndLineCurrentEntry" + types.AddKeyToken(sonetFarEndLineCurrentEntry.IfIndex, "ifIndex")
+    sonetFarEndLineCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndLineCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndLineCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendlinecurrententry.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendlinecurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetfarendlinecurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetfarendlinecurrententry.Ifindex}
-    sonetfarendlinecurrententry.EntityData.Leafs["sonetFarEndLineCurrentESs"] = types.YLeaf{"Sonetfarendlinecurrentess", sonetfarendlinecurrententry.Sonetfarendlinecurrentess}
-    sonetfarendlinecurrententry.EntityData.Leafs["sonetFarEndLineCurrentSESs"] = types.YLeaf{"Sonetfarendlinecurrentsess", sonetfarendlinecurrententry.Sonetfarendlinecurrentsess}
-    sonetfarendlinecurrententry.EntityData.Leafs["sonetFarEndLineCurrentCVs"] = types.YLeaf{"Sonetfarendlinecurrentcvs", sonetfarendlinecurrententry.Sonetfarendlinecurrentcvs}
-    sonetfarendlinecurrententry.EntityData.Leafs["sonetFarEndLineCurrentUASs"] = types.YLeaf{"Sonetfarendlinecurrentuass", sonetfarendlinecurrententry.Sonetfarendlinecurrentuass}
-    return &(sonetfarendlinecurrententry.EntityData)
+    sonetFarEndLineCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndLineCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetFarEndLineCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetFarEndLineCurrentEntry.IfIndex})
+    sonetFarEndLineCurrentEntry.EntityData.Leafs.Append("sonetFarEndLineCurrentESs", types.YLeaf{"SonetFarEndLineCurrentESs", sonetFarEndLineCurrentEntry.SonetFarEndLineCurrentESs})
+    sonetFarEndLineCurrentEntry.EntityData.Leafs.Append("sonetFarEndLineCurrentSESs", types.YLeaf{"SonetFarEndLineCurrentSESs", sonetFarEndLineCurrentEntry.SonetFarEndLineCurrentSESs})
+    sonetFarEndLineCurrentEntry.EntityData.Leafs.Append("sonetFarEndLineCurrentCVs", types.YLeaf{"SonetFarEndLineCurrentCVs", sonetFarEndLineCurrentEntry.SonetFarEndLineCurrentCVs})
+    sonetFarEndLineCurrentEntry.EntityData.Leafs.Append("sonetFarEndLineCurrentUASs", types.YLeaf{"SonetFarEndLineCurrentUASs", sonetFarEndLineCurrentEntry.SonetFarEndLineCurrentUASs})
+
+    sonetFarEndLineCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(sonetFarEndLineCurrentEntry.EntityData)
 }
 
-// SONETMIB_Sonetfarendlineintervaltable
+// SONETMIB_SonetFarEndLineIntervalTable
 // The SONET/SDH Far End Line Interval table.
-type SONETMIB_Sonetfarendlineintervaltable struct {
+type SONETMIB_SonetFarEndLineIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Far End Line Interval table. The type is slice of
-    // SONETMIB_Sonetfarendlineintervaltable_Sonetfarendlineintervalentry.
-    Sonetfarendlineintervalentry []SONETMIB_Sonetfarendlineintervaltable_Sonetfarendlineintervalentry
+    // SONETMIB_SonetFarEndLineIntervalTable_SonetFarEndLineIntervalEntry.
+    SonetFarEndLineIntervalEntry []*SONETMIB_SonetFarEndLineIntervalTable_SonetFarEndLineIntervalEntry
 }
 
-func (sonetfarendlineintervaltable *SONETMIB_Sonetfarendlineintervaltable) GetEntityData() *types.CommonEntityData {
-    sonetfarendlineintervaltable.EntityData.YFilter = sonetfarendlineintervaltable.YFilter
-    sonetfarendlineintervaltable.EntityData.YangName = "sonetFarEndLineIntervalTable"
-    sonetfarendlineintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendlineintervaltable.EntityData.ParentYangName = "SONET-MIB"
-    sonetfarendlineintervaltable.EntityData.SegmentPath = "sonetFarEndLineIntervalTable"
-    sonetfarendlineintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendlineintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendlineintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndLineIntervalTable *SONETMIB_SonetFarEndLineIntervalTable) GetEntityData() *types.CommonEntityData {
+    sonetFarEndLineIntervalTable.EntityData.YFilter = sonetFarEndLineIntervalTable.YFilter
+    sonetFarEndLineIntervalTable.EntityData.YangName = "sonetFarEndLineIntervalTable"
+    sonetFarEndLineIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndLineIntervalTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetFarEndLineIntervalTable.EntityData.SegmentPath = "sonetFarEndLineIntervalTable"
+    sonetFarEndLineIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndLineIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndLineIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendlineintervaltable.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendlineintervaltable.EntityData.Children["sonetFarEndLineIntervalEntry"] = types.YChild{"Sonetfarendlineintervalentry", nil}
-    for i := range sonetfarendlineintervaltable.Sonetfarendlineintervalentry {
-        sonetfarendlineintervaltable.EntityData.Children[types.GetSegmentPath(&sonetfarendlineintervaltable.Sonetfarendlineintervalentry[i])] = types.YChild{"Sonetfarendlineintervalentry", &sonetfarendlineintervaltable.Sonetfarendlineintervalentry[i]}
+    sonetFarEndLineIntervalTable.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndLineIntervalTable.EntityData.Children.Append("sonetFarEndLineIntervalEntry", types.YChild{"SonetFarEndLineIntervalEntry", nil})
+    for i := range sonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry {
+        sonetFarEndLineIntervalTable.EntityData.Children.Append(types.GetSegmentPath(sonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry[i]), types.YChild{"SonetFarEndLineIntervalEntry", sonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry[i]})
     }
-    sonetfarendlineintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetfarendlineintervaltable.EntityData)
+    sonetFarEndLineIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetFarEndLineIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(sonetFarEndLineIntervalTable.EntityData)
 }
 
-// SONETMIB_Sonetfarendlineintervaltable_Sonetfarendlineintervalentry
+// SONETMIB_SonetFarEndLineIntervalTable_SonetFarEndLineIntervalEntry
 // An entry in the SONET/SDH Far
 // End Line Interval table.
-type SONETMIB_Sonetfarendlineintervaltable_Sonetfarendlineintervalentry struct {
+type SONETMIB_SonetFarEndLineIntervalTable_SonetFarEndLineIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, which identifies the
     // interval for which the set of statistics is available. The interval
     // identified by 1 is the most recently completed 15 minute interval, and the
     // interval identified by N is the interval immediately preceding the one
     // identified by N-1. The type is interface{} with range: 1..96.
-    Sonetfarendlineintervalnumber interface{}
+    SonetFarEndLineIntervalNumber interface{}
 
     // The counter associated with the number of Far End Errored Seconds
     // encountered by a SONET/SDH Line interface in a particular 15-minute
     // interval in the past 24 hours. The type is interface{} with range:
     // 0..4294967295.
-    Sonetfarendlineintervaless interface{}
+    SonetFarEndLineIntervalESs interface{}
 
     // The counter associated with the number of Far End Severely Errored Seconds
     // encountered by a SONET/SDH Line interface in a particular 15-minute
     // interval in the past 24 hours. The type is interface{} with range:
     // 0..4294967295.
-    Sonetfarendlineintervalsess interface{}
+    SonetFarEndLineIntervalSESs interface{}
 
     // The counter associated with the number of Far End Coding Violations
     // reported via the far end block error count encountered by a SONET/SDH Line
     // interface in a particular 15-minute interval in the past 24 hours. The type
     // is interface{} with range: 0..4294967295.
-    Sonetfarendlineintervalcvs interface{}
+    SonetFarEndLineIntervalCVs interface{}
 
     // The counter associated with the number of Far End Unavailable Seconds
     // encountered by a SONET/SDH Line interface in a particular 15-minute
     // interval in the past 24 hours. The type is interface{} with range:
     // 0..4294967295.
-    Sonetfarendlineintervaluass interface{}
+    SonetFarEndLineIntervalUASs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Sonetfarendlineintervalvaliddata interface{}
+    SonetFarEndLineIntervalValidData interface{}
 }
 
-func (sonetfarendlineintervalentry *SONETMIB_Sonetfarendlineintervaltable_Sonetfarendlineintervalentry) GetEntityData() *types.CommonEntityData {
-    sonetfarendlineintervalentry.EntityData.YFilter = sonetfarendlineintervalentry.YFilter
-    sonetfarendlineintervalentry.EntityData.YangName = "sonetFarEndLineIntervalEntry"
-    sonetfarendlineintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendlineintervalentry.EntityData.ParentYangName = "sonetFarEndLineIntervalTable"
-    sonetfarendlineintervalentry.EntityData.SegmentPath = "sonetFarEndLineIntervalEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetfarendlineintervalentry.Ifindex) + "']" + "[sonetFarEndLineIntervalNumber='" + fmt.Sprintf("%v", sonetfarendlineintervalentry.Sonetfarendlineintervalnumber) + "']"
-    sonetfarendlineintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendlineintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendlineintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndLineIntervalEntry *SONETMIB_SonetFarEndLineIntervalTable_SonetFarEndLineIntervalEntry) GetEntityData() *types.CommonEntityData {
+    sonetFarEndLineIntervalEntry.EntityData.YFilter = sonetFarEndLineIntervalEntry.YFilter
+    sonetFarEndLineIntervalEntry.EntityData.YangName = "sonetFarEndLineIntervalEntry"
+    sonetFarEndLineIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndLineIntervalEntry.EntityData.ParentYangName = "sonetFarEndLineIntervalTable"
+    sonetFarEndLineIntervalEntry.EntityData.SegmentPath = "sonetFarEndLineIntervalEntry" + types.AddKeyToken(sonetFarEndLineIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetFarEndLineIntervalEntry.SonetFarEndLineIntervalNumber, "sonetFarEndLineIntervalNumber")
+    sonetFarEndLineIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndLineIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndLineIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendlineintervalentry.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendlineintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetfarendlineintervalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetfarendlineintervalentry.Ifindex}
-    sonetfarendlineintervalentry.EntityData.Leafs["sonetFarEndLineIntervalNumber"] = types.YLeaf{"Sonetfarendlineintervalnumber", sonetfarendlineintervalentry.Sonetfarendlineintervalnumber}
-    sonetfarendlineintervalentry.EntityData.Leafs["sonetFarEndLineIntervalESs"] = types.YLeaf{"Sonetfarendlineintervaless", sonetfarendlineintervalentry.Sonetfarendlineintervaless}
-    sonetfarendlineintervalentry.EntityData.Leafs["sonetFarEndLineIntervalSESs"] = types.YLeaf{"Sonetfarendlineintervalsess", sonetfarendlineintervalentry.Sonetfarendlineintervalsess}
-    sonetfarendlineintervalentry.EntityData.Leafs["sonetFarEndLineIntervalCVs"] = types.YLeaf{"Sonetfarendlineintervalcvs", sonetfarendlineintervalentry.Sonetfarendlineintervalcvs}
-    sonetfarendlineintervalentry.EntityData.Leafs["sonetFarEndLineIntervalUASs"] = types.YLeaf{"Sonetfarendlineintervaluass", sonetfarendlineintervalentry.Sonetfarendlineintervaluass}
-    sonetfarendlineintervalentry.EntityData.Leafs["sonetFarEndLineIntervalValidData"] = types.YLeaf{"Sonetfarendlineintervalvaliddata", sonetfarendlineintervalentry.Sonetfarendlineintervalvaliddata}
-    return &(sonetfarendlineintervalentry.EntityData)
+    sonetFarEndLineIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndLineIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetFarEndLineIntervalEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetFarEndLineIntervalEntry.IfIndex})
+    sonetFarEndLineIntervalEntry.EntityData.Leafs.Append("sonetFarEndLineIntervalNumber", types.YLeaf{"SonetFarEndLineIntervalNumber", sonetFarEndLineIntervalEntry.SonetFarEndLineIntervalNumber})
+    sonetFarEndLineIntervalEntry.EntityData.Leafs.Append("sonetFarEndLineIntervalESs", types.YLeaf{"SonetFarEndLineIntervalESs", sonetFarEndLineIntervalEntry.SonetFarEndLineIntervalESs})
+    sonetFarEndLineIntervalEntry.EntityData.Leafs.Append("sonetFarEndLineIntervalSESs", types.YLeaf{"SonetFarEndLineIntervalSESs", sonetFarEndLineIntervalEntry.SonetFarEndLineIntervalSESs})
+    sonetFarEndLineIntervalEntry.EntityData.Leafs.Append("sonetFarEndLineIntervalCVs", types.YLeaf{"SonetFarEndLineIntervalCVs", sonetFarEndLineIntervalEntry.SonetFarEndLineIntervalCVs})
+    sonetFarEndLineIntervalEntry.EntityData.Leafs.Append("sonetFarEndLineIntervalUASs", types.YLeaf{"SonetFarEndLineIntervalUASs", sonetFarEndLineIntervalEntry.SonetFarEndLineIntervalUASs})
+    sonetFarEndLineIntervalEntry.EntityData.Leafs.Append("sonetFarEndLineIntervalValidData", types.YLeaf{"SonetFarEndLineIntervalValidData", sonetFarEndLineIntervalEntry.SonetFarEndLineIntervalValidData})
+
+    sonetFarEndLineIntervalEntry.EntityData.YListKeys = []string {"IfIndex", "SonetFarEndLineIntervalNumber"}
+
+    return &(sonetFarEndLineIntervalEntry.EntityData)
 }
 
-// SONETMIB_Sonetpathcurrenttable
+// SONETMIB_SonetPathCurrentTable
 // The SONET/SDH Path Current table.
-type SONETMIB_Sonetpathcurrenttable struct {
+type SONETMIB_SonetPathCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Path Current table. The type is slice of
-    // SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry.
-    Sonetpathcurrententry []SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry
+    // SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry.
+    SonetPathCurrentEntry []*SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry
 }
 
-func (sonetpathcurrenttable *SONETMIB_Sonetpathcurrenttable) GetEntityData() *types.CommonEntityData {
-    sonetpathcurrenttable.EntityData.YFilter = sonetpathcurrenttable.YFilter
-    sonetpathcurrenttable.EntityData.YangName = "sonetPathCurrentTable"
-    sonetpathcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    sonetpathcurrenttable.EntityData.ParentYangName = "SONET-MIB"
-    sonetpathcurrenttable.EntityData.SegmentPath = "sonetPathCurrentTable"
-    sonetpathcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetpathcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetpathcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetPathCurrentTable *SONETMIB_SonetPathCurrentTable) GetEntityData() *types.CommonEntityData {
+    sonetPathCurrentTable.EntityData.YFilter = sonetPathCurrentTable.YFilter
+    sonetPathCurrentTable.EntityData.YangName = "sonetPathCurrentTable"
+    sonetPathCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetPathCurrentTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetPathCurrentTable.EntityData.SegmentPath = "sonetPathCurrentTable"
+    sonetPathCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetPathCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetPathCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetpathcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    sonetpathcurrenttable.EntityData.Children["sonetPathCurrentEntry"] = types.YChild{"Sonetpathcurrententry", nil}
-    for i := range sonetpathcurrenttable.Sonetpathcurrententry {
-        sonetpathcurrenttable.EntityData.Children[types.GetSegmentPath(&sonetpathcurrenttable.Sonetpathcurrententry[i])] = types.YChild{"Sonetpathcurrententry", &sonetpathcurrenttable.Sonetpathcurrententry[i]}
+    sonetPathCurrentTable.EntityData.Children = types.NewOrderedMap()
+    sonetPathCurrentTable.EntityData.Children.Append("sonetPathCurrentEntry", types.YChild{"SonetPathCurrentEntry", nil})
+    for i := range sonetPathCurrentTable.SonetPathCurrentEntry {
+        sonetPathCurrentTable.EntityData.Children.Append(types.GetSegmentPath(sonetPathCurrentTable.SonetPathCurrentEntry[i]), types.YChild{"SonetPathCurrentEntry", sonetPathCurrentTable.SonetPathCurrentEntry[i]})
     }
-    sonetpathcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetpathcurrenttable.EntityData)
+    sonetPathCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetPathCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(sonetPathCurrentTable.EntityData)
 }
 
-// SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry
+// SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry
 // An entry in the SONET/SDH Path Current table.
-type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry struct {
+type SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // A value that indicates the type of the SONET/SDH Path.  For SONET, the
     // assigned types are the STS-Nc SPEs, where N = 1, 3, 12, 24, 48, 192 and
     // 768. STS-1 is equal to 51.84 Mbps.  For SDH, the assigned types are the
     // STM-Nc VCs, where N = 1, 4, 16, 64 and 256. The type is
-    // Sonetpathcurrentwidth.
-    Sonetpathcurrentwidth interface{}
+    // SonetPathCurrentWidth.
+    SonetPathCurrentWidth interface{}
 
     // This variable indicates the status of the interface. The
     // sonetPathCurrentStatus is a bit map represented as a sum, therefore, it can
@@ -922,27 +973,27 @@ type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry struct {
     // 1   sonetPathNoDefect    2   sonetPathSTSLOP    4   sonetPathSTSAIS    8  
     // sonetPathSTSRDI   16   sonetPathUnequipped   32  
     // sonetPathSignalLabelMismatch. The type is interface{} with range: 1..62.
-    Sonetpathcurrentstatus interface{}
+    SonetPathCurrentStatus interface{}
 
     // The counter associated with the number of Errored Seconds encountered by a
     // SONET/SDH Path in the current 15 minute interval. The type is interface{}
     // with range: 0..4294967295.
-    Sonetpathcurrentess interface{}
+    SonetPathCurrentESs interface{}
 
     // The counter associated with the number of Severely Errored Seconds
     // encountered by a SONET/SDH Path in the current 15 minute interval. The type
     // is interface{} with range: 0..4294967295.
-    Sonetpathcurrentsess interface{}
+    SonetPathCurrentSESs interface{}
 
     // The counter associated with the number of Coding Violations encountered by
     // a SONET/SDH Path in the current 15 minute interval. The type is interface{}
     // with range: 0..4294967295.
-    Sonetpathcurrentcvs interface{}
+    SonetPathCurrentCVs interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered
     // by a Path in the current 15 minute interval. The type is interface{} with
     // range: 0..4294967295.
-    Sonetpathcurrentuass interface{}
+    SonetPathCurrentUASs interface{}
 
     // Specifies the payload carried by the SONET/SDH Path. The payload
     // specification corresponds to C2 (Signal Label) overhead byte in SONET/SDH
@@ -956,15 +1007,15 @@ type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry struct {
     // vtStructured(9)  : Path is carrying VTGs/TUG3s/TUG2s which may             
     // each carry a different payload.  A write operation on this object will
     // result in update to C2 overhead byte in the Path Overhead. The type is
-    // Cspsonetpathpayload.
-    Cspsonetpathpayload interface{}
+    // CspSonetPathPayload.
+    CspSonetPathPayload interface{}
 
     // This object represents the VT/VC mapping type. asynchronous: In this mode,
     // the channel structure of                DS1/E1 is neither visible nor
     // preserved.  byteSynchronous: In this mode, the DS0 signals inside          
     // the VT/VC can be found and extracted                   from the frame. The
-    // initial value is asynchronous(1). The type is Csptributarymappingtype.
-    Csptributarymappingtype interface{}
+    // initial value is asynchronous(1). The type is CspTributaryMappingType.
+    CspTributaryMappingType interface{}
 
     // This object represents the mode used to transport DS0  Signalling
     // information for T1 byteSynchronous mapping (GR253). In
@@ -973,8 +1024,8 @@ type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry struct {
     // header.           The initial value is signallingTransferMode(2)  if
     // csTributaryMappingType is byteSynchronous.  For asynchronous mapping, it is
     // notApplicable(1).  The value notApplicable(1) can not be set. The type is
-    // Cspsignallingtransportmode.
-    Cspsignallingtransportmode interface{}
+    // CspSignallingTransportMode.
+    CspSignallingTransportMode interface{}
 
     // This object represents the method used to group VCs into an STM-1 signal.
     // Applicable only to SDH.  au3Grouping: STM1<-AU-3<-TUG-2<-TU-12<-VC12 or    
@@ -982,428 +1033,452 @@ type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry struct {
     // STM1<-AU-4<-TUG-3<-TUG-2<-TU-12<-VC12 or             
     // STM1<-AU-4<-TUG-3<-TUG-2<-TU-11<-VC11.  The initial value is au3Grouping(2)
     // for SDH and  notApplicable(1) for SONET. The type is
-    // Csptributarygroupingtype.
-    Csptributarygroupingtype interface{}
+    // CspTributaryGroupingType.
+    CspTributaryGroupingType interface{}
 }
 
-func (sonetpathcurrententry *SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry) GetEntityData() *types.CommonEntityData {
-    sonetpathcurrententry.EntityData.YFilter = sonetpathcurrententry.YFilter
-    sonetpathcurrententry.EntityData.YangName = "sonetPathCurrentEntry"
-    sonetpathcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    sonetpathcurrententry.EntityData.ParentYangName = "sonetPathCurrentTable"
-    sonetpathcurrententry.EntityData.SegmentPath = "sonetPathCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetpathcurrententry.Ifindex) + "']"
-    sonetpathcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetpathcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetpathcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetPathCurrentEntry *SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry) GetEntityData() *types.CommonEntityData {
+    sonetPathCurrentEntry.EntityData.YFilter = sonetPathCurrentEntry.YFilter
+    sonetPathCurrentEntry.EntityData.YangName = "sonetPathCurrentEntry"
+    sonetPathCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetPathCurrentEntry.EntityData.ParentYangName = "sonetPathCurrentTable"
+    sonetPathCurrentEntry.EntityData.SegmentPath = "sonetPathCurrentEntry" + types.AddKeyToken(sonetPathCurrentEntry.IfIndex, "ifIndex")
+    sonetPathCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetPathCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetPathCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetpathcurrententry.EntityData.Children = make(map[string]types.YChild)
-    sonetpathcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetpathcurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetpathcurrententry.Ifindex}
-    sonetpathcurrententry.EntityData.Leafs["sonetPathCurrentWidth"] = types.YLeaf{"Sonetpathcurrentwidth", sonetpathcurrententry.Sonetpathcurrentwidth}
-    sonetpathcurrententry.EntityData.Leafs["sonetPathCurrentStatus"] = types.YLeaf{"Sonetpathcurrentstatus", sonetpathcurrententry.Sonetpathcurrentstatus}
-    sonetpathcurrententry.EntityData.Leafs["sonetPathCurrentESs"] = types.YLeaf{"Sonetpathcurrentess", sonetpathcurrententry.Sonetpathcurrentess}
-    sonetpathcurrententry.EntityData.Leafs["sonetPathCurrentSESs"] = types.YLeaf{"Sonetpathcurrentsess", sonetpathcurrententry.Sonetpathcurrentsess}
-    sonetpathcurrententry.EntityData.Leafs["sonetPathCurrentCVs"] = types.YLeaf{"Sonetpathcurrentcvs", sonetpathcurrententry.Sonetpathcurrentcvs}
-    sonetpathcurrententry.EntityData.Leafs["sonetPathCurrentUASs"] = types.YLeaf{"Sonetpathcurrentuass", sonetpathcurrententry.Sonetpathcurrentuass}
-    sonetpathcurrententry.EntityData.Leafs["cspSonetPathPayload"] = types.YLeaf{"Cspsonetpathpayload", sonetpathcurrententry.Cspsonetpathpayload}
-    sonetpathcurrententry.EntityData.Leafs["cspTributaryMappingType"] = types.YLeaf{"Csptributarymappingtype", sonetpathcurrententry.Csptributarymappingtype}
-    sonetpathcurrententry.EntityData.Leafs["cspSignallingTransportMode"] = types.YLeaf{"Cspsignallingtransportmode", sonetpathcurrententry.Cspsignallingtransportmode}
-    sonetpathcurrententry.EntityData.Leafs["cspTributaryGroupingType"] = types.YLeaf{"Csptributarygroupingtype", sonetpathcurrententry.Csptributarygroupingtype}
-    return &(sonetpathcurrententry.EntityData)
+    sonetPathCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    sonetPathCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetPathCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetPathCurrentEntry.IfIndex})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("sonetPathCurrentWidth", types.YLeaf{"SonetPathCurrentWidth", sonetPathCurrentEntry.SonetPathCurrentWidth})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("sonetPathCurrentStatus", types.YLeaf{"SonetPathCurrentStatus", sonetPathCurrentEntry.SonetPathCurrentStatus})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("sonetPathCurrentESs", types.YLeaf{"SonetPathCurrentESs", sonetPathCurrentEntry.SonetPathCurrentESs})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("sonetPathCurrentSESs", types.YLeaf{"SonetPathCurrentSESs", sonetPathCurrentEntry.SonetPathCurrentSESs})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("sonetPathCurrentCVs", types.YLeaf{"SonetPathCurrentCVs", sonetPathCurrentEntry.SonetPathCurrentCVs})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("sonetPathCurrentUASs", types.YLeaf{"SonetPathCurrentUASs", sonetPathCurrentEntry.SonetPathCurrentUASs})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("cspSonetPathPayload", types.YLeaf{"CspSonetPathPayload", sonetPathCurrentEntry.CspSonetPathPayload})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("cspTributaryMappingType", types.YLeaf{"CspTributaryMappingType", sonetPathCurrentEntry.CspTributaryMappingType})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("cspSignallingTransportMode", types.YLeaf{"CspSignallingTransportMode", sonetPathCurrentEntry.CspSignallingTransportMode})
+    sonetPathCurrentEntry.EntityData.Leafs.Append("cspTributaryGroupingType", types.YLeaf{"CspTributaryGroupingType", sonetPathCurrentEntry.CspTributaryGroupingType})
+
+    sonetPathCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(sonetPathCurrentEntry.EntityData)
 }
 
-// SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsignallingtransportmode represents The value notApplicable(1) can not be set.
-type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsignallingtransportmode string
+// SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSignallingTransportMode represents The value notApplicable(1) can not be set.
+type SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSignallingTransportMode string
 
 const (
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsignallingtransportmode_notApplicable SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsignallingtransportmode = "notApplicable"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSignallingTransportMode_notApplicable SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSignallingTransportMode = "notApplicable"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsignallingtransportmode_signallingTransferMode SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsignallingtransportmode = "signallingTransferMode"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSignallingTransportMode_signallingTransferMode SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSignallingTransportMode = "signallingTransferMode"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsignallingtransportmode_clearMode SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsignallingtransportmode = "clearMode"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSignallingTransportMode_clearMode SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSignallingTransportMode = "clearMode"
 )
 
-// SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload represents C2 overhead byte in the Path Overhead.
-type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload string
+// SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload represents C2 overhead byte in the Path Overhead.
+type SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload string
 
 const (
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_unequipped SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "unequipped"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_unequipped SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "unequipped"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_unspecified SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "unspecified"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_unspecified SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "unspecified"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_ds3 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "ds3"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_ds3 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "ds3"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_vt15vc11 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "vt15vc11"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_vt15vc11 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "vt15vc11"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_vt2vc12 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "vt2vc12"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_vt2vc12 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "vt2vc12"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_atmCell SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "atmCell"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_atmCell SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "atmCell"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_hdlcFr SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "hdlcFr"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_hdlcFr SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "hdlcFr"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_e3 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "e3"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_e3 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "e3"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload_vtStructured SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Cspsonetpathpayload = "vtStructured"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload_vtStructured SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspSonetPathPayload = "vtStructured"
 )
 
-// SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarygroupingtype represents notApplicable(1) for SONET.
-type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarygroupingtype string
+// SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryGroupingType represents notApplicable(1) for SONET.
+type SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryGroupingType string
 
 const (
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarygroupingtype_notApplicable SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarygroupingtype = "notApplicable"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryGroupingType_notApplicable SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryGroupingType = "notApplicable"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarygroupingtype_au3Grouping SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarygroupingtype = "au3Grouping"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryGroupingType_au3Grouping SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryGroupingType = "au3Grouping"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarygroupingtype_au4Grouping SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarygroupingtype = "au4Grouping"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryGroupingType_au4Grouping SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryGroupingType = "au4Grouping"
 )
 
-// SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarymappingtype represents The initial value is asynchronous(1).
-type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarymappingtype string
+// SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryMappingType represents The initial value is asynchronous(1).
+type SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryMappingType string
 
 const (
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarymappingtype_asynchronous SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarymappingtype = "asynchronous"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryMappingType_asynchronous SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryMappingType = "asynchronous"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarymappingtype_byteSynchronous SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Csptributarymappingtype = "byteSynchronous"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryMappingType_byteSynchronous SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_CspTributaryMappingType = "byteSynchronous"
 )
 
-// SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth represents types are the STM-Nc VCs, where N = 1, 4, 16, 64 and 256.
-type SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth string
+// SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth represents types are the STM-Nc VCs, where N = 1, 4, 16, 64 and 256.
+type SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth string
 
 const (
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth_sts1 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth = "sts1"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth_sts1 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth = "sts1"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth_sts3cSTM1 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth = "sts3cSTM1"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth_sts3cSTM1 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth = "sts3cSTM1"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth_sts12cSTM4 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth = "sts12cSTM4"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth_sts12cSTM4 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth = "sts12cSTM4"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth_sts24c SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth = "sts24c"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth_sts24c SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth = "sts24c"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth_sts48cSTM16 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth = "sts48cSTM16"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth_sts48cSTM16 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth = "sts48cSTM16"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth_sts192cSTM64 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth = "sts192cSTM64"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth_sts192cSTM64 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth = "sts192cSTM64"
 
-    SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth_sts768cSTM256 SONETMIB_Sonetpathcurrenttable_Sonetpathcurrententry_Sonetpathcurrentwidth = "sts768cSTM256"
+    SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth_sts768cSTM256 SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry_SonetPathCurrentWidth = "sts768cSTM256"
 )
 
-// SONETMIB_Sonetpathintervaltable
+// SONETMIB_SonetPathIntervalTable
 // The SONET/SDH Path Interval table.
-type SONETMIB_Sonetpathintervaltable struct {
+type SONETMIB_SonetPathIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Path Interval table. The type is slice of
-    // SONETMIB_Sonetpathintervaltable_Sonetpathintervalentry.
-    Sonetpathintervalentry []SONETMIB_Sonetpathintervaltable_Sonetpathintervalentry
+    // SONETMIB_SonetPathIntervalTable_SonetPathIntervalEntry.
+    SonetPathIntervalEntry []*SONETMIB_SonetPathIntervalTable_SonetPathIntervalEntry
 }
 
-func (sonetpathintervaltable *SONETMIB_Sonetpathintervaltable) GetEntityData() *types.CommonEntityData {
-    sonetpathintervaltable.EntityData.YFilter = sonetpathintervaltable.YFilter
-    sonetpathintervaltable.EntityData.YangName = "sonetPathIntervalTable"
-    sonetpathintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    sonetpathintervaltable.EntityData.ParentYangName = "SONET-MIB"
-    sonetpathintervaltable.EntityData.SegmentPath = "sonetPathIntervalTable"
-    sonetpathintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetpathintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetpathintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetPathIntervalTable *SONETMIB_SonetPathIntervalTable) GetEntityData() *types.CommonEntityData {
+    sonetPathIntervalTable.EntityData.YFilter = sonetPathIntervalTable.YFilter
+    sonetPathIntervalTable.EntityData.YangName = "sonetPathIntervalTable"
+    sonetPathIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetPathIntervalTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetPathIntervalTable.EntityData.SegmentPath = "sonetPathIntervalTable"
+    sonetPathIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetPathIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetPathIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetpathintervaltable.EntityData.Children = make(map[string]types.YChild)
-    sonetpathintervaltable.EntityData.Children["sonetPathIntervalEntry"] = types.YChild{"Sonetpathintervalentry", nil}
-    for i := range sonetpathintervaltable.Sonetpathintervalentry {
-        sonetpathintervaltable.EntityData.Children[types.GetSegmentPath(&sonetpathintervaltable.Sonetpathintervalentry[i])] = types.YChild{"Sonetpathintervalentry", &sonetpathintervaltable.Sonetpathintervalentry[i]}
+    sonetPathIntervalTable.EntityData.Children = types.NewOrderedMap()
+    sonetPathIntervalTable.EntityData.Children.Append("sonetPathIntervalEntry", types.YChild{"SonetPathIntervalEntry", nil})
+    for i := range sonetPathIntervalTable.SonetPathIntervalEntry {
+        sonetPathIntervalTable.EntityData.Children.Append(types.GetSegmentPath(sonetPathIntervalTable.SonetPathIntervalEntry[i]), types.YChild{"SonetPathIntervalEntry", sonetPathIntervalTable.SonetPathIntervalEntry[i]})
     }
-    sonetpathintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetpathintervaltable.EntityData)
+    sonetPathIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetPathIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(sonetPathIntervalTable.EntityData)
 }
 
-// SONETMIB_Sonetpathintervaltable_Sonetpathintervalentry
+// SONETMIB_SonetPathIntervalTable_SonetPathIntervalEntry
 // An entry in the SONET/SDH Path Interval table.
-type SONETMIB_Sonetpathintervaltable_Sonetpathintervalentry struct {
+type SONETMIB_SonetPathIntervalTable_SonetPathIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, which identifies the
     // interval for which the set of statistics is available. The interval
     // identified by 1 is the most recently completed 15 minute interval, and the
     // interval identified by N is the interval immediately preceding the one
     // identified by N-1. The type is interface{} with range: 1..96.
-    Sonetpathintervalnumber interface{}
+    SonetPathIntervalNumber interface{}
 
     // The counter associated with the number of Errored Seconds encountered by a
     // SONET/SDH Path in a particular 15-minute interval in the past 24 hours. The
     // type is interface{} with range: 0..4294967295.
-    Sonetpathintervaless interface{}
+    SonetPathIntervalESs interface{}
 
     // The counter associated with the number of Severely Errored Seconds
     // encountered by a SONET/SDH Path in a particular 15-minute interval in the
     // past 24 hours. The type is interface{} with range: 0..4294967295.
-    Sonetpathintervalsess interface{}
+    SonetPathIntervalSESs interface{}
 
     // The counter associated with the number of Coding Violations encountered by
     // a SONET/SDH Path in a particular 15-minute interval in the past 24 hours.
     // The type is interface{} with range: 0..4294967295.
-    Sonetpathintervalcvs interface{}
+    SonetPathIntervalCVs interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered
     // by a Path in a particular 15-minute interval in the past 24 hours. The type
     // is interface{} with range: 0..4294967295.
-    Sonetpathintervaluass interface{}
+    SonetPathIntervalUASs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Sonetpathintervalvaliddata interface{}
+    SonetPathIntervalValidData interface{}
 }
 
-func (sonetpathintervalentry *SONETMIB_Sonetpathintervaltable_Sonetpathintervalentry) GetEntityData() *types.CommonEntityData {
-    sonetpathintervalentry.EntityData.YFilter = sonetpathintervalentry.YFilter
-    sonetpathintervalentry.EntityData.YangName = "sonetPathIntervalEntry"
-    sonetpathintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    sonetpathintervalentry.EntityData.ParentYangName = "sonetPathIntervalTable"
-    sonetpathintervalentry.EntityData.SegmentPath = "sonetPathIntervalEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetpathintervalentry.Ifindex) + "']" + "[sonetPathIntervalNumber='" + fmt.Sprintf("%v", sonetpathintervalentry.Sonetpathintervalnumber) + "']"
-    sonetpathintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetpathintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetpathintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetPathIntervalEntry *SONETMIB_SonetPathIntervalTable_SonetPathIntervalEntry) GetEntityData() *types.CommonEntityData {
+    sonetPathIntervalEntry.EntityData.YFilter = sonetPathIntervalEntry.YFilter
+    sonetPathIntervalEntry.EntityData.YangName = "sonetPathIntervalEntry"
+    sonetPathIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetPathIntervalEntry.EntityData.ParentYangName = "sonetPathIntervalTable"
+    sonetPathIntervalEntry.EntityData.SegmentPath = "sonetPathIntervalEntry" + types.AddKeyToken(sonetPathIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetPathIntervalEntry.SonetPathIntervalNumber, "sonetPathIntervalNumber")
+    sonetPathIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetPathIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetPathIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetpathintervalentry.EntityData.Children = make(map[string]types.YChild)
-    sonetpathintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetpathintervalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetpathintervalentry.Ifindex}
-    sonetpathintervalentry.EntityData.Leafs["sonetPathIntervalNumber"] = types.YLeaf{"Sonetpathintervalnumber", sonetpathintervalentry.Sonetpathintervalnumber}
-    sonetpathintervalentry.EntityData.Leafs["sonetPathIntervalESs"] = types.YLeaf{"Sonetpathintervaless", sonetpathintervalentry.Sonetpathintervaless}
-    sonetpathintervalentry.EntityData.Leafs["sonetPathIntervalSESs"] = types.YLeaf{"Sonetpathintervalsess", sonetpathintervalentry.Sonetpathintervalsess}
-    sonetpathintervalentry.EntityData.Leafs["sonetPathIntervalCVs"] = types.YLeaf{"Sonetpathintervalcvs", sonetpathintervalentry.Sonetpathintervalcvs}
-    sonetpathintervalentry.EntityData.Leafs["sonetPathIntervalUASs"] = types.YLeaf{"Sonetpathintervaluass", sonetpathintervalentry.Sonetpathintervaluass}
-    sonetpathintervalentry.EntityData.Leafs["sonetPathIntervalValidData"] = types.YLeaf{"Sonetpathintervalvaliddata", sonetpathintervalentry.Sonetpathintervalvaliddata}
-    return &(sonetpathintervalentry.EntityData)
+    sonetPathIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    sonetPathIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetPathIntervalEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetPathIntervalEntry.IfIndex})
+    sonetPathIntervalEntry.EntityData.Leafs.Append("sonetPathIntervalNumber", types.YLeaf{"SonetPathIntervalNumber", sonetPathIntervalEntry.SonetPathIntervalNumber})
+    sonetPathIntervalEntry.EntityData.Leafs.Append("sonetPathIntervalESs", types.YLeaf{"SonetPathIntervalESs", sonetPathIntervalEntry.SonetPathIntervalESs})
+    sonetPathIntervalEntry.EntityData.Leafs.Append("sonetPathIntervalSESs", types.YLeaf{"SonetPathIntervalSESs", sonetPathIntervalEntry.SonetPathIntervalSESs})
+    sonetPathIntervalEntry.EntityData.Leafs.Append("sonetPathIntervalCVs", types.YLeaf{"SonetPathIntervalCVs", sonetPathIntervalEntry.SonetPathIntervalCVs})
+    sonetPathIntervalEntry.EntityData.Leafs.Append("sonetPathIntervalUASs", types.YLeaf{"SonetPathIntervalUASs", sonetPathIntervalEntry.SonetPathIntervalUASs})
+    sonetPathIntervalEntry.EntityData.Leafs.Append("sonetPathIntervalValidData", types.YLeaf{"SonetPathIntervalValidData", sonetPathIntervalEntry.SonetPathIntervalValidData})
+
+    sonetPathIntervalEntry.EntityData.YListKeys = []string {"IfIndex", "SonetPathIntervalNumber"}
+
+    return &(sonetPathIntervalEntry.EntityData)
 }
 
-// SONETMIB_Sonetfarendpathcurrenttable
+// SONETMIB_SonetFarEndPathCurrentTable
 // The SONET/SDH Far End Path Current table.
-type SONETMIB_Sonetfarendpathcurrenttable struct {
+type SONETMIB_SonetFarEndPathCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Far End Path Current table. The type is slice of
-    // SONETMIB_Sonetfarendpathcurrenttable_Sonetfarendpathcurrententry.
-    Sonetfarendpathcurrententry []SONETMIB_Sonetfarendpathcurrenttable_Sonetfarendpathcurrententry
+    // SONETMIB_SonetFarEndPathCurrentTable_SonetFarEndPathCurrentEntry.
+    SonetFarEndPathCurrentEntry []*SONETMIB_SonetFarEndPathCurrentTable_SonetFarEndPathCurrentEntry
 }
 
-func (sonetfarendpathcurrenttable *SONETMIB_Sonetfarendpathcurrenttable) GetEntityData() *types.CommonEntityData {
-    sonetfarendpathcurrenttable.EntityData.YFilter = sonetfarendpathcurrenttable.YFilter
-    sonetfarendpathcurrenttable.EntityData.YangName = "sonetFarEndPathCurrentTable"
-    sonetfarendpathcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendpathcurrenttable.EntityData.ParentYangName = "SONET-MIB"
-    sonetfarendpathcurrenttable.EntityData.SegmentPath = "sonetFarEndPathCurrentTable"
-    sonetfarendpathcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendpathcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendpathcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndPathCurrentTable *SONETMIB_SonetFarEndPathCurrentTable) GetEntityData() *types.CommonEntityData {
+    sonetFarEndPathCurrentTable.EntityData.YFilter = sonetFarEndPathCurrentTable.YFilter
+    sonetFarEndPathCurrentTable.EntityData.YangName = "sonetFarEndPathCurrentTable"
+    sonetFarEndPathCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndPathCurrentTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetFarEndPathCurrentTable.EntityData.SegmentPath = "sonetFarEndPathCurrentTable"
+    sonetFarEndPathCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndPathCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndPathCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendpathcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendpathcurrenttable.EntityData.Children["sonetFarEndPathCurrentEntry"] = types.YChild{"Sonetfarendpathcurrententry", nil}
-    for i := range sonetfarendpathcurrenttable.Sonetfarendpathcurrententry {
-        sonetfarendpathcurrenttable.EntityData.Children[types.GetSegmentPath(&sonetfarendpathcurrenttable.Sonetfarendpathcurrententry[i])] = types.YChild{"Sonetfarendpathcurrententry", &sonetfarendpathcurrenttable.Sonetfarendpathcurrententry[i]}
+    sonetFarEndPathCurrentTable.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndPathCurrentTable.EntityData.Children.Append("sonetFarEndPathCurrentEntry", types.YChild{"SonetFarEndPathCurrentEntry", nil})
+    for i := range sonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry {
+        sonetFarEndPathCurrentTable.EntityData.Children.Append(types.GetSegmentPath(sonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry[i]), types.YChild{"SonetFarEndPathCurrentEntry", sonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry[i]})
     }
-    sonetfarendpathcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetfarendpathcurrenttable.EntityData)
+    sonetFarEndPathCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetFarEndPathCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(sonetFarEndPathCurrentTable.EntityData)
 }
 
-// SONETMIB_Sonetfarendpathcurrenttable_Sonetfarendpathcurrententry
+// SONETMIB_SonetFarEndPathCurrentTable_SonetFarEndPathCurrentEntry
 // An entry in the SONET/SDH Far End Path Current table.
-type SONETMIB_Sonetfarendpathcurrenttable_Sonetfarendpathcurrententry struct {
+type SONETMIB_SonetFarEndPathCurrentTable_SonetFarEndPathCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The counter associated with the number of Far End Errored Seconds
     // encountered by a SONET/SDH interface in the current 15 minute interval. The
     // type is interface{} with range: 0..4294967295.
-    Sonetfarendpathcurrentess interface{}
+    SonetFarEndPathCurrentESs interface{}
 
     // The counter associated with the number of Far End Severely Errored Seconds
     // encountered by a SONET/SDH Path interface in the current 15 minute
     // interval. The type is interface{} with range: 0..4294967295.
-    Sonetfarendpathcurrentsess interface{}
+    SonetFarEndPathCurrentSESs interface{}
 
     // The counter associated with the number of Far End Coding Violations
     // reported via the far end block error count encountered by a SONET/SDH Path
     // interface in the current 15 minute interval. The type is interface{} with
     // range: 0..4294967295.
-    Sonetfarendpathcurrentcvs interface{}
+    SonetFarEndPathCurrentCVs interface{}
 
     // The counter associated with the number of Far End Unavailable Seconds
     // encountered by a SONET/SDH Path interface in the current 15 minute
     // interval. The type is interface{} with range: 0..4294967295.
-    Sonetfarendpathcurrentuass interface{}
+    SonetFarEndPathCurrentUASs interface{}
 }
 
-func (sonetfarendpathcurrententry *SONETMIB_Sonetfarendpathcurrenttable_Sonetfarendpathcurrententry) GetEntityData() *types.CommonEntityData {
-    sonetfarendpathcurrententry.EntityData.YFilter = sonetfarendpathcurrententry.YFilter
-    sonetfarendpathcurrententry.EntityData.YangName = "sonetFarEndPathCurrentEntry"
-    sonetfarendpathcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendpathcurrententry.EntityData.ParentYangName = "sonetFarEndPathCurrentTable"
-    sonetfarendpathcurrententry.EntityData.SegmentPath = "sonetFarEndPathCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetfarendpathcurrententry.Ifindex) + "']"
-    sonetfarendpathcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendpathcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendpathcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndPathCurrentEntry *SONETMIB_SonetFarEndPathCurrentTable_SonetFarEndPathCurrentEntry) GetEntityData() *types.CommonEntityData {
+    sonetFarEndPathCurrentEntry.EntityData.YFilter = sonetFarEndPathCurrentEntry.YFilter
+    sonetFarEndPathCurrentEntry.EntityData.YangName = "sonetFarEndPathCurrentEntry"
+    sonetFarEndPathCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndPathCurrentEntry.EntityData.ParentYangName = "sonetFarEndPathCurrentTable"
+    sonetFarEndPathCurrentEntry.EntityData.SegmentPath = "sonetFarEndPathCurrentEntry" + types.AddKeyToken(sonetFarEndPathCurrentEntry.IfIndex, "ifIndex")
+    sonetFarEndPathCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndPathCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndPathCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendpathcurrententry.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendpathcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetfarendpathcurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetfarendpathcurrententry.Ifindex}
-    sonetfarendpathcurrententry.EntityData.Leafs["sonetFarEndPathCurrentESs"] = types.YLeaf{"Sonetfarendpathcurrentess", sonetfarendpathcurrententry.Sonetfarendpathcurrentess}
-    sonetfarendpathcurrententry.EntityData.Leafs["sonetFarEndPathCurrentSESs"] = types.YLeaf{"Sonetfarendpathcurrentsess", sonetfarendpathcurrententry.Sonetfarendpathcurrentsess}
-    sonetfarendpathcurrententry.EntityData.Leafs["sonetFarEndPathCurrentCVs"] = types.YLeaf{"Sonetfarendpathcurrentcvs", sonetfarendpathcurrententry.Sonetfarendpathcurrentcvs}
-    sonetfarendpathcurrententry.EntityData.Leafs["sonetFarEndPathCurrentUASs"] = types.YLeaf{"Sonetfarendpathcurrentuass", sonetfarendpathcurrententry.Sonetfarendpathcurrentuass}
-    return &(sonetfarendpathcurrententry.EntityData)
+    sonetFarEndPathCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndPathCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetFarEndPathCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetFarEndPathCurrentEntry.IfIndex})
+    sonetFarEndPathCurrentEntry.EntityData.Leafs.Append("sonetFarEndPathCurrentESs", types.YLeaf{"SonetFarEndPathCurrentESs", sonetFarEndPathCurrentEntry.SonetFarEndPathCurrentESs})
+    sonetFarEndPathCurrentEntry.EntityData.Leafs.Append("sonetFarEndPathCurrentSESs", types.YLeaf{"SonetFarEndPathCurrentSESs", sonetFarEndPathCurrentEntry.SonetFarEndPathCurrentSESs})
+    sonetFarEndPathCurrentEntry.EntityData.Leafs.Append("sonetFarEndPathCurrentCVs", types.YLeaf{"SonetFarEndPathCurrentCVs", sonetFarEndPathCurrentEntry.SonetFarEndPathCurrentCVs})
+    sonetFarEndPathCurrentEntry.EntityData.Leafs.Append("sonetFarEndPathCurrentUASs", types.YLeaf{"SonetFarEndPathCurrentUASs", sonetFarEndPathCurrentEntry.SonetFarEndPathCurrentUASs})
+
+    sonetFarEndPathCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(sonetFarEndPathCurrentEntry.EntityData)
 }
 
-// SONETMIB_Sonetfarendpathintervaltable
+// SONETMIB_SonetFarEndPathIntervalTable
 // The SONET/SDH Far End Path Interval table.
-type SONETMIB_Sonetfarendpathintervaltable struct {
+type SONETMIB_SonetFarEndPathIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Far End Path Interval table. The type is slice of
-    // SONETMIB_Sonetfarendpathintervaltable_Sonetfarendpathintervalentry.
-    Sonetfarendpathintervalentry []SONETMIB_Sonetfarendpathintervaltable_Sonetfarendpathintervalentry
+    // SONETMIB_SonetFarEndPathIntervalTable_SonetFarEndPathIntervalEntry.
+    SonetFarEndPathIntervalEntry []*SONETMIB_SonetFarEndPathIntervalTable_SonetFarEndPathIntervalEntry
 }
 
-func (sonetfarendpathintervaltable *SONETMIB_Sonetfarendpathintervaltable) GetEntityData() *types.CommonEntityData {
-    sonetfarendpathintervaltable.EntityData.YFilter = sonetfarendpathintervaltable.YFilter
-    sonetfarendpathintervaltable.EntityData.YangName = "sonetFarEndPathIntervalTable"
-    sonetfarendpathintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendpathintervaltable.EntityData.ParentYangName = "SONET-MIB"
-    sonetfarendpathintervaltable.EntityData.SegmentPath = "sonetFarEndPathIntervalTable"
-    sonetfarendpathintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendpathintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendpathintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndPathIntervalTable *SONETMIB_SonetFarEndPathIntervalTable) GetEntityData() *types.CommonEntityData {
+    sonetFarEndPathIntervalTable.EntityData.YFilter = sonetFarEndPathIntervalTable.YFilter
+    sonetFarEndPathIntervalTable.EntityData.YangName = "sonetFarEndPathIntervalTable"
+    sonetFarEndPathIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndPathIntervalTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetFarEndPathIntervalTable.EntityData.SegmentPath = "sonetFarEndPathIntervalTable"
+    sonetFarEndPathIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndPathIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndPathIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendpathintervaltable.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendpathintervaltable.EntityData.Children["sonetFarEndPathIntervalEntry"] = types.YChild{"Sonetfarendpathintervalentry", nil}
-    for i := range sonetfarendpathintervaltable.Sonetfarendpathintervalentry {
-        sonetfarendpathintervaltable.EntityData.Children[types.GetSegmentPath(&sonetfarendpathintervaltable.Sonetfarendpathintervalentry[i])] = types.YChild{"Sonetfarendpathintervalentry", &sonetfarendpathintervaltable.Sonetfarendpathintervalentry[i]}
+    sonetFarEndPathIntervalTable.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndPathIntervalTable.EntityData.Children.Append("sonetFarEndPathIntervalEntry", types.YChild{"SonetFarEndPathIntervalEntry", nil})
+    for i := range sonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry {
+        sonetFarEndPathIntervalTable.EntityData.Children.Append(types.GetSegmentPath(sonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry[i]), types.YChild{"SonetFarEndPathIntervalEntry", sonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry[i]})
     }
-    sonetfarendpathintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetfarendpathintervaltable.EntityData)
+    sonetFarEndPathIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetFarEndPathIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(sonetFarEndPathIntervalTable.EntityData)
 }
 
-// SONETMIB_Sonetfarendpathintervaltable_Sonetfarendpathintervalentry
+// SONETMIB_SonetFarEndPathIntervalTable_SonetFarEndPathIntervalEntry
 // An entry in the SONET/SDH Far
 // End Path Interval table.
-type SONETMIB_Sonetfarendpathintervaltable_Sonetfarendpathintervalentry struct {
+type SONETMIB_SonetFarEndPathIntervalTable_SonetFarEndPathIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, which identifies the
     // interval for which the set of statistics is available. The interval
     // identified by 1 is the most recently completed 15 minute interval, and the
     // interval identified by N is the interval immediately preceding the one
     // identified by N-1. The type is interface{} with range: 1..96.
-    Sonetfarendpathintervalnumber interface{}
+    SonetFarEndPathIntervalNumber interface{}
 
     // The counter associated with the number of Far End Errored Seconds
     // encountered by a SONET/SDH Path interface in a particular 15-minute
     // interval in the past 24 hours. The type is interface{} with range:
     // 0..4294967295.
-    Sonetfarendpathintervaless interface{}
+    SonetFarEndPathIntervalESs interface{}
 
     // The counter associated with the number of Far End Severely Errored Seconds
     // encountered by a SONET/SDH Path interface in a particular 15-minute
     // interval in the past 24 hours. The type is interface{} with range:
     // 0..4294967295.
-    Sonetfarendpathintervalsess interface{}
+    SonetFarEndPathIntervalSESs interface{}
 
     // The counter associated with the number of Far End Coding Violations
     // reported via the far end block error count encountered by a SONET/SDH Path
     // interface in a particular 15-minute interval in the past 24 hours. The type
     // is interface{} with range: 0..4294967295.
-    Sonetfarendpathintervalcvs interface{}
+    SonetFarEndPathIntervalCVs interface{}
 
     // The counter associated with the number of Far End Unavailable Seconds
     // encountered by a SONET/SDH Path interface in a particular 15-minute
     // interval in the past 24 hours. The type is interface{} with range:
     // 0..4294967295.
-    Sonetfarendpathintervaluass interface{}
+    SonetFarEndPathIntervalUASs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Sonetfarendpathintervalvaliddata interface{}
+    SonetFarEndPathIntervalValidData interface{}
 }
 
-func (sonetfarendpathintervalentry *SONETMIB_Sonetfarendpathintervaltable_Sonetfarendpathintervalentry) GetEntityData() *types.CommonEntityData {
-    sonetfarendpathintervalentry.EntityData.YFilter = sonetfarendpathintervalentry.YFilter
-    sonetfarendpathintervalentry.EntityData.YangName = "sonetFarEndPathIntervalEntry"
-    sonetfarendpathintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendpathintervalentry.EntityData.ParentYangName = "sonetFarEndPathIntervalTable"
-    sonetfarendpathintervalentry.EntityData.SegmentPath = "sonetFarEndPathIntervalEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetfarendpathintervalentry.Ifindex) + "']" + "[sonetFarEndPathIntervalNumber='" + fmt.Sprintf("%v", sonetfarendpathintervalentry.Sonetfarendpathintervalnumber) + "']"
-    sonetfarendpathintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendpathintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendpathintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndPathIntervalEntry *SONETMIB_SonetFarEndPathIntervalTable_SonetFarEndPathIntervalEntry) GetEntityData() *types.CommonEntityData {
+    sonetFarEndPathIntervalEntry.EntityData.YFilter = sonetFarEndPathIntervalEntry.YFilter
+    sonetFarEndPathIntervalEntry.EntityData.YangName = "sonetFarEndPathIntervalEntry"
+    sonetFarEndPathIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndPathIntervalEntry.EntityData.ParentYangName = "sonetFarEndPathIntervalTable"
+    sonetFarEndPathIntervalEntry.EntityData.SegmentPath = "sonetFarEndPathIntervalEntry" + types.AddKeyToken(sonetFarEndPathIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetFarEndPathIntervalEntry.SonetFarEndPathIntervalNumber, "sonetFarEndPathIntervalNumber")
+    sonetFarEndPathIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndPathIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndPathIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendpathintervalentry.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendpathintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetfarendpathintervalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetfarendpathintervalentry.Ifindex}
-    sonetfarendpathintervalentry.EntityData.Leafs["sonetFarEndPathIntervalNumber"] = types.YLeaf{"Sonetfarendpathintervalnumber", sonetfarendpathintervalentry.Sonetfarendpathintervalnumber}
-    sonetfarendpathintervalentry.EntityData.Leafs["sonetFarEndPathIntervalESs"] = types.YLeaf{"Sonetfarendpathintervaless", sonetfarendpathintervalentry.Sonetfarendpathintervaless}
-    sonetfarendpathintervalentry.EntityData.Leafs["sonetFarEndPathIntervalSESs"] = types.YLeaf{"Sonetfarendpathintervalsess", sonetfarendpathintervalentry.Sonetfarendpathintervalsess}
-    sonetfarendpathintervalentry.EntityData.Leafs["sonetFarEndPathIntervalCVs"] = types.YLeaf{"Sonetfarendpathintervalcvs", sonetfarendpathintervalentry.Sonetfarendpathintervalcvs}
-    sonetfarendpathintervalentry.EntityData.Leafs["sonetFarEndPathIntervalUASs"] = types.YLeaf{"Sonetfarendpathintervaluass", sonetfarendpathintervalentry.Sonetfarendpathintervaluass}
-    sonetfarendpathintervalentry.EntityData.Leafs["sonetFarEndPathIntervalValidData"] = types.YLeaf{"Sonetfarendpathintervalvaliddata", sonetfarendpathintervalentry.Sonetfarendpathintervalvaliddata}
-    return &(sonetfarendpathintervalentry.EntityData)
+    sonetFarEndPathIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndPathIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetFarEndPathIntervalEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetFarEndPathIntervalEntry.IfIndex})
+    sonetFarEndPathIntervalEntry.EntityData.Leafs.Append("sonetFarEndPathIntervalNumber", types.YLeaf{"SonetFarEndPathIntervalNumber", sonetFarEndPathIntervalEntry.SonetFarEndPathIntervalNumber})
+    sonetFarEndPathIntervalEntry.EntityData.Leafs.Append("sonetFarEndPathIntervalESs", types.YLeaf{"SonetFarEndPathIntervalESs", sonetFarEndPathIntervalEntry.SonetFarEndPathIntervalESs})
+    sonetFarEndPathIntervalEntry.EntityData.Leafs.Append("sonetFarEndPathIntervalSESs", types.YLeaf{"SonetFarEndPathIntervalSESs", sonetFarEndPathIntervalEntry.SonetFarEndPathIntervalSESs})
+    sonetFarEndPathIntervalEntry.EntityData.Leafs.Append("sonetFarEndPathIntervalCVs", types.YLeaf{"SonetFarEndPathIntervalCVs", sonetFarEndPathIntervalEntry.SonetFarEndPathIntervalCVs})
+    sonetFarEndPathIntervalEntry.EntityData.Leafs.Append("sonetFarEndPathIntervalUASs", types.YLeaf{"SonetFarEndPathIntervalUASs", sonetFarEndPathIntervalEntry.SonetFarEndPathIntervalUASs})
+    sonetFarEndPathIntervalEntry.EntityData.Leafs.Append("sonetFarEndPathIntervalValidData", types.YLeaf{"SonetFarEndPathIntervalValidData", sonetFarEndPathIntervalEntry.SonetFarEndPathIntervalValidData})
+
+    sonetFarEndPathIntervalEntry.EntityData.YListKeys = []string {"IfIndex", "SonetFarEndPathIntervalNumber"}
+
+    return &(sonetFarEndPathIntervalEntry.EntityData)
 }
 
-// SONETMIB_Sonetvtcurrenttable
+// SONETMIB_SonetVTCurrentTable
 // The SONET/SDH VT Current table.
-type SONETMIB_Sonetvtcurrenttable struct {
+type SONETMIB_SonetVTCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH VT Current table. The type is slice of
-    // SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry.
-    Sonetvtcurrententry []SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry
+    // SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry.
+    SonetVTCurrentEntry []*SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry
 }
 
-func (sonetvtcurrenttable *SONETMIB_Sonetvtcurrenttable) GetEntityData() *types.CommonEntityData {
-    sonetvtcurrenttable.EntityData.YFilter = sonetvtcurrenttable.YFilter
-    sonetvtcurrenttable.EntityData.YangName = "sonetVTCurrentTable"
-    sonetvtcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    sonetvtcurrenttable.EntityData.ParentYangName = "SONET-MIB"
-    sonetvtcurrenttable.EntityData.SegmentPath = "sonetVTCurrentTable"
-    sonetvtcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetvtcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetvtcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetVTCurrentTable *SONETMIB_SonetVTCurrentTable) GetEntityData() *types.CommonEntityData {
+    sonetVTCurrentTable.EntityData.YFilter = sonetVTCurrentTable.YFilter
+    sonetVTCurrentTable.EntityData.YangName = "sonetVTCurrentTable"
+    sonetVTCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetVTCurrentTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetVTCurrentTable.EntityData.SegmentPath = "sonetVTCurrentTable"
+    sonetVTCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetVTCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetVTCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetvtcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    sonetvtcurrenttable.EntityData.Children["sonetVTCurrentEntry"] = types.YChild{"Sonetvtcurrententry", nil}
-    for i := range sonetvtcurrenttable.Sonetvtcurrententry {
-        sonetvtcurrenttable.EntityData.Children[types.GetSegmentPath(&sonetvtcurrenttable.Sonetvtcurrententry[i])] = types.YChild{"Sonetvtcurrententry", &sonetvtcurrenttable.Sonetvtcurrententry[i]}
+    sonetVTCurrentTable.EntityData.Children = types.NewOrderedMap()
+    sonetVTCurrentTable.EntityData.Children.Append("sonetVTCurrentEntry", types.YChild{"SonetVTCurrentEntry", nil})
+    for i := range sonetVTCurrentTable.SonetVTCurrentEntry {
+        sonetVTCurrentTable.EntityData.Children.Append(types.GetSegmentPath(sonetVTCurrentTable.SonetVTCurrentEntry[i]), types.YChild{"SonetVTCurrentEntry", sonetVTCurrentTable.SonetVTCurrentEntry[i]})
     }
-    sonetvtcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetvtcurrenttable.EntityData)
+    sonetVTCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetVTCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(sonetVTCurrentTable.EntityData)
 }
 
-// SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry
+// SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry
 // An entry in the SONET/SDH VT Current table.
-type SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry struct {
+type SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // A value that indicates the type of the SONET VT and SDH VC.  Assigned
     // widths are VT1.5/VC11, VT2/VC12, VT3, VT6/VC2, and VT6c. The type is
-    // Sonetvtcurrentwidth.
-    Sonetvtcurrentwidth interface{}
+    // SonetVTCurrentWidth.
+    SonetVTCurrentWidth interface{}
 
     // This variable indicates the status of the interface. The
     // sonetVTCurrentStatus is a bit map represented as a sum, therefore, it can
@@ -1413,335 +1488,356 @@ type SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry struct {
     // sonetVTPathAIS    8   sonetVTPathRDI   16   sonetVTPathRFI   32  
     // sonetVTUnequipped   64   sonetVTSignalLabelMismatch. The type is
     // interface{} with range: 1..126.
-    Sonetvtcurrentstatus interface{}
+    SonetVTCurrentStatus interface{}
 
     // The counter associated with the number of Errored Seconds encountered by a
     // SONET/SDH VT in the current 15 minute interval. The type is interface{}
     // with range: 0..4294967295.
-    Sonetvtcurrentess interface{}
+    SonetVTCurrentESs interface{}
 
     // The counter associated with the number of Severely Errored Seconds
     // encountered by a SONET/SDH VT in the current 15 minute interval. The type
     // is interface{} with range: 0..4294967295.
-    Sonetvtcurrentsess interface{}
+    SonetVTCurrentSESs interface{}
 
     // The counter associated with the number of Coding Violations encountered by
     // a SONET/SDH VT in the current 15 minute interval. The type is interface{}
     // with range: 0..4294967295.
-    Sonetvtcurrentcvs interface{}
+    SonetVTCurrentCVs interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered
     // by a VT in the current 15 minute interval. The type is interface{} with
     // range: 0..4294967295.
-    Sonetvtcurrentuass interface{}
+    SonetVTCurrentUASs interface{}
 }
 
-func (sonetvtcurrententry *SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry) GetEntityData() *types.CommonEntityData {
-    sonetvtcurrententry.EntityData.YFilter = sonetvtcurrententry.YFilter
-    sonetvtcurrententry.EntityData.YangName = "sonetVTCurrentEntry"
-    sonetvtcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    sonetvtcurrententry.EntityData.ParentYangName = "sonetVTCurrentTable"
-    sonetvtcurrententry.EntityData.SegmentPath = "sonetVTCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetvtcurrententry.Ifindex) + "']"
-    sonetvtcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetvtcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetvtcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetVTCurrentEntry *SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry) GetEntityData() *types.CommonEntityData {
+    sonetVTCurrentEntry.EntityData.YFilter = sonetVTCurrentEntry.YFilter
+    sonetVTCurrentEntry.EntityData.YangName = "sonetVTCurrentEntry"
+    sonetVTCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetVTCurrentEntry.EntityData.ParentYangName = "sonetVTCurrentTable"
+    sonetVTCurrentEntry.EntityData.SegmentPath = "sonetVTCurrentEntry" + types.AddKeyToken(sonetVTCurrentEntry.IfIndex, "ifIndex")
+    sonetVTCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetVTCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetVTCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetvtcurrententry.EntityData.Children = make(map[string]types.YChild)
-    sonetvtcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetvtcurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetvtcurrententry.Ifindex}
-    sonetvtcurrententry.EntityData.Leafs["sonetVTCurrentWidth"] = types.YLeaf{"Sonetvtcurrentwidth", sonetvtcurrententry.Sonetvtcurrentwidth}
-    sonetvtcurrententry.EntityData.Leafs["sonetVTCurrentStatus"] = types.YLeaf{"Sonetvtcurrentstatus", sonetvtcurrententry.Sonetvtcurrentstatus}
-    sonetvtcurrententry.EntityData.Leafs["sonetVTCurrentESs"] = types.YLeaf{"Sonetvtcurrentess", sonetvtcurrententry.Sonetvtcurrentess}
-    sonetvtcurrententry.EntityData.Leafs["sonetVTCurrentSESs"] = types.YLeaf{"Sonetvtcurrentsess", sonetvtcurrententry.Sonetvtcurrentsess}
-    sonetvtcurrententry.EntityData.Leafs["sonetVTCurrentCVs"] = types.YLeaf{"Sonetvtcurrentcvs", sonetvtcurrententry.Sonetvtcurrentcvs}
-    sonetvtcurrententry.EntityData.Leafs["sonetVTCurrentUASs"] = types.YLeaf{"Sonetvtcurrentuass", sonetvtcurrententry.Sonetvtcurrentuass}
-    return &(sonetvtcurrententry.EntityData)
+    sonetVTCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    sonetVTCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetVTCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetVTCurrentEntry.IfIndex})
+    sonetVTCurrentEntry.EntityData.Leafs.Append("sonetVTCurrentWidth", types.YLeaf{"SonetVTCurrentWidth", sonetVTCurrentEntry.SonetVTCurrentWidth})
+    sonetVTCurrentEntry.EntityData.Leafs.Append("sonetVTCurrentStatus", types.YLeaf{"SonetVTCurrentStatus", sonetVTCurrentEntry.SonetVTCurrentStatus})
+    sonetVTCurrentEntry.EntityData.Leafs.Append("sonetVTCurrentESs", types.YLeaf{"SonetVTCurrentESs", sonetVTCurrentEntry.SonetVTCurrentESs})
+    sonetVTCurrentEntry.EntityData.Leafs.Append("sonetVTCurrentSESs", types.YLeaf{"SonetVTCurrentSESs", sonetVTCurrentEntry.SonetVTCurrentSESs})
+    sonetVTCurrentEntry.EntityData.Leafs.Append("sonetVTCurrentCVs", types.YLeaf{"SonetVTCurrentCVs", sonetVTCurrentEntry.SonetVTCurrentCVs})
+    sonetVTCurrentEntry.EntityData.Leafs.Append("sonetVTCurrentUASs", types.YLeaf{"SonetVTCurrentUASs", sonetVTCurrentEntry.SonetVTCurrentUASs})
+
+    sonetVTCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(sonetVTCurrentEntry.EntityData)
 }
 
-// SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth represents VT1.5/VC11, VT2/VC12, VT3, VT6/VC2, and VT6c.
-type SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth string
+// SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth represents VT1.5/VC11, VT2/VC12, VT3, VT6/VC2, and VT6c.
+type SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth string
 
 const (
-    SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth_vtWidth15VC11 SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth = "vtWidth15VC11"
+    SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth_vtWidth15VC11 SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth = "vtWidth15VC11"
 
-    SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth_vtWidth2VC12 SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth = "vtWidth2VC12"
+    SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth_vtWidth2VC12 SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth = "vtWidth2VC12"
 
-    SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth_vtWidth3 SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth = "vtWidth3"
+    SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth_vtWidth3 SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth = "vtWidth3"
 
-    SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth_vtWidth6VC2 SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth = "vtWidth6VC2"
+    SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth_vtWidth6VC2 SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth = "vtWidth6VC2"
 
-    SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth_vtWidth6c SONETMIB_Sonetvtcurrenttable_Sonetvtcurrententry_Sonetvtcurrentwidth = "vtWidth6c"
+    SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth_vtWidth6c SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry_SonetVTCurrentWidth = "vtWidth6c"
 )
 
-// SONETMIB_Sonetvtintervaltable
+// SONETMIB_SonetVTIntervalTable
 // The SONET/SDH VT Interval table.
-type SONETMIB_Sonetvtintervaltable struct {
+type SONETMIB_SonetVTIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH VT Interval table. The type is slice of
-    // SONETMIB_Sonetvtintervaltable_Sonetvtintervalentry.
-    Sonetvtintervalentry []SONETMIB_Sonetvtintervaltable_Sonetvtintervalentry
+    // SONETMIB_SonetVTIntervalTable_SonetVTIntervalEntry.
+    SonetVTIntervalEntry []*SONETMIB_SonetVTIntervalTable_SonetVTIntervalEntry
 }
 
-func (sonetvtintervaltable *SONETMIB_Sonetvtintervaltable) GetEntityData() *types.CommonEntityData {
-    sonetvtintervaltable.EntityData.YFilter = sonetvtintervaltable.YFilter
-    sonetvtintervaltable.EntityData.YangName = "sonetVTIntervalTable"
-    sonetvtintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    sonetvtintervaltable.EntityData.ParentYangName = "SONET-MIB"
-    sonetvtintervaltable.EntityData.SegmentPath = "sonetVTIntervalTable"
-    sonetvtintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetvtintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetvtintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetVTIntervalTable *SONETMIB_SonetVTIntervalTable) GetEntityData() *types.CommonEntityData {
+    sonetVTIntervalTable.EntityData.YFilter = sonetVTIntervalTable.YFilter
+    sonetVTIntervalTable.EntityData.YangName = "sonetVTIntervalTable"
+    sonetVTIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetVTIntervalTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetVTIntervalTable.EntityData.SegmentPath = "sonetVTIntervalTable"
+    sonetVTIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetVTIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetVTIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetvtintervaltable.EntityData.Children = make(map[string]types.YChild)
-    sonetvtintervaltable.EntityData.Children["sonetVTIntervalEntry"] = types.YChild{"Sonetvtintervalentry", nil}
-    for i := range sonetvtintervaltable.Sonetvtintervalentry {
-        sonetvtintervaltable.EntityData.Children[types.GetSegmentPath(&sonetvtintervaltable.Sonetvtintervalentry[i])] = types.YChild{"Sonetvtintervalentry", &sonetvtintervaltable.Sonetvtintervalentry[i]}
+    sonetVTIntervalTable.EntityData.Children = types.NewOrderedMap()
+    sonetVTIntervalTable.EntityData.Children.Append("sonetVTIntervalEntry", types.YChild{"SonetVTIntervalEntry", nil})
+    for i := range sonetVTIntervalTable.SonetVTIntervalEntry {
+        sonetVTIntervalTable.EntityData.Children.Append(types.GetSegmentPath(sonetVTIntervalTable.SonetVTIntervalEntry[i]), types.YChild{"SonetVTIntervalEntry", sonetVTIntervalTable.SonetVTIntervalEntry[i]})
     }
-    sonetvtintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetvtintervaltable.EntityData)
+    sonetVTIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetVTIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(sonetVTIntervalTable.EntityData)
 }
 
-// SONETMIB_Sonetvtintervaltable_Sonetvtintervalentry
+// SONETMIB_SonetVTIntervalTable_SonetVTIntervalEntry
 // An entry in the SONET/SDH VT Interval table.
-type SONETMIB_Sonetvtintervaltable_Sonetvtintervalentry struct {
+type SONETMIB_SonetVTIntervalTable_SonetVTIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, which identifies the
     // interval for which the set of statistics is available. The interval
     // identified by 1 is the most recently completed 15 minute interval, and the
     // interval identified by N is the interval immediately preceding the one
     // identified by N-1. The type is interface{} with range: 1..96.
-    Sonetvtintervalnumber interface{}
+    SonetVTIntervalNumber interface{}
 
     // The counter associated with the number of Errored Seconds encountered by a
     // SONET/SDH VT in a particular 15-minute interval in the past 24 hours. The
     // type is interface{} with range: 0..4294967295.
-    Sonetvtintervaless interface{}
+    SonetVTIntervalESs interface{}
 
     // The counter associated with the number of Severely Errored Seconds
     // encountered by a SONET/SDH VT in a particular 15-minute interval in the
     // past 24 hours. The type is interface{} with range: 0..4294967295.
-    Sonetvtintervalsess interface{}
+    SonetVTIntervalSESs interface{}
 
     // The counter associated with the number of Coding Violations encountered by
     // a SONET/SDH VT in a particular 15-minute interval in the past 24 hours. The
     // type is interface{} with range: 0..4294967295.
-    Sonetvtintervalcvs interface{}
+    SonetVTIntervalCVs interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered
     // by a VT in a particular 15-minute interval in the past 24 hours. The type
     // is interface{} with range: 0..4294967295.
-    Sonetvtintervaluass interface{}
+    SonetVTIntervalUASs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Sonetvtintervalvaliddata interface{}
+    SonetVTIntervalValidData interface{}
 }
 
-func (sonetvtintervalentry *SONETMIB_Sonetvtintervaltable_Sonetvtintervalentry) GetEntityData() *types.CommonEntityData {
-    sonetvtintervalentry.EntityData.YFilter = sonetvtintervalentry.YFilter
-    sonetvtintervalentry.EntityData.YangName = "sonetVTIntervalEntry"
-    sonetvtintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    sonetvtintervalentry.EntityData.ParentYangName = "sonetVTIntervalTable"
-    sonetvtintervalentry.EntityData.SegmentPath = "sonetVTIntervalEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetvtintervalentry.Ifindex) + "']" + "[sonetVTIntervalNumber='" + fmt.Sprintf("%v", sonetvtintervalentry.Sonetvtintervalnumber) + "']"
-    sonetvtintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetvtintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetvtintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetVTIntervalEntry *SONETMIB_SonetVTIntervalTable_SonetVTIntervalEntry) GetEntityData() *types.CommonEntityData {
+    sonetVTIntervalEntry.EntityData.YFilter = sonetVTIntervalEntry.YFilter
+    sonetVTIntervalEntry.EntityData.YangName = "sonetVTIntervalEntry"
+    sonetVTIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetVTIntervalEntry.EntityData.ParentYangName = "sonetVTIntervalTable"
+    sonetVTIntervalEntry.EntityData.SegmentPath = "sonetVTIntervalEntry" + types.AddKeyToken(sonetVTIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetVTIntervalEntry.SonetVTIntervalNumber, "sonetVTIntervalNumber")
+    sonetVTIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetVTIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetVTIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetvtintervalentry.EntityData.Children = make(map[string]types.YChild)
-    sonetvtintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetvtintervalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetvtintervalentry.Ifindex}
-    sonetvtintervalentry.EntityData.Leafs["sonetVTIntervalNumber"] = types.YLeaf{"Sonetvtintervalnumber", sonetvtintervalentry.Sonetvtintervalnumber}
-    sonetvtintervalentry.EntityData.Leafs["sonetVTIntervalESs"] = types.YLeaf{"Sonetvtintervaless", sonetvtintervalentry.Sonetvtintervaless}
-    sonetvtintervalentry.EntityData.Leafs["sonetVTIntervalSESs"] = types.YLeaf{"Sonetvtintervalsess", sonetvtintervalentry.Sonetvtintervalsess}
-    sonetvtintervalentry.EntityData.Leafs["sonetVTIntervalCVs"] = types.YLeaf{"Sonetvtintervalcvs", sonetvtintervalentry.Sonetvtintervalcvs}
-    sonetvtintervalentry.EntityData.Leafs["sonetVTIntervalUASs"] = types.YLeaf{"Sonetvtintervaluass", sonetvtintervalentry.Sonetvtintervaluass}
-    sonetvtintervalentry.EntityData.Leafs["sonetVTIntervalValidData"] = types.YLeaf{"Sonetvtintervalvaliddata", sonetvtintervalentry.Sonetvtintervalvaliddata}
-    return &(sonetvtintervalentry.EntityData)
+    sonetVTIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    sonetVTIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetVTIntervalEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetVTIntervalEntry.IfIndex})
+    sonetVTIntervalEntry.EntityData.Leafs.Append("sonetVTIntervalNumber", types.YLeaf{"SonetVTIntervalNumber", sonetVTIntervalEntry.SonetVTIntervalNumber})
+    sonetVTIntervalEntry.EntityData.Leafs.Append("sonetVTIntervalESs", types.YLeaf{"SonetVTIntervalESs", sonetVTIntervalEntry.SonetVTIntervalESs})
+    sonetVTIntervalEntry.EntityData.Leafs.Append("sonetVTIntervalSESs", types.YLeaf{"SonetVTIntervalSESs", sonetVTIntervalEntry.SonetVTIntervalSESs})
+    sonetVTIntervalEntry.EntityData.Leafs.Append("sonetVTIntervalCVs", types.YLeaf{"SonetVTIntervalCVs", sonetVTIntervalEntry.SonetVTIntervalCVs})
+    sonetVTIntervalEntry.EntityData.Leafs.Append("sonetVTIntervalUASs", types.YLeaf{"SonetVTIntervalUASs", sonetVTIntervalEntry.SonetVTIntervalUASs})
+    sonetVTIntervalEntry.EntityData.Leafs.Append("sonetVTIntervalValidData", types.YLeaf{"SonetVTIntervalValidData", sonetVTIntervalEntry.SonetVTIntervalValidData})
+
+    sonetVTIntervalEntry.EntityData.YListKeys = []string {"IfIndex", "SonetVTIntervalNumber"}
+
+    return &(sonetVTIntervalEntry.EntityData)
 }
 
-// SONETMIB_Sonetfarendvtcurrenttable
+// SONETMIB_SonetFarEndVTCurrentTable
 // The SONET/SDH Far End VT Current table.
-type SONETMIB_Sonetfarendvtcurrenttable struct {
+type SONETMIB_SonetFarEndVTCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Far End VT Current table. The type is slice of
-    // SONETMIB_Sonetfarendvtcurrenttable_Sonetfarendvtcurrententry.
-    Sonetfarendvtcurrententry []SONETMIB_Sonetfarendvtcurrenttable_Sonetfarendvtcurrententry
+    // SONETMIB_SonetFarEndVTCurrentTable_SonetFarEndVTCurrentEntry.
+    SonetFarEndVTCurrentEntry []*SONETMIB_SonetFarEndVTCurrentTable_SonetFarEndVTCurrentEntry
 }
 
-func (sonetfarendvtcurrenttable *SONETMIB_Sonetfarendvtcurrenttable) GetEntityData() *types.CommonEntityData {
-    sonetfarendvtcurrenttable.EntityData.YFilter = sonetfarendvtcurrenttable.YFilter
-    sonetfarendvtcurrenttable.EntityData.YangName = "sonetFarEndVTCurrentTable"
-    sonetfarendvtcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendvtcurrenttable.EntityData.ParentYangName = "SONET-MIB"
-    sonetfarendvtcurrenttable.EntityData.SegmentPath = "sonetFarEndVTCurrentTable"
-    sonetfarendvtcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendvtcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendvtcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndVTCurrentTable *SONETMIB_SonetFarEndVTCurrentTable) GetEntityData() *types.CommonEntityData {
+    sonetFarEndVTCurrentTable.EntityData.YFilter = sonetFarEndVTCurrentTable.YFilter
+    sonetFarEndVTCurrentTable.EntityData.YangName = "sonetFarEndVTCurrentTable"
+    sonetFarEndVTCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndVTCurrentTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetFarEndVTCurrentTable.EntityData.SegmentPath = "sonetFarEndVTCurrentTable"
+    sonetFarEndVTCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndVTCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndVTCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendvtcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendvtcurrenttable.EntityData.Children["sonetFarEndVTCurrentEntry"] = types.YChild{"Sonetfarendvtcurrententry", nil}
-    for i := range sonetfarendvtcurrenttable.Sonetfarendvtcurrententry {
-        sonetfarendvtcurrenttable.EntityData.Children[types.GetSegmentPath(&sonetfarendvtcurrenttable.Sonetfarendvtcurrententry[i])] = types.YChild{"Sonetfarendvtcurrententry", &sonetfarendvtcurrenttable.Sonetfarendvtcurrententry[i]}
+    sonetFarEndVTCurrentTable.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndVTCurrentTable.EntityData.Children.Append("sonetFarEndVTCurrentEntry", types.YChild{"SonetFarEndVTCurrentEntry", nil})
+    for i := range sonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry {
+        sonetFarEndVTCurrentTable.EntityData.Children.Append(types.GetSegmentPath(sonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry[i]), types.YChild{"SonetFarEndVTCurrentEntry", sonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry[i]})
     }
-    sonetfarendvtcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetfarendvtcurrenttable.EntityData)
+    sonetFarEndVTCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetFarEndVTCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(sonetFarEndVTCurrentTable.EntityData)
 }
 
-// SONETMIB_Sonetfarendvtcurrenttable_Sonetfarendvtcurrententry
+// SONETMIB_SonetFarEndVTCurrentTable_SonetFarEndVTCurrentEntry
 // An entry in the SONET/SDH Far End VT Current table.
-type SONETMIB_Sonetfarendvtcurrenttable_Sonetfarendvtcurrententry struct {
+type SONETMIB_SonetFarEndVTCurrentTable_SonetFarEndVTCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The counter associated with the number of Far End Errored Seconds
     // encountered by a SONET/SDH interface in the current 15 minute interval. The
     // type is interface{} with range: 0..4294967295.
-    Sonetfarendvtcurrentess interface{}
+    SonetFarEndVTCurrentESs interface{}
 
     // The counter associated with the number of Far End Severely Errored Seconds
     // encountered by a SONET/SDH VT interface in the current 15 minute interval.
     // The type is interface{} with range: 0..4294967295.
-    Sonetfarendvtcurrentsess interface{}
+    SonetFarEndVTCurrentSESs interface{}
 
     // The counter associated with the number of Far End Coding Violations
     // reported via the far end block error count encountered by a SONET/SDH VT
     // interface in the current 15 minute interval. The type is interface{} with
     // range: 0..4294967295.
-    Sonetfarendvtcurrentcvs interface{}
+    SonetFarEndVTCurrentCVs interface{}
 
     // The counter associated with the number of Far End Unavailable Seconds
     // encountered by a SONET/SDH VT interface in the current 15 minute interval.
     // The type is interface{} with range: 0..4294967295.
-    Sonetfarendvtcurrentuass interface{}
+    SonetFarEndVTCurrentUASs interface{}
 }
 
-func (sonetfarendvtcurrententry *SONETMIB_Sonetfarendvtcurrenttable_Sonetfarendvtcurrententry) GetEntityData() *types.CommonEntityData {
-    sonetfarendvtcurrententry.EntityData.YFilter = sonetfarendvtcurrententry.YFilter
-    sonetfarendvtcurrententry.EntityData.YangName = "sonetFarEndVTCurrentEntry"
-    sonetfarendvtcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendvtcurrententry.EntityData.ParentYangName = "sonetFarEndVTCurrentTable"
-    sonetfarendvtcurrententry.EntityData.SegmentPath = "sonetFarEndVTCurrentEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetfarendvtcurrententry.Ifindex) + "']"
-    sonetfarendvtcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendvtcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendvtcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndVTCurrentEntry *SONETMIB_SonetFarEndVTCurrentTable_SonetFarEndVTCurrentEntry) GetEntityData() *types.CommonEntityData {
+    sonetFarEndVTCurrentEntry.EntityData.YFilter = sonetFarEndVTCurrentEntry.YFilter
+    sonetFarEndVTCurrentEntry.EntityData.YangName = "sonetFarEndVTCurrentEntry"
+    sonetFarEndVTCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndVTCurrentEntry.EntityData.ParentYangName = "sonetFarEndVTCurrentTable"
+    sonetFarEndVTCurrentEntry.EntityData.SegmentPath = "sonetFarEndVTCurrentEntry" + types.AddKeyToken(sonetFarEndVTCurrentEntry.IfIndex, "ifIndex")
+    sonetFarEndVTCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndVTCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndVTCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendvtcurrententry.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendvtcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetfarendvtcurrententry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetfarendvtcurrententry.Ifindex}
-    sonetfarendvtcurrententry.EntityData.Leafs["sonetFarEndVTCurrentESs"] = types.YLeaf{"Sonetfarendvtcurrentess", sonetfarendvtcurrententry.Sonetfarendvtcurrentess}
-    sonetfarendvtcurrententry.EntityData.Leafs["sonetFarEndVTCurrentSESs"] = types.YLeaf{"Sonetfarendvtcurrentsess", sonetfarendvtcurrententry.Sonetfarendvtcurrentsess}
-    sonetfarendvtcurrententry.EntityData.Leafs["sonetFarEndVTCurrentCVs"] = types.YLeaf{"Sonetfarendvtcurrentcvs", sonetfarendvtcurrententry.Sonetfarendvtcurrentcvs}
-    sonetfarendvtcurrententry.EntityData.Leafs["sonetFarEndVTCurrentUASs"] = types.YLeaf{"Sonetfarendvtcurrentuass", sonetfarendvtcurrententry.Sonetfarendvtcurrentuass}
-    return &(sonetfarendvtcurrententry.EntityData)
+    sonetFarEndVTCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndVTCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetFarEndVTCurrentEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetFarEndVTCurrentEntry.IfIndex})
+    sonetFarEndVTCurrentEntry.EntityData.Leafs.Append("sonetFarEndVTCurrentESs", types.YLeaf{"SonetFarEndVTCurrentESs", sonetFarEndVTCurrentEntry.SonetFarEndVTCurrentESs})
+    sonetFarEndVTCurrentEntry.EntityData.Leafs.Append("sonetFarEndVTCurrentSESs", types.YLeaf{"SonetFarEndVTCurrentSESs", sonetFarEndVTCurrentEntry.SonetFarEndVTCurrentSESs})
+    sonetFarEndVTCurrentEntry.EntityData.Leafs.Append("sonetFarEndVTCurrentCVs", types.YLeaf{"SonetFarEndVTCurrentCVs", sonetFarEndVTCurrentEntry.SonetFarEndVTCurrentCVs})
+    sonetFarEndVTCurrentEntry.EntityData.Leafs.Append("sonetFarEndVTCurrentUASs", types.YLeaf{"SonetFarEndVTCurrentUASs", sonetFarEndVTCurrentEntry.SonetFarEndVTCurrentUASs})
+
+    sonetFarEndVTCurrentEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(sonetFarEndVTCurrentEntry.EntityData)
 }
 
-// SONETMIB_Sonetfarendvtintervaltable
+// SONETMIB_SonetFarEndVTIntervalTable
 // The SONET/SDH Far End VT Interval table.
-type SONETMIB_Sonetfarendvtintervaltable struct {
+type SONETMIB_SonetFarEndVTIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Far End VT Interval table. The type is slice of
-    // SONETMIB_Sonetfarendvtintervaltable_Sonetfarendvtintervalentry.
-    Sonetfarendvtintervalentry []SONETMIB_Sonetfarendvtintervaltable_Sonetfarendvtintervalentry
+    // SONETMIB_SonetFarEndVTIntervalTable_SonetFarEndVTIntervalEntry.
+    SonetFarEndVTIntervalEntry []*SONETMIB_SonetFarEndVTIntervalTable_SonetFarEndVTIntervalEntry
 }
 
-func (sonetfarendvtintervaltable *SONETMIB_Sonetfarendvtintervaltable) GetEntityData() *types.CommonEntityData {
-    sonetfarendvtintervaltable.EntityData.YFilter = sonetfarendvtintervaltable.YFilter
-    sonetfarendvtintervaltable.EntityData.YangName = "sonetFarEndVTIntervalTable"
-    sonetfarendvtintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendvtintervaltable.EntityData.ParentYangName = "SONET-MIB"
-    sonetfarendvtintervaltable.EntityData.SegmentPath = "sonetFarEndVTIntervalTable"
-    sonetfarendvtintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendvtintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendvtintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndVTIntervalTable *SONETMIB_SonetFarEndVTIntervalTable) GetEntityData() *types.CommonEntityData {
+    sonetFarEndVTIntervalTable.EntityData.YFilter = sonetFarEndVTIntervalTable.YFilter
+    sonetFarEndVTIntervalTable.EntityData.YangName = "sonetFarEndVTIntervalTable"
+    sonetFarEndVTIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndVTIntervalTable.EntityData.ParentYangName = "SONET-MIB"
+    sonetFarEndVTIntervalTable.EntityData.SegmentPath = "sonetFarEndVTIntervalTable"
+    sonetFarEndVTIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndVTIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndVTIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendvtintervaltable.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendvtintervaltable.EntityData.Children["sonetFarEndVTIntervalEntry"] = types.YChild{"Sonetfarendvtintervalentry", nil}
-    for i := range sonetfarendvtintervaltable.Sonetfarendvtintervalentry {
-        sonetfarendvtintervaltable.EntityData.Children[types.GetSegmentPath(&sonetfarendvtintervaltable.Sonetfarendvtintervalentry[i])] = types.YChild{"Sonetfarendvtintervalentry", &sonetfarendvtintervaltable.Sonetfarendvtintervalentry[i]}
+    sonetFarEndVTIntervalTable.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndVTIntervalTable.EntityData.Children.Append("sonetFarEndVTIntervalEntry", types.YChild{"SonetFarEndVTIntervalEntry", nil})
+    for i := range sonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry {
+        sonetFarEndVTIntervalTable.EntityData.Children.Append(types.GetSegmentPath(sonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry[i]), types.YChild{"SonetFarEndVTIntervalEntry", sonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry[i]})
     }
-    sonetfarendvtintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sonetfarendvtintervaltable.EntityData)
+    sonetFarEndVTIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetFarEndVTIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(sonetFarEndVTIntervalTable.EntityData)
 }
 
-// SONETMIB_Sonetfarendvtintervaltable_Sonetfarendvtintervalentry
+// SONETMIB_SonetFarEndVTIntervalTable_SonetFarEndVTIntervalEntry
 // An entry in the SONET/SDH Far
 // End VT Interval table.
-type SONETMIB_Sonetfarendvtintervaltable_Sonetfarendvtintervalentry struct {
+type SONETMIB_SonetFarEndVTIntervalTable_SonetFarEndVTIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, which identifies the
     // interval for which the set of statistics is available. The interval
     // identified by 1 is the most recently completed 15 minute interval, and the
     // interval identified by N is the interval immediately preceding the one
     // identified by N-1. The type is interface{} with range: 1..96.
-    Sonetfarendvtintervalnumber interface{}
+    SonetFarEndVTIntervalNumber interface{}
 
     // The counter associated with the number of Far End Errored Seconds
     // encountered by a SONET/SDH VT interface in a particular 15-minute interval
     // in the past 24 hours. The type is interface{} with range: 0..4294967295.
-    Sonetfarendvtintervaless interface{}
+    SonetFarEndVTIntervalESs interface{}
 
     // The counter associated with the number of Far End Severely Errored Seconds
     // encountered by a SONET/SDH VT interface in a particular 15-minute interval
     // in the past 24 hours. The type is interface{} with range: 0..4294967295.
-    Sonetfarendvtintervalsess interface{}
+    SonetFarEndVTIntervalSESs interface{}
 
     // The counter associated with the number of Far End Coding Violations
     // reported via the far end block error count encountered by a SONET/SDH VT
     // interface in a particular 15-minute interval in the past 24 hours. The type
     // is interface{} with range: 0..4294967295.
-    Sonetfarendvtintervalcvs interface{}
+    SonetFarEndVTIntervalCVs interface{}
 
     // The counter associated with the number of Far End Unavailable Seconds
     // encountered by a SONET/SDH VT interface in a particular 15-minute interval
     // in the past 24 hours. The type is interface{} with range: 0..4294967295.
-    Sonetfarendvtintervaluass interface{}
+    SonetFarEndVTIntervalUASs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Sonetfarendvtintervalvaliddata interface{}
+    SonetFarEndVTIntervalValidData interface{}
 }
 
-func (sonetfarendvtintervalentry *SONETMIB_Sonetfarendvtintervaltable_Sonetfarendvtintervalentry) GetEntityData() *types.CommonEntityData {
-    sonetfarendvtintervalentry.EntityData.YFilter = sonetfarendvtintervalentry.YFilter
-    sonetfarendvtintervalentry.EntityData.YangName = "sonetFarEndVTIntervalEntry"
-    sonetfarendvtintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    sonetfarendvtintervalentry.EntityData.ParentYangName = "sonetFarEndVTIntervalTable"
-    sonetfarendvtintervalentry.EntityData.SegmentPath = "sonetFarEndVTIntervalEntry" + "[ifIndex='" + fmt.Sprintf("%v", sonetfarendvtintervalentry.Ifindex) + "']" + "[sonetFarEndVTIntervalNumber='" + fmt.Sprintf("%v", sonetfarendvtintervalentry.Sonetfarendvtintervalnumber) + "']"
-    sonetfarendvtintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sonetfarendvtintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sonetfarendvtintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sonetFarEndVTIntervalEntry *SONETMIB_SonetFarEndVTIntervalTable_SonetFarEndVTIntervalEntry) GetEntityData() *types.CommonEntityData {
+    sonetFarEndVTIntervalEntry.EntityData.YFilter = sonetFarEndVTIntervalEntry.YFilter
+    sonetFarEndVTIntervalEntry.EntityData.YangName = "sonetFarEndVTIntervalEntry"
+    sonetFarEndVTIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    sonetFarEndVTIntervalEntry.EntityData.ParentYangName = "sonetFarEndVTIntervalTable"
+    sonetFarEndVTIntervalEntry.EntityData.SegmentPath = "sonetFarEndVTIntervalEntry" + types.AddKeyToken(sonetFarEndVTIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetFarEndVTIntervalEntry.SonetFarEndVTIntervalNumber, "sonetFarEndVTIntervalNumber")
+    sonetFarEndVTIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sonetFarEndVTIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sonetFarEndVTIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sonetfarendvtintervalentry.EntityData.Children = make(map[string]types.YChild)
-    sonetfarendvtintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sonetfarendvtintervalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", sonetfarendvtintervalentry.Ifindex}
-    sonetfarendvtintervalentry.EntityData.Leafs["sonetFarEndVTIntervalNumber"] = types.YLeaf{"Sonetfarendvtintervalnumber", sonetfarendvtintervalentry.Sonetfarendvtintervalnumber}
-    sonetfarendvtintervalentry.EntityData.Leafs["sonetFarEndVTIntervalESs"] = types.YLeaf{"Sonetfarendvtintervaless", sonetfarendvtintervalentry.Sonetfarendvtintervaless}
-    sonetfarendvtintervalentry.EntityData.Leafs["sonetFarEndVTIntervalSESs"] = types.YLeaf{"Sonetfarendvtintervalsess", sonetfarendvtintervalentry.Sonetfarendvtintervalsess}
-    sonetfarendvtintervalentry.EntityData.Leafs["sonetFarEndVTIntervalCVs"] = types.YLeaf{"Sonetfarendvtintervalcvs", sonetfarendvtintervalentry.Sonetfarendvtintervalcvs}
-    sonetfarendvtintervalentry.EntityData.Leafs["sonetFarEndVTIntervalUASs"] = types.YLeaf{"Sonetfarendvtintervaluass", sonetfarendvtintervalentry.Sonetfarendvtintervaluass}
-    sonetfarendvtintervalentry.EntityData.Leafs["sonetFarEndVTIntervalValidData"] = types.YLeaf{"Sonetfarendvtintervalvaliddata", sonetfarendvtintervalentry.Sonetfarendvtintervalvaliddata}
-    return &(sonetfarendvtintervalentry.EntityData)
+    sonetFarEndVTIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    sonetFarEndVTIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    sonetFarEndVTIntervalEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", sonetFarEndVTIntervalEntry.IfIndex})
+    sonetFarEndVTIntervalEntry.EntityData.Leafs.Append("sonetFarEndVTIntervalNumber", types.YLeaf{"SonetFarEndVTIntervalNumber", sonetFarEndVTIntervalEntry.SonetFarEndVTIntervalNumber})
+    sonetFarEndVTIntervalEntry.EntityData.Leafs.Append("sonetFarEndVTIntervalESs", types.YLeaf{"SonetFarEndVTIntervalESs", sonetFarEndVTIntervalEntry.SonetFarEndVTIntervalESs})
+    sonetFarEndVTIntervalEntry.EntityData.Leafs.Append("sonetFarEndVTIntervalSESs", types.YLeaf{"SonetFarEndVTIntervalSESs", sonetFarEndVTIntervalEntry.SonetFarEndVTIntervalSESs})
+    sonetFarEndVTIntervalEntry.EntityData.Leafs.Append("sonetFarEndVTIntervalCVs", types.YLeaf{"SonetFarEndVTIntervalCVs", sonetFarEndVTIntervalEntry.SonetFarEndVTIntervalCVs})
+    sonetFarEndVTIntervalEntry.EntityData.Leafs.Append("sonetFarEndVTIntervalUASs", types.YLeaf{"SonetFarEndVTIntervalUASs", sonetFarEndVTIntervalEntry.SonetFarEndVTIntervalUASs})
+    sonetFarEndVTIntervalEntry.EntityData.Leafs.Append("sonetFarEndVTIntervalValidData", types.YLeaf{"SonetFarEndVTIntervalValidData", sonetFarEndVTIntervalEntry.SonetFarEndVTIntervalValidData})
+
+    sonetFarEndVTIntervalEntry.EntityData.YListKeys = []string {"IfIndex", "SonetFarEndVTIntervalNumber"}
+
+    return &(sonetFarEndVTIntervalEntry.EntityData)
 }
 

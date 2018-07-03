@@ -32,47 +32,47 @@ type MPLSLDPSTDMIB struct {
     YFilter yfilter.YFilter
 
     
-    Mplsldplsrobjects MPLSLDPSTDMIB_Mplsldplsrobjects
+    MplsLdpLsrObjects MPLSLDPSTDMIB_MplsLdpLsrObjects
 
     
-    Mplsldpentityobjects MPLSLDPSTDMIB_Mplsldpentityobjects
+    MplsLdpEntityObjects MPLSLDPSTDMIB_MplsLdpEntityObjects
 
     
-    Mplsldpsessionobjects MPLSLDPSTDMIB_Mplsldpsessionobjects
+    MplsLdpSessionObjects MPLSLDPSTDMIB_MplsLdpSessionObjects
 
     
-    Mplsfecobjects MPLSLDPSTDMIB_Mplsfecobjects
+    MplsFecObjects MPLSLDPSTDMIB_MplsFecObjects
 
     // This table contains information about the MPLS Label Distribution Protocol
     // Entities which exist on this Label Switching Router (LSR) or Label Edge
     // Router (LER).
-    Mplsldpentitytable MPLSLDPSTDMIB_Mplsldpentitytable
+    MplsLdpEntityTable MPLSLDPSTDMIB_MplsLdpEntityTable
 
     // Information about LDP peers known by Entities in the mplsLdpEntityTable. 
     // The information in this table is based on information from the Entity-Peer
     // interaction during session initialization but is not appropriate for the
     // mplsLdpSessionTable, because objects in this table may or may not be used
     // in session establishment.
-    Mplsldppeertable MPLSLDPSTDMIB_Mplsldppeertable
+    MplsLdpPeerTable MPLSLDPSTDMIB_MplsLdpPeerTable
 
     // A table of Hello Adjacencies for Sessions.
-    Mplsldphelloadjacencytable MPLSLDPSTDMIB_Mplsldphelloadjacencytable
+    MplsLdpHelloAdjacencyTable MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable
 
     // A table of LDP LSP's which map to the mplsInSegmentTable in the
     // MPLS-LSR-STD-MIB module.
-    Mplsinsegmentldplsptable MPLSLDPSTDMIB_Mplsinsegmentldplsptable
+    MplsInSegmentLdpLspTable MPLSLDPSTDMIB_MplsInSegmentLdpLspTable
 
     // A table of LDP LSP's which map to the mplsOutSegmentTable in the
     // MPLS-LSR-STD-MIB.
-    Mplsoutsegmentldplsptable MPLSLDPSTDMIB_Mplsoutsegmentldplsptable
+    MplsOutSegmentLdpLspTable MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable
 
     // This table represents the FEC (Forwarding Equivalence Class) Information
     // associated with an LSP.
-    Mplsfectable MPLSLDPSTDMIB_Mplsfectable
+    MplsFecTable MPLSLDPSTDMIB_MplsFecTable
 
     // A table which shows the relationship between LDP LSPs and FECs.  Each row
     // represents a single LDP LSP to FEC association.
-    Mplsldplspfectable MPLSLDPSTDMIB_Mplsldplspfectable
+    MplsLdpLspFecTable MPLSLDPSTDMIB_MplsLdpLspFecTable
 
     // This table 'extends' the mplsLdpSessionTable. This table is used to store
     // Label Address Information from Label Address Messages received by this LSR
@@ -81,7 +81,7 @@ type MPLSLDPSTDMIB struct {
     // appropriate.  NOTE:  since more than one address may be contained in a
     // Label Address Message, this table 'sparse augments', the
     // mplsLdpSessionTable's information.
-    Mplsldpsessionpeeraddrtable MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable
+    MplsLdpSessionPeerAddrTable MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable
 }
 
 func (mPLSLDPSTDMIB *MPLSLDPSTDMIB) GetEntityData() *types.CommonEntityData {
@@ -94,30 +94,33 @@ func (mPLSLDPSTDMIB *MPLSLDPSTDMIB) GetEntityData() *types.CommonEntityData {
     mPLSLDPSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mPLSLDPSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mPLSLDPSTDMIB.EntityData.Children = make(map[string]types.YChild)
-    mPLSLDPSTDMIB.EntityData.Children["mplsLdpLsrObjects"] = types.YChild{"Mplsldplsrobjects", &mPLSLDPSTDMIB.Mplsldplsrobjects}
-    mPLSLDPSTDMIB.EntityData.Children["mplsLdpEntityObjects"] = types.YChild{"Mplsldpentityobjects", &mPLSLDPSTDMIB.Mplsldpentityobjects}
-    mPLSLDPSTDMIB.EntityData.Children["mplsLdpSessionObjects"] = types.YChild{"Mplsldpsessionobjects", &mPLSLDPSTDMIB.Mplsldpsessionobjects}
-    mPLSLDPSTDMIB.EntityData.Children["mplsFecObjects"] = types.YChild{"Mplsfecobjects", &mPLSLDPSTDMIB.Mplsfecobjects}
-    mPLSLDPSTDMIB.EntityData.Children["mplsLdpEntityTable"] = types.YChild{"Mplsldpentitytable", &mPLSLDPSTDMIB.Mplsldpentitytable}
-    mPLSLDPSTDMIB.EntityData.Children["mplsLdpPeerTable"] = types.YChild{"Mplsldppeertable", &mPLSLDPSTDMIB.Mplsldppeertable}
-    mPLSLDPSTDMIB.EntityData.Children["mplsLdpHelloAdjacencyTable"] = types.YChild{"Mplsldphelloadjacencytable", &mPLSLDPSTDMIB.Mplsldphelloadjacencytable}
-    mPLSLDPSTDMIB.EntityData.Children["mplsInSegmentLdpLspTable"] = types.YChild{"Mplsinsegmentldplsptable", &mPLSLDPSTDMIB.Mplsinsegmentldplsptable}
-    mPLSLDPSTDMIB.EntityData.Children["mplsOutSegmentLdpLspTable"] = types.YChild{"Mplsoutsegmentldplsptable", &mPLSLDPSTDMIB.Mplsoutsegmentldplsptable}
-    mPLSLDPSTDMIB.EntityData.Children["mplsFecTable"] = types.YChild{"Mplsfectable", &mPLSLDPSTDMIB.Mplsfectable}
-    mPLSLDPSTDMIB.EntityData.Children["mplsLdpLspFecTable"] = types.YChild{"Mplsldplspfectable", &mPLSLDPSTDMIB.Mplsldplspfectable}
-    mPLSLDPSTDMIB.EntityData.Children["mplsLdpSessionPeerAddrTable"] = types.YChild{"Mplsldpsessionpeeraddrtable", &mPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable}
-    mPLSLDPSTDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    mPLSLDPSTDMIB.EntityData.Children = types.NewOrderedMap()
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsLdpLsrObjects", types.YChild{"MplsLdpLsrObjects", &mPLSLDPSTDMIB.MplsLdpLsrObjects})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsLdpEntityObjects", types.YChild{"MplsLdpEntityObjects", &mPLSLDPSTDMIB.MplsLdpEntityObjects})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsLdpSessionObjects", types.YChild{"MplsLdpSessionObjects", &mPLSLDPSTDMIB.MplsLdpSessionObjects})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsFecObjects", types.YChild{"MplsFecObjects", &mPLSLDPSTDMIB.MplsFecObjects})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsLdpEntityTable", types.YChild{"MplsLdpEntityTable", &mPLSLDPSTDMIB.MplsLdpEntityTable})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsLdpPeerTable", types.YChild{"MplsLdpPeerTable", &mPLSLDPSTDMIB.MplsLdpPeerTable})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsLdpHelloAdjacencyTable", types.YChild{"MplsLdpHelloAdjacencyTable", &mPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsInSegmentLdpLspTable", types.YChild{"MplsInSegmentLdpLspTable", &mPLSLDPSTDMIB.MplsInSegmentLdpLspTable})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsOutSegmentLdpLspTable", types.YChild{"MplsOutSegmentLdpLspTable", &mPLSLDPSTDMIB.MplsOutSegmentLdpLspTable})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsFecTable", types.YChild{"MplsFecTable", &mPLSLDPSTDMIB.MplsFecTable})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsLdpLspFecTable", types.YChild{"MplsLdpLspFecTable", &mPLSLDPSTDMIB.MplsLdpLspFecTable})
+    mPLSLDPSTDMIB.EntityData.Children.Append("mplsLdpSessionPeerAddrTable", types.YChild{"MplsLdpSessionPeerAddrTable", &mPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable})
+    mPLSLDPSTDMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    mPLSLDPSTDMIB.EntityData.YListKeys = []string {}
+
     return &(mPLSLDPSTDMIB.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldplsrobjects
-type MPLSLDPSTDMIB_Mplsldplsrobjects struct {
+// MPLSLDPSTDMIB_MplsLdpLsrObjects
+type MPLSLDPSTDMIB_MplsLdpLsrObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The Label Switching Router's Identifier. The type is string with length: 4.
-    Mplsldplsrid interface{}
+    MplsLdpLsrId interface{}
 
     // A indication of whether this Label Switching Router supports loop
     // detection.  none(1) -- Loop Detection is not supported            on this
@@ -130,44 +133,47 @@ type MPLSLDPSTDMIB_Mplsldplsrobjects struct {
     // Loop Detection is determined during Session Initialization, an individual
     // session may not be running with loop detection.  This object simply gives
     // an indication of whether or not the LSR has the ability to support Loop
-    // Detection and which types. The type is Mplsldplsrloopdetectioncapable.
-    Mplsldplsrloopdetectioncapable interface{}
+    // Detection and which types. The type is MplsLdpLsrLoopDetectionCapable.
+    MplsLdpLsrLoopDetectionCapable interface{}
 }
 
-func (mplsldplsrobjects *MPLSLDPSTDMIB_Mplsldplsrobjects) GetEntityData() *types.CommonEntityData {
-    mplsldplsrobjects.EntityData.YFilter = mplsldplsrobjects.YFilter
-    mplsldplsrobjects.EntityData.YangName = "mplsLdpLsrObjects"
-    mplsldplsrobjects.EntityData.BundleName = "cisco_ios_xe"
-    mplsldplsrobjects.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsldplsrobjects.EntityData.SegmentPath = "mplsLdpLsrObjects"
-    mplsldplsrobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldplsrobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldplsrobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpLsrObjects *MPLSLDPSTDMIB_MplsLdpLsrObjects) GetEntityData() *types.CommonEntityData {
+    mplsLdpLsrObjects.EntityData.YFilter = mplsLdpLsrObjects.YFilter
+    mplsLdpLsrObjects.EntityData.YangName = "mplsLdpLsrObjects"
+    mplsLdpLsrObjects.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpLsrObjects.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsLdpLsrObjects.EntityData.SegmentPath = "mplsLdpLsrObjects"
+    mplsLdpLsrObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpLsrObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpLsrObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldplsrobjects.EntityData.Children = make(map[string]types.YChild)
-    mplsldplsrobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldplsrobjects.EntityData.Leafs["mplsLdpLsrId"] = types.YLeaf{"Mplsldplsrid", mplsldplsrobjects.Mplsldplsrid}
-    mplsldplsrobjects.EntityData.Leafs["mplsLdpLsrLoopDetectionCapable"] = types.YLeaf{"Mplsldplsrloopdetectioncapable", mplsldplsrobjects.Mplsldplsrloopdetectioncapable}
-    return &(mplsldplsrobjects.EntityData)
+    mplsLdpLsrObjects.EntityData.Children = types.NewOrderedMap()
+    mplsLdpLsrObjects.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpLsrObjects.EntityData.Leafs.Append("mplsLdpLsrId", types.YLeaf{"MplsLdpLsrId", mplsLdpLsrObjects.MplsLdpLsrId})
+    mplsLdpLsrObjects.EntityData.Leafs.Append("mplsLdpLsrLoopDetectionCapable", types.YLeaf{"MplsLdpLsrLoopDetectionCapable", mplsLdpLsrObjects.MplsLdpLsrLoopDetectionCapable})
+
+    mplsLdpLsrObjects.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpLsrObjects.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable represents which types.
-type MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable string
+// MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable represents which types.
+type MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable string
 
 const (
-    MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable_none MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable = "none"
+    MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable_none MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable = "none"
 
-    MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable_other MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable = "other"
+    MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable_other MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable = "other"
 
-    MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable_hopCount MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable = "hopCount"
+    MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable_hopCount MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable = "hopCount"
 
-    MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable_pathVector MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable = "pathVector"
+    MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable_pathVector MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable = "pathVector"
 
-    MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable_hopCountAndPathVector MPLSLDPSTDMIB_Mplsldplsrobjects_Mplsldplsrloopdetectioncapable = "hopCountAndPathVector"
+    MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable_hopCountAndPathVector MPLSLDPSTDMIB_MplsLdpLsrObjects_MplsLdpLsrLoopDetectionCapable = "hopCountAndPathVector"
 )
 
-// MPLSLDPSTDMIB_Mplsldpentityobjects
-type MPLSLDPSTDMIB_Mplsldpentityobjects struct {
+// MPLSLDPSTDMIB_MplsLdpEntityObjects
+type MPLSLDPSTDMIB_MplsLdpEntityObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -177,41 +183,44 @@ type MPLSLDPSTDMIB_Mplsldpentityobjects struct {
     // no such changes have occurred since the last re-initialization of the local
     // management subsystem, then this object contains a zero value. The type is
     // interface{} with range: 0..4294967295.
-    Mplsldpentitylastchange interface{}
+    MplsLdpEntityLastChange interface{}
 
     // This object contains an appropriate value to be used for mplsLdpEntityIndex
     // when creating entries in the mplsLdpEntityTable. The value 0 indicates that
     // no unassigned entries are available. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentityindexnext interface{}
+    MplsLdpEntityIndexNext interface{}
 }
 
-func (mplsldpentityobjects *MPLSLDPSTDMIB_Mplsldpentityobjects) GetEntityData() *types.CommonEntityData {
-    mplsldpentityobjects.EntityData.YFilter = mplsldpentityobjects.YFilter
-    mplsldpentityobjects.EntityData.YangName = "mplsLdpEntityObjects"
-    mplsldpentityobjects.EntityData.BundleName = "cisco_ios_xe"
-    mplsldpentityobjects.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsldpentityobjects.EntityData.SegmentPath = "mplsLdpEntityObjects"
-    mplsldpentityobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldpentityobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldpentityobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpEntityObjects *MPLSLDPSTDMIB_MplsLdpEntityObjects) GetEntityData() *types.CommonEntityData {
+    mplsLdpEntityObjects.EntityData.YFilter = mplsLdpEntityObjects.YFilter
+    mplsLdpEntityObjects.EntityData.YangName = "mplsLdpEntityObjects"
+    mplsLdpEntityObjects.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpEntityObjects.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsLdpEntityObjects.EntityData.SegmentPath = "mplsLdpEntityObjects"
+    mplsLdpEntityObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpEntityObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpEntityObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldpentityobjects.EntityData.Children = make(map[string]types.YChild)
-    mplsldpentityobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldpentityobjects.EntityData.Leafs["mplsLdpEntityLastChange"] = types.YLeaf{"Mplsldpentitylastchange", mplsldpentityobjects.Mplsldpentitylastchange}
-    mplsldpentityobjects.EntityData.Leafs["mplsLdpEntityIndexNext"] = types.YLeaf{"Mplsldpentityindexnext", mplsldpentityobjects.Mplsldpentityindexnext}
-    return &(mplsldpentityobjects.EntityData)
+    mplsLdpEntityObjects.EntityData.Children = types.NewOrderedMap()
+    mplsLdpEntityObjects.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpEntityObjects.EntityData.Leafs.Append("mplsLdpEntityLastChange", types.YLeaf{"MplsLdpEntityLastChange", mplsLdpEntityObjects.MplsLdpEntityLastChange})
+    mplsLdpEntityObjects.EntityData.Leafs.Append("mplsLdpEntityIndexNext", types.YLeaf{"MplsLdpEntityIndexNext", mplsLdpEntityObjects.MplsLdpEntityIndexNext})
+
+    mplsLdpEntityObjects.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpEntityObjects.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldpsessionobjects
-type MPLSLDPSTDMIB_Mplsldpsessionobjects struct {
+// MPLSLDPSTDMIB_MplsLdpSessionObjects
+type MPLSLDPSTDMIB_MplsLdpSessionObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value of sysUpTime at the time of the most recent addition or deletion
     // to/from the mplsLdpPeerTable/mplsLdpSessionTable. The type is interface{}
     // with range: 0..4294967295.
-    Mplsldppeerlastchange interface{}
+    MplsLdpPeerLastChange interface{}
 
     // The value of sysUpTime at the time of the most recent addition/deletion of
     // an entry to/from the mplsLdpLspFecTable or the most recent change in values
@@ -219,28 +228,31 @@ type MPLSLDPSTDMIB_Mplsldpsessionobjects struct {
     // since the last re-initialization of the local management subsystem, then
     // this object contains a zero value. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldplspfeclastchange interface{}
+    MplsLdpLspFecLastChange interface{}
 }
 
-func (mplsldpsessionobjects *MPLSLDPSTDMIB_Mplsldpsessionobjects) GetEntityData() *types.CommonEntityData {
-    mplsldpsessionobjects.EntityData.YFilter = mplsldpsessionobjects.YFilter
-    mplsldpsessionobjects.EntityData.YangName = "mplsLdpSessionObjects"
-    mplsldpsessionobjects.EntityData.BundleName = "cisco_ios_xe"
-    mplsldpsessionobjects.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsldpsessionobjects.EntityData.SegmentPath = "mplsLdpSessionObjects"
-    mplsldpsessionobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldpsessionobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldpsessionobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpSessionObjects *MPLSLDPSTDMIB_MplsLdpSessionObjects) GetEntityData() *types.CommonEntityData {
+    mplsLdpSessionObjects.EntityData.YFilter = mplsLdpSessionObjects.YFilter
+    mplsLdpSessionObjects.EntityData.YangName = "mplsLdpSessionObjects"
+    mplsLdpSessionObjects.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpSessionObjects.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsLdpSessionObjects.EntityData.SegmentPath = "mplsLdpSessionObjects"
+    mplsLdpSessionObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpSessionObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpSessionObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldpsessionobjects.EntityData.Children = make(map[string]types.YChild)
-    mplsldpsessionobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldpsessionobjects.EntityData.Leafs["mplsLdpPeerLastChange"] = types.YLeaf{"Mplsldppeerlastchange", mplsldpsessionobjects.Mplsldppeerlastchange}
-    mplsldpsessionobjects.EntityData.Leafs["mplsLdpLspFecLastChange"] = types.YLeaf{"Mplsldplspfeclastchange", mplsldpsessionobjects.Mplsldplspfeclastchange}
-    return &(mplsldpsessionobjects.EntityData)
+    mplsLdpSessionObjects.EntityData.Children = types.NewOrderedMap()
+    mplsLdpSessionObjects.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpSessionObjects.EntityData.Leafs.Append("mplsLdpPeerLastChange", types.YLeaf{"MplsLdpPeerLastChange", mplsLdpSessionObjects.MplsLdpPeerLastChange})
+    mplsLdpSessionObjects.EntityData.Leafs.Append("mplsLdpLspFecLastChange", types.YLeaf{"MplsLdpLspFecLastChange", mplsLdpSessionObjects.MplsLdpLspFecLastChange})
+
+    mplsLdpSessionObjects.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpSessionObjects.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsfecobjects
-type MPLSLDPSTDMIB_Mplsfecobjects struct {
+// MPLSLDPSTDMIB_MplsFecObjects
+type MPLSLDPSTDMIB_MplsFecObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -250,76 +262,82 @@ type MPLSLDPSTDMIB_Mplsfecobjects struct {
     // since the last re-initialization of the local management subsystem, then
     // this object contains a zero value. The type is interface{} with range:
     // 0..4294967295.
-    Mplsfeclastchange interface{}
+    MplsFecLastChange interface{}
 
     // This object contains an appropriate value to be used for mplsFecIndex when
     // creating entries in the mplsFecTable. The value 0 indicates that no
     // unassigned entries are available. The type is interface{} with range:
     // 0..4294967295.
-    Mplsfecindexnext interface{}
+    MplsFecIndexNext interface{}
 }
 
-func (mplsfecobjects *MPLSLDPSTDMIB_Mplsfecobjects) GetEntityData() *types.CommonEntityData {
-    mplsfecobjects.EntityData.YFilter = mplsfecobjects.YFilter
-    mplsfecobjects.EntityData.YangName = "mplsFecObjects"
-    mplsfecobjects.EntityData.BundleName = "cisco_ios_xe"
-    mplsfecobjects.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsfecobjects.EntityData.SegmentPath = "mplsFecObjects"
-    mplsfecobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsfecobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsfecobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsFecObjects *MPLSLDPSTDMIB_MplsFecObjects) GetEntityData() *types.CommonEntityData {
+    mplsFecObjects.EntityData.YFilter = mplsFecObjects.YFilter
+    mplsFecObjects.EntityData.YangName = "mplsFecObjects"
+    mplsFecObjects.EntityData.BundleName = "cisco_ios_xe"
+    mplsFecObjects.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsFecObjects.EntityData.SegmentPath = "mplsFecObjects"
+    mplsFecObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsFecObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsFecObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsfecobjects.EntityData.Children = make(map[string]types.YChild)
-    mplsfecobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsfecobjects.EntityData.Leafs["mplsFecLastChange"] = types.YLeaf{"Mplsfeclastchange", mplsfecobjects.Mplsfeclastchange}
-    mplsfecobjects.EntityData.Leafs["mplsFecIndexNext"] = types.YLeaf{"Mplsfecindexnext", mplsfecobjects.Mplsfecindexnext}
-    return &(mplsfecobjects.EntityData)
+    mplsFecObjects.EntityData.Children = types.NewOrderedMap()
+    mplsFecObjects.EntityData.Leafs = types.NewOrderedMap()
+    mplsFecObjects.EntityData.Leafs.Append("mplsFecLastChange", types.YLeaf{"MplsFecLastChange", mplsFecObjects.MplsFecLastChange})
+    mplsFecObjects.EntityData.Leafs.Append("mplsFecIndexNext", types.YLeaf{"MplsFecIndexNext", mplsFecObjects.MplsFecIndexNext})
+
+    mplsFecObjects.EntityData.YListKeys = []string {}
+
+    return &(mplsFecObjects.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldpentitytable
+// MPLSLDPSTDMIB_MplsLdpEntityTable
 // This table contains information about the
 // MPLS Label Distribution Protocol Entities which
 // exist on this Label Switching Router (LSR)
 // or Label Edge Router (LER).
-type MPLSLDPSTDMIB_Mplsldpentitytable struct {
+type MPLSLDPSTDMIB_MplsLdpEntityTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents an LDP entity. An entry can be created by
     // a network administrator or by an SNMP agent as instructed by LDP. The type
-    // is slice of MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry.
-    Mplsldpentityentry []MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry
+    // is slice of MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry.
+    MplsLdpEntityEntry []*MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry
 }
 
-func (mplsldpentitytable *MPLSLDPSTDMIB_Mplsldpentitytable) GetEntityData() *types.CommonEntityData {
-    mplsldpentitytable.EntityData.YFilter = mplsldpentitytable.YFilter
-    mplsldpentitytable.EntityData.YangName = "mplsLdpEntityTable"
-    mplsldpentitytable.EntityData.BundleName = "cisco_ios_xe"
-    mplsldpentitytable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsldpentitytable.EntityData.SegmentPath = "mplsLdpEntityTable"
-    mplsldpentitytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldpentitytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldpentitytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpEntityTable *MPLSLDPSTDMIB_MplsLdpEntityTable) GetEntityData() *types.CommonEntityData {
+    mplsLdpEntityTable.EntityData.YFilter = mplsLdpEntityTable.YFilter
+    mplsLdpEntityTable.EntityData.YangName = "mplsLdpEntityTable"
+    mplsLdpEntityTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpEntityTable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsLdpEntityTable.EntityData.SegmentPath = "mplsLdpEntityTable"
+    mplsLdpEntityTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpEntityTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpEntityTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldpentitytable.EntityData.Children = make(map[string]types.YChild)
-    mplsldpentitytable.EntityData.Children["mplsLdpEntityEntry"] = types.YChild{"Mplsldpentityentry", nil}
-    for i := range mplsldpentitytable.Mplsldpentityentry {
-        mplsldpentitytable.EntityData.Children[types.GetSegmentPath(&mplsldpentitytable.Mplsldpentityentry[i])] = types.YChild{"Mplsldpentityentry", &mplsldpentitytable.Mplsldpentityentry[i]}
+    mplsLdpEntityTable.EntityData.Children = types.NewOrderedMap()
+    mplsLdpEntityTable.EntityData.Children.Append("mplsLdpEntityEntry", types.YChild{"MplsLdpEntityEntry", nil})
+    for i := range mplsLdpEntityTable.MplsLdpEntityEntry {
+        mplsLdpEntityTable.EntityData.Children.Append(types.GetSegmentPath(mplsLdpEntityTable.MplsLdpEntityEntry[i]), types.YChild{"MplsLdpEntityEntry", mplsLdpEntityTable.MplsLdpEntityEntry[i]})
     }
-    mplsldpentitytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsldpentitytable.EntityData)
+    mplsLdpEntityTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsLdpEntityTable.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpEntityTable.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry
+// MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry
 // An entry in this table represents an LDP entity.
 // An entry can be created by a network administrator
 // or by an SNMP agent as instructed by LDP.
-type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
+type MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The LDP identifier. The type is string.
-    Mplsldpentityldpid interface{}
+    MplsLdpEntityLdpId interface{}
 
     // This attribute is a key. This index is used as a secondary index to
     // uniquely identify this row.  Before creating a row in this table, the
@@ -332,7 +350,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // sub-links.  Another way to use this index is to give this the value of
     // ifIndex.  However, this is dependant   on the implementation. The type is
     // interface{} with range: 1..4294967295.
-    Mplsldpentityindex interface{}
+    MplsLdpEntityIndex interface{}
 
     // The version number of the LDP protocol which will be used in the session
     // initialization message.  Section 3.5.3 in the LDP Specification specifies
@@ -340,7 +358,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // establishment. The value of this object represents the value that is sent
     // in the initialization message. The type is interface{} with range:
     // 1..65535.
-    Mplsldpentityprotocolversion interface{}
+    MplsLdpEntityProtocolVersion interface{}
 
     // The administrative status of this LDP Entity. If this object is changed
     // from 'enable' to 'disable' and this entity has already attempted to
@@ -352,22 +370,22 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // session cease to exist).  At this point the operator is able to change
     // values which are related to this entity.  When the admin status is set back
     // to 'enable', then this Entity will attempt to establish a new session with
-    // the Peer. The type is Mplsldpentityadminstatus.
-    Mplsldpentityadminstatus interface{}
+    // the Peer. The type is MplsLdpEntityAdminStatus.
+    MplsLdpEntityAdminStatus interface{}
 
     // The operational status of this LDP Entity.  The value of unknown(1)
     // indicates that the operational status cannot be determined at this time. 
     // The value of unknown should be a transient condition before changing to
-    // enabled(2) or disabled(3). The type is Mplsldpentityoperstatus.
-    Mplsldpentityoperstatus interface{}
+    // enabled(2) or disabled(3). The type is MplsLdpEntityOperStatus.
+    MplsLdpEntityOperStatus interface{}
 
     // The TCP Port for LDP.  The default value is the well-known value of this
     // port. The type is interface{} with range: 0..65535.
-    Mplsldpentitytcpport interface{}
+    MplsLdpEntityTcpPort interface{}
 
     // The UDP Discovery Port for LDP.  The default value is the well-known value
     // for this port. The type is interface{} with range: 0..65535.
-    Mplsldpentityudpdscport interface{}
+    MplsLdpEntityUdpDscPort interface{}
 
     // The maximum PDU Length that is sent in the Common Session Parameters of an
     // Initialization Message. According to the LDP Specification [RFC3036] a
@@ -377,12 +395,12 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // receiving LSR MUST calculate the maximum PDU length for the session by
     // using the smaller of its and its peer's proposals for Max PDU Length. The
     // type is interface{} with range: 256..65535. Units are octets.
-    Mplsldpentitymaxpdulength interface{}
+    MplsLdpEntityMaxPduLength interface{}
 
     // The 16-bit integer value which is the proposed keep alive hold timer for
     // this LDP Entity. The type is interface{} with range: 1..65535. Units are
     // seconds.
-    Mplsldpentitykeepaliveholdtimer interface{}
+    MplsLdpEntityKeepAliveHoldTimer interface{}
 
     // The 16-bit integer value which is the proposed Hello hold timer for this
     // LDP Entity. The Hello Hold time in seconds.   An LSR maintains a record of
@@ -401,7 +419,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // value smaller than 15 is not recommended, although not forbidden according
     // to RFC3036. The type is interface{} with range: 0..65535. Units are
     // seconds.
-    Mplsldpentityhelloholdtimer interface{}
+    MplsLdpEntityHelloHoldTimer interface{}
 
     // When attempting to establish a session with a given Peer, the given LDP
     // Entity should send out the SNMP notification,
@@ -417,11 +435,11 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // value of 0 (zero) for this object indicates that the threshold is infinity,
     // thus the SNMP notification will never be generated. The type is interface{}
     // with range: 0..100.
-    Mplsldpentityinitsessionthreshold interface{}
+    MplsLdpEntityInitSessionThreshold interface{}
 
     // For any given LDP session, the method of label distribution must be
     // specified. The type is MplsLabelDistributionMethod.
-    Mplsldpentitylabeldistmethod interface{}
+    MplsLdpEntityLabelDistMethod interface{}
 
     // The LDP Entity can be configured to use either conservative or liberal
     // label retention mode.  If the value of this object is conservative(1) then
@@ -430,7 +448,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // object is liberal(2) then all advertized label mappings are retained
     // whether they are from a valid next hop or not. The type is
     // MplsRetentionMode.
-    Mplsldpentitylabelretentionmode interface{}
+    MplsLdpEntityLabelRetentionMode interface{}
 
     // If the value of this object is 0 (zero) then Loop Detection for Path
     // Vectors is disabled.  Otherwise, if this object has a value greater than
@@ -440,7 +458,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // 'hopCountAndPathVector(5)', if this object has a value greater than 0
     // (zero), otherwise it is ignored. The type is interface{} with range:
     // 0..255.
-    Mplsldpentitypathvectorlimit interface{}
+    MplsLdpEntityPathVectorLimit interface{}
 
     // If the value of this object is 0 (zero), then Loop Detection using Hop
     // Counters is disabled.  If the value of this object is greater than 0 (zero)
@@ -450,7 +468,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // either 'hopCount(3)' or 'hopCountAndPathVector(5)' if this object has a
     // value greater than 0 (zero), otherwise it is ignored. The type is
     // interface{} with range: 0..255.
-    Mplsldpentityhopcountlimit interface{}
+    MplsLdpEntityHopCountLimit interface{}
 
     // This specifies whether the loopback or interface address is to be used as
     // the transport address in the transport address TLV of the hello message. 
@@ -458,22 +476,22 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // which hello messages are sent is used as the transport address in the hello
     // message.  Otherwise, if the value is loopback(2), then the IP address of
     // the loopback interface is used as the transport address in the hello
-    // message. The type is Mplsldpentitytransportaddrkind.
-    Mplsldpentitytransportaddrkind interface{}
+    // message. The type is MplsLdpEntityTransportAddrKind.
+    MplsLdpEntityTransportAddrKind interface{}
 
     // If this LDP entity uses targeted peer then set this to true. The type is
     // bool.
-    Mplsldpentitytargetpeer interface{}
+    MplsLdpEntityTargetPeer interface{}
 
     // The type of the internetwork layer address used for the Extended Discovery.
     // This object indicates how the value of mplsLdpEntityTargetPeerAddr is to be
     // interpreted. The type is InetAddressType.
-    Mplsldpentitytargetpeeraddrtype interface{}
+    MplsLdpEntityTargetPeerAddrType interface{}
 
     // The value of the internetwork layer address used for the Extended
     // Discovery.  The value of mplsLdpEntityTargetPeerAddrType specifies how this
     // address is to be interpreted. The type is string with length: 0..255.
-    Mplsldpentitytargetpeeraddr interface{}
+    MplsLdpEntityTargetPeerAddr interface{}
 
     // Specifies the optional parameters for the LDP Initialization Message.  If
     // the value is generic(1) then no optional parameters will be sent in the LDP
@@ -482,7 +500,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // which corresponds to this entry.  If the value is frameRelayParameters(3)
     // then a row must be created in the mplsLdpEntityFrameRelayTable, which
     // corresponds to this entry. The type is MplsLdpLabelType.
-    Mplsldpentitylabeltype interface{}
+    MplsLdpEntityLabelType interface{}
 
     // The value of sysUpTime on the most recent occasion at which any one or more
     // of this entity's counters suffered a discontinuity.  The relevant counters
@@ -491,12 +509,12 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // discontinuities have occurred since the last re-initialization of the local
     // management subsystem, then this object contains a zero value. The type is
     // interface{} with range: 0..4294967295.
-    Mplsldpentitydiscontinuitytime interface{}
+    MplsLdpEntityDiscontinuityTime interface{}
 
     // The storage type for this conceptual row. Conceptual rows having the value
     // 'permanent(4)' need not allow write-access to any columnar objects in the
     // row. The type is StorageType.
-    Mplsldpentitystoragetype interface{}
+    MplsLdpEntityStorageType interface{}
 
     // The status of this conceptual row.  All writable objects in this row may be
     // modified at any time, however, as described in detail in the section
@@ -508,7 +526,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // thereby explicitly causing a session to be torn down. Then, change objects
     // in this entry, then set the mplsLdpEntityAdminStatus to enable, which
     // enables a new session to be initiated. The type is RowStatus.
-    Mplsldpentityrowstatus interface{}
+    MplsLdpEntityRowStatus interface{}
 
     // A count of the Session Initialization messages which were sent or received
     // by this LDP Entity and were NAK'd.   In other words, this counter counts
@@ -517,14 +535,14 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatssessionattempts interface{}
+    MplsLdpEntityStatsSessionAttempts interface{}
 
     // A count of the Session Rejected/No Hello Error Notification Messages sent
     // or received by this LDP Entity.  Discontinuities in the value of this
     // counter can occur at re-initialization of the management system, and at
     // other times as indicated by the value of mplsLdpEntityDiscontinuityTime.
     // The type is interface{} with range: 0..4294967295.
-    Mplsldpentitystatssessionrejectednohelloerrors interface{}
+    MplsLdpEntityStatsSessionRejectedNoHelloErrors interface{}
 
     // A count of the Session Rejected/Parameters Advertisement Mode Error
     // Notification Messages sent or received by this LDP Entity.  Discontinuities
@@ -532,7 +550,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // management system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatssessionrejectedaderrors interface{}
+    MplsLdpEntityStatsSessionRejectedAdErrors interface{}
 
     // A count of the Session Rejected/Parameters  Max Pdu Length Error
     // Notification Messages sent or received by this LDP Entity.  Discontinuities
@@ -540,7 +558,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // management system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatssessionrejectedmaxpduerrors interface{}
+    MplsLdpEntityStatsSessionRejectedMaxPduErrors interface{}
 
     // A count of the Session Rejected/Parameters Label Range Notification
     // Messages sent or received by this LDP Entity.  Discontinuities in the value
@@ -548,7 +566,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatssessionrejectedlrerrors interface{}
+    MplsLdpEntityStatsSessionRejectedLRErrors interface{}
 
     // This object counts the number of Bad LDP Identifier Fatal Errors detected
     // by the session(s) (past and present) associated with this LDP Entity. 
@@ -556,7 +574,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // of the management system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatsbadldpidentifiererrors interface{}
+    MplsLdpEntityStatsBadLdpIdentifierErrors interface{}
 
     // This object counts the number of Bad PDU Length Fatal Errors detected by
     // the session(s) (past and present) associated with this LDP Entity. 
@@ -564,7 +582,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // of the management system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatsbadpdulengtherrors interface{}
+    MplsLdpEntityStatsBadPduLengthErrors interface{}
 
     // This object counts the number of Bad Message Length Fatal Errors detected
     // by the session(s) (past and present) associated with this LDP Entity. 
@@ -572,7 +590,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // of the management system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatsbadmessagelengtherrors interface{}
+    MplsLdpEntityStatsBadMessageLengthErrors interface{}
 
     // This object counts the number of Bad TLV Length Fatal Errors detected by
     // the session(s) (past and present) associated with this LDP Entity. 
@@ -580,7 +598,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // of the management system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatsbadtlvlengtherrors interface{}
+    MplsLdpEntityStatsBadTlvLengthErrors interface{}
 
     // This object counts the number of Malformed TLV Value Fatal Errors detected
     // by the session(s) (past and present) associated with this LDP Entity. 
@@ -588,7 +606,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // of the management system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatsmalformedtlvvalueerrors interface{}
+    MplsLdpEntityStatsMalformedTlvValueErrors interface{}
 
     // This object counts the number of Session Keep Alive Timer Expired Errors
     // detected by the session(s) (past and present) associated with this LDP
@@ -596,7 +614,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // re-initialization of the management system, and at other times as indicated
     // by the value of mplsLdpEntityDiscontinuityTime. The type is interface{}
     // with range: 0..4294967295.
-    Mplsldpentitystatskeepalivetimerexperrors interface{}
+    MplsLdpEntityStatsKeepAliveTimerExpErrors interface{}
 
     // This object counts the number of Shutdown Notifications received related to
     // session(s) (past and present) associated with this LDP Entity. 
@@ -604,7 +622,7 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // of the management system, and at other times as indicated by the value of
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatsshutdownreceivednotifications interface{}
+    MplsLdpEntityStatsShutdownReceivedNotifications interface{}
 
     // This object counts the number of Shutdown Notfications sent related to
     // session(s) (past and present) associated with this LDP Entity. 
@@ -612,156 +630,162 @@ type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry struct {
     // of the management system, and at other times as indicated by the value of  
     // mplsLdpEntityDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Mplsldpentitystatsshutdownsentnotifications interface{}
+    MplsLdpEntityStatsShutdownSentNotifications interface{}
 }
 
-func (mplsldpentityentry *MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry) GetEntityData() *types.CommonEntityData {
-    mplsldpentityentry.EntityData.YFilter = mplsldpentityentry.YFilter
-    mplsldpentityentry.EntityData.YangName = "mplsLdpEntityEntry"
-    mplsldpentityentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsldpentityentry.EntityData.ParentYangName = "mplsLdpEntityTable"
-    mplsldpentityentry.EntityData.SegmentPath = "mplsLdpEntityEntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsldpentityentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsldpentityentry.Mplsldpentityindex) + "']"
-    mplsldpentityentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldpentityentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldpentityentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpEntityEntry *MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry) GetEntityData() *types.CommonEntityData {
+    mplsLdpEntityEntry.EntityData.YFilter = mplsLdpEntityEntry.YFilter
+    mplsLdpEntityEntry.EntityData.YangName = "mplsLdpEntityEntry"
+    mplsLdpEntityEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpEntityEntry.EntityData.ParentYangName = "mplsLdpEntityTable"
+    mplsLdpEntityEntry.EntityData.SegmentPath = "mplsLdpEntityEntry" + types.AddKeyToken(mplsLdpEntityEntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsLdpEntityEntry.MplsLdpEntityIndex, "mplsLdpEntityIndex")
+    mplsLdpEntityEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpEntityEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpEntityEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldpentityentry.EntityData.Children = make(map[string]types.YChild)
-    mplsldpentityentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsldpentityentry.Mplsldpentityldpid}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsldpentityentry.Mplsldpentityindex}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityProtocolVersion"] = types.YLeaf{"Mplsldpentityprotocolversion", mplsldpentityentry.Mplsldpentityprotocolversion}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityAdminStatus"] = types.YLeaf{"Mplsldpentityadminstatus", mplsldpentityentry.Mplsldpentityadminstatus}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityOperStatus"] = types.YLeaf{"Mplsldpentityoperstatus", mplsldpentityentry.Mplsldpentityoperstatus}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityTcpPort"] = types.YLeaf{"Mplsldpentitytcpport", mplsldpentityentry.Mplsldpentitytcpport}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityUdpDscPort"] = types.YLeaf{"Mplsldpentityudpdscport", mplsldpentityentry.Mplsldpentityudpdscport}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityMaxPduLength"] = types.YLeaf{"Mplsldpentitymaxpdulength", mplsldpentityentry.Mplsldpentitymaxpdulength}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityKeepAliveHoldTimer"] = types.YLeaf{"Mplsldpentitykeepaliveholdtimer", mplsldpentityentry.Mplsldpentitykeepaliveholdtimer}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityHelloHoldTimer"] = types.YLeaf{"Mplsldpentityhelloholdtimer", mplsldpentityentry.Mplsldpentityhelloholdtimer}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityInitSessionThreshold"] = types.YLeaf{"Mplsldpentityinitsessionthreshold", mplsldpentityentry.Mplsldpentityinitsessionthreshold}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityLabelDistMethod"] = types.YLeaf{"Mplsldpentitylabeldistmethod", mplsldpentityentry.Mplsldpentitylabeldistmethod}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityLabelRetentionMode"] = types.YLeaf{"Mplsldpentitylabelretentionmode", mplsldpentityentry.Mplsldpentitylabelretentionmode}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityPathVectorLimit"] = types.YLeaf{"Mplsldpentitypathvectorlimit", mplsldpentityentry.Mplsldpentitypathvectorlimit}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityHopCountLimit"] = types.YLeaf{"Mplsldpentityhopcountlimit", mplsldpentityentry.Mplsldpentityhopcountlimit}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityTransportAddrKind"] = types.YLeaf{"Mplsldpentitytransportaddrkind", mplsldpentityentry.Mplsldpentitytransportaddrkind}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityTargetPeer"] = types.YLeaf{"Mplsldpentitytargetpeer", mplsldpentityentry.Mplsldpentitytargetpeer}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityTargetPeerAddrType"] = types.YLeaf{"Mplsldpentitytargetpeeraddrtype", mplsldpentityentry.Mplsldpentitytargetpeeraddrtype}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityTargetPeerAddr"] = types.YLeaf{"Mplsldpentitytargetpeeraddr", mplsldpentityentry.Mplsldpentitytargetpeeraddr}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityLabelType"] = types.YLeaf{"Mplsldpentitylabeltype", mplsldpentityentry.Mplsldpentitylabeltype}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityDiscontinuityTime"] = types.YLeaf{"Mplsldpentitydiscontinuitytime", mplsldpentityentry.Mplsldpentitydiscontinuitytime}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStorageType"] = types.YLeaf{"Mplsldpentitystoragetype", mplsldpentityentry.Mplsldpentitystoragetype}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityRowStatus"] = types.YLeaf{"Mplsldpentityrowstatus", mplsldpentityentry.Mplsldpentityrowstatus}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsSessionAttempts"] = types.YLeaf{"Mplsldpentitystatssessionattempts", mplsldpentityentry.Mplsldpentitystatssessionattempts}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsSessionRejectedNoHelloErrors"] = types.YLeaf{"Mplsldpentitystatssessionrejectednohelloerrors", mplsldpentityentry.Mplsldpentitystatssessionrejectednohelloerrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsSessionRejectedAdErrors"] = types.YLeaf{"Mplsldpentitystatssessionrejectedaderrors", mplsldpentityentry.Mplsldpentitystatssessionrejectedaderrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsSessionRejectedMaxPduErrors"] = types.YLeaf{"Mplsldpentitystatssessionrejectedmaxpduerrors", mplsldpentityentry.Mplsldpentitystatssessionrejectedmaxpduerrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsSessionRejectedLRErrors"] = types.YLeaf{"Mplsldpentitystatssessionrejectedlrerrors", mplsldpentityentry.Mplsldpentitystatssessionrejectedlrerrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsBadLdpIdentifierErrors"] = types.YLeaf{"Mplsldpentitystatsbadldpidentifiererrors", mplsldpentityentry.Mplsldpentitystatsbadldpidentifiererrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsBadPduLengthErrors"] = types.YLeaf{"Mplsldpentitystatsbadpdulengtherrors", mplsldpentityentry.Mplsldpentitystatsbadpdulengtherrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsBadMessageLengthErrors"] = types.YLeaf{"Mplsldpentitystatsbadmessagelengtherrors", mplsldpentityentry.Mplsldpentitystatsbadmessagelengtherrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsBadTlvLengthErrors"] = types.YLeaf{"Mplsldpentitystatsbadtlvlengtherrors", mplsldpentityentry.Mplsldpentitystatsbadtlvlengtherrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsMalformedTlvValueErrors"] = types.YLeaf{"Mplsldpentitystatsmalformedtlvvalueerrors", mplsldpentityentry.Mplsldpentitystatsmalformedtlvvalueerrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsKeepAliveTimerExpErrors"] = types.YLeaf{"Mplsldpentitystatskeepalivetimerexperrors", mplsldpentityentry.Mplsldpentitystatskeepalivetimerexperrors}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsShutdownReceivedNotifications"] = types.YLeaf{"Mplsldpentitystatsshutdownreceivednotifications", mplsldpentityentry.Mplsldpentitystatsshutdownreceivednotifications}
-    mplsldpentityentry.EntityData.Leafs["mplsLdpEntityStatsShutdownSentNotifications"] = types.YLeaf{"Mplsldpentitystatsshutdownsentnotifications", mplsldpentityentry.Mplsldpentitystatsshutdownsentnotifications}
-    return &(mplsldpentityentry.EntityData)
+    mplsLdpEntityEntry.EntityData.Children = types.NewOrderedMap()
+    mplsLdpEntityEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityLdpId", types.YLeaf{"MplsLdpEntityLdpId", mplsLdpEntityEntry.MplsLdpEntityLdpId})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityIndex", types.YLeaf{"MplsLdpEntityIndex", mplsLdpEntityEntry.MplsLdpEntityIndex})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityProtocolVersion", types.YLeaf{"MplsLdpEntityProtocolVersion", mplsLdpEntityEntry.MplsLdpEntityProtocolVersion})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityAdminStatus", types.YLeaf{"MplsLdpEntityAdminStatus", mplsLdpEntityEntry.MplsLdpEntityAdminStatus})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityOperStatus", types.YLeaf{"MplsLdpEntityOperStatus", mplsLdpEntityEntry.MplsLdpEntityOperStatus})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityTcpPort", types.YLeaf{"MplsLdpEntityTcpPort", mplsLdpEntityEntry.MplsLdpEntityTcpPort})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityUdpDscPort", types.YLeaf{"MplsLdpEntityUdpDscPort", mplsLdpEntityEntry.MplsLdpEntityUdpDscPort})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityMaxPduLength", types.YLeaf{"MplsLdpEntityMaxPduLength", mplsLdpEntityEntry.MplsLdpEntityMaxPduLength})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityKeepAliveHoldTimer", types.YLeaf{"MplsLdpEntityKeepAliveHoldTimer", mplsLdpEntityEntry.MplsLdpEntityKeepAliveHoldTimer})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityHelloHoldTimer", types.YLeaf{"MplsLdpEntityHelloHoldTimer", mplsLdpEntityEntry.MplsLdpEntityHelloHoldTimer})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityInitSessionThreshold", types.YLeaf{"MplsLdpEntityInitSessionThreshold", mplsLdpEntityEntry.MplsLdpEntityInitSessionThreshold})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityLabelDistMethod", types.YLeaf{"MplsLdpEntityLabelDistMethod", mplsLdpEntityEntry.MplsLdpEntityLabelDistMethod})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityLabelRetentionMode", types.YLeaf{"MplsLdpEntityLabelRetentionMode", mplsLdpEntityEntry.MplsLdpEntityLabelRetentionMode})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityPathVectorLimit", types.YLeaf{"MplsLdpEntityPathVectorLimit", mplsLdpEntityEntry.MplsLdpEntityPathVectorLimit})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityHopCountLimit", types.YLeaf{"MplsLdpEntityHopCountLimit", mplsLdpEntityEntry.MplsLdpEntityHopCountLimit})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityTransportAddrKind", types.YLeaf{"MplsLdpEntityTransportAddrKind", mplsLdpEntityEntry.MplsLdpEntityTransportAddrKind})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityTargetPeer", types.YLeaf{"MplsLdpEntityTargetPeer", mplsLdpEntityEntry.MplsLdpEntityTargetPeer})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityTargetPeerAddrType", types.YLeaf{"MplsLdpEntityTargetPeerAddrType", mplsLdpEntityEntry.MplsLdpEntityTargetPeerAddrType})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityTargetPeerAddr", types.YLeaf{"MplsLdpEntityTargetPeerAddr", mplsLdpEntityEntry.MplsLdpEntityTargetPeerAddr})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityLabelType", types.YLeaf{"MplsLdpEntityLabelType", mplsLdpEntityEntry.MplsLdpEntityLabelType})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityDiscontinuityTime", types.YLeaf{"MplsLdpEntityDiscontinuityTime", mplsLdpEntityEntry.MplsLdpEntityDiscontinuityTime})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStorageType", types.YLeaf{"MplsLdpEntityStorageType", mplsLdpEntityEntry.MplsLdpEntityStorageType})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityRowStatus", types.YLeaf{"MplsLdpEntityRowStatus", mplsLdpEntityEntry.MplsLdpEntityRowStatus})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsSessionAttempts", types.YLeaf{"MplsLdpEntityStatsSessionAttempts", mplsLdpEntityEntry.MplsLdpEntityStatsSessionAttempts})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsSessionRejectedNoHelloErrors", types.YLeaf{"MplsLdpEntityStatsSessionRejectedNoHelloErrors", mplsLdpEntityEntry.MplsLdpEntityStatsSessionRejectedNoHelloErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsSessionRejectedAdErrors", types.YLeaf{"MplsLdpEntityStatsSessionRejectedAdErrors", mplsLdpEntityEntry.MplsLdpEntityStatsSessionRejectedAdErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsSessionRejectedMaxPduErrors", types.YLeaf{"MplsLdpEntityStatsSessionRejectedMaxPduErrors", mplsLdpEntityEntry.MplsLdpEntityStatsSessionRejectedMaxPduErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsSessionRejectedLRErrors", types.YLeaf{"MplsLdpEntityStatsSessionRejectedLRErrors", mplsLdpEntityEntry.MplsLdpEntityStatsSessionRejectedLRErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsBadLdpIdentifierErrors", types.YLeaf{"MplsLdpEntityStatsBadLdpIdentifierErrors", mplsLdpEntityEntry.MplsLdpEntityStatsBadLdpIdentifierErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsBadPduLengthErrors", types.YLeaf{"MplsLdpEntityStatsBadPduLengthErrors", mplsLdpEntityEntry.MplsLdpEntityStatsBadPduLengthErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsBadMessageLengthErrors", types.YLeaf{"MplsLdpEntityStatsBadMessageLengthErrors", mplsLdpEntityEntry.MplsLdpEntityStatsBadMessageLengthErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsBadTlvLengthErrors", types.YLeaf{"MplsLdpEntityStatsBadTlvLengthErrors", mplsLdpEntityEntry.MplsLdpEntityStatsBadTlvLengthErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsMalformedTlvValueErrors", types.YLeaf{"MplsLdpEntityStatsMalformedTlvValueErrors", mplsLdpEntityEntry.MplsLdpEntityStatsMalformedTlvValueErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsKeepAliveTimerExpErrors", types.YLeaf{"MplsLdpEntityStatsKeepAliveTimerExpErrors", mplsLdpEntityEntry.MplsLdpEntityStatsKeepAliveTimerExpErrors})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsShutdownReceivedNotifications", types.YLeaf{"MplsLdpEntityStatsShutdownReceivedNotifications", mplsLdpEntityEntry.MplsLdpEntityStatsShutdownReceivedNotifications})
+    mplsLdpEntityEntry.EntityData.Leafs.Append("mplsLdpEntityStatsShutdownSentNotifications", types.YLeaf{"MplsLdpEntityStatsShutdownSentNotifications", mplsLdpEntityEntry.MplsLdpEntityStatsShutdownSentNotifications})
+
+    mplsLdpEntityEntry.EntityData.YListKeys = []string {"MplsLdpEntityLdpId", "MplsLdpEntityIndex"}
+
+    return &(mplsLdpEntityEntry.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityadminstatus represents with the Peer.
-type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityadminstatus string
+// MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityAdminStatus represents with the Peer.
+type MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityAdminStatus string
 
 const (
-    MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityadminstatus_enable MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityadminstatus = "enable"
+    MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityAdminStatus_enable MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityAdminStatus = "enable"
 
-    MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityadminstatus_disable MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityadminstatus = "disable"
+    MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityAdminStatus_disable MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityAdminStatus = "disable"
 )
 
-// MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityoperstatus represents to enabled(2) or disabled(3).
-type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityoperstatus string
+// MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityOperStatus represents to enabled(2) or disabled(3).
+type MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityOperStatus string
 
 const (
-    MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityoperstatus_unknown MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityoperstatus = "unknown"
+    MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityOperStatus_unknown MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityOperStatus = "unknown"
 
-    MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityoperstatus_enabled MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityoperstatus = "enabled"
+    MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityOperStatus_enabled MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityOperStatus = "enabled"
 
-    MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityoperstatus_disabled MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityoperstatus = "disabled"
+    MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityOperStatus_disabled MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityOperStatus = "disabled"
 )
 
-// MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentitytransportaddrkind represents transport address in the hello message.
-type MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentitytransportaddrkind string
+// MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityTransportAddrKind represents transport address in the hello message.
+type MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityTransportAddrKind string
 
 const (
-    MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentitytransportaddrkind_interface_ MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentitytransportaddrkind = "interface"
+    MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityTransportAddrKind_interface_ MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityTransportAddrKind = "interface"
 
-    MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentitytransportaddrkind_loopback MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentitytransportaddrkind = "loopback"
+    MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityTransportAddrKind_loopback MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityTransportAddrKind = "loopback"
 )
 
-// MPLSLDPSTDMIB_Mplsldppeertable
+// MPLSLDPSTDMIB_MplsLdpPeerTable
 // Information about LDP peers known by Entities in
 // the mplsLdpEntityTable.  The information in this table
 // is based on information from the Entity-Peer interaction
 // during session initialization but is not appropriate
 // for the mplsLdpSessionTable, because objects in this
 // table may or may not be used in session establishment.
-type MPLSLDPSTDMIB_Mplsldppeertable struct {
+type MPLSLDPSTDMIB_MplsLdpPeerTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single Peer which is related to a Session.  This table
     // is augmented by the mplsLdpSessionTable. The type is slice of
-    // MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry.
-    Mplsldppeerentry []MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry
+    // MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry.
+    MplsLdpPeerEntry []*MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry
 }
 
-func (mplsldppeertable *MPLSLDPSTDMIB_Mplsldppeertable) GetEntityData() *types.CommonEntityData {
-    mplsldppeertable.EntityData.YFilter = mplsldppeertable.YFilter
-    mplsldppeertable.EntityData.YangName = "mplsLdpPeerTable"
-    mplsldppeertable.EntityData.BundleName = "cisco_ios_xe"
-    mplsldppeertable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsldppeertable.EntityData.SegmentPath = "mplsLdpPeerTable"
-    mplsldppeertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldppeertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldppeertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpPeerTable *MPLSLDPSTDMIB_MplsLdpPeerTable) GetEntityData() *types.CommonEntityData {
+    mplsLdpPeerTable.EntityData.YFilter = mplsLdpPeerTable.YFilter
+    mplsLdpPeerTable.EntityData.YangName = "mplsLdpPeerTable"
+    mplsLdpPeerTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpPeerTable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsLdpPeerTable.EntityData.SegmentPath = "mplsLdpPeerTable"
+    mplsLdpPeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpPeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpPeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldppeertable.EntityData.Children = make(map[string]types.YChild)
-    mplsldppeertable.EntityData.Children["mplsLdpPeerEntry"] = types.YChild{"Mplsldppeerentry", nil}
-    for i := range mplsldppeertable.Mplsldppeerentry {
-        mplsldppeertable.EntityData.Children[types.GetSegmentPath(&mplsldppeertable.Mplsldppeerentry[i])] = types.YChild{"Mplsldppeerentry", &mplsldppeertable.Mplsldppeerentry[i]}
+    mplsLdpPeerTable.EntityData.Children = types.NewOrderedMap()
+    mplsLdpPeerTable.EntityData.Children.Append("mplsLdpPeerEntry", types.YChild{"MplsLdpPeerEntry", nil})
+    for i := range mplsLdpPeerTable.MplsLdpPeerEntry {
+        mplsLdpPeerTable.EntityData.Children.Append(types.GetSegmentPath(mplsLdpPeerTable.MplsLdpPeerEntry[i]), types.YChild{"MplsLdpPeerEntry", mplsLdpPeerTable.MplsLdpPeerEntry[i]})
     }
-    mplsldppeertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsldppeertable.EntityData)
+    mplsLdpPeerTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsLdpPeerTable.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpPeerTable.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry
+// MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry
 // Information about a single Peer which is related
 // to a Session.  This table is augmented by
 // the mplsLdpSessionTable.
-type MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry struct {
+type MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityldpid
-    Mplsldpentityldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityLdpId
+    MplsLdpEntityLdpId interface{}
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityindex
-    Mplsldpentityindex interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityIndex
+    MplsLdpEntityIndex interface{}
 
     // This attribute is a key. The LDP identifier of this LDP Peer. The type is
     // string.
-    Mplsldppeerldpid interface{}
+    MplsLdpPeerLdpId interface{}
 
     // For any given LDP session, the method of label distribution must be
     // specified. The type is MplsLabelDistributionMethod.
-    Mplsldppeerlabeldistmethod interface{}
+    MplsLdpPeerLabelDistMethod interface{}
 
     // If the value of this object is 0 (zero) then Loop Dection for Path Vectors
     // for this Peer is disabled.  Otherwise, if this object has a value greater
     // than zero, then Loop Dection for Path  Vectors for this Peer is enabled and
     // the Path Vector Limit is this value. The type is interface{} with range:
     // 0..255.
-    Mplsldppeerpathvectorlimit interface{}
+    MplsLdpPeerPathVectorLimit interface{}
 
     // The type of the Internet address for the mplsLdpPeerTransportAddr object. 
     // The LDP specification describes this as being either an IPv4 Transport
@@ -770,40 +794,40 @@ type MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry struct {
     // is the IPv4/IPv6 source address for the UPD packet carrying the Hellos. 
     // This object specifies how the value of the mplsLdpPeerTransportAddr object
     // should be interpreted. The type is InetAddressType.
-    Mplsldppeertransportaddrtype interface{}
+    MplsLdpPeerTransportAddrType interface{}
 
     // The Internet address advertised by the peer in the Hello Message or the
     // Hello source address.  The type of this address is specified by the value
     // of the mplsLdpPeerTransportAddrType object. The type is string with length:
     // 0..255.
-    Mplsldppeertransportaddr interface{}
+    MplsLdpPeerTransportAddr interface{}
 
     // The value of sysUpTime at the time this Session entered its current state
     // as denoted by the mplsLdpSessionState object. The type is interface{} with
     // range: 0..4294967295.
-    Mplsldpsessionstatelastchange interface{}
+    MplsLdpSessionStateLastChange interface{}
 
     // The current state of the session, all of the states 1 to 5 are based on the
     // state machine for session negotiation behavior. The type is
-    // Mplsldpsessionstate.
-    Mplsldpsessionstate interface{}
+    // MplsLdpSessionState.
+    MplsLdpSessionState interface{}
 
     // During session establishment the LSR/LER takes either the active role or
     // the passive role based on address comparisons.  This object indicates
     // whether this LSR/LER was behaving in an active role or passive role during
     // this session's establishment.  The value of unknown(1), indicates that the
     // role is not able to be determined at the present time. The type is
-    // Mplsldpsessionrole.
-    Mplsldpsessionrole interface{}
+    // MplsLdpSessionRole.
+    MplsLdpSessionRole interface{}
 
     // The version of the LDP Protocol which this session is using.  This is the
     // version of   the LDP protocol which has been negotiated during session
     // initialization. The type is interface{} with range: 1..65535.
-    Mplsldpsessionprotocolversion interface{}
+    MplsLdpSessionProtocolVersion interface{}
 
     // The keep alive hold time remaining for this session. The type is
     // interface{} with range: 0..2147483647.
-    Mplsldpsessionkeepaliveholdtimerem interface{}
+    MplsLdpSessionKeepAliveHoldTimeRem interface{}
 
     // The negotiated KeepAlive Time which represents the amount of seconds
     // between keep alive messages.  The mplsLdpEntityKeepAliveHoldTimer related
@@ -813,7 +837,7 @@ type MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry struct {
     // mplsLdpEntityKeepAliveHoldTimer) and the peer's proposed KeepAlive Hold
     // Timer value. This value is the smaller of the two proposed values. The type
     // is interface{} with range: 1..65535. Units are seconds.
-    Mplsldpsessionkeepalivetime interface{}
+    MplsLdpSessionKeepAliveTime interface{}
 
     // The value of maximum allowable length for LDP PDUs for this session.  This
     // value may have been negotiated during the Session Initialization.  This
@@ -822,7 +846,7 @@ type MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry struct {
     // and this object reflects the negotiated LDP PDU length between the Entity
     // and the Peer. The type is interface{} with range: 1..65535. Units are
     // octets.
-    Mplsldpsessionmaxpdulength interface{}
+    MplsLdpSessionMaxPduLength interface{}
 
     // The value of sysUpTime on the most recent occasion at which any one or more
     // of this session's counters suffered a discontinuity.  The relevant counters
@@ -833,136 +857,142 @@ type MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry struct {
     // given Entity and Peer goes away and a new session is established.  This
     // value would change and thus indicate to the command generator that this is
     // a different session. The type is interface{} with range: 0..4294967295.
-    Mplsldpsessiondiscontinuitytime interface{}
+    MplsLdpSessionDiscontinuityTime interface{}
 
     // This object counts the number of Unknown Message Type Errors detected by
     // this LSR/LER during this session.  Discontinuities in the value of this
     // counter can occur at re-initialization of the management system, and at
     // other times as indicated by the value of mplsLdpSessionDiscontinuityTime.
     // The type is interface{} with range: 0..4294967295.
-    Mplsldpsessionstatsunknownmestypeerrors interface{}
+    MplsLdpSessionStatsUnknownMesTypeErrors interface{}
 
     // This object counts the number of Unknown TLV Errors detected by this
     // LSR/LER during this session.  Discontinuities in the value of this counter
     // can occur at re-initialization of the management system, and at other times
     // as indicated by the value of mplsLdpSessionDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Mplsldpsessionstatsunknowntlverrors interface{}
+    MplsLdpSessionStatsUnknownTlvErrors interface{}
 }
 
-func (mplsldppeerentry *MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry) GetEntityData() *types.CommonEntityData {
-    mplsldppeerentry.EntityData.YFilter = mplsldppeerentry.YFilter
-    mplsldppeerentry.EntityData.YangName = "mplsLdpPeerEntry"
-    mplsldppeerentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsldppeerentry.EntityData.ParentYangName = "mplsLdpPeerTable"
-    mplsldppeerentry.EntityData.SegmentPath = "mplsLdpPeerEntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsldppeerentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsldppeerentry.Mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + fmt.Sprintf("%v", mplsldppeerentry.Mplsldppeerldpid) + "']"
-    mplsldppeerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldppeerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldppeerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpPeerEntry *MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry) GetEntityData() *types.CommonEntityData {
+    mplsLdpPeerEntry.EntityData.YFilter = mplsLdpPeerEntry.YFilter
+    mplsLdpPeerEntry.EntityData.YangName = "mplsLdpPeerEntry"
+    mplsLdpPeerEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpPeerEntry.EntityData.ParentYangName = "mplsLdpPeerTable"
+    mplsLdpPeerEntry.EntityData.SegmentPath = "mplsLdpPeerEntry" + types.AddKeyToken(mplsLdpPeerEntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsLdpPeerEntry.MplsLdpEntityIndex, "mplsLdpEntityIndex") + types.AddKeyToken(mplsLdpPeerEntry.MplsLdpPeerLdpId, "mplsLdpPeerLdpId")
+    mplsLdpPeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpPeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpPeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldppeerentry.EntityData.Children = make(map[string]types.YChild)
-    mplsldppeerentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldppeerentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsldppeerentry.Mplsldpentityldpid}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsldppeerentry.Mplsldpentityindex}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpPeerLdpId"] = types.YLeaf{"Mplsldppeerldpid", mplsldppeerentry.Mplsldppeerldpid}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpPeerLabelDistMethod"] = types.YLeaf{"Mplsldppeerlabeldistmethod", mplsldppeerentry.Mplsldppeerlabeldistmethod}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpPeerPathVectorLimit"] = types.YLeaf{"Mplsldppeerpathvectorlimit", mplsldppeerentry.Mplsldppeerpathvectorlimit}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpPeerTransportAddrType"] = types.YLeaf{"Mplsldppeertransportaddrtype", mplsldppeerentry.Mplsldppeertransportaddrtype}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpPeerTransportAddr"] = types.YLeaf{"Mplsldppeertransportaddr", mplsldppeerentry.Mplsldppeertransportaddr}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionStateLastChange"] = types.YLeaf{"Mplsldpsessionstatelastchange", mplsldppeerentry.Mplsldpsessionstatelastchange}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionState"] = types.YLeaf{"Mplsldpsessionstate", mplsldppeerentry.Mplsldpsessionstate}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionRole"] = types.YLeaf{"Mplsldpsessionrole", mplsldppeerentry.Mplsldpsessionrole}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionProtocolVersion"] = types.YLeaf{"Mplsldpsessionprotocolversion", mplsldppeerentry.Mplsldpsessionprotocolversion}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionKeepAliveHoldTimeRem"] = types.YLeaf{"Mplsldpsessionkeepaliveholdtimerem", mplsldppeerentry.Mplsldpsessionkeepaliveholdtimerem}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionKeepAliveTime"] = types.YLeaf{"Mplsldpsessionkeepalivetime", mplsldppeerentry.Mplsldpsessionkeepalivetime}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionMaxPduLength"] = types.YLeaf{"Mplsldpsessionmaxpdulength", mplsldppeerentry.Mplsldpsessionmaxpdulength}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionDiscontinuityTime"] = types.YLeaf{"Mplsldpsessiondiscontinuitytime", mplsldppeerentry.Mplsldpsessiondiscontinuitytime}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionStatsUnknownMesTypeErrors"] = types.YLeaf{"Mplsldpsessionstatsunknownmestypeerrors", mplsldppeerentry.Mplsldpsessionstatsunknownmestypeerrors}
-    mplsldppeerentry.EntityData.Leafs["mplsLdpSessionStatsUnknownTlvErrors"] = types.YLeaf{"Mplsldpsessionstatsunknowntlverrors", mplsldppeerentry.Mplsldpsessionstatsunknowntlverrors}
-    return &(mplsldppeerentry.EntityData)
+    mplsLdpPeerEntry.EntityData.Children = types.NewOrderedMap()
+    mplsLdpPeerEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpEntityLdpId", types.YLeaf{"MplsLdpEntityLdpId", mplsLdpPeerEntry.MplsLdpEntityLdpId})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpEntityIndex", types.YLeaf{"MplsLdpEntityIndex", mplsLdpPeerEntry.MplsLdpEntityIndex})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpPeerLdpId", types.YLeaf{"MplsLdpPeerLdpId", mplsLdpPeerEntry.MplsLdpPeerLdpId})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpPeerLabelDistMethod", types.YLeaf{"MplsLdpPeerLabelDistMethod", mplsLdpPeerEntry.MplsLdpPeerLabelDistMethod})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpPeerPathVectorLimit", types.YLeaf{"MplsLdpPeerPathVectorLimit", mplsLdpPeerEntry.MplsLdpPeerPathVectorLimit})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpPeerTransportAddrType", types.YLeaf{"MplsLdpPeerTransportAddrType", mplsLdpPeerEntry.MplsLdpPeerTransportAddrType})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpPeerTransportAddr", types.YLeaf{"MplsLdpPeerTransportAddr", mplsLdpPeerEntry.MplsLdpPeerTransportAddr})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionStateLastChange", types.YLeaf{"MplsLdpSessionStateLastChange", mplsLdpPeerEntry.MplsLdpSessionStateLastChange})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionState", types.YLeaf{"MplsLdpSessionState", mplsLdpPeerEntry.MplsLdpSessionState})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionRole", types.YLeaf{"MplsLdpSessionRole", mplsLdpPeerEntry.MplsLdpSessionRole})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionProtocolVersion", types.YLeaf{"MplsLdpSessionProtocolVersion", mplsLdpPeerEntry.MplsLdpSessionProtocolVersion})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionKeepAliveHoldTimeRem", types.YLeaf{"MplsLdpSessionKeepAliveHoldTimeRem", mplsLdpPeerEntry.MplsLdpSessionKeepAliveHoldTimeRem})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionKeepAliveTime", types.YLeaf{"MplsLdpSessionKeepAliveTime", mplsLdpPeerEntry.MplsLdpSessionKeepAliveTime})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionMaxPduLength", types.YLeaf{"MplsLdpSessionMaxPduLength", mplsLdpPeerEntry.MplsLdpSessionMaxPduLength})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionDiscontinuityTime", types.YLeaf{"MplsLdpSessionDiscontinuityTime", mplsLdpPeerEntry.MplsLdpSessionDiscontinuityTime})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionStatsUnknownMesTypeErrors", types.YLeaf{"MplsLdpSessionStatsUnknownMesTypeErrors", mplsLdpPeerEntry.MplsLdpSessionStatsUnknownMesTypeErrors})
+    mplsLdpPeerEntry.EntityData.Leafs.Append("mplsLdpSessionStatsUnknownTlvErrors", types.YLeaf{"MplsLdpSessionStatsUnknownTlvErrors", mplsLdpPeerEntry.MplsLdpSessionStatsUnknownTlvErrors})
+
+    mplsLdpPeerEntry.EntityData.YListKeys = []string {"MplsLdpEntityLdpId", "MplsLdpEntityIndex", "MplsLdpPeerLdpId"}
+
+    return &(mplsLdpPeerEntry.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionrole represents able to be determined at the present time.
-type MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionrole string
+// MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionRole represents able to be determined at the present time.
+type MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionRole string
 
 const (
-    MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionrole_unknown MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionrole = "unknown"
+    MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionRole_unknown MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionRole = "unknown"
 
-    MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionrole_active MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionrole = "active"
+    MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionRole_active MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionRole = "active"
 
-    MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionrole_passive MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionrole = "passive"
+    MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionRole_passive MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionRole = "passive"
 )
 
-// MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate represents for session negotiation behavior.
-type MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate string
+// MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState represents for session negotiation behavior.
+type MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState string
 
 const (
-    MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate_nonexistent MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate = "nonexistent"
+    MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState_nonexistent MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState = "nonexistent"
 
-    MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate_initialized MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate = "initialized"
+    MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState_initialized MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState = "initialized"
 
-    MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate_openrec MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate = "openrec"
+    MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState_openrec MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState = "openrec"
 
-    MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate_opensent MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate = "opensent"
+    MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState_opensent MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState = "opensent"
 
-    MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate_operational MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldpsessionstate = "operational"
+    MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState_operational MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpSessionState = "operational"
 )
 
-// MPLSLDPSTDMIB_Mplsldphelloadjacencytable
+// MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable
 // A table of Hello Adjacencies for Sessions.
-type MPLSLDPSTDMIB_Mplsldphelloadjacencytable struct {
+type MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each row represents a single LDP Hello Adjacency. An LDP Session can have
     // one or more Hello Adjacencies. The type is slice of
-    // MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry.
-    Mplsldphelloadjacencyentry []MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry
+    // MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry.
+    MplsLdpHelloAdjacencyEntry []*MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry
 }
 
-func (mplsldphelloadjacencytable *MPLSLDPSTDMIB_Mplsldphelloadjacencytable) GetEntityData() *types.CommonEntityData {
-    mplsldphelloadjacencytable.EntityData.YFilter = mplsldphelloadjacencytable.YFilter
-    mplsldphelloadjacencytable.EntityData.YangName = "mplsLdpHelloAdjacencyTable"
-    mplsldphelloadjacencytable.EntityData.BundleName = "cisco_ios_xe"
-    mplsldphelloadjacencytable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsldphelloadjacencytable.EntityData.SegmentPath = "mplsLdpHelloAdjacencyTable"
-    mplsldphelloadjacencytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldphelloadjacencytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldphelloadjacencytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpHelloAdjacencyTable *MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable) GetEntityData() *types.CommonEntityData {
+    mplsLdpHelloAdjacencyTable.EntityData.YFilter = mplsLdpHelloAdjacencyTable.YFilter
+    mplsLdpHelloAdjacencyTable.EntityData.YangName = "mplsLdpHelloAdjacencyTable"
+    mplsLdpHelloAdjacencyTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpHelloAdjacencyTable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsLdpHelloAdjacencyTable.EntityData.SegmentPath = "mplsLdpHelloAdjacencyTable"
+    mplsLdpHelloAdjacencyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpHelloAdjacencyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpHelloAdjacencyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldphelloadjacencytable.EntityData.Children = make(map[string]types.YChild)
-    mplsldphelloadjacencytable.EntityData.Children["mplsLdpHelloAdjacencyEntry"] = types.YChild{"Mplsldphelloadjacencyentry", nil}
-    for i := range mplsldphelloadjacencytable.Mplsldphelloadjacencyentry {
-        mplsldphelloadjacencytable.EntityData.Children[types.GetSegmentPath(&mplsldphelloadjacencytable.Mplsldphelloadjacencyentry[i])] = types.YChild{"Mplsldphelloadjacencyentry", &mplsldphelloadjacencytable.Mplsldphelloadjacencyentry[i]}
+    mplsLdpHelloAdjacencyTable.EntityData.Children = types.NewOrderedMap()
+    mplsLdpHelloAdjacencyTable.EntityData.Children.Append("mplsLdpHelloAdjacencyEntry", types.YChild{"MplsLdpHelloAdjacencyEntry", nil})
+    for i := range mplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry {
+        mplsLdpHelloAdjacencyTable.EntityData.Children.Append(types.GetSegmentPath(mplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry[i]), types.YChild{"MplsLdpHelloAdjacencyEntry", mplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry[i]})
     }
-    mplsldphelloadjacencytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsldphelloadjacencytable.EntityData)
+    mplsLdpHelloAdjacencyTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsLdpHelloAdjacencyTable.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpHelloAdjacencyTable.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry
+// MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry
 // Each row represents a single LDP Hello Adjacency.
 // An LDP Session can have one or more Hello
 // Adjacencies.
-type MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry struct {
+type MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityldpid
-    Mplsldpentityldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityLdpId
+    MplsLdpEntityLdpId interface{}
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityindex
-    Mplsldpentityindex interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityIndex
+    MplsLdpEntityIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldppeerldpid
-    Mplsldppeerldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpPeerLdpId
+    MplsLdpPeerLdpId interface{}
 
     // This attribute is a key. An identifier for this specific adjacency. The
     // type is interface{} with range: 1..4294967295.
-    Mplsldphelloadjacencyindex interface{}
+    MplsLdpHelloAdjacencyIndex interface{}
 
     // If the value of this object is 65535, this means that the hold time is
     // infinite (i.e., wait forever).  Otherwise, the time remaining for this
@@ -970,7 +1000,7 @@ type MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry struct 
     // change when the 'next' Hello Message which corresponds to this Hello
     // Adjacency is received unless it is infinite. The type is interface{} with
     // range: 0..2147483647. Units are seconds.
-    Mplsldphelloadjacencyholdtimerem interface{}
+    MplsLdpHelloAdjacencyHoldTimeRem interface{}
 
     // The Hello hold time which is negotiated between the Entity and the Peer. 
     // The entity associated with this Hello Adjacency issues a proposed Hello
@@ -979,50 +1009,53 @@ type MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry struct 
     // of 0 means the default, which is 15 seconds for Link Hellos and 45 seconds
     // for Targeted Hellos. A value of 65535 indicates an infinite hold time. The
     // type is interface{} with range: 0..65535.
-    Mplsldphelloadjacencyholdtime interface{}
+    MplsLdpHelloAdjacencyHoldTime interface{}
 
     // This adjacency is the result of a 'link' hello if the value of this object
     // is link(1).   Otherwise, it is a result of a 'targeted' hello, targeted(2).
-    // The type is Mplsldphelloadjacencytype.
-    Mplsldphelloadjacencytype interface{}
+    // The type is MplsLdpHelloAdjacencyType.
+    MplsLdpHelloAdjacencyType interface{}
 }
 
-func (mplsldphelloadjacencyentry *MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry) GetEntityData() *types.CommonEntityData {
-    mplsldphelloadjacencyentry.EntityData.YFilter = mplsldphelloadjacencyentry.YFilter
-    mplsldphelloadjacencyentry.EntityData.YangName = "mplsLdpHelloAdjacencyEntry"
-    mplsldphelloadjacencyentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsldphelloadjacencyentry.EntityData.ParentYangName = "mplsLdpHelloAdjacencyTable"
-    mplsldphelloadjacencyentry.EntityData.SegmentPath = "mplsLdpHelloAdjacencyEntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsldphelloadjacencyentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsldphelloadjacencyentry.Mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + fmt.Sprintf("%v", mplsldphelloadjacencyentry.Mplsldppeerldpid) + "']" + "[mplsLdpHelloAdjacencyIndex='" + fmt.Sprintf("%v", mplsldphelloadjacencyentry.Mplsldphelloadjacencyindex) + "']"
-    mplsldphelloadjacencyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldphelloadjacencyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldphelloadjacencyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpHelloAdjacencyEntry *MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry) GetEntityData() *types.CommonEntityData {
+    mplsLdpHelloAdjacencyEntry.EntityData.YFilter = mplsLdpHelloAdjacencyEntry.YFilter
+    mplsLdpHelloAdjacencyEntry.EntityData.YangName = "mplsLdpHelloAdjacencyEntry"
+    mplsLdpHelloAdjacencyEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpHelloAdjacencyEntry.EntityData.ParentYangName = "mplsLdpHelloAdjacencyTable"
+    mplsLdpHelloAdjacencyEntry.EntityData.SegmentPath = "mplsLdpHelloAdjacencyEntry" + types.AddKeyToken(mplsLdpHelloAdjacencyEntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsLdpHelloAdjacencyEntry.MplsLdpEntityIndex, "mplsLdpEntityIndex") + types.AddKeyToken(mplsLdpHelloAdjacencyEntry.MplsLdpPeerLdpId, "mplsLdpPeerLdpId") + types.AddKeyToken(mplsLdpHelloAdjacencyEntry.MplsLdpHelloAdjacencyIndex, "mplsLdpHelloAdjacencyIndex")
+    mplsLdpHelloAdjacencyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpHelloAdjacencyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpHelloAdjacencyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldphelloadjacencyentry.EntityData.Children = make(map[string]types.YChild)
-    mplsldphelloadjacencyentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldphelloadjacencyentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsldphelloadjacencyentry.Mplsldpentityldpid}
-    mplsldphelloadjacencyentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsldphelloadjacencyentry.Mplsldpentityindex}
-    mplsldphelloadjacencyentry.EntityData.Leafs["mplsLdpPeerLdpId"] = types.YLeaf{"Mplsldppeerldpid", mplsldphelloadjacencyentry.Mplsldppeerldpid}
-    mplsldphelloadjacencyentry.EntityData.Leafs["mplsLdpHelloAdjacencyIndex"] = types.YLeaf{"Mplsldphelloadjacencyindex", mplsldphelloadjacencyentry.Mplsldphelloadjacencyindex}
-    mplsldphelloadjacencyentry.EntityData.Leafs["mplsLdpHelloAdjacencyHoldTimeRem"] = types.YLeaf{"Mplsldphelloadjacencyholdtimerem", mplsldphelloadjacencyentry.Mplsldphelloadjacencyholdtimerem}
-    mplsldphelloadjacencyentry.EntityData.Leafs["mplsLdpHelloAdjacencyHoldTime"] = types.YLeaf{"Mplsldphelloadjacencyholdtime", mplsldphelloadjacencyentry.Mplsldphelloadjacencyholdtime}
-    mplsldphelloadjacencyentry.EntityData.Leafs["mplsLdpHelloAdjacencyType"] = types.YLeaf{"Mplsldphelloadjacencytype", mplsldphelloadjacencyentry.Mplsldphelloadjacencytype}
-    return &(mplsldphelloadjacencyentry.EntityData)
+    mplsLdpHelloAdjacencyEntry.EntityData.Children = types.NewOrderedMap()
+    mplsLdpHelloAdjacencyEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpHelloAdjacencyEntry.EntityData.Leafs.Append("mplsLdpEntityLdpId", types.YLeaf{"MplsLdpEntityLdpId", mplsLdpHelloAdjacencyEntry.MplsLdpEntityLdpId})
+    mplsLdpHelloAdjacencyEntry.EntityData.Leafs.Append("mplsLdpEntityIndex", types.YLeaf{"MplsLdpEntityIndex", mplsLdpHelloAdjacencyEntry.MplsLdpEntityIndex})
+    mplsLdpHelloAdjacencyEntry.EntityData.Leafs.Append("mplsLdpPeerLdpId", types.YLeaf{"MplsLdpPeerLdpId", mplsLdpHelloAdjacencyEntry.MplsLdpPeerLdpId})
+    mplsLdpHelloAdjacencyEntry.EntityData.Leafs.Append("mplsLdpHelloAdjacencyIndex", types.YLeaf{"MplsLdpHelloAdjacencyIndex", mplsLdpHelloAdjacencyEntry.MplsLdpHelloAdjacencyIndex})
+    mplsLdpHelloAdjacencyEntry.EntityData.Leafs.Append("mplsLdpHelloAdjacencyHoldTimeRem", types.YLeaf{"MplsLdpHelloAdjacencyHoldTimeRem", mplsLdpHelloAdjacencyEntry.MplsLdpHelloAdjacencyHoldTimeRem})
+    mplsLdpHelloAdjacencyEntry.EntityData.Leafs.Append("mplsLdpHelloAdjacencyHoldTime", types.YLeaf{"MplsLdpHelloAdjacencyHoldTime", mplsLdpHelloAdjacencyEntry.MplsLdpHelloAdjacencyHoldTime})
+    mplsLdpHelloAdjacencyEntry.EntityData.Leafs.Append("mplsLdpHelloAdjacencyType", types.YLeaf{"MplsLdpHelloAdjacencyType", mplsLdpHelloAdjacencyEntry.MplsLdpHelloAdjacencyType})
+
+    mplsLdpHelloAdjacencyEntry.EntityData.YListKeys = []string {"MplsLdpEntityLdpId", "MplsLdpEntityIndex", "MplsLdpPeerLdpId", "MplsLdpHelloAdjacencyIndex"}
+
+    return &(mplsLdpHelloAdjacencyEntry.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry_Mplsldphelloadjacencytype represents hello, targeted(2).
-type MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry_Mplsldphelloadjacencytype string
+// MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry_MplsLdpHelloAdjacencyType represents hello, targeted(2).
+type MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry_MplsLdpHelloAdjacencyType string
 
 const (
-    MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry_Mplsldphelloadjacencytype_link MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry_Mplsldphelloadjacencytype = "link"
+    MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry_MplsLdpHelloAdjacencyType_link MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry_MplsLdpHelloAdjacencyType = "link"
 
-    MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry_Mplsldphelloadjacencytype_targeted MPLSLDPSTDMIB_Mplsldphelloadjacencytable_Mplsldphelloadjacencyentry_Mplsldphelloadjacencytype = "targeted"
+    MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry_MplsLdpHelloAdjacencyType_targeted MPLSLDPSTDMIB_MplsLdpHelloAdjacencyTable_MplsLdpHelloAdjacencyEntry_MplsLdpHelloAdjacencyType = "targeted"
 )
 
-// MPLSLDPSTDMIB_Mplsinsegmentldplsptable
+// MPLSLDPSTDMIB_MplsInSegmentLdpLspTable
 // A table of LDP LSP's which
 // map to the mplsInSegmentTable in the
 // MPLS-LSR-STD-MIB module.
-type MPLSLDPSTDMIB_Mplsinsegmentldplsptable struct {
+type MPLSLDPSTDMIB_MplsInSegmentLdpLspTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1032,30 +1065,33 @@ type MPLSLDPSTDMIB_Mplsinsegmentldplsptable struct {
     // mplsInSegmentTable (mplsInSegmentLdpLspLabelIndex) from the
     // MPLS-LSR-STD-MIB.  The information contained in a row is read-only. The
     // type is slice of
-    // MPLSLDPSTDMIB_Mplsinsegmentldplsptable_Mplsinsegmentldplspentry.
-    Mplsinsegmentldplspentry []MPLSLDPSTDMIB_Mplsinsegmentldplsptable_Mplsinsegmentldplspentry
+    // MPLSLDPSTDMIB_MplsInSegmentLdpLspTable_MplsInSegmentLdpLspEntry.
+    MplsInSegmentLdpLspEntry []*MPLSLDPSTDMIB_MplsInSegmentLdpLspTable_MplsInSegmentLdpLspEntry
 }
 
-func (mplsinsegmentldplsptable *MPLSLDPSTDMIB_Mplsinsegmentldplsptable) GetEntityData() *types.CommonEntityData {
-    mplsinsegmentldplsptable.EntityData.YFilter = mplsinsegmentldplsptable.YFilter
-    mplsinsegmentldplsptable.EntityData.YangName = "mplsInSegmentLdpLspTable"
-    mplsinsegmentldplsptable.EntityData.BundleName = "cisco_ios_xe"
-    mplsinsegmentldplsptable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsinsegmentldplsptable.EntityData.SegmentPath = "mplsInSegmentLdpLspTable"
-    mplsinsegmentldplsptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsinsegmentldplsptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsinsegmentldplsptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsInSegmentLdpLspTable *MPLSLDPSTDMIB_MplsInSegmentLdpLspTable) GetEntityData() *types.CommonEntityData {
+    mplsInSegmentLdpLspTable.EntityData.YFilter = mplsInSegmentLdpLspTable.YFilter
+    mplsInSegmentLdpLspTable.EntityData.YangName = "mplsInSegmentLdpLspTable"
+    mplsInSegmentLdpLspTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsInSegmentLdpLspTable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsInSegmentLdpLspTable.EntityData.SegmentPath = "mplsInSegmentLdpLspTable"
+    mplsInSegmentLdpLspTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsInSegmentLdpLspTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsInSegmentLdpLspTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsinsegmentldplsptable.EntityData.Children = make(map[string]types.YChild)
-    mplsinsegmentldplsptable.EntityData.Children["mplsInSegmentLdpLspEntry"] = types.YChild{"Mplsinsegmentldplspentry", nil}
-    for i := range mplsinsegmentldplsptable.Mplsinsegmentldplspentry {
-        mplsinsegmentldplsptable.EntityData.Children[types.GetSegmentPath(&mplsinsegmentldplsptable.Mplsinsegmentldplspentry[i])] = types.YChild{"Mplsinsegmentldplspentry", &mplsinsegmentldplsptable.Mplsinsegmentldplspentry[i]}
+    mplsInSegmentLdpLspTable.EntityData.Children = types.NewOrderedMap()
+    mplsInSegmentLdpLspTable.EntityData.Children.Append("mplsInSegmentLdpLspEntry", types.YChild{"MplsInSegmentLdpLspEntry", nil})
+    for i := range mplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry {
+        mplsInSegmentLdpLspTable.EntityData.Children.Append(types.GetSegmentPath(mplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry[i]), types.YChild{"MplsInSegmentLdpLspEntry", mplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry[i]})
     }
-    mplsinsegmentldplsptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsinsegmentldplsptable.EntityData)
+    mplsInSegmentLdpLspTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsInSegmentLdpLspTable.EntityData.YListKeys = []string {}
+
+    return &(mplsInSegmentLdpLspTable.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsinsegmentldplsptable_Mplsinsegmentldplspentry
+// MPLSLDPSTDMIB_MplsInSegmentLdpLspTable_MplsInSegmentLdpLspEntry
 // An entry in this table represents information
 // on a single LDP LSP which is represented by
 // a session's index triple (mplsLdpEntityLdpId,
@@ -1065,61 +1101,64 @@ func (mplsinsegmentldplsptable *MPLSLDPSTDMIB_Mplsinsegmentldplsptable) GetEntit
 // MPLS-LSR-STD-MIB.
 // 
 // The information contained in a row is read-only.
-type MPLSLDPSTDMIB_Mplsinsegmentldplsptable_Mplsinsegmentldplspentry struct {
+type MPLSLDPSTDMIB_MplsInSegmentLdpLspTable_MplsInSegmentLdpLspEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityldpid
-    Mplsldpentityldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityLdpId
+    MplsLdpEntityLdpId interface{}
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityindex
-    Mplsldpentityindex interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityIndex
+    MplsLdpEntityIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldppeerldpid
-    Mplsldppeerldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpPeerLdpId
+    MplsLdpPeerLdpId interface{}
 
     // This attribute is a key. This contains the same value as the
     // mplsInSegmentIndex in the MPLS-LSR-STD-MIB's mplsInSegmentTable. The type
     // is string with length: 1..24.
-    Mplsinsegmentldplspindex interface{}
+    MplsInSegmentLdpLspIndex interface{}
 
     // The Layer 2 Label Type. The type is MplsLdpLabelType.
-    Mplsinsegmentldplsplabeltype interface{}
+    MplsInSegmentLdpLspLabelType interface{}
 
     // The type of LSP connection. The type is MplsLspType.
-    Mplsinsegmentldplsptype interface{}
+    MplsInSegmentLdpLspType interface{}
 }
 
-func (mplsinsegmentldplspentry *MPLSLDPSTDMIB_Mplsinsegmentldplsptable_Mplsinsegmentldplspentry) GetEntityData() *types.CommonEntityData {
-    mplsinsegmentldplspentry.EntityData.YFilter = mplsinsegmentldplspentry.YFilter
-    mplsinsegmentldplspentry.EntityData.YangName = "mplsInSegmentLdpLspEntry"
-    mplsinsegmentldplspentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsinsegmentldplspentry.EntityData.ParentYangName = "mplsInSegmentLdpLspTable"
-    mplsinsegmentldplspentry.EntityData.SegmentPath = "mplsInSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsinsegmentldplspentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsinsegmentldplspentry.Mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + fmt.Sprintf("%v", mplsinsegmentldplspentry.Mplsldppeerldpid) + "']" + "[mplsInSegmentLdpLspIndex='" + fmt.Sprintf("%v", mplsinsegmentldplspentry.Mplsinsegmentldplspindex) + "']"
-    mplsinsegmentldplspentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsinsegmentldplspentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsinsegmentldplspentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsInSegmentLdpLspEntry *MPLSLDPSTDMIB_MplsInSegmentLdpLspTable_MplsInSegmentLdpLspEntry) GetEntityData() *types.CommonEntityData {
+    mplsInSegmentLdpLspEntry.EntityData.YFilter = mplsInSegmentLdpLspEntry.YFilter
+    mplsInSegmentLdpLspEntry.EntityData.YangName = "mplsInSegmentLdpLspEntry"
+    mplsInSegmentLdpLspEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsInSegmentLdpLspEntry.EntityData.ParentYangName = "mplsInSegmentLdpLspTable"
+    mplsInSegmentLdpLspEntry.EntityData.SegmentPath = "mplsInSegmentLdpLspEntry" + types.AddKeyToken(mplsInSegmentLdpLspEntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsInSegmentLdpLspEntry.MplsLdpEntityIndex, "mplsLdpEntityIndex") + types.AddKeyToken(mplsInSegmentLdpLspEntry.MplsLdpPeerLdpId, "mplsLdpPeerLdpId") + types.AddKeyToken(mplsInSegmentLdpLspEntry.MplsInSegmentLdpLspIndex, "mplsInSegmentLdpLspIndex")
+    mplsInSegmentLdpLspEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsInSegmentLdpLspEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsInSegmentLdpLspEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsinsegmentldplspentry.EntityData.Children = make(map[string]types.YChild)
-    mplsinsegmentldplspentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsinsegmentldplspentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsinsegmentldplspentry.Mplsldpentityldpid}
-    mplsinsegmentldplspentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsinsegmentldplspentry.Mplsldpentityindex}
-    mplsinsegmentldplspentry.EntityData.Leafs["mplsLdpPeerLdpId"] = types.YLeaf{"Mplsldppeerldpid", mplsinsegmentldplspentry.Mplsldppeerldpid}
-    mplsinsegmentldplspentry.EntityData.Leafs["mplsInSegmentLdpLspIndex"] = types.YLeaf{"Mplsinsegmentldplspindex", mplsinsegmentldplspentry.Mplsinsegmentldplspindex}
-    mplsinsegmentldplspentry.EntityData.Leafs["mplsInSegmentLdpLspLabelType"] = types.YLeaf{"Mplsinsegmentldplsplabeltype", mplsinsegmentldplspentry.Mplsinsegmentldplsplabeltype}
-    mplsinsegmentldplspentry.EntityData.Leafs["mplsInSegmentLdpLspType"] = types.YLeaf{"Mplsinsegmentldplsptype", mplsinsegmentldplspentry.Mplsinsegmentldplsptype}
-    return &(mplsinsegmentldplspentry.EntityData)
+    mplsInSegmentLdpLspEntry.EntityData.Children = types.NewOrderedMap()
+    mplsInSegmentLdpLspEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsInSegmentLdpLspEntry.EntityData.Leafs.Append("mplsLdpEntityLdpId", types.YLeaf{"MplsLdpEntityLdpId", mplsInSegmentLdpLspEntry.MplsLdpEntityLdpId})
+    mplsInSegmentLdpLspEntry.EntityData.Leafs.Append("mplsLdpEntityIndex", types.YLeaf{"MplsLdpEntityIndex", mplsInSegmentLdpLspEntry.MplsLdpEntityIndex})
+    mplsInSegmentLdpLspEntry.EntityData.Leafs.Append("mplsLdpPeerLdpId", types.YLeaf{"MplsLdpPeerLdpId", mplsInSegmentLdpLspEntry.MplsLdpPeerLdpId})
+    mplsInSegmentLdpLspEntry.EntityData.Leafs.Append("mplsInSegmentLdpLspIndex", types.YLeaf{"MplsInSegmentLdpLspIndex", mplsInSegmentLdpLspEntry.MplsInSegmentLdpLspIndex})
+    mplsInSegmentLdpLspEntry.EntityData.Leafs.Append("mplsInSegmentLdpLspLabelType", types.YLeaf{"MplsInSegmentLdpLspLabelType", mplsInSegmentLdpLspEntry.MplsInSegmentLdpLspLabelType})
+    mplsInSegmentLdpLspEntry.EntityData.Leafs.Append("mplsInSegmentLdpLspType", types.YLeaf{"MplsInSegmentLdpLspType", mplsInSegmentLdpLspEntry.MplsInSegmentLdpLspType})
+
+    mplsInSegmentLdpLspEntry.EntityData.YListKeys = []string {"MplsLdpEntityLdpId", "MplsLdpEntityIndex", "MplsLdpPeerLdpId", "MplsInSegmentLdpLspIndex"}
+
+    return &(mplsInSegmentLdpLspEntry.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsoutsegmentldplsptable
+// MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable
 // A table of LDP LSP's which
 // map to the mplsOutSegmentTable in the
 // MPLS-LSR-STD-MIB.
-type MPLSLDPSTDMIB_Mplsoutsegmentldplsptable struct {
+type MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1128,30 +1167,33 @@ type MPLSLDPSTDMIB_Mplsoutsegmentldplsptable struct {
     // mplsLdpEntityIndex, mplsLdpPeerLdpId) AND the index
     // (mplsOutSegmentLdpLspIndex) for the mplsOutSegmentTable.  The information
     // contained in a row is read-only. The type is slice of
-    // MPLSLDPSTDMIB_Mplsoutsegmentldplsptable_Mplsoutsegmentldplspentry.
-    Mplsoutsegmentldplspentry []MPLSLDPSTDMIB_Mplsoutsegmentldplsptable_Mplsoutsegmentldplspentry
+    // MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable_MplsOutSegmentLdpLspEntry.
+    MplsOutSegmentLdpLspEntry []*MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable_MplsOutSegmentLdpLspEntry
 }
 
-func (mplsoutsegmentldplsptable *MPLSLDPSTDMIB_Mplsoutsegmentldplsptable) GetEntityData() *types.CommonEntityData {
-    mplsoutsegmentldplsptable.EntityData.YFilter = mplsoutsegmentldplsptable.YFilter
-    mplsoutsegmentldplsptable.EntityData.YangName = "mplsOutSegmentLdpLspTable"
-    mplsoutsegmentldplsptable.EntityData.BundleName = "cisco_ios_xe"
-    mplsoutsegmentldplsptable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsoutsegmentldplsptable.EntityData.SegmentPath = "mplsOutSegmentLdpLspTable"
-    mplsoutsegmentldplsptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsoutsegmentldplsptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsoutsegmentldplsptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsOutSegmentLdpLspTable *MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable) GetEntityData() *types.CommonEntityData {
+    mplsOutSegmentLdpLspTable.EntityData.YFilter = mplsOutSegmentLdpLspTable.YFilter
+    mplsOutSegmentLdpLspTable.EntityData.YangName = "mplsOutSegmentLdpLspTable"
+    mplsOutSegmentLdpLspTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsOutSegmentLdpLspTable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsOutSegmentLdpLspTable.EntityData.SegmentPath = "mplsOutSegmentLdpLspTable"
+    mplsOutSegmentLdpLspTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsOutSegmentLdpLspTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsOutSegmentLdpLspTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsoutsegmentldplsptable.EntityData.Children = make(map[string]types.YChild)
-    mplsoutsegmentldplsptable.EntityData.Children["mplsOutSegmentLdpLspEntry"] = types.YChild{"Mplsoutsegmentldplspentry", nil}
-    for i := range mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry {
-        mplsoutsegmentldplsptable.EntityData.Children[types.GetSegmentPath(&mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry[i])] = types.YChild{"Mplsoutsegmentldplspentry", &mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry[i]}
+    mplsOutSegmentLdpLspTable.EntityData.Children = types.NewOrderedMap()
+    mplsOutSegmentLdpLspTable.EntityData.Children.Append("mplsOutSegmentLdpLspEntry", types.YChild{"MplsOutSegmentLdpLspEntry", nil})
+    for i := range mplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry {
+        mplsOutSegmentLdpLspTable.EntityData.Children.Append(types.GetSegmentPath(mplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry[i]), types.YChild{"MplsOutSegmentLdpLspEntry", mplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry[i]})
     }
-    mplsoutsegmentldplsptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsoutsegmentldplsptable.EntityData)
+    mplsOutSegmentLdpLspTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsOutSegmentLdpLspTable.EntityData.YListKeys = []string {}
+
+    return &(mplsOutSegmentLdpLspTable.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsoutsegmentldplsptable_Mplsoutsegmentldplspentry
+// MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable_MplsOutSegmentLdpLspEntry
 // An entry in this table represents information
 // on a single LDP LSP which is represented by
 // a session's index triple (mplsLdpEntityLdpId,
@@ -1160,103 +1202,109 @@ func (mplsoutsegmentldplsptable *MPLSLDPSTDMIB_Mplsoutsegmentldplsptable) GetEnt
 // for the mplsOutSegmentTable.
 // 
 // The information contained in a row is read-only.
-type MPLSLDPSTDMIB_Mplsoutsegmentldplsptable_Mplsoutsegmentldplspentry struct {
+type MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable_MplsOutSegmentLdpLspEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityldpid
-    Mplsldpentityldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityLdpId
+    MplsLdpEntityLdpId interface{}
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityindex
-    Mplsldpentityindex interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityIndex
+    MplsLdpEntityIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldppeerldpid
-    Mplsldppeerldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpPeerLdpId
+    MplsLdpPeerLdpId interface{}
 
     // This attribute is a key. This contains the same value as the
     // mplsOutSegmentIndex in the MPLS-LSR-STD-MIB's mplsOutSegmentTable. The type
     // is string with length: 1..24.
-    Mplsoutsegmentldplspindex interface{}
+    MplsOutSegmentLdpLspIndex interface{}
 
     // The Layer 2 Label Type. The type is MplsLdpLabelType.
-    Mplsoutsegmentldplsplabeltype interface{}
+    MplsOutSegmentLdpLspLabelType interface{}
 
     // The type of LSP connection. The type is MplsLspType.
-    Mplsoutsegmentldplsptype interface{}
+    MplsOutSegmentLdpLspType interface{}
 }
 
-func (mplsoutsegmentldplspentry *MPLSLDPSTDMIB_Mplsoutsegmentldplsptable_Mplsoutsegmentldplspentry) GetEntityData() *types.CommonEntityData {
-    mplsoutsegmentldplspentry.EntityData.YFilter = mplsoutsegmentldplspentry.YFilter
-    mplsoutsegmentldplspentry.EntityData.YangName = "mplsOutSegmentLdpLspEntry"
-    mplsoutsegmentldplspentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsoutsegmentldplspentry.EntityData.ParentYangName = "mplsOutSegmentLdpLspTable"
-    mplsoutsegmentldplspentry.EntityData.SegmentPath = "mplsOutSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsoutsegmentldplspentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsoutsegmentldplspentry.Mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + fmt.Sprintf("%v", mplsoutsegmentldplspentry.Mplsldppeerldpid) + "']" + "[mplsOutSegmentLdpLspIndex='" + fmt.Sprintf("%v", mplsoutsegmentldplspentry.Mplsoutsegmentldplspindex) + "']"
-    mplsoutsegmentldplspentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsoutsegmentldplspentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsoutsegmentldplspentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsOutSegmentLdpLspEntry *MPLSLDPSTDMIB_MplsOutSegmentLdpLspTable_MplsOutSegmentLdpLspEntry) GetEntityData() *types.CommonEntityData {
+    mplsOutSegmentLdpLspEntry.EntityData.YFilter = mplsOutSegmentLdpLspEntry.YFilter
+    mplsOutSegmentLdpLspEntry.EntityData.YangName = "mplsOutSegmentLdpLspEntry"
+    mplsOutSegmentLdpLspEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsOutSegmentLdpLspEntry.EntityData.ParentYangName = "mplsOutSegmentLdpLspTable"
+    mplsOutSegmentLdpLspEntry.EntityData.SegmentPath = "mplsOutSegmentLdpLspEntry" + types.AddKeyToken(mplsOutSegmentLdpLspEntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsOutSegmentLdpLspEntry.MplsLdpEntityIndex, "mplsLdpEntityIndex") + types.AddKeyToken(mplsOutSegmentLdpLspEntry.MplsLdpPeerLdpId, "mplsLdpPeerLdpId") + types.AddKeyToken(mplsOutSegmentLdpLspEntry.MplsOutSegmentLdpLspIndex, "mplsOutSegmentLdpLspIndex")
+    mplsOutSegmentLdpLspEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsOutSegmentLdpLspEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsOutSegmentLdpLspEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsoutsegmentldplspentry.EntityData.Children = make(map[string]types.YChild)
-    mplsoutsegmentldplspentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsoutsegmentldplspentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsoutsegmentldplspentry.Mplsldpentityldpid}
-    mplsoutsegmentldplspentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsoutsegmentldplspentry.Mplsldpentityindex}
-    mplsoutsegmentldplspentry.EntityData.Leafs["mplsLdpPeerLdpId"] = types.YLeaf{"Mplsldppeerldpid", mplsoutsegmentldplspentry.Mplsldppeerldpid}
-    mplsoutsegmentldplspentry.EntityData.Leafs["mplsOutSegmentLdpLspIndex"] = types.YLeaf{"Mplsoutsegmentldplspindex", mplsoutsegmentldplspentry.Mplsoutsegmentldplspindex}
-    mplsoutsegmentldplspentry.EntityData.Leafs["mplsOutSegmentLdpLspLabelType"] = types.YLeaf{"Mplsoutsegmentldplsplabeltype", mplsoutsegmentldplspentry.Mplsoutsegmentldplsplabeltype}
-    mplsoutsegmentldplspentry.EntityData.Leafs["mplsOutSegmentLdpLspType"] = types.YLeaf{"Mplsoutsegmentldplsptype", mplsoutsegmentldplspentry.Mplsoutsegmentldplsptype}
-    return &(mplsoutsegmentldplspentry.EntityData)
+    mplsOutSegmentLdpLspEntry.EntityData.Children = types.NewOrderedMap()
+    mplsOutSegmentLdpLspEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsOutSegmentLdpLspEntry.EntityData.Leafs.Append("mplsLdpEntityLdpId", types.YLeaf{"MplsLdpEntityLdpId", mplsOutSegmentLdpLspEntry.MplsLdpEntityLdpId})
+    mplsOutSegmentLdpLspEntry.EntityData.Leafs.Append("mplsLdpEntityIndex", types.YLeaf{"MplsLdpEntityIndex", mplsOutSegmentLdpLspEntry.MplsLdpEntityIndex})
+    mplsOutSegmentLdpLspEntry.EntityData.Leafs.Append("mplsLdpPeerLdpId", types.YLeaf{"MplsLdpPeerLdpId", mplsOutSegmentLdpLspEntry.MplsLdpPeerLdpId})
+    mplsOutSegmentLdpLspEntry.EntityData.Leafs.Append("mplsOutSegmentLdpLspIndex", types.YLeaf{"MplsOutSegmentLdpLspIndex", mplsOutSegmentLdpLspEntry.MplsOutSegmentLdpLspIndex})
+    mplsOutSegmentLdpLspEntry.EntityData.Leafs.Append("mplsOutSegmentLdpLspLabelType", types.YLeaf{"MplsOutSegmentLdpLspLabelType", mplsOutSegmentLdpLspEntry.MplsOutSegmentLdpLspLabelType})
+    mplsOutSegmentLdpLspEntry.EntityData.Leafs.Append("mplsOutSegmentLdpLspType", types.YLeaf{"MplsOutSegmentLdpLspType", mplsOutSegmentLdpLspEntry.MplsOutSegmentLdpLspType})
+
+    mplsOutSegmentLdpLspEntry.EntityData.YListKeys = []string {"MplsLdpEntityLdpId", "MplsLdpEntityIndex", "MplsLdpPeerLdpId", "MplsOutSegmentLdpLspIndex"}
+
+    return &(mplsOutSegmentLdpLspEntry.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsfectable
+// MPLSLDPSTDMIB_MplsFecTable
 // This table represents the FEC
 // (Forwarding Equivalence Class)
 // Information associated with an LSP.
-type MPLSLDPSTDMIB_Mplsfectable struct {
+type MPLSLDPSTDMIB_MplsFecTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each row represents a single FEC Element. The type is slice of
-    // MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry.
-    Mplsfecentry []MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry
+    // MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry.
+    MplsFecEntry []*MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry
 }
 
-func (mplsfectable *MPLSLDPSTDMIB_Mplsfectable) GetEntityData() *types.CommonEntityData {
-    mplsfectable.EntityData.YFilter = mplsfectable.YFilter
-    mplsfectable.EntityData.YangName = "mplsFecTable"
-    mplsfectable.EntityData.BundleName = "cisco_ios_xe"
-    mplsfectable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsfectable.EntityData.SegmentPath = "mplsFecTable"
-    mplsfectable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsfectable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsfectable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsFecTable *MPLSLDPSTDMIB_MplsFecTable) GetEntityData() *types.CommonEntityData {
+    mplsFecTable.EntityData.YFilter = mplsFecTable.YFilter
+    mplsFecTable.EntityData.YangName = "mplsFecTable"
+    mplsFecTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsFecTable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsFecTable.EntityData.SegmentPath = "mplsFecTable"
+    mplsFecTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsFecTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsFecTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsfectable.EntityData.Children = make(map[string]types.YChild)
-    mplsfectable.EntityData.Children["mplsFecEntry"] = types.YChild{"Mplsfecentry", nil}
-    for i := range mplsfectable.Mplsfecentry {
-        mplsfectable.EntityData.Children[types.GetSegmentPath(&mplsfectable.Mplsfecentry[i])] = types.YChild{"Mplsfecentry", &mplsfectable.Mplsfecentry[i]}
+    mplsFecTable.EntityData.Children = types.NewOrderedMap()
+    mplsFecTable.EntityData.Children.Append("mplsFecEntry", types.YChild{"MplsFecEntry", nil})
+    for i := range mplsFecTable.MplsFecEntry {
+        mplsFecTable.EntityData.Children.Append(types.GetSegmentPath(mplsFecTable.MplsFecEntry[i]), types.YChild{"MplsFecEntry", mplsFecTable.MplsFecEntry[i]})
     }
-    mplsfectable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsfectable.EntityData)
+    mplsFecTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsFecTable.EntityData.YListKeys = []string {}
+
+    return &(mplsFecTable.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry
+// MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry
 // Each row represents a single FEC Element.
-type MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry struct {
+type MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index which uniquely identifies this entry.
     // The type is interface{} with range: 1..4294967295.
-    Mplsfecindex interface{}
+    MplsFecIndex interface{}
 
     // The type of the FEC.  If the value of this object is 'prefix(1)' then the
     // FEC type described by this row is an address prefix.  If the value of this
     // object is 'hostAddress(2)' then the FEC type described by this row is a
-    // host address. The type is Mplsfectype.
-    Mplsfectype interface{}
+    // host address. The type is MplsFecType.
+    MplsFecType interface{}
 
     // If the value of the 'mplsFecType' is 'hostAddress(2)' then this object is
     // undefined.  If the value of 'mplsFecType' is 'prefix(1)' then the value of
@@ -1265,12 +1313,12 @@ type MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry struct {
     // indicates that the prefix matches all addresses.  In this case the address
     // prefix MUST also be zero (i.e., 'mplsFecAddr' should have the value of
     // zero.). The type is interface{} with range: 0..2040.
-    Mplsfecaddrprefixlength interface{}
+    MplsFecAddrPrefixLength interface{}
 
     // The value of this object is the type of the Internet address.  The value of
     // this object, decides how the value of the mplsFecAddr object is
     // interpreted. The type is InetAddressType.
-    Mplsfecaddrtype interface{}
+    MplsFecAddrType interface{}
 
     // The value of this object is interpreted based on the value of the
     // 'mplsFecAddrType' object.  This address is then further interpretted as an
@@ -1279,12 +1327,12 @@ type MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry struct {
     // the FEC element is populated according to the Prefix FEC Element value
     // encoding, or the Host Address FEC Element encoding. The type is string with
     // length: 0..255.
-    Mplsfecaddr interface{}
+    MplsFecAddr interface{}
 
     // The storage type for this conceptual row. Conceptual rows having the value
     // 'permanent(4)' need not allow write-access to any columnar objects in the
     // row. The type is StorageType.
-    Mplsfecstoragetype interface{}
+    MplsFecStorageType interface{}
 
     // The status of this conceptual row.  If the value of this object is
     // 'active(1)', then none of the writable objects of this entry can be
@@ -1292,118 +1340,124 @@ type MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry struct {
     // being referenced by any entry in the mplsLdpLspFecTable, then a request to
     // destroy this row, will result in an inconsistentValue error. The type is
     // RowStatus.
-    Mplsfecrowstatus interface{}
+    MplsFecRowStatus interface{}
 }
 
-func (mplsfecentry *MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry) GetEntityData() *types.CommonEntityData {
-    mplsfecentry.EntityData.YFilter = mplsfecentry.YFilter
-    mplsfecentry.EntityData.YangName = "mplsFecEntry"
-    mplsfecentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsfecentry.EntityData.ParentYangName = "mplsFecTable"
-    mplsfecentry.EntityData.SegmentPath = "mplsFecEntry" + "[mplsFecIndex='" + fmt.Sprintf("%v", mplsfecentry.Mplsfecindex) + "']"
-    mplsfecentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsfecentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsfecentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsFecEntry *MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry) GetEntityData() *types.CommonEntityData {
+    mplsFecEntry.EntityData.YFilter = mplsFecEntry.YFilter
+    mplsFecEntry.EntityData.YangName = "mplsFecEntry"
+    mplsFecEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsFecEntry.EntityData.ParentYangName = "mplsFecTable"
+    mplsFecEntry.EntityData.SegmentPath = "mplsFecEntry" + types.AddKeyToken(mplsFecEntry.MplsFecIndex, "mplsFecIndex")
+    mplsFecEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsFecEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsFecEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsfecentry.EntityData.Children = make(map[string]types.YChild)
-    mplsfecentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsfecentry.EntityData.Leafs["mplsFecIndex"] = types.YLeaf{"Mplsfecindex", mplsfecentry.Mplsfecindex}
-    mplsfecentry.EntityData.Leafs["mplsFecType"] = types.YLeaf{"Mplsfectype", mplsfecentry.Mplsfectype}
-    mplsfecentry.EntityData.Leafs["mplsFecAddrPrefixLength"] = types.YLeaf{"Mplsfecaddrprefixlength", mplsfecentry.Mplsfecaddrprefixlength}
-    mplsfecentry.EntityData.Leafs["mplsFecAddrType"] = types.YLeaf{"Mplsfecaddrtype", mplsfecentry.Mplsfecaddrtype}
-    mplsfecentry.EntityData.Leafs["mplsFecAddr"] = types.YLeaf{"Mplsfecaddr", mplsfecentry.Mplsfecaddr}
-    mplsfecentry.EntityData.Leafs["mplsFecStorageType"] = types.YLeaf{"Mplsfecstoragetype", mplsfecentry.Mplsfecstoragetype}
-    mplsfecentry.EntityData.Leafs["mplsFecRowStatus"] = types.YLeaf{"Mplsfecrowstatus", mplsfecentry.Mplsfecrowstatus}
-    return &(mplsfecentry.EntityData)
+    mplsFecEntry.EntityData.Children = types.NewOrderedMap()
+    mplsFecEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsFecEntry.EntityData.Leafs.Append("mplsFecIndex", types.YLeaf{"MplsFecIndex", mplsFecEntry.MplsFecIndex})
+    mplsFecEntry.EntityData.Leafs.Append("mplsFecType", types.YLeaf{"MplsFecType", mplsFecEntry.MplsFecType})
+    mplsFecEntry.EntityData.Leafs.Append("mplsFecAddrPrefixLength", types.YLeaf{"MplsFecAddrPrefixLength", mplsFecEntry.MplsFecAddrPrefixLength})
+    mplsFecEntry.EntityData.Leafs.Append("mplsFecAddrType", types.YLeaf{"MplsFecAddrType", mplsFecEntry.MplsFecAddrType})
+    mplsFecEntry.EntityData.Leafs.Append("mplsFecAddr", types.YLeaf{"MplsFecAddr", mplsFecEntry.MplsFecAddr})
+    mplsFecEntry.EntityData.Leafs.Append("mplsFecStorageType", types.YLeaf{"MplsFecStorageType", mplsFecEntry.MplsFecStorageType})
+    mplsFecEntry.EntityData.Leafs.Append("mplsFecRowStatus", types.YLeaf{"MplsFecRowStatus", mplsFecEntry.MplsFecRowStatus})
+
+    mplsFecEntry.EntityData.YListKeys = []string {"MplsFecIndex"}
+
+    return &(mplsFecEntry.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry_Mplsfectype represents the FEC type described by this row is a host address.
-type MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry_Mplsfectype string
+// MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry_MplsFecType represents the FEC type described by this row is a host address.
+type MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry_MplsFecType string
 
 const (
-    MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry_Mplsfectype_prefix MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry_Mplsfectype = "prefix"
+    MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry_MplsFecType_prefix MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry_MplsFecType = "prefix"
 
-    MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry_Mplsfectype_hostAddress MPLSLDPSTDMIB_Mplsfectable_Mplsfecentry_Mplsfectype = "hostAddress"
+    MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry_MplsFecType_hostAddress MPLSLDPSTDMIB_MplsFecTable_MplsFecEntry_MplsFecType = "hostAddress"
 )
 
-// MPLSLDPSTDMIB_Mplsldplspfectable
+// MPLSLDPSTDMIB_MplsLdpLspFecTable
 // A table which shows the relationship between
 // LDP LSPs and FECs.  Each row represents
 // a single LDP LSP to FEC association.
-type MPLSLDPSTDMIB_Mplsldplspfectable struct {
+type MPLSLDPSTDMIB_MplsLdpLspFecTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry represents a LDP LSP to FEC association. The type is slice of
-    // MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry.
-    Mplsldplspfecentry []MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry
+    // MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry.
+    MplsLdpLspFecEntry []*MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry
 }
 
-func (mplsldplspfectable *MPLSLDPSTDMIB_Mplsldplspfectable) GetEntityData() *types.CommonEntityData {
-    mplsldplspfectable.EntityData.YFilter = mplsldplspfectable.YFilter
-    mplsldplspfectable.EntityData.YangName = "mplsLdpLspFecTable"
-    mplsldplspfectable.EntityData.BundleName = "cisco_ios_xe"
-    mplsldplspfectable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsldplspfectable.EntityData.SegmentPath = "mplsLdpLspFecTable"
-    mplsldplspfectable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldplspfectable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldplspfectable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpLspFecTable *MPLSLDPSTDMIB_MplsLdpLspFecTable) GetEntityData() *types.CommonEntityData {
+    mplsLdpLspFecTable.EntityData.YFilter = mplsLdpLspFecTable.YFilter
+    mplsLdpLspFecTable.EntityData.YangName = "mplsLdpLspFecTable"
+    mplsLdpLspFecTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpLspFecTable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsLdpLspFecTable.EntityData.SegmentPath = "mplsLdpLspFecTable"
+    mplsLdpLspFecTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpLspFecTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpLspFecTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldplspfectable.EntityData.Children = make(map[string]types.YChild)
-    mplsldplspfectable.EntityData.Children["mplsLdpLspFecEntry"] = types.YChild{"Mplsldplspfecentry", nil}
-    for i := range mplsldplspfectable.Mplsldplspfecentry {
-        mplsldplspfectable.EntityData.Children[types.GetSegmentPath(&mplsldplspfectable.Mplsldplspfecentry[i])] = types.YChild{"Mplsldplspfecentry", &mplsldplspfectable.Mplsldplspfecentry[i]}
+    mplsLdpLspFecTable.EntityData.Children = types.NewOrderedMap()
+    mplsLdpLspFecTable.EntityData.Children.Append("mplsLdpLspFecEntry", types.YChild{"MplsLdpLspFecEntry", nil})
+    for i := range mplsLdpLspFecTable.MplsLdpLspFecEntry {
+        mplsLdpLspFecTable.EntityData.Children.Append(types.GetSegmentPath(mplsLdpLspFecTable.MplsLdpLspFecEntry[i]), types.YChild{"MplsLdpLspFecEntry", mplsLdpLspFecTable.MplsLdpLspFecEntry[i]})
     }
-    mplsldplspfectable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsldplspfectable.EntityData)
+    mplsLdpLspFecTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsLdpLspFecTable.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpLspFecTable.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry
+// MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry
 // An entry represents a LDP LSP
 // to FEC association.
-type MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry struct {
+type MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityldpid
-    Mplsldpentityldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityLdpId
+    MplsLdpEntityLdpId interface{}
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityindex
-    Mplsldpentityindex interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityIndex
+    MplsLdpEntityIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldppeerldpid
-    Mplsldppeerldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpPeerLdpId
+    MplsLdpPeerLdpId interface{}
 
     // This attribute is a key. If the value is inSegment(1), then this indicates
     // that the following index, mplsLdpLspFecSegmentIndex, contains the same
     // value as the mplsInSegmentLdpLspIndex.  Otherwise, if the value of this
     // object is   outSegment(2),  then this indicates that following index,
     // mplsLdpLspFecSegmentIndex, contains the same value as the
-    // mplsOutSegmentLdpLspIndex. The type is Mplsldplspfecsegment.
-    Mplsldplspfecsegment interface{}
+    // mplsOutSegmentLdpLspIndex. The type is MplsLdpLspFecSegment.
+    MplsLdpLspFecSegment interface{}
 
     // This attribute is a key. This index is interpretted by using the value of
     // the mplsLdpLspFecSegment.  If the mplsLdpLspFecSegment is inSegment(1),
     // then this index has the same value as mplsInSegmentLdpLspIndex.  If the
     // mplsLdpLspFecSegment is outSegment(2), then this index has the same value
     // as mplsOutSegmentLdpLspIndex. The type is string with length: 1..24.
-    Mplsldplspfecsegmentindex interface{}
+    MplsLdpLspFecSegmentIndex interface{}
 
     // This attribute is a key. This index identifies the FEC entry in the
     // mplsFecTable associated with this session. In other words, the value of
     // this index is the same as the value of the mplsFecIndex that denotes the
     // FEC associated with this Session. The type is interface{} with range:
     // 1..4294967295.
-    Mplsldplspfecindex interface{}
+    MplsLdpLspFecIndex interface{}
 
     // The storage type for this conceptual row. Conceptual rows having the value
     // 'permanent(4)' need not allow write-access to any columnar objects in the
     // row. The type is StorageType.
-    Mplsldplspfecstoragetype interface{}
+    MplsLdpLspFecStorageType interface{}
 
     // The status of this conceptual row.  If the value of this object is
     // 'active(1)', then none of the writable objects of this entry can be
@@ -1418,42 +1472,45 @@ type MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry struct {
     // session to be initiated. Once the session is initiated, an entry may be
     // added to this table to associate the new session with a FEC. The type is
     // RowStatus.
-    Mplsldplspfecrowstatus interface{}
+    MplsLdpLspFecRowStatus interface{}
 }
 
-func (mplsldplspfecentry *MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry) GetEntityData() *types.CommonEntityData {
-    mplsldplspfecentry.EntityData.YFilter = mplsldplspfecentry.YFilter
-    mplsldplspfecentry.EntityData.YangName = "mplsLdpLspFecEntry"
-    mplsldplspfecentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsldplspfecentry.EntityData.ParentYangName = "mplsLdpLspFecTable"
-    mplsldplspfecentry.EntityData.SegmentPath = "mplsLdpLspFecEntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsldplspfecentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsldplspfecentry.Mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + fmt.Sprintf("%v", mplsldplspfecentry.Mplsldppeerldpid) + "']" + "[mplsLdpLspFecSegment='" + fmt.Sprintf("%v", mplsldplspfecentry.Mplsldplspfecsegment) + "']" + "[mplsLdpLspFecSegmentIndex='" + fmt.Sprintf("%v", mplsldplspfecentry.Mplsldplspfecsegmentindex) + "']" + "[mplsLdpLspFecIndex='" + fmt.Sprintf("%v", mplsldplspfecentry.Mplsldplspfecindex) + "']"
-    mplsldplspfecentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldplspfecentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldplspfecentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpLspFecEntry *MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry) GetEntityData() *types.CommonEntityData {
+    mplsLdpLspFecEntry.EntityData.YFilter = mplsLdpLspFecEntry.YFilter
+    mplsLdpLspFecEntry.EntityData.YangName = "mplsLdpLspFecEntry"
+    mplsLdpLspFecEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpLspFecEntry.EntityData.ParentYangName = "mplsLdpLspFecTable"
+    mplsLdpLspFecEntry.EntityData.SegmentPath = "mplsLdpLspFecEntry" + types.AddKeyToken(mplsLdpLspFecEntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsLdpLspFecEntry.MplsLdpEntityIndex, "mplsLdpEntityIndex") + types.AddKeyToken(mplsLdpLspFecEntry.MplsLdpPeerLdpId, "mplsLdpPeerLdpId") + types.AddKeyToken(mplsLdpLspFecEntry.MplsLdpLspFecSegment, "mplsLdpLspFecSegment") + types.AddKeyToken(mplsLdpLspFecEntry.MplsLdpLspFecSegmentIndex, "mplsLdpLspFecSegmentIndex") + types.AddKeyToken(mplsLdpLspFecEntry.MplsLdpLspFecIndex, "mplsLdpLspFecIndex")
+    mplsLdpLspFecEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpLspFecEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpLspFecEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldplspfecentry.EntityData.Children = make(map[string]types.YChild)
-    mplsldplspfecentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldplspfecentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsldplspfecentry.Mplsldpentityldpid}
-    mplsldplspfecentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsldplspfecentry.Mplsldpentityindex}
-    mplsldplspfecentry.EntityData.Leafs["mplsLdpPeerLdpId"] = types.YLeaf{"Mplsldppeerldpid", mplsldplspfecentry.Mplsldppeerldpid}
-    mplsldplspfecentry.EntityData.Leafs["mplsLdpLspFecSegment"] = types.YLeaf{"Mplsldplspfecsegment", mplsldplspfecentry.Mplsldplspfecsegment}
-    mplsldplspfecentry.EntityData.Leafs["mplsLdpLspFecSegmentIndex"] = types.YLeaf{"Mplsldplspfecsegmentindex", mplsldplspfecentry.Mplsldplspfecsegmentindex}
-    mplsldplspfecentry.EntityData.Leafs["mplsLdpLspFecIndex"] = types.YLeaf{"Mplsldplspfecindex", mplsldplspfecentry.Mplsldplspfecindex}
-    mplsldplspfecentry.EntityData.Leafs["mplsLdpLspFecStorageType"] = types.YLeaf{"Mplsldplspfecstoragetype", mplsldplspfecentry.Mplsldplspfecstoragetype}
-    mplsldplspfecentry.EntityData.Leafs["mplsLdpLspFecRowStatus"] = types.YLeaf{"Mplsldplspfecrowstatus", mplsldplspfecentry.Mplsldplspfecrowstatus}
-    return &(mplsldplspfecentry.EntityData)
+    mplsLdpLspFecEntry.EntityData.Children = types.NewOrderedMap()
+    mplsLdpLspFecEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpLspFecEntry.EntityData.Leafs.Append("mplsLdpEntityLdpId", types.YLeaf{"MplsLdpEntityLdpId", mplsLdpLspFecEntry.MplsLdpEntityLdpId})
+    mplsLdpLspFecEntry.EntityData.Leafs.Append("mplsLdpEntityIndex", types.YLeaf{"MplsLdpEntityIndex", mplsLdpLspFecEntry.MplsLdpEntityIndex})
+    mplsLdpLspFecEntry.EntityData.Leafs.Append("mplsLdpPeerLdpId", types.YLeaf{"MplsLdpPeerLdpId", mplsLdpLspFecEntry.MplsLdpPeerLdpId})
+    mplsLdpLspFecEntry.EntityData.Leafs.Append("mplsLdpLspFecSegment", types.YLeaf{"MplsLdpLspFecSegment", mplsLdpLspFecEntry.MplsLdpLspFecSegment})
+    mplsLdpLspFecEntry.EntityData.Leafs.Append("mplsLdpLspFecSegmentIndex", types.YLeaf{"MplsLdpLspFecSegmentIndex", mplsLdpLspFecEntry.MplsLdpLspFecSegmentIndex})
+    mplsLdpLspFecEntry.EntityData.Leafs.Append("mplsLdpLspFecIndex", types.YLeaf{"MplsLdpLspFecIndex", mplsLdpLspFecEntry.MplsLdpLspFecIndex})
+    mplsLdpLspFecEntry.EntityData.Leafs.Append("mplsLdpLspFecStorageType", types.YLeaf{"MplsLdpLspFecStorageType", mplsLdpLspFecEntry.MplsLdpLspFecStorageType})
+    mplsLdpLspFecEntry.EntityData.Leafs.Append("mplsLdpLspFecRowStatus", types.YLeaf{"MplsLdpLspFecRowStatus", mplsLdpLspFecEntry.MplsLdpLspFecRowStatus})
+
+    mplsLdpLspFecEntry.EntityData.YListKeys = []string {"MplsLdpEntityLdpId", "MplsLdpEntityIndex", "MplsLdpPeerLdpId", "MplsLdpLspFecSegment", "MplsLdpLspFecSegmentIndex", "MplsLdpLspFecIndex"}
+
+    return &(mplsLdpLspFecEntry.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry_Mplsldplspfecsegment represents value as the mplsOutSegmentLdpLspIndex.
-type MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry_Mplsldplspfecsegment string
+// MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry_MplsLdpLspFecSegment represents value as the mplsOutSegmentLdpLspIndex.
+type MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry_MplsLdpLspFecSegment string
 
 const (
-    MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry_Mplsldplspfecsegment_inSegment MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry_Mplsldplspfecsegment = "inSegment"
+    MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry_MplsLdpLspFecSegment_inSegment MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry_MplsLdpLspFecSegment = "inSegment"
 
-    MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry_Mplsldplspfecsegment_outSegment MPLSLDPSTDMIB_Mplsldplspfectable_Mplsldplspfecentry_Mplsldplspfecsegment = "outSegment"
+    MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry_MplsLdpLspFecSegment_outSegment MPLSLDPSTDMIB_MplsLdpLspFecTable_MplsLdpLspFecEntry_MplsLdpLspFecSegment = "outSegment"
 )
 
-// MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable
+// MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable
 // This table 'extends' the mplsLdpSessionTable.
 // This table is used to store Label Address Information
 // from Label Address Messages received by this LSR from
@@ -1466,92 +1523,98 @@ const (
 // NOTE:  since more than one address may be contained
 // in a Label Address Message, this table 'sparse augments',
 // the mplsLdpSessionTable's information.
-type MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable struct {
+type MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents information on a session's single next
     // hop address which was advertised in an Address Message from the LDP peer.
     // The information contained in a row is read-only. The type is slice of
-    // MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable_Mplsldpsessionpeeraddrentry.
-    Mplsldpsessionpeeraddrentry []MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable_Mplsldpsessionpeeraddrentry
+    // MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable_MplsLdpSessionPeerAddrEntry.
+    MplsLdpSessionPeerAddrEntry []*MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable_MplsLdpSessionPeerAddrEntry
 }
 
-func (mplsldpsessionpeeraddrtable *MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable) GetEntityData() *types.CommonEntityData {
-    mplsldpsessionpeeraddrtable.EntityData.YFilter = mplsldpsessionpeeraddrtable.YFilter
-    mplsldpsessionpeeraddrtable.EntityData.YangName = "mplsLdpSessionPeerAddrTable"
-    mplsldpsessionpeeraddrtable.EntityData.BundleName = "cisco_ios_xe"
-    mplsldpsessionpeeraddrtable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
-    mplsldpsessionpeeraddrtable.EntityData.SegmentPath = "mplsLdpSessionPeerAddrTable"
-    mplsldpsessionpeeraddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldpsessionpeeraddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldpsessionpeeraddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpSessionPeerAddrTable *MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable) GetEntityData() *types.CommonEntityData {
+    mplsLdpSessionPeerAddrTable.EntityData.YFilter = mplsLdpSessionPeerAddrTable.YFilter
+    mplsLdpSessionPeerAddrTable.EntityData.YangName = "mplsLdpSessionPeerAddrTable"
+    mplsLdpSessionPeerAddrTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpSessionPeerAddrTable.EntityData.ParentYangName = "MPLS-LDP-STD-MIB"
+    mplsLdpSessionPeerAddrTable.EntityData.SegmentPath = "mplsLdpSessionPeerAddrTable"
+    mplsLdpSessionPeerAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpSessionPeerAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpSessionPeerAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldpsessionpeeraddrtable.EntityData.Children = make(map[string]types.YChild)
-    mplsldpsessionpeeraddrtable.EntityData.Children["mplsLdpSessionPeerAddrEntry"] = types.YChild{"Mplsldpsessionpeeraddrentry", nil}
-    for i := range mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry {
-        mplsldpsessionpeeraddrtable.EntityData.Children[types.GetSegmentPath(&mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry[i])] = types.YChild{"Mplsldpsessionpeeraddrentry", &mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry[i]}
+    mplsLdpSessionPeerAddrTable.EntityData.Children = types.NewOrderedMap()
+    mplsLdpSessionPeerAddrTable.EntityData.Children.Append("mplsLdpSessionPeerAddrEntry", types.YChild{"MplsLdpSessionPeerAddrEntry", nil})
+    for i := range mplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry {
+        mplsLdpSessionPeerAddrTable.EntityData.Children.Append(types.GetSegmentPath(mplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry[i]), types.YChild{"MplsLdpSessionPeerAddrEntry", mplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry[i]})
     }
-    mplsldpsessionpeeraddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsldpsessionpeeraddrtable.EntityData)
+    mplsLdpSessionPeerAddrTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsLdpSessionPeerAddrTable.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpSessionPeerAddrTable.EntityData)
 }
 
-// MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable_Mplsldpsessionpeeraddrentry
+// MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable_MplsLdpSessionPeerAddrEntry
 // An entry in this table represents information on
 // a session's single next hop address which was
 // advertised in an Address Message from the LDP peer.
 // The information contained in a row is read-only.
-type MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable_Mplsldpsessionpeeraddrentry struct {
+type MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable_MplsLdpSessionPeerAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityldpid
-    Mplsldpentityldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityLdpId
+    MplsLdpEntityLdpId interface{}
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityindex
-    Mplsldpentityindex interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityIndex
+    MplsLdpEntityIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldppeertable_Mplsldppeerentry_Mplsldppeerldpid
-    Mplsldppeerldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpPeerTable_MplsLdpPeerEntry_MplsLdpPeerLdpId
+    MplsLdpPeerLdpId interface{}
 
     // This attribute is a key. An index which uniquely identifies this entry
     // within a given session. The type is interface{} with range: 1..4294967295.
-    Mplsldpsessionpeeraddrindex interface{}
+    MplsLdpSessionPeerAddrIndex interface{}
 
     // The internetwork layer address type of this Next Hop Address as specified
     // in the Label Address Message associated with this Session. The value of
     // this object indicates how to interpret the value of  
     // mplsLdpSessionPeerNextHopAddr. The type is InetAddressType.
-    Mplsldpsessionpeernexthopaddrtype interface{}
+    MplsLdpSessionPeerNextHopAddrType interface{}
 
     // The next hop address.  The type of this address is specified by the value
     // of the mplsLdpSessionPeerNextHopAddrType. The type is string with length:
     // 0..255.
-    Mplsldpsessionpeernexthopaddr interface{}
+    MplsLdpSessionPeerNextHopAddr interface{}
 }
 
-func (mplsldpsessionpeeraddrentry *MPLSLDPSTDMIB_Mplsldpsessionpeeraddrtable_Mplsldpsessionpeeraddrentry) GetEntityData() *types.CommonEntityData {
-    mplsldpsessionpeeraddrentry.EntityData.YFilter = mplsldpsessionpeeraddrentry.YFilter
-    mplsldpsessionpeeraddrentry.EntityData.YangName = "mplsLdpSessionPeerAddrEntry"
-    mplsldpsessionpeeraddrentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsldpsessionpeeraddrentry.EntityData.ParentYangName = "mplsLdpSessionPeerAddrTable"
-    mplsldpsessionpeeraddrentry.EntityData.SegmentPath = "mplsLdpSessionPeerAddrEntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsldpsessionpeeraddrentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsldpsessionpeeraddrentry.Mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + fmt.Sprintf("%v", mplsldpsessionpeeraddrentry.Mplsldppeerldpid) + "']" + "[mplsLdpSessionPeerAddrIndex='" + fmt.Sprintf("%v", mplsldpsessionpeeraddrentry.Mplsldpsessionpeeraddrindex) + "']"
-    mplsldpsessionpeeraddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldpsessionpeeraddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldpsessionpeeraddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpSessionPeerAddrEntry *MPLSLDPSTDMIB_MplsLdpSessionPeerAddrTable_MplsLdpSessionPeerAddrEntry) GetEntityData() *types.CommonEntityData {
+    mplsLdpSessionPeerAddrEntry.EntityData.YFilter = mplsLdpSessionPeerAddrEntry.YFilter
+    mplsLdpSessionPeerAddrEntry.EntityData.YangName = "mplsLdpSessionPeerAddrEntry"
+    mplsLdpSessionPeerAddrEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpSessionPeerAddrEntry.EntityData.ParentYangName = "mplsLdpSessionPeerAddrTable"
+    mplsLdpSessionPeerAddrEntry.EntityData.SegmentPath = "mplsLdpSessionPeerAddrEntry" + types.AddKeyToken(mplsLdpSessionPeerAddrEntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsLdpSessionPeerAddrEntry.MplsLdpEntityIndex, "mplsLdpEntityIndex") + types.AddKeyToken(mplsLdpSessionPeerAddrEntry.MplsLdpPeerLdpId, "mplsLdpPeerLdpId") + types.AddKeyToken(mplsLdpSessionPeerAddrEntry.MplsLdpSessionPeerAddrIndex, "mplsLdpSessionPeerAddrIndex")
+    mplsLdpSessionPeerAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpSessionPeerAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpSessionPeerAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldpsessionpeeraddrentry.EntityData.Children = make(map[string]types.YChild)
-    mplsldpsessionpeeraddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldpsessionpeeraddrentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsldpsessionpeeraddrentry.Mplsldpentityldpid}
-    mplsldpsessionpeeraddrentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsldpsessionpeeraddrentry.Mplsldpentityindex}
-    mplsldpsessionpeeraddrentry.EntityData.Leafs["mplsLdpPeerLdpId"] = types.YLeaf{"Mplsldppeerldpid", mplsldpsessionpeeraddrentry.Mplsldppeerldpid}
-    mplsldpsessionpeeraddrentry.EntityData.Leafs["mplsLdpSessionPeerAddrIndex"] = types.YLeaf{"Mplsldpsessionpeeraddrindex", mplsldpsessionpeeraddrentry.Mplsldpsessionpeeraddrindex}
-    mplsldpsessionpeeraddrentry.EntityData.Leafs["mplsLdpSessionPeerNextHopAddrType"] = types.YLeaf{"Mplsldpsessionpeernexthopaddrtype", mplsldpsessionpeeraddrentry.Mplsldpsessionpeernexthopaddrtype}
-    mplsldpsessionpeeraddrentry.EntityData.Leafs["mplsLdpSessionPeerNextHopAddr"] = types.YLeaf{"Mplsldpsessionpeernexthopaddr", mplsldpsessionpeeraddrentry.Mplsldpsessionpeernexthopaddr}
-    return &(mplsldpsessionpeeraddrentry.EntityData)
+    mplsLdpSessionPeerAddrEntry.EntityData.Children = types.NewOrderedMap()
+    mplsLdpSessionPeerAddrEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpSessionPeerAddrEntry.EntityData.Leafs.Append("mplsLdpEntityLdpId", types.YLeaf{"MplsLdpEntityLdpId", mplsLdpSessionPeerAddrEntry.MplsLdpEntityLdpId})
+    mplsLdpSessionPeerAddrEntry.EntityData.Leafs.Append("mplsLdpEntityIndex", types.YLeaf{"MplsLdpEntityIndex", mplsLdpSessionPeerAddrEntry.MplsLdpEntityIndex})
+    mplsLdpSessionPeerAddrEntry.EntityData.Leafs.Append("mplsLdpPeerLdpId", types.YLeaf{"MplsLdpPeerLdpId", mplsLdpSessionPeerAddrEntry.MplsLdpPeerLdpId})
+    mplsLdpSessionPeerAddrEntry.EntityData.Leafs.Append("mplsLdpSessionPeerAddrIndex", types.YLeaf{"MplsLdpSessionPeerAddrIndex", mplsLdpSessionPeerAddrEntry.MplsLdpSessionPeerAddrIndex})
+    mplsLdpSessionPeerAddrEntry.EntityData.Leafs.Append("mplsLdpSessionPeerNextHopAddrType", types.YLeaf{"MplsLdpSessionPeerNextHopAddrType", mplsLdpSessionPeerAddrEntry.MplsLdpSessionPeerNextHopAddrType})
+    mplsLdpSessionPeerAddrEntry.EntityData.Leafs.Append("mplsLdpSessionPeerNextHopAddr", types.YLeaf{"MplsLdpSessionPeerNextHopAddr", mplsLdpSessionPeerAddrEntry.MplsLdpSessionPeerNextHopAddr})
+
+    mplsLdpSessionPeerAddrEntry.EntityData.YListKeys = []string {"MplsLdpEntityLdpId", "MplsLdpEntityIndex", "MplsLdpPeerLdpId", "MplsLdpSessionPeerAddrIndex"}
+
+    return &(mplsLdpSessionPeerAddrEntry.EntityData)
 }
 

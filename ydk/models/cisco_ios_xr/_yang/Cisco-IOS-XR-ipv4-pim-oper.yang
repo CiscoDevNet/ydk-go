@@ -9,10 +9,10 @@ module Cisco-IOS-XR-ipv4-pim-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-pim-oper-sub2 {
-    revision-date 2017-06-26;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-ipv4-pim-oper-sub1 {
-    revision-date 2017-06-26;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -41,6 +41,10 @@ module Cisco-IOS-XR-ipv4-pim-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
@@ -373,7 +377,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
             "Prefix";
         }
         leaf prefix-length {
-          type int32;
+          type uint32;
           description
             "Prefix length";
         }
@@ -393,7 +397,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
             "RP address";
         }
         leaf priority {
-          type int32;
+          type uint32;
           description
             "RP Priority";
         }
@@ -446,7 +450,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
             "Multicast satic route group address";
         }
         leaf source-netmask {
-          type int32;
+          type uint32;
           description
             "Source mask";
         }
@@ -648,7 +652,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
           description
             "PIM BSR information";
           leaf pim-scope {
-            type int32;
+            type uint32;
             description
               "BSR information";
           }
@@ -779,7 +783,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
             "Group address";
         }
         leaf rpt {
-          type int32;
+          type uint32;
           description
             "RPT bit";
         }
@@ -900,7 +904,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
             "Prefix";
         }
         leaf prefix-length {
-          type int32;
+          type uint32;
           description
             "Prefix length";
         }
@@ -920,7 +924,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
             "RP address";
         }
         leaf rp-priority {
-          type int32;
+          type uint32;
           description
             "RP priority";
         }
@@ -1023,7 +1027,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
           description
             "PIM MA interface referenced by handle";
           leaf interface-handle {
-            type int32;
+            type uint32;
             description
               "Interface handle";
           }
@@ -1312,12 +1316,12 @@ module Cisco-IOS-XR-ipv4-pim-oper {
                 "Group address";
             }
             leaf mask-length {
-              type int32;
+              type uint32;
               description
                 "Hash mask length";
             }
             leaf mofrr {
-              type int32;
+              type uint32;
               description
                 "MOFRR";
             }
@@ -1336,7 +1340,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
                 "Source address";
             }
             leaf mofrr {
-              type int32;
+              type uint32;
               description
                 "MOFRR";
             }
@@ -1390,7 +1394,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
             "Network address";
         }
         leaf prefix-length {
-          type int32;
+          type uint32;
           description
             "Prefix length";
         }

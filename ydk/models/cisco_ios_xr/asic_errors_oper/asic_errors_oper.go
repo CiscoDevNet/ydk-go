@@ -44,9 +44,12 @@ func (asicErrors *AsicErrors) GetEntityData() *types.CommonEntityData {
     asicErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrors.EntityData.Children = make(map[string]types.YChild)
-    asicErrors.EntityData.Children["nodes"] = types.YChild{"Nodes", &asicErrors.Nodes}
-    asicErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrors.EntityData.Children = types.NewOrderedMap()
+    asicErrors.EntityData.Children.Append("nodes", types.YChild{"Nodes", &asicErrors.Nodes})
+    asicErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrors.EntityData.YListKeys = []string {}
+
     return &(asicErrors.EntityData)
 }
 
@@ -58,7 +61,7 @@ type AsicErrors_Nodes struct {
 
     // Asic error for a particular node. The type is slice of
     // AsicErrors_Nodes_Node.
-    Node []AsicErrors_Nodes_Node
+    Node []*AsicErrors_Nodes_Node
 }
 
 func (nodes *AsicErrors_Nodes) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (nodes *AsicErrors_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -87,12 +93,12 @@ type AsicErrors_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Asic on the node. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation.
-    AsicInformation []AsicErrors_Nodes_Node_AsicInformation
+    AsicInformation []*AsicErrors_Nodes_Node_AsicInformation
 }
 
 func (node *AsicErrors_Nodes_Node) GetEntityData() *types.CommonEntityData {
@@ -100,18 +106,21 @@ func (node *AsicErrors_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["asic-information"] = types.YChild{"AsicInformation", nil}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("asic-information", types.YChild{"AsicInformation", nil})
     for i := range node.AsicInformation {
-        node.EntityData.Children[types.GetSegmentPath(&node.AsicInformation[i])] = types.YChild{"AsicInformation", &node.AsicInformation[i]}
+        node.EntityData.Children.Append(types.GetSegmentPath(node.AsicInformation[i]), types.YChild{"AsicInformation", node.AsicInformation[i]})
     }
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -122,7 +131,7 @@ type AsicErrors_Nodes_Node_AsicInformation struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Asic string. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Asic interface{}
 
     // All asic instance on the node.
@@ -137,16 +146,19 @@ func (asicInformation *AsicErrors_Nodes_Node_AsicInformation) GetEntityData() *t
     asicInformation.EntityData.YangName = "asic-information"
     asicInformation.EntityData.BundleName = "cisco_ios_xr"
     asicInformation.EntityData.ParentYangName = "node"
-    asicInformation.EntityData.SegmentPath = "asic-information" + "[asic='" + fmt.Sprintf("%v", asicInformation.Asic) + "']"
+    asicInformation.EntityData.SegmentPath = "asic-information" + types.AddKeyToken(asicInformation.Asic, "asic")
     asicInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicInformation.EntityData.Children = make(map[string]types.YChild)
-    asicInformation.EntityData.Children["all-instances"] = types.YChild{"AllInstances", &asicInformation.AllInstances}
-    asicInformation.EntityData.Children["instances"] = types.YChild{"Instances", &asicInformation.Instances}
-    asicInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicInformation.EntityData.Leafs["asic"] = types.YLeaf{"Asic", asicInformation.Asic}
+    asicInformation.EntityData.Children = types.NewOrderedMap()
+    asicInformation.EntityData.Children.Append("all-instances", types.YChild{"AllInstances", &asicInformation.AllInstances})
+    asicInformation.EntityData.Children.Append("instances", types.YChild{"Instances", &asicInformation.Instances})
+    asicInformation.EntityData.Leafs = types.NewOrderedMap()
+    asicInformation.EntityData.Leafs.Append("asic", types.YLeaf{"Asic", asicInformation.Asic})
+
+    asicInformation.EntityData.YListKeys = []string {"Asic"}
+
     return &(asicInformation.EntityData)
 }
 
@@ -170,9 +182,12 @@ func (allInstances *AsicErrors_Nodes_Node_AsicInformation_AllInstances) GetEntit
     allInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allInstances.EntityData.Children = make(map[string]types.YChild)
-    allInstances.EntityData.Children["all-error-path"] = types.YChild{"AllErrorPath", &allInstances.AllErrorPath}
-    allInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    allInstances.EntityData.Children = types.NewOrderedMap()
+    allInstances.EntityData.Children.Append("all-error-path", types.YChild{"AllErrorPath", &allInstances.AllErrorPath})
+    allInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    allInstances.EntityData.YListKeys = []string {}
+
     return &(allInstances.EntityData)
 }
 
@@ -196,9 +211,12 @@ func (allErrorPath *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorP
     allErrorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allErrorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allErrorPath.EntityData.Children = make(map[string]types.YChild)
-    allErrorPath.EntityData.Children["summary"] = types.YChild{"Summary", &allErrorPath.Summary}
-    allErrorPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    allErrorPath.EntityData.Children = types.NewOrderedMap()
+    allErrorPath.EntityData.Children.Append("summary", types.YChild{"Summary", &allErrorPath.Summary})
+    allErrorPath.EntityData.Leafs = types.NewOrderedMap()
+
+    allErrorPath.EntityData.YListKeys = []string {}
+
     return &(allErrorPath.EntityData)
 }
 
@@ -216,7 +234,7 @@ type AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary str
 
     // sum data. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData.
-    SumData []AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData
+    SumData []*AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData
 }
 
 func (summary *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary) GetEntityData() *types.CommonEntityData {
@@ -229,14 +247,17 @@ func (summary *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_S
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["sum-data"] = types.YChild{"SumData", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("sum-data", types.YChild{"SumData", nil})
     for i := range summary.SumData {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.SumData[i])] = types.YChild{"SumData", &summary.SumData[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.SumData[i]), types.YChild{"SumData", summary.SumData[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["legacy-client"] = types.YLeaf{"LegacyClient", summary.LegacyClient}
-    summary.EntityData.Leafs["cih-client"] = types.YLeaf{"CihClient", summary.CihClient}
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("legacy-client", types.YLeaf{"LegacyClient", summary.LegacyClient})
+    summary.EntityData.Leafs.Append("cih-client", types.YLeaf{"CihClient", summary.CihClient})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -267,14 +288,16 @@ type AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_Sum
     // reset err count. The type is interface{} with range: 0..4294967295.
     ResetErrCount interface{}
 
-    // err count. The type is slice of interface{} with range: 0..4294967295.
-    ErrCount []interface{}
-
-    // pcie err count. The type is slice of interface{} with range: 0..4294967295.
-    PcieErrCount []interface{}
-
     // node key. The type is slice of interface{} with range: 0..4294967295.
     NodeKey []interface{}
+
+    // err count. The type is slice of
+    // AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_ErrCount.
+    ErrCount []*AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_ErrCount
+
+    // pcie err count. The type is slice of
+    // AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_PcieErrCount.
+    PcieErrCount []*AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_PcieErrCount
 }
 
 func (sumData *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData) GetEntityData() *types.CommonEntityData {
@@ -287,19 +310,94 @@ func (sumData *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_S
     sumData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sumData.EntityData.Children = make(map[string]types.YChild)
-    sumData.EntityData.Leafs = make(map[string]types.YLeaf)
-    sumData.EntityData.Leafs["num-nodes"] = types.YLeaf{"NumNodes", sumData.NumNodes}
-    sumData.EntityData.Leafs["crc-err-count"] = types.YLeaf{"CrcErrCount", sumData.CrcErrCount}
-    sumData.EntityData.Leafs["sbe-err-count"] = types.YLeaf{"SbeErrCount", sumData.SbeErrCount}
-    sumData.EntityData.Leafs["mbe-err-count"] = types.YLeaf{"MbeErrCount", sumData.MbeErrCount}
-    sumData.EntityData.Leafs["par-err-count"] = types.YLeaf{"ParErrCount", sumData.ParErrCount}
-    sumData.EntityData.Leafs["gen-err-count"] = types.YLeaf{"GenErrCount", sumData.GenErrCount}
-    sumData.EntityData.Leafs["reset-err-count"] = types.YLeaf{"ResetErrCount", sumData.ResetErrCount}
-    sumData.EntityData.Leafs["err-count"] = types.YLeaf{"ErrCount", sumData.ErrCount}
-    sumData.EntityData.Leafs["pcie-err-count"] = types.YLeaf{"PcieErrCount", sumData.PcieErrCount}
-    sumData.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", sumData.NodeKey}
+    sumData.EntityData.Children = types.NewOrderedMap()
+    sumData.EntityData.Children.Append("err-count", types.YChild{"ErrCount", nil})
+    for i := range sumData.ErrCount {
+        sumData.EntityData.Children.Append(types.GetSegmentPath(sumData.ErrCount[i]), types.YChild{"ErrCount", sumData.ErrCount[i]})
+    }
+    sumData.EntityData.Children.Append("pcie-err-count", types.YChild{"PcieErrCount", nil})
+    for i := range sumData.PcieErrCount {
+        sumData.EntityData.Children.Append(types.GetSegmentPath(sumData.PcieErrCount[i]), types.YChild{"PcieErrCount", sumData.PcieErrCount[i]})
+    }
+    sumData.EntityData.Leafs = types.NewOrderedMap()
+    sumData.EntityData.Leafs.Append("num-nodes", types.YLeaf{"NumNodes", sumData.NumNodes})
+    sumData.EntityData.Leafs.Append("crc-err-count", types.YLeaf{"CrcErrCount", sumData.CrcErrCount})
+    sumData.EntityData.Leafs.Append("sbe-err-count", types.YLeaf{"SbeErrCount", sumData.SbeErrCount})
+    sumData.EntityData.Leafs.Append("mbe-err-count", types.YLeaf{"MbeErrCount", sumData.MbeErrCount})
+    sumData.EntityData.Leafs.Append("par-err-count", types.YLeaf{"ParErrCount", sumData.ParErrCount})
+    sumData.EntityData.Leafs.Append("gen-err-count", types.YLeaf{"GenErrCount", sumData.GenErrCount})
+    sumData.EntityData.Leafs.Append("reset-err-count", types.YLeaf{"ResetErrCount", sumData.ResetErrCount})
+    sumData.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", sumData.NodeKey})
+
+    sumData.EntityData.YListKeys = []string {}
+
     return &(sumData.EntityData)
+}
+
+// AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_ErrCount
+// err count
+type AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_ErrCount struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name. The type is string.
+    Name interface{}
+
+    // count. The type is interface{} with range: 0..4294967295.
+    Count interface{}
+}
+
+func (errCount *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_ErrCount) GetEntityData() *types.CommonEntityData {
+    errCount.EntityData.YFilter = errCount.YFilter
+    errCount.EntityData.YangName = "err-count"
+    errCount.EntityData.BundleName = "cisco_ios_xr"
+    errCount.EntityData.ParentYangName = "sum-data"
+    errCount.EntityData.SegmentPath = "err-count"
+    errCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    errCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    errCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    errCount.EntityData.Children = types.NewOrderedMap()
+    errCount.EntityData.Leafs = types.NewOrderedMap()
+    errCount.EntityData.Leafs.Append("name", types.YLeaf{"Name", errCount.Name})
+    errCount.EntityData.Leafs.Append("count", types.YLeaf{"Count", errCount.Count})
+
+    errCount.EntityData.YListKeys = []string {}
+
+    return &(errCount.EntityData)
+}
+
+// AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_PcieErrCount
+// pcie err count
+type AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_PcieErrCount struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name. The type is string.
+    Name interface{}
+
+    // count. The type is interface{} with range: 0..4294967295.
+    Count interface{}
+}
+
+func (pcieErrCount *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_PcieErrCount) GetEntityData() *types.CommonEntityData {
+    pcieErrCount.EntityData.YFilter = pcieErrCount.YFilter
+    pcieErrCount.EntityData.YangName = "pcie-err-count"
+    pcieErrCount.EntityData.BundleName = "cisco_ios_xr"
+    pcieErrCount.EntityData.ParentYangName = "sum-data"
+    pcieErrCount.EntityData.SegmentPath = "pcie-err-count"
+    pcieErrCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcieErrCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcieErrCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pcieErrCount.EntityData.Children = types.NewOrderedMap()
+    pcieErrCount.EntityData.Leafs = types.NewOrderedMap()
+    pcieErrCount.EntityData.Leafs.Append("name", types.YLeaf{"Name", pcieErrCount.Name})
+    pcieErrCount.EntityData.Leafs.Append("count", types.YLeaf{"Count", pcieErrCount.Count})
+
+    pcieErrCount.EntityData.YListKeys = []string {}
+
+    return &(pcieErrCount.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances
@@ -310,7 +408,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances struct {
 
     // Particular asic instance on the node. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance.
-    Instance []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
+    Instance []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 }
 
 func (instances *AsicErrors_Nodes_Node_AsicInformation_Instances) GetEntityData() *types.CommonEntityData {
@@ -323,12 +421,15 @@ func (instances *AsicErrors_Nodes_Node_AsicInformation_Instances) GetEntityData(
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instances.EntityData.Children = make(map[string]types.YChild)
-    instances.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    instances.EntityData.Children = types.NewOrderedMap()
+    instances.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range instances.Instance {
-        instances.EntityData.Children[types.GetSegmentPath(&instances.Instance[i])] = types.YChild{"Instance", &instances.Instance[i]}
+        instances.EntityData.Children.Append(types.GetSegmentPath(instances.Instance[i]), types.YChild{"Instance", instances.Instance[i]})
     }
-    instances.EntityData.Leafs = make(map[string]types.YLeaf)
+    instances.EntityData.Leafs = types.NewOrderedMap()
+
+    instances.EntityData.YListKeys = []string {}
+
     return &(instances.EntityData)
 }
 
@@ -339,7 +440,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. asic instance. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     AsicInstance interface{}
 
     // Error path of the instances.
@@ -351,15 +452,18 @@ func (instance *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance) GetEnt
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
-    instance.EntityData.SegmentPath = "instance" + "[asic-instance='" + fmt.Sprintf("%v", instance.AsicInstance) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.AsicInstance, "asic-instance")
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["error-path"] = types.YChild{"ErrorPath", &instance.ErrorPath}
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", instance.AsicInstance}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("error-path", types.YChild{"ErrorPath", &instance.ErrorPath})
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", instance.AsicInstance})
+
+    instance.EntityData.YListKeys = []string {"AsicInstance"}
+
     return &(instance.EntityData)
 }
 
@@ -533,59 +637,62 @@ func (errorPath *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorP
     errorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorPath.EntityData.Children = make(map[string]types.YChild)
-    errorPath.EntityData.Children["multiple-bit-soft-errors"] = types.YChild{"MultipleBitSoftErrors", &errorPath.MultipleBitSoftErrors}
-    errorPath.EntityData.Children["asic-error-generic-soft"] = types.YChild{"AsicErrorGenericSoft", &errorPath.AsicErrorGenericSoft}
-    errorPath.EntityData.Children["crc-hard-errors"] = types.YChild{"CrcHardErrors", &errorPath.CrcHardErrors}
-    errorPath.EntityData.Children["asic-error-sbe-soft"] = types.YChild{"AsicErrorSbeSoft", &errorPath.AsicErrorSbeSoft}
-    errorPath.EntityData.Children["hardware-soft-errors"] = types.YChild{"HardwareSoftErrors", &errorPath.HardwareSoftErrors}
-    errorPath.EntityData.Children["asic-error-crc-soft"] = types.YChild{"AsicErrorCrcSoft", &errorPath.AsicErrorCrcSoft}
-    errorPath.EntityData.Children["asic-error-parity-soft"] = types.YChild{"AsicErrorParitySoft", &errorPath.AsicErrorParitySoft}
-    errorPath.EntityData.Children["io-soft-errors"] = types.YChild{"IoSoftErrors", &errorPath.IoSoftErrors}
-    errorPath.EntityData.Children["reset-soft-errors"] = types.YChild{"ResetSoftErrors", &errorPath.ResetSoftErrors}
-    errorPath.EntityData.Children["barrier-hard-errors"] = types.YChild{"BarrierHardErrors", &errorPath.BarrierHardErrors}
-    errorPath.EntityData.Children["ucode-soft-errors"] = types.YChild{"UcodeSoftErrors", &errorPath.UcodeSoftErrors}
-    errorPath.EntityData.Children["asic-error-reset-hard"] = types.YChild{"AsicErrorResetHard", &errorPath.AsicErrorResetHard}
-    errorPath.EntityData.Children["single-bit-hard-errors"] = types.YChild{"SingleBitHardErrors", &errorPath.SingleBitHardErrors}
-    errorPath.EntityData.Children["indirect-hard-errors"] = types.YChild{"IndirectHardErrors", &errorPath.IndirectHardErrors}
-    errorPath.EntityData.Children["outof-resource-soft"] = types.YChild{"OutofResourceSoft", &errorPath.OutofResourceSoft}
-    errorPath.EntityData.Children["crc-soft-errors"] = types.YChild{"CrcSoftErrors", &errorPath.CrcSoftErrors}
-    errorPath.EntityData.Children["time-out-hard-errors"] = types.YChild{"TimeOutHardErrors", &errorPath.TimeOutHardErrors}
-    errorPath.EntityData.Children["barrier-soft-errors"] = types.YChild{"BarrierSoftErrors", &errorPath.BarrierSoftErrors}
-    errorPath.EntityData.Children["asic-error-mbe-soft"] = types.YChild{"AsicErrorMbeSoft", &errorPath.AsicErrorMbeSoft}
-    errorPath.EntityData.Children["back-pressure-hard-errors"] = types.YChild{"BackPressureHardErrors", &errorPath.BackPressureHardErrors}
-    errorPath.EntityData.Children["single-bit-soft-errors"] = types.YChild{"SingleBitSoftErrors", &errorPath.SingleBitSoftErrors}
-    errorPath.EntityData.Children["indirect-soft-errors"] = types.YChild{"IndirectSoftErrors", &errorPath.IndirectSoftErrors}
-    errorPath.EntityData.Children["generic-hard-errors"] = types.YChild{"GenericHardErrors", &errorPath.GenericHardErrors}
-    errorPath.EntityData.Children["link-hard-errors"] = types.YChild{"LinkHardErrors", &errorPath.LinkHardErrors}
-    errorPath.EntityData.Children["configuration-hard-errors"] = types.YChild{"ConfigurationHardErrors", &errorPath.ConfigurationHardErrors}
-    errorPath.EntityData.Children["instance-summary"] = types.YChild{"InstanceSummary", &errorPath.InstanceSummary}
-    errorPath.EntityData.Children["unexpected-hard-errors"] = types.YChild{"UnexpectedHardErrors", &errorPath.UnexpectedHardErrors}
-    errorPath.EntityData.Children["time-out-soft-errors"] = types.YChild{"TimeOutSoftErrors", &errorPath.TimeOutSoftErrors}
-    errorPath.EntityData.Children["asic-error-generic-hard"] = types.YChild{"AsicErrorGenericHard", &errorPath.AsicErrorGenericHard}
-    errorPath.EntityData.Children["parity-hard-errors"] = types.YChild{"ParityHardErrors", &errorPath.ParityHardErrors}
-    errorPath.EntityData.Children["descriptor-hard-errors"] = types.YChild{"DescriptorHardErrors", &errorPath.DescriptorHardErrors}
-    errorPath.EntityData.Children["interface-hard-errors"] = types.YChild{"InterfaceHardErrors", &errorPath.InterfaceHardErrors}
-    errorPath.EntityData.Children["asic-error-sbe-hard"] = types.YChild{"AsicErrorSbeHard", &errorPath.AsicErrorSbeHard}
-    errorPath.EntityData.Children["asic-error-crc-hard"] = types.YChild{"AsicErrorCrcHard", &errorPath.AsicErrorCrcHard}
-    errorPath.EntityData.Children["asic-error-parity-hard"] = types.YChild{"AsicErrorParityHard", &errorPath.AsicErrorParityHard}
-    errorPath.EntityData.Children["asic-error-reset-soft"] = types.YChild{"AsicErrorResetSoft", &errorPath.AsicErrorResetSoft}
-    errorPath.EntityData.Children["back-pressure-soft-errors"] = types.YChild{"BackPressureSoftErrors", &errorPath.BackPressureSoftErrors}
-    errorPath.EntityData.Children["generic-soft-errors"] = types.YChild{"GenericSoftErrors", &errorPath.GenericSoftErrors}
-    errorPath.EntityData.Children["link-soft-errors"] = types.YChild{"LinkSoftErrors", &errorPath.LinkSoftErrors}
-    errorPath.EntityData.Children["configuration-soft-errors"] = types.YChild{"ConfigurationSoftErrors", &errorPath.ConfigurationSoftErrors}
-    errorPath.EntityData.Children["multiple-bit-hard-errors"] = types.YChild{"MultipleBitHardErrors", &errorPath.MultipleBitHardErrors}
-    errorPath.EntityData.Children["unexpected-soft-errors"] = types.YChild{"UnexpectedSoftErrors", &errorPath.UnexpectedSoftErrors}
-    errorPath.EntityData.Children["outof-resource-hard"] = types.YChild{"OutofResourceHard", &errorPath.OutofResourceHard}
-    errorPath.EntityData.Children["hardware-hard-errors"] = types.YChild{"HardwareHardErrors", &errorPath.HardwareHardErrors}
-    errorPath.EntityData.Children["parity-soft-errors"] = types.YChild{"ParitySoftErrors", &errorPath.ParitySoftErrors}
-    errorPath.EntityData.Children["descriptor-soft-errors"] = types.YChild{"DescriptorSoftErrors", &errorPath.DescriptorSoftErrors}
-    errorPath.EntityData.Children["interface-soft-errors"] = types.YChild{"InterfaceSoftErrors", &errorPath.InterfaceSoftErrors}
-    errorPath.EntityData.Children["io-hard-errors"] = types.YChild{"IoHardErrors", &errorPath.IoHardErrors}
-    errorPath.EntityData.Children["reset-hard-errors"] = types.YChild{"ResetHardErrors", &errorPath.ResetHardErrors}
-    errorPath.EntityData.Children["ucode-hard-errors"] = types.YChild{"UcodeHardErrors", &errorPath.UcodeHardErrors}
-    errorPath.EntityData.Children["asic-error-mbe-hard"] = types.YChild{"AsicErrorMbeHard", &errorPath.AsicErrorMbeHard}
-    errorPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    errorPath.EntityData.Children = types.NewOrderedMap()
+    errorPath.EntityData.Children.Append("multiple-bit-soft-errors", types.YChild{"MultipleBitSoftErrors", &errorPath.MultipleBitSoftErrors})
+    errorPath.EntityData.Children.Append("asic-error-generic-soft", types.YChild{"AsicErrorGenericSoft", &errorPath.AsicErrorGenericSoft})
+    errorPath.EntityData.Children.Append("crc-hard-errors", types.YChild{"CrcHardErrors", &errorPath.CrcHardErrors})
+    errorPath.EntityData.Children.Append("asic-error-sbe-soft", types.YChild{"AsicErrorSbeSoft", &errorPath.AsicErrorSbeSoft})
+    errorPath.EntityData.Children.Append("hardware-soft-errors", types.YChild{"HardwareSoftErrors", &errorPath.HardwareSoftErrors})
+    errorPath.EntityData.Children.Append("asic-error-crc-soft", types.YChild{"AsicErrorCrcSoft", &errorPath.AsicErrorCrcSoft})
+    errorPath.EntityData.Children.Append("asic-error-parity-soft", types.YChild{"AsicErrorParitySoft", &errorPath.AsicErrorParitySoft})
+    errorPath.EntityData.Children.Append("io-soft-errors", types.YChild{"IoSoftErrors", &errorPath.IoSoftErrors})
+    errorPath.EntityData.Children.Append("reset-soft-errors", types.YChild{"ResetSoftErrors", &errorPath.ResetSoftErrors})
+    errorPath.EntityData.Children.Append("barrier-hard-errors", types.YChild{"BarrierHardErrors", &errorPath.BarrierHardErrors})
+    errorPath.EntityData.Children.Append("ucode-soft-errors", types.YChild{"UcodeSoftErrors", &errorPath.UcodeSoftErrors})
+    errorPath.EntityData.Children.Append("asic-error-reset-hard", types.YChild{"AsicErrorResetHard", &errorPath.AsicErrorResetHard})
+    errorPath.EntityData.Children.Append("single-bit-hard-errors", types.YChild{"SingleBitHardErrors", &errorPath.SingleBitHardErrors})
+    errorPath.EntityData.Children.Append("indirect-hard-errors", types.YChild{"IndirectHardErrors", &errorPath.IndirectHardErrors})
+    errorPath.EntityData.Children.Append("outof-resource-soft", types.YChild{"OutofResourceSoft", &errorPath.OutofResourceSoft})
+    errorPath.EntityData.Children.Append("crc-soft-errors", types.YChild{"CrcSoftErrors", &errorPath.CrcSoftErrors})
+    errorPath.EntityData.Children.Append("time-out-hard-errors", types.YChild{"TimeOutHardErrors", &errorPath.TimeOutHardErrors})
+    errorPath.EntityData.Children.Append("barrier-soft-errors", types.YChild{"BarrierSoftErrors", &errorPath.BarrierSoftErrors})
+    errorPath.EntityData.Children.Append("asic-error-mbe-soft", types.YChild{"AsicErrorMbeSoft", &errorPath.AsicErrorMbeSoft})
+    errorPath.EntityData.Children.Append("back-pressure-hard-errors", types.YChild{"BackPressureHardErrors", &errorPath.BackPressureHardErrors})
+    errorPath.EntityData.Children.Append("single-bit-soft-errors", types.YChild{"SingleBitSoftErrors", &errorPath.SingleBitSoftErrors})
+    errorPath.EntityData.Children.Append("indirect-soft-errors", types.YChild{"IndirectSoftErrors", &errorPath.IndirectSoftErrors})
+    errorPath.EntityData.Children.Append("generic-hard-errors", types.YChild{"GenericHardErrors", &errorPath.GenericHardErrors})
+    errorPath.EntityData.Children.Append("link-hard-errors", types.YChild{"LinkHardErrors", &errorPath.LinkHardErrors})
+    errorPath.EntityData.Children.Append("configuration-hard-errors", types.YChild{"ConfigurationHardErrors", &errorPath.ConfigurationHardErrors})
+    errorPath.EntityData.Children.Append("instance-summary", types.YChild{"InstanceSummary", &errorPath.InstanceSummary})
+    errorPath.EntityData.Children.Append("unexpected-hard-errors", types.YChild{"UnexpectedHardErrors", &errorPath.UnexpectedHardErrors})
+    errorPath.EntityData.Children.Append("time-out-soft-errors", types.YChild{"TimeOutSoftErrors", &errorPath.TimeOutSoftErrors})
+    errorPath.EntityData.Children.Append("asic-error-generic-hard", types.YChild{"AsicErrorGenericHard", &errorPath.AsicErrorGenericHard})
+    errorPath.EntityData.Children.Append("parity-hard-errors", types.YChild{"ParityHardErrors", &errorPath.ParityHardErrors})
+    errorPath.EntityData.Children.Append("descriptor-hard-errors", types.YChild{"DescriptorHardErrors", &errorPath.DescriptorHardErrors})
+    errorPath.EntityData.Children.Append("interface-hard-errors", types.YChild{"InterfaceHardErrors", &errorPath.InterfaceHardErrors})
+    errorPath.EntityData.Children.Append("asic-error-sbe-hard", types.YChild{"AsicErrorSbeHard", &errorPath.AsicErrorSbeHard})
+    errorPath.EntityData.Children.Append("asic-error-crc-hard", types.YChild{"AsicErrorCrcHard", &errorPath.AsicErrorCrcHard})
+    errorPath.EntityData.Children.Append("asic-error-parity-hard", types.YChild{"AsicErrorParityHard", &errorPath.AsicErrorParityHard})
+    errorPath.EntityData.Children.Append("asic-error-reset-soft", types.YChild{"AsicErrorResetSoft", &errorPath.AsicErrorResetSoft})
+    errorPath.EntityData.Children.Append("back-pressure-soft-errors", types.YChild{"BackPressureSoftErrors", &errorPath.BackPressureSoftErrors})
+    errorPath.EntityData.Children.Append("generic-soft-errors", types.YChild{"GenericSoftErrors", &errorPath.GenericSoftErrors})
+    errorPath.EntityData.Children.Append("link-soft-errors", types.YChild{"LinkSoftErrors", &errorPath.LinkSoftErrors})
+    errorPath.EntityData.Children.Append("configuration-soft-errors", types.YChild{"ConfigurationSoftErrors", &errorPath.ConfigurationSoftErrors})
+    errorPath.EntityData.Children.Append("multiple-bit-hard-errors", types.YChild{"MultipleBitHardErrors", &errorPath.MultipleBitHardErrors})
+    errorPath.EntityData.Children.Append("unexpected-soft-errors", types.YChild{"UnexpectedSoftErrors", &errorPath.UnexpectedSoftErrors})
+    errorPath.EntityData.Children.Append("outof-resource-hard", types.YChild{"OutofResourceHard", &errorPath.OutofResourceHard})
+    errorPath.EntityData.Children.Append("hardware-hard-errors", types.YChild{"HardwareHardErrors", &errorPath.HardwareHardErrors})
+    errorPath.EntityData.Children.Append("parity-soft-errors", types.YChild{"ParitySoftErrors", &errorPath.ParitySoftErrors})
+    errorPath.EntityData.Children.Append("descriptor-soft-errors", types.YChild{"DescriptorSoftErrors", &errorPath.DescriptorSoftErrors})
+    errorPath.EntityData.Children.Append("interface-soft-errors", types.YChild{"InterfaceSoftErrors", &errorPath.InterfaceSoftErrors})
+    errorPath.EntityData.Children.Append("io-hard-errors", types.YChild{"IoHardErrors", &errorPath.IoHardErrors})
+    errorPath.EntityData.Children.Append("reset-hard-errors", types.YChild{"ResetHardErrors", &errorPath.ResetHardErrors})
+    errorPath.EntityData.Children.Append("ucode-hard-errors", types.YChild{"UcodeHardErrors", &errorPath.UcodeHardErrors})
+    errorPath.EntityData.Children.Append("asic-error-mbe-hard", types.YChild{"AsicErrorMbeHard", &errorPath.AsicErrorMbeHard})
+    errorPath.EntityData.Leafs = types.NewOrderedMap()
+
+    errorPath.EntityData.YListKeys = []string {}
+
     return &(errorPath.EntityData)
 }
 
@@ -597,7 +704,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Multiple
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error
 }
 
 func (multipleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -610,12 +717,15 @@ func (multipleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Ins
     multipleBitSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multipleBitSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    multipleBitSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    multipleBitSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    multipleBitSoftErrors.EntityData.Children = types.NewOrderedMap()
+    multipleBitSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range multipleBitSoftErrors.Error {
-        multipleBitSoftErrors.EntityData.Children[types.GetSegmentPath(&multipleBitSoftErrors.Error[i])] = types.YChild{"Error", &multipleBitSoftErrors.Error[i]}
+        multipleBitSoftErrors.EntityData.Children.Append(types.GetSegmentPath(multipleBitSoftErrors.Error[i]), types.YChild{"Error", multipleBitSoftErrors.Error[i]})
     }
-    multipleBitSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    multipleBitSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    multipleBitSoftErrors.EntityData.YListKeys = []string {}
+
     return &(multipleBitSoftErrors.EntityData)
 }
 
@@ -664,46 +774,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Multiple
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "multiple-bit-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "multiple-bit-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_CsrsInfo
@@ -732,11 +845,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -772,13 +888,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -790,7 +909,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error
 }
 
 func (asicErrorGenericSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft) GetEntityData() *types.CommonEntityData {
@@ -803,12 +922,15 @@ func (asicErrorGenericSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     asicErrorGenericSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorGenericSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorGenericSoft.EntityData.Children = make(map[string]types.YChild)
-    asicErrorGenericSoft.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorGenericSoft.EntityData.Children = types.NewOrderedMap()
+    asicErrorGenericSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorGenericSoft.Error {
-        asicErrorGenericSoft.EntityData.Children[types.GetSegmentPath(&asicErrorGenericSoft.Error[i])] = types.YChild{"Error", &asicErrorGenericSoft.Error[i]}
+        asicErrorGenericSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorGenericSoft.Error[i]), types.YChild{"Error", asicErrorGenericSoft.Error[i]})
     }
-    asicErrorGenericSoft.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorGenericSoft.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorGenericSoft.EntityData.YListKeys = []string {}
+
     return &(asicErrorGenericSoft.EntityData)
 }
 
@@ -857,46 +979,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-generic-soft"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-generic-soft"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_CsrsInfo
@@ -925,11 +1050,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -965,13 +1093,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -983,7 +1114,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardE
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error
 }
 
 func (crcHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors) GetEntityData() *types.CommonEntityData {
@@ -996,12 +1127,15 @@ func (crcHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Er
     crcHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crcHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crcHardErrors.EntityData.Children = make(map[string]types.YChild)
-    crcHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    crcHardErrors.EntityData.Children = types.NewOrderedMap()
+    crcHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range crcHardErrors.Error {
-        crcHardErrors.EntityData.Children[types.GetSegmentPath(&crcHardErrors.Error[i])] = types.YChild{"Error", &crcHardErrors.Error[i]}
+        crcHardErrors.EntityData.Children.Append(types.GetSegmentPath(crcHardErrors.Error[i]), types.YChild{"Error", crcHardErrors.Error[i]})
     }
-    crcHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    crcHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    crcHardErrors.EntityData.YListKeys = []string {}
+
     return &(crcHardErrors.EntityData)
 }
 
@@ -1050,46 +1184,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardE
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "crc-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "crc-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_CsrsInfo
@@ -1118,11 +1255,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -1158,13 +1298,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -1176,7 +1319,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error
 }
 
 func (asicErrorSbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft) GetEntityData() *types.CommonEntityData {
@@ -1189,12 +1332,15 @@ func (asicErrorSbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorSbeSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorSbeSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorSbeSoft.EntityData.Children = make(map[string]types.YChild)
-    asicErrorSbeSoft.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorSbeSoft.EntityData.Children = types.NewOrderedMap()
+    asicErrorSbeSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorSbeSoft.Error {
-        asicErrorSbeSoft.EntityData.Children[types.GetSegmentPath(&asicErrorSbeSoft.Error[i])] = types.YChild{"Error", &asicErrorSbeSoft.Error[i]}
+        asicErrorSbeSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorSbeSoft.Error[i]), types.YChild{"Error", asicErrorSbeSoft.Error[i]})
     }
-    asicErrorSbeSoft.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorSbeSoft.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorSbeSoft.EntityData.YListKeys = []string {}
+
     return &(asicErrorSbeSoft.EntityData)
 }
 
@@ -1243,46 +1389,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-sbe-soft"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-sbe-soft"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_CsrsInfo
@@ -1311,11 +1460,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -1351,13 +1503,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -1369,7 +1524,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Hardware
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error
 }
 
 func (hardwareSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -1382,12 +1537,15 @@ func (hardwareSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     hardwareSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    hardwareSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    hardwareSoftErrors.EntityData.Children = types.NewOrderedMap()
+    hardwareSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range hardwareSoftErrors.Error {
-        hardwareSoftErrors.EntityData.Children[types.GetSegmentPath(&hardwareSoftErrors.Error[i])] = types.YChild{"Error", &hardwareSoftErrors.Error[i]}
+        hardwareSoftErrors.EntityData.Children.Append(types.GetSegmentPath(hardwareSoftErrors.Error[i]), types.YChild{"Error", hardwareSoftErrors.Error[i]})
     }
-    hardwareSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareSoftErrors.EntityData.YListKeys = []string {}
+
     return &(hardwareSoftErrors.EntityData)
 }
 
@@ -1436,46 +1594,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Hardware
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "hardware-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "hardware-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_CsrsInfo
@@ -1504,11 +1665,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -1544,13 +1708,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -1562,7 +1729,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error
 }
 
 func (asicErrorCrcSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft) GetEntityData() *types.CommonEntityData {
@@ -1575,12 +1742,15 @@ func (asicErrorCrcSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorCrcSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorCrcSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorCrcSoft.EntityData.Children = make(map[string]types.YChild)
-    asicErrorCrcSoft.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorCrcSoft.EntityData.Children = types.NewOrderedMap()
+    asicErrorCrcSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorCrcSoft.Error {
-        asicErrorCrcSoft.EntityData.Children[types.GetSegmentPath(&asicErrorCrcSoft.Error[i])] = types.YChild{"Error", &asicErrorCrcSoft.Error[i]}
+        asicErrorCrcSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorCrcSoft.Error[i]), types.YChild{"Error", asicErrorCrcSoft.Error[i]})
     }
-    asicErrorCrcSoft.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorCrcSoft.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorCrcSoft.EntityData.YListKeys = []string {}
+
     return &(asicErrorCrcSoft.EntityData)
 }
 
@@ -1629,46 +1799,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-crc-soft"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-crc-soft"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_CsrsInfo
@@ -1697,11 +1870,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -1737,13 +1913,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -1755,7 +1934,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error
 }
 
 func (asicErrorParitySoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft) GetEntityData() *types.CommonEntityData {
@@ -1768,12 +1947,15 @@ func (asicErrorParitySoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     asicErrorParitySoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorParitySoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorParitySoft.EntityData.Children = make(map[string]types.YChild)
-    asicErrorParitySoft.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorParitySoft.EntityData.Children = types.NewOrderedMap()
+    asicErrorParitySoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorParitySoft.Error {
-        asicErrorParitySoft.EntityData.Children[types.GetSegmentPath(&asicErrorParitySoft.Error[i])] = types.YChild{"Error", &asicErrorParitySoft.Error[i]}
+        asicErrorParitySoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorParitySoft.Error[i]), types.YChild{"Error", asicErrorParitySoft.Error[i]})
     }
-    asicErrorParitySoft.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorParitySoft.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorParitySoft.EntityData.YListKeys = []string {}
+
     return &(asicErrorParitySoft.EntityData)
 }
 
@@ -1822,46 +2004,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-parity-soft"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-parity-soft"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_CsrsInfo
@@ -1890,11 +2075,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -1930,13 +2118,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -1948,7 +2139,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftEr
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error
 }
 
 func (ioSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -1961,12 +2152,15 @@ func (ioSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
     ioSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ioSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ioSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    ioSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    ioSoftErrors.EntityData.Children = types.NewOrderedMap()
+    ioSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range ioSoftErrors.Error {
-        ioSoftErrors.EntityData.Children[types.GetSegmentPath(&ioSoftErrors.Error[i])] = types.YChild{"Error", &ioSoftErrors.Error[i]}
+        ioSoftErrors.EntityData.Children.Append(types.GetSegmentPath(ioSoftErrors.Error[i]), types.YChild{"Error", ioSoftErrors.Error[i]})
     }
-    ioSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    ioSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    ioSoftErrors.EntityData.YListKeys = []string {}
+
     return &(ioSoftErrors.EntityData)
 }
 
@@ -2015,46 +2209,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftEr
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "io-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "io-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_CsrsInfo
@@ -2083,11 +2280,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -2123,13 +2323,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -2141,7 +2344,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSof
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error
 }
 
 func (resetSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -2154,12 +2357,15 @@ func (resetSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     resetSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resetSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resetSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    resetSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    resetSoftErrors.EntityData.Children = types.NewOrderedMap()
+    resetSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range resetSoftErrors.Error {
-        resetSoftErrors.EntityData.Children[types.GetSegmentPath(&resetSoftErrors.Error[i])] = types.YChild{"Error", &resetSoftErrors.Error[i]}
+        resetSoftErrors.EntityData.Children.Append(types.GetSegmentPath(resetSoftErrors.Error[i]), types.YChild{"Error", resetSoftErrors.Error[i]})
     }
-    resetSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    resetSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    resetSoftErrors.EntityData.YListKeys = []string {}
+
     return &(resetSoftErrors.EntityData)
 }
 
@@ -2208,46 +2414,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSof
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "reset-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "reset-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_CsrsInfo
@@ -2276,11 +2485,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -2316,13 +2528,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -2334,7 +2549,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierH
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error
 }
 
 func (barrierHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors) GetEntityData() *types.CommonEntityData {
@@ -2347,12 +2562,15 @@ func (barrierHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     barrierHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     barrierHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    barrierHardErrors.EntityData.Children = make(map[string]types.YChild)
-    barrierHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    barrierHardErrors.EntityData.Children = types.NewOrderedMap()
+    barrierHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range barrierHardErrors.Error {
-        barrierHardErrors.EntityData.Children[types.GetSegmentPath(&barrierHardErrors.Error[i])] = types.YChild{"Error", &barrierHardErrors.Error[i]}
+        barrierHardErrors.EntityData.Children.Append(types.GetSegmentPath(barrierHardErrors.Error[i]), types.YChild{"Error", barrierHardErrors.Error[i]})
     }
-    barrierHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    barrierHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    barrierHardErrors.EntityData.YListKeys = []string {}
+
     return &(barrierHardErrors.EntityData)
 }
 
@@ -2401,46 +2619,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierH
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "barrier-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "barrier-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_CsrsInfo
@@ -2469,11 +2690,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -2509,13 +2733,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -2527,7 +2754,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSof
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error
 }
 
 func (ucodeSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -2540,12 +2767,15 @@ func (ucodeSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     ucodeSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucodeSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ucodeSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    ucodeSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    ucodeSoftErrors.EntityData.Children = types.NewOrderedMap()
+    ucodeSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range ucodeSoftErrors.Error {
-        ucodeSoftErrors.EntityData.Children[types.GetSegmentPath(&ucodeSoftErrors.Error[i])] = types.YChild{"Error", &ucodeSoftErrors.Error[i]}
+        ucodeSoftErrors.EntityData.Children.Append(types.GetSegmentPath(ucodeSoftErrors.Error[i]), types.YChild{"Error", ucodeSoftErrors.Error[i]})
     }
-    ucodeSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    ucodeSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    ucodeSoftErrors.EntityData.YListKeys = []string {}
+
     return &(ucodeSoftErrors.EntityData)
 }
 
@@ -2594,46 +2824,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSof
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "ucode-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "ucode-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_CsrsInfo
@@ -2662,11 +2895,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -2702,13 +2938,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -2720,7 +2959,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error
 }
 
 func (asicErrorResetHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard) GetEntityData() *types.CommonEntityData {
@@ -2733,12 +2972,15 @@ func (asicErrorResetHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     asicErrorResetHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorResetHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorResetHard.EntityData.Children = make(map[string]types.YChild)
-    asicErrorResetHard.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorResetHard.EntityData.Children = types.NewOrderedMap()
+    asicErrorResetHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorResetHard.Error {
-        asicErrorResetHard.EntityData.Children[types.GetSegmentPath(&asicErrorResetHard.Error[i])] = types.YChild{"Error", &asicErrorResetHard.Error[i]}
+        asicErrorResetHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorResetHard.Error[i]), types.YChild{"Error", asicErrorResetHard.Error[i]})
     }
-    asicErrorResetHard.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorResetHard.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorResetHard.EntityData.YListKeys = []string {}
+
     return &(asicErrorResetHard.EntityData)
 }
 
@@ -2787,46 +3029,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-reset-hard"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-reset-hard"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_CsrsInfo
@@ -2855,11 +3100,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -2895,13 +3143,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -2913,7 +3164,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBi
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error
 }
 
 func (singleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors) GetEntityData() *types.CommonEntityData {
@@ -2926,12 +3177,15 @@ func (singleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     singleBitHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleBitHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleBitHardErrors.EntityData.Children = make(map[string]types.YChild)
-    singleBitHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    singleBitHardErrors.EntityData.Children = types.NewOrderedMap()
+    singleBitHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range singleBitHardErrors.Error {
-        singleBitHardErrors.EntityData.Children[types.GetSegmentPath(&singleBitHardErrors.Error[i])] = types.YChild{"Error", &singleBitHardErrors.Error[i]}
+        singleBitHardErrors.EntityData.Children.Append(types.GetSegmentPath(singleBitHardErrors.Error[i]), types.YChild{"Error", singleBitHardErrors.Error[i]})
     }
-    singleBitHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    singleBitHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    singleBitHardErrors.EntityData.YListKeys = []string {}
+
     return &(singleBitHardErrors.EntityData)
 }
 
@@ -2980,46 +3234,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBi
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "single-bit-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "single-bit-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_CsrsInfo
@@ -3048,11 +3305,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -3088,13 +3348,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -3106,7 +3369,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Indirect
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error
 }
 
 func (indirectHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors) GetEntityData() *types.CommonEntityData {
@@ -3119,12 +3382,15 @@ func (indirectHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     indirectHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indirectHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indirectHardErrors.EntityData.Children = make(map[string]types.YChild)
-    indirectHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    indirectHardErrors.EntityData.Children = types.NewOrderedMap()
+    indirectHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range indirectHardErrors.Error {
-        indirectHardErrors.EntityData.Children[types.GetSegmentPath(&indirectHardErrors.Error[i])] = types.YChild{"Error", &indirectHardErrors.Error[i]}
+        indirectHardErrors.EntityData.Children.Append(types.GetSegmentPath(indirectHardErrors.Error[i]), types.YChild{"Error", indirectHardErrors.Error[i]})
     }
-    indirectHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    indirectHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    indirectHardErrors.EntityData.YListKeys = []string {}
+
     return &(indirectHardErrors.EntityData)
 }
 
@@ -3173,46 +3439,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Indirect
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "indirect-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "indirect-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_CsrsInfo
@@ -3241,11 +3510,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -3281,13 +3553,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -3299,7 +3574,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofRes
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error
 }
 
 func (outofResourceSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft) GetEntityData() *types.CommonEntityData {
@@ -3312,12 +3587,15 @@ func (outofResourceSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     outofResourceSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outofResourceSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outofResourceSoft.EntityData.Children = make(map[string]types.YChild)
-    outofResourceSoft.EntityData.Children["error"] = types.YChild{"Error", nil}
+    outofResourceSoft.EntityData.Children = types.NewOrderedMap()
+    outofResourceSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range outofResourceSoft.Error {
-        outofResourceSoft.EntityData.Children[types.GetSegmentPath(&outofResourceSoft.Error[i])] = types.YChild{"Error", &outofResourceSoft.Error[i]}
+        outofResourceSoft.EntityData.Children.Append(types.GetSegmentPath(outofResourceSoft.Error[i]), types.YChild{"Error", outofResourceSoft.Error[i]})
     }
-    outofResourceSoft.EntityData.Leafs = make(map[string]types.YLeaf)
+    outofResourceSoft.EntityData.Leafs = types.NewOrderedMap()
+
+    outofResourceSoft.EntityData.YListKeys = []string {}
+
     return &(outofResourceSoft.EntityData)
 }
 
@@ -3366,46 +3644,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofRes
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "outof-resource-soft"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "outof-resource-soft"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_CsrsInfo
@@ -3434,11 +3715,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -3474,13 +3758,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -3492,7 +3779,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftE
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error
 }
 
 func (crcSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -3505,12 +3792,15 @@ func (crcSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Er
     crcSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crcSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crcSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    crcSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    crcSoftErrors.EntityData.Children = types.NewOrderedMap()
+    crcSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range crcSoftErrors.Error {
-        crcSoftErrors.EntityData.Children[types.GetSegmentPath(&crcSoftErrors.Error[i])] = types.YChild{"Error", &crcSoftErrors.Error[i]}
+        crcSoftErrors.EntityData.Children.Append(types.GetSegmentPath(crcSoftErrors.Error[i]), types.YChild{"Error", crcSoftErrors.Error[i]})
     }
-    crcSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    crcSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    crcSoftErrors.EntityData.YListKeys = []string {}
+
     return &(crcSoftErrors.EntityData)
 }
 
@@ -3559,46 +3849,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftE
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "crc-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "crc-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_CsrsInfo
@@ -3627,11 +3920,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -3667,13 +3963,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -3685,7 +3984,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutH
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error
 }
 
 func (timeOutHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors) GetEntityData() *types.CommonEntityData {
@@ -3698,12 +3997,15 @@ func (timeOutHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     timeOutHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeOutHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timeOutHardErrors.EntityData.Children = make(map[string]types.YChild)
-    timeOutHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    timeOutHardErrors.EntityData.Children = types.NewOrderedMap()
+    timeOutHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range timeOutHardErrors.Error {
-        timeOutHardErrors.EntityData.Children[types.GetSegmentPath(&timeOutHardErrors.Error[i])] = types.YChild{"Error", &timeOutHardErrors.Error[i]}
+        timeOutHardErrors.EntityData.Children.Append(types.GetSegmentPath(timeOutHardErrors.Error[i]), types.YChild{"Error", timeOutHardErrors.Error[i]})
     }
-    timeOutHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    timeOutHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    timeOutHardErrors.EntityData.YListKeys = []string {}
+
     return &(timeOutHardErrors.EntityData)
 }
 
@@ -3752,46 +4054,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutH
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "time-out-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "time-out-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_CsrsInfo
@@ -3820,11 +4125,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -3860,13 +4168,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -3878,7 +4189,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierS
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error
 }
 
 func (barrierSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -3891,12 +4202,15 @@ func (barrierSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     barrierSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     barrierSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    barrierSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    barrierSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    barrierSoftErrors.EntityData.Children = types.NewOrderedMap()
+    barrierSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range barrierSoftErrors.Error {
-        barrierSoftErrors.EntityData.Children[types.GetSegmentPath(&barrierSoftErrors.Error[i])] = types.YChild{"Error", &barrierSoftErrors.Error[i]}
+        barrierSoftErrors.EntityData.Children.Append(types.GetSegmentPath(barrierSoftErrors.Error[i]), types.YChild{"Error", barrierSoftErrors.Error[i]})
     }
-    barrierSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    barrierSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    barrierSoftErrors.EntityData.YListKeys = []string {}
+
     return &(barrierSoftErrors.EntityData)
 }
 
@@ -3945,46 +4259,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierS
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "barrier-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "barrier-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_CsrsInfo
@@ -4013,11 +4330,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -4053,13 +4373,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -4071,7 +4394,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error
 }
 
 func (asicErrorMbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft) GetEntityData() *types.CommonEntityData {
@@ -4084,12 +4407,15 @@ func (asicErrorMbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorMbeSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorMbeSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorMbeSoft.EntityData.Children = make(map[string]types.YChild)
-    asicErrorMbeSoft.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorMbeSoft.EntityData.Children = types.NewOrderedMap()
+    asicErrorMbeSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorMbeSoft.Error {
-        asicErrorMbeSoft.EntityData.Children[types.GetSegmentPath(&asicErrorMbeSoft.Error[i])] = types.YChild{"Error", &asicErrorMbeSoft.Error[i]}
+        asicErrorMbeSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorMbeSoft.Error[i]), types.YChild{"Error", asicErrorMbeSoft.Error[i]})
     }
-    asicErrorMbeSoft.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorMbeSoft.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorMbeSoft.EntityData.YListKeys = []string {}
+
     return &(asicErrorMbeSoft.EntityData)
 }
 
@@ -4138,46 +4464,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-mbe-soft"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-mbe-soft"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_CsrsInfo
@@ -4206,11 +4535,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -4246,13 +4578,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -4264,7 +4599,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPres
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error
 }
 
 func (backPressureHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors) GetEntityData() *types.CommonEntityData {
@@ -4277,12 +4612,15 @@ func (backPressureHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_In
     backPressureHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backPressureHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backPressureHardErrors.EntityData.Children = make(map[string]types.YChild)
-    backPressureHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    backPressureHardErrors.EntityData.Children = types.NewOrderedMap()
+    backPressureHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range backPressureHardErrors.Error {
-        backPressureHardErrors.EntityData.Children[types.GetSegmentPath(&backPressureHardErrors.Error[i])] = types.YChild{"Error", &backPressureHardErrors.Error[i]}
+        backPressureHardErrors.EntityData.Children.Append(types.GetSegmentPath(backPressureHardErrors.Error[i]), types.YChild{"Error", backPressureHardErrors.Error[i]})
     }
-    backPressureHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    backPressureHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    backPressureHardErrors.EntityData.YListKeys = []string {}
+
     return &(backPressureHardErrors.EntityData)
 }
 
@@ -4331,46 +4669,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPres
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "back-pressure-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "back-pressure-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_CsrsInfo
@@ -4399,11 +4740,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -4439,13 +4783,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -4457,7 +4804,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBi
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error
 }
 
 func (singleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -4470,12 +4817,15 @@ func (singleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     singleBitSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleBitSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleBitSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    singleBitSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    singleBitSoftErrors.EntityData.Children = types.NewOrderedMap()
+    singleBitSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range singleBitSoftErrors.Error {
-        singleBitSoftErrors.EntityData.Children[types.GetSegmentPath(&singleBitSoftErrors.Error[i])] = types.YChild{"Error", &singleBitSoftErrors.Error[i]}
+        singleBitSoftErrors.EntityData.Children.Append(types.GetSegmentPath(singleBitSoftErrors.Error[i]), types.YChild{"Error", singleBitSoftErrors.Error[i]})
     }
-    singleBitSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    singleBitSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    singleBitSoftErrors.EntityData.YListKeys = []string {}
+
     return &(singleBitSoftErrors.EntityData)
 }
 
@@ -4524,46 +4874,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBi
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "single-bit-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "single-bit-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_CsrsInfo
@@ -4592,11 +4945,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -4632,13 +4988,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -4650,7 +5009,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Indirect
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error
 }
 
 func (indirectSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -4663,12 +5022,15 @@ func (indirectSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     indirectSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indirectSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indirectSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    indirectSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    indirectSoftErrors.EntityData.Children = types.NewOrderedMap()
+    indirectSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range indirectSoftErrors.Error {
-        indirectSoftErrors.EntityData.Children[types.GetSegmentPath(&indirectSoftErrors.Error[i])] = types.YChild{"Error", &indirectSoftErrors.Error[i]}
+        indirectSoftErrors.EntityData.Children.Append(types.GetSegmentPath(indirectSoftErrors.Error[i]), types.YChild{"Error", indirectSoftErrors.Error[i]})
     }
-    indirectSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    indirectSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    indirectSoftErrors.EntityData.YListKeys = []string {}
+
     return &(indirectSoftErrors.EntityData)
 }
 
@@ -4717,46 +5079,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Indirect
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "indirect-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "indirect-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_CsrsInfo
@@ -4785,11 +5150,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -4825,13 +5193,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -4843,7 +5214,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericH
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error
 }
 
 func (genericHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors) GetEntityData() *types.CommonEntityData {
@@ -4856,12 +5227,15 @@ func (genericHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     genericHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericHardErrors.EntityData.Children = make(map[string]types.YChild)
-    genericHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    genericHardErrors.EntityData.Children = types.NewOrderedMap()
+    genericHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range genericHardErrors.Error {
-        genericHardErrors.EntityData.Children[types.GetSegmentPath(&genericHardErrors.Error[i])] = types.YChild{"Error", &genericHardErrors.Error[i]}
+        genericHardErrors.EntityData.Children.Append(types.GetSegmentPath(genericHardErrors.Error[i]), types.YChild{"Error", genericHardErrors.Error[i]})
     }
-    genericHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    genericHardErrors.EntityData.YListKeys = []string {}
+
     return &(genericHardErrors.EntityData)
 }
 
@@ -4910,46 +5284,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericH
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "generic-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "generic-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_CsrsInfo
@@ -4978,11 +5355,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -5018,13 +5398,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -5036,7 +5419,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHard
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error
 }
 
 func (linkHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors) GetEntityData() *types.CommonEntityData {
@@ -5049,12 +5432,15 @@ func (linkHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_E
     linkHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkHardErrors.EntityData.Children = make(map[string]types.YChild)
-    linkHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    linkHardErrors.EntityData.Children = types.NewOrderedMap()
+    linkHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range linkHardErrors.Error {
-        linkHardErrors.EntityData.Children[types.GetSegmentPath(&linkHardErrors.Error[i])] = types.YChild{"Error", &linkHardErrors.Error[i]}
+        linkHardErrors.EntityData.Children.Append(types.GetSegmentPath(linkHardErrors.Error[i]), types.YChild{"Error", linkHardErrors.Error[i]})
     }
-    linkHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    linkHardErrors.EntityData.YListKeys = []string {}
+
     return &(linkHardErrors.EntityData)
 }
 
@@ -5103,46 +5489,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHard
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "link-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "link-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_CsrsInfo
@@ -5171,11 +5560,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -5211,13 +5603,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -5229,7 +5624,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Configur
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error
 }
 
 func (configurationHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors) GetEntityData() *types.CommonEntityData {
@@ -5242,12 +5637,15 @@ func (configurationHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_I
     configurationHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configurationHardErrors.EntityData.Children = make(map[string]types.YChild)
-    configurationHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    configurationHardErrors.EntityData.Children = types.NewOrderedMap()
+    configurationHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range configurationHardErrors.Error {
-        configurationHardErrors.EntityData.Children[types.GetSegmentPath(&configurationHardErrors.Error[i])] = types.YChild{"Error", &configurationHardErrors.Error[i]}
+        configurationHardErrors.EntityData.Children.Append(types.GetSegmentPath(configurationHardErrors.Error[i]), types.YChild{"Error", configurationHardErrors.Error[i]})
     }
-    configurationHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    configurationHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    configurationHardErrors.EntityData.YListKeys = []string {}
+
     return &(configurationHardErrors.EntityData)
 }
 
@@ -5296,46 +5694,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Configur
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "configuration-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "configuration-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_CsrsInfo
@@ -5364,11 +5765,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -5404,13 +5808,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -5428,7 +5835,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Instance
 
     // sum data. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData.
-    SumData []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData
+    SumData []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData
 }
 
 func (instanceSummary *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary) GetEntityData() *types.CommonEntityData {
@@ -5441,14 +5848,17 @@ func (instanceSummary *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     instanceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instanceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instanceSummary.EntityData.Children = make(map[string]types.YChild)
-    instanceSummary.EntityData.Children["sum-data"] = types.YChild{"SumData", nil}
+    instanceSummary.EntityData.Children = types.NewOrderedMap()
+    instanceSummary.EntityData.Children.Append("sum-data", types.YChild{"SumData", nil})
     for i := range instanceSummary.SumData {
-        instanceSummary.EntityData.Children[types.GetSegmentPath(&instanceSummary.SumData[i])] = types.YChild{"SumData", &instanceSummary.SumData[i]}
+        instanceSummary.EntityData.Children.Append(types.GetSegmentPath(instanceSummary.SumData[i]), types.YChild{"SumData", instanceSummary.SumData[i]})
     }
-    instanceSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    instanceSummary.EntityData.Leafs["legacy-client"] = types.YLeaf{"LegacyClient", instanceSummary.LegacyClient}
-    instanceSummary.EntityData.Leafs["cih-client"] = types.YLeaf{"CihClient", instanceSummary.CihClient}
+    instanceSummary.EntityData.Leafs = types.NewOrderedMap()
+    instanceSummary.EntityData.Leafs.Append("legacy-client", types.YLeaf{"LegacyClient", instanceSummary.LegacyClient})
+    instanceSummary.EntityData.Leafs.Append("cih-client", types.YLeaf{"CihClient", instanceSummary.CihClient})
+
+    instanceSummary.EntityData.YListKeys = []string {}
+
     return &(instanceSummary.EntityData)
 }
 
@@ -5479,14 +5889,16 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Instance
     // reset err count. The type is interface{} with range: 0..4294967295.
     ResetErrCount interface{}
 
-    // err count. The type is slice of interface{} with range: 0..4294967295.
-    ErrCount []interface{}
-
-    // pcie err count. The type is slice of interface{} with range: 0..4294967295.
-    PcieErrCount []interface{}
-
     // node key. The type is slice of interface{} with range: 0..4294967295.
     NodeKey []interface{}
+
+    // err count. The type is slice of
+    // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_ErrCount.
+    ErrCount []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_ErrCount
+
+    // pcie err count. The type is slice of
+    // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_PcieErrCount.
+    PcieErrCount []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_PcieErrCount
 }
 
 func (sumData *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData) GetEntityData() *types.CommonEntityData {
@@ -5499,19 +5911,94 @@ func (sumData *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     sumData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sumData.EntityData.Children = make(map[string]types.YChild)
-    sumData.EntityData.Leafs = make(map[string]types.YLeaf)
-    sumData.EntityData.Leafs["num-nodes"] = types.YLeaf{"NumNodes", sumData.NumNodes}
-    sumData.EntityData.Leafs["crc-err-count"] = types.YLeaf{"CrcErrCount", sumData.CrcErrCount}
-    sumData.EntityData.Leafs["sbe-err-count"] = types.YLeaf{"SbeErrCount", sumData.SbeErrCount}
-    sumData.EntityData.Leafs["mbe-err-count"] = types.YLeaf{"MbeErrCount", sumData.MbeErrCount}
-    sumData.EntityData.Leafs["par-err-count"] = types.YLeaf{"ParErrCount", sumData.ParErrCount}
-    sumData.EntityData.Leafs["gen-err-count"] = types.YLeaf{"GenErrCount", sumData.GenErrCount}
-    sumData.EntityData.Leafs["reset-err-count"] = types.YLeaf{"ResetErrCount", sumData.ResetErrCount}
-    sumData.EntityData.Leafs["err-count"] = types.YLeaf{"ErrCount", sumData.ErrCount}
-    sumData.EntityData.Leafs["pcie-err-count"] = types.YLeaf{"PcieErrCount", sumData.PcieErrCount}
-    sumData.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", sumData.NodeKey}
+    sumData.EntityData.Children = types.NewOrderedMap()
+    sumData.EntityData.Children.Append("err-count", types.YChild{"ErrCount", nil})
+    for i := range sumData.ErrCount {
+        sumData.EntityData.Children.Append(types.GetSegmentPath(sumData.ErrCount[i]), types.YChild{"ErrCount", sumData.ErrCount[i]})
+    }
+    sumData.EntityData.Children.Append("pcie-err-count", types.YChild{"PcieErrCount", nil})
+    for i := range sumData.PcieErrCount {
+        sumData.EntityData.Children.Append(types.GetSegmentPath(sumData.PcieErrCount[i]), types.YChild{"PcieErrCount", sumData.PcieErrCount[i]})
+    }
+    sumData.EntityData.Leafs = types.NewOrderedMap()
+    sumData.EntityData.Leafs.Append("num-nodes", types.YLeaf{"NumNodes", sumData.NumNodes})
+    sumData.EntityData.Leafs.Append("crc-err-count", types.YLeaf{"CrcErrCount", sumData.CrcErrCount})
+    sumData.EntityData.Leafs.Append("sbe-err-count", types.YLeaf{"SbeErrCount", sumData.SbeErrCount})
+    sumData.EntityData.Leafs.Append("mbe-err-count", types.YLeaf{"MbeErrCount", sumData.MbeErrCount})
+    sumData.EntityData.Leafs.Append("par-err-count", types.YLeaf{"ParErrCount", sumData.ParErrCount})
+    sumData.EntityData.Leafs.Append("gen-err-count", types.YLeaf{"GenErrCount", sumData.GenErrCount})
+    sumData.EntityData.Leafs.Append("reset-err-count", types.YLeaf{"ResetErrCount", sumData.ResetErrCount})
+    sumData.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", sumData.NodeKey})
+
+    sumData.EntityData.YListKeys = []string {}
+
     return &(sumData.EntityData)
+}
+
+// AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_ErrCount
+// err count
+type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_ErrCount struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name. The type is string.
+    Name interface{}
+
+    // count. The type is interface{} with range: 0..4294967295.
+    Count interface{}
+}
+
+func (errCount *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_ErrCount) GetEntityData() *types.CommonEntityData {
+    errCount.EntityData.YFilter = errCount.YFilter
+    errCount.EntityData.YangName = "err-count"
+    errCount.EntityData.BundleName = "cisco_ios_xr"
+    errCount.EntityData.ParentYangName = "sum-data"
+    errCount.EntityData.SegmentPath = "err-count"
+    errCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    errCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    errCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    errCount.EntityData.Children = types.NewOrderedMap()
+    errCount.EntityData.Leafs = types.NewOrderedMap()
+    errCount.EntityData.Leafs.Append("name", types.YLeaf{"Name", errCount.Name})
+    errCount.EntityData.Leafs.Append("count", types.YLeaf{"Count", errCount.Count})
+
+    errCount.EntityData.YListKeys = []string {}
+
+    return &(errCount.EntityData)
+}
+
+// AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_PcieErrCount
+// pcie err count
+type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_PcieErrCount struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name. The type is string.
+    Name interface{}
+
+    // count. The type is interface{} with range: 0..4294967295.
+    Count interface{}
+}
+
+func (pcieErrCount *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_PcieErrCount) GetEntityData() *types.CommonEntityData {
+    pcieErrCount.EntityData.YFilter = pcieErrCount.YFilter
+    pcieErrCount.EntityData.YangName = "pcie-err-count"
+    pcieErrCount.EntityData.BundleName = "cisco_ios_xr"
+    pcieErrCount.EntityData.ParentYangName = "sum-data"
+    pcieErrCount.EntityData.SegmentPath = "pcie-err-count"
+    pcieErrCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcieErrCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcieErrCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pcieErrCount.EntityData.Children = types.NewOrderedMap()
+    pcieErrCount.EntityData.Leafs = types.NewOrderedMap()
+    pcieErrCount.EntityData.Leafs.Append("name", types.YLeaf{"Name", pcieErrCount.Name})
+    pcieErrCount.EntityData.Leafs.Append("count", types.YLeaf{"Count", pcieErrCount.Count})
+
+    pcieErrCount.EntityData.YListKeys = []string {}
+
+    return &(pcieErrCount.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors
@@ -5522,7 +6009,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Unexpect
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error
 }
 
 func (unexpectedHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors) GetEntityData() *types.CommonEntityData {
@@ -5535,12 +6022,15 @@ func (unexpectedHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     unexpectedHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unexpectedHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unexpectedHardErrors.EntityData.Children = make(map[string]types.YChild)
-    unexpectedHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    unexpectedHardErrors.EntityData.Children = types.NewOrderedMap()
+    unexpectedHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range unexpectedHardErrors.Error {
-        unexpectedHardErrors.EntityData.Children[types.GetSegmentPath(&unexpectedHardErrors.Error[i])] = types.YChild{"Error", &unexpectedHardErrors.Error[i]}
+        unexpectedHardErrors.EntityData.Children.Append(types.GetSegmentPath(unexpectedHardErrors.Error[i]), types.YChild{"Error", unexpectedHardErrors.Error[i]})
     }
-    unexpectedHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    unexpectedHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    unexpectedHardErrors.EntityData.YListKeys = []string {}
+
     return &(unexpectedHardErrors.EntityData)
 }
 
@@ -5589,46 +6079,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Unexpect
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "unexpected-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "unexpected-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_CsrsInfo
@@ -5657,11 +6150,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -5697,13 +6193,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -5715,7 +6214,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutS
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error
 }
 
 func (timeOutSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -5728,12 +6227,15 @@ func (timeOutSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     timeOutSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeOutSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timeOutSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    timeOutSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    timeOutSoftErrors.EntityData.Children = types.NewOrderedMap()
+    timeOutSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range timeOutSoftErrors.Error {
-        timeOutSoftErrors.EntityData.Children[types.GetSegmentPath(&timeOutSoftErrors.Error[i])] = types.YChild{"Error", &timeOutSoftErrors.Error[i]}
+        timeOutSoftErrors.EntityData.Children.Append(types.GetSegmentPath(timeOutSoftErrors.Error[i]), types.YChild{"Error", timeOutSoftErrors.Error[i]})
     }
-    timeOutSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    timeOutSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    timeOutSoftErrors.EntityData.YListKeys = []string {}
+
     return &(timeOutSoftErrors.EntityData)
 }
 
@@ -5782,46 +6284,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutS
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "time-out-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "time-out-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_CsrsInfo
@@ -5850,11 +6355,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -5890,13 +6398,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -5908,7 +6419,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error
 }
 
 func (asicErrorGenericHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard) GetEntityData() *types.CommonEntityData {
@@ -5921,12 +6432,15 @@ func (asicErrorGenericHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     asicErrorGenericHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorGenericHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorGenericHard.EntityData.Children = make(map[string]types.YChild)
-    asicErrorGenericHard.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorGenericHard.EntityData.Children = types.NewOrderedMap()
+    asicErrorGenericHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorGenericHard.Error {
-        asicErrorGenericHard.EntityData.Children[types.GetSegmentPath(&asicErrorGenericHard.Error[i])] = types.YChild{"Error", &asicErrorGenericHard.Error[i]}
+        asicErrorGenericHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorGenericHard.Error[i]), types.YChild{"Error", asicErrorGenericHard.Error[i]})
     }
-    asicErrorGenericHard.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorGenericHard.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorGenericHard.EntityData.YListKeys = []string {}
+
     return &(asicErrorGenericHard.EntityData)
 }
 
@@ -5975,46 +6489,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-generic-hard"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-generic-hard"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_CsrsInfo
@@ -6043,11 +6560,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -6083,13 +6603,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -6101,7 +6624,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHa
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error
 }
 
 func (parityHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors) GetEntityData() *types.CommonEntityData {
@@ -6114,12 +6637,15 @@ func (parityHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     parityHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parityHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parityHardErrors.EntityData.Children = make(map[string]types.YChild)
-    parityHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    parityHardErrors.EntityData.Children = types.NewOrderedMap()
+    parityHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range parityHardErrors.Error {
-        parityHardErrors.EntityData.Children[types.GetSegmentPath(&parityHardErrors.Error[i])] = types.YChild{"Error", &parityHardErrors.Error[i]}
+        parityHardErrors.EntityData.Children.Append(types.GetSegmentPath(parityHardErrors.Error[i]), types.YChild{"Error", parityHardErrors.Error[i]})
     }
-    parityHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    parityHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    parityHardErrors.EntityData.YListKeys = []string {}
+
     return &(parityHardErrors.EntityData)
 }
 
@@ -6168,46 +6694,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHa
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "parity-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "parity-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_CsrsInfo
@@ -6236,11 +6765,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -6276,13 +6808,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -6294,7 +6829,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Descript
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error
 }
 
 func (descriptorHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors) GetEntityData() *types.CommonEntityData {
@@ -6307,12 +6842,15 @@ func (descriptorHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     descriptorHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     descriptorHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    descriptorHardErrors.EntityData.Children = make(map[string]types.YChild)
-    descriptorHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    descriptorHardErrors.EntityData.Children = types.NewOrderedMap()
+    descriptorHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range descriptorHardErrors.Error {
-        descriptorHardErrors.EntityData.Children[types.GetSegmentPath(&descriptorHardErrors.Error[i])] = types.YChild{"Error", &descriptorHardErrors.Error[i]}
+        descriptorHardErrors.EntityData.Children.Append(types.GetSegmentPath(descriptorHardErrors.Error[i]), types.YChild{"Error", descriptorHardErrors.Error[i]})
     }
-    descriptorHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    descriptorHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    descriptorHardErrors.EntityData.YListKeys = []string {}
+
     return &(descriptorHardErrors.EntityData)
 }
 
@@ -6361,46 +6899,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Descript
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "descriptor-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "descriptor-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_CsrsInfo
@@ -6429,11 +6970,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -6469,13 +7013,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -6487,7 +7034,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Interfac
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error
 }
 
 func (interfaceHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors) GetEntityData() *types.CommonEntityData {
@@ -6500,12 +7047,15 @@ func (interfaceHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     interfaceHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceHardErrors.EntityData.Children = make(map[string]types.YChild)
-    interfaceHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    interfaceHardErrors.EntityData.Children = types.NewOrderedMap()
+    interfaceHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range interfaceHardErrors.Error {
-        interfaceHardErrors.EntityData.Children[types.GetSegmentPath(&interfaceHardErrors.Error[i])] = types.YChild{"Error", &interfaceHardErrors.Error[i]}
+        interfaceHardErrors.EntityData.Children.Append(types.GetSegmentPath(interfaceHardErrors.Error[i]), types.YChild{"Error", interfaceHardErrors.Error[i]})
     }
-    interfaceHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceHardErrors.EntityData.YListKeys = []string {}
+
     return &(interfaceHardErrors.EntityData)
 }
 
@@ -6554,46 +7104,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Interfac
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "interface-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interface-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_CsrsInfo
@@ -6622,11 +7175,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -6662,13 +7218,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -6680,7 +7239,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error
 }
 
 func (asicErrorSbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard) GetEntityData() *types.CommonEntityData {
@@ -6693,12 +7252,15 @@ func (asicErrorSbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorSbeHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorSbeHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorSbeHard.EntityData.Children = make(map[string]types.YChild)
-    asicErrorSbeHard.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorSbeHard.EntityData.Children = types.NewOrderedMap()
+    asicErrorSbeHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorSbeHard.Error {
-        asicErrorSbeHard.EntityData.Children[types.GetSegmentPath(&asicErrorSbeHard.Error[i])] = types.YChild{"Error", &asicErrorSbeHard.Error[i]}
+        asicErrorSbeHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorSbeHard.Error[i]), types.YChild{"Error", asicErrorSbeHard.Error[i]})
     }
-    asicErrorSbeHard.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorSbeHard.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorSbeHard.EntityData.YListKeys = []string {}
+
     return &(asicErrorSbeHard.EntityData)
 }
 
@@ -6747,46 +7309,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-sbe-hard"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-sbe-hard"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_CsrsInfo
@@ -6815,11 +7380,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -6855,13 +7423,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -6873,7 +7444,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error
 }
 
 func (asicErrorCrcHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard) GetEntityData() *types.CommonEntityData {
@@ -6886,12 +7457,15 @@ func (asicErrorCrcHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorCrcHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorCrcHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorCrcHard.EntityData.Children = make(map[string]types.YChild)
-    asicErrorCrcHard.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorCrcHard.EntityData.Children = types.NewOrderedMap()
+    asicErrorCrcHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorCrcHard.Error {
-        asicErrorCrcHard.EntityData.Children[types.GetSegmentPath(&asicErrorCrcHard.Error[i])] = types.YChild{"Error", &asicErrorCrcHard.Error[i]}
+        asicErrorCrcHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorCrcHard.Error[i]), types.YChild{"Error", asicErrorCrcHard.Error[i]})
     }
-    asicErrorCrcHard.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorCrcHard.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorCrcHard.EntityData.YListKeys = []string {}
+
     return &(asicErrorCrcHard.EntityData)
 }
 
@@ -6940,46 +7514,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-crc-hard"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-crc-hard"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_CsrsInfo
@@ -7008,11 +7585,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -7048,13 +7628,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -7066,7 +7649,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error
 }
 
 func (asicErrorParityHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard) GetEntityData() *types.CommonEntityData {
@@ -7079,12 +7662,15 @@ func (asicErrorParityHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     asicErrorParityHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorParityHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorParityHard.EntityData.Children = make(map[string]types.YChild)
-    asicErrorParityHard.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorParityHard.EntityData.Children = types.NewOrderedMap()
+    asicErrorParityHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorParityHard.Error {
-        asicErrorParityHard.EntityData.Children[types.GetSegmentPath(&asicErrorParityHard.Error[i])] = types.YChild{"Error", &asicErrorParityHard.Error[i]}
+        asicErrorParityHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorParityHard.Error[i]), types.YChild{"Error", asicErrorParityHard.Error[i]})
     }
-    asicErrorParityHard.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorParityHard.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorParityHard.EntityData.YListKeys = []string {}
+
     return &(asicErrorParityHard.EntityData)
 }
 
@@ -7133,46 +7719,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-parity-hard"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-parity-hard"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_CsrsInfo
@@ -7201,11 +7790,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -7241,13 +7833,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -7259,7 +7854,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error
 }
 
 func (asicErrorResetSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft) GetEntityData() *types.CommonEntityData {
@@ -7272,12 +7867,15 @@ func (asicErrorResetSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     asicErrorResetSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorResetSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorResetSoft.EntityData.Children = make(map[string]types.YChild)
-    asicErrorResetSoft.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorResetSoft.EntityData.Children = types.NewOrderedMap()
+    asicErrorResetSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorResetSoft.Error {
-        asicErrorResetSoft.EntityData.Children[types.GetSegmentPath(&asicErrorResetSoft.Error[i])] = types.YChild{"Error", &asicErrorResetSoft.Error[i]}
+        asicErrorResetSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorResetSoft.Error[i]), types.YChild{"Error", asicErrorResetSoft.Error[i]})
     }
-    asicErrorResetSoft.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorResetSoft.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorResetSoft.EntityData.YListKeys = []string {}
+
     return &(asicErrorResetSoft.EntityData)
 }
 
@@ -7326,46 +7924,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-reset-soft"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-reset-soft"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_CsrsInfo
@@ -7394,11 +7995,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -7434,13 +8038,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -7452,7 +8059,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPres
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error
 }
 
 func (backPressureSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -7465,12 +8072,15 @@ func (backPressureSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_In
     backPressureSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backPressureSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backPressureSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    backPressureSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    backPressureSoftErrors.EntityData.Children = types.NewOrderedMap()
+    backPressureSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range backPressureSoftErrors.Error {
-        backPressureSoftErrors.EntityData.Children[types.GetSegmentPath(&backPressureSoftErrors.Error[i])] = types.YChild{"Error", &backPressureSoftErrors.Error[i]}
+        backPressureSoftErrors.EntityData.Children.Append(types.GetSegmentPath(backPressureSoftErrors.Error[i]), types.YChild{"Error", backPressureSoftErrors.Error[i]})
     }
-    backPressureSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    backPressureSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    backPressureSoftErrors.EntityData.YListKeys = []string {}
+
     return &(backPressureSoftErrors.EntityData)
 }
 
@@ -7519,46 +8129,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPres
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "back-pressure-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "back-pressure-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_CsrsInfo
@@ -7587,11 +8200,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -7627,13 +8243,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -7645,7 +8264,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericS
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error
 }
 
 func (genericSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -7658,12 +8277,15 @@ func (genericSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     genericSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    genericSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    genericSoftErrors.EntityData.Children = types.NewOrderedMap()
+    genericSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range genericSoftErrors.Error {
-        genericSoftErrors.EntityData.Children[types.GetSegmentPath(&genericSoftErrors.Error[i])] = types.YChild{"Error", &genericSoftErrors.Error[i]}
+        genericSoftErrors.EntityData.Children.Append(types.GetSegmentPath(genericSoftErrors.Error[i]), types.YChild{"Error", genericSoftErrors.Error[i]})
     }
-    genericSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    genericSoftErrors.EntityData.YListKeys = []string {}
+
     return &(genericSoftErrors.EntityData)
 }
 
@@ -7712,46 +8334,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericS
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "generic-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "generic-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_CsrsInfo
@@ -7780,11 +8405,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -7820,13 +8448,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -7838,7 +8469,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoft
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error
 }
 
 func (linkSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -7851,12 +8482,15 @@ func (linkSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_E
     linkSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    linkSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    linkSoftErrors.EntityData.Children = types.NewOrderedMap()
+    linkSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range linkSoftErrors.Error {
-        linkSoftErrors.EntityData.Children[types.GetSegmentPath(&linkSoftErrors.Error[i])] = types.YChild{"Error", &linkSoftErrors.Error[i]}
+        linkSoftErrors.EntityData.Children.Append(types.GetSegmentPath(linkSoftErrors.Error[i]), types.YChild{"Error", linkSoftErrors.Error[i]})
     }
-    linkSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    linkSoftErrors.EntityData.YListKeys = []string {}
+
     return &(linkSoftErrors.EntityData)
 }
 
@@ -7905,46 +8539,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoft
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "link-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "link-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_CsrsInfo
@@ -7973,11 +8610,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -8013,13 +8653,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -8031,7 +8674,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Configur
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error
 }
 
 func (configurationSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -8044,12 +8687,15 @@ func (configurationSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_I
     configurationSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configurationSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    configurationSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    configurationSoftErrors.EntityData.Children = types.NewOrderedMap()
+    configurationSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range configurationSoftErrors.Error {
-        configurationSoftErrors.EntityData.Children[types.GetSegmentPath(&configurationSoftErrors.Error[i])] = types.YChild{"Error", &configurationSoftErrors.Error[i]}
+        configurationSoftErrors.EntityData.Children.Append(types.GetSegmentPath(configurationSoftErrors.Error[i]), types.YChild{"Error", configurationSoftErrors.Error[i]})
     }
-    configurationSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    configurationSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    configurationSoftErrors.EntityData.YListKeys = []string {}
+
     return &(configurationSoftErrors.EntityData)
 }
 
@@ -8098,46 +8744,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Configur
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "configuration-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "configuration-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_CsrsInfo
@@ -8166,11 +8815,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -8206,13 +8858,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -8224,7 +8879,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Multiple
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error
 }
 
 func (multipleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors) GetEntityData() *types.CommonEntityData {
@@ -8237,12 +8892,15 @@ func (multipleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Ins
     multipleBitHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multipleBitHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    multipleBitHardErrors.EntityData.Children = make(map[string]types.YChild)
-    multipleBitHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    multipleBitHardErrors.EntityData.Children = types.NewOrderedMap()
+    multipleBitHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range multipleBitHardErrors.Error {
-        multipleBitHardErrors.EntityData.Children[types.GetSegmentPath(&multipleBitHardErrors.Error[i])] = types.YChild{"Error", &multipleBitHardErrors.Error[i]}
+        multipleBitHardErrors.EntityData.Children.Append(types.GetSegmentPath(multipleBitHardErrors.Error[i]), types.YChild{"Error", multipleBitHardErrors.Error[i]})
     }
-    multipleBitHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    multipleBitHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    multipleBitHardErrors.EntityData.YListKeys = []string {}
+
     return &(multipleBitHardErrors.EntityData)
 }
 
@@ -8291,46 +8949,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Multiple
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "multiple-bit-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "multiple-bit-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_CsrsInfo
@@ -8359,11 +9020,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -8399,13 +9063,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -8417,7 +9084,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Unexpect
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error
 }
 
 func (unexpectedSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -8430,12 +9097,15 @@ func (unexpectedSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     unexpectedSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unexpectedSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unexpectedSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    unexpectedSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    unexpectedSoftErrors.EntityData.Children = types.NewOrderedMap()
+    unexpectedSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range unexpectedSoftErrors.Error {
-        unexpectedSoftErrors.EntityData.Children[types.GetSegmentPath(&unexpectedSoftErrors.Error[i])] = types.YChild{"Error", &unexpectedSoftErrors.Error[i]}
+        unexpectedSoftErrors.EntityData.Children.Append(types.GetSegmentPath(unexpectedSoftErrors.Error[i]), types.YChild{"Error", unexpectedSoftErrors.Error[i]})
     }
-    unexpectedSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    unexpectedSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    unexpectedSoftErrors.EntityData.YListKeys = []string {}
+
     return &(unexpectedSoftErrors.EntityData)
 }
 
@@ -8484,46 +9154,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Unexpect
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "unexpected-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "unexpected-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_CsrsInfo
@@ -8552,11 +9225,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -8592,13 +9268,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -8610,7 +9289,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofRes
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error
 }
 
 func (outofResourceHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard) GetEntityData() *types.CommonEntityData {
@@ -8623,12 +9302,15 @@ func (outofResourceHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     outofResourceHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outofResourceHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outofResourceHard.EntityData.Children = make(map[string]types.YChild)
-    outofResourceHard.EntityData.Children["error"] = types.YChild{"Error", nil}
+    outofResourceHard.EntityData.Children = types.NewOrderedMap()
+    outofResourceHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range outofResourceHard.Error {
-        outofResourceHard.EntityData.Children[types.GetSegmentPath(&outofResourceHard.Error[i])] = types.YChild{"Error", &outofResourceHard.Error[i]}
+        outofResourceHard.EntityData.Children.Append(types.GetSegmentPath(outofResourceHard.Error[i]), types.YChild{"Error", outofResourceHard.Error[i]})
     }
-    outofResourceHard.EntityData.Leafs = make(map[string]types.YLeaf)
+    outofResourceHard.EntityData.Leafs = types.NewOrderedMap()
+
+    outofResourceHard.EntityData.YListKeys = []string {}
+
     return &(outofResourceHard.EntityData)
 }
 
@@ -8677,46 +9359,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofRes
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "outof-resource-hard"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "outof-resource-hard"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_CsrsInfo
@@ -8745,11 +9430,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -8785,13 +9473,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -8803,7 +9494,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Hardware
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error
 }
 
 func (hardwareHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors) GetEntityData() *types.CommonEntityData {
@@ -8816,12 +9507,15 @@ func (hardwareHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     hardwareHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareHardErrors.EntityData.Children = make(map[string]types.YChild)
-    hardwareHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    hardwareHardErrors.EntityData.Children = types.NewOrderedMap()
+    hardwareHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range hardwareHardErrors.Error {
-        hardwareHardErrors.EntityData.Children[types.GetSegmentPath(&hardwareHardErrors.Error[i])] = types.YChild{"Error", &hardwareHardErrors.Error[i]}
+        hardwareHardErrors.EntityData.Children.Append(types.GetSegmentPath(hardwareHardErrors.Error[i]), types.YChild{"Error", hardwareHardErrors.Error[i]})
     }
-    hardwareHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareHardErrors.EntityData.YListKeys = []string {}
+
     return &(hardwareHardErrors.EntityData)
 }
 
@@ -8870,46 +9564,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Hardware
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "hardware-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "hardware-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_CsrsInfo
@@ -8938,11 +9635,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -8978,13 +9678,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -8996,7 +9699,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySo
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error
 }
 
 func (paritySoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors) GetEntityData() *types.CommonEntityData {
@@ -9009,12 +9712,15 @@ func (paritySoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     paritySoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paritySoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    paritySoftErrors.EntityData.Children = make(map[string]types.YChild)
-    paritySoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    paritySoftErrors.EntityData.Children = types.NewOrderedMap()
+    paritySoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range paritySoftErrors.Error {
-        paritySoftErrors.EntityData.Children[types.GetSegmentPath(&paritySoftErrors.Error[i])] = types.YChild{"Error", &paritySoftErrors.Error[i]}
+        paritySoftErrors.EntityData.Children.Append(types.GetSegmentPath(paritySoftErrors.Error[i]), types.YChild{"Error", paritySoftErrors.Error[i]})
     }
-    paritySoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    paritySoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    paritySoftErrors.EntityData.YListKeys = []string {}
+
     return &(paritySoftErrors.EntityData)
 }
 
@@ -9063,46 +9769,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySo
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "parity-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "parity-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_CsrsInfo
@@ -9131,11 +9840,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -9171,13 +9883,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -9189,7 +9904,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Descript
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error
 }
 
 func (descriptorSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -9202,12 +9917,15 @@ func (descriptorSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     descriptorSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     descriptorSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    descriptorSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    descriptorSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    descriptorSoftErrors.EntityData.Children = types.NewOrderedMap()
+    descriptorSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range descriptorSoftErrors.Error {
-        descriptorSoftErrors.EntityData.Children[types.GetSegmentPath(&descriptorSoftErrors.Error[i])] = types.YChild{"Error", &descriptorSoftErrors.Error[i]}
+        descriptorSoftErrors.EntityData.Children.Append(types.GetSegmentPath(descriptorSoftErrors.Error[i]), types.YChild{"Error", descriptorSoftErrors.Error[i]})
     }
-    descriptorSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    descriptorSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    descriptorSoftErrors.EntityData.YListKeys = []string {}
+
     return &(descriptorSoftErrors.EntityData)
 }
 
@@ -9256,46 +9974,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Descript
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "descriptor-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "descriptor-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_CsrsInfo
@@ -9324,11 +10045,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -9364,13 +10088,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -9382,7 +10109,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Interfac
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error
 }
 
 func (interfaceSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors) GetEntityData() *types.CommonEntityData {
@@ -9395,12 +10122,15 @@ func (interfaceSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     interfaceSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceSoftErrors.EntityData.Children = make(map[string]types.YChild)
-    interfaceSoftErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    interfaceSoftErrors.EntityData.Children = types.NewOrderedMap()
+    interfaceSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range interfaceSoftErrors.Error {
-        interfaceSoftErrors.EntityData.Children[types.GetSegmentPath(&interfaceSoftErrors.Error[i])] = types.YChild{"Error", &interfaceSoftErrors.Error[i]}
+        interfaceSoftErrors.EntityData.Children.Append(types.GetSegmentPath(interfaceSoftErrors.Error[i]), types.YChild{"Error", interfaceSoftErrors.Error[i]})
     }
-    interfaceSoftErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceSoftErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceSoftErrors.EntityData.YListKeys = []string {}
+
     return &(interfaceSoftErrors.EntityData)
 }
 
@@ -9449,46 +10179,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_Interfac
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "interface-soft-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interface-soft-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_CsrsInfo
@@ -9517,11 +10250,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -9557,13 +10293,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -9575,7 +10314,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardEr
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error
 }
 
 func (ioHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors) GetEntityData() *types.CommonEntityData {
@@ -9588,12 +10327,15 @@ func (ioHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
     ioHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ioHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ioHardErrors.EntityData.Children = make(map[string]types.YChild)
-    ioHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    ioHardErrors.EntityData.Children = types.NewOrderedMap()
+    ioHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range ioHardErrors.Error {
-        ioHardErrors.EntityData.Children[types.GetSegmentPath(&ioHardErrors.Error[i])] = types.YChild{"Error", &ioHardErrors.Error[i]}
+        ioHardErrors.EntityData.Children.Append(types.GetSegmentPath(ioHardErrors.Error[i]), types.YChild{"Error", ioHardErrors.Error[i]})
     }
-    ioHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    ioHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    ioHardErrors.EntityData.YListKeys = []string {}
+
     return &(ioHardErrors.EntityData)
 }
 
@@ -9642,46 +10384,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardEr
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "io-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "io-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_CsrsInfo
@@ -9710,11 +10455,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -9750,13 +10498,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -9768,7 +10519,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHar
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error
 }
 
 func (resetHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors) GetEntityData() *types.CommonEntityData {
@@ -9781,12 +10532,15 @@ func (resetHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     resetHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resetHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resetHardErrors.EntityData.Children = make(map[string]types.YChild)
-    resetHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    resetHardErrors.EntityData.Children = types.NewOrderedMap()
+    resetHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range resetHardErrors.Error {
-        resetHardErrors.EntityData.Children[types.GetSegmentPath(&resetHardErrors.Error[i])] = types.YChild{"Error", &resetHardErrors.Error[i]}
+        resetHardErrors.EntityData.Children.Append(types.GetSegmentPath(resetHardErrors.Error[i]), types.YChild{"Error", resetHardErrors.Error[i]})
     }
-    resetHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    resetHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    resetHardErrors.EntityData.YListKeys = []string {}
+
     return &(resetHardErrors.EntityData)
 }
 
@@ -9835,46 +10589,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHar
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "reset-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "reset-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_CsrsInfo
@@ -9903,11 +10660,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -9943,13 +10703,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -9961,7 +10724,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHar
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error
 }
 
 func (ucodeHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors) GetEntityData() *types.CommonEntityData {
@@ -9974,12 +10737,15 @@ func (ucodeHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     ucodeHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucodeHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ucodeHardErrors.EntityData.Children = make(map[string]types.YChild)
-    ucodeHardErrors.EntityData.Children["error"] = types.YChild{"Error", nil}
+    ucodeHardErrors.EntityData.Children = types.NewOrderedMap()
+    ucodeHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range ucodeHardErrors.Error {
-        ucodeHardErrors.EntityData.Children[types.GetSegmentPath(&ucodeHardErrors.Error[i])] = types.YChild{"Error", &ucodeHardErrors.Error[i]}
+        ucodeHardErrors.EntityData.Children.Append(types.GetSegmentPath(ucodeHardErrors.Error[i]), types.YChild{"Error", ucodeHardErrors.Error[i]})
     }
-    ucodeHardErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    ucodeHardErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    ucodeHardErrors.EntityData.YListKeys = []string {}
+
     return &(ucodeHardErrors.EntityData)
 }
 
@@ -10028,46 +10794,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHar
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "ucode-hard-errors"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "ucode-hard-errors"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_CsrsInfo
@@ -10096,11 +10865,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -10136,13 +10908,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 
@@ -10154,7 +10929,7 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // Collection of errors. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error.
-    Error []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error
+    Error []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error
 }
 
 func (asicErrorMbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard) GetEntityData() *types.CommonEntityData {
@@ -10167,12 +10942,15 @@ func (asicErrorMbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorMbeHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorMbeHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorMbeHard.EntityData.Children = make(map[string]types.YChild)
-    asicErrorMbeHard.EntityData.Children["error"] = types.YChild{"Error", nil}
+    asicErrorMbeHard.EntityData.Children = types.NewOrderedMap()
+    asicErrorMbeHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorMbeHard.Error {
-        asicErrorMbeHard.EntityData.Children[types.GetSegmentPath(&asicErrorMbeHard.Error[i])] = types.YChild{"Error", &asicErrorMbeHard.Error[i]}
+        asicErrorMbeHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorMbeHard.Error[i]), types.YChild{"Error", asicErrorMbeHard.Error[i]})
     }
-    asicErrorMbeHard.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorMbeHard.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorMbeHard.EntityData.YListKeys = []string {}
+
     return &(asicErrorMbeHard.EntityData)
 }
 
@@ -10221,46 +10999,49 @@ type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErro
 
     // List of csrs_info. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_CsrsInfo.
-    CsrsInfo []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_CsrsInfo
+    CsrsInfo []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_CsrsInfo
 
     // Last Printable error information. The type is slice of
     // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_LastErr.
-    LastErr []AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_LastErr
+    LastErr []*AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_LastErr
 }
 
-func (error *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "asic-error-mbe-hard"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "asic-error-mbe-hard"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["csrs-info"] = types.YChild{"CsrsInfo", nil}
-    for i := range error.CsrsInfo {
-        error.EntityData.Children[types.GetSegmentPath(&error.CsrsInfo[i])] = types.YChild{"CsrsInfo", &error.CsrsInfo[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
+    for i := range self.CsrsInfo {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
-    error.EntityData.Children["last-err"] = types.YChild{"LastErr", nil}
-    for i := range error.LastErr {
-        error.EntityData.Children[types.GetSegmentPath(&error.LastErr[i])] = types.YChild{"LastErr", &error.LastErr[i]}
+    self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
+    for i := range self.LastErr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["name"] = types.YLeaf{"Name", error.Name}
-    error.EntityData.Leafs["asic-info"] = types.YLeaf{"AsicInfo", error.AsicInfo}
-    error.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", error.NodeKey}
-    error.EntityData.Leafs["alarm-on"] = types.YLeaf{"AlarmOn", error.AlarmOn}
-    error.EntityData.Leafs["thresh-hi"] = types.YLeaf{"ThreshHi", error.ThreshHi}
-    error.EntityData.Leafs["period-hi"] = types.YLeaf{"PeriodHi", error.PeriodHi}
-    error.EntityData.Leafs["thresh-lo"] = types.YLeaf{"ThreshLo", error.ThreshLo}
-    error.EntityData.Leafs["period-lo"] = types.YLeaf{"PeriodLo", error.PeriodLo}
-    error.EntityData.Leafs["count"] = types.YLeaf{"Count", error.Count}
-    error.EntityData.Leafs["intr-type"] = types.YLeaf{"IntrType", error.IntrType}
-    error.EntityData.Leafs["leaf-id"] = types.YLeaf{"LeafId", error.LeafId}
-    error.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", error.LastCleared}
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("asic-info", types.YLeaf{"AsicInfo", self.AsicInfo})
+    self.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", self.NodeKey})
+    self.EntityData.Leafs.Append("alarm-on", types.YLeaf{"AlarmOn", self.AlarmOn})
+    self.EntityData.Leafs.Append("thresh-hi", types.YLeaf{"ThreshHi", self.ThreshHi})
+    self.EntityData.Leafs.Append("period-hi", types.YLeaf{"PeriodHi", self.PeriodHi})
+    self.EntityData.Leafs.Append("thresh-lo", types.YLeaf{"ThreshLo", self.ThreshLo})
+    self.EntityData.Leafs.Append("period-lo", types.YLeaf{"PeriodLo", self.PeriodLo})
+    self.EntityData.Leafs.Append("count", types.YLeaf{"Count", self.Count})
+    self.EntityData.Leafs.Append("intr-type", types.YLeaf{"IntrType", self.IntrType})
+    self.EntityData.Leafs.Append("leaf-id", types.YLeaf{"LeafId", self.LeafId})
+    self.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", self.LastCleared})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_CsrsInfo
@@ -10289,11 +11070,14 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    csrsInfo.EntityData.Children = make(map[string]types.YChild)
-    csrsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csrsInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", csrsInfo.Name}
-    csrsInfo.EntityData.Leafs["address"] = types.YLeaf{"Address", csrsInfo.Address}
-    csrsInfo.EntityData.Leafs["width"] = types.YLeaf{"Width", csrsInfo.Width}
+    csrsInfo.EntityData.Children = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs = types.NewOrderedMap()
+    csrsInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", csrsInfo.Name})
+    csrsInfo.EntityData.Leafs.Append("address", types.YLeaf{"Address", csrsInfo.Address})
+    csrsInfo.EntityData.Leafs.Append("width", types.YLeaf{"Width", csrsInfo.Width})
+
+    csrsInfo.EntityData.YListKeys = []string {}
+
     return &(csrsInfo.EntityData)
 }
 
@@ -10329,13 +11113,16 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastErr.EntityData.Children = make(map[string]types.YChild)
-    lastErr.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastErr.EntityData.Leafs["at-time"] = types.YLeaf{"AtTime", lastErr.AtTime}
-    lastErr.EntityData.Leafs["at-time-nsec"] = types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec}
-    lastErr.EntityData.Leafs["counter-val"] = types.YLeaf{"CounterVal", lastErr.CounterVal}
-    lastErr.EntityData.Leafs["error-desc"] = types.YLeaf{"ErrorDesc", lastErr.ErrorDesc}
-    lastErr.EntityData.Leafs["error-regval"] = types.YLeaf{"ErrorRegval", lastErr.ErrorRegval}
+    lastErr.EntityData.Children = types.NewOrderedMap()
+    lastErr.EntityData.Leafs = types.NewOrderedMap()
+    lastErr.EntityData.Leafs.Append("at-time", types.YLeaf{"AtTime", lastErr.AtTime})
+    lastErr.EntityData.Leafs.Append("at-time-nsec", types.YLeaf{"AtTimeNsec", lastErr.AtTimeNsec})
+    lastErr.EntityData.Leafs.Append("counter-val", types.YLeaf{"CounterVal", lastErr.CounterVal})
+    lastErr.EntityData.Leafs.Append("error-desc", types.YLeaf{"ErrorDesc", lastErr.ErrorDesc})
+    lastErr.EntityData.Leafs.Append("error-regval", types.YLeaf{"ErrorRegval", lastErr.ErrorRegval})
+
+    lastErr.EntityData.YListKeys = []string {}
+
     return &(lastErr.EntityData)
 }
 

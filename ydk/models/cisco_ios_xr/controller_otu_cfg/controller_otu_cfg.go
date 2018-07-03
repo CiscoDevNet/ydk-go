@@ -18,30 +18,23 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package controller_otu_cfg"))
 }
 
-// OtuForwardErrorCorrection represents Otu forward error correction
-type OtuForwardErrorCorrection string
+// OtnLoopback represents Otn loopback
+type OtnLoopback string
 
 const (
-    // No Fec
-    OtuForwardErrorCorrection_none OtuForwardErrorCorrection = "none"
+    // Line loopback
+    OtnLoopback_line OtnLoopback = "line"
 
-    // Standard Fec
-    OtuForwardErrorCorrection_standard OtuForwardErrorCorrection = "standard"
+    // Internal loopback
+    OtnLoopback_internal OtnLoopback = "internal"
+)
 
-    // EnhancedI7 Fec
-    OtuForwardErrorCorrection_enhanced_i7 OtuForwardErrorCorrection = "enhanced-i7"
+// OtnExpTtiTypeSapi represents Otn exp tti type sapi
+type OtnExpTtiTypeSapi string
 
-    // Enhanced I4 Fec
-    OtuForwardErrorCorrection_enhanced_i4 OtuForwardErrorCorrection = "enhanced-i4"
-
-    // EnhancedSwizzle Fec
-    OtuForwardErrorCorrection_enhanced_swizzle OtuForwardErrorCorrection = "enhanced-swizzle"
-
-    // EnhancedHG20 Fec
-    OtuForwardErrorCorrection_enhanced_hg20 OtuForwardErrorCorrection = "enhanced-hg20"
-
-    // EnhancedHG7 Fec
-    OtuForwardErrorCorrection_enhanced_hg7 OtuForwardErrorCorrection = "enhanced-hg7"
+const (
+    // Expected TTI SAPI ASCII string
+    OtnExpTtiTypeSapi_exp_tti_sapi_ascii__FWD_SLASH__sapi_ascii OtnExpTtiTypeSapi = "exp-tti-sapi-ascii/sapi-ascii"
 )
 
 // OtnPerMon represents Otn per mon
@@ -64,72 +57,6 @@ const (
 
     // Send TTI OS HEX string
     OtnSendTtiTypeOs_send_tti_os_hex__FWD_SLASH__os_hex OtnSendTtiTypeOs = "send-tti-os-hex/os-hex"
-)
-
-// OtnExpTtiTypeSapi represents Otn exp tti type sapi
-type OtnExpTtiTypeSapi string
-
-const (
-    // Expected TTI SAPI ASCII string
-    OtnExpTtiTypeSapi_exp_tti_sapi_ascii__FWD_SLASH__sapi_ascii OtnExpTtiTypeSapi = "exp-tti-sapi-ascii/sapi-ascii"
-)
-
-// OtnSendTtiTypeSapi represents Otn send tti type sapi
-type OtnSendTtiTypeSapi string
-
-const (
-    // Send TTI SAPI ASCII string
-    OtnSendTtiTypeSapi_send_tti_sapi_ascii__FWD_SLASH__sapi_ascii OtnSendTtiTypeSapi = "send-tti-sapi-ascii/sapi-ascii"
-)
-
-// OtuMode represents Otu mode
-type OtuMode string
-
-const (
-    // prbs Mode Invalid
-    OtuMode_mode_invalid OtuMode = "mode-invalid"
-
-    // Prbs Mode Source
-    OtuMode_mode_source OtuMode = "mode-source"
-
-    // Prbs Mode Sink
-    OtuMode_mode_sink OtuMode = "mode-sink"
-
-    // Prbs Mode Source_Sink
-    OtuMode_mode_source_sink OtuMode = "mode-source-sink"
-)
-
-// OtnSecAdminState represents Otn sec admin state
-type OtnSecAdminState string
-
-const (
-    // In normal state
-    OtnSecAdminState_normal OtnSecAdminState = "normal"
-
-    // Under maintenance
-    OtnSecAdminState_maintenance OtnSecAdminState = "maintenance"
-)
-
-// OtnExpTtiTypeOs represents Otn exp tti type os
-type OtnExpTtiTypeOs string
-
-const (
-    // Expected TTI OS ASCII string
-    OtnExpTtiTypeOs_exp_tti_os_ascii__FWD_SLASH__os_ascii OtnExpTtiTypeOs = "exp-tti-os-ascii/os-ascii"
-
-    // Expected TTI OS HEX string
-    OtnExpTtiTypeOs_exp_tti_os_hex__FWD_SLASH__os_hex OtnExpTtiTypeOs = "exp-tti-os-hex/os-hex"
-)
-
-// OtnLoopback represents Otn loopback
-type OtnLoopback string
-
-const (
-    // Line loopback
-    OtnLoopback_line OtnLoopback = "line"
-
-    // Internal loopback
-    OtnLoopback_internal OtnLoopback = "internal"
 )
 
 // OtuPattern represents Otu pattern
@@ -158,6 +85,61 @@ const (
     OtuPattern_pattern_pn15 OtuPattern = "pattern-pn15"
 )
 
+// OtnSendTtiTypeSapi represents Otn send tti type sapi
+type OtnSendTtiTypeSapi string
+
+const (
+    // Send TTI SAPI ASCII string
+    OtnSendTtiTypeSapi_send_tti_sapi_ascii__FWD_SLASH__sapi_ascii OtnSendTtiTypeSapi = "send-tti-sapi-ascii/sapi-ascii"
+)
+
+// OtnSendTtiTypeDapi represents Otn send tti type dapi
+type OtnSendTtiTypeDapi string
+
+const (
+    // Send TTI DAPI ASCII string
+    OtnSendTtiTypeDapi_send_tti_dapi_ascii__FWD_SLASH__dapi_ascii OtnSendTtiTypeDapi = "send-tti-dapi-ascii/dapi-ascii"
+)
+
+// OtuMode represents Otu mode
+type OtuMode string
+
+const (
+    // prbs Mode Invalid
+    OtuMode_mode_invalid OtuMode = "mode-invalid"
+
+    // Prbs Mode Source
+    OtuMode_mode_source OtuMode = "mode-source"
+
+    // Prbs Mode Sink
+    OtuMode_mode_sink OtuMode = "mode-sink"
+
+    // Prbs Mode Source_Sink
+    OtuMode_mode_source_sink OtuMode = "mode-source-sink"
+)
+
+// OtnExpTtiTypeOs represents Otn exp tti type os
+type OtnExpTtiTypeOs string
+
+const (
+    // Expected TTI OS ASCII string
+    OtnExpTtiTypeOs_exp_tti_os_ascii__FWD_SLASH__os_ascii OtnExpTtiTypeOs = "exp-tti-os-ascii/os-ascii"
+
+    // Expected TTI OS HEX string
+    OtnExpTtiTypeOs_exp_tti_os_hex__FWD_SLASH__os_hex OtnExpTtiTypeOs = "exp-tti-os-hex/os-hex"
+)
+
+// OtnSecAdminState represents Otn sec admin state
+type OtnSecAdminState string
+
+const (
+    // In normal state
+    OtnSecAdminState_normal OtnSecAdminState = "normal"
+
+    // Under maintenance
+    OtnSecAdminState_maintenance OtnSecAdminState = "maintenance"
+)
+
 // OtnExpTtiTypeFull represents Otn exp tti type full
 type OtnExpTtiTypeFull string
 
@@ -169,15 +151,30 @@ const (
     OtnExpTtiTypeFull_exp_tti_hex__FWD_SLASH__hex OtnExpTtiTypeFull = "exp-tti-hex/hex"
 )
 
-// OtnSendTtiTypeFull represents Otn send tti type full
-type OtnSendTtiTypeFull string
+// OtuForwardErrorCorrection represents Otu forward error correction
+type OtuForwardErrorCorrection string
 
 const (
-    // Send TTI Full ASCII string
-    OtnSendTtiTypeFull_send_tti_full_ascii__FWD_SLASH__full_ascii OtnSendTtiTypeFull = "send-tti-full-ascii/full-ascii"
+    // No Fec
+    OtuForwardErrorCorrection_none OtuForwardErrorCorrection = "none"
 
-    // Send TTI hex string
-    OtnSendTtiTypeFull_send_tti_hex__FWD_SLASH__hex OtnSendTtiTypeFull = "send-tti-hex/hex"
+    // Standard Fec
+    OtuForwardErrorCorrection_standard OtuForwardErrorCorrection = "standard"
+
+    // EnhancedI7 Fec
+    OtuForwardErrorCorrection_enhanced_i7 OtuForwardErrorCorrection = "enhanced-i7"
+
+    // Enhanced I4 Fec
+    OtuForwardErrorCorrection_enhanced_i4 OtuForwardErrorCorrection = "enhanced-i4"
+
+    // EnhancedSwizzle Fec
+    OtuForwardErrorCorrection_enhanced_swizzle OtuForwardErrorCorrection = "enhanced-swizzle"
+
+    // EnhancedHG20 Fec
+    OtuForwardErrorCorrection_enhanced_hg20 OtuForwardErrorCorrection = "enhanced-hg20"
+
+    // EnhancedHG7 Fec
+    OtuForwardErrorCorrection_enhanced_hg7 OtuForwardErrorCorrection = "enhanced-hg7"
 )
 
 // OtnExpTtiTypeDapi represents Otn exp tti type dapi
@@ -188,11 +185,14 @@ const (
     OtnExpTtiTypeDapi_exp_tti_dapi_ascii__FWD_SLASH__dapi_ascii OtnExpTtiTypeDapi = "exp-tti-dapi-ascii/dapi-ascii"
 )
 
-// OtnSendTtiTypeDapi represents Otn send tti type dapi
-type OtnSendTtiTypeDapi string
+// OtnSendTtiTypeFull represents Otn send tti type full
+type OtnSendTtiTypeFull string
 
 const (
-    // Send TTI DAPI ASCII string
-    OtnSendTtiTypeDapi_send_tti_dapi_ascii__FWD_SLASH__dapi_ascii OtnSendTtiTypeDapi = "send-tti-dapi-ascii/dapi-ascii"
+    // Send TTI Full ASCII string
+    OtnSendTtiTypeFull_send_tti_full_ascii__FWD_SLASH__full_ascii OtnSendTtiTypeFull = "send-tti-full-ascii/full-ascii"
+
+    // Send TTI hex string
+    OtnSendTtiTypeFull_send_tti_hex__FWD_SLASH__hex OtnSendTtiTypeFull = "send-tti-hex/hex"
 )
 

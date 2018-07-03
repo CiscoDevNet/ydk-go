@@ -44,9 +44,12 @@ func (netconfYang *NetconfYang) GetEntityData() *types.CommonEntityData {
     netconfYang.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfYang.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconfYang.EntityData.Children = make(map[string]types.YChild)
-    netconfYang.EntityData.Children["agent"] = types.YChild{"Agent", &netconfYang.Agent}
-    netconfYang.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconfYang.EntityData.Children = types.NewOrderedMap()
+    netconfYang.EntityData.Children.Append("agent", types.YChild{"Agent", &netconfYang.Agent})
+    netconfYang.EntityData.Leafs = types.NewOrderedMap()
+
+    netconfYang.EntityData.YListKeys = []string {}
+
     return &(netconfYang.EntityData)
 }
 
@@ -77,11 +80,14 @@ func (agent *NetconfYang_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agent.EntityData.Children = make(map[string]types.YChild)
-    agent.EntityData.Children["ssh"] = types.YChild{"Ssh", &agent.Ssh}
-    agent.EntityData.Children["session"] = types.YChild{"Session", &agent.Session}
-    agent.EntityData.Leafs = make(map[string]types.YLeaf)
-    agent.EntityData.Leafs["rate-limit"] = types.YLeaf{"RateLimit", agent.RateLimit}
+    agent.EntityData.Children = types.NewOrderedMap()
+    agent.EntityData.Children.Append("ssh", types.YChild{"Ssh", &agent.Ssh})
+    agent.EntityData.Children.Append("session", types.YChild{"Session", &agent.Session})
+    agent.EntityData.Leafs = types.NewOrderedMap()
+    agent.EntityData.Leafs.Append("rate-limit", types.YLeaf{"RateLimit", agent.RateLimit})
+
+    agent.EntityData.YListKeys = []string {}
+
     return &(agent.EntityData)
 }
 
@@ -105,9 +111,12 @@ func (ssh *NetconfYang_Agent_Ssh) GetEntityData() *types.CommonEntityData {
     ssh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssh.EntityData.Children = make(map[string]types.YChild)
-    ssh.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssh.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ssh.Enable}
+    ssh.EntityData.Children = types.NewOrderedMap()
+    ssh.EntityData.Leafs = types.NewOrderedMap()
+    ssh.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ssh.Enable})
+
+    ssh.EntityData.YListKeys = []string {}
+
     return &(ssh.EntityData)
 }
 
@@ -140,11 +149,14 @@ func (session *NetconfYang_Agent_Session) GetEntityData() *types.CommonEntityDat
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["limit"] = types.YLeaf{"Limit", session.Limit}
-    session.EntityData.Leafs["absolute-timeout"] = types.YLeaf{"AbsoluteTimeout", session.AbsoluteTimeout}
-    session.EntityData.Leafs["idle-timeout"] = types.YLeaf{"IdleTimeout", session.IdleTimeout}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", session.Limit})
+    session.EntityData.Leafs.Append("absolute-timeout", types.YLeaf{"AbsoluteTimeout", session.AbsoluteTimeout})
+    session.EntityData.Leafs.Append("idle-timeout", types.YLeaf{"IdleTimeout", session.IdleTimeout})
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 

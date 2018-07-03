@@ -9,31 +9,31 @@ module Cisco-IOS-XR-mpls-te-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub9 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub8 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub7 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub5 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub4 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub3 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub2 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -65,6 +65,10 @@ module Cisco-IOS-XR-mpls-te-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -80,6 +84,23 @@ module Cisco-IOS-XR-mpls-te-oper {
     }
     description
       "Attribute set name length";
+  }
+
+  typedef Mpls-te-path-selection-metric {
+    type enumeration {
+      enum "igp" {
+        value 1;
+        description
+          "IGP Metric";
+      }
+      enum "te" {
+        value 2;
+        description
+          "TE Metric";
+      }
+    }
+    description
+      "Mpls te path selection metric";
   }
 
   typedef Mpls-te-path {
@@ -365,12 +386,12 @@ module Cisco-IOS-XR-mpls-te-oper {
               "The source IP address of the tunnel";
           }
           leaf destination-port {
-            type int32;
+            type uint32;
             description
               "The tunnel number at the head";
           }
           leaf source-port {
-            type int32;
+            type uint32;
             description
               "The signaling instance number of the tunnel";
           }
@@ -395,7 +416,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "C type";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP id";
           }
@@ -448,7 +469,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Destination Address";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -458,12 +479,12 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Extended Tunnel ID";
           }
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
           leaf sub-group-id {
-            type int32;
+            type uint32;
             description
               "Subgroup ID";
           }
@@ -473,7 +494,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Subgroup Orig ID";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP ID";
           }
@@ -612,7 +633,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Ctype";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -632,7 +653,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Ctype";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -642,12 +663,12 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Extended Tunnel ID";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP ID";
           }
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
@@ -667,7 +688,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Subgroup originator";
           }
           leaf sub-group-id {
-            type int32;
+            type uint32;
             description
               "Subgroup ID";
           }
@@ -687,7 +708,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Ctype";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -697,12 +718,12 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Extended Tunnel ID";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP ID";
           }
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
@@ -722,7 +743,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Subgroup originator";
           }
           leaf sub-group-id {
-            type int32;
+            type uint32;
             description
               "Subgroup ID";
           }
@@ -957,7 +978,7 @@ module Cisco-IOS-XR-mpls-te-oper {
           "The IGP protocol used by the tunnel";
       }
       leaf area {
-        type int32;
+        type uint32;
         description
           "Area";
       }
@@ -991,7 +1012,7 @@ module Cisco-IOS-XR-mpls-te-oper {
             "IGP instance";
         }
         leaf area {
-          type int32;
+          type uint32;
           description
             "IGP area";
         }
@@ -1133,6 +1154,16 @@ module Cisco-IOS-XR-mpls-te-oper {
     }
   }
 
+  grouping BANDWIDTH-ACCOUNTING-COUNTERS {
+    description
+      "Common node of mpls-te, mpls-te-standby";
+    container bandwidth-accounting-counters {
+      description
+        "Bandwidth accounting counters";
+      uses TE-STATS-DARKBW-INFO;
+    }
+  }
+
   grouping COLLABORATOR-TIMERS {
     description
       "Common node of mpls-te, mpls-te-standby";
@@ -1187,12 +1218,12 @@ module Cisco-IOS-XR-mpls-te-oper {
           description
             "P2P or P2MP tunnel that is a mid or tail";
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -1217,7 +1248,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Destination Address";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP ID";
           }
@@ -1233,12 +1264,12 @@ module Cisco-IOS-XR-mpls-te-oper {
           description
             "P2P or P2MP tunnel that is a mid or tail";
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -1263,7 +1294,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Destination Address";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP ID";
           }
@@ -1278,7 +1309,7 @@ module Cisco-IOS-XR-mpls-te-oper {
           description
             "GMPLS-NNI tail tunnel";
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -1443,7 +1474,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Destination Address";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -1453,12 +1484,12 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Extended Tunnel ID";
           }
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
           leaf sub-group-id {
-            type int32;
+            type uint32;
             description
               "Subgroup ID";
           }
@@ -1468,12 +1499,12 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Subgroup Orig ID";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP ID";
           }
           leaf session-type {
-            type int32;
+            type uint32;
             description
               "Session Type";
           }
@@ -1519,27 +1550,27 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Destination Address";
           }
           leaf affinity-bits {
-            type int32;
+            type uint32;
             description
               "Affinity Bits";
           }
           leaf affinity-mask {
-            type int32;
+            type uint32;
             description
               "Affinity Mask";
           }
           leaf setup-priority {
-            type int32;
+            type uint32;
             description
               "Setup Priority";
           }
           leaf hold-priority {
-            type int32;
+            type uint32;
             description
               "Hold Priority";
           }
           leaf bandwidth {
-            type int32;
+            type uint32;
             units "kbit/s";
             description
               "Bandwidth in kbps";
@@ -1555,12 +1586,12 @@ module Cisco-IOS-XR-mpls-te-oper {
               "IGP Instance";
           }
           leaf igp-area {
-            type int32;
+            type uint32;
             description
               "IGP Area";
           }
           leaf hop-limit {
-            type int32;
+            type uint32;
             description
               "Hop Limit";
           }
@@ -1575,7 +1606,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Path Type";
           }
           leaf path-id {
-            type int32;
+            type uint32;
             description
               "This is the ID of the explicit path to be
                used for this path calculation query";
@@ -1587,9 +1618,19 @@ module Cisco-IOS-XR-mpls-te-oper {
                used for this path calculation query";
           }
           leaf cost-limit {
-            type int32;
+            type uint32;
             description
               "Cost Limit";
+          }
+          leaf metric-type {
+            type Mpls-te-path-selection-metric;
+            description
+              "Metric Type";
+          }
+          leaf delay-limit {
+            type uint32;
+            description
+              "Delay Limit in usec";
           }
           uses MPLS-TE-TOPOLOGY-PATH-BAG;
         }
@@ -1603,7 +1644,7 @@ module Cisco-IOS-XR-mpls-te-oper {
             "Configured SRLG value and the addresses using
              it";
           leaf srlg-number {
-            type int32;
+            type uint32;
             description
               "SRLG Number";
           }
@@ -1620,7 +1661,7 @@ module Cisco-IOS-XR-mpls-te-oper {
             "SRLG operational value for the overall MPLS-TE
              topology";
           leaf srlg-number {
-            type int32;
+            type uint32;
             description
               "SRLG Number";
           }
@@ -1635,7 +1676,7 @@ module Cisco-IOS-XR-mpls-te-oper {
             "MPLS-TE topology path taken by the specified
              tunnel";
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -1741,12 +1782,12 @@ module Cisco-IOS-XR-mpls-te-oper {
           description
             "MPLS TE SR Policy information";
           leaf client-id {
-            type int32;
+            type uint32;
             description
               "Client ID";
           }
           leaf color {
-            type int32;
+            type uint32;
             description
               "Color";
           }
@@ -1756,7 +1797,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "End Point";
           }
           leaf distinguisher {
-            type int32;
+            type uint32;
             description
               "SR Policy Distinguisher Value";
           }
@@ -1779,7 +1820,7 @@ module Cisco-IOS-XR-mpls-te-oper {
           "MPLS TE autoroute destination info for one
            tunnel";
         leaf tunnel-id {
-          type int32;
+          type uint32;
           description
             "Tunnel ID";
         }
@@ -1806,7 +1847,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Ctype";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -1850,7 +1891,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Ctype";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
@@ -1929,12 +1970,12 @@ module Cisco-IOS-XR-mpls-te-oper {
           description
             "Display only P2MP Information";
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
@@ -1959,12 +2000,12 @@ module Cisco-IOS-XR-mpls-te-oper {
           description
             "Display only P2MP Information";
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
@@ -1979,7 +2020,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Source Address";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP ID";
           }
@@ -2101,12 +2142,12 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Source Address";
           }
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "Tunnel ID";
           }
           leaf lsp-id {
-            type int32;
+            type uint32;
             description
               "LSP ID";
           }
@@ -2126,7 +2167,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Ctype";
           }
           leaf p2mp-id {
-            type int32;
+            type uint32;
             description
               "P2MP ID";
           }
@@ -2167,7 +2208,7 @@ module Cisco-IOS-XR-mpls-te-oper {
             "IGP instance";
         }
         leaf area {
-          type int32;
+          type uint32;
           description
             "IGP area";
         }
@@ -2279,7 +2320,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "IGP instance";
           }
           leaf area {
-            type int32;
+            type uint32;
             description
               "IGP area";
           }
@@ -2304,7 +2345,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "IGP instance";
           }
           leaf area {
-            type int32;
+            type uint32;
             description
               "IGP area";
           }
@@ -2334,7 +2375,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "IGP instance";
           }
           leaf area {
-            type int32;
+            type uint32;
             description
               "IGP area";
           }
@@ -2344,7 +2385,7 @@ module Cisco-IOS-XR-mpls-te-oper {
               "Segment-Routing prefix";
           }
           leaf prefix-length {
-            type int32;
+            type uint32;
             description
               "Prefix' length";
           }
@@ -2418,6 +2459,7 @@ module Cisco-IOS-XR-mpls-te-oper {
     uses FAST-REROUTE;
     uses ATTRIBUTE-SET-TABLE;
     uses IGP-AREA-BRIEF-TABLE;
+    uses BANDWIDTH-ACCOUNTING-COUNTERS;
     uses TUNNELS;
     uses MAXIMUM-TUNNELS;
     uses PATH-PROTECTION;
@@ -2502,7 +2544,7 @@ module Cisco-IOS-XR-mpls-te-oper {
           description
             "Detailed information of transport profile link";
           leaf tp-link-id {
-            type int32;
+            type uint32;
             description
               "Numeric transport profile link identifier";
           }
@@ -2522,7 +2564,7 @@ module Cisco-IOS-XR-mpls-te-oper {
           description
             "Brief information of transport profile link";
           leaf tp-link-id {
-            type int32;
+            type uint32;
             description
               "Numeric transport profile link identifier";
           }
@@ -2639,6 +2681,7 @@ module Cisco-IOS-XR-mpls-te-oper {
     uses FAST-REROUTE;
     uses ATTRIBUTE-SET-TABLE;
     uses IGP-AREA-BRIEF-TABLE;
+    uses BANDWIDTH-ACCOUNTING-COUNTERS;
     uses TUNNELS;
     uses MAXIMUM-TUNNELS;
     uses PATH-PROTECTION;

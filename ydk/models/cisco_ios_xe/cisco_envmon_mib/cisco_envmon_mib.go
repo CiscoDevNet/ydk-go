@@ -40,24 +40,24 @@ type CISCOENVMONMIB struct {
     YFilter yfilter.YFilter
 
     
-    Ciscoenvmonobjects CISCOENVMONMIB_Ciscoenvmonobjects
+    CiscoEnvMonObjects CISCOENVMONMIB_CiscoEnvMonObjects
 
     
-    Ciscoenvmonmibnotificationenables CISCOENVMONMIB_Ciscoenvmonmibnotificationenables
+    CiscoEnvMonMIBNotificationEnables CISCOENVMONMIB_CiscoEnvMonMIBNotificationEnables
 
     // The table of voltage status maintained by the environmental monitor.
-    Ciscoenvmonvoltagestatustable CISCOENVMONMIB_Ciscoenvmonvoltagestatustable
+    CiscoEnvMonVoltageStatusTable CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable
 
     // The table of ambient temperature status maintained by the environmental
     // monitor.
-    Ciscoenvmontemperaturestatustable CISCOENVMONMIB_Ciscoenvmontemperaturestatustable
+    CiscoEnvMonTemperatureStatusTable CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable
 
     // The table of fan status maintained by the environmental monitor.
-    Ciscoenvmonfanstatustable CISCOENVMONMIB_Ciscoenvmonfanstatustable
+    CiscoEnvMonFanStatusTable CISCOENVMONMIB_CiscoEnvMonFanStatusTable
 
     // The table of power supply status maintained by the environmental monitor
     // card.
-    Ciscoenvmonsupplystatustable CISCOENVMONMIB_Ciscoenvmonsupplystatustable
+    CiscoEnvMonSupplyStatusTable CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable
 }
 
 func (cISCOENVMONMIB *CISCOENVMONMIB) GetEntityData() *types.CommonEntityData {
@@ -70,19 +70,22 @@ func (cISCOENVMONMIB *CISCOENVMONMIB) GetEntityData() *types.CommonEntityData {
     cISCOENVMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENVMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOENVMONMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOENVMONMIB.EntityData.Children["ciscoEnvMonObjects"] = types.YChild{"Ciscoenvmonobjects", &cISCOENVMONMIB.Ciscoenvmonobjects}
-    cISCOENVMONMIB.EntityData.Children["ciscoEnvMonMIBNotificationEnables"] = types.YChild{"Ciscoenvmonmibnotificationenables", &cISCOENVMONMIB.Ciscoenvmonmibnotificationenables}
-    cISCOENVMONMIB.EntityData.Children["ciscoEnvMonVoltageStatusTable"] = types.YChild{"Ciscoenvmonvoltagestatustable", &cISCOENVMONMIB.Ciscoenvmonvoltagestatustable}
-    cISCOENVMONMIB.EntityData.Children["ciscoEnvMonTemperatureStatusTable"] = types.YChild{"Ciscoenvmontemperaturestatustable", &cISCOENVMONMIB.Ciscoenvmontemperaturestatustable}
-    cISCOENVMONMIB.EntityData.Children["ciscoEnvMonFanStatusTable"] = types.YChild{"Ciscoenvmonfanstatustable", &cISCOENVMONMIB.Ciscoenvmonfanstatustable}
-    cISCOENVMONMIB.EntityData.Children["ciscoEnvMonSupplyStatusTable"] = types.YChild{"Ciscoenvmonsupplystatustable", &cISCOENVMONMIB.Ciscoenvmonsupplystatustable}
-    cISCOENVMONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOENVMONMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOENVMONMIB.EntityData.Children.Append("ciscoEnvMonObjects", types.YChild{"CiscoEnvMonObjects", &cISCOENVMONMIB.CiscoEnvMonObjects})
+    cISCOENVMONMIB.EntityData.Children.Append("ciscoEnvMonMIBNotificationEnables", types.YChild{"CiscoEnvMonMIBNotificationEnables", &cISCOENVMONMIB.CiscoEnvMonMIBNotificationEnables})
+    cISCOENVMONMIB.EntityData.Children.Append("ciscoEnvMonVoltageStatusTable", types.YChild{"CiscoEnvMonVoltageStatusTable", &cISCOENVMONMIB.CiscoEnvMonVoltageStatusTable})
+    cISCOENVMONMIB.EntityData.Children.Append("ciscoEnvMonTemperatureStatusTable", types.YChild{"CiscoEnvMonTemperatureStatusTable", &cISCOENVMONMIB.CiscoEnvMonTemperatureStatusTable})
+    cISCOENVMONMIB.EntityData.Children.Append("ciscoEnvMonFanStatusTable", types.YChild{"CiscoEnvMonFanStatusTable", &cISCOENVMONMIB.CiscoEnvMonFanStatusTable})
+    cISCOENVMONMIB.EntityData.Children.Append("ciscoEnvMonSupplyStatusTable", types.YChild{"CiscoEnvMonSupplyStatusTable", &cISCOENVMONMIB.CiscoEnvMonSupplyStatusTable})
+    cISCOENVMONMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOENVMONMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOENVMONMIB.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonobjects
-type CISCOENVMONMIB_Ciscoenvmonobjects struct {
+// CISCOENVMONMIB_CiscoEnvMonObjects
+type CISCOENVMONMIB_CiscoEnvMonObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -91,490 +94,520 @@ type CISCOENVMONMIB_Ciscoenvmonobjects struct {
     // that it is not capable of supplying data, and hence no instance of the
     // remaining objects in this MIB will be returned in response to an SNMP
     // query.  Note that only a firmware upgrade is required to convert an oldAgs
-    // into an ags card. The type is Ciscoenvmonpresent.
-    Ciscoenvmonpresent interface{}
+    // into an ags card. The type is CiscoEnvMonPresent.
+    CiscoEnvMonPresent interface{}
 
     // Each bit is set to reflect the respective alarm being set.  The bit will be
     // cleared when the respective alarm is cleared. The type is map[string]bool.
-    Ciscoenvmonalarmcontacts interface{}
+    CiscoEnvMonAlarmContacts interface{}
 }
 
-func (ciscoenvmonobjects *CISCOENVMONMIB_Ciscoenvmonobjects) GetEntityData() *types.CommonEntityData {
-    ciscoenvmonobjects.EntityData.YFilter = ciscoenvmonobjects.YFilter
-    ciscoenvmonobjects.EntityData.YangName = "ciscoEnvMonObjects"
-    ciscoenvmonobjects.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmonobjects.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
-    ciscoenvmonobjects.EntityData.SegmentPath = "ciscoEnvMonObjects"
-    ciscoenvmonobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmonobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmonobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonObjects *CISCOENVMONMIB_CiscoEnvMonObjects) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonObjects.EntityData.YFilter = ciscoEnvMonObjects.YFilter
+    ciscoEnvMonObjects.EntityData.YangName = "ciscoEnvMonObjects"
+    ciscoEnvMonObjects.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonObjects.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
+    ciscoEnvMonObjects.EntityData.SegmentPath = "ciscoEnvMonObjects"
+    ciscoEnvMonObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmonobjects.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmonobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoenvmonobjects.EntityData.Leafs["ciscoEnvMonPresent"] = types.YLeaf{"Ciscoenvmonpresent", ciscoenvmonobjects.Ciscoenvmonpresent}
-    ciscoenvmonobjects.EntityData.Leafs["ciscoEnvMonAlarmContacts"] = types.YLeaf{"Ciscoenvmonalarmcontacts", ciscoenvmonobjects.Ciscoenvmonalarmcontacts}
-    return &(ciscoenvmonobjects.EntityData)
+    ciscoEnvMonObjects.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonObjects.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEnvMonObjects.EntityData.Leafs.Append("ciscoEnvMonPresent", types.YLeaf{"CiscoEnvMonPresent", ciscoEnvMonObjects.CiscoEnvMonPresent})
+    ciscoEnvMonObjects.EntityData.Leafs.Append("ciscoEnvMonAlarmContacts", types.YLeaf{"CiscoEnvMonAlarmContacts", ciscoEnvMonObjects.CiscoEnvMonAlarmContacts})
+
+    ciscoEnvMonObjects.EntityData.YListKeys = []string {}
+
+    return &(ciscoEnvMonObjects.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent represents an ags card.
-type CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent string
+// CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent represents an ags card.
+type CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent string
 
 const (
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_oldAgs CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "oldAgs"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_oldAgs CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "oldAgs"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_ags CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "ags"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_ags CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "ags"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_c7000 CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "c7000"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_c7000 CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "c7000"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_ci CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "ci"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_ci CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "ci"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_cAccessMon CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "cAccessMon"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_cAccessMon CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "cAccessMon"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_cat6000 CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "cat6000"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_cat6000 CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "cat6000"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_ubr7200 CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "ubr7200"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_ubr7200 CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "ubr7200"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_cat4000 CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "cat4000"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_cat4000 CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "cat4000"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_c10000 CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "c10000"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_c10000 CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "c10000"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_osr7600 CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "osr7600"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_osr7600 CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "osr7600"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_c7600 CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "c7600"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_c7600 CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "c7600"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_c37xx CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "c37xx"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_c37xx CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "c37xx"
 
-    CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent_other CISCOENVMONMIB_Ciscoenvmonobjects_Ciscoenvmonpresent = "other"
+    CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent_other CISCOENVMONMIB_CiscoEnvMonObjects_CiscoEnvMonPresent = "other"
 )
 
-// CISCOENVMONMIB_Ciscoenvmonmibnotificationenables
-type CISCOENVMONMIB_Ciscoenvmonmibnotificationenables struct {
+// CISCOENVMONMIB_CiscoEnvMonMIBNotificationEnables
+type CISCOENVMONMIB_CiscoEnvMonMIBNotificationEnables struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This variable  indicates  whether  the  system produces the
     // ciscoEnvMonShutdownNotification.  A false  value will prevent shutdown
     // notifications  from being generated by this system. The type is bool.
-    Ciscoenvmonenableshutdownnotification interface{}
+    CiscoEnvMonEnableShutdownNotification interface{}
 
     // This variable  indicates  whether  the  system produces the
     // ciscoEnvMonVoltageNotification. A false  value will prevent voltage
     // notifications from being  generated by this system. This object is
     // deprecated in favour of ciscoEnvMonEnableStatChangeNotif. The type is bool.
-    Ciscoenvmonenablevoltagenotification interface{}
+    CiscoEnvMonEnableVoltageNotification interface{}
 
     // This variable  indicates  whether  the  system produces the
     // ciscoEnvMonTemperatureNotification. A false value prevents temperature
     // notifications  from being sent by  this entity. This object is  deprecated
     // in favour of  ciscoEnvMonEnableStatChangeNotif. The type is bool.
-    Ciscoenvmonenabletemperaturenotification interface{}
+    CiscoEnvMonEnableTemperatureNotification interface{}
 
     // This variable  indicates  whether  the  system produces the
     // ciscoEnvMonFanNotification. A false value prevents fan notifications  from
     // being sent by  this entity. This object is  deprecated in favour of 
     // ciscoEnvMonEnableStatChangeNotif. The type is bool.
-    Ciscoenvmonenablefannotification interface{}
+    CiscoEnvMonEnableFanNotification interface{}
 
     // This variable  indicates  whether  the  system produces the
     // ciscoEnvMonRedundantSupplyNotification.  A false value prevents redundant
     // supply notifications from being generated by this system. This object is
     // deprecated in favour of  ciscoEnvMonEnableStatChangeNotif. The type is
     // bool.
-    Ciscoenvmonenableredundantsupplynotification interface{}
+    CiscoEnvMonEnableRedundantSupplyNotification interface{}
 
     // This variable indicates whether the system produces the
     // ciscoEnvMonVoltStatusChangeNotif, ciscoEnvMonTempStatusChangeNotif, 
     // ciscoEnvMonFanStatusChangeNotif and   ciscoEnvMonSuppStatusChangeNotif. A
     // false value will  prevent these notifications from being generated by  this
     // system. The type is bool.
-    Ciscoenvmonenablestatchangenotif interface{}
+    CiscoEnvMonEnableStatChangeNotif interface{}
 }
 
-func (ciscoenvmonmibnotificationenables *CISCOENVMONMIB_Ciscoenvmonmibnotificationenables) GetEntityData() *types.CommonEntityData {
-    ciscoenvmonmibnotificationenables.EntityData.YFilter = ciscoenvmonmibnotificationenables.YFilter
-    ciscoenvmonmibnotificationenables.EntityData.YangName = "ciscoEnvMonMIBNotificationEnables"
-    ciscoenvmonmibnotificationenables.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmonmibnotificationenables.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
-    ciscoenvmonmibnotificationenables.EntityData.SegmentPath = "ciscoEnvMonMIBNotificationEnables"
-    ciscoenvmonmibnotificationenables.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmonmibnotificationenables.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmonmibnotificationenables.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonMIBNotificationEnables *CISCOENVMONMIB_CiscoEnvMonMIBNotificationEnables) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonMIBNotificationEnables.EntityData.YFilter = ciscoEnvMonMIBNotificationEnables.YFilter
+    ciscoEnvMonMIBNotificationEnables.EntityData.YangName = "ciscoEnvMonMIBNotificationEnables"
+    ciscoEnvMonMIBNotificationEnables.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonMIBNotificationEnables.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
+    ciscoEnvMonMIBNotificationEnables.EntityData.SegmentPath = "ciscoEnvMonMIBNotificationEnables"
+    ciscoEnvMonMIBNotificationEnables.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonMIBNotificationEnables.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonMIBNotificationEnables.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmonmibnotificationenables.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmonmibnotificationenables.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoenvmonmibnotificationenables.EntityData.Leafs["ciscoEnvMonEnableShutdownNotification"] = types.YLeaf{"Ciscoenvmonenableshutdownnotification", ciscoenvmonmibnotificationenables.Ciscoenvmonenableshutdownnotification}
-    ciscoenvmonmibnotificationenables.EntityData.Leafs["ciscoEnvMonEnableVoltageNotification"] = types.YLeaf{"Ciscoenvmonenablevoltagenotification", ciscoenvmonmibnotificationenables.Ciscoenvmonenablevoltagenotification}
-    ciscoenvmonmibnotificationenables.EntityData.Leafs["ciscoEnvMonEnableTemperatureNotification"] = types.YLeaf{"Ciscoenvmonenabletemperaturenotification", ciscoenvmonmibnotificationenables.Ciscoenvmonenabletemperaturenotification}
-    ciscoenvmonmibnotificationenables.EntityData.Leafs["ciscoEnvMonEnableFanNotification"] = types.YLeaf{"Ciscoenvmonenablefannotification", ciscoenvmonmibnotificationenables.Ciscoenvmonenablefannotification}
-    ciscoenvmonmibnotificationenables.EntityData.Leafs["ciscoEnvMonEnableRedundantSupplyNotification"] = types.YLeaf{"Ciscoenvmonenableredundantsupplynotification", ciscoenvmonmibnotificationenables.Ciscoenvmonenableredundantsupplynotification}
-    ciscoenvmonmibnotificationenables.EntityData.Leafs["ciscoEnvMonEnableStatChangeNotif"] = types.YLeaf{"Ciscoenvmonenablestatchangenotif", ciscoenvmonmibnotificationenables.Ciscoenvmonenablestatchangenotif}
-    return &(ciscoenvmonmibnotificationenables.EntityData)
+    ciscoEnvMonMIBNotificationEnables.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonMIBNotificationEnables.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEnvMonMIBNotificationEnables.EntityData.Leafs.Append("ciscoEnvMonEnableShutdownNotification", types.YLeaf{"CiscoEnvMonEnableShutdownNotification", ciscoEnvMonMIBNotificationEnables.CiscoEnvMonEnableShutdownNotification})
+    ciscoEnvMonMIBNotificationEnables.EntityData.Leafs.Append("ciscoEnvMonEnableVoltageNotification", types.YLeaf{"CiscoEnvMonEnableVoltageNotification", ciscoEnvMonMIBNotificationEnables.CiscoEnvMonEnableVoltageNotification})
+    ciscoEnvMonMIBNotificationEnables.EntityData.Leafs.Append("ciscoEnvMonEnableTemperatureNotification", types.YLeaf{"CiscoEnvMonEnableTemperatureNotification", ciscoEnvMonMIBNotificationEnables.CiscoEnvMonEnableTemperatureNotification})
+    ciscoEnvMonMIBNotificationEnables.EntityData.Leafs.Append("ciscoEnvMonEnableFanNotification", types.YLeaf{"CiscoEnvMonEnableFanNotification", ciscoEnvMonMIBNotificationEnables.CiscoEnvMonEnableFanNotification})
+    ciscoEnvMonMIBNotificationEnables.EntityData.Leafs.Append("ciscoEnvMonEnableRedundantSupplyNotification", types.YLeaf{"CiscoEnvMonEnableRedundantSupplyNotification", ciscoEnvMonMIBNotificationEnables.CiscoEnvMonEnableRedundantSupplyNotification})
+    ciscoEnvMonMIBNotificationEnables.EntityData.Leafs.Append("ciscoEnvMonEnableStatChangeNotif", types.YLeaf{"CiscoEnvMonEnableStatChangeNotif", ciscoEnvMonMIBNotificationEnables.CiscoEnvMonEnableStatChangeNotif})
+
+    ciscoEnvMonMIBNotificationEnables.EntityData.YListKeys = []string {}
+
+    return &(ciscoEnvMonMIBNotificationEnables.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonvoltagestatustable
+// CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable
 // The table of voltage status maintained by the environmental
 // monitor.
-type CISCOENVMONMIB_Ciscoenvmonvoltagestatustable struct {
+type CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the voltage status table, representing the status of the
     // associated testpoint maintained by the environmental monitor. The type is
     // slice of
-    // CISCOENVMONMIB_Ciscoenvmonvoltagestatustable_Ciscoenvmonvoltagestatusentry.
-    Ciscoenvmonvoltagestatusentry []CISCOENVMONMIB_Ciscoenvmonvoltagestatustable_Ciscoenvmonvoltagestatusentry
+    // CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable_CiscoEnvMonVoltageStatusEntry.
+    CiscoEnvMonVoltageStatusEntry []*CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable_CiscoEnvMonVoltageStatusEntry
 }
 
-func (ciscoenvmonvoltagestatustable *CISCOENVMONMIB_Ciscoenvmonvoltagestatustable) GetEntityData() *types.CommonEntityData {
-    ciscoenvmonvoltagestatustable.EntityData.YFilter = ciscoenvmonvoltagestatustable.YFilter
-    ciscoenvmonvoltagestatustable.EntityData.YangName = "ciscoEnvMonVoltageStatusTable"
-    ciscoenvmonvoltagestatustable.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmonvoltagestatustable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
-    ciscoenvmonvoltagestatustable.EntityData.SegmentPath = "ciscoEnvMonVoltageStatusTable"
-    ciscoenvmonvoltagestatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmonvoltagestatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmonvoltagestatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonVoltageStatusTable *CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonVoltageStatusTable.EntityData.YFilter = ciscoEnvMonVoltageStatusTable.YFilter
+    ciscoEnvMonVoltageStatusTable.EntityData.YangName = "ciscoEnvMonVoltageStatusTable"
+    ciscoEnvMonVoltageStatusTable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonVoltageStatusTable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
+    ciscoEnvMonVoltageStatusTable.EntityData.SegmentPath = "ciscoEnvMonVoltageStatusTable"
+    ciscoEnvMonVoltageStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonVoltageStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonVoltageStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmonvoltagestatustable.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmonvoltagestatustable.EntityData.Children["ciscoEnvMonVoltageStatusEntry"] = types.YChild{"Ciscoenvmonvoltagestatusentry", nil}
-    for i := range ciscoenvmonvoltagestatustable.Ciscoenvmonvoltagestatusentry {
-        ciscoenvmonvoltagestatustable.EntityData.Children[types.GetSegmentPath(&ciscoenvmonvoltagestatustable.Ciscoenvmonvoltagestatusentry[i])] = types.YChild{"Ciscoenvmonvoltagestatusentry", &ciscoenvmonvoltagestatustable.Ciscoenvmonvoltagestatusentry[i]}
+    ciscoEnvMonVoltageStatusTable.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonVoltageStatusTable.EntityData.Children.Append("ciscoEnvMonVoltageStatusEntry", types.YChild{"CiscoEnvMonVoltageStatusEntry", nil})
+    for i := range ciscoEnvMonVoltageStatusTable.CiscoEnvMonVoltageStatusEntry {
+        ciscoEnvMonVoltageStatusTable.EntityData.Children.Append(types.GetSegmentPath(ciscoEnvMonVoltageStatusTable.CiscoEnvMonVoltageStatusEntry[i]), types.YChild{"CiscoEnvMonVoltageStatusEntry", ciscoEnvMonVoltageStatusTable.CiscoEnvMonVoltageStatusEntry[i]})
     }
-    ciscoenvmonvoltagestatustable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ciscoenvmonvoltagestatustable.EntityData)
+    ciscoEnvMonVoltageStatusTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoEnvMonVoltageStatusTable.EntityData.YListKeys = []string {}
+
+    return &(ciscoEnvMonVoltageStatusTable.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonvoltagestatustable_Ciscoenvmonvoltagestatusentry
+// CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable_CiscoEnvMonVoltageStatusEntry
 // An entry in the voltage status table, representing the status
 // of the associated testpoint maintained by the environmental
 // monitor.
-type CISCOENVMONMIB_Ciscoenvmonvoltagestatustable_Ciscoenvmonvoltagestatusentry struct {
+type CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable_CiscoEnvMonVoltageStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique index for the testpoint being instrumented.
     // This index is for SNMP purposes only, and has no intrinsic meaning. The
     // type is interface{} with range: 0..2147483647.
-    Ciscoenvmonvoltagestatusindex interface{}
+    CiscoEnvMonVoltageStatusIndex interface{}
 
     // Textual description of the testpoint being instrumented. This description
     // is a short textual label, suitable as a human-sensible identification for
     // the rest of the information in the entry. The type is string with length:
     // 0..32.
-    Ciscoenvmonvoltagestatusdescr interface{}
+    CiscoEnvMonVoltageStatusDescr interface{}
 
     // The current measurement of the testpoint being instrumented. The type is
     // interface{} with range: -2147483648..2147483647. Units are millivolts.
-    Ciscoenvmonvoltagestatusvalue interface{}
+    CiscoEnvMonVoltageStatusValue interface{}
 
     // The lowest value that the associated instance of the object
     // ciscoEnvMonVoltageStatusValue may obtain before an emergency shutdown of
     // the managed device is initiated. The type is interface{} with range:
     // -2147483648..2147483647. Units are millivolts.
-    Ciscoenvmonvoltagethresholdlow interface{}
+    CiscoEnvMonVoltageThresholdLow interface{}
 
     // The highest value that the associated instance of the object
     // ciscoEnvMonVoltageStatusValue may obtain before an emergency shutdown of
     // the managed device is initiated. The type is interface{} with range:
     // -2147483648..2147483647. Units are millivolts.
-    Ciscoenvmonvoltagethresholdhigh interface{}
+    CiscoEnvMonVoltageThresholdHigh interface{}
 
     // The value of the associated instance of the object
     // ciscoEnvMonVoltageStatusValue at the time an emergency shutdown of the
     // managed device was last initiated.  This value is stored in non-volatile
     // RAM and hence is able to survive the shutdown. The type is interface{} with
     // range: -2147483648..2147483647. Units are millivolts.
-    Ciscoenvmonvoltagelastshutdown interface{}
+    CiscoEnvMonVoltageLastShutdown interface{}
 
     // The current state of the testpoint being instrumented. The type is
     // CiscoEnvMonState.
-    Ciscoenvmonvoltagestate interface{}
+    CiscoEnvMonVoltageState interface{}
 }
 
-func (ciscoenvmonvoltagestatusentry *CISCOENVMONMIB_Ciscoenvmonvoltagestatustable_Ciscoenvmonvoltagestatusentry) GetEntityData() *types.CommonEntityData {
-    ciscoenvmonvoltagestatusentry.EntityData.YFilter = ciscoenvmonvoltagestatusentry.YFilter
-    ciscoenvmonvoltagestatusentry.EntityData.YangName = "ciscoEnvMonVoltageStatusEntry"
-    ciscoenvmonvoltagestatusentry.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmonvoltagestatusentry.EntityData.ParentYangName = "ciscoEnvMonVoltageStatusTable"
-    ciscoenvmonvoltagestatusentry.EntityData.SegmentPath = "ciscoEnvMonVoltageStatusEntry" + "[ciscoEnvMonVoltageStatusIndex='" + fmt.Sprintf("%v", ciscoenvmonvoltagestatusentry.Ciscoenvmonvoltagestatusindex) + "']"
-    ciscoenvmonvoltagestatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmonvoltagestatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmonvoltagestatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonVoltageStatusEntry *CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable_CiscoEnvMonVoltageStatusEntry) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonVoltageStatusEntry.EntityData.YFilter = ciscoEnvMonVoltageStatusEntry.YFilter
+    ciscoEnvMonVoltageStatusEntry.EntityData.YangName = "ciscoEnvMonVoltageStatusEntry"
+    ciscoEnvMonVoltageStatusEntry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonVoltageStatusEntry.EntityData.ParentYangName = "ciscoEnvMonVoltageStatusTable"
+    ciscoEnvMonVoltageStatusEntry.EntityData.SegmentPath = "ciscoEnvMonVoltageStatusEntry" + types.AddKeyToken(ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageStatusIndex, "ciscoEnvMonVoltageStatusIndex")
+    ciscoEnvMonVoltageStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonVoltageStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonVoltageStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmonvoltagestatusentry.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmonvoltagestatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoenvmonvoltagestatusentry.EntityData.Leafs["ciscoEnvMonVoltageStatusIndex"] = types.YLeaf{"Ciscoenvmonvoltagestatusindex", ciscoenvmonvoltagestatusentry.Ciscoenvmonvoltagestatusindex}
-    ciscoenvmonvoltagestatusentry.EntityData.Leafs["ciscoEnvMonVoltageStatusDescr"] = types.YLeaf{"Ciscoenvmonvoltagestatusdescr", ciscoenvmonvoltagestatusentry.Ciscoenvmonvoltagestatusdescr}
-    ciscoenvmonvoltagestatusentry.EntityData.Leafs["ciscoEnvMonVoltageStatusValue"] = types.YLeaf{"Ciscoenvmonvoltagestatusvalue", ciscoenvmonvoltagestatusentry.Ciscoenvmonvoltagestatusvalue}
-    ciscoenvmonvoltagestatusentry.EntityData.Leafs["ciscoEnvMonVoltageThresholdLow"] = types.YLeaf{"Ciscoenvmonvoltagethresholdlow", ciscoenvmonvoltagestatusentry.Ciscoenvmonvoltagethresholdlow}
-    ciscoenvmonvoltagestatusentry.EntityData.Leafs["ciscoEnvMonVoltageThresholdHigh"] = types.YLeaf{"Ciscoenvmonvoltagethresholdhigh", ciscoenvmonvoltagestatusentry.Ciscoenvmonvoltagethresholdhigh}
-    ciscoenvmonvoltagestatusentry.EntityData.Leafs["ciscoEnvMonVoltageLastShutdown"] = types.YLeaf{"Ciscoenvmonvoltagelastshutdown", ciscoenvmonvoltagestatusentry.Ciscoenvmonvoltagelastshutdown}
-    ciscoenvmonvoltagestatusentry.EntityData.Leafs["ciscoEnvMonVoltageState"] = types.YLeaf{"Ciscoenvmonvoltagestate", ciscoenvmonvoltagestatusentry.Ciscoenvmonvoltagestate}
-    return &(ciscoenvmonvoltagestatusentry.EntityData)
+    ciscoEnvMonVoltageStatusEntry.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonVoltageStatusEntry.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEnvMonVoltageStatusEntry.EntityData.Leafs.Append("ciscoEnvMonVoltageStatusIndex", types.YLeaf{"CiscoEnvMonVoltageStatusIndex", ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageStatusIndex})
+    ciscoEnvMonVoltageStatusEntry.EntityData.Leafs.Append("ciscoEnvMonVoltageStatusDescr", types.YLeaf{"CiscoEnvMonVoltageStatusDescr", ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageStatusDescr})
+    ciscoEnvMonVoltageStatusEntry.EntityData.Leafs.Append("ciscoEnvMonVoltageStatusValue", types.YLeaf{"CiscoEnvMonVoltageStatusValue", ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageStatusValue})
+    ciscoEnvMonVoltageStatusEntry.EntityData.Leafs.Append("ciscoEnvMonVoltageThresholdLow", types.YLeaf{"CiscoEnvMonVoltageThresholdLow", ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageThresholdLow})
+    ciscoEnvMonVoltageStatusEntry.EntityData.Leafs.Append("ciscoEnvMonVoltageThresholdHigh", types.YLeaf{"CiscoEnvMonVoltageThresholdHigh", ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageThresholdHigh})
+    ciscoEnvMonVoltageStatusEntry.EntityData.Leafs.Append("ciscoEnvMonVoltageLastShutdown", types.YLeaf{"CiscoEnvMonVoltageLastShutdown", ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageLastShutdown})
+    ciscoEnvMonVoltageStatusEntry.EntityData.Leafs.Append("ciscoEnvMonVoltageState", types.YLeaf{"CiscoEnvMonVoltageState", ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageState})
+
+    ciscoEnvMonVoltageStatusEntry.EntityData.YListKeys = []string {"CiscoEnvMonVoltageStatusIndex"}
+
+    return &(ciscoEnvMonVoltageStatusEntry.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmontemperaturestatustable
+// CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable
 // The table of ambient temperature status maintained by the
 // environmental monitor.
-type CISCOENVMONMIB_Ciscoenvmontemperaturestatustable struct {
+type CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the ambient temperature status table, representing the status
     // of the associated testpoint maintained by the environmental monitor. The
     // type is slice of
-    // CISCOENVMONMIB_Ciscoenvmontemperaturestatustable_Ciscoenvmontemperaturestatusentry.
-    Ciscoenvmontemperaturestatusentry []CISCOENVMONMIB_Ciscoenvmontemperaturestatustable_Ciscoenvmontemperaturestatusentry
+    // CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable_CiscoEnvMonTemperatureStatusEntry.
+    CiscoEnvMonTemperatureStatusEntry []*CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable_CiscoEnvMonTemperatureStatusEntry
 }
 
-func (ciscoenvmontemperaturestatustable *CISCOENVMONMIB_Ciscoenvmontemperaturestatustable) GetEntityData() *types.CommonEntityData {
-    ciscoenvmontemperaturestatustable.EntityData.YFilter = ciscoenvmontemperaturestatustable.YFilter
-    ciscoenvmontemperaturestatustable.EntityData.YangName = "ciscoEnvMonTemperatureStatusTable"
-    ciscoenvmontemperaturestatustable.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmontemperaturestatustable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
-    ciscoenvmontemperaturestatustable.EntityData.SegmentPath = "ciscoEnvMonTemperatureStatusTable"
-    ciscoenvmontemperaturestatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmontemperaturestatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmontemperaturestatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonTemperatureStatusTable *CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonTemperatureStatusTable.EntityData.YFilter = ciscoEnvMonTemperatureStatusTable.YFilter
+    ciscoEnvMonTemperatureStatusTable.EntityData.YangName = "ciscoEnvMonTemperatureStatusTable"
+    ciscoEnvMonTemperatureStatusTable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonTemperatureStatusTable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
+    ciscoEnvMonTemperatureStatusTable.EntityData.SegmentPath = "ciscoEnvMonTemperatureStatusTable"
+    ciscoEnvMonTemperatureStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonTemperatureStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonTemperatureStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmontemperaturestatustable.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmontemperaturestatustable.EntityData.Children["ciscoEnvMonTemperatureStatusEntry"] = types.YChild{"Ciscoenvmontemperaturestatusentry", nil}
-    for i := range ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry {
-        ciscoenvmontemperaturestatustable.EntityData.Children[types.GetSegmentPath(&ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry[i])] = types.YChild{"Ciscoenvmontemperaturestatusentry", &ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry[i]}
+    ciscoEnvMonTemperatureStatusTable.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonTemperatureStatusTable.EntityData.Children.Append("ciscoEnvMonTemperatureStatusEntry", types.YChild{"CiscoEnvMonTemperatureStatusEntry", nil})
+    for i := range ciscoEnvMonTemperatureStatusTable.CiscoEnvMonTemperatureStatusEntry {
+        ciscoEnvMonTemperatureStatusTable.EntityData.Children.Append(types.GetSegmentPath(ciscoEnvMonTemperatureStatusTable.CiscoEnvMonTemperatureStatusEntry[i]), types.YChild{"CiscoEnvMonTemperatureStatusEntry", ciscoEnvMonTemperatureStatusTable.CiscoEnvMonTemperatureStatusEntry[i]})
     }
-    ciscoenvmontemperaturestatustable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ciscoenvmontemperaturestatustable.EntityData)
+    ciscoEnvMonTemperatureStatusTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoEnvMonTemperatureStatusTable.EntityData.YListKeys = []string {}
+
+    return &(ciscoEnvMonTemperatureStatusTable.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmontemperaturestatustable_Ciscoenvmontemperaturestatusentry
+// CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable_CiscoEnvMonTemperatureStatusEntry
 // An entry in the ambient temperature status table, representing
 // the status of the associated testpoint maintained by the
 // environmental monitor.
-type CISCOENVMONMIB_Ciscoenvmontemperaturestatustable_Ciscoenvmontemperaturestatusentry struct {
+type CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable_CiscoEnvMonTemperatureStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique index for the testpoint being instrumented.
     // This index is for SNMP purposes only, and has no intrinsic meaning. The
     // type is interface{} with range: 0..2147483647.
-    Ciscoenvmontemperaturestatusindex interface{}
+    CiscoEnvMonTemperatureStatusIndex interface{}
 
     // Textual description of the testpoint being instrumented. This description
     // is a short textual label, suitable as a human-sensible identification for
     // the rest of the information in the entry. The type is string with length:
     // 0..32.
-    Ciscoenvmontemperaturestatusdescr interface{}
+    CiscoEnvMonTemperatureStatusDescr interface{}
 
     // The current measurement of the testpoint being instrumented. The type is
     // interface{} with range: 0..4294967295. Units are degrees Celsius.
-    Ciscoenvmontemperaturestatusvalue interface{}
+    CiscoEnvMonTemperatureStatusValue interface{}
 
     // The highest value that the associated instance of the object
     // ciscoEnvMonTemperatureStatusValue may obtain before an emergency shutdown
     // of the managed device is initiated. The type is interface{} with range:
     // -2147483648..2147483647. Units are degrees Celsius.
-    Ciscoenvmontemperaturethreshold interface{}
+    CiscoEnvMonTemperatureThreshold interface{}
 
     // The value of the associated instance of the object
     // ciscoEnvMonTemperatureStatusValue at the time an emergency shutdown of the
     // managed device was last initiated.  This value is stored in non-volatile
     // RAM and hence is able to survive the shutdown. The type is interface{} with
     // range: -2147483648..2147483647. Units are degrees Celsius.
-    Ciscoenvmontemperaturelastshutdown interface{}
+    CiscoEnvMonTemperatureLastShutdown interface{}
 
     // The current state of the testpoint being instrumented. The type is
     // CiscoEnvMonState.
-    Ciscoenvmontemperaturestate interface{}
+    CiscoEnvMonTemperatureState interface{}
 }
 
-func (ciscoenvmontemperaturestatusentry *CISCOENVMONMIB_Ciscoenvmontemperaturestatustable_Ciscoenvmontemperaturestatusentry) GetEntityData() *types.CommonEntityData {
-    ciscoenvmontemperaturestatusentry.EntityData.YFilter = ciscoenvmontemperaturestatusentry.YFilter
-    ciscoenvmontemperaturestatusentry.EntityData.YangName = "ciscoEnvMonTemperatureStatusEntry"
-    ciscoenvmontemperaturestatusentry.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmontemperaturestatusentry.EntityData.ParentYangName = "ciscoEnvMonTemperatureStatusTable"
-    ciscoenvmontemperaturestatusentry.EntityData.SegmentPath = "ciscoEnvMonTemperatureStatusEntry" + "[ciscoEnvMonTemperatureStatusIndex='" + fmt.Sprintf("%v", ciscoenvmontemperaturestatusentry.Ciscoenvmontemperaturestatusindex) + "']"
-    ciscoenvmontemperaturestatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmontemperaturestatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmontemperaturestatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonTemperatureStatusEntry *CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable_CiscoEnvMonTemperatureStatusEntry) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonTemperatureStatusEntry.EntityData.YFilter = ciscoEnvMonTemperatureStatusEntry.YFilter
+    ciscoEnvMonTemperatureStatusEntry.EntityData.YangName = "ciscoEnvMonTemperatureStatusEntry"
+    ciscoEnvMonTemperatureStatusEntry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonTemperatureStatusEntry.EntityData.ParentYangName = "ciscoEnvMonTemperatureStatusTable"
+    ciscoEnvMonTemperatureStatusEntry.EntityData.SegmentPath = "ciscoEnvMonTemperatureStatusEntry" + types.AddKeyToken(ciscoEnvMonTemperatureStatusEntry.CiscoEnvMonTemperatureStatusIndex, "ciscoEnvMonTemperatureStatusIndex")
+    ciscoEnvMonTemperatureStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonTemperatureStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonTemperatureStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmontemperaturestatusentry.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmontemperaturestatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoenvmontemperaturestatusentry.EntityData.Leafs["ciscoEnvMonTemperatureStatusIndex"] = types.YLeaf{"Ciscoenvmontemperaturestatusindex", ciscoenvmontemperaturestatusentry.Ciscoenvmontemperaturestatusindex}
-    ciscoenvmontemperaturestatusentry.EntityData.Leafs["ciscoEnvMonTemperatureStatusDescr"] = types.YLeaf{"Ciscoenvmontemperaturestatusdescr", ciscoenvmontemperaturestatusentry.Ciscoenvmontemperaturestatusdescr}
-    ciscoenvmontemperaturestatusentry.EntityData.Leafs["ciscoEnvMonTemperatureStatusValue"] = types.YLeaf{"Ciscoenvmontemperaturestatusvalue", ciscoenvmontemperaturestatusentry.Ciscoenvmontemperaturestatusvalue}
-    ciscoenvmontemperaturestatusentry.EntityData.Leafs["ciscoEnvMonTemperatureThreshold"] = types.YLeaf{"Ciscoenvmontemperaturethreshold", ciscoenvmontemperaturestatusentry.Ciscoenvmontemperaturethreshold}
-    ciscoenvmontemperaturestatusentry.EntityData.Leafs["ciscoEnvMonTemperatureLastShutdown"] = types.YLeaf{"Ciscoenvmontemperaturelastshutdown", ciscoenvmontemperaturestatusentry.Ciscoenvmontemperaturelastshutdown}
-    ciscoenvmontemperaturestatusentry.EntityData.Leafs["ciscoEnvMonTemperatureState"] = types.YLeaf{"Ciscoenvmontemperaturestate", ciscoenvmontemperaturestatusentry.Ciscoenvmontemperaturestate}
-    return &(ciscoenvmontemperaturestatusentry.EntityData)
+    ciscoEnvMonTemperatureStatusEntry.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonTemperatureStatusEntry.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEnvMonTemperatureStatusEntry.EntityData.Leafs.Append("ciscoEnvMonTemperatureStatusIndex", types.YLeaf{"CiscoEnvMonTemperatureStatusIndex", ciscoEnvMonTemperatureStatusEntry.CiscoEnvMonTemperatureStatusIndex})
+    ciscoEnvMonTemperatureStatusEntry.EntityData.Leafs.Append("ciscoEnvMonTemperatureStatusDescr", types.YLeaf{"CiscoEnvMonTemperatureStatusDescr", ciscoEnvMonTemperatureStatusEntry.CiscoEnvMonTemperatureStatusDescr})
+    ciscoEnvMonTemperatureStatusEntry.EntityData.Leafs.Append("ciscoEnvMonTemperatureStatusValue", types.YLeaf{"CiscoEnvMonTemperatureStatusValue", ciscoEnvMonTemperatureStatusEntry.CiscoEnvMonTemperatureStatusValue})
+    ciscoEnvMonTemperatureStatusEntry.EntityData.Leafs.Append("ciscoEnvMonTemperatureThreshold", types.YLeaf{"CiscoEnvMonTemperatureThreshold", ciscoEnvMonTemperatureStatusEntry.CiscoEnvMonTemperatureThreshold})
+    ciscoEnvMonTemperatureStatusEntry.EntityData.Leafs.Append("ciscoEnvMonTemperatureLastShutdown", types.YLeaf{"CiscoEnvMonTemperatureLastShutdown", ciscoEnvMonTemperatureStatusEntry.CiscoEnvMonTemperatureLastShutdown})
+    ciscoEnvMonTemperatureStatusEntry.EntityData.Leafs.Append("ciscoEnvMonTemperatureState", types.YLeaf{"CiscoEnvMonTemperatureState", ciscoEnvMonTemperatureStatusEntry.CiscoEnvMonTemperatureState})
+
+    ciscoEnvMonTemperatureStatusEntry.EntityData.YListKeys = []string {"CiscoEnvMonTemperatureStatusIndex"}
+
+    return &(ciscoEnvMonTemperatureStatusEntry.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonfanstatustable
+// CISCOENVMONMIB_CiscoEnvMonFanStatusTable
 // The table of fan status maintained by the environmental
 // monitor.
-type CISCOENVMONMIB_Ciscoenvmonfanstatustable struct {
+type CISCOENVMONMIB_CiscoEnvMonFanStatusTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the fan status table, representing the status of the associated
     // fan maintained by the environmental monitor. The type is slice of
-    // CISCOENVMONMIB_Ciscoenvmonfanstatustable_Ciscoenvmonfanstatusentry.
-    Ciscoenvmonfanstatusentry []CISCOENVMONMIB_Ciscoenvmonfanstatustable_Ciscoenvmonfanstatusentry
+    // CISCOENVMONMIB_CiscoEnvMonFanStatusTable_CiscoEnvMonFanStatusEntry.
+    CiscoEnvMonFanStatusEntry []*CISCOENVMONMIB_CiscoEnvMonFanStatusTable_CiscoEnvMonFanStatusEntry
 }
 
-func (ciscoenvmonfanstatustable *CISCOENVMONMIB_Ciscoenvmonfanstatustable) GetEntityData() *types.CommonEntityData {
-    ciscoenvmonfanstatustable.EntityData.YFilter = ciscoenvmonfanstatustable.YFilter
-    ciscoenvmonfanstatustable.EntityData.YangName = "ciscoEnvMonFanStatusTable"
-    ciscoenvmonfanstatustable.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmonfanstatustable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
-    ciscoenvmonfanstatustable.EntityData.SegmentPath = "ciscoEnvMonFanStatusTable"
-    ciscoenvmonfanstatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmonfanstatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmonfanstatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonFanStatusTable *CISCOENVMONMIB_CiscoEnvMonFanStatusTable) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonFanStatusTable.EntityData.YFilter = ciscoEnvMonFanStatusTable.YFilter
+    ciscoEnvMonFanStatusTable.EntityData.YangName = "ciscoEnvMonFanStatusTable"
+    ciscoEnvMonFanStatusTable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonFanStatusTable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
+    ciscoEnvMonFanStatusTable.EntityData.SegmentPath = "ciscoEnvMonFanStatusTable"
+    ciscoEnvMonFanStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonFanStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonFanStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmonfanstatustable.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmonfanstatustable.EntityData.Children["ciscoEnvMonFanStatusEntry"] = types.YChild{"Ciscoenvmonfanstatusentry", nil}
-    for i := range ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry {
-        ciscoenvmonfanstatustable.EntityData.Children[types.GetSegmentPath(&ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry[i])] = types.YChild{"Ciscoenvmonfanstatusentry", &ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry[i]}
+    ciscoEnvMonFanStatusTable.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonFanStatusTable.EntityData.Children.Append("ciscoEnvMonFanStatusEntry", types.YChild{"CiscoEnvMonFanStatusEntry", nil})
+    for i := range ciscoEnvMonFanStatusTable.CiscoEnvMonFanStatusEntry {
+        ciscoEnvMonFanStatusTable.EntityData.Children.Append(types.GetSegmentPath(ciscoEnvMonFanStatusTable.CiscoEnvMonFanStatusEntry[i]), types.YChild{"CiscoEnvMonFanStatusEntry", ciscoEnvMonFanStatusTable.CiscoEnvMonFanStatusEntry[i]})
     }
-    ciscoenvmonfanstatustable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ciscoenvmonfanstatustable.EntityData)
+    ciscoEnvMonFanStatusTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoEnvMonFanStatusTable.EntityData.YListKeys = []string {}
+
+    return &(ciscoEnvMonFanStatusTable.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonfanstatustable_Ciscoenvmonfanstatusentry
+// CISCOENVMONMIB_CiscoEnvMonFanStatusTable_CiscoEnvMonFanStatusEntry
 // An entry in the fan status table, representing the status of
 // the associated fan maintained by the environmental monitor.
-type CISCOENVMONMIB_Ciscoenvmonfanstatustable_Ciscoenvmonfanstatusentry struct {
+type CISCOENVMONMIB_CiscoEnvMonFanStatusTable_CiscoEnvMonFanStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique index for the fan being instrumented. This
     // index is for SNMP purposes only, and has no intrinsic meaning. The type is
     // interface{} with range: 0..2147483647.
-    Ciscoenvmonfanstatusindex interface{}
+    CiscoEnvMonFanStatusIndex interface{}
 
     // Textual description of the fan being instrumented. This description is a
     // short textual label, suitable as a human-sensible identification for the
     // rest of the information in the entry. The type is string with length:
     // 0..32.
-    Ciscoenvmonfanstatusdescr interface{}
+    CiscoEnvMonFanStatusDescr interface{}
 
     // The current state of the fan being instrumented. The type is
     // CiscoEnvMonState.
-    Ciscoenvmonfanstate interface{}
+    CiscoEnvMonFanState interface{}
 }
 
-func (ciscoenvmonfanstatusentry *CISCOENVMONMIB_Ciscoenvmonfanstatustable_Ciscoenvmonfanstatusentry) GetEntityData() *types.CommonEntityData {
-    ciscoenvmonfanstatusentry.EntityData.YFilter = ciscoenvmonfanstatusentry.YFilter
-    ciscoenvmonfanstatusentry.EntityData.YangName = "ciscoEnvMonFanStatusEntry"
-    ciscoenvmonfanstatusentry.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmonfanstatusentry.EntityData.ParentYangName = "ciscoEnvMonFanStatusTable"
-    ciscoenvmonfanstatusentry.EntityData.SegmentPath = "ciscoEnvMonFanStatusEntry" + "[ciscoEnvMonFanStatusIndex='" + fmt.Sprintf("%v", ciscoenvmonfanstatusentry.Ciscoenvmonfanstatusindex) + "']"
-    ciscoenvmonfanstatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmonfanstatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmonfanstatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonFanStatusEntry *CISCOENVMONMIB_CiscoEnvMonFanStatusTable_CiscoEnvMonFanStatusEntry) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonFanStatusEntry.EntityData.YFilter = ciscoEnvMonFanStatusEntry.YFilter
+    ciscoEnvMonFanStatusEntry.EntityData.YangName = "ciscoEnvMonFanStatusEntry"
+    ciscoEnvMonFanStatusEntry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonFanStatusEntry.EntityData.ParentYangName = "ciscoEnvMonFanStatusTable"
+    ciscoEnvMonFanStatusEntry.EntityData.SegmentPath = "ciscoEnvMonFanStatusEntry" + types.AddKeyToken(ciscoEnvMonFanStatusEntry.CiscoEnvMonFanStatusIndex, "ciscoEnvMonFanStatusIndex")
+    ciscoEnvMonFanStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonFanStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonFanStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmonfanstatusentry.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmonfanstatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoenvmonfanstatusentry.EntityData.Leafs["ciscoEnvMonFanStatusIndex"] = types.YLeaf{"Ciscoenvmonfanstatusindex", ciscoenvmonfanstatusentry.Ciscoenvmonfanstatusindex}
-    ciscoenvmonfanstatusentry.EntityData.Leafs["ciscoEnvMonFanStatusDescr"] = types.YLeaf{"Ciscoenvmonfanstatusdescr", ciscoenvmonfanstatusentry.Ciscoenvmonfanstatusdescr}
-    ciscoenvmonfanstatusentry.EntityData.Leafs["ciscoEnvMonFanState"] = types.YLeaf{"Ciscoenvmonfanstate", ciscoenvmonfanstatusentry.Ciscoenvmonfanstate}
-    return &(ciscoenvmonfanstatusentry.EntityData)
+    ciscoEnvMonFanStatusEntry.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonFanStatusEntry.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEnvMonFanStatusEntry.EntityData.Leafs.Append("ciscoEnvMonFanStatusIndex", types.YLeaf{"CiscoEnvMonFanStatusIndex", ciscoEnvMonFanStatusEntry.CiscoEnvMonFanStatusIndex})
+    ciscoEnvMonFanStatusEntry.EntityData.Leafs.Append("ciscoEnvMonFanStatusDescr", types.YLeaf{"CiscoEnvMonFanStatusDescr", ciscoEnvMonFanStatusEntry.CiscoEnvMonFanStatusDescr})
+    ciscoEnvMonFanStatusEntry.EntityData.Leafs.Append("ciscoEnvMonFanState", types.YLeaf{"CiscoEnvMonFanState", ciscoEnvMonFanStatusEntry.CiscoEnvMonFanState})
+
+    ciscoEnvMonFanStatusEntry.EntityData.YListKeys = []string {"CiscoEnvMonFanStatusIndex"}
+
+    return &(ciscoEnvMonFanStatusEntry.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonsupplystatustable
+// CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable
 // The table of power supply status maintained by the
 // environmental monitor card.
-type CISCOENVMONMIB_Ciscoenvmonsupplystatustable struct {
+type CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the power supply status table, representing the status of the
     // associated power supply maintained by the environmental monitor card. The
     // type is slice of
-    // CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry.
-    Ciscoenvmonsupplystatusentry []CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry
+    // CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry.
+    CiscoEnvMonSupplyStatusEntry []*CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry
 }
 
-func (ciscoenvmonsupplystatustable *CISCOENVMONMIB_Ciscoenvmonsupplystatustable) GetEntityData() *types.CommonEntityData {
-    ciscoenvmonsupplystatustable.EntityData.YFilter = ciscoenvmonsupplystatustable.YFilter
-    ciscoenvmonsupplystatustable.EntityData.YangName = "ciscoEnvMonSupplyStatusTable"
-    ciscoenvmonsupplystatustable.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmonsupplystatustable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
-    ciscoenvmonsupplystatustable.EntityData.SegmentPath = "ciscoEnvMonSupplyStatusTable"
-    ciscoenvmonsupplystatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmonsupplystatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmonsupplystatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonSupplyStatusTable *CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonSupplyStatusTable.EntityData.YFilter = ciscoEnvMonSupplyStatusTable.YFilter
+    ciscoEnvMonSupplyStatusTable.EntityData.YangName = "ciscoEnvMonSupplyStatusTable"
+    ciscoEnvMonSupplyStatusTable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonSupplyStatusTable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
+    ciscoEnvMonSupplyStatusTable.EntityData.SegmentPath = "ciscoEnvMonSupplyStatusTable"
+    ciscoEnvMonSupplyStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonSupplyStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonSupplyStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmonsupplystatustable.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmonsupplystatustable.EntityData.Children["ciscoEnvMonSupplyStatusEntry"] = types.YChild{"Ciscoenvmonsupplystatusentry", nil}
-    for i := range ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry {
-        ciscoenvmonsupplystatustable.EntityData.Children[types.GetSegmentPath(&ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry[i])] = types.YChild{"Ciscoenvmonsupplystatusentry", &ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry[i]}
+    ciscoEnvMonSupplyStatusTable.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonSupplyStatusTable.EntityData.Children.Append("ciscoEnvMonSupplyStatusEntry", types.YChild{"CiscoEnvMonSupplyStatusEntry", nil})
+    for i := range ciscoEnvMonSupplyStatusTable.CiscoEnvMonSupplyStatusEntry {
+        ciscoEnvMonSupplyStatusTable.EntityData.Children.Append(types.GetSegmentPath(ciscoEnvMonSupplyStatusTable.CiscoEnvMonSupplyStatusEntry[i]), types.YChild{"CiscoEnvMonSupplyStatusEntry", ciscoEnvMonSupplyStatusTable.CiscoEnvMonSupplyStatusEntry[i]})
     }
-    ciscoenvmonsupplystatustable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ciscoenvmonsupplystatustable.EntityData)
+    ciscoEnvMonSupplyStatusTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoEnvMonSupplyStatusTable.EntityData.YListKeys = []string {}
+
+    return &(ciscoEnvMonSupplyStatusTable.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry
+// CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry
 // An entry in the power supply status table, representing the
 // status of the associated power supply maintained by the
 // environmental monitor card.
-type CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry struct {
+type CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique index for the power supply being
     // instrumented. This index is for SNMP purposes only, and has no intrinsic
     // meaning. The type is interface{} with range: 0..2147483647.
-    Ciscoenvmonsupplystatusindex interface{}
+    CiscoEnvMonSupplyStatusIndex interface{}
 
     // Textual description of the power supply being instrumented. This
     // description is a short textual label, suitable as a human-sensible
     // identification for the rest of the information in the entry. The type is
     // string with length: 0..64.
-    Ciscoenvmonsupplystatusdescr interface{}
+    CiscoEnvMonSupplyStatusDescr interface{}
 
     // The current state of the power supply being instrumented. The type is
     // CiscoEnvMonState.
-    Ciscoenvmonsupplystate interface{}
+    CiscoEnvMonSupplyState interface{}
 
     // The power supply source. unknown - Power supply source unknown ac      - AC
     // power supply dc      - DC power supply externalPowerSupply - External power
     // supply internalRedundant - Internal redundant power supply . The type is
-    // Ciscoenvmonsupplysource.
-    Ciscoenvmonsupplysource interface{}
+    // CiscoEnvMonSupplySource.
+    CiscoEnvMonSupplySource interface{}
 }
 
-func (ciscoenvmonsupplystatusentry *CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry) GetEntityData() *types.CommonEntityData {
-    ciscoenvmonsupplystatusentry.EntityData.YFilter = ciscoenvmonsupplystatusentry.YFilter
-    ciscoenvmonsupplystatusentry.EntityData.YangName = "ciscoEnvMonSupplyStatusEntry"
-    ciscoenvmonsupplystatusentry.EntityData.BundleName = "cisco_ios_xe"
-    ciscoenvmonsupplystatusentry.EntityData.ParentYangName = "ciscoEnvMonSupplyStatusTable"
-    ciscoenvmonsupplystatusentry.EntityData.SegmentPath = "ciscoEnvMonSupplyStatusEntry" + "[ciscoEnvMonSupplyStatusIndex='" + fmt.Sprintf("%v", ciscoenvmonsupplystatusentry.Ciscoenvmonsupplystatusindex) + "']"
-    ciscoenvmonsupplystatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoenvmonsupplystatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoenvmonsupplystatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoEnvMonSupplyStatusEntry *CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry) GetEntityData() *types.CommonEntityData {
+    ciscoEnvMonSupplyStatusEntry.EntityData.YFilter = ciscoEnvMonSupplyStatusEntry.YFilter
+    ciscoEnvMonSupplyStatusEntry.EntityData.YangName = "ciscoEnvMonSupplyStatusEntry"
+    ciscoEnvMonSupplyStatusEntry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoEnvMonSupplyStatusEntry.EntityData.ParentYangName = "ciscoEnvMonSupplyStatusTable"
+    ciscoEnvMonSupplyStatusEntry.EntityData.SegmentPath = "ciscoEnvMonSupplyStatusEntry" + types.AddKeyToken(ciscoEnvMonSupplyStatusEntry.CiscoEnvMonSupplyStatusIndex, "ciscoEnvMonSupplyStatusIndex")
+    ciscoEnvMonSupplyStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoEnvMonSupplyStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoEnvMonSupplyStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoenvmonsupplystatusentry.EntityData.Children = make(map[string]types.YChild)
-    ciscoenvmonsupplystatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoenvmonsupplystatusentry.EntityData.Leafs["ciscoEnvMonSupplyStatusIndex"] = types.YLeaf{"Ciscoenvmonsupplystatusindex", ciscoenvmonsupplystatusentry.Ciscoenvmonsupplystatusindex}
-    ciscoenvmonsupplystatusentry.EntityData.Leafs["ciscoEnvMonSupplyStatusDescr"] = types.YLeaf{"Ciscoenvmonsupplystatusdescr", ciscoenvmonsupplystatusentry.Ciscoenvmonsupplystatusdescr}
-    ciscoenvmonsupplystatusentry.EntityData.Leafs["ciscoEnvMonSupplyState"] = types.YLeaf{"Ciscoenvmonsupplystate", ciscoenvmonsupplystatusentry.Ciscoenvmonsupplystate}
-    ciscoenvmonsupplystatusentry.EntityData.Leafs["ciscoEnvMonSupplySource"] = types.YLeaf{"Ciscoenvmonsupplysource", ciscoenvmonsupplystatusentry.Ciscoenvmonsupplysource}
-    return &(ciscoenvmonsupplystatusentry.EntityData)
+    ciscoEnvMonSupplyStatusEntry.EntityData.Children = types.NewOrderedMap()
+    ciscoEnvMonSupplyStatusEntry.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEnvMonSupplyStatusEntry.EntityData.Leafs.Append("ciscoEnvMonSupplyStatusIndex", types.YLeaf{"CiscoEnvMonSupplyStatusIndex", ciscoEnvMonSupplyStatusEntry.CiscoEnvMonSupplyStatusIndex})
+    ciscoEnvMonSupplyStatusEntry.EntityData.Leafs.Append("ciscoEnvMonSupplyStatusDescr", types.YLeaf{"CiscoEnvMonSupplyStatusDescr", ciscoEnvMonSupplyStatusEntry.CiscoEnvMonSupplyStatusDescr})
+    ciscoEnvMonSupplyStatusEntry.EntityData.Leafs.Append("ciscoEnvMonSupplyState", types.YLeaf{"CiscoEnvMonSupplyState", ciscoEnvMonSupplyStatusEntry.CiscoEnvMonSupplyState})
+    ciscoEnvMonSupplyStatusEntry.EntityData.Leafs.Append("ciscoEnvMonSupplySource", types.YLeaf{"CiscoEnvMonSupplySource", ciscoEnvMonSupplyStatusEntry.CiscoEnvMonSupplySource})
+
+    ciscoEnvMonSupplyStatusEntry.EntityData.YListKeys = []string {"CiscoEnvMonSupplyStatusIndex"}
+
+    return &(ciscoEnvMonSupplyStatusEntry.EntityData)
 }
 
-// CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource represents internalRedundant - Internal redundant power supply 
-type CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource string
+// CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource represents internalRedundant - Internal redundant power supply 
+type CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource string
 
 const (
-    CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource_unknown CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource = "unknown"
+    CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource_unknown CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource = "unknown"
 
-    CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource_ac CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource = "ac"
+    CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource_ac CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource = "ac"
 
-    CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource_dc CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource = "dc"
+    CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource_dc CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource = "dc"
 
-    CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource_externalPowerSupply CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource = "externalPowerSupply"
+    CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource_externalPowerSupply CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource = "externalPowerSupply"
 
-    CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource_internalRedundant CISCOENVMONMIB_Ciscoenvmonsupplystatustable_Ciscoenvmonsupplystatusentry_Ciscoenvmonsupplysource = "internalRedundant"
+    CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource_internalRedundant CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry_CiscoEnvMonSupplySource = "internalRedundant"
 )
 

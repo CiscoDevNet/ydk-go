@@ -32,7 +32,7 @@ type NodePath struct {
 
     // Node (Physical location of the node in R_S_I format). The type is slice of
     // NodePath_Node.
-    Node []NodePath_Node
+    Node []*NodePath_Node
 }
 
 func (nodePath *NodePath) GetEntityData() *types.CommonEntityData {
@@ -45,12 +45,15 @@ func (nodePath *NodePath) GetEntityData() *types.CommonEntityData {
     nodePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodePath.EntityData.Children = make(map[string]types.YChild)
-    nodePath.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodePath.EntityData.Children = types.NewOrderedMap()
+    nodePath.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodePath.Node {
-        nodePath.EntityData.Children[types.GetSegmentPath(&nodePath.Node[i])] = types.YChild{"Node", &nodePath.Node[i]}
+        nodePath.EntityData.Children.Append(types.GetSegmentPath(nodePath.Node[i]), types.YChild{"Node", nodePath.Node[i]})
     }
-    nodePath.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodePath.EntityData.Leafs = types.NewOrderedMap()
+
+    nodePath.EntityData.YListKeys = []string {}
+
     return &(nodePath.EntityData)
 }
 
@@ -73,15 +76,18 @@ func (node *NodePath_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "node-path"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["slice-ids"] = types.YChild{"SliceIds", &node.SliceIds}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("slice-ids", types.YChild{"SliceIds", &node.SliceIds})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -93,7 +99,7 @@ type NodePath_Node_SliceIds struct {
 
     // Slice Id on which configuration will be applied. The type is slice of
     // NodePath_Node_SliceIds_SliceId.
-    SliceId []NodePath_Node_SliceIds_SliceId
+    SliceId []*NodePath_Node_SliceIds_SliceId
 }
 
 func (sliceIds *NodePath_Node_SliceIds) GetEntityData() *types.CommonEntityData {
@@ -106,12 +112,15 @@ func (sliceIds *NodePath_Node_SliceIds) GetEntityData() *types.CommonEntityData 
     sliceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sliceIds.EntityData.Children = make(map[string]types.YChild)
-    sliceIds.EntityData.Children["slice-id"] = types.YChild{"SliceId", nil}
+    sliceIds.EntityData.Children = types.NewOrderedMap()
+    sliceIds.EntityData.Children.Append("slice-id", types.YChild{"SliceId", nil})
     for i := range sliceIds.SliceId {
-        sliceIds.EntityData.Children[types.GetSegmentPath(&sliceIds.SliceId[i])] = types.YChild{"SliceId", &sliceIds.SliceId[i]}
+        sliceIds.EntityData.Children.Append(types.GetSegmentPath(sliceIds.SliceId[i]), types.YChild{"SliceId", sliceIds.SliceId[i]})
     }
-    sliceIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    sliceIds.EntityData.Leafs = types.NewOrderedMap()
+
+    sliceIds.EntityData.YListKeys = []string {}
+
     return &(sliceIds.EntityData)
 }
 
@@ -126,16 +135,13 @@ type NodePath_Node_SliceIds_SliceId struct {
     // interface{} with range: 0..4.
     SliceId interface{}
 
-    // set val 0 to shutdown. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // set val 0 to shutdown. The type is interface{} with range: 0..4294967295.
     State interface{}
 
-    // 10G Breakout Config. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 10G Breakout Config. The type is interface{} with range: 0..4294967295.
     Breakout interface{}
 
-    // set val 4 for OTU4 . The type is interface{} with range:
-    // -2147483648..2147483647.
+    // set val 4 for OTU4 . The type is interface{} with range: 0..4294967295.
     Mode interface{}
 }
 
@@ -144,17 +150,20 @@ func (sliceId *NodePath_Node_SliceIds_SliceId) GetEntityData() *types.CommonEnti
     sliceId.EntityData.YangName = "slice-id"
     sliceId.EntityData.BundleName = "cisco_ios_xr"
     sliceId.EntityData.ParentYangName = "slice-ids"
-    sliceId.EntityData.SegmentPath = "slice-id" + "[slice-id='" + fmt.Sprintf("%v", sliceId.SliceId) + "']"
+    sliceId.EntityData.SegmentPath = "slice-id" + types.AddKeyToken(sliceId.SliceId, "slice-id")
     sliceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sliceId.EntityData.Children = make(map[string]types.YChild)
-    sliceId.EntityData.Leafs = make(map[string]types.YLeaf)
-    sliceId.EntityData.Leafs["slice-id"] = types.YLeaf{"SliceId", sliceId.SliceId}
-    sliceId.EntityData.Leafs["state"] = types.YLeaf{"State", sliceId.State}
-    sliceId.EntityData.Leafs["breakout"] = types.YLeaf{"Breakout", sliceId.Breakout}
-    sliceId.EntityData.Leafs["mode"] = types.YLeaf{"Mode", sliceId.Mode}
+    sliceId.EntityData.Children = types.NewOrderedMap()
+    sliceId.EntityData.Leafs = types.NewOrderedMap()
+    sliceId.EntityData.Leafs.Append("slice-id", types.YLeaf{"SliceId", sliceId.SliceId})
+    sliceId.EntityData.Leafs.Append("state", types.YLeaf{"State", sliceId.State})
+    sliceId.EntityData.Leafs.Append("breakout", types.YLeaf{"Breakout", sliceId.Breakout})
+    sliceId.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", sliceId.Mode})
+
+    sliceId.EntityData.YListKeys = []string {"SliceId"}
+
     return &(sliceId.EntityData)
 }
 

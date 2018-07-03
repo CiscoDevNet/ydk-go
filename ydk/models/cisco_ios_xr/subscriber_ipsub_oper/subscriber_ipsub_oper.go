@@ -24,31 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber", reflect.TypeOf(IpSubscriber{}))
 }
 
-// IpsubMaParentIntfVlan represents Access interface VLAN type
-type IpsubMaParentIntfVlan string
-
-const (
-    // Plain
-    IpsubMaParentIntfVlan_plain IpsubMaParentIntfVlan = "plain"
-
-    // Ambiguous
-    IpsubMaParentIntfVlan_ambiguous IpsubMaParentIntfVlan = "ambiguous"
-)
-
-// IpsubMaParentIntfStateData represents Parent interface state
-type IpsubMaParentIntfStateData string
-
-const (
-    // Interface being deleted
-    IpsubMaParentIntfStateData_deleted IpsubMaParentIntfStateData = "deleted"
-
-    // Interface operationally down
-    IpsubMaParentIntfStateData_down IpsubMaParentIntfStateData = "down"
-
-    // Interface up
-    IpsubMaParentIntfStateData_up IpsubMaParentIntfStateData = "up"
-)
-
 // IpsubMaIntfStateData represents Interface states
 type IpsubMaIntfStateData string
 
@@ -102,7 +77,32 @@ const (
     IpsubMaIntfStateData_disconnected IpsubMaIntfStateData = "disconnected"
 
     // Session in error state
-    IpsubMaIntfStateData_error IpsubMaIntfStateData = "error"
+    IpsubMaIntfStateData_error_ IpsubMaIntfStateData = "error"
+)
+
+// IpsubMaParentIntfVlan represents Access interface VLAN type
+type IpsubMaParentIntfVlan string
+
+const (
+    // Plain
+    IpsubMaParentIntfVlan_plain IpsubMaParentIntfVlan = "plain"
+
+    // Ambiguous
+    IpsubMaParentIntfVlan_ambiguous IpsubMaParentIntfVlan = "ambiguous"
+)
+
+// IpsubMaParentIntfStateData represents Parent interface state
+type IpsubMaParentIntfStateData string
+
+const (
+    // Interface being deleted
+    IpsubMaParentIntfStateData_deleted IpsubMaParentIntfStateData = "deleted"
+
+    // Interface operationally down
+    IpsubMaParentIntfStateData_down IpsubMaParentIntfStateData = "down"
+
+    // Interface up
+    IpsubMaParentIntfStateData_up IpsubMaParentIntfStateData = "up"
 )
 
 // IpsubMaIntfInitiatorData represents Ipsub ma intf initiator data
@@ -139,9 +139,12 @@ func (ipSubscriber *IpSubscriber) GetEntityData() *types.CommonEntityData {
     ipSubscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriber.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriber.EntityData.Children["nodes"] = types.YChild{"Nodes", &ipSubscriber.Nodes}
-    ipSubscriber.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipSubscriber.EntityData.Children = types.NewOrderedMap()
+    ipSubscriber.EntityData.Children.Append("nodes", types.YChild{"Nodes", &ipSubscriber.Nodes})
+    ipSubscriber.EntityData.Leafs = types.NewOrderedMap()
+
+    ipSubscriber.EntityData.YListKeys = []string {}
+
     return &(ipSubscriber.EntityData)
 }
 
@@ -153,7 +156,7 @@ type IpSubscriber_Nodes struct {
     YFilter yfilter.YFilter
 
     // Location. For eg., 0/1/CPU0. The type is slice of IpSubscriber_Nodes_Node.
-    Node []IpSubscriber_Nodes_Node
+    Node []*IpSubscriber_Nodes_Node
 }
 
 func (nodes *IpSubscriber_Nodes) GetEntityData() *types.CommonEntityData {
@@ -166,12 +169,15 @@ func (nodes *IpSubscriber_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -182,8 +188,7 @@ type IpSubscriber_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node ID to filter on. For eg., 0/1/CPU0. The
-    // type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // type is string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // IP subscriber interface summary.
@@ -201,17 +206,20 @@ func (node *IpSubscriber_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["summary"] = types.YChild{"Summary", &node.Summary}
-    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
-    node.EntityData.Children["access-interfaces"] = types.YChild{"AccessInterfaces", &node.AccessInterfaces}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("summary", types.YChild{"Summary", &node.Summary})
+    node.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &node.Interfaces})
+    node.EntityData.Children.Append("access-interfaces", types.YChild{"AccessInterfaces", &node.AccessInterfaces})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -229,7 +237,7 @@ type IpSubscriber_Nodes_Node_Summary struct {
 
     // Array of VRFs with IPSUB interfaces. The type is slice of
     // IpSubscriber_Nodes_Node_Summary_Vrf.
-    Vrf []IpSubscriber_Nodes_Node_Summary_Vrf
+    Vrf []*IpSubscriber_Nodes_Node_Summary_Vrf
 }
 
 func (summary *IpSubscriber_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData {
@@ -242,14 +250,17 @@ func (summary *IpSubscriber_Nodes_Node_Summary) GetEntityData() *types.CommonEnt
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["access-interface-summary"] = types.YChild{"AccessInterfaceSummary", &summary.AccessInterfaceSummary}
-    summary.EntityData.Children["interface-counts"] = types.YChild{"InterfaceCounts", &summary.InterfaceCounts}
-    summary.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("access-interface-summary", types.YChild{"AccessInterfaceSummary", &summary.AccessInterfaceSummary})
+    summary.EntityData.Children.Append("interface-counts", types.YChild{"InterfaceCounts", &summary.InterfaceCounts})
+    summary.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range summary.Vrf {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.Vrf[i])] = types.YChild{"Vrf", &summary.Vrf[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.Vrf[i]), types.YChild{"Vrf", summary.Vrf[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -280,11 +291,14 @@ func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSum
     accessInterfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessInterfaceSummary.EntityData.Children = make(map[string]types.YChild)
-    accessInterfaceSummary.EntityData.Children["initiators"] = types.YChild{"Initiators", &accessInterfaceSummary.Initiators}
-    accessInterfaceSummary.EntityData.Children["ipv6-initiators"] = types.YChild{"Ipv6Initiators", &accessInterfaceSummary.Ipv6Initiators}
-    accessInterfaceSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessInterfaceSummary.EntityData.Leafs["interfaces"] = types.YLeaf{"Interfaces", accessInterfaceSummary.Interfaces}
+    accessInterfaceSummary.EntityData.Children = types.NewOrderedMap()
+    accessInterfaceSummary.EntityData.Children.Append("initiators", types.YChild{"Initiators", &accessInterfaceSummary.Initiators})
+    accessInterfaceSummary.EntityData.Children.Append("ipv6-initiators", types.YChild{"Ipv6Initiators", &accessInterfaceSummary.Ipv6Initiators})
+    accessInterfaceSummary.EntityData.Leafs = types.NewOrderedMap()
+    accessInterfaceSummary.EntityData.Leafs.Append("interfaces", types.YLeaf{"Interfaces", accessInterfaceSummary.Interfaces})
+
+    accessInterfaceSummary.EntityData.YListKeys = []string {}
+
     return &(accessInterfaceSummary.EntityData)
 }
 
@@ -311,10 +325,13 @@ func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiat
     initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    initiators.EntityData.Children = make(map[string]types.YChild)
-    initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &initiators.Dhcp}
-    initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &initiators.PacketTrigger}
-    initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    initiators.EntityData.Children = types.NewOrderedMap()
+    initiators.EntityData.Children.Append("dhcp", types.YChild{"Dhcp", &initiators.Dhcp})
+    initiators.EntityData.Children.Append("packet-trigger", types.YChild{"PacketTrigger", &initiators.PacketTrigger})
+    initiators.EntityData.Leafs = types.NewOrderedMap()
+
+    initiators.EntityData.YListKeys = []string {}
+
     return &(initiators.EntityData)
 }
 
@@ -343,10 +360,13 @@ func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dh
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dhcp.EntityData.Children = make(map[string]types.YChild)
-    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcp.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", dhcp.FsolPackets}
-    dhcp.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", dhcp.FsolBytes}
+    dhcp.EntityData.Children = types.NewOrderedMap()
+    dhcp.EntityData.Leafs = types.NewOrderedMap()
+    dhcp.EntityData.Leafs.Append("fsol-packets", types.YLeaf{"FsolPackets", dhcp.FsolPackets})
+    dhcp.EntityData.Leafs.Append("fsol-bytes", types.YLeaf{"FsolBytes", dhcp.FsolBytes})
+
+    dhcp.EntityData.YListKeys = []string {}
+
     return &(dhcp.EntityData)
 }
 
@@ -375,10 +395,13 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Init
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetTrigger.EntityData.Children = make(map[string]types.YChild)
-    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetTrigger.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", packetTrigger.FsolPackets}
-    packetTrigger.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", packetTrigger.FsolBytes}
+    packetTrigger.EntityData.Children = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs.Append("fsol-packets", types.YLeaf{"FsolPackets", packetTrigger.FsolPackets})
+    packetTrigger.EntityData.Leafs.Append("fsol-bytes", types.YLeaf{"FsolBytes", packetTrigger.FsolBytes})
+
+    packetTrigger.EntityData.YListKeys = []string {}
+
     return &(packetTrigger.EntityData)
 }
 
@@ -405,10 +428,13 @@ func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv
     ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Initiators.EntityData.Children = make(map[string]types.YChild)
-    ipv6Initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &ipv6Initiators.Dhcp}
-    ipv6Initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger}
-    ipv6Initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Initiators.EntityData.Children = types.NewOrderedMap()
+    ipv6Initiators.EntityData.Children.Append("dhcp", types.YChild{"Dhcp", &ipv6Initiators.Dhcp})
+    ipv6Initiators.EntityData.Children.Append("packet-trigger", types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger})
+    ipv6Initiators.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Initiators.EntityData.YListKeys = []string {}
+
     return &(ipv6Initiators.EntityData)
 }
 
@@ -437,10 +463,13 @@ func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiator
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dhcp.EntityData.Children = make(map[string]types.YChild)
-    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcp.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", dhcp.FsolPackets}
-    dhcp.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", dhcp.FsolBytes}
+    dhcp.EntityData.Children = types.NewOrderedMap()
+    dhcp.EntityData.Leafs = types.NewOrderedMap()
+    dhcp.EntityData.Leafs.Append("fsol-packets", types.YLeaf{"FsolPackets", dhcp.FsolPackets})
+    dhcp.EntityData.Leafs.Append("fsol-bytes", types.YLeaf{"FsolBytes", dhcp.FsolBytes})
+
+    dhcp.EntityData.YListKeys = []string {}
+
     return &(dhcp.EntityData)
 }
 
@@ -469,10 +498,13 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetTrigger.EntityData.Children = make(map[string]types.YChild)
-    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetTrigger.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", packetTrigger.FsolPackets}
-    packetTrigger.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", packetTrigger.FsolBytes}
+    packetTrigger.EntityData.Children = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs.Append("fsol-packets", types.YLeaf{"FsolPackets", packetTrigger.FsolPackets})
+    packetTrigger.EntityData.Leafs.Append("fsol-bytes", types.YLeaf{"FsolBytes", packetTrigger.FsolBytes})
+
+    packetTrigger.EntityData.YListKeys = []string {}
+
     return &(packetTrigger.EntityData)
 }
 
@@ -499,10 +531,13 @@ func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetEntit
     interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceCounts.EntityData.Children = make(map[string]types.YChild)
-    interfaceCounts.EntityData.Children["initiators"] = types.YChild{"Initiators", &interfaceCounts.Initiators}
-    interfaceCounts.EntityData.Children["ipv6-initiators"] = types.YChild{"Ipv6Initiators", &interfaceCounts.Ipv6Initiators}
-    interfaceCounts.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceCounts.EntityData.Children = types.NewOrderedMap()
+    interfaceCounts.EntityData.Children.Append("initiators", types.YChild{"Initiators", &interfaceCounts.Initiators})
+    interfaceCounts.EntityData.Children.Append("ipv6-initiators", types.YChild{"Ipv6Initiators", &interfaceCounts.Ipv6Initiators})
+    interfaceCounts.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceCounts.EntityData.YListKeys = []string {}
+
     return &(interfaceCounts.EntityData)
 }
 
@@ -529,10 +564,13 @@ func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) Ge
     initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    initiators.EntityData.Children = make(map[string]types.YChild)
-    initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &initiators.Dhcp}
-    initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &initiators.PacketTrigger}
-    initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    initiators.EntityData.Children = types.NewOrderedMap()
+    initiators.EntityData.Children.Append("dhcp", types.YChild{"Dhcp", &initiators.Dhcp})
+    initiators.EntityData.Children.Append("packet-trigger", types.YChild{"PacketTrigger", &initiators.PacketTrigger})
+    initiators.EntityData.Leafs = types.NewOrderedMap()
+
+    initiators.EntityData.YListKeys = []string {}
+
     return &(initiators.EntityData)
 }
 
@@ -602,23 +640,26 @@ func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) Get
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dhcp.EntityData.Children = make(map[string]types.YChild)
-    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcp.EntityData.Leafs["invalid"] = types.YLeaf{"Invalid", dhcp.Invalid}
-    dhcp.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", dhcp.Initialized}
-    dhcp.EntityData.Leafs["session-creation-started"] = types.YLeaf{"SessionCreationStarted", dhcp.SessionCreationStarted}
-    dhcp.EntityData.Leafs["control-policy-executing"] = types.YLeaf{"ControlPolicyExecuting", dhcp.ControlPolicyExecuting}
-    dhcp.EntityData.Leafs["control-policy-executed"] = types.YLeaf{"ControlPolicyExecuted", dhcp.ControlPolicyExecuted}
-    dhcp.EntityData.Leafs["session-features-applied"] = types.YLeaf{"SessionFeaturesApplied", dhcp.SessionFeaturesApplied}
-    dhcp.EntityData.Leafs["vrf-configured"] = types.YLeaf{"VrfConfigured", dhcp.VrfConfigured}
-    dhcp.EntityData.Leafs["adding-adjacency"] = types.YLeaf{"AddingAdjacency", dhcp.AddingAdjacency}
-    dhcp.EntityData.Leafs["adjacency-added"] = types.YLeaf{"AdjacencyAdded", dhcp.AdjacencyAdded}
-    dhcp.EntityData.Leafs["up"] = types.YLeaf{"Up", dhcp.Up}
-    dhcp.EntityData.Leafs["down"] = types.YLeaf{"Down", dhcp.Down}
-    dhcp.EntityData.Leafs["disconnecting"] = types.YLeaf{"Disconnecting", dhcp.Disconnecting}
-    dhcp.EntityData.Leafs["disconnected"] = types.YLeaf{"Disconnected", dhcp.Disconnected}
-    dhcp.EntityData.Leafs["error"] = types.YLeaf{"Error", dhcp.Error}
-    dhcp.EntityData.Leafs["total-interfaces"] = types.YLeaf{"TotalInterfaces", dhcp.TotalInterfaces}
+    dhcp.EntityData.Children = types.NewOrderedMap()
+    dhcp.EntityData.Leafs = types.NewOrderedMap()
+    dhcp.EntityData.Leafs.Append("invalid", types.YLeaf{"Invalid", dhcp.Invalid})
+    dhcp.EntityData.Leafs.Append("initialized", types.YLeaf{"Initialized", dhcp.Initialized})
+    dhcp.EntityData.Leafs.Append("session-creation-started", types.YLeaf{"SessionCreationStarted", dhcp.SessionCreationStarted})
+    dhcp.EntityData.Leafs.Append("control-policy-executing", types.YLeaf{"ControlPolicyExecuting", dhcp.ControlPolicyExecuting})
+    dhcp.EntityData.Leafs.Append("control-policy-executed", types.YLeaf{"ControlPolicyExecuted", dhcp.ControlPolicyExecuted})
+    dhcp.EntityData.Leafs.Append("session-features-applied", types.YLeaf{"SessionFeaturesApplied", dhcp.SessionFeaturesApplied})
+    dhcp.EntityData.Leafs.Append("vrf-configured", types.YLeaf{"VrfConfigured", dhcp.VrfConfigured})
+    dhcp.EntityData.Leafs.Append("adding-adjacency", types.YLeaf{"AddingAdjacency", dhcp.AddingAdjacency})
+    dhcp.EntityData.Leafs.Append("adjacency-added", types.YLeaf{"AdjacencyAdded", dhcp.AdjacencyAdded})
+    dhcp.EntityData.Leafs.Append("up", types.YLeaf{"Up", dhcp.Up})
+    dhcp.EntityData.Leafs.Append("down", types.YLeaf{"Down", dhcp.Down})
+    dhcp.EntityData.Leafs.Append("disconnecting", types.YLeaf{"Disconnecting", dhcp.Disconnecting})
+    dhcp.EntityData.Leafs.Append("disconnected", types.YLeaf{"Disconnected", dhcp.Disconnected})
+    dhcp.EntityData.Leafs.Append("error", types.YLeaf{"Error", dhcp.Error})
+    dhcp.EntityData.Leafs.Append("total-interfaces", types.YLeaf{"TotalInterfaces", dhcp.TotalInterfaces})
+
+    dhcp.EntityData.YListKeys = []string {}
+
     return &(dhcp.EntityData)
 }
 
@@ -688,23 +729,26 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetTrigger.EntityData.Children = make(map[string]types.YChild)
-    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetTrigger.EntityData.Leafs["invalid"] = types.YLeaf{"Invalid", packetTrigger.Invalid}
-    packetTrigger.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", packetTrigger.Initialized}
-    packetTrigger.EntityData.Leafs["session-creation-started"] = types.YLeaf{"SessionCreationStarted", packetTrigger.SessionCreationStarted}
-    packetTrigger.EntityData.Leafs["control-policy-executing"] = types.YLeaf{"ControlPolicyExecuting", packetTrigger.ControlPolicyExecuting}
-    packetTrigger.EntityData.Leafs["control-policy-executed"] = types.YLeaf{"ControlPolicyExecuted", packetTrigger.ControlPolicyExecuted}
-    packetTrigger.EntityData.Leafs["session-features-applied"] = types.YLeaf{"SessionFeaturesApplied", packetTrigger.SessionFeaturesApplied}
-    packetTrigger.EntityData.Leafs["vrf-configured"] = types.YLeaf{"VrfConfigured", packetTrigger.VrfConfigured}
-    packetTrigger.EntityData.Leafs["adding-adjacency"] = types.YLeaf{"AddingAdjacency", packetTrigger.AddingAdjacency}
-    packetTrigger.EntityData.Leafs["adjacency-added"] = types.YLeaf{"AdjacencyAdded", packetTrigger.AdjacencyAdded}
-    packetTrigger.EntityData.Leafs["up"] = types.YLeaf{"Up", packetTrigger.Up}
-    packetTrigger.EntityData.Leafs["down"] = types.YLeaf{"Down", packetTrigger.Down}
-    packetTrigger.EntityData.Leafs["disconnecting"] = types.YLeaf{"Disconnecting", packetTrigger.Disconnecting}
-    packetTrigger.EntityData.Leafs["disconnected"] = types.YLeaf{"Disconnected", packetTrigger.Disconnected}
-    packetTrigger.EntityData.Leafs["error"] = types.YLeaf{"Error", packetTrigger.Error}
-    packetTrigger.EntityData.Leafs["total-interfaces"] = types.YLeaf{"TotalInterfaces", packetTrigger.TotalInterfaces}
+    packetTrigger.EntityData.Children = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs.Append("invalid", types.YLeaf{"Invalid", packetTrigger.Invalid})
+    packetTrigger.EntityData.Leafs.Append("initialized", types.YLeaf{"Initialized", packetTrigger.Initialized})
+    packetTrigger.EntityData.Leafs.Append("session-creation-started", types.YLeaf{"SessionCreationStarted", packetTrigger.SessionCreationStarted})
+    packetTrigger.EntityData.Leafs.Append("control-policy-executing", types.YLeaf{"ControlPolicyExecuting", packetTrigger.ControlPolicyExecuting})
+    packetTrigger.EntityData.Leafs.Append("control-policy-executed", types.YLeaf{"ControlPolicyExecuted", packetTrigger.ControlPolicyExecuted})
+    packetTrigger.EntityData.Leafs.Append("session-features-applied", types.YLeaf{"SessionFeaturesApplied", packetTrigger.SessionFeaturesApplied})
+    packetTrigger.EntityData.Leafs.Append("vrf-configured", types.YLeaf{"VrfConfigured", packetTrigger.VrfConfigured})
+    packetTrigger.EntityData.Leafs.Append("adding-adjacency", types.YLeaf{"AddingAdjacency", packetTrigger.AddingAdjacency})
+    packetTrigger.EntityData.Leafs.Append("adjacency-added", types.YLeaf{"AdjacencyAdded", packetTrigger.AdjacencyAdded})
+    packetTrigger.EntityData.Leafs.Append("up", types.YLeaf{"Up", packetTrigger.Up})
+    packetTrigger.EntityData.Leafs.Append("down", types.YLeaf{"Down", packetTrigger.Down})
+    packetTrigger.EntityData.Leafs.Append("disconnecting", types.YLeaf{"Disconnecting", packetTrigger.Disconnecting})
+    packetTrigger.EntityData.Leafs.Append("disconnected", types.YLeaf{"Disconnected", packetTrigger.Disconnected})
+    packetTrigger.EntityData.Leafs.Append("error", types.YLeaf{"Error", packetTrigger.Error})
+    packetTrigger.EntityData.Leafs.Append("total-interfaces", types.YLeaf{"TotalInterfaces", packetTrigger.TotalInterfaces})
+
+    packetTrigger.EntityData.YListKeys = []string {}
+
     return &(packetTrigger.EntityData)
 }
 
@@ -731,10 +775,13 @@ func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initia
     ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Initiators.EntityData.Children = make(map[string]types.YChild)
-    ipv6Initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &ipv6Initiators.Dhcp}
-    ipv6Initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger}
-    ipv6Initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Initiators.EntityData.Children = types.NewOrderedMap()
+    ipv6Initiators.EntityData.Children.Append("dhcp", types.YChild{"Dhcp", &ipv6Initiators.Dhcp})
+    ipv6Initiators.EntityData.Children.Append("packet-trigger", types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger})
+    ipv6Initiators.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Initiators.EntityData.YListKeys = []string {}
+
     return &(ipv6Initiators.EntityData)
 }
 
@@ -804,23 +851,26 @@ func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp)
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dhcp.EntityData.Children = make(map[string]types.YChild)
-    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcp.EntityData.Leafs["invalid"] = types.YLeaf{"Invalid", dhcp.Invalid}
-    dhcp.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", dhcp.Initialized}
-    dhcp.EntityData.Leafs["session-creation-started"] = types.YLeaf{"SessionCreationStarted", dhcp.SessionCreationStarted}
-    dhcp.EntityData.Leafs["control-policy-executing"] = types.YLeaf{"ControlPolicyExecuting", dhcp.ControlPolicyExecuting}
-    dhcp.EntityData.Leafs["control-policy-executed"] = types.YLeaf{"ControlPolicyExecuted", dhcp.ControlPolicyExecuted}
-    dhcp.EntityData.Leafs["session-features-applied"] = types.YLeaf{"SessionFeaturesApplied", dhcp.SessionFeaturesApplied}
-    dhcp.EntityData.Leafs["vrf-configured"] = types.YLeaf{"VrfConfigured", dhcp.VrfConfigured}
-    dhcp.EntityData.Leafs["adding-adjacency"] = types.YLeaf{"AddingAdjacency", dhcp.AddingAdjacency}
-    dhcp.EntityData.Leafs["adjacency-added"] = types.YLeaf{"AdjacencyAdded", dhcp.AdjacencyAdded}
-    dhcp.EntityData.Leafs["up"] = types.YLeaf{"Up", dhcp.Up}
-    dhcp.EntityData.Leafs["down"] = types.YLeaf{"Down", dhcp.Down}
-    dhcp.EntityData.Leafs["disconnecting"] = types.YLeaf{"Disconnecting", dhcp.Disconnecting}
-    dhcp.EntityData.Leafs["disconnected"] = types.YLeaf{"Disconnected", dhcp.Disconnected}
-    dhcp.EntityData.Leafs["error"] = types.YLeaf{"Error", dhcp.Error}
-    dhcp.EntityData.Leafs["total-interfaces"] = types.YLeaf{"TotalInterfaces", dhcp.TotalInterfaces}
+    dhcp.EntityData.Children = types.NewOrderedMap()
+    dhcp.EntityData.Leafs = types.NewOrderedMap()
+    dhcp.EntityData.Leafs.Append("invalid", types.YLeaf{"Invalid", dhcp.Invalid})
+    dhcp.EntityData.Leafs.Append("initialized", types.YLeaf{"Initialized", dhcp.Initialized})
+    dhcp.EntityData.Leafs.Append("session-creation-started", types.YLeaf{"SessionCreationStarted", dhcp.SessionCreationStarted})
+    dhcp.EntityData.Leafs.Append("control-policy-executing", types.YLeaf{"ControlPolicyExecuting", dhcp.ControlPolicyExecuting})
+    dhcp.EntityData.Leafs.Append("control-policy-executed", types.YLeaf{"ControlPolicyExecuted", dhcp.ControlPolicyExecuted})
+    dhcp.EntityData.Leafs.Append("session-features-applied", types.YLeaf{"SessionFeaturesApplied", dhcp.SessionFeaturesApplied})
+    dhcp.EntityData.Leafs.Append("vrf-configured", types.YLeaf{"VrfConfigured", dhcp.VrfConfigured})
+    dhcp.EntityData.Leafs.Append("adding-adjacency", types.YLeaf{"AddingAdjacency", dhcp.AddingAdjacency})
+    dhcp.EntityData.Leafs.Append("adjacency-added", types.YLeaf{"AdjacencyAdded", dhcp.AdjacencyAdded})
+    dhcp.EntityData.Leafs.Append("up", types.YLeaf{"Up", dhcp.Up})
+    dhcp.EntityData.Leafs.Append("down", types.YLeaf{"Down", dhcp.Down})
+    dhcp.EntityData.Leafs.Append("disconnecting", types.YLeaf{"Disconnecting", dhcp.Disconnecting})
+    dhcp.EntityData.Leafs.Append("disconnected", types.YLeaf{"Disconnected", dhcp.Disconnected})
+    dhcp.EntityData.Leafs.Append("error", types.YLeaf{"Error", dhcp.Error})
+    dhcp.EntityData.Leafs.Append("total-interfaces", types.YLeaf{"TotalInterfaces", dhcp.TotalInterfaces})
+
+    dhcp.EntityData.YListKeys = []string {}
+
     return &(dhcp.EntityData)
 }
 
@@ -890,23 +940,26 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiat
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetTrigger.EntityData.Children = make(map[string]types.YChild)
-    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetTrigger.EntityData.Leafs["invalid"] = types.YLeaf{"Invalid", packetTrigger.Invalid}
-    packetTrigger.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", packetTrigger.Initialized}
-    packetTrigger.EntityData.Leafs["session-creation-started"] = types.YLeaf{"SessionCreationStarted", packetTrigger.SessionCreationStarted}
-    packetTrigger.EntityData.Leafs["control-policy-executing"] = types.YLeaf{"ControlPolicyExecuting", packetTrigger.ControlPolicyExecuting}
-    packetTrigger.EntityData.Leafs["control-policy-executed"] = types.YLeaf{"ControlPolicyExecuted", packetTrigger.ControlPolicyExecuted}
-    packetTrigger.EntityData.Leafs["session-features-applied"] = types.YLeaf{"SessionFeaturesApplied", packetTrigger.SessionFeaturesApplied}
-    packetTrigger.EntityData.Leafs["vrf-configured"] = types.YLeaf{"VrfConfigured", packetTrigger.VrfConfigured}
-    packetTrigger.EntityData.Leafs["adding-adjacency"] = types.YLeaf{"AddingAdjacency", packetTrigger.AddingAdjacency}
-    packetTrigger.EntityData.Leafs["adjacency-added"] = types.YLeaf{"AdjacencyAdded", packetTrigger.AdjacencyAdded}
-    packetTrigger.EntityData.Leafs["up"] = types.YLeaf{"Up", packetTrigger.Up}
-    packetTrigger.EntityData.Leafs["down"] = types.YLeaf{"Down", packetTrigger.Down}
-    packetTrigger.EntityData.Leafs["disconnecting"] = types.YLeaf{"Disconnecting", packetTrigger.Disconnecting}
-    packetTrigger.EntityData.Leafs["disconnected"] = types.YLeaf{"Disconnected", packetTrigger.Disconnected}
-    packetTrigger.EntityData.Leafs["error"] = types.YLeaf{"Error", packetTrigger.Error}
-    packetTrigger.EntityData.Leafs["total-interfaces"] = types.YLeaf{"TotalInterfaces", packetTrigger.TotalInterfaces}
+    packetTrigger.EntityData.Children = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs.Append("invalid", types.YLeaf{"Invalid", packetTrigger.Invalid})
+    packetTrigger.EntityData.Leafs.Append("initialized", types.YLeaf{"Initialized", packetTrigger.Initialized})
+    packetTrigger.EntityData.Leafs.Append("session-creation-started", types.YLeaf{"SessionCreationStarted", packetTrigger.SessionCreationStarted})
+    packetTrigger.EntityData.Leafs.Append("control-policy-executing", types.YLeaf{"ControlPolicyExecuting", packetTrigger.ControlPolicyExecuting})
+    packetTrigger.EntityData.Leafs.Append("control-policy-executed", types.YLeaf{"ControlPolicyExecuted", packetTrigger.ControlPolicyExecuted})
+    packetTrigger.EntityData.Leafs.Append("session-features-applied", types.YLeaf{"SessionFeaturesApplied", packetTrigger.SessionFeaturesApplied})
+    packetTrigger.EntityData.Leafs.Append("vrf-configured", types.YLeaf{"VrfConfigured", packetTrigger.VrfConfigured})
+    packetTrigger.EntityData.Leafs.Append("adding-adjacency", types.YLeaf{"AddingAdjacency", packetTrigger.AddingAdjacency})
+    packetTrigger.EntityData.Leafs.Append("adjacency-added", types.YLeaf{"AdjacencyAdded", packetTrigger.AdjacencyAdded})
+    packetTrigger.EntityData.Leafs.Append("up", types.YLeaf{"Up", packetTrigger.Up})
+    packetTrigger.EntityData.Leafs.Append("down", types.YLeaf{"Down", packetTrigger.Down})
+    packetTrigger.EntityData.Leafs.Append("disconnecting", types.YLeaf{"Disconnecting", packetTrigger.Disconnecting})
+    packetTrigger.EntityData.Leafs.Append("disconnected", types.YLeaf{"Disconnected", packetTrigger.Disconnected})
+    packetTrigger.EntityData.Leafs.Append("error", types.YLeaf{"Error", packetTrigger.Error})
+    packetTrigger.EntityData.Leafs.Append("total-interfaces", types.YLeaf{"TotalInterfaces", packetTrigger.TotalInterfaces})
+
+    packetTrigger.EntityData.YListKeys = []string {}
+
     return &(packetTrigger.EntityData)
 }
 
@@ -920,7 +973,7 @@ type IpSubscriber_Nodes_Node_Summary_Vrf struct {
     VrfName interface{}
 
     // IPv6 VRF. The type is string.
-    Ipv6VrfName interface{}
+    Ipv6vrfName interface{}
 
     // Number of IP subscriber interfaces in the VRF table. The type is
     // interface{} with range: 0..18446744073709551615.
@@ -941,12 +994,15 @@ func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetEntityData() *types.CommonEnt
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["ipv6vrf-name"] = types.YLeaf{"Ipv6VrfName", vrf.Ipv6VrfName}
-    vrf.EntityData.Leafs["interfaces"] = types.YLeaf{"Interfaces", vrf.Interfaces}
-    vrf.EntityData.Leafs["ipv6-interfaces"] = types.YLeaf{"Ipv6Interfaces", vrf.Ipv6Interfaces}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("ipv6vrf-name", types.YLeaf{"Ipv6vrfName", vrf.Ipv6vrfName})
+    vrf.EntityData.Leafs.Append("interfaces", types.YLeaf{"Interfaces", vrf.Interfaces})
+    vrf.EntityData.Leafs.Append("ipv6-interfaces", types.YLeaf{"Ipv6Interfaces", vrf.Ipv6Interfaces})
+
+    vrf.EntityData.YListKeys = []string {}
+
     return &(vrf.EntityData)
 }
 
@@ -957,8 +1013,8 @@ type IpSubscriber_Nodes_Node_Interfaces struct {
     YFilter yfilter.YFilter
 
     // IP subscriber interface entry. The type is slice of
-    // IpSubscriber_Nodes_Node_Interfaces_Interface_.
-    Interface_ []IpSubscriber_Nodes_Node_Interfaces_Interface
+    // IpSubscriber_Nodes_Node_Interfaces_Interface.
+    Interface []*IpSubscriber_Nodes_Node_Interfaces_Interface
 }
 
 func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -971,12 +1027,15 @@ func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -987,22 +1046,22 @@ type IpSubscriber_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Access interface through which this subscriber is accessible. The type is
-    // string with pattern: b'[a-zA-Z0-9./-]+'.
+    // string with pattern: [a-zA-Z0-9./-]+.
     AccessInterface interface{}
 
     // IPv4 Address of the subscriber. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubscriberIpv4Address interface{}
 
     // IPv6 Address of the subscriber. The type is string.
     SubscriberIpv6Address interface{}
 
     // MAC address of the subscriber. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SubscriberMacAddres interface{}
 
     // Subscriber label for this subscriber interface. The type is interface{}
@@ -1060,7 +1119,7 @@ type IpSubscriber_Nodes_Node_Interfaces_Interface struct {
     Vrf IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf
 
     // IPv6 VRF details.
-    Ipv6Vrf IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf
+    Ipv6vrf IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6vrf
 }
 
 func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
@@ -1068,35 +1127,38 @@ func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetEntityData() *types
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["vrf"] = types.YChild{"Vrf", &self.Vrf}
-    self.EntityData.Children["ipv6vrf"] = types.YChild{"Ipv6Vrf", &self.Ipv6Vrf}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["access-interface"] = types.YLeaf{"AccessInterface", self.AccessInterface}
-    self.EntityData.Leafs["subscriber-ipv4-address"] = types.YLeaf{"SubscriberIpv4Address", self.SubscriberIpv4Address}
-    self.EntityData.Leafs["subscriber-ipv6-address"] = types.YLeaf{"SubscriberIpv6Address", self.SubscriberIpv6Address}
-    self.EntityData.Leafs["subscriber-mac-addres"] = types.YLeaf{"SubscriberMacAddres", self.SubscriberMacAddres}
-    self.EntityData.Leafs["subscriber-label"] = types.YLeaf{"SubscriberLabel", self.SubscriberLabel}
-    self.EntityData.Leafs["interface-creation-time"] = types.YLeaf{"InterfaceCreationTime", self.InterfaceCreationTime}
-    self.EntityData.Leafs["age"] = types.YLeaf{"Age", self.Age}
-    self.EntityData.Leafs["initiator"] = types.YLeaf{"Initiator", self.Initiator}
-    self.EntityData.Leafs["state"] = types.YLeaf{"State", self.State}
-    self.EntityData.Leafs["old-state"] = types.YLeaf{"OldState", self.OldState}
-    self.EntityData.Leafs["last-state-change-time"] = types.YLeaf{"LastStateChangeTime", self.LastStateChangeTime}
-    self.EntityData.Leafs["current-change-age"] = types.YLeaf{"CurrentChangeAge", self.CurrentChangeAge}
-    self.EntityData.Leafs["ipv6-initiator"] = types.YLeaf{"Ipv6Initiator", self.Ipv6Initiator}
-    self.EntityData.Leafs["ipv6-state"] = types.YLeaf{"Ipv6State", self.Ipv6State}
-    self.EntityData.Leafs["ipv6-old-state"] = types.YLeaf{"Ipv6OldState", self.Ipv6OldState}
-    self.EntityData.Leafs["ipv6-last-state-change-time"] = types.YLeaf{"Ipv6LastStateChangeTime", self.Ipv6LastStateChangeTime}
-    self.EntityData.Leafs["ipv6-current-change-age"] = types.YLeaf{"Ipv6CurrentChangeAge", self.Ipv6CurrentChangeAge}
-    self.EntityData.Leafs["is-l2-connected"] = types.YLeaf{"IsL2Connected", self.IsL2Connected}
-    self.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", self.SessionType}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("vrf", types.YChild{"Vrf", &self.Vrf})
+    self.EntityData.Children.Append("ipv6vrf", types.YChild{"Ipv6vrf", &self.Ipv6vrf})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("access-interface", types.YLeaf{"AccessInterface", self.AccessInterface})
+    self.EntityData.Leafs.Append("subscriber-ipv4-address", types.YLeaf{"SubscriberIpv4Address", self.SubscriberIpv4Address})
+    self.EntityData.Leafs.Append("subscriber-ipv6-address", types.YLeaf{"SubscriberIpv6Address", self.SubscriberIpv6Address})
+    self.EntityData.Leafs.Append("subscriber-mac-addres", types.YLeaf{"SubscriberMacAddres", self.SubscriberMacAddres})
+    self.EntityData.Leafs.Append("subscriber-label", types.YLeaf{"SubscriberLabel", self.SubscriberLabel})
+    self.EntityData.Leafs.Append("interface-creation-time", types.YLeaf{"InterfaceCreationTime", self.InterfaceCreationTime})
+    self.EntityData.Leafs.Append("age", types.YLeaf{"Age", self.Age})
+    self.EntityData.Leafs.Append("initiator", types.YLeaf{"Initiator", self.Initiator})
+    self.EntityData.Leafs.Append("state", types.YLeaf{"State", self.State})
+    self.EntityData.Leafs.Append("old-state", types.YLeaf{"OldState", self.OldState})
+    self.EntityData.Leafs.Append("last-state-change-time", types.YLeaf{"LastStateChangeTime", self.LastStateChangeTime})
+    self.EntityData.Leafs.Append("current-change-age", types.YLeaf{"CurrentChangeAge", self.CurrentChangeAge})
+    self.EntityData.Leafs.Append("ipv6-initiator", types.YLeaf{"Ipv6Initiator", self.Ipv6Initiator})
+    self.EntityData.Leafs.Append("ipv6-state", types.YLeaf{"Ipv6State", self.Ipv6State})
+    self.EntityData.Leafs.Append("ipv6-old-state", types.YLeaf{"Ipv6OldState", self.Ipv6OldState})
+    self.EntityData.Leafs.Append("ipv6-last-state-change-time", types.YLeaf{"Ipv6LastStateChangeTime", self.Ipv6LastStateChangeTime})
+    self.EntityData.Leafs.Append("ipv6-current-change-age", types.YLeaf{"Ipv6CurrentChangeAge", self.Ipv6CurrentChangeAge})
+    self.EntityData.Leafs.Append("is-l2-connected", types.YLeaf{"IsL2Connected", self.IsL2Connected})
+    self.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", self.SessionType})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1123,16 +1185,19 @@ func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetEntityData() *ty
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["table-name"] = types.YLeaf{"TableName", vrf.TableName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", vrf.TableName})
+
+    vrf.EntityData.YListKeys = []string {}
+
     return &(vrf.EntityData)
 }
 
-// IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf
+// IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6vrf
 // IPv6 VRF details
-type IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf struct {
+type IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1143,21 +1208,24 @@ type IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf struct {
     TableName interface{}
 }
 
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetEntityData() *types.CommonEntityData {
-    ipv6Vrf.EntityData.YFilter = ipv6Vrf.YFilter
-    ipv6Vrf.EntityData.YangName = "ipv6vrf"
-    ipv6Vrf.EntityData.BundleName = "cisco_ios_xr"
-    ipv6Vrf.EntityData.ParentYangName = "interface"
-    ipv6Vrf.EntityData.SegmentPath = "ipv6vrf"
-    ipv6Vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6Vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6Vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv6vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6vrf) GetEntityData() *types.CommonEntityData {
+    ipv6vrf.EntityData.YFilter = ipv6vrf.YFilter
+    ipv6vrf.EntityData.YangName = "ipv6vrf"
+    ipv6vrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv6vrf.EntityData.ParentYangName = "interface"
+    ipv6vrf.EntityData.SegmentPath = "ipv6vrf"
+    ipv6vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Vrf.EntityData.Children = make(map[string]types.YChild)
-    ipv6Vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6Vrf.VrfName}
-    ipv6Vrf.EntityData.Leafs["table-name"] = types.YLeaf{"TableName", ipv6Vrf.TableName}
-    return &(ipv6Vrf.EntityData)
+    ipv6vrf.EntityData.Children = types.NewOrderedMap()
+    ipv6vrf.EntityData.Leafs = types.NewOrderedMap()
+    ipv6vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6vrf.VrfName})
+    ipv6vrf.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", ipv6vrf.TableName})
+
+    ipv6vrf.EntityData.YListKeys = []string {}
+
+    return &(ipv6vrf.EntityData)
 }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces
@@ -1168,7 +1236,7 @@ type IpSubscriber_Nodes_Node_AccessInterfaces struct {
 
     // IP subscriber access interface entry. The type is slice of
     // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface.
-    AccessInterface []IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface
+    AccessInterface []*IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface
 }
 
 func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetEntityData() *types.CommonEntityData {
@@ -1181,12 +1249,15 @@ func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetEntityData(
     accessInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessInterfaces.EntityData.Children = make(map[string]types.YChild)
-    accessInterfaces.EntityData.Children["access-interface"] = types.YChild{"AccessInterface", nil}
+    accessInterfaces.EntityData.Children = types.NewOrderedMap()
+    accessInterfaces.EntityData.Children.Append("access-interface", types.YChild{"AccessInterface", nil})
     for i := range accessInterfaces.AccessInterface {
-        accessInterfaces.EntityData.Children[types.GetSegmentPath(&accessInterfaces.AccessInterface[i])] = types.YChild{"AccessInterface", &accessInterfaces.AccessInterface[i]}
+        accessInterfaces.EntityData.Children.Append(types.GetSegmentPath(accessInterfaces.AccessInterface[i]), types.YChild{"AccessInterface", accessInterfaces.AccessInterface[i]})
     }
-    accessInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    accessInterfaces.EntityData.YListKeys = []string {}
+
     return &(accessInterfaces.EntityData)
 }
 
@@ -1197,7 +1268,7 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface creation time in Month Date HH:MM:SS format. The type is string.
@@ -1237,23 +1308,26 @@ func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface)
     accessInterface.EntityData.YangName = "access-interface"
     accessInterface.EntityData.BundleName = "cisco_ios_xr"
     accessInterface.EntityData.ParentYangName = "access-interfaces"
-    accessInterface.EntityData.SegmentPath = "access-interface" + "[interface-name='" + fmt.Sprintf("%v", accessInterface.InterfaceName) + "']"
+    accessInterface.EntityData.SegmentPath = "access-interface" + types.AddKeyToken(accessInterface.InterfaceName, "interface-name")
     accessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessInterface.EntityData.Children = make(map[string]types.YChild)
-    accessInterface.EntityData.Children["initiators"] = types.YChild{"Initiators", &accessInterface.Initiators}
-    accessInterface.EntityData.Children["ipv6-initiators"] = types.YChild{"Ipv6Initiators", &accessInterface.Ipv6Initiators}
-    accessInterface.EntityData.Children["session-limit"] = types.YChild{"SessionLimit", &accessInterface.SessionLimit}
-    accessInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", accessInterface.InterfaceName}
-    accessInterface.EntityData.Leafs["interface-creation-time"] = types.YLeaf{"InterfaceCreationTime", accessInterface.InterfaceCreationTime}
-    accessInterface.EntityData.Leafs["age"] = types.YLeaf{"Age", accessInterface.Age}
-    accessInterface.EntityData.Leafs["interface-type"] = types.YLeaf{"InterfaceType", accessInterface.InterfaceType}
-    accessInterface.EntityData.Leafs["state"] = types.YLeaf{"State", accessInterface.State}
-    accessInterface.EntityData.Leafs["ipv6-state"] = types.YLeaf{"Ipv6State", accessInterface.Ipv6State}
-    accessInterface.EntityData.Leafs["vlan-type"] = types.YLeaf{"VlanType", accessInterface.VlanType}
+    accessInterface.EntityData.Children = types.NewOrderedMap()
+    accessInterface.EntityData.Children.Append("initiators", types.YChild{"Initiators", &accessInterface.Initiators})
+    accessInterface.EntityData.Children.Append("ipv6-initiators", types.YChild{"Ipv6Initiators", &accessInterface.Ipv6Initiators})
+    accessInterface.EntityData.Children.Append("session-limit", types.YChild{"SessionLimit", &accessInterface.SessionLimit})
+    accessInterface.EntityData.Leafs = types.NewOrderedMap()
+    accessInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", accessInterface.InterfaceName})
+    accessInterface.EntityData.Leafs.Append("interface-creation-time", types.YLeaf{"InterfaceCreationTime", accessInterface.InterfaceCreationTime})
+    accessInterface.EntityData.Leafs.Append("age", types.YLeaf{"Age", accessInterface.Age})
+    accessInterface.EntityData.Leafs.Append("interface-type", types.YLeaf{"InterfaceType", accessInterface.InterfaceType})
+    accessInterface.EntityData.Leafs.Append("state", types.YLeaf{"State", accessInterface.State})
+    accessInterface.EntityData.Leafs.Append("ipv6-state", types.YLeaf{"Ipv6State", accessInterface.Ipv6State})
+    accessInterface.EntityData.Leafs.Append("vlan-type", types.YLeaf{"VlanType", accessInterface.VlanType})
+
+    accessInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(accessInterface.EntityData)
 }
 
@@ -1282,10 +1356,13 @@ func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initi
     initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    initiators.EntityData.Children = make(map[string]types.YChild)
-    initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &initiators.Dhcp}
-    initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &initiators.PacketTrigger}
-    initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    initiators.EntityData.Children = types.NewOrderedMap()
+    initiators.EntityData.Children.Append("dhcp", types.YChild{"Dhcp", &initiators.Dhcp})
+    initiators.EntityData.Children.Append("packet-trigger", types.YChild{"PacketTrigger", &initiators.PacketTrigger})
+    initiators.EntityData.Leafs = types.NewOrderedMap()
+
+    initiators.EntityData.YListKeys = []string {}
+
     return &(initiators.EntityData)
 }
 
@@ -1352,18 +1429,21 @@ func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dhcp.EntityData.Children = make(map[string]types.YChild)
-    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcp.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", dhcp.IsConfigured}
-    dhcp.EntityData.Leafs["unique-ip-check"] = types.YLeaf{"UniqueIpCheck", dhcp.UniqueIpCheck}
-    dhcp.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", dhcp.Sessions}
-    dhcp.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", dhcp.FsolPackets}
-    dhcp.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", dhcp.FsolBytes}
-    dhcp.EntityData.Leafs["fsol-dropped-packets"] = types.YLeaf{"FsolDroppedPackets", dhcp.FsolDroppedPackets}
-    dhcp.EntityData.Leafs["fsol-dropped-bytes"] = types.YLeaf{"FsolDroppedBytes", dhcp.FsolDroppedBytes}
-    dhcp.EntityData.Leafs["fsol-dropped-packets-flow"] = types.YLeaf{"FsolDroppedPacketsFlow", dhcp.FsolDroppedPacketsFlow}
-    dhcp.EntityData.Leafs["fsol-dropped-packets-session-limit"] = types.YLeaf{"FsolDroppedPacketsSessionLimit", dhcp.FsolDroppedPacketsSessionLimit}
-    dhcp.EntityData.Leafs["fsol-dropped-packets-dup-addr"] = types.YLeaf{"FsolDroppedPacketsDupAddr", dhcp.FsolDroppedPacketsDupAddr}
+    dhcp.EntityData.Children = types.NewOrderedMap()
+    dhcp.EntityData.Leafs = types.NewOrderedMap()
+    dhcp.EntityData.Leafs.Append("is-configured", types.YLeaf{"IsConfigured", dhcp.IsConfigured})
+    dhcp.EntityData.Leafs.Append("unique-ip-check", types.YLeaf{"UniqueIpCheck", dhcp.UniqueIpCheck})
+    dhcp.EntityData.Leafs.Append("sessions", types.YLeaf{"Sessions", dhcp.Sessions})
+    dhcp.EntityData.Leafs.Append("fsol-packets", types.YLeaf{"FsolPackets", dhcp.FsolPackets})
+    dhcp.EntityData.Leafs.Append("fsol-bytes", types.YLeaf{"FsolBytes", dhcp.FsolBytes})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-packets", types.YLeaf{"FsolDroppedPackets", dhcp.FsolDroppedPackets})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-bytes", types.YLeaf{"FsolDroppedBytes", dhcp.FsolDroppedBytes})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-packets-flow", types.YLeaf{"FsolDroppedPacketsFlow", dhcp.FsolDroppedPacketsFlow})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-packets-session-limit", types.YLeaf{"FsolDroppedPacketsSessionLimit", dhcp.FsolDroppedPacketsSessionLimit})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-packets-dup-addr", types.YLeaf{"FsolDroppedPacketsDupAddr", dhcp.FsolDroppedPacketsDupAddr})
+
+    dhcp.EntityData.YListKeys = []string {}
+
     return &(dhcp.EntityData)
 }
 
@@ -1430,18 +1510,21 @@ func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_In
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetTrigger.EntityData.Children = make(map[string]types.YChild)
-    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetTrigger.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", packetTrigger.IsConfigured}
-    packetTrigger.EntityData.Leafs["unique-ip-check"] = types.YLeaf{"UniqueIpCheck", packetTrigger.UniqueIpCheck}
-    packetTrigger.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", packetTrigger.Sessions}
-    packetTrigger.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", packetTrigger.FsolPackets}
-    packetTrigger.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", packetTrigger.FsolBytes}
-    packetTrigger.EntityData.Leafs["fsol-dropped-packets"] = types.YLeaf{"FsolDroppedPackets", packetTrigger.FsolDroppedPackets}
-    packetTrigger.EntityData.Leafs["fsol-dropped-bytes"] = types.YLeaf{"FsolDroppedBytes", packetTrigger.FsolDroppedBytes}
-    packetTrigger.EntityData.Leafs["fsol-dropped-packets-flow"] = types.YLeaf{"FsolDroppedPacketsFlow", packetTrigger.FsolDroppedPacketsFlow}
-    packetTrigger.EntityData.Leafs["fsol-dropped-packets-session-limit"] = types.YLeaf{"FsolDroppedPacketsSessionLimit", packetTrigger.FsolDroppedPacketsSessionLimit}
-    packetTrigger.EntityData.Leafs["fsol-dropped-packets-dup-addr"] = types.YLeaf{"FsolDroppedPacketsDupAddr", packetTrigger.FsolDroppedPacketsDupAddr}
+    packetTrigger.EntityData.Children = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs.Append("is-configured", types.YLeaf{"IsConfigured", packetTrigger.IsConfigured})
+    packetTrigger.EntityData.Leafs.Append("unique-ip-check", types.YLeaf{"UniqueIpCheck", packetTrigger.UniqueIpCheck})
+    packetTrigger.EntityData.Leafs.Append("sessions", types.YLeaf{"Sessions", packetTrigger.Sessions})
+    packetTrigger.EntityData.Leafs.Append("fsol-packets", types.YLeaf{"FsolPackets", packetTrigger.FsolPackets})
+    packetTrigger.EntityData.Leafs.Append("fsol-bytes", types.YLeaf{"FsolBytes", packetTrigger.FsolBytes})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-packets", types.YLeaf{"FsolDroppedPackets", packetTrigger.FsolDroppedPackets})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-bytes", types.YLeaf{"FsolDroppedBytes", packetTrigger.FsolDroppedBytes})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-packets-flow", types.YLeaf{"FsolDroppedPacketsFlow", packetTrigger.FsolDroppedPacketsFlow})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-packets-session-limit", types.YLeaf{"FsolDroppedPacketsSessionLimit", packetTrigger.FsolDroppedPacketsSessionLimit})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-packets-dup-addr", types.YLeaf{"FsolDroppedPacketsDupAddr", packetTrigger.FsolDroppedPacketsDupAddr})
+
+    packetTrigger.EntityData.YListKeys = []string {}
+
     return &(packetTrigger.EntityData)
 }
 
@@ -1470,10 +1553,13 @@ func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_I
     ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Initiators.EntityData.Children = make(map[string]types.YChild)
-    ipv6Initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &ipv6Initiators.Dhcp}
-    ipv6Initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger}
-    ipv6Initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Initiators.EntityData.Children = types.NewOrderedMap()
+    ipv6Initiators.EntityData.Children.Append("dhcp", types.YChild{"Dhcp", &ipv6Initiators.Dhcp})
+    ipv6Initiators.EntityData.Children.Append("packet-trigger", types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger})
+    ipv6Initiators.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Initiators.EntityData.YListKeys = []string {}
+
     return &(ipv6Initiators.EntityData)
 }
 
@@ -1540,18 +1626,21 @@ func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiat
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dhcp.EntityData.Children = make(map[string]types.YChild)
-    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcp.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", dhcp.IsConfigured}
-    dhcp.EntityData.Leafs["unique-ip-check"] = types.YLeaf{"UniqueIpCheck", dhcp.UniqueIpCheck}
-    dhcp.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", dhcp.Sessions}
-    dhcp.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", dhcp.FsolPackets}
-    dhcp.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", dhcp.FsolBytes}
-    dhcp.EntityData.Leafs["fsol-dropped-packets"] = types.YLeaf{"FsolDroppedPackets", dhcp.FsolDroppedPackets}
-    dhcp.EntityData.Leafs["fsol-dropped-bytes"] = types.YLeaf{"FsolDroppedBytes", dhcp.FsolDroppedBytes}
-    dhcp.EntityData.Leafs["fsol-dropped-packets-flow"] = types.YLeaf{"FsolDroppedPacketsFlow", dhcp.FsolDroppedPacketsFlow}
-    dhcp.EntityData.Leafs["fsol-dropped-packets-session-limit"] = types.YLeaf{"FsolDroppedPacketsSessionLimit", dhcp.FsolDroppedPacketsSessionLimit}
-    dhcp.EntityData.Leafs["fsol-dropped-packets-dup-addr"] = types.YLeaf{"FsolDroppedPacketsDupAddr", dhcp.FsolDroppedPacketsDupAddr}
+    dhcp.EntityData.Children = types.NewOrderedMap()
+    dhcp.EntityData.Leafs = types.NewOrderedMap()
+    dhcp.EntityData.Leafs.Append("is-configured", types.YLeaf{"IsConfigured", dhcp.IsConfigured})
+    dhcp.EntityData.Leafs.Append("unique-ip-check", types.YLeaf{"UniqueIpCheck", dhcp.UniqueIpCheck})
+    dhcp.EntityData.Leafs.Append("sessions", types.YLeaf{"Sessions", dhcp.Sessions})
+    dhcp.EntityData.Leafs.Append("fsol-packets", types.YLeaf{"FsolPackets", dhcp.FsolPackets})
+    dhcp.EntityData.Leafs.Append("fsol-bytes", types.YLeaf{"FsolBytes", dhcp.FsolBytes})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-packets", types.YLeaf{"FsolDroppedPackets", dhcp.FsolDroppedPackets})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-bytes", types.YLeaf{"FsolDroppedBytes", dhcp.FsolDroppedBytes})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-packets-flow", types.YLeaf{"FsolDroppedPacketsFlow", dhcp.FsolDroppedPacketsFlow})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-packets-session-limit", types.YLeaf{"FsolDroppedPacketsSessionLimit", dhcp.FsolDroppedPacketsSessionLimit})
+    dhcp.EntityData.Leafs.Append("fsol-dropped-packets-dup-addr", types.YLeaf{"FsolDroppedPacketsDupAddr", dhcp.FsolDroppedPacketsDupAddr})
+
+    dhcp.EntityData.YListKeys = []string {}
+
     return &(dhcp.EntityData)
 }
 
@@ -1618,18 +1707,21 @@ func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ip
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetTrigger.EntityData.Children = make(map[string]types.YChild)
-    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetTrigger.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", packetTrigger.IsConfigured}
-    packetTrigger.EntityData.Leafs["unique-ip-check"] = types.YLeaf{"UniqueIpCheck", packetTrigger.UniqueIpCheck}
-    packetTrigger.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", packetTrigger.Sessions}
-    packetTrigger.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", packetTrigger.FsolPackets}
-    packetTrigger.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", packetTrigger.FsolBytes}
-    packetTrigger.EntityData.Leafs["fsol-dropped-packets"] = types.YLeaf{"FsolDroppedPackets", packetTrigger.FsolDroppedPackets}
-    packetTrigger.EntityData.Leafs["fsol-dropped-bytes"] = types.YLeaf{"FsolDroppedBytes", packetTrigger.FsolDroppedBytes}
-    packetTrigger.EntityData.Leafs["fsol-dropped-packets-flow"] = types.YLeaf{"FsolDroppedPacketsFlow", packetTrigger.FsolDroppedPacketsFlow}
-    packetTrigger.EntityData.Leafs["fsol-dropped-packets-session-limit"] = types.YLeaf{"FsolDroppedPacketsSessionLimit", packetTrigger.FsolDroppedPacketsSessionLimit}
-    packetTrigger.EntityData.Leafs["fsol-dropped-packets-dup-addr"] = types.YLeaf{"FsolDroppedPacketsDupAddr", packetTrigger.FsolDroppedPacketsDupAddr}
+    packetTrigger.EntityData.Children = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs = types.NewOrderedMap()
+    packetTrigger.EntityData.Leafs.Append("is-configured", types.YLeaf{"IsConfigured", packetTrigger.IsConfigured})
+    packetTrigger.EntityData.Leafs.Append("unique-ip-check", types.YLeaf{"UniqueIpCheck", packetTrigger.UniqueIpCheck})
+    packetTrigger.EntityData.Leafs.Append("sessions", types.YLeaf{"Sessions", packetTrigger.Sessions})
+    packetTrigger.EntityData.Leafs.Append("fsol-packets", types.YLeaf{"FsolPackets", packetTrigger.FsolPackets})
+    packetTrigger.EntityData.Leafs.Append("fsol-bytes", types.YLeaf{"FsolBytes", packetTrigger.FsolBytes})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-packets", types.YLeaf{"FsolDroppedPackets", packetTrigger.FsolDroppedPackets})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-bytes", types.YLeaf{"FsolDroppedBytes", packetTrigger.FsolDroppedBytes})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-packets-flow", types.YLeaf{"FsolDroppedPacketsFlow", packetTrigger.FsolDroppedPacketsFlow})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-packets-session-limit", types.YLeaf{"FsolDroppedPacketsSessionLimit", packetTrigger.FsolDroppedPacketsSessionLimit})
+    packetTrigger.EntityData.Leafs.Append("fsol-dropped-packets-dup-addr", types.YLeaf{"FsolDroppedPacketsDupAddr", packetTrigger.FsolDroppedPacketsDupAddr})
+
+    packetTrigger.EntityData.YListKeys = []string {}
+
     return &(packetTrigger.EntityData)
 }
 
@@ -1657,10 +1749,13 @@ func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ses
     sessionLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionLimit.EntityData.Children = make(map[string]types.YChild)
-    sessionLimit.EntityData.Children["unclassified-source"] = types.YChild{"UnclassifiedSource", &sessionLimit.UnclassifiedSource}
-    sessionLimit.EntityData.Children["total"] = types.YChild{"Total", &sessionLimit.Total}
-    sessionLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionLimit.EntityData.Children = types.NewOrderedMap()
+    sessionLimit.EntityData.Children.Append("unclassified-source", types.YChild{"UnclassifiedSource", &sessionLimit.UnclassifiedSource})
+    sessionLimit.EntityData.Children.Append("total", types.YChild{"Total", &sessionLimit.Total})
+    sessionLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionLimit.EntityData.YListKeys = []string {}
+
     return &(sessionLimit.EntityData)
 }
 
@@ -1684,9 +1779,12 @@ func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterfa
     unclassifiedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unclassifiedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unclassifiedSource.EntityData.Children = make(map[string]types.YChild)
-    unclassifiedSource.EntityData.Leafs = make(map[string]types.YLeaf)
-    unclassifiedSource.EntityData.Leafs["per-vlan"] = types.YLeaf{"PerVlan", unclassifiedSource.PerVlan}
+    unclassifiedSource.EntityData.Children = types.NewOrderedMap()
+    unclassifiedSource.EntityData.Leafs = types.NewOrderedMap()
+    unclassifiedSource.EntityData.Leafs.Append("per-vlan", types.YLeaf{"PerVlan", unclassifiedSource.PerVlan})
+
+    unclassifiedSource.EntityData.YListKeys = []string {}
+
     return &(unclassifiedSource.EntityData)
 }
 
@@ -1710,9 +1808,12 @@ func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLim
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    total.EntityData.Children = make(map[string]types.YChild)
-    total.EntityData.Leafs = make(map[string]types.YLeaf)
-    total.EntityData.Leafs["per-vlan"] = types.YLeaf{"PerVlan", total.PerVlan}
+    total.EntityData.Children = types.NewOrderedMap()
+    total.EntityData.Leafs = types.NewOrderedMap()
+    total.EntityData.Leafs.Append("per-vlan", types.YLeaf{"PerVlan", total.PerVlan})
+
+    total.EntityData.YListKeys = []string {}
+
     return &(total.EntityData)
 }
 

@@ -14,17 +14,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package entity_state_tc_mib"))
 }
 
-// EntityAdminState represents report administrative state.
-type EntityAdminState string
+// EntityStandbyStatus represents report standby state.
+type EntityStandbyStatus string
 
 const (
-    EntityAdminState_unknown EntityAdminState = "unknown"
+    EntityStandbyStatus_unknown EntityStandbyStatus = "unknown"
 
-    EntityAdminState_locked EntityAdminState = "locked"
+    EntityStandbyStatus_hotStandby EntityStandbyStatus = "hotStandby"
 
-    EntityAdminState_shuttingDown EntityAdminState = "shuttingDown"
+    EntityStandbyStatus_coldStandby EntityStandbyStatus = "coldStandby"
 
-    EntityAdminState_unlocked EntityAdminState = "unlocked"
+    EntityStandbyStatus_providingService EntityStandbyStatus = "providingService"
 )
 
 // EntityOperState represents resource is unable to report operational state.
@@ -40,6 +40,19 @@ const (
     EntityOperState_testing EntityOperState = "testing"
 )
 
+// EntityAdminState represents report administrative state.
+type EntityAdminState string
+
+const (
+    EntityAdminState_unknown EntityAdminState = "unknown"
+
+    EntityAdminState_locked EntityAdminState = "locked"
+
+    EntityAdminState_shuttingDown EntityAdminState = "shuttingDown"
+
+    EntityAdminState_unlocked EntityAdminState = "unlocked"
+)
+
 // EntityUsageState represents that this resource is unable to report usage state.
 type EntityUsageState string
 
@@ -51,18 +64,5 @@ const (
     EntityUsageState_active EntityUsageState = "active"
 
     EntityUsageState_busy EntityUsageState = "busy"
-)
-
-// EntityStandbyStatus represents report standby state.
-type EntityStandbyStatus string
-
-const (
-    EntityStandbyStatus_unknown EntityStandbyStatus = "unknown"
-
-    EntityStandbyStatus_hotStandby EntityStandbyStatus = "hotStandby"
-
-    EntityStandbyStatus_coldStandby EntityStandbyStatus = "coldStandby"
-
-    EntityStandbyStatus_providingService EntityStandbyStatus = "providingService"
 )
 

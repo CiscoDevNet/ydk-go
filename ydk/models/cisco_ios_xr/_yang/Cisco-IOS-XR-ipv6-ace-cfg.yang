@@ -28,22 +28,43 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR IPv6 ACL entry configuration.
      
-     Copyright (c) 2013, 2015-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013, 2015-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-03 {
+    description
+      "6.4.1 revision.
+       Fixed a few typos in the description.";
+  }
   revision 2017-12-04 {
     description
-      "6.3.2 revision.
+      "6.4.1 revision.
        Updated the when statement for icmp constainer to match 
        icmpv6 protocol.";
   }
+  revision 2017-11-13 {
+    description
+      "6.4.1 revision.
+       This revision adds the choice statement and a container:
+       - Dscptypes
+       - DSCPValues ";
+  }
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
   revision 2017-05-11 {
     description
-      "6.3.1 revision";
+      "6.3.1 revision.
+       This revision adds the following new leaf:
+       - set-ttl";
   }
   revision 2016-11-07 {
     description
-      "6.2.1 revision.";
+      "6.2.1 revision.
+       This revision adds the following new leaves:
+       - protocol-operator
+       - protocol2";
   }
   revision 2015-11-09 {
     description
@@ -75,24 +96,32 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
     leaf grant {
       type ipv6-acl-dt:Ipv6-acl-grant-enum;
       description
-        "Whether to forward or drop packets matching the 
-         ACE.";
+        "Forwarding action for the packet. This is required
+         for any non-remark ACE. Leave unspecified otherwise.";
     }
     leaf protocol-operator {
       type ipv6-acl-dt:Ipv6-acl-operator-enum;
       description
-        "Protocol operator. Leave unspecified if
-         no protocol comparison is to be done.";
+        "Protocol operator. User can specify equal or leave
+         it unspecified for singleton protocol match, or
+         specify range for protocol range match.";
     }
     leaf protocol {
       type ipv6-acl-dt:Ipv6-acl-protocol-number;
       description
-        "Protocol to match.";
+        "Protocol number to match. It can be used for the lower
+         bound (range operator) or single value (equal operator).
+         Any value not in the permissible range will be rejected.
+         When leave unspecified, default value is ipv6.";
+      reference "RFC 758 - ASSIGNED INTERNET PROTOCOL NUMBERS";
     }
     leaf protocol2 {
       type ipv6-acl-dt:Ipv6-acl-protocol-number;
       description
-        "Protocol2 to match.";
+        "Protocol2 to match. It is used in upper bound (range
+         operator). Any value not in the permissible range will
+         be rejected.";
+      reference "RFC 758 - ASSIGNED INTERNET PROTOCOL NUMBERS";
     }
     container source-network {
       description
@@ -102,6 +131,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
         description
           "Source IPv6 address, leave unspecified
            if inputting as IPv6 address with wildcarding.";
+        reference "RFC 4291";
       }
       leaf source-wild-card-bits {
         type xr:Ipv6-prefix-length;
@@ -109,6 +139,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
           "Wildcard bits to apply to source-address
            (if specified), leave unspecified for no
            wildcarding.";
+        reference "RFC 4291";
       }
       leaf source-mask {
         type inet:ipv6-address-no-zone;
@@ -117,6 +148,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
            source-wild-card-bits or source-mask is 
            supported, not both. Leave unspecified 
            for any.";
+        reference "RFC 4291";
       }
     }
     container destination-network {
@@ -128,6 +160,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
           "Destination IPv6 address, leave 
            unspecified if inputting as IPv6 address with 
            wildcarding.";
+        reference "RFC 4291";
       }
       leaf destination-wild-card-bits {
         type xr:Ipv6-prefix-length;
@@ -135,6 +168,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
           "Wildcard bits to apply to destination 
            destination-address (if specified), 
            leave unspecified for no wildcarding.";
+        reference "RFC 4291";
       }
       leaf destination-mask {
         type inet:ipv6-address-no-zone;
@@ -143,6 +177,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
            destination-wild-card-bits or destination-mask 
            is supported, not both. Leave unspecified
            for any.";
+        reference "RFC 4291";
       }
     }
     container source-port {
@@ -155,22 +190,29 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       leaf source-operator {
         type ipv6-acl-dt:Ipv6-acl-operator-enum;
         description
-          "Source comparison operator. Leave unspecified if
-           no source port comparison is to be done.";
+          "Source port comparison operator. This is a required
+           field if any source port value is given, otherwise,
+           config will be rejected. Leave unspecified
+           if no source port comparison is to be done.";
       }
       leaf first-source-port {
         type ipv6-acl-dt:Ipv6-acl-port-number;
         description
-          "First source port for comparison, 
-           leave unspecified if source port comparison is
-           not to be performed.";
+          "Lower source port for comparison. It can be used
+           for the lower bound (range operator) or single value
+           (equal, less, greater..etc). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 1700 - WELL KNOWN PORT NUMBERS";
       }
       leaf second-source-port {
         type ipv6-acl-dt:Ipv6-acl-port-number;
         description
-          "Second source port for comparion, 
-           leave unspecified if source port comparison is
-           not to be performed.";
+          "Upper source port for comparion. It is used
+           in the upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 1700 - WELL KNOWN PORT NUMBERS";
       }
     }
     container destination-port {
@@ -183,23 +225,30 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       leaf destination-operator {
         type ipv6-acl-dt:Ipv6-acl-operator-enum;
         description
-          "Destination comparison operator. Leave 
-           unspecified if no destination port comparison 
-           is to be done.";
+          "Destination port comparison operator. This is a
+           required field if any destination port value is
+           given, otherwise, config will be rejected.
+           Leave unspecified if no destination
+           port comparison is to be done.";
       }
       leaf first-destination-port {
         type ipv6-acl-dt:Ipv6-acl-port-number;
         description
-          "First destination port for comparison, leave 
-           unspecified if destination port comparison is
-           not to be performed.";
+          "Lower destination port for comparison. It can be used
+           for the lower bound (range operator) or single value
+           (equal, less, greater..etc). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 1700 - WELL KNOWN PORT NUMBERS";
       }
       leaf second-destination-port {
         type ipv6-acl-dt:Ipv6-acl-port-number;
         description
-          "Second destination port for comparion, leave 
-           unspecified if destination port comparison is
-           not to be performed.";
+          "Upper destination port for comparison. It is used
+           in the upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 1700 - WELL KNOWN PORT NUMBERS";
       }
     }
     container icmp {
@@ -215,6 +264,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
           "Well known ICMP message code types to match, 
            leave unspecified if ICMP message code type 
            comparion is not to be performed.";
+        reference "RFC 2463";
       }
     }
     container tcp {
@@ -236,6 +286,7 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
         description
           "TCP bits to match. Leave unspecified if 
            comparison of TCP bits is not required.";
+        reference "RFC 793 Section 3.1 Control Bits";
       }
       leaf tcp-bits-mask {
         type ipv6-acl-dt:Ipv6-acl-tcp-bits-number;
@@ -250,25 +301,26 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       leaf packet-length-operator {
         type ipv6-acl-dt:Ipv6-acl-operator-enum;
         description
-          "Packet length operator applicable if packet 
-           length is to be compared. Leave unspecified if
-           no Packet length comparison is to be done.";
+          "Packet length operator applicable if packet length
+           is to be compared. This is a required field if any
+           packet-length value is given, otherwise, config 
+           will be rejected.";
       }
       leaf packet-length-min {
         type ipv6-acl-dt:Ipv6-acl-plen-range;
         description
-          "Minimum packet length for comparison, leave 
-           unspecified if packet length comparison is not
-           to be performed or if only the maximum packet
-           length should be considered.";
+          "Mininum packet length value for comparison. It can be used
+           for the lower bound (range operator) or single value
+           (equal, less, greater..etc). Any value not in the permissible
+           range will be rejected. Leave unspecified otherwise.";
       }
       leaf packet-length-max {
         type ipv6-acl-dt:Ipv6-acl-plen-range;
         description
-          "Maximum packet length for comparion, leave 
-           unspecified if packet length comparison is not
-           to be performed or if only the minimum packet 
-           length should be considered.";
+          "Maximum packet length value for comparison. It is used
+           in the upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
       }
     }
     container time-to-live {
@@ -277,38 +329,88 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       leaf time-to-live-operator {
         type ipv6-acl-dt:Ipv6-acl-operator-enum;
         description
-          "TTL operator is applicable if TTL is to be 
-           compared. Leave unspecified if TTL 
-           classification is not required.";
+          "TTL operator is applicable if TTL is to be compared.
+           This is a required field if any TTL value is given,
+           otherwise, config will be rejected. Leave
+           unspecified if TTL classification is not required.";
       }
       leaf time-to-live-min {
         type ipv6-acl-dt:Ipv6-acl-ttl-range;
         description
-          "TTL value for comparison OR Minimum TTL value 
-           for TTL range comparision, leave unspecified if
-           TTL classification is not required.";
+          "Mininum TTL value for comparison. It can be used for the
+           lower bound (range operator) or single value (equal, less,
+           greater..etc). Any value not in the permissible range will
+           be rejected. Leave unspecified otherwise.";
+        reference "RFC 791 Section 3.2 - Time to Live";
       }
       leaf time-to-live-max {
         type ipv6-acl-dt:Ipv6-acl-ttl-range;
         description
-          "Maximum TTL for comparion, leave unspecified if
-           TTL comparison is not to be performed or if only
-           the minimum TTL should be considered.";
+          "Maximum TTL value for comparison. It is used in the
+           upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 791 Section 3.2 - Time to Live";
       }
     }
-    leaf dscp {
-      type ipv6-acl-dt:Ipv6-acl-dscp-number;
-      description
-        "DSCP value to match (if a protocol was specified),
-         leave unspecified if DSCP comparion is not to be
-         performed.";
+    choice Dscptype {
+      case dscpcontainer {
+        container DSCPValues {
+          description
+            "DSCP settings.";
+          leaf dscp-operator {
+            type ipv6-acl-dt:Ipv6-acl-operator-enum;
+            description
+              "Enumerated DSCP operator values. Used when
+               operator needs to be configured. Leave unspecified
+               if DSCP operator is not required. Note: if the 
+               dscp operator is not set, it logically behaves 
+               same as equal operator.";
+          }
+          leaf dscp-lower {
+            type ipv6-acl-dt:Ipv6-acl-dscp-number;
+            description
+              "DSCP value to match (if a value was specified).
+               It can be used for the lower bound (range operator) or
+               single value (equal, less, greater..etc) or without
+               any operator. Any value not in the permissible range 
+               will be rejected. Leave unspecified if DSCP 
+               comparison is not to be performed.";
+            reference "RFC 2474";
+          }
+          leaf dscp-upper {
+            type ipv6-acl-dt:Ipv6-acl-dscp-number;
+            description
+              "DSCP2 value to match (if a value was specified),
+               It can be used in the upper bound (range operator)
+               Any value not in the permissible range will be rejected.
+               leave unspecified if DSCP range comparison is not to be
+               performed.";
+            reference "RFC 2474";
+          }
+        }
+      }
+      case dscpleaf {
+        leaf dscp {
+          type ipv6-acl-dt:Ipv6-acl-dscp-number;
+          description
+            "DSCP value to match without using any operators. 
+             Any value not in the permissible range will be rejected.
+             Leave unspecified if DSCP comparion is not to be
+             performed. For Setting dscp values, use the dscp
+             container as this leaf will be deprecated soon.";
+          reference "RFC 2474";
+        }
+      }
     }
     leaf precedence {
       type ipv6-acl-dt:Ipv6-acl-precedence-number;
       description
-        "Precedence value to match (if a protocol was 
-         specified), leave unspecified if precedence 
-         comparion is not to be performed.";
+        "Precedence value to match (if a protocol was specified).
+         Any value not in the permissible range will be rejected.
+         Leave unspecified if precedence comparion is not to be
+         performed.";
+      reference "RFC 791 Section 3.1 - Precedence";
     }
     container next-hop {
       description
@@ -327,12 +429,16 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
             "The IPv6 address of the next-hop.";
         }
         leaf vrf-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The VRF name of the next-hop.";
         }
         leaf track-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The object tracking name for the next-hop.";
         }
@@ -346,12 +452,16 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
             "The IPv6 address of the next-hop.";
         }
         leaf vrf-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The VRF name of the next-hop.";
         }
         leaf track-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The object tracking name for the next-hop.";
         }
@@ -365,37 +475,42 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
             "The IPv6 address of the next-hop.";
         }
         leaf vrf-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The VRF name of the next-hop.";
         }
         leaf track-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The object tracking name for the next-hop.";
         }
       }
     }
     leaf counter-name {
-      type string;
+      type string {
+        length "1..64";
+      }
       description
-        "Counter name.";
+        "Name of counter to aggregate hardware statistics.";
     }
     leaf log-option {
       type ipv6-acl-dt:Ipv6-acl-logging-enum;
       description
-        "Whether and how to log matches against this 
-         entry.";
+        "Log the packet on this access-list-entry/rule.";
     }
     leaf capture {
       type boolean;
       description
-        "Enable capture.";
+        "Enable capture if set to TRUE.";
     }
     leaf undetermined-transport {
       type boolean;
       description
-        "Enable undetermined-transport.";
+        "Enable undetermined-transport if set to TRUE.";
     }
     leaf icmp-off {
       type empty;
@@ -405,12 +520,14 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
     leaf qos-group {
       type ipv6-acl-dt:Ipv6-acl-qos-group-number;
       description
-        "Set qos-group number.";
+        "Set qos-group number. Any value not in the permissible
+         range will be rejected.";
     }
     leaf set-ttl {
       type ipv6-acl-dt:Ipv6-acl-ttl-range;
       description
-        "Set TTL value. Ranges from 0-255";
+        "Set TTL Value. Any value not in the permissible range
+         will be rejected.";
     }
     container header-flags {
       description
@@ -419,32 +536,39 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
         type empty;
         description
           "Match if routing header is present.";
+        reference "RFC 2460 Section 4";
       }
       leaf destopts {
         type empty;
         description
           "Match if destops header is present.";
+        reference "RFC 2460 Section 4";
       }
       leaf hop-by-hop {
         type empty;
         description
           "Match if hop-by-hop header is present.";
+        reference "RFC 2460 Section 4";
       }
       leaf fragments {
         type empty;
         description
           "Match if fragments header is present.";
+        reference "RFC 2460 Section 4";
       }
       leaf authen {
         type empty;
         description
           "Match if authen header is present.";
+        reference "RFC 2460 Section 4";
       }
     }
     leaf remark {
-      type string;
+      type string {
+        length "0..255";
+      }
       description
-        "Comments or a description for the access list.";
+        "Description for the access-list-entry/rules.";
     }
     leaf source-prefix-group {
       type string {

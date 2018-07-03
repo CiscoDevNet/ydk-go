@@ -44,9 +44,12 @@ func (infraStatistics *InfraStatistics) GetEntityData() *types.CommonEntityData 
     infraStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraStatistics.EntityData.Children = make(map[string]types.YChild)
-    infraStatistics.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &infraStatistics.Interfaces}
-    infraStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraStatistics.EntityData.Children = types.NewOrderedMap()
+    infraStatistics.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &infraStatistics.Interfaces})
+    infraStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    infraStatistics.EntityData.YListKeys = []string {}
+
     return &(infraStatistics.EntityData)
 }
 
@@ -57,8 +60,8 @@ type InfraStatistics_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Statistics of an interface. The type is slice of
-    // InfraStatistics_Interfaces_Interface_.
-    Interface_ []InfraStatistics_Interfaces_Interface
+    // InfraStatistics_Interfaces_Interface.
+    Interface []*InfraStatistics_Interfaces_Interface
 }
 
 func (interfaces *InfraStatistics_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (interfaces *InfraStatistics_Interfaces) GetEntityData() *types.CommonEntit
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -87,7 +93,7 @@ type InfraStatistics_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Cached stats data of interfaces.
@@ -117,21 +123,24 @@ func (self *InfraStatistics_Interfaces_Interface) GetEntityData() *types.CommonE
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["cache"] = types.YChild{"Cache", &self.Cache}
-    self.EntityData.Children["latest"] = types.YChild{"Latest", &self.Latest}
-    self.EntityData.Children["total"] = types.YChild{"Total", &self.Total}
-    self.EntityData.Children["protocols"] = types.YChild{"Protocols", &self.Protocols}
-    self.EntityData.Children["interfaces-mib-counters"] = types.YChild{"InterfacesMibCounters", &self.InterfacesMibCounters}
-    self.EntityData.Children["data-rate"] = types.YChild{"DataRate", &self.DataRate}
-    self.EntityData.Children["generic-counters"] = types.YChild{"GenericCounters", &self.GenericCounters}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("cache", types.YChild{"Cache", &self.Cache})
+    self.EntityData.Children.Append("latest", types.YChild{"Latest", &self.Latest})
+    self.EntityData.Children.Append("total", types.YChild{"Total", &self.Total})
+    self.EntityData.Children.Append("protocols", types.YChild{"Protocols", &self.Protocols})
+    self.EntityData.Children.Append("interfaces-mib-counters", types.YChild{"InterfacesMibCounters", &self.InterfacesMibCounters})
+    self.EntityData.Children.Append("data-rate", types.YChild{"DataRate", &self.DataRate})
+    self.EntityData.Children.Append("generic-counters", types.YChild{"GenericCounters", &self.GenericCounters})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -164,12 +173,15 @@ func (cache *InfraStatistics_Interfaces_Interface_Cache) GetEntityData() *types.
     cache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cache.EntityData.Children = make(map[string]types.YChild)
-    cache.EntityData.Children["protocols"] = types.YChild{"Protocols", &cache.Protocols}
-    cache.EntityData.Children["interfaces-mib-counters"] = types.YChild{"InterfacesMibCounters", &cache.InterfacesMibCounters}
-    cache.EntityData.Children["data-rate"] = types.YChild{"DataRate", &cache.DataRate}
-    cache.EntityData.Children["generic-counters"] = types.YChild{"GenericCounters", &cache.GenericCounters}
-    cache.EntityData.Leafs = make(map[string]types.YLeaf)
+    cache.EntityData.Children = types.NewOrderedMap()
+    cache.EntityData.Children.Append("protocols", types.YChild{"Protocols", &cache.Protocols})
+    cache.EntityData.Children.Append("interfaces-mib-counters", types.YChild{"InterfacesMibCounters", &cache.InterfacesMibCounters})
+    cache.EntityData.Children.Append("data-rate", types.YChild{"DataRate", &cache.DataRate})
+    cache.EntityData.Children.Append("generic-counters", types.YChild{"GenericCounters", &cache.GenericCounters})
+    cache.EntityData.Leafs = types.NewOrderedMap()
+
+    cache.EntityData.YListKeys = []string {}
+
     return &(cache.EntityData)
 }
 
@@ -181,7 +193,7 @@ type InfraStatistics_Interfaces_Interface_Cache_Protocols struct {
 
     // Interface counters per protocol. The type is slice of
     // InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol.
-    Protocol []InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol
+    Protocol []*InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol
 }
 
 func (protocols *InfraStatistics_Interfaces_Interface_Cache_Protocols) GetEntityData() *types.CommonEntityData {
@@ -194,12 +206,15 @@ func (protocols *InfraStatistics_Interfaces_Interface_Cache_Protocols) GetEntity
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocols.EntityData.Children = make(map[string]types.YChild)
-    protocols.EntityData.Children["protocol"] = types.YChild{"Protocol", nil}
+    protocols.EntityData.Children = types.NewOrderedMap()
+    protocols.EntityData.Children.Append("protocol", types.YChild{"Protocol", nil})
     for i := range protocols.Protocol {
-        protocols.EntityData.Children[types.GetSegmentPath(&protocols.Protocol[i])] = types.YChild{"Protocol", &protocols.Protocol[i]}
+        protocols.EntityData.Children.Append(types.GetSegmentPath(protocols.Protocol[i]), types.YChild{"Protocol", protocols.Protocol[i]})
     }
-    protocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    protocols.EntityData.Leafs = types.NewOrderedMap()
+
+    protocols.EntityData.YListKeys = []string {}
+
     return &(protocols.EntityData)
 }
 
@@ -210,7 +225,7 @@ type InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the protocol. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProtocolName interface{}
 
     // Bytes received. The type is interface{} with range:
@@ -257,24 +272,27 @@ func (protocol *InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol) G
     protocol.EntityData.YangName = "protocol"
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
-    protocol.EntityData.SegmentPath = "protocol" + "[protocol-name='" + fmt.Sprintf("%v", protocol.ProtocolName) + "']"
+    protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocol.EntityData.Children = make(map[string]types.YChild)
-    protocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocol.EntityData.Leafs["protocol-name"] = types.YLeaf{"ProtocolName", protocol.ProtocolName}
-    protocol.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", protocol.BytesReceived}
-    protocol.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", protocol.PacketsReceived}
-    protocol.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", protocol.BytesSent}
-    protocol.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", protocol.PacketsSent}
-    protocol.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", protocol.Protocol}
-    protocol.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", protocol.LastDataTime}
-    protocol.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", protocol.InputDataRate}
-    protocol.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", protocol.InputPacketRate}
-    protocol.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", protocol.OutputDataRate}
-    protocol.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", protocol.OutputPacketRate}
+    protocol.EntityData.Children = types.NewOrderedMap()
+    protocol.EntityData.Leafs = types.NewOrderedMap()
+    protocol.EntityData.Leafs.Append("protocol-name", types.YLeaf{"ProtocolName", protocol.ProtocolName})
+    protocol.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", protocol.BytesReceived})
+    protocol.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", protocol.PacketsReceived})
+    protocol.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", protocol.BytesSent})
+    protocol.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", protocol.PacketsSent})
+    protocol.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", protocol.Protocol})
+    protocol.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", protocol.LastDataTime})
+    protocol.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", protocol.InputDataRate})
+    protocol.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", protocol.InputPacketRate})
+    protocol.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", protocol.OutputDataRate})
+    protocol.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", protocol.OutputPacketRate})
+
+    protocol.EntityData.YListKeys = []string {"ProtocolName"}
+
     return &(protocol.EntityData)
 }
 
@@ -419,44 +437,47 @@ func (interfacesMibCounters *InfraStatistics_Interfaces_Interface_Cache_Interfac
     interfacesMibCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacesMibCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfacesMibCounters.EntityData.Children = make(map[string]types.YChild)
-    interfacesMibCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfacesMibCounters.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", interfacesMibCounters.PacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", interfacesMibCounters.BytesReceived}
-    interfacesMibCounters.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", interfacesMibCounters.PacketsSent}
-    interfacesMibCounters.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", interfacesMibCounters.BytesSent}
-    interfacesMibCounters.EntityData.Leafs["multicast-packets-received"] = types.YLeaf{"MulticastPacketsReceived", interfacesMibCounters.MulticastPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["broadcast-packets-received"] = types.YLeaf{"BroadcastPacketsReceived", interfacesMibCounters.BroadcastPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["multicast-packets-sent"] = types.YLeaf{"MulticastPacketsSent", interfacesMibCounters.MulticastPacketsSent}
-    interfacesMibCounters.EntityData.Leafs["broadcast-packets-sent"] = types.YLeaf{"BroadcastPacketsSent", interfacesMibCounters.BroadcastPacketsSent}
-    interfacesMibCounters.EntityData.Leafs["output-drops"] = types.YLeaf{"OutputDrops", interfacesMibCounters.OutputDrops}
-    interfacesMibCounters.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", interfacesMibCounters.OutputQueueDrops}
-    interfacesMibCounters.EntityData.Leafs["input-drops"] = types.YLeaf{"InputDrops", interfacesMibCounters.InputDrops}
-    interfacesMibCounters.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", interfacesMibCounters.InputQueueDrops}
-    interfacesMibCounters.EntityData.Leafs["runt-packets-received"] = types.YLeaf{"RuntPacketsReceived", interfacesMibCounters.RuntPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["giant-packets-received"] = types.YLeaf{"GiantPacketsReceived", interfacesMibCounters.GiantPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["throttled-packets-received"] = types.YLeaf{"ThrottledPacketsReceived", interfacesMibCounters.ThrottledPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["parity-packets-received"] = types.YLeaf{"ParityPacketsReceived", interfacesMibCounters.ParityPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["unknown-protocol-packets-received"] = types.YLeaf{"UnknownProtocolPacketsReceived", interfacesMibCounters.UnknownProtocolPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["input-errors"] = types.YLeaf{"InputErrors", interfacesMibCounters.InputErrors}
-    interfacesMibCounters.EntityData.Leafs["crc-errors"] = types.YLeaf{"CrcErrors", interfacesMibCounters.CrcErrors}
-    interfacesMibCounters.EntityData.Leafs["input-overruns"] = types.YLeaf{"InputOverruns", interfacesMibCounters.InputOverruns}
-    interfacesMibCounters.EntityData.Leafs["framing-errors-received"] = types.YLeaf{"FramingErrorsReceived", interfacesMibCounters.FramingErrorsReceived}
-    interfacesMibCounters.EntityData.Leafs["input-ignored-packets"] = types.YLeaf{"InputIgnoredPackets", interfacesMibCounters.InputIgnoredPackets}
-    interfacesMibCounters.EntityData.Leafs["input-aborts"] = types.YLeaf{"InputAborts", interfacesMibCounters.InputAborts}
-    interfacesMibCounters.EntityData.Leafs["output-errors"] = types.YLeaf{"OutputErrors", interfacesMibCounters.OutputErrors}
-    interfacesMibCounters.EntityData.Leafs["output-underruns"] = types.YLeaf{"OutputUnderruns", interfacesMibCounters.OutputUnderruns}
-    interfacesMibCounters.EntityData.Leafs["output-buffer-failures"] = types.YLeaf{"OutputBufferFailures", interfacesMibCounters.OutputBufferFailures}
-    interfacesMibCounters.EntityData.Leafs["output-buffers-swapped-out"] = types.YLeaf{"OutputBuffersSwappedOut", interfacesMibCounters.OutputBuffersSwappedOut}
-    interfacesMibCounters.EntityData.Leafs["applique"] = types.YLeaf{"Applique", interfacesMibCounters.Applique}
-    interfacesMibCounters.EntityData.Leafs["resets"] = types.YLeaf{"Resets", interfacesMibCounters.Resets}
-    interfacesMibCounters.EntityData.Leafs["carrier-transitions"] = types.YLeaf{"CarrierTransitions", interfacesMibCounters.CarrierTransitions}
-    interfacesMibCounters.EntityData.Leafs["availability-flag"] = types.YLeaf{"AvailabilityFlag", interfacesMibCounters.AvailabilityFlag}
-    interfacesMibCounters.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", interfacesMibCounters.LastDataTime}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-last-clear-counters"] = types.YLeaf{"SecondsSinceLastClearCounters", interfacesMibCounters.SecondsSinceLastClearCounters}
-    interfacesMibCounters.EntityData.Leafs["last-discontinuity-time"] = types.YLeaf{"LastDiscontinuityTime", interfacesMibCounters.LastDiscontinuityTime}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-packet-received"] = types.YLeaf{"SecondsSincePacketReceived", interfacesMibCounters.SecondsSincePacketReceived}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-packet-sent"] = types.YLeaf{"SecondsSincePacketSent", interfacesMibCounters.SecondsSincePacketSent}
+    interfacesMibCounters.EntityData.Children = types.NewOrderedMap()
+    interfacesMibCounters.EntityData.Leafs = types.NewOrderedMap()
+    interfacesMibCounters.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", interfacesMibCounters.PacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", interfacesMibCounters.BytesReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", interfacesMibCounters.PacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", interfacesMibCounters.BytesSent})
+    interfacesMibCounters.EntityData.Leafs.Append("multicast-packets-received", types.YLeaf{"MulticastPacketsReceived", interfacesMibCounters.MulticastPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("broadcast-packets-received", types.YLeaf{"BroadcastPacketsReceived", interfacesMibCounters.BroadcastPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("multicast-packets-sent", types.YLeaf{"MulticastPacketsSent", interfacesMibCounters.MulticastPacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("broadcast-packets-sent", types.YLeaf{"BroadcastPacketsSent", interfacesMibCounters.BroadcastPacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("output-drops", types.YLeaf{"OutputDrops", interfacesMibCounters.OutputDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", interfacesMibCounters.OutputQueueDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("input-drops", types.YLeaf{"InputDrops", interfacesMibCounters.InputDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", interfacesMibCounters.InputQueueDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("runt-packets-received", types.YLeaf{"RuntPacketsReceived", interfacesMibCounters.RuntPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("giant-packets-received", types.YLeaf{"GiantPacketsReceived", interfacesMibCounters.GiantPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("throttled-packets-received", types.YLeaf{"ThrottledPacketsReceived", interfacesMibCounters.ThrottledPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("parity-packets-received", types.YLeaf{"ParityPacketsReceived", interfacesMibCounters.ParityPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("unknown-protocol-packets-received", types.YLeaf{"UnknownProtocolPacketsReceived", interfacesMibCounters.UnknownProtocolPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("input-errors", types.YLeaf{"InputErrors", interfacesMibCounters.InputErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("crc-errors", types.YLeaf{"CrcErrors", interfacesMibCounters.CrcErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("input-overruns", types.YLeaf{"InputOverruns", interfacesMibCounters.InputOverruns})
+    interfacesMibCounters.EntityData.Leafs.Append("framing-errors-received", types.YLeaf{"FramingErrorsReceived", interfacesMibCounters.FramingErrorsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("input-ignored-packets", types.YLeaf{"InputIgnoredPackets", interfacesMibCounters.InputIgnoredPackets})
+    interfacesMibCounters.EntityData.Leafs.Append("input-aborts", types.YLeaf{"InputAborts", interfacesMibCounters.InputAborts})
+    interfacesMibCounters.EntityData.Leafs.Append("output-errors", types.YLeaf{"OutputErrors", interfacesMibCounters.OutputErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("output-underruns", types.YLeaf{"OutputUnderruns", interfacesMibCounters.OutputUnderruns})
+    interfacesMibCounters.EntityData.Leafs.Append("output-buffer-failures", types.YLeaf{"OutputBufferFailures", interfacesMibCounters.OutputBufferFailures})
+    interfacesMibCounters.EntityData.Leafs.Append("output-buffers-swapped-out", types.YLeaf{"OutputBuffersSwappedOut", interfacesMibCounters.OutputBuffersSwappedOut})
+    interfacesMibCounters.EntityData.Leafs.Append("applique", types.YLeaf{"Applique", interfacesMibCounters.Applique})
+    interfacesMibCounters.EntityData.Leafs.Append("resets", types.YLeaf{"Resets", interfacesMibCounters.Resets})
+    interfacesMibCounters.EntityData.Leafs.Append("carrier-transitions", types.YLeaf{"CarrierTransitions", interfacesMibCounters.CarrierTransitions})
+    interfacesMibCounters.EntityData.Leafs.Append("availability-flag", types.YLeaf{"AvailabilityFlag", interfacesMibCounters.AvailabilityFlag})
+    interfacesMibCounters.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", interfacesMibCounters.LastDataTime})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-last-clear-counters", types.YLeaf{"SecondsSinceLastClearCounters", interfacesMibCounters.SecondsSinceLastClearCounters})
+    interfacesMibCounters.EntityData.Leafs.Append("last-discontinuity-time", types.YLeaf{"LastDiscontinuityTime", interfacesMibCounters.LastDiscontinuityTime})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-packet-received", types.YLeaf{"SecondsSincePacketReceived", interfacesMibCounters.SecondsSincePacketReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-packet-sent", types.YLeaf{"SecondsSincePacketSent", interfacesMibCounters.SecondsSincePacketSent})
+
+    interfacesMibCounters.EntityData.YListKeys = []string {}
+
     return &(interfacesMibCounters.EntityData)
 }
 
@@ -526,21 +547,24 @@ func (dataRate *InfraStatistics_Interfaces_Interface_Cache_DataRate) GetEntityDa
     dataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRate.EntityData.Children = make(map[string]types.YChild)
-    dataRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRate.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", dataRate.InputDataRate}
-    dataRate.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", dataRate.InputPacketRate}
-    dataRate.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", dataRate.OutputDataRate}
-    dataRate.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", dataRate.OutputPacketRate}
-    dataRate.EntityData.Leafs["peak-input-data-rate"] = types.YLeaf{"PeakInputDataRate", dataRate.PeakInputDataRate}
-    dataRate.EntityData.Leafs["peak-input-packet-rate"] = types.YLeaf{"PeakInputPacketRate", dataRate.PeakInputPacketRate}
-    dataRate.EntityData.Leafs["peak-output-data-rate"] = types.YLeaf{"PeakOutputDataRate", dataRate.PeakOutputDataRate}
-    dataRate.EntityData.Leafs["peak-output-packet-rate"] = types.YLeaf{"PeakOutputPacketRate", dataRate.PeakOutputPacketRate}
-    dataRate.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", dataRate.Bandwidth}
-    dataRate.EntityData.Leafs["load-interval"] = types.YLeaf{"LoadInterval", dataRate.LoadInterval}
-    dataRate.EntityData.Leafs["output-load"] = types.YLeaf{"OutputLoad", dataRate.OutputLoad}
-    dataRate.EntityData.Leafs["input-load"] = types.YLeaf{"InputLoad", dataRate.InputLoad}
-    dataRate.EntityData.Leafs["reliability"] = types.YLeaf{"Reliability", dataRate.Reliability}
+    dataRate.EntityData.Children = types.NewOrderedMap()
+    dataRate.EntityData.Leafs = types.NewOrderedMap()
+    dataRate.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", dataRate.InputDataRate})
+    dataRate.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", dataRate.InputPacketRate})
+    dataRate.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", dataRate.OutputDataRate})
+    dataRate.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", dataRate.OutputPacketRate})
+    dataRate.EntityData.Leafs.Append("peak-input-data-rate", types.YLeaf{"PeakInputDataRate", dataRate.PeakInputDataRate})
+    dataRate.EntityData.Leafs.Append("peak-input-packet-rate", types.YLeaf{"PeakInputPacketRate", dataRate.PeakInputPacketRate})
+    dataRate.EntityData.Leafs.Append("peak-output-data-rate", types.YLeaf{"PeakOutputDataRate", dataRate.PeakOutputDataRate})
+    dataRate.EntityData.Leafs.Append("peak-output-packet-rate", types.YLeaf{"PeakOutputPacketRate", dataRate.PeakOutputPacketRate})
+    dataRate.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", dataRate.Bandwidth})
+    dataRate.EntityData.Leafs.Append("load-interval", types.YLeaf{"LoadInterval", dataRate.LoadInterval})
+    dataRate.EntityData.Leafs.Append("output-load", types.YLeaf{"OutputLoad", dataRate.OutputLoad})
+    dataRate.EntityData.Leafs.Append("input-load", types.YLeaf{"InputLoad", dataRate.InputLoad})
+    dataRate.EntityData.Leafs.Append("reliability", types.YLeaf{"Reliability", dataRate.Reliability})
+
+    dataRate.EntityData.YListKeys = []string {}
+
     return &(dataRate.EntityData)
 }
 
@@ -684,44 +708,47 @@ func (genericCounters *InfraStatistics_Interfaces_Interface_Cache_GenericCounter
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounters.EntityData.Children = make(map[string]types.YChild)
-    genericCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounters.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", genericCounters.PacketsReceived}
-    genericCounters.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", genericCounters.BytesReceived}
-    genericCounters.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", genericCounters.PacketsSent}
-    genericCounters.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", genericCounters.BytesSent}
-    genericCounters.EntityData.Leafs["multicast-packets-received"] = types.YLeaf{"MulticastPacketsReceived", genericCounters.MulticastPacketsReceived}
-    genericCounters.EntityData.Leafs["broadcast-packets-received"] = types.YLeaf{"BroadcastPacketsReceived", genericCounters.BroadcastPacketsReceived}
-    genericCounters.EntityData.Leafs["multicast-packets-sent"] = types.YLeaf{"MulticastPacketsSent", genericCounters.MulticastPacketsSent}
-    genericCounters.EntityData.Leafs["broadcast-packets-sent"] = types.YLeaf{"BroadcastPacketsSent", genericCounters.BroadcastPacketsSent}
-    genericCounters.EntityData.Leafs["output-drops"] = types.YLeaf{"OutputDrops", genericCounters.OutputDrops}
-    genericCounters.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", genericCounters.OutputQueueDrops}
-    genericCounters.EntityData.Leafs["input-drops"] = types.YLeaf{"InputDrops", genericCounters.InputDrops}
-    genericCounters.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", genericCounters.InputQueueDrops}
-    genericCounters.EntityData.Leafs["runt-packets-received"] = types.YLeaf{"RuntPacketsReceived", genericCounters.RuntPacketsReceived}
-    genericCounters.EntityData.Leafs["giant-packets-received"] = types.YLeaf{"GiantPacketsReceived", genericCounters.GiantPacketsReceived}
-    genericCounters.EntityData.Leafs["throttled-packets-received"] = types.YLeaf{"ThrottledPacketsReceived", genericCounters.ThrottledPacketsReceived}
-    genericCounters.EntityData.Leafs["parity-packets-received"] = types.YLeaf{"ParityPacketsReceived", genericCounters.ParityPacketsReceived}
-    genericCounters.EntityData.Leafs["unknown-protocol-packets-received"] = types.YLeaf{"UnknownProtocolPacketsReceived", genericCounters.UnknownProtocolPacketsReceived}
-    genericCounters.EntityData.Leafs["input-errors"] = types.YLeaf{"InputErrors", genericCounters.InputErrors}
-    genericCounters.EntityData.Leafs["crc-errors"] = types.YLeaf{"CrcErrors", genericCounters.CrcErrors}
-    genericCounters.EntityData.Leafs["input-overruns"] = types.YLeaf{"InputOverruns", genericCounters.InputOverruns}
-    genericCounters.EntityData.Leafs["framing-errors-received"] = types.YLeaf{"FramingErrorsReceived", genericCounters.FramingErrorsReceived}
-    genericCounters.EntityData.Leafs["input-ignored-packets"] = types.YLeaf{"InputIgnoredPackets", genericCounters.InputIgnoredPackets}
-    genericCounters.EntityData.Leafs["input-aborts"] = types.YLeaf{"InputAborts", genericCounters.InputAborts}
-    genericCounters.EntityData.Leafs["output-errors"] = types.YLeaf{"OutputErrors", genericCounters.OutputErrors}
-    genericCounters.EntityData.Leafs["output-underruns"] = types.YLeaf{"OutputUnderruns", genericCounters.OutputUnderruns}
-    genericCounters.EntityData.Leafs["output-buffer-failures"] = types.YLeaf{"OutputBufferFailures", genericCounters.OutputBufferFailures}
-    genericCounters.EntityData.Leafs["output-buffers-swapped-out"] = types.YLeaf{"OutputBuffersSwappedOut", genericCounters.OutputBuffersSwappedOut}
-    genericCounters.EntityData.Leafs["applique"] = types.YLeaf{"Applique", genericCounters.Applique}
-    genericCounters.EntityData.Leafs["resets"] = types.YLeaf{"Resets", genericCounters.Resets}
-    genericCounters.EntityData.Leafs["carrier-transitions"] = types.YLeaf{"CarrierTransitions", genericCounters.CarrierTransitions}
-    genericCounters.EntityData.Leafs["availability-flag"] = types.YLeaf{"AvailabilityFlag", genericCounters.AvailabilityFlag}
-    genericCounters.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", genericCounters.LastDataTime}
-    genericCounters.EntityData.Leafs["seconds-since-last-clear-counters"] = types.YLeaf{"SecondsSinceLastClearCounters", genericCounters.SecondsSinceLastClearCounters}
-    genericCounters.EntityData.Leafs["last-discontinuity-time"] = types.YLeaf{"LastDiscontinuityTime", genericCounters.LastDiscontinuityTime}
-    genericCounters.EntityData.Leafs["seconds-since-packet-received"] = types.YLeaf{"SecondsSincePacketReceived", genericCounters.SecondsSincePacketReceived}
-    genericCounters.EntityData.Leafs["seconds-since-packet-sent"] = types.YLeaf{"SecondsSincePacketSent", genericCounters.SecondsSincePacketSent}
+    genericCounters.EntityData.Children = types.NewOrderedMap()
+    genericCounters.EntityData.Leafs = types.NewOrderedMap()
+    genericCounters.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", genericCounters.PacketsReceived})
+    genericCounters.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", genericCounters.BytesReceived})
+    genericCounters.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", genericCounters.PacketsSent})
+    genericCounters.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", genericCounters.BytesSent})
+    genericCounters.EntityData.Leafs.Append("multicast-packets-received", types.YLeaf{"MulticastPacketsReceived", genericCounters.MulticastPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("broadcast-packets-received", types.YLeaf{"BroadcastPacketsReceived", genericCounters.BroadcastPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("multicast-packets-sent", types.YLeaf{"MulticastPacketsSent", genericCounters.MulticastPacketsSent})
+    genericCounters.EntityData.Leafs.Append("broadcast-packets-sent", types.YLeaf{"BroadcastPacketsSent", genericCounters.BroadcastPacketsSent})
+    genericCounters.EntityData.Leafs.Append("output-drops", types.YLeaf{"OutputDrops", genericCounters.OutputDrops})
+    genericCounters.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", genericCounters.OutputQueueDrops})
+    genericCounters.EntityData.Leafs.Append("input-drops", types.YLeaf{"InputDrops", genericCounters.InputDrops})
+    genericCounters.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", genericCounters.InputQueueDrops})
+    genericCounters.EntityData.Leafs.Append("runt-packets-received", types.YLeaf{"RuntPacketsReceived", genericCounters.RuntPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("giant-packets-received", types.YLeaf{"GiantPacketsReceived", genericCounters.GiantPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("throttled-packets-received", types.YLeaf{"ThrottledPacketsReceived", genericCounters.ThrottledPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("parity-packets-received", types.YLeaf{"ParityPacketsReceived", genericCounters.ParityPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("unknown-protocol-packets-received", types.YLeaf{"UnknownProtocolPacketsReceived", genericCounters.UnknownProtocolPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("input-errors", types.YLeaf{"InputErrors", genericCounters.InputErrors})
+    genericCounters.EntityData.Leafs.Append("crc-errors", types.YLeaf{"CrcErrors", genericCounters.CrcErrors})
+    genericCounters.EntityData.Leafs.Append("input-overruns", types.YLeaf{"InputOverruns", genericCounters.InputOverruns})
+    genericCounters.EntityData.Leafs.Append("framing-errors-received", types.YLeaf{"FramingErrorsReceived", genericCounters.FramingErrorsReceived})
+    genericCounters.EntityData.Leafs.Append("input-ignored-packets", types.YLeaf{"InputIgnoredPackets", genericCounters.InputIgnoredPackets})
+    genericCounters.EntityData.Leafs.Append("input-aborts", types.YLeaf{"InputAborts", genericCounters.InputAborts})
+    genericCounters.EntityData.Leafs.Append("output-errors", types.YLeaf{"OutputErrors", genericCounters.OutputErrors})
+    genericCounters.EntityData.Leafs.Append("output-underruns", types.YLeaf{"OutputUnderruns", genericCounters.OutputUnderruns})
+    genericCounters.EntityData.Leafs.Append("output-buffer-failures", types.YLeaf{"OutputBufferFailures", genericCounters.OutputBufferFailures})
+    genericCounters.EntityData.Leafs.Append("output-buffers-swapped-out", types.YLeaf{"OutputBuffersSwappedOut", genericCounters.OutputBuffersSwappedOut})
+    genericCounters.EntityData.Leafs.Append("applique", types.YLeaf{"Applique", genericCounters.Applique})
+    genericCounters.EntityData.Leafs.Append("resets", types.YLeaf{"Resets", genericCounters.Resets})
+    genericCounters.EntityData.Leafs.Append("carrier-transitions", types.YLeaf{"CarrierTransitions", genericCounters.CarrierTransitions})
+    genericCounters.EntityData.Leafs.Append("availability-flag", types.YLeaf{"AvailabilityFlag", genericCounters.AvailabilityFlag})
+    genericCounters.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", genericCounters.LastDataTime})
+    genericCounters.EntityData.Leafs.Append("seconds-since-last-clear-counters", types.YLeaf{"SecondsSinceLastClearCounters", genericCounters.SecondsSinceLastClearCounters})
+    genericCounters.EntityData.Leafs.Append("last-discontinuity-time", types.YLeaf{"LastDiscontinuityTime", genericCounters.LastDiscontinuityTime})
+    genericCounters.EntityData.Leafs.Append("seconds-since-packet-received", types.YLeaf{"SecondsSincePacketReceived", genericCounters.SecondsSincePacketReceived})
+    genericCounters.EntityData.Leafs.Append("seconds-since-packet-sent", types.YLeaf{"SecondsSincePacketSent", genericCounters.SecondsSincePacketSent})
+
+    genericCounters.EntityData.YListKeys = []string {}
+
     return &(genericCounters.EntityData)
 }
 
@@ -754,12 +781,15 @@ func (latest *InfraStatistics_Interfaces_Interface_Latest) GetEntityData() *type
     latest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     latest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    latest.EntityData.Children = make(map[string]types.YChild)
-    latest.EntityData.Children["protocols"] = types.YChild{"Protocols", &latest.Protocols}
-    latest.EntityData.Children["interfaces-mib-counters"] = types.YChild{"InterfacesMibCounters", &latest.InterfacesMibCounters}
-    latest.EntityData.Children["data-rate"] = types.YChild{"DataRate", &latest.DataRate}
-    latest.EntityData.Children["generic-counters"] = types.YChild{"GenericCounters", &latest.GenericCounters}
-    latest.EntityData.Leafs = make(map[string]types.YLeaf)
+    latest.EntityData.Children = types.NewOrderedMap()
+    latest.EntityData.Children.Append("protocols", types.YChild{"Protocols", &latest.Protocols})
+    latest.EntityData.Children.Append("interfaces-mib-counters", types.YChild{"InterfacesMibCounters", &latest.InterfacesMibCounters})
+    latest.EntityData.Children.Append("data-rate", types.YChild{"DataRate", &latest.DataRate})
+    latest.EntityData.Children.Append("generic-counters", types.YChild{"GenericCounters", &latest.GenericCounters})
+    latest.EntityData.Leafs = types.NewOrderedMap()
+
+    latest.EntityData.YListKeys = []string {}
+
     return &(latest.EntityData)
 }
 
@@ -771,7 +801,7 @@ type InfraStatistics_Interfaces_Interface_Latest_Protocols struct {
 
     // Interface counters per protocol. The type is slice of
     // InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol.
-    Protocol []InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol
+    Protocol []*InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol
 }
 
 func (protocols *InfraStatistics_Interfaces_Interface_Latest_Protocols) GetEntityData() *types.CommonEntityData {
@@ -784,12 +814,15 @@ func (protocols *InfraStatistics_Interfaces_Interface_Latest_Protocols) GetEntit
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocols.EntityData.Children = make(map[string]types.YChild)
-    protocols.EntityData.Children["protocol"] = types.YChild{"Protocol", nil}
+    protocols.EntityData.Children = types.NewOrderedMap()
+    protocols.EntityData.Children.Append("protocol", types.YChild{"Protocol", nil})
     for i := range protocols.Protocol {
-        protocols.EntityData.Children[types.GetSegmentPath(&protocols.Protocol[i])] = types.YChild{"Protocol", &protocols.Protocol[i]}
+        protocols.EntityData.Children.Append(types.GetSegmentPath(protocols.Protocol[i]), types.YChild{"Protocol", protocols.Protocol[i]})
     }
-    protocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    protocols.EntityData.Leafs = types.NewOrderedMap()
+
+    protocols.EntityData.YListKeys = []string {}
+
     return &(protocols.EntityData)
 }
 
@@ -800,7 +833,7 @@ type InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the protocol. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProtocolName interface{}
 
     // Bytes received. The type is interface{} with range:
@@ -847,24 +880,27 @@ func (protocol *InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol) 
     protocol.EntityData.YangName = "protocol"
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
-    protocol.EntityData.SegmentPath = "protocol" + "[protocol-name='" + fmt.Sprintf("%v", protocol.ProtocolName) + "']"
+    protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocol.EntityData.Children = make(map[string]types.YChild)
-    protocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocol.EntityData.Leafs["protocol-name"] = types.YLeaf{"ProtocolName", protocol.ProtocolName}
-    protocol.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", protocol.BytesReceived}
-    protocol.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", protocol.PacketsReceived}
-    protocol.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", protocol.BytesSent}
-    protocol.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", protocol.PacketsSent}
-    protocol.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", protocol.Protocol}
-    protocol.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", protocol.LastDataTime}
-    protocol.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", protocol.InputDataRate}
-    protocol.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", protocol.InputPacketRate}
-    protocol.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", protocol.OutputDataRate}
-    protocol.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", protocol.OutputPacketRate}
+    protocol.EntityData.Children = types.NewOrderedMap()
+    protocol.EntityData.Leafs = types.NewOrderedMap()
+    protocol.EntityData.Leafs.Append("protocol-name", types.YLeaf{"ProtocolName", protocol.ProtocolName})
+    protocol.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", protocol.BytesReceived})
+    protocol.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", protocol.PacketsReceived})
+    protocol.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", protocol.BytesSent})
+    protocol.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", protocol.PacketsSent})
+    protocol.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", protocol.Protocol})
+    protocol.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", protocol.LastDataTime})
+    protocol.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", protocol.InputDataRate})
+    protocol.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", protocol.InputPacketRate})
+    protocol.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", protocol.OutputDataRate})
+    protocol.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", protocol.OutputPacketRate})
+
+    protocol.EntityData.YListKeys = []string {"ProtocolName"}
+
     return &(protocol.EntityData)
 }
 
@@ -1009,44 +1045,47 @@ func (interfacesMibCounters *InfraStatistics_Interfaces_Interface_Latest_Interfa
     interfacesMibCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacesMibCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfacesMibCounters.EntityData.Children = make(map[string]types.YChild)
-    interfacesMibCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfacesMibCounters.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", interfacesMibCounters.PacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", interfacesMibCounters.BytesReceived}
-    interfacesMibCounters.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", interfacesMibCounters.PacketsSent}
-    interfacesMibCounters.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", interfacesMibCounters.BytesSent}
-    interfacesMibCounters.EntityData.Leafs["multicast-packets-received"] = types.YLeaf{"MulticastPacketsReceived", interfacesMibCounters.MulticastPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["broadcast-packets-received"] = types.YLeaf{"BroadcastPacketsReceived", interfacesMibCounters.BroadcastPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["multicast-packets-sent"] = types.YLeaf{"MulticastPacketsSent", interfacesMibCounters.MulticastPacketsSent}
-    interfacesMibCounters.EntityData.Leafs["broadcast-packets-sent"] = types.YLeaf{"BroadcastPacketsSent", interfacesMibCounters.BroadcastPacketsSent}
-    interfacesMibCounters.EntityData.Leafs["output-drops"] = types.YLeaf{"OutputDrops", interfacesMibCounters.OutputDrops}
-    interfacesMibCounters.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", interfacesMibCounters.OutputQueueDrops}
-    interfacesMibCounters.EntityData.Leafs["input-drops"] = types.YLeaf{"InputDrops", interfacesMibCounters.InputDrops}
-    interfacesMibCounters.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", interfacesMibCounters.InputQueueDrops}
-    interfacesMibCounters.EntityData.Leafs["runt-packets-received"] = types.YLeaf{"RuntPacketsReceived", interfacesMibCounters.RuntPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["giant-packets-received"] = types.YLeaf{"GiantPacketsReceived", interfacesMibCounters.GiantPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["throttled-packets-received"] = types.YLeaf{"ThrottledPacketsReceived", interfacesMibCounters.ThrottledPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["parity-packets-received"] = types.YLeaf{"ParityPacketsReceived", interfacesMibCounters.ParityPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["unknown-protocol-packets-received"] = types.YLeaf{"UnknownProtocolPacketsReceived", interfacesMibCounters.UnknownProtocolPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["input-errors"] = types.YLeaf{"InputErrors", interfacesMibCounters.InputErrors}
-    interfacesMibCounters.EntityData.Leafs["crc-errors"] = types.YLeaf{"CrcErrors", interfacesMibCounters.CrcErrors}
-    interfacesMibCounters.EntityData.Leafs["input-overruns"] = types.YLeaf{"InputOverruns", interfacesMibCounters.InputOverruns}
-    interfacesMibCounters.EntityData.Leafs["framing-errors-received"] = types.YLeaf{"FramingErrorsReceived", interfacesMibCounters.FramingErrorsReceived}
-    interfacesMibCounters.EntityData.Leafs["input-ignored-packets"] = types.YLeaf{"InputIgnoredPackets", interfacesMibCounters.InputIgnoredPackets}
-    interfacesMibCounters.EntityData.Leafs["input-aborts"] = types.YLeaf{"InputAborts", interfacesMibCounters.InputAborts}
-    interfacesMibCounters.EntityData.Leafs["output-errors"] = types.YLeaf{"OutputErrors", interfacesMibCounters.OutputErrors}
-    interfacesMibCounters.EntityData.Leafs["output-underruns"] = types.YLeaf{"OutputUnderruns", interfacesMibCounters.OutputUnderruns}
-    interfacesMibCounters.EntityData.Leafs["output-buffer-failures"] = types.YLeaf{"OutputBufferFailures", interfacesMibCounters.OutputBufferFailures}
-    interfacesMibCounters.EntityData.Leafs["output-buffers-swapped-out"] = types.YLeaf{"OutputBuffersSwappedOut", interfacesMibCounters.OutputBuffersSwappedOut}
-    interfacesMibCounters.EntityData.Leafs["applique"] = types.YLeaf{"Applique", interfacesMibCounters.Applique}
-    interfacesMibCounters.EntityData.Leafs["resets"] = types.YLeaf{"Resets", interfacesMibCounters.Resets}
-    interfacesMibCounters.EntityData.Leafs["carrier-transitions"] = types.YLeaf{"CarrierTransitions", interfacesMibCounters.CarrierTransitions}
-    interfacesMibCounters.EntityData.Leafs["availability-flag"] = types.YLeaf{"AvailabilityFlag", interfacesMibCounters.AvailabilityFlag}
-    interfacesMibCounters.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", interfacesMibCounters.LastDataTime}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-last-clear-counters"] = types.YLeaf{"SecondsSinceLastClearCounters", interfacesMibCounters.SecondsSinceLastClearCounters}
-    interfacesMibCounters.EntityData.Leafs["last-discontinuity-time"] = types.YLeaf{"LastDiscontinuityTime", interfacesMibCounters.LastDiscontinuityTime}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-packet-received"] = types.YLeaf{"SecondsSincePacketReceived", interfacesMibCounters.SecondsSincePacketReceived}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-packet-sent"] = types.YLeaf{"SecondsSincePacketSent", interfacesMibCounters.SecondsSincePacketSent}
+    interfacesMibCounters.EntityData.Children = types.NewOrderedMap()
+    interfacesMibCounters.EntityData.Leafs = types.NewOrderedMap()
+    interfacesMibCounters.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", interfacesMibCounters.PacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", interfacesMibCounters.BytesReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", interfacesMibCounters.PacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", interfacesMibCounters.BytesSent})
+    interfacesMibCounters.EntityData.Leafs.Append("multicast-packets-received", types.YLeaf{"MulticastPacketsReceived", interfacesMibCounters.MulticastPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("broadcast-packets-received", types.YLeaf{"BroadcastPacketsReceived", interfacesMibCounters.BroadcastPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("multicast-packets-sent", types.YLeaf{"MulticastPacketsSent", interfacesMibCounters.MulticastPacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("broadcast-packets-sent", types.YLeaf{"BroadcastPacketsSent", interfacesMibCounters.BroadcastPacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("output-drops", types.YLeaf{"OutputDrops", interfacesMibCounters.OutputDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", interfacesMibCounters.OutputQueueDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("input-drops", types.YLeaf{"InputDrops", interfacesMibCounters.InputDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", interfacesMibCounters.InputQueueDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("runt-packets-received", types.YLeaf{"RuntPacketsReceived", interfacesMibCounters.RuntPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("giant-packets-received", types.YLeaf{"GiantPacketsReceived", interfacesMibCounters.GiantPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("throttled-packets-received", types.YLeaf{"ThrottledPacketsReceived", interfacesMibCounters.ThrottledPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("parity-packets-received", types.YLeaf{"ParityPacketsReceived", interfacesMibCounters.ParityPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("unknown-protocol-packets-received", types.YLeaf{"UnknownProtocolPacketsReceived", interfacesMibCounters.UnknownProtocolPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("input-errors", types.YLeaf{"InputErrors", interfacesMibCounters.InputErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("crc-errors", types.YLeaf{"CrcErrors", interfacesMibCounters.CrcErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("input-overruns", types.YLeaf{"InputOverruns", interfacesMibCounters.InputOverruns})
+    interfacesMibCounters.EntityData.Leafs.Append("framing-errors-received", types.YLeaf{"FramingErrorsReceived", interfacesMibCounters.FramingErrorsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("input-ignored-packets", types.YLeaf{"InputIgnoredPackets", interfacesMibCounters.InputIgnoredPackets})
+    interfacesMibCounters.EntityData.Leafs.Append("input-aborts", types.YLeaf{"InputAborts", interfacesMibCounters.InputAborts})
+    interfacesMibCounters.EntityData.Leafs.Append("output-errors", types.YLeaf{"OutputErrors", interfacesMibCounters.OutputErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("output-underruns", types.YLeaf{"OutputUnderruns", interfacesMibCounters.OutputUnderruns})
+    interfacesMibCounters.EntityData.Leafs.Append("output-buffer-failures", types.YLeaf{"OutputBufferFailures", interfacesMibCounters.OutputBufferFailures})
+    interfacesMibCounters.EntityData.Leafs.Append("output-buffers-swapped-out", types.YLeaf{"OutputBuffersSwappedOut", interfacesMibCounters.OutputBuffersSwappedOut})
+    interfacesMibCounters.EntityData.Leafs.Append("applique", types.YLeaf{"Applique", interfacesMibCounters.Applique})
+    interfacesMibCounters.EntityData.Leafs.Append("resets", types.YLeaf{"Resets", interfacesMibCounters.Resets})
+    interfacesMibCounters.EntityData.Leafs.Append("carrier-transitions", types.YLeaf{"CarrierTransitions", interfacesMibCounters.CarrierTransitions})
+    interfacesMibCounters.EntityData.Leafs.Append("availability-flag", types.YLeaf{"AvailabilityFlag", interfacesMibCounters.AvailabilityFlag})
+    interfacesMibCounters.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", interfacesMibCounters.LastDataTime})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-last-clear-counters", types.YLeaf{"SecondsSinceLastClearCounters", interfacesMibCounters.SecondsSinceLastClearCounters})
+    interfacesMibCounters.EntityData.Leafs.Append("last-discontinuity-time", types.YLeaf{"LastDiscontinuityTime", interfacesMibCounters.LastDiscontinuityTime})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-packet-received", types.YLeaf{"SecondsSincePacketReceived", interfacesMibCounters.SecondsSincePacketReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-packet-sent", types.YLeaf{"SecondsSincePacketSent", interfacesMibCounters.SecondsSincePacketSent})
+
+    interfacesMibCounters.EntityData.YListKeys = []string {}
+
     return &(interfacesMibCounters.EntityData)
 }
 
@@ -1116,21 +1155,24 @@ func (dataRate *InfraStatistics_Interfaces_Interface_Latest_DataRate) GetEntityD
     dataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRate.EntityData.Children = make(map[string]types.YChild)
-    dataRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRate.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", dataRate.InputDataRate}
-    dataRate.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", dataRate.InputPacketRate}
-    dataRate.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", dataRate.OutputDataRate}
-    dataRate.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", dataRate.OutputPacketRate}
-    dataRate.EntityData.Leafs["peak-input-data-rate"] = types.YLeaf{"PeakInputDataRate", dataRate.PeakInputDataRate}
-    dataRate.EntityData.Leafs["peak-input-packet-rate"] = types.YLeaf{"PeakInputPacketRate", dataRate.PeakInputPacketRate}
-    dataRate.EntityData.Leafs["peak-output-data-rate"] = types.YLeaf{"PeakOutputDataRate", dataRate.PeakOutputDataRate}
-    dataRate.EntityData.Leafs["peak-output-packet-rate"] = types.YLeaf{"PeakOutputPacketRate", dataRate.PeakOutputPacketRate}
-    dataRate.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", dataRate.Bandwidth}
-    dataRate.EntityData.Leafs["load-interval"] = types.YLeaf{"LoadInterval", dataRate.LoadInterval}
-    dataRate.EntityData.Leafs["output-load"] = types.YLeaf{"OutputLoad", dataRate.OutputLoad}
-    dataRate.EntityData.Leafs["input-load"] = types.YLeaf{"InputLoad", dataRate.InputLoad}
-    dataRate.EntityData.Leafs["reliability"] = types.YLeaf{"Reliability", dataRate.Reliability}
+    dataRate.EntityData.Children = types.NewOrderedMap()
+    dataRate.EntityData.Leafs = types.NewOrderedMap()
+    dataRate.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", dataRate.InputDataRate})
+    dataRate.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", dataRate.InputPacketRate})
+    dataRate.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", dataRate.OutputDataRate})
+    dataRate.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", dataRate.OutputPacketRate})
+    dataRate.EntityData.Leafs.Append("peak-input-data-rate", types.YLeaf{"PeakInputDataRate", dataRate.PeakInputDataRate})
+    dataRate.EntityData.Leafs.Append("peak-input-packet-rate", types.YLeaf{"PeakInputPacketRate", dataRate.PeakInputPacketRate})
+    dataRate.EntityData.Leafs.Append("peak-output-data-rate", types.YLeaf{"PeakOutputDataRate", dataRate.PeakOutputDataRate})
+    dataRate.EntityData.Leafs.Append("peak-output-packet-rate", types.YLeaf{"PeakOutputPacketRate", dataRate.PeakOutputPacketRate})
+    dataRate.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", dataRate.Bandwidth})
+    dataRate.EntityData.Leafs.Append("load-interval", types.YLeaf{"LoadInterval", dataRate.LoadInterval})
+    dataRate.EntityData.Leafs.Append("output-load", types.YLeaf{"OutputLoad", dataRate.OutputLoad})
+    dataRate.EntityData.Leafs.Append("input-load", types.YLeaf{"InputLoad", dataRate.InputLoad})
+    dataRate.EntityData.Leafs.Append("reliability", types.YLeaf{"Reliability", dataRate.Reliability})
+
+    dataRate.EntityData.YListKeys = []string {}
+
     return &(dataRate.EntityData)
 }
 
@@ -1274,44 +1316,47 @@ func (genericCounters *InfraStatistics_Interfaces_Interface_Latest_GenericCounte
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounters.EntityData.Children = make(map[string]types.YChild)
-    genericCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounters.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", genericCounters.PacketsReceived}
-    genericCounters.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", genericCounters.BytesReceived}
-    genericCounters.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", genericCounters.PacketsSent}
-    genericCounters.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", genericCounters.BytesSent}
-    genericCounters.EntityData.Leafs["multicast-packets-received"] = types.YLeaf{"MulticastPacketsReceived", genericCounters.MulticastPacketsReceived}
-    genericCounters.EntityData.Leafs["broadcast-packets-received"] = types.YLeaf{"BroadcastPacketsReceived", genericCounters.BroadcastPacketsReceived}
-    genericCounters.EntityData.Leafs["multicast-packets-sent"] = types.YLeaf{"MulticastPacketsSent", genericCounters.MulticastPacketsSent}
-    genericCounters.EntityData.Leafs["broadcast-packets-sent"] = types.YLeaf{"BroadcastPacketsSent", genericCounters.BroadcastPacketsSent}
-    genericCounters.EntityData.Leafs["output-drops"] = types.YLeaf{"OutputDrops", genericCounters.OutputDrops}
-    genericCounters.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", genericCounters.OutputQueueDrops}
-    genericCounters.EntityData.Leafs["input-drops"] = types.YLeaf{"InputDrops", genericCounters.InputDrops}
-    genericCounters.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", genericCounters.InputQueueDrops}
-    genericCounters.EntityData.Leafs["runt-packets-received"] = types.YLeaf{"RuntPacketsReceived", genericCounters.RuntPacketsReceived}
-    genericCounters.EntityData.Leafs["giant-packets-received"] = types.YLeaf{"GiantPacketsReceived", genericCounters.GiantPacketsReceived}
-    genericCounters.EntityData.Leafs["throttled-packets-received"] = types.YLeaf{"ThrottledPacketsReceived", genericCounters.ThrottledPacketsReceived}
-    genericCounters.EntityData.Leafs["parity-packets-received"] = types.YLeaf{"ParityPacketsReceived", genericCounters.ParityPacketsReceived}
-    genericCounters.EntityData.Leafs["unknown-protocol-packets-received"] = types.YLeaf{"UnknownProtocolPacketsReceived", genericCounters.UnknownProtocolPacketsReceived}
-    genericCounters.EntityData.Leafs["input-errors"] = types.YLeaf{"InputErrors", genericCounters.InputErrors}
-    genericCounters.EntityData.Leafs["crc-errors"] = types.YLeaf{"CrcErrors", genericCounters.CrcErrors}
-    genericCounters.EntityData.Leafs["input-overruns"] = types.YLeaf{"InputOverruns", genericCounters.InputOverruns}
-    genericCounters.EntityData.Leafs["framing-errors-received"] = types.YLeaf{"FramingErrorsReceived", genericCounters.FramingErrorsReceived}
-    genericCounters.EntityData.Leafs["input-ignored-packets"] = types.YLeaf{"InputIgnoredPackets", genericCounters.InputIgnoredPackets}
-    genericCounters.EntityData.Leafs["input-aborts"] = types.YLeaf{"InputAborts", genericCounters.InputAborts}
-    genericCounters.EntityData.Leafs["output-errors"] = types.YLeaf{"OutputErrors", genericCounters.OutputErrors}
-    genericCounters.EntityData.Leafs["output-underruns"] = types.YLeaf{"OutputUnderruns", genericCounters.OutputUnderruns}
-    genericCounters.EntityData.Leafs["output-buffer-failures"] = types.YLeaf{"OutputBufferFailures", genericCounters.OutputBufferFailures}
-    genericCounters.EntityData.Leafs["output-buffers-swapped-out"] = types.YLeaf{"OutputBuffersSwappedOut", genericCounters.OutputBuffersSwappedOut}
-    genericCounters.EntityData.Leafs["applique"] = types.YLeaf{"Applique", genericCounters.Applique}
-    genericCounters.EntityData.Leafs["resets"] = types.YLeaf{"Resets", genericCounters.Resets}
-    genericCounters.EntityData.Leafs["carrier-transitions"] = types.YLeaf{"CarrierTransitions", genericCounters.CarrierTransitions}
-    genericCounters.EntityData.Leafs["availability-flag"] = types.YLeaf{"AvailabilityFlag", genericCounters.AvailabilityFlag}
-    genericCounters.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", genericCounters.LastDataTime}
-    genericCounters.EntityData.Leafs["seconds-since-last-clear-counters"] = types.YLeaf{"SecondsSinceLastClearCounters", genericCounters.SecondsSinceLastClearCounters}
-    genericCounters.EntityData.Leafs["last-discontinuity-time"] = types.YLeaf{"LastDiscontinuityTime", genericCounters.LastDiscontinuityTime}
-    genericCounters.EntityData.Leafs["seconds-since-packet-received"] = types.YLeaf{"SecondsSincePacketReceived", genericCounters.SecondsSincePacketReceived}
-    genericCounters.EntityData.Leafs["seconds-since-packet-sent"] = types.YLeaf{"SecondsSincePacketSent", genericCounters.SecondsSincePacketSent}
+    genericCounters.EntityData.Children = types.NewOrderedMap()
+    genericCounters.EntityData.Leafs = types.NewOrderedMap()
+    genericCounters.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", genericCounters.PacketsReceived})
+    genericCounters.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", genericCounters.BytesReceived})
+    genericCounters.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", genericCounters.PacketsSent})
+    genericCounters.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", genericCounters.BytesSent})
+    genericCounters.EntityData.Leafs.Append("multicast-packets-received", types.YLeaf{"MulticastPacketsReceived", genericCounters.MulticastPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("broadcast-packets-received", types.YLeaf{"BroadcastPacketsReceived", genericCounters.BroadcastPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("multicast-packets-sent", types.YLeaf{"MulticastPacketsSent", genericCounters.MulticastPacketsSent})
+    genericCounters.EntityData.Leafs.Append("broadcast-packets-sent", types.YLeaf{"BroadcastPacketsSent", genericCounters.BroadcastPacketsSent})
+    genericCounters.EntityData.Leafs.Append("output-drops", types.YLeaf{"OutputDrops", genericCounters.OutputDrops})
+    genericCounters.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", genericCounters.OutputQueueDrops})
+    genericCounters.EntityData.Leafs.Append("input-drops", types.YLeaf{"InputDrops", genericCounters.InputDrops})
+    genericCounters.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", genericCounters.InputQueueDrops})
+    genericCounters.EntityData.Leafs.Append("runt-packets-received", types.YLeaf{"RuntPacketsReceived", genericCounters.RuntPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("giant-packets-received", types.YLeaf{"GiantPacketsReceived", genericCounters.GiantPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("throttled-packets-received", types.YLeaf{"ThrottledPacketsReceived", genericCounters.ThrottledPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("parity-packets-received", types.YLeaf{"ParityPacketsReceived", genericCounters.ParityPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("unknown-protocol-packets-received", types.YLeaf{"UnknownProtocolPacketsReceived", genericCounters.UnknownProtocolPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("input-errors", types.YLeaf{"InputErrors", genericCounters.InputErrors})
+    genericCounters.EntityData.Leafs.Append("crc-errors", types.YLeaf{"CrcErrors", genericCounters.CrcErrors})
+    genericCounters.EntityData.Leafs.Append("input-overruns", types.YLeaf{"InputOverruns", genericCounters.InputOverruns})
+    genericCounters.EntityData.Leafs.Append("framing-errors-received", types.YLeaf{"FramingErrorsReceived", genericCounters.FramingErrorsReceived})
+    genericCounters.EntityData.Leafs.Append("input-ignored-packets", types.YLeaf{"InputIgnoredPackets", genericCounters.InputIgnoredPackets})
+    genericCounters.EntityData.Leafs.Append("input-aborts", types.YLeaf{"InputAborts", genericCounters.InputAborts})
+    genericCounters.EntityData.Leafs.Append("output-errors", types.YLeaf{"OutputErrors", genericCounters.OutputErrors})
+    genericCounters.EntityData.Leafs.Append("output-underruns", types.YLeaf{"OutputUnderruns", genericCounters.OutputUnderruns})
+    genericCounters.EntityData.Leafs.Append("output-buffer-failures", types.YLeaf{"OutputBufferFailures", genericCounters.OutputBufferFailures})
+    genericCounters.EntityData.Leafs.Append("output-buffers-swapped-out", types.YLeaf{"OutputBuffersSwappedOut", genericCounters.OutputBuffersSwappedOut})
+    genericCounters.EntityData.Leafs.Append("applique", types.YLeaf{"Applique", genericCounters.Applique})
+    genericCounters.EntityData.Leafs.Append("resets", types.YLeaf{"Resets", genericCounters.Resets})
+    genericCounters.EntityData.Leafs.Append("carrier-transitions", types.YLeaf{"CarrierTransitions", genericCounters.CarrierTransitions})
+    genericCounters.EntityData.Leafs.Append("availability-flag", types.YLeaf{"AvailabilityFlag", genericCounters.AvailabilityFlag})
+    genericCounters.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", genericCounters.LastDataTime})
+    genericCounters.EntityData.Leafs.Append("seconds-since-last-clear-counters", types.YLeaf{"SecondsSinceLastClearCounters", genericCounters.SecondsSinceLastClearCounters})
+    genericCounters.EntityData.Leafs.Append("last-discontinuity-time", types.YLeaf{"LastDiscontinuityTime", genericCounters.LastDiscontinuityTime})
+    genericCounters.EntityData.Leafs.Append("seconds-since-packet-received", types.YLeaf{"SecondsSincePacketReceived", genericCounters.SecondsSincePacketReceived})
+    genericCounters.EntityData.Leafs.Append("seconds-since-packet-sent", types.YLeaf{"SecondsSincePacketSent", genericCounters.SecondsSincePacketSent})
+
+    genericCounters.EntityData.YListKeys = []string {}
+
     return &(genericCounters.EntityData)
 }
 
@@ -1344,12 +1389,15 @@ func (total *InfraStatistics_Interfaces_Interface_Total) GetEntityData() *types.
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    total.EntityData.Children = make(map[string]types.YChild)
-    total.EntityData.Children["protocols"] = types.YChild{"Protocols", &total.Protocols}
-    total.EntityData.Children["interfaces-mib-counters"] = types.YChild{"InterfacesMibCounters", &total.InterfacesMibCounters}
-    total.EntityData.Children["data-rate"] = types.YChild{"DataRate", &total.DataRate}
-    total.EntityData.Children["generic-counters"] = types.YChild{"GenericCounters", &total.GenericCounters}
-    total.EntityData.Leafs = make(map[string]types.YLeaf)
+    total.EntityData.Children = types.NewOrderedMap()
+    total.EntityData.Children.Append("protocols", types.YChild{"Protocols", &total.Protocols})
+    total.EntityData.Children.Append("interfaces-mib-counters", types.YChild{"InterfacesMibCounters", &total.InterfacesMibCounters})
+    total.EntityData.Children.Append("data-rate", types.YChild{"DataRate", &total.DataRate})
+    total.EntityData.Children.Append("generic-counters", types.YChild{"GenericCounters", &total.GenericCounters})
+    total.EntityData.Leafs = types.NewOrderedMap()
+
+    total.EntityData.YListKeys = []string {}
+
     return &(total.EntityData)
 }
 
@@ -1361,7 +1409,7 @@ type InfraStatistics_Interfaces_Interface_Total_Protocols struct {
 
     // Interface counters per protocol. The type is slice of
     // InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol.
-    Protocol []InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol
+    Protocol []*InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol
 }
 
 func (protocols *InfraStatistics_Interfaces_Interface_Total_Protocols) GetEntityData() *types.CommonEntityData {
@@ -1374,12 +1422,15 @@ func (protocols *InfraStatistics_Interfaces_Interface_Total_Protocols) GetEntity
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocols.EntityData.Children = make(map[string]types.YChild)
-    protocols.EntityData.Children["protocol"] = types.YChild{"Protocol", nil}
+    protocols.EntityData.Children = types.NewOrderedMap()
+    protocols.EntityData.Children.Append("protocol", types.YChild{"Protocol", nil})
     for i := range protocols.Protocol {
-        protocols.EntityData.Children[types.GetSegmentPath(&protocols.Protocol[i])] = types.YChild{"Protocol", &protocols.Protocol[i]}
+        protocols.EntityData.Children.Append(types.GetSegmentPath(protocols.Protocol[i]), types.YChild{"Protocol", protocols.Protocol[i]})
     }
-    protocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    protocols.EntityData.Leafs = types.NewOrderedMap()
+
+    protocols.EntityData.YListKeys = []string {}
+
     return &(protocols.EntityData)
 }
 
@@ -1390,7 +1441,7 @@ type InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the protocol. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProtocolName interface{}
 
     // Bytes received. The type is interface{} with range:
@@ -1437,24 +1488,27 @@ func (protocol *InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol) G
     protocol.EntityData.YangName = "protocol"
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
-    protocol.EntityData.SegmentPath = "protocol" + "[protocol-name='" + fmt.Sprintf("%v", protocol.ProtocolName) + "']"
+    protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocol.EntityData.Children = make(map[string]types.YChild)
-    protocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocol.EntityData.Leafs["protocol-name"] = types.YLeaf{"ProtocolName", protocol.ProtocolName}
-    protocol.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", protocol.BytesReceived}
-    protocol.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", protocol.PacketsReceived}
-    protocol.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", protocol.BytesSent}
-    protocol.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", protocol.PacketsSent}
-    protocol.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", protocol.Protocol}
-    protocol.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", protocol.LastDataTime}
-    protocol.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", protocol.InputDataRate}
-    protocol.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", protocol.InputPacketRate}
-    protocol.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", protocol.OutputDataRate}
-    protocol.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", protocol.OutputPacketRate}
+    protocol.EntityData.Children = types.NewOrderedMap()
+    protocol.EntityData.Leafs = types.NewOrderedMap()
+    protocol.EntityData.Leafs.Append("protocol-name", types.YLeaf{"ProtocolName", protocol.ProtocolName})
+    protocol.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", protocol.BytesReceived})
+    protocol.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", protocol.PacketsReceived})
+    protocol.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", protocol.BytesSent})
+    protocol.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", protocol.PacketsSent})
+    protocol.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", protocol.Protocol})
+    protocol.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", protocol.LastDataTime})
+    protocol.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", protocol.InputDataRate})
+    protocol.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", protocol.InputPacketRate})
+    protocol.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", protocol.OutputDataRate})
+    protocol.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", protocol.OutputPacketRate})
+
+    protocol.EntityData.YListKeys = []string {"ProtocolName"}
+
     return &(protocol.EntityData)
 }
 
@@ -1599,44 +1653,47 @@ func (interfacesMibCounters *InfraStatistics_Interfaces_Interface_Total_Interfac
     interfacesMibCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacesMibCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfacesMibCounters.EntityData.Children = make(map[string]types.YChild)
-    interfacesMibCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfacesMibCounters.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", interfacesMibCounters.PacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", interfacesMibCounters.BytesReceived}
-    interfacesMibCounters.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", interfacesMibCounters.PacketsSent}
-    interfacesMibCounters.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", interfacesMibCounters.BytesSent}
-    interfacesMibCounters.EntityData.Leafs["multicast-packets-received"] = types.YLeaf{"MulticastPacketsReceived", interfacesMibCounters.MulticastPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["broadcast-packets-received"] = types.YLeaf{"BroadcastPacketsReceived", interfacesMibCounters.BroadcastPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["multicast-packets-sent"] = types.YLeaf{"MulticastPacketsSent", interfacesMibCounters.MulticastPacketsSent}
-    interfacesMibCounters.EntityData.Leafs["broadcast-packets-sent"] = types.YLeaf{"BroadcastPacketsSent", interfacesMibCounters.BroadcastPacketsSent}
-    interfacesMibCounters.EntityData.Leafs["output-drops"] = types.YLeaf{"OutputDrops", interfacesMibCounters.OutputDrops}
-    interfacesMibCounters.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", interfacesMibCounters.OutputQueueDrops}
-    interfacesMibCounters.EntityData.Leafs["input-drops"] = types.YLeaf{"InputDrops", interfacesMibCounters.InputDrops}
-    interfacesMibCounters.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", interfacesMibCounters.InputQueueDrops}
-    interfacesMibCounters.EntityData.Leafs["runt-packets-received"] = types.YLeaf{"RuntPacketsReceived", interfacesMibCounters.RuntPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["giant-packets-received"] = types.YLeaf{"GiantPacketsReceived", interfacesMibCounters.GiantPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["throttled-packets-received"] = types.YLeaf{"ThrottledPacketsReceived", interfacesMibCounters.ThrottledPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["parity-packets-received"] = types.YLeaf{"ParityPacketsReceived", interfacesMibCounters.ParityPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["unknown-protocol-packets-received"] = types.YLeaf{"UnknownProtocolPacketsReceived", interfacesMibCounters.UnknownProtocolPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["input-errors"] = types.YLeaf{"InputErrors", interfacesMibCounters.InputErrors}
-    interfacesMibCounters.EntityData.Leafs["crc-errors"] = types.YLeaf{"CrcErrors", interfacesMibCounters.CrcErrors}
-    interfacesMibCounters.EntityData.Leafs["input-overruns"] = types.YLeaf{"InputOverruns", interfacesMibCounters.InputOverruns}
-    interfacesMibCounters.EntityData.Leafs["framing-errors-received"] = types.YLeaf{"FramingErrorsReceived", interfacesMibCounters.FramingErrorsReceived}
-    interfacesMibCounters.EntityData.Leafs["input-ignored-packets"] = types.YLeaf{"InputIgnoredPackets", interfacesMibCounters.InputIgnoredPackets}
-    interfacesMibCounters.EntityData.Leafs["input-aborts"] = types.YLeaf{"InputAborts", interfacesMibCounters.InputAborts}
-    interfacesMibCounters.EntityData.Leafs["output-errors"] = types.YLeaf{"OutputErrors", interfacesMibCounters.OutputErrors}
-    interfacesMibCounters.EntityData.Leafs["output-underruns"] = types.YLeaf{"OutputUnderruns", interfacesMibCounters.OutputUnderruns}
-    interfacesMibCounters.EntityData.Leafs["output-buffer-failures"] = types.YLeaf{"OutputBufferFailures", interfacesMibCounters.OutputBufferFailures}
-    interfacesMibCounters.EntityData.Leafs["output-buffers-swapped-out"] = types.YLeaf{"OutputBuffersSwappedOut", interfacesMibCounters.OutputBuffersSwappedOut}
-    interfacesMibCounters.EntityData.Leafs["applique"] = types.YLeaf{"Applique", interfacesMibCounters.Applique}
-    interfacesMibCounters.EntityData.Leafs["resets"] = types.YLeaf{"Resets", interfacesMibCounters.Resets}
-    interfacesMibCounters.EntityData.Leafs["carrier-transitions"] = types.YLeaf{"CarrierTransitions", interfacesMibCounters.CarrierTransitions}
-    interfacesMibCounters.EntityData.Leafs["availability-flag"] = types.YLeaf{"AvailabilityFlag", interfacesMibCounters.AvailabilityFlag}
-    interfacesMibCounters.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", interfacesMibCounters.LastDataTime}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-last-clear-counters"] = types.YLeaf{"SecondsSinceLastClearCounters", interfacesMibCounters.SecondsSinceLastClearCounters}
-    interfacesMibCounters.EntityData.Leafs["last-discontinuity-time"] = types.YLeaf{"LastDiscontinuityTime", interfacesMibCounters.LastDiscontinuityTime}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-packet-received"] = types.YLeaf{"SecondsSincePacketReceived", interfacesMibCounters.SecondsSincePacketReceived}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-packet-sent"] = types.YLeaf{"SecondsSincePacketSent", interfacesMibCounters.SecondsSincePacketSent}
+    interfacesMibCounters.EntityData.Children = types.NewOrderedMap()
+    interfacesMibCounters.EntityData.Leafs = types.NewOrderedMap()
+    interfacesMibCounters.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", interfacesMibCounters.PacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", interfacesMibCounters.BytesReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", interfacesMibCounters.PacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", interfacesMibCounters.BytesSent})
+    interfacesMibCounters.EntityData.Leafs.Append("multicast-packets-received", types.YLeaf{"MulticastPacketsReceived", interfacesMibCounters.MulticastPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("broadcast-packets-received", types.YLeaf{"BroadcastPacketsReceived", interfacesMibCounters.BroadcastPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("multicast-packets-sent", types.YLeaf{"MulticastPacketsSent", interfacesMibCounters.MulticastPacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("broadcast-packets-sent", types.YLeaf{"BroadcastPacketsSent", interfacesMibCounters.BroadcastPacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("output-drops", types.YLeaf{"OutputDrops", interfacesMibCounters.OutputDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", interfacesMibCounters.OutputQueueDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("input-drops", types.YLeaf{"InputDrops", interfacesMibCounters.InputDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", interfacesMibCounters.InputQueueDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("runt-packets-received", types.YLeaf{"RuntPacketsReceived", interfacesMibCounters.RuntPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("giant-packets-received", types.YLeaf{"GiantPacketsReceived", interfacesMibCounters.GiantPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("throttled-packets-received", types.YLeaf{"ThrottledPacketsReceived", interfacesMibCounters.ThrottledPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("parity-packets-received", types.YLeaf{"ParityPacketsReceived", interfacesMibCounters.ParityPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("unknown-protocol-packets-received", types.YLeaf{"UnknownProtocolPacketsReceived", interfacesMibCounters.UnknownProtocolPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("input-errors", types.YLeaf{"InputErrors", interfacesMibCounters.InputErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("crc-errors", types.YLeaf{"CrcErrors", interfacesMibCounters.CrcErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("input-overruns", types.YLeaf{"InputOverruns", interfacesMibCounters.InputOverruns})
+    interfacesMibCounters.EntityData.Leafs.Append("framing-errors-received", types.YLeaf{"FramingErrorsReceived", interfacesMibCounters.FramingErrorsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("input-ignored-packets", types.YLeaf{"InputIgnoredPackets", interfacesMibCounters.InputIgnoredPackets})
+    interfacesMibCounters.EntityData.Leafs.Append("input-aborts", types.YLeaf{"InputAborts", interfacesMibCounters.InputAborts})
+    interfacesMibCounters.EntityData.Leafs.Append("output-errors", types.YLeaf{"OutputErrors", interfacesMibCounters.OutputErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("output-underruns", types.YLeaf{"OutputUnderruns", interfacesMibCounters.OutputUnderruns})
+    interfacesMibCounters.EntityData.Leafs.Append("output-buffer-failures", types.YLeaf{"OutputBufferFailures", interfacesMibCounters.OutputBufferFailures})
+    interfacesMibCounters.EntityData.Leafs.Append("output-buffers-swapped-out", types.YLeaf{"OutputBuffersSwappedOut", interfacesMibCounters.OutputBuffersSwappedOut})
+    interfacesMibCounters.EntityData.Leafs.Append("applique", types.YLeaf{"Applique", interfacesMibCounters.Applique})
+    interfacesMibCounters.EntityData.Leafs.Append("resets", types.YLeaf{"Resets", interfacesMibCounters.Resets})
+    interfacesMibCounters.EntityData.Leafs.Append("carrier-transitions", types.YLeaf{"CarrierTransitions", interfacesMibCounters.CarrierTransitions})
+    interfacesMibCounters.EntityData.Leafs.Append("availability-flag", types.YLeaf{"AvailabilityFlag", interfacesMibCounters.AvailabilityFlag})
+    interfacesMibCounters.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", interfacesMibCounters.LastDataTime})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-last-clear-counters", types.YLeaf{"SecondsSinceLastClearCounters", interfacesMibCounters.SecondsSinceLastClearCounters})
+    interfacesMibCounters.EntityData.Leafs.Append("last-discontinuity-time", types.YLeaf{"LastDiscontinuityTime", interfacesMibCounters.LastDiscontinuityTime})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-packet-received", types.YLeaf{"SecondsSincePacketReceived", interfacesMibCounters.SecondsSincePacketReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-packet-sent", types.YLeaf{"SecondsSincePacketSent", interfacesMibCounters.SecondsSincePacketSent})
+
+    interfacesMibCounters.EntityData.YListKeys = []string {}
+
     return &(interfacesMibCounters.EntityData)
 }
 
@@ -1706,21 +1763,24 @@ func (dataRate *InfraStatistics_Interfaces_Interface_Total_DataRate) GetEntityDa
     dataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRate.EntityData.Children = make(map[string]types.YChild)
-    dataRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRate.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", dataRate.InputDataRate}
-    dataRate.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", dataRate.InputPacketRate}
-    dataRate.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", dataRate.OutputDataRate}
-    dataRate.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", dataRate.OutputPacketRate}
-    dataRate.EntityData.Leafs["peak-input-data-rate"] = types.YLeaf{"PeakInputDataRate", dataRate.PeakInputDataRate}
-    dataRate.EntityData.Leafs["peak-input-packet-rate"] = types.YLeaf{"PeakInputPacketRate", dataRate.PeakInputPacketRate}
-    dataRate.EntityData.Leafs["peak-output-data-rate"] = types.YLeaf{"PeakOutputDataRate", dataRate.PeakOutputDataRate}
-    dataRate.EntityData.Leafs["peak-output-packet-rate"] = types.YLeaf{"PeakOutputPacketRate", dataRate.PeakOutputPacketRate}
-    dataRate.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", dataRate.Bandwidth}
-    dataRate.EntityData.Leafs["load-interval"] = types.YLeaf{"LoadInterval", dataRate.LoadInterval}
-    dataRate.EntityData.Leafs["output-load"] = types.YLeaf{"OutputLoad", dataRate.OutputLoad}
-    dataRate.EntityData.Leafs["input-load"] = types.YLeaf{"InputLoad", dataRate.InputLoad}
-    dataRate.EntityData.Leafs["reliability"] = types.YLeaf{"Reliability", dataRate.Reliability}
+    dataRate.EntityData.Children = types.NewOrderedMap()
+    dataRate.EntityData.Leafs = types.NewOrderedMap()
+    dataRate.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", dataRate.InputDataRate})
+    dataRate.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", dataRate.InputPacketRate})
+    dataRate.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", dataRate.OutputDataRate})
+    dataRate.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", dataRate.OutputPacketRate})
+    dataRate.EntityData.Leafs.Append("peak-input-data-rate", types.YLeaf{"PeakInputDataRate", dataRate.PeakInputDataRate})
+    dataRate.EntityData.Leafs.Append("peak-input-packet-rate", types.YLeaf{"PeakInputPacketRate", dataRate.PeakInputPacketRate})
+    dataRate.EntityData.Leafs.Append("peak-output-data-rate", types.YLeaf{"PeakOutputDataRate", dataRate.PeakOutputDataRate})
+    dataRate.EntityData.Leafs.Append("peak-output-packet-rate", types.YLeaf{"PeakOutputPacketRate", dataRate.PeakOutputPacketRate})
+    dataRate.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", dataRate.Bandwidth})
+    dataRate.EntityData.Leafs.Append("load-interval", types.YLeaf{"LoadInterval", dataRate.LoadInterval})
+    dataRate.EntityData.Leafs.Append("output-load", types.YLeaf{"OutputLoad", dataRate.OutputLoad})
+    dataRate.EntityData.Leafs.Append("input-load", types.YLeaf{"InputLoad", dataRate.InputLoad})
+    dataRate.EntityData.Leafs.Append("reliability", types.YLeaf{"Reliability", dataRate.Reliability})
+
+    dataRate.EntityData.YListKeys = []string {}
+
     return &(dataRate.EntityData)
 }
 
@@ -1864,44 +1924,47 @@ func (genericCounters *InfraStatistics_Interfaces_Interface_Total_GenericCounter
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounters.EntityData.Children = make(map[string]types.YChild)
-    genericCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounters.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", genericCounters.PacketsReceived}
-    genericCounters.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", genericCounters.BytesReceived}
-    genericCounters.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", genericCounters.PacketsSent}
-    genericCounters.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", genericCounters.BytesSent}
-    genericCounters.EntityData.Leafs["multicast-packets-received"] = types.YLeaf{"MulticastPacketsReceived", genericCounters.MulticastPacketsReceived}
-    genericCounters.EntityData.Leafs["broadcast-packets-received"] = types.YLeaf{"BroadcastPacketsReceived", genericCounters.BroadcastPacketsReceived}
-    genericCounters.EntityData.Leafs["multicast-packets-sent"] = types.YLeaf{"MulticastPacketsSent", genericCounters.MulticastPacketsSent}
-    genericCounters.EntityData.Leafs["broadcast-packets-sent"] = types.YLeaf{"BroadcastPacketsSent", genericCounters.BroadcastPacketsSent}
-    genericCounters.EntityData.Leafs["output-drops"] = types.YLeaf{"OutputDrops", genericCounters.OutputDrops}
-    genericCounters.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", genericCounters.OutputQueueDrops}
-    genericCounters.EntityData.Leafs["input-drops"] = types.YLeaf{"InputDrops", genericCounters.InputDrops}
-    genericCounters.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", genericCounters.InputQueueDrops}
-    genericCounters.EntityData.Leafs["runt-packets-received"] = types.YLeaf{"RuntPacketsReceived", genericCounters.RuntPacketsReceived}
-    genericCounters.EntityData.Leafs["giant-packets-received"] = types.YLeaf{"GiantPacketsReceived", genericCounters.GiantPacketsReceived}
-    genericCounters.EntityData.Leafs["throttled-packets-received"] = types.YLeaf{"ThrottledPacketsReceived", genericCounters.ThrottledPacketsReceived}
-    genericCounters.EntityData.Leafs["parity-packets-received"] = types.YLeaf{"ParityPacketsReceived", genericCounters.ParityPacketsReceived}
-    genericCounters.EntityData.Leafs["unknown-protocol-packets-received"] = types.YLeaf{"UnknownProtocolPacketsReceived", genericCounters.UnknownProtocolPacketsReceived}
-    genericCounters.EntityData.Leafs["input-errors"] = types.YLeaf{"InputErrors", genericCounters.InputErrors}
-    genericCounters.EntityData.Leafs["crc-errors"] = types.YLeaf{"CrcErrors", genericCounters.CrcErrors}
-    genericCounters.EntityData.Leafs["input-overruns"] = types.YLeaf{"InputOverruns", genericCounters.InputOverruns}
-    genericCounters.EntityData.Leafs["framing-errors-received"] = types.YLeaf{"FramingErrorsReceived", genericCounters.FramingErrorsReceived}
-    genericCounters.EntityData.Leafs["input-ignored-packets"] = types.YLeaf{"InputIgnoredPackets", genericCounters.InputIgnoredPackets}
-    genericCounters.EntityData.Leafs["input-aborts"] = types.YLeaf{"InputAborts", genericCounters.InputAborts}
-    genericCounters.EntityData.Leafs["output-errors"] = types.YLeaf{"OutputErrors", genericCounters.OutputErrors}
-    genericCounters.EntityData.Leafs["output-underruns"] = types.YLeaf{"OutputUnderruns", genericCounters.OutputUnderruns}
-    genericCounters.EntityData.Leafs["output-buffer-failures"] = types.YLeaf{"OutputBufferFailures", genericCounters.OutputBufferFailures}
-    genericCounters.EntityData.Leafs["output-buffers-swapped-out"] = types.YLeaf{"OutputBuffersSwappedOut", genericCounters.OutputBuffersSwappedOut}
-    genericCounters.EntityData.Leafs["applique"] = types.YLeaf{"Applique", genericCounters.Applique}
-    genericCounters.EntityData.Leafs["resets"] = types.YLeaf{"Resets", genericCounters.Resets}
-    genericCounters.EntityData.Leafs["carrier-transitions"] = types.YLeaf{"CarrierTransitions", genericCounters.CarrierTransitions}
-    genericCounters.EntityData.Leafs["availability-flag"] = types.YLeaf{"AvailabilityFlag", genericCounters.AvailabilityFlag}
-    genericCounters.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", genericCounters.LastDataTime}
-    genericCounters.EntityData.Leafs["seconds-since-last-clear-counters"] = types.YLeaf{"SecondsSinceLastClearCounters", genericCounters.SecondsSinceLastClearCounters}
-    genericCounters.EntityData.Leafs["last-discontinuity-time"] = types.YLeaf{"LastDiscontinuityTime", genericCounters.LastDiscontinuityTime}
-    genericCounters.EntityData.Leafs["seconds-since-packet-received"] = types.YLeaf{"SecondsSincePacketReceived", genericCounters.SecondsSincePacketReceived}
-    genericCounters.EntityData.Leafs["seconds-since-packet-sent"] = types.YLeaf{"SecondsSincePacketSent", genericCounters.SecondsSincePacketSent}
+    genericCounters.EntityData.Children = types.NewOrderedMap()
+    genericCounters.EntityData.Leafs = types.NewOrderedMap()
+    genericCounters.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", genericCounters.PacketsReceived})
+    genericCounters.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", genericCounters.BytesReceived})
+    genericCounters.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", genericCounters.PacketsSent})
+    genericCounters.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", genericCounters.BytesSent})
+    genericCounters.EntityData.Leafs.Append("multicast-packets-received", types.YLeaf{"MulticastPacketsReceived", genericCounters.MulticastPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("broadcast-packets-received", types.YLeaf{"BroadcastPacketsReceived", genericCounters.BroadcastPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("multicast-packets-sent", types.YLeaf{"MulticastPacketsSent", genericCounters.MulticastPacketsSent})
+    genericCounters.EntityData.Leafs.Append("broadcast-packets-sent", types.YLeaf{"BroadcastPacketsSent", genericCounters.BroadcastPacketsSent})
+    genericCounters.EntityData.Leafs.Append("output-drops", types.YLeaf{"OutputDrops", genericCounters.OutputDrops})
+    genericCounters.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", genericCounters.OutputQueueDrops})
+    genericCounters.EntityData.Leafs.Append("input-drops", types.YLeaf{"InputDrops", genericCounters.InputDrops})
+    genericCounters.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", genericCounters.InputQueueDrops})
+    genericCounters.EntityData.Leafs.Append("runt-packets-received", types.YLeaf{"RuntPacketsReceived", genericCounters.RuntPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("giant-packets-received", types.YLeaf{"GiantPacketsReceived", genericCounters.GiantPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("throttled-packets-received", types.YLeaf{"ThrottledPacketsReceived", genericCounters.ThrottledPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("parity-packets-received", types.YLeaf{"ParityPacketsReceived", genericCounters.ParityPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("unknown-protocol-packets-received", types.YLeaf{"UnknownProtocolPacketsReceived", genericCounters.UnknownProtocolPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("input-errors", types.YLeaf{"InputErrors", genericCounters.InputErrors})
+    genericCounters.EntityData.Leafs.Append("crc-errors", types.YLeaf{"CrcErrors", genericCounters.CrcErrors})
+    genericCounters.EntityData.Leafs.Append("input-overruns", types.YLeaf{"InputOverruns", genericCounters.InputOverruns})
+    genericCounters.EntityData.Leafs.Append("framing-errors-received", types.YLeaf{"FramingErrorsReceived", genericCounters.FramingErrorsReceived})
+    genericCounters.EntityData.Leafs.Append("input-ignored-packets", types.YLeaf{"InputIgnoredPackets", genericCounters.InputIgnoredPackets})
+    genericCounters.EntityData.Leafs.Append("input-aborts", types.YLeaf{"InputAborts", genericCounters.InputAborts})
+    genericCounters.EntityData.Leafs.Append("output-errors", types.YLeaf{"OutputErrors", genericCounters.OutputErrors})
+    genericCounters.EntityData.Leafs.Append("output-underruns", types.YLeaf{"OutputUnderruns", genericCounters.OutputUnderruns})
+    genericCounters.EntityData.Leafs.Append("output-buffer-failures", types.YLeaf{"OutputBufferFailures", genericCounters.OutputBufferFailures})
+    genericCounters.EntityData.Leafs.Append("output-buffers-swapped-out", types.YLeaf{"OutputBuffersSwappedOut", genericCounters.OutputBuffersSwappedOut})
+    genericCounters.EntityData.Leafs.Append("applique", types.YLeaf{"Applique", genericCounters.Applique})
+    genericCounters.EntityData.Leafs.Append("resets", types.YLeaf{"Resets", genericCounters.Resets})
+    genericCounters.EntityData.Leafs.Append("carrier-transitions", types.YLeaf{"CarrierTransitions", genericCounters.CarrierTransitions})
+    genericCounters.EntityData.Leafs.Append("availability-flag", types.YLeaf{"AvailabilityFlag", genericCounters.AvailabilityFlag})
+    genericCounters.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", genericCounters.LastDataTime})
+    genericCounters.EntityData.Leafs.Append("seconds-since-last-clear-counters", types.YLeaf{"SecondsSinceLastClearCounters", genericCounters.SecondsSinceLastClearCounters})
+    genericCounters.EntityData.Leafs.Append("last-discontinuity-time", types.YLeaf{"LastDiscontinuityTime", genericCounters.LastDiscontinuityTime})
+    genericCounters.EntityData.Leafs.Append("seconds-since-packet-received", types.YLeaf{"SecondsSincePacketReceived", genericCounters.SecondsSincePacketReceived})
+    genericCounters.EntityData.Leafs.Append("seconds-since-packet-sent", types.YLeaf{"SecondsSincePacketSent", genericCounters.SecondsSincePacketSent})
+
+    genericCounters.EntityData.YListKeys = []string {}
+
     return &(genericCounters.EntityData)
 }
 
@@ -1913,7 +1976,7 @@ type InfraStatistics_Interfaces_Interface_Protocols struct {
 
     // Interface counters per protocol. The type is slice of
     // InfraStatistics_Interfaces_Interface_Protocols_Protocol.
-    Protocol []InfraStatistics_Interfaces_Interface_Protocols_Protocol
+    Protocol []*InfraStatistics_Interfaces_Interface_Protocols_Protocol
 }
 
 func (protocols *InfraStatistics_Interfaces_Interface_Protocols) GetEntityData() *types.CommonEntityData {
@@ -1926,12 +1989,15 @@ func (protocols *InfraStatistics_Interfaces_Interface_Protocols) GetEntityData()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocols.EntityData.Children = make(map[string]types.YChild)
-    protocols.EntityData.Children["protocol"] = types.YChild{"Protocol", nil}
+    protocols.EntityData.Children = types.NewOrderedMap()
+    protocols.EntityData.Children.Append("protocol", types.YChild{"Protocol", nil})
     for i := range protocols.Protocol {
-        protocols.EntityData.Children[types.GetSegmentPath(&protocols.Protocol[i])] = types.YChild{"Protocol", &protocols.Protocol[i]}
+        protocols.EntityData.Children.Append(types.GetSegmentPath(protocols.Protocol[i]), types.YChild{"Protocol", protocols.Protocol[i]})
     }
-    protocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    protocols.EntityData.Leafs = types.NewOrderedMap()
+
+    protocols.EntityData.YListKeys = []string {}
+
     return &(protocols.EntityData)
 }
 
@@ -1942,7 +2008,7 @@ type InfraStatistics_Interfaces_Interface_Protocols_Protocol struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the protocol. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProtocolName interface{}
 
     // Bytes received. The type is interface{} with range:
@@ -1989,24 +2055,27 @@ func (protocol *InfraStatistics_Interfaces_Interface_Protocols_Protocol) GetEnti
     protocol.EntityData.YangName = "protocol"
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
-    protocol.EntityData.SegmentPath = "protocol" + "[protocol-name='" + fmt.Sprintf("%v", protocol.ProtocolName) + "']"
+    protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocol.EntityData.Children = make(map[string]types.YChild)
-    protocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocol.EntityData.Leafs["protocol-name"] = types.YLeaf{"ProtocolName", protocol.ProtocolName}
-    protocol.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", protocol.BytesReceived}
-    protocol.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", protocol.PacketsReceived}
-    protocol.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", protocol.BytesSent}
-    protocol.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", protocol.PacketsSent}
-    protocol.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", protocol.Protocol}
-    protocol.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", protocol.LastDataTime}
-    protocol.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", protocol.InputDataRate}
-    protocol.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", protocol.InputPacketRate}
-    protocol.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", protocol.OutputDataRate}
-    protocol.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", protocol.OutputPacketRate}
+    protocol.EntityData.Children = types.NewOrderedMap()
+    protocol.EntityData.Leafs = types.NewOrderedMap()
+    protocol.EntityData.Leafs.Append("protocol-name", types.YLeaf{"ProtocolName", protocol.ProtocolName})
+    protocol.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", protocol.BytesReceived})
+    protocol.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", protocol.PacketsReceived})
+    protocol.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", protocol.BytesSent})
+    protocol.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", protocol.PacketsSent})
+    protocol.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", protocol.Protocol})
+    protocol.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", protocol.LastDataTime})
+    protocol.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", protocol.InputDataRate})
+    protocol.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", protocol.InputPacketRate})
+    protocol.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", protocol.OutputDataRate})
+    protocol.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", protocol.OutputPacketRate})
+
+    protocol.EntityData.YListKeys = []string {"ProtocolName"}
+
     return &(protocol.EntityData)
 }
 
@@ -2151,44 +2220,47 @@ func (interfacesMibCounters *InfraStatistics_Interfaces_Interface_InterfacesMibC
     interfacesMibCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacesMibCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfacesMibCounters.EntityData.Children = make(map[string]types.YChild)
-    interfacesMibCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfacesMibCounters.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", interfacesMibCounters.PacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", interfacesMibCounters.BytesReceived}
-    interfacesMibCounters.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", interfacesMibCounters.PacketsSent}
-    interfacesMibCounters.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", interfacesMibCounters.BytesSent}
-    interfacesMibCounters.EntityData.Leafs["multicast-packets-received"] = types.YLeaf{"MulticastPacketsReceived", interfacesMibCounters.MulticastPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["broadcast-packets-received"] = types.YLeaf{"BroadcastPacketsReceived", interfacesMibCounters.BroadcastPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["multicast-packets-sent"] = types.YLeaf{"MulticastPacketsSent", interfacesMibCounters.MulticastPacketsSent}
-    interfacesMibCounters.EntityData.Leafs["broadcast-packets-sent"] = types.YLeaf{"BroadcastPacketsSent", interfacesMibCounters.BroadcastPacketsSent}
-    interfacesMibCounters.EntityData.Leafs["output-drops"] = types.YLeaf{"OutputDrops", interfacesMibCounters.OutputDrops}
-    interfacesMibCounters.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", interfacesMibCounters.OutputQueueDrops}
-    interfacesMibCounters.EntityData.Leafs["input-drops"] = types.YLeaf{"InputDrops", interfacesMibCounters.InputDrops}
-    interfacesMibCounters.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", interfacesMibCounters.InputQueueDrops}
-    interfacesMibCounters.EntityData.Leafs["runt-packets-received"] = types.YLeaf{"RuntPacketsReceived", interfacesMibCounters.RuntPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["giant-packets-received"] = types.YLeaf{"GiantPacketsReceived", interfacesMibCounters.GiantPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["throttled-packets-received"] = types.YLeaf{"ThrottledPacketsReceived", interfacesMibCounters.ThrottledPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["parity-packets-received"] = types.YLeaf{"ParityPacketsReceived", interfacesMibCounters.ParityPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["unknown-protocol-packets-received"] = types.YLeaf{"UnknownProtocolPacketsReceived", interfacesMibCounters.UnknownProtocolPacketsReceived}
-    interfacesMibCounters.EntityData.Leafs["input-errors"] = types.YLeaf{"InputErrors", interfacesMibCounters.InputErrors}
-    interfacesMibCounters.EntityData.Leafs["crc-errors"] = types.YLeaf{"CrcErrors", interfacesMibCounters.CrcErrors}
-    interfacesMibCounters.EntityData.Leafs["input-overruns"] = types.YLeaf{"InputOverruns", interfacesMibCounters.InputOverruns}
-    interfacesMibCounters.EntityData.Leafs["framing-errors-received"] = types.YLeaf{"FramingErrorsReceived", interfacesMibCounters.FramingErrorsReceived}
-    interfacesMibCounters.EntityData.Leafs["input-ignored-packets"] = types.YLeaf{"InputIgnoredPackets", interfacesMibCounters.InputIgnoredPackets}
-    interfacesMibCounters.EntityData.Leafs["input-aborts"] = types.YLeaf{"InputAborts", interfacesMibCounters.InputAborts}
-    interfacesMibCounters.EntityData.Leafs["output-errors"] = types.YLeaf{"OutputErrors", interfacesMibCounters.OutputErrors}
-    interfacesMibCounters.EntityData.Leafs["output-underruns"] = types.YLeaf{"OutputUnderruns", interfacesMibCounters.OutputUnderruns}
-    interfacesMibCounters.EntityData.Leafs["output-buffer-failures"] = types.YLeaf{"OutputBufferFailures", interfacesMibCounters.OutputBufferFailures}
-    interfacesMibCounters.EntityData.Leafs["output-buffers-swapped-out"] = types.YLeaf{"OutputBuffersSwappedOut", interfacesMibCounters.OutputBuffersSwappedOut}
-    interfacesMibCounters.EntityData.Leafs["applique"] = types.YLeaf{"Applique", interfacesMibCounters.Applique}
-    interfacesMibCounters.EntityData.Leafs["resets"] = types.YLeaf{"Resets", interfacesMibCounters.Resets}
-    interfacesMibCounters.EntityData.Leafs["carrier-transitions"] = types.YLeaf{"CarrierTransitions", interfacesMibCounters.CarrierTransitions}
-    interfacesMibCounters.EntityData.Leafs["availability-flag"] = types.YLeaf{"AvailabilityFlag", interfacesMibCounters.AvailabilityFlag}
-    interfacesMibCounters.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", interfacesMibCounters.LastDataTime}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-last-clear-counters"] = types.YLeaf{"SecondsSinceLastClearCounters", interfacesMibCounters.SecondsSinceLastClearCounters}
-    interfacesMibCounters.EntityData.Leafs["last-discontinuity-time"] = types.YLeaf{"LastDiscontinuityTime", interfacesMibCounters.LastDiscontinuityTime}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-packet-received"] = types.YLeaf{"SecondsSincePacketReceived", interfacesMibCounters.SecondsSincePacketReceived}
-    interfacesMibCounters.EntityData.Leafs["seconds-since-packet-sent"] = types.YLeaf{"SecondsSincePacketSent", interfacesMibCounters.SecondsSincePacketSent}
+    interfacesMibCounters.EntityData.Children = types.NewOrderedMap()
+    interfacesMibCounters.EntityData.Leafs = types.NewOrderedMap()
+    interfacesMibCounters.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", interfacesMibCounters.PacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", interfacesMibCounters.BytesReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", interfacesMibCounters.PacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", interfacesMibCounters.BytesSent})
+    interfacesMibCounters.EntityData.Leafs.Append("multicast-packets-received", types.YLeaf{"MulticastPacketsReceived", interfacesMibCounters.MulticastPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("broadcast-packets-received", types.YLeaf{"BroadcastPacketsReceived", interfacesMibCounters.BroadcastPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("multicast-packets-sent", types.YLeaf{"MulticastPacketsSent", interfacesMibCounters.MulticastPacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("broadcast-packets-sent", types.YLeaf{"BroadcastPacketsSent", interfacesMibCounters.BroadcastPacketsSent})
+    interfacesMibCounters.EntityData.Leafs.Append("output-drops", types.YLeaf{"OutputDrops", interfacesMibCounters.OutputDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", interfacesMibCounters.OutputQueueDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("input-drops", types.YLeaf{"InputDrops", interfacesMibCounters.InputDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", interfacesMibCounters.InputQueueDrops})
+    interfacesMibCounters.EntityData.Leafs.Append("runt-packets-received", types.YLeaf{"RuntPacketsReceived", interfacesMibCounters.RuntPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("giant-packets-received", types.YLeaf{"GiantPacketsReceived", interfacesMibCounters.GiantPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("throttled-packets-received", types.YLeaf{"ThrottledPacketsReceived", interfacesMibCounters.ThrottledPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("parity-packets-received", types.YLeaf{"ParityPacketsReceived", interfacesMibCounters.ParityPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("unknown-protocol-packets-received", types.YLeaf{"UnknownProtocolPacketsReceived", interfacesMibCounters.UnknownProtocolPacketsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("input-errors", types.YLeaf{"InputErrors", interfacesMibCounters.InputErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("crc-errors", types.YLeaf{"CrcErrors", interfacesMibCounters.CrcErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("input-overruns", types.YLeaf{"InputOverruns", interfacesMibCounters.InputOverruns})
+    interfacesMibCounters.EntityData.Leafs.Append("framing-errors-received", types.YLeaf{"FramingErrorsReceived", interfacesMibCounters.FramingErrorsReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("input-ignored-packets", types.YLeaf{"InputIgnoredPackets", interfacesMibCounters.InputIgnoredPackets})
+    interfacesMibCounters.EntityData.Leafs.Append("input-aborts", types.YLeaf{"InputAborts", interfacesMibCounters.InputAborts})
+    interfacesMibCounters.EntityData.Leafs.Append("output-errors", types.YLeaf{"OutputErrors", interfacesMibCounters.OutputErrors})
+    interfacesMibCounters.EntityData.Leafs.Append("output-underruns", types.YLeaf{"OutputUnderruns", interfacesMibCounters.OutputUnderruns})
+    interfacesMibCounters.EntityData.Leafs.Append("output-buffer-failures", types.YLeaf{"OutputBufferFailures", interfacesMibCounters.OutputBufferFailures})
+    interfacesMibCounters.EntityData.Leafs.Append("output-buffers-swapped-out", types.YLeaf{"OutputBuffersSwappedOut", interfacesMibCounters.OutputBuffersSwappedOut})
+    interfacesMibCounters.EntityData.Leafs.Append("applique", types.YLeaf{"Applique", interfacesMibCounters.Applique})
+    interfacesMibCounters.EntityData.Leafs.Append("resets", types.YLeaf{"Resets", interfacesMibCounters.Resets})
+    interfacesMibCounters.EntityData.Leafs.Append("carrier-transitions", types.YLeaf{"CarrierTransitions", interfacesMibCounters.CarrierTransitions})
+    interfacesMibCounters.EntityData.Leafs.Append("availability-flag", types.YLeaf{"AvailabilityFlag", interfacesMibCounters.AvailabilityFlag})
+    interfacesMibCounters.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", interfacesMibCounters.LastDataTime})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-last-clear-counters", types.YLeaf{"SecondsSinceLastClearCounters", interfacesMibCounters.SecondsSinceLastClearCounters})
+    interfacesMibCounters.EntityData.Leafs.Append("last-discontinuity-time", types.YLeaf{"LastDiscontinuityTime", interfacesMibCounters.LastDiscontinuityTime})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-packet-received", types.YLeaf{"SecondsSincePacketReceived", interfacesMibCounters.SecondsSincePacketReceived})
+    interfacesMibCounters.EntityData.Leafs.Append("seconds-since-packet-sent", types.YLeaf{"SecondsSincePacketSent", interfacesMibCounters.SecondsSincePacketSent})
+
+    interfacesMibCounters.EntityData.YListKeys = []string {}
+
     return &(interfacesMibCounters.EntityData)
 }
 
@@ -2258,21 +2330,24 @@ func (dataRate *InfraStatistics_Interfaces_Interface_DataRate) GetEntityData() *
     dataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRate.EntityData.Children = make(map[string]types.YChild)
-    dataRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRate.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", dataRate.InputDataRate}
-    dataRate.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", dataRate.InputPacketRate}
-    dataRate.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", dataRate.OutputDataRate}
-    dataRate.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", dataRate.OutputPacketRate}
-    dataRate.EntityData.Leafs["peak-input-data-rate"] = types.YLeaf{"PeakInputDataRate", dataRate.PeakInputDataRate}
-    dataRate.EntityData.Leafs["peak-input-packet-rate"] = types.YLeaf{"PeakInputPacketRate", dataRate.PeakInputPacketRate}
-    dataRate.EntityData.Leafs["peak-output-data-rate"] = types.YLeaf{"PeakOutputDataRate", dataRate.PeakOutputDataRate}
-    dataRate.EntityData.Leafs["peak-output-packet-rate"] = types.YLeaf{"PeakOutputPacketRate", dataRate.PeakOutputPacketRate}
-    dataRate.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", dataRate.Bandwidth}
-    dataRate.EntityData.Leafs["load-interval"] = types.YLeaf{"LoadInterval", dataRate.LoadInterval}
-    dataRate.EntityData.Leafs["output-load"] = types.YLeaf{"OutputLoad", dataRate.OutputLoad}
-    dataRate.EntityData.Leafs["input-load"] = types.YLeaf{"InputLoad", dataRate.InputLoad}
-    dataRate.EntityData.Leafs["reliability"] = types.YLeaf{"Reliability", dataRate.Reliability}
+    dataRate.EntityData.Children = types.NewOrderedMap()
+    dataRate.EntityData.Leafs = types.NewOrderedMap()
+    dataRate.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", dataRate.InputDataRate})
+    dataRate.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", dataRate.InputPacketRate})
+    dataRate.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", dataRate.OutputDataRate})
+    dataRate.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", dataRate.OutputPacketRate})
+    dataRate.EntityData.Leafs.Append("peak-input-data-rate", types.YLeaf{"PeakInputDataRate", dataRate.PeakInputDataRate})
+    dataRate.EntityData.Leafs.Append("peak-input-packet-rate", types.YLeaf{"PeakInputPacketRate", dataRate.PeakInputPacketRate})
+    dataRate.EntityData.Leafs.Append("peak-output-data-rate", types.YLeaf{"PeakOutputDataRate", dataRate.PeakOutputDataRate})
+    dataRate.EntityData.Leafs.Append("peak-output-packet-rate", types.YLeaf{"PeakOutputPacketRate", dataRate.PeakOutputPacketRate})
+    dataRate.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", dataRate.Bandwidth})
+    dataRate.EntityData.Leafs.Append("load-interval", types.YLeaf{"LoadInterval", dataRate.LoadInterval})
+    dataRate.EntityData.Leafs.Append("output-load", types.YLeaf{"OutputLoad", dataRate.OutputLoad})
+    dataRate.EntityData.Leafs.Append("input-load", types.YLeaf{"InputLoad", dataRate.InputLoad})
+    dataRate.EntityData.Leafs.Append("reliability", types.YLeaf{"Reliability", dataRate.Reliability})
+
+    dataRate.EntityData.YListKeys = []string {}
+
     return &(dataRate.EntityData)
 }
 
@@ -2416,44 +2491,47 @@ func (genericCounters *InfraStatistics_Interfaces_Interface_GenericCounters) Get
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounters.EntityData.Children = make(map[string]types.YChild)
-    genericCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounters.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", genericCounters.PacketsReceived}
-    genericCounters.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", genericCounters.BytesReceived}
-    genericCounters.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", genericCounters.PacketsSent}
-    genericCounters.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", genericCounters.BytesSent}
-    genericCounters.EntityData.Leafs["multicast-packets-received"] = types.YLeaf{"MulticastPacketsReceived", genericCounters.MulticastPacketsReceived}
-    genericCounters.EntityData.Leafs["broadcast-packets-received"] = types.YLeaf{"BroadcastPacketsReceived", genericCounters.BroadcastPacketsReceived}
-    genericCounters.EntityData.Leafs["multicast-packets-sent"] = types.YLeaf{"MulticastPacketsSent", genericCounters.MulticastPacketsSent}
-    genericCounters.EntityData.Leafs["broadcast-packets-sent"] = types.YLeaf{"BroadcastPacketsSent", genericCounters.BroadcastPacketsSent}
-    genericCounters.EntityData.Leafs["output-drops"] = types.YLeaf{"OutputDrops", genericCounters.OutputDrops}
-    genericCounters.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", genericCounters.OutputQueueDrops}
-    genericCounters.EntityData.Leafs["input-drops"] = types.YLeaf{"InputDrops", genericCounters.InputDrops}
-    genericCounters.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", genericCounters.InputQueueDrops}
-    genericCounters.EntityData.Leafs["runt-packets-received"] = types.YLeaf{"RuntPacketsReceived", genericCounters.RuntPacketsReceived}
-    genericCounters.EntityData.Leafs["giant-packets-received"] = types.YLeaf{"GiantPacketsReceived", genericCounters.GiantPacketsReceived}
-    genericCounters.EntityData.Leafs["throttled-packets-received"] = types.YLeaf{"ThrottledPacketsReceived", genericCounters.ThrottledPacketsReceived}
-    genericCounters.EntityData.Leafs["parity-packets-received"] = types.YLeaf{"ParityPacketsReceived", genericCounters.ParityPacketsReceived}
-    genericCounters.EntityData.Leafs["unknown-protocol-packets-received"] = types.YLeaf{"UnknownProtocolPacketsReceived", genericCounters.UnknownProtocolPacketsReceived}
-    genericCounters.EntityData.Leafs["input-errors"] = types.YLeaf{"InputErrors", genericCounters.InputErrors}
-    genericCounters.EntityData.Leafs["crc-errors"] = types.YLeaf{"CrcErrors", genericCounters.CrcErrors}
-    genericCounters.EntityData.Leafs["input-overruns"] = types.YLeaf{"InputOverruns", genericCounters.InputOverruns}
-    genericCounters.EntityData.Leafs["framing-errors-received"] = types.YLeaf{"FramingErrorsReceived", genericCounters.FramingErrorsReceived}
-    genericCounters.EntityData.Leafs["input-ignored-packets"] = types.YLeaf{"InputIgnoredPackets", genericCounters.InputIgnoredPackets}
-    genericCounters.EntityData.Leafs["input-aborts"] = types.YLeaf{"InputAborts", genericCounters.InputAborts}
-    genericCounters.EntityData.Leafs["output-errors"] = types.YLeaf{"OutputErrors", genericCounters.OutputErrors}
-    genericCounters.EntityData.Leafs["output-underruns"] = types.YLeaf{"OutputUnderruns", genericCounters.OutputUnderruns}
-    genericCounters.EntityData.Leafs["output-buffer-failures"] = types.YLeaf{"OutputBufferFailures", genericCounters.OutputBufferFailures}
-    genericCounters.EntityData.Leafs["output-buffers-swapped-out"] = types.YLeaf{"OutputBuffersSwappedOut", genericCounters.OutputBuffersSwappedOut}
-    genericCounters.EntityData.Leafs["applique"] = types.YLeaf{"Applique", genericCounters.Applique}
-    genericCounters.EntityData.Leafs["resets"] = types.YLeaf{"Resets", genericCounters.Resets}
-    genericCounters.EntityData.Leafs["carrier-transitions"] = types.YLeaf{"CarrierTransitions", genericCounters.CarrierTransitions}
-    genericCounters.EntityData.Leafs["availability-flag"] = types.YLeaf{"AvailabilityFlag", genericCounters.AvailabilityFlag}
-    genericCounters.EntityData.Leafs["last-data-time"] = types.YLeaf{"LastDataTime", genericCounters.LastDataTime}
-    genericCounters.EntityData.Leafs["seconds-since-last-clear-counters"] = types.YLeaf{"SecondsSinceLastClearCounters", genericCounters.SecondsSinceLastClearCounters}
-    genericCounters.EntityData.Leafs["last-discontinuity-time"] = types.YLeaf{"LastDiscontinuityTime", genericCounters.LastDiscontinuityTime}
-    genericCounters.EntityData.Leafs["seconds-since-packet-received"] = types.YLeaf{"SecondsSincePacketReceived", genericCounters.SecondsSincePacketReceived}
-    genericCounters.EntityData.Leafs["seconds-since-packet-sent"] = types.YLeaf{"SecondsSincePacketSent", genericCounters.SecondsSincePacketSent}
+    genericCounters.EntityData.Children = types.NewOrderedMap()
+    genericCounters.EntityData.Leafs = types.NewOrderedMap()
+    genericCounters.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", genericCounters.PacketsReceived})
+    genericCounters.EntityData.Leafs.Append("bytes-received", types.YLeaf{"BytesReceived", genericCounters.BytesReceived})
+    genericCounters.EntityData.Leafs.Append("packets-sent", types.YLeaf{"PacketsSent", genericCounters.PacketsSent})
+    genericCounters.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", genericCounters.BytesSent})
+    genericCounters.EntityData.Leafs.Append("multicast-packets-received", types.YLeaf{"MulticastPacketsReceived", genericCounters.MulticastPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("broadcast-packets-received", types.YLeaf{"BroadcastPacketsReceived", genericCounters.BroadcastPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("multicast-packets-sent", types.YLeaf{"MulticastPacketsSent", genericCounters.MulticastPacketsSent})
+    genericCounters.EntityData.Leafs.Append("broadcast-packets-sent", types.YLeaf{"BroadcastPacketsSent", genericCounters.BroadcastPacketsSent})
+    genericCounters.EntityData.Leafs.Append("output-drops", types.YLeaf{"OutputDrops", genericCounters.OutputDrops})
+    genericCounters.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", genericCounters.OutputQueueDrops})
+    genericCounters.EntityData.Leafs.Append("input-drops", types.YLeaf{"InputDrops", genericCounters.InputDrops})
+    genericCounters.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", genericCounters.InputQueueDrops})
+    genericCounters.EntityData.Leafs.Append("runt-packets-received", types.YLeaf{"RuntPacketsReceived", genericCounters.RuntPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("giant-packets-received", types.YLeaf{"GiantPacketsReceived", genericCounters.GiantPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("throttled-packets-received", types.YLeaf{"ThrottledPacketsReceived", genericCounters.ThrottledPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("parity-packets-received", types.YLeaf{"ParityPacketsReceived", genericCounters.ParityPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("unknown-protocol-packets-received", types.YLeaf{"UnknownProtocolPacketsReceived", genericCounters.UnknownProtocolPacketsReceived})
+    genericCounters.EntityData.Leafs.Append("input-errors", types.YLeaf{"InputErrors", genericCounters.InputErrors})
+    genericCounters.EntityData.Leafs.Append("crc-errors", types.YLeaf{"CrcErrors", genericCounters.CrcErrors})
+    genericCounters.EntityData.Leafs.Append("input-overruns", types.YLeaf{"InputOverruns", genericCounters.InputOverruns})
+    genericCounters.EntityData.Leafs.Append("framing-errors-received", types.YLeaf{"FramingErrorsReceived", genericCounters.FramingErrorsReceived})
+    genericCounters.EntityData.Leafs.Append("input-ignored-packets", types.YLeaf{"InputIgnoredPackets", genericCounters.InputIgnoredPackets})
+    genericCounters.EntityData.Leafs.Append("input-aborts", types.YLeaf{"InputAborts", genericCounters.InputAborts})
+    genericCounters.EntityData.Leafs.Append("output-errors", types.YLeaf{"OutputErrors", genericCounters.OutputErrors})
+    genericCounters.EntityData.Leafs.Append("output-underruns", types.YLeaf{"OutputUnderruns", genericCounters.OutputUnderruns})
+    genericCounters.EntityData.Leafs.Append("output-buffer-failures", types.YLeaf{"OutputBufferFailures", genericCounters.OutputBufferFailures})
+    genericCounters.EntityData.Leafs.Append("output-buffers-swapped-out", types.YLeaf{"OutputBuffersSwappedOut", genericCounters.OutputBuffersSwappedOut})
+    genericCounters.EntityData.Leafs.Append("applique", types.YLeaf{"Applique", genericCounters.Applique})
+    genericCounters.EntityData.Leafs.Append("resets", types.YLeaf{"Resets", genericCounters.Resets})
+    genericCounters.EntityData.Leafs.Append("carrier-transitions", types.YLeaf{"CarrierTransitions", genericCounters.CarrierTransitions})
+    genericCounters.EntityData.Leafs.Append("availability-flag", types.YLeaf{"AvailabilityFlag", genericCounters.AvailabilityFlag})
+    genericCounters.EntityData.Leafs.Append("last-data-time", types.YLeaf{"LastDataTime", genericCounters.LastDataTime})
+    genericCounters.EntityData.Leafs.Append("seconds-since-last-clear-counters", types.YLeaf{"SecondsSinceLastClearCounters", genericCounters.SecondsSinceLastClearCounters})
+    genericCounters.EntityData.Leafs.Append("last-discontinuity-time", types.YLeaf{"LastDiscontinuityTime", genericCounters.LastDiscontinuityTime})
+    genericCounters.EntityData.Leafs.Append("seconds-since-packet-received", types.YLeaf{"SecondsSincePacketReceived", genericCounters.SecondsSincePacketReceived})
+    genericCounters.EntityData.Leafs.Append("seconds-since-packet-sent", types.YLeaf{"SecondsSincePacketSent", genericCounters.SecondsSincePacketSent})
+
+    genericCounters.EntityData.YListKeys = []string {}
+
     return &(genericCounters.EntityData)
 }
 

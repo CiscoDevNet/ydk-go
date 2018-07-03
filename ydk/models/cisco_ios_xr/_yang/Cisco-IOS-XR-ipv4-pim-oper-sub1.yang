@@ -13,7 +13,7 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-pim-oper-sub2 {
-    revision-date 2017-06-26;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -35,6 +35,10 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";

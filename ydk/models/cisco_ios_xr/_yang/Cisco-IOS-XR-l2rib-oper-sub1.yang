@@ -32,10 +32,6 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-08-16 {
-    description
-      "Descriptions switch int32 to uint32.";
-  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -259,6 +255,11 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
         value 13;
         description
           "ARP";
+      }
+      enum "l2rib-bag-prod-prod-local-proxy" {
+        value 14;
+        description
+          "Local Proxy";
       }
       enum "l2rib-bag-prod-prod-all" {
         value 255;

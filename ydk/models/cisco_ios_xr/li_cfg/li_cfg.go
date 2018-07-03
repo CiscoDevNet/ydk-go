@@ -44,9 +44,12 @@ func (lawfulIntercept *LawfulIntercept) GetEntityData() *types.CommonEntityData 
     lawfulIntercept.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lawfulIntercept.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lawfulIntercept.EntityData.Children = make(map[string]types.YChild)
-    lawfulIntercept.EntityData.Leafs = make(map[string]types.YLeaf)
-    lawfulIntercept.EntityData.Leafs["disable"] = types.YLeaf{"Disable", lawfulIntercept.Disable}
+    lawfulIntercept.EntityData.Children = types.NewOrderedMap()
+    lawfulIntercept.EntityData.Leafs = types.NewOrderedMap()
+    lawfulIntercept.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", lawfulIntercept.Disable})
+
+    lawfulIntercept.EntityData.YListKeys = []string {}
+
     return &(lawfulIntercept.EntityData)
 }
 

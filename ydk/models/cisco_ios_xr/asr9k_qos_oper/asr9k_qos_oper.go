@@ -24,46 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-qos-oper:platform-qos", reflect.TypeOf(PlatformQos{}))
 }
 
-// ShapeProfiletypeV2 represents SHAPE profile type
-type ShapeProfiletypeV2 string
-
-const (
-    // Shape Profile Type Invalid
-    ShapeProfiletypeV2_invalid ShapeProfiletypeV2 = "invalid"
-
-    // Shape Profile Type Always
-    ShapeProfiletypeV2_always ShapeProfiletypeV2 = "always"
-
-    // Shape Profile Type Never
-    ShapeProfiletypeV2_never ShapeProfiletypeV2 = "never"
-
-    // Shape Profile Type Explicit
-    ShapeProfiletypeV2_explicit ShapeProfiletypeV2 = "explicit"
-
-    // Shape Profile Type Scale
-    ShapeProfiletypeV2_scale ShapeProfiletypeV2 = "scale"
-
-    // Shape Profile Type Grid
-    ShapeProfiletypeV2_grid ShapeProfiletypeV2 = "grid"
-)
-
-// Action represents Action type
-type Action string
-
-const (
-    // Police action transmit
-    Action_police_transmit Action = "police-transmit"
-
-    // Police action set transmit
-    Action_police_set_transmit Action = "police-set-transmit"
-
-    // Police action drop
-    Action_police_drop Action = "police-drop"
-
-    // Police action unknown
-    Action_police_unknown Action = "police-unknown"
-)
-
 // ActionOpcode represents Action opcode
 type ActionOpcode string
 
@@ -170,6 +130,106 @@ const (
     TbAlgorithm_dummy TbAlgorithm = "dummy"
 )
 
+// PolicyParamUnit represents Policy param unit
+type PolicyParamUnit string
+
+const (
+    // policy param unit invalid
+    PolicyParamUnit_policy_param_unit_invalid PolicyParamUnit = "policy-param-unit-invalid"
+
+    // policy param unit bytes
+    PolicyParamUnit_policy_param_unit_bytes PolicyParamUnit = "policy-param-unit-bytes"
+
+    // policy param unit kbytes
+    PolicyParamUnit_policy_param_unit_kbytes PolicyParamUnit = "policy-param-unit-kbytes"
+
+    // policy param unit mbytes
+    PolicyParamUnit_policy_param_unit_mbytes PolicyParamUnit = "policy-param-unit-mbytes"
+
+    // policy param unit gbytes
+    PolicyParamUnit_policy_param_unit_gbytes PolicyParamUnit = "policy-param-unit-gbytes"
+
+    // policy param unit bitsps
+    PolicyParamUnit_policy_param_unit_bitsps PolicyParamUnit = "policy-param-unit-bitsps"
+
+    // policy param unit kbitsps
+    PolicyParamUnit_policy_param_unit_kbitsps PolicyParamUnit = "policy-param-unit-kbitsps"
+
+    // policy param unit mbitsps
+    PolicyParamUnit_policy_param_unit_mbitsps PolicyParamUnit = "policy-param-unit-mbitsps"
+
+    // policy param unit gbitsps
+    PolicyParamUnit_policy_param_unit_gbitsps PolicyParamUnit = "policy-param-unit-gbitsps"
+
+    // policy param unit cells ps
+    PolicyParamUnit_policy_param_unit_cells_ps PolicyParamUnit = "policy-param-unit-cells-ps"
+
+    // policy param unit packets ps
+    PolicyParamUnit_policy_param_unit_packets_ps PolicyParamUnit = "policy-param-unit-packets-ps"
+
+    // policy param unit us
+    PolicyParamUnit_policy_param_unit_us PolicyParamUnit = "policy-param-unit-us"
+
+    // policy param unit ms
+    PolicyParamUnit_policy_param_unit_ms PolicyParamUnit = "policy-param-unit-ms"
+
+    // policy param unit seconds
+    PolicyParamUnit_policy_param_unit_seconds PolicyParamUnit = "policy-param-unit-seconds"
+
+    // policy param unit packets
+    PolicyParamUnit_policy_param_unit_packets PolicyParamUnit = "policy-param-unit-packets"
+
+    // policy param unit cells
+    PolicyParamUnit_policy_param_unit_cells PolicyParamUnit = "policy-param-unit-cells"
+
+    // policy param unit percent
+    PolicyParamUnit_policy_param_unit_percent PolicyParamUnit = "policy-param-unit-percent"
+
+    // policy param unit per thousand
+    PolicyParamUnit_policy_param_unit_per_thousand PolicyParamUnit = "policy-param-unit-per-thousand"
+
+    // policy param unit per million
+    PolicyParamUnit_policy_param_unit_per_million PolicyParamUnit = "policy-param-unit-per-million"
+
+    // policy param unit hz
+    PolicyParamUnit_policy_param_unit_hz PolicyParamUnit = "policy-param-unit-hz"
+
+    // policy param unit khz
+    PolicyParamUnit_policy_param_unit_khz PolicyParamUnit = "policy-param-unit-khz"
+
+    // policy param unit mhz
+    PolicyParamUnit_policy_param_unit_mhz PolicyParamUnit = "policy-param-unit-mhz"
+
+    // policy param unit ratio
+    PolicyParamUnit_policy_param_unit_ratio PolicyParamUnit = "policy-param-unit-ratio"
+
+    // policy param unit max
+    PolicyParamUnit_policy_param_unit_max PolicyParamUnit = "policy-param-unit-max"
+)
+
+// ShapeProfiletypeV2 represents SHAPE profile type
+type ShapeProfiletypeV2 string
+
+const (
+    // Shape Profile Type Invalid
+    ShapeProfiletypeV2_invalid ShapeProfiletypeV2 = "invalid"
+
+    // Shape Profile Type Always
+    ShapeProfiletypeV2_always ShapeProfiletypeV2 = "always"
+
+    // Shape Profile Type Never
+    ShapeProfiletypeV2_never ShapeProfiletypeV2 = "never"
+
+    // Shape Profile Type Explicit
+    ShapeProfiletypeV2_explicit ShapeProfiletypeV2 = "explicit"
+
+    // Shape Profile Type Scale
+    ShapeProfiletypeV2_scale ShapeProfiletypeV2 = "scale"
+
+    // Shape Profile Type Grid
+    ShapeProfiletypeV2_grid ShapeProfiletypeV2 = "grid"
+)
+
 // Queue represents Queue type
 type Queue string
 
@@ -251,7 +311,7 @@ const (
     Queue_port_priority7 Queue = "port-priority7"
 
     // Create a new queue for this class
-    Queue_new Queue = "new"
+    Queue_new_ Queue = "new"
 
     // Under parent queue
     Queue_parent_class Queue = "parent-class"
@@ -288,6 +348,58 @@ const (
 
     // Unknown priority
     Queue_unknown_priority Queue = "unknown-priority"
+)
+
+// Wred1 represents Wred1
+type Wred1 string
+
+const (
+    // wred cos cmd
+    Wred1_wred_cos_cmd Wred1 = "wred-cos-cmd"
+
+    // wred dscp cmd
+    Wred1_wred_dscp_cmd Wred1 = "wred-dscp-cmd"
+
+    // wred precedence cmd
+    Wred1_wred_precedence_cmd Wred1 = "wred-precedence-cmd"
+
+    // wred discard class cmd
+    Wred1_wred_discard_class_cmd Wred1 = "wred-discard-class-cmd"
+
+    // wred mpls exp cmd
+    Wred1_wred_mpls_exp_cmd Wred1 = "wred-mpls-exp-cmd"
+
+    // red with user min max
+    Wred1_red_with_user_min_max Wred1 = "red-with-user-min-max"
+
+    // red with default min max
+    Wred1_red_with_default_min_max Wred1 = "red-with-default-min-max"
+
+    // wred dei cmd
+    Wred1_wred_dei_cmd Wred1 = "wred-dei-cmd"
+
+    // wred ecn cmd
+    Wred1_wred_ecn_cmd Wred1 = "wred-ecn-cmd"
+
+    // wred invalid cmd
+    Wred1_wred_invalid_cmd Wred1 = "wred-invalid-cmd"
+)
+
+// Action represents Action type
+type Action string
+
+const (
+    // Police action transmit
+    Action_police_transmit Action = "police-transmit"
+
+    // Police action set transmit
+    Action_police_set_transmit Action = "police-set-transmit"
+
+    // Police action drop
+    Action_police_drop Action = "police-drop"
+
+    // Police action unknown
+    Action_police_unknown Action = "police-unknown"
 )
 
 // QosUnit represents QoS parameter unit
@@ -346,118 +458,6 @@ const (
     QosUnit_ratio QosUnit = "ratio"
 )
 
-// Wred1 represents Wred1
-type Wred1 string
-
-const (
-    // wred cos cmd
-    Wred1_wred_cos_cmd Wred1 = "wred-cos-cmd"
-
-    // wred dscp cmd
-    Wred1_wred_dscp_cmd Wred1 = "wred-dscp-cmd"
-
-    // wred precedence cmd
-    Wred1_wred_precedence_cmd Wred1 = "wred-precedence-cmd"
-
-    // wred discard class cmd
-    Wred1_wred_discard_class_cmd Wred1 = "wred-discard-class-cmd"
-
-    // wred mpls exp cmd
-    Wred1_wred_mpls_exp_cmd Wred1 = "wred-mpls-exp-cmd"
-
-    // red with user min max
-    Wred1_red_with_user_min_max Wred1 = "red-with-user-min-max"
-
-    // red with default min max
-    Wred1_red_with_default_min_max Wred1 = "red-with-default-min-max"
-
-    // wred dei cmd
-    Wred1_wred_dei_cmd Wred1 = "wred-dei-cmd"
-
-    // wred ecn cmd
-    Wred1_wred_ecn_cmd Wred1 = "wred-ecn-cmd"
-
-    // wred invalid cmd
-    Wred1_wred_invalid_cmd Wred1 = "wred-invalid-cmd"
-)
-
-// PolicyParamUnit represents Policy param unit
-type PolicyParamUnit string
-
-const (
-    // policy param unit invalid
-    PolicyParamUnit_policy_param_unit_invalid PolicyParamUnit = "policy-param-unit-invalid"
-
-    // policy param unit bytes
-    PolicyParamUnit_policy_param_unit_bytes PolicyParamUnit = "policy-param-unit-bytes"
-
-    // policy param unit kbytes
-    PolicyParamUnit_policy_param_unit_kbytes PolicyParamUnit = "policy-param-unit-kbytes"
-
-    // policy param unit mbytes
-    PolicyParamUnit_policy_param_unit_mbytes PolicyParamUnit = "policy-param-unit-mbytes"
-
-    // policy param unit gbytes
-    PolicyParamUnit_policy_param_unit_gbytes PolicyParamUnit = "policy-param-unit-gbytes"
-
-    // policy param unit bitsps
-    PolicyParamUnit_policy_param_unit_bitsps PolicyParamUnit = "policy-param-unit-bitsps"
-
-    // policy param unit kbitsps
-    PolicyParamUnit_policy_param_unit_kbitsps PolicyParamUnit = "policy-param-unit-kbitsps"
-
-    // policy param unit mbitsps
-    PolicyParamUnit_policy_param_unit_mbitsps PolicyParamUnit = "policy-param-unit-mbitsps"
-
-    // policy param unit gbitsps
-    PolicyParamUnit_policy_param_unit_gbitsps PolicyParamUnit = "policy-param-unit-gbitsps"
-
-    // policy param unit cells ps
-    PolicyParamUnit_policy_param_unit_cells_ps PolicyParamUnit = "policy-param-unit-cells-ps"
-
-    // policy param unit packets ps
-    PolicyParamUnit_policy_param_unit_packets_ps PolicyParamUnit = "policy-param-unit-packets-ps"
-
-    // policy param unit us
-    PolicyParamUnit_policy_param_unit_us PolicyParamUnit = "policy-param-unit-us"
-
-    // policy param unit ms
-    PolicyParamUnit_policy_param_unit_ms PolicyParamUnit = "policy-param-unit-ms"
-
-    // policy param unit seconds
-    PolicyParamUnit_policy_param_unit_seconds PolicyParamUnit = "policy-param-unit-seconds"
-
-    // policy param unit packets
-    PolicyParamUnit_policy_param_unit_packets PolicyParamUnit = "policy-param-unit-packets"
-
-    // policy param unit cells
-    PolicyParamUnit_policy_param_unit_cells PolicyParamUnit = "policy-param-unit-cells"
-
-    // policy param unit percent
-    PolicyParamUnit_policy_param_unit_percent PolicyParamUnit = "policy-param-unit-percent"
-
-    // policy param unit per thousand
-    PolicyParamUnit_policy_param_unit_per_thousand PolicyParamUnit = "policy-param-unit-per-thousand"
-
-    // policy param unit per million
-    PolicyParamUnit_policy_param_unit_per_million PolicyParamUnit = "policy-param-unit-per-million"
-
-    // policy param unit hz
-    PolicyParamUnit_policy_param_unit_hz PolicyParamUnit = "policy-param-unit-hz"
-
-    // policy param unit khz
-    PolicyParamUnit_policy_param_unit_khz PolicyParamUnit = "policy-param-unit-khz"
-
-    // policy param unit mhz
-    PolicyParamUnit_policy_param_unit_mhz PolicyParamUnit = "policy-param-unit-mhz"
-
-    // policy param unit ratio
-    PolicyParamUnit_policy_param_unit_ratio PolicyParamUnit = "policy-param-unit-ratio"
-
-    // policy param unit max
-    PolicyParamUnit_policy_param_unit_max PolicyParamUnit = "policy-param-unit-max"
-)
-
 // CacState represents CAC/UBRL class states
 type CacState string
 
@@ -506,9 +506,12 @@ func (platformQos *PlatformQos) GetEntityData() *types.CommonEntityData {
     platformQos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformQos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platformQos.EntityData.Children = make(map[string]types.YChild)
-    platformQos.EntityData.Children["nodes"] = types.YChild{"Nodes", &platformQos.Nodes}
-    platformQos.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformQos.EntityData.Children = types.NewOrderedMap()
+    platformQos.EntityData.Children.Append("nodes", types.YChild{"Nodes", &platformQos.Nodes})
+    platformQos.EntityData.Leafs = types.NewOrderedMap()
+
+    platformQos.EntityData.YListKeys = []string {}
+
     return &(platformQos.EntityData)
 }
 
@@ -521,7 +524,7 @@ type PlatformQos_Nodes struct {
 
     // Node with platform specific QoS configuration. The type is slice of
     // PlatformQos_Nodes_Node.
-    Node []PlatformQos_Nodes_Node
+    Node []*PlatformQos_Nodes_Node
 }
 
 func (nodes *PlatformQos_Nodes) GetEntityData() *types.CommonEntityData {
@@ -534,12 +537,15 @@ func (nodes *PlatformQos_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -550,7 +556,7 @@ type PlatformQos_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // QoS system capability.
@@ -568,17 +574,20 @@ func (node *PlatformQos_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["capability"] = types.YChild{"Capability", &node.Capability}
-    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
-    node.EntityData.Children["bundle-interfaces"] = types.YChild{"BundleInterfaces", &node.BundleInterfaces}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("capability", types.YChild{"Capability", &node.Capability})
+    node.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &node.Interfaces})
+    node.EntityData.Children.Append("bundle-interfaces", types.YChild{"BundleInterfaces", &node.BundleInterfaces})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -646,20 +655,23 @@ func (capability *PlatformQos_Nodes_Node_Capability) GetEntityData() *types.Comm
     capability.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capability.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    capability.EntityData.Children = make(map[string]types.YChild)
-    capability.EntityData.Leafs = make(map[string]types.YLeaf)
-    capability.EntityData.Leafs["max-policy-maps"] = types.YLeaf{"MaxPolicyMaps", capability.MaxPolicyMaps}
-    capability.EntityData.Leafs["max-policy-hierarchy"] = types.YLeaf{"MaxPolicyHierarchy", capability.MaxPolicyHierarchy}
-    capability.EntityData.Leafs["max-policy-name-length"] = types.YLeaf{"MaxPolicyNameLength", capability.MaxPolicyNameLength}
-    capability.EntityData.Leafs["max-classes-per-child-policy"] = types.YLeaf{"MaxClassesPerChildPolicy", capability.MaxClassesPerChildPolicy}
-    capability.EntityData.Leafs["max-classes-per-policy"] = types.YLeaf{"MaxClassesPerPolicy", capability.MaxClassesPerPolicy}
-    capability.EntityData.Leafs["max-classes-per-grand-parent-policy"] = types.YLeaf{"MaxClassesPerGrandParentPolicy", capability.MaxClassesPerGrandParentPolicy}
-    capability.EntityData.Leafs["max-police-actions-per-class"] = types.YLeaf{"MaxPoliceActionsPerClass", capability.MaxPoliceActionsPerClass}
-    capability.EntityData.Leafs["max-marking-actions-per-class"] = types.YLeaf{"MaxMarkingActionsPerClass", capability.MaxMarkingActionsPerClass}
-    capability.EntityData.Leafs["max-matches-per-class"] = types.YLeaf{"MaxMatchesPerClass", capability.MaxMatchesPerClass}
-    capability.EntityData.Leafs["max-classmap-name-length"] = types.YLeaf{"MaxClassmapNameLength", capability.MaxClassmapNameLength}
-    capability.EntityData.Leafs["max-bundle-members"] = types.YLeaf{"MaxBundleMembers", capability.MaxBundleMembers}
-    capability.EntityData.Leafs["max-instance-name-length"] = types.YLeaf{"MaxInstanceNameLength", capability.MaxInstanceNameLength}
+    capability.EntityData.Children = types.NewOrderedMap()
+    capability.EntityData.Leafs = types.NewOrderedMap()
+    capability.EntityData.Leafs.Append("max-policy-maps", types.YLeaf{"MaxPolicyMaps", capability.MaxPolicyMaps})
+    capability.EntityData.Leafs.Append("max-policy-hierarchy", types.YLeaf{"MaxPolicyHierarchy", capability.MaxPolicyHierarchy})
+    capability.EntityData.Leafs.Append("max-policy-name-length", types.YLeaf{"MaxPolicyNameLength", capability.MaxPolicyNameLength})
+    capability.EntityData.Leafs.Append("max-classes-per-child-policy", types.YLeaf{"MaxClassesPerChildPolicy", capability.MaxClassesPerChildPolicy})
+    capability.EntityData.Leafs.Append("max-classes-per-policy", types.YLeaf{"MaxClassesPerPolicy", capability.MaxClassesPerPolicy})
+    capability.EntityData.Leafs.Append("max-classes-per-grand-parent-policy", types.YLeaf{"MaxClassesPerGrandParentPolicy", capability.MaxClassesPerGrandParentPolicy})
+    capability.EntityData.Leafs.Append("max-police-actions-per-class", types.YLeaf{"MaxPoliceActionsPerClass", capability.MaxPoliceActionsPerClass})
+    capability.EntityData.Leafs.Append("max-marking-actions-per-class", types.YLeaf{"MaxMarkingActionsPerClass", capability.MaxMarkingActionsPerClass})
+    capability.EntityData.Leafs.Append("max-matches-per-class", types.YLeaf{"MaxMatchesPerClass", capability.MaxMatchesPerClass})
+    capability.EntityData.Leafs.Append("max-classmap-name-length", types.YLeaf{"MaxClassmapNameLength", capability.MaxClassmapNameLength})
+    capability.EntityData.Leafs.Append("max-bundle-members", types.YLeaf{"MaxBundleMembers", capability.MaxBundleMembers})
+    capability.EntityData.Leafs.Append("max-instance-name-length", types.YLeaf{"MaxInstanceNameLength", capability.MaxInstanceNameLength})
+
+    capability.EntityData.YListKeys = []string {}
+
     return &(capability.EntityData)
 }
 
@@ -670,8 +682,8 @@ type PlatformQos_Nodes_Node_Interfaces struct {
     YFilter yfilter.YFilter
 
     // QoS interface name. The type is slice of
-    // PlatformQos_Nodes_Node_Interfaces_Interface_.
-    Interface_ []PlatformQos_Nodes_Node_Interfaces_Interface
+    // PlatformQos_Nodes_Node_Interfaces_Interface.
+    Interface []*PlatformQos_Nodes_Node_Interfaces_Interface
 }
 
 func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -684,12 +696,15 @@ func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetEntityData() *types.Comm
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -700,7 +715,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // QoS policy direction ingress.
@@ -715,16 +730,19 @@ func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetEntityData() *types.
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["input"] = types.YChild{"Input", &self.Input}
-    self.EntityData.Children["output"] = types.YChild{"Output", &self.Output}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("input", types.YChild{"Input", &self.Input})
+    self.EntityData.Children.Append("output", types.YChild{"Output", &self.Output})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -748,9 +766,12 @@ func (input *PlatformQos_Nodes_Node_Interfaces_Interface_Input) GetEntityData() 
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["details"] = types.YChild{"Details", &input.Details}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("details", types.YChild{"Details", &input.Details})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -780,11 +801,14 @@ func (details *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details) GetEnt
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Children["header"] = types.YChild{"Header", &details.Header}
-    details.EntityData.Children["policy"] = types.YChild{"Policy", &details.Policy}
-    details.EntityData.Children["policy-typhoon"] = types.YChild{"PolicyTyphoon", &details.PolicyTyphoon}
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Children.Append("header", types.YChild{"Header", &details.Header})
+    details.EntityData.Children.Append("policy", types.YChild{"Policy", &details.Policy})
+    details.EntityData.Children.Append("policy-typhoon", types.YChild{"PolicyTyphoon", &details.PolicyTyphoon})
+    details.EntityData.Leafs = types.NewOrderedMap()
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -817,12 +841,15 @@ func (header *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Header) 
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Children["interface-parameters"] = types.YChild{"InterfaceParameters", &header.InterfaceParameters}
-    header.EntityData.Children["programmed-bandwidth"] = types.YChild{"ProgrammedBandwidth", &header.ProgrammedBandwidth}
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["classes"] = types.YLeaf{"Classes", header.Classes}
-    header.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", header.PolicyName}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Children.Append("interface-parameters", types.YChild{"InterfaceParameters", &header.InterfaceParameters})
+    header.EntityData.Children.Append("programmed-bandwidth", types.YChild{"ProgrammedBandwidth", &header.ProgrammedBandwidth})
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("classes", types.YLeaf{"Classes", header.Classes})
+    header.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", header.PolicyName})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -855,12 +882,15 @@ func (interfaceParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Det
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceParameters.EntityData.Children = make(map[string]types.YChild)
-    interfaceParameters.EntityData.Children["port-config-bandwidth"] = types.YChild{"PortConfigBandwidth", &interfaceParameters.PortConfigBandwidth}
-    interfaceParameters.EntityData.Children["ancp-config-bandwidth"] = types.YChild{"AncpConfigBandwidth", &interfaceParameters.AncpConfigBandwidth}
-    interfaceParameters.EntityData.Children["ancp-programmed-bandwidth"] = types.YChild{"AncpProgrammedBandwidth", &interfaceParameters.AncpProgrammedBandwidth}
-    interfaceParameters.EntityData.Children["port-shaper-rate"] = types.YChild{"PortShaperRate", &interfaceParameters.PortShaperRate}
-    interfaceParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceParameters.EntityData.Children = types.NewOrderedMap()
+    interfaceParameters.EntityData.Children.Append("port-config-bandwidth", types.YChild{"PortConfigBandwidth", &interfaceParameters.PortConfigBandwidth})
+    interfaceParameters.EntityData.Children.Append("ancp-config-bandwidth", types.YChild{"AncpConfigBandwidth", &interfaceParameters.AncpConfigBandwidth})
+    interfaceParameters.EntityData.Children.Append("ancp-programmed-bandwidth", types.YChild{"AncpProgrammedBandwidth", &interfaceParameters.AncpProgrammedBandwidth})
+    interfaceParameters.EntityData.Children.Append("port-shaper-rate", types.YChild{"PortShaperRate", &interfaceParameters.PortShaperRate})
+    interfaceParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceParameters.EntityData.YListKeys = []string {}
+
     return &(interfaceParameters.EntityData)
 }
 
@@ -887,10 +917,13 @@ func (portConfigBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Det
     portConfigBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portConfigBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portConfigBandwidth.EntityData.Children = make(map[string]types.YChild)
-    portConfigBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    portConfigBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", portConfigBandwidth.Value}
-    portConfigBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", portConfigBandwidth.Unit}
+    portConfigBandwidth.EntityData.Children = types.NewOrderedMap()
+    portConfigBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    portConfigBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", portConfigBandwidth.Value})
+    portConfigBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", portConfigBandwidth.Unit})
+
+    portConfigBandwidth.EntityData.YListKeys = []string {}
+
     return &(portConfigBandwidth.EntityData)
 }
 
@@ -917,10 +950,13 @@ func (ancpConfigBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Det
     ancpConfigBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ancpConfigBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ancpConfigBandwidth.EntityData.Children = make(map[string]types.YChild)
-    ancpConfigBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    ancpConfigBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", ancpConfigBandwidth.Value}
-    ancpConfigBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", ancpConfigBandwidth.Unit}
+    ancpConfigBandwidth.EntityData.Children = types.NewOrderedMap()
+    ancpConfigBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    ancpConfigBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", ancpConfigBandwidth.Value})
+    ancpConfigBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", ancpConfigBandwidth.Unit})
+
+    ancpConfigBandwidth.EntityData.YListKeys = []string {}
+
     return &(ancpConfigBandwidth.EntityData)
 }
 
@@ -947,10 +983,13 @@ func (ancpProgrammedBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input
     ancpProgrammedBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ancpProgrammedBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ancpProgrammedBandwidth.EntityData.Children = make(map[string]types.YChild)
-    ancpProgrammedBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    ancpProgrammedBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", ancpProgrammedBandwidth.Value}
-    ancpProgrammedBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", ancpProgrammedBandwidth.Unit}
+    ancpProgrammedBandwidth.EntityData.Children = types.NewOrderedMap()
+    ancpProgrammedBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    ancpProgrammedBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", ancpProgrammedBandwidth.Value})
+    ancpProgrammedBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", ancpProgrammedBandwidth.Unit})
+
+    ancpProgrammedBandwidth.EntityData.YListKeys = []string {}
+
     return &(ancpProgrammedBandwidth.EntityData)
 }
 
@@ -977,10 +1016,13 @@ func (portShaperRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_
     portShaperRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portShaperRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portShaperRate.EntityData.Children = make(map[string]types.YChild)
-    portShaperRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    portShaperRate.EntityData.Leafs["value"] = types.YLeaf{"Value", portShaperRate.Value}
-    portShaperRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", portShaperRate.Unit}
+    portShaperRate.EntityData.Children = types.NewOrderedMap()
+    portShaperRate.EntityData.Leafs = types.NewOrderedMap()
+    portShaperRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", portShaperRate.Value})
+    portShaperRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", portShaperRate.Unit})
+
+    portShaperRate.EntityData.YListKeys = []string {}
+
     return &(portShaperRate.EntityData)
 }
 
@@ -1007,10 +1049,13 @@ func (programmedBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Det
     programmedBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     programmedBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    programmedBandwidth.EntityData.Children = make(map[string]types.YChild)
-    programmedBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    programmedBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", programmedBandwidth.Value}
-    programmedBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", programmedBandwidth.Unit}
+    programmedBandwidth.EntityData.Children = types.NewOrderedMap()
+    programmedBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    programmedBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", programmedBandwidth.Value})
+    programmedBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", programmedBandwidth.Unit})
+
+    programmedBandwidth.EntityData.YListKeys = []string {}
+
     return &(programmedBandwidth.EntityData)
 }
 
@@ -1022,7 +1067,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy struct {
 
     // qos show ea st v1. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1.
-    QosShowEaStV1 []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1
+    QosShowEaStV1 []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1
 }
 
 func (policy *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy) GetEntityData() *types.CommonEntityData {
@@ -1035,12 +1080,15 @@ func (policy *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy) 
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policy.EntityData.Children = make(map[string]types.YChild)
-    policy.EntityData.Children["qos-show-ea-st-v1"] = types.YChild{"QosShowEaStV1", nil}
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Children.Append("qos-show-ea-st-v1", types.YChild{"QosShowEaStV1", nil})
     for i := range policy.QosShowEaStV1 {
-        policy.EntityData.Children[types.GetSegmentPath(&policy.QosShowEaStV1[i])] = types.YChild{"QosShowEaStV1", &policy.QosShowEaStV1[i]}
+        policy.EntityData.Children.Append(types.GetSegmentPath(policy.QosShowEaStV1[i]), types.YChild{"QosShowEaStV1", policy.QosShowEaStV1[i]})
     }
-    policy.EntityData.Leafs = make(map[string]types.YLeaf)
+    policy.EntityData.Leafs = types.NewOrderedMap()
+
+    policy.EntityData.YListKeys = []string {}
+
     return &(policy.EntityData)
 }
 
@@ -1097,20 +1145,23 @@ func (qosShowEaStV1 *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_P
     qosShowEaStV1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaStV1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qosShowEaStV1.EntityData.Children = make(map[string]types.YChild)
-    qosShowEaStV1.EntityData.Children["queue"] = types.YChild{"Queue", &qosShowEaStV1.Queue}
-    qosShowEaStV1.EntityData.Children["queue-limit-parameters"] = types.YChild{"QueueLimitParameters", &qosShowEaStV1.QueueLimitParameters}
-    qosShowEaStV1.EntityData.Children["shape"] = types.YChild{"Shape", &qosShowEaStV1.Shape}
-    qosShowEaStV1.EntityData.Children["police"] = types.YChild{"Police", &qosShowEaStV1.Police}
-    qosShowEaStV1.EntityData.Children["wfq"] = types.YChild{"Wfq", &qosShowEaStV1.Wfq}
-    qosShowEaStV1.EntityData.Children["wred"] = types.YChild{"Wred", &qosShowEaStV1.Wred}
-    qosShowEaStV1.EntityData.Children["mark"] = types.YChild{"Mark", &qosShowEaStV1.Mark}
-    qosShowEaStV1.EntityData.Leafs = make(map[string]types.YLeaf)
-    qosShowEaStV1.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", qosShowEaStV1.ClassLevel}
-    qosShowEaStV1.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", qosShowEaStV1.ClassName}
-    qosShowEaStV1.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", qosShowEaStV1.PolicyName}
-    qosShowEaStV1.EntityData.Leafs["parent-policy-name"] = types.YLeaf{"ParentPolicyName", qosShowEaStV1.ParentPolicyName}
-    qosShowEaStV1.EntityData.Leafs["parent-class-name"] = types.YLeaf{"ParentClassName", qosShowEaStV1.ParentClassName}
+    qosShowEaStV1.EntityData.Children = types.NewOrderedMap()
+    qosShowEaStV1.EntityData.Children.Append("queue", types.YChild{"Queue", &qosShowEaStV1.Queue})
+    qosShowEaStV1.EntityData.Children.Append("queue-limit-parameters", types.YChild{"QueueLimitParameters", &qosShowEaStV1.QueueLimitParameters})
+    qosShowEaStV1.EntityData.Children.Append("shape", types.YChild{"Shape", &qosShowEaStV1.Shape})
+    qosShowEaStV1.EntityData.Children.Append("police", types.YChild{"Police", &qosShowEaStV1.Police})
+    qosShowEaStV1.EntityData.Children.Append("wfq", types.YChild{"Wfq", &qosShowEaStV1.Wfq})
+    qosShowEaStV1.EntityData.Children.Append("wred", types.YChild{"Wred", &qosShowEaStV1.Wred})
+    qosShowEaStV1.EntityData.Children.Append("mark", types.YChild{"Mark", &qosShowEaStV1.Mark})
+    qosShowEaStV1.EntityData.Leafs = types.NewOrderedMap()
+    qosShowEaStV1.EntityData.Leafs.Append("class-level", types.YLeaf{"ClassLevel", qosShowEaStV1.ClassLevel})
+    qosShowEaStV1.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", qosShowEaStV1.ClassName})
+    qosShowEaStV1.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", qosShowEaStV1.PolicyName})
+    qosShowEaStV1.EntityData.Leafs.Append("parent-policy-name", types.YLeaf{"ParentPolicyName", qosShowEaStV1.ParentPolicyName})
+    qosShowEaStV1.EntityData.Leafs.Append("parent-class-name", types.YLeaf{"ParentClassName", qosShowEaStV1.ParentClassName})
+
+    qosShowEaStV1.EntityData.YListKeys = []string {}
+
     return &(qosShowEaStV1.EntityData)
 }
 
@@ -1140,11 +1191,14 @@ func (queue *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_Qo
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queue.EntityData.Children = make(map[string]types.YChild)
-    queue.EntityData.Leafs = make(map[string]types.YLeaf)
-    queue.EntityData.Leafs["queue-id"] = types.YLeaf{"QueueId", queue.QueueId}
-    queue.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", queue.QueueType}
-    queue.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", queue.ClassName}
+    queue.EntityData.Children = types.NewOrderedMap()
+    queue.EntityData.Leafs = types.NewOrderedMap()
+    queue.EntityData.Leafs.Append("queue-id", types.YLeaf{"QueueId", queue.QueueId})
+    queue.EntityData.Leafs.Append("queue-type", types.YLeaf{"QueueType", queue.QueueType})
+    queue.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", queue.ClassName})
+
+    queue.EntityData.YListKeys = []string {}
+
     return &(queue.EntityData)
 }
 
@@ -1177,12 +1231,15 @@ func (queueLimitParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Input_De
     queueLimitParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimitParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimitParameters.EntityData.Children = make(map[string]types.YChild)
-    queueLimitParameters.EntityData.Children["queue-limit"] = types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit}
-    queueLimitParameters.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit}
-    queueLimitParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimitParameters.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", queueLimitParameters.ProfileId}
-    queueLimitParameters.EntityData.Leafs["scaling-profile-id"] = types.YLeaf{"ScalingProfileId", queueLimitParameters.ScalingProfileId}
+    queueLimitParameters.EntityData.Children = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Children.Append("queue-limit", types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit})
+    queueLimitParameters.EntityData.Children.Append("config-queue-limit", types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit})
+    queueLimitParameters.EntityData.Leafs = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", queueLimitParameters.ProfileId})
+    queueLimitParameters.EntityData.Leafs.Append("scaling-profile-id", types.YLeaf{"ScalingProfileId", queueLimitParameters.ScalingProfileId})
+
+    queueLimitParameters.EntityData.YListKeys = []string {}
+
     return &(queueLimitParameters.EntityData)
 }
 
@@ -1209,10 +1266,13 @@ func (queueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimit.EntityData.Children = make(map[string]types.YChild)
-    queueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", queueLimit.Value}
-    queueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", queueLimit.Unit}
+    queueLimit.EntityData.Children = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", queueLimit.Value})
+    queueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", queueLimit.Unit})
+
+    queueLimit.EntityData.YListKeys = []string {}
+
     return &(queueLimit.EntityData)
 }
 
@@ -1239,10 +1299,13 @@ func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Detail
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
-    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    configQueueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", configQueueLimit.Value}
-    configQueueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", configQueueLimit.Unit}
+    configQueueLimit.EntityData.Children = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", configQueueLimit.Value})
+    configQueueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", configQueueLimit.Unit})
+
+    configQueueLimit.EntityData.YListKeys = []string {}
+
     return &(configQueueLimit.EntityData)
 }
 
@@ -1281,14 +1344,17 @@ func (shape *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_Qo
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shape.EntityData.Children = make(map[string]types.YChild)
-    shape.EntityData.Children["cir"] = types.YChild{"Cir", &shape.Cir}
-    shape.EntityData.Children["config-bandwidth"] = types.YChild{"ConfigBandwidth", &shape.ConfigBandwidth}
-    shape.EntityData.Children["cbs"] = types.YChild{"Cbs", &shape.Cbs}
-    shape.EntityData.Children["pir"] = types.YChild{"Pir", &shape.Pir}
-    shape.EntityData.Children["pbs"] = types.YChild{"Pbs", &shape.Pbs}
-    shape.EntityData.Leafs = make(map[string]types.YLeaf)
-    shape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", shape.ProfileId}
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Children.Append("cir", types.YChild{"Cir", &shape.Cir})
+    shape.EntityData.Children.Append("config-bandwidth", types.YChild{"ConfigBandwidth", &shape.ConfigBandwidth})
+    shape.EntityData.Children.Append("cbs", types.YChild{"Cbs", &shape.Cbs})
+    shape.EntityData.Children.Append("pir", types.YChild{"Pir", &shape.Pir})
+    shape.EntityData.Children.Append("pbs", types.YChild{"Pbs", &shape.Pbs})
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", shape.ProfileId})
+
+    shape.EntityData.YListKeys = []string {}
+
     return &(shape.EntityData)
 }
 
@@ -1315,10 +1381,13 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -1342,9 +1411,12 @@ func (configBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details
     configBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configBandwidth.EntityData.Children = make(map[string]types.YChild)
-    configBandwidth.EntityData.Children["minimum-rate"] = types.YChild{"MinimumRate", &configBandwidth.MinimumRate}
-    configBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    configBandwidth.EntityData.Children = types.NewOrderedMap()
+    configBandwidth.EntityData.Children.Append("minimum-rate", types.YChild{"MinimumRate", &configBandwidth.MinimumRate})
+    configBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    configBandwidth.EntityData.YListKeys = []string {}
+
     return &(configBandwidth.EntityData)
 }
 
@@ -1371,10 +1443,13 @@ func (minimumRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Pol
     minimumRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minimumRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minimumRate.EntityData.Children = make(map[string]types.YChild)
-    minimumRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    minimumRate.EntityData.Leafs["value"] = types.YLeaf{"Value", minimumRate.Value}
-    minimumRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minimumRate.Unit}
+    minimumRate.EntityData.Children = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", minimumRate.Value})
+    minimumRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minimumRate.Unit})
+
+    minimumRate.EntityData.YListKeys = []string {}
+
     return &(minimumRate.EntityData)
 }
 
@@ -1401,10 +1476,13 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -1431,10 +1509,13 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -1461,10 +1542,13 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -1506,15 +1590,18 @@ func (police *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_Q
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    police.EntityData.Children = make(map[string]types.YChild)
-    police.EntityData.Children["cir"] = types.YChild{"Cir", &police.Cir}
-    police.EntityData.Children["cbs"] = types.YChild{"Cbs", &police.Cbs}
-    police.EntityData.Children["pir"] = types.YChild{"Pir", &police.Pir}
-    police.EntityData.Children["pbs"] = types.YChild{"Pbs", &police.Pbs}
-    police.EntityData.Children["police-config-parameters"] = types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters}
-    police.EntityData.Leafs = make(map[string]types.YLeaf)
-    police.EntityData.Leafs["policer-type"] = types.YLeaf{"PolicerType", police.PolicerType}
-    police.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", police.ProfileId}
+    police.EntityData.Children = types.NewOrderedMap()
+    police.EntityData.Children.Append("cir", types.YChild{"Cir", &police.Cir})
+    police.EntityData.Children.Append("cbs", types.YChild{"Cbs", &police.Cbs})
+    police.EntityData.Children.Append("pir", types.YChild{"Pir", &police.Pir})
+    police.EntityData.Children.Append("pbs", types.YChild{"Pbs", &police.Pbs})
+    police.EntityData.Children.Append("police-config-parameters", types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters})
+    police.EntityData.Leafs = types.NewOrderedMap()
+    police.EntityData.Leafs.Append("policer-type", types.YLeaf{"PolicerType", police.PolicerType})
+    police.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", police.ProfileId})
+
+    police.EntityData.YListKeys = []string {}
+
     return &(police.EntityData)
 }
 
@@ -1541,10 +1628,13 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -1571,10 +1661,13 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -1601,10 +1694,13 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -1631,10 +1727,13 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -1667,12 +1766,15 @@ func (policeConfigParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Input_
     policeConfigParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConfigParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConfigParameters.EntityData.Children = make(map[string]types.YChild)
-    policeConfigParameters.EntityData.Children["average-rate"] = types.YChild{"AverageRate", &policeConfigParameters.AverageRate}
-    policeConfigParameters.EntityData.Children["peak-rate"] = types.YChild{"PeakRate", &policeConfigParameters.PeakRate}
-    policeConfigParameters.EntityData.Children["conform-burst"] = types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst}
-    policeConfigParameters.EntityData.Children["exceed-burst"] = types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst}
-    policeConfigParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    policeConfigParameters.EntityData.Children = types.NewOrderedMap()
+    policeConfigParameters.EntityData.Children.Append("average-rate", types.YChild{"AverageRate", &policeConfigParameters.AverageRate})
+    policeConfigParameters.EntityData.Children.Append("peak-rate", types.YChild{"PeakRate", &policeConfigParameters.PeakRate})
+    policeConfigParameters.EntityData.Children.Append("conform-burst", types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst})
+    policeConfigParameters.EntityData.Children.Append("exceed-burst", types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst})
+    policeConfigParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    policeConfigParameters.EntityData.YListKeys = []string {}
+
     return &(policeConfigParameters.EntityData)
 }
 
@@ -1699,10 +1801,13 @@ func (averageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Pol
     averageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageRate.EntityData.Children = make(map[string]types.YChild)
-    averageRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageRate.EntityData.Leafs["value"] = types.YLeaf{"Value", averageRate.Value}
-    averageRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", averageRate.Unit}
+    averageRate.EntityData.Children = types.NewOrderedMap()
+    averageRate.EntityData.Leafs = types.NewOrderedMap()
+    averageRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageRate.Value})
+    averageRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", averageRate.Unit})
+
+    averageRate.EntityData.YListKeys = []string {}
+
     return &(averageRate.EntityData)
 }
 
@@ -1729,10 +1834,13 @@ func (peakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakRate.EntityData.Children = make(map[string]types.YChild)
-    peakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", peakRate.Value}
-    peakRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", peakRate.Unit}
+    peakRate.EntityData.Children = types.NewOrderedMap()
+    peakRate.EntityData.Leafs = types.NewOrderedMap()
+    peakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakRate.Value})
+    peakRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", peakRate.Unit})
+
+    peakRate.EntityData.YListKeys = []string {}
+
     return &(peakRate.EntityData)
 }
 
@@ -1759,10 +1867,13 @@ func (conformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Po
     conformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conformBurst.EntityData.Children = make(map[string]types.YChild)
-    conformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    conformBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", conformBurst.Value}
-    conformBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", conformBurst.Unit}
+    conformBurst.EntityData.Children = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", conformBurst.Value})
+    conformBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", conformBurst.Unit})
+
+    conformBurst.EntityData.YListKeys = []string {}
+
     return &(conformBurst.EntityData)
 }
 
@@ -1789,10 +1900,13 @@ func (exceedBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Pol
     exceedBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exceedBurst.EntityData.Children = make(map[string]types.YChild)
-    exceedBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    exceedBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", exceedBurst.Value}
-    exceedBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", exceedBurst.Unit}
+    exceedBurst.EntityData.Children = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", exceedBurst.Value})
+    exceedBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", exceedBurst.Unit})
+
+    exceedBurst.EntityData.YListKeys = []string {}
+
     return &(exceedBurst.EntityData)
 }
 
@@ -1837,16 +1951,19 @@ func (wfq *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosS
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wfq.EntityData.Children = make(map[string]types.YChild)
-    wfq.EntityData.Children["parent-bandwidth"] = types.YChild{"ParentBandwidth", &wfq.ParentBandwidth}
-    wfq.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &wfq.Bandwidth}
-    wfq.EntityData.Leafs = make(map[string]types.YLeaf)
-    wfq.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wfq.ProfileId}
-    wfq.EntityData.Leafs["committed-weight"] = types.YLeaf{"CommittedWeight", wfq.CommittedWeight}
-    wfq.EntityData.Leafs["excess-weight"] = types.YLeaf{"ExcessWeight", wfq.ExcessWeight}
-    wfq.EntityData.Leafs["excess-ratio"] = types.YLeaf{"ExcessRatio", wfq.ExcessRatio}
-    wfq.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", wfq.ChunkId}
-    wfq.EntityData.Leafs["level"] = types.YLeaf{"Level", wfq.Level}
+    wfq.EntityData.Children = types.NewOrderedMap()
+    wfq.EntityData.Children.Append("parent-bandwidth", types.YChild{"ParentBandwidth", &wfq.ParentBandwidth})
+    wfq.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &wfq.Bandwidth})
+    wfq.EntityData.Leafs = types.NewOrderedMap()
+    wfq.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wfq.ProfileId})
+    wfq.EntityData.Leafs.Append("committed-weight", types.YLeaf{"CommittedWeight", wfq.CommittedWeight})
+    wfq.EntityData.Leafs.Append("excess-weight", types.YLeaf{"ExcessWeight", wfq.ExcessWeight})
+    wfq.EntityData.Leafs.Append("excess-ratio", types.YLeaf{"ExcessRatio", wfq.ExcessRatio})
+    wfq.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", wfq.ChunkId})
+    wfq.EntityData.Leafs.Append("level", types.YLeaf{"Level", wfq.Level})
+
+    wfq.EntityData.YListKeys = []string {}
+
     return &(wfq.EntityData)
 }
 
@@ -1873,10 +1990,13 @@ func (parentBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details
     parentBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentBandwidth.EntityData.Children = make(map[string]types.YChild)
-    parentBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", parentBandwidth.Value}
-    parentBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", parentBandwidth.Unit}
+    parentBandwidth.EntityData.Children = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", parentBandwidth.Value})
+    parentBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", parentBandwidth.Unit})
+
+    parentBandwidth.EntityData.YListKeys = []string {}
+
     return &(parentBandwidth.EntityData)
 }
 
@@ -1903,10 +2023,13 @@ func (bandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Polic
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", bandwidth.Unit}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", bandwidth.Unit})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -1917,7 +2040,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
     YFilter yfilter.YFilter
 
     // WRED type. The type is Wred.
-    Type_ interface{}
+    Type interface{}
 
     // Number of curves. The type is interface{} with range: 0..65535.
     CurveXr interface{}
@@ -1933,7 +2056,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Curve details. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Wred_Curve.
-    Curve []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Wred_Curve
+    Curve []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Wred_Curve
 }
 
 func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Wred) GetEntityData() *types.CommonEntityData {
@@ -1946,17 +2069,20 @@ func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_Qos
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wred.EntityData.Children = make(map[string]types.YChild)
-    wred.EntityData.Children["curve"] = types.YChild{"Curve", nil}
+    wred.EntityData.Children = types.NewOrderedMap()
+    wred.EntityData.Children.Append("curve", types.YChild{"Curve", nil})
     for i := range wred.Curve {
-        wred.EntityData.Children[types.GetSegmentPath(&wred.Curve[i])] = types.YChild{"Curve", &wred.Curve[i]}
+        wred.EntityData.Children.Append(types.GetSegmentPath(wred.Curve[i]), types.YChild{"Curve", wred.Curve[i]})
     }
-    wred.EntityData.Leafs = make(map[string]types.YLeaf)
-    wred.EntityData.Leafs["type"] = types.YLeaf{"Type_", wred.Type_}
-    wred.EntityData.Leafs["curve-xr"] = types.YLeaf{"CurveXr", wred.CurveXr}
-    wred.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", wred.TableId}
-    wred.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wred.ProfileId}
-    wred.EntityData.Leafs["scaling-profile-id"] = types.YLeaf{"ScalingProfileId", wred.ScalingProfileId}
+    wred.EntityData.Leafs = types.NewOrderedMap()
+    wred.EntityData.Leafs.Append("type", types.YLeaf{"Type", wred.Type})
+    wred.EntityData.Leafs.Append("curve-xr", types.YLeaf{"CurveXr", wred.CurveXr})
+    wred.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", wred.TableId})
+    wred.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wred.ProfileId})
+    wred.EntityData.Leafs.Append("scaling-profile-id", types.YLeaf{"ScalingProfileId", wred.ScalingProfileId})
+
+    wred.EntityData.YListKeys = []string {}
+
     return &(wred.EntityData)
 }
 
@@ -1994,13 +2120,16 @@ func (curve *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_Qo
     curve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     curve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    curve.EntityData.Children = make(map[string]types.YChild)
-    curve.EntityData.Children["min-threshold"] = types.YChild{"MinThreshold", &curve.MinThreshold}
-    curve.EntityData.Children["min-threshold-user-config"] = types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig}
-    curve.EntityData.Children["max-threshold"] = types.YChild{"MaxThreshold", &curve.MaxThreshold}
-    curve.EntityData.Children["max-threshold-user-config"] = types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig}
-    curve.EntityData.Leafs = make(map[string]types.YLeaf)
-    curve.EntityData.Leafs["match"] = types.YLeaf{"Match", curve.Match}
+    curve.EntityData.Children = types.NewOrderedMap()
+    curve.EntityData.Children.Append("min-threshold", types.YChild{"MinThreshold", &curve.MinThreshold})
+    curve.EntityData.Children.Append("min-threshold-user-config", types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig})
+    curve.EntityData.Children.Append("max-threshold", types.YChild{"MaxThreshold", &curve.MaxThreshold})
+    curve.EntityData.Children.Append("max-threshold-user-config", types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig})
+    curve.EntityData.Leafs = types.NewOrderedMap()
+    curve.EntityData.Leafs.Append("match", types.YLeaf{"Match", curve.Match})
+
+    curve.EntityData.YListKeys = []string {}
+
     return &(curve.EntityData)
 }
 
@@ -2027,10 +2156,13 @@ func (minThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Po
     minThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThreshold.EntityData.Children = make(map[string]types.YChild)
-    minThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", minThreshold.Value}
-    minThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThreshold.Unit}
+    minThreshold.EntityData.Children = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThreshold.Value})
+    minThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThreshold.Unit})
+
+    minThreshold.EntityData.YListKeys = []string {}
+
     return &(minThreshold.EntityData)
 }
 
@@ -2057,10 +2189,13 @@ func (minThresholdUserConfig *PlatformQos_Nodes_Node_Interfaces_Interface_Input_
     minThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    minThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", minThresholdUserConfig.Value}
-    minThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThresholdUserConfig.Unit}
+    minThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThresholdUserConfig.Value})
+    minThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThresholdUserConfig.Unit})
+
+    minThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(minThresholdUserConfig.EntityData)
 }
 
@@ -2087,10 +2222,13 @@ func (maxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Po
     maxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThreshold.EntityData.Children = make(map[string]types.YChild)
-    maxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThreshold.Value}
-    maxThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThreshold.Unit}
+    maxThreshold.EntityData.Children = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThreshold.Value})
+    maxThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThreshold.Unit})
+
+    maxThreshold.EntityData.YListKeys = []string {}
+
     return &(maxThreshold.EntityData)
 }
 
@@ -2117,10 +2255,13 @@ func (maxThresholdUserConfig *PlatformQos_Nodes_Node_Interfaces_Interface_Input_
     maxThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    maxThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThresholdUserConfig.Value}
-    maxThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThresholdUserConfig.Unit}
+    maxThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThresholdUserConfig.Value})
+    maxThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThresholdUserConfig.Unit})
+
+    maxThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(maxThresholdUserConfig.EntityData)
 }
 
@@ -2165,16 +2306,19 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_Qos
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mark.EntityData.Children = make(map[string]types.YChild)
-    mark.EntityData.Children["child-mark"] = types.YChild{"ChildMark", &mark.ChildMark}
-    mark.EntityData.Children["police-conform"] = types.YChild{"PoliceConform", &mark.PoliceConform}
-    mark.EntityData.Children["police-exceed"] = types.YChild{"PoliceExceed", &mark.PoliceExceed}
-    mark.EntityData.Children["police-violate"] = types.YChild{"PoliceViolate", &mark.PoliceViolate}
-    mark.EntityData.Children["parent-mark"] = types.YChild{"ParentMark", &mark.ParentMark}
-    mark.EntityData.Children["parent-police-conform"] = types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform}
-    mark.EntityData.Children["parent-police-exceed"] = types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed}
-    mark.EntityData.Children["parent-police-violate"] = types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate}
-    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Children = types.NewOrderedMap()
+    mark.EntityData.Children.Append("child-mark", types.YChild{"ChildMark", &mark.ChildMark})
+    mark.EntityData.Children.Append("police-conform", types.YChild{"PoliceConform", &mark.PoliceConform})
+    mark.EntityData.Children.Append("police-exceed", types.YChild{"PoliceExceed", &mark.PoliceExceed})
+    mark.EntityData.Children.Append("police-violate", types.YChild{"PoliceViolate", &mark.PoliceViolate})
+    mark.EntityData.Children.Append("parent-mark", types.YChild{"ParentMark", &mark.ParentMark})
+    mark.EntityData.Children.Append("parent-police-conform", types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform})
+    mark.EntityData.Children.Append("parent-police-exceed", types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed})
+    mark.EntityData.Children.Append("parent-police-violate", types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate})
+    mark.EntityData.Leafs = types.NewOrderedMap()
+
+    mark.EntityData.YListKeys = []string {}
+
     return &(mark.EntityData)
 }
 
@@ -2189,7 +2333,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail
 }
 
 func (childMark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ChildMark) GetEntityData() *types.CommonEntityData {
@@ -2202,13 +2346,16 @@ func (childMark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Polic
     childMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     childMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    childMark.EntityData.Children = make(map[string]types.YChild)
-    childMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    childMark.EntityData.Children = types.NewOrderedMap()
+    childMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range childMark.MarkDetail {
-        childMark.EntityData.Children[types.GetSegmentPath(&childMark.MarkDetail[i])] = types.YChild{"MarkDetail", &childMark.MarkDetail[i]}
+        childMark.EntityData.Children.Append(types.GetSegmentPath(childMark.MarkDetail[i]), types.YChild{"MarkDetail", childMark.MarkDetail[i]})
     }
-    childMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    childMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", childMark.ActionType}
+    childMark.EntityData.Leafs = types.NewOrderedMap()
+    childMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", childMark.ActionType})
+
+    childMark.EntityData.YListKeys = []string {}
+
     return &(childMark.EntityData)
 }
 
@@ -2235,10 +2382,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -2253,7 +2403,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail
 }
 
 func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceConform) GetEntityData() *types.CommonEntityData {
@@ -2266,13 +2416,16 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_P
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConform.EntityData.Children = make(map[string]types.YChild)
-    policeConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeConform.EntityData.Children = types.NewOrderedMap()
+    policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
-        policeConform.EntityData.Children[types.GetSegmentPath(&policeConform.MarkDetail[i])] = types.YChild{"MarkDetail", &policeConform.MarkDetail[i]}
+        policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
-    policeConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeConform.ActionType}
+    policeConform.EntityData.Leafs = types.NewOrderedMap()
+    policeConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeConform.ActionType})
+
+    policeConform.EntityData.YListKeys = []string {}
+
     return &(policeConform.EntityData)
 }
 
@@ -2299,10 +2452,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -2317,7 +2473,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail
 }
 
 func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -2330,13 +2486,16 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Po
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeExceed.EntityData.Children = make(map[string]types.YChild)
-    policeExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeExceed.EntityData.Children = types.NewOrderedMap()
+    policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
-        policeExceed.EntityData.Children[types.GetSegmentPath(&policeExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &policeExceed.MarkDetail[i]}
+        policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
-    policeExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeExceed.ActionType}
+    policeExceed.EntityData.Leafs = types.NewOrderedMap()
+    policeExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeExceed.ActionType})
+
+    policeExceed.EntityData.YListKeys = []string {}
+
     return &(policeExceed.EntityData)
 }
 
@@ -2363,10 +2522,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -2381,7 +2543,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail
 }
 
 func (policeViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_PoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -2394,13 +2556,16 @@ func (policeViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_P
     policeViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeViolate.EntityData.Children = make(map[string]types.YChild)
-    policeViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeViolate.EntityData.Children = types.NewOrderedMap()
+    policeViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeViolate.MarkDetail {
-        policeViolate.EntityData.Children[types.GetSegmentPath(&policeViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &policeViolate.MarkDetail[i]}
+        policeViolate.EntityData.Children.Append(types.GetSegmentPath(policeViolate.MarkDetail[i]), types.YChild{"MarkDetail", policeViolate.MarkDetail[i]})
     }
-    policeViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeViolate.ActionType}
+    policeViolate.EntityData.Leafs = types.NewOrderedMap()
+    policeViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeViolate.ActionType})
+
+    policeViolate.EntityData.YListKeys = []string {}
+
     return &(policeViolate.EntityData)
 }
 
@@ -2427,10 +2592,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -2445,7 +2613,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail
 }
 
 func (parentMark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentMark) GetEntityData() *types.CommonEntityData {
@@ -2458,13 +2626,16 @@ func (parentMark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     parentMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentMark.EntityData.Children = make(map[string]types.YChild)
-    parentMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentMark.EntityData.Children = types.NewOrderedMap()
+    parentMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentMark.MarkDetail {
-        parentMark.EntityData.Children[types.GetSegmentPath(&parentMark.MarkDetail[i])] = types.YChild{"MarkDetail", &parentMark.MarkDetail[i]}
+        parentMark.EntityData.Children.Append(types.GetSegmentPath(parentMark.MarkDetail[i]), types.YChild{"MarkDetail", parentMark.MarkDetail[i]})
     }
-    parentMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentMark.ActionType}
+    parentMark.EntityData.Leafs = types.NewOrderedMap()
+    parentMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentMark.ActionType})
+
+    parentMark.EntityData.YListKeys = []string {}
+
     return &(parentMark.EntityData)
 }
 
@@ -2491,10 +2662,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -2509,7 +2683,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail
 }
 
 func (parentPoliceConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform) GetEntityData() *types.CommonEntityData {
@@ -2522,13 +2696,16 @@ func (parentPoliceConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Det
     parentPoliceConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceConform.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceConform.EntityData.Children = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceConform.MarkDetail {
-        parentPoliceConform.EntityData.Children[types.GetSegmentPath(&parentPoliceConform.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceConform.MarkDetail[i]}
+        parentPoliceConform.EntityData.Children.Append(types.GetSegmentPath(parentPoliceConform.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceConform.MarkDetail[i]})
     }
-    parentPoliceConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceConform.ActionType}
+    parentPoliceConform.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceConform.ActionType})
+
+    parentPoliceConform.EntityData.YListKeys = []string {}
+
     return &(parentPoliceConform.EntityData)
 }
 
@@ -2555,10 +2732,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -2573,7 +2753,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail
 }
 
 func (parentPoliceExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -2586,13 +2766,16 @@ func (parentPoliceExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Deta
     parentPoliceExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceExceed.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceExceed.EntityData.Children = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceExceed.MarkDetail {
-        parentPoliceExceed.EntityData.Children[types.GetSegmentPath(&parentPoliceExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceExceed.MarkDetail[i]}
+        parentPoliceExceed.EntityData.Children.Append(types.GetSegmentPath(parentPoliceExceed.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceExceed.MarkDetail[i]})
     }
-    parentPoliceExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceExceed.ActionType}
+    parentPoliceExceed.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceExceed.ActionType})
+
+    parentPoliceExceed.EntityData.YListKeys = []string {}
+
     return &(parentPoliceExceed.EntityData)
 }
 
@@ -2619,10 +2802,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -2637,7 +2823,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaS
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail
 }
 
 func (parentPoliceViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -2650,13 +2836,16 @@ func (parentPoliceViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Det
     parentPoliceViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceViolate.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceViolate.EntityData.Children = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceViolate.MarkDetail {
-        parentPoliceViolate.EntityData.Children[types.GetSegmentPath(&parentPoliceViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceViolate.MarkDetail[i]}
+        parentPoliceViolate.EntityData.Children.Append(types.GetSegmentPath(parentPoliceViolate.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceViolate.MarkDetail[i]})
     }
-    parentPoliceViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceViolate.ActionType}
+    parentPoliceViolate.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceViolate.ActionType})
+
+    parentPoliceViolate.EntityData.YListKeys = []string {}
+
     return &(parentPoliceViolate.EntityData)
 }
 
@@ -2683,10 +2872,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -2698,7 +2890,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon str
 
     // qos show ea st v2. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2.
-    QosShowEaStV2 []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2
+    QosShowEaStV2 []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2
 }
 
 func (policyTyphoon *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon) GetEntityData() *types.CommonEntityData {
@@ -2711,12 +2903,15 @@ func (policyTyphoon *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_P
     policyTyphoon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyTyphoon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policyTyphoon.EntityData.Children = make(map[string]types.YChild)
-    policyTyphoon.EntityData.Children["qos-show-ea-st-v2"] = types.YChild{"QosShowEaStV2", nil}
+    policyTyphoon.EntityData.Children = types.NewOrderedMap()
+    policyTyphoon.EntityData.Children.Append("qos-show-ea-st-v2", types.YChild{"QosShowEaStV2", nil})
     for i := range policyTyphoon.QosShowEaStV2 {
-        policyTyphoon.EntityData.Children[types.GetSegmentPath(&policyTyphoon.QosShowEaStV2[i])] = types.YChild{"QosShowEaStV2", &policyTyphoon.QosShowEaStV2[i]}
+        policyTyphoon.EntityData.Children.Append(types.GetSegmentPath(policyTyphoon.QosShowEaStV2[i]), types.YChild{"QosShowEaStV2", policyTyphoon.QosShowEaStV2[i]})
     }
-    policyTyphoon.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyTyphoon.EntityData.Leafs = types.NewOrderedMap()
+
+    policyTyphoon.EntityData.YListKeys = []string {}
+
     return &(policyTyphoon.EntityData)
 }
 
@@ -2773,20 +2968,23 @@ func (qosShowEaStV2 *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_P
     qosShowEaStV2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaStV2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qosShowEaStV2.EntityData.Children = make(map[string]types.YChild)
-    qosShowEaStV2.EntityData.Children["queue"] = types.YChild{"Queue", &qosShowEaStV2.Queue}
-    qosShowEaStV2.EntityData.Children["queue-limit-parameters"] = types.YChild{"QueueLimitParameters", &qosShowEaStV2.QueueLimitParameters}
-    qosShowEaStV2.EntityData.Children["shape"] = types.YChild{"Shape", &qosShowEaStV2.Shape}
-    qosShowEaStV2.EntityData.Children["police"] = types.YChild{"Police", &qosShowEaStV2.Police}
-    qosShowEaStV2.EntityData.Children["wfq"] = types.YChild{"Wfq", &qosShowEaStV2.Wfq}
-    qosShowEaStV2.EntityData.Children["wred"] = types.YChild{"Wred", &qosShowEaStV2.Wred}
-    qosShowEaStV2.EntityData.Children["mark"] = types.YChild{"Mark", &qosShowEaStV2.Mark}
-    qosShowEaStV2.EntityData.Leafs = make(map[string]types.YLeaf)
-    qosShowEaStV2.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", qosShowEaStV2.ClassLevel}
-    qosShowEaStV2.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", qosShowEaStV2.ClassName}
-    qosShowEaStV2.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", qosShowEaStV2.PolicyName}
-    qosShowEaStV2.EntityData.Leafs["parent-policy-name"] = types.YLeaf{"ParentPolicyName", qosShowEaStV2.ParentPolicyName}
-    qosShowEaStV2.EntityData.Leafs["parent-class-name"] = types.YLeaf{"ParentClassName", qosShowEaStV2.ParentClassName}
+    qosShowEaStV2.EntityData.Children = types.NewOrderedMap()
+    qosShowEaStV2.EntityData.Children.Append("queue", types.YChild{"Queue", &qosShowEaStV2.Queue})
+    qosShowEaStV2.EntityData.Children.Append("queue-limit-parameters", types.YChild{"QueueLimitParameters", &qosShowEaStV2.QueueLimitParameters})
+    qosShowEaStV2.EntityData.Children.Append("shape", types.YChild{"Shape", &qosShowEaStV2.Shape})
+    qosShowEaStV2.EntityData.Children.Append("police", types.YChild{"Police", &qosShowEaStV2.Police})
+    qosShowEaStV2.EntityData.Children.Append("wfq", types.YChild{"Wfq", &qosShowEaStV2.Wfq})
+    qosShowEaStV2.EntityData.Children.Append("wred", types.YChild{"Wred", &qosShowEaStV2.Wred})
+    qosShowEaStV2.EntityData.Children.Append("mark", types.YChild{"Mark", &qosShowEaStV2.Mark})
+    qosShowEaStV2.EntityData.Leafs = types.NewOrderedMap()
+    qosShowEaStV2.EntityData.Leafs.Append("class-level", types.YLeaf{"ClassLevel", qosShowEaStV2.ClassLevel})
+    qosShowEaStV2.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", qosShowEaStV2.ClassName})
+    qosShowEaStV2.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", qosShowEaStV2.PolicyName})
+    qosShowEaStV2.EntityData.Leafs.Append("parent-policy-name", types.YLeaf{"ParentPolicyName", qosShowEaStV2.ParentPolicyName})
+    qosShowEaStV2.EntityData.Leafs.Append("parent-class-name", types.YLeaf{"ParentClassName", qosShowEaStV2.ParentClassName})
+
+    qosShowEaStV2.EntityData.YListKeys = []string {}
+
     return &(qosShowEaStV2.EntityData)
 }
 
@@ -2816,11 +3014,14 @@ func (queue *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyp
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queue.EntityData.Children = make(map[string]types.YChild)
-    queue.EntityData.Leafs = make(map[string]types.YLeaf)
-    queue.EntityData.Leafs["queue-id"] = types.YLeaf{"QueueId", queue.QueueId}
-    queue.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", queue.QueueType}
-    queue.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", queue.ClassName}
+    queue.EntityData.Children = types.NewOrderedMap()
+    queue.EntityData.Leafs = types.NewOrderedMap()
+    queue.EntityData.Leafs.Append("queue-id", types.YLeaf{"QueueId", queue.QueueId})
+    queue.EntityData.Leafs.Append("queue-type", types.YLeaf{"QueueType", queue.QueueType})
+    queue.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", queue.ClassName})
+
+    queue.EntityData.YListKeys = []string {}
+
     return &(queue.EntityData)
 }
 
@@ -2856,13 +3057,16 @@ func (queueLimitParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Input_De
     queueLimitParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimitParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimitParameters.EntityData.Children = make(map[string]types.YChild)
-    queueLimitParameters.EntityData.Children["queue-limit"] = types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit}
-    queueLimitParameters.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit}
-    queueLimitParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimitParameters.EntityData.Leafs["absolute-index"] = types.YLeaf{"AbsoluteIndex", queueLimitParameters.AbsoluteIndex}
-    queueLimitParameters.EntityData.Leafs["template-id"] = types.YLeaf{"TemplateId", queueLimitParameters.TemplateId}
-    queueLimitParameters.EntityData.Leafs["curve-id"] = types.YLeaf{"CurveId", queueLimitParameters.CurveId}
+    queueLimitParameters.EntityData.Children = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Children.Append("queue-limit", types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit})
+    queueLimitParameters.EntityData.Children.Append("config-queue-limit", types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit})
+    queueLimitParameters.EntityData.Leafs = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Leafs.Append("absolute-index", types.YLeaf{"AbsoluteIndex", queueLimitParameters.AbsoluteIndex})
+    queueLimitParameters.EntityData.Leafs.Append("template-id", types.YLeaf{"TemplateId", queueLimitParameters.TemplateId})
+    queueLimitParameters.EntityData.Leafs.Append("curve-id", types.YLeaf{"CurveId", queueLimitParameters.CurveId})
+
+    queueLimitParameters.EntityData.YListKeys = []string {}
+
     return &(queueLimitParameters.EntityData)
 }
 
@@ -2889,10 +3093,13 @@ func (queueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimit.EntityData.Children = make(map[string]types.YChild)
-    queueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", queueLimit.Value}
-    queueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", queueLimit.Unit}
+    queueLimit.EntityData.Children = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", queueLimit.Value})
+    queueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", queueLimit.Unit})
+
+    queueLimit.EntityData.YListKeys = []string {}
+
     return &(queueLimit.EntityData)
 }
 
@@ -2919,10 +3126,13 @@ func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Detail
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
-    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    configQueueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", configQueueLimit.Value}
-    configQueueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", configQueueLimit.Unit}
+    configQueueLimit.EntityData.Children = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", configQueueLimit.Value})
+    configQueueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", configQueueLimit.Unit})
+
+    configQueueLimit.EntityData.YListKeys = []string {}
+
     return &(configQueueLimit.EntityData)
 }
 
@@ -2955,12 +3165,15 @@ func (shape *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyp
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shape.EntityData.Children = make(map[string]types.YChild)
-    shape.EntityData.Children["cir-shape"] = types.YChild{"CirShape", &shape.CirShape}
-    shape.EntityData.Children["pir-shape"] = types.YChild{"PirShape", &shape.PirShape}
-    shape.EntityData.Leafs = make(map[string]types.YLeaf)
-    shape.EntityData.Leafs["cir-shape-type"] = types.YLeaf{"CirShapeType", shape.CirShapeType}
-    shape.EntityData.Leafs["pir-shape-type"] = types.YLeaf{"PirShapeType", shape.PirShapeType}
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Children.Append("cir-shape", types.YChild{"CirShape", &shape.CirShape})
+    shape.EntityData.Children.Append("pir-shape", types.YChild{"PirShape", &shape.PirShape})
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("cir-shape-type", types.YLeaf{"CirShapeType", shape.CirShapeType})
+    shape.EntityData.Leafs.Append("pir-shape-type", types.YLeaf{"PirShapeType", shape.PirShapeType})
+
+    shape.EntityData.YListKeys = []string {}
+
     return &(shape.EntityData)
 }
 
@@ -2999,14 +3212,17 @@ func (cirShape *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy
     cirShape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cirShape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cirShape.EntityData.Children = make(map[string]types.YChild)
-    cirShape.EntityData.Children["cir"] = types.YChild{"Cir", &cirShape.Cir}
-    cirShape.EntityData.Children["config-bandwidth"] = types.YChild{"ConfigBandwidth", &cirShape.ConfigBandwidth}
-    cirShape.EntityData.Children["cbs"] = types.YChild{"Cbs", &cirShape.Cbs}
-    cirShape.EntityData.Leafs = make(map[string]types.YLeaf)
-    cirShape.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", cirShape.ChunkId}
-    cirShape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", cirShape.ProfileId}
-    cirShape.EntityData.Leafs["scale-factor"] = types.YLeaf{"ScaleFactor", cirShape.ScaleFactor}
+    cirShape.EntityData.Children = types.NewOrderedMap()
+    cirShape.EntityData.Children.Append("cir", types.YChild{"Cir", &cirShape.Cir})
+    cirShape.EntityData.Children.Append("config-bandwidth", types.YChild{"ConfigBandwidth", &cirShape.ConfigBandwidth})
+    cirShape.EntityData.Children.Append("cbs", types.YChild{"Cbs", &cirShape.Cbs})
+    cirShape.EntityData.Leafs = types.NewOrderedMap()
+    cirShape.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", cirShape.ChunkId})
+    cirShape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", cirShape.ProfileId})
+    cirShape.EntityData.Leafs.Append("scale-factor", types.YLeaf{"ScaleFactor", cirShape.ScaleFactor})
+
+    cirShape.EntityData.YListKeys = []string {}
+
     return &(cirShape.EntityData)
 }
 
@@ -3033,10 +3249,13 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -3060,9 +3279,12 @@ func (configBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details
     configBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configBandwidth.EntityData.Children = make(map[string]types.YChild)
-    configBandwidth.EntityData.Children["minimum-rate"] = types.YChild{"MinimumRate", &configBandwidth.MinimumRate}
-    configBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    configBandwidth.EntityData.Children = types.NewOrderedMap()
+    configBandwidth.EntityData.Children.Append("minimum-rate", types.YChild{"MinimumRate", &configBandwidth.MinimumRate})
+    configBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    configBandwidth.EntityData.YListKeys = []string {}
+
     return &(configBandwidth.EntityData)
 }
 
@@ -3089,10 +3311,13 @@ func (minimumRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Pol
     minimumRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minimumRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minimumRate.EntityData.Children = make(map[string]types.YChild)
-    minimumRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    minimumRate.EntityData.Leafs["value"] = types.YLeaf{"Value", minimumRate.Value}
-    minimumRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minimumRate.Unit}
+    minimumRate.EntityData.Children = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", minimumRate.Value})
+    minimumRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minimumRate.Unit})
+
+    minimumRate.EntityData.YListKeys = []string {}
+
     return &(minimumRate.EntityData)
 }
 
@@ -3119,10 +3344,13 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -3158,13 +3386,16 @@ func (pirShape *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy
     pirShape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pirShape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pirShape.EntityData.Children = make(map[string]types.YChild)
-    pirShape.EntityData.Children["pir"] = types.YChild{"Pir", &pirShape.Pir}
-    pirShape.EntityData.Children["pbs"] = types.YChild{"Pbs", &pirShape.Pbs}
-    pirShape.EntityData.Leafs = make(map[string]types.YLeaf)
-    pirShape.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", pirShape.ChunkId}
-    pirShape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", pirShape.ProfileId}
-    pirShape.EntityData.Leafs["scale-factor"] = types.YLeaf{"ScaleFactor", pirShape.ScaleFactor}
+    pirShape.EntityData.Children = types.NewOrderedMap()
+    pirShape.EntityData.Children.Append("pir", types.YChild{"Pir", &pirShape.Pir})
+    pirShape.EntityData.Children.Append("pbs", types.YChild{"Pbs", &pirShape.Pbs})
+    pirShape.EntityData.Leafs = types.NewOrderedMap()
+    pirShape.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", pirShape.ChunkId})
+    pirShape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", pirShape.ProfileId})
+    pirShape.EntityData.Leafs.Append("scale-factor", types.YLeaf{"ScaleFactor", pirShape.ScaleFactor})
+
+    pirShape.EntityData.YListKeys = []string {}
+
     return &(pirShape.EntityData)
 }
 
@@ -3191,10 +3422,13 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -3221,10 +3455,13 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -3266,15 +3503,18 @@ func (police *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTy
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    police.EntityData.Children = make(map[string]types.YChild)
-    police.EntityData.Children["cir"] = types.YChild{"Cir", &police.Cir}
-    police.EntityData.Children["cbs"] = types.YChild{"Cbs", &police.Cbs}
-    police.EntityData.Children["pir"] = types.YChild{"Pir", &police.Pir}
-    police.EntityData.Children["pbs"] = types.YChild{"Pbs", &police.Pbs}
-    police.EntityData.Children["police-config-parameters"] = types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters}
-    police.EntityData.Leafs = make(map[string]types.YLeaf)
-    police.EntityData.Leafs["policer-type"] = types.YLeaf{"PolicerType", police.PolicerType}
-    police.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", police.ProfileId}
+    police.EntityData.Children = types.NewOrderedMap()
+    police.EntityData.Children.Append("cir", types.YChild{"Cir", &police.Cir})
+    police.EntityData.Children.Append("cbs", types.YChild{"Cbs", &police.Cbs})
+    police.EntityData.Children.Append("pir", types.YChild{"Pir", &police.Pir})
+    police.EntityData.Children.Append("pbs", types.YChild{"Pbs", &police.Pbs})
+    police.EntityData.Children.Append("police-config-parameters", types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters})
+    police.EntityData.Leafs = types.NewOrderedMap()
+    police.EntityData.Leafs.Append("policer-type", types.YLeaf{"PolicerType", police.PolicerType})
+    police.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", police.ProfileId})
+
+    police.EntityData.YListKeys = []string {}
+
     return &(police.EntityData)
 }
 
@@ -3301,10 +3541,13 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -3331,10 +3574,13 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -3361,10 +3607,13 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -3391,10 +3640,13 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -3427,12 +3679,15 @@ func (policeConfigParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Input_
     policeConfigParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConfigParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConfigParameters.EntityData.Children = make(map[string]types.YChild)
-    policeConfigParameters.EntityData.Children["average-rate"] = types.YChild{"AverageRate", &policeConfigParameters.AverageRate}
-    policeConfigParameters.EntityData.Children["peak-rate"] = types.YChild{"PeakRate", &policeConfigParameters.PeakRate}
-    policeConfigParameters.EntityData.Children["conform-burst"] = types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst}
-    policeConfigParameters.EntityData.Children["exceed-burst"] = types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst}
-    policeConfigParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    policeConfigParameters.EntityData.Children = types.NewOrderedMap()
+    policeConfigParameters.EntityData.Children.Append("average-rate", types.YChild{"AverageRate", &policeConfigParameters.AverageRate})
+    policeConfigParameters.EntityData.Children.Append("peak-rate", types.YChild{"PeakRate", &policeConfigParameters.PeakRate})
+    policeConfigParameters.EntityData.Children.Append("conform-burst", types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst})
+    policeConfigParameters.EntityData.Children.Append("exceed-burst", types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst})
+    policeConfigParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    policeConfigParameters.EntityData.YListKeys = []string {}
+
     return &(policeConfigParameters.EntityData)
 }
 
@@ -3459,10 +3714,13 @@ func (averageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Pol
     averageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageRate.EntityData.Children = make(map[string]types.YChild)
-    averageRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageRate.EntityData.Leafs["value"] = types.YLeaf{"Value", averageRate.Value}
-    averageRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", averageRate.Unit}
+    averageRate.EntityData.Children = types.NewOrderedMap()
+    averageRate.EntityData.Leafs = types.NewOrderedMap()
+    averageRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageRate.Value})
+    averageRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", averageRate.Unit})
+
+    averageRate.EntityData.YListKeys = []string {}
+
     return &(averageRate.EntityData)
 }
 
@@ -3489,10 +3747,13 @@ func (peakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Policy
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakRate.EntityData.Children = make(map[string]types.YChild)
-    peakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", peakRate.Value}
-    peakRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", peakRate.Unit}
+    peakRate.EntityData.Children = types.NewOrderedMap()
+    peakRate.EntityData.Leafs = types.NewOrderedMap()
+    peakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakRate.Value})
+    peakRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", peakRate.Unit})
+
+    peakRate.EntityData.YListKeys = []string {}
+
     return &(peakRate.EntityData)
 }
 
@@ -3519,10 +3780,13 @@ func (conformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Po
     conformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conformBurst.EntityData.Children = make(map[string]types.YChild)
-    conformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    conformBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", conformBurst.Value}
-    conformBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", conformBurst.Unit}
+    conformBurst.EntityData.Children = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", conformBurst.Value})
+    conformBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", conformBurst.Unit})
+
+    conformBurst.EntityData.YListKeys = []string {}
+
     return &(conformBurst.EntityData)
 }
 
@@ -3549,10 +3813,13 @@ func (exceedBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Pol
     exceedBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exceedBurst.EntityData.Children = make(map[string]types.YChild)
-    exceedBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    exceedBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", exceedBurst.Value}
-    exceedBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", exceedBurst.Unit}
+    exceedBurst.EntityData.Children = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", exceedBurst.Value})
+    exceedBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", exceedBurst.Unit})
+
+    exceedBurst.EntityData.YListKeys = []string {}
+
     return &(exceedBurst.EntityData)
 }
 
@@ -3597,16 +3864,19 @@ func (wfq *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTypho
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wfq.EntityData.Children = make(map[string]types.YChild)
-    wfq.EntityData.Children["parent-bandwidth"] = types.YChild{"ParentBandwidth", &wfq.ParentBandwidth}
-    wfq.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &wfq.Bandwidth}
-    wfq.EntityData.Leafs = make(map[string]types.YLeaf)
-    wfq.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wfq.ProfileId}
-    wfq.EntityData.Leafs["committed-weight"] = types.YLeaf{"CommittedWeight", wfq.CommittedWeight}
-    wfq.EntityData.Leafs["excess-weight"] = types.YLeaf{"ExcessWeight", wfq.ExcessWeight}
-    wfq.EntityData.Leafs["excess-ratio"] = types.YLeaf{"ExcessRatio", wfq.ExcessRatio}
-    wfq.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", wfq.ChunkId}
-    wfq.EntityData.Leafs["level"] = types.YLeaf{"Level", wfq.Level}
+    wfq.EntityData.Children = types.NewOrderedMap()
+    wfq.EntityData.Children.Append("parent-bandwidth", types.YChild{"ParentBandwidth", &wfq.ParentBandwidth})
+    wfq.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &wfq.Bandwidth})
+    wfq.EntityData.Leafs = types.NewOrderedMap()
+    wfq.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wfq.ProfileId})
+    wfq.EntityData.Leafs.Append("committed-weight", types.YLeaf{"CommittedWeight", wfq.CommittedWeight})
+    wfq.EntityData.Leafs.Append("excess-weight", types.YLeaf{"ExcessWeight", wfq.ExcessWeight})
+    wfq.EntityData.Leafs.Append("excess-ratio", types.YLeaf{"ExcessRatio", wfq.ExcessRatio})
+    wfq.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", wfq.ChunkId})
+    wfq.EntityData.Leafs.Append("level", types.YLeaf{"Level", wfq.Level})
+
+    wfq.EntityData.YListKeys = []string {}
+
     return &(wfq.EntityData)
 }
 
@@ -3633,10 +3903,13 @@ func (parentBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details
     parentBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentBandwidth.EntityData.Children = make(map[string]types.YChild)
-    parentBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", parentBandwidth.Value}
-    parentBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", parentBandwidth.Unit}
+    parentBandwidth.EntityData.Children = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", parentBandwidth.Value})
+    parentBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", parentBandwidth.Unit})
+
+    parentBandwidth.EntityData.YListKeys = []string {}
+
     return &(parentBandwidth.EntityData)
 }
 
@@ -3663,10 +3936,13 @@ func (bandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Polic
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", bandwidth.Unit}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", bandwidth.Unit})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -3677,14 +3953,14 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
     YFilter yfilter.YFilter
 
     // WRED type. The type is Wred.
-    Type_ interface{}
+    Type interface{}
 
     // Number of curves. The type is interface{} with range: 0..65535.
     CurveXr interface{}
 
     // Curve details. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve.
-    Curve []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve
+    Curve []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve
 }
 
 func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Wred) GetEntityData() *types.CommonEntityData {
@@ -3697,14 +3973,17 @@ func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyph
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wred.EntityData.Children = make(map[string]types.YChild)
-    wred.EntityData.Children["curve"] = types.YChild{"Curve", nil}
+    wred.EntityData.Children = types.NewOrderedMap()
+    wred.EntityData.Children.Append("curve", types.YChild{"Curve", nil})
     for i := range wred.Curve {
-        wred.EntityData.Children[types.GetSegmentPath(&wred.Curve[i])] = types.YChild{"Curve", &wred.Curve[i]}
+        wred.EntityData.Children.Append(types.GetSegmentPath(wred.Curve[i]), types.YChild{"Curve", wred.Curve[i]})
     }
-    wred.EntityData.Leafs = make(map[string]types.YLeaf)
-    wred.EntityData.Leafs["type"] = types.YLeaf{"Type_", wred.Type_}
-    wred.EntityData.Leafs["curve-xr"] = types.YLeaf{"CurveXr", wred.CurveXr}
+    wred.EntityData.Leafs = types.NewOrderedMap()
+    wred.EntityData.Leafs.Append("type", types.YLeaf{"Type", wred.Type})
+    wred.EntityData.Leafs.Append("curve-xr", types.YLeaf{"CurveXr", wred.CurveXr})
+
+    wred.EntityData.YListKeys = []string {}
+
     return &(wred.EntityData)
 }
 
@@ -3755,17 +4034,20 @@ func (curve *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyp
     curve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     curve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    curve.EntityData.Children = make(map[string]types.YChild)
-    curve.EntityData.Children["min-threshold"] = types.YChild{"MinThreshold", &curve.MinThreshold}
-    curve.EntityData.Children["min-threshold-user-config"] = types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig}
-    curve.EntityData.Children["max-threshold"] = types.YChild{"MaxThreshold", &curve.MaxThreshold}
-    curve.EntityData.Children["max-threshold-user-config"] = types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig}
-    curve.EntityData.Leafs = make(map[string]types.YLeaf)
-    curve.EntityData.Leafs["absolute-index"] = types.YLeaf{"AbsoluteIndex", curve.AbsoluteIndex}
-    curve.EntityData.Leafs["template-id"] = types.YLeaf{"TemplateId", curve.TemplateId}
-    curve.EntityData.Leafs["curve-id"] = types.YLeaf{"CurveId", curve.CurveId}
-    curve.EntityData.Leafs["match"] = types.YLeaf{"Match", curve.Match}
-    curve.EntityData.Leafs["exp-match"] = types.YLeaf{"ExpMatch", curve.ExpMatch}
+    curve.EntityData.Children = types.NewOrderedMap()
+    curve.EntityData.Children.Append("min-threshold", types.YChild{"MinThreshold", &curve.MinThreshold})
+    curve.EntityData.Children.Append("min-threshold-user-config", types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig})
+    curve.EntityData.Children.Append("max-threshold", types.YChild{"MaxThreshold", &curve.MaxThreshold})
+    curve.EntityData.Children.Append("max-threshold-user-config", types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig})
+    curve.EntityData.Leafs = types.NewOrderedMap()
+    curve.EntityData.Leafs.Append("absolute-index", types.YLeaf{"AbsoluteIndex", curve.AbsoluteIndex})
+    curve.EntityData.Leafs.Append("template-id", types.YLeaf{"TemplateId", curve.TemplateId})
+    curve.EntityData.Leafs.Append("curve-id", types.YLeaf{"CurveId", curve.CurveId})
+    curve.EntityData.Leafs.Append("match", types.YLeaf{"Match", curve.Match})
+    curve.EntityData.Leafs.Append("exp-match", types.YLeaf{"ExpMatch", curve.ExpMatch})
+
+    curve.EntityData.YListKeys = []string {}
+
     return &(curve.EntityData)
 }
 
@@ -3792,10 +4074,13 @@ func (minThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Po
     minThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThreshold.EntityData.Children = make(map[string]types.YChild)
-    minThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", minThreshold.Value}
-    minThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThreshold.Unit}
+    minThreshold.EntityData.Children = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThreshold.Value})
+    minThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThreshold.Unit})
+
+    minThreshold.EntityData.YListKeys = []string {}
+
     return &(minThreshold.EntityData)
 }
 
@@ -3822,10 +4107,13 @@ func (minThresholdUserConfig *PlatformQos_Nodes_Node_Interfaces_Interface_Input_
     minThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    minThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", minThresholdUserConfig.Value}
-    minThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThresholdUserConfig.Unit}
+    minThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThresholdUserConfig.Value})
+    minThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThresholdUserConfig.Unit})
+
+    minThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(minThresholdUserConfig.EntityData)
 }
 
@@ -3852,10 +4140,13 @@ func (maxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Po
     maxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThreshold.EntityData.Children = make(map[string]types.YChild)
-    maxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThreshold.Value}
-    maxThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThreshold.Unit}
+    maxThreshold.EntityData.Children = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThreshold.Value})
+    maxThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThreshold.Unit})
+
+    maxThreshold.EntityData.YListKeys = []string {}
+
     return &(maxThreshold.EntityData)
 }
 
@@ -3882,10 +4173,13 @@ func (maxThresholdUserConfig *PlatformQos_Nodes_Node_Interfaces_Interface_Input_
     maxThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    maxThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThresholdUserConfig.Value}
-    maxThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThresholdUserConfig.Unit}
+    maxThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThresholdUserConfig.Value})
+    maxThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThresholdUserConfig.Unit})
+
+    maxThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(maxThresholdUserConfig.EntityData)
 }
 
@@ -3930,16 +4224,19 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyph
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mark.EntityData.Children = make(map[string]types.YChild)
-    mark.EntityData.Children["child-mark"] = types.YChild{"ChildMark", &mark.ChildMark}
-    mark.EntityData.Children["police-conform"] = types.YChild{"PoliceConform", &mark.PoliceConform}
-    mark.EntityData.Children["police-exceed"] = types.YChild{"PoliceExceed", &mark.PoliceExceed}
-    mark.EntityData.Children["police-violate"] = types.YChild{"PoliceViolate", &mark.PoliceViolate}
-    mark.EntityData.Children["parent-mark"] = types.YChild{"ParentMark", &mark.ParentMark}
-    mark.EntityData.Children["parent-police-conform"] = types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform}
-    mark.EntityData.Children["parent-police-exceed"] = types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed}
-    mark.EntityData.Children["parent-police-violate"] = types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate}
-    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Children = types.NewOrderedMap()
+    mark.EntityData.Children.Append("child-mark", types.YChild{"ChildMark", &mark.ChildMark})
+    mark.EntityData.Children.Append("police-conform", types.YChild{"PoliceConform", &mark.PoliceConform})
+    mark.EntityData.Children.Append("police-exceed", types.YChild{"PoliceExceed", &mark.PoliceExceed})
+    mark.EntityData.Children.Append("police-violate", types.YChild{"PoliceViolate", &mark.PoliceViolate})
+    mark.EntityData.Children.Append("parent-mark", types.YChild{"ParentMark", &mark.ParentMark})
+    mark.EntityData.Children.Append("parent-police-conform", types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform})
+    mark.EntityData.Children.Append("parent-police-exceed", types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed})
+    mark.EntityData.Children.Append("parent-police-violate", types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate})
+    mark.EntityData.Leafs = types.NewOrderedMap()
+
+    mark.EntityData.YListKeys = []string {}
+
     return &(mark.EntityData)
 }
 
@@ -3954,7 +4251,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail
 }
 
 func (childMark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark) GetEntityData() *types.CommonEntityData {
@@ -3967,13 +4264,16 @@ func (childMark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Polic
     childMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     childMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    childMark.EntityData.Children = make(map[string]types.YChild)
-    childMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    childMark.EntityData.Children = types.NewOrderedMap()
+    childMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range childMark.MarkDetail {
-        childMark.EntityData.Children[types.GetSegmentPath(&childMark.MarkDetail[i])] = types.YChild{"MarkDetail", &childMark.MarkDetail[i]}
+        childMark.EntityData.Children.Append(types.GetSegmentPath(childMark.MarkDetail[i]), types.YChild{"MarkDetail", childMark.MarkDetail[i]})
     }
-    childMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    childMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", childMark.ActionType}
+    childMark.EntityData.Leafs = types.NewOrderedMap()
+    childMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", childMark.ActionType})
+
+    childMark.EntityData.YListKeys = []string {}
+
     return &(childMark.EntityData)
 }
 
@@ -4000,10 +4300,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -4018,7 +4321,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail
 }
 
 func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform) GetEntityData() *types.CommonEntityData {
@@ -4031,13 +4334,16 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_P
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConform.EntityData.Children = make(map[string]types.YChild)
-    policeConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeConform.EntityData.Children = types.NewOrderedMap()
+    policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
-        policeConform.EntityData.Children[types.GetSegmentPath(&policeConform.MarkDetail[i])] = types.YChild{"MarkDetail", &policeConform.MarkDetail[i]}
+        policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
-    policeConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeConform.ActionType}
+    policeConform.EntityData.Leafs = types.NewOrderedMap()
+    policeConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeConform.ActionType})
+
+    policeConform.EntityData.YListKeys = []string {}
+
     return &(policeConform.EntityData)
 }
 
@@ -4064,10 +4370,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -4082,7 +4391,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail
 }
 
 func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -4095,13 +4404,16 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Po
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeExceed.EntityData.Children = make(map[string]types.YChild)
-    policeExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeExceed.EntityData.Children = types.NewOrderedMap()
+    policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
-        policeExceed.EntityData.Children[types.GetSegmentPath(&policeExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &policeExceed.MarkDetail[i]}
+        policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
-    policeExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeExceed.ActionType}
+    policeExceed.EntityData.Leafs = types.NewOrderedMap()
+    policeExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeExceed.ActionType})
+
+    policeExceed.EntityData.YListKeys = []string {}
+
     return &(policeExceed.EntityData)
 }
 
@@ -4128,10 +4440,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -4146,7 +4461,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail
 }
 
 func (policeViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -4159,13 +4474,16 @@ func (policeViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_P
     policeViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeViolate.EntityData.Children = make(map[string]types.YChild)
-    policeViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeViolate.EntityData.Children = types.NewOrderedMap()
+    policeViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeViolate.MarkDetail {
-        policeViolate.EntityData.Children[types.GetSegmentPath(&policeViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &policeViolate.MarkDetail[i]}
+        policeViolate.EntityData.Children.Append(types.GetSegmentPath(policeViolate.MarkDetail[i]), types.YChild{"MarkDetail", policeViolate.MarkDetail[i]})
     }
-    policeViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeViolate.ActionType}
+    policeViolate.EntityData.Leafs = types.NewOrderedMap()
+    policeViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeViolate.ActionType})
+
+    policeViolate.EntityData.YListKeys = []string {}
+
     return &(policeViolate.EntityData)
 }
 
@@ -4192,10 +4510,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -4210,7 +4531,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail
 }
 
 func (parentMark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark) GetEntityData() *types.CommonEntityData {
@@ -4223,13 +4544,16 @@ func (parentMark *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     parentMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentMark.EntityData.Children = make(map[string]types.YChild)
-    parentMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentMark.EntityData.Children = types.NewOrderedMap()
+    parentMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentMark.MarkDetail {
-        parentMark.EntityData.Children[types.GetSegmentPath(&parentMark.MarkDetail[i])] = types.YChild{"MarkDetail", &parentMark.MarkDetail[i]}
+        parentMark.EntityData.Children.Append(types.GetSegmentPath(parentMark.MarkDetail[i]), types.YChild{"MarkDetail", parentMark.MarkDetail[i]})
     }
-    parentMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentMark.ActionType}
+    parentMark.EntityData.Leafs = types.NewOrderedMap()
+    parentMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentMark.ActionType})
+
+    parentMark.EntityData.YListKeys = []string {}
+
     return &(parentMark.EntityData)
 }
 
@@ -4256,10 +4580,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -4274,7 +4601,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail
 }
 
 func (parentPoliceConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform) GetEntityData() *types.CommonEntityData {
@@ -4287,13 +4614,16 @@ func (parentPoliceConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Det
     parentPoliceConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceConform.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceConform.EntityData.Children = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceConform.MarkDetail {
-        parentPoliceConform.EntityData.Children[types.GetSegmentPath(&parentPoliceConform.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceConform.MarkDetail[i]}
+        parentPoliceConform.EntityData.Children.Append(types.GetSegmentPath(parentPoliceConform.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceConform.MarkDetail[i]})
     }
-    parentPoliceConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceConform.ActionType}
+    parentPoliceConform.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceConform.ActionType})
+
+    parentPoliceConform.EntityData.YListKeys = []string {}
+
     return &(parentPoliceConform.EntityData)
 }
 
@@ -4320,10 +4650,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -4338,7 +4671,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail
 }
 
 func (parentPoliceExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -4351,13 +4684,16 @@ func (parentPoliceExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Deta
     parentPoliceExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceExceed.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceExceed.EntityData.Children = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceExceed.MarkDetail {
-        parentPoliceExceed.EntityData.Children[types.GetSegmentPath(&parentPoliceExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceExceed.MarkDetail[i]}
+        parentPoliceExceed.EntityData.Children.Append(types.GetSegmentPath(parentPoliceExceed.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceExceed.MarkDetail[i]})
     }
-    parentPoliceExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceExceed.ActionType}
+    parentPoliceExceed.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceExceed.ActionType})
+
+    parentPoliceExceed.EntityData.YListKeys = []string {}
+
     return &(parentPoliceExceed.EntityData)
 }
 
@@ -4384,10 +4720,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -4402,7 +4741,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_Qos
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail
 }
 
 func (parentPoliceViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -4415,13 +4754,16 @@ func (parentPoliceViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Det
     parentPoliceViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceViolate.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceViolate.EntityData.Children = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceViolate.MarkDetail {
-        parentPoliceViolate.EntityData.Children[types.GetSegmentPath(&parentPoliceViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceViolate.MarkDetail[i]}
+        parentPoliceViolate.EntityData.Children.Append(types.GetSegmentPath(parentPoliceViolate.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceViolate.MarkDetail[i]})
     }
-    parentPoliceViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceViolate.ActionType}
+    parentPoliceViolate.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceViolate.ActionType})
+
+    parentPoliceViolate.EntityData.YListKeys = []string {}
+
     return &(parentPoliceViolate.EntityData)
 }
 
@@ -4448,10 +4790,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Details_Poli
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -4475,9 +4820,12 @@ func (output *PlatformQos_Nodes_Node_Interfaces_Interface_Output) GetEntityData(
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Children["details"] = types.YChild{"Details", &output.Details}
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Children.Append("details", types.YChild{"Details", &output.Details})
+    output.EntityData.Leafs = types.NewOrderedMap()
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -4507,11 +4855,14 @@ func (details *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details) GetEn
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Children["header"] = types.YChild{"Header", &details.Header}
-    details.EntityData.Children["policy"] = types.YChild{"Policy", &details.Policy}
-    details.EntityData.Children["policy-typhoon"] = types.YChild{"PolicyTyphoon", &details.PolicyTyphoon}
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Children.Append("header", types.YChild{"Header", &details.Header})
+    details.EntityData.Children.Append("policy", types.YChild{"Policy", &details.Policy})
+    details.EntityData.Children.Append("policy-typhoon", types.YChild{"PolicyTyphoon", &details.PolicyTyphoon})
+    details.EntityData.Leafs = types.NewOrderedMap()
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -4544,12 +4895,15 @@ func (header *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Header)
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Children["interface-parameters"] = types.YChild{"InterfaceParameters", &header.InterfaceParameters}
-    header.EntityData.Children["programmed-bandwidth"] = types.YChild{"ProgrammedBandwidth", &header.ProgrammedBandwidth}
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["classes"] = types.YLeaf{"Classes", header.Classes}
-    header.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", header.PolicyName}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Children.Append("interface-parameters", types.YChild{"InterfaceParameters", &header.InterfaceParameters})
+    header.EntityData.Children.Append("programmed-bandwidth", types.YChild{"ProgrammedBandwidth", &header.ProgrammedBandwidth})
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("classes", types.YLeaf{"Classes", header.Classes})
+    header.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", header.PolicyName})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -4582,12 +4936,15 @@ func (interfaceParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Output_De
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceParameters.EntityData.Children = make(map[string]types.YChild)
-    interfaceParameters.EntityData.Children["port-config-bandwidth"] = types.YChild{"PortConfigBandwidth", &interfaceParameters.PortConfigBandwidth}
-    interfaceParameters.EntityData.Children["ancp-config-bandwidth"] = types.YChild{"AncpConfigBandwidth", &interfaceParameters.AncpConfigBandwidth}
-    interfaceParameters.EntityData.Children["ancp-programmed-bandwidth"] = types.YChild{"AncpProgrammedBandwidth", &interfaceParameters.AncpProgrammedBandwidth}
-    interfaceParameters.EntityData.Children["port-shaper-rate"] = types.YChild{"PortShaperRate", &interfaceParameters.PortShaperRate}
-    interfaceParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceParameters.EntityData.Children = types.NewOrderedMap()
+    interfaceParameters.EntityData.Children.Append("port-config-bandwidth", types.YChild{"PortConfigBandwidth", &interfaceParameters.PortConfigBandwidth})
+    interfaceParameters.EntityData.Children.Append("ancp-config-bandwidth", types.YChild{"AncpConfigBandwidth", &interfaceParameters.AncpConfigBandwidth})
+    interfaceParameters.EntityData.Children.Append("ancp-programmed-bandwidth", types.YChild{"AncpProgrammedBandwidth", &interfaceParameters.AncpProgrammedBandwidth})
+    interfaceParameters.EntityData.Children.Append("port-shaper-rate", types.YChild{"PortShaperRate", &interfaceParameters.PortShaperRate})
+    interfaceParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceParameters.EntityData.YListKeys = []string {}
+
     return &(interfaceParameters.EntityData)
 }
 
@@ -4614,10 +4971,13 @@ func (portConfigBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_De
     portConfigBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portConfigBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portConfigBandwidth.EntityData.Children = make(map[string]types.YChild)
-    portConfigBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    portConfigBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", portConfigBandwidth.Value}
-    portConfigBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", portConfigBandwidth.Unit}
+    portConfigBandwidth.EntityData.Children = types.NewOrderedMap()
+    portConfigBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    portConfigBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", portConfigBandwidth.Value})
+    portConfigBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", portConfigBandwidth.Unit})
+
+    portConfigBandwidth.EntityData.YListKeys = []string {}
+
     return &(portConfigBandwidth.EntityData)
 }
 
@@ -4644,10 +5004,13 @@ func (ancpConfigBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_De
     ancpConfigBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ancpConfigBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ancpConfigBandwidth.EntityData.Children = make(map[string]types.YChild)
-    ancpConfigBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    ancpConfigBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", ancpConfigBandwidth.Value}
-    ancpConfigBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", ancpConfigBandwidth.Unit}
+    ancpConfigBandwidth.EntityData.Children = types.NewOrderedMap()
+    ancpConfigBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    ancpConfigBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", ancpConfigBandwidth.Value})
+    ancpConfigBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", ancpConfigBandwidth.Unit})
+
+    ancpConfigBandwidth.EntityData.YListKeys = []string {}
+
     return &(ancpConfigBandwidth.EntityData)
 }
 
@@ -4674,10 +5037,13 @@ func (ancpProgrammedBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Outpu
     ancpProgrammedBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ancpProgrammedBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ancpProgrammedBandwidth.EntityData.Children = make(map[string]types.YChild)
-    ancpProgrammedBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    ancpProgrammedBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", ancpProgrammedBandwidth.Value}
-    ancpProgrammedBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", ancpProgrammedBandwidth.Unit}
+    ancpProgrammedBandwidth.EntityData.Children = types.NewOrderedMap()
+    ancpProgrammedBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    ancpProgrammedBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", ancpProgrammedBandwidth.Value})
+    ancpProgrammedBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", ancpProgrammedBandwidth.Unit})
+
+    ancpProgrammedBandwidth.EntityData.YListKeys = []string {}
+
     return &(ancpProgrammedBandwidth.EntityData)
 }
 
@@ -4704,10 +5070,13 @@ func (portShaperRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details
     portShaperRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portShaperRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portShaperRate.EntityData.Children = make(map[string]types.YChild)
-    portShaperRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    portShaperRate.EntityData.Leafs["value"] = types.YLeaf{"Value", portShaperRate.Value}
-    portShaperRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", portShaperRate.Unit}
+    portShaperRate.EntityData.Children = types.NewOrderedMap()
+    portShaperRate.EntityData.Leafs = types.NewOrderedMap()
+    portShaperRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", portShaperRate.Value})
+    portShaperRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", portShaperRate.Unit})
+
+    portShaperRate.EntityData.YListKeys = []string {}
+
     return &(portShaperRate.EntityData)
 }
 
@@ -4734,10 +5103,13 @@ func (programmedBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_De
     programmedBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     programmedBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    programmedBandwidth.EntityData.Children = make(map[string]types.YChild)
-    programmedBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    programmedBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", programmedBandwidth.Value}
-    programmedBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", programmedBandwidth.Unit}
+    programmedBandwidth.EntityData.Children = types.NewOrderedMap()
+    programmedBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    programmedBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", programmedBandwidth.Value})
+    programmedBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", programmedBandwidth.Unit})
+
+    programmedBandwidth.EntityData.YListKeys = []string {}
+
     return &(programmedBandwidth.EntityData)
 }
 
@@ -4749,7 +5121,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy struct {
 
     // qos show ea st v1. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1.
-    QosShowEaStV1 []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1
+    QosShowEaStV1 []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1
 }
 
 func (policy *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy) GetEntityData() *types.CommonEntityData {
@@ -4762,12 +5134,15 @@ func (policy *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy)
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policy.EntityData.Children = make(map[string]types.YChild)
-    policy.EntityData.Children["qos-show-ea-st-v1"] = types.YChild{"QosShowEaStV1", nil}
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Children.Append("qos-show-ea-st-v1", types.YChild{"QosShowEaStV1", nil})
     for i := range policy.QosShowEaStV1 {
-        policy.EntityData.Children[types.GetSegmentPath(&policy.QosShowEaStV1[i])] = types.YChild{"QosShowEaStV1", &policy.QosShowEaStV1[i]}
+        policy.EntityData.Children.Append(types.GetSegmentPath(policy.QosShowEaStV1[i]), types.YChild{"QosShowEaStV1", policy.QosShowEaStV1[i]})
     }
-    policy.EntityData.Leafs = make(map[string]types.YLeaf)
+    policy.EntityData.Leafs = types.NewOrderedMap()
+
+    policy.EntityData.YListKeys = []string {}
+
     return &(policy.EntityData)
 }
 
@@ -4824,20 +5199,23 @@ func (qosShowEaStV1 *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_
     qosShowEaStV1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaStV1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qosShowEaStV1.EntityData.Children = make(map[string]types.YChild)
-    qosShowEaStV1.EntityData.Children["queue"] = types.YChild{"Queue", &qosShowEaStV1.Queue}
-    qosShowEaStV1.EntityData.Children["queue-limit-parameters"] = types.YChild{"QueueLimitParameters", &qosShowEaStV1.QueueLimitParameters}
-    qosShowEaStV1.EntityData.Children["shape"] = types.YChild{"Shape", &qosShowEaStV1.Shape}
-    qosShowEaStV1.EntityData.Children["police"] = types.YChild{"Police", &qosShowEaStV1.Police}
-    qosShowEaStV1.EntityData.Children["wfq"] = types.YChild{"Wfq", &qosShowEaStV1.Wfq}
-    qosShowEaStV1.EntityData.Children["wred"] = types.YChild{"Wred", &qosShowEaStV1.Wred}
-    qosShowEaStV1.EntityData.Children["mark"] = types.YChild{"Mark", &qosShowEaStV1.Mark}
-    qosShowEaStV1.EntityData.Leafs = make(map[string]types.YLeaf)
-    qosShowEaStV1.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", qosShowEaStV1.ClassLevel}
-    qosShowEaStV1.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", qosShowEaStV1.ClassName}
-    qosShowEaStV1.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", qosShowEaStV1.PolicyName}
-    qosShowEaStV1.EntityData.Leafs["parent-policy-name"] = types.YLeaf{"ParentPolicyName", qosShowEaStV1.ParentPolicyName}
-    qosShowEaStV1.EntityData.Leafs["parent-class-name"] = types.YLeaf{"ParentClassName", qosShowEaStV1.ParentClassName}
+    qosShowEaStV1.EntityData.Children = types.NewOrderedMap()
+    qosShowEaStV1.EntityData.Children.Append("queue", types.YChild{"Queue", &qosShowEaStV1.Queue})
+    qosShowEaStV1.EntityData.Children.Append("queue-limit-parameters", types.YChild{"QueueLimitParameters", &qosShowEaStV1.QueueLimitParameters})
+    qosShowEaStV1.EntityData.Children.Append("shape", types.YChild{"Shape", &qosShowEaStV1.Shape})
+    qosShowEaStV1.EntityData.Children.Append("police", types.YChild{"Police", &qosShowEaStV1.Police})
+    qosShowEaStV1.EntityData.Children.Append("wfq", types.YChild{"Wfq", &qosShowEaStV1.Wfq})
+    qosShowEaStV1.EntityData.Children.Append("wred", types.YChild{"Wred", &qosShowEaStV1.Wred})
+    qosShowEaStV1.EntityData.Children.Append("mark", types.YChild{"Mark", &qosShowEaStV1.Mark})
+    qosShowEaStV1.EntityData.Leafs = types.NewOrderedMap()
+    qosShowEaStV1.EntityData.Leafs.Append("class-level", types.YLeaf{"ClassLevel", qosShowEaStV1.ClassLevel})
+    qosShowEaStV1.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", qosShowEaStV1.ClassName})
+    qosShowEaStV1.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", qosShowEaStV1.PolicyName})
+    qosShowEaStV1.EntityData.Leafs.Append("parent-policy-name", types.YLeaf{"ParentPolicyName", qosShowEaStV1.ParentPolicyName})
+    qosShowEaStV1.EntityData.Leafs.Append("parent-class-name", types.YLeaf{"ParentClassName", qosShowEaStV1.ParentClassName})
+
+    qosShowEaStV1.EntityData.YListKeys = []string {}
+
     return &(qosShowEaStV1.EntityData)
 }
 
@@ -4867,11 +5245,14 @@ func (queue *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Q
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queue.EntityData.Children = make(map[string]types.YChild)
-    queue.EntityData.Leafs = make(map[string]types.YLeaf)
-    queue.EntityData.Leafs["queue-id"] = types.YLeaf{"QueueId", queue.QueueId}
-    queue.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", queue.QueueType}
-    queue.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", queue.ClassName}
+    queue.EntityData.Children = types.NewOrderedMap()
+    queue.EntityData.Leafs = types.NewOrderedMap()
+    queue.EntityData.Leafs.Append("queue-id", types.YLeaf{"QueueId", queue.QueueId})
+    queue.EntityData.Leafs.Append("queue-type", types.YLeaf{"QueueType", queue.QueueType})
+    queue.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", queue.ClassName})
+
+    queue.EntityData.YListKeys = []string {}
+
     return &(queue.EntityData)
 }
 
@@ -4904,12 +5285,15 @@ func (queueLimitParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Output_D
     queueLimitParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimitParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimitParameters.EntityData.Children = make(map[string]types.YChild)
-    queueLimitParameters.EntityData.Children["queue-limit"] = types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit}
-    queueLimitParameters.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit}
-    queueLimitParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimitParameters.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", queueLimitParameters.ProfileId}
-    queueLimitParameters.EntityData.Leafs["scaling-profile-id"] = types.YLeaf{"ScalingProfileId", queueLimitParameters.ScalingProfileId}
+    queueLimitParameters.EntityData.Children = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Children.Append("queue-limit", types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit})
+    queueLimitParameters.EntityData.Children.Append("config-queue-limit", types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit})
+    queueLimitParameters.EntityData.Leafs = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", queueLimitParameters.ProfileId})
+    queueLimitParameters.EntityData.Leafs.Append("scaling-profile-id", types.YLeaf{"ScalingProfileId", queueLimitParameters.ScalingProfileId})
+
+    queueLimitParameters.EntityData.YListKeys = []string {}
+
     return &(queueLimitParameters.EntityData)
 }
 
@@ -4936,10 +5320,13 @@ func (queueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimit.EntityData.Children = make(map[string]types.YChild)
-    queueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", queueLimit.Value}
-    queueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", queueLimit.Unit}
+    queueLimit.EntityData.Children = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", queueLimit.Value})
+    queueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", queueLimit.Unit})
+
+    queueLimit.EntityData.YListKeys = []string {}
+
     return &(queueLimit.EntityData)
 }
 
@@ -4966,10 +5353,13 @@ func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Detai
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
-    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    configQueueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", configQueueLimit.Value}
-    configQueueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", configQueueLimit.Unit}
+    configQueueLimit.EntityData.Children = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", configQueueLimit.Value})
+    configQueueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", configQueueLimit.Unit})
+
+    configQueueLimit.EntityData.YListKeys = []string {}
+
     return &(configQueueLimit.EntityData)
 }
 
@@ -5008,14 +5398,17 @@ func (shape *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Q
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shape.EntityData.Children = make(map[string]types.YChild)
-    shape.EntityData.Children["cir"] = types.YChild{"Cir", &shape.Cir}
-    shape.EntityData.Children["config-bandwidth"] = types.YChild{"ConfigBandwidth", &shape.ConfigBandwidth}
-    shape.EntityData.Children["cbs"] = types.YChild{"Cbs", &shape.Cbs}
-    shape.EntityData.Children["pir"] = types.YChild{"Pir", &shape.Pir}
-    shape.EntityData.Children["pbs"] = types.YChild{"Pbs", &shape.Pbs}
-    shape.EntityData.Leafs = make(map[string]types.YLeaf)
-    shape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", shape.ProfileId}
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Children.Append("cir", types.YChild{"Cir", &shape.Cir})
+    shape.EntityData.Children.Append("config-bandwidth", types.YChild{"ConfigBandwidth", &shape.ConfigBandwidth})
+    shape.EntityData.Children.Append("cbs", types.YChild{"Cbs", &shape.Cbs})
+    shape.EntityData.Children.Append("pir", types.YChild{"Pir", &shape.Pir})
+    shape.EntityData.Children.Append("pbs", types.YChild{"Pbs", &shape.Pbs})
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", shape.ProfileId})
+
+    shape.EntityData.YListKeys = []string {}
+
     return &(shape.EntityData)
 }
 
@@ -5042,10 +5435,13 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -5069,9 +5465,12 @@ func (configBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Detail
     configBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configBandwidth.EntityData.Children = make(map[string]types.YChild)
-    configBandwidth.EntityData.Children["minimum-rate"] = types.YChild{"MinimumRate", &configBandwidth.MinimumRate}
-    configBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    configBandwidth.EntityData.Children = types.NewOrderedMap()
+    configBandwidth.EntityData.Children.Append("minimum-rate", types.YChild{"MinimumRate", &configBandwidth.MinimumRate})
+    configBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    configBandwidth.EntityData.YListKeys = []string {}
+
     return &(configBandwidth.EntityData)
 }
 
@@ -5098,10 +5497,13 @@ func (minimumRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Po
     minimumRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minimumRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minimumRate.EntityData.Children = make(map[string]types.YChild)
-    minimumRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    minimumRate.EntityData.Leafs["value"] = types.YLeaf{"Value", minimumRate.Value}
-    minimumRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minimumRate.Unit}
+    minimumRate.EntityData.Children = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", minimumRate.Value})
+    minimumRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minimumRate.Unit})
+
+    minimumRate.EntityData.YListKeys = []string {}
+
     return &(minimumRate.EntityData)
 }
 
@@ -5128,10 +5530,13 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -5158,10 +5563,13 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -5188,10 +5596,13 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -5233,15 +5644,18 @@ func (police *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    police.EntityData.Children = make(map[string]types.YChild)
-    police.EntityData.Children["cir"] = types.YChild{"Cir", &police.Cir}
-    police.EntityData.Children["cbs"] = types.YChild{"Cbs", &police.Cbs}
-    police.EntityData.Children["pir"] = types.YChild{"Pir", &police.Pir}
-    police.EntityData.Children["pbs"] = types.YChild{"Pbs", &police.Pbs}
-    police.EntityData.Children["police-config-parameters"] = types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters}
-    police.EntityData.Leafs = make(map[string]types.YLeaf)
-    police.EntityData.Leafs["policer-type"] = types.YLeaf{"PolicerType", police.PolicerType}
-    police.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", police.ProfileId}
+    police.EntityData.Children = types.NewOrderedMap()
+    police.EntityData.Children.Append("cir", types.YChild{"Cir", &police.Cir})
+    police.EntityData.Children.Append("cbs", types.YChild{"Cbs", &police.Cbs})
+    police.EntityData.Children.Append("pir", types.YChild{"Pir", &police.Pir})
+    police.EntityData.Children.Append("pbs", types.YChild{"Pbs", &police.Pbs})
+    police.EntityData.Children.Append("police-config-parameters", types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters})
+    police.EntityData.Leafs = types.NewOrderedMap()
+    police.EntityData.Leafs.Append("policer-type", types.YLeaf{"PolicerType", police.PolicerType})
+    police.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", police.ProfileId})
+
+    police.EntityData.YListKeys = []string {}
+
     return &(police.EntityData)
 }
 
@@ -5268,10 +5682,13 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -5298,10 +5715,13 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -5328,10 +5748,13 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -5358,10 +5781,13 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -5394,12 +5820,15 @@ func (policeConfigParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Output
     policeConfigParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConfigParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConfigParameters.EntityData.Children = make(map[string]types.YChild)
-    policeConfigParameters.EntityData.Children["average-rate"] = types.YChild{"AverageRate", &policeConfigParameters.AverageRate}
-    policeConfigParameters.EntityData.Children["peak-rate"] = types.YChild{"PeakRate", &policeConfigParameters.PeakRate}
-    policeConfigParameters.EntityData.Children["conform-burst"] = types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst}
-    policeConfigParameters.EntityData.Children["exceed-burst"] = types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst}
-    policeConfigParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    policeConfigParameters.EntityData.Children = types.NewOrderedMap()
+    policeConfigParameters.EntityData.Children.Append("average-rate", types.YChild{"AverageRate", &policeConfigParameters.AverageRate})
+    policeConfigParameters.EntityData.Children.Append("peak-rate", types.YChild{"PeakRate", &policeConfigParameters.PeakRate})
+    policeConfigParameters.EntityData.Children.Append("conform-burst", types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst})
+    policeConfigParameters.EntityData.Children.Append("exceed-burst", types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst})
+    policeConfigParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    policeConfigParameters.EntityData.YListKeys = []string {}
+
     return &(policeConfigParameters.EntityData)
 }
 
@@ -5426,10 +5855,13 @@ func (averageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Po
     averageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageRate.EntityData.Children = make(map[string]types.YChild)
-    averageRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageRate.EntityData.Leafs["value"] = types.YLeaf{"Value", averageRate.Value}
-    averageRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", averageRate.Unit}
+    averageRate.EntityData.Children = types.NewOrderedMap()
+    averageRate.EntityData.Leafs = types.NewOrderedMap()
+    averageRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageRate.Value})
+    averageRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", averageRate.Unit})
+
+    averageRate.EntityData.YListKeys = []string {}
+
     return &(averageRate.EntityData)
 }
 
@@ -5456,10 +5888,13 @@ func (peakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Polic
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakRate.EntityData.Children = make(map[string]types.YChild)
-    peakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", peakRate.Value}
-    peakRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", peakRate.Unit}
+    peakRate.EntityData.Children = types.NewOrderedMap()
+    peakRate.EntityData.Leafs = types.NewOrderedMap()
+    peakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakRate.Value})
+    peakRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", peakRate.Unit})
+
+    peakRate.EntityData.YListKeys = []string {}
+
     return &(peakRate.EntityData)
 }
 
@@ -5486,10 +5921,13 @@ func (conformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_P
     conformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conformBurst.EntityData.Children = make(map[string]types.YChild)
-    conformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    conformBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", conformBurst.Value}
-    conformBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", conformBurst.Unit}
+    conformBurst.EntityData.Children = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", conformBurst.Value})
+    conformBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", conformBurst.Unit})
+
+    conformBurst.EntityData.YListKeys = []string {}
+
     return &(conformBurst.EntityData)
 }
 
@@ -5516,10 +5954,13 @@ func (exceedBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Po
     exceedBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exceedBurst.EntityData.Children = make(map[string]types.YChild)
-    exceedBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    exceedBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", exceedBurst.Value}
-    exceedBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", exceedBurst.Unit}
+    exceedBurst.EntityData.Children = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", exceedBurst.Value})
+    exceedBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", exceedBurst.Unit})
+
+    exceedBurst.EntityData.YListKeys = []string {}
+
     return &(exceedBurst.EntityData)
 }
 
@@ -5564,16 +6005,19 @@ func (wfq *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qos
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wfq.EntityData.Children = make(map[string]types.YChild)
-    wfq.EntityData.Children["parent-bandwidth"] = types.YChild{"ParentBandwidth", &wfq.ParentBandwidth}
-    wfq.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &wfq.Bandwidth}
-    wfq.EntityData.Leafs = make(map[string]types.YLeaf)
-    wfq.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wfq.ProfileId}
-    wfq.EntityData.Leafs["committed-weight"] = types.YLeaf{"CommittedWeight", wfq.CommittedWeight}
-    wfq.EntityData.Leafs["excess-weight"] = types.YLeaf{"ExcessWeight", wfq.ExcessWeight}
-    wfq.EntityData.Leafs["excess-ratio"] = types.YLeaf{"ExcessRatio", wfq.ExcessRatio}
-    wfq.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", wfq.ChunkId}
-    wfq.EntityData.Leafs["level"] = types.YLeaf{"Level", wfq.Level}
+    wfq.EntityData.Children = types.NewOrderedMap()
+    wfq.EntityData.Children.Append("parent-bandwidth", types.YChild{"ParentBandwidth", &wfq.ParentBandwidth})
+    wfq.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &wfq.Bandwidth})
+    wfq.EntityData.Leafs = types.NewOrderedMap()
+    wfq.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wfq.ProfileId})
+    wfq.EntityData.Leafs.Append("committed-weight", types.YLeaf{"CommittedWeight", wfq.CommittedWeight})
+    wfq.EntityData.Leafs.Append("excess-weight", types.YLeaf{"ExcessWeight", wfq.ExcessWeight})
+    wfq.EntityData.Leafs.Append("excess-ratio", types.YLeaf{"ExcessRatio", wfq.ExcessRatio})
+    wfq.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", wfq.ChunkId})
+    wfq.EntityData.Leafs.Append("level", types.YLeaf{"Level", wfq.Level})
+
+    wfq.EntityData.YListKeys = []string {}
+
     return &(wfq.EntityData)
 }
 
@@ -5600,10 +6044,13 @@ func (parentBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Detail
     parentBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentBandwidth.EntityData.Children = make(map[string]types.YChild)
-    parentBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", parentBandwidth.Value}
-    parentBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", parentBandwidth.Unit}
+    parentBandwidth.EntityData.Children = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", parentBandwidth.Value})
+    parentBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", parentBandwidth.Unit})
+
+    parentBandwidth.EntityData.YListKeys = []string {}
+
     return &(parentBandwidth.EntityData)
 }
 
@@ -5630,10 +6077,13 @@ func (bandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Poli
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", bandwidth.Unit}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", bandwidth.Unit})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -5644,7 +6094,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
     YFilter yfilter.YFilter
 
     // WRED type. The type is Wred.
-    Type_ interface{}
+    Type interface{}
 
     // Number of curves. The type is interface{} with range: 0..65535.
     CurveXr interface{}
@@ -5660,7 +6110,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Curve details. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Wred_Curve.
-    Curve []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Wred_Curve
+    Curve []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Wred_Curve
 }
 
 func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Wred) GetEntityData() *types.CommonEntityData {
@@ -5673,17 +6123,20 @@ func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qo
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wred.EntityData.Children = make(map[string]types.YChild)
-    wred.EntityData.Children["curve"] = types.YChild{"Curve", nil}
+    wred.EntityData.Children = types.NewOrderedMap()
+    wred.EntityData.Children.Append("curve", types.YChild{"Curve", nil})
     for i := range wred.Curve {
-        wred.EntityData.Children[types.GetSegmentPath(&wred.Curve[i])] = types.YChild{"Curve", &wred.Curve[i]}
+        wred.EntityData.Children.Append(types.GetSegmentPath(wred.Curve[i]), types.YChild{"Curve", wred.Curve[i]})
     }
-    wred.EntityData.Leafs = make(map[string]types.YLeaf)
-    wred.EntityData.Leafs["type"] = types.YLeaf{"Type_", wred.Type_}
-    wred.EntityData.Leafs["curve-xr"] = types.YLeaf{"CurveXr", wred.CurveXr}
-    wred.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", wred.TableId}
-    wred.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wred.ProfileId}
-    wred.EntityData.Leafs["scaling-profile-id"] = types.YLeaf{"ScalingProfileId", wred.ScalingProfileId}
+    wred.EntityData.Leafs = types.NewOrderedMap()
+    wred.EntityData.Leafs.Append("type", types.YLeaf{"Type", wred.Type})
+    wred.EntityData.Leafs.Append("curve-xr", types.YLeaf{"CurveXr", wred.CurveXr})
+    wred.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", wred.TableId})
+    wred.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wred.ProfileId})
+    wred.EntityData.Leafs.Append("scaling-profile-id", types.YLeaf{"ScalingProfileId", wred.ScalingProfileId})
+
+    wred.EntityData.YListKeys = []string {}
+
     return &(wred.EntityData)
 }
 
@@ -5721,13 +6174,16 @@ func (curve *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Q
     curve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     curve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    curve.EntityData.Children = make(map[string]types.YChild)
-    curve.EntityData.Children["min-threshold"] = types.YChild{"MinThreshold", &curve.MinThreshold}
-    curve.EntityData.Children["min-threshold-user-config"] = types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig}
-    curve.EntityData.Children["max-threshold"] = types.YChild{"MaxThreshold", &curve.MaxThreshold}
-    curve.EntityData.Children["max-threshold-user-config"] = types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig}
-    curve.EntityData.Leafs = make(map[string]types.YLeaf)
-    curve.EntityData.Leafs["match"] = types.YLeaf{"Match", curve.Match}
+    curve.EntityData.Children = types.NewOrderedMap()
+    curve.EntityData.Children.Append("min-threshold", types.YChild{"MinThreshold", &curve.MinThreshold})
+    curve.EntityData.Children.Append("min-threshold-user-config", types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig})
+    curve.EntityData.Children.Append("max-threshold", types.YChild{"MaxThreshold", &curve.MaxThreshold})
+    curve.EntityData.Children.Append("max-threshold-user-config", types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig})
+    curve.EntityData.Leafs = types.NewOrderedMap()
+    curve.EntityData.Leafs.Append("match", types.YLeaf{"Match", curve.Match})
+
+    curve.EntityData.YListKeys = []string {}
+
     return &(curve.EntityData)
 }
 
@@ -5754,10 +6210,13 @@ func (minThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_P
     minThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThreshold.EntityData.Children = make(map[string]types.YChild)
-    minThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", minThreshold.Value}
-    minThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThreshold.Unit}
+    minThreshold.EntityData.Children = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThreshold.Value})
+    minThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThreshold.Unit})
+
+    minThreshold.EntityData.YListKeys = []string {}
+
     return &(minThreshold.EntityData)
 }
 
@@ -5784,10 +6243,13 @@ func (minThresholdUserConfig *PlatformQos_Nodes_Node_Interfaces_Interface_Output
     minThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    minThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", minThresholdUserConfig.Value}
-    minThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThresholdUserConfig.Unit}
+    minThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThresholdUserConfig.Value})
+    minThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThresholdUserConfig.Unit})
+
+    minThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(minThresholdUserConfig.EntityData)
 }
 
@@ -5814,10 +6276,13 @@ func (maxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_P
     maxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThreshold.EntityData.Children = make(map[string]types.YChild)
-    maxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThreshold.Value}
-    maxThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThreshold.Unit}
+    maxThreshold.EntityData.Children = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThreshold.Value})
+    maxThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThreshold.Unit})
+
+    maxThreshold.EntityData.YListKeys = []string {}
+
     return &(maxThreshold.EntityData)
 }
 
@@ -5844,10 +6309,13 @@ func (maxThresholdUserConfig *PlatformQos_Nodes_Node_Interfaces_Interface_Output
     maxThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    maxThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThresholdUserConfig.Value}
-    maxThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThresholdUserConfig.Unit}
+    maxThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThresholdUserConfig.Value})
+    maxThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThresholdUserConfig.Unit})
+
+    maxThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(maxThresholdUserConfig.EntityData)
 }
 
@@ -5892,16 +6360,19 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_Qo
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mark.EntityData.Children = make(map[string]types.YChild)
-    mark.EntityData.Children["child-mark"] = types.YChild{"ChildMark", &mark.ChildMark}
-    mark.EntityData.Children["police-conform"] = types.YChild{"PoliceConform", &mark.PoliceConform}
-    mark.EntityData.Children["police-exceed"] = types.YChild{"PoliceExceed", &mark.PoliceExceed}
-    mark.EntityData.Children["police-violate"] = types.YChild{"PoliceViolate", &mark.PoliceViolate}
-    mark.EntityData.Children["parent-mark"] = types.YChild{"ParentMark", &mark.ParentMark}
-    mark.EntityData.Children["parent-police-conform"] = types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform}
-    mark.EntityData.Children["parent-police-exceed"] = types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed}
-    mark.EntityData.Children["parent-police-violate"] = types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate}
-    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Children = types.NewOrderedMap()
+    mark.EntityData.Children.Append("child-mark", types.YChild{"ChildMark", &mark.ChildMark})
+    mark.EntityData.Children.Append("police-conform", types.YChild{"PoliceConform", &mark.PoliceConform})
+    mark.EntityData.Children.Append("police-exceed", types.YChild{"PoliceExceed", &mark.PoliceExceed})
+    mark.EntityData.Children.Append("police-violate", types.YChild{"PoliceViolate", &mark.PoliceViolate})
+    mark.EntityData.Children.Append("parent-mark", types.YChild{"ParentMark", &mark.ParentMark})
+    mark.EntityData.Children.Append("parent-police-conform", types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform})
+    mark.EntityData.Children.Append("parent-police-exceed", types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed})
+    mark.EntityData.Children.Append("parent-police-violate", types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate})
+    mark.EntityData.Leafs = types.NewOrderedMap()
+
+    mark.EntityData.YListKeys = []string {}
+
     return &(mark.EntityData)
 }
 
@@ -5916,7 +6387,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail
 }
 
 func (childMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ChildMark) GetEntityData() *types.CommonEntityData {
@@ -5929,13 +6400,16 @@ func (childMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Poli
     childMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     childMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    childMark.EntityData.Children = make(map[string]types.YChild)
-    childMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    childMark.EntityData.Children = types.NewOrderedMap()
+    childMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range childMark.MarkDetail {
-        childMark.EntityData.Children[types.GetSegmentPath(&childMark.MarkDetail[i])] = types.YChild{"MarkDetail", &childMark.MarkDetail[i]}
+        childMark.EntityData.Children.Append(types.GetSegmentPath(childMark.MarkDetail[i]), types.YChild{"MarkDetail", childMark.MarkDetail[i]})
     }
-    childMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    childMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", childMark.ActionType}
+    childMark.EntityData.Leafs = types.NewOrderedMap()
+    childMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", childMark.ActionType})
+
+    childMark.EntityData.YListKeys = []string {}
+
     return &(childMark.EntityData)
 }
 
@@ -5962,10 +6436,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -5980,7 +6457,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail
 }
 
 func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceConform) GetEntityData() *types.CommonEntityData {
@@ -5993,13 +6470,16 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConform.EntityData.Children = make(map[string]types.YChild)
-    policeConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeConform.EntityData.Children = types.NewOrderedMap()
+    policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
-        policeConform.EntityData.Children[types.GetSegmentPath(&policeConform.MarkDetail[i])] = types.YChild{"MarkDetail", &policeConform.MarkDetail[i]}
+        policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
-    policeConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeConform.ActionType}
+    policeConform.EntityData.Leafs = types.NewOrderedMap()
+    policeConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeConform.ActionType})
+
+    policeConform.EntityData.YListKeys = []string {}
+
     return &(policeConform.EntityData)
 }
 
@@ -6026,10 +6506,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -6044,7 +6527,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail
 }
 
 func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -6057,13 +6540,16 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_P
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeExceed.EntityData.Children = make(map[string]types.YChild)
-    policeExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeExceed.EntityData.Children = types.NewOrderedMap()
+    policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
-        policeExceed.EntityData.Children[types.GetSegmentPath(&policeExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &policeExceed.MarkDetail[i]}
+        policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
-    policeExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeExceed.ActionType}
+    policeExceed.EntityData.Leafs = types.NewOrderedMap()
+    policeExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeExceed.ActionType})
+
+    policeExceed.EntityData.YListKeys = []string {}
+
     return &(policeExceed.EntityData)
 }
 
@@ -6090,10 +6576,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -6108,7 +6597,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail
 }
 
 func (policeViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_PoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -6121,13 +6610,16 @@ func (policeViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_
     policeViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeViolate.EntityData.Children = make(map[string]types.YChild)
-    policeViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeViolate.EntityData.Children = types.NewOrderedMap()
+    policeViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeViolate.MarkDetail {
-        policeViolate.EntityData.Children[types.GetSegmentPath(&policeViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &policeViolate.MarkDetail[i]}
+        policeViolate.EntityData.Children.Append(types.GetSegmentPath(policeViolate.MarkDetail[i]), types.YChild{"MarkDetail", policeViolate.MarkDetail[i]})
     }
-    policeViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeViolate.ActionType}
+    policeViolate.EntityData.Leafs = types.NewOrderedMap()
+    policeViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeViolate.ActionType})
+
+    policeViolate.EntityData.YListKeys = []string {}
+
     return &(policeViolate.EntityData)
 }
 
@@ -6154,10 +6646,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -6172,7 +6667,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail
 }
 
 func (parentMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentMark) GetEntityData() *types.CommonEntityData {
@@ -6185,13 +6680,16 @@ func (parentMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     parentMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentMark.EntityData.Children = make(map[string]types.YChild)
-    parentMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentMark.EntityData.Children = types.NewOrderedMap()
+    parentMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentMark.MarkDetail {
-        parentMark.EntityData.Children[types.GetSegmentPath(&parentMark.MarkDetail[i])] = types.YChild{"MarkDetail", &parentMark.MarkDetail[i]}
+        parentMark.EntityData.Children.Append(types.GetSegmentPath(parentMark.MarkDetail[i]), types.YChild{"MarkDetail", parentMark.MarkDetail[i]})
     }
-    parentMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentMark.ActionType}
+    parentMark.EntityData.Leafs = types.NewOrderedMap()
+    parentMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentMark.ActionType})
+
+    parentMark.EntityData.YListKeys = []string {}
+
     return &(parentMark.EntityData)
 }
 
@@ -6218,10 +6716,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -6236,7 +6737,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail
 }
 
 func (parentPoliceConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform) GetEntityData() *types.CommonEntityData {
@@ -6249,13 +6750,16 @@ func (parentPoliceConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_De
     parentPoliceConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceConform.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceConform.EntityData.Children = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceConform.MarkDetail {
-        parentPoliceConform.EntityData.Children[types.GetSegmentPath(&parentPoliceConform.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceConform.MarkDetail[i]}
+        parentPoliceConform.EntityData.Children.Append(types.GetSegmentPath(parentPoliceConform.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceConform.MarkDetail[i]})
     }
-    parentPoliceConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceConform.ActionType}
+    parentPoliceConform.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceConform.ActionType})
+
+    parentPoliceConform.EntityData.YListKeys = []string {}
+
     return &(parentPoliceConform.EntityData)
 }
 
@@ -6282,10 +6786,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -6300,7 +6807,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail
 }
 
 func (parentPoliceExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -6313,13 +6820,16 @@ func (parentPoliceExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Det
     parentPoliceExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceExceed.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceExceed.EntityData.Children = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceExceed.MarkDetail {
-        parentPoliceExceed.EntityData.Children[types.GetSegmentPath(&parentPoliceExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceExceed.MarkDetail[i]}
+        parentPoliceExceed.EntityData.Children.Append(types.GetSegmentPath(parentPoliceExceed.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceExceed.MarkDetail[i]})
     }
-    parentPoliceExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceExceed.ActionType}
+    parentPoliceExceed.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceExceed.ActionType})
+
+    parentPoliceExceed.EntityData.YListKeys = []string {}
+
     return &(parentPoliceExceed.EntityData)
 }
 
@@ -6346,10 +6856,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -6364,7 +6877,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEa
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail
 }
 
 func (parentPoliceViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -6377,13 +6890,16 @@ func (parentPoliceViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_De
     parentPoliceViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceViolate.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceViolate.EntityData.Children = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceViolate.MarkDetail {
-        parentPoliceViolate.EntityData.Children[types.GetSegmentPath(&parentPoliceViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceViolate.MarkDetail[i]}
+        parentPoliceViolate.EntityData.Children.Append(types.GetSegmentPath(parentPoliceViolate.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceViolate.MarkDetail[i]})
     }
-    parentPoliceViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceViolate.ActionType}
+    parentPoliceViolate.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceViolate.ActionType})
+
+    parentPoliceViolate.EntityData.YListKeys = []string {}
+
     return &(parentPoliceViolate.EntityData)
 }
 
@@ -6410,10 +6926,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -6425,7 +6944,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon st
 
     // qos show ea st v2. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2.
-    QosShowEaStV2 []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2
+    QosShowEaStV2 []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2
 }
 
 func (policyTyphoon *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon) GetEntityData() *types.CommonEntityData {
@@ -6438,12 +6957,15 @@ func (policyTyphoon *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_
     policyTyphoon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyTyphoon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policyTyphoon.EntityData.Children = make(map[string]types.YChild)
-    policyTyphoon.EntityData.Children["qos-show-ea-st-v2"] = types.YChild{"QosShowEaStV2", nil}
+    policyTyphoon.EntityData.Children = types.NewOrderedMap()
+    policyTyphoon.EntityData.Children.Append("qos-show-ea-st-v2", types.YChild{"QosShowEaStV2", nil})
     for i := range policyTyphoon.QosShowEaStV2 {
-        policyTyphoon.EntityData.Children[types.GetSegmentPath(&policyTyphoon.QosShowEaStV2[i])] = types.YChild{"QosShowEaStV2", &policyTyphoon.QosShowEaStV2[i]}
+        policyTyphoon.EntityData.Children.Append(types.GetSegmentPath(policyTyphoon.QosShowEaStV2[i]), types.YChild{"QosShowEaStV2", policyTyphoon.QosShowEaStV2[i]})
     }
-    policyTyphoon.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyTyphoon.EntityData.Leafs = types.NewOrderedMap()
+
+    policyTyphoon.EntityData.YListKeys = []string {}
+
     return &(policyTyphoon.EntityData)
 }
 
@@ -6500,20 +7022,23 @@ func (qosShowEaStV2 *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_
     qosShowEaStV2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaStV2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qosShowEaStV2.EntityData.Children = make(map[string]types.YChild)
-    qosShowEaStV2.EntityData.Children["queue"] = types.YChild{"Queue", &qosShowEaStV2.Queue}
-    qosShowEaStV2.EntityData.Children["queue-limit-parameters"] = types.YChild{"QueueLimitParameters", &qosShowEaStV2.QueueLimitParameters}
-    qosShowEaStV2.EntityData.Children["shape"] = types.YChild{"Shape", &qosShowEaStV2.Shape}
-    qosShowEaStV2.EntityData.Children["police"] = types.YChild{"Police", &qosShowEaStV2.Police}
-    qosShowEaStV2.EntityData.Children["wfq"] = types.YChild{"Wfq", &qosShowEaStV2.Wfq}
-    qosShowEaStV2.EntityData.Children["wred"] = types.YChild{"Wred", &qosShowEaStV2.Wred}
-    qosShowEaStV2.EntityData.Children["mark"] = types.YChild{"Mark", &qosShowEaStV2.Mark}
-    qosShowEaStV2.EntityData.Leafs = make(map[string]types.YLeaf)
-    qosShowEaStV2.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", qosShowEaStV2.ClassLevel}
-    qosShowEaStV2.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", qosShowEaStV2.ClassName}
-    qosShowEaStV2.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", qosShowEaStV2.PolicyName}
-    qosShowEaStV2.EntityData.Leafs["parent-policy-name"] = types.YLeaf{"ParentPolicyName", qosShowEaStV2.ParentPolicyName}
-    qosShowEaStV2.EntityData.Leafs["parent-class-name"] = types.YLeaf{"ParentClassName", qosShowEaStV2.ParentClassName}
+    qosShowEaStV2.EntityData.Children = types.NewOrderedMap()
+    qosShowEaStV2.EntityData.Children.Append("queue", types.YChild{"Queue", &qosShowEaStV2.Queue})
+    qosShowEaStV2.EntityData.Children.Append("queue-limit-parameters", types.YChild{"QueueLimitParameters", &qosShowEaStV2.QueueLimitParameters})
+    qosShowEaStV2.EntityData.Children.Append("shape", types.YChild{"Shape", &qosShowEaStV2.Shape})
+    qosShowEaStV2.EntityData.Children.Append("police", types.YChild{"Police", &qosShowEaStV2.Police})
+    qosShowEaStV2.EntityData.Children.Append("wfq", types.YChild{"Wfq", &qosShowEaStV2.Wfq})
+    qosShowEaStV2.EntityData.Children.Append("wred", types.YChild{"Wred", &qosShowEaStV2.Wred})
+    qosShowEaStV2.EntityData.Children.Append("mark", types.YChild{"Mark", &qosShowEaStV2.Mark})
+    qosShowEaStV2.EntityData.Leafs = types.NewOrderedMap()
+    qosShowEaStV2.EntityData.Leafs.Append("class-level", types.YLeaf{"ClassLevel", qosShowEaStV2.ClassLevel})
+    qosShowEaStV2.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", qosShowEaStV2.ClassName})
+    qosShowEaStV2.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", qosShowEaStV2.PolicyName})
+    qosShowEaStV2.EntityData.Leafs.Append("parent-policy-name", types.YLeaf{"ParentPolicyName", qosShowEaStV2.ParentPolicyName})
+    qosShowEaStV2.EntityData.Leafs.Append("parent-class-name", types.YLeaf{"ParentClassName", qosShowEaStV2.ParentClassName})
+
+    qosShowEaStV2.EntityData.YListKeys = []string {}
+
     return &(qosShowEaStV2.EntityData)
 }
 
@@ -6543,11 +7068,14 @@ func (queue *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTy
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queue.EntityData.Children = make(map[string]types.YChild)
-    queue.EntityData.Leafs = make(map[string]types.YLeaf)
-    queue.EntityData.Leafs["queue-id"] = types.YLeaf{"QueueId", queue.QueueId}
-    queue.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", queue.QueueType}
-    queue.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", queue.ClassName}
+    queue.EntityData.Children = types.NewOrderedMap()
+    queue.EntityData.Leafs = types.NewOrderedMap()
+    queue.EntityData.Leafs.Append("queue-id", types.YLeaf{"QueueId", queue.QueueId})
+    queue.EntityData.Leafs.Append("queue-type", types.YLeaf{"QueueType", queue.QueueType})
+    queue.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", queue.ClassName})
+
+    queue.EntityData.YListKeys = []string {}
+
     return &(queue.EntityData)
 }
 
@@ -6583,13 +7111,16 @@ func (queueLimitParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Output_D
     queueLimitParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimitParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimitParameters.EntityData.Children = make(map[string]types.YChild)
-    queueLimitParameters.EntityData.Children["queue-limit"] = types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit}
-    queueLimitParameters.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit}
-    queueLimitParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimitParameters.EntityData.Leafs["absolute-index"] = types.YLeaf{"AbsoluteIndex", queueLimitParameters.AbsoluteIndex}
-    queueLimitParameters.EntityData.Leafs["template-id"] = types.YLeaf{"TemplateId", queueLimitParameters.TemplateId}
-    queueLimitParameters.EntityData.Leafs["curve-id"] = types.YLeaf{"CurveId", queueLimitParameters.CurveId}
+    queueLimitParameters.EntityData.Children = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Children.Append("queue-limit", types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit})
+    queueLimitParameters.EntityData.Children.Append("config-queue-limit", types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit})
+    queueLimitParameters.EntityData.Leafs = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Leafs.Append("absolute-index", types.YLeaf{"AbsoluteIndex", queueLimitParameters.AbsoluteIndex})
+    queueLimitParameters.EntityData.Leafs.Append("template-id", types.YLeaf{"TemplateId", queueLimitParameters.TemplateId})
+    queueLimitParameters.EntityData.Leafs.Append("curve-id", types.YLeaf{"CurveId", queueLimitParameters.CurveId})
+
+    queueLimitParameters.EntityData.YListKeys = []string {}
+
     return &(queueLimitParameters.EntityData)
 }
 
@@ -6616,10 +7147,13 @@ func (queueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimit.EntityData.Children = make(map[string]types.YChild)
-    queueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", queueLimit.Value}
-    queueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", queueLimit.Unit}
+    queueLimit.EntityData.Children = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", queueLimit.Value})
+    queueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", queueLimit.Unit})
+
+    queueLimit.EntityData.YListKeys = []string {}
+
     return &(queueLimit.EntityData)
 }
 
@@ -6646,10 +7180,13 @@ func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Detai
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
-    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    configQueueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", configQueueLimit.Value}
-    configQueueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", configQueueLimit.Unit}
+    configQueueLimit.EntityData.Children = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", configQueueLimit.Value})
+    configQueueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", configQueueLimit.Unit})
+
+    configQueueLimit.EntityData.YListKeys = []string {}
+
     return &(configQueueLimit.EntityData)
 }
 
@@ -6682,12 +7219,15 @@ func (shape *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTy
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shape.EntityData.Children = make(map[string]types.YChild)
-    shape.EntityData.Children["cir-shape"] = types.YChild{"CirShape", &shape.CirShape}
-    shape.EntityData.Children["pir-shape"] = types.YChild{"PirShape", &shape.PirShape}
-    shape.EntityData.Leafs = make(map[string]types.YLeaf)
-    shape.EntityData.Leafs["cir-shape-type"] = types.YLeaf{"CirShapeType", shape.CirShapeType}
-    shape.EntityData.Leafs["pir-shape-type"] = types.YLeaf{"PirShapeType", shape.PirShapeType}
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Children.Append("cir-shape", types.YChild{"CirShape", &shape.CirShape})
+    shape.EntityData.Children.Append("pir-shape", types.YChild{"PirShape", &shape.PirShape})
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("cir-shape-type", types.YLeaf{"CirShapeType", shape.CirShapeType})
+    shape.EntityData.Leafs.Append("pir-shape-type", types.YLeaf{"PirShapeType", shape.PirShapeType})
+
+    shape.EntityData.YListKeys = []string {}
+
     return &(shape.EntityData)
 }
 
@@ -6726,14 +7266,17 @@ func (cirShape *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Polic
     cirShape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cirShape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cirShape.EntityData.Children = make(map[string]types.YChild)
-    cirShape.EntityData.Children["cir"] = types.YChild{"Cir", &cirShape.Cir}
-    cirShape.EntityData.Children["config-bandwidth"] = types.YChild{"ConfigBandwidth", &cirShape.ConfigBandwidth}
-    cirShape.EntityData.Children["cbs"] = types.YChild{"Cbs", &cirShape.Cbs}
-    cirShape.EntityData.Leafs = make(map[string]types.YLeaf)
-    cirShape.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", cirShape.ChunkId}
-    cirShape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", cirShape.ProfileId}
-    cirShape.EntityData.Leafs["scale-factor"] = types.YLeaf{"ScaleFactor", cirShape.ScaleFactor}
+    cirShape.EntityData.Children = types.NewOrderedMap()
+    cirShape.EntityData.Children.Append("cir", types.YChild{"Cir", &cirShape.Cir})
+    cirShape.EntityData.Children.Append("config-bandwidth", types.YChild{"ConfigBandwidth", &cirShape.ConfigBandwidth})
+    cirShape.EntityData.Children.Append("cbs", types.YChild{"Cbs", &cirShape.Cbs})
+    cirShape.EntityData.Leafs = types.NewOrderedMap()
+    cirShape.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", cirShape.ChunkId})
+    cirShape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", cirShape.ProfileId})
+    cirShape.EntityData.Leafs.Append("scale-factor", types.YLeaf{"ScaleFactor", cirShape.ScaleFactor})
+
+    cirShape.EntityData.YListKeys = []string {}
+
     return &(cirShape.EntityData)
 }
 
@@ -6760,10 +7303,13 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -6787,9 +7333,12 @@ func (configBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Detail
     configBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configBandwidth.EntityData.Children = make(map[string]types.YChild)
-    configBandwidth.EntityData.Children["minimum-rate"] = types.YChild{"MinimumRate", &configBandwidth.MinimumRate}
-    configBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    configBandwidth.EntityData.Children = types.NewOrderedMap()
+    configBandwidth.EntityData.Children.Append("minimum-rate", types.YChild{"MinimumRate", &configBandwidth.MinimumRate})
+    configBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    configBandwidth.EntityData.YListKeys = []string {}
+
     return &(configBandwidth.EntityData)
 }
 
@@ -6816,10 +7365,13 @@ func (minimumRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Po
     minimumRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minimumRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minimumRate.EntityData.Children = make(map[string]types.YChild)
-    minimumRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    minimumRate.EntityData.Leafs["value"] = types.YLeaf{"Value", minimumRate.Value}
-    minimumRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minimumRate.Unit}
+    minimumRate.EntityData.Children = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", minimumRate.Value})
+    minimumRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minimumRate.Unit})
+
+    minimumRate.EntityData.YListKeys = []string {}
+
     return &(minimumRate.EntityData)
 }
 
@@ -6846,10 +7398,13 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -6885,13 +7440,16 @@ func (pirShape *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Polic
     pirShape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pirShape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pirShape.EntityData.Children = make(map[string]types.YChild)
-    pirShape.EntityData.Children["pir"] = types.YChild{"Pir", &pirShape.Pir}
-    pirShape.EntityData.Children["pbs"] = types.YChild{"Pbs", &pirShape.Pbs}
-    pirShape.EntityData.Leafs = make(map[string]types.YLeaf)
-    pirShape.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", pirShape.ChunkId}
-    pirShape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", pirShape.ProfileId}
-    pirShape.EntityData.Leafs["scale-factor"] = types.YLeaf{"ScaleFactor", pirShape.ScaleFactor}
+    pirShape.EntityData.Children = types.NewOrderedMap()
+    pirShape.EntityData.Children.Append("pir", types.YChild{"Pir", &pirShape.Pir})
+    pirShape.EntityData.Children.Append("pbs", types.YChild{"Pbs", &pirShape.Pbs})
+    pirShape.EntityData.Leafs = types.NewOrderedMap()
+    pirShape.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", pirShape.ChunkId})
+    pirShape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", pirShape.ProfileId})
+    pirShape.EntityData.Leafs.Append("scale-factor", types.YLeaf{"ScaleFactor", pirShape.ScaleFactor})
+
+    pirShape.EntityData.YListKeys = []string {}
+
     return &(pirShape.EntityData)
 }
 
@@ -6918,10 +7476,13 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -6948,10 +7509,13 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -6993,15 +7557,18 @@ func (police *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyT
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    police.EntityData.Children = make(map[string]types.YChild)
-    police.EntityData.Children["cir"] = types.YChild{"Cir", &police.Cir}
-    police.EntityData.Children["cbs"] = types.YChild{"Cbs", &police.Cbs}
-    police.EntityData.Children["pir"] = types.YChild{"Pir", &police.Pir}
-    police.EntityData.Children["pbs"] = types.YChild{"Pbs", &police.Pbs}
-    police.EntityData.Children["police-config-parameters"] = types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters}
-    police.EntityData.Leafs = make(map[string]types.YLeaf)
-    police.EntityData.Leafs["policer-type"] = types.YLeaf{"PolicerType", police.PolicerType}
-    police.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", police.ProfileId}
+    police.EntityData.Children = types.NewOrderedMap()
+    police.EntityData.Children.Append("cir", types.YChild{"Cir", &police.Cir})
+    police.EntityData.Children.Append("cbs", types.YChild{"Cbs", &police.Cbs})
+    police.EntityData.Children.Append("pir", types.YChild{"Pir", &police.Pir})
+    police.EntityData.Children.Append("pbs", types.YChild{"Pbs", &police.Pbs})
+    police.EntityData.Children.Append("police-config-parameters", types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters})
+    police.EntityData.Leafs = types.NewOrderedMap()
+    police.EntityData.Leafs.Append("policer-type", types.YLeaf{"PolicerType", police.PolicerType})
+    police.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", police.ProfileId})
+
+    police.EntityData.YListKeys = []string {}
+
     return &(police.EntityData)
 }
 
@@ -7028,10 +7595,13 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -7058,10 +7628,13 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -7088,10 +7661,13 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -7118,10 +7694,13 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -7154,12 +7733,15 @@ func (policeConfigParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Output
     policeConfigParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConfigParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConfigParameters.EntityData.Children = make(map[string]types.YChild)
-    policeConfigParameters.EntityData.Children["average-rate"] = types.YChild{"AverageRate", &policeConfigParameters.AverageRate}
-    policeConfigParameters.EntityData.Children["peak-rate"] = types.YChild{"PeakRate", &policeConfigParameters.PeakRate}
-    policeConfigParameters.EntityData.Children["conform-burst"] = types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst}
-    policeConfigParameters.EntityData.Children["exceed-burst"] = types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst}
-    policeConfigParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    policeConfigParameters.EntityData.Children = types.NewOrderedMap()
+    policeConfigParameters.EntityData.Children.Append("average-rate", types.YChild{"AverageRate", &policeConfigParameters.AverageRate})
+    policeConfigParameters.EntityData.Children.Append("peak-rate", types.YChild{"PeakRate", &policeConfigParameters.PeakRate})
+    policeConfigParameters.EntityData.Children.Append("conform-burst", types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst})
+    policeConfigParameters.EntityData.Children.Append("exceed-burst", types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst})
+    policeConfigParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    policeConfigParameters.EntityData.YListKeys = []string {}
+
     return &(policeConfigParameters.EntityData)
 }
 
@@ -7186,10 +7768,13 @@ func (averageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Po
     averageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageRate.EntityData.Children = make(map[string]types.YChild)
-    averageRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageRate.EntityData.Leafs["value"] = types.YLeaf{"Value", averageRate.Value}
-    averageRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", averageRate.Unit}
+    averageRate.EntityData.Children = types.NewOrderedMap()
+    averageRate.EntityData.Leafs = types.NewOrderedMap()
+    averageRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageRate.Value})
+    averageRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", averageRate.Unit})
+
+    averageRate.EntityData.YListKeys = []string {}
+
     return &(averageRate.EntityData)
 }
 
@@ -7216,10 +7801,13 @@ func (peakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Polic
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakRate.EntityData.Children = make(map[string]types.YChild)
-    peakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", peakRate.Value}
-    peakRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", peakRate.Unit}
+    peakRate.EntityData.Children = types.NewOrderedMap()
+    peakRate.EntityData.Leafs = types.NewOrderedMap()
+    peakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakRate.Value})
+    peakRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", peakRate.Unit})
+
+    peakRate.EntityData.YListKeys = []string {}
+
     return &(peakRate.EntityData)
 }
 
@@ -7246,10 +7834,13 @@ func (conformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_P
     conformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conformBurst.EntityData.Children = make(map[string]types.YChild)
-    conformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    conformBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", conformBurst.Value}
-    conformBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", conformBurst.Unit}
+    conformBurst.EntityData.Children = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", conformBurst.Value})
+    conformBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", conformBurst.Unit})
+
+    conformBurst.EntityData.YListKeys = []string {}
+
     return &(conformBurst.EntityData)
 }
 
@@ -7276,10 +7867,13 @@ func (exceedBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Po
     exceedBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exceedBurst.EntityData.Children = make(map[string]types.YChild)
-    exceedBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    exceedBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", exceedBurst.Value}
-    exceedBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", exceedBurst.Unit}
+    exceedBurst.EntityData.Children = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", exceedBurst.Value})
+    exceedBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", exceedBurst.Unit})
+
+    exceedBurst.EntityData.YListKeys = []string {}
+
     return &(exceedBurst.EntityData)
 }
 
@@ -7324,16 +7918,19 @@ func (wfq *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyph
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wfq.EntityData.Children = make(map[string]types.YChild)
-    wfq.EntityData.Children["parent-bandwidth"] = types.YChild{"ParentBandwidth", &wfq.ParentBandwidth}
-    wfq.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &wfq.Bandwidth}
-    wfq.EntityData.Leafs = make(map[string]types.YLeaf)
-    wfq.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wfq.ProfileId}
-    wfq.EntityData.Leafs["committed-weight"] = types.YLeaf{"CommittedWeight", wfq.CommittedWeight}
-    wfq.EntityData.Leafs["excess-weight"] = types.YLeaf{"ExcessWeight", wfq.ExcessWeight}
-    wfq.EntityData.Leafs["excess-ratio"] = types.YLeaf{"ExcessRatio", wfq.ExcessRatio}
-    wfq.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", wfq.ChunkId}
-    wfq.EntityData.Leafs["level"] = types.YLeaf{"Level", wfq.Level}
+    wfq.EntityData.Children = types.NewOrderedMap()
+    wfq.EntityData.Children.Append("parent-bandwidth", types.YChild{"ParentBandwidth", &wfq.ParentBandwidth})
+    wfq.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &wfq.Bandwidth})
+    wfq.EntityData.Leafs = types.NewOrderedMap()
+    wfq.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wfq.ProfileId})
+    wfq.EntityData.Leafs.Append("committed-weight", types.YLeaf{"CommittedWeight", wfq.CommittedWeight})
+    wfq.EntityData.Leafs.Append("excess-weight", types.YLeaf{"ExcessWeight", wfq.ExcessWeight})
+    wfq.EntityData.Leafs.Append("excess-ratio", types.YLeaf{"ExcessRatio", wfq.ExcessRatio})
+    wfq.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", wfq.ChunkId})
+    wfq.EntityData.Leafs.Append("level", types.YLeaf{"Level", wfq.Level})
+
+    wfq.EntityData.YListKeys = []string {}
+
     return &(wfq.EntityData)
 }
 
@@ -7360,10 +7957,13 @@ func (parentBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Detail
     parentBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentBandwidth.EntityData.Children = make(map[string]types.YChild)
-    parentBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", parentBandwidth.Value}
-    parentBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", parentBandwidth.Unit}
+    parentBandwidth.EntityData.Children = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", parentBandwidth.Value})
+    parentBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", parentBandwidth.Unit})
+
+    parentBandwidth.EntityData.YListKeys = []string {}
+
     return &(parentBandwidth.EntityData)
 }
 
@@ -7390,10 +7990,13 @@ func (bandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Poli
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", bandwidth.Unit}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", bandwidth.Unit})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -7404,14 +8007,14 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
     YFilter yfilter.YFilter
 
     // WRED type. The type is Wred.
-    Type_ interface{}
+    Type interface{}
 
     // Number of curves. The type is interface{} with range: 0..65535.
     CurveXr interface{}
 
     // Curve details. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve.
-    Curve []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve
+    Curve []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve
 }
 
 func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Wred) GetEntityData() *types.CommonEntityData {
@@ -7424,14 +8027,17 @@ func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyp
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wred.EntityData.Children = make(map[string]types.YChild)
-    wred.EntityData.Children["curve"] = types.YChild{"Curve", nil}
+    wred.EntityData.Children = types.NewOrderedMap()
+    wred.EntityData.Children.Append("curve", types.YChild{"Curve", nil})
     for i := range wred.Curve {
-        wred.EntityData.Children[types.GetSegmentPath(&wred.Curve[i])] = types.YChild{"Curve", &wred.Curve[i]}
+        wred.EntityData.Children.Append(types.GetSegmentPath(wred.Curve[i]), types.YChild{"Curve", wred.Curve[i]})
     }
-    wred.EntityData.Leafs = make(map[string]types.YLeaf)
-    wred.EntityData.Leafs["type"] = types.YLeaf{"Type_", wred.Type_}
-    wred.EntityData.Leafs["curve-xr"] = types.YLeaf{"CurveXr", wred.CurveXr}
+    wred.EntityData.Leafs = types.NewOrderedMap()
+    wred.EntityData.Leafs.Append("type", types.YLeaf{"Type", wred.Type})
+    wred.EntityData.Leafs.Append("curve-xr", types.YLeaf{"CurveXr", wred.CurveXr})
+
+    wred.EntityData.YListKeys = []string {}
+
     return &(wred.EntityData)
 }
 
@@ -7482,17 +8088,20 @@ func (curve *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTy
     curve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     curve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    curve.EntityData.Children = make(map[string]types.YChild)
-    curve.EntityData.Children["min-threshold"] = types.YChild{"MinThreshold", &curve.MinThreshold}
-    curve.EntityData.Children["min-threshold-user-config"] = types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig}
-    curve.EntityData.Children["max-threshold"] = types.YChild{"MaxThreshold", &curve.MaxThreshold}
-    curve.EntityData.Children["max-threshold-user-config"] = types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig}
-    curve.EntityData.Leafs = make(map[string]types.YLeaf)
-    curve.EntityData.Leafs["absolute-index"] = types.YLeaf{"AbsoluteIndex", curve.AbsoluteIndex}
-    curve.EntityData.Leafs["template-id"] = types.YLeaf{"TemplateId", curve.TemplateId}
-    curve.EntityData.Leafs["curve-id"] = types.YLeaf{"CurveId", curve.CurveId}
-    curve.EntityData.Leafs["match"] = types.YLeaf{"Match", curve.Match}
-    curve.EntityData.Leafs["exp-match"] = types.YLeaf{"ExpMatch", curve.ExpMatch}
+    curve.EntityData.Children = types.NewOrderedMap()
+    curve.EntityData.Children.Append("min-threshold", types.YChild{"MinThreshold", &curve.MinThreshold})
+    curve.EntityData.Children.Append("min-threshold-user-config", types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig})
+    curve.EntityData.Children.Append("max-threshold", types.YChild{"MaxThreshold", &curve.MaxThreshold})
+    curve.EntityData.Children.Append("max-threshold-user-config", types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig})
+    curve.EntityData.Leafs = types.NewOrderedMap()
+    curve.EntityData.Leafs.Append("absolute-index", types.YLeaf{"AbsoluteIndex", curve.AbsoluteIndex})
+    curve.EntityData.Leafs.Append("template-id", types.YLeaf{"TemplateId", curve.TemplateId})
+    curve.EntityData.Leafs.Append("curve-id", types.YLeaf{"CurveId", curve.CurveId})
+    curve.EntityData.Leafs.Append("match", types.YLeaf{"Match", curve.Match})
+    curve.EntityData.Leafs.Append("exp-match", types.YLeaf{"ExpMatch", curve.ExpMatch})
+
+    curve.EntityData.YListKeys = []string {}
+
     return &(curve.EntityData)
 }
 
@@ -7519,10 +8128,13 @@ func (minThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_P
     minThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThreshold.EntityData.Children = make(map[string]types.YChild)
-    minThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", minThreshold.Value}
-    minThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThreshold.Unit}
+    minThreshold.EntityData.Children = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThreshold.Value})
+    minThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThreshold.Unit})
+
+    minThreshold.EntityData.YListKeys = []string {}
+
     return &(minThreshold.EntityData)
 }
 
@@ -7549,10 +8161,13 @@ func (minThresholdUserConfig *PlatformQos_Nodes_Node_Interfaces_Interface_Output
     minThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    minThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", minThresholdUserConfig.Value}
-    minThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThresholdUserConfig.Unit}
+    minThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThresholdUserConfig.Value})
+    minThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThresholdUserConfig.Unit})
+
+    minThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(minThresholdUserConfig.EntityData)
 }
 
@@ -7579,10 +8194,13 @@ func (maxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_P
     maxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThreshold.EntityData.Children = make(map[string]types.YChild)
-    maxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThreshold.Value}
-    maxThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThreshold.Unit}
+    maxThreshold.EntityData.Children = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThreshold.Value})
+    maxThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThreshold.Unit})
+
+    maxThreshold.EntityData.YListKeys = []string {}
+
     return &(maxThreshold.EntityData)
 }
 
@@ -7609,10 +8227,13 @@ func (maxThresholdUserConfig *PlatformQos_Nodes_Node_Interfaces_Interface_Output
     maxThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    maxThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThresholdUserConfig.Value}
-    maxThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThresholdUserConfig.Unit}
+    maxThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThresholdUserConfig.Value})
+    maxThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThresholdUserConfig.Unit})
+
+    maxThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(maxThresholdUserConfig.EntityData)
 }
 
@@ -7657,16 +8278,19 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyp
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mark.EntityData.Children = make(map[string]types.YChild)
-    mark.EntityData.Children["child-mark"] = types.YChild{"ChildMark", &mark.ChildMark}
-    mark.EntityData.Children["police-conform"] = types.YChild{"PoliceConform", &mark.PoliceConform}
-    mark.EntityData.Children["police-exceed"] = types.YChild{"PoliceExceed", &mark.PoliceExceed}
-    mark.EntityData.Children["police-violate"] = types.YChild{"PoliceViolate", &mark.PoliceViolate}
-    mark.EntityData.Children["parent-mark"] = types.YChild{"ParentMark", &mark.ParentMark}
-    mark.EntityData.Children["parent-police-conform"] = types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform}
-    mark.EntityData.Children["parent-police-exceed"] = types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed}
-    mark.EntityData.Children["parent-police-violate"] = types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate}
-    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Children = types.NewOrderedMap()
+    mark.EntityData.Children.Append("child-mark", types.YChild{"ChildMark", &mark.ChildMark})
+    mark.EntityData.Children.Append("police-conform", types.YChild{"PoliceConform", &mark.PoliceConform})
+    mark.EntityData.Children.Append("police-exceed", types.YChild{"PoliceExceed", &mark.PoliceExceed})
+    mark.EntityData.Children.Append("police-violate", types.YChild{"PoliceViolate", &mark.PoliceViolate})
+    mark.EntityData.Children.Append("parent-mark", types.YChild{"ParentMark", &mark.ParentMark})
+    mark.EntityData.Children.Append("parent-police-conform", types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform})
+    mark.EntityData.Children.Append("parent-police-exceed", types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed})
+    mark.EntityData.Children.Append("parent-police-violate", types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate})
+    mark.EntityData.Leafs = types.NewOrderedMap()
+
+    mark.EntityData.YListKeys = []string {}
+
     return &(mark.EntityData)
 }
 
@@ -7681,7 +8305,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail
 }
 
 func (childMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark) GetEntityData() *types.CommonEntityData {
@@ -7694,13 +8318,16 @@ func (childMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Poli
     childMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     childMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    childMark.EntityData.Children = make(map[string]types.YChild)
-    childMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    childMark.EntityData.Children = types.NewOrderedMap()
+    childMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range childMark.MarkDetail {
-        childMark.EntityData.Children[types.GetSegmentPath(&childMark.MarkDetail[i])] = types.YChild{"MarkDetail", &childMark.MarkDetail[i]}
+        childMark.EntityData.Children.Append(types.GetSegmentPath(childMark.MarkDetail[i]), types.YChild{"MarkDetail", childMark.MarkDetail[i]})
     }
-    childMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    childMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", childMark.ActionType}
+    childMark.EntityData.Leafs = types.NewOrderedMap()
+    childMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", childMark.ActionType})
+
+    childMark.EntityData.YListKeys = []string {}
+
     return &(childMark.EntityData)
 }
 
@@ -7727,10 +8354,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -7745,7 +8375,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail
 }
 
 func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform) GetEntityData() *types.CommonEntityData {
@@ -7758,13 +8388,16 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConform.EntityData.Children = make(map[string]types.YChild)
-    policeConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeConform.EntityData.Children = types.NewOrderedMap()
+    policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
-        policeConform.EntityData.Children[types.GetSegmentPath(&policeConform.MarkDetail[i])] = types.YChild{"MarkDetail", &policeConform.MarkDetail[i]}
+        policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
-    policeConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeConform.ActionType}
+    policeConform.EntityData.Leafs = types.NewOrderedMap()
+    policeConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeConform.ActionType})
+
+    policeConform.EntityData.YListKeys = []string {}
+
     return &(policeConform.EntityData)
 }
 
@@ -7791,10 +8424,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -7809,7 +8445,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail
 }
 
 func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -7822,13 +8458,16 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_P
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeExceed.EntityData.Children = make(map[string]types.YChild)
-    policeExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeExceed.EntityData.Children = types.NewOrderedMap()
+    policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
-        policeExceed.EntityData.Children[types.GetSegmentPath(&policeExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &policeExceed.MarkDetail[i]}
+        policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
-    policeExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeExceed.ActionType}
+    policeExceed.EntityData.Leafs = types.NewOrderedMap()
+    policeExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeExceed.ActionType})
+
+    policeExceed.EntityData.YListKeys = []string {}
+
     return &(policeExceed.EntityData)
 }
 
@@ -7855,10 +8494,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -7873,7 +8515,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail
 }
 
 func (policeViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -7886,13 +8528,16 @@ func (policeViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_
     policeViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeViolate.EntityData.Children = make(map[string]types.YChild)
-    policeViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeViolate.EntityData.Children = types.NewOrderedMap()
+    policeViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeViolate.MarkDetail {
-        policeViolate.EntityData.Children[types.GetSegmentPath(&policeViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &policeViolate.MarkDetail[i]}
+        policeViolate.EntityData.Children.Append(types.GetSegmentPath(policeViolate.MarkDetail[i]), types.YChild{"MarkDetail", policeViolate.MarkDetail[i]})
     }
-    policeViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeViolate.ActionType}
+    policeViolate.EntityData.Leafs = types.NewOrderedMap()
+    policeViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeViolate.ActionType})
+
+    policeViolate.EntityData.YListKeys = []string {}
+
     return &(policeViolate.EntityData)
 }
 
@@ -7919,10 +8564,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -7937,7 +8585,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail
 }
 
 func (parentMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark) GetEntityData() *types.CommonEntityData {
@@ -7950,13 +8598,16 @@ func (parentMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     parentMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentMark.EntityData.Children = make(map[string]types.YChild)
-    parentMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentMark.EntityData.Children = types.NewOrderedMap()
+    parentMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentMark.MarkDetail {
-        parentMark.EntityData.Children[types.GetSegmentPath(&parentMark.MarkDetail[i])] = types.YChild{"MarkDetail", &parentMark.MarkDetail[i]}
+        parentMark.EntityData.Children.Append(types.GetSegmentPath(parentMark.MarkDetail[i]), types.YChild{"MarkDetail", parentMark.MarkDetail[i]})
     }
-    parentMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentMark.ActionType}
+    parentMark.EntityData.Leafs = types.NewOrderedMap()
+    parentMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentMark.ActionType})
+
+    parentMark.EntityData.YListKeys = []string {}
+
     return &(parentMark.EntityData)
 }
 
@@ -7983,10 +8634,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -8001,7 +8655,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail
 }
 
 func (parentPoliceConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform) GetEntityData() *types.CommonEntityData {
@@ -8014,13 +8668,16 @@ func (parentPoliceConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_De
     parentPoliceConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceConform.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceConform.EntityData.Children = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceConform.MarkDetail {
-        parentPoliceConform.EntityData.Children[types.GetSegmentPath(&parentPoliceConform.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceConform.MarkDetail[i]}
+        parentPoliceConform.EntityData.Children.Append(types.GetSegmentPath(parentPoliceConform.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceConform.MarkDetail[i]})
     }
-    parentPoliceConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceConform.ActionType}
+    parentPoliceConform.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceConform.ActionType})
+
+    parentPoliceConform.EntityData.YListKeys = []string {}
+
     return &(parentPoliceConform.EntityData)
 }
 
@@ -8047,10 +8704,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -8065,7 +8725,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail
 }
 
 func (parentPoliceExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -8078,13 +8738,16 @@ func (parentPoliceExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Det
     parentPoliceExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceExceed.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceExceed.EntityData.Children = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceExceed.MarkDetail {
-        parentPoliceExceed.EntityData.Children[types.GetSegmentPath(&parentPoliceExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceExceed.MarkDetail[i]}
+        parentPoliceExceed.EntityData.Children.Append(types.GetSegmentPath(parentPoliceExceed.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceExceed.MarkDetail[i]})
     }
-    parentPoliceExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceExceed.ActionType}
+    parentPoliceExceed.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceExceed.ActionType})
+
+    parentPoliceExceed.EntityData.YListKeys = []string {}
+
     return &(parentPoliceExceed.EntityData)
 }
 
@@ -8111,10 +8774,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -8129,7 +8795,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_Qo
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail
 }
 
 func (parentPoliceViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -8142,13 +8808,16 @@ func (parentPoliceViolate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_De
     parentPoliceViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceViolate.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceViolate.EntityData.Children = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceViolate.MarkDetail {
-        parentPoliceViolate.EntityData.Children[types.GetSegmentPath(&parentPoliceViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceViolate.MarkDetail[i]}
+        parentPoliceViolate.EntityData.Children.Append(types.GetSegmentPath(parentPoliceViolate.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceViolate.MarkDetail[i]})
     }
-    parentPoliceViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceViolate.ActionType}
+    parentPoliceViolate.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceViolate.ActionType})
+
+    parentPoliceViolate.EntityData.YListKeys = []string {}
+
     return &(parentPoliceViolate.EntityData)
 }
 
@@ -8175,10 +8844,13 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Details_Pol
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -8190,7 +8862,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces struct {
 
     // QoS interface name. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface.
-    BundleInterface []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface
+    BundleInterface []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface
 }
 
 func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetEntityData() *types.CommonEntityData {
@@ -8203,12 +8875,15 @@ func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetEntityData()
     bundleInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleInterfaces.EntityData.Children = make(map[string]types.YChild)
-    bundleInterfaces.EntityData.Children["bundle-interface"] = types.YChild{"BundleInterface", nil}
+    bundleInterfaces.EntityData.Children = types.NewOrderedMap()
+    bundleInterfaces.EntityData.Children.Append("bundle-interface", types.YChild{"BundleInterface", nil})
     for i := range bundleInterfaces.BundleInterface {
-        bundleInterfaces.EntityData.Children[types.GetSegmentPath(&bundleInterfaces.BundleInterface[i])] = types.YChild{"BundleInterface", &bundleInterfaces.BundleInterface[i]}
+        bundleInterfaces.EntityData.Children.Append(types.GetSegmentPath(bundleInterfaces.BundleInterface[i]), types.YChild{"BundleInterface", bundleInterfaces.BundleInterface[i]})
     }
-    bundleInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    bundleInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    bundleInterfaces.EntityData.YListKeys = []string {}
+
     return &(bundleInterfaces.EntityData)
 }
 
@@ -8219,7 +8894,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // QoS policy direction output.
@@ -8234,16 +8909,19 @@ func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) 
     bundleInterface.EntityData.YangName = "bundle-interface"
     bundleInterface.EntityData.BundleName = "cisco_ios_xr"
     bundleInterface.EntityData.ParentYangName = "bundle-interfaces"
-    bundleInterface.EntityData.SegmentPath = "bundle-interface" + "[interface-name='" + fmt.Sprintf("%v", bundleInterface.InterfaceName) + "']"
+    bundleInterface.EntityData.SegmentPath = "bundle-interface" + types.AddKeyToken(bundleInterface.InterfaceName, "interface-name")
     bundleInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleInterface.EntityData.Children = make(map[string]types.YChild)
-    bundleInterface.EntityData.Children["bundle-output"] = types.YChild{"BundleOutput", &bundleInterface.BundleOutput}
-    bundleInterface.EntityData.Children["bundle-input"] = types.YChild{"BundleInput", &bundleInterface.BundleInput}
-    bundleInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    bundleInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bundleInterface.InterfaceName}
+    bundleInterface.EntityData.Children = types.NewOrderedMap()
+    bundleInterface.EntityData.Children.Append("bundle-output", types.YChild{"BundleOutput", &bundleInterface.BundleOutput})
+    bundleInterface.EntityData.Children.Append("bundle-input", types.YChild{"BundleInput", &bundleInterface.BundleInput})
+    bundleInterface.EntityData.Leafs = types.NewOrderedMap()
+    bundleInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bundleInterface.InterfaceName})
+
+    bundleInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(bundleInterface.EntityData)
 }
 
@@ -8267,9 +8945,12 @@ func (bundleOutput *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     bundleOutput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleOutput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleOutput.EntityData.Children = make(map[string]types.YChild)
-    bundleOutput.EntityData.Children["member-interfaces"] = types.YChild{"MemberInterfaces", &bundleOutput.MemberInterfaces}
-    bundleOutput.EntityData.Leafs = make(map[string]types.YLeaf)
+    bundleOutput.EntityData.Children = types.NewOrderedMap()
+    bundleOutput.EntityData.Children.Append("member-interfaces", types.YChild{"MemberInterfaces", &bundleOutput.MemberInterfaces})
+    bundleOutput.EntityData.Leafs = types.NewOrderedMap()
+
+    bundleOutput.EntityData.YListKeys = []string {}
+
     return &(bundleOutput.EntityData)
 }
 
@@ -8281,7 +8962,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // QoS interface name. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface.
-    MemberInterface []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface
+    MemberInterface []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface
 }
 
 func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces) GetEntityData() *types.CommonEntityData {
@@ -8294,12 +8975,15 @@ func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     memberInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memberInterfaces.EntityData.Children = make(map[string]types.YChild)
-    memberInterfaces.EntityData.Children["member-interface"] = types.YChild{"MemberInterface", nil}
+    memberInterfaces.EntityData.Children = types.NewOrderedMap()
+    memberInterfaces.EntityData.Children.Append("member-interface", types.YChild{"MemberInterface", nil})
     for i := range memberInterfaces.MemberInterface {
-        memberInterfaces.EntityData.Children[types.GetSegmentPath(&memberInterfaces.MemberInterface[i])] = types.YChild{"MemberInterface", &memberInterfaces.MemberInterface[i]}
+        memberInterfaces.EntityData.Children.Append(types.GetSegmentPath(memberInterfaces.MemberInterface[i]), types.YChild{"MemberInterface", memberInterfaces.MemberInterface[i]})
     }
-    memberInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    memberInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    memberInterfaces.EntityData.YListKeys = []string {}
+
     return &(memberInterfaces.EntityData)
 }
 
@@ -8310,7 +8994,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
     YFilter yfilter.YFilter
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // QoS policy direction egress.
@@ -8322,15 +9006,18 @@ func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     memberInterface.EntityData.YangName = "member-interface"
     memberInterface.EntityData.BundleName = "cisco_ios_xr"
     memberInterface.EntityData.ParentYangName = "member-interfaces"
-    memberInterface.EntityData.SegmentPath = "member-interface" + "[interface-name='" + fmt.Sprintf("%v", memberInterface.InterfaceName) + "']"
+    memberInterface.EntityData.SegmentPath = "member-interface" + types.AddKeyToken(memberInterface.InterfaceName, "interface-name")
     memberInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memberInterface.EntityData.Children = make(map[string]types.YChild)
-    memberInterface.EntityData.Children["details"] = types.YChild{"Details", &memberInterface.Details}
-    memberInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    memberInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", memberInterface.InterfaceName}
+    memberInterface.EntityData.Children = types.NewOrderedMap()
+    memberInterface.EntityData.Children.Append("details", types.YChild{"Details", &memberInterface.Details})
+    memberInterface.EntityData.Leafs = types.NewOrderedMap()
+    memberInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", memberInterface.InterfaceName})
+
+    memberInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(memberInterface.EntityData)
 }
 
@@ -8360,11 +9047,14 @@ func (details *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOut
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Children["header"] = types.YChild{"Header", &details.Header}
-    details.EntityData.Children["policy"] = types.YChild{"Policy", &details.Policy}
-    details.EntityData.Children["policy-typhoon"] = types.YChild{"PolicyTyphoon", &details.PolicyTyphoon}
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Children.Append("header", types.YChild{"Header", &details.Header})
+    details.EntityData.Children.Append("policy", types.YChild{"Policy", &details.Policy})
+    details.EntityData.Children.Append("policy-typhoon", types.YChild{"PolicyTyphoon", &details.PolicyTyphoon})
+    details.EntityData.Leafs = types.NewOrderedMap()
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -8397,12 +9087,15 @@ func (header *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutp
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Children["interface-parameters"] = types.YChild{"InterfaceParameters", &header.InterfaceParameters}
-    header.EntityData.Children["programmed-bandwidth"] = types.YChild{"ProgrammedBandwidth", &header.ProgrammedBandwidth}
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["classes"] = types.YLeaf{"Classes", header.Classes}
-    header.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", header.PolicyName}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Children.Append("interface-parameters", types.YChild{"InterfaceParameters", &header.InterfaceParameters})
+    header.EntityData.Children.Append("programmed-bandwidth", types.YChild{"ProgrammedBandwidth", &header.ProgrammedBandwidth})
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("classes", types.YLeaf{"Classes", header.Classes})
+    header.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", header.PolicyName})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -8435,12 +9128,15 @@ func (interfaceParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceParameters.EntityData.Children = make(map[string]types.YChild)
-    interfaceParameters.EntityData.Children["port-config-bandwidth"] = types.YChild{"PortConfigBandwidth", &interfaceParameters.PortConfigBandwidth}
-    interfaceParameters.EntityData.Children["ancp-config-bandwidth"] = types.YChild{"AncpConfigBandwidth", &interfaceParameters.AncpConfigBandwidth}
-    interfaceParameters.EntityData.Children["ancp-programmed-bandwidth"] = types.YChild{"AncpProgrammedBandwidth", &interfaceParameters.AncpProgrammedBandwidth}
-    interfaceParameters.EntityData.Children["port-shaper-rate"] = types.YChild{"PortShaperRate", &interfaceParameters.PortShaperRate}
-    interfaceParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceParameters.EntityData.Children = types.NewOrderedMap()
+    interfaceParameters.EntityData.Children.Append("port-config-bandwidth", types.YChild{"PortConfigBandwidth", &interfaceParameters.PortConfigBandwidth})
+    interfaceParameters.EntityData.Children.Append("ancp-config-bandwidth", types.YChild{"AncpConfigBandwidth", &interfaceParameters.AncpConfigBandwidth})
+    interfaceParameters.EntityData.Children.Append("ancp-programmed-bandwidth", types.YChild{"AncpProgrammedBandwidth", &interfaceParameters.AncpProgrammedBandwidth})
+    interfaceParameters.EntityData.Children.Append("port-shaper-rate", types.YChild{"PortShaperRate", &interfaceParameters.PortShaperRate})
+    interfaceParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceParameters.EntityData.YListKeys = []string {}
+
     return &(interfaceParameters.EntityData)
 }
 
@@ -8467,10 +9163,13 @@ func (portConfigBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     portConfigBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portConfigBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portConfigBandwidth.EntityData.Children = make(map[string]types.YChild)
-    portConfigBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    portConfigBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", portConfigBandwidth.Value}
-    portConfigBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", portConfigBandwidth.Unit}
+    portConfigBandwidth.EntityData.Children = types.NewOrderedMap()
+    portConfigBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    portConfigBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", portConfigBandwidth.Value})
+    portConfigBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", portConfigBandwidth.Unit})
+
+    portConfigBandwidth.EntityData.YListKeys = []string {}
+
     return &(portConfigBandwidth.EntityData)
 }
 
@@ -8497,10 +9196,13 @@ func (ancpConfigBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     ancpConfigBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ancpConfigBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ancpConfigBandwidth.EntityData.Children = make(map[string]types.YChild)
-    ancpConfigBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    ancpConfigBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", ancpConfigBandwidth.Value}
-    ancpConfigBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", ancpConfigBandwidth.Unit}
+    ancpConfigBandwidth.EntityData.Children = types.NewOrderedMap()
+    ancpConfigBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    ancpConfigBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", ancpConfigBandwidth.Value})
+    ancpConfigBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", ancpConfigBandwidth.Unit})
+
+    ancpConfigBandwidth.EntityData.YListKeys = []string {}
+
     return &(ancpConfigBandwidth.EntityData)
 }
 
@@ -8527,10 +9229,13 @@ func (ancpProgrammedBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInt
     ancpProgrammedBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ancpProgrammedBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ancpProgrammedBandwidth.EntityData.Children = make(map[string]types.YChild)
-    ancpProgrammedBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    ancpProgrammedBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", ancpProgrammedBandwidth.Value}
-    ancpProgrammedBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", ancpProgrammedBandwidth.Unit}
+    ancpProgrammedBandwidth.EntityData.Children = types.NewOrderedMap()
+    ancpProgrammedBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    ancpProgrammedBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", ancpProgrammedBandwidth.Value})
+    ancpProgrammedBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", ancpProgrammedBandwidth.Unit})
+
+    ancpProgrammedBandwidth.EntityData.YListKeys = []string {}
+
     return &(ancpProgrammedBandwidth.EntityData)
 }
 
@@ -8557,10 +9262,13 @@ func (portShaperRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bu
     portShaperRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portShaperRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portShaperRate.EntityData.Children = make(map[string]types.YChild)
-    portShaperRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    portShaperRate.EntityData.Leafs["value"] = types.YLeaf{"Value", portShaperRate.Value}
-    portShaperRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", portShaperRate.Unit}
+    portShaperRate.EntityData.Children = types.NewOrderedMap()
+    portShaperRate.EntityData.Leafs = types.NewOrderedMap()
+    portShaperRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", portShaperRate.Value})
+    portShaperRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", portShaperRate.Unit})
+
+    portShaperRate.EntityData.YListKeys = []string {}
+
     return &(portShaperRate.EntityData)
 }
 
@@ -8587,10 +9295,13 @@ func (programmedBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     programmedBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     programmedBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    programmedBandwidth.EntityData.Children = make(map[string]types.YChild)
-    programmedBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    programmedBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", programmedBandwidth.Value}
-    programmedBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", programmedBandwidth.Unit}
+    programmedBandwidth.EntityData.Children = types.NewOrderedMap()
+    programmedBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    programmedBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", programmedBandwidth.Value})
+    programmedBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", programmedBandwidth.Unit})
+
+    programmedBandwidth.EntityData.YListKeys = []string {}
+
     return &(programmedBandwidth.EntityData)
 }
 
@@ -8602,7 +9313,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // qos show ea st v1. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1.
-    QosShowEaStV1 []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1
+    QosShowEaStV1 []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1
 }
 
 func (policy *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy) GetEntityData() *types.CommonEntityData {
@@ -8615,12 +9326,15 @@ func (policy *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutp
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policy.EntityData.Children = make(map[string]types.YChild)
-    policy.EntityData.Children["qos-show-ea-st-v1"] = types.YChild{"QosShowEaStV1", nil}
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Children.Append("qos-show-ea-st-v1", types.YChild{"QosShowEaStV1", nil})
     for i := range policy.QosShowEaStV1 {
-        policy.EntityData.Children[types.GetSegmentPath(&policy.QosShowEaStV1[i])] = types.YChild{"QosShowEaStV1", &policy.QosShowEaStV1[i]}
+        policy.EntityData.Children.Append(types.GetSegmentPath(policy.QosShowEaStV1[i]), types.YChild{"QosShowEaStV1", policy.QosShowEaStV1[i]})
     }
-    policy.EntityData.Leafs = make(map[string]types.YLeaf)
+    policy.EntityData.Leafs = types.NewOrderedMap()
+
+    policy.EntityData.YListKeys = []string {}
+
     return &(policy.EntityData)
 }
 
@@ -8677,20 +9391,23 @@ func (qosShowEaStV1 *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     qosShowEaStV1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaStV1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qosShowEaStV1.EntityData.Children = make(map[string]types.YChild)
-    qosShowEaStV1.EntityData.Children["queue"] = types.YChild{"Queue", &qosShowEaStV1.Queue}
-    qosShowEaStV1.EntityData.Children["queue-limit-parameters"] = types.YChild{"QueueLimitParameters", &qosShowEaStV1.QueueLimitParameters}
-    qosShowEaStV1.EntityData.Children["shape"] = types.YChild{"Shape", &qosShowEaStV1.Shape}
-    qosShowEaStV1.EntityData.Children["police"] = types.YChild{"Police", &qosShowEaStV1.Police}
-    qosShowEaStV1.EntityData.Children["wfq"] = types.YChild{"Wfq", &qosShowEaStV1.Wfq}
-    qosShowEaStV1.EntityData.Children["wred"] = types.YChild{"Wred", &qosShowEaStV1.Wred}
-    qosShowEaStV1.EntityData.Children["mark"] = types.YChild{"Mark", &qosShowEaStV1.Mark}
-    qosShowEaStV1.EntityData.Leafs = make(map[string]types.YLeaf)
-    qosShowEaStV1.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", qosShowEaStV1.ClassLevel}
-    qosShowEaStV1.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", qosShowEaStV1.ClassName}
-    qosShowEaStV1.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", qosShowEaStV1.PolicyName}
-    qosShowEaStV1.EntityData.Leafs["parent-policy-name"] = types.YLeaf{"ParentPolicyName", qosShowEaStV1.ParentPolicyName}
-    qosShowEaStV1.EntityData.Leafs["parent-class-name"] = types.YLeaf{"ParentClassName", qosShowEaStV1.ParentClassName}
+    qosShowEaStV1.EntityData.Children = types.NewOrderedMap()
+    qosShowEaStV1.EntityData.Children.Append("queue", types.YChild{"Queue", &qosShowEaStV1.Queue})
+    qosShowEaStV1.EntityData.Children.Append("queue-limit-parameters", types.YChild{"QueueLimitParameters", &qosShowEaStV1.QueueLimitParameters})
+    qosShowEaStV1.EntityData.Children.Append("shape", types.YChild{"Shape", &qosShowEaStV1.Shape})
+    qosShowEaStV1.EntityData.Children.Append("police", types.YChild{"Police", &qosShowEaStV1.Police})
+    qosShowEaStV1.EntityData.Children.Append("wfq", types.YChild{"Wfq", &qosShowEaStV1.Wfq})
+    qosShowEaStV1.EntityData.Children.Append("wred", types.YChild{"Wred", &qosShowEaStV1.Wred})
+    qosShowEaStV1.EntityData.Children.Append("mark", types.YChild{"Mark", &qosShowEaStV1.Mark})
+    qosShowEaStV1.EntityData.Leafs = types.NewOrderedMap()
+    qosShowEaStV1.EntityData.Leafs.Append("class-level", types.YLeaf{"ClassLevel", qosShowEaStV1.ClassLevel})
+    qosShowEaStV1.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", qosShowEaStV1.ClassName})
+    qosShowEaStV1.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", qosShowEaStV1.PolicyName})
+    qosShowEaStV1.EntityData.Leafs.Append("parent-policy-name", types.YLeaf{"ParentPolicyName", qosShowEaStV1.ParentPolicyName})
+    qosShowEaStV1.EntityData.Leafs.Append("parent-class-name", types.YLeaf{"ParentClassName", qosShowEaStV1.ParentClassName})
+
+    qosShowEaStV1.EntityData.YListKeys = []string {}
+
     return &(qosShowEaStV1.EntityData)
 }
 
@@ -8720,11 +9437,14 @@ func (queue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutpu
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queue.EntityData.Children = make(map[string]types.YChild)
-    queue.EntityData.Leafs = make(map[string]types.YLeaf)
-    queue.EntityData.Leafs["queue-id"] = types.YLeaf{"QueueId", queue.QueueId}
-    queue.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", queue.QueueType}
-    queue.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", queue.ClassName}
+    queue.EntityData.Children = types.NewOrderedMap()
+    queue.EntityData.Leafs = types.NewOrderedMap()
+    queue.EntityData.Leafs.Append("queue-id", types.YLeaf{"QueueId", queue.QueueId})
+    queue.EntityData.Leafs.Append("queue-type", types.YLeaf{"QueueType", queue.QueueType})
+    queue.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", queue.ClassName})
+
+    queue.EntityData.YListKeys = []string {}
+
     return &(queue.EntityData)
 }
 
@@ -8757,12 +9477,15 @@ func (queueLimitParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterf
     queueLimitParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimitParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimitParameters.EntityData.Children = make(map[string]types.YChild)
-    queueLimitParameters.EntityData.Children["queue-limit"] = types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit}
-    queueLimitParameters.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit}
-    queueLimitParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimitParameters.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", queueLimitParameters.ProfileId}
-    queueLimitParameters.EntityData.Leafs["scaling-profile-id"] = types.YLeaf{"ScalingProfileId", queueLimitParameters.ScalingProfileId}
+    queueLimitParameters.EntityData.Children = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Children.Append("queue-limit", types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit})
+    queueLimitParameters.EntityData.Children.Append("config-queue-limit", types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit})
+    queueLimitParameters.EntityData.Leafs = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", queueLimitParameters.ProfileId})
+    queueLimitParameters.EntityData.Leafs.Append("scaling-profile-id", types.YLeaf{"ScalingProfileId", queueLimitParameters.ScalingProfileId})
+
+    queueLimitParameters.EntityData.YListKeys = []string {}
+
     return &(queueLimitParameters.EntityData)
 }
 
@@ -8789,10 +9512,13 @@ func (queueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimit.EntityData.Children = make(map[string]types.YChild)
-    queueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", queueLimit.Value}
-    queueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", queueLimit.Unit}
+    queueLimit.EntityData.Children = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", queueLimit.Value})
+    queueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", queueLimit.Unit})
+
+    queueLimit.EntityData.YListKeys = []string {}
+
     return &(queueLimit.EntityData)
 }
 
@@ -8819,10 +9545,13 @@ func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
-    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    configQueueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", configQueueLimit.Value}
-    configQueueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", configQueueLimit.Unit}
+    configQueueLimit.EntityData.Children = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", configQueueLimit.Value})
+    configQueueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", configQueueLimit.Unit})
+
+    configQueueLimit.EntityData.YListKeys = []string {}
+
     return &(configQueueLimit.EntityData)
 }
 
@@ -8861,14 +9590,17 @@ func (shape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutpu
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shape.EntityData.Children = make(map[string]types.YChild)
-    shape.EntityData.Children["cir"] = types.YChild{"Cir", &shape.Cir}
-    shape.EntityData.Children["config-bandwidth"] = types.YChild{"ConfigBandwidth", &shape.ConfigBandwidth}
-    shape.EntityData.Children["cbs"] = types.YChild{"Cbs", &shape.Cbs}
-    shape.EntityData.Children["pir"] = types.YChild{"Pir", &shape.Pir}
-    shape.EntityData.Children["pbs"] = types.YChild{"Pbs", &shape.Pbs}
-    shape.EntityData.Leafs = make(map[string]types.YLeaf)
-    shape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", shape.ProfileId}
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Children.Append("cir", types.YChild{"Cir", &shape.Cir})
+    shape.EntityData.Children.Append("config-bandwidth", types.YChild{"ConfigBandwidth", &shape.ConfigBandwidth})
+    shape.EntityData.Children.Append("cbs", types.YChild{"Cbs", &shape.Cbs})
+    shape.EntityData.Children.Append("pir", types.YChild{"Pir", &shape.Pir})
+    shape.EntityData.Children.Append("pbs", types.YChild{"Pbs", &shape.Pbs})
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", shape.ProfileId})
+
+    shape.EntityData.YListKeys = []string {}
+
     return &(shape.EntityData)
 }
 
@@ -8895,10 +9627,13 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -8922,9 +9657,12 @@ func (configBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     configBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configBandwidth.EntityData.Children = make(map[string]types.YChild)
-    configBandwidth.EntityData.Children["minimum-rate"] = types.YChild{"MinimumRate", &configBandwidth.MinimumRate}
-    configBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    configBandwidth.EntityData.Children = types.NewOrderedMap()
+    configBandwidth.EntityData.Children.Append("minimum-rate", types.YChild{"MinimumRate", &configBandwidth.MinimumRate})
+    configBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    configBandwidth.EntityData.YListKeys = []string {}
+
     return &(configBandwidth.EntityData)
 }
 
@@ -8951,10 +9689,13 @@ func (minimumRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     minimumRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minimumRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minimumRate.EntityData.Children = make(map[string]types.YChild)
-    minimumRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    minimumRate.EntityData.Leafs["value"] = types.YLeaf{"Value", minimumRate.Value}
-    minimumRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minimumRate.Unit}
+    minimumRate.EntityData.Children = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", minimumRate.Value})
+    minimumRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minimumRate.Unit})
+
+    minimumRate.EntityData.YListKeys = []string {}
+
     return &(minimumRate.EntityData)
 }
 
@@ -8981,10 +9722,13 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -9011,10 +9755,13 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -9041,10 +9788,13 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -9086,15 +9836,18 @@ func (police *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutp
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    police.EntityData.Children = make(map[string]types.YChild)
-    police.EntityData.Children["cir"] = types.YChild{"Cir", &police.Cir}
-    police.EntityData.Children["cbs"] = types.YChild{"Cbs", &police.Cbs}
-    police.EntityData.Children["pir"] = types.YChild{"Pir", &police.Pir}
-    police.EntityData.Children["pbs"] = types.YChild{"Pbs", &police.Pbs}
-    police.EntityData.Children["police-config-parameters"] = types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters}
-    police.EntityData.Leafs = make(map[string]types.YLeaf)
-    police.EntityData.Leafs["policer-type"] = types.YLeaf{"PolicerType", police.PolicerType}
-    police.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", police.ProfileId}
+    police.EntityData.Children = types.NewOrderedMap()
+    police.EntityData.Children.Append("cir", types.YChild{"Cir", &police.Cir})
+    police.EntityData.Children.Append("cbs", types.YChild{"Cbs", &police.Cbs})
+    police.EntityData.Children.Append("pir", types.YChild{"Pir", &police.Pir})
+    police.EntityData.Children.Append("pbs", types.YChild{"Pbs", &police.Pbs})
+    police.EntityData.Children.Append("police-config-parameters", types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters})
+    police.EntityData.Leafs = types.NewOrderedMap()
+    police.EntityData.Leafs.Append("policer-type", types.YLeaf{"PolicerType", police.PolicerType})
+    police.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", police.ProfileId})
+
+    police.EntityData.YListKeys = []string {}
+
     return &(police.EntityData)
 }
 
@@ -9121,10 +9874,13 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -9151,10 +9907,13 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -9181,10 +9940,13 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -9211,10 +9973,13 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -9247,12 +10012,15 @@ func (policeConfigParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     policeConfigParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConfigParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConfigParameters.EntityData.Children = make(map[string]types.YChild)
-    policeConfigParameters.EntityData.Children["average-rate"] = types.YChild{"AverageRate", &policeConfigParameters.AverageRate}
-    policeConfigParameters.EntityData.Children["peak-rate"] = types.YChild{"PeakRate", &policeConfigParameters.PeakRate}
-    policeConfigParameters.EntityData.Children["conform-burst"] = types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst}
-    policeConfigParameters.EntityData.Children["exceed-burst"] = types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst}
-    policeConfigParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    policeConfigParameters.EntityData.Children = types.NewOrderedMap()
+    policeConfigParameters.EntityData.Children.Append("average-rate", types.YChild{"AverageRate", &policeConfigParameters.AverageRate})
+    policeConfigParameters.EntityData.Children.Append("peak-rate", types.YChild{"PeakRate", &policeConfigParameters.PeakRate})
+    policeConfigParameters.EntityData.Children.Append("conform-burst", types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst})
+    policeConfigParameters.EntityData.Children.Append("exceed-burst", types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst})
+    policeConfigParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    policeConfigParameters.EntityData.YListKeys = []string {}
+
     return &(policeConfigParameters.EntityData)
 }
 
@@ -9279,10 +10047,13 @@ func (averageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     averageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageRate.EntityData.Children = make(map[string]types.YChild)
-    averageRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageRate.EntityData.Leafs["value"] = types.YLeaf{"Value", averageRate.Value}
-    averageRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", averageRate.Unit}
+    averageRate.EntityData.Children = types.NewOrderedMap()
+    averageRate.EntityData.Leafs = types.NewOrderedMap()
+    averageRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageRate.Value})
+    averageRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", averageRate.Unit})
+
+    averageRate.EntityData.YListKeys = []string {}
+
     return &(averageRate.EntityData)
 }
 
@@ -9309,10 +10080,13 @@ func (peakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOu
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakRate.EntityData.Children = make(map[string]types.YChild)
-    peakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", peakRate.Value}
-    peakRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", peakRate.Unit}
+    peakRate.EntityData.Children = types.NewOrderedMap()
+    peakRate.EntityData.Leafs = types.NewOrderedMap()
+    peakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakRate.Value})
+    peakRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", peakRate.Unit})
+
+    peakRate.EntityData.YListKeys = []string {}
+
     return &(peakRate.EntityData)
 }
 
@@ -9339,10 +10113,13 @@ func (conformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     conformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conformBurst.EntityData.Children = make(map[string]types.YChild)
-    conformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    conformBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", conformBurst.Value}
-    conformBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", conformBurst.Unit}
+    conformBurst.EntityData.Children = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", conformBurst.Value})
+    conformBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", conformBurst.Unit})
+
+    conformBurst.EntityData.YListKeys = []string {}
+
     return &(conformBurst.EntityData)
 }
 
@@ -9369,10 +10146,13 @@ func (exceedBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     exceedBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exceedBurst.EntityData.Children = make(map[string]types.YChild)
-    exceedBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    exceedBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", exceedBurst.Value}
-    exceedBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", exceedBurst.Unit}
+    exceedBurst.EntityData.Children = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", exceedBurst.Value})
+    exceedBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", exceedBurst.Unit})
+
+    exceedBurst.EntityData.YListKeys = []string {}
+
     return &(exceedBurst.EntityData)
 }
 
@@ -9417,16 +10197,19 @@ func (wfq *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wfq.EntityData.Children = make(map[string]types.YChild)
-    wfq.EntityData.Children["parent-bandwidth"] = types.YChild{"ParentBandwidth", &wfq.ParentBandwidth}
-    wfq.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &wfq.Bandwidth}
-    wfq.EntityData.Leafs = make(map[string]types.YLeaf)
-    wfq.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wfq.ProfileId}
-    wfq.EntityData.Leafs["committed-weight"] = types.YLeaf{"CommittedWeight", wfq.CommittedWeight}
-    wfq.EntityData.Leafs["excess-weight"] = types.YLeaf{"ExcessWeight", wfq.ExcessWeight}
-    wfq.EntityData.Leafs["excess-ratio"] = types.YLeaf{"ExcessRatio", wfq.ExcessRatio}
-    wfq.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", wfq.ChunkId}
-    wfq.EntityData.Leafs["level"] = types.YLeaf{"Level", wfq.Level}
+    wfq.EntityData.Children = types.NewOrderedMap()
+    wfq.EntityData.Children.Append("parent-bandwidth", types.YChild{"ParentBandwidth", &wfq.ParentBandwidth})
+    wfq.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &wfq.Bandwidth})
+    wfq.EntityData.Leafs = types.NewOrderedMap()
+    wfq.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wfq.ProfileId})
+    wfq.EntityData.Leafs.Append("committed-weight", types.YLeaf{"CommittedWeight", wfq.CommittedWeight})
+    wfq.EntityData.Leafs.Append("excess-weight", types.YLeaf{"ExcessWeight", wfq.ExcessWeight})
+    wfq.EntityData.Leafs.Append("excess-ratio", types.YLeaf{"ExcessRatio", wfq.ExcessRatio})
+    wfq.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", wfq.ChunkId})
+    wfq.EntityData.Leafs.Append("level", types.YLeaf{"Level", wfq.Level})
+
+    wfq.EntityData.YListKeys = []string {}
+
     return &(wfq.EntityData)
 }
 
@@ -9453,10 +10236,13 @@ func (parentBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     parentBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentBandwidth.EntityData.Children = make(map[string]types.YChild)
-    parentBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", parentBandwidth.Value}
-    parentBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", parentBandwidth.Unit}
+    parentBandwidth.EntityData.Children = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", parentBandwidth.Value})
+    parentBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", parentBandwidth.Unit})
+
+    parentBandwidth.EntityData.YListKeys = []string {}
+
     return &(parentBandwidth.EntityData)
 }
 
@@ -9483,10 +10269,13 @@ func (bandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleO
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", bandwidth.Unit}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", bandwidth.Unit})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -9497,7 +10286,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
     YFilter yfilter.YFilter
 
     // WRED type. The type is Wred.
-    Type_ interface{}
+    Type interface{}
 
     // Number of curves. The type is interface{} with range: 0..65535.
     CurveXr interface{}
@@ -9513,7 +10302,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Curve details. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Wred_Curve.
-    Curve []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Wred_Curve
+    Curve []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Wred_Curve
 }
 
 func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Wred) GetEntityData() *types.CommonEntityData {
@@ -9526,17 +10315,20 @@ func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wred.EntityData.Children = make(map[string]types.YChild)
-    wred.EntityData.Children["curve"] = types.YChild{"Curve", nil}
+    wred.EntityData.Children = types.NewOrderedMap()
+    wred.EntityData.Children.Append("curve", types.YChild{"Curve", nil})
     for i := range wred.Curve {
-        wred.EntityData.Children[types.GetSegmentPath(&wred.Curve[i])] = types.YChild{"Curve", &wred.Curve[i]}
+        wred.EntityData.Children.Append(types.GetSegmentPath(wred.Curve[i]), types.YChild{"Curve", wred.Curve[i]})
     }
-    wred.EntityData.Leafs = make(map[string]types.YLeaf)
-    wred.EntityData.Leafs["type"] = types.YLeaf{"Type_", wred.Type_}
-    wred.EntityData.Leafs["curve-xr"] = types.YLeaf{"CurveXr", wred.CurveXr}
-    wred.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", wred.TableId}
-    wred.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wred.ProfileId}
-    wred.EntityData.Leafs["scaling-profile-id"] = types.YLeaf{"ScalingProfileId", wred.ScalingProfileId}
+    wred.EntityData.Leafs = types.NewOrderedMap()
+    wred.EntityData.Leafs.Append("type", types.YLeaf{"Type", wred.Type})
+    wred.EntityData.Leafs.Append("curve-xr", types.YLeaf{"CurveXr", wred.CurveXr})
+    wred.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", wred.TableId})
+    wred.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wred.ProfileId})
+    wred.EntityData.Leafs.Append("scaling-profile-id", types.YLeaf{"ScalingProfileId", wred.ScalingProfileId})
+
+    wred.EntityData.YListKeys = []string {}
+
     return &(wred.EntityData)
 }
 
@@ -9574,13 +10366,16 @@ func (curve *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutpu
     curve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     curve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    curve.EntityData.Children = make(map[string]types.YChild)
-    curve.EntityData.Children["min-threshold"] = types.YChild{"MinThreshold", &curve.MinThreshold}
-    curve.EntityData.Children["min-threshold-user-config"] = types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig}
-    curve.EntityData.Children["max-threshold"] = types.YChild{"MaxThreshold", &curve.MaxThreshold}
-    curve.EntityData.Children["max-threshold-user-config"] = types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig}
-    curve.EntityData.Leafs = make(map[string]types.YLeaf)
-    curve.EntityData.Leafs["match"] = types.YLeaf{"Match", curve.Match}
+    curve.EntityData.Children = types.NewOrderedMap()
+    curve.EntityData.Children.Append("min-threshold", types.YChild{"MinThreshold", &curve.MinThreshold})
+    curve.EntityData.Children.Append("min-threshold-user-config", types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig})
+    curve.EntityData.Children.Append("max-threshold", types.YChild{"MaxThreshold", &curve.MaxThreshold})
+    curve.EntityData.Children.Append("max-threshold-user-config", types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig})
+    curve.EntityData.Leafs = types.NewOrderedMap()
+    curve.EntityData.Leafs.Append("match", types.YLeaf{"Match", curve.Match})
+
+    curve.EntityData.YListKeys = []string {}
+
     return &(curve.EntityData)
 }
 
@@ -9607,10 +10402,13 @@ func (minThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     minThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThreshold.EntityData.Children = make(map[string]types.YChild)
-    minThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", minThreshold.Value}
-    minThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThreshold.Unit}
+    minThreshold.EntityData.Children = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThreshold.Value})
+    minThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThreshold.Unit})
+
+    minThreshold.EntityData.YListKeys = []string {}
+
     return &(minThreshold.EntityData)
 }
 
@@ -9637,10 +10435,13 @@ func (minThresholdUserConfig *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     minThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    minThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", minThresholdUserConfig.Value}
-    minThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThresholdUserConfig.Unit}
+    minThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThresholdUserConfig.Value})
+    minThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThresholdUserConfig.Unit})
+
+    minThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(minThresholdUserConfig.EntityData)
 }
 
@@ -9667,10 +10468,13 @@ func (maxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     maxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThreshold.EntityData.Children = make(map[string]types.YChild)
-    maxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThreshold.Value}
-    maxThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThreshold.Unit}
+    maxThreshold.EntityData.Children = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThreshold.Value})
+    maxThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThreshold.Unit})
+
+    maxThreshold.EntityData.YListKeys = []string {}
+
     return &(maxThreshold.EntityData)
 }
 
@@ -9697,10 +10501,13 @@ func (maxThresholdUserConfig *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     maxThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    maxThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThresholdUserConfig.Value}
-    maxThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThresholdUserConfig.Unit}
+    maxThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThresholdUserConfig.Value})
+    maxThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThresholdUserConfig.Unit})
+
+    maxThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(maxThresholdUserConfig.EntityData)
 }
 
@@ -9745,16 +10552,19 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mark.EntityData.Children = make(map[string]types.YChild)
-    mark.EntityData.Children["child-mark"] = types.YChild{"ChildMark", &mark.ChildMark}
-    mark.EntityData.Children["police-conform"] = types.YChild{"PoliceConform", &mark.PoliceConform}
-    mark.EntityData.Children["police-exceed"] = types.YChild{"PoliceExceed", &mark.PoliceExceed}
-    mark.EntityData.Children["police-violate"] = types.YChild{"PoliceViolate", &mark.PoliceViolate}
-    mark.EntityData.Children["parent-mark"] = types.YChild{"ParentMark", &mark.ParentMark}
-    mark.EntityData.Children["parent-police-conform"] = types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform}
-    mark.EntityData.Children["parent-police-exceed"] = types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed}
-    mark.EntityData.Children["parent-police-violate"] = types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate}
-    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Children = types.NewOrderedMap()
+    mark.EntityData.Children.Append("child-mark", types.YChild{"ChildMark", &mark.ChildMark})
+    mark.EntityData.Children.Append("police-conform", types.YChild{"PoliceConform", &mark.PoliceConform})
+    mark.EntityData.Children.Append("police-exceed", types.YChild{"PoliceExceed", &mark.PoliceExceed})
+    mark.EntityData.Children.Append("police-violate", types.YChild{"PoliceViolate", &mark.PoliceViolate})
+    mark.EntityData.Children.Append("parent-mark", types.YChild{"ParentMark", &mark.ParentMark})
+    mark.EntityData.Children.Append("parent-police-conform", types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform})
+    mark.EntityData.Children.Append("parent-police-exceed", types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed})
+    mark.EntityData.Children.Append("parent-police-violate", types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate})
+    mark.EntityData.Leafs = types.NewOrderedMap()
+
+    mark.EntityData.YListKeys = []string {}
+
     return &(mark.EntityData)
 }
 
@@ -9769,7 +10579,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail
 }
 
 func (childMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ChildMark) GetEntityData() *types.CommonEntityData {
@@ -9782,13 +10592,16 @@ func (childMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleO
     childMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     childMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    childMark.EntityData.Children = make(map[string]types.YChild)
-    childMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    childMark.EntityData.Children = types.NewOrderedMap()
+    childMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range childMark.MarkDetail {
-        childMark.EntityData.Children[types.GetSegmentPath(&childMark.MarkDetail[i])] = types.YChild{"MarkDetail", &childMark.MarkDetail[i]}
+        childMark.EntityData.Children.Append(types.GetSegmentPath(childMark.MarkDetail[i]), types.YChild{"MarkDetail", childMark.MarkDetail[i]})
     }
-    childMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    childMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", childMark.ActionType}
+    childMark.EntityData.Leafs = types.NewOrderedMap()
+    childMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", childMark.ActionType})
+
+    childMark.EntityData.YListKeys = []string {}
+
     return &(childMark.EntityData)
 }
 
@@ -9815,10 +10628,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -9833,7 +10649,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail
 }
 
 func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceConform) GetEntityData() *types.CommonEntityData {
@@ -9846,13 +10662,16 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConform.EntityData.Children = make(map[string]types.YChild)
-    policeConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeConform.EntityData.Children = types.NewOrderedMap()
+    policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
-        policeConform.EntityData.Children[types.GetSegmentPath(&policeConform.MarkDetail[i])] = types.YChild{"MarkDetail", &policeConform.MarkDetail[i]}
+        policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
-    policeConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeConform.ActionType}
+    policeConform.EntityData.Leafs = types.NewOrderedMap()
+    policeConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeConform.ActionType})
+
+    policeConform.EntityData.YListKeys = []string {}
+
     return &(policeConform.EntityData)
 }
 
@@ -9879,10 +10698,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -9897,7 +10719,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail
 }
 
 func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -9910,13 +10732,16 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeExceed.EntityData.Children = make(map[string]types.YChild)
-    policeExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeExceed.EntityData.Children = types.NewOrderedMap()
+    policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
-        policeExceed.EntityData.Children[types.GetSegmentPath(&policeExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &policeExceed.MarkDetail[i]}
+        policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
-    policeExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeExceed.ActionType}
+    policeExceed.EntityData.Leafs = types.NewOrderedMap()
+    policeExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeExceed.ActionType})
+
+    policeExceed.EntityData.YListKeys = []string {}
+
     return &(policeExceed.EntityData)
 }
 
@@ -9943,10 +10768,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -9961,7 +10789,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail
 }
 
 func (policeViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -9974,13 +10802,16 @@ func (policeViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policeViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeViolate.EntityData.Children = make(map[string]types.YChild)
-    policeViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeViolate.EntityData.Children = types.NewOrderedMap()
+    policeViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeViolate.MarkDetail {
-        policeViolate.EntityData.Children[types.GetSegmentPath(&policeViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &policeViolate.MarkDetail[i]}
+        policeViolate.EntityData.Children.Append(types.GetSegmentPath(policeViolate.MarkDetail[i]), types.YChild{"MarkDetail", policeViolate.MarkDetail[i]})
     }
-    policeViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeViolate.ActionType}
+    policeViolate.EntityData.Leafs = types.NewOrderedMap()
+    policeViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeViolate.ActionType})
+
+    policeViolate.EntityData.YListKeys = []string {}
+
     return &(policeViolate.EntityData)
 }
 
@@ -10007,10 +10838,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -10025,7 +10859,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail
 }
 
 func (parentMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentMark) GetEntityData() *types.CommonEntityData {
@@ -10038,13 +10872,16 @@ func (parentMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     parentMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentMark.EntityData.Children = make(map[string]types.YChild)
-    parentMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentMark.EntityData.Children = types.NewOrderedMap()
+    parentMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentMark.MarkDetail {
-        parentMark.EntityData.Children[types.GetSegmentPath(&parentMark.MarkDetail[i])] = types.YChild{"MarkDetail", &parentMark.MarkDetail[i]}
+        parentMark.EntityData.Children.Append(types.GetSegmentPath(parentMark.MarkDetail[i]), types.YChild{"MarkDetail", parentMark.MarkDetail[i]})
     }
-    parentMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentMark.ActionType}
+    parentMark.EntityData.Leafs = types.NewOrderedMap()
+    parentMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentMark.ActionType})
+
+    parentMark.EntityData.YListKeys = []string {}
+
     return &(parentMark.EntityData)
 }
 
@@ -10071,10 +10908,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -10089,7 +10929,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail
 }
 
 func (parentPoliceConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform) GetEntityData() *types.CommonEntityData {
@@ -10102,13 +10942,16 @@ func (parentPoliceConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     parentPoliceConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceConform.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceConform.EntityData.Children = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceConform.MarkDetail {
-        parentPoliceConform.EntityData.Children[types.GetSegmentPath(&parentPoliceConform.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceConform.MarkDetail[i]}
+        parentPoliceConform.EntityData.Children.Append(types.GetSegmentPath(parentPoliceConform.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceConform.MarkDetail[i]})
     }
-    parentPoliceConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceConform.ActionType}
+    parentPoliceConform.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceConform.ActionType})
+
+    parentPoliceConform.EntityData.YListKeys = []string {}
+
     return &(parentPoliceConform.EntityData)
 }
 
@@ -10135,10 +10978,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -10153,7 +10999,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail
 }
 
 func (parentPoliceExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -10166,13 +11012,16 @@ func (parentPoliceExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfac
     parentPoliceExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceExceed.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceExceed.EntityData.Children = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceExceed.MarkDetail {
-        parentPoliceExceed.EntityData.Children[types.GetSegmentPath(&parentPoliceExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceExceed.MarkDetail[i]}
+        parentPoliceExceed.EntityData.Children.Append(types.GetSegmentPath(parentPoliceExceed.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceExceed.MarkDetail[i]})
     }
-    parentPoliceExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceExceed.ActionType}
+    parentPoliceExceed.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceExceed.ActionType})
+
+    parentPoliceExceed.EntityData.YListKeys = []string {}
+
     return &(parentPoliceExceed.EntityData)
 }
 
@@ -10199,10 +11048,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -10217,7 +11069,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail
 }
 
 func (parentPoliceViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -10230,13 +11082,16 @@ func (parentPoliceViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     parentPoliceViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceViolate.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceViolate.EntityData.Children = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceViolate.MarkDetail {
-        parentPoliceViolate.EntityData.Children[types.GetSegmentPath(&parentPoliceViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceViolate.MarkDetail[i]}
+        parentPoliceViolate.EntityData.Children.Append(types.GetSegmentPath(parentPoliceViolate.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceViolate.MarkDetail[i]})
     }
-    parentPoliceViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceViolate.ActionType}
+    parentPoliceViolate.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceViolate.ActionType})
+
+    parentPoliceViolate.EntityData.YListKeys = []string {}
+
     return &(parentPoliceViolate.EntityData)
 }
 
@@ -10263,10 +11118,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -10278,7 +11136,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // qos show ea st v2. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2.
-    QosShowEaStV2 []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2
+    QosShowEaStV2 []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2
 }
 
 func (policyTyphoon *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon) GetEntityData() *types.CommonEntityData {
@@ -10291,12 +11149,15 @@ func (policyTyphoon *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policyTyphoon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyTyphoon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policyTyphoon.EntityData.Children = make(map[string]types.YChild)
-    policyTyphoon.EntityData.Children["qos-show-ea-st-v2"] = types.YChild{"QosShowEaStV2", nil}
+    policyTyphoon.EntityData.Children = types.NewOrderedMap()
+    policyTyphoon.EntityData.Children.Append("qos-show-ea-st-v2", types.YChild{"QosShowEaStV2", nil})
     for i := range policyTyphoon.QosShowEaStV2 {
-        policyTyphoon.EntityData.Children[types.GetSegmentPath(&policyTyphoon.QosShowEaStV2[i])] = types.YChild{"QosShowEaStV2", &policyTyphoon.QosShowEaStV2[i]}
+        policyTyphoon.EntityData.Children.Append(types.GetSegmentPath(policyTyphoon.QosShowEaStV2[i]), types.YChild{"QosShowEaStV2", policyTyphoon.QosShowEaStV2[i]})
     }
-    policyTyphoon.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyTyphoon.EntityData.Leafs = types.NewOrderedMap()
+
+    policyTyphoon.EntityData.YListKeys = []string {}
+
     return &(policyTyphoon.EntityData)
 }
 
@@ -10353,20 +11214,23 @@ func (qosShowEaStV2 *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     qosShowEaStV2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaStV2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qosShowEaStV2.EntityData.Children = make(map[string]types.YChild)
-    qosShowEaStV2.EntityData.Children["queue"] = types.YChild{"Queue", &qosShowEaStV2.Queue}
-    qosShowEaStV2.EntityData.Children["queue-limit-parameters"] = types.YChild{"QueueLimitParameters", &qosShowEaStV2.QueueLimitParameters}
-    qosShowEaStV2.EntityData.Children["shape"] = types.YChild{"Shape", &qosShowEaStV2.Shape}
-    qosShowEaStV2.EntityData.Children["police"] = types.YChild{"Police", &qosShowEaStV2.Police}
-    qosShowEaStV2.EntityData.Children["wfq"] = types.YChild{"Wfq", &qosShowEaStV2.Wfq}
-    qosShowEaStV2.EntityData.Children["wred"] = types.YChild{"Wred", &qosShowEaStV2.Wred}
-    qosShowEaStV2.EntityData.Children["mark"] = types.YChild{"Mark", &qosShowEaStV2.Mark}
-    qosShowEaStV2.EntityData.Leafs = make(map[string]types.YLeaf)
-    qosShowEaStV2.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", qosShowEaStV2.ClassLevel}
-    qosShowEaStV2.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", qosShowEaStV2.ClassName}
-    qosShowEaStV2.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", qosShowEaStV2.PolicyName}
-    qosShowEaStV2.EntityData.Leafs["parent-policy-name"] = types.YLeaf{"ParentPolicyName", qosShowEaStV2.ParentPolicyName}
-    qosShowEaStV2.EntityData.Leafs["parent-class-name"] = types.YLeaf{"ParentClassName", qosShowEaStV2.ParentClassName}
+    qosShowEaStV2.EntityData.Children = types.NewOrderedMap()
+    qosShowEaStV2.EntityData.Children.Append("queue", types.YChild{"Queue", &qosShowEaStV2.Queue})
+    qosShowEaStV2.EntityData.Children.Append("queue-limit-parameters", types.YChild{"QueueLimitParameters", &qosShowEaStV2.QueueLimitParameters})
+    qosShowEaStV2.EntityData.Children.Append("shape", types.YChild{"Shape", &qosShowEaStV2.Shape})
+    qosShowEaStV2.EntityData.Children.Append("police", types.YChild{"Police", &qosShowEaStV2.Police})
+    qosShowEaStV2.EntityData.Children.Append("wfq", types.YChild{"Wfq", &qosShowEaStV2.Wfq})
+    qosShowEaStV2.EntityData.Children.Append("wred", types.YChild{"Wred", &qosShowEaStV2.Wred})
+    qosShowEaStV2.EntityData.Children.Append("mark", types.YChild{"Mark", &qosShowEaStV2.Mark})
+    qosShowEaStV2.EntityData.Leafs = types.NewOrderedMap()
+    qosShowEaStV2.EntityData.Leafs.Append("class-level", types.YLeaf{"ClassLevel", qosShowEaStV2.ClassLevel})
+    qosShowEaStV2.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", qosShowEaStV2.ClassName})
+    qosShowEaStV2.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", qosShowEaStV2.PolicyName})
+    qosShowEaStV2.EntityData.Leafs.Append("parent-policy-name", types.YLeaf{"ParentPolicyName", qosShowEaStV2.ParentPolicyName})
+    qosShowEaStV2.EntityData.Leafs.Append("parent-class-name", types.YLeaf{"ParentClassName", qosShowEaStV2.ParentClassName})
+
+    qosShowEaStV2.EntityData.YListKeys = []string {}
+
     return &(qosShowEaStV2.EntityData)
 }
 
@@ -10396,11 +11260,14 @@ func (queue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutpu
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queue.EntityData.Children = make(map[string]types.YChild)
-    queue.EntityData.Leafs = make(map[string]types.YLeaf)
-    queue.EntityData.Leafs["queue-id"] = types.YLeaf{"QueueId", queue.QueueId}
-    queue.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", queue.QueueType}
-    queue.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", queue.ClassName}
+    queue.EntityData.Children = types.NewOrderedMap()
+    queue.EntityData.Leafs = types.NewOrderedMap()
+    queue.EntityData.Leafs.Append("queue-id", types.YLeaf{"QueueId", queue.QueueId})
+    queue.EntityData.Leafs.Append("queue-type", types.YLeaf{"QueueType", queue.QueueType})
+    queue.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", queue.ClassName})
+
+    queue.EntityData.YListKeys = []string {}
+
     return &(queue.EntityData)
 }
 
@@ -10436,13 +11303,16 @@ func (queueLimitParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterf
     queueLimitParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimitParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimitParameters.EntityData.Children = make(map[string]types.YChild)
-    queueLimitParameters.EntityData.Children["queue-limit"] = types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit}
-    queueLimitParameters.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit}
-    queueLimitParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimitParameters.EntityData.Leafs["absolute-index"] = types.YLeaf{"AbsoluteIndex", queueLimitParameters.AbsoluteIndex}
-    queueLimitParameters.EntityData.Leafs["template-id"] = types.YLeaf{"TemplateId", queueLimitParameters.TemplateId}
-    queueLimitParameters.EntityData.Leafs["curve-id"] = types.YLeaf{"CurveId", queueLimitParameters.CurveId}
+    queueLimitParameters.EntityData.Children = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Children.Append("queue-limit", types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit})
+    queueLimitParameters.EntityData.Children.Append("config-queue-limit", types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit})
+    queueLimitParameters.EntityData.Leafs = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Leafs.Append("absolute-index", types.YLeaf{"AbsoluteIndex", queueLimitParameters.AbsoluteIndex})
+    queueLimitParameters.EntityData.Leafs.Append("template-id", types.YLeaf{"TemplateId", queueLimitParameters.TemplateId})
+    queueLimitParameters.EntityData.Leafs.Append("curve-id", types.YLeaf{"CurveId", queueLimitParameters.CurveId})
+
+    queueLimitParameters.EntityData.YListKeys = []string {}
+
     return &(queueLimitParameters.EntityData)
 }
 
@@ -10469,10 +11339,13 @@ func (queueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimit.EntityData.Children = make(map[string]types.YChild)
-    queueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", queueLimit.Value}
-    queueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", queueLimit.Unit}
+    queueLimit.EntityData.Children = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", queueLimit.Value})
+    queueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", queueLimit.Unit})
+
+    queueLimit.EntityData.YListKeys = []string {}
+
     return &(queueLimit.EntityData)
 }
 
@@ -10499,10 +11372,13 @@ func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
-    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    configQueueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", configQueueLimit.Value}
-    configQueueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", configQueueLimit.Unit}
+    configQueueLimit.EntityData.Children = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", configQueueLimit.Value})
+    configQueueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", configQueueLimit.Unit})
+
+    configQueueLimit.EntityData.YListKeys = []string {}
+
     return &(configQueueLimit.EntityData)
 }
 
@@ -10535,12 +11411,15 @@ func (shape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutpu
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shape.EntityData.Children = make(map[string]types.YChild)
-    shape.EntityData.Children["cir-shape"] = types.YChild{"CirShape", &shape.CirShape}
-    shape.EntityData.Children["pir-shape"] = types.YChild{"PirShape", &shape.PirShape}
-    shape.EntityData.Leafs = make(map[string]types.YLeaf)
-    shape.EntityData.Leafs["cir-shape-type"] = types.YLeaf{"CirShapeType", shape.CirShapeType}
-    shape.EntityData.Leafs["pir-shape-type"] = types.YLeaf{"PirShapeType", shape.PirShapeType}
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Children.Append("cir-shape", types.YChild{"CirShape", &shape.CirShape})
+    shape.EntityData.Children.Append("pir-shape", types.YChild{"PirShape", &shape.PirShape})
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("cir-shape-type", types.YLeaf{"CirShapeType", shape.CirShapeType})
+    shape.EntityData.Leafs.Append("pir-shape-type", types.YLeaf{"PirShapeType", shape.PirShapeType})
+
+    shape.EntityData.YListKeys = []string {}
+
     return &(shape.EntityData)
 }
 
@@ -10579,14 +11458,17 @@ func (cirShape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOu
     cirShape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cirShape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cirShape.EntityData.Children = make(map[string]types.YChild)
-    cirShape.EntityData.Children["cir"] = types.YChild{"Cir", &cirShape.Cir}
-    cirShape.EntityData.Children["config-bandwidth"] = types.YChild{"ConfigBandwidth", &cirShape.ConfigBandwidth}
-    cirShape.EntityData.Children["cbs"] = types.YChild{"Cbs", &cirShape.Cbs}
-    cirShape.EntityData.Leafs = make(map[string]types.YLeaf)
-    cirShape.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", cirShape.ChunkId}
-    cirShape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", cirShape.ProfileId}
-    cirShape.EntityData.Leafs["scale-factor"] = types.YLeaf{"ScaleFactor", cirShape.ScaleFactor}
+    cirShape.EntityData.Children = types.NewOrderedMap()
+    cirShape.EntityData.Children.Append("cir", types.YChild{"Cir", &cirShape.Cir})
+    cirShape.EntityData.Children.Append("config-bandwidth", types.YChild{"ConfigBandwidth", &cirShape.ConfigBandwidth})
+    cirShape.EntityData.Children.Append("cbs", types.YChild{"Cbs", &cirShape.Cbs})
+    cirShape.EntityData.Leafs = types.NewOrderedMap()
+    cirShape.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", cirShape.ChunkId})
+    cirShape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", cirShape.ProfileId})
+    cirShape.EntityData.Leafs.Append("scale-factor", types.YLeaf{"ScaleFactor", cirShape.ScaleFactor})
+
+    cirShape.EntityData.YListKeys = []string {}
+
     return &(cirShape.EntityData)
 }
 
@@ -10613,10 +11495,13 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -10640,9 +11525,12 @@ func (configBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     configBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configBandwidth.EntityData.Children = make(map[string]types.YChild)
-    configBandwidth.EntityData.Children["minimum-rate"] = types.YChild{"MinimumRate", &configBandwidth.MinimumRate}
-    configBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    configBandwidth.EntityData.Children = types.NewOrderedMap()
+    configBandwidth.EntityData.Children.Append("minimum-rate", types.YChild{"MinimumRate", &configBandwidth.MinimumRate})
+    configBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    configBandwidth.EntityData.YListKeys = []string {}
+
     return &(configBandwidth.EntityData)
 }
 
@@ -10669,10 +11557,13 @@ func (minimumRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     minimumRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minimumRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minimumRate.EntityData.Children = make(map[string]types.YChild)
-    minimumRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    minimumRate.EntityData.Leafs["value"] = types.YLeaf{"Value", minimumRate.Value}
-    minimumRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minimumRate.Unit}
+    minimumRate.EntityData.Children = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", minimumRate.Value})
+    minimumRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minimumRate.Unit})
+
+    minimumRate.EntityData.YListKeys = []string {}
+
     return &(minimumRate.EntityData)
 }
 
@@ -10699,10 +11590,13 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -10738,13 +11632,16 @@ func (pirShape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOu
     pirShape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pirShape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pirShape.EntityData.Children = make(map[string]types.YChild)
-    pirShape.EntityData.Children["pir"] = types.YChild{"Pir", &pirShape.Pir}
-    pirShape.EntityData.Children["pbs"] = types.YChild{"Pbs", &pirShape.Pbs}
-    pirShape.EntityData.Leafs = make(map[string]types.YLeaf)
-    pirShape.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", pirShape.ChunkId}
-    pirShape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", pirShape.ProfileId}
-    pirShape.EntityData.Leafs["scale-factor"] = types.YLeaf{"ScaleFactor", pirShape.ScaleFactor}
+    pirShape.EntityData.Children = types.NewOrderedMap()
+    pirShape.EntityData.Children.Append("pir", types.YChild{"Pir", &pirShape.Pir})
+    pirShape.EntityData.Children.Append("pbs", types.YChild{"Pbs", &pirShape.Pbs})
+    pirShape.EntityData.Leafs = types.NewOrderedMap()
+    pirShape.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", pirShape.ChunkId})
+    pirShape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", pirShape.ProfileId})
+    pirShape.EntityData.Leafs.Append("scale-factor", types.YLeaf{"ScaleFactor", pirShape.ScaleFactor})
+
+    pirShape.EntityData.YListKeys = []string {}
+
     return &(pirShape.EntityData)
 }
 
@@ -10771,10 +11668,13 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -10801,10 +11701,13 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -10846,15 +11749,18 @@ func (police *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutp
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    police.EntityData.Children = make(map[string]types.YChild)
-    police.EntityData.Children["cir"] = types.YChild{"Cir", &police.Cir}
-    police.EntityData.Children["cbs"] = types.YChild{"Cbs", &police.Cbs}
-    police.EntityData.Children["pir"] = types.YChild{"Pir", &police.Pir}
-    police.EntityData.Children["pbs"] = types.YChild{"Pbs", &police.Pbs}
-    police.EntityData.Children["police-config-parameters"] = types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters}
-    police.EntityData.Leafs = make(map[string]types.YLeaf)
-    police.EntityData.Leafs["policer-type"] = types.YLeaf{"PolicerType", police.PolicerType}
-    police.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", police.ProfileId}
+    police.EntityData.Children = types.NewOrderedMap()
+    police.EntityData.Children.Append("cir", types.YChild{"Cir", &police.Cir})
+    police.EntityData.Children.Append("cbs", types.YChild{"Cbs", &police.Cbs})
+    police.EntityData.Children.Append("pir", types.YChild{"Pir", &police.Pir})
+    police.EntityData.Children.Append("pbs", types.YChild{"Pbs", &police.Pbs})
+    police.EntityData.Children.Append("police-config-parameters", types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters})
+    police.EntityData.Leafs = types.NewOrderedMap()
+    police.EntityData.Leafs.Append("policer-type", types.YLeaf{"PolicerType", police.PolicerType})
+    police.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", police.ProfileId})
+
+    police.EntityData.YListKeys = []string {}
+
     return &(police.EntityData)
 }
 
@@ -10881,10 +11787,13 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -10911,10 +11820,13 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -10941,10 +11853,13 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -10971,10 +11886,13 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -11007,12 +11925,15 @@ func (policeConfigParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     policeConfigParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConfigParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConfigParameters.EntityData.Children = make(map[string]types.YChild)
-    policeConfigParameters.EntityData.Children["average-rate"] = types.YChild{"AverageRate", &policeConfigParameters.AverageRate}
-    policeConfigParameters.EntityData.Children["peak-rate"] = types.YChild{"PeakRate", &policeConfigParameters.PeakRate}
-    policeConfigParameters.EntityData.Children["conform-burst"] = types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst}
-    policeConfigParameters.EntityData.Children["exceed-burst"] = types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst}
-    policeConfigParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    policeConfigParameters.EntityData.Children = types.NewOrderedMap()
+    policeConfigParameters.EntityData.Children.Append("average-rate", types.YChild{"AverageRate", &policeConfigParameters.AverageRate})
+    policeConfigParameters.EntityData.Children.Append("peak-rate", types.YChild{"PeakRate", &policeConfigParameters.PeakRate})
+    policeConfigParameters.EntityData.Children.Append("conform-burst", types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst})
+    policeConfigParameters.EntityData.Children.Append("exceed-burst", types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst})
+    policeConfigParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    policeConfigParameters.EntityData.YListKeys = []string {}
+
     return &(policeConfigParameters.EntityData)
 }
 
@@ -11039,10 +11960,13 @@ func (averageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     averageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageRate.EntityData.Children = make(map[string]types.YChild)
-    averageRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageRate.EntityData.Leafs["value"] = types.YLeaf{"Value", averageRate.Value}
-    averageRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", averageRate.Unit}
+    averageRate.EntityData.Children = types.NewOrderedMap()
+    averageRate.EntityData.Leafs = types.NewOrderedMap()
+    averageRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageRate.Value})
+    averageRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", averageRate.Unit})
+
+    averageRate.EntityData.YListKeys = []string {}
+
     return &(averageRate.EntityData)
 }
 
@@ -11069,10 +11993,13 @@ func (peakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOu
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakRate.EntityData.Children = make(map[string]types.YChild)
-    peakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", peakRate.Value}
-    peakRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", peakRate.Unit}
+    peakRate.EntityData.Children = types.NewOrderedMap()
+    peakRate.EntityData.Leafs = types.NewOrderedMap()
+    peakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakRate.Value})
+    peakRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", peakRate.Unit})
+
+    peakRate.EntityData.YListKeys = []string {}
+
     return &(peakRate.EntityData)
 }
 
@@ -11099,10 +12026,13 @@ func (conformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     conformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conformBurst.EntityData.Children = make(map[string]types.YChild)
-    conformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    conformBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", conformBurst.Value}
-    conformBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", conformBurst.Unit}
+    conformBurst.EntityData.Children = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", conformBurst.Value})
+    conformBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", conformBurst.Unit})
+
+    conformBurst.EntityData.YListKeys = []string {}
+
     return &(conformBurst.EntityData)
 }
 
@@ -11129,10 +12059,13 @@ func (exceedBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     exceedBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exceedBurst.EntityData.Children = make(map[string]types.YChild)
-    exceedBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    exceedBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", exceedBurst.Value}
-    exceedBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", exceedBurst.Unit}
+    exceedBurst.EntityData.Children = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", exceedBurst.Value})
+    exceedBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", exceedBurst.Unit})
+
+    exceedBurst.EntityData.YListKeys = []string {}
+
     return &(exceedBurst.EntityData)
 }
 
@@ -11177,16 +12110,19 @@ func (wfq *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wfq.EntityData.Children = make(map[string]types.YChild)
-    wfq.EntityData.Children["parent-bandwidth"] = types.YChild{"ParentBandwidth", &wfq.ParentBandwidth}
-    wfq.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &wfq.Bandwidth}
-    wfq.EntityData.Leafs = make(map[string]types.YLeaf)
-    wfq.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wfq.ProfileId}
-    wfq.EntityData.Leafs["committed-weight"] = types.YLeaf{"CommittedWeight", wfq.CommittedWeight}
-    wfq.EntityData.Leafs["excess-weight"] = types.YLeaf{"ExcessWeight", wfq.ExcessWeight}
-    wfq.EntityData.Leafs["excess-ratio"] = types.YLeaf{"ExcessRatio", wfq.ExcessRatio}
-    wfq.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", wfq.ChunkId}
-    wfq.EntityData.Leafs["level"] = types.YLeaf{"Level", wfq.Level}
+    wfq.EntityData.Children = types.NewOrderedMap()
+    wfq.EntityData.Children.Append("parent-bandwidth", types.YChild{"ParentBandwidth", &wfq.ParentBandwidth})
+    wfq.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &wfq.Bandwidth})
+    wfq.EntityData.Leafs = types.NewOrderedMap()
+    wfq.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wfq.ProfileId})
+    wfq.EntityData.Leafs.Append("committed-weight", types.YLeaf{"CommittedWeight", wfq.CommittedWeight})
+    wfq.EntityData.Leafs.Append("excess-weight", types.YLeaf{"ExcessWeight", wfq.ExcessWeight})
+    wfq.EntityData.Leafs.Append("excess-ratio", types.YLeaf{"ExcessRatio", wfq.ExcessRatio})
+    wfq.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", wfq.ChunkId})
+    wfq.EntityData.Leafs.Append("level", types.YLeaf{"Level", wfq.Level})
+
+    wfq.EntityData.YListKeys = []string {}
+
     return &(wfq.EntityData)
 }
 
@@ -11213,10 +12149,13 @@ func (parentBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     parentBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentBandwidth.EntityData.Children = make(map[string]types.YChild)
-    parentBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", parentBandwidth.Value}
-    parentBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", parentBandwidth.Unit}
+    parentBandwidth.EntityData.Children = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", parentBandwidth.Value})
+    parentBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", parentBandwidth.Unit})
+
+    parentBandwidth.EntityData.YListKeys = []string {}
+
     return &(parentBandwidth.EntityData)
 }
 
@@ -11243,10 +12182,13 @@ func (bandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleO
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", bandwidth.Unit}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", bandwidth.Unit})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -11257,14 +12199,14 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
     YFilter yfilter.YFilter
 
     // WRED type. The type is Wred.
-    Type_ interface{}
+    Type interface{}
 
     // Number of curves. The type is interface{} with range: 0..65535.
     CurveXr interface{}
 
     // Curve details. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve.
-    Curve []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve
+    Curve []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve
 }
 
 func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Wred) GetEntityData() *types.CommonEntityData {
@@ -11277,14 +12219,17 @@ func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wred.EntityData.Children = make(map[string]types.YChild)
-    wred.EntityData.Children["curve"] = types.YChild{"Curve", nil}
+    wred.EntityData.Children = types.NewOrderedMap()
+    wred.EntityData.Children.Append("curve", types.YChild{"Curve", nil})
     for i := range wred.Curve {
-        wred.EntityData.Children[types.GetSegmentPath(&wred.Curve[i])] = types.YChild{"Curve", &wred.Curve[i]}
+        wred.EntityData.Children.Append(types.GetSegmentPath(wred.Curve[i]), types.YChild{"Curve", wred.Curve[i]})
     }
-    wred.EntityData.Leafs = make(map[string]types.YLeaf)
-    wred.EntityData.Leafs["type"] = types.YLeaf{"Type_", wred.Type_}
-    wred.EntityData.Leafs["curve-xr"] = types.YLeaf{"CurveXr", wred.CurveXr}
+    wred.EntityData.Leafs = types.NewOrderedMap()
+    wred.EntityData.Leafs.Append("type", types.YLeaf{"Type", wred.Type})
+    wred.EntityData.Leafs.Append("curve-xr", types.YLeaf{"CurveXr", wred.CurveXr})
+
+    wred.EntityData.YListKeys = []string {}
+
     return &(wred.EntityData)
 }
 
@@ -11335,17 +12280,20 @@ func (curve *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutpu
     curve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     curve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    curve.EntityData.Children = make(map[string]types.YChild)
-    curve.EntityData.Children["min-threshold"] = types.YChild{"MinThreshold", &curve.MinThreshold}
-    curve.EntityData.Children["min-threshold-user-config"] = types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig}
-    curve.EntityData.Children["max-threshold"] = types.YChild{"MaxThreshold", &curve.MaxThreshold}
-    curve.EntityData.Children["max-threshold-user-config"] = types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig}
-    curve.EntityData.Leafs = make(map[string]types.YLeaf)
-    curve.EntityData.Leafs["absolute-index"] = types.YLeaf{"AbsoluteIndex", curve.AbsoluteIndex}
-    curve.EntityData.Leafs["template-id"] = types.YLeaf{"TemplateId", curve.TemplateId}
-    curve.EntityData.Leafs["curve-id"] = types.YLeaf{"CurveId", curve.CurveId}
-    curve.EntityData.Leafs["match"] = types.YLeaf{"Match", curve.Match}
-    curve.EntityData.Leafs["exp-match"] = types.YLeaf{"ExpMatch", curve.ExpMatch}
+    curve.EntityData.Children = types.NewOrderedMap()
+    curve.EntityData.Children.Append("min-threshold", types.YChild{"MinThreshold", &curve.MinThreshold})
+    curve.EntityData.Children.Append("min-threshold-user-config", types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig})
+    curve.EntityData.Children.Append("max-threshold", types.YChild{"MaxThreshold", &curve.MaxThreshold})
+    curve.EntityData.Children.Append("max-threshold-user-config", types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig})
+    curve.EntityData.Leafs = types.NewOrderedMap()
+    curve.EntityData.Leafs.Append("absolute-index", types.YLeaf{"AbsoluteIndex", curve.AbsoluteIndex})
+    curve.EntityData.Leafs.Append("template-id", types.YLeaf{"TemplateId", curve.TemplateId})
+    curve.EntityData.Leafs.Append("curve-id", types.YLeaf{"CurveId", curve.CurveId})
+    curve.EntityData.Leafs.Append("match", types.YLeaf{"Match", curve.Match})
+    curve.EntityData.Leafs.Append("exp-match", types.YLeaf{"ExpMatch", curve.ExpMatch})
+
+    curve.EntityData.YListKeys = []string {}
+
     return &(curve.EntityData)
 }
 
@@ -11372,10 +12320,13 @@ func (minThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     minThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThreshold.EntityData.Children = make(map[string]types.YChild)
-    minThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", minThreshold.Value}
-    minThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThreshold.Unit}
+    minThreshold.EntityData.Children = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThreshold.Value})
+    minThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThreshold.Unit})
+
+    minThreshold.EntityData.YListKeys = []string {}
+
     return &(minThreshold.EntityData)
 }
 
@@ -11402,10 +12353,13 @@ func (minThresholdUserConfig *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     minThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    minThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", minThresholdUserConfig.Value}
-    minThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThresholdUserConfig.Unit}
+    minThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThresholdUserConfig.Value})
+    minThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThresholdUserConfig.Unit})
+
+    minThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(minThresholdUserConfig.EntityData)
 }
 
@@ -11432,10 +12386,13 @@ func (maxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     maxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThreshold.EntityData.Children = make(map[string]types.YChild)
-    maxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThreshold.Value}
-    maxThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThreshold.Unit}
+    maxThreshold.EntityData.Children = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThreshold.Value})
+    maxThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThreshold.Unit})
+
+    maxThreshold.EntityData.YListKeys = []string {}
+
     return &(maxThreshold.EntityData)
 }
 
@@ -11462,10 +12419,13 @@ func (maxThresholdUserConfig *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     maxThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    maxThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThresholdUserConfig.Value}
-    maxThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThresholdUserConfig.Unit}
+    maxThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThresholdUserConfig.Value})
+    maxThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThresholdUserConfig.Unit})
+
+    maxThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(maxThresholdUserConfig.EntityData)
 }
 
@@ -11510,16 +12470,19 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mark.EntityData.Children = make(map[string]types.YChild)
-    mark.EntityData.Children["child-mark"] = types.YChild{"ChildMark", &mark.ChildMark}
-    mark.EntityData.Children["police-conform"] = types.YChild{"PoliceConform", &mark.PoliceConform}
-    mark.EntityData.Children["police-exceed"] = types.YChild{"PoliceExceed", &mark.PoliceExceed}
-    mark.EntityData.Children["police-violate"] = types.YChild{"PoliceViolate", &mark.PoliceViolate}
-    mark.EntityData.Children["parent-mark"] = types.YChild{"ParentMark", &mark.ParentMark}
-    mark.EntityData.Children["parent-police-conform"] = types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform}
-    mark.EntityData.Children["parent-police-exceed"] = types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed}
-    mark.EntityData.Children["parent-police-violate"] = types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate}
-    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Children = types.NewOrderedMap()
+    mark.EntityData.Children.Append("child-mark", types.YChild{"ChildMark", &mark.ChildMark})
+    mark.EntityData.Children.Append("police-conform", types.YChild{"PoliceConform", &mark.PoliceConform})
+    mark.EntityData.Children.Append("police-exceed", types.YChild{"PoliceExceed", &mark.PoliceExceed})
+    mark.EntityData.Children.Append("police-violate", types.YChild{"PoliceViolate", &mark.PoliceViolate})
+    mark.EntityData.Children.Append("parent-mark", types.YChild{"ParentMark", &mark.ParentMark})
+    mark.EntityData.Children.Append("parent-police-conform", types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform})
+    mark.EntityData.Children.Append("parent-police-exceed", types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed})
+    mark.EntityData.Children.Append("parent-police-violate", types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate})
+    mark.EntityData.Leafs = types.NewOrderedMap()
+
+    mark.EntityData.YListKeys = []string {}
+
     return &(mark.EntityData)
 }
 
@@ -11534,7 +12497,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail
 }
 
 func (childMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark) GetEntityData() *types.CommonEntityData {
@@ -11547,13 +12510,16 @@ func (childMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleO
     childMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     childMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    childMark.EntityData.Children = make(map[string]types.YChild)
-    childMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    childMark.EntityData.Children = types.NewOrderedMap()
+    childMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range childMark.MarkDetail {
-        childMark.EntityData.Children[types.GetSegmentPath(&childMark.MarkDetail[i])] = types.YChild{"MarkDetail", &childMark.MarkDetail[i]}
+        childMark.EntityData.Children.Append(types.GetSegmentPath(childMark.MarkDetail[i]), types.YChild{"MarkDetail", childMark.MarkDetail[i]})
     }
-    childMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    childMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", childMark.ActionType}
+    childMark.EntityData.Leafs = types.NewOrderedMap()
+    childMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", childMark.ActionType})
+
+    childMark.EntityData.YListKeys = []string {}
+
     return &(childMark.EntityData)
 }
 
@@ -11580,10 +12546,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -11598,7 +12567,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail
 }
 
 func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform) GetEntityData() *types.CommonEntityData {
@@ -11611,13 +12580,16 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConform.EntityData.Children = make(map[string]types.YChild)
-    policeConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeConform.EntityData.Children = types.NewOrderedMap()
+    policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
-        policeConform.EntityData.Children[types.GetSegmentPath(&policeConform.MarkDetail[i])] = types.YChild{"MarkDetail", &policeConform.MarkDetail[i]}
+        policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
-    policeConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeConform.ActionType}
+    policeConform.EntityData.Leafs = types.NewOrderedMap()
+    policeConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeConform.ActionType})
+
+    policeConform.EntityData.YListKeys = []string {}
+
     return &(policeConform.EntityData)
 }
 
@@ -11644,10 +12616,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -11662,7 +12637,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail
 }
 
 func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -11675,13 +12650,16 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeExceed.EntityData.Children = make(map[string]types.YChild)
-    policeExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeExceed.EntityData.Children = types.NewOrderedMap()
+    policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
-        policeExceed.EntityData.Children[types.GetSegmentPath(&policeExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &policeExceed.MarkDetail[i]}
+        policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
-    policeExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeExceed.ActionType}
+    policeExceed.EntityData.Leafs = types.NewOrderedMap()
+    policeExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeExceed.ActionType})
+
+    policeExceed.EntityData.YListKeys = []string {}
+
     return &(policeExceed.EntityData)
 }
 
@@ -11708,10 +12686,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -11726,7 +12707,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail
 }
 
 func (policeViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -11739,13 +12720,16 @@ func (policeViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policeViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeViolate.EntityData.Children = make(map[string]types.YChild)
-    policeViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeViolate.EntityData.Children = types.NewOrderedMap()
+    policeViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeViolate.MarkDetail {
-        policeViolate.EntityData.Children[types.GetSegmentPath(&policeViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &policeViolate.MarkDetail[i]}
+        policeViolate.EntityData.Children.Append(types.GetSegmentPath(policeViolate.MarkDetail[i]), types.YChild{"MarkDetail", policeViolate.MarkDetail[i]})
     }
-    policeViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeViolate.ActionType}
+    policeViolate.EntityData.Leafs = types.NewOrderedMap()
+    policeViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeViolate.ActionType})
+
+    policeViolate.EntityData.YListKeys = []string {}
+
     return &(policeViolate.EntityData)
 }
 
@@ -11772,10 +12756,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -11790,7 +12777,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail
 }
 
 func (parentMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark) GetEntityData() *types.CommonEntityData {
@@ -11803,13 +12790,16 @@ func (parentMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     parentMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentMark.EntityData.Children = make(map[string]types.YChild)
-    parentMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentMark.EntityData.Children = types.NewOrderedMap()
+    parentMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentMark.MarkDetail {
-        parentMark.EntityData.Children[types.GetSegmentPath(&parentMark.MarkDetail[i])] = types.YChild{"MarkDetail", &parentMark.MarkDetail[i]}
+        parentMark.EntityData.Children.Append(types.GetSegmentPath(parentMark.MarkDetail[i]), types.YChild{"MarkDetail", parentMark.MarkDetail[i]})
     }
-    parentMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentMark.ActionType}
+    parentMark.EntityData.Leafs = types.NewOrderedMap()
+    parentMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentMark.ActionType})
+
+    parentMark.EntityData.YListKeys = []string {}
+
     return &(parentMark.EntityData)
 }
 
@@ -11836,10 +12826,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -11854,7 +12847,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail
 }
 
 func (parentPoliceConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform) GetEntityData() *types.CommonEntityData {
@@ -11867,13 +12860,16 @@ func (parentPoliceConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     parentPoliceConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceConform.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceConform.EntityData.Children = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceConform.MarkDetail {
-        parentPoliceConform.EntityData.Children[types.GetSegmentPath(&parentPoliceConform.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceConform.MarkDetail[i]}
+        parentPoliceConform.EntityData.Children.Append(types.GetSegmentPath(parentPoliceConform.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceConform.MarkDetail[i]})
     }
-    parentPoliceConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceConform.ActionType}
+    parentPoliceConform.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceConform.ActionType})
+
+    parentPoliceConform.EntityData.YListKeys = []string {}
+
     return &(parentPoliceConform.EntityData)
 }
 
@@ -11900,10 +12896,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -11918,7 +12917,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail
 }
 
 func (parentPoliceExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -11931,13 +12930,16 @@ func (parentPoliceExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfac
     parentPoliceExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceExceed.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceExceed.EntityData.Children = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceExceed.MarkDetail {
-        parentPoliceExceed.EntityData.Children[types.GetSegmentPath(&parentPoliceExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceExceed.MarkDetail[i]}
+        parentPoliceExceed.EntityData.Children.Append(types.GetSegmentPath(parentPoliceExceed.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceExceed.MarkDetail[i]})
     }
-    parentPoliceExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceExceed.ActionType}
+    parentPoliceExceed.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceExceed.ActionType})
+
+    parentPoliceExceed.EntityData.YListKeys = []string {}
+
     return &(parentPoliceExceed.EntityData)
 }
 
@@ -11964,10 +12966,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -11982,7 +12987,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail
 }
 
 func (parentPoliceViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -11995,13 +13000,16 @@ func (parentPoliceViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     parentPoliceViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceViolate.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceViolate.EntityData.Children = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceViolate.MarkDetail {
-        parentPoliceViolate.EntityData.Children[types.GetSegmentPath(&parentPoliceViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceViolate.MarkDetail[i]}
+        parentPoliceViolate.EntityData.Children.Append(types.GetSegmentPath(parentPoliceViolate.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceViolate.MarkDetail[i]})
     }
-    parentPoliceViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceViolate.ActionType}
+    parentPoliceViolate.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceViolate.ActionType})
+
+    parentPoliceViolate.EntityData.YListKeys = []string {}
+
     return &(parentPoliceViolate.EntityData)
 }
 
@@ -12028,10 +13036,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -12055,9 +13066,12 @@ func (bundleInput *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     bundleInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleInput.EntityData.Children = make(map[string]types.YChild)
-    bundleInput.EntityData.Children["member-interfaces"] = types.YChild{"MemberInterfaces", &bundleInput.MemberInterfaces}
-    bundleInput.EntityData.Leafs = make(map[string]types.YLeaf)
+    bundleInput.EntityData.Children = types.NewOrderedMap()
+    bundleInput.EntityData.Children.Append("member-interfaces", types.YChild{"MemberInterfaces", &bundleInput.MemberInterfaces})
+    bundleInput.EntityData.Leafs = types.NewOrderedMap()
+
+    bundleInput.EntityData.YListKeys = []string {}
+
     return &(bundleInput.EntityData)
 }
 
@@ -12069,7 +13083,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // QoS interface name. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface.
-    MemberInterface []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface
+    MemberInterface []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface
 }
 
 func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces) GetEntityData() *types.CommonEntityData {
@@ -12082,12 +13096,15 @@ func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     memberInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memberInterfaces.EntityData.Children = make(map[string]types.YChild)
-    memberInterfaces.EntityData.Children["member-interface"] = types.YChild{"MemberInterface", nil}
+    memberInterfaces.EntityData.Children = types.NewOrderedMap()
+    memberInterfaces.EntityData.Children.Append("member-interface", types.YChild{"MemberInterface", nil})
     for i := range memberInterfaces.MemberInterface {
-        memberInterfaces.EntityData.Children[types.GetSegmentPath(&memberInterfaces.MemberInterface[i])] = types.YChild{"MemberInterface", &memberInterfaces.MemberInterface[i]}
+        memberInterfaces.EntityData.Children.Append(types.GetSegmentPath(memberInterfaces.MemberInterface[i]), types.YChild{"MemberInterface", memberInterfaces.MemberInterface[i]})
     }
-    memberInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    memberInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    memberInterfaces.EntityData.YListKeys = []string {}
+
     return &(memberInterfaces.EntityData)
 }
 
@@ -12098,7 +13115,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
     YFilter yfilter.YFilter
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // QoS policy direction egress.
@@ -12110,15 +13127,18 @@ func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     memberInterface.EntityData.YangName = "member-interface"
     memberInterface.EntityData.BundleName = "cisco_ios_xr"
     memberInterface.EntityData.ParentYangName = "member-interfaces"
-    memberInterface.EntityData.SegmentPath = "member-interface" + "[interface-name='" + fmt.Sprintf("%v", memberInterface.InterfaceName) + "']"
+    memberInterface.EntityData.SegmentPath = "member-interface" + types.AddKeyToken(memberInterface.InterfaceName, "interface-name")
     memberInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memberInterface.EntityData.Children = make(map[string]types.YChild)
-    memberInterface.EntityData.Children["details"] = types.YChild{"Details", &memberInterface.Details}
-    memberInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    memberInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", memberInterface.InterfaceName}
+    memberInterface.EntityData.Children = types.NewOrderedMap()
+    memberInterface.EntityData.Children.Append("details", types.YChild{"Details", &memberInterface.Details})
+    memberInterface.EntityData.Leafs = types.NewOrderedMap()
+    memberInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", memberInterface.InterfaceName})
+
+    memberInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(memberInterface.EntityData)
 }
 
@@ -12148,11 +13168,14 @@ func (details *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInp
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Children["header"] = types.YChild{"Header", &details.Header}
-    details.EntityData.Children["policy"] = types.YChild{"Policy", &details.Policy}
-    details.EntityData.Children["policy-typhoon"] = types.YChild{"PolicyTyphoon", &details.PolicyTyphoon}
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Children.Append("header", types.YChild{"Header", &details.Header})
+    details.EntityData.Children.Append("policy", types.YChild{"Policy", &details.Policy})
+    details.EntityData.Children.Append("policy-typhoon", types.YChild{"PolicyTyphoon", &details.PolicyTyphoon})
+    details.EntityData.Leafs = types.NewOrderedMap()
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -12185,12 +13208,15 @@ func (header *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInpu
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Children["interface-parameters"] = types.YChild{"InterfaceParameters", &header.InterfaceParameters}
-    header.EntityData.Children["programmed-bandwidth"] = types.YChild{"ProgrammedBandwidth", &header.ProgrammedBandwidth}
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["classes"] = types.YLeaf{"Classes", header.Classes}
-    header.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", header.PolicyName}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Children.Append("interface-parameters", types.YChild{"InterfaceParameters", &header.InterfaceParameters})
+    header.EntityData.Children.Append("programmed-bandwidth", types.YChild{"ProgrammedBandwidth", &header.ProgrammedBandwidth})
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("classes", types.YLeaf{"Classes", header.Classes})
+    header.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", header.PolicyName})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -12223,12 +13249,15 @@ func (interfaceParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceParameters.EntityData.Children = make(map[string]types.YChild)
-    interfaceParameters.EntityData.Children["port-config-bandwidth"] = types.YChild{"PortConfigBandwidth", &interfaceParameters.PortConfigBandwidth}
-    interfaceParameters.EntityData.Children["ancp-config-bandwidth"] = types.YChild{"AncpConfigBandwidth", &interfaceParameters.AncpConfigBandwidth}
-    interfaceParameters.EntityData.Children["ancp-programmed-bandwidth"] = types.YChild{"AncpProgrammedBandwidth", &interfaceParameters.AncpProgrammedBandwidth}
-    interfaceParameters.EntityData.Children["port-shaper-rate"] = types.YChild{"PortShaperRate", &interfaceParameters.PortShaperRate}
-    interfaceParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceParameters.EntityData.Children = types.NewOrderedMap()
+    interfaceParameters.EntityData.Children.Append("port-config-bandwidth", types.YChild{"PortConfigBandwidth", &interfaceParameters.PortConfigBandwidth})
+    interfaceParameters.EntityData.Children.Append("ancp-config-bandwidth", types.YChild{"AncpConfigBandwidth", &interfaceParameters.AncpConfigBandwidth})
+    interfaceParameters.EntityData.Children.Append("ancp-programmed-bandwidth", types.YChild{"AncpProgrammedBandwidth", &interfaceParameters.AncpProgrammedBandwidth})
+    interfaceParameters.EntityData.Children.Append("port-shaper-rate", types.YChild{"PortShaperRate", &interfaceParameters.PortShaperRate})
+    interfaceParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceParameters.EntityData.YListKeys = []string {}
+
     return &(interfaceParameters.EntityData)
 }
 
@@ -12255,10 +13284,13 @@ func (portConfigBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     portConfigBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portConfigBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portConfigBandwidth.EntityData.Children = make(map[string]types.YChild)
-    portConfigBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    portConfigBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", portConfigBandwidth.Value}
-    portConfigBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", portConfigBandwidth.Unit}
+    portConfigBandwidth.EntityData.Children = types.NewOrderedMap()
+    portConfigBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    portConfigBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", portConfigBandwidth.Value})
+    portConfigBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", portConfigBandwidth.Unit})
+
+    portConfigBandwidth.EntityData.YListKeys = []string {}
+
     return &(portConfigBandwidth.EntityData)
 }
 
@@ -12285,10 +13317,13 @@ func (ancpConfigBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     ancpConfigBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ancpConfigBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ancpConfigBandwidth.EntityData.Children = make(map[string]types.YChild)
-    ancpConfigBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    ancpConfigBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", ancpConfigBandwidth.Value}
-    ancpConfigBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", ancpConfigBandwidth.Unit}
+    ancpConfigBandwidth.EntityData.Children = types.NewOrderedMap()
+    ancpConfigBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    ancpConfigBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", ancpConfigBandwidth.Value})
+    ancpConfigBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", ancpConfigBandwidth.Unit})
+
+    ancpConfigBandwidth.EntityData.YListKeys = []string {}
+
     return &(ancpConfigBandwidth.EntityData)
 }
 
@@ -12315,10 +13350,13 @@ func (ancpProgrammedBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInt
     ancpProgrammedBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ancpProgrammedBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ancpProgrammedBandwidth.EntityData.Children = make(map[string]types.YChild)
-    ancpProgrammedBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    ancpProgrammedBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", ancpProgrammedBandwidth.Value}
-    ancpProgrammedBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", ancpProgrammedBandwidth.Unit}
+    ancpProgrammedBandwidth.EntityData.Children = types.NewOrderedMap()
+    ancpProgrammedBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    ancpProgrammedBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", ancpProgrammedBandwidth.Value})
+    ancpProgrammedBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", ancpProgrammedBandwidth.Unit})
+
+    ancpProgrammedBandwidth.EntityData.YListKeys = []string {}
+
     return &(ancpProgrammedBandwidth.EntityData)
 }
 
@@ -12345,10 +13383,13 @@ func (portShaperRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bu
     portShaperRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portShaperRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portShaperRate.EntityData.Children = make(map[string]types.YChild)
-    portShaperRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    portShaperRate.EntityData.Leafs["value"] = types.YLeaf{"Value", portShaperRate.Value}
-    portShaperRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", portShaperRate.Unit}
+    portShaperRate.EntityData.Children = types.NewOrderedMap()
+    portShaperRate.EntityData.Leafs = types.NewOrderedMap()
+    portShaperRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", portShaperRate.Value})
+    portShaperRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", portShaperRate.Unit})
+
+    portShaperRate.EntityData.YListKeys = []string {}
+
     return &(portShaperRate.EntityData)
 }
 
@@ -12375,10 +13416,13 @@ func (programmedBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     programmedBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     programmedBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    programmedBandwidth.EntityData.Children = make(map[string]types.YChild)
-    programmedBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    programmedBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", programmedBandwidth.Value}
-    programmedBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", programmedBandwidth.Unit}
+    programmedBandwidth.EntityData.Children = types.NewOrderedMap()
+    programmedBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    programmedBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", programmedBandwidth.Value})
+    programmedBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", programmedBandwidth.Unit})
+
+    programmedBandwidth.EntityData.YListKeys = []string {}
+
     return &(programmedBandwidth.EntityData)
 }
 
@@ -12390,7 +13434,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // qos show ea st v1. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1.
-    QosShowEaStV1 []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1
+    QosShowEaStV1 []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1
 }
 
 func (policy *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy) GetEntityData() *types.CommonEntityData {
@@ -12403,12 +13447,15 @@ func (policy *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInpu
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policy.EntityData.Children = make(map[string]types.YChild)
-    policy.EntityData.Children["qos-show-ea-st-v1"] = types.YChild{"QosShowEaStV1", nil}
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Children.Append("qos-show-ea-st-v1", types.YChild{"QosShowEaStV1", nil})
     for i := range policy.QosShowEaStV1 {
-        policy.EntityData.Children[types.GetSegmentPath(&policy.QosShowEaStV1[i])] = types.YChild{"QosShowEaStV1", &policy.QosShowEaStV1[i]}
+        policy.EntityData.Children.Append(types.GetSegmentPath(policy.QosShowEaStV1[i]), types.YChild{"QosShowEaStV1", policy.QosShowEaStV1[i]})
     }
-    policy.EntityData.Leafs = make(map[string]types.YLeaf)
+    policy.EntityData.Leafs = types.NewOrderedMap()
+
+    policy.EntityData.YListKeys = []string {}
+
     return &(policy.EntityData)
 }
 
@@ -12465,20 +13512,23 @@ func (qosShowEaStV1 *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     qosShowEaStV1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaStV1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qosShowEaStV1.EntityData.Children = make(map[string]types.YChild)
-    qosShowEaStV1.EntityData.Children["queue"] = types.YChild{"Queue", &qosShowEaStV1.Queue}
-    qosShowEaStV1.EntityData.Children["queue-limit-parameters"] = types.YChild{"QueueLimitParameters", &qosShowEaStV1.QueueLimitParameters}
-    qosShowEaStV1.EntityData.Children["shape"] = types.YChild{"Shape", &qosShowEaStV1.Shape}
-    qosShowEaStV1.EntityData.Children["police"] = types.YChild{"Police", &qosShowEaStV1.Police}
-    qosShowEaStV1.EntityData.Children["wfq"] = types.YChild{"Wfq", &qosShowEaStV1.Wfq}
-    qosShowEaStV1.EntityData.Children["wred"] = types.YChild{"Wred", &qosShowEaStV1.Wred}
-    qosShowEaStV1.EntityData.Children["mark"] = types.YChild{"Mark", &qosShowEaStV1.Mark}
-    qosShowEaStV1.EntityData.Leafs = make(map[string]types.YLeaf)
-    qosShowEaStV1.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", qosShowEaStV1.ClassLevel}
-    qosShowEaStV1.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", qosShowEaStV1.ClassName}
-    qosShowEaStV1.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", qosShowEaStV1.PolicyName}
-    qosShowEaStV1.EntityData.Leafs["parent-policy-name"] = types.YLeaf{"ParentPolicyName", qosShowEaStV1.ParentPolicyName}
-    qosShowEaStV1.EntityData.Leafs["parent-class-name"] = types.YLeaf{"ParentClassName", qosShowEaStV1.ParentClassName}
+    qosShowEaStV1.EntityData.Children = types.NewOrderedMap()
+    qosShowEaStV1.EntityData.Children.Append("queue", types.YChild{"Queue", &qosShowEaStV1.Queue})
+    qosShowEaStV1.EntityData.Children.Append("queue-limit-parameters", types.YChild{"QueueLimitParameters", &qosShowEaStV1.QueueLimitParameters})
+    qosShowEaStV1.EntityData.Children.Append("shape", types.YChild{"Shape", &qosShowEaStV1.Shape})
+    qosShowEaStV1.EntityData.Children.Append("police", types.YChild{"Police", &qosShowEaStV1.Police})
+    qosShowEaStV1.EntityData.Children.Append("wfq", types.YChild{"Wfq", &qosShowEaStV1.Wfq})
+    qosShowEaStV1.EntityData.Children.Append("wred", types.YChild{"Wred", &qosShowEaStV1.Wred})
+    qosShowEaStV1.EntityData.Children.Append("mark", types.YChild{"Mark", &qosShowEaStV1.Mark})
+    qosShowEaStV1.EntityData.Leafs = types.NewOrderedMap()
+    qosShowEaStV1.EntityData.Leafs.Append("class-level", types.YLeaf{"ClassLevel", qosShowEaStV1.ClassLevel})
+    qosShowEaStV1.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", qosShowEaStV1.ClassName})
+    qosShowEaStV1.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", qosShowEaStV1.PolicyName})
+    qosShowEaStV1.EntityData.Leafs.Append("parent-policy-name", types.YLeaf{"ParentPolicyName", qosShowEaStV1.ParentPolicyName})
+    qosShowEaStV1.EntityData.Leafs.Append("parent-class-name", types.YLeaf{"ParentClassName", qosShowEaStV1.ParentClassName})
+
+    qosShowEaStV1.EntityData.YListKeys = []string {}
+
     return &(qosShowEaStV1.EntityData)
 }
 
@@ -12508,11 +13558,14 @@ func (queue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queue.EntityData.Children = make(map[string]types.YChild)
-    queue.EntityData.Leafs = make(map[string]types.YLeaf)
-    queue.EntityData.Leafs["queue-id"] = types.YLeaf{"QueueId", queue.QueueId}
-    queue.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", queue.QueueType}
-    queue.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", queue.ClassName}
+    queue.EntityData.Children = types.NewOrderedMap()
+    queue.EntityData.Leafs = types.NewOrderedMap()
+    queue.EntityData.Leafs.Append("queue-id", types.YLeaf{"QueueId", queue.QueueId})
+    queue.EntityData.Leafs.Append("queue-type", types.YLeaf{"QueueType", queue.QueueType})
+    queue.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", queue.ClassName})
+
+    queue.EntityData.YListKeys = []string {}
+
     return &(queue.EntityData)
 }
 
@@ -12545,12 +13598,15 @@ func (queueLimitParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterf
     queueLimitParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimitParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimitParameters.EntityData.Children = make(map[string]types.YChild)
-    queueLimitParameters.EntityData.Children["queue-limit"] = types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit}
-    queueLimitParameters.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit}
-    queueLimitParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimitParameters.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", queueLimitParameters.ProfileId}
-    queueLimitParameters.EntityData.Leafs["scaling-profile-id"] = types.YLeaf{"ScalingProfileId", queueLimitParameters.ScalingProfileId}
+    queueLimitParameters.EntityData.Children = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Children.Append("queue-limit", types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit})
+    queueLimitParameters.EntityData.Children.Append("config-queue-limit", types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit})
+    queueLimitParameters.EntityData.Leafs = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", queueLimitParameters.ProfileId})
+    queueLimitParameters.EntityData.Leafs.Append("scaling-profile-id", types.YLeaf{"ScalingProfileId", queueLimitParameters.ScalingProfileId})
+
+    queueLimitParameters.EntityData.YListKeys = []string {}
+
     return &(queueLimitParameters.EntityData)
 }
 
@@ -12577,10 +13633,13 @@ func (queueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimit.EntityData.Children = make(map[string]types.YChild)
-    queueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", queueLimit.Value}
-    queueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", queueLimit.Unit}
+    queueLimit.EntityData.Children = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", queueLimit.Value})
+    queueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", queueLimit.Unit})
+
+    queueLimit.EntityData.YListKeys = []string {}
+
     return &(queueLimit.EntityData)
 }
 
@@ -12607,10 +13666,13 @@ func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
-    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    configQueueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", configQueueLimit.Value}
-    configQueueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", configQueueLimit.Unit}
+    configQueueLimit.EntityData.Children = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", configQueueLimit.Value})
+    configQueueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", configQueueLimit.Unit})
+
+    configQueueLimit.EntityData.YListKeys = []string {}
+
     return &(configQueueLimit.EntityData)
 }
 
@@ -12649,14 +13711,17 @@ func (shape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shape.EntityData.Children = make(map[string]types.YChild)
-    shape.EntityData.Children["cir"] = types.YChild{"Cir", &shape.Cir}
-    shape.EntityData.Children["config-bandwidth"] = types.YChild{"ConfigBandwidth", &shape.ConfigBandwidth}
-    shape.EntityData.Children["cbs"] = types.YChild{"Cbs", &shape.Cbs}
-    shape.EntityData.Children["pir"] = types.YChild{"Pir", &shape.Pir}
-    shape.EntityData.Children["pbs"] = types.YChild{"Pbs", &shape.Pbs}
-    shape.EntityData.Leafs = make(map[string]types.YLeaf)
-    shape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", shape.ProfileId}
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Children.Append("cir", types.YChild{"Cir", &shape.Cir})
+    shape.EntityData.Children.Append("config-bandwidth", types.YChild{"ConfigBandwidth", &shape.ConfigBandwidth})
+    shape.EntityData.Children.Append("cbs", types.YChild{"Cbs", &shape.Cbs})
+    shape.EntityData.Children.Append("pir", types.YChild{"Pir", &shape.Pir})
+    shape.EntityData.Children.Append("pbs", types.YChild{"Pbs", &shape.Pbs})
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", shape.ProfileId})
+
+    shape.EntityData.YListKeys = []string {}
+
     return &(shape.EntityData)
 }
 
@@ -12683,10 +13748,13 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -12710,9 +13778,12 @@ func (configBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     configBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configBandwidth.EntityData.Children = make(map[string]types.YChild)
-    configBandwidth.EntityData.Children["minimum-rate"] = types.YChild{"MinimumRate", &configBandwidth.MinimumRate}
-    configBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    configBandwidth.EntityData.Children = types.NewOrderedMap()
+    configBandwidth.EntityData.Children.Append("minimum-rate", types.YChild{"MinimumRate", &configBandwidth.MinimumRate})
+    configBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    configBandwidth.EntityData.YListKeys = []string {}
+
     return &(configBandwidth.EntityData)
 }
 
@@ -12739,10 +13810,13 @@ func (minimumRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     minimumRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minimumRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minimumRate.EntityData.Children = make(map[string]types.YChild)
-    minimumRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    minimumRate.EntityData.Leafs["value"] = types.YLeaf{"Value", minimumRate.Value}
-    minimumRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minimumRate.Unit}
+    minimumRate.EntityData.Children = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", minimumRate.Value})
+    minimumRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minimumRate.Unit})
+
+    minimumRate.EntityData.YListKeys = []string {}
+
     return &(minimumRate.EntityData)
 }
 
@@ -12769,10 +13843,13 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -12799,10 +13876,13 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -12829,10 +13909,13 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -12874,15 +13957,18 @@ func (police *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInpu
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    police.EntityData.Children = make(map[string]types.YChild)
-    police.EntityData.Children["cir"] = types.YChild{"Cir", &police.Cir}
-    police.EntityData.Children["cbs"] = types.YChild{"Cbs", &police.Cbs}
-    police.EntityData.Children["pir"] = types.YChild{"Pir", &police.Pir}
-    police.EntityData.Children["pbs"] = types.YChild{"Pbs", &police.Pbs}
-    police.EntityData.Children["police-config-parameters"] = types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters}
-    police.EntityData.Leafs = make(map[string]types.YLeaf)
-    police.EntityData.Leafs["policer-type"] = types.YLeaf{"PolicerType", police.PolicerType}
-    police.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", police.ProfileId}
+    police.EntityData.Children = types.NewOrderedMap()
+    police.EntityData.Children.Append("cir", types.YChild{"Cir", &police.Cir})
+    police.EntityData.Children.Append("cbs", types.YChild{"Cbs", &police.Cbs})
+    police.EntityData.Children.Append("pir", types.YChild{"Pir", &police.Pir})
+    police.EntityData.Children.Append("pbs", types.YChild{"Pbs", &police.Pbs})
+    police.EntityData.Children.Append("police-config-parameters", types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters})
+    police.EntityData.Leafs = types.NewOrderedMap()
+    police.EntityData.Leafs.Append("policer-type", types.YLeaf{"PolicerType", police.PolicerType})
+    police.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", police.ProfileId})
+
+    police.EntityData.YListKeys = []string {}
+
     return &(police.EntityData)
 }
 
@@ -12909,10 +13995,13 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -12939,10 +14028,13 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -12969,10 +14061,13 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -12999,10 +14094,13 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -13035,12 +14133,15 @@ func (policeConfigParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     policeConfigParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConfigParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConfigParameters.EntityData.Children = make(map[string]types.YChild)
-    policeConfigParameters.EntityData.Children["average-rate"] = types.YChild{"AverageRate", &policeConfigParameters.AverageRate}
-    policeConfigParameters.EntityData.Children["peak-rate"] = types.YChild{"PeakRate", &policeConfigParameters.PeakRate}
-    policeConfigParameters.EntityData.Children["conform-burst"] = types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst}
-    policeConfigParameters.EntityData.Children["exceed-burst"] = types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst}
-    policeConfigParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    policeConfigParameters.EntityData.Children = types.NewOrderedMap()
+    policeConfigParameters.EntityData.Children.Append("average-rate", types.YChild{"AverageRate", &policeConfigParameters.AverageRate})
+    policeConfigParameters.EntityData.Children.Append("peak-rate", types.YChild{"PeakRate", &policeConfigParameters.PeakRate})
+    policeConfigParameters.EntityData.Children.Append("conform-burst", types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst})
+    policeConfigParameters.EntityData.Children.Append("exceed-burst", types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst})
+    policeConfigParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    policeConfigParameters.EntityData.YListKeys = []string {}
+
     return &(policeConfigParameters.EntityData)
 }
 
@@ -13067,10 +14168,13 @@ func (averageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     averageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageRate.EntityData.Children = make(map[string]types.YChild)
-    averageRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageRate.EntityData.Leafs["value"] = types.YLeaf{"Value", averageRate.Value}
-    averageRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", averageRate.Unit}
+    averageRate.EntityData.Children = types.NewOrderedMap()
+    averageRate.EntityData.Leafs = types.NewOrderedMap()
+    averageRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageRate.Value})
+    averageRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", averageRate.Unit})
+
+    averageRate.EntityData.YListKeys = []string {}
+
     return &(averageRate.EntityData)
 }
 
@@ -13097,10 +14201,13 @@ func (peakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleIn
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakRate.EntityData.Children = make(map[string]types.YChild)
-    peakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", peakRate.Value}
-    peakRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", peakRate.Unit}
+    peakRate.EntityData.Children = types.NewOrderedMap()
+    peakRate.EntityData.Leafs = types.NewOrderedMap()
+    peakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakRate.Value})
+    peakRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", peakRate.Unit})
+
+    peakRate.EntityData.YListKeys = []string {}
+
     return &(peakRate.EntityData)
 }
 
@@ -13127,10 +14234,13 @@ func (conformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     conformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conformBurst.EntityData.Children = make(map[string]types.YChild)
-    conformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    conformBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", conformBurst.Value}
-    conformBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", conformBurst.Unit}
+    conformBurst.EntityData.Children = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", conformBurst.Value})
+    conformBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", conformBurst.Unit})
+
+    conformBurst.EntityData.YListKeys = []string {}
+
     return &(conformBurst.EntityData)
 }
 
@@ -13157,10 +14267,13 @@ func (exceedBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     exceedBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exceedBurst.EntityData.Children = make(map[string]types.YChild)
-    exceedBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    exceedBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", exceedBurst.Value}
-    exceedBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", exceedBurst.Unit}
+    exceedBurst.EntityData.Children = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", exceedBurst.Value})
+    exceedBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", exceedBurst.Unit})
+
+    exceedBurst.EntityData.YListKeys = []string {}
+
     return &(exceedBurst.EntityData)
 }
 
@@ -13205,16 +14318,19 @@ func (wfq *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wfq.EntityData.Children = make(map[string]types.YChild)
-    wfq.EntityData.Children["parent-bandwidth"] = types.YChild{"ParentBandwidth", &wfq.ParentBandwidth}
-    wfq.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &wfq.Bandwidth}
-    wfq.EntityData.Leafs = make(map[string]types.YLeaf)
-    wfq.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wfq.ProfileId}
-    wfq.EntityData.Leafs["committed-weight"] = types.YLeaf{"CommittedWeight", wfq.CommittedWeight}
-    wfq.EntityData.Leafs["excess-weight"] = types.YLeaf{"ExcessWeight", wfq.ExcessWeight}
-    wfq.EntityData.Leafs["excess-ratio"] = types.YLeaf{"ExcessRatio", wfq.ExcessRatio}
-    wfq.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", wfq.ChunkId}
-    wfq.EntityData.Leafs["level"] = types.YLeaf{"Level", wfq.Level}
+    wfq.EntityData.Children = types.NewOrderedMap()
+    wfq.EntityData.Children.Append("parent-bandwidth", types.YChild{"ParentBandwidth", &wfq.ParentBandwidth})
+    wfq.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &wfq.Bandwidth})
+    wfq.EntityData.Leafs = types.NewOrderedMap()
+    wfq.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wfq.ProfileId})
+    wfq.EntityData.Leafs.Append("committed-weight", types.YLeaf{"CommittedWeight", wfq.CommittedWeight})
+    wfq.EntityData.Leafs.Append("excess-weight", types.YLeaf{"ExcessWeight", wfq.ExcessWeight})
+    wfq.EntityData.Leafs.Append("excess-ratio", types.YLeaf{"ExcessRatio", wfq.ExcessRatio})
+    wfq.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", wfq.ChunkId})
+    wfq.EntityData.Leafs.Append("level", types.YLeaf{"Level", wfq.Level})
+
+    wfq.EntityData.YListKeys = []string {}
+
     return &(wfq.EntityData)
 }
 
@@ -13241,10 +14357,13 @@ func (parentBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     parentBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentBandwidth.EntityData.Children = make(map[string]types.YChild)
-    parentBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", parentBandwidth.Value}
-    parentBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", parentBandwidth.Unit}
+    parentBandwidth.EntityData.Children = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", parentBandwidth.Value})
+    parentBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", parentBandwidth.Unit})
+
+    parentBandwidth.EntityData.YListKeys = []string {}
+
     return &(parentBandwidth.EntityData)
 }
 
@@ -13271,10 +14390,13 @@ func (bandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleI
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", bandwidth.Unit}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", bandwidth.Unit})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -13285,7 +14407,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
     YFilter yfilter.YFilter
 
     // WRED type. The type is Wred.
-    Type_ interface{}
+    Type interface{}
 
     // Number of curves. The type is interface{} with range: 0..65535.
     CurveXr interface{}
@@ -13301,7 +14423,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Curve details. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Wred_Curve.
-    Curve []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Wred_Curve
+    Curve []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Wred_Curve
 }
 
 func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Wred) GetEntityData() *types.CommonEntityData {
@@ -13314,17 +14436,20 @@ func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wred.EntityData.Children = make(map[string]types.YChild)
-    wred.EntityData.Children["curve"] = types.YChild{"Curve", nil}
+    wred.EntityData.Children = types.NewOrderedMap()
+    wred.EntityData.Children.Append("curve", types.YChild{"Curve", nil})
     for i := range wred.Curve {
-        wred.EntityData.Children[types.GetSegmentPath(&wred.Curve[i])] = types.YChild{"Curve", &wred.Curve[i]}
+        wred.EntityData.Children.Append(types.GetSegmentPath(wred.Curve[i]), types.YChild{"Curve", wred.Curve[i]})
     }
-    wred.EntityData.Leafs = make(map[string]types.YLeaf)
-    wred.EntityData.Leafs["type"] = types.YLeaf{"Type_", wred.Type_}
-    wred.EntityData.Leafs["curve-xr"] = types.YLeaf{"CurveXr", wred.CurveXr}
-    wred.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", wred.TableId}
-    wred.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wred.ProfileId}
-    wred.EntityData.Leafs["scaling-profile-id"] = types.YLeaf{"ScalingProfileId", wred.ScalingProfileId}
+    wred.EntityData.Leafs = types.NewOrderedMap()
+    wred.EntityData.Leafs.Append("type", types.YLeaf{"Type", wred.Type})
+    wred.EntityData.Leafs.Append("curve-xr", types.YLeaf{"CurveXr", wred.CurveXr})
+    wred.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", wred.TableId})
+    wred.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wred.ProfileId})
+    wred.EntityData.Leafs.Append("scaling-profile-id", types.YLeaf{"ScalingProfileId", wred.ScalingProfileId})
+
+    wred.EntityData.YListKeys = []string {}
+
     return &(wred.EntityData)
 }
 
@@ -13362,13 +14487,16 @@ func (curve *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput
     curve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     curve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    curve.EntityData.Children = make(map[string]types.YChild)
-    curve.EntityData.Children["min-threshold"] = types.YChild{"MinThreshold", &curve.MinThreshold}
-    curve.EntityData.Children["min-threshold-user-config"] = types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig}
-    curve.EntityData.Children["max-threshold"] = types.YChild{"MaxThreshold", &curve.MaxThreshold}
-    curve.EntityData.Children["max-threshold-user-config"] = types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig}
-    curve.EntityData.Leafs = make(map[string]types.YLeaf)
-    curve.EntityData.Leafs["match"] = types.YLeaf{"Match", curve.Match}
+    curve.EntityData.Children = types.NewOrderedMap()
+    curve.EntityData.Children.Append("min-threshold", types.YChild{"MinThreshold", &curve.MinThreshold})
+    curve.EntityData.Children.Append("min-threshold-user-config", types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig})
+    curve.EntityData.Children.Append("max-threshold", types.YChild{"MaxThreshold", &curve.MaxThreshold})
+    curve.EntityData.Children.Append("max-threshold-user-config", types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig})
+    curve.EntityData.Leafs = types.NewOrderedMap()
+    curve.EntityData.Leafs.Append("match", types.YLeaf{"Match", curve.Match})
+
+    curve.EntityData.YListKeys = []string {}
+
     return &(curve.EntityData)
 }
 
@@ -13395,10 +14523,13 @@ func (minThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     minThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThreshold.EntityData.Children = make(map[string]types.YChild)
-    minThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", minThreshold.Value}
-    minThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThreshold.Unit}
+    minThreshold.EntityData.Children = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThreshold.Value})
+    minThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThreshold.Unit})
+
+    minThreshold.EntityData.YListKeys = []string {}
+
     return &(minThreshold.EntityData)
 }
 
@@ -13425,10 +14556,13 @@ func (minThresholdUserConfig *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     minThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    minThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", minThresholdUserConfig.Value}
-    minThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThresholdUserConfig.Unit}
+    minThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThresholdUserConfig.Value})
+    minThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThresholdUserConfig.Unit})
+
+    minThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(minThresholdUserConfig.EntityData)
 }
 
@@ -13455,10 +14589,13 @@ func (maxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     maxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThreshold.EntityData.Children = make(map[string]types.YChild)
-    maxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThreshold.Value}
-    maxThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThreshold.Unit}
+    maxThreshold.EntityData.Children = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThreshold.Value})
+    maxThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThreshold.Unit})
+
+    maxThreshold.EntityData.YListKeys = []string {}
+
     return &(maxThreshold.EntityData)
 }
 
@@ -13485,10 +14622,13 @@ func (maxThresholdUserConfig *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     maxThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    maxThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThresholdUserConfig.Value}
-    maxThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThresholdUserConfig.Unit}
+    maxThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThresholdUserConfig.Value})
+    maxThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThresholdUserConfig.Unit})
+
+    maxThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(maxThresholdUserConfig.EntityData)
 }
 
@@ -13533,16 +14673,19 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mark.EntityData.Children = make(map[string]types.YChild)
-    mark.EntityData.Children["child-mark"] = types.YChild{"ChildMark", &mark.ChildMark}
-    mark.EntityData.Children["police-conform"] = types.YChild{"PoliceConform", &mark.PoliceConform}
-    mark.EntityData.Children["police-exceed"] = types.YChild{"PoliceExceed", &mark.PoliceExceed}
-    mark.EntityData.Children["police-violate"] = types.YChild{"PoliceViolate", &mark.PoliceViolate}
-    mark.EntityData.Children["parent-mark"] = types.YChild{"ParentMark", &mark.ParentMark}
-    mark.EntityData.Children["parent-police-conform"] = types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform}
-    mark.EntityData.Children["parent-police-exceed"] = types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed}
-    mark.EntityData.Children["parent-police-violate"] = types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate}
-    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Children = types.NewOrderedMap()
+    mark.EntityData.Children.Append("child-mark", types.YChild{"ChildMark", &mark.ChildMark})
+    mark.EntityData.Children.Append("police-conform", types.YChild{"PoliceConform", &mark.PoliceConform})
+    mark.EntityData.Children.Append("police-exceed", types.YChild{"PoliceExceed", &mark.PoliceExceed})
+    mark.EntityData.Children.Append("police-violate", types.YChild{"PoliceViolate", &mark.PoliceViolate})
+    mark.EntityData.Children.Append("parent-mark", types.YChild{"ParentMark", &mark.ParentMark})
+    mark.EntityData.Children.Append("parent-police-conform", types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform})
+    mark.EntityData.Children.Append("parent-police-exceed", types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed})
+    mark.EntityData.Children.Append("parent-police-violate", types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate})
+    mark.EntityData.Leafs = types.NewOrderedMap()
+
+    mark.EntityData.YListKeys = []string {}
+
     return &(mark.EntityData)
 }
 
@@ -13557,7 +14700,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ChildMark_MarkDetail
 }
 
 func (childMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ChildMark) GetEntityData() *types.CommonEntityData {
@@ -13570,13 +14713,16 @@ func (childMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleI
     childMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     childMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    childMark.EntityData.Children = make(map[string]types.YChild)
-    childMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    childMark.EntityData.Children = types.NewOrderedMap()
+    childMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range childMark.MarkDetail {
-        childMark.EntityData.Children[types.GetSegmentPath(&childMark.MarkDetail[i])] = types.YChild{"MarkDetail", &childMark.MarkDetail[i]}
+        childMark.EntityData.Children.Append(types.GetSegmentPath(childMark.MarkDetail[i]), types.YChild{"MarkDetail", childMark.MarkDetail[i]})
     }
-    childMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    childMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", childMark.ActionType}
+    childMark.EntityData.Leafs = types.NewOrderedMap()
+    childMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", childMark.ActionType})
+
+    childMark.EntityData.YListKeys = []string {}
+
     return &(childMark.EntityData)
 }
 
@@ -13603,10 +14749,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -13621,7 +14770,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceConform_MarkDetail
 }
 
 func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceConform) GetEntityData() *types.CommonEntityData {
@@ -13634,13 +14783,16 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConform.EntityData.Children = make(map[string]types.YChild)
-    policeConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeConform.EntityData.Children = types.NewOrderedMap()
+    policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
-        policeConform.EntityData.Children[types.GetSegmentPath(&policeConform.MarkDetail[i])] = types.YChild{"MarkDetail", &policeConform.MarkDetail[i]}
+        policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
-    policeConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeConform.ActionType}
+    policeConform.EntityData.Leafs = types.NewOrderedMap()
+    policeConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeConform.ActionType})
+
+    policeConform.EntityData.YListKeys = []string {}
+
     return &(policeConform.EntityData)
 }
 
@@ -13667,10 +14819,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -13685,7 +14840,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceExceed_MarkDetail
 }
 
 func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -13698,13 +14853,16 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeExceed.EntityData.Children = make(map[string]types.YChild)
-    policeExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeExceed.EntityData.Children = types.NewOrderedMap()
+    policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
-        policeExceed.EntityData.Children[types.GetSegmentPath(&policeExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &policeExceed.MarkDetail[i]}
+        policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
-    policeExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeExceed.ActionType}
+    policeExceed.EntityData.Leafs = types.NewOrderedMap()
+    policeExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeExceed.ActionType})
+
+    policeExceed.EntityData.YListKeys = []string {}
+
     return &(policeExceed.EntityData)
 }
 
@@ -13731,10 +14889,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -13749,7 +14910,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceViolate_MarkDetail
 }
 
 func (policeViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_PoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -13762,13 +14923,16 @@ func (policeViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policeViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeViolate.EntityData.Children = make(map[string]types.YChild)
-    policeViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeViolate.EntityData.Children = types.NewOrderedMap()
+    policeViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeViolate.MarkDetail {
-        policeViolate.EntityData.Children[types.GetSegmentPath(&policeViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &policeViolate.MarkDetail[i]}
+        policeViolate.EntityData.Children.Append(types.GetSegmentPath(policeViolate.MarkDetail[i]), types.YChild{"MarkDetail", policeViolate.MarkDetail[i]})
     }
-    policeViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeViolate.ActionType}
+    policeViolate.EntityData.Leafs = types.NewOrderedMap()
+    policeViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeViolate.ActionType})
+
+    policeViolate.EntityData.YListKeys = []string {}
+
     return &(policeViolate.EntityData)
 }
 
@@ -13795,10 +14959,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -13813,7 +14980,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentMark_MarkDetail
 }
 
 func (parentMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentMark) GetEntityData() *types.CommonEntityData {
@@ -13826,13 +14993,16 @@ func (parentMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     parentMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentMark.EntityData.Children = make(map[string]types.YChild)
-    parentMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentMark.EntityData.Children = types.NewOrderedMap()
+    parentMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentMark.MarkDetail {
-        parentMark.EntityData.Children[types.GetSegmentPath(&parentMark.MarkDetail[i])] = types.YChild{"MarkDetail", &parentMark.MarkDetail[i]}
+        parentMark.EntityData.Children.Append(types.GetSegmentPath(parentMark.MarkDetail[i]), types.YChild{"MarkDetail", parentMark.MarkDetail[i]})
     }
-    parentMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentMark.ActionType}
+    parentMark.EntityData.Leafs = types.NewOrderedMap()
+    parentMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentMark.ActionType})
+
+    parentMark.EntityData.YListKeys = []string {}
+
     return &(parentMark.EntityData)
 }
 
@@ -13859,10 +15029,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -13877,7 +15050,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform_MarkDetail
 }
 
 func (parentPoliceConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceConform) GetEntityData() *types.CommonEntityData {
@@ -13890,13 +15063,16 @@ func (parentPoliceConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     parentPoliceConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceConform.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceConform.EntityData.Children = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceConform.MarkDetail {
-        parentPoliceConform.EntityData.Children[types.GetSegmentPath(&parentPoliceConform.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceConform.MarkDetail[i]}
+        parentPoliceConform.EntityData.Children.Append(types.GetSegmentPath(parentPoliceConform.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceConform.MarkDetail[i]})
     }
-    parentPoliceConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceConform.ActionType}
+    parentPoliceConform.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceConform.ActionType})
+
+    parentPoliceConform.EntityData.YListKeys = []string {}
+
     return &(parentPoliceConform.EntityData)
 }
 
@@ -13923,10 +15099,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -13941,7 +15120,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed_MarkDetail
 }
 
 func (parentPoliceExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -13954,13 +15133,16 @@ func (parentPoliceExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfac
     parentPoliceExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceExceed.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceExceed.EntityData.Children = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceExceed.MarkDetail {
-        parentPoliceExceed.EntityData.Children[types.GetSegmentPath(&parentPoliceExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceExceed.MarkDetail[i]}
+        parentPoliceExceed.EntityData.Children.Append(types.GetSegmentPath(parentPoliceExceed.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceExceed.MarkDetail[i]})
     }
-    parentPoliceExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceExceed.ActionType}
+    parentPoliceExceed.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceExceed.ActionType})
+
+    parentPoliceExceed.EntityData.YListKeys = []string {}
+
     return &(parentPoliceExceed.EntityData)
 }
 
@@ -13987,10 +15169,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -14005,7 +15190,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate_MarkDetail
 }
 
 func (parentPoliceViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_Policy_QosShowEaStV1_Mark_ParentPoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -14018,13 +15203,16 @@ func (parentPoliceViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     parentPoliceViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceViolate.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceViolate.EntityData.Children = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceViolate.MarkDetail {
-        parentPoliceViolate.EntityData.Children[types.GetSegmentPath(&parentPoliceViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceViolate.MarkDetail[i]}
+        parentPoliceViolate.EntityData.Children.Append(types.GetSegmentPath(parentPoliceViolate.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceViolate.MarkDetail[i]})
     }
-    parentPoliceViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceViolate.ActionType}
+    parentPoliceViolate.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceViolate.ActionType})
+
+    parentPoliceViolate.EntityData.YListKeys = []string {}
+
     return &(parentPoliceViolate.EntityData)
 }
 
@@ -14051,10 +15239,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -14066,7 +15257,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // qos show ea st v2. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2.
-    QosShowEaStV2 []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2
+    QosShowEaStV2 []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2
 }
 
 func (policyTyphoon *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon) GetEntityData() *types.CommonEntityData {
@@ -14079,12 +15270,15 @@ func (policyTyphoon *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policyTyphoon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyTyphoon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policyTyphoon.EntityData.Children = make(map[string]types.YChild)
-    policyTyphoon.EntityData.Children["qos-show-ea-st-v2"] = types.YChild{"QosShowEaStV2", nil}
+    policyTyphoon.EntityData.Children = types.NewOrderedMap()
+    policyTyphoon.EntityData.Children.Append("qos-show-ea-st-v2", types.YChild{"QosShowEaStV2", nil})
     for i := range policyTyphoon.QosShowEaStV2 {
-        policyTyphoon.EntityData.Children[types.GetSegmentPath(&policyTyphoon.QosShowEaStV2[i])] = types.YChild{"QosShowEaStV2", &policyTyphoon.QosShowEaStV2[i]}
+        policyTyphoon.EntityData.Children.Append(types.GetSegmentPath(policyTyphoon.QosShowEaStV2[i]), types.YChild{"QosShowEaStV2", policyTyphoon.QosShowEaStV2[i]})
     }
-    policyTyphoon.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyTyphoon.EntityData.Leafs = types.NewOrderedMap()
+
+    policyTyphoon.EntityData.YListKeys = []string {}
+
     return &(policyTyphoon.EntityData)
 }
 
@@ -14141,20 +15335,23 @@ func (qosShowEaStV2 *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     qosShowEaStV2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaStV2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qosShowEaStV2.EntityData.Children = make(map[string]types.YChild)
-    qosShowEaStV2.EntityData.Children["queue"] = types.YChild{"Queue", &qosShowEaStV2.Queue}
-    qosShowEaStV2.EntityData.Children["queue-limit-parameters"] = types.YChild{"QueueLimitParameters", &qosShowEaStV2.QueueLimitParameters}
-    qosShowEaStV2.EntityData.Children["shape"] = types.YChild{"Shape", &qosShowEaStV2.Shape}
-    qosShowEaStV2.EntityData.Children["police"] = types.YChild{"Police", &qosShowEaStV2.Police}
-    qosShowEaStV2.EntityData.Children["wfq"] = types.YChild{"Wfq", &qosShowEaStV2.Wfq}
-    qosShowEaStV2.EntityData.Children["wred"] = types.YChild{"Wred", &qosShowEaStV2.Wred}
-    qosShowEaStV2.EntityData.Children["mark"] = types.YChild{"Mark", &qosShowEaStV2.Mark}
-    qosShowEaStV2.EntityData.Leafs = make(map[string]types.YLeaf)
-    qosShowEaStV2.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", qosShowEaStV2.ClassLevel}
-    qosShowEaStV2.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", qosShowEaStV2.ClassName}
-    qosShowEaStV2.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", qosShowEaStV2.PolicyName}
-    qosShowEaStV2.EntityData.Leafs["parent-policy-name"] = types.YLeaf{"ParentPolicyName", qosShowEaStV2.ParentPolicyName}
-    qosShowEaStV2.EntityData.Leafs["parent-class-name"] = types.YLeaf{"ParentClassName", qosShowEaStV2.ParentClassName}
+    qosShowEaStV2.EntityData.Children = types.NewOrderedMap()
+    qosShowEaStV2.EntityData.Children.Append("queue", types.YChild{"Queue", &qosShowEaStV2.Queue})
+    qosShowEaStV2.EntityData.Children.Append("queue-limit-parameters", types.YChild{"QueueLimitParameters", &qosShowEaStV2.QueueLimitParameters})
+    qosShowEaStV2.EntityData.Children.Append("shape", types.YChild{"Shape", &qosShowEaStV2.Shape})
+    qosShowEaStV2.EntityData.Children.Append("police", types.YChild{"Police", &qosShowEaStV2.Police})
+    qosShowEaStV2.EntityData.Children.Append("wfq", types.YChild{"Wfq", &qosShowEaStV2.Wfq})
+    qosShowEaStV2.EntityData.Children.Append("wred", types.YChild{"Wred", &qosShowEaStV2.Wred})
+    qosShowEaStV2.EntityData.Children.Append("mark", types.YChild{"Mark", &qosShowEaStV2.Mark})
+    qosShowEaStV2.EntityData.Leafs = types.NewOrderedMap()
+    qosShowEaStV2.EntityData.Leafs.Append("class-level", types.YLeaf{"ClassLevel", qosShowEaStV2.ClassLevel})
+    qosShowEaStV2.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", qosShowEaStV2.ClassName})
+    qosShowEaStV2.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", qosShowEaStV2.PolicyName})
+    qosShowEaStV2.EntityData.Leafs.Append("parent-policy-name", types.YLeaf{"ParentPolicyName", qosShowEaStV2.ParentPolicyName})
+    qosShowEaStV2.EntityData.Leafs.Append("parent-class-name", types.YLeaf{"ParentClassName", qosShowEaStV2.ParentClassName})
+
+    qosShowEaStV2.EntityData.YListKeys = []string {}
+
     return &(qosShowEaStV2.EntityData)
 }
 
@@ -14184,11 +15381,14 @@ func (queue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queue.EntityData.Children = make(map[string]types.YChild)
-    queue.EntityData.Leafs = make(map[string]types.YLeaf)
-    queue.EntityData.Leafs["queue-id"] = types.YLeaf{"QueueId", queue.QueueId}
-    queue.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", queue.QueueType}
-    queue.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", queue.ClassName}
+    queue.EntityData.Children = types.NewOrderedMap()
+    queue.EntityData.Leafs = types.NewOrderedMap()
+    queue.EntityData.Leafs.Append("queue-id", types.YLeaf{"QueueId", queue.QueueId})
+    queue.EntityData.Leafs.Append("queue-type", types.YLeaf{"QueueType", queue.QueueType})
+    queue.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", queue.ClassName})
+
+    queue.EntityData.YListKeys = []string {}
+
     return &(queue.EntityData)
 }
 
@@ -14224,13 +15424,16 @@ func (queueLimitParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterf
     queueLimitParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimitParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimitParameters.EntityData.Children = make(map[string]types.YChild)
-    queueLimitParameters.EntityData.Children["queue-limit"] = types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit}
-    queueLimitParameters.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit}
-    queueLimitParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimitParameters.EntityData.Leafs["absolute-index"] = types.YLeaf{"AbsoluteIndex", queueLimitParameters.AbsoluteIndex}
-    queueLimitParameters.EntityData.Leafs["template-id"] = types.YLeaf{"TemplateId", queueLimitParameters.TemplateId}
-    queueLimitParameters.EntityData.Leafs["curve-id"] = types.YLeaf{"CurveId", queueLimitParameters.CurveId}
+    queueLimitParameters.EntityData.Children = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Children.Append("queue-limit", types.YChild{"QueueLimit", &queueLimitParameters.QueueLimit})
+    queueLimitParameters.EntityData.Children.Append("config-queue-limit", types.YChild{"ConfigQueueLimit", &queueLimitParameters.ConfigQueueLimit})
+    queueLimitParameters.EntityData.Leafs = types.NewOrderedMap()
+    queueLimitParameters.EntityData.Leafs.Append("absolute-index", types.YLeaf{"AbsoluteIndex", queueLimitParameters.AbsoluteIndex})
+    queueLimitParameters.EntityData.Leafs.Append("template-id", types.YLeaf{"TemplateId", queueLimitParameters.TemplateId})
+    queueLimitParameters.EntityData.Leafs.Append("curve-id", types.YLeaf{"CurveId", queueLimitParameters.CurveId})
+
+    queueLimitParameters.EntityData.YListKeys = []string {}
+
     return &(queueLimitParameters.EntityData)
 }
 
@@ -14257,10 +15460,13 @@ func (queueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    queueLimit.EntityData.Children = make(map[string]types.YChild)
-    queueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    queueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", queueLimit.Value}
-    queueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", queueLimit.Unit}
+    queueLimit.EntityData.Children = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs = types.NewOrderedMap()
+    queueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", queueLimit.Value})
+    queueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", queueLimit.Unit})
+
+    queueLimit.EntityData.YListKeys = []string {}
+
     return &(queueLimit.EntityData)
 }
 
@@ -14287,10 +15493,13 @@ func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
-    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    configQueueLimit.EntityData.Leafs["value"] = types.YLeaf{"Value", configQueueLimit.Value}
-    configQueueLimit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", configQueueLimit.Unit}
+    configQueueLimit.EntityData.Children = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs = types.NewOrderedMap()
+    configQueueLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", configQueueLimit.Value})
+    configQueueLimit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", configQueueLimit.Unit})
+
+    configQueueLimit.EntityData.YListKeys = []string {}
+
     return &(configQueueLimit.EntityData)
 }
 
@@ -14323,12 +15532,15 @@ func (shape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shape.EntityData.Children = make(map[string]types.YChild)
-    shape.EntityData.Children["cir-shape"] = types.YChild{"CirShape", &shape.CirShape}
-    shape.EntityData.Children["pir-shape"] = types.YChild{"PirShape", &shape.PirShape}
-    shape.EntityData.Leafs = make(map[string]types.YLeaf)
-    shape.EntityData.Leafs["cir-shape-type"] = types.YLeaf{"CirShapeType", shape.CirShapeType}
-    shape.EntityData.Leafs["pir-shape-type"] = types.YLeaf{"PirShapeType", shape.PirShapeType}
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Children.Append("cir-shape", types.YChild{"CirShape", &shape.CirShape})
+    shape.EntityData.Children.Append("pir-shape", types.YChild{"PirShape", &shape.PirShape})
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("cir-shape-type", types.YLeaf{"CirShapeType", shape.CirShapeType})
+    shape.EntityData.Leafs.Append("pir-shape-type", types.YLeaf{"PirShapeType", shape.PirShapeType})
+
+    shape.EntityData.YListKeys = []string {}
+
     return &(shape.EntityData)
 }
 
@@ -14367,14 +15579,17 @@ func (cirShape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleIn
     cirShape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cirShape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cirShape.EntityData.Children = make(map[string]types.YChild)
-    cirShape.EntityData.Children["cir"] = types.YChild{"Cir", &cirShape.Cir}
-    cirShape.EntityData.Children["config-bandwidth"] = types.YChild{"ConfigBandwidth", &cirShape.ConfigBandwidth}
-    cirShape.EntityData.Children["cbs"] = types.YChild{"Cbs", &cirShape.Cbs}
-    cirShape.EntityData.Leafs = make(map[string]types.YLeaf)
-    cirShape.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", cirShape.ChunkId}
-    cirShape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", cirShape.ProfileId}
-    cirShape.EntityData.Leafs["scale-factor"] = types.YLeaf{"ScaleFactor", cirShape.ScaleFactor}
+    cirShape.EntityData.Children = types.NewOrderedMap()
+    cirShape.EntityData.Children.Append("cir", types.YChild{"Cir", &cirShape.Cir})
+    cirShape.EntityData.Children.Append("config-bandwidth", types.YChild{"ConfigBandwidth", &cirShape.ConfigBandwidth})
+    cirShape.EntityData.Children.Append("cbs", types.YChild{"Cbs", &cirShape.Cbs})
+    cirShape.EntityData.Leafs = types.NewOrderedMap()
+    cirShape.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", cirShape.ChunkId})
+    cirShape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", cirShape.ProfileId})
+    cirShape.EntityData.Leafs.Append("scale-factor", types.YLeaf{"ScaleFactor", cirShape.ScaleFactor})
+
+    cirShape.EntityData.YListKeys = []string {}
+
     return &(cirShape.EntityData)
 }
 
@@ -14401,10 +15616,13 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -14428,9 +15646,12 @@ func (configBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     configBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configBandwidth.EntityData.Children = make(map[string]types.YChild)
-    configBandwidth.EntityData.Children["minimum-rate"] = types.YChild{"MinimumRate", &configBandwidth.MinimumRate}
-    configBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    configBandwidth.EntityData.Children = types.NewOrderedMap()
+    configBandwidth.EntityData.Children.Append("minimum-rate", types.YChild{"MinimumRate", &configBandwidth.MinimumRate})
+    configBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    configBandwidth.EntityData.YListKeys = []string {}
+
     return &(configBandwidth.EntityData)
 }
 
@@ -14457,10 +15678,13 @@ func (minimumRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     minimumRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minimumRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minimumRate.EntityData.Children = make(map[string]types.YChild)
-    minimumRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    minimumRate.EntityData.Leafs["value"] = types.YLeaf{"Value", minimumRate.Value}
-    minimumRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minimumRate.Unit}
+    minimumRate.EntityData.Children = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs = types.NewOrderedMap()
+    minimumRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", minimumRate.Value})
+    minimumRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minimumRate.Unit})
+
+    minimumRate.EntityData.YListKeys = []string {}
+
     return &(minimumRate.EntityData)
 }
 
@@ -14487,10 +15711,13 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -14526,13 +15753,16 @@ func (pirShape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleIn
     pirShape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pirShape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pirShape.EntityData.Children = make(map[string]types.YChild)
-    pirShape.EntityData.Children["pir"] = types.YChild{"Pir", &pirShape.Pir}
-    pirShape.EntityData.Children["pbs"] = types.YChild{"Pbs", &pirShape.Pbs}
-    pirShape.EntityData.Leafs = make(map[string]types.YLeaf)
-    pirShape.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", pirShape.ChunkId}
-    pirShape.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", pirShape.ProfileId}
-    pirShape.EntityData.Leafs["scale-factor"] = types.YLeaf{"ScaleFactor", pirShape.ScaleFactor}
+    pirShape.EntityData.Children = types.NewOrderedMap()
+    pirShape.EntityData.Children.Append("pir", types.YChild{"Pir", &pirShape.Pir})
+    pirShape.EntityData.Children.Append("pbs", types.YChild{"Pbs", &pirShape.Pbs})
+    pirShape.EntityData.Leafs = types.NewOrderedMap()
+    pirShape.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", pirShape.ChunkId})
+    pirShape.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", pirShape.ProfileId})
+    pirShape.EntityData.Leafs.Append("scale-factor", types.YLeaf{"ScaleFactor", pirShape.ScaleFactor})
+
+    pirShape.EntityData.YListKeys = []string {}
+
     return &(pirShape.EntityData)
 }
 
@@ -14559,10 +15789,13 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -14589,10 +15822,13 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -14634,15 +15870,18 @@ func (police *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInpu
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    police.EntityData.Children = make(map[string]types.YChild)
-    police.EntityData.Children["cir"] = types.YChild{"Cir", &police.Cir}
-    police.EntityData.Children["cbs"] = types.YChild{"Cbs", &police.Cbs}
-    police.EntityData.Children["pir"] = types.YChild{"Pir", &police.Pir}
-    police.EntityData.Children["pbs"] = types.YChild{"Pbs", &police.Pbs}
-    police.EntityData.Children["police-config-parameters"] = types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters}
-    police.EntityData.Leafs = make(map[string]types.YLeaf)
-    police.EntityData.Leafs["policer-type"] = types.YLeaf{"PolicerType", police.PolicerType}
-    police.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", police.ProfileId}
+    police.EntityData.Children = types.NewOrderedMap()
+    police.EntityData.Children.Append("cir", types.YChild{"Cir", &police.Cir})
+    police.EntityData.Children.Append("cbs", types.YChild{"Cbs", &police.Cbs})
+    police.EntityData.Children.Append("pir", types.YChild{"Pir", &police.Pir})
+    police.EntityData.Children.Append("pbs", types.YChild{"Pbs", &police.Pbs})
+    police.EntityData.Children.Append("police-config-parameters", types.YChild{"PoliceConfigParameters", &police.PoliceConfigParameters})
+    police.EntityData.Leafs = types.NewOrderedMap()
+    police.EntityData.Leafs.Append("policer-type", types.YLeaf{"PolicerType", police.PolicerType})
+    police.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", police.ProfileId})
+
+    police.EntityData.YListKeys = []string {}
+
     return &(police.EntityData)
 }
 
@@ -14669,10 +15908,13 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cir.EntityData.Children = make(map[string]types.YChild)
-    cir.EntityData.Leafs = make(map[string]types.YLeaf)
-    cir.EntityData.Leafs["value"] = types.YLeaf{"Value", cir.Value}
-    cir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cir.Unit}
+    cir.EntityData.Children = types.NewOrderedMap()
+    cir.EntityData.Leafs = types.NewOrderedMap()
+    cir.EntityData.Leafs.Append("value", types.YLeaf{"Value", cir.Value})
+    cir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cir.Unit})
+
+    cir.EntityData.YListKeys = []string {}
+
     return &(cir.EntityData)
 }
 
@@ -14699,10 +15941,13 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cbs.EntityData.Children = make(map[string]types.YChild)
-    cbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbs.EntityData.Leafs["value"] = types.YLeaf{"Value", cbs.Value}
-    cbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", cbs.Unit}
+    cbs.EntityData.Children = types.NewOrderedMap()
+    cbs.EntityData.Leafs = types.NewOrderedMap()
+    cbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", cbs.Value})
+    cbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", cbs.Unit})
+
+    cbs.EntityData.YListKeys = []string {}
+
     return &(cbs.EntityData)
 }
 
@@ -14729,10 +15974,13 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pir.EntityData.Children = make(map[string]types.YChild)
-    pir.EntityData.Leafs = make(map[string]types.YLeaf)
-    pir.EntityData.Leafs["value"] = types.YLeaf{"Value", pir.Value}
-    pir.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pir.Unit}
+    pir.EntityData.Children = types.NewOrderedMap()
+    pir.EntityData.Leafs = types.NewOrderedMap()
+    pir.EntityData.Leafs.Append("value", types.YLeaf{"Value", pir.Value})
+    pir.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pir.Unit})
+
+    pir.EntityData.YListKeys = []string {}
+
     return &(pir.EntityData)
 }
 
@@ -14759,10 +16007,13 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbs.EntityData.Children = make(map[string]types.YChild)
-    pbs.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbs.EntityData.Leafs["value"] = types.YLeaf{"Value", pbs.Value}
-    pbs.EntityData.Leafs["unit"] = types.YLeaf{"Unit", pbs.Unit}
+    pbs.EntityData.Children = types.NewOrderedMap()
+    pbs.EntityData.Leafs = types.NewOrderedMap()
+    pbs.EntityData.Leafs.Append("value", types.YLeaf{"Value", pbs.Value})
+    pbs.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", pbs.Unit})
+
+    pbs.EntityData.YListKeys = []string {}
+
     return &(pbs.EntityData)
 }
 
@@ -14795,12 +16046,15 @@ func (policeConfigParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     policeConfigParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConfigParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConfigParameters.EntityData.Children = make(map[string]types.YChild)
-    policeConfigParameters.EntityData.Children["average-rate"] = types.YChild{"AverageRate", &policeConfigParameters.AverageRate}
-    policeConfigParameters.EntityData.Children["peak-rate"] = types.YChild{"PeakRate", &policeConfigParameters.PeakRate}
-    policeConfigParameters.EntityData.Children["conform-burst"] = types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst}
-    policeConfigParameters.EntityData.Children["exceed-burst"] = types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst}
-    policeConfigParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    policeConfigParameters.EntityData.Children = types.NewOrderedMap()
+    policeConfigParameters.EntityData.Children.Append("average-rate", types.YChild{"AverageRate", &policeConfigParameters.AverageRate})
+    policeConfigParameters.EntityData.Children.Append("peak-rate", types.YChild{"PeakRate", &policeConfigParameters.PeakRate})
+    policeConfigParameters.EntityData.Children.Append("conform-burst", types.YChild{"ConformBurst", &policeConfigParameters.ConformBurst})
+    policeConfigParameters.EntityData.Children.Append("exceed-burst", types.YChild{"ExceedBurst", &policeConfigParameters.ExceedBurst})
+    policeConfigParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    policeConfigParameters.EntityData.YListKeys = []string {}
+
     return &(policeConfigParameters.EntityData)
 }
 
@@ -14827,10 +16081,13 @@ func (averageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     averageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageRate.EntityData.Children = make(map[string]types.YChild)
-    averageRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageRate.EntityData.Leafs["value"] = types.YLeaf{"Value", averageRate.Value}
-    averageRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", averageRate.Unit}
+    averageRate.EntityData.Children = types.NewOrderedMap()
+    averageRate.EntityData.Leafs = types.NewOrderedMap()
+    averageRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageRate.Value})
+    averageRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", averageRate.Unit})
+
+    averageRate.EntityData.YListKeys = []string {}
+
     return &(averageRate.EntityData)
 }
 
@@ -14857,10 +16114,13 @@ func (peakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleIn
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakRate.EntityData.Children = make(map[string]types.YChild)
-    peakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", peakRate.Value}
-    peakRate.EntityData.Leafs["unit"] = types.YLeaf{"Unit", peakRate.Unit}
+    peakRate.EntityData.Children = types.NewOrderedMap()
+    peakRate.EntityData.Leafs = types.NewOrderedMap()
+    peakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakRate.Value})
+    peakRate.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", peakRate.Unit})
+
+    peakRate.EntityData.YListKeys = []string {}
+
     return &(peakRate.EntityData)
 }
 
@@ -14887,10 +16147,13 @@ func (conformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     conformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conformBurst.EntityData.Children = make(map[string]types.YChild)
-    conformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    conformBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", conformBurst.Value}
-    conformBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", conformBurst.Unit}
+    conformBurst.EntityData.Children = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs = types.NewOrderedMap()
+    conformBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", conformBurst.Value})
+    conformBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", conformBurst.Unit})
+
+    conformBurst.EntityData.YListKeys = []string {}
+
     return &(conformBurst.EntityData)
 }
 
@@ -14917,10 +16180,13 @@ func (exceedBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundl
     exceedBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exceedBurst.EntityData.Children = make(map[string]types.YChild)
-    exceedBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    exceedBurst.EntityData.Leafs["value"] = types.YLeaf{"Value", exceedBurst.Value}
-    exceedBurst.EntityData.Leafs["unit"] = types.YLeaf{"Unit", exceedBurst.Unit}
+    exceedBurst.EntityData.Children = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs = types.NewOrderedMap()
+    exceedBurst.EntityData.Leafs.Append("value", types.YLeaf{"Value", exceedBurst.Value})
+    exceedBurst.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", exceedBurst.Unit})
+
+    exceedBurst.EntityData.YListKeys = []string {}
+
     return &(exceedBurst.EntityData)
 }
 
@@ -14965,16 +16231,19 @@ func (wfq *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_M
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wfq.EntityData.Children = make(map[string]types.YChild)
-    wfq.EntityData.Children["parent-bandwidth"] = types.YChild{"ParentBandwidth", &wfq.ParentBandwidth}
-    wfq.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &wfq.Bandwidth}
-    wfq.EntityData.Leafs = make(map[string]types.YLeaf)
-    wfq.EntityData.Leafs["profile-id"] = types.YLeaf{"ProfileId", wfq.ProfileId}
-    wfq.EntityData.Leafs["committed-weight"] = types.YLeaf{"CommittedWeight", wfq.CommittedWeight}
-    wfq.EntityData.Leafs["excess-weight"] = types.YLeaf{"ExcessWeight", wfq.ExcessWeight}
-    wfq.EntityData.Leafs["excess-ratio"] = types.YLeaf{"ExcessRatio", wfq.ExcessRatio}
-    wfq.EntityData.Leafs["chunk-id"] = types.YLeaf{"ChunkId", wfq.ChunkId}
-    wfq.EntityData.Leafs["level"] = types.YLeaf{"Level", wfq.Level}
+    wfq.EntityData.Children = types.NewOrderedMap()
+    wfq.EntityData.Children.Append("parent-bandwidth", types.YChild{"ParentBandwidth", &wfq.ParentBandwidth})
+    wfq.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &wfq.Bandwidth})
+    wfq.EntityData.Leafs = types.NewOrderedMap()
+    wfq.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", wfq.ProfileId})
+    wfq.EntityData.Leafs.Append("committed-weight", types.YLeaf{"CommittedWeight", wfq.CommittedWeight})
+    wfq.EntityData.Leafs.Append("excess-weight", types.YLeaf{"ExcessWeight", wfq.ExcessWeight})
+    wfq.EntityData.Leafs.Append("excess-ratio", types.YLeaf{"ExcessRatio", wfq.ExcessRatio})
+    wfq.EntityData.Leafs.Append("chunk-id", types.YLeaf{"ChunkId", wfq.ChunkId})
+    wfq.EntityData.Leafs.Append("level", types.YLeaf{"Level", wfq.Level})
+
+    wfq.EntityData.YListKeys = []string {}
+
     return &(wfq.EntityData)
 }
 
@@ -15001,10 +16270,13 @@ func (parentBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_B
     parentBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentBandwidth.EntityData.Children = make(map[string]types.YChild)
-    parentBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentBandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", parentBandwidth.Value}
-    parentBandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", parentBandwidth.Unit}
+    parentBandwidth.EntityData.Children = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs = types.NewOrderedMap()
+    parentBandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", parentBandwidth.Value})
+    parentBandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", parentBandwidth.Unit})
+
+    parentBandwidth.EntityData.YListKeys = []string {}
+
     return &(parentBandwidth.EntityData)
 }
 
@@ -15031,10 +16303,13 @@ func (bandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleI
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["unit"] = types.YLeaf{"Unit", bandwidth.Unit}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", bandwidth.Unit})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -15045,14 +16320,14 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
     YFilter yfilter.YFilter
 
     // WRED type. The type is Wred.
-    Type_ interface{}
+    Type interface{}
 
     // Number of curves. The type is interface{} with range: 0..65535.
     CurveXr interface{}
 
     // Curve details. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve.
-    Curve []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve
+    Curve []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Wred_Curve
 }
 
 func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Wred) GetEntityData() *types.CommonEntityData {
@@ -15065,14 +16340,17 @@ func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wred.EntityData.Children = make(map[string]types.YChild)
-    wred.EntityData.Children["curve"] = types.YChild{"Curve", nil}
+    wred.EntityData.Children = types.NewOrderedMap()
+    wred.EntityData.Children.Append("curve", types.YChild{"Curve", nil})
     for i := range wred.Curve {
-        wred.EntityData.Children[types.GetSegmentPath(&wred.Curve[i])] = types.YChild{"Curve", &wred.Curve[i]}
+        wred.EntityData.Children.Append(types.GetSegmentPath(wred.Curve[i]), types.YChild{"Curve", wred.Curve[i]})
     }
-    wred.EntityData.Leafs = make(map[string]types.YLeaf)
-    wred.EntityData.Leafs["type"] = types.YLeaf{"Type_", wred.Type_}
-    wred.EntityData.Leafs["curve-xr"] = types.YLeaf{"CurveXr", wred.CurveXr}
+    wred.EntityData.Leafs = types.NewOrderedMap()
+    wred.EntityData.Leafs.Append("type", types.YLeaf{"Type", wred.Type})
+    wred.EntityData.Leafs.Append("curve-xr", types.YLeaf{"CurveXr", wred.CurveXr})
+
+    wred.EntityData.YListKeys = []string {}
+
     return &(wred.EntityData)
 }
 
@@ -15123,17 +16401,20 @@ func (curve *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput
     curve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     curve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    curve.EntityData.Children = make(map[string]types.YChild)
-    curve.EntityData.Children["min-threshold"] = types.YChild{"MinThreshold", &curve.MinThreshold}
-    curve.EntityData.Children["min-threshold-user-config"] = types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig}
-    curve.EntityData.Children["max-threshold"] = types.YChild{"MaxThreshold", &curve.MaxThreshold}
-    curve.EntityData.Children["max-threshold-user-config"] = types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig}
-    curve.EntityData.Leafs = make(map[string]types.YLeaf)
-    curve.EntityData.Leafs["absolute-index"] = types.YLeaf{"AbsoluteIndex", curve.AbsoluteIndex}
-    curve.EntityData.Leafs["template-id"] = types.YLeaf{"TemplateId", curve.TemplateId}
-    curve.EntityData.Leafs["curve-id"] = types.YLeaf{"CurveId", curve.CurveId}
-    curve.EntityData.Leafs["match"] = types.YLeaf{"Match", curve.Match}
-    curve.EntityData.Leafs["exp-match"] = types.YLeaf{"ExpMatch", curve.ExpMatch}
+    curve.EntityData.Children = types.NewOrderedMap()
+    curve.EntityData.Children.Append("min-threshold", types.YChild{"MinThreshold", &curve.MinThreshold})
+    curve.EntityData.Children.Append("min-threshold-user-config", types.YChild{"MinThresholdUserConfig", &curve.MinThresholdUserConfig})
+    curve.EntityData.Children.Append("max-threshold", types.YChild{"MaxThreshold", &curve.MaxThreshold})
+    curve.EntityData.Children.Append("max-threshold-user-config", types.YChild{"MaxThresholdUserConfig", &curve.MaxThresholdUserConfig})
+    curve.EntityData.Leafs = types.NewOrderedMap()
+    curve.EntityData.Leafs.Append("absolute-index", types.YLeaf{"AbsoluteIndex", curve.AbsoluteIndex})
+    curve.EntityData.Leafs.Append("template-id", types.YLeaf{"TemplateId", curve.TemplateId})
+    curve.EntityData.Leafs.Append("curve-id", types.YLeaf{"CurveId", curve.CurveId})
+    curve.EntityData.Leafs.Append("match", types.YLeaf{"Match", curve.Match})
+    curve.EntityData.Leafs.Append("exp-match", types.YLeaf{"ExpMatch", curve.ExpMatch})
+
+    curve.EntityData.YListKeys = []string {}
+
     return &(curve.EntityData)
 }
 
@@ -15160,10 +16441,13 @@ func (minThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     minThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThreshold.EntityData.Children = make(map[string]types.YChild)
-    minThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", minThreshold.Value}
-    minThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThreshold.Unit}
+    minThreshold.EntityData.Children = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs = types.NewOrderedMap()
+    minThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThreshold.Value})
+    minThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThreshold.Unit})
+
+    minThreshold.EntityData.YListKeys = []string {}
+
     return &(minThreshold.EntityData)
 }
 
@@ -15190,10 +16474,13 @@ func (minThresholdUserConfig *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     minThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    minThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    minThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    minThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", minThresholdUserConfig.Value}
-    minThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", minThresholdUserConfig.Unit}
+    minThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    minThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", minThresholdUserConfig.Value})
+    minThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", minThresholdUserConfig.Unit})
+
+    minThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(minThresholdUserConfig.EntityData)
 }
 
@@ -15220,10 +16507,13 @@ func (maxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     maxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThreshold.EntityData.Children = make(map[string]types.YChild)
-    maxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThreshold.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThreshold.Value}
-    maxThreshold.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThreshold.Unit}
+    maxThreshold.EntityData.Children = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    maxThreshold.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThreshold.Value})
+    maxThreshold.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThreshold.Unit})
+
+    maxThreshold.EntityData.YListKeys = []string {}
+
     return &(maxThreshold.EntityData)
 }
 
@@ -15250,10 +16540,13 @@ func (maxThresholdUserConfig *PlatformQos_Nodes_Node_BundleInterfaces_BundleInte
     maxThresholdUserConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxThresholdUserConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxThresholdUserConfig.EntityData.Children = make(map[string]types.YChild)
-    maxThresholdUserConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxThresholdUserConfig.EntityData.Leafs["value"] = types.YLeaf{"Value", maxThresholdUserConfig.Value}
-    maxThresholdUserConfig.EntityData.Leafs["unit"] = types.YLeaf{"Unit", maxThresholdUserConfig.Unit}
+    maxThresholdUserConfig.EntityData.Children = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs = types.NewOrderedMap()
+    maxThresholdUserConfig.EntityData.Leafs.Append("value", types.YLeaf{"Value", maxThresholdUserConfig.Value})
+    maxThresholdUserConfig.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", maxThresholdUserConfig.Unit})
+
+    maxThresholdUserConfig.EntityData.YListKeys = []string {}
+
     return &(maxThresholdUserConfig.EntityData)
 }
 
@@ -15298,16 +16591,19 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mark.EntityData.Children = make(map[string]types.YChild)
-    mark.EntityData.Children["child-mark"] = types.YChild{"ChildMark", &mark.ChildMark}
-    mark.EntityData.Children["police-conform"] = types.YChild{"PoliceConform", &mark.PoliceConform}
-    mark.EntityData.Children["police-exceed"] = types.YChild{"PoliceExceed", &mark.PoliceExceed}
-    mark.EntityData.Children["police-violate"] = types.YChild{"PoliceViolate", &mark.PoliceViolate}
-    mark.EntityData.Children["parent-mark"] = types.YChild{"ParentMark", &mark.ParentMark}
-    mark.EntityData.Children["parent-police-conform"] = types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform}
-    mark.EntityData.Children["parent-police-exceed"] = types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed}
-    mark.EntityData.Children["parent-police-violate"] = types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate}
-    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Children = types.NewOrderedMap()
+    mark.EntityData.Children.Append("child-mark", types.YChild{"ChildMark", &mark.ChildMark})
+    mark.EntityData.Children.Append("police-conform", types.YChild{"PoliceConform", &mark.PoliceConform})
+    mark.EntityData.Children.Append("police-exceed", types.YChild{"PoliceExceed", &mark.PoliceExceed})
+    mark.EntityData.Children.Append("police-violate", types.YChild{"PoliceViolate", &mark.PoliceViolate})
+    mark.EntityData.Children.Append("parent-mark", types.YChild{"ParentMark", &mark.ParentMark})
+    mark.EntityData.Children.Append("parent-police-conform", types.YChild{"ParentPoliceConform", &mark.ParentPoliceConform})
+    mark.EntityData.Children.Append("parent-police-exceed", types.YChild{"ParentPoliceExceed", &mark.ParentPoliceExceed})
+    mark.EntityData.Children.Append("parent-police-violate", types.YChild{"ParentPoliceViolate", &mark.ParentPoliceViolate})
+    mark.EntityData.Leafs = types.NewOrderedMap()
+
+    mark.EntityData.YListKeys = []string {}
+
     return &(mark.EntityData)
 }
 
@@ -15322,7 +16618,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark_MarkDetail
 }
 
 func (childMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ChildMark) GetEntityData() *types.CommonEntityData {
@@ -15335,13 +16631,16 @@ func (childMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleI
     childMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     childMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    childMark.EntityData.Children = make(map[string]types.YChild)
-    childMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    childMark.EntityData.Children = types.NewOrderedMap()
+    childMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range childMark.MarkDetail {
-        childMark.EntityData.Children[types.GetSegmentPath(&childMark.MarkDetail[i])] = types.YChild{"MarkDetail", &childMark.MarkDetail[i]}
+        childMark.EntityData.Children.Append(types.GetSegmentPath(childMark.MarkDetail[i]), types.YChild{"MarkDetail", childMark.MarkDetail[i]})
     }
-    childMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    childMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", childMark.ActionType}
+    childMark.EntityData.Leafs = types.NewOrderedMap()
+    childMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", childMark.ActionType})
+
+    childMark.EntityData.YListKeys = []string {}
+
     return &(childMark.EntityData)
 }
 
@@ -15368,10 +16667,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -15386,7 +16688,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform_MarkDetail
 }
 
 func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceConform) GetEntityData() *types.CommonEntityData {
@@ -15399,13 +16701,16 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeConform.EntityData.Children = make(map[string]types.YChild)
-    policeConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeConform.EntityData.Children = types.NewOrderedMap()
+    policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
-        policeConform.EntityData.Children[types.GetSegmentPath(&policeConform.MarkDetail[i])] = types.YChild{"MarkDetail", &policeConform.MarkDetail[i]}
+        policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
-    policeConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeConform.ActionType}
+    policeConform.EntityData.Leafs = types.NewOrderedMap()
+    policeConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeConform.ActionType})
+
+    policeConform.EntityData.YListKeys = []string {}
+
     return &(policeConform.EntityData)
 }
 
@@ -15432,10 +16737,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -15450,7 +16758,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed_MarkDetail
 }
 
 func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -15463,13 +16771,16 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bund
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeExceed.EntityData.Children = make(map[string]types.YChild)
-    policeExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeExceed.EntityData.Children = types.NewOrderedMap()
+    policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
-        policeExceed.EntityData.Children[types.GetSegmentPath(&policeExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &policeExceed.MarkDetail[i]}
+        policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
-    policeExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeExceed.ActionType}
+    policeExceed.EntityData.Leafs = types.NewOrderedMap()
+    policeExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeExceed.ActionType})
+
+    policeExceed.EntityData.YListKeys = []string {}
+
     return &(policeExceed.EntityData)
 }
 
@@ -15496,10 +16807,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -15514,7 +16828,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate_MarkDetail
 }
 
 func (policeViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_PoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -15527,13 +16841,16 @@ func (policeViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bun
     policeViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policeViolate.EntityData.Children = make(map[string]types.YChild)
-    policeViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    policeViolate.EntityData.Children = types.NewOrderedMap()
+    policeViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeViolate.MarkDetail {
-        policeViolate.EntityData.Children[types.GetSegmentPath(&policeViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &policeViolate.MarkDetail[i]}
+        policeViolate.EntityData.Children.Append(types.GetSegmentPath(policeViolate.MarkDetail[i]), types.YChild{"MarkDetail", policeViolate.MarkDetail[i]})
     }
-    policeViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    policeViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", policeViolate.ActionType}
+    policeViolate.EntityData.Leafs = types.NewOrderedMap()
+    policeViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", policeViolate.ActionType})
+
+    policeViolate.EntityData.YListKeys = []string {}
+
     return &(policeViolate.EntityData)
 }
 
@@ -15560,10 +16877,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -15578,7 +16898,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark_MarkDetail
 }
 
 func (parentMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentMark) GetEntityData() *types.CommonEntityData {
@@ -15591,13 +16911,16 @@ func (parentMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     parentMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentMark.EntityData.Children = make(map[string]types.YChild)
-    parentMark.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentMark.EntityData.Children = types.NewOrderedMap()
+    parentMark.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentMark.MarkDetail {
-        parentMark.EntityData.Children[types.GetSegmentPath(&parentMark.MarkDetail[i])] = types.YChild{"MarkDetail", &parentMark.MarkDetail[i]}
+        parentMark.EntityData.Children.Append(types.GetSegmentPath(parentMark.MarkDetail[i]), types.YChild{"MarkDetail", parentMark.MarkDetail[i]})
     }
-    parentMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentMark.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentMark.ActionType}
+    parentMark.EntityData.Leafs = types.NewOrderedMap()
+    parentMark.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentMark.ActionType})
+
+    parentMark.EntityData.YListKeys = []string {}
+
     return &(parentMark.EntityData)
 }
 
@@ -15624,10 +16947,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -15642,7 +16968,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform_MarkDetail
 }
 
 func (parentPoliceConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceConform) GetEntityData() *types.CommonEntityData {
@@ -15655,13 +16981,16 @@ func (parentPoliceConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     parentPoliceConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceConform.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceConform.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceConform.EntityData.Children = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceConform.MarkDetail {
-        parentPoliceConform.EntityData.Children[types.GetSegmentPath(&parentPoliceConform.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceConform.MarkDetail[i]}
+        parentPoliceConform.EntityData.Children.Append(types.GetSegmentPath(parentPoliceConform.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceConform.MarkDetail[i]})
     }
-    parentPoliceConform.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceConform.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceConform.ActionType}
+    parentPoliceConform.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceConform.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceConform.ActionType})
+
+    parentPoliceConform.EntityData.YListKeys = []string {}
+
     return &(parentPoliceConform.EntityData)
 }
 
@@ -15688,10 +17017,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -15706,7 +17038,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed_MarkDetail
 }
 
 func (parentPoliceExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceExceed) GetEntityData() *types.CommonEntityData {
@@ -15719,13 +17051,16 @@ func (parentPoliceExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfac
     parentPoliceExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceExceed.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceExceed.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceExceed.EntityData.Children = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceExceed.MarkDetail {
-        parentPoliceExceed.EntityData.Children[types.GetSegmentPath(&parentPoliceExceed.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceExceed.MarkDetail[i]}
+        parentPoliceExceed.EntityData.Children.Append(types.GetSegmentPath(parentPoliceExceed.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceExceed.MarkDetail[i]})
     }
-    parentPoliceExceed.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceExceed.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceExceed.ActionType}
+    parentPoliceExceed.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceExceed.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceExceed.ActionType})
+
+    parentPoliceExceed.EntityData.YListKeys = []string {}
+
     return &(parentPoliceExceed.EntityData)
 }
 
@@ -15752,10 +17087,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 
@@ -15770,7 +17108,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
 
     // Mark value. The type is slice of
     // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail.
-    MarkDetail []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail
+    MarkDetail []*PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate_MarkDetail
 }
 
 func (parentPoliceViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberInterfaces_MemberInterface_Details_PolicyTyphoon_QosShowEaStV2_Mark_ParentPoliceViolate) GetEntityData() *types.CommonEntityData {
@@ -15783,13 +17121,16 @@ func (parentPoliceViolate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     parentPoliceViolate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentPoliceViolate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parentPoliceViolate.EntityData.Children = make(map[string]types.YChild)
-    parentPoliceViolate.EntityData.Children["mark-detail"] = types.YChild{"MarkDetail", nil}
+    parentPoliceViolate.EntityData.Children = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range parentPoliceViolate.MarkDetail {
-        parentPoliceViolate.EntityData.Children[types.GetSegmentPath(&parentPoliceViolate.MarkDetail[i])] = types.YChild{"MarkDetail", &parentPoliceViolate.MarkDetail[i]}
+        parentPoliceViolate.EntityData.Children.Append(types.GetSegmentPath(parentPoliceViolate.MarkDetail[i]), types.YChild{"MarkDetail", parentPoliceViolate.MarkDetail[i]})
     }
-    parentPoliceViolate.EntityData.Leafs = make(map[string]types.YLeaf)
-    parentPoliceViolate.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", parentPoliceViolate.ActionType}
+    parentPoliceViolate.EntityData.Leafs = types.NewOrderedMap()
+    parentPoliceViolate.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", parentPoliceViolate.ActionType})
+
+    parentPoliceViolate.EntityData.YListKeys = []string {}
+
     return &(parentPoliceViolate.EntityData)
 }
 
@@ -15816,10 +17157,13 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Bundle
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    markDetail.EntityData.Children = make(map[string]types.YChild)
-    markDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    markDetail.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", markDetail.MarkValue}
-    markDetail.EntityData.Leafs["action-opcode"] = types.YLeaf{"ActionOpcode", markDetail.ActionOpcode}
+    markDetail.EntityData.Children = types.NewOrderedMap()
+    markDetail.EntityData.Leafs = types.NewOrderedMap()
+    markDetail.EntityData.Leafs.Append("mark-value", types.YLeaf{"MarkValue", markDetail.MarkValue})
+    markDetail.EntityData.Leafs.Append("action-opcode", types.YLeaf{"ActionOpcode", markDetail.ActionOpcode})
+
+    markDetail.EntityData.YListKeys = []string {}
+
     return &(markDetail.EntityData)
 }
 

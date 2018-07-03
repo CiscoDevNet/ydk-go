@@ -44,9 +44,12 @@ func (macsec *Macsec) GetEntityData() *types.CommonEntityData {
     macsec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macsec.EntityData.Children = make(map[string]types.YChild)
-    macsec.EntityData.Children["secy"] = types.YChild{"Secy", &macsec.Secy}
-    macsec.EntityData.Leafs = make(map[string]types.YLeaf)
+    macsec.EntityData.Children = types.NewOrderedMap()
+    macsec.EntityData.Children.Append("secy", types.YChild{"Secy", &macsec.Secy})
+    macsec.EntityData.Leafs = types.NewOrderedMap()
+
+    macsec.EntityData.YListKeys = []string {}
+
     return &(macsec.EntityData)
 }
 
@@ -70,9 +73,12 @@ func (secy *Macsec_Secy) GetEntityData() *types.CommonEntityData {
     secy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    secy.EntityData.Children = make(map[string]types.YChild)
-    secy.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &secy.Interfaces}
-    secy.EntityData.Leafs = make(map[string]types.YLeaf)
+    secy.EntityData.Children = types.NewOrderedMap()
+    secy.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &secy.Interfaces})
+    secy.EntityData.Leafs = types.NewOrderedMap()
+
+    secy.EntityData.YListKeys = []string {}
+
     return &(secy.EntityData)
 }
 
@@ -83,8 +89,8 @@ type Macsec_Secy_Interfaces struct {
     YFilter yfilter.YFilter
 
     // MAC Security Data for the Interface. The type is slice of
-    // Macsec_Secy_Interfaces_Interface_.
-    Interface_ []Macsec_Secy_Interfaces_Interface
+    // Macsec_Secy_Interfaces_Interface.
+    Interface []*Macsec_Secy_Interfaces_Interface
 }
 
 func (interfaces *Macsec_Secy_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -97,12 +103,15 @@ func (interfaces *Macsec_Secy_Interfaces) GetEntityData() *types.CommonEntityDat
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -113,7 +122,7 @@ type Macsec_Secy_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Name interface{}
 
     // MACsec Stats.
@@ -125,15 +134,18 @@ func (self *Macsec_Secy_Interfaces_Interface) GetEntityData() *types.CommonEntit
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["stats"] = types.YChild{"Stats", &self.Stats}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("stats", types.YChild{"Stats", &self.Stats})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
 }
 
@@ -151,7 +163,7 @@ type Macsec_Secy_Interfaces_Interface_Stats struct {
 
     // RX SC Stats List. The type is slice of
     // Macsec_Secy_Interfaces_Interface_Stats_RxScStats.
-    RxScStats []Macsec_Secy_Interfaces_Interface_Stats_RxScStats
+    RxScStats []*Macsec_Secy_Interfaces_Interface_Stats_RxScStats
 }
 
 func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetEntityData() *types.CommonEntityData {
@@ -164,14 +176,17 @@ func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetEntityData() *types.Comm
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Children["intf-stats"] = types.YChild{"IntfStats", &stats.IntfStats}
-    stats.EntityData.Children["tx-sc-stats"] = types.YChild{"TxScStats", &stats.TxScStats}
-    stats.EntityData.Children["rx-sc-stats"] = types.YChild{"RxScStats", nil}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Children.Append("intf-stats", types.YChild{"IntfStats", &stats.IntfStats})
+    stats.EntityData.Children.Append("tx-sc-stats", types.YChild{"TxScStats", &stats.TxScStats})
+    stats.EntityData.Children.Append("rx-sc-stats", types.YChild{"RxScStats", nil})
     for i := range stats.RxScStats {
-        stats.EntityData.Children[types.GetSegmentPath(&stats.RxScStats[i])] = types.YChild{"RxScStats", &stats.RxScStats[i]}
+        stats.EntityData.Children.Append(types.GetSegmentPath(stats.RxScStats[i]), types.YChild{"RxScStats", stats.RxScStats[i]})
     }
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    stats.EntityData.Leafs = types.NewOrderedMap()
+
+    stats.EntityData.YListKeys = []string {}
+
     return &(stats.EntityData)
 }
 
@@ -236,20 +251,23 @@ func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetEntityData
     intfStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    intfStats.EntityData.Children = make(map[string]types.YChild)
-    intfStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    intfStats.EntityData.Leafs["in-pkts-untagged"] = types.YLeaf{"InPktsUntagged", intfStats.InPktsUntagged}
-    intfStats.EntityData.Leafs["in-pkts-no-tag"] = types.YLeaf{"InPktsNoTag", intfStats.InPktsNoTag}
-    intfStats.EntityData.Leafs["in-pkts-bad-tag"] = types.YLeaf{"InPktsBadTag", intfStats.InPktsBadTag}
-    intfStats.EntityData.Leafs["in-pkts-unknown-sci"] = types.YLeaf{"InPktsUnknownSci", intfStats.InPktsUnknownSci}
-    intfStats.EntityData.Leafs["in-pkts-no-sci"] = types.YLeaf{"InPktsNoSci", intfStats.InPktsNoSci}
-    intfStats.EntityData.Leafs["in-pkts-overrun"] = types.YLeaf{"InPktsOverrun", intfStats.InPktsOverrun}
-    intfStats.EntityData.Leafs["in-octets-validated"] = types.YLeaf{"InOctetsValidated", intfStats.InOctetsValidated}
-    intfStats.EntityData.Leafs["in-octets-decrypted"] = types.YLeaf{"InOctetsDecrypted", intfStats.InOctetsDecrypted}
-    intfStats.EntityData.Leafs["out-pkts-untagged"] = types.YLeaf{"OutPktsUntagged", intfStats.OutPktsUntagged}
-    intfStats.EntityData.Leafs["out-pkts-too-long"] = types.YLeaf{"OutPktsTooLong", intfStats.OutPktsTooLong}
-    intfStats.EntityData.Leafs["out-octets-protected"] = types.YLeaf{"OutOctetsProtected", intfStats.OutOctetsProtected}
-    intfStats.EntityData.Leafs["out-octets-encrypted"] = types.YLeaf{"OutOctetsEncrypted", intfStats.OutOctetsEncrypted}
+    intfStats.EntityData.Children = types.NewOrderedMap()
+    intfStats.EntityData.Leafs = types.NewOrderedMap()
+    intfStats.EntityData.Leafs.Append("in-pkts-untagged", types.YLeaf{"InPktsUntagged", intfStats.InPktsUntagged})
+    intfStats.EntityData.Leafs.Append("in-pkts-no-tag", types.YLeaf{"InPktsNoTag", intfStats.InPktsNoTag})
+    intfStats.EntityData.Leafs.Append("in-pkts-bad-tag", types.YLeaf{"InPktsBadTag", intfStats.InPktsBadTag})
+    intfStats.EntityData.Leafs.Append("in-pkts-unknown-sci", types.YLeaf{"InPktsUnknownSci", intfStats.InPktsUnknownSci})
+    intfStats.EntityData.Leafs.Append("in-pkts-no-sci", types.YLeaf{"InPktsNoSci", intfStats.InPktsNoSci})
+    intfStats.EntityData.Leafs.Append("in-pkts-overrun", types.YLeaf{"InPktsOverrun", intfStats.InPktsOverrun})
+    intfStats.EntityData.Leafs.Append("in-octets-validated", types.YLeaf{"InOctetsValidated", intfStats.InOctetsValidated})
+    intfStats.EntityData.Leafs.Append("in-octets-decrypted", types.YLeaf{"InOctetsDecrypted", intfStats.InOctetsDecrypted})
+    intfStats.EntityData.Leafs.Append("out-pkts-untagged", types.YLeaf{"OutPktsUntagged", intfStats.OutPktsUntagged})
+    intfStats.EntityData.Leafs.Append("out-pkts-too-long", types.YLeaf{"OutPktsTooLong", intfStats.OutPktsTooLong})
+    intfStats.EntityData.Leafs.Append("out-octets-protected", types.YLeaf{"OutOctetsProtected", intfStats.OutOctetsProtected})
+    intfStats.EntityData.Leafs.Append("out-octets-encrypted", types.YLeaf{"OutOctetsEncrypted", intfStats.OutOctetsEncrypted})
+
+    intfStats.EntityData.YListKeys = []string {}
+
     return &(intfStats.EntityData)
 }
 
@@ -284,7 +302,7 @@ type Macsec_Secy_Interfaces_Interface_Stats_TxScStats struct {
 
     // tx sa stats. The type is slice of
     // Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat.
-    TxsaStat []Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat
+    TxsaStat []*Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat
 }
 
 func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetEntityData() *types.CommonEntityData {
@@ -297,18 +315,21 @@ func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetEntityData
     txScStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txScStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txScStats.EntityData.Children = make(map[string]types.YChild)
-    txScStats.EntityData.Children["txsa-stat"] = types.YChild{"TxsaStat", nil}
+    txScStats.EntityData.Children = types.NewOrderedMap()
+    txScStats.EntityData.Children.Append("txsa-stat", types.YChild{"TxsaStat", nil})
     for i := range txScStats.TxsaStat {
-        txScStats.EntityData.Children[types.GetSegmentPath(&txScStats.TxsaStat[i])] = types.YChild{"TxsaStat", &txScStats.TxsaStat[i]}
+        txScStats.EntityData.Children.Append(types.GetSegmentPath(txScStats.TxsaStat[i]), types.YChild{"TxsaStat", txScStats.TxsaStat[i]})
     }
-    txScStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    txScStats.EntityData.Leafs["tx-sci"] = types.YLeaf{"TxSci", txScStats.TxSci}
-    txScStats.EntityData.Leafs["out-pkts-protected"] = types.YLeaf{"OutPktsProtected", txScStats.OutPktsProtected}
-    txScStats.EntityData.Leafs["out-pkts-encrypted"] = types.YLeaf{"OutPktsEncrypted", txScStats.OutPktsEncrypted}
-    txScStats.EntityData.Leafs["out-octets-protected"] = types.YLeaf{"OutOctetsProtected", txScStats.OutOctetsProtected}
-    txScStats.EntityData.Leafs["out-octets-encrypted"] = types.YLeaf{"OutOctetsEncrypted", txScStats.OutOctetsEncrypted}
-    txScStats.EntityData.Leafs["out-pkts-too-long"] = types.YLeaf{"OutPktsTooLong", txScStats.OutPktsTooLong}
+    txScStats.EntityData.Leafs = types.NewOrderedMap()
+    txScStats.EntityData.Leafs.Append("tx-sci", types.YLeaf{"TxSci", txScStats.TxSci})
+    txScStats.EntityData.Leafs.Append("out-pkts-protected", types.YLeaf{"OutPktsProtected", txScStats.OutPktsProtected})
+    txScStats.EntityData.Leafs.Append("out-pkts-encrypted", types.YLeaf{"OutPktsEncrypted", txScStats.OutPktsEncrypted})
+    txScStats.EntityData.Leafs.Append("out-octets-protected", types.YLeaf{"OutOctetsProtected", txScStats.OutOctetsProtected})
+    txScStats.EntityData.Leafs.Append("out-octets-encrypted", types.YLeaf{"OutOctetsEncrypted", txScStats.OutOctetsEncrypted})
+    txScStats.EntityData.Leafs.Append("out-pkts-too-long", types.YLeaf{"OutPktsTooLong", txScStats.OutPktsTooLong})
+
+    txScStats.EntityData.YListKeys = []string {}
+
     return &(txScStats.EntityData)
 }
 
@@ -340,11 +361,14 @@ func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetEn
     txsaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txsaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txsaStat.EntityData.Children = make(map[string]types.YChild)
-    txsaStat.EntityData.Leafs = make(map[string]types.YLeaf)
-    txsaStat.EntityData.Leafs["out-pkts-protected"] = types.YLeaf{"OutPktsProtected", txsaStat.OutPktsProtected}
-    txsaStat.EntityData.Leafs["out-pkts-encrypted"] = types.YLeaf{"OutPktsEncrypted", txsaStat.OutPktsEncrypted}
-    txsaStat.EntityData.Leafs["next-pn"] = types.YLeaf{"NextPn", txsaStat.NextPn}
+    txsaStat.EntityData.Children = types.NewOrderedMap()
+    txsaStat.EntityData.Leafs = types.NewOrderedMap()
+    txsaStat.EntityData.Leafs.Append("out-pkts-protected", types.YLeaf{"OutPktsProtected", txsaStat.OutPktsProtected})
+    txsaStat.EntityData.Leafs.Append("out-pkts-encrypted", types.YLeaf{"OutPktsEncrypted", txsaStat.OutPktsEncrypted})
+    txsaStat.EntityData.Leafs.Append("next-pn", types.YLeaf{"NextPn", txsaStat.NextPn})
+
+    txsaStat.EntityData.YListKeys = []string {}
+
     return &(txsaStat.EntityData)
 }
 
@@ -399,7 +423,7 @@ type Macsec_Secy_Interfaces_Interface_Stats_RxScStats struct {
 
     // rxsa stats. The type is slice of
     // Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat.
-    RxsaStat []Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat
+    RxsaStat []*Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat
 }
 
 func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetEntityData() *types.CommonEntityData {
@@ -412,24 +436,27 @@ func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetEntityData
     rxScStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxScStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxScStats.EntityData.Children = make(map[string]types.YChild)
-    rxScStats.EntityData.Children["rxsa-stat"] = types.YChild{"RxsaStat", nil}
+    rxScStats.EntityData.Children = types.NewOrderedMap()
+    rxScStats.EntityData.Children.Append("rxsa-stat", types.YChild{"RxsaStat", nil})
     for i := range rxScStats.RxsaStat {
-        rxScStats.EntityData.Children[types.GetSegmentPath(&rxScStats.RxsaStat[i])] = types.YChild{"RxsaStat", &rxScStats.RxsaStat[i]}
+        rxScStats.EntityData.Children.Append(types.GetSegmentPath(rxScStats.RxsaStat[i]), types.YChild{"RxsaStat", rxScStats.RxsaStat[i]})
     }
-    rxScStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxScStats.EntityData.Leafs["rx-sci"] = types.YLeaf{"RxSci", rxScStats.RxSci}
-    rxScStats.EntityData.Leafs["in-pkts-unchecked"] = types.YLeaf{"InPktsUnchecked", rxScStats.InPktsUnchecked}
-    rxScStats.EntityData.Leafs["in-pkts-delayed"] = types.YLeaf{"InPktsDelayed", rxScStats.InPktsDelayed}
-    rxScStats.EntityData.Leafs["in-pkts-late"] = types.YLeaf{"InPktsLate", rxScStats.InPktsLate}
-    rxScStats.EntityData.Leafs["in-pkts-ok"] = types.YLeaf{"InPktsOk", rxScStats.InPktsOk}
-    rxScStats.EntityData.Leafs["in-pkts-invalid"] = types.YLeaf{"InPktsInvalid", rxScStats.InPktsInvalid}
-    rxScStats.EntityData.Leafs["in-pkts-not-valid"] = types.YLeaf{"InPktsNotValid", rxScStats.InPktsNotValid}
-    rxScStats.EntityData.Leafs["in-pkts-not-using-sa"] = types.YLeaf{"InPktsNotUsingSa", rxScStats.InPktsNotUsingSa}
-    rxScStats.EntityData.Leafs["in-pkts-unused-sa"] = types.YLeaf{"InPktsUnusedSa", rxScStats.InPktsUnusedSa}
-    rxScStats.EntityData.Leafs["in-pkts-untagged-hit"] = types.YLeaf{"InPktsUntaggedHit", rxScStats.InPktsUntaggedHit}
-    rxScStats.EntityData.Leafs["in-octets-validated"] = types.YLeaf{"InOctetsValidated", rxScStats.InOctetsValidated}
-    rxScStats.EntityData.Leafs["in-octets-decrypted"] = types.YLeaf{"InOctetsDecrypted", rxScStats.InOctetsDecrypted}
+    rxScStats.EntityData.Leafs = types.NewOrderedMap()
+    rxScStats.EntityData.Leafs.Append("rx-sci", types.YLeaf{"RxSci", rxScStats.RxSci})
+    rxScStats.EntityData.Leafs.Append("in-pkts-unchecked", types.YLeaf{"InPktsUnchecked", rxScStats.InPktsUnchecked})
+    rxScStats.EntityData.Leafs.Append("in-pkts-delayed", types.YLeaf{"InPktsDelayed", rxScStats.InPktsDelayed})
+    rxScStats.EntityData.Leafs.Append("in-pkts-late", types.YLeaf{"InPktsLate", rxScStats.InPktsLate})
+    rxScStats.EntityData.Leafs.Append("in-pkts-ok", types.YLeaf{"InPktsOk", rxScStats.InPktsOk})
+    rxScStats.EntityData.Leafs.Append("in-pkts-invalid", types.YLeaf{"InPktsInvalid", rxScStats.InPktsInvalid})
+    rxScStats.EntityData.Leafs.Append("in-pkts-not-valid", types.YLeaf{"InPktsNotValid", rxScStats.InPktsNotValid})
+    rxScStats.EntityData.Leafs.Append("in-pkts-not-using-sa", types.YLeaf{"InPktsNotUsingSa", rxScStats.InPktsNotUsingSa})
+    rxScStats.EntityData.Leafs.Append("in-pkts-unused-sa", types.YLeaf{"InPktsUnusedSa", rxScStats.InPktsUnusedSa})
+    rxScStats.EntityData.Leafs.Append("in-pkts-untagged-hit", types.YLeaf{"InPktsUntaggedHit", rxScStats.InPktsUntaggedHit})
+    rxScStats.EntityData.Leafs.Append("in-octets-validated", types.YLeaf{"InOctetsValidated", rxScStats.InOctetsValidated})
+    rxScStats.EntityData.Leafs.Append("in-octets-decrypted", types.YLeaf{"InOctetsDecrypted", rxScStats.InOctetsDecrypted})
+
+    rxScStats.EntityData.YListKeys = []string {}
+
     return &(rxScStats.EntityData)
 }
 
@@ -471,14 +498,17 @@ func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetEn
     rxsaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxsaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxsaStat.EntityData.Children = make(map[string]types.YChild)
-    rxsaStat.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxsaStat.EntityData.Leafs["in-pkts-ok"] = types.YLeaf{"InPktsOk", rxsaStat.InPktsOk}
-    rxsaStat.EntityData.Leafs["in-pkts-invalid"] = types.YLeaf{"InPktsInvalid", rxsaStat.InPktsInvalid}
-    rxsaStat.EntityData.Leafs["in-pkts-not-valid"] = types.YLeaf{"InPktsNotValid", rxsaStat.InPktsNotValid}
-    rxsaStat.EntityData.Leafs["in-pkts-not-using-sa"] = types.YLeaf{"InPktsNotUsingSa", rxsaStat.InPktsNotUsingSa}
-    rxsaStat.EntityData.Leafs["in-pkts-unused-sa"] = types.YLeaf{"InPktsUnusedSa", rxsaStat.InPktsUnusedSa}
-    rxsaStat.EntityData.Leafs["next-pn"] = types.YLeaf{"NextPn", rxsaStat.NextPn}
+    rxsaStat.EntityData.Children = types.NewOrderedMap()
+    rxsaStat.EntityData.Leafs = types.NewOrderedMap()
+    rxsaStat.EntityData.Leafs.Append("in-pkts-ok", types.YLeaf{"InPktsOk", rxsaStat.InPktsOk})
+    rxsaStat.EntityData.Leafs.Append("in-pkts-invalid", types.YLeaf{"InPktsInvalid", rxsaStat.InPktsInvalid})
+    rxsaStat.EntityData.Leafs.Append("in-pkts-not-valid", types.YLeaf{"InPktsNotValid", rxsaStat.InPktsNotValid})
+    rxsaStat.EntityData.Leafs.Append("in-pkts-not-using-sa", types.YLeaf{"InPktsNotUsingSa", rxsaStat.InPktsNotUsingSa})
+    rxsaStat.EntityData.Leafs.Append("in-pkts-unused-sa", types.YLeaf{"InPktsUnusedSa", rxsaStat.InPktsUnusedSa})
+    rxsaStat.EntityData.Leafs.Append("next-pn", types.YLeaf{"NextPn", rxsaStat.NextPn})
+
+    rxsaStat.EntityData.YListKeys = []string {}
+
     return &(rxsaStat.EntityData)
 }
 

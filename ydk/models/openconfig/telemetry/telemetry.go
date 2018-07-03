@@ -56,11 +56,14 @@ func (telemetrySystem *TelemetrySystem) GetEntityData() *types.CommonEntityData 
     telemetrySystem.EntityData.NamespaceTable = openconfig.GetNamespaces()
     telemetrySystem.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    telemetrySystem.EntityData.Children = make(map[string]types.YChild)
-    telemetrySystem.EntityData.Children["sensor-groups"] = types.YChild{"SensorGroups", &telemetrySystem.SensorGroups}
-    telemetrySystem.EntityData.Children["destination-groups"] = types.YChild{"DestinationGroups", &telemetrySystem.DestinationGroups}
-    telemetrySystem.EntityData.Children["subscriptions"] = types.YChild{"Subscriptions", &telemetrySystem.Subscriptions}
-    telemetrySystem.EntityData.Leafs = make(map[string]types.YLeaf)
+    telemetrySystem.EntityData.Children = types.NewOrderedMap()
+    telemetrySystem.EntityData.Children.Append("sensor-groups", types.YChild{"SensorGroups", &telemetrySystem.SensorGroups})
+    telemetrySystem.EntityData.Children.Append("destination-groups", types.YChild{"DestinationGroups", &telemetrySystem.DestinationGroups})
+    telemetrySystem.EntityData.Children.Append("subscriptions", types.YChild{"Subscriptions", &telemetrySystem.Subscriptions})
+    telemetrySystem.EntityData.Leafs = types.NewOrderedMap()
+
+    telemetrySystem.EntityData.YListKeys = []string {}
+
     return &(telemetrySystem.EntityData)
 }
 
@@ -73,7 +76,7 @@ type TelemetrySystem_SensorGroups struct {
     // List of telemetry sensory groups on the local system, where a sensor
     // grouping represents a resuable grouping of multiple paths and exclude
     // filters. The type is slice of TelemetrySystem_SensorGroups_SensorGroup.
-    SensorGroup []TelemetrySystem_SensorGroups_SensorGroup
+    SensorGroup []*TelemetrySystem_SensorGroups_SensorGroup
 }
 
 func (sensorGroups *TelemetrySystem_SensorGroups) GetEntityData() *types.CommonEntityData {
@@ -86,12 +89,15 @@ func (sensorGroups *TelemetrySystem_SensorGroups) GetEntityData() *types.CommonE
     sensorGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sensorGroups.EntityData.Children = make(map[string]types.YChild)
-    sensorGroups.EntityData.Children["sensor-group"] = types.YChild{"SensorGroup", nil}
+    sensorGroups.EntityData.Children = types.NewOrderedMap()
+    sensorGroups.EntityData.Children.Append("sensor-group", types.YChild{"SensorGroup", nil})
     for i := range sensorGroups.SensorGroup {
-        sensorGroups.EntityData.Children[types.GetSegmentPath(&sensorGroups.SensorGroup[i])] = types.YChild{"SensorGroup", &sensorGroups.SensorGroup[i]}
+        sensorGroups.EntityData.Children.Append(types.GetSegmentPath(sensorGroups.SensorGroup[i]), types.YChild{"SensorGroup", sensorGroups.SensorGroup[i]})
     }
-    sensorGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    sensorGroups.EntityData.YListKeys = []string {}
+
     return &(sensorGroups.EntityData)
 }
 
@@ -123,17 +129,20 @@ func (sensorGroup *TelemetrySystem_SensorGroups_SensorGroup) GetEntityData() *ty
     sensorGroup.EntityData.YangName = "sensor-group"
     sensorGroup.EntityData.BundleName = "openconfig"
     sensorGroup.EntityData.ParentYangName = "sensor-groups"
-    sensorGroup.EntityData.SegmentPath = "sensor-group" + "[sensor-group-id='" + fmt.Sprintf("%v", sensorGroup.SensorGroupId) + "']"
+    sensorGroup.EntityData.SegmentPath = "sensor-group" + types.AddKeyToken(sensorGroup.SensorGroupId, "sensor-group-id")
     sensorGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sensorGroup.EntityData.Children = make(map[string]types.YChild)
-    sensorGroup.EntityData.Children["config"] = types.YChild{"Config", &sensorGroup.Config}
-    sensorGroup.EntityData.Children["state"] = types.YChild{"State", &sensorGroup.State}
-    sensorGroup.EntityData.Children["sensor-paths"] = types.YChild{"SensorPaths", &sensorGroup.SensorPaths}
-    sensorGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorGroup.EntityData.Leafs["sensor-group-id"] = types.YLeaf{"SensorGroupId", sensorGroup.SensorGroupId}
+    sensorGroup.EntityData.Children = types.NewOrderedMap()
+    sensorGroup.EntityData.Children.Append("config", types.YChild{"Config", &sensorGroup.Config})
+    sensorGroup.EntityData.Children.Append("state", types.YChild{"State", &sensorGroup.State})
+    sensorGroup.EntityData.Children.Append("sensor-paths", types.YChild{"SensorPaths", &sensorGroup.SensorPaths})
+    sensorGroup.EntityData.Leafs = types.NewOrderedMap()
+    sensorGroup.EntityData.Leafs.Append("sensor-group-id", types.YLeaf{"SensorGroupId", sensorGroup.SensorGroupId})
+
+    sensorGroup.EntityData.YListKeys = []string {"SensorGroupId"}
+
     return &(sensorGroup.EntityData)
 }
 
@@ -159,9 +168,12 @@ func (config *TelemetrySystem_SensorGroups_SensorGroup_Config) GetEntityData() *
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["sensor-group-id"] = types.YLeaf{"SensorGroupId", config.SensorGroupId}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("sensor-group-id", types.YLeaf{"SensorGroupId", config.SensorGroupId})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -187,9 +199,12 @@ func (state *TelemetrySystem_SensorGroups_SensorGroup_State) GetEntityData() *ty
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["sensor-group-id"] = types.YLeaf{"SensorGroupId", state.SensorGroupId}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("sensor-group-id", types.YLeaf{"SensorGroupId", state.SensorGroupId})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -203,7 +218,7 @@ type TelemetrySystem_SensorGroups_SensorGroup_SensorPaths struct {
     // List of paths in the model which together comprise a sensor grouping.
     // Filters for each path to exclude items are also provided. The type is slice
     // of TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPath.
-    SensorPath []TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPath
+    SensorPath []*TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPath
 }
 
 func (sensorPaths *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths) GetEntityData() *types.CommonEntityData {
@@ -216,12 +231,15 @@ func (sensorPaths *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths) GetEnti
     sensorPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sensorPaths.EntityData.Children = make(map[string]types.YChild)
-    sensorPaths.EntityData.Children["sensor-path"] = types.YChild{"SensorPath", nil}
+    sensorPaths.EntityData.Children = types.NewOrderedMap()
+    sensorPaths.EntityData.Children.Append("sensor-path", types.YChild{"SensorPath", nil})
     for i := range sensorPaths.SensorPath {
-        sensorPaths.EntityData.Children[types.GetSegmentPath(&sensorPaths.SensorPath[i])] = types.YChild{"SensorPath", &sensorPaths.SensorPath[i]}
+        sensorPaths.EntityData.Children.Append(types.GetSegmentPath(sensorPaths.SensorPath[i]), types.YChild{"SensorPath", sensorPaths.SensorPath[i]})
     }
-    sensorPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    sensorPaths.EntityData.YListKeys = []string {}
+
     return &(sensorPaths.EntityData)
 }
 
@@ -252,16 +270,19 @@ func (sensorPath *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPat
     sensorPath.EntityData.YangName = "sensor-path"
     sensorPath.EntityData.BundleName = "openconfig"
     sensorPath.EntityData.ParentYangName = "sensor-paths"
-    sensorPath.EntityData.SegmentPath = "sensor-path" + "[path='" + fmt.Sprintf("%v", sensorPath.Path) + "']"
+    sensorPath.EntityData.SegmentPath = "sensor-path" + types.AddKeyToken(sensorPath.Path, "path")
     sensorPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sensorPath.EntityData.Children = make(map[string]types.YChild)
-    sensorPath.EntityData.Children["config"] = types.YChild{"Config", &sensorPath.Config}
-    sensorPath.EntityData.Children["state"] = types.YChild{"State", &sensorPath.State}
-    sensorPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorPath.EntityData.Leafs["path"] = types.YLeaf{"Path", sensorPath.Path}
+    sensorPath.EntityData.Children = types.NewOrderedMap()
+    sensorPath.EntityData.Children.Append("config", types.YChild{"Config", &sensorPath.Config})
+    sensorPath.EntityData.Children.Append("state", types.YChild{"State", &sensorPath.State})
+    sensorPath.EntityData.Leafs = types.NewOrderedMap()
+    sensorPath.EntityData.Leafs.Append("path", types.YLeaf{"Path", sensorPath.Path})
+
+    sensorPath.EntityData.YListKeys = []string {"Path"}
+
     return &(sensorPath.EntityData)
 }
 
@@ -291,10 +312,13 @@ func (config *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPath_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["path"] = types.YLeaf{"Path", config.Path}
-    config.EntityData.Leafs["exclude-filter"] = types.YLeaf{"ExcludeFilter", config.ExcludeFilter}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("path", types.YLeaf{"Path", config.Path})
+    config.EntityData.Leafs.Append("exclude-filter", types.YLeaf{"ExcludeFilter", config.ExcludeFilter})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -324,10 +348,13 @@ func (state *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPath_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["path"] = types.YLeaf{"Path", state.Path}
-    state.EntityData.Leafs["exclude-filter"] = types.YLeaf{"ExcludeFilter", state.ExcludeFilter}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("path", types.YLeaf{"Path", state.Path})
+    state.EntityData.Leafs.Append("exclude-filter", types.YLeaf{"ExcludeFilter", state.ExcludeFilter})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -344,7 +371,7 @@ type TelemetrySystem_DestinationGroups struct {
     // destination-group-identifier.  A destination group may contain one or more
     // telemetry destinations. The type is slice of
     // TelemetrySystem_DestinationGroups_DestinationGroup.
-    DestinationGroup []TelemetrySystem_DestinationGroups_DestinationGroup
+    DestinationGroup []*TelemetrySystem_DestinationGroups_DestinationGroup
 }
 
 func (destinationGroups *TelemetrySystem_DestinationGroups) GetEntityData() *types.CommonEntityData {
@@ -357,12 +384,15 @@ func (destinationGroups *TelemetrySystem_DestinationGroups) GetEntityData() *typ
     destinationGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinationGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    destinationGroups.EntityData.Children = make(map[string]types.YChild)
-    destinationGroups.EntityData.Children["destination-group"] = types.YChild{"DestinationGroup", nil}
+    destinationGroups.EntityData.Children = types.NewOrderedMap()
+    destinationGroups.EntityData.Children.Append("destination-group", types.YChild{"DestinationGroup", nil})
     for i := range destinationGroups.DestinationGroup {
-        destinationGroups.EntityData.Children[types.GetSegmentPath(&destinationGroups.DestinationGroup[i])] = types.YChild{"DestinationGroup", &destinationGroups.DestinationGroup[i]}
+        destinationGroups.EntityData.Children.Append(types.GetSegmentPath(destinationGroups.DestinationGroup[i]), types.YChild{"DestinationGroup", destinationGroups.DestinationGroup[i]})
     }
-    destinationGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    destinationGroups.EntityData.YListKeys = []string {}
+
     return &(destinationGroups.EntityData)
 }
 
@@ -400,17 +430,20 @@ func (destinationGroup *TelemetrySystem_DestinationGroups_DestinationGroup) GetE
     destinationGroup.EntityData.YangName = "destination-group"
     destinationGroup.EntityData.BundleName = "openconfig"
     destinationGroup.EntityData.ParentYangName = "destination-groups"
-    destinationGroup.EntityData.SegmentPath = "destination-group" + "[group-id='" + fmt.Sprintf("%v", destinationGroup.GroupId) + "']"
+    destinationGroup.EntityData.SegmentPath = "destination-group" + types.AddKeyToken(destinationGroup.GroupId, "group-id")
     destinationGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destinationGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinationGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    destinationGroup.EntityData.Children = make(map[string]types.YChild)
-    destinationGroup.EntityData.Children["config"] = types.YChild{"Config", &destinationGroup.Config}
-    destinationGroup.EntityData.Children["state"] = types.YChild{"State", &destinationGroup.State}
-    destinationGroup.EntityData.Children["destinations"] = types.YChild{"Destinations", &destinationGroup.Destinations}
-    destinationGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    destinationGroup.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", destinationGroup.GroupId}
+    destinationGroup.EntityData.Children = types.NewOrderedMap()
+    destinationGroup.EntityData.Children.Append("config", types.YChild{"Config", &destinationGroup.Config})
+    destinationGroup.EntityData.Children.Append("state", types.YChild{"State", &destinationGroup.State})
+    destinationGroup.EntityData.Children.Append("destinations", types.YChild{"Destinations", &destinationGroup.Destinations})
+    destinationGroup.EntityData.Leafs = types.NewOrderedMap()
+    destinationGroup.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", destinationGroup.GroupId})
+
+    destinationGroup.EntityData.YListKeys = []string {"GroupId"}
+
     return &(destinationGroup.EntityData)
 }
 
@@ -434,9 +467,12 @@ func (config *TelemetrySystem_DestinationGroups_DestinationGroup_Config) GetEnti
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", config.GroupId}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", config.GroupId})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -460,9 +496,12 @@ func (state *TelemetrySystem_DestinationGroups_DestinationGroup_State) GetEntity
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", state.GroupId}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", state.GroupId})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -476,7 +515,7 @@ type TelemetrySystem_DestinationGroups_DestinationGroup_Destinations struct {
 
     // List of telemetry stream destinations. The type is slice of
     // TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Destination.
-    Destination []TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Destination
+    Destination []*TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Destination
 }
 
 func (destinations *TelemetrySystem_DestinationGroups_DestinationGroup_Destinations) GetEntityData() *types.CommonEntityData {
@@ -489,12 +528,15 @@ func (destinations *TelemetrySystem_DestinationGroups_DestinationGroup_Destinati
     destinations.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinations.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    destinations.EntityData.Children = make(map[string]types.YChild)
-    destinations.EntityData.Children["destination"] = types.YChild{"Destination", nil}
+    destinations.EntityData.Children = types.NewOrderedMap()
+    destinations.EntityData.Children.Append("destination", types.YChild{"Destination", nil})
     for i := range destinations.Destination {
-        destinations.EntityData.Children[types.GetSegmentPath(&destinations.Destination[i])] = types.YChild{"Destination", &destinations.Destination[i]}
+        destinations.EntityData.Children.Append(types.GetSegmentPath(destinations.Destination[i]), types.YChild{"Destination", destinations.Destination[i]})
     }
-    destinations.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinations.EntityData.Leafs = types.NewOrderedMap()
+
+    destinations.EntityData.YListKeys = []string {}
+
     return &(destinations.EntityData)
 }
 
@@ -507,9 +549,9 @@ type TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Destination
     // This attribute is a key. Reference to the destination address of the
     // telemetry stream. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // This attribute is a key. Reference to the port number of the stream
@@ -529,17 +571,20 @@ func (destination *TelemetrySystem_DestinationGroups_DestinationGroup_Destinatio
     destination.EntityData.YangName = "destination"
     destination.EntityData.BundleName = "openconfig"
     destination.EntityData.ParentYangName = "destinations"
-    destination.EntityData.SegmentPath = "destination" + "[destination-address='" + fmt.Sprintf("%v", destination.DestinationAddress) + "']" + "[destination-port='" + fmt.Sprintf("%v", destination.DestinationPort) + "']"
+    destination.EntityData.SegmentPath = "destination" + types.AddKeyToken(destination.DestinationAddress, "destination-address") + types.AddKeyToken(destination.DestinationPort, "destination-port")
     destination.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destination.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    destination.EntityData.Children = make(map[string]types.YChild)
-    destination.EntityData.Children["config"] = types.YChild{"Config", &destination.Config}
-    destination.EntityData.Children["state"] = types.YChild{"State", &destination.State}
-    destination.EntityData.Leafs = make(map[string]types.YLeaf)
-    destination.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", destination.DestinationAddress}
-    destination.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", destination.DestinationPort}
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Children.Append("config", types.YChild{"Config", &destination.Config})
+    destination.EntityData.Children.Append("state", types.YChild{"State", &destination.State})
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", destination.DestinationAddress})
+    destination.EntityData.Leafs.Append("destination-port", types.YLeaf{"DestinationPort", destination.DestinationPort})
+
+    destination.EntityData.YListKeys = []string {"DestinationAddress", "DestinationPort"}
+
     return &(destination.EntityData)
 }
 
@@ -552,9 +597,9 @@ type TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Destination
 
     // IP address of the telemetry stream destination. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol (udp or tcp) port number for the telemetry stream destination. The
@@ -576,11 +621,14 @@ func (config *TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_De
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", config.DestinationAddress}
-    config.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", config.DestinationPort}
-    config.EntityData.Leafs["destination-protocol"] = types.YLeaf{"DestinationProtocol", config.DestinationProtocol}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", config.DestinationAddress})
+    config.EntityData.Leafs.Append("destination-port", types.YLeaf{"DestinationPort", config.DestinationPort})
+    config.EntityData.Leafs.Append("destination-protocol", types.YLeaf{"DestinationProtocol", config.DestinationProtocol})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -593,9 +641,9 @@ type TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Destination
 
     // IP address of the telemetry stream destination. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol (udp or tcp) port number for the telemetry stream destination. The
@@ -617,11 +665,14 @@ func (state *TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Des
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", state.DestinationAddress}
-    state.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", state.DestinationPort}
-    state.EntityData.Leafs["destination-protocol"] = types.YLeaf{"DestinationProtocol", state.DestinationProtocol}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", state.DestinationAddress})
+    state.EntityData.Leafs.Append("destination-port", types.YLeaf{"DestinationPort", state.DestinationPort})
+    state.EntityData.Leafs.Append("destination-protocol", types.YLeaf{"DestinationProtocol", state.DestinationProtocol})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -655,10 +706,13 @@ func (subscriptions *TelemetrySystem_Subscriptions) GetEntityData() *types.Commo
     subscriptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscriptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    subscriptions.EntityData.Children = make(map[string]types.YChild)
-    subscriptions.EntityData.Children["persistent"] = types.YChild{"Persistent", &subscriptions.Persistent}
-    subscriptions.EntityData.Children["dynamic"] = types.YChild{"Dynamic", &subscriptions.Dynamic}
-    subscriptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriptions.EntityData.Children = types.NewOrderedMap()
+    subscriptions.EntityData.Children.Append("persistent", types.YChild{"Persistent", &subscriptions.Persistent})
+    subscriptions.EntityData.Children.Append("dynamic", types.YChild{"Dynamic", &subscriptions.Dynamic})
+    subscriptions.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriptions.EntityData.YListKeys = []string {}
+
     return &(subscriptions.EntityData)
 }
 
@@ -676,7 +730,7 @@ type TelemetrySystem_Subscriptions_Persistent struct {
     // of collection destinations, stream attributes, and associated paths to
     // state information in the model (sensor data). The type is slice of
     // TelemetrySystem_Subscriptions_Persistent_Subscription.
-    Subscription []TelemetrySystem_Subscriptions_Persistent_Subscription
+    Subscription []*TelemetrySystem_Subscriptions_Persistent_Subscription
 }
 
 func (persistent *TelemetrySystem_Subscriptions_Persistent) GetEntityData() *types.CommonEntityData {
@@ -689,12 +743,15 @@ func (persistent *TelemetrySystem_Subscriptions_Persistent) GetEntityData() *typ
     persistent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     persistent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    persistent.EntityData.Children = make(map[string]types.YChild)
-    persistent.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
+    persistent.EntityData.Children = types.NewOrderedMap()
+    persistent.EntityData.Children.Append("subscription", types.YChild{"Subscription", nil})
     for i := range persistent.Subscription {
-        persistent.EntityData.Children[types.GetSegmentPath(&persistent.Subscription[i])] = types.YChild{"Subscription", &persistent.Subscription[i]}
+        persistent.EntityData.Children.Append(types.GetSegmentPath(persistent.Subscription[i]), types.YChild{"Subscription", persistent.Subscription[i]})
     }
-    persistent.EntityData.Leafs = make(map[string]types.YLeaf)
+    persistent.EntityData.Leafs = types.NewOrderedMap()
+
+    persistent.EntityData.YListKeys = []string {}
+
     return &(persistent.EntityData)
 }
 
@@ -744,18 +801,21 @@ func (subscription *TelemetrySystem_Subscriptions_Persistent_Subscription) GetEn
     subscription.EntityData.YangName = "subscription"
     subscription.EntityData.BundleName = "openconfig"
     subscription.EntityData.ParentYangName = "persistent"
-    subscription.EntityData.SegmentPath = "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
+    subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
     subscription.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subscription.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    subscription.EntityData.Children = make(map[string]types.YChild)
-    subscription.EntityData.Children["config"] = types.YChild{"Config", &subscription.Config}
-    subscription.EntityData.Children["state"] = types.YChild{"State", &subscription.State}
-    subscription.EntityData.Children["sensor-profiles"] = types.YChild{"SensorProfiles", &subscription.SensorProfiles}
-    subscription.EntityData.Children["destination-groups"] = types.YChild{"DestinationGroups", &subscription.DestinationGroups}
-    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", subscription.SubscriptionId}
+    subscription.EntityData.Children = types.NewOrderedMap()
+    subscription.EntityData.Children.Append("config", types.YChild{"Config", &subscription.Config})
+    subscription.EntityData.Children.Append("state", types.YChild{"State", &subscription.State})
+    subscription.EntityData.Children.Append("sensor-profiles", types.YChild{"SensorProfiles", &subscription.SensorProfiles})
+    subscription.EntityData.Children.Append("destination-groups", types.YChild{"DestinationGroups", &subscription.DestinationGroups})
+    subscription.EntityData.Leafs = types.NewOrderedMap()
+    subscription.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", subscription.SubscriptionId})
+
+    subscription.EntityData.YListKeys = []string {"SubscriptionId"}
+
     return &(subscription.EntityData)
 }
 
@@ -774,9 +834,9 @@ type TelemetrySystem_Subscriptions_Persistent_Subscription_Config struct {
     // The IP address which will be the source of packets from the device to a
     // telemetry collector destination. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalSourceAddress interface{}
 
     // DSCP marking of packets generated by the telemetry subsystem on the network
@@ -794,11 +854,14 @@ func (config *TelemetrySystem_Subscriptions_Persistent_Subscription_Config) GetE
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", config.SubscriptionId}
-    config.EntityData.Leafs["local-source-address"] = types.YLeaf{"LocalSourceAddress", config.LocalSourceAddress}
-    config.EntityData.Leafs["originated-qos-marking"] = types.YLeaf{"OriginatedQosMarking", config.OriginatedQosMarking}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", config.SubscriptionId})
+    config.EntityData.Leafs.Append("local-source-address", types.YLeaf{"LocalSourceAddress", config.LocalSourceAddress})
+    config.EntityData.Leafs.Append("originated-qos-marking", types.YLeaf{"OriginatedQosMarking", config.OriginatedQosMarking})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -817,9 +880,9 @@ type TelemetrySystem_Subscriptions_Persistent_Subscription_State struct {
     // The IP address which will be the source of packets from the device to a
     // telemetry collector destination. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalSourceAddress interface{}
 
     // DSCP marking of packets generated by the telemetry subsystem on the network
@@ -837,11 +900,14 @@ func (state *TelemetrySystem_Subscriptions_Persistent_Subscription_State) GetEnt
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", state.SubscriptionId}
-    state.EntityData.Leafs["local-source-address"] = types.YLeaf{"LocalSourceAddress", state.LocalSourceAddress}
-    state.EntityData.Leafs["originated-qos-marking"] = types.YLeaf{"OriginatedQosMarking", state.OriginatedQosMarking}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", state.SubscriptionId})
+    state.EntityData.Leafs.Append("local-source-address", types.YLeaf{"LocalSourceAddress", state.LocalSourceAddress})
+    state.EntityData.Leafs.Append("originated-qos-marking", types.YLeaf{"OriginatedQosMarking", state.OriginatedQosMarking})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -858,7 +924,7 @@ type TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfiles struct
     // List of telemetry sensor groups used in the subscription. The type is slice
     // of
     // TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfiles_SensorProfile.
-    SensorProfile []TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfiles_SensorProfile
+    SensorProfile []*TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfiles_SensorProfile
 }
 
 func (sensorProfiles *TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfiles) GetEntityData() *types.CommonEntityData {
@@ -871,12 +937,15 @@ func (sensorProfiles *TelemetrySystem_Subscriptions_Persistent_Subscription_Sens
     sensorProfiles.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorProfiles.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sensorProfiles.EntityData.Children = make(map[string]types.YChild)
-    sensorProfiles.EntityData.Children["sensor-profile"] = types.YChild{"SensorProfile", nil}
+    sensorProfiles.EntityData.Children = types.NewOrderedMap()
+    sensorProfiles.EntityData.Children.Append("sensor-profile", types.YChild{"SensorProfile", nil})
     for i := range sensorProfiles.SensorProfile {
-        sensorProfiles.EntityData.Children[types.GetSegmentPath(&sensorProfiles.SensorProfile[i])] = types.YChild{"SensorProfile", &sensorProfiles.SensorProfile[i]}
+        sensorProfiles.EntityData.Children.Append(types.GetSegmentPath(sensorProfiles.SensorProfile[i]), types.YChild{"SensorProfile", sensorProfiles.SensorProfile[i]})
     }
-    sensorProfiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorProfiles.EntityData.Leafs = types.NewOrderedMap()
+
+    sensorProfiles.EntityData.YListKeys = []string {}
+
     return &(sensorProfiles.EntityData)
 }
 
@@ -904,16 +973,19 @@ func (sensorProfile *TelemetrySystem_Subscriptions_Persistent_Subscription_Senso
     sensorProfile.EntityData.YangName = "sensor-profile"
     sensorProfile.EntityData.BundleName = "openconfig"
     sensorProfile.EntityData.ParentYangName = "sensor-profiles"
-    sensorProfile.EntityData.SegmentPath = "sensor-profile" + "[sensor-group='" + fmt.Sprintf("%v", sensorProfile.SensorGroup) + "']"
+    sensorProfile.EntityData.SegmentPath = "sensor-profile" + types.AddKeyToken(sensorProfile.SensorGroup, "sensor-group")
     sensorProfile.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorProfile.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorProfile.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sensorProfile.EntityData.Children = make(map[string]types.YChild)
-    sensorProfile.EntityData.Children["config"] = types.YChild{"Config", &sensorProfile.Config}
-    sensorProfile.EntityData.Children["state"] = types.YChild{"State", &sensorProfile.State}
-    sensorProfile.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorProfile.EntityData.Leafs["sensor-group"] = types.YLeaf{"SensorGroup", sensorProfile.SensorGroup}
+    sensorProfile.EntityData.Children = types.NewOrderedMap()
+    sensorProfile.EntityData.Children.Append("config", types.YChild{"Config", &sensorProfile.Config})
+    sensorProfile.EntityData.Children.Append("state", types.YChild{"State", &sensorProfile.State})
+    sensorProfile.EntityData.Leafs = types.NewOrderedMap()
+    sensorProfile.EntityData.Leafs.Append("sensor-group", types.YLeaf{"SensorGroup", sensorProfile.SensorGroup})
+
+    sensorProfile.EntityData.YListKeys = []string {"SensorGroup"}
+
     return &(sensorProfile.EntityData)
 }
 
@@ -965,12 +1037,15 @@ func (config *TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfil
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["sensor-group"] = types.YLeaf{"SensorGroup", config.SensorGroup}
-    config.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", config.SampleInterval}
-    config.EntityData.Leafs["heartbeat-interval"] = types.YLeaf{"HeartbeatInterval", config.HeartbeatInterval}
-    config.EntityData.Leafs["suppress-redundant"] = types.YLeaf{"SuppressRedundant", config.SuppressRedundant}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("sensor-group", types.YLeaf{"SensorGroup", config.SensorGroup})
+    config.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", config.SampleInterval})
+    config.EntityData.Leafs.Append("heartbeat-interval", types.YLeaf{"HeartbeatInterval", config.HeartbeatInterval})
+    config.EntityData.Leafs.Append("suppress-redundant", types.YLeaf{"SuppressRedundant", config.SuppressRedundant})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1022,12 +1097,15 @@ func (state *TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfile
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["sensor-group"] = types.YLeaf{"SensorGroup", state.SensorGroup}
-    state.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", state.SampleInterval}
-    state.EntityData.Leafs["heartbeat-interval"] = types.YLeaf{"HeartbeatInterval", state.HeartbeatInterval}
-    state.EntityData.Leafs["suppress-redundant"] = types.YLeaf{"SuppressRedundant", state.SuppressRedundant}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("sensor-group", types.YLeaf{"SensorGroup", state.SensorGroup})
+    state.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", state.SampleInterval})
+    state.EntityData.Leafs.Append("heartbeat-interval", types.YLeaf{"HeartbeatInterval", state.HeartbeatInterval})
+    state.EntityData.Leafs.Append("suppress-redundant", types.YLeaf{"SuppressRedundant", state.SuppressRedundant})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1057,7 +1135,7 @@ type TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationGroups str
     // Identifier of the previously defined destination group. The type is slice
     // of
     // TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationGroups_DestinationGroup.
-    DestinationGroup []TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationGroups_DestinationGroup
+    DestinationGroup []*TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationGroups_DestinationGroup
 }
 
 func (destinationGroups *TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationGroups) GetEntityData() *types.CommonEntityData {
@@ -1070,12 +1148,15 @@ func (destinationGroups *TelemetrySystem_Subscriptions_Persistent_Subscription_D
     destinationGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinationGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    destinationGroups.EntityData.Children = make(map[string]types.YChild)
-    destinationGroups.EntityData.Children["destination-group"] = types.YChild{"DestinationGroup", nil}
+    destinationGroups.EntityData.Children = types.NewOrderedMap()
+    destinationGroups.EntityData.Children.Append("destination-group", types.YChild{"DestinationGroup", nil})
     for i := range destinationGroups.DestinationGroup {
-        destinationGroups.EntityData.Children[types.GetSegmentPath(&destinationGroups.DestinationGroup[i])] = types.YChild{"DestinationGroup", &destinationGroups.DestinationGroup[i]}
+        destinationGroups.EntityData.Children.Append(types.GetSegmentPath(destinationGroups.DestinationGroup[i]), types.YChild{"DestinationGroup", destinationGroups.DestinationGroup[i]})
     }
-    destinationGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    destinationGroups.EntityData.YListKeys = []string {}
+
     return &(destinationGroups.EntityData)
 }
 
@@ -1104,16 +1185,19 @@ func (destinationGroup *TelemetrySystem_Subscriptions_Persistent_Subscription_De
     destinationGroup.EntityData.YangName = "destination-group"
     destinationGroup.EntityData.BundleName = "openconfig"
     destinationGroup.EntityData.ParentYangName = "destination-groups"
-    destinationGroup.EntityData.SegmentPath = "destination-group" + "[group-id='" + fmt.Sprintf("%v", destinationGroup.GroupId) + "']"
+    destinationGroup.EntityData.SegmentPath = "destination-group" + types.AddKeyToken(destinationGroup.GroupId, "group-id")
     destinationGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destinationGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinationGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    destinationGroup.EntityData.Children = make(map[string]types.YChild)
-    destinationGroup.EntityData.Children["config"] = types.YChild{"Config", &destinationGroup.Config}
-    destinationGroup.EntityData.Children["state"] = types.YChild{"State", &destinationGroup.State}
-    destinationGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    destinationGroup.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", destinationGroup.GroupId}
+    destinationGroup.EntityData.Children = types.NewOrderedMap()
+    destinationGroup.EntityData.Children.Append("config", types.YChild{"Config", &destinationGroup.Config})
+    destinationGroup.EntityData.Children.Append("state", types.YChild{"State", &destinationGroup.State})
+    destinationGroup.EntityData.Leafs = types.NewOrderedMap()
+    destinationGroup.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", destinationGroup.GroupId})
+
+    destinationGroup.EntityData.YListKeys = []string {"GroupId"}
+
     return &(destinationGroup.EntityData)
 }
 
@@ -1140,9 +1224,12 @@ func (config *TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationG
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", config.GroupId}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", config.GroupId})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1169,9 +1256,12 @@ func (state *TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationGr
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", state.GroupId}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", state.GroupId})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1188,7 +1278,7 @@ type TelemetrySystem_Subscriptions_Dynamic struct {
     // List representation of telemetry subscriptions that are configured via an
     // inline RPC, otherwise known as dynamic telemetry subscriptions. The type is
     // slice of TelemetrySystem_Subscriptions_Dynamic_Subscription.
-    Subscription []TelemetrySystem_Subscriptions_Dynamic_Subscription
+    Subscription []*TelemetrySystem_Subscriptions_Dynamic_Subscription
 }
 
 func (dynamic *TelemetrySystem_Subscriptions_Dynamic) GetEntityData() *types.CommonEntityData {
@@ -1201,12 +1291,15 @@ func (dynamic *TelemetrySystem_Subscriptions_Dynamic) GetEntityData() *types.Com
     dynamic.EntityData.NamespaceTable = openconfig.GetNamespaces()
     dynamic.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    dynamic.EntityData.Children = make(map[string]types.YChild)
-    dynamic.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
+    dynamic.EntityData.Children = types.NewOrderedMap()
+    dynamic.EntityData.Children.Append("subscription", types.YChild{"Subscription", nil})
     for i := range dynamic.Subscription {
-        dynamic.EntityData.Children[types.GetSegmentPath(&dynamic.Subscription[i])] = types.YChild{"Subscription", &dynamic.Subscription[i]}
+        dynamic.EntityData.Children.Append(types.GetSegmentPath(dynamic.Subscription[i]), types.YChild{"Subscription", dynamic.Subscription[i]})
     }
-    dynamic.EntityData.Leafs = make(map[string]types.YLeaf)
+    dynamic.EntityData.Leafs = types.NewOrderedMap()
+
+    dynamic.EntityData.YListKeys = []string {}
+
     return &(dynamic.EntityData)
 }
 
@@ -1236,16 +1329,19 @@ func (subscription *TelemetrySystem_Subscriptions_Dynamic_Subscription) GetEntit
     subscription.EntityData.YangName = "subscription"
     subscription.EntityData.BundleName = "openconfig"
     subscription.EntityData.ParentYangName = "dynamic"
-    subscription.EntityData.SegmentPath = "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
+    subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
     subscription.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subscription.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    subscription.EntityData.Children = make(map[string]types.YChild)
-    subscription.EntityData.Children["state"] = types.YChild{"State", &subscription.State}
-    subscription.EntityData.Children["sensor-paths"] = types.YChild{"SensorPaths", &subscription.SensorPaths}
-    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", subscription.SubscriptionId}
+    subscription.EntityData.Children = types.NewOrderedMap()
+    subscription.EntityData.Children.Append("state", types.YChild{"State", &subscription.State})
+    subscription.EntityData.Children.Append("sensor-paths", types.YChild{"SensorPaths", &subscription.SensorPaths})
+    subscription.EntityData.Leafs = types.NewOrderedMap()
+    subscription.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", subscription.SubscriptionId})
+
+    subscription.EntityData.YListKeys = []string {"SubscriptionId"}
+
     return &(subscription.EntityData)
 }
 
@@ -1263,9 +1359,9 @@ type TelemetrySystem_Subscriptions_Dynamic_Subscription_State struct {
 
     // IP address of the telemetry stream destination. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol (udp or tcp) port number for the telemetry stream destination. The
@@ -1316,16 +1412,19 @@ func (state *TelemetrySystem_Subscriptions_Dynamic_Subscription_State) GetEntity
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", state.SubscriptionId}
-    state.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", state.DestinationAddress}
-    state.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", state.DestinationPort}
-    state.EntityData.Leafs["destination-protocol"] = types.YLeaf{"DestinationProtocol", state.DestinationProtocol}
-    state.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", state.SampleInterval}
-    state.EntityData.Leafs["heartbeat-interval"] = types.YLeaf{"HeartbeatInterval", state.HeartbeatInterval}
-    state.EntityData.Leafs["suppress-redundant"] = types.YLeaf{"SuppressRedundant", state.SuppressRedundant}
-    state.EntityData.Leafs["originated-qos-marking"] = types.YLeaf{"OriginatedQosMarking", state.OriginatedQosMarking}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", state.SubscriptionId})
+    state.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", state.DestinationAddress})
+    state.EntityData.Leafs.Append("destination-port", types.YLeaf{"DestinationPort", state.DestinationPort})
+    state.EntityData.Leafs.Append("destination-protocol", types.YLeaf{"DestinationProtocol", state.DestinationProtocol})
+    state.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", state.SampleInterval})
+    state.EntityData.Leafs.Append("heartbeat-interval", types.YLeaf{"HeartbeatInterval", state.HeartbeatInterval})
+    state.EntityData.Leafs.Append("suppress-redundant", types.YLeaf{"SuppressRedundant", state.SuppressRedundant})
+    state.EntityData.Leafs.Append("originated-qos-marking", types.YLeaf{"OriginatedQosMarking", state.OriginatedQosMarking})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1340,7 +1439,7 @@ type TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths struct {
     // Filters for each path to exclude items are also provided. The type is slice
     // of
     // TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths_SensorPath.
-    SensorPath []TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths_SensorPath
+    SensorPath []*TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths_SensorPath
 }
 
 func (sensorPaths *TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths) GetEntityData() *types.CommonEntityData {
@@ -1353,12 +1452,15 @@ func (sensorPaths *TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPath
     sensorPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sensorPaths.EntityData.Children = make(map[string]types.YChild)
-    sensorPaths.EntityData.Children["sensor-path"] = types.YChild{"SensorPath", nil}
+    sensorPaths.EntityData.Children = types.NewOrderedMap()
+    sensorPaths.EntityData.Children.Append("sensor-path", types.YChild{"SensorPath", nil})
     for i := range sensorPaths.SensorPath {
-        sensorPaths.EntityData.Children[types.GetSegmentPath(&sensorPaths.SensorPath[i])] = types.YChild{"SensorPath", &sensorPaths.SensorPath[i]}
+        sensorPaths.EntityData.Children.Append(types.GetSegmentPath(sensorPaths.SensorPath[i]), types.YChild{"SensorPath", sensorPaths.SensorPath[i]})
     }
-    sensorPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    sensorPaths.EntityData.YListKeys = []string {}
+
     return &(sensorPaths.EntityData)
 }
 
@@ -1384,15 +1486,18 @@ func (sensorPath *TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths
     sensorPath.EntityData.YangName = "sensor-path"
     sensorPath.EntityData.BundleName = "openconfig"
     sensorPath.EntityData.ParentYangName = "sensor-paths"
-    sensorPath.EntityData.SegmentPath = "sensor-path" + "[path='" + fmt.Sprintf("%v", sensorPath.Path) + "']"
+    sensorPath.EntityData.SegmentPath = "sensor-path" + types.AddKeyToken(sensorPath.Path, "path")
     sensorPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sensorPath.EntityData.Children = make(map[string]types.YChild)
-    sensorPath.EntityData.Children["state"] = types.YChild{"State", &sensorPath.State}
-    sensorPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensorPath.EntityData.Leafs["path"] = types.YLeaf{"Path", sensorPath.Path}
+    sensorPath.EntityData.Children = types.NewOrderedMap()
+    sensorPath.EntityData.Children.Append("state", types.YChild{"State", &sensorPath.State})
+    sensorPath.EntityData.Leafs = types.NewOrderedMap()
+    sensorPath.EntityData.Leafs.Append("path", types.YLeaf{"Path", sensorPath.Path})
+
+    sensorPath.EntityData.YListKeys = []string {"Path"}
+
     return &(sensorPath.EntityData)
 }
 
@@ -1422,10 +1527,13 @@ func (state *TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths_Sens
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["path"] = types.YLeaf{"Path", state.Path}
-    state.EntityData.Leafs["exclude-filter"] = types.YLeaf{"ExcludeFilter", state.ExcludeFilter}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("path", types.YLeaf{"Path", state.Path})
+    state.EntityData.Leafs.Append("exclude-filter", types.YLeaf{"ExcludeFilter", state.ExcludeFilter})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 

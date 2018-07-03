@@ -2,6 +2,9 @@ module Cisco-IOS-XR-dot1x-if-cfg {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-dot1x-if-cfg";
   prefix dot1x-if-cfg;
 
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   import Cisco-IOS-XR-ifmgr-cfg {
     prefix a1;
   }
@@ -42,7 +45,9 @@ module Cisco-IOS-XR-dot1x-if-cfg {
       description
         "Interface Specific Dot1x Configuration";
       leaf dot1x-profile {
-        type string;
+        type xr:Cisco-ios-xr-string {
+          length "1..63";
+        }
         description
           "Name of Dot1x profile";
       }

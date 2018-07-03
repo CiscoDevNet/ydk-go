@@ -32,6 +32,10 @@ module Cisco-IOS-XR-ipv4-msdp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -347,7 +351,6 @@ module Cisco-IOS-XR-ipv4-msdp-cfg {
       }
     }
     container default-context {
-      presence "Indicates a default-context node is configured.";
       description
         "Default Context";
       uses TTL-THRESHOLD;

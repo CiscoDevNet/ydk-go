@@ -43,7 +43,7 @@ func config(bgp *ysanity_bgp.Bgp) {
 	ipv6_afisafi.AfiSafiName = &ysanity_bgp_types.IPV6UNICAST{}
 	ipv6_afisafi.Config.AfiSafiName = &ysanity_bgp_types.IPV6UNICAST{}
 	ipv6_afisafi.Config.Enabled = true
-	bgp.Global.AfiSafis.AfiSafi = append(bgp.Global.AfiSafis.AfiSafi, ipv6_afisafi)
+	bgp.Global.AfiSafis.AfiSafi = append(bgp.Global.AfiSafis.AfiSafi, &ipv6_afisafi)
 
 	peer_group := ysanity_bgp.Bgp_PeerGroups_PeerGroup{}
 	peer_group.PeerGroupName = "EBGP"
@@ -59,14 +59,14 @@ func config(bgp *ysanity_bgp.Bgp) {
 	// peer_group_afisafi.ApplyPolicy.Config.ImportPolicy = append(peer_group_afisafi.ApplyPolicy.Config.ImportPolicy, "POLICY3")
 	// peer_group_afisafi.ApplyPolicy.Config.ExportPolicy = append(peer_group_afisafi.ApplyPolicy.Config.ExportPolicy, "POLICY1")
 
-	peer_group.AfiSafis.AfiSafi = append(peer_group.AfiSafis.AfiSafi, peer_group_afisafi)
-	bgp.PeerGroups.PeerGroup = append(bgp.PeerGroups.PeerGroup, peer_group)
+	peer_group.AfiSafis.AfiSafi = append(peer_group.AfiSafis.AfiSafi, &peer_group_afisafi)
+	bgp.PeerGroups.PeerGroup = append(bgp.PeerGroups.PeerGroup, &peer_group)
 
 	neighbor := ysanity_bgp.Bgp_Neighbors_Neighbor{}
 	neighbor.NeighborAddress = "2001:db8:e:1::1"
 	neighbor.Config.NeighborAddress = "2001:db8:e:1::1"
 	neighbor.Config.PeerGroup = "EBGP"
-	bgp.Neighbors.Neighbor = append(bgp.Neighbors.Neighbor, neighbor)
+	bgp.Neighbors.Neighbor = append(bgp.Neighbors.Neighbor, &neighbor)
 }
 
 func main() {

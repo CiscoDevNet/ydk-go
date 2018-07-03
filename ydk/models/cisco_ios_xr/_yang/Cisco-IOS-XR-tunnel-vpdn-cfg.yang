@@ -32,6 +32,10 @@ module Cisco-IOS-XR-tunnel-vpdn-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -207,7 +211,7 @@ module Cisco-IOS-XR-tunnel-vpdn-cfg {
           description
             "Set IP TOS value";
           leaf tos {
-            type int32;
+            type uint32;
             description
               "Set constant integer";
           }

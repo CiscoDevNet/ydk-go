@@ -484,6 +484,16 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub2 {
       description
         "is segment routing remote";
     }
+    leaf is-initiate-local {
+      type boolean;
+      description
+        "local initiate capability";
+    }
+    leaf is-initiate-remote {
+      type boolean;
+      description
+        "remote initiate capability";
+    }
     leaf is-best-pce {
       type boolean;
       description

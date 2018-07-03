@@ -36,17 +36,17 @@ func init() {
     ydk.RegisterEntity("CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB", reflect.TypeOf(CISCOSIPUAMIB{}))
 }
 
-type Ciscosipuamibnotificationprefix struct {
+type CiscoSipUaMIBNotificationPrefix struct {
 }
 
-func (id Ciscosipuamibnotificationprefix) String() string {
+func (id CiscoSipUaMIBNotificationPrefix) String() string {
 	return "CISCO-SIP-UA-MIB:ciscoSipUaMIBNotificationPrefix"
 }
 
-type Ciscosipuamibnotifications struct {
+type CiscoSipUaMIBNotifications struct {
 }
 
-func (id Ciscosipuamibnotifications) String() string {
+func (id CiscoSipUaMIBNotifications) String() string {
 	return "CISCO-SIP-UA-MIB:ciscoSipUaMIBNotifications"
 }
 
@@ -56,65 +56,65 @@ type CISCOSIPUAMIB struct {
     YFilter yfilter.YFilter
 
     
-    Csipcfgbase CISCOSIPUAMIB_Csipcfgbase
+    CSipCfgBase CISCOSIPUAMIB_CSipCfgBase
 
     
-    Csipcfgtimer CISCOSIPUAMIB_Csipcfgtimer
+    CSipCfgTimer CISCOSIPUAMIB_CSipCfgTimer
 
     
-    Csipcfgretry CISCOSIPUAMIB_Csipcfgretry
+    CSipCfgRetry CISCOSIPUAMIB_CSipCfgRetry
 
     
-    Csipcfgpeer CISCOSIPUAMIB_Csipcfgpeer
+    CSipCfgPeer CISCOSIPUAMIB_CSipCfgPeer
 
     
-    Csipcfgaaa CISCOSIPUAMIB_Csipcfgaaa
+    CSipCfgAaa CISCOSIPUAMIB_CSipCfgAaa
 
     
-    Csipcfgvoiceservicevoip CISCOSIPUAMIB_Csipcfgvoiceservicevoip
+    CSipCfgVoiceServiceVoip CISCOSIPUAMIB_CSipCfgVoiceServiceVoip
 
     
-    Csipstatsinfo CISCOSIPUAMIB_Csipstatsinfo
+    CSipStatsInfo CISCOSIPUAMIB_CSipStatsInfo
 
     
-    Csipstatssuccess CISCOSIPUAMIB_Csipstatssuccess
+    CSipStatsSuccess CISCOSIPUAMIB_CSipStatsSuccess
 
     
-    Csipstatsredirect CISCOSIPUAMIB_Csipstatsredirect
+    CSipStatsRedirect CISCOSIPUAMIB_CSipStatsRedirect
 
     
-    Csipstatserrclient CISCOSIPUAMIB_Csipstatserrclient
+    CSipStatsErrClient CISCOSIPUAMIB_CSipStatsErrClient
 
     
-    Csipstatserrserver CISCOSIPUAMIB_Csipstatserrserver
+    CSipStatsErrServer CISCOSIPUAMIB_CSipStatsErrServer
 
     
-    Csipstatsglobalfail CISCOSIPUAMIB_Csipstatsglobalfail
+    CSipStatsGlobalFail CISCOSIPUAMIB_CSipStatsGlobalFail
 
     
-    Csipstatstraffic CISCOSIPUAMIB_Csipstatstraffic
+    CSipStatsTraffic CISCOSIPUAMIB_CSipStatsTraffic
 
     
-    Csipstatsretry CISCOSIPUAMIB_Csipstatsretry
+    CSipStatsRetry CISCOSIPUAMIB_CSipStatsRetry
 
     
-    Csipstatsmisc CISCOSIPUAMIB_Csipstatsmisc
+    CSipStatsMisc CISCOSIPUAMIB_CSipStatsMisc
 
     
-    Csipstatsconnection CISCOSIPUAMIB_Csipstatsconnection
+    CSipStatsConnection CISCOSIPUAMIB_CSipStatsConnection
 
     // This table contains configuration for Early Media Cut Through.  The
     // configuration controls how the SIP user agent will process 1xx
     // (Provisional) SIP response messages that contain  Session Definition
     // Protocol (SDP) payloads.
-    Csipcfgearlymediatable CISCOSIPUAMIB_Csipcfgearlymediatable
+    CSipCfgEarlyMediaTable CISCOSIPUAMIB_CSipCfgEarlyMediaTable
 
     // This table contains configuration for binding the scope of packets to the
     // particular ethernet interface. The scope for the packets can be specified
     // as either 'signalling' or 'media' packets. The ethernet interface shall be
     // specified by the interface index. The table shall be indexed based on the
     // scope.
-    Csipcfgbindsourceaddrtable CISCOSIPUAMIB_Csipcfgbindsourceaddrtable
+    CSipCfgBindSourceAddrTable CISCOSIPUAMIB_CSipCfgBindSourceAddrTable
 
     // This table contains per dial-peer SIP related  configuration.     The table
     // is a sparse table of dial-peer information. This means, it only reflects
@@ -123,23 +123,23 @@ type CISCOSIPUAMIB struct {
     // 'sip'.  Dial-peers are not created or destroyed via this table.  Only SIP
     // related configuration can be  performed via this table once the dial-peer
     // exists in the system and is visible in this table.
-    Csipcfgpeertable CISCOSIPUAMIB_Csipcfgpeertable
+    CSipCfgPeerTable CISCOSIPUAMIB_CSipCfgPeerTable
 
     // This table contains SIP status code to PSTN cause code mapping
     // configuration.  Inbound SIP response messages  that will result in outbound
     // PSTN signalling messages will have the SIP status codes transposed into the
     // PSTN cause codes as prescribed by the contents of this  table.
-    Csipcfgstatuscausetable CISCOSIPUAMIB_Csipcfgstatuscausetable
+    CSipCfgStatusCauseTable CISCOSIPUAMIB_CSipCfgStatusCauseTable
 
     // This table contains PSTN cause code to SIP status code mapping
     // configuration.   Inbound PSTN signalling messages that will result in
     // outbound SIP response messages  will have the PSTN cause codes transposed
     // into the SIP status codes as prescribed by the contents of this  table.
-    Csipcfgcausestatustable CISCOSIPUAMIB_Csipcfgcausestatustable
+    CSipCfgCauseStatusTable CISCOSIPUAMIB_CSipCfgCauseStatusTable
 
     // This table contains statistics for sent and received 200 Ok response
     // messages.  The  statistics are kept on per SIP method basis.
-    Csipstatssuccessoktable CISCOSIPUAMIB_Csipstatssuccessoktable
+    CSipStatsSuccessOkTable CISCOSIPUAMIB_CSipStatsSuccessOkTable
 }
 
 func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetEntityData() *types.CommonEntityData {
@@ -152,35 +152,38 @@ func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetEntityData() *types.CommonEntityData {
     cISCOSIPUAMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSIPUAMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOSIPUAMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgBase"] = types.YChild{"Csipcfgbase", &cISCOSIPUAMIB.Csipcfgbase}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgTimer"] = types.YChild{"Csipcfgtimer", &cISCOSIPUAMIB.Csipcfgtimer}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgRetry"] = types.YChild{"Csipcfgretry", &cISCOSIPUAMIB.Csipcfgretry}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgPeer"] = types.YChild{"Csipcfgpeer", &cISCOSIPUAMIB.Csipcfgpeer}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgAaa"] = types.YChild{"Csipcfgaaa", &cISCOSIPUAMIB.Csipcfgaaa}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgVoiceServiceVoip"] = types.YChild{"Csipcfgvoiceservicevoip", &cISCOSIPUAMIB.Csipcfgvoiceservicevoip}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsInfo"] = types.YChild{"Csipstatsinfo", &cISCOSIPUAMIB.Csipstatsinfo}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsSuccess"] = types.YChild{"Csipstatssuccess", &cISCOSIPUAMIB.Csipstatssuccess}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsRedirect"] = types.YChild{"Csipstatsredirect", &cISCOSIPUAMIB.Csipstatsredirect}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsErrClient"] = types.YChild{"Csipstatserrclient", &cISCOSIPUAMIB.Csipstatserrclient}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsErrServer"] = types.YChild{"Csipstatserrserver", &cISCOSIPUAMIB.Csipstatserrserver}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsGlobalFail"] = types.YChild{"Csipstatsglobalfail", &cISCOSIPUAMIB.Csipstatsglobalfail}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsTraffic"] = types.YChild{"Csipstatstraffic", &cISCOSIPUAMIB.Csipstatstraffic}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsRetry"] = types.YChild{"Csipstatsretry", &cISCOSIPUAMIB.Csipstatsretry}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsMisc"] = types.YChild{"Csipstatsmisc", &cISCOSIPUAMIB.Csipstatsmisc}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsConnection"] = types.YChild{"Csipstatsconnection", &cISCOSIPUAMIB.Csipstatsconnection}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgEarlyMediaTable"] = types.YChild{"Csipcfgearlymediatable", &cISCOSIPUAMIB.Csipcfgearlymediatable}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgBindSourceAddrTable"] = types.YChild{"Csipcfgbindsourceaddrtable", &cISCOSIPUAMIB.Csipcfgbindsourceaddrtable}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgPeerTable"] = types.YChild{"Csipcfgpeertable", &cISCOSIPUAMIB.Csipcfgpeertable}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgStatusCauseTable"] = types.YChild{"Csipcfgstatuscausetable", &cISCOSIPUAMIB.Csipcfgstatuscausetable}
-    cISCOSIPUAMIB.EntityData.Children["cSipCfgCauseStatusTable"] = types.YChild{"Csipcfgcausestatustable", &cISCOSIPUAMIB.Csipcfgcausestatustable}
-    cISCOSIPUAMIB.EntityData.Children["cSipStatsSuccessOkTable"] = types.YChild{"Csipstatssuccessoktable", &cISCOSIPUAMIB.Csipstatssuccessoktable}
-    cISCOSIPUAMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOSIPUAMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgBase", types.YChild{"CSipCfgBase", &cISCOSIPUAMIB.CSipCfgBase})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgTimer", types.YChild{"CSipCfgTimer", &cISCOSIPUAMIB.CSipCfgTimer})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgRetry", types.YChild{"CSipCfgRetry", &cISCOSIPUAMIB.CSipCfgRetry})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgPeer", types.YChild{"CSipCfgPeer", &cISCOSIPUAMIB.CSipCfgPeer})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgAaa", types.YChild{"CSipCfgAaa", &cISCOSIPUAMIB.CSipCfgAaa})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgVoiceServiceVoip", types.YChild{"CSipCfgVoiceServiceVoip", &cISCOSIPUAMIB.CSipCfgVoiceServiceVoip})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsInfo", types.YChild{"CSipStatsInfo", &cISCOSIPUAMIB.CSipStatsInfo})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsSuccess", types.YChild{"CSipStatsSuccess", &cISCOSIPUAMIB.CSipStatsSuccess})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsRedirect", types.YChild{"CSipStatsRedirect", &cISCOSIPUAMIB.CSipStatsRedirect})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsErrClient", types.YChild{"CSipStatsErrClient", &cISCOSIPUAMIB.CSipStatsErrClient})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsErrServer", types.YChild{"CSipStatsErrServer", &cISCOSIPUAMIB.CSipStatsErrServer})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsGlobalFail", types.YChild{"CSipStatsGlobalFail", &cISCOSIPUAMIB.CSipStatsGlobalFail})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsTraffic", types.YChild{"CSipStatsTraffic", &cISCOSIPUAMIB.CSipStatsTraffic})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsRetry", types.YChild{"CSipStatsRetry", &cISCOSIPUAMIB.CSipStatsRetry})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsMisc", types.YChild{"CSipStatsMisc", &cISCOSIPUAMIB.CSipStatsMisc})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsConnection", types.YChild{"CSipStatsConnection", &cISCOSIPUAMIB.CSipStatsConnection})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgEarlyMediaTable", types.YChild{"CSipCfgEarlyMediaTable", &cISCOSIPUAMIB.CSipCfgEarlyMediaTable})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgBindSourceAddrTable", types.YChild{"CSipCfgBindSourceAddrTable", &cISCOSIPUAMIB.CSipCfgBindSourceAddrTable})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgPeerTable", types.YChild{"CSipCfgPeerTable", &cISCOSIPUAMIB.CSipCfgPeerTable})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgStatusCauseTable", types.YChild{"CSipCfgStatusCauseTable", &cISCOSIPUAMIB.CSipCfgStatusCauseTable})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipCfgCauseStatusTable", types.YChild{"CSipCfgCauseStatusTable", &cISCOSIPUAMIB.CSipCfgCauseStatusTable})
+    cISCOSIPUAMIB.EntityData.Children.Append("cSipStatsSuccessOkTable", types.YChild{"CSipStatsSuccessOkTable", &cISCOSIPUAMIB.CSipStatsSuccessOkTable})
+    cISCOSIPUAMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOSIPUAMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOSIPUAMIB.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgbase
-type CISCOSIPUAMIB_Csipcfgbase struct {
+// CISCOSIPUAMIB_CSipCfgBase
+type CISCOSIPUAMIB_CSipCfgBase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -189,12 +192,12 @@ type CISCOSIPUAMIB_Csipcfgbase struct {
     // SIP messages generated by this user agent.  For example, user agents
     // supporting SIP version 2 will return 'SIP/2.0' as dictated by RFC 2543. The
     // type is string.
-    Csipcfgversion interface{}
+    CSipCfgVersion interface{}
 
     // This object specifies the transport protocol the SIP user  agent will use
     // to receive SIP messages.  A value of 'disabled' indicates that the UA will
-    // not receive any SIP messages. The type is Csipcfgtransport.
-    Csipcfgtransport interface{}
+    // not receive any SIP messages. The type is CSipCfgTransport.
+    CSipCfgTransport interface{}
 
     // This object specifies address of the User Location  Server (ULS) being used
     // to resolve the location of end  points.  This could be a Domain Name Server
@@ -210,19 +213,19 @@ type CISCOSIPUAMIB_Csipcfgbase struct {
     // with dns name pots.cisco.com.  The valid Mapping type definitions for the
     // peer follow:    ipv4  - Syntax: ipv4:w.x.y.z:port or  ipv4:w.x.y.z     dns 
     // - Syntax: dns:host.domain. The type is string.
-    Csipcfguserlocationserveraddr interface{}
+    CSipCfgUserLocationServerAddr interface{}
 
     // This object may be used with any SIP method to limit the  number of proxies
     // that can forward the request to the next  downstream server. The type is
     // interface{} with range: 1..70.
-    Csipcfgmaxforwards interface{}
+    CSipCfgMaxForwards interface{}
 
     // This object may specify the interface where the source IP address used in
     // SIP signalling or media packets is configured.  A value of 0 means that 
     // there is no specific source address configured and  in this case the best
     // local IP address will be chosen  by the system. The type is interface{}
     // with range: 0..2147483647.
-    Csipcfgbindsrcaddrinterface interface{}
+    CSipCfgBindSrcAddrInterface interface{}
 
     // This object specifies the scope of packets to which the source IP address
     // of the interface  designated by cSipCfgBindSrcAddrInterface will be bound. 
@@ -230,15 +233,15 @@ type CISCOSIPUAMIB_Csipcfgbase struct {
     // and media packets. A value of 'control' means the IP address will only be
     // bound to SIP signalling packets.   If cSipCfgBindSrcAddrInterface is set to
     // 0, the value of this object has no meaning. The type is
-    // Csipcfgbindsrcaddrscope.
-    Csipcfgbindsrcaddrscope interface{}
+    // CSipCfgBindSrcAddrScope.
+    CSipCfgBindSrcAddrScope interface{}
 
     // This object specifies the format of the prefix used  by the system for DNS
     // SRV queries.  v1  :  RFC 2052 format - 'protocol.transport.' v2  :  RFC
     // 2782 format - '_protocol._transport.'  This object allows backward
     // compatibility with systems only supporting RFC 2052 format. The type is
-    // Csipcfgdnssrvquerystringformat.
-    Csipcfgdnssrvquerystringformat interface{}
+    // CSipCfgDnsSrvQueryStringFormat.
+    CSipCfgDnsSrvQueryStringFormat interface{}
 
     // This object specifies how call redirection (3xx) is handled by the user
     // agent.    If 'false', the user agent's treatment of incoming  3xx class
@@ -253,7 +256,7 @@ type CISCOSIPUAMIB_Csipcfgbase struct {
     // 410 Gone  302 Moved Temporarily -> 480 Temporarily Unavailable  305 User
     // Proxy        -> 410 Gone  380 Alternative Service -> 410 Gone  Any other
     // 3xx -> 410 Gone. The type is bool.
-    Csipcfgredirectiondisabled interface{}
+    CSipCfgRedirectionDisabled interface{}
 
     // This object specifies whether remote media checks for Symmetric Network
     // Address Translation (NAT)  is enabled or disabled.  If 'true', remote media
@@ -264,7 +267,7 @@ type CISCOSIPUAMIB_Csipcfgbase struct {
     // would be triggered for only those calls where the Session Description
     // Protocol (SDP) received by the gateway has an indication to do so.  If
     // 'false', remote media checks are disabled. The type is bool.
-    Csipcfgsymnatenabled interface{}
+    CSipCfgSymNatEnabled interface{}
 
     // This object specifies the value of the 'a=direction:<role>' SDP attribute
     // supported by  the user agent.  The direction attribute is used  to describe
@@ -273,8 +276,8 @@ type CISCOSIPUAMIB_Csipcfgbase struct {
     // specified. passive :  The user agent will advertise itself            as a
     // 'passive' entity (inside the NAT)            in the SDP. active  :  The
     // user agent will advertise itself            as a 'active' entity (outside
-    // the NAT)            in the SDP. The type is Csipcfgsymnatdirectionrole.
-    Csipcfgsymnatdirectionrole interface{}
+    // the NAT)            in the SDP. The type is CSipCfgSymNatDirectionRole.
+    CSipCfgSymNatDirectionRole interface{}
 
     // This object specifies if support for handling  Suspend/Resume events from
     // the switch is enabled or not.  If 'true', the user agent on getting a
@@ -284,157 +287,160 @@ type CISCOSIPUAMIB_Csipcfgbase struct {
     // agent will not initiate any re-invites on receiving Suspend/Resume events,
     // basically it won't be putting the call on hold or off hold. The type is
     // bool.
-    Csipcfgsuspendresumeenabled interface{}
+    CSipCfgSuspendResumeEnabled interface{}
 
     // This object specifies how the SIP gateway would initiate call hold
     // requests.  directionAttr: The user agent will use the direction            
     // attribute such as a=sendonly or a=inactive in                 the sdp to
     // initiate call hold requests.                    connAddr: The user agent
     // will use 0.0.0.0 connection address            to specify Call Hold. The
-    // type is Csipcfgoffercallhold.
-    Csipcfgoffercallhold interface{}
+    // type is CSipCfgOfferCallHold.
+    CSipCfgOfferCallHold interface{}
 
     // This object specifies that the Reason header overrides SIP  status code
     // mapping table. The type is bool.
-    Csipcfgreasonheaderoveride interface{}
+    CSipCfgReasonHeaderOveride interface{}
 
     // This object may be used with any SIP method to limit the  number of proxies
     // that can forward the request to the next  downstream server. The type is
     // interface{} with range: 1..70.
-    Csipcfgmaximumforwards interface{}
+    CSipCfgMaximumForwards interface{}
 }
 
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetEntityData() *types.CommonEntityData {
-    csipcfgbase.EntityData.YFilter = csipcfgbase.YFilter
-    csipcfgbase.EntityData.YangName = "cSipCfgBase"
-    csipcfgbase.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgbase.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgbase.EntityData.SegmentPath = "cSipCfgBase"
-    csipcfgbase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgbase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgbase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgBase *CISCOSIPUAMIB_CSipCfgBase) GetEntityData() *types.CommonEntityData {
+    cSipCfgBase.EntityData.YFilter = cSipCfgBase.YFilter
+    cSipCfgBase.EntityData.YangName = "cSipCfgBase"
+    cSipCfgBase.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgBase.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgBase.EntityData.SegmentPath = "cSipCfgBase"
+    cSipCfgBase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgBase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgBase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgbase.EntityData.Children = make(map[string]types.YChild)
-    csipcfgbase.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgbase.EntityData.Leafs["cSipCfgVersion"] = types.YLeaf{"Csipcfgversion", csipcfgbase.Csipcfgversion}
-    csipcfgbase.EntityData.Leafs["cSipCfgTransport"] = types.YLeaf{"Csipcfgtransport", csipcfgbase.Csipcfgtransport}
-    csipcfgbase.EntityData.Leafs["cSipCfgUserLocationServerAddr"] = types.YLeaf{"Csipcfguserlocationserveraddr", csipcfgbase.Csipcfguserlocationserveraddr}
-    csipcfgbase.EntityData.Leafs["cSipCfgMaxForwards"] = types.YLeaf{"Csipcfgmaxforwards", csipcfgbase.Csipcfgmaxforwards}
-    csipcfgbase.EntityData.Leafs["cSipCfgBindSrcAddrInterface"] = types.YLeaf{"Csipcfgbindsrcaddrinterface", csipcfgbase.Csipcfgbindsrcaddrinterface}
-    csipcfgbase.EntityData.Leafs["cSipCfgBindSrcAddrScope"] = types.YLeaf{"Csipcfgbindsrcaddrscope", csipcfgbase.Csipcfgbindsrcaddrscope}
-    csipcfgbase.EntityData.Leafs["cSipCfgDnsSrvQueryStringFormat"] = types.YLeaf{"Csipcfgdnssrvquerystringformat", csipcfgbase.Csipcfgdnssrvquerystringformat}
-    csipcfgbase.EntityData.Leafs["cSipCfgRedirectionDisabled"] = types.YLeaf{"Csipcfgredirectiondisabled", csipcfgbase.Csipcfgredirectiondisabled}
-    csipcfgbase.EntityData.Leafs["cSipCfgSymNatEnabled"] = types.YLeaf{"Csipcfgsymnatenabled", csipcfgbase.Csipcfgsymnatenabled}
-    csipcfgbase.EntityData.Leafs["cSipCfgSymNatDirectionRole"] = types.YLeaf{"Csipcfgsymnatdirectionrole", csipcfgbase.Csipcfgsymnatdirectionrole}
-    csipcfgbase.EntityData.Leafs["cSipCfgSuspendResumeEnabled"] = types.YLeaf{"Csipcfgsuspendresumeenabled", csipcfgbase.Csipcfgsuspendresumeenabled}
-    csipcfgbase.EntityData.Leafs["cSipCfgOfferCallHold"] = types.YLeaf{"Csipcfgoffercallhold", csipcfgbase.Csipcfgoffercallhold}
-    csipcfgbase.EntityData.Leafs["cSipCfgReasonHeaderOveride"] = types.YLeaf{"Csipcfgreasonheaderoveride", csipcfgbase.Csipcfgreasonheaderoveride}
-    csipcfgbase.EntityData.Leafs["cSipCfgMaximumForwards"] = types.YLeaf{"Csipcfgmaximumforwards", csipcfgbase.Csipcfgmaximumforwards}
-    return &(csipcfgbase.EntityData)
+    cSipCfgBase.EntityData.Children = types.NewOrderedMap()
+    cSipCfgBase.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgVersion", types.YLeaf{"CSipCfgVersion", cSipCfgBase.CSipCfgVersion})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgTransport", types.YLeaf{"CSipCfgTransport", cSipCfgBase.CSipCfgTransport})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgUserLocationServerAddr", types.YLeaf{"CSipCfgUserLocationServerAddr", cSipCfgBase.CSipCfgUserLocationServerAddr})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgMaxForwards", types.YLeaf{"CSipCfgMaxForwards", cSipCfgBase.CSipCfgMaxForwards})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgBindSrcAddrInterface", types.YLeaf{"CSipCfgBindSrcAddrInterface", cSipCfgBase.CSipCfgBindSrcAddrInterface})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgBindSrcAddrScope", types.YLeaf{"CSipCfgBindSrcAddrScope", cSipCfgBase.CSipCfgBindSrcAddrScope})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgDnsSrvQueryStringFormat", types.YLeaf{"CSipCfgDnsSrvQueryStringFormat", cSipCfgBase.CSipCfgDnsSrvQueryStringFormat})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgRedirectionDisabled", types.YLeaf{"CSipCfgRedirectionDisabled", cSipCfgBase.CSipCfgRedirectionDisabled})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgSymNatEnabled", types.YLeaf{"CSipCfgSymNatEnabled", cSipCfgBase.CSipCfgSymNatEnabled})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgSymNatDirectionRole", types.YLeaf{"CSipCfgSymNatDirectionRole", cSipCfgBase.CSipCfgSymNatDirectionRole})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgSuspendResumeEnabled", types.YLeaf{"CSipCfgSuspendResumeEnabled", cSipCfgBase.CSipCfgSuspendResumeEnabled})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgOfferCallHold", types.YLeaf{"CSipCfgOfferCallHold", cSipCfgBase.CSipCfgOfferCallHold})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgReasonHeaderOveride", types.YLeaf{"CSipCfgReasonHeaderOveride", cSipCfgBase.CSipCfgReasonHeaderOveride})
+    cSipCfgBase.EntityData.Leafs.Append("cSipCfgMaximumForwards", types.YLeaf{"CSipCfgMaximumForwards", cSipCfgBase.CSipCfgMaximumForwards})
+
+    cSipCfgBase.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgBase.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope represents the value of this object has no meaning.
-type CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope string
+// CISCOSIPUAMIB_CSipCfgBase_CSipCfgBindSrcAddrScope represents the value of this object has no meaning.
+type CISCOSIPUAMIB_CSipCfgBase_CSipCfgBindSrcAddrScope string
 
 const (
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope_none CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope = "none"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgBindSrcAddrScope_none CISCOSIPUAMIB_CSipCfgBase_CSipCfgBindSrcAddrScope = "none"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope_all CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope = "all"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgBindSrcAddrScope_all CISCOSIPUAMIB_CSipCfgBase_CSipCfgBindSrcAddrScope = "all"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope_control CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope = "control"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgBindSrcAddrScope_control CISCOSIPUAMIB_CSipCfgBase_CSipCfgBindSrcAddrScope = "control"
 )
 
-// CISCOSIPUAMIB_Csipcfgbase_Csipcfgdnssrvquerystringformat represents only supporting RFC 2052 format.
-type CISCOSIPUAMIB_Csipcfgbase_Csipcfgdnssrvquerystringformat string
+// CISCOSIPUAMIB_CSipCfgBase_CSipCfgDnsSrvQueryStringFormat represents only supporting RFC 2052 format.
+type CISCOSIPUAMIB_CSipCfgBase_CSipCfgDnsSrvQueryStringFormat string
 
 const (
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgdnssrvquerystringformat_v1 CISCOSIPUAMIB_Csipcfgbase_Csipcfgdnssrvquerystringformat = "v1"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgDnsSrvQueryStringFormat_v1 CISCOSIPUAMIB_CSipCfgBase_CSipCfgDnsSrvQueryStringFormat = "v1"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgdnssrvquerystringformat_v2 CISCOSIPUAMIB_Csipcfgbase_Csipcfgdnssrvquerystringformat = "v2"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgDnsSrvQueryStringFormat_v2 CISCOSIPUAMIB_CSipCfgBase_CSipCfgDnsSrvQueryStringFormat = "v2"
 )
 
-// CISCOSIPUAMIB_Csipcfgbase_Csipcfgoffercallhold represents            to specify Call Hold.
-type CISCOSIPUAMIB_Csipcfgbase_Csipcfgoffercallhold string
+// CISCOSIPUAMIB_CSipCfgBase_CSipCfgOfferCallHold represents            to specify Call Hold.
+type CISCOSIPUAMIB_CSipCfgBase_CSipCfgOfferCallHold string
 
 const (
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgoffercallhold_directionAttr CISCOSIPUAMIB_Csipcfgbase_Csipcfgoffercallhold = "directionAttr"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgOfferCallHold_directionAttr CISCOSIPUAMIB_CSipCfgBase_CSipCfgOfferCallHold = "directionAttr"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgoffercallhold_connAddr CISCOSIPUAMIB_Csipcfgbase_Csipcfgoffercallhold = "connAddr"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgOfferCallHold_connAddr CISCOSIPUAMIB_CSipCfgBase_CSipCfgOfferCallHold = "connAddr"
 )
 
-// CISCOSIPUAMIB_Csipcfgbase_Csipcfgsymnatdirectionrole represents            in the SDP.
-type CISCOSIPUAMIB_Csipcfgbase_Csipcfgsymnatdirectionrole string
+// CISCOSIPUAMIB_CSipCfgBase_CSipCfgSymNatDirectionRole represents            in the SDP.
+type CISCOSIPUAMIB_CSipCfgBase_CSipCfgSymNatDirectionRole string
 
 const (
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgsymnatdirectionrole_none CISCOSIPUAMIB_Csipcfgbase_Csipcfgsymnatdirectionrole = "none"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgSymNatDirectionRole_none CISCOSIPUAMIB_CSipCfgBase_CSipCfgSymNatDirectionRole = "none"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgsymnatdirectionrole_passive CISCOSIPUAMIB_Csipcfgbase_Csipcfgsymnatdirectionrole = "passive"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgSymNatDirectionRole_passive CISCOSIPUAMIB_CSipCfgBase_CSipCfgSymNatDirectionRole = "passive"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgsymnatdirectionrole_active CISCOSIPUAMIB_Csipcfgbase_Csipcfgsymnatdirectionrole = "active"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgSymNatDirectionRole_active CISCOSIPUAMIB_CSipCfgBase_CSipCfgSymNatDirectionRole = "active"
 )
 
-// CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport represents indicates that the UA will not receive any SIP messages.
-type CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport string
+// CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport represents indicates that the UA will not receive any SIP messages.
+type CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport string
 
 const (
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport_udp CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport = "udp"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport_udp CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport = "udp"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport_tcp CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport = "tcp"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport_tcp CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport = "tcp"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport_udpAndTcp CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport = "udpAndTcp"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport_udpAndTcp CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport = "udpAndTcp"
 
-    CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport_disabled CISCOSIPUAMIB_Csipcfgbase_Csipcfgtransport = "disabled"
+    CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport_disabled CISCOSIPUAMIB_CSipCfgBase_CSipCfgTransport = "disabled"
 )
 
-// CISCOSIPUAMIB_Csipcfgtimer
-type CISCOSIPUAMIB_Csipcfgtimer struct {
+// CISCOSIPUAMIB_CSipCfgTimer
+type CISCOSIPUAMIB_CSipCfgTimer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the time a user agent will wait to  receive a
     // provisional response to a INVITE before resending  the INVITE. The type is
     // interface{} with range: 100..1000. Units are milliseconds.
-    Csipcfgtimertrying interface{}
+    CSipCfgTimerTrying interface{}
 
     // This object specifies the time a user agent will wait to  receive a final
     // response to a INVITE before cancelling the  transaction. The type is
     // interface{} with range: 60000..300000. Units are milliseconds.
-    Csipcfgtimerexpires interface{}
+    CSipCfgTimerExpires interface{}
 
     // This object specifies the time a user agent will wait to  receive an ACK
     // confirmation a session is established. The type is interface{} with range:
     // 100..1000. Units are milliseconds.
-    Csipcfgtimerconnect interface{}
+    CSipCfgTimerConnect interface{}
 
     // This object specifies the time a user agent will wait to  receive an BYE
     // confirmation a session is disconnected. The type is interface{} with range:
     // 100..1000. Units are milliseconds.
-    Csipcfgtimerdisconnect interface{}
+    CSipCfgTimerDisconnect interface{}
 
     // This object specifies the time a user agent will wait for  a final response
     // before retransmitting the PRACK (PRovisional ACKnowledgment). The type is
     // interface{} with range: 100..1000. Units are milliseconds.
-    Csipcfgtimerprack interface{}
+    CSipCfgTimerPrack interface{}
 
     // This object specifies the time a user agent will wait  for a final response
     // before retransmitting the COMET  (COndition MET). The type is interface{}
     // with range: 100..1000. Units are milliseconds.
-    Csipcfgtimercomet interface{}
+    CSipCfgTimerComet interface{}
 
     // This object specifies the amount of time to wait for a PRACK before
     // retransmitting the reliable 1xx response. The type is interface{} with
     // range: 100..1000. Units are milliseconds.
-    Csipcfgtimerreliablersp interface{}
+    CSipCfgTimerReliableRsp interface{}
 
     // This object specifies the amount of time to wait for a final response
     // before retransmitting the Notify. The type is interface{} with range:
     // 100..1000. Units are milliseconds.
-    Csipcfgtimernotify interface{}
+    CSipCfgTimerNotify interface{}
 
     // This object specifies the amount of time to wait for a final response
     // before retransmitting the Refer. The type is interface{} with range:
     // 100..1000. Units are milliseconds.
-    Csipcfgtimerrefer interface{}
+    CSipCfgTimerRefer interface{}
 
     // This object specifies the value of the Min-SE  header for INVITE messages
     // originated by this  user agent and the minimum value of the 
@@ -445,158 +451,164 @@ type CISCOSIPUAMIB_Csipcfgtimer struct {
     // excessive re-INVITES  and the impact of those messages should be fully 
     // understood and considered an acceptable risk. The type is interface{} with
     // range: 60..86400. Units are seconds.
-    Csipcfgtimersessiontimer interface{}
+    CSipCfgTimerSessionTimer interface{}
 
     // This object specifies the amount of time to wait before  disconnecting a
     // call already on hold. A value of 0 specifies that this functionality is
     // disabled. The type is interface{} with range: 0..None | 15..2880. Units are
     // minutes.
-    Csipcfgtimerhold interface{}
+    CSipCfgTimerHold interface{}
 
     // This object specifies the amount of time to wait for a 200ok response
     // before retransmitting the Info. The type is interface{} with range:
     // 100..1000. Units are milliseconds.
-    Csipcfgtimerinfo interface{}
+    CSipCfgTimerInfo interface{}
 
     // This object specifies the amount of time to wait before  aging out a
     // TCP/UDP connection. The type is interface{} with range: 5..30. Units are
     // minutes.
-    Csipcfgtimerconnectionaging interface{}
+    CSipCfgTimerConnectionAging interface{}
 
     // This object specifies the amount of time to buffer the INVITE  while
     // waiting for display name info in the Facility.  A value of 0 means that the
     // INVITE wouldn't be buffered waiting for the display name info in the
     // Facility. The type is interface{} with range: 0..None | 50..5000. Units are
     // milliseconds.
-    Csipcfgtimerbufferinvite interface{}
+    CSipCfgTimerBufferInvite interface{}
 }
 
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetEntityData() *types.CommonEntityData {
-    csipcfgtimer.EntityData.YFilter = csipcfgtimer.YFilter
-    csipcfgtimer.EntityData.YangName = "cSipCfgTimer"
-    csipcfgtimer.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgtimer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgtimer.EntityData.SegmentPath = "cSipCfgTimer"
-    csipcfgtimer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgtimer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgtimer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgTimer *CISCOSIPUAMIB_CSipCfgTimer) GetEntityData() *types.CommonEntityData {
+    cSipCfgTimer.EntityData.YFilter = cSipCfgTimer.YFilter
+    cSipCfgTimer.EntityData.YangName = "cSipCfgTimer"
+    cSipCfgTimer.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgTimer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgTimer.EntityData.SegmentPath = "cSipCfgTimer"
+    cSipCfgTimer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgTimer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgTimer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgtimer.EntityData.Children = make(map[string]types.YChild)
-    csipcfgtimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerTrying"] = types.YLeaf{"Csipcfgtimertrying", csipcfgtimer.Csipcfgtimertrying}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerExpires"] = types.YLeaf{"Csipcfgtimerexpires", csipcfgtimer.Csipcfgtimerexpires}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerConnect"] = types.YLeaf{"Csipcfgtimerconnect", csipcfgtimer.Csipcfgtimerconnect}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerDisconnect"] = types.YLeaf{"Csipcfgtimerdisconnect", csipcfgtimer.Csipcfgtimerdisconnect}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerPrack"] = types.YLeaf{"Csipcfgtimerprack", csipcfgtimer.Csipcfgtimerprack}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerComet"] = types.YLeaf{"Csipcfgtimercomet", csipcfgtimer.Csipcfgtimercomet}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerReliableRsp"] = types.YLeaf{"Csipcfgtimerreliablersp", csipcfgtimer.Csipcfgtimerreliablersp}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerNotify"] = types.YLeaf{"Csipcfgtimernotify", csipcfgtimer.Csipcfgtimernotify}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerRefer"] = types.YLeaf{"Csipcfgtimerrefer", csipcfgtimer.Csipcfgtimerrefer}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerSessionTimer"] = types.YLeaf{"Csipcfgtimersessiontimer", csipcfgtimer.Csipcfgtimersessiontimer}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerHold"] = types.YLeaf{"Csipcfgtimerhold", csipcfgtimer.Csipcfgtimerhold}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerInfo"] = types.YLeaf{"Csipcfgtimerinfo", csipcfgtimer.Csipcfgtimerinfo}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerConnectionAging"] = types.YLeaf{"Csipcfgtimerconnectionaging", csipcfgtimer.Csipcfgtimerconnectionaging}
-    csipcfgtimer.EntityData.Leafs["cSipCfgTimerBufferInvite"] = types.YLeaf{"Csipcfgtimerbufferinvite", csipcfgtimer.Csipcfgtimerbufferinvite}
-    return &(csipcfgtimer.EntityData)
+    cSipCfgTimer.EntityData.Children = types.NewOrderedMap()
+    cSipCfgTimer.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerTrying", types.YLeaf{"CSipCfgTimerTrying", cSipCfgTimer.CSipCfgTimerTrying})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerExpires", types.YLeaf{"CSipCfgTimerExpires", cSipCfgTimer.CSipCfgTimerExpires})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerConnect", types.YLeaf{"CSipCfgTimerConnect", cSipCfgTimer.CSipCfgTimerConnect})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerDisconnect", types.YLeaf{"CSipCfgTimerDisconnect", cSipCfgTimer.CSipCfgTimerDisconnect})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerPrack", types.YLeaf{"CSipCfgTimerPrack", cSipCfgTimer.CSipCfgTimerPrack})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerComet", types.YLeaf{"CSipCfgTimerComet", cSipCfgTimer.CSipCfgTimerComet})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerReliableRsp", types.YLeaf{"CSipCfgTimerReliableRsp", cSipCfgTimer.CSipCfgTimerReliableRsp})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerNotify", types.YLeaf{"CSipCfgTimerNotify", cSipCfgTimer.CSipCfgTimerNotify})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerRefer", types.YLeaf{"CSipCfgTimerRefer", cSipCfgTimer.CSipCfgTimerRefer})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerSessionTimer", types.YLeaf{"CSipCfgTimerSessionTimer", cSipCfgTimer.CSipCfgTimerSessionTimer})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerHold", types.YLeaf{"CSipCfgTimerHold", cSipCfgTimer.CSipCfgTimerHold})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerInfo", types.YLeaf{"CSipCfgTimerInfo", cSipCfgTimer.CSipCfgTimerInfo})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerConnectionAging", types.YLeaf{"CSipCfgTimerConnectionAging", cSipCfgTimer.CSipCfgTimerConnectionAging})
+    cSipCfgTimer.EntityData.Leafs.Append("cSipCfgTimerBufferInvite", types.YLeaf{"CSipCfgTimerBufferInvite", cSipCfgTimer.CSipCfgTimerBufferInvite})
+
+    cSipCfgTimer.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgTimer.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgretry
-type CISCOSIPUAMIB_Csipcfgretry struct {
+// CISCOSIPUAMIB_CSipCfgRetry
+type CISCOSIPUAMIB_CSipCfgRetry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the number of times a user agent  will retry sending
     // a INVITE request. The type is interface{} with range: 1..10.
-    Csipcfgretryinvite interface{}
+    CSipCfgRetryInvite interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a BYE request. The type is interface{} with range: 1..10.
-    Csipcfgretrybye interface{}
+    CSipCfgRetryBye interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a CANCEL request. The type is interface{} with range: 1..10.
-    Csipcfgretrycancel interface{}
+    CSipCfgRetryCancel interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a REGISTER request. The type is interface{} with range: 1..10.
-    Csipcfgretryregister interface{}
+    CSipCfgRetryRegister interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a Response and expecting a ACK. The type is interface{} with range: 1..10.
-    Csipcfgretryresponse interface{}
+    CSipCfgRetryResponse interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a PRACK (PRovisional ACKnowledgement). The type is interface{} with range:
     // 1..10.
-    Csipcfgretryprack interface{}
+    CSipCfgRetryPrack interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a COMET (COndition MET). The type is interface{} with range: 1..10.
-    Csipcfgretrycomet interface{}
+    CSipCfgRetryComet interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a reliable response. The type is interface{} with range: 1..10.
-    Csipcfgretryreliablersp interface{}
+    CSipCfgRetryReliableRsp interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a Notify request. The type is interface{} with range: 1..10.
-    Csipcfgretrynotify interface{}
+    CSipCfgRetryNotify interface{}
 
     // This object specifies the number of times a user agent  will retry sending
     // a Refer request. The type is interface{} with range: 1..10.
-    Csipcfgretryrefer interface{}
+    CSipCfgRetryRefer interface{}
 
     // This object specifies the number of times a user agent will retry sending a
     // Info request. The type is interface{} with range: 1..10.
-    Csipcfgretryinfo interface{}
+    CSipCfgRetryInfo interface{}
 
     // This object specifies the number of times a user agent will retry sending a
     // Subscribe request. The type is interface{} with range: 1..10.
-    Csipcfgretrysubscribe interface{}
+    CSipCfgRetrySubscribe interface{}
 }
 
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetEntityData() *types.CommonEntityData {
-    csipcfgretry.EntityData.YFilter = csipcfgretry.YFilter
-    csipcfgretry.EntityData.YangName = "cSipCfgRetry"
-    csipcfgretry.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgretry.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgretry.EntityData.SegmentPath = "cSipCfgRetry"
-    csipcfgretry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgretry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgretry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgRetry *CISCOSIPUAMIB_CSipCfgRetry) GetEntityData() *types.CommonEntityData {
+    cSipCfgRetry.EntityData.YFilter = cSipCfgRetry.YFilter
+    cSipCfgRetry.EntityData.YangName = "cSipCfgRetry"
+    cSipCfgRetry.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgRetry.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgRetry.EntityData.SegmentPath = "cSipCfgRetry"
+    cSipCfgRetry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgRetry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgRetry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgretry.EntityData.Children = make(map[string]types.YChild)
-    csipcfgretry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryInvite"] = types.YLeaf{"Csipcfgretryinvite", csipcfgretry.Csipcfgretryinvite}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryBye"] = types.YLeaf{"Csipcfgretrybye", csipcfgretry.Csipcfgretrybye}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryCancel"] = types.YLeaf{"Csipcfgretrycancel", csipcfgretry.Csipcfgretrycancel}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryRegister"] = types.YLeaf{"Csipcfgretryregister", csipcfgretry.Csipcfgretryregister}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryResponse"] = types.YLeaf{"Csipcfgretryresponse", csipcfgretry.Csipcfgretryresponse}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryPrack"] = types.YLeaf{"Csipcfgretryprack", csipcfgretry.Csipcfgretryprack}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryComet"] = types.YLeaf{"Csipcfgretrycomet", csipcfgretry.Csipcfgretrycomet}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryReliableRsp"] = types.YLeaf{"Csipcfgretryreliablersp", csipcfgretry.Csipcfgretryreliablersp}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryNotify"] = types.YLeaf{"Csipcfgretrynotify", csipcfgretry.Csipcfgretrynotify}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryRefer"] = types.YLeaf{"Csipcfgretryrefer", csipcfgretry.Csipcfgretryrefer}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetryInfo"] = types.YLeaf{"Csipcfgretryinfo", csipcfgretry.Csipcfgretryinfo}
-    csipcfgretry.EntityData.Leafs["cSipCfgRetrySubscribe"] = types.YLeaf{"Csipcfgretrysubscribe", csipcfgretry.Csipcfgretrysubscribe}
-    return &(csipcfgretry.EntityData)
+    cSipCfgRetry.EntityData.Children = types.NewOrderedMap()
+    cSipCfgRetry.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryInvite", types.YLeaf{"CSipCfgRetryInvite", cSipCfgRetry.CSipCfgRetryInvite})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryBye", types.YLeaf{"CSipCfgRetryBye", cSipCfgRetry.CSipCfgRetryBye})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryCancel", types.YLeaf{"CSipCfgRetryCancel", cSipCfgRetry.CSipCfgRetryCancel})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryRegister", types.YLeaf{"CSipCfgRetryRegister", cSipCfgRetry.CSipCfgRetryRegister})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryResponse", types.YLeaf{"CSipCfgRetryResponse", cSipCfgRetry.CSipCfgRetryResponse})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryPrack", types.YLeaf{"CSipCfgRetryPrack", cSipCfgRetry.CSipCfgRetryPrack})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryComet", types.YLeaf{"CSipCfgRetryComet", cSipCfgRetry.CSipCfgRetryComet})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryReliableRsp", types.YLeaf{"CSipCfgRetryReliableRsp", cSipCfgRetry.CSipCfgRetryReliableRsp})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryNotify", types.YLeaf{"CSipCfgRetryNotify", cSipCfgRetry.CSipCfgRetryNotify})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryRefer", types.YLeaf{"CSipCfgRetryRefer", cSipCfgRetry.CSipCfgRetryRefer})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetryInfo", types.YLeaf{"CSipCfgRetryInfo", cSipCfgRetry.CSipCfgRetryInfo})
+    cSipCfgRetry.EntityData.Leafs.Append("cSipCfgRetrySubscribe", types.YLeaf{"CSipCfgRetrySubscribe", cSipCfgRetry.CSipCfgRetrySubscribe})
+
+    cSipCfgRetry.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgRetry.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgpeer
-type CISCOSIPUAMIB_Csipcfgpeer struct {
+// CISCOSIPUAMIB_CSipCfgPeer
+type CISCOSIPUAMIB_CSipCfgPeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the session transport  protocol that will be used for
     // outbound SIP  messages.  This configuration is applicable to all dial-peers
     // in the system having  cSipCfgPeerOutSessionTransport set to 'system'. The
-    // type is Csipcfgoutsessiontransport.
-    Csipcfgoutsessiontransport interface{}
+    // type is CSipCfgOutSessionTransport.
+    CSipCfgOutSessionTransport interface{}
 
     // This object specifies the string that will be  placed in either the
     // Supported or Require SIP  header, as specified by cSipCfgReliable1xxRspHdr.
     // The type is string.
-    Csipcfgreliable1Xxrspstr interface{}
+    CSipCfgReliable1xxRspStr interface{}
 
     // This object specifies behavior with respect to Supported or Require headers
     // in SIP messages sent and received via this dial-peer.  If the originating
@@ -610,99 +622,105 @@ type CISCOSIPUAMIB_Csipcfgpeer struct {
     // provisional responses be made, but sessions can continue without them.  If
     // the originating gateway is configured for 'disabled', the value of
     // cSipCfgReliable1xxStr will NOT be added to either the Require or Supported
-    // headers of outgoing INVITEs. The type is Csipcfgreliable1Xxrsphdr.
-    Csipcfgreliable1Xxrsphdr interface{}
+    // headers of outgoing INVITEs. The type is CSipCfgReliable1xxRspHdr.
+    CSipCfgReliable1xxRspHdr interface{}
 
     // This object specifies the URL type sent in outbound INVITES generated by
-    // this device. The type is Csipcfgurltype.
-    Csipcfgurltype interface{}
+    // this device. The type is CSipCfgUrlType.
+    CSipCfgUrlType interface{}
 }
 
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetEntityData() *types.CommonEntityData {
-    csipcfgpeer.EntityData.YFilter = csipcfgpeer.YFilter
-    csipcfgpeer.EntityData.YangName = "cSipCfgPeer"
-    csipcfgpeer.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgpeer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgpeer.EntityData.SegmentPath = "cSipCfgPeer"
-    csipcfgpeer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgpeer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgpeer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgPeer *CISCOSIPUAMIB_CSipCfgPeer) GetEntityData() *types.CommonEntityData {
+    cSipCfgPeer.EntityData.YFilter = cSipCfgPeer.YFilter
+    cSipCfgPeer.EntityData.YangName = "cSipCfgPeer"
+    cSipCfgPeer.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgPeer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgPeer.EntityData.SegmentPath = "cSipCfgPeer"
+    cSipCfgPeer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgPeer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgPeer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgpeer.EntityData.Children = make(map[string]types.YChild)
-    csipcfgpeer.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgpeer.EntityData.Leafs["cSipCfgOutSessionTransport"] = types.YLeaf{"Csipcfgoutsessiontransport", csipcfgpeer.Csipcfgoutsessiontransport}
-    csipcfgpeer.EntityData.Leafs["cSipCfgReliable1xxRspStr"] = types.YLeaf{"Csipcfgreliable1Xxrspstr", csipcfgpeer.Csipcfgreliable1Xxrspstr}
-    csipcfgpeer.EntityData.Leafs["cSipCfgReliable1xxRspHdr"] = types.YLeaf{"Csipcfgreliable1Xxrsphdr", csipcfgpeer.Csipcfgreliable1Xxrsphdr}
-    csipcfgpeer.EntityData.Leafs["cSipCfgUrlType"] = types.YLeaf{"Csipcfgurltype", csipcfgpeer.Csipcfgurltype}
-    return &(csipcfgpeer.EntityData)
+    cSipCfgPeer.EntityData.Children = types.NewOrderedMap()
+    cSipCfgPeer.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgPeer.EntityData.Leafs.Append("cSipCfgOutSessionTransport", types.YLeaf{"CSipCfgOutSessionTransport", cSipCfgPeer.CSipCfgOutSessionTransport})
+    cSipCfgPeer.EntityData.Leafs.Append("cSipCfgReliable1xxRspStr", types.YLeaf{"CSipCfgReliable1xxRspStr", cSipCfgPeer.CSipCfgReliable1xxRspStr})
+    cSipCfgPeer.EntityData.Leafs.Append("cSipCfgReliable1xxRspHdr", types.YLeaf{"CSipCfgReliable1xxRspHdr", cSipCfgPeer.CSipCfgReliable1xxRspHdr})
+    cSipCfgPeer.EntityData.Leafs.Append("cSipCfgUrlType", types.YLeaf{"CSipCfgUrlType", cSipCfgPeer.CSipCfgUrlType})
+
+    cSipCfgPeer.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgPeer.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgpeer_Csipcfgoutsessiontransport represents cSipCfgPeerOutSessionTransport set to 'system'.
-type CISCOSIPUAMIB_Csipcfgpeer_Csipcfgoutsessiontransport string
+// CISCOSIPUAMIB_CSipCfgPeer_CSipCfgOutSessionTransport represents cSipCfgPeerOutSessionTransport set to 'system'.
+type CISCOSIPUAMIB_CSipCfgPeer_CSipCfgOutSessionTransport string
 
 const (
-    CISCOSIPUAMIB_Csipcfgpeer_Csipcfgoutsessiontransport_udp CISCOSIPUAMIB_Csipcfgpeer_Csipcfgoutsessiontransport = "udp"
+    CISCOSIPUAMIB_CSipCfgPeer_CSipCfgOutSessionTransport_udp CISCOSIPUAMIB_CSipCfgPeer_CSipCfgOutSessionTransport = "udp"
 
-    CISCOSIPUAMIB_Csipcfgpeer_Csipcfgoutsessiontransport_tcp CISCOSIPUAMIB_Csipcfgpeer_Csipcfgoutsessiontransport = "tcp"
+    CISCOSIPUAMIB_CSipCfgPeer_CSipCfgOutSessionTransport_tcp CISCOSIPUAMIB_CSipCfgPeer_CSipCfgOutSessionTransport = "tcp"
 )
 
-// CISCOSIPUAMIB_Csipcfgpeer_Csipcfgreliable1Xxrsphdr represents either the Require or Supported headers of outgoing INVITEs.
-type CISCOSIPUAMIB_Csipcfgpeer_Csipcfgreliable1Xxrsphdr string
+// CISCOSIPUAMIB_CSipCfgPeer_CSipCfgReliable1xxRspHdr represents either the Require or Supported headers of outgoing INVITEs.
+type CISCOSIPUAMIB_CSipCfgPeer_CSipCfgReliable1xxRspHdr string
 
 const (
-    CISCOSIPUAMIB_Csipcfgpeer_Csipcfgreliable1Xxrsphdr_supported CISCOSIPUAMIB_Csipcfgpeer_Csipcfgreliable1Xxrsphdr = "supported"
+    CISCOSIPUAMIB_CSipCfgPeer_CSipCfgReliable1xxRspHdr_supported CISCOSIPUAMIB_CSipCfgPeer_CSipCfgReliable1xxRspHdr = "supported"
 
-    CISCOSIPUAMIB_Csipcfgpeer_Csipcfgreliable1Xxrsphdr_require CISCOSIPUAMIB_Csipcfgpeer_Csipcfgreliable1Xxrsphdr = "require"
+    CISCOSIPUAMIB_CSipCfgPeer_CSipCfgReliable1xxRspHdr_require CISCOSIPUAMIB_CSipCfgPeer_CSipCfgReliable1xxRspHdr = "require"
 
-    CISCOSIPUAMIB_Csipcfgpeer_Csipcfgreliable1Xxrsphdr_disabled CISCOSIPUAMIB_Csipcfgpeer_Csipcfgreliable1Xxrsphdr = "disabled"
+    CISCOSIPUAMIB_CSipCfgPeer_CSipCfgReliable1xxRspHdr_disabled CISCOSIPUAMIB_CSipCfgPeer_CSipCfgReliable1xxRspHdr = "disabled"
 )
 
-// CISCOSIPUAMIB_Csipcfgpeer_Csipcfgurltype represents INVITES generated by this device.
-type CISCOSIPUAMIB_Csipcfgpeer_Csipcfgurltype string
+// CISCOSIPUAMIB_CSipCfgPeer_CSipCfgUrlType represents INVITES generated by this device.
+type CISCOSIPUAMIB_CSipCfgPeer_CSipCfgUrlType string
 
 const (
-    CISCOSIPUAMIB_Csipcfgpeer_Csipcfgurltype_sip CISCOSIPUAMIB_Csipcfgpeer_Csipcfgurltype = "sip"
+    CISCOSIPUAMIB_CSipCfgPeer_CSipCfgUrlType_sip CISCOSIPUAMIB_CSipCfgPeer_CSipCfgUrlType = "sip"
 
-    CISCOSIPUAMIB_Csipcfgpeer_Csipcfgurltype_tel CISCOSIPUAMIB_Csipcfgpeer_Csipcfgurltype = "tel"
+    CISCOSIPUAMIB_CSipCfgPeer_CSipCfgUrlType_tel CISCOSIPUAMIB_CSipCfgPeer_CSipCfgUrlType = "tel"
 )
 
-// CISCOSIPUAMIB_Csipcfgaaa
-type CISCOSIPUAMIB_Csipcfgaaa struct {
+// CISCOSIPUAMIB_CSipCfgAaa
+type CISCOSIPUAMIB_CSipCfgAaa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the source of the information used to populate the
-    // username attribute of AAA billing records. The type is Csipcfgaaausername.
-    Csipcfgaaausername interface{}
+    // username attribute of AAA billing records. The type is CSipCfgAaaUsername.
+    CSipCfgAaaUsername interface{}
 }
 
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetEntityData() *types.CommonEntityData {
-    csipcfgaaa.EntityData.YFilter = csipcfgaaa.YFilter
-    csipcfgaaa.EntityData.YangName = "cSipCfgAaa"
-    csipcfgaaa.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgaaa.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgaaa.EntityData.SegmentPath = "cSipCfgAaa"
-    csipcfgaaa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgaaa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgaaa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgAaa *CISCOSIPUAMIB_CSipCfgAaa) GetEntityData() *types.CommonEntityData {
+    cSipCfgAaa.EntityData.YFilter = cSipCfgAaa.YFilter
+    cSipCfgAaa.EntityData.YangName = "cSipCfgAaa"
+    cSipCfgAaa.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgAaa.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgAaa.EntityData.SegmentPath = "cSipCfgAaa"
+    cSipCfgAaa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgAaa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgAaa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgaaa.EntityData.Children = make(map[string]types.YChild)
-    csipcfgaaa.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgaaa.EntityData.Leafs["cSipCfgAaaUsername"] = types.YLeaf{"Csipcfgaaausername", csipcfgaaa.Csipcfgaaausername}
-    return &(csipcfgaaa.EntityData)
+    cSipCfgAaa.EntityData.Children = types.NewOrderedMap()
+    cSipCfgAaa.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgAaa.EntityData.Leafs.Append("cSipCfgAaaUsername", types.YLeaf{"CSipCfgAaaUsername", cSipCfgAaa.CSipCfgAaaUsername})
+
+    cSipCfgAaa.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgAaa.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgaaa_Csipcfgaaausername represents populate the username attribute of AAA billing records.
-type CISCOSIPUAMIB_Csipcfgaaa_Csipcfgaaausername string
+// CISCOSIPUAMIB_CSipCfgAaa_CSipCfgAaaUsername represents populate the username attribute of AAA billing records.
+type CISCOSIPUAMIB_CSipCfgAaa_CSipCfgAaaUsername string
 
 const (
-    CISCOSIPUAMIB_Csipcfgaaa_Csipcfgaaausername_callingNumber CISCOSIPUAMIB_Csipcfgaaa_Csipcfgaaausername = "callingNumber"
+    CISCOSIPUAMIB_CSipCfgAaa_CSipCfgAaaUsername_callingNumber CISCOSIPUAMIB_CSipCfgAaa_CSipCfgAaaUsername = "callingNumber"
 
-    CISCOSIPUAMIB_Csipcfgaaa_Csipcfgaaausername_proxyAuth CISCOSIPUAMIB_Csipcfgaaa_Csipcfgaaausername = "proxyAuth"
+    CISCOSIPUAMIB_CSipCfgAaa_CSipCfgAaaUsername_proxyAuth CISCOSIPUAMIB_CSipCfgAaa_CSipCfgAaaUsername = "proxyAuth"
 )
 
-// CISCOSIPUAMIB_Csipcfgvoiceservicevoip
-type CISCOSIPUAMIB_Csipcfgvoiceservicevoip struct {
+// CISCOSIPUAMIB_CSipCfgVoiceServiceVoip
+type CISCOSIPUAMIB_CSipCfgVoiceServiceVoip struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -711,46 +729,49 @@ type CISCOSIPUAMIB_Csipcfgvoiceservicevoip struct {
     // headers received in a message will be passed to the application.  If
     // 'false', the headers received in a message will not be passed to the
     // application. The type is bool.
-    Csipcfgheaderpassingenabled interface{}
+    CSipCfgHeaderPassingEnabled interface{}
 
     // This object specifies the maximum number of concurrent SIP subscriptions a
     // SIP Gateway can accept. The type is interface{} with range: 0..4294967295.
-    Csipcfgmaxsubscriptionaccept interface{}
+    CSipCfgMaxSubscriptionAccept interface{}
 
     // This object specifies the maximum number of concurrent SIP subscriptions
     // that a SIP Gateway can originate. Default is Max Dialpeers on platform.
     // Maximum is 2*Max Dialpeers on Platform. The type is interface{} with range:
     // 0..4294967295.
-    Csipcfgmaxsubscriptionoriginate interface{}
+    CSipCfgMaxSubscriptionOriginate interface{}
 
     // This object specifies if the functionality of switching between transports
     // from udp to tcp if the message size of a Request is greater than 1300 bytes
     // is enabled or not.  This configuration is at the global level, and will
     // only be  considered if there exists no voip dial-peer. The type is bool.
-    Csipcfgswitchtransportenabled interface{}
+    CSipCfgSwitchTransportEnabled interface{}
 }
 
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetEntityData() *types.CommonEntityData {
-    csipcfgvoiceservicevoip.EntityData.YFilter = csipcfgvoiceservicevoip.YFilter
-    csipcfgvoiceservicevoip.EntityData.YangName = "cSipCfgVoiceServiceVoip"
-    csipcfgvoiceservicevoip.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgvoiceservicevoip.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgvoiceservicevoip.EntityData.SegmentPath = "cSipCfgVoiceServiceVoip"
-    csipcfgvoiceservicevoip.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgvoiceservicevoip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgvoiceservicevoip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgVoiceServiceVoip *CISCOSIPUAMIB_CSipCfgVoiceServiceVoip) GetEntityData() *types.CommonEntityData {
+    cSipCfgVoiceServiceVoip.EntityData.YFilter = cSipCfgVoiceServiceVoip.YFilter
+    cSipCfgVoiceServiceVoip.EntityData.YangName = "cSipCfgVoiceServiceVoip"
+    cSipCfgVoiceServiceVoip.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgVoiceServiceVoip.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgVoiceServiceVoip.EntityData.SegmentPath = "cSipCfgVoiceServiceVoip"
+    cSipCfgVoiceServiceVoip.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgVoiceServiceVoip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgVoiceServiceVoip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgvoiceservicevoip.EntityData.Children = make(map[string]types.YChild)
-    csipcfgvoiceservicevoip.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgvoiceservicevoip.EntityData.Leafs["cSipCfgHeaderPassingEnabled"] = types.YLeaf{"Csipcfgheaderpassingenabled", csipcfgvoiceservicevoip.Csipcfgheaderpassingenabled}
-    csipcfgvoiceservicevoip.EntityData.Leafs["cSipCfgMaxSubscriptionAccept"] = types.YLeaf{"Csipcfgmaxsubscriptionaccept", csipcfgvoiceservicevoip.Csipcfgmaxsubscriptionaccept}
-    csipcfgvoiceservicevoip.EntityData.Leafs["cSipCfgMaxSubscriptionOriginate"] = types.YLeaf{"Csipcfgmaxsubscriptionoriginate", csipcfgvoiceservicevoip.Csipcfgmaxsubscriptionoriginate}
-    csipcfgvoiceservicevoip.EntityData.Leafs["cSipCfgSwitchTransportEnabled"] = types.YLeaf{"Csipcfgswitchtransportenabled", csipcfgvoiceservicevoip.Csipcfgswitchtransportenabled}
-    return &(csipcfgvoiceservicevoip.EntityData)
+    cSipCfgVoiceServiceVoip.EntityData.Children = types.NewOrderedMap()
+    cSipCfgVoiceServiceVoip.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgVoiceServiceVoip.EntityData.Leafs.Append("cSipCfgHeaderPassingEnabled", types.YLeaf{"CSipCfgHeaderPassingEnabled", cSipCfgVoiceServiceVoip.CSipCfgHeaderPassingEnabled})
+    cSipCfgVoiceServiceVoip.EntityData.Leafs.Append("cSipCfgMaxSubscriptionAccept", types.YLeaf{"CSipCfgMaxSubscriptionAccept", cSipCfgVoiceServiceVoip.CSipCfgMaxSubscriptionAccept})
+    cSipCfgVoiceServiceVoip.EntityData.Leafs.Append("cSipCfgMaxSubscriptionOriginate", types.YLeaf{"CSipCfgMaxSubscriptionOriginate", cSipCfgVoiceServiceVoip.CSipCfgMaxSubscriptionOriginate})
+    cSipCfgVoiceServiceVoip.EntityData.Leafs.Append("cSipCfgSwitchTransportEnabled", types.YLeaf{"CSipCfgSwitchTransportEnabled", cSipCfgVoiceServiceVoip.CSipCfgSwitchTransportEnabled})
+
+    cSipCfgVoiceServiceVoip.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgVoiceServiceVoip.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatsinfo
-type CISCOSIPUAMIB_Csipstatsinfo struct {
+// CISCOSIPUAMIB_CSipStatsInfo
+type CISCOSIPUAMIB_CSipStatsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -760,7 +781,7 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     // not yet been located.  Inbound Trying responses indicate that outbound
     // INVITE request  sent out by this system have been received and are
     // processed. The type is interface{} with range: 0..4294967295.
-    Csipstatsinfotryingins interface{}
+    CSipStatsInfoTryingIns interface{}
 
     // This object reflects the total number of Trying (100) responses sent by the
     // user agent since system startup. Trying responses indicate that some
@@ -769,7 +790,7 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     // successfully  receiving INVITE requests and processing them on  behalf of
     // the system initiating the INVITE. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsinfotryingouts interface{}
+    CSipStatsInfoTryingOuts interface{}
 
     // This object reflects the total number of Ringing (180) responses received
     // by the user agent since system startup. A inbound Ringing response
@@ -777,7 +798,7 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     // found a possible location where the desired end user  has registered
     // recently and is trying to alert the user. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsinforingingins interface{}
+    CSipStatsInfoRingingIns interface{}
 
     // This object reflects the total number of Ringing (180) responses sent by
     // the user agent since system startup. A outbound Ringing response indicates
@@ -786,7 +807,7 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     // system is trying to alert the end user and is conveying that status to the
     // system that originated the INVITE. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsinforingingouts interface{}
+    CSipStatsInfoRingingOuts interface{}
 
     // This object reflects the total number of Call Is Being Forwarded (181)
     // responses received by the user agent since system startup. A proxy server
@@ -795,7 +816,7 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     // indicate  to this system that forwarding actions are taking place  with
     // regard to calls initiated by this system. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsinfoforwardedins interface{}
+    CSipStatsInfoForwardedIns interface{}
 
     // This object reflects the total number of Call Is Being Forwarded (181)
     // responses sent by the user agent since system startup. A proxy server may
@@ -804,7 +825,7 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     // this system is taking some forwarding action for calls and conveying that
     // status to the system that initiated the calls. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsinfoforwardedouts interface{}
+    CSipStatsInfoForwardedOuts interface{}
 
     // This object reflects the total number of Queued (182) responses received by
     // the user agent since system startup. Inbound Queued responses indicate that
@@ -816,7 +837,7 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     // further details about the status of the call.  Multiple  Queued responses
     // to update this system about the status of the queued call my be received.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsinfoqueuedins interface{}
+    CSipStatsInfoQueuedIns interface{}
 
     // This object reflects the total number of Queued (182) responses sent by the
     // user agent since system startup. Outbound Queued responses indicate this
@@ -825,46 +846,49 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     // party becomes available.  Queued responses messages are sent to the system
     // originating the call request to convey the current status of a queued call.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsinfoqueuedouts interface{}
+    CSipStatsInfoQueuedOuts interface{}
 
     // This object reflects the total number of Session Progress (183) responses
     // received by the user agent since system startup. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsinfosessionprogins interface{}
+    CSipStatsInfoSessionProgIns interface{}
 
     // This object reflects the total number of Session Progress (183) responses
     // sent by the user agent since system startup. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsinfosessionprogouts interface{}
+    CSipStatsInfoSessionProgOuts interface{}
 }
 
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetEntityData() *types.CommonEntityData {
-    csipstatsinfo.EntityData.YFilter = csipstatsinfo.YFilter
-    csipstatsinfo.EntityData.YangName = "cSipStatsInfo"
-    csipstatsinfo.EntityData.BundleName = "cisco_ios_xe"
-    csipstatsinfo.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatsinfo.EntityData.SegmentPath = "cSipStatsInfo"
-    csipstatsinfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatsinfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatsinfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsInfo *CISCOSIPUAMIB_CSipStatsInfo) GetEntityData() *types.CommonEntityData {
+    cSipStatsInfo.EntityData.YFilter = cSipStatsInfo.YFilter
+    cSipStatsInfo.EntityData.YangName = "cSipStatsInfo"
+    cSipStatsInfo.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsInfo.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsInfo.EntityData.SegmentPath = "cSipStatsInfo"
+    cSipStatsInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatsinfo.EntityData.Children = make(map[string]types.YChild)
-    csipstatsinfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoTryingIns"] = types.YLeaf{"Csipstatsinfotryingins", csipstatsinfo.Csipstatsinfotryingins}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoTryingOuts"] = types.YLeaf{"Csipstatsinfotryingouts", csipstatsinfo.Csipstatsinfotryingouts}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoRingingIns"] = types.YLeaf{"Csipstatsinforingingins", csipstatsinfo.Csipstatsinforingingins}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoRingingOuts"] = types.YLeaf{"Csipstatsinforingingouts", csipstatsinfo.Csipstatsinforingingouts}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoForwardedIns"] = types.YLeaf{"Csipstatsinfoforwardedins", csipstatsinfo.Csipstatsinfoforwardedins}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoForwardedOuts"] = types.YLeaf{"Csipstatsinfoforwardedouts", csipstatsinfo.Csipstatsinfoforwardedouts}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoQueuedIns"] = types.YLeaf{"Csipstatsinfoqueuedins", csipstatsinfo.Csipstatsinfoqueuedins}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoQueuedOuts"] = types.YLeaf{"Csipstatsinfoqueuedouts", csipstatsinfo.Csipstatsinfoqueuedouts}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoSessionProgIns"] = types.YLeaf{"Csipstatsinfosessionprogins", csipstatsinfo.Csipstatsinfosessionprogins}
-    csipstatsinfo.EntityData.Leafs["cSipStatsInfoSessionProgOuts"] = types.YLeaf{"Csipstatsinfosessionprogouts", csipstatsinfo.Csipstatsinfosessionprogouts}
-    return &(csipstatsinfo.EntityData)
+    cSipStatsInfo.EntityData.Children = types.NewOrderedMap()
+    cSipStatsInfo.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoTryingIns", types.YLeaf{"CSipStatsInfoTryingIns", cSipStatsInfo.CSipStatsInfoTryingIns})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoTryingOuts", types.YLeaf{"CSipStatsInfoTryingOuts", cSipStatsInfo.CSipStatsInfoTryingOuts})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoRingingIns", types.YLeaf{"CSipStatsInfoRingingIns", cSipStatsInfo.CSipStatsInfoRingingIns})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoRingingOuts", types.YLeaf{"CSipStatsInfoRingingOuts", cSipStatsInfo.CSipStatsInfoRingingOuts})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoForwardedIns", types.YLeaf{"CSipStatsInfoForwardedIns", cSipStatsInfo.CSipStatsInfoForwardedIns})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoForwardedOuts", types.YLeaf{"CSipStatsInfoForwardedOuts", cSipStatsInfo.CSipStatsInfoForwardedOuts})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoQueuedIns", types.YLeaf{"CSipStatsInfoQueuedIns", cSipStatsInfo.CSipStatsInfoQueuedIns})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoQueuedOuts", types.YLeaf{"CSipStatsInfoQueuedOuts", cSipStatsInfo.CSipStatsInfoQueuedOuts})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoSessionProgIns", types.YLeaf{"CSipStatsInfoSessionProgIns", cSipStatsInfo.CSipStatsInfoSessionProgIns})
+    cSipStatsInfo.EntityData.Leafs.Append("cSipStatsInfoSessionProgOuts", types.YLeaf{"CSipStatsInfoSessionProgOuts", cSipStatsInfo.CSipStatsInfoSessionProgOuts})
+
+    cSipStatsInfo.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsInfo.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatssuccess
-type CISCOSIPUAMIB_Csipstatssuccess struct {
+// CISCOSIPUAMIB_CSipStatsSuccess
+type CISCOSIPUAMIB_CSipStatsSuccess struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -878,7 +902,7 @@ type CISCOSIPUAMIB_Csipstatssuccess struct {
     // has agreed to share its capabilities.  REGISTER : The Ok response means the
     // registration            has succeeded. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatssuccessokins interface{}
+    CSipStatsSuccessOkIns interface{}
 
     // This object reflects the total number of Ok (200) responses sent by the
     // user agent since system startup. The meaning of outbound Ok responses
@@ -890,42 +914,45 @@ type CISCOSIPUAMIB_Csipstatssuccess struct {
     // has agreed to share its capabilities.  REGISTER : The Ok response means the
     // registration            has succeeded. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatssuccessokouts interface{}
+    CSipStatsSuccessOkOuts interface{}
 
     // This object reflects the total number of Accepted (202) responses received
     // by the user agent since system startup. The meaning of outbound 202 Ok
     // responses depends on the method used in the associated request. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatssuccessacceptedins interface{}
+    CSipStatsSuccessAcceptedIns interface{}
 
     // This object reflects the total number of Accepted (202) responses sent by
     // the user agent since system startup. The meaning of outbound 202 Ok
     // responses depends on the method used in the associated request. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatssuccessacceptedouts interface{}
+    CSipStatsSuccessAcceptedOuts interface{}
 }
 
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetEntityData() *types.CommonEntityData {
-    csipstatssuccess.EntityData.YFilter = csipstatssuccess.YFilter
-    csipstatssuccess.EntityData.YangName = "cSipStatsSuccess"
-    csipstatssuccess.EntityData.BundleName = "cisco_ios_xe"
-    csipstatssuccess.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatssuccess.EntityData.SegmentPath = "cSipStatsSuccess"
-    csipstatssuccess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatssuccess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatssuccess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsSuccess *CISCOSIPUAMIB_CSipStatsSuccess) GetEntityData() *types.CommonEntityData {
+    cSipStatsSuccess.EntityData.YFilter = cSipStatsSuccess.YFilter
+    cSipStatsSuccess.EntityData.YangName = "cSipStatsSuccess"
+    cSipStatsSuccess.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsSuccess.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsSuccess.EntityData.SegmentPath = "cSipStatsSuccess"
+    cSipStatsSuccess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsSuccess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsSuccess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatssuccess.EntityData.Children = make(map[string]types.YChild)
-    csipstatssuccess.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatssuccess.EntityData.Leafs["cSipStatsSuccessOkIns"] = types.YLeaf{"Csipstatssuccessokins", csipstatssuccess.Csipstatssuccessokins}
-    csipstatssuccess.EntityData.Leafs["cSipStatsSuccessOkOuts"] = types.YLeaf{"Csipstatssuccessokouts", csipstatssuccess.Csipstatssuccessokouts}
-    csipstatssuccess.EntityData.Leafs["cSipStatsSuccessAcceptedIns"] = types.YLeaf{"Csipstatssuccessacceptedins", csipstatssuccess.Csipstatssuccessacceptedins}
-    csipstatssuccess.EntityData.Leafs["cSipStatsSuccessAcceptedOuts"] = types.YLeaf{"Csipstatssuccessacceptedouts", csipstatssuccess.Csipstatssuccessacceptedouts}
-    return &(csipstatssuccess.EntityData)
+    cSipStatsSuccess.EntityData.Children = types.NewOrderedMap()
+    cSipStatsSuccess.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsSuccess.EntityData.Leafs.Append("cSipStatsSuccessOkIns", types.YLeaf{"CSipStatsSuccessOkIns", cSipStatsSuccess.CSipStatsSuccessOkIns})
+    cSipStatsSuccess.EntityData.Leafs.Append("cSipStatsSuccessOkOuts", types.YLeaf{"CSipStatsSuccessOkOuts", cSipStatsSuccess.CSipStatsSuccessOkOuts})
+    cSipStatsSuccess.EntityData.Leafs.Append("cSipStatsSuccessAcceptedIns", types.YLeaf{"CSipStatsSuccessAcceptedIns", cSipStatsSuccess.CSipStatsSuccessAcceptedIns})
+    cSipStatsSuccess.EntityData.Leafs.Append("cSipStatsSuccessAcceptedOuts", types.YLeaf{"CSipStatsSuccessAcceptedOuts", cSipStatsSuccess.CSipStatsSuccessAcceptedOuts})
+
+    cSipStatsSuccess.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsSuccess.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatsredirect
-type CISCOSIPUAMIB_Csipstatsredirect struct {
+// CISCOSIPUAMIB_CSipStatsRedirect
+type CISCOSIPUAMIB_CSipStatsRedirect struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -934,7 +961,7 @@ type CISCOSIPUAMIB_Csipstatsredirect struct {
     // indicate that the called party can be reached at several different
     // locations and the server cannot or prefers not to proxy the request. The
     // type is interface{} with range: 0..4294967295.
-    Csipstatsredirmultiplechoices interface{}
+    CSipStatsRedirMultipleChoices interface{}
 
     // This object reflects the total number of Moved  Permanently (301) responses
     // received by the user agent since system startup. Moved Permanently
@@ -942,7 +969,7 @@ type CISCOSIPUAMIB_Csipstatsredirect struct {
     // address offered in the request  and the requesting UAC should retry at the
     // new address given  by the Contact header field of the response. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsredirmovedperms interface{}
+    CSipStatsRedirMovedPerms interface{}
 
     // This object reflects the total number of Moved  Temporarily (302) responses
     // received by the user agent since system startup. Moved Temporarily
@@ -951,12 +978,12 @@ type CISCOSIPUAMIB_Csipstatsredirect struct {
     // of this redirection can be indicated through the Expires header.  If no
     // explicit expiration time is given, the new address(es) are only valid for
     // this call. The type is interface{} with range: 0..4294967295.
-    Csipstatsredirmovedtemps interface{}
+    CSipStatsRedirMovedTemps interface{}
 
     // This object reflects the total number of See Other  (303) responses
     // received by the user agent since system startup. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsredirseeothers interface{}
+    CSipStatsRedirSeeOthers interface{}
 
     // This object reflects the total number of Use Proxy  (305) responses
     // received by the user agent since system startup. See Other responses
@@ -964,7 +991,7 @@ type CISCOSIPUAMIB_Csipstatsredirect struct {
     // by the  Contact header field of the response.  The recipient of this
     // response is expected to repeat this single request via the proxy. The type
     // is interface{} with range: 0..4294967295.
-    Csipstatsrediruseproxys interface{}
+    CSipStatsRedirUseProxys interface{}
 
     // This object reflects the total number of Alternative Service (380)
     // responses received by the user agent since system startup. Alternative
@@ -972,7 +999,7 @@ type CISCOSIPUAMIB_Csipstatsredirect struct {
     // alternative services are possible.  Those alternative services are
     // described in the message body of the response. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsrediraltservices interface{}
+    CSipStatsRedirAltServices interface{}
 
     // This object reflects the total number of Moved Temporarily (302) responses
     // received by the user agent since system startup.  Moved Temporarily
@@ -981,39 +1008,42 @@ type CISCOSIPUAMIB_Csipstatsredirect struct {
     // duration of this redirection can be indicated through the Expires header. 
     // If no explicit expiration time is given, the new address(es) are only valid
     // for this call. The type is interface{} with range: 0..4294967295.
-    Csipstatsredirmovedtempsins interface{}
+    CSipStatsRedirMovedTempsIns interface{}
 
     // This object reflects the total number of Moved Temporarily (302) responses
     // sent by the user agent since system startup. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsredirmovedtempsouts interface{}
+    CSipStatsRedirMovedTempsOuts interface{}
 }
 
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetEntityData() *types.CommonEntityData {
-    csipstatsredirect.EntityData.YFilter = csipstatsredirect.YFilter
-    csipstatsredirect.EntityData.YangName = "cSipStatsRedirect"
-    csipstatsredirect.EntityData.BundleName = "cisco_ios_xe"
-    csipstatsredirect.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatsredirect.EntityData.SegmentPath = "cSipStatsRedirect"
-    csipstatsredirect.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatsredirect.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatsredirect.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsRedirect *CISCOSIPUAMIB_CSipStatsRedirect) GetEntityData() *types.CommonEntityData {
+    cSipStatsRedirect.EntityData.YFilter = cSipStatsRedirect.YFilter
+    cSipStatsRedirect.EntityData.YangName = "cSipStatsRedirect"
+    cSipStatsRedirect.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsRedirect.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsRedirect.EntityData.SegmentPath = "cSipStatsRedirect"
+    cSipStatsRedirect.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsRedirect.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsRedirect.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatsredirect.EntityData.Children = make(map[string]types.YChild)
-    csipstatsredirect.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMultipleChoices"] = types.YLeaf{"Csipstatsredirmultiplechoices", csipstatsredirect.Csipstatsredirmultiplechoices}
-    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMovedPerms"] = types.YLeaf{"Csipstatsredirmovedperms", csipstatsredirect.Csipstatsredirmovedperms}
-    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMovedTemps"] = types.YLeaf{"Csipstatsredirmovedtemps", csipstatsredirect.Csipstatsredirmovedtemps}
-    csipstatsredirect.EntityData.Leafs["cSipStatsRedirSeeOthers"] = types.YLeaf{"Csipstatsredirseeothers", csipstatsredirect.Csipstatsredirseeothers}
-    csipstatsredirect.EntityData.Leafs["cSipStatsRedirUseProxys"] = types.YLeaf{"Csipstatsrediruseproxys", csipstatsredirect.Csipstatsrediruseproxys}
-    csipstatsredirect.EntityData.Leafs["cSipStatsRedirAltServices"] = types.YLeaf{"Csipstatsrediraltservices", csipstatsredirect.Csipstatsrediraltservices}
-    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMovedTempsIns"] = types.YLeaf{"Csipstatsredirmovedtempsins", csipstatsredirect.Csipstatsredirmovedtempsins}
-    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMovedTempsOuts"] = types.YLeaf{"Csipstatsredirmovedtempsouts", csipstatsredirect.Csipstatsredirmovedtempsouts}
-    return &(csipstatsredirect.EntityData)
+    cSipStatsRedirect.EntityData.Children = types.NewOrderedMap()
+    cSipStatsRedirect.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsRedirect.EntityData.Leafs.Append("cSipStatsRedirMultipleChoices", types.YLeaf{"CSipStatsRedirMultipleChoices", cSipStatsRedirect.CSipStatsRedirMultipleChoices})
+    cSipStatsRedirect.EntityData.Leafs.Append("cSipStatsRedirMovedPerms", types.YLeaf{"CSipStatsRedirMovedPerms", cSipStatsRedirect.CSipStatsRedirMovedPerms})
+    cSipStatsRedirect.EntityData.Leafs.Append("cSipStatsRedirMovedTemps", types.YLeaf{"CSipStatsRedirMovedTemps", cSipStatsRedirect.CSipStatsRedirMovedTemps})
+    cSipStatsRedirect.EntityData.Leafs.Append("cSipStatsRedirSeeOthers", types.YLeaf{"CSipStatsRedirSeeOthers", cSipStatsRedirect.CSipStatsRedirSeeOthers})
+    cSipStatsRedirect.EntityData.Leafs.Append("cSipStatsRedirUseProxys", types.YLeaf{"CSipStatsRedirUseProxys", cSipStatsRedirect.CSipStatsRedirUseProxys})
+    cSipStatsRedirect.EntityData.Leafs.Append("cSipStatsRedirAltServices", types.YLeaf{"CSipStatsRedirAltServices", cSipStatsRedirect.CSipStatsRedirAltServices})
+    cSipStatsRedirect.EntityData.Leafs.Append("cSipStatsRedirMovedTempsIns", types.YLeaf{"CSipStatsRedirMovedTempsIns", cSipStatsRedirect.CSipStatsRedirMovedTempsIns})
+    cSipStatsRedirect.EntityData.Leafs.Append("cSipStatsRedirMovedTempsOuts", types.YLeaf{"CSipStatsRedirMovedTempsOuts", cSipStatsRedirect.CSipStatsRedirMovedTempsOuts})
+
+    cSipStatsRedirect.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsRedirect.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatserrclient
-type CISCOSIPUAMIB_Csipstatserrclient struct {
+// CISCOSIPUAMIB_CSipStatsErrClient
+type CISCOSIPUAMIB_CSipStatsErrClient struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1022,35 +1052,35 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // responses indicate that requests issued  by this system could not be
     // understood due to malformed  syntax. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientbadrequestins interface{}
+    CSipStatsClientBadRequestIns interface{}
 
     // This object reflects the total number of Bad Request (400)  responses sent
     // by the user agent since system startup. Outbound Bad Request responses
     // indicate that requests  received by this system could not be understood due
     // to  malformed syntax. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientbadrequestouts interface{}
+    CSipStatsClientBadRequestOuts interface{}
 
     // This object reflects the total number of Unauthorized (401)  responses
     // received by the user agent since system startup.   Inbound Unauthorized
     // responses indicate that requests issued  by this system require user
     // authentication. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientunauthorizedins interface{}
+    CSipStatsClientUnauthorizedIns interface{}
 
     // This object reflects the total number of Unauthorized (401)  responses sent
     // by the user agent since system startup. Outbound Unauthorized responses
     // indicate that requests  received by this system require user
     // authentication. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientunauthorizedouts interface{}
+    CSipStatsClientUnauthorizedOuts interface{}
 
     // This object reflects the total number of Payment Required  (402) responses
     // received by the user agent since system startup. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsclientpaymentreqdins interface{}
+    CSipStatsClientPaymentReqdIns interface{}
 
     // This object reflects the total number of Payment Required  (402) responses
     // sent by the user agent since system startup. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsclientpaymentreqdouts interface{}
+    CSipStatsClientPaymentReqdOuts interface{}
 
     // This object reflects the total number of Forbidden (403)  responses
     // received by the user agent since system startup. Inbound Forbidden
@@ -1058,35 +1088,35 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // the server but the server refuses to fulfill the request.  Authorization
     // will not help and the requests should not be repeated. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientforbiddenins interface{}
+    CSipStatsClientForbiddenIns interface{}
 
     // This object reflects the total number of Forbidden (403)  responses sent by
     // the user agent since system startup. Outbound Forbidden responses indicate
     // that requests received by this system are understood but this system is
     // refusing to fulfill the requests. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientforbiddenouts interface{}
+    CSipStatsClientForbiddenOuts interface{}
 
     // This object reflects the total number of Not Found (404)  responses
     // received by the user agent since system startup. Inbound Not Found
     // responses indicate that the called party  does not exist at the domain
     // specified in the Request-URI  or the domain is not handled by the recipient
     // of the request. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientnotfoundins interface{}
+    CSipStatsClientNotFoundIns interface{}
 
     // This object reflects the total number of Not Found (404)  responses sent by
     // the user agent since system startup. Outbound Not Found responses indicate
     // that this system knows that the called party does not exist at the domain
     // specified in the Request-URI or the domain is not handled by this system.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsclientnotfoundouts interface{}
+    CSipStatsClientNotFoundOuts interface{}
 
     // This object reflects the total number of Method Not Allowed  (405) received
     // responses by the user agent. Inbound Method Not Allowed responses indicate
     // that requests  issued by this system have specified a SIP method in the 
     // Request-Line that is not allowed for the address identified  by the
     // Request-URI. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientmethnotallowedins interface{}
+    CSipStatsClientMethNotAllowedIns interface{}
 
     // This object reflects the total number of Method Not Allowed  (405) received
     // sent by the user agent since system startup. Outbound Method Not Allowed
@@ -1094,7 +1124,7 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // specified in the  Request-Line that are not allowed for the address
     // identified  by the Request-URI. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientmethnotallowedouts interface{}
+    CSipStatsClientMethNotAllowedOuts interface{}
 
     // This object reflects the total number of Not Acceptable  (406) responses
     // received by the user agent since system startup. Inbound Not Acceptable
@@ -1102,7 +1132,7 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // system cannot generate  responses with content characteristics acceptable
     // to this  system according to the accept headers sent in the requests. The
     // type is interface{} with range: 0..4294967295.
-    Csipstatsclientnotacceptableins interface{}
+    CSipStatsClientNotAcceptableIns interface{}
 
     // This object reflects the total number of Not Acceptable (406)  responses
     // sent by the user agent since system startup. Outbound Not Acceptable
@@ -1110,14 +1140,14 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // this system cannot generate responses with content characteristics
     // acceptable to the  system sending the requests. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsclientnotacceptableouts interface{}
+    CSipStatsClientNotAcceptableOuts interface{}
 
     // This object reflects the total number of Proxy Authentication  Required
     // (407) responses received by the user agent since system startup. Inbound
     // Proxy Authentication Required responses indicate that  this system must
     // authenticate itself with the proxy before  gaining access to the requested
     // resource. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientproxyauthreqdins interface{}
+    CSipStatsClientProxyAuthReqdIns interface{}
 
     // This object reflects the total number of Proxy Authentication  Required
     // (407) responses sent by the user agent since system startup. Outbound Proxy
@@ -1125,77 +1155,77 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // requests being processed by this system  must authenticate themselves with
     // this system before gaining  access to requested resources. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientproxyauthreqdouts interface{}
+    CSipStatsClientProxyAuthReqdOuts interface{}
 
     // This object reflects the total number of Request Timeout  (408) responses
     // received by the user agent since system startup. Inbound Request Timeout
     // responses indicate that requests  issued by this system are not being
     // processed by the server  within the time indicated in the Expires header of
     // the  request. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientreqtimeoutins interface{}
+    CSipStatsClientReqTimeoutIns interface{}
 
     // This object reflects the total number of Request Timeout  (408) responses
     // sent by the user agent since system startup. Outbound Request Timeout
     // responses indicate that this  system is not able to produce an appropriate
     // response within  the time indicated in the Expires header of the request.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsclientreqtimeoutouts interface{}
+    CSipStatsClientReqTimeoutOuts interface{}
 
     // This object reflects the total number of Conflict (409)  responses received
     // by the user agent since system startup. Inbound Conflict responses indicate
     // that requests issued by this system could not be completed due to a
     // conflict with the current state of a requested resource. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientconflictins interface{}
+    CSipStatsClientConflictIns interface{}
 
     // This object reflects the total number of Conflict (409)  responses sent by
     // the user agent since system startup. Outbound Conflict responses indicate
     // that requests received by this system could not be completed due to a
     // conflict with the current state of a requested resource. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientconflictouts interface{}
+    CSipStatsClientConflictOuts interface{}
 
     // This object reflects the total number of Gone (410)  responses received by
     // the user agent since system startup. Inbound Gone responses indicate that
     // resources requested by this system are no longer available at the recipient
     // server and no forwarding address is known. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsclientgoneins interface{}
+    CSipStatsClientGoneIns interface{}
 
     // This object reflects the total number of Gone (410)  responses sent by the
     // user agent since system startup. Outbound Gone responses indicate that the
     // requested resources are no longer available at this system and no
     // forwarding address is known. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientgoneouts interface{}
+    CSipStatsClientGoneOuts interface{}
 
     // This object reflects the total number of Length Required  (411) responses
     // received by the user agent since system startup. Inbound Length Required
     // responses indicate that requests  issued by this system are being refused
     // by servers because  of no defined Content-Length header field. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientlengthrequiredins interface{}
+    CSipStatsClientLengthRequiredIns interface{}
 
     // This object reflects the total number of Length Required  (411) responses
     // sent by the user agent since system startup. Outbound Length Required
     // responses indicate that requests  received by this system are being refused
     // because of no  defined Content-Length header field. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsclientlengthrequiredouts interface{}
+    CSipStatsClientLengthRequiredOuts interface{}
 
     // This object reflects the total number of Request Entity Too  Large (413)
     // responses received by the user agent since system startup. Inbound Request
     // Entity Too Large responses indicate that  requests issued by this system
     // are being refused because  the request is larger than the server is willing
     // or able to  process. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientreqenttoolargeins interface{}
+    CSipStatsClientReqEntTooLargeIns interface{}
 
     // This object reflects the total number of Request Entity Too  Large (413)
     // responses sent by the user agent since system startup. Outbound Request
     // Entity Too Large responses indicate that  requests received by this system
     // are larger than this system  is willing or able to process. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientreqenttoolargeouts interface{}
+    CSipStatsClientReqEntTooLargeOuts interface{}
 
     // This object reflects the total number of Request-URI Too  Large (414)
     // responses received by the user agent since system startup. Inbound
@@ -1203,14 +1233,14 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // system are being refused because the  Request-URI is longer than the server
     // is willing or able to  interpret. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientrequritoolargeins interface{}
+    CSipStatsClientReqURITooLargeIns interface{}
 
     // This object reflects the total number of Request-URI Too  Large (414)
     // responses sent by the user agent since system startup. Outbound Request-URI
     // Too Large responses indicate that  Request-URIs received by this system are
     // longer than this  system is willing or able to interpret. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientrequritoolargeouts interface{}
+    CSipStatsClientReqURITooLargeOuts interface{}
 
     // This object reflects the total number of Unsupported Media  Type (415)
     // responses received by the user agent since system startup. Inbound
@@ -1218,41 +1248,41 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // system are being refused because the  message body of the request is in a
     // format not supported by  the requested resource for the requested method.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsclientnosupmediatypeins interface{}
+    CSipStatsClientNoSupMediaTypeIns interface{}
 
     // This object reflects the total number of Unsupported Media  Type (415)
     // responses sent by the user agent since system startup. Outbound Unsupported
     // Media Type responses indicate that the  body of requests received by this
     // system are in a format not  supported by the requested resource for the
     // requested method. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientnosupmediatypeouts interface{}
+    CSipStatsClientNoSupMediaTypeOuts interface{}
 
     // This object reflects the total number of Bad Extension (420)  responses
     // received by the user agent since system startup. Inbound Bad Extension
     // responses indicate that the recipient  did not understand the protocol
     // extension specified in a  Require header field. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsclientbadextensionins interface{}
+    CSipStatsClientBadExtensionIns interface{}
 
     // This object reflects the total number of Bad Extension (420)  responses
     // sent by the user agent since system startup. Outbound Bad Extension
     // responses indicate that this system did not understand the protocol
     // extension specified in a Require header field of requests. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientbadextensionouts interface{}
+    CSipStatsClientBadExtensionOuts interface{}
 
     // This object reflects the total number of Temporarily Not  Available (480)
     // responses received by the user agent since system startup. Inbound
     // Temporarily Not Available responses indicate that  the called party is
     // currently unavailable. The type is interface{} with range: 0..4294967295.
-    Csipstatsclienttempnotavailins interface{}
+    CSipStatsClientTempNotAvailIns interface{}
 
     // This object reflects the total number of Temporarily Not  Available (480)
     // responses sent by the user agent since system startup. Outbound Temporarily
     // Not Available responses indicate that  the called party's end system was
     // contacted successfully but  the called party is currently unavailable. The
     // type is interface{} with range: 0..4294967295.
-    Csipstatsclienttempnotavailouts interface{}
+    CSipStatsClientTempNotAvailOuts interface{}
 
     // This object reflects the total number of Call Leg/Transaction  Does Not
     // Exist (481) responses received by the user agent since system startup.
@@ -1260,7 +1290,7 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // BYE or CANCEL requests issued by this system were  received by a server and
     // not matching call leg or transaction  existed. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsclientcalllegnoexistins interface{}
+    CSipStatsClientCallLegNoExistIns interface{}
 
     // This object reflects the total number of Call Leg/Transaction  Does Not
     // Exist (481) responses sent by the user agent since system startup. Outbound
@@ -1268,206 +1298,209 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     // requests have been received by  this system and not call leg or transaction
     // matching that  request exists. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientcalllegnoexistouts interface{}
+    CSipStatsClientCallLegNoExistOuts interface{}
 
     // This object reflects the total number of Loop Detected (482)  responses
     // received by the user agent since system startup. Inbound Loop Detected
     // responses indicate that requests issued by this system were received at
     // servers and the server found  itself in the Via path more than once. The
     // type is interface{} with range: 0..4294967295.
-    Csipstatsclientloopdetectedins interface{}
+    CSipStatsClientLoopDetectedIns interface{}
 
     // This object reflects the total number of Loop Detected (482)  responses
     // sent by the user agent since system startup. Outbound Loop Detected
     // responses indicate that requests  received by this system contain a Via
     // path with this system  appearing more than once. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsclientloopdetectedouts interface{}
+    CSipStatsClientLoopDetectedOuts interface{}
 
     // This object reflects the total number of Too Many Hops (483)  responses
     // received by the user agent since system startup. Inbound Too Many Hops
     // responses indicate that requests issued by this system contain more Via
     // entries (hops) than allowed by the Max-Forwards header field of the
     // requests. The type is interface{} with range: 0..4294967295.
-    Csipstatsclienttoomanyhopsins interface{}
+    CSipStatsClientTooManyHopsIns interface{}
 
     // This object reflects the total number of Too Many Hops (483)  responses
     // sent by the user agent since system startup. Outbound Too Many Hops
     // responses indicate that requests received by this system contain more Via
     // entries (hops) than are allowed by the Max-Forwards header field of the
     // requests. The type is interface{} with range: 0..4294967295.
-    Csipstatsclienttoomanyhopsouts interface{}
+    CSipStatsClientTooManyHopsOuts interface{}
 
     // This object reflects the total number of Address Incomplete  (484)
     // responses received by the user agent since system startup. Inbound Address
     // Incomplete responses indicate that requests  issued by this system had To
     // addresses or Request-URIs that  were incomplete. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsclientaddrincompleteins interface{}
+    CSipStatsClientAddrIncompleteIns interface{}
 
     // This object reflects the total number of Address Incomplete  (484)
     // responses sent by the user agent since system startup. Outbound Address
     // Incomplete responses indicate that requests  received by this system had To
     // addresses or Request-URIs that  were incomplete. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsclientaddrincompleteouts interface{}
+    CSipStatsClientAddrIncompleteOuts interface{}
 
     // This object reflects the total number of Ambiguous (485)  responses
     // received by the user agent since system startup. Inbound Ambiguous
     // responses indicate that requests issued by this system provided ambiguous
     // address information. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientambiguousins interface{}
+    CSipStatsClientAmbiguousIns interface{}
 
     // This object reflects the total number of Ambiguous (485)  responses sent by
     // the user agent since system startup. Outbound Ambiguous responses indicate
     // that requests received by this system contained ambiguous address
     // information. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientambiguousouts interface{}
+    CSipStatsClientAmbiguousOuts interface{}
 
     // This object reflects the total number of Busy Here (486)  responses
     // received by the user agent since system startup. Inbound Busy Here
     // responses indicate that the called party is currently not willing or not
     // able to take additional calls. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientbusyhereins interface{}
+    CSipStatsClientBusyHereIns interface{}
 
     // This object reflects the total number of Busy Here (486)  responses sent by
     // the user agent since system startup. Outbound Busy Here responses indicate
     // that the called party's end system was contacted successfully but the
     // called party is currently not willing or able to take  additional calls.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsclientbusyhereouts interface{}
+    CSipStatsClientBusyHereOuts interface{}
 
     // This object reflects the total number of Request Terminated  (487)
     // responses received by the user agent since system startup. Request
     // Terminated responses are issued if the original  request was terminated via
     // CANCEL or BYE. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientreqtermins interface{}
+    CSipStatsClientReqTermIns interface{}
 
     // This object reflects the total number of Request Terminated  (487)
     // responses sent by the user agent since system startup. Request Terminated
     // responses are issued if the original  request was terminated via CANCEL or
     // BYE. The type is interface{} with range: 0..4294967295.
-    Csipstatsclientreqtermouts interface{}
+    CSipStatsClientReqTermOuts interface{}
 
     // This object reflects the total number of Not Acceptable Here (488)
     // responses received by the user agent since system startup. The response has
     // the same meaning as 606 (Not Acceptable),  but only applies to the specific
     // entity addressed by the  Request-URI and the request may succeed elsewhere.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsclientnoaccepthereins interface{}
+    CSipStatsClientNoAcceptHereIns interface{}
 
     // This object reflects the total number of Not Acceptable Here (488)
     // responses sent by the user agent since system startup. The response has the
     // same meaning as 606 (Not Acceptable),  but only applies to the specific
     // entity addressed by the  Request-URI and the request may succeed elsewhere.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsclientnoaccepthereouts interface{}
+    CSipStatsClientNoAcceptHereOuts interface{}
 
     // This object reflects the total number of BadEvent (489)  responses received
     // by the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientbadeventins interface{}
+    CSipStatsClientBadEventIns interface{}
 
     // This object reflects the total number of BadEvent (489)  responses sent by
     // the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsclientbadeventouts interface{}
+    CSipStatsClientBadEventOuts interface{}
 
     // This object reflects the total number of SessionTimerTooSmall (422)
     // responses received by the user agent since system  startup. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientsttoosmallins interface{}
+    CSipStatsClientSTTooSmallIns interface{}
 
     // This object reflects the total number of SessionTimerTooSmall (422)
     // responses sent by the user agent since system startup. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsclientsttoosmallouts interface{}
+    CSipStatsClientSTTooSmallOuts interface{}
 
     // This object reflects the total number of RequestPending (491) responses
     // received by the user agent since system startup. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsclientreqpendingins interface{}
+    CSipStatsClientReqPendingIns interface{}
 
     // This object reflects the total number of RequestPending (491) responses
     // sent by the user agent since system startup. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsclientreqpendingouts interface{}
+    CSipStatsClientReqPendingOuts interface{}
 }
 
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetEntityData() *types.CommonEntityData {
-    csipstatserrclient.EntityData.YFilter = csipstatserrclient.YFilter
-    csipstatserrclient.EntityData.YangName = "cSipStatsErrClient"
-    csipstatserrclient.EntityData.BundleName = "cisco_ios_xe"
-    csipstatserrclient.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatserrclient.EntityData.SegmentPath = "cSipStatsErrClient"
-    csipstatserrclient.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatserrclient.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatserrclient.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsErrClient *CISCOSIPUAMIB_CSipStatsErrClient) GetEntityData() *types.CommonEntityData {
+    cSipStatsErrClient.EntityData.YFilter = cSipStatsErrClient.YFilter
+    cSipStatsErrClient.EntityData.YangName = "cSipStatsErrClient"
+    cSipStatsErrClient.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsErrClient.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsErrClient.EntityData.SegmentPath = "cSipStatsErrClient"
+    cSipStatsErrClient.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsErrClient.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsErrClient.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatserrclient.EntityData.Children = make(map[string]types.YChild)
-    csipstatserrclient.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadRequestIns"] = types.YLeaf{"Csipstatsclientbadrequestins", csipstatserrclient.Csipstatsclientbadrequestins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadRequestOuts"] = types.YLeaf{"Csipstatsclientbadrequestouts", csipstatserrclient.Csipstatsclientbadrequestouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientUnauthorizedIns"] = types.YLeaf{"Csipstatsclientunauthorizedins", csipstatserrclient.Csipstatsclientunauthorizedins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientUnauthorizedOuts"] = types.YLeaf{"Csipstatsclientunauthorizedouts", csipstatserrclient.Csipstatsclientunauthorizedouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientPaymentReqdIns"] = types.YLeaf{"Csipstatsclientpaymentreqdins", csipstatserrclient.Csipstatsclientpaymentreqdins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientPaymentReqdOuts"] = types.YLeaf{"Csipstatsclientpaymentreqdouts", csipstatserrclient.Csipstatsclientpaymentreqdouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientForbiddenIns"] = types.YLeaf{"Csipstatsclientforbiddenins", csipstatserrclient.Csipstatsclientforbiddenins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientForbiddenOuts"] = types.YLeaf{"Csipstatsclientforbiddenouts", csipstatserrclient.Csipstatsclientforbiddenouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientNotFoundIns"] = types.YLeaf{"Csipstatsclientnotfoundins", csipstatserrclient.Csipstatsclientnotfoundins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientNotFoundOuts"] = types.YLeaf{"Csipstatsclientnotfoundouts", csipstatserrclient.Csipstatsclientnotfoundouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientMethNotAllowedIns"] = types.YLeaf{"Csipstatsclientmethnotallowedins", csipstatserrclient.Csipstatsclientmethnotallowedins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientMethNotAllowedOuts"] = types.YLeaf{"Csipstatsclientmethnotallowedouts", csipstatserrclient.Csipstatsclientmethnotallowedouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientNotAcceptableIns"] = types.YLeaf{"Csipstatsclientnotacceptableins", csipstatserrclient.Csipstatsclientnotacceptableins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientNotAcceptableOuts"] = types.YLeaf{"Csipstatsclientnotacceptableouts", csipstatserrclient.Csipstatsclientnotacceptableouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientProxyAuthReqdIns"] = types.YLeaf{"Csipstatsclientproxyauthreqdins", csipstatserrclient.Csipstatsclientproxyauthreqdins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientProxyAuthReqdOuts"] = types.YLeaf{"Csipstatsclientproxyauthreqdouts", csipstatserrclient.Csipstatsclientproxyauthreqdouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqTimeoutIns"] = types.YLeaf{"Csipstatsclientreqtimeoutins", csipstatserrclient.Csipstatsclientreqtimeoutins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqTimeoutOuts"] = types.YLeaf{"Csipstatsclientreqtimeoutouts", csipstatserrclient.Csipstatsclientreqtimeoutouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientConflictIns"] = types.YLeaf{"Csipstatsclientconflictins", csipstatserrclient.Csipstatsclientconflictins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientConflictOuts"] = types.YLeaf{"Csipstatsclientconflictouts", csipstatserrclient.Csipstatsclientconflictouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientGoneIns"] = types.YLeaf{"Csipstatsclientgoneins", csipstatserrclient.Csipstatsclientgoneins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientGoneOuts"] = types.YLeaf{"Csipstatsclientgoneouts", csipstatserrclient.Csipstatsclientgoneouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientLengthRequiredIns"] = types.YLeaf{"Csipstatsclientlengthrequiredins", csipstatserrclient.Csipstatsclientlengthrequiredins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientLengthRequiredOuts"] = types.YLeaf{"Csipstatsclientlengthrequiredouts", csipstatserrclient.Csipstatsclientlengthrequiredouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqEntTooLargeIns"] = types.YLeaf{"Csipstatsclientreqenttoolargeins", csipstatserrclient.Csipstatsclientreqenttoolargeins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqEntTooLargeOuts"] = types.YLeaf{"Csipstatsclientreqenttoolargeouts", csipstatserrclient.Csipstatsclientreqenttoolargeouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqURITooLargeIns"] = types.YLeaf{"Csipstatsclientrequritoolargeins", csipstatserrclient.Csipstatsclientrequritoolargeins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqURITooLargeOuts"] = types.YLeaf{"Csipstatsclientrequritoolargeouts", csipstatserrclient.Csipstatsclientrequritoolargeouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientNoSupMediaTypeIns"] = types.YLeaf{"Csipstatsclientnosupmediatypeins", csipstatserrclient.Csipstatsclientnosupmediatypeins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientNoSupMediaTypeOuts"] = types.YLeaf{"Csipstatsclientnosupmediatypeouts", csipstatserrclient.Csipstatsclientnosupmediatypeouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadExtensionIns"] = types.YLeaf{"Csipstatsclientbadextensionins", csipstatserrclient.Csipstatsclientbadextensionins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadExtensionOuts"] = types.YLeaf{"Csipstatsclientbadextensionouts", csipstatserrclient.Csipstatsclientbadextensionouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientTempNotAvailIns"] = types.YLeaf{"Csipstatsclienttempnotavailins", csipstatserrclient.Csipstatsclienttempnotavailins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientTempNotAvailOuts"] = types.YLeaf{"Csipstatsclienttempnotavailouts", csipstatserrclient.Csipstatsclienttempnotavailouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientCallLegNoExistIns"] = types.YLeaf{"Csipstatsclientcalllegnoexistins", csipstatserrclient.Csipstatsclientcalllegnoexistins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientCallLegNoExistOuts"] = types.YLeaf{"Csipstatsclientcalllegnoexistouts", csipstatserrclient.Csipstatsclientcalllegnoexistouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientLoopDetectedIns"] = types.YLeaf{"Csipstatsclientloopdetectedins", csipstatserrclient.Csipstatsclientloopdetectedins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientLoopDetectedOuts"] = types.YLeaf{"Csipstatsclientloopdetectedouts", csipstatserrclient.Csipstatsclientloopdetectedouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientTooManyHopsIns"] = types.YLeaf{"Csipstatsclienttoomanyhopsins", csipstatserrclient.Csipstatsclienttoomanyhopsins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientTooManyHopsOuts"] = types.YLeaf{"Csipstatsclienttoomanyhopsouts", csipstatserrclient.Csipstatsclienttoomanyhopsouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientAddrIncompleteIns"] = types.YLeaf{"Csipstatsclientaddrincompleteins", csipstatserrclient.Csipstatsclientaddrincompleteins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientAddrIncompleteOuts"] = types.YLeaf{"Csipstatsclientaddrincompleteouts", csipstatserrclient.Csipstatsclientaddrincompleteouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientAmbiguousIns"] = types.YLeaf{"Csipstatsclientambiguousins", csipstatserrclient.Csipstatsclientambiguousins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientAmbiguousOuts"] = types.YLeaf{"Csipstatsclientambiguousouts", csipstatserrclient.Csipstatsclientambiguousouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientBusyHereIns"] = types.YLeaf{"Csipstatsclientbusyhereins", csipstatserrclient.Csipstatsclientbusyhereins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientBusyHereOuts"] = types.YLeaf{"Csipstatsclientbusyhereouts", csipstatserrclient.Csipstatsclientbusyhereouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqTermIns"] = types.YLeaf{"Csipstatsclientreqtermins", csipstatserrclient.Csipstatsclientreqtermins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqTermOuts"] = types.YLeaf{"Csipstatsclientreqtermouts", csipstatserrclient.Csipstatsclientreqtermouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientNoAcceptHereIns"] = types.YLeaf{"Csipstatsclientnoaccepthereins", csipstatserrclient.Csipstatsclientnoaccepthereins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientNoAcceptHereOuts"] = types.YLeaf{"Csipstatsclientnoaccepthereouts", csipstatserrclient.Csipstatsclientnoaccepthereouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadEventIns"] = types.YLeaf{"Csipstatsclientbadeventins", csipstatserrclient.Csipstatsclientbadeventins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadEventOuts"] = types.YLeaf{"Csipstatsclientbadeventouts", csipstatserrclient.Csipstatsclientbadeventouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientSTTooSmallIns"] = types.YLeaf{"Csipstatsclientsttoosmallins", csipstatserrclient.Csipstatsclientsttoosmallins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientSTTooSmallOuts"] = types.YLeaf{"Csipstatsclientsttoosmallouts", csipstatserrclient.Csipstatsclientsttoosmallouts}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqPendingIns"] = types.YLeaf{"Csipstatsclientreqpendingins", csipstatserrclient.Csipstatsclientreqpendingins}
-    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqPendingOuts"] = types.YLeaf{"Csipstatsclientreqpendingouts", csipstatserrclient.Csipstatsclientreqpendingouts}
-    return &(csipstatserrclient.EntityData)
+    cSipStatsErrClient.EntityData.Children = types.NewOrderedMap()
+    cSipStatsErrClient.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientBadRequestIns", types.YLeaf{"CSipStatsClientBadRequestIns", cSipStatsErrClient.CSipStatsClientBadRequestIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientBadRequestOuts", types.YLeaf{"CSipStatsClientBadRequestOuts", cSipStatsErrClient.CSipStatsClientBadRequestOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientUnauthorizedIns", types.YLeaf{"CSipStatsClientUnauthorizedIns", cSipStatsErrClient.CSipStatsClientUnauthorizedIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientUnauthorizedOuts", types.YLeaf{"CSipStatsClientUnauthorizedOuts", cSipStatsErrClient.CSipStatsClientUnauthorizedOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientPaymentReqdIns", types.YLeaf{"CSipStatsClientPaymentReqdIns", cSipStatsErrClient.CSipStatsClientPaymentReqdIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientPaymentReqdOuts", types.YLeaf{"CSipStatsClientPaymentReqdOuts", cSipStatsErrClient.CSipStatsClientPaymentReqdOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientForbiddenIns", types.YLeaf{"CSipStatsClientForbiddenIns", cSipStatsErrClient.CSipStatsClientForbiddenIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientForbiddenOuts", types.YLeaf{"CSipStatsClientForbiddenOuts", cSipStatsErrClient.CSipStatsClientForbiddenOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientNotFoundIns", types.YLeaf{"CSipStatsClientNotFoundIns", cSipStatsErrClient.CSipStatsClientNotFoundIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientNotFoundOuts", types.YLeaf{"CSipStatsClientNotFoundOuts", cSipStatsErrClient.CSipStatsClientNotFoundOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientMethNotAllowedIns", types.YLeaf{"CSipStatsClientMethNotAllowedIns", cSipStatsErrClient.CSipStatsClientMethNotAllowedIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientMethNotAllowedOuts", types.YLeaf{"CSipStatsClientMethNotAllowedOuts", cSipStatsErrClient.CSipStatsClientMethNotAllowedOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientNotAcceptableIns", types.YLeaf{"CSipStatsClientNotAcceptableIns", cSipStatsErrClient.CSipStatsClientNotAcceptableIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientNotAcceptableOuts", types.YLeaf{"CSipStatsClientNotAcceptableOuts", cSipStatsErrClient.CSipStatsClientNotAcceptableOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientProxyAuthReqdIns", types.YLeaf{"CSipStatsClientProxyAuthReqdIns", cSipStatsErrClient.CSipStatsClientProxyAuthReqdIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientProxyAuthReqdOuts", types.YLeaf{"CSipStatsClientProxyAuthReqdOuts", cSipStatsErrClient.CSipStatsClientProxyAuthReqdOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqTimeoutIns", types.YLeaf{"CSipStatsClientReqTimeoutIns", cSipStatsErrClient.CSipStatsClientReqTimeoutIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqTimeoutOuts", types.YLeaf{"CSipStatsClientReqTimeoutOuts", cSipStatsErrClient.CSipStatsClientReqTimeoutOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientConflictIns", types.YLeaf{"CSipStatsClientConflictIns", cSipStatsErrClient.CSipStatsClientConflictIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientConflictOuts", types.YLeaf{"CSipStatsClientConflictOuts", cSipStatsErrClient.CSipStatsClientConflictOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientGoneIns", types.YLeaf{"CSipStatsClientGoneIns", cSipStatsErrClient.CSipStatsClientGoneIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientGoneOuts", types.YLeaf{"CSipStatsClientGoneOuts", cSipStatsErrClient.CSipStatsClientGoneOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientLengthRequiredIns", types.YLeaf{"CSipStatsClientLengthRequiredIns", cSipStatsErrClient.CSipStatsClientLengthRequiredIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientLengthRequiredOuts", types.YLeaf{"CSipStatsClientLengthRequiredOuts", cSipStatsErrClient.CSipStatsClientLengthRequiredOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqEntTooLargeIns", types.YLeaf{"CSipStatsClientReqEntTooLargeIns", cSipStatsErrClient.CSipStatsClientReqEntTooLargeIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqEntTooLargeOuts", types.YLeaf{"CSipStatsClientReqEntTooLargeOuts", cSipStatsErrClient.CSipStatsClientReqEntTooLargeOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqURITooLargeIns", types.YLeaf{"CSipStatsClientReqURITooLargeIns", cSipStatsErrClient.CSipStatsClientReqURITooLargeIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqURITooLargeOuts", types.YLeaf{"CSipStatsClientReqURITooLargeOuts", cSipStatsErrClient.CSipStatsClientReqURITooLargeOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientNoSupMediaTypeIns", types.YLeaf{"CSipStatsClientNoSupMediaTypeIns", cSipStatsErrClient.CSipStatsClientNoSupMediaTypeIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientNoSupMediaTypeOuts", types.YLeaf{"CSipStatsClientNoSupMediaTypeOuts", cSipStatsErrClient.CSipStatsClientNoSupMediaTypeOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientBadExtensionIns", types.YLeaf{"CSipStatsClientBadExtensionIns", cSipStatsErrClient.CSipStatsClientBadExtensionIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientBadExtensionOuts", types.YLeaf{"CSipStatsClientBadExtensionOuts", cSipStatsErrClient.CSipStatsClientBadExtensionOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientTempNotAvailIns", types.YLeaf{"CSipStatsClientTempNotAvailIns", cSipStatsErrClient.CSipStatsClientTempNotAvailIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientTempNotAvailOuts", types.YLeaf{"CSipStatsClientTempNotAvailOuts", cSipStatsErrClient.CSipStatsClientTempNotAvailOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientCallLegNoExistIns", types.YLeaf{"CSipStatsClientCallLegNoExistIns", cSipStatsErrClient.CSipStatsClientCallLegNoExistIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientCallLegNoExistOuts", types.YLeaf{"CSipStatsClientCallLegNoExistOuts", cSipStatsErrClient.CSipStatsClientCallLegNoExistOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientLoopDetectedIns", types.YLeaf{"CSipStatsClientLoopDetectedIns", cSipStatsErrClient.CSipStatsClientLoopDetectedIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientLoopDetectedOuts", types.YLeaf{"CSipStatsClientLoopDetectedOuts", cSipStatsErrClient.CSipStatsClientLoopDetectedOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientTooManyHopsIns", types.YLeaf{"CSipStatsClientTooManyHopsIns", cSipStatsErrClient.CSipStatsClientTooManyHopsIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientTooManyHopsOuts", types.YLeaf{"CSipStatsClientTooManyHopsOuts", cSipStatsErrClient.CSipStatsClientTooManyHopsOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientAddrIncompleteIns", types.YLeaf{"CSipStatsClientAddrIncompleteIns", cSipStatsErrClient.CSipStatsClientAddrIncompleteIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientAddrIncompleteOuts", types.YLeaf{"CSipStatsClientAddrIncompleteOuts", cSipStatsErrClient.CSipStatsClientAddrIncompleteOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientAmbiguousIns", types.YLeaf{"CSipStatsClientAmbiguousIns", cSipStatsErrClient.CSipStatsClientAmbiguousIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientAmbiguousOuts", types.YLeaf{"CSipStatsClientAmbiguousOuts", cSipStatsErrClient.CSipStatsClientAmbiguousOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientBusyHereIns", types.YLeaf{"CSipStatsClientBusyHereIns", cSipStatsErrClient.CSipStatsClientBusyHereIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientBusyHereOuts", types.YLeaf{"CSipStatsClientBusyHereOuts", cSipStatsErrClient.CSipStatsClientBusyHereOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqTermIns", types.YLeaf{"CSipStatsClientReqTermIns", cSipStatsErrClient.CSipStatsClientReqTermIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqTermOuts", types.YLeaf{"CSipStatsClientReqTermOuts", cSipStatsErrClient.CSipStatsClientReqTermOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientNoAcceptHereIns", types.YLeaf{"CSipStatsClientNoAcceptHereIns", cSipStatsErrClient.CSipStatsClientNoAcceptHereIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientNoAcceptHereOuts", types.YLeaf{"CSipStatsClientNoAcceptHereOuts", cSipStatsErrClient.CSipStatsClientNoAcceptHereOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientBadEventIns", types.YLeaf{"CSipStatsClientBadEventIns", cSipStatsErrClient.CSipStatsClientBadEventIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientBadEventOuts", types.YLeaf{"CSipStatsClientBadEventOuts", cSipStatsErrClient.CSipStatsClientBadEventOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientSTTooSmallIns", types.YLeaf{"CSipStatsClientSTTooSmallIns", cSipStatsErrClient.CSipStatsClientSTTooSmallIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientSTTooSmallOuts", types.YLeaf{"CSipStatsClientSTTooSmallOuts", cSipStatsErrClient.CSipStatsClientSTTooSmallOuts})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqPendingIns", types.YLeaf{"CSipStatsClientReqPendingIns", cSipStatsErrClient.CSipStatsClientReqPendingIns})
+    cSipStatsErrClient.EntityData.Leafs.Append("cSipStatsClientReqPendingOuts", types.YLeaf{"CSipStatsClientReqPendingOuts", cSipStatsErrClient.CSipStatsClientReqPendingOuts})
+
+    cSipStatsErrClient.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsErrClient.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatserrserver
-type CISCOSIPUAMIB_Csipstatserrserver struct {
+// CISCOSIPUAMIB_CSipStatsErrServer
+type CISCOSIPUAMIB_CSipStatsErrServer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1477,52 +1510,52 @@ type CISCOSIPUAMIB_Csipstatserrserver struct {
     // sending requests have encountered  unexpected conditions that prevent them
     // from fulfilling the  requests. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsserverinterrorins interface{}
+    CSipStatsServerIntErrorIns interface{}
 
     // This object reflects the total number of Internal Server Error (500)
     // responses sent by the user agent since system startup. Outbound Internal
     // Server Error responses indicate that this  system has encountered
     // unexpected conditions that prevent it  from fulfilling received requests.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsserverinterrorouts interface{}
+    CSipStatsServerIntErrorOuts interface{}
 
     // This object reflects the total number of Not Implemented  (501) responses
     // received by the user agent since system startup. Inbound Not Implemented
     // responses indicate that servers to  which this system is sending requests
     // do not support the  functionality required to fulfill the requests. The
     // type is interface{} with range: 0..4294967295.
-    Csipstatsservernotimplementedins interface{}
+    CSipStatsServerNotImplementedIns interface{}
 
     // This object reflects the total number of Not Implemented  (501) responses
     // sent by the user agent since system startup. Outbound Not Implemented
     // responses indicate that this system does not support the functionality
     // required to fulfill the  requests. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsservernotimplementedouts interface{}
+    CSipStatsServerNotImplementedOuts interface{}
 
     // This object reflects the total number of Bad Gateway (502)  responses
     // received by the user agent since system startup. The type is interface{}
     // with range: 0..4294967295.
-    Csipstatsserverbadgatewayins interface{}
+    CSipStatsServerBadGatewayIns interface{}
 
     // This object reflects the total number of Bad Gateway (502)  responses sent
     // by the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsserverbadgatewayouts interface{}
+    CSipStatsServerBadGatewayOuts interface{}
 
     // This object reflects the total number of Service Unavailable  (503)
     // responses received by the user agent since system startup. Inbound Service
     // Unavailable responses indicate that the server servicing this system's
     // request is temporarily unavailable to handle the request. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsserverserviceunavailins interface{}
+    CSipStatsServerServiceUnavailIns interface{}
 
     // This object reflects the total number of Service Unavailable  (503)
     // responses sent by the user agent since system startup. Outbound Service
     // Unavailable responses indicate that this system is temporarily unable to
     // handle received requests. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsserverserviceunavailouts interface{}
+    CSipStatsServerServiceUnavailOuts interface{}
 
     // This object reflects the total number of Gateway Time-out  (504) responses
     // received by the user agent since system startup. Inbound Gateway Time-out
@@ -1530,73 +1563,76 @@ type CISCOSIPUAMIB_Csipstatserrserver struct {
     // request did not receive a timely response from yet another system it was
     // accessing to complete the request. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsservergatewaytimeoutins interface{}
+    CSipStatsServerGatewayTimeoutIns interface{}
 
     // This object reflects the total number of Gateway Time-out  (504) responses
     // sent by the user agent since system startup. Outbound Gateway Time-out
     // responses indicate that this system did not receive a timely response from
     // the system it had accessed to assist in completing a received request. The
     // type is interface{} with range: 0..4294967295.
-    Csipstatsservergatewaytimeoutouts interface{}
+    CSipStatsServerGatewayTimeoutOuts interface{}
 
     // This object reflects the total number of SIP Version Not  Supported (505)
     // responses received by the user agent since system startup. Inbound SIP
     // Version Not Supported responses indicate that  the server does not support,
     // or refuses to support, the SIP  protocol version that was used in the
     // request message. The type is interface{} with range: 0..4294967295.
-    Csipstatsserverbadsipversionins interface{}
+    CSipStatsServerBadSipVersionIns interface{}
 
     // This object reflects the total number of SIP Version Not  Supported (505)
     // responses sent by the user agent since system startup. Outbound SIP Version
     // Not Supported responses indicate that  this system does not support, or
     // refuses to support, the SIP  protocol version used in received requests.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsserverbadsipversionouts interface{}
+    CSipStatsServerBadSipVersionOuts interface{}
 
     // This object reflects the total number of Precondition  Failure (580)
     // responses received by the user agent since system startup. This response is
     // returned by a UAS if it is unable to perform the mandatory preconditions
     // for the session. The type is interface{} with range: 0..4294967295.
-    Csipstatsserverprecondfailureins interface{}
+    CSipStatsServerPrecondFailureIns interface{}
 
     // This object reflects the total number of Precondition  Failure (580)
     // responses sent by the user agent since system startup. This response is
     // returned by a UAS if it is unable to perform the mandatory preconditions
     // for the session. The type is interface{} with range: 0..4294967295.
-    Csipstatsserverprecondfailureouts interface{}
+    CSipStatsServerPrecondFailureOuts interface{}
 }
 
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetEntityData() *types.CommonEntityData {
-    csipstatserrserver.EntityData.YFilter = csipstatserrserver.YFilter
-    csipstatserrserver.EntityData.YangName = "cSipStatsErrServer"
-    csipstatserrserver.EntityData.BundleName = "cisco_ios_xe"
-    csipstatserrserver.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatserrserver.EntityData.SegmentPath = "cSipStatsErrServer"
-    csipstatserrserver.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatserrserver.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatserrserver.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsErrServer *CISCOSIPUAMIB_CSipStatsErrServer) GetEntityData() *types.CommonEntityData {
+    cSipStatsErrServer.EntityData.YFilter = cSipStatsErrServer.YFilter
+    cSipStatsErrServer.EntityData.YangName = "cSipStatsErrServer"
+    cSipStatsErrServer.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsErrServer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsErrServer.EntityData.SegmentPath = "cSipStatsErrServer"
+    cSipStatsErrServer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsErrServer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsErrServer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatserrserver.EntityData.Children = make(map[string]types.YChild)
-    csipstatserrserver.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerIntErrorIns"] = types.YLeaf{"Csipstatsserverinterrorins", csipstatserrserver.Csipstatsserverinterrorins}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerIntErrorOuts"] = types.YLeaf{"Csipstatsserverinterrorouts", csipstatserrserver.Csipstatsserverinterrorouts}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerNotImplementedIns"] = types.YLeaf{"Csipstatsservernotimplementedins", csipstatserrserver.Csipstatsservernotimplementedins}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerNotImplementedOuts"] = types.YLeaf{"Csipstatsservernotimplementedouts", csipstatserrserver.Csipstatsservernotimplementedouts}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerBadGatewayIns"] = types.YLeaf{"Csipstatsserverbadgatewayins", csipstatserrserver.Csipstatsserverbadgatewayins}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerBadGatewayOuts"] = types.YLeaf{"Csipstatsserverbadgatewayouts", csipstatserrserver.Csipstatsserverbadgatewayouts}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerServiceUnavailIns"] = types.YLeaf{"Csipstatsserverserviceunavailins", csipstatserrserver.Csipstatsserverserviceunavailins}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerServiceUnavailOuts"] = types.YLeaf{"Csipstatsserverserviceunavailouts", csipstatserrserver.Csipstatsserverserviceunavailouts}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerGatewayTimeoutIns"] = types.YLeaf{"Csipstatsservergatewaytimeoutins", csipstatserrserver.Csipstatsservergatewaytimeoutins}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerGatewayTimeoutOuts"] = types.YLeaf{"Csipstatsservergatewaytimeoutouts", csipstatserrserver.Csipstatsservergatewaytimeoutouts}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerBadSipVersionIns"] = types.YLeaf{"Csipstatsserverbadsipversionins", csipstatserrserver.Csipstatsserverbadsipversionins}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerBadSipVersionOuts"] = types.YLeaf{"Csipstatsserverbadsipversionouts", csipstatserrserver.Csipstatsserverbadsipversionouts}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerPrecondFailureIns"] = types.YLeaf{"Csipstatsserverprecondfailureins", csipstatserrserver.Csipstatsserverprecondfailureins}
-    csipstatserrserver.EntityData.Leafs["cSipStatsServerPrecondFailureOuts"] = types.YLeaf{"Csipstatsserverprecondfailureouts", csipstatserrserver.Csipstatsserverprecondfailureouts}
-    return &(csipstatserrserver.EntityData)
+    cSipStatsErrServer.EntityData.Children = types.NewOrderedMap()
+    cSipStatsErrServer.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerIntErrorIns", types.YLeaf{"CSipStatsServerIntErrorIns", cSipStatsErrServer.CSipStatsServerIntErrorIns})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerIntErrorOuts", types.YLeaf{"CSipStatsServerIntErrorOuts", cSipStatsErrServer.CSipStatsServerIntErrorOuts})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerNotImplementedIns", types.YLeaf{"CSipStatsServerNotImplementedIns", cSipStatsErrServer.CSipStatsServerNotImplementedIns})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerNotImplementedOuts", types.YLeaf{"CSipStatsServerNotImplementedOuts", cSipStatsErrServer.CSipStatsServerNotImplementedOuts})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerBadGatewayIns", types.YLeaf{"CSipStatsServerBadGatewayIns", cSipStatsErrServer.CSipStatsServerBadGatewayIns})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerBadGatewayOuts", types.YLeaf{"CSipStatsServerBadGatewayOuts", cSipStatsErrServer.CSipStatsServerBadGatewayOuts})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerServiceUnavailIns", types.YLeaf{"CSipStatsServerServiceUnavailIns", cSipStatsErrServer.CSipStatsServerServiceUnavailIns})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerServiceUnavailOuts", types.YLeaf{"CSipStatsServerServiceUnavailOuts", cSipStatsErrServer.CSipStatsServerServiceUnavailOuts})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerGatewayTimeoutIns", types.YLeaf{"CSipStatsServerGatewayTimeoutIns", cSipStatsErrServer.CSipStatsServerGatewayTimeoutIns})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerGatewayTimeoutOuts", types.YLeaf{"CSipStatsServerGatewayTimeoutOuts", cSipStatsErrServer.CSipStatsServerGatewayTimeoutOuts})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerBadSipVersionIns", types.YLeaf{"CSipStatsServerBadSipVersionIns", cSipStatsErrServer.CSipStatsServerBadSipVersionIns})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerBadSipVersionOuts", types.YLeaf{"CSipStatsServerBadSipVersionOuts", cSipStatsErrServer.CSipStatsServerBadSipVersionOuts})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerPrecondFailureIns", types.YLeaf{"CSipStatsServerPrecondFailureIns", cSipStatsErrServer.CSipStatsServerPrecondFailureIns})
+    cSipStatsErrServer.EntityData.Leafs.Append("cSipStatsServerPrecondFailureOuts", types.YLeaf{"CSipStatsServerPrecondFailureOuts", cSipStatsErrServer.CSipStatsServerPrecondFailureOuts})
+
+    cSipStatsErrServer.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsErrServer.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatsglobalfail
-type CISCOSIPUAMIB_Csipstatsglobalfail struct {
+// CISCOSIPUAMIB_CSipStatsGlobalFail
+type CISCOSIPUAMIB_CSipStatsGlobalFail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1605,28 +1641,28 @@ type CISCOSIPUAMIB_Csipstatsglobalfail struct {
     // responses indicate that the  called party's end system was contacted
     // successfully but the called party is busy and does not wish to take the
     // call at this time. The type is interface{} with range: 0..4294967295.
-    Csipstatsglobalbusyeverywhereins interface{}
+    CSipStatsGlobalBusyEverywhereIns interface{}
 
     // This object reflects the total number of Busy Everywhere (600) responses
     // sent by the user agent since system startup. Outbound Busy Everywhere
     // responses indicate that  this system has successfully contacted a called
     // party's end system and the called party does not wish to take the call at
     // this time. The type is interface{} with range: 0..4294967295.
-    Csipstatsglobalbusyeverywhereouts interface{}
+    CSipStatsGlobalBusyEverywhereOuts interface{}
 
     // This object reflects the total number of Decline (603) responses received
     // by the user agent since system startup. Decline responses indicate that the
     // called party's end  system was contacted successfully but the called party 
     // explicitly does not wish to, or cannot, participate. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsglobaldeclineins interface{}
+    CSipStatsGlobalDeclineIns interface{}
 
     // This object reflects the total number of Decline (603) responses sent by
     // the user agent since system startup. Outbound Decline responses indicate
     // that this system has successfully contacted a called party's end system and
     // the called party explicitly does not wish to, or cannot, participate. The
     // type is interface{} with range: 0..4294967295.
-    Csipstatsglobaldeclineouts interface{}
+    CSipStatsGlobalDeclineOuts interface{}
 
     // This object reflects the total number of Does Not Exist Anywhere (604)
     // responses received by the user agent since system startup. Inbound Does Not
@@ -1634,227 +1670,233 @@ type CISCOSIPUAMIB_Csipstatsglobalfail struct {
     // request has authoritative information that the called party indicated in
     // the To request field does not exist anywhere. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsglobalnotanywhereins interface{}
+    CSipStatsGlobalNotAnywhereIns interface{}
 
     // This object reflects the total number of Does Not Exist Anywhere (604)
     // responses sent by the user agent since system startup. Outbound Does Not
     // Exist Anywhere responses indicate that this system has authoritative
     // information that the called party in the To field of received requests does
     // not exist anywhere. The type is interface{} with range: 0..4294967295.
-    Csipstatsglobalnotanywhereouts interface{}
+    CSipStatsGlobalNotAnywhereOuts interface{}
 
     // This object reflects the total number of Not Acceptable (606) responses
     // received by the user agent since system startup. Inbound Not Acceptable
     // responses indicate that the called party's end system was contacted
     // successfully but some aspect of the session description is not acceptable.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsglobalnotacceptableins interface{}
+    CSipStatsGlobalNotAcceptableIns interface{}
 
     // This object reflects the total number of Not Acceptable (606) responses
     // sent by the user agent since system startup. Outbound Not Acceptable
     // responses indicate that the called party wishes to communicate, but cannot
     // adequately support the session described in the request. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsglobalnotacceptableouts interface{}
+    CSipStatsGlobalNotAcceptableOuts interface{}
 }
 
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetEntityData() *types.CommonEntityData {
-    csipstatsglobalfail.EntityData.YFilter = csipstatsglobalfail.YFilter
-    csipstatsglobalfail.EntityData.YangName = "cSipStatsGlobalFail"
-    csipstatsglobalfail.EntityData.BundleName = "cisco_ios_xe"
-    csipstatsglobalfail.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatsglobalfail.EntityData.SegmentPath = "cSipStatsGlobalFail"
-    csipstatsglobalfail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatsglobalfail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatsglobalfail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsGlobalFail *CISCOSIPUAMIB_CSipStatsGlobalFail) GetEntityData() *types.CommonEntityData {
+    cSipStatsGlobalFail.EntityData.YFilter = cSipStatsGlobalFail.YFilter
+    cSipStatsGlobalFail.EntityData.YangName = "cSipStatsGlobalFail"
+    cSipStatsGlobalFail.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsGlobalFail.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsGlobalFail.EntityData.SegmentPath = "cSipStatsGlobalFail"
+    cSipStatsGlobalFail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsGlobalFail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsGlobalFail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatsglobalfail.EntityData.Children = make(map[string]types.YChild)
-    csipstatsglobalfail.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalBusyEverywhereIns"] = types.YLeaf{"Csipstatsglobalbusyeverywhereins", csipstatsglobalfail.Csipstatsglobalbusyeverywhereins}
-    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalBusyEverywhereOuts"] = types.YLeaf{"Csipstatsglobalbusyeverywhereouts", csipstatsglobalfail.Csipstatsglobalbusyeverywhereouts}
-    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalDeclineIns"] = types.YLeaf{"Csipstatsglobaldeclineins", csipstatsglobalfail.Csipstatsglobaldeclineins}
-    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalDeclineOuts"] = types.YLeaf{"Csipstatsglobaldeclineouts", csipstatsglobalfail.Csipstatsglobaldeclineouts}
-    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalNotAnywhereIns"] = types.YLeaf{"Csipstatsglobalnotanywhereins", csipstatsglobalfail.Csipstatsglobalnotanywhereins}
-    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalNotAnywhereOuts"] = types.YLeaf{"Csipstatsglobalnotanywhereouts", csipstatsglobalfail.Csipstatsglobalnotanywhereouts}
-    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalNotAcceptableIns"] = types.YLeaf{"Csipstatsglobalnotacceptableins", csipstatsglobalfail.Csipstatsglobalnotacceptableins}
-    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalNotAcceptableOuts"] = types.YLeaf{"Csipstatsglobalnotacceptableouts", csipstatsglobalfail.Csipstatsglobalnotacceptableouts}
-    return &(csipstatsglobalfail.EntityData)
+    cSipStatsGlobalFail.EntityData.Children = types.NewOrderedMap()
+    cSipStatsGlobalFail.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsGlobalFail.EntityData.Leafs.Append("cSipStatsGlobalBusyEverywhereIns", types.YLeaf{"CSipStatsGlobalBusyEverywhereIns", cSipStatsGlobalFail.CSipStatsGlobalBusyEverywhereIns})
+    cSipStatsGlobalFail.EntityData.Leafs.Append("cSipStatsGlobalBusyEverywhereOuts", types.YLeaf{"CSipStatsGlobalBusyEverywhereOuts", cSipStatsGlobalFail.CSipStatsGlobalBusyEverywhereOuts})
+    cSipStatsGlobalFail.EntityData.Leafs.Append("cSipStatsGlobalDeclineIns", types.YLeaf{"CSipStatsGlobalDeclineIns", cSipStatsGlobalFail.CSipStatsGlobalDeclineIns})
+    cSipStatsGlobalFail.EntityData.Leafs.Append("cSipStatsGlobalDeclineOuts", types.YLeaf{"CSipStatsGlobalDeclineOuts", cSipStatsGlobalFail.CSipStatsGlobalDeclineOuts})
+    cSipStatsGlobalFail.EntityData.Leafs.Append("cSipStatsGlobalNotAnywhereIns", types.YLeaf{"CSipStatsGlobalNotAnywhereIns", cSipStatsGlobalFail.CSipStatsGlobalNotAnywhereIns})
+    cSipStatsGlobalFail.EntityData.Leafs.Append("cSipStatsGlobalNotAnywhereOuts", types.YLeaf{"CSipStatsGlobalNotAnywhereOuts", cSipStatsGlobalFail.CSipStatsGlobalNotAnywhereOuts})
+    cSipStatsGlobalFail.EntityData.Leafs.Append("cSipStatsGlobalNotAcceptableIns", types.YLeaf{"CSipStatsGlobalNotAcceptableIns", cSipStatsGlobalFail.CSipStatsGlobalNotAcceptableIns})
+    cSipStatsGlobalFail.EntityData.Leafs.Append("cSipStatsGlobalNotAcceptableOuts", types.YLeaf{"CSipStatsGlobalNotAcceptableOuts", cSipStatsGlobalFail.CSipStatsGlobalNotAcceptableOuts})
+
+    cSipStatsGlobalFail.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsGlobalFail.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatstraffic
-type CISCOSIPUAMIB_Csipstatstraffic struct {
+// CISCOSIPUAMIB_CSipStatsTraffic
+type CISCOSIPUAMIB_CSipStatsTraffic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of INVITE requests  received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficinviteins interface{}
+    CSipStatsTrafficInviteIns interface{}
 
     // This object reflects the total number of INVITE requests sent by the user
     // agent. The type is interface{} with range: 0..4294967295.
-    Csipstatstrafficinviteouts interface{}
+    CSipStatsTrafficInviteOuts interface{}
 
     // This object reflects the total number of ACK requests  received by the user
     // agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficackins interface{}
+    CSipStatsTrafficAckIns interface{}
 
     // This object reflects the total number of ACK requests sent by the user
     // agent. The type is interface{} with range: 0..4294967295.
-    Csipstatstrafficackouts interface{}
+    CSipStatsTrafficAckOuts interface{}
 
     // This object reflects the total number of BYE requests  received by the user
     // agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficbyeins interface{}
+    CSipStatsTrafficByeIns interface{}
 
     // This object reflects the total number of BYE requests sent by the user
     // agent. The type is interface{} with range: 0..4294967295.
-    Csipstatstrafficbyeouts interface{}
+    CSipStatsTrafficByeOuts interface{}
 
     // This object reflects the total number of CANCEL requests  received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficcancelins interface{}
+    CSipStatsTrafficCancelIns interface{}
 
     // This object reflects the total number of CANCEL requests sent by the user
     // agent. The type is interface{} with range: 0..4294967295.
-    Csipstatstrafficcancelouts interface{}
+    CSipStatsTrafficCancelOuts interface{}
 
     // This object reflects the total number of OPTIONS requests  received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficoptionsins interface{}
+    CSipStatsTrafficOptionsIns interface{}
 
     // This object reflects the total number of OPTIONS requests sent by the user
     // agent. The type is interface{} with range: 0..4294967295.
-    Csipstatstrafficoptionsouts interface{}
+    CSipStatsTrafficOptionsOuts interface{}
 
     // This object reflects the total number of REGISTER requests  received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficregisterins interface{}
+    CSipStatsTrafficRegisterIns interface{}
 
     // This object reflects the total number of REGISTER requests  sent by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficregisterouts interface{}
+    CSipStatsTrafficRegisterOuts interface{}
 
     // This object reflects the total number of COndition MET  requests received
     // by the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficcometins interface{}
+    CSipStatsTrafficCometIns interface{}
 
     // This object reflects the total number of COndition MET  requests sent by
     // the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficcometouts interface{}
+    CSipStatsTrafficCometOuts interface{}
 
     // This object reflects the total number of PRovisonal  ACKnowledgement
     // requests received by the user agent since system startup. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatstrafficprackins interface{}
+    CSipStatsTrafficPrackIns interface{}
 
     // This object reflects the total number of PRovisonal  ACKnowledgement
     // requests sent by the user agent since system startup. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatstrafficprackouts interface{}
+    CSipStatsTrafficPrackOuts interface{}
 
     // This object reflects the total number of Refer requests received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficreferins interface{}
+    CSipStatsTrafficReferIns interface{}
 
     // This object reflects the total number of Refer requests sent by the user
     // agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficreferouts interface{}
+    CSipStatsTrafficReferOuts interface{}
 
     // This object reflects the total number of Notify  requests received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficnotifyins interface{}
+    CSipStatsTrafficNotifyIns interface{}
 
     // This object reflects the total number of Notify  requests sent by the user
     // agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficnotifyouts interface{}
+    CSipStatsTrafficNotifyOuts interface{}
 
     // This object reflects the total number of Info  requests received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficinfoins interface{}
+    CSipStatsTrafficInfoIns interface{}
 
     // This object reflects the total number of Info  requests sent by the user
     // agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficinfoouts interface{}
+    CSipStatsTrafficInfoOuts interface{}
 
     // This object reflects the total number of Subscribe requests received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficsubscribeins interface{}
+    CSipStatsTrafficSubscribeIns interface{}
 
     // This object reflects the total number of Subscribe requests sent by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficsubscribeouts interface{}
+    CSipStatsTrafficSubscribeOuts interface{}
 
     // This object reflects the total number of Update requests received by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficupdateins interface{}
+    CSipStatsTrafficUpdateIns interface{}
 
     // This object reflects the total number of Update requests sent by the user
     // agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatstrafficupdateouts interface{}
+    CSipStatsTrafficUpdateOuts interface{}
 }
 
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetEntityData() *types.CommonEntityData {
-    csipstatstraffic.EntityData.YFilter = csipstatstraffic.YFilter
-    csipstatstraffic.EntityData.YangName = "cSipStatsTraffic"
-    csipstatstraffic.EntityData.BundleName = "cisco_ios_xe"
-    csipstatstraffic.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatstraffic.EntityData.SegmentPath = "cSipStatsTraffic"
-    csipstatstraffic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatstraffic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatstraffic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsTraffic *CISCOSIPUAMIB_CSipStatsTraffic) GetEntityData() *types.CommonEntityData {
+    cSipStatsTraffic.EntityData.YFilter = cSipStatsTraffic.YFilter
+    cSipStatsTraffic.EntityData.YangName = "cSipStatsTraffic"
+    cSipStatsTraffic.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsTraffic.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsTraffic.EntityData.SegmentPath = "cSipStatsTraffic"
+    cSipStatsTraffic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsTraffic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsTraffic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatstraffic.EntityData.Children = make(map[string]types.YChild)
-    csipstatstraffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficInviteIns"] = types.YLeaf{"Csipstatstrafficinviteins", csipstatstraffic.Csipstatstrafficinviteins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficInviteOuts"] = types.YLeaf{"Csipstatstrafficinviteouts", csipstatstraffic.Csipstatstrafficinviteouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficAckIns"] = types.YLeaf{"Csipstatstrafficackins", csipstatstraffic.Csipstatstrafficackins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficAckOuts"] = types.YLeaf{"Csipstatstrafficackouts", csipstatstraffic.Csipstatstrafficackouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficByeIns"] = types.YLeaf{"Csipstatstrafficbyeins", csipstatstraffic.Csipstatstrafficbyeins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficByeOuts"] = types.YLeaf{"Csipstatstrafficbyeouts", csipstatstraffic.Csipstatstrafficbyeouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficCancelIns"] = types.YLeaf{"Csipstatstrafficcancelins", csipstatstraffic.Csipstatstrafficcancelins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficCancelOuts"] = types.YLeaf{"Csipstatstrafficcancelouts", csipstatstraffic.Csipstatstrafficcancelouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficOptionsIns"] = types.YLeaf{"Csipstatstrafficoptionsins", csipstatstraffic.Csipstatstrafficoptionsins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficOptionsOuts"] = types.YLeaf{"Csipstatstrafficoptionsouts", csipstatstraffic.Csipstatstrafficoptionsouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficRegisterIns"] = types.YLeaf{"Csipstatstrafficregisterins", csipstatstraffic.Csipstatstrafficregisterins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficRegisterOuts"] = types.YLeaf{"Csipstatstrafficregisterouts", csipstatstraffic.Csipstatstrafficregisterouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficCometIns"] = types.YLeaf{"Csipstatstrafficcometins", csipstatstraffic.Csipstatstrafficcometins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficCometOuts"] = types.YLeaf{"Csipstatstrafficcometouts", csipstatstraffic.Csipstatstrafficcometouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficPrackIns"] = types.YLeaf{"Csipstatstrafficprackins", csipstatstraffic.Csipstatstrafficprackins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficPrackOuts"] = types.YLeaf{"Csipstatstrafficprackouts", csipstatstraffic.Csipstatstrafficprackouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficReferIns"] = types.YLeaf{"Csipstatstrafficreferins", csipstatstraffic.Csipstatstrafficreferins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficReferOuts"] = types.YLeaf{"Csipstatstrafficreferouts", csipstatstraffic.Csipstatstrafficreferouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficNotifyIns"] = types.YLeaf{"Csipstatstrafficnotifyins", csipstatstraffic.Csipstatstrafficnotifyins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficNotifyOuts"] = types.YLeaf{"Csipstatstrafficnotifyouts", csipstatstraffic.Csipstatstrafficnotifyouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficInfoIns"] = types.YLeaf{"Csipstatstrafficinfoins", csipstatstraffic.Csipstatstrafficinfoins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficInfoOuts"] = types.YLeaf{"Csipstatstrafficinfoouts", csipstatstraffic.Csipstatstrafficinfoouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficSubscribeIns"] = types.YLeaf{"Csipstatstrafficsubscribeins", csipstatstraffic.Csipstatstrafficsubscribeins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficSubscribeOuts"] = types.YLeaf{"Csipstatstrafficsubscribeouts", csipstatstraffic.Csipstatstrafficsubscribeouts}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficUpdateIns"] = types.YLeaf{"Csipstatstrafficupdateins", csipstatstraffic.Csipstatstrafficupdateins}
-    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficUpdateOuts"] = types.YLeaf{"Csipstatstrafficupdateouts", csipstatstraffic.Csipstatstrafficupdateouts}
-    return &(csipstatstraffic.EntityData)
+    cSipStatsTraffic.EntityData.Children = types.NewOrderedMap()
+    cSipStatsTraffic.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficInviteIns", types.YLeaf{"CSipStatsTrafficInviteIns", cSipStatsTraffic.CSipStatsTrafficInviteIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficInviteOuts", types.YLeaf{"CSipStatsTrafficInviteOuts", cSipStatsTraffic.CSipStatsTrafficInviteOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficAckIns", types.YLeaf{"CSipStatsTrafficAckIns", cSipStatsTraffic.CSipStatsTrafficAckIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficAckOuts", types.YLeaf{"CSipStatsTrafficAckOuts", cSipStatsTraffic.CSipStatsTrafficAckOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficByeIns", types.YLeaf{"CSipStatsTrafficByeIns", cSipStatsTraffic.CSipStatsTrafficByeIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficByeOuts", types.YLeaf{"CSipStatsTrafficByeOuts", cSipStatsTraffic.CSipStatsTrafficByeOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficCancelIns", types.YLeaf{"CSipStatsTrafficCancelIns", cSipStatsTraffic.CSipStatsTrafficCancelIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficCancelOuts", types.YLeaf{"CSipStatsTrafficCancelOuts", cSipStatsTraffic.CSipStatsTrafficCancelOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficOptionsIns", types.YLeaf{"CSipStatsTrafficOptionsIns", cSipStatsTraffic.CSipStatsTrafficOptionsIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficOptionsOuts", types.YLeaf{"CSipStatsTrafficOptionsOuts", cSipStatsTraffic.CSipStatsTrafficOptionsOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficRegisterIns", types.YLeaf{"CSipStatsTrafficRegisterIns", cSipStatsTraffic.CSipStatsTrafficRegisterIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficRegisterOuts", types.YLeaf{"CSipStatsTrafficRegisterOuts", cSipStatsTraffic.CSipStatsTrafficRegisterOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficCometIns", types.YLeaf{"CSipStatsTrafficCometIns", cSipStatsTraffic.CSipStatsTrafficCometIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficCometOuts", types.YLeaf{"CSipStatsTrafficCometOuts", cSipStatsTraffic.CSipStatsTrafficCometOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficPrackIns", types.YLeaf{"CSipStatsTrafficPrackIns", cSipStatsTraffic.CSipStatsTrafficPrackIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficPrackOuts", types.YLeaf{"CSipStatsTrafficPrackOuts", cSipStatsTraffic.CSipStatsTrafficPrackOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficReferIns", types.YLeaf{"CSipStatsTrafficReferIns", cSipStatsTraffic.CSipStatsTrafficReferIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficReferOuts", types.YLeaf{"CSipStatsTrafficReferOuts", cSipStatsTraffic.CSipStatsTrafficReferOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficNotifyIns", types.YLeaf{"CSipStatsTrafficNotifyIns", cSipStatsTraffic.CSipStatsTrafficNotifyIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficNotifyOuts", types.YLeaf{"CSipStatsTrafficNotifyOuts", cSipStatsTraffic.CSipStatsTrafficNotifyOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficInfoIns", types.YLeaf{"CSipStatsTrafficInfoIns", cSipStatsTraffic.CSipStatsTrafficInfoIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficInfoOuts", types.YLeaf{"CSipStatsTrafficInfoOuts", cSipStatsTraffic.CSipStatsTrafficInfoOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficSubscribeIns", types.YLeaf{"CSipStatsTrafficSubscribeIns", cSipStatsTraffic.CSipStatsTrafficSubscribeIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficSubscribeOuts", types.YLeaf{"CSipStatsTrafficSubscribeOuts", cSipStatsTraffic.CSipStatsTrafficSubscribeOuts})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficUpdateIns", types.YLeaf{"CSipStatsTrafficUpdateIns", cSipStatsTraffic.CSipStatsTrafficUpdateIns})
+    cSipStatsTraffic.EntityData.Leafs.Append("cSipStatsTrafficUpdateOuts", types.YLeaf{"CSipStatsTrafficUpdateOuts", cSipStatsTraffic.CSipStatsTrafficUpdateOuts})
+
+    cSipStatsTraffic.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsTraffic.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatsretry
-type CISCOSIPUAMIB_Csipstatsretry struct {
+// CISCOSIPUAMIB_CSipStatsRetry
+type CISCOSIPUAMIB_CSipStatsRetry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1863,235 +1905,247 @@ type CISCOSIPUAMIB_Csipstatsretry struct {
     // attempt' INVITES is of interest, subtract the value of this  object from
     // cSipStatsTrafficInviteOut. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsretryinvites interface{}
+    CSipStatsRetryInvites interface{}
 
     // This object reflects the total number of BYE retries that have been sent by
     // the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsretrybyes interface{}
+    CSipStatsRetryByes interface{}
 
     // This object reflects the total number of CANCEL retries that  have been
     // sent by the user agent since system startup. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsretrycancels interface{}
+    CSipStatsRetryCancels interface{}
 
     // This object reflects the total number of REGISTER retries that have been
     // sent by the user agent since system startup. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsretryregisters interface{}
+    CSipStatsRetryRegisters interface{}
 
     // This object reflects the total number of Response (while  expecting a ACK)
     // retries that have been sent by the user agent. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsretryresponses interface{}
+    CSipStatsRetryResponses interface{}
 
     // This object reflects the total number of PRovisional ACKnowledgement
     // retries sent by the user agent since system startup. The type is
     // interface{} with range: 0..4294967295.
-    Csipstatsretrypracks interface{}
+    CSipStatsRetryPracks interface{}
 
     // This object reflects the total number of COndition MET retries sent by the
     // user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsretrycomets interface{}
+    CSipStatsRetryComets interface{}
 
     // This object reflects the total number of Reliable 1xx Response retries sent
     // by the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsretryreliable1Xxrsps interface{}
+    CSipStatsRetryReliable1xxRsps interface{}
 
     // This object reflects the total number of Notify  retries that have been
     // sent by the user agent since system startup. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsretrynotifys interface{}
+    CSipStatsRetryNotifys interface{}
 
     // This object reflects the total number of Refer retries that have been sent
     // by the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsretryrefers interface{}
+    CSipStatsRetryRefers interface{}
 
     // This object reflects the total number of Info retries that have been sent
     // by the user agent since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsretryinfo interface{}
+    CSipStatsRetryInfo interface{}
 
     // This object reflects the total number of Subscribe retries that have been
     // sent by the user agent since system startup. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatsretrysubscribe interface{}
+    CSipStatsRetrySubscribe interface{}
 }
 
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetEntityData() *types.CommonEntityData {
-    csipstatsretry.EntityData.YFilter = csipstatsretry.YFilter
-    csipstatsretry.EntityData.YangName = "cSipStatsRetry"
-    csipstatsretry.EntityData.BundleName = "cisco_ios_xe"
-    csipstatsretry.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatsretry.EntityData.SegmentPath = "cSipStatsRetry"
-    csipstatsretry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatsretry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatsretry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsRetry *CISCOSIPUAMIB_CSipStatsRetry) GetEntityData() *types.CommonEntityData {
+    cSipStatsRetry.EntityData.YFilter = cSipStatsRetry.YFilter
+    cSipStatsRetry.EntityData.YangName = "cSipStatsRetry"
+    cSipStatsRetry.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsRetry.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsRetry.EntityData.SegmentPath = "cSipStatsRetry"
+    cSipStatsRetry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsRetry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsRetry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatsretry.EntityData.Children = make(map[string]types.YChild)
-    csipstatsretry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryInvites"] = types.YLeaf{"Csipstatsretryinvites", csipstatsretry.Csipstatsretryinvites}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryByes"] = types.YLeaf{"Csipstatsretrybyes", csipstatsretry.Csipstatsretrybyes}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryCancels"] = types.YLeaf{"Csipstatsretrycancels", csipstatsretry.Csipstatsretrycancels}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryRegisters"] = types.YLeaf{"Csipstatsretryregisters", csipstatsretry.Csipstatsretryregisters}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryResponses"] = types.YLeaf{"Csipstatsretryresponses", csipstatsretry.Csipstatsretryresponses}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryPracks"] = types.YLeaf{"Csipstatsretrypracks", csipstatsretry.Csipstatsretrypracks}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryComets"] = types.YLeaf{"Csipstatsretrycomets", csipstatsretry.Csipstatsretrycomets}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryReliable1xxRsps"] = types.YLeaf{"Csipstatsretryreliable1Xxrsps", csipstatsretry.Csipstatsretryreliable1Xxrsps}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryNotifys"] = types.YLeaf{"Csipstatsretrynotifys", csipstatsretry.Csipstatsretrynotifys}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryRefers"] = types.YLeaf{"Csipstatsretryrefers", csipstatsretry.Csipstatsretryrefers}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetryInfo"] = types.YLeaf{"Csipstatsretryinfo", csipstatsretry.Csipstatsretryinfo}
-    csipstatsretry.EntityData.Leafs["cSipStatsRetrySubscribe"] = types.YLeaf{"Csipstatsretrysubscribe", csipstatsretry.Csipstatsretrysubscribe}
-    return &(csipstatsretry.EntityData)
+    cSipStatsRetry.EntityData.Children = types.NewOrderedMap()
+    cSipStatsRetry.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryInvites", types.YLeaf{"CSipStatsRetryInvites", cSipStatsRetry.CSipStatsRetryInvites})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryByes", types.YLeaf{"CSipStatsRetryByes", cSipStatsRetry.CSipStatsRetryByes})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryCancels", types.YLeaf{"CSipStatsRetryCancels", cSipStatsRetry.CSipStatsRetryCancels})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryRegisters", types.YLeaf{"CSipStatsRetryRegisters", cSipStatsRetry.CSipStatsRetryRegisters})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryResponses", types.YLeaf{"CSipStatsRetryResponses", cSipStatsRetry.CSipStatsRetryResponses})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryPracks", types.YLeaf{"CSipStatsRetryPracks", cSipStatsRetry.CSipStatsRetryPracks})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryComets", types.YLeaf{"CSipStatsRetryComets", cSipStatsRetry.CSipStatsRetryComets})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryReliable1xxRsps", types.YLeaf{"CSipStatsRetryReliable1xxRsps", cSipStatsRetry.CSipStatsRetryReliable1xxRsps})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryNotifys", types.YLeaf{"CSipStatsRetryNotifys", cSipStatsRetry.CSipStatsRetryNotifys})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryRefers", types.YLeaf{"CSipStatsRetryRefers", cSipStatsRetry.CSipStatsRetryRefers})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetryInfo", types.YLeaf{"CSipStatsRetryInfo", cSipStatsRetry.CSipStatsRetryInfo})
+    cSipStatsRetry.EntityData.Leafs.Append("cSipStatsRetrySubscribe", types.YLeaf{"CSipStatsRetrySubscribe", cSipStatsRetry.CSipStatsRetrySubscribe})
+
+    cSipStatsRetry.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsRetry.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatsmisc
-type CISCOSIPUAMIB_Csipstatsmisc struct {
+// CISCOSIPUAMIB_CSipStatsMisc
+type CISCOSIPUAMIB_CSipStatsMisc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of incoming Redirect  (3xx) response
     // messages that have been mapped to Client  Error (4xx) response messages.
     // The type is interface{} with range: 0..4294967295.
-    Csipstatsmisc3Xxmappedto4Xxrsps interface{}
+    CSipStatsMisc3xxMappedTo4xxRsps interface{}
 }
 
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetEntityData() *types.CommonEntityData {
-    csipstatsmisc.EntityData.YFilter = csipstatsmisc.YFilter
-    csipstatsmisc.EntityData.YangName = "cSipStatsMisc"
-    csipstatsmisc.EntityData.BundleName = "cisco_ios_xe"
-    csipstatsmisc.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatsmisc.EntityData.SegmentPath = "cSipStatsMisc"
-    csipstatsmisc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatsmisc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatsmisc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsMisc *CISCOSIPUAMIB_CSipStatsMisc) GetEntityData() *types.CommonEntityData {
+    cSipStatsMisc.EntityData.YFilter = cSipStatsMisc.YFilter
+    cSipStatsMisc.EntityData.YangName = "cSipStatsMisc"
+    cSipStatsMisc.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsMisc.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsMisc.EntityData.SegmentPath = "cSipStatsMisc"
+    cSipStatsMisc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsMisc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsMisc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatsmisc.EntityData.Children = make(map[string]types.YChild)
-    csipstatsmisc.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatsmisc.EntityData.Leafs["cSipStatsMisc3xxMappedTo4xxRsps"] = types.YLeaf{"Csipstatsmisc3Xxmappedto4Xxrsps", csipstatsmisc.Csipstatsmisc3Xxmappedto4Xxrsps}
-    return &(csipstatsmisc.EntityData)
+    cSipStatsMisc.EntityData.Children = types.NewOrderedMap()
+    cSipStatsMisc.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsMisc.EntityData.Leafs.Append("cSipStatsMisc3xxMappedTo4xxRsps", types.YLeaf{"CSipStatsMisc3xxMappedTo4xxRsps", cSipStatsMisc.CSipStatsMisc3xxMappedTo4xxRsps})
+
+    cSipStatsMisc.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsMisc.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatsconnection
-type CISCOSIPUAMIB_Csipstatsconnection struct {
+// CISCOSIPUAMIB_CSipStatsConnection
+type CISCOSIPUAMIB_CSipStatsConnection struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of TCP send failures since system
     // startup. The type is interface{} with range: 0..4294967295.
-    Csipstatsconntcpsendfailures interface{}
+    CSipStatsConnTCPSendFailures interface{}
 
     // This object reflects the total number of UDP send failures since system
     // startup. The type is interface{} with range: 0..4294967295.
-    Csipstatsconnudpsendfailures interface{}
+    CSipStatsConnUDPSendFailures interface{}
 
     // This object reflects the total number of Remote Closures  for TCP since
     // system startup. The type is interface{} with range: 0..4294967295.
-    Csipstatsconntcpremoteclosures interface{}
+    CSipStatsConnTCPRemoteClosures interface{}
 
     // This object reflects the total number of connection create failures for UDP
     // since system startup. The type is interface{} with range: 0..4294967295.
-    Csipstatsconnudpcreatefailures interface{}
+    CSipStatsConnUDPCreateFailures interface{}
 
     // This object reflects the total number of connection create failures for TCP
     // since system startup. The type is interface{} with range: 0..4294967295.
-    Csipstatsconntcpcreatefailures interface{}
+    CSipStatsConnTCPCreateFailures interface{}
 
     // This object reflects the total number of UDP connections that  timed out
     // due to inactivity since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsconnudpinactivetimeouts interface{}
+    CSipStatsConnUDPInactiveTimeouts interface{}
 
     // This object reflects the total number of TCP connections that timed out due
     // to inactivity since system startup. The type is interface{} with range:
     // 0..4294967295.
-    Csipstatsconntcpinactivetimeouts interface{}
+    CSipStatsConnTCPInactiveTimeouts interface{}
 
     // This object reflects the total number of active UDP connections since
     // system startup. The type is interface{} with range: 0..4294967295.
-    Csipstatsactiveudpconnections interface{}
+    CSipStatsActiveUDPConnections interface{}
 
     // This object reflects the total number of active TCP connections since
     // system startup. The type is interface{} with range: 0..4294967295.
-    Csipstatsactivetcpconnections interface{}
+    CSipStatsActiveTCPConnections interface{}
 }
 
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetEntityData() *types.CommonEntityData {
-    csipstatsconnection.EntityData.YFilter = csipstatsconnection.YFilter
-    csipstatsconnection.EntityData.YangName = "cSipStatsConnection"
-    csipstatsconnection.EntityData.BundleName = "cisco_ios_xe"
-    csipstatsconnection.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatsconnection.EntityData.SegmentPath = "cSipStatsConnection"
-    csipstatsconnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatsconnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatsconnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsConnection *CISCOSIPUAMIB_CSipStatsConnection) GetEntityData() *types.CommonEntityData {
+    cSipStatsConnection.EntityData.YFilter = cSipStatsConnection.YFilter
+    cSipStatsConnection.EntityData.YangName = "cSipStatsConnection"
+    cSipStatsConnection.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsConnection.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsConnection.EntityData.SegmentPath = "cSipStatsConnection"
+    cSipStatsConnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsConnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsConnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatsconnection.EntityData.Children = make(map[string]types.YChild)
-    csipstatsconnection.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatsconnection.EntityData.Leafs["cSipStatsConnTCPSendFailures"] = types.YLeaf{"Csipstatsconntcpsendfailures", csipstatsconnection.Csipstatsconntcpsendfailures}
-    csipstatsconnection.EntityData.Leafs["cSipStatsConnUDPSendFailures"] = types.YLeaf{"Csipstatsconnudpsendfailures", csipstatsconnection.Csipstatsconnudpsendfailures}
-    csipstatsconnection.EntityData.Leafs["cSipStatsConnTCPRemoteClosures"] = types.YLeaf{"Csipstatsconntcpremoteclosures", csipstatsconnection.Csipstatsconntcpremoteclosures}
-    csipstatsconnection.EntityData.Leafs["cSipStatsConnUDPCreateFailures"] = types.YLeaf{"Csipstatsconnudpcreatefailures", csipstatsconnection.Csipstatsconnudpcreatefailures}
-    csipstatsconnection.EntityData.Leafs["cSipStatsConnTCPCreateFailures"] = types.YLeaf{"Csipstatsconntcpcreatefailures", csipstatsconnection.Csipstatsconntcpcreatefailures}
-    csipstatsconnection.EntityData.Leafs["cSipStatsConnUDPInactiveTimeouts"] = types.YLeaf{"Csipstatsconnudpinactivetimeouts", csipstatsconnection.Csipstatsconnudpinactivetimeouts}
-    csipstatsconnection.EntityData.Leafs["cSipStatsConnTCPInactiveTimeouts"] = types.YLeaf{"Csipstatsconntcpinactivetimeouts", csipstatsconnection.Csipstatsconntcpinactivetimeouts}
-    csipstatsconnection.EntityData.Leafs["cSipStatsActiveUDPConnections"] = types.YLeaf{"Csipstatsactiveudpconnections", csipstatsconnection.Csipstatsactiveudpconnections}
-    csipstatsconnection.EntityData.Leafs["cSipStatsActiveTCPConnections"] = types.YLeaf{"Csipstatsactivetcpconnections", csipstatsconnection.Csipstatsactivetcpconnections}
-    return &(csipstatsconnection.EntityData)
+    cSipStatsConnection.EntityData.Children = types.NewOrderedMap()
+    cSipStatsConnection.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsConnTCPSendFailures", types.YLeaf{"CSipStatsConnTCPSendFailures", cSipStatsConnection.CSipStatsConnTCPSendFailures})
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsConnUDPSendFailures", types.YLeaf{"CSipStatsConnUDPSendFailures", cSipStatsConnection.CSipStatsConnUDPSendFailures})
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsConnTCPRemoteClosures", types.YLeaf{"CSipStatsConnTCPRemoteClosures", cSipStatsConnection.CSipStatsConnTCPRemoteClosures})
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsConnUDPCreateFailures", types.YLeaf{"CSipStatsConnUDPCreateFailures", cSipStatsConnection.CSipStatsConnUDPCreateFailures})
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsConnTCPCreateFailures", types.YLeaf{"CSipStatsConnTCPCreateFailures", cSipStatsConnection.CSipStatsConnTCPCreateFailures})
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsConnUDPInactiveTimeouts", types.YLeaf{"CSipStatsConnUDPInactiveTimeouts", cSipStatsConnection.CSipStatsConnUDPInactiveTimeouts})
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsConnTCPInactiveTimeouts", types.YLeaf{"CSipStatsConnTCPInactiveTimeouts", cSipStatsConnection.CSipStatsConnTCPInactiveTimeouts})
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsActiveUDPConnections", types.YLeaf{"CSipStatsActiveUDPConnections", cSipStatsConnection.CSipStatsActiveUDPConnections})
+    cSipStatsConnection.EntityData.Leafs.Append("cSipStatsActiveTCPConnections", types.YLeaf{"CSipStatsActiveTCPConnections", cSipStatsConnection.CSipStatsActiveTCPConnections})
+
+    cSipStatsConnection.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsConnection.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgearlymediatable
+// CISCOSIPUAMIB_CSipCfgEarlyMediaTable
 // This table contains configuration for Early
 // Media Cut Through.  The configuration controls
 // how the SIP user agent will process 1xx
 // (Provisional) SIP response messages that contain 
 // Session Definition Protocol (SDP) payloads.
-type CISCOSIPUAMIB_Csipcfgearlymediatable struct {
+type CISCOSIPUAMIB_CSipCfgEarlyMediaTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgEarlyMediaTable. A row is accessible with a Provisional
     // (1xx) status code value (eg, 180) and provides an object for the enabling
     // or disabling of the Early Media Cut Through functionality. The type is
-    // slice of CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry.
-    Csipcfgearlymediaentry []CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry
+    // slice of CISCOSIPUAMIB_CSipCfgEarlyMediaTable_CSipCfgEarlyMediaEntry.
+    CSipCfgEarlyMediaEntry []*CISCOSIPUAMIB_CSipCfgEarlyMediaTable_CSipCfgEarlyMediaEntry
 }
 
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetEntityData() *types.CommonEntityData {
-    csipcfgearlymediatable.EntityData.YFilter = csipcfgearlymediatable.YFilter
-    csipcfgearlymediatable.EntityData.YangName = "cSipCfgEarlyMediaTable"
-    csipcfgearlymediatable.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgearlymediatable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgearlymediatable.EntityData.SegmentPath = "cSipCfgEarlyMediaTable"
-    csipcfgearlymediatable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgearlymediatable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgearlymediatable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgEarlyMediaTable *CISCOSIPUAMIB_CSipCfgEarlyMediaTable) GetEntityData() *types.CommonEntityData {
+    cSipCfgEarlyMediaTable.EntityData.YFilter = cSipCfgEarlyMediaTable.YFilter
+    cSipCfgEarlyMediaTable.EntityData.YangName = "cSipCfgEarlyMediaTable"
+    cSipCfgEarlyMediaTable.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgEarlyMediaTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgEarlyMediaTable.EntityData.SegmentPath = "cSipCfgEarlyMediaTable"
+    cSipCfgEarlyMediaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgEarlyMediaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgEarlyMediaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgearlymediatable.EntityData.Children = make(map[string]types.YChild)
-    csipcfgearlymediatable.EntityData.Children["cSipCfgEarlyMediaEntry"] = types.YChild{"Csipcfgearlymediaentry", nil}
-    for i := range csipcfgearlymediatable.Csipcfgearlymediaentry {
-        csipcfgearlymediatable.EntityData.Children[types.GetSegmentPath(&csipcfgearlymediatable.Csipcfgearlymediaentry[i])] = types.YChild{"Csipcfgearlymediaentry", &csipcfgearlymediatable.Csipcfgearlymediaentry[i]}
+    cSipCfgEarlyMediaTable.EntityData.Children = types.NewOrderedMap()
+    cSipCfgEarlyMediaTable.EntityData.Children.Append("cSipCfgEarlyMediaEntry", types.YChild{"CSipCfgEarlyMediaEntry", nil})
+    for i := range cSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry {
+        cSipCfgEarlyMediaTable.EntityData.Children.Append(types.GetSegmentPath(cSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry[i]), types.YChild{"CSipCfgEarlyMediaEntry", cSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry[i]})
     }
-    csipcfgearlymediatable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csipcfgearlymediatable.EntityData)
+    cSipCfgEarlyMediaTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cSipCfgEarlyMediaTable.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgEarlyMediaTable.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry
+// CISCOSIPUAMIB_CSipCfgEarlyMediaTable_CSipCfgEarlyMediaEntry
 // A row in the cSipCfgEarlyMediaTable.
 // A row is accessible with a Provisional (1xx)
 // status code value (eg, 180) and provides
 // an object for the enabling or disabling of
 // the Early Media Cut Through functionality.
-type CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry struct {
+type CISCOSIPUAMIB_CSipCfgEarlyMediaTable_CSipCfgEarlyMediaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table and a
     // valid SIP status code. The type is interface{} with range: 1..2147483647.
-    Csipcfgearlymediastatuscodeindex interface{}
+    CSipCfgEarlyMediaStatusCodeIndex interface{}
 
     // This object specifies whether Early Media  Cut Through is enabled or
     // disabled for the  SIP response messages with status codes that  match
@@ -2102,27 +2156,30 @@ type CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry struct {
     // Progress) and cut through for early media.  The assumption being that the
     // SDP is an indication that the far end is going to send early media. The
     // type is bool.
-    Csipcfgearlymediacutthrudisabled interface{}
+    CSipCfgEarlyMediaCutThruDisabled interface{}
 }
 
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetEntityData() *types.CommonEntityData {
-    csipcfgearlymediaentry.EntityData.YFilter = csipcfgearlymediaentry.YFilter
-    csipcfgearlymediaentry.EntityData.YangName = "cSipCfgEarlyMediaEntry"
-    csipcfgearlymediaentry.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgearlymediaentry.EntityData.ParentYangName = "cSipCfgEarlyMediaTable"
-    csipcfgearlymediaentry.EntityData.SegmentPath = "cSipCfgEarlyMediaEntry" + "[cSipCfgEarlyMediaStatusCodeIndex='" + fmt.Sprintf("%v", csipcfgearlymediaentry.Csipcfgearlymediastatuscodeindex) + "']"
-    csipcfgearlymediaentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgearlymediaentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgearlymediaentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgEarlyMediaEntry *CISCOSIPUAMIB_CSipCfgEarlyMediaTable_CSipCfgEarlyMediaEntry) GetEntityData() *types.CommonEntityData {
+    cSipCfgEarlyMediaEntry.EntityData.YFilter = cSipCfgEarlyMediaEntry.YFilter
+    cSipCfgEarlyMediaEntry.EntityData.YangName = "cSipCfgEarlyMediaEntry"
+    cSipCfgEarlyMediaEntry.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgEarlyMediaEntry.EntityData.ParentYangName = "cSipCfgEarlyMediaTable"
+    cSipCfgEarlyMediaEntry.EntityData.SegmentPath = "cSipCfgEarlyMediaEntry" + types.AddKeyToken(cSipCfgEarlyMediaEntry.CSipCfgEarlyMediaStatusCodeIndex, "cSipCfgEarlyMediaStatusCodeIndex")
+    cSipCfgEarlyMediaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgEarlyMediaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgEarlyMediaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgearlymediaentry.EntityData.Children = make(map[string]types.YChild)
-    csipcfgearlymediaentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgearlymediaentry.EntityData.Leafs["cSipCfgEarlyMediaStatusCodeIndex"] = types.YLeaf{"Csipcfgearlymediastatuscodeindex", csipcfgearlymediaentry.Csipcfgearlymediastatuscodeindex}
-    csipcfgearlymediaentry.EntityData.Leafs["cSipCfgEarlyMediaCutThruDisabled"] = types.YLeaf{"Csipcfgearlymediacutthrudisabled", csipcfgearlymediaentry.Csipcfgearlymediacutthrudisabled}
-    return &(csipcfgearlymediaentry.EntityData)
+    cSipCfgEarlyMediaEntry.EntityData.Children = types.NewOrderedMap()
+    cSipCfgEarlyMediaEntry.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgEarlyMediaEntry.EntityData.Leafs.Append("cSipCfgEarlyMediaStatusCodeIndex", types.YLeaf{"CSipCfgEarlyMediaStatusCodeIndex", cSipCfgEarlyMediaEntry.CSipCfgEarlyMediaStatusCodeIndex})
+    cSipCfgEarlyMediaEntry.EntityData.Leafs.Append("cSipCfgEarlyMediaCutThruDisabled", types.YLeaf{"CSipCfgEarlyMediaCutThruDisabled", cSipCfgEarlyMediaEntry.CSipCfgEarlyMediaCutThruDisabled})
+
+    cSipCfgEarlyMediaEntry.EntityData.YListKeys = []string {"CSipCfgEarlyMediaStatusCodeIndex"}
+
+    return &(cSipCfgEarlyMediaEntry.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgbindsourceaddrtable
+// CISCOSIPUAMIB_CSipCfgBindSourceAddrTable
 // This table contains configuration for binding
 // the scope of packets to the particular ethernet
 // interface. The scope for the packets can be
@@ -2130,87 +2187,93 @@ func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlym
 // packets. The ethernet interface shall be
 // specified by the interface index. The table
 // shall be indexed based on the scope.
-type CISCOSIPUAMIB_Csipcfgbindsourceaddrtable struct {
+type CISCOSIPUAMIB_CSipCfgBindSourceAddrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgBindSourceAddrTable. A row is accessible with the scope
     // of packets to which the source IP address of the interface designated by
     // cSipCfgBindSourceAddrInterface will be bound. The type is slice of
-    // CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry.
-    Csipcfgbindsourceaddrentry []CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry
+    // CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry.
+    CSipCfgBindSourceAddrEntry []*CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry
 }
 
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetEntityData() *types.CommonEntityData {
-    csipcfgbindsourceaddrtable.EntityData.YFilter = csipcfgbindsourceaddrtable.YFilter
-    csipcfgbindsourceaddrtable.EntityData.YangName = "cSipCfgBindSourceAddrTable"
-    csipcfgbindsourceaddrtable.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgbindsourceaddrtable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgbindsourceaddrtable.EntityData.SegmentPath = "cSipCfgBindSourceAddrTable"
-    csipcfgbindsourceaddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgbindsourceaddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgbindsourceaddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgBindSourceAddrTable *CISCOSIPUAMIB_CSipCfgBindSourceAddrTable) GetEntityData() *types.CommonEntityData {
+    cSipCfgBindSourceAddrTable.EntityData.YFilter = cSipCfgBindSourceAddrTable.YFilter
+    cSipCfgBindSourceAddrTable.EntityData.YangName = "cSipCfgBindSourceAddrTable"
+    cSipCfgBindSourceAddrTable.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgBindSourceAddrTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgBindSourceAddrTable.EntityData.SegmentPath = "cSipCfgBindSourceAddrTable"
+    cSipCfgBindSourceAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgBindSourceAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgBindSourceAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgbindsourceaddrtable.EntityData.Children = make(map[string]types.YChild)
-    csipcfgbindsourceaddrtable.EntityData.Children["cSipCfgBindSourceAddrEntry"] = types.YChild{"Csipcfgbindsourceaddrentry", nil}
-    for i := range csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry {
-        csipcfgbindsourceaddrtable.EntityData.Children[types.GetSegmentPath(&csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry[i])] = types.YChild{"Csipcfgbindsourceaddrentry", &csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry[i]}
+    cSipCfgBindSourceAddrTable.EntityData.Children = types.NewOrderedMap()
+    cSipCfgBindSourceAddrTable.EntityData.Children.Append("cSipCfgBindSourceAddrEntry", types.YChild{"CSipCfgBindSourceAddrEntry", nil})
+    for i := range cSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry {
+        cSipCfgBindSourceAddrTable.EntityData.Children.Append(types.GetSegmentPath(cSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry[i]), types.YChild{"CSipCfgBindSourceAddrEntry", cSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry[i]})
     }
-    csipcfgbindsourceaddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csipcfgbindsourceaddrtable.EntityData)
+    cSipCfgBindSourceAddrTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cSipCfgBindSourceAddrTable.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgBindSourceAddrTable.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry
+// CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry
 // A row in the cSipCfgBindSourceAddrTable.
 // A row is accessible with the scope of packets
 // to which the source IP address of the interface
 // designated by cSipCfgBindSourceAddrInterface
 // will be bound.
-type CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry struct {
+type CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table and
     // specifies the scope of packets to which the source IP address of the
     // interface designated by cSipCfgBindSourceAddrInterface will be bound. The
-    // type is Csipcfgbindsourceaddrscope.
-    Csipcfgbindsourceaddrscope interface{}
+    // type is CSipCfgBindSourceAddrScope.
+    CSipCfgBindSourceAddrScope interface{}
 
     // This object may specify the interface where the source IP address used in
     // SIP signalling or media packets is configured.  A value of 0 means that
     // there is no specific source address configured and in this case the best
     // local IP address will be chosen by the system. The type is interface{} with
     // range: 0..2147483647.
-    Csipcfgbindsourceaddrinterface interface{}
+    CSipCfgBindSourceAddrInterface interface{}
 }
 
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetEntityData() *types.CommonEntityData {
-    csipcfgbindsourceaddrentry.EntityData.YFilter = csipcfgbindsourceaddrentry.YFilter
-    csipcfgbindsourceaddrentry.EntityData.YangName = "cSipCfgBindSourceAddrEntry"
-    csipcfgbindsourceaddrentry.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgbindsourceaddrentry.EntityData.ParentYangName = "cSipCfgBindSourceAddrTable"
-    csipcfgbindsourceaddrentry.EntityData.SegmentPath = "cSipCfgBindSourceAddrEntry" + "[cSipCfgBindSourceAddrScope='" + fmt.Sprintf("%v", csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrscope) + "']"
-    csipcfgbindsourceaddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgbindsourceaddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgbindsourceaddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgBindSourceAddrEntry *CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry) GetEntityData() *types.CommonEntityData {
+    cSipCfgBindSourceAddrEntry.EntityData.YFilter = cSipCfgBindSourceAddrEntry.YFilter
+    cSipCfgBindSourceAddrEntry.EntityData.YangName = "cSipCfgBindSourceAddrEntry"
+    cSipCfgBindSourceAddrEntry.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgBindSourceAddrEntry.EntityData.ParentYangName = "cSipCfgBindSourceAddrTable"
+    cSipCfgBindSourceAddrEntry.EntityData.SegmentPath = "cSipCfgBindSourceAddrEntry" + types.AddKeyToken(cSipCfgBindSourceAddrEntry.CSipCfgBindSourceAddrScope, "cSipCfgBindSourceAddrScope")
+    cSipCfgBindSourceAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgBindSourceAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgBindSourceAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgbindsourceaddrentry.EntityData.Children = make(map[string]types.YChild)
-    csipcfgbindsourceaddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgbindsourceaddrentry.EntityData.Leafs["cSipCfgBindSourceAddrScope"] = types.YLeaf{"Csipcfgbindsourceaddrscope", csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrscope}
-    csipcfgbindsourceaddrentry.EntityData.Leafs["cSipCfgBindSourceAddrInterface"] = types.YLeaf{"Csipcfgbindsourceaddrinterface", csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrinterface}
-    return &(csipcfgbindsourceaddrentry.EntityData)
+    cSipCfgBindSourceAddrEntry.EntityData.Children = types.NewOrderedMap()
+    cSipCfgBindSourceAddrEntry.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgBindSourceAddrEntry.EntityData.Leafs.Append("cSipCfgBindSourceAddrScope", types.YLeaf{"CSipCfgBindSourceAddrScope", cSipCfgBindSourceAddrEntry.CSipCfgBindSourceAddrScope})
+    cSipCfgBindSourceAddrEntry.EntityData.Leafs.Append("cSipCfgBindSourceAddrInterface", types.YLeaf{"CSipCfgBindSourceAddrInterface", cSipCfgBindSourceAddrEntry.CSipCfgBindSourceAddrInterface})
+
+    cSipCfgBindSourceAddrEntry.EntityData.YListKeys = []string {"CSipCfgBindSourceAddrScope"}
+
+    return &(cSipCfgBindSourceAddrEntry.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry_Csipcfgbindsourceaddrscope represents will be bound.
-type CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry_Csipcfgbindsourceaddrscope string
+// CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry_CSipCfgBindSourceAddrScope represents will be bound.
+type CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry_CSipCfgBindSourceAddrScope string
 
 const (
-    CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry_Csipcfgbindsourceaddrscope_media CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry_Csipcfgbindsourceaddrscope = "media"
+    CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry_CSipCfgBindSourceAddrScope_media CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry_CSipCfgBindSourceAddrScope = "media"
 
-    CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry_Csipcfgbindsourceaddrscope_control CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry_Csipcfgbindsourceaddrscope = "control"
+    CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry_CSipCfgBindSourceAddrScope_control CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry_CSipCfgBindSourceAddrScope = "control"
 )
 
-// CISCOSIPUAMIB_Csipcfgpeertable
+// CISCOSIPUAMIB_CSipCfgPeerTable
 // This table contains per dial-peer SIP related 
 // configuration.   
 // 
@@ -2224,56 +2287,59 @@ const (
 // table.  Only SIP related configuration can be 
 // performed via this table once the dial-peer exists
 // in the system and is visible in this table.
-type CISCOSIPUAMIB_Csipcfgpeertable struct {
+type CISCOSIPUAMIB_CSipCfgPeerTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgPeerTable. The type is slice of
-    // CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry.
-    Csipcfgpeerentry []CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry
+    // CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry.
+    CSipCfgPeerEntry []*CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry
 }
 
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetEntityData() *types.CommonEntityData {
-    csipcfgpeertable.EntityData.YFilter = csipcfgpeertable.YFilter
-    csipcfgpeertable.EntityData.YangName = "cSipCfgPeerTable"
-    csipcfgpeertable.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgpeertable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgpeertable.EntityData.SegmentPath = "cSipCfgPeerTable"
-    csipcfgpeertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgpeertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgpeertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgPeerTable *CISCOSIPUAMIB_CSipCfgPeerTable) GetEntityData() *types.CommonEntityData {
+    cSipCfgPeerTable.EntityData.YFilter = cSipCfgPeerTable.YFilter
+    cSipCfgPeerTable.EntityData.YangName = "cSipCfgPeerTable"
+    cSipCfgPeerTable.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgPeerTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgPeerTable.EntityData.SegmentPath = "cSipCfgPeerTable"
+    cSipCfgPeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgPeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgPeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgpeertable.EntityData.Children = make(map[string]types.YChild)
-    csipcfgpeertable.EntityData.Children["cSipCfgPeerEntry"] = types.YChild{"Csipcfgpeerentry", nil}
-    for i := range csipcfgpeertable.Csipcfgpeerentry {
-        csipcfgpeertable.EntityData.Children[types.GetSegmentPath(&csipcfgpeertable.Csipcfgpeerentry[i])] = types.YChild{"Csipcfgpeerentry", &csipcfgpeertable.Csipcfgpeerentry[i]}
+    cSipCfgPeerTable.EntityData.Children = types.NewOrderedMap()
+    cSipCfgPeerTable.EntityData.Children.Append("cSipCfgPeerEntry", types.YChild{"CSipCfgPeerEntry", nil})
+    for i := range cSipCfgPeerTable.CSipCfgPeerEntry {
+        cSipCfgPeerTable.EntityData.Children.Append(types.GetSegmentPath(cSipCfgPeerTable.CSipCfgPeerEntry[i]), types.YChild{"CSipCfgPeerEntry", cSipCfgPeerTable.CSipCfgPeerEntry[i]})
     }
-    csipcfgpeertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csipcfgpeertable.EntityData)
+    cSipCfgPeerTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cSipCfgPeerTable.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgPeerTable.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry
+// CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry
 // A row in the cSipCfgPeerTable.
-type CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry struct {
+type CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary index that uniquely identifies a 
     // dial-peer configured for SIP. The type is interface{} with range:
     // 1..2147483647.
-    Csipcfgpeerindex interface{}
+    CSipCfgPeerIndex interface{}
 
     // This object specifies the session transport  protocol that will be used by
     // this dial-peer for outbound SIP messages.    The value 'system' is the
     // default and indicates  that this dial-peer should use the value set by 
     // cSipCfgOutSessionTransport instead. The type is
-    // Csipcfgpeeroutsessiontransport.
-    Csipcfgpeeroutsessiontransport interface{}
+    // CSipCfgPeerOutSessionTransport.
+    CSipCfgPeerOutSessionTransport interface{}
 
     // This object specifies the string that will be  placed in either the
     // Supported or Require SIP  header, as specified by
     // cSipCfgPeerReliable1xxRspHdr. The type is string.
-    Csipcfgpeerreliable1Xxrspstr interface{}
+    CSipCfgPeerReliable1xxRspStr interface{}
 
     // This object specifies behavior with respect to Support or Require headers
     // in SIP messages sent and received via this dial-peer.  If the originating
@@ -2289,308 +2355,329 @@ type CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry struct {
     // cSipCfgReliable1xxStr will NOT be added to either the Require or Supported
     // headers of outgoing INVITEs.  The value 'system' is the default and
     // indicates that this  dial-peer should use the value of 
-    // cSipCfgReliable1xxRspHdr instead. The type is Csipcfgpeerreliable1Xxrsphdr.
-    Csipcfgpeerreliable1Xxrsphdr interface{}
+    // cSipCfgReliable1xxRspHdr instead. The type is CSipCfgPeerReliable1xxRspHdr.
+    CSipCfgPeerReliable1xxRspHdr interface{}
 
     // This object specifies the URL type sent in outbound INVITES generated by
     // this device.  The value 'system' is the default and indicates that this 
     // dial-peer should use the value of cSipCfgUrlType instead. The type is
-    // Csipcfgpeerurltype.
-    Csipcfgpeerurltype interface{}
+    // CSipCfgPeerUrlType.
+    CSipCfgPeerUrlType interface{}
 
     // This object specifies if the functionality of switching between transports
     // from UDP to TCP if the message size of a Request is greater than 1300 bytes
     // is enabled or not. The type is bool.
-    Csipcfgpeerswitchtransenabled interface{}
+    CSipCfgPeerSwitchTransEnabled interface{}
 }
 
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetEntityData() *types.CommonEntityData {
-    csipcfgpeerentry.EntityData.YFilter = csipcfgpeerentry.YFilter
-    csipcfgpeerentry.EntityData.YangName = "cSipCfgPeerEntry"
-    csipcfgpeerentry.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgpeerentry.EntityData.ParentYangName = "cSipCfgPeerTable"
-    csipcfgpeerentry.EntityData.SegmentPath = "cSipCfgPeerEntry" + "[cSipCfgPeerIndex='" + fmt.Sprintf("%v", csipcfgpeerentry.Csipcfgpeerindex) + "']"
-    csipcfgpeerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgpeerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgpeerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgPeerEntry *CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry) GetEntityData() *types.CommonEntityData {
+    cSipCfgPeerEntry.EntityData.YFilter = cSipCfgPeerEntry.YFilter
+    cSipCfgPeerEntry.EntityData.YangName = "cSipCfgPeerEntry"
+    cSipCfgPeerEntry.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgPeerEntry.EntityData.ParentYangName = "cSipCfgPeerTable"
+    cSipCfgPeerEntry.EntityData.SegmentPath = "cSipCfgPeerEntry" + types.AddKeyToken(cSipCfgPeerEntry.CSipCfgPeerIndex, "cSipCfgPeerIndex")
+    cSipCfgPeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgPeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgPeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgpeerentry.EntityData.Children = make(map[string]types.YChild)
-    csipcfgpeerentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerIndex"] = types.YLeaf{"Csipcfgpeerindex", csipcfgpeerentry.Csipcfgpeerindex}
-    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerOutSessionTransport"] = types.YLeaf{"Csipcfgpeeroutsessiontransport", csipcfgpeerentry.Csipcfgpeeroutsessiontransport}
-    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerReliable1xxRspStr"] = types.YLeaf{"Csipcfgpeerreliable1Xxrspstr", csipcfgpeerentry.Csipcfgpeerreliable1Xxrspstr}
-    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerReliable1xxRspHdr"] = types.YLeaf{"Csipcfgpeerreliable1Xxrsphdr", csipcfgpeerentry.Csipcfgpeerreliable1Xxrsphdr}
-    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerUrlType"] = types.YLeaf{"Csipcfgpeerurltype", csipcfgpeerentry.Csipcfgpeerurltype}
-    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerSwitchTransEnabled"] = types.YLeaf{"Csipcfgpeerswitchtransenabled", csipcfgpeerentry.Csipcfgpeerswitchtransenabled}
-    return &(csipcfgpeerentry.EntityData)
+    cSipCfgPeerEntry.EntityData.Children = types.NewOrderedMap()
+    cSipCfgPeerEntry.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgPeerEntry.EntityData.Leafs.Append("cSipCfgPeerIndex", types.YLeaf{"CSipCfgPeerIndex", cSipCfgPeerEntry.CSipCfgPeerIndex})
+    cSipCfgPeerEntry.EntityData.Leafs.Append("cSipCfgPeerOutSessionTransport", types.YLeaf{"CSipCfgPeerOutSessionTransport", cSipCfgPeerEntry.CSipCfgPeerOutSessionTransport})
+    cSipCfgPeerEntry.EntityData.Leafs.Append("cSipCfgPeerReliable1xxRspStr", types.YLeaf{"CSipCfgPeerReliable1xxRspStr", cSipCfgPeerEntry.CSipCfgPeerReliable1xxRspStr})
+    cSipCfgPeerEntry.EntityData.Leafs.Append("cSipCfgPeerReliable1xxRspHdr", types.YLeaf{"CSipCfgPeerReliable1xxRspHdr", cSipCfgPeerEntry.CSipCfgPeerReliable1xxRspHdr})
+    cSipCfgPeerEntry.EntityData.Leafs.Append("cSipCfgPeerUrlType", types.YLeaf{"CSipCfgPeerUrlType", cSipCfgPeerEntry.CSipCfgPeerUrlType})
+    cSipCfgPeerEntry.EntityData.Leafs.Append("cSipCfgPeerSwitchTransEnabled", types.YLeaf{"CSipCfgPeerSwitchTransEnabled", cSipCfgPeerEntry.CSipCfgPeerSwitchTransEnabled})
+
+    cSipCfgPeerEntry.EntityData.YListKeys = []string {"CSipCfgPeerIndex"}
+
+    return &(cSipCfgPeerEntry.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport represents cSipCfgOutSessionTransport instead.
-type CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport string
+// CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerOutSessionTransport represents cSipCfgOutSessionTransport instead.
+type CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerOutSessionTransport string
 
 const (
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport_system CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport = "system"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerOutSessionTransport_system CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerOutSessionTransport = "system"
 
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport_udp CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport = "udp"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerOutSessionTransport_udp CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerOutSessionTransport = "udp"
 
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport_tcp CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport = "tcp"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerOutSessionTransport_tcp CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerOutSessionTransport = "tcp"
 )
 
-// CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr represents instead.
-type CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr string
+// CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr represents instead.
+type CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr string
 
 const (
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr_system CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr = "system"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr_system CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr = "system"
 
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr_supported CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr = "supported"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr_supported CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr = "supported"
 
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr_require CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr = "require"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr_require CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr = "require"
 
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr_disabled CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerreliable1Xxrsphdr = "disabled"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr_disabled CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerReliable1xxRspHdr = "disabled"
 )
 
-// CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerurltype represents dial-peer should use the value of cSipCfgUrlType instead.
-type CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerurltype string
+// CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerUrlType represents dial-peer should use the value of cSipCfgUrlType instead.
+type CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerUrlType string
 
 const (
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerurltype_system CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerurltype = "system"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerUrlType_system CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerUrlType = "system"
 
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerurltype_sip CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerurltype = "sip"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerUrlType_sip CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerUrlType = "sip"
 
-    CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerurltype_tel CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeerurltype = "tel"
+    CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerUrlType_tel CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry_CSipCfgPeerUrlType = "tel"
 )
 
-// CISCOSIPUAMIB_Csipcfgstatuscausetable
+// CISCOSIPUAMIB_CSipCfgStatusCauseTable
 // This table contains SIP status code to PSTN cause code
 // mapping configuration.  Inbound SIP response messages 
 // that will result in outbound PSTN signalling messages
 // will have the SIP status codes transposed into the
 // PSTN cause codes as prescribed by the contents of this 
 // table.
-type CISCOSIPUAMIB_Csipcfgstatuscausetable struct {
+type CISCOSIPUAMIB_CSipCfgStatusCauseTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgStatusCauseTable.  Entries cannot be created or
     // destroyed by the actions of any NMS. The type is slice of
-    // CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry.
-    Csipcfgstatuscauseentry []CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry
+    // CISCOSIPUAMIB_CSipCfgStatusCauseTable_CSipCfgStatusCauseEntry.
+    CSipCfgStatusCauseEntry []*CISCOSIPUAMIB_CSipCfgStatusCauseTable_CSipCfgStatusCauseEntry
 }
 
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetEntityData() *types.CommonEntityData {
-    csipcfgstatuscausetable.EntityData.YFilter = csipcfgstatuscausetable.YFilter
-    csipcfgstatuscausetable.EntityData.YangName = "cSipCfgStatusCauseTable"
-    csipcfgstatuscausetable.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgstatuscausetable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgstatuscausetable.EntityData.SegmentPath = "cSipCfgStatusCauseTable"
-    csipcfgstatuscausetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgstatuscausetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgstatuscausetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgStatusCauseTable *CISCOSIPUAMIB_CSipCfgStatusCauseTable) GetEntityData() *types.CommonEntityData {
+    cSipCfgStatusCauseTable.EntityData.YFilter = cSipCfgStatusCauseTable.YFilter
+    cSipCfgStatusCauseTable.EntityData.YangName = "cSipCfgStatusCauseTable"
+    cSipCfgStatusCauseTable.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgStatusCauseTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgStatusCauseTable.EntityData.SegmentPath = "cSipCfgStatusCauseTable"
+    cSipCfgStatusCauseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgStatusCauseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgStatusCauseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgstatuscausetable.EntityData.Children = make(map[string]types.YChild)
-    csipcfgstatuscausetable.EntityData.Children["cSipCfgStatusCauseEntry"] = types.YChild{"Csipcfgstatuscauseentry", nil}
-    for i := range csipcfgstatuscausetable.Csipcfgstatuscauseentry {
-        csipcfgstatuscausetable.EntityData.Children[types.GetSegmentPath(&csipcfgstatuscausetable.Csipcfgstatuscauseentry[i])] = types.YChild{"Csipcfgstatuscauseentry", &csipcfgstatuscausetable.Csipcfgstatuscauseentry[i]}
+    cSipCfgStatusCauseTable.EntityData.Children = types.NewOrderedMap()
+    cSipCfgStatusCauseTable.EntityData.Children.Append("cSipCfgStatusCauseEntry", types.YChild{"CSipCfgStatusCauseEntry", nil})
+    for i := range cSipCfgStatusCauseTable.CSipCfgStatusCauseEntry {
+        cSipCfgStatusCauseTable.EntityData.Children.Append(types.GetSegmentPath(cSipCfgStatusCauseTable.CSipCfgStatusCauseEntry[i]), types.YChild{"CSipCfgStatusCauseEntry", cSipCfgStatusCauseTable.CSipCfgStatusCauseEntry[i]})
     }
-    csipcfgstatuscausetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csipcfgstatuscausetable.EntityData)
+    cSipCfgStatusCauseTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cSipCfgStatusCauseTable.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgStatusCauseTable.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry
+// CISCOSIPUAMIB_CSipCfgStatusCauseTable_CSipCfgStatusCauseEntry
 // A row in the cSipCfgStatusCauseTable.  Entries cannot be
 // created or destroyed by the actions of any NMS.
-type CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry struct {
+type CISCOSIPUAMIB_CSipCfgStatusCauseTable_CSipCfgStatusCauseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table and a
     // valid SIP status code. The type is interface{} with range: 1..2147483647.
-    Csipcfgstatuscodeindex interface{}
+    CSipCfgStatusCodeIndex interface{}
 
     // The PSTN cause code to which the SIP status code given by
     // cSipCfgStatusCodeIndex is to be mapped for outbound PSTN signalling
     // messages. The type is interface{} with range: 1..2147483647.
-    Csipcfgpstncause interface{}
+    CSipCfgPstnCause interface{}
 
     // This object reflects the storage status of this table entry.  If the value
     // is 'volatile', then this entry only exists in RAM and the information would
     // be lost (reverting to defaults) on system reload.   If the value is
     // 'nonVolatile' then this entry has been  written to NVRAM and will persist
     // across system reloads. The type is StorageType.
-    Csipcfgstatuscausestorestatus interface{}
+    CSipCfgStatusCauseStoreStatus interface{}
 }
 
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetEntityData() *types.CommonEntityData {
-    csipcfgstatuscauseentry.EntityData.YFilter = csipcfgstatuscauseentry.YFilter
-    csipcfgstatuscauseentry.EntityData.YangName = "cSipCfgStatusCauseEntry"
-    csipcfgstatuscauseentry.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgstatuscauseentry.EntityData.ParentYangName = "cSipCfgStatusCauseTable"
-    csipcfgstatuscauseentry.EntityData.SegmentPath = "cSipCfgStatusCauseEntry" + "[cSipCfgStatusCodeIndex='" + fmt.Sprintf("%v", csipcfgstatuscauseentry.Csipcfgstatuscodeindex) + "']"
-    csipcfgstatuscauseentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgstatuscauseentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgstatuscauseentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgStatusCauseEntry *CISCOSIPUAMIB_CSipCfgStatusCauseTable_CSipCfgStatusCauseEntry) GetEntityData() *types.CommonEntityData {
+    cSipCfgStatusCauseEntry.EntityData.YFilter = cSipCfgStatusCauseEntry.YFilter
+    cSipCfgStatusCauseEntry.EntityData.YangName = "cSipCfgStatusCauseEntry"
+    cSipCfgStatusCauseEntry.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgStatusCauseEntry.EntityData.ParentYangName = "cSipCfgStatusCauseTable"
+    cSipCfgStatusCauseEntry.EntityData.SegmentPath = "cSipCfgStatusCauseEntry" + types.AddKeyToken(cSipCfgStatusCauseEntry.CSipCfgStatusCodeIndex, "cSipCfgStatusCodeIndex")
+    cSipCfgStatusCauseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgStatusCauseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgStatusCauseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgstatuscauseentry.EntityData.Children = make(map[string]types.YChild)
-    csipcfgstatuscauseentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgstatuscauseentry.EntityData.Leafs["cSipCfgStatusCodeIndex"] = types.YLeaf{"Csipcfgstatuscodeindex", csipcfgstatuscauseentry.Csipcfgstatuscodeindex}
-    csipcfgstatuscauseentry.EntityData.Leafs["cSipCfgPstnCause"] = types.YLeaf{"Csipcfgpstncause", csipcfgstatuscauseentry.Csipcfgpstncause}
-    csipcfgstatuscauseentry.EntityData.Leafs["cSipCfgStatusCauseStoreStatus"] = types.YLeaf{"Csipcfgstatuscausestorestatus", csipcfgstatuscauseentry.Csipcfgstatuscausestorestatus}
-    return &(csipcfgstatuscauseentry.EntityData)
+    cSipCfgStatusCauseEntry.EntityData.Children = types.NewOrderedMap()
+    cSipCfgStatusCauseEntry.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgStatusCauseEntry.EntityData.Leafs.Append("cSipCfgStatusCodeIndex", types.YLeaf{"CSipCfgStatusCodeIndex", cSipCfgStatusCauseEntry.CSipCfgStatusCodeIndex})
+    cSipCfgStatusCauseEntry.EntityData.Leafs.Append("cSipCfgPstnCause", types.YLeaf{"CSipCfgPstnCause", cSipCfgStatusCauseEntry.CSipCfgPstnCause})
+    cSipCfgStatusCauseEntry.EntityData.Leafs.Append("cSipCfgStatusCauseStoreStatus", types.YLeaf{"CSipCfgStatusCauseStoreStatus", cSipCfgStatusCauseEntry.CSipCfgStatusCauseStoreStatus})
+
+    cSipCfgStatusCauseEntry.EntityData.YListKeys = []string {"CSipCfgStatusCodeIndex"}
+
+    return &(cSipCfgStatusCauseEntry.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgcausestatustable
+// CISCOSIPUAMIB_CSipCfgCauseStatusTable
 // This table contains PSTN cause code to SIP status code
 // mapping configuration.   Inbound PSTN signalling messages
 // that will result in outbound SIP response messages 
 // will have the PSTN cause codes transposed into the
 // SIP status codes as prescribed by the contents of this 
 // table.
-type CISCOSIPUAMIB_Csipcfgcausestatustable struct {
+type CISCOSIPUAMIB_CSipCfgCauseStatusTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgCauseStatusTable. Entries cannot be created or
     // destroyed by the actions of any NMS. The type is slice of
-    // CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry.
-    Csipcfgcausestatusentry []CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry
+    // CISCOSIPUAMIB_CSipCfgCauseStatusTable_CSipCfgCauseStatusEntry.
+    CSipCfgCauseStatusEntry []*CISCOSIPUAMIB_CSipCfgCauseStatusTable_CSipCfgCauseStatusEntry
 }
 
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetEntityData() *types.CommonEntityData {
-    csipcfgcausestatustable.EntityData.YFilter = csipcfgcausestatustable.YFilter
-    csipcfgcausestatustable.EntityData.YangName = "cSipCfgCauseStatusTable"
-    csipcfgcausestatustable.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgcausestatustable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipcfgcausestatustable.EntityData.SegmentPath = "cSipCfgCauseStatusTable"
-    csipcfgcausestatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgcausestatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgcausestatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgCauseStatusTable *CISCOSIPUAMIB_CSipCfgCauseStatusTable) GetEntityData() *types.CommonEntityData {
+    cSipCfgCauseStatusTable.EntityData.YFilter = cSipCfgCauseStatusTable.YFilter
+    cSipCfgCauseStatusTable.EntityData.YangName = "cSipCfgCauseStatusTable"
+    cSipCfgCauseStatusTable.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgCauseStatusTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipCfgCauseStatusTable.EntityData.SegmentPath = "cSipCfgCauseStatusTable"
+    cSipCfgCauseStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgCauseStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgCauseStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgcausestatustable.EntityData.Children = make(map[string]types.YChild)
-    csipcfgcausestatustable.EntityData.Children["cSipCfgCauseStatusEntry"] = types.YChild{"Csipcfgcausestatusentry", nil}
-    for i := range csipcfgcausestatustable.Csipcfgcausestatusentry {
-        csipcfgcausestatustable.EntityData.Children[types.GetSegmentPath(&csipcfgcausestatustable.Csipcfgcausestatusentry[i])] = types.YChild{"Csipcfgcausestatusentry", &csipcfgcausestatustable.Csipcfgcausestatusentry[i]}
+    cSipCfgCauseStatusTable.EntityData.Children = types.NewOrderedMap()
+    cSipCfgCauseStatusTable.EntityData.Children.Append("cSipCfgCauseStatusEntry", types.YChild{"CSipCfgCauseStatusEntry", nil})
+    for i := range cSipCfgCauseStatusTable.CSipCfgCauseStatusEntry {
+        cSipCfgCauseStatusTable.EntityData.Children.Append(types.GetSegmentPath(cSipCfgCauseStatusTable.CSipCfgCauseStatusEntry[i]), types.YChild{"CSipCfgCauseStatusEntry", cSipCfgCauseStatusTable.CSipCfgCauseStatusEntry[i]})
     }
-    csipcfgcausestatustable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csipcfgcausestatustable.EntityData)
+    cSipCfgCauseStatusTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cSipCfgCauseStatusTable.EntityData.YListKeys = []string {}
+
+    return &(cSipCfgCauseStatusTable.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry
+// CISCOSIPUAMIB_CSipCfgCauseStatusTable_CSipCfgCauseStatusEntry
 // A row in the cSipCfgCauseStatusTable. Entries cannot be
 // created or destroyed by the actions of any NMS.
-type CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry struct {
+type CISCOSIPUAMIB_CSipCfgCauseStatusTable_CSipCfgCauseStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table and a
     // valid PSTN cause code. The type is interface{} with range: 1..2147483647.
-    Csipcfgpstncauseindex interface{}
+    CSipCfgPstnCauseIndex interface{}
 
     // The SIP status code to which the PSTN cause code given by
     // cSipCfgPstnCauseIndex is to be mapped for outbound SIP response messages.
     // The type is interface{} with range: 1..2147483647.
-    Csipcfgstatuscode interface{}
+    CSipCfgStatusCode interface{}
 
     // This object reflects the storage status of this table entry.  If the value
     // is 'volatile', then this entry only exists in RAM and the information would
     // be lost (reverting to defaults) on system reload.   If the value is
     // 'nonVolatile' then this entry has been  written to NVRAM and will persist
     // across system reloads. The type is StorageType.
-    Csipcfgcausestatusstorestatus interface{}
+    CSipCfgCauseStatusStoreStatus interface{}
 }
 
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetEntityData() *types.CommonEntityData {
-    csipcfgcausestatusentry.EntityData.YFilter = csipcfgcausestatusentry.YFilter
-    csipcfgcausestatusentry.EntityData.YangName = "cSipCfgCauseStatusEntry"
-    csipcfgcausestatusentry.EntityData.BundleName = "cisco_ios_xe"
-    csipcfgcausestatusentry.EntityData.ParentYangName = "cSipCfgCauseStatusTable"
-    csipcfgcausestatusentry.EntityData.SegmentPath = "cSipCfgCauseStatusEntry" + "[cSipCfgPstnCauseIndex='" + fmt.Sprintf("%v", csipcfgcausestatusentry.Csipcfgpstncauseindex) + "']"
-    csipcfgcausestatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipcfgcausestatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipcfgcausestatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipCfgCauseStatusEntry *CISCOSIPUAMIB_CSipCfgCauseStatusTable_CSipCfgCauseStatusEntry) GetEntityData() *types.CommonEntityData {
+    cSipCfgCauseStatusEntry.EntityData.YFilter = cSipCfgCauseStatusEntry.YFilter
+    cSipCfgCauseStatusEntry.EntityData.YangName = "cSipCfgCauseStatusEntry"
+    cSipCfgCauseStatusEntry.EntityData.BundleName = "cisco_ios_xe"
+    cSipCfgCauseStatusEntry.EntityData.ParentYangName = "cSipCfgCauseStatusTable"
+    cSipCfgCauseStatusEntry.EntityData.SegmentPath = "cSipCfgCauseStatusEntry" + types.AddKeyToken(cSipCfgCauseStatusEntry.CSipCfgPstnCauseIndex, "cSipCfgPstnCauseIndex")
+    cSipCfgCauseStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipCfgCauseStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipCfgCauseStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipcfgcausestatusentry.EntityData.Children = make(map[string]types.YChild)
-    csipcfgcausestatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipcfgcausestatusentry.EntityData.Leafs["cSipCfgPstnCauseIndex"] = types.YLeaf{"Csipcfgpstncauseindex", csipcfgcausestatusentry.Csipcfgpstncauseindex}
-    csipcfgcausestatusentry.EntityData.Leafs["cSipCfgStatusCode"] = types.YLeaf{"Csipcfgstatuscode", csipcfgcausestatusentry.Csipcfgstatuscode}
-    csipcfgcausestatusentry.EntityData.Leafs["cSipCfgCauseStatusStoreStatus"] = types.YLeaf{"Csipcfgcausestatusstorestatus", csipcfgcausestatusentry.Csipcfgcausestatusstorestatus}
-    return &(csipcfgcausestatusentry.EntityData)
+    cSipCfgCauseStatusEntry.EntityData.Children = types.NewOrderedMap()
+    cSipCfgCauseStatusEntry.EntityData.Leafs = types.NewOrderedMap()
+    cSipCfgCauseStatusEntry.EntityData.Leafs.Append("cSipCfgPstnCauseIndex", types.YLeaf{"CSipCfgPstnCauseIndex", cSipCfgCauseStatusEntry.CSipCfgPstnCauseIndex})
+    cSipCfgCauseStatusEntry.EntityData.Leafs.Append("cSipCfgStatusCode", types.YLeaf{"CSipCfgStatusCode", cSipCfgCauseStatusEntry.CSipCfgStatusCode})
+    cSipCfgCauseStatusEntry.EntityData.Leafs.Append("cSipCfgCauseStatusStoreStatus", types.YLeaf{"CSipCfgCauseStatusStoreStatus", cSipCfgCauseStatusEntry.CSipCfgCauseStatusStoreStatus})
+
+    cSipCfgCauseStatusEntry.EntityData.YListKeys = []string {"CSipCfgPstnCauseIndex"}
+
+    return &(cSipCfgCauseStatusEntry.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatssuccessoktable
+// CISCOSIPUAMIB_CSipStatsSuccessOkTable
 // This table contains statistics for sent and
 // received 200 Ok response messages.  The 
 // statistics are kept on per SIP method basis.
-type CISCOSIPUAMIB_Csipstatssuccessoktable struct {
+type CISCOSIPUAMIB_CSipStatsSuccessOkTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipStatsSuccessOkTable.  There is  an entry for each SIP
     // method for which 200 Ok  inbound and/or outbound statistics are kept. The
     // type is slice of
-    // CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry.
-    Csipstatssuccessokentry []CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry
+    // CISCOSIPUAMIB_CSipStatsSuccessOkTable_CSipStatsSuccessOkEntry.
+    CSipStatsSuccessOkEntry []*CISCOSIPUAMIB_CSipStatsSuccessOkTable_CSipStatsSuccessOkEntry
 }
 
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetEntityData() *types.CommonEntityData {
-    csipstatssuccessoktable.EntityData.YFilter = csipstatssuccessoktable.YFilter
-    csipstatssuccessoktable.EntityData.YangName = "cSipStatsSuccessOkTable"
-    csipstatssuccessoktable.EntityData.BundleName = "cisco_ios_xe"
-    csipstatssuccessoktable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
-    csipstatssuccessoktable.EntityData.SegmentPath = "cSipStatsSuccessOkTable"
-    csipstatssuccessoktable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatssuccessoktable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatssuccessoktable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsSuccessOkTable *CISCOSIPUAMIB_CSipStatsSuccessOkTable) GetEntityData() *types.CommonEntityData {
+    cSipStatsSuccessOkTable.EntityData.YFilter = cSipStatsSuccessOkTable.YFilter
+    cSipStatsSuccessOkTable.EntityData.YangName = "cSipStatsSuccessOkTable"
+    cSipStatsSuccessOkTable.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsSuccessOkTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cSipStatsSuccessOkTable.EntityData.SegmentPath = "cSipStatsSuccessOkTable"
+    cSipStatsSuccessOkTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsSuccessOkTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsSuccessOkTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatssuccessoktable.EntityData.Children = make(map[string]types.YChild)
-    csipstatssuccessoktable.EntityData.Children["cSipStatsSuccessOkEntry"] = types.YChild{"Csipstatssuccessokentry", nil}
-    for i := range csipstatssuccessoktable.Csipstatssuccessokentry {
-        csipstatssuccessoktable.EntityData.Children[types.GetSegmentPath(&csipstatssuccessoktable.Csipstatssuccessokentry[i])] = types.YChild{"Csipstatssuccessokentry", &csipstatssuccessoktable.Csipstatssuccessokentry[i]}
+    cSipStatsSuccessOkTable.EntityData.Children = types.NewOrderedMap()
+    cSipStatsSuccessOkTable.EntityData.Children.Append("cSipStatsSuccessOkEntry", types.YChild{"CSipStatsSuccessOkEntry", nil})
+    for i := range cSipStatsSuccessOkTable.CSipStatsSuccessOkEntry {
+        cSipStatsSuccessOkTable.EntityData.Children.Append(types.GetSegmentPath(cSipStatsSuccessOkTable.CSipStatsSuccessOkEntry[i]), types.YChild{"CSipStatsSuccessOkEntry", cSipStatsSuccessOkTable.CSipStatsSuccessOkEntry[i]})
     }
-    csipstatssuccessoktable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csipstatssuccessoktable.EntityData)
+    cSipStatsSuccessOkTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cSipStatsSuccessOkTable.EntityData.YListKeys = []string {}
+
+    return &(cSipStatsSuccessOkTable.EntityData)
 }
 
-// CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry
+// CISCOSIPUAMIB_CSipStatsSuccessOkTable_CSipStatsSuccessOkEntry
 // A row in the cSipStatsSuccessOkTable.  There is 
 // an entry for each SIP method for which 200 Ok 
 // inbound and/or outbound statistics are kept.
-type CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry struct {
+type CISCOSIPUAMIB_CSipStatsSuccessOkTable_CSipStatsSuccessOkEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object is used for instance identification of
     // objects in this table.  The value reflects a SIP method. The type is string
     // with length: 1..32.
-    Csipstatssuccessokmethod interface{}
+    CSipStatsSuccessOkMethod interface{}
 
     // This object reflects the total number of Ok (200) responses sent by the
     // user agent, since system startup, that were associated with the SIP method
     // as specified by cSipStatsSuccessOkMethod. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatssuccessokinbounds interface{}
+    CSipStatsSuccessOkInbounds interface{}
 
     // This object reflects the total number of Ok (200) responses received by the
     // user agent, since system startup, that were associated with the SIP method
     // as specified by cSipStatsSuccessOkMethod. The type is interface{} with
     // range: 0..4294967295.
-    Csipstatssuccessokoutbounds interface{}
+    CSipStatsSuccessOkOutbounds interface{}
 }
 
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetEntityData() *types.CommonEntityData {
-    csipstatssuccessokentry.EntityData.YFilter = csipstatssuccessokentry.YFilter
-    csipstatssuccessokentry.EntityData.YangName = "cSipStatsSuccessOkEntry"
-    csipstatssuccessokentry.EntityData.BundleName = "cisco_ios_xe"
-    csipstatssuccessokentry.EntityData.ParentYangName = "cSipStatsSuccessOkTable"
-    csipstatssuccessokentry.EntityData.SegmentPath = "cSipStatsSuccessOkEntry" + "[cSipStatsSuccessOkMethod='" + fmt.Sprintf("%v", csipstatssuccessokentry.Csipstatssuccessokmethod) + "']"
-    csipstatssuccessokentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csipstatssuccessokentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csipstatssuccessokentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cSipStatsSuccessOkEntry *CISCOSIPUAMIB_CSipStatsSuccessOkTable_CSipStatsSuccessOkEntry) GetEntityData() *types.CommonEntityData {
+    cSipStatsSuccessOkEntry.EntityData.YFilter = cSipStatsSuccessOkEntry.YFilter
+    cSipStatsSuccessOkEntry.EntityData.YangName = "cSipStatsSuccessOkEntry"
+    cSipStatsSuccessOkEntry.EntityData.BundleName = "cisco_ios_xe"
+    cSipStatsSuccessOkEntry.EntityData.ParentYangName = "cSipStatsSuccessOkTable"
+    cSipStatsSuccessOkEntry.EntityData.SegmentPath = "cSipStatsSuccessOkEntry" + types.AddKeyToken(cSipStatsSuccessOkEntry.CSipStatsSuccessOkMethod, "cSipStatsSuccessOkMethod")
+    cSipStatsSuccessOkEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cSipStatsSuccessOkEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cSipStatsSuccessOkEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csipstatssuccessokentry.EntityData.Children = make(map[string]types.YChild)
-    csipstatssuccessokentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csipstatssuccessokentry.EntityData.Leafs["cSipStatsSuccessOkMethod"] = types.YLeaf{"Csipstatssuccessokmethod", csipstatssuccessokentry.Csipstatssuccessokmethod}
-    csipstatssuccessokentry.EntityData.Leafs["cSipStatsSuccessOkInbounds"] = types.YLeaf{"Csipstatssuccessokinbounds", csipstatssuccessokentry.Csipstatssuccessokinbounds}
-    csipstatssuccessokentry.EntityData.Leafs["cSipStatsSuccessOkOutbounds"] = types.YLeaf{"Csipstatssuccessokoutbounds", csipstatssuccessokentry.Csipstatssuccessokoutbounds}
-    return &(csipstatssuccessokentry.EntityData)
+    cSipStatsSuccessOkEntry.EntityData.Children = types.NewOrderedMap()
+    cSipStatsSuccessOkEntry.EntityData.Leafs = types.NewOrderedMap()
+    cSipStatsSuccessOkEntry.EntityData.Leafs.Append("cSipStatsSuccessOkMethod", types.YLeaf{"CSipStatsSuccessOkMethod", cSipStatsSuccessOkEntry.CSipStatsSuccessOkMethod})
+    cSipStatsSuccessOkEntry.EntityData.Leafs.Append("cSipStatsSuccessOkInbounds", types.YLeaf{"CSipStatsSuccessOkInbounds", cSipStatsSuccessOkEntry.CSipStatsSuccessOkInbounds})
+    cSipStatsSuccessOkEntry.EntityData.Leafs.Append("cSipStatsSuccessOkOutbounds", types.YLeaf{"CSipStatsSuccessOkOutbounds", cSipStatsSuccessOkEntry.CSipStatsSuccessOkOutbounds})
+
+    cSipStatsSuccessOkEntry.EntityData.YListKeys = []string {"CSipStatsSuccessOkMethod"}
+
+    return &(cSipStatsSuccessOkEntry.EntityData)
 }
 

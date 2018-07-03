@@ -14,6 +14,14 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ethernet_span_datatypes"))
 }
 
+// SpanSessionClassOld represents Span session class old
+type SpanSessionClassOld string
+
+const (
+    // Mirror Ethernet packets
+    SpanSessionClassOld_true_ SpanSessionClassOld = "true"
+)
+
 // SpanSessionClass represents Span session class
 type SpanSessionClass string
 
@@ -32,13 +40,5 @@ const (
 
     // Mirror MPLS-encapsulated IPv6 packets
     SpanSessionClass_mpls_ipv6 SpanSessionClass = "mpls-ipv6"
-)
-
-// SpanSessionClassOld represents Span session class old
-type SpanSessionClassOld string
-
-const (
-    // Mirror Ethernet packets
-    SpanSessionClassOld_true SpanSessionClassOld = "true"
 )
 

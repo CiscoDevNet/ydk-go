@@ -6,10 +6,10 @@ module Cisco-IOS-XR-asic-errors-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-asic-errors-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-asic-errors-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -35,6 +35,10 @@ module Cisco-IOS-XR-asic-errors-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -340,7 +344,7 @@ module Cisco-IOS-XR-asic-errors-oper {
                 }
               }
               leaf asic-instance {
-                type int32;
+                type uint32;
                 description
                   "asic instance";
               }

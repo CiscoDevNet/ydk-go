@@ -208,7 +208,7 @@ module Cisco-IOS-XR-skp-qos-oper {
         description
           "Satellite ID information";
         leaf nv-satellite-id {
-          type int32;
+          type uint32;
           description
             "Satellite ID";
         }

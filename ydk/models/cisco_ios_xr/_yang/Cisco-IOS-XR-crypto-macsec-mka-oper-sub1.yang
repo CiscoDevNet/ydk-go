@@ -435,10 +435,15 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
       description
         "MACSec Capability";
     }
-    leaf cipher-str {
+    leaf mka-cipher-suite {
       type string;
       description
-        "Cipher String";
+        "MKA Cipher Suite";
+    }
+    leaf configured-mac-sec-cipher-suite {
+      type string;
+      description
+        "configured cipher suite";
     }
     leaf mac-sec-desired {
       type boolean;

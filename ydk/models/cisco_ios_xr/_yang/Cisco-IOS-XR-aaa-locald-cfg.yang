@@ -32,6 +32,10 @@ module Cisco-IOS-XR-aaa-locald-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-03-11 {
     description
       "Added model support for aaa password-policy.";
@@ -365,7 +369,7 @@ module Cisco-IOS-XR-aaa-locald-cfg {
             "Specify the password for the user";
         }
         leaf ordering-index {
-          type int32;
+          type uint32;
           description
             "This is used to sort the users in the order of
              precedence";

@@ -24,20 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-call-home-cfg:call-home", reflect.TypeOf(CallHome{}))
 }
 
-// CallHomeMailSendInterval represents Call home mail send interval
-type CallHomeMailSendInterval string
-
-const (
-    // Daily call-home message
-    CallHomeMailSendInterval_daily CallHomeMailSendInterval = "daily"
-
-    // Weekly call-home message
-    CallHomeMailSendInterval_weekly CallHomeMailSendInterval = "weekly"
-
-    // Monthly call-home message
-    CallHomeMailSendInterval_monthly CallHomeMailSendInterval = "monthly"
-)
-
 // CallHomeDayOfWeek represents Call home day of week
 type CallHomeDayOfWeek string
 
@@ -62,6 +48,34 @@ const (
 
     // Saturday
     CallHomeDayOfWeek_saturday CallHomeDayOfWeek = "saturday"
+)
+
+// DataPrivacyLevel represents Data privacy level
+type DataPrivacyLevel string
+
+const (
+    // Normal
+    DataPrivacyLevel_normal DataPrivacyLevel = "normal"
+
+    // High
+    DataPrivacyLevel_high DataPrivacyLevel = "high"
+
+    // HostName
+    DataPrivacyLevel_host_name DataPrivacyLevel = "host-name"
+)
+
+// CallHomeMailSendInterval represents Call home mail send interval
+type CallHomeMailSendInterval string
+
+const (
+    // Daily call-home message
+    CallHomeMailSendInterval_daily CallHomeMailSendInterval = "daily"
+
+    // Weekly call-home message
+    CallHomeMailSendInterval_weekly CallHomeMailSendInterval = "weekly"
+
+    // Monthly call-home message
+    CallHomeMailSendInterval_monthly CallHomeMailSendInterval = "monthly"
 )
 
 // CallHomeEventSeverity represents Call home event severity
@@ -124,20 +138,6 @@ const (
     CallHomeTransMethod_http CallHomeTransMethod = "http"
 )
 
-// DataPrivacyLevel represents Data privacy level
-type DataPrivacyLevel string
-
-const (
-    // Normal
-    DataPrivacyLevel_normal DataPrivacyLevel = "normal"
-
-    // High
-    DataPrivacyLevel_high DataPrivacyLevel = "high"
-
-    // HostName
-    DataPrivacyLevel_host_name DataPrivacyLevel = "host-name"
-)
-
 // CallHome
 // Set CallHome parameters
 type CallHome struct {
@@ -174,7 +174,7 @@ type CallHome struct {
     StreetAddress interface{}
 
     // Source interface name to send call-home messages. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // Contract identification for Cisco Smart Call Home. The type is string with
@@ -228,30 +228,33 @@ func (callHome *CallHome) GetEntityData() *types.CommonEntityData {
     callHome.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     callHome.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    callHome.EntityData.Children = make(map[string]types.YChild)
-    callHome.EntityData.Children["mail-servers"] = types.YChild{"MailServers", &callHome.MailServers}
-    callHome.EntityData.Children["syslog-throttling"] = types.YChild{"SyslogThrottling", &callHome.SyslogThrottling}
-    callHome.EntityData.Children["smart-licensing"] = types.YChild{"SmartLicensing", &callHome.SmartLicensing}
-    callHome.EntityData.Children["http-proxy"] = types.YChild{"HttpProxy", &callHome.HttpProxy}
-    callHome.EntityData.Children["profiles"] = types.YChild{"Profiles", &callHome.Profiles}
-    callHome.EntityData.Children["alert-groups"] = types.YChild{"AlertGroups", &callHome.AlertGroups}
-    callHome.EntityData.Children["data-privacies"] = types.YChild{"DataPrivacies", &callHome.DataPrivacies}
-    callHome.EntityData.Children["alert-group-config"] = types.YChild{"AlertGroupConfig", &callHome.AlertGroupConfig}
-    callHome.EntityData.Children["authorization"] = types.YChild{"Authorization", &callHome.Authorization}
-    callHome.EntityData.Leafs = make(map[string]types.YLeaf)
-    callHome.EntityData.Leafs["customer-id"] = types.YLeaf{"CustomerId", callHome.CustomerId}
-    callHome.EntityData.Leafs["phone-number"] = types.YLeaf{"PhoneNumber", callHome.PhoneNumber}
-    callHome.EntityData.Leafs["contact-smart-licensing"] = types.YLeaf{"ContactSmartLicensing", callHome.ContactSmartLicensing}
-    callHome.EntityData.Leafs["contact-email-address"] = types.YLeaf{"ContactEmailAddress", callHome.ContactEmailAddress}
-    callHome.EntityData.Leafs["rate-limit"] = types.YLeaf{"RateLimit", callHome.RateLimit}
-    callHome.EntityData.Leafs["site-id"] = types.YLeaf{"SiteId", callHome.SiteId}
-    callHome.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", callHome.Vrf}
-    callHome.EntityData.Leafs["street-address"] = types.YLeaf{"StreetAddress", callHome.StreetAddress}
-    callHome.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", callHome.SourceInterface}
-    callHome.EntityData.Leafs["contract-id"] = types.YLeaf{"ContractId", callHome.ContractId}
-    callHome.EntityData.Leafs["reply-to"] = types.YLeaf{"ReplyTo", callHome.ReplyTo}
-    callHome.EntityData.Leafs["from"] = types.YLeaf{"From", callHome.From}
-    callHome.EntityData.Leafs["active"] = types.YLeaf{"Active", callHome.Active}
+    callHome.EntityData.Children = types.NewOrderedMap()
+    callHome.EntityData.Children.Append("mail-servers", types.YChild{"MailServers", &callHome.MailServers})
+    callHome.EntityData.Children.Append("syslog-throttling", types.YChild{"SyslogThrottling", &callHome.SyslogThrottling})
+    callHome.EntityData.Children.Append("smart-licensing", types.YChild{"SmartLicensing", &callHome.SmartLicensing})
+    callHome.EntityData.Children.Append("http-proxy", types.YChild{"HttpProxy", &callHome.HttpProxy})
+    callHome.EntityData.Children.Append("profiles", types.YChild{"Profiles", &callHome.Profiles})
+    callHome.EntityData.Children.Append("alert-groups", types.YChild{"AlertGroups", &callHome.AlertGroups})
+    callHome.EntityData.Children.Append("data-privacies", types.YChild{"DataPrivacies", &callHome.DataPrivacies})
+    callHome.EntityData.Children.Append("alert-group-config", types.YChild{"AlertGroupConfig", &callHome.AlertGroupConfig})
+    callHome.EntityData.Children.Append("authorization", types.YChild{"Authorization", &callHome.Authorization})
+    callHome.EntityData.Leafs = types.NewOrderedMap()
+    callHome.EntityData.Leafs.Append("customer-id", types.YLeaf{"CustomerId", callHome.CustomerId})
+    callHome.EntityData.Leafs.Append("phone-number", types.YLeaf{"PhoneNumber", callHome.PhoneNumber})
+    callHome.EntityData.Leafs.Append("contact-smart-licensing", types.YLeaf{"ContactSmartLicensing", callHome.ContactSmartLicensing})
+    callHome.EntityData.Leafs.Append("contact-email-address", types.YLeaf{"ContactEmailAddress", callHome.ContactEmailAddress})
+    callHome.EntityData.Leafs.Append("rate-limit", types.YLeaf{"RateLimit", callHome.RateLimit})
+    callHome.EntityData.Leafs.Append("site-id", types.YLeaf{"SiteId", callHome.SiteId})
+    callHome.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", callHome.Vrf})
+    callHome.EntityData.Leafs.Append("street-address", types.YLeaf{"StreetAddress", callHome.StreetAddress})
+    callHome.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", callHome.SourceInterface})
+    callHome.EntityData.Leafs.Append("contract-id", types.YLeaf{"ContractId", callHome.ContractId})
+    callHome.EntityData.Leafs.Append("reply-to", types.YLeaf{"ReplyTo", callHome.ReplyTo})
+    callHome.EntityData.Leafs.Append("from", types.YLeaf{"From", callHome.From})
+    callHome.EntityData.Leafs.Append("active", types.YLeaf{"Active", callHome.Active})
+
+    callHome.EntityData.YListKeys = []string {}
+
     return &(callHome.EntityData)
 }
 
@@ -262,7 +265,7 @@ type CallHome_MailServers struct {
     YFilter yfilter.YFilter
 
     // Email server. The type is slice of CallHome_MailServers_MailServer.
-    MailServer []CallHome_MailServers_MailServer
+    MailServer []*CallHome_MailServers_MailServer
 }
 
 func (mailServers *CallHome_MailServers) GetEntityData() *types.CommonEntityData {
@@ -275,12 +278,15 @@ func (mailServers *CallHome_MailServers) GetEntityData() *types.CommonEntityData
     mailServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mailServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mailServers.EntityData.Children = make(map[string]types.YChild)
-    mailServers.EntityData.Children["mail-server"] = types.YChild{"MailServer", nil}
+    mailServers.EntityData.Children = types.NewOrderedMap()
+    mailServers.EntityData.Children.Append("mail-server", types.YChild{"MailServer", nil})
     for i := range mailServers.MailServer {
-        mailServers.EntityData.Children[types.GetSegmentPath(&mailServers.MailServer[i])] = types.YChild{"MailServer", &mailServers.MailServer[i]}
+        mailServers.EntityData.Children.Append(types.GetSegmentPath(mailServers.MailServer[i]), types.YChild{"MailServer", mailServers.MailServer[i]})
     }
-    mailServers.EntityData.Leafs = make(map[string]types.YLeaf)
+    mailServers.EntityData.Leafs = types.NewOrderedMap()
+
+    mailServers.EntityData.YListKeys = []string {}
+
     return &(mailServers.EntityData)
 }
 
@@ -303,15 +309,18 @@ func (mailServer *CallHome_MailServers_MailServer) GetEntityData() *types.Common
     mailServer.EntityData.YangName = "mail-server"
     mailServer.EntityData.BundleName = "cisco_ios_xr"
     mailServer.EntityData.ParentYangName = "mail-servers"
-    mailServer.EntityData.SegmentPath = "mail-server" + "[mail-serv-address='" + fmt.Sprintf("%v", mailServer.MailServAddress) + "']"
+    mailServer.EntityData.SegmentPath = "mail-server" + types.AddKeyToken(mailServer.MailServAddress, "mail-serv-address")
     mailServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mailServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mailServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mailServer.EntityData.Children = make(map[string]types.YChild)
-    mailServer.EntityData.Leafs = make(map[string]types.YLeaf)
-    mailServer.EntityData.Leafs["mail-serv-address"] = types.YLeaf{"MailServAddress", mailServer.MailServAddress}
-    mailServer.EntityData.Leafs["priority"] = types.YLeaf{"Priority", mailServer.Priority}
+    mailServer.EntityData.Children = types.NewOrderedMap()
+    mailServer.EntityData.Leafs = types.NewOrderedMap()
+    mailServer.EntityData.Leafs.Append("mail-serv-address", types.YLeaf{"MailServAddress", mailServer.MailServAddress})
+    mailServer.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", mailServer.Priority})
+
+    mailServer.EntityData.YListKeys = []string {"MailServAddress"}
+
     return &(mailServer.EntityData)
 }
 
@@ -336,9 +345,12 @@ func (syslogThrottling *CallHome_SyslogThrottling) GetEntityData() *types.Common
     syslogThrottling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslogThrottling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    syslogThrottling.EntityData.Children = make(map[string]types.YChild)
-    syslogThrottling.EntityData.Leafs = make(map[string]types.YLeaf)
-    syslogThrottling.EntityData.Leafs["active"] = types.YLeaf{"Active", syslogThrottling.Active}
+    syslogThrottling.EntityData.Children = types.NewOrderedMap()
+    syslogThrottling.EntityData.Leafs = types.NewOrderedMap()
+    syslogThrottling.EntityData.Leafs.Append("active", types.YLeaf{"Active", syslogThrottling.Active})
+
+    syslogThrottling.EntityData.YListKeys = []string {}
+
     return &(syslogThrottling.EntityData)
 }
 
@@ -367,10 +379,13 @@ func (smartLicensing *CallHome_SmartLicensing) GetEntityData() *types.CommonEnti
     smartLicensing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     smartLicensing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    smartLicensing.EntityData.Children = make(map[string]types.YChild)
-    smartLicensing.EntityData.Leafs = make(map[string]types.YLeaf)
-    smartLicensing.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", smartLicensing.ProfileName}
-    smartLicensing.EntityData.Leafs["active"] = types.YLeaf{"Active", smartLicensing.Active}
+    smartLicensing.EntityData.Children = types.NewOrderedMap()
+    smartLicensing.EntityData.Leafs = types.NewOrderedMap()
+    smartLicensing.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", smartLicensing.ProfileName})
+    smartLicensing.EntityData.Leafs.Append("active", types.YLeaf{"Active", smartLicensing.Active})
+
+    smartLicensing.EntityData.YListKeys = []string {}
+
     return &(smartLicensing.EntityData)
 }
 
@@ -397,10 +412,13 @@ func (httpProxy *CallHome_HttpProxy) GetEntityData() *types.CommonEntityData {
     httpProxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    httpProxy.EntityData.Children = make(map[string]types.YChild)
-    httpProxy.EntityData.Leafs = make(map[string]types.YLeaf)
-    httpProxy.EntityData.Leafs["server-address"] = types.YLeaf{"ServerAddress", httpProxy.ServerAddress}
-    httpProxy.EntityData.Leafs["port"] = types.YLeaf{"Port", httpProxy.Port}
+    httpProxy.EntityData.Children = types.NewOrderedMap()
+    httpProxy.EntityData.Leafs = types.NewOrderedMap()
+    httpProxy.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", httpProxy.ServerAddress})
+    httpProxy.EntityData.Leafs.Append("port", types.YLeaf{"Port", httpProxy.Port})
+
+    httpProxy.EntityData.YListKeys = []string {}
+
     return &(httpProxy.EntityData)
 }
 
@@ -411,7 +429,7 @@ type CallHome_Profiles struct {
     YFilter yfilter.YFilter
 
     // A specific profile. The type is slice of CallHome_Profiles_Profile.
-    Profile []CallHome_Profiles_Profile
+    Profile []*CallHome_Profiles_Profile
 }
 
 func (profiles *CallHome_Profiles) GetEntityData() *types.CommonEntityData {
@@ -424,12 +442,15 @@ func (profiles *CallHome_Profiles) GetEntityData() *types.CommonEntityData {
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profiles.EntityData.Children = make(map[string]types.YChild)
-    profiles.EntityData.Children["profile"] = types.YChild{"Profile", nil}
+    profiles.EntityData.Children = types.NewOrderedMap()
+    profiles.EntityData.Children.Append("profile", types.YChild{"Profile", nil})
     for i := range profiles.Profile {
-        profiles.EntityData.Children[types.GetSegmentPath(&profiles.Profile[i])] = types.YChild{"Profile", &profiles.Profile[i]}
+        profiles.EntityData.Children.Append(types.GetSegmentPath(profiles.Profile[i]), types.YChild{"Profile", profiles.Profile[i]})
     }
-    profiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    profiles.EntityData.Leafs = types.NewOrderedMap()
+
+    profiles.EntityData.YListKeys = []string {}
+
     return &(profiles.EntityData)
 }
 
@@ -440,7 +461,7 @@ type CallHome_Profiles_Profile struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Create a profile. The type is interface{}.
@@ -477,23 +498,26 @@ func (profile *CallHome_Profiles_Profile) GetEntityData() *types.CommonEntityDat
     profile.EntityData.YangName = "profile"
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
-    profile.EntityData.SegmentPath = "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
+    profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profile.EntityData.Children = make(map[string]types.YChild)
-    profile.EntityData.Children["report-type"] = types.YChild{"ReportType", &profile.ReportType}
-    profile.EntityData.Children["methods"] = types.YChild{"Methods", &profile.Methods}
-    profile.EntityData.Children["addresses"] = types.YChild{"Addresses", &profile.Addresses}
-    profile.EntityData.Children["subscribe-alert-group"] = types.YChild{"SubscribeAlertGroup", &profile.SubscribeAlertGroup}
-    profile.EntityData.Leafs = make(map[string]types.YLeaf)
-    profile.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", profile.ProfileName}
-    profile.EntityData.Leafs["create"] = types.YLeaf{"Create", profile.Create}
-    profile.EntityData.Leafs["message-format"] = types.YLeaf{"MessageFormat", profile.MessageFormat}
-    profile.EntityData.Leafs["anonymous"] = types.YLeaf{"Anonymous", profile.Anonymous}
-    profile.EntityData.Leafs["message-size-limit"] = types.YLeaf{"MessageSizeLimit", profile.MessageSizeLimit}
-    profile.EntityData.Leafs["active"] = types.YLeaf{"Active", profile.Active}
+    profile.EntityData.Children = types.NewOrderedMap()
+    profile.EntityData.Children.Append("report-type", types.YChild{"ReportType", &profile.ReportType})
+    profile.EntityData.Children.Append("methods", types.YChild{"Methods", &profile.Methods})
+    profile.EntityData.Children.Append("addresses", types.YChild{"Addresses", &profile.Addresses})
+    profile.EntityData.Children.Append("subscribe-alert-group", types.YChild{"SubscribeAlertGroup", &profile.SubscribeAlertGroup})
+    profile.EntityData.Leafs = types.NewOrderedMap()
+    profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
+    profile.EntityData.Leafs.Append("create", types.YLeaf{"Create", profile.Create})
+    profile.EntityData.Leafs.Append("message-format", types.YLeaf{"MessageFormat", profile.MessageFormat})
+    profile.EntityData.Leafs.Append("anonymous", types.YLeaf{"Anonymous", profile.Anonymous})
+    profile.EntityData.Leafs.Append("message-size-limit", types.YLeaf{"MessageSizeLimit", profile.MessageSizeLimit})
+    profile.EntityData.Leafs.Append("active", types.YLeaf{"Active", profile.Active})
+
+    profile.EntityData.YListKeys = []string {"ProfileName"}
+
     return &(profile.EntityData)
 }
 
@@ -520,10 +544,13 @@ func (reportType *CallHome_Profiles_Profile_ReportType) GetEntityData() *types.C
     reportType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reportType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reportType.EntityData.Children = make(map[string]types.YChild)
-    reportType.EntityData.Children["reporting-callhome-data"] = types.YChild{"ReportingCallhomeData", &reportType.ReportingCallhomeData}
-    reportType.EntityData.Children["reporting-licensing-data"] = types.YChild{"ReportingLicensingData", &reportType.ReportingLicensingData}
-    reportType.EntityData.Leafs = make(map[string]types.YLeaf)
+    reportType.EntityData.Children = types.NewOrderedMap()
+    reportType.EntityData.Children.Append("reporting-callhome-data", types.YChild{"ReportingCallhomeData", &reportType.ReportingCallhomeData})
+    reportType.EntityData.Children.Append("reporting-licensing-data", types.YChild{"ReportingLicensingData", &reportType.ReportingLicensingData})
+    reportType.EntityData.Leafs = types.NewOrderedMap()
+
+    reportType.EntityData.YListKeys = []string {}
+
     return &(reportType.EntityData)
 }
 
@@ -547,9 +574,12 @@ func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallh
     reportingCallhomeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reportingCallhomeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reportingCallhomeData.EntityData.Children = make(map[string]types.YChild)
-    reportingCallhomeData.EntityData.Leafs = make(map[string]types.YLeaf)
-    reportingCallhomeData.EntityData.Leafs["enable"] = types.YLeaf{"Enable", reportingCallhomeData.Enable}
+    reportingCallhomeData.EntityData.Children = types.NewOrderedMap()
+    reportingCallhomeData.EntityData.Leafs = types.NewOrderedMap()
+    reportingCallhomeData.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", reportingCallhomeData.Enable})
+
+    reportingCallhomeData.EntityData.YListKeys = []string {}
+
     return &(reportingCallhomeData.EntityData)
 }
 
@@ -573,9 +603,12 @@ func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLice
     reportingLicensingData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reportingLicensingData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reportingLicensingData.EntityData.Children = make(map[string]types.YChild)
-    reportingLicensingData.EntityData.Leafs = make(map[string]types.YLeaf)
-    reportingLicensingData.EntityData.Leafs["enable"] = types.YLeaf{"Enable", reportingLicensingData.Enable}
+    reportingLicensingData.EntityData.Children = types.NewOrderedMap()
+    reportingLicensingData.EntityData.Leafs = types.NewOrderedMap()
+    reportingLicensingData.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", reportingLicensingData.Enable})
+
+    reportingLicensingData.EntityData.YListKeys = []string {}
+
     return &(reportingLicensingData.EntityData)
 }
 
@@ -587,7 +620,7 @@ type CallHome_Profiles_Profile_Methods struct {
 
     // Transport method. The type is slice of
     // CallHome_Profiles_Profile_Methods_Method.
-    Method []CallHome_Profiles_Profile_Methods_Method
+    Method []*CallHome_Profiles_Profile_Methods_Method
 }
 
 func (methods *CallHome_Profiles_Profile_Methods) GetEntityData() *types.CommonEntityData {
@@ -600,12 +633,15 @@ func (methods *CallHome_Profiles_Profile_Methods) GetEntityData() *types.CommonE
     methods.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     methods.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    methods.EntityData.Children = make(map[string]types.YChild)
-    methods.EntityData.Children["method"] = types.YChild{"Method", nil}
+    methods.EntityData.Children = types.NewOrderedMap()
+    methods.EntityData.Children.Append("method", types.YChild{"Method", nil})
     for i := range methods.Method {
-        methods.EntityData.Children[types.GetSegmentPath(&methods.Method[i])] = types.YChild{"Method", &methods.Method[i]}
+        methods.EntityData.Children.Append(types.GetSegmentPath(methods.Method[i]), types.YChild{"Method", methods.Method[i]})
     }
-    methods.EntityData.Leafs = make(map[string]types.YLeaf)
+    methods.EntityData.Leafs = types.NewOrderedMap()
+
+    methods.EntityData.YListKeys = []string {}
+
     return &(methods.EntityData)
 }
 
@@ -627,15 +663,18 @@ func (method *CallHome_Profiles_Profile_Methods_Method) GetEntityData() *types.C
     method.EntityData.YangName = "method"
     method.EntityData.BundleName = "cisco_ios_xr"
     method.EntityData.ParentYangName = "methods"
-    method.EntityData.SegmentPath = "method" + "[method='" + fmt.Sprintf("%v", method.Method) + "']"
+    method.EntityData.SegmentPath = "method" + types.AddKeyToken(method.Method, "method")
     method.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     method.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     method.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    method.EntityData.Children = make(map[string]types.YChild)
-    method.EntityData.Leafs = make(map[string]types.YLeaf)
-    method.EntityData.Leafs["method"] = types.YLeaf{"Method", method.Method}
-    method.EntityData.Leafs["enable"] = types.YLeaf{"Enable", method.Enable}
+    method.EntityData.Children = types.NewOrderedMap()
+    method.EntityData.Leafs = types.NewOrderedMap()
+    method.EntityData.Leafs.Append("method", types.YLeaf{"Method", method.Method})
+    method.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", method.Enable})
+
+    method.EntityData.YListKeys = []string {"Method"}
+
     return &(method.EntityData)
 }
 
@@ -647,7 +686,7 @@ type CallHome_Profiles_Profile_Addresses struct {
 
     // A specific address. The type is slice of
     // CallHome_Profiles_Profile_Addresses_Address.
-    Address []CallHome_Profiles_Profile_Addresses_Address
+    Address []*CallHome_Profiles_Profile_Addresses_Address
 }
 
 func (addresses *CallHome_Profiles_Profile_Addresses) GetEntityData() *types.CommonEntityData {
@@ -660,12 +699,15 @@ func (addresses *CallHome_Profiles_Profile_Addresses) GetEntityData() *types.Com
     addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addresses.EntityData.Children = make(map[string]types.YChild)
-    addresses.EntityData.Children["address"] = types.YChild{"Address", nil}
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range addresses.Address {
-        addresses.EntityData.Children[types.GetSegmentPath(&addresses.Address[i])] = types.YChild{"Address", &addresses.Address[i]}
+        addresses.EntityData.Children.Append(types.GetSegmentPath(addresses.Address[i]), types.YChild{"Address", addresses.Address[i]})
     }
-    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
     return &(addresses.EntityData)
 }
 
@@ -692,16 +734,19 @@ func (address *CallHome_Profiles_Profile_Addresses_Address) GetEntityData() *typ
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "addresses"
-    address.EntityData.SegmentPath = "address" + "[method='" + fmt.Sprintf("%v", address.Method) + "']" + "[destination-addr='" + fmt.Sprintf("%v", address.DestinationAddr) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Method, "method") + types.AddKeyToken(address.DestinationAddr, "destination-addr")
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["method"] = types.YLeaf{"Method", address.Method}
-    address.EntityData.Leafs["destination-addr"] = types.YLeaf{"DestinationAddr", address.DestinationAddr}
-    address.EntityData.Leafs["enable"] = types.YLeaf{"Enable", address.Enable}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("method", types.YLeaf{"Method", address.Method})
+    address.EntityData.Leafs.Append("destination-addr", types.YLeaf{"DestinationAddr", address.DestinationAddr})
+    address.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", address.Enable})
+
+    address.EntityData.YListKeys = []string {"Method", "DestinationAddr"}
+
     return &(address.EntityData)
 }
 
@@ -740,14 +785,17 @@ func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetEnt
     subscribeAlertGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscribeAlertGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscribeAlertGroup.EntityData.Children = make(map[string]types.YChild)
-    subscribeAlertGroup.EntityData.Children["environment"] = types.YChild{"Environment", &subscribeAlertGroup.Environment}
-    subscribeAlertGroup.EntityData.Children["configuration"] = types.YChild{"Configuration", &subscribeAlertGroup.Configuration}
-    subscribeAlertGroup.EntityData.Children["snapshot"] = types.YChild{"Snapshot", &subscribeAlertGroup.Snapshot}
-    subscribeAlertGroup.EntityData.Children["inventory"] = types.YChild{"Inventory", &subscribeAlertGroup.Inventory}
-    subscribeAlertGroup.EntityData.Children["crash"] = types.YChild{"Crash", &subscribeAlertGroup.Crash}
-    subscribeAlertGroup.EntityData.Children["syslogs"] = types.YChild{"Syslogs", &subscribeAlertGroup.Syslogs}
-    subscribeAlertGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscribeAlertGroup.EntityData.Children = types.NewOrderedMap()
+    subscribeAlertGroup.EntityData.Children.Append("environment", types.YChild{"Environment", &subscribeAlertGroup.Environment})
+    subscribeAlertGroup.EntityData.Children.Append("configuration", types.YChild{"Configuration", &subscribeAlertGroup.Configuration})
+    subscribeAlertGroup.EntityData.Children.Append("snapshot", types.YChild{"Snapshot", &subscribeAlertGroup.Snapshot})
+    subscribeAlertGroup.EntityData.Children.Append("inventory", types.YChild{"Inventory", &subscribeAlertGroup.Inventory})
+    subscribeAlertGroup.EntityData.Children.Append("crash", types.YChild{"Crash", &subscribeAlertGroup.Crash})
+    subscribeAlertGroup.EntityData.Children.Append("syslogs", types.YChild{"Syslogs", &subscribeAlertGroup.Syslogs})
+    subscribeAlertGroup.EntityData.Leafs = types.NewOrderedMap()
+
+    subscribeAlertGroup.EntityData.YListKeys = []string {}
+
     return &(subscribeAlertGroup.EntityData)
 }
 
@@ -771,9 +819,12 @@ func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) Ge
     environment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     environment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    environment.EntityData.Children = make(map[string]types.YChild)
-    environment.EntityData.Leafs = make(map[string]types.YLeaf)
-    environment.EntityData.Leafs["severity"] = types.YLeaf{"Severity", environment.Severity}
+    environment.EntityData.Children = types.NewOrderedMap()
+    environment.EntityData.Leafs = types.NewOrderedMap()
+    environment.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", environment.Severity})
+
+    environment.EntityData.YListKeys = []string {}
+
     return &(environment.EntityData)
 }
 
@@ -800,10 +851,13 @@ func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuration.EntityData.Children = make(map[string]types.YChild)
-    configuration.EntityData.Children["periodic"] = types.YChild{"Periodic", &configuration.Periodic}
-    configuration.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuration.EntityData.Leafs["subscribe"] = types.YLeaf{"Subscribe", configuration.Subscribe}
+    configuration.EntityData.Children = types.NewOrderedMap()
+    configuration.EntityData.Children.Append("periodic", types.YChild{"Periodic", &configuration.Periodic})
+    configuration.EntityData.Leafs = types.NewOrderedMap()
+    configuration.EntityData.Leafs.Append("subscribe", types.YLeaf{"Subscribe", configuration.Subscribe})
+
+    configuration.EntityData.YListKeys = []string {}
+
     return &(configuration.EntityData)
 }
 
@@ -839,13 +893,16 @@ func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Peri
     periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    periodic.EntityData.Children = make(map[string]types.YChild)
-    periodic.EntityData.Leafs = make(map[string]types.YLeaf)
-    periodic.EntityData.Leafs["interval"] = types.YLeaf{"Interval", periodic.Interval}
-    periodic.EntityData.Leafs["day"] = types.YLeaf{"Day", periodic.Day}
-    periodic.EntityData.Leafs["weekday"] = types.YLeaf{"Weekday", periodic.Weekday}
-    periodic.EntityData.Leafs["hour"] = types.YLeaf{"Hour", periodic.Hour}
-    periodic.EntityData.Leafs["minute"] = types.YLeaf{"Minute", periodic.Minute}
+    periodic.EntityData.Children = types.NewOrderedMap()
+    periodic.EntityData.Leafs = types.NewOrderedMap()
+    periodic.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", periodic.Interval})
+    periodic.EntityData.Leafs.Append("day", types.YLeaf{"Day", periodic.Day})
+    periodic.EntityData.Leafs.Append("weekday", types.YLeaf{"Weekday", periodic.Weekday})
+    periodic.EntityData.Leafs.Append("hour", types.YLeaf{"Hour", periodic.Hour})
+    periodic.EntityData.Leafs.Append("minute", types.YLeaf{"Minute", periodic.Minute})
+
+    periodic.EntityData.YListKeys = []string {}
+
     return &(periodic.EntityData)
 }
 
@@ -869,9 +926,12 @@ func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetEntit
     snapshot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snapshot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snapshot.EntityData.Children = make(map[string]types.YChild)
-    snapshot.EntityData.Children["periodic"] = types.YChild{"Periodic", &snapshot.Periodic}
-    snapshot.EntityData.Leafs = make(map[string]types.YLeaf)
+    snapshot.EntityData.Children = types.NewOrderedMap()
+    snapshot.EntityData.Children.Append("periodic", types.YChild{"Periodic", &snapshot.Periodic})
+    snapshot.EntityData.Leafs = types.NewOrderedMap()
+
+    snapshot.EntityData.YListKeys = []string {}
+
     return &(snapshot.EntityData)
 }
 
@@ -907,13 +967,16 @@ func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic)
     periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    periodic.EntityData.Children = make(map[string]types.YChild)
-    periodic.EntityData.Leafs = make(map[string]types.YLeaf)
-    periodic.EntityData.Leafs["interval"] = types.YLeaf{"Interval", periodic.Interval}
-    periodic.EntityData.Leafs["day"] = types.YLeaf{"Day", periodic.Day}
-    periodic.EntityData.Leafs["weekday"] = types.YLeaf{"Weekday", periodic.Weekday}
-    periodic.EntityData.Leafs["hour"] = types.YLeaf{"Hour", periodic.Hour}
-    periodic.EntityData.Leafs["minute"] = types.YLeaf{"Minute", periodic.Minute}
+    periodic.EntityData.Children = types.NewOrderedMap()
+    periodic.EntityData.Leafs = types.NewOrderedMap()
+    periodic.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", periodic.Interval})
+    periodic.EntityData.Leafs.Append("day", types.YLeaf{"Day", periodic.Day})
+    periodic.EntityData.Leafs.Append("weekday", types.YLeaf{"Weekday", periodic.Weekday})
+    periodic.EntityData.Leafs.Append("hour", types.YLeaf{"Hour", periodic.Hour})
+    periodic.EntityData.Leafs.Append("minute", types.YLeaf{"Minute", periodic.Minute})
+
+    periodic.EntityData.YListKeys = []string {}
+
     return &(periodic.EntityData)
 }
 
@@ -940,10 +1003,13 @@ func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetEnt
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventory.EntityData.Children = make(map[string]types.YChild)
-    inventory.EntityData.Children["periodic"] = types.YChild{"Periodic", &inventory.Periodic}
-    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
-    inventory.EntityData.Leafs["subscribe"] = types.YLeaf{"Subscribe", inventory.Subscribe}
+    inventory.EntityData.Children = types.NewOrderedMap()
+    inventory.EntityData.Children.Append("periodic", types.YChild{"Periodic", &inventory.Periodic})
+    inventory.EntityData.Leafs = types.NewOrderedMap()
+    inventory.EntityData.Leafs.Append("subscribe", types.YLeaf{"Subscribe", inventory.Subscribe})
+
+    inventory.EntityData.YListKeys = []string {}
+
     return &(inventory.EntityData)
 }
 
@@ -979,13 +1045,16 @@ func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic
     periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    periodic.EntityData.Children = make(map[string]types.YChild)
-    periodic.EntityData.Leafs = make(map[string]types.YLeaf)
-    periodic.EntityData.Leafs["interval"] = types.YLeaf{"Interval", periodic.Interval}
-    periodic.EntityData.Leafs["day"] = types.YLeaf{"Day", periodic.Day}
-    periodic.EntityData.Leafs["weekday"] = types.YLeaf{"Weekday", periodic.Weekday}
-    periodic.EntityData.Leafs["hour"] = types.YLeaf{"Hour", periodic.Hour}
-    periodic.EntityData.Leafs["minute"] = types.YLeaf{"Minute", periodic.Minute}
+    periodic.EntityData.Children = types.NewOrderedMap()
+    periodic.EntityData.Leafs = types.NewOrderedMap()
+    periodic.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", periodic.Interval})
+    periodic.EntityData.Leafs.Append("day", types.YLeaf{"Day", periodic.Day})
+    periodic.EntityData.Leafs.Append("weekday", types.YLeaf{"Weekday", periodic.Weekday})
+    periodic.EntityData.Leafs.Append("hour", types.YLeaf{"Hour", periodic.Hour})
+    periodic.EntityData.Leafs.Append("minute", types.YLeaf{"Minute", periodic.Minute})
+
+    periodic.EntityData.YListKeys = []string {}
+
     return &(periodic.EntityData)
 }
 
@@ -1009,9 +1078,12 @@ func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetEntityData(
     crash.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crash.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crash.EntityData.Children = make(map[string]types.YChild)
-    crash.EntityData.Leafs = make(map[string]types.YLeaf)
-    crash.EntityData.Leafs["subscribe"] = types.YLeaf{"Subscribe", crash.Subscribe}
+    crash.EntityData.Children = types.NewOrderedMap()
+    crash.EntityData.Leafs = types.NewOrderedMap()
+    crash.EntityData.Leafs.Append("subscribe", types.YLeaf{"Subscribe", crash.Subscribe})
+
+    crash.EntityData.YListKeys = []string {}
+
     return &(crash.EntityData)
 }
 
@@ -1023,7 +1095,7 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs struct {
 
     // Syslog message pattern to be matched. The type is slice of
     // CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog.
-    Syslog []CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog
+    Syslog []*CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog
 }
 
 func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetEntityData() *types.CommonEntityData {
@@ -1036,12 +1108,15 @@ func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetEntityD
     syslogs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslogs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    syslogs.EntityData.Children = make(map[string]types.YChild)
-    syslogs.EntityData.Children["syslog"] = types.YChild{"Syslog", nil}
+    syslogs.EntityData.Children = types.NewOrderedMap()
+    syslogs.EntityData.Children.Append("syslog", types.YChild{"Syslog", nil})
     for i := range syslogs.Syslog {
-        syslogs.EntityData.Children[types.GetSegmentPath(&syslogs.Syslog[i])] = types.YChild{"Syslog", &syslogs.Syslog[i]}
+        syslogs.EntityData.Children.Append(types.GetSegmentPath(syslogs.Syslog[i]), types.YChild{"Syslog", syslogs.Syslog[i]})
     }
-    syslogs.EntityData.Leafs = make(map[string]types.YLeaf)
+    syslogs.EntityData.Leafs = types.NewOrderedMap()
+
+    syslogs.EntityData.YListKeys = []string {}
+
     return &(syslogs.EntityData)
 }
 
@@ -1064,15 +1139,18 @@ func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetE
     syslog.EntityData.YangName = "syslog"
     syslog.EntityData.BundleName = "cisco_ios_xr"
     syslog.EntityData.ParentYangName = "syslogs"
-    syslog.EntityData.SegmentPath = "syslog" + "[syslog-pattern='" + fmt.Sprintf("%v", syslog.SyslogPattern) + "']"
+    syslog.EntityData.SegmentPath = "syslog" + types.AddKeyToken(syslog.SyslogPattern, "syslog-pattern")
     syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    syslog.EntityData.Children = make(map[string]types.YChild)
-    syslog.EntityData.Leafs = make(map[string]types.YLeaf)
-    syslog.EntityData.Leafs["syslog-pattern"] = types.YLeaf{"SyslogPattern", syslog.SyslogPattern}
-    syslog.EntityData.Leafs["severity"] = types.YLeaf{"Severity", syslog.Severity}
+    syslog.EntityData.Children = types.NewOrderedMap()
+    syslog.EntityData.Leafs = types.NewOrderedMap()
+    syslog.EntityData.Leafs.Append("syslog-pattern", types.YLeaf{"SyslogPattern", syslog.SyslogPattern})
+    syslog.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", syslog.Severity})
+
+    syslog.EntityData.YListKeys = []string {"SyslogPattern"}
+
     return &(syslog.EntityData)
 }
 
@@ -1084,7 +1162,7 @@ type CallHome_AlertGroups struct {
 
     // A specific alert-group. The type is slice of
     // CallHome_AlertGroups_AlertGroup.
-    AlertGroup []CallHome_AlertGroups_AlertGroup
+    AlertGroup []*CallHome_AlertGroups_AlertGroup
 }
 
 func (alertGroups *CallHome_AlertGroups) GetEntityData() *types.CommonEntityData {
@@ -1097,12 +1175,15 @@ func (alertGroups *CallHome_AlertGroups) GetEntityData() *types.CommonEntityData
     alertGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alertGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alertGroups.EntityData.Children = make(map[string]types.YChild)
-    alertGroups.EntityData.Children["alert-group"] = types.YChild{"AlertGroup", nil}
+    alertGroups.EntityData.Children = types.NewOrderedMap()
+    alertGroups.EntityData.Children.Append("alert-group", types.YChild{"AlertGroup", nil})
     for i := range alertGroups.AlertGroup {
-        alertGroups.EntityData.Children[types.GetSegmentPath(&alertGroups.AlertGroup[i])] = types.YChild{"AlertGroup", &alertGroups.AlertGroup[i]}
+        alertGroups.EntityData.Children.Append(types.GetSegmentPath(alertGroups.AlertGroup[i]), types.YChild{"AlertGroup", alertGroups.AlertGroup[i]})
     }
-    alertGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    alertGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    alertGroups.EntityData.YListKeys = []string {}
+
     return &(alertGroups.EntityData)
 }
 
@@ -1113,7 +1194,7 @@ type CallHome_AlertGroups_AlertGroup struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. none. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     AlertGroupName interface{}
 
     // Enable the alert-group. The type is bool.
@@ -1128,16 +1209,19 @@ func (alertGroup *CallHome_AlertGroups_AlertGroup) GetEntityData() *types.Common
     alertGroup.EntityData.YangName = "alert-group"
     alertGroup.EntityData.BundleName = "cisco_ios_xr"
     alertGroup.EntityData.ParentYangName = "alert-groups"
-    alertGroup.EntityData.SegmentPath = "alert-group" + "[alert-group-name='" + fmt.Sprintf("%v", alertGroup.AlertGroupName) + "']"
+    alertGroup.EntityData.SegmentPath = "alert-group" + types.AddKeyToken(alertGroup.AlertGroupName, "alert-group-name")
     alertGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alertGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alertGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alertGroup.EntityData.Children = make(map[string]types.YChild)
-    alertGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    alertGroup.EntityData.Leafs["alert-group-name"] = types.YLeaf{"AlertGroupName", alertGroup.AlertGroupName}
-    alertGroup.EntityData.Leafs["enable"] = types.YLeaf{"Enable", alertGroup.Enable}
-    alertGroup.EntityData.Leafs["disable"] = types.YLeaf{"Disable", alertGroup.Disable}
+    alertGroup.EntityData.Children = types.NewOrderedMap()
+    alertGroup.EntityData.Leafs = types.NewOrderedMap()
+    alertGroup.EntityData.Leafs.Append("alert-group-name", types.YLeaf{"AlertGroupName", alertGroup.AlertGroupName})
+    alertGroup.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", alertGroup.Enable})
+    alertGroup.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", alertGroup.Disable})
+
+    alertGroup.EntityData.YListKeys = []string {"AlertGroupName"}
+
     return &(alertGroup.EntityData)
 }
 
@@ -1148,7 +1232,7 @@ type CallHome_DataPrivacies struct {
     YFilter yfilter.YFilter
 
     // level hostname. The type is slice of CallHome_DataPrivacies_DataPrivacy.
-    DataPrivacy []CallHome_DataPrivacies_DataPrivacy
+    DataPrivacy []*CallHome_DataPrivacies_DataPrivacy
 }
 
 func (dataPrivacies *CallHome_DataPrivacies) GetEntityData() *types.CommonEntityData {
@@ -1161,12 +1245,15 @@ func (dataPrivacies *CallHome_DataPrivacies) GetEntityData() *types.CommonEntity
     dataPrivacies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataPrivacies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataPrivacies.EntityData.Children = make(map[string]types.YChild)
-    dataPrivacies.EntityData.Children["data-privacy"] = types.YChild{"DataPrivacy", nil}
+    dataPrivacies.EntityData.Children = types.NewOrderedMap()
+    dataPrivacies.EntityData.Children.Append("data-privacy", types.YChild{"DataPrivacy", nil})
     for i := range dataPrivacies.DataPrivacy {
-        dataPrivacies.EntityData.Children[types.GetSegmentPath(&dataPrivacies.DataPrivacy[i])] = types.YChild{"DataPrivacy", &dataPrivacies.DataPrivacy[i]}
+        dataPrivacies.EntityData.Children.Append(types.GetSegmentPath(dataPrivacies.DataPrivacy[i]), types.YChild{"DataPrivacy", dataPrivacies.DataPrivacy[i]})
     }
-    dataPrivacies.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataPrivacies.EntityData.Leafs = types.NewOrderedMap()
+
+    dataPrivacies.EntityData.YListKeys = []string {}
+
     return &(dataPrivacies.EntityData)
 }
 
@@ -1189,15 +1276,18 @@ func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetEntityData() *types.Co
     dataPrivacy.EntityData.YangName = "data-privacy"
     dataPrivacy.EntityData.BundleName = "cisco_ios_xr"
     dataPrivacy.EntityData.ParentYangName = "data-privacies"
-    dataPrivacy.EntityData.SegmentPath = "data-privacy" + "[host-name='" + fmt.Sprintf("%v", dataPrivacy.HostName) + "']"
+    dataPrivacy.EntityData.SegmentPath = "data-privacy" + types.AddKeyToken(dataPrivacy.HostName, "host-name")
     dataPrivacy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataPrivacy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataPrivacy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataPrivacy.EntityData.Children = make(map[string]types.YChild)
-    dataPrivacy.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataPrivacy.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", dataPrivacy.HostName}
-    dataPrivacy.EntityData.Leafs["level"] = types.YLeaf{"Level", dataPrivacy.Level}
+    dataPrivacy.EntityData.Children = types.NewOrderedMap()
+    dataPrivacy.EntityData.Leafs = types.NewOrderedMap()
+    dataPrivacy.EntityData.Leafs.Append("host-name", types.YLeaf{"HostName", dataPrivacy.HostName})
+    dataPrivacy.EntityData.Leafs.Append("level", types.YLeaf{"Level", dataPrivacy.Level})
+
+    dataPrivacy.EntityData.YListKeys = []string {"HostName"}
+
     return &(dataPrivacy.EntityData)
 }
 
@@ -1221,9 +1311,12 @@ func (alertGroupConfig *CallHome_AlertGroupConfig) GetEntityData() *types.Common
     alertGroupConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alertGroupConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alertGroupConfig.EntityData.Children = make(map[string]types.YChild)
-    alertGroupConfig.EntityData.Children["snapshot-commands"] = types.YChild{"SnapshotCommands", &alertGroupConfig.SnapshotCommands}
-    alertGroupConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    alertGroupConfig.EntityData.Children = types.NewOrderedMap()
+    alertGroupConfig.EntityData.Children.Append("snapshot-commands", types.YChild{"SnapshotCommands", &alertGroupConfig.SnapshotCommands})
+    alertGroupConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    alertGroupConfig.EntityData.YListKeys = []string {}
+
     return &(alertGroupConfig.EntityData)
 }
 
@@ -1235,7 +1328,7 @@ type CallHome_AlertGroupConfig_SnapshotCommands struct {
 
     // A specific CLI cmd for snapshot. The type is slice of
     // CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand.
-    SnapshotCommand []CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand
+    SnapshotCommand []*CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand
 }
 
 func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetEntityData() *types.CommonEntityData {
@@ -1248,12 +1341,15 @@ func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetEntityDat
     snapshotCommands.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snapshotCommands.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snapshotCommands.EntityData.Children = make(map[string]types.YChild)
-    snapshotCommands.EntityData.Children["snapshot-command"] = types.YChild{"SnapshotCommand", nil}
+    snapshotCommands.EntityData.Children = types.NewOrderedMap()
+    snapshotCommands.EntityData.Children.Append("snapshot-command", types.YChild{"SnapshotCommand", nil})
     for i := range snapshotCommands.SnapshotCommand {
-        snapshotCommands.EntityData.Children[types.GetSegmentPath(&snapshotCommands.SnapshotCommand[i])] = types.YChild{"SnapshotCommand", &snapshotCommands.SnapshotCommand[i]}
+        snapshotCommands.EntityData.Children.Append(types.GetSegmentPath(snapshotCommands.SnapshotCommand[i]), types.YChild{"SnapshotCommand", snapshotCommands.SnapshotCommand[i]})
     }
-    snapshotCommands.EntityData.Leafs = make(map[string]types.YLeaf)
+    snapshotCommands.EntityData.Leafs = types.NewOrderedMap()
+
+    snapshotCommands.EntityData.YListKeys = []string {}
+
     return &(snapshotCommands.EntityData)
 }
 
@@ -1276,15 +1372,18 @@ func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotComman
     snapshotCommand.EntityData.YangName = "snapshot-command"
     snapshotCommand.EntityData.BundleName = "cisco_ios_xr"
     snapshotCommand.EntityData.ParentYangName = "snapshot-commands"
-    snapshotCommand.EntityData.SegmentPath = "snapshot-command" + "[command='" + fmt.Sprintf("%v", snapshotCommand.Command) + "']"
+    snapshotCommand.EntityData.SegmentPath = "snapshot-command" + types.AddKeyToken(snapshotCommand.Command, "command")
     snapshotCommand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snapshotCommand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snapshotCommand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snapshotCommand.EntityData.Children = make(map[string]types.YChild)
-    snapshotCommand.EntityData.Leafs = make(map[string]types.YLeaf)
-    snapshotCommand.EntityData.Leafs["command"] = types.YLeaf{"Command", snapshotCommand.Command}
-    snapshotCommand.EntityData.Leafs["active"] = types.YLeaf{"Active", snapshotCommand.Active}
+    snapshotCommand.EntityData.Children = types.NewOrderedMap()
+    snapshotCommand.EntityData.Leafs = types.NewOrderedMap()
+    snapshotCommand.EntityData.Leafs.Append("command", types.YLeaf{"Command", snapshotCommand.Command})
+    snapshotCommand.EntityData.Leafs.Append("active", types.YLeaf{"Active", snapshotCommand.Active})
+
+    snapshotCommand.EntityData.YListKeys = []string {"Command"}
+
     return &(snapshotCommand.EntityData)
 }
 
@@ -1313,10 +1412,13 @@ func (authorization *CallHome_Authorization) GetEntityData() *types.CommonEntity
     authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorization.EntityData.Children = make(map[string]types.YChild)
-    authorization.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorization.EntityData.Leafs["username"] = types.YLeaf{"Username", authorization.Username}
-    authorization.EntityData.Leafs["active"] = types.YLeaf{"Active", authorization.Active}
+    authorization.EntityData.Children = types.NewOrderedMap()
+    authorization.EntityData.Leafs = types.NewOrderedMap()
+    authorization.EntityData.Leafs.Append("username", types.YLeaf{"Username", authorization.Username})
+    authorization.EntityData.Leafs.Append("active", types.YLeaf{"Active", authorization.Active})
+
+    authorization.EntityData.YListKeys = []string {}
+
     return &(authorization.EntityData)
 }
 

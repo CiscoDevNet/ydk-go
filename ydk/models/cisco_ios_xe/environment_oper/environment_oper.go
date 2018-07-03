@@ -50,7 +50,7 @@ type EnvironmentSensors struct {
 
     // The list of components on the device chasis. The type is slice of
     // EnvironmentSensors_EnvironmentSensor.
-    EnvironmentSensor []EnvironmentSensors_EnvironmentSensor
+    EnvironmentSensor []*EnvironmentSensors_EnvironmentSensor
 }
 
 func (environmentSensors *EnvironmentSensors) GetEntityData() *types.CommonEntityData {
@@ -63,12 +63,15 @@ func (environmentSensors *EnvironmentSensors) GetEntityData() *types.CommonEntit
     environmentSensors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     environmentSensors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    environmentSensors.EntityData.Children = make(map[string]types.YChild)
-    environmentSensors.EntityData.Children["environment-sensor"] = types.YChild{"EnvironmentSensor", nil}
+    environmentSensors.EntityData.Children = types.NewOrderedMap()
+    environmentSensors.EntityData.Children.Append("environment-sensor", types.YChild{"EnvironmentSensor", nil})
     for i := range environmentSensors.EnvironmentSensor {
-        environmentSensors.EntityData.Children[types.GetSegmentPath(&environmentSensors.EnvironmentSensor[i])] = types.YChild{"EnvironmentSensor", &environmentSensors.EnvironmentSensor[i]}
+        environmentSensors.EntityData.Children.Append(types.GetSegmentPath(environmentSensors.EnvironmentSensor[i]), types.YChild{"EnvironmentSensor", environmentSensors.EnvironmentSensor[i]})
     }
-    environmentSensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    environmentSensors.EntityData.Leafs = types.NewOrderedMap()
+
+    environmentSensors.EntityData.YListKeys = []string {}
+
     return &(environmentSensors.EntityData)
 }
 
@@ -119,22 +122,25 @@ func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetEntityData() *
     environmentSensor.EntityData.YangName = "environment-sensor"
     environmentSensor.EntityData.BundleName = "cisco_ios_xe"
     environmentSensor.EntityData.ParentYangName = "environment-sensors"
-    environmentSensor.EntityData.SegmentPath = "environment-sensor" + "[name='" + fmt.Sprintf("%v", environmentSensor.Name) + "']" + "[location='" + fmt.Sprintf("%v", environmentSensor.Location) + "']"
+    environmentSensor.EntityData.SegmentPath = "environment-sensor" + types.AddKeyToken(environmentSensor.Name, "name") + types.AddKeyToken(environmentSensor.Location, "location")
     environmentSensor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     environmentSensor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     environmentSensor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    environmentSensor.EntityData.Children = make(map[string]types.YChild)
-    environmentSensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    environmentSensor.EntityData.Leafs["name"] = types.YLeaf{"Name", environmentSensor.Name}
-    environmentSensor.EntityData.Leafs["location"] = types.YLeaf{"Location", environmentSensor.Location}
-    environmentSensor.EntityData.Leafs["state"] = types.YLeaf{"State", environmentSensor.State}
-    environmentSensor.EntityData.Leafs["current-reading"] = types.YLeaf{"CurrentReading", environmentSensor.CurrentReading}
-    environmentSensor.EntityData.Leafs["sensor-units"] = types.YLeaf{"SensorUnits", environmentSensor.SensorUnits}
-    environmentSensor.EntityData.Leafs["low-critical-threshold"] = types.YLeaf{"LowCriticalThreshold", environmentSensor.LowCriticalThreshold}
-    environmentSensor.EntityData.Leafs["low-normal-threshold"] = types.YLeaf{"LowNormalThreshold", environmentSensor.LowNormalThreshold}
-    environmentSensor.EntityData.Leafs["high-normal-threshold"] = types.YLeaf{"HighNormalThreshold", environmentSensor.HighNormalThreshold}
-    environmentSensor.EntityData.Leafs["high-critical-threshold"] = types.YLeaf{"HighCriticalThreshold", environmentSensor.HighCriticalThreshold}
+    environmentSensor.EntityData.Children = types.NewOrderedMap()
+    environmentSensor.EntityData.Leafs = types.NewOrderedMap()
+    environmentSensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", environmentSensor.Name})
+    environmentSensor.EntityData.Leafs.Append("location", types.YLeaf{"Location", environmentSensor.Location})
+    environmentSensor.EntityData.Leafs.Append("state", types.YLeaf{"State", environmentSensor.State})
+    environmentSensor.EntityData.Leafs.Append("current-reading", types.YLeaf{"CurrentReading", environmentSensor.CurrentReading})
+    environmentSensor.EntityData.Leafs.Append("sensor-units", types.YLeaf{"SensorUnits", environmentSensor.SensorUnits})
+    environmentSensor.EntityData.Leafs.Append("low-critical-threshold", types.YLeaf{"LowCriticalThreshold", environmentSensor.LowCriticalThreshold})
+    environmentSensor.EntityData.Leafs.Append("low-normal-threshold", types.YLeaf{"LowNormalThreshold", environmentSensor.LowNormalThreshold})
+    environmentSensor.EntityData.Leafs.Append("high-normal-threshold", types.YLeaf{"HighNormalThreshold", environmentSensor.HighNormalThreshold})
+    environmentSensor.EntityData.Leafs.Append("high-critical-threshold", types.YLeaf{"HighCriticalThreshold", environmentSensor.HighCriticalThreshold})
+
+    environmentSensor.EntityData.YListKeys = []string {"Name", "Location"}
+
     return &(environmentSensor.EntityData)
 }
 

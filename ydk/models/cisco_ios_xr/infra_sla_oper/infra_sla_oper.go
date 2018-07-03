@@ -47,9 +47,12 @@ func (sla *Sla) GetEntityData() *types.CommonEntityData {
     sla.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sla.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sla.EntityData.Children = make(map[string]types.YChild)
-    sla.EntityData.Children["protocols"] = types.YChild{"Protocols", &sla.Protocols}
-    sla.EntityData.Leafs = make(map[string]types.YLeaf)
+    sla.EntityData.Children = types.NewOrderedMap()
+    sla.EntityData.Children.Append("protocols", types.YChild{"Protocols", &sla.Protocols})
+    sla.EntityData.Leafs = types.NewOrderedMap()
+
+    sla.EntityData.YListKeys = []string {}
+
     return &(sla.EntityData)
 }
 
@@ -73,9 +76,12 @@ func (protocols *Sla_Protocols) GetEntityData() *types.CommonEntityData {
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protocols.EntityData.Children = make(map[string]types.YChild)
-    protocols.EntityData.Children["Cisco-IOS-XR-ethernet-cfm-oper:ethernet"] = types.YChild{"Ethernet", &protocols.Ethernet}
-    protocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    protocols.EntityData.Children = types.NewOrderedMap()
+    protocols.EntityData.Children.Append("Cisco-IOS-XR-ethernet-cfm-oper:ethernet", types.YChild{"Ethernet", &protocols.Ethernet})
+    protocols.EntityData.Leafs = types.NewOrderedMap()
+
+    protocols.EntityData.YListKeys = []string {}
+
     return &(protocols.EntityData)
 }
 
@@ -117,15 +123,18 @@ func (ethernet *Sla_Protocols_Ethernet) GetEntityData() *types.CommonEntityData 
     ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ethernet.EntityData.Children = make(map[string]types.YChild)
-    ethernet.EntityData.Children["statistics-on-demand-currents"] = types.YChild{"StatisticsOnDemandCurrents", &ethernet.StatisticsOnDemandCurrents}
-    ethernet.EntityData.Children["operations"] = types.YChild{"Operations", &ethernet.Operations}
-    ethernet.EntityData.Children["statistics-historicals"] = types.YChild{"StatisticsHistoricals", &ethernet.StatisticsHistoricals}
-    ethernet.EntityData.Children["statistics-on-demand-historicals"] = types.YChild{"StatisticsOnDemandHistoricals", &ethernet.StatisticsOnDemandHistoricals}
-    ethernet.EntityData.Children["config-errors"] = types.YChild{"ConfigErrors", &ethernet.ConfigErrors}
-    ethernet.EntityData.Children["on-demand-operations"] = types.YChild{"OnDemandOperations", &ethernet.OnDemandOperations}
-    ethernet.EntityData.Children["statistics-currents"] = types.YChild{"StatisticsCurrents", &ethernet.StatisticsCurrents}
-    ethernet.EntityData.Leafs = make(map[string]types.YLeaf)
+    ethernet.EntityData.Children = types.NewOrderedMap()
+    ethernet.EntityData.Children.Append("statistics-on-demand-currents", types.YChild{"StatisticsOnDemandCurrents", &ethernet.StatisticsOnDemandCurrents})
+    ethernet.EntityData.Children.Append("operations", types.YChild{"Operations", &ethernet.Operations})
+    ethernet.EntityData.Children.Append("statistics-historicals", types.YChild{"StatisticsHistoricals", &ethernet.StatisticsHistoricals})
+    ethernet.EntityData.Children.Append("statistics-on-demand-historicals", types.YChild{"StatisticsOnDemandHistoricals", &ethernet.StatisticsOnDemandHistoricals})
+    ethernet.EntityData.Children.Append("config-errors", types.YChild{"ConfigErrors", &ethernet.ConfigErrors})
+    ethernet.EntityData.Children.Append("on-demand-operations", types.YChild{"OnDemandOperations", &ethernet.OnDemandOperations})
+    ethernet.EntityData.Children.Append("statistics-currents", types.YChild{"StatisticsCurrents", &ethernet.StatisticsCurrents})
+    ethernet.EntityData.Leafs = types.NewOrderedMap()
+
+    ethernet.EntityData.YListKeys = []string {}
+
     return &(ethernet.EntityData)
 }
 
@@ -139,7 +148,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents struct {
     // Current statistics data for an SLA on-demand operation. The type is slice
     // of
     // Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent.
-    StatisticsOnDemandCurrent []Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
+    StatisticsOnDemandCurrent []*Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
 }
 
 func (statisticsOnDemandCurrents *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents) GetEntityData() *types.CommonEntityData {
@@ -152,12 +161,15 @@ func (statisticsOnDemandCurrents *Sla_Protocols_Ethernet_StatisticsOnDemandCurre
     statisticsOnDemandCurrents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsOnDemandCurrents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsOnDemandCurrents.EntityData.Children = make(map[string]types.YChild)
-    statisticsOnDemandCurrents.EntityData.Children["statistics-on-demand-current"] = types.YChild{"StatisticsOnDemandCurrent", nil}
+    statisticsOnDemandCurrents.EntityData.Children = types.NewOrderedMap()
+    statisticsOnDemandCurrents.EntityData.Children.Append("statistics-on-demand-current", types.YChild{"StatisticsOnDemandCurrent", nil})
     for i := range statisticsOnDemandCurrents.StatisticsOnDemandCurrent {
-        statisticsOnDemandCurrents.EntityData.Children[types.GetSegmentPath(&statisticsOnDemandCurrents.StatisticsOnDemandCurrent[i])] = types.YChild{"StatisticsOnDemandCurrent", &statisticsOnDemandCurrents.StatisticsOnDemandCurrent[i]}
+        statisticsOnDemandCurrents.EntityData.Children.Append(types.GetSegmentPath(statisticsOnDemandCurrents.StatisticsOnDemandCurrent[i]), types.YChild{"StatisticsOnDemandCurrent", statisticsOnDemandCurrents.StatisticsOnDemandCurrent[i]})
     }
-    statisticsOnDemandCurrents.EntityData.Leafs = make(map[string]types.YLeaf)
+    statisticsOnDemandCurrents.EntityData.Leafs = types.NewOrderedMap()
+
+    statisticsOnDemandCurrents.EntityData.YListKeys = []string {}
+
     return &(statisticsOnDemandCurrents.EntityData)
 }
 
@@ -174,7 +186,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -183,7 +195,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Type of probe used by the operation. The type is string.
@@ -207,7 +219,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
 
     // Metrics gathered for the operation. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric.
-    OperationMetric []Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric
+    OperationMetric []*Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric
 }
 
 func (statisticsOnDemandCurrent *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent) GetEntityData() *types.CommonEntityData {
@@ -220,23 +232,26 @@ func (statisticsOnDemandCurrent *Sla_Protocols_Ethernet_StatisticsOnDemandCurren
     statisticsOnDemandCurrent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsOnDemandCurrent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsOnDemandCurrent.EntityData.Children = make(map[string]types.YChild)
-    statisticsOnDemandCurrent.EntityData.Children["specific-options"] = types.YChild{"SpecificOptions", &statisticsOnDemandCurrent.SpecificOptions}
-    statisticsOnDemandCurrent.EntityData.Children["operation-schedule"] = types.YChild{"OperationSchedule", &statisticsOnDemandCurrent.OperationSchedule}
-    statisticsOnDemandCurrent.EntityData.Children["operation-metric"] = types.YChild{"OperationMetric", nil}
+    statisticsOnDemandCurrent.EntityData.Children = types.NewOrderedMap()
+    statisticsOnDemandCurrent.EntityData.Children.Append("specific-options", types.YChild{"SpecificOptions", &statisticsOnDemandCurrent.SpecificOptions})
+    statisticsOnDemandCurrent.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &statisticsOnDemandCurrent.OperationSchedule})
+    statisticsOnDemandCurrent.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range statisticsOnDemandCurrent.OperationMetric {
-        statisticsOnDemandCurrent.EntityData.Children[types.GetSegmentPath(&statisticsOnDemandCurrent.OperationMetric[i])] = types.YChild{"OperationMetric", &statisticsOnDemandCurrent.OperationMetric[i]}
+        statisticsOnDemandCurrent.EntityData.Children.Append(types.GetSegmentPath(statisticsOnDemandCurrent.OperationMetric[i]), types.YChild{"OperationMetric", statisticsOnDemandCurrent.OperationMetric[i]})
     }
-    statisticsOnDemandCurrent.EntityData.Leafs = make(map[string]types.YLeaf)
-    statisticsOnDemandCurrent.EntityData.Leafs["operation-id"] = types.YLeaf{"OperationId", statisticsOnDemandCurrent.OperationId}
-    statisticsOnDemandCurrent.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", statisticsOnDemandCurrent.DomainName}
-    statisticsOnDemandCurrent.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", statisticsOnDemandCurrent.InterfaceName}
-    statisticsOnDemandCurrent.EntityData.Leafs["mep-id"] = types.YLeaf{"MepId", statisticsOnDemandCurrent.MepId}
-    statisticsOnDemandCurrent.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", statisticsOnDemandCurrent.MacAddress}
-    statisticsOnDemandCurrent.EntityData.Leafs["probe-type"] = types.YLeaf{"ProbeType", statisticsOnDemandCurrent.ProbeType}
-    statisticsOnDemandCurrent.EntityData.Leafs["display-short"] = types.YLeaf{"DisplayShort", statisticsOnDemandCurrent.DisplayShort}
-    statisticsOnDemandCurrent.EntityData.Leafs["display-long"] = types.YLeaf{"DisplayLong", statisticsOnDemandCurrent.DisplayLong}
-    statisticsOnDemandCurrent.EntityData.Leafs["flr-calculation-interval"] = types.YLeaf{"FlrCalculationInterval", statisticsOnDemandCurrent.FlrCalculationInterval}
+    statisticsOnDemandCurrent.EntityData.Leafs = types.NewOrderedMap()
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("operation-id", types.YLeaf{"OperationId", statisticsOnDemandCurrent.OperationId})
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", statisticsOnDemandCurrent.DomainName})
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", statisticsOnDemandCurrent.InterfaceName})
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("mep-id", types.YLeaf{"MepId", statisticsOnDemandCurrent.MepId})
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", statisticsOnDemandCurrent.MacAddress})
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("probe-type", types.YLeaf{"ProbeType", statisticsOnDemandCurrent.ProbeType})
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("display-short", types.YLeaf{"DisplayShort", statisticsOnDemandCurrent.DisplayShort})
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("display-long", types.YLeaf{"DisplayLong", statisticsOnDemandCurrent.DisplayLong})
+    statisticsOnDemandCurrent.EntityData.Leafs.Append("flr-calculation-interval", types.YLeaf{"FlrCalculationInterval", statisticsOnDemandCurrent.FlrCalculationInterval})
+
+    statisticsOnDemandCurrent.EntityData.YListKeys = []string {}
+
     return &(statisticsOnDemandCurrent.EntityData)
 }
 
@@ -266,11 +281,14 @@ func (specificOptions *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statist
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    specificOptions.EntityData.Children = make(map[string]types.YChild)
-    specificOptions.EntityData.Children["configured-operation-options"] = types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions}
-    specificOptions.EntityData.Children["ondemand-operation-options"] = types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions}
-    specificOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    specificOptions.EntityData.Leafs["oper-type"] = types.YLeaf{"OperType", specificOptions.OperType}
+    specificOptions.EntityData.Children = types.NewOrderedMap()
+    specificOptions.EntityData.Children.Append("configured-operation-options", types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions})
+    specificOptions.EntityData.Children.Append("ondemand-operation-options", types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions})
+    specificOptions.EntityData.Leafs = types.NewOrderedMap()
+    specificOptions.EntityData.Leafs.Append("oper-type", types.YLeaf{"OperType", specificOptions.OperType})
+
+    specificOptions.EntityData.YListKeys = []string {}
+
     return &(specificOptions.EntityData)
 }
 
@@ -294,9 +312,12 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_StatisticsOnDemandCurre
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuredOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    configuredOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuredOperationOptions.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName}
+    configuredOperationOptions.EntityData.Children = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName})
+
+    configuredOperationOptions.EntityData.YListKeys = []string {}
+
     return &(configuredOperationOptions.EntityData)
 }
 
@@ -325,10 +346,13 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_StatisticsOnDemandCurrent
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ondemandOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    ondemandOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    ondemandOperationOptions.EntityData.Leafs["ondemand-operation-id"] = types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId}
-    ondemandOperationOptions.EntityData.Leafs["probe-count"] = types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount}
+    ondemandOperationOptions.EntityData.Children = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs.Append("ondemand-operation-id", types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId})
+    ondemandOperationOptions.EntityData.Leafs.Append("probe-count", types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount})
+
+    ondemandOperationOptions.EntityData.YListKeys = []string {}
+
     return &(ondemandOperationOptions.EntityData)
 }
 
@@ -365,12 +389,15 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Stati
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationSchedule.EntityData.Children = make(map[string]types.YChild)
-    operationSchedule.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationSchedule.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", operationSchedule.StartTime}
-    operationSchedule.EntityData.Leafs["start-time-configured"] = types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured}
-    operationSchedule.EntityData.Leafs["schedule-duration"] = types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration}
-    operationSchedule.EntityData.Leafs["schedule-interval"] = types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval}
+    operationSchedule.EntityData.Children = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", operationSchedule.StartTime})
+    operationSchedule.EntityData.Leafs.Append("start-time-configured", types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured})
+    operationSchedule.EntityData.Leafs.Append("schedule-duration", types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration})
+    operationSchedule.EntityData.Leafs.Append("schedule-interval", types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval})
+
+    operationSchedule.EntityData.YListKeys = []string {}
+
     return &(operationSchedule.EntityData)
 }
 
@@ -385,7 +412,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
 
     // Buckets stored for the metric. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket.
-    Bucket []Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket
+    Bucket []*Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket
 }
 
 func (operationMetric *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric) GetEntityData() *types.CommonEntityData {
@@ -398,13 +425,16 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statist
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationMetric.EntityData.Children = make(map[string]types.YChild)
-    operationMetric.EntityData.Children["config"] = types.YChild{"Config", &operationMetric.Config}
-    operationMetric.EntityData.Children["bucket"] = types.YChild{"Bucket", nil}
+    operationMetric.EntityData.Children = types.NewOrderedMap()
+    operationMetric.EntityData.Children.Append("config", types.YChild{"Config", &operationMetric.Config})
+    operationMetric.EntityData.Children.Append("bucket", types.YChild{"Bucket", nil})
     for i := range operationMetric.Bucket {
-        operationMetric.EntityData.Children[types.GetSegmentPath(&operationMetric.Bucket[i])] = types.YChild{"Bucket", &operationMetric.Bucket[i]}
+        operationMetric.EntityData.Children.Append(types.GetSegmentPath(operationMetric.Bucket[i]), types.YChild{"Bucket", operationMetric.Bucket[i]})
     }
-    operationMetric.EntityData.Leafs = make(map[string]types.YLeaf)
+    operationMetric.EntityData.Leafs = types.NewOrderedMap()
+
+    operationMetric.EntityData.YListKeys = []string {}
+
     return &(operationMetric.EntityData)
 }
 
@@ -450,14 +480,17 @@ func (config *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDema
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["metric-type"] = types.YLeaf{"MetricType", config.MetricType}
-    config.EntityData.Leafs["bins-count"] = types.YLeaf{"BinsCount", config.BinsCount}
-    config.EntityData.Leafs["bins-width"] = types.YLeaf{"BinsWidth", config.BinsWidth}
-    config.EntityData.Leafs["bucket-size"] = types.YLeaf{"BucketSize", config.BucketSize}
-    config.EntityData.Leafs["bucket-size-unit"] = types.YLeaf{"BucketSizeUnit", config.BucketSizeUnit}
-    config.EntityData.Leafs["buckets-archive"] = types.YLeaf{"BucketsArchive", config.BucketsArchive}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", config.MetricType})
+    config.EntityData.Leafs.Append("bins-count", types.YLeaf{"BinsCount", config.BinsCount})
+    config.EntityData.Leafs.Append("bins-width", types.YLeaf{"BinsWidth", config.BinsWidth})
+    config.EntityData.Leafs.Append("bucket-size", types.YLeaf{"BucketSize", config.BucketSize})
+    config.EntityData.Leafs.Append("bucket-size-unit", types.YLeaf{"BucketSizeUnit", config.BucketSizeUnit})
+    config.EntityData.Leafs.Append("buckets-archive", types.YLeaf{"BucketsArchive", config.BucketsArchive})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -605,40 +638,43 @@ func (bucket *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDema
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bucket.EntityData.Children = make(map[string]types.YChild)
-    bucket.EntityData.Children["contents"] = types.YChild{"Contents", &bucket.Contents}
-    bucket.EntityData.Leafs = make(map[string]types.YLeaf)
-    bucket.EntityData.Leafs["start-at"] = types.YLeaf{"StartAt", bucket.StartAt}
-    bucket.EntityData.Leafs["duration"] = types.YLeaf{"Duration", bucket.Duration}
-    bucket.EntityData.Leafs["sent"] = types.YLeaf{"Sent", bucket.Sent}
-    bucket.EntityData.Leafs["lost"] = types.YLeaf{"Lost", bucket.Lost}
-    bucket.EntityData.Leafs["corrupt"] = types.YLeaf{"Corrupt", bucket.Corrupt}
-    bucket.EntityData.Leafs["out-of-order"] = types.YLeaf{"OutOfOrder", bucket.OutOfOrder}
-    bucket.EntityData.Leafs["duplicates"] = types.YLeaf{"Duplicates", bucket.Duplicates}
-    bucket.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", bucket.Minimum}
-    bucket.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", bucket.Maximum}
-    bucket.EntityData.Leafs["time-of-minimum"] = types.YLeaf{"TimeOfMinimum", bucket.TimeOfMinimum}
-    bucket.EntityData.Leafs["time-of-maximum"] = types.YLeaf{"TimeOfMaximum", bucket.TimeOfMaximum}
-    bucket.EntityData.Leafs["average"] = types.YLeaf{"Average", bucket.Average}
-    bucket.EntityData.Leafs["standard-deviation"] = types.YLeaf{"StandardDeviation", bucket.StandardDeviation}
-    bucket.EntityData.Leafs["result-count"] = types.YLeaf{"ResultCount", bucket.ResultCount}
-    bucket.EntityData.Leafs["data-sent-count"] = types.YLeaf{"DataSentCount", bucket.DataSentCount}
-    bucket.EntityData.Leafs["data-lost-count"] = types.YLeaf{"DataLostCount", bucket.DataLostCount}
-    bucket.EntityData.Leafs["overall-flr"] = types.YLeaf{"OverallFlr", bucket.OverallFlr}
-    bucket.EntityData.Leafs["suspect-start-mid-bucket"] = types.YLeaf{"SuspectStartMidBucket", bucket.SuspectStartMidBucket}
-    bucket.EntityData.Leafs["suspect-schedule-latency"] = types.YLeaf{"SuspectScheduleLatency", bucket.SuspectScheduleLatency}
-    bucket.EntityData.Leafs["suspect-send-fail"] = types.YLeaf{"SuspectSendFail", bucket.SuspectSendFail}
-    bucket.EntityData.Leafs["suspect-premature-end"] = types.YLeaf{"SuspectPrematureEnd", bucket.SuspectPrematureEnd}
-    bucket.EntityData.Leafs["suspect-clock-drift"] = types.YLeaf{"SuspectClockDrift", bucket.SuspectClockDrift}
-    bucket.EntityData.Leafs["suspect-memory-allocation-failed"] = types.YLeaf{"SuspectMemoryAllocationFailed", bucket.SuspectMemoryAllocationFailed}
-    bucket.EntityData.Leafs["suspect-cleared-mid-bucket"] = types.YLeaf{"SuspectClearedMidBucket", bucket.SuspectClearedMidBucket}
-    bucket.EntityData.Leafs["suspect-probe-restarted"] = types.YLeaf{"SuspectProbeRestarted", bucket.SuspectProbeRestarted}
-    bucket.EntityData.Leafs["suspect-management-latency"] = types.YLeaf{"SuspectManagementLatency", bucket.SuspectManagementLatency}
-    bucket.EntityData.Leafs["suspect-multiple-buckets"] = types.YLeaf{"SuspectMultipleBuckets", bucket.SuspectMultipleBuckets}
-    bucket.EntityData.Leafs["suspect-misordering"] = types.YLeaf{"SuspectMisordering", bucket.SuspectMisordering}
-    bucket.EntityData.Leafs["suspect-flr-low-packet-count"] = types.YLeaf{"SuspectFlrLowPacketCount", bucket.SuspectFlrLowPacketCount}
-    bucket.EntityData.Leafs["premature-reason"] = types.YLeaf{"PrematureReason", bucket.PrematureReason}
-    bucket.EntityData.Leafs["premature-reason-string"] = types.YLeaf{"PrematureReasonString", bucket.PrematureReasonString}
+    bucket.EntityData.Children = types.NewOrderedMap()
+    bucket.EntityData.Children.Append("contents", types.YChild{"Contents", &bucket.Contents})
+    bucket.EntityData.Leafs = types.NewOrderedMap()
+    bucket.EntityData.Leafs.Append("start-at", types.YLeaf{"StartAt", bucket.StartAt})
+    bucket.EntityData.Leafs.Append("duration", types.YLeaf{"Duration", bucket.Duration})
+    bucket.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", bucket.Sent})
+    bucket.EntityData.Leafs.Append("lost", types.YLeaf{"Lost", bucket.Lost})
+    bucket.EntityData.Leafs.Append("corrupt", types.YLeaf{"Corrupt", bucket.Corrupt})
+    bucket.EntityData.Leafs.Append("out-of-order", types.YLeaf{"OutOfOrder", bucket.OutOfOrder})
+    bucket.EntityData.Leafs.Append("duplicates", types.YLeaf{"Duplicates", bucket.Duplicates})
+    bucket.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", bucket.Minimum})
+    bucket.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", bucket.Maximum})
+    bucket.EntityData.Leafs.Append("time-of-minimum", types.YLeaf{"TimeOfMinimum", bucket.TimeOfMinimum})
+    bucket.EntityData.Leafs.Append("time-of-maximum", types.YLeaf{"TimeOfMaximum", bucket.TimeOfMaximum})
+    bucket.EntityData.Leafs.Append("average", types.YLeaf{"Average", bucket.Average})
+    bucket.EntityData.Leafs.Append("standard-deviation", types.YLeaf{"StandardDeviation", bucket.StandardDeviation})
+    bucket.EntityData.Leafs.Append("result-count", types.YLeaf{"ResultCount", bucket.ResultCount})
+    bucket.EntityData.Leafs.Append("data-sent-count", types.YLeaf{"DataSentCount", bucket.DataSentCount})
+    bucket.EntityData.Leafs.Append("data-lost-count", types.YLeaf{"DataLostCount", bucket.DataLostCount})
+    bucket.EntityData.Leafs.Append("overall-flr", types.YLeaf{"OverallFlr", bucket.OverallFlr})
+    bucket.EntityData.Leafs.Append("suspect-start-mid-bucket", types.YLeaf{"SuspectStartMidBucket", bucket.SuspectStartMidBucket})
+    bucket.EntityData.Leafs.Append("suspect-schedule-latency", types.YLeaf{"SuspectScheduleLatency", bucket.SuspectScheduleLatency})
+    bucket.EntityData.Leafs.Append("suspect-send-fail", types.YLeaf{"SuspectSendFail", bucket.SuspectSendFail})
+    bucket.EntityData.Leafs.Append("suspect-premature-end", types.YLeaf{"SuspectPrematureEnd", bucket.SuspectPrematureEnd})
+    bucket.EntityData.Leafs.Append("suspect-clock-drift", types.YLeaf{"SuspectClockDrift", bucket.SuspectClockDrift})
+    bucket.EntityData.Leafs.Append("suspect-memory-allocation-failed", types.YLeaf{"SuspectMemoryAllocationFailed", bucket.SuspectMemoryAllocationFailed})
+    bucket.EntityData.Leafs.Append("suspect-cleared-mid-bucket", types.YLeaf{"SuspectClearedMidBucket", bucket.SuspectClearedMidBucket})
+    bucket.EntityData.Leafs.Append("suspect-probe-restarted", types.YLeaf{"SuspectProbeRestarted", bucket.SuspectProbeRestarted})
+    bucket.EntityData.Leafs.Append("suspect-management-latency", types.YLeaf{"SuspectManagementLatency", bucket.SuspectManagementLatency})
+    bucket.EntityData.Leafs.Append("suspect-multiple-buckets", types.YLeaf{"SuspectMultipleBuckets", bucket.SuspectMultipleBuckets})
+    bucket.EntityData.Leafs.Append("suspect-misordering", types.YLeaf{"SuspectMisordering", bucket.SuspectMisordering})
+    bucket.EntityData.Leafs.Append("suspect-flr-low-packet-count", types.YLeaf{"SuspectFlrLowPacketCount", bucket.SuspectFlrLowPacketCount})
+    bucket.EntityData.Leafs.Append("premature-reason", types.YLeaf{"PrematureReason", bucket.PrematureReason})
+    bucket.EntityData.Leafs.Append("premature-reason-string", types.YLeaf{"PrematureReasonString", bucket.PrematureReasonString})
+
+    bucket.EntityData.YListKeys = []string {}
+
     return &(bucket.EntityData)
 }
 
@@ -668,11 +704,14 @@ func (contents *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDe
     contents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contents.EntityData.Children = make(map[string]types.YChild)
-    contents.EntityData.Children["aggregated"] = types.YChild{"Aggregated", &contents.Aggregated}
-    contents.EntityData.Children["unaggregated"] = types.YChild{"Unaggregated", &contents.Unaggregated}
-    contents.EntityData.Leafs = make(map[string]types.YLeaf)
-    contents.EntityData.Leafs["bucket-type"] = types.YLeaf{"BucketType", contents.BucketType}
+    contents.EntityData.Children = types.NewOrderedMap()
+    contents.EntityData.Children.Append("aggregated", types.YChild{"Aggregated", &contents.Aggregated})
+    contents.EntityData.Children.Append("unaggregated", types.YChild{"Unaggregated", &contents.Unaggregated})
+    contents.EntityData.Leafs = types.NewOrderedMap()
+    contents.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", contents.BucketType})
+
+    contents.EntityData.YListKeys = []string {}
+
     return &(contents.EntityData)
 }
 
@@ -684,7 +723,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
 
     // The bins of an SLA metric bucket. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Aggregated_Bins.
-    Bins []Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Aggregated_Bins
+    Bins []*Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Aggregated_Bins
 }
 
 func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Aggregated) GetEntityData() *types.CommonEntityData {
@@ -697,12 +736,15 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOn
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregated.EntityData.Children = make(map[string]types.YChild)
-    aggregated.EntityData.Children["bins"] = types.YChild{"Bins", nil}
+    aggregated.EntityData.Children = types.NewOrderedMap()
+    aggregated.EntityData.Children.Append("bins", types.YChild{"Bins", nil})
     for i := range aggregated.Bins {
-        aggregated.EntityData.Children[types.GetSegmentPath(&aggregated.Bins[i])] = types.YChild{"Bins", &aggregated.Bins[i]}
+        aggregated.EntityData.Children.Append(types.GetSegmentPath(aggregated.Bins[i]), types.YChild{"Bins", aggregated.Bins[i]})
     }
-    aggregated.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregated.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregated.EntityData.YListKeys = []string {}
+
     return &(aggregated.EntityData)
 }
 
@@ -752,14 +794,17 @@ func (bins *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemand
     bins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bins.EntityData.Children = make(map[string]types.YChild)
-    bins.EntityData.Leafs = make(map[string]types.YLeaf)
-    bins.EntityData.Leafs["lower-bound"] = types.YLeaf{"LowerBound", bins.LowerBound}
-    bins.EntityData.Leafs["upper-bound"] = types.YLeaf{"UpperBound", bins.UpperBound}
-    bins.EntityData.Leafs["lower-bound-tenths"] = types.YLeaf{"LowerBoundTenths", bins.LowerBoundTenths}
-    bins.EntityData.Leafs["upper-bound-tenths"] = types.YLeaf{"UpperBoundTenths", bins.UpperBoundTenths}
-    bins.EntityData.Leafs["sum"] = types.YLeaf{"Sum", bins.Sum}
-    bins.EntityData.Leafs["count"] = types.YLeaf{"Count", bins.Count}
+    bins.EntityData.Children = types.NewOrderedMap()
+    bins.EntityData.Leafs = types.NewOrderedMap()
+    bins.EntityData.Leafs.Append("lower-bound", types.YLeaf{"LowerBound", bins.LowerBound})
+    bins.EntityData.Leafs.Append("upper-bound", types.YLeaf{"UpperBound", bins.UpperBound})
+    bins.EntityData.Leafs.Append("lower-bound-tenths", types.YLeaf{"LowerBoundTenths", bins.LowerBoundTenths})
+    bins.EntityData.Leafs.Append("upper-bound-tenths", types.YLeaf{"UpperBoundTenths", bins.UpperBoundTenths})
+    bins.EntityData.Leafs.Append("sum", types.YLeaf{"Sum", bins.Sum})
+    bins.EntityData.Leafs.Append("count", types.YLeaf{"Count", bins.Count})
+
+    bins.EntityData.YListKeys = []string {}
+
     return &(bins.EntityData)
 }
 
@@ -771,7 +816,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
 
     // The samples of an SLA metric bucket. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Unaggregated_Sample.
-    Sample []Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Unaggregated_Sample
+    Sample []*Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Unaggregated_Sample
 }
 
 func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Unaggregated) GetEntityData() *types.CommonEntityData {
@@ -784,12 +829,15 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statistics
     unaggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unaggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unaggregated.EntityData.Children = make(map[string]types.YChild)
-    unaggregated.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    unaggregated.EntityData.Children = types.NewOrderedMap()
+    unaggregated.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range unaggregated.Sample {
-        unaggregated.EntityData.Children[types.GetSegmentPath(&unaggregated.Sample[i])] = types.YChild{"Sample", &unaggregated.Sample[i]}
+        unaggregated.EntityData.Children.Append(types.GetSegmentPath(unaggregated.Sample[i]), types.YChild{"Sample", unaggregated.Sample[i]})
     }
-    unaggregated.EntityData.Leafs = make(map[string]types.YLeaf)
+    unaggregated.EntityData.Leafs = types.NewOrderedMap()
+
+    unaggregated.EntityData.YListKeys = []string {}
+
     return &(unaggregated.EntityData)
 }
 
@@ -844,17 +892,20 @@ func (sample *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDema
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sent-at"] = types.YLeaf{"SentAt", sample.SentAt}
-    sample.EntityData.Leafs["sent"] = types.YLeaf{"Sent", sample.Sent}
-    sample.EntityData.Leafs["timed-out"] = types.YLeaf{"TimedOut", sample.TimedOut}
-    sample.EntityData.Leafs["corrupt"] = types.YLeaf{"Corrupt", sample.Corrupt}
-    sample.EntityData.Leafs["out-of-order"] = types.YLeaf{"OutOfOrder", sample.OutOfOrder}
-    sample.EntityData.Leafs["no-data-packets"] = types.YLeaf{"NoDataPackets", sample.NoDataPackets}
-    sample.EntityData.Leafs["result"] = types.YLeaf{"Result", sample.Result}
-    sample.EntityData.Leafs["frames-sent"] = types.YLeaf{"FramesSent", sample.FramesSent}
-    sample.EntityData.Leafs["frames-lost"] = types.YLeaf{"FramesLost", sample.FramesLost}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sent-at", types.YLeaf{"SentAt", sample.SentAt})
+    sample.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", sample.Sent})
+    sample.EntityData.Leafs.Append("timed-out", types.YLeaf{"TimedOut", sample.TimedOut})
+    sample.EntityData.Leafs.Append("corrupt", types.YLeaf{"Corrupt", sample.Corrupt})
+    sample.EntityData.Leafs.Append("out-of-order", types.YLeaf{"OutOfOrder", sample.OutOfOrder})
+    sample.EntityData.Leafs.Append("no-data-packets", types.YLeaf{"NoDataPackets", sample.NoDataPackets})
+    sample.EntityData.Leafs.Append("result", types.YLeaf{"Result", sample.Result})
+    sample.EntityData.Leafs.Append("frames-sent", types.YLeaf{"FramesSent", sample.FramesSent})
+    sample.EntityData.Leafs.Append("frames-lost", types.YLeaf{"FramesLost", sample.FramesLost})
+
+    sample.EntityData.YListKeys = []string {}
+
     return &(sample.EntityData)
 }
 
@@ -866,7 +917,7 @@ type Sla_Protocols_Ethernet_Operations struct {
 
     // SLA operation to get operation data for. The type is slice of
     // Sla_Protocols_Ethernet_Operations_Operation.
-    Operation []Sla_Protocols_Ethernet_Operations_Operation
+    Operation []*Sla_Protocols_Ethernet_Operations_Operation
 }
 
 func (operations *Sla_Protocols_Ethernet_Operations) GetEntityData() *types.CommonEntityData {
@@ -879,12 +930,15 @@ func (operations *Sla_Protocols_Ethernet_Operations) GetEntityData() *types.Comm
     operations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operations.EntityData.Children = make(map[string]types.YChild)
-    operations.EntityData.Children["operation"] = types.YChild{"Operation", nil}
+    operations.EntityData.Children = types.NewOrderedMap()
+    operations.EntityData.Children.Append("operation", types.YChild{"Operation", nil})
     for i := range operations.Operation {
-        operations.EntityData.Children[types.GetSegmentPath(&operations.Operation[i])] = types.YChild{"Operation", &operations.Operation[i]}
+        operations.EntityData.Children.Append(types.GetSegmentPath(operations.Operation[i]), types.YChild{"Operation", operations.Operation[i]})
     }
-    operations.EntityData.Leafs = make(map[string]types.YLeaf)
+    operations.EntityData.Leafs = types.NewOrderedMap()
+
+    operations.EntityData.YListKeys = []string {}
+
     return &(operations.EntityData)
 }
 
@@ -894,14 +948,13 @@ type Sla_Protocols_Ethernet_Operations_Operation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -910,7 +963,7 @@ type Sla_Protocols_Ethernet_Operations_Operation struct {
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Short display name used by the operation. The type is string.
@@ -940,18 +993,21 @@ func (operation *Sla_Protocols_Ethernet_Operations_Operation) GetEntityData() *t
     operation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operation.EntityData.Children = make(map[string]types.YChild)
-    operation.EntityData.Children["profile-options"] = types.YChild{"ProfileOptions", &operation.ProfileOptions}
-    operation.EntityData.Children["specific-options"] = types.YChild{"SpecificOptions", &operation.SpecificOptions}
-    operation.EntityData.Leafs = make(map[string]types.YLeaf)
-    operation.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", operation.ProfileName}
-    operation.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", operation.DomainName}
-    operation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", operation.InterfaceName}
-    operation.EntityData.Leafs["mep-id"] = types.YLeaf{"MepId", operation.MepId}
-    operation.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", operation.MacAddress}
-    operation.EntityData.Leafs["display-short"] = types.YLeaf{"DisplayShort", operation.DisplayShort}
-    operation.EntityData.Leafs["display-long"] = types.YLeaf{"DisplayLong", operation.DisplayLong}
-    operation.EntityData.Leafs["last-run"] = types.YLeaf{"LastRun", operation.LastRun}
+    operation.EntityData.Children = types.NewOrderedMap()
+    operation.EntityData.Children.Append("profile-options", types.YChild{"ProfileOptions", &operation.ProfileOptions})
+    operation.EntityData.Children.Append("specific-options", types.YChild{"SpecificOptions", &operation.SpecificOptions})
+    operation.EntityData.Leafs = types.NewOrderedMap()
+    operation.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", operation.ProfileName})
+    operation.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", operation.DomainName})
+    operation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", operation.InterfaceName})
+    operation.EntityData.Leafs.Append("mep-id", types.YLeaf{"MepId", operation.MepId})
+    operation.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", operation.MacAddress})
+    operation.EntityData.Leafs.Append("display-short", types.YLeaf{"DisplayShort", operation.DisplayShort})
+    operation.EntityData.Leafs.Append("display-long", types.YLeaf{"DisplayLong", operation.DisplayLong})
+    operation.EntityData.Leafs.Append("last-run", types.YLeaf{"LastRun", operation.LastRun})
+
+    operation.EntityData.YListKeys = []string {}
+
     return &(operation.EntityData)
 }
 
@@ -997,7 +1053,7 @@ type Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions struct {
     // Array of the metrics that are measured by the operation. The type is slice
     // of
     // Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_OperationMetric.
-    OperationMetric []Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_OperationMetric
+    OperationMetric []*Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_OperationMetric
 }
 
 func (profileOptions *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions) GetEntityData() *types.CommonEntityData {
@@ -1010,21 +1066,24 @@ func (profileOptions *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions
     profileOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profileOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profileOptions.EntityData.Children = make(map[string]types.YChild)
-    profileOptions.EntityData.Children["packet-padding"] = types.YChild{"PacketPadding", &profileOptions.PacketPadding}
-    profileOptions.EntityData.Children["priority"] = types.YChild{"Priority", &profileOptions.Priority}
-    profileOptions.EntityData.Children["operation-schedule"] = types.YChild{"OperationSchedule", &profileOptions.OperationSchedule}
-    profileOptions.EntityData.Children["operation-metric"] = types.YChild{"OperationMetric", nil}
+    profileOptions.EntityData.Children = types.NewOrderedMap()
+    profileOptions.EntityData.Children.Append("packet-padding", types.YChild{"PacketPadding", &profileOptions.PacketPadding})
+    profileOptions.EntityData.Children.Append("priority", types.YChild{"Priority", &profileOptions.Priority})
+    profileOptions.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &profileOptions.OperationSchedule})
+    profileOptions.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range profileOptions.OperationMetric {
-        profileOptions.EntityData.Children[types.GetSegmentPath(&profileOptions.OperationMetric[i])] = types.YChild{"OperationMetric", &profileOptions.OperationMetric[i]}
+        profileOptions.EntityData.Children.Append(types.GetSegmentPath(profileOptions.OperationMetric[i]), types.YChild{"OperationMetric", profileOptions.OperationMetric[i]})
     }
-    profileOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    profileOptions.EntityData.Leafs["probe-type"] = types.YLeaf{"ProbeType", profileOptions.ProbeType}
-    profileOptions.EntityData.Leafs["packets-per-burst"] = types.YLeaf{"PacketsPerBurst", profileOptions.PacketsPerBurst}
-    profileOptions.EntityData.Leafs["inter-packet-interval"] = types.YLeaf{"InterPacketInterval", profileOptions.InterPacketInterval}
-    profileOptions.EntityData.Leafs["bursts-per-probe"] = types.YLeaf{"BurstsPerProbe", profileOptions.BurstsPerProbe}
-    profileOptions.EntityData.Leafs["inter-burst-interval"] = types.YLeaf{"InterBurstInterval", profileOptions.InterBurstInterval}
-    profileOptions.EntityData.Leafs["flr-calculation-interval"] = types.YLeaf{"FlrCalculationInterval", profileOptions.FlrCalculationInterval}
+    profileOptions.EntityData.Leafs = types.NewOrderedMap()
+    profileOptions.EntityData.Leafs.Append("probe-type", types.YLeaf{"ProbeType", profileOptions.ProbeType})
+    profileOptions.EntityData.Leafs.Append("packets-per-burst", types.YLeaf{"PacketsPerBurst", profileOptions.PacketsPerBurst})
+    profileOptions.EntityData.Leafs.Append("inter-packet-interval", types.YLeaf{"InterPacketInterval", profileOptions.InterPacketInterval})
+    profileOptions.EntityData.Leafs.Append("bursts-per-probe", types.YLeaf{"BurstsPerProbe", profileOptions.BurstsPerProbe})
+    profileOptions.EntityData.Leafs.Append("inter-burst-interval", types.YLeaf{"InterBurstInterval", profileOptions.InterBurstInterval})
+    profileOptions.EntityData.Leafs.Append("flr-calculation-interval", types.YLeaf{"FlrCalculationInterval", profileOptions.FlrCalculationInterval})
+
+    profileOptions.EntityData.YListKeys = []string {}
+
     return &(profileOptions.EntityData)
 }
 
@@ -1057,11 +1116,14 @@ func (packetPadding *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_
     packetPadding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetPadding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetPadding.EntityData.Children = make(map[string]types.YChild)
-    packetPadding.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetPadding.EntityData.Leafs["packet-pad-size"] = types.YLeaf{"PacketPadSize", packetPadding.PacketPadSize}
-    packetPadding.EntityData.Leafs["test-pattern-pad-scheme"] = types.YLeaf{"TestPatternPadScheme", packetPadding.TestPatternPadScheme}
-    packetPadding.EntityData.Leafs["test-pattern-pad-hex-string"] = types.YLeaf{"TestPatternPadHexString", packetPadding.TestPatternPadHexString}
+    packetPadding.EntityData.Children = types.NewOrderedMap()
+    packetPadding.EntityData.Leafs = types.NewOrderedMap()
+    packetPadding.EntityData.Leafs.Append("packet-pad-size", types.YLeaf{"PacketPadSize", packetPadding.PacketPadSize})
+    packetPadding.EntityData.Leafs.Append("test-pattern-pad-scheme", types.YLeaf{"TestPatternPadScheme", packetPadding.TestPatternPadScheme})
+    packetPadding.EntityData.Leafs.Append("test-pattern-pad-hex-string", types.YLeaf{"TestPatternPadHexString", packetPadding.TestPatternPadHexString})
+
+    packetPadding.EntityData.YListKeys = []string {}
+
     return &(packetPadding.EntityData)
 }
 
@@ -1090,10 +1152,13 @@ func (priority *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_Prior
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    priority.EntityData.Children = make(map[string]types.YChild)
-    priority.EntityData.Leafs = make(map[string]types.YLeaf)
-    priority.EntityData.Leafs["priority-type"] = types.YLeaf{"PriorityType", priority.PriorityType}
-    priority.EntityData.Leafs["cos"] = types.YLeaf{"Cos", priority.Cos}
+    priority.EntityData.Children = types.NewOrderedMap()
+    priority.EntityData.Leafs = types.NewOrderedMap()
+    priority.EntityData.Leafs.Append("priority-type", types.YLeaf{"PriorityType", priority.PriorityType})
+    priority.EntityData.Leafs.Append("cos", types.YLeaf{"Cos", priority.Cos})
+
+    priority.EntityData.YListKeys = []string {}
+
     return &(priority.EntityData)
 }
 
@@ -1130,12 +1195,15 @@ func (operationSchedule *Sla_Protocols_Ethernet_Operations_Operation_ProfileOpti
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationSchedule.EntityData.Children = make(map[string]types.YChild)
-    operationSchedule.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationSchedule.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", operationSchedule.StartTime}
-    operationSchedule.EntityData.Leafs["start-time-configured"] = types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured}
-    operationSchedule.EntityData.Leafs["schedule-duration"] = types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration}
-    operationSchedule.EntityData.Leafs["schedule-interval"] = types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval}
+    operationSchedule.EntityData.Children = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", operationSchedule.StartTime})
+    operationSchedule.EntityData.Leafs.Append("start-time-configured", types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured})
+    operationSchedule.EntityData.Leafs.Append("schedule-duration", types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration})
+    operationSchedule.EntityData.Leafs.Append("schedule-interval", types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval})
+
+    operationSchedule.EntityData.YListKeys = []string {}
+
     return &(operationSchedule.EntityData)
 }
 
@@ -1164,10 +1232,13 @@ func (operationMetric *Sla_Protocols_Ethernet_Operations_Operation_ProfileOption
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationMetric.EntityData.Children = make(map[string]types.YChild)
-    operationMetric.EntityData.Children["metric-config"] = types.YChild{"MetricConfig", &operationMetric.MetricConfig}
-    operationMetric.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationMetric.EntityData.Leafs["current-buckets-archive"] = types.YLeaf{"CurrentBucketsArchive", operationMetric.CurrentBucketsArchive}
+    operationMetric.EntityData.Children = types.NewOrderedMap()
+    operationMetric.EntityData.Children.Append("metric-config", types.YChild{"MetricConfig", &operationMetric.MetricConfig})
+    operationMetric.EntityData.Leafs = types.NewOrderedMap()
+    operationMetric.EntityData.Leafs.Append("current-buckets-archive", types.YLeaf{"CurrentBucketsArchive", operationMetric.CurrentBucketsArchive})
+
+    operationMetric.EntityData.YListKeys = []string {}
+
     return &(operationMetric.EntityData)
 }
 
@@ -1213,14 +1284,17 @@ func (metricConfig *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_O
     metricConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    metricConfig.EntityData.Children = make(map[string]types.YChild)
-    metricConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    metricConfig.EntityData.Leafs["metric-type"] = types.YLeaf{"MetricType", metricConfig.MetricType}
-    metricConfig.EntityData.Leafs["bins-count"] = types.YLeaf{"BinsCount", metricConfig.BinsCount}
-    metricConfig.EntityData.Leafs["bins-width"] = types.YLeaf{"BinsWidth", metricConfig.BinsWidth}
-    metricConfig.EntityData.Leafs["bucket-size"] = types.YLeaf{"BucketSize", metricConfig.BucketSize}
-    metricConfig.EntityData.Leafs["bucket-size-unit"] = types.YLeaf{"BucketSizeUnit", metricConfig.BucketSizeUnit}
-    metricConfig.EntityData.Leafs["buckets-archive"] = types.YLeaf{"BucketsArchive", metricConfig.BucketsArchive}
+    metricConfig.EntityData.Children = types.NewOrderedMap()
+    metricConfig.EntityData.Leafs = types.NewOrderedMap()
+    metricConfig.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", metricConfig.MetricType})
+    metricConfig.EntityData.Leafs.Append("bins-count", types.YLeaf{"BinsCount", metricConfig.BinsCount})
+    metricConfig.EntityData.Leafs.Append("bins-width", types.YLeaf{"BinsWidth", metricConfig.BinsWidth})
+    metricConfig.EntityData.Leafs.Append("bucket-size", types.YLeaf{"BucketSize", metricConfig.BucketSize})
+    metricConfig.EntityData.Leafs.Append("bucket-size-unit", types.YLeaf{"BucketSizeUnit", metricConfig.BucketSizeUnit})
+    metricConfig.EntityData.Leafs.Append("buckets-archive", types.YLeaf{"BucketsArchive", metricConfig.BucketsArchive})
+
+    metricConfig.EntityData.YListKeys = []string {}
+
     return &(metricConfig.EntityData)
 }
 
@@ -1250,11 +1324,14 @@ func (specificOptions *Sla_Protocols_Ethernet_Operations_Operation_SpecificOptio
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    specificOptions.EntityData.Children = make(map[string]types.YChild)
-    specificOptions.EntityData.Children["configured-operation-options"] = types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions}
-    specificOptions.EntityData.Children["ondemand-operation-options"] = types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions}
-    specificOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    specificOptions.EntityData.Leafs["oper-type"] = types.YLeaf{"OperType", specificOptions.OperType}
+    specificOptions.EntityData.Children = types.NewOrderedMap()
+    specificOptions.EntityData.Children.Append("configured-operation-options", types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions})
+    specificOptions.EntityData.Children.Append("ondemand-operation-options", types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions})
+    specificOptions.EntityData.Leafs = types.NewOrderedMap()
+    specificOptions.EntityData.Leafs.Append("oper-type", types.YLeaf{"OperType", specificOptions.OperType})
+
+    specificOptions.EntityData.YListKeys = []string {}
+
     return &(specificOptions.EntityData)
 }
 
@@ -1278,9 +1355,12 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_Operations_Operation_Sp
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuredOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    configuredOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuredOperationOptions.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName}
+    configuredOperationOptions.EntityData.Children = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName})
+
+    configuredOperationOptions.EntityData.YListKeys = []string {}
+
     return &(configuredOperationOptions.EntityData)
 }
 
@@ -1309,10 +1389,13 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_Operations_Operation_Spec
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ondemandOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    ondemandOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    ondemandOperationOptions.EntityData.Leafs["ondemand-operation-id"] = types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId}
-    ondemandOperationOptions.EntityData.Leafs["probe-count"] = types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount}
+    ondemandOperationOptions.EntityData.Children = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs.Append("ondemand-operation-id", types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId})
+    ondemandOperationOptions.EntityData.Leafs.Append("probe-count", types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount})
+
+    ondemandOperationOptions.EntityData.YListKeys = []string {}
+
     return &(ondemandOperationOptions.EntityData)
 }
 
@@ -1325,7 +1408,7 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals struct {
 
     // Historical statistics data for an SLA configured operation. The type is
     // slice of Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical.
-    StatisticsHistorical []Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical
+    StatisticsHistorical []*Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical
 }
 
 func (statisticsHistoricals *Sla_Protocols_Ethernet_StatisticsHistoricals) GetEntityData() *types.CommonEntityData {
@@ -1338,12 +1421,15 @@ func (statisticsHistoricals *Sla_Protocols_Ethernet_StatisticsHistoricals) GetEn
     statisticsHistoricals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsHistoricals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsHistoricals.EntityData.Children = make(map[string]types.YChild)
-    statisticsHistoricals.EntityData.Children["statistics-historical"] = types.YChild{"StatisticsHistorical", nil}
+    statisticsHistoricals.EntityData.Children = types.NewOrderedMap()
+    statisticsHistoricals.EntityData.Children.Append("statistics-historical", types.YChild{"StatisticsHistorical", nil})
     for i := range statisticsHistoricals.StatisticsHistorical {
-        statisticsHistoricals.EntityData.Children[types.GetSegmentPath(&statisticsHistoricals.StatisticsHistorical[i])] = types.YChild{"StatisticsHistorical", &statisticsHistoricals.StatisticsHistorical[i]}
+        statisticsHistoricals.EntityData.Children.Append(types.GetSegmentPath(statisticsHistoricals.StatisticsHistorical[i]), types.YChild{"StatisticsHistorical", statisticsHistoricals.StatisticsHistorical[i]})
     }
-    statisticsHistoricals.EntityData.Leafs = make(map[string]types.YLeaf)
+    statisticsHistoricals.EntityData.Leafs = types.NewOrderedMap()
+
+    statisticsHistoricals.EntityData.YListKeys = []string {}
+
     return &(statisticsHistoricals.EntityData)
 }
 
@@ -1354,14 +1440,13 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -1370,7 +1455,7 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical struct {
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Type of probe used by the operation. The type is string.
@@ -1394,7 +1479,7 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical struct {
 
     // Metrics gathered for the operation. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric.
-    OperationMetric []Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric
+    OperationMetric []*Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric
 }
 
 func (statisticsHistorical *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical) GetEntityData() *types.CommonEntityData {
@@ -1407,23 +1492,26 @@ func (statisticsHistorical *Sla_Protocols_Ethernet_StatisticsHistoricals_Statist
     statisticsHistorical.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsHistorical.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsHistorical.EntityData.Children = make(map[string]types.YChild)
-    statisticsHistorical.EntityData.Children["specific-options"] = types.YChild{"SpecificOptions", &statisticsHistorical.SpecificOptions}
-    statisticsHistorical.EntityData.Children["operation-schedule"] = types.YChild{"OperationSchedule", &statisticsHistorical.OperationSchedule}
-    statisticsHistorical.EntityData.Children["operation-metric"] = types.YChild{"OperationMetric", nil}
+    statisticsHistorical.EntityData.Children = types.NewOrderedMap()
+    statisticsHistorical.EntityData.Children.Append("specific-options", types.YChild{"SpecificOptions", &statisticsHistorical.SpecificOptions})
+    statisticsHistorical.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &statisticsHistorical.OperationSchedule})
+    statisticsHistorical.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range statisticsHistorical.OperationMetric {
-        statisticsHistorical.EntityData.Children[types.GetSegmentPath(&statisticsHistorical.OperationMetric[i])] = types.YChild{"OperationMetric", &statisticsHistorical.OperationMetric[i]}
+        statisticsHistorical.EntityData.Children.Append(types.GetSegmentPath(statisticsHistorical.OperationMetric[i]), types.YChild{"OperationMetric", statisticsHistorical.OperationMetric[i]})
     }
-    statisticsHistorical.EntityData.Leafs = make(map[string]types.YLeaf)
-    statisticsHistorical.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", statisticsHistorical.ProfileName}
-    statisticsHistorical.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", statisticsHistorical.DomainName}
-    statisticsHistorical.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", statisticsHistorical.InterfaceName}
-    statisticsHistorical.EntityData.Leafs["mep-id"] = types.YLeaf{"MepId", statisticsHistorical.MepId}
-    statisticsHistorical.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", statisticsHistorical.MacAddress}
-    statisticsHistorical.EntityData.Leafs["probe-type"] = types.YLeaf{"ProbeType", statisticsHistorical.ProbeType}
-    statisticsHistorical.EntityData.Leafs["display-short"] = types.YLeaf{"DisplayShort", statisticsHistorical.DisplayShort}
-    statisticsHistorical.EntityData.Leafs["display-long"] = types.YLeaf{"DisplayLong", statisticsHistorical.DisplayLong}
-    statisticsHistorical.EntityData.Leafs["flr-calculation-interval"] = types.YLeaf{"FlrCalculationInterval", statisticsHistorical.FlrCalculationInterval}
+    statisticsHistorical.EntityData.Leafs = types.NewOrderedMap()
+    statisticsHistorical.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", statisticsHistorical.ProfileName})
+    statisticsHistorical.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", statisticsHistorical.DomainName})
+    statisticsHistorical.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", statisticsHistorical.InterfaceName})
+    statisticsHistorical.EntityData.Leafs.Append("mep-id", types.YLeaf{"MepId", statisticsHistorical.MepId})
+    statisticsHistorical.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", statisticsHistorical.MacAddress})
+    statisticsHistorical.EntityData.Leafs.Append("probe-type", types.YLeaf{"ProbeType", statisticsHistorical.ProbeType})
+    statisticsHistorical.EntityData.Leafs.Append("display-short", types.YLeaf{"DisplayShort", statisticsHistorical.DisplayShort})
+    statisticsHistorical.EntityData.Leafs.Append("display-long", types.YLeaf{"DisplayLong", statisticsHistorical.DisplayLong})
+    statisticsHistorical.EntityData.Leafs.Append("flr-calculation-interval", types.YLeaf{"FlrCalculationInterval", statisticsHistorical.FlrCalculationInterval})
+
+    statisticsHistorical.EntityData.YListKeys = []string {}
+
     return &(statisticsHistorical.EntityData)
 }
 
@@ -1453,11 +1541,14 @@ func (specificOptions *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHi
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    specificOptions.EntityData.Children = make(map[string]types.YChild)
-    specificOptions.EntityData.Children["configured-operation-options"] = types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions}
-    specificOptions.EntityData.Children["ondemand-operation-options"] = types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions}
-    specificOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    specificOptions.EntityData.Leafs["oper-type"] = types.YLeaf{"OperType", specificOptions.OperType}
+    specificOptions.EntityData.Children = types.NewOrderedMap()
+    specificOptions.EntityData.Children.Append("configured-operation-options", types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions})
+    specificOptions.EntityData.Children.Append("ondemand-operation-options", types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions})
+    specificOptions.EntityData.Leafs = types.NewOrderedMap()
+    specificOptions.EntityData.Leafs.Append("oper-type", types.YLeaf{"OperType", specificOptions.OperType})
+
+    specificOptions.EntityData.YListKeys = []string {}
+
     return &(specificOptions.EntityData)
 }
 
@@ -1481,9 +1572,12 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_StatisticsHistoricals_S
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuredOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    configuredOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuredOperationOptions.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName}
+    configuredOperationOptions.EntityData.Children = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName})
+
+    configuredOperationOptions.EntityData.YListKeys = []string {}
+
     return &(configuredOperationOptions.EntityData)
 }
 
@@ -1512,10 +1606,13 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_StatisticsHistoricals_Sta
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ondemandOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    ondemandOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    ondemandOperationOptions.EntityData.Leafs["ondemand-operation-id"] = types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId}
-    ondemandOperationOptions.EntityData.Leafs["probe-count"] = types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount}
+    ondemandOperationOptions.EntityData.Children = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs.Append("ondemand-operation-id", types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId})
+    ondemandOperationOptions.EntityData.Leafs.Append("probe-count", types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount})
+
+    ondemandOperationOptions.EntityData.YListKeys = []string {}
+
     return &(ondemandOperationOptions.EntityData)
 }
 
@@ -1552,12 +1649,15 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsHistoricals_Statistics
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationSchedule.EntityData.Children = make(map[string]types.YChild)
-    operationSchedule.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationSchedule.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", operationSchedule.StartTime}
-    operationSchedule.EntityData.Leafs["start-time-configured"] = types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured}
-    operationSchedule.EntityData.Leafs["schedule-duration"] = types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration}
-    operationSchedule.EntityData.Leafs["schedule-interval"] = types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval}
+    operationSchedule.EntityData.Children = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", operationSchedule.StartTime})
+    operationSchedule.EntityData.Leafs.Append("start-time-configured", types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured})
+    operationSchedule.EntityData.Leafs.Append("schedule-duration", types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration})
+    operationSchedule.EntityData.Leafs.Append("schedule-interval", types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval})
+
+    operationSchedule.EntityData.YListKeys = []string {}
+
     return &(operationSchedule.EntityData)
 }
 
@@ -1572,7 +1672,7 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_Operation
 
     // Buckets stored for the metric. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket.
-    Bucket []Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket
+    Bucket []*Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket
 }
 
 func (operationMetric *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric) GetEntityData() *types.CommonEntityData {
@@ -1585,13 +1685,16 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHi
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationMetric.EntityData.Children = make(map[string]types.YChild)
-    operationMetric.EntityData.Children["config"] = types.YChild{"Config", &operationMetric.Config}
-    operationMetric.EntityData.Children["bucket"] = types.YChild{"Bucket", nil}
+    operationMetric.EntityData.Children = types.NewOrderedMap()
+    operationMetric.EntityData.Children.Append("config", types.YChild{"Config", &operationMetric.Config})
+    operationMetric.EntityData.Children.Append("bucket", types.YChild{"Bucket", nil})
     for i := range operationMetric.Bucket {
-        operationMetric.EntityData.Children[types.GetSegmentPath(&operationMetric.Bucket[i])] = types.YChild{"Bucket", &operationMetric.Bucket[i]}
+        operationMetric.EntityData.Children.Append(types.GetSegmentPath(operationMetric.Bucket[i]), types.YChild{"Bucket", operationMetric.Bucket[i]})
     }
-    operationMetric.EntityData.Leafs = make(map[string]types.YLeaf)
+    operationMetric.EntityData.Leafs = types.NewOrderedMap()
+
+    operationMetric.EntityData.YListKeys = []string {}
+
     return &(operationMetric.EntityData)
 }
 
@@ -1637,14 +1740,17 @@ func (config *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["metric-type"] = types.YLeaf{"MetricType", config.MetricType}
-    config.EntityData.Leafs["bins-count"] = types.YLeaf{"BinsCount", config.BinsCount}
-    config.EntityData.Leafs["bins-width"] = types.YLeaf{"BinsWidth", config.BinsWidth}
-    config.EntityData.Leafs["bucket-size"] = types.YLeaf{"BucketSize", config.BucketSize}
-    config.EntityData.Leafs["bucket-size-unit"] = types.YLeaf{"BucketSizeUnit", config.BucketSizeUnit}
-    config.EntityData.Leafs["buckets-archive"] = types.YLeaf{"BucketsArchive", config.BucketsArchive}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", config.MetricType})
+    config.EntityData.Leafs.Append("bins-count", types.YLeaf{"BinsCount", config.BinsCount})
+    config.EntityData.Leafs.Append("bins-width", types.YLeaf{"BinsWidth", config.BinsWidth})
+    config.EntityData.Leafs.Append("bucket-size", types.YLeaf{"BucketSize", config.BucketSize})
+    config.EntityData.Leafs.Append("bucket-size-unit", types.YLeaf{"BucketSizeUnit", config.BucketSizeUnit})
+    config.EntityData.Leafs.Append("buckets-archive", types.YLeaf{"BucketsArchive", config.BucketsArchive})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1792,40 +1898,43 @@ func (bucket *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bucket.EntityData.Children = make(map[string]types.YChild)
-    bucket.EntityData.Children["contents"] = types.YChild{"Contents", &bucket.Contents}
-    bucket.EntityData.Leafs = make(map[string]types.YLeaf)
-    bucket.EntityData.Leafs["start-at"] = types.YLeaf{"StartAt", bucket.StartAt}
-    bucket.EntityData.Leafs["duration"] = types.YLeaf{"Duration", bucket.Duration}
-    bucket.EntityData.Leafs["sent"] = types.YLeaf{"Sent", bucket.Sent}
-    bucket.EntityData.Leafs["lost"] = types.YLeaf{"Lost", bucket.Lost}
-    bucket.EntityData.Leafs["corrupt"] = types.YLeaf{"Corrupt", bucket.Corrupt}
-    bucket.EntityData.Leafs["out-of-order"] = types.YLeaf{"OutOfOrder", bucket.OutOfOrder}
-    bucket.EntityData.Leafs["duplicates"] = types.YLeaf{"Duplicates", bucket.Duplicates}
-    bucket.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", bucket.Minimum}
-    bucket.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", bucket.Maximum}
-    bucket.EntityData.Leafs["time-of-minimum"] = types.YLeaf{"TimeOfMinimum", bucket.TimeOfMinimum}
-    bucket.EntityData.Leafs["time-of-maximum"] = types.YLeaf{"TimeOfMaximum", bucket.TimeOfMaximum}
-    bucket.EntityData.Leafs["average"] = types.YLeaf{"Average", bucket.Average}
-    bucket.EntityData.Leafs["standard-deviation"] = types.YLeaf{"StandardDeviation", bucket.StandardDeviation}
-    bucket.EntityData.Leafs["result-count"] = types.YLeaf{"ResultCount", bucket.ResultCount}
-    bucket.EntityData.Leafs["data-sent-count"] = types.YLeaf{"DataSentCount", bucket.DataSentCount}
-    bucket.EntityData.Leafs["data-lost-count"] = types.YLeaf{"DataLostCount", bucket.DataLostCount}
-    bucket.EntityData.Leafs["overall-flr"] = types.YLeaf{"OverallFlr", bucket.OverallFlr}
-    bucket.EntityData.Leafs["suspect-start-mid-bucket"] = types.YLeaf{"SuspectStartMidBucket", bucket.SuspectStartMidBucket}
-    bucket.EntityData.Leafs["suspect-schedule-latency"] = types.YLeaf{"SuspectScheduleLatency", bucket.SuspectScheduleLatency}
-    bucket.EntityData.Leafs["suspect-send-fail"] = types.YLeaf{"SuspectSendFail", bucket.SuspectSendFail}
-    bucket.EntityData.Leafs["suspect-premature-end"] = types.YLeaf{"SuspectPrematureEnd", bucket.SuspectPrematureEnd}
-    bucket.EntityData.Leafs["suspect-clock-drift"] = types.YLeaf{"SuspectClockDrift", bucket.SuspectClockDrift}
-    bucket.EntityData.Leafs["suspect-memory-allocation-failed"] = types.YLeaf{"SuspectMemoryAllocationFailed", bucket.SuspectMemoryAllocationFailed}
-    bucket.EntityData.Leafs["suspect-cleared-mid-bucket"] = types.YLeaf{"SuspectClearedMidBucket", bucket.SuspectClearedMidBucket}
-    bucket.EntityData.Leafs["suspect-probe-restarted"] = types.YLeaf{"SuspectProbeRestarted", bucket.SuspectProbeRestarted}
-    bucket.EntityData.Leafs["suspect-management-latency"] = types.YLeaf{"SuspectManagementLatency", bucket.SuspectManagementLatency}
-    bucket.EntityData.Leafs["suspect-multiple-buckets"] = types.YLeaf{"SuspectMultipleBuckets", bucket.SuspectMultipleBuckets}
-    bucket.EntityData.Leafs["suspect-misordering"] = types.YLeaf{"SuspectMisordering", bucket.SuspectMisordering}
-    bucket.EntityData.Leafs["suspect-flr-low-packet-count"] = types.YLeaf{"SuspectFlrLowPacketCount", bucket.SuspectFlrLowPacketCount}
-    bucket.EntityData.Leafs["premature-reason"] = types.YLeaf{"PrematureReason", bucket.PrematureReason}
-    bucket.EntityData.Leafs["premature-reason-string"] = types.YLeaf{"PrematureReasonString", bucket.PrematureReasonString}
+    bucket.EntityData.Children = types.NewOrderedMap()
+    bucket.EntityData.Children.Append("contents", types.YChild{"Contents", &bucket.Contents})
+    bucket.EntityData.Leafs = types.NewOrderedMap()
+    bucket.EntityData.Leafs.Append("start-at", types.YLeaf{"StartAt", bucket.StartAt})
+    bucket.EntityData.Leafs.Append("duration", types.YLeaf{"Duration", bucket.Duration})
+    bucket.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", bucket.Sent})
+    bucket.EntityData.Leafs.Append("lost", types.YLeaf{"Lost", bucket.Lost})
+    bucket.EntityData.Leafs.Append("corrupt", types.YLeaf{"Corrupt", bucket.Corrupt})
+    bucket.EntityData.Leafs.Append("out-of-order", types.YLeaf{"OutOfOrder", bucket.OutOfOrder})
+    bucket.EntityData.Leafs.Append("duplicates", types.YLeaf{"Duplicates", bucket.Duplicates})
+    bucket.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", bucket.Minimum})
+    bucket.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", bucket.Maximum})
+    bucket.EntityData.Leafs.Append("time-of-minimum", types.YLeaf{"TimeOfMinimum", bucket.TimeOfMinimum})
+    bucket.EntityData.Leafs.Append("time-of-maximum", types.YLeaf{"TimeOfMaximum", bucket.TimeOfMaximum})
+    bucket.EntityData.Leafs.Append("average", types.YLeaf{"Average", bucket.Average})
+    bucket.EntityData.Leafs.Append("standard-deviation", types.YLeaf{"StandardDeviation", bucket.StandardDeviation})
+    bucket.EntityData.Leafs.Append("result-count", types.YLeaf{"ResultCount", bucket.ResultCount})
+    bucket.EntityData.Leafs.Append("data-sent-count", types.YLeaf{"DataSentCount", bucket.DataSentCount})
+    bucket.EntityData.Leafs.Append("data-lost-count", types.YLeaf{"DataLostCount", bucket.DataLostCount})
+    bucket.EntityData.Leafs.Append("overall-flr", types.YLeaf{"OverallFlr", bucket.OverallFlr})
+    bucket.EntityData.Leafs.Append("suspect-start-mid-bucket", types.YLeaf{"SuspectStartMidBucket", bucket.SuspectStartMidBucket})
+    bucket.EntityData.Leafs.Append("suspect-schedule-latency", types.YLeaf{"SuspectScheduleLatency", bucket.SuspectScheduleLatency})
+    bucket.EntityData.Leafs.Append("suspect-send-fail", types.YLeaf{"SuspectSendFail", bucket.SuspectSendFail})
+    bucket.EntityData.Leafs.Append("suspect-premature-end", types.YLeaf{"SuspectPrematureEnd", bucket.SuspectPrematureEnd})
+    bucket.EntityData.Leafs.Append("suspect-clock-drift", types.YLeaf{"SuspectClockDrift", bucket.SuspectClockDrift})
+    bucket.EntityData.Leafs.Append("suspect-memory-allocation-failed", types.YLeaf{"SuspectMemoryAllocationFailed", bucket.SuspectMemoryAllocationFailed})
+    bucket.EntityData.Leafs.Append("suspect-cleared-mid-bucket", types.YLeaf{"SuspectClearedMidBucket", bucket.SuspectClearedMidBucket})
+    bucket.EntityData.Leafs.Append("suspect-probe-restarted", types.YLeaf{"SuspectProbeRestarted", bucket.SuspectProbeRestarted})
+    bucket.EntityData.Leafs.Append("suspect-management-latency", types.YLeaf{"SuspectManagementLatency", bucket.SuspectManagementLatency})
+    bucket.EntityData.Leafs.Append("suspect-multiple-buckets", types.YLeaf{"SuspectMultipleBuckets", bucket.SuspectMultipleBuckets})
+    bucket.EntityData.Leafs.Append("suspect-misordering", types.YLeaf{"SuspectMisordering", bucket.SuspectMisordering})
+    bucket.EntityData.Leafs.Append("suspect-flr-low-packet-count", types.YLeaf{"SuspectFlrLowPacketCount", bucket.SuspectFlrLowPacketCount})
+    bucket.EntityData.Leafs.Append("premature-reason", types.YLeaf{"PrematureReason", bucket.PrematureReason})
+    bucket.EntityData.Leafs.Append("premature-reason-string", types.YLeaf{"PrematureReasonString", bucket.PrematureReasonString})
+
+    bucket.EntityData.YListKeys = []string {}
+
     return &(bucket.EntityData)
 }
 
@@ -1855,11 +1964,14 @@ func (contents *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorica
     contents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contents.EntityData.Children = make(map[string]types.YChild)
-    contents.EntityData.Children["aggregated"] = types.YChild{"Aggregated", &contents.Aggregated}
-    contents.EntityData.Children["unaggregated"] = types.YChild{"Unaggregated", &contents.Unaggregated}
-    contents.EntityData.Leafs = make(map[string]types.YLeaf)
-    contents.EntityData.Leafs["bucket-type"] = types.YLeaf{"BucketType", contents.BucketType}
+    contents.EntityData.Children = types.NewOrderedMap()
+    contents.EntityData.Children.Append("aggregated", types.YChild{"Aggregated", &contents.Aggregated})
+    contents.EntityData.Children.Append("unaggregated", types.YChild{"Unaggregated", &contents.Unaggregated})
+    contents.EntityData.Leafs = types.NewOrderedMap()
+    contents.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", contents.BucketType})
+
+    contents.EntityData.YListKeys = []string {}
+
     return &(contents.EntityData)
 }
 
@@ -1871,7 +1983,7 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_Operation
 
     // The bins of an SLA metric bucket. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Aggregated_Bins.
-    Bins []Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Aggregated_Bins
+    Bins []*Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Aggregated_Bins
 }
 
 func (aggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Aggregated) GetEntityData() *types.CommonEntityData {
@@ -1884,12 +1996,15 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistori
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregated.EntityData.Children = make(map[string]types.YChild)
-    aggregated.EntityData.Children["bins"] = types.YChild{"Bins", nil}
+    aggregated.EntityData.Children = types.NewOrderedMap()
+    aggregated.EntityData.Children.Append("bins", types.YChild{"Bins", nil})
     for i := range aggregated.Bins {
-        aggregated.EntityData.Children[types.GetSegmentPath(&aggregated.Bins[i])] = types.YChild{"Bins", &aggregated.Bins[i]}
+        aggregated.EntityData.Children.Append(types.GetSegmentPath(aggregated.Bins[i]), types.YChild{"Bins", aggregated.Bins[i]})
     }
-    aggregated.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregated.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregated.EntityData.YListKeys = []string {}
+
     return &(aggregated.EntityData)
 }
 
@@ -1939,14 +2054,17 @@ func (bins *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_Op
     bins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bins.EntityData.Children = make(map[string]types.YChild)
-    bins.EntityData.Leafs = make(map[string]types.YLeaf)
-    bins.EntityData.Leafs["lower-bound"] = types.YLeaf{"LowerBound", bins.LowerBound}
-    bins.EntityData.Leafs["upper-bound"] = types.YLeaf{"UpperBound", bins.UpperBound}
-    bins.EntityData.Leafs["lower-bound-tenths"] = types.YLeaf{"LowerBoundTenths", bins.LowerBoundTenths}
-    bins.EntityData.Leafs["upper-bound-tenths"] = types.YLeaf{"UpperBoundTenths", bins.UpperBoundTenths}
-    bins.EntityData.Leafs["sum"] = types.YLeaf{"Sum", bins.Sum}
-    bins.EntityData.Leafs["count"] = types.YLeaf{"Count", bins.Count}
+    bins.EntityData.Children = types.NewOrderedMap()
+    bins.EntityData.Leafs = types.NewOrderedMap()
+    bins.EntityData.Leafs.Append("lower-bound", types.YLeaf{"LowerBound", bins.LowerBound})
+    bins.EntityData.Leafs.Append("upper-bound", types.YLeaf{"UpperBound", bins.UpperBound})
+    bins.EntityData.Leafs.Append("lower-bound-tenths", types.YLeaf{"LowerBoundTenths", bins.LowerBoundTenths})
+    bins.EntityData.Leafs.Append("upper-bound-tenths", types.YLeaf{"UpperBoundTenths", bins.UpperBoundTenths})
+    bins.EntityData.Leafs.Append("sum", types.YLeaf{"Sum", bins.Sum})
+    bins.EntityData.Leafs.Append("count", types.YLeaf{"Count", bins.Count})
+
+    bins.EntityData.YListKeys = []string {}
+
     return &(bins.EntityData)
 }
 
@@ -1958,7 +2076,7 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_Operation
 
     // The samples of an SLA metric bucket. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Unaggregated_Sample.
-    Sample []Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Unaggregated_Sample
+    Sample []*Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Unaggregated_Sample
 }
 
 func (unaggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Unaggregated) GetEntityData() *types.CommonEntityData {
@@ -1971,12 +2089,15 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHisto
     unaggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unaggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unaggregated.EntityData.Children = make(map[string]types.YChild)
-    unaggregated.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    unaggregated.EntityData.Children = types.NewOrderedMap()
+    unaggregated.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range unaggregated.Sample {
-        unaggregated.EntityData.Children[types.GetSegmentPath(&unaggregated.Sample[i])] = types.YChild{"Sample", &unaggregated.Sample[i]}
+        unaggregated.EntityData.Children.Append(types.GetSegmentPath(unaggregated.Sample[i]), types.YChild{"Sample", unaggregated.Sample[i]})
     }
-    unaggregated.EntityData.Leafs = make(map[string]types.YLeaf)
+    unaggregated.EntityData.Leafs = types.NewOrderedMap()
+
+    unaggregated.EntityData.YListKeys = []string {}
+
     return &(unaggregated.EntityData)
 }
 
@@ -2031,17 +2152,20 @@ func (sample *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sent-at"] = types.YLeaf{"SentAt", sample.SentAt}
-    sample.EntityData.Leafs["sent"] = types.YLeaf{"Sent", sample.Sent}
-    sample.EntityData.Leafs["timed-out"] = types.YLeaf{"TimedOut", sample.TimedOut}
-    sample.EntityData.Leafs["corrupt"] = types.YLeaf{"Corrupt", sample.Corrupt}
-    sample.EntityData.Leafs["out-of-order"] = types.YLeaf{"OutOfOrder", sample.OutOfOrder}
-    sample.EntityData.Leafs["no-data-packets"] = types.YLeaf{"NoDataPackets", sample.NoDataPackets}
-    sample.EntityData.Leafs["result"] = types.YLeaf{"Result", sample.Result}
-    sample.EntityData.Leafs["frames-sent"] = types.YLeaf{"FramesSent", sample.FramesSent}
-    sample.EntityData.Leafs["frames-lost"] = types.YLeaf{"FramesLost", sample.FramesLost}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sent-at", types.YLeaf{"SentAt", sample.SentAt})
+    sample.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", sample.Sent})
+    sample.EntityData.Leafs.Append("timed-out", types.YLeaf{"TimedOut", sample.TimedOut})
+    sample.EntityData.Leafs.Append("corrupt", types.YLeaf{"Corrupt", sample.Corrupt})
+    sample.EntityData.Leafs.Append("out-of-order", types.YLeaf{"OutOfOrder", sample.OutOfOrder})
+    sample.EntityData.Leafs.Append("no-data-packets", types.YLeaf{"NoDataPackets", sample.NoDataPackets})
+    sample.EntityData.Leafs.Append("result", types.YLeaf{"Result", sample.Result})
+    sample.EntityData.Leafs.Append("frames-sent", types.YLeaf{"FramesSent", sample.FramesSent})
+    sample.EntityData.Leafs.Append("frames-lost", types.YLeaf{"FramesLost", sample.FramesLost})
+
+    sample.EntityData.YListKeys = []string {}
+
     return &(sample.EntityData)
 }
 
@@ -2055,7 +2179,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals struct {
     // Historical statistics data for an SLA on-demand  operation. The type is
     // slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical.
-    StatisticsOnDemandHistorical []Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical
+    StatisticsOnDemandHistorical []*Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical
 }
 
 func (statisticsOnDemandHistoricals *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals) GetEntityData() *types.CommonEntityData {
@@ -2068,12 +2192,15 @@ func (statisticsOnDemandHistoricals *Sla_Protocols_Ethernet_StatisticsOnDemandHi
     statisticsOnDemandHistoricals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsOnDemandHistoricals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsOnDemandHistoricals.EntityData.Children = make(map[string]types.YChild)
-    statisticsOnDemandHistoricals.EntityData.Children["statistics-on-demand-historical"] = types.YChild{"StatisticsOnDemandHistorical", nil}
+    statisticsOnDemandHistoricals.EntityData.Children = types.NewOrderedMap()
+    statisticsOnDemandHistoricals.EntityData.Children.Append("statistics-on-demand-historical", types.YChild{"StatisticsOnDemandHistorical", nil})
     for i := range statisticsOnDemandHistoricals.StatisticsOnDemandHistorical {
-        statisticsOnDemandHistoricals.EntityData.Children[types.GetSegmentPath(&statisticsOnDemandHistoricals.StatisticsOnDemandHistorical[i])] = types.YChild{"StatisticsOnDemandHistorical", &statisticsOnDemandHistoricals.StatisticsOnDemandHistorical[i]}
+        statisticsOnDemandHistoricals.EntityData.Children.Append(types.GetSegmentPath(statisticsOnDemandHistoricals.StatisticsOnDemandHistorical[i]), types.YChild{"StatisticsOnDemandHistorical", statisticsOnDemandHistoricals.StatisticsOnDemandHistorical[i]})
     }
-    statisticsOnDemandHistoricals.EntityData.Leafs = make(map[string]types.YLeaf)
+    statisticsOnDemandHistoricals.EntityData.Leafs = types.NewOrderedMap()
+
+    statisticsOnDemandHistoricals.EntityData.YListKeys = []string {}
+
     return &(statisticsOnDemandHistoricals.EntityData)
 }
 
@@ -2090,7 +2217,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -2099,7 +2226,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Type of probe used by the operation. The type is string.
@@ -2123,7 +2250,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
 
     // Metrics gathered for the operation. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric.
-    OperationMetric []Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric
+    OperationMetric []*Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric
 }
 
 func (statisticsOnDemandHistorical *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical) GetEntityData() *types.CommonEntityData {
@@ -2136,23 +2263,26 @@ func (statisticsOnDemandHistorical *Sla_Protocols_Ethernet_StatisticsOnDemandHis
     statisticsOnDemandHistorical.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsOnDemandHistorical.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsOnDemandHistorical.EntityData.Children = make(map[string]types.YChild)
-    statisticsOnDemandHistorical.EntityData.Children["specific-options"] = types.YChild{"SpecificOptions", &statisticsOnDemandHistorical.SpecificOptions}
-    statisticsOnDemandHistorical.EntityData.Children["operation-schedule"] = types.YChild{"OperationSchedule", &statisticsOnDemandHistorical.OperationSchedule}
-    statisticsOnDemandHistorical.EntityData.Children["operation-metric"] = types.YChild{"OperationMetric", nil}
+    statisticsOnDemandHistorical.EntityData.Children = types.NewOrderedMap()
+    statisticsOnDemandHistorical.EntityData.Children.Append("specific-options", types.YChild{"SpecificOptions", &statisticsOnDemandHistorical.SpecificOptions})
+    statisticsOnDemandHistorical.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &statisticsOnDemandHistorical.OperationSchedule})
+    statisticsOnDemandHistorical.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range statisticsOnDemandHistorical.OperationMetric {
-        statisticsOnDemandHistorical.EntityData.Children[types.GetSegmentPath(&statisticsOnDemandHistorical.OperationMetric[i])] = types.YChild{"OperationMetric", &statisticsOnDemandHistorical.OperationMetric[i]}
+        statisticsOnDemandHistorical.EntityData.Children.Append(types.GetSegmentPath(statisticsOnDemandHistorical.OperationMetric[i]), types.YChild{"OperationMetric", statisticsOnDemandHistorical.OperationMetric[i]})
     }
-    statisticsOnDemandHistorical.EntityData.Leafs = make(map[string]types.YLeaf)
-    statisticsOnDemandHistorical.EntityData.Leafs["operation-id"] = types.YLeaf{"OperationId", statisticsOnDemandHistorical.OperationId}
-    statisticsOnDemandHistorical.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", statisticsOnDemandHistorical.DomainName}
-    statisticsOnDemandHistorical.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", statisticsOnDemandHistorical.InterfaceName}
-    statisticsOnDemandHistorical.EntityData.Leafs["mep-id"] = types.YLeaf{"MepId", statisticsOnDemandHistorical.MepId}
-    statisticsOnDemandHistorical.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", statisticsOnDemandHistorical.MacAddress}
-    statisticsOnDemandHistorical.EntityData.Leafs["probe-type"] = types.YLeaf{"ProbeType", statisticsOnDemandHistorical.ProbeType}
-    statisticsOnDemandHistorical.EntityData.Leafs["display-short"] = types.YLeaf{"DisplayShort", statisticsOnDemandHistorical.DisplayShort}
-    statisticsOnDemandHistorical.EntityData.Leafs["display-long"] = types.YLeaf{"DisplayLong", statisticsOnDemandHistorical.DisplayLong}
-    statisticsOnDemandHistorical.EntityData.Leafs["flr-calculation-interval"] = types.YLeaf{"FlrCalculationInterval", statisticsOnDemandHistorical.FlrCalculationInterval}
+    statisticsOnDemandHistorical.EntityData.Leafs = types.NewOrderedMap()
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("operation-id", types.YLeaf{"OperationId", statisticsOnDemandHistorical.OperationId})
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", statisticsOnDemandHistorical.DomainName})
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", statisticsOnDemandHistorical.InterfaceName})
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("mep-id", types.YLeaf{"MepId", statisticsOnDemandHistorical.MepId})
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", statisticsOnDemandHistorical.MacAddress})
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("probe-type", types.YLeaf{"ProbeType", statisticsOnDemandHistorical.ProbeType})
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("display-short", types.YLeaf{"DisplayShort", statisticsOnDemandHistorical.DisplayShort})
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("display-long", types.YLeaf{"DisplayLong", statisticsOnDemandHistorical.DisplayLong})
+    statisticsOnDemandHistorical.EntityData.Leafs.Append("flr-calculation-interval", types.YLeaf{"FlrCalculationInterval", statisticsOnDemandHistorical.FlrCalculationInterval})
+
+    statisticsOnDemandHistorical.EntityData.YListKeys = []string {}
+
     return &(statisticsOnDemandHistorical.EntityData)
 }
 
@@ -2182,11 +2312,14 @@ func (specificOptions *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Stat
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    specificOptions.EntityData.Children = make(map[string]types.YChild)
-    specificOptions.EntityData.Children["configured-operation-options"] = types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions}
-    specificOptions.EntityData.Children["ondemand-operation-options"] = types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions}
-    specificOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    specificOptions.EntityData.Leafs["oper-type"] = types.YLeaf{"OperType", specificOptions.OperType}
+    specificOptions.EntityData.Children = types.NewOrderedMap()
+    specificOptions.EntityData.Children.Append("configured-operation-options", types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions})
+    specificOptions.EntityData.Children.Append("ondemand-operation-options", types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions})
+    specificOptions.EntityData.Leafs = types.NewOrderedMap()
+    specificOptions.EntityData.Leafs.Append("oper-type", types.YLeaf{"OperType", specificOptions.OperType})
+
+    specificOptions.EntityData.YListKeys = []string {}
+
     return &(specificOptions.EntityData)
 }
 
@@ -2210,9 +2343,12 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_StatisticsOnDemandHisto
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuredOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    configuredOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuredOperationOptions.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName}
+    configuredOperationOptions.EntityData.Children = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName})
+
+    configuredOperationOptions.EntityData.YListKeys = []string {}
+
     return &(configuredOperationOptions.EntityData)
 }
 
@@ -2241,10 +2377,13 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_StatisticsOnDemandHistori
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ondemandOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    ondemandOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    ondemandOperationOptions.EntityData.Leafs["ondemand-operation-id"] = types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId}
-    ondemandOperationOptions.EntityData.Leafs["probe-count"] = types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount}
+    ondemandOperationOptions.EntityData.Children = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs.Append("ondemand-operation-id", types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId})
+    ondemandOperationOptions.EntityData.Leafs.Append("probe-count", types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount})
+
+    ondemandOperationOptions.EntityData.YListKeys = []string {}
+
     return &(ondemandOperationOptions.EntityData)
 }
 
@@ -2281,12 +2420,15 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_St
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationSchedule.EntityData.Children = make(map[string]types.YChild)
-    operationSchedule.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationSchedule.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", operationSchedule.StartTime}
-    operationSchedule.EntityData.Leafs["start-time-configured"] = types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured}
-    operationSchedule.EntityData.Leafs["schedule-duration"] = types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration}
-    operationSchedule.EntityData.Leafs["schedule-interval"] = types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval}
+    operationSchedule.EntityData.Children = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", operationSchedule.StartTime})
+    operationSchedule.EntityData.Leafs.Append("start-time-configured", types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured})
+    operationSchedule.EntityData.Leafs.Append("schedule-duration", types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration})
+    operationSchedule.EntityData.Leafs.Append("schedule-interval", types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval})
+
+    operationSchedule.EntityData.YListKeys = []string {}
+
     return &(operationSchedule.EntityData)
 }
 
@@ -2301,7 +2443,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
 
     // Buckets stored for the metric. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket.
-    Bucket []Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket
+    Bucket []*Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket
 }
 
 func (operationMetric *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric) GetEntityData() *types.CommonEntityData {
@@ -2314,13 +2456,16 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Stat
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationMetric.EntityData.Children = make(map[string]types.YChild)
-    operationMetric.EntityData.Children["config"] = types.YChild{"Config", &operationMetric.Config}
-    operationMetric.EntityData.Children["bucket"] = types.YChild{"Bucket", nil}
+    operationMetric.EntityData.Children = types.NewOrderedMap()
+    operationMetric.EntityData.Children.Append("config", types.YChild{"Config", &operationMetric.Config})
+    operationMetric.EntityData.Children.Append("bucket", types.YChild{"Bucket", nil})
     for i := range operationMetric.Bucket {
-        operationMetric.EntityData.Children[types.GetSegmentPath(&operationMetric.Bucket[i])] = types.YChild{"Bucket", &operationMetric.Bucket[i]}
+        operationMetric.EntityData.Children.Append(types.GetSegmentPath(operationMetric.Bucket[i]), types.YChild{"Bucket", operationMetric.Bucket[i]})
     }
-    operationMetric.EntityData.Leafs = make(map[string]types.YLeaf)
+    operationMetric.EntityData.Leafs = types.NewOrderedMap()
+
+    operationMetric.EntityData.YListKeys = []string {}
+
     return &(operationMetric.EntityData)
 }
 
@@ -2366,14 +2511,17 @@ func (config *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnD
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["metric-type"] = types.YLeaf{"MetricType", config.MetricType}
-    config.EntityData.Leafs["bins-count"] = types.YLeaf{"BinsCount", config.BinsCount}
-    config.EntityData.Leafs["bins-width"] = types.YLeaf{"BinsWidth", config.BinsWidth}
-    config.EntityData.Leafs["bucket-size"] = types.YLeaf{"BucketSize", config.BucketSize}
-    config.EntityData.Leafs["bucket-size-unit"] = types.YLeaf{"BucketSizeUnit", config.BucketSizeUnit}
-    config.EntityData.Leafs["buckets-archive"] = types.YLeaf{"BucketsArchive", config.BucketsArchive}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", config.MetricType})
+    config.EntityData.Leafs.Append("bins-count", types.YLeaf{"BinsCount", config.BinsCount})
+    config.EntityData.Leafs.Append("bins-width", types.YLeaf{"BinsWidth", config.BinsWidth})
+    config.EntityData.Leafs.Append("bucket-size", types.YLeaf{"BucketSize", config.BucketSize})
+    config.EntityData.Leafs.Append("bucket-size-unit", types.YLeaf{"BucketSizeUnit", config.BucketSizeUnit})
+    config.EntityData.Leafs.Append("buckets-archive", types.YLeaf{"BucketsArchive", config.BucketsArchive})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2521,40 +2669,43 @@ func (bucket *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnD
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bucket.EntityData.Children = make(map[string]types.YChild)
-    bucket.EntityData.Children["contents"] = types.YChild{"Contents", &bucket.Contents}
-    bucket.EntityData.Leafs = make(map[string]types.YLeaf)
-    bucket.EntityData.Leafs["start-at"] = types.YLeaf{"StartAt", bucket.StartAt}
-    bucket.EntityData.Leafs["duration"] = types.YLeaf{"Duration", bucket.Duration}
-    bucket.EntityData.Leafs["sent"] = types.YLeaf{"Sent", bucket.Sent}
-    bucket.EntityData.Leafs["lost"] = types.YLeaf{"Lost", bucket.Lost}
-    bucket.EntityData.Leafs["corrupt"] = types.YLeaf{"Corrupt", bucket.Corrupt}
-    bucket.EntityData.Leafs["out-of-order"] = types.YLeaf{"OutOfOrder", bucket.OutOfOrder}
-    bucket.EntityData.Leafs["duplicates"] = types.YLeaf{"Duplicates", bucket.Duplicates}
-    bucket.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", bucket.Minimum}
-    bucket.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", bucket.Maximum}
-    bucket.EntityData.Leafs["time-of-minimum"] = types.YLeaf{"TimeOfMinimum", bucket.TimeOfMinimum}
-    bucket.EntityData.Leafs["time-of-maximum"] = types.YLeaf{"TimeOfMaximum", bucket.TimeOfMaximum}
-    bucket.EntityData.Leafs["average"] = types.YLeaf{"Average", bucket.Average}
-    bucket.EntityData.Leafs["standard-deviation"] = types.YLeaf{"StandardDeviation", bucket.StandardDeviation}
-    bucket.EntityData.Leafs["result-count"] = types.YLeaf{"ResultCount", bucket.ResultCount}
-    bucket.EntityData.Leafs["data-sent-count"] = types.YLeaf{"DataSentCount", bucket.DataSentCount}
-    bucket.EntityData.Leafs["data-lost-count"] = types.YLeaf{"DataLostCount", bucket.DataLostCount}
-    bucket.EntityData.Leafs["overall-flr"] = types.YLeaf{"OverallFlr", bucket.OverallFlr}
-    bucket.EntityData.Leafs["suspect-start-mid-bucket"] = types.YLeaf{"SuspectStartMidBucket", bucket.SuspectStartMidBucket}
-    bucket.EntityData.Leafs["suspect-schedule-latency"] = types.YLeaf{"SuspectScheduleLatency", bucket.SuspectScheduleLatency}
-    bucket.EntityData.Leafs["suspect-send-fail"] = types.YLeaf{"SuspectSendFail", bucket.SuspectSendFail}
-    bucket.EntityData.Leafs["suspect-premature-end"] = types.YLeaf{"SuspectPrematureEnd", bucket.SuspectPrematureEnd}
-    bucket.EntityData.Leafs["suspect-clock-drift"] = types.YLeaf{"SuspectClockDrift", bucket.SuspectClockDrift}
-    bucket.EntityData.Leafs["suspect-memory-allocation-failed"] = types.YLeaf{"SuspectMemoryAllocationFailed", bucket.SuspectMemoryAllocationFailed}
-    bucket.EntityData.Leafs["suspect-cleared-mid-bucket"] = types.YLeaf{"SuspectClearedMidBucket", bucket.SuspectClearedMidBucket}
-    bucket.EntityData.Leafs["suspect-probe-restarted"] = types.YLeaf{"SuspectProbeRestarted", bucket.SuspectProbeRestarted}
-    bucket.EntityData.Leafs["suspect-management-latency"] = types.YLeaf{"SuspectManagementLatency", bucket.SuspectManagementLatency}
-    bucket.EntityData.Leafs["suspect-multiple-buckets"] = types.YLeaf{"SuspectMultipleBuckets", bucket.SuspectMultipleBuckets}
-    bucket.EntityData.Leafs["suspect-misordering"] = types.YLeaf{"SuspectMisordering", bucket.SuspectMisordering}
-    bucket.EntityData.Leafs["suspect-flr-low-packet-count"] = types.YLeaf{"SuspectFlrLowPacketCount", bucket.SuspectFlrLowPacketCount}
-    bucket.EntityData.Leafs["premature-reason"] = types.YLeaf{"PrematureReason", bucket.PrematureReason}
-    bucket.EntityData.Leafs["premature-reason-string"] = types.YLeaf{"PrematureReasonString", bucket.PrematureReasonString}
+    bucket.EntityData.Children = types.NewOrderedMap()
+    bucket.EntityData.Children.Append("contents", types.YChild{"Contents", &bucket.Contents})
+    bucket.EntityData.Leafs = types.NewOrderedMap()
+    bucket.EntityData.Leafs.Append("start-at", types.YLeaf{"StartAt", bucket.StartAt})
+    bucket.EntityData.Leafs.Append("duration", types.YLeaf{"Duration", bucket.Duration})
+    bucket.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", bucket.Sent})
+    bucket.EntityData.Leafs.Append("lost", types.YLeaf{"Lost", bucket.Lost})
+    bucket.EntityData.Leafs.Append("corrupt", types.YLeaf{"Corrupt", bucket.Corrupt})
+    bucket.EntityData.Leafs.Append("out-of-order", types.YLeaf{"OutOfOrder", bucket.OutOfOrder})
+    bucket.EntityData.Leafs.Append("duplicates", types.YLeaf{"Duplicates", bucket.Duplicates})
+    bucket.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", bucket.Minimum})
+    bucket.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", bucket.Maximum})
+    bucket.EntityData.Leafs.Append("time-of-minimum", types.YLeaf{"TimeOfMinimum", bucket.TimeOfMinimum})
+    bucket.EntityData.Leafs.Append("time-of-maximum", types.YLeaf{"TimeOfMaximum", bucket.TimeOfMaximum})
+    bucket.EntityData.Leafs.Append("average", types.YLeaf{"Average", bucket.Average})
+    bucket.EntityData.Leafs.Append("standard-deviation", types.YLeaf{"StandardDeviation", bucket.StandardDeviation})
+    bucket.EntityData.Leafs.Append("result-count", types.YLeaf{"ResultCount", bucket.ResultCount})
+    bucket.EntityData.Leafs.Append("data-sent-count", types.YLeaf{"DataSentCount", bucket.DataSentCount})
+    bucket.EntityData.Leafs.Append("data-lost-count", types.YLeaf{"DataLostCount", bucket.DataLostCount})
+    bucket.EntityData.Leafs.Append("overall-flr", types.YLeaf{"OverallFlr", bucket.OverallFlr})
+    bucket.EntityData.Leafs.Append("suspect-start-mid-bucket", types.YLeaf{"SuspectStartMidBucket", bucket.SuspectStartMidBucket})
+    bucket.EntityData.Leafs.Append("suspect-schedule-latency", types.YLeaf{"SuspectScheduleLatency", bucket.SuspectScheduleLatency})
+    bucket.EntityData.Leafs.Append("suspect-send-fail", types.YLeaf{"SuspectSendFail", bucket.SuspectSendFail})
+    bucket.EntityData.Leafs.Append("suspect-premature-end", types.YLeaf{"SuspectPrematureEnd", bucket.SuspectPrematureEnd})
+    bucket.EntityData.Leafs.Append("suspect-clock-drift", types.YLeaf{"SuspectClockDrift", bucket.SuspectClockDrift})
+    bucket.EntityData.Leafs.Append("suspect-memory-allocation-failed", types.YLeaf{"SuspectMemoryAllocationFailed", bucket.SuspectMemoryAllocationFailed})
+    bucket.EntityData.Leafs.Append("suspect-cleared-mid-bucket", types.YLeaf{"SuspectClearedMidBucket", bucket.SuspectClearedMidBucket})
+    bucket.EntityData.Leafs.Append("suspect-probe-restarted", types.YLeaf{"SuspectProbeRestarted", bucket.SuspectProbeRestarted})
+    bucket.EntityData.Leafs.Append("suspect-management-latency", types.YLeaf{"SuspectManagementLatency", bucket.SuspectManagementLatency})
+    bucket.EntityData.Leafs.Append("suspect-multiple-buckets", types.YLeaf{"SuspectMultipleBuckets", bucket.SuspectMultipleBuckets})
+    bucket.EntityData.Leafs.Append("suspect-misordering", types.YLeaf{"SuspectMisordering", bucket.SuspectMisordering})
+    bucket.EntityData.Leafs.Append("suspect-flr-low-packet-count", types.YLeaf{"SuspectFlrLowPacketCount", bucket.SuspectFlrLowPacketCount})
+    bucket.EntityData.Leafs.Append("premature-reason", types.YLeaf{"PrematureReason", bucket.PrematureReason})
+    bucket.EntityData.Leafs.Append("premature-reason-string", types.YLeaf{"PrematureReasonString", bucket.PrematureReasonString})
+
+    bucket.EntityData.YListKeys = []string {}
+
     return &(bucket.EntityData)
 }
 
@@ -2584,11 +2735,14 @@ func (contents *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsO
     contents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contents.EntityData.Children = make(map[string]types.YChild)
-    contents.EntityData.Children["aggregated"] = types.YChild{"Aggregated", &contents.Aggregated}
-    contents.EntityData.Children["unaggregated"] = types.YChild{"Unaggregated", &contents.Unaggregated}
-    contents.EntityData.Leafs = make(map[string]types.YLeaf)
-    contents.EntityData.Leafs["bucket-type"] = types.YLeaf{"BucketType", contents.BucketType}
+    contents.EntityData.Children = types.NewOrderedMap()
+    contents.EntityData.Children.Append("aggregated", types.YChild{"Aggregated", &contents.Aggregated})
+    contents.EntityData.Children.Append("unaggregated", types.YChild{"Unaggregated", &contents.Unaggregated})
+    contents.EntityData.Leafs = types.NewOrderedMap()
+    contents.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", contents.BucketType})
+
+    contents.EntityData.YListKeys = []string {}
+
     return &(contents.EntityData)
 }
 
@@ -2600,7 +2754,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
 
     // The bins of an SLA metric bucket. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Aggregated_Bins.
-    Bins []Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Aggregated_Bins
+    Bins []*Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Aggregated_Bins
 }
 
 func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Aggregated) GetEntityData() *types.CommonEntityData {
@@ -2613,12 +2767,15 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Statistic
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregated.EntityData.Children = make(map[string]types.YChild)
-    aggregated.EntityData.Children["bins"] = types.YChild{"Bins", nil}
+    aggregated.EntityData.Children = types.NewOrderedMap()
+    aggregated.EntityData.Children.Append("bins", types.YChild{"Bins", nil})
     for i := range aggregated.Bins {
-        aggregated.EntityData.Children[types.GetSegmentPath(&aggregated.Bins[i])] = types.YChild{"Bins", &aggregated.Bins[i]}
+        aggregated.EntityData.Children.Append(types.GetSegmentPath(aggregated.Bins[i]), types.YChild{"Bins", aggregated.Bins[i]})
     }
-    aggregated.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregated.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregated.EntityData.YListKeys = []string {}
+
     return &(aggregated.EntityData)
 }
 
@@ -2668,14 +2825,17 @@ func (bins *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDem
     bins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bins.EntityData.Children = make(map[string]types.YChild)
-    bins.EntityData.Leafs = make(map[string]types.YLeaf)
-    bins.EntityData.Leafs["lower-bound"] = types.YLeaf{"LowerBound", bins.LowerBound}
-    bins.EntityData.Leafs["upper-bound"] = types.YLeaf{"UpperBound", bins.UpperBound}
-    bins.EntityData.Leafs["lower-bound-tenths"] = types.YLeaf{"LowerBoundTenths", bins.LowerBoundTenths}
-    bins.EntityData.Leafs["upper-bound-tenths"] = types.YLeaf{"UpperBoundTenths", bins.UpperBoundTenths}
-    bins.EntityData.Leafs["sum"] = types.YLeaf{"Sum", bins.Sum}
-    bins.EntityData.Leafs["count"] = types.YLeaf{"Count", bins.Count}
+    bins.EntityData.Children = types.NewOrderedMap()
+    bins.EntityData.Leafs = types.NewOrderedMap()
+    bins.EntityData.Leafs.Append("lower-bound", types.YLeaf{"LowerBound", bins.LowerBound})
+    bins.EntityData.Leafs.Append("upper-bound", types.YLeaf{"UpperBound", bins.UpperBound})
+    bins.EntityData.Leafs.Append("lower-bound-tenths", types.YLeaf{"LowerBoundTenths", bins.LowerBoundTenths})
+    bins.EntityData.Leafs.Append("upper-bound-tenths", types.YLeaf{"UpperBoundTenths", bins.UpperBoundTenths})
+    bins.EntityData.Leafs.Append("sum", types.YLeaf{"Sum", bins.Sum})
+    bins.EntityData.Leafs.Append("count", types.YLeaf{"Count", bins.Count})
+
+    bins.EntityData.YListKeys = []string {}
+
     return &(bins.EntityData)
 }
 
@@ -2687,7 +2847,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
 
     // The samples of an SLA metric bucket. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Unaggregated_Sample.
-    Sample []Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Unaggregated_Sample
+    Sample []*Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Unaggregated_Sample
 }
 
 func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Unaggregated) GetEntityData() *types.CommonEntityData {
@@ -2700,12 +2860,15 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Statist
     unaggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unaggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unaggregated.EntityData.Children = make(map[string]types.YChild)
-    unaggregated.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    unaggregated.EntityData.Children = types.NewOrderedMap()
+    unaggregated.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range unaggregated.Sample {
-        unaggregated.EntityData.Children[types.GetSegmentPath(&unaggregated.Sample[i])] = types.YChild{"Sample", &unaggregated.Sample[i]}
+        unaggregated.EntityData.Children.Append(types.GetSegmentPath(unaggregated.Sample[i]), types.YChild{"Sample", unaggregated.Sample[i]})
     }
-    unaggregated.EntityData.Leafs = make(map[string]types.YLeaf)
+    unaggregated.EntityData.Leafs = types.NewOrderedMap()
+
+    unaggregated.EntityData.YListKeys = []string {}
+
     return &(unaggregated.EntityData)
 }
 
@@ -2760,17 +2923,20 @@ func (sample *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnD
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sent-at"] = types.YLeaf{"SentAt", sample.SentAt}
-    sample.EntityData.Leafs["sent"] = types.YLeaf{"Sent", sample.Sent}
-    sample.EntityData.Leafs["timed-out"] = types.YLeaf{"TimedOut", sample.TimedOut}
-    sample.EntityData.Leafs["corrupt"] = types.YLeaf{"Corrupt", sample.Corrupt}
-    sample.EntityData.Leafs["out-of-order"] = types.YLeaf{"OutOfOrder", sample.OutOfOrder}
-    sample.EntityData.Leafs["no-data-packets"] = types.YLeaf{"NoDataPackets", sample.NoDataPackets}
-    sample.EntityData.Leafs["result"] = types.YLeaf{"Result", sample.Result}
-    sample.EntityData.Leafs["frames-sent"] = types.YLeaf{"FramesSent", sample.FramesSent}
-    sample.EntityData.Leafs["frames-lost"] = types.YLeaf{"FramesLost", sample.FramesLost}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sent-at", types.YLeaf{"SentAt", sample.SentAt})
+    sample.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", sample.Sent})
+    sample.EntityData.Leafs.Append("timed-out", types.YLeaf{"TimedOut", sample.TimedOut})
+    sample.EntityData.Leafs.Append("corrupt", types.YLeaf{"Corrupt", sample.Corrupt})
+    sample.EntityData.Leafs.Append("out-of-order", types.YLeaf{"OutOfOrder", sample.OutOfOrder})
+    sample.EntityData.Leafs.Append("no-data-packets", types.YLeaf{"NoDataPackets", sample.NoDataPackets})
+    sample.EntityData.Leafs.Append("result", types.YLeaf{"Result", sample.Result})
+    sample.EntityData.Leafs.Append("frames-sent", types.YLeaf{"FramesSent", sample.FramesSent})
+    sample.EntityData.Leafs.Append("frames-lost", types.YLeaf{"FramesLost", sample.FramesLost})
+
+    sample.EntityData.YListKeys = []string {}
+
     return &(sample.EntityData)
 }
 
@@ -2783,7 +2949,7 @@ type Sla_Protocols_Ethernet_ConfigErrors struct {
 
     // SLA operation to get configuration errors data for. The type is slice of
     // Sla_Protocols_Ethernet_ConfigErrors_ConfigError.
-    ConfigError []Sla_Protocols_Ethernet_ConfigErrors_ConfigError
+    ConfigError []*Sla_Protocols_Ethernet_ConfigErrors_ConfigError
 }
 
 func (configErrors *Sla_Protocols_Ethernet_ConfigErrors) GetEntityData() *types.CommonEntityData {
@@ -2796,12 +2962,15 @@ func (configErrors *Sla_Protocols_Ethernet_ConfigErrors) GetEntityData() *types.
     configErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configErrors.EntityData.Children = make(map[string]types.YChild)
-    configErrors.EntityData.Children["config-error"] = types.YChild{"ConfigError", nil}
+    configErrors.EntityData.Children = types.NewOrderedMap()
+    configErrors.EntityData.Children.Append("config-error", types.YChild{"ConfigError", nil})
     for i := range configErrors.ConfigError {
-        configErrors.EntityData.Children[types.GetSegmentPath(&configErrors.ConfigError[i])] = types.YChild{"ConfigError", &configErrors.ConfigError[i]}
+        configErrors.EntityData.Children.Append(types.GetSegmentPath(configErrors.ConfigError[i]), types.YChild{"ConfigError", configErrors.ConfigError[i]})
     }
-    configErrors.EntityData.Leafs = make(map[string]types.YLeaf)
+    configErrors.EntityData.Leafs = types.NewOrderedMap()
+
+    configErrors.EntityData.YListKeys = []string {}
+
     return &(configErrors.EntityData)
 }
 
@@ -2812,21 +2981,20 @@ type Sla_Protocols_Ethernet_ConfigErrors_ConfigError struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. The type is interface{} with range: 1..8191.
     MepId interface{}
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // The name of the operation profile. The type is string.
@@ -2916,32 +3084,35 @@ func (configError *Sla_Protocols_Ethernet_ConfigErrors_ConfigError) GetEntityDat
     configError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configError.EntityData.Children = make(map[string]types.YChild)
-    configError.EntityData.Leafs = make(map[string]types.YLeaf)
-    configError.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", configError.ProfileName}
-    configError.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", configError.DomainName}
-    configError.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", configError.InterfaceName}
-    configError.EntityData.Leafs["mep-id"] = types.YLeaf{"MepId", configError.MepId}
-    configError.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", configError.MacAddress}
-    configError.EntityData.Leafs["profile-name-xr"] = types.YLeaf{"ProfileNameXr", configError.ProfileNameXr}
-    configError.EntityData.Leafs["display-short"] = types.YLeaf{"DisplayShort", configError.DisplayShort}
-    configError.EntityData.Leafs["rt-delay-inconsistent"] = types.YLeaf{"RtDelayInconsistent", configError.RtDelayInconsistent}
-    configError.EntityData.Leafs["ow-delay-sd-inconsistent"] = types.YLeaf{"OwDelaySdInconsistent", configError.OwDelaySdInconsistent}
-    configError.EntityData.Leafs["ow-delay-ds-inconsistent"] = types.YLeaf{"OwDelayDsInconsistent", configError.OwDelayDsInconsistent}
-    configError.EntityData.Leafs["rt-jitter-inconsistent"] = types.YLeaf{"RtJitterInconsistent", configError.RtJitterInconsistent}
-    configError.EntityData.Leafs["ow-jitter-sd-inconsistent"] = types.YLeaf{"OwJitterSdInconsistent", configError.OwJitterSdInconsistent}
-    configError.EntityData.Leafs["ow-jitter-ds-inconsistent"] = types.YLeaf{"OwJitterDsInconsistent", configError.OwJitterDsInconsistent}
-    configError.EntityData.Leafs["ow-loss-sd-inconsistent"] = types.YLeaf{"OwLossSdInconsistent", configError.OwLossSdInconsistent}
-    configError.EntityData.Leafs["ow-loss-ds-inconsistent"] = types.YLeaf{"OwLossDsInconsistent", configError.OwLossDsInconsistent}
-    configError.EntityData.Leafs["packet-pad-inconsistent"] = types.YLeaf{"PacketPadInconsistent", configError.PacketPadInconsistent}
-    configError.EntityData.Leafs["packet-rand-pad-inconsistent"] = types.YLeaf{"PacketRandPadInconsistent", configError.PacketRandPadInconsistent}
-    configError.EntityData.Leafs["min-packet-interval-inconsistent"] = types.YLeaf{"MinPacketIntervalInconsistent", configError.MinPacketIntervalInconsistent}
-    configError.EntityData.Leafs["priority-inconsistent"] = types.YLeaf{"PriorityInconsistent", configError.PriorityInconsistent}
-    configError.EntityData.Leafs["packet-type-inconsistent"] = types.YLeaf{"PacketTypeInconsistent", configError.PacketTypeInconsistent}
-    configError.EntityData.Leafs["profile-doesnt-exist"] = types.YLeaf{"ProfileDoesntExist", configError.ProfileDoesntExist}
-    configError.EntityData.Leafs["synthetic-loss-not-supported"] = types.YLeaf{"SyntheticLossNotSupported", configError.SyntheticLossNotSupported}
-    configError.EntityData.Leafs["probe-too-big"] = types.YLeaf{"ProbeTooBig", configError.ProbeTooBig}
-    configError.EntityData.Leafs["error-string"] = types.YLeaf{"ErrorString", configError.ErrorString}
+    configError.EntityData.Children = types.NewOrderedMap()
+    configError.EntityData.Leafs = types.NewOrderedMap()
+    configError.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", configError.ProfileName})
+    configError.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", configError.DomainName})
+    configError.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", configError.InterfaceName})
+    configError.EntityData.Leafs.Append("mep-id", types.YLeaf{"MepId", configError.MepId})
+    configError.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", configError.MacAddress})
+    configError.EntityData.Leafs.Append("profile-name-xr", types.YLeaf{"ProfileNameXr", configError.ProfileNameXr})
+    configError.EntityData.Leafs.Append("display-short", types.YLeaf{"DisplayShort", configError.DisplayShort})
+    configError.EntityData.Leafs.Append("rt-delay-inconsistent", types.YLeaf{"RtDelayInconsistent", configError.RtDelayInconsistent})
+    configError.EntityData.Leafs.Append("ow-delay-sd-inconsistent", types.YLeaf{"OwDelaySdInconsistent", configError.OwDelaySdInconsistent})
+    configError.EntityData.Leafs.Append("ow-delay-ds-inconsistent", types.YLeaf{"OwDelayDsInconsistent", configError.OwDelayDsInconsistent})
+    configError.EntityData.Leafs.Append("rt-jitter-inconsistent", types.YLeaf{"RtJitterInconsistent", configError.RtJitterInconsistent})
+    configError.EntityData.Leafs.Append("ow-jitter-sd-inconsistent", types.YLeaf{"OwJitterSdInconsistent", configError.OwJitterSdInconsistent})
+    configError.EntityData.Leafs.Append("ow-jitter-ds-inconsistent", types.YLeaf{"OwJitterDsInconsistent", configError.OwJitterDsInconsistent})
+    configError.EntityData.Leafs.Append("ow-loss-sd-inconsistent", types.YLeaf{"OwLossSdInconsistent", configError.OwLossSdInconsistent})
+    configError.EntityData.Leafs.Append("ow-loss-ds-inconsistent", types.YLeaf{"OwLossDsInconsistent", configError.OwLossDsInconsistent})
+    configError.EntityData.Leafs.Append("packet-pad-inconsistent", types.YLeaf{"PacketPadInconsistent", configError.PacketPadInconsistent})
+    configError.EntityData.Leafs.Append("packet-rand-pad-inconsistent", types.YLeaf{"PacketRandPadInconsistent", configError.PacketRandPadInconsistent})
+    configError.EntityData.Leafs.Append("min-packet-interval-inconsistent", types.YLeaf{"MinPacketIntervalInconsistent", configError.MinPacketIntervalInconsistent})
+    configError.EntityData.Leafs.Append("priority-inconsistent", types.YLeaf{"PriorityInconsistent", configError.PriorityInconsistent})
+    configError.EntityData.Leafs.Append("packet-type-inconsistent", types.YLeaf{"PacketTypeInconsistent", configError.PacketTypeInconsistent})
+    configError.EntityData.Leafs.Append("profile-doesnt-exist", types.YLeaf{"ProfileDoesntExist", configError.ProfileDoesntExist})
+    configError.EntityData.Leafs.Append("synthetic-loss-not-supported", types.YLeaf{"SyntheticLossNotSupported", configError.SyntheticLossNotSupported})
+    configError.EntityData.Leafs.Append("probe-too-big", types.YLeaf{"ProbeTooBig", configError.ProbeTooBig})
+    configError.EntityData.Leafs.Append("error-string", types.YLeaf{"ErrorString", configError.ErrorString})
+
+    configError.EntityData.YListKeys = []string {}
+
     return &(configError.EntityData)
 }
 
@@ -2953,7 +3124,7 @@ type Sla_Protocols_Ethernet_OnDemandOperations struct {
 
     // SLA on-demand operation to get operation data for. The type is slice of
     // Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation.
-    OnDemandOperation []Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation
+    OnDemandOperation []*Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation
 }
 
 func (onDemandOperations *Sla_Protocols_Ethernet_OnDemandOperations) GetEntityData() *types.CommonEntityData {
@@ -2966,12 +3137,15 @@ func (onDemandOperations *Sla_Protocols_Ethernet_OnDemandOperations) GetEntityDa
     onDemandOperations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandOperations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    onDemandOperations.EntityData.Children = make(map[string]types.YChild)
-    onDemandOperations.EntityData.Children["on-demand-operation"] = types.YChild{"OnDemandOperation", nil}
+    onDemandOperations.EntityData.Children = types.NewOrderedMap()
+    onDemandOperations.EntityData.Children.Append("on-demand-operation", types.YChild{"OnDemandOperation", nil})
     for i := range onDemandOperations.OnDemandOperation {
-        onDemandOperations.EntityData.Children[types.GetSegmentPath(&onDemandOperations.OnDemandOperation[i])] = types.YChild{"OnDemandOperation", &onDemandOperations.OnDemandOperation[i]}
+        onDemandOperations.EntityData.Children.Append(types.GetSegmentPath(onDemandOperations.OnDemandOperation[i]), types.YChild{"OnDemandOperation", onDemandOperations.OnDemandOperation[i]})
     }
-    onDemandOperations.EntityData.Leafs = make(map[string]types.YLeaf)
+    onDemandOperations.EntityData.Leafs = types.NewOrderedMap()
+
+    onDemandOperations.EntityData.YListKeys = []string {}
+
     return &(onDemandOperations.EntityData)
 }
 
@@ -2988,7 +3162,7 @@ type Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation struct {
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -2997,7 +3171,7 @@ type Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation struct {
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Short display name used by the operation. The type is string.
@@ -3027,18 +3201,21 @@ func (onDemandOperation *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOpera
     onDemandOperation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandOperation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    onDemandOperation.EntityData.Children = make(map[string]types.YChild)
-    onDemandOperation.EntityData.Children["profile-options"] = types.YChild{"ProfileOptions", &onDemandOperation.ProfileOptions}
-    onDemandOperation.EntityData.Children["specific-options"] = types.YChild{"SpecificOptions", &onDemandOperation.SpecificOptions}
-    onDemandOperation.EntityData.Leafs = make(map[string]types.YLeaf)
-    onDemandOperation.EntityData.Leafs["operation-id"] = types.YLeaf{"OperationId", onDemandOperation.OperationId}
-    onDemandOperation.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", onDemandOperation.DomainName}
-    onDemandOperation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", onDemandOperation.InterfaceName}
-    onDemandOperation.EntityData.Leafs["mep-id"] = types.YLeaf{"MepId", onDemandOperation.MepId}
-    onDemandOperation.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", onDemandOperation.MacAddress}
-    onDemandOperation.EntityData.Leafs["display-short"] = types.YLeaf{"DisplayShort", onDemandOperation.DisplayShort}
-    onDemandOperation.EntityData.Leafs["display-long"] = types.YLeaf{"DisplayLong", onDemandOperation.DisplayLong}
-    onDemandOperation.EntityData.Leafs["last-run"] = types.YLeaf{"LastRun", onDemandOperation.LastRun}
+    onDemandOperation.EntityData.Children = types.NewOrderedMap()
+    onDemandOperation.EntityData.Children.Append("profile-options", types.YChild{"ProfileOptions", &onDemandOperation.ProfileOptions})
+    onDemandOperation.EntityData.Children.Append("specific-options", types.YChild{"SpecificOptions", &onDemandOperation.SpecificOptions})
+    onDemandOperation.EntityData.Leafs = types.NewOrderedMap()
+    onDemandOperation.EntityData.Leafs.Append("operation-id", types.YLeaf{"OperationId", onDemandOperation.OperationId})
+    onDemandOperation.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", onDemandOperation.DomainName})
+    onDemandOperation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", onDemandOperation.InterfaceName})
+    onDemandOperation.EntityData.Leafs.Append("mep-id", types.YLeaf{"MepId", onDemandOperation.MepId})
+    onDemandOperation.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", onDemandOperation.MacAddress})
+    onDemandOperation.EntityData.Leafs.Append("display-short", types.YLeaf{"DisplayShort", onDemandOperation.DisplayShort})
+    onDemandOperation.EntityData.Leafs.Append("display-long", types.YLeaf{"DisplayLong", onDemandOperation.DisplayLong})
+    onDemandOperation.EntityData.Leafs.Append("last-run", types.YLeaf{"LastRun", onDemandOperation.LastRun})
+
+    onDemandOperation.EntityData.YListKeys = []string {}
+
     return &(onDemandOperation.EntityData)
 }
 
@@ -3084,7 +3261,7 @@ type Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_ProfileOptions 
     // Array of the metrics that are measured by the operation. The type is slice
     // of
     // Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_ProfileOptions_OperationMetric.
-    OperationMetric []Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_ProfileOptions_OperationMetric
+    OperationMetric []*Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_ProfileOptions_OperationMetric
 }
 
 func (profileOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_ProfileOptions) GetEntityData() *types.CommonEntityData {
@@ -3097,21 +3274,24 @@ func (profileOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperatio
     profileOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profileOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profileOptions.EntityData.Children = make(map[string]types.YChild)
-    profileOptions.EntityData.Children["packet-padding"] = types.YChild{"PacketPadding", &profileOptions.PacketPadding}
-    profileOptions.EntityData.Children["priority"] = types.YChild{"Priority", &profileOptions.Priority}
-    profileOptions.EntityData.Children["operation-schedule"] = types.YChild{"OperationSchedule", &profileOptions.OperationSchedule}
-    profileOptions.EntityData.Children["operation-metric"] = types.YChild{"OperationMetric", nil}
+    profileOptions.EntityData.Children = types.NewOrderedMap()
+    profileOptions.EntityData.Children.Append("packet-padding", types.YChild{"PacketPadding", &profileOptions.PacketPadding})
+    profileOptions.EntityData.Children.Append("priority", types.YChild{"Priority", &profileOptions.Priority})
+    profileOptions.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &profileOptions.OperationSchedule})
+    profileOptions.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range profileOptions.OperationMetric {
-        profileOptions.EntityData.Children[types.GetSegmentPath(&profileOptions.OperationMetric[i])] = types.YChild{"OperationMetric", &profileOptions.OperationMetric[i]}
+        profileOptions.EntityData.Children.Append(types.GetSegmentPath(profileOptions.OperationMetric[i]), types.YChild{"OperationMetric", profileOptions.OperationMetric[i]})
     }
-    profileOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    profileOptions.EntityData.Leafs["probe-type"] = types.YLeaf{"ProbeType", profileOptions.ProbeType}
-    profileOptions.EntityData.Leafs["packets-per-burst"] = types.YLeaf{"PacketsPerBurst", profileOptions.PacketsPerBurst}
-    profileOptions.EntityData.Leafs["inter-packet-interval"] = types.YLeaf{"InterPacketInterval", profileOptions.InterPacketInterval}
-    profileOptions.EntityData.Leafs["bursts-per-probe"] = types.YLeaf{"BurstsPerProbe", profileOptions.BurstsPerProbe}
-    profileOptions.EntityData.Leafs["inter-burst-interval"] = types.YLeaf{"InterBurstInterval", profileOptions.InterBurstInterval}
-    profileOptions.EntityData.Leafs["flr-calculation-interval"] = types.YLeaf{"FlrCalculationInterval", profileOptions.FlrCalculationInterval}
+    profileOptions.EntityData.Leafs = types.NewOrderedMap()
+    profileOptions.EntityData.Leafs.Append("probe-type", types.YLeaf{"ProbeType", profileOptions.ProbeType})
+    profileOptions.EntityData.Leafs.Append("packets-per-burst", types.YLeaf{"PacketsPerBurst", profileOptions.PacketsPerBurst})
+    profileOptions.EntityData.Leafs.Append("inter-packet-interval", types.YLeaf{"InterPacketInterval", profileOptions.InterPacketInterval})
+    profileOptions.EntityData.Leafs.Append("bursts-per-probe", types.YLeaf{"BurstsPerProbe", profileOptions.BurstsPerProbe})
+    profileOptions.EntityData.Leafs.Append("inter-burst-interval", types.YLeaf{"InterBurstInterval", profileOptions.InterBurstInterval})
+    profileOptions.EntityData.Leafs.Append("flr-calculation-interval", types.YLeaf{"FlrCalculationInterval", profileOptions.FlrCalculationInterval})
+
+    profileOptions.EntityData.YListKeys = []string {}
+
     return &(profileOptions.EntityData)
 }
 
@@ -3144,11 +3324,14 @@ func (packetPadding *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation
     packetPadding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetPadding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetPadding.EntityData.Children = make(map[string]types.YChild)
-    packetPadding.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetPadding.EntityData.Leafs["packet-pad-size"] = types.YLeaf{"PacketPadSize", packetPadding.PacketPadSize}
-    packetPadding.EntityData.Leafs["test-pattern-pad-scheme"] = types.YLeaf{"TestPatternPadScheme", packetPadding.TestPatternPadScheme}
-    packetPadding.EntityData.Leafs["test-pattern-pad-hex-string"] = types.YLeaf{"TestPatternPadHexString", packetPadding.TestPatternPadHexString}
+    packetPadding.EntityData.Children = types.NewOrderedMap()
+    packetPadding.EntityData.Leafs = types.NewOrderedMap()
+    packetPadding.EntityData.Leafs.Append("packet-pad-size", types.YLeaf{"PacketPadSize", packetPadding.PacketPadSize})
+    packetPadding.EntityData.Leafs.Append("test-pattern-pad-scheme", types.YLeaf{"TestPatternPadScheme", packetPadding.TestPatternPadScheme})
+    packetPadding.EntityData.Leafs.Append("test-pattern-pad-hex-string", types.YLeaf{"TestPatternPadHexString", packetPadding.TestPatternPadHexString})
+
+    packetPadding.EntityData.YListKeys = []string {}
+
     return &(packetPadding.EntityData)
 }
 
@@ -3177,10 +3360,13 @@ func (priority *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_Prof
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    priority.EntityData.Children = make(map[string]types.YChild)
-    priority.EntityData.Leafs = make(map[string]types.YLeaf)
-    priority.EntityData.Leafs["priority-type"] = types.YLeaf{"PriorityType", priority.PriorityType}
-    priority.EntityData.Leafs["cos"] = types.YLeaf{"Cos", priority.Cos}
+    priority.EntityData.Children = types.NewOrderedMap()
+    priority.EntityData.Leafs = types.NewOrderedMap()
+    priority.EntityData.Leafs.Append("priority-type", types.YLeaf{"PriorityType", priority.PriorityType})
+    priority.EntityData.Leafs.Append("cos", types.YLeaf{"Cos", priority.Cos})
+
+    priority.EntityData.YListKeys = []string {}
+
     return &(priority.EntityData)
 }
 
@@ -3217,12 +3403,15 @@ func (operationSchedule *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOpera
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationSchedule.EntityData.Children = make(map[string]types.YChild)
-    operationSchedule.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationSchedule.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", operationSchedule.StartTime}
-    operationSchedule.EntityData.Leafs["start-time-configured"] = types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured}
-    operationSchedule.EntityData.Leafs["schedule-duration"] = types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration}
-    operationSchedule.EntityData.Leafs["schedule-interval"] = types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval}
+    operationSchedule.EntityData.Children = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", operationSchedule.StartTime})
+    operationSchedule.EntityData.Leafs.Append("start-time-configured", types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured})
+    operationSchedule.EntityData.Leafs.Append("schedule-duration", types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration})
+    operationSchedule.EntityData.Leafs.Append("schedule-interval", types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval})
+
+    operationSchedule.EntityData.YListKeys = []string {}
+
     return &(operationSchedule.EntityData)
 }
 
@@ -3251,10 +3440,13 @@ func (operationMetric *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperati
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationMetric.EntityData.Children = make(map[string]types.YChild)
-    operationMetric.EntityData.Children["metric-config"] = types.YChild{"MetricConfig", &operationMetric.MetricConfig}
-    operationMetric.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationMetric.EntityData.Leafs["current-buckets-archive"] = types.YLeaf{"CurrentBucketsArchive", operationMetric.CurrentBucketsArchive}
+    operationMetric.EntityData.Children = types.NewOrderedMap()
+    operationMetric.EntityData.Children.Append("metric-config", types.YChild{"MetricConfig", &operationMetric.MetricConfig})
+    operationMetric.EntityData.Leafs = types.NewOrderedMap()
+    operationMetric.EntityData.Leafs.Append("current-buckets-archive", types.YLeaf{"CurrentBucketsArchive", operationMetric.CurrentBucketsArchive})
+
+    operationMetric.EntityData.YListKeys = []string {}
+
     return &(operationMetric.EntityData)
 }
 
@@ -3300,14 +3492,17 @@ func (metricConfig *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_
     metricConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    metricConfig.EntityData.Children = make(map[string]types.YChild)
-    metricConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    metricConfig.EntityData.Leafs["metric-type"] = types.YLeaf{"MetricType", metricConfig.MetricType}
-    metricConfig.EntityData.Leafs["bins-count"] = types.YLeaf{"BinsCount", metricConfig.BinsCount}
-    metricConfig.EntityData.Leafs["bins-width"] = types.YLeaf{"BinsWidth", metricConfig.BinsWidth}
-    metricConfig.EntityData.Leafs["bucket-size"] = types.YLeaf{"BucketSize", metricConfig.BucketSize}
-    metricConfig.EntityData.Leafs["bucket-size-unit"] = types.YLeaf{"BucketSizeUnit", metricConfig.BucketSizeUnit}
-    metricConfig.EntityData.Leafs["buckets-archive"] = types.YLeaf{"BucketsArchive", metricConfig.BucketsArchive}
+    metricConfig.EntityData.Children = types.NewOrderedMap()
+    metricConfig.EntityData.Leafs = types.NewOrderedMap()
+    metricConfig.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", metricConfig.MetricType})
+    metricConfig.EntityData.Leafs.Append("bins-count", types.YLeaf{"BinsCount", metricConfig.BinsCount})
+    metricConfig.EntityData.Leafs.Append("bins-width", types.YLeaf{"BinsWidth", metricConfig.BinsWidth})
+    metricConfig.EntityData.Leafs.Append("bucket-size", types.YLeaf{"BucketSize", metricConfig.BucketSize})
+    metricConfig.EntityData.Leafs.Append("bucket-size-unit", types.YLeaf{"BucketSizeUnit", metricConfig.BucketSizeUnit})
+    metricConfig.EntityData.Leafs.Append("buckets-archive", types.YLeaf{"BucketsArchive", metricConfig.BucketsArchive})
+
+    metricConfig.EntityData.YListKeys = []string {}
+
     return &(metricConfig.EntityData)
 }
 
@@ -3337,11 +3532,14 @@ func (specificOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperati
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    specificOptions.EntityData.Children = make(map[string]types.YChild)
-    specificOptions.EntityData.Children["configured-operation-options"] = types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions}
-    specificOptions.EntityData.Children["ondemand-operation-options"] = types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions}
-    specificOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    specificOptions.EntityData.Leafs["oper-type"] = types.YLeaf{"OperType", specificOptions.OperType}
+    specificOptions.EntityData.Children = types.NewOrderedMap()
+    specificOptions.EntityData.Children.Append("configured-operation-options", types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions})
+    specificOptions.EntityData.Children.Append("ondemand-operation-options", types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions})
+    specificOptions.EntityData.Leafs = types.NewOrderedMap()
+    specificOptions.EntityData.Leafs.Append("oper-type", types.YLeaf{"OperType", specificOptions.OperType})
+
+    specificOptions.EntityData.YListKeys = []string {}
+
     return &(specificOptions.EntityData)
 }
 
@@ -3365,9 +3563,12 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDe
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuredOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    configuredOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuredOperationOptions.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName}
+    configuredOperationOptions.EntityData.Children = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName})
+
+    configuredOperationOptions.EntityData.YListKeys = []string {}
+
     return &(configuredOperationOptions.EntityData)
 }
 
@@ -3396,10 +3597,13 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDema
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ondemandOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    ondemandOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    ondemandOperationOptions.EntityData.Leafs["ondemand-operation-id"] = types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId}
-    ondemandOperationOptions.EntityData.Leafs["probe-count"] = types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount}
+    ondemandOperationOptions.EntityData.Children = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs.Append("ondemand-operation-id", types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId})
+    ondemandOperationOptions.EntityData.Leafs.Append("probe-count", types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount})
+
+    ondemandOperationOptions.EntityData.YListKeys = []string {}
+
     return &(ondemandOperationOptions.EntityData)
 }
 
@@ -3411,7 +3615,7 @@ type Sla_Protocols_Ethernet_StatisticsCurrents struct {
 
     // Current statistics data for an SLA configured operation. The type is slice
     // of Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent.
-    StatisticsCurrent []Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent
+    StatisticsCurrent []*Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent
 }
 
 func (statisticsCurrents *Sla_Protocols_Ethernet_StatisticsCurrents) GetEntityData() *types.CommonEntityData {
@@ -3424,12 +3628,15 @@ func (statisticsCurrents *Sla_Protocols_Ethernet_StatisticsCurrents) GetEntityDa
     statisticsCurrents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsCurrents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsCurrents.EntityData.Children = make(map[string]types.YChild)
-    statisticsCurrents.EntityData.Children["statistics-current"] = types.YChild{"StatisticsCurrent", nil}
+    statisticsCurrents.EntityData.Children = types.NewOrderedMap()
+    statisticsCurrents.EntityData.Children.Append("statistics-current", types.YChild{"StatisticsCurrent", nil})
     for i := range statisticsCurrents.StatisticsCurrent {
-        statisticsCurrents.EntityData.Children[types.GetSegmentPath(&statisticsCurrents.StatisticsCurrent[i])] = types.YChild{"StatisticsCurrent", &statisticsCurrents.StatisticsCurrent[i]}
+        statisticsCurrents.EntityData.Children.Append(types.GetSegmentPath(statisticsCurrents.StatisticsCurrent[i]), types.YChild{"StatisticsCurrent", statisticsCurrents.StatisticsCurrent[i]})
     }
-    statisticsCurrents.EntityData.Leafs = make(map[string]types.YLeaf)
+    statisticsCurrents.EntityData.Leafs = types.NewOrderedMap()
+
+    statisticsCurrents.EntityData.YListKeys = []string {}
+
     return &(statisticsCurrents.EntityData)
 }
 
@@ -3440,14 +3647,13 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -3456,7 +3662,7 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent struct {
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Type of probe used by the operation. The type is string.
@@ -3480,7 +3686,7 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent struct {
 
     // Metrics gathered for the operation. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric.
-    OperationMetric []Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric
+    OperationMetric []*Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric
 }
 
 func (statisticsCurrent *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent) GetEntityData() *types.CommonEntityData {
@@ -3493,23 +3699,26 @@ func (statisticsCurrent *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCur
     statisticsCurrent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsCurrent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsCurrent.EntityData.Children = make(map[string]types.YChild)
-    statisticsCurrent.EntityData.Children["specific-options"] = types.YChild{"SpecificOptions", &statisticsCurrent.SpecificOptions}
-    statisticsCurrent.EntityData.Children["operation-schedule"] = types.YChild{"OperationSchedule", &statisticsCurrent.OperationSchedule}
-    statisticsCurrent.EntityData.Children["operation-metric"] = types.YChild{"OperationMetric", nil}
+    statisticsCurrent.EntityData.Children = types.NewOrderedMap()
+    statisticsCurrent.EntityData.Children.Append("specific-options", types.YChild{"SpecificOptions", &statisticsCurrent.SpecificOptions})
+    statisticsCurrent.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &statisticsCurrent.OperationSchedule})
+    statisticsCurrent.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range statisticsCurrent.OperationMetric {
-        statisticsCurrent.EntityData.Children[types.GetSegmentPath(&statisticsCurrent.OperationMetric[i])] = types.YChild{"OperationMetric", &statisticsCurrent.OperationMetric[i]}
+        statisticsCurrent.EntityData.Children.Append(types.GetSegmentPath(statisticsCurrent.OperationMetric[i]), types.YChild{"OperationMetric", statisticsCurrent.OperationMetric[i]})
     }
-    statisticsCurrent.EntityData.Leafs = make(map[string]types.YLeaf)
-    statisticsCurrent.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", statisticsCurrent.ProfileName}
-    statisticsCurrent.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", statisticsCurrent.DomainName}
-    statisticsCurrent.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", statisticsCurrent.InterfaceName}
-    statisticsCurrent.EntityData.Leafs["mep-id"] = types.YLeaf{"MepId", statisticsCurrent.MepId}
-    statisticsCurrent.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", statisticsCurrent.MacAddress}
-    statisticsCurrent.EntityData.Leafs["probe-type"] = types.YLeaf{"ProbeType", statisticsCurrent.ProbeType}
-    statisticsCurrent.EntityData.Leafs["display-short"] = types.YLeaf{"DisplayShort", statisticsCurrent.DisplayShort}
-    statisticsCurrent.EntityData.Leafs["display-long"] = types.YLeaf{"DisplayLong", statisticsCurrent.DisplayLong}
-    statisticsCurrent.EntityData.Leafs["flr-calculation-interval"] = types.YLeaf{"FlrCalculationInterval", statisticsCurrent.FlrCalculationInterval}
+    statisticsCurrent.EntityData.Leafs = types.NewOrderedMap()
+    statisticsCurrent.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", statisticsCurrent.ProfileName})
+    statisticsCurrent.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", statisticsCurrent.DomainName})
+    statisticsCurrent.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", statisticsCurrent.InterfaceName})
+    statisticsCurrent.EntityData.Leafs.Append("mep-id", types.YLeaf{"MepId", statisticsCurrent.MepId})
+    statisticsCurrent.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", statisticsCurrent.MacAddress})
+    statisticsCurrent.EntityData.Leafs.Append("probe-type", types.YLeaf{"ProbeType", statisticsCurrent.ProbeType})
+    statisticsCurrent.EntityData.Leafs.Append("display-short", types.YLeaf{"DisplayShort", statisticsCurrent.DisplayShort})
+    statisticsCurrent.EntityData.Leafs.Append("display-long", types.YLeaf{"DisplayLong", statisticsCurrent.DisplayLong})
+    statisticsCurrent.EntityData.Leafs.Append("flr-calculation-interval", types.YLeaf{"FlrCalculationInterval", statisticsCurrent.FlrCalculationInterval})
+
+    statisticsCurrent.EntityData.YListKeys = []string {}
+
     return &(statisticsCurrent.EntityData)
 }
 
@@ -3539,11 +3748,14 @@ func (specificOptions *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurre
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    specificOptions.EntityData.Children = make(map[string]types.YChild)
-    specificOptions.EntityData.Children["configured-operation-options"] = types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions}
-    specificOptions.EntityData.Children["ondemand-operation-options"] = types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions}
-    specificOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    specificOptions.EntityData.Leafs["oper-type"] = types.YLeaf{"OperType", specificOptions.OperType}
+    specificOptions.EntityData.Children = types.NewOrderedMap()
+    specificOptions.EntityData.Children.Append("configured-operation-options", types.YChild{"ConfiguredOperationOptions", &specificOptions.ConfiguredOperationOptions})
+    specificOptions.EntityData.Children.Append("ondemand-operation-options", types.YChild{"OndemandOperationOptions", &specificOptions.OndemandOperationOptions})
+    specificOptions.EntityData.Leafs = types.NewOrderedMap()
+    specificOptions.EntityData.Leafs.Append("oper-type", types.YLeaf{"OperType", specificOptions.OperType})
+
+    specificOptions.EntityData.YListKeys = []string {}
+
     return &(specificOptions.EntityData)
 }
 
@@ -3567,9 +3779,12 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_StatisticsCurrents_Stat
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuredOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    configuredOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuredOperationOptions.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName}
+    configuredOperationOptions.EntityData.Children = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    configuredOperationOptions.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", configuredOperationOptions.ProfileName})
+
+    configuredOperationOptions.EntityData.YListKeys = []string {}
+
     return &(configuredOperationOptions.EntityData)
 }
 
@@ -3598,10 +3813,13 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_StatisticsCurrents_Statis
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ondemandOperationOptions.EntityData.Children = make(map[string]types.YChild)
-    ondemandOperationOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    ondemandOperationOptions.EntityData.Leafs["ondemand-operation-id"] = types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId}
-    ondemandOperationOptions.EntityData.Leafs["probe-count"] = types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount}
+    ondemandOperationOptions.EntityData.Children = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs = types.NewOrderedMap()
+    ondemandOperationOptions.EntityData.Leafs.Append("ondemand-operation-id", types.YLeaf{"OndemandOperationId", ondemandOperationOptions.OndemandOperationId})
+    ondemandOperationOptions.EntityData.Leafs.Append("probe-count", types.YLeaf{"ProbeCount", ondemandOperationOptions.ProbeCount})
+
+    ondemandOperationOptions.EntityData.YListKeys = []string {}
+
     return &(ondemandOperationOptions.EntityData)
 }
 
@@ -3638,12 +3856,15 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCur
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationSchedule.EntityData.Children = make(map[string]types.YChild)
-    operationSchedule.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationSchedule.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", operationSchedule.StartTime}
-    operationSchedule.EntityData.Leafs["start-time-configured"] = types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured}
-    operationSchedule.EntityData.Leafs["schedule-duration"] = types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration}
-    operationSchedule.EntityData.Leafs["schedule-interval"] = types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval}
+    operationSchedule.EntityData.Children = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs = types.NewOrderedMap()
+    operationSchedule.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", operationSchedule.StartTime})
+    operationSchedule.EntityData.Leafs.Append("start-time-configured", types.YLeaf{"StartTimeConfigured", operationSchedule.StartTimeConfigured})
+    operationSchedule.EntityData.Leafs.Append("schedule-duration", types.YLeaf{"ScheduleDuration", operationSchedule.ScheduleDuration})
+    operationSchedule.EntityData.Leafs.Append("schedule-interval", types.YLeaf{"ScheduleInterval", operationSchedule.ScheduleInterval})
+
+    operationSchedule.EntityData.YListKeys = []string {}
+
     return &(operationSchedule.EntityData)
 }
 
@@ -3658,7 +3879,7 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric
 
     // Buckets stored for the metric. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket.
-    Bucket []Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket
+    Bucket []*Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket
 }
 
 func (operationMetric *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric) GetEntityData() *types.CommonEntityData {
@@ -3671,13 +3892,16 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurre
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationMetric.EntityData.Children = make(map[string]types.YChild)
-    operationMetric.EntityData.Children["config"] = types.YChild{"Config", &operationMetric.Config}
-    operationMetric.EntityData.Children["bucket"] = types.YChild{"Bucket", nil}
+    operationMetric.EntityData.Children = types.NewOrderedMap()
+    operationMetric.EntityData.Children.Append("config", types.YChild{"Config", &operationMetric.Config})
+    operationMetric.EntityData.Children.Append("bucket", types.YChild{"Bucket", nil})
     for i := range operationMetric.Bucket {
-        operationMetric.EntityData.Children[types.GetSegmentPath(&operationMetric.Bucket[i])] = types.YChild{"Bucket", &operationMetric.Bucket[i]}
+        operationMetric.EntityData.Children.Append(types.GetSegmentPath(operationMetric.Bucket[i]), types.YChild{"Bucket", operationMetric.Bucket[i]})
     }
-    operationMetric.EntityData.Leafs = make(map[string]types.YLeaf)
+    operationMetric.EntityData.Leafs = types.NewOrderedMap()
+
+    operationMetric.EntityData.YListKeys = []string {}
+
     return &(operationMetric.EntityData)
 }
 
@@ -3723,14 +3947,17 @@ func (config *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operat
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["metric-type"] = types.YLeaf{"MetricType", config.MetricType}
-    config.EntityData.Leafs["bins-count"] = types.YLeaf{"BinsCount", config.BinsCount}
-    config.EntityData.Leafs["bins-width"] = types.YLeaf{"BinsWidth", config.BinsWidth}
-    config.EntityData.Leafs["bucket-size"] = types.YLeaf{"BucketSize", config.BucketSize}
-    config.EntityData.Leafs["bucket-size-unit"] = types.YLeaf{"BucketSizeUnit", config.BucketSizeUnit}
-    config.EntityData.Leafs["buckets-archive"] = types.YLeaf{"BucketsArchive", config.BucketsArchive}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", config.MetricType})
+    config.EntityData.Leafs.Append("bins-count", types.YLeaf{"BinsCount", config.BinsCount})
+    config.EntityData.Leafs.Append("bins-width", types.YLeaf{"BinsWidth", config.BinsWidth})
+    config.EntityData.Leafs.Append("bucket-size", types.YLeaf{"BucketSize", config.BucketSize})
+    config.EntityData.Leafs.Append("bucket-size-unit", types.YLeaf{"BucketSizeUnit", config.BucketSizeUnit})
+    config.EntityData.Leafs.Append("buckets-archive", types.YLeaf{"BucketsArchive", config.BucketsArchive})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3878,40 +4105,43 @@ func (bucket *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operat
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bucket.EntityData.Children = make(map[string]types.YChild)
-    bucket.EntityData.Children["contents"] = types.YChild{"Contents", &bucket.Contents}
-    bucket.EntityData.Leafs = make(map[string]types.YLeaf)
-    bucket.EntityData.Leafs["start-at"] = types.YLeaf{"StartAt", bucket.StartAt}
-    bucket.EntityData.Leafs["duration"] = types.YLeaf{"Duration", bucket.Duration}
-    bucket.EntityData.Leafs["sent"] = types.YLeaf{"Sent", bucket.Sent}
-    bucket.EntityData.Leafs["lost"] = types.YLeaf{"Lost", bucket.Lost}
-    bucket.EntityData.Leafs["corrupt"] = types.YLeaf{"Corrupt", bucket.Corrupt}
-    bucket.EntityData.Leafs["out-of-order"] = types.YLeaf{"OutOfOrder", bucket.OutOfOrder}
-    bucket.EntityData.Leafs["duplicates"] = types.YLeaf{"Duplicates", bucket.Duplicates}
-    bucket.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", bucket.Minimum}
-    bucket.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", bucket.Maximum}
-    bucket.EntityData.Leafs["time-of-minimum"] = types.YLeaf{"TimeOfMinimum", bucket.TimeOfMinimum}
-    bucket.EntityData.Leafs["time-of-maximum"] = types.YLeaf{"TimeOfMaximum", bucket.TimeOfMaximum}
-    bucket.EntityData.Leafs["average"] = types.YLeaf{"Average", bucket.Average}
-    bucket.EntityData.Leafs["standard-deviation"] = types.YLeaf{"StandardDeviation", bucket.StandardDeviation}
-    bucket.EntityData.Leafs["result-count"] = types.YLeaf{"ResultCount", bucket.ResultCount}
-    bucket.EntityData.Leafs["data-sent-count"] = types.YLeaf{"DataSentCount", bucket.DataSentCount}
-    bucket.EntityData.Leafs["data-lost-count"] = types.YLeaf{"DataLostCount", bucket.DataLostCount}
-    bucket.EntityData.Leafs["overall-flr"] = types.YLeaf{"OverallFlr", bucket.OverallFlr}
-    bucket.EntityData.Leafs["suspect-start-mid-bucket"] = types.YLeaf{"SuspectStartMidBucket", bucket.SuspectStartMidBucket}
-    bucket.EntityData.Leafs["suspect-schedule-latency"] = types.YLeaf{"SuspectScheduleLatency", bucket.SuspectScheduleLatency}
-    bucket.EntityData.Leafs["suspect-send-fail"] = types.YLeaf{"SuspectSendFail", bucket.SuspectSendFail}
-    bucket.EntityData.Leafs["suspect-premature-end"] = types.YLeaf{"SuspectPrematureEnd", bucket.SuspectPrematureEnd}
-    bucket.EntityData.Leafs["suspect-clock-drift"] = types.YLeaf{"SuspectClockDrift", bucket.SuspectClockDrift}
-    bucket.EntityData.Leafs["suspect-memory-allocation-failed"] = types.YLeaf{"SuspectMemoryAllocationFailed", bucket.SuspectMemoryAllocationFailed}
-    bucket.EntityData.Leafs["suspect-cleared-mid-bucket"] = types.YLeaf{"SuspectClearedMidBucket", bucket.SuspectClearedMidBucket}
-    bucket.EntityData.Leafs["suspect-probe-restarted"] = types.YLeaf{"SuspectProbeRestarted", bucket.SuspectProbeRestarted}
-    bucket.EntityData.Leafs["suspect-management-latency"] = types.YLeaf{"SuspectManagementLatency", bucket.SuspectManagementLatency}
-    bucket.EntityData.Leafs["suspect-multiple-buckets"] = types.YLeaf{"SuspectMultipleBuckets", bucket.SuspectMultipleBuckets}
-    bucket.EntityData.Leafs["suspect-misordering"] = types.YLeaf{"SuspectMisordering", bucket.SuspectMisordering}
-    bucket.EntityData.Leafs["suspect-flr-low-packet-count"] = types.YLeaf{"SuspectFlrLowPacketCount", bucket.SuspectFlrLowPacketCount}
-    bucket.EntityData.Leafs["premature-reason"] = types.YLeaf{"PrematureReason", bucket.PrematureReason}
-    bucket.EntityData.Leafs["premature-reason-string"] = types.YLeaf{"PrematureReasonString", bucket.PrematureReasonString}
+    bucket.EntityData.Children = types.NewOrderedMap()
+    bucket.EntityData.Children.Append("contents", types.YChild{"Contents", &bucket.Contents})
+    bucket.EntityData.Leafs = types.NewOrderedMap()
+    bucket.EntityData.Leafs.Append("start-at", types.YLeaf{"StartAt", bucket.StartAt})
+    bucket.EntityData.Leafs.Append("duration", types.YLeaf{"Duration", bucket.Duration})
+    bucket.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", bucket.Sent})
+    bucket.EntityData.Leafs.Append("lost", types.YLeaf{"Lost", bucket.Lost})
+    bucket.EntityData.Leafs.Append("corrupt", types.YLeaf{"Corrupt", bucket.Corrupt})
+    bucket.EntityData.Leafs.Append("out-of-order", types.YLeaf{"OutOfOrder", bucket.OutOfOrder})
+    bucket.EntityData.Leafs.Append("duplicates", types.YLeaf{"Duplicates", bucket.Duplicates})
+    bucket.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", bucket.Minimum})
+    bucket.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", bucket.Maximum})
+    bucket.EntityData.Leafs.Append("time-of-minimum", types.YLeaf{"TimeOfMinimum", bucket.TimeOfMinimum})
+    bucket.EntityData.Leafs.Append("time-of-maximum", types.YLeaf{"TimeOfMaximum", bucket.TimeOfMaximum})
+    bucket.EntityData.Leafs.Append("average", types.YLeaf{"Average", bucket.Average})
+    bucket.EntityData.Leafs.Append("standard-deviation", types.YLeaf{"StandardDeviation", bucket.StandardDeviation})
+    bucket.EntityData.Leafs.Append("result-count", types.YLeaf{"ResultCount", bucket.ResultCount})
+    bucket.EntityData.Leafs.Append("data-sent-count", types.YLeaf{"DataSentCount", bucket.DataSentCount})
+    bucket.EntityData.Leafs.Append("data-lost-count", types.YLeaf{"DataLostCount", bucket.DataLostCount})
+    bucket.EntityData.Leafs.Append("overall-flr", types.YLeaf{"OverallFlr", bucket.OverallFlr})
+    bucket.EntityData.Leafs.Append("suspect-start-mid-bucket", types.YLeaf{"SuspectStartMidBucket", bucket.SuspectStartMidBucket})
+    bucket.EntityData.Leafs.Append("suspect-schedule-latency", types.YLeaf{"SuspectScheduleLatency", bucket.SuspectScheduleLatency})
+    bucket.EntityData.Leafs.Append("suspect-send-fail", types.YLeaf{"SuspectSendFail", bucket.SuspectSendFail})
+    bucket.EntityData.Leafs.Append("suspect-premature-end", types.YLeaf{"SuspectPrematureEnd", bucket.SuspectPrematureEnd})
+    bucket.EntityData.Leafs.Append("suspect-clock-drift", types.YLeaf{"SuspectClockDrift", bucket.SuspectClockDrift})
+    bucket.EntityData.Leafs.Append("suspect-memory-allocation-failed", types.YLeaf{"SuspectMemoryAllocationFailed", bucket.SuspectMemoryAllocationFailed})
+    bucket.EntityData.Leafs.Append("suspect-cleared-mid-bucket", types.YLeaf{"SuspectClearedMidBucket", bucket.SuspectClearedMidBucket})
+    bucket.EntityData.Leafs.Append("suspect-probe-restarted", types.YLeaf{"SuspectProbeRestarted", bucket.SuspectProbeRestarted})
+    bucket.EntityData.Leafs.Append("suspect-management-latency", types.YLeaf{"SuspectManagementLatency", bucket.SuspectManagementLatency})
+    bucket.EntityData.Leafs.Append("suspect-multiple-buckets", types.YLeaf{"SuspectMultipleBuckets", bucket.SuspectMultipleBuckets})
+    bucket.EntityData.Leafs.Append("suspect-misordering", types.YLeaf{"SuspectMisordering", bucket.SuspectMisordering})
+    bucket.EntityData.Leafs.Append("suspect-flr-low-packet-count", types.YLeaf{"SuspectFlrLowPacketCount", bucket.SuspectFlrLowPacketCount})
+    bucket.EntityData.Leafs.Append("premature-reason", types.YLeaf{"PrematureReason", bucket.PrematureReason})
+    bucket.EntityData.Leafs.Append("premature-reason-string", types.YLeaf{"PrematureReasonString", bucket.PrematureReasonString})
+
+    bucket.EntityData.YListKeys = []string {}
+
     return &(bucket.EntityData)
 }
 
@@ -3941,11 +4171,14 @@ func (contents *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Oper
     contents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contents.EntityData.Children = make(map[string]types.YChild)
-    contents.EntityData.Children["aggregated"] = types.YChild{"Aggregated", &contents.Aggregated}
-    contents.EntityData.Children["unaggregated"] = types.YChild{"Unaggregated", &contents.Unaggregated}
-    contents.EntityData.Leafs = make(map[string]types.YLeaf)
-    contents.EntityData.Leafs["bucket-type"] = types.YLeaf{"BucketType", contents.BucketType}
+    contents.EntityData.Children = types.NewOrderedMap()
+    contents.EntityData.Children.Append("aggregated", types.YChild{"Aggregated", &contents.Aggregated})
+    contents.EntityData.Children.Append("unaggregated", types.YChild{"Unaggregated", &contents.Unaggregated})
+    contents.EntityData.Leafs = types.NewOrderedMap()
+    contents.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", contents.BucketType})
+
+    contents.EntityData.YListKeys = []string {}
+
     return &(contents.EntityData)
 }
 
@@ -3957,7 +4190,7 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric
 
     // The bins of an SLA metric bucket. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Aggregated_Bins.
-    Bins []Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Aggregated_Bins
+    Bins []*Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Aggregated_Bins
 }
 
 func (aggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Aggregated) GetEntityData() *types.CommonEntityData {
@@ -3970,12 +4203,15 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Op
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregated.EntityData.Children = make(map[string]types.YChild)
-    aggregated.EntityData.Children["bins"] = types.YChild{"Bins", nil}
+    aggregated.EntityData.Children = types.NewOrderedMap()
+    aggregated.EntityData.Children.Append("bins", types.YChild{"Bins", nil})
     for i := range aggregated.Bins {
-        aggregated.EntityData.Children[types.GetSegmentPath(&aggregated.Bins[i])] = types.YChild{"Bins", &aggregated.Bins[i]}
+        aggregated.EntityData.Children.Append(types.GetSegmentPath(aggregated.Bins[i]), types.YChild{"Bins", aggregated.Bins[i]})
     }
-    aggregated.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregated.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregated.EntityData.YListKeys = []string {}
+
     return &(aggregated.EntityData)
 }
 
@@ -4025,14 +4261,17 @@ func (bins *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operatio
     bins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bins.EntityData.Children = make(map[string]types.YChild)
-    bins.EntityData.Leafs = make(map[string]types.YLeaf)
-    bins.EntityData.Leafs["lower-bound"] = types.YLeaf{"LowerBound", bins.LowerBound}
-    bins.EntityData.Leafs["upper-bound"] = types.YLeaf{"UpperBound", bins.UpperBound}
-    bins.EntityData.Leafs["lower-bound-tenths"] = types.YLeaf{"LowerBoundTenths", bins.LowerBoundTenths}
-    bins.EntityData.Leafs["upper-bound-tenths"] = types.YLeaf{"UpperBoundTenths", bins.UpperBoundTenths}
-    bins.EntityData.Leafs["sum"] = types.YLeaf{"Sum", bins.Sum}
-    bins.EntityData.Leafs["count"] = types.YLeaf{"Count", bins.Count}
+    bins.EntityData.Children = types.NewOrderedMap()
+    bins.EntityData.Leafs = types.NewOrderedMap()
+    bins.EntityData.Leafs.Append("lower-bound", types.YLeaf{"LowerBound", bins.LowerBound})
+    bins.EntityData.Leafs.Append("upper-bound", types.YLeaf{"UpperBound", bins.UpperBound})
+    bins.EntityData.Leafs.Append("lower-bound-tenths", types.YLeaf{"LowerBoundTenths", bins.LowerBoundTenths})
+    bins.EntityData.Leafs.Append("upper-bound-tenths", types.YLeaf{"UpperBoundTenths", bins.UpperBoundTenths})
+    bins.EntityData.Leafs.Append("sum", types.YLeaf{"Sum", bins.Sum})
+    bins.EntityData.Leafs.Append("count", types.YLeaf{"Count", bins.Count})
+
+    bins.EntityData.YListKeys = []string {}
+
     return &(bins.EntityData)
 }
 
@@ -4044,7 +4283,7 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric
 
     // The samples of an SLA metric bucket. The type is slice of
     // Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Unaggregated_Sample.
-    Sample []Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Unaggregated_Sample
+    Sample []*Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Unaggregated_Sample
 }
 
 func (unaggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Unaggregated) GetEntityData() *types.CommonEntityData {
@@ -4057,12 +4296,15 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_
     unaggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unaggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unaggregated.EntityData.Children = make(map[string]types.YChild)
-    unaggregated.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    unaggregated.EntityData.Children = types.NewOrderedMap()
+    unaggregated.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range unaggregated.Sample {
-        unaggregated.EntityData.Children[types.GetSegmentPath(&unaggregated.Sample[i])] = types.YChild{"Sample", &unaggregated.Sample[i]}
+        unaggregated.EntityData.Children.Append(types.GetSegmentPath(unaggregated.Sample[i]), types.YChild{"Sample", unaggregated.Sample[i]})
     }
-    unaggregated.EntityData.Leafs = make(map[string]types.YLeaf)
+    unaggregated.EntityData.Leafs = types.NewOrderedMap()
+
+    unaggregated.EntityData.YListKeys = []string {}
+
     return &(unaggregated.EntityData)
 }
 
@@ -4117,17 +4359,20 @@ func (sample *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operat
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sent-at"] = types.YLeaf{"SentAt", sample.SentAt}
-    sample.EntityData.Leafs["sent"] = types.YLeaf{"Sent", sample.Sent}
-    sample.EntityData.Leafs["timed-out"] = types.YLeaf{"TimedOut", sample.TimedOut}
-    sample.EntityData.Leafs["corrupt"] = types.YLeaf{"Corrupt", sample.Corrupt}
-    sample.EntityData.Leafs["out-of-order"] = types.YLeaf{"OutOfOrder", sample.OutOfOrder}
-    sample.EntityData.Leafs["no-data-packets"] = types.YLeaf{"NoDataPackets", sample.NoDataPackets}
-    sample.EntityData.Leafs["result"] = types.YLeaf{"Result", sample.Result}
-    sample.EntityData.Leafs["frames-sent"] = types.YLeaf{"FramesSent", sample.FramesSent}
-    sample.EntityData.Leafs["frames-lost"] = types.YLeaf{"FramesLost", sample.FramesLost}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sent-at", types.YLeaf{"SentAt", sample.SentAt})
+    sample.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", sample.Sent})
+    sample.EntityData.Leafs.Append("timed-out", types.YLeaf{"TimedOut", sample.TimedOut})
+    sample.EntityData.Leafs.Append("corrupt", types.YLeaf{"Corrupt", sample.Corrupt})
+    sample.EntityData.Leafs.Append("out-of-order", types.YLeaf{"OutOfOrder", sample.OutOfOrder})
+    sample.EntityData.Leafs.Append("no-data-packets", types.YLeaf{"NoDataPackets", sample.NoDataPackets})
+    sample.EntityData.Leafs.Append("result", types.YLeaf{"Result", sample.Result})
+    sample.EntityData.Leafs.Append("frames-sent", types.YLeaf{"FramesSent", sample.FramesSent})
+    sample.EntityData.Leafs.Append("frames-lost", types.YLeaf{"FramesLost", sample.FramesLost})
+
+    sample.EntityData.YListKeys = []string {}
+
     return &(sample.EntityData)
 }
 
@@ -4148,8 +4393,11 @@ func (slaNodes *SlaNodes) GetEntityData() *types.CommonEntityData {
     slaNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slaNodes.EntityData.Children = make(map[string]types.YChild)
-    slaNodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    slaNodes.EntityData.Children = types.NewOrderedMap()
+    slaNodes.EntityData.Leafs = types.NewOrderedMap()
+
+    slaNodes.EntityData.YListKeys = []string {}
+
     return &(slaNodes.EntityData)
 }
 

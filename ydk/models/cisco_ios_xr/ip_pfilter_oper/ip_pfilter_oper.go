@@ -44,9 +44,12 @@ func (pfilterMa *PfilterMa) GetEntityData() *types.CommonEntityData {
     pfilterMa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfilterMa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pfilterMa.EntityData.Children = make(map[string]types.YChild)
-    pfilterMa.EntityData.Children["nodes"] = types.YChild{"Nodes", &pfilterMa.Nodes}
-    pfilterMa.EntityData.Leafs = make(map[string]types.YLeaf)
+    pfilterMa.EntityData.Children = types.NewOrderedMap()
+    pfilterMa.EntityData.Children.Append("nodes", types.YChild{"Nodes", &pfilterMa.Nodes})
+    pfilterMa.EntityData.Leafs = types.NewOrderedMap()
+
+    pfilterMa.EntityData.YListKeys = []string {}
+
     return &(pfilterMa.EntityData)
 }
 
@@ -58,7 +61,7 @@ type PfilterMa_Nodes struct {
 
     // PfilterMa operational data for a particular node. The type is slice of
     // PfilterMa_Nodes_Node.
-    Node []PfilterMa_Nodes_Node
+    Node []*PfilterMa_Nodes_Node
 }
 
 func (nodes *PfilterMa_Nodes) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (nodes *PfilterMa_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -88,7 +94,7 @@ type PfilterMa_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Operational data for pfilter.
@@ -100,15 +106,18 @@ func (node *PfilterMa_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["process"] = types.YChild{"Process", &node.Process}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("process", types.YChild{"Process", &node.Process})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -135,10 +144,13 @@ func (process *PfilterMa_Nodes_Node_Process) GetEntityData() *types.CommonEntity
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    process.EntityData.Children = make(map[string]types.YChild)
-    process.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &process.Ipv6}
-    process.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &process.Ipv4}
-    process.EntityData.Leafs = make(map[string]types.YLeaf)
+    process.EntityData.Children = types.NewOrderedMap()
+    process.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &process.Ipv6})
+    process.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &process.Ipv4})
+    process.EntityData.Leafs = types.NewOrderedMap()
+
+    process.EntityData.YListKeys = []string {}
+
     return &(process.EntityData)
 }
 
@@ -162,9 +174,12 @@ func (ipv6 *PfilterMa_Nodes_Node_Process_Ipv6) GetEntityData() *types.CommonEnti
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["acl-info-table"] = types.YChild{"AclInfoTable", &ipv6.AclInfoTable}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("acl-info-table", types.YChild{"AclInfoTable", &ipv6.AclInfoTable})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -188,9 +203,12 @@ func (aclInfoTable *PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable) GetEntityDat
     aclInfoTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aclInfoTable.EntityData.Children = make(map[string]types.YChild)
-    aclInfoTable.EntityData.Children["interface-infos"] = types.YChild{"InterfaceInfos", &aclInfoTable.InterfaceInfos}
-    aclInfoTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    aclInfoTable.EntityData.Children = types.NewOrderedMap()
+    aclInfoTable.EntityData.Children.Append("interface-infos", types.YChild{"InterfaceInfos", &aclInfoTable.InterfaceInfos})
+    aclInfoTable.EntityData.Leafs = types.NewOrderedMap()
+
+    aclInfoTable.EntityData.YListKeys = []string {}
+
     return &(aclInfoTable.EntityData)
 }
 
@@ -202,7 +220,7 @@ type PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInfos struct {
 
     // Operational data for pfilter in bag. The type is slice of
     // PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInfos_InterfaceInfo.
-    InterfaceInfo []PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInfos_InterfaceInfo
+    InterfaceInfo []*PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInfos_InterfaceInfo
 }
 
 func (interfaceInfos *PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInfos) GetEntityData() *types.CommonEntityData {
@@ -215,12 +233,15 @@ func (interfaceInfos *PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceIn
     interfaceInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceInfos.EntityData.Children = make(map[string]types.YChild)
-    interfaceInfos.EntityData.Children["interface-info"] = types.YChild{"InterfaceInfo", nil}
+    interfaceInfos.EntityData.Children = types.NewOrderedMap()
+    interfaceInfos.EntityData.Children.Append("interface-info", types.YChild{"InterfaceInfo", nil})
     for i := range interfaceInfos.InterfaceInfo {
-        interfaceInfos.EntityData.Children[types.GetSegmentPath(&interfaceInfos.InterfaceInfo[i])] = types.YChild{"InterfaceInfo", &interfaceInfos.InterfaceInfo[i]}
+        interfaceInfos.EntityData.Children.Append(types.GetSegmentPath(interfaceInfos.InterfaceInfo[i]), types.YChild{"InterfaceInfo", interfaceInfos.InterfaceInfo[i]})
     }
-    interfaceInfos.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceInfos.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceInfos.EntityData.YListKeys = []string {}
+
     return &(interfaceInfos.EntityData)
 }
 
@@ -231,7 +252,7 @@ type PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInfos_InterfaceInfo
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // acl information. The type is string.
@@ -243,15 +264,18 @@ func (interfaceInfo *PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInf
     interfaceInfo.EntityData.YangName = "interface-info"
     interfaceInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfo.EntityData.ParentYangName = "interface-infos"
-    interfaceInfo.EntityData.SegmentPath = "interface-info" + "[interface-name='" + fmt.Sprintf("%v", interfaceInfo.InterfaceName) + "']"
+    interfaceInfo.EntityData.SegmentPath = "interface-info" + types.AddKeyToken(interfaceInfo.InterfaceName, "interface-name")
     interfaceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceInfo.EntityData.Children = make(map[string]types.YChild)
-    interfaceInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceInfo.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceInfo.InterfaceName}
-    interfaceInfo.EntityData.Leafs["acl-info"] = types.YLeaf{"AclInfo", interfaceInfo.AclInfo}
+    interfaceInfo.EntityData.Children = types.NewOrderedMap()
+    interfaceInfo.EntityData.Leafs = types.NewOrderedMap()
+    interfaceInfo.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceInfo.InterfaceName})
+    interfaceInfo.EntityData.Leafs.Append("acl-info", types.YLeaf{"AclInfo", interfaceInfo.AclInfo})
+
+    interfaceInfo.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(interfaceInfo.EntityData)
 }
 
@@ -275,9 +299,12 @@ func (ipv4 *PfilterMa_Nodes_Node_Process_Ipv4) GetEntityData() *types.CommonEnti
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["acl-info-table"] = types.YChild{"AclInfoTable", &ipv4.AclInfoTable}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("acl-info-table", types.YChild{"AclInfoTable", &ipv4.AclInfoTable})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -301,9 +328,12 @@ func (aclInfoTable *PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable) GetEntityDat
     aclInfoTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aclInfoTable.EntityData.Children = make(map[string]types.YChild)
-    aclInfoTable.EntityData.Children["interface-infos"] = types.YChild{"InterfaceInfos", &aclInfoTable.InterfaceInfos}
-    aclInfoTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    aclInfoTable.EntityData.Children = types.NewOrderedMap()
+    aclInfoTable.EntityData.Children.Append("interface-infos", types.YChild{"InterfaceInfos", &aclInfoTable.InterfaceInfos})
+    aclInfoTable.EntityData.Leafs = types.NewOrderedMap()
+
+    aclInfoTable.EntityData.YListKeys = []string {}
+
     return &(aclInfoTable.EntityData)
 }
 
@@ -315,7 +345,7 @@ type PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInfos struct {
 
     // Operational data for pfilter in bag. The type is slice of
     // PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInfos_InterfaceInfo.
-    InterfaceInfo []PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInfos_InterfaceInfo
+    InterfaceInfo []*PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInfos_InterfaceInfo
 }
 
 func (interfaceInfos *PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInfos) GetEntityData() *types.CommonEntityData {
@@ -328,12 +358,15 @@ func (interfaceInfos *PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceIn
     interfaceInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceInfos.EntityData.Children = make(map[string]types.YChild)
-    interfaceInfos.EntityData.Children["interface-info"] = types.YChild{"InterfaceInfo", nil}
+    interfaceInfos.EntityData.Children = types.NewOrderedMap()
+    interfaceInfos.EntityData.Children.Append("interface-info", types.YChild{"InterfaceInfo", nil})
     for i := range interfaceInfos.InterfaceInfo {
-        interfaceInfos.EntityData.Children[types.GetSegmentPath(&interfaceInfos.InterfaceInfo[i])] = types.YChild{"InterfaceInfo", &interfaceInfos.InterfaceInfo[i]}
+        interfaceInfos.EntityData.Children.Append(types.GetSegmentPath(interfaceInfos.InterfaceInfo[i]), types.YChild{"InterfaceInfo", interfaceInfos.InterfaceInfo[i]})
     }
-    interfaceInfos.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceInfos.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceInfos.EntityData.YListKeys = []string {}
+
     return &(interfaceInfos.EntityData)
 }
 
@@ -344,7 +377,7 @@ type PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInfos_InterfaceInfo
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // acl information. The type is string.
@@ -356,15 +389,18 @@ func (interfaceInfo *PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInf
     interfaceInfo.EntityData.YangName = "interface-info"
     interfaceInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfo.EntityData.ParentYangName = "interface-infos"
-    interfaceInfo.EntityData.SegmentPath = "interface-info" + "[interface-name='" + fmt.Sprintf("%v", interfaceInfo.InterfaceName) + "']"
+    interfaceInfo.EntityData.SegmentPath = "interface-info" + types.AddKeyToken(interfaceInfo.InterfaceName, "interface-name")
     interfaceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceInfo.EntityData.Children = make(map[string]types.YChild)
-    interfaceInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceInfo.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceInfo.InterfaceName}
-    interfaceInfo.EntityData.Leafs["acl-info"] = types.YLeaf{"AclInfo", interfaceInfo.AclInfo}
+    interfaceInfo.EntityData.Children = types.NewOrderedMap()
+    interfaceInfo.EntityData.Leafs = types.NewOrderedMap()
+    interfaceInfo.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceInfo.InterfaceName})
+    interfaceInfo.EntityData.Leafs.Append("acl-info", types.YLeaf{"AclInfo", interfaceInfo.AclInfo})
+
+    interfaceInfo.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(interfaceInfo.EntityData)
 }
 

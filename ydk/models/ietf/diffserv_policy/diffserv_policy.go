@@ -44,7 +44,7 @@ type Policies struct {
     YFilter yfilter.YFilter
 
     // policy template. The type is slice of Policies_PolicyEntry.
-    PolicyEntry []Policies_PolicyEntry
+    PolicyEntry []*Policies_PolicyEntry
 }
 
 func (policies *Policies) GetEntityData() *types.CommonEntityData {
@@ -57,12 +57,15 @@ func (policies *Policies) GetEntityData() *types.CommonEntityData {
     policies.EntityData.NamespaceTable = ietf.GetNamespaces()
     policies.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    policies.EntityData.Children = make(map[string]types.YChild)
-    policies.EntityData.Children["policy-entry"] = types.YChild{"PolicyEntry", nil}
+    policies.EntityData.Children = types.NewOrderedMap()
+    policies.EntityData.Children.Append("policy-entry", types.YChild{"PolicyEntry", nil})
     for i := range policies.PolicyEntry {
-        policies.EntityData.Children[types.GetSegmentPath(&policies.PolicyEntry[i])] = types.YChild{"PolicyEntry", &policies.PolicyEntry[i]}
+        policies.EntityData.Children.Append(types.GetSegmentPath(policies.PolicyEntry[i]), types.YChild{"PolicyEntry", policies.PolicyEntry[i]})
     }
-    policies.EntityData.Leafs = make(map[string]types.YLeaf)
+    policies.EntityData.Leafs = types.NewOrderedMap()
+
+    policies.EntityData.YListKeys = []string {}
+
     return &(policies.EntityData)
 }
 
@@ -80,7 +83,7 @@ type Policies_PolicyEntry struct {
 
     // Classifier entry configuration in a policy. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry.
-    ClassifierEntry []Policies_PolicyEntry_ClassifierEntry
+    ClassifierEntry []*Policies_PolicyEntry_ClassifierEntry
 }
 
 func (policyEntry *Policies_PolicyEntry) GetEntityData() *types.CommonEntityData {
@@ -88,19 +91,22 @@ func (policyEntry *Policies_PolicyEntry) GetEntityData() *types.CommonEntityData
     policyEntry.EntityData.YangName = "policy-entry"
     policyEntry.EntityData.BundleName = "ietf"
     policyEntry.EntityData.ParentYangName = "policies"
-    policyEntry.EntityData.SegmentPath = "policy-entry" + "[policy-name='" + fmt.Sprintf("%v", policyEntry.PolicyName) + "']"
+    policyEntry.EntityData.SegmentPath = "policy-entry" + types.AddKeyToken(policyEntry.PolicyName, "policy-name")
     policyEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     policyEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     policyEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    policyEntry.EntityData.Children = make(map[string]types.YChild)
-    policyEntry.EntityData.Children["classifier-entry"] = types.YChild{"ClassifierEntry", nil}
+    policyEntry.EntityData.Children = types.NewOrderedMap()
+    policyEntry.EntityData.Children.Append("classifier-entry", types.YChild{"ClassifierEntry", nil})
     for i := range policyEntry.ClassifierEntry {
-        policyEntry.EntityData.Children[types.GetSegmentPath(&policyEntry.ClassifierEntry[i])] = types.YChild{"ClassifierEntry", &policyEntry.ClassifierEntry[i]}
+        policyEntry.EntityData.Children.Append(types.GetSegmentPath(policyEntry.ClassifierEntry[i]), types.YChild{"ClassifierEntry", policyEntry.ClassifierEntry[i]})
     }
-    policyEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    policyEntry.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", policyEntry.PolicyName}
-    policyEntry.EntityData.Leafs["policy-descr"] = types.YLeaf{"PolicyDescr", policyEntry.PolicyDescr}
+    policyEntry.EntityData.Leafs = types.NewOrderedMap()
+    policyEntry.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", policyEntry.PolicyName})
+    policyEntry.EntityData.Leafs.Append("policy-descr", types.YLeaf{"PolicyDescr", policyEntry.PolicyDescr})
+
+    policyEntry.EntityData.YListKeys = []string {"PolicyName"}
+
     return &(policyEntry.EntityData)
 }
 
@@ -119,17 +125,17 @@ type Policies_PolicyEntry_ClassifierEntry struct {
     ClassifierEntryInline interface{}
 
     // Filters are applicable as any or all filters. The type is one of the
-    // following: MatchAnyFilterMatchAllFilter. The default value is
+    // following: MatchAllFilterMatchAnyFilter. The default value is
     // match-any-filter.
     ClassifierEntryFilterOper interface{}
 
     // Filters configured inline in a policy. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_FilterEntry.
-    FilterEntry []Policies_PolicyEntry_ClassifierEntry_FilterEntry
+    FilterEntry []*Policies_PolicyEntry_ClassifierEntry_FilterEntry
 
     // Configuration of classifier & associated actions. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg.
-    ClassifierActionEntryCfg []Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg
+    ClassifierActionEntryCfg []*Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg
 }
 
 func (classifierEntry *Policies_PolicyEntry_ClassifierEntry) GetEntityData() *types.CommonEntityData {
@@ -137,24 +143,27 @@ func (classifierEntry *Policies_PolicyEntry_ClassifierEntry) GetEntityData() *ty
     classifierEntry.EntityData.YangName = "classifier-entry"
     classifierEntry.EntityData.BundleName = "ietf"
     classifierEntry.EntityData.ParentYangName = "policy-entry"
-    classifierEntry.EntityData.SegmentPath = "classifier-entry" + "[classifier-entry-name='" + fmt.Sprintf("%v", classifierEntry.ClassifierEntryName) + "']"
+    classifierEntry.EntityData.SegmentPath = "classifier-entry" + types.AddKeyToken(classifierEntry.ClassifierEntryName, "classifier-entry-name")
     classifierEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     classifierEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     classifierEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    classifierEntry.EntityData.Children = make(map[string]types.YChild)
-    classifierEntry.EntityData.Children["filter-entry"] = types.YChild{"FilterEntry", nil}
+    classifierEntry.EntityData.Children = types.NewOrderedMap()
+    classifierEntry.EntityData.Children.Append("filter-entry", types.YChild{"FilterEntry", nil})
     for i := range classifierEntry.FilterEntry {
-        classifierEntry.EntityData.Children[types.GetSegmentPath(&classifierEntry.FilterEntry[i])] = types.YChild{"FilterEntry", &classifierEntry.FilterEntry[i]}
+        classifierEntry.EntityData.Children.Append(types.GetSegmentPath(classifierEntry.FilterEntry[i]), types.YChild{"FilterEntry", classifierEntry.FilterEntry[i]})
     }
-    classifierEntry.EntityData.Children["classifier-action-entry-cfg"] = types.YChild{"ClassifierActionEntryCfg", nil}
+    classifierEntry.EntityData.Children.Append("classifier-action-entry-cfg", types.YChild{"ClassifierActionEntryCfg", nil})
     for i := range classifierEntry.ClassifierActionEntryCfg {
-        classifierEntry.EntityData.Children[types.GetSegmentPath(&classifierEntry.ClassifierActionEntryCfg[i])] = types.YChild{"ClassifierActionEntryCfg", &classifierEntry.ClassifierActionEntryCfg[i]}
+        classifierEntry.EntityData.Children.Append(types.GetSegmentPath(classifierEntry.ClassifierActionEntryCfg[i]), types.YChild{"ClassifierActionEntryCfg", classifierEntry.ClassifierActionEntryCfg[i]})
     }
-    classifierEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    classifierEntry.EntityData.Leafs["classifier-entry-name"] = types.YLeaf{"ClassifierEntryName", classifierEntry.ClassifierEntryName}
-    classifierEntry.EntityData.Leafs["classifier-entry-inline"] = types.YLeaf{"ClassifierEntryInline", classifierEntry.ClassifierEntryInline}
-    classifierEntry.EntityData.Leafs["classifier-entry-filter-oper"] = types.YLeaf{"ClassifierEntryFilterOper", classifierEntry.ClassifierEntryFilterOper}
+    classifierEntry.EntityData.Leafs = types.NewOrderedMap()
+    classifierEntry.EntityData.Leafs.Append("classifier-entry-name", types.YLeaf{"ClassifierEntryName", classifierEntry.ClassifierEntryName})
+    classifierEntry.EntityData.Leafs.Append("classifier-entry-inline", types.YLeaf{"ClassifierEntryInline", classifierEntry.ClassifierEntryInline})
+    classifierEntry.EntityData.Leafs.Append("classifier-entry-filter-oper", types.YLeaf{"ClassifierEntryFilterOper", classifierEntry.ClassifierEntryFilterOper})
+
+    classifierEntry.EntityData.YListKeys = []string {"ClassifierEntryName"}
+
     return &(classifierEntry.EntityData)
 }
 
@@ -166,7 +175,7 @@ type Policies_PolicyEntry_ClassifierEntry_FilterEntry struct {
 
     // This attribute is a key. This leaf defines type of the filter. The type is
     // one of the following:
-    // DscpSourceIpAddressDestinationIpAddressSourcePortDestinationPortProtocolCosCosInnerIpv4AclNameIpv6AclNameIpv4AclIpv6AclInputInterfaceSrcMacDstMacMplsExpTopMplsExpImpPacketLengthPrecQosGroupVlanVlanInnerAtmClpAtmVciDeiDeiInnerFlowIpFlowRecordFlowDeFlowDlciWlanUserPriorityDiscardClassClassMapMetadataApplicationSecurityGroupNameSecurityGroupTagIpRtpVpls.
+    // DestinationPortProtocolDestinationIpAddressDscpSourceIpAddressSourcePortInputInterfaceSrcMacApplicationSecurityGroupNameIpv4AclNameFlowDlciDeiPrecPacketLengthIpv4AclFlowDeFlowIpFlowRecordVlanInnerMetadataVlanAtmVciClassMapQosGroupWlanUserPriorityIpRtpIpv6AclAtmClpDstMacCosDeiInnerMplsExpTopCosInnerIpv6AclNameMplsExpImpSecurityGroupTagDiscardClassVpls.
     FilterType interface{}
 
     // This attribute is a key.  This is logical-not operator for a filter. When
@@ -176,27 +185,27 @@ type Policies_PolicyEntry_ClassifierEntry_FilterEntry struct {
 
     // list of dscp ranges. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_FilterEntry_DscpCfg.
-    DscpCfg []Policies_PolicyEntry_ClassifierEntry_FilterEntry_DscpCfg
+    DscpCfg []*Policies_PolicyEntry_ClassifierEntry_FilterEntry_DscpCfg
 
     // list of source ip address. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourceIpAddressCfg.
-    SourceIpAddressCfg []Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourceIpAddressCfg
+    SourceIpAddressCfg []*Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourceIpAddressCfg
 
     // list of destination ip address. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationIpAddressCfg.
-    DestinationIpAddressCfg []Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationIpAddressCfg
+    DestinationIpAddressCfg []*Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationIpAddressCfg
 
     // list of ranges of source port. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourcePortCfg.
-    SourcePortCfg []Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourcePortCfg
+    SourcePortCfg []*Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourcePortCfg
 
     // list of ranges of destination port. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationPortCfg.
-    DestinationPortCfg []Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationPortCfg
+    DestinationPortCfg []*Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationPortCfg
 
     // list of ranges of protocol values. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_FilterEntry_ProtocolCfg.
-    ProtocolCfg []Policies_PolicyEntry_ClassifierEntry_FilterEntry_ProtocolCfg
+    ProtocolCfg []*Policies_PolicyEntry_ClassifierEntry_FilterEntry_ProtocolCfg
 }
 
 func (filterEntry *Policies_PolicyEntry_ClassifierEntry_FilterEntry) GetEntityData() *types.CommonEntityData {
@@ -204,39 +213,42 @@ func (filterEntry *Policies_PolicyEntry_ClassifierEntry_FilterEntry) GetEntityDa
     filterEntry.EntityData.YangName = "filter-entry"
     filterEntry.EntityData.BundleName = "ietf"
     filterEntry.EntityData.ParentYangName = "classifier-entry"
-    filterEntry.EntityData.SegmentPath = "filter-entry" + "[filter-type='" + fmt.Sprintf("%v", filterEntry.FilterType) + "']" + "[filter-logical-not='" + fmt.Sprintf("%v", filterEntry.FilterLogicalNot) + "']"
+    filterEntry.EntityData.SegmentPath = "filter-entry" + types.AddKeyToken(filterEntry.FilterType, "filter-type") + types.AddKeyToken(filterEntry.FilterLogicalNot, "filter-logical-not")
     filterEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     filterEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     filterEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    filterEntry.EntityData.Children = make(map[string]types.YChild)
-    filterEntry.EntityData.Children["dscp-cfg"] = types.YChild{"DscpCfg", nil}
+    filterEntry.EntityData.Children = types.NewOrderedMap()
+    filterEntry.EntityData.Children.Append("dscp-cfg", types.YChild{"DscpCfg", nil})
     for i := range filterEntry.DscpCfg {
-        filterEntry.EntityData.Children[types.GetSegmentPath(&filterEntry.DscpCfg[i])] = types.YChild{"DscpCfg", &filterEntry.DscpCfg[i]}
+        filterEntry.EntityData.Children.Append(types.GetSegmentPath(filterEntry.DscpCfg[i]), types.YChild{"DscpCfg", filterEntry.DscpCfg[i]})
     }
-    filterEntry.EntityData.Children["source-ip-address-cfg"] = types.YChild{"SourceIpAddressCfg", nil}
+    filterEntry.EntityData.Children.Append("source-ip-address-cfg", types.YChild{"SourceIpAddressCfg", nil})
     for i := range filterEntry.SourceIpAddressCfg {
-        filterEntry.EntityData.Children[types.GetSegmentPath(&filterEntry.SourceIpAddressCfg[i])] = types.YChild{"SourceIpAddressCfg", &filterEntry.SourceIpAddressCfg[i]}
+        filterEntry.EntityData.Children.Append(types.GetSegmentPath(filterEntry.SourceIpAddressCfg[i]), types.YChild{"SourceIpAddressCfg", filterEntry.SourceIpAddressCfg[i]})
     }
-    filterEntry.EntityData.Children["destination-ip-address-cfg"] = types.YChild{"DestinationIpAddressCfg", nil}
+    filterEntry.EntityData.Children.Append("destination-ip-address-cfg", types.YChild{"DestinationIpAddressCfg", nil})
     for i := range filterEntry.DestinationIpAddressCfg {
-        filterEntry.EntityData.Children[types.GetSegmentPath(&filterEntry.DestinationIpAddressCfg[i])] = types.YChild{"DestinationIpAddressCfg", &filterEntry.DestinationIpAddressCfg[i]}
+        filterEntry.EntityData.Children.Append(types.GetSegmentPath(filterEntry.DestinationIpAddressCfg[i]), types.YChild{"DestinationIpAddressCfg", filterEntry.DestinationIpAddressCfg[i]})
     }
-    filterEntry.EntityData.Children["source-port-cfg"] = types.YChild{"SourcePortCfg", nil}
+    filterEntry.EntityData.Children.Append("source-port-cfg", types.YChild{"SourcePortCfg", nil})
     for i := range filterEntry.SourcePortCfg {
-        filterEntry.EntityData.Children[types.GetSegmentPath(&filterEntry.SourcePortCfg[i])] = types.YChild{"SourcePortCfg", &filterEntry.SourcePortCfg[i]}
+        filterEntry.EntityData.Children.Append(types.GetSegmentPath(filterEntry.SourcePortCfg[i]), types.YChild{"SourcePortCfg", filterEntry.SourcePortCfg[i]})
     }
-    filterEntry.EntityData.Children["destination-port-cfg"] = types.YChild{"DestinationPortCfg", nil}
+    filterEntry.EntityData.Children.Append("destination-port-cfg", types.YChild{"DestinationPortCfg", nil})
     for i := range filterEntry.DestinationPortCfg {
-        filterEntry.EntityData.Children[types.GetSegmentPath(&filterEntry.DestinationPortCfg[i])] = types.YChild{"DestinationPortCfg", &filterEntry.DestinationPortCfg[i]}
+        filterEntry.EntityData.Children.Append(types.GetSegmentPath(filterEntry.DestinationPortCfg[i]), types.YChild{"DestinationPortCfg", filterEntry.DestinationPortCfg[i]})
     }
-    filterEntry.EntityData.Children["protocol-cfg"] = types.YChild{"ProtocolCfg", nil}
+    filterEntry.EntityData.Children.Append("protocol-cfg", types.YChild{"ProtocolCfg", nil})
     for i := range filterEntry.ProtocolCfg {
-        filterEntry.EntityData.Children[types.GetSegmentPath(&filterEntry.ProtocolCfg[i])] = types.YChild{"ProtocolCfg", &filterEntry.ProtocolCfg[i]}
+        filterEntry.EntityData.Children.Append(types.GetSegmentPath(filterEntry.ProtocolCfg[i]), types.YChild{"ProtocolCfg", filterEntry.ProtocolCfg[i]})
     }
-    filterEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    filterEntry.EntityData.Leafs["filter-type"] = types.YLeaf{"FilterType", filterEntry.FilterType}
-    filterEntry.EntityData.Leafs["filter-logical-not"] = types.YLeaf{"FilterLogicalNot", filterEntry.FilterLogicalNot}
+    filterEntry.EntityData.Leafs = types.NewOrderedMap()
+    filterEntry.EntityData.Leafs.Append("filter-type", types.YLeaf{"FilterType", filterEntry.FilterType})
+    filterEntry.EntityData.Leafs.Append("filter-logical-not", types.YLeaf{"FilterLogicalNot", filterEntry.FilterLogicalNot})
+
+    filterEntry.EntityData.YListKeys = []string {"FilterType", "FilterLogicalNot"}
+
     return &(filterEntry.EntityData)
 }
 
@@ -260,15 +272,18 @@ func (dscpCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_DscpCfg) GetEnti
     dscpCfg.EntityData.YangName = "dscp-cfg"
     dscpCfg.EntityData.BundleName = "ietf"
     dscpCfg.EntityData.ParentYangName = "filter-entry"
-    dscpCfg.EntityData.SegmentPath = "dscp-cfg" + "[dscp-min='" + fmt.Sprintf("%v", dscpCfg.DscpMin) + "']" + "[dscp-max='" + fmt.Sprintf("%v", dscpCfg.DscpMax) + "']"
+    dscpCfg.EntityData.SegmentPath = "dscp-cfg" + types.AddKeyToken(dscpCfg.DscpMin, "dscp-min") + types.AddKeyToken(dscpCfg.DscpMax, "dscp-max")
     dscpCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     dscpCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     dscpCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    dscpCfg.EntityData.Children = make(map[string]types.YChild)
-    dscpCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    dscpCfg.EntityData.Leafs["dscp-min"] = types.YLeaf{"DscpMin", dscpCfg.DscpMin}
-    dscpCfg.EntityData.Leafs["dscp-max"] = types.YLeaf{"DscpMax", dscpCfg.DscpMax}
+    dscpCfg.EntityData.Children = types.NewOrderedMap()
+    dscpCfg.EntityData.Leafs = types.NewOrderedMap()
+    dscpCfg.EntityData.Leafs.Append("dscp-min", types.YLeaf{"DscpMin", dscpCfg.DscpMin})
+    dscpCfg.EntityData.Leafs.Append("dscp-max", types.YLeaf{"DscpMax", dscpCfg.DscpMax})
+
+    dscpCfg.EntityData.YListKeys = []string {"DscpMin", "DscpMax"}
+
     return &(dscpCfg.EntityData)
 }
 
@@ -280,9 +295,9 @@ type Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourceIpAddressCfg struct 
 
     // This attribute is a key. source ip prefix. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     SourceIpAddr interface{}
 }
 
@@ -291,14 +306,17 @@ func (sourceIpAddressCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_Sourc
     sourceIpAddressCfg.EntityData.YangName = "source-ip-address-cfg"
     sourceIpAddressCfg.EntityData.BundleName = "ietf"
     sourceIpAddressCfg.EntityData.ParentYangName = "filter-entry"
-    sourceIpAddressCfg.EntityData.SegmentPath = "source-ip-address-cfg" + "[source-ip-addr='" + fmt.Sprintf("%v", sourceIpAddressCfg.SourceIpAddr) + "']"
+    sourceIpAddressCfg.EntityData.SegmentPath = "source-ip-address-cfg" + types.AddKeyToken(sourceIpAddressCfg.SourceIpAddr, "source-ip-addr")
     sourceIpAddressCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sourceIpAddressCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     sourceIpAddressCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    sourceIpAddressCfg.EntityData.Children = make(map[string]types.YChild)
-    sourceIpAddressCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceIpAddressCfg.EntityData.Leafs["source-ip-addr"] = types.YLeaf{"SourceIpAddr", sourceIpAddressCfg.SourceIpAddr}
+    sourceIpAddressCfg.EntityData.Children = types.NewOrderedMap()
+    sourceIpAddressCfg.EntityData.Leafs = types.NewOrderedMap()
+    sourceIpAddressCfg.EntityData.Leafs.Append("source-ip-addr", types.YLeaf{"SourceIpAddr", sourceIpAddressCfg.SourceIpAddr})
+
+    sourceIpAddressCfg.EntityData.YListKeys = []string {"SourceIpAddr"}
+
     return &(sourceIpAddressCfg.EntityData)
 }
 
@@ -310,9 +328,9 @@ type Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationIpAddressCfg st
 
     // This attribute is a key. destination ip prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     DestinationIpAddr interface{}
 }
 
@@ -321,14 +339,17 @@ func (destinationIpAddressCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_
     destinationIpAddressCfg.EntityData.YangName = "destination-ip-address-cfg"
     destinationIpAddressCfg.EntityData.BundleName = "ietf"
     destinationIpAddressCfg.EntityData.ParentYangName = "filter-entry"
-    destinationIpAddressCfg.EntityData.SegmentPath = "destination-ip-address-cfg" + "[destination-ip-addr='" + fmt.Sprintf("%v", destinationIpAddressCfg.DestinationIpAddr) + "']"
+    destinationIpAddressCfg.EntityData.SegmentPath = "destination-ip-address-cfg" + types.AddKeyToken(destinationIpAddressCfg.DestinationIpAddr, "destination-ip-addr")
     destinationIpAddressCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     destinationIpAddressCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     destinationIpAddressCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    destinationIpAddressCfg.EntityData.Children = make(map[string]types.YChild)
-    destinationIpAddressCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    destinationIpAddressCfg.EntityData.Leafs["destination-ip-addr"] = types.YLeaf{"DestinationIpAddr", destinationIpAddressCfg.DestinationIpAddr}
+    destinationIpAddressCfg.EntityData.Children = types.NewOrderedMap()
+    destinationIpAddressCfg.EntityData.Leafs = types.NewOrderedMap()
+    destinationIpAddressCfg.EntityData.Leafs.Append("destination-ip-addr", types.YLeaf{"DestinationIpAddr", destinationIpAddressCfg.DestinationIpAddr})
+
+    destinationIpAddressCfg.EntityData.YListKeys = []string {"DestinationIpAddr"}
+
     return &(destinationIpAddressCfg.EntityData)
 }
 
@@ -352,15 +373,18 @@ func (sourcePortCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourcePort
     sourcePortCfg.EntityData.YangName = "source-port-cfg"
     sourcePortCfg.EntityData.BundleName = "ietf"
     sourcePortCfg.EntityData.ParentYangName = "filter-entry"
-    sourcePortCfg.EntityData.SegmentPath = "source-port-cfg" + "[source-port-min='" + fmt.Sprintf("%v", sourcePortCfg.SourcePortMin) + "']" + "[source-port-max='" + fmt.Sprintf("%v", sourcePortCfg.SourcePortMax) + "']"
+    sourcePortCfg.EntityData.SegmentPath = "source-port-cfg" + types.AddKeyToken(sourcePortCfg.SourcePortMin, "source-port-min") + types.AddKeyToken(sourcePortCfg.SourcePortMax, "source-port-max")
     sourcePortCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sourcePortCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     sourcePortCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    sourcePortCfg.EntityData.Children = make(map[string]types.YChild)
-    sourcePortCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourcePortCfg.EntityData.Leafs["source-port-min"] = types.YLeaf{"SourcePortMin", sourcePortCfg.SourcePortMin}
-    sourcePortCfg.EntityData.Leafs["source-port-max"] = types.YLeaf{"SourcePortMax", sourcePortCfg.SourcePortMax}
+    sourcePortCfg.EntityData.Children = types.NewOrderedMap()
+    sourcePortCfg.EntityData.Leafs = types.NewOrderedMap()
+    sourcePortCfg.EntityData.Leafs.Append("source-port-min", types.YLeaf{"SourcePortMin", sourcePortCfg.SourcePortMin})
+    sourcePortCfg.EntityData.Leafs.Append("source-port-max", types.YLeaf{"SourcePortMax", sourcePortCfg.SourcePortMax})
+
+    sourcePortCfg.EntityData.YListKeys = []string {"SourcePortMin", "SourcePortMax"}
+
     return &(sourcePortCfg.EntityData)
 }
 
@@ -384,15 +408,18 @@ func (destinationPortCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_Desti
     destinationPortCfg.EntityData.YangName = "destination-port-cfg"
     destinationPortCfg.EntityData.BundleName = "ietf"
     destinationPortCfg.EntityData.ParentYangName = "filter-entry"
-    destinationPortCfg.EntityData.SegmentPath = "destination-port-cfg" + "[destination-port-min='" + fmt.Sprintf("%v", destinationPortCfg.DestinationPortMin) + "']" + "[destination-port-max='" + fmt.Sprintf("%v", destinationPortCfg.DestinationPortMax) + "']"
+    destinationPortCfg.EntityData.SegmentPath = "destination-port-cfg" + types.AddKeyToken(destinationPortCfg.DestinationPortMin, "destination-port-min") + types.AddKeyToken(destinationPortCfg.DestinationPortMax, "destination-port-max")
     destinationPortCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     destinationPortCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     destinationPortCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    destinationPortCfg.EntityData.Children = make(map[string]types.YChild)
-    destinationPortCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    destinationPortCfg.EntityData.Leafs["destination-port-min"] = types.YLeaf{"DestinationPortMin", destinationPortCfg.DestinationPortMin}
-    destinationPortCfg.EntityData.Leafs["destination-port-max"] = types.YLeaf{"DestinationPortMax", destinationPortCfg.DestinationPortMax}
+    destinationPortCfg.EntityData.Children = types.NewOrderedMap()
+    destinationPortCfg.EntityData.Leafs = types.NewOrderedMap()
+    destinationPortCfg.EntityData.Leafs.Append("destination-port-min", types.YLeaf{"DestinationPortMin", destinationPortCfg.DestinationPortMin})
+    destinationPortCfg.EntityData.Leafs.Append("destination-port-max", types.YLeaf{"DestinationPortMax", destinationPortCfg.DestinationPortMax})
+
+    destinationPortCfg.EntityData.YListKeys = []string {"DestinationPortMin", "DestinationPortMax"}
+
     return &(destinationPortCfg.EntityData)
 }
 
@@ -416,15 +443,18 @@ func (protocolCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_ProtocolCfg)
     protocolCfg.EntityData.YangName = "protocol-cfg"
     protocolCfg.EntityData.BundleName = "ietf"
     protocolCfg.EntityData.ParentYangName = "filter-entry"
-    protocolCfg.EntityData.SegmentPath = "protocol-cfg" + "[protocol-min='" + fmt.Sprintf("%v", protocolCfg.ProtocolMin) + "']" + "[protocol-max='" + fmt.Sprintf("%v", protocolCfg.ProtocolMax) + "']"
+    protocolCfg.EntityData.SegmentPath = "protocol-cfg" + types.AddKeyToken(protocolCfg.ProtocolMin, "protocol-min") + types.AddKeyToken(protocolCfg.ProtocolMax, "protocol-max")
     protocolCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     protocolCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     protocolCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    protocolCfg.EntityData.Children = make(map[string]types.YChild)
-    protocolCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocolCfg.EntityData.Leafs["protocol-min"] = types.YLeaf{"ProtocolMin", protocolCfg.ProtocolMin}
-    protocolCfg.EntityData.Leafs["protocol-max"] = types.YLeaf{"ProtocolMax", protocolCfg.ProtocolMax}
+    protocolCfg.EntityData.Children = types.NewOrderedMap()
+    protocolCfg.EntityData.Leafs = types.NewOrderedMap()
+    protocolCfg.EntityData.Leafs.Append("protocol-min", types.YLeaf{"ProtocolMin", protocolCfg.ProtocolMin})
+    protocolCfg.EntityData.Leafs.Append("protocol-max", types.YLeaf{"ProtocolMax", protocolCfg.ProtocolMax})
+
+    protocolCfg.EntityData.YListKeys = []string {"ProtocolMin", "ProtocolMax"}
+
     return &(protocolCfg.EntityData)
 }
 
@@ -435,7 +465,7 @@ type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. This defines action type . The type is one of the
-    // following: MarkingMeterPriorityMinRateMaxRateAlgorithmicDrop.
+    // following: MarkingMinRateMeterPriorityMaxRateAlgorithmicDrop.
     ActionType interface{}
 
     // Marking configuration container.
@@ -468,22 +498,25 @@ func (classifierActionEntryCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierA
     classifierActionEntryCfg.EntityData.YangName = "classifier-action-entry-cfg"
     classifierActionEntryCfg.EntityData.BundleName = "ietf"
     classifierActionEntryCfg.EntityData.ParentYangName = "classifier-entry"
-    classifierActionEntryCfg.EntityData.SegmentPath = "classifier-action-entry-cfg" + "[action-type='" + fmt.Sprintf("%v", classifierActionEntryCfg.ActionType) + "']"
+    classifierActionEntryCfg.EntityData.SegmentPath = "classifier-action-entry-cfg" + types.AddKeyToken(classifierActionEntryCfg.ActionType, "action-type")
     classifierActionEntryCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     classifierActionEntryCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     classifierActionEntryCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    classifierActionEntryCfg.EntityData.Children = make(map[string]types.YChild)
-    classifierActionEntryCfg.EntityData.Children["ietf-diffserv-action:marking-cfg"] = types.YChild{"MarkingCfg", &classifierActionEntryCfg.MarkingCfg}
-    classifierActionEntryCfg.EntityData.Children["ietf-diffserv-action:priority-cfg"] = types.YChild{"PriorityCfg", &classifierActionEntryCfg.PriorityCfg}
-    classifierActionEntryCfg.EntityData.Children["ietf-diffserv-action:meter-cfg"] = types.YChild{"MeterCfg", &classifierActionEntryCfg.MeterCfg}
-    classifierActionEntryCfg.EntityData.Children["ietf-diffserv-action:min-rate-cfg"] = types.YChild{"MinRateCfg", &classifierActionEntryCfg.MinRateCfg}
-    classifierActionEntryCfg.EntityData.Children["ietf-diffserv-action:max-rate-cfg"] = types.YChild{"MaxRateCfg", &classifierActionEntryCfg.MaxRateCfg}
-    classifierActionEntryCfg.EntityData.Children["ietf-diffserv-action:drop-cfg"] = types.YChild{"DropCfg", &classifierActionEntryCfg.DropCfg}
-    classifierActionEntryCfg.EntityData.Children["ietf-diffserv-action:tail-drop-cfg"] = types.YChild{"TailDropCfg", &classifierActionEntryCfg.TailDropCfg}
-    classifierActionEntryCfg.EntityData.Children["ietf-diffserv-action:random-detect-cfg"] = types.YChild{"RandomDetectCfg", &classifierActionEntryCfg.RandomDetectCfg}
-    classifierActionEntryCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    classifierActionEntryCfg.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", classifierActionEntryCfg.ActionType}
+    classifierActionEntryCfg.EntityData.Children = types.NewOrderedMap()
+    classifierActionEntryCfg.EntityData.Children.Append("ietf-diffserv-action:marking-cfg", types.YChild{"MarkingCfg", &classifierActionEntryCfg.MarkingCfg})
+    classifierActionEntryCfg.EntityData.Children.Append("ietf-diffserv-action:priority-cfg", types.YChild{"PriorityCfg", &classifierActionEntryCfg.PriorityCfg})
+    classifierActionEntryCfg.EntityData.Children.Append("ietf-diffserv-action:meter-cfg", types.YChild{"MeterCfg", &classifierActionEntryCfg.MeterCfg})
+    classifierActionEntryCfg.EntityData.Children.Append("ietf-diffserv-action:min-rate-cfg", types.YChild{"MinRateCfg", &classifierActionEntryCfg.MinRateCfg})
+    classifierActionEntryCfg.EntityData.Children.Append("ietf-diffserv-action:max-rate-cfg", types.YChild{"MaxRateCfg", &classifierActionEntryCfg.MaxRateCfg})
+    classifierActionEntryCfg.EntityData.Children.Append("ietf-diffserv-action:drop-cfg", types.YChild{"DropCfg", &classifierActionEntryCfg.DropCfg})
+    classifierActionEntryCfg.EntityData.Children.Append("ietf-diffserv-action:tail-drop-cfg", types.YChild{"TailDropCfg", &classifierActionEntryCfg.TailDropCfg})
+    classifierActionEntryCfg.EntityData.Children.Append("ietf-diffserv-action:random-detect-cfg", types.YChild{"RandomDetectCfg", &classifierActionEntryCfg.RandomDetectCfg})
+    classifierActionEntryCfg.EntityData.Leafs = types.NewOrderedMap()
+    classifierActionEntryCfg.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", classifierActionEntryCfg.ActionType})
+
+    classifierActionEntryCfg.EntityData.YListKeys = []string {"ActionType"}
+
     return &(classifierActionEntryCfg.EntityData)
 }
 
@@ -507,9 +540,12 @@ func (markingCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_
     markingCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     markingCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    markingCfg.EntityData.Children = make(map[string]types.YChild)
-    markingCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingCfg.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", markingCfg.Dscp}
+    markingCfg.EntityData.Children = types.NewOrderedMap()
+    markingCfg.EntityData.Leafs = types.NewOrderedMap()
+    markingCfg.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", markingCfg.Dscp})
+
+    markingCfg.EntityData.YListKeys = []string {}
+
     return &(markingCfg.EntityData)
 }
 
@@ -536,10 +572,13 @@ func (priorityCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg
     priorityCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     priorityCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    priorityCfg.EntityData.Children = make(map[string]types.YChild)
-    priorityCfg.EntityData.Children["rate-burst"] = types.YChild{"RateBurst", &priorityCfg.RateBurst}
-    priorityCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    priorityCfg.EntityData.Leafs["priority-level"] = types.YLeaf{"PriorityLevel", priorityCfg.PriorityLevel}
+    priorityCfg.EntityData.Children = types.NewOrderedMap()
+    priorityCfg.EntityData.Children.Append("rate-burst", types.YChild{"RateBurst", &priorityCfg.RateBurst})
+    priorityCfg.EntityData.Leafs = types.NewOrderedMap()
+    priorityCfg.EntityData.Leafs.Append("priority-level", types.YLeaf{"PriorityLevel", priorityCfg.PriorityLevel})
+
+    priorityCfg.EntityData.YListKeys = []string {}
+
     return &(priorityCfg.EntityData)
 }
 
@@ -584,15 +623,18 @@ func (rateBurst *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_P
     rateBurst.EntityData.NamespaceTable = ietf.GetNamespaces()
     rateBurst.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    rateBurst.EntityData.Children = make(map[string]types.YChild)
-    rateBurst.EntityData.Leafs = make(map[string]types.YLeaf)
-    rateBurst.EntityData.Leafs["rate"] = types.YLeaf{"Rate", rateBurst.Rate}
-    rateBurst.EntityData.Leafs["absolute-rate-metric"] = types.YLeaf{"AbsoluteRateMetric", rateBurst.AbsoluteRateMetric}
-    rateBurst.EntityData.Leafs["absolute-rate-units"] = types.YLeaf{"AbsoluteRateUnits", rateBurst.AbsoluteRateUnits}
-    rateBurst.EntityData.Leafs["rate-percent"] = types.YLeaf{"RatePercent", rateBurst.RatePercent}
-    rateBurst.EntityData.Leafs["rate-ratio"] = types.YLeaf{"RateRatio", rateBurst.RateRatio}
-    rateBurst.EntityData.Leafs["burst-size"] = types.YLeaf{"BurstSize", rateBurst.BurstSize}
-    rateBurst.EntityData.Leafs["burst-interval"] = types.YLeaf{"BurstInterval", rateBurst.BurstInterval}
+    rateBurst.EntityData.Children = types.NewOrderedMap()
+    rateBurst.EntityData.Leafs = types.NewOrderedMap()
+    rateBurst.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", rateBurst.Rate})
+    rateBurst.EntityData.Leafs.Append("absolute-rate-metric", types.YLeaf{"AbsoluteRateMetric", rateBurst.AbsoluteRateMetric})
+    rateBurst.EntityData.Leafs.Append("absolute-rate-units", types.YLeaf{"AbsoluteRateUnits", rateBurst.AbsoluteRateUnits})
+    rateBurst.EntityData.Leafs.Append("rate-percent", types.YLeaf{"RatePercent", rateBurst.RatePercent})
+    rateBurst.EntityData.Leafs.Append("rate-ratio", types.YLeaf{"RateRatio", rateBurst.RateRatio})
+    rateBurst.EntityData.Leafs.Append("burst-size", types.YLeaf{"BurstSize", rateBurst.BurstSize})
+    rateBurst.EntityData.Leafs.Append("burst-interval", types.YLeaf{"BurstInterval", rateBurst.BurstInterval})
+
+    rateBurst.EntityData.YListKeys = []string {}
+
     return &(rateBurst.EntityData)
 }
 
@@ -604,7 +646,7 @@ type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_MeterCfg stru
 
     // Meter configuration. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_MeterCfg_MeterList.
-    MeterList []Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_MeterCfg_MeterList
+    MeterList []*Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_MeterCfg_MeterList
 }
 
 func (meterCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_MeterCfg) GetEntityData() *types.CommonEntityData {
@@ -617,12 +659,15 @@ func (meterCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_Me
     meterCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     meterCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    meterCfg.EntityData.Children = make(map[string]types.YChild)
-    meterCfg.EntityData.Children["meter-list"] = types.YChild{"MeterList", nil}
+    meterCfg.EntityData.Children = types.NewOrderedMap()
+    meterCfg.EntityData.Children.Append("meter-list", types.YChild{"MeterList", nil})
     for i := range meterCfg.MeterList {
-        meterCfg.EntityData.Children[types.GetSegmentPath(&meterCfg.MeterList[i])] = types.YChild{"MeterList", &meterCfg.MeterList[i]}
+        meterCfg.EntityData.Children.Append(types.GetSegmentPath(meterCfg.MeterList[i]), types.YChild{"MeterList", meterCfg.MeterList[i]})
     }
-    meterCfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    meterCfg.EntityData.Leafs = types.NewOrderedMap()
+
+    meterCfg.EntityData.YListKeys = []string {}
+
     return &(meterCfg.EntityData)
 }
 
@@ -663,20 +708,23 @@ func (meterList *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_M
     meterList.EntityData.YangName = "meter-list"
     meterList.EntityData.BundleName = "ietf"
     meterList.EntityData.ParentYangName = "meter-cfg"
-    meterList.EntityData.SegmentPath = "meter-list" + "[meter-id='" + fmt.Sprintf("%v", meterList.MeterId) + "']"
+    meterList.EntityData.SegmentPath = "meter-list" + types.AddKeyToken(meterList.MeterId, "meter-id")
     meterList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     meterList.EntityData.NamespaceTable = ietf.GetNamespaces()
     meterList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    meterList.EntityData.Children = make(map[string]types.YChild)
-    meterList.EntityData.Children["color"] = types.YChild{"Color", &meterList.Color}
-    meterList.EntityData.Children["succeed-action"] = types.YChild{"SucceedAction", &meterList.SucceedAction}
-    meterList.EntityData.Children["fail-action"] = types.YChild{"FailAction", &meterList.FailAction}
-    meterList.EntityData.Leafs = make(map[string]types.YLeaf)
-    meterList.EntityData.Leafs["meter-id"] = types.YLeaf{"MeterId", meterList.MeterId}
-    meterList.EntityData.Leafs["meter-rate"] = types.YLeaf{"MeterRate", meterList.MeterRate}
-    meterList.EntityData.Leafs["burst-size"] = types.YLeaf{"BurstSize", meterList.BurstSize}
-    meterList.EntityData.Leafs["burst-interval"] = types.YLeaf{"BurstInterval", meterList.BurstInterval}
+    meterList.EntityData.Children = types.NewOrderedMap()
+    meterList.EntityData.Children.Append("color", types.YChild{"Color", &meterList.Color})
+    meterList.EntityData.Children.Append("succeed-action", types.YChild{"SucceedAction", &meterList.SucceedAction})
+    meterList.EntityData.Children.Append("fail-action", types.YChild{"FailAction", &meterList.FailAction})
+    meterList.EntityData.Leafs = types.NewOrderedMap()
+    meterList.EntityData.Leafs.Append("meter-id", types.YLeaf{"MeterId", meterList.MeterId})
+    meterList.EntityData.Leafs.Append("meter-rate", types.YLeaf{"MeterRate", meterList.MeterRate})
+    meterList.EntityData.Leafs.Append("burst-size", types.YLeaf{"BurstSize", meterList.BurstSize})
+    meterList.EntityData.Leafs.Append("burst-interval", types.YLeaf{"BurstInterval", meterList.BurstInterval})
+
+    meterList.EntityData.YListKeys = []string {"MeterId"}
+
     return &(meterList.EntityData)
 }
 
@@ -693,7 +741,7 @@ type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_MeterCfg_Mete
     ClassifierEntryDescr interface{}
 
     // Filters are applicable as any or all filters. The type is one of the
-    // following: MatchAnyFilterMatchAllFilter. The default value is
+    // following: MatchAllFilterMatchAnyFilter. The default value is
     // match-any-filter.
     ClassifierEntryFilterOperation interface{}
 }
@@ -708,11 +756,14 @@ func (color *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_Meter
     color.EntityData.NamespaceTable = ietf.GetNamespaces()
     color.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    color.EntityData.Children = make(map[string]types.YChild)
-    color.EntityData.Leafs = make(map[string]types.YLeaf)
-    color.EntityData.Leafs["classifier-entry-name"] = types.YLeaf{"ClassifierEntryName", color.ClassifierEntryName}
-    color.EntityData.Leafs["classifier-entry-descr"] = types.YLeaf{"ClassifierEntryDescr", color.ClassifierEntryDescr}
-    color.EntityData.Leafs["classifier-entry-filter-operation"] = types.YLeaf{"ClassifierEntryFilterOperation", color.ClassifierEntryFilterOperation}
+    color.EntityData.Children = types.NewOrderedMap()
+    color.EntityData.Leafs = types.NewOrderedMap()
+    color.EntityData.Leafs.Append("classifier-entry-name", types.YLeaf{"ClassifierEntryName", color.ClassifierEntryName})
+    color.EntityData.Leafs.Append("classifier-entry-descr", types.YLeaf{"ClassifierEntryDescr", color.ClassifierEntryDescr})
+    color.EntityData.Leafs.Append("classifier-entry-filter-operation", types.YLeaf{"ClassifierEntryFilterOperation", color.ClassifierEntryFilterOperation})
+
+    color.EntityData.YListKeys = []string {}
+
     return &(color.EntityData)
 }
 
@@ -746,12 +797,15 @@ func (succeedAction *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryC
     succeedAction.EntityData.NamespaceTable = ietf.GetNamespaces()
     succeedAction.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    succeedAction.EntityData.Children = make(map[string]types.YChild)
-    succeedAction.EntityData.Leafs = make(map[string]types.YLeaf)
-    succeedAction.EntityData.Leafs["meter-action-type"] = types.YLeaf{"MeterActionType", succeedAction.MeterActionType}
-    succeedAction.EntityData.Leafs["next-meter-id"] = types.YLeaf{"NextMeterId", succeedAction.NextMeterId}
-    succeedAction.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", succeedAction.Dscp}
-    succeedAction.EntityData.Leafs["drop-action"] = types.YLeaf{"DropAction", succeedAction.DropAction}
+    succeedAction.EntityData.Children = types.NewOrderedMap()
+    succeedAction.EntityData.Leafs = types.NewOrderedMap()
+    succeedAction.EntityData.Leafs.Append("meter-action-type", types.YLeaf{"MeterActionType", succeedAction.MeterActionType})
+    succeedAction.EntityData.Leafs.Append("next-meter-id", types.YLeaf{"NextMeterId", succeedAction.NextMeterId})
+    succeedAction.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", succeedAction.Dscp})
+    succeedAction.EntityData.Leafs.Append("drop-action", types.YLeaf{"DropAction", succeedAction.DropAction})
+
+    succeedAction.EntityData.YListKeys = []string {}
+
     return &(succeedAction.EntityData)
 }
 
@@ -785,12 +839,15 @@ func (failAction *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_
     failAction.EntityData.NamespaceTable = ietf.GetNamespaces()
     failAction.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    failAction.EntityData.Children = make(map[string]types.YChild)
-    failAction.EntityData.Leafs = make(map[string]types.YLeaf)
-    failAction.EntityData.Leafs["meter-action-type"] = types.YLeaf{"MeterActionType", failAction.MeterActionType}
-    failAction.EntityData.Leafs["next-meter-id"] = types.YLeaf{"NextMeterId", failAction.NextMeterId}
-    failAction.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", failAction.Dscp}
-    failAction.EntityData.Leafs["drop-action"] = types.YLeaf{"DropAction", failAction.DropAction}
+    failAction.EntityData.Children = types.NewOrderedMap()
+    failAction.EntityData.Leafs = types.NewOrderedMap()
+    failAction.EntityData.Leafs.Append("meter-action-type", types.YLeaf{"MeterActionType", failAction.MeterActionType})
+    failAction.EntityData.Leafs.Append("next-meter-id", types.YLeaf{"NextMeterId", failAction.NextMeterId})
+    failAction.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", failAction.Dscp})
+    failAction.EntityData.Leafs.Append("drop-action", types.YLeaf{"DropAction", failAction.DropAction})
+
+    failAction.EntityData.YListKeys = []string {}
+
     return &(failAction.EntityData)
 }
 
@@ -830,14 +887,17 @@ func (minRateCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_
     minRateCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     minRateCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    minRateCfg.EntityData.Children = make(map[string]types.YChild)
-    minRateCfg.EntityData.Children["bw-excess-share-cfg"] = types.YChild{"BwExcessShareCfg", &minRateCfg.BwExcessShareCfg}
-    minRateCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    minRateCfg.EntityData.Leafs["min-rate"] = types.YLeaf{"MinRate", minRateCfg.MinRate}
-    minRateCfg.EntityData.Leafs["absolute-rate-metric"] = types.YLeaf{"AbsoluteRateMetric", minRateCfg.AbsoluteRateMetric}
-    minRateCfg.EntityData.Leafs["absolute-rate-units"] = types.YLeaf{"AbsoluteRateUnits", minRateCfg.AbsoluteRateUnits}
-    minRateCfg.EntityData.Leafs["rate-percent"] = types.YLeaf{"RatePercent", minRateCfg.RatePercent}
-    minRateCfg.EntityData.Leafs["rate-ratio"] = types.YLeaf{"RateRatio", minRateCfg.RateRatio}
+    minRateCfg.EntityData.Children = types.NewOrderedMap()
+    minRateCfg.EntityData.Children.Append("bw-excess-share-cfg", types.YChild{"BwExcessShareCfg", &minRateCfg.BwExcessShareCfg})
+    minRateCfg.EntityData.Leafs = types.NewOrderedMap()
+    minRateCfg.EntityData.Leafs.Append("min-rate", types.YLeaf{"MinRate", minRateCfg.MinRate})
+    minRateCfg.EntityData.Leafs.Append("absolute-rate-metric", types.YLeaf{"AbsoluteRateMetric", minRateCfg.AbsoluteRateMetric})
+    minRateCfg.EntityData.Leafs.Append("absolute-rate-units", types.YLeaf{"AbsoluteRateUnits", minRateCfg.AbsoluteRateUnits})
+    minRateCfg.EntityData.Leafs.Append("rate-percent", types.YLeaf{"RatePercent", minRateCfg.RatePercent})
+    minRateCfg.EntityData.Leafs.Append("rate-ratio", types.YLeaf{"RateRatio", minRateCfg.RateRatio})
+
+    minRateCfg.EntityData.YListKeys = []string {}
+
     return &(minRateCfg.EntityData)
 }
 
@@ -874,13 +934,16 @@ func (bwExcessShareCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEnt
     bwExcessShareCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     bwExcessShareCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    bwExcessShareCfg.EntityData.Children = make(map[string]types.YChild)
-    bwExcessShareCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    bwExcessShareCfg.EntityData.Leafs["value"] = types.YLeaf{"Value", bwExcessShareCfg.Value}
-    bwExcessShareCfg.EntityData.Leafs["absolute-rate-metric"] = types.YLeaf{"AbsoluteRateMetric", bwExcessShareCfg.AbsoluteRateMetric}
-    bwExcessShareCfg.EntityData.Leafs["absolute-rate-units"] = types.YLeaf{"AbsoluteRateUnits", bwExcessShareCfg.AbsoluteRateUnits}
-    bwExcessShareCfg.EntityData.Leafs["rate-percent"] = types.YLeaf{"RatePercent", bwExcessShareCfg.RatePercent}
-    bwExcessShareCfg.EntityData.Leafs["rate-ratio"] = types.YLeaf{"RateRatio", bwExcessShareCfg.RateRatio}
+    bwExcessShareCfg.EntityData.Children = types.NewOrderedMap()
+    bwExcessShareCfg.EntityData.Leafs = types.NewOrderedMap()
+    bwExcessShareCfg.EntityData.Leafs.Append("value", types.YLeaf{"Value", bwExcessShareCfg.Value})
+    bwExcessShareCfg.EntityData.Leafs.Append("absolute-rate-metric", types.YLeaf{"AbsoluteRateMetric", bwExcessShareCfg.AbsoluteRateMetric})
+    bwExcessShareCfg.EntityData.Leafs.Append("absolute-rate-units", types.YLeaf{"AbsoluteRateUnits", bwExcessShareCfg.AbsoluteRateUnits})
+    bwExcessShareCfg.EntityData.Leafs.Append("rate-percent", types.YLeaf{"RatePercent", bwExcessShareCfg.RatePercent})
+    bwExcessShareCfg.EntityData.Leafs.Append("rate-ratio", types.YLeaf{"RateRatio", bwExcessShareCfg.RateRatio})
+
+    bwExcessShareCfg.EntityData.YListKeys = []string {}
+
     return &(bwExcessShareCfg.EntityData)
 }
 
@@ -925,15 +988,18 @@ func (maxRateCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_
     maxRateCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     maxRateCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    maxRateCfg.EntityData.Children = make(map[string]types.YChild)
-    maxRateCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxRateCfg.EntityData.Leafs["absolute-rate"] = types.YLeaf{"AbsoluteRate", maxRateCfg.AbsoluteRate}
-    maxRateCfg.EntityData.Leafs["burst-size"] = types.YLeaf{"BurstSize", maxRateCfg.BurstSize}
-    maxRateCfg.EntityData.Leafs["burst-interval"] = types.YLeaf{"BurstInterval", maxRateCfg.BurstInterval}
-    maxRateCfg.EntityData.Leafs["absolute-rate-metric"] = types.YLeaf{"AbsoluteRateMetric", maxRateCfg.AbsoluteRateMetric}
-    maxRateCfg.EntityData.Leafs["absolute-rate-units"] = types.YLeaf{"AbsoluteRateUnits", maxRateCfg.AbsoluteRateUnits}
-    maxRateCfg.EntityData.Leafs["rate-percent"] = types.YLeaf{"RatePercent", maxRateCfg.RatePercent}
-    maxRateCfg.EntityData.Leafs["rate-ratio"] = types.YLeaf{"RateRatio", maxRateCfg.RateRatio}
+    maxRateCfg.EntityData.Children = types.NewOrderedMap()
+    maxRateCfg.EntityData.Leafs = types.NewOrderedMap()
+    maxRateCfg.EntityData.Leafs.Append("absolute-rate", types.YLeaf{"AbsoluteRate", maxRateCfg.AbsoluteRate})
+    maxRateCfg.EntityData.Leafs.Append("burst-size", types.YLeaf{"BurstSize", maxRateCfg.BurstSize})
+    maxRateCfg.EntityData.Leafs.Append("burst-interval", types.YLeaf{"BurstInterval", maxRateCfg.BurstInterval})
+    maxRateCfg.EntityData.Leafs.Append("absolute-rate-metric", types.YLeaf{"AbsoluteRateMetric", maxRateCfg.AbsoluteRateMetric})
+    maxRateCfg.EntityData.Leafs.Append("absolute-rate-units", types.YLeaf{"AbsoluteRateUnits", maxRateCfg.AbsoluteRateUnits})
+    maxRateCfg.EntityData.Leafs.Append("rate-percent", types.YLeaf{"RatePercent", maxRateCfg.RatePercent})
+    maxRateCfg.EntityData.Leafs.Append("rate-ratio", types.YLeaf{"RateRatio", maxRateCfg.RateRatio})
+
+    maxRateCfg.EntityData.YListKeys = []string {}
+
     return &(maxRateCfg.EntityData)
 }
 
@@ -957,9 +1023,12 @@ func (dropCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_Dro
     dropCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     dropCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    dropCfg.EntityData.Children = make(map[string]types.YChild)
-    dropCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    dropCfg.EntityData.Leafs["drop-action"] = types.YLeaf{"DropAction", dropCfg.DropAction}
+    dropCfg.EntityData.Children = types.NewOrderedMap()
+    dropCfg.EntityData.Leafs = types.NewOrderedMap()
+    dropCfg.EntityData.Leafs.Append("drop-action", types.YLeaf{"DropAction", dropCfg.DropAction})
+
+    dropCfg.EntityData.YListKeys = []string {}
+
     return &(dropCfg.EntityData)
 }
 
@@ -971,7 +1040,7 @@ type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_TailDropCfg s
 
     // the queue limit per dscp range. The type is slice of
     // Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_TailDropCfg_QlimitDscpThresh.
-    QlimitDscpThresh []Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_TailDropCfg_QlimitDscpThresh
+    QlimitDscpThresh []*Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_TailDropCfg_QlimitDscpThresh
 }
 
 func (tailDropCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_TailDropCfg) GetEntityData() *types.CommonEntityData {
@@ -984,12 +1053,15 @@ func (tailDropCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg
     tailDropCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     tailDropCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    tailDropCfg.EntityData.Children = make(map[string]types.YChild)
-    tailDropCfg.EntityData.Children["qlimit-dscp-thresh"] = types.YChild{"QlimitDscpThresh", nil}
+    tailDropCfg.EntityData.Children = types.NewOrderedMap()
+    tailDropCfg.EntityData.Children.Append("qlimit-dscp-thresh", types.YChild{"QlimitDscpThresh", nil})
     for i := range tailDropCfg.QlimitDscpThresh {
-        tailDropCfg.EntityData.Children[types.GetSegmentPath(&tailDropCfg.QlimitDscpThresh[i])] = types.YChild{"QlimitDscpThresh", &tailDropCfg.QlimitDscpThresh[i]}
+        tailDropCfg.EntityData.Children.Append(types.GetSegmentPath(tailDropCfg.QlimitDscpThresh[i]), types.YChild{"QlimitDscpThresh", tailDropCfg.QlimitDscpThresh[i]})
     }
-    tailDropCfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    tailDropCfg.EntityData.Leafs = types.NewOrderedMap()
+
+    tailDropCfg.EntityData.YListKeys = []string {}
+
     return &(tailDropCfg.EntityData)
 }
 
@@ -1016,16 +1088,19 @@ func (qlimitDscpThresh *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEnt
     qlimitDscpThresh.EntityData.YangName = "qlimit-dscp-thresh"
     qlimitDscpThresh.EntityData.BundleName = "ietf"
     qlimitDscpThresh.EntityData.ParentYangName = "tail-drop-cfg"
-    qlimitDscpThresh.EntityData.SegmentPath = "qlimit-dscp-thresh" + "[dscp-min='" + fmt.Sprintf("%v", qlimitDscpThresh.DscpMin) + "']" + "[dscp-max='" + fmt.Sprintf("%v", qlimitDscpThresh.DscpMax) + "']"
+    qlimitDscpThresh.EntityData.SegmentPath = "qlimit-dscp-thresh" + types.AddKeyToken(qlimitDscpThresh.DscpMin, "dscp-min") + types.AddKeyToken(qlimitDscpThresh.DscpMax, "dscp-max")
     qlimitDscpThresh.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     qlimitDscpThresh.EntityData.NamespaceTable = ietf.GetNamespaces()
     qlimitDscpThresh.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    qlimitDscpThresh.EntityData.Children = make(map[string]types.YChild)
-    qlimitDscpThresh.EntityData.Children["threshold"] = types.YChild{"Threshold", &qlimitDscpThresh.Threshold}
-    qlimitDscpThresh.EntityData.Leafs = make(map[string]types.YLeaf)
-    qlimitDscpThresh.EntityData.Leafs["dscp-min"] = types.YLeaf{"DscpMin", qlimitDscpThresh.DscpMin}
-    qlimitDscpThresh.EntityData.Leafs["dscp-max"] = types.YLeaf{"DscpMax", qlimitDscpThresh.DscpMax}
+    qlimitDscpThresh.EntityData.Children = types.NewOrderedMap()
+    qlimitDscpThresh.EntityData.Children.Append("threshold", types.YChild{"Threshold", &qlimitDscpThresh.Threshold})
+    qlimitDscpThresh.EntityData.Leafs = types.NewOrderedMap()
+    qlimitDscpThresh.EntityData.Leafs.Append("dscp-min", types.YLeaf{"DscpMin", qlimitDscpThresh.DscpMin})
+    qlimitDscpThresh.EntityData.Leafs.Append("dscp-max", types.YLeaf{"DscpMax", qlimitDscpThresh.DscpMax})
+
+    qlimitDscpThresh.EntityData.YListKeys = []string {"DscpMin", "DscpMax"}
+
     return &(qlimitDscpThresh.EntityData)
 }
 
@@ -1054,10 +1129,13 @@ func (threshold *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_T
     threshold.EntityData.NamespaceTable = ietf.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["threshold-size"] = types.YLeaf{"ThresholdSize", threshold.ThresholdSize}
-    threshold.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", threshold.ThresholdInterval}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("threshold-size", types.YLeaf{"ThresholdSize", threshold.ThresholdSize})
+    threshold.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", threshold.ThresholdInterval})
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 
@@ -1091,12 +1169,15 @@ func (randomDetectCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntr
     randomDetectCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     randomDetectCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    randomDetectCfg.EntityData.Children = make(map[string]types.YChild)
-    randomDetectCfg.EntityData.Children["red-min-thresh"] = types.YChild{"RedMinThresh", &randomDetectCfg.RedMinThresh}
-    randomDetectCfg.EntityData.Children["red-max-thresh"] = types.YChild{"RedMaxThresh", &randomDetectCfg.RedMaxThresh}
-    randomDetectCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    randomDetectCfg.EntityData.Leafs["exp-weighting-const"] = types.YLeaf{"ExpWeightingConst", randomDetectCfg.ExpWeightingConst}
-    randomDetectCfg.EntityData.Leafs["mark-probability"] = types.YLeaf{"MarkProbability", randomDetectCfg.MarkProbability}
+    randomDetectCfg.EntityData.Children = types.NewOrderedMap()
+    randomDetectCfg.EntityData.Children.Append("red-min-thresh", types.YChild{"RedMinThresh", &randomDetectCfg.RedMinThresh})
+    randomDetectCfg.EntityData.Children.Append("red-max-thresh", types.YChild{"RedMaxThresh", &randomDetectCfg.RedMaxThresh})
+    randomDetectCfg.EntityData.Leafs = types.NewOrderedMap()
+    randomDetectCfg.EntityData.Leafs.Append("exp-weighting-const", types.YLeaf{"ExpWeightingConst", randomDetectCfg.ExpWeightingConst})
+    randomDetectCfg.EntityData.Leafs.Append("mark-probability", types.YLeaf{"MarkProbability", randomDetectCfg.MarkProbability})
+
+    randomDetectCfg.EntityData.YListKeys = []string {}
+
     return &(randomDetectCfg.EntityData)
 }
 
@@ -1120,9 +1201,12 @@ func (redMinThresh *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCf
     redMinThresh.EntityData.NamespaceTable = ietf.GetNamespaces()
     redMinThresh.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    redMinThresh.EntityData.Children = make(map[string]types.YChild)
-    redMinThresh.EntityData.Children["threshold"] = types.YChild{"Threshold", &redMinThresh.Threshold}
-    redMinThresh.EntityData.Leafs = make(map[string]types.YLeaf)
+    redMinThresh.EntityData.Children = types.NewOrderedMap()
+    redMinThresh.EntityData.Children.Append("threshold", types.YChild{"Threshold", &redMinThresh.Threshold})
+    redMinThresh.EntityData.Leafs = types.NewOrderedMap()
+
+    redMinThresh.EntityData.YListKeys = []string {}
+
     return &(redMinThresh.EntityData)
 }
 
@@ -1151,10 +1235,13 @@ func (threshold *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_R
     threshold.EntityData.NamespaceTable = ietf.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["threshold-size"] = types.YLeaf{"ThresholdSize", threshold.ThresholdSize}
-    threshold.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", threshold.ThresholdInterval}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("threshold-size", types.YLeaf{"ThresholdSize", threshold.ThresholdSize})
+    threshold.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", threshold.ThresholdInterval})
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 
@@ -1178,9 +1265,12 @@ func (redMaxThresh *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCf
     redMaxThresh.EntityData.NamespaceTable = ietf.GetNamespaces()
     redMaxThresh.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    redMaxThresh.EntityData.Children = make(map[string]types.YChild)
-    redMaxThresh.EntityData.Children["threshold"] = types.YChild{"Threshold", &redMaxThresh.Threshold}
-    redMaxThresh.EntityData.Leafs = make(map[string]types.YLeaf)
+    redMaxThresh.EntityData.Children = types.NewOrderedMap()
+    redMaxThresh.EntityData.Children.Append("threshold", types.YChild{"Threshold", &redMaxThresh.Threshold})
+    redMaxThresh.EntityData.Leafs = types.NewOrderedMap()
+
+    redMaxThresh.EntityData.YListKeys = []string {}
+
     return &(redMaxThresh.EntityData)
 }
 
@@ -1209,10 +1299,13 @@ func (threshold *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_R
     threshold.EntityData.NamespaceTable = ietf.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["threshold-size"] = types.YLeaf{"ThresholdSize", threshold.ThresholdSize}
-    threshold.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", threshold.ThresholdInterval}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("threshold-size", types.YLeaf{"ThresholdSize", threshold.ThresholdSize})
+    threshold.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", threshold.ThresholdInterval})
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 

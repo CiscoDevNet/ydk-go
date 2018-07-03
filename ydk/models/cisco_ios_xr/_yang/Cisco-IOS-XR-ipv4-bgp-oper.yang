@@ -12,7 +12,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
     prefix dt1;
   }
   include Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
-    revision-date 2017-06-26;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -38,6 +38,10 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
@@ -169,7 +173,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
            prefix, else in hex string format";
       }
       leaf prefix-length {
-        type int32;
+        type uint32;
         description
           "Network prefix Length";
       }
@@ -194,7 +198,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
           "Original Source Route Distinguisher";
       }
       leaf path-id {
-        type int32;
+        type uint32;
         description
           "Received Path ID";
       }
@@ -293,17 +297,17 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
         description
           "A BGP Attribute table entry";
         leaf attribute-iid {
-          type int32;
+          type uint32;
           description
             "Attribute IID";
         }
         leaf attribute-cache-bucket {
-          type int32;
+          type uint32;
           description
             "Attribute cache bucket";
         }
         leaf attribute-cache-id {
-          type int32;
+          type uint32;
           description
             "Attribute cache ID";
         }
@@ -660,12 +664,12 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
         description
           "BGP Route Target Set Entry";
         leaf route-target-lower-bytes {
-          type int32;
+          type uint32;
           description
             "Lower 4 bytes of RT";
         }
         leaf route-target-upper-bytes {
-          type int32;
+          type uint32;
           description
             "Upper 4 bytes of RT";
         }
@@ -675,7 +679,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             "Address family";
         }
         leaf request-id {
-          type int32;
+          type uint32;
           description
             "Random Request ID";
         }
@@ -704,12 +708,12 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             "Route Address (IPv4 / IPv6)";
         }
         leaf minimum {
-          type int32;
+          type uint32;
           description
             "Minimum Prefix Length";
         }
         leaf maximum {
-          type int32;
+          type uint32;
           description
             "Maximum Prefix Length";
         }
@@ -743,7 +747,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             "Neighbor address";
         }
         leaf direction {
-          type int32;
+          type uint32;
           description
             "Direction";
         }
@@ -780,7 +784,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                  ip prefix, else in hex string format";
             }
             leaf prefix-length {
-              type int32;
+              type uint32;
               description
                 "Network prefix Length";
             }
@@ -820,7 +824,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "A BGP next-hop set";
             leaf rpc-set-index {
-              type int32;
+              type uint32;
               description
                 "Nexthop set index";
             }
@@ -851,7 +855,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                  ip prefix, else in hex string format";
             }
             leaf prefix-length {
-              type int32;
+              type uint32;
               description
                 "Network prefix Length";
             }
@@ -885,12 +889,12 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "A BGP Update group table entry";
             leaf update-group-id {
-              type int32;
+              type uint32;
               description
                 "Update group index";
             }
             leaf filter-group-id {
-              type int32;
+              type uint32;
               description
                 "Filter group index";
             }
@@ -904,17 +908,17 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "Update generation for sub-group";
             leaf update-group-index {
-              type int32;
+              type uint32;
               description
                 "Update-group index";
             }
             leaf sub-group-index {
-              type int32;
+              type uint32;
               description
                 "Sub-group index";
             }
             leaf sub-group-id {
-              type int32;
+              type uint32;
               description
                 "Sub-group ID";
             }
@@ -967,7 +971,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "One RT-set counter table entry";
             leaf rt-set-id {
-              type int32;
+              type uint32;
               description
                 "RTSet ID";
             }
@@ -987,7 +991,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                  ip prefix, else in hex string format";
             }
             leaf prefix-length {
-              type int32;
+              type uint32;
               description
                 "Network prefix Length";
             }
@@ -1002,7 +1006,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "Update generation for update-group";
             leaf update-group-index {
-              type int32;
+              type uint32;
               description
                 "Update-group index";
             }
@@ -1017,22 +1021,22 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "Update generation for filter-group";
             leaf update-group-index {
-              type int32;
+              type uint32;
               description
                 "Update-group index";
             }
             leaf sub-group-index {
-              type int32;
+              type uint32;
               description
                 "Sub-group index";
             }
             leaf sub-group-id {
-              type int32;
+              type uint32;
               description
                 "Sub-group ID";
             }
             leaf filter-group-index {
-              type int32;
+              type uint32;
               description
                 "Filter-group index";
             }
@@ -1057,7 +1061,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                  ip prefix, else in hex string format";
             }
             leaf prefix-length {
-              type int32;
+              type uint32;
               description
                 "Prefix Length";
             }
@@ -1076,7 +1080,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "A BGP Egress Engineering table entry";
             leaf epe-key-length {
-              type int32;
+              type uint32;
               description
                 "Epe Key Length";
             }
@@ -1128,7 +1132,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                  ip prefix, else in hex string format";
             }
             leaf prefix-length {
-              type int32;
+              type uint32;
               description
                 "Network prefix length";
             }
@@ -1152,22 +1156,22 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "Update generation for neighbor";
             leaf update-group-index {
-              type int32;
+              type uint32;
               description
                 "Update-group index";
             }
             leaf sub-group-index {
-              type int32;
+              type uint32;
               description
                 "Sub-group index";
             }
             leaf sub-group-id {
-              type int32;
+              type uint32;
               description
                 "Sub-group ID";
             }
             leaf filter-group-index {
-              type int32;
+              type uint32;
               description
                 "Filter-group index";
             }
@@ -1191,12 +1195,12 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description
               "A BGP Dampening table entry";
             leaf reuse {
-              type int32;
+              type uint32;
               description
                 "Reuse array index";
             }
             leaf version {
-              type int32;
+              type uint32;
               description
                 "Version number";
             }
@@ -1212,7 +1216,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                  ip prefix, else in hex string format";
             }
             leaf length {
-              type int32;
+              type uint32;
               description
                 "Prefix length";
             }
@@ -1227,7 +1231,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                 "Source Route Distinguisher value";
             }
             leaf path-id {
-              type int32;
+              type uint32;
               description
                 "Received Path ID";
             }
@@ -1371,7 +1375,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
               description
                 "BGP Label Entry";
               leaf label {
-                type int32;
+                type uint32;
                 description
                   "Label index";
               }
@@ -1391,7 +1395,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
               description
                 "BGP Label RPF Entry";
               leaf label {
-                type int32;
+                type uint32;
                 description
                   "Label index";
               }

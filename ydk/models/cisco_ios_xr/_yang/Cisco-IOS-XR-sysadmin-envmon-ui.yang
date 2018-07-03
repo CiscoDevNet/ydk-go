@@ -36,9 +36,9 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
      Copyright (c) 2012-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-11-27 {
+  revision 2017-07-31 {
     description
-      "Add graceful shutdown disable CLI.";
+      "Changing the namespace to follow Cisco guidelines on naming convention";
   }
 
   grouping temp-data {
@@ -658,7 +658,6 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
       uses env-monitor-group;
       uses envmon-types:fan-speed-group;
       uses envmon-types:fan-ctrl-optics-group;
-      uses envmon-types:vin-uv-shut-group;
     }
   }
 

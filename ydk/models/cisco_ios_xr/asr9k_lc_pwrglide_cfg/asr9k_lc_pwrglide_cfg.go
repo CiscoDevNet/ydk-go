@@ -32,7 +32,7 @@ type HardwareModulePortMode struct {
 
     // Active or Pre configuration. The type is slice of
     // HardwareModulePortMode_ConfigMode.
-    ConfigMode []HardwareModulePortMode_ConfigMode
+    ConfigMode []*HardwareModulePortMode_ConfigMode
 }
 
 func (hardwareModulePortMode *HardwareModulePortMode) GetEntityData() *types.CommonEntityData {
@@ -45,12 +45,15 @@ func (hardwareModulePortMode *HardwareModulePortMode) GetEntityData() *types.Com
     hardwareModulePortMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModulePortMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareModulePortMode.EntityData.Children = make(map[string]types.YChild)
-    hardwareModulePortMode.EntityData.Children["config-mode"] = types.YChild{"ConfigMode", nil}
+    hardwareModulePortMode.EntityData.Children = types.NewOrderedMap()
+    hardwareModulePortMode.EntityData.Children.Append("config-mode", types.YChild{"ConfigMode", nil})
     for i := range hardwareModulePortMode.ConfigMode {
-        hardwareModulePortMode.EntityData.Children[types.GetSegmentPath(&hardwareModulePortMode.ConfigMode[i])] = types.YChild{"ConfigMode", &hardwareModulePortMode.ConfigMode[i]}
+        hardwareModulePortMode.EntityData.Children.Append(types.GetSegmentPath(hardwareModulePortMode.ConfigMode[i]), types.YChild{"ConfigMode", hardwareModulePortMode.ConfigMode[i]})
     }
-    hardwareModulePortMode.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareModulePortMode.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareModulePortMode.EntityData.YListKeys = []string {}
+
     return &(hardwareModulePortMode.EntityData)
 }
 
@@ -61,11 +64,11 @@ type HardwareModulePortMode_ConfigMode struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. act- or pre-config. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Id1 interface{}
 
     // A node. The type is slice of HardwareModulePortMode_ConfigMode_Node.
-    Node []HardwareModulePortMode_ConfigMode_Node
+    Node []*HardwareModulePortMode_ConfigMode_Node
 }
 
 func (configMode *HardwareModulePortMode_ConfigMode) GetEntityData() *types.CommonEntityData {
@@ -73,18 +76,21 @@ func (configMode *HardwareModulePortMode_ConfigMode) GetEntityData() *types.Comm
     configMode.EntityData.YangName = "config-mode"
     configMode.EntityData.BundleName = "cisco_ios_xr"
     configMode.EntityData.ParentYangName = "hardware-module-port-mode"
-    configMode.EntityData.SegmentPath = "config-mode" + "[id1='" + fmt.Sprintf("%v", configMode.Id1) + "']"
+    configMode.EntityData.SegmentPath = "config-mode" + types.AddKeyToken(configMode.Id1, "id1")
     configMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configMode.EntityData.Children = make(map[string]types.YChild)
-    configMode.EntityData.Children["node"] = types.YChild{"Node", nil}
+    configMode.EntityData.Children = types.NewOrderedMap()
+    configMode.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range configMode.Node {
-        configMode.EntityData.Children[types.GetSegmentPath(&configMode.Node[i])] = types.YChild{"Node", &configMode.Node[i]}
+        configMode.EntityData.Children.Append(types.GetSegmentPath(configMode.Node[i]), types.YChild{"Node", configMode.Node[i]})
     }
-    configMode.EntityData.Leafs = make(map[string]types.YLeaf)
-    configMode.EntityData.Leafs["id1"] = types.YLeaf{"Id1", configMode.Id1}
+    configMode.EntityData.Leafs = types.NewOrderedMap()
+    configMode.EntityData.Leafs.Append("id1", types.YLeaf{"Id1", configMode.Id1})
+
+    configMode.EntityData.YListKeys = []string {"Id1"}
+
     return &(configMode.EntityData)
 }
 
@@ -95,7 +101,7 @@ type HardwareModulePortMode_ConfigMode_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fully qualified line card specification. The type
-    // is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Id2 interface{}
 
     // Linecard port-mode.
@@ -107,15 +113,18 @@ func (node *HardwareModulePortMode_ConfigMode_Node) GetEntityData() *types.Commo
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "config-mode"
-    node.EntityData.SegmentPath = "node" + "[id2='" + fmt.Sprintf("%v", node.Id2) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Id2, "id2")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["port-mode"] = types.YChild{"PortMode", &node.PortMode}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["id2"] = types.YLeaf{"Id2", node.Id2}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("port-mode", types.YChild{"PortMode", &node.PortMode})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("id2", types.YLeaf{"Id2", node.Id2})
+
+    node.EntityData.YListKeys = []string {"Id2"}
+
     return &(node.EntityData)
 }
 
@@ -139,9 +148,12 @@ func (portMode *HardwareModulePortMode_ConfigMode_Node_PortMode) GetEntityData()
     portMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portMode.EntityData.Children = make(map[string]types.YChild)
-    portMode.EntityData.Leafs = make(map[string]types.YLeaf)
-    portMode.EntityData.Leafs["if-port-mode"] = types.YLeaf{"IfPortMode", portMode.IfPortMode}
+    portMode.EntityData.Children = types.NewOrderedMap()
+    portMode.EntityData.Leafs = types.NewOrderedMap()
+    portMode.EntityData.Leafs.Append("if-port-mode", types.YLeaf{"IfPortMode", portMode.IfPortMode})
+
+    portMode.EntityData.YListKeys = []string {}
+
     return &(portMode.EntityData)
 }
 

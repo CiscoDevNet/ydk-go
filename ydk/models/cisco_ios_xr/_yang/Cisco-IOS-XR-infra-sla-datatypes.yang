@@ -62,6 +62,18 @@ module Cisco-IOS-XR-infra-sla-datatypes {
       "Sla burst interval units enum";
   }
 
+  typedef Sla-threshold-type-enum {
+    type enumeration {
+      enum "stateless" {
+        value 1;
+        description
+          "Stateless threshold";
+      }
+    }
+    description
+      "Sla threshold type enum";
+  }
+
   typedef Sla-send {
     type enumeration {
       enum "packet" {
@@ -77,6 +89,18 @@ module Cisco-IOS-XR-infra-sla-datatypes {
     }
     description
       "Sla send";
+  }
+
+  typedef Sla-action-type-enum {
+    type enumeration {
+      enum "log" {
+        value 0;
+        description
+          "Emit a syslog when the threshold is crossed";
+      }
+    }
+    description
+      "Sla action type enum";
   }
 
   typedef Sla-probe-interval-day-enum {
@@ -277,6 +301,32 @@ module Cisco-IOS-XR-infra-sla-datatypes {
     }
     description
       "Sla buckets size units enum";
+  }
+
+  typedef Sla-threshold-condition-enum {
+    type enumeration {
+      enum "max" {
+        value 0;
+        description
+          "Threshold is breached when the maximum value
+           crosses the configured threshold value";
+      }
+      enum "mean" {
+        value 1;
+        description
+          "Threshold is breached when the mean value
+           crosses the configured threshold value";
+      }
+      enum "sample-count" {
+        value 2;
+        description
+          "Threshold is breached when the sample count in
+           bins in and above a certain bin number crosses
+           the configured sample count";
+      }
+    }
+    description
+      "Sla threshold condition enum";
   }
 
   typedef Sla-probe-interval-units-enum {

@@ -99,10 +99,13 @@ func (clock *Clock) GetEntityData() *types.CommonEntityData {
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clock.EntityData.Children = make(map[string]types.YChild)
-    clock.EntityData.Children["summer-time"] = types.YChild{"SummerTime", &clock.SummerTime}
-    clock.EntityData.Children["time-zone"] = types.YChild{"TimeZone", &clock.TimeZone}
-    clock.EntityData.Leafs = make(map[string]types.YLeaf)
+    clock.EntityData.Children = types.NewOrderedMap()
+    clock.EntityData.Children.Append("summer-time", types.YChild{"SummerTime", &clock.SummerTime})
+    clock.EntityData.Children.Append("time-zone", types.YChild{"TimeZone", &clock.TimeZone})
+    clock.EntityData.Leafs = types.NewOrderedMap()
+
+    clock.EntityData.YListKeys = []string {}
+
     return &(clock.EntityData)
 }
 
@@ -112,6 +115,7 @@ func (clock *Clock) GetEntityData() *types.CommonEntityData {
 type Clock_SummerTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Name of time zone in summer. The type is string. This attribute is
     // mandatory.
@@ -173,21 +177,24 @@ func (summerTime *Clock_SummerTime) GetEntityData() *types.CommonEntityData {
     summerTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summerTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summerTime.EntityData.Children = make(map[string]types.YChild)
-    summerTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    summerTime.EntityData.Leafs["time-zone-name"] = types.YLeaf{"TimeZoneName", summerTime.TimeZoneName}
-    summerTime.EntityData.Leafs["mode"] = types.YLeaf{"Mode", summerTime.Mode}
-    summerTime.EntityData.Leafs["start-week-number-or-start-date"] = types.YLeaf{"StartWeekNumberOrStartDate", summerTime.StartWeekNumberOrStartDate}
-    summerTime.EntityData.Leafs["start-weekday-or-start-year"] = types.YLeaf{"StartWeekdayOrStartYear", summerTime.StartWeekdayOrStartYear}
-    summerTime.EntityData.Leafs["start-month"] = types.YLeaf{"StartMonth", summerTime.StartMonth}
-    summerTime.EntityData.Leafs["start-hour"] = types.YLeaf{"StartHour", summerTime.StartHour}
-    summerTime.EntityData.Leafs["start-minute"] = types.YLeaf{"StartMinute", summerTime.StartMinute}
-    summerTime.EntityData.Leafs["end-week-number-or-end-date"] = types.YLeaf{"EndWeekNumberOrEndDate", summerTime.EndWeekNumberOrEndDate}
-    summerTime.EntityData.Leafs["end-weekday-or-end-year"] = types.YLeaf{"EndWeekdayOrEndYear", summerTime.EndWeekdayOrEndYear}
-    summerTime.EntityData.Leafs["end-month"] = types.YLeaf{"EndMonth", summerTime.EndMonth}
-    summerTime.EntityData.Leafs["end-hour"] = types.YLeaf{"EndHour", summerTime.EndHour}
-    summerTime.EntityData.Leafs["end-minute"] = types.YLeaf{"EndMinute", summerTime.EndMinute}
-    summerTime.EntityData.Leafs["offset"] = types.YLeaf{"Offset", summerTime.Offset}
+    summerTime.EntityData.Children = types.NewOrderedMap()
+    summerTime.EntityData.Leafs = types.NewOrderedMap()
+    summerTime.EntityData.Leafs.Append("time-zone-name", types.YLeaf{"TimeZoneName", summerTime.TimeZoneName})
+    summerTime.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", summerTime.Mode})
+    summerTime.EntityData.Leafs.Append("start-week-number-or-start-date", types.YLeaf{"StartWeekNumberOrStartDate", summerTime.StartWeekNumberOrStartDate})
+    summerTime.EntityData.Leafs.Append("start-weekday-or-start-year", types.YLeaf{"StartWeekdayOrStartYear", summerTime.StartWeekdayOrStartYear})
+    summerTime.EntityData.Leafs.Append("start-month", types.YLeaf{"StartMonth", summerTime.StartMonth})
+    summerTime.EntityData.Leafs.Append("start-hour", types.YLeaf{"StartHour", summerTime.StartHour})
+    summerTime.EntityData.Leafs.Append("start-minute", types.YLeaf{"StartMinute", summerTime.StartMinute})
+    summerTime.EntityData.Leafs.Append("end-week-number-or-end-date", types.YLeaf{"EndWeekNumberOrEndDate", summerTime.EndWeekNumberOrEndDate})
+    summerTime.EntityData.Leafs.Append("end-weekday-or-end-year", types.YLeaf{"EndWeekdayOrEndYear", summerTime.EndWeekdayOrEndYear})
+    summerTime.EntityData.Leafs.Append("end-month", types.YLeaf{"EndMonth", summerTime.EndMonth})
+    summerTime.EntityData.Leafs.Append("end-hour", types.YLeaf{"EndHour", summerTime.EndHour})
+    summerTime.EntityData.Leafs.Append("end-minute", types.YLeaf{"EndMinute", summerTime.EndMinute})
+    summerTime.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", summerTime.Offset})
+
+    summerTime.EntityData.YListKeys = []string {}
+
     return &(summerTime.EntityData)
 }
 
@@ -197,6 +204,7 @@ func (summerTime *Clock_SummerTime) GetEntityData() *types.CommonEntityData {
 type Clock_TimeZone struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Name of time zone. The type is string. This attribute is mandatory.
     TimeZoneName interface{}
@@ -220,11 +228,14 @@ func (timeZone *Clock_TimeZone) GetEntityData() *types.CommonEntityData {
     timeZone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeZone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timeZone.EntityData.Children = make(map[string]types.YChild)
-    timeZone.EntityData.Leafs = make(map[string]types.YLeaf)
-    timeZone.EntityData.Leafs["time-zone-name"] = types.YLeaf{"TimeZoneName", timeZone.TimeZoneName}
-    timeZone.EntityData.Leafs["hour-offset"] = types.YLeaf{"HourOffset", timeZone.HourOffset}
-    timeZone.EntityData.Leafs["minute-offset"] = types.YLeaf{"MinuteOffset", timeZone.MinuteOffset}
+    timeZone.EntityData.Children = types.NewOrderedMap()
+    timeZone.EntityData.Leafs = types.NewOrderedMap()
+    timeZone.EntityData.Leafs.Append("time-zone-name", types.YLeaf{"TimeZoneName", timeZone.TimeZoneName})
+    timeZone.EntityData.Leafs.Append("hour-offset", types.YLeaf{"HourOffset", timeZone.HourOffset})
+    timeZone.EntityData.Leafs.Append("minute-offset", types.YLeaf{"MinuteOffset", timeZone.MinuteOffset})
+
+    timeZone.EntityData.YListKeys = []string {}
+
     return &(timeZone.EntityData)
 }
 

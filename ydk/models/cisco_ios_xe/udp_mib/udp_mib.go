@@ -31,7 +31,7 @@ type UDPMIB struct {
     // information about all local IPv4 UDP end-points on which an application is
     // currently accepting datagrams.  This table has been deprecated in favor of
     // the version neutral udpEndpointTable.
-    Udptable UDPMIB_Udptable
+    UdpTable UDPMIB_UdpTable
 
     // A table containing information about this entity's UDP endpoints on which a
     // local application is currently accepting or sending datagrams.  The address
@@ -58,7 +58,7 @@ type UDPMIB struct {
     // is demultiplexing UDP packets by remote address and port, or if the
     // application has 'connected' the socket specifying a default remote address
     // and port, the udpEndpointRemote* values should be used to reflect this.
-    Udpendpointtable UDPMIB_Udpendpointtable
+    UdpEndpointTable UDPMIB_UdpEndpointTable
 }
 
 func (uDPMIB *UDPMIB) GetEntityData() *types.CommonEntityData {
@@ -71,11 +71,14 @@ func (uDPMIB *UDPMIB) GetEntityData() *types.CommonEntityData {
     uDPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     uDPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    uDPMIB.EntityData.Children = make(map[string]types.YChild)
-    uDPMIB.EntityData.Children["udp"] = types.YChild{"Udp", &uDPMIB.Udp}
-    uDPMIB.EntityData.Children["udpTable"] = types.YChild{"Udptable", &uDPMIB.Udptable}
-    uDPMIB.EntityData.Children["udpEndpointTable"] = types.YChild{"Udpendpointtable", &uDPMIB.Udpendpointtable}
-    uDPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    uDPMIB.EntityData.Children = types.NewOrderedMap()
+    uDPMIB.EntityData.Children.Append("udp", types.YChild{"Udp", &uDPMIB.Udp})
+    uDPMIB.EntityData.Children.Append("udpTable", types.YChild{"UdpTable", &uDPMIB.UdpTable})
+    uDPMIB.EntityData.Children.Append("udpEndpointTable", types.YChild{"UdpEndpointTable", &uDPMIB.UdpEndpointTable})
+    uDPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    uDPMIB.EntityData.YListKeys = []string {}
+
     return &(uDPMIB.EntityData)
 }
 
@@ -88,14 +91,14 @@ type UDPMIB_Udp struct {
     // in the value of this counter can occur at re-initialization of the
     // management system, and at other times as indicated by discontinuities in
     // the value of sysUpTime. The type is interface{} with range: 0..4294967295.
-    Udpindatagrams interface{}
+    UdpInDatagrams interface{}
 
     // The total number of received UDP datagrams for which there was no
     // application at the destination port.  Discontinuities in the value of this
     // counter can occur at re-initialization of the management system, and at
     // other times as indicated by discontinuities in the value of sysUpTime. The
     // type is interface{} with range: 0..4294967295.
-    Udpnoports interface{}
+    UdpNoPorts interface{}
 
     // The number of received UDP datagrams that could not be delivered for
     // reasons other than the lack of an application at the destination port. 
@@ -103,13 +106,13 @@ type UDPMIB_Udp struct {
     // of the management system, and at other times as indicated by
     // discontinuities in the value of sysUpTime. The type is interface{} with
     // range: 0..4294967295.
-    Udpinerrors interface{}
+    UdpInErrors interface{}
 
     // The total number of UDP datagrams sent from this entity.  Discontinuities
     // in the value of this counter can occur at re-initialization of the
     // management system, and at other times as indicated by discontinuities in
     // the value of sysUpTime. The type is interface{} with range: 0..4294967295.
-    Udpoutdatagrams interface{}
+    UdpOutDatagrams interface{}
 
     // The total number of UDP datagrams delivered to UDP users, for devices that
     // can receive more than 1 million UDP datagrams per second.  Discontinuities
@@ -117,7 +120,7 @@ type UDPMIB_Udp struct {
     // management system, and at other times as indicated by discontinuities in
     // the value of sysUpTime. The type is interface{} with range:
     // 0..18446744073709551615.
-    Udphcindatagrams interface{}
+    UdpHCInDatagrams interface{}
 
     // The total number of UDP datagrams sent from this entity, for devices that
     // can transmit more than 1 million UDP datagrams per second.  Discontinuities
@@ -125,7 +128,7 @@ type UDPMIB_Udp struct {
     // management system, and at other times as indicated by discontinuities in
     // the value of sysUpTime. The type is interface{} with range:
     // 0..18446744073709551615.
-    Udphcoutdatagrams interface{}
+    UdpHCOutDatagrams interface{}
 }
 
 func (udp *UDPMIB_Udp) GetEntityData() *types.CommonEntityData {
@@ -138,55 +141,61 @@ func (udp *UDPMIB_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udp.EntityData.Children = make(map[string]types.YChild)
-    udp.EntityData.Leafs = make(map[string]types.YLeaf)
-    udp.EntityData.Leafs["udpInDatagrams"] = types.YLeaf{"Udpindatagrams", udp.Udpindatagrams}
-    udp.EntityData.Leafs["udpNoPorts"] = types.YLeaf{"Udpnoports", udp.Udpnoports}
-    udp.EntityData.Leafs["udpInErrors"] = types.YLeaf{"Udpinerrors", udp.Udpinerrors}
-    udp.EntityData.Leafs["udpOutDatagrams"] = types.YLeaf{"Udpoutdatagrams", udp.Udpoutdatagrams}
-    udp.EntityData.Leafs["udpHCInDatagrams"] = types.YLeaf{"Udphcindatagrams", udp.Udphcindatagrams}
-    udp.EntityData.Leafs["udpHCOutDatagrams"] = types.YLeaf{"Udphcoutdatagrams", udp.Udphcoutdatagrams}
+    udp.EntityData.Children = types.NewOrderedMap()
+    udp.EntityData.Leafs = types.NewOrderedMap()
+    udp.EntityData.Leafs.Append("udpInDatagrams", types.YLeaf{"UdpInDatagrams", udp.UdpInDatagrams})
+    udp.EntityData.Leafs.Append("udpNoPorts", types.YLeaf{"UdpNoPorts", udp.UdpNoPorts})
+    udp.EntityData.Leafs.Append("udpInErrors", types.YLeaf{"UdpInErrors", udp.UdpInErrors})
+    udp.EntityData.Leafs.Append("udpOutDatagrams", types.YLeaf{"UdpOutDatagrams", udp.UdpOutDatagrams})
+    udp.EntityData.Leafs.Append("udpHCInDatagrams", types.YLeaf{"UdpHCInDatagrams", udp.UdpHCInDatagrams})
+    udp.EntityData.Leafs.Append("udpHCOutDatagrams", types.YLeaf{"UdpHCOutDatagrams", udp.UdpHCOutDatagrams})
+
+    udp.EntityData.YListKeys = []string {}
+
     return &(udp.EntityData)
 }
 
-// UDPMIB_Udptable
+// UDPMIB_UdpTable
 // A table containing IPv4-specific UDP listener
 // information.  It contains information about all local
 // IPv4 UDP end-points on which an application is
 // currently accepting datagrams.  This table has been
 // deprecated in favor of the version neutral
 // udpEndpointTable.
-type UDPMIB_Udptable struct {
+type UDPMIB_UdpTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular current UDP listener. The type is slice of
-    // UDPMIB_Udptable_Udpentry.
-    Udpentry []UDPMIB_Udptable_Udpentry
+    // UDPMIB_UdpTable_UdpEntry.
+    UdpEntry []*UDPMIB_UdpTable_UdpEntry
 }
 
-func (udptable *UDPMIB_Udptable) GetEntityData() *types.CommonEntityData {
-    udptable.EntityData.YFilter = udptable.YFilter
-    udptable.EntityData.YangName = "udpTable"
-    udptable.EntityData.BundleName = "cisco_ios_xe"
-    udptable.EntityData.ParentYangName = "UDP-MIB"
-    udptable.EntityData.SegmentPath = "udpTable"
-    udptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    udptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    udptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (udpTable *UDPMIB_UdpTable) GetEntityData() *types.CommonEntityData {
+    udpTable.EntityData.YFilter = udpTable.YFilter
+    udpTable.EntityData.YangName = "udpTable"
+    udpTable.EntityData.BundleName = "cisco_ios_xe"
+    udpTable.EntityData.ParentYangName = "UDP-MIB"
+    udpTable.EntityData.SegmentPath = "udpTable"
+    udpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udptable.EntityData.Children = make(map[string]types.YChild)
-    udptable.EntityData.Children["udpEntry"] = types.YChild{"Udpentry", nil}
-    for i := range udptable.Udpentry {
-        udptable.EntityData.Children[types.GetSegmentPath(&udptable.Udpentry[i])] = types.YChild{"Udpentry", &udptable.Udpentry[i]}
+    udpTable.EntityData.Children = types.NewOrderedMap()
+    udpTable.EntityData.Children.Append("udpEntry", types.YChild{"UdpEntry", nil})
+    for i := range udpTable.UdpEntry {
+        udpTable.EntityData.Children.Append(types.GetSegmentPath(udpTable.UdpEntry[i]), types.YChild{"UdpEntry", udpTable.UdpEntry[i]})
     }
-    udptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(udptable.EntityData)
+    udpTable.EntityData.Leafs = types.NewOrderedMap()
+
+    udpTable.EntityData.YListKeys = []string {}
+
+    return &(udpTable.EntityData)
 }
 
-// UDPMIB_Udptable_Udpentry
+// UDPMIB_UdpTable_UdpEntry
 // Information about a particular current UDP listener.
-type UDPMIB_Udptable_Udpentry struct {
+type UDPMIB_UdpTable_UdpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -194,32 +203,35 @@ type UDPMIB_Udptable_Udpentry struct {
     // the case of a UDP listener that is willing to accept datagrams for any IP
     // interface associated with the node, the value 0.0.0.0 is used. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Udplocaladdress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    UdpLocalAddress interface{}
 
     // This attribute is a key. The local port number for this UDP listener. The
     // type is interface{} with range: 0..65535.
-    Udplocalport interface{}
+    UdpLocalPort interface{}
 }
 
-func (udpentry *UDPMIB_Udptable_Udpentry) GetEntityData() *types.CommonEntityData {
-    udpentry.EntityData.YFilter = udpentry.YFilter
-    udpentry.EntityData.YangName = "udpEntry"
-    udpentry.EntityData.BundleName = "cisco_ios_xe"
-    udpentry.EntityData.ParentYangName = "udpTable"
-    udpentry.EntityData.SegmentPath = "udpEntry" + "[udpLocalAddress='" + fmt.Sprintf("%v", udpentry.Udplocaladdress) + "']" + "[udpLocalPort='" + fmt.Sprintf("%v", udpentry.Udplocalport) + "']"
-    udpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    udpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    udpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (udpEntry *UDPMIB_UdpTable_UdpEntry) GetEntityData() *types.CommonEntityData {
+    udpEntry.EntityData.YFilter = udpEntry.YFilter
+    udpEntry.EntityData.YangName = "udpEntry"
+    udpEntry.EntityData.BundleName = "cisco_ios_xe"
+    udpEntry.EntityData.ParentYangName = "udpTable"
+    udpEntry.EntityData.SegmentPath = "udpEntry" + types.AddKeyToken(udpEntry.UdpLocalAddress, "udpLocalAddress") + types.AddKeyToken(udpEntry.UdpLocalPort, "udpLocalPort")
+    udpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udpentry.EntityData.Children = make(map[string]types.YChild)
-    udpentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    udpentry.EntityData.Leafs["udpLocalAddress"] = types.YLeaf{"Udplocaladdress", udpentry.Udplocaladdress}
-    udpentry.EntityData.Leafs["udpLocalPort"] = types.YLeaf{"Udplocalport", udpentry.Udplocalport}
-    return &(udpentry.EntityData)
+    udpEntry.EntityData.Children = types.NewOrderedMap()
+    udpEntry.EntityData.Leafs = types.NewOrderedMap()
+    udpEntry.EntityData.Leafs.Append("udpLocalAddress", types.YLeaf{"UdpLocalAddress", udpEntry.UdpLocalAddress})
+    udpEntry.EntityData.Leafs.Append("udpLocalPort", types.YLeaf{"UdpLocalPort", udpEntry.UdpLocalPort})
+
+    udpEntry.EntityData.YListKeys = []string {"UdpLocalAddress", "UdpLocalPort"}
+
+    return &(udpEntry.EntityData)
 }
 
-// UDPMIB_Udpendpointtable
+// UDPMIB_UdpEndpointTable
 // A table containing information about this entity's UDP
 // endpoints on which a local application is currently
 // accepting or sending datagrams.
@@ -266,7 +278,7 @@ func (udpentry *UDPMIB_Udptable_Udpentry) GetEntityData() *types.CommonEntityDat
 // 'connected' the socket specifying a default remote
 // address and port, the udpEndpointRemote* values should
 // be used to reflect this.
-type UDPMIB_Udpendpointtable struct {
+type UDPMIB_UdpEndpointTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -275,30 +287,33 @@ type UDPMIB_Udpendpointtable struct {
     // in udpEndpointLocalAddress and udpEndpointRemoteAddress exceeds 111, then
     // OIDs of column instances in this table will have more than 128
     // sub-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3.
-    // The type is slice of UDPMIB_Udpendpointtable_Udpendpointentry.
-    Udpendpointentry []UDPMIB_Udpendpointtable_Udpendpointentry
+    // The type is slice of UDPMIB_UdpEndpointTable_UdpEndpointEntry.
+    UdpEndpointEntry []*UDPMIB_UdpEndpointTable_UdpEndpointEntry
 }
 
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetEntityData() *types.CommonEntityData {
-    udpendpointtable.EntityData.YFilter = udpendpointtable.YFilter
-    udpendpointtable.EntityData.YangName = "udpEndpointTable"
-    udpendpointtable.EntityData.BundleName = "cisco_ios_xe"
-    udpendpointtable.EntityData.ParentYangName = "UDP-MIB"
-    udpendpointtable.EntityData.SegmentPath = "udpEndpointTable"
-    udpendpointtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    udpendpointtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    udpendpointtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (udpEndpointTable *UDPMIB_UdpEndpointTable) GetEntityData() *types.CommonEntityData {
+    udpEndpointTable.EntityData.YFilter = udpEndpointTable.YFilter
+    udpEndpointTable.EntityData.YangName = "udpEndpointTable"
+    udpEndpointTable.EntityData.BundleName = "cisco_ios_xe"
+    udpEndpointTable.EntityData.ParentYangName = "UDP-MIB"
+    udpEndpointTable.EntityData.SegmentPath = "udpEndpointTable"
+    udpEndpointTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpEndpointTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpEndpointTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udpendpointtable.EntityData.Children = make(map[string]types.YChild)
-    udpendpointtable.EntityData.Children["udpEndpointEntry"] = types.YChild{"Udpendpointentry", nil}
-    for i := range udpendpointtable.Udpendpointentry {
-        udpendpointtable.EntityData.Children[types.GetSegmentPath(&udpendpointtable.Udpendpointentry[i])] = types.YChild{"Udpendpointentry", &udpendpointtable.Udpendpointentry[i]}
+    udpEndpointTable.EntityData.Children = types.NewOrderedMap()
+    udpEndpointTable.EntityData.Children.Append("udpEndpointEntry", types.YChild{"UdpEndpointEntry", nil})
+    for i := range udpEndpointTable.UdpEndpointEntry {
+        udpEndpointTable.EntityData.Children.Append(types.GetSegmentPath(udpEndpointTable.UdpEndpointEntry[i]), types.YChild{"UdpEndpointEntry", udpEndpointTable.UdpEndpointEntry[i]})
     }
-    udpendpointtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(udpendpointtable.EntityData)
+    udpEndpointTable.EntityData.Leafs = types.NewOrderedMap()
+
+    udpEndpointTable.EntityData.YListKeys = []string {}
+
+    return &(udpEndpointTable.EntityData)
 }
 
-// UDPMIB_Udpendpointtable_Udpendpointentry
+// UDPMIB_UdpEndpointTable_UdpEndpointEntry
 // Information about a particular current UDP endpoint.
 // 
 // Implementers need to be aware that if the total number
@@ -307,7 +322,7 @@ func (udpendpointtable *UDPMIB_Udpendpointtable) GetEntityData() *types.CommonEn
 // exceeds 111, then OIDs of column instances in this table
 // will have more than 128 sub-identifiers and cannot be
 // accessed using SNMPv1, SNMPv2c, or SNMPv3.
-type UDPMIB_Udpendpointtable_Udpendpointentry struct {
+type UDPMIB_UdpEndpointTable_UdpEndpointEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -315,7 +330,7 @@ type UDPMIB_Udpendpointtable_Udpendpointentry struct {
     // IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if
     // datagrams for all local IP addresses are accepted. The type is
     // InetAddressType.
-    Udpendpointlocaladdresstype interface{}
+    UdpEndpointLocalAddressType interface{}
 
     // This attribute is a key. The local IP address for this UDP endpoint.  The
     // value of this object can be represented in three  possible ways, depending
@@ -336,11 +351,11 @@ type UDPMIB_Udpendpointtable_Udpendpointentry struct {
     // careful not to create entries that would result in OIDs with more than 128
     // subidentifiers; else the information cannot be accessed using SNMPv1,
     // SNMPv2c, or SNMPv3. The type is string with length: 0..255.
-    Udpendpointlocaladdress interface{}
+    UdpEndpointLocalAddress interface{}
 
     // This attribute is a key. The local port number for this UDP endpoint. The
     // type is interface{} with range: 0..65535.
-    Udpendpointlocalport interface{}
+    UdpEndpointLocalPort interface{}
 
     // This attribute is a key. The address type of udpEndpointRemoteAddress. 
     // Only IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if
@@ -350,7 +365,7 @@ type UDPMIB_Udpendpointtable_Udpendpointentry struct {
     // value of this object is not unknown(0), it is expected to always refer to
     // the same IP version as udpEndpointLocalAddressType. The type is
     // InetAddressType.
-    Udpendpointremoteaddresstype interface{}
+    UdpEndpointRemoteAddressType interface{}
 
     // This attribute is a key. The remote IP address for this UDP endpoint.  If
     // datagrams from any remote system are to be accepted, this value is ''h (a
@@ -362,48 +377,51 @@ type UDPMIB_Udpendpointtable_Udpendpointentry struct {
     // would result in OIDs with more than 128 subidentifiers; else the
     // information cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3. The type
     // is string with length: 0..255.
-    Udpendpointremoteaddress interface{}
+    UdpEndpointRemoteAddress interface{}
 
     // This attribute is a key. The remote port number for this UDP endpoint.  If
     // datagrams from any remote system are to be accepted, this value is zero.
     // The type is interface{} with range: 0..65535.
-    Udpendpointremoteport interface{}
+    UdpEndpointRemotePort interface{}
 
     // This attribute is a key. The instance of this tuple.  This object is used
     // to distinguish among multiple processes 'connected' to the same UDP
     // endpoint.  For example, on a system implementing the BSD sockets interface,
     // this would be used to support the SO_REUSEADDR and SO_REUSEPORT socket
     // options. The type is interface{} with range: 1..4294967295.
-    Udpendpointinstance interface{}
+    UdpEndpointInstance interface{}
 
     // The system's process ID for the process associated with this endpoint, or
     // zero if there is no such process. This value is expected to be the same as
     // HOST-RESOURCES-MIB::hrSWRunIndex or SYSAPPL-MIB:: sysApplElmtRunIndex for
     // some row in the appropriate tables. The type is interface{} with range:
     // 0..4294967295.
-    Udpendpointprocess interface{}
+    UdpEndpointProcess interface{}
 }
 
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetEntityData() *types.CommonEntityData {
-    udpendpointentry.EntityData.YFilter = udpendpointentry.YFilter
-    udpendpointentry.EntityData.YangName = "udpEndpointEntry"
-    udpendpointentry.EntityData.BundleName = "cisco_ios_xe"
-    udpendpointentry.EntityData.ParentYangName = "udpEndpointTable"
-    udpendpointentry.EntityData.SegmentPath = "udpEndpointEntry" + "[udpEndpointLocalAddressType='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocaladdresstype) + "']" + "[udpEndpointLocalAddress='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocaladdress) + "']" + "[udpEndpointLocalPort='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocalport) + "']" + "[udpEndpointRemoteAddressType='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteaddresstype) + "']" + "[udpEndpointRemoteAddress='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteaddress) + "']" + "[udpEndpointRemotePort='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteport) + "']" + "[udpEndpointInstance='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointinstance) + "']"
-    udpendpointentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    udpendpointentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    udpendpointentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (udpEndpointEntry *UDPMIB_UdpEndpointTable_UdpEndpointEntry) GetEntityData() *types.CommonEntityData {
+    udpEndpointEntry.EntityData.YFilter = udpEndpointEntry.YFilter
+    udpEndpointEntry.EntityData.YangName = "udpEndpointEntry"
+    udpEndpointEntry.EntityData.BundleName = "cisco_ios_xe"
+    udpEndpointEntry.EntityData.ParentYangName = "udpEndpointTable"
+    udpEndpointEntry.EntityData.SegmentPath = "udpEndpointEntry" + types.AddKeyToken(udpEndpointEntry.UdpEndpointLocalAddressType, "udpEndpointLocalAddressType") + types.AddKeyToken(udpEndpointEntry.UdpEndpointLocalAddress, "udpEndpointLocalAddress") + types.AddKeyToken(udpEndpointEntry.UdpEndpointLocalPort, "udpEndpointLocalPort") + types.AddKeyToken(udpEndpointEntry.UdpEndpointRemoteAddressType, "udpEndpointRemoteAddressType") + types.AddKeyToken(udpEndpointEntry.UdpEndpointRemoteAddress, "udpEndpointRemoteAddress") + types.AddKeyToken(udpEndpointEntry.UdpEndpointRemotePort, "udpEndpointRemotePort") + types.AddKeyToken(udpEndpointEntry.UdpEndpointInstance, "udpEndpointInstance")
+    udpEndpointEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpEndpointEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpEndpointEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udpendpointentry.EntityData.Children = make(map[string]types.YChild)
-    udpendpointentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    udpendpointentry.EntityData.Leafs["udpEndpointLocalAddressType"] = types.YLeaf{"Udpendpointlocaladdresstype", udpendpointentry.Udpendpointlocaladdresstype}
-    udpendpointentry.EntityData.Leafs["udpEndpointLocalAddress"] = types.YLeaf{"Udpendpointlocaladdress", udpendpointentry.Udpendpointlocaladdress}
-    udpendpointentry.EntityData.Leafs["udpEndpointLocalPort"] = types.YLeaf{"Udpendpointlocalport", udpendpointentry.Udpendpointlocalport}
-    udpendpointentry.EntityData.Leafs["udpEndpointRemoteAddressType"] = types.YLeaf{"Udpendpointremoteaddresstype", udpendpointentry.Udpendpointremoteaddresstype}
-    udpendpointentry.EntityData.Leafs["udpEndpointRemoteAddress"] = types.YLeaf{"Udpendpointremoteaddress", udpendpointentry.Udpendpointremoteaddress}
-    udpendpointentry.EntityData.Leafs["udpEndpointRemotePort"] = types.YLeaf{"Udpendpointremoteport", udpendpointentry.Udpendpointremoteport}
-    udpendpointentry.EntityData.Leafs["udpEndpointInstance"] = types.YLeaf{"Udpendpointinstance", udpendpointentry.Udpendpointinstance}
-    udpendpointentry.EntityData.Leafs["udpEndpointProcess"] = types.YLeaf{"Udpendpointprocess", udpendpointentry.Udpendpointprocess}
-    return &(udpendpointentry.EntityData)
+    udpEndpointEntry.EntityData.Children = types.NewOrderedMap()
+    udpEndpointEntry.EntityData.Leafs = types.NewOrderedMap()
+    udpEndpointEntry.EntityData.Leafs.Append("udpEndpointLocalAddressType", types.YLeaf{"UdpEndpointLocalAddressType", udpEndpointEntry.UdpEndpointLocalAddressType})
+    udpEndpointEntry.EntityData.Leafs.Append("udpEndpointLocalAddress", types.YLeaf{"UdpEndpointLocalAddress", udpEndpointEntry.UdpEndpointLocalAddress})
+    udpEndpointEntry.EntityData.Leafs.Append("udpEndpointLocalPort", types.YLeaf{"UdpEndpointLocalPort", udpEndpointEntry.UdpEndpointLocalPort})
+    udpEndpointEntry.EntityData.Leafs.Append("udpEndpointRemoteAddressType", types.YLeaf{"UdpEndpointRemoteAddressType", udpEndpointEntry.UdpEndpointRemoteAddressType})
+    udpEndpointEntry.EntityData.Leafs.Append("udpEndpointRemoteAddress", types.YLeaf{"UdpEndpointRemoteAddress", udpEndpointEntry.UdpEndpointRemoteAddress})
+    udpEndpointEntry.EntityData.Leafs.Append("udpEndpointRemotePort", types.YLeaf{"UdpEndpointRemotePort", udpEndpointEntry.UdpEndpointRemotePort})
+    udpEndpointEntry.EntityData.Leafs.Append("udpEndpointInstance", types.YLeaf{"UdpEndpointInstance", udpEndpointEntry.UdpEndpointInstance})
+    udpEndpointEntry.EntityData.Leafs.Append("udpEndpointProcess", types.YLeaf{"UdpEndpointProcess", udpEndpointEntry.UdpEndpointProcess})
+
+    udpEndpointEntry.EntityData.YListKeys = []string {"UdpEndpointLocalAddressType", "UdpEndpointLocalAddress", "UdpEndpointLocalPort", "UdpEndpointRemoteAddressType", "UdpEndpointRemoteAddress", "UdpEndpointRemotePort", "UdpEndpointInstance"}
+
+    return &(udpEndpointEntry.EntityData)
 }
 

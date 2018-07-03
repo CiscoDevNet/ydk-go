@@ -103,11 +103,14 @@ func (bridgeDomainConfig *BridgeDomainConfig) GetEntityData() *types.CommonEntit
     bridgeDomainConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomainConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeDomainConfig.EntityData.Children = make(map[string]types.YChild)
-    bridgeDomainConfig.EntityData.Children["global"] = types.YChild{"Global", &bridgeDomainConfig.Global}
-    bridgeDomainConfig.EntityData.Children["bridge-groups"] = types.YChild{"BridgeGroups", &bridgeDomainConfig.BridgeGroups}
-    bridgeDomainConfig.EntityData.Children["bridge-domains"] = types.YChild{"BridgeDomains", &bridgeDomainConfig.BridgeDomains}
-    bridgeDomainConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    bridgeDomainConfig.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainConfig.EntityData.Children.Append("global", types.YChild{"Global", &bridgeDomainConfig.Global})
+    bridgeDomainConfig.EntityData.Children.Append("bridge-groups", types.YChild{"BridgeGroups", &bridgeDomainConfig.BridgeGroups})
+    bridgeDomainConfig.EntityData.Children.Append("bridge-domains", types.YChild{"BridgeDomains", &bridgeDomainConfig.BridgeDomains})
+    bridgeDomainConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomainConfig.EntityData.YListKeys = []string {}
+
     return &(bridgeDomainConfig.EntityData)
 }
 
@@ -141,11 +144,14 @@ func (global *BridgeDomainConfig_Global) GetEntityData() *types.CommonEntityData
     global.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Children["pbb"] = types.YChild{"Pbb", &global.Pbb}
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
-    global.EntityData.Leafs["bd-state-notification-enabled"] = types.YLeaf{"BdStateNotificationEnabled", global.BdStateNotificationEnabled}
-    global.EntityData.Leafs["bd-state-notification-rate"] = types.YLeaf{"BdStateNotificationRate", global.BdStateNotificationRate}
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Children.Append("pbb", types.YChild{"Pbb", &global.Pbb})
+    global.EntityData.Leafs = types.NewOrderedMap()
+    global.EntityData.Leafs.Append("bd-state-notification-enabled", types.YLeaf{"BdStateNotificationEnabled", global.BdStateNotificationEnabled})
+    global.EntityData.Leafs.Append("bd-state-notification-rate", types.YLeaf{"BdStateNotificationRate", global.BdStateNotificationRate})
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
 }
 
@@ -157,8 +163,7 @@ type BridgeDomainConfig_Global_Pbb struct {
     YFilter yfilter.YFilter
 
     // Backbone source mac address configuration for Provider Backbone Bridging
-    // (PBB). The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // (PBB). The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BackboneSrcMac interface{}
 }
 
@@ -172,9 +177,12 @@ func (pbb *BridgeDomainConfig_Global_Pbb) GetEntityData() *types.CommonEntityDat
     pbb.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pbb.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pbb.EntityData.Children = make(map[string]types.YChild)
-    pbb.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbb.EntityData.Leafs["backbone-src-mac"] = types.YLeaf{"BackboneSrcMac", pbb.BackboneSrcMac}
+    pbb.EntityData.Children = types.NewOrderedMap()
+    pbb.EntityData.Leafs = types.NewOrderedMap()
+    pbb.EntityData.Leafs.Append("backbone-src-mac", types.YLeaf{"BackboneSrcMac", pbb.BackboneSrcMac})
+
+    pbb.EntityData.YListKeys = []string {}
+
     return &(pbb.EntityData)
 }
 
@@ -192,7 +200,7 @@ type BridgeDomainConfig_BridgeGroups struct {
 
     // Bridge-group configuration. The type is slice of
     // BridgeDomainConfig_BridgeGroups_BridgeGroup.
-    BridgeGroup []BridgeDomainConfig_BridgeGroups_BridgeGroup
+    BridgeGroup []*BridgeDomainConfig_BridgeGroups_BridgeGroup
 }
 
 func (bridgeGroups *BridgeDomainConfig_BridgeGroups) GetEntityData() *types.CommonEntityData {
@@ -205,12 +213,15 @@ func (bridgeGroups *BridgeDomainConfig_BridgeGroups) GetEntityData() *types.Comm
     bridgeGroups.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeGroups.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeGroups.EntityData.Children = make(map[string]types.YChild)
-    bridgeGroups.EntityData.Children["bridge-group"] = types.YChild{"BridgeGroup", nil}
+    bridgeGroups.EntityData.Children = types.NewOrderedMap()
+    bridgeGroups.EntityData.Children.Append("bridge-group", types.YChild{"BridgeGroup", nil})
     for i := range bridgeGroups.BridgeGroup {
-        bridgeGroups.EntityData.Children[types.GetSegmentPath(&bridgeGroups.BridgeGroup[i])] = types.YChild{"BridgeGroup", &bridgeGroups.BridgeGroup[i]}
+        bridgeGroups.EntityData.Children.Append(types.GetSegmentPath(bridgeGroups.BridgeGroup[i]), types.YChild{"BridgeGroup", bridgeGroups.BridgeGroup[i]})
     }
-    bridgeGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    bridgeGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeGroups.EntityData.YListKeys = []string {}
+
     return &(bridgeGroups.EntityData)
 }
 
@@ -230,14 +241,17 @@ func (bridgeGroup *BridgeDomainConfig_BridgeGroups_BridgeGroup) GetEntityData() 
     bridgeGroup.EntityData.YangName = "bridge-group"
     bridgeGroup.EntityData.BundleName = "cisco_ios_xe"
     bridgeGroup.EntityData.ParentYangName = "bridge-groups"
-    bridgeGroup.EntityData.SegmentPath = "bridge-group" + "[name='" + fmt.Sprintf("%v", bridgeGroup.Name) + "']"
+    bridgeGroup.EntityData.SegmentPath = "bridge-group" + types.AddKeyToken(bridgeGroup.Name, "name")
     bridgeGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeGroup.EntityData.Children = make(map[string]types.YChild)
-    bridgeGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    bridgeGroup.EntityData.Leafs["name"] = types.YLeaf{"Name", bridgeGroup.Name}
+    bridgeGroup.EntityData.Children = types.NewOrderedMap()
+    bridgeGroup.EntityData.Leafs = types.NewOrderedMap()
+    bridgeGroup.EntityData.Leafs.Append("name", types.YLeaf{"Name", bridgeGroup.Name})
+
+    bridgeGroup.EntityData.YListKeys = []string {"Name"}
+
     return &(bridgeGroup.EntityData)
 }
 
@@ -249,7 +263,7 @@ type BridgeDomainConfig_BridgeDomains struct {
 
     // Definition of a bridge-domain. The type is slice of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain.
-    BridgeDomain []BridgeDomainConfig_BridgeDomains_BridgeDomain
+    BridgeDomain []*BridgeDomainConfig_BridgeDomains_BridgeDomain
 }
 
 func (bridgeDomains *BridgeDomainConfig_BridgeDomains) GetEntityData() *types.CommonEntityData {
@@ -262,12 +276,15 @@ func (bridgeDomains *BridgeDomainConfig_BridgeDomains) GetEntityData() *types.Co
     bridgeDomains.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeDomains.EntityData.Children = make(map[string]types.YChild)
-    bridgeDomains.EntityData.Children["bridge-domain"] = types.YChild{"BridgeDomain", nil}
+    bridgeDomains.EntityData.Children = types.NewOrderedMap()
+    bridgeDomains.EntityData.Children.Append("bridge-domain", types.YChild{"BridgeDomain", nil})
     for i := range bridgeDomains.BridgeDomain {
-        bridgeDomains.EntityData.Children[types.GetSegmentPath(&bridgeDomains.BridgeDomain[i])] = types.YChild{"BridgeDomain", &bridgeDomains.BridgeDomain[i]}
+        bridgeDomains.EntityData.Children.Append(types.GetSegmentPath(bridgeDomains.BridgeDomain[i]), types.YChild{"BridgeDomain", bridgeDomains.BridgeDomain[i]})
     }
-    bridgeDomains.EntityData.Leafs = make(map[string]types.YLeaf)
+    bridgeDomains.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomains.EntityData.YListKeys = []string {}
+
     return &(bridgeDomains.EntityData)
 }
 
@@ -334,27 +351,30 @@ func (bridgeDomain *BridgeDomainConfig_BridgeDomains_BridgeDomain) GetEntityData
     bridgeDomain.EntityData.YangName = "bridge-domain"
     bridgeDomain.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomain.EntityData.ParentYangName = "bridge-domains"
-    bridgeDomain.EntityData.SegmentPath = "bridge-domain" + "[id='" + fmt.Sprintf("%v", bridgeDomain.Id) + "']"
+    bridgeDomain.EntityData.SegmentPath = "bridge-domain" + types.AddKeyToken(bridgeDomain.Id, "id")
     bridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeDomain.EntityData.Children = make(map[string]types.YChild)
-    bridgeDomain.EntityData.Children["members"] = types.YChild{"Members", &bridgeDomain.Members}
-    bridgeDomain.EntityData.Children["mac"] = types.YChild{"Mac", &bridgeDomain.Mac}
-    bridgeDomain.EntityData.Children["dynamic-arp-inspection"] = types.YChild{"DynamicArpInspection", &bridgeDomain.DynamicArpInspection}
-    bridgeDomain.EntityData.Children["ip-source-guard"] = types.YChild{"IpSourceGuard", &bridgeDomain.IpSourceGuard}
-    bridgeDomain.EntityData.Children["storm-control"] = types.YChild{"StormControl", &bridgeDomain.StormControl}
-    bridgeDomain.EntityData.Children["igmp-snooping"] = types.YChild{"IgmpSnooping", &bridgeDomain.IgmpSnooping}
-    bridgeDomain.EntityData.Children["mld-snooping"] = types.YChild{"MldSnooping", &bridgeDomain.MldSnooping}
-    bridgeDomain.EntityData.Children["dhcp-ipv4-snooping"] = types.YChild{"DhcpIpv4Snooping", &bridgeDomain.DhcpIpv4Snooping}
-    bridgeDomain.EntityData.Leafs = make(map[string]types.YLeaf)
-    bridgeDomain.EntityData.Leafs["id"] = types.YLeaf{"Id", bridgeDomain.Id}
-    bridgeDomain.EntityData.Leafs["bridge-group"] = types.YLeaf{"BridgeGroup", bridgeDomain.BridgeGroup}
-    bridgeDomain.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", bridgeDomain.Enabled}
-    bridgeDomain.EntityData.Leafs["bd-status-change-notification"] = types.YLeaf{"BdStatusChangeNotification", bridgeDomain.BdStatusChangeNotification}
-    bridgeDomain.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", bridgeDomain.Mtu}
-    bridgeDomain.EntityData.Leafs["flooding-mode"] = types.YLeaf{"FloodingMode", bridgeDomain.FloodingMode}
+    bridgeDomain.EntityData.Children = types.NewOrderedMap()
+    bridgeDomain.EntityData.Children.Append("members", types.YChild{"Members", &bridgeDomain.Members})
+    bridgeDomain.EntityData.Children.Append("mac", types.YChild{"Mac", &bridgeDomain.Mac})
+    bridgeDomain.EntityData.Children.Append("dynamic-arp-inspection", types.YChild{"DynamicArpInspection", &bridgeDomain.DynamicArpInspection})
+    bridgeDomain.EntityData.Children.Append("ip-source-guard", types.YChild{"IpSourceGuard", &bridgeDomain.IpSourceGuard})
+    bridgeDomain.EntityData.Children.Append("storm-control", types.YChild{"StormControl", &bridgeDomain.StormControl})
+    bridgeDomain.EntityData.Children.Append("igmp-snooping", types.YChild{"IgmpSnooping", &bridgeDomain.IgmpSnooping})
+    bridgeDomain.EntityData.Children.Append("mld-snooping", types.YChild{"MldSnooping", &bridgeDomain.MldSnooping})
+    bridgeDomain.EntityData.Children.Append("dhcp-ipv4-snooping", types.YChild{"DhcpIpv4Snooping", &bridgeDomain.DhcpIpv4Snooping})
+    bridgeDomain.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomain.EntityData.Leafs.Append("id", types.YLeaf{"Id", bridgeDomain.Id})
+    bridgeDomain.EntityData.Leafs.Append("bridge-group", types.YLeaf{"BridgeGroup", bridgeDomain.BridgeGroup})
+    bridgeDomain.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", bridgeDomain.Enabled})
+    bridgeDomain.EntityData.Leafs.Append("bd-status-change-notification", types.YLeaf{"BdStatusChangeNotification", bridgeDomain.BdStatusChangeNotification})
+    bridgeDomain.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", bridgeDomain.Mtu})
+    bridgeDomain.EntityData.Leafs.Append("flooding-mode", types.YLeaf{"FloodingMode", bridgeDomain.FloodingMode})
+
+    bridgeDomain.EntityData.YListKeys = []string {"Id"}
+
     return &(bridgeDomain.EntityData)
 }
 
@@ -366,12 +386,12 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members struct {
 
     // List of Attachment circuits for current bridge-domain. The type is slice of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember.
-    AcMember []BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember
+    AcMember []*BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember
 
     // List of Virtual Forrwarding Interfaces for current bridge-domain. The type
     // is slice of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_VfiMember.
-    VfiMember []BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_VfiMember
+    VfiMember []*BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_VfiMember
 
     // Collection of access pseudowire members.  A Pseudowires can be a regular
     // interface with ifType 'ifPwType' or it can represented as a non-interface
@@ -390,17 +410,20 @@ func (members *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members) GetEntityD
     members.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    members.EntityData.Children = make(map[string]types.YChild)
-    members.EntityData.Children["ac-member"] = types.YChild{"AcMember", nil}
+    members.EntityData.Children = types.NewOrderedMap()
+    members.EntityData.Children.Append("ac-member", types.YChild{"AcMember", nil})
     for i := range members.AcMember {
-        members.EntityData.Children[types.GetSegmentPath(&members.AcMember[i])] = types.YChild{"AcMember", &members.AcMember[i]}
+        members.EntityData.Children.Append(types.GetSegmentPath(members.AcMember[i]), types.YChild{"AcMember", members.AcMember[i]})
     }
-    members.EntityData.Children["vfi-member"] = types.YChild{"VfiMember", nil}
+    members.EntityData.Children.Append("vfi-member", types.YChild{"VfiMember", nil})
     for i := range members.VfiMember {
-        members.EntityData.Children[types.GetSegmentPath(&members.VfiMember[i])] = types.YChild{"VfiMember", &members.VfiMember[i]}
+        members.EntityData.Children.Append(types.GetSegmentPath(members.VfiMember[i]), types.YChild{"VfiMember", members.VfiMember[i]})
     }
-    members.EntityData.Children["access-pw-member"] = types.YChild{"AccessPwMember", &members.AccessPwMember}
-    members.EntityData.Leafs = make(map[string]types.YLeaf)
+    members.EntityData.Children.Append("access-pw-member", types.YChild{"AccessPwMember", &members.AccessPwMember})
+    members.EntityData.Leafs = types.NewOrderedMap()
+
+    members.EntityData.YListKeys = []string {}
+
     return &(members.EntityData)
 }
 
@@ -414,7 +437,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember struct {
     // This attribute is a key. Reference to an attchment circuit interface
     // instance which is configured to be part of this bridge-domain. The type is
     // string. Refers to ietf_interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Bridge domain aggregates attachment circuits (ACs) and pseudowires (PWs) in
     // one or more groups called Split Horizon Groups. When applied to bridge
@@ -454,23 +477,26 @@ func (acMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember) 
     acMember.EntityData.YangName = "ac-member"
     acMember.EntityData.BundleName = "cisco_ios_xe"
     acMember.EntityData.ParentYangName = "members"
-    acMember.EntityData.SegmentPath = "ac-member" + "[interface='" + fmt.Sprintf("%v", acMember.Interface_) + "']"
+    acMember.EntityData.SegmentPath = "ac-member" + types.AddKeyToken(acMember.Interface, "interface")
     acMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     acMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     acMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    acMember.EntityData.Children = make(map[string]types.YChild)
-    acMember.EntityData.Children["split-horizon-group"] = types.YChild{"SplitHorizonGroup", &acMember.SplitHorizonGroup}
-    acMember.EntityData.Children["mac"] = types.YChild{"Mac", &acMember.Mac}
-    acMember.EntityData.Children["igmp-snooping"] = types.YChild{"IgmpSnooping", &acMember.IgmpSnooping}
-    acMember.EntityData.Children["mld-snooping"] = types.YChild{"MldSnooping", &acMember.MldSnooping}
-    acMember.EntityData.Children["dhcp-ipv4-snooping"] = types.YChild{"DhcpIpv4Snooping", &acMember.DhcpIpv4Snooping}
-    acMember.EntityData.Children["flooding"] = types.YChild{"Flooding", &acMember.Flooding}
-    acMember.EntityData.Children["storm-control"] = types.YChild{"StormControl", &acMember.StormControl}
-    acMember.EntityData.Children["dynamic-arp-inspection"] = types.YChild{"DynamicArpInspection", &acMember.DynamicArpInspection}
-    acMember.EntityData.Children["ip-source-guard"] = types.YChild{"IpSourceGuard", &acMember.IpSourceGuard}
-    acMember.EntityData.Leafs = make(map[string]types.YLeaf)
-    acMember.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", acMember.Interface_}
+    acMember.EntityData.Children = types.NewOrderedMap()
+    acMember.EntityData.Children.Append("split-horizon-group", types.YChild{"SplitHorizonGroup", &acMember.SplitHorizonGroup})
+    acMember.EntityData.Children.Append("mac", types.YChild{"Mac", &acMember.Mac})
+    acMember.EntityData.Children.Append("igmp-snooping", types.YChild{"IgmpSnooping", &acMember.IgmpSnooping})
+    acMember.EntityData.Children.Append("mld-snooping", types.YChild{"MldSnooping", &acMember.MldSnooping})
+    acMember.EntityData.Children.Append("dhcp-ipv4-snooping", types.YChild{"DhcpIpv4Snooping", &acMember.DhcpIpv4Snooping})
+    acMember.EntityData.Children.Append("flooding", types.YChild{"Flooding", &acMember.Flooding})
+    acMember.EntityData.Children.Append("storm-control", types.YChild{"StormControl", &acMember.StormControl})
+    acMember.EntityData.Children.Append("dynamic-arp-inspection", types.YChild{"DynamicArpInspection", &acMember.DynamicArpInspection})
+    acMember.EntityData.Children.Append("ip-source-guard", types.YChild{"IpSourceGuard", &acMember.IpSourceGuard})
+    acMember.EntityData.Leafs = types.NewOrderedMap()
+    acMember.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", acMember.Interface})
+
+    acMember.EntityData.YListKeys = []string {"Interface"}
+
     return &(acMember.EntityData)
 }
 
@@ -486,6 +512,7 @@ func (acMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember) 
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_SplitHorizonGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Split Horizon group number for bridge domain member. The type is
     // interface{} with range: 0..65535. This attribute is mandatory.
@@ -502,9 +529,12 @@ func (splitHorizonGroup *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_A
     splitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     splitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    splitHorizonGroup.EntityData.Children = make(map[string]types.YChild)
-    splitHorizonGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    splitHorizonGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", splitHorizonGroup.Id}
+    splitHorizonGroup.EntityData.Children = types.NewOrderedMap()
+    splitHorizonGroup.EntityData.Leafs = types.NewOrderedMap()
+    splitHorizonGroup.EntityData.Leafs.Append("id", types.YLeaf{"Id", splitHorizonGroup.Id})
+
+    splitHorizonGroup.EntityData.YListKeys = []string {}
+
     return &(splitHorizonGroup.EntityData)
 }
 
@@ -540,13 +570,16 @@ func (mac *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac) G
     mac.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mac.EntityData.Children = make(map[string]types.YChild)
-    mac.EntityData.Children["limit"] = types.YChild{"Limit", &mac.Limit}
-    mac.EntityData.Children["aging"] = types.YChild{"Aging", &mac.Aging}
-    mac.EntityData.Children["port-down"] = types.YChild{"PortDown", &mac.PortDown}
-    mac.EntityData.Children["secure"] = types.YChild{"Secure", &mac.Secure}
-    mac.EntityData.Leafs = make(map[string]types.YLeaf)
-    mac.EntityData.Leafs["learning-enabled"] = types.YLeaf{"LearningEnabled", mac.LearningEnabled}
+    mac.EntityData.Children = types.NewOrderedMap()
+    mac.EntityData.Children.Append("limit", types.YChild{"Limit", &mac.Limit})
+    mac.EntityData.Children.Append("aging", types.YChild{"Aging", &mac.Aging})
+    mac.EntityData.Children.Append("port-down", types.YChild{"PortDown", &mac.PortDown})
+    mac.EntityData.Children.Append("secure", types.YChild{"Secure", &mac.Secure})
+    mac.EntityData.Leafs = types.NewOrderedMap()
+    mac.EntityData.Leafs.Append("learning-enabled", types.YLeaf{"LearningEnabled", mac.LearningEnabled})
+
+    mac.EntityData.YListKeys = []string {}
+
     return &(mac.EntityData)
 }
 
@@ -564,7 +597,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac_Limit st
     Action interface{}
 
     // MAC limit violation notifications. The type is one of the following:
-    // NotifNoneNotifSnmpTrapNotifSyslogNotifSyslogAndSnmpTrap.
+    // NotifSyslogNotifSnmpTrapNotifNoneNotifSyslogAndSnmpTrap.
     Notification interface{}
 }
 
@@ -578,11 +611,14 @@ func (limit *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac_
     limit.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     limit.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    limit.EntityData.Children = make(map[string]types.YChild)
-    limit.EntityData.Leafs = make(map[string]types.YLeaf)
-    limit.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", limit.Maximum}
-    limit.EntityData.Leafs["action"] = types.YLeaf{"Action", limit.Action}
-    limit.EntityData.Leafs["notification"] = types.YLeaf{"Notification", limit.Notification}
+    limit.EntityData.Children = types.NewOrderedMap()
+    limit.EntityData.Leafs = types.NewOrderedMap()
+    limit.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", limit.Maximum})
+    limit.EntityData.Leafs.Append("action", types.YLeaf{"Action", limit.Action})
+    limit.EntityData.Leafs.Append("notification", types.YLeaf{"Notification", limit.Notification})
+
+    limit.EntityData.YListKeys = []string {}
+
     return &(limit.EntityData)
 }
 
@@ -598,7 +634,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac_Aging st
     Time interface{}
 
     // MAC aging type. The type is MacAgingType.
-    Type_ interface{}
+    Type interface{}
 }
 
 func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac_Aging) GetEntityData() *types.CommonEntityData {
@@ -611,10 +647,13 @@ func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac_
     aging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aging.EntityData.Children = make(map[string]types.YChild)
-    aging.EntityData.Leafs = make(map[string]types.YLeaf)
-    aging.EntityData.Leafs["time"] = types.YLeaf{"Time", aging.Time}
-    aging.EntityData.Leafs["type"] = types.YLeaf{"Type_", aging.Type_}
+    aging.EntityData.Children = types.NewOrderedMap()
+    aging.EntityData.Leafs = types.NewOrderedMap()
+    aging.EntityData.Leafs.Append("time", types.YLeaf{"Time", aging.Time})
+    aging.EntityData.Leafs.Append("type", types.YLeaf{"Type", aging.Type})
+
+    aging.EntityData.YListKeys = []string {}
+
     return &(aging.EntityData)
 }
 
@@ -639,9 +678,12 @@ func (portDown *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_M
     portDown.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portDown.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    portDown.EntityData.Children = make(map[string]types.YChild)
-    portDown.EntityData.Leafs = make(map[string]types.YLeaf)
-    portDown.EntityData.Leafs["flush"] = types.YLeaf{"Flush", portDown.Flush}
+    portDown.EntityData.Children = types.NewOrderedMap()
+    portDown.EntityData.Leafs = types.NewOrderedMap()
+    portDown.EntityData.Leafs.Append("flush", types.YLeaf{"Flush", portDown.Flush})
+
+    portDown.EntityData.YListKeys = []string {}
+
     return &(portDown.EntityData)
 }
 
@@ -672,11 +714,14 @@ func (secure *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac
     secure.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     secure.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    secure.EntityData.Children = make(map[string]types.YChild)
-    secure.EntityData.Leafs = make(map[string]types.YLeaf)
-    secure.EntityData.Leafs["action"] = types.YLeaf{"Action", secure.Action}
-    secure.EntityData.Leafs["logging"] = types.YLeaf{"Logging", secure.Logging}
-    secure.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", secure.Enabled}
+    secure.EntityData.Children = types.NewOrderedMap()
+    secure.EntityData.Leafs = types.NewOrderedMap()
+    secure.EntityData.Leafs.Append("action", types.YLeaf{"Action", secure.Action})
+    secure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", secure.Logging})
+    secure.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", secure.Enabled})
+
+    secure.EntityData.YListKeys = []string {}
+
     return &(secure.EntityData)
 }
 
@@ -701,9 +746,12 @@ func (igmpSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMemb
     igmpSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    igmpSnooping.EntityData.Children = make(map[string]types.YChild)
-    igmpSnooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    igmpSnooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", igmpSnooping.ProfileName}
+    igmpSnooping.EntityData.Children = types.NewOrderedMap()
+    igmpSnooping.EntityData.Leafs = types.NewOrderedMap()
+    igmpSnooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", igmpSnooping.ProfileName})
+
+    igmpSnooping.EntityData.YListKeys = []string {}
+
     return &(igmpSnooping.EntityData)
 }
 
@@ -727,9 +775,12 @@ func (mldSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMembe
     mldSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mldSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mldSnooping.EntityData.Children = make(map[string]types.YChild)
-    mldSnooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    mldSnooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", mldSnooping.ProfileName}
+    mldSnooping.EntityData.Children = types.NewOrderedMap()
+    mldSnooping.EntityData.Leafs = types.NewOrderedMap()
+    mldSnooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", mldSnooping.ProfileName})
+
+    mldSnooping.EntityData.YListKeys = []string {}
+
     return &(mldSnooping.EntityData)
 }
 
@@ -754,9 +805,12 @@ func (dhcpIpv4Snooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Ac
     dhcpIpv4Snooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpIpv4Snooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dhcpIpv4Snooping.EntityData.Children = make(map[string]types.YChild)
-    dhcpIpv4Snooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcpIpv4Snooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", dhcpIpv4Snooping.ProfileName}
+    dhcpIpv4Snooping.EntityData.Children = types.NewOrderedMap()
+    dhcpIpv4Snooping.EntityData.Leafs = types.NewOrderedMap()
+    dhcpIpv4Snooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", dhcpIpv4Snooping.ProfileName})
+
+    dhcpIpv4Snooping.EntityData.YListKeys = []string {}
+
     return &(dhcpIpv4Snooping.EntityData)
 }
 
@@ -783,10 +837,13 @@ func (flooding *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_F
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flooding.EntityData.Children = make(map[string]types.YChild)
-    flooding.EntityData.Leafs = make(map[string]types.YLeaf)
-    flooding.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", flooding.Disabled}
-    flooding.EntityData.Leafs["disabled-unknown-unicast"] = types.YLeaf{"DisabledUnknownUnicast", flooding.DisabledUnknownUnicast}
+    flooding.EntityData.Children = types.NewOrderedMap()
+    flooding.EntityData.Leafs = types.NewOrderedMap()
+    flooding.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", flooding.Disabled})
+    flooding.EntityData.Leafs.Append("disabled-unknown-unicast", types.YLeaf{"DisabledUnknownUnicast", flooding.DisabledUnknownUnicast})
+
+    flooding.EntityData.YListKeys = []string {}
+
     return &(flooding.EntityData)
 }
 
@@ -799,13 +856,13 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_StormControl
 
     // This leaf represents the storm control action taken when the traffic of a
     // particular type exceeds the configured threshold values. The type is one of
-    // the following: ActionDropActionSnmpTrapActionShutdown.
+    // the following: ActionShutdownActionSnmpTrapActionDrop.
     Action interface{}
 
     // A collection of storm control threshold configuration entries. The type is
     // slice of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_StormControl_Thresholds.
-    Thresholds []BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_StormControl_Thresholds
+    Thresholds []*BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_StormControl_Thresholds
 }
 
 func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_StormControl) GetEntityData() *types.CommonEntityData {
@@ -818,13 +875,16 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMemb
     stormControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stormControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stormControl.EntityData.Children = make(map[string]types.YChild)
-    stormControl.EntityData.Children["thresholds"] = types.YChild{"Thresholds", nil}
+    stormControl.EntityData.Children = types.NewOrderedMap()
+    stormControl.EntityData.Children.Append("thresholds", types.YChild{"Thresholds", nil})
     for i := range stormControl.Thresholds {
-        stormControl.EntityData.Children[types.GetSegmentPath(&stormControl.Thresholds[i])] = types.YChild{"Thresholds", &stormControl.Thresholds[i]}
+        stormControl.EntityData.Children.Append(types.GetSegmentPath(stormControl.Thresholds[i]), types.YChild{"Thresholds", stormControl.Thresholds[i]})
     }
-    stormControl.EntityData.Leafs = make(map[string]types.YLeaf)
-    stormControl.EntityData.Leafs["action"] = types.YLeaf{"Action", stormControl.Action}
+    stormControl.EntityData.Leafs = types.NewOrderedMap()
+    stormControl.EntityData.Leafs.Append("action", types.YLeaf{"Action", stormControl.Action})
+
+    stormControl.EntityData.YListKeys = []string {}
+
     return &(stormControl.EntityData)
 }
 
@@ -854,16 +914,19 @@ func (thresholds *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember
     thresholds.EntityData.YangName = "thresholds"
     thresholds.EntityData.BundleName = "cisco_ios_xe"
     thresholds.EntityData.ParentYangName = "storm-control"
-    thresholds.EntityData.SegmentPath = "thresholds" + "[traffic-class='" + fmt.Sprintf("%v", thresholds.TrafficClass) + "']"
+    thresholds.EntityData.SegmentPath = "thresholds" + types.AddKeyToken(thresholds.TrafficClass, "traffic-class")
     thresholds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     thresholds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     thresholds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    thresholds.EntityData.Children = make(map[string]types.YChild)
-    thresholds.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholds.EntityData.Leafs["traffic-class"] = types.YLeaf{"TrafficClass", thresholds.TrafficClass}
-    thresholds.EntityData.Leafs["value"] = types.YLeaf{"Value", thresholds.Value}
-    thresholds.EntityData.Leafs["unit"] = types.YLeaf{"Unit", thresholds.Unit}
+    thresholds.EntityData.Children = types.NewOrderedMap()
+    thresholds.EntityData.Leafs = types.NewOrderedMap()
+    thresholds.EntityData.Leafs.Append("traffic-class", types.YLeaf{"TrafficClass", thresholds.TrafficClass})
+    thresholds.EntityData.Leafs.Append("value", types.YLeaf{"Value", thresholds.Value})
+    thresholds.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", thresholds.Unit})
+
+    thresholds.EntityData.YListKeys = []string {"TrafficClass"}
+
     return &(thresholds.EntityData)
 }
 
@@ -907,11 +970,14 @@ func (dynamicArpInspection *BridgeDomainConfig_BridgeDomains_BridgeDomain_Member
     dynamicArpInspection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dynamicArpInspection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dynamicArpInspection.EntityData.Children = make(map[string]types.YChild)
-    dynamicArpInspection.EntityData.Children["address-validation"] = types.YChild{"AddressValidation", &dynamicArpInspection.AddressValidation}
-    dynamicArpInspection.EntityData.Leafs = make(map[string]types.YLeaf)
-    dynamicArpInspection.EntityData.Leafs["logging"] = types.YLeaf{"Logging", dynamicArpInspection.Logging}
-    dynamicArpInspection.EntityData.Leafs["enable"] = types.YLeaf{"Enable", dynamicArpInspection.Enable}
+    dynamicArpInspection.EntityData.Children = types.NewOrderedMap()
+    dynamicArpInspection.EntityData.Children.Append("address-validation", types.YChild{"AddressValidation", &dynamicArpInspection.AddressValidation})
+    dynamicArpInspection.EntityData.Leafs = types.NewOrderedMap()
+    dynamicArpInspection.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", dynamicArpInspection.Logging})
+    dynamicArpInspection.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", dynamicArpInspection.Enable})
+
+    dynamicArpInspection.EntityData.YListKeys = []string {}
+
     return &(dynamicArpInspection.EntityData)
 }
 
@@ -921,6 +987,7 @@ func (dynamicArpInspection *BridgeDomainConfig_BridgeDomains_BridgeDomain_Member
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_DynamicArpInspection_AddressValidation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Match Destination MAC Address. The type is interface{}.
     DstMac interface{}
@@ -942,11 +1009,14 @@ func (addressValidation *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_A
     addressValidation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    addressValidation.EntityData.Children = make(map[string]types.YChild)
-    addressValidation.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressValidation.EntityData.Leafs["dst-mac"] = types.YLeaf{"DstMac", addressValidation.DstMac}
-    addressValidation.EntityData.Leafs["src-mac"] = types.YLeaf{"SrcMac", addressValidation.SrcMac}
-    addressValidation.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", addressValidation.Ipv4}
+    addressValidation.EntityData.Children = types.NewOrderedMap()
+    addressValidation.EntityData.Leafs = types.NewOrderedMap()
+    addressValidation.EntityData.Leafs.Append("dst-mac", types.YLeaf{"DstMac", addressValidation.DstMac})
+    addressValidation.EntityData.Leafs.Append("src-mac", types.YLeaf{"SrcMac", addressValidation.SrcMac})
+    addressValidation.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", addressValidation.Ipv4})
+
+    addressValidation.EntityData.YListKeys = []string {}
+
     return &(addressValidation.EntityData)
 }
 
@@ -973,10 +1043,13 @@ func (ipSourceGuard *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMem
     ipSourceGuard.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipSourceGuard.EntityData.Children = make(map[string]types.YChild)
-    ipSourceGuard.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSourceGuard.EntityData.Leafs["logging"] = types.YLeaf{"Logging", ipSourceGuard.Logging}
-    ipSourceGuard.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ipSourceGuard.Enable}
+    ipSourceGuard.EntityData.Children = types.NewOrderedMap()
+    ipSourceGuard.EntityData.Leafs = types.NewOrderedMap()
+    ipSourceGuard.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", ipSourceGuard.Logging})
+    ipSourceGuard.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ipSourceGuard.Enable})
+
+    ipSourceGuard.EntityData.YListKeys = []string {}
+
     return &(ipSourceGuard.EntityData)
 }
 
@@ -990,7 +1063,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_VfiMember struct {
     // This attribute is a key. Reference to an Virtual Forwarding Interface
     // instance which is configured to be part of this bridge-domain. The type is
     // string. Refers to ietf_interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 }
 
 func (vfiMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_VfiMember) GetEntityData() *types.CommonEntityData {
@@ -998,14 +1071,17 @@ func (vfiMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_VfiMember
     vfiMember.EntityData.YangName = "vfi-member"
     vfiMember.EntityData.BundleName = "cisco_ios_xe"
     vfiMember.EntityData.ParentYangName = "members"
-    vfiMember.EntityData.SegmentPath = "vfi-member" + "[interface='" + fmt.Sprintf("%v", vfiMember.Interface_) + "']"
+    vfiMember.EntityData.SegmentPath = "vfi-member" + types.AddKeyToken(vfiMember.Interface, "interface")
     vfiMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vfiMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vfiMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vfiMember.EntityData.Children = make(map[string]types.YChild)
-    vfiMember.EntityData.Leafs = make(map[string]types.YLeaf)
-    vfiMember.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", vfiMember.Interface_}
+    vfiMember.EntityData.Children = types.NewOrderedMap()
+    vfiMember.EntityData.Leafs = types.NewOrderedMap()
+    vfiMember.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", vfiMember.Interface})
+
+    vfiMember.EntityData.YListKeys = []string {"Interface"}
+
     return &(vfiMember.EntityData)
 }
 
@@ -1023,12 +1099,12 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember struct
     // List of interface based access pseudowires for current bridge-domain. The
     // type is slice of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_AccessPwIfMember.
-    AccessPwIfMember []BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_AccessPwIfMember
+    AccessPwIfMember []*BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_AccessPwIfMember
 
     // Collection of neighbor specification based pseudo-wires. The type is slice
     // of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec.
-    PwNeighborSpec []BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec
+    PwNeighborSpec []*BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec
 }
 
 func (accessPwMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember) GetEntityData() *types.CommonEntityData {
@@ -1041,16 +1117,19 @@ func (accessPwMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Acce
     accessPwMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessPwMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    accessPwMember.EntityData.Children = make(map[string]types.YChild)
-    accessPwMember.EntityData.Children["access-pw-if-member"] = types.YChild{"AccessPwIfMember", nil}
+    accessPwMember.EntityData.Children = types.NewOrderedMap()
+    accessPwMember.EntityData.Children.Append("access-pw-if-member", types.YChild{"AccessPwIfMember", nil})
     for i := range accessPwMember.AccessPwIfMember {
-        accessPwMember.EntityData.Children[types.GetSegmentPath(&accessPwMember.AccessPwIfMember[i])] = types.YChild{"AccessPwIfMember", &accessPwMember.AccessPwIfMember[i]}
+        accessPwMember.EntityData.Children.Append(types.GetSegmentPath(accessPwMember.AccessPwIfMember[i]), types.YChild{"AccessPwIfMember", accessPwMember.AccessPwIfMember[i]})
     }
-    accessPwMember.EntityData.Children["pw-neighbor-spec"] = types.YChild{"PwNeighborSpec", nil}
+    accessPwMember.EntityData.Children.Append("pw-neighbor-spec", types.YChild{"PwNeighborSpec", nil})
     for i := range accessPwMember.PwNeighborSpec {
-        accessPwMember.EntityData.Children[types.GetSegmentPath(&accessPwMember.PwNeighborSpec[i])] = types.YChild{"PwNeighborSpec", &accessPwMember.PwNeighborSpec[i]}
+        accessPwMember.EntityData.Children.Append(types.GetSegmentPath(accessPwMember.PwNeighborSpec[i]), types.YChild{"PwNeighborSpec", accessPwMember.PwNeighborSpec[i]})
     }
-    accessPwMember.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessPwMember.EntityData.Leafs = types.NewOrderedMap()
+
+    accessPwMember.EntityData.YListKeys = []string {}
+
     return &(accessPwMember.EntityData)
 }
 
@@ -1064,7 +1143,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_Access
     // This attribute is a key. Reference to an access pseudo-wire interface
     // instance which is configured to be part of this bridge domain. The type is
     // string. Refers to ietf_interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 }
 
 func (accessPwIfMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_AccessPwIfMember) GetEntityData() *types.CommonEntityData {
@@ -1072,14 +1151,17 @@ func (accessPwIfMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Ac
     accessPwIfMember.EntityData.YangName = "access-pw-if-member"
     accessPwIfMember.EntityData.BundleName = "cisco_ios_xe"
     accessPwIfMember.EntityData.ParentYangName = "access-pw-member"
-    accessPwIfMember.EntityData.SegmentPath = "access-pw-if-member" + "[interface='" + fmt.Sprintf("%v", accessPwIfMember.Interface_) + "']"
+    accessPwIfMember.EntityData.SegmentPath = "access-pw-if-member" + types.AddKeyToken(accessPwIfMember.Interface, "interface")
     accessPwIfMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessPwIfMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessPwIfMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    accessPwIfMember.EntityData.Children = make(map[string]types.YChild)
-    accessPwIfMember.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessPwIfMember.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", accessPwIfMember.Interface_}
+    accessPwIfMember.EntityData.Children = types.NewOrderedMap()
+    accessPwIfMember.EntityData.Leafs = types.NewOrderedMap()
+    accessPwIfMember.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", accessPwIfMember.Interface})
+
+    accessPwIfMember.EntityData.YListKeys = []string {"Interface"}
+
     return &(accessPwIfMember.EntityData)
 }
 
@@ -1092,9 +1174,9 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
 
     // This attribute is a key. IPv4 or IPv6 address of the neighbor. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborIpAddress interface{}
 
     // This attribute is a key. Pseudowire VC ID. The type is interface{} with
@@ -1115,7 +1197,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
 
     // The local source IPv6 address. Note this should only be configured when
     // neighbor address is IPv6 type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceIpv6 interface{}
 
     // Statically configured labels, signalling should be none.
@@ -1156,28 +1238,31 @@ func (pwNeighborSpec *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Acce
     pwNeighborSpec.EntityData.YangName = "pw-neighbor-spec"
     pwNeighborSpec.EntityData.BundleName = "cisco_ios_xe"
     pwNeighborSpec.EntityData.ParentYangName = "access-pw-member"
-    pwNeighborSpec.EntityData.SegmentPath = "pw-neighbor-spec" + "[neighbor-ip-address='" + fmt.Sprintf("%v", pwNeighborSpec.NeighborIpAddress) + "']" + "[vc-id='" + fmt.Sprintf("%v", pwNeighborSpec.VcId) + "']"
+    pwNeighborSpec.EntityData.SegmentPath = "pw-neighbor-spec" + types.AddKeyToken(pwNeighborSpec.NeighborIpAddress, "neighbor-ip-address") + types.AddKeyToken(pwNeighborSpec.VcId, "vc-id")
     pwNeighborSpec.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pwNeighborSpec.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwNeighborSpec.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pwNeighborSpec.EntityData.Children = make(map[string]types.YChild)
-    pwNeighborSpec.EntityData.Children["static-label"] = types.YChild{"StaticLabel", &pwNeighborSpec.StaticLabel}
-    pwNeighborSpec.EntityData.Children["split-horizon-group"] = types.YChild{"SplitHorizonGroup", &pwNeighborSpec.SplitHorizonGroup}
-    pwNeighborSpec.EntityData.Children["mac"] = types.YChild{"Mac", &pwNeighborSpec.Mac}
-    pwNeighborSpec.EntityData.Children["igmp-snooping"] = types.YChild{"IgmpSnooping", &pwNeighborSpec.IgmpSnooping}
-    pwNeighborSpec.EntityData.Children["mld-snooping"] = types.YChild{"MldSnooping", &pwNeighborSpec.MldSnooping}
-    pwNeighborSpec.EntityData.Children["dhcp-ipv4-snooping"] = types.YChild{"DhcpIpv4Snooping", &pwNeighborSpec.DhcpIpv4Snooping}
-    pwNeighborSpec.EntityData.Children["flooding"] = types.YChild{"Flooding", &pwNeighborSpec.Flooding}
-    pwNeighborSpec.EntityData.Children["storm-control"] = types.YChild{"StormControl", &pwNeighborSpec.StormControl}
-    pwNeighborSpec.EntityData.Children["backup"] = types.YChild{"Backup", &pwNeighborSpec.Backup}
-    pwNeighborSpec.EntityData.Leafs = make(map[string]types.YLeaf)
-    pwNeighborSpec.EntityData.Leafs["neighbor-ip-address"] = types.YLeaf{"NeighborIpAddress", pwNeighborSpec.NeighborIpAddress}
-    pwNeighborSpec.EntityData.Leafs["vc-id"] = types.YLeaf{"VcId", pwNeighborSpec.VcId}
-    pwNeighborSpec.EntityData.Leafs["pw-class-template"] = types.YLeaf{"PwClassTemplate", pwNeighborSpec.PwClassTemplate}
-    pwNeighborSpec.EntityData.Leafs["encap-type"] = types.YLeaf{"EncapType", pwNeighborSpec.EncapType}
-    pwNeighborSpec.EntityData.Leafs["tag-impose-vlan"] = types.YLeaf{"TagImposeVlan", pwNeighborSpec.TagImposeVlan}
-    pwNeighborSpec.EntityData.Leafs["source-ipv6"] = types.YLeaf{"SourceIpv6", pwNeighborSpec.SourceIpv6}
+    pwNeighborSpec.EntityData.Children = types.NewOrderedMap()
+    pwNeighborSpec.EntityData.Children.Append("static-label", types.YChild{"StaticLabel", &pwNeighborSpec.StaticLabel})
+    pwNeighborSpec.EntityData.Children.Append("split-horizon-group", types.YChild{"SplitHorizonGroup", &pwNeighborSpec.SplitHorizonGroup})
+    pwNeighborSpec.EntityData.Children.Append("mac", types.YChild{"Mac", &pwNeighborSpec.Mac})
+    pwNeighborSpec.EntityData.Children.Append("igmp-snooping", types.YChild{"IgmpSnooping", &pwNeighborSpec.IgmpSnooping})
+    pwNeighborSpec.EntityData.Children.Append("mld-snooping", types.YChild{"MldSnooping", &pwNeighborSpec.MldSnooping})
+    pwNeighborSpec.EntityData.Children.Append("dhcp-ipv4-snooping", types.YChild{"DhcpIpv4Snooping", &pwNeighborSpec.DhcpIpv4Snooping})
+    pwNeighborSpec.EntityData.Children.Append("flooding", types.YChild{"Flooding", &pwNeighborSpec.Flooding})
+    pwNeighborSpec.EntityData.Children.Append("storm-control", types.YChild{"StormControl", &pwNeighborSpec.StormControl})
+    pwNeighborSpec.EntityData.Children.Append("backup", types.YChild{"Backup", &pwNeighborSpec.Backup})
+    pwNeighborSpec.EntityData.Leafs = types.NewOrderedMap()
+    pwNeighborSpec.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", pwNeighborSpec.NeighborIpAddress})
+    pwNeighborSpec.EntityData.Leafs.Append("vc-id", types.YLeaf{"VcId", pwNeighborSpec.VcId})
+    pwNeighborSpec.EntityData.Leafs.Append("pw-class-template", types.YLeaf{"PwClassTemplate", pwNeighborSpec.PwClassTemplate})
+    pwNeighborSpec.EntityData.Leafs.Append("encap-type", types.YLeaf{"EncapType", pwNeighborSpec.EncapType})
+    pwNeighborSpec.EntityData.Leafs.Append("tag-impose-vlan", types.YLeaf{"TagImposeVlan", pwNeighborSpec.TagImposeVlan})
+    pwNeighborSpec.EntityData.Leafs.Append("source-ipv6", types.YLeaf{"SourceIpv6", pwNeighborSpec.SourceIpv6})
+
+    pwNeighborSpec.EntityData.YListKeys = []string {"NeighborIpAddress", "VcId"}
+
     return &(pwNeighborSpec.EntityData)
 }
 
@@ -1204,10 +1289,13 @@ func (staticLabel *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessP
     staticLabel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     staticLabel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    staticLabel.EntityData.Children = make(map[string]types.YChild)
-    staticLabel.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticLabel.EntityData.Leafs["local-label"] = types.YLeaf{"LocalLabel", staticLabel.LocalLabel}
-    staticLabel.EntityData.Leafs["remote-label"] = types.YLeaf{"RemoteLabel", staticLabel.RemoteLabel}
+    staticLabel.EntityData.Children = types.NewOrderedMap()
+    staticLabel.EntityData.Leafs = types.NewOrderedMap()
+    staticLabel.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", staticLabel.LocalLabel})
+    staticLabel.EntityData.Leafs.Append("remote-label", types.YLeaf{"RemoteLabel", staticLabel.RemoteLabel})
+
+    staticLabel.EntityData.YListKeys = []string {}
+
     return &(staticLabel.EntityData)
 }
 
@@ -1223,6 +1311,7 @@ func (staticLabel *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessP
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec_SplitHorizonGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Split Horizon group number for bridge domain member. The type is
     // interface{} with range: 0..65535. This attribute is mandatory.
@@ -1239,9 +1328,12 @@ func (splitHorizonGroup *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_A
     splitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     splitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    splitHorizonGroup.EntityData.Children = make(map[string]types.YChild)
-    splitHorizonGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    splitHorizonGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", splitHorizonGroup.Id}
+    splitHorizonGroup.EntityData.Children = types.NewOrderedMap()
+    splitHorizonGroup.EntityData.Leafs = types.NewOrderedMap()
+    splitHorizonGroup.EntityData.Leafs.Append("id", types.YLeaf{"Id", splitHorizonGroup.Id})
+
+    splitHorizonGroup.EntityData.YListKeys = []string {}
+
     return &(splitHorizonGroup.EntityData)
 }
 
@@ -1277,13 +1369,16 @@ func (mac *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_
     mac.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mac.EntityData.Children = make(map[string]types.YChild)
-    mac.EntityData.Children["limit"] = types.YChild{"Limit", &mac.Limit}
-    mac.EntityData.Children["aging"] = types.YChild{"Aging", &mac.Aging}
-    mac.EntityData.Children["port-down"] = types.YChild{"PortDown", &mac.PortDown}
-    mac.EntityData.Children["secure"] = types.YChild{"Secure", &mac.Secure}
-    mac.EntityData.Leafs = make(map[string]types.YLeaf)
-    mac.EntityData.Leafs["learning-enabled"] = types.YLeaf{"LearningEnabled", mac.LearningEnabled}
+    mac.EntityData.Children = types.NewOrderedMap()
+    mac.EntityData.Children.Append("limit", types.YChild{"Limit", &mac.Limit})
+    mac.EntityData.Children.Append("aging", types.YChild{"Aging", &mac.Aging})
+    mac.EntityData.Children.Append("port-down", types.YChild{"PortDown", &mac.PortDown})
+    mac.EntityData.Children.Append("secure", types.YChild{"Secure", &mac.Secure})
+    mac.EntityData.Leafs = types.NewOrderedMap()
+    mac.EntityData.Leafs.Append("learning-enabled", types.YLeaf{"LearningEnabled", mac.LearningEnabled})
+
+    mac.EntityData.YListKeys = []string {}
+
     return &(mac.EntityData)
 }
 
@@ -1301,7 +1396,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
     Action interface{}
 
     // MAC limit violation notifications. The type is one of the following:
-    // NotifNoneNotifSnmpTrapNotifSyslogNotifSyslogAndSnmpTrap.
+    // NotifSyslogNotifSnmpTrapNotifNoneNotifSyslogAndSnmpTrap.
     Notification interface{}
 }
 
@@ -1315,11 +1410,14 @@ func (limit *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMembe
     limit.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     limit.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    limit.EntityData.Children = make(map[string]types.YChild)
-    limit.EntityData.Leafs = make(map[string]types.YLeaf)
-    limit.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", limit.Maximum}
-    limit.EntityData.Leafs["action"] = types.YLeaf{"Action", limit.Action}
-    limit.EntityData.Leafs["notification"] = types.YLeaf{"Notification", limit.Notification}
+    limit.EntityData.Children = types.NewOrderedMap()
+    limit.EntityData.Leafs = types.NewOrderedMap()
+    limit.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", limit.Maximum})
+    limit.EntityData.Leafs.Append("action", types.YLeaf{"Action", limit.Action})
+    limit.EntityData.Leafs.Append("notification", types.YLeaf{"Notification", limit.Notification})
+
+    limit.EntityData.YListKeys = []string {}
+
     return &(limit.EntityData)
 }
 
@@ -1335,7 +1433,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
     Time interface{}
 
     // MAC aging type. The type is MacAgingType.
-    Type_ interface{}
+    Type interface{}
 }
 
 func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec_Mac_Aging) GetEntityData() *types.CommonEntityData {
@@ -1348,10 +1446,13 @@ func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMembe
     aging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aging.EntityData.Children = make(map[string]types.YChild)
-    aging.EntityData.Leafs = make(map[string]types.YLeaf)
-    aging.EntityData.Leafs["time"] = types.YLeaf{"Time", aging.Time}
-    aging.EntityData.Leafs["type"] = types.YLeaf{"Type_", aging.Type_}
+    aging.EntityData.Children = types.NewOrderedMap()
+    aging.EntityData.Leafs = types.NewOrderedMap()
+    aging.EntityData.Leafs.Append("time", types.YLeaf{"Time", aging.Time})
+    aging.EntityData.Leafs.Append("type", types.YLeaf{"Type", aging.Type})
+
+    aging.EntityData.YListKeys = []string {}
+
     return &(aging.EntityData)
 }
 
@@ -1376,9 +1477,12 @@ func (portDown *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMe
     portDown.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portDown.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    portDown.EntityData.Children = make(map[string]types.YChild)
-    portDown.EntityData.Leafs = make(map[string]types.YLeaf)
-    portDown.EntityData.Leafs["flush"] = types.YLeaf{"Flush", portDown.Flush}
+    portDown.EntityData.Children = types.NewOrderedMap()
+    portDown.EntityData.Leafs = types.NewOrderedMap()
+    portDown.EntityData.Leafs.Append("flush", types.YLeaf{"Flush", portDown.Flush})
+
+    portDown.EntityData.YListKeys = []string {}
+
     return &(portDown.EntityData)
 }
 
@@ -1409,11 +1513,14 @@ func (secure *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMemb
     secure.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     secure.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    secure.EntityData.Children = make(map[string]types.YChild)
-    secure.EntityData.Leafs = make(map[string]types.YLeaf)
-    secure.EntityData.Leafs["action"] = types.YLeaf{"Action", secure.Action}
-    secure.EntityData.Leafs["logging"] = types.YLeaf{"Logging", secure.Logging}
-    secure.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", secure.Enabled}
+    secure.EntityData.Children = types.NewOrderedMap()
+    secure.EntityData.Leafs = types.NewOrderedMap()
+    secure.EntityData.Leafs.Append("action", types.YLeaf{"Action", secure.Action})
+    secure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", secure.Logging})
+    secure.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", secure.Enabled})
+
+    secure.EntityData.YListKeys = []string {}
+
     return &(secure.EntityData)
 }
 
@@ -1438,9 +1545,12 @@ func (igmpSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Access
     igmpSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    igmpSnooping.EntityData.Children = make(map[string]types.YChild)
-    igmpSnooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    igmpSnooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", igmpSnooping.ProfileName}
+    igmpSnooping.EntityData.Children = types.NewOrderedMap()
+    igmpSnooping.EntityData.Leafs = types.NewOrderedMap()
+    igmpSnooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", igmpSnooping.ProfileName})
+
+    igmpSnooping.EntityData.YListKeys = []string {}
+
     return &(igmpSnooping.EntityData)
 }
 
@@ -1464,9 +1574,12 @@ func (mldSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessP
     mldSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mldSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mldSnooping.EntityData.Children = make(map[string]types.YChild)
-    mldSnooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    mldSnooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", mldSnooping.ProfileName}
+    mldSnooping.EntityData.Children = types.NewOrderedMap()
+    mldSnooping.EntityData.Leafs = types.NewOrderedMap()
+    mldSnooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", mldSnooping.ProfileName})
+
+    mldSnooping.EntityData.YListKeys = []string {}
+
     return &(mldSnooping.EntityData)
 }
 
@@ -1491,9 +1604,12 @@ func (dhcpIpv4Snooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Ac
     dhcpIpv4Snooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpIpv4Snooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dhcpIpv4Snooping.EntityData.Children = make(map[string]types.YChild)
-    dhcpIpv4Snooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcpIpv4Snooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", dhcpIpv4Snooping.ProfileName}
+    dhcpIpv4Snooping.EntityData.Children = types.NewOrderedMap()
+    dhcpIpv4Snooping.EntityData.Leafs = types.NewOrderedMap()
+    dhcpIpv4Snooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", dhcpIpv4Snooping.ProfileName})
+
+    dhcpIpv4Snooping.EntityData.YListKeys = []string {}
+
     return &(dhcpIpv4Snooping.EntityData)
 }
 
@@ -1520,10 +1636,13 @@ func (flooding *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMe
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flooding.EntityData.Children = make(map[string]types.YChild)
-    flooding.EntityData.Leafs = make(map[string]types.YLeaf)
-    flooding.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", flooding.Disabled}
-    flooding.EntityData.Leafs["disabled-unknown-unicast"] = types.YLeaf{"DisabledUnknownUnicast", flooding.DisabledUnknownUnicast}
+    flooding.EntityData.Children = types.NewOrderedMap()
+    flooding.EntityData.Leafs = types.NewOrderedMap()
+    flooding.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", flooding.Disabled})
+    flooding.EntityData.Leafs.Append("disabled-unknown-unicast", types.YLeaf{"DisabledUnknownUnicast", flooding.DisabledUnknownUnicast})
+
+    flooding.EntityData.YListKeys = []string {}
+
     return &(flooding.EntityData)
 }
 
@@ -1536,13 +1655,13 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
 
     // This leaf represents the storm control action taken when the traffic of a
     // particular type exceeds the configured threshold values. The type is one of
-    // the following: ActionDropActionSnmpTrapActionShutdown.
+    // the following: ActionShutdownActionSnmpTrapActionDrop.
     Action interface{}
 
     // A collection of storm control threshold configuration entries. The type is
     // slice of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec_StormControl_Thresholds.
-    Thresholds []BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec_StormControl_Thresholds
+    Thresholds []*BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec_StormControl_Thresholds
 }
 
 func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec_StormControl) GetEntityData() *types.CommonEntityData {
@@ -1555,13 +1674,16 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Access
     stormControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stormControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stormControl.EntityData.Children = make(map[string]types.YChild)
-    stormControl.EntityData.Children["thresholds"] = types.YChild{"Thresholds", nil}
+    stormControl.EntityData.Children = types.NewOrderedMap()
+    stormControl.EntityData.Children.Append("thresholds", types.YChild{"Thresholds", nil})
     for i := range stormControl.Thresholds {
-        stormControl.EntityData.Children[types.GetSegmentPath(&stormControl.Thresholds[i])] = types.YChild{"Thresholds", &stormControl.Thresholds[i]}
+        stormControl.EntityData.Children.Append(types.GetSegmentPath(stormControl.Thresholds[i]), types.YChild{"Thresholds", stormControl.Thresholds[i]})
     }
-    stormControl.EntityData.Leafs = make(map[string]types.YLeaf)
-    stormControl.EntityData.Leafs["action"] = types.YLeaf{"Action", stormControl.Action}
+    stormControl.EntityData.Leafs = types.NewOrderedMap()
+    stormControl.EntityData.Leafs.Append("action", types.YLeaf{"Action", stormControl.Action})
+
+    stormControl.EntityData.YListKeys = []string {}
+
     return &(stormControl.EntityData)
 }
 
@@ -1591,16 +1713,19 @@ func (thresholds *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPw
     thresholds.EntityData.YangName = "thresholds"
     thresholds.EntityData.BundleName = "cisco_ios_xe"
     thresholds.EntityData.ParentYangName = "storm-control"
-    thresholds.EntityData.SegmentPath = "thresholds" + "[traffic-class='" + fmt.Sprintf("%v", thresholds.TrafficClass) + "']"
+    thresholds.EntityData.SegmentPath = "thresholds" + types.AddKeyToken(thresholds.TrafficClass, "traffic-class")
     thresholds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     thresholds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     thresholds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    thresholds.EntityData.Children = make(map[string]types.YChild)
-    thresholds.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholds.EntityData.Leafs["traffic-class"] = types.YLeaf{"TrafficClass", thresholds.TrafficClass}
-    thresholds.EntityData.Leafs["value"] = types.YLeaf{"Value", thresholds.Value}
-    thresholds.EntityData.Leafs["unit"] = types.YLeaf{"Unit", thresholds.Unit}
+    thresholds.EntityData.Children = types.NewOrderedMap()
+    thresholds.EntityData.Leafs = types.NewOrderedMap()
+    thresholds.EntityData.Leafs.Append("traffic-class", types.YLeaf{"TrafficClass", thresholds.TrafficClass})
+    thresholds.EntityData.Leafs.Append("value", types.YLeaf{"Value", thresholds.Value})
+    thresholds.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", thresholds.Unit})
+
+    thresholds.EntityData.YListKeys = []string {"TrafficClass"}
+
     return &(thresholds.EntityData)
 }
 
@@ -1626,9 +1751,9 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
 
     // IPv4 or IPv6 address of the neighbor. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborIpAddress interface{}
 
     // Pseudowire VC ID. The type is interface{} with range: 1..4294967295.
@@ -1649,11 +1774,14 @@ func (backup *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMemb
     backup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     backup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    backup.EntityData.Children = make(map[string]types.YChild)
-    backup.EntityData.Leafs = make(map[string]types.YLeaf)
-    backup.EntityData.Leafs["neighbor-ip-address"] = types.YLeaf{"NeighborIpAddress", backup.NeighborIpAddress}
-    backup.EntityData.Leafs["vc-id"] = types.YLeaf{"VcId", backup.VcId}
-    backup.EntityData.Leafs["pw-class-template"] = types.YLeaf{"PwClassTemplate", backup.PwClassTemplate}
+    backup.EntityData.Children = types.NewOrderedMap()
+    backup.EntityData.Leafs = types.NewOrderedMap()
+    backup.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", backup.NeighborIpAddress})
+    backup.EntityData.Leafs.Append("vc-id", types.YLeaf{"VcId", backup.VcId})
+    backup.EntityData.Leafs.Append("pw-class-template", types.YLeaf{"PwClassTemplate", backup.PwClassTemplate})
+
+    backup.EntityData.YListKeys = []string {}
+
     return &(backup.EntityData)
 }
 
@@ -1695,15 +1823,18 @@ func (mac *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac) GetEntityData() *t
     mac.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mac.EntityData.Children = make(map[string]types.YChild)
-    mac.EntityData.Children["limit"] = types.YChild{"Limit", &mac.Limit}
-    mac.EntityData.Children["aging"] = types.YChild{"Aging", &mac.Aging}
-    mac.EntityData.Children["port-down"] = types.YChild{"PortDown", &mac.PortDown}
-    mac.EntityData.Children["flooding"] = types.YChild{"Flooding", &mac.Flooding}
-    mac.EntityData.Children["secure"] = types.YChild{"Secure", &mac.Secure}
-    mac.EntityData.Children["static"] = types.YChild{"Static", &mac.Static}
-    mac.EntityData.Leafs = make(map[string]types.YLeaf)
-    mac.EntityData.Leafs["learning-enabled"] = types.YLeaf{"LearningEnabled", mac.LearningEnabled}
+    mac.EntityData.Children = types.NewOrderedMap()
+    mac.EntityData.Children.Append("limit", types.YChild{"Limit", &mac.Limit})
+    mac.EntityData.Children.Append("aging", types.YChild{"Aging", &mac.Aging})
+    mac.EntityData.Children.Append("port-down", types.YChild{"PortDown", &mac.PortDown})
+    mac.EntityData.Children.Append("flooding", types.YChild{"Flooding", &mac.Flooding})
+    mac.EntityData.Children.Append("secure", types.YChild{"Secure", &mac.Secure})
+    mac.EntityData.Children.Append("static", types.YChild{"Static", &mac.Static})
+    mac.EntityData.Leafs = types.NewOrderedMap()
+    mac.EntityData.Leafs.Append("learning-enabled", types.YLeaf{"LearningEnabled", mac.LearningEnabled})
+
+    mac.EntityData.YListKeys = []string {}
+
     return &(mac.EntityData)
 }
 
@@ -1721,7 +1852,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Limit struct {
     Action interface{}
 
     // MAC limit violation notifications. The type is one of the following:
-    // NotifNoneNotifSnmpTrapNotifSyslogNotifSyslogAndSnmpTrap.
+    // NotifSyslogNotifSnmpTrapNotifNoneNotifSyslogAndSnmpTrap.
     Notification interface{}
 }
 
@@ -1735,11 +1866,14 @@ func (limit *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Limit) GetEntityD
     limit.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     limit.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    limit.EntityData.Children = make(map[string]types.YChild)
-    limit.EntityData.Leafs = make(map[string]types.YLeaf)
-    limit.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", limit.Maximum}
-    limit.EntityData.Leafs["action"] = types.YLeaf{"Action", limit.Action}
-    limit.EntityData.Leafs["notification"] = types.YLeaf{"Notification", limit.Notification}
+    limit.EntityData.Children = types.NewOrderedMap()
+    limit.EntityData.Leafs = types.NewOrderedMap()
+    limit.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", limit.Maximum})
+    limit.EntityData.Leafs.Append("action", types.YLeaf{"Action", limit.Action})
+    limit.EntityData.Leafs.Append("notification", types.YLeaf{"Notification", limit.Notification})
+
+    limit.EntityData.YListKeys = []string {}
+
     return &(limit.EntityData)
 }
 
@@ -1755,7 +1889,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Aging struct {
     Time interface{}
 
     // MAC aging type. The type is MacAgingType.
-    Type_ interface{}
+    Type interface{}
 }
 
 func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Aging) GetEntityData() *types.CommonEntityData {
@@ -1768,10 +1902,13 @@ func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Aging) GetEntityD
     aging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aging.EntityData.Children = make(map[string]types.YChild)
-    aging.EntityData.Leafs = make(map[string]types.YLeaf)
-    aging.EntityData.Leafs["time"] = types.YLeaf{"Time", aging.Time}
-    aging.EntityData.Leafs["type"] = types.YLeaf{"Type_", aging.Type_}
+    aging.EntityData.Children = types.NewOrderedMap()
+    aging.EntityData.Leafs = types.NewOrderedMap()
+    aging.EntityData.Leafs.Append("time", types.YLeaf{"Time", aging.Time})
+    aging.EntityData.Leafs.Append("type", types.YLeaf{"Type", aging.Type})
+
+    aging.EntityData.YListKeys = []string {}
+
     return &(aging.EntityData)
 }
 
@@ -1796,9 +1933,12 @@ func (portDown *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_PortDown) GetE
     portDown.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portDown.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    portDown.EntityData.Children = make(map[string]types.YChild)
-    portDown.EntityData.Leafs = make(map[string]types.YLeaf)
-    portDown.EntityData.Leafs["flush"] = types.YLeaf{"Flush", portDown.Flush}
+    portDown.EntityData.Children = types.NewOrderedMap()
+    portDown.EntityData.Leafs = types.NewOrderedMap()
+    portDown.EntityData.Leafs.Append("flush", types.YLeaf{"Flush", portDown.Flush})
+
+    portDown.EntityData.YListKeys = []string {}
+
     return &(portDown.EntityData)
 }
 
@@ -1825,10 +1965,13 @@ func (flooding *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Flooding) GetE
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flooding.EntityData.Children = make(map[string]types.YChild)
-    flooding.EntityData.Leafs = make(map[string]types.YLeaf)
-    flooding.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", flooding.Disabled}
-    flooding.EntityData.Leafs["disabled-unknown-unicast"] = types.YLeaf{"DisabledUnknownUnicast", flooding.DisabledUnknownUnicast}
+    flooding.EntityData.Children = types.NewOrderedMap()
+    flooding.EntityData.Leafs = types.NewOrderedMap()
+    flooding.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", flooding.Disabled})
+    flooding.EntityData.Leafs.Append("disabled-unknown-unicast", types.YLeaf{"DisabledUnknownUnicast", flooding.DisabledUnknownUnicast})
+
+    flooding.EntityData.YListKeys = []string {}
+
     return &(flooding.EntityData)
 }
 
@@ -1838,6 +1981,7 @@ func (flooding *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Flooding) GetE
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Secure struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // MAC secure action for violating packets. The type is MacSecureAction. The
     // default value is restrict.
@@ -1857,10 +2001,13 @@ func (secure *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Secure) GetEntit
     secure.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     secure.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    secure.EntityData.Children = make(map[string]types.YChild)
-    secure.EntityData.Leafs = make(map[string]types.YLeaf)
-    secure.EntityData.Leafs["action"] = types.YLeaf{"Action", secure.Action}
-    secure.EntityData.Leafs["logging"] = types.YLeaf{"Logging", secure.Logging}
+    secure.EntityData.Children = types.NewOrderedMap()
+    secure.EntityData.Leafs = types.NewOrderedMap()
+    secure.EntityData.Leafs.Append("action", types.YLeaf{"Action", secure.Action})
+    secure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", secure.Logging})
+
+    secure.EntityData.YListKeys = []string {}
+
     return &(secure.EntityData)
 }
 
@@ -1872,7 +2019,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static struct {
 
     // MAC address entry. The type is slice of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_MacAddresses.
-    MacAddresses []BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_MacAddresses
+    MacAddresses []*BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_MacAddresses
 }
 
 func (static *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static) GetEntityData() *types.CommonEntityData {
@@ -1885,12 +2032,15 @@ func (static *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static) GetEntit
     static.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    static.EntityData.Children = make(map[string]types.YChild)
-    static.EntityData.Children["mac-addresses"] = types.YChild{"MacAddresses", nil}
+    static.EntityData.Children = types.NewOrderedMap()
+    static.EntityData.Children.Append("mac-addresses", types.YChild{"MacAddresses", nil})
     for i := range static.MacAddresses {
-        static.EntityData.Children[types.GetSegmentPath(&static.MacAddresses[i])] = types.YChild{"MacAddresses", &static.MacAddresses[i]}
+        static.EntityData.Children.Append(types.GetSegmentPath(static.MacAddresses[i]), types.YChild{"MacAddresses", static.MacAddresses[i]})
     }
-    static.EntityData.Leafs = make(map[string]types.YLeaf)
+    static.EntityData.Leafs = types.NewOrderedMap()
+
+    static.EntityData.YListKeys = []string {}
+
     return &(static.EntityData)
 }
 
@@ -1901,7 +2051,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_MacAddresses struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // Drop packet. The type is bool. This attribute is mandatory.
@@ -1913,15 +2063,18 @@ func (macAddresses *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_Mac
     macAddresses.EntityData.YangName = "mac-addresses"
     macAddresses.EntityData.BundleName = "cisco_ios_xe"
     macAddresses.EntityData.ParentYangName = "static"
-    macAddresses.EntityData.SegmentPath = "mac-addresses" + "[mac-addr='" + fmt.Sprintf("%v", macAddresses.MacAddr) + "']"
+    macAddresses.EntityData.SegmentPath = "mac-addresses" + types.AddKeyToken(macAddresses.MacAddr, "mac-addr")
     macAddresses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     macAddresses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     macAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    macAddresses.EntityData.Children = make(map[string]types.YChild)
-    macAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
-    macAddresses.EntityData.Leafs["mac-addr"] = types.YLeaf{"MacAddr", macAddresses.MacAddr}
-    macAddresses.EntityData.Leafs["drop"] = types.YLeaf{"Drop", macAddresses.Drop}
+    macAddresses.EntityData.Children = types.NewOrderedMap()
+    macAddresses.EntityData.Leafs = types.NewOrderedMap()
+    macAddresses.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", macAddresses.MacAddr})
+    macAddresses.EntityData.Leafs.Append("drop", types.YLeaf{"Drop", macAddresses.Drop})
+
+    macAddresses.EntityData.YListKeys = []string {"MacAddr"}
+
     return &(macAddresses.EntityData)
 }
 
@@ -1931,6 +2084,7 @@ func (macAddresses *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_Mac
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_DynamicArpInspection struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable DAI logging. The type is bool.
     Logging interface{}
@@ -1949,10 +2103,13 @@ func (dynamicArpInspection *BridgeDomainConfig_BridgeDomains_BridgeDomain_Dynami
     dynamicArpInspection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dynamicArpInspection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dynamicArpInspection.EntityData.Children = make(map[string]types.YChild)
-    dynamicArpInspection.EntityData.Children["address-validation"] = types.YChild{"AddressValidation", &dynamicArpInspection.AddressValidation}
-    dynamicArpInspection.EntityData.Leafs = make(map[string]types.YLeaf)
-    dynamicArpInspection.EntityData.Leafs["logging"] = types.YLeaf{"Logging", dynamicArpInspection.Logging}
+    dynamicArpInspection.EntityData.Children = types.NewOrderedMap()
+    dynamicArpInspection.EntityData.Children.Append("address-validation", types.YChild{"AddressValidation", &dynamicArpInspection.AddressValidation})
+    dynamicArpInspection.EntityData.Leafs = types.NewOrderedMap()
+    dynamicArpInspection.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", dynamicArpInspection.Logging})
+
+    dynamicArpInspection.EntityData.YListKeys = []string {}
+
     return &(dynamicArpInspection.EntityData)
 }
 
@@ -1962,6 +2119,7 @@ func (dynamicArpInspection *BridgeDomainConfig_BridgeDomains_BridgeDomain_Dynami
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_DynamicArpInspection_AddressValidation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Match Destination MAC Address. The type is interface{}.
     DstMac interface{}
@@ -1983,11 +2141,14 @@ func (addressValidation *BridgeDomainConfig_BridgeDomains_BridgeDomain_DynamicAr
     addressValidation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    addressValidation.EntityData.Children = make(map[string]types.YChild)
-    addressValidation.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressValidation.EntityData.Leafs["dst-mac"] = types.YLeaf{"DstMac", addressValidation.DstMac}
-    addressValidation.EntityData.Leafs["src-mac"] = types.YLeaf{"SrcMac", addressValidation.SrcMac}
-    addressValidation.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", addressValidation.Ipv4}
+    addressValidation.EntityData.Children = types.NewOrderedMap()
+    addressValidation.EntityData.Leafs = types.NewOrderedMap()
+    addressValidation.EntityData.Leafs.Append("dst-mac", types.YLeaf{"DstMac", addressValidation.DstMac})
+    addressValidation.EntityData.Leafs.Append("src-mac", types.YLeaf{"SrcMac", addressValidation.SrcMac})
+    addressValidation.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", addressValidation.Ipv4})
+
+    addressValidation.EntityData.YListKeys = []string {}
+
     return &(addressValidation.EntityData)
 }
 
@@ -1997,6 +2158,7 @@ func (addressValidation *BridgeDomainConfig_BridgeDomains_BridgeDomain_DynamicAr
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_IpSourceGuard struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable IPSG logging. The type is bool. The default value is false.
     Logging interface{}
@@ -2012,9 +2174,12 @@ func (ipSourceGuard *BridgeDomainConfig_BridgeDomains_BridgeDomain_IpSourceGuard
     ipSourceGuard.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipSourceGuard.EntityData.Children = make(map[string]types.YChild)
-    ipSourceGuard.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSourceGuard.EntityData.Leafs["logging"] = types.YLeaf{"Logging", ipSourceGuard.Logging}
+    ipSourceGuard.EntityData.Children = types.NewOrderedMap()
+    ipSourceGuard.EntityData.Leafs = types.NewOrderedMap()
+    ipSourceGuard.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", ipSourceGuard.Logging})
+
+    ipSourceGuard.EntityData.YListKeys = []string {}
+
     return &(ipSourceGuard.EntityData)
 }
 
@@ -2027,13 +2192,13 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl struct {
 
     // This leaf represents the storm control action taken when the traffic of a
     // particular type exceeds the configured threshold values. The type is one of
-    // the following: ActionDropActionSnmpTrapActionShutdown.
+    // the following: ActionShutdownActionSnmpTrapActionDrop.
     Action interface{}
 
     // A collection of storm control threshold configuration entries. The type is
     // slice of
     // BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl_Thresholds.
-    Thresholds []BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl_Thresholds
+    Thresholds []*BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl_Thresholds
 }
 
 func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl) GetEntityData() *types.CommonEntityData {
@@ -2046,13 +2211,16 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl) 
     stormControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stormControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stormControl.EntityData.Children = make(map[string]types.YChild)
-    stormControl.EntityData.Children["thresholds"] = types.YChild{"Thresholds", nil}
+    stormControl.EntityData.Children = types.NewOrderedMap()
+    stormControl.EntityData.Children.Append("thresholds", types.YChild{"Thresholds", nil})
     for i := range stormControl.Thresholds {
-        stormControl.EntityData.Children[types.GetSegmentPath(&stormControl.Thresholds[i])] = types.YChild{"Thresholds", &stormControl.Thresholds[i]}
+        stormControl.EntityData.Children.Append(types.GetSegmentPath(stormControl.Thresholds[i]), types.YChild{"Thresholds", stormControl.Thresholds[i]})
     }
-    stormControl.EntityData.Leafs = make(map[string]types.YLeaf)
-    stormControl.EntityData.Leafs["action"] = types.YLeaf{"Action", stormControl.Action}
+    stormControl.EntityData.Leafs = types.NewOrderedMap()
+    stormControl.EntityData.Leafs.Append("action", types.YLeaf{"Action", stormControl.Action})
+
+    stormControl.EntityData.YListKeys = []string {}
+
     return &(stormControl.EntityData)
 }
 
@@ -2082,16 +2250,19 @@ func (thresholds *BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl_Thr
     thresholds.EntityData.YangName = "thresholds"
     thresholds.EntityData.BundleName = "cisco_ios_xe"
     thresholds.EntityData.ParentYangName = "storm-control"
-    thresholds.EntityData.SegmentPath = "thresholds" + "[traffic-class='" + fmt.Sprintf("%v", thresholds.TrafficClass) + "']"
+    thresholds.EntityData.SegmentPath = "thresholds" + types.AddKeyToken(thresholds.TrafficClass, "traffic-class")
     thresholds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     thresholds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     thresholds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    thresholds.EntityData.Children = make(map[string]types.YChild)
-    thresholds.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholds.EntityData.Leafs["traffic-class"] = types.YLeaf{"TrafficClass", thresholds.TrafficClass}
-    thresholds.EntityData.Leafs["value"] = types.YLeaf{"Value", thresholds.Value}
-    thresholds.EntityData.Leafs["unit"] = types.YLeaf{"Unit", thresholds.Unit}
+    thresholds.EntityData.Children = types.NewOrderedMap()
+    thresholds.EntityData.Leafs = types.NewOrderedMap()
+    thresholds.EntityData.Leafs.Append("traffic-class", types.YLeaf{"TrafficClass", thresholds.TrafficClass})
+    thresholds.EntityData.Leafs.Append("value", types.YLeaf{"Value", thresholds.Value})
+    thresholds.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", thresholds.Unit})
+
+    thresholds.EntityData.YListKeys = []string {"TrafficClass"}
+
     return &(thresholds.EntityData)
 }
 
@@ -2132,10 +2303,13 @@ func (igmpSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_IgmpSnooping) 
     igmpSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    igmpSnooping.EntityData.Children = make(map[string]types.YChild)
-    igmpSnooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    igmpSnooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", igmpSnooping.ProfileName}
-    igmpSnooping.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", igmpSnooping.Disabled}
+    igmpSnooping.EntityData.Children = types.NewOrderedMap()
+    igmpSnooping.EntityData.Leafs = types.NewOrderedMap()
+    igmpSnooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", igmpSnooping.ProfileName})
+    igmpSnooping.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", igmpSnooping.Disabled})
+
+    igmpSnooping.EntityData.YListKeys = []string {}
+
     return &(igmpSnooping.EntityData)
 }
 
@@ -2159,9 +2333,12 @@ func (mldSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_MldSnooping) Ge
     mldSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mldSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mldSnooping.EntityData.Children = make(map[string]types.YChild)
-    mldSnooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    mldSnooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", mldSnooping.ProfileName}
+    mldSnooping.EntityData.Children = types.NewOrderedMap()
+    mldSnooping.EntityData.Leafs = types.NewOrderedMap()
+    mldSnooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", mldSnooping.ProfileName})
+
+    mldSnooping.EntityData.YListKeys = []string {}
+
     return &(mldSnooping.EntityData)
 }
 
@@ -2186,9 +2363,12 @@ func (dhcpIpv4Snooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_DhcpIpv4Sn
     dhcpIpv4Snooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpIpv4Snooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dhcpIpv4Snooping.EntityData.Children = make(map[string]types.YChild)
-    dhcpIpv4Snooping.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcpIpv4Snooping.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", dhcpIpv4Snooping.ProfileName}
+    dhcpIpv4Snooping.EntityData.Children = types.NewOrderedMap()
+    dhcpIpv4Snooping.EntityData.Leafs = types.NewOrderedMap()
+    dhcpIpv4Snooping.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", dhcpIpv4Snooping.ProfileName})
+
+    dhcpIpv4Snooping.EntityData.YListKeys = []string {}
+
     return &(dhcpIpv4Snooping.EntityData)
 }
 
@@ -2220,7 +2400,7 @@ type BridgeDomainState struct {
 
     // This list contains mac-address entries for bridge domains. The type is
     // slice of BridgeDomainState_MacTable.
-    MacTable []BridgeDomainState_MacTable
+    MacTable []*BridgeDomainState_MacTable
 }
 
 func (bridgeDomainState *BridgeDomainState) GetEntityData() *types.CommonEntityData {
@@ -2233,15 +2413,18 @@ func (bridgeDomainState *BridgeDomainState) GetEntityData() *types.CommonEntityD
     bridgeDomainState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomainState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeDomainState.EntityData.Children = make(map[string]types.YChild)
-    bridgeDomainState.EntityData.Children["system-capabilities"] = types.YChild{"SystemCapabilities", &bridgeDomainState.SystemCapabilities}
-    bridgeDomainState.EntityData.Children["module-capabilities"] = types.YChild{"ModuleCapabilities", &bridgeDomainState.ModuleCapabilities}
-    bridgeDomainState.EntityData.Children["bridge-domains"] = types.YChild{"BridgeDomains", &bridgeDomainState.BridgeDomains}
-    bridgeDomainState.EntityData.Children["mac-table"] = types.YChild{"MacTable", nil}
+    bridgeDomainState.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainState.EntityData.Children.Append("system-capabilities", types.YChild{"SystemCapabilities", &bridgeDomainState.SystemCapabilities})
+    bridgeDomainState.EntityData.Children.Append("module-capabilities", types.YChild{"ModuleCapabilities", &bridgeDomainState.ModuleCapabilities})
+    bridgeDomainState.EntityData.Children.Append("bridge-domains", types.YChild{"BridgeDomains", &bridgeDomainState.BridgeDomains})
+    bridgeDomainState.EntityData.Children.Append("mac-table", types.YChild{"MacTable", nil})
     for i := range bridgeDomainState.MacTable {
-        bridgeDomainState.EntityData.Children[types.GetSegmentPath(&bridgeDomainState.MacTable[i])] = types.YChild{"MacTable", &bridgeDomainState.MacTable[i]}
+        bridgeDomainState.EntityData.Children.Append(types.GetSegmentPath(bridgeDomainState.MacTable[i]), types.YChild{"MacTable", bridgeDomainState.MacTable[i]})
     }
-    bridgeDomainState.EntityData.Leafs = make(map[string]types.YLeaf)
+    bridgeDomainState.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomainState.EntityData.YListKeys = []string {}
+
     return &(bridgeDomainState.EntityData)
 }
 
@@ -2287,14 +2470,17 @@ func (systemCapabilities *BridgeDomainState_SystemCapabilities) GetEntityData() 
     systemCapabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     systemCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    systemCapabilities.EntityData.Children = make(map[string]types.YChild)
-    systemCapabilities.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemCapabilities.EntityData.Leafs["max-bd"] = types.YLeaf{"MaxBd", systemCapabilities.MaxBd}
-    systemCapabilities.EntityData.Leafs["max-ac-per-bd"] = types.YLeaf{"MaxAcPerBd", systemCapabilities.MaxAcPerBd}
-    systemCapabilities.EntityData.Leafs["max-pw-per-bd"] = types.YLeaf{"MaxPwPerBd", systemCapabilities.MaxPwPerBd}
-    systemCapabilities.EntityData.Leafs["max-vfi-per-bd"] = types.YLeaf{"MaxVfiPerBd", systemCapabilities.MaxVfiPerBd}
-    systemCapabilities.EntityData.Leafs["max-sh-group-per-bd"] = types.YLeaf{"MaxShGroupPerBd", systemCapabilities.MaxShGroupPerBd}
-    systemCapabilities.EntityData.Leafs["max-interflex-if-per-bd"] = types.YLeaf{"MaxInterflexIfPerBd", systemCapabilities.MaxInterflexIfPerBd}
+    systemCapabilities.EntityData.Children = types.NewOrderedMap()
+    systemCapabilities.EntityData.Leafs = types.NewOrderedMap()
+    systemCapabilities.EntityData.Leafs.Append("max-bd", types.YLeaf{"MaxBd", systemCapabilities.MaxBd})
+    systemCapabilities.EntityData.Leafs.Append("max-ac-per-bd", types.YLeaf{"MaxAcPerBd", systemCapabilities.MaxAcPerBd})
+    systemCapabilities.EntityData.Leafs.Append("max-pw-per-bd", types.YLeaf{"MaxPwPerBd", systemCapabilities.MaxPwPerBd})
+    systemCapabilities.EntityData.Leafs.Append("max-vfi-per-bd", types.YLeaf{"MaxVfiPerBd", systemCapabilities.MaxVfiPerBd})
+    systemCapabilities.EntityData.Leafs.Append("max-sh-group-per-bd", types.YLeaf{"MaxShGroupPerBd", systemCapabilities.MaxShGroupPerBd})
+    systemCapabilities.EntityData.Leafs.Append("max-interflex-if-per-bd", types.YLeaf{"MaxInterflexIfPerBd", systemCapabilities.MaxInterflexIfPerBd})
+
+    systemCapabilities.EntityData.YListKeys = []string {}
+
     return &(systemCapabilities.EntityData)
 }
 
@@ -2307,7 +2493,7 @@ type BridgeDomainState_ModuleCapabilities struct {
 
     // Collection of capabillity statements for hardware module in the system. The
     // type is slice of BridgeDomainState_ModuleCapabilities_Modules.
-    Modules []BridgeDomainState_ModuleCapabilities_Modules
+    Modules []*BridgeDomainState_ModuleCapabilities_Modules
 }
 
 func (moduleCapabilities *BridgeDomainState_ModuleCapabilities) GetEntityData() *types.CommonEntityData {
@@ -2320,12 +2506,15 @@ func (moduleCapabilities *BridgeDomainState_ModuleCapabilities) GetEntityData() 
     moduleCapabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     moduleCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    moduleCapabilities.EntityData.Children = make(map[string]types.YChild)
-    moduleCapabilities.EntityData.Children["modules"] = types.YChild{"Modules", nil}
+    moduleCapabilities.EntityData.Children = types.NewOrderedMap()
+    moduleCapabilities.EntityData.Children.Append("modules", types.YChild{"Modules", nil})
     for i := range moduleCapabilities.Modules {
-        moduleCapabilities.EntityData.Children[types.GetSegmentPath(&moduleCapabilities.Modules[i])] = types.YChild{"Modules", &moduleCapabilities.Modules[i]}
+        moduleCapabilities.EntityData.Children.Append(types.GetSegmentPath(moduleCapabilities.Modules[i]), types.YChild{"Modules", moduleCapabilities.Modules[i]})
     }
-    moduleCapabilities.EntityData.Leafs = make(map[string]types.YLeaf)
+    moduleCapabilities.EntityData.Leafs = types.NewOrderedMap()
+
+    moduleCapabilities.EntityData.YListKeys = []string {}
+
     return &(moduleCapabilities.EntityData)
 }
 
@@ -2374,21 +2563,24 @@ func (modules *BridgeDomainState_ModuleCapabilities_Modules) GetEntityData() *ty
     modules.EntityData.YangName = "modules"
     modules.EntityData.BundleName = "cisco_ios_xe"
     modules.EntityData.ParentYangName = "module-capabilities"
-    modules.EntityData.SegmentPath = "modules" + "[name='" + fmt.Sprintf("%v", modules.Name) + "']"
+    modules.EntityData.SegmentPath = "modules" + types.AddKeyToken(modules.Name, "name")
     modules.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     modules.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     modules.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    modules.EntityData.Children = make(map[string]types.YChild)
-    modules.EntityData.Leafs = make(map[string]types.YLeaf)
-    modules.EntityData.Leafs["name"] = types.YLeaf{"Name", modules.Name}
-    modules.EntityData.Leafs["max-mac-per-bd"] = types.YLeaf{"MaxMacPerBd", modules.MaxMacPerBd}
-    modules.EntityData.Leafs["max-pdd-edge-bd"] = types.YLeaf{"MaxPddEdgeBd", modules.MaxPddEdgeBd}
-    modules.EntityData.Leafs["max-bd"] = types.YLeaf{"MaxBd", modules.MaxBd}
-    modules.EntityData.Leafs["max-ac-per-bd"] = types.YLeaf{"MaxAcPerBd", modules.MaxAcPerBd}
-    modules.EntityData.Leafs["max-pw-per-bd"] = types.YLeaf{"MaxPwPerBd", modules.MaxPwPerBd}
-    modules.EntityData.Leafs["max-vfi-per-bd"] = types.YLeaf{"MaxVfiPerBd", modules.MaxVfiPerBd}
-    modules.EntityData.Leafs["max-sh-group-per-bd"] = types.YLeaf{"MaxShGroupPerBd", modules.MaxShGroupPerBd}
+    modules.EntityData.Children = types.NewOrderedMap()
+    modules.EntityData.Leafs = types.NewOrderedMap()
+    modules.EntityData.Leafs.Append("name", types.YLeaf{"Name", modules.Name})
+    modules.EntityData.Leafs.Append("max-mac-per-bd", types.YLeaf{"MaxMacPerBd", modules.MaxMacPerBd})
+    modules.EntityData.Leafs.Append("max-pdd-edge-bd", types.YLeaf{"MaxPddEdgeBd", modules.MaxPddEdgeBd})
+    modules.EntityData.Leafs.Append("max-bd", types.YLeaf{"MaxBd", modules.MaxBd})
+    modules.EntityData.Leafs.Append("max-ac-per-bd", types.YLeaf{"MaxAcPerBd", modules.MaxAcPerBd})
+    modules.EntityData.Leafs.Append("max-pw-per-bd", types.YLeaf{"MaxPwPerBd", modules.MaxPwPerBd})
+    modules.EntityData.Leafs.Append("max-vfi-per-bd", types.YLeaf{"MaxVfiPerBd", modules.MaxVfiPerBd})
+    modules.EntityData.Leafs.Append("max-sh-group-per-bd", types.YLeaf{"MaxShGroupPerBd", modules.MaxShGroupPerBd})
+
+    modules.EntityData.YListKeys = []string {"Name"}
+
     return &(modules.EntityData)
 }
 
@@ -2400,7 +2592,7 @@ type BridgeDomainState_BridgeDomains struct {
 
     // Collection of bridge-domain state data. The type is slice of
     // BridgeDomainState_BridgeDomains_BridgeDomain.
-    BridgeDomain []BridgeDomainState_BridgeDomains_BridgeDomain
+    BridgeDomain []*BridgeDomainState_BridgeDomains_BridgeDomain
 }
 
 func (bridgeDomains *BridgeDomainState_BridgeDomains) GetEntityData() *types.CommonEntityData {
@@ -2413,12 +2605,15 @@ func (bridgeDomains *BridgeDomainState_BridgeDomains) GetEntityData() *types.Com
     bridgeDomains.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeDomains.EntityData.Children = make(map[string]types.YChild)
-    bridgeDomains.EntityData.Children["bridge-domain"] = types.YChild{"BridgeDomain", nil}
+    bridgeDomains.EntityData.Children = types.NewOrderedMap()
+    bridgeDomains.EntityData.Children.Append("bridge-domain", types.YChild{"BridgeDomain", nil})
     for i := range bridgeDomains.BridgeDomain {
-        bridgeDomains.EntityData.Children[types.GetSegmentPath(&bridgeDomains.BridgeDomain[i])] = types.YChild{"BridgeDomain", &bridgeDomains.BridgeDomain[i]}
+        bridgeDomains.EntityData.Children.Append(types.GetSegmentPath(bridgeDomains.BridgeDomain[i]), types.YChild{"BridgeDomain", bridgeDomains.BridgeDomain[i]})
     }
-    bridgeDomains.EntityData.Leafs = make(map[string]types.YLeaf)
+    bridgeDomains.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomains.EntityData.YListKeys = []string {}
+
     return &(bridgeDomains.EntityData)
 }
 
@@ -2448,7 +2643,7 @@ type BridgeDomainState_BridgeDomains_BridgeDomain struct {
     MacLimitReached interface{}
 
     // Point to Mutipoint pseudowire state. The type is bool.
-    P2MpPwDisabled interface{}
+    P2mpPwDisabled interface{}
 
     // Collection of bridge-domain members.
     Members BridgeDomainState_BridgeDomains_BridgeDomain_Members
@@ -2459,20 +2654,23 @@ func (bridgeDomain *BridgeDomainState_BridgeDomains_BridgeDomain) GetEntityData(
     bridgeDomain.EntityData.YangName = "bridge-domain"
     bridgeDomain.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomain.EntityData.ParentYangName = "bridge-domains"
-    bridgeDomain.EntityData.SegmentPath = "bridge-domain" + "[id='" + fmt.Sprintf("%v", bridgeDomain.Id) + "']"
+    bridgeDomain.EntityData.SegmentPath = "bridge-domain" + types.AddKeyToken(bridgeDomain.Id, "id")
     bridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeDomain.EntityData.Children = make(map[string]types.YChild)
-    bridgeDomain.EntityData.Children["members"] = types.YChild{"Members", &bridgeDomain.Members}
-    bridgeDomain.EntityData.Leafs = make(map[string]types.YLeaf)
-    bridgeDomain.EntityData.Leafs["id"] = types.YLeaf{"Id", bridgeDomain.Id}
-    bridgeDomain.EntityData.Leafs["bd-state"] = types.YLeaf{"BdState", bridgeDomain.BdState}
-    bridgeDomain.EntityData.Leafs["create-time"] = types.YLeaf{"CreateTime", bridgeDomain.CreateTime}
-    bridgeDomain.EntityData.Leafs["last-status-change"] = types.YLeaf{"LastStatusChange", bridgeDomain.LastStatusChange}
-    bridgeDomain.EntityData.Leafs["mac-limit-reached"] = types.YLeaf{"MacLimitReached", bridgeDomain.MacLimitReached}
-    bridgeDomain.EntityData.Leafs["p2mp-pw-disabled"] = types.YLeaf{"P2MpPwDisabled", bridgeDomain.P2MpPwDisabled}
+    bridgeDomain.EntityData.Children = types.NewOrderedMap()
+    bridgeDomain.EntityData.Children.Append("members", types.YChild{"Members", &bridgeDomain.Members})
+    bridgeDomain.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomain.EntityData.Leafs.Append("id", types.YLeaf{"Id", bridgeDomain.Id})
+    bridgeDomain.EntityData.Leafs.Append("bd-state", types.YLeaf{"BdState", bridgeDomain.BdState})
+    bridgeDomain.EntityData.Leafs.Append("create-time", types.YLeaf{"CreateTime", bridgeDomain.CreateTime})
+    bridgeDomain.EntityData.Leafs.Append("last-status-change", types.YLeaf{"LastStatusChange", bridgeDomain.LastStatusChange})
+    bridgeDomain.EntityData.Leafs.Append("mac-limit-reached", types.YLeaf{"MacLimitReached", bridgeDomain.MacLimitReached})
+    bridgeDomain.EntityData.Leafs.Append("p2mp-pw-disabled", types.YLeaf{"P2mpPwDisabled", bridgeDomain.P2mpPwDisabled})
+
+    bridgeDomain.EntityData.YListKeys = []string {"Id"}
+
     return &(bridgeDomain.EntityData)
 }
 
@@ -2484,17 +2682,17 @@ type BridgeDomainState_BridgeDomains_BridgeDomain_Members struct {
 
     // List of attachment circuits for this bridge domains. The type is slice of
     // BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember.
-    AcMember []BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember
+    AcMember []*BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember
 
     // Reference to an instance of Bridge domain Virtual Forwarding Instance (VFI)
     // name. The type is slice of
     // BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember.
-    VfiMember []BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember
+    VfiMember []*BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember
 
     // Collection of access pseudowire members of the bridge domain. The type is
     // slice of
     // BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember.
-    AccessPwMember []BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember
+    AccessPwMember []*BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember
 }
 
 func (members *BridgeDomainState_BridgeDomains_BridgeDomain_Members) GetEntityData() *types.CommonEntityData {
@@ -2507,20 +2705,23 @@ func (members *BridgeDomainState_BridgeDomains_BridgeDomain_Members) GetEntityDa
     members.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    members.EntityData.Children = make(map[string]types.YChild)
-    members.EntityData.Children["ac-member"] = types.YChild{"AcMember", nil}
+    members.EntityData.Children = types.NewOrderedMap()
+    members.EntityData.Children.Append("ac-member", types.YChild{"AcMember", nil})
     for i := range members.AcMember {
-        members.EntityData.Children[types.GetSegmentPath(&members.AcMember[i])] = types.YChild{"AcMember", &members.AcMember[i]}
+        members.EntityData.Children.Append(types.GetSegmentPath(members.AcMember[i]), types.YChild{"AcMember", members.AcMember[i]})
     }
-    members.EntityData.Children["vfi-member"] = types.YChild{"VfiMember", nil}
+    members.EntityData.Children.Append("vfi-member", types.YChild{"VfiMember", nil})
     for i := range members.VfiMember {
-        members.EntityData.Children[types.GetSegmentPath(&members.VfiMember[i])] = types.YChild{"VfiMember", &members.VfiMember[i]}
+        members.EntityData.Children.Append(types.GetSegmentPath(members.VfiMember[i]), types.YChild{"VfiMember", members.VfiMember[i]})
     }
-    members.EntityData.Children["access-pw-member"] = types.YChild{"AccessPwMember", nil}
+    members.EntityData.Children.Append("access-pw-member", types.YChild{"AccessPwMember", nil})
     for i := range members.AccessPwMember {
-        members.EntityData.Children[types.GetSegmentPath(&members.AccessPwMember[i])] = types.YChild{"AccessPwMember", &members.AccessPwMember[i]}
+        members.EntityData.Children.Append(types.GetSegmentPath(members.AccessPwMember[i]), types.YChild{"AccessPwMember", members.AccessPwMember[i]})
     }
-    members.EntityData.Leafs = make(map[string]types.YLeaf)
+    members.EntityData.Leafs = types.NewOrderedMap()
+
+    members.EntityData.YListKeys = []string {}
+
     return &(members.EntityData)
 }
 
@@ -2533,7 +2734,7 @@ type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember struct {
     // This attribute is a key. Reference to an instance of Bridge domain
     // attachment circuit (AC) interface name. The type is string. Refers to
     // ietf_interfaces.InterfacesState_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Number of static MAC address configured on this bridge-domain member
     // interface. The type is interface{} with range: 0..4294967295.
@@ -2554,18 +2755,21 @@ func (acMember *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember) G
     acMember.EntityData.YangName = "ac-member"
     acMember.EntityData.BundleName = "cisco_ios_xe"
     acMember.EntityData.ParentYangName = "members"
-    acMember.EntityData.SegmentPath = "ac-member" + "[interface='" + fmt.Sprintf("%v", acMember.Interface_) + "']"
+    acMember.EntityData.SegmentPath = "ac-member" + types.AddKeyToken(acMember.Interface, "interface")
     acMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     acMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     acMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    acMember.EntityData.Children = make(map[string]types.YChild)
-    acMember.EntityData.Children["dai-stats"] = types.YChild{"DaiStats", &acMember.DaiStats}
-    acMember.EntityData.Children["ipsg-stats"] = types.YChild{"IpsgStats", &acMember.IpsgStats}
-    acMember.EntityData.Children["storm-control"] = types.YChild{"StormControl", &acMember.StormControl}
-    acMember.EntityData.Leafs = make(map[string]types.YLeaf)
-    acMember.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", acMember.Interface_}
-    acMember.EntityData.Leafs["static-mac-count"] = types.YLeaf{"StaticMacCount", acMember.StaticMacCount}
+    acMember.EntityData.Children = types.NewOrderedMap()
+    acMember.EntityData.Children.Append("dai-stats", types.YChild{"DaiStats", &acMember.DaiStats})
+    acMember.EntityData.Children.Append("ipsg-stats", types.YChild{"IpsgStats", &acMember.IpsgStats})
+    acMember.EntityData.Children.Append("storm-control", types.YChild{"StormControl", &acMember.StormControl})
+    acMember.EntityData.Leafs = types.NewOrderedMap()
+    acMember.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", acMember.Interface})
+    acMember.EntityData.Leafs.Append("static-mac-count", types.YLeaf{"StaticMacCount", acMember.StaticMacCount})
+
+    acMember.EntityData.YListKeys = []string {"Interface"}
+
     return &(acMember.EntityData)
 }
 
@@ -2594,10 +2798,13 @@ func (daiStats *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_Da
     daiStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daiStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daiStats.EntityData.Children = make(map[string]types.YChild)
-    daiStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    daiStats.EntityData.Leafs["packet-drops"] = types.YLeaf{"PacketDrops", daiStats.PacketDrops}
-    daiStats.EntityData.Leafs["byte-drops"] = types.YLeaf{"ByteDrops", daiStats.ByteDrops}
+    daiStats.EntityData.Children = types.NewOrderedMap()
+    daiStats.EntityData.Leafs = types.NewOrderedMap()
+    daiStats.EntityData.Leafs.Append("packet-drops", types.YLeaf{"PacketDrops", daiStats.PacketDrops})
+    daiStats.EntityData.Leafs.Append("byte-drops", types.YLeaf{"ByteDrops", daiStats.ByteDrops})
+
+    daiStats.EntityData.YListKeys = []string {}
+
     return &(daiStats.EntityData)
 }
 
@@ -2626,10 +2833,13 @@ func (ipsgStats *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_I
     ipsgStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipsgStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipsgStats.EntityData.Children = make(map[string]types.YChild)
-    ipsgStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipsgStats.EntityData.Leafs["packet-drops"] = types.YLeaf{"PacketDrops", ipsgStats.PacketDrops}
-    ipsgStats.EntityData.Leafs["byte-drops"] = types.YLeaf{"ByteDrops", ipsgStats.ByteDrops}
+    ipsgStats.EntityData.Children = types.NewOrderedMap()
+    ipsgStats.EntityData.Leafs = types.NewOrderedMap()
+    ipsgStats.EntityData.Leafs.Append("packet-drops", types.YLeaf{"PacketDrops", ipsgStats.PacketDrops})
+    ipsgStats.EntityData.Leafs.Append("byte-drops", types.YLeaf{"ByteDrops", ipsgStats.ByteDrops})
+
+    ipsgStats.EntityData.YListKeys = []string {}
+
     return &(ipsgStats.EntityData)
 }
 
@@ -2642,7 +2852,7 @@ type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_StormControl 
     // Collection of packet drop statistics for ethernet traffic clasess. The type
     // is slice of
     // BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_StormControl_DropCounter.
-    DropCounter []BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_StormControl_DropCounter
+    DropCounter []*BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_StormControl_DropCounter
 }
 
 func (stormControl *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_StormControl) GetEntityData() *types.CommonEntityData {
@@ -2655,12 +2865,15 @@ func (stormControl *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMembe
     stormControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stormControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stormControl.EntityData.Children = make(map[string]types.YChild)
-    stormControl.EntityData.Children["drop-counter"] = types.YChild{"DropCounter", nil}
+    stormControl.EntityData.Children = types.NewOrderedMap()
+    stormControl.EntityData.Children.Append("drop-counter", types.YChild{"DropCounter", nil})
     for i := range stormControl.DropCounter {
-        stormControl.EntityData.Children[types.GetSegmentPath(&stormControl.DropCounter[i])] = types.YChild{"DropCounter", &stormControl.DropCounter[i]}
+        stormControl.EntityData.Children.Append(types.GetSegmentPath(stormControl.DropCounter[i]), types.YChild{"DropCounter", stormControl.DropCounter[i]})
     }
-    stormControl.EntityData.Leafs = make(map[string]types.YLeaf)
+    stormControl.EntityData.Leafs = types.NewOrderedMap()
+
+    stormControl.EntityData.YListKeys = []string {}
+
     return &(stormControl.EntityData)
 }
 
@@ -2689,16 +2902,19 @@ func (dropCounter *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember
     dropCounter.EntityData.YangName = "drop-counter"
     dropCounter.EntityData.BundleName = "cisco_ios_xe"
     dropCounter.EntityData.ParentYangName = "storm-control"
-    dropCounter.EntityData.SegmentPath = "drop-counter" + "[traffic-class='" + fmt.Sprintf("%v", dropCounter.TrafficClass) + "']"
+    dropCounter.EntityData.SegmentPath = "drop-counter" + types.AddKeyToken(dropCounter.TrafficClass, "traffic-class")
     dropCounter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dropCounter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dropCounter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dropCounter.EntityData.Children = make(map[string]types.YChild)
-    dropCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    dropCounter.EntityData.Leafs["traffic-class"] = types.YLeaf{"TrafficClass", dropCounter.TrafficClass}
-    dropCounter.EntityData.Leafs["packet-drops"] = types.YLeaf{"PacketDrops", dropCounter.PacketDrops}
-    dropCounter.EntityData.Leafs["octate-drops"] = types.YLeaf{"OctateDrops", dropCounter.OctateDrops}
+    dropCounter.EntityData.Children = types.NewOrderedMap()
+    dropCounter.EntityData.Leafs = types.NewOrderedMap()
+    dropCounter.EntityData.Leafs.Append("traffic-class", types.YLeaf{"TrafficClass", dropCounter.TrafficClass})
+    dropCounter.EntityData.Leafs.Append("packet-drops", types.YLeaf{"PacketDrops", dropCounter.PacketDrops})
+    dropCounter.EntityData.Leafs.Append("octate-drops", types.YLeaf{"OctateDrops", dropCounter.OctateDrops})
+
+    dropCounter.EntityData.YListKeys = []string {"TrafficClass"}
+
     return &(dropCounter.EntityData)
 }
 
@@ -2711,7 +2927,7 @@ type BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember struct {
 
     // This attribute is a key. Bridge domain memeber interface name. The type is
     // string. Refers to ietf_interfaces.InterfacesState_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Flooding operational status.
     Flooding BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flooding
@@ -2722,15 +2938,18 @@ func (vfiMember *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember)
     vfiMember.EntityData.YangName = "vfi-member"
     vfiMember.EntityData.BundleName = "cisco_ios_xe"
     vfiMember.EntityData.ParentYangName = "members"
-    vfiMember.EntityData.SegmentPath = "vfi-member" + "[interface='" + fmt.Sprintf("%v", vfiMember.Interface_) + "']"
+    vfiMember.EntityData.SegmentPath = "vfi-member" + types.AddKeyToken(vfiMember.Interface, "interface")
     vfiMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vfiMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vfiMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vfiMember.EntityData.Children = make(map[string]types.YChild)
-    vfiMember.EntityData.Children["flooding"] = types.YChild{"Flooding", &vfiMember.Flooding}
-    vfiMember.EntityData.Leafs = make(map[string]types.YLeaf)
-    vfiMember.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", vfiMember.Interface_}
+    vfiMember.EntityData.Children = types.NewOrderedMap()
+    vfiMember.EntityData.Children.Append("flooding", types.YChild{"Flooding", &vfiMember.Flooding})
+    vfiMember.EntityData.Leafs = types.NewOrderedMap()
+    vfiMember.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", vfiMember.Interface})
+
+    vfiMember.EntityData.YListKeys = []string {"Interface"}
+
     return &(vfiMember.EntityData)
 }
 
@@ -2743,7 +2962,7 @@ type BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flooding str
     // A collection of storm control threshold configuration entries. The type is
     // slice of
     // BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flooding_Status.
-    Status []BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flooding_Status
+    Status []*BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flooding_Status
 }
 
 func (flooding *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flooding) GetEntityData() *types.CommonEntityData {
@@ -2756,12 +2975,15 @@ func (flooding *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_F
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flooding.EntityData.Children = make(map[string]types.YChild)
-    flooding.EntityData.Children["status"] = types.YChild{"Status", nil}
+    flooding.EntityData.Children = types.NewOrderedMap()
+    flooding.EntityData.Children.Append("status", types.YChild{"Status", nil})
     for i := range flooding.Status {
-        flooding.EntityData.Children[types.GetSegmentPath(&flooding.Status[i])] = types.YChild{"Status", &flooding.Status[i]}
+        flooding.EntityData.Children.Append(types.GetSegmentPath(flooding.Status[i]), types.YChild{"Status", flooding.Status[i]})
     }
-    flooding.EntityData.Leafs = make(map[string]types.YLeaf)
+    flooding.EntityData.Leafs = types.NewOrderedMap()
+
+    flooding.EntityData.YListKeys = []string {}
+
     return &(flooding.EntityData)
 }
 
@@ -2786,15 +3008,18 @@ func (status *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flo
     status.EntityData.YangName = "status"
     status.EntityData.BundleName = "cisco_ios_xe"
     status.EntityData.ParentYangName = "flooding"
-    status.EntityData.SegmentPath = "status" + "[traffic-class='" + fmt.Sprintf("%v", status.TrafficClass) + "']"
+    status.EntityData.SegmentPath = "status" + types.AddKeyToken(status.TrafficClass, "traffic-class")
     status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
-    status.EntityData.Leafs["traffic-class"] = types.YLeaf{"TrafficClass", status.TrafficClass}
-    status.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", status.Enabled}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Leafs = types.NewOrderedMap()
+    status.EntityData.Leafs.Append("traffic-class", types.YLeaf{"TrafficClass", status.TrafficClass})
+    status.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", status.Enabled})
+
+    status.EntityData.YListKeys = []string {"TrafficClass"}
+
     return &(status.EntityData)
 }
 
@@ -2807,9 +3032,9 @@ type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember struct 
 
     // This attribute is a key. Reference to peer ip address of a pseudowire
     // instance. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VcPeerAddress interface{}
 
     // This attribute is a key. Reference to vc-id of a pseudowire instance. The
@@ -2826,16 +3051,19 @@ func (accessPwMember *BridgeDomainState_BridgeDomains_BridgeDomain_Members_Acces
     accessPwMember.EntityData.YangName = "access-pw-member"
     accessPwMember.EntityData.BundleName = "cisco_ios_xe"
     accessPwMember.EntityData.ParentYangName = "members"
-    accessPwMember.EntityData.SegmentPath = "access-pw-member" + "[vc-peer-address='" + fmt.Sprintf("%v", accessPwMember.VcPeerAddress) + "']" + "[vc-id='" + fmt.Sprintf("%v", accessPwMember.VcId) + "']"
+    accessPwMember.EntityData.SegmentPath = "access-pw-member" + types.AddKeyToken(accessPwMember.VcPeerAddress, "vc-peer-address") + types.AddKeyToken(accessPwMember.VcId, "vc-id")
     accessPwMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessPwMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessPwMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    accessPwMember.EntityData.Children = make(map[string]types.YChild)
-    accessPwMember.EntityData.Children["flooding"] = types.YChild{"Flooding", &accessPwMember.Flooding}
-    accessPwMember.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessPwMember.EntityData.Leafs["vc-peer-address"] = types.YLeaf{"VcPeerAddress", accessPwMember.VcPeerAddress}
-    accessPwMember.EntityData.Leafs["vc-id"] = types.YLeaf{"VcId", accessPwMember.VcId}
+    accessPwMember.EntityData.Children = types.NewOrderedMap()
+    accessPwMember.EntityData.Children.Append("flooding", types.YChild{"Flooding", &accessPwMember.Flooding})
+    accessPwMember.EntityData.Leafs = types.NewOrderedMap()
+    accessPwMember.EntityData.Leafs.Append("vc-peer-address", types.YLeaf{"VcPeerAddress", accessPwMember.VcPeerAddress})
+    accessPwMember.EntityData.Leafs.Append("vc-id", types.YLeaf{"VcId", accessPwMember.VcId})
+
+    accessPwMember.EntityData.YListKeys = []string {"VcPeerAddress", "VcId"}
+
     return &(accessPwMember.EntityData)
 }
 
@@ -2848,7 +3076,7 @@ type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember_Floodin
     // A collection of storm control threshold configuration entries. The type is
     // slice of
     // BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember_Flooding_Status.
-    Status []BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember_Flooding_Status
+    Status []*BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember_Flooding_Status
 }
 
 func (flooding *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember_Flooding) GetEntityData() *types.CommonEntityData {
@@ -2861,12 +3089,15 @@ func (flooding *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMem
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flooding.EntityData.Children = make(map[string]types.YChild)
-    flooding.EntityData.Children["status"] = types.YChild{"Status", nil}
+    flooding.EntityData.Children = types.NewOrderedMap()
+    flooding.EntityData.Children.Append("status", types.YChild{"Status", nil})
     for i := range flooding.Status {
-        flooding.EntityData.Children[types.GetSegmentPath(&flooding.Status[i])] = types.YChild{"Status", &flooding.Status[i]}
+        flooding.EntityData.Children.Append(types.GetSegmentPath(flooding.Status[i]), types.YChild{"Status", flooding.Status[i]})
     }
-    flooding.EntityData.Leafs = make(map[string]types.YLeaf)
+    flooding.EntityData.Leafs = types.NewOrderedMap()
+
+    flooding.EntityData.YListKeys = []string {}
+
     return &(flooding.EntityData)
 }
 
@@ -2891,15 +3122,18 @@ func (status *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMembe
     status.EntityData.YangName = "status"
     status.EntityData.BundleName = "cisco_ios_xe"
     status.EntityData.ParentYangName = "flooding"
-    status.EntityData.SegmentPath = "status" + "[traffic-class='" + fmt.Sprintf("%v", status.TrafficClass) + "']"
+    status.EntityData.SegmentPath = "status" + types.AddKeyToken(status.TrafficClass, "traffic-class")
     status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
-    status.EntityData.Leafs["traffic-class"] = types.YLeaf{"TrafficClass", status.TrafficClass}
-    status.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", status.Enabled}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Leafs = types.NewOrderedMap()
+    status.EntityData.Leafs.Append("traffic-class", types.YLeaf{"TrafficClass", status.TrafficClass})
+    status.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", status.Enabled})
+
+    status.EntityData.YListKeys = []string {"TrafficClass"}
+
     return &(status.EntityData)
 }
 
@@ -2915,7 +3149,7 @@ type BridgeDomainState_MacTable struct {
     BdId interface{}
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // MAC address type. The type is MacType.
@@ -2924,7 +3158,7 @@ type BridgeDomainState_MacTable struct {
     // Reference to an interface instance where MAC  address is learnt. The type
     // is string. Refers to ietf_interfaces.Interfaces_Interface_Name This
     // attribute is mandatory.
-    Interface_ interface{}
+    Interface interface{}
 
     // Secure MAC address. The type is bool.
     SecureMac interface{}
@@ -2945,21 +3179,24 @@ func (macTable *BridgeDomainState_MacTable) GetEntityData() *types.CommonEntityD
     macTable.EntityData.YangName = "mac-table"
     macTable.EntityData.BundleName = "cisco_ios_xe"
     macTable.EntityData.ParentYangName = "bridge-domain-state"
-    macTable.EntityData.SegmentPath = "mac-table" + "[bd-id='" + fmt.Sprintf("%v", macTable.BdId) + "']" + "[mac-address='" + fmt.Sprintf("%v", macTable.MacAddress) + "']"
+    macTable.EntityData.SegmentPath = "mac-table" + types.AddKeyToken(macTable.BdId, "bd-id") + types.AddKeyToken(macTable.MacAddress, "mac-address")
     macTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     macTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     macTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    macTable.EntityData.Children = make(map[string]types.YChild)
-    macTable.EntityData.Leafs = make(map[string]types.YLeaf)
-    macTable.EntityData.Leafs["bd-id"] = types.YLeaf{"BdId", macTable.BdId}
-    macTable.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", macTable.MacAddress}
-    macTable.EntityData.Leafs["mac-type"] = types.YLeaf{"MacType", macTable.MacType}
-    macTable.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", macTable.Interface_}
-    macTable.EntityData.Leafs["secure-mac"] = types.YLeaf{"SecureMac", macTable.SecureMac}
-    macTable.EntityData.Leafs["ntfy-mac"] = types.YLeaf{"NtfyMac", macTable.NtfyMac}
-    macTable.EntityData.Leafs["age"] = types.YLeaf{"Age", macTable.Age}
-    macTable.EntityData.Leafs["location"] = types.YLeaf{"Location", macTable.Location}
+    macTable.EntityData.Children = types.NewOrderedMap()
+    macTable.EntityData.Leafs = types.NewOrderedMap()
+    macTable.EntityData.Leafs.Append("bd-id", types.YLeaf{"BdId", macTable.BdId})
+    macTable.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", macTable.MacAddress})
+    macTable.EntityData.Leafs.Append("mac-type", types.YLeaf{"MacType", macTable.MacType})
+    macTable.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", macTable.Interface})
+    macTable.EntityData.Leafs.Append("secure-mac", types.YLeaf{"SecureMac", macTable.SecureMac})
+    macTable.EntityData.Leafs.Append("ntfy-mac", types.YLeaf{"NtfyMac", macTable.NtfyMac})
+    macTable.EntityData.Leafs.Append("age", types.YLeaf{"Age", macTable.Age})
+    macTable.EntityData.Leafs.Append("location", types.YLeaf{"Location", macTable.Location})
+
+    macTable.EntityData.YListKeys = []string {"BdId", "MacAddress"}
+
     return &(macTable.EntityData)
 }
 
@@ -2999,10 +3236,13 @@ func (clearBridgeDomain *ClearBridgeDomain) GetEntityData() *types.CommonEntityD
     clearBridgeDomain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clearBridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clearBridgeDomain.EntityData.Children = make(map[string]types.YChild)
-    clearBridgeDomain.EntityData.Children["input"] = types.YChild{"Input", &clearBridgeDomain.Input}
-    clearBridgeDomain.EntityData.Children["output"] = types.YChild{"Output", &clearBridgeDomain.Output}
-    clearBridgeDomain.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearBridgeDomain.EntityData.Children = types.NewOrderedMap()
+    clearBridgeDomain.EntityData.Children.Append("input", types.YChild{"Input", &clearBridgeDomain.Input})
+    clearBridgeDomain.EntityData.Children.Append("output", types.YChild{"Output", &clearBridgeDomain.Output})
+    clearBridgeDomain.EntityData.Leafs = types.NewOrderedMap()
+
+    clearBridgeDomain.EntityData.YListKeys = []string {}
+
     return &(clearBridgeDomain.EntityData)
 }
 
@@ -3031,11 +3271,14 @@ func (input *ClearBridgeDomain_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["all"] = types.YLeaf{"All", input.All}
-    input.EntityData.Leafs["bd-id"] = types.YLeaf{"BdId", input.BdId}
-    input.EntityData.Leafs["bg-id"] = types.YLeaf{"BgId", input.BgId}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("all", types.YLeaf{"All", input.All})
+    input.EntityData.Leafs.Append("bd-id", types.YLeaf{"BdId", input.BdId})
+    input.EntityData.Leafs.Append("bg-id", types.YLeaf{"BgId", input.BgId})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -3058,9 +3301,12 @@ func (output *ClearBridgeDomain_Output) GetEntityData() *types.CommonEntityData 
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["errstr"] = types.YLeaf{"Errstr", output.Errstr}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("errstr", types.YLeaf{"Errstr", output.Errstr})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -3088,10 +3334,13 @@ func (clearMacAddress *ClearMacAddress) GetEntityData() *types.CommonEntityData 
     clearMacAddress.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clearMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clearMacAddress.EntityData.Children = make(map[string]types.YChild)
-    clearMacAddress.EntityData.Children["input"] = types.YChild{"Input", &clearMacAddress.Input}
-    clearMacAddress.EntityData.Children["output"] = types.YChild{"Output", &clearMacAddress.Output}
-    clearMacAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearMacAddress.EntityData.Children = types.NewOrderedMap()
+    clearMacAddress.EntityData.Children.Append("input", types.YChild{"Input", &clearMacAddress.Input})
+    clearMacAddress.EntityData.Children.Append("output", types.YChild{"Output", &clearMacAddress.Output})
+    clearMacAddress.EntityData.Leafs = types.NewOrderedMap()
+
+    clearMacAddress.EntityData.YListKeys = []string {}
+
     return &(clearMacAddress.EntityData)
 }
 
@@ -3102,10 +3351,10 @@ type ClearMacAddress_Input struct {
 
     // Reference to an interface. Clear mac-addesses learnt by by this interface.
     // The type is string. Refers to ietf_interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Clear a specific mac-address entry from the mac-table. The type is string
-    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Clear mac-address entries for given bridge-domain(s).
@@ -3122,11 +3371,14 @@ func (input *ClearMacAddress_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["bridge-domain"] = types.YChild{"BridgeDomain", &input.BridgeDomain}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", input.Interface_}
-    input.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", input.MacAddress}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("bridge-domain", types.YChild{"BridgeDomain", &input.BridgeDomain})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", input.Interface})
+    input.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", input.MacAddress})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -3156,10 +3408,13 @@ func (bridgeDomain *ClearMacAddress_Input_BridgeDomain) GetEntityData() *types.C
     bridgeDomain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    bridgeDomain.EntityData.Children = make(map[string]types.YChild)
-    bridgeDomain.EntityData.Leafs = make(map[string]types.YLeaf)
-    bridgeDomain.EntityData.Leafs["bd-id"] = types.YLeaf{"BdId", bridgeDomain.BdId}
-    bridgeDomain.EntityData.Leafs["bg-id"] = types.YLeaf{"BgId", bridgeDomain.BgId}
+    bridgeDomain.EntityData.Children = types.NewOrderedMap()
+    bridgeDomain.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomain.EntityData.Leafs.Append("bd-id", types.YLeaf{"BdId", bridgeDomain.BdId})
+    bridgeDomain.EntityData.Leafs.Append("bg-id", types.YLeaf{"BgId", bridgeDomain.BgId})
+
+    bridgeDomain.EntityData.YListKeys = []string {}
+
     return &(bridgeDomain.EntityData)
 }
 
@@ -3182,9 +3437,12 @@ func (output *ClearMacAddress_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["errstr"] = types.YLeaf{"Errstr", output.Errstr}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("errstr", types.YLeaf{"Errstr", output.Errstr})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -3212,10 +3470,13 @@ func (createParameterizedBridgeDomains *CreateParameterizedBridgeDomains) GetEnt
     createParameterizedBridgeDomains.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     createParameterizedBridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    createParameterizedBridgeDomains.EntityData.Children = make(map[string]types.YChild)
-    createParameterizedBridgeDomains.EntityData.Children["input"] = types.YChild{"Input", &createParameterizedBridgeDomains.Input}
-    createParameterizedBridgeDomains.EntityData.Children["output"] = types.YChild{"Output", &createParameterizedBridgeDomains.Output}
-    createParameterizedBridgeDomains.EntityData.Leafs = make(map[string]types.YLeaf)
+    createParameterizedBridgeDomains.EntityData.Children = types.NewOrderedMap()
+    createParameterizedBridgeDomains.EntityData.Children.Append("input", types.YChild{"Input", &createParameterizedBridgeDomains.Input})
+    createParameterizedBridgeDomains.EntityData.Children.Append("output", types.YChild{"Output", &createParameterizedBridgeDomains.Output})
+    createParameterizedBridgeDomains.EntityData.Leafs = types.NewOrderedMap()
+
+    createParameterizedBridgeDomains.EntityData.YListKeys = []string {}
+
     return &(createParameterizedBridgeDomains.EntityData)
 }
 
@@ -3229,7 +3490,7 @@ type CreateParameterizedBridgeDomains_Input struct {
 
     // Bridge-domain member interface. The type is slice of
     // CreateParameterizedBridgeDomains_Input_Member.
-    Member []CreateParameterizedBridgeDomains_Input_Member
+    Member []*CreateParameterizedBridgeDomains_Input_Member
 }
 
 func (input *CreateParameterizedBridgeDomains_Input) GetEntityData() *types.CommonEntityData {
@@ -3242,13 +3503,16 @@ func (input *CreateParameterizedBridgeDomains_Input) GetEntityData() *types.Comm
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["member"] = types.YChild{"Member", nil}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("member", types.YChild{"Member", nil})
     for i := range input.Member {
-        input.EntityData.Children[types.GetSegmentPath(&input.Member[i])] = types.YChild{"Member", &input.Member[i]}
+        input.EntityData.Children.Append(types.GetSegmentPath(input.Member[i]), types.YChild{"Member", input.Member[i]})
     }
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["parameter"] = types.YLeaf{"Parameter", input.Parameter}
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("parameter", types.YLeaf{"Parameter", input.Parameter})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -3261,7 +3525,7 @@ type CreateParameterizedBridgeDomains_Input_Member struct {
     // This attribute is a key. Reference to an interface instance which is
     // configured to be part of this bridge domain. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 }
 
 func (member *CreateParameterizedBridgeDomains_Input_Member) GetEntityData() *types.CommonEntityData {
@@ -3269,14 +3533,17 @@ func (member *CreateParameterizedBridgeDomains_Input_Member) GetEntityData() *ty
     member.EntityData.YangName = "member"
     member.EntityData.BundleName = "cisco_ios_xe"
     member.EntityData.ParentYangName = "input"
-    member.EntityData.SegmentPath = "member" + "[interface='" + fmt.Sprintf("%v", member.Interface_) + "']"
+    member.EntityData.SegmentPath = "member" + types.AddKeyToken(member.Interface, "interface")
     member.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    member.EntityData.Children = make(map[string]types.YChild)
-    member.EntityData.Leafs = make(map[string]types.YLeaf)
-    member.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", member.Interface_}
+    member.EntityData.Children = types.NewOrderedMap()
+    member.EntityData.Leafs = types.NewOrderedMap()
+    member.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", member.Interface})
+
+    member.EntityData.YListKeys = []string {"Interface"}
+
     return &(member.EntityData)
 }
 
@@ -3308,9 +3575,12 @@ func (output *CreateParameterizedBridgeDomains_Output) GetEntityData() *types.Co
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["errstr"] = types.YLeaf{"Errstr", output.Errstr}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("errstr", types.YLeaf{"Errstr", output.Errstr})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 

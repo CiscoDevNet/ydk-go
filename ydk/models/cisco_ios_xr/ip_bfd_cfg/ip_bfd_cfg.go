@@ -42,15 +42,15 @@ const (
     BfdEchoStartupValidate_force BfdEchoStartupValidate = "force"
 )
 
-// BfdBundleCoexistenceBobBlb represents Bfd bundle coexistence bob blb
-type BfdBundleCoexistenceBobBlb string
+// BfdIfIpv6ChecksumUsage represents Bfd if ipv6 checksum usage
+type BfdIfIpv6ChecksumUsage string
 
 const (
-    // Inherited coexistence mode
-    BfdBundleCoexistenceBobBlb_inherited BfdBundleCoexistenceBobBlb = "inherited"
+    // Disable IPv6 checksum
+    BfdIfIpv6ChecksumUsage_disable BfdIfIpv6ChecksumUsage = "disable"
 
-    // Logical coexistence mode
-    BfdBundleCoexistenceBobBlb_logical BfdBundleCoexistenceBobBlb = "logical"
+    // Enable IPv6 checksum
+    BfdIfIpv6ChecksumUsage_enable BfdIfIpv6ChecksumUsage = "enable"
 )
 
 // BfdIfEchoUsage represents Bfd if echo usage
@@ -64,15 +64,15 @@ const (
     BfdIfEchoUsage_disable BfdIfEchoUsage = "disable"
 )
 
-// BfdIfIpv6ChecksumUsage represents Bfd if ipv6 checksum usage
-type BfdIfIpv6ChecksumUsage string
+// BfdBundleCoexistenceBobBlb represents Bfd bundle coexistence bob blb
+type BfdBundleCoexistenceBobBlb string
 
 const (
-    // Disable IPv6 checksum
-    BfdIfIpv6ChecksumUsage_disable BfdIfIpv6ChecksumUsage = "disable"
+    // Inherited coexistence mode
+    BfdBundleCoexistenceBobBlb_inherited BfdBundleCoexistenceBobBlb = "inherited"
 
-    // Enable IPv6 checksum
-    BfdIfIpv6ChecksumUsage_enable BfdIfIpv6ChecksumUsage = "enable"
+    // Logical coexistence mode
+    BfdBundleCoexistenceBobBlb_logical BfdBundleCoexistenceBobBlb = "logical"
 )
 
 // Bfd
@@ -99,9 +99,9 @@ type Bfd struct {
 
     // IPv4 echo source address configuration. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GlobalIpv4EchoSource interface{}
 
     // Flapping class container.
@@ -133,20 +133,23 @@ func (bfd *Bfd) GetEntityData() *types.CommonEntityData {
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Children["flap-damp"] = types.YChild{"FlapDamp", &bfd.FlapDamp}
-    bfd.EntityData.Children["echo-latency"] = types.YChild{"EchoLatency", &bfd.EchoLatency}
-    bfd.EntityData.Children["echo-startup"] = types.YChild{"EchoStartup", &bfd.EchoStartup}
-    bfd.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &bfd.Interfaces}
-    bfd.EntityData.Children["multi-path-includes"] = types.YChild{"MultiPathIncludes", &bfd.MultiPathIncludes}
-    bfd.EntityData.Children["bundle"] = types.YChild{"Bundle", &bfd.Bundle}
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["global-echo-usage"] = types.YLeaf{"GlobalEchoUsage", bfd.GlobalEchoUsage}
-    bfd.EntityData.Leafs["ipv6-checksum-disable"] = types.YLeaf{"Ipv6ChecksumDisable", bfd.Ipv6ChecksumDisable}
-    bfd.EntityData.Leafs["global-echo-min-interval"] = types.YLeaf{"GlobalEchoMinInterval", bfd.GlobalEchoMinInterval}
-    bfd.EntityData.Leafs["ttl-drop-threshold"] = types.YLeaf{"TtlDropThreshold", bfd.TtlDropThreshold}
-    bfd.EntityData.Leafs["single-hop-trap"] = types.YLeaf{"SingleHopTrap", bfd.SingleHopTrap}
-    bfd.EntityData.Leafs["global-ipv4-echo-source"] = types.YLeaf{"GlobalIpv4EchoSource", bfd.GlobalIpv4EchoSource}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Children.Append("flap-damp", types.YChild{"FlapDamp", &bfd.FlapDamp})
+    bfd.EntityData.Children.Append("echo-latency", types.YChild{"EchoLatency", &bfd.EchoLatency})
+    bfd.EntityData.Children.Append("echo-startup", types.YChild{"EchoStartup", &bfd.EchoStartup})
+    bfd.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &bfd.Interfaces})
+    bfd.EntityData.Children.Append("multi-path-includes", types.YChild{"MultiPathIncludes", &bfd.MultiPathIncludes})
+    bfd.EntityData.Children.Append("bundle", types.YChild{"Bundle", &bfd.Bundle})
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("global-echo-usage", types.YLeaf{"GlobalEchoUsage", bfd.GlobalEchoUsage})
+    bfd.EntityData.Leafs.Append("ipv6-checksum-disable", types.YLeaf{"Ipv6ChecksumDisable", bfd.Ipv6ChecksumDisable})
+    bfd.EntityData.Leafs.Append("global-echo-min-interval", types.YLeaf{"GlobalEchoMinInterval", bfd.GlobalEchoMinInterval})
+    bfd.EntityData.Leafs.Append("ttl-drop-threshold", types.YLeaf{"TtlDropThreshold", bfd.TtlDropThreshold})
+    bfd.EntityData.Leafs.Append("single-hop-trap", types.YLeaf{"SingleHopTrap", bfd.SingleHopTrap})
+    bfd.EntityData.Leafs.Append("global-ipv4-echo-source", types.YLeaf{"GlobalIpv4EchoSource", bfd.GlobalIpv4EchoSource})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -192,15 +195,18 @@ func (flapDamp *Bfd_FlapDamp) GetEntityData() *types.CommonEntityData {
     flapDamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flapDamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flapDamp.EntityData.Children = make(map[string]types.YChild)
-    flapDamp.EntityData.Children["bundle-member"] = types.YChild{"BundleMember", &flapDamp.BundleMember}
-    flapDamp.EntityData.Children["extensions"] = types.YChild{"Extensions", &flapDamp.Extensions}
-    flapDamp.EntityData.Leafs = make(map[string]types.YLeaf)
-    flapDamp.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", flapDamp.Threshold}
-    flapDamp.EntityData.Leafs["initial-delay"] = types.YLeaf{"InitialDelay", flapDamp.InitialDelay}
-    flapDamp.EntityData.Leafs["maximum-delay"] = types.YLeaf{"MaximumDelay", flapDamp.MaximumDelay}
-    flapDamp.EntityData.Leafs["dampen-disable"] = types.YLeaf{"DampenDisable", flapDamp.DampenDisable}
-    flapDamp.EntityData.Leafs["secondary-delay"] = types.YLeaf{"SecondaryDelay", flapDamp.SecondaryDelay}
+    flapDamp.EntityData.Children = types.NewOrderedMap()
+    flapDamp.EntityData.Children.Append("bundle-member", types.YChild{"BundleMember", &flapDamp.BundleMember})
+    flapDamp.EntityData.Children.Append("extensions", types.YChild{"Extensions", &flapDamp.Extensions})
+    flapDamp.EntityData.Leafs = types.NewOrderedMap()
+    flapDamp.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", flapDamp.Threshold})
+    flapDamp.EntityData.Leafs.Append("initial-delay", types.YLeaf{"InitialDelay", flapDamp.InitialDelay})
+    flapDamp.EntityData.Leafs.Append("maximum-delay", types.YLeaf{"MaximumDelay", flapDamp.MaximumDelay})
+    flapDamp.EntityData.Leafs.Append("dampen-disable", types.YLeaf{"DampenDisable", flapDamp.DampenDisable})
+    flapDamp.EntityData.Leafs.Append("secondary-delay", types.YLeaf{"SecondaryDelay", flapDamp.SecondaryDelay})
+
+    flapDamp.EntityData.YListKeys = []string {}
+
     return &(flapDamp.EntityData)
 }
 
@@ -237,12 +243,15 @@ func (bundleMember *Bfd_FlapDamp_BundleMember) GetEntityData() *types.CommonEnti
     bundleMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleMember.EntityData.Children = make(map[string]types.YChild)
-    bundleMember.EntityData.Leafs = make(map[string]types.YLeaf)
-    bundleMember.EntityData.Leafs["initial-delay"] = types.YLeaf{"InitialDelay", bundleMember.InitialDelay}
-    bundleMember.EntityData.Leafs["maximum-delay"] = types.YLeaf{"MaximumDelay", bundleMember.MaximumDelay}
-    bundleMember.EntityData.Leafs["secondary-delay"] = types.YLeaf{"SecondaryDelay", bundleMember.SecondaryDelay}
-    bundleMember.EntityData.Leafs["l3-only-mode"] = types.YLeaf{"L3OnlyMode", bundleMember.L3OnlyMode}
+    bundleMember.EntityData.Children = types.NewOrderedMap()
+    bundleMember.EntityData.Leafs = types.NewOrderedMap()
+    bundleMember.EntityData.Leafs.Append("initial-delay", types.YLeaf{"InitialDelay", bundleMember.InitialDelay})
+    bundleMember.EntityData.Leafs.Append("maximum-delay", types.YLeaf{"MaximumDelay", bundleMember.MaximumDelay})
+    bundleMember.EntityData.Leafs.Append("secondary-delay", types.YLeaf{"SecondaryDelay", bundleMember.SecondaryDelay})
+    bundleMember.EntityData.Leafs.Append("l3-only-mode", types.YLeaf{"L3OnlyMode", bundleMember.L3OnlyMode})
+
+    bundleMember.EntityData.YListKeys = []string {}
+
     return &(bundleMember.EntityData)
 }
 
@@ -266,9 +275,12 @@ func (extensions *Bfd_FlapDamp_Extensions) GetEntityData() *types.CommonEntityDa
     extensions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extensions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extensions.EntityData.Children = make(map[string]types.YChild)
-    extensions.EntityData.Leafs = make(map[string]types.YLeaf)
-    extensions.EntityData.Leafs["down-monitor"] = types.YLeaf{"DownMonitor", extensions.DownMonitor}
+    extensions.EntityData.Children = types.NewOrderedMap()
+    extensions.EntityData.Leafs = types.NewOrderedMap()
+    extensions.EntityData.Leafs.Append("down-monitor", types.YLeaf{"DownMonitor", extensions.DownMonitor})
+
+    extensions.EntityData.YListKeys = []string {}
+
     return &(extensions.EntityData)
 }
 
@@ -292,9 +304,12 @@ func (echoLatency *Bfd_EchoLatency) GetEntityData() *types.CommonEntityData {
     echoLatency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoLatency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoLatency.EntityData.Children = make(map[string]types.YChild)
-    echoLatency.EntityData.Children["detect"] = types.YChild{"Detect", &echoLatency.Detect}
-    echoLatency.EntityData.Leafs = make(map[string]types.YLeaf)
+    echoLatency.EntityData.Children = types.NewOrderedMap()
+    echoLatency.EntityData.Children.Append("detect", types.YChild{"Detect", &echoLatency.Detect})
+    echoLatency.EntityData.Leafs = types.NewOrderedMap()
+
+    echoLatency.EntityData.YListKeys = []string {}
+
     return &(echoLatency.EntityData)
 }
 
@@ -325,11 +340,14 @@ func (detect *Bfd_EchoLatency_Detect) GetEntityData() *types.CommonEntityData {
     detect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detect.EntityData.Children = make(map[string]types.YChild)
-    detect.EntityData.Leafs = make(map[string]types.YLeaf)
-    detect.EntityData.Leafs["latency-detect-enabled"] = types.YLeaf{"LatencyDetectEnabled", detect.LatencyDetectEnabled}
-    detect.EntityData.Leafs["latency-detect-percentage"] = types.YLeaf{"LatencyDetectPercentage", detect.LatencyDetectPercentage}
-    detect.EntityData.Leafs["latency-detect-count"] = types.YLeaf{"LatencyDetectCount", detect.LatencyDetectCount}
+    detect.EntityData.Children = types.NewOrderedMap()
+    detect.EntityData.Leafs = types.NewOrderedMap()
+    detect.EntityData.Leafs.Append("latency-detect-enabled", types.YLeaf{"LatencyDetectEnabled", detect.LatencyDetectEnabled})
+    detect.EntityData.Leafs.Append("latency-detect-percentage", types.YLeaf{"LatencyDetectPercentage", detect.LatencyDetectPercentage})
+    detect.EntityData.Leafs.Append("latency-detect-count", types.YLeaf{"LatencyDetectCount", detect.LatencyDetectCount})
+
+    detect.EntityData.YListKeys = []string {}
+
     return &(detect.EntityData)
 }
 
@@ -354,9 +372,12 @@ func (echoStartup *Bfd_EchoStartup) GetEntityData() *types.CommonEntityData {
     echoStartup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoStartup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoStartup.EntityData.Children = make(map[string]types.YChild)
-    echoStartup.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoStartup.EntityData.Leafs["validate"] = types.YLeaf{"Validate", echoStartup.Validate}
+    echoStartup.EntityData.Children = types.NewOrderedMap()
+    echoStartup.EntityData.Leafs = types.NewOrderedMap()
+    echoStartup.EntityData.Leafs.Append("validate", types.YLeaf{"Validate", echoStartup.Validate})
+
+    echoStartup.EntityData.YListKeys = []string {}
+
     return &(echoStartup.EntityData)
 }
 
@@ -367,8 +388,8 @@ type Bfd_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Single interface configuration. The type is slice of
-    // Bfd_Interfaces_Interface_.
-    Interface_ []Bfd_Interfaces_Interface
+    // Bfd_Interfaces_Interface.
+    Interface []*Bfd_Interfaces_Interface
 }
 
 func (interfaces *Bfd_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -381,12 +402,15 @@ func (interfaces *Bfd_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -397,7 +421,7 @@ type Bfd_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Echo usage for this interface. The type is BfdIfEchoUsage. The default
@@ -411,9 +435,9 @@ type Bfd_Interfaces_Interface struct {
 
     // Interface IPv4 echo source address configuration. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceIpv4EchoSource interface{}
 }
 
@@ -422,17 +446,20 @@ func (self *Bfd_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-echo-usage"] = types.YLeaf{"InterfaceEchoUsage", self.InterfaceEchoUsage}
-    self.EntityData.Leafs["ipv6-checksum"] = types.YLeaf{"Ipv6Checksum", self.Ipv6Checksum}
-    self.EntityData.Leafs["interface-ipv4-echo-source"] = types.YLeaf{"InterfaceIpv4EchoSource", self.InterfaceIpv4EchoSource}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-echo-usage", types.YLeaf{"InterfaceEchoUsage", self.InterfaceEchoUsage})
+    self.EntityData.Leafs.Append("ipv6-checksum", types.YLeaf{"Ipv6Checksum", self.Ipv6Checksum})
+    self.EntityData.Leafs.Append("interface-ipv4-echo-source", types.YLeaf{"InterfaceIpv4EchoSource", self.InterfaceIpv4EchoSource})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -444,7 +471,7 @@ type Bfd_MultiPathIncludes struct {
 
     // Location configuration. The type is slice of
     // Bfd_MultiPathIncludes_MultiPathInclude.
-    MultiPathInclude []Bfd_MultiPathIncludes_MultiPathInclude
+    MultiPathInclude []*Bfd_MultiPathIncludes_MultiPathInclude
 }
 
 func (multiPathIncludes *Bfd_MultiPathIncludes) GetEntityData() *types.CommonEntityData {
@@ -457,12 +484,15 @@ func (multiPathIncludes *Bfd_MultiPathIncludes) GetEntityData() *types.CommonEnt
     multiPathIncludes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multiPathIncludes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    multiPathIncludes.EntityData.Children = make(map[string]types.YChild)
-    multiPathIncludes.EntityData.Children["multi-path-include"] = types.YChild{"MultiPathInclude", nil}
+    multiPathIncludes.EntityData.Children = types.NewOrderedMap()
+    multiPathIncludes.EntityData.Children.Append("multi-path-include", types.YChild{"MultiPathInclude", nil})
     for i := range multiPathIncludes.MultiPathInclude {
-        multiPathIncludes.EntityData.Children[types.GetSegmentPath(&multiPathIncludes.MultiPathInclude[i])] = types.YChild{"MultiPathInclude", &multiPathIncludes.MultiPathInclude[i]}
+        multiPathIncludes.EntityData.Children.Append(types.GetSegmentPath(multiPathIncludes.MultiPathInclude[i]), types.YChild{"MultiPathInclude", multiPathIncludes.MultiPathInclude[i]})
     }
-    multiPathIncludes.EntityData.Leafs = make(map[string]types.YLeaf)
+    multiPathIncludes.EntityData.Leafs = types.NewOrderedMap()
+
+    multiPathIncludes.EntityData.YListKeys = []string {}
+
     return &(multiPathIncludes.EntityData)
 }
 
@@ -472,8 +502,7 @@ type Bfd_MultiPathIncludes_MultiPathInclude struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // This attribute is a key. Location. The type is string.
     Location interface{}
 }
 
@@ -482,14 +511,17 @@ func (multiPathInclude *Bfd_MultiPathIncludes_MultiPathInclude) GetEntityData() 
     multiPathInclude.EntityData.YangName = "multi-path-include"
     multiPathInclude.EntityData.BundleName = "cisco_ios_xr"
     multiPathInclude.EntityData.ParentYangName = "multi-path-includes"
-    multiPathInclude.EntityData.SegmentPath = "multi-path-include" + "[location='" + fmt.Sprintf("%v", multiPathInclude.Location) + "']"
+    multiPathInclude.EntityData.SegmentPath = "multi-path-include" + types.AddKeyToken(multiPathInclude.Location, "location")
     multiPathInclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multiPathInclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multiPathInclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    multiPathInclude.EntityData.Children = make(map[string]types.YChild)
-    multiPathInclude.EntityData.Leafs = make(map[string]types.YLeaf)
-    multiPathInclude.EntityData.Leafs["location"] = types.YLeaf{"Location", multiPathInclude.Location}
+    multiPathInclude.EntityData.Children = types.NewOrderedMap()
+    multiPathInclude.EntityData.Leafs = types.NewOrderedMap()
+    multiPathInclude.EntityData.Leafs.Append("location", types.YLeaf{"Location", multiPathInclude.Location})
+
+    multiPathInclude.EntityData.YListKeys = []string {"Location"}
+
     return &(multiPathInclude.EntityData)
 }
 
@@ -513,9 +545,12 @@ func (bundle *Bfd_Bundle) GetEntityData() *types.CommonEntityData {
     bundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundle.EntityData.Children = make(map[string]types.YChild)
-    bundle.EntityData.Children["coexistence"] = types.YChild{"Coexistence", &bundle.Coexistence}
-    bundle.EntityData.Leafs = make(map[string]types.YLeaf)
+    bundle.EntityData.Children = types.NewOrderedMap()
+    bundle.EntityData.Children.Append("coexistence", types.YChild{"Coexistence", &bundle.Coexistence})
+    bundle.EntityData.Leafs = types.NewOrderedMap()
+
+    bundle.EntityData.YListKeys = []string {}
+
     return &(bundle.EntityData)
 }
 
@@ -540,9 +575,12 @@ func (coexistence *Bfd_Bundle_Coexistence) GetEntityData() *types.CommonEntityDa
     coexistence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coexistence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    coexistence.EntityData.Children = make(map[string]types.YChild)
-    coexistence.EntityData.Leafs = make(map[string]types.YLeaf)
-    coexistence.EntityData.Leafs["bob-blb"] = types.YLeaf{"BobBlb", coexistence.BobBlb}
+    coexistence.EntityData.Children = types.NewOrderedMap()
+    coexistence.EntityData.Leafs = types.NewOrderedMap()
+    coexistence.EntityData.Leafs.Append("bob-blb", types.YLeaf{"BobBlb", coexistence.BobBlb})
+
+    coexistence.EntityData.YListKeys = []string {}
+
     return &(coexistence.EntityData)
 }
 

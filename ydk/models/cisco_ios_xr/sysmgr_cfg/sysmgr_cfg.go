@@ -50,10 +50,13 @@ func (processMandatory *ProcessMandatory) GetEntityData() *types.CommonEntityDat
     processMandatory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processMandatory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processMandatory.EntityData.Children = make(map[string]types.YChild)
-    processMandatory.EntityData.Children["nodes"] = types.YChild{"Nodes", &processMandatory.Nodes}
-    processMandatory.EntityData.Children["all"] = types.YChild{"All", &processMandatory.All}
-    processMandatory.EntityData.Leafs = make(map[string]types.YLeaf)
+    processMandatory.EntityData.Children = types.NewOrderedMap()
+    processMandatory.EntityData.Children.Append("nodes", types.YChild{"Nodes", &processMandatory.Nodes})
+    processMandatory.EntityData.Children.Append("all", types.YChild{"All", &processMandatory.All})
+    processMandatory.EntityData.Leafs = types.NewOrderedMap()
+
+    processMandatory.EntityData.YListKeys = []string {}
+
     return &(processMandatory.EntityData)
 }
 
@@ -64,7 +67,7 @@ type ProcessMandatory_Nodes struct {
     YFilter yfilter.YFilter
 
     // Mandatory node. The type is slice of ProcessMandatory_Nodes_Node.
-    Node []ProcessMandatory_Nodes_Node
+    Node []*ProcessMandatory_Nodes_Node
 }
 
 func (nodes *ProcessMandatory_Nodes) GetEntityData() *types.CommonEntityData {
@@ -77,12 +80,15 @@ func (nodes *ProcessMandatory_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -93,7 +99,7 @@ type ProcessMandatory_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Table of processes.
@@ -105,15 +111,18 @@ func (node *ProcessMandatory_Nodes_Node) GetEntityData() *types.CommonEntityData
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["processes"] = types.YChild{"Processes", &node.Processes}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("processes", types.YChild{"Processes", &node.Processes})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -125,7 +134,7 @@ type ProcessMandatory_Nodes_Node_Processes struct {
 
     // Name of the executable process. The type is slice of
     // ProcessMandatory_Nodes_Node_Processes_Process.
-    Process []ProcessMandatory_Nodes_Node_Processes_Process
+    Process []*ProcessMandatory_Nodes_Node_Processes_Process
 }
 
 func (processes *ProcessMandatory_Nodes_Node_Processes) GetEntityData() *types.CommonEntityData {
@@ -138,12 +147,15 @@ func (processes *ProcessMandatory_Nodes_Node_Processes) GetEntityData() *types.C
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processes.EntityData.Children = make(map[string]types.YChild)
-    processes.EntityData.Children["process"] = types.YChild{"Process", nil}
+    processes.EntityData.Children = types.NewOrderedMap()
+    processes.EntityData.Children.Append("process", types.YChild{"Process", nil})
     for i := range processes.Process {
-        processes.EntityData.Children[types.GetSegmentPath(&processes.Process[i])] = types.YChild{"Process", &processes.Process[i]}
+        processes.EntityData.Children.Append(types.GetSegmentPath(processes.Process[i]), types.YChild{"Process", processes.Process[i]})
     }
-    processes.EntityData.Leafs = make(map[string]types.YLeaf)
+    processes.EntityData.Leafs = types.NewOrderedMap()
+
+    processes.EntityData.YListKeys = []string {}
+
     return &(processes.EntityData)
 }
 
@@ -154,7 +166,7 @@ type ProcessMandatory_Nodes_Node_Processes_Process struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Process name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProcessName interface{}
 }
 
@@ -163,14 +175,17 @@ func (process *ProcessMandatory_Nodes_Node_Processes_Process) GetEntityData() *t
     process.EntityData.YangName = "process"
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
-    process.EntityData.SegmentPath = "process" + "[process-name='" + fmt.Sprintf("%v", process.ProcessName) + "']"
+    process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessName, "process-name")
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    process.EntityData.Children = make(map[string]types.YChild)
-    process.EntityData.Leafs = make(map[string]types.YLeaf)
-    process.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", process.ProcessName}
+    process.EntityData.Children = types.NewOrderedMap()
+    process.EntityData.Leafs = types.NewOrderedMap()
+    process.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", process.ProcessName})
+
+    process.EntityData.YListKeys = []string {"ProcessName"}
+
     return &(process.EntityData)
 }
 
@@ -194,9 +209,12 @@ func (all *ProcessMandatory_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["processes"] = types.YChild{"Processes", &all.Processes}
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("processes", types.YChild{"Processes", &all.Processes})
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -208,7 +226,7 @@ type ProcessMandatory_All_Processes struct {
 
     // Name of the executable process. The type is slice of
     // ProcessMandatory_All_Processes_Process.
-    Process []ProcessMandatory_All_Processes_Process
+    Process []*ProcessMandatory_All_Processes_Process
 }
 
 func (processes *ProcessMandatory_All_Processes) GetEntityData() *types.CommonEntityData {
@@ -221,12 +239,15 @@ func (processes *ProcessMandatory_All_Processes) GetEntityData() *types.CommonEn
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processes.EntityData.Children = make(map[string]types.YChild)
-    processes.EntityData.Children["process"] = types.YChild{"Process", nil}
+    processes.EntityData.Children = types.NewOrderedMap()
+    processes.EntityData.Children.Append("process", types.YChild{"Process", nil})
     for i := range processes.Process {
-        processes.EntityData.Children[types.GetSegmentPath(&processes.Process[i])] = types.YChild{"Process", &processes.Process[i]}
+        processes.EntityData.Children.Append(types.GetSegmentPath(processes.Process[i]), types.YChild{"Process", processes.Process[i]})
     }
-    processes.EntityData.Leafs = make(map[string]types.YLeaf)
+    processes.EntityData.Leafs = types.NewOrderedMap()
+
+    processes.EntityData.YListKeys = []string {}
+
     return &(processes.EntityData)
 }
 
@@ -237,7 +258,7 @@ type ProcessMandatory_All_Processes_Process struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Process name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProcessName interface{}
 }
 
@@ -246,14 +267,17 @@ func (process *ProcessMandatory_All_Processes_Process) GetEntityData() *types.Co
     process.EntityData.YangName = "process"
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
-    process.EntityData.SegmentPath = "process" + "[process-name='" + fmt.Sprintf("%v", process.ProcessName) + "']"
+    process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessName, "process-name")
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    process.EntityData.Children = make(map[string]types.YChild)
-    process.EntityData.Leafs = make(map[string]types.YLeaf)
-    process.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", process.ProcessName}
+    process.EntityData.Children = types.NewOrderedMap()
+    process.EntityData.Leafs = types.NewOrderedMap()
+    process.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", process.ProcessName})
+
+    process.EntityData.YListKeys = []string {"ProcessName"}
+
     return &(process.EntityData)
 }
 
@@ -263,6 +287,7 @@ func (process *ProcessMandatory_All_Processes_Process) GetEntityData() *types.Co
 type ProcessSingleCrash struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of crashes for a process to trigger reboot. The type is interface{}
     // with range: 1..500. This attribute is mandatory.
@@ -284,10 +309,13 @@ func (processSingleCrash *ProcessSingleCrash) GetEntityData() *types.CommonEntit
     processSingleCrash.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processSingleCrash.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processSingleCrash.EntityData.Children = make(map[string]types.YChild)
-    processSingleCrash.EntityData.Leafs = make(map[string]types.YLeaf)
-    processSingleCrash.EntityData.Leafs["crashes"] = types.YLeaf{"Crashes", processSingleCrash.Crashes}
-    processSingleCrash.EntityData.Leafs["minimum-up-time"] = types.YLeaf{"MinimumUpTime", processSingleCrash.MinimumUpTime}
+    processSingleCrash.EntityData.Children = types.NewOrderedMap()
+    processSingleCrash.EntityData.Leafs = types.NewOrderedMap()
+    processSingleCrash.EntityData.Leafs.Append("crashes", types.YLeaf{"Crashes", processSingleCrash.Crashes})
+    processSingleCrash.EntityData.Leafs.Append("minimum-up-time", types.YLeaf{"MinimumUpTime", processSingleCrash.MinimumUpTime})
+
+    processSingleCrash.EntityData.YListKeys = []string {}
+
     return &(processSingleCrash.EntityData)
 }
 

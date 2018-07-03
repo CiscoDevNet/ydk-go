@@ -13,9 +13,9 @@ func init() {
 type TruthValue string
 
 const (
-    TruthValue_true TruthValue = "true"
+    TruthValue_true_ TruthValue = "true"
 
-    TruthValue_false TruthValue = "false"
+    TruthValue_false_ TruthValue = "false"
 )
 
 // AtmServiceCategory represents ATM Service Categories use this data type

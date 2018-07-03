@@ -447,6 +447,27 @@ const (
     ClockPortState_slave ClockPortState = "slave"
 )
 
+// ClockTimeSourceType represents the protocol.
+type ClockTimeSourceType string
+
+const (
+    ClockTimeSourceType_atomicClock ClockTimeSourceType = "atomicClock"
+
+    ClockTimeSourceType_gps ClockTimeSourceType = "gps"
+
+    ClockTimeSourceType_terrestrialRadio ClockTimeSourceType = "terrestrialRadio"
+
+    ClockTimeSourceType_ptp ClockTimeSourceType = "ptp"
+
+    ClockTimeSourceType_ntp ClockTimeSourceType = "ntp"
+
+    ClockTimeSourceType_handSet ClockTimeSourceType = "handSet"
+
+    ClockTimeSourceType_other ClockTimeSourceType = "other"
+
+    ClockTimeSourceType_internalOsillator ClockTimeSourceType = "internalOsillator"
+)
+
 // ClockProfileType represents a device.
 type ClockProfileType string
 
@@ -456,6 +477,39 @@ const (
     ClockProfileType_telecom ClockProfileType = "telecom"
 
     ClockProfileType_vendorspecific ClockProfileType = "vendorspecific"
+)
+
+// ClockRoleType represents                           another clock (master).
+type ClockRoleType string
+
+const (
+    ClockRoleType_master ClockRoleType = "master"
+
+    ClockRoleType_slave ClockRoleType = "slave"
+)
+
+// ClockType represents The clock types as defined in the MIB module description.
+type ClockType string
+
+const (
+    ClockType_ordinaryClock ClockType = "ordinaryClock"
+
+    ClockType_boundaryClock ClockType = "boundaryClock"
+
+    ClockType_transparentClock ClockType = "transparentClock"
+
+    ClockType_boundaryNode ClockType = "boundaryNode"
+)
+
+// ClockTxModeType represents multicast-mix. Using multicast-unicast communication channel
+type ClockTxModeType string
+
+const (
+    ClockTxModeType_unicast ClockTxModeType = "unicast"
+
+    ClockTxModeType_multicast ClockTxModeType = "multicast"
+
+    ClockTxModeType_multicastmix ClockTxModeType = "multicastmix"
 )
 
 // ClockQualityAccuracyType represents the protocol.
@@ -505,15 +559,6 @@ const (
     ClockQualityAccuracyType_reserved255 ClockQualityAccuracyType = "reserved255"
 )
 
-// ClockRoleType represents                           another clock (master).
-type ClockRoleType string
-
-const (
-    ClockRoleType_master ClockRoleType = "master"
-
-    ClockRoleType_slave ClockRoleType = "slave"
-)
-
 // ClockStateType represents                         frequency and phase.
 type ClockStateType string
 
@@ -529,109 +574,64 @@ const (
     ClockStateType_phaseAligned ClockStateType = "phaseAligned"
 )
 
-// ClockTimeSourceType represents the protocol.
-type ClockTimeSourceType string
-
-const (
-    ClockTimeSourceType_atomicClock ClockTimeSourceType = "atomicClock"
-
-    ClockTimeSourceType_gps ClockTimeSourceType = "gps"
-
-    ClockTimeSourceType_terrestrialRadio ClockTimeSourceType = "terrestrialRadio"
-
-    ClockTimeSourceType_ptp ClockTimeSourceType = "ptp"
-
-    ClockTimeSourceType_ntp ClockTimeSourceType = "ntp"
-
-    ClockTimeSourceType_handSet ClockTimeSourceType = "handSet"
-
-    ClockTimeSourceType_other ClockTimeSourceType = "other"
-
-    ClockTimeSourceType_internalOsillator ClockTimeSourceType = "internalOsillator"
-)
-
-// ClockTxModeType represents multicast-mix. Using multicast-unicast communication channel
-type ClockTxModeType string
-
-const (
-    ClockTxModeType_unicast ClockTxModeType = "unicast"
-
-    ClockTxModeType_multicast ClockTxModeType = "multicast"
-
-    ClockTxModeType_multicastmix ClockTxModeType = "multicastmix"
-)
-
-// ClockType represents The clock types as defined in the MIB module description.
-type ClockType string
-
-const (
-    ClockType_ordinaryClock ClockType = "ordinaryClock"
-
-    ClockType_boundaryClock ClockType = "boundaryClock"
-
-    ClockType_transparentClock ClockType = "transparentClock"
-
-    ClockType_boundaryNode ClockType = "boundaryNode"
-)
-
 // CISCOPTPMIB
 type CISCOPTPMIB struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
-    Ciscoptpmibsysteminfo CISCOPTPMIB_Ciscoptpmibsysteminfo
+    CiscoPtpMIBSystemInfo CISCOPTPMIB_CiscoPtpMIBSystemInfo
 
     // Table of count information about the PTP system for all domains.
-    Cptpsystemtable CISCOPTPMIB_Cptpsystemtable
+    CPtpSystemTable CISCOPTPMIB_CPtpSystemTable
 
     // Table of information about the PTP system for all clock modes -- ordinary,
     // boundary or transparent.
-    Cptpsystemdomaintable CISCOPTPMIB_Cptpsystemdomaintable
+    CPtpSystemDomainTable CISCOPTPMIB_CPtpSystemDomainTable
 
     // Table of information about the PTP system for a given domain.
-    Cptpclocknodetable CISCOPTPMIB_Cptpclocknodetable
+    CPtpClockNodeTable CISCOPTPMIB_CPtpClockNodeTable
 
     // Table of information about the PTP clock Current Datasets for all domains.
-    Cptpclockcurrentdstable CISCOPTPMIB_Cptpclockcurrentdstable
+    CPtpClockCurrentDSTable CISCOPTPMIB_CPtpClockCurrentDSTable
 
     // Table of information about the PTP clock Parent Datasets for all domains.
-    Cptpclockparentdstable CISCOPTPMIB_Cptpclockparentdstable
+    CPtpClockParentDSTable CISCOPTPMIB_CPtpClockParentDSTable
 
     // Table of information about the PTP clock Default Datasets for all domains.
-    Cptpclockdefaultdstable CISCOPTPMIB_Cptpclockdefaultdstable
+    CPtpClockDefaultDSTable CISCOPTPMIB_CPtpClockDefaultDSTable
 
     // Table of information about the PTP clock Running Datasets for all domains.
-    Cptpclockrunningtable CISCOPTPMIB_Cptpclockrunningtable
+    CPtpClockRunningTable CISCOPTPMIB_CPtpClockRunningTable
 
     // Table of information about the PTP clock Timeproperties Datasets for all
     // domains.
-    Cptpclocktimepropertiesdstable CISCOPTPMIB_Cptpclocktimepropertiesdstable
+    CPtpClockTimePropertiesDSTable CISCOPTPMIB_CPtpClockTimePropertiesDSTable
 
     // Table of information about the PTP Transparent clock Default Datasets for
     // all domains.
-    Cptpclocktransdefaultdstable CISCOPTPMIB_Cptpclocktransdefaultdstable
+    CPtpClockTransDefaultDSTable CISCOPTPMIB_CPtpClockTransDefaultDSTable
 
     // Table of information about the clock ports for a particular domain.
-    Cptpclockporttable CISCOPTPMIB_Cptpclockporttable
+    CPtpClockPortTable CISCOPTPMIB_CPtpClockPortTable
 
     // Table of information about the clock ports dataset for a particular domain.
-    Cptpclockportdstable CISCOPTPMIB_Cptpclockportdstable
+    CPtpClockPortDSTable CISCOPTPMIB_CPtpClockPortDSTable
 
     // Table of information about the clock ports running dataset for a particular
     // domain.
-    Cptpclockportrunningtable CISCOPTPMIB_Cptpclockportrunningtable
+    CPtpClockPortRunningTable CISCOPTPMIB_CPtpClockPortRunningTable
 
     // Table of information about the Transparent clock ports running dataset for
     // a particular domain.
-    Cptpclockporttransdstable CISCOPTPMIB_Cptpclockporttransdstable
+    CPtpClockPortTransDSTable CISCOPTPMIB_CPtpClockPortTransDSTable
 
     // Table of information about a given port's associated ports.  For a master
     // port - multiple slave ports which have established sessions with the
     // current master port.   For a slave port - the list of masters available for
     // a given slave port.   Session information (pkts, errors) to be displayed
     // based on availability and scenario.
-    Cptpclockportassociatetable CISCOPTPMIB_Cptpclockportassociatetable
+    CPtpClockPortAssociateTable CISCOPTPMIB_CPtpClockPortAssociateTable
 }
 
 func (cISCOPTPMIB *CISCOPTPMIB) GetEntityData() *types.CommonEntityData {
@@ -644,91 +644,100 @@ func (cISCOPTPMIB *CISCOPTPMIB) GetEntityData() *types.CommonEntityData {
     cISCOPTPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOPTPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOPTPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOPTPMIB.EntityData.Children["ciscoPtpMIBSystemInfo"] = types.YChild{"Ciscoptpmibsysteminfo", &cISCOPTPMIB.Ciscoptpmibsysteminfo}
-    cISCOPTPMIB.EntityData.Children["cPtpSystemTable"] = types.YChild{"Cptpsystemtable", &cISCOPTPMIB.Cptpsystemtable}
-    cISCOPTPMIB.EntityData.Children["cPtpSystemDomainTable"] = types.YChild{"Cptpsystemdomaintable", &cISCOPTPMIB.Cptpsystemdomaintable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockNodeTable"] = types.YChild{"Cptpclocknodetable", &cISCOPTPMIB.Cptpclocknodetable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockCurrentDSTable"] = types.YChild{"Cptpclockcurrentdstable", &cISCOPTPMIB.Cptpclockcurrentdstable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockParentDSTable"] = types.YChild{"Cptpclockparentdstable", &cISCOPTPMIB.Cptpclockparentdstable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockDefaultDSTable"] = types.YChild{"Cptpclockdefaultdstable", &cISCOPTPMIB.Cptpclockdefaultdstable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockRunningTable"] = types.YChild{"Cptpclockrunningtable", &cISCOPTPMIB.Cptpclockrunningtable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockTimePropertiesDSTable"] = types.YChild{"Cptpclocktimepropertiesdstable", &cISCOPTPMIB.Cptpclocktimepropertiesdstable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockTransDefaultDSTable"] = types.YChild{"Cptpclocktransdefaultdstable", &cISCOPTPMIB.Cptpclocktransdefaultdstable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockPortTable"] = types.YChild{"Cptpclockporttable", &cISCOPTPMIB.Cptpclockporttable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockPortDSTable"] = types.YChild{"Cptpclockportdstable", &cISCOPTPMIB.Cptpclockportdstable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockPortRunningTable"] = types.YChild{"Cptpclockportrunningtable", &cISCOPTPMIB.Cptpclockportrunningtable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockPortTransDSTable"] = types.YChild{"Cptpclockporttransdstable", &cISCOPTPMIB.Cptpclockporttransdstable}
-    cISCOPTPMIB.EntityData.Children["cPtpClockPortAssociateTable"] = types.YChild{"Cptpclockportassociatetable", &cISCOPTPMIB.Cptpclockportassociatetable}
-    cISCOPTPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOPTPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOPTPMIB.EntityData.Children.Append("ciscoPtpMIBSystemInfo", types.YChild{"CiscoPtpMIBSystemInfo", &cISCOPTPMIB.CiscoPtpMIBSystemInfo})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpSystemTable", types.YChild{"CPtpSystemTable", &cISCOPTPMIB.CPtpSystemTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpSystemDomainTable", types.YChild{"CPtpSystemDomainTable", &cISCOPTPMIB.CPtpSystemDomainTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockNodeTable", types.YChild{"CPtpClockNodeTable", &cISCOPTPMIB.CPtpClockNodeTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockCurrentDSTable", types.YChild{"CPtpClockCurrentDSTable", &cISCOPTPMIB.CPtpClockCurrentDSTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockParentDSTable", types.YChild{"CPtpClockParentDSTable", &cISCOPTPMIB.CPtpClockParentDSTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockDefaultDSTable", types.YChild{"CPtpClockDefaultDSTable", &cISCOPTPMIB.CPtpClockDefaultDSTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockRunningTable", types.YChild{"CPtpClockRunningTable", &cISCOPTPMIB.CPtpClockRunningTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockTimePropertiesDSTable", types.YChild{"CPtpClockTimePropertiesDSTable", &cISCOPTPMIB.CPtpClockTimePropertiesDSTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockTransDefaultDSTable", types.YChild{"CPtpClockTransDefaultDSTable", &cISCOPTPMIB.CPtpClockTransDefaultDSTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockPortTable", types.YChild{"CPtpClockPortTable", &cISCOPTPMIB.CPtpClockPortTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockPortDSTable", types.YChild{"CPtpClockPortDSTable", &cISCOPTPMIB.CPtpClockPortDSTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockPortRunningTable", types.YChild{"CPtpClockPortRunningTable", &cISCOPTPMIB.CPtpClockPortRunningTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockPortTransDSTable", types.YChild{"CPtpClockPortTransDSTable", &cISCOPTPMIB.CPtpClockPortTransDSTable})
+    cISCOPTPMIB.EntityData.Children.Append("cPtpClockPortAssociateTable", types.YChild{"CPtpClockPortAssociateTable", &cISCOPTPMIB.CPtpClockPortAssociateTable})
+    cISCOPTPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOPTPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOPTPMIB.EntityData)
 }
 
-// CISCOPTPMIB_Ciscoptpmibsysteminfo
-type CISCOPTPMIB_Ciscoptpmibsysteminfo struct {
+// CISCOPTPMIB_CiscoPtpMIBSystemInfo
+type CISCOPTPMIB_CiscoPtpMIBSystemInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the PTP Profile implemented on the system. The type
     // is ClockProfileType.
-    Cptpsystemprofile interface{}
+    CPtpSystemProfile interface{}
 }
 
-func (ciscoptpmibsysteminfo *CISCOPTPMIB_Ciscoptpmibsysteminfo) GetEntityData() *types.CommonEntityData {
-    ciscoptpmibsysteminfo.EntityData.YFilter = ciscoptpmibsysteminfo.YFilter
-    ciscoptpmibsysteminfo.EntityData.YangName = "ciscoPtpMIBSystemInfo"
-    ciscoptpmibsysteminfo.EntityData.BundleName = "cisco_ios_xe"
-    ciscoptpmibsysteminfo.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    ciscoptpmibsysteminfo.EntityData.SegmentPath = "ciscoPtpMIBSystemInfo"
-    ciscoptpmibsysteminfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoptpmibsysteminfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoptpmibsysteminfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoPtpMIBSystemInfo *CISCOPTPMIB_CiscoPtpMIBSystemInfo) GetEntityData() *types.CommonEntityData {
+    ciscoPtpMIBSystemInfo.EntityData.YFilter = ciscoPtpMIBSystemInfo.YFilter
+    ciscoPtpMIBSystemInfo.EntityData.YangName = "ciscoPtpMIBSystemInfo"
+    ciscoPtpMIBSystemInfo.EntityData.BundleName = "cisco_ios_xe"
+    ciscoPtpMIBSystemInfo.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    ciscoPtpMIBSystemInfo.EntityData.SegmentPath = "ciscoPtpMIBSystemInfo"
+    ciscoPtpMIBSystemInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoPtpMIBSystemInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoPtpMIBSystemInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoptpmibsysteminfo.EntityData.Children = make(map[string]types.YChild)
-    ciscoptpmibsysteminfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoptpmibsysteminfo.EntityData.Leafs["cPtpSystemProfile"] = types.YLeaf{"Cptpsystemprofile", ciscoptpmibsysteminfo.Cptpsystemprofile}
-    return &(ciscoptpmibsysteminfo.EntityData)
+    ciscoPtpMIBSystemInfo.EntityData.Children = types.NewOrderedMap()
+    ciscoPtpMIBSystemInfo.EntityData.Leafs = types.NewOrderedMap()
+    ciscoPtpMIBSystemInfo.EntityData.Leafs.Append("cPtpSystemProfile", types.YLeaf{"CPtpSystemProfile", ciscoPtpMIBSystemInfo.CPtpSystemProfile})
+
+    ciscoPtpMIBSystemInfo.EntityData.YListKeys = []string {}
+
+    return &(ciscoPtpMIBSystemInfo.EntityData)
 }
 
-// CISCOPTPMIB_Cptpsystemtable
+// CISCOPTPMIB_CPtpSystemTable
 // Table of count information about the PTP system for all
 // domains.
-type CISCOPTPMIB_Cptpsystemtable struct {
+type CISCOPTPMIB_CPtpSystemTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing count information about a single domain.
     // New row entries are added when the PTP clock for this domain is configured,
     // while the unconfiguration of the PTP clock removes it. The type is slice of
-    // CISCOPTPMIB_Cptpsystemtable_Cptpsystementry.
-    Cptpsystementry []CISCOPTPMIB_Cptpsystemtable_Cptpsystementry
+    // CISCOPTPMIB_CPtpSystemTable_CPtpSystemEntry.
+    CPtpSystemEntry []*CISCOPTPMIB_CPtpSystemTable_CPtpSystemEntry
 }
 
-func (cptpsystemtable *CISCOPTPMIB_Cptpsystemtable) GetEntityData() *types.CommonEntityData {
-    cptpsystemtable.EntityData.YFilter = cptpsystemtable.YFilter
-    cptpsystemtable.EntityData.YangName = "cPtpSystemTable"
-    cptpsystemtable.EntityData.BundleName = "cisco_ios_xe"
-    cptpsystemtable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpsystemtable.EntityData.SegmentPath = "cPtpSystemTable"
-    cptpsystemtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpsystemtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpsystemtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpSystemTable *CISCOPTPMIB_CPtpSystemTable) GetEntityData() *types.CommonEntityData {
+    cPtpSystemTable.EntityData.YFilter = cPtpSystemTable.YFilter
+    cPtpSystemTable.EntityData.YangName = "cPtpSystemTable"
+    cPtpSystemTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpSystemTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpSystemTable.EntityData.SegmentPath = "cPtpSystemTable"
+    cPtpSystemTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpSystemTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpSystemTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpsystemtable.EntityData.Children = make(map[string]types.YChild)
-    cptpsystemtable.EntityData.Children["cPtpSystemEntry"] = types.YChild{"Cptpsystementry", nil}
-    for i := range cptpsystemtable.Cptpsystementry {
-        cptpsystemtable.EntityData.Children[types.GetSegmentPath(&cptpsystemtable.Cptpsystementry[i])] = types.YChild{"Cptpsystementry", &cptpsystemtable.Cptpsystementry[i]}
+    cPtpSystemTable.EntityData.Children = types.NewOrderedMap()
+    cPtpSystemTable.EntityData.Children.Append("cPtpSystemEntry", types.YChild{"CPtpSystemEntry", nil})
+    for i := range cPtpSystemTable.CPtpSystemEntry {
+        cPtpSystemTable.EntityData.Children.Append(types.GetSegmentPath(cPtpSystemTable.CPtpSystemEntry[i]), types.YChild{"CPtpSystemEntry", cPtpSystemTable.CPtpSystemEntry[i]})
     }
-    cptpsystemtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpsystemtable.EntityData)
+    cPtpSystemTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpSystemTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpSystemTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpsystemtable_Cptpsystementry
+// CISCOPTPMIB_CPtpSystemTable_CPtpSystemEntry
 // An entry in the table, containing count information about a
 // single domain. New row entries are added when the PTP clock for
 // this domain is configured, while the unconfiguration of the PTP
 // clock removes it.
-type CISCOPTPMIB_Cptpsystemtable_Cptpsystementry struct {
+type CISCOPTPMIB_CPtpSystemTable_CPtpSystemEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -738,616 +747,652 @@ type CISCOPTPMIB_Cptpsystemtable_Cptpsystementry struct {
     // 0           Default domain 1           Alternate domain 1 2          
     // Alternate domain 2 3           Alternate domain 3 4 - 127     User-defined
     // domains 128 - 255   Reserved. The type is interface{} with range: 0..255.
-    Cptpdomainindex interface{}
+    CPtpDomainIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the Clock
     // for this domain. The type is interface{} with range: 0..255.
-    Cptpinstanceindex interface{}
+    CPtpInstanceIndex interface{}
 
     // This object specifies the total number of clock ports configured within a
     // domain. The type is interface{} with range: 0..4294967295. Units are ptp
     // ports.
-    Cptpdomainclockportstotal interface{}
+    CPtpDomainClockPortsTotal interface{}
 
     // This object specifies the total number of clock port Physical interfaces
     // configured within a domain instance for PTP communications. The type is
     // interface{} with range: 0..4294967295. Units are physical ports.
-    Cptpdomainclockportphysicalinterfacestotal interface{}
+    CPtpDomainClockPortPhysicalInterfacesTotal interface{}
 }
 
-func (cptpsystementry *CISCOPTPMIB_Cptpsystemtable_Cptpsystementry) GetEntityData() *types.CommonEntityData {
-    cptpsystementry.EntityData.YFilter = cptpsystementry.YFilter
-    cptpsystementry.EntityData.YangName = "cPtpSystemEntry"
-    cptpsystementry.EntityData.BundleName = "cisco_ios_xe"
-    cptpsystementry.EntityData.ParentYangName = "cPtpSystemTable"
-    cptpsystementry.EntityData.SegmentPath = "cPtpSystemEntry" + "[cPtpDomainIndex='" + fmt.Sprintf("%v", cptpsystementry.Cptpdomainindex) + "']" + "[cPtpInstanceIndex='" + fmt.Sprintf("%v", cptpsystementry.Cptpinstanceindex) + "']"
-    cptpsystementry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpsystementry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpsystementry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpSystemEntry *CISCOPTPMIB_CPtpSystemTable_CPtpSystemEntry) GetEntityData() *types.CommonEntityData {
+    cPtpSystemEntry.EntityData.YFilter = cPtpSystemEntry.YFilter
+    cPtpSystemEntry.EntityData.YangName = "cPtpSystemEntry"
+    cPtpSystemEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpSystemEntry.EntityData.ParentYangName = "cPtpSystemTable"
+    cPtpSystemEntry.EntityData.SegmentPath = "cPtpSystemEntry" + types.AddKeyToken(cPtpSystemEntry.CPtpDomainIndex, "cPtpDomainIndex") + types.AddKeyToken(cPtpSystemEntry.CPtpInstanceIndex, "cPtpInstanceIndex")
+    cPtpSystemEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpSystemEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpSystemEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpsystementry.EntityData.Children = make(map[string]types.YChild)
-    cptpsystementry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpsystementry.EntityData.Leafs["cPtpDomainIndex"] = types.YLeaf{"Cptpdomainindex", cptpsystementry.Cptpdomainindex}
-    cptpsystementry.EntityData.Leafs["cPtpInstanceIndex"] = types.YLeaf{"Cptpinstanceindex", cptpsystementry.Cptpinstanceindex}
-    cptpsystementry.EntityData.Leafs["cPtpDomainClockPortsTotal"] = types.YLeaf{"Cptpdomainclockportstotal", cptpsystementry.Cptpdomainclockportstotal}
-    cptpsystementry.EntityData.Leafs["cPtpDomainClockPortPhysicalInterfacesTotal"] = types.YLeaf{"Cptpdomainclockportphysicalinterfacestotal", cptpsystementry.Cptpdomainclockportphysicalinterfacestotal}
-    return &(cptpsystementry.EntityData)
+    cPtpSystemEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpSystemEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpSystemEntry.EntityData.Leafs.Append("cPtpDomainIndex", types.YLeaf{"CPtpDomainIndex", cPtpSystemEntry.CPtpDomainIndex})
+    cPtpSystemEntry.EntityData.Leafs.Append("cPtpInstanceIndex", types.YLeaf{"CPtpInstanceIndex", cPtpSystemEntry.CPtpInstanceIndex})
+    cPtpSystemEntry.EntityData.Leafs.Append("cPtpDomainClockPortsTotal", types.YLeaf{"CPtpDomainClockPortsTotal", cPtpSystemEntry.CPtpDomainClockPortsTotal})
+    cPtpSystemEntry.EntityData.Leafs.Append("cPtpDomainClockPortPhysicalInterfacesTotal", types.YLeaf{"CPtpDomainClockPortPhysicalInterfacesTotal", cPtpSystemEntry.CPtpDomainClockPortPhysicalInterfacesTotal})
+
+    cPtpSystemEntry.EntityData.YListKeys = []string {"CPtpDomainIndex", "CPtpInstanceIndex"}
+
+    return &(cPtpSystemEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpsystemdomaintable
+// CISCOPTPMIB_CPtpSystemDomainTable
 // Table of information about the PTP system for all clock modes
 // -- ordinary, boundary or transparent.
-type CISCOPTPMIB_Cptpsystemdomaintable struct {
+type CISCOPTPMIB_CPtpSystemDomainTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single clock mode for
     // the PTP system. A row entry gets added when PTP clocks are configured on
     // the router. The type is slice of
-    // CISCOPTPMIB_Cptpsystemdomaintable_Cptpsystemdomainentry.
-    Cptpsystemdomainentry []CISCOPTPMIB_Cptpsystemdomaintable_Cptpsystemdomainentry
+    // CISCOPTPMIB_CPtpSystemDomainTable_CPtpSystemDomainEntry.
+    CPtpSystemDomainEntry []*CISCOPTPMIB_CPtpSystemDomainTable_CPtpSystemDomainEntry
 }
 
-func (cptpsystemdomaintable *CISCOPTPMIB_Cptpsystemdomaintable) GetEntityData() *types.CommonEntityData {
-    cptpsystemdomaintable.EntityData.YFilter = cptpsystemdomaintable.YFilter
-    cptpsystemdomaintable.EntityData.YangName = "cPtpSystemDomainTable"
-    cptpsystemdomaintable.EntityData.BundleName = "cisco_ios_xe"
-    cptpsystemdomaintable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpsystemdomaintable.EntityData.SegmentPath = "cPtpSystemDomainTable"
-    cptpsystemdomaintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpsystemdomaintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpsystemdomaintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpSystemDomainTable *CISCOPTPMIB_CPtpSystemDomainTable) GetEntityData() *types.CommonEntityData {
+    cPtpSystemDomainTable.EntityData.YFilter = cPtpSystemDomainTable.YFilter
+    cPtpSystemDomainTable.EntityData.YangName = "cPtpSystemDomainTable"
+    cPtpSystemDomainTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpSystemDomainTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpSystemDomainTable.EntityData.SegmentPath = "cPtpSystemDomainTable"
+    cPtpSystemDomainTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpSystemDomainTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpSystemDomainTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpsystemdomaintable.EntityData.Children = make(map[string]types.YChild)
-    cptpsystemdomaintable.EntityData.Children["cPtpSystemDomainEntry"] = types.YChild{"Cptpsystemdomainentry", nil}
-    for i := range cptpsystemdomaintable.Cptpsystemdomainentry {
-        cptpsystemdomaintable.EntityData.Children[types.GetSegmentPath(&cptpsystemdomaintable.Cptpsystemdomainentry[i])] = types.YChild{"Cptpsystemdomainentry", &cptpsystemdomaintable.Cptpsystemdomainentry[i]}
+    cPtpSystemDomainTable.EntityData.Children = types.NewOrderedMap()
+    cPtpSystemDomainTable.EntityData.Children.Append("cPtpSystemDomainEntry", types.YChild{"CPtpSystemDomainEntry", nil})
+    for i := range cPtpSystemDomainTable.CPtpSystemDomainEntry {
+        cPtpSystemDomainTable.EntityData.Children.Append(types.GetSegmentPath(cPtpSystemDomainTable.CPtpSystemDomainEntry[i]), types.YChild{"CPtpSystemDomainEntry", cPtpSystemDomainTable.CPtpSystemDomainEntry[i]})
     }
-    cptpsystemdomaintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpsystemdomaintable.EntityData)
+    cPtpSystemDomainTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpSystemDomainTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpSystemDomainTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpsystemdomaintable_Cptpsystemdomainentry
+// CISCOPTPMIB_CPtpSystemDomainTable_CPtpSystemDomainEntry
 // An entry in the table, containing information about a single
 // clock mode for the PTP system. A row entry gets added when PTP
 // clocks are configured on the router.
-type CISCOPTPMIB_Cptpsystemdomaintable_Cptpsystemdomainentry struct {
+type CISCOPTPMIB_CPtpSystemDomainTable_CPtpSystemDomainEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpsystemdomainclocktypeindex interface{}
+    CPtpSystemDomainClockTypeIndex interface{}
 
     // This object specifies the  total number of PTP domains for this particular
     // clock type configured in this node. The type is interface{} with range:
     // 0..4294967295. Units are domains.
-    Cptpsystemdomaintotals interface{}
+    CPtpSystemDomainTotals interface{}
 }
 
-func (cptpsystemdomainentry *CISCOPTPMIB_Cptpsystemdomaintable_Cptpsystemdomainentry) GetEntityData() *types.CommonEntityData {
-    cptpsystemdomainentry.EntityData.YFilter = cptpsystemdomainentry.YFilter
-    cptpsystemdomainentry.EntityData.YangName = "cPtpSystemDomainEntry"
-    cptpsystemdomainentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpsystemdomainentry.EntityData.ParentYangName = "cPtpSystemDomainTable"
-    cptpsystemdomainentry.EntityData.SegmentPath = "cPtpSystemDomainEntry" + "[cPtpSystemDomainClockTypeIndex='" + fmt.Sprintf("%v", cptpsystemdomainentry.Cptpsystemdomainclocktypeindex) + "']"
-    cptpsystemdomainentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpsystemdomainentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpsystemdomainentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpSystemDomainEntry *CISCOPTPMIB_CPtpSystemDomainTable_CPtpSystemDomainEntry) GetEntityData() *types.CommonEntityData {
+    cPtpSystemDomainEntry.EntityData.YFilter = cPtpSystemDomainEntry.YFilter
+    cPtpSystemDomainEntry.EntityData.YangName = "cPtpSystemDomainEntry"
+    cPtpSystemDomainEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpSystemDomainEntry.EntityData.ParentYangName = "cPtpSystemDomainTable"
+    cPtpSystemDomainEntry.EntityData.SegmentPath = "cPtpSystemDomainEntry" + types.AddKeyToken(cPtpSystemDomainEntry.CPtpSystemDomainClockTypeIndex, "cPtpSystemDomainClockTypeIndex")
+    cPtpSystemDomainEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpSystemDomainEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpSystemDomainEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpsystemdomainentry.EntityData.Children = make(map[string]types.YChild)
-    cptpsystemdomainentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpsystemdomainentry.EntityData.Leafs["cPtpSystemDomainClockTypeIndex"] = types.YLeaf{"Cptpsystemdomainclocktypeindex", cptpsystemdomainentry.Cptpsystemdomainclocktypeindex}
-    cptpsystemdomainentry.EntityData.Leafs["cPtpSystemDomainTotals"] = types.YLeaf{"Cptpsystemdomaintotals", cptpsystemdomainentry.Cptpsystemdomaintotals}
-    return &(cptpsystemdomainentry.EntityData)
+    cPtpSystemDomainEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpSystemDomainEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpSystemDomainEntry.EntityData.Leafs.Append("cPtpSystemDomainClockTypeIndex", types.YLeaf{"CPtpSystemDomainClockTypeIndex", cPtpSystemDomainEntry.CPtpSystemDomainClockTypeIndex})
+    cPtpSystemDomainEntry.EntityData.Leafs.Append("cPtpSystemDomainTotals", types.YLeaf{"CPtpSystemDomainTotals", cPtpSystemDomainEntry.CPtpSystemDomainTotals})
+
+    cPtpSystemDomainEntry.EntityData.YListKeys = []string {"CPtpSystemDomainClockTypeIndex"}
+
+    return &(cPtpSystemDomainEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclocknodetable
+// CISCOPTPMIB_CPtpClockNodeTable
 // Table of information about the PTP system for a given domain.
-type CISCOPTPMIB_Cptpclocknodetable struct {
+type CISCOPTPMIB_CPtpClockNodeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single domain. A
     // entry is added when a new PTP clock domain is configured on the router. The
-    // type is slice of CISCOPTPMIB_Cptpclocknodetable_Cptpclocknodeentry.
-    Cptpclocknodeentry []CISCOPTPMIB_Cptpclocknodetable_Cptpclocknodeentry
+    // type is slice of CISCOPTPMIB_CPtpClockNodeTable_CPtpClockNodeEntry.
+    CPtpClockNodeEntry []*CISCOPTPMIB_CPtpClockNodeTable_CPtpClockNodeEntry
 }
 
-func (cptpclocknodetable *CISCOPTPMIB_Cptpclocknodetable) GetEntityData() *types.CommonEntityData {
-    cptpclocknodetable.EntityData.YFilter = cptpclocknodetable.YFilter
-    cptpclocknodetable.EntityData.YangName = "cPtpClockNodeTable"
-    cptpclocknodetable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclocknodetable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclocknodetable.EntityData.SegmentPath = "cPtpClockNodeTable"
-    cptpclocknodetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclocknodetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclocknodetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockNodeTable *CISCOPTPMIB_CPtpClockNodeTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockNodeTable.EntityData.YFilter = cPtpClockNodeTable.YFilter
+    cPtpClockNodeTable.EntityData.YangName = "cPtpClockNodeTable"
+    cPtpClockNodeTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockNodeTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockNodeTable.EntityData.SegmentPath = "cPtpClockNodeTable"
+    cPtpClockNodeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockNodeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockNodeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclocknodetable.EntityData.Children = make(map[string]types.YChild)
-    cptpclocknodetable.EntityData.Children["cPtpClockNodeEntry"] = types.YChild{"Cptpclocknodeentry", nil}
-    for i := range cptpclocknodetable.Cptpclocknodeentry {
-        cptpclocknodetable.EntityData.Children[types.GetSegmentPath(&cptpclocknodetable.Cptpclocknodeentry[i])] = types.YChild{"Cptpclocknodeentry", &cptpclocknodetable.Cptpclocknodeentry[i]}
+    cPtpClockNodeTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockNodeTable.EntityData.Children.Append("cPtpClockNodeEntry", types.YChild{"CPtpClockNodeEntry", nil})
+    for i := range cPtpClockNodeTable.CPtpClockNodeEntry {
+        cPtpClockNodeTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockNodeTable.CPtpClockNodeEntry[i]), types.YChild{"CPtpClockNodeEntry", cPtpClockNodeTable.CPtpClockNodeEntry[i]})
     }
-    cptpclocknodetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclocknodetable.EntityData)
+    cPtpClockNodeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockNodeTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockNodeTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclocknodetable_Cptpclocknodeentry
+// CISCOPTPMIB_CPtpClockNodeTable_CPtpClockNodeEntry
 // An entry in the table, containing information about a single
 // domain. A entry is added when a new PTP clock domain is
 // configured on the router.
-type CISCOPTPMIB_Cptpclocknodetable_Cptpclocknodeentry struct {
+type CISCOPTPMIB_CPtpClockNodeTable_CPtpClockNodeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the  domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockdomainindex interface{}
+    CPtpClockDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclocktypeindex interface{}
+    CPtpClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the Clock
     // for this clock type for the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockinstanceindex interface{}
+    CPtpClockInstanceIndex interface{}
 
     // This object specifies whether the node is enabled for PTP input clocking
     // using the 1pps interface. The type is bool.
-    Cptpclockinput1Ppsenabled interface{}
+    CPtpClockInput1ppsEnabled interface{}
 
     // This object specifies whether enabled for Frequency input using the 1.544
     // Mhz, 2.048 Mhz, or 10Mhz timing interface. The type is bool.
-    Cptpclockinputfrequencyenabled interface{}
+    CPtpClockInputFrequencyEnabled interface{}
 
     // This object specifies whether the node is enabled for TOD. The type is
     // bool.
-    Cptpclocktodenabled interface{}
+    CPtpClockTODEnabled interface{}
 
     // This object specifies whether the node is enabled for PTP input clocking
     // using the 1pps interface. The type is bool.
-    Cptpclockoutput1Ppsenabled interface{}
+    CPtpClockOutput1ppsEnabled interface{}
 
     // This object specifies whether an offset is configured in order to
     // compensate for a known phase error such as network asymmetry. The type is
     // bool.
-    Cptpclockoutput1Ppsoffsetenabled interface{}
+    CPtpClockOutput1ppsOffsetEnabled interface{}
 
     // This object specifies the fixed offset value configured to be added for the
     // 1pps output. The type is interface{} with range: 0..4294967295.
-    Cptpclockoutput1Ppsoffsetvalue interface{}
+    CPtpClockOutput1ppsOffsetValue interface{}
 
     // This object specifies whether the added (fixed) offset to the 1pps output
     // is negative or not.  When object returns TRUE the offset is negative and
     // when object returns FALSE the offset is positive. The type is bool.
-    Cptpclockoutput1Ppsoffsetnegative interface{}
+    CPtpClockOutput1ppsOffsetNegative interface{}
 
     // This object specifies the 1pps interface used for PTP input clocking. The
     // type is string.
-    Cptpclockinput1Ppsinterface interface{}
+    CPtpClockInput1ppsInterface interface{}
 
     // This object specifies the 1pps interface used for PTP output clocking. The
     // type is string.
-    Cptpclockoutput1Ppsinterface interface{}
+    CPtpClockOutput1ppsInterface interface{}
 
     // This object specifies the interface used for PTP TOD. The type is string.
-    Cptpclocktodinterface interface{}
+    CPtpClockTODInterface interface{}
 }
 
-func (cptpclocknodeentry *CISCOPTPMIB_Cptpclocknodetable_Cptpclocknodeentry) GetEntityData() *types.CommonEntityData {
-    cptpclocknodeentry.EntityData.YFilter = cptpclocknodeentry.YFilter
-    cptpclocknodeentry.EntityData.YangName = "cPtpClockNodeEntry"
-    cptpclocknodeentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclocknodeentry.EntityData.ParentYangName = "cPtpClockNodeTable"
-    cptpclocknodeentry.EntityData.SegmentPath = "cPtpClockNodeEntry" + "[cPtpClockDomainIndex='" + fmt.Sprintf("%v", cptpclocknodeentry.Cptpclockdomainindex) + "']" + "[cPtpClockTypeIndex='" + fmt.Sprintf("%v", cptpclocknodeentry.Cptpclocktypeindex) + "']" + "[cPtpClockInstanceIndex='" + fmt.Sprintf("%v", cptpclocknodeentry.Cptpclockinstanceindex) + "']"
-    cptpclocknodeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclocknodeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclocknodeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockNodeEntry *CISCOPTPMIB_CPtpClockNodeTable_CPtpClockNodeEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockNodeEntry.EntityData.YFilter = cPtpClockNodeEntry.YFilter
+    cPtpClockNodeEntry.EntityData.YangName = "cPtpClockNodeEntry"
+    cPtpClockNodeEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockNodeEntry.EntityData.ParentYangName = "cPtpClockNodeTable"
+    cPtpClockNodeEntry.EntityData.SegmentPath = "cPtpClockNodeEntry" + types.AddKeyToken(cPtpClockNodeEntry.CPtpClockDomainIndex, "cPtpClockDomainIndex") + types.AddKeyToken(cPtpClockNodeEntry.CPtpClockTypeIndex, "cPtpClockTypeIndex") + types.AddKeyToken(cPtpClockNodeEntry.CPtpClockInstanceIndex, "cPtpClockInstanceIndex")
+    cPtpClockNodeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockNodeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockNodeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclocknodeentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclocknodeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockDomainIndex"] = types.YLeaf{"Cptpclockdomainindex", cptpclocknodeentry.Cptpclockdomainindex}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockTypeIndex"] = types.YLeaf{"Cptpclocktypeindex", cptpclocknodeentry.Cptpclocktypeindex}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockInstanceIndex"] = types.YLeaf{"Cptpclockinstanceindex", cptpclocknodeentry.Cptpclockinstanceindex}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockInput1ppsEnabled"] = types.YLeaf{"Cptpclockinput1Ppsenabled", cptpclocknodeentry.Cptpclockinput1Ppsenabled}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockInputFrequencyEnabled"] = types.YLeaf{"Cptpclockinputfrequencyenabled", cptpclocknodeentry.Cptpclockinputfrequencyenabled}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockTODEnabled"] = types.YLeaf{"Cptpclocktodenabled", cptpclocknodeentry.Cptpclocktodenabled}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockOutput1ppsEnabled"] = types.YLeaf{"Cptpclockoutput1Ppsenabled", cptpclocknodeentry.Cptpclockoutput1Ppsenabled}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockOutput1ppsOffsetEnabled"] = types.YLeaf{"Cptpclockoutput1Ppsoffsetenabled", cptpclocknodeentry.Cptpclockoutput1Ppsoffsetenabled}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockOutput1ppsOffsetValue"] = types.YLeaf{"Cptpclockoutput1Ppsoffsetvalue", cptpclocknodeentry.Cptpclockoutput1Ppsoffsetvalue}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockOutput1ppsOffsetNegative"] = types.YLeaf{"Cptpclockoutput1Ppsoffsetnegative", cptpclocknodeentry.Cptpclockoutput1Ppsoffsetnegative}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockInput1ppsInterface"] = types.YLeaf{"Cptpclockinput1Ppsinterface", cptpclocknodeentry.Cptpclockinput1Ppsinterface}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockOutput1ppsInterface"] = types.YLeaf{"Cptpclockoutput1Ppsinterface", cptpclocknodeentry.Cptpclockoutput1Ppsinterface}
-    cptpclocknodeentry.EntityData.Leafs["cPtpClockTODInterface"] = types.YLeaf{"Cptpclocktodinterface", cptpclocknodeentry.Cptpclocktodinterface}
-    return &(cptpclocknodeentry.EntityData)
+    cPtpClockNodeEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockNodeEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockDomainIndex", types.YLeaf{"CPtpClockDomainIndex", cPtpClockNodeEntry.CPtpClockDomainIndex})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockTypeIndex", types.YLeaf{"CPtpClockTypeIndex", cPtpClockNodeEntry.CPtpClockTypeIndex})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockInstanceIndex", types.YLeaf{"CPtpClockInstanceIndex", cPtpClockNodeEntry.CPtpClockInstanceIndex})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockInput1ppsEnabled", types.YLeaf{"CPtpClockInput1ppsEnabled", cPtpClockNodeEntry.CPtpClockInput1ppsEnabled})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockInputFrequencyEnabled", types.YLeaf{"CPtpClockInputFrequencyEnabled", cPtpClockNodeEntry.CPtpClockInputFrequencyEnabled})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockTODEnabled", types.YLeaf{"CPtpClockTODEnabled", cPtpClockNodeEntry.CPtpClockTODEnabled})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockOutput1ppsEnabled", types.YLeaf{"CPtpClockOutput1ppsEnabled", cPtpClockNodeEntry.CPtpClockOutput1ppsEnabled})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockOutput1ppsOffsetEnabled", types.YLeaf{"CPtpClockOutput1ppsOffsetEnabled", cPtpClockNodeEntry.CPtpClockOutput1ppsOffsetEnabled})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockOutput1ppsOffsetValue", types.YLeaf{"CPtpClockOutput1ppsOffsetValue", cPtpClockNodeEntry.CPtpClockOutput1ppsOffsetValue})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockOutput1ppsOffsetNegative", types.YLeaf{"CPtpClockOutput1ppsOffsetNegative", cPtpClockNodeEntry.CPtpClockOutput1ppsOffsetNegative})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockInput1ppsInterface", types.YLeaf{"CPtpClockInput1ppsInterface", cPtpClockNodeEntry.CPtpClockInput1ppsInterface})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockOutput1ppsInterface", types.YLeaf{"CPtpClockOutput1ppsInterface", cPtpClockNodeEntry.CPtpClockOutput1ppsInterface})
+    cPtpClockNodeEntry.EntityData.Leafs.Append("cPtpClockTODInterface", types.YLeaf{"CPtpClockTODInterface", cPtpClockNodeEntry.CPtpClockTODInterface})
+
+    cPtpClockNodeEntry.EntityData.YListKeys = []string {"CPtpClockDomainIndex", "CPtpClockTypeIndex", "CPtpClockInstanceIndex"}
+
+    return &(cPtpClockNodeEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockcurrentdstable
+// CISCOPTPMIB_CPtpClockCurrentDSTable
 // Table of information about the PTP clock Current Datasets for
 // all domains.
-type CISCOPTPMIB_Cptpclockcurrentdstable struct {
+type CISCOPTPMIB_CPtpClockCurrentDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single PTP clock
     // Current Datasets for a domain. The type is slice of
-    // CISCOPTPMIB_Cptpclockcurrentdstable_Cptpclockcurrentdsentry.
-    Cptpclockcurrentdsentry []CISCOPTPMIB_Cptpclockcurrentdstable_Cptpclockcurrentdsentry
+    // CISCOPTPMIB_CPtpClockCurrentDSTable_CPtpClockCurrentDSEntry.
+    CPtpClockCurrentDSEntry []*CISCOPTPMIB_CPtpClockCurrentDSTable_CPtpClockCurrentDSEntry
 }
 
-func (cptpclockcurrentdstable *CISCOPTPMIB_Cptpclockcurrentdstable) GetEntityData() *types.CommonEntityData {
-    cptpclockcurrentdstable.EntityData.YFilter = cptpclockcurrentdstable.YFilter
-    cptpclockcurrentdstable.EntityData.YangName = "cPtpClockCurrentDSTable"
-    cptpclockcurrentdstable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockcurrentdstable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockcurrentdstable.EntityData.SegmentPath = "cPtpClockCurrentDSTable"
-    cptpclockcurrentdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockcurrentdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockcurrentdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockCurrentDSTable *CISCOPTPMIB_CPtpClockCurrentDSTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockCurrentDSTable.EntityData.YFilter = cPtpClockCurrentDSTable.YFilter
+    cPtpClockCurrentDSTable.EntityData.YangName = "cPtpClockCurrentDSTable"
+    cPtpClockCurrentDSTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockCurrentDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockCurrentDSTable.EntityData.SegmentPath = "cPtpClockCurrentDSTable"
+    cPtpClockCurrentDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockCurrentDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockCurrentDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockcurrentdstable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockcurrentdstable.EntityData.Children["cPtpClockCurrentDSEntry"] = types.YChild{"Cptpclockcurrentdsentry", nil}
-    for i := range cptpclockcurrentdstable.Cptpclockcurrentdsentry {
-        cptpclockcurrentdstable.EntityData.Children[types.GetSegmentPath(&cptpclockcurrentdstable.Cptpclockcurrentdsentry[i])] = types.YChild{"Cptpclockcurrentdsentry", &cptpclockcurrentdstable.Cptpclockcurrentdsentry[i]}
+    cPtpClockCurrentDSTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockCurrentDSTable.EntityData.Children.Append("cPtpClockCurrentDSEntry", types.YChild{"CPtpClockCurrentDSEntry", nil})
+    for i := range cPtpClockCurrentDSTable.CPtpClockCurrentDSEntry {
+        cPtpClockCurrentDSTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockCurrentDSTable.CPtpClockCurrentDSEntry[i]), types.YChild{"CPtpClockCurrentDSEntry", cPtpClockCurrentDSTable.CPtpClockCurrentDSEntry[i]})
     }
-    cptpclockcurrentdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockcurrentdstable.EntityData)
+    cPtpClockCurrentDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockCurrentDSTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockCurrentDSTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockcurrentdstable_Cptpclockcurrentdsentry
+// CISCOPTPMIB_CPtpClockCurrentDSTable_CPtpClockCurrentDSEntry
 // An entry in the table, containing information about a single
 // PTP clock Current Datasets for a domain.
-type CISCOPTPMIB_Cptpclockcurrentdstable_Cptpclockcurrentdsentry struct {
+type CISCOPTPMIB_CPtpClockCurrentDSTable_CPtpClockCurrentDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockcurrentdsdomainindex interface{}
+    CPtpClockCurrentDSDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclockcurrentdsclocktypeindex interface{}
+    CPtpClockCurrentDSClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockcurrentdsinstanceindex interface{}
+    CPtpClockCurrentDSInstanceIndex interface{}
 
     // The current clock dataset StepsRemoved value.  This object specifies the
     // distance measured by the number of Boundary clocks between the local clock
     // and the Foreign master as indicated in the stepsRemoved field of Announce
     // messages. The type is interface{} with range: 0..4294967295. Units are
     // steps.
-    Cptpclockcurrentdsstepsremoved interface{}
+    CPtpClockCurrentDSStepsRemoved interface{}
 
     // This object specifies the current clock dataset ClockOffset value. The
     // value of the computation of the offset in time between a slave and a master
     // clock. The type is string with length: 1..255. Units are Time Interval.
-    Cptpclockcurrentdsoffsetfrommaster interface{}
+    CPtpClockCurrentDSOffsetFromMaster interface{}
 
     // This object specifies the current clock dataset MeanPathDelay value.  The
     // mean path delay between a pair of ports as measure by the delay
     // request-response mechanism. The type is string with length: 1..255.
-    Cptpclockcurrentdsmeanpathdelay interface{}
+    CPtpClockCurrentDSMeanPathDelay interface{}
 }
 
-func (cptpclockcurrentdsentry *CISCOPTPMIB_Cptpclockcurrentdstable_Cptpclockcurrentdsentry) GetEntityData() *types.CommonEntityData {
-    cptpclockcurrentdsentry.EntityData.YFilter = cptpclockcurrentdsentry.YFilter
-    cptpclockcurrentdsentry.EntityData.YangName = "cPtpClockCurrentDSEntry"
-    cptpclockcurrentdsentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockcurrentdsentry.EntityData.ParentYangName = "cPtpClockCurrentDSTable"
-    cptpclockcurrentdsentry.EntityData.SegmentPath = "cPtpClockCurrentDSEntry" + "[cPtpClockCurrentDSDomainIndex='" + fmt.Sprintf("%v", cptpclockcurrentdsentry.Cptpclockcurrentdsdomainindex) + "']" + "[cPtpClockCurrentDSClockTypeIndex='" + fmt.Sprintf("%v", cptpclockcurrentdsentry.Cptpclockcurrentdsclocktypeindex) + "']" + "[cPtpClockCurrentDSInstanceIndex='" + fmt.Sprintf("%v", cptpclockcurrentdsentry.Cptpclockcurrentdsinstanceindex) + "']"
-    cptpclockcurrentdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockcurrentdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockcurrentdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockCurrentDSEntry *CISCOPTPMIB_CPtpClockCurrentDSTable_CPtpClockCurrentDSEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockCurrentDSEntry.EntityData.YFilter = cPtpClockCurrentDSEntry.YFilter
+    cPtpClockCurrentDSEntry.EntityData.YangName = "cPtpClockCurrentDSEntry"
+    cPtpClockCurrentDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockCurrentDSEntry.EntityData.ParentYangName = "cPtpClockCurrentDSTable"
+    cPtpClockCurrentDSEntry.EntityData.SegmentPath = "cPtpClockCurrentDSEntry" + types.AddKeyToken(cPtpClockCurrentDSEntry.CPtpClockCurrentDSDomainIndex, "cPtpClockCurrentDSDomainIndex") + types.AddKeyToken(cPtpClockCurrentDSEntry.CPtpClockCurrentDSClockTypeIndex, "cPtpClockCurrentDSClockTypeIndex") + types.AddKeyToken(cPtpClockCurrentDSEntry.CPtpClockCurrentDSInstanceIndex, "cPtpClockCurrentDSInstanceIndex")
+    cPtpClockCurrentDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockCurrentDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockCurrentDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockcurrentdsentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockcurrentdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockcurrentdsentry.EntityData.Leafs["cPtpClockCurrentDSDomainIndex"] = types.YLeaf{"Cptpclockcurrentdsdomainindex", cptpclockcurrentdsentry.Cptpclockcurrentdsdomainindex}
-    cptpclockcurrentdsentry.EntityData.Leafs["cPtpClockCurrentDSClockTypeIndex"] = types.YLeaf{"Cptpclockcurrentdsclocktypeindex", cptpclockcurrentdsentry.Cptpclockcurrentdsclocktypeindex}
-    cptpclockcurrentdsentry.EntityData.Leafs["cPtpClockCurrentDSInstanceIndex"] = types.YLeaf{"Cptpclockcurrentdsinstanceindex", cptpclockcurrentdsentry.Cptpclockcurrentdsinstanceindex}
-    cptpclockcurrentdsentry.EntityData.Leafs["cPtpClockCurrentDSStepsRemoved"] = types.YLeaf{"Cptpclockcurrentdsstepsremoved", cptpclockcurrentdsentry.Cptpclockcurrentdsstepsremoved}
-    cptpclockcurrentdsentry.EntityData.Leafs["cPtpClockCurrentDSOffsetFromMaster"] = types.YLeaf{"Cptpclockcurrentdsoffsetfrommaster", cptpclockcurrentdsentry.Cptpclockcurrentdsoffsetfrommaster}
-    cptpclockcurrentdsentry.EntityData.Leafs["cPtpClockCurrentDSMeanPathDelay"] = types.YLeaf{"Cptpclockcurrentdsmeanpathdelay", cptpclockcurrentdsentry.Cptpclockcurrentdsmeanpathdelay}
-    return &(cptpclockcurrentdsentry.EntityData)
+    cPtpClockCurrentDSEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockCurrentDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockCurrentDSEntry.EntityData.Leafs.Append("cPtpClockCurrentDSDomainIndex", types.YLeaf{"CPtpClockCurrentDSDomainIndex", cPtpClockCurrentDSEntry.CPtpClockCurrentDSDomainIndex})
+    cPtpClockCurrentDSEntry.EntityData.Leafs.Append("cPtpClockCurrentDSClockTypeIndex", types.YLeaf{"CPtpClockCurrentDSClockTypeIndex", cPtpClockCurrentDSEntry.CPtpClockCurrentDSClockTypeIndex})
+    cPtpClockCurrentDSEntry.EntityData.Leafs.Append("cPtpClockCurrentDSInstanceIndex", types.YLeaf{"CPtpClockCurrentDSInstanceIndex", cPtpClockCurrentDSEntry.CPtpClockCurrentDSInstanceIndex})
+    cPtpClockCurrentDSEntry.EntityData.Leafs.Append("cPtpClockCurrentDSStepsRemoved", types.YLeaf{"CPtpClockCurrentDSStepsRemoved", cPtpClockCurrentDSEntry.CPtpClockCurrentDSStepsRemoved})
+    cPtpClockCurrentDSEntry.EntityData.Leafs.Append("cPtpClockCurrentDSOffsetFromMaster", types.YLeaf{"CPtpClockCurrentDSOffsetFromMaster", cPtpClockCurrentDSEntry.CPtpClockCurrentDSOffsetFromMaster})
+    cPtpClockCurrentDSEntry.EntityData.Leafs.Append("cPtpClockCurrentDSMeanPathDelay", types.YLeaf{"CPtpClockCurrentDSMeanPathDelay", cPtpClockCurrentDSEntry.CPtpClockCurrentDSMeanPathDelay})
+
+    cPtpClockCurrentDSEntry.EntityData.YListKeys = []string {"CPtpClockCurrentDSDomainIndex", "CPtpClockCurrentDSClockTypeIndex", "CPtpClockCurrentDSInstanceIndex"}
+
+    return &(cPtpClockCurrentDSEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockparentdstable
+// CISCOPTPMIB_CPtpClockParentDSTable
 // Table of information about the PTP clock Parent Datasets for
 // all domains.
-type CISCOPTPMIB_Cptpclockparentdstable struct {
+type CISCOPTPMIB_CPtpClockParentDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single PTP clock
     // Parent Datasets for a domain. The type is slice of
-    // CISCOPTPMIB_Cptpclockparentdstable_Cptpclockparentdsentry.
-    Cptpclockparentdsentry []CISCOPTPMIB_Cptpclockparentdstable_Cptpclockparentdsentry
+    // CISCOPTPMIB_CPtpClockParentDSTable_CPtpClockParentDSEntry.
+    CPtpClockParentDSEntry []*CISCOPTPMIB_CPtpClockParentDSTable_CPtpClockParentDSEntry
 }
 
-func (cptpclockparentdstable *CISCOPTPMIB_Cptpclockparentdstable) GetEntityData() *types.CommonEntityData {
-    cptpclockparentdstable.EntityData.YFilter = cptpclockparentdstable.YFilter
-    cptpclockparentdstable.EntityData.YangName = "cPtpClockParentDSTable"
-    cptpclockparentdstable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockparentdstable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockparentdstable.EntityData.SegmentPath = "cPtpClockParentDSTable"
-    cptpclockparentdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockparentdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockparentdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockParentDSTable *CISCOPTPMIB_CPtpClockParentDSTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockParentDSTable.EntityData.YFilter = cPtpClockParentDSTable.YFilter
+    cPtpClockParentDSTable.EntityData.YangName = "cPtpClockParentDSTable"
+    cPtpClockParentDSTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockParentDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockParentDSTable.EntityData.SegmentPath = "cPtpClockParentDSTable"
+    cPtpClockParentDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockParentDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockParentDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockparentdstable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockparentdstable.EntityData.Children["cPtpClockParentDSEntry"] = types.YChild{"Cptpclockparentdsentry", nil}
-    for i := range cptpclockparentdstable.Cptpclockparentdsentry {
-        cptpclockparentdstable.EntityData.Children[types.GetSegmentPath(&cptpclockparentdstable.Cptpclockparentdsentry[i])] = types.YChild{"Cptpclockparentdsentry", &cptpclockparentdstable.Cptpclockparentdsentry[i]}
+    cPtpClockParentDSTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockParentDSTable.EntityData.Children.Append("cPtpClockParentDSEntry", types.YChild{"CPtpClockParentDSEntry", nil})
+    for i := range cPtpClockParentDSTable.CPtpClockParentDSEntry {
+        cPtpClockParentDSTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockParentDSTable.CPtpClockParentDSEntry[i]), types.YChild{"CPtpClockParentDSEntry", cPtpClockParentDSTable.CPtpClockParentDSEntry[i]})
     }
-    cptpclockparentdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockparentdstable.EntityData)
+    cPtpClockParentDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockParentDSTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockParentDSTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockparentdstable_Cptpclockparentdsentry
+// CISCOPTPMIB_CPtpClockParentDSTable_CPtpClockParentDSEntry
 // An entry in the table, containing information about a single
 // PTP clock Parent Datasets for a domain.
-type CISCOPTPMIB_Cptpclockparentdstable_Cptpclockparentdsentry struct {
+type CISCOPTPMIB_CPtpClockParentDSTable_CPtpClockParentDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockparentdsdomainindex interface{}
+    CPtpClockParentDSDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclockparentdsclocktypeindex interface{}
+    CPtpClockParentDSClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockparentdsinstanceindex interface{}
+    CPtpClockParentDSInstanceIndex interface{}
 
     // This object specifies the value of portIdentity of the port on the master
     // that issues the Sync messages used in synchronizing this clock. The type is
     // string.
-    Cptpclockparentdsparentportidentity interface{}
+    CPtpClockParentDSParentPortIdentity interface{}
 
     // This object specifies the Parent Dataset ParentStats value.  This value
     // indicates whether the values of ParentDSOffset and ParentDSClockPhChRate
     // have been measured and are valid. A TRUE value shall indicate valid data.
     // The type is bool.
-    Cptpclockparentdsparentstats interface{}
+    CPtpClockParentDSParentStats interface{}
 
     // This object specifies the Parent Dataset ParentOffsetScaledLogVariance
     // value.  This value is the variance of the parent clocks phase as measured
     // by the local clock. The type is interface{} with range: -128..127.
-    Cptpclockparentdsoffset interface{}
+    CPtpClockParentDSOffset interface{}
 
     // This object specifies the clock's parent dataset ParentClockPhaseChangeRate
     // value.  This value is an estimate of the parent clocks phase change rate as
     // measured by the slave clock. The type is interface{} with range:
     // -2147483648..2147483647.
-    Cptpclockparentdsclockphchrate interface{}
+    CPtpClockParentDSClockPhChRate interface{}
 
     // This object specifies the parent dataset Grandmaster clock identity. The
     // type is string with length: 1..255.
-    Cptpclockparentdsgmclockidentity interface{}
+    CPtpClockParentDSGMClockIdentity interface{}
 
     // This object specifies the parent dataset Grandmaster clock priority1. The
     // type is interface{} with range: -2147483648..2147483647.
-    Cptpclockparentdsgmclockpriority1 interface{}
+    CPtpClockParentDSGMClockPriority1 interface{}
 
     // This object specifies the parent dataset grandmaster clock priority2. The
     // type is interface{} with range: -2147483648..2147483647.
-    Cptpclockparentdsgmclockpriority2 interface{}
+    CPtpClockParentDSGMClockPriority2 interface{}
 
     // This object specifies the parent dataset grandmaster clock quality class.
     // The type is interface{} with range: 0..255.
-    Cptpclockparentdsgmclockqualityclass interface{}
+    CPtpClockParentDSGMClockQualityClass interface{}
 
     // This object specifies the parent dataset grandmaster clock quality
     // accuracy. The type is ClockQualityAccuracyType.
-    Cptpclockparentdsgmclockqualityaccuracy interface{}
+    CPtpClockParentDSGMClockQualityAccuracy interface{}
 
     // This object specifies the parent dataset grandmaster clock quality offset.
     // The type is interface{} with range: 0..4294967295.
-    Cptpclockparentdsgmclockqualityoffset interface{}
+    CPtpClockParentDSGMClockQualityOffset interface{}
 }
 
-func (cptpclockparentdsentry *CISCOPTPMIB_Cptpclockparentdstable_Cptpclockparentdsentry) GetEntityData() *types.CommonEntityData {
-    cptpclockparentdsentry.EntityData.YFilter = cptpclockparentdsentry.YFilter
-    cptpclockparentdsentry.EntityData.YangName = "cPtpClockParentDSEntry"
-    cptpclockparentdsentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockparentdsentry.EntityData.ParentYangName = "cPtpClockParentDSTable"
-    cptpclockparentdsentry.EntityData.SegmentPath = "cPtpClockParentDSEntry" + "[cPtpClockParentDSDomainIndex='" + fmt.Sprintf("%v", cptpclockparentdsentry.Cptpclockparentdsdomainindex) + "']" + "[cPtpClockParentDSClockTypeIndex='" + fmt.Sprintf("%v", cptpclockparentdsentry.Cptpclockparentdsclocktypeindex) + "']" + "[cPtpClockParentDSInstanceIndex='" + fmt.Sprintf("%v", cptpclockparentdsentry.Cptpclockparentdsinstanceindex) + "']"
-    cptpclockparentdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockparentdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockparentdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockParentDSEntry *CISCOPTPMIB_CPtpClockParentDSTable_CPtpClockParentDSEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockParentDSEntry.EntityData.YFilter = cPtpClockParentDSEntry.YFilter
+    cPtpClockParentDSEntry.EntityData.YangName = "cPtpClockParentDSEntry"
+    cPtpClockParentDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockParentDSEntry.EntityData.ParentYangName = "cPtpClockParentDSTable"
+    cPtpClockParentDSEntry.EntityData.SegmentPath = "cPtpClockParentDSEntry" + types.AddKeyToken(cPtpClockParentDSEntry.CPtpClockParentDSDomainIndex, "cPtpClockParentDSDomainIndex") + types.AddKeyToken(cPtpClockParentDSEntry.CPtpClockParentDSClockTypeIndex, "cPtpClockParentDSClockTypeIndex") + types.AddKeyToken(cPtpClockParentDSEntry.CPtpClockParentDSInstanceIndex, "cPtpClockParentDSInstanceIndex")
+    cPtpClockParentDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockParentDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockParentDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockparentdsentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockparentdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSDomainIndex"] = types.YLeaf{"Cptpclockparentdsdomainindex", cptpclockparentdsentry.Cptpclockparentdsdomainindex}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSClockTypeIndex"] = types.YLeaf{"Cptpclockparentdsclocktypeindex", cptpclockparentdsentry.Cptpclockparentdsclocktypeindex}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSInstanceIndex"] = types.YLeaf{"Cptpclockparentdsinstanceindex", cptpclockparentdsentry.Cptpclockparentdsinstanceindex}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSParentPortIdentity"] = types.YLeaf{"Cptpclockparentdsparentportidentity", cptpclockparentdsentry.Cptpclockparentdsparentportidentity}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSParentStats"] = types.YLeaf{"Cptpclockparentdsparentstats", cptpclockparentdsentry.Cptpclockparentdsparentstats}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSOffset"] = types.YLeaf{"Cptpclockparentdsoffset", cptpclockparentdsentry.Cptpclockparentdsoffset}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSClockPhChRate"] = types.YLeaf{"Cptpclockparentdsclockphchrate", cptpclockparentdsentry.Cptpclockparentdsclockphchrate}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSGMClockIdentity"] = types.YLeaf{"Cptpclockparentdsgmclockidentity", cptpclockparentdsentry.Cptpclockparentdsgmclockidentity}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSGMClockPriority1"] = types.YLeaf{"Cptpclockparentdsgmclockpriority1", cptpclockparentdsentry.Cptpclockparentdsgmclockpriority1}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSGMClockPriority2"] = types.YLeaf{"Cptpclockparentdsgmclockpriority2", cptpclockparentdsentry.Cptpclockparentdsgmclockpriority2}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSGMClockQualityClass"] = types.YLeaf{"Cptpclockparentdsgmclockqualityclass", cptpclockparentdsentry.Cptpclockparentdsgmclockqualityclass}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSGMClockQualityAccuracy"] = types.YLeaf{"Cptpclockparentdsgmclockqualityaccuracy", cptpclockparentdsentry.Cptpclockparentdsgmclockqualityaccuracy}
-    cptpclockparentdsentry.EntityData.Leafs["cPtpClockParentDSGMClockQualityOffset"] = types.YLeaf{"Cptpclockparentdsgmclockqualityoffset", cptpclockparentdsentry.Cptpclockparentdsgmclockqualityoffset}
-    return &(cptpclockparentdsentry.EntityData)
+    cPtpClockParentDSEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockParentDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSDomainIndex", types.YLeaf{"CPtpClockParentDSDomainIndex", cPtpClockParentDSEntry.CPtpClockParentDSDomainIndex})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSClockTypeIndex", types.YLeaf{"CPtpClockParentDSClockTypeIndex", cPtpClockParentDSEntry.CPtpClockParentDSClockTypeIndex})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSInstanceIndex", types.YLeaf{"CPtpClockParentDSInstanceIndex", cPtpClockParentDSEntry.CPtpClockParentDSInstanceIndex})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSParentPortIdentity", types.YLeaf{"CPtpClockParentDSParentPortIdentity", cPtpClockParentDSEntry.CPtpClockParentDSParentPortIdentity})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSParentStats", types.YLeaf{"CPtpClockParentDSParentStats", cPtpClockParentDSEntry.CPtpClockParentDSParentStats})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSOffset", types.YLeaf{"CPtpClockParentDSOffset", cPtpClockParentDSEntry.CPtpClockParentDSOffset})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSClockPhChRate", types.YLeaf{"CPtpClockParentDSClockPhChRate", cPtpClockParentDSEntry.CPtpClockParentDSClockPhChRate})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSGMClockIdentity", types.YLeaf{"CPtpClockParentDSGMClockIdentity", cPtpClockParentDSEntry.CPtpClockParentDSGMClockIdentity})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSGMClockPriority1", types.YLeaf{"CPtpClockParentDSGMClockPriority1", cPtpClockParentDSEntry.CPtpClockParentDSGMClockPriority1})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSGMClockPriority2", types.YLeaf{"CPtpClockParentDSGMClockPriority2", cPtpClockParentDSEntry.CPtpClockParentDSGMClockPriority2})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSGMClockQualityClass", types.YLeaf{"CPtpClockParentDSGMClockQualityClass", cPtpClockParentDSEntry.CPtpClockParentDSGMClockQualityClass})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSGMClockQualityAccuracy", types.YLeaf{"CPtpClockParentDSGMClockQualityAccuracy", cPtpClockParentDSEntry.CPtpClockParentDSGMClockQualityAccuracy})
+    cPtpClockParentDSEntry.EntityData.Leafs.Append("cPtpClockParentDSGMClockQualityOffset", types.YLeaf{"CPtpClockParentDSGMClockQualityOffset", cPtpClockParentDSEntry.CPtpClockParentDSGMClockQualityOffset})
+
+    cPtpClockParentDSEntry.EntityData.YListKeys = []string {"CPtpClockParentDSDomainIndex", "CPtpClockParentDSClockTypeIndex", "CPtpClockParentDSInstanceIndex"}
+
+    return &(cPtpClockParentDSEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockdefaultdstable
+// CISCOPTPMIB_CPtpClockDefaultDSTable
 // Table of information about the PTP clock Default Datasets for
 // all domains.
-type CISCOPTPMIB_Cptpclockdefaultdstable struct {
+type CISCOPTPMIB_CPtpClockDefaultDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single PTP clock
     // Default Datasets for a domain. The type is slice of
-    // CISCOPTPMIB_Cptpclockdefaultdstable_Cptpclockdefaultdsentry.
-    Cptpclockdefaultdsentry []CISCOPTPMIB_Cptpclockdefaultdstable_Cptpclockdefaultdsentry
+    // CISCOPTPMIB_CPtpClockDefaultDSTable_CPtpClockDefaultDSEntry.
+    CPtpClockDefaultDSEntry []*CISCOPTPMIB_CPtpClockDefaultDSTable_CPtpClockDefaultDSEntry
 }
 
-func (cptpclockdefaultdstable *CISCOPTPMIB_Cptpclockdefaultdstable) GetEntityData() *types.CommonEntityData {
-    cptpclockdefaultdstable.EntityData.YFilter = cptpclockdefaultdstable.YFilter
-    cptpclockdefaultdstable.EntityData.YangName = "cPtpClockDefaultDSTable"
-    cptpclockdefaultdstable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockdefaultdstable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockdefaultdstable.EntityData.SegmentPath = "cPtpClockDefaultDSTable"
-    cptpclockdefaultdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockdefaultdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockdefaultdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockDefaultDSTable *CISCOPTPMIB_CPtpClockDefaultDSTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockDefaultDSTable.EntityData.YFilter = cPtpClockDefaultDSTable.YFilter
+    cPtpClockDefaultDSTable.EntityData.YangName = "cPtpClockDefaultDSTable"
+    cPtpClockDefaultDSTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockDefaultDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockDefaultDSTable.EntityData.SegmentPath = "cPtpClockDefaultDSTable"
+    cPtpClockDefaultDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockDefaultDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockDefaultDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockdefaultdstable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockdefaultdstable.EntityData.Children["cPtpClockDefaultDSEntry"] = types.YChild{"Cptpclockdefaultdsentry", nil}
-    for i := range cptpclockdefaultdstable.Cptpclockdefaultdsentry {
-        cptpclockdefaultdstable.EntityData.Children[types.GetSegmentPath(&cptpclockdefaultdstable.Cptpclockdefaultdsentry[i])] = types.YChild{"Cptpclockdefaultdsentry", &cptpclockdefaultdstable.Cptpclockdefaultdsentry[i]}
+    cPtpClockDefaultDSTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockDefaultDSTable.EntityData.Children.Append("cPtpClockDefaultDSEntry", types.YChild{"CPtpClockDefaultDSEntry", nil})
+    for i := range cPtpClockDefaultDSTable.CPtpClockDefaultDSEntry {
+        cPtpClockDefaultDSTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockDefaultDSTable.CPtpClockDefaultDSEntry[i]), types.YChild{"CPtpClockDefaultDSEntry", cPtpClockDefaultDSTable.CPtpClockDefaultDSEntry[i]})
     }
-    cptpclockdefaultdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockdefaultdstable.EntityData)
+    cPtpClockDefaultDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockDefaultDSTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockDefaultDSTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockdefaultdstable_Cptpclockdefaultdsentry
+// CISCOPTPMIB_CPtpClockDefaultDSTable_CPtpClockDefaultDSEntry
 // An entry in the table, containing information about a single
 // PTP clock Default Datasets for a domain.
-type CISCOPTPMIB_Cptpclockdefaultdstable_Cptpclockdefaultdsentry struct {
+type CISCOPTPMIB_CPtpClockDefaultDSTable_CPtpClockDefaultDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockdefaultdsdomainindex interface{}
+    CPtpClockDefaultDSDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclockdefaultdsclocktypeindex interface{}
+    CPtpClockDefaultDSClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockdefaultdsinstanceindex interface{}
+    CPtpClockDefaultDSInstanceIndex interface{}
 
     // This object specifies whether the Two Step process is used. The type is
     // bool.
-    Cptpclockdefaultdstwostepflag interface{}
+    CPtpClockDefaultDSTwoStepFlag interface{}
 
     // This object specifies the default Datasets clock identity. The type is
     // string with length: 1..255.
-    Cptpclockdefaultdsclockidentity interface{}
+    CPtpClockDefaultDSClockIdentity interface{}
 
     // This object specifies the default Datasets clock Priority1. The type is
     // interface{} with range: -2147483648..2147483647.
-    Cptpclockdefaultdspriority1 interface{}
+    CPtpClockDefaultDSPriority1 interface{}
 
     // This object specifies the default Datasets clock Priority2. The type is
     // interface{} with range: -2147483648..2147483647.
-    Cptpclockdefaultdspriority2 interface{}
+    CPtpClockDefaultDSPriority2 interface{}
 
     // Whether the SlaveOnly flag is set. The type is bool.
-    Cptpclockdefaultdsslaveonly interface{}
+    CPtpClockDefaultDSSlaveOnly interface{}
 
     // This object specifies the default dataset Quality Class. The type is
     // interface{} with range: 0..255.
-    Cptpclockdefaultdsqualityclass interface{}
+    CPtpClockDefaultDSQualityClass interface{}
 
     // This object specifies the default dataset Quality Accurarcy. The type is
     // ClockQualityAccuracyType.
-    Cptpclockdefaultdsqualityaccuracy interface{}
+    CPtpClockDefaultDSQualityAccuracy interface{}
 
     // This object specifies the default dataset Quality offset. The type is
     // interface{} with range: -2147483648..2147483647.
-    Cptpclockdefaultdsqualityoffset interface{}
+    CPtpClockDefaultDSQualityOffset interface{}
 }
 
-func (cptpclockdefaultdsentry *CISCOPTPMIB_Cptpclockdefaultdstable_Cptpclockdefaultdsentry) GetEntityData() *types.CommonEntityData {
-    cptpclockdefaultdsentry.EntityData.YFilter = cptpclockdefaultdsentry.YFilter
-    cptpclockdefaultdsentry.EntityData.YangName = "cPtpClockDefaultDSEntry"
-    cptpclockdefaultdsentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockdefaultdsentry.EntityData.ParentYangName = "cPtpClockDefaultDSTable"
-    cptpclockdefaultdsentry.EntityData.SegmentPath = "cPtpClockDefaultDSEntry" + "[cPtpClockDefaultDSDomainIndex='" + fmt.Sprintf("%v", cptpclockdefaultdsentry.Cptpclockdefaultdsdomainindex) + "']" + "[cPtpClockDefaultDSClockTypeIndex='" + fmt.Sprintf("%v", cptpclockdefaultdsentry.Cptpclockdefaultdsclocktypeindex) + "']" + "[cPtpClockDefaultDSInstanceIndex='" + fmt.Sprintf("%v", cptpclockdefaultdsentry.Cptpclockdefaultdsinstanceindex) + "']"
-    cptpclockdefaultdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockdefaultdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockdefaultdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockDefaultDSEntry *CISCOPTPMIB_CPtpClockDefaultDSTable_CPtpClockDefaultDSEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockDefaultDSEntry.EntityData.YFilter = cPtpClockDefaultDSEntry.YFilter
+    cPtpClockDefaultDSEntry.EntityData.YangName = "cPtpClockDefaultDSEntry"
+    cPtpClockDefaultDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockDefaultDSEntry.EntityData.ParentYangName = "cPtpClockDefaultDSTable"
+    cPtpClockDefaultDSEntry.EntityData.SegmentPath = "cPtpClockDefaultDSEntry" + types.AddKeyToken(cPtpClockDefaultDSEntry.CPtpClockDefaultDSDomainIndex, "cPtpClockDefaultDSDomainIndex") + types.AddKeyToken(cPtpClockDefaultDSEntry.CPtpClockDefaultDSClockTypeIndex, "cPtpClockDefaultDSClockTypeIndex") + types.AddKeyToken(cPtpClockDefaultDSEntry.CPtpClockDefaultDSInstanceIndex, "cPtpClockDefaultDSInstanceIndex")
+    cPtpClockDefaultDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockDefaultDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockDefaultDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockdefaultdsentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockdefaultdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSDomainIndex"] = types.YLeaf{"Cptpclockdefaultdsdomainindex", cptpclockdefaultdsentry.Cptpclockdefaultdsdomainindex}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSClockTypeIndex"] = types.YLeaf{"Cptpclockdefaultdsclocktypeindex", cptpclockdefaultdsentry.Cptpclockdefaultdsclocktypeindex}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSInstanceIndex"] = types.YLeaf{"Cptpclockdefaultdsinstanceindex", cptpclockdefaultdsentry.Cptpclockdefaultdsinstanceindex}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSTwoStepFlag"] = types.YLeaf{"Cptpclockdefaultdstwostepflag", cptpclockdefaultdsentry.Cptpclockdefaultdstwostepflag}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSClockIdentity"] = types.YLeaf{"Cptpclockdefaultdsclockidentity", cptpclockdefaultdsentry.Cptpclockdefaultdsclockidentity}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSPriority1"] = types.YLeaf{"Cptpclockdefaultdspriority1", cptpclockdefaultdsentry.Cptpclockdefaultdspriority1}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSPriority2"] = types.YLeaf{"Cptpclockdefaultdspriority2", cptpclockdefaultdsentry.Cptpclockdefaultdspriority2}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSSlaveOnly"] = types.YLeaf{"Cptpclockdefaultdsslaveonly", cptpclockdefaultdsentry.Cptpclockdefaultdsslaveonly}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSQualityClass"] = types.YLeaf{"Cptpclockdefaultdsqualityclass", cptpclockdefaultdsentry.Cptpclockdefaultdsqualityclass}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSQualityAccuracy"] = types.YLeaf{"Cptpclockdefaultdsqualityaccuracy", cptpclockdefaultdsentry.Cptpclockdefaultdsqualityaccuracy}
-    cptpclockdefaultdsentry.EntityData.Leafs["cPtpClockDefaultDSQualityOffset"] = types.YLeaf{"Cptpclockdefaultdsqualityoffset", cptpclockdefaultdsentry.Cptpclockdefaultdsqualityoffset}
-    return &(cptpclockdefaultdsentry.EntityData)
+    cPtpClockDefaultDSEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockDefaultDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSDomainIndex", types.YLeaf{"CPtpClockDefaultDSDomainIndex", cPtpClockDefaultDSEntry.CPtpClockDefaultDSDomainIndex})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSClockTypeIndex", types.YLeaf{"CPtpClockDefaultDSClockTypeIndex", cPtpClockDefaultDSEntry.CPtpClockDefaultDSClockTypeIndex})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSInstanceIndex", types.YLeaf{"CPtpClockDefaultDSInstanceIndex", cPtpClockDefaultDSEntry.CPtpClockDefaultDSInstanceIndex})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSTwoStepFlag", types.YLeaf{"CPtpClockDefaultDSTwoStepFlag", cPtpClockDefaultDSEntry.CPtpClockDefaultDSTwoStepFlag})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSClockIdentity", types.YLeaf{"CPtpClockDefaultDSClockIdentity", cPtpClockDefaultDSEntry.CPtpClockDefaultDSClockIdentity})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSPriority1", types.YLeaf{"CPtpClockDefaultDSPriority1", cPtpClockDefaultDSEntry.CPtpClockDefaultDSPriority1})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSPriority2", types.YLeaf{"CPtpClockDefaultDSPriority2", cPtpClockDefaultDSEntry.CPtpClockDefaultDSPriority2})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSSlaveOnly", types.YLeaf{"CPtpClockDefaultDSSlaveOnly", cPtpClockDefaultDSEntry.CPtpClockDefaultDSSlaveOnly})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSQualityClass", types.YLeaf{"CPtpClockDefaultDSQualityClass", cPtpClockDefaultDSEntry.CPtpClockDefaultDSQualityClass})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSQualityAccuracy", types.YLeaf{"CPtpClockDefaultDSQualityAccuracy", cPtpClockDefaultDSEntry.CPtpClockDefaultDSQualityAccuracy})
+    cPtpClockDefaultDSEntry.EntityData.Leafs.Append("cPtpClockDefaultDSQualityOffset", types.YLeaf{"CPtpClockDefaultDSQualityOffset", cPtpClockDefaultDSEntry.CPtpClockDefaultDSQualityOffset})
+
+    cPtpClockDefaultDSEntry.EntityData.YListKeys = []string {"CPtpClockDefaultDSDomainIndex", "CPtpClockDefaultDSClockTypeIndex", "CPtpClockDefaultDSInstanceIndex"}
+
+    return &(cPtpClockDefaultDSEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockrunningtable
+// CISCOPTPMIB_CPtpClockRunningTable
 // Table of information about the PTP clock Running Datasets for
 // all domains.
-type CISCOPTPMIB_Cptpclockrunningtable struct {
+type CISCOPTPMIB_CPtpClockRunningTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single PTP clock
     // running Datasets for a domain. The type is slice of
-    // CISCOPTPMIB_Cptpclockrunningtable_Cptpclockrunningentry.
-    Cptpclockrunningentry []CISCOPTPMIB_Cptpclockrunningtable_Cptpclockrunningentry
+    // CISCOPTPMIB_CPtpClockRunningTable_CPtpClockRunningEntry.
+    CPtpClockRunningEntry []*CISCOPTPMIB_CPtpClockRunningTable_CPtpClockRunningEntry
 }
 
-func (cptpclockrunningtable *CISCOPTPMIB_Cptpclockrunningtable) GetEntityData() *types.CommonEntityData {
-    cptpclockrunningtable.EntityData.YFilter = cptpclockrunningtable.YFilter
-    cptpclockrunningtable.EntityData.YangName = "cPtpClockRunningTable"
-    cptpclockrunningtable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockrunningtable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockrunningtable.EntityData.SegmentPath = "cPtpClockRunningTable"
-    cptpclockrunningtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockrunningtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockrunningtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockRunningTable *CISCOPTPMIB_CPtpClockRunningTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockRunningTable.EntityData.YFilter = cPtpClockRunningTable.YFilter
+    cPtpClockRunningTable.EntityData.YangName = "cPtpClockRunningTable"
+    cPtpClockRunningTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockRunningTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockRunningTable.EntityData.SegmentPath = "cPtpClockRunningTable"
+    cPtpClockRunningTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockRunningTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockRunningTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockrunningtable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockrunningtable.EntityData.Children["cPtpClockRunningEntry"] = types.YChild{"Cptpclockrunningentry", nil}
-    for i := range cptpclockrunningtable.Cptpclockrunningentry {
-        cptpclockrunningtable.EntityData.Children[types.GetSegmentPath(&cptpclockrunningtable.Cptpclockrunningentry[i])] = types.YChild{"Cptpclockrunningentry", &cptpclockrunningtable.Cptpclockrunningentry[i]}
+    cPtpClockRunningTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockRunningTable.EntityData.Children.Append("cPtpClockRunningEntry", types.YChild{"CPtpClockRunningEntry", nil})
+    for i := range cPtpClockRunningTable.CPtpClockRunningEntry {
+        cPtpClockRunningTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockRunningTable.CPtpClockRunningEntry[i]), types.YChild{"CPtpClockRunningEntry", cPtpClockRunningTable.CPtpClockRunningEntry[i]})
     }
-    cptpclockrunningtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockrunningtable.EntityData)
+    cPtpClockRunningTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockRunningTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockRunningTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockrunningtable_Cptpclockrunningentry
+// CISCOPTPMIB_CPtpClockRunningTable_CPtpClockRunningEntry
 // An entry in the table, containing information about a single
 // PTP clock running Datasets for a domain.
-type CISCOPTPMIB_Cptpclockrunningtable_Cptpclockrunningentry struct {
+type CISCOPTPMIB_CPtpClockRunningTable_CPtpClockRunningEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockrunningdomainindex interface{}
+    CPtpClockRunningDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclockrunningclocktypeindex interface{}
+    CPtpClockRunningClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockrunninginstanceindex interface{}
+    CPtpClockRunningInstanceIndex interface{}
 
     // This object specifies the Clock state returned by PTP engine which was
     // described earlier.  Freerun state. Applies to a slave device that is not
@@ -1364,96 +1409,102 @@ type CISCOPTPMIB_Cptpclockrunningtable_Cptpclockrunningentry struct {
     // Slave device is locked to the Master with respect to frequency, but not
     // phase aligned  Phase_aligned state. Locked to the master with respect to
     // frequency and phase. The type is ClockStateType.
-    Cptpclockrunningstate interface{}
+    CPtpClockRunningState interface{}
 
     // This object specifies the total number of all packet Unicast and multicast
     // that have been sent out for this clock in this domain for this type. The
     // type is interface{} with range: 0..18446744073709551615.
-    Cptpclockrunningpacketssent interface{}
+    CPtpClockRunningPacketsSent interface{}
 
     // This object specifies the total number of all packet Unicast and multicast
     // that have been received for this clock in this domain for this type. The
     // type is interface{} with range: 0..18446744073709551615.
-    Cptpclockrunningpacketsreceived interface{}
+    CPtpClockRunningPacketsReceived interface{}
 }
 
-func (cptpclockrunningentry *CISCOPTPMIB_Cptpclockrunningtable_Cptpclockrunningentry) GetEntityData() *types.CommonEntityData {
-    cptpclockrunningentry.EntityData.YFilter = cptpclockrunningentry.YFilter
-    cptpclockrunningentry.EntityData.YangName = "cPtpClockRunningEntry"
-    cptpclockrunningentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockrunningentry.EntityData.ParentYangName = "cPtpClockRunningTable"
-    cptpclockrunningentry.EntityData.SegmentPath = "cPtpClockRunningEntry" + "[cPtpClockRunningDomainIndex='" + fmt.Sprintf("%v", cptpclockrunningentry.Cptpclockrunningdomainindex) + "']" + "[cPtpClockRunningClockTypeIndex='" + fmt.Sprintf("%v", cptpclockrunningentry.Cptpclockrunningclocktypeindex) + "']" + "[cPtpClockRunningInstanceIndex='" + fmt.Sprintf("%v", cptpclockrunningentry.Cptpclockrunninginstanceindex) + "']"
-    cptpclockrunningentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockrunningentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockrunningentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockRunningEntry *CISCOPTPMIB_CPtpClockRunningTable_CPtpClockRunningEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockRunningEntry.EntityData.YFilter = cPtpClockRunningEntry.YFilter
+    cPtpClockRunningEntry.EntityData.YangName = "cPtpClockRunningEntry"
+    cPtpClockRunningEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockRunningEntry.EntityData.ParentYangName = "cPtpClockRunningTable"
+    cPtpClockRunningEntry.EntityData.SegmentPath = "cPtpClockRunningEntry" + types.AddKeyToken(cPtpClockRunningEntry.CPtpClockRunningDomainIndex, "cPtpClockRunningDomainIndex") + types.AddKeyToken(cPtpClockRunningEntry.CPtpClockRunningClockTypeIndex, "cPtpClockRunningClockTypeIndex") + types.AddKeyToken(cPtpClockRunningEntry.CPtpClockRunningInstanceIndex, "cPtpClockRunningInstanceIndex")
+    cPtpClockRunningEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockRunningEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockRunningEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockrunningentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockrunningentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockrunningentry.EntityData.Leafs["cPtpClockRunningDomainIndex"] = types.YLeaf{"Cptpclockrunningdomainindex", cptpclockrunningentry.Cptpclockrunningdomainindex}
-    cptpclockrunningentry.EntityData.Leafs["cPtpClockRunningClockTypeIndex"] = types.YLeaf{"Cptpclockrunningclocktypeindex", cptpclockrunningentry.Cptpclockrunningclocktypeindex}
-    cptpclockrunningentry.EntityData.Leafs["cPtpClockRunningInstanceIndex"] = types.YLeaf{"Cptpclockrunninginstanceindex", cptpclockrunningentry.Cptpclockrunninginstanceindex}
-    cptpclockrunningentry.EntityData.Leafs["cPtpClockRunningState"] = types.YLeaf{"Cptpclockrunningstate", cptpclockrunningentry.Cptpclockrunningstate}
-    cptpclockrunningentry.EntityData.Leafs["cPtpClockRunningPacketsSent"] = types.YLeaf{"Cptpclockrunningpacketssent", cptpclockrunningentry.Cptpclockrunningpacketssent}
-    cptpclockrunningentry.EntityData.Leafs["cPtpClockRunningPacketsReceived"] = types.YLeaf{"Cptpclockrunningpacketsreceived", cptpclockrunningentry.Cptpclockrunningpacketsreceived}
-    return &(cptpclockrunningentry.EntityData)
+    cPtpClockRunningEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockRunningEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockRunningEntry.EntityData.Leafs.Append("cPtpClockRunningDomainIndex", types.YLeaf{"CPtpClockRunningDomainIndex", cPtpClockRunningEntry.CPtpClockRunningDomainIndex})
+    cPtpClockRunningEntry.EntityData.Leafs.Append("cPtpClockRunningClockTypeIndex", types.YLeaf{"CPtpClockRunningClockTypeIndex", cPtpClockRunningEntry.CPtpClockRunningClockTypeIndex})
+    cPtpClockRunningEntry.EntityData.Leafs.Append("cPtpClockRunningInstanceIndex", types.YLeaf{"CPtpClockRunningInstanceIndex", cPtpClockRunningEntry.CPtpClockRunningInstanceIndex})
+    cPtpClockRunningEntry.EntityData.Leafs.Append("cPtpClockRunningState", types.YLeaf{"CPtpClockRunningState", cPtpClockRunningEntry.CPtpClockRunningState})
+    cPtpClockRunningEntry.EntityData.Leafs.Append("cPtpClockRunningPacketsSent", types.YLeaf{"CPtpClockRunningPacketsSent", cPtpClockRunningEntry.CPtpClockRunningPacketsSent})
+    cPtpClockRunningEntry.EntityData.Leafs.Append("cPtpClockRunningPacketsReceived", types.YLeaf{"CPtpClockRunningPacketsReceived", cPtpClockRunningEntry.CPtpClockRunningPacketsReceived})
+
+    cPtpClockRunningEntry.EntityData.YListKeys = []string {"CPtpClockRunningDomainIndex", "CPtpClockRunningClockTypeIndex", "CPtpClockRunningInstanceIndex"}
+
+    return &(cPtpClockRunningEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclocktimepropertiesdstable
+// CISCOPTPMIB_CPtpClockTimePropertiesDSTable
 // Table of information about the PTP clock Timeproperties
 // Datasets for all domains.
-type CISCOPTPMIB_Cptpclocktimepropertiesdstable struct {
+type CISCOPTPMIB_CPtpClockTimePropertiesDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single PTP clock
     // timeproperties Datasets for a domain. The type is slice of
-    // CISCOPTPMIB_Cptpclocktimepropertiesdstable_Cptpclocktimepropertiesdsentry.
-    Cptpclocktimepropertiesdsentry []CISCOPTPMIB_Cptpclocktimepropertiesdstable_Cptpclocktimepropertiesdsentry
+    // CISCOPTPMIB_CPtpClockTimePropertiesDSTable_CPtpClockTimePropertiesDSEntry.
+    CPtpClockTimePropertiesDSEntry []*CISCOPTPMIB_CPtpClockTimePropertiesDSTable_CPtpClockTimePropertiesDSEntry
 }
 
-func (cptpclocktimepropertiesdstable *CISCOPTPMIB_Cptpclocktimepropertiesdstable) GetEntityData() *types.CommonEntityData {
-    cptpclocktimepropertiesdstable.EntityData.YFilter = cptpclocktimepropertiesdstable.YFilter
-    cptpclocktimepropertiesdstable.EntityData.YangName = "cPtpClockTimePropertiesDSTable"
-    cptpclocktimepropertiesdstable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclocktimepropertiesdstable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclocktimepropertiesdstable.EntityData.SegmentPath = "cPtpClockTimePropertiesDSTable"
-    cptpclocktimepropertiesdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclocktimepropertiesdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclocktimepropertiesdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockTimePropertiesDSTable *CISCOPTPMIB_CPtpClockTimePropertiesDSTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockTimePropertiesDSTable.EntityData.YFilter = cPtpClockTimePropertiesDSTable.YFilter
+    cPtpClockTimePropertiesDSTable.EntityData.YangName = "cPtpClockTimePropertiesDSTable"
+    cPtpClockTimePropertiesDSTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockTimePropertiesDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockTimePropertiesDSTable.EntityData.SegmentPath = "cPtpClockTimePropertiesDSTable"
+    cPtpClockTimePropertiesDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockTimePropertiesDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockTimePropertiesDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclocktimepropertiesdstable.EntityData.Children = make(map[string]types.YChild)
-    cptpclocktimepropertiesdstable.EntityData.Children["cPtpClockTimePropertiesDSEntry"] = types.YChild{"Cptpclocktimepropertiesdsentry", nil}
-    for i := range cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry {
-        cptpclocktimepropertiesdstable.EntityData.Children[types.GetSegmentPath(&cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry[i])] = types.YChild{"Cptpclocktimepropertiesdsentry", &cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry[i]}
+    cPtpClockTimePropertiesDSTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockTimePropertiesDSTable.EntityData.Children.Append("cPtpClockTimePropertiesDSEntry", types.YChild{"CPtpClockTimePropertiesDSEntry", nil})
+    for i := range cPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry {
+        cPtpClockTimePropertiesDSTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry[i]), types.YChild{"CPtpClockTimePropertiesDSEntry", cPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry[i]})
     }
-    cptpclocktimepropertiesdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclocktimepropertiesdstable.EntityData)
+    cPtpClockTimePropertiesDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockTimePropertiesDSTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockTimePropertiesDSTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclocktimepropertiesdstable_Cptpclocktimepropertiesdsentry
+// CISCOPTPMIB_CPtpClockTimePropertiesDSTable_CPtpClockTimePropertiesDSEntry
 // An entry in the table, containing information about a single
 // PTP clock timeproperties Datasets for a domain.
-type CISCOPTPMIB_Cptpclocktimepropertiesdstable_Cptpclocktimepropertiesdsentry struct {
+type CISCOPTPMIB_CPtpClockTimePropertiesDSTable_CPtpClockTimePropertiesDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclocktimepropertiesdsdomainindex interface{}
+    CPtpClockTimePropertiesDSDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclocktimepropertiesdsclocktypeindex interface{}
+    CPtpClockTimePropertiesDSClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclocktimepropertiesdsinstanceindex interface{}
+    CPtpClockTimePropertiesDSInstanceIndex interface{}
 
     // This object specifies the timeproperties dataset value of whether current
     // UTC offset is valid. The type is bool.
-    Cptpclocktimepropertiesdscurrentutcoffsetvalid interface{}
+    CPtpClockTimePropertiesDSCurrentUTCOffsetValid interface{}
 
     // This object specifies the timeproperties dataset value of current UTC
     // offset.  In PTP systems whose epoch is the PTP epoch, the value of
@@ -1465,215 +1516,227 @@ type CISCOPTPMIB_Cptpclocktimepropertiesdstable_Cptpclocktimepropertiesdsentry s
     // initialization, else. b) The value shall be the current number of leap
     // seconds (7.2.3) when the node is designed. The type is interface{} with
     // range: -2147483648..2147483647.
-    Cptpclocktimepropertiesdscurrentutcoffset interface{}
+    CPtpClockTimePropertiesDSCurrentUTCOffset interface{}
 
     // This object specifies the Leap59 value in the clock Current Dataset. The
     // type is bool.
-    Cptpclocktimepropertiesdsleap59 interface{}
+    CPtpClockTimePropertiesDSLeap59 interface{}
 
     // This object specifies the Leap61 value in the clock Current Dataset. The
     // type is bool.
-    Cptpclocktimepropertiesdsleap61 interface{}
+    CPtpClockTimePropertiesDSLeap61 interface{}
 
     // This object specifies the Timetraceable value in the clock Current Dataset.
     // The type is bool.
-    Cptpclocktimepropertiesdstimetraceable interface{}
+    CPtpClockTimePropertiesDSTimeTraceable interface{}
 
     // This object specifies the Frequency Traceable value in the clock Current
     // Dataset. The type is bool.
-    Cptpclocktimepropertiesdsfreqtraceable interface{}
+    CPtpClockTimePropertiesDSFreqTraceable interface{}
 
     // This object specifies the PTP Timescale value in the clock Current Dataset.
     // The type is bool.
-    Cptpclocktimepropertiesdsptptimescale interface{}
+    CPtpClockTimePropertiesDSPTPTimescale interface{}
 
     // This object specifies the Timesource value in the clock Current Dataset.
     // The type is ClockTimeSourceType.
-    Cptpclocktimepropertiesdssource interface{}
+    CPtpClockTimePropertiesDSSource interface{}
 }
 
-func (cptpclocktimepropertiesdsentry *CISCOPTPMIB_Cptpclocktimepropertiesdstable_Cptpclocktimepropertiesdsentry) GetEntityData() *types.CommonEntityData {
-    cptpclocktimepropertiesdsentry.EntityData.YFilter = cptpclocktimepropertiesdsentry.YFilter
-    cptpclocktimepropertiesdsentry.EntityData.YangName = "cPtpClockTimePropertiesDSEntry"
-    cptpclocktimepropertiesdsentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclocktimepropertiesdsentry.EntityData.ParentYangName = "cPtpClockTimePropertiesDSTable"
-    cptpclocktimepropertiesdsentry.EntityData.SegmentPath = "cPtpClockTimePropertiesDSEntry" + "[cPtpClockTimePropertiesDSDomainIndex='" + fmt.Sprintf("%v", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsdomainindex) + "']" + "[cPtpClockTimePropertiesDSClockTypeIndex='" + fmt.Sprintf("%v", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsclocktypeindex) + "']" + "[cPtpClockTimePropertiesDSInstanceIndex='" + fmt.Sprintf("%v", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsinstanceindex) + "']"
-    cptpclocktimepropertiesdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclocktimepropertiesdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclocktimepropertiesdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockTimePropertiesDSEntry *CISCOPTPMIB_CPtpClockTimePropertiesDSTable_CPtpClockTimePropertiesDSEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockTimePropertiesDSEntry.EntityData.YFilter = cPtpClockTimePropertiesDSEntry.YFilter
+    cPtpClockTimePropertiesDSEntry.EntityData.YangName = "cPtpClockTimePropertiesDSEntry"
+    cPtpClockTimePropertiesDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockTimePropertiesDSEntry.EntityData.ParentYangName = "cPtpClockTimePropertiesDSTable"
+    cPtpClockTimePropertiesDSEntry.EntityData.SegmentPath = "cPtpClockTimePropertiesDSEntry" + types.AddKeyToken(cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSDomainIndex, "cPtpClockTimePropertiesDSDomainIndex") + types.AddKeyToken(cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSClockTypeIndex, "cPtpClockTimePropertiesDSClockTypeIndex") + types.AddKeyToken(cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSInstanceIndex, "cPtpClockTimePropertiesDSInstanceIndex")
+    cPtpClockTimePropertiesDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockTimePropertiesDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockTimePropertiesDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclocktimepropertiesdsentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclocktimepropertiesdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSDomainIndex"] = types.YLeaf{"Cptpclocktimepropertiesdsdomainindex", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsdomainindex}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSClockTypeIndex"] = types.YLeaf{"Cptpclocktimepropertiesdsclocktypeindex", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsclocktypeindex}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSInstanceIndex"] = types.YLeaf{"Cptpclocktimepropertiesdsinstanceindex", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsinstanceindex}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSCurrentUTCOffsetValid"] = types.YLeaf{"Cptpclocktimepropertiesdscurrentutcoffsetvalid", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdscurrentutcoffsetvalid}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSCurrentUTCOffset"] = types.YLeaf{"Cptpclocktimepropertiesdscurrentutcoffset", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdscurrentutcoffset}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSLeap59"] = types.YLeaf{"Cptpclocktimepropertiesdsleap59", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsleap59}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSLeap61"] = types.YLeaf{"Cptpclocktimepropertiesdsleap61", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsleap61}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSTimeTraceable"] = types.YLeaf{"Cptpclocktimepropertiesdstimetraceable", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdstimetraceable}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSFreqTraceable"] = types.YLeaf{"Cptpclocktimepropertiesdsfreqtraceable", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsfreqtraceable}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSPTPTimescale"] = types.YLeaf{"Cptpclocktimepropertiesdsptptimescale", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdsptptimescale}
-    cptpclocktimepropertiesdsentry.EntityData.Leafs["cPtpClockTimePropertiesDSSource"] = types.YLeaf{"Cptpclocktimepropertiesdssource", cptpclocktimepropertiesdsentry.Cptpclocktimepropertiesdssource}
-    return &(cptpclocktimepropertiesdsentry.EntityData)
+    cPtpClockTimePropertiesDSEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSDomainIndex", types.YLeaf{"CPtpClockTimePropertiesDSDomainIndex", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSDomainIndex})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSClockTypeIndex", types.YLeaf{"CPtpClockTimePropertiesDSClockTypeIndex", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSClockTypeIndex})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSInstanceIndex", types.YLeaf{"CPtpClockTimePropertiesDSInstanceIndex", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSInstanceIndex})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSCurrentUTCOffsetValid", types.YLeaf{"CPtpClockTimePropertiesDSCurrentUTCOffsetValid", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSCurrentUTCOffsetValid})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSCurrentUTCOffset", types.YLeaf{"CPtpClockTimePropertiesDSCurrentUTCOffset", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSCurrentUTCOffset})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSLeap59", types.YLeaf{"CPtpClockTimePropertiesDSLeap59", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSLeap59})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSLeap61", types.YLeaf{"CPtpClockTimePropertiesDSLeap61", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSLeap61})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSTimeTraceable", types.YLeaf{"CPtpClockTimePropertiesDSTimeTraceable", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSTimeTraceable})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSFreqTraceable", types.YLeaf{"CPtpClockTimePropertiesDSFreqTraceable", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSFreqTraceable})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSPTPTimescale", types.YLeaf{"CPtpClockTimePropertiesDSPTPTimescale", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSPTPTimescale})
+    cPtpClockTimePropertiesDSEntry.EntityData.Leafs.Append("cPtpClockTimePropertiesDSSource", types.YLeaf{"CPtpClockTimePropertiesDSSource", cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSSource})
+
+    cPtpClockTimePropertiesDSEntry.EntityData.YListKeys = []string {"CPtpClockTimePropertiesDSDomainIndex", "CPtpClockTimePropertiesDSClockTypeIndex", "CPtpClockTimePropertiesDSInstanceIndex"}
+
+    return &(cPtpClockTimePropertiesDSEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclocktransdefaultdstable
+// CISCOPTPMIB_CPtpClockTransDefaultDSTable
 // Table of information about the PTP Transparent clock Default
 // Datasets for all domains.
-type CISCOPTPMIB_Cptpclocktransdefaultdstable struct {
+type CISCOPTPMIB_CPtpClockTransDefaultDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single PTP
     // Transparent clock Default Datasets for a domain. The type is slice of
-    // CISCOPTPMIB_Cptpclocktransdefaultdstable_Cptpclocktransdefaultdsentry.
-    Cptpclocktransdefaultdsentry []CISCOPTPMIB_Cptpclocktransdefaultdstable_Cptpclocktransdefaultdsentry
+    // CISCOPTPMIB_CPtpClockTransDefaultDSTable_CPtpClockTransDefaultDSEntry.
+    CPtpClockTransDefaultDSEntry []*CISCOPTPMIB_CPtpClockTransDefaultDSTable_CPtpClockTransDefaultDSEntry
 }
 
-func (cptpclocktransdefaultdstable *CISCOPTPMIB_Cptpclocktransdefaultdstable) GetEntityData() *types.CommonEntityData {
-    cptpclocktransdefaultdstable.EntityData.YFilter = cptpclocktransdefaultdstable.YFilter
-    cptpclocktransdefaultdstable.EntityData.YangName = "cPtpClockTransDefaultDSTable"
-    cptpclocktransdefaultdstable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclocktransdefaultdstable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclocktransdefaultdstable.EntityData.SegmentPath = "cPtpClockTransDefaultDSTable"
-    cptpclocktransdefaultdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclocktransdefaultdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclocktransdefaultdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockTransDefaultDSTable *CISCOPTPMIB_CPtpClockTransDefaultDSTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockTransDefaultDSTable.EntityData.YFilter = cPtpClockTransDefaultDSTable.YFilter
+    cPtpClockTransDefaultDSTable.EntityData.YangName = "cPtpClockTransDefaultDSTable"
+    cPtpClockTransDefaultDSTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockTransDefaultDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockTransDefaultDSTable.EntityData.SegmentPath = "cPtpClockTransDefaultDSTable"
+    cPtpClockTransDefaultDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockTransDefaultDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockTransDefaultDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclocktransdefaultdstable.EntityData.Children = make(map[string]types.YChild)
-    cptpclocktransdefaultdstable.EntityData.Children["cPtpClockTransDefaultDSEntry"] = types.YChild{"Cptpclocktransdefaultdsentry", nil}
-    for i := range cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry {
-        cptpclocktransdefaultdstable.EntityData.Children[types.GetSegmentPath(&cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry[i])] = types.YChild{"Cptpclocktransdefaultdsentry", &cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry[i]}
+    cPtpClockTransDefaultDSTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockTransDefaultDSTable.EntityData.Children.Append("cPtpClockTransDefaultDSEntry", types.YChild{"CPtpClockTransDefaultDSEntry", nil})
+    for i := range cPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry {
+        cPtpClockTransDefaultDSTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry[i]), types.YChild{"CPtpClockTransDefaultDSEntry", cPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry[i]})
     }
-    cptpclocktransdefaultdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclocktransdefaultdstable.EntityData)
+    cPtpClockTransDefaultDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockTransDefaultDSTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockTransDefaultDSTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclocktransdefaultdstable_Cptpclocktransdefaultdsentry
+// CISCOPTPMIB_CPtpClockTransDefaultDSTable_CPtpClockTransDefaultDSEntry
 // An entry in the table, containing information about a single
 // PTP Transparent clock Default Datasets for a domain.
-type CISCOPTPMIB_Cptpclocktransdefaultdstable_Cptpclocktransdefaultdsentry struct {
+type CISCOPTPMIB_CPtpClockTransDefaultDSTable_CPtpClockTransDefaultDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclocktransdefaultdsdomainindex interface{}
+    CPtpClockTransDefaultDSDomainIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclocktransdefaultdsinstanceindex interface{}
+    CPtpClockTransDefaultDSInstanceIndex interface{}
 
     // This object specifies the value of the clockIdentity attribute of the local
     // clock. The type is string with length: 1..255.
-    Cptpclocktransdefaultdsclockidentity interface{}
+    CPtpClockTransDefaultDSClockIdentity interface{}
 
     // This object specifies the number of PTP ports of the device. The type is
     // interface{} with range: 0..4294967295.
-    Cptpclocktransdefaultdsnumofports interface{}
+    CPtpClockTransDefaultDSNumOfPorts interface{}
 
     // This object, if the transparent clock is an end-to-end transparent clock,
     // has the value shall be E2E; If the transparent clock is a peer-to-peer
     // transparent clock, the value shall be P2P. The type is ClockMechanismType.
-    Cptpclocktransdefaultdsdelay interface{}
+    CPtpClockTransDefaultDSDelay interface{}
 
     // This object specifies the value of the primary syntonization domain. The
     // initialization value shall be 0. The type is interface{} with range:
     // -2147483648..2147483647.
-    Cptpclocktransdefaultdsprimarydomain interface{}
+    CPtpClockTransDefaultDSPrimaryDomain interface{}
 }
 
-func (cptpclocktransdefaultdsentry *CISCOPTPMIB_Cptpclocktransdefaultdstable_Cptpclocktransdefaultdsentry) GetEntityData() *types.CommonEntityData {
-    cptpclocktransdefaultdsentry.EntityData.YFilter = cptpclocktransdefaultdsentry.YFilter
-    cptpclocktransdefaultdsentry.EntityData.YangName = "cPtpClockTransDefaultDSEntry"
-    cptpclocktransdefaultdsentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclocktransdefaultdsentry.EntityData.ParentYangName = "cPtpClockTransDefaultDSTable"
-    cptpclocktransdefaultdsentry.EntityData.SegmentPath = "cPtpClockTransDefaultDSEntry" + "[cPtpClockTransDefaultDSDomainIndex='" + fmt.Sprintf("%v", cptpclocktransdefaultdsentry.Cptpclocktransdefaultdsdomainindex) + "']" + "[cPtpClockTransDefaultDSInstanceIndex='" + fmt.Sprintf("%v", cptpclocktransdefaultdsentry.Cptpclocktransdefaultdsinstanceindex) + "']"
-    cptpclocktransdefaultdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclocktransdefaultdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclocktransdefaultdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockTransDefaultDSEntry *CISCOPTPMIB_CPtpClockTransDefaultDSTable_CPtpClockTransDefaultDSEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockTransDefaultDSEntry.EntityData.YFilter = cPtpClockTransDefaultDSEntry.YFilter
+    cPtpClockTransDefaultDSEntry.EntityData.YangName = "cPtpClockTransDefaultDSEntry"
+    cPtpClockTransDefaultDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockTransDefaultDSEntry.EntityData.ParentYangName = "cPtpClockTransDefaultDSTable"
+    cPtpClockTransDefaultDSEntry.EntityData.SegmentPath = "cPtpClockTransDefaultDSEntry" + types.AddKeyToken(cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSDomainIndex, "cPtpClockTransDefaultDSDomainIndex") + types.AddKeyToken(cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSInstanceIndex, "cPtpClockTransDefaultDSInstanceIndex")
+    cPtpClockTransDefaultDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockTransDefaultDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockTransDefaultDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclocktransdefaultdsentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclocktransdefaultdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclocktransdefaultdsentry.EntityData.Leafs["cPtpClockTransDefaultDSDomainIndex"] = types.YLeaf{"Cptpclocktransdefaultdsdomainindex", cptpclocktransdefaultdsentry.Cptpclocktransdefaultdsdomainindex}
-    cptpclocktransdefaultdsentry.EntityData.Leafs["cPtpClockTransDefaultDSInstanceIndex"] = types.YLeaf{"Cptpclocktransdefaultdsinstanceindex", cptpclocktransdefaultdsentry.Cptpclocktransdefaultdsinstanceindex}
-    cptpclocktransdefaultdsentry.EntityData.Leafs["cPtpClockTransDefaultDSClockIdentity"] = types.YLeaf{"Cptpclocktransdefaultdsclockidentity", cptpclocktransdefaultdsentry.Cptpclocktransdefaultdsclockidentity}
-    cptpclocktransdefaultdsentry.EntityData.Leafs["cPtpClockTransDefaultDSNumOfPorts"] = types.YLeaf{"Cptpclocktransdefaultdsnumofports", cptpclocktransdefaultdsentry.Cptpclocktransdefaultdsnumofports}
-    cptpclocktransdefaultdsentry.EntityData.Leafs["cPtpClockTransDefaultDSDelay"] = types.YLeaf{"Cptpclocktransdefaultdsdelay", cptpclocktransdefaultdsentry.Cptpclocktransdefaultdsdelay}
-    cptpclocktransdefaultdsentry.EntityData.Leafs["cPtpClockTransDefaultDSPrimaryDomain"] = types.YLeaf{"Cptpclocktransdefaultdsprimarydomain", cptpclocktransdefaultdsentry.Cptpclocktransdefaultdsprimarydomain}
-    return &(cptpclocktransdefaultdsentry.EntityData)
+    cPtpClockTransDefaultDSEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockTransDefaultDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockTransDefaultDSEntry.EntityData.Leafs.Append("cPtpClockTransDefaultDSDomainIndex", types.YLeaf{"CPtpClockTransDefaultDSDomainIndex", cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSDomainIndex})
+    cPtpClockTransDefaultDSEntry.EntityData.Leafs.Append("cPtpClockTransDefaultDSInstanceIndex", types.YLeaf{"CPtpClockTransDefaultDSInstanceIndex", cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSInstanceIndex})
+    cPtpClockTransDefaultDSEntry.EntityData.Leafs.Append("cPtpClockTransDefaultDSClockIdentity", types.YLeaf{"CPtpClockTransDefaultDSClockIdentity", cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSClockIdentity})
+    cPtpClockTransDefaultDSEntry.EntityData.Leafs.Append("cPtpClockTransDefaultDSNumOfPorts", types.YLeaf{"CPtpClockTransDefaultDSNumOfPorts", cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSNumOfPorts})
+    cPtpClockTransDefaultDSEntry.EntityData.Leafs.Append("cPtpClockTransDefaultDSDelay", types.YLeaf{"CPtpClockTransDefaultDSDelay", cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSDelay})
+    cPtpClockTransDefaultDSEntry.EntityData.Leafs.Append("cPtpClockTransDefaultDSPrimaryDomain", types.YLeaf{"CPtpClockTransDefaultDSPrimaryDomain", cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSPrimaryDomain})
+
+    cPtpClockTransDefaultDSEntry.EntityData.YListKeys = []string {"CPtpClockTransDefaultDSDomainIndex", "CPtpClockTransDefaultDSInstanceIndex"}
+
+    return &(cPtpClockTransDefaultDSEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockporttable
+// CISCOPTPMIB_CPtpClockPortTable
 // Table of information about the clock ports for a particular
 // domain.
-type CISCOPTPMIB_Cptpclockporttable struct {
+type CISCOPTPMIB_CPtpClockPortTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single clock port.
-    // The type is slice of CISCOPTPMIB_Cptpclockporttable_Cptpclockportentry.
-    Cptpclockportentry []CISCOPTPMIB_Cptpclockporttable_Cptpclockportentry
+    // The type is slice of CISCOPTPMIB_CPtpClockPortTable_CPtpClockPortEntry.
+    CPtpClockPortEntry []*CISCOPTPMIB_CPtpClockPortTable_CPtpClockPortEntry
 }
 
-func (cptpclockporttable *CISCOPTPMIB_Cptpclockporttable) GetEntityData() *types.CommonEntityData {
-    cptpclockporttable.EntityData.YFilter = cptpclockporttable.YFilter
-    cptpclockporttable.EntityData.YangName = "cPtpClockPortTable"
-    cptpclockporttable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockporttable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockporttable.EntityData.SegmentPath = "cPtpClockPortTable"
-    cptpclockporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortTable *CISCOPTPMIB_CPtpClockPortTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortTable.EntityData.YFilter = cPtpClockPortTable.YFilter
+    cPtpClockPortTable.EntityData.YangName = "cPtpClockPortTable"
+    cPtpClockPortTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockPortTable.EntityData.SegmentPath = "cPtpClockPortTable"
+    cPtpClockPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockporttable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockporttable.EntityData.Children["cPtpClockPortEntry"] = types.YChild{"Cptpclockportentry", nil}
-    for i := range cptpclockporttable.Cptpclockportentry {
-        cptpclockporttable.EntityData.Children[types.GetSegmentPath(&cptpclockporttable.Cptpclockportentry[i])] = types.YChild{"Cptpclockportentry", &cptpclockporttable.Cptpclockportentry[i]}
+    cPtpClockPortTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortTable.EntityData.Children.Append("cPtpClockPortEntry", types.YChild{"CPtpClockPortEntry", nil})
+    for i := range cPtpClockPortTable.CPtpClockPortEntry {
+        cPtpClockPortTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockPortTable.CPtpClockPortEntry[i]), types.YChild{"CPtpClockPortEntry", cPtpClockPortTable.CPtpClockPortEntry[i]})
     }
-    cptpclockporttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockporttable.EntityData)
+    cPtpClockPortTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockPortTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockPortTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockporttable_Cptpclockportentry
+// CISCOPTPMIB_CPtpClockPortTable_CPtpClockPortEntry
 // An entry in the table, containing information about a single
 // clock port.
-type CISCOPTPMIB_Cptpclockporttable_Cptpclockportentry struct {
+type CISCOPTPMIB_CPtpClockPortTable_CPtpClockPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockportdomainindex interface{}
+    CPtpClockPortDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclockportclocktypeindex interface{}
+    CPtpClockPortClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockportclockinstanceindex interface{}
+    CPtpClockPortClockInstanceIndex interface{}
 
     // This attribute is a key. This object specifies the PTP Portnumber for this
     // port. The type is interface{} with range: 1..65535.
-    Cptpclockporttableportnumberindex interface{}
+    CPtpClockPortTablePortNumberIndex interface{}
 
     // This object specifies the PTP clock port name configured on the router. The
     // type is string with length: 1..64.
-    Cptpclockportname interface{}
+    CPtpClockPortName interface{}
 
     // This object describes the current role (slave/master) of the port. The type
     // is ClockRoleType.
-    Cptpclockportrole interface{}
+    CPtpClockPortRole interface{}
 
     // This object specifies that one-step clock operation between the PTP master
     // and slave device is enabled. The type is bool.
-    Cptpclockportsynconestep interface{}
+    CPtpClockPortSyncOneStep interface{}
 
     // This object specifies the current peer's network address used for PTP
     // communication. Based on the scenario and the setup involved, the values
@@ -1683,7 +1746,7 @@ type CISCOPTPMIB_Cptpclockporttable_Cptpclockportentry struct {
     // port Multiple Slaves        <empty>  (In relevant setups, information on
     // available slaves and available masters will be available through 
     // cPtpClockPortAssociateTable). The type is InetAddressType.
-    Cptpclockportcurrentpeeraddresstype interface{}
+    CPtpClockPortCurrentPeerAddressType interface{}
 
     // This object specifies the current peer's network address used for PTP
     // communication. Based on the scenario and the setup involved, the values
@@ -1693,235 +1756,247 @@ type CISCOPTPMIB_Cptpclockporttable_Cptpclockportentry struct {
     // port Multiple Slaves        <empty>  (In relevant setups, information on
     // available slaves and available masters will be available through 
     // cPtpClockPortAssociateTable). The type is string with length: 0..255.
-    Cptpclockportcurrentpeeraddress interface{}
+    CPtpClockPortCurrentPeerAddress interface{}
 
     // This object specifies - For a master port - the number of PTP slave
     // sessions (peers) associated with this PTP port. For a slave port - the
     // number of masters available to this slave port (might or might not be
     // peered). The type is interface{} with range: 0..4294967295.
-    Cptpclockportnumofassociatedports interface{}
+    CPtpClockPortNumOfAssociatedPorts interface{}
 }
 
-func (cptpclockportentry *CISCOPTPMIB_Cptpclockporttable_Cptpclockportentry) GetEntityData() *types.CommonEntityData {
-    cptpclockportentry.EntityData.YFilter = cptpclockportentry.YFilter
-    cptpclockportentry.EntityData.YangName = "cPtpClockPortEntry"
-    cptpclockportentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockportentry.EntityData.ParentYangName = "cPtpClockPortTable"
-    cptpclockportentry.EntityData.SegmentPath = "cPtpClockPortEntry" + "[cPtpClockPortDomainIndex='" + fmt.Sprintf("%v", cptpclockportentry.Cptpclockportdomainindex) + "']" + "[cPtpClockPortClockTypeIndex='" + fmt.Sprintf("%v", cptpclockportentry.Cptpclockportclocktypeindex) + "']" + "[cPtpClockPortClockInstanceIndex='" + fmt.Sprintf("%v", cptpclockportentry.Cptpclockportclockinstanceindex) + "']" + "[cPtpClockPortTablePortNumberIndex='" + fmt.Sprintf("%v", cptpclockportentry.Cptpclockporttableportnumberindex) + "']"
-    cptpclockportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortEntry *CISCOPTPMIB_CPtpClockPortTable_CPtpClockPortEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortEntry.EntityData.YFilter = cPtpClockPortEntry.YFilter
+    cPtpClockPortEntry.EntityData.YangName = "cPtpClockPortEntry"
+    cPtpClockPortEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortEntry.EntityData.ParentYangName = "cPtpClockPortTable"
+    cPtpClockPortEntry.EntityData.SegmentPath = "cPtpClockPortEntry" + types.AddKeyToken(cPtpClockPortEntry.CPtpClockPortDomainIndex, "cPtpClockPortDomainIndex") + types.AddKeyToken(cPtpClockPortEntry.CPtpClockPortClockTypeIndex, "cPtpClockPortClockTypeIndex") + types.AddKeyToken(cPtpClockPortEntry.CPtpClockPortClockInstanceIndex, "cPtpClockPortClockInstanceIndex") + types.AddKeyToken(cPtpClockPortEntry.CPtpClockPortTablePortNumberIndex, "cPtpClockPortTablePortNumberIndex")
+    cPtpClockPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockportentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockportentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortDomainIndex"] = types.YLeaf{"Cptpclockportdomainindex", cptpclockportentry.Cptpclockportdomainindex}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortClockTypeIndex"] = types.YLeaf{"Cptpclockportclocktypeindex", cptpclockportentry.Cptpclockportclocktypeindex}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortClockInstanceIndex"] = types.YLeaf{"Cptpclockportclockinstanceindex", cptpclockportentry.Cptpclockportclockinstanceindex}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortTablePortNumberIndex"] = types.YLeaf{"Cptpclockporttableportnumberindex", cptpclockportentry.Cptpclockporttableportnumberindex}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortName"] = types.YLeaf{"Cptpclockportname", cptpclockportentry.Cptpclockportname}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortRole"] = types.YLeaf{"Cptpclockportrole", cptpclockportentry.Cptpclockportrole}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortSyncOneStep"] = types.YLeaf{"Cptpclockportsynconestep", cptpclockportentry.Cptpclockportsynconestep}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortCurrentPeerAddressType"] = types.YLeaf{"Cptpclockportcurrentpeeraddresstype", cptpclockportentry.Cptpclockportcurrentpeeraddresstype}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortCurrentPeerAddress"] = types.YLeaf{"Cptpclockportcurrentpeeraddress", cptpclockportentry.Cptpclockportcurrentpeeraddress}
-    cptpclockportentry.EntityData.Leafs["cPtpClockPortNumOfAssociatedPorts"] = types.YLeaf{"Cptpclockportnumofassociatedports", cptpclockportentry.Cptpclockportnumofassociatedports}
-    return &(cptpclockportentry.EntityData)
+    cPtpClockPortEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortDomainIndex", types.YLeaf{"CPtpClockPortDomainIndex", cPtpClockPortEntry.CPtpClockPortDomainIndex})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortClockTypeIndex", types.YLeaf{"CPtpClockPortClockTypeIndex", cPtpClockPortEntry.CPtpClockPortClockTypeIndex})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortClockInstanceIndex", types.YLeaf{"CPtpClockPortClockInstanceIndex", cPtpClockPortEntry.CPtpClockPortClockInstanceIndex})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortTablePortNumberIndex", types.YLeaf{"CPtpClockPortTablePortNumberIndex", cPtpClockPortEntry.CPtpClockPortTablePortNumberIndex})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortName", types.YLeaf{"CPtpClockPortName", cPtpClockPortEntry.CPtpClockPortName})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortRole", types.YLeaf{"CPtpClockPortRole", cPtpClockPortEntry.CPtpClockPortRole})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortSyncOneStep", types.YLeaf{"CPtpClockPortSyncOneStep", cPtpClockPortEntry.CPtpClockPortSyncOneStep})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortCurrentPeerAddressType", types.YLeaf{"CPtpClockPortCurrentPeerAddressType", cPtpClockPortEntry.CPtpClockPortCurrentPeerAddressType})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortCurrentPeerAddress", types.YLeaf{"CPtpClockPortCurrentPeerAddress", cPtpClockPortEntry.CPtpClockPortCurrentPeerAddress})
+    cPtpClockPortEntry.EntityData.Leafs.Append("cPtpClockPortNumOfAssociatedPorts", types.YLeaf{"CPtpClockPortNumOfAssociatedPorts", cPtpClockPortEntry.CPtpClockPortNumOfAssociatedPorts})
+
+    cPtpClockPortEntry.EntityData.YListKeys = []string {"CPtpClockPortDomainIndex", "CPtpClockPortClockTypeIndex", "CPtpClockPortClockInstanceIndex", "CPtpClockPortTablePortNumberIndex"}
+
+    return &(cPtpClockPortEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockportdstable
+// CISCOPTPMIB_CPtpClockPortDSTable
 // Table of information about the clock ports dataset for a
 // particular domain.
-type CISCOPTPMIB_Cptpclockportdstable struct {
+type CISCOPTPMIB_CPtpClockPortDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing port dataset information for a single
     // clock port. The type is slice of
-    // CISCOPTPMIB_Cptpclockportdstable_Cptpclockportdsentry.
-    Cptpclockportdsentry []CISCOPTPMIB_Cptpclockportdstable_Cptpclockportdsentry
+    // CISCOPTPMIB_CPtpClockPortDSTable_CPtpClockPortDSEntry.
+    CPtpClockPortDSEntry []*CISCOPTPMIB_CPtpClockPortDSTable_CPtpClockPortDSEntry
 }
 
-func (cptpclockportdstable *CISCOPTPMIB_Cptpclockportdstable) GetEntityData() *types.CommonEntityData {
-    cptpclockportdstable.EntityData.YFilter = cptpclockportdstable.YFilter
-    cptpclockportdstable.EntityData.YangName = "cPtpClockPortDSTable"
-    cptpclockportdstable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockportdstable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockportdstable.EntityData.SegmentPath = "cPtpClockPortDSTable"
-    cptpclockportdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockportdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockportdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortDSTable *CISCOPTPMIB_CPtpClockPortDSTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortDSTable.EntityData.YFilter = cPtpClockPortDSTable.YFilter
+    cPtpClockPortDSTable.EntityData.YangName = "cPtpClockPortDSTable"
+    cPtpClockPortDSTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockPortDSTable.EntityData.SegmentPath = "cPtpClockPortDSTable"
+    cPtpClockPortDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockportdstable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockportdstable.EntityData.Children["cPtpClockPortDSEntry"] = types.YChild{"Cptpclockportdsentry", nil}
-    for i := range cptpclockportdstable.Cptpclockportdsentry {
-        cptpclockportdstable.EntityData.Children[types.GetSegmentPath(&cptpclockportdstable.Cptpclockportdsentry[i])] = types.YChild{"Cptpclockportdsentry", &cptpclockportdstable.Cptpclockportdsentry[i]}
+    cPtpClockPortDSTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortDSTable.EntityData.Children.Append("cPtpClockPortDSEntry", types.YChild{"CPtpClockPortDSEntry", nil})
+    for i := range cPtpClockPortDSTable.CPtpClockPortDSEntry {
+        cPtpClockPortDSTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockPortDSTable.CPtpClockPortDSEntry[i]), types.YChild{"CPtpClockPortDSEntry", cPtpClockPortDSTable.CPtpClockPortDSEntry[i]})
     }
-    cptpclockportdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockportdstable.EntityData)
+    cPtpClockPortDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockPortDSTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockPortDSTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockportdstable_Cptpclockportdsentry
+// CISCOPTPMIB_CPtpClockPortDSTable_CPtpClockPortDSEntry
 // An entry in the table, containing port dataset information for
 // a single clock port.
-type CISCOPTPMIB_Cptpclockportdstable_Cptpclockportdsentry struct {
+type CISCOPTPMIB_CPtpClockPortDSTable_CPtpClockPortDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockportdsdomainindex interface{}
+    CPtpClockPortDSDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclockportdsclocktypeindex interface{}
+    CPtpClockPortDSClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockportdsclockinstanceindex interface{}
+    CPtpClockPortDSClockInstanceIndex interface{}
 
     // This attribute is a key. This object specifies the PTP portnumber
     // associated with this PTP port. The type is interface{} with range:
     // 1..65535.
-    Cptpclockportdsportnumberindex interface{}
+    CPtpClockPortDSPortNumberIndex interface{}
 
     // This object specifies the PTP clock port name. The type is string with
     // length: 1..64.
-    Cptpclockportdsname interface{}
+    CPtpClockPortDSName interface{}
 
     // This object specifies the PTP clock port Identity. The type is string.
-    Cptpclockportdsportidentity interface{}
+    CPtpClockPortDSPortIdentity interface{}
 
     // This object specifies the Announce message transmission interval associated
     // with this clock port. The type is interface{} with range:
     // -2147483648..2147483647.
-    Cptpclockportdsannouncementinterval interface{}
+    CPtpClockPortDSAnnouncementInterval interface{}
 
     // This object specifies the Announce receipt timeout associated with this
     // clock port. The type is interface{} with range: -2147483648..2147483647.
-    Cptpclockportdsannouncercttimeout interface{}
+    CPtpClockPortDSAnnounceRctTimeout interface{}
 
     // This object specifies the Sync message transmission interval. The type is
     // interface{} with range: -2147483648..2147483647.
-    Cptpclockportdssyncinterval interface{}
+    CPtpClockPortDSSyncInterval interface{}
 
     // This object specifies the Delay_Req message transmission interval. The type
     // is interface{} with range: -2147483648..2147483647.
-    Cptpclockportdsmindelayreqinterval interface{}
+    CPtpClockPortDSMinDelayReqInterval interface{}
 
     // This object specifies the Pdelay_Req message transmission interval. The
     // type is interface{} with range: -2147483648..2147483647.
-    Cptpclockportdspeerdelayreqinterval interface{}
+    CPtpClockPortDSPeerDelayReqInterval interface{}
 
     // This object specifies the delay mechanism used. If the clock is an
     // end-to-end clock, the value of the is e2e, else if the clock is a peer
     // to-peer clock, the value shall be p2p. The type is ClockMechanismType.
-    Cptpclockportdsdelaymech interface{}
+    CPtpClockPortDSDelayMech interface{}
 
     // This object specifies the peer meanPathDelay. The type is string with
     // length: 1..255.
-    Cptpclockportdspeermeanpathdelay interface{}
+    CPtpClockPortDSPeerMeanPathDelay interface{}
 
     // This object specifies the grant duration allocated by the master. The type
     // is interface{} with range: 0..4294967295.
-    Cptpclockportdsgrantduration interface{}
+    CPtpClockPortDSGrantDuration interface{}
 
     // This object specifies the PTP version being used. The type is interface{}
     // with range: -2147483648..2147483647.
-    Cptpclockportdsptpversion interface{}
+    CPtpClockPortDSPTPVersion interface{}
 }
 
-func (cptpclockportdsentry *CISCOPTPMIB_Cptpclockportdstable_Cptpclockportdsentry) GetEntityData() *types.CommonEntityData {
-    cptpclockportdsentry.EntityData.YFilter = cptpclockportdsentry.YFilter
-    cptpclockportdsentry.EntityData.YangName = "cPtpClockPortDSEntry"
-    cptpclockportdsentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockportdsentry.EntityData.ParentYangName = "cPtpClockPortDSTable"
-    cptpclockportdsentry.EntityData.SegmentPath = "cPtpClockPortDSEntry" + "[cPtpClockPortDSDomainIndex='" + fmt.Sprintf("%v", cptpclockportdsentry.Cptpclockportdsdomainindex) + "']" + "[cPtpClockPortDSClockTypeIndex='" + fmt.Sprintf("%v", cptpclockportdsentry.Cptpclockportdsclocktypeindex) + "']" + "[cPtpClockPortDSClockInstanceIndex='" + fmt.Sprintf("%v", cptpclockportdsentry.Cptpclockportdsclockinstanceindex) + "']" + "[cPtpClockPortDSPortNumberIndex='" + fmt.Sprintf("%v", cptpclockportdsentry.Cptpclockportdsportnumberindex) + "']"
-    cptpclockportdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockportdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockportdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortDSEntry *CISCOPTPMIB_CPtpClockPortDSTable_CPtpClockPortDSEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortDSEntry.EntityData.YFilter = cPtpClockPortDSEntry.YFilter
+    cPtpClockPortDSEntry.EntityData.YangName = "cPtpClockPortDSEntry"
+    cPtpClockPortDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortDSEntry.EntityData.ParentYangName = "cPtpClockPortDSTable"
+    cPtpClockPortDSEntry.EntityData.SegmentPath = "cPtpClockPortDSEntry" + types.AddKeyToken(cPtpClockPortDSEntry.CPtpClockPortDSDomainIndex, "cPtpClockPortDSDomainIndex") + types.AddKeyToken(cPtpClockPortDSEntry.CPtpClockPortDSClockTypeIndex, "cPtpClockPortDSClockTypeIndex") + types.AddKeyToken(cPtpClockPortDSEntry.CPtpClockPortDSClockInstanceIndex, "cPtpClockPortDSClockInstanceIndex") + types.AddKeyToken(cPtpClockPortDSEntry.CPtpClockPortDSPortNumberIndex, "cPtpClockPortDSPortNumberIndex")
+    cPtpClockPortDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockportdsentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockportdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSDomainIndex"] = types.YLeaf{"Cptpclockportdsdomainindex", cptpclockportdsentry.Cptpclockportdsdomainindex}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSClockTypeIndex"] = types.YLeaf{"Cptpclockportdsclocktypeindex", cptpclockportdsentry.Cptpclockportdsclocktypeindex}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSClockInstanceIndex"] = types.YLeaf{"Cptpclockportdsclockinstanceindex", cptpclockportdsentry.Cptpclockportdsclockinstanceindex}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSPortNumberIndex"] = types.YLeaf{"Cptpclockportdsportnumberindex", cptpclockportdsentry.Cptpclockportdsportnumberindex}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSName"] = types.YLeaf{"Cptpclockportdsname", cptpclockportdsentry.Cptpclockportdsname}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSPortIdentity"] = types.YLeaf{"Cptpclockportdsportidentity", cptpclockportdsentry.Cptpclockportdsportidentity}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSAnnouncementInterval"] = types.YLeaf{"Cptpclockportdsannouncementinterval", cptpclockportdsentry.Cptpclockportdsannouncementinterval}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSAnnounceRctTimeout"] = types.YLeaf{"Cptpclockportdsannouncercttimeout", cptpclockportdsentry.Cptpclockportdsannouncercttimeout}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSSyncInterval"] = types.YLeaf{"Cptpclockportdssyncinterval", cptpclockportdsentry.Cptpclockportdssyncinterval}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSMinDelayReqInterval"] = types.YLeaf{"Cptpclockportdsmindelayreqinterval", cptpclockportdsentry.Cptpclockportdsmindelayreqinterval}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSPeerDelayReqInterval"] = types.YLeaf{"Cptpclockportdspeerdelayreqinterval", cptpclockportdsentry.Cptpclockportdspeerdelayreqinterval}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSDelayMech"] = types.YLeaf{"Cptpclockportdsdelaymech", cptpclockportdsentry.Cptpclockportdsdelaymech}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSPeerMeanPathDelay"] = types.YLeaf{"Cptpclockportdspeermeanpathdelay", cptpclockportdsentry.Cptpclockportdspeermeanpathdelay}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSGrantDuration"] = types.YLeaf{"Cptpclockportdsgrantduration", cptpclockportdsentry.Cptpclockportdsgrantduration}
-    cptpclockportdsentry.EntityData.Leafs["cPtpClockPortDSPTPVersion"] = types.YLeaf{"Cptpclockportdsptpversion", cptpclockportdsentry.Cptpclockportdsptpversion}
-    return &(cptpclockportdsentry.EntityData)
+    cPtpClockPortDSEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSDomainIndex", types.YLeaf{"CPtpClockPortDSDomainIndex", cPtpClockPortDSEntry.CPtpClockPortDSDomainIndex})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSClockTypeIndex", types.YLeaf{"CPtpClockPortDSClockTypeIndex", cPtpClockPortDSEntry.CPtpClockPortDSClockTypeIndex})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSClockInstanceIndex", types.YLeaf{"CPtpClockPortDSClockInstanceIndex", cPtpClockPortDSEntry.CPtpClockPortDSClockInstanceIndex})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSPortNumberIndex", types.YLeaf{"CPtpClockPortDSPortNumberIndex", cPtpClockPortDSEntry.CPtpClockPortDSPortNumberIndex})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSName", types.YLeaf{"CPtpClockPortDSName", cPtpClockPortDSEntry.CPtpClockPortDSName})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSPortIdentity", types.YLeaf{"CPtpClockPortDSPortIdentity", cPtpClockPortDSEntry.CPtpClockPortDSPortIdentity})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSAnnouncementInterval", types.YLeaf{"CPtpClockPortDSAnnouncementInterval", cPtpClockPortDSEntry.CPtpClockPortDSAnnouncementInterval})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSAnnounceRctTimeout", types.YLeaf{"CPtpClockPortDSAnnounceRctTimeout", cPtpClockPortDSEntry.CPtpClockPortDSAnnounceRctTimeout})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSSyncInterval", types.YLeaf{"CPtpClockPortDSSyncInterval", cPtpClockPortDSEntry.CPtpClockPortDSSyncInterval})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSMinDelayReqInterval", types.YLeaf{"CPtpClockPortDSMinDelayReqInterval", cPtpClockPortDSEntry.CPtpClockPortDSMinDelayReqInterval})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSPeerDelayReqInterval", types.YLeaf{"CPtpClockPortDSPeerDelayReqInterval", cPtpClockPortDSEntry.CPtpClockPortDSPeerDelayReqInterval})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSDelayMech", types.YLeaf{"CPtpClockPortDSDelayMech", cPtpClockPortDSEntry.CPtpClockPortDSDelayMech})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSPeerMeanPathDelay", types.YLeaf{"CPtpClockPortDSPeerMeanPathDelay", cPtpClockPortDSEntry.CPtpClockPortDSPeerMeanPathDelay})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSGrantDuration", types.YLeaf{"CPtpClockPortDSGrantDuration", cPtpClockPortDSEntry.CPtpClockPortDSGrantDuration})
+    cPtpClockPortDSEntry.EntityData.Leafs.Append("cPtpClockPortDSPTPVersion", types.YLeaf{"CPtpClockPortDSPTPVersion", cPtpClockPortDSEntry.CPtpClockPortDSPTPVersion})
+
+    cPtpClockPortDSEntry.EntityData.YListKeys = []string {"CPtpClockPortDSDomainIndex", "CPtpClockPortDSClockTypeIndex", "CPtpClockPortDSClockInstanceIndex", "CPtpClockPortDSPortNumberIndex"}
+
+    return &(cPtpClockPortDSEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockportrunningtable
+// CISCOPTPMIB_CPtpClockPortRunningTable
 // Table of information about the clock ports running dataset for
 // a particular domain.
-type CISCOPTPMIB_Cptpclockportrunningtable struct {
+type CISCOPTPMIB_CPtpClockPortRunningTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing runing dataset information about a single
     // clock port. The type is slice of
-    // CISCOPTPMIB_Cptpclockportrunningtable_Cptpclockportrunningentry.
-    Cptpclockportrunningentry []CISCOPTPMIB_Cptpclockportrunningtable_Cptpclockportrunningentry
+    // CISCOPTPMIB_CPtpClockPortRunningTable_CPtpClockPortRunningEntry.
+    CPtpClockPortRunningEntry []*CISCOPTPMIB_CPtpClockPortRunningTable_CPtpClockPortRunningEntry
 }
 
-func (cptpclockportrunningtable *CISCOPTPMIB_Cptpclockportrunningtable) GetEntityData() *types.CommonEntityData {
-    cptpclockportrunningtable.EntityData.YFilter = cptpclockportrunningtable.YFilter
-    cptpclockportrunningtable.EntityData.YangName = "cPtpClockPortRunningTable"
-    cptpclockportrunningtable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockportrunningtable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockportrunningtable.EntityData.SegmentPath = "cPtpClockPortRunningTable"
-    cptpclockportrunningtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockportrunningtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockportrunningtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortRunningTable *CISCOPTPMIB_CPtpClockPortRunningTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortRunningTable.EntityData.YFilter = cPtpClockPortRunningTable.YFilter
+    cPtpClockPortRunningTable.EntityData.YangName = "cPtpClockPortRunningTable"
+    cPtpClockPortRunningTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortRunningTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockPortRunningTable.EntityData.SegmentPath = "cPtpClockPortRunningTable"
+    cPtpClockPortRunningTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortRunningTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortRunningTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockportrunningtable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockportrunningtable.EntityData.Children["cPtpClockPortRunningEntry"] = types.YChild{"Cptpclockportrunningentry", nil}
-    for i := range cptpclockportrunningtable.Cptpclockportrunningentry {
-        cptpclockportrunningtable.EntityData.Children[types.GetSegmentPath(&cptpclockportrunningtable.Cptpclockportrunningentry[i])] = types.YChild{"Cptpclockportrunningentry", &cptpclockportrunningtable.Cptpclockportrunningentry[i]}
+    cPtpClockPortRunningTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortRunningTable.EntityData.Children.Append("cPtpClockPortRunningEntry", types.YChild{"CPtpClockPortRunningEntry", nil})
+    for i := range cPtpClockPortRunningTable.CPtpClockPortRunningEntry {
+        cPtpClockPortRunningTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockPortRunningTable.CPtpClockPortRunningEntry[i]), types.YChild{"CPtpClockPortRunningEntry", cPtpClockPortRunningTable.CPtpClockPortRunningEntry[i]})
     }
-    cptpclockportrunningtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockportrunningtable.EntityData)
+    cPtpClockPortRunningTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockPortRunningTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockPortRunningTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockportrunningtable_Cptpclockportrunningentry
+// CISCOPTPMIB_CPtpClockPortRunningTable_CPtpClockPortRunningEntry
 // An entry in the table, containing runing dataset information
 // about a single clock port.
-type CISCOPTPMIB_Cptpclockportrunningtable_Cptpclockportrunningentry struct {
+type CISCOPTPMIB_CPtpClockPortRunningTable_CPtpClockPortRunningEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockportrunningdomainindex interface{}
+    CPtpClockPortRunningDomainIndex interface{}
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
-    Cptpclockportrunningclocktypeindex interface{}
+    CPtpClockPortRunningClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockportrunningclockinstanceindex interface{}
+    CPtpClockPortRunningClockInstanceIndex interface{}
 
     // This attribute is a key. This object specifies the PTP portnumber
     // associated with this clock port. The type is interface{} with range:
     // 1..65535.
-    Cptpclockportrunningportnumberindex interface{}
+    CPtpClockPortRunningPortNumberIndex interface{}
 
     // This object specifies the PTP clock port name. The type is string with
     // length: 1..64.
-    Cptpclockportrunningname interface{}
+    CPtpClockPortRunningName interface{}
 
     // This object specifies the port state returned by PTP engine.  initializing
     // - In this state a port initializes                its data sets, hardware,
@@ -1942,173 +2017,182 @@ type CISCOPTPMIB_Cptpclockportrunningtable_Cptpclockportrunningentry struct {
     // another management message uncalibrated - The local port is preparing to   
     // synchronize to the master port. slave        - The port is synchronizing to
     // the                selected master port. The type is ClockPortState.
-    Cptpclockportrunningstate interface{}
+    CPtpClockPortRunningState interface{}
 
     // This object specifies the Clock Role. The type is ClockRoleType.
-    Cptpclockportrunningrole interface{}
+    CPtpClockPortRunningRole interface{}
 
     // This object specifies the interface on the router being used by the PTP
     // Clock for PTP communication. The type is interface{} with range:
     // 0..2147483647.
-    Cptpclockportrunninginterfaceindex interface{}
+    CPtpClockPortRunningInterfaceIndex interface{}
 
     // This object specifirst the IP version being used for PTP communication (the
     // mapping used). The type is interface{} with range: -2147483648..2147483647.
-    Cptpclockportrunningipversion interface{}
+    CPtpClockPortRunningIPversion interface{}
 
     // This object specifies the type of encapsulation if the interface is adding
     // extra  layers (eg. VLAN, Pseudowire encapsulation...) for the PTP messages.
     // The type is interface{} with range: -2147483648..2147483647.
-    Cptpclockportrunningencapsulationtype interface{}
+    CPtpClockPortRunningEncapsulationType interface{}
 
     // This object specifies the clock transmission mode as  unicast:       Using
     // unicast commnuication channel. multicast:     Using Multicast communication
     // channel. multicast-mix: Using multicast-unicast communication channel. The
     // type is ClockTxModeType.
-    Cptpclockportrunningtxmode interface{}
+    CPtpClockPortRunningTxMode interface{}
 
     // This object specifie the clock receive mode as  unicast:       Using
     // unicast commnuication channel. multicast:     Using Multicast communication
     // channel. multicast-mix: Using multicast-unicast communication channel. The
     // type is ClockTxModeType.
-    Cptpclockportrunningrxmode interface{}
+    CPtpClockPortRunningRxMode interface{}
 
     // This object specifies the packets received on the clock port (cummulative).
     // The type is interface{} with range: 0..18446744073709551615. Units are
     // packets.
-    Cptpclockportrunningpacketsreceived interface{}
+    CPtpClockPortRunningPacketsReceived interface{}
 
     // This object specifies the packets sent on the clock port (cummulative). The
     // type is interface{} with range: 0..18446744073709551615. Units are packets.
-    Cptpclockportrunningpacketssent interface{}
+    CPtpClockPortRunningPacketsSent interface{}
 }
 
-func (cptpclockportrunningentry *CISCOPTPMIB_Cptpclockportrunningtable_Cptpclockportrunningentry) GetEntityData() *types.CommonEntityData {
-    cptpclockportrunningentry.EntityData.YFilter = cptpclockportrunningentry.YFilter
-    cptpclockportrunningentry.EntityData.YangName = "cPtpClockPortRunningEntry"
-    cptpclockportrunningentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockportrunningentry.EntityData.ParentYangName = "cPtpClockPortRunningTable"
-    cptpclockportrunningentry.EntityData.SegmentPath = "cPtpClockPortRunningEntry" + "[cPtpClockPortRunningDomainIndex='" + fmt.Sprintf("%v", cptpclockportrunningentry.Cptpclockportrunningdomainindex) + "']" + "[cPtpClockPortRunningClockTypeIndex='" + fmt.Sprintf("%v", cptpclockportrunningentry.Cptpclockportrunningclocktypeindex) + "']" + "[cPtpClockPortRunningClockInstanceIndex='" + fmt.Sprintf("%v", cptpclockportrunningentry.Cptpclockportrunningclockinstanceindex) + "']" + "[cPtpClockPortRunningPortNumberIndex='" + fmt.Sprintf("%v", cptpclockportrunningentry.Cptpclockportrunningportnumberindex) + "']"
-    cptpclockportrunningentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockportrunningentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockportrunningentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortRunningEntry *CISCOPTPMIB_CPtpClockPortRunningTable_CPtpClockPortRunningEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortRunningEntry.EntityData.YFilter = cPtpClockPortRunningEntry.YFilter
+    cPtpClockPortRunningEntry.EntityData.YangName = "cPtpClockPortRunningEntry"
+    cPtpClockPortRunningEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortRunningEntry.EntityData.ParentYangName = "cPtpClockPortRunningTable"
+    cPtpClockPortRunningEntry.EntityData.SegmentPath = "cPtpClockPortRunningEntry" + types.AddKeyToken(cPtpClockPortRunningEntry.CPtpClockPortRunningDomainIndex, "cPtpClockPortRunningDomainIndex") + types.AddKeyToken(cPtpClockPortRunningEntry.CPtpClockPortRunningClockTypeIndex, "cPtpClockPortRunningClockTypeIndex") + types.AddKeyToken(cPtpClockPortRunningEntry.CPtpClockPortRunningClockInstanceIndex, "cPtpClockPortRunningClockInstanceIndex") + types.AddKeyToken(cPtpClockPortRunningEntry.CPtpClockPortRunningPortNumberIndex, "cPtpClockPortRunningPortNumberIndex")
+    cPtpClockPortRunningEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortRunningEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortRunningEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockportrunningentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockportrunningentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningDomainIndex"] = types.YLeaf{"Cptpclockportrunningdomainindex", cptpclockportrunningentry.Cptpclockportrunningdomainindex}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningClockTypeIndex"] = types.YLeaf{"Cptpclockportrunningclocktypeindex", cptpclockportrunningentry.Cptpclockportrunningclocktypeindex}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningClockInstanceIndex"] = types.YLeaf{"Cptpclockportrunningclockinstanceindex", cptpclockportrunningentry.Cptpclockportrunningclockinstanceindex}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningPortNumberIndex"] = types.YLeaf{"Cptpclockportrunningportnumberindex", cptpclockportrunningentry.Cptpclockportrunningportnumberindex}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningName"] = types.YLeaf{"Cptpclockportrunningname", cptpclockportrunningentry.Cptpclockportrunningname}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningState"] = types.YLeaf{"Cptpclockportrunningstate", cptpclockportrunningentry.Cptpclockportrunningstate}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningRole"] = types.YLeaf{"Cptpclockportrunningrole", cptpclockportrunningentry.Cptpclockportrunningrole}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningInterfaceIndex"] = types.YLeaf{"Cptpclockportrunninginterfaceindex", cptpclockportrunningentry.Cptpclockportrunninginterfaceindex}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningIPversion"] = types.YLeaf{"Cptpclockportrunningipversion", cptpclockportrunningentry.Cptpclockportrunningipversion}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningEncapsulationType"] = types.YLeaf{"Cptpclockportrunningencapsulationtype", cptpclockportrunningentry.Cptpclockportrunningencapsulationtype}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningTxMode"] = types.YLeaf{"Cptpclockportrunningtxmode", cptpclockportrunningentry.Cptpclockportrunningtxmode}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningRxMode"] = types.YLeaf{"Cptpclockportrunningrxmode", cptpclockportrunningentry.Cptpclockportrunningrxmode}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningPacketsReceived"] = types.YLeaf{"Cptpclockportrunningpacketsreceived", cptpclockportrunningentry.Cptpclockportrunningpacketsreceived}
-    cptpclockportrunningentry.EntityData.Leafs["cPtpClockPortRunningPacketsSent"] = types.YLeaf{"Cptpclockportrunningpacketssent", cptpclockportrunningentry.Cptpclockportrunningpacketssent}
-    return &(cptpclockportrunningentry.EntityData)
+    cPtpClockPortRunningEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortRunningEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningDomainIndex", types.YLeaf{"CPtpClockPortRunningDomainIndex", cPtpClockPortRunningEntry.CPtpClockPortRunningDomainIndex})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningClockTypeIndex", types.YLeaf{"CPtpClockPortRunningClockTypeIndex", cPtpClockPortRunningEntry.CPtpClockPortRunningClockTypeIndex})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningClockInstanceIndex", types.YLeaf{"CPtpClockPortRunningClockInstanceIndex", cPtpClockPortRunningEntry.CPtpClockPortRunningClockInstanceIndex})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningPortNumberIndex", types.YLeaf{"CPtpClockPortRunningPortNumberIndex", cPtpClockPortRunningEntry.CPtpClockPortRunningPortNumberIndex})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningName", types.YLeaf{"CPtpClockPortRunningName", cPtpClockPortRunningEntry.CPtpClockPortRunningName})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningState", types.YLeaf{"CPtpClockPortRunningState", cPtpClockPortRunningEntry.CPtpClockPortRunningState})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningRole", types.YLeaf{"CPtpClockPortRunningRole", cPtpClockPortRunningEntry.CPtpClockPortRunningRole})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningInterfaceIndex", types.YLeaf{"CPtpClockPortRunningInterfaceIndex", cPtpClockPortRunningEntry.CPtpClockPortRunningInterfaceIndex})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningIPversion", types.YLeaf{"CPtpClockPortRunningIPversion", cPtpClockPortRunningEntry.CPtpClockPortRunningIPversion})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningEncapsulationType", types.YLeaf{"CPtpClockPortRunningEncapsulationType", cPtpClockPortRunningEntry.CPtpClockPortRunningEncapsulationType})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningTxMode", types.YLeaf{"CPtpClockPortRunningTxMode", cPtpClockPortRunningEntry.CPtpClockPortRunningTxMode})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningRxMode", types.YLeaf{"CPtpClockPortRunningRxMode", cPtpClockPortRunningEntry.CPtpClockPortRunningRxMode})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningPacketsReceived", types.YLeaf{"CPtpClockPortRunningPacketsReceived", cPtpClockPortRunningEntry.CPtpClockPortRunningPacketsReceived})
+    cPtpClockPortRunningEntry.EntityData.Leafs.Append("cPtpClockPortRunningPacketsSent", types.YLeaf{"CPtpClockPortRunningPacketsSent", cPtpClockPortRunningEntry.CPtpClockPortRunningPacketsSent})
+
+    cPtpClockPortRunningEntry.EntityData.YListKeys = []string {"CPtpClockPortRunningDomainIndex", "CPtpClockPortRunningClockTypeIndex", "CPtpClockPortRunningClockInstanceIndex", "CPtpClockPortRunningPortNumberIndex"}
+
+    return &(cPtpClockPortRunningEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockporttransdstable
+// CISCOPTPMIB_CPtpClockPortTransDSTable
 // Table of information about the Transparent clock ports running
 // dataset for a particular domain.
-type CISCOPTPMIB_Cptpclockporttransdstable struct {
+type CISCOPTPMIB_CPtpClockPortTransDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing clock port Transparent dataset
     // information about a single clock port. The type is slice of
-    // CISCOPTPMIB_Cptpclockporttransdstable_Cptpclockporttransdsentry.
-    Cptpclockporttransdsentry []CISCOPTPMIB_Cptpclockporttransdstable_Cptpclockporttransdsentry
+    // CISCOPTPMIB_CPtpClockPortTransDSTable_CPtpClockPortTransDSEntry.
+    CPtpClockPortTransDSEntry []*CISCOPTPMIB_CPtpClockPortTransDSTable_CPtpClockPortTransDSEntry
 }
 
-func (cptpclockporttransdstable *CISCOPTPMIB_Cptpclockporttransdstable) GetEntityData() *types.CommonEntityData {
-    cptpclockporttransdstable.EntityData.YFilter = cptpclockporttransdstable.YFilter
-    cptpclockporttransdstable.EntityData.YangName = "cPtpClockPortTransDSTable"
-    cptpclockporttransdstable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockporttransdstable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockporttransdstable.EntityData.SegmentPath = "cPtpClockPortTransDSTable"
-    cptpclockporttransdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockporttransdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockporttransdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortTransDSTable *CISCOPTPMIB_CPtpClockPortTransDSTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortTransDSTable.EntityData.YFilter = cPtpClockPortTransDSTable.YFilter
+    cPtpClockPortTransDSTable.EntityData.YangName = "cPtpClockPortTransDSTable"
+    cPtpClockPortTransDSTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortTransDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockPortTransDSTable.EntityData.SegmentPath = "cPtpClockPortTransDSTable"
+    cPtpClockPortTransDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortTransDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortTransDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockporttransdstable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockporttransdstable.EntityData.Children["cPtpClockPortTransDSEntry"] = types.YChild{"Cptpclockporttransdsentry", nil}
-    for i := range cptpclockporttransdstable.Cptpclockporttransdsentry {
-        cptpclockporttransdstable.EntityData.Children[types.GetSegmentPath(&cptpclockporttransdstable.Cptpclockporttransdsentry[i])] = types.YChild{"Cptpclockporttransdsentry", &cptpclockporttransdstable.Cptpclockporttransdsentry[i]}
+    cPtpClockPortTransDSTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortTransDSTable.EntityData.Children.Append("cPtpClockPortTransDSEntry", types.YChild{"CPtpClockPortTransDSEntry", nil})
+    for i := range cPtpClockPortTransDSTable.CPtpClockPortTransDSEntry {
+        cPtpClockPortTransDSTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockPortTransDSTable.CPtpClockPortTransDSEntry[i]), types.YChild{"CPtpClockPortTransDSEntry", cPtpClockPortTransDSTable.CPtpClockPortTransDSEntry[i]})
     }
-    cptpclockporttransdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockporttransdstable.EntityData)
+    cPtpClockPortTransDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockPortTransDSTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockPortTransDSTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockporttransdstable_Cptpclockporttransdsentry
+// CISCOPTPMIB_CPtpClockPortTransDSTable_CPtpClockPortTransDSEntry
 // An entry in the table, containing clock port Transparent
 // dataset information about a single clock port
-type CISCOPTPMIB_Cptpclockporttransdstable_Cptpclockporttransdsentry struct {
+type CISCOPTPMIB_CPtpClockPortTransDSTable_CPtpClockPortTransDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
     // 0..255.
-    Cptpclockporttransdsdomainindex interface{}
+    CPtpClockPortTransDSDomainIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockporttransdsinstanceindex interface{}
+    CPtpClockPortTransDSInstanceIndex interface{}
 
     // This attribute is a key. This object specifies the PTP port number
     // associated with this port. The type is interface{} with range: 1..65535.
-    Cptpclockporttransdsportnumberindex interface{}
+    CPtpClockPortTransDSPortNumberIndex interface{}
 
     // This object specifies the value of the PortIdentity attribute of the local
     // port. The type is string with length: 1..255.
-    Cptpclockporttransdsportidentity interface{}
+    CPtpClockPortTransDSPortIdentity interface{}
 
     // This object specifies the value of the logarithm to the base 2 of the
     // minPdelayReqInterval. The type is interface{} with range:
     // -2147483648..2147483647.
-    Cptpclockporttransdslogminpdelayreqint interface{}
+    CPtpClockPortTransDSlogMinPdelayReqInt interface{}
 
     // This object specifies the value TRUE if the port is faulty and FALSE if the
     // port is operating normally. The type is bool.
-    Cptpclockporttransdsfaultyflag interface{}
+    CPtpClockPortTransDSFaultyFlag interface{}
 
     // This object specifies, (if the delayMechanism used is P2P) the value is the
     // estimate of the current one-way propagation delay, i.e., <meanPathDelay> on
     // the link attached to this port computed using the peer delay mechanism. If
     // the value of the delayMechanism used is E2E, then the value will be zero.
     // The type is string with length: 1..255.
-    Cptpclockporttransdspeermeanpathdelay interface{}
+    CPtpClockPortTransDSPeerMeanPathDelay interface{}
 }
 
-func (cptpclockporttransdsentry *CISCOPTPMIB_Cptpclockporttransdstable_Cptpclockporttransdsentry) GetEntityData() *types.CommonEntityData {
-    cptpclockporttransdsentry.EntityData.YFilter = cptpclockporttransdsentry.YFilter
-    cptpclockporttransdsentry.EntityData.YangName = "cPtpClockPortTransDSEntry"
-    cptpclockporttransdsentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockporttransdsentry.EntityData.ParentYangName = "cPtpClockPortTransDSTable"
-    cptpclockporttransdsentry.EntityData.SegmentPath = "cPtpClockPortTransDSEntry" + "[cPtpClockPortTransDSDomainIndex='" + fmt.Sprintf("%v", cptpclockporttransdsentry.Cptpclockporttransdsdomainindex) + "']" + "[cPtpClockPortTransDSInstanceIndex='" + fmt.Sprintf("%v", cptpclockporttransdsentry.Cptpclockporttransdsinstanceindex) + "']" + "[cPtpClockPortTransDSPortNumberIndex='" + fmt.Sprintf("%v", cptpclockporttransdsentry.Cptpclockporttransdsportnumberindex) + "']"
-    cptpclockporttransdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockporttransdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockporttransdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortTransDSEntry *CISCOPTPMIB_CPtpClockPortTransDSTable_CPtpClockPortTransDSEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortTransDSEntry.EntityData.YFilter = cPtpClockPortTransDSEntry.YFilter
+    cPtpClockPortTransDSEntry.EntityData.YangName = "cPtpClockPortTransDSEntry"
+    cPtpClockPortTransDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortTransDSEntry.EntityData.ParentYangName = "cPtpClockPortTransDSTable"
+    cPtpClockPortTransDSEntry.EntityData.SegmentPath = "cPtpClockPortTransDSEntry" + types.AddKeyToken(cPtpClockPortTransDSEntry.CPtpClockPortTransDSDomainIndex, "cPtpClockPortTransDSDomainIndex") + types.AddKeyToken(cPtpClockPortTransDSEntry.CPtpClockPortTransDSInstanceIndex, "cPtpClockPortTransDSInstanceIndex") + types.AddKeyToken(cPtpClockPortTransDSEntry.CPtpClockPortTransDSPortNumberIndex, "cPtpClockPortTransDSPortNumberIndex")
+    cPtpClockPortTransDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortTransDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortTransDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockporttransdsentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockporttransdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockporttransdsentry.EntityData.Leafs["cPtpClockPortTransDSDomainIndex"] = types.YLeaf{"Cptpclockporttransdsdomainindex", cptpclockporttransdsentry.Cptpclockporttransdsdomainindex}
-    cptpclockporttransdsentry.EntityData.Leafs["cPtpClockPortTransDSInstanceIndex"] = types.YLeaf{"Cptpclockporttransdsinstanceindex", cptpclockporttransdsentry.Cptpclockporttransdsinstanceindex}
-    cptpclockporttransdsentry.EntityData.Leafs["cPtpClockPortTransDSPortNumberIndex"] = types.YLeaf{"Cptpclockporttransdsportnumberindex", cptpclockporttransdsentry.Cptpclockporttransdsportnumberindex}
-    cptpclockporttransdsentry.EntityData.Leafs["cPtpClockPortTransDSPortIdentity"] = types.YLeaf{"Cptpclockporttransdsportidentity", cptpclockporttransdsentry.Cptpclockporttransdsportidentity}
-    cptpclockporttransdsentry.EntityData.Leafs["cPtpClockPortTransDSlogMinPdelayReqInt"] = types.YLeaf{"Cptpclockporttransdslogminpdelayreqint", cptpclockporttransdsentry.Cptpclockporttransdslogminpdelayreqint}
-    cptpclockporttransdsentry.EntityData.Leafs["cPtpClockPortTransDSFaultyFlag"] = types.YLeaf{"Cptpclockporttransdsfaultyflag", cptpclockporttransdsentry.Cptpclockporttransdsfaultyflag}
-    cptpclockporttransdsentry.EntityData.Leafs["cPtpClockPortTransDSPeerMeanPathDelay"] = types.YLeaf{"Cptpclockporttransdspeermeanpathdelay", cptpclockporttransdsentry.Cptpclockporttransdspeermeanpathdelay}
-    return &(cptpclockporttransdsentry.EntityData)
+    cPtpClockPortTransDSEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortTransDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockPortTransDSEntry.EntityData.Leafs.Append("cPtpClockPortTransDSDomainIndex", types.YLeaf{"CPtpClockPortTransDSDomainIndex", cPtpClockPortTransDSEntry.CPtpClockPortTransDSDomainIndex})
+    cPtpClockPortTransDSEntry.EntityData.Leafs.Append("cPtpClockPortTransDSInstanceIndex", types.YLeaf{"CPtpClockPortTransDSInstanceIndex", cPtpClockPortTransDSEntry.CPtpClockPortTransDSInstanceIndex})
+    cPtpClockPortTransDSEntry.EntityData.Leafs.Append("cPtpClockPortTransDSPortNumberIndex", types.YLeaf{"CPtpClockPortTransDSPortNumberIndex", cPtpClockPortTransDSEntry.CPtpClockPortTransDSPortNumberIndex})
+    cPtpClockPortTransDSEntry.EntityData.Leafs.Append("cPtpClockPortTransDSPortIdentity", types.YLeaf{"CPtpClockPortTransDSPortIdentity", cPtpClockPortTransDSEntry.CPtpClockPortTransDSPortIdentity})
+    cPtpClockPortTransDSEntry.EntityData.Leafs.Append("cPtpClockPortTransDSlogMinPdelayReqInt", types.YLeaf{"CPtpClockPortTransDSlogMinPdelayReqInt", cPtpClockPortTransDSEntry.CPtpClockPortTransDSlogMinPdelayReqInt})
+    cPtpClockPortTransDSEntry.EntityData.Leafs.Append("cPtpClockPortTransDSFaultyFlag", types.YLeaf{"CPtpClockPortTransDSFaultyFlag", cPtpClockPortTransDSEntry.CPtpClockPortTransDSFaultyFlag})
+    cPtpClockPortTransDSEntry.EntityData.Leafs.Append("cPtpClockPortTransDSPeerMeanPathDelay", types.YLeaf{"CPtpClockPortTransDSPeerMeanPathDelay", cPtpClockPortTransDSEntry.CPtpClockPortTransDSPeerMeanPathDelay})
+
+    cPtpClockPortTransDSEntry.EntityData.YListKeys = []string {"CPtpClockPortTransDSDomainIndex", "CPtpClockPortTransDSInstanceIndex", "CPtpClockPortTransDSPortNumberIndex"}
+
+    return &(cPtpClockPortTransDSEntry.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockportassociatetable
+// CISCOPTPMIB_CPtpClockPortAssociateTable
 // Table of information about a given port's associated ports.
 // 
 // For a master port - multiple slave ports which have established
@@ -2118,112 +2202,118 @@ func (cptpclockporttransdsentry *CISCOPTPMIB_Cptpclockporttransdstable_Cptpclock
 // 
 // Session information (pkts, errors) to be displayed based on
 // availability and scenario.
-type CISCOPTPMIB_Cptpclockportassociatetable struct {
+type CISCOPTPMIB_CPtpClockPortAssociateTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single associated
     // port for the given clockport. The type is slice of
-    // CISCOPTPMIB_Cptpclockportassociatetable_Cptpclockportassociateentry.
-    Cptpclockportassociateentry []CISCOPTPMIB_Cptpclockportassociatetable_Cptpclockportassociateentry
+    // CISCOPTPMIB_CPtpClockPortAssociateTable_CPtpClockPortAssociateEntry.
+    CPtpClockPortAssociateEntry []*CISCOPTPMIB_CPtpClockPortAssociateTable_CPtpClockPortAssociateEntry
 }
 
-func (cptpclockportassociatetable *CISCOPTPMIB_Cptpclockportassociatetable) GetEntityData() *types.CommonEntityData {
-    cptpclockportassociatetable.EntityData.YFilter = cptpclockportassociatetable.YFilter
-    cptpclockportassociatetable.EntityData.YangName = "cPtpClockPortAssociateTable"
-    cptpclockportassociatetable.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockportassociatetable.EntityData.ParentYangName = "CISCO-PTP-MIB"
-    cptpclockportassociatetable.EntityData.SegmentPath = "cPtpClockPortAssociateTable"
-    cptpclockportassociatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockportassociatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockportassociatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortAssociateTable *CISCOPTPMIB_CPtpClockPortAssociateTable) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortAssociateTable.EntityData.YFilter = cPtpClockPortAssociateTable.YFilter
+    cPtpClockPortAssociateTable.EntityData.YangName = "cPtpClockPortAssociateTable"
+    cPtpClockPortAssociateTable.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortAssociateTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
+    cPtpClockPortAssociateTable.EntityData.SegmentPath = "cPtpClockPortAssociateTable"
+    cPtpClockPortAssociateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortAssociateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortAssociateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockportassociatetable.EntityData.Children = make(map[string]types.YChild)
-    cptpclockportassociatetable.EntityData.Children["cPtpClockPortAssociateEntry"] = types.YChild{"Cptpclockportassociateentry", nil}
-    for i := range cptpclockportassociatetable.Cptpclockportassociateentry {
-        cptpclockportassociatetable.EntityData.Children[types.GetSegmentPath(&cptpclockportassociatetable.Cptpclockportassociateentry[i])] = types.YChild{"Cptpclockportassociateentry", &cptpclockportassociatetable.Cptpclockportassociateentry[i]}
+    cPtpClockPortAssociateTable.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortAssociateTable.EntityData.Children.Append("cPtpClockPortAssociateEntry", types.YChild{"CPtpClockPortAssociateEntry", nil})
+    for i := range cPtpClockPortAssociateTable.CPtpClockPortAssociateEntry {
+        cPtpClockPortAssociateTable.EntityData.Children.Append(types.GetSegmentPath(cPtpClockPortAssociateTable.CPtpClockPortAssociateEntry[i]), types.YChild{"CPtpClockPortAssociateEntry", cPtpClockPortAssociateTable.CPtpClockPortAssociateEntry[i]})
     }
-    cptpclockportassociatetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cptpclockportassociatetable.EntityData)
+    cPtpClockPortAssociateTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cPtpClockPortAssociateTable.EntityData.YListKeys = []string {}
+
+    return &(cPtpClockPortAssociateTable.EntityData)
 }
 
-// CISCOPTPMIB_Cptpclockportassociatetable_Cptpclockportassociateentry
+// CISCOPTPMIB_CPtpClockPortAssociateTable_CPtpClockPortAssociateEntry
 // An entry in the table, containing information about a single
 // associated port for the given clockport.
-type CISCOPTPMIB_Cptpclockportassociatetable_Cptpclockportassociateentry struct {
+type CISCOPTPMIB_CPtpClockPortAssociateTable_CPtpClockPortAssociateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object specifies the given port's domain
     // number. The type is interface{} with range: 0..255.
-    Cptpclockportcurrentdomainindex interface{}
+    CPtpClockPortCurrentDomainIndex interface{}
 
     // This attribute is a key. This object specifies the given port's clock type.
     // The type is ClockType.
-    Cptpclockportcurrentclocktypeindex interface{}
+    CPtpClockPortCurrentClockTypeIndex interface{}
 
     // This attribute is a key. This object specifies the instance of the clock
     // for this clock type in the given domain. The type is interface{} with
     // range: 0..255.
-    Cptpclockportcurrentclockinstanceindex interface{}
+    CPtpClockPortCurrentClockInstanceIndex interface{}
 
     // This attribute is a key. This object specifies the PTP Port Number for the
     // given port. The type is interface{} with range: 0..65535.
-    Cptpclockportcurrentportnumberindex interface{}
+    CPtpClockPortCurrentPortNumberIndex interface{}
 
     // This attribute is a key. This object specifies the associated port's serial
     // number in the current port's context. The type is interface{} with range:
     // 1..65535.
-    Cptpclockportassociateportindex interface{}
+    CPtpClockPortAssociatePortIndex interface{}
 
     // This object specifies the peer port's network address type used for PTP
     // communication. The type is InetAddressType.
-    Cptpclockportassociateaddresstype interface{}
+    CPtpClockPortAssociateAddressType interface{}
 
     // This object specifies the peer port's network address used for PTP
     // communication. The type is string with length: 0..255.
-    Cptpclockportassociateaddress interface{}
+    CPtpClockPortAssociateAddress interface{}
 
     // The number of packets sent to this peer port from the current port. The
     // type is interface{} with range: 0..18446744073709551615. Units are packets.
-    Cptpclockportassociatepacketssent interface{}
+    CPtpClockPortAssociatePacketsSent interface{}
 
     // The number of packets received from this peer port by the current port. The
     // type is interface{} with range: 0..18446744073709551615. Units are packets.
-    Cptpclockportassociatepacketsreceived interface{}
+    CPtpClockPortAssociatePacketsReceived interface{}
 
     // This object specifies the input errors associated with the peer port. The
     // type is interface{} with range: 0..18446744073709551615. Units are packets.
-    Cptpclockportassociateinerrors interface{}
+    CPtpClockPortAssociateInErrors interface{}
 
     // This object specifies the output errors associated with the peer port. The
     // type is interface{} with range: 0..18446744073709551615. Units are packets.
-    Cptpclockportassociateouterrors interface{}
+    CPtpClockPortAssociateOutErrors interface{}
 }
 
-func (cptpclockportassociateentry *CISCOPTPMIB_Cptpclockportassociatetable_Cptpclockportassociateentry) GetEntityData() *types.CommonEntityData {
-    cptpclockportassociateentry.EntityData.YFilter = cptpclockportassociateentry.YFilter
-    cptpclockportassociateentry.EntityData.YangName = "cPtpClockPortAssociateEntry"
-    cptpclockportassociateentry.EntityData.BundleName = "cisco_ios_xe"
-    cptpclockportassociateentry.EntityData.ParentYangName = "cPtpClockPortAssociateTable"
-    cptpclockportassociateentry.EntityData.SegmentPath = "cPtpClockPortAssociateEntry" + "[cPtpClockPortCurrentDomainIndex='" + fmt.Sprintf("%v", cptpclockportassociateentry.Cptpclockportcurrentdomainindex) + "']" + "[cPtpClockPortCurrentClockTypeIndex='" + fmt.Sprintf("%v", cptpclockportassociateentry.Cptpclockportcurrentclocktypeindex) + "']" + "[cPtpClockPortCurrentClockInstanceIndex='" + fmt.Sprintf("%v", cptpclockportassociateentry.Cptpclockportcurrentclockinstanceindex) + "']" + "[cPtpClockPortCurrentPortNumberIndex='" + fmt.Sprintf("%v", cptpclockportassociateentry.Cptpclockportcurrentportnumberindex) + "']" + "[cPtpClockPortAssociatePortIndex='" + fmt.Sprintf("%v", cptpclockportassociateentry.Cptpclockportassociateportindex) + "']"
-    cptpclockportassociateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cptpclockportassociateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cptpclockportassociateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPtpClockPortAssociateEntry *CISCOPTPMIB_CPtpClockPortAssociateTable_CPtpClockPortAssociateEntry) GetEntityData() *types.CommonEntityData {
+    cPtpClockPortAssociateEntry.EntityData.YFilter = cPtpClockPortAssociateEntry.YFilter
+    cPtpClockPortAssociateEntry.EntityData.YangName = "cPtpClockPortAssociateEntry"
+    cPtpClockPortAssociateEntry.EntityData.BundleName = "cisco_ios_xe"
+    cPtpClockPortAssociateEntry.EntityData.ParentYangName = "cPtpClockPortAssociateTable"
+    cPtpClockPortAssociateEntry.EntityData.SegmentPath = "cPtpClockPortAssociateEntry" + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortCurrentDomainIndex, "cPtpClockPortCurrentDomainIndex") + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortCurrentClockTypeIndex, "cPtpClockPortCurrentClockTypeIndex") + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortCurrentClockInstanceIndex, "cPtpClockPortCurrentClockInstanceIndex") + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortCurrentPortNumberIndex, "cPtpClockPortCurrentPortNumberIndex") + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortAssociatePortIndex, "cPtpClockPortAssociatePortIndex")
+    cPtpClockPortAssociateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPtpClockPortAssociateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPtpClockPortAssociateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cptpclockportassociateentry.EntityData.Children = make(map[string]types.YChild)
-    cptpclockportassociateentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortCurrentDomainIndex"] = types.YLeaf{"Cptpclockportcurrentdomainindex", cptpclockportassociateentry.Cptpclockportcurrentdomainindex}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortCurrentClockTypeIndex"] = types.YLeaf{"Cptpclockportcurrentclocktypeindex", cptpclockportassociateentry.Cptpclockportcurrentclocktypeindex}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortCurrentClockInstanceIndex"] = types.YLeaf{"Cptpclockportcurrentclockinstanceindex", cptpclockportassociateentry.Cptpclockportcurrentclockinstanceindex}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortCurrentPortNumberIndex"] = types.YLeaf{"Cptpclockportcurrentportnumberindex", cptpclockportassociateentry.Cptpclockportcurrentportnumberindex}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortAssociatePortIndex"] = types.YLeaf{"Cptpclockportassociateportindex", cptpclockportassociateentry.Cptpclockportassociateportindex}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortAssociateAddressType"] = types.YLeaf{"Cptpclockportassociateaddresstype", cptpclockportassociateentry.Cptpclockportassociateaddresstype}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortAssociateAddress"] = types.YLeaf{"Cptpclockportassociateaddress", cptpclockportassociateentry.Cptpclockportassociateaddress}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortAssociatePacketsSent"] = types.YLeaf{"Cptpclockportassociatepacketssent", cptpclockportassociateentry.Cptpclockportassociatepacketssent}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortAssociatePacketsReceived"] = types.YLeaf{"Cptpclockportassociatepacketsreceived", cptpclockportassociateentry.Cptpclockportassociatepacketsreceived}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortAssociateInErrors"] = types.YLeaf{"Cptpclockportassociateinerrors", cptpclockportassociateentry.Cptpclockportassociateinerrors}
-    cptpclockportassociateentry.EntityData.Leafs["cPtpClockPortAssociateOutErrors"] = types.YLeaf{"Cptpclockportassociateouterrors", cptpclockportassociateentry.Cptpclockportassociateouterrors}
-    return &(cptpclockportassociateentry.EntityData)
+    cPtpClockPortAssociateEntry.EntityData.Children = types.NewOrderedMap()
+    cPtpClockPortAssociateEntry.EntityData.Leafs = types.NewOrderedMap()
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortCurrentDomainIndex", types.YLeaf{"CPtpClockPortCurrentDomainIndex", cPtpClockPortAssociateEntry.CPtpClockPortCurrentDomainIndex})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortCurrentClockTypeIndex", types.YLeaf{"CPtpClockPortCurrentClockTypeIndex", cPtpClockPortAssociateEntry.CPtpClockPortCurrentClockTypeIndex})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortCurrentClockInstanceIndex", types.YLeaf{"CPtpClockPortCurrentClockInstanceIndex", cPtpClockPortAssociateEntry.CPtpClockPortCurrentClockInstanceIndex})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortCurrentPortNumberIndex", types.YLeaf{"CPtpClockPortCurrentPortNumberIndex", cPtpClockPortAssociateEntry.CPtpClockPortCurrentPortNumberIndex})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortAssociatePortIndex", types.YLeaf{"CPtpClockPortAssociatePortIndex", cPtpClockPortAssociateEntry.CPtpClockPortAssociatePortIndex})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortAssociateAddressType", types.YLeaf{"CPtpClockPortAssociateAddressType", cPtpClockPortAssociateEntry.CPtpClockPortAssociateAddressType})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortAssociateAddress", types.YLeaf{"CPtpClockPortAssociateAddress", cPtpClockPortAssociateEntry.CPtpClockPortAssociateAddress})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortAssociatePacketsSent", types.YLeaf{"CPtpClockPortAssociatePacketsSent", cPtpClockPortAssociateEntry.CPtpClockPortAssociatePacketsSent})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortAssociatePacketsReceived", types.YLeaf{"CPtpClockPortAssociatePacketsReceived", cPtpClockPortAssociateEntry.CPtpClockPortAssociatePacketsReceived})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortAssociateInErrors", types.YLeaf{"CPtpClockPortAssociateInErrors", cPtpClockPortAssociateEntry.CPtpClockPortAssociateInErrors})
+    cPtpClockPortAssociateEntry.EntityData.Leafs.Append("cPtpClockPortAssociateOutErrors", types.YLeaf{"CPtpClockPortAssociateOutErrors", cPtpClockPortAssociateEntry.CPtpClockPortAssociateOutErrors})
+
+    cPtpClockPortAssociateEntry.EntityData.YListKeys = []string {"CPtpClockPortCurrentDomainIndex", "CPtpClockPortCurrentClockTypeIndex", "CPtpClockPortCurrentClockInstanceIndex", "CPtpClockPortCurrentPortNumberIndex", "CPtpClockPortAssociatePortIndex"}
+
+    return &(cPtpClockPortAssociateEntry.EntityData)
 }
 

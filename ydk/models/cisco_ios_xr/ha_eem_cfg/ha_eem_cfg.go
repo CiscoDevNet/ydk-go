@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ha-eem-cfg:event-manager", reflect.TypeOf(EventManager{}))
 }
 
-// EventManagerChecksum represents Event manager checksum
-type EventManagerChecksum string
-
-const (
-    // Use SHA-1 checksum
-    EventManagerChecksum_sha_1 EventManagerChecksum = "sha-1"
-
-    // Use MD5 checksum
-    EventManagerChecksum_md5 EventManagerChecksum = "md5"
-)
-
 // EventManagerPolicySec represents Event manager policy sec
 type EventManagerPolicySec string
 
@@ -55,6 +44,17 @@ const (
 
     // Trust Signature
     EventManagerPolicyMode_trust EventManagerPolicyMode = "trust"
+)
+
+// EventManagerChecksum represents Event manager checksum
+type EventManagerChecksum string
+
+const (
+    // Use SHA-1 checksum
+    EventManagerChecksum_sha_1 EventManagerChecksum = "sha-1"
+
+    // Use MD5 checksum
+    EventManagerChecksum_md5 EventManagerChecksum = "md5"
 )
 
 // EventManagerPolicy represents Event manager policy
@@ -108,15 +108,18 @@ func (eventManager *EventManager) GetEntityData() *types.CommonEntityData {
     eventManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eventManager.EntityData.Children = make(map[string]types.YChild)
-    eventManager.EntityData.Children["policies"] = types.YChild{"Policies", &eventManager.Policies}
-    eventManager.EntityData.Children["scheduler-script"] = types.YChild{"SchedulerScript", &eventManager.SchedulerScript}
-    eventManager.EntityData.Children["environments"] = types.YChild{"Environments", &eventManager.Environments}
-    eventManager.EntityData.Leafs = make(map[string]types.YLeaf)
-    eventManager.EntityData.Leafs["refresh-time"] = types.YLeaf{"RefreshTime", eventManager.RefreshTime}
-    eventManager.EntityData.Leafs["schedule-suspend"] = types.YLeaf{"ScheduleSuspend", eventManager.ScheduleSuspend}
-    eventManager.EntityData.Leafs["directory-user-policy"] = types.YLeaf{"DirectoryUserPolicy", eventManager.DirectoryUserPolicy}
-    eventManager.EntityData.Leafs["directory-user-library"] = types.YLeaf{"DirectoryUserLibrary", eventManager.DirectoryUserLibrary}
+    eventManager.EntityData.Children = types.NewOrderedMap()
+    eventManager.EntityData.Children.Append("policies", types.YChild{"Policies", &eventManager.Policies})
+    eventManager.EntityData.Children.Append("scheduler-script", types.YChild{"SchedulerScript", &eventManager.SchedulerScript})
+    eventManager.EntityData.Children.Append("environments", types.YChild{"Environments", &eventManager.Environments})
+    eventManager.EntityData.Leafs = types.NewOrderedMap()
+    eventManager.EntityData.Leafs.Append("refresh-time", types.YLeaf{"RefreshTime", eventManager.RefreshTime})
+    eventManager.EntityData.Leafs.Append("schedule-suspend", types.YLeaf{"ScheduleSuspend", eventManager.ScheduleSuspend})
+    eventManager.EntityData.Leafs.Append("directory-user-policy", types.YLeaf{"DirectoryUserPolicy", eventManager.DirectoryUserPolicy})
+    eventManager.EntityData.Leafs.Append("directory-user-library", types.YLeaf{"DirectoryUserLibrary", eventManager.DirectoryUserLibrary})
+
+    eventManager.EntityData.YListKeys = []string {}
+
     return &(eventManager.EntityData)
 }
 
@@ -127,7 +130,7 @@ type EventManager_Policies struct {
     YFilter yfilter.YFilter
 
     // Name of the policy file. The type is slice of EventManager_Policies_Policy.
-    Policy []EventManager_Policies_Policy
+    Policy []*EventManager_Policies_Policy
 }
 
 func (policies *EventManager_Policies) GetEntityData() *types.CommonEntityData {
@@ -140,12 +143,15 @@ func (policies *EventManager_Policies) GetEntityData() *types.CommonEntityData {
     policies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policies.EntityData.Children = make(map[string]types.YChild)
-    policies.EntityData.Children["policy"] = types.YChild{"Policy", nil}
+    policies.EntityData.Children = types.NewOrderedMap()
+    policies.EntityData.Children.Append("policy", types.YChild{"Policy", nil})
     for i := range policies.Policy {
-        policies.EntityData.Children[types.GetSegmentPath(&policies.Policy[i])] = types.YChild{"Policy", &policies.Policy[i]}
+        policies.EntityData.Children.Append(types.GetSegmentPath(policies.Policy[i]), types.YChild{"Policy", policies.Policy[i]})
     }
-    policies.EntityData.Leafs = make(map[string]types.YLeaf)
+    policies.EntityData.Leafs = types.NewOrderedMap()
+
+    policies.EntityData.YListKeys = []string {}
+
     return &(policies.EntityData)
 }
 
@@ -156,7 +162,7 @@ type EventManager_Policies_Policy struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the policy file. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PolicyName interface{}
 
     // A configured username. The type is string. This attribute is mandatory.
@@ -190,21 +196,24 @@ func (policy *EventManager_Policies_Policy) GetEntityData() *types.CommonEntityD
     policy.EntityData.YangName = "policy"
     policy.EntityData.BundleName = "cisco_ios_xr"
     policy.EntityData.ParentYangName = "policies"
-    policy.EntityData.SegmentPath = "policy" + "[policy-name='" + fmt.Sprintf("%v", policy.PolicyName) + "']"
+    policy.EntityData.SegmentPath = "policy" + types.AddKeyToken(policy.PolicyName, "policy-name")
     policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policy.EntityData.Children = make(map[string]types.YChild)
-    policy.EntityData.Leafs = make(map[string]types.YLeaf)
-    policy.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", policy.PolicyName}
-    policy.EntityData.Leafs["username"] = types.YLeaf{"Username", policy.Username}
-    policy.EntityData.Leafs["persist-time"] = types.YLeaf{"PersistTime", policy.PersistTime}
-    policy.EntityData.Leafs["policy-type"] = types.YLeaf{"PolicyType", policy.PolicyType}
-    policy.EntityData.Leafs["checksum-type"] = types.YLeaf{"ChecksumType", policy.ChecksumType}
-    policy.EntityData.Leafs["check-sum-value"] = types.YLeaf{"CheckSumValue", policy.CheckSumValue}
-    policy.EntityData.Leafs["policy-security-mode"] = types.YLeaf{"PolicySecurityMode", policy.PolicySecurityMode}
-    policy.EntityData.Leafs["policy-security-level"] = types.YLeaf{"PolicySecurityLevel", policy.PolicySecurityLevel}
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Leafs = types.NewOrderedMap()
+    policy.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", policy.PolicyName})
+    policy.EntityData.Leafs.Append("username", types.YLeaf{"Username", policy.Username})
+    policy.EntityData.Leafs.Append("persist-time", types.YLeaf{"PersistTime", policy.PersistTime})
+    policy.EntityData.Leafs.Append("policy-type", types.YLeaf{"PolicyType", policy.PolicyType})
+    policy.EntityData.Leafs.Append("checksum-type", types.YLeaf{"ChecksumType", policy.ChecksumType})
+    policy.EntityData.Leafs.Append("check-sum-value", types.YLeaf{"CheckSumValue", policy.CheckSumValue})
+    policy.EntityData.Leafs.Append("policy-security-mode", types.YLeaf{"PolicySecurityMode", policy.PolicySecurityMode})
+    policy.EntityData.Leafs.Append("policy-security-level", types.YLeaf{"PolicySecurityLevel", policy.PolicySecurityLevel})
+
+    policy.EntityData.YListKeys = []string {"PolicyName"}
+
     return &(policy.EntityData)
 }
 
@@ -228,9 +237,12 @@ func (schedulerScript *EventManager_SchedulerScript) GetEntityData() *types.Comm
     schedulerScript.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     schedulerScript.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    schedulerScript.EntityData.Children = make(map[string]types.YChild)
-    schedulerScript.EntityData.Children["thread-classes"] = types.YChild{"ThreadClasses", &schedulerScript.ThreadClasses}
-    schedulerScript.EntityData.Leafs = make(map[string]types.YLeaf)
+    schedulerScript.EntityData.Children = types.NewOrderedMap()
+    schedulerScript.EntityData.Children.Append("thread-classes", types.YChild{"ThreadClasses", &schedulerScript.ThreadClasses})
+    schedulerScript.EntityData.Leafs = types.NewOrderedMap()
+
+    schedulerScript.EntityData.YListKeys = []string {}
+
     return &(schedulerScript.EntityData)
 }
 
@@ -242,7 +254,7 @@ type EventManager_SchedulerScript_ThreadClasses struct {
 
     // scheduler classs type argument. The type is slice of
     // EventManager_SchedulerScript_ThreadClasses_ThreadClass.
-    ThreadClass []EventManager_SchedulerScript_ThreadClasses_ThreadClass
+    ThreadClass []*EventManager_SchedulerScript_ThreadClasses_ThreadClass
 }
 
 func (threadClasses *EventManager_SchedulerScript_ThreadClasses) GetEntityData() *types.CommonEntityData {
@@ -255,12 +267,15 @@ func (threadClasses *EventManager_SchedulerScript_ThreadClasses) GetEntityData()
     threadClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threadClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threadClasses.EntityData.Children = make(map[string]types.YChild)
-    threadClasses.EntityData.Children["thread-class"] = types.YChild{"ThreadClass", nil}
+    threadClasses.EntityData.Children = types.NewOrderedMap()
+    threadClasses.EntityData.Children.Append("thread-class", types.YChild{"ThreadClass", nil})
     for i := range threadClasses.ThreadClass {
-        threadClasses.EntityData.Children[types.GetSegmentPath(&threadClasses.ThreadClass[i])] = types.YChild{"ThreadClass", &threadClasses.ThreadClass[i]}
+        threadClasses.EntityData.Children.Append(types.GetSegmentPath(threadClasses.ThreadClass[i]), types.YChild{"ThreadClass", threadClasses.ThreadClass[i]})
     }
-    threadClasses.EntityData.Leafs = make(map[string]types.YLeaf)
+    threadClasses.EntityData.Leafs = types.NewOrderedMap()
+
+    threadClasses.EntityData.YListKeys = []string {}
+
     return &(threadClasses.EntityData)
 }
 
@@ -271,7 +286,7 @@ type EventManager_SchedulerScript_ThreadClasses_ThreadClass struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the global variable. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ThreadClassName interface{}
 
     // number of scheduler threads. The type is interface{} with range: 1..5. This
@@ -284,15 +299,18 @@ func (threadClass *EventManager_SchedulerScript_ThreadClasses_ThreadClass) GetEn
     threadClass.EntityData.YangName = "thread-class"
     threadClass.EntityData.BundleName = "cisco_ios_xr"
     threadClass.EntityData.ParentYangName = "thread-classes"
-    threadClass.EntityData.SegmentPath = "thread-class" + "[thread-class-name='" + fmt.Sprintf("%v", threadClass.ThreadClassName) + "']"
+    threadClass.EntityData.SegmentPath = "thread-class" + types.AddKeyToken(threadClass.ThreadClassName, "thread-class-name")
     threadClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threadClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threadClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threadClass.EntityData.Children = make(map[string]types.YChild)
-    threadClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    threadClass.EntityData.Leafs["thread-class-name"] = types.YLeaf{"ThreadClassName", threadClass.ThreadClassName}
-    threadClass.EntityData.Leafs["num-threads"] = types.YLeaf{"NumThreads", threadClass.NumThreads}
+    threadClass.EntityData.Children = types.NewOrderedMap()
+    threadClass.EntityData.Leafs = types.NewOrderedMap()
+    threadClass.EntityData.Leafs.Append("thread-class-name", types.YLeaf{"ThreadClassName", threadClass.ThreadClassName})
+    threadClass.EntityData.Leafs.Append("num-threads", types.YLeaf{"NumThreads", threadClass.NumThreads})
+
+    threadClass.EntityData.YListKeys = []string {"ThreadClassName"}
+
     return &(threadClass.EntityData)
 }
 
@@ -305,7 +323,7 @@ type EventManager_Environments struct {
 
     // Name of the global variable. The type is slice of
     // EventManager_Environments_Environment.
-    Environment []EventManager_Environments_Environment
+    Environment []*EventManager_Environments_Environment
 }
 
 func (environments *EventManager_Environments) GetEntityData() *types.CommonEntityData {
@@ -318,12 +336,15 @@ func (environments *EventManager_Environments) GetEntityData() *types.CommonEnti
     environments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     environments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    environments.EntityData.Children = make(map[string]types.YChild)
-    environments.EntityData.Children["environment"] = types.YChild{"Environment", nil}
+    environments.EntityData.Children = types.NewOrderedMap()
+    environments.EntityData.Children.Append("environment", types.YChild{"Environment", nil})
     for i := range environments.Environment {
-        environments.EntityData.Children[types.GetSegmentPath(&environments.Environment[i])] = types.YChild{"Environment", &environments.Environment[i]}
+        environments.EntityData.Children.Append(types.GetSegmentPath(environments.Environment[i]), types.YChild{"Environment", environments.Environment[i]})
     }
-    environments.EntityData.Leafs = make(map[string]types.YLeaf)
+    environments.EntityData.Leafs = types.NewOrderedMap()
+
+    environments.EntityData.YListKeys = []string {}
+
     return &(environments.EntityData)
 }
 
@@ -334,7 +355,7 @@ type EventManager_Environments_Environment struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the global variable. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     EnvironmentName interface{}
 
     // Value of the global variable. The type is string. This attribute is
@@ -347,15 +368,18 @@ func (environment *EventManager_Environments_Environment) GetEntityData() *types
     environment.EntityData.YangName = "environment"
     environment.EntityData.BundleName = "cisco_ios_xr"
     environment.EntityData.ParentYangName = "environments"
-    environment.EntityData.SegmentPath = "environment" + "[environment-name='" + fmt.Sprintf("%v", environment.EnvironmentName) + "']"
+    environment.EntityData.SegmentPath = "environment" + types.AddKeyToken(environment.EnvironmentName, "environment-name")
     environment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     environment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     environment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    environment.EntityData.Children = make(map[string]types.YChild)
-    environment.EntityData.Leafs = make(map[string]types.YLeaf)
-    environment.EntityData.Leafs["environment-name"] = types.YLeaf{"EnvironmentName", environment.EnvironmentName}
-    environment.EntityData.Leafs["environment-value"] = types.YLeaf{"EnvironmentValue", environment.EnvironmentValue}
+    environment.EntityData.Children = types.NewOrderedMap()
+    environment.EntityData.Leafs = types.NewOrderedMap()
+    environment.EntityData.Leafs.Append("environment-name", types.YLeaf{"EnvironmentName", environment.EnvironmentName})
+    environment.EntityData.Leafs.Append("environment-value", types.YLeaf{"EnvironmentValue", environment.EnvironmentValue})
+
+    environment.EntityData.YListKeys = []string {"EnvironmentName"}
+
     return &(environment.EntityData)
 }
 

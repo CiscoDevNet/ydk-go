@@ -43,11 +43,14 @@ func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
     lldp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lldp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    lldp.EntityData.Children = make(map[string]types.YChild)
-    lldp.EntityData.Children["config"] = types.YChild{"Config", &lldp.Config}
-    lldp.EntityData.Children["state"] = types.YChild{"State", &lldp.State}
-    lldp.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &lldp.Interfaces}
-    lldp.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldp.EntityData.Children = types.NewOrderedMap()
+    lldp.EntityData.Children.Append("config", types.YChild{"Config", &lldp.Config})
+    lldp.EntityData.Children.Append("state", types.YChild{"State", &lldp.State})
+    lldp.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &lldp.Interfaces})
+    lldp.EntityData.Leafs = types.NewOrderedMap()
+
+    lldp.EntityData.YListKeys = []string {}
+
     return &(lldp.EntityData)
 }
 
@@ -68,9 +71,9 @@ type Lldp_Config struct {
     // Indicates whether the local system should suppress the advertisement of
     // particular TLVs with the LLDP PDUs that it transmits. Where a TLV type is
     // specified within this list, it should not be included in any LLDP PDU
-    // transmitted by the local agent. The type is slice of ['CHASSISID',
-    // 'PORTID', 'PORTDESCRIPTION', 'SYSTEMNAME', 'SYSTEMDESCRIPTION',
-    // 'SYSTEMCAPABILITIES', 'MANAGEMENTADDRESS'].
+    // transmitted by the local agent. The type is slice of [u'SYSTEMNAME',
+    // u'PORTDESCRIPTION', u'SYSTEMDESCRIPTION', u'CHASSISID',
+    // u'SYSTEMCAPABILITIES', u'MANAGEMENTADDRESS', u'PORTID'].
     SuppressTlvAdvertisement []interface{}
 
     // The system name field shall contain an alpha-numeric string that indicates
@@ -109,15 +112,18 @@ func (config *Lldp_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["hello-timer"] = types.YLeaf{"HelloTimer", config.HelloTimer}
-    config.EntityData.Leafs["suppress-tlv-advertisement"] = types.YLeaf{"SuppressTlvAdvertisement", config.SuppressTlvAdvertisement}
-    config.EntityData.Leafs["system-name"] = types.YLeaf{"SystemName", config.SystemName}
-    config.EntityData.Leafs["system-description"] = types.YLeaf{"SystemDescription", config.SystemDescription}
-    config.EntityData.Leafs["chassis-id"] = types.YLeaf{"ChassisId", config.ChassisId}
-    config.EntityData.Leafs["chassis-id-type"] = types.YLeaf{"ChassisIdType", config.ChassisIdType}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("hello-timer", types.YLeaf{"HelloTimer", config.HelloTimer})
+    config.EntityData.Leafs.Append("suppress-tlv-advertisement", types.YLeaf{"SuppressTlvAdvertisement", config.SuppressTlvAdvertisement})
+    config.EntityData.Leafs.Append("system-name", types.YLeaf{"SystemName", config.SystemName})
+    config.EntityData.Leafs.Append("system-description", types.YLeaf{"SystemDescription", config.SystemDescription})
+    config.EntityData.Leafs.Append("chassis-id", types.YLeaf{"ChassisId", config.ChassisId})
+    config.EntityData.Leafs.Append("chassis-id-type", types.YLeaf{"ChassisIdType", config.ChassisIdType})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -138,9 +144,9 @@ type Lldp_State struct {
     // Indicates whether the local system should suppress the advertisement of
     // particular TLVs with the LLDP PDUs that it transmits. Where a TLV type is
     // specified within this list, it should not be included in any LLDP PDU
-    // transmitted by the local agent. The type is slice of ['CHASSISID',
-    // 'PORTID', 'PORTDESCRIPTION', 'SYSTEMNAME', 'SYSTEMDESCRIPTION',
-    // 'SYSTEMCAPABILITIES', 'MANAGEMENTADDRESS'].
+    // transmitted by the local agent. The type is slice of [u'SYSTEMNAME',
+    // u'PORTDESCRIPTION', u'SYSTEMDESCRIPTION', u'CHASSISID',
+    // u'SYSTEMCAPABILITIES', u'MANAGEMENTADDRESS', u'PORTID'].
     SuppressTlvAdvertisement []interface{}
 
     // The system name field shall contain an alpha-numeric string that indicates
@@ -182,16 +188,19 @@ func (state *Lldp_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["hello-timer"] = types.YLeaf{"HelloTimer", state.HelloTimer}
-    state.EntityData.Leafs["suppress-tlv-advertisement"] = types.YLeaf{"SuppressTlvAdvertisement", state.SuppressTlvAdvertisement}
-    state.EntityData.Leafs["system-name"] = types.YLeaf{"SystemName", state.SystemName}
-    state.EntityData.Leafs["system-description"] = types.YLeaf{"SystemDescription", state.SystemDescription}
-    state.EntityData.Leafs["chassis-id"] = types.YLeaf{"ChassisId", state.ChassisId}
-    state.EntityData.Leafs["chassis-id-type"] = types.YLeaf{"ChassisIdType", state.ChassisIdType}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("counters", types.YChild{"Counters", &state.Counters})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("hello-timer", types.YLeaf{"HelloTimer", state.HelloTimer})
+    state.EntityData.Leafs.Append("suppress-tlv-advertisement", types.YLeaf{"SuppressTlvAdvertisement", state.SuppressTlvAdvertisement})
+    state.EntityData.Leafs.Append("system-name", types.YLeaf{"SystemName", state.SystemName})
+    state.EntityData.Leafs.Append("system-description", types.YLeaf{"SystemDescription", state.SystemDescription})
+    state.EntityData.Leafs.Append("chassis-id", types.YLeaf{"ChassisId", state.ChassisId})
+    state.EntityData.Leafs.Append("chassis-id-type", types.YLeaf{"ChassisIdType", state.ChassisIdType})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -226,8 +235,7 @@ type Lldp_State_Counters struct {
     TlvUnknown interface{}
 
     // Indicates the last time the counters were cleared. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastClear interface{}
 
     // The number of valid TLVs received. The type is interface{} with range:
@@ -249,17 +257,20 @@ func (counters *Lldp_State_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
-    counters.EntityData.Leafs["frame-in"] = types.YLeaf{"FrameIn", counters.FrameIn}
-    counters.EntityData.Leafs["frame-out"] = types.YLeaf{"FrameOut", counters.FrameOut}
-    counters.EntityData.Leafs["frame-error-in"] = types.YLeaf{"FrameErrorIn", counters.FrameErrorIn}
-    counters.EntityData.Leafs["frame-discard"] = types.YLeaf{"FrameDiscard", counters.FrameDiscard}
-    counters.EntityData.Leafs["tlv-discard"] = types.YLeaf{"TlvDiscard", counters.TlvDiscard}
-    counters.EntityData.Leafs["tlv-unknown"] = types.YLeaf{"TlvUnknown", counters.TlvUnknown}
-    counters.EntityData.Leafs["last-clear"] = types.YLeaf{"LastClear", counters.LastClear}
-    counters.EntityData.Leafs["tlv-accepted"] = types.YLeaf{"TlvAccepted", counters.TlvAccepted}
-    counters.EntityData.Leafs["entries-aged-out"] = types.YLeaf{"EntriesAgedOut", counters.EntriesAgedOut}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Leafs = types.NewOrderedMap()
+    counters.EntityData.Leafs.Append("frame-in", types.YLeaf{"FrameIn", counters.FrameIn})
+    counters.EntityData.Leafs.Append("frame-out", types.YLeaf{"FrameOut", counters.FrameOut})
+    counters.EntityData.Leafs.Append("frame-error-in", types.YLeaf{"FrameErrorIn", counters.FrameErrorIn})
+    counters.EntityData.Leafs.Append("frame-discard", types.YLeaf{"FrameDiscard", counters.FrameDiscard})
+    counters.EntityData.Leafs.Append("tlv-discard", types.YLeaf{"TlvDiscard", counters.TlvDiscard})
+    counters.EntityData.Leafs.Append("tlv-unknown", types.YLeaf{"TlvUnknown", counters.TlvUnknown})
+    counters.EntityData.Leafs.Append("last-clear", types.YLeaf{"LastClear", counters.LastClear})
+    counters.EntityData.Leafs.Append("tlv-accepted", types.YLeaf{"TlvAccepted", counters.TlvAccepted})
+    counters.EntityData.Leafs.Append("entries-aged-out", types.YLeaf{"EntriesAgedOut", counters.EntriesAgedOut})
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -270,8 +281,8 @@ type Lldp_Interfaces struct {
     YFilter yfilter.YFilter
 
     // List of interfaces on which LLDP is enabled / available. The type is slice
-    // of Lldp_Interfaces_Interface_.
-    Interface_ []Lldp_Interfaces_Interface
+    // of Lldp_Interfaces_Interface.
+    Interface []*Lldp_Interfaces_Interface
 }
 
 func (interfaces *Lldp_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -284,12 +295,15 @@ func (interfaces *Lldp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -318,17 +332,20 @@ func (self *Lldp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["config"] = types.YChild{"Config", &self.Config}
-    self.EntityData.Children["state"] = types.YChild{"State", &self.State}
-    self.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &self.Neighbors}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("config", types.YChild{"Config", &self.Config})
+    self.EntityData.Children.Append("state", types.YChild{"State", &self.State})
+    self.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &self.Neighbors})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
 }
 
@@ -357,10 +374,13 @@ func (config *Lldp_Interfaces_Interface_Config) GetEntityData() *types.CommonEnt
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -392,11 +412,14 @@ func (state *Lldp_Interfaces_Interface_State) GetEntityData() *types.CommonEntit
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("counters", types.YChild{"Counters", &state.Counters})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -431,8 +454,7 @@ type Lldp_Interfaces_Interface_State_Counters struct {
     TlvUnknown interface{}
 
     // Indicates the last time the counters were cleared. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastClear interface{}
 
     // The number of frame transmit errors on the interface. The type is
@@ -450,16 +472,19 @@ func (counters *Lldp_Interfaces_Interface_State_Counters) GetEntityData() *types
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
-    counters.EntityData.Leafs["frame-in"] = types.YLeaf{"FrameIn", counters.FrameIn}
-    counters.EntityData.Leafs["frame-out"] = types.YLeaf{"FrameOut", counters.FrameOut}
-    counters.EntityData.Leafs["frame-error-in"] = types.YLeaf{"FrameErrorIn", counters.FrameErrorIn}
-    counters.EntityData.Leafs["frame-discard"] = types.YLeaf{"FrameDiscard", counters.FrameDiscard}
-    counters.EntityData.Leafs["tlv-discard"] = types.YLeaf{"TlvDiscard", counters.TlvDiscard}
-    counters.EntityData.Leafs["tlv-unknown"] = types.YLeaf{"TlvUnknown", counters.TlvUnknown}
-    counters.EntityData.Leafs["last-clear"] = types.YLeaf{"LastClear", counters.LastClear}
-    counters.EntityData.Leafs["frame-error-out"] = types.YLeaf{"FrameErrorOut", counters.FrameErrorOut}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Leafs = types.NewOrderedMap()
+    counters.EntityData.Leafs.Append("frame-in", types.YLeaf{"FrameIn", counters.FrameIn})
+    counters.EntityData.Leafs.Append("frame-out", types.YLeaf{"FrameOut", counters.FrameOut})
+    counters.EntityData.Leafs.Append("frame-error-in", types.YLeaf{"FrameErrorIn", counters.FrameErrorIn})
+    counters.EntityData.Leafs.Append("frame-discard", types.YLeaf{"FrameDiscard", counters.FrameDiscard})
+    counters.EntityData.Leafs.Append("tlv-discard", types.YLeaf{"TlvDiscard", counters.TlvDiscard})
+    counters.EntityData.Leafs.Append("tlv-unknown", types.YLeaf{"TlvUnknown", counters.TlvUnknown})
+    counters.EntityData.Leafs.Append("last-clear", types.YLeaf{"LastClear", counters.LastClear})
+    counters.EntityData.Leafs.Append("frame-error-out", types.YLeaf{"FrameErrorOut", counters.FrameErrorOut})
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -472,7 +497,7 @@ type Lldp_Interfaces_Interface_Neighbors struct {
 
     // List of LLDP neighbors. The type is slice of
     // Lldp_Interfaces_Interface_Neighbors_Neighbor.
-    Neighbor []Lldp_Interfaces_Interface_Neighbors_Neighbor
+    Neighbor []*Lldp_Interfaces_Interface_Neighbors_Neighbor
 }
 
 func (neighbors *Lldp_Interfaces_Interface_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -485,12 +510,15 @@ func (neighbors *Lldp_Interfaces_Interface_Neighbors) GetEntityData() *types.Com
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -522,18 +550,21 @@ func (neighbor *Lldp_Interfaces_Interface_Neighbors_Neighbor) GetEntityData() *t
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[id='" + fmt.Sprintf("%v", neighbor.Id) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Id, "id")
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["config"] = types.YChild{"Config", &neighbor.Config}
-    neighbor.EntityData.Children["state"] = types.YChild{"State", &neighbor.State}
-    neighbor.EntityData.Children["custom-tlvs"] = types.YChild{"CustomTlvs", &neighbor.CustomTlvs}
-    neighbor.EntityData.Children["capabilities"] = types.YChild{"Capabilities", &neighbor.Capabilities}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["id"] = types.YLeaf{"Id", neighbor.Id}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("config", types.YChild{"Config", &neighbor.Config})
+    neighbor.EntityData.Children.Append("state", types.YChild{"State", &neighbor.State})
+    neighbor.EntityData.Children.Append("custom-tlvs", types.YChild{"CustomTlvs", &neighbor.CustomTlvs})
+    neighbor.EntityData.Children.Append("capabilities", types.YChild{"Capabilities", &neighbor.Capabilities})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("id", types.YLeaf{"Id", neighbor.Id})
+
+    neighbor.EntityData.YListKeys = []string {"Id"}
+
     return &(neighbor.EntityData)
 }
 
@@ -554,8 +585,11 @@ func (config *Lldp_Interfaces_Interface_Neighbors_Neighbor_Config) GetEntityData
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -639,20 +673,23 @@ func (state *Lldp_Interfaces_Interface_Neighbors_Neighbor_State) GetEntityData()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["system-name"] = types.YLeaf{"SystemName", state.SystemName}
-    state.EntityData.Leafs["system-description"] = types.YLeaf{"SystemDescription", state.SystemDescription}
-    state.EntityData.Leafs["chassis-id"] = types.YLeaf{"ChassisId", state.ChassisId}
-    state.EntityData.Leafs["chassis-id-type"] = types.YLeaf{"ChassisIdType", state.ChassisIdType}
-    state.EntityData.Leafs["id"] = types.YLeaf{"Id", state.Id}
-    state.EntityData.Leafs["age"] = types.YLeaf{"Age", state.Age}
-    state.EntityData.Leafs["last-update"] = types.YLeaf{"LastUpdate", state.LastUpdate}
-    state.EntityData.Leafs["port-id"] = types.YLeaf{"PortId", state.PortId}
-    state.EntityData.Leafs["port-id-type"] = types.YLeaf{"PortIdType", state.PortIdType}
-    state.EntityData.Leafs["port-description"] = types.YLeaf{"PortDescription", state.PortDescription}
-    state.EntityData.Leafs["management-address"] = types.YLeaf{"ManagementAddress", state.ManagementAddress}
-    state.EntityData.Leafs["management-address-type"] = types.YLeaf{"ManagementAddressType", state.ManagementAddressType}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("system-name", types.YLeaf{"SystemName", state.SystemName})
+    state.EntityData.Leafs.Append("system-description", types.YLeaf{"SystemDescription", state.SystemDescription})
+    state.EntityData.Leafs.Append("chassis-id", types.YLeaf{"ChassisId", state.ChassisId})
+    state.EntityData.Leafs.Append("chassis-id-type", types.YLeaf{"ChassisIdType", state.ChassisIdType})
+    state.EntityData.Leafs.Append("id", types.YLeaf{"Id", state.Id})
+    state.EntityData.Leafs.Append("age", types.YLeaf{"Age", state.Age})
+    state.EntityData.Leafs.Append("last-update", types.YLeaf{"LastUpdate", state.LastUpdate})
+    state.EntityData.Leafs.Append("port-id", types.YLeaf{"PortId", state.PortId})
+    state.EntityData.Leafs.Append("port-id-type", types.YLeaf{"PortIdType", state.PortIdType})
+    state.EntityData.Leafs.Append("port-description", types.YLeaf{"PortDescription", state.PortDescription})
+    state.EntityData.Leafs.Append("management-address", types.YLeaf{"ManagementAddress", state.ManagementAddress})
+    state.EntityData.Leafs.Append("management-address-type", types.YLeaf{"ManagementAddressType", state.ManagementAddressType})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -665,7 +702,7 @@ type Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs struct {
 
     // List of custom LLDP TLVs from a neighbor. The type is slice of
     // Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv.
-    Tlv []Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv
+    Tlv []*Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv
 }
 
 func (customTlvs *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs) GetEntityData() *types.CommonEntityData {
@@ -678,12 +715,15 @@ func (customTlvs *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs) GetEn
     customTlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     customTlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    customTlvs.EntityData.Children = make(map[string]types.YChild)
-    customTlvs.EntityData.Children["tlv"] = types.YChild{"Tlv", nil}
+    customTlvs.EntityData.Children = types.NewOrderedMap()
+    customTlvs.EntityData.Children.Append("tlv", types.YChild{"Tlv", nil})
     for i := range customTlvs.Tlv {
-        customTlvs.EntityData.Children[types.GetSegmentPath(&customTlvs.Tlv[i])] = types.YChild{"Tlv", &customTlvs.Tlv[i]}
+        customTlvs.EntityData.Children.Append(types.GetSegmentPath(customTlvs.Tlv[i]), types.YChild{"Tlv", customTlvs.Tlv[i]})
     }
-    customTlvs.EntityData.Leafs = make(map[string]types.YLeaf)
+    customTlvs.EntityData.Leafs = types.NewOrderedMap()
+
+    customTlvs.EntityData.YListKeys = []string {}
+
     return &(customTlvs.EntityData)
 }
 
@@ -695,8 +735,8 @@ type Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv struct {
 
     // This attribute is a key. Reference to type list key. The type is string
     // with range: -2147483648..2147483647. Refers to
-    // lldp.Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv_State_Type_
-    Type_ interface{}
+    // lldp.Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv_State_Type
+    Type interface{}
 
     // This attribute is a key. Reference to oui list key. The type is string.
     // Refers to
@@ -720,18 +760,21 @@ func (tlv *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv) GetEntit
     tlv.EntityData.YangName = "tlv"
     tlv.EntityData.BundleName = "openconfig"
     tlv.EntityData.ParentYangName = "custom-tlvs"
-    tlv.EntityData.SegmentPath = "tlv" + "[type='" + fmt.Sprintf("%v", tlv.Type_) + "']" + "[oui='" + fmt.Sprintf("%v", tlv.Oui) + "']" + "[oui-subtype='" + fmt.Sprintf("%v", tlv.OuiSubtype) + "']"
+    tlv.EntityData.SegmentPath = "tlv" + types.AddKeyToken(tlv.Type, "type") + types.AddKeyToken(tlv.Oui, "oui") + types.AddKeyToken(tlv.OuiSubtype, "oui-subtype")
     tlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    tlv.EntityData.Children = make(map[string]types.YChild)
-    tlv.EntityData.Children["config"] = types.YChild{"Config", &tlv.Config}
-    tlv.EntityData.Children["state"] = types.YChild{"State", &tlv.State}
-    tlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    tlv.EntityData.Leafs["type"] = types.YLeaf{"Type_", tlv.Type_}
-    tlv.EntityData.Leafs["oui"] = types.YLeaf{"Oui", tlv.Oui}
-    tlv.EntityData.Leafs["oui-subtype"] = types.YLeaf{"OuiSubtype", tlv.OuiSubtype}
+    tlv.EntityData.Children = types.NewOrderedMap()
+    tlv.EntityData.Children.Append("config", types.YChild{"Config", &tlv.Config})
+    tlv.EntityData.Children.Append("state", types.YChild{"State", &tlv.State})
+    tlv.EntityData.Leafs = types.NewOrderedMap()
+    tlv.EntityData.Leafs.Append("type", types.YLeaf{"Type", tlv.Type})
+    tlv.EntityData.Leafs.Append("oui", types.YLeaf{"Oui", tlv.Oui})
+    tlv.EntityData.Leafs.Append("oui-subtype", types.YLeaf{"OuiSubtype", tlv.OuiSubtype})
+
+    tlv.EntityData.YListKeys = []string {"Type", "Oui", "OuiSubtype"}
+
     return &(tlv.EntityData)
 }
 
@@ -752,8 +795,11 @@ func (config *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv_Config
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -765,7 +811,7 @@ type Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv_State struct {
 
     // The integer value identifying the type of information contained in the
     // value field. The type is interface{} with range: -2147483648..2147483647.
-    Type_ interface{}
+    Type interface{}
 
     // The organizationally unique identifier field shall contain the
     // organization's OUI as defined in Clause 9 of IEEE Std 802. The high-order
@@ -793,12 +839,15 @@ func (state *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv_State) 
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["type"] = types.YLeaf{"Type_", state.Type_}
-    state.EntityData.Leafs["oui"] = types.YLeaf{"Oui", state.Oui}
-    state.EntityData.Leafs["oui-subtype"] = types.YLeaf{"OuiSubtype", state.OuiSubtype}
-    state.EntityData.Leafs["value"] = types.YLeaf{"Value", state.Value}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("type", types.YLeaf{"Type", state.Type})
+    state.EntityData.Leafs.Append("oui", types.YLeaf{"Oui", state.Oui})
+    state.EntityData.Leafs.Append("oui-subtype", types.YLeaf{"OuiSubtype", state.OuiSubtype})
+    state.EntityData.Leafs.Append("value", types.YLeaf{"Value", state.Value})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -811,7 +860,7 @@ type Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities struct {
     // List of LLDP system capabilities advertised by the neighbor. The type is
     // slice of
     // Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capability.
-    Capability []Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capability
+    Capability []*Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capability
 }
 
 func (capabilities *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities) GetEntityData() *types.CommonEntityData {
@@ -824,12 +873,15 @@ func (capabilities *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities) G
     capabilities.EntityData.NamespaceTable = openconfig.GetNamespaces()
     capabilities.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    capabilities.EntityData.Children = make(map[string]types.YChild)
-    capabilities.EntityData.Children["capability"] = types.YChild{"Capability", nil}
+    capabilities.EntityData.Children = types.NewOrderedMap()
+    capabilities.EntityData.Children.Append("capability", types.YChild{"Capability", nil})
     for i := range capabilities.Capability {
-        capabilities.EntityData.Children[types.GetSegmentPath(&capabilities.Capability[i])] = types.YChild{"Capability", &capabilities.Capability[i]}
+        capabilities.EntityData.Children.Append(types.GetSegmentPath(capabilities.Capability[i]), types.YChild{"Capability", capabilities.Capability[i]})
     }
-    capabilities.EntityData.Leafs = make(map[string]types.YLeaf)
+    capabilities.EntityData.Leafs = types.NewOrderedMap()
+
+    capabilities.EntityData.YListKeys = []string {}
+
     return &(capabilities.EntityData)
 }
 
@@ -842,7 +894,7 @@ type Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capability struct
 
     // This attribute is a key. Reference to capabilities list key. The type is
     // one of the following:
-    // OTHERREPEATERMACBRIDGEWLANACCESSPOINTROUTERTELEPHONEDOCSISCABLEDEVICESTATIONONLYCVLANSVLANTWOPORTMACRELAY.
+    // MACBRIDGEDOCSISCABLEDEVICEREPEATERCVLANTWOPORTMACRELAYSVLANTELEPHONEOTHERROUTERSTATIONONLYWLANACCESSPOINT.
     Name interface{}
 
     // Configuration data for LLDP capabilities.
@@ -857,16 +909,19 @@ func (capability *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capa
     capability.EntityData.YangName = "capability"
     capability.EntityData.BundleName = "openconfig"
     capability.EntityData.ParentYangName = "capabilities"
-    capability.EntityData.SegmentPath = "capability" + "[name='" + fmt.Sprintf("%v", capability.Name) + "']"
+    capability.EntityData.SegmentPath = "capability" + types.AddKeyToken(capability.Name, "name")
     capability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     capability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     capability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    capability.EntityData.Children = make(map[string]types.YChild)
-    capability.EntityData.Children["config"] = types.YChild{"Config", &capability.Config}
-    capability.EntityData.Children["state"] = types.YChild{"State", &capability.State}
-    capability.EntityData.Leafs = make(map[string]types.YLeaf)
-    capability.EntityData.Leafs["name"] = types.YLeaf{"Name", capability.Name}
+    capability.EntityData.Children = types.NewOrderedMap()
+    capability.EntityData.Children.Append("config", types.YChild{"Config", &capability.Config})
+    capability.EntityData.Children.Append("state", types.YChild{"State", &capability.State})
+    capability.EntityData.Leafs = types.NewOrderedMap()
+    capability.EntityData.Leafs.Append("name", types.YLeaf{"Name", capability.Name})
+
+    capability.EntityData.YListKeys = []string {"Name"}
+
     return &(capability.EntityData)
 }
 
@@ -887,8 +942,11 @@ func (config *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capabili
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -902,7 +960,7 @@ type Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capability_State 
     // represented in a bitmap that defines the primary functions of the system.
     // The capabilities are defined in IEEE 802.1AB. The type is one of the
     // following:
-    // OTHERREPEATERMACBRIDGEWLANACCESSPOINTROUTERTELEPHONEDOCSISCABLEDEVICESTATIONONLYCVLANSVLANTWOPORTMACRELAY.
+    // MACBRIDGEDOCSISCABLEDEVICEREPEATERCVLANTWOPORTMACRELAYSVLANTELEPHONEOTHERROUTERSTATIONONLYWLANACCESSPOINT.
     Name interface{}
 
     // Indicates whether the corresponding system capability is enabled on the
@@ -920,10 +978,13 @@ func (state *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capabilit
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 

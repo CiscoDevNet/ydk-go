@@ -44,9 +44,12 @@ func (macsec *Macsec) GetEntityData() *types.CommonEntityData {
     macsec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macsec.EntityData.Children = make(map[string]types.YChild)
-    macsec.EntityData.Children["mka"] = types.YChild{"Mka", &macsec.Mka}
-    macsec.EntityData.Leafs = make(map[string]types.YLeaf)
+    macsec.EntityData.Children = types.NewOrderedMap()
+    macsec.EntityData.Children.Append("mka", types.YChild{"Mka", &macsec.Mka})
+    macsec.EntityData.Leafs = types.NewOrderedMap()
+
+    macsec.EntityData.YListKeys = []string {}
+
     return &(macsec.EntityData)
 }
 
@@ -70,9 +73,12 @@ func (mka *Macsec_Mka) GetEntityData() *types.CommonEntityData {
     mka.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mka.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mka.EntityData.Children = make(map[string]types.YChild)
-    mka.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &mka.Interfaces}
-    mka.EntityData.Leafs = make(map[string]types.YLeaf)
+    mka.EntityData.Children = types.NewOrderedMap()
+    mka.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &mka.Interfaces})
+    mka.EntityData.Leafs = types.NewOrderedMap()
+
+    mka.EntityData.YListKeys = []string {}
+
     return &(mka.EntityData)
 }
 
@@ -83,8 +89,8 @@ type Macsec_Mka_Interfaces struct {
     YFilter yfilter.YFilter
 
     // MKA Data for the Interface. The type is slice of
-    // Macsec_Mka_Interfaces_Interface_.
-    Interface_ []Macsec_Mka_Interfaces_Interface
+    // Macsec_Mka_Interfaces_Interface.
+    Interface []*Macsec_Mka_Interfaces_Interface
 }
 
 func (interfaces *Macsec_Mka_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -97,12 +103,15 @@ func (interfaces *Macsec_Mka_Interfaces) GetEntityData() *types.CommonEntityData
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -113,7 +122,7 @@ type Macsec_Mka_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Name interface{}
 
     // MKA Session Data.
@@ -125,15 +134,18 @@ func (self *Macsec_Mka_Interfaces_Interface) GetEntityData() *types.CommonEntity
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["session"] = types.YChild{"Session", &self.Session}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("session", types.YChild{"Session", &self.Session})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
 }
 
@@ -151,7 +163,7 @@ type Macsec_Mka_Interfaces_Interface_Session struct {
 
     // CA List for a Session. The type is slice of
     // Macsec_Mka_Interfaces_Interface_Session_Ca.
-    Ca []Macsec_Mka_Interfaces_Interface_Session_Ca
+    Ca []*Macsec_Mka_Interfaces_Interface_Session_Ca
 }
 
 func (session *Macsec_Mka_Interfaces_Interface_Session) GetEntityData() *types.CommonEntityData {
@@ -164,14 +176,17 @@ func (session *Macsec_Mka_Interfaces_Interface_Session) GetEntityData() *types.C
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Children["session-summary"] = types.YChild{"SessionSummary", &session.SessionSummary}
-    session.EntityData.Children["vp"] = types.YChild{"Vp", &session.Vp}
-    session.EntityData.Children["ca"] = types.YChild{"Ca", nil}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Children.Append("session-summary", types.YChild{"SessionSummary", &session.SessionSummary})
+    session.EntityData.Children.Append("vp", types.YChild{"Vp", &session.Vp})
+    session.EntityData.Children.Append("ca", types.YChild{"Ca", nil})
     for i := range session.Ca {
-        session.EntityData.Children[types.GetSegmentPath(&session.Ca[i])] = types.YChild{"Ca", &session.Ca[i]}
+        session.EntityData.Children.Append(types.GetSegmentPath(session.Ca[i]), types.YChild{"Ca", session.Ca[i]})
     }
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs = types.NewOrderedMap()
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 
@@ -217,8 +232,11 @@ type Macsec_Mka_Interfaces_Interface_Session_SessionSummary struct {
     // MACSec Capability. The type is interface{} with range: 0..4294967295.
     Capability interface{}
 
-    // Cipher String. The type is string.
-    CipherStr interface{}
+    // MKA Cipher Suite. The type is string.
+    MkaCipherSuite interface{}
+
+    // configured cipher suite. The type is string.
+    ConfiguredMacSecCipherSuite interface{}
 
     // MACSec Desired. The type is bool.
     MacSecDesired interface{}
@@ -240,24 +258,28 @@ func (sessionSummary *Macsec_Mka_Interfaces_Interface_Session_SessionSummary) Ge
     sessionSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionSummary.EntityData.Children = make(map[string]types.YChild)
-    sessionSummary.EntityData.Children["outer-tag"] = types.YChild{"OuterTag", &sessionSummary.OuterTag}
-    sessionSummary.EntityData.Children["inner-tag"] = types.YChild{"InnerTag", &sessionSummary.InnerTag}
-    sessionSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionSummary.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", sessionSummary.InterfaceName}
-    sessionSummary.EntityData.Leafs["inherited-policy"] = types.YLeaf{"InheritedPolicy", sessionSummary.InheritedPolicy}
-    sessionSummary.EntityData.Leafs["policy"] = types.YLeaf{"Policy", sessionSummary.Policy}
-    sessionSummary.EntityData.Leafs["priority"] = types.YLeaf{"Priority", sessionSummary.Priority}
-    sessionSummary.EntityData.Leafs["my-mac"] = types.YLeaf{"MyMac", sessionSummary.MyMac}
-    sessionSummary.EntityData.Leafs["delay-protection"] = types.YLeaf{"DelayProtection", sessionSummary.DelayProtection}
-    sessionSummary.EntityData.Leafs["replay-protect"] = types.YLeaf{"ReplayProtect", sessionSummary.ReplayProtect}
-    sessionSummary.EntityData.Leafs["window-size"] = types.YLeaf{"WindowSize", sessionSummary.WindowSize}
-    sessionSummary.EntityData.Leafs["include-icv-indicator"] = types.YLeaf{"IncludeIcvIndicator", sessionSummary.IncludeIcvIndicator}
-    sessionSummary.EntityData.Leafs["confidentiality-offset"] = types.YLeaf{"ConfidentialityOffset", sessionSummary.ConfidentialityOffset}
-    sessionSummary.EntityData.Leafs["algo-agility"] = types.YLeaf{"AlgoAgility", sessionSummary.AlgoAgility}
-    sessionSummary.EntityData.Leafs["capability"] = types.YLeaf{"Capability", sessionSummary.Capability}
-    sessionSummary.EntityData.Leafs["cipher-str"] = types.YLeaf{"CipherStr", sessionSummary.CipherStr}
-    sessionSummary.EntityData.Leafs["mac-sec-desired"] = types.YLeaf{"MacSecDesired", sessionSummary.MacSecDesired}
+    sessionSummary.EntityData.Children = types.NewOrderedMap()
+    sessionSummary.EntityData.Children.Append("outer-tag", types.YChild{"OuterTag", &sessionSummary.OuterTag})
+    sessionSummary.EntityData.Children.Append("inner-tag", types.YChild{"InnerTag", &sessionSummary.InnerTag})
+    sessionSummary.EntityData.Leafs = types.NewOrderedMap()
+    sessionSummary.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", sessionSummary.InterfaceName})
+    sessionSummary.EntityData.Leafs.Append("inherited-policy", types.YLeaf{"InheritedPolicy", sessionSummary.InheritedPolicy})
+    sessionSummary.EntityData.Leafs.Append("policy", types.YLeaf{"Policy", sessionSummary.Policy})
+    sessionSummary.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", sessionSummary.Priority})
+    sessionSummary.EntityData.Leafs.Append("my-mac", types.YLeaf{"MyMac", sessionSummary.MyMac})
+    sessionSummary.EntityData.Leafs.Append("delay-protection", types.YLeaf{"DelayProtection", sessionSummary.DelayProtection})
+    sessionSummary.EntityData.Leafs.Append("replay-protect", types.YLeaf{"ReplayProtect", sessionSummary.ReplayProtect})
+    sessionSummary.EntityData.Leafs.Append("window-size", types.YLeaf{"WindowSize", sessionSummary.WindowSize})
+    sessionSummary.EntityData.Leafs.Append("include-icv-indicator", types.YLeaf{"IncludeIcvIndicator", sessionSummary.IncludeIcvIndicator})
+    sessionSummary.EntityData.Leafs.Append("confidentiality-offset", types.YLeaf{"ConfidentialityOffset", sessionSummary.ConfidentialityOffset})
+    sessionSummary.EntityData.Leafs.Append("algo-agility", types.YLeaf{"AlgoAgility", sessionSummary.AlgoAgility})
+    sessionSummary.EntityData.Leafs.Append("capability", types.YLeaf{"Capability", sessionSummary.Capability})
+    sessionSummary.EntityData.Leafs.Append("mka-cipher-suite", types.YLeaf{"MkaCipherSuite", sessionSummary.MkaCipherSuite})
+    sessionSummary.EntityData.Leafs.Append("configured-mac-sec-cipher-suite", types.YLeaf{"ConfiguredMacSecCipherSuite", sessionSummary.ConfiguredMacSecCipherSuite})
+    sessionSummary.EntityData.Leafs.Append("mac-sec-desired", types.YLeaf{"MacSecDesired", sessionSummary.MacSecDesired})
+
+    sessionSummary.EntityData.YListKeys = []string {}
+
     return &(sessionSummary.EntityData)
 }
 
@@ -290,12 +312,15 @@ func (outerTag *Macsec_Mka_Interfaces_Interface_Session_SessionSummary_OuterTag)
     outerTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outerTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outerTag.EntityData.Children = make(map[string]types.YChild)
-    outerTag.EntityData.Leafs = make(map[string]types.YLeaf)
-    outerTag.EntityData.Leafs["ether-type"] = types.YLeaf{"EtherType", outerTag.EtherType}
-    outerTag.EntityData.Leafs["priority"] = types.YLeaf{"Priority", outerTag.Priority}
-    outerTag.EntityData.Leafs["cfi"] = types.YLeaf{"Cfi", outerTag.Cfi}
-    outerTag.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", outerTag.VlanId}
+    outerTag.EntityData.Children = types.NewOrderedMap()
+    outerTag.EntityData.Leafs = types.NewOrderedMap()
+    outerTag.EntityData.Leafs.Append("ether-type", types.YLeaf{"EtherType", outerTag.EtherType})
+    outerTag.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", outerTag.Priority})
+    outerTag.EntityData.Leafs.Append("cfi", types.YLeaf{"Cfi", outerTag.Cfi})
+    outerTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", outerTag.VlanId})
+
+    outerTag.EntityData.YListKeys = []string {}
+
     return &(outerTag.EntityData)
 }
 
@@ -328,12 +353,15 @@ func (innerTag *Macsec_Mka_Interfaces_Interface_Session_SessionSummary_InnerTag)
     innerTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     innerTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    innerTag.EntityData.Children = make(map[string]types.YChild)
-    innerTag.EntityData.Leafs = make(map[string]types.YLeaf)
-    innerTag.EntityData.Leafs["ether-type"] = types.YLeaf{"EtherType", innerTag.EtherType}
-    innerTag.EntityData.Leafs["priority"] = types.YLeaf{"Priority", innerTag.Priority}
-    innerTag.EntityData.Leafs["cfi"] = types.YLeaf{"Cfi", innerTag.Cfi}
-    innerTag.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", innerTag.VlanId}
+    innerTag.EntityData.Children = types.NewOrderedMap()
+    innerTag.EntityData.Leafs = types.NewOrderedMap()
+    innerTag.EntityData.Leafs.Append("ether-type", types.YLeaf{"EtherType", innerTag.EtherType})
+    innerTag.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", innerTag.Priority})
+    innerTag.EntityData.Leafs.Append("cfi", types.YLeaf{"Cfi", innerTag.Cfi})
+    innerTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", innerTag.VlanId})
+
+    innerTag.EntityData.YListKeys = []string {}
+
     return &(innerTag.EntityData)
 }
 
@@ -396,7 +424,7 @@ type Macsec_Mka_Interfaces_Interface_Session_Vp struct {
 
     // Fallback Keepalive. The type is slice of
     // Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive.
-    FallbackKeepalive []Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive
+    FallbackKeepalive []*Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive
 }
 
 func (vp *Macsec_Mka_Interfaces_Interface_Session_Vp) GetEntityData() *types.CommonEntityData {
@@ -409,29 +437,32 @@ func (vp *Macsec_Mka_Interfaces_Interface_Session_Vp) GetEntityData() *types.Com
     vp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vp.EntityData.Children = make(map[string]types.YChild)
-    vp.EntityData.Children["fallback-keepalive"] = types.YChild{"FallbackKeepalive", nil}
+    vp.EntityData.Children = types.NewOrderedMap()
+    vp.EntityData.Children.Append("fallback-keepalive", types.YChild{"FallbackKeepalive", nil})
     for i := range vp.FallbackKeepalive {
-        vp.EntityData.Children[types.GetSegmentPath(&vp.FallbackKeepalive[i])] = types.YChild{"FallbackKeepalive", &vp.FallbackKeepalive[i]}
+        vp.EntityData.Children.Append(types.GetSegmentPath(vp.FallbackKeepalive[i]), types.YChild{"FallbackKeepalive", vp.FallbackKeepalive[i]})
     }
-    vp.EntityData.Leafs = make(map[string]types.YLeaf)
-    vp.EntityData.Leafs["my-sci"] = types.YLeaf{"MySci", vp.MySci}
-    vp.EntityData.Leafs["virtual-port-id"] = types.YLeaf{"VirtualPortId", vp.VirtualPortId}
-    vp.EntityData.Leafs["latest-rx"] = types.YLeaf{"LatestRx", vp.LatestRx}
-    vp.EntityData.Leafs["latest-tx"] = types.YLeaf{"LatestTx", vp.LatestTx}
-    vp.EntityData.Leafs["latest-an"] = types.YLeaf{"LatestAn", vp.LatestAn}
-    vp.EntityData.Leafs["latest-ki"] = types.YLeaf{"LatestKi", vp.LatestKi}
-    vp.EntityData.Leafs["latest-kn"] = types.YLeaf{"LatestKn", vp.LatestKn}
-    vp.EntityData.Leafs["old-rx"] = types.YLeaf{"OldRx", vp.OldRx}
-    vp.EntityData.Leafs["old-tx"] = types.YLeaf{"OldTx", vp.OldTx}
-    vp.EntityData.Leafs["old-an"] = types.YLeaf{"OldAn", vp.OldAn}
-    vp.EntityData.Leafs["old-ki"] = types.YLeaf{"OldKi", vp.OldKi}
-    vp.EntityData.Leafs["old-kn"] = types.YLeaf{"OldKn", vp.OldKn}
-    vp.EntityData.Leafs["wait-time"] = types.YLeaf{"WaitTime", vp.WaitTime}
-    vp.EntityData.Leafs["retire-time"] = types.YLeaf{"RetireTime", vp.RetireTime}
-    vp.EntityData.Leafs["cipher-suite"] = types.YLeaf{"CipherSuite", vp.CipherSuite}
-    vp.EntityData.Leafs["ssci"] = types.YLeaf{"Ssci", vp.Ssci}
-    vp.EntityData.Leafs["time-to-sak-rekey"] = types.YLeaf{"TimeToSakRekey", vp.TimeToSakRekey}
+    vp.EntityData.Leafs = types.NewOrderedMap()
+    vp.EntityData.Leafs.Append("my-sci", types.YLeaf{"MySci", vp.MySci})
+    vp.EntityData.Leafs.Append("virtual-port-id", types.YLeaf{"VirtualPortId", vp.VirtualPortId})
+    vp.EntityData.Leafs.Append("latest-rx", types.YLeaf{"LatestRx", vp.LatestRx})
+    vp.EntityData.Leafs.Append("latest-tx", types.YLeaf{"LatestTx", vp.LatestTx})
+    vp.EntityData.Leafs.Append("latest-an", types.YLeaf{"LatestAn", vp.LatestAn})
+    vp.EntityData.Leafs.Append("latest-ki", types.YLeaf{"LatestKi", vp.LatestKi})
+    vp.EntityData.Leafs.Append("latest-kn", types.YLeaf{"LatestKn", vp.LatestKn})
+    vp.EntityData.Leafs.Append("old-rx", types.YLeaf{"OldRx", vp.OldRx})
+    vp.EntityData.Leafs.Append("old-tx", types.YLeaf{"OldTx", vp.OldTx})
+    vp.EntityData.Leafs.Append("old-an", types.YLeaf{"OldAn", vp.OldAn})
+    vp.EntityData.Leafs.Append("old-ki", types.YLeaf{"OldKi", vp.OldKi})
+    vp.EntityData.Leafs.Append("old-kn", types.YLeaf{"OldKn", vp.OldKn})
+    vp.EntityData.Leafs.Append("wait-time", types.YLeaf{"WaitTime", vp.WaitTime})
+    vp.EntityData.Leafs.Append("retire-time", types.YLeaf{"RetireTime", vp.RetireTime})
+    vp.EntityData.Leafs.Append("cipher-suite", types.YLeaf{"CipherSuite", vp.CipherSuite})
+    vp.EntityData.Leafs.Append("ssci", types.YLeaf{"Ssci", vp.Ssci})
+    vp.EntityData.Leafs.Append("time-to-sak-rekey", types.YLeaf{"TimeToSakRekey", vp.TimeToSakRekey})
+
+    vp.EntityData.YListKeys = []string {}
+
     return &(vp.EntityData)
 }
 
@@ -464,12 +495,15 @@ func (fallbackKeepalive *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeep
     fallbackKeepalive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fallbackKeepalive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fallbackKeepalive.EntityData.Children = make(map[string]types.YChild)
-    fallbackKeepalive.EntityData.Children["peers-status"] = types.YChild{"PeersStatus", &fallbackKeepalive.PeersStatus}
-    fallbackKeepalive.EntityData.Leafs = make(map[string]types.YLeaf)
-    fallbackKeepalive.EntityData.Leafs["ckn"] = types.YLeaf{"Ckn", fallbackKeepalive.Ckn}
-    fallbackKeepalive.EntityData.Leafs["mi"] = types.YLeaf{"Mi", fallbackKeepalive.Mi}
-    fallbackKeepalive.EntityData.Leafs["mn"] = types.YLeaf{"Mn", fallbackKeepalive.Mn}
+    fallbackKeepalive.EntityData.Children = types.NewOrderedMap()
+    fallbackKeepalive.EntityData.Children.Append("peers-status", types.YChild{"PeersStatus", &fallbackKeepalive.PeersStatus})
+    fallbackKeepalive.EntityData.Leafs = types.NewOrderedMap()
+    fallbackKeepalive.EntityData.Leafs.Append("ckn", types.YLeaf{"Ckn", fallbackKeepalive.Ckn})
+    fallbackKeepalive.EntityData.Leafs.Append("mi", types.YLeaf{"Mi", fallbackKeepalive.Mi})
+    fallbackKeepalive.EntityData.Leafs.Append("mn", types.YLeaf{"Mn", fallbackKeepalive.Mn})
+
+    fallbackKeepalive.EntityData.YListKeys = []string {}
+
     return &(fallbackKeepalive.EntityData)
 }
 
@@ -487,7 +521,7 @@ type Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_PeersStatus st
 
     // Peer List. The type is slice of
     // Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_PeersStatus_Peer.
-    Peer []Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_PeersStatus_Peer
+    Peer []*Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_PeersStatus_Peer
 }
 
 func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_PeersStatus) GetEntityData() *types.CommonEntityData {
@@ -500,14 +534,17 @@ func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_
     peersStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peersStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peersStatus.EntityData.Children = make(map[string]types.YChild)
-    peersStatus.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peersStatus.EntityData.Children = types.NewOrderedMap()
+    peersStatus.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peersStatus.Peer {
-        peersStatus.EntityData.Children[types.GetSegmentPath(&peersStatus.Peer[i])] = types.YChild{"Peer", &peersStatus.Peer[i]}
+        peersStatus.EntityData.Children.Append(types.GetSegmentPath(peersStatus.Peer[i]), types.YChild{"Peer", peersStatus.Peer[i]})
     }
-    peersStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    peersStatus.EntityData.Leafs["tx-mkpdu-timestamp"] = types.YLeaf{"TxMkpduTimestamp", peersStatus.TxMkpduTimestamp}
-    peersStatus.EntityData.Leafs["peer-count"] = types.YLeaf{"PeerCount", peersStatus.PeerCount}
+    peersStatus.EntityData.Leafs = types.NewOrderedMap()
+    peersStatus.EntityData.Leafs.Append("tx-mkpdu-timestamp", types.YLeaf{"TxMkpduTimestamp", peersStatus.TxMkpduTimestamp})
+    peersStatus.EntityData.Leafs.Append("peer-count", types.YLeaf{"PeerCount", peersStatus.PeerCount})
+
+    peersStatus.EntityData.YListKeys = []string {}
+
     return &(peersStatus.EntityData)
 }
 
@@ -534,10 +571,13 @@ func (peer *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_PeersSt
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Children["peer-data"] = types.YChild{"PeerData", &peer.PeerData}
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["sci"] = types.YLeaf{"Sci", peer.Sci}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Children.Append("peer-data", types.YChild{"PeerData", &peer.PeerData})
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("sci", types.YLeaf{"Sci", peer.Sci})
+
+    peer.EntityData.YListKeys = []string {}
+
     return &(peer.EntityData)
 }
 
@@ -567,11 +607,14 @@ func (peerData *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_Pee
     peerData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerData.EntityData.Children = make(map[string]types.YChild)
-    peerData.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerData.EntityData.Leafs["mi"] = types.YLeaf{"Mi", peerData.Mi}
-    peerData.EntityData.Leafs["icv-status"] = types.YLeaf{"IcvStatus", peerData.IcvStatus}
-    peerData.EntityData.Leafs["icv-check-timestamp"] = types.YLeaf{"IcvCheckTimestamp", peerData.IcvCheckTimestamp}
+    peerData.EntityData.Children = types.NewOrderedMap()
+    peerData.EntityData.Leafs = types.NewOrderedMap()
+    peerData.EntityData.Leafs.Append("mi", types.YLeaf{"Mi", peerData.Mi})
+    peerData.EntityData.Leafs.Append("icv-status", types.YLeaf{"IcvStatus", peerData.IcvStatus})
+    peerData.EntityData.Leafs.Append("icv-check-timestamp", types.YLeaf{"IcvCheckTimestamp", peerData.IcvCheckTimestamp})
+
+    peerData.EntityData.YListKeys = []string {}
+
     return &(peerData.EntityData)
 }
 
@@ -627,15 +670,15 @@ type Macsec_Mka_Interfaces_Interface_Session_Ca struct {
 
     // Live Peer List. The type is slice of
     // Macsec_Mka_Interfaces_Interface_Session_Ca_LivePeer.
-    LivePeer []Macsec_Mka_Interfaces_Interface_Session_Ca_LivePeer
+    LivePeer []*Macsec_Mka_Interfaces_Interface_Session_Ca_LivePeer
 
     // Potential Peer List. The type is slice of
     // Macsec_Mka_Interfaces_Interface_Session_Ca_PotentialPeer.
-    PotentialPeer []Macsec_Mka_Interfaces_Interface_Session_Ca_PotentialPeer
+    PotentialPeer []*Macsec_Mka_Interfaces_Interface_Session_Ca_PotentialPeer
 
     // Dormant Peer List. The type is slice of
     // Macsec_Mka_Interfaces_Interface_Session_Ca_DormantPeer.
-    DormantPeer []Macsec_Mka_Interfaces_Interface_Session_Ca_DormantPeer
+    DormantPeer []*Macsec_Mka_Interfaces_Interface_Session_Ca_DormantPeer
 }
 
 func (ca *Macsec_Mka_Interfaces_Interface_Session_Ca) GetEntityData() *types.CommonEntityData {
@@ -648,34 +691,37 @@ func (ca *Macsec_Mka_Interfaces_Interface_Session_Ca) GetEntityData() *types.Com
     ca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ca.EntityData.Children = make(map[string]types.YChild)
-    ca.EntityData.Children["peers-status"] = types.YChild{"PeersStatus", &ca.PeersStatus}
-    ca.EntityData.Children["live-peer"] = types.YChild{"LivePeer", nil}
+    ca.EntityData.Children = types.NewOrderedMap()
+    ca.EntityData.Children.Append("peers-status", types.YChild{"PeersStatus", &ca.PeersStatus})
+    ca.EntityData.Children.Append("live-peer", types.YChild{"LivePeer", nil})
     for i := range ca.LivePeer {
-        ca.EntityData.Children[types.GetSegmentPath(&ca.LivePeer[i])] = types.YChild{"LivePeer", &ca.LivePeer[i]}
+        ca.EntityData.Children.Append(types.GetSegmentPath(ca.LivePeer[i]), types.YChild{"LivePeer", ca.LivePeer[i]})
     }
-    ca.EntityData.Children["potential-peer"] = types.YChild{"PotentialPeer", nil}
+    ca.EntityData.Children.Append("potential-peer", types.YChild{"PotentialPeer", nil})
     for i := range ca.PotentialPeer {
-        ca.EntityData.Children[types.GetSegmentPath(&ca.PotentialPeer[i])] = types.YChild{"PotentialPeer", &ca.PotentialPeer[i]}
+        ca.EntityData.Children.Append(types.GetSegmentPath(ca.PotentialPeer[i]), types.YChild{"PotentialPeer", ca.PotentialPeer[i]})
     }
-    ca.EntityData.Children["dormant-peer"] = types.YChild{"DormantPeer", nil}
+    ca.EntityData.Children.Append("dormant-peer", types.YChild{"DormantPeer", nil})
     for i := range ca.DormantPeer {
-        ca.EntityData.Children[types.GetSegmentPath(&ca.DormantPeer[i])] = types.YChild{"DormantPeer", &ca.DormantPeer[i]}
+        ca.EntityData.Children.Append(types.GetSegmentPath(ca.DormantPeer[i]), types.YChild{"DormantPeer", ca.DormantPeer[i]})
     }
-    ca.EntityData.Leafs = make(map[string]types.YLeaf)
-    ca.EntityData.Leafs["is-key-server"] = types.YLeaf{"IsKeyServer", ca.IsKeyServer}
-    ca.EntityData.Leafs["status"] = types.YLeaf{"Status", ca.Status}
-    ca.EntityData.Leafs["num-live-peers"] = types.YLeaf{"NumLivePeers", ca.NumLivePeers}
-    ca.EntityData.Leafs["first-ca"] = types.YLeaf{"FirstCa", ca.FirstCa}
-    ca.EntityData.Leafs["peer-sci"] = types.YLeaf{"PeerSci", ca.PeerSci}
-    ca.EntityData.Leafs["num-live-peers-responded"] = types.YLeaf{"NumLivePeersResponded", ca.NumLivePeersResponded}
-    ca.EntityData.Leafs["ckn"] = types.YLeaf{"Ckn", ca.Ckn}
-    ca.EntityData.Leafs["my-mi"] = types.YLeaf{"MyMi", ca.MyMi}
-    ca.EntityData.Leafs["my-mn"] = types.YLeaf{"MyMn", ca.MyMn}
-    ca.EntityData.Leafs["authenticator"] = types.YLeaf{"Authenticator", ca.Authenticator}
-    ca.EntityData.Leafs["status-description"] = types.YLeaf{"StatusDescription", ca.StatusDescription}
-    ca.EntityData.Leafs["authentication-mode"] = types.YLeaf{"AuthenticationMode", ca.AuthenticationMode}
-    ca.EntityData.Leafs["key-chain"] = types.YLeaf{"KeyChain", ca.KeyChain}
+    ca.EntityData.Leafs = types.NewOrderedMap()
+    ca.EntityData.Leafs.Append("is-key-server", types.YLeaf{"IsKeyServer", ca.IsKeyServer})
+    ca.EntityData.Leafs.Append("status", types.YLeaf{"Status", ca.Status})
+    ca.EntityData.Leafs.Append("num-live-peers", types.YLeaf{"NumLivePeers", ca.NumLivePeers})
+    ca.EntityData.Leafs.Append("first-ca", types.YLeaf{"FirstCa", ca.FirstCa})
+    ca.EntityData.Leafs.Append("peer-sci", types.YLeaf{"PeerSci", ca.PeerSci})
+    ca.EntityData.Leafs.Append("num-live-peers-responded", types.YLeaf{"NumLivePeersResponded", ca.NumLivePeersResponded})
+    ca.EntityData.Leafs.Append("ckn", types.YLeaf{"Ckn", ca.Ckn})
+    ca.EntityData.Leafs.Append("my-mi", types.YLeaf{"MyMi", ca.MyMi})
+    ca.EntityData.Leafs.Append("my-mn", types.YLeaf{"MyMn", ca.MyMn})
+    ca.EntityData.Leafs.Append("authenticator", types.YLeaf{"Authenticator", ca.Authenticator})
+    ca.EntityData.Leafs.Append("status-description", types.YLeaf{"StatusDescription", ca.StatusDescription})
+    ca.EntityData.Leafs.Append("authentication-mode", types.YLeaf{"AuthenticationMode", ca.AuthenticationMode})
+    ca.EntityData.Leafs.Append("key-chain", types.YLeaf{"KeyChain", ca.KeyChain})
+
+    ca.EntityData.YListKeys = []string {}
+
     return &(ca.EntityData)
 }
 
@@ -693,7 +739,7 @@ type Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus struct {
 
     // Peer List. The type is slice of
     // Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer.
-    Peer []Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer
+    Peer []*Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer
 }
 
 func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus) GetEntityData() *types.CommonEntityData {
@@ -706,14 +752,17 @@ func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus) GetEn
     peersStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peersStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peersStatus.EntityData.Children = make(map[string]types.YChild)
-    peersStatus.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peersStatus.EntityData.Children = types.NewOrderedMap()
+    peersStatus.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peersStatus.Peer {
-        peersStatus.EntityData.Children[types.GetSegmentPath(&peersStatus.Peer[i])] = types.YChild{"Peer", &peersStatus.Peer[i]}
+        peersStatus.EntityData.Children.Append(types.GetSegmentPath(peersStatus.Peer[i]), types.YChild{"Peer", peersStatus.Peer[i]})
     }
-    peersStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    peersStatus.EntityData.Leafs["tx-mkpdu-timestamp"] = types.YLeaf{"TxMkpduTimestamp", peersStatus.TxMkpduTimestamp}
-    peersStatus.EntityData.Leafs["peer-count"] = types.YLeaf{"PeerCount", peersStatus.PeerCount}
+    peersStatus.EntityData.Leafs = types.NewOrderedMap()
+    peersStatus.EntityData.Leafs.Append("tx-mkpdu-timestamp", types.YLeaf{"TxMkpduTimestamp", peersStatus.TxMkpduTimestamp})
+    peersStatus.EntityData.Leafs.Append("peer-count", types.YLeaf{"PeerCount", peersStatus.PeerCount})
+
+    peersStatus.EntityData.YListKeys = []string {}
+
     return &(peersStatus.EntityData)
 }
 
@@ -740,10 +789,13 @@ func (peer *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer) GetEnti
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Children["peer-data"] = types.YChild{"PeerData", &peer.PeerData}
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["sci"] = types.YLeaf{"Sci", peer.Sci}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Children.Append("peer-data", types.YChild{"PeerData", &peer.PeerData})
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("sci", types.YLeaf{"Sci", peer.Sci})
+
+    peer.EntityData.YListKeys = []string {}
+
     return &(peer.EntityData)
 }
 
@@ -773,11 +825,14 @@ func (peerData *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer_Peer
     peerData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerData.EntityData.Children = make(map[string]types.YChild)
-    peerData.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerData.EntityData.Leafs["mi"] = types.YLeaf{"Mi", peerData.Mi}
-    peerData.EntityData.Leafs["icv-status"] = types.YLeaf{"IcvStatus", peerData.IcvStatus}
-    peerData.EntityData.Leafs["icv-check-timestamp"] = types.YLeaf{"IcvCheckTimestamp", peerData.IcvCheckTimestamp}
+    peerData.EntityData.Children = types.NewOrderedMap()
+    peerData.EntityData.Leafs = types.NewOrderedMap()
+    peerData.EntityData.Leafs.Append("mi", types.YLeaf{"Mi", peerData.Mi})
+    peerData.EntityData.Leafs.Append("icv-status", types.YLeaf{"IcvStatus", peerData.IcvStatus})
+    peerData.EntityData.Leafs.Append("icv-check-timestamp", types.YLeaf{"IcvCheckTimestamp", peerData.IcvCheckTimestamp})
+
+    peerData.EntityData.YListKeys = []string {}
+
     return &(peerData.EntityData)
 }
 
@@ -813,13 +868,16 @@ func (livePeer *Macsec_Mka_Interfaces_Interface_Session_Ca_LivePeer) GetEntityDa
     livePeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     livePeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    livePeer.EntityData.Children = make(map[string]types.YChild)
-    livePeer.EntityData.Leafs = make(map[string]types.YLeaf)
-    livePeer.EntityData.Leafs["mi"] = types.YLeaf{"Mi", livePeer.Mi}
-    livePeer.EntityData.Leafs["sci"] = types.YLeaf{"Sci", livePeer.Sci}
-    livePeer.EntityData.Leafs["mn"] = types.YLeaf{"Mn", livePeer.Mn}
-    livePeer.EntityData.Leafs["priority"] = types.YLeaf{"Priority", livePeer.Priority}
-    livePeer.EntityData.Leafs["ssci"] = types.YLeaf{"Ssci", livePeer.Ssci}
+    livePeer.EntityData.Children = types.NewOrderedMap()
+    livePeer.EntityData.Leafs = types.NewOrderedMap()
+    livePeer.EntityData.Leafs.Append("mi", types.YLeaf{"Mi", livePeer.Mi})
+    livePeer.EntityData.Leafs.Append("sci", types.YLeaf{"Sci", livePeer.Sci})
+    livePeer.EntityData.Leafs.Append("mn", types.YLeaf{"Mn", livePeer.Mn})
+    livePeer.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", livePeer.Priority})
+    livePeer.EntityData.Leafs.Append("ssci", types.YLeaf{"Ssci", livePeer.Ssci})
+
+    livePeer.EntityData.YListKeys = []string {}
+
     return &(livePeer.EntityData)
 }
 
@@ -855,13 +913,16 @@ func (potentialPeer *Macsec_Mka_Interfaces_Interface_Session_Ca_PotentialPeer) G
     potentialPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     potentialPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    potentialPeer.EntityData.Children = make(map[string]types.YChild)
-    potentialPeer.EntityData.Leafs = make(map[string]types.YLeaf)
-    potentialPeer.EntityData.Leafs["mi"] = types.YLeaf{"Mi", potentialPeer.Mi}
-    potentialPeer.EntityData.Leafs["sci"] = types.YLeaf{"Sci", potentialPeer.Sci}
-    potentialPeer.EntityData.Leafs["mn"] = types.YLeaf{"Mn", potentialPeer.Mn}
-    potentialPeer.EntityData.Leafs["priority"] = types.YLeaf{"Priority", potentialPeer.Priority}
-    potentialPeer.EntityData.Leafs["ssci"] = types.YLeaf{"Ssci", potentialPeer.Ssci}
+    potentialPeer.EntityData.Children = types.NewOrderedMap()
+    potentialPeer.EntityData.Leafs = types.NewOrderedMap()
+    potentialPeer.EntityData.Leafs.Append("mi", types.YLeaf{"Mi", potentialPeer.Mi})
+    potentialPeer.EntityData.Leafs.Append("sci", types.YLeaf{"Sci", potentialPeer.Sci})
+    potentialPeer.EntityData.Leafs.Append("mn", types.YLeaf{"Mn", potentialPeer.Mn})
+    potentialPeer.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", potentialPeer.Priority})
+    potentialPeer.EntityData.Leafs.Append("ssci", types.YLeaf{"Ssci", potentialPeer.Ssci})
+
+    potentialPeer.EntityData.YListKeys = []string {}
+
     return &(potentialPeer.EntityData)
 }
 
@@ -897,13 +958,16 @@ func (dormantPeer *Macsec_Mka_Interfaces_Interface_Session_Ca_DormantPeer) GetEn
     dormantPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dormantPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dormantPeer.EntityData.Children = make(map[string]types.YChild)
-    dormantPeer.EntityData.Leafs = make(map[string]types.YLeaf)
-    dormantPeer.EntityData.Leafs["mi"] = types.YLeaf{"Mi", dormantPeer.Mi}
-    dormantPeer.EntityData.Leafs["sci"] = types.YLeaf{"Sci", dormantPeer.Sci}
-    dormantPeer.EntityData.Leafs["mn"] = types.YLeaf{"Mn", dormantPeer.Mn}
-    dormantPeer.EntityData.Leafs["priority"] = types.YLeaf{"Priority", dormantPeer.Priority}
-    dormantPeer.EntityData.Leafs["ssci"] = types.YLeaf{"Ssci", dormantPeer.Ssci}
+    dormantPeer.EntityData.Children = types.NewOrderedMap()
+    dormantPeer.EntityData.Leafs = types.NewOrderedMap()
+    dormantPeer.EntityData.Leafs.Append("mi", types.YLeaf{"Mi", dormantPeer.Mi})
+    dormantPeer.EntityData.Leafs.Append("sci", types.YLeaf{"Sci", dormantPeer.Sci})
+    dormantPeer.EntityData.Leafs.Append("mn", types.YLeaf{"Mn", dormantPeer.Mn})
+    dormantPeer.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", dormantPeer.Priority})
+    dormantPeer.EntityData.Leafs.Append("ssci", types.YLeaf{"Ssci", dormantPeer.Ssci})
+
+    dormantPeer.EntityData.YListKeys = []string {}
+
     return &(dormantPeer.EntityData)
 }
 

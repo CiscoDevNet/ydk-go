@@ -9,16 +9,16 @@ module Cisco-IOS-XR-atm-vcm-oper {
     prefix dt1;
   }
   include Cisco-IOS-XR-atm-vcm-oper-sub4 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-atm-vcm-oper-sub3 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-atm-vcm-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-atm-vcm-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -44,6 +44,10 @@ module Cisco-IOS-XR-atm-vcm-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -114,7 +118,7 @@ module Cisco-IOS-XR-atm-vcm-oper {
                 "Interface name";
             }
             leaf pci {
-              type int32;
+              type uint32;
               description
                 "PCI";
             }
@@ -134,7 +138,7 @@ module Cisco-IOS-XR-atm-vcm-oper {
                 "Interface name";
             }
             leaf vpi {
-              type int32;
+              type uint32;
               description
                 "VPI";
             }
@@ -149,12 +153,12 @@ module Cisco-IOS-XR-atm-vcm-oper {
             description
               "All ATM VC information on a node";
             leaf vpi {
-              type int32;
+              type uint32;
               description
                 "VPI";
             }
             leaf vci {
-              type int32;
+              type uint32;
               description
                 "VCI";
             }
@@ -189,7 +193,7 @@ module Cisco-IOS-XR-atm-vcm-oper {
                 "Interface name";
             }
             leaf vpi {
-              type int32;
+              type uint32;
               description
                 "VPI";
             }

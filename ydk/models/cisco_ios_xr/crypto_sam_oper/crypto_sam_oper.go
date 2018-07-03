@@ -24,35 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-sam-oper:sam", reflect.TypeOf(Sam{}))
 }
 
-// LogTables represents Log tables
-type LogTables string
-
-const (
-    // Table is not known
-    LogTables_unkown LogTables = "unkown"
-
-    // Table is memory digest table
-    LogTables_memory_digest_table LogTables = "memory-digest-table"
-
-    // Table is system database digest table
-    LogTables_system_database_digest LogTables = "system-database-digest"
-
-    // Table is SAM table
-    LogTables_sam_tables LogTables = "sam-tables"
-)
-
-// CertificateIssuer represents Certificate issuers
-type CertificateIssuer string
-
-const (
-    // Issuer is not known
-    CertificateIssuer_unknown CertificateIssuer = "unknown"
-
-    // Issuer is code signing server certificate
-    // authority
-    CertificateIssuer_code_signing_server_certificate_authority CertificateIssuer = "code-signing-server-certificate-authority"
-)
-
 // LogError represents Log errors
 type LogError string
 
@@ -140,6 +111,35 @@ const (
     LogCode_namespace_deleted_recovered_by_sam LogCode = "namespace-deleted-recovered-by-sam"
 )
 
+// CertificateIssuer represents Certificate issuers
+type CertificateIssuer string
+
+const (
+    // Issuer is not known
+    CertificateIssuer_unknown CertificateIssuer = "unknown"
+
+    // Issuer is code signing server certificate
+    // authority
+    CertificateIssuer_code_signing_server_certificate_authority CertificateIssuer = "code-signing-server-certificate-authority"
+)
+
+// LogTables represents Log tables
+type LogTables string
+
+const (
+    // Table is not known
+    LogTables_unkown LogTables = "unkown"
+
+    // Table is memory digest table
+    LogTables_memory_digest_table LogTables = "memory-digest-table"
+
+    // Table is system database digest table
+    LogTables_system_database_digest LogTables = "system-database-digest"
+
+    // Table is SAM table
+    LogTables_sam_tables LogTables = "sam-tables"
+)
+
 // Sam
 // Software authentication manager certificate
 // information
@@ -176,14 +176,17 @@ func (sam *Sam) GetEntityData() *types.CommonEntityData {
     sam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sam.EntityData.Children = make(map[string]types.YChild)
-    sam.EntityData.Children["system-information"] = types.YChild{"SystemInformation", &sam.SystemInformation}
-    sam.EntityData.Children["log-contents"] = types.YChild{"LogContents", &sam.LogContents}
-    sam.EntityData.Children["devices"] = types.YChild{"Devices", &sam.Devices}
-    sam.EntityData.Children["packages"] = types.YChild{"Packages", &sam.Packages}
-    sam.EntityData.Children["certificate-revocations"] = types.YChild{"CertificateRevocations", &sam.CertificateRevocations}
-    sam.EntityData.Children["certificate-revocation-list-summary"] = types.YChild{"CertificateRevocationListSummary", &sam.CertificateRevocationListSummary}
-    sam.EntityData.Leafs = make(map[string]types.YLeaf)
+    sam.EntityData.Children = types.NewOrderedMap()
+    sam.EntityData.Children.Append("system-information", types.YChild{"SystemInformation", &sam.SystemInformation})
+    sam.EntityData.Children.Append("log-contents", types.YChild{"LogContents", &sam.LogContents})
+    sam.EntityData.Children.Append("devices", types.YChild{"Devices", &sam.Devices})
+    sam.EntityData.Children.Append("packages", types.YChild{"Packages", &sam.Packages})
+    sam.EntityData.Children.Append("certificate-revocations", types.YChild{"CertificateRevocations", &sam.CertificateRevocations})
+    sam.EntityData.Children.Append("certificate-revocation-list-summary", types.YChild{"CertificateRevocationListSummary", &sam.CertificateRevocationListSummary})
+    sam.EntityData.Leafs = types.NewOrderedMap()
+
+    sam.EntityData.YListKeys = []string {}
+
     return &(sam.EntityData)
 }
 
@@ -214,11 +217,14 @@ func (systemInformation *Sam_SystemInformation) GetEntityData() *types.CommonEnt
     systemInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemInformation.EntityData.Children = make(map[string]types.YChild)
-    systemInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemInformation.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", systemInformation.IsRunning}
-    systemInformation.EntityData.Leafs["prompt-interval"] = types.YLeaf{"PromptInterval", systemInformation.PromptInterval}
-    systemInformation.EntityData.Leafs["is-default-response"] = types.YLeaf{"IsDefaultResponse", systemInformation.IsDefaultResponse}
+    systemInformation.EntityData.Children = types.NewOrderedMap()
+    systemInformation.EntityData.Leafs = types.NewOrderedMap()
+    systemInformation.EntityData.Leafs.Append("is-running", types.YLeaf{"IsRunning", systemInformation.IsRunning})
+    systemInformation.EntityData.Leafs.Append("prompt-interval", types.YLeaf{"PromptInterval", systemInformation.PromptInterval})
+    systemInformation.EntityData.Leafs.Append("is-default-response", types.YLeaf{"IsDefaultResponse", systemInformation.IsDefaultResponse})
+
+    systemInformation.EntityData.YListKeys = []string {}
+
     return &(systemInformation.EntityData)
 }
 
@@ -230,7 +236,7 @@ type Sam_LogContents struct {
 
     // Number of lines for SAM log message. The type is slice of
     // Sam_LogContents_LogContent.
-    LogContent []Sam_LogContents_LogContent
+    LogContent []*Sam_LogContents_LogContent
 }
 
 func (logContents *Sam_LogContents) GetEntityData() *types.CommonEntityData {
@@ -243,12 +249,15 @@ func (logContents *Sam_LogContents) GetEntityData() *types.CommonEntityData {
     logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logContents.EntityData.Children = make(map[string]types.YChild)
-    logContents.EntityData.Children["log-content"] = types.YChild{"LogContent", nil}
+    logContents.EntityData.Children = types.NewOrderedMap()
+    logContents.EntityData.Children.Append("log-content", types.YChild{"LogContent", nil})
     for i := range logContents.LogContent {
-        logContents.EntityData.Children[types.GetSegmentPath(&logContents.LogContent[i])] = types.YChild{"LogContent", &logContents.LogContent[i]}
+        logContents.EntityData.Children.Append(types.GetSegmentPath(logContents.LogContent[i]), types.YChild{"LogContent", logContents.LogContent[i]})
     }
-    logContents.EntityData.Leafs = make(map[string]types.YLeaf)
+    logContents.EntityData.Leafs = types.NewOrderedMap()
+
+    logContents.EntityData.YListKeys = []string {}
+
     return &(logContents.EntityData)
 }
 
@@ -259,7 +268,7 @@ type Sam_LogContents_LogContent struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Number of lines. The type is interface{} with
-    // range: -2147483648..2147483647.
+    // range: 0..4294967295.
     NumberOfLines interface{}
 
     // Total log entries available. The type is interface{} with range:
@@ -270,7 +279,7 @@ type Sam_LogContents_LogContent struct {
     EntriesShown interface{}
 
     // SAM logs. The type is slice of Sam_LogContents_LogContent_Logs.
-    Logs []Sam_LogContents_LogContent_Logs
+    Logs []*Sam_LogContents_LogContent_Logs
 }
 
 func (logContent *Sam_LogContents_LogContent) GetEntityData() *types.CommonEntityData {
@@ -278,20 +287,23 @@ func (logContent *Sam_LogContents_LogContent) GetEntityData() *types.CommonEntit
     logContent.EntityData.YangName = "log-content"
     logContent.EntityData.BundleName = "cisco_ios_xr"
     logContent.EntityData.ParentYangName = "log-contents"
-    logContent.EntityData.SegmentPath = "log-content" + "[number-of-lines='" + fmt.Sprintf("%v", logContent.NumberOfLines) + "']"
+    logContent.EntityData.SegmentPath = "log-content" + types.AddKeyToken(logContent.NumberOfLines, "number-of-lines")
     logContent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logContent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logContent.EntityData.Children = make(map[string]types.YChild)
-    logContent.EntityData.Children["logs"] = types.YChild{"Logs", nil}
+    logContent.EntityData.Children = types.NewOrderedMap()
+    logContent.EntityData.Children.Append("logs", types.YChild{"Logs", nil})
     for i := range logContent.Logs {
-        logContent.EntityData.Children[types.GetSegmentPath(&logContent.Logs[i])] = types.YChild{"Logs", &logContent.Logs[i]}
+        logContent.EntityData.Children.Append(types.GetSegmentPath(logContent.Logs[i]), types.YChild{"Logs", logContent.Logs[i]})
     }
-    logContent.EntityData.Leafs = make(map[string]types.YLeaf)
-    logContent.EntityData.Leafs["number-of-lines"] = types.YLeaf{"NumberOfLines", logContent.NumberOfLines}
-    logContent.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", logContent.TotalEntries}
-    logContent.EntityData.Leafs["entries-shown"] = types.YLeaf{"EntriesShown", logContent.EntriesShown}
+    logContent.EntityData.Leafs = types.NewOrderedMap()
+    logContent.EntityData.Leafs.Append("number-of-lines", types.YLeaf{"NumberOfLines", logContent.NumberOfLines})
+    logContent.EntityData.Leafs.Append("total-entries", types.YLeaf{"TotalEntries", logContent.TotalEntries})
+    logContent.EntityData.Leafs.Append("entries-shown", types.YLeaf{"EntriesShown", logContent.EntriesShown})
+
+    logContent.EntityData.YListKeys = []string {"NumberOfLines"}
+
     return &(logContent.EntityData)
 }
 
@@ -345,19 +357,22 @@ func (logs *Sam_LogContents_LogContent_Logs) GetEntityData() *types.CommonEntity
     logs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logs.EntityData.Children = make(map[string]types.YChild)
-    logs.EntityData.Leafs = make(map[string]types.YLeaf)
-    logs.EntityData.Leafs["time"] = types.YLeaf{"Time", logs.Time}
-    logs.EntityData.Leafs["code"] = types.YLeaf{"Code", logs.Code}
-    logs.EntityData.Leafs["target-device"] = types.YLeaf{"TargetDevice", logs.TargetDevice}
-    logs.EntityData.Leafs["index"] = types.YLeaf{"Index", logs.Index}
-    logs.EntityData.Leafs["error"] = types.YLeaf{"Error", logs.Error}
-    logs.EntityData.Leafs["issuer"] = types.YLeaf{"Issuer", logs.Issuer}
-    logs.EntityData.Leafs["serial-no"] = types.YLeaf{"SerialNo", logs.SerialNo}
-    logs.EntityData.Leafs["sam-table-index"] = types.YLeaf{"SamTableIndex", logs.SamTableIndex}
-    logs.EntityData.Leafs["update-time"] = types.YLeaf{"UpdateTime", logs.UpdateTime}
-    logs.EntityData.Leafs["source-device"] = types.YLeaf{"SourceDevice", logs.SourceDevice}
-    logs.EntityData.Leafs["table"] = types.YLeaf{"Table", logs.Table}
+    logs.EntityData.Children = types.NewOrderedMap()
+    logs.EntityData.Leafs = types.NewOrderedMap()
+    logs.EntityData.Leafs.Append("time", types.YLeaf{"Time", logs.Time})
+    logs.EntityData.Leafs.Append("code", types.YLeaf{"Code", logs.Code})
+    logs.EntityData.Leafs.Append("target-device", types.YLeaf{"TargetDevice", logs.TargetDevice})
+    logs.EntityData.Leafs.Append("index", types.YLeaf{"Index", logs.Index})
+    logs.EntityData.Leafs.Append("error", types.YLeaf{"Error", logs.Error})
+    logs.EntityData.Leafs.Append("issuer", types.YLeaf{"Issuer", logs.Issuer})
+    logs.EntityData.Leafs.Append("serial-no", types.YLeaf{"SerialNo", logs.SerialNo})
+    logs.EntityData.Leafs.Append("sam-table-index", types.YLeaf{"SamTableIndex", logs.SamTableIndex})
+    logs.EntityData.Leafs.Append("update-time", types.YLeaf{"UpdateTime", logs.UpdateTime})
+    logs.EntityData.Leafs.Append("source-device", types.YLeaf{"SourceDevice", logs.SourceDevice})
+    logs.EntityData.Leafs.Append("table", types.YLeaf{"Table", logs.Table})
+
+    logs.EntityData.YListKeys = []string {}
+
     return &(logs.EntityData)
 }
 
@@ -369,7 +384,7 @@ type Sam_Devices struct {
 
     // Certificate table device information. The type is slice of
     // Sam_Devices_Device.
-    Device []Sam_Devices_Device
+    Device []*Sam_Devices_Device
 }
 
 func (devices *Sam_Devices) GetEntityData() *types.CommonEntityData {
@@ -382,12 +397,15 @@ func (devices *Sam_Devices) GetEntityData() *types.CommonEntityData {
     devices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     devices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    devices.EntityData.Children = make(map[string]types.YChild)
-    devices.EntityData.Children["device"] = types.YChild{"Device", nil}
+    devices.EntityData.Children = types.NewOrderedMap()
+    devices.EntityData.Children.Append("device", types.YChild{"Device", nil})
     for i := range devices.Device {
-        devices.EntityData.Children[types.GetSegmentPath(&devices.Device[i])] = types.YChild{"Device", &devices.Device[i]}
+        devices.EntityData.Children.Append(types.GetSegmentPath(devices.Device[i]), types.YChild{"Device", devices.Device[i]})
     }
-    devices.EntityData.Leafs = make(map[string]types.YLeaf)
+    devices.EntityData.Leafs = types.NewOrderedMap()
+
+    devices.EntityData.YListKeys = []string {}
+
     return &(devices.EntityData)
 }
 
@@ -398,7 +416,7 @@ type Sam_Devices_Device struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify device name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     DeviceName interface{}
 
     // Certificate table information.
@@ -410,15 +428,18 @@ func (device *Sam_Devices_Device) GetEntityData() *types.CommonEntityData {
     device.EntityData.YangName = "device"
     device.EntityData.BundleName = "cisco_ios_xr"
     device.EntityData.ParentYangName = "devices"
-    device.EntityData.SegmentPath = "device" + "[device-name='" + fmt.Sprintf("%v", device.DeviceName) + "']"
+    device.EntityData.SegmentPath = "device" + types.AddKeyToken(device.DeviceName, "device-name")
     device.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     device.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     device.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    device.EntityData.Children = make(map[string]types.YChild)
-    device.EntityData.Children["certificate"] = types.YChild{"Certificate", &device.Certificate}
-    device.EntityData.Leafs = make(map[string]types.YLeaf)
-    device.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", device.DeviceName}
+    device.EntityData.Children = types.NewOrderedMap()
+    device.EntityData.Children.Append("certificate", types.YChild{"Certificate", &device.Certificate})
+    device.EntityData.Leafs = types.NewOrderedMap()
+    device.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", device.DeviceName})
+
+    device.EntityData.YListKeys = []string {"DeviceName"}
+
     return &(device.EntityData)
 }
 
@@ -445,10 +466,13 @@ func (certificate *Sam_Devices_Device_Certificate) GetEntityData() *types.Common
     certificate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificate.EntityData.Children = make(map[string]types.YChild)
-    certificate.EntityData.Children["brief"] = types.YChild{"Brief", &certificate.Brief}
-    certificate.EntityData.Children["certificate-indexes"] = types.YChild{"CertificateIndexes", &certificate.CertificateIndexes}
-    certificate.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificate.EntityData.Children = types.NewOrderedMap()
+    certificate.EntityData.Children.Append("brief", types.YChild{"Brief", &certificate.Brief})
+    certificate.EntityData.Children.Append("certificate-indexes", types.YChild{"CertificateIndexes", &certificate.CertificateIndexes})
+    certificate.EntityData.Leafs = types.NewOrderedMap()
+
+    certificate.EntityData.YListKeys = []string {}
+
     return &(certificate.EntityData)
 }
 
@@ -478,11 +502,14 @@ func (brief *Sam_Devices_Device_Certificate_Brief) GetEntityData() *types.Common
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    brief.EntityData.Children = make(map[string]types.YChild)
-    brief.EntityData.Children["certificate-flags"] = types.YChild{"CertificateFlags", &brief.CertificateFlags}
-    brief.EntityData.Leafs = make(map[string]types.YLeaf)
-    brief.EntityData.Leafs["location"] = types.YLeaf{"Location", brief.Location}
-    brief.EntityData.Leafs["certificate-index"] = types.YLeaf{"CertificateIndex", brief.CertificateIndex}
+    brief.EntityData.Children = types.NewOrderedMap()
+    brief.EntityData.Children.Append("certificate-flags", types.YChild{"CertificateFlags", &brief.CertificateFlags})
+    brief.EntityData.Leafs = types.NewOrderedMap()
+    brief.EntityData.Leafs.Append("location", types.YLeaf{"Location", brief.Location})
+    brief.EntityData.Leafs.Append("certificate-index", types.YLeaf{"CertificateIndex", brief.CertificateIndex})
+
+    brief.EntityData.YListKeys = []string {}
+
     return &(brief.EntityData)
 }
 
@@ -515,12 +542,15 @@ func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) G
     certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateFlags.EntityData.Children = make(map[string]types.YChild)
-    certificateFlags.EntityData.Leafs = make(map[string]types.YLeaf)
-    certificateFlags.EntityData.Leafs["is-trusted"] = types.YLeaf{"IsTrusted", certificateFlags.IsTrusted}
-    certificateFlags.EntityData.Leafs["is-revoked"] = types.YLeaf{"IsRevoked", certificateFlags.IsRevoked}
-    certificateFlags.EntityData.Leafs["is-expired"] = types.YLeaf{"IsExpired", certificateFlags.IsExpired}
-    certificateFlags.EntityData.Leafs["is-validated"] = types.YLeaf{"IsValidated", certificateFlags.IsValidated}
+    certificateFlags.EntityData.Children = types.NewOrderedMap()
+    certificateFlags.EntityData.Leafs = types.NewOrderedMap()
+    certificateFlags.EntityData.Leafs.Append("is-trusted", types.YLeaf{"IsTrusted", certificateFlags.IsTrusted})
+    certificateFlags.EntityData.Leafs.Append("is-revoked", types.YLeaf{"IsRevoked", certificateFlags.IsRevoked})
+    certificateFlags.EntityData.Leafs.Append("is-expired", types.YLeaf{"IsExpired", certificateFlags.IsExpired})
+    certificateFlags.EntityData.Leafs.Append("is-validated", types.YLeaf{"IsValidated", certificateFlags.IsValidated})
+
+    certificateFlags.EntityData.YListKeys = []string {}
+
     return &(certificateFlags.EntityData)
 }
 
@@ -532,7 +562,7 @@ type Sam_Devices_Device_Certificate_CertificateIndexes struct {
 
     // Certificate detail index information. The type is slice of
     // Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex.
-    CertificateIndex []Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex
+    CertificateIndex []*Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex
 }
 
 func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetEntityData() *types.CommonEntityData {
@@ -545,12 +575,15 @@ func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) Get
     certificateIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateIndexes.EntityData.Children = make(map[string]types.YChild)
-    certificateIndexes.EntityData.Children["certificate-index"] = types.YChild{"CertificateIndex", nil}
+    certificateIndexes.EntityData.Children = types.NewOrderedMap()
+    certificateIndexes.EntityData.Children.Append("certificate-index", types.YChild{"CertificateIndex", nil})
     for i := range certificateIndexes.CertificateIndex {
-        certificateIndexes.EntityData.Children[types.GetSegmentPath(&certificateIndexes.CertificateIndex[i])] = types.YChild{"CertificateIndex", &certificateIndexes.CertificateIndex[i]}
+        certificateIndexes.EntityData.Children.Append(types.GetSegmentPath(certificateIndexes.CertificateIndex[i]), types.YChild{"CertificateIndex", certificateIndexes.CertificateIndex[i]})
     }
-    certificateIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateIndexes.EntityData.Leafs = types.NewOrderedMap()
+
+    certificateIndexes.EntityData.YListKeys = []string {}
+
     return &(certificateIndexes.EntityData)
 }
 
@@ -561,7 +594,7 @@ type Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify certificate index. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     Index interface{}
 
     // Certificate table detail information.
@@ -573,15 +606,18 @@ func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_Certif
     certificateIndex.EntityData.YangName = "certificate-index"
     certificateIndex.EntityData.BundleName = "cisco_ios_xr"
     certificateIndex.EntityData.ParentYangName = "certificate-indexes"
-    certificateIndex.EntityData.SegmentPath = "certificate-index" + "[index='" + fmt.Sprintf("%v", certificateIndex.Index) + "']"
+    certificateIndex.EntityData.SegmentPath = "certificate-index" + types.AddKeyToken(certificateIndex.Index, "index")
     certificateIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateIndex.EntityData.Children = make(map[string]types.YChild)
-    certificateIndex.EntityData.Children["detail"] = types.YChild{"Detail", &certificateIndex.Detail}
-    certificateIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    certificateIndex.EntityData.Leafs["index"] = types.YLeaf{"Index", certificateIndex.Index}
+    certificateIndex.EntityData.Children = types.NewOrderedMap()
+    certificateIndex.EntityData.Children.Append("detail", types.YChild{"Detail", &certificateIndex.Detail})
+    certificateIndex.EntityData.Leafs = types.NewOrderedMap()
+    certificateIndex.EntityData.Leafs.Append("index", types.YLeaf{"Index", certificateIndex.Index})
+
+    certificateIndex.EntityData.YListKeys = []string {"Index"}
+
     return &(certificateIndex.EntityData)
 }
 
@@ -611,11 +647,14 @@ func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["certificate-flags"] = types.YChild{"CertificateFlags", &detail.CertificateFlags}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
-    detail.EntityData.Leafs["location"] = types.YLeaf{"Location", detail.Location}
-    detail.EntityData.Leafs["certificate-index"] = types.YLeaf{"CertificateIndex", detail.CertificateIndex}
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("certificate-flags", types.YChild{"CertificateFlags", &detail.CertificateFlags})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+    detail.EntityData.Leafs.Append("location", types.YLeaf{"Location", detail.Location})
+    detail.EntityData.Leafs.Append("certificate-index", types.YLeaf{"CertificateIndex", detail.CertificateIndex})
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -648,12 +687,15 @@ func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_Certif
     certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateFlags.EntityData.Children = make(map[string]types.YChild)
-    certificateFlags.EntityData.Leafs = make(map[string]types.YLeaf)
-    certificateFlags.EntityData.Leafs["is-trusted"] = types.YLeaf{"IsTrusted", certificateFlags.IsTrusted}
-    certificateFlags.EntityData.Leafs["is-revoked"] = types.YLeaf{"IsRevoked", certificateFlags.IsRevoked}
-    certificateFlags.EntityData.Leafs["is-expired"] = types.YLeaf{"IsExpired", certificateFlags.IsExpired}
-    certificateFlags.EntityData.Leafs["is-validated"] = types.YLeaf{"IsValidated", certificateFlags.IsValidated}
+    certificateFlags.EntityData.Children = types.NewOrderedMap()
+    certificateFlags.EntityData.Leafs = types.NewOrderedMap()
+    certificateFlags.EntityData.Leafs.Append("is-trusted", types.YLeaf{"IsTrusted", certificateFlags.IsTrusted})
+    certificateFlags.EntityData.Leafs.Append("is-revoked", types.YLeaf{"IsRevoked", certificateFlags.IsRevoked})
+    certificateFlags.EntityData.Leafs.Append("is-expired", types.YLeaf{"IsExpired", certificateFlags.IsExpired})
+    certificateFlags.EntityData.Leafs.Append("is-validated", types.YLeaf{"IsValidated", certificateFlags.IsValidated})
+
+    certificateFlags.EntityData.YListKeys = []string {}
+
     return &(certificateFlags.EntityData)
 }
 
@@ -664,8 +706,8 @@ type Sam_Packages struct {
     YFilter yfilter.YFilter
 
     // SAM certificate information for a specific package. The type is slice of
-    // Sam_Packages_Package_.
-    Package_ []Sam_Packages_Package
+    // Sam_Packages_Package.
+    Package []*Sam_Packages_Package
 }
 
 func (packages *Sam_Packages) GetEntityData() *types.CommonEntityData {
@@ -678,12 +720,15 @@ func (packages *Sam_Packages) GetEntityData() *types.CommonEntityData {
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packages.EntityData.Children = make(map[string]types.YChild)
-    packages.EntityData.Children["package"] = types.YChild{"Package_", nil}
-    for i := range packages.Package_ {
-        packages.EntityData.Children[types.GetSegmentPath(&packages.Package_[i])] = types.YChild{"Package_", &packages.Package_[i]}
+    packages.EntityData.Children = types.NewOrderedMap()
+    packages.EntityData.Children.Append("package", types.YChild{"Package", nil})
+    for i := range packages.Package {
+        packages.EntityData.Children.Append(types.GetSegmentPath(packages.Package[i]), types.YChild{"Package", packages.Package[i]})
     }
-    packages.EntityData.Leafs = make(map[string]types.YLeaf)
+    packages.EntityData.Leafs = types.NewOrderedMap()
+
+    packages.EntityData.YListKeys = []string {}
+
     return &(packages.EntityData)
 }
 
@@ -712,17 +757,20 @@ func (self *Sam_Packages_Package) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "package"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "packages"
-    self.EntityData.SegmentPath = "package" + "[package-name='" + fmt.Sprintf("%v", self.PackageName) + "']"
+    self.EntityData.SegmentPath = "package" + types.AddKeyToken(self.PackageName, "package-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["certificate-flags"] = types.YChild{"CertificateFlags", &self.CertificateFlags}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["package-name"] = types.YLeaf{"PackageName", self.PackageName}
-    self.EntityData.Leafs["location"] = types.YLeaf{"Location", self.Location}
-    self.EntityData.Leafs["certificate-index"] = types.YLeaf{"CertificateIndex", self.CertificateIndex}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("certificate-flags", types.YChild{"CertificateFlags", &self.CertificateFlags})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("package-name", types.YLeaf{"PackageName", self.PackageName})
+    self.EntityData.Leafs.Append("location", types.YLeaf{"Location", self.Location})
+    self.EntityData.Leafs.Append("certificate-index", types.YLeaf{"CertificateIndex", self.CertificateIndex})
+
+    self.EntityData.YListKeys = []string {"PackageName"}
+
     return &(self.EntityData)
 }
 
@@ -755,12 +803,15 @@ func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetEntityData() *
     certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateFlags.EntityData.Children = make(map[string]types.YChild)
-    certificateFlags.EntityData.Leafs = make(map[string]types.YLeaf)
-    certificateFlags.EntityData.Leafs["is-trusted"] = types.YLeaf{"IsTrusted", certificateFlags.IsTrusted}
-    certificateFlags.EntityData.Leafs["is-revoked"] = types.YLeaf{"IsRevoked", certificateFlags.IsRevoked}
-    certificateFlags.EntityData.Leafs["is-expired"] = types.YLeaf{"IsExpired", certificateFlags.IsExpired}
-    certificateFlags.EntityData.Leafs["is-validated"] = types.YLeaf{"IsValidated", certificateFlags.IsValidated}
+    certificateFlags.EntityData.Children = types.NewOrderedMap()
+    certificateFlags.EntityData.Leafs = types.NewOrderedMap()
+    certificateFlags.EntityData.Leafs.Append("is-trusted", types.YLeaf{"IsTrusted", certificateFlags.IsTrusted})
+    certificateFlags.EntityData.Leafs.Append("is-revoked", types.YLeaf{"IsRevoked", certificateFlags.IsRevoked})
+    certificateFlags.EntityData.Leafs.Append("is-expired", types.YLeaf{"IsExpired", certificateFlags.IsExpired})
+    certificateFlags.EntityData.Leafs.Append("is-validated", types.YLeaf{"IsValidated", certificateFlags.IsValidated})
+
+    certificateFlags.EntityData.YListKeys = []string {}
+
     return &(certificateFlags.EntityData)
 }
 
@@ -773,7 +824,7 @@ type Sam_CertificateRevocations struct {
 
     // Certificate revocation list index information. The type is slice of
     // Sam_CertificateRevocations_CertificateRevocation.
-    CertificateRevocation []Sam_CertificateRevocations_CertificateRevocation
+    CertificateRevocation []*Sam_CertificateRevocations_CertificateRevocation
 }
 
 func (certificateRevocations *Sam_CertificateRevocations) GetEntityData() *types.CommonEntityData {
@@ -786,12 +837,15 @@ func (certificateRevocations *Sam_CertificateRevocations) GetEntityData() *types
     certificateRevocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateRevocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateRevocations.EntityData.Children = make(map[string]types.YChild)
-    certificateRevocations.EntityData.Children["certificate-revocation"] = types.YChild{"CertificateRevocation", nil}
+    certificateRevocations.EntityData.Children = types.NewOrderedMap()
+    certificateRevocations.EntityData.Children.Append("certificate-revocation", types.YChild{"CertificateRevocation", nil})
     for i := range certificateRevocations.CertificateRevocation {
-        certificateRevocations.EntityData.Children[types.GetSegmentPath(&certificateRevocations.CertificateRevocation[i])] = types.YChild{"CertificateRevocation", &certificateRevocations.CertificateRevocation[i]}
+        certificateRevocations.EntityData.Children.Append(types.GetSegmentPath(certificateRevocations.CertificateRevocation[i]), types.YChild{"CertificateRevocation", certificateRevocations.CertificateRevocation[i]})
     }
-    certificateRevocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateRevocations.EntityData.Leafs = types.NewOrderedMap()
+
+    certificateRevocations.EntityData.YListKeys = []string {}
+
     return &(certificateRevocations.EntityData)
 }
 
@@ -802,7 +856,7 @@ type Sam_CertificateRevocations_CertificateRevocation struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. CRL index. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     CrlIndex interface{}
 
     // Certificate revocation list detail information.
@@ -814,15 +868,18 @@ func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) G
     certificateRevocation.EntityData.YangName = "certificate-revocation"
     certificateRevocation.EntityData.BundleName = "cisco_ios_xr"
     certificateRevocation.EntityData.ParentYangName = "certificate-revocations"
-    certificateRevocation.EntityData.SegmentPath = "certificate-revocation" + "[crl-index='" + fmt.Sprintf("%v", certificateRevocation.CrlIndex) + "']"
+    certificateRevocation.EntityData.SegmentPath = "certificate-revocation" + types.AddKeyToken(certificateRevocation.CrlIndex, "crl-index")
     certificateRevocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateRevocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateRevocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateRevocation.EntityData.Children = make(map[string]types.YChild)
-    certificateRevocation.EntityData.Children["certificate-revocation-list-detail"] = types.YChild{"CertificateRevocationListDetail", &certificateRevocation.CertificateRevocationListDetail}
-    certificateRevocation.EntityData.Leafs = make(map[string]types.YLeaf)
-    certificateRevocation.EntityData.Leafs["crl-index"] = types.YLeaf{"CrlIndex", certificateRevocation.CrlIndex}
+    certificateRevocation.EntityData.Children = types.NewOrderedMap()
+    certificateRevocation.EntityData.Children.Append("certificate-revocation-list-detail", types.YChild{"CertificateRevocationListDetail", &certificateRevocation.CertificateRevocationListDetail})
+    certificateRevocation.EntityData.Leafs = types.NewOrderedMap()
+    certificateRevocation.EntityData.Leafs.Append("crl-index", types.YLeaf{"CrlIndex", certificateRevocation.CrlIndex})
+
+    certificateRevocation.EntityData.YListKeys = []string {"CrlIndex"}
+
     return &(certificateRevocation.EntityData)
 }
 
@@ -852,11 +909,14 @@ func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRev
     certificateRevocationListDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateRevocationListDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateRevocationListDetail.EntityData.Children = make(map[string]types.YChild)
-    certificateRevocationListDetail.EntityData.Children["issuer"] = types.YChild{"Issuer", &certificateRevocationListDetail.Issuer}
-    certificateRevocationListDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    certificateRevocationListDetail.EntityData.Leafs["crl-index"] = types.YLeaf{"CrlIndex", certificateRevocationListDetail.CrlIndex}
-    certificateRevocationListDetail.EntityData.Leafs["updates"] = types.YLeaf{"Updates", certificateRevocationListDetail.Updates}
+    certificateRevocationListDetail.EntityData.Children = types.NewOrderedMap()
+    certificateRevocationListDetail.EntityData.Children.Append("issuer", types.YChild{"Issuer", &certificateRevocationListDetail.Issuer})
+    certificateRevocationListDetail.EntityData.Leafs = types.NewOrderedMap()
+    certificateRevocationListDetail.EntityData.Leafs.Append("crl-index", types.YLeaf{"CrlIndex", certificateRevocationListDetail.CrlIndex})
+    certificateRevocationListDetail.EntityData.Leafs.Append("updates", types.YLeaf{"Updates", certificateRevocationListDetail.Updates})
+
+    certificateRevocationListDetail.EntityData.YListKeys = []string {}
+
     return &(certificateRevocationListDetail.EntityData)
 }
 
@@ -886,11 +946,14 @@ func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevoca
     issuer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    issuer.EntityData.Children = make(map[string]types.YChild)
-    issuer.EntityData.Leafs = make(map[string]types.YLeaf)
-    issuer.EntityData.Leafs["common-name"] = types.YLeaf{"CommonName", issuer.CommonName}
-    issuer.EntityData.Leafs["organization"] = types.YLeaf{"Organization", issuer.Organization}
-    issuer.EntityData.Leafs["country"] = types.YLeaf{"Country", issuer.Country}
+    issuer.EntityData.Children = types.NewOrderedMap()
+    issuer.EntityData.Leafs = types.NewOrderedMap()
+    issuer.EntityData.Leafs.Append("common-name", types.YLeaf{"CommonName", issuer.CommonName})
+    issuer.EntityData.Leafs.Append("organization", types.YLeaf{"Organization", issuer.Organization})
+    issuer.EntityData.Leafs.Append("country", types.YLeaf{"Country", issuer.Country})
+
+    issuer.EntityData.YListKeys = []string {}
+
     return &(issuer.EntityData)
 }
 
@@ -920,11 +983,14 @@ func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) Ge
     certificateRevocationListSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateRevocationListSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    certificateRevocationListSummary.EntityData.Children = make(map[string]types.YChild)
-    certificateRevocationListSummary.EntityData.Children["issuer"] = types.YChild{"Issuer", &certificateRevocationListSummary.Issuer}
-    certificateRevocationListSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    certificateRevocationListSummary.EntityData.Leafs["crl-index"] = types.YLeaf{"CrlIndex", certificateRevocationListSummary.CrlIndex}
-    certificateRevocationListSummary.EntityData.Leafs["updates"] = types.YLeaf{"Updates", certificateRevocationListSummary.Updates}
+    certificateRevocationListSummary.EntityData.Children = types.NewOrderedMap()
+    certificateRevocationListSummary.EntityData.Children.Append("issuer", types.YChild{"Issuer", &certificateRevocationListSummary.Issuer})
+    certificateRevocationListSummary.EntityData.Leafs = types.NewOrderedMap()
+    certificateRevocationListSummary.EntityData.Leafs.Append("crl-index", types.YLeaf{"CrlIndex", certificateRevocationListSummary.CrlIndex})
+    certificateRevocationListSummary.EntityData.Leafs.Append("updates", types.YLeaf{"Updates", certificateRevocationListSummary.Updates})
+
+    certificateRevocationListSummary.EntityData.YListKeys = []string {}
+
     return &(certificateRevocationListSummary.EntityData)
 }
 
@@ -954,11 +1020,14 @@ func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetEntityData() *type
     issuer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    issuer.EntityData.Children = make(map[string]types.YChild)
-    issuer.EntityData.Leafs = make(map[string]types.YLeaf)
-    issuer.EntityData.Leafs["common-name"] = types.YLeaf{"CommonName", issuer.CommonName}
-    issuer.EntityData.Leafs["organization"] = types.YLeaf{"Organization", issuer.Organization}
-    issuer.EntityData.Leafs["country"] = types.YLeaf{"Country", issuer.Country}
+    issuer.EntityData.Children = types.NewOrderedMap()
+    issuer.EntityData.Leafs = types.NewOrderedMap()
+    issuer.EntityData.Leafs.Append("common-name", types.YLeaf{"CommonName", issuer.CommonName})
+    issuer.EntityData.Leafs.Append("organization", types.YLeaf{"Organization", issuer.Organization})
+    issuer.EntityData.Leafs.Append("country", types.YLeaf{"Country", issuer.Country})
+
+    issuer.EntityData.YListKeys = []string {}
+
     return &(issuer.EntityData)
 }
 

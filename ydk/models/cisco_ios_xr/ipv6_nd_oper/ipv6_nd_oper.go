@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery", reflect.TypeOf(Ipv6NodeDiscovery{}))
 }
 
-// Ipv6NdShVrFlags represents IPv6 ND VR Entry Flags Type 
-type Ipv6NdShVrFlags string
-
-const (
-    // None
-    Ipv6NdShVrFlags_no_flags Ipv6NdShVrFlags = "no-flags"
-
-    // Final RA
-    Ipv6NdShVrFlags_final_ra Ipv6NdShVrFlags = "final-ra"
-)
-
 // Ipv6NdShVrState represents IPv6 ND VR Entry State Type 
 type Ipv6NdShVrState string
 
@@ -57,24 +46,10 @@ const (
     Ipv6NdBndlState_run Ipv6NdBndlState = "run"
 
     // Error state
-    Ipv6NdBndlState_error Ipv6NdBndlState = "error"
+    Ipv6NdBndlState_error_ Ipv6NdBndlState = "error"
 
     // Wait state
     Ipv6NdBndlState_wait Ipv6NdBndlState = "wait"
-)
-
-// Ipv6NdNeighborOrigin represents IPv6 ND Neighbor Origin Type
-type Ipv6NdNeighborOrigin string
-
-const (
-    // Other Address
-    Ipv6NdNeighborOrigin_other Ipv6NdNeighborOrigin = "other"
-
-    // Static Address
-    Ipv6NdNeighborOrigin_static Ipv6NdNeighborOrigin = "static"
-
-    // Dynamic Address
-    Ipv6NdNeighborOrigin_dynamic Ipv6NdNeighborOrigin = "dynamic"
 )
 
 // Ipv6NdMediaEncap represents IPv6 ND Media Encapsulation Type
@@ -121,6 +96,20 @@ const (
     Ipv6NdMediaEncap_gre Ipv6NdMediaEncap = "gre"
 )
 
+// Ipv6NdNeighborOrigin represents IPv6 ND Neighbor Origin Type
+type Ipv6NdNeighborOrigin string
+
+const (
+    // Other Address
+    Ipv6NdNeighborOrigin_other Ipv6NdNeighborOrigin = "other"
+
+    // Static Address
+    Ipv6NdNeighborOrigin_static Ipv6NdNeighborOrigin = "static"
+
+    // Dynamic Address
+    Ipv6NdNeighborOrigin_dynamic Ipv6NdNeighborOrigin = "dynamic"
+)
+
 // Ipv6NdShState represents IPv6 ND Neighbor Reachability State
 type Ipv6NdShState string
 
@@ -144,7 +133,18 @@ const (
     Ipv6NdShState_probe Ipv6NdShState = "probe"
 
     // Delete
-    Ipv6NdShState_delete Ipv6NdShState = "delete"
+    Ipv6NdShState_delete_ Ipv6NdShState = "delete"
+)
+
+// Ipv6NdShVrFlags represents IPv6 ND VR Entry Flags Type 
+type Ipv6NdShVrFlags string
+
+const (
+    // None
+    Ipv6NdShVrFlags_no_flags Ipv6NdShVrFlags = "no-flags"
+
+    // Final RA
+    Ipv6NdShVrFlags_final_ra Ipv6NdShVrFlags = "final-ra"
 )
 
 // Ipv6NodeDiscovery
@@ -167,9 +167,12 @@ func (ipv6NodeDiscovery *Ipv6NodeDiscovery) GetEntityData() *types.CommonEntityD
     ipv6NodeDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6NodeDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6NodeDiscovery.EntityData.Children = make(map[string]types.YChild)
-    ipv6NodeDiscovery.EntityData.Children["nodes"] = types.YChild{"Nodes", &ipv6NodeDiscovery.Nodes}
-    ipv6NodeDiscovery.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6NodeDiscovery.EntityData.Children = types.NewOrderedMap()
+    ipv6NodeDiscovery.EntityData.Children.Append("nodes", types.YChild{"Nodes", &ipv6NodeDiscovery.Nodes})
+    ipv6NodeDiscovery.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6NodeDiscovery.EntityData.YListKeys = []string {}
+
     return &(ipv6NodeDiscovery.EntityData)
 }
 
@@ -181,7 +184,7 @@ type Ipv6NodeDiscovery_Nodes struct {
 
     // IPv6 node discovery operational data for a particular node. The type is
     // slice of Ipv6NodeDiscovery_Nodes_Node.
-    Node []Ipv6NodeDiscovery_Nodes_Node
+    Node []*Ipv6NodeDiscovery_Nodes_Node
 }
 
 func (nodes *Ipv6NodeDiscovery_Nodes) GetEntityData() *types.CommonEntityData {
@@ -194,12 +197,15 @@ func (nodes *Ipv6NodeDiscovery_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -211,7 +217,7 @@ type Ipv6NodeDiscovery_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // IPv6 node discovery list of neighbor interfaces.
@@ -241,21 +247,24 @@ func (node *Ipv6NodeDiscovery_Nodes_Node) GetEntityData() *types.CommonEntityDat
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["neighbor-interfaces"] = types.YChild{"NeighborInterfaces", &node.NeighborInterfaces}
-    node.EntityData.Children["neighbor-summary"] = types.YChild{"NeighborSummary", &node.NeighborSummary}
-    node.EntityData.Children["bundle-nodes"] = types.YChild{"BundleNodes", &node.BundleNodes}
-    node.EntityData.Children["bundle-interfaces"] = types.YChild{"BundleInterfaces", &node.BundleInterfaces}
-    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
-    node.EntityData.Children["nd-virtual-routers"] = types.YChild{"NdVirtualRouters", &node.NdVirtualRouters}
-    node.EntityData.Children["slaac-interfaces"] = types.YChild{"SlaacInterfaces", &node.SlaacInterfaces}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("neighbor-interfaces", types.YChild{"NeighborInterfaces", &node.NeighborInterfaces})
+    node.EntityData.Children.Append("neighbor-summary", types.YChild{"NeighborSummary", &node.NeighborSummary})
+    node.EntityData.Children.Append("bundle-nodes", types.YChild{"BundleNodes", &node.BundleNodes})
+    node.EntityData.Children.Append("bundle-interfaces", types.YChild{"BundleInterfaces", &node.BundleInterfaces})
+    node.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &node.Interfaces})
+    node.EntityData.Children.Append("nd-virtual-routers", types.YChild{"NdVirtualRouters", &node.NdVirtualRouters})
+    node.EntityData.Children.Append("slaac-interfaces", types.YChild{"SlaacInterfaces", &node.SlaacInterfaces})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -268,7 +277,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces struct {
 
     // IPv6 node discovery neighbor interface. The type is slice of
     // Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface.
-    NeighborInterface []Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface
+    NeighborInterface []*Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface
 }
 
 func (neighborInterfaces *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces) GetEntityData() *types.CommonEntityData {
@@ -281,12 +290,15 @@ func (neighborInterfaces *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces) GetEn
     neighborInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborInterfaces.EntityData.Children = make(map[string]types.YChild)
-    neighborInterfaces.EntityData.Children["neighbor-interface"] = types.YChild{"NeighborInterface", nil}
+    neighborInterfaces.EntityData.Children = types.NewOrderedMap()
+    neighborInterfaces.EntityData.Children.Append("neighbor-interface", types.YChild{"NeighborInterface", nil})
     for i := range neighborInterfaces.NeighborInterface {
-        neighborInterfaces.EntityData.Children[types.GetSegmentPath(&neighborInterfaces.NeighborInterface[i])] = types.YChild{"NeighborInterface", &neighborInterfaces.NeighborInterface[i]}
+        neighborInterfaces.EntityData.Children.Append(types.GetSegmentPath(neighborInterfaces.NeighborInterface[i]), types.YChild{"NeighborInterface", neighborInterfaces.NeighborInterface[i]})
     }
-    neighborInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighborInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    neighborInterfaces.EntityData.YListKeys = []string {}
+
     return &(neighborInterfaces.EntityData)
 }
 
@@ -297,7 +309,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // IPv6 node discovery list of neighbor host addresses.
@@ -309,15 +321,18 @@ func (neighborInterface *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_Neighbo
     neighborInterface.EntityData.YangName = "neighbor-interface"
     neighborInterface.EntityData.BundleName = "cisco_ios_xr"
     neighborInterface.EntityData.ParentYangName = "neighbor-interfaces"
-    neighborInterface.EntityData.SegmentPath = "neighbor-interface" + "[interface-name='" + fmt.Sprintf("%v", neighborInterface.InterfaceName) + "']"
+    neighborInterface.EntityData.SegmentPath = "neighbor-interface" + types.AddKeyToken(neighborInterface.InterfaceName, "interface-name")
     neighborInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborInterface.EntityData.Children = make(map[string]types.YChild)
-    neighborInterface.EntityData.Children["host-addresses"] = types.YChild{"HostAddresses", &neighborInterface.HostAddresses}
-    neighborInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", neighborInterface.InterfaceName}
+    neighborInterface.EntityData.Children = types.NewOrderedMap()
+    neighborInterface.EntityData.Children.Append("host-addresses", types.YChild{"HostAddresses", &neighborInterface.HostAddresses})
+    neighborInterface.EntityData.Leafs = types.NewOrderedMap()
+    neighborInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborInterface.InterfaceName})
+
+    neighborInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(neighborInterface.EntityData)
 }
 
@@ -330,7 +345,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddre
 
     // IPv6 Neighbor detailed information. The type is slice of
     // Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddresses_HostAddress.
-    HostAddress []Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddresses_HostAddress
+    HostAddress []*Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddresses_HostAddress
 }
 
 func (hostAddresses *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddresses) GetEntityData() *types.CommonEntityData {
@@ -343,12 +358,15 @@ func (hostAddresses *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInt
     hostAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostAddresses.EntityData.Children = make(map[string]types.YChild)
-    hostAddresses.EntityData.Children["host-address"] = types.YChild{"HostAddress", nil}
+    hostAddresses.EntityData.Children = types.NewOrderedMap()
+    hostAddresses.EntityData.Children.Append("host-address", types.YChild{"HostAddress", nil})
     for i := range hostAddresses.HostAddress {
-        hostAddresses.EntityData.Children[types.GetSegmentPath(&hostAddresses.HostAddress[i])] = types.YChild{"HostAddress", &hostAddresses.HostAddress[i]}
+        hostAddresses.EntityData.Children.Append(types.GetSegmentPath(hostAddresses.HostAddress[i]), types.YChild{"HostAddress", hostAddresses.HostAddress[i]})
     }
-    hostAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    hostAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    hostAddresses.EntityData.YListKeys = []string {}
+
     return &(hostAddresses.EntityData)
 }
 
@@ -359,14 +377,14 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Host Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     HostAddress interface{}
 
     // Current state. The type is Ipv6NdShState.
     ReachabilityState interface{}
 
     // Link-Layer Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     LinkLayerAddress interface{}
 
     // Preferred media encap type. The type is Ipv6NdMediaEncap.
@@ -382,7 +400,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddre
     InterfaceName interface{}
 
     // Location where the neighbor entry exists. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // IsRouter. The type is bool.
@@ -404,25 +422,28 @@ func (hostAddress *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInter
     hostAddress.EntityData.YangName = "host-address"
     hostAddress.EntityData.BundleName = "cisco_ios_xr"
     hostAddress.EntityData.ParentYangName = "host-addresses"
-    hostAddress.EntityData.SegmentPath = "host-address" + "[host-address='" + fmt.Sprintf("%v", hostAddress.HostAddress) + "']"
+    hostAddress.EntityData.SegmentPath = "host-address" + types.AddKeyToken(hostAddress.HostAddress, "host-address")
     hostAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hostAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostAddress.EntityData.Children = make(map[string]types.YChild)
-    hostAddress.EntityData.Children["last-reached-time"] = types.YChild{"LastReachedTime", &hostAddress.LastReachedTime}
-    hostAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostAddress.EntityData.Leafs["host-address"] = types.YLeaf{"HostAddress", hostAddress.HostAddress}
-    hostAddress.EntityData.Leafs["reachability-state"] = types.YLeaf{"ReachabilityState", hostAddress.ReachabilityState}
-    hostAddress.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", hostAddress.LinkLayerAddress}
-    hostAddress.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", hostAddress.Encapsulation}
-    hostAddress.EntityData.Leafs["selected-encapsulation"] = types.YLeaf{"SelectedEncapsulation", hostAddress.SelectedEncapsulation}
-    hostAddress.EntityData.Leafs["origin-encapsulation"] = types.YLeaf{"OriginEncapsulation", hostAddress.OriginEncapsulation}
-    hostAddress.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", hostAddress.InterfaceName}
-    hostAddress.EntityData.Leafs["location"] = types.YLeaf{"Location", hostAddress.Location}
-    hostAddress.EntityData.Leafs["is-router"] = types.YLeaf{"IsRouter", hostAddress.IsRouter}
-    hostAddress.EntityData.Leafs["serg-flags"] = types.YLeaf{"SergFlags", hostAddress.SergFlags}
-    hostAddress.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", hostAddress.Vrfid}
+    hostAddress.EntityData.Children = types.NewOrderedMap()
+    hostAddress.EntityData.Children.Append("last-reached-time", types.YChild{"LastReachedTime", &hostAddress.LastReachedTime})
+    hostAddress.EntityData.Leafs = types.NewOrderedMap()
+    hostAddress.EntityData.Leafs.Append("host-address", types.YLeaf{"HostAddress", hostAddress.HostAddress})
+    hostAddress.EntityData.Leafs.Append("reachability-state", types.YLeaf{"ReachabilityState", hostAddress.ReachabilityState})
+    hostAddress.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", hostAddress.LinkLayerAddress})
+    hostAddress.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", hostAddress.Encapsulation})
+    hostAddress.EntityData.Leafs.Append("selected-encapsulation", types.YLeaf{"SelectedEncapsulation", hostAddress.SelectedEncapsulation})
+    hostAddress.EntityData.Leafs.Append("origin-encapsulation", types.YLeaf{"OriginEncapsulation", hostAddress.OriginEncapsulation})
+    hostAddress.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", hostAddress.InterfaceName})
+    hostAddress.EntityData.Leafs.Append("location", types.YLeaf{"Location", hostAddress.Location})
+    hostAddress.EntityData.Leafs.Append("is-router", types.YLeaf{"IsRouter", hostAddress.IsRouter})
+    hostAddress.EntityData.Leafs.Append("serg-flags", types.YLeaf{"SergFlags", hostAddress.SergFlags})
+    hostAddress.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", hostAddress.Vrfid})
+
+    hostAddress.EntityData.YListKeys = []string {"HostAddress"}
+
     return &(hostAddress.EntityData)
 }
 
@@ -447,9 +468,12 @@ func (lastReachedTime *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborI
     lastReachedTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastReachedTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastReachedTime.EntityData.Children = make(map[string]types.YChild)
-    lastReachedTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastReachedTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastReachedTime.Seconds}
+    lastReachedTime.EntityData.Children = types.NewOrderedMap()
+    lastReachedTime.EntityData.Leafs = types.NewOrderedMap()
+    lastReachedTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastReachedTime.Seconds})
+
+    lastReachedTime.EntityData.YListKeys = []string {}
+
     return &(lastReachedTime.EntityData)
 }
 
@@ -482,12 +506,15 @@ func (neighborSummary *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary) GetEntityDa
     neighborSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborSummary.EntityData.Children = make(map[string]types.YChild)
-    neighborSummary.EntityData.Children["multicast"] = types.YChild{"Multicast", &neighborSummary.Multicast}
-    neighborSummary.EntityData.Children["static"] = types.YChild{"Static", &neighborSummary.Static}
-    neighborSummary.EntityData.Children["dynamic"] = types.YChild{"Dynamic", &neighborSummary.Dynamic}
-    neighborSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborSummary.EntityData.Leafs["total-neighbor-entries"] = types.YLeaf{"TotalNeighborEntries", neighborSummary.TotalNeighborEntries}
+    neighborSummary.EntityData.Children = types.NewOrderedMap()
+    neighborSummary.EntityData.Children.Append("multicast", types.YChild{"Multicast", &neighborSummary.Multicast})
+    neighborSummary.EntityData.Children.Append("static", types.YChild{"Static", &neighborSummary.Static})
+    neighborSummary.EntityData.Children.Append("dynamic", types.YChild{"Dynamic", &neighborSummary.Dynamic})
+    neighborSummary.EntityData.Leafs = types.NewOrderedMap()
+    neighborSummary.EntityData.Leafs.Append("total-neighbor-entries", types.YLeaf{"TotalNeighborEntries", neighborSummary.TotalNeighborEntries})
+
+    neighborSummary.EntityData.YListKeys = []string {}
+
     return &(neighborSummary.EntityData)
 }
 
@@ -530,15 +557,18 @@ func (multicast *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Multicast) GetEnti
     multicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    multicast.EntityData.Children = make(map[string]types.YChild)
-    multicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    multicast.EntityData.Leafs["incomplete-entries"] = types.YLeaf{"IncompleteEntries", multicast.IncompleteEntries}
-    multicast.EntityData.Leafs["reachable-entries"] = types.YLeaf{"ReachableEntries", multicast.ReachableEntries}
-    multicast.EntityData.Leafs["stale-entries"] = types.YLeaf{"StaleEntries", multicast.StaleEntries}
-    multicast.EntityData.Leafs["delayed-entries"] = types.YLeaf{"DelayedEntries", multicast.DelayedEntries}
-    multicast.EntityData.Leafs["probe-entries"] = types.YLeaf{"ProbeEntries", multicast.ProbeEntries}
-    multicast.EntityData.Leafs["deleted-entries"] = types.YLeaf{"DeletedEntries", multicast.DeletedEntries}
-    multicast.EntityData.Leafs["subtotal-neighbor-entries"] = types.YLeaf{"SubtotalNeighborEntries", multicast.SubtotalNeighborEntries}
+    multicast.EntityData.Children = types.NewOrderedMap()
+    multicast.EntityData.Leafs = types.NewOrderedMap()
+    multicast.EntityData.Leafs.Append("incomplete-entries", types.YLeaf{"IncompleteEntries", multicast.IncompleteEntries})
+    multicast.EntityData.Leafs.Append("reachable-entries", types.YLeaf{"ReachableEntries", multicast.ReachableEntries})
+    multicast.EntityData.Leafs.Append("stale-entries", types.YLeaf{"StaleEntries", multicast.StaleEntries})
+    multicast.EntityData.Leafs.Append("delayed-entries", types.YLeaf{"DelayedEntries", multicast.DelayedEntries})
+    multicast.EntityData.Leafs.Append("probe-entries", types.YLeaf{"ProbeEntries", multicast.ProbeEntries})
+    multicast.EntityData.Leafs.Append("deleted-entries", types.YLeaf{"DeletedEntries", multicast.DeletedEntries})
+    multicast.EntityData.Leafs.Append("subtotal-neighbor-entries", types.YLeaf{"SubtotalNeighborEntries", multicast.SubtotalNeighborEntries})
+
+    multicast.EntityData.YListKeys = []string {}
+
     return &(multicast.EntityData)
 }
 
@@ -581,15 +611,18 @@ func (static *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Static) GetEntityData
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    static.EntityData.Children = make(map[string]types.YChild)
-    static.EntityData.Leafs = make(map[string]types.YLeaf)
-    static.EntityData.Leafs["incomplete-entries"] = types.YLeaf{"IncompleteEntries", static.IncompleteEntries}
-    static.EntityData.Leafs["reachable-entries"] = types.YLeaf{"ReachableEntries", static.ReachableEntries}
-    static.EntityData.Leafs["stale-entries"] = types.YLeaf{"StaleEntries", static.StaleEntries}
-    static.EntityData.Leafs["delayed-entries"] = types.YLeaf{"DelayedEntries", static.DelayedEntries}
-    static.EntityData.Leafs["probe-entries"] = types.YLeaf{"ProbeEntries", static.ProbeEntries}
-    static.EntityData.Leafs["deleted-entries"] = types.YLeaf{"DeletedEntries", static.DeletedEntries}
-    static.EntityData.Leafs["subtotal-neighbor-entries"] = types.YLeaf{"SubtotalNeighborEntries", static.SubtotalNeighborEntries}
+    static.EntityData.Children = types.NewOrderedMap()
+    static.EntityData.Leafs = types.NewOrderedMap()
+    static.EntityData.Leafs.Append("incomplete-entries", types.YLeaf{"IncompleteEntries", static.IncompleteEntries})
+    static.EntityData.Leafs.Append("reachable-entries", types.YLeaf{"ReachableEntries", static.ReachableEntries})
+    static.EntityData.Leafs.Append("stale-entries", types.YLeaf{"StaleEntries", static.StaleEntries})
+    static.EntityData.Leafs.Append("delayed-entries", types.YLeaf{"DelayedEntries", static.DelayedEntries})
+    static.EntityData.Leafs.Append("probe-entries", types.YLeaf{"ProbeEntries", static.ProbeEntries})
+    static.EntityData.Leafs.Append("deleted-entries", types.YLeaf{"DeletedEntries", static.DeletedEntries})
+    static.EntityData.Leafs.Append("subtotal-neighbor-entries", types.YLeaf{"SubtotalNeighborEntries", static.SubtotalNeighborEntries})
+
+    static.EntityData.YListKeys = []string {}
+
     return &(static.EntityData)
 }
 
@@ -632,15 +665,18 @@ func (dynamic *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Dynamic) GetEntityDa
     dynamic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dynamic.EntityData.Children = make(map[string]types.YChild)
-    dynamic.EntityData.Leafs = make(map[string]types.YLeaf)
-    dynamic.EntityData.Leafs["incomplete-entries"] = types.YLeaf{"IncompleteEntries", dynamic.IncompleteEntries}
-    dynamic.EntityData.Leafs["reachable-entries"] = types.YLeaf{"ReachableEntries", dynamic.ReachableEntries}
-    dynamic.EntityData.Leafs["stale-entries"] = types.YLeaf{"StaleEntries", dynamic.StaleEntries}
-    dynamic.EntityData.Leafs["delayed-entries"] = types.YLeaf{"DelayedEntries", dynamic.DelayedEntries}
-    dynamic.EntityData.Leafs["probe-entries"] = types.YLeaf{"ProbeEntries", dynamic.ProbeEntries}
-    dynamic.EntityData.Leafs["deleted-entries"] = types.YLeaf{"DeletedEntries", dynamic.DeletedEntries}
-    dynamic.EntityData.Leafs["subtotal-neighbor-entries"] = types.YLeaf{"SubtotalNeighborEntries", dynamic.SubtotalNeighborEntries}
+    dynamic.EntityData.Children = types.NewOrderedMap()
+    dynamic.EntityData.Leafs = types.NewOrderedMap()
+    dynamic.EntityData.Leafs.Append("incomplete-entries", types.YLeaf{"IncompleteEntries", dynamic.IncompleteEntries})
+    dynamic.EntityData.Leafs.Append("reachable-entries", types.YLeaf{"ReachableEntries", dynamic.ReachableEntries})
+    dynamic.EntityData.Leafs.Append("stale-entries", types.YLeaf{"StaleEntries", dynamic.StaleEntries})
+    dynamic.EntityData.Leafs.Append("delayed-entries", types.YLeaf{"DelayedEntries", dynamic.DelayedEntries})
+    dynamic.EntityData.Leafs.Append("probe-entries", types.YLeaf{"ProbeEntries", dynamic.ProbeEntries})
+    dynamic.EntityData.Leafs.Append("deleted-entries", types.YLeaf{"DeletedEntries", dynamic.DeletedEntries})
+    dynamic.EntityData.Leafs.Append("subtotal-neighbor-entries", types.YLeaf{"SubtotalNeighborEntries", dynamic.SubtotalNeighborEntries})
+
+    dynamic.EntityData.YListKeys = []string {}
+
     return &(dynamic.EntityData)
 }
 
@@ -653,7 +689,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleNodes struct {
 
     // IPv6 ND operational data for a specific bundle node. The type is slice of
     // Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode.
-    BundleNode []Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode
+    BundleNode []*Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode
 }
 
 func (bundleNodes *Ipv6NodeDiscovery_Nodes_Node_BundleNodes) GetEntityData() *types.CommonEntityData {
@@ -666,12 +702,15 @@ func (bundleNodes *Ipv6NodeDiscovery_Nodes_Node_BundleNodes) GetEntityData() *ty
     bundleNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleNodes.EntityData.Children = make(map[string]types.YChild)
-    bundleNodes.EntityData.Children["bundle-node"] = types.YChild{"BundleNode", nil}
+    bundleNodes.EntityData.Children = types.NewOrderedMap()
+    bundleNodes.EntityData.Children.Append("bundle-node", types.YChild{"BundleNode", nil})
     for i := range bundleNodes.BundleNode {
-        bundleNodes.EntityData.Children[types.GetSegmentPath(&bundleNodes.BundleNode[i])] = types.YChild{"BundleNode", &bundleNodes.BundleNode[i]}
+        bundleNodes.EntityData.Children.Append(types.GetSegmentPath(bundleNodes.BundleNode[i]), types.YChild{"BundleNode", bundleNodes.BundleNode[i]})
     }
-    bundleNodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    bundleNodes.EntityData.Leafs = types.NewOrderedMap()
+
+    bundleNodes.EntityData.YListKeys = []string {}
+
     return &(bundleNodes.EntityData)
 }
 
@@ -683,7 +722,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The bundle node name. The type is string with
-    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -719,23 +758,26 @@ func (bundleNode *Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode) GetEntity
     bundleNode.EntityData.YangName = "bundle-node"
     bundleNode.EntityData.BundleName = "cisco_ios_xr"
     bundleNode.EntityData.ParentYangName = "bundle-nodes"
-    bundleNode.EntityData.SegmentPath = "bundle-node" + "[node-name='" + fmt.Sprintf("%v", bundleNode.NodeName) + "']"
+    bundleNode.EntityData.SegmentPath = "bundle-node" + types.AddKeyToken(bundleNode.NodeName, "node-name")
     bundleNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleNode.EntityData.Children = make(map[string]types.YChild)
-    bundleNode.EntityData.Children["age"] = types.YChild{"Age", &bundleNode.Age}
-    bundleNode.EntityData.Leafs = make(map[string]types.YLeaf)
-    bundleNode.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", bundleNode.NodeName}
-    bundleNode.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", bundleNode.GroupId}
-    bundleNode.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", bundleNode.ProcessName}
-    bundleNode.EntityData.Leafs["sent-sequence-number"] = types.YLeaf{"SentSequenceNumber", bundleNode.SentSequenceNumber}
-    bundleNode.EntityData.Leafs["received-sequence-number"] = types.YLeaf{"ReceivedSequenceNumber", bundleNode.ReceivedSequenceNumber}
-    bundleNode.EntityData.Leafs["state"] = types.YLeaf{"State", bundleNode.State}
-    bundleNode.EntityData.Leafs["state-changes"] = types.YLeaf{"StateChanges", bundleNode.StateChanges}
-    bundleNode.EntityData.Leafs["sent-packets"] = types.YLeaf{"SentPackets", bundleNode.SentPackets}
-    bundleNode.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", bundleNode.ReceivedPackets}
+    bundleNode.EntityData.Children = types.NewOrderedMap()
+    bundleNode.EntityData.Children.Append("age", types.YChild{"Age", &bundleNode.Age})
+    bundleNode.EntityData.Leafs = types.NewOrderedMap()
+    bundleNode.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", bundleNode.NodeName})
+    bundleNode.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", bundleNode.GroupId})
+    bundleNode.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", bundleNode.ProcessName})
+    bundleNode.EntityData.Leafs.Append("sent-sequence-number", types.YLeaf{"SentSequenceNumber", bundleNode.SentSequenceNumber})
+    bundleNode.EntityData.Leafs.Append("received-sequence-number", types.YLeaf{"ReceivedSequenceNumber", bundleNode.ReceivedSequenceNumber})
+    bundleNode.EntityData.Leafs.Append("state", types.YLeaf{"State", bundleNode.State})
+    bundleNode.EntityData.Leafs.Append("state-changes", types.YLeaf{"StateChanges", bundleNode.StateChanges})
+    bundleNode.EntityData.Leafs.Append("sent-packets", types.YLeaf{"SentPackets", bundleNode.SentPackets})
+    bundleNode.EntityData.Leafs.Append("received-packets", types.YLeaf{"ReceivedPackets", bundleNode.ReceivedPackets})
+
+    bundleNode.EntityData.YListKeys = []string {"NodeName"}
+
     return &(bundleNode.EntityData)
 }
 
@@ -760,9 +802,12 @@ func (age *Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode_Age) GetEntityDat
     age.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     age.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    age.EntityData.Children = make(map[string]types.YChild)
-    age.EntityData.Leafs = make(map[string]types.YLeaf)
-    age.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", age.Seconds}
+    age.EntityData.Children = types.NewOrderedMap()
+    age.EntityData.Leafs = types.NewOrderedMap()
+    age.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", age.Seconds})
+
+    age.EntityData.YListKeys = []string {}
+
     return &(age.EntityData)
 }
 
@@ -775,7 +820,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces struct {
 
     // IPv6 ND operational data for a specific bundler interface. The type is
     // slice of Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface.
-    BundleInterface []Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface
+    BundleInterface []*Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface
 }
 
 func (bundleInterfaces *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces) GetEntityData() *types.CommonEntityData {
@@ -788,12 +833,15 @@ func (bundleInterfaces *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces) GetEntity
     bundleInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleInterfaces.EntityData.Children = make(map[string]types.YChild)
-    bundleInterfaces.EntityData.Children["bundle-interface"] = types.YChild{"BundleInterface", nil}
+    bundleInterfaces.EntityData.Children = types.NewOrderedMap()
+    bundleInterfaces.EntityData.Children.Append("bundle-interface", types.YChild{"BundleInterface", nil})
     for i := range bundleInterfaces.BundleInterface {
-        bundleInterfaces.EntityData.Children[types.GetSegmentPath(&bundleInterfaces.BundleInterface[i])] = types.YChild{"BundleInterface", &bundleInterfaces.BundleInterface[i]}
+        bundleInterfaces.EntityData.Children.Append(types.GetSegmentPath(bundleInterfaces.BundleInterface[i]), types.YChild{"BundleInterface", bundleInterfaces.BundleInterface[i]})
     }
-    bundleInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    bundleInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    bundleInterfaces.EntityData.YListKeys = []string {}
+
     return &(bundleInterfaces.EntityData)
 }
 
@@ -805,10 +853,10 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // Parent interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Parent interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     ParentInterfaceName interface{}
 
     // Interface type. The type is interface{} with range: 0..4294967295.
@@ -827,7 +875,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface struct {
     MacAddrSize interface{}
 
     // mac address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // If true, interface is enabled. The type is bool.
@@ -851,11 +899,11 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface struct {
 
     // List of ND global addresses. The type is slice of
     // Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress.
-    GlobalAddress []Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress
+    GlobalAddress []*Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress
 
     // List of member nodes. The type is slice of
     // Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_MemberNode.
-    MemberNode []Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_MemberNode
+    MemberNode []*Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_MemberNode
 }
 
 func (bundleInterface *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface) GetEntityData() *types.CommonEntityData {
@@ -863,35 +911,38 @@ func (bundleInterface *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInter
     bundleInterface.EntityData.YangName = "bundle-interface"
     bundleInterface.EntityData.BundleName = "cisco_ios_xr"
     bundleInterface.EntityData.ParentYangName = "bundle-interfaces"
-    bundleInterface.EntityData.SegmentPath = "bundle-interface" + "[interface-name='" + fmt.Sprintf("%v", bundleInterface.InterfaceName) + "']"
+    bundleInterface.EntityData.SegmentPath = "bundle-interface" + types.AddKeyToken(bundleInterface.InterfaceName, "interface-name")
     bundleInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bundleInterface.EntityData.Children = make(map[string]types.YChild)
-    bundleInterface.EntityData.Children["nd-parameters"] = types.YChild{"NdParameters", &bundleInterface.NdParameters}
-    bundleInterface.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &bundleInterface.LocalAddress}
-    bundleInterface.EntityData.Children["global-address"] = types.YChild{"GlobalAddress", nil}
+    bundleInterface.EntityData.Children = types.NewOrderedMap()
+    bundleInterface.EntityData.Children.Append("nd-parameters", types.YChild{"NdParameters", &bundleInterface.NdParameters})
+    bundleInterface.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &bundleInterface.LocalAddress})
+    bundleInterface.EntityData.Children.Append("global-address", types.YChild{"GlobalAddress", nil})
     for i := range bundleInterface.GlobalAddress {
-        bundleInterface.EntityData.Children[types.GetSegmentPath(&bundleInterface.GlobalAddress[i])] = types.YChild{"GlobalAddress", &bundleInterface.GlobalAddress[i]}
+        bundleInterface.EntityData.Children.Append(types.GetSegmentPath(bundleInterface.GlobalAddress[i]), types.YChild{"GlobalAddress", bundleInterface.GlobalAddress[i]})
     }
-    bundleInterface.EntityData.Children["member-node"] = types.YChild{"MemberNode", nil}
+    bundleInterface.EntityData.Children.Append("member-node", types.YChild{"MemberNode", nil})
     for i := range bundleInterface.MemberNode {
-        bundleInterface.EntityData.Children[types.GetSegmentPath(&bundleInterface.MemberNode[i])] = types.YChild{"MemberNode", &bundleInterface.MemberNode[i]}
+        bundleInterface.EntityData.Children.Append(types.GetSegmentPath(bundleInterface.MemberNode[i]), types.YChild{"MemberNode", bundleInterface.MemberNode[i]})
     }
-    bundleInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    bundleInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bundleInterface.InterfaceName}
-    bundleInterface.EntityData.Leafs["parent-interface-name"] = types.YLeaf{"ParentInterfaceName", bundleInterface.ParentInterfaceName}
-    bundleInterface.EntityData.Leafs["iftype"] = types.YLeaf{"Iftype", bundleInterface.Iftype}
-    bundleInterface.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", bundleInterface.Mtu}
-    bundleInterface.EntityData.Leafs["etype"] = types.YLeaf{"Etype", bundleInterface.Etype}
-    bundleInterface.EntityData.Leafs["vlan-tag"] = types.YLeaf{"VlanTag", bundleInterface.VlanTag}
-    bundleInterface.EntityData.Leafs["mac-addr-size"] = types.YLeaf{"MacAddrSize", bundleInterface.MacAddrSize}
-    bundleInterface.EntityData.Leafs["mac-addr"] = types.YLeaf{"MacAddr", bundleInterface.MacAddr}
-    bundleInterface.EntityData.Leafs["is-interface-enabled"] = types.YLeaf{"IsInterfaceEnabled", bundleInterface.IsInterfaceEnabled}
-    bundleInterface.EntityData.Leafs["is-ipv6-enabled"] = types.YLeaf{"IsIpv6Enabled", bundleInterface.IsIpv6Enabled}
-    bundleInterface.EntityData.Leafs["is-mpls-enabled"] = types.YLeaf{"IsMplsEnabled", bundleInterface.IsMplsEnabled}
-    bundleInterface.EntityData.Leafs["member-link"] = types.YLeaf{"MemberLink", bundleInterface.MemberLink}
+    bundleInterface.EntityData.Leafs = types.NewOrderedMap()
+    bundleInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bundleInterface.InterfaceName})
+    bundleInterface.EntityData.Leafs.Append("parent-interface-name", types.YLeaf{"ParentInterfaceName", bundleInterface.ParentInterfaceName})
+    bundleInterface.EntityData.Leafs.Append("iftype", types.YLeaf{"Iftype", bundleInterface.Iftype})
+    bundleInterface.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", bundleInterface.Mtu})
+    bundleInterface.EntityData.Leafs.Append("etype", types.YLeaf{"Etype", bundleInterface.Etype})
+    bundleInterface.EntityData.Leafs.Append("vlan-tag", types.YLeaf{"VlanTag", bundleInterface.VlanTag})
+    bundleInterface.EntityData.Leafs.Append("mac-addr-size", types.YLeaf{"MacAddrSize", bundleInterface.MacAddrSize})
+    bundleInterface.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", bundleInterface.MacAddr})
+    bundleInterface.EntityData.Leafs.Append("is-interface-enabled", types.YLeaf{"IsInterfaceEnabled", bundleInterface.IsInterfaceEnabled})
+    bundleInterface.EntityData.Leafs.Append("is-ipv6-enabled", types.YLeaf{"IsIpv6Enabled", bundleInterface.IsIpv6Enabled})
+    bundleInterface.EntityData.Leafs.Append("is-mpls-enabled", types.YLeaf{"IsMplsEnabled", bundleInterface.IsMplsEnabled})
+    bundleInterface.EntityData.Leafs.Append("member-link", types.YLeaf{"MemberLink", bundleInterface.MemberLink})
+
+    bundleInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(bundleInterface.EntityData)
 }
 
@@ -982,27 +1033,30 @@ func (ndParameters *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfac
     ndParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ndParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ndParameters.EntityData.Children = make(map[string]types.YChild)
-    ndParameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    ndParameters.EntityData.Leafs["is-dad-enabled"] = types.YLeaf{"IsDadEnabled", ndParameters.IsDadEnabled}
-    ndParameters.EntityData.Leafs["dad-attempts"] = types.YLeaf{"DadAttempts", ndParameters.DadAttempts}
-    ndParameters.EntityData.Leafs["is-icm-pv6-redirect"] = types.YLeaf{"IsIcmPv6Redirect", ndParameters.IsIcmPv6Redirect}
-    ndParameters.EntityData.Leafs["is-dhcp-managed"] = types.YLeaf{"IsDhcpManaged", ndParameters.IsDhcpManaged}
-    ndParameters.EntityData.Leafs["is-route-address-managed"] = types.YLeaf{"IsRouteAddressManaged", ndParameters.IsRouteAddressManaged}
-    ndParameters.EntityData.Leafs["is-suppressed"] = types.YLeaf{"IsSuppressed", ndParameters.IsSuppressed}
-    ndParameters.EntityData.Leafs["send-unicast-ra"] = types.YLeaf{"SendUnicastRa", ndParameters.SendUnicastRa}
-    ndParameters.EntityData.Leafs["nd-retransmit-interval"] = types.YLeaf{"NdRetransmitInterval", ndParameters.NdRetransmitInterval}
-    ndParameters.EntityData.Leafs["nd-min-transmit-interval"] = types.YLeaf{"NdMinTransmitInterval", ndParameters.NdMinTransmitInterval}
-    ndParameters.EntityData.Leafs["nd-max-transmit-interval"] = types.YLeaf{"NdMaxTransmitInterval", ndParameters.NdMaxTransmitInterval}
-    ndParameters.EntityData.Leafs["nd-advertisement-lifetime"] = types.YLeaf{"NdAdvertisementLifetime", ndParameters.NdAdvertisementLifetime}
-    ndParameters.EntityData.Leafs["nd-reachable-time"] = types.YLeaf{"NdReachableTime", ndParameters.NdReachableTime}
-    ndParameters.EntityData.Leafs["nd-cache-limit"] = types.YLeaf{"NdCacheLimit", ndParameters.NdCacheLimit}
-    ndParameters.EntityData.Leafs["complete-protocol-count"] = types.YLeaf{"CompleteProtocolCount", ndParameters.CompleteProtocolCount}
-    ndParameters.EntityData.Leafs["complete-glean-count"] = types.YLeaf{"CompleteGleanCount", ndParameters.CompleteGleanCount}
-    ndParameters.EntityData.Leafs["incomplete-protocol-count"] = types.YLeaf{"IncompleteProtocolCount", ndParameters.IncompleteProtocolCount}
-    ndParameters.EntityData.Leafs["incomplete-glean-count"] = types.YLeaf{"IncompleteGleanCount", ndParameters.IncompleteGleanCount}
-    ndParameters.EntityData.Leafs["dropped-protocol-req-count"] = types.YLeaf{"DroppedProtocolReqCount", ndParameters.DroppedProtocolReqCount}
-    ndParameters.EntityData.Leafs["dropped-glean-req-count"] = types.YLeaf{"DroppedGleanReqCount", ndParameters.DroppedGleanReqCount}
+    ndParameters.EntityData.Children = types.NewOrderedMap()
+    ndParameters.EntityData.Leafs = types.NewOrderedMap()
+    ndParameters.EntityData.Leafs.Append("is-dad-enabled", types.YLeaf{"IsDadEnabled", ndParameters.IsDadEnabled})
+    ndParameters.EntityData.Leafs.Append("dad-attempts", types.YLeaf{"DadAttempts", ndParameters.DadAttempts})
+    ndParameters.EntityData.Leafs.Append("is-icm-pv6-redirect", types.YLeaf{"IsIcmPv6Redirect", ndParameters.IsIcmPv6Redirect})
+    ndParameters.EntityData.Leafs.Append("is-dhcp-managed", types.YLeaf{"IsDhcpManaged", ndParameters.IsDhcpManaged})
+    ndParameters.EntityData.Leafs.Append("is-route-address-managed", types.YLeaf{"IsRouteAddressManaged", ndParameters.IsRouteAddressManaged})
+    ndParameters.EntityData.Leafs.Append("is-suppressed", types.YLeaf{"IsSuppressed", ndParameters.IsSuppressed})
+    ndParameters.EntityData.Leafs.Append("send-unicast-ra", types.YLeaf{"SendUnicastRa", ndParameters.SendUnicastRa})
+    ndParameters.EntityData.Leafs.Append("nd-retransmit-interval", types.YLeaf{"NdRetransmitInterval", ndParameters.NdRetransmitInterval})
+    ndParameters.EntityData.Leafs.Append("nd-min-transmit-interval", types.YLeaf{"NdMinTransmitInterval", ndParameters.NdMinTransmitInterval})
+    ndParameters.EntityData.Leafs.Append("nd-max-transmit-interval", types.YLeaf{"NdMaxTransmitInterval", ndParameters.NdMaxTransmitInterval})
+    ndParameters.EntityData.Leafs.Append("nd-advertisement-lifetime", types.YLeaf{"NdAdvertisementLifetime", ndParameters.NdAdvertisementLifetime})
+    ndParameters.EntityData.Leafs.Append("nd-reachable-time", types.YLeaf{"NdReachableTime", ndParameters.NdReachableTime})
+    ndParameters.EntityData.Leafs.Append("nd-cache-limit", types.YLeaf{"NdCacheLimit", ndParameters.NdCacheLimit})
+    ndParameters.EntityData.Leafs.Append("complete-protocol-count", types.YLeaf{"CompleteProtocolCount", ndParameters.CompleteProtocolCount})
+    ndParameters.EntityData.Leafs.Append("complete-glean-count", types.YLeaf{"CompleteGleanCount", ndParameters.CompleteGleanCount})
+    ndParameters.EntityData.Leafs.Append("incomplete-protocol-count", types.YLeaf{"IncompleteProtocolCount", ndParameters.IncompleteProtocolCount})
+    ndParameters.EntityData.Leafs.Append("incomplete-glean-count", types.YLeaf{"IncompleteGleanCount", ndParameters.IncompleteGleanCount})
+    ndParameters.EntityData.Leafs.Append("dropped-protocol-req-count", types.YLeaf{"DroppedProtocolReqCount", ndParameters.DroppedProtocolReqCount})
+    ndParameters.EntityData.Leafs.Append("dropped-glean-req-count", types.YLeaf{"DroppedGleanReqCount", ndParameters.DroppedGleanReqCount})
+
+    ndParameters.EntityData.YListKeys = []string {}
+
     return &(ndParameters.EntityData)
 }
 
@@ -1013,8 +1067,16 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_LocalAddress 
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
+
+    // Valid lifetime of a Prefix. The type is interface{} with range:
+    // 0..4294967295.
+    ValidLifetime interface{}
+
+    // Preffered lifetime of a Prefix. The type is interface{} with range:
+    // 0..4294967295.
+    PrefLifetime interface{}
 }
 
 func (localAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_LocalAddress) GetEntityData() *types.CommonEntityData {
@@ -1027,9 +1089,14 @@ func (localAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfac
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAddress.EntityData.Children = make(map[string]types.YChild)
-    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", localAddress.Ipv6Address}
+    localAddress.EntityData.Children = types.NewOrderedMap()
+    localAddress.EntityData.Leafs = types.NewOrderedMap()
+    localAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", localAddress.Ipv6Address})
+    localAddress.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", localAddress.ValidLifetime})
+    localAddress.EntityData.Leafs.Append("pref-lifetime", types.YLeaf{"PrefLifetime", localAddress.PrefLifetime})
+
+    localAddress.EntityData.YListKeys = []string {}
+
     return &(localAddress.EntityData)
 }
 
@@ -1040,8 +1107,16 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
+
+    // Valid lifetime of a Prefix. The type is interface{} with range:
+    // 0..4294967295.
+    ValidLifetime interface{}
+
+    // Preffered lifetime of a Prefix. The type is interface{} with range:
+    // 0..4294967295.
+    PrefLifetime interface{}
 }
 
 func (globalAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress) GetEntityData() *types.CommonEntityData {
@@ -1054,9 +1129,14 @@ func (globalAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfa
     globalAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalAddress.EntityData.Children = make(map[string]types.YChild)
-    globalAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", globalAddress.Ipv6Address}
+    globalAddress.EntityData.Children = types.NewOrderedMap()
+    globalAddress.EntityData.Leafs = types.NewOrderedMap()
+    globalAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", globalAddress.Ipv6Address})
+    globalAddress.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", globalAddress.ValidLifetime})
+    globalAddress.EntityData.Leafs.Append("pref-lifetime", types.YLeaf{"PrefLifetime", globalAddress.PrefLifetime})
+
+    globalAddress.EntityData.YListKeys = []string {}
+
     return &(globalAddress.EntityData)
 }
 
@@ -1067,7 +1147,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_MemberNode st
     YFilter yfilter.YFilter
 
     // Node Name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Number of links on the node. The type is interface{} with range:
@@ -1085,10 +1165,13 @@ func (memberNode *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_
     memberNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memberNode.EntityData.Children = make(map[string]types.YChild)
-    memberNode.EntityData.Leafs = make(map[string]types.YLeaf)
-    memberNode.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", memberNode.NodeName}
-    memberNode.EntityData.Leafs["total-links"] = types.YLeaf{"TotalLinks", memberNode.TotalLinks}
+    memberNode.EntityData.Children = types.NewOrderedMap()
+    memberNode.EntityData.Leafs = types.NewOrderedMap()
+    memberNode.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", memberNode.NodeName})
+    memberNode.EntityData.Leafs.Append("total-links", types.YLeaf{"TotalLinks", memberNode.TotalLinks})
+
+    memberNode.EntityData.YListKeys = []string {}
+
     return &(memberNode.EntityData)
 }
 
@@ -1100,8 +1183,8 @@ type Ipv6NodeDiscovery_Nodes_Node_Interfaces struct {
     YFilter yfilter.YFilter
 
     // IPv6  node discovery operational data for a specific node and interface.
-    // The type is slice of Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface_.
-    Interface_ []Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface
+    // The type is slice of Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface.
+    Interface []*Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface
 }
 
 func (interfaces *Ipv6NodeDiscovery_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -1114,12 +1197,15 @@ func (interfaces *Ipv6NodeDiscovery_Nodes_Node_Interfaces) GetEntityData() *type
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -1131,7 +1217,7 @@ type Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // If true, DAD (D.. A.. D..) is enabled otherwise it is disabled. The type is
@@ -1210,33 +1296,36 @@ func (self *Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface) GetEntityData() *
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["is-dad-enabled"] = types.YLeaf{"IsDadEnabled", self.IsDadEnabled}
-    self.EntityData.Leafs["dad-attempts"] = types.YLeaf{"DadAttempts", self.DadAttempts}
-    self.EntityData.Leafs["is-icm-pv6-redirect"] = types.YLeaf{"IsIcmPv6Redirect", self.IsIcmPv6Redirect}
-    self.EntityData.Leafs["is-dhcp-managed"] = types.YLeaf{"IsDhcpManaged", self.IsDhcpManaged}
-    self.EntityData.Leafs["is-route-address-managed"] = types.YLeaf{"IsRouteAddressManaged", self.IsRouteAddressManaged}
-    self.EntityData.Leafs["is-suppressed"] = types.YLeaf{"IsSuppressed", self.IsSuppressed}
-    self.EntityData.Leafs["send-unicast-ra"] = types.YLeaf{"SendUnicastRa", self.SendUnicastRa}
-    self.EntityData.Leafs["nd-retransmit-interval"] = types.YLeaf{"NdRetransmitInterval", self.NdRetransmitInterval}
-    self.EntityData.Leafs["nd-min-transmit-interval"] = types.YLeaf{"NdMinTransmitInterval", self.NdMinTransmitInterval}
-    self.EntityData.Leafs["nd-max-transmit-interval"] = types.YLeaf{"NdMaxTransmitInterval", self.NdMaxTransmitInterval}
-    self.EntityData.Leafs["nd-advertisement-lifetime"] = types.YLeaf{"NdAdvertisementLifetime", self.NdAdvertisementLifetime}
-    self.EntityData.Leafs["nd-reachable-time"] = types.YLeaf{"NdReachableTime", self.NdReachableTime}
-    self.EntityData.Leafs["nd-cache-limit"] = types.YLeaf{"NdCacheLimit", self.NdCacheLimit}
-    self.EntityData.Leafs["complete-protocol-count"] = types.YLeaf{"CompleteProtocolCount", self.CompleteProtocolCount}
-    self.EntityData.Leafs["complete-glean-count"] = types.YLeaf{"CompleteGleanCount", self.CompleteGleanCount}
-    self.EntityData.Leafs["incomplete-protocol-count"] = types.YLeaf{"IncompleteProtocolCount", self.IncompleteProtocolCount}
-    self.EntityData.Leafs["incomplete-glean-count"] = types.YLeaf{"IncompleteGleanCount", self.IncompleteGleanCount}
-    self.EntityData.Leafs["dropped-protocol-req-count"] = types.YLeaf{"DroppedProtocolReqCount", self.DroppedProtocolReqCount}
-    self.EntityData.Leafs["dropped-glean-req-count"] = types.YLeaf{"DroppedGleanReqCount", self.DroppedGleanReqCount}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("is-dad-enabled", types.YLeaf{"IsDadEnabled", self.IsDadEnabled})
+    self.EntityData.Leafs.Append("dad-attempts", types.YLeaf{"DadAttempts", self.DadAttempts})
+    self.EntityData.Leafs.Append("is-icm-pv6-redirect", types.YLeaf{"IsIcmPv6Redirect", self.IsIcmPv6Redirect})
+    self.EntityData.Leafs.Append("is-dhcp-managed", types.YLeaf{"IsDhcpManaged", self.IsDhcpManaged})
+    self.EntityData.Leafs.Append("is-route-address-managed", types.YLeaf{"IsRouteAddressManaged", self.IsRouteAddressManaged})
+    self.EntityData.Leafs.Append("is-suppressed", types.YLeaf{"IsSuppressed", self.IsSuppressed})
+    self.EntityData.Leafs.Append("send-unicast-ra", types.YLeaf{"SendUnicastRa", self.SendUnicastRa})
+    self.EntityData.Leafs.Append("nd-retransmit-interval", types.YLeaf{"NdRetransmitInterval", self.NdRetransmitInterval})
+    self.EntityData.Leafs.Append("nd-min-transmit-interval", types.YLeaf{"NdMinTransmitInterval", self.NdMinTransmitInterval})
+    self.EntityData.Leafs.Append("nd-max-transmit-interval", types.YLeaf{"NdMaxTransmitInterval", self.NdMaxTransmitInterval})
+    self.EntityData.Leafs.Append("nd-advertisement-lifetime", types.YLeaf{"NdAdvertisementLifetime", self.NdAdvertisementLifetime})
+    self.EntityData.Leafs.Append("nd-reachable-time", types.YLeaf{"NdReachableTime", self.NdReachableTime})
+    self.EntityData.Leafs.Append("nd-cache-limit", types.YLeaf{"NdCacheLimit", self.NdCacheLimit})
+    self.EntityData.Leafs.Append("complete-protocol-count", types.YLeaf{"CompleteProtocolCount", self.CompleteProtocolCount})
+    self.EntityData.Leafs.Append("complete-glean-count", types.YLeaf{"CompleteGleanCount", self.CompleteGleanCount})
+    self.EntityData.Leafs.Append("incomplete-protocol-count", types.YLeaf{"IncompleteProtocolCount", self.IncompleteProtocolCount})
+    self.EntityData.Leafs.Append("incomplete-glean-count", types.YLeaf{"IncompleteGleanCount", self.IncompleteGleanCount})
+    self.EntityData.Leafs.Append("dropped-protocol-req-count", types.YLeaf{"DroppedProtocolReqCount", self.DroppedProtocolReqCount})
+    self.EntityData.Leafs.Append("dropped-glean-req-count", types.YLeaf{"DroppedGleanReqCount", self.DroppedGleanReqCount})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1249,7 +1338,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters struct {
 
     // IPv6 ND virtual  router operational data for a specific interface. The type
     // is slice of Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter.
-    NdVirtualRouter []Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter
+    NdVirtualRouter []*Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter
 }
 
 func (ndVirtualRouters *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters) GetEntityData() *types.CommonEntityData {
@@ -1262,12 +1351,15 @@ func (ndVirtualRouters *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters) GetEntity
     ndVirtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ndVirtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ndVirtualRouters.EntityData.Children = make(map[string]types.YChild)
-    ndVirtualRouters.EntityData.Children["nd-virtual-router"] = types.YChild{"NdVirtualRouter", nil}
+    ndVirtualRouters.EntityData.Children = types.NewOrderedMap()
+    ndVirtualRouters.EntityData.Children.Append("nd-virtual-router", types.YChild{"NdVirtualRouter", nil})
     for i := range ndVirtualRouters.NdVirtualRouter {
-        ndVirtualRouters.EntityData.Children[types.GetSegmentPath(&ndVirtualRouters.NdVirtualRouter[i])] = types.YChild{"NdVirtualRouter", &ndVirtualRouters.NdVirtualRouter[i]}
+        ndVirtualRouters.EntityData.Children.Append(types.GetSegmentPath(ndVirtualRouters.NdVirtualRouter[i]), types.YChild{"NdVirtualRouter", ndVirtualRouters.NdVirtualRouter[i]})
     }
-    ndVirtualRouters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ndVirtualRouters.EntityData.Leafs = types.NewOrderedMap()
+
+    ndVirtualRouters.EntityData.YListKeys = []string {}
+
     return &(ndVirtualRouters.EntityData)
 }
 
@@ -1279,11 +1371,11 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Link-Layer Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     LinkLayerAddress interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -1304,7 +1396,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter struct {
 
     // List of ND global addresses. The type is slice of
     // Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddress.
-    VrGlobalAddress []Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddress
+    VrGlobalAddress []*Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddress
 }
 
 func (ndVirtualRouter *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter) GetEntityData() *types.CommonEntityData {
@@ -1312,24 +1404,27 @@ func (ndVirtualRouter *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRo
     ndVirtualRouter.EntityData.YangName = "nd-virtual-router"
     ndVirtualRouter.EntityData.BundleName = "cisco_ios_xr"
     ndVirtualRouter.EntityData.ParentYangName = "nd-virtual-routers"
-    ndVirtualRouter.EntityData.SegmentPath = "nd-virtual-router" + "[interface-name='" + fmt.Sprintf("%v", ndVirtualRouter.InterfaceName) + "']"
+    ndVirtualRouter.EntityData.SegmentPath = "nd-virtual-router" + types.AddKeyToken(ndVirtualRouter.InterfaceName, "interface-name")
     ndVirtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ndVirtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ndVirtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ndVirtualRouter.EntityData.Children = make(map[string]types.YChild)
-    ndVirtualRouter.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &ndVirtualRouter.LocalAddress}
-    ndVirtualRouter.EntityData.Children["vr-global-address"] = types.YChild{"VrGlobalAddress", nil}
+    ndVirtualRouter.EntityData.Children = types.NewOrderedMap()
+    ndVirtualRouter.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &ndVirtualRouter.LocalAddress})
+    ndVirtualRouter.EntityData.Children.Append("vr-global-address", types.YChild{"VrGlobalAddress", nil})
     for i := range ndVirtualRouter.VrGlobalAddress {
-        ndVirtualRouter.EntityData.Children[types.GetSegmentPath(&ndVirtualRouter.VrGlobalAddress[i])] = types.YChild{"VrGlobalAddress", &ndVirtualRouter.VrGlobalAddress[i]}
+        ndVirtualRouter.EntityData.Children.Append(types.GetSegmentPath(ndVirtualRouter.VrGlobalAddress[i]), types.YChild{"VrGlobalAddress", ndVirtualRouter.VrGlobalAddress[i]})
     }
-    ndVirtualRouter.EntityData.Leafs = make(map[string]types.YLeaf)
-    ndVirtualRouter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ndVirtualRouter.InterfaceName}
-    ndVirtualRouter.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", ndVirtualRouter.LinkLayerAddress}
-    ndVirtualRouter.EntityData.Leafs["context"] = types.YLeaf{"Context", ndVirtualRouter.Context}
-    ndVirtualRouter.EntityData.Leafs["state"] = types.YLeaf{"State", ndVirtualRouter.State}
-    ndVirtualRouter.EntityData.Leafs["flags"] = types.YLeaf{"Flags", ndVirtualRouter.Flags}
-    ndVirtualRouter.EntityData.Leafs["vr-gl-addr-ct"] = types.YLeaf{"VrGlAddrCt", ndVirtualRouter.VrGlAddrCt}
+    ndVirtualRouter.EntityData.Leafs = types.NewOrderedMap()
+    ndVirtualRouter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ndVirtualRouter.InterfaceName})
+    ndVirtualRouter.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", ndVirtualRouter.LinkLayerAddress})
+    ndVirtualRouter.EntityData.Leafs.Append("context", types.YLeaf{"Context", ndVirtualRouter.Context})
+    ndVirtualRouter.EntityData.Leafs.Append("state", types.YLeaf{"State", ndVirtualRouter.State})
+    ndVirtualRouter.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", ndVirtualRouter.Flags})
+    ndVirtualRouter.EntityData.Leafs.Append("vr-gl-addr-ct", types.YLeaf{"VrGlAddrCt", ndVirtualRouter.VrGlAddrCt})
+
+    ndVirtualRouter.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(ndVirtualRouter.EntityData)
 }
 
@@ -1340,8 +1435,16 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_LocalAddress 
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
+
+    // Valid lifetime of a Prefix. The type is interface{} with range:
+    // 0..4294967295.
+    ValidLifetime interface{}
+
+    // Preffered lifetime of a Prefix. The type is interface{} with range:
+    // 0..4294967295.
+    PrefLifetime interface{}
 }
 
 func (localAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_LocalAddress) GetEntityData() *types.CommonEntityData {
@@ -1354,9 +1457,14 @@ func (localAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRoute
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAddress.EntityData.Children = make(map[string]types.YChild)
-    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", localAddress.Ipv6Address}
+    localAddress.EntityData.Children = types.NewOrderedMap()
+    localAddress.EntityData.Leafs = types.NewOrderedMap()
+    localAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", localAddress.Ipv6Address})
+    localAddress.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", localAddress.ValidLifetime})
+    localAddress.EntityData.Leafs.Append("pref-lifetime", types.YLeaf{"PrefLifetime", localAddress.PrefLifetime})
+
+    localAddress.EntityData.YListKeys = []string {}
+
     return &(localAddress.EntityData)
 }
 
@@ -1367,8 +1475,16 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddre
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
+
+    // Valid lifetime of a Prefix. The type is interface{} with range:
+    // 0..4294967295.
+    ValidLifetime interface{}
+
+    // Preffered lifetime of a Prefix. The type is interface{} with range:
+    // 0..4294967295.
+    PrefLifetime interface{}
 }
 
 func (vrGlobalAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddress) GetEntityData() *types.CommonEntityData {
@@ -1381,9 +1497,14 @@ func (vrGlobalAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRo
     vrGlobalAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrGlobalAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrGlobalAddress.EntityData.Children = make(map[string]types.YChild)
-    vrGlobalAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrGlobalAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", vrGlobalAddress.Ipv6Address}
+    vrGlobalAddress.EntityData.Children = types.NewOrderedMap()
+    vrGlobalAddress.EntityData.Leafs = types.NewOrderedMap()
+    vrGlobalAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", vrGlobalAddress.Ipv6Address})
+    vrGlobalAddress.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", vrGlobalAddress.ValidLifetime})
+    vrGlobalAddress.EntityData.Leafs.Append("pref-lifetime", types.YLeaf{"PrefLifetime", vrGlobalAddress.PrefLifetime})
+
+    vrGlobalAddress.EntityData.YListKeys = []string {}
+
     return &(vrGlobalAddress.EntityData)
 }
 
@@ -1396,7 +1517,7 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces struct {
 
     // IPv6 ND operational data for a specific slaac interface. The type is slice
     // of Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface.
-    SlaacInterface []Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface
+    SlaacInterface []*Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface
 }
 
 func (slaacInterfaces *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces) GetEntityData() *types.CommonEntityData {
@@ -1409,12 +1530,15 @@ func (slaacInterfaces *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces) GetEntityDa
     slaacInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaacInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slaacInterfaces.EntityData.Children = make(map[string]types.YChild)
-    slaacInterfaces.EntityData.Children["slaac-interface"] = types.YChild{"SlaacInterface", nil}
+    slaacInterfaces.EntityData.Children = types.NewOrderedMap()
+    slaacInterfaces.EntityData.Children.Append("slaac-interface", types.YChild{"SlaacInterface", nil})
     for i := range slaacInterfaces.SlaacInterface {
-        slaacInterfaces.EntityData.Children[types.GetSegmentPath(&slaacInterfaces.SlaacInterface[i])] = types.YChild{"SlaacInterface", &slaacInterfaces.SlaacInterface[i]}
+        slaacInterfaces.EntityData.Children.Append(types.GetSegmentPath(slaacInterfaces.SlaacInterface[i]), types.YChild{"SlaacInterface", slaacInterfaces.SlaacInterface[i]})
     }
-    slaacInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    slaacInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    slaacInterfaces.EntityData.YListKeys = []string {}
+
     return &(slaacInterfaces.EntityData)
 }
 
@@ -1426,7 +1550,7 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // IPv6 ND operational data for a specific slaac interface.
@@ -1438,15 +1562,18 @@ func (slaacInterface *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterfac
     slaacInterface.EntityData.YangName = "slaac-interface"
     slaacInterface.EntityData.BundleName = "cisco_ios_xr"
     slaacInterface.EntityData.ParentYangName = "slaac-interfaces"
-    slaacInterface.EntityData.SegmentPath = "slaac-interface" + "[interface-name='" + fmt.Sprintf("%v", slaacInterface.InterfaceName) + "']"
+    slaacInterface.EntityData.SegmentPath = "slaac-interface" + types.AddKeyToken(slaacInterface.InterfaceName, "interface-name")
     slaacInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaacInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaacInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slaacInterface.EntityData.Children = make(map[string]types.YChild)
-    slaacInterface.EntityData.Children["router-advert-detail"] = types.YChild{"RouterAdvertDetail", &slaacInterface.RouterAdvertDetail}
-    slaacInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    slaacInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", slaacInterface.InterfaceName}
+    slaacInterface.EntityData.Children = types.NewOrderedMap()
+    slaacInterface.EntityData.Children.Append("router-advert-detail", types.YChild{"RouterAdvertDetail", &slaacInterface.RouterAdvertDetail})
+    slaacInterface.EntityData.Leafs = types.NewOrderedMap()
+    slaacInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", slaacInterface.InterfaceName})
+
+    slaacInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(slaacInterface.EntityData)
 }
 
@@ -1457,12 +1584,12 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // idb. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // idb. The type is string with pattern: [a-zA-Z0-9./-]+.
     Idb interface{}
 
     // slaac db. The type is slice of
     // Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra.
-    Ra []Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra
+    Ra []*Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra
 }
 
 func (routerAdvertDetail *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail) GetEntityData() *types.CommonEntityData {
@@ -1475,13 +1602,16 @@ func (routerAdvertDetail *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInte
     routerAdvertDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerAdvertDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routerAdvertDetail.EntityData.Children = make(map[string]types.YChild)
-    routerAdvertDetail.EntityData.Children["ra"] = types.YChild{"Ra", nil}
+    routerAdvertDetail.EntityData.Children = types.NewOrderedMap()
+    routerAdvertDetail.EntityData.Children.Append("ra", types.YChild{"Ra", nil})
     for i := range routerAdvertDetail.Ra {
-        routerAdvertDetail.EntityData.Children[types.GetSegmentPath(&routerAdvertDetail.Ra[i])] = types.YChild{"Ra", &routerAdvertDetail.Ra[i]}
+        routerAdvertDetail.EntityData.Children.Append(types.GetSegmentPath(routerAdvertDetail.Ra[i]), types.YChild{"Ra", routerAdvertDetail.Ra[i]})
     }
-    routerAdvertDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    routerAdvertDetail.EntityData.Leafs["idb"] = types.YLeaf{"Idb", routerAdvertDetail.Idb}
+    routerAdvertDetail.EntityData.Leafs = types.NewOrderedMap()
+    routerAdvertDetail.EntityData.Leafs.Append("idb", types.YLeaf{"Idb", routerAdvertDetail.Idb})
+
+    routerAdvertDetail.EntityData.YListKeys = []string {}
+
     return &(routerAdvertDetail.EntityData)
 }
 
@@ -1492,7 +1622,7 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
     YFilter yfilter.YFilter
 
     // address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // hops. The type is interface{} with range: 0..4294967295.
@@ -1536,7 +1666,7 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
 
     // Prefix Queue. The type is slice of
     // Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_PrefixQ.
-    PrefixQ []Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_PrefixQ
+    PrefixQ []*Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_PrefixQ
 }
 
 func (ra *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra) GetEntityData() *types.CommonEntityData {
@@ -1549,26 +1679,29 @@ func (ra *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdve
     ra.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ra.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ra.EntityData.Children = make(map[string]types.YChild)
-    ra.EntityData.Children["elapsed-ra-time"] = types.YChild{"ElapsedRaTime", &ra.ElapsedRaTime}
-    ra.EntityData.Children["reachable-time"] = types.YChild{"ReachableTime", &ra.ReachableTime}
-    ra.EntityData.Children["retrans-time"] = types.YChild{"RetransTime", &ra.RetransTime}
-    ra.EntityData.Children["prefix-q"] = types.YChild{"PrefixQ", nil}
+    ra.EntityData.Children = types.NewOrderedMap()
+    ra.EntityData.Children.Append("elapsed-ra-time", types.YChild{"ElapsedRaTime", &ra.ElapsedRaTime})
+    ra.EntityData.Children.Append("reachable-time", types.YChild{"ReachableTime", &ra.ReachableTime})
+    ra.EntityData.Children.Append("retrans-time", types.YChild{"RetransTime", &ra.RetransTime})
+    ra.EntityData.Children.Append("prefix-q", types.YChild{"PrefixQ", nil})
     for i := range ra.PrefixQ {
-        ra.EntityData.Children[types.GetSegmentPath(&ra.PrefixQ[i])] = types.YChild{"PrefixQ", &ra.PrefixQ[i]}
+        ra.EntityData.Children.Append(types.GetSegmentPath(ra.PrefixQ[i]), types.YChild{"PrefixQ", ra.PrefixQ[i]})
     }
-    ra.EntityData.Leafs = make(map[string]types.YLeaf)
-    ra.EntityData.Leafs["address"] = types.YLeaf{"Address", ra.Address}
-    ra.EntityData.Leafs["hops"] = types.YLeaf{"Hops", ra.Hops}
-    ra.EntityData.Leafs["flags"] = types.YLeaf{"Flags", ra.Flags}
-    ra.EntityData.Leafs["life-time"] = types.YLeaf{"LifeTime", ra.LifeTime}
-    ra.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ra.Mtu}
-    ra.EntityData.Leafs["err-msg"] = types.YLeaf{"ErrMsg", ra.ErrMsg}
-    ra.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", ra.VrfId}
-    ra.EntityData.Leafs["u6-tbl-id"] = types.YLeaf{"U6TblId", ra.U6TblId}
-    ra.EntityData.Leafs["rib-protoid"] = types.YLeaf{"RibProtoid", ra.RibProtoid}
-    ra.EntityData.Leafs["default-router"] = types.YLeaf{"DefaultRouter", ra.DefaultRouter}
-    ra.EntityData.Leafs["reachability"] = types.YLeaf{"Reachability", ra.Reachability}
+    ra.EntityData.Leafs = types.NewOrderedMap()
+    ra.EntityData.Leafs.Append("address", types.YLeaf{"Address", ra.Address})
+    ra.EntityData.Leafs.Append("hops", types.YLeaf{"Hops", ra.Hops})
+    ra.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", ra.Flags})
+    ra.EntityData.Leafs.Append("life-time", types.YLeaf{"LifeTime", ra.LifeTime})
+    ra.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ra.Mtu})
+    ra.EntityData.Leafs.Append("err-msg", types.YLeaf{"ErrMsg", ra.ErrMsg})
+    ra.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", ra.VrfId})
+    ra.EntityData.Leafs.Append("u6-tbl-id", types.YLeaf{"U6TblId", ra.U6TblId})
+    ra.EntityData.Leafs.Append("rib-protoid", types.YLeaf{"RibProtoid", ra.RibProtoid})
+    ra.EntityData.Leafs.Append("default-router", types.YLeaf{"DefaultRouter", ra.DefaultRouter})
+    ra.EntityData.Leafs.Append("reachability", types.YLeaf{"Reachability", ra.Reachability})
+
+    ra.EntityData.YListKeys = []string {}
+
     return &(ra.EntityData)
 }
 
@@ -1593,9 +1726,12 @@ func (elapsedRaTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface
     elapsedRaTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     elapsedRaTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    elapsedRaTime.EntityData.Children = make(map[string]types.YChild)
-    elapsedRaTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    elapsedRaTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", elapsedRaTime.Seconds}
+    elapsedRaTime.EntityData.Children = types.NewOrderedMap()
+    elapsedRaTime.EntityData.Leafs = types.NewOrderedMap()
+    elapsedRaTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", elapsedRaTime.Seconds})
+
+    elapsedRaTime.EntityData.YListKeys = []string {}
+
     return &(elapsedRaTime.EntityData)
 }
 
@@ -1620,9 +1756,12 @@ func (reachableTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface
     reachableTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reachableTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reachableTime.EntityData.Children = make(map[string]types.YChild)
-    reachableTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    reachableTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", reachableTime.Seconds}
+    reachableTime.EntityData.Children = types.NewOrderedMap()
+    reachableTime.EntityData.Leafs = types.NewOrderedMap()
+    reachableTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", reachableTime.Seconds})
+
+    reachableTime.EntityData.YListKeys = []string {}
+
     return &(reachableTime.EntityData)
 }
 
@@ -1647,9 +1786,12 @@ func (retransTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_R
     retransTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    retransTime.EntityData.Children = make(map[string]types.YChild)
-    retransTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    retransTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", retransTime.Seconds}
+    retransTime.EntityData.Children = types.NewOrderedMap()
+    retransTime.EntityData.Leafs = types.NewOrderedMap()
+    retransTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", retransTime.Seconds})
+
+    retransTime.EntityData.YListKeys = []string {}
+
     return &(retransTime.EntityData)
 }
 
@@ -1660,11 +1802,11 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
     YFilter yfilter.YFilter
 
     // Prefix address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrefixAddress interface{}
 
     // IPv6 Auto generated address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Eui64 interface{}
 
     // Valid Life Time. The type is interface{} with range: 0..4294967295.
@@ -1695,15 +1837,18 @@ func (prefixQ *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_Route
     prefixQ.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixQ.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixQ.EntityData.Children = make(map[string]types.YChild)
-    prefixQ.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixQ.EntityData.Leafs["prefix-address"] = types.YLeaf{"PrefixAddress", prefixQ.PrefixAddress}
-    prefixQ.EntityData.Leafs["eui64"] = types.YLeaf{"Eui64", prefixQ.Eui64}
-    prefixQ.EntityData.Leafs["valid-life-time"] = types.YLeaf{"ValidLifeTime", prefixQ.ValidLifeTime}
-    prefixQ.EntityData.Leafs["preferred-life-time"] = types.YLeaf{"PreferredLifeTime", prefixQ.PreferredLifeTime}
-    prefixQ.EntityData.Leafs["prefix-len"] = types.YLeaf{"PrefixLen", prefixQ.PrefixLen}
-    prefixQ.EntityData.Leafs["flags"] = types.YLeaf{"Flags", prefixQ.Flags}
-    prefixQ.EntityData.Leafs["pfx-flags"] = types.YLeaf{"PfxFlags", prefixQ.PfxFlags}
+    prefixQ.EntityData.Children = types.NewOrderedMap()
+    prefixQ.EntityData.Leafs = types.NewOrderedMap()
+    prefixQ.EntityData.Leafs.Append("prefix-address", types.YLeaf{"PrefixAddress", prefixQ.PrefixAddress})
+    prefixQ.EntityData.Leafs.Append("eui64", types.YLeaf{"Eui64", prefixQ.Eui64})
+    prefixQ.EntityData.Leafs.Append("valid-life-time", types.YLeaf{"ValidLifeTime", prefixQ.ValidLifeTime})
+    prefixQ.EntityData.Leafs.Append("preferred-life-time", types.YLeaf{"PreferredLifeTime", prefixQ.PreferredLifeTime})
+    prefixQ.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", prefixQ.PrefixLen})
+    prefixQ.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", prefixQ.Flags})
+    prefixQ.EntityData.Leafs.Append("pfx-flags", types.YLeaf{"PfxFlags", prefixQ.PfxFlags})
+
+    prefixQ.EntityData.YListKeys = []string {}
+
     return &(prefixQ.EntityData)
 }
 

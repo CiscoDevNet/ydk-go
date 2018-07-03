@@ -31,39 +31,18 @@ func init() {
     ydk.RegisterEntity("ietf-event-notifications:subscriptions", reflect.TypeOf(Subscriptions{}))
 }
 
+type ErrorNoSuchOption struct {
+}
+
+func (id ErrorNoSuchOption) String() string {
+	return "ietf-event-notifications:error-no-such-option"
+}
+
 type Stream struct {
 }
 
 func (id Stream) String() string {
 	return "ietf-event-notifications:stream"
-}
-
-type NETCONF struct {
-}
-
-func (id NETCONF) String() string {
-	return "ietf-event-notifications:NETCONF"
-}
-
-type SubscriptionResult struct {
-}
-
-func (id SubscriptionResult) String() string {
-	return "ietf-event-notifications:subscription-result"
-}
-
-type Ok struct {
-}
-
-func (id Ok) String() string {
-	return "ietf-event-notifications:ok"
-}
-
-type Error struct {
-}
-
-func (id Error) String() string {
-	return "ietf-event-notifications:error"
 }
 
 type ErrorNoSuchSubscription struct {
@@ -73,46 +52,11 @@ func (id ErrorNoSuchSubscription) String() string {
 	return "ietf-event-notifications:error-no-such-subscription"
 }
 
-type ErrorNoSuchOption struct {
+type NoResources struct {
 }
 
-func (id ErrorNoSuchOption) String() string {
-	return "ietf-event-notifications:error-no-such-option"
-}
-
-type ErrorInsufficientResources struct {
-}
-
-func (id ErrorInsufficientResources) String() string {
-	return "ietf-event-notifications:error-insufficient-resources"
-}
-
-type ErrorConfiguredSubscription struct {
-}
-
-func (id ErrorConfiguredSubscription) String() string {
-	return "ietf-event-notifications:error-configured-subscription"
-}
-
-type ErrorOther struct {
-}
-
-func (id ErrorOther) String() string {
-	return "ietf-event-notifications:error-other"
-}
-
-type SubscriptionStreamStatus struct {
-}
-
-func (id SubscriptionStreamStatus) String() string {
-	return "ietf-event-notifications:subscription-stream-status"
-}
-
-type Active struct {
-}
-
-func (id Active) String() string {
-	return "ietf-event-notifications:active"
+func (id NoResources) String() string {
+	return "ietf-event-notifications:no-resources"
 }
 
 type Inactive struct {
@@ -129,60 +73,11 @@ func (id Suspended) String() string {
 	return "ietf-event-notifications:suspended"
 }
 
-type InError struct {
-}
-
-func (id InError) String() string {
-	return "ietf-event-notifications:in-error"
-}
-
-type SubscriptionErrors struct {
-}
-
-func (id SubscriptionErrors) String() string {
-	return "ietf-event-notifications:subscription-errors"
-}
-
-type InternalError struct {
-}
-
-func (id InternalError) String() string {
-	return "ietf-event-notifications:internal-error"
-}
-
-type NoResources struct {
-}
-
-func (id NoResources) String() string {
-	return "ietf-event-notifications:no-resources"
-}
-
-type SubscriptionDeleted struct {
-}
-
-func (id SubscriptionDeleted) String() string {
-	return "ietf-event-notifications:subscription-deleted"
-}
-
-type Other struct {
-}
-
-func (id Other) String() string {
-	return "ietf-event-notifications:other"
-}
-
 type Encodings struct {
 }
 
 func (id Encodings) String() string {
 	return "ietf-event-notifications:encodings"
-}
-
-type EncodeXml struct {
-}
-
-func (id EncodeXml) String() string {
-	return "ietf-event-notifications:encode-xml"
 }
 
 type EncodeJson struct {
@@ -199,11 +94,116 @@ func (id Transport) String() string {
 	return "ietf-event-notifications:transport"
 }
 
+type InternalError struct {
+}
+
+func (id InternalError) String() string {
+	return "ietf-event-notifications:internal-error"
+}
+
+type ErrorOther struct {
+}
+
+func (id ErrorOther) String() string {
+	return "ietf-event-notifications:error-other"
+}
+
+type Other struct {
+}
+
+func (id Other) String() string {
+	return "ietf-event-notifications:other"
+}
+
+type InError struct {
+}
+
+func (id InError) String() string {
+	return "ietf-event-notifications:in-error"
+}
+
+type ErrorInsufficientResources struct {
+}
+
+func (id ErrorInsufficientResources) String() string {
+	return "ietf-event-notifications:error-insufficient-resources"
+}
+
 type Netconf struct {
 }
 
 func (id Netconf) String() string {
 	return "ietf-event-notifications:netconf"
+}
+
+type ErrorConfiguredSubscription struct {
+}
+
+func (id ErrorConfiguredSubscription) String() string {
+	return "ietf-event-notifications:error-configured-subscription"
+}
+
+type SubscriptionResult struct {
+}
+
+func (id SubscriptionResult) String() string {
+	return "ietf-event-notifications:subscription-result"
+}
+
+type Error struct {
+}
+
+func (id Error) String() string {
+	return "ietf-event-notifications:error"
+}
+
+type Active struct {
+}
+
+func (id Active) String() string {
+	return "ietf-event-notifications:active"
+}
+
+type NETCONF struct {
+}
+
+func (id NETCONF) String() string {
+	return "ietf-event-notifications:NETCONF"
+}
+
+type Ok struct {
+}
+
+func (id Ok) String() string {
+	return "ietf-event-notifications:ok"
+}
+
+type SubscriptionStreamStatus struct {
+}
+
+func (id SubscriptionStreamStatus) String() string {
+	return "ietf-event-notifications:subscription-stream-status"
+}
+
+type EncodeXml struct {
+}
+
+func (id EncodeXml) String() string {
+	return "ietf-event-notifications:encode-xml"
+}
+
+type SubscriptionDeleted struct {
+}
+
+func (id SubscriptionDeleted) String() string {
+	return "ietf-event-notifications:subscription-deleted"
+}
+
+type SubscriptionErrors struct {
+}
+
+func (id SubscriptionErrors) String() string {
+	return "ietf-event-notifications:subscription-errors"
 }
 
 // PushSource represents being sent by the publisher.
@@ -253,10 +253,13 @@ func (establishSubscription *EstablishSubscription) GetEntityData() *types.Commo
     establishSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     establishSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    establishSubscription.EntityData.Children = make(map[string]types.YChild)
-    establishSubscription.EntityData.Children["input"] = types.YChild{"Input", &establishSubscription.Input}
-    establishSubscription.EntityData.Children["output"] = types.YChild{"Output", &establishSubscription.Output}
-    establishSubscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    establishSubscription.EntityData.Children = types.NewOrderedMap()
+    establishSubscription.EntityData.Children.Append("input", types.YChild{"Input", &establishSubscription.Input})
+    establishSubscription.EntityData.Children.Append("output", types.YChild{"Output", &establishSubscription.Output})
+    establishSubscription.EntityData.Leafs = types.NewOrderedMap()
+
+    establishSubscription.EntityData.YListKeys = []string {}
+
     return &(establishSubscription.EntityData)
 }
 
@@ -267,11 +270,11 @@ type EstablishSubscription_Input struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -308,8 +311,8 @@ type EstablishSubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Starttime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
     // of interest.  If <stopTime> is not present, the notifications will continue
@@ -317,8 +320,8 @@ type EstablishSubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Stoptime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StopTime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
     // the anchor of a start-time is available, the push will include the objects
@@ -332,7 +335,7 @@ type EstablishSubscription_Input struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -384,24 +387,27 @@ func (input *EstablishSubscription_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["stream"] = types.YLeaf{"Stream", input.Stream}
-    input.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", input.Encoding}
-    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
-    input.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", input.FilterRef}
-    input.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", input.SubtreeFilter}
-    input.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", input.XpathFilter}
-    input.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", input.Starttime}
-    input.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", input.Stoptime}
-    input.EntityData.Leafs["period"] = types.YLeaf{"Period", input.Period}
-    input.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", input.AnchorTime}
-    input.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", input.NoSynchOnStart}
-    input.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", input.DampeningPeriod}
-    input.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", input.ExcludedChange}
-    input.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", input.Dscp}
-    input.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", input.SubscriptionPriority}
-    input.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", input.SubscriptionDependency}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", input.Stream})
+    input.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", input.Encoding})
+    input.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", input.Filter})
+    input.EntityData.Leafs.Append("filter-ref", types.YLeaf{"FilterRef", input.FilterRef})
+    input.EntityData.Leafs.Append("subtree-filter", types.YLeaf{"SubtreeFilter", input.SubtreeFilter})
+    input.EntityData.Leafs.Append("xpath-filter", types.YLeaf{"XpathFilter", input.XpathFilter})
+    input.EntityData.Leafs.Append("startTime", types.YLeaf{"StartTime", input.StartTime})
+    input.EntityData.Leafs.Append("stopTime", types.YLeaf{"StopTime", input.StopTime})
+    input.EntityData.Leafs.Append("period", types.YLeaf{"Period", input.Period})
+    input.EntityData.Leafs.Append("anchor-time", types.YLeaf{"AnchorTime", input.AnchorTime})
+    input.EntityData.Leafs.Append("no-synch-on-start", types.YLeaf{"NoSynchOnStart", input.NoSynchOnStart})
+    input.EntityData.Leafs.Append("dampening-period", types.YLeaf{"DampeningPeriod", input.DampeningPeriod})
+    input.EntityData.Leafs.Append("excluded-change", types.YLeaf{"ExcludedChange", input.ExcludedChange})
+    input.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", input.Dscp})
+    input.EntityData.Leafs.Append("subscription-priority", types.YLeaf{"SubscriptionPriority", input.SubscriptionPriority})
+    input.EntityData.Leafs.Append("subscription-dependency", types.YLeaf{"SubscriptionDependency", input.SubscriptionDependency})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -412,7 +418,7 @@ type EstablishSubscription_Output struct {
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
+    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 
@@ -422,11 +428,11 @@ type EstablishSubscription_Output struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -463,8 +469,8 @@ type EstablishSubscription_Output struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Starttime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
     // of interest.  If <stopTime> is not present, the notifications will continue
@@ -472,8 +478,8 @@ type EstablishSubscription_Output struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Stoptime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StopTime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
     // the anchor of a start-time is available, the push will include the objects
@@ -487,7 +493,7 @@ type EstablishSubscription_Output struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -539,26 +545,29 @@ func (output *EstablishSubscription_Output) GetEntityData() *types.CommonEntityD
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["subscription-result"] = types.YLeaf{"SubscriptionResult", output.SubscriptionResult}
-    output.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", output.SubscriptionId}
-    output.EntityData.Leafs["stream"] = types.YLeaf{"Stream", output.Stream}
-    output.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", output.Encoding}
-    output.EntityData.Leafs["filter"] = types.YLeaf{"Filter", output.Filter}
-    output.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", output.FilterRef}
-    output.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", output.SubtreeFilter}
-    output.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", output.XpathFilter}
-    output.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", output.Starttime}
-    output.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", output.Stoptime}
-    output.EntityData.Leafs["period"] = types.YLeaf{"Period", output.Period}
-    output.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", output.AnchorTime}
-    output.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", output.NoSynchOnStart}
-    output.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", output.DampeningPeriod}
-    output.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", output.ExcludedChange}
-    output.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", output.Dscp}
-    output.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", output.SubscriptionPriority}
-    output.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", output.SubscriptionDependency}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("subscription-result", types.YLeaf{"SubscriptionResult", output.SubscriptionResult})
+    output.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", output.SubscriptionId})
+    output.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", output.Stream})
+    output.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", output.Encoding})
+    output.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", output.Filter})
+    output.EntityData.Leafs.Append("filter-ref", types.YLeaf{"FilterRef", output.FilterRef})
+    output.EntityData.Leafs.Append("subtree-filter", types.YLeaf{"SubtreeFilter", output.SubtreeFilter})
+    output.EntityData.Leafs.Append("xpath-filter", types.YLeaf{"XpathFilter", output.XpathFilter})
+    output.EntityData.Leafs.Append("startTime", types.YLeaf{"StartTime", output.StartTime})
+    output.EntityData.Leafs.Append("stopTime", types.YLeaf{"StopTime", output.StopTime})
+    output.EntityData.Leafs.Append("period", types.YLeaf{"Period", output.Period})
+    output.EntityData.Leafs.Append("anchor-time", types.YLeaf{"AnchorTime", output.AnchorTime})
+    output.EntityData.Leafs.Append("no-synch-on-start", types.YLeaf{"NoSynchOnStart", output.NoSynchOnStart})
+    output.EntityData.Leafs.Append("dampening-period", types.YLeaf{"DampeningPeriod", output.DampeningPeriod})
+    output.EntityData.Leafs.Append("excluded-change", types.YLeaf{"ExcludedChange", output.ExcludedChange})
+    output.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", output.Dscp})
+    output.EntityData.Leafs.Append("subscription-priority", types.YLeaf{"SubscriptionPriority", output.SubscriptionPriority})
+    output.EntityData.Leafs.Append("subscription-dependency", types.YLeaf{"SubscriptionDependency", output.SubscriptionDependency})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -588,9 +597,12 @@ func (createSubscription *CreateSubscription) GetEntityData() *types.CommonEntit
     createSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     createSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    createSubscription.EntityData.Children = make(map[string]types.YChild)
-    createSubscription.EntityData.Children["input"] = types.YChild{"Input", &createSubscription.Input}
-    createSubscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    createSubscription.EntityData.Children = types.NewOrderedMap()
+    createSubscription.EntityData.Children.Append("input", types.YChild{"Input", &createSubscription.Input})
+    createSubscription.EntityData.Leafs = types.NewOrderedMap()
+
+    createSubscription.EntityData.YListKeys = []string {}
+
     return &(createSubscription.EntityData)
 }
 
@@ -601,11 +613,11 @@ type CreateSubscription_Input struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream. The default value is NETCONF.
+    // NETCONFCustomStreamYangPush. The default value is NETCONF.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -627,8 +639,8 @@ type CreateSubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Starttime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
     // of interest.  If <stopTime> is not present, the notifications will continue
@@ -636,8 +648,8 @@ type CreateSubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Stoptime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StopTime interface{}
 }
 
 func (input *CreateSubscription_Input) GetEntityData() *types.CommonEntityData {
@@ -650,13 +662,16 @@ func (input *CreateSubscription_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["stream"] = types.YLeaf{"Stream", input.Stream}
-    input.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", input.Encoding}
-    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
-    input.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", input.Starttime}
-    input.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", input.Stoptime}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", input.Stream})
+    input.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", input.Encoding})
+    input.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", input.Filter})
+    input.EntityData.Leafs.Append("startTime", types.YLeaf{"StartTime", input.StartTime})
+    input.EntityData.Leafs.Append("stopTime", types.YLeaf{"StopTime", input.StopTime})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -695,10 +710,13 @@ func (modifySubscription *ModifySubscription) GetEntityData() *types.CommonEntit
     modifySubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     modifySubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    modifySubscription.EntityData.Children = make(map[string]types.YChild)
-    modifySubscription.EntityData.Children["input"] = types.YChild{"Input", &modifySubscription.Input}
-    modifySubscription.EntityData.Children["output"] = types.YChild{"Output", &modifySubscription.Output}
-    modifySubscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    modifySubscription.EntityData.Children = types.NewOrderedMap()
+    modifySubscription.EntityData.Children.Append("input", types.YChild{"Input", &modifySubscription.Input})
+    modifySubscription.EntityData.Children.Append("output", types.YChild{"Output", &modifySubscription.Output})
+    modifySubscription.EntityData.Leafs = types.NewOrderedMap()
+
+    modifySubscription.EntityData.YListKeys = []string {}
+
     return &(modifySubscription.EntityData)
 }
 
@@ -745,8 +763,8 @@ type ModifySubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Starttime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
     // of interest.  If <stopTime> is not present, the notifications will continue
@@ -754,8 +772,8 @@ type ModifySubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Stoptime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StopTime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
     // the anchor of a start-time is available, the push will include the objects
@@ -769,7 +787,7 @@ type ModifySubscription_Input struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -805,20 +823,23 @@ func (input *ModifySubscription_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", input.SubscriptionId}
-    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
-    input.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", input.FilterRef}
-    input.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", input.SubtreeFilter}
-    input.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", input.XpathFilter}
-    input.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", input.Starttime}
-    input.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", input.Stoptime}
-    input.EntityData.Leafs["period"] = types.YLeaf{"Period", input.Period}
-    input.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", input.AnchorTime}
-    input.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", input.NoSynchOnStart}
-    input.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", input.DampeningPeriod}
-    input.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", input.ExcludedChange}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", input.SubscriptionId})
+    input.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", input.Filter})
+    input.EntityData.Leafs.Append("filter-ref", types.YLeaf{"FilterRef", input.FilterRef})
+    input.EntityData.Leafs.Append("subtree-filter", types.YLeaf{"SubtreeFilter", input.SubtreeFilter})
+    input.EntityData.Leafs.Append("xpath-filter", types.YLeaf{"XpathFilter", input.XpathFilter})
+    input.EntityData.Leafs.Append("startTime", types.YLeaf{"StartTime", input.StartTime})
+    input.EntityData.Leafs.Append("stopTime", types.YLeaf{"StopTime", input.StopTime})
+    input.EntityData.Leafs.Append("period", types.YLeaf{"Period", input.Period})
+    input.EntityData.Leafs.Append("anchor-time", types.YLeaf{"AnchorTime", input.AnchorTime})
+    input.EntityData.Leafs.Append("no-synch-on-start", types.YLeaf{"NoSynchOnStart", input.NoSynchOnStart})
+    input.EntityData.Leafs.Append("dampening-period", types.YLeaf{"DampeningPeriod", input.DampeningPeriod})
+    input.EntityData.Leafs.Append("excluded-change", types.YLeaf{"ExcludedChange", input.ExcludedChange})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -829,7 +850,7 @@ type ModifySubscription_Output struct {
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
+    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 
@@ -839,11 +860,11 @@ type ModifySubscription_Output struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -880,8 +901,8 @@ type ModifySubscription_Output struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Starttime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
     // of interest.  If <stopTime> is not present, the notifications will continue
@@ -889,8 +910,8 @@ type ModifySubscription_Output struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Stoptime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StopTime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
     // the anchor of a start-time is available, the push will include the objects
@@ -904,7 +925,7 @@ type ModifySubscription_Output struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -956,26 +977,29 @@ func (output *ModifySubscription_Output) GetEntityData() *types.CommonEntityData
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["subscription-result"] = types.YLeaf{"SubscriptionResult", output.SubscriptionResult}
-    output.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", output.SubscriptionId}
-    output.EntityData.Leafs["stream"] = types.YLeaf{"Stream", output.Stream}
-    output.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", output.Encoding}
-    output.EntityData.Leafs["filter"] = types.YLeaf{"Filter", output.Filter}
-    output.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", output.FilterRef}
-    output.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", output.SubtreeFilter}
-    output.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", output.XpathFilter}
-    output.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", output.Starttime}
-    output.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", output.Stoptime}
-    output.EntityData.Leafs["period"] = types.YLeaf{"Period", output.Period}
-    output.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", output.AnchorTime}
-    output.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", output.NoSynchOnStart}
-    output.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", output.DampeningPeriod}
-    output.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", output.ExcludedChange}
-    output.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", output.Dscp}
-    output.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", output.SubscriptionPriority}
-    output.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", output.SubscriptionDependency}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("subscription-result", types.YLeaf{"SubscriptionResult", output.SubscriptionResult})
+    output.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", output.SubscriptionId})
+    output.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", output.Stream})
+    output.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", output.Encoding})
+    output.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", output.Filter})
+    output.EntityData.Leafs.Append("filter-ref", types.YLeaf{"FilterRef", output.FilterRef})
+    output.EntityData.Leafs.Append("subtree-filter", types.YLeaf{"SubtreeFilter", output.SubtreeFilter})
+    output.EntityData.Leafs.Append("xpath-filter", types.YLeaf{"XpathFilter", output.XpathFilter})
+    output.EntityData.Leafs.Append("startTime", types.YLeaf{"StartTime", output.StartTime})
+    output.EntityData.Leafs.Append("stopTime", types.YLeaf{"StopTime", output.StopTime})
+    output.EntityData.Leafs.Append("period", types.YLeaf{"Period", output.Period})
+    output.EntityData.Leafs.Append("anchor-time", types.YLeaf{"AnchorTime", output.AnchorTime})
+    output.EntityData.Leafs.Append("no-synch-on-start", types.YLeaf{"NoSynchOnStart", output.NoSynchOnStart})
+    output.EntityData.Leafs.Append("dampening-period", types.YLeaf{"DampeningPeriod", output.DampeningPeriod})
+    output.EntityData.Leafs.Append("excluded-change", types.YLeaf{"ExcludedChange", output.ExcludedChange})
+    output.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", output.Dscp})
+    output.EntityData.Leafs.Append("subscription-priority", types.YLeaf{"SubscriptionPriority", output.SubscriptionPriority})
+    output.EntityData.Leafs.Append("subscription-dependency", types.YLeaf{"SubscriptionDependency", output.SubscriptionDependency})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -1003,10 +1027,13 @@ func (deleteSubscription *DeleteSubscription) GetEntityData() *types.CommonEntit
     deleteSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     deleteSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    deleteSubscription.EntityData.Children = make(map[string]types.YChild)
-    deleteSubscription.EntityData.Children["input"] = types.YChild{"Input", &deleteSubscription.Input}
-    deleteSubscription.EntityData.Children["output"] = types.YChild{"Output", &deleteSubscription.Output}
-    deleteSubscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    deleteSubscription.EntityData.Children = types.NewOrderedMap()
+    deleteSubscription.EntityData.Children.Append("input", types.YChild{"Input", &deleteSubscription.Input})
+    deleteSubscription.EntityData.Children.Append("output", types.YChild{"Output", &deleteSubscription.Output})
+    deleteSubscription.EntityData.Leafs = types.NewOrderedMap()
+
+    deleteSubscription.EntityData.YListKeys = []string {}
+
     return &(deleteSubscription.EntityData)
 }
 
@@ -1032,9 +1059,12 @@ func (input *DeleteSubscription_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", input.SubscriptionId}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", input.SubscriptionId})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1045,7 +1075,7 @@ type DeleteSubscription_Output struct {
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
+    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 }
@@ -1060,9 +1090,12 @@ func (output *DeleteSubscription_Output) GetEntityData() *types.CommonEntityData
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["subscription-result"] = types.YLeaf{"SubscriptionResult", output.SubscriptionResult}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("subscription-result", types.YLeaf{"SubscriptionResult", output.SubscriptionResult})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -1077,8 +1110,8 @@ type Streams struct {
     // streams are associated with their own identities, each of which carries a
     // special semantics. In case configurable custom streams are supported, as
     // indicated by the custom-stream identity, the configuration of those custom
-    // streams is provided         separately. The type is slice of ['NETCONF',
-    // 'YangPush', 'CustomStream'].
+    // streams is provided         separately. The type is slice of [u'NETCONF',
+    // 'CustomStream', 'YangPush'].
     Stream []interface{}
 }
 
@@ -1092,9 +1125,12 @@ func (streams *Streams) GetEntityData() *types.CommonEntityData {
     streams.EntityData.NamespaceTable = ietf.GetNamespaces()
     streams.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    streams.EntityData.Children = make(map[string]types.YChild)
-    streams.EntityData.Leafs = make(map[string]types.YLeaf)
-    streams.EntityData.Leafs["stream"] = types.YLeaf{"Stream", streams.Stream}
+    streams.EntityData.Children = types.NewOrderedMap()
+    streams.EntityData.Leafs = types.NewOrderedMap()
+    streams.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", streams.Stream})
+
+    streams.EntityData.YListKeys = []string {}
+
     return &(streams.EntityData)
 }
 
@@ -1108,7 +1144,7 @@ type Filters struct {
 
     // A list of configurable filters that can be applied to subscriptions. The
     // type is slice of Filters_Filter.
-    Filter []Filters_Filter
+    Filter []*Filters_Filter
 }
 
 func (filters *Filters) GetEntityData() *types.CommonEntityData {
@@ -1121,12 +1157,15 @@ func (filters *Filters) GetEntityData() *types.CommonEntityData {
     filters.EntityData.NamespaceTable = ietf.GetNamespaces()
     filters.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    filters.EntityData.Children = make(map[string]types.YChild)
-    filters.EntityData.Children["filter"] = types.YChild{"Filter", nil}
+    filters.EntityData.Children = types.NewOrderedMap()
+    filters.EntityData.Children.Append("filter", types.YChild{"Filter", nil})
     for i := range filters.Filter {
-        filters.EntityData.Children[types.GetSegmentPath(&filters.Filter[i])] = types.YChild{"Filter", &filters.Filter[i]}
+        filters.EntityData.Children.Append(types.GetSegmentPath(filters.Filter[i]), types.YChild{"Filter", filters.Filter[i]})
     }
-    filters.EntityData.Leafs = make(map[string]types.YLeaf)
+    filters.EntityData.Leafs = types.NewOrderedMap()
+
+    filters.EntityData.YListKeys = []string {}
+
     return &(filters.EntityData)
 }
 
@@ -1168,17 +1207,20 @@ func (filter *Filters_Filter) GetEntityData() *types.CommonEntityData {
     filter.EntityData.YangName = "filter"
     filter.EntityData.BundleName = "ietf"
     filter.EntityData.ParentYangName = "filters"
-    filter.EntityData.SegmentPath = "filter" + "[filter-id='" + fmt.Sprintf("%v", filter.FilterId) + "']"
+    filter.EntityData.SegmentPath = "filter" + types.AddKeyToken(filter.FilterId, "filter-id")
     filter.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     filter.EntityData.NamespaceTable = ietf.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    filter.EntityData.Children = make(map[string]types.YChild)
-    filter.EntityData.Leafs = make(map[string]types.YLeaf)
-    filter.EntityData.Leafs["filter-id"] = types.YLeaf{"FilterId", filter.FilterId}
-    filter.EntityData.Leafs["filter"] = types.YLeaf{"Filter", filter.Filter}
-    filter.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", filter.SubtreeFilter}
-    filter.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", filter.XpathFilter}
+    filter.EntityData.Children = types.NewOrderedMap()
+    filter.EntityData.Leafs = types.NewOrderedMap()
+    filter.EntityData.Leafs.Append("filter-id", types.YLeaf{"FilterId", filter.FilterId})
+    filter.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", filter.Filter})
+    filter.EntityData.Leafs.Append("subtree-filter", types.YLeaf{"SubtreeFilter", filter.SubtreeFilter})
+    filter.EntityData.Leafs.Append("xpath-filter", types.YLeaf{"XpathFilter", filter.XpathFilter})
+
+    filter.EntityData.YListKeys = []string {"FilterId"}
+
     return &(filter.EntityData)
 }
 
@@ -1191,7 +1233,7 @@ type SubscriptionConfig struct {
 
     // Content of a subscription. The type is slice of
     // SubscriptionConfig_Subscription.
-    Subscription []SubscriptionConfig_Subscription
+    Subscription []*SubscriptionConfig_Subscription
 }
 
 func (subscriptionConfig *SubscriptionConfig) GetEntityData() *types.CommonEntityData {
@@ -1204,12 +1246,15 @@ func (subscriptionConfig *SubscriptionConfig) GetEntityData() *types.CommonEntit
     subscriptionConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     subscriptionConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    subscriptionConfig.EntityData.Children = make(map[string]types.YChild)
-    subscriptionConfig.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
+    subscriptionConfig.EntityData.Children = types.NewOrderedMap()
+    subscriptionConfig.EntityData.Children.Append("subscription", types.YChild{"Subscription", nil})
     for i := range subscriptionConfig.Subscription {
-        subscriptionConfig.EntityData.Children[types.GetSegmentPath(&subscriptionConfig.Subscription[i])] = types.YChild{"Subscription", &subscriptionConfig.Subscription[i]}
+        subscriptionConfig.EntityData.Children.Append(types.GetSegmentPath(subscriptionConfig.Subscription[i]), types.YChild{"Subscription", subscriptionConfig.Subscription[i]})
     }
-    subscriptionConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriptionConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriptionConfig.EntityData.YListKeys = []string {}
+
     return &(subscriptionConfig.EntityData)
 }
 
@@ -1225,11 +1270,11 @@ type SubscriptionConfig_Subscription struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -1266,8 +1311,8 @@ type SubscriptionConfig_Subscription struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Starttime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
     // of interest.  If <stopTime> is not present, the notifications will continue
@@ -1275,8 +1320,8 @@ type SubscriptionConfig_Subscription struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Stoptime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StopTime interface{}
 
     // References the interface for notifications. The type is string. Refers to
     // interfaces.Interfaces_Interface_Name
@@ -1287,9 +1332,9 @@ type SubscriptionConfig_Subscription struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     SourceAddress interface{}
 
@@ -1305,7 +1350,7 @@ type SubscriptionConfig_Subscription struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -1355,34 +1400,37 @@ func (subscription *SubscriptionConfig_Subscription) GetEntityData() *types.Comm
     subscription.EntityData.YangName = "subscription"
     subscription.EntityData.BundleName = "ietf"
     subscription.EntityData.ParentYangName = "subscription-config"
-    subscription.EntityData.SegmentPath = "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
+    subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
     subscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     subscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    subscription.EntityData.Children = make(map[string]types.YChild)
-    subscription.EntityData.Children["receivers"] = types.YChild{"Receivers", &subscription.Receivers}
-    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", subscription.SubscriptionId}
-    subscription.EntityData.Leafs["stream"] = types.YLeaf{"Stream", subscription.Stream}
-    subscription.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", subscription.Encoding}
-    subscription.EntityData.Leafs["filter"] = types.YLeaf{"Filter", subscription.Filter}
-    subscription.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", subscription.FilterRef}
-    subscription.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", subscription.SubtreeFilter}
-    subscription.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", subscription.XpathFilter}
-    subscription.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", subscription.Starttime}
-    subscription.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", subscription.Stoptime}
-    subscription.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", subscription.SourceInterface}
-    subscription.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", subscription.SourceVrf}
-    subscription.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", subscription.SourceAddress}
-    subscription.EntityData.Leafs["period"] = types.YLeaf{"Period", subscription.Period}
-    subscription.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", subscription.AnchorTime}
-    subscription.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", subscription.NoSynchOnStart}
-    subscription.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", subscription.DampeningPeriod}
-    subscription.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", subscription.ExcludedChange}
-    subscription.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", subscription.Dscp}
-    subscription.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", subscription.SubscriptionPriority}
-    subscription.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", subscription.SubscriptionDependency}
+    subscription.EntityData.Children = types.NewOrderedMap()
+    subscription.EntityData.Children.Append("receivers", types.YChild{"Receivers", &subscription.Receivers})
+    subscription.EntityData.Leafs = types.NewOrderedMap()
+    subscription.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", subscription.SubscriptionId})
+    subscription.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", subscription.Stream})
+    subscription.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", subscription.Encoding})
+    subscription.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", subscription.Filter})
+    subscription.EntityData.Leafs.Append("filter-ref", types.YLeaf{"FilterRef", subscription.FilterRef})
+    subscription.EntityData.Leafs.Append("subtree-filter", types.YLeaf{"SubtreeFilter", subscription.SubtreeFilter})
+    subscription.EntityData.Leafs.Append("xpath-filter", types.YLeaf{"XpathFilter", subscription.XpathFilter})
+    subscription.EntityData.Leafs.Append("startTime", types.YLeaf{"StartTime", subscription.StartTime})
+    subscription.EntityData.Leafs.Append("stopTime", types.YLeaf{"StopTime", subscription.StopTime})
+    subscription.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", subscription.SourceInterface})
+    subscription.EntityData.Leafs.Append("source-vrf", types.YLeaf{"SourceVrf", subscription.SourceVrf})
+    subscription.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", subscription.SourceAddress})
+    subscription.EntityData.Leafs.Append("period", types.YLeaf{"Period", subscription.Period})
+    subscription.EntityData.Leafs.Append("anchor-time", types.YLeaf{"AnchorTime", subscription.AnchorTime})
+    subscription.EntityData.Leafs.Append("no-synch-on-start", types.YLeaf{"NoSynchOnStart", subscription.NoSynchOnStart})
+    subscription.EntityData.Leafs.Append("dampening-period", types.YLeaf{"DampeningPeriod", subscription.DampeningPeriod})
+    subscription.EntityData.Leafs.Append("excluded-change", types.YLeaf{"ExcludedChange", subscription.ExcludedChange})
+    subscription.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", subscription.Dscp})
+    subscription.EntityData.Leafs.Append("subscription-priority", types.YLeaf{"SubscriptionPriority", subscription.SubscriptionPriority})
+    subscription.EntityData.Leafs.Append("subscription-dependency", types.YLeaf{"SubscriptionDependency", subscription.SubscriptionDependency})
+
+    subscription.EntityData.YListKeys = []string {"SubscriptionId"}
+
     return &(subscription.EntityData)
 }
 
@@ -1395,7 +1443,7 @@ type SubscriptionConfig_Subscription_Receivers struct {
     // A single host or multipoint address intended as a target for the
     // notifications for a subscription. The type is slice of
     // SubscriptionConfig_Subscription_Receivers_Receiver.
-    Receiver []SubscriptionConfig_Subscription_Receivers_Receiver
+    Receiver []*SubscriptionConfig_Subscription_Receivers_Receiver
 }
 
 func (receivers *SubscriptionConfig_Subscription_Receivers) GetEntityData() *types.CommonEntityData {
@@ -1408,12 +1456,15 @@ func (receivers *SubscriptionConfig_Subscription_Receivers) GetEntityData() *typ
     receivers.EntityData.NamespaceTable = ietf.GetNamespaces()
     receivers.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    receivers.EntityData.Children = make(map[string]types.YChild)
-    receivers.EntityData.Children["receiver"] = types.YChild{"Receiver", nil}
+    receivers.EntityData.Children = types.NewOrderedMap()
+    receivers.EntityData.Children.Append("receiver", types.YChild{"Receiver", nil})
     for i := range receivers.Receiver {
-        receivers.EntityData.Children[types.GetSegmentPath(&receivers.Receiver[i])] = types.YChild{"Receiver", &receivers.Receiver[i]}
+        receivers.EntityData.Children.Append(types.GetSegmentPath(receivers.Receiver[i]), types.YChild{"Receiver", receivers.Receiver[i]})
     }
-    receivers.EntityData.Leafs = make(map[string]types.YLeaf)
+    receivers.EntityData.Leafs = types.NewOrderedMap()
+
+    receivers.EntityData.YListKeys = []string {}
+
     return &(receivers.EntityData)
 }
 
@@ -1428,11 +1479,11 @@ type SubscriptionConfig_Subscription_Receivers_Receiver struct {
     // remote host. One of the following must be specified: an ipv4 address, an
     // ipv6 address, or a host name. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory.., or string with pattern:
-    // b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'
+    // ((([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.)*([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.?)|\.
     // This attribute is mandatory..
     Address interface{}
 
@@ -1452,16 +1503,19 @@ func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetEntityDat
     receiver.EntityData.YangName = "receiver"
     receiver.EntityData.BundleName = "ietf"
     receiver.EntityData.ParentYangName = "receivers"
-    receiver.EntityData.SegmentPath = "receiver" + "[address='" + fmt.Sprintf("%v", receiver.Address) + "']"
+    receiver.EntityData.SegmentPath = "receiver" + types.AddKeyToken(receiver.Address, "address")
     receiver.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     receiver.EntityData.NamespaceTable = ietf.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    receiver.EntityData.Children = make(map[string]types.YChild)
-    receiver.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiver.EntityData.Leafs["address"] = types.YLeaf{"Address", receiver.Address}
-    receiver.EntityData.Leafs["port"] = types.YLeaf{"Port", receiver.Port}
-    receiver.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", receiver.Protocol}
+    receiver.EntityData.Children = types.NewOrderedMap()
+    receiver.EntityData.Leafs = types.NewOrderedMap()
+    receiver.EntityData.Leafs.Append("address", types.YLeaf{"Address", receiver.Address})
+    receiver.EntityData.Leafs.Append("port", types.YLeaf{"Port", receiver.Port})
+    receiver.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", receiver.Protocol})
+
+    receiver.EntityData.YListKeys = []string {"Address"}
+
     return &(receiver.EntityData)
 }
 
@@ -1481,7 +1535,7 @@ type Subscriptions struct {
     // Content of a subscription. Subscriptions can be created using a control
     // channel or RPC, or be established through configuration. The type is slice
     // of Subscriptions_Subscription.
-    Subscription []Subscriptions_Subscription
+    Subscription []*Subscriptions_Subscription
 }
 
 func (subscriptions *Subscriptions) GetEntityData() *types.CommonEntityData {
@@ -1494,12 +1548,15 @@ func (subscriptions *Subscriptions) GetEntityData() *types.CommonEntityData {
     subscriptions.EntityData.NamespaceTable = ietf.GetNamespaces()
     subscriptions.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    subscriptions.EntityData.Children = make(map[string]types.YChild)
-    subscriptions.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
+    subscriptions.EntityData.Children = types.NewOrderedMap()
+    subscriptions.EntityData.Children.Append("subscription", types.YChild{"Subscription", nil})
     for i := range subscriptions.Subscription {
-        subscriptions.EntityData.Children[types.GetSegmentPath(&subscriptions.Subscription[i])] = types.YChild{"Subscription", &subscriptions.Subscription[i]}
+        subscriptions.EntityData.Children.Append(types.GetSegmentPath(subscriptions.Subscription[i]), types.YChild{"Subscription", subscriptions.Subscription[i]})
     }
-    subscriptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriptions.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriptions.EntityData.YListKeys = []string {}
+
     return &(subscriptions.EntityData)
 }
 
@@ -1521,16 +1578,16 @@ type Subscriptions_Subscription struct {
     ConfiguredSubscription interface{}
 
     // The status of the subscription. The type is one of the following:
-    // ActiveInactiveSuspendedInError.
+    // InactiveSuspendedInErrorActive.
     SubscriptionStatus interface{}
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -1567,8 +1624,8 @@ type Subscriptions_Subscription struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Starttime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
     // of interest.  If <stopTime> is not present, the notifications will continue
@@ -1576,8 +1633,8 @@ type Subscriptions_Subscription struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Stoptime interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StopTime interface{}
 
     // References the interface for notifications. The type is string. Refers to
     // interfaces.Interfaces_Interface_Name
@@ -1588,9 +1645,9 @@ type Subscriptions_Subscription struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     SourceAddress interface{}
 
@@ -1606,7 +1663,7 @@ type Subscriptions_Subscription struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -1656,36 +1713,39 @@ func (subscription *Subscriptions_Subscription) GetEntityData() *types.CommonEnt
     subscription.EntityData.YangName = "subscription"
     subscription.EntityData.BundleName = "ietf"
     subscription.EntityData.ParentYangName = "subscriptions"
-    subscription.EntityData.SegmentPath = "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
+    subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
     subscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     subscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    subscription.EntityData.Children = make(map[string]types.YChild)
-    subscription.EntityData.Children["receivers"] = types.YChild{"Receivers", &subscription.Receivers}
-    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", subscription.SubscriptionId}
-    subscription.EntityData.Leafs["configured-subscription"] = types.YLeaf{"ConfiguredSubscription", subscription.ConfiguredSubscription}
-    subscription.EntityData.Leafs["subscription-status"] = types.YLeaf{"SubscriptionStatus", subscription.SubscriptionStatus}
-    subscription.EntityData.Leafs["stream"] = types.YLeaf{"Stream", subscription.Stream}
-    subscription.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", subscription.Encoding}
-    subscription.EntityData.Leafs["filter"] = types.YLeaf{"Filter", subscription.Filter}
-    subscription.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", subscription.FilterRef}
-    subscription.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", subscription.SubtreeFilter}
-    subscription.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", subscription.XpathFilter}
-    subscription.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", subscription.Starttime}
-    subscription.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", subscription.Stoptime}
-    subscription.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", subscription.SourceInterface}
-    subscription.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", subscription.SourceVrf}
-    subscription.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", subscription.SourceAddress}
-    subscription.EntityData.Leafs["period"] = types.YLeaf{"Period", subscription.Period}
-    subscription.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", subscription.AnchorTime}
-    subscription.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", subscription.NoSynchOnStart}
-    subscription.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", subscription.DampeningPeriod}
-    subscription.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", subscription.ExcludedChange}
-    subscription.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", subscription.Dscp}
-    subscription.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", subscription.SubscriptionPriority}
-    subscription.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", subscription.SubscriptionDependency}
+    subscription.EntityData.Children = types.NewOrderedMap()
+    subscription.EntityData.Children.Append("receivers", types.YChild{"Receivers", &subscription.Receivers})
+    subscription.EntityData.Leafs = types.NewOrderedMap()
+    subscription.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", subscription.SubscriptionId})
+    subscription.EntityData.Leafs.Append("configured-subscription", types.YLeaf{"ConfiguredSubscription", subscription.ConfiguredSubscription})
+    subscription.EntityData.Leafs.Append("subscription-status", types.YLeaf{"SubscriptionStatus", subscription.SubscriptionStatus})
+    subscription.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", subscription.Stream})
+    subscription.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", subscription.Encoding})
+    subscription.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", subscription.Filter})
+    subscription.EntityData.Leafs.Append("filter-ref", types.YLeaf{"FilterRef", subscription.FilterRef})
+    subscription.EntityData.Leafs.Append("subtree-filter", types.YLeaf{"SubtreeFilter", subscription.SubtreeFilter})
+    subscription.EntityData.Leafs.Append("xpath-filter", types.YLeaf{"XpathFilter", subscription.XpathFilter})
+    subscription.EntityData.Leafs.Append("startTime", types.YLeaf{"StartTime", subscription.StartTime})
+    subscription.EntityData.Leafs.Append("stopTime", types.YLeaf{"StopTime", subscription.StopTime})
+    subscription.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", subscription.SourceInterface})
+    subscription.EntityData.Leafs.Append("source-vrf", types.YLeaf{"SourceVrf", subscription.SourceVrf})
+    subscription.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", subscription.SourceAddress})
+    subscription.EntityData.Leafs.Append("period", types.YLeaf{"Period", subscription.Period})
+    subscription.EntityData.Leafs.Append("anchor-time", types.YLeaf{"AnchorTime", subscription.AnchorTime})
+    subscription.EntityData.Leafs.Append("no-synch-on-start", types.YLeaf{"NoSynchOnStart", subscription.NoSynchOnStart})
+    subscription.EntityData.Leafs.Append("dampening-period", types.YLeaf{"DampeningPeriod", subscription.DampeningPeriod})
+    subscription.EntityData.Leafs.Append("excluded-change", types.YLeaf{"ExcludedChange", subscription.ExcludedChange})
+    subscription.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", subscription.Dscp})
+    subscription.EntityData.Leafs.Append("subscription-priority", types.YLeaf{"SubscriptionPriority", subscription.SubscriptionPriority})
+    subscription.EntityData.Leafs.Append("subscription-dependency", types.YLeaf{"SubscriptionDependency", subscription.SubscriptionDependency})
+
+    subscription.EntityData.YListKeys = []string {"SubscriptionId"}
+
     return &(subscription.EntityData)
 }
 
@@ -1698,7 +1758,7 @@ type Subscriptions_Subscription_Receivers struct {
     // A single host or multipoint address intended as a target for the
     // notifications for a subscription. The type is slice of
     // Subscriptions_Subscription_Receivers_Receiver.
-    Receiver []Subscriptions_Subscription_Receivers_Receiver
+    Receiver []*Subscriptions_Subscription_Receivers_Receiver
 }
 
 func (receivers *Subscriptions_Subscription_Receivers) GetEntityData() *types.CommonEntityData {
@@ -1711,12 +1771,15 @@ func (receivers *Subscriptions_Subscription_Receivers) GetEntityData() *types.Co
     receivers.EntityData.NamespaceTable = ietf.GetNamespaces()
     receivers.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    receivers.EntityData.Children = make(map[string]types.YChild)
-    receivers.EntityData.Children["receiver"] = types.YChild{"Receiver", nil}
+    receivers.EntityData.Children = types.NewOrderedMap()
+    receivers.EntityData.Children.Append("receiver", types.YChild{"Receiver", nil})
     for i := range receivers.Receiver {
-        receivers.EntityData.Children[types.GetSegmentPath(&receivers.Receiver[i])] = types.YChild{"Receiver", &receivers.Receiver[i]}
+        receivers.EntityData.Children.Append(types.GetSegmentPath(receivers.Receiver[i]), types.YChild{"Receiver", receivers.Receiver[i]})
     }
-    receivers.EntityData.Leafs = make(map[string]types.YLeaf)
+    receivers.EntityData.Leafs = types.NewOrderedMap()
+
+    receivers.EntityData.YListKeys = []string {}
+
     return &(receivers.EntityData)
 }
 
@@ -1731,11 +1794,11 @@ type Subscriptions_Subscription_Receivers_Receiver struct {
     // remote host. One of the following must be specified: an ipv4 address, an
     // ipv6 address, or a host name. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory.., or string with pattern:
-    // b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'
+    // ((([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.)*([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.?)|\.
     // This attribute is mandatory..
     Address interface{}
 
@@ -1755,16 +1818,19 @@ func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetEntityData() *
     receiver.EntityData.YangName = "receiver"
     receiver.EntityData.BundleName = "ietf"
     receiver.EntityData.ParentYangName = "receivers"
-    receiver.EntityData.SegmentPath = "receiver" + "[address='" + fmt.Sprintf("%v", receiver.Address) + "']"
+    receiver.EntityData.SegmentPath = "receiver" + types.AddKeyToken(receiver.Address, "address")
     receiver.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     receiver.EntityData.NamespaceTable = ietf.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    receiver.EntityData.Children = make(map[string]types.YChild)
-    receiver.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiver.EntityData.Leafs["address"] = types.YLeaf{"Address", receiver.Address}
-    receiver.EntityData.Leafs["port"] = types.YLeaf{"Port", receiver.Port}
-    receiver.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", receiver.Protocol}
+    receiver.EntityData.Children = types.NewOrderedMap()
+    receiver.EntityData.Leafs = types.NewOrderedMap()
+    receiver.EntityData.Leafs.Append("address", types.YLeaf{"Address", receiver.Address})
+    receiver.EntityData.Leafs.Append("port", types.YLeaf{"Port", receiver.Port})
+    receiver.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", receiver.Protocol})
+
+    receiver.EntityData.YListKeys = []string {"Address"}
+
     return &(receiver.EntityData)
 }
 

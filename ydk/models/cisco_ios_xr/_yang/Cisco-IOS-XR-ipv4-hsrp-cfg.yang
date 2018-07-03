@@ -42,9 +42,17 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-11-05 {
+    description
+      "Corrected boolean values in when statements.";
+  }
   revision 2017-10-04 {
     description
       "Marked delay leafs min-delay and reload-delay as mandatory.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
   }
   revision 2017-05-01 {
     description
@@ -273,7 +281,7 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     "Priority value";
                 }
                 leaf preempt {
-                  type int32;
+                  type uint32;
                   default "0";
                   description
                     "Force active if higher priority";
@@ -588,9 +596,9 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                        virtual IP address it is to use";
                   }
                   leaf address {
-                    when "../virtual-ip-learn = 0" {
+                    when "../virtual-ip-learn = 'false'" {
                       description
-                        "../VirtualIPLearn = <expr>";
+                        "../VirtualIPLearn = 'false'";
                     }
                     type inet:ipv4-address-no-zone;
                     description
@@ -635,7 +643,7 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     "Priority value";
                 }
                 leaf preempt {
-                  type int32;
+                  type uint32;
                   default "0";
                   description
                     "Force active if higher priority";
@@ -704,9 +712,9 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                        virtual IP address it is to use";
                   }
                   leaf address {
-                    when "../virtual-ip-learn = 0" {
+                    when "../virtual-ip-learn = 'false'" {
                       description
-                        "../VirtualIPLearn = <expr>";
+                        "../VirtualIPLearn = 'false'";
                     }
                     type inet:ipv4-address-no-zone;
                     description
@@ -814,7 +822,7 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                   }
                 }
                 leaf preempt {
-                  type int32;
+                  type uint32;
                   default "0";
                   description
                     "Force active if higher priority";

@@ -36,7 +36,7 @@ type ObjectTrackings struct {
 
     // Track name - maximum 32 characters. The type is slice of
     // ObjectTrackings_ObjectTracking.
-    ObjectTracking []ObjectTrackings_ObjectTracking
+    ObjectTracking []*ObjectTrackings_ObjectTracking
 }
 
 func (objectTrackings *ObjectTrackings) GetEntityData() *types.CommonEntityData {
@@ -49,12 +49,15 @@ func (objectTrackings *ObjectTrackings) GetEntityData() *types.CommonEntityData 
     objectTrackings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectTrackings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    objectTrackings.EntityData.Children = make(map[string]types.YChild)
-    objectTrackings.EntityData.Children["object-tracking"] = types.YChild{"ObjectTracking", nil}
+    objectTrackings.EntityData.Children = types.NewOrderedMap()
+    objectTrackings.EntityData.Children.Append("object-tracking", types.YChild{"ObjectTracking", nil})
     for i := range objectTrackings.ObjectTracking {
-        objectTrackings.EntityData.Children[types.GetSegmentPath(&objectTrackings.ObjectTracking[i])] = types.YChild{"ObjectTracking", &objectTrackings.ObjectTracking[i]}
+        objectTrackings.EntityData.Children.Append(types.GetSegmentPath(objectTrackings.ObjectTracking[i]), types.YChild{"ObjectTracking", objectTrackings.ObjectTracking[i]})
     }
-    objectTrackings.EntityData.Leafs = make(map[string]types.YLeaf)
+    objectTrackings.EntityData.Leafs = types.NewOrderedMap()
+
+    objectTrackings.EntityData.YListKeys = []string {}
+
     return &(objectTrackings.EntityData)
 }
 
@@ -111,26 +114,29 @@ func (objectTracking *ObjectTrackings_ObjectTracking) GetEntityData() *types.Com
     objectTracking.EntityData.YangName = "object-tracking"
     objectTracking.EntityData.BundleName = "cisco_ios_xr"
     objectTracking.EntityData.ParentYangName = "object-trackings"
-    objectTracking.EntityData.SegmentPath = "object-tracking" + "[track-name='" + fmt.Sprintf("%v", objectTracking.TrackName) + "']"
+    objectTracking.EntityData.SegmentPath = "object-tracking" + types.AddKeyToken(objectTracking.TrackName, "track-name")
     objectTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    objectTracking.EntityData.Children = make(map[string]types.YChild)
-    objectTracking.EntityData.Children["type-interface"] = types.YChild{"TypeInterface", &objectTracking.TypeInterface}
-    objectTracking.EntityData.Children["type-rtr"] = types.YChild{"TypeRtr", &objectTracking.TypeRtr}
-    objectTracking.EntityData.Children["type-list"] = types.YChild{"TypeList", &objectTracking.TypeList}
-    objectTracking.EntityData.Children["type-route"] = types.YChild{"TypeRoute", &objectTracking.TypeRoute}
-    objectTracking.EntityData.Children["type-boolean-list"] = types.YChild{"TypeBooleanList", &objectTracking.TypeBooleanList}
-    objectTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    objectTracking.EntityData.Leafs["track-name"] = types.YLeaf{"TrackName", objectTracking.TrackName}
-    objectTracking.EntityData.Leafs["delay-up"] = types.YLeaf{"DelayUp", objectTracking.DelayUp}
-    objectTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", objectTracking.Enable}
-    objectTracking.EntityData.Leafs["delay-down"] = types.YLeaf{"DelayDown", objectTracking.DelayDown}
-    objectTracking.EntityData.Leafs["type-interface-enable"] = types.YLeaf{"TypeInterfaceEnable", objectTracking.TypeInterfaceEnable}
-    objectTracking.EntityData.Leafs["type-route-enable"] = types.YLeaf{"TypeRouteEnable", objectTracking.TypeRouteEnable}
-    objectTracking.EntityData.Leafs["type-boolean-list-and-enable"] = types.YLeaf{"TypeBooleanListAndEnable", objectTracking.TypeBooleanListAndEnable}
-    objectTracking.EntityData.Leafs["type-boolean-list-or-enable"] = types.YLeaf{"TypeBooleanListOrEnable", objectTracking.TypeBooleanListOrEnable}
+    objectTracking.EntityData.Children = types.NewOrderedMap()
+    objectTracking.EntityData.Children.Append("type-interface", types.YChild{"TypeInterface", &objectTracking.TypeInterface})
+    objectTracking.EntityData.Children.Append("type-rtr", types.YChild{"TypeRtr", &objectTracking.TypeRtr})
+    objectTracking.EntityData.Children.Append("type-list", types.YChild{"TypeList", &objectTracking.TypeList})
+    objectTracking.EntityData.Children.Append("type-route", types.YChild{"TypeRoute", &objectTracking.TypeRoute})
+    objectTracking.EntityData.Children.Append("type-boolean-list", types.YChild{"TypeBooleanList", &objectTracking.TypeBooleanList})
+    objectTracking.EntityData.Leafs = types.NewOrderedMap()
+    objectTracking.EntityData.Leafs.Append("track-name", types.YLeaf{"TrackName", objectTracking.TrackName})
+    objectTracking.EntityData.Leafs.Append("delay-up", types.YLeaf{"DelayUp", objectTracking.DelayUp})
+    objectTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", objectTracking.Enable})
+    objectTracking.EntityData.Leafs.Append("delay-down", types.YLeaf{"DelayDown", objectTracking.DelayDown})
+    objectTracking.EntityData.Leafs.Append("type-interface-enable", types.YLeaf{"TypeInterfaceEnable", objectTracking.TypeInterfaceEnable})
+    objectTracking.EntityData.Leafs.Append("type-route-enable", types.YLeaf{"TypeRouteEnable", objectTracking.TypeRouteEnable})
+    objectTracking.EntityData.Leafs.Append("type-boolean-list-and-enable", types.YLeaf{"TypeBooleanListAndEnable", objectTracking.TypeBooleanListAndEnable})
+    objectTracking.EntityData.Leafs.Append("type-boolean-list-or-enable", types.YLeaf{"TypeBooleanListOrEnable", objectTracking.TypeBooleanListOrEnable})
+
+    objectTracking.EntityData.YListKeys = []string {"TrackName"}
+
     return &(objectTracking.EntityData)
 }
 
@@ -141,8 +147,8 @@ type ObjectTrackings_ObjectTracking_TypeInterface struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // [a-zA-Z0-9./-]+.
+    Interface interface{}
 }
 
 func (typeInterface *ObjectTrackings_ObjectTracking_TypeInterface) GetEntityData() *types.CommonEntityData {
@@ -155,9 +161,12 @@ func (typeInterface *ObjectTrackings_ObjectTracking_TypeInterface) GetEntityData
     typeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    typeInterface.EntityData.Children = make(map[string]types.YChild)
-    typeInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    typeInterface.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", typeInterface.Interface_}
+    typeInterface.EntityData.Children = types.NewOrderedMap()
+    typeInterface.EntityData.Leafs = types.NewOrderedMap()
+    typeInterface.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", typeInterface.Interface})
+
+    typeInterface.EntityData.YListKeys = []string {}
+
     return &(typeInterface.EntityData)
 }
 
@@ -181,9 +190,12 @@ func (typeRtr *ObjectTrackings_ObjectTracking_TypeRtr) GetEntityData() *types.Co
     typeRtr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeRtr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    typeRtr.EntityData.Children = make(map[string]types.YChild)
-    typeRtr.EntityData.Leafs = make(map[string]types.YLeaf)
-    typeRtr.EntityData.Leafs["rtr"] = types.YLeaf{"Rtr", typeRtr.Rtr}
+    typeRtr.EntityData.Children = types.NewOrderedMap()
+    typeRtr.EntityData.Leafs = types.NewOrderedMap()
+    typeRtr.EntityData.Leafs.Append("rtr", types.YLeaf{"Rtr", typeRtr.Rtr})
+
+    typeRtr.EntityData.YListKeys = []string {}
+
     return &(typeRtr.EntityData)
 }
 
@@ -216,12 +228,15 @@ func (typeList *ObjectTrackings_ObjectTracking_TypeList) GetEntityData() *types.
     typeList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    typeList.EntityData.Children = make(map[string]types.YChild)
-    typeList.EntityData.Children["threshold-weight"] = types.YChild{"ThresholdWeight", &typeList.ThresholdWeight}
-    typeList.EntityData.Children["threshold-percentage-object"] = types.YChild{"ThresholdPercentageObject", &typeList.ThresholdPercentageObject}
-    typeList.EntityData.Children["threshold-percentage"] = types.YChild{"ThresholdPercentage", &typeList.ThresholdPercentage}
-    typeList.EntityData.Children["threshold-weight-object"] = types.YChild{"ThresholdWeightObject", &typeList.ThresholdWeightObject}
-    typeList.EntityData.Leafs = make(map[string]types.YLeaf)
+    typeList.EntityData.Children = types.NewOrderedMap()
+    typeList.EntityData.Children.Append("threshold-weight", types.YChild{"ThresholdWeight", &typeList.ThresholdWeight})
+    typeList.EntityData.Children.Append("threshold-percentage-object", types.YChild{"ThresholdPercentageObject", &typeList.ThresholdPercentageObject})
+    typeList.EntityData.Children.Append("threshold-percentage", types.YChild{"ThresholdPercentage", &typeList.ThresholdPercentage})
+    typeList.EntityData.Children.Append("threshold-weight-object", types.YChild{"ThresholdWeightObject", &typeList.ThresholdWeightObject})
+    typeList.EntityData.Leafs = types.NewOrderedMap()
+
+    typeList.EntityData.YListKeys = []string {}
+
     return &(typeList.EntityData)
 }
 
@@ -245,9 +260,12 @@ func (thresholdWeight *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight) 
     thresholdWeight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdWeight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdWeight.EntityData.Children = make(map[string]types.YChild)
-    thresholdWeight.EntityData.Children["threshold-limits"] = types.YChild{"ThresholdLimits", &thresholdWeight.ThresholdLimits}
-    thresholdWeight.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdWeight.EntityData.Children = types.NewOrderedMap()
+    thresholdWeight.EntityData.Children.Append("threshold-limits", types.YChild{"ThresholdLimits", &thresholdWeight.ThresholdLimits})
+    thresholdWeight.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdWeight.EntityData.YListKeys = []string {}
+
     return &(thresholdWeight.EntityData)
 }
 
@@ -271,9 +289,12 @@ func (thresholdLimits *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_T
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdLimits.EntityData.Children = make(map[string]types.YChild)
-    thresholdLimits.EntityData.Children["threshold-up-values"] = types.YChild{"ThresholdUpValues", &thresholdLimits.ThresholdUpValues}
-    thresholdLimits.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdLimits.EntityData.Children = types.NewOrderedMap()
+    thresholdLimits.EntityData.Children.Append("threshold-up-values", types.YChild{"ThresholdUpValues", &thresholdLimits.ThresholdUpValues})
+    thresholdLimits.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdLimits.EntityData.YListKeys = []string {}
+
     return &(thresholdLimits.EntityData)
 }
 
@@ -286,7 +307,7 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_Thr
 
     // Threshold limit at which track is set to UP state. The type is slice of
     // ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue.
-    ThresholdUpValue []ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue
+    ThresholdUpValue []*ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue
 }
 
 func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues) GetEntityData() *types.CommonEntityData {
@@ -299,12 +320,15 @@ func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight
     thresholdUpValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdUpValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdUpValues.EntityData.Children = make(map[string]types.YChild)
-    thresholdUpValues.EntityData.Children["threshold-up-value"] = types.YChild{"ThresholdUpValue", nil}
+    thresholdUpValues.EntityData.Children = types.NewOrderedMap()
+    thresholdUpValues.EntityData.Children.Append("threshold-up-value", types.YChild{"ThresholdUpValue", nil})
     for i := range thresholdUpValues.ThresholdUpValue {
-        thresholdUpValues.EntityData.Children[types.GetSegmentPath(&thresholdUpValues.ThresholdUpValue[i])] = types.YChild{"ThresholdUpValue", &thresholdUpValues.ThresholdUpValue[i]}
+        thresholdUpValues.EntityData.Children.Append(types.GetSegmentPath(thresholdUpValues.ThresholdUpValue[i]), types.YChild{"ThresholdUpValue", thresholdUpValues.ThresholdUpValue[i]})
     }
-    thresholdUpValues.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdUpValues.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdUpValues.EntityData.YListKeys = []string {}
+
     return &(thresholdUpValues.EntityData)
 }
 
@@ -316,11 +340,11 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_Thr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Up value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Up interface{}
 
     // Threshold limit at which track is set to Down state. The type is
-    // interface{} with range: -2147483648..2147483647. The default value is 0.
+    // interface{} with range: 0..4294967295. The default value is 0.
     ThresholdDown interface{}
 }
 
@@ -329,15 +353,18 @@ func (thresholdUpValue *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_
     thresholdUpValue.EntityData.YangName = "threshold-up-value"
     thresholdUpValue.EntityData.BundleName = "cisco_ios_xr"
     thresholdUpValue.EntityData.ParentYangName = "threshold-up-values"
-    thresholdUpValue.EntityData.SegmentPath = "threshold-up-value" + "[up='" + fmt.Sprintf("%v", thresholdUpValue.Up) + "']"
+    thresholdUpValue.EntityData.SegmentPath = "threshold-up-value" + types.AddKeyToken(thresholdUpValue.Up, "up")
     thresholdUpValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdUpValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdUpValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdUpValue.EntityData.Children = make(map[string]types.YChild)
-    thresholdUpValue.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdUpValue.EntityData.Leafs["up"] = types.YLeaf{"Up", thresholdUpValue.Up}
-    thresholdUpValue.EntityData.Leafs["threshold-down"] = types.YLeaf{"ThresholdDown", thresholdUpValue.ThresholdDown}
+    thresholdUpValue.EntityData.Children = types.NewOrderedMap()
+    thresholdUpValue.EntityData.Leafs = types.NewOrderedMap()
+    thresholdUpValue.EntityData.Leafs.Append("up", types.YLeaf{"Up", thresholdUpValue.Up})
+    thresholdUpValue.EntityData.Leafs.Append("threshold-down", types.YLeaf{"ThresholdDown", thresholdUpValue.ThresholdDown})
+
+    thresholdUpValue.EntityData.YListKeys = []string {"Up"}
+
     return &(thresholdUpValue.EntityData)
 }
 
@@ -349,7 +376,7 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject struct {
 
     // Track name object. The type is slice of
     // ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject_Object.
-    Object []ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject_Object
+    Object []*ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject_Object
 }
 
 func (thresholdPercentageObject *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject) GetEntityData() *types.CommonEntityData {
@@ -362,12 +389,15 @@ func (thresholdPercentageObject *ObjectTrackings_ObjectTracking_TypeList_Thresho
     thresholdPercentageObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdPercentageObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdPercentageObject.EntityData.Children = make(map[string]types.YChild)
-    thresholdPercentageObject.EntityData.Children["object"] = types.YChild{"Object", nil}
+    thresholdPercentageObject.EntityData.Children = types.NewOrderedMap()
+    thresholdPercentageObject.EntityData.Children.Append("object", types.YChild{"Object", nil})
     for i := range thresholdPercentageObject.Object {
-        thresholdPercentageObject.EntityData.Children[types.GetSegmentPath(&thresholdPercentageObject.Object[i])] = types.YChild{"Object", &thresholdPercentageObject.Object[i]}
+        thresholdPercentageObject.EntityData.Children.Append(types.GetSegmentPath(thresholdPercentageObject.Object[i]), types.YChild{"Object", thresholdPercentageObject.Object[i]})
     }
-    thresholdPercentageObject.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdPercentageObject.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdPercentageObject.EntityData.YListKeys = []string {}
+
     return &(thresholdPercentageObject.EntityData)
 }
 
@@ -381,8 +411,8 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject_Object st
     // 1..32.
     Object interface{}
 
-    // Weight of object. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 1.
+    // Weight of object. The type is interface{} with range: 0..4294967295. The
+    // default value is 1.
     ObjectWeight interface{}
 }
 
@@ -391,15 +421,18 @@ func (object *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject_
     object.EntityData.YangName = "object"
     object.EntityData.BundleName = "cisco_ios_xr"
     object.EntityData.ParentYangName = "threshold-percentage-object"
-    object.EntityData.SegmentPath = "object" + "[object='" + fmt.Sprintf("%v", object.Object) + "']"
+    object.EntityData.SegmentPath = "object" + types.AddKeyToken(object.Object, "object")
     object.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     object.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     object.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    object.EntityData.Children = make(map[string]types.YChild)
-    object.EntityData.Leafs = make(map[string]types.YLeaf)
-    object.EntityData.Leafs["object"] = types.YLeaf{"Object", object.Object}
-    object.EntityData.Leafs["object-weight"] = types.YLeaf{"ObjectWeight", object.ObjectWeight}
+    object.EntityData.Children = types.NewOrderedMap()
+    object.EntityData.Leafs = types.NewOrderedMap()
+    object.EntityData.Leafs.Append("object", types.YLeaf{"Object", object.Object})
+    object.EntityData.Leafs.Append("object-weight", types.YLeaf{"ObjectWeight", object.ObjectWeight})
+
+    object.EntityData.YListKeys = []string {"Object"}
+
     return &(object.EntityData)
 }
 
@@ -423,9 +456,12 @@ func (thresholdPercentage *ObjectTrackings_ObjectTracking_TypeList_ThresholdPerc
     thresholdPercentage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdPercentage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdPercentage.EntityData.Children = make(map[string]types.YChild)
-    thresholdPercentage.EntityData.Children["threshold-limits"] = types.YChild{"ThresholdLimits", &thresholdPercentage.ThresholdLimits}
-    thresholdPercentage.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdPercentage.EntityData.Children = types.NewOrderedMap()
+    thresholdPercentage.EntityData.Children.Append("threshold-limits", types.YChild{"ThresholdLimits", &thresholdPercentage.ThresholdLimits})
+    thresholdPercentage.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdPercentage.EntityData.YListKeys = []string {}
+
     return &(thresholdPercentage.EntityData)
 }
 
@@ -449,9 +485,12 @@ func (thresholdLimits *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercenta
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdLimits.EntityData.Children = make(map[string]types.YChild)
-    thresholdLimits.EntityData.Children["threshold-up-values"] = types.YChild{"ThresholdUpValues", &thresholdLimits.ThresholdUpValues}
-    thresholdLimits.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdLimits.EntityData.Children = types.NewOrderedMap()
+    thresholdLimits.EntityData.Children.Append("threshold-up-values", types.YChild{"ThresholdUpValues", &thresholdLimits.ThresholdUpValues})
+    thresholdLimits.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdLimits.EntityData.YListKeys = []string {}
+
     return &(thresholdLimits.EntityData)
 }
 
@@ -464,7 +503,7 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits
 
     // Threshold limit at which track is set to UP state. The type is slice of
     // ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue.
-    ThresholdUpValue []ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue
+    ThresholdUpValue []*ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue
 }
 
 func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues) GetEntityData() *types.CommonEntityData {
@@ -477,12 +516,15 @@ func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercen
     thresholdUpValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdUpValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdUpValues.EntityData.Children = make(map[string]types.YChild)
-    thresholdUpValues.EntityData.Children["threshold-up-value"] = types.YChild{"ThresholdUpValue", nil}
+    thresholdUpValues.EntityData.Children = types.NewOrderedMap()
+    thresholdUpValues.EntityData.Children.Append("threshold-up-value", types.YChild{"ThresholdUpValue", nil})
     for i := range thresholdUpValues.ThresholdUpValue {
-        thresholdUpValues.EntityData.Children[types.GetSegmentPath(&thresholdUpValues.ThresholdUpValue[i])] = types.YChild{"ThresholdUpValue", &thresholdUpValues.ThresholdUpValue[i]}
+        thresholdUpValues.EntityData.Children.Append(types.GetSegmentPath(thresholdUpValues.ThresholdUpValue[i]), types.YChild{"ThresholdUpValue", thresholdUpValues.ThresholdUpValue[i]})
     }
-    thresholdUpValues.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdUpValues.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdUpValues.EntityData.YListKeys = []string {}
+
     return &(thresholdUpValues.EntityData)
 }
 
@@ -494,11 +536,11 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits
     YFilter yfilter.YFilter
 
     // This attribute is a key. Up value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Up interface{}
 
     // Threshold limit at which track is set to Down state. The type is
-    // interface{} with range: -2147483648..2147483647. The default value is 0.
+    // interface{} with range: 0..4294967295. The default value is 0.
     ThresholdDown interface{}
 }
 
@@ -507,15 +549,18 @@ func (thresholdUpValue *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercent
     thresholdUpValue.EntityData.YangName = "threshold-up-value"
     thresholdUpValue.EntityData.BundleName = "cisco_ios_xr"
     thresholdUpValue.EntityData.ParentYangName = "threshold-up-values"
-    thresholdUpValue.EntityData.SegmentPath = "threshold-up-value" + "[up='" + fmt.Sprintf("%v", thresholdUpValue.Up) + "']"
+    thresholdUpValue.EntityData.SegmentPath = "threshold-up-value" + types.AddKeyToken(thresholdUpValue.Up, "up")
     thresholdUpValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdUpValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdUpValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdUpValue.EntityData.Children = make(map[string]types.YChild)
-    thresholdUpValue.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdUpValue.EntityData.Leafs["up"] = types.YLeaf{"Up", thresholdUpValue.Up}
-    thresholdUpValue.EntityData.Leafs["threshold-down"] = types.YLeaf{"ThresholdDown", thresholdUpValue.ThresholdDown}
+    thresholdUpValue.EntityData.Children = types.NewOrderedMap()
+    thresholdUpValue.EntityData.Leafs = types.NewOrderedMap()
+    thresholdUpValue.EntityData.Leafs.Append("up", types.YLeaf{"Up", thresholdUpValue.Up})
+    thresholdUpValue.EntityData.Leafs.Append("threshold-down", types.YLeaf{"ThresholdDown", thresholdUpValue.ThresholdDown})
+
+    thresholdUpValue.EntityData.YListKeys = []string {"Up"}
+
     return &(thresholdUpValue.EntityData)
 }
 
@@ -527,7 +572,7 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject struct {
 
     // Track name object. The type is slice of
     // ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject_Object.
-    Object []ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject_Object
+    Object []*ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject_Object
 }
 
 func (thresholdWeightObject *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject) GetEntityData() *types.CommonEntityData {
@@ -540,12 +585,15 @@ func (thresholdWeightObject *ObjectTrackings_ObjectTracking_TypeList_ThresholdWe
     thresholdWeightObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdWeightObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdWeightObject.EntityData.Children = make(map[string]types.YChild)
-    thresholdWeightObject.EntityData.Children["object"] = types.YChild{"Object", nil}
+    thresholdWeightObject.EntityData.Children = types.NewOrderedMap()
+    thresholdWeightObject.EntityData.Children.Append("object", types.YChild{"Object", nil})
     for i := range thresholdWeightObject.Object {
-        thresholdWeightObject.EntityData.Children[types.GetSegmentPath(&thresholdWeightObject.Object[i])] = types.YChild{"Object", &thresholdWeightObject.Object[i]}
+        thresholdWeightObject.EntityData.Children.Append(types.GetSegmentPath(thresholdWeightObject.Object[i]), types.YChild{"Object", thresholdWeightObject.Object[i]})
     }
-    thresholdWeightObject.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdWeightObject.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdWeightObject.EntityData.YListKeys = []string {}
+
     return &(thresholdWeightObject.EntityData)
 }
 
@@ -559,8 +607,8 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject_Object struct
     // 1..32.
     Object interface{}
 
-    // Weight of object. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 1.
+    // Weight of object. The type is interface{} with range: 0..4294967295. The
+    // default value is 1.
     ObjectWeight interface{}
 }
 
@@ -569,15 +617,18 @@ func (object *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject_Obje
     object.EntityData.YangName = "object"
     object.EntityData.BundleName = "cisco_ios_xr"
     object.EntityData.ParentYangName = "threshold-weight-object"
-    object.EntityData.SegmentPath = "object" + "[object='" + fmt.Sprintf("%v", object.Object) + "']"
+    object.EntityData.SegmentPath = "object" + types.AddKeyToken(object.Object, "object")
     object.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     object.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     object.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    object.EntityData.Children = make(map[string]types.YChild)
-    object.EntityData.Leafs = make(map[string]types.YLeaf)
-    object.EntityData.Leafs["object"] = types.YLeaf{"Object", object.Object}
-    object.EntityData.Leafs["object-weight"] = types.YLeaf{"ObjectWeight", object.ObjectWeight}
+    object.EntityData.Children = types.NewOrderedMap()
+    object.EntityData.Leafs = types.NewOrderedMap()
+    object.EntityData.Leafs.Append("object", types.YLeaf{"Object", object.Object})
+    object.EntityData.Leafs.Append("object-weight", types.YLeaf{"ObjectWeight", object.ObjectWeight})
+
+    object.EntityData.YListKeys = []string {"Object"}
+
     return &(object.EntityData)
 }
 
@@ -605,10 +656,13 @@ func (typeRoute *ObjectTrackings_ObjectTracking_TypeRoute) GetEntityData() *type
     typeRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    typeRoute.EntityData.Children = make(map[string]types.YChild)
-    typeRoute.EntityData.Children["ip-address"] = types.YChild{"IpAddress", &typeRoute.IpAddress}
-    typeRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    typeRoute.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", typeRoute.Vrf}
+    typeRoute.EntityData.Children = types.NewOrderedMap()
+    typeRoute.EntityData.Children.Append("ip-address", types.YChild{"IpAddress", &typeRoute.IpAddress})
+    typeRoute.EntityData.Leafs = types.NewOrderedMap()
+    typeRoute.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", typeRoute.Vrf})
+
+    typeRoute.EntityData.YListKeys = []string {}
+
     return &(typeRoute.EntityData)
 }
 
@@ -618,13 +672,14 @@ func (typeRoute *ObjectTrackings_ObjectTracking_TypeRoute) GetEntityData() *type
 type ObjectTrackings_ObjectTracking_TypeRoute_IpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Mask interface{}
 }
 
@@ -638,10 +693,13 @@ func (ipAddress *ObjectTrackings_ObjectTracking_TypeRoute_IpAddress) GetEntityDa
     ipAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipAddress.EntityData.Children = make(map[string]types.YChild)
-    ipAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipAddress.EntityData.Leafs["address"] = types.YLeaf{"Address", ipAddress.Address}
-    ipAddress.EntityData.Leafs["mask"] = types.YLeaf{"Mask", ipAddress.Mask}
+    ipAddress.EntityData.Children = types.NewOrderedMap()
+    ipAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipAddress.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipAddress.Address})
+    ipAddress.EntityData.Leafs.Append("mask", types.YLeaf{"Mask", ipAddress.Mask})
+
+    ipAddress.EntityData.YListKeys = []string {}
+
     return &(ipAddress.EntityData)
 }
 
@@ -668,10 +726,13 @@ func (typeBooleanList *ObjectTrackings_ObjectTracking_TypeBooleanList) GetEntity
     typeBooleanList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeBooleanList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    typeBooleanList.EntityData.Children = make(map[string]types.YChild)
-    typeBooleanList.EntityData.Children["or-objects"] = types.YChild{"OrObjects", &typeBooleanList.OrObjects}
-    typeBooleanList.EntityData.Children["and-objects"] = types.YChild{"AndObjects", &typeBooleanList.AndObjects}
-    typeBooleanList.EntityData.Leafs = make(map[string]types.YLeaf)
+    typeBooleanList.EntityData.Children = types.NewOrderedMap()
+    typeBooleanList.EntityData.Children.Append("or-objects", types.YChild{"OrObjects", &typeBooleanList.OrObjects})
+    typeBooleanList.EntityData.Children.Append("and-objects", types.YChild{"AndObjects", &typeBooleanList.AndObjects})
+    typeBooleanList.EntityData.Leafs = types.NewOrderedMap()
+
+    typeBooleanList.EntityData.YListKeys = []string {}
+
     return &(typeBooleanList.EntityData)
 }
 
@@ -683,7 +744,7 @@ type ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects struct {
 
     // Track name - maximum 32 characters. The type is slice of
     // ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects_OrObject.
-    OrObject []ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects_OrObject
+    OrObject []*ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects_OrObject
 }
 
 func (orObjects *ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects) GetEntityData() *types.CommonEntityData {
@@ -696,12 +757,15 @@ func (orObjects *ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects) GetEn
     orObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     orObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    orObjects.EntityData.Children = make(map[string]types.YChild)
-    orObjects.EntityData.Children["or-object"] = types.YChild{"OrObject", nil}
+    orObjects.EntityData.Children = types.NewOrderedMap()
+    orObjects.EntityData.Children.Append("or-object", types.YChild{"OrObject", nil})
     for i := range orObjects.OrObject {
-        orObjects.EntityData.Children[types.GetSegmentPath(&orObjects.OrObject[i])] = types.YChild{"OrObject", &orObjects.OrObject[i]}
+        orObjects.EntityData.Children.Append(types.GetSegmentPath(orObjects.OrObject[i]), types.YChild{"OrObject", orObjects.OrObject[i]})
     }
-    orObjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    orObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    orObjects.EntityData.YListKeys = []string {}
+
     return &(orObjects.EntityData)
 }
 
@@ -725,15 +789,18 @@ func (orObject *ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects_OrObjec
     orObject.EntityData.YangName = "or-object"
     orObject.EntityData.BundleName = "cisco_ios_xr"
     orObject.EntityData.ParentYangName = "or-objects"
-    orObject.EntityData.SegmentPath = "or-object" + "[object='" + fmt.Sprintf("%v", orObject.Object) + "']"
+    orObject.EntityData.SegmentPath = "or-object" + types.AddKeyToken(orObject.Object, "object")
     orObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     orObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     orObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    orObject.EntityData.Children = make(map[string]types.YChild)
-    orObject.EntityData.Leafs = make(map[string]types.YLeaf)
-    orObject.EntityData.Leafs["object"] = types.YLeaf{"Object", orObject.Object}
-    orObject.EntityData.Leafs["object-sign"] = types.YLeaf{"ObjectSign", orObject.ObjectSign}
+    orObject.EntityData.Children = types.NewOrderedMap()
+    orObject.EntityData.Leafs = types.NewOrderedMap()
+    orObject.EntityData.Leafs.Append("object", types.YLeaf{"Object", orObject.Object})
+    orObject.EntityData.Leafs.Append("object-sign", types.YLeaf{"ObjectSign", orObject.ObjectSign})
+
+    orObject.EntityData.YListKeys = []string {"Object"}
+
     return &(orObject.EntityData)
 }
 
@@ -745,7 +812,7 @@ type ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects struct {
 
     // Track name - maximum 32 characters. The type is slice of
     // ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects_AndObject.
-    AndObject []ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects_AndObject
+    AndObject []*ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects_AndObject
 }
 
 func (andObjects *ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects) GetEntityData() *types.CommonEntityData {
@@ -758,12 +825,15 @@ func (andObjects *ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects) Get
     andObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     andObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    andObjects.EntityData.Children = make(map[string]types.YChild)
-    andObjects.EntityData.Children["and-object"] = types.YChild{"AndObject", nil}
+    andObjects.EntityData.Children = types.NewOrderedMap()
+    andObjects.EntityData.Children.Append("and-object", types.YChild{"AndObject", nil})
     for i := range andObjects.AndObject {
-        andObjects.EntityData.Children[types.GetSegmentPath(&andObjects.AndObject[i])] = types.YChild{"AndObject", &andObjects.AndObject[i]}
+        andObjects.EntityData.Children.Append(types.GetSegmentPath(andObjects.AndObject[i]), types.YChild{"AndObject", andObjects.AndObject[i]})
     }
-    andObjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    andObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    andObjects.EntityData.YListKeys = []string {}
+
     return &(andObjects.EntityData)
 }
 
@@ -787,15 +857,18 @@ func (andObject *ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects_AndOb
     andObject.EntityData.YangName = "and-object"
     andObject.EntityData.BundleName = "cisco_ios_xr"
     andObject.EntityData.ParentYangName = "and-objects"
-    andObject.EntityData.SegmentPath = "and-object" + "[object-name='" + fmt.Sprintf("%v", andObject.ObjectName) + "']"
+    andObject.EntityData.SegmentPath = "and-object" + types.AddKeyToken(andObject.ObjectName, "object-name")
     andObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     andObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     andObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    andObject.EntityData.Children = make(map[string]types.YChild)
-    andObject.EntityData.Leafs = make(map[string]types.YLeaf)
-    andObject.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", andObject.ObjectName}
-    andObject.EntityData.Leafs["object-sign"] = types.YLeaf{"ObjectSign", andObject.ObjectSign}
+    andObject.EntityData.Children = types.NewOrderedMap()
+    andObject.EntityData.Leafs = types.NewOrderedMap()
+    andObject.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", andObject.ObjectName})
+    andObject.EntityData.Leafs.Append("object-sign", types.YLeaf{"ObjectSign", andObject.ObjectSign})
+
+    andObject.EntityData.YListKeys = []string {"ObjectName"}
+
     return &(andObject.EntityData)
 }
 

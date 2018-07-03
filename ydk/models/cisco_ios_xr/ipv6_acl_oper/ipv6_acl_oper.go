@@ -24,58 +24,21 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list", reflect.TypeOf(Ipv6AclAndPrefixList{}))
 }
 
-// BagAclNhAtStatus represents Bag acl nh at status
-type BagAclNhAtStatus string
+// AclTcpflagsOperator represents Acl tcpflags operator
+type AclTcpflagsOperator string
 
 const (
-    // AT State Unknown
-    BagAclNhAtStatus_unknown BagAclNhAtStatus = "unknown"
+    // Match None
+    AclTcpflagsOperator_match_none AclTcpflagsOperator = "match-none"
 
-    // AT State UP
-    BagAclNhAtStatus_up BagAclNhAtStatus = "up"
+    // Match All
+    AclTcpflagsOperator_match_all AclTcpflagsOperator = "match-all"
 
-    // AT State DOWN
-    BagAclNhAtStatus_down BagAclNhAtStatus = "down"
+    // Match any old
+    AclTcpflagsOperator_match_any_old AclTcpflagsOperator = "match-any-old"
 
-    // AT State Not Present
-    BagAclNhAtStatus_not_present BagAclNhAtStatus = "not-present"
-
-    // invalid status
-    BagAclNhAtStatus_max BagAclNhAtStatus = "max"
-)
-
-// BagAclNhStatus represents Bag acl nh status
-type BagAclNhStatus string
-
-const (
-    // State Not Present
-    BagAclNhStatus_not_present BagAclNhStatus = "not-present"
-
-    // State Unknown
-    BagAclNhStatus_unknown BagAclNhStatus = "unknown"
-
-    // State DOWN
-    BagAclNhStatus_down BagAclNhStatus = "down"
-
-    // State UP
-    BagAclNhStatus_up BagAclNhStatus = "up"
-
-    // invalid status
-    BagAclNhStatus_max BagAclNhStatus = "max"
-)
-
-// BagAclNh represents Bag acl nh
-type BagAclNh string
-
-const (
-    // Next Hop None
-    BagAclNh_nexthop_none BagAclNh = "nexthop-none"
-
-    // Nexthop Default
-    BagAclNh_nexthop_default BagAclNh = "nexthop-default"
-
-    // Nexthop
-    BagAclNh_nexthop BagAclNh = "nexthop"
+    // Match any
+    AclTcpflagsOperator_match_any AclTcpflagsOperator = "match-any"
 )
 
 // AclPortOperator represents Acl port operator
@@ -107,6 +70,20 @@ const (
     AclPortOperator_twobytes AclPortOperator = "twobytes"
 )
 
+// AclAce1 represents ACE Types
+type AclAce1 string
+
+const (
+    // This is Normal ACE
+    AclAce1_normal AclAce1 = "normal"
+
+    // This is Remark ACE
+    AclAce1_remark AclAce1 = "remark"
+
+    // This is ABF ACE
+    AclAce1_abf AclAce1 = "abf"
+)
+
 // AclPortOperator_ represents Acl port operator
 type AclPortOperator_ string
 
@@ -136,35 +113,38 @@ const (
     AclPortOperator__twobytes AclPortOperator_ = "twobytes"
 )
 
-// AclTcpflagsOperator represents Acl tcpflags operator
-type AclTcpflagsOperator string
+// BagAclNhAtStatus represents Bag acl nh at status
+type BagAclNhAtStatus string
 
 const (
-    // Match None
-    AclTcpflagsOperator_match_none AclTcpflagsOperator = "match-none"
+    // AT State Unknown
+    BagAclNhAtStatus_unknown BagAclNhAtStatus = "unknown"
 
-    // Match All
-    AclTcpflagsOperator_match_all AclTcpflagsOperator = "match-all"
+    // AT State UP
+    BagAclNhAtStatus_up BagAclNhAtStatus = "up"
 
-    // Match any old
-    AclTcpflagsOperator_match_any_old AclTcpflagsOperator = "match-any-old"
+    // AT State DOWN
+    BagAclNhAtStatus_down BagAclNhAtStatus = "down"
 
-    // Match any
-    AclTcpflagsOperator_match_any AclTcpflagsOperator = "match-any"
+    // AT State Not Present
+    BagAclNhAtStatus_not_present BagAclNhAtStatus = "not-present"
+
+    // invalid status
+    BagAclNhAtStatus_max BagAclNhAtStatus = "max"
 )
 
-// AclLog represents Acl log
-type AclLog string
+// BagAclNh represents Bag acl nh
+type BagAclNh string
 
 const (
-    // Log None
-    AclLog_log_none AclLog = "log-none"
+    // Next Hop None
+    BagAclNh_nexthop_none BagAclNh = "nexthop-none"
 
-    // Log Regular
-    AclLog_log AclLog = "log"
+    // Nexthop Default
+    BagAclNh_nexthop_default BagAclNh = "nexthop-default"
 
-    // Log Input
-    AclLog_log_input AclLog = "log-input"
+    // Nexthop
+    BagAclNh_nexthop BagAclNh = "nexthop"
 )
 
 // AclPortOperator_ represents Acl port operator
@@ -248,18 +228,38 @@ const (
     AclAction_invalid AclAction = "invalid"
 )
 
-// AclAce1 represents ACE Types
-type AclAce1 string
+// BagAclNhStatus represents Bag acl nh status
+type BagAclNhStatus string
 
 const (
-    // This is Normal ACE
-    AclAce1_normal AclAce1 = "normal"
+    // State Not Present
+    BagAclNhStatus_not_present BagAclNhStatus = "not-present"
 
-    // This is Remark ACE
-    AclAce1_remark AclAce1 = "remark"
+    // State Unknown
+    BagAclNhStatus_unknown BagAclNhStatus = "unknown"
 
-    // This is ABF ACE
-    AclAce1_abf AclAce1 = "abf"
+    // State DOWN
+    BagAclNhStatus_down BagAclNhStatus = "down"
+
+    // State UP
+    BagAclNhStatus_up BagAclNhStatus = "up"
+
+    // invalid status
+    BagAclNhStatus_max BagAclNhStatus = "max"
+)
+
+// AclLog represents Acl log
+type AclLog string
+
+const (
+    // Log None
+    AclLog_log_none AclLog = "log-none"
+
+    // Log Regular
+    AclLog_log AclLog = "log"
+
+    // Log Input
+    AclLog_log_input AclLog = "log-input"
 )
 
 // AclAce1_ represents ACE Types
@@ -299,10 +299,13 @@ func (ipv6AclAndPrefixList *Ipv6AclAndPrefixList) GetEntityData() *types.CommonE
     ipv6AclAndPrefixList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AclAndPrefixList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6AclAndPrefixList.EntityData.Children = make(map[string]types.YChild)
-    ipv6AclAndPrefixList.EntityData.Children["access-list-manager"] = types.YChild{"AccessListManager", &ipv6AclAndPrefixList.AccessListManager}
-    ipv6AclAndPrefixList.EntityData.Children["oor"] = types.YChild{"Oor", &ipv6AclAndPrefixList.Oor}
-    ipv6AclAndPrefixList.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6AclAndPrefixList.EntityData.Children = types.NewOrderedMap()
+    ipv6AclAndPrefixList.EntityData.Children.Append("access-list-manager", types.YChild{"AccessListManager", &ipv6AclAndPrefixList.AccessListManager})
+    ipv6AclAndPrefixList.EntityData.Children.Append("oor", types.YChild{"Oor", &ipv6AclAndPrefixList.Oor})
+    ipv6AclAndPrefixList.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6AclAndPrefixList.EntityData.YListKeys = []string {}
+
     return &(ipv6AclAndPrefixList.EntityData)
 }
 
@@ -333,11 +336,14 @@ func (accessListManager *Ipv6AclAndPrefixList_AccessListManager) GetEntityData()
     accessListManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessListManager.EntityData.Children = make(map[string]types.YChild)
-    accessListManager.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &accessListManager.Prefixes}
-    accessListManager.EntityData.Children["usages"] = types.YChild{"Usages", &accessListManager.Usages}
-    accessListManager.EntityData.Children["accesses"] = types.YChild{"Accesses", &accessListManager.Accesses}
-    accessListManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessListManager.EntityData.Children = types.NewOrderedMap()
+    accessListManager.EntityData.Children.Append("prefixes", types.YChild{"Prefixes", &accessListManager.Prefixes})
+    accessListManager.EntityData.Children.Append("usages", types.YChild{"Usages", &accessListManager.Usages})
+    accessListManager.EntityData.Children.Append("accesses", types.YChild{"Accesses", &accessListManager.Accesses})
+    accessListManager.EntityData.Leafs = types.NewOrderedMap()
+
+    accessListManager.EntityData.YListKeys = []string {}
+
     return &(accessListManager.EntityData)
 }
 
@@ -349,7 +355,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Prefixes struct {
 
     // Name of the prefix list. The type is slice of
     // Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix.
-    Prefix []Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix
+    Prefix []*Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix
 }
 
 func (prefixes *Ipv6AclAndPrefixList_AccessListManager_Prefixes) GetEntityData() *types.CommonEntityData {
@@ -362,12 +368,15 @@ func (prefixes *Ipv6AclAndPrefixList_AccessListManager_Prefixes) GetEntityData()
     prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixes.EntityData.Children = make(map[string]types.YChild)
-    prefixes.EntityData.Children["prefix"] = types.YChild{"Prefix", nil}
+    prefixes.EntityData.Children = types.NewOrderedMap()
+    prefixes.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range prefixes.Prefix {
-        prefixes.EntityData.Children[types.GetSegmentPath(&prefixes.Prefix[i])] = types.YChild{"Prefix", &prefixes.Prefix[i]}
+        prefixes.EntityData.Children.Append(types.GetSegmentPath(prefixes.Prefix[i]), types.YChild{"Prefix", prefixes.Prefix[i]})
     }
-    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixes.EntityData.YListKeys = []string {}
+
     return &(prefixes.EntityData)
 }
 
@@ -378,7 +387,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the prefix list. The type is string with
-    // length: 1..65.
+    // length: 1..64.
     PrefixListName interface{}
 
     // Table of all the SequenceNumbers per prefix list.
@@ -390,15 +399,18 @@ func (prefix *Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix) GetEntityD
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefixes"
-    prefix.EntityData.SegmentPath = "prefix" + "[prefix-list-name='" + fmt.Sprintf("%v", prefix.PrefixListName) + "']"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.PrefixListName, "prefix-list-name")
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix.EntityData.Children = make(map[string]types.YChild)
-    prefix.EntityData.Children["prefix-list-sequences"] = types.YChild{"PrefixListSequences", &prefix.PrefixListSequences}
-    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix.EntityData.Leafs["prefix-list-name"] = types.YLeaf{"PrefixListName", prefix.PrefixListName}
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("prefix-list-sequences", types.YChild{"PrefixListSequences", &prefix.PrefixListSequences})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("prefix-list-name", types.YLeaf{"PrefixListName", prefix.PrefixListName})
+
+    prefix.EntityData.YListKeys = []string {"PrefixListName"}
+
     return &(prefix.EntityData)
 }
 
@@ -411,7 +423,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix_PrefixListSequences 
 
     // Sequence Number of a prefix list entry. The type is slice of
     // Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix_PrefixListSequences_PrefixListSequence.
-    PrefixListSequence []Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix_PrefixListSequences_PrefixListSequence
+    PrefixListSequence []*Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix_PrefixListSequences_PrefixListSequence
 }
 
 func (prefixListSequences *Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix_PrefixListSequences) GetEntityData() *types.CommonEntityData {
@@ -424,12 +436,15 @@ func (prefixListSequences *Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefi
     prefixListSequences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixListSequences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixListSequences.EntityData.Children = make(map[string]types.YChild)
-    prefixListSequences.EntityData.Children["prefix-list-sequence"] = types.YChild{"PrefixListSequence", nil}
+    prefixListSequences.EntityData.Children = types.NewOrderedMap()
+    prefixListSequences.EntityData.Children.Append("prefix-list-sequence", types.YChild{"PrefixListSequence", nil})
     for i := range prefixListSequences.PrefixListSequence {
-        prefixListSequences.EntityData.Children[types.GetSegmentPath(&prefixListSequences.PrefixListSequence[i])] = types.YChild{"PrefixListSequence", &prefixListSequences.PrefixListSequence[i]}
+        prefixListSequences.EntityData.Children.Append(types.GetSegmentPath(prefixListSequences.PrefixListSequence[i]), types.YChild{"PrefixListSequence", prefixListSequences.PrefixListSequence[i]})
     }
-    prefixListSequences.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixListSequences.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixListSequences.EntityData.YListKeys = []string {}
+
     return &(prefixListSequences.EntityData)
 }
 
@@ -453,7 +468,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix_PrefixListSequences_
     IsPacketAllowOrDeny interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IsAddressInNumbers interface{}
 
     // Prefix length . The type is interface{} with range: 0..4294967295.
@@ -483,25 +498,28 @@ func (prefixListSequence *Ipv6AclAndPrefixList_AccessListManager_Prefixes_Prefix
     prefixListSequence.EntityData.YangName = "prefix-list-sequence"
     prefixListSequence.EntityData.BundleName = "cisco_ios_xr"
     prefixListSequence.EntityData.ParentYangName = "prefix-list-sequences"
-    prefixListSequence.EntityData.SegmentPath = "prefix-list-sequence" + "[sequence-number='" + fmt.Sprintf("%v", prefixListSequence.SequenceNumber) + "']"
+    prefixListSequence.EntityData.SegmentPath = "prefix-list-sequence" + types.AddKeyToken(prefixListSequence.SequenceNumber, "sequence-number")
     prefixListSequence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixListSequence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixListSequence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixListSequence.EntityData.Children = make(map[string]types.YChild)
-    prefixListSequence.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixListSequence.EntityData.Leafs["sequence-number"] = types.YLeaf{"SequenceNumber", prefixListSequence.SequenceNumber}
-    prefixListSequence.EntityData.Leafs["is-ace-type"] = types.YLeaf{"IsAceType", prefixListSequence.IsAceType}
-    prefixListSequence.EntityData.Leafs["is-ace-sequence-number"] = types.YLeaf{"IsAceSequenceNumber", prefixListSequence.IsAceSequenceNumber}
-    prefixListSequence.EntityData.Leafs["is-packet-allow-or-deny"] = types.YLeaf{"IsPacketAllowOrDeny", prefixListSequence.IsPacketAllowOrDeny}
-    prefixListSequence.EntityData.Leafs["is-address-in-numbers"] = types.YLeaf{"IsAddressInNumbers", prefixListSequence.IsAddressInNumbers}
-    prefixListSequence.EntityData.Leafs["is-address-mask-length"] = types.YLeaf{"IsAddressMaskLength", prefixListSequence.IsAddressMaskLength}
-    prefixListSequence.EntityData.Leafs["is-length-operator"] = types.YLeaf{"IsLengthOperator", prefixListSequence.IsLengthOperator}
-    prefixListSequence.EntityData.Leafs["is-packet-minimum-length"] = types.YLeaf{"IsPacketMinimumLength", prefixListSequence.IsPacketMinimumLength}
-    prefixListSequence.EntityData.Leafs["is-packet-maximum-length"] = types.YLeaf{"IsPacketMaximumLength", prefixListSequence.IsPacketMaximumLength}
-    prefixListSequence.EntityData.Leafs["hits"] = types.YLeaf{"Hits", prefixListSequence.Hits}
-    prefixListSequence.EntityData.Leafs["is-comment-for-entry"] = types.YLeaf{"IsCommentForEntry", prefixListSequence.IsCommentForEntry}
-    prefixListSequence.EntityData.Leafs["acl-name"] = types.YLeaf{"AclName", prefixListSequence.AclName}
+    prefixListSequence.EntityData.Children = types.NewOrderedMap()
+    prefixListSequence.EntityData.Leafs = types.NewOrderedMap()
+    prefixListSequence.EntityData.Leafs.Append("sequence-number", types.YLeaf{"SequenceNumber", prefixListSequence.SequenceNumber})
+    prefixListSequence.EntityData.Leafs.Append("is-ace-type", types.YLeaf{"IsAceType", prefixListSequence.IsAceType})
+    prefixListSequence.EntityData.Leafs.Append("is-ace-sequence-number", types.YLeaf{"IsAceSequenceNumber", prefixListSequence.IsAceSequenceNumber})
+    prefixListSequence.EntityData.Leafs.Append("is-packet-allow-or-deny", types.YLeaf{"IsPacketAllowOrDeny", prefixListSequence.IsPacketAllowOrDeny})
+    prefixListSequence.EntityData.Leafs.Append("is-address-in-numbers", types.YLeaf{"IsAddressInNumbers", prefixListSequence.IsAddressInNumbers})
+    prefixListSequence.EntityData.Leafs.Append("is-address-mask-length", types.YLeaf{"IsAddressMaskLength", prefixListSequence.IsAddressMaskLength})
+    prefixListSequence.EntityData.Leafs.Append("is-length-operator", types.YLeaf{"IsLengthOperator", prefixListSequence.IsLengthOperator})
+    prefixListSequence.EntityData.Leafs.Append("is-packet-minimum-length", types.YLeaf{"IsPacketMinimumLength", prefixListSequence.IsPacketMinimumLength})
+    prefixListSequence.EntityData.Leafs.Append("is-packet-maximum-length", types.YLeaf{"IsPacketMaximumLength", prefixListSequence.IsPacketMaximumLength})
+    prefixListSequence.EntityData.Leafs.Append("hits", types.YLeaf{"Hits", prefixListSequence.Hits})
+    prefixListSequence.EntityData.Leafs.Append("is-comment-for-entry", types.YLeaf{"IsCommentForEntry", prefixListSequence.IsCommentForEntry})
+    prefixListSequence.EntityData.Leafs.Append("acl-name", types.YLeaf{"AclName", prefixListSequence.AclName})
+
+    prefixListSequence.EntityData.YListKeys = []string {"SequenceNumber"}
+
     return &(prefixListSequence.EntityData)
 }
 
@@ -514,7 +532,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Usages struct {
 
     // Usage statistics of an ACL at a node. The type is slice of
     // Ipv6AclAndPrefixList_AccessListManager_Usages_Usage.
-    Usage []Ipv6AclAndPrefixList_AccessListManager_Usages_Usage
+    Usage []*Ipv6AclAndPrefixList_AccessListManager_Usages_Usage
 }
 
 func (usages *Ipv6AclAndPrefixList_AccessListManager_Usages) GetEntityData() *types.CommonEntityData {
@@ -527,12 +545,15 @@ func (usages *Ipv6AclAndPrefixList_AccessListManager_Usages) GetEntityData() *ty
     usages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usages.EntityData.Children = make(map[string]types.YChild)
-    usages.EntityData.Children["usage"] = types.YChild{"Usage", nil}
+    usages.EntityData.Children = types.NewOrderedMap()
+    usages.EntityData.Children.Append("usage", types.YChild{"Usage", nil})
     for i := range usages.Usage {
-        usages.EntityData.Children[types.GetSegmentPath(&usages.Usage[i])] = types.YChild{"Usage", &usages.Usage[i]}
+        usages.EntityData.Children.Append(types.GetSegmentPath(usages.Usage[i]), types.YChild{"Usage", usages.Usage[i]})
     }
-    usages.EntityData.Leafs = make(map[string]types.YLeaf)
+    usages.EntityData.Leafs = types.NewOrderedMap()
+
+    usages.EntityData.YListKeys = []string {}
+
     return &(usages.EntityData)
 }
 
@@ -543,13 +564,13 @@ type Ipv6AclAndPrefixList_AccessListManager_Usages_Usage struct {
     YFilter yfilter.YFilter
 
     // Node where ACL is applied. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Application ID. The type is AclUsageAppIdEnum.
     ApplicationId interface{}
 
-    // Name of the ACL. The type is string with length: 1..65.
+    // Name of the ACL. The type is string with length: 1..64.
     AccessListName interface{}
 
     // Usage Statistics Details. The type is string. This attribute is mandatory.
@@ -566,12 +587,15 @@ func (usage *Ipv6AclAndPrefixList_AccessListManager_Usages_Usage) GetEntityData(
     usage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usage.EntityData.Children = make(map[string]types.YChild)
-    usage.EntityData.Leafs = make(map[string]types.YLeaf)
-    usage.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", usage.NodeName}
-    usage.EntityData.Leafs["application-id"] = types.YLeaf{"ApplicationId", usage.ApplicationId}
-    usage.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", usage.AccessListName}
-    usage.EntityData.Leafs["usage-details"] = types.YLeaf{"UsageDetails", usage.UsageDetails}
+    usage.EntityData.Children = types.NewOrderedMap()
+    usage.EntityData.Leafs = types.NewOrderedMap()
+    usage.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", usage.NodeName})
+    usage.EntityData.Leafs.Append("application-id", types.YLeaf{"ApplicationId", usage.ApplicationId})
+    usage.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", usage.AccessListName})
+    usage.EntityData.Leafs.Append("usage-details", types.YLeaf{"UsageDetails", usage.UsageDetails})
+
+    usage.EntityData.YListKeys = []string {}
+
     return &(usage.EntityData)
 }
 
@@ -583,7 +607,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses struct {
 
     // Name of the Access List. The type is slice of
     // Ipv6AclAndPrefixList_AccessListManager_Accesses_Access.
-    Access []Ipv6AclAndPrefixList_AccessListManager_Accesses_Access
+    Access []*Ipv6AclAndPrefixList_AccessListManager_Accesses_Access
 }
 
 func (accesses *Ipv6AclAndPrefixList_AccessListManager_Accesses) GetEntityData() *types.CommonEntityData {
@@ -596,12 +620,15 @@ func (accesses *Ipv6AclAndPrefixList_AccessListManager_Accesses) GetEntityData()
     accesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accesses.EntityData.Children = make(map[string]types.YChild)
-    accesses.EntityData.Children["access"] = types.YChild{"Access", nil}
+    accesses.EntityData.Children = types.NewOrderedMap()
+    accesses.EntityData.Children.Append("access", types.YChild{"Access", nil})
     for i := range accesses.Access {
-        accesses.EntityData.Children[types.GetSegmentPath(&accesses.Access[i])] = types.YChild{"Access", &accesses.Access[i]}
+        accesses.EntityData.Children.Append(types.GetSegmentPath(accesses.Access[i]), types.YChild{"Access", accesses.Access[i]})
     }
-    accesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    accesses.EntityData.Leafs = types.NewOrderedMap()
+
+    accesses.EntityData.YListKeys = []string {}
+
     return &(accesses.EntityData)
 }
 
@@ -612,7 +639,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the Access List. The type is string with
-    // length: 1..65.
+    // length: 1..64.
     AccessListName interface{}
 
     // Table of all the sequence numbers per ACL.
@@ -624,15 +651,18 @@ func (access *Ipv6AclAndPrefixList_AccessListManager_Accesses_Access) GetEntityD
     access.EntityData.YangName = "access"
     access.EntityData.BundleName = "cisco_ios_xr"
     access.EntityData.ParentYangName = "accesses"
-    access.EntityData.SegmentPath = "access" + "[access-list-name='" + fmt.Sprintf("%v", access.AccessListName) + "']"
+    access.EntityData.SegmentPath = "access" + types.AddKeyToken(access.AccessListName, "access-list-name")
     access.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     access.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     access.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    access.EntityData.Children = make(map[string]types.YChild)
-    access.EntityData.Children["access-list-sequences"] = types.YChild{"AccessListSequences", &access.AccessListSequences}
-    access.EntityData.Leafs = make(map[string]types.YLeaf)
-    access.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", access.AccessListName}
+    access.EntityData.Children = types.NewOrderedMap()
+    access.EntityData.Children.Append("access-list-sequences", types.YChild{"AccessListSequences", &access.AccessListSequences})
+    access.EntityData.Leafs = types.NewOrderedMap()
+    access.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", access.AccessListName})
+
+    access.EntityData.YListKeys = []string {"AccessListName"}
+
     return &(access.EntityData)
 }
 
@@ -644,7 +674,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences 
 
     // Sequence number of an ACL entry. The type is slice of
     // Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence.
-    AccessListSequence []Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence
+    AccessListSequence []*Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence
 }
 
 func (accessListSequences *Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences) GetEntityData() *types.CommonEntityData {
@@ -657,12 +687,15 @@ func (accessListSequences *Ipv6AclAndPrefixList_AccessListManager_Accesses_Acces
     accessListSequences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListSequences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessListSequences.EntityData.Children = make(map[string]types.YChild)
-    accessListSequences.EntityData.Children["access-list-sequence"] = types.YChild{"AccessListSequence", nil}
+    accessListSequences.EntityData.Children = types.NewOrderedMap()
+    accessListSequences.EntityData.Children.Append("access-list-sequence", types.YChild{"AccessListSequence", nil})
     for i := range accessListSequences.AccessListSequence {
-        accessListSequences.EntityData.Children[types.GetSegmentPath(&accessListSequences.AccessListSequence[i])] = types.YChild{"AccessListSequence", &accessListSequences.AccessListSequence[i]}
+        accessListSequences.EntityData.Children.Append(types.GetSegmentPath(accessListSequences.AccessListSequence[i]), types.YChild{"AccessListSequence", accessListSequences.AccessListSequence[i]})
     }
-    accessListSequences.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessListSequences.EntityData.Leafs = types.NewOrderedMap()
+
+    accessListSequences.EntityData.YListKeys = []string {}
+
     return &(accessListSequences.EntityData)
 }
 
@@ -695,7 +728,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
     IsIpv6Protocol2Type interface{}
 
     // IsSourceAddressInNumbers. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IsSourceAddressInNumbers interface{}
 
     // IsSourceAddressPrefixLength. The type is interface{} with range:
@@ -703,11 +736,11 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
     IsSourceAddressPrefixLength interface{}
 
     // Source Mask. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceMask interface{}
 
     // IsDestinationAddressInNumbers. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IsDestinationAddressInNumbers interface{}
 
     // IsDestinationAddressPrefixLength. The type is interface{} with range:
@@ -715,7 +748,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
     IsDestinationAddressPrefixLength interface{}
 
     // Destination Mask. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationMask interface{}
 
     // eq, ne, lt, etc... The type is AclPortOperator_.
@@ -754,8 +787,14 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
     // IsDSCPPresent. The type is interface{} with range: -2147483648..2147483647.
     IsDscpPresent interface{}
 
-    // IsDSCPValu. The type is interface{} with range: 0..4294967295.
+    // DSCP Operator. The type is interface{} with range: 0..255.
+    DscpOperator interface{}
+
+    // IsDSCPValu. The type is interface{} with range: 0..255.
     IsDscpValu interface{}
+
+    // IsDSCPValu2. The type is interface{} with range: 0..255.
+    IsDscpValu2 interface{}
 
     // IsPrecedencePresent. The type is interface{} with range:
     // -2147483648..2147483647.
@@ -840,11 +879,11 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
 
     // Next hop info. The type is slice of
     // Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence_NextHopInfo.
-    NextHopInfo []Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence_NextHopInfo
+    NextHopInfo []*Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence_NextHopInfo
 
     // UDF. The type is slice of
     // Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence_Udf.
-    Udf []Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence_Udf
+    Udf []*Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence_Udf
 }
 
 func (accessListSequence *Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_AccessListSequence) GetEntityData() *types.CommonEntityData {
@@ -852,73 +891,78 @@ func (accessListSequence *Ipv6AclAndPrefixList_AccessListManager_Accesses_Access
     accessListSequence.EntityData.YangName = "access-list-sequence"
     accessListSequence.EntityData.BundleName = "cisco_ios_xr"
     accessListSequence.EntityData.ParentYangName = "access-list-sequences"
-    accessListSequence.EntityData.SegmentPath = "access-list-sequence" + "[sequence-number='" + fmt.Sprintf("%v", accessListSequence.SequenceNumber) + "']"
+    accessListSequence.EntityData.SegmentPath = "access-list-sequence" + types.AddKeyToken(accessListSequence.SequenceNumber, "sequence-number")
     accessListSequence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessListSequence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListSequence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessListSequence.EntityData.Children = make(map[string]types.YChild)
-    accessListSequence.EntityData.Children["hw-next-hop-info"] = types.YChild{"HwNextHopInfo", &accessListSequence.HwNextHopInfo}
-    accessListSequence.EntityData.Children["next-hop-info"] = types.YChild{"NextHopInfo", nil}
+    accessListSequence.EntityData.Children = types.NewOrderedMap()
+    accessListSequence.EntityData.Children.Append("hw-next-hop-info", types.YChild{"HwNextHopInfo", &accessListSequence.HwNextHopInfo})
+    accessListSequence.EntityData.Children.Append("next-hop-info", types.YChild{"NextHopInfo", nil})
     for i := range accessListSequence.NextHopInfo {
-        accessListSequence.EntityData.Children[types.GetSegmentPath(&accessListSequence.NextHopInfo[i])] = types.YChild{"NextHopInfo", &accessListSequence.NextHopInfo[i]}
+        accessListSequence.EntityData.Children.Append(types.GetSegmentPath(accessListSequence.NextHopInfo[i]), types.YChild{"NextHopInfo", accessListSequence.NextHopInfo[i]})
     }
-    accessListSequence.EntityData.Children["udf"] = types.YChild{"Udf", nil}
+    accessListSequence.EntityData.Children.Append("udf", types.YChild{"Udf", nil})
     for i := range accessListSequence.Udf {
-        accessListSequence.EntityData.Children[types.GetSegmentPath(&accessListSequence.Udf[i])] = types.YChild{"Udf", &accessListSequence.Udf[i]}
+        accessListSequence.EntityData.Children.Append(types.GetSegmentPath(accessListSequence.Udf[i]), types.YChild{"Udf", accessListSequence.Udf[i]})
     }
-    accessListSequence.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessListSequence.EntityData.Leafs["sequence-number"] = types.YLeaf{"SequenceNumber", accessListSequence.SequenceNumber}
-    accessListSequence.EntityData.Leafs["is-ace-type"] = types.YLeaf{"IsAceType", accessListSequence.IsAceType}
-    accessListSequence.EntityData.Leafs["is-ace-sequence-number"] = types.YLeaf{"IsAceSequenceNumber", accessListSequence.IsAceSequenceNumber}
-    accessListSequence.EntityData.Leafs["is-packet-allow-or-deny"] = types.YLeaf{"IsPacketAllowOrDeny", accessListSequence.IsPacketAllowOrDeny}
-    accessListSequence.EntityData.Leafs["is-protocol-operator"] = types.YLeaf{"IsProtocolOperator", accessListSequence.IsProtocolOperator}
-    accessListSequence.EntityData.Leafs["is-ipv6-protocol-type"] = types.YLeaf{"IsIpv6ProtocolType", accessListSequence.IsIpv6ProtocolType}
-    accessListSequence.EntityData.Leafs["is-ipv6-protocol2-type"] = types.YLeaf{"IsIpv6Protocol2Type", accessListSequence.IsIpv6Protocol2Type}
-    accessListSequence.EntityData.Leafs["is-source-address-in-numbers"] = types.YLeaf{"IsSourceAddressInNumbers", accessListSequence.IsSourceAddressInNumbers}
-    accessListSequence.EntityData.Leafs["is-source-address-prefix-length"] = types.YLeaf{"IsSourceAddressPrefixLength", accessListSequence.IsSourceAddressPrefixLength}
-    accessListSequence.EntityData.Leafs["source-mask"] = types.YLeaf{"SourceMask", accessListSequence.SourceMask}
-    accessListSequence.EntityData.Leafs["is-destination-address-in-numbers"] = types.YLeaf{"IsDestinationAddressInNumbers", accessListSequence.IsDestinationAddressInNumbers}
-    accessListSequence.EntityData.Leafs["is-destination-address-prefix-length"] = types.YLeaf{"IsDestinationAddressPrefixLength", accessListSequence.IsDestinationAddressPrefixLength}
-    accessListSequence.EntityData.Leafs["destination-mask"] = types.YLeaf{"DestinationMask", accessListSequence.DestinationMask}
-    accessListSequence.EntityData.Leafs["is-source-operator"] = types.YLeaf{"IsSourceOperator", accessListSequence.IsSourceOperator}
-    accessListSequence.EntityData.Leafs["is-source-port1"] = types.YLeaf{"IsSourcePort1", accessListSequence.IsSourcePort1}
-    accessListSequence.EntityData.Leafs["is-source-port2"] = types.YLeaf{"IsSourcePort2", accessListSequence.IsSourcePort2}
-    accessListSequence.EntityData.Leafs["is-destination-operator"] = types.YLeaf{"IsDestinationOperator", accessListSequence.IsDestinationOperator}
-    accessListSequence.EntityData.Leafs["is-destination-port1"] = types.YLeaf{"IsDestinationPort1", accessListSequence.IsDestinationPort1}
-    accessListSequence.EntityData.Leafs["is-destination-port2"] = types.YLeaf{"IsDestinationPort2", accessListSequence.IsDestinationPort2}
-    accessListSequence.EntityData.Leafs["is-log-option"] = types.YLeaf{"IsLogOption", accessListSequence.IsLogOption}
-    accessListSequence.EntityData.Leafs["counter-name"] = types.YLeaf{"CounterName", accessListSequence.CounterName}
-    accessListSequence.EntityData.Leafs["is-tcp-bits-operator"] = types.YLeaf{"IsTcpBitsOperator", accessListSequence.IsTcpBitsOperator}
-    accessListSequence.EntityData.Leafs["is-tcp-bits"] = types.YLeaf{"IsTcpBits", accessListSequence.IsTcpBits}
-    accessListSequence.EntityData.Leafs["is-tcp-bits-mask"] = types.YLeaf{"IsTcpBitsMask", accessListSequence.IsTcpBitsMask}
-    accessListSequence.EntityData.Leafs["is-dscp-present"] = types.YLeaf{"IsDscpPresent", accessListSequence.IsDscpPresent}
-    accessListSequence.EntityData.Leafs["is-dscp-valu"] = types.YLeaf{"IsDscpValu", accessListSequence.IsDscpValu}
-    accessListSequence.EntityData.Leafs["is-precedence-present"] = types.YLeaf{"IsPrecedencePresent", accessListSequence.IsPrecedencePresent}
-    accessListSequence.EntityData.Leafs["is-precedence-value"] = types.YLeaf{"IsPrecedenceValue", accessListSequence.IsPrecedenceValue}
-    accessListSequence.EntityData.Leafs["is-header-matches"] = types.YLeaf{"IsHeaderMatches", accessListSequence.IsHeaderMatches}
-    accessListSequence.EntityData.Leafs["is-packet-length-operator"] = types.YLeaf{"IsPacketLengthOperator", accessListSequence.IsPacketLengthOperator}
-    accessListSequence.EntityData.Leafs["is-packet-length-start"] = types.YLeaf{"IsPacketLengthStart", accessListSequence.IsPacketLengthStart}
-    accessListSequence.EntityData.Leafs["is-packet-length-end"] = types.YLeaf{"IsPacketLengthEnd", accessListSequence.IsPacketLengthEnd}
-    accessListSequence.EntityData.Leafs["is-time-to-live-operator"] = types.YLeaf{"IsTimeToLiveOperator", accessListSequence.IsTimeToLiveOperator}
-    accessListSequence.EntityData.Leafs["is-time-to-live-start"] = types.YLeaf{"IsTimeToLiveStart", accessListSequence.IsTimeToLiveStart}
-    accessListSequence.EntityData.Leafs["is-time-to-live-end"] = types.YLeaf{"IsTimeToLiveEnd", accessListSequence.IsTimeToLiveEnd}
-    accessListSequence.EntityData.Leafs["no-stats"] = types.YLeaf{"NoStats", accessListSequence.NoStats}
-    accessListSequence.EntityData.Leafs["hits"] = types.YLeaf{"Hits", accessListSequence.Hits}
-    accessListSequence.EntityData.Leafs["capture"] = types.YLeaf{"Capture", accessListSequence.Capture}
-    accessListSequence.EntityData.Leafs["undetermined-transport"] = types.YLeaf{"UndeterminedTransport", accessListSequence.UndeterminedTransport}
-    accessListSequence.EntityData.Leafs["is-icmp-message-off"] = types.YLeaf{"IsIcmpMessageOff", accessListSequence.IsIcmpMessageOff}
-    accessListSequence.EntityData.Leafs["qos-group"] = types.YLeaf{"QosGroup", accessListSequence.QosGroup}
-    accessListSequence.EntityData.Leafs["is-comment-for-entry"] = types.YLeaf{"IsCommentForEntry", accessListSequence.IsCommentForEntry}
-    accessListSequence.EntityData.Leafs["next-hop-type"] = types.YLeaf{"NextHopType", accessListSequence.NextHopType}
-    accessListSequence.EntityData.Leafs["is-flow-id"] = types.YLeaf{"IsFlowId", accessListSequence.IsFlowId}
-    accessListSequence.EntityData.Leafs["source-prefix-group"] = types.YLeaf{"SourcePrefixGroup", accessListSequence.SourcePrefixGroup}
-    accessListSequence.EntityData.Leafs["destination-prefix-group"] = types.YLeaf{"DestinationPrefixGroup", accessListSequence.DestinationPrefixGroup}
-    accessListSequence.EntityData.Leafs["source-port-group"] = types.YLeaf{"SourcePortGroup", accessListSequence.SourcePortGroup}
-    accessListSequence.EntityData.Leafs["destination-port-group"] = types.YLeaf{"DestinationPortGroup", accessListSequence.DestinationPortGroup}
-    accessListSequence.EntityData.Leafs["acl-name"] = types.YLeaf{"AclName", accessListSequence.AclName}
-    accessListSequence.EntityData.Leafs["sequence-str"] = types.YLeaf{"SequenceStr", accessListSequence.SequenceStr}
-    accessListSequence.EntityData.Leafs["set-ttl"] = types.YLeaf{"SetTtl", accessListSequence.SetTtl}
+    accessListSequence.EntityData.Leafs = types.NewOrderedMap()
+    accessListSequence.EntityData.Leafs.Append("sequence-number", types.YLeaf{"SequenceNumber", accessListSequence.SequenceNumber})
+    accessListSequence.EntityData.Leafs.Append("is-ace-type", types.YLeaf{"IsAceType", accessListSequence.IsAceType})
+    accessListSequence.EntityData.Leafs.Append("is-ace-sequence-number", types.YLeaf{"IsAceSequenceNumber", accessListSequence.IsAceSequenceNumber})
+    accessListSequence.EntityData.Leafs.Append("is-packet-allow-or-deny", types.YLeaf{"IsPacketAllowOrDeny", accessListSequence.IsPacketAllowOrDeny})
+    accessListSequence.EntityData.Leafs.Append("is-protocol-operator", types.YLeaf{"IsProtocolOperator", accessListSequence.IsProtocolOperator})
+    accessListSequence.EntityData.Leafs.Append("is-ipv6-protocol-type", types.YLeaf{"IsIpv6ProtocolType", accessListSequence.IsIpv6ProtocolType})
+    accessListSequence.EntityData.Leafs.Append("is-ipv6-protocol2-type", types.YLeaf{"IsIpv6Protocol2Type", accessListSequence.IsIpv6Protocol2Type})
+    accessListSequence.EntityData.Leafs.Append("is-source-address-in-numbers", types.YLeaf{"IsSourceAddressInNumbers", accessListSequence.IsSourceAddressInNumbers})
+    accessListSequence.EntityData.Leafs.Append("is-source-address-prefix-length", types.YLeaf{"IsSourceAddressPrefixLength", accessListSequence.IsSourceAddressPrefixLength})
+    accessListSequence.EntityData.Leafs.Append("source-mask", types.YLeaf{"SourceMask", accessListSequence.SourceMask})
+    accessListSequence.EntityData.Leafs.Append("is-destination-address-in-numbers", types.YLeaf{"IsDestinationAddressInNumbers", accessListSequence.IsDestinationAddressInNumbers})
+    accessListSequence.EntityData.Leafs.Append("is-destination-address-prefix-length", types.YLeaf{"IsDestinationAddressPrefixLength", accessListSequence.IsDestinationAddressPrefixLength})
+    accessListSequence.EntityData.Leafs.Append("destination-mask", types.YLeaf{"DestinationMask", accessListSequence.DestinationMask})
+    accessListSequence.EntityData.Leafs.Append("is-source-operator", types.YLeaf{"IsSourceOperator", accessListSequence.IsSourceOperator})
+    accessListSequence.EntityData.Leafs.Append("is-source-port1", types.YLeaf{"IsSourcePort1", accessListSequence.IsSourcePort1})
+    accessListSequence.EntityData.Leafs.Append("is-source-port2", types.YLeaf{"IsSourcePort2", accessListSequence.IsSourcePort2})
+    accessListSequence.EntityData.Leafs.Append("is-destination-operator", types.YLeaf{"IsDestinationOperator", accessListSequence.IsDestinationOperator})
+    accessListSequence.EntityData.Leafs.Append("is-destination-port1", types.YLeaf{"IsDestinationPort1", accessListSequence.IsDestinationPort1})
+    accessListSequence.EntityData.Leafs.Append("is-destination-port2", types.YLeaf{"IsDestinationPort2", accessListSequence.IsDestinationPort2})
+    accessListSequence.EntityData.Leafs.Append("is-log-option", types.YLeaf{"IsLogOption", accessListSequence.IsLogOption})
+    accessListSequence.EntityData.Leafs.Append("counter-name", types.YLeaf{"CounterName", accessListSequence.CounterName})
+    accessListSequence.EntityData.Leafs.Append("is-tcp-bits-operator", types.YLeaf{"IsTcpBitsOperator", accessListSequence.IsTcpBitsOperator})
+    accessListSequence.EntityData.Leafs.Append("is-tcp-bits", types.YLeaf{"IsTcpBits", accessListSequence.IsTcpBits})
+    accessListSequence.EntityData.Leafs.Append("is-tcp-bits-mask", types.YLeaf{"IsTcpBitsMask", accessListSequence.IsTcpBitsMask})
+    accessListSequence.EntityData.Leafs.Append("is-dscp-present", types.YLeaf{"IsDscpPresent", accessListSequence.IsDscpPresent})
+    accessListSequence.EntityData.Leafs.Append("dscp-operator", types.YLeaf{"DscpOperator", accessListSequence.DscpOperator})
+    accessListSequence.EntityData.Leafs.Append("is-dscp-valu", types.YLeaf{"IsDscpValu", accessListSequence.IsDscpValu})
+    accessListSequence.EntityData.Leafs.Append("is-dscp-valu2", types.YLeaf{"IsDscpValu2", accessListSequence.IsDscpValu2})
+    accessListSequence.EntityData.Leafs.Append("is-precedence-present", types.YLeaf{"IsPrecedencePresent", accessListSequence.IsPrecedencePresent})
+    accessListSequence.EntityData.Leafs.Append("is-precedence-value", types.YLeaf{"IsPrecedenceValue", accessListSequence.IsPrecedenceValue})
+    accessListSequence.EntityData.Leafs.Append("is-header-matches", types.YLeaf{"IsHeaderMatches", accessListSequence.IsHeaderMatches})
+    accessListSequence.EntityData.Leafs.Append("is-packet-length-operator", types.YLeaf{"IsPacketLengthOperator", accessListSequence.IsPacketLengthOperator})
+    accessListSequence.EntityData.Leafs.Append("is-packet-length-start", types.YLeaf{"IsPacketLengthStart", accessListSequence.IsPacketLengthStart})
+    accessListSequence.EntityData.Leafs.Append("is-packet-length-end", types.YLeaf{"IsPacketLengthEnd", accessListSequence.IsPacketLengthEnd})
+    accessListSequence.EntityData.Leafs.Append("is-time-to-live-operator", types.YLeaf{"IsTimeToLiveOperator", accessListSequence.IsTimeToLiveOperator})
+    accessListSequence.EntityData.Leafs.Append("is-time-to-live-start", types.YLeaf{"IsTimeToLiveStart", accessListSequence.IsTimeToLiveStart})
+    accessListSequence.EntityData.Leafs.Append("is-time-to-live-end", types.YLeaf{"IsTimeToLiveEnd", accessListSequence.IsTimeToLiveEnd})
+    accessListSequence.EntityData.Leafs.Append("no-stats", types.YLeaf{"NoStats", accessListSequence.NoStats})
+    accessListSequence.EntityData.Leafs.Append("hits", types.YLeaf{"Hits", accessListSequence.Hits})
+    accessListSequence.EntityData.Leafs.Append("capture", types.YLeaf{"Capture", accessListSequence.Capture})
+    accessListSequence.EntityData.Leafs.Append("undetermined-transport", types.YLeaf{"UndeterminedTransport", accessListSequence.UndeterminedTransport})
+    accessListSequence.EntityData.Leafs.Append("is-icmp-message-off", types.YLeaf{"IsIcmpMessageOff", accessListSequence.IsIcmpMessageOff})
+    accessListSequence.EntityData.Leafs.Append("qos-group", types.YLeaf{"QosGroup", accessListSequence.QosGroup})
+    accessListSequence.EntityData.Leafs.Append("is-comment-for-entry", types.YLeaf{"IsCommentForEntry", accessListSequence.IsCommentForEntry})
+    accessListSequence.EntityData.Leafs.Append("next-hop-type", types.YLeaf{"NextHopType", accessListSequence.NextHopType})
+    accessListSequence.EntityData.Leafs.Append("is-flow-id", types.YLeaf{"IsFlowId", accessListSequence.IsFlowId})
+    accessListSequence.EntityData.Leafs.Append("source-prefix-group", types.YLeaf{"SourcePrefixGroup", accessListSequence.SourcePrefixGroup})
+    accessListSequence.EntityData.Leafs.Append("destination-prefix-group", types.YLeaf{"DestinationPrefixGroup", accessListSequence.DestinationPrefixGroup})
+    accessListSequence.EntityData.Leafs.Append("source-port-group", types.YLeaf{"SourcePortGroup", accessListSequence.SourcePortGroup})
+    accessListSequence.EntityData.Leafs.Append("destination-port-group", types.YLeaf{"DestinationPortGroup", accessListSequence.DestinationPortGroup})
+    accessListSequence.EntityData.Leafs.Append("acl-name", types.YLeaf{"AclName", accessListSequence.AclName})
+    accessListSequence.EntityData.Leafs.Append("sequence-str", types.YLeaf{"SequenceStr", accessListSequence.SequenceStr})
+    accessListSequence.EntityData.Leafs.Append("set-ttl", types.YLeaf{"SetTtl", accessListSequence.SetTtl})
+
+    accessListSequence.EntityData.YListKeys = []string {"SequenceNumber"}
+
     return &(accessListSequence.EntityData)
 }
 
@@ -929,10 +973,10 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
     YFilter yfilter.YFilter
 
     // The next-hop type. The type is BagAclNh.
-    Type_ interface{}
+    Type interface{}
 
     // The Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // Table ID. The type is interface{} with range: 0..4294967295.
@@ -952,12 +996,15 @@ func (hwNextHopInfo *Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_Acce
     hwNextHopInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwNextHopInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwNextHopInfo.EntityData.Children = make(map[string]types.YChild)
-    hwNextHopInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwNextHopInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", hwNextHopInfo.Type_}
-    hwNextHopInfo.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", hwNextHopInfo.NextHop}
-    hwNextHopInfo.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", hwNextHopInfo.TableId}
-    hwNextHopInfo.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", hwNextHopInfo.VrfName}
+    hwNextHopInfo.EntityData.Children = types.NewOrderedMap()
+    hwNextHopInfo.EntityData.Leafs = types.NewOrderedMap()
+    hwNextHopInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", hwNextHopInfo.Type})
+    hwNextHopInfo.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", hwNextHopInfo.NextHop})
+    hwNextHopInfo.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", hwNextHopInfo.TableId})
+    hwNextHopInfo.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", hwNextHopInfo.VrfName})
+
+    hwNextHopInfo.EntityData.YListKeys = []string {}
+
     return &(hwNextHopInfo.EntityData)
 }
 
@@ -968,7 +1015,7 @@ type Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
     YFilter yfilter.YFilter
 
     // The next hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // Vrf Name. The type is string with length: 0..32.
@@ -998,14 +1045,17 @@ func (nextHopInfo *Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_Access
     nextHopInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHopInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextHopInfo.EntityData.Children = make(map[string]types.YChild)
-    nextHopInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    nextHopInfo.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", nextHopInfo.NextHop}
-    nextHopInfo.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", nextHopInfo.VrfName}
-    nextHopInfo.EntityData.Leafs["track-name"] = types.YLeaf{"TrackName", nextHopInfo.TrackName}
-    nextHopInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", nextHopInfo.Status}
-    nextHopInfo.EntityData.Leafs["at-status"] = types.YLeaf{"AtStatus", nextHopInfo.AtStatus}
-    nextHopInfo.EntityData.Leafs["acl-nh-exist"] = types.YLeaf{"AclNhExist", nextHopInfo.AclNhExist}
+    nextHopInfo.EntityData.Children = types.NewOrderedMap()
+    nextHopInfo.EntityData.Leafs = types.NewOrderedMap()
+    nextHopInfo.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", nextHopInfo.NextHop})
+    nextHopInfo.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", nextHopInfo.VrfName})
+    nextHopInfo.EntityData.Leafs.Append("track-name", types.YLeaf{"TrackName", nextHopInfo.TrackName})
+    nextHopInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", nextHopInfo.Status})
+    nextHopInfo.EntityData.Leafs.Append("at-status", types.YLeaf{"AtStatus", nextHopInfo.AtStatus})
+    nextHopInfo.EntityData.Leafs.Append("acl-nh-exist", types.YLeaf{"AclNhExist", nextHopInfo.AclNhExist})
+
+    nextHopInfo.EntityData.YListKeys = []string {}
+
     return &(nextHopInfo.EntityData)
 }
 
@@ -1035,11 +1085,14 @@ func (udf *Ipv6AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequ
     udf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udf.EntityData.Children = make(map[string]types.YChild)
-    udf.EntityData.Leafs = make(map[string]types.YLeaf)
-    udf.EntityData.Leafs["udf-name"] = types.YLeaf{"UdfName", udf.UdfName}
-    udf.EntityData.Leafs["udf-value"] = types.YLeaf{"UdfValue", udf.UdfValue}
-    udf.EntityData.Leafs["udf-mask"] = types.YLeaf{"UdfMask", udf.UdfMask}
+    udf.EntityData.Children = types.NewOrderedMap()
+    udf.EntityData.Leafs = types.NewOrderedMap()
+    udf.EntityData.Leafs.Append("udf-name", types.YLeaf{"UdfName", udf.UdfName})
+    udf.EntityData.Leafs.Append("udf-value", types.YLeaf{"UdfValue", udf.UdfValue})
+    udf.EntityData.Leafs.Append("udf-mask", types.YLeaf{"UdfMask", udf.UdfMask})
+
+    udf.EntityData.YListKeys = []string {}
+
     return &(udf.EntityData)
 }
 
@@ -1076,13 +1129,16 @@ func (oor *Ipv6AclAndPrefixList_Oor) GetEntityData() *types.CommonEntityData {
     oor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oor.EntityData.Children = make(map[string]types.YChild)
-    oor.EntityData.Children["details"] = types.YChild{"Details", &oor.Details}
-    oor.EntityData.Children["prefix-list-summary"] = types.YChild{"PrefixListSummary", &oor.PrefixListSummary}
-    oor.EntityData.Children["oor-accesses"] = types.YChild{"OorAccesses", &oor.OorAccesses}
-    oor.EntityData.Children["oor-prefixes"] = types.YChild{"OorPrefixes", &oor.OorPrefixes}
-    oor.EntityData.Children["access-list-summary"] = types.YChild{"AccessListSummary", &oor.AccessListSummary}
-    oor.EntityData.Leafs = make(map[string]types.YLeaf)
+    oor.EntityData.Children = types.NewOrderedMap()
+    oor.EntityData.Children.Append("details", types.YChild{"Details", &oor.Details})
+    oor.EntityData.Children.Append("prefix-list-summary", types.YChild{"PrefixListSummary", &oor.PrefixListSummary})
+    oor.EntityData.Children.Append("oor-accesses", types.YChild{"OorAccesses", &oor.OorAccesses})
+    oor.EntityData.Children.Append("oor-prefixes", types.YChild{"OorPrefixes", &oor.OorPrefixes})
+    oor.EntityData.Children.Append("access-list-summary", types.YChild{"AccessListSummary", &oor.AccessListSummary})
+    oor.EntityData.Leafs = types.NewOrderedMap()
+
+    oor.EntityData.YListKeys = []string {}
+
     return &(oor.EntityData)
 }
 
@@ -1131,16 +1187,19 @@ func (details *Ipv6AclAndPrefixList_Oor_Details) GetEntityData() *types.CommonEn
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
-    details.EntityData.Leafs["is-default-maximum-configurable-ac-ls"] = types.YLeaf{"IsDefaultMaximumConfigurableAcLs", details.IsDefaultMaximumConfigurableAcLs}
-    details.EntityData.Leafs["is-default-maximum-configurable-ac-es"] = types.YLeaf{"IsDefaultMaximumConfigurableAcEs", details.IsDefaultMaximumConfigurableAcEs}
-    details.EntityData.Leafs["is-current-configured-ac-ls"] = types.YLeaf{"IsCurrentConfiguredAcLs", details.IsCurrentConfiguredAcLs}
-    details.EntityData.Leafs["is-current-configured-aces"] = types.YLeaf{"IsCurrentConfiguredAces", details.IsCurrentConfiguredAces}
-    details.EntityData.Leafs["is-current-maximum-configurable-acls"] = types.YLeaf{"IsCurrentMaximumConfigurableAcls", details.IsCurrentMaximumConfigurableAcls}
-    details.EntityData.Leafs["is-current-maximum-configurable-aces"] = types.YLeaf{"IsCurrentMaximumConfigurableAces", details.IsCurrentMaximumConfigurableAces}
-    details.EntityData.Leafs["is-maximum-configurable-ac-ls"] = types.YLeaf{"IsMaximumConfigurableAcLs", details.IsMaximumConfigurableAcLs}
-    details.EntityData.Leafs["is-maximum-configurable-ac-es"] = types.YLeaf{"IsMaximumConfigurableAcEs", details.IsMaximumConfigurableAcEs}
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Leafs = types.NewOrderedMap()
+    details.EntityData.Leafs.Append("is-default-maximum-configurable-ac-ls", types.YLeaf{"IsDefaultMaximumConfigurableAcLs", details.IsDefaultMaximumConfigurableAcLs})
+    details.EntityData.Leafs.Append("is-default-maximum-configurable-ac-es", types.YLeaf{"IsDefaultMaximumConfigurableAcEs", details.IsDefaultMaximumConfigurableAcEs})
+    details.EntityData.Leafs.Append("is-current-configured-ac-ls", types.YLeaf{"IsCurrentConfiguredAcLs", details.IsCurrentConfiguredAcLs})
+    details.EntityData.Leafs.Append("is-current-configured-aces", types.YLeaf{"IsCurrentConfiguredAces", details.IsCurrentConfiguredAces})
+    details.EntityData.Leafs.Append("is-current-maximum-configurable-acls", types.YLeaf{"IsCurrentMaximumConfigurableAcls", details.IsCurrentMaximumConfigurableAcls})
+    details.EntityData.Leafs.Append("is-current-maximum-configurable-aces", types.YLeaf{"IsCurrentMaximumConfigurableAces", details.IsCurrentMaximumConfigurableAces})
+    details.EntityData.Leafs.Append("is-maximum-configurable-ac-ls", types.YLeaf{"IsMaximumConfigurableAcLs", details.IsMaximumConfigurableAcLs})
+    details.EntityData.Leafs.Append("is-maximum-configurable-ac-es", types.YLeaf{"IsMaximumConfigurableAcEs", details.IsMaximumConfigurableAcEs})
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -1165,9 +1224,12 @@ func (prefixListSummary *Ipv6AclAndPrefixList_Oor_PrefixListSummary) GetEntityDa
     prefixListSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixListSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixListSummary.EntityData.Children = make(map[string]types.YChild)
-    prefixListSummary.EntityData.Children["details"] = types.YChild{"Details", &prefixListSummary.Details}
-    prefixListSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixListSummary.EntityData.Children = types.NewOrderedMap()
+    prefixListSummary.EntityData.Children.Append("details", types.YChild{"Details", &prefixListSummary.Details})
+    prefixListSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixListSummary.EntityData.YListKeys = []string {}
+
     return &(prefixListSummary.EntityData)
 }
 
@@ -1217,16 +1279,19 @@ func (details *Ipv6AclAndPrefixList_Oor_PrefixListSummary_Details) GetEntityData
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
-    details.EntityData.Leafs["is-default-maximum-configurable-ac-ls"] = types.YLeaf{"IsDefaultMaximumConfigurableAcLs", details.IsDefaultMaximumConfigurableAcLs}
-    details.EntityData.Leafs["is-default-maximum-configurable-ac-es"] = types.YLeaf{"IsDefaultMaximumConfigurableAcEs", details.IsDefaultMaximumConfigurableAcEs}
-    details.EntityData.Leafs["is-current-configured-ac-ls"] = types.YLeaf{"IsCurrentConfiguredAcLs", details.IsCurrentConfiguredAcLs}
-    details.EntityData.Leafs["is-current-configured-aces"] = types.YLeaf{"IsCurrentConfiguredAces", details.IsCurrentConfiguredAces}
-    details.EntityData.Leafs["is-current-maximum-configurable-acls"] = types.YLeaf{"IsCurrentMaximumConfigurableAcls", details.IsCurrentMaximumConfigurableAcls}
-    details.EntityData.Leafs["is-current-maximum-configurable-aces"] = types.YLeaf{"IsCurrentMaximumConfigurableAces", details.IsCurrentMaximumConfigurableAces}
-    details.EntityData.Leafs["is-maximum-configurable-ac-ls"] = types.YLeaf{"IsMaximumConfigurableAcLs", details.IsMaximumConfigurableAcLs}
-    details.EntityData.Leafs["is-maximum-configurable-ac-es"] = types.YLeaf{"IsMaximumConfigurableAcEs", details.IsMaximumConfigurableAcEs}
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Leafs = types.NewOrderedMap()
+    details.EntityData.Leafs.Append("is-default-maximum-configurable-ac-ls", types.YLeaf{"IsDefaultMaximumConfigurableAcLs", details.IsDefaultMaximumConfigurableAcLs})
+    details.EntityData.Leafs.Append("is-default-maximum-configurable-ac-es", types.YLeaf{"IsDefaultMaximumConfigurableAcEs", details.IsDefaultMaximumConfigurableAcEs})
+    details.EntityData.Leafs.Append("is-current-configured-ac-ls", types.YLeaf{"IsCurrentConfiguredAcLs", details.IsCurrentConfiguredAcLs})
+    details.EntityData.Leafs.Append("is-current-configured-aces", types.YLeaf{"IsCurrentConfiguredAces", details.IsCurrentConfiguredAces})
+    details.EntityData.Leafs.Append("is-current-maximum-configurable-acls", types.YLeaf{"IsCurrentMaximumConfigurableAcls", details.IsCurrentMaximumConfigurableAcls})
+    details.EntityData.Leafs.Append("is-current-maximum-configurable-aces", types.YLeaf{"IsCurrentMaximumConfigurableAces", details.IsCurrentMaximumConfigurableAces})
+    details.EntityData.Leafs.Append("is-maximum-configurable-ac-ls", types.YLeaf{"IsMaximumConfigurableAcLs", details.IsMaximumConfigurableAcLs})
+    details.EntityData.Leafs.Append("is-maximum-configurable-ac-es", types.YLeaf{"IsMaximumConfigurableAcEs", details.IsMaximumConfigurableAcEs})
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -1238,7 +1303,7 @@ type Ipv6AclAndPrefixList_Oor_OorAccesses struct {
 
     // Resource occupation details for a particular ACL. The type is slice of
     // Ipv6AclAndPrefixList_Oor_OorAccesses_OorAccess.
-    OorAccess []Ipv6AclAndPrefixList_Oor_OorAccesses_OorAccess
+    OorAccess []*Ipv6AclAndPrefixList_Oor_OorAccesses_OorAccess
 }
 
 func (oorAccesses *Ipv6AclAndPrefixList_Oor_OorAccesses) GetEntityData() *types.CommonEntityData {
@@ -1251,12 +1316,15 @@ func (oorAccesses *Ipv6AclAndPrefixList_Oor_OorAccesses) GetEntityData() *types.
     oorAccesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorAccesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oorAccesses.EntityData.Children = make(map[string]types.YChild)
-    oorAccesses.EntityData.Children["oor-access"] = types.YChild{"OorAccess", nil}
+    oorAccesses.EntityData.Children = types.NewOrderedMap()
+    oorAccesses.EntityData.Children.Append("oor-access", types.YChild{"OorAccess", nil})
     for i := range oorAccesses.OorAccess {
-        oorAccesses.EntityData.Children[types.GetSegmentPath(&oorAccesses.OorAccess[i])] = types.YChild{"OorAccess", &oorAccesses.OorAccess[i]}
+        oorAccesses.EntityData.Children.Append(types.GetSegmentPath(oorAccesses.OorAccess[i]), types.YChild{"OorAccess", oorAccesses.OorAccess[i]})
     }
-    oorAccesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    oorAccesses.EntityData.Leafs = types.NewOrderedMap()
+
+    oorAccesses.EntityData.YListKeys = []string {}
+
     return &(oorAccesses.EntityData)
 }
 
@@ -1268,7 +1336,7 @@ type Ipv6AclAndPrefixList_Oor_OorAccesses_OorAccess struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the Access List. The type is string with
-    // length: 1..65.
+    // length: 1..64.
     AccessListName interface{}
 
     // default max configurable acls. The type is interface{} with range:
@@ -1305,22 +1373,25 @@ func (oorAccess *Ipv6AclAndPrefixList_Oor_OorAccesses_OorAccess) GetEntityData()
     oorAccess.EntityData.YangName = "oor-access"
     oorAccess.EntityData.BundleName = "cisco_ios_xr"
     oorAccess.EntityData.ParentYangName = "oor-accesses"
-    oorAccess.EntityData.SegmentPath = "oor-access" + "[access-list-name='" + fmt.Sprintf("%v", oorAccess.AccessListName) + "']"
+    oorAccess.EntityData.SegmentPath = "oor-access" + types.AddKeyToken(oorAccess.AccessListName, "access-list-name")
     oorAccess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oorAccess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorAccess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oorAccess.EntityData.Children = make(map[string]types.YChild)
-    oorAccess.EntityData.Leafs = make(map[string]types.YLeaf)
-    oorAccess.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", oorAccess.AccessListName}
-    oorAccess.EntityData.Leafs["is-default-maximum-configurable-ac-ls"] = types.YLeaf{"IsDefaultMaximumConfigurableAcLs", oorAccess.IsDefaultMaximumConfigurableAcLs}
-    oorAccess.EntityData.Leafs["is-default-maximum-configurable-ac-es"] = types.YLeaf{"IsDefaultMaximumConfigurableAcEs", oorAccess.IsDefaultMaximumConfigurableAcEs}
-    oorAccess.EntityData.Leafs["is-current-configured-ac-ls"] = types.YLeaf{"IsCurrentConfiguredAcLs", oorAccess.IsCurrentConfiguredAcLs}
-    oorAccess.EntityData.Leafs["is-current-configured-aces"] = types.YLeaf{"IsCurrentConfiguredAces", oorAccess.IsCurrentConfiguredAces}
-    oorAccess.EntityData.Leafs["is-current-maximum-configurable-acls"] = types.YLeaf{"IsCurrentMaximumConfigurableAcls", oorAccess.IsCurrentMaximumConfigurableAcls}
-    oorAccess.EntityData.Leafs["is-current-maximum-configurable-aces"] = types.YLeaf{"IsCurrentMaximumConfigurableAces", oorAccess.IsCurrentMaximumConfigurableAces}
-    oorAccess.EntityData.Leafs["is-maximum-configurable-ac-ls"] = types.YLeaf{"IsMaximumConfigurableAcLs", oorAccess.IsMaximumConfigurableAcLs}
-    oorAccess.EntityData.Leafs["is-maximum-configurable-ac-es"] = types.YLeaf{"IsMaximumConfigurableAcEs", oorAccess.IsMaximumConfigurableAcEs}
+    oorAccess.EntityData.Children = types.NewOrderedMap()
+    oorAccess.EntityData.Leafs = types.NewOrderedMap()
+    oorAccess.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", oorAccess.AccessListName})
+    oorAccess.EntityData.Leafs.Append("is-default-maximum-configurable-ac-ls", types.YLeaf{"IsDefaultMaximumConfigurableAcLs", oorAccess.IsDefaultMaximumConfigurableAcLs})
+    oorAccess.EntityData.Leafs.Append("is-default-maximum-configurable-ac-es", types.YLeaf{"IsDefaultMaximumConfigurableAcEs", oorAccess.IsDefaultMaximumConfigurableAcEs})
+    oorAccess.EntityData.Leafs.Append("is-current-configured-ac-ls", types.YLeaf{"IsCurrentConfiguredAcLs", oorAccess.IsCurrentConfiguredAcLs})
+    oorAccess.EntityData.Leafs.Append("is-current-configured-aces", types.YLeaf{"IsCurrentConfiguredAces", oorAccess.IsCurrentConfiguredAces})
+    oorAccess.EntityData.Leafs.Append("is-current-maximum-configurable-acls", types.YLeaf{"IsCurrentMaximumConfigurableAcls", oorAccess.IsCurrentMaximumConfigurableAcls})
+    oorAccess.EntityData.Leafs.Append("is-current-maximum-configurable-aces", types.YLeaf{"IsCurrentMaximumConfigurableAces", oorAccess.IsCurrentMaximumConfigurableAces})
+    oorAccess.EntityData.Leafs.Append("is-maximum-configurable-ac-ls", types.YLeaf{"IsMaximumConfigurableAcLs", oorAccess.IsMaximumConfigurableAcLs})
+    oorAccess.EntityData.Leafs.Append("is-maximum-configurable-ac-es", types.YLeaf{"IsMaximumConfigurableAcEs", oorAccess.IsMaximumConfigurableAcEs})
+
+    oorAccess.EntityData.YListKeys = []string {"AccessListName"}
+
     return &(oorAccess.EntityData)
 }
 
@@ -1332,7 +1403,7 @@ type Ipv6AclAndPrefixList_Oor_OorPrefixes struct {
 
     // Resource occupation details for a particular prefix list. The type is slice
     // of Ipv6AclAndPrefixList_Oor_OorPrefixes_OorPrefix.
-    OorPrefix []Ipv6AclAndPrefixList_Oor_OorPrefixes_OorPrefix
+    OorPrefix []*Ipv6AclAndPrefixList_Oor_OorPrefixes_OorPrefix
 }
 
 func (oorPrefixes *Ipv6AclAndPrefixList_Oor_OorPrefixes) GetEntityData() *types.CommonEntityData {
@@ -1345,12 +1416,15 @@ func (oorPrefixes *Ipv6AclAndPrefixList_Oor_OorPrefixes) GetEntityData() *types.
     oorPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oorPrefixes.EntityData.Children = make(map[string]types.YChild)
-    oorPrefixes.EntityData.Children["oor-prefix"] = types.YChild{"OorPrefix", nil}
+    oorPrefixes.EntityData.Children = types.NewOrderedMap()
+    oorPrefixes.EntityData.Children.Append("oor-prefix", types.YChild{"OorPrefix", nil})
     for i := range oorPrefixes.OorPrefix {
-        oorPrefixes.EntityData.Children[types.GetSegmentPath(&oorPrefixes.OorPrefix[i])] = types.YChild{"OorPrefix", &oorPrefixes.OorPrefix[i]}
+        oorPrefixes.EntityData.Children.Append(types.GetSegmentPath(oorPrefixes.OorPrefix[i]), types.YChild{"OorPrefix", oorPrefixes.OorPrefix[i]})
     }
-    oorPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    oorPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    oorPrefixes.EntityData.YListKeys = []string {}
+
     return &(oorPrefixes.EntityData)
 }
 
@@ -1362,7 +1436,7 @@ type Ipv6AclAndPrefixList_Oor_OorPrefixes_OorPrefix struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of a prefix list. The type is string with
-    // length: 1..65.
+    // length: 1..64.
     PrefixListName interface{}
 
     // default max configurable acls. The type is interface{} with range:
@@ -1399,22 +1473,25 @@ func (oorPrefix *Ipv6AclAndPrefixList_Oor_OorPrefixes_OorPrefix) GetEntityData()
     oorPrefix.EntityData.YangName = "oor-prefix"
     oorPrefix.EntityData.BundleName = "cisco_ios_xr"
     oorPrefix.EntityData.ParentYangName = "oor-prefixes"
-    oorPrefix.EntityData.SegmentPath = "oor-prefix" + "[prefix-list-name='" + fmt.Sprintf("%v", oorPrefix.PrefixListName) + "']"
+    oorPrefix.EntityData.SegmentPath = "oor-prefix" + types.AddKeyToken(oorPrefix.PrefixListName, "prefix-list-name")
     oorPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oorPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oorPrefix.EntityData.Children = make(map[string]types.YChild)
-    oorPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    oorPrefix.EntityData.Leafs["prefix-list-name"] = types.YLeaf{"PrefixListName", oorPrefix.PrefixListName}
-    oorPrefix.EntityData.Leafs["is-default-maximum-configurable-ac-ls"] = types.YLeaf{"IsDefaultMaximumConfigurableAcLs", oorPrefix.IsDefaultMaximumConfigurableAcLs}
-    oorPrefix.EntityData.Leafs["is-default-maximum-configurable-ac-es"] = types.YLeaf{"IsDefaultMaximumConfigurableAcEs", oorPrefix.IsDefaultMaximumConfigurableAcEs}
-    oorPrefix.EntityData.Leafs["is-current-configured-ac-ls"] = types.YLeaf{"IsCurrentConfiguredAcLs", oorPrefix.IsCurrentConfiguredAcLs}
-    oorPrefix.EntityData.Leafs["is-current-configured-aces"] = types.YLeaf{"IsCurrentConfiguredAces", oorPrefix.IsCurrentConfiguredAces}
-    oorPrefix.EntityData.Leafs["is-current-maximum-configurable-acls"] = types.YLeaf{"IsCurrentMaximumConfigurableAcls", oorPrefix.IsCurrentMaximumConfigurableAcls}
-    oorPrefix.EntityData.Leafs["is-current-maximum-configurable-aces"] = types.YLeaf{"IsCurrentMaximumConfigurableAces", oorPrefix.IsCurrentMaximumConfigurableAces}
-    oorPrefix.EntityData.Leafs["is-maximum-configurable-ac-ls"] = types.YLeaf{"IsMaximumConfigurableAcLs", oorPrefix.IsMaximumConfigurableAcLs}
-    oorPrefix.EntityData.Leafs["is-maximum-configurable-ac-es"] = types.YLeaf{"IsMaximumConfigurableAcEs", oorPrefix.IsMaximumConfigurableAcEs}
+    oorPrefix.EntityData.Children = types.NewOrderedMap()
+    oorPrefix.EntityData.Leafs = types.NewOrderedMap()
+    oorPrefix.EntityData.Leafs.Append("prefix-list-name", types.YLeaf{"PrefixListName", oorPrefix.PrefixListName})
+    oorPrefix.EntityData.Leafs.Append("is-default-maximum-configurable-ac-ls", types.YLeaf{"IsDefaultMaximumConfigurableAcLs", oorPrefix.IsDefaultMaximumConfigurableAcLs})
+    oorPrefix.EntityData.Leafs.Append("is-default-maximum-configurable-ac-es", types.YLeaf{"IsDefaultMaximumConfigurableAcEs", oorPrefix.IsDefaultMaximumConfigurableAcEs})
+    oorPrefix.EntityData.Leafs.Append("is-current-configured-ac-ls", types.YLeaf{"IsCurrentConfiguredAcLs", oorPrefix.IsCurrentConfiguredAcLs})
+    oorPrefix.EntityData.Leafs.Append("is-current-configured-aces", types.YLeaf{"IsCurrentConfiguredAces", oorPrefix.IsCurrentConfiguredAces})
+    oorPrefix.EntityData.Leafs.Append("is-current-maximum-configurable-acls", types.YLeaf{"IsCurrentMaximumConfigurableAcls", oorPrefix.IsCurrentMaximumConfigurableAcls})
+    oorPrefix.EntityData.Leafs.Append("is-current-maximum-configurable-aces", types.YLeaf{"IsCurrentMaximumConfigurableAces", oorPrefix.IsCurrentMaximumConfigurableAces})
+    oorPrefix.EntityData.Leafs.Append("is-maximum-configurable-ac-ls", types.YLeaf{"IsMaximumConfigurableAcLs", oorPrefix.IsMaximumConfigurableAcLs})
+    oorPrefix.EntityData.Leafs.Append("is-maximum-configurable-ac-es", types.YLeaf{"IsMaximumConfigurableAcEs", oorPrefix.IsMaximumConfigurableAcEs})
+
+    oorPrefix.EntityData.YListKeys = []string {"PrefixListName"}
+
     return &(oorPrefix.EntityData)
 }
 
@@ -1438,9 +1515,12 @@ func (accessListSummary *Ipv6AclAndPrefixList_Oor_AccessListSummary) GetEntityDa
     accessListSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessListSummary.EntityData.Children = make(map[string]types.YChild)
-    accessListSummary.EntityData.Children["details"] = types.YChild{"Details", &accessListSummary.Details}
-    accessListSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessListSummary.EntityData.Children = types.NewOrderedMap()
+    accessListSummary.EntityData.Children.Append("details", types.YChild{"Details", &accessListSummary.Details})
+    accessListSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    accessListSummary.EntityData.YListKeys = []string {}
+
     return &(accessListSummary.EntityData)
 }
 
@@ -1490,16 +1570,19 @@ func (details *Ipv6AclAndPrefixList_Oor_AccessListSummary_Details) GetEntityData
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
-    details.EntityData.Leafs["is-default-maximum-configurable-ac-ls"] = types.YLeaf{"IsDefaultMaximumConfigurableAcLs", details.IsDefaultMaximumConfigurableAcLs}
-    details.EntityData.Leafs["is-default-maximum-configurable-ac-es"] = types.YLeaf{"IsDefaultMaximumConfigurableAcEs", details.IsDefaultMaximumConfigurableAcEs}
-    details.EntityData.Leafs["is-current-configured-ac-ls"] = types.YLeaf{"IsCurrentConfiguredAcLs", details.IsCurrentConfiguredAcLs}
-    details.EntityData.Leafs["is-current-configured-aces"] = types.YLeaf{"IsCurrentConfiguredAces", details.IsCurrentConfiguredAces}
-    details.EntityData.Leafs["is-current-maximum-configurable-acls"] = types.YLeaf{"IsCurrentMaximumConfigurableAcls", details.IsCurrentMaximumConfigurableAcls}
-    details.EntityData.Leafs["is-current-maximum-configurable-aces"] = types.YLeaf{"IsCurrentMaximumConfigurableAces", details.IsCurrentMaximumConfigurableAces}
-    details.EntityData.Leafs["is-maximum-configurable-ac-ls"] = types.YLeaf{"IsMaximumConfigurableAcLs", details.IsMaximumConfigurableAcLs}
-    details.EntityData.Leafs["is-maximum-configurable-ac-es"] = types.YLeaf{"IsMaximumConfigurableAcEs", details.IsMaximumConfigurableAcEs}
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Leafs = types.NewOrderedMap()
+    details.EntityData.Leafs.Append("is-default-maximum-configurable-ac-ls", types.YLeaf{"IsDefaultMaximumConfigurableAcLs", details.IsDefaultMaximumConfigurableAcLs})
+    details.EntityData.Leafs.Append("is-default-maximum-configurable-ac-es", types.YLeaf{"IsDefaultMaximumConfigurableAcEs", details.IsDefaultMaximumConfigurableAcEs})
+    details.EntityData.Leafs.Append("is-current-configured-ac-ls", types.YLeaf{"IsCurrentConfiguredAcLs", details.IsCurrentConfiguredAcLs})
+    details.EntityData.Leafs.Append("is-current-configured-aces", types.YLeaf{"IsCurrentConfiguredAces", details.IsCurrentConfiguredAces})
+    details.EntityData.Leafs.Append("is-current-maximum-configurable-acls", types.YLeaf{"IsCurrentMaximumConfigurableAcls", details.IsCurrentMaximumConfigurableAcls})
+    details.EntityData.Leafs.Append("is-current-maximum-configurable-aces", types.YLeaf{"IsCurrentMaximumConfigurableAces", details.IsCurrentMaximumConfigurableAces})
+    details.EntityData.Leafs.Append("is-maximum-configurable-ac-ls", types.YLeaf{"IsMaximumConfigurableAcLs", details.IsMaximumConfigurableAcLs})
+    details.EntityData.Leafs.Append("is-maximum-configurable-ac-es", types.YLeaf{"IsMaximumConfigurableAcEs", details.IsMaximumConfigurableAcEs})
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 

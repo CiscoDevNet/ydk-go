@@ -6,7 +6,7 @@ module Cisco-IOS-XR-crypto-sam-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-crypto-sam-oper-sub1 {
-    revision-date 2015-01-07;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -32,6 +32,10 @@ module Cisco-IOS-XR-crypto-sam-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
@@ -55,7 +59,7 @@ module Cisco-IOS-XR-crypto-sam-oper {
         description
           "Number of lines for SAM log message";
         leaf number-of-lines {
-          type int32;
+          type uint32;
           description
             "Number of lines";
         }
@@ -90,7 +94,7 @@ module Cisco-IOS-XR-crypto-sam-oper {
                 uses CRYPTO-SAM-CERTIFICATE-COMMON;
               }
               leaf index {
-                type int32;
+                type uint32;
                 description
                   "Specify certificate index";
               }
@@ -134,7 +138,7 @@ module Cisco-IOS-XR-crypto-sam-oper {
           uses CRYPTO-SAM-CRL-INFO;
         }
         leaf crl-index {
-          type int32;
+          type uint32;
           description
             "CRL index";
         }

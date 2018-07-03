@@ -19,6 +19,21 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-platform-oper:components", reflect.TypeOf(Components{}))
 }
 
+// PlatformPropValueType represents Property value type
+type PlatformPropValueType string
+
+const (
+    PlatformPropValueType_property_string PlatformPropValueType = "property-string"
+
+    PlatformPropValueType_property_boolean PlatformPropValueType = "property-boolean"
+
+    PlatformPropValueType_property_int64 PlatformPropValueType = "property-int64"
+
+    PlatformPropValueType_property_uint64 PlatformPropValueType = "property-uint64"
+
+    PlatformPropValueType_property_decimal64 PlatformPropValueType = "property-decimal64"
+)
+
 // PlatformCompType represents Component Type
 type PlatformCompType string
 
@@ -48,21 +63,6 @@ const (
     PlatformCompType_comp_container PlatformCompType = "comp-container"
 )
 
-// PlatformPropValueType represents Property value type
-type PlatformPropValueType string
-
-const (
-    PlatformPropValueType_property_string PlatformPropValueType = "property-string"
-
-    PlatformPropValueType_property_boolean PlatformPropValueType = "property-boolean"
-
-    PlatformPropValueType_property_int64 PlatformPropValueType = "property-int64"
-
-    PlatformPropValueType_property_uint64 PlatformPropValueType = "property-uint64"
-
-    PlatformPropValueType_property_decimal64 PlatformPropValueType = "property-decimal64"
-)
-
 // Components
 // Enclosing container for the components in the system
 type Components struct {
@@ -71,7 +71,7 @@ type Components struct {
 
     // List of components, keyed by component name. The type is slice of
     // Components_Component.
-    Component []Components_Component
+    Component []*Components_Component
 }
 
 func (components *Components) GetEntityData() *types.CommonEntityData {
@@ -84,12 +84,15 @@ func (components *Components) GetEntityData() *types.CommonEntityData {
     components.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     components.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    components.EntityData.Children = make(map[string]types.YChild)
-    components.EntityData.Children["component"] = types.YChild{"Component", nil}
+    components.EntityData.Children = types.NewOrderedMap()
+    components.EntityData.Children.Append("component", types.YChild{"Component", nil})
     for i := range components.Component {
-        components.EntityData.Children[types.GetSegmentPath(&components.Component[i])] = types.YChild{"Component", &components.Component[i]}
+        components.EntityData.Children.Append(types.GetSegmentPath(components.Component[i]), types.YChild{"Component", components.Component[i]})
     }
-    components.EntityData.Leafs = make(map[string]types.YLeaf)
+    components.EntityData.Leafs = types.NewOrderedMap()
+
+    components.EntityData.YListKeys = []string {}
+
     return &(components.EntityData)
 }
 
@@ -117,17 +120,20 @@ func (component *Components_Component) GetEntityData() *types.CommonEntityData {
     component.EntityData.YangName = "component"
     component.EntityData.BundleName = "cisco_ios_xe"
     component.EntityData.ParentYangName = "components"
-    component.EntityData.SegmentPath = "component" + "[cname='" + fmt.Sprintf("%v", component.Cname) + "']"
+    component.EntityData.SegmentPath = "component" + types.AddKeyToken(component.Cname, "cname")
     component.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     component.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     component.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    component.EntityData.Children = make(map[string]types.YChild)
-    component.EntityData.Children["state"] = types.YChild{"State", &component.State}
-    component.EntityData.Children["platform-properties"] = types.YChild{"PlatformProperties", &component.PlatformProperties}
-    component.EntityData.Children["platform-subcomponents"] = types.YChild{"PlatformSubcomponents", &component.PlatformSubcomponents}
-    component.EntityData.Leafs = make(map[string]types.YLeaf)
-    component.EntityData.Leafs["cname"] = types.YLeaf{"Cname", component.Cname}
+    component.EntityData.Children = types.NewOrderedMap()
+    component.EntityData.Children.Append("state", types.YChild{"State", &component.State})
+    component.EntityData.Children.Append("platform-properties", types.YChild{"PlatformProperties", &component.PlatformProperties})
+    component.EntityData.Children.Append("platform-subcomponents", types.YChild{"PlatformSubcomponents", &component.PlatformSubcomponents})
+    component.EntityData.Leafs = types.NewOrderedMap()
+    component.EntityData.Leafs.Append("cname", types.YLeaf{"Cname", component.Cname})
+
+    component.EntityData.YListKeys = []string {"Cname"}
+
     return &(component.EntityData)
 }
 
@@ -139,7 +145,7 @@ type Components_Component_State struct {
 
     // Type of component as identified by the system. The type is
     // PlatformCompType.
-    Type_ interface{}
+    Type interface{}
 
     // Unique identifier assigned to the component by the system. The type is
     // string.
@@ -182,16 +188,19 @@ func (state *Components_Component_State) GetEntityData() *types.CommonEntityData
     state.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["temp"] = types.YChild{"Temp", &state.Temp}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["type"] = types.YLeaf{"Type_", state.Type_}
-    state.EntityData.Leafs["id"] = types.YLeaf{"Id", state.Id}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["mfg-name"] = types.YLeaf{"MfgName", state.MfgName}
-    state.EntityData.Leafs["version"] = types.YLeaf{"Version", state.Version}
-    state.EntityData.Leafs["serial-no"] = types.YLeaf{"SerialNo", state.SerialNo}
-    state.EntityData.Leafs["part-no"] = types.YLeaf{"PartNo", state.PartNo}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("temp", types.YChild{"Temp", &state.Temp})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("type", types.YLeaf{"Type", state.Type})
+    state.EntityData.Leafs.Append("id", types.YLeaf{"Id", state.Id})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("mfg-name", types.YLeaf{"MfgName", state.MfgName})
+    state.EntityData.Leafs.Append("version", types.YLeaf{"Version", state.Version})
+    state.EntityData.Leafs.Append("serial-no", types.YLeaf{"SerialNo", state.SerialNo})
+    state.EntityData.Leafs.Append("part-no", types.YLeaf{"PartNo", state.PartNo})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -231,12 +240,15 @@ func (temp *Components_Component_State_Temp) GetEntityData() *types.CommonEntity
     temp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     temp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    temp.EntityData.Children = make(map[string]types.YChild)
-    temp.EntityData.Leafs = make(map[string]types.YLeaf)
-    temp.EntityData.Leafs["temp-instant"] = types.YLeaf{"TempInstant", temp.TempInstant}
-    temp.EntityData.Leafs["temp-avg"] = types.YLeaf{"TempAvg", temp.TempAvg}
-    temp.EntityData.Leafs["temp-max"] = types.YLeaf{"TempMax", temp.TempMax}
-    temp.EntityData.Leafs["temp-min"] = types.YLeaf{"TempMin", temp.TempMin}
+    temp.EntityData.Children = types.NewOrderedMap()
+    temp.EntityData.Leafs = types.NewOrderedMap()
+    temp.EntityData.Leafs.Append("temp-instant", types.YLeaf{"TempInstant", temp.TempInstant})
+    temp.EntityData.Leafs.Append("temp-avg", types.YLeaf{"TempAvg", temp.TempAvg})
+    temp.EntityData.Leafs.Append("temp-max", types.YLeaf{"TempMax", temp.TempMax})
+    temp.EntityData.Leafs.Append("temp-min", types.YLeaf{"TempMin", temp.TempMin})
+
+    temp.EntityData.YListKeys = []string {}
+
     return &(temp.EntityData)
 }
 
@@ -248,7 +260,7 @@ type Components_Component_PlatformProperties struct {
 
     // List of platform component properties. The type is slice of
     // Components_Component_PlatformProperties_PlatformProperty.
-    PlatformProperty []Components_Component_PlatformProperties_PlatformProperty
+    PlatformProperty []*Components_Component_PlatformProperties_PlatformProperty
 }
 
 func (platformProperties *Components_Component_PlatformProperties) GetEntityData() *types.CommonEntityData {
@@ -261,12 +273,15 @@ func (platformProperties *Components_Component_PlatformProperties) GetEntityData
     platformProperties.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platformProperties.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    platformProperties.EntityData.Children = make(map[string]types.YChild)
-    platformProperties.EntityData.Children["platform-property"] = types.YChild{"PlatformProperty", nil}
+    platformProperties.EntityData.Children = types.NewOrderedMap()
+    platformProperties.EntityData.Children.Append("platform-property", types.YChild{"PlatformProperty", nil})
     for i := range platformProperties.PlatformProperty {
-        platformProperties.EntityData.Children[types.GetSegmentPath(&platformProperties.PlatformProperty[i])] = types.YChild{"PlatformProperty", &platformProperties.PlatformProperty[i]}
+        platformProperties.EntityData.Children.Append(types.GetSegmentPath(platformProperties.PlatformProperty[i]), types.YChild{"PlatformProperty", platformProperties.PlatformProperty[i]})
     }
-    platformProperties.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformProperties.EntityData.Leafs = types.NewOrderedMap()
+
+    platformProperties.EntityData.YListKeys = []string {}
+
     return &(platformProperties.EntityData)
 }
 
@@ -291,16 +306,19 @@ func (platformProperty *Components_Component_PlatformProperties_PlatformProperty
     platformProperty.EntityData.YangName = "platform-property"
     platformProperty.EntityData.BundleName = "cisco_ios_xe"
     platformProperty.EntityData.ParentYangName = "platform-properties"
-    platformProperty.EntityData.SegmentPath = "platform-property" + "[name='" + fmt.Sprintf("%v", platformProperty.Name) + "']"
+    platformProperty.EntityData.SegmentPath = "platform-property" + types.AddKeyToken(platformProperty.Name, "name")
     platformProperty.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     platformProperty.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platformProperty.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    platformProperty.EntityData.Children = make(map[string]types.YChild)
-    platformProperty.EntityData.Children["value"] = types.YChild{"Value", &platformProperty.Value}
-    platformProperty.EntityData.Leafs = make(map[string]types.YLeaf)
-    platformProperty.EntityData.Leafs["name"] = types.YLeaf{"Name", platformProperty.Name}
-    platformProperty.EntityData.Leafs["configurable"] = types.YLeaf{"Configurable", platformProperty.Configurable}
+    platformProperty.EntityData.Children = types.NewOrderedMap()
+    platformProperty.EntityData.Children.Append("value", types.YChild{"Value", &platformProperty.Value})
+    platformProperty.EntityData.Leafs = types.NewOrderedMap()
+    platformProperty.EntityData.Leafs.Append("name", types.YLeaf{"Name", platformProperty.Name})
+    platformProperty.EntityData.Leafs.Append("configurable", types.YLeaf{"Configurable", platformProperty.Configurable})
+
+    platformProperty.EntityData.YListKeys = []string {"Name"}
+
     return &(platformProperty.EntityData)
 }
 
@@ -311,7 +329,7 @@ type Components_Component_PlatformProperties_PlatformProperty_Value struct {
     YFilter yfilter.YFilter
 
     // String property value. The type is string.
-    String_ interface{}
+    String interface{}
 
     // Boolean property value. The type is bool.
     Boolean interface{}
@@ -339,13 +357,16 @@ func (value *Components_Component_PlatformProperties_PlatformProperty_Value) Get
     value.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    value.EntityData.Children = make(map[string]types.YChild)
-    value.EntityData.Leafs = make(map[string]types.YLeaf)
-    value.EntityData.Leafs["string"] = types.YLeaf{"String_", value.String_}
-    value.EntityData.Leafs["boolean"] = types.YLeaf{"Boolean", value.Boolean}
-    value.EntityData.Leafs["intsixfour"] = types.YLeaf{"Intsixfour", value.Intsixfour}
-    value.EntityData.Leafs["uintsixfour"] = types.YLeaf{"Uintsixfour", value.Uintsixfour}
-    value.EntityData.Leafs["decimal"] = types.YLeaf{"Decimal", value.Decimal}
+    value.EntityData.Children = types.NewOrderedMap()
+    value.EntityData.Leafs = types.NewOrderedMap()
+    value.EntityData.Leafs.Append("string", types.YLeaf{"String", value.String})
+    value.EntityData.Leafs.Append("boolean", types.YLeaf{"Boolean", value.Boolean})
+    value.EntityData.Leafs.Append("intsixfour", types.YLeaf{"Intsixfour", value.Intsixfour})
+    value.EntityData.Leafs.Append("uintsixfour", types.YLeaf{"Uintsixfour", value.Uintsixfour})
+    value.EntityData.Leafs.Append("decimal", types.YLeaf{"Decimal", value.Decimal})
+
+    value.EntityData.YListKeys = []string {}
+
     return &(value.EntityData)
 }
 
@@ -357,7 +378,7 @@ type Components_Component_PlatformSubcomponents struct {
 
     // List of platform subcomponents. The type is slice of
     // Components_Component_PlatformSubcomponents_PlatformSubcomponent.
-    PlatformSubcomponent []Components_Component_PlatformSubcomponents_PlatformSubcomponent
+    PlatformSubcomponent []*Components_Component_PlatformSubcomponents_PlatformSubcomponent
 }
 
 func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetEntityData() *types.CommonEntityData {
@@ -370,12 +391,15 @@ func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetEnti
     platformSubcomponents.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platformSubcomponents.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    platformSubcomponents.EntityData.Children = make(map[string]types.YChild)
-    platformSubcomponents.EntityData.Children["platform-subcomponent"] = types.YChild{"PlatformSubcomponent", nil}
+    platformSubcomponents.EntityData.Children = types.NewOrderedMap()
+    platformSubcomponents.EntityData.Children.Append("platform-subcomponent", types.YChild{"PlatformSubcomponent", nil})
     for i := range platformSubcomponents.PlatformSubcomponent {
-        platformSubcomponents.EntityData.Children[types.GetSegmentPath(&platformSubcomponents.PlatformSubcomponent[i])] = types.YChild{"PlatformSubcomponent", &platformSubcomponents.PlatformSubcomponent[i]}
+        platformSubcomponents.EntityData.Children.Append(types.GetSegmentPath(platformSubcomponents.PlatformSubcomponent[i]), types.YChild{"PlatformSubcomponent", platformSubcomponents.PlatformSubcomponent[i]})
     }
-    platformSubcomponents.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformSubcomponents.EntityData.Leafs = types.NewOrderedMap()
+
+    platformSubcomponents.EntityData.YListKeys = []string {}
+
     return &(platformSubcomponents.EntityData)
 }
 
@@ -394,14 +418,17 @@ func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformS
     platformSubcomponent.EntityData.YangName = "platform-subcomponent"
     platformSubcomponent.EntityData.BundleName = "cisco_ios_xe"
     platformSubcomponent.EntityData.ParentYangName = "platform-subcomponents"
-    platformSubcomponent.EntityData.SegmentPath = "platform-subcomponent" + "[name='" + fmt.Sprintf("%v", platformSubcomponent.Name) + "']"
+    platformSubcomponent.EntityData.SegmentPath = "platform-subcomponent" + types.AddKeyToken(platformSubcomponent.Name, "name")
     platformSubcomponent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     platformSubcomponent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platformSubcomponent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    platformSubcomponent.EntityData.Children = make(map[string]types.YChild)
-    platformSubcomponent.EntityData.Leafs = make(map[string]types.YLeaf)
-    platformSubcomponent.EntityData.Leafs["name"] = types.YLeaf{"Name", platformSubcomponent.Name}
+    platformSubcomponent.EntityData.Children = types.NewOrderedMap()
+    platformSubcomponent.EntityData.Leafs = types.NewOrderedMap()
+    platformSubcomponent.EntityData.Leafs.Append("name", types.YLeaf{"Name", platformSubcomponent.Name})
+
+    platformSubcomponent.EntityData.YListKeys = []string {"Name"}
+
     return &(platformSubcomponent.EntityData)
 }
 

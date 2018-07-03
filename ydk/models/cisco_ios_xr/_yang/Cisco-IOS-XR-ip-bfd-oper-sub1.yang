@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-ip-bfd-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -416,10 +420,39 @@ submodule Cisco-IOS-XR-ip-bfd-oper-sub1 {
       description
         "Last Session Down Time (nanoseconds)";
     }
+    leaf last-io-evm-schd-time-sec {
+      type uint64;
+      units "second";
+      description
+        "Last IO EVM Schd Time (seconds)";
+    }
+    leaf last-io-evm-schd-time-nsec {
+      type uint32;
+      units "nanosecond";
+      description
+        "Last IO Evm Schd Time (nanoseconds)";
+    }
+    leaf last-io-evm-schd-comp-time-sec {
+      type uint64;
+      units "second";
+      description
+        "Last IO EVM Schd Comp Time (seconds)";
+    }
+    leaf last-io-evm-schd-comp-time-nsec {
+      type uint32;
+      units "nanosecond";
+      description
+        "Last IO Evm Schd Comp Time (nanoseconds)";
+    }
     leaf last-down-diag {
       type Bfd-mgmt-session-diag;
       description
         "Last Session Down Diag";
+    }
+    leaf last-rx-down-diag {
+      type Bfd-mgmt-session-diag;
+      description
+        "Last Rx Session Down Diag";
     }
     leaf up-counter {
       type uint32;

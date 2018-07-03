@@ -37,6 +37,10 @@ module Cisco-IOS-XR-infra-syslog-cfg {
     description
       "file path option provided in logging file config";
   }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2016-06-22 {
     description
       "file path removed from logging file config";
@@ -843,50 +847,16 @@ module Cisco-IOS-XR-infra-syslog-cfg {
                 description
                   "Severity/Port for the logging host";
                 leaf severity {
-                  type int32;
+                  type uint32;
                   default "6";
                   description
                     "Severity for the logging host";
                 }
                 leaf port {
-                  type int32;
+                  type uint32;
                   default "514";
                   description
                     "Port for the logging host";
-                }
-              }
-              container ipv6-discriminator {
-                description
-                  "Set IPv6 logging discriminators";
-                leaf nomatch2 {
-                  type string;
-                  description
-                    "Set IPv6 logging no-match2 discriminator";
-                }
-                leaf match3 {
-                  type string;
-                  description
-                    "Set IPv6 logging match3 discriminator";
-                }
-                leaf nomatch3 {
-                  type string;
-                  description
-                    "Set IPv6 logging no-match3 discriminator";
-                }
-                leaf match1 {
-                  type string;
-                  description
-                    "Set IPv6 logging match1 discriminator";
-                }
-                leaf nomatch1 {
-                  type string;
-                  description
-                    "Set IPv6 logging no-match1 discriminator";
-                }
-                leaf match2 {
-                  type string;
-                  description
-                    "Set IPv6 logging match2 discriminator";
                 }
               }
               container ipv6-severity-levels {
@@ -939,55 +909,18 @@ module Cisco-IOS-XR-infra-syslog-cfg {
                   }
                 }
               }
-              container host-name-discriminator {
-                description
-                  "Set Hostname logging discriminators";
-                leaf nomatch2 {
-                  type string;
-                  description
-                    "Set hostname logging no-match2
-                     discriminator";
-                }
-                leaf match3 {
-                  type string;
-                  description
-                    "Set hostname logging match3 discriminator";
-                }
-                leaf nomatch3 {
-                  type string;
-                  description
-                    "Set hostname logging no-match3
-                     discriminator";
-                }
-                leaf match1 {
-                  type string;
-                  description
-                    "Set hostname logging match1 discriminator";
-                }
-                leaf nomatch1 {
-                  type string;
-                  description
-                    "Set hostname logging no-match1
-                     discriminator";
-                }
-                leaf match2 {
-                  type string;
-                  description
-                    "Set hostname logging match2 discriminator";
-                }
-              }
               container host-severity-port {
                 presence "Indicates host-severity-port container is configured.";
                 description
                   "Severity/Port for the logging host";
                 leaf severity {
-                  type int32;
+                  type uint32;
                   default "6";
                   description
                     "Severity for the logging host";
                 }
                 leaf port {
-                  type int32;
+                  type uint32;
                   default "514";
                   description
                     "Port for the logging host";
@@ -1032,50 +965,16 @@ module Cisco-IOS-XR-infra-syslog-cfg {
                 description
                   "Severity/Port for the logging host";
                 leaf severity {
-                  type int32;
+                  type uint32;
                   default "6";
                   description
                     "Severity for the logging host";
                 }
                 leaf port {
-                  type int32;
+                  type uint32;
                   default "514";
                   description
                     "Port for the logging host";
-                }
-              }
-              container ipv4-discriminator {
-                description
-                  "Set IPv4 logging discriminators";
-                leaf nomatch2 {
-                  type string;
-                  description
-                    "Set IPv4 logging no-match2 discriminator";
-                }
-                leaf match3 {
-                  type string;
-                  description
-                    "Set IPv4 logging match3 discriminator";
-                }
-                leaf nomatch3 {
-                  type string;
-                  description
-                    "Set IPv4 logging no-match3 discriminator";
-                }
-                leaf match1 {
-                  type string;
-                  description
-                    "Set IPv4 logging match1 discriminator";
-                }
-                leaf nomatch1 {
-                  type string;
-                  description
-                    "Set IPv4 logging no-match1 discriminator";
-                }
-                leaf match2 {
-                  type string;
-                  description
-                    "Set IPv4 logging match2 discriminator";
                 }
               }
               leaf address {
@@ -1153,13 +1052,13 @@ module Cisco-IOS-XR-infra-syslog-cfg {
               "File path";
           }
           leaf max-file-size {
-            type int32;
+            type uint32;
             default "1024";
             description
               "Maximum file size (in KB)";
           }
           leaf severity {
-            type int32;
+            type uint32;
             default "6";
             description
               "Severity of messages";

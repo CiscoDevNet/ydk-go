@@ -152,7 +152,7 @@ module Cisco-IOS-XR-pfm-oper {
           }
         }
         leaf rack {
-          type int32;
+          type uint32;
           description
             "Rack number";
         }

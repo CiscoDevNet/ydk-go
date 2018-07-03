@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -348,6 +352,112 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     }
     description
       "L2vpn evpn";
+  }
+
+  typedef Im-state-enum {
+    type enumeration {
+      enum "im-state-not-ready" {
+        description
+          "im state not ready";
+      }
+      enum "im-state-admin-down" {
+        description
+          "im state admin down";
+      }
+      enum "im-state-down" {
+        description
+          "im state down";
+      }
+      enum "im-state-up" {
+        description
+          "im state up";
+      }
+      enum "im-state-shutdown" {
+        description
+          "im state shutdown";
+      }
+      enum "im-state-err-disable" {
+        description
+          "im state err disable";
+      }
+      enum "im-state-down-immediate" {
+        description
+          "im state down immediate";
+      }
+      enum "im-state-down-immediate-admin" {
+        description
+          "im state down immediate admin";
+      }
+      enum "im-state-down-graceful" {
+        description
+          "im state down graceful";
+      }
+      enum "im-state-begin-shutdown" {
+        description
+          "im state begin shutdown";
+      }
+      enum "im-state-end-shutdown" {
+        description
+          "im state end shutdown";
+      }
+      enum "im-state-begin-error-disable" {
+        description
+          "im state begin error disable";
+      }
+      enum "im-state-end-error-disable" {
+        description
+          "im state end error disable";
+      }
+      enum "im-state-begin-down-graceful" {
+        description
+          "im state begin down graceful";
+      }
+      enum "im-state-reset" {
+        description
+          "im state reset";
+      }
+      enum "im-state-operational" {
+        description
+          "im state operational";
+      }
+      enum "im-state-not-operational" {
+        description
+          "im state not operational";
+      }
+      enum "im-state-unknown" {
+        description
+          "im state unknown";
+      }
+      enum "im-state-last" {
+        description
+          "im state last";
+      }
+    }
+    description
+      "Im state enum";
+  }
+
+  typedef Evpn-grp {
+    type enumeration {
+      enum "deisolating" {
+        description
+          "Deisolating";
+      }
+      enum "isolated" {
+        description
+          "Isolated";
+      }
+      enum "ready" {
+        description
+          "Ready";
+      }
+      enum "incomplete" {
+        description
+          "Incomplete";
+      }
+    }
+    description
+      "EVPN Group State";
   }
 
   grouping L2VPN-EVPN-REMOTE-SHG-INFO {
@@ -1629,6 +1739,51 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       type L2vpn-evpn;
       description
         "Service Type";
+    }
+  }
+
+  grouping L2VPN-EVPN-CLIENT {
+    description
+      "EVPN Client Information";
+  }
+
+  grouping EVPN-GRP-INTF-INFO {
+    description
+      "EVPN Group Interface Information";
+    leaf interface-name {
+      type string;
+      description
+        "Interface name";
+    }
+    leaf state {
+      type Im-state-enum;
+      description
+        "Interface State";
+    }
+  }
+
+  grouping EVPN-GRP-INFO {
+    description
+      "EVPN Group Information";
+    leaf group-id {
+      type uint32;
+      description
+        "EVPN Group ID";
+    }
+    leaf state {
+      type Evpn-grp;
+      description
+        "EVPN Group State";
+    }
+    list core-interface {
+      description
+        "EVPN Group Core Interface table";
+      uses EVPN-GRP-INTF-INFO;
+    }
+    list access-interface {
+      description
+        "EVPN Access Core Interface table";
+      uses EVPN-GRP-INTF-INFO;
     }
   }
 }

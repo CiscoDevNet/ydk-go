@@ -40,9 +40,12 @@ func (sysmgrProcessRestart *SysmgrProcessRestart) GetEntityData() *types.CommonE
     sysmgrProcessRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysmgrProcessRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sysmgrProcessRestart.EntityData.Children = make(map[string]types.YChild)
-    sysmgrProcessRestart.EntityData.Children["input"] = types.YChild{"Input", &sysmgrProcessRestart.Input}
-    sysmgrProcessRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    sysmgrProcessRestart.EntityData.Children = types.NewOrderedMap()
+    sysmgrProcessRestart.EntityData.Children.Append("input", types.YChild{"Input", &sysmgrProcessRestart.Input})
+    sysmgrProcessRestart.EntityData.Leafs = types.NewOrderedMap()
+
+    sysmgrProcessRestart.EntityData.YListKeys = []string {}
+
     return &(sysmgrProcessRestart.EntityData)
 }
 
@@ -69,10 +72,13 @@ func (input *SysmgrProcessRestart_Input) GetEntityData() *types.CommonEntityData
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", input.ProcessName}
-    input.EntityData.Leafs["location"] = types.YLeaf{"Location", input.Location}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", input.ProcessName})
+    input.EntityData.Leafs.Append("location", types.YLeaf{"Location", input.Location})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

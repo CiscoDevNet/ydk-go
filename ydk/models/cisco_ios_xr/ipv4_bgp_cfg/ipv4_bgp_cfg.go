@@ -36,6 +36,50 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-bgp-cfg:bmp-servers", reflect.TypeOf(BmpServers{}))
 }
 
+// BgpSiteOfOrigin represents Bgp site of origin
+type BgpSiteOfOrigin string
+
+const (
+    // AS format SoO
+    BgpSiteOfOrigin_as BgpSiteOfOrigin = "as"
+
+    // IPv4 address format SoO
+    BgpSiteOfOrigin_ipv4_address BgpSiteOfOrigin = "ipv4-address"
+
+    // 4-byte AS format SoO
+    BgpSiteOfOrigin_four_byte_as BgpSiteOfOrigin = "four-byte-as"
+)
+
+// BgpAsn represents Bgp asn
+type BgpAsn string
+
+const (
+    // AS plain format
+    BgpAsn_as_plain BgpAsn = "as-plain"
+
+    // AS dot format
+    BgpAsn_asdot BgpAsn = "asdot"
+)
+
+// BgpAdvRt represents Bgp adv rt
+type BgpAdvRt string
+
+const (
+    // Regular RT type
+    BgpAdvRt_bgp_regular_rt BgpAdvRt = "bgp-regular-rt"
+
+    // Stitching RT type
+    BgpAdvRt_bgp_stitching_rt BgpAdvRt = "bgp-stitching-rt"
+)
+
+// BgpAfEncapsulation represents Bgp af encapsulation
+type BgpAfEncapsulation string
+
+const (
+    // VxLAN encapsulation type
+    BgpAfEncapsulation_vx_lan BgpAfEncapsulation = "vx-lan"
+)
+
 // BgpMvpnSfsSelect represents Bgp mvpn sfs select
 type BgpMvpnSfsSelect string
 
@@ -53,70 +97,21 @@ type BgpNbrgr string
 
 const (
     // NBR has enabled Graceful Restart capability
-    BgpNbrgr_true BgpNbrgr = "true"
+    BgpNbrgr_true_ BgpNbrgr = "true"
 
     // NBR has disabled Graceful Restart capability
-    BgpNbrgr_false BgpNbrgr = "false"
+    BgpNbrgr_false_ BgpNbrgr = "false"
 )
 
-// BmpPolicySelect represents Bmp policy select
-type BmpPolicySelect string
+// BgpAigpCfgPoi represents Bgp aigp cfg poi
+type BgpAigpCfgPoi string
 
 const (
-    // Pickup routes after policy application
-    BmpPolicySelect_post_policy BmpPolicySelect = "post-policy"
-)
+    // AIGP Pre-bestpath POI
+    BgpAigpCfgPoi_pre_best_path BgpAigpCfgPoi = "pre-best-path"
 
-// BgpEbgpSendDmzEnableMode represents Bgp ebgp send dmz enable mode
-type BgpEbgpSendDmzEnableMode string
-
-const (
-    // Disable Mode - Prevent inheritance
-    BgpEbgpSendDmzEnableMode_disable BgpEbgpSendDmzEnableMode = "disable"
-
-    // Default Mode - Send dmz link bandwidth value to
-    // ebgp neighbor
-    BgpEbgpSendDmzEnableMode_default_ BgpEbgpSendDmzEnableMode = "default"
-
-    // Strict Mode - Send cumulative dmz link
-    // bandwidth value to ebgp neighbor
-    BgpEbgpSendDmzEnableMode_cumulative BgpEbgpSendDmzEnableMode = "cumulative"
-)
-
-// BgpSignal represents Bgp signal
-type BgpSignal string
-
-const (
-    // Signalling BGP disable
-    BgpSignal_bgp_disable BgpSignal = "bgp-disable"
-
-    // Signalling LDP disable
-    BgpSignal_ldp_disable BgpSignal = "ldp-disable"
-)
-
-// BgpVrfRouteTarget represents Bgp vrf route target
-type BgpVrfRouteTarget string
-
-const (
-    // AS format RT
-    BgpVrfRouteTarget_as BgpVrfRouteTarget = "as"
-
-    // IPv4 address format RT
-    BgpVrfRouteTarget_ipv4_address BgpVrfRouteTarget = "ipv4-address"
-
-    // 4-byte AS format RT
-    BgpVrfRouteTarget_four_byte_as BgpVrfRouteTarget = "four-byte-as"
-)
-
-// BgpRnhInstallFormat represents Bgp rnh install format
-type BgpRnhInstallFormat string
-
-const (
-    // Install RNH as opaque and extcomm
-    BgpRnhInstallFormat_ext_comm BgpRnhInstallFormat = "ext-comm"
-
-    // Install RNH as extcomm only
-    BgpRnhInstallFormat_ext_comm_only BgpRnhInstallFormat = "ext-comm-only"
+    // AIGP igp-cost POI
+    BgpAigpCfgPoi_igp_cost BgpAigpCfgPoi = "igp-cost"
 )
 
 // BgpBfdEnableMode represents Bgp bfd enable mode
@@ -132,6 +127,17 @@ const (
     // Strict Mode - Hold down adj until BFD session
     // up
     BgpBfdEnableMode_strict BgpBfdEnableMode = "strict"
+)
+
+// BgpRpkiTransport represents Bgp rpki transport
+type BgpRpkiTransport string
+
+const (
+    // TCP Transport
+    BgpRpkiTransport_tcp BgpRpkiTransport = "tcp"
+
+    // SSH Transport
+    BgpRpkiTransport_ssh BgpRpkiTransport = "ssh"
 )
 
 // BmpRouteDirection represents Bmp route direction
@@ -153,29 +159,32 @@ const (
     BgpSendMcastAttrCfg_disable BgpSendMcastAttrCfg = "disable"
 )
 
-// BgpAigpCfgPoi represents Bgp aigp cfg poi
-type BgpAigpCfgPoi string
+// BgpRnhInstallFormat represents Bgp rnh install format
+type BgpRnhInstallFormat string
 
 const (
-    // AIGP Pre-bestpath POI
-    BgpAigpCfgPoi_pre_best_path BgpAigpCfgPoi = "pre-best-path"
+    // Install RNH as opaque and extcomm
+    BgpRnhInstallFormat_ext_comm BgpRnhInstallFormat = "ext-comm"
 
-    // AIGP igp-cost POI
-    BgpAigpCfgPoi_igp_cost BgpAigpCfgPoi = "igp-cost"
+    // Install RNH as extcomm only
+    BgpRnhInstallFormat_ext_comm_only BgpRnhInstallFormat = "ext-comm-only"
 )
 
-// BgpFlowspecValidationCfg represents Bgp flowspec validation cfg
-type BgpFlowspecValidationCfg string
+// BgpRouteDistinguisher represents Bgp route distinguisher
+type BgpRouteDistinguisher string
 
 const (
-    // Enable Flowspec validation
-    BgpFlowspecValidationCfg_enable BgpFlowspecValidationCfg = "enable"
+    // Automatically assigned
+    BgpRouteDistinguisher_auto BgpRouteDistinguisher = "auto"
 
-    // Disable Flowspec validation
-    BgpFlowspecValidationCfg_disable BgpFlowspecValidationCfg = "disable"
+    // AS format RD
+    BgpRouteDistinguisher_as BgpRouteDistinguisher = "as"
 
-    // Disable Flowspec redirect nexthop validation
-    BgpFlowspecValidationCfg_redirect_nexhop_disable BgpFlowspecValidationCfg = "redirect-nexhop-disable"
+    // 4-byte AS format RD
+    BgpRouteDistinguisher_four_byte_as BgpRouteDistinguisher = "four-byte-as"
+
+    // IPv4 address format RD
+    BgpRouteDistinguisher_ipv4_address BgpRouteDistinguisher = "ipv4-address"
 )
 
 // BgpOrf represents Bgp orf
@@ -195,26 +204,117 @@ const (
     BgpOrf_both BgpOrf = "both"
 )
 
-// BgpAsn represents Bgp asn
-type BgpAsn string
+// BgpVrfRouteTarget represents Bgp vrf route target
+type BgpVrfRouteTarget string
 
 const (
-    // AS plain format
-    BgpAsn_as_plain BgpAsn = "as-plain"
+    // AS format RT
+    BgpVrfRouteTarget_as BgpVrfRouteTarget = "as"
 
-    // AS dot format
-    BgpAsn_asdot BgpAsn = "asdot"
+    // IPv4 address format RT
+    BgpVrfRouteTarget_ipv4_address BgpVrfRouteTarget = "ipv4-address"
+
+    // 4-byte AS format RT
+    BgpVrfRouteTarget_four_byte_as BgpVrfRouteTarget = "four-byte-as"
 )
 
-// BgpRpkiTransport represents Bgp rpki transport
-type BgpRpkiTransport string
+// BgpEbgpSendDmzEnableMode represents Bgp ebgp send dmz enable mode
+type BgpEbgpSendDmzEnableMode string
 
 const (
-    // TCP Transport
-    BgpRpkiTransport_tcp BgpRpkiTransport = "tcp"
+    // Disable Mode - Prevent inheritance
+    BgpEbgpSendDmzEnableMode_disable BgpEbgpSendDmzEnableMode = "disable"
 
-    // SSH Transport
-    BgpRpkiTransport_ssh BgpRpkiTransport = "ssh"
+    // Default Mode - Send dmz link bandwidth value to
+    // ebgp neighbor
+    BgpEbgpSendDmzEnableMode_default_ BgpEbgpSendDmzEnableMode = "default"
+
+    // Strict Mode - Send cumulative dmz link
+    // bandwidth value to ebgp neighbor
+    BgpEbgpSendDmzEnableMode_cumulative BgpEbgpSendDmzEnableMode = "cumulative"
+)
+
+// BgpClusterId represents Bgp cluster id
+type BgpClusterId string
+
+const (
+    // Number
+    BgpClusterId_number BgpClusterId = "number"
+
+    // IPv4 Address
+    BgpClusterId_ipv4_address BgpClusterId = "ipv4-address"
+)
+
+// BgpTcpMode represents Bgp tcp mode
+type BgpTcpMode string
+
+const (
+    // Either active or passive mode
+    BgpTcpMode_either BgpTcpMode = "either"
+
+    // Active mode only
+    BgpTcpMode_active_only BgpTcpMode = "active-only"
+
+    // Passive mode only
+    BgpTcpMode_passive_only BgpTcpMode = "passive-only"
+)
+
+// BgpAigpCfg represents Bgp aigp cfg
+type BgpAigpCfg string
+
+const (
+    // Enable AIGP
+    BgpAigpCfg_enable BgpAigpCfg = "enable"
+
+    // Disable AIGP
+    BgpAigpCfg_disable BgpAigpCfg = "disable"
+)
+
+// BmpPolicySelect represents Bmp policy select
+type BmpPolicySelect string
+
+const (
+    // Pickup routes after policy application
+    BmpPolicySelect_post_policy BmpPolicySelect = "post-policy"
+)
+
+// BgpFlowspecValidationCfg represents Bgp flowspec validation cfg
+type BgpFlowspecValidationCfg string
+
+const (
+    // Enable Flowspec validation
+    BgpFlowspecValidationCfg_enable BgpFlowspecValidationCfg = "enable"
+
+    // Disable Flowspec validation
+    BgpFlowspecValidationCfg_disable BgpFlowspecValidationCfg = "disable"
+
+    // Disable Flowspec redirect nexthop validation
+    BgpFlowspecValidationCfg_redirect_nexhop_disable BgpFlowspecValidationCfg = "redirect-nexhop-disable"
+)
+
+// BgpSignal represents Bgp signal
+type BgpSignal string
+
+const (
+    // Signalling BGP disable
+    BgpSignal_bgp_disable BgpSignal = "bgp-disable"
+
+    // Signalling LDP disable
+    BgpSignal_ldp_disable BgpSignal = "ldp-disable"
+)
+
+// BgpGlobalRouteDistinguisher represents Bgp global route distinguisher
+type BgpGlobalRouteDistinguisher string
+
+const (
+    // AS format RD
+    BgpGlobalRouteDistinguisher_as BgpGlobalRouteDistinguisher = "as"
+
+    // 4-byte AS format RD
+    BgpGlobalRouteDistinguisher_four_byte_as BgpGlobalRouteDistinguisher = "four-byte-as"
+
+    // IPv4 address format RD
+    BgpGlobalRouteDistinguisher_ipv4_address BgpGlobalRouteDistinguisher = "ipv4-address"
 )
 
 // BgpReorgOpt represents Bgp reorg opt
@@ -240,92 +340,6 @@ const (
     BgpReorgOpt_bgp_cfg_adv_vrf_re_imp_disable BgpReorgOpt = "bgp-cfg-adv-vrf-re-imp-disable"
 )
 
-// BgpAfEncapsulation represents Bgp af encapsulation
-type BgpAfEncapsulation string
-
-const (
-    // VxLAN encapsulation type
-    BgpAfEncapsulation_vx_lan BgpAfEncapsulation = "vx-lan"
-)
-
-// BgpAigpCfg represents Bgp aigp cfg
-type BgpAigpCfg string
-
-const (
-    // Enable AIGP
-    BgpAigpCfg_enable BgpAigpCfg = "enable"
-
-    // Disable AIGP
-    BgpAigpCfg_disable BgpAigpCfg = "disable"
-)
-
-// BgpRouteDistinguisher represents Bgp route distinguisher
-type BgpRouteDistinguisher string
-
-const (
-    // Automatically assigned
-    BgpRouteDistinguisher_auto BgpRouteDistinguisher = "auto"
-
-    // AS format RD
-    BgpRouteDistinguisher_as BgpRouteDistinguisher = "as"
-
-    // 4-byte AS format RD
-    BgpRouteDistinguisher_four_byte_as BgpRouteDistinguisher = "four-byte-as"
-
-    // IPv4 address format RD
-    BgpRouteDistinguisher_ipv4_address BgpRouteDistinguisher = "ipv4-address"
-)
-
-// BgpAdvRt represents Bgp adv rt
-type BgpAdvRt string
-
-const (
-    // Regular RT type
-    BgpAdvRt_bgp_regular_rt BgpAdvRt = "bgp-regular-rt"
-
-    // Stitching RT type
-    BgpAdvRt_bgp_stitching_rt BgpAdvRt = "bgp-stitching-rt"
-)
-
-// BgpTcpMode represents Bgp tcp mode
-type BgpTcpMode string
-
-const (
-    // Either active or passive mode
-    BgpTcpMode_either BgpTcpMode = "either"
-
-    // Active mode only
-    BgpTcpMode_active_only BgpTcpMode = "active-only"
-
-    // Passive mode only
-    BgpTcpMode_passive_only BgpTcpMode = "passive-only"
-)
-
-// BgpSiteOfOrigin represents Bgp site of origin
-type BgpSiteOfOrigin string
-
-const (
-    // AS format SoO
-    BgpSiteOfOrigin_as BgpSiteOfOrigin = "as"
-
-    // IPv4 address format SoO
-    BgpSiteOfOrigin_ipv4_address BgpSiteOfOrigin = "ipv4-address"
-
-    // 4-byte AS format SoO
-    BgpSiteOfOrigin_four_byte_as BgpSiteOfOrigin = "four-byte-as"
-)
-
-// BgpClusterId represents Bgp cluster id
-type BgpClusterId string
-
-const (
-    // Number
-    BgpClusterId_number BgpClusterId = "number"
-
-    // IPv4 Address
-    BgpClusterId_ipv4_address BgpClusterId = "ipv4-address"
-)
-
 // Bgp
 // bgp
 type Bgp struct {
@@ -333,7 +347,7 @@ type Bgp struct {
     YFilter yfilter.YFilter
 
     // BGP instance configuration commands. The type is slice of Bgp_Instance.
-    Instance []Bgp_Instance
+    Instance []*Bgp_Instance
 }
 
 func (bgp *Bgp) GetEntityData() *types.CommonEntityData {
@@ -346,12 +360,15 @@ func (bgp *Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range bgp.Instance {
-        bgp.EntityData.Children[types.GetSegmentPath(&bgp.Instance[i])] = types.YChild{"Instance", &bgp.Instance[i]}
+        bgp.EntityData.Children.Append(types.GetSegmentPath(bgp.Instance[i]), types.YChild{"Instance", bgp.Instance[i]})
     }
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -362,11 +379,11 @@ type Bgp_Instance struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Instance Name. For Default instance use - default.
-    // The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Autonomous system. The type is slice of Bgp_Instance_InstanceAs.
-    InstanceAs []Bgp_Instance_InstanceAs
+    InstanceAs []*Bgp_Instance_InstanceAs
 }
 
 func (instance *Bgp_Instance) GetEntityData() *types.CommonEntityData {
@@ -374,18 +391,21 @@ func (instance *Bgp_Instance) GetEntityData() *types.CommonEntityData {
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "bgp"
-    instance.EntityData.SegmentPath = "instance" + "[instance-name='" + fmt.Sprintf("%v", instance.InstanceName) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceName, "instance-name")
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["instance-as"] = types.YChild{"InstanceAs", nil}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("instance-as", types.YChild{"InstanceAs", nil})
     for i := range instance.InstanceAs {
-        instance.EntityData.Children[types.GetSegmentPath(&instance.InstanceAs[i])] = types.YChild{"InstanceAs", &instance.InstanceAs[i]}
+        instance.EntityData.Children.Append(types.GetSegmentPath(instance.InstanceAs[i]), types.YChild{"InstanceAs", instance.InstanceAs[i]})
     }
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", instance.InstanceName}
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", instance.InstanceName})
+
+    instance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(instance.EntityData)
 }
 
@@ -401,7 +421,7 @@ type Bgp_Instance_InstanceAs struct {
 
     // 4-byte Autonomous system. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs.
-    FourByteAs []Bgp_Instance_InstanceAs_FourByteAs
+    FourByteAs []*Bgp_Instance_InstanceAs_FourByteAs
 }
 
 func (instanceAs *Bgp_Instance_InstanceAs) GetEntityData() *types.CommonEntityData {
@@ -409,18 +429,21 @@ func (instanceAs *Bgp_Instance_InstanceAs) GetEntityData() *types.CommonEntityDa
     instanceAs.EntityData.YangName = "instance-as"
     instanceAs.EntityData.BundleName = "cisco_ios_xr"
     instanceAs.EntityData.ParentYangName = "instance"
-    instanceAs.EntityData.SegmentPath = "instance-as" + "[as='" + fmt.Sprintf("%v", instanceAs.As) + "']"
+    instanceAs.EntityData.SegmentPath = "instance-as" + types.AddKeyToken(instanceAs.As, "as")
     instanceAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instanceAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instanceAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instanceAs.EntityData.Children = make(map[string]types.YChild)
-    instanceAs.EntityData.Children["four-byte-as"] = types.YChild{"FourByteAs", nil}
+    instanceAs.EntityData.Children = types.NewOrderedMap()
+    instanceAs.EntityData.Children.Append("four-byte-as", types.YChild{"FourByteAs", nil})
     for i := range instanceAs.FourByteAs {
-        instanceAs.EntityData.Children[types.GetSegmentPath(&instanceAs.FourByteAs[i])] = types.YChild{"FourByteAs", &instanceAs.FourByteAs[i]}
+        instanceAs.EntityData.Children.Append(types.GetSegmentPath(instanceAs.FourByteAs[i]), types.YChild{"FourByteAs", instanceAs.FourByteAs[i]})
     }
-    instanceAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    instanceAs.EntityData.Leafs["as"] = types.YLeaf{"As", instanceAs.As}
+    instanceAs.EntityData.Leafs = types.NewOrderedMap()
+    instanceAs.EntityData.Leafs.Append("as", types.YLeaf{"As", instanceAs.As})
+
+    instanceAs.EntityData.YListKeys = []string {"As"}
+
     return &(instanceAs.EntityData)
 }
 
@@ -450,17 +473,20 @@ func (fourByteAs *Bgp_Instance_InstanceAs_FourByteAs) GetEntityData() *types.Com
     fourByteAs.EntityData.YangName = "four-byte-as"
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "instance-as"
-    fourByteAs.EntityData.SegmentPath = "four-byte-as" + "[as='" + fmt.Sprintf("%v", fourByteAs.As) + "']"
+    fourByteAs.EntityData.SegmentPath = "four-byte-as" + types.AddKeyToken(fourByteAs.As, "as")
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fourByteAs.EntityData.Children = make(map[string]types.YChild)
-    fourByteAs.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &fourByteAs.Vrfs}
-    fourByteAs.EntityData.Children["default-vrf"] = types.YChild{"DefaultVrf", &fourByteAs.DefaultVrf}
-    fourByteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    fourByteAs.EntityData.Leafs["as"] = types.YLeaf{"As", fourByteAs.As}
-    fourByteAs.EntityData.Leafs["bgp-running"] = types.YLeaf{"BgpRunning", fourByteAs.BgpRunning}
+    fourByteAs.EntityData.Children = types.NewOrderedMap()
+    fourByteAs.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &fourByteAs.Vrfs})
+    fourByteAs.EntityData.Children.Append("default-vrf", types.YChild{"DefaultVrf", &fourByteAs.DefaultVrf})
+    fourByteAs.EntityData.Leafs = types.NewOrderedMap()
+    fourByteAs.EntityData.Leafs.Append("as", types.YLeaf{"As", fourByteAs.As})
+    fourByteAs.EntityData.Leafs.Append("bgp-running", types.YLeaf{"BgpRunning", fourByteAs.BgpRunning})
+
+    fourByteAs.EntityData.YListKeys = []string {"As"}
+
     return &(fourByteAs.EntityData)
 }
 
@@ -472,7 +498,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs struct {
 
     // VRF config. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf.
-    Vrf []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf
+    Vrf []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf
 }
 
 func (vrfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -485,12 +511,15 @@ func (vrfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs) GetEntityData() *types.Comm
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -501,7 +530,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // VRF attribute config.
@@ -516,16 +545,19 @@ func (vrf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf) GetEntityData() *types.C
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["vrf-global"] = types.YChild{"VrfGlobal", &vrf.VrfGlobal}
-    vrf.EntityData.Children["vrf-neighbors"] = types.YChild{"VrfNeighbors", &vrf.VrfNeighbors}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("vrf-global", types.YChild{"VrfGlobal", &vrf.VrfGlobal})
+    vrf.EntityData.Children.Append("vrf-neighbors", types.YChild{"VrfNeighbors", &vrf.VrfNeighbors})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -540,7 +572,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal struct {
     Exists interface{}
 
     // Configure Router-id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     RouterId interface{}
 
@@ -654,37 +686,40 @@ func (vrfGlobal *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal) GetEntit
     vrfGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfGlobal.EntityData.Children = make(map[string]types.YChild)
-    vrfGlobal.EntityData.Children["route-distinguisher"] = types.YChild{"RouteDistinguisher", &vrfGlobal.RouteDistinguisher}
-    vrfGlobal.EntityData.Children["vrf-global-afs"] = types.YChild{"VrfGlobalAfs", &vrfGlobal.VrfGlobalAfs}
-    vrfGlobal.EntityData.Children["mpls-activated-interfaces"] = types.YChild{"MplsActivatedInterfaces", &vrfGlobal.MplsActivatedInterfaces}
-    vrfGlobal.EntityData.Children["global-timers"] = types.YChild{"GlobalTimers", &vrfGlobal.GlobalTimers}
-    vrfGlobal.EntityData.Children["bfd"] = types.YChild{"Bfd", &vrfGlobal.Bfd}
-    vrfGlobal.EntityData.Children["send-socket-buffer-sizes"] = types.YChild{"SendSocketBufferSizes", &vrfGlobal.SendSocketBufferSizes}
-    vrfGlobal.EntityData.Children["receive-socket-buffer-sizes"] = types.YChild{"ReceiveSocketBufferSizes", &vrfGlobal.ReceiveSocketBufferSizes}
-    vrfGlobal.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfGlobal.EntityData.Leafs["exists"] = types.YLeaf{"Exists", vrfGlobal.Exists}
-    vrfGlobal.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", vrfGlobal.RouterId}
-    vrfGlobal.EntityData.Leafs["disable-enforce-first-as"] = types.YLeaf{"DisableEnforceFirstAs", vrfGlobal.DisableEnforceFirstAs}
-    vrfGlobal.EntityData.Leafs["best-path-cost-community"] = types.YLeaf{"BestPathCostCommunity", vrfGlobal.BestPathCostCommunity}
-    vrfGlobal.EntityData.Leafs["best-path-aigp-ignore"] = types.YLeaf{"BestPathAigpIgnore", vrfGlobal.BestPathAigpIgnore}
-    vrfGlobal.EntityData.Leafs["best-path-as-path-length"] = types.YLeaf{"BestPathAsPathLength", vrfGlobal.BestPathAsPathLength}
-    vrfGlobal.EntityData.Leafs["igp-redist-internal"] = types.YLeaf{"IgpRedistInternal", vrfGlobal.IgpRedistInternal}
-    vrfGlobal.EntityData.Leafs["multi-path-as-path-ignore-onwards"] = types.YLeaf{"MultiPathAsPathIgnoreOnwards", vrfGlobal.MultiPathAsPathIgnoreOnwards}
-    vrfGlobal.EntityData.Leafs["disable-fast-external-fallover"] = types.YLeaf{"DisableFastExternalFallover", vrfGlobal.DisableFastExternalFallover}
-    vrfGlobal.EntityData.Leafs["unsafe-ebgp-policy"] = types.YLeaf{"UnsafeEbgpPolicy", vrfGlobal.UnsafeEbgpPolicy}
-    vrfGlobal.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", vrfGlobal.DefaultMetric}
-    vrfGlobal.EntityData.Leafs["default-info-originate"] = types.YLeaf{"DefaultInfoOriginate", vrfGlobal.DefaultInfoOriginate}
-    vrfGlobal.EntityData.Leafs["best-path-confederation-paths"] = types.YLeaf{"BestPathConfederationPaths", vrfGlobal.BestPathConfederationPaths}
-    vrfGlobal.EntityData.Leafs["best-path-as-multipath-relax"] = types.YLeaf{"BestPathAsMultipathRelax", vrfGlobal.BestPathAsMultipathRelax}
-    vrfGlobal.EntityData.Leafs["disable-auto-soft-reset"] = types.YLeaf{"DisableAutoSoftReset", vrfGlobal.DisableAutoSoftReset}
-    vrfGlobal.EntityData.Leafs["disable-msg-log"] = types.YLeaf{"DisableMsgLog", vrfGlobal.DisableMsgLog}
-    vrfGlobal.EntityData.Leafs["next-hop-mpls-fwd-ibgp"] = types.YLeaf{"NextHopMplsFwdIbgp", vrfGlobal.NextHopMplsFwdIbgp}
-    vrfGlobal.EntityData.Leafs["disable-neighbor-logging"] = types.YLeaf{"DisableNeighborLogging", vrfGlobal.DisableNeighborLogging}
-    vrfGlobal.EntityData.Leafs["best-path-med-always"] = types.YLeaf{"BestPathMedAlways", vrfGlobal.BestPathMedAlways}
-    vrfGlobal.EntityData.Leafs["best-path-router-id"] = types.YLeaf{"BestPathRouterId", vrfGlobal.BestPathRouterId}
-    vrfGlobal.EntityData.Leafs["best-path-med-missing"] = types.YLeaf{"BestPathMedMissing", vrfGlobal.BestPathMedMissing}
-    vrfGlobal.EntityData.Leafs["local-preference"] = types.YLeaf{"LocalPreference", vrfGlobal.LocalPreference}
+    vrfGlobal.EntityData.Children = types.NewOrderedMap()
+    vrfGlobal.EntityData.Children.Append("route-distinguisher", types.YChild{"RouteDistinguisher", &vrfGlobal.RouteDistinguisher})
+    vrfGlobal.EntityData.Children.Append("vrf-global-afs", types.YChild{"VrfGlobalAfs", &vrfGlobal.VrfGlobalAfs})
+    vrfGlobal.EntityData.Children.Append("mpls-activated-interfaces", types.YChild{"MplsActivatedInterfaces", &vrfGlobal.MplsActivatedInterfaces})
+    vrfGlobal.EntityData.Children.Append("global-timers", types.YChild{"GlobalTimers", &vrfGlobal.GlobalTimers})
+    vrfGlobal.EntityData.Children.Append("bfd", types.YChild{"Bfd", &vrfGlobal.Bfd})
+    vrfGlobal.EntityData.Children.Append("send-socket-buffer-sizes", types.YChild{"SendSocketBufferSizes", &vrfGlobal.SendSocketBufferSizes})
+    vrfGlobal.EntityData.Children.Append("receive-socket-buffer-sizes", types.YChild{"ReceiveSocketBufferSizes", &vrfGlobal.ReceiveSocketBufferSizes})
+    vrfGlobal.EntityData.Leafs = types.NewOrderedMap()
+    vrfGlobal.EntityData.Leafs.Append("exists", types.YLeaf{"Exists", vrfGlobal.Exists})
+    vrfGlobal.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", vrfGlobal.RouterId})
+    vrfGlobal.EntityData.Leafs.Append("disable-enforce-first-as", types.YLeaf{"DisableEnforceFirstAs", vrfGlobal.DisableEnforceFirstAs})
+    vrfGlobal.EntityData.Leafs.Append("best-path-cost-community", types.YLeaf{"BestPathCostCommunity", vrfGlobal.BestPathCostCommunity})
+    vrfGlobal.EntityData.Leafs.Append("best-path-aigp-ignore", types.YLeaf{"BestPathAigpIgnore", vrfGlobal.BestPathAigpIgnore})
+    vrfGlobal.EntityData.Leafs.Append("best-path-as-path-length", types.YLeaf{"BestPathAsPathLength", vrfGlobal.BestPathAsPathLength})
+    vrfGlobal.EntityData.Leafs.Append("igp-redist-internal", types.YLeaf{"IgpRedistInternal", vrfGlobal.IgpRedistInternal})
+    vrfGlobal.EntityData.Leafs.Append("multi-path-as-path-ignore-onwards", types.YLeaf{"MultiPathAsPathIgnoreOnwards", vrfGlobal.MultiPathAsPathIgnoreOnwards})
+    vrfGlobal.EntityData.Leafs.Append("disable-fast-external-fallover", types.YLeaf{"DisableFastExternalFallover", vrfGlobal.DisableFastExternalFallover})
+    vrfGlobal.EntityData.Leafs.Append("unsafe-ebgp-policy", types.YLeaf{"UnsafeEbgpPolicy", vrfGlobal.UnsafeEbgpPolicy})
+    vrfGlobal.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", vrfGlobal.DefaultMetric})
+    vrfGlobal.EntityData.Leafs.Append("default-info-originate", types.YLeaf{"DefaultInfoOriginate", vrfGlobal.DefaultInfoOriginate})
+    vrfGlobal.EntityData.Leafs.Append("best-path-confederation-paths", types.YLeaf{"BestPathConfederationPaths", vrfGlobal.BestPathConfederationPaths})
+    vrfGlobal.EntityData.Leafs.Append("best-path-as-multipath-relax", types.YLeaf{"BestPathAsMultipathRelax", vrfGlobal.BestPathAsMultipathRelax})
+    vrfGlobal.EntityData.Leafs.Append("disable-auto-soft-reset", types.YLeaf{"DisableAutoSoftReset", vrfGlobal.DisableAutoSoftReset})
+    vrfGlobal.EntityData.Leafs.Append("disable-msg-log", types.YLeaf{"DisableMsgLog", vrfGlobal.DisableMsgLog})
+    vrfGlobal.EntityData.Leafs.Append("next-hop-mpls-fwd-ibgp", types.YLeaf{"NextHopMplsFwdIbgp", vrfGlobal.NextHopMplsFwdIbgp})
+    vrfGlobal.EntityData.Leafs.Append("disable-neighbor-logging", types.YLeaf{"DisableNeighborLogging", vrfGlobal.DisableNeighborLogging})
+    vrfGlobal.EntityData.Leafs.Append("best-path-med-always", types.YLeaf{"BestPathMedAlways", vrfGlobal.BestPathMedAlways})
+    vrfGlobal.EntityData.Leafs.Append("best-path-router-id", types.YLeaf{"BestPathRouterId", vrfGlobal.BestPathRouterId})
+    vrfGlobal.EntityData.Leafs.Append("best-path-med-missing", types.YLeaf{"BestPathMedMissing", vrfGlobal.BestPathMedMissing})
+    vrfGlobal.EntityData.Leafs.Append("local-preference", types.YLeaf{"LocalPreference", vrfGlobal.LocalPreference})
+
+    vrfGlobal.EntityData.YListKeys = []string {}
+
     return &(vrfGlobal.EntityData)
 }
 
@@ -695,7 +730,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_RouteDistinguisher st
     YFilter yfilter.YFilter
 
     // Type of RD. The type is BgpRouteDistinguisher.
-    Type_ interface{}
+    Type interface{}
 
     // AS number. The type is interface{} with range: 0..4294967295.
     AsXx interface{}
@@ -707,7 +742,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_RouteDistinguisher st
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address index. The type is interface{} with range: 0..65535.
@@ -724,14 +759,17 @@ func (routeDistinguisher *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_
     routeDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeDistinguisher.EntityData.Children = make(map[string]types.YChild)
-    routeDistinguisher.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeDistinguisher.EntityData.Leafs["type"] = types.YLeaf{"Type_", routeDistinguisher.Type_}
-    routeDistinguisher.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", routeDistinguisher.AsXx}
-    routeDistinguisher.EntityData.Leafs["as"] = types.YLeaf{"As", routeDistinguisher.As}
-    routeDistinguisher.EntityData.Leafs["as-index"] = types.YLeaf{"AsIndex", routeDistinguisher.AsIndex}
-    routeDistinguisher.EntityData.Leafs["address"] = types.YLeaf{"Address", routeDistinguisher.Address}
-    routeDistinguisher.EntityData.Leafs["address-index"] = types.YLeaf{"AddressIndex", routeDistinguisher.AddressIndex}
+    routeDistinguisher.EntityData.Children = types.NewOrderedMap()
+    routeDistinguisher.EntityData.Leafs = types.NewOrderedMap()
+    routeDistinguisher.EntityData.Leafs.Append("type", types.YLeaf{"Type", routeDistinguisher.Type})
+    routeDistinguisher.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", routeDistinguisher.AsXx})
+    routeDistinguisher.EntityData.Leafs.Append("as", types.YLeaf{"As", routeDistinguisher.As})
+    routeDistinguisher.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", routeDistinguisher.AsIndex})
+    routeDistinguisher.EntityData.Leafs.Append("address", types.YLeaf{"Address", routeDistinguisher.Address})
+    routeDistinguisher.EntityData.Leafs.Append("address-index", types.YLeaf{"AddressIndex", routeDistinguisher.AddressIndex})
+
+    routeDistinguisher.EntityData.YListKeys = []string {}
+
     return &(routeDistinguisher.EntityData)
 }
 
@@ -743,7 +781,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs struct {
 
     // Global VRF AF-specific configuration. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf.
-    VrfGlobalAf []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf
+    VrfGlobalAf []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf
 }
 
 func (vrfGlobalAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs) GetEntityData() *types.CommonEntityData {
@@ -756,12 +794,15 @@ func (vrfGlobalAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
     vrfGlobalAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfGlobalAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfGlobalAfs.EntityData.Children = make(map[string]types.YChild)
-    vrfGlobalAfs.EntityData.Children["vrf-global-af"] = types.YChild{"VrfGlobalAf", nil}
+    vrfGlobalAfs.EntityData.Children = types.NewOrderedMap()
+    vrfGlobalAfs.EntityData.Children.Append("vrf-global-af", types.YChild{"VrfGlobalAf", nil})
     for i := range vrfGlobalAfs.VrfGlobalAf {
-        vrfGlobalAfs.EntityData.Children[types.GetSegmentPath(&vrfGlobalAfs.VrfGlobalAf[i])] = types.YChild{"VrfGlobalAf", &vrfGlobalAfs.VrfGlobalAf[i]}
+        vrfGlobalAfs.EntityData.Children.Append(types.GetSegmentPath(vrfGlobalAfs.VrfGlobalAf[i]), types.YChild{"VrfGlobalAf", vrfGlobalAfs.VrfGlobalAf[i]})
     }
-    vrfGlobalAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfGlobalAfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfGlobalAfs.EntityData.YListKeys = []string {}
+
     return &(vrfGlobalAfs.EntityData)
 }
 
@@ -895,49 +936,52 @@ func (vrfGlobalAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlob
     vrfGlobalAf.EntityData.YangName = "vrf-global-af"
     vrfGlobalAf.EntityData.BundleName = "cisco_ios_xr"
     vrfGlobalAf.EntityData.ParentYangName = "vrf-global-afs"
-    vrfGlobalAf.EntityData.SegmentPath = "vrf-global-af" + "[af-name='" + fmt.Sprintf("%v", vrfGlobalAf.AfName) + "']"
+    vrfGlobalAf.EntityData.SegmentPath = "vrf-global-af" + types.AddKeyToken(vrfGlobalAf.AfName, "af-name")
     vrfGlobalAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfGlobalAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfGlobalAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfGlobalAf.EntityData.Children = make(map[string]types.YChild)
-    vrfGlobalAf.EntityData.Children["mvpn"] = types.YChild{"Mvpn", &vrfGlobalAf.Mvpn}
-    vrfGlobalAf.EntityData.Children["ebgp"] = types.YChild{"Ebgp", &vrfGlobalAf.Ebgp}
-    vrfGlobalAf.EntityData.Children["eibgp"] = types.YChild{"Eibgp", &vrfGlobalAf.Eibgp}
-    vrfGlobalAf.EntityData.Children["ibgp"] = types.YChild{"Ibgp", &vrfGlobalAf.Ibgp}
-    vrfGlobalAf.EntityData.Children["aggregate-addresses"] = types.YChild{"AggregateAddresses", &vrfGlobalAf.AggregateAddresses}
-    vrfGlobalAf.EntityData.Children["optimal-route-reflector-groups"] = types.YChild{"OptimalRouteReflectorGroups", &vrfGlobalAf.OptimalRouteReflectorGroups}
-    vrfGlobalAf.EntityData.Children["dampening"] = types.YChild{"Dampening", &vrfGlobalAf.Dampening}
-    vrfGlobalAf.EntityData.Children["rip-routes"] = types.YChild{"RipRoutes", &vrfGlobalAf.RipRoutes}
-    vrfGlobalAf.EntityData.Children["lisp-routes"] = types.YChild{"LispRoutes", &vrfGlobalAf.LispRoutes}
-    vrfGlobalAf.EntityData.Children["static-routes"] = types.YChild{"StaticRoutes", &vrfGlobalAf.StaticRoutes}
-    vrfGlobalAf.EntityData.Children["distance"] = types.YChild{"Distance", &vrfGlobalAf.Distance}
-    vrfGlobalAf.EntityData.Children["application-routes"] = types.YChild{"ApplicationRoutes", &vrfGlobalAf.ApplicationRoutes}
-    vrfGlobalAf.EntityData.Children["label-mode"] = types.YChild{"LabelMode", &vrfGlobalAf.LabelMode}
-    vrfGlobalAf.EntityData.Children["eigrp-routes"] = types.YChild{"EigrpRoutes", &vrfGlobalAf.EigrpRoutes}
-    vrfGlobalAf.EntityData.Children["sourced-networks"] = types.YChild{"SourcedNetworks", &vrfGlobalAf.SourcedNetworks}
-    vrfGlobalAf.EntityData.Children["connected-routes"] = types.YChild{"ConnectedRoutes", &vrfGlobalAf.ConnectedRoutes}
-    vrfGlobalAf.EntityData.Children["allocate-label"] = types.YChild{"AllocateLabel", &vrfGlobalAf.AllocateLabel}
-    vrfGlobalAf.EntityData.Children["additional-paths-selection"] = types.YChild{"AdditionalPathsSelection", &vrfGlobalAf.AdditionalPathsSelection}
-    vrfGlobalAf.EntityData.Children["ospf-routes"] = types.YChild{"OspfRoutes", &vrfGlobalAf.OspfRoutes}
-    vrfGlobalAf.EntityData.Children["mobile-routes"] = types.YChild{"MobileRoutes", &vrfGlobalAf.MobileRoutes}
-    vrfGlobalAf.EntityData.Children["subscriber-routes"] = types.YChild{"SubscriberRoutes", &vrfGlobalAf.SubscriberRoutes}
-    vrfGlobalAf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfGlobalAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", vrfGlobalAf.AfName}
-    vrfGlobalAf.EntityData.Leafs["rt-download"] = types.YLeaf{"RtDownload", vrfGlobalAf.RtDownload}
-    vrfGlobalAf.EntityData.Leafs["allow-vpn-default-originate"] = types.YLeaf{"AllowVpnDefaultOriginate", vrfGlobalAf.AllowVpnDefaultOriginate}
-    vrfGlobalAf.EntityData.Leafs["dynamic-med-interval"] = types.YLeaf{"DynamicMedInterval", vrfGlobalAf.DynamicMedInterval}
-    vrfGlobalAf.EntityData.Leafs["enable"] = types.YLeaf{"Enable", vrfGlobalAf.Enable}
-    vrfGlobalAf.EntityData.Leafs["table-policy"] = types.YLeaf{"TablePolicy", vrfGlobalAf.TablePolicy}
-    vrfGlobalAf.EntityData.Leafs["attribute-download"] = types.YLeaf{"AttributeDownload", vrfGlobalAf.AttributeDownload}
-    vrfGlobalAf.EntityData.Leafs["best-external"] = types.YLeaf{"BestExternal", vrfGlobalAf.BestExternal}
-    vrfGlobalAf.EntityData.Leafs["additional-paths-receive"] = types.YLeaf{"AdditionalPathsReceive", vrfGlobalAf.AdditionalPathsReceive}
-    vrfGlobalAf.EntityData.Leafs["permanent-network"] = types.YLeaf{"PermanentNetwork", vrfGlobalAf.PermanentNetwork}
-    vrfGlobalAf.EntityData.Leafs["next-hop-resolution-prefix-length-minimum"] = types.YLeaf{"NextHopResolutionPrefixLengthMinimum", vrfGlobalAf.NextHopResolutionPrefixLengthMinimum}
-    vrfGlobalAf.EntityData.Leafs["reset-weight-on-import"] = types.YLeaf{"ResetWeightOnImport", vrfGlobalAf.ResetWeightOnImport}
-    vrfGlobalAf.EntityData.Leafs["additional-paths-send"] = types.YLeaf{"AdditionalPathsSend", vrfGlobalAf.AdditionalPathsSend}
-    vrfGlobalAf.EntityData.Leafs["advertise-local-labeled-route-safi-unicast"] = types.YLeaf{"AdvertiseLocalLabeledRouteSafiUnicast", vrfGlobalAf.AdvertiseLocalLabeledRouteSafiUnicast}
-    vrfGlobalAf.EntityData.Leafs["disable-as-path-loop-check"] = types.YLeaf{"DisableAsPathLoopCheck", vrfGlobalAf.DisableAsPathLoopCheck}
+    vrfGlobalAf.EntityData.Children = types.NewOrderedMap()
+    vrfGlobalAf.EntityData.Children.Append("mvpn", types.YChild{"Mvpn", &vrfGlobalAf.Mvpn})
+    vrfGlobalAf.EntityData.Children.Append("ebgp", types.YChild{"Ebgp", &vrfGlobalAf.Ebgp})
+    vrfGlobalAf.EntityData.Children.Append("eibgp", types.YChild{"Eibgp", &vrfGlobalAf.Eibgp})
+    vrfGlobalAf.EntityData.Children.Append("ibgp", types.YChild{"Ibgp", &vrfGlobalAf.Ibgp})
+    vrfGlobalAf.EntityData.Children.Append("aggregate-addresses", types.YChild{"AggregateAddresses", &vrfGlobalAf.AggregateAddresses})
+    vrfGlobalAf.EntityData.Children.Append("optimal-route-reflector-groups", types.YChild{"OptimalRouteReflectorGroups", &vrfGlobalAf.OptimalRouteReflectorGroups})
+    vrfGlobalAf.EntityData.Children.Append("dampening", types.YChild{"Dampening", &vrfGlobalAf.Dampening})
+    vrfGlobalAf.EntityData.Children.Append("rip-routes", types.YChild{"RipRoutes", &vrfGlobalAf.RipRoutes})
+    vrfGlobalAf.EntityData.Children.Append("lisp-routes", types.YChild{"LispRoutes", &vrfGlobalAf.LispRoutes})
+    vrfGlobalAf.EntityData.Children.Append("static-routes", types.YChild{"StaticRoutes", &vrfGlobalAf.StaticRoutes})
+    vrfGlobalAf.EntityData.Children.Append("distance", types.YChild{"Distance", &vrfGlobalAf.Distance})
+    vrfGlobalAf.EntityData.Children.Append("application-routes", types.YChild{"ApplicationRoutes", &vrfGlobalAf.ApplicationRoutes})
+    vrfGlobalAf.EntityData.Children.Append("label-mode", types.YChild{"LabelMode", &vrfGlobalAf.LabelMode})
+    vrfGlobalAf.EntityData.Children.Append("eigrp-routes", types.YChild{"EigrpRoutes", &vrfGlobalAf.EigrpRoutes})
+    vrfGlobalAf.EntityData.Children.Append("sourced-networks", types.YChild{"SourcedNetworks", &vrfGlobalAf.SourcedNetworks})
+    vrfGlobalAf.EntityData.Children.Append("connected-routes", types.YChild{"ConnectedRoutes", &vrfGlobalAf.ConnectedRoutes})
+    vrfGlobalAf.EntityData.Children.Append("allocate-label", types.YChild{"AllocateLabel", &vrfGlobalAf.AllocateLabel})
+    vrfGlobalAf.EntityData.Children.Append("additional-paths-selection", types.YChild{"AdditionalPathsSelection", &vrfGlobalAf.AdditionalPathsSelection})
+    vrfGlobalAf.EntityData.Children.Append("ospf-routes", types.YChild{"OspfRoutes", &vrfGlobalAf.OspfRoutes})
+    vrfGlobalAf.EntityData.Children.Append("mobile-routes", types.YChild{"MobileRoutes", &vrfGlobalAf.MobileRoutes})
+    vrfGlobalAf.EntityData.Children.Append("subscriber-routes", types.YChild{"SubscriberRoutes", &vrfGlobalAf.SubscriberRoutes})
+    vrfGlobalAf.EntityData.Leafs = types.NewOrderedMap()
+    vrfGlobalAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", vrfGlobalAf.AfName})
+    vrfGlobalAf.EntityData.Leafs.Append("rt-download", types.YLeaf{"RtDownload", vrfGlobalAf.RtDownload})
+    vrfGlobalAf.EntityData.Leafs.Append("allow-vpn-default-originate", types.YLeaf{"AllowVpnDefaultOriginate", vrfGlobalAf.AllowVpnDefaultOriginate})
+    vrfGlobalAf.EntityData.Leafs.Append("dynamic-med-interval", types.YLeaf{"DynamicMedInterval", vrfGlobalAf.DynamicMedInterval})
+    vrfGlobalAf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrfGlobalAf.Enable})
+    vrfGlobalAf.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", vrfGlobalAf.TablePolicy})
+    vrfGlobalAf.EntityData.Leafs.Append("attribute-download", types.YLeaf{"AttributeDownload", vrfGlobalAf.AttributeDownload})
+    vrfGlobalAf.EntityData.Leafs.Append("best-external", types.YLeaf{"BestExternal", vrfGlobalAf.BestExternal})
+    vrfGlobalAf.EntityData.Leafs.Append("additional-paths-receive", types.YLeaf{"AdditionalPathsReceive", vrfGlobalAf.AdditionalPathsReceive})
+    vrfGlobalAf.EntityData.Leafs.Append("permanent-network", types.YLeaf{"PermanentNetwork", vrfGlobalAf.PermanentNetwork})
+    vrfGlobalAf.EntityData.Leafs.Append("next-hop-resolution-prefix-length-minimum", types.YLeaf{"NextHopResolutionPrefixLengthMinimum", vrfGlobalAf.NextHopResolutionPrefixLengthMinimum})
+    vrfGlobalAf.EntityData.Leafs.Append("reset-weight-on-import", types.YLeaf{"ResetWeightOnImport", vrfGlobalAf.ResetWeightOnImport})
+    vrfGlobalAf.EntityData.Leafs.Append("additional-paths-send", types.YLeaf{"AdditionalPathsSend", vrfGlobalAf.AdditionalPathsSend})
+    vrfGlobalAf.EntityData.Leafs.Append("advertise-local-labeled-route-safi-unicast", types.YLeaf{"AdvertiseLocalLabeledRouteSafiUnicast", vrfGlobalAf.AdvertiseLocalLabeledRouteSafiUnicast})
+    vrfGlobalAf.EntityData.Leafs.Append("disable-as-path-loop-check", types.YLeaf{"DisableAsPathLoopCheck", vrfGlobalAf.DisableAsPathLoopCheck})
+
+    vrfGlobalAf.EntityData.YListKeys = []string {"AfName"}
+
     return &(vrfGlobalAf.EntityData)
 }
 
@@ -961,9 +1005,12 @@ func (mvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_V
     mvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mvpn.EntityData.Children = make(map[string]types.YChild)
-    mvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    mvpn.EntityData.Leafs["single-forwarder-selection"] = types.YLeaf{"SingleForwarderSelection", mvpn.SingleForwarderSelection}
+    mvpn.EntityData.Children = types.NewOrderedMap()
+    mvpn.EntityData.Leafs = types.NewOrderedMap()
+    mvpn.EntityData.Leafs.Append("single-forwarder-selection", types.YLeaf{"SingleForwarderSelection", mvpn.SingleForwarderSelection})
+
+    mvpn.EntityData.YListKeys = []string {}
+
     return &(mvpn.EntityData)
 }
 
@@ -973,6 +1020,7 @@ func (mvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_V
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_Ebgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of paths. The type is interface{} with range: 2..32. This attribute
     // is mandatory.
@@ -1000,12 +1048,15 @@ func (ebgp *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_V
     ebgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ebgp.EntityData.Children = make(map[string]types.YChild)
-    ebgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ebgp.EntityData.Leafs["paths-value"] = types.YLeaf{"PathsValue", ebgp.PathsValue}
-    ebgp.EntityData.Leafs["unequal-cost"] = types.YLeaf{"UnequalCost", ebgp.UnequalCost}
-    ebgp.EntityData.Leafs["selective"] = types.YLeaf{"Selective", ebgp.Selective}
-    ebgp.EntityData.Leafs["order-by-igp-metric"] = types.YLeaf{"OrderByIgpMetric", ebgp.OrderByIgpMetric}
+    ebgp.EntityData.Children = types.NewOrderedMap()
+    ebgp.EntityData.Leafs = types.NewOrderedMap()
+    ebgp.EntityData.Leafs.Append("paths-value", types.YLeaf{"PathsValue", ebgp.PathsValue})
+    ebgp.EntityData.Leafs.Append("unequal-cost", types.YLeaf{"UnequalCost", ebgp.UnequalCost})
+    ebgp.EntityData.Leafs.Append("selective", types.YLeaf{"Selective", ebgp.Selective})
+    ebgp.EntityData.Leafs.Append("order-by-igp-metric", types.YLeaf{"OrderByIgpMetric", ebgp.OrderByIgpMetric})
+
+    ebgp.EntityData.YListKeys = []string {}
+
     return &(ebgp.EntityData)
 }
 
@@ -1015,6 +1066,7 @@ func (ebgp *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_V
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_Eibgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of paths. The type is interface{} with range: 2..32. This attribute
     // is mandatory.
@@ -1042,12 +1094,15 @@ func (eibgp *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_
     eibgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eibgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eibgp.EntityData.Children = make(map[string]types.YChild)
-    eibgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    eibgp.EntityData.Leafs["paths-value"] = types.YLeaf{"PathsValue", eibgp.PathsValue}
-    eibgp.EntityData.Leafs["unequal-cost"] = types.YLeaf{"UnequalCost", eibgp.UnequalCost}
-    eibgp.EntityData.Leafs["selective"] = types.YLeaf{"Selective", eibgp.Selective}
-    eibgp.EntityData.Leafs["order-by-igp-metric"] = types.YLeaf{"OrderByIgpMetric", eibgp.OrderByIgpMetric}
+    eibgp.EntityData.Children = types.NewOrderedMap()
+    eibgp.EntityData.Leafs = types.NewOrderedMap()
+    eibgp.EntityData.Leafs.Append("paths-value", types.YLeaf{"PathsValue", eibgp.PathsValue})
+    eibgp.EntityData.Leafs.Append("unequal-cost", types.YLeaf{"UnequalCost", eibgp.UnequalCost})
+    eibgp.EntityData.Leafs.Append("selective", types.YLeaf{"Selective", eibgp.Selective})
+    eibgp.EntityData.Leafs.Append("order-by-igp-metric", types.YLeaf{"OrderByIgpMetric", eibgp.OrderByIgpMetric})
+
+    eibgp.EntityData.YListKeys = []string {}
+
     return &(eibgp.EntityData)
 }
 
@@ -1057,6 +1112,7 @@ func (eibgp *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_Ibgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of paths. The type is interface{} with range: 2..32. This attribute
     // is mandatory.
@@ -1085,12 +1141,15 @@ func (ibgp *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_V
     ibgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ibgp.EntityData.Children = make(map[string]types.YChild)
-    ibgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ibgp.EntityData.Leafs["paths-value"] = types.YLeaf{"PathsValue", ibgp.PathsValue}
-    ibgp.EntityData.Leafs["unequal-cost"] = types.YLeaf{"UnequalCost", ibgp.UnequalCost}
-    ibgp.EntityData.Leafs["selective"] = types.YLeaf{"Selective", ibgp.Selective}
-    ibgp.EntityData.Leafs["order-by-igp-metric"] = types.YLeaf{"OrderByIgpMetric", ibgp.OrderByIgpMetric}
+    ibgp.EntityData.Children = types.NewOrderedMap()
+    ibgp.EntityData.Leafs = types.NewOrderedMap()
+    ibgp.EntityData.Leafs.Append("paths-value", types.YLeaf{"PathsValue", ibgp.PathsValue})
+    ibgp.EntityData.Leafs.Append("unequal-cost", types.YLeaf{"UnequalCost", ibgp.UnequalCost})
+    ibgp.EntityData.Leafs.Append("selective", types.YLeaf{"Selective", ibgp.Selective})
+    ibgp.EntityData.Leafs.Append("order-by-igp-metric", types.YLeaf{"OrderByIgpMetric", ibgp.OrderByIgpMetric})
+
+    ibgp.EntityData.YListKeys = []string {}
+
     return &(ibgp.EntityData)
 }
 
@@ -1102,7 +1161,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Aggregate address configuration. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_AggregateAddresses_AggregateAddress.
-    AggregateAddress []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_AggregateAddresses_AggregateAddress
+    AggregateAddress []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_AggregateAddresses_AggregateAddress
 }
 
 func (aggregateAddresses *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_AggregateAddresses) GetEntityData() *types.CommonEntityData {
@@ -1115,12 +1174,15 @@ func (aggregateAddresses *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_
     aggregateAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateAddresses.EntityData.Children = make(map[string]types.YChild)
-    aggregateAddresses.EntityData.Children["aggregate-address"] = types.YChild{"AggregateAddress", nil}
+    aggregateAddresses.EntityData.Children = types.NewOrderedMap()
+    aggregateAddresses.EntityData.Children.Append("aggregate-address", types.YChild{"AggregateAddress", nil})
     for i := range aggregateAddresses.AggregateAddress {
-        aggregateAddresses.EntityData.Children[types.GetSegmentPath(&aggregateAddresses.AggregateAddress[i])] = types.YChild{"AggregateAddress", &aggregateAddresses.AggregateAddress[i]}
+        aggregateAddresses.EntityData.Children.Append(types.GetSegmentPath(aggregateAddresses.AggregateAddress[i]), types.YChild{"AggregateAddress", aggregateAddresses.AggregateAddress[i]})
     }
-    aggregateAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregateAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregateAddresses.EntityData.YListKeys = []string {}
+
     return &(aggregateAddresses.EntityData)
 }
 
@@ -1132,9 +1194,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // This attribute is a key. Aggregate in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     AggregateAddr interface{}
 
     // This attribute is a key. Aggregate in prefix/length format (prefix part).
@@ -1163,19 +1225,22 @@ func (aggregateAddress *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vr
     aggregateAddress.EntityData.YangName = "aggregate-address"
     aggregateAddress.EntityData.BundleName = "cisco_ios_xr"
     aggregateAddress.EntityData.ParentYangName = "aggregate-addresses"
-    aggregateAddress.EntityData.SegmentPath = "aggregate-address" + "[aggregate-addr='" + fmt.Sprintf("%v", aggregateAddress.AggregateAddr) + "']" + "[aggregate-prefix='" + fmt.Sprintf("%v", aggregateAddress.AggregatePrefix) + "']"
+    aggregateAddress.EntityData.SegmentPath = "aggregate-address" + types.AddKeyToken(aggregateAddress.AggregateAddr, "aggregate-addr") + types.AddKeyToken(aggregateAddress.AggregatePrefix, "aggregate-prefix")
     aggregateAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateAddress.EntityData.Children = make(map[string]types.YChild)
-    aggregateAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregateAddress.EntityData.Leafs["aggregate-addr"] = types.YLeaf{"AggregateAddr", aggregateAddress.AggregateAddr}
-    aggregateAddress.EntityData.Leafs["aggregate-prefix"] = types.YLeaf{"AggregatePrefix", aggregateAddress.AggregatePrefix}
-    aggregateAddress.EntityData.Leafs["generate-set-info"] = types.YLeaf{"GenerateSetInfo", aggregateAddress.GenerateSetInfo}
-    aggregateAddress.EntityData.Leafs["generate-confederation-set-info"] = types.YLeaf{"GenerateConfederationSetInfo", aggregateAddress.GenerateConfederationSetInfo}
-    aggregateAddress.EntityData.Leafs["summary-only"] = types.YLeaf{"SummaryOnly", aggregateAddress.SummaryOnly}
-    aggregateAddress.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", aggregateAddress.RoutePolicyName}
+    aggregateAddress.EntityData.Children = types.NewOrderedMap()
+    aggregateAddress.EntityData.Leafs = types.NewOrderedMap()
+    aggregateAddress.EntityData.Leafs.Append("aggregate-addr", types.YLeaf{"AggregateAddr", aggregateAddress.AggregateAddr})
+    aggregateAddress.EntityData.Leafs.Append("aggregate-prefix", types.YLeaf{"AggregatePrefix", aggregateAddress.AggregatePrefix})
+    aggregateAddress.EntityData.Leafs.Append("generate-set-info", types.YLeaf{"GenerateSetInfo", aggregateAddress.GenerateSetInfo})
+    aggregateAddress.EntityData.Leafs.Append("generate-confederation-set-info", types.YLeaf{"GenerateConfederationSetInfo", aggregateAddress.GenerateConfederationSetInfo})
+    aggregateAddress.EntityData.Leafs.Append("summary-only", types.YLeaf{"SummaryOnly", aggregateAddress.SummaryOnly})
+    aggregateAddress.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", aggregateAddress.RoutePolicyName})
+
+    aggregateAddress.EntityData.YListKeys = []string {"AggregateAddr", "AggregatePrefix"}
+
     return &(aggregateAddress.EntityData)
 }
 
@@ -1188,7 +1253,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     // Optimal Route Reffelctor group. Each such group is equivalent to an IGP
     // area. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OptimalRouteReflectorGroups_OptimalRouteReflectorGroup.
-    OptimalRouteReflectorGroup []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OptimalRouteReflectorGroups_OptimalRouteReflectorGroup
+    OptimalRouteReflectorGroup []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OptimalRouteReflectorGroups_OptimalRouteReflectorGroup
 }
 
 func (optimalRouteReflectorGroups *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OptimalRouteReflectorGroups) GetEntityData() *types.CommonEntityData {
@@ -1201,12 +1266,15 @@ func (optimalRouteReflectorGroups *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_V
     optimalRouteReflectorGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optimalRouteReflectorGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    optimalRouteReflectorGroups.EntityData.Children = make(map[string]types.YChild)
-    optimalRouteReflectorGroups.EntityData.Children["optimal-route-reflector-group"] = types.YChild{"OptimalRouteReflectorGroup", nil}
+    optimalRouteReflectorGroups.EntityData.Children = types.NewOrderedMap()
+    optimalRouteReflectorGroups.EntityData.Children.Append("optimal-route-reflector-group", types.YChild{"OptimalRouteReflectorGroup", nil})
     for i := range optimalRouteReflectorGroups.OptimalRouteReflectorGroup {
-        optimalRouteReflectorGroups.EntityData.Children[types.GetSegmentPath(&optimalRouteReflectorGroups.OptimalRouteReflectorGroup[i])] = types.YChild{"OptimalRouteReflectorGroup", &optimalRouteReflectorGroups.OptimalRouteReflectorGroup[i]}
+        optimalRouteReflectorGroups.EntityData.Children.Append(types.GetSegmentPath(optimalRouteReflectorGroups.OptimalRouteReflectorGroup[i]), types.YChild{"OptimalRouteReflectorGroup", optimalRouteReflectorGroups.OptimalRouteReflectorGroup[i]})
     }
-    optimalRouteReflectorGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    optimalRouteReflectorGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    optimalRouteReflectorGroups.EntityData.YListKeys = []string {}
+
     return &(optimalRouteReflectorGroups.EntityData)
 }
 
@@ -1218,28 +1286,28 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the ORR group. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     GroupName interface{}
 
     // Primary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrimaryRootAddress interface{}
 
     // Secondary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SecondaryRootAddress interface{}
 
     // Tertiary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     TertiaryRootAddress interface{}
 }
 
@@ -1248,17 +1316,20 @@ func (optimalRouteReflectorGroup *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_Vr
     optimalRouteReflectorGroup.EntityData.YangName = "optimal-route-reflector-group"
     optimalRouteReflectorGroup.EntityData.BundleName = "cisco_ios_xr"
     optimalRouteReflectorGroup.EntityData.ParentYangName = "optimal-route-reflector-groups"
-    optimalRouteReflectorGroup.EntityData.SegmentPath = "optimal-route-reflector-group" + "[group-name='" + fmt.Sprintf("%v", optimalRouteReflectorGroup.GroupName) + "']"
+    optimalRouteReflectorGroup.EntityData.SegmentPath = "optimal-route-reflector-group" + types.AddKeyToken(optimalRouteReflectorGroup.GroupName, "group-name")
     optimalRouteReflectorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optimalRouteReflectorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optimalRouteReflectorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    optimalRouteReflectorGroup.EntityData.Children = make(map[string]types.YChild)
-    optimalRouteReflectorGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    optimalRouteReflectorGroup.EntityData.Leafs["group-name"] = types.YLeaf{"GroupName", optimalRouteReflectorGroup.GroupName}
-    optimalRouteReflectorGroup.EntityData.Leafs["primary-root-address"] = types.YLeaf{"PrimaryRootAddress", optimalRouteReflectorGroup.PrimaryRootAddress}
-    optimalRouteReflectorGroup.EntityData.Leafs["secondary-root-address"] = types.YLeaf{"SecondaryRootAddress", optimalRouteReflectorGroup.SecondaryRootAddress}
-    optimalRouteReflectorGroup.EntityData.Leafs["tertiary-root-address"] = types.YLeaf{"TertiaryRootAddress", optimalRouteReflectorGroup.TertiaryRootAddress}
+    optimalRouteReflectorGroup.EntityData.Children = types.NewOrderedMap()
+    optimalRouteReflectorGroup.EntityData.Leafs = types.NewOrderedMap()
+    optimalRouteReflectorGroup.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", optimalRouteReflectorGroup.GroupName})
+    optimalRouteReflectorGroup.EntityData.Leafs.Append("primary-root-address", types.YLeaf{"PrimaryRootAddress", optimalRouteReflectorGroup.PrimaryRootAddress})
+    optimalRouteReflectorGroup.EntityData.Leafs.Append("secondary-root-address", types.YLeaf{"SecondaryRootAddress", optimalRouteReflectorGroup.SecondaryRootAddress})
+    optimalRouteReflectorGroup.EntityData.Leafs.Append("tertiary-root-address", types.YLeaf{"TertiaryRootAddress", optimalRouteReflectorGroup.TertiaryRootAddress})
+
+    optimalRouteReflectorGroup.EntityData.YListKeys = []string {"GroupName"}
+
     return &(optimalRouteReflectorGroup.EntityData)
 }
 
@@ -1268,6 +1339,7 @@ func (optimalRouteReflectorGroup *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_Vr
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_Dampening struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Half-life time for the penalty (minutes). The type is interface{} with
     // range: 1..45. Units are minute.
@@ -1300,13 +1372,16 @@ func (dampening *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
     dampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dampening.EntityData.Children = make(map[string]types.YChild)
-    dampening.EntityData.Leafs = make(map[string]types.YLeaf)
-    dampening.EntityData.Leafs["half-life"] = types.YLeaf{"HalfLife", dampening.HalfLife}
-    dampening.EntityData.Leafs["reuse-threshold"] = types.YLeaf{"ReuseThreshold", dampening.ReuseThreshold}
-    dampening.EntityData.Leafs["suppress-threshold"] = types.YLeaf{"SuppressThreshold", dampening.SuppressThreshold}
-    dampening.EntityData.Leafs["suppress-time"] = types.YLeaf{"SuppressTime", dampening.SuppressTime}
-    dampening.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", dampening.RoutePolicyName}
+    dampening.EntityData.Children = types.NewOrderedMap()
+    dampening.EntityData.Leafs = types.NewOrderedMap()
+    dampening.EntityData.Leafs.Append("half-life", types.YLeaf{"HalfLife", dampening.HalfLife})
+    dampening.EntityData.Leafs.Append("reuse-threshold", types.YLeaf{"ReuseThreshold", dampening.ReuseThreshold})
+    dampening.EntityData.Leafs.Append("suppress-threshold", types.YLeaf{"SuppressThreshold", dampening.SuppressThreshold})
+    dampening.EntityData.Leafs.Append("suppress-time", types.YLeaf{"SuppressTime", dampening.SuppressTime})
+    dampening.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", dampening.RoutePolicyName})
+
+    dampening.EntityData.YListKeys = []string {}
+
     return &(dampening.EntityData)
 }
 
@@ -1316,6 +1391,7 @@ func (dampening *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_RipRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -1337,11 +1413,14 @@ func (ripRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
     ripRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ripRoutes.EntityData.Children = make(map[string]types.YChild)
-    ripRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    ripRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", ripRoutes.DefaultMetric}
-    ripRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", ripRoutes.RoutePolicyName}
-    ripRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", ripRoutes.NotUsed}
+    ripRoutes.EntityData.Children = types.NewOrderedMap()
+    ripRoutes.EntityData.Leafs = types.NewOrderedMap()
+    ripRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", ripRoutes.DefaultMetric})
+    ripRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", ripRoutes.RoutePolicyName})
+    ripRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", ripRoutes.NotUsed})
+
+    ripRoutes.EntityData.YListKeys = []string {}
+
     return &(ripRoutes.EntityData)
 }
 
@@ -1351,6 +1430,7 @@ func (ripRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_LispRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -1369,10 +1449,13 @@ func (lispRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGloba
     lispRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lispRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lispRoutes.EntityData.Children = make(map[string]types.YChild)
-    lispRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    lispRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", lispRoutes.DefaultMetric}
-    lispRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", lispRoutes.RoutePolicyName}
+    lispRoutes.EntityData.Children = types.NewOrderedMap()
+    lispRoutes.EntityData.Leafs = types.NewOrderedMap()
+    lispRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", lispRoutes.DefaultMetric})
+    lispRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", lispRoutes.RoutePolicyName})
+
+    lispRoutes.EntityData.YListKeys = []string {}
+
     return &(lispRoutes.EntityData)
 }
 
@@ -1382,6 +1465,7 @@ func (lispRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGloba
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_StaticRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -1403,11 +1487,14 @@ func (staticRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
     staticRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRoutes.EntityData.Children = make(map[string]types.YChild)
-    staticRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", staticRoutes.DefaultMetric}
-    staticRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", staticRoutes.RoutePolicyName}
-    staticRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", staticRoutes.NotUsed}
+    staticRoutes.EntityData.Children = types.NewOrderedMap()
+    staticRoutes.EntityData.Leafs = types.NewOrderedMap()
+    staticRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", staticRoutes.DefaultMetric})
+    staticRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", staticRoutes.RoutePolicyName})
+    staticRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", staticRoutes.NotUsed})
+
+    staticRoutes.EntityData.YListKeys = []string {}
+
     return &(staticRoutes.EntityData)
 }
 
@@ -1440,11 +1527,14 @@ func (distance *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalA
     distance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    distance.EntityData.Children = make(map[string]types.YChild)
-    distance.EntityData.Leafs = make(map[string]types.YLeaf)
-    distance.EntityData.Leafs["external-routes"] = types.YLeaf{"ExternalRoutes", distance.ExternalRoutes}
-    distance.EntityData.Leafs["internal-routes"] = types.YLeaf{"InternalRoutes", distance.InternalRoutes}
-    distance.EntityData.Leafs["local-routes"] = types.YLeaf{"LocalRoutes", distance.LocalRoutes}
+    distance.EntityData.Children = types.NewOrderedMap()
+    distance.EntityData.Leafs = types.NewOrderedMap()
+    distance.EntityData.Leafs.Append("external-routes", types.YLeaf{"ExternalRoutes", distance.ExternalRoutes})
+    distance.EntityData.Leafs.Append("internal-routes", types.YLeaf{"InternalRoutes", distance.InternalRoutes})
+    distance.EntityData.Leafs.Append("local-routes", types.YLeaf{"LocalRoutes", distance.LocalRoutes})
+
+    distance.EntityData.YListKeys = []string {}
+
     return &(distance.EntityData)
 }
 
@@ -1456,7 +1546,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Redistribute application routes. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_ApplicationRoutes_ApplicationRoute.
-    ApplicationRoute []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_ApplicationRoutes_ApplicationRoute
+    ApplicationRoute []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_ApplicationRoutes_ApplicationRoute
 }
 
 func (applicationRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_ApplicationRoutes) GetEntityData() *types.CommonEntityData {
@@ -1469,12 +1559,15 @@ func (applicationRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_V
     applicationRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applicationRoutes.EntityData.Children = make(map[string]types.YChild)
-    applicationRoutes.EntityData.Children["application-route"] = types.YChild{"ApplicationRoute", nil}
+    applicationRoutes.EntityData.Children = types.NewOrderedMap()
+    applicationRoutes.EntityData.Children.Append("application-route", types.YChild{"ApplicationRoute", nil})
     for i := range applicationRoutes.ApplicationRoute {
-        applicationRoutes.EntityData.Children[types.GetSegmentPath(&applicationRoutes.ApplicationRoute[i])] = types.YChild{"ApplicationRoute", &applicationRoutes.ApplicationRoute[i]}
+        applicationRoutes.EntityData.Children.Append(types.GetSegmentPath(applicationRoutes.ApplicationRoute[i]), types.YChild{"ApplicationRoute", applicationRoutes.ApplicationRoute[i]})
     }
-    applicationRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    applicationRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    applicationRoutes.EntityData.YListKeys = []string {}
+
     return &(applicationRoutes.EntityData)
 }
 
@@ -1485,7 +1578,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     YFilter yfilter.YFilter
 
     // This attribute is a key. OnePK application name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -1503,17 +1596,20 @@ func (applicationRoute *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vr
     applicationRoute.EntityData.YangName = "application-route"
     applicationRoute.EntityData.BundleName = "cisco_ios_xr"
     applicationRoute.EntityData.ParentYangName = "application-routes"
-    applicationRoute.EntityData.SegmentPath = "application-route" + "[instance-name='" + fmt.Sprintf("%v", applicationRoute.InstanceName) + "']"
+    applicationRoute.EntityData.SegmentPath = "application-route" + types.AddKeyToken(applicationRoute.InstanceName, "instance-name")
     applicationRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applicationRoute.EntityData.Children = make(map[string]types.YChild)
-    applicationRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    applicationRoute.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", applicationRoute.InstanceName}
-    applicationRoute.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", applicationRoute.DefaultMetric}
-    applicationRoute.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", applicationRoute.RoutePolicyName}
-    applicationRoute.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", applicationRoute.NotUsed}
+    applicationRoute.EntityData.Children = types.NewOrderedMap()
+    applicationRoute.EntityData.Leafs = types.NewOrderedMap()
+    applicationRoute.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", applicationRoute.InstanceName})
+    applicationRoute.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", applicationRoute.DefaultMetric})
+    applicationRoute.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", applicationRoute.RoutePolicyName})
+    applicationRoute.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", applicationRoute.NotUsed})
+
+    applicationRoute.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(applicationRoute.EntityData)
 }
 
@@ -1542,10 +1638,13 @@ func (labelMode *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
     labelMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelMode.EntityData.Children = make(map[string]types.YChild)
-    labelMode.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelMode.EntityData.Leafs["label-allocation-mode"] = types.YLeaf{"LabelAllocationMode", labelMode.LabelAllocationMode}
-    labelMode.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", labelMode.RoutePolicyName}
+    labelMode.EntityData.Children = types.NewOrderedMap()
+    labelMode.EntityData.Leafs = types.NewOrderedMap()
+    labelMode.EntityData.Leafs.Append("label-allocation-mode", types.YLeaf{"LabelAllocationMode", labelMode.LabelAllocationMode})
+    labelMode.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", labelMode.RoutePolicyName})
+
+    labelMode.EntityData.YListKeys = []string {}
+
     return &(labelMode.EntityData)
 }
 
@@ -1557,7 +1656,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Redistribute EIGRP routes. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_EigrpRoutes_EigrpRoute.
-    EigrpRoute []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_EigrpRoutes_EigrpRoute
+    EigrpRoute []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_EigrpRoutes_EigrpRoute
 }
 
 func (eigrpRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_EigrpRoutes) GetEntityData() *types.CommonEntityData {
@@ -1570,12 +1669,15 @@ func (eigrpRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlob
     eigrpRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eigrpRoutes.EntityData.Children = make(map[string]types.YChild)
-    eigrpRoutes.EntityData.Children["eigrp-route"] = types.YChild{"EigrpRoute", nil}
+    eigrpRoutes.EntityData.Children = types.NewOrderedMap()
+    eigrpRoutes.EntityData.Children.Append("eigrp-route", types.YChild{"EigrpRoute", nil})
     for i := range eigrpRoutes.EigrpRoute {
-        eigrpRoutes.EntityData.Children[types.GetSegmentPath(&eigrpRoutes.EigrpRoute[i])] = types.YChild{"EigrpRoute", &eigrpRoutes.EigrpRoute[i]}
+        eigrpRoutes.EntityData.Children.Append(types.GetSegmentPath(eigrpRoutes.EigrpRoute[i]), types.YChild{"EigrpRoute", eigrpRoutes.EigrpRoute[i]})
     }
-    eigrpRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    eigrpRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    eigrpRoutes.EntityData.YListKeys = []string {}
+
     return &(eigrpRoutes.EntityData)
 }
 
@@ -1586,7 +1688,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     YFilter yfilter.YFilter
 
     // This attribute is a key. EIGRP router tag. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -1597,7 +1699,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Redistribution type: 01 for internal routes, 02 for external routes,
     // Logical combinations permitted. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -1606,17 +1708,20 @@ func (eigrpRoute *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGloba
     eigrpRoute.EntityData.YangName = "eigrp-route"
     eigrpRoute.EntityData.BundleName = "cisco_ios_xr"
     eigrpRoute.EntityData.ParentYangName = "eigrp-routes"
-    eigrpRoute.EntityData.SegmentPath = "eigrp-route" + "[instance-name='" + fmt.Sprintf("%v", eigrpRoute.InstanceName) + "']"
+    eigrpRoute.EntityData.SegmentPath = "eigrp-route" + types.AddKeyToken(eigrpRoute.InstanceName, "instance-name")
     eigrpRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrpRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eigrpRoute.EntityData.Children = make(map[string]types.YChild)
-    eigrpRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    eigrpRoute.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", eigrpRoute.InstanceName}
-    eigrpRoute.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", eigrpRoute.DefaultMetric}
-    eigrpRoute.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", eigrpRoute.RoutePolicyName}
-    eigrpRoute.EntityData.Leafs["redist-type"] = types.YLeaf{"RedistType", eigrpRoute.RedistType}
+    eigrpRoute.EntityData.Children = types.NewOrderedMap()
+    eigrpRoute.EntityData.Leafs = types.NewOrderedMap()
+    eigrpRoute.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", eigrpRoute.InstanceName})
+    eigrpRoute.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", eigrpRoute.DefaultMetric})
+    eigrpRoute.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", eigrpRoute.RoutePolicyName})
+    eigrpRoute.EntityData.Leafs.Append("redist-type", types.YLeaf{"RedistType", eigrpRoute.RedistType})
+
+    eigrpRoute.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(eigrpRoute.EntityData)
 }
 
@@ -1628,7 +1733,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Sourced network configuration. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SourcedNetworks_SourcedNetwork.
-    SourcedNetwork []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SourcedNetworks_SourcedNetwork
+    SourcedNetwork []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SourcedNetworks_SourcedNetwork
 }
 
 func (sourcedNetworks *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SourcedNetworks) GetEntityData() *types.CommonEntityData {
@@ -1641,12 +1746,15 @@ func (sourcedNetworks *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vrf
     sourcedNetworks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcedNetworks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourcedNetworks.EntityData.Children = make(map[string]types.YChild)
-    sourcedNetworks.EntityData.Children["sourced-network"] = types.YChild{"SourcedNetwork", nil}
+    sourcedNetworks.EntityData.Children = types.NewOrderedMap()
+    sourcedNetworks.EntityData.Children.Append("sourced-network", types.YChild{"SourcedNetwork", nil})
     for i := range sourcedNetworks.SourcedNetwork {
-        sourcedNetworks.EntityData.Children[types.GetSegmentPath(&sourcedNetworks.SourcedNetwork[i])] = types.YChild{"SourcedNetwork", &sourcedNetworks.SourcedNetwork[i]}
+        sourcedNetworks.EntityData.Children.Append(types.GetSegmentPath(sourcedNetworks.SourcedNetwork[i]), types.YChild{"SourcedNetwork", sourcedNetworks.SourcedNetwork[i]})
     }
-    sourcedNetworks.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourcedNetworks.EntityData.Leafs = types.NewOrderedMap()
+
+    sourcedNetworks.EntityData.YListKeys = []string {}
+
     return &(sourcedNetworks.EntityData)
 }
 
@@ -1658,9 +1766,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // This attribute is a key. Network in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NetworkAddr interface{}
 
     // This attribute is a key. Network in prefix/length format (prefix part). The
@@ -1679,17 +1787,20 @@ func (sourcedNetwork *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfG
     sourcedNetwork.EntityData.YangName = "sourced-network"
     sourcedNetwork.EntityData.BundleName = "cisco_ios_xr"
     sourcedNetwork.EntityData.ParentYangName = "sourced-networks"
-    sourcedNetwork.EntityData.SegmentPath = "sourced-network" + "[network-addr='" + fmt.Sprintf("%v", sourcedNetwork.NetworkAddr) + "']" + "[network-prefix='" + fmt.Sprintf("%v", sourcedNetwork.NetworkPrefix) + "']"
+    sourcedNetwork.EntityData.SegmentPath = "sourced-network" + types.AddKeyToken(sourcedNetwork.NetworkAddr, "network-addr") + types.AddKeyToken(sourcedNetwork.NetworkPrefix, "network-prefix")
     sourcedNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourcedNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcedNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourcedNetwork.EntityData.Children = make(map[string]types.YChild)
-    sourcedNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourcedNetwork.EntityData.Leafs["network-addr"] = types.YLeaf{"NetworkAddr", sourcedNetwork.NetworkAddr}
-    sourcedNetwork.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", sourcedNetwork.NetworkPrefix}
-    sourcedNetwork.EntityData.Leafs["backdoor"] = types.YLeaf{"Backdoor", sourcedNetwork.Backdoor}
-    sourcedNetwork.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", sourcedNetwork.RoutePolicyName}
+    sourcedNetwork.EntityData.Children = types.NewOrderedMap()
+    sourcedNetwork.EntityData.Leafs = types.NewOrderedMap()
+    sourcedNetwork.EntityData.Leafs.Append("network-addr", types.YLeaf{"NetworkAddr", sourcedNetwork.NetworkAddr})
+    sourcedNetwork.EntityData.Leafs.Append("network-prefix", types.YLeaf{"NetworkPrefix", sourcedNetwork.NetworkPrefix})
+    sourcedNetwork.EntityData.Leafs.Append("backdoor", types.YLeaf{"Backdoor", sourcedNetwork.Backdoor})
+    sourcedNetwork.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", sourcedNetwork.RoutePolicyName})
+
+    sourcedNetwork.EntityData.YListKeys = []string {"NetworkAddr", "NetworkPrefix"}
+
     return &(sourcedNetwork.EntityData)
 }
 
@@ -1699,6 +1810,7 @@ func (sourcedNetwork *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfG
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_ConnectedRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -1720,11 +1832,14 @@ func (connectedRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vrf
     connectedRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    connectedRoutes.EntityData.Children = make(map[string]types.YChild)
-    connectedRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    connectedRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", connectedRoutes.DefaultMetric}
-    connectedRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", connectedRoutes.RoutePolicyName}
-    connectedRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", connectedRoutes.NotUsed}
+    connectedRoutes.EntityData.Children = types.NewOrderedMap()
+    connectedRoutes.EntityData.Leafs = types.NewOrderedMap()
+    connectedRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", connectedRoutes.DefaultMetric})
+    connectedRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", connectedRoutes.RoutePolicyName})
+    connectedRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", connectedRoutes.NotUsed})
+
+    connectedRoutes.EntityData.YListKeys = []string {}
+
     return &(connectedRoutes.EntityData)
 }
 
@@ -1751,10 +1866,13 @@ func (allocateLabel *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGl
     allocateLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocateLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allocateLabel.EntityData.Children = make(map[string]types.YChild)
-    allocateLabel.EntityData.Leafs = make(map[string]types.YLeaf)
-    allocateLabel.EntityData.Leafs["all"] = types.YLeaf{"All", allocateLabel.All}
-    allocateLabel.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", allocateLabel.RoutePolicyName}
+    allocateLabel.EntityData.Children = types.NewOrderedMap()
+    allocateLabel.EntityData.Leafs = types.NewOrderedMap()
+    allocateLabel.EntityData.Leafs.Append("all", types.YLeaf{"All", allocateLabel.All})
+    allocateLabel.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", allocateLabel.RoutePolicyName})
+
+    allocateLabel.EntityData.YListKeys = []string {}
+
     return &(allocateLabel.EntityData)
 }
 
@@ -1781,10 +1899,13 @@ func (additionalPathsSelection *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfG
     additionalPathsSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     additionalPathsSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    additionalPathsSelection.EntityData.Children = make(map[string]types.YChild)
-    additionalPathsSelection.EntityData.Leafs = make(map[string]types.YLeaf)
-    additionalPathsSelection.EntityData.Leafs["selection"] = types.YLeaf{"Selection", additionalPathsSelection.Selection}
-    additionalPathsSelection.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", additionalPathsSelection.RoutePolicyName}
+    additionalPathsSelection.EntityData.Children = types.NewOrderedMap()
+    additionalPathsSelection.EntityData.Leafs = types.NewOrderedMap()
+    additionalPathsSelection.EntityData.Leafs.Append("selection", types.YLeaf{"Selection", additionalPathsSelection.Selection})
+    additionalPathsSelection.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", additionalPathsSelection.RoutePolicyName})
+
+    additionalPathsSelection.EntityData.YListKeys = []string {}
+
     return &(additionalPathsSelection.EntityData)
 }
 
@@ -1796,7 +1917,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Redistribute OSPF routes. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OspfRoutes_OspfRoute.
-    OspfRoute []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OspfRoutes_OspfRoute
+    OspfRoute []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OspfRoutes_OspfRoute
 }
 
 func (ospfRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OspfRoutes) GetEntityData() *types.CommonEntityData {
@@ -1809,12 +1930,15 @@ func (ospfRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGloba
     ospfRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfRoutes.EntityData.Children = make(map[string]types.YChild)
-    ospfRoutes.EntityData.Children["ospf-route"] = types.YChild{"OspfRoute", nil}
+    ospfRoutes.EntityData.Children = types.NewOrderedMap()
+    ospfRoutes.EntityData.Children.Append("ospf-route", types.YChild{"OspfRoute", nil})
     for i := range ospfRoutes.OspfRoute {
-        ospfRoutes.EntityData.Children[types.GetSegmentPath(&ospfRoutes.OspfRoute[i])] = types.YChild{"OspfRoute", &ospfRoutes.OspfRoute[i]}
+        ospfRoutes.EntityData.Children.Append(types.GetSegmentPath(ospfRoutes.OspfRoute[i]), types.YChild{"OspfRoute", ospfRoutes.OspfRoute[i]})
     }
-    ospfRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfRoutes.EntityData.YListKeys = []string {}
+
     return &(ospfRoutes.EntityData)
 }
 
@@ -1825,7 +1949,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     YFilter yfilter.YFilter
 
     // This attribute is a key. OSPF router tag. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -1838,7 +1962,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     // 1, 04 for external routes of type 2, 08 for NSSA external routes of type 1,
     // 10 for NSSA external routes of type 2, 20 for external routes, 40 for NSSA
     // external routes.  Logical combinations permitted. The type is string with
-    // pattern: b'[0-9a-fA-F]{1,8}'.
+    // pattern: [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -1847,17 +1971,20 @@ func (ospfRoute *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
     ospfRoute.EntityData.YangName = "ospf-route"
     ospfRoute.EntityData.BundleName = "cisco_ios_xr"
     ospfRoute.EntityData.ParentYangName = "ospf-routes"
-    ospfRoute.EntityData.SegmentPath = "ospf-route" + "[instance-name='" + fmt.Sprintf("%v", ospfRoute.InstanceName) + "']"
+    ospfRoute.EntityData.SegmentPath = "ospf-route" + types.AddKeyToken(ospfRoute.InstanceName, "instance-name")
     ospfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfRoute.EntityData.Children = make(map[string]types.YChild)
-    ospfRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfRoute.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", ospfRoute.InstanceName}
-    ospfRoute.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", ospfRoute.DefaultMetric}
-    ospfRoute.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", ospfRoute.RoutePolicyName}
-    ospfRoute.EntityData.Leafs["redist-type"] = types.YLeaf{"RedistType", ospfRoute.RedistType}
+    ospfRoute.EntityData.Children = types.NewOrderedMap()
+    ospfRoute.EntityData.Leafs = types.NewOrderedMap()
+    ospfRoute.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", ospfRoute.InstanceName})
+    ospfRoute.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", ospfRoute.DefaultMetric})
+    ospfRoute.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", ospfRoute.RoutePolicyName})
+    ospfRoute.EntityData.Leafs.Append("redist-type", types.YLeaf{"RedistType", ospfRoute.RedistType})
+
+    ospfRoute.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(ospfRoute.EntityData)
 }
 
@@ -1867,6 +1994,7 @@ func (ospfRoute *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_MobileRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -1888,11 +2016,14 @@ func (mobileRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
     mobileRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobileRoutes.EntityData.Children = make(map[string]types.YChild)
-    mobileRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    mobileRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", mobileRoutes.DefaultMetric}
-    mobileRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", mobileRoutes.RoutePolicyName}
-    mobileRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", mobileRoutes.NotUsed}
+    mobileRoutes.EntityData.Children = types.NewOrderedMap()
+    mobileRoutes.EntityData.Leafs = types.NewOrderedMap()
+    mobileRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", mobileRoutes.DefaultMetric})
+    mobileRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", mobileRoutes.RoutePolicyName})
+    mobileRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", mobileRoutes.NotUsed})
+
+    mobileRoutes.EntityData.YListKeys = []string {}
+
     return &(mobileRoutes.EntityData)
 }
 
@@ -1902,6 +2033,7 @@ func (mobileRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SubscriberRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -1923,11 +2055,14 @@ func (subscriberRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vr
     subscriberRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberRoutes.EntityData.Children = make(map[string]types.YChild)
-    subscriberRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscriberRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", subscriberRoutes.DefaultMetric}
-    subscriberRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", subscriberRoutes.RoutePolicyName}
-    subscriberRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", subscriberRoutes.NotUsed}
+    subscriberRoutes.EntityData.Children = types.NewOrderedMap()
+    subscriberRoutes.EntityData.Leafs = types.NewOrderedMap()
+    subscriberRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", subscriberRoutes.DefaultMetric})
+    subscriberRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", subscriberRoutes.RoutePolicyName})
+    subscriberRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", subscriberRoutes.NotUsed})
+
+    subscriberRoutes.EntityData.YListKeys = []string {}
+
     return &(subscriberRoutes.EntityData)
 }
 
@@ -1939,7 +2074,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfac
 
     // Configure a MPLS activated interface. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfaces_MplsActivatedInterface.
-    MplsActivatedInterface []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfaces_MplsActivatedInterface
+    MplsActivatedInterface []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfaces_MplsActivatedInterface
 }
 
 func (mplsActivatedInterfaces *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfaces) GetEntityData() *types.CommonEntityData {
@@ -1952,12 +2087,15 @@ func (mplsActivatedInterfaces *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGl
     mplsActivatedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsActivatedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mplsActivatedInterfaces.EntityData.Children = make(map[string]types.YChild)
-    mplsActivatedInterfaces.EntityData.Children["mpls-activated-interface"] = types.YChild{"MplsActivatedInterface", nil}
+    mplsActivatedInterfaces.EntityData.Children = types.NewOrderedMap()
+    mplsActivatedInterfaces.EntityData.Children.Append("mpls-activated-interface", types.YChild{"MplsActivatedInterface", nil})
     for i := range mplsActivatedInterfaces.MplsActivatedInterface {
-        mplsActivatedInterfaces.EntityData.Children[types.GetSegmentPath(&mplsActivatedInterfaces.MplsActivatedInterface[i])] = types.YChild{"MplsActivatedInterface", &mplsActivatedInterfaces.MplsActivatedInterface[i]}
+        mplsActivatedInterfaces.EntityData.Children.Append(types.GetSegmentPath(mplsActivatedInterfaces.MplsActivatedInterface[i]), types.YChild{"MplsActivatedInterface", mplsActivatedInterfaces.MplsActivatedInterface[i]})
     }
-    mplsActivatedInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsActivatedInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsActivatedInterfaces.EntityData.YListKeys = []string {}
+
     return &(mplsActivatedInterfaces.EntityData)
 }
 
@@ -1968,7 +2106,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -1977,14 +2115,17 @@ func (mplsActivatedInterface *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlo
     mplsActivatedInterface.EntityData.YangName = "mpls-activated-interface"
     mplsActivatedInterface.EntityData.BundleName = "cisco_ios_xr"
     mplsActivatedInterface.EntityData.ParentYangName = "mpls-activated-interfaces"
-    mplsActivatedInterface.EntityData.SegmentPath = "mpls-activated-interface" + "[interface-name='" + fmt.Sprintf("%v", mplsActivatedInterface.InterfaceName) + "']"
+    mplsActivatedInterface.EntityData.SegmentPath = "mpls-activated-interface" + types.AddKeyToken(mplsActivatedInterface.InterfaceName, "interface-name")
     mplsActivatedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsActivatedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsActivatedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mplsActivatedInterface.EntityData.Children = make(map[string]types.YChild)
-    mplsActivatedInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsActivatedInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", mplsActivatedInterface.InterfaceName}
+    mplsActivatedInterface.EntityData.Children = types.NewOrderedMap()
+    mplsActivatedInterface.EntityData.Leafs = types.NewOrderedMap()
+    mplsActivatedInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", mplsActivatedInterface.InterfaceName})
+
+    mplsActivatedInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(mplsActivatedInterface.EntityData)
 }
 
@@ -2019,11 +2160,14 @@ func (globalTimers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Global
     globalTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalTimers.EntityData.Children = make(map[string]types.YChild)
-    globalTimers.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalTimers.EntityData.Leafs["keepalive"] = types.YLeaf{"Keepalive", globalTimers.Keepalive}
-    globalTimers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", globalTimers.HoldTime}
-    globalTimers.EntityData.Leafs["min-accept-hold-time"] = types.YLeaf{"MinAcceptHoldTime", globalTimers.MinAcceptHoldTime}
+    globalTimers.EntityData.Children = types.NewOrderedMap()
+    globalTimers.EntityData.Leafs = types.NewOrderedMap()
+    globalTimers.EntityData.Leafs.Append("keepalive", types.YLeaf{"Keepalive", globalTimers.Keepalive})
+    globalTimers.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", globalTimers.HoldTime})
+    globalTimers.EntityData.Leafs.Append("min-accept-hold-time", types.YLeaf{"MinAcceptHoldTime", globalTimers.MinAcceptHoldTime})
+
+    globalTimers.EntityData.YListKeys = []string {}
+
     return &(globalTimers.EntityData)
 }
 
@@ -2052,10 +2196,13 @@ func (bfd *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Bfd) GetEntityD
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier}
-    bfd.EntityData.Leafs["interval"] = types.YLeaf{"Interval", bfd.Interval}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier})
+    bfd.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", bfd.Interval})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -2084,10 +2231,13 @@ func (sendSocketBufferSizes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlob
     sendSocketBufferSizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendSocketBufferSizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendSocketBufferSizes.EntityData.Children = make(map[string]types.YChild)
-    sendSocketBufferSizes.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendSocketBufferSizes.EntityData.Leafs["socket-send-size"] = types.YLeaf{"SocketSendSize", sendSocketBufferSizes.SocketSendSize}
-    sendSocketBufferSizes.EntityData.Leafs["bgp-send-size"] = types.YLeaf{"BgpSendSize", sendSocketBufferSizes.BgpSendSize}
+    sendSocketBufferSizes.EntityData.Children = types.NewOrderedMap()
+    sendSocketBufferSizes.EntityData.Leafs = types.NewOrderedMap()
+    sendSocketBufferSizes.EntityData.Leafs.Append("socket-send-size", types.YLeaf{"SocketSendSize", sendSocketBufferSizes.SocketSendSize})
+    sendSocketBufferSizes.EntityData.Leafs.Append("bgp-send-size", types.YLeaf{"BgpSendSize", sendSocketBufferSizes.BgpSendSize})
+
+    sendSocketBufferSizes.EntityData.YListKeys = []string {}
+
     return &(sendSocketBufferSizes.EntityData)
 }
 
@@ -2116,10 +2266,13 @@ func (receiveSocketBufferSizes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfG
     receiveSocketBufferSizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveSocketBufferSizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveSocketBufferSizes.EntityData.Children = make(map[string]types.YChild)
-    receiveSocketBufferSizes.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveSocketBufferSizes.EntityData.Leafs["socket-receive-size"] = types.YLeaf{"SocketReceiveSize", receiveSocketBufferSizes.SocketReceiveSize}
-    receiveSocketBufferSizes.EntityData.Leafs["bgp-receive-size"] = types.YLeaf{"BgpReceiveSize", receiveSocketBufferSizes.BgpReceiveSize}
+    receiveSocketBufferSizes.EntityData.Children = types.NewOrderedMap()
+    receiveSocketBufferSizes.EntityData.Leafs = types.NewOrderedMap()
+    receiveSocketBufferSizes.EntityData.Leafs.Append("socket-receive-size", types.YLeaf{"SocketReceiveSize", receiveSocketBufferSizes.SocketReceiveSize})
+    receiveSocketBufferSizes.EntityData.Leafs.Append("bgp-receive-size", types.YLeaf{"BgpReceiveSize", receiveSocketBufferSizes.BgpReceiveSize})
+
+    receiveSocketBufferSizes.EntityData.YListKeys = []string {}
+
     return &(receiveSocketBufferSizes.EntityData)
 }
 
@@ -2131,11 +2284,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors struct {
 
     // A particular VRF peer. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor.
-    VrfNeighbor []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor
+    VrfNeighbor []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor
 
     // A particular VRF peer. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength.
-    VrfNeighborPrefixLength []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength
+    VrfNeighborPrefixLength []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength
 }
 
 func (vrfNeighbors *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors) GetEntityData() *types.CommonEntityData {
@@ -2148,16 +2301,19 @@ func (vrfNeighbors *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors) Ge
     vrfNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfNeighbors.EntityData.Children = make(map[string]types.YChild)
-    vrfNeighbors.EntityData.Children["vrf-neighbor"] = types.YChild{"VrfNeighbor", nil}
+    vrfNeighbors.EntityData.Children = types.NewOrderedMap()
+    vrfNeighbors.EntityData.Children.Append("vrf-neighbor", types.YChild{"VrfNeighbor", nil})
     for i := range vrfNeighbors.VrfNeighbor {
-        vrfNeighbors.EntityData.Children[types.GetSegmentPath(&vrfNeighbors.VrfNeighbor[i])] = types.YChild{"VrfNeighbor", &vrfNeighbors.VrfNeighbor[i]}
+        vrfNeighbors.EntityData.Children.Append(types.GetSegmentPath(vrfNeighbors.VrfNeighbor[i]), types.YChild{"VrfNeighbor", vrfNeighbors.VrfNeighbor[i]})
     }
-    vrfNeighbors.EntityData.Children["vrf-neighbor-prefix-length"] = types.YChild{"VrfNeighborPrefixLength", nil}
+    vrfNeighbors.EntityData.Children.Append("vrf-neighbor-prefix-length", types.YChild{"VrfNeighborPrefixLength", nil})
     for i := range vrfNeighbors.VrfNeighborPrefixLength {
-        vrfNeighbors.EntityData.Children[types.GetSegmentPath(&vrfNeighbors.VrfNeighborPrefixLength[i])] = types.YChild{"VrfNeighborPrefixLength", &vrfNeighbors.VrfNeighborPrefixLength[i]}
+        vrfNeighbors.EntityData.Children.Append(types.GetSegmentPath(vrfNeighbors.VrfNeighborPrefixLength[i]), types.YChild{"VrfNeighborPrefixLength", vrfNeighbors.VrfNeighborPrefixLength[i]})
     }
-    vrfNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfNeighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNeighbors.EntityData.YListKeys = []string {}
+
     return &(vrfNeighbors.EntityData)
 }
 
@@ -2169,9 +2325,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // TRUE to preserve the CE path attributes.FALSE to override CE path
@@ -2276,7 +2432,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     UpdateSourceInterface interface{}
 
     // Address family type of a VRF neighbor.
@@ -2342,60 +2498,63 @@ func (vrfNeighbor *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     vrfNeighbor.EntityData.YangName = "vrf-neighbor"
     vrfNeighbor.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighbor.EntityData.ParentYangName = "vrf-neighbors"
-    vrfNeighbor.EntityData.SegmentPath = "vrf-neighbor" + "[neighbor-address='" + fmt.Sprintf("%v", vrfNeighbor.NeighborAddress) + "']"
+    vrfNeighbor.EntityData.SegmentPath = "vrf-neighbor" + types.AddKeyToken(vrfNeighbor.NeighborAddress, "neighbor-address")
     vrfNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfNeighbor.EntityData.Children = make(map[string]types.YChild)
-    vrfNeighbor.EntityData.Children["vrf-neighbor-afs"] = types.YChild{"VrfNeighborAfs", &vrfNeighbor.VrfNeighborAfs}
-    vrfNeighbor.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &vrfNeighbor.LocalAddress}
-    vrfNeighbor.EntityData.Children["bmp-activates"] = types.YChild{"BmpActivates", &vrfNeighbor.BmpActivates}
-    vrfNeighbor.EntityData.Children["ebgp-multihop"] = types.YChild{"EbgpMultihop", &vrfNeighbor.EbgpMultihop}
-    vrfNeighbor.EntityData.Children["remote-as"] = types.YChild{"RemoteAs", &vrfNeighbor.RemoteAs}
-    vrfNeighbor.EntityData.Children["local-as"] = types.YChild{"LocalAs", &vrfNeighbor.LocalAs}
-    vrfNeighbor.EntityData.Children["password"] = types.YChild{"Password", &vrfNeighbor.Password}
-    vrfNeighbor.EntityData.Children["advertisement-interval"] = types.YChild{"AdvertisementInterval", &vrfNeighbor.AdvertisementInterval}
-    vrfNeighbor.EntityData.Children["neighbor-cluster-id"] = types.YChild{"NeighborClusterId", &vrfNeighbor.NeighborClusterId}
-    vrfNeighbor.EntityData.Children["tcpmss"] = types.YChild{"Tcpmss", &vrfNeighbor.Tcpmss}
-    vrfNeighbor.EntityData.Children["tos"] = types.YChild{"Tos", &vrfNeighbor.Tos}
-    vrfNeighbor.EntityData.Children["update-in-filtering"] = types.YChild{"UpdateInFiltering", &vrfNeighbor.UpdateInFiltering}
-    vrfNeighbor.EntityData.Children["msg-log-out"] = types.YChild{"MsgLogOut", &vrfNeighbor.MsgLogOut}
-    vrfNeighbor.EntityData.Children["receive-buffer-size"] = types.YChild{"ReceiveBufferSize", &vrfNeighbor.ReceiveBufferSize}
-    vrfNeighbor.EntityData.Children["msg-log-in"] = types.YChild{"MsgLogIn", &vrfNeighbor.MsgLogIn}
-    vrfNeighbor.EntityData.Children["send-buffer-size"] = types.YChild{"SendBufferSize", &vrfNeighbor.SendBufferSize}
-    vrfNeighbor.EntityData.Children["timers"] = types.YChild{"Timers", &vrfNeighbor.Timers}
-    vrfNeighbor.EntityData.Children["keychain"] = types.YChild{"Keychain", &vrfNeighbor.Keychain}
-    vrfNeighbor.EntityData.Children["graceful-maintenance"] = types.YChild{"GracefulMaintenance", &vrfNeighbor.GracefulMaintenance}
-    vrfNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfNeighbor.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", vrfNeighbor.NeighborAddress}
-    vrfNeighbor.EntityData.Leafs["internal-vpn-client-ibgp-ce"] = types.YLeaf{"InternalVpnClientIbgpCe", vrfNeighbor.InternalVpnClientIbgpCe}
-    vrfNeighbor.EntityData.Leafs["session-group-add-member"] = types.YLeaf{"SessionGroupAddMember", vrfNeighbor.SessionGroupAddMember}
-    vrfNeighbor.EntityData.Leafs["egress-peer-engineering"] = types.YLeaf{"EgressPeerEngineering", vrfNeighbor.EgressPeerEngineering}
-    vrfNeighbor.EntityData.Leafs["neighbor-graceful-restart-stalepath-time"] = types.YLeaf{"NeighborGracefulRestartStalepathTime", vrfNeighbor.NeighborGracefulRestartStalepathTime}
-    vrfNeighbor.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", vrfNeighbor.Shutdown}
-    vrfNeighbor.EntityData.Leafs["description"] = types.YLeaf{"Description", vrfNeighbor.Description}
-    vrfNeighbor.EntityData.Leafs["neighbor-group-add-member"] = types.YLeaf{"NeighborGroupAddMember", vrfNeighbor.NeighborGroupAddMember}
-    vrfNeighbor.EntityData.Leafs["ebgp-recv-dmz"] = types.YLeaf{"EbgpRecvDmz", vrfNeighbor.EbgpRecvDmz}
-    vrfNeighbor.EntityData.Leafs["neighbor-graceful-restart"] = types.YLeaf{"NeighborGracefulRestart", vrfNeighbor.NeighborGracefulRestart}
-    vrfNeighbor.EntityData.Leafs["enforce-first-as"] = types.YLeaf{"EnforceFirstAs", vrfNeighbor.EnforceFirstAs}
-    vrfNeighbor.EntityData.Leafs["idle-watch-time"] = types.YLeaf{"IdleWatchTime", vrfNeighbor.IdleWatchTime}
-    vrfNeighbor.EntityData.Leafs["session-open-mode"] = types.YLeaf{"SessionOpenMode", vrfNeighbor.SessionOpenMode}
-    vrfNeighbor.EntityData.Leafs["ebgp-send-dmz-enable-modes"] = types.YLeaf{"EbgpSendDmzEnableModes", vrfNeighbor.EbgpSendDmzEnableModes}
-    vrfNeighbor.EntityData.Leafs["suppress-all-capabilities"] = types.YLeaf{"SuppressAllCapabilities", vrfNeighbor.SuppressAllCapabilities}
-    vrfNeighbor.EntityData.Leafs["max-peers"] = types.YLeaf{"MaxPeers", vrfNeighbor.MaxPeers}
-    vrfNeighbor.EntityData.Leafs["additional-paths-send-capability"] = types.YLeaf{"AdditionalPathsSendCapability", vrfNeighbor.AdditionalPathsSendCapability}
-    vrfNeighbor.EntityData.Leafs["propagate-dmz-link-bandwidth"] = types.YLeaf{"PropagateDmzLinkBandwidth", vrfNeighbor.PropagateDmzLinkBandwidth}
-    vrfNeighbor.EntityData.Leafs["bfd-enable-modes"] = types.YLeaf{"BfdEnableModes", vrfNeighbor.BfdEnableModes}
-    vrfNeighbor.EntityData.Leafs["ttl-security"] = types.YLeaf{"TtlSecurity", vrfNeighbor.TtlSecurity}
-    vrfNeighbor.EntityData.Leafs["neighbor-graceful-restart-time"] = types.YLeaf{"NeighborGracefulRestartTime", vrfNeighbor.NeighborGracefulRestartTime}
-    vrfNeighbor.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", vrfNeighbor.BfdMultiplier}
-    vrfNeighbor.EntityData.Leafs["bfd-minimum-interval"] = types.YLeaf{"BfdMinimumInterval", vrfNeighbor.BfdMinimumInterval}
-    vrfNeighbor.EntityData.Leafs["remote-as-list"] = types.YLeaf{"RemoteAsList", vrfNeighbor.RemoteAsList}
-    vrfNeighbor.EntityData.Leafs["additional-paths-receive-capability"] = types.YLeaf{"AdditionalPathsReceiveCapability", vrfNeighbor.AdditionalPathsReceiveCapability}
-    vrfNeighbor.EntityData.Leafs["ignore-connected-check-ebgp"] = types.YLeaf{"IgnoreConnectedCheckEbgp", vrfNeighbor.IgnoreConnectedCheckEbgp}
-    vrfNeighbor.EntityData.Leafs["suppress-four-byte-as-capability"] = types.YLeaf{"SuppressFourByteAsCapability", vrfNeighbor.SuppressFourByteAsCapability}
-    vrfNeighbor.EntityData.Leafs["update-source-interface"] = types.YLeaf{"UpdateSourceInterface", vrfNeighbor.UpdateSourceInterface}
+    vrfNeighbor.EntityData.Children = types.NewOrderedMap()
+    vrfNeighbor.EntityData.Children.Append("vrf-neighbor-afs", types.YChild{"VrfNeighborAfs", &vrfNeighbor.VrfNeighborAfs})
+    vrfNeighbor.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &vrfNeighbor.LocalAddress})
+    vrfNeighbor.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &vrfNeighbor.BmpActivates})
+    vrfNeighbor.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &vrfNeighbor.EbgpMultihop})
+    vrfNeighbor.EntityData.Children.Append("remote-as", types.YChild{"RemoteAs", &vrfNeighbor.RemoteAs})
+    vrfNeighbor.EntityData.Children.Append("local-as", types.YChild{"LocalAs", &vrfNeighbor.LocalAs})
+    vrfNeighbor.EntityData.Children.Append("password", types.YChild{"Password", &vrfNeighbor.Password})
+    vrfNeighbor.EntityData.Children.Append("advertisement-interval", types.YChild{"AdvertisementInterval", &vrfNeighbor.AdvertisementInterval})
+    vrfNeighbor.EntityData.Children.Append("neighbor-cluster-id", types.YChild{"NeighborClusterId", &vrfNeighbor.NeighborClusterId})
+    vrfNeighbor.EntityData.Children.Append("tcpmss", types.YChild{"Tcpmss", &vrfNeighbor.Tcpmss})
+    vrfNeighbor.EntityData.Children.Append("tos", types.YChild{"Tos", &vrfNeighbor.Tos})
+    vrfNeighbor.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &vrfNeighbor.UpdateInFiltering})
+    vrfNeighbor.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &vrfNeighbor.MsgLogOut})
+    vrfNeighbor.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &vrfNeighbor.ReceiveBufferSize})
+    vrfNeighbor.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &vrfNeighbor.MsgLogIn})
+    vrfNeighbor.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &vrfNeighbor.SendBufferSize})
+    vrfNeighbor.EntityData.Children.Append("timers", types.YChild{"Timers", &vrfNeighbor.Timers})
+    vrfNeighbor.EntityData.Children.Append("keychain", types.YChild{"Keychain", &vrfNeighbor.Keychain})
+    vrfNeighbor.EntityData.Children.Append("graceful-maintenance", types.YChild{"GracefulMaintenance", &vrfNeighbor.GracefulMaintenance})
+    vrfNeighbor.EntityData.Leafs = types.NewOrderedMap()
+    vrfNeighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", vrfNeighbor.NeighborAddress})
+    vrfNeighbor.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", vrfNeighbor.InternalVpnClientIbgpCe})
+    vrfNeighbor.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", vrfNeighbor.SessionGroupAddMember})
+    vrfNeighbor.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", vrfNeighbor.EgressPeerEngineering})
+    vrfNeighbor.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", vrfNeighbor.NeighborGracefulRestartStalepathTime})
+    vrfNeighbor.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", vrfNeighbor.Shutdown})
+    vrfNeighbor.EntityData.Leafs.Append("description", types.YLeaf{"Description", vrfNeighbor.Description})
+    vrfNeighbor.EntityData.Leafs.Append("neighbor-group-add-member", types.YLeaf{"NeighborGroupAddMember", vrfNeighbor.NeighborGroupAddMember})
+    vrfNeighbor.EntityData.Leafs.Append("ebgp-recv-dmz", types.YLeaf{"EbgpRecvDmz", vrfNeighbor.EbgpRecvDmz})
+    vrfNeighbor.EntityData.Leafs.Append("neighbor-graceful-restart", types.YLeaf{"NeighborGracefulRestart", vrfNeighbor.NeighborGracefulRestart})
+    vrfNeighbor.EntityData.Leafs.Append("enforce-first-as", types.YLeaf{"EnforceFirstAs", vrfNeighbor.EnforceFirstAs})
+    vrfNeighbor.EntityData.Leafs.Append("idle-watch-time", types.YLeaf{"IdleWatchTime", vrfNeighbor.IdleWatchTime})
+    vrfNeighbor.EntityData.Leafs.Append("session-open-mode", types.YLeaf{"SessionOpenMode", vrfNeighbor.SessionOpenMode})
+    vrfNeighbor.EntityData.Leafs.Append("ebgp-send-dmz-enable-modes", types.YLeaf{"EbgpSendDmzEnableModes", vrfNeighbor.EbgpSendDmzEnableModes})
+    vrfNeighbor.EntityData.Leafs.Append("suppress-all-capabilities", types.YLeaf{"SuppressAllCapabilities", vrfNeighbor.SuppressAllCapabilities})
+    vrfNeighbor.EntityData.Leafs.Append("max-peers", types.YLeaf{"MaxPeers", vrfNeighbor.MaxPeers})
+    vrfNeighbor.EntityData.Leafs.Append("additional-paths-send-capability", types.YLeaf{"AdditionalPathsSendCapability", vrfNeighbor.AdditionalPathsSendCapability})
+    vrfNeighbor.EntityData.Leafs.Append("propagate-dmz-link-bandwidth", types.YLeaf{"PropagateDmzLinkBandwidth", vrfNeighbor.PropagateDmzLinkBandwidth})
+    vrfNeighbor.EntityData.Leafs.Append("bfd-enable-modes", types.YLeaf{"BfdEnableModes", vrfNeighbor.BfdEnableModes})
+    vrfNeighbor.EntityData.Leafs.Append("ttl-security", types.YLeaf{"TtlSecurity", vrfNeighbor.TtlSecurity})
+    vrfNeighbor.EntityData.Leafs.Append("neighbor-graceful-restart-time", types.YLeaf{"NeighborGracefulRestartTime", vrfNeighbor.NeighborGracefulRestartTime})
+    vrfNeighbor.EntityData.Leafs.Append("bfd-multiplier", types.YLeaf{"BfdMultiplier", vrfNeighbor.BfdMultiplier})
+    vrfNeighbor.EntityData.Leafs.Append("bfd-minimum-interval", types.YLeaf{"BfdMinimumInterval", vrfNeighbor.BfdMinimumInterval})
+    vrfNeighbor.EntityData.Leafs.Append("remote-as-list", types.YLeaf{"RemoteAsList", vrfNeighbor.RemoteAsList})
+    vrfNeighbor.EntityData.Leafs.Append("additional-paths-receive-capability", types.YLeaf{"AdditionalPathsReceiveCapability", vrfNeighbor.AdditionalPathsReceiveCapability})
+    vrfNeighbor.EntityData.Leafs.Append("ignore-connected-check-ebgp", types.YLeaf{"IgnoreConnectedCheckEbgp", vrfNeighbor.IgnoreConnectedCheckEbgp})
+    vrfNeighbor.EntityData.Leafs.Append("suppress-four-byte-as-capability", types.YLeaf{"SuppressFourByteAsCapability", vrfNeighbor.SuppressFourByteAsCapability})
+    vrfNeighbor.EntityData.Leafs.Append("update-source-interface", types.YLeaf{"UpdateSourceInterface", vrfNeighbor.UpdateSourceInterface})
+
+    vrfNeighbor.EntityData.YListKeys = []string {"NeighborAddress"}
+
     return &(vrfNeighbor.EntityData)
 }
 
@@ -2407,7 +2566,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
 
     // Address family type of a VRF neighbor. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf.
-    VrfNeighborAf []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf
+    VrfNeighborAf []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf
 }
 
 func (vrfNeighborAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs) GetEntityData() *types.CommonEntityData {
@@ -2420,12 +2579,15 @@ func (vrfNeighborAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
     vrfNeighborAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfNeighborAfs.EntityData.Children = make(map[string]types.YChild)
-    vrfNeighborAfs.EntityData.Children["vrf-neighbor-af"] = types.YChild{"VrfNeighborAf", nil}
+    vrfNeighborAfs.EntityData.Children = types.NewOrderedMap()
+    vrfNeighborAfs.EntityData.Children.Append("vrf-neighbor-af", types.YChild{"VrfNeighborAf", nil})
     for i := range vrfNeighborAfs.VrfNeighborAf {
-        vrfNeighborAfs.EntityData.Children[types.GetSegmentPath(&vrfNeighborAfs.VrfNeighborAf[i])] = types.YChild{"VrfNeighborAf", &vrfNeighborAfs.VrfNeighborAf[i]}
+        vrfNeighborAfs.EntityData.Children.Append(types.GetSegmentPath(vrfNeighborAfs.VrfNeighborAf[i]), types.YChild{"VrfNeighborAf", vrfNeighborAfs.VrfNeighborAf[i]})
     }
-    vrfNeighborAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfNeighborAfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNeighborAfs.EntityData.YListKeys = []string {}
+
     return &(vrfNeighborAfs.EntityData)
 }
 
@@ -2571,10 +2733,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseDefImpDisableV4
 
     // Advertise Translated Routes to the peer.
-    AdvertiseL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2VpnEvpn
+    AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn
 
     // Advertise Of Local Routes to the peer with different RT.
-    AdvertiseLocalL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2VpnEvpn
+    AdvertiseLocalL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2vpnEvpn
 
     // Maximum time to wait before purging long lived routes.
     NeighborAfLongLivedGracefulRestartStaleTime Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -2589,7 +2751,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     AdvertiseLocalV6 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalV6
 
     // Import Reorigination options for Routes from the peer.
-    Import_ Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_Import
+    Import Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_Import
 
     // Originate default route to this neighbor.
     DefaultOriginate Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_DefaultOriginate
@@ -2619,62 +2781,65 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.YangName = "vrf-neighbor-af"
     vrfNeighborAf.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighborAf.EntityData.ParentYangName = "vrf-neighbor-afs"
-    vrfNeighborAf.EntityData.SegmentPath = "vrf-neighbor-af" + "[af-name='" + fmt.Sprintf("%v", vrfNeighborAf.AfName) + "']"
+    vrfNeighborAf.EntityData.SegmentPath = "vrf-neighbor-af" + types.AddKeyToken(vrfNeighborAf.AfName, "af-name")
     vrfNeighborAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighborAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfNeighborAf.EntityData.Children = make(map[string]types.YChild)
-    vrfNeighborAf.EntityData.Children["aigp-cost-community"] = types.YChild{"AigpCostCommunity", &vrfNeighborAf.AigpCostCommunity}
-    vrfNeighborAf.EntityData.Children["advertise-def-imp-disable-v6"] = types.YChild{"AdvertiseDefImpDisableV6", &vrfNeighborAf.AdvertiseDefImpDisableV6}
-    vrfNeighborAf.EntityData.Children["advertise-disable"] = types.YChild{"AdvertiseDisable", &vrfNeighborAf.AdvertiseDisable}
-    vrfNeighborAf.EntityData.Children["maximum-prefixes"] = types.YChild{"MaximumPrefixes", &vrfNeighborAf.MaximumPrefixes}
-    vrfNeighborAf.EntityData.Children["remove-private-as-entire-as-path-inbound"] = types.YChild{"RemovePrivateAsEntireAsPathInbound", &vrfNeighborAf.RemovePrivateAsEntireAsPathInbound}
-    vrfNeighborAf.EntityData.Children["advertise-def-imp-disable-v4"] = types.YChild{"AdvertiseDefImpDisableV4", &vrfNeighborAf.AdvertiseDefImpDisableV4}
-    vrfNeighborAf.EntityData.Children["advertise-l2vpn-evpn"] = types.YChild{"AdvertiseL2VpnEvpn", &vrfNeighborAf.AdvertiseL2VpnEvpn}
-    vrfNeighborAf.EntityData.Children["advertise-local-l2vpn-evpn"] = types.YChild{"AdvertiseLocalL2VpnEvpn", &vrfNeighborAf.AdvertiseLocalL2VpnEvpn}
-    vrfNeighborAf.EntityData.Children["neighbor-af-long-lived-graceful-restart-stale-time"] = types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &vrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime}
-    vrfNeighborAf.EntityData.Children["site-of-origin"] = types.YChild{"SiteOfOrigin", &vrfNeighborAf.SiteOfOrigin}
-    vrfNeighborAf.EntityData.Children["advertise-v6"] = types.YChild{"AdvertiseV6", &vrfNeighborAf.AdvertiseV6}
-    vrfNeighborAf.EntityData.Children["advertise-local-v6"] = types.YChild{"AdvertiseLocalV6", &vrfNeighborAf.AdvertiseLocalV6}
-    vrfNeighborAf.EntityData.Children["import"] = types.YChild{"Import_", &vrfNeighborAf.Import_}
-    vrfNeighborAf.EntityData.Children["default-originate"] = types.YChild{"DefaultOriginate", &vrfNeighborAf.DefaultOriginate}
-    vrfNeighborAf.EntityData.Children["soft-reconfiguration"] = types.YChild{"SoftReconfiguration", &vrfNeighborAf.SoftReconfiguration}
-    vrfNeighborAf.EntityData.Children["advertise-vrf-imp-disable-v6"] = types.YChild{"AdvertiseVrfImpDisableV6", &vrfNeighborAf.AdvertiseVrfImpDisableV6}
-    vrfNeighborAf.EntityData.Children["advertise-v4"] = types.YChild{"AdvertiseV4", &vrfNeighborAf.AdvertiseV4}
-    vrfNeighborAf.EntityData.Children["advertise-local-v4"] = types.YChild{"AdvertiseLocalV4", &vrfNeighborAf.AdvertiseLocalV4}
-    vrfNeighborAf.EntityData.Children["remove-private-as-entire-as-path"] = types.YChild{"RemovePrivateAsEntireAsPath", &vrfNeighborAf.RemovePrivateAsEntireAsPath}
-    vrfNeighborAf.EntityData.Children["advertise-vrf-imp-disable-v4"] = types.YChild{"AdvertiseVrfImpDisableV4", &vrfNeighborAf.AdvertiseVrfImpDisableV4}
-    vrfNeighborAf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfNeighborAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", vrfNeighborAf.AfName}
-    vrfNeighborAf.EntityData.Leafs["neighbor-af-long-lived-graceful-restart-capable"] = types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", vrfNeighborAf.NeighborAfLongLivedGracefulRestartCapable}
-    vrfNeighborAf.EntityData.Leafs["send-ext-community-ebgp"] = types.YLeaf{"SendExtCommunityEbgp", vrfNeighborAf.SendExtCommunityEbgp}
-    vrfNeighborAf.EntityData.Leafs["accept-route-legacy-rt"] = types.YLeaf{"AcceptRouteLegacyRt", vrfNeighborAf.AcceptRouteLegacyRt}
-    vrfNeighborAf.EntityData.Leafs["send-community-ebgp"] = types.YLeaf{"SendCommunityEbgp", vrfNeighborAf.SendCommunityEbgp}
-    vrfNeighborAf.EntityData.Leafs["next-hop-unchanged"] = types.YLeaf{"NextHopUnchanged", vrfNeighborAf.NextHopUnchanged}
-    vrfNeighborAf.EntityData.Leafs["advertise-local-labeled-route"] = types.YLeaf{"AdvertiseLocalLabeledRoute", vrfNeighborAf.AdvertiseLocalLabeledRoute}
-    vrfNeighborAf.EntityData.Leafs["flowspec-validation"] = types.YLeaf{"FlowspecValidation", vrfNeighborAf.FlowspecValidation}
-    vrfNeighborAf.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", vrfNeighborAf.EncapsulationType}
-    vrfNeighborAf.EntityData.Leafs["enforce-multiple-labels"] = types.YLeaf{"EnforceMultipleLabels", vrfNeighborAf.EnforceMultipleLabels}
-    vrfNeighborAf.EntityData.Leafs["as-override"] = types.YLeaf{"AsOverride", vrfNeighborAf.AsOverride}
-    vrfNeighborAf.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", vrfNeighborAf.Multipath}
-    vrfNeighborAf.EntityData.Leafs["send-community-ebgp-graceful-shutdown"] = types.YLeaf{"SendCommunityEbgpGracefulShutdown", vrfNeighborAf.SendCommunityEbgpGracefulShutdown}
-    vrfNeighborAf.EntityData.Leafs["activate"] = types.YLeaf{"Activate", vrfNeighborAf.Activate}
-    vrfNeighborAf.EntityData.Leafs["prefix-orf-policy"] = types.YLeaf{"PrefixOrfPolicy", vrfNeighborAf.PrefixOrfPolicy}
-    vrfNeighborAf.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", vrfNeighborAf.Aigp}
-    vrfNeighborAf.EntityData.Leafs["aigp-send-med"] = types.YLeaf{"AigpSendMed", vrfNeighborAf.AigpSendMed}
-    vrfNeighborAf.EntityData.Leafs["allow-as-in"] = types.YLeaf{"AllowAsIn", vrfNeighborAf.AllowAsIn}
-    vrfNeighborAf.EntityData.Leafs["advertise-orf"] = types.YLeaf{"AdvertiseOrf", vrfNeighborAf.AdvertiseOrf}
-    vrfNeighborAf.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", vrfNeighborAf.RouteReflectorClient}
-    vrfNeighborAf.EntityData.Leafs["next-hop-self"] = types.YLeaf{"NextHopSelf", vrfNeighborAf.NextHopSelf}
-    vrfNeighborAf.EntityData.Leafs["route-policy-in"] = types.YLeaf{"RoutePolicyIn", vrfNeighborAf.RoutePolicyIn}
-    vrfNeighborAf.EntityData.Leafs["default-weight"] = types.YLeaf{"DefaultWeight", vrfNeighborAf.DefaultWeight}
-    vrfNeighborAf.EntityData.Leafs["af-group"] = types.YLeaf{"AfGroup", vrfNeighborAf.AfGroup}
-    vrfNeighborAf.EntityData.Leafs["next-hop-unchanged-multipath"] = types.YLeaf{"NextHopUnchangedMultipath", vrfNeighborAf.NextHopUnchangedMultipath}
-    vrfNeighborAf.EntityData.Leafs["optimal-route-reflection-group"] = types.YLeaf{"OptimalRouteReflectionGroup", vrfNeighborAf.OptimalRouteReflectionGroup}
-    vrfNeighborAf.EntityData.Leafs["accept-own"] = types.YLeaf{"AcceptOwn", vrfNeighborAf.AcceptOwn}
-    vrfNeighborAf.EntityData.Leafs["route-policy-out"] = types.YLeaf{"RoutePolicyOut", vrfNeighborAf.RoutePolicyOut}
-    vrfNeighborAf.EntityData.Leafs["advertise-permanent-network"] = types.YLeaf{"AdvertisePermanentNetwork", vrfNeighborAf.AdvertisePermanentNetwork}
+    vrfNeighborAf.EntityData.Children = types.NewOrderedMap()
+    vrfNeighborAf.EntityData.Children.Append("aigp-cost-community", types.YChild{"AigpCostCommunity", &vrfNeighborAf.AigpCostCommunity})
+    vrfNeighborAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &vrfNeighborAf.AdvertiseDefImpDisableV6})
+    vrfNeighborAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &vrfNeighborAf.AdvertiseDisable})
+    vrfNeighborAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &vrfNeighborAf.MaximumPrefixes})
+    vrfNeighborAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &vrfNeighborAf.RemovePrivateAsEntireAsPathInbound})
+    vrfNeighborAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &vrfNeighborAf.AdvertiseDefImpDisableV4})
+    vrfNeighborAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &vrfNeighborAf.AdvertiseL2vpnEvpn})
+    vrfNeighborAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &vrfNeighborAf.AdvertiseLocalL2vpnEvpn})
+    vrfNeighborAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &vrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime})
+    vrfNeighborAf.EntityData.Children.Append("site-of-origin", types.YChild{"SiteOfOrigin", &vrfNeighborAf.SiteOfOrigin})
+    vrfNeighborAf.EntityData.Children.Append("advertise-v6", types.YChild{"AdvertiseV6", &vrfNeighborAf.AdvertiseV6})
+    vrfNeighborAf.EntityData.Children.Append("advertise-local-v6", types.YChild{"AdvertiseLocalV6", &vrfNeighborAf.AdvertiseLocalV6})
+    vrfNeighborAf.EntityData.Children.Append("import", types.YChild{"Import", &vrfNeighborAf.Import})
+    vrfNeighborAf.EntityData.Children.Append("default-originate", types.YChild{"DefaultOriginate", &vrfNeighborAf.DefaultOriginate})
+    vrfNeighborAf.EntityData.Children.Append("soft-reconfiguration", types.YChild{"SoftReconfiguration", &vrfNeighborAf.SoftReconfiguration})
+    vrfNeighborAf.EntityData.Children.Append("advertise-vrf-imp-disable-v6", types.YChild{"AdvertiseVrfImpDisableV6", &vrfNeighborAf.AdvertiseVrfImpDisableV6})
+    vrfNeighborAf.EntityData.Children.Append("advertise-v4", types.YChild{"AdvertiseV4", &vrfNeighborAf.AdvertiseV4})
+    vrfNeighborAf.EntityData.Children.Append("advertise-local-v4", types.YChild{"AdvertiseLocalV4", &vrfNeighborAf.AdvertiseLocalV4})
+    vrfNeighborAf.EntityData.Children.Append("remove-private-as-entire-as-path", types.YChild{"RemovePrivateAsEntireAsPath", &vrfNeighborAf.RemovePrivateAsEntireAsPath})
+    vrfNeighborAf.EntityData.Children.Append("advertise-vrf-imp-disable-v4", types.YChild{"AdvertiseVrfImpDisableV4", &vrfNeighborAf.AdvertiseVrfImpDisableV4})
+    vrfNeighborAf.EntityData.Leafs = types.NewOrderedMap()
+    vrfNeighborAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", vrfNeighborAf.AfName})
+    vrfNeighborAf.EntityData.Leafs.Append("neighbor-af-long-lived-graceful-restart-capable", types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", vrfNeighborAf.NeighborAfLongLivedGracefulRestartCapable})
+    vrfNeighborAf.EntityData.Leafs.Append("send-ext-community-ebgp", types.YLeaf{"SendExtCommunityEbgp", vrfNeighborAf.SendExtCommunityEbgp})
+    vrfNeighborAf.EntityData.Leafs.Append("accept-route-legacy-rt", types.YLeaf{"AcceptRouteLegacyRt", vrfNeighborAf.AcceptRouteLegacyRt})
+    vrfNeighborAf.EntityData.Leafs.Append("send-community-ebgp", types.YLeaf{"SendCommunityEbgp", vrfNeighborAf.SendCommunityEbgp})
+    vrfNeighborAf.EntityData.Leafs.Append("next-hop-unchanged", types.YLeaf{"NextHopUnchanged", vrfNeighborAf.NextHopUnchanged})
+    vrfNeighborAf.EntityData.Leafs.Append("advertise-local-labeled-route", types.YLeaf{"AdvertiseLocalLabeledRoute", vrfNeighborAf.AdvertiseLocalLabeledRoute})
+    vrfNeighborAf.EntityData.Leafs.Append("flowspec-validation", types.YLeaf{"FlowspecValidation", vrfNeighborAf.FlowspecValidation})
+    vrfNeighborAf.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", vrfNeighborAf.EncapsulationType})
+    vrfNeighborAf.EntityData.Leafs.Append("enforce-multiple-labels", types.YLeaf{"EnforceMultipleLabels", vrfNeighborAf.EnforceMultipleLabels})
+    vrfNeighborAf.EntityData.Leafs.Append("as-override", types.YLeaf{"AsOverride", vrfNeighborAf.AsOverride})
+    vrfNeighborAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", vrfNeighborAf.Multipath})
+    vrfNeighborAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", vrfNeighborAf.SendCommunityEbgpGracefulShutdown})
+    vrfNeighborAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", vrfNeighborAf.Activate})
+    vrfNeighborAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", vrfNeighborAf.PrefixOrfPolicy})
+    vrfNeighborAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", vrfNeighborAf.Aigp})
+    vrfNeighborAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", vrfNeighborAf.AigpSendMed})
+    vrfNeighborAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", vrfNeighborAf.AllowAsIn})
+    vrfNeighborAf.EntityData.Leafs.Append("advertise-orf", types.YLeaf{"AdvertiseOrf", vrfNeighborAf.AdvertiseOrf})
+    vrfNeighborAf.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", vrfNeighborAf.RouteReflectorClient})
+    vrfNeighborAf.EntityData.Leafs.Append("next-hop-self", types.YLeaf{"NextHopSelf", vrfNeighborAf.NextHopSelf})
+    vrfNeighborAf.EntityData.Leafs.Append("route-policy-in", types.YLeaf{"RoutePolicyIn", vrfNeighborAf.RoutePolicyIn})
+    vrfNeighborAf.EntityData.Leafs.Append("default-weight", types.YLeaf{"DefaultWeight", vrfNeighborAf.DefaultWeight})
+    vrfNeighborAf.EntityData.Leafs.Append("af-group", types.YLeaf{"AfGroup", vrfNeighborAf.AfGroup})
+    vrfNeighborAf.EntityData.Leafs.Append("next-hop-unchanged-multipath", types.YLeaf{"NextHopUnchangedMultipath", vrfNeighborAf.NextHopUnchangedMultipath})
+    vrfNeighborAf.EntityData.Leafs.Append("optimal-route-reflection-group", types.YLeaf{"OptimalRouteReflectionGroup", vrfNeighborAf.OptimalRouteReflectionGroup})
+    vrfNeighborAf.EntityData.Leafs.Append("accept-own", types.YLeaf{"AcceptOwn", vrfNeighborAf.AcceptOwn})
+    vrfNeighborAf.EntityData.Leafs.Append("route-policy-out", types.YLeaf{"RoutePolicyOut", vrfNeighborAf.RoutePolicyOut})
+    vrfNeighborAf.EntityData.Leafs.Append("advertise-permanent-network", types.YLeaf{"AdvertisePermanentNetwork", vrfNeighborAf.AdvertisePermanentNetwork})
+
+    vrfNeighborAf.EntityData.YListKeys = []string {"AfName"}
+
     return &(vrfNeighborAf.EntityData)
 }
 
@@ -2707,12 +2872,15 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aigpCostCommunity.EntityData.Children = make(map[string]types.YChild)
-    aigpCostCommunity.EntityData.Leafs = make(map[string]types.YLeaf)
-    aigpCostCommunity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", aigpCostCommunity.Enable}
-    aigpCostCommunity.EntityData.Leafs["cost-community-id"] = types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId}
-    aigpCostCommunity.EntityData.Leafs["transitive"] = types.YLeaf{"Transitive", aigpCostCommunity.Transitive}
-    aigpCostCommunity.EntityData.Leafs["cost-community-poi-type"] = types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType}
+    aigpCostCommunity.EntityData.Children = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", aigpCostCommunity.Enable})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-id", types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId})
+    aigpCostCommunity.EntityData.Leafs.Append("transitive", types.YLeaf{"Transitive", aigpCostCommunity.Transitive})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-poi-type", types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType})
+
+    aigpCostCommunity.EntityData.YListKeys = []string {}
+
     return &(aigpCostCommunity.EntityData)
 }
 
@@ -2742,11 +2910,14 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName}
-    advertiseDefImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption}
-    advertiseDefImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType}
+    advertiseDefImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType})
+
+    advertiseDefImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV6.EntityData)
 }
 
@@ -2776,11 +2947,14 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDisable.EntityData.Children = make(map[string]types.YChild)
-    advertiseDisable.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDisable.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDisable.AfName}
-    advertiseDisable.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption}
-    advertiseDisable.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDisable.RtType}
+    advertiseDisable.EntityData.Children = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDisable.AfName})
+    advertiseDisable.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption})
+    advertiseDisable.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDisable.RtType})
+
+    advertiseDisable.EntityData.YListKeys = []string {}
+
     return &(advertiseDisable.EntityData)
 }
 
@@ -2791,6 +2965,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_MaximumPrefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum prefixes limit. The type is interface{} with range: 1..4294967295.
     // This attribute is mandatory.
@@ -2823,13 +2998,16 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumPrefixes.EntityData.Children = make(map[string]types.YChild)
-    maximumPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumPrefixes.EntityData.Leafs["prefix-limit"] = types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit}
-    maximumPrefixes.EntityData.Leafs["warning-percentage"] = types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage}
-    maximumPrefixes.EntityData.Leafs["warning-only"] = types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly}
-    maximumPrefixes.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", maximumPrefixes.RestartTime}
-    maximumPrefixes.EntityData.Leafs["discard-extra-paths"] = types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths}
+    maximumPrefixes.EntityData.Children = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit})
+    maximumPrefixes.EntityData.Leafs.Append("warning-percentage", types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage})
+    maximumPrefixes.EntityData.Leafs.Append("warning-only", types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly})
+    maximumPrefixes.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", maximumPrefixes.RestartTime})
+    maximumPrefixes.EntityData.Leafs.Append("discard-extra-paths", types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths})
+
+    maximumPrefixes.EntityData.YListKeys = []string {}
+
     return &(maximumPrefixes.EntityData)
 }
 
@@ -2839,6 +3017,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_RemovePrivateAsEntireAsPathInbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from inbound updates. FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -2861,10 +3040,13 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Vrf
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPathInbound.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable}
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire}
+    removePrivateAsEntireAsPathInbound.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable})
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire})
+
+    removePrivateAsEntireAsPathInbound.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPathInbound.EntityData)
 }
 
@@ -2894,17 +3076,20 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName}
-    advertiseDefImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption}
-    advertiseDefImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType}
+    advertiseDefImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType})
+
+    advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn
 // Advertise Translated Routes to the peer
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2918,28 +3103,31 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     RtType interface{}
 }
 
-func (advertiseL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseL2VpnEvpn.EntityData.YFilter = advertiseL2VpnEvpn.YFilter
-    advertiseL2VpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseL2VpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
-    advertiseL2VpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseL2vpnEvpn.EntityData.YFilter = advertiseL2vpnEvpn.YFilter
+    advertiseL2vpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseL2vpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
+    advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseL2VpnEvpn.AfName}
-    advertiseL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseL2VpnEvpn.ReorgOption}
-    advertiseL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseL2VpnEvpn.RtType}
-    return &(advertiseL2VpnEvpn.EntityData)
+    advertiseL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseL2vpnEvpn.AfName})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseL2vpnEvpn.ReorgOption})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseL2vpnEvpn.RtType})
+
+    advertiseL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseL2vpnEvpn.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2vpnEvpn
 // Advertise Of Local Routes to the peer with
 // different RT
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2953,22 +3141,25 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     RtType interface{}
 }
 
-func (advertiseLocalL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseLocalL2VpnEvpn.EntityData.YFilter = advertiseLocalL2VpnEvpn.YFilter
-    advertiseLocalL2VpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseLocalL2VpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
-    advertiseLocalL2VpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseLocalL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseLocalL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseLocalL2vpnEvpn.EntityData.YFilter = advertiseLocalL2vpnEvpn.YFilter
+    advertiseLocalL2vpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
+    advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalL2VpnEvpn.AfName}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalL2VpnEvpn.ReorgOption}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalL2VpnEvpn.RtType}
-    return &(advertiseLocalL2VpnEvpn.EntityData)
+    advertiseLocalL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalL2vpnEvpn.AfName})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalL2vpnEvpn.ReorgOption})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalL2vpnEvpn.RtType})
+
+    advertiseLocalL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseLocalL2vpnEvpn.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -2997,10 +3188,13 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = make(map[string]types.YChild)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-send"] = types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend}
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-accept"] = types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept}
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-send", types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend})
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-accept", types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept})
+
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.YListKeys = []string {}
+
     return &(neighborAfLongLivedGracefulRestartStaleTime.EntityData)
 }
 
@@ -3012,7 +3206,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     YFilter yfilter.YFilter
 
     // Type of Extended community. The type is BgpSiteOfOrigin.
-    Type_ interface{}
+    Type interface{}
 
     // AS number. The type is interface{} with range: 0..4294967295.
     AsXx interface{}
@@ -3024,7 +3218,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address Index. The type is interface{} with range: 0..65535.
@@ -3041,14 +3235,17 @@ func (siteOfOrigin *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siteOfOrigin.EntityData.Children = make(map[string]types.YChild)
-    siteOfOrigin.EntityData.Leafs = make(map[string]types.YLeaf)
-    siteOfOrigin.EntityData.Leafs["type"] = types.YLeaf{"Type_", siteOfOrigin.Type_}
-    siteOfOrigin.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", siteOfOrigin.AsXx}
-    siteOfOrigin.EntityData.Leafs["as"] = types.YLeaf{"As", siteOfOrigin.As}
-    siteOfOrigin.EntityData.Leafs["as-index"] = types.YLeaf{"AsIndex", siteOfOrigin.AsIndex}
-    siteOfOrigin.EntityData.Leafs["address"] = types.YLeaf{"Address", siteOfOrigin.Address}
-    siteOfOrigin.EntityData.Leafs["address-index"] = types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex}
+    siteOfOrigin.EntityData.Children = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs.Append("type", types.YLeaf{"Type", siteOfOrigin.Type})
+    siteOfOrigin.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", siteOfOrigin.AsXx})
+    siteOfOrigin.EntityData.Leafs.Append("as", types.YLeaf{"As", siteOfOrigin.As})
+    siteOfOrigin.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", siteOfOrigin.AsIndex})
+    siteOfOrigin.EntityData.Leafs.Append("address", types.YLeaf{"Address", siteOfOrigin.Address})
+    siteOfOrigin.EntityData.Leafs.Append("address-index", types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex})
+
+    siteOfOrigin.EntityData.YListKeys = []string {}
+
     return &(siteOfOrigin.EntityData)
 }
 
@@ -3078,11 +3275,14 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV6.AfName}
-    advertiseV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV6.ReorgOption}
-    advertiseV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV6.RtType}
+    advertiseV6.EntityData.Children = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV6.AfName})
+    advertiseV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV6.ReorgOption})
+    advertiseV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV6.RtType})
+
+    advertiseV6.EntityData.YListKeys = []string {}
+
     return &(advertiseV6.EntityData)
 }
 
@@ -3113,11 +3313,14 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV6.AfName}
-    advertiseLocalV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption}
-    advertiseLocalV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV6.RtType}
+    advertiseLocalV6.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV6.AfName})
+    advertiseLocalV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption})
+    advertiseLocalV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV6.RtType})
+
+    advertiseLocalV6.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV6.EntityData)
 }
 
@@ -3151,11 +3354,14 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["import-stitching"] = types.YLeaf{"ImportStitching", self.ImportStitching}
-    self.EntityData.Leafs["import-reoriginate"] = types.YLeaf{"ImportReoriginate", self.ImportReoriginate}
-    self.EntityData.Leafs["import-reoriginate-stitching"] = types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("import-stitching", types.YLeaf{"ImportStitching", self.ImportStitching})
+    self.EntityData.Leafs.Append("import-reoriginate", types.YLeaf{"ImportReoriginate", self.ImportReoriginate})
+    self.EntityData.Leafs.Append("import-reoriginate-stitching", types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3184,10 +3390,13 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultOriginate.EntityData.Children = make(map[string]types.YChild)
-    defaultOriginate.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultOriginate.EntityData.Leafs["enable"] = types.YLeaf{"Enable", defaultOriginate.Enable}
-    defaultOriginate.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName}
+    defaultOriginate.EntityData.Children = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", defaultOriginate.Enable})
+    defaultOriginate.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName})
+
+    defaultOriginate.EntityData.YListKeys = []string {}
+
     return &(defaultOriginate.EntityData)
 }
 
@@ -3217,10 +3426,13 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighb
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    softReconfiguration.EntityData.Children = make(map[string]types.YChild)
-    softReconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    softReconfiguration.EntityData.Leafs["inbound-soft"] = types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft}
-    softReconfiguration.EntityData.Leafs["soft-always"] = types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways}
+    softReconfiguration.EntityData.Children = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs.Append("inbound-soft", types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft})
+    softReconfiguration.EntityData.Leafs.Append("soft-always", types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways})
+
+    softReconfiguration.EntityData.YListKeys = []string {}
+
     return &(softReconfiguration.EntityData)
 }
 
@@ -3250,11 +3462,14 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName}
-    advertiseVrfImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption}
-    advertiseVrfImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType}
+    advertiseVrfImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType})
+
+    advertiseVrfImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV6.EntityData)
 }
 
@@ -3284,11 +3499,14 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV4.AfName}
-    advertiseV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV4.ReorgOption}
-    advertiseV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV4.RtType}
+    advertiseV4.EntityData.Children = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV4.AfName})
+    advertiseV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV4.ReorgOption})
+    advertiseV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV4.RtType})
+
+    advertiseV4.EntityData.YListKeys = []string {}
+
     return &(advertiseV4.EntityData)
 }
 
@@ -3319,11 +3537,14 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV4.AfName}
-    advertiseLocalV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption}
-    advertiseLocalV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV4.RtType}
+    advertiseLocalV4.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV4.AfName})
+    advertiseLocalV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption})
+    advertiseLocalV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV4.RtType})
+
+    advertiseLocalV4.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV4.EntityData)
 }
 
@@ -3333,6 +3554,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_RemovePrivateAsEntireAsPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from outbound updates .  FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -3355,10 +3577,13 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_V
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPath.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPath.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable}
-    removePrivateAsEntireAsPath.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire}
+    removePrivateAsEntireAsPath.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable})
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire})
+
+    removePrivateAsEntireAsPath.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPath.EntityData)
 }
 
@@ -3388,11 +3613,14 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName}
-    advertiseVrfImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption}
-    advertiseVrfImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType}
+    advertiseVrfImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType})
+
+    advertiseVrfImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
@@ -3408,9 +3636,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalA
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -3424,10 +3652,13 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAddress.EntityData.Children = make(map[string]types.YChild)
-    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAddress.EntityData.Leafs["local-address-disable"] = types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable}
-    localAddress.EntityData.Leafs["local-ip-address"] = types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress}
+    localAddress.EntityData.Children = types.NewOrderedMap()
+    localAddress.EntityData.Leafs = types.NewOrderedMap()
+    localAddress.EntityData.Leafs.Append("local-address-disable", types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable})
+    localAddress.EntityData.Leafs.Append("local-ip-address", types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress})
+
+    localAddress.EntityData.YListKeys = []string {}
+
     return &(localAddress.EntityData)
 }
 
@@ -3439,7 +3670,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_BmpAct
 
     // Enable BMP logging for this particular server. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_BmpActivates_BmpActivate.
-    BmpActivate []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_BmpActivates_BmpActivate
+    BmpActivate []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_BmpActivates_BmpActivate
 }
 
 func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_BmpActivates) GetEntityData() *types.CommonEntityData {
@@ -3452,12 +3683,15 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivates.EntityData.Children = make(map[string]types.YChild)
-    bmpActivates.EntityData.Children["bmp-activate"] = types.YChild{"BmpActivate", nil}
+    bmpActivates.EntityData.Children = types.NewOrderedMap()
+    bmpActivates.EntityData.Children.Append("bmp-activate", types.YChild{"BmpActivate", nil})
     for i := range bmpActivates.BmpActivate {
-        bmpActivates.EntityData.Children[types.GetSegmentPath(&bmpActivates.BmpActivate[i])] = types.YChild{"BmpActivate", &bmpActivates.BmpActivate[i]}
+        bmpActivates.EntityData.Children.Append(types.GetSegmentPath(bmpActivates.BmpActivate[i]), types.YChild{"BmpActivate", bmpActivates.BmpActivate[i]})
     }
-    bmpActivates.EntityData.Leafs = make(map[string]types.YLeaf)
+    bmpActivates.EntityData.Leafs = types.NewOrderedMap()
+
+    bmpActivates.EntityData.YListKeys = []string {}
+
     return &(bmpActivates.EntityData)
 }
 
@@ -3477,14 +3711,17 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     bmpActivate.EntityData.YangName = "bmp-activate"
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
-    bmpActivate.EntityData.SegmentPath = "bmp-activate" + "[server-id='" + fmt.Sprintf("%v", bmpActivate.ServerId) + "']"
+    bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivate.EntityData.Children = make(map[string]types.YChild)
-    bmpActivate.EntityData.Leafs = make(map[string]types.YLeaf)
-    bmpActivate.EntityData.Leafs["server-id"] = types.YLeaf{"ServerId", bmpActivate.ServerId}
+    bmpActivate.EntityData.Children = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs.Append("server-id", types.YLeaf{"ServerId", bmpActivate.ServerId})
+
+    bmpActivate.EntityData.YListKeys = []string {"ServerId"}
+
     return &(bmpActivate.EntityData)
 }
 
@@ -3514,10 +3751,13 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ebgpMultihop.EntityData.Children = make(map[string]types.YChild)
-    ebgpMultihop.EntityData.Leafs = make(map[string]types.YLeaf)
-    ebgpMultihop.EntityData.Leafs["max-hop-count"] = types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount}
-    ebgpMultihop.EntityData.Leafs["mpls-deactivation"] = types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation}
+    ebgpMultihop.EntityData.Children = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs.Append("max-hop-count", types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount})
+    ebgpMultihop.EntityData.Leafs.Append("mpls-deactivation", types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation})
+
+    ebgpMultihop.EntityData.YListKeys = []string {}
+
     return &(ebgpMultihop.EntityData)
 }
 
@@ -3544,10 +3784,13 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteAs.EntityData.Children = make(map[string]types.YChild)
-    remoteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", remoteAs.AsXx}
-    remoteAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", remoteAs.AsYy}
+    remoteAs.EntityData.Children = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", remoteAs.AsXx})
+    remoteAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", remoteAs.AsYy})
+
+    remoteAs.EntityData.YListKeys = []string {}
+
     return &(remoteAs.EntityData)
 }
 
@@ -3589,14 +3832,17 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeigh
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAs.EntityData.Children = make(map[string]types.YChild)
-    localAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", localAs.AsXx}
-    localAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", localAs.AsYy}
-    localAs.EntityData.Leafs["no-prepend"] = types.YLeaf{"NoPrepend", localAs.NoPrepend}
-    localAs.EntityData.Leafs["disable"] = types.YLeaf{"Disable", localAs.Disable}
-    localAs.EntityData.Leafs["replace-as"] = types.YLeaf{"ReplaceAs", localAs.ReplaceAs}
-    localAs.EntityData.Leafs["dual-as"] = types.YLeaf{"DualAs", localAs.DualAs}
+    localAs.EntityData.Children = types.NewOrderedMap()
+    localAs.EntityData.Leafs = types.NewOrderedMap()
+    localAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", localAs.AsXx})
+    localAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", localAs.AsYy})
+    localAs.EntityData.Leafs.Append("no-prepend", types.YLeaf{"NoPrepend", localAs.NoPrepend})
+    localAs.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", localAs.Disable})
+    localAs.EntityData.Leafs.Append("replace-as", types.YLeaf{"ReplaceAs", localAs.ReplaceAs})
+    localAs.EntityData.Leafs.Append("dual-as", types.YLeaf{"DualAs", localAs.DualAs})
+
+    localAs.EntityData.YListKeys = []string {}
+
     return &(localAs.EntityData)
 }
 
@@ -3611,7 +3857,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_Passwo
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -3625,10 +3871,13 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    password.EntityData.Children = make(map[string]types.YChild)
-    password.EntityData.Leafs = make(map[string]types.YLeaf)
-    password.EntityData.Leafs["password-disable"] = types.YLeaf{"PasswordDisable", password.PasswordDisable}
-    password.EntityData.Leafs["password"] = types.YLeaf{"Password", password.Password}
+    password.EntityData.Children = types.NewOrderedMap()
+    password.EntityData.Leafs = types.NewOrderedMap()
+    password.EntityData.Leafs.Append("password-disable", types.YLeaf{"PasswordDisable", password.PasswordDisable})
+    password.EntityData.Leafs.Append("password", types.YLeaf{"Password", password.Password})
+
+    password.EntityData.YListKeys = []string {}
+
     return &(password.EntityData)
 }
 
@@ -3639,6 +3888,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_AdvertisementInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Minimum advertisement interval time, secs part. The type is interface{}
     // with range: 0..600. This attribute is mandatory. Units are second.
@@ -3659,10 +3909,13 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeig
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertisementInterval.EntityData.Children = make(map[string]types.YChild)
-    advertisementInterval.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertisementInterval.EntityData.Leafs["minimum-interval"] = types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval}
-    advertisementInterval.EntityData.Leafs["minimum-interval-msecs"] = types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs}
+    advertisementInterval.EntityData.Children = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval", types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval})
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval-msecs", types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs})
+
+    advertisementInterval.EntityData.YListKeys = []string {}
+
     return &(advertisementInterval.EntityData)
 }
 
@@ -3678,7 +3931,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_Neighb
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -3692,10 +3945,13 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborClusterId.EntityData.Children = make(map[string]types.YChild)
-    neighborClusterId.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborClusterId.EntityData.Leafs["cluster-id-number"] = types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber}
-    neighborClusterId.EntityData.Leafs["cluster-id-address"] = types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress}
+    neighborClusterId.EntityData.Children = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-number", types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber})
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-address", types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress})
+
+    neighborClusterId.EntityData.YListKeys = []string {}
+
     return &(neighborClusterId.EntityData)
 }
 
@@ -3723,10 +3979,13 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighb
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcpmss.EntityData.Children = make(map[string]types.YChild)
-    tcpmss.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpmss.EntityData.Leafs["tcpmss-disable"] = types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable}
-    tcpmss.EntityData.Leafs["mss"] = types.YLeaf{"Mss", tcpmss.Mss}
+    tcpmss.EntityData.Children = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs.Append("tcpmss-disable", types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable})
+    tcpmss.EntityData.Leafs.Append("mss", types.YLeaf{"Mss", tcpmss.Mss})
+
+    tcpmss.EntityData.YListKeys = []string {}
+
     return &(tcpmss.EntityData)
 }
 
@@ -3737,7 +3996,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_Tos st
     YFilter yfilter.YFilter
 
     // Set type of service. The type is BgpTos.
-    Type_ interface{}
+    Type interface{}
 
     // TOS value to set. The type is one of the following types: enumeration
     // BgpPrecedenceDscp, or int with range: 0..63.
@@ -3754,10 +4013,13 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tos.EntityData.Children = make(map[string]types.YChild)
-    tos.EntityData.Leafs = make(map[string]types.YLeaf)
-    tos.EntityData.Leafs["type"] = types.YLeaf{"Type_", tos.Type_}
-    tos.EntityData.Leafs["value"] = types.YLeaf{"Value", tos.Value}
+    tos.EntityData.Children = types.NewOrderedMap()
+    tos.EntityData.Leafs = types.NewOrderedMap()
+    tos.EntityData.Leafs.Append("type", types.YLeaf{"Type", tos.Type})
+    tos.EntityData.Leafs.Append("value", types.YLeaf{"Value", tos.Value})
+
+    tos.EntityData.YListKeys = []string {}
+
     return &(tos.EntityData)
 }
 
@@ -3790,12 +4052,15 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFiltering.EntityData.Children = make(map[string]types.YChild)
-    updateInFiltering.EntityData.Children["update-in-filtering-message-buffers"] = types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers}
-    updateInFiltering.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFiltering.EntityData.Leafs["enable"] = types.YLeaf{"Enable", updateInFiltering.Enable}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-attribute-filter-group"] = types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-syslog-disable"] = types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable}
+    updateInFiltering.EntityData.Children = types.NewOrderedMap()
+    updateInFiltering.EntityData.Children.Append("update-in-filtering-message-buffers", types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers})
+    updateInFiltering.EntityData.Leafs = types.NewOrderedMap()
+    updateInFiltering.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", updateInFiltering.Enable})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-attribute-filter-group", types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-syslog-disable", types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable})
+
+    updateInFiltering.EntityData.YListKeys = []string {}
+
     return &(updateInFiltering.EntityData)
 }
 
@@ -3805,6 +4070,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_UpdateInFiltering_UpdateInFilteringMessageBuffers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of message buffers. The type is interface{} with range: 0..25. This
     // attribute is mandatory.
@@ -3825,10 +4091,13 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_V
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFilteringMessageBuffers.EntityData.Children = make(map[string]types.YChild)
-    updateInFilteringMessageBuffers.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFilteringMessageBuffers.EntityData.Leafs["number-of-buffers"] = types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers}
-    updateInFilteringMessageBuffers.EntityData.Leafs["non-circular-buffer"] = types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer}
+    updateInFilteringMessageBuffers.EntityData.Children = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("number-of-buffers", types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers})
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("non-circular-buffer", types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer})
+
+    updateInFilteringMessageBuffers.EntityData.YListKeys = []string {}
+
     return &(updateInFilteringMessageBuffers.EntityData)
 }
 
@@ -3860,11 +4129,14 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNei
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogOut.EntityData.Children = make(map[string]types.YChild)
-    msgLogOut.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogOut.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount}
-    msgLogOut.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable}
-    msgLogOut.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable}
+    msgLogOut.EntityData.Children = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount})
+    msgLogOut.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable})
+    msgLogOut.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable})
+
+    msgLogOut.EntityData.YListKeys = []string {}
+
     return &(msgLogOut.EntityData)
 }
 
@@ -3894,10 +4166,13 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveBufferSize.EntityData.Children = make(map[string]types.YChild)
-    receiveBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveBufferSize.EntityData.Leafs["socket-receive-size"] = types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize}
-    receiveBufferSize.EntityData.Leafs["bgp-receive-size"] = types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize}
+    receiveBufferSize.EntityData.Children = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs.Append("socket-receive-size", types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize})
+    receiveBufferSize.EntityData.Leafs.Append("bgp-receive-size", types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize})
+
+    receiveBufferSize.EntityData.YListKeys = []string {}
+
     return &(receiveBufferSize.EntityData)
 }
 
@@ -3929,11 +4204,14 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogIn.EntityData.Children = make(map[string]types.YChild)
-    msgLogIn.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogIn.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount}
-    msgLogIn.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable}
-    msgLogIn.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable}
+    msgLogIn.EntityData.Children = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount})
+    msgLogIn.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable})
+    msgLogIn.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable})
+
+    msgLogIn.EntityData.YListKeys = []string {}
+
     return &(msgLogIn.EntityData)
 }
 
@@ -3963,10 +4241,13 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendBufferSize.EntityData.Children = make(map[string]types.YChild)
-    sendBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendBufferSize.EntityData.Leafs["socket-send-size"] = types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize}
-    sendBufferSize.EntityData.Leafs["bgp-send-size"] = types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize}
+    sendBufferSize.EntityData.Children = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs.Append("socket-send-size", types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize})
+    sendBufferSize.EntityData.Leafs.Append("bgp-send-size", types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize})
+
+    sendBufferSize.EntityData.YListKeys = []string {}
+
     return &(sendBufferSize.EntityData)
 }
 
@@ -3999,11 +4280,14 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighb
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval}
-    timers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", timers.HoldTime}
-    timers.EntityData.Leafs["min-accept-hold-time"] = types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval})
+    timers.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", timers.HoldTime})
+    timers.EntityData.Leafs.Append("min-accept-hold-time", types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -4032,10 +4316,13 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keychain.EntityData.Children = make(map[string]types.YChild)
-    keychain.EntityData.Leafs = make(map[string]types.YLeaf)
-    keychain.EntityData.Leafs["keychain-disable"] = types.YLeaf{"KeychainDisable", keychain.KeychainDisable}
-    keychain.EntityData.Leafs["keychain-name"] = types.YLeaf{"KeychainName", keychain.KeychainName}
+    keychain.EntityData.Children = types.NewOrderedMap()
+    keychain.EntityData.Leafs = types.NewOrderedMap()
+    keychain.EntityData.Leafs.Append("keychain-disable", types.YLeaf{"KeychainDisable", keychain.KeychainDisable})
+    keychain.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", keychain.KeychainName})
+
+    keychain.EntityData.YListKeys = []string {}
+
     return &(keychain.EntityData)
 }
 
@@ -4069,12 +4356,15 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighb
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenance.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-local-preference"] = types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference}
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-as-prepends"] = types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends}
-    gracefulMaintenance.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenance.EntityData.Leafs["enable"] = types.YLeaf{"Enable", gracefulMaintenance.Enable}
-    gracefulMaintenance.EntityData.Leafs["graceful-maintenance-activate"] = types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate}
+    gracefulMaintenance.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-local-preference", types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference})
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-as-prepends", types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends})
+    gracefulMaintenance.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", gracefulMaintenance.Enable})
+    gracefulMaintenance.EntityData.Leafs.Append("graceful-maintenance-activate", types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate})
+
+    gracefulMaintenance.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenance.EntityData)
 }
 
@@ -4102,10 +4392,13 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Vrf
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceLocalPreference.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["gshut-loc-pref-disable"] = types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable}
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["local-preference"] = types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference}
+    gracefulMaintenanceLocalPreference.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("gshut-loc-pref-disable", types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable})
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("local-preference", types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference})
+
+    gracefulMaintenanceLocalPreference.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceLocalPreference.EntityData)
 }
 
@@ -4134,10 +4427,13 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceAsPrepends.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["gshut-prepends-disable"] = types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable}
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["as-prepends"] = types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends}
+    gracefulMaintenanceAsPrepends.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("gshut-prepends-disable", types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable})
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("as-prepends", types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends})
+
+    gracefulMaintenanceAsPrepends.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceAsPrepends.EntityData)
 }
 
@@ -4153,9 +4449,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // TRUE to preserve the CE path attributes.FALSE to override CE path
@@ -4260,7 +4556,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     UpdateSourceInterface interface{}
 
     // Address family type of a VRF neighbor.
@@ -4326,61 +4622,64 @@ func (vrfNeighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNe
     vrfNeighborPrefixLength.EntityData.YangName = "vrf-neighbor-prefix-length"
     vrfNeighborPrefixLength.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighborPrefixLength.EntityData.ParentYangName = "vrf-neighbors"
-    vrfNeighborPrefixLength.EntityData.SegmentPath = "vrf-neighbor-prefix-length" + "[prefix-length='" + fmt.Sprintf("%v", vrfNeighborPrefixLength.PrefixLength) + "']" + "[neighbor-address='" + fmt.Sprintf("%v", vrfNeighborPrefixLength.NeighborAddress) + "']"
+    vrfNeighborPrefixLength.EntityData.SegmentPath = "vrf-neighbor-prefix-length" + types.AddKeyToken(vrfNeighborPrefixLength.PrefixLength, "prefix-length") + types.AddKeyToken(vrfNeighborPrefixLength.NeighborAddress, "neighbor-address")
     vrfNeighborPrefixLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighborPrefixLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborPrefixLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfNeighborPrefixLength.EntityData.Children = make(map[string]types.YChild)
-    vrfNeighborPrefixLength.EntityData.Children["vrf-neighbor-afs"] = types.YChild{"VrfNeighborAfs", &vrfNeighborPrefixLength.VrfNeighborAfs}
-    vrfNeighborPrefixLength.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &vrfNeighborPrefixLength.LocalAddress}
-    vrfNeighborPrefixLength.EntityData.Children["bmp-activates"] = types.YChild{"BmpActivates", &vrfNeighborPrefixLength.BmpActivates}
-    vrfNeighborPrefixLength.EntityData.Children["ebgp-multihop"] = types.YChild{"EbgpMultihop", &vrfNeighborPrefixLength.EbgpMultihop}
-    vrfNeighborPrefixLength.EntityData.Children["remote-as"] = types.YChild{"RemoteAs", &vrfNeighborPrefixLength.RemoteAs}
-    vrfNeighborPrefixLength.EntityData.Children["local-as"] = types.YChild{"LocalAs", &vrfNeighborPrefixLength.LocalAs}
-    vrfNeighborPrefixLength.EntityData.Children["password"] = types.YChild{"Password", &vrfNeighborPrefixLength.Password}
-    vrfNeighborPrefixLength.EntityData.Children["advertisement-interval"] = types.YChild{"AdvertisementInterval", &vrfNeighborPrefixLength.AdvertisementInterval}
-    vrfNeighborPrefixLength.EntityData.Children["neighbor-cluster-id"] = types.YChild{"NeighborClusterId", &vrfNeighborPrefixLength.NeighborClusterId}
-    vrfNeighborPrefixLength.EntityData.Children["tcpmss"] = types.YChild{"Tcpmss", &vrfNeighborPrefixLength.Tcpmss}
-    vrfNeighborPrefixLength.EntityData.Children["tos"] = types.YChild{"Tos", &vrfNeighborPrefixLength.Tos}
-    vrfNeighborPrefixLength.EntityData.Children["update-in-filtering"] = types.YChild{"UpdateInFiltering", &vrfNeighborPrefixLength.UpdateInFiltering}
-    vrfNeighborPrefixLength.EntityData.Children["msg-log-out"] = types.YChild{"MsgLogOut", &vrfNeighborPrefixLength.MsgLogOut}
-    vrfNeighborPrefixLength.EntityData.Children["receive-buffer-size"] = types.YChild{"ReceiveBufferSize", &vrfNeighborPrefixLength.ReceiveBufferSize}
-    vrfNeighborPrefixLength.EntityData.Children["msg-log-in"] = types.YChild{"MsgLogIn", &vrfNeighborPrefixLength.MsgLogIn}
-    vrfNeighborPrefixLength.EntityData.Children["send-buffer-size"] = types.YChild{"SendBufferSize", &vrfNeighborPrefixLength.SendBufferSize}
-    vrfNeighborPrefixLength.EntityData.Children["timers"] = types.YChild{"Timers", &vrfNeighborPrefixLength.Timers}
-    vrfNeighborPrefixLength.EntityData.Children["keychain"] = types.YChild{"Keychain", &vrfNeighborPrefixLength.Keychain}
-    vrfNeighborPrefixLength.EntityData.Children["graceful-maintenance"] = types.YChild{"GracefulMaintenance", &vrfNeighborPrefixLength.GracefulMaintenance}
-    vrfNeighborPrefixLength.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfNeighborPrefixLength.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", vrfNeighborPrefixLength.PrefixLength}
-    vrfNeighborPrefixLength.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", vrfNeighborPrefixLength.NeighborAddress}
-    vrfNeighborPrefixLength.EntityData.Leafs["internal-vpn-client-ibgp-ce"] = types.YLeaf{"InternalVpnClientIbgpCe", vrfNeighborPrefixLength.InternalVpnClientIbgpCe}
-    vrfNeighborPrefixLength.EntityData.Leafs["session-group-add-member"] = types.YLeaf{"SessionGroupAddMember", vrfNeighborPrefixLength.SessionGroupAddMember}
-    vrfNeighborPrefixLength.EntityData.Leafs["egress-peer-engineering"] = types.YLeaf{"EgressPeerEngineering", vrfNeighborPrefixLength.EgressPeerEngineering}
-    vrfNeighborPrefixLength.EntityData.Leafs["neighbor-graceful-restart-stalepath-time"] = types.YLeaf{"NeighborGracefulRestartStalepathTime", vrfNeighborPrefixLength.NeighborGracefulRestartStalepathTime}
-    vrfNeighborPrefixLength.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", vrfNeighborPrefixLength.Shutdown}
-    vrfNeighborPrefixLength.EntityData.Leafs["description"] = types.YLeaf{"Description", vrfNeighborPrefixLength.Description}
-    vrfNeighborPrefixLength.EntityData.Leafs["neighbor-group-add-member"] = types.YLeaf{"NeighborGroupAddMember", vrfNeighborPrefixLength.NeighborGroupAddMember}
-    vrfNeighborPrefixLength.EntityData.Leafs["ebgp-recv-dmz"] = types.YLeaf{"EbgpRecvDmz", vrfNeighborPrefixLength.EbgpRecvDmz}
-    vrfNeighborPrefixLength.EntityData.Leafs["neighbor-graceful-restart"] = types.YLeaf{"NeighborGracefulRestart", vrfNeighborPrefixLength.NeighborGracefulRestart}
-    vrfNeighborPrefixLength.EntityData.Leafs["enforce-first-as"] = types.YLeaf{"EnforceFirstAs", vrfNeighborPrefixLength.EnforceFirstAs}
-    vrfNeighborPrefixLength.EntityData.Leafs["idle-watch-time"] = types.YLeaf{"IdleWatchTime", vrfNeighborPrefixLength.IdleWatchTime}
-    vrfNeighborPrefixLength.EntityData.Leafs["session-open-mode"] = types.YLeaf{"SessionOpenMode", vrfNeighborPrefixLength.SessionOpenMode}
-    vrfNeighborPrefixLength.EntityData.Leafs["ebgp-send-dmz-enable-modes"] = types.YLeaf{"EbgpSendDmzEnableModes", vrfNeighborPrefixLength.EbgpSendDmzEnableModes}
-    vrfNeighborPrefixLength.EntityData.Leafs["suppress-all-capabilities"] = types.YLeaf{"SuppressAllCapabilities", vrfNeighborPrefixLength.SuppressAllCapabilities}
-    vrfNeighborPrefixLength.EntityData.Leafs["max-peers"] = types.YLeaf{"MaxPeers", vrfNeighborPrefixLength.MaxPeers}
-    vrfNeighborPrefixLength.EntityData.Leafs["additional-paths-send-capability"] = types.YLeaf{"AdditionalPathsSendCapability", vrfNeighborPrefixLength.AdditionalPathsSendCapability}
-    vrfNeighborPrefixLength.EntityData.Leafs["propagate-dmz-link-bandwidth"] = types.YLeaf{"PropagateDmzLinkBandwidth", vrfNeighborPrefixLength.PropagateDmzLinkBandwidth}
-    vrfNeighborPrefixLength.EntityData.Leafs["bfd-enable-modes"] = types.YLeaf{"BfdEnableModes", vrfNeighborPrefixLength.BfdEnableModes}
-    vrfNeighborPrefixLength.EntityData.Leafs["ttl-security"] = types.YLeaf{"TtlSecurity", vrfNeighborPrefixLength.TtlSecurity}
-    vrfNeighborPrefixLength.EntityData.Leafs["neighbor-graceful-restart-time"] = types.YLeaf{"NeighborGracefulRestartTime", vrfNeighborPrefixLength.NeighborGracefulRestartTime}
-    vrfNeighborPrefixLength.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", vrfNeighborPrefixLength.BfdMultiplier}
-    vrfNeighborPrefixLength.EntityData.Leafs["bfd-minimum-interval"] = types.YLeaf{"BfdMinimumInterval", vrfNeighborPrefixLength.BfdMinimumInterval}
-    vrfNeighborPrefixLength.EntityData.Leafs["remote-as-list"] = types.YLeaf{"RemoteAsList", vrfNeighborPrefixLength.RemoteAsList}
-    vrfNeighborPrefixLength.EntityData.Leafs["additional-paths-receive-capability"] = types.YLeaf{"AdditionalPathsReceiveCapability", vrfNeighborPrefixLength.AdditionalPathsReceiveCapability}
-    vrfNeighborPrefixLength.EntityData.Leafs["ignore-connected-check-ebgp"] = types.YLeaf{"IgnoreConnectedCheckEbgp", vrfNeighborPrefixLength.IgnoreConnectedCheckEbgp}
-    vrfNeighborPrefixLength.EntityData.Leafs["suppress-four-byte-as-capability"] = types.YLeaf{"SuppressFourByteAsCapability", vrfNeighborPrefixLength.SuppressFourByteAsCapability}
-    vrfNeighborPrefixLength.EntityData.Leafs["update-source-interface"] = types.YLeaf{"UpdateSourceInterface", vrfNeighborPrefixLength.UpdateSourceInterface}
+    vrfNeighborPrefixLength.EntityData.Children = types.NewOrderedMap()
+    vrfNeighborPrefixLength.EntityData.Children.Append("vrf-neighbor-afs", types.YChild{"VrfNeighborAfs", &vrfNeighborPrefixLength.VrfNeighborAfs})
+    vrfNeighborPrefixLength.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &vrfNeighborPrefixLength.LocalAddress})
+    vrfNeighborPrefixLength.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &vrfNeighborPrefixLength.BmpActivates})
+    vrfNeighborPrefixLength.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &vrfNeighborPrefixLength.EbgpMultihop})
+    vrfNeighborPrefixLength.EntityData.Children.Append("remote-as", types.YChild{"RemoteAs", &vrfNeighborPrefixLength.RemoteAs})
+    vrfNeighborPrefixLength.EntityData.Children.Append("local-as", types.YChild{"LocalAs", &vrfNeighborPrefixLength.LocalAs})
+    vrfNeighborPrefixLength.EntityData.Children.Append("password", types.YChild{"Password", &vrfNeighborPrefixLength.Password})
+    vrfNeighborPrefixLength.EntityData.Children.Append("advertisement-interval", types.YChild{"AdvertisementInterval", &vrfNeighborPrefixLength.AdvertisementInterval})
+    vrfNeighborPrefixLength.EntityData.Children.Append("neighbor-cluster-id", types.YChild{"NeighborClusterId", &vrfNeighborPrefixLength.NeighborClusterId})
+    vrfNeighborPrefixLength.EntityData.Children.Append("tcpmss", types.YChild{"Tcpmss", &vrfNeighborPrefixLength.Tcpmss})
+    vrfNeighborPrefixLength.EntityData.Children.Append("tos", types.YChild{"Tos", &vrfNeighborPrefixLength.Tos})
+    vrfNeighborPrefixLength.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &vrfNeighborPrefixLength.UpdateInFiltering})
+    vrfNeighborPrefixLength.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &vrfNeighborPrefixLength.MsgLogOut})
+    vrfNeighborPrefixLength.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &vrfNeighborPrefixLength.ReceiveBufferSize})
+    vrfNeighborPrefixLength.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &vrfNeighborPrefixLength.MsgLogIn})
+    vrfNeighborPrefixLength.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &vrfNeighborPrefixLength.SendBufferSize})
+    vrfNeighborPrefixLength.EntityData.Children.Append("timers", types.YChild{"Timers", &vrfNeighborPrefixLength.Timers})
+    vrfNeighborPrefixLength.EntityData.Children.Append("keychain", types.YChild{"Keychain", &vrfNeighborPrefixLength.Keychain})
+    vrfNeighborPrefixLength.EntityData.Children.Append("graceful-maintenance", types.YChild{"GracefulMaintenance", &vrfNeighborPrefixLength.GracefulMaintenance})
+    vrfNeighborPrefixLength.EntityData.Leafs = types.NewOrderedMap()
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", vrfNeighborPrefixLength.PrefixLength})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", vrfNeighborPrefixLength.NeighborAddress})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", vrfNeighborPrefixLength.InternalVpnClientIbgpCe})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", vrfNeighborPrefixLength.SessionGroupAddMember})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", vrfNeighborPrefixLength.EgressPeerEngineering})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", vrfNeighborPrefixLength.NeighborGracefulRestartStalepathTime})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", vrfNeighborPrefixLength.Shutdown})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("description", types.YLeaf{"Description", vrfNeighborPrefixLength.Description})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("neighbor-group-add-member", types.YLeaf{"NeighborGroupAddMember", vrfNeighborPrefixLength.NeighborGroupAddMember})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("ebgp-recv-dmz", types.YLeaf{"EbgpRecvDmz", vrfNeighborPrefixLength.EbgpRecvDmz})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("neighbor-graceful-restart", types.YLeaf{"NeighborGracefulRestart", vrfNeighborPrefixLength.NeighborGracefulRestart})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("enforce-first-as", types.YLeaf{"EnforceFirstAs", vrfNeighborPrefixLength.EnforceFirstAs})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("idle-watch-time", types.YLeaf{"IdleWatchTime", vrfNeighborPrefixLength.IdleWatchTime})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("session-open-mode", types.YLeaf{"SessionOpenMode", vrfNeighborPrefixLength.SessionOpenMode})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("ebgp-send-dmz-enable-modes", types.YLeaf{"EbgpSendDmzEnableModes", vrfNeighborPrefixLength.EbgpSendDmzEnableModes})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("suppress-all-capabilities", types.YLeaf{"SuppressAllCapabilities", vrfNeighborPrefixLength.SuppressAllCapabilities})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("max-peers", types.YLeaf{"MaxPeers", vrfNeighborPrefixLength.MaxPeers})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("additional-paths-send-capability", types.YLeaf{"AdditionalPathsSendCapability", vrfNeighborPrefixLength.AdditionalPathsSendCapability})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("propagate-dmz-link-bandwidth", types.YLeaf{"PropagateDmzLinkBandwidth", vrfNeighborPrefixLength.PropagateDmzLinkBandwidth})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("bfd-enable-modes", types.YLeaf{"BfdEnableModes", vrfNeighborPrefixLength.BfdEnableModes})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("ttl-security", types.YLeaf{"TtlSecurity", vrfNeighborPrefixLength.TtlSecurity})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("neighbor-graceful-restart-time", types.YLeaf{"NeighborGracefulRestartTime", vrfNeighborPrefixLength.NeighborGracefulRestartTime})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("bfd-multiplier", types.YLeaf{"BfdMultiplier", vrfNeighborPrefixLength.BfdMultiplier})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("bfd-minimum-interval", types.YLeaf{"BfdMinimumInterval", vrfNeighborPrefixLength.BfdMinimumInterval})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("remote-as-list", types.YLeaf{"RemoteAsList", vrfNeighborPrefixLength.RemoteAsList})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("additional-paths-receive-capability", types.YLeaf{"AdditionalPathsReceiveCapability", vrfNeighborPrefixLength.AdditionalPathsReceiveCapability})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("ignore-connected-check-ebgp", types.YLeaf{"IgnoreConnectedCheckEbgp", vrfNeighborPrefixLength.IgnoreConnectedCheckEbgp})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("suppress-four-byte-as-capability", types.YLeaf{"SuppressFourByteAsCapability", vrfNeighborPrefixLength.SuppressFourByteAsCapability})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("update-source-interface", types.YLeaf{"UpdateSourceInterface", vrfNeighborPrefixLength.UpdateSourceInterface})
+
+    vrfNeighborPrefixLength.EntityData.YListKeys = []string {"PrefixLength", "NeighborAddress"}
+
     return &(vrfNeighborPrefixLength.EntityData)
 }
 
@@ -4392,7 +4691,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // Address family type of a VRF neighbor. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf.
-    VrfNeighborAf []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf
+    VrfNeighborAf []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf
 }
 
 func (vrfNeighborAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs) GetEntityData() *types.CommonEntityData {
@@ -4405,12 +4704,15 @@ func (vrfNeighborAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
     vrfNeighborAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfNeighborAfs.EntityData.Children = make(map[string]types.YChild)
-    vrfNeighborAfs.EntityData.Children["vrf-neighbor-af"] = types.YChild{"VrfNeighborAf", nil}
+    vrfNeighborAfs.EntityData.Children = types.NewOrderedMap()
+    vrfNeighborAfs.EntityData.Children.Append("vrf-neighbor-af", types.YChild{"VrfNeighborAf", nil})
     for i := range vrfNeighborAfs.VrfNeighborAf {
-        vrfNeighborAfs.EntityData.Children[types.GetSegmentPath(&vrfNeighborAfs.VrfNeighborAf[i])] = types.YChild{"VrfNeighborAf", &vrfNeighborAfs.VrfNeighborAf[i]}
+        vrfNeighborAfs.EntityData.Children.Append(types.GetSegmentPath(vrfNeighborAfs.VrfNeighborAf[i]), types.YChild{"VrfNeighborAf", vrfNeighborAfs.VrfNeighborAf[i]})
     }
-    vrfNeighborAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfNeighborAfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNeighborAfs.EntityData.YListKeys = []string {}
+
     return &(vrfNeighborAfs.EntityData)
 }
 
@@ -4556,10 +4858,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseDefImpDisableV4
 
     // Advertise Translated Routes to the peer.
-    AdvertiseL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2VpnEvpn
+    AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn
 
     // Advertise Of Local Routes to the peer with different RT.
-    AdvertiseLocalL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2VpnEvpn
+    AdvertiseLocalL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2vpnEvpn
 
     // Maximum time to wait before purging long lived routes.
     NeighborAfLongLivedGracefulRestartStaleTime Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -4574,7 +4876,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     AdvertiseLocalV6 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalV6
 
     // Import Reorigination options for Routes from the peer.
-    Import_ Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_Import
+    Import Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_Import
 
     // Originate default route to this neighbor.
     DefaultOriginate Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_DefaultOriginate
@@ -4604,62 +4906,65 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.YangName = "vrf-neighbor-af"
     vrfNeighborAf.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighborAf.EntityData.ParentYangName = "vrf-neighbor-afs"
-    vrfNeighborAf.EntityData.SegmentPath = "vrf-neighbor-af" + "[af-name='" + fmt.Sprintf("%v", vrfNeighborAf.AfName) + "']"
+    vrfNeighborAf.EntityData.SegmentPath = "vrf-neighbor-af" + types.AddKeyToken(vrfNeighborAf.AfName, "af-name")
     vrfNeighborAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighborAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfNeighborAf.EntityData.Children = make(map[string]types.YChild)
-    vrfNeighborAf.EntityData.Children["aigp-cost-community"] = types.YChild{"AigpCostCommunity", &vrfNeighborAf.AigpCostCommunity}
-    vrfNeighborAf.EntityData.Children["advertise-def-imp-disable-v6"] = types.YChild{"AdvertiseDefImpDisableV6", &vrfNeighborAf.AdvertiseDefImpDisableV6}
-    vrfNeighborAf.EntityData.Children["advertise-disable"] = types.YChild{"AdvertiseDisable", &vrfNeighborAf.AdvertiseDisable}
-    vrfNeighborAf.EntityData.Children["maximum-prefixes"] = types.YChild{"MaximumPrefixes", &vrfNeighborAf.MaximumPrefixes}
-    vrfNeighborAf.EntityData.Children["remove-private-as-entire-as-path-inbound"] = types.YChild{"RemovePrivateAsEntireAsPathInbound", &vrfNeighborAf.RemovePrivateAsEntireAsPathInbound}
-    vrfNeighborAf.EntityData.Children["advertise-def-imp-disable-v4"] = types.YChild{"AdvertiseDefImpDisableV4", &vrfNeighborAf.AdvertiseDefImpDisableV4}
-    vrfNeighborAf.EntityData.Children["advertise-l2vpn-evpn"] = types.YChild{"AdvertiseL2VpnEvpn", &vrfNeighborAf.AdvertiseL2VpnEvpn}
-    vrfNeighborAf.EntityData.Children["advertise-local-l2vpn-evpn"] = types.YChild{"AdvertiseLocalL2VpnEvpn", &vrfNeighborAf.AdvertiseLocalL2VpnEvpn}
-    vrfNeighborAf.EntityData.Children["neighbor-af-long-lived-graceful-restart-stale-time"] = types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &vrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime}
-    vrfNeighborAf.EntityData.Children["site-of-origin"] = types.YChild{"SiteOfOrigin", &vrfNeighborAf.SiteOfOrigin}
-    vrfNeighborAf.EntityData.Children["advertise-v6"] = types.YChild{"AdvertiseV6", &vrfNeighborAf.AdvertiseV6}
-    vrfNeighborAf.EntityData.Children["advertise-local-v6"] = types.YChild{"AdvertiseLocalV6", &vrfNeighborAf.AdvertiseLocalV6}
-    vrfNeighborAf.EntityData.Children["import"] = types.YChild{"Import_", &vrfNeighborAf.Import_}
-    vrfNeighborAf.EntityData.Children["default-originate"] = types.YChild{"DefaultOriginate", &vrfNeighborAf.DefaultOriginate}
-    vrfNeighborAf.EntityData.Children["soft-reconfiguration"] = types.YChild{"SoftReconfiguration", &vrfNeighborAf.SoftReconfiguration}
-    vrfNeighborAf.EntityData.Children["advertise-vrf-imp-disable-v6"] = types.YChild{"AdvertiseVrfImpDisableV6", &vrfNeighborAf.AdvertiseVrfImpDisableV6}
-    vrfNeighborAf.EntityData.Children["advertise-v4"] = types.YChild{"AdvertiseV4", &vrfNeighborAf.AdvertiseV4}
-    vrfNeighborAf.EntityData.Children["advertise-local-v4"] = types.YChild{"AdvertiseLocalV4", &vrfNeighborAf.AdvertiseLocalV4}
-    vrfNeighborAf.EntityData.Children["remove-private-as-entire-as-path"] = types.YChild{"RemovePrivateAsEntireAsPath", &vrfNeighborAf.RemovePrivateAsEntireAsPath}
-    vrfNeighborAf.EntityData.Children["advertise-vrf-imp-disable-v4"] = types.YChild{"AdvertiseVrfImpDisableV4", &vrfNeighborAf.AdvertiseVrfImpDisableV4}
-    vrfNeighborAf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfNeighborAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", vrfNeighborAf.AfName}
-    vrfNeighborAf.EntityData.Leafs["neighbor-af-long-lived-graceful-restart-capable"] = types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", vrfNeighborAf.NeighborAfLongLivedGracefulRestartCapable}
-    vrfNeighborAf.EntityData.Leafs["send-ext-community-ebgp"] = types.YLeaf{"SendExtCommunityEbgp", vrfNeighborAf.SendExtCommunityEbgp}
-    vrfNeighborAf.EntityData.Leafs["accept-route-legacy-rt"] = types.YLeaf{"AcceptRouteLegacyRt", vrfNeighborAf.AcceptRouteLegacyRt}
-    vrfNeighborAf.EntityData.Leafs["send-community-ebgp"] = types.YLeaf{"SendCommunityEbgp", vrfNeighborAf.SendCommunityEbgp}
-    vrfNeighborAf.EntityData.Leafs["next-hop-unchanged"] = types.YLeaf{"NextHopUnchanged", vrfNeighborAf.NextHopUnchanged}
-    vrfNeighborAf.EntityData.Leafs["advertise-local-labeled-route"] = types.YLeaf{"AdvertiseLocalLabeledRoute", vrfNeighborAf.AdvertiseLocalLabeledRoute}
-    vrfNeighborAf.EntityData.Leafs["flowspec-validation"] = types.YLeaf{"FlowspecValidation", vrfNeighborAf.FlowspecValidation}
-    vrfNeighborAf.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", vrfNeighborAf.EncapsulationType}
-    vrfNeighborAf.EntityData.Leafs["enforce-multiple-labels"] = types.YLeaf{"EnforceMultipleLabels", vrfNeighborAf.EnforceMultipleLabels}
-    vrfNeighborAf.EntityData.Leafs["as-override"] = types.YLeaf{"AsOverride", vrfNeighborAf.AsOverride}
-    vrfNeighborAf.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", vrfNeighborAf.Multipath}
-    vrfNeighborAf.EntityData.Leafs["send-community-ebgp-graceful-shutdown"] = types.YLeaf{"SendCommunityEbgpGracefulShutdown", vrfNeighborAf.SendCommunityEbgpGracefulShutdown}
-    vrfNeighborAf.EntityData.Leafs["activate"] = types.YLeaf{"Activate", vrfNeighborAf.Activate}
-    vrfNeighborAf.EntityData.Leafs["prefix-orf-policy"] = types.YLeaf{"PrefixOrfPolicy", vrfNeighborAf.PrefixOrfPolicy}
-    vrfNeighborAf.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", vrfNeighborAf.Aigp}
-    vrfNeighborAf.EntityData.Leafs["aigp-send-med"] = types.YLeaf{"AigpSendMed", vrfNeighborAf.AigpSendMed}
-    vrfNeighborAf.EntityData.Leafs["allow-as-in"] = types.YLeaf{"AllowAsIn", vrfNeighborAf.AllowAsIn}
-    vrfNeighborAf.EntityData.Leafs["advertise-orf"] = types.YLeaf{"AdvertiseOrf", vrfNeighborAf.AdvertiseOrf}
-    vrfNeighborAf.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", vrfNeighborAf.RouteReflectorClient}
-    vrfNeighborAf.EntityData.Leafs["next-hop-self"] = types.YLeaf{"NextHopSelf", vrfNeighborAf.NextHopSelf}
-    vrfNeighborAf.EntityData.Leafs["route-policy-in"] = types.YLeaf{"RoutePolicyIn", vrfNeighborAf.RoutePolicyIn}
-    vrfNeighborAf.EntityData.Leafs["default-weight"] = types.YLeaf{"DefaultWeight", vrfNeighborAf.DefaultWeight}
-    vrfNeighborAf.EntityData.Leafs["af-group"] = types.YLeaf{"AfGroup", vrfNeighborAf.AfGroup}
-    vrfNeighborAf.EntityData.Leafs["next-hop-unchanged-multipath"] = types.YLeaf{"NextHopUnchangedMultipath", vrfNeighborAf.NextHopUnchangedMultipath}
-    vrfNeighborAf.EntityData.Leafs["optimal-route-reflection-group"] = types.YLeaf{"OptimalRouteReflectionGroup", vrfNeighborAf.OptimalRouteReflectionGroup}
-    vrfNeighborAf.EntityData.Leafs["accept-own"] = types.YLeaf{"AcceptOwn", vrfNeighborAf.AcceptOwn}
-    vrfNeighborAf.EntityData.Leafs["route-policy-out"] = types.YLeaf{"RoutePolicyOut", vrfNeighborAf.RoutePolicyOut}
-    vrfNeighborAf.EntityData.Leafs["advertise-permanent-network"] = types.YLeaf{"AdvertisePermanentNetwork", vrfNeighborAf.AdvertisePermanentNetwork}
+    vrfNeighborAf.EntityData.Children = types.NewOrderedMap()
+    vrfNeighborAf.EntityData.Children.Append("aigp-cost-community", types.YChild{"AigpCostCommunity", &vrfNeighborAf.AigpCostCommunity})
+    vrfNeighborAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &vrfNeighborAf.AdvertiseDefImpDisableV6})
+    vrfNeighborAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &vrfNeighborAf.AdvertiseDisable})
+    vrfNeighborAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &vrfNeighborAf.MaximumPrefixes})
+    vrfNeighborAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &vrfNeighborAf.RemovePrivateAsEntireAsPathInbound})
+    vrfNeighborAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &vrfNeighborAf.AdvertiseDefImpDisableV4})
+    vrfNeighborAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &vrfNeighborAf.AdvertiseL2vpnEvpn})
+    vrfNeighborAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &vrfNeighborAf.AdvertiseLocalL2vpnEvpn})
+    vrfNeighborAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &vrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime})
+    vrfNeighborAf.EntityData.Children.Append("site-of-origin", types.YChild{"SiteOfOrigin", &vrfNeighborAf.SiteOfOrigin})
+    vrfNeighborAf.EntityData.Children.Append("advertise-v6", types.YChild{"AdvertiseV6", &vrfNeighborAf.AdvertiseV6})
+    vrfNeighborAf.EntityData.Children.Append("advertise-local-v6", types.YChild{"AdvertiseLocalV6", &vrfNeighborAf.AdvertiseLocalV6})
+    vrfNeighborAf.EntityData.Children.Append("import", types.YChild{"Import", &vrfNeighborAf.Import})
+    vrfNeighborAf.EntityData.Children.Append("default-originate", types.YChild{"DefaultOriginate", &vrfNeighborAf.DefaultOriginate})
+    vrfNeighborAf.EntityData.Children.Append("soft-reconfiguration", types.YChild{"SoftReconfiguration", &vrfNeighborAf.SoftReconfiguration})
+    vrfNeighborAf.EntityData.Children.Append("advertise-vrf-imp-disable-v6", types.YChild{"AdvertiseVrfImpDisableV6", &vrfNeighborAf.AdvertiseVrfImpDisableV6})
+    vrfNeighborAf.EntityData.Children.Append("advertise-v4", types.YChild{"AdvertiseV4", &vrfNeighborAf.AdvertiseV4})
+    vrfNeighborAf.EntityData.Children.Append("advertise-local-v4", types.YChild{"AdvertiseLocalV4", &vrfNeighborAf.AdvertiseLocalV4})
+    vrfNeighborAf.EntityData.Children.Append("remove-private-as-entire-as-path", types.YChild{"RemovePrivateAsEntireAsPath", &vrfNeighborAf.RemovePrivateAsEntireAsPath})
+    vrfNeighborAf.EntityData.Children.Append("advertise-vrf-imp-disable-v4", types.YChild{"AdvertiseVrfImpDisableV4", &vrfNeighborAf.AdvertiseVrfImpDisableV4})
+    vrfNeighborAf.EntityData.Leafs = types.NewOrderedMap()
+    vrfNeighborAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", vrfNeighborAf.AfName})
+    vrfNeighborAf.EntityData.Leafs.Append("neighbor-af-long-lived-graceful-restart-capable", types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", vrfNeighborAf.NeighborAfLongLivedGracefulRestartCapable})
+    vrfNeighborAf.EntityData.Leafs.Append("send-ext-community-ebgp", types.YLeaf{"SendExtCommunityEbgp", vrfNeighborAf.SendExtCommunityEbgp})
+    vrfNeighborAf.EntityData.Leafs.Append("accept-route-legacy-rt", types.YLeaf{"AcceptRouteLegacyRt", vrfNeighborAf.AcceptRouteLegacyRt})
+    vrfNeighborAf.EntityData.Leafs.Append("send-community-ebgp", types.YLeaf{"SendCommunityEbgp", vrfNeighborAf.SendCommunityEbgp})
+    vrfNeighborAf.EntityData.Leafs.Append("next-hop-unchanged", types.YLeaf{"NextHopUnchanged", vrfNeighborAf.NextHopUnchanged})
+    vrfNeighborAf.EntityData.Leafs.Append("advertise-local-labeled-route", types.YLeaf{"AdvertiseLocalLabeledRoute", vrfNeighborAf.AdvertiseLocalLabeledRoute})
+    vrfNeighborAf.EntityData.Leafs.Append("flowspec-validation", types.YLeaf{"FlowspecValidation", vrfNeighborAf.FlowspecValidation})
+    vrfNeighborAf.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", vrfNeighborAf.EncapsulationType})
+    vrfNeighborAf.EntityData.Leafs.Append("enforce-multiple-labels", types.YLeaf{"EnforceMultipleLabels", vrfNeighborAf.EnforceMultipleLabels})
+    vrfNeighborAf.EntityData.Leafs.Append("as-override", types.YLeaf{"AsOverride", vrfNeighborAf.AsOverride})
+    vrfNeighborAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", vrfNeighborAf.Multipath})
+    vrfNeighborAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", vrfNeighborAf.SendCommunityEbgpGracefulShutdown})
+    vrfNeighborAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", vrfNeighborAf.Activate})
+    vrfNeighborAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", vrfNeighborAf.PrefixOrfPolicy})
+    vrfNeighborAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", vrfNeighborAf.Aigp})
+    vrfNeighborAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", vrfNeighborAf.AigpSendMed})
+    vrfNeighborAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", vrfNeighborAf.AllowAsIn})
+    vrfNeighborAf.EntityData.Leafs.Append("advertise-orf", types.YLeaf{"AdvertiseOrf", vrfNeighborAf.AdvertiseOrf})
+    vrfNeighborAf.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", vrfNeighborAf.RouteReflectorClient})
+    vrfNeighborAf.EntityData.Leafs.Append("next-hop-self", types.YLeaf{"NextHopSelf", vrfNeighborAf.NextHopSelf})
+    vrfNeighborAf.EntityData.Leafs.Append("route-policy-in", types.YLeaf{"RoutePolicyIn", vrfNeighborAf.RoutePolicyIn})
+    vrfNeighborAf.EntityData.Leafs.Append("default-weight", types.YLeaf{"DefaultWeight", vrfNeighborAf.DefaultWeight})
+    vrfNeighborAf.EntityData.Leafs.Append("af-group", types.YLeaf{"AfGroup", vrfNeighborAf.AfGroup})
+    vrfNeighborAf.EntityData.Leafs.Append("next-hop-unchanged-multipath", types.YLeaf{"NextHopUnchangedMultipath", vrfNeighborAf.NextHopUnchangedMultipath})
+    vrfNeighborAf.EntityData.Leafs.Append("optimal-route-reflection-group", types.YLeaf{"OptimalRouteReflectionGroup", vrfNeighborAf.OptimalRouteReflectionGroup})
+    vrfNeighborAf.EntityData.Leafs.Append("accept-own", types.YLeaf{"AcceptOwn", vrfNeighborAf.AcceptOwn})
+    vrfNeighborAf.EntityData.Leafs.Append("route-policy-out", types.YLeaf{"RoutePolicyOut", vrfNeighborAf.RoutePolicyOut})
+    vrfNeighborAf.EntityData.Leafs.Append("advertise-permanent-network", types.YLeaf{"AdvertisePermanentNetwork", vrfNeighborAf.AdvertisePermanentNetwork})
+
+    vrfNeighborAf.EntityData.YListKeys = []string {"AfName"}
+
     return &(vrfNeighborAf.EntityData)
 }
 
@@ -4692,12 +4997,15 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aigpCostCommunity.EntityData.Children = make(map[string]types.YChild)
-    aigpCostCommunity.EntityData.Leafs = make(map[string]types.YLeaf)
-    aigpCostCommunity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", aigpCostCommunity.Enable}
-    aigpCostCommunity.EntityData.Leafs["cost-community-id"] = types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId}
-    aigpCostCommunity.EntityData.Leafs["transitive"] = types.YLeaf{"Transitive", aigpCostCommunity.Transitive}
-    aigpCostCommunity.EntityData.Leafs["cost-community-poi-type"] = types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType}
+    aigpCostCommunity.EntityData.Children = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", aigpCostCommunity.Enable})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-id", types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId})
+    aigpCostCommunity.EntityData.Leafs.Append("transitive", types.YLeaf{"Transitive", aigpCostCommunity.Transitive})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-poi-type", types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType})
+
+    aigpCostCommunity.EntityData.YListKeys = []string {}
+
     return &(aigpCostCommunity.EntityData)
 }
 
@@ -4727,11 +5035,14 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName}
-    advertiseDefImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption}
-    advertiseDefImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType}
+    advertiseDefImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType})
+
+    advertiseDefImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV6.EntityData)
 }
 
@@ -4761,11 +5072,14 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDisable.EntityData.Children = make(map[string]types.YChild)
-    advertiseDisable.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDisable.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDisable.AfName}
-    advertiseDisable.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption}
-    advertiseDisable.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDisable.RtType}
+    advertiseDisable.EntityData.Children = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDisable.AfName})
+    advertiseDisable.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption})
+    advertiseDisable.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDisable.RtType})
+
+    advertiseDisable.EntityData.YListKeys = []string {}
+
     return &(advertiseDisable.EntityData)
 }
 
@@ -4776,6 +5090,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_MaximumPrefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum prefixes limit. The type is interface{} with range: 1..4294967295.
     // This attribute is mandatory.
@@ -4808,13 +5123,16 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumPrefixes.EntityData.Children = make(map[string]types.YChild)
-    maximumPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumPrefixes.EntityData.Leafs["prefix-limit"] = types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit}
-    maximumPrefixes.EntityData.Leafs["warning-percentage"] = types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage}
-    maximumPrefixes.EntityData.Leafs["warning-only"] = types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly}
-    maximumPrefixes.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", maximumPrefixes.RestartTime}
-    maximumPrefixes.EntityData.Leafs["discard-extra-paths"] = types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths}
+    maximumPrefixes.EntityData.Children = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit})
+    maximumPrefixes.EntityData.Leafs.Append("warning-percentage", types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage})
+    maximumPrefixes.EntityData.Leafs.Append("warning-only", types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly})
+    maximumPrefixes.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", maximumPrefixes.RestartTime})
+    maximumPrefixes.EntityData.Leafs.Append("discard-extra-paths", types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths})
+
+    maximumPrefixes.EntityData.YListKeys = []string {}
+
     return &(maximumPrefixes.EntityData)
 }
 
@@ -4824,6 +5142,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_RemovePrivateAsEntireAsPathInbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from inbound updates. FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -4846,10 +5165,13 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Vrf
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPathInbound.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable}
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire}
+    removePrivateAsEntireAsPathInbound.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable})
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire})
+
+    removePrivateAsEntireAsPathInbound.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPathInbound.EntityData)
 }
 
@@ -4879,17 +5201,20 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName}
-    advertiseDefImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption}
-    advertiseDefImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType}
+    advertiseDefImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType})
+
+    advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn
 // Advertise Translated Routes to the peer
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4903,28 +5228,31 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     RtType interface{}
 }
 
-func (advertiseL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseL2VpnEvpn.EntityData.YFilter = advertiseL2VpnEvpn.YFilter
-    advertiseL2VpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseL2VpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
-    advertiseL2VpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseL2vpnEvpn.EntityData.YFilter = advertiseL2vpnEvpn.YFilter
+    advertiseL2vpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseL2vpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
+    advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseL2VpnEvpn.AfName}
-    advertiseL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseL2VpnEvpn.ReorgOption}
-    advertiseL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseL2VpnEvpn.RtType}
-    return &(advertiseL2VpnEvpn.EntityData)
+    advertiseL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseL2vpnEvpn.AfName})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseL2vpnEvpn.ReorgOption})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseL2vpnEvpn.RtType})
+
+    advertiseL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseL2vpnEvpn.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2vpnEvpn
 // Advertise Of Local Routes to the peer with
 // different RT
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4938,22 +5266,25 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     RtType interface{}
 }
 
-func (advertiseLocalL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseLocalL2VpnEvpn.EntityData.YFilter = advertiseLocalL2VpnEvpn.YFilter
-    advertiseLocalL2VpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseLocalL2VpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
-    advertiseLocalL2VpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseLocalL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseLocalL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseLocalL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseLocalL2vpnEvpn.EntityData.YFilter = advertiseLocalL2vpnEvpn.YFilter
+    advertiseLocalL2vpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
+    advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalL2VpnEvpn.AfName}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalL2VpnEvpn.ReorgOption}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalL2VpnEvpn.RtType}
-    return &(advertiseLocalL2VpnEvpn.EntityData)
+    advertiseLocalL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalL2vpnEvpn.AfName})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalL2vpnEvpn.ReorgOption})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalL2vpnEvpn.RtType})
+
+    advertiseLocalL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseLocalL2vpnEvpn.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -4982,10 +5313,13 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = make(map[string]types.YChild)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-send"] = types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend}
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-accept"] = types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept}
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-send", types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend})
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-accept", types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept})
+
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.YListKeys = []string {}
+
     return &(neighborAfLongLivedGracefulRestartStaleTime.EntityData)
 }
 
@@ -4997,7 +5331,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     YFilter yfilter.YFilter
 
     // Type of Extended community. The type is BgpSiteOfOrigin.
-    Type_ interface{}
+    Type interface{}
 
     // AS number. The type is interface{} with range: 0..4294967295.
     AsXx interface{}
@@ -5009,7 +5343,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address Index. The type is interface{} with range: 0..65535.
@@ -5026,14 +5360,17 @@ func (siteOfOrigin *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siteOfOrigin.EntityData.Children = make(map[string]types.YChild)
-    siteOfOrigin.EntityData.Leafs = make(map[string]types.YLeaf)
-    siteOfOrigin.EntityData.Leafs["type"] = types.YLeaf{"Type_", siteOfOrigin.Type_}
-    siteOfOrigin.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", siteOfOrigin.AsXx}
-    siteOfOrigin.EntityData.Leafs["as"] = types.YLeaf{"As", siteOfOrigin.As}
-    siteOfOrigin.EntityData.Leafs["as-index"] = types.YLeaf{"AsIndex", siteOfOrigin.AsIndex}
-    siteOfOrigin.EntityData.Leafs["address"] = types.YLeaf{"Address", siteOfOrigin.Address}
-    siteOfOrigin.EntityData.Leafs["address-index"] = types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex}
+    siteOfOrigin.EntityData.Children = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs.Append("type", types.YLeaf{"Type", siteOfOrigin.Type})
+    siteOfOrigin.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", siteOfOrigin.AsXx})
+    siteOfOrigin.EntityData.Leafs.Append("as", types.YLeaf{"As", siteOfOrigin.As})
+    siteOfOrigin.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", siteOfOrigin.AsIndex})
+    siteOfOrigin.EntityData.Leafs.Append("address", types.YLeaf{"Address", siteOfOrigin.Address})
+    siteOfOrigin.EntityData.Leafs.Append("address-index", types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex})
+
+    siteOfOrigin.EntityData.YListKeys = []string {}
+
     return &(siteOfOrigin.EntityData)
 }
 
@@ -5063,11 +5400,14 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV6.AfName}
-    advertiseV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV6.ReorgOption}
-    advertiseV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV6.RtType}
+    advertiseV6.EntityData.Children = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV6.AfName})
+    advertiseV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV6.ReorgOption})
+    advertiseV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV6.RtType})
+
+    advertiseV6.EntityData.YListKeys = []string {}
+
     return &(advertiseV6.EntityData)
 }
 
@@ -5098,11 +5438,14 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV6.AfName}
-    advertiseLocalV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption}
-    advertiseLocalV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV6.RtType}
+    advertiseLocalV6.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV6.AfName})
+    advertiseLocalV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption})
+    advertiseLocalV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV6.RtType})
+
+    advertiseLocalV6.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV6.EntityData)
 }
 
@@ -5136,11 +5479,14 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["import-stitching"] = types.YLeaf{"ImportStitching", self.ImportStitching}
-    self.EntityData.Leafs["import-reoriginate"] = types.YLeaf{"ImportReoriginate", self.ImportReoriginate}
-    self.EntityData.Leafs["import-reoriginate-stitching"] = types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("import-stitching", types.YLeaf{"ImportStitching", self.ImportStitching})
+    self.EntityData.Leafs.Append("import-reoriginate", types.YLeaf{"ImportReoriginate", self.ImportReoriginate})
+    self.EntityData.Leafs.Append("import-reoriginate-stitching", types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -5169,10 +5515,13 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultOriginate.EntityData.Children = make(map[string]types.YChild)
-    defaultOriginate.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultOriginate.EntityData.Leafs["enable"] = types.YLeaf{"Enable", defaultOriginate.Enable}
-    defaultOriginate.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName}
+    defaultOriginate.EntityData.Children = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", defaultOriginate.Enable})
+    defaultOriginate.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName})
+
+    defaultOriginate.EntityData.YListKeys = []string {}
+
     return &(defaultOriginate.EntityData)
 }
 
@@ -5202,10 +5551,13 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighb
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    softReconfiguration.EntityData.Children = make(map[string]types.YChild)
-    softReconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    softReconfiguration.EntityData.Leafs["inbound-soft"] = types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft}
-    softReconfiguration.EntityData.Leafs["soft-always"] = types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways}
+    softReconfiguration.EntityData.Children = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs.Append("inbound-soft", types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft})
+    softReconfiguration.EntityData.Leafs.Append("soft-always", types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways})
+
+    softReconfiguration.EntityData.YListKeys = []string {}
+
     return &(softReconfiguration.EntityData)
 }
 
@@ -5235,11 +5587,14 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName}
-    advertiseVrfImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption}
-    advertiseVrfImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType}
+    advertiseVrfImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType})
+
+    advertiseVrfImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV6.EntityData)
 }
 
@@ -5269,11 +5624,14 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV4.AfName}
-    advertiseV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV4.ReorgOption}
-    advertiseV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV4.RtType}
+    advertiseV4.EntityData.Children = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV4.AfName})
+    advertiseV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV4.ReorgOption})
+    advertiseV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV4.RtType})
+
+    advertiseV4.EntityData.YListKeys = []string {}
+
     return &(advertiseV4.EntityData)
 }
 
@@ -5304,11 +5662,14 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV4.AfName}
-    advertiseLocalV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption}
-    advertiseLocalV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV4.RtType}
+    advertiseLocalV4.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV4.AfName})
+    advertiseLocalV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption})
+    advertiseLocalV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV4.RtType})
+
+    advertiseLocalV4.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV4.EntityData)
 }
 
@@ -5318,6 +5679,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_RemovePrivateAsEntireAsPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from outbound updates .  FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -5340,10 +5702,13 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_V
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPath.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPath.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable}
-    removePrivateAsEntireAsPath.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire}
+    removePrivateAsEntireAsPath.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable})
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire})
+
+    removePrivateAsEntireAsPath.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPath.EntityData)
 }
 
@@ -5373,11 +5738,14 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName}
-    advertiseVrfImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption}
-    advertiseVrfImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType}
+    advertiseVrfImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType})
+
+    advertiseVrfImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
@@ -5393,9 +5761,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -5409,10 +5777,13 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAddress.EntityData.Children = make(map[string]types.YChild)
-    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAddress.EntityData.Leafs["local-address-disable"] = types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable}
-    localAddress.EntityData.Leafs["local-ip-address"] = types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress}
+    localAddress.EntityData.Children = types.NewOrderedMap()
+    localAddress.EntityData.Leafs = types.NewOrderedMap()
+    localAddress.EntityData.Leafs.Append("local-address-disable", types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable})
+    localAddress.EntityData.Leafs.Append("local-ip-address", types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress})
+
+    localAddress.EntityData.YListKeys = []string {}
+
     return &(localAddress.EntityData)
 }
 
@@ -5424,7 +5795,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // Enable BMP logging for this particular server. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_BmpActivates_BmpActivate.
-    BmpActivate []Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_BmpActivates_BmpActivate
+    BmpActivate []*Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_BmpActivates_BmpActivate
 }
 
 func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_BmpActivates) GetEntityData() *types.CommonEntityData {
@@ -5437,12 +5808,15 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivates.EntityData.Children = make(map[string]types.YChild)
-    bmpActivates.EntityData.Children["bmp-activate"] = types.YChild{"BmpActivate", nil}
+    bmpActivates.EntityData.Children = types.NewOrderedMap()
+    bmpActivates.EntityData.Children.Append("bmp-activate", types.YChild{"BmpActivate", nil})
     for i := range bmpActivates.BmpActivate {
-        bmpActivates.EntityData.Children[types.GetSegmentPath(&bmpActivates.BmpActivate[i])] = types.YChild{"BmpActivate", &bmpActivates.BmpActivate[i]}
+        bmpActivates.EntityData.Children.Append(types.GetSegmentPath(bmpActivates.BmpActivate[i]), types.YChild{"BmpActivate", bmpActivates.BmpActivate[i]})
     }
-    bmpActivates.EntityData.Leafs = make(map[string]types.YLeaf)
+    bmpActivates.EntityData.Leafs = types.NewOrderedMap()
+
+    bmpActivates.EntityData.YListKeys = []string {}
+
     return &(bmpActivates.EntityData)
 }
 
@@ -5462,14 +5836,17 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     bmpActivate.EntityData.YangName = "bmp-activate"
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
-    bmpActivate.EntityData.SegmentPath = "bmp-activate" + "[server-id='" + fmt.Sprintf("%v", bmpActivate.ServerId) + "']"
+    bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivate.EntityData.Children = make(map[string]types.YChild)
-    bmpActivate.EntityData.Leafs = make(map[string]types.YLeaf)
-    bmpActivate.EntityData.Leafs["server-id"] = types.YLeaf{"ServerId", bmpActivate.ServerId}
+    bmpActivate.EntityData.Children = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs.Append("server-id", types.YLeaf{"ServerId", bmpActivate.ServerId})
+
+    bmpActivate.EntityData.YListKeys = []string {"ServerId"}
+
     return &(bmpActivate.EntityData)
 }
 
@@ -5499,10 +5876,13 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ebgpMultihop.EntityData.Children = make(map[string]types.YChild)
-    ebgpMultihop.EntityData.Leafs = make(map[string]types.YLeaf)
-    ebgpMultihop.EntityData.Leafs["max-hop-count"] = types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount}
-    ebgpMultihop.EntityData.Leafs["mpls-deactivation"] = types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation}
+    ebgpMultihop.EntityData.Children = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs.Append("max-hop-count", types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount})
+    ebgpMultihop.EntityData.Leafs.Append("mpls-deactivation", types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation})
+
+    ebgpMultihop.EntityData.YListKeys = []string {}
+
     return &(ebgpMultihop.EntityData)
 }
 
@@ -5529,10 +5909,13 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteAs.EntityData.Children = make(map[string]types.YChild)
-    remoteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", remoteAs.AsXx}
-    remoteAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", remoteAs.AsYy}
+    remoteAs.EntityData.Children = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", remoteAs.AsXx})
+    remoteAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", remoteAs.AsYy})
+
+    remoteAs.EntityData.YListKeys = []string {}
+
     return &(remoteAs.EntityData)
 }
 
@@ -5574,14 +5957,17 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeigh
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAs.EntityData.Children = make(map[string]types.YChild)
-    localAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", localAs.AsXx}
-    localAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", localAs.AsYy}
-    localAs.EntityData.Leafs["no-prepend"] = types.YLeaf{"NoPrepend", localAs.NoPrepend}
-    localAs.EntityData.Leafs["disable"] = types.YLeaf{"Disable", localAs.Disable}
-    localAs.EntityData.Leafs["replace-as"] = types.YLeaf{"ReplaceAs", localAs.ReplaceAs}
-    localAs.EntityData.Leafs["dual-as"] = types.YLeaf{"DualAs", localAs.DualAs}
+    localAs.EntityData.Children = types.NewOrderedMap()
+    localAs.EntityData.Leafs = types.NewOrderedMap()
+    localAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", localAs.AsXx})
+    localAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", localAs.AsYy})
+    localAs.EntityData.Leafs.Append("no-prepend", types.YLeaf{"NoPrepend", localAs.NoPrepend})
+    localAs.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", localAs.Disable})
+    localAs.EntityData.Leafs.Append("replace-as", types.YLeaf{"ReplaceAs", localAs.ReplaceAs})
+    localAs.EntityData.Leafs.Append("dual-as", types.YLeaf{"DualAs", localAs.DualAs})
+
+    localAs.EntityData.YListKeys = []string {}
+
     return &(localAs.EntityData)
 }
 
@@ -5596,7 +5982,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -5610,10 +5996,13 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    password.EntityData.Children = make(map[string]types.YChild)
-    password.EntityData.Leafs = make(map[string]types.YLeaf)
-    password.EntityData.Leafs["password-disable"] = types.YLeaf{"PasswordDisable", password.PasswordDisable}
-    password.EntityData.Leafs["password"] = types.YLeaf{"Password", password.Password}
+    password.EntityData.Children = types.NewOrderedMap()
+    password.EntityData.Leafs = types.NewOrderedMap()
+    password.EntityData.Leafs.Append("password-disable", types.YLeaf{"PasswordDisable", password.PasswordDisable})
+    password.EntityData.Leafs.Append("password", types.YLeaf{"Password", password.Password})
+
+    password.EntityData.YListKeys = []string {}
+
     return &(password.EntityData)
 }
 
@@ -5624,6 +6013,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_AdvertisementInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Minimum advertisement interval time, secs part. The type is interface{}
     // with range: 0..600. This attribute is mandatory. Units are second.
@@ -5644,10 +6034,13 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeig
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertisementInterval.EntityData.Children = make(map[string]types.YChild)
-    advertisementInterval.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertisementInterval.EntityData.Leafs["minimum-interval"] = types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval}
-    advertisementInterval.EntityData.Leafs["minimum-interval-msecs"] = types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs}
+    advertisementInterval.EntityData.Children = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval", types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval})
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval-msecs", types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs})
+
+    advertisementInterval.EntityData.YListKeys = []string {}
+
     return &(advertisementInterval.EntityData)
 }
 
@@ -5663,7 +6056,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -5677,10 +6070,13 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborClusterId.EntityData.Children = make(map[string]types.YChild)
-    neighborClusterId.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborClusterId.EntityData.Leafs["cluster-id-number"] = types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber}
-    neighborClusterId.EntityData.Leafs["cluster-id-address"] = types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress}
+    neighborClusterId.EntityData.Children = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-number", types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber})
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-address", types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress})
+
+    neighborClusterId.EntityData.YListKeys = []string {}
+
     return &(neighborClusterId.EntityData)
 }
 
@@ -5708,10 +6104,13 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighb
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcpmss.EntityData.Children = make(map[string]types.YChild)
-    tcpmss.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpmss.EntityData.Leafs["tcpmss-disable"] = types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable}
-    tcpmss.EntityData.Leafs["mss"] = types.YLeaf{"Mss", tcpmss.Mss}
+    tcpmss.EntityData.Children = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs.Append("tcpmss-disable", types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable})
+    tcpmss.EntityData.Leafs.Append("mss", types.YLeaf{"Mss", tcpmss.Mss})
+
+    tcpmss.EntityData.YListKeys = []string {}
+
     return &(tcpmss.EntityData)
 }
 
@@ -5722,7 +6121,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     YFilter yfilter.YFilter
 
     // Set type of service. The type is BgpTos.
-    Type_ interface{}
+    Type interface{}
 
     // TOS value to set. The type is one of the following types: enumeration
     // BgpPrecedenceDscp, or int with range: 0..63.
@@ -5739,10 +6138,13 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborP
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tos.EntityData.Children = make(map[string]types.YChild)
-    tos.EntityData.Leafs = make(map[string]types.YLeaf)
-    tos.EntityData.Leafs["type"] = types.YLeaf{"Type_", tos.Type_}
-    tos.EntityData.Leafs["value"] = types.YLeaf{"Value", tos.Value}
+    tos.EntityData.Children = types.NewOrderedMap()
+    tos.EntityData.Leafs = types.NewOrderedMap()
+    tos.EntityData.Leafs.Append("type", types.YLeaf{"Type", tos.Type})
+    tos.EntityData.Leafs.Append("value", types.YLeaf{"Value", tos.Value})
+
+    tos.EntityData.YListKeys = []string {}
+
     return &(tos.EntityData)
 }
 
@@ -5775,12 +6177,15 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFiltering.EntityData.Children = make(map[string]types.YChild)
-    updateInFiltering.EntityData.Children["update-in-filtering-message-buffers"] = types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers}
-    updateInFiltering.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFiltering.EntityData.Leafs["enable"] = types.YLeaf{"Enable", updateInFiltering.Enable}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-attribute-filter-group"] = types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-syslog-disable"] = types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable}
+    updateInFiltering.EntityData.Children = types.NewOrderedMap()
+    updateInFiltering.EntityData.Children.Append("update-in-filtering-message-buffers", types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers})
+    updateInFiltering.EntityData.Leafs = types.NewOrderedMap()
+    updateInFiltering.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", updateInFiltering.Enable})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-attribute-filter-group", types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-syslog-disable", types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable})
+
+    updateInFiltering.EntityData.YListKeys = []string {}
+
     return &(updateInFiltering.EntityData)
 }
 
@@ -5790,6 +6195,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_UpdateInFiltering_UpdateInFilteringMessageBuffers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of message buffers. The type is interface{} with range: 0..25. This
     // attribute is mandatory.
@@ -5810,10 +6216,13 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_V
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFilteringMessageBuffers.EntityData.Children = make(map[string]types.YChild)
-    updateInFilteringMessageBuffers.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFilteringMessageBuffers.EntityData.Leafs["number-of-buffers"] = types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers}
-    updateInFilteringMessageBuffers.EntityData.Leafs["non-circular-buffer"] = types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer}
+    updateInFilteringMessageBuffers.EntityData.Children = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("number-of-buffers", types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers})
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("non-circular-buffer", types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer})
+
+    updateInFilteringMessageBuffers.EntityData.YListKeys = []string {}
+
     return &(updateInFilteringMessageBuffers.EntityData)
 }
 
@@ -5845,11 +6254,14 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNei
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogOut.EntityData.Children = make(map[string]types.YChild)
-    msgLogOut.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogOut.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount}
-    msgLogOut.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable}
-    msgLogOut.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable}
+    msgLogOut.EntityData.Children = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount})
+    msgLogOut.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable})
+    msgLogOut.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable})
+
+    msgLogOut.EntityData.YListKeys = []string {}
+
     return &(msgLogOut.EntityData)
 }
 
@@ -5879,10 +6291,13 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveBufferSize.EntityData.Children = make(map[string]types.YChild)
-    receiveBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveBufferSize.EntityData.Leafs["socket-receive-size"] = types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize}
-    receiveBufferSize.EntityData.Leafs["bgp-receive-size"] = types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize}
+    receiveBufferSize.EntityData.Children = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs.Append("socket-receive-size", types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize})
+    receiveBufferSize.EntityData.Leafs.Append("bgp-receive-size", types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize})
+
+    receiveBufferSize.EntityData.YListKeys = []string {}
+
     return &(receiveBufferSize.EntityData)
 }
 
@@ -5914,11 +6329,14 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogIn.EntityData.Children = make(map[string]types.YChild)
-    msgLogIn.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogIn.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount}
-    msgLogIn.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable}
-    msgLogIn.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable}
+    msgLogIn.EntityData.Children = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount})
+    msgLogIn.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable})
+    msgLogIn.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable})
+
+    msgLogIn.EntityData.YListKeys = []string {}
+
     return &(msgLogIn.EntityData)
 }
 
@@ -5948,10 +6366,13 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendBufferSize.EntityData.Children = make(map[string]types.YChild)
-    sendBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendBufferSize.EntityData.Leafs["socket-send-size"] = types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize}
-    sendBufferSize.EntityData.Leafs["bgp-send-size"] = types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize}
+    sendBufferSize.EntityData.Children = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs.Append("socket-send-size", types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize})
+    sendBufferSize.EntityData.Leafs.Append("bgp-send-size", types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize})
+
+    sendBufferSize.EntityData.YListKeys = []string {}
+
     return &(sendBufferSize.EntityData)
 }
 
@@ -5984,11 +6405,14 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighb
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval}
-    timers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", timers.HoldTime}
-    timers.EntityData.Leafs["min-accept-hold-time"] = types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval})
+    timers.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", timers.HoldTime})
+    timers.EntityData.Leafs.Append("min-accept-hold-time", types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -6017,10 +6441,13 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keychain.EntityData.Children = make(map[string]types.YChild)
-    keychain.EntityData.Leafs = make(map[string]types.YLeaf)
-    keychain.EntityData.Leafs["keychain-disable"] = types.YLeaf{"KeychainDisable", keychain.KeychainDisable}
-    keychain.EntityData.Leafs["keychain-name"] = types.YLeaf{"KeychainName", keychain.KeychainName}
+    keychain.EntityData.Children = types.NewOrderedMap()
+    keychain.EntityData.Leafs = types.NewOrderedMap()
+    keychain.EntityData.Leafs.Append("keychain-disable", types.YLeaf{"KeychainDisable", keychain.KeychainDisable})
+    keychain.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", keychain.KeychainName})
+
+    keychain.EntityData.YListKeys = []string {}
+
     return &(keychain.EntityData)
 }
 
@@ -6054,12 +6481,15 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighb
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenance.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-local-preference"] = types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference}
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-as-prepends"] = types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends}
-    gracefulMaintenance.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenance.EntityData.Leafs["enable"] = types.YLeaf{"Enable", gracefulMaintenance.Enable}
-    gracefulMaintenance.EntityData.Leafs["graceful-maintenance-activate"] = types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate}
+    gracefulMaintenance.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-local-preference", types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference})
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-as-prepends", types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends})
+    gracefulMaintenance.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", gracefulMaintenance.Enable})
+    gracefulMaintenance.EntityData.Leafs.Append("graceful-maintenance-activate", types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate})
+
+    gracefulMaintenance.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenance.EntityData)
 }
 
@@ -6087,10 +6517,13 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Vrf
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceLocalPreference.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["gshut-loc-pref-disable"] = types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable}
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["local-preference"] = types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference}
+    gracefulMaintenanceLocalPreference.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("gshut-loc-pref-disable", types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable})
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("local-preference", types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference})
+
+    gracefulMaintenanceLocalPreference.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceLocalPreference.EntityData)
 }
 
@@ -6119,10 +6552,13 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceAsPrepends.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["gshut-prepends-disable"] = types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable}
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["as-prepends"] = types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends}
+    gracefulMaintenanceAsPrepends.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("gshut-prepends-disable", types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable})
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("as-prepends", types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends})
+
+    gracefulMaintenanceAsPrepends.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceAsPrepends.EntityData)
 }
 
@@ -6149,10 +6585,13 @@ func (defaultVrf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf) GetEntityData()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultVrf.EntityData.Children = make(map[string]types.YChild)
-    defaultVrf.EntityData.Children["bgp-entity"] = types.YChild{"BgpEntity", &defaultVrf.BgpEntity}
-    defaultVrf.EntityData.Children["global"] = types.YChild{"Global", &defaultVrf.Global}
-    defaultVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultVrf.EntityData.Children = types.NewOrderedMap()
+    defaultVrf.EntityData.Children.Append("bgp-entity", types.YChild{"BgpEntity", &defaultVrf.BgpEntity})
+    defaultVrf.EntityData.Children.Append("global", types.YChild{"Global", &defaultVrf.Global})
+    defaultVrf.EntityData.Leafs = types.NewOrderedMap()
+
+    defaultVrf.EntityData.YListKeys = []string {}
+
     return &(defaultVrf.EntityData)
 }
 
@@ -6186,12 +6625,15 @@ func (bgpEntity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity) GetEnt
     bgpEntity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpEntity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgpEntity.EntityData.Children = make(map[string]types.YChild)
-    bgpEntity.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &bgpEntity.Neighbors}
-    bgpEntity.EntityData.Children["neighbor-groups"] = types.YChild{"NeighborGroups", &bgpEntity.NeighborGroups}
-    bgpEntity.EntityData.Children["af-groups"] = types.YChild{"AfGroups", &bgpEntity.AfGroups}
-    bgpEntity.EntityData.Children["session-groups"] = types.YChild{"SessionGroups", &bgpEntity.SessionGroups}
-    bgpEntity.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpEntity.EntityData.Children = types.NewOrderedMap()
+    bgpEntity.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &bgpEntity.Neighbors})
+    bgpEntity.EntityData.Children.Append("neighbor-groups", types.YChild{"NeighborGroups", &bgpEntity.NeighborGroups})
+    bgpEntity.EntityData.Children.Append("af-groups", types.YChild{"AfGroups", &bgpEntity.AfGroups})
+    bgpEntity.EntityData.Children.Append("session-groups", types.YChild{"SessionGroups", &bgpEntity.SessionGroups})
+    bgpEntity.EntityData.Leafs = types.NewOrderedMap()
+
+    bgpEntity.EntityData.YListKeys = []string {}
+
     return &(bgpEntity.EntityData)
 }
 
@@ -6203,11 +6645,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors struct {
 
     // A particular BGP peer. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor.
-    Neighbor []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor
+    Neighbor []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor
 
     // A particular BGP peer. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength.
-    NeighborPrefixLength []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength
+    NeighborPrefixLength []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength
 }
 
 func (neighbors *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -6220,16 +6662,19 @@ func (neighbors *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Children["neighbor-prefix-length"] = types.YChild{"NeighborPrefixLength", nil}
+    neighbors.EntityData.Children.Append("neighbor-prefix-length", types.YChild{"NeighborPrefixLength", nil})
     for i := range neighbors.NeighborPrefixLength {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.NeighborPrefixLength[i])] = types.YChild{"NeighborPrefixLength", &neighbors.NeighborPrefixLength[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.NeighborPrefixLength[i]), types.YChild{"NeighborPrefixLength", neighbors.NeighborPrefixLength[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -6241,9 +6686,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // TRUE to preserve the CE path attributes.FALSE to override CE path
@@ -6354,7 +6799,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     UpdateSourceInterface interface{}
 
     // BGP neighbor AF configuration table.
@@ -6420,62 +6865,65 @@ func (neighbor *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-address='" + fmt.Sprintf("%v", neighbor.NeighborAddress) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["neighbor-afs"] = types.YChild{"NeighborAfs", &neighbor.NeighborAfs}
-    neighbor.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &neighbor.LocalAddress}
-    neighbor.EntityData.Children["bmp-activates"] = types.YChild{"BmpActivates", &neighbor.BmpActivates}
-    neighbor.EntityData.Children["ebgp-multihop"] = types.YChild{"EbgpMultihop", &neighbor.EbgpMultihop}
-    neighbor.EntityData.Children["remote-as"] = types.YChild{"RemoteAs", &neighbor.RemoteAs}
-    neighbor.EntityData.Children["local-as"] = types.YChild{"LocalAs", &neighbor.LocalAs}
-    neighbor.EntityData.Children["password"] = types.YChild{"Password", &neighbor.Password}
-    neighbor.EntityData.Children["advertisement-interval"] = types.YChild{"AdvertisementInterval", &neighbor.AdvertisementInterval}
-    neighbor.EntityData.Children["neighbor-cluster-id"] = types.YChild{"NeighborClusterId", &neighbor.NeighborClusterId}
-    neighbor.EntityData.Children["tcpmss"] = types.YChild{"Tcpmss", &neighbor.Tcpmss}
-    neighbor.EntityData.Children["tos"] = types.YChild{"Tos", &neighbor.Tos}
-    neighbor.EntityData.Children["update-in-filtering"] = types.YChild{"UpdateInFiltering", &neighbor.UpdateInFiltering}
-    neighbor.EntityData.Children["msg-log-out"] = types.YChild{"MsgLogOut", &neighbor.MsgLogOut}
-    neighbor.EntityData.Children["receive-buffer-size"] = types.YChild{"ReceiveBufferSize", &neighbor.ReceiveBufferSize}
-    neighbor.EntityData.Children["msg-log-in"] = types.YChild{"MsgLogIn", &neighbor.MsgLogIn}
-    neighbor.EntityData.Children["send-buffer-size"] = types.YChild{"SendBufferSize", &neighbor.SendBufferSize}
-    neighbor.EntityData.Children["timers"] = types.YChild{"Timers", &neighbor.Timers}
-    neighbor.EntityData.Children["keychain"] = types.YChild{"Keychain", &neighbor.Keychain}
-    neighbor.EntityData.Children["graceful-maintenance"] = types.YChild{"GracefulMaintenance", &neighbor.GracefulMaintenance}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", neighbor.NeighborAddress}
-    neighbor.EntityData.Leafs["internal-vpn-client-ibgp-ce"] = types.YLeaf{"InternalVpnClientIbgpCe", neighbor.InternalVpnClientIbgpCe}
-    neighbor.EntityData.Leafs["session-group-add-member"] = types.YLeaf{"SessionGroupAddMember", neighbor.SessionGroupAddMember}
-    neighbor.EntityData.Leafs["egress-peer-engineering"] = types.YLeaf{"EgressPeerEngineering", neighbor.EgressPeerEngineering}
-    neighbor.EntityData.Leafs["neighbor-graceful-restart-stalepath-time"] = types.YLeaf{"NeighborGracefulRestartStalepathTime", neighbor.NeighborGracefulRestartStalepathTime}
-    neighbor.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", neighbor.Shutdown}
-    neighbor.EntityData.Leafs["description"] = types.YLeaf{"Description", neighbor.Description}
-    neighbor.EntityData.Leafs["neighbor-group-add-member"] = types.YLeaf{"NeighborGroupAddMember", neighbor.NeighborGroupAddMember}
-    neighbor.EntityData.Leafs["ebgp-recv-dmz"] = types.YLeaf{"EbgpRecvDmz", neighbor.EbgpRecvDmz}
-    neighbor.EntityData.Leafs["neighbor-graceful-restart"] = types.YLeaf{"NeighborGracefulRestart", neighbor.NeighborGracefulRestart}
-    neighbor.EntityData.Leafs["enforce-first-as"] = types.YLeaf{"EnforceFirstAs", neighbor.EnforceFirstAs}
-    neighbor.EntityData.Leafs["idle-watch-time"] = types.YLeaf{"IdleWatchTime", neighbor.IdleWatchTime}
-    neighbor.EntityData.Leafs["session-open-mode"] = types.YLeaf{"SessionOpenMode", neighbor.SessionOpenMode}
-    neighbor.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", neighbor.RpkiOriginAsValidationDisable}
-    neighbor.EntityData.Leafs["ebgp-send-dmz-enable-modes"] = types.YLeaf{"EbgpSendDmzEnableModes", neighbor.EbgpSendDmzEnableModes}
-    neighbor.EntityData.Leafs["suppress-all-capabilities"] = types.YLeaf{"SuppressAllCapabilities", neighbor.SuppressAllCapabilities}
-    neighbor.EntityData.Leafs["max-peers"] = types.YLeaf{"MaxPeers", neighbor.MaxPeers}
-    neighbor.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighbor.RpkiBestpathOriginAsAllowInvalid}
-    neighbor.EntityData.Leafs["additional-paths-send-capability"] = types.YLeaf{"AdditionalPathsSendCapability", neighbor.AdditionalPathsSendCapability}
-    neighbor.EntityData.Leafs["propagate-dmz-link-bandwidth"] = types.YLeaf{"PropagateDmzLinkBandwidth", neighbor.PropagateDmzLinkBandwidth}
-    neighbor.EntityData.Leafs["bfd-enable-modes"] = types.YLeaf{"BfdEnableModes", neighbor.BfdEnableModes}
-    neighbor.EntityData.Leafs["ttl-security"] = types.YLeaf{"TtlSecurity", neighbor.TtlSecurity}
-    neighbor.EntityData.Leafs["neighbor-graceful-restart-time"] = types.YLeaf{"NeighborGracefulRestartTime", neighbor.NeighborGracefulRestartTime}
-    neighbor.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", neighbor.BfdMultiplier}
-    neighbor.EntityData.Leafs["bfd-minimum-interval"] = types.YLeaf{"BfdMinimumInterval", neighbor.BfdMinimumInterval}
-    neighbor.EntityData.Leafs["remote-as-list"] = types.YLeaf{"RemoteAsList", neighbor.RemoteAsList}
-    neighbor.EntityData.Leafs["additional-paths-receive-capability"] = types.YLeaf{"AdditionalPathsReceiveCapability", neighbor.AdditionalPathsReceiveCapability}
-    neighbor.EntityData.Leafs["ignore-connected-check-ebgp"] = types.YLeaf{"IgnoreConnectedCheckEbgp", neighbor.IgnoreConnectedCheckEbgp}
-    neighbor.EntityData.Leafs["suppress-four-byte-as-capability"] = types.YLeaf{"SuppressFourByteAsCapability", neighbor.SuppressFourByteAsCapability}
-    neighbor.EntityData.Leafs["update-source-interface"] = types.YLeaf{"UpdateSourceInterface", neighbor.UpdateSourceInterface}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("neighbor-afs", types.YChild{"NeighborAfs", &neighbor.NeighborAfs})
+    neighbor.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &neighbor.LocalAddress})
+    neighbor.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &neighbor.BmpActivates})
+    neighbor.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &neighbor.EbgpMultihop})
+    neighbor.EntityData.Children.Append("remote-as", types.YChild{"RemoteAs", &neighbor.RemoteAs})
+    neighbor.EntityData.Children.Append("local-as", types.YChild{"LocalAs", &neighbor.LocalAs})
+    neighbor.EntityData.Children.Append("password", types.YChild{"Password", &neighbor.Password})
+    neighbor.EntityData.Children.Append("advertisement-interval", types.YChild{"AdvertisementInterval", &neighbor.AdvertisementInterval})
+    neighbor.EntityData.Children.Append("neighbor-cluster-id", types.YChild{"NeighborClusterId", &neighbor.NeighborClusterId})
+    neighbor.EntityData.Children.Append("tcpmss", types.YChild{"Tcpmss", &neighbor.Tcpmss})
+    neighbor.EntityData.Children.Append("tos", types.YChild{"Tos", &neighbor.Tos})
+    neighbor.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &neighbor.UpdateInFiltering})
+    neighbor.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &neighbor.MsgLogOut})
+    neighbor.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &neighbor.ReceiveBufferSize})
+    neighbor.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &neighbor.MsgLogIn})
+    neighbor.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &neighbor.SendBufferSize})
+    neighbor.EntityData.Children.Append("timers", types.YChild{"Timers", &neighbor.Timers})
+    neighbor.EntityData.Children.Append("keychain", types.YChild{"Keychain", &neighbor.Keychain})
+    neighbor.EntityData.Children.Append("graceful-maintenance", types.YChild{"GracefulMaintenance", &neighbor.GracefulMaintenance})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
+    neighbor.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", neighbor.InternalVpnClientIbgpCe})
+    neighbor.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", neighbor.SessionGroupAddMember})
+    neighbor.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", neighbor.EgressPeerEngineering})
+    neighbor.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", neighbor.NeighborGracefulRestartStalepathTime})
+    neighbor.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", neighbor.Shutdown})
+    neighbor.EntityData.Leafs.Append("description", types.YLeaf{"Description", neighbor.Description})
+    neighbor.EntityData.Leafs.Append("neighbor-group-add-member", types.YLeaf{"NeighborGroupAddMember", neighbor.NeighborGroupAddMember})
+    neighbor.EntityData.Leafs.Append("ebgp-recv-dmz", types.YLeaf{"EbgpRecvDmz", neighbor.EbgpRecvDmz})
+    neighbor.EntityData.Leafs.Append("neighbor-graceful-restart", types.YLeaf{"NeighborGracefulRestart", neighbor.NeighborGracefulRestart})
+    neighbor.EntityData.Leafs.Append("enforce-first-as", types.YLeaf{"EnforceFirstAs", neighbor.EnforceFirstAs})
+    neighbor.EntityData.Leafs.Append("idle-watch-time", types.YLeaf{"IdleWatchTime", neighbor.IdleWatchTime})
+    neighbor.EntityData.Leafs.Append("session-open-mode", types.YLeaf{"SessionOpenMode", neighbor.SessionOpenMode})
+    neighbor.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", neighbor.RpkiOriginAsValidationDisable})
+    neighbor.EntityData.Leafs.Append("ebgp-send-dmz-enable-modes", types.YLeaf{"EbgpSendDmzEnableModes", neighbor.EbgpSendDmzEnableModes})
+    neighbor.EntityData.Leafs.Append("suppress-all-capabilities", types.YLeaf{"SuppressAllCapabilities", neighbor.SuppressAllCapabilities})
+    neighbor.EntityData.Leafs.Append("max-peers", types.YLeaf{"MaxPeers", neighbor.MaxPeers})
+    neighbor.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighbor.RpkiBestpathOriginAsAllowInvalid})
+    neighbor.EntityData.Leafs.Append("additional-paths-send-capability", types.YLeaf{"AdditionalPathsSendCapability", neighbor.AdditionalPathsSendCapability})
+    neighbor.EntityData.Leafs.Append("propagate-dmz-link-bandwidth", types.YLeaf{"PropagateDmzLinkBandwidth", neighbor.PropagateDmzLinkBandwidth})
+    neighbor.EntityData.Leafs.Append("bfd-enable-modes", types.YLeaf{"BfdEnableModes", neighbor.BfdEnableModes})
+    neighbor.EntityData.Leafs.Append("ttl-security", types.YLeaf{"TtlSecurity", neighbor.TtlSecurity})
+    neighbor.EntityData.Leafs.Append("neighbor-graceful-restart-time", types.YLeaf{"NeighborGracefulRestartTime", neighbor.NeighborGracefulRestartTime})
+    neighbor.EntityData.Leafs.Append("bfd-multiplier", types.YLeaf{"BfdMultiplier", neighbor.BfdMultiplier})
+    neighbor.EntityData.Leafs.Append("bfd-minimum-interval", types.YLeaf{"BfdMinimumInterval", neighbor.BfdMinimumInterval})
+    neighbor.EntityData.Leafs.Append("remote-as-list", types.YLeaf{"RemoteAsList", neighbor.RemoteAsList})
+    neighbor.EntityData.Leafs.Append("additional-paths-receive-capability", types.YLeaf{"AdditionalPathsReceiveCapability", neighbor.AdditionalPathsReceiveCapability})
+    neighbor.EntityData.Leafs.Append("ignore-connected-check-ebgp", types.YLeaf{"IgnoreConnectedCheckEbgp", neighbor.IgnoreConnectedCheckEbgp})
+    neighbor.EntityData.Leafs.Append("suppress-four-byte-as-capability", types.YLeaf{"SuppressFourByteAsCapability", neighbor.SuppressFourByteAsCapability})
+    neighbor.EntityData.Leafs.Append("update-source-interface", types.YLeaf{"UpdateSourceInterface", neighbor.UpdateSourceInterface})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborAddress"}
+
     return &(neighbor.EntityData)
 }
 
@@ -6487,7 +6935,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
 
     // Address family type of neighbor. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf.
-    NeighborAf []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf
+    NeighborAf []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf
 }
 
 func (neighborAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs) GetEntityData() *types.CommonEntityData {
@@ -6500,12 +6948,15 @@ func (neighborAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     neighborAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAfs.EntityData.Children = make(map[string]types.YChild)
-    neighborAfs.EntityData.Children["neighbor-af"] = types.YChild{"NeighborAf", nil}
+    neighborAfs.EntityData.Children = types.NewOrderedMap()
+    neighborAfs.EntityData.Children.Append("neighbor-af", types.YChild{"NeighborAf", nil})
     for i := range neighborAfs.NeighborAf {
-        neighborAfs.EntityData.Children[types.GetSegmentPath(&neighborAfs.NeighborAf[i])] = types.YChild{"NeighborAf", &neighborAfs.NeighborAf[i]}
+        neighborAfs.EntityData.Children.Append(types.GetSegmentPath(neighborAfs.NeighborAf[i]), types.YChild{"NeighborAf", neighborAfs.NeighborAf[i]})
     }
-    neighborAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighborAfs.EntityData.Leafs = types.NewOrderedMap()
+
+    neighborAfs.EntityData.YListKeys = []string {}
+
     return &(neighborAfs.EntityData)
 }
 
@@ -6525,7 +6976,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // Disable signalling type on the peer. The type is BgpSignal.
-    L2VpnSignalling interface{}
+    L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
     // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
@@ -6664,10 +7115,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseDefImpDisableV4
 
     // Advertise Translated Routes to the peer.
-    AdvertiseL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2VpnEvpn
+    AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn
 
     // Advertise Of Local Routes to the peer with different RT.
-    AdvertiseLocalL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalL2VpnEvpn
+    AdvertiseLocalL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalL2vpnEvpn
 
     // Maximum time to wait before purging long lived routes.
     NeighborAfLongLivedGracefulRestartStaleTime Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -6679,7 +7130,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     AdvertiseLocalV6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalV6
 
     // Import Reorigination options for Routes from the peer.
-    Import_ Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_Import
+    Import Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_Import
 
     // Originate default route to this neighbor.
     DefaultOriginate Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_DefaultOriginate
@@ -6709,65 +7160,68 @@ func (neighborAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     neighborAf.EntityData.YangName = "neighbor-af"
     neighborAf.EntityData.BundleName = "cisco_ios_xr"
     neighborAf.EntityData.ParentYangName = "neighbor-afs"
-    neighborAf.EntityData.SegmentPath = "neighbor-af" + "[af-name='" + fmt.Sprintf("%v", neighborAf.AfName) + "']"
+    neighborAf.EntityData.SegmentPath = "neighbor-af" + types.AddKeyToken(neighborAf.AfName, "af-name")
     neighborAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAf.EntityData.Children = make(map[string]types.YChild)
-    neighborAf.EntityData.Children["aigp-cost-community"] = types.YChild{"AigpCostCommunity", &neighborAf.AigpCostCommunity}
-    neighborAf.EntityData.Children["advertise-def-imp-disable-v6"] = types.YChild{"AdvertiseDefImpDisableV6", &neighborAf.AdvertiseDefImpDisableV6}
-    neighborAf.EntityData.Children["advertise-disable"] = types.YChild{"AdvertiseDisable", &neighborAf.AdvertiseDisable}
-    neighborAf.EntityData.Children["maximum-prefixes"] = types.YChild{"MaximumPrefixes", &neighborAf.MaximumPrefixes}
-    neighborAf.EntityData.Children["remove-private-as-entire-as-path-inbound"] = types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborAf.RemovePrivateAsEntireAsPathInbound}
-    neighborAf.EntityData.Children["advertise-def-imp-disable-v4"] = types.YChild{"AdvertiseDefImpDisableV4", &neighborAf.AdvertiseDefImpDisableV4}
-    neighborAf.EntityData.Children["advertise-l2vpn-evpn"] = types.YChild{"AdvertiseL2VpnEvpn", &neighborAf.AdvertiseL2VpnEvpn}
-    neighborAf.EntityData.Children["advertise-local-l2vpn-evpn"] = types.YChild{"AdvertiseLocalL2VpnEvpn", &neighborAf.AdvertiseLocalL2VpnEvpn}
-    neighborAf.EntityData.Children["neighbor-af-long-lived-graceful-restart-stale-time"] = types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborAf.NeighborAfLongLivedGracefulRestartStaleTime}
-    neighborAf.EntityData.Children["advertise-v6"] = types.YChild{"AdvertiseV6", &neighborAf.AdvertiseV6}
-    neighborAf.EntityData.Children["advertise-local-v6"] = types.YChild{"AdvertiseLocalV6", &neighborAf.AdvertiseLocalV6}
-    neighborAf.EntityData.Children["import"] = types.YChild{"Import_", &neighborAf.Import_}
-    neighborAf.EntityData.Children["default-originate"] = types.YChild{"DefaultOriginate", &neighborAf.DefaultOriginate}
-    neighborAf.EntityData.Children["soft-reconfiguration"] = types.YChild{"SoftReconfiguration", &neighborAf.SoftReconfiguration}
-    neighborAf.EntityData.Children["advertise-vrf-imp-disable-v6"] = types.YChild{"AdvertiseVrfImpDisableV6", &neighborAf.AdvertiseVrfImpDisableV6}
-    neighborAf.EntityData.Children["advertise-v4"] = types.YChild{"AdvertiseV4", &neighborAf.AdvertiseV4}
-    neighborAf.EntityData.Children["advertise-local-v4"] = types.YChild{"AdvertiseLocalV4", &neighborAf.AdvertiseLocalV4}
-    neighborAf.EntityData.Children["remove-private-as-entire-as-path"] = types.YChild{"RemovePrivateAsEntireAsPath", &neighborAf.RemovePrivateAsEntireAsPath}
-    neighborAf.EntityData.Children["advertise-vrf-imp-disable-v4"] = types.YChild{"AdvertiseVrfImpDisableV4", &neighborAf.AdvertiseVrfImpDisableV4}
-    neighborAf.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", neighborAf.AfName}
-    neighborAf.EntityData.Leafs["neighbor-af-long-lived-graceful-restart-capable"] = types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", neighborAf.NeighborAfLongLivedGracefulRestartCapable}
-    neighborAf.EntityData.Leafs["l2vpn-signalling"] = types.YLeaf{"L2VpnSignalling", neighborAf.L2VpnSignalling}
-    neighborAf.EntityData.Leafs["send-ext-community-ebgp"] = types.YLeaf{"SendExtCommunityEbgp", neighborAf.SendExtCommunityEbgp}
-    neighborAf.EntityData.Leafs["accept-route-legacy-rt"] = types.YLeaf{"AcceptRouteLegacyRt", neighborAf.AcceptRouteLegacyRt}
-    neighborAf.EntityData.Leafs["send-community-ebgp"] = types.YLeaf{"SendCommunityEbgp", neighborAf.SendCommunityEbgp}
-    neighborAf.EntityData.Leafs["send-multicast-attr"] = types.YLeaf{"SendMulticastAttr", neighborAf.SendMulticastAttr}
-    neighborAf.EntityData.Leafs["next-hop-unchanged"] = types.YLeaf{"NextHopUnchanged", neighborAf.NextHopUnchanged}
-    neighborAf.EntityData.Leafs["advertise-local-labeled-route"] = types.YLeaf{"AdvertiseLocalLabeledRoute", neighborAf.AdvertiseLocalLabeledRoute}
-    neighborAf.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", neighborAf.RpkiOriginAsValidationDisable}
-    neighborAf.EntityData.Leafs["flowspec-validation"] = types.YLeaf{"FlowspecValidation", neighborAf.FlowspecValidation}
-    neighborAf.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", neighborAf.EncapsulationType}
-    neighborAf.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborAf.RpkiBestpathOriginAsAllowInvalid}
-    neighborAf.EntityData.Leafs["enforce-multiple-labels"] = types.YLeaf{"EnforceMultipleLabels", neighborAf.EnforceMultipleLabels}
-    neighborAf.EntityData.Leafs["as-override"] = types.YLeaf{"AsOverride", neighborAf.AsOverride}
-    neighborAf.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", neighborAf.Multipath}
-    neighborAf.EntityData.Leafs["send-community-ebgp-graceful-shutdown"] = types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborAf.SendCommunityEbgpGracefulShutdown}
-    neighborAf.EntityData.Leafs["activate"] = types.YLeaf{"Activate", neighborAf.Activate}
-    neighborAf.EntityData.Leafs["prefix-orf-policy"] = types.YLeaf{"PrefixOrfPolicy", neighborAf.PrefixOrfPolicy}
-    neighborAf.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", neighborAf.Aigp}
-    neighborAf.EntityData.Leafs["aigp-send-med"] = types.YLeaf{"AigpSendMed", neighborAf.AigpSendMed}
-    neighborAf.EntityData.Leafs["allow-as-in"] = types.YLeaf{"AllowAsIn", neighborAf.AllowAsIn}
-    neighborAf.EntityData.Leafs["advertise-orf"] = types.YLeaf{"AdvertiseOrf", neighborAf.AdvertiseOrf}
-    neighborAf.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", neighborAf.RouteReflectorClient}
-    neighborAf.EntityData.Leafs["next-hop-self"] = types.YLeaf{"NextHopSelf", neighborAf.NextHopSelf}
-    neighborAf.EntityData.Leafs["route-policy-in"] = types.YLeaf{"RoutePolicyIn", neighborAf.RoutePolicyIn}
-    neighborAf.EntityData.Leafs["default-weight"] = types.YLeaf{"DefaultWeight", neighborAf.DefaultWeight}
-    neighborAf.EntityData.Leafs["af-group"] = types.YLeaf{"AfGroup", neighborAf.AfGroup}
-    neighborAf.EntityData.Leafs["next-hop-unchanged-multipath"] = types.YLeaf{"NextHopUnchangedMultipath", neighborAf.NextHopUnchangedMultipath}
-    neighborAf.EntityData.Leafs["optimal-route-reflection-group"] = types.YLeaf{"OptimalRouteReflectionGroup", neighborAf.OptimalRouteReflectionGroup}
-    neighborAf.EntityData.Leafs["accept-own"] = types.YLeaf{"AcceptOwn", neighborAf.AcceptOwn}
-    neighborAf.EntityData.Leafs["route-policy-out"] = types.YLeaf{"RoutePolicyOut", neighborAf.RoutePolicyOut}
-    neighborAf.EntityData.Leafs["advertise-permanent-network"] = types.YLeaf{"AdvertisePermanentNetwork", neighborAf.AdvertisePermanentNetwork}
+    neighborAf.EntityData.Children = types.NewOrderedMap()
+    neighborAf.EntityData.Children.Append("aigp-cost-community", types.YChild{"AigpCostCommunity", &neighborAf.AigpCostCommunity})
+    neighborAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &neighborAf.AdvertiseDefImpDisableV6})
+    neighborAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &neighborAf.AdvertiseDisable})
+    neighborAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &neighborAf.MaximumPrefixes})
+    neighborAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborAf.RemovePrivateAsEntireAsPathInbound})
+    neighborAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &neighborAf.AdvertiseDefImpDisableV4})
+    neighborAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &neighborAf.AdvertiseL2vpnEvpn})
+    neighborAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &neighborAf.AdvertiseLocalL2vpnEvpn})
+    neighborAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborAf.NeighborAfLongLivedGracefulRestartStaleTime})
+    neighborAf.EntityData.Children.Append("advertise-v6", types.YChild{"AdvertiseV6", &neighborAf.AdvertiseV6})
+    neighborAf.EntityData.Children.Append("advertise-local-v6", types.YChild{"AdvertiseLocalV6", &neighborAf.AdvertiseLocalV6})
+    neighborAf.EntityData.Children.Append("import", types.YChild{"Import", &neighborAf.Import})
+    neighborAf.EntityData.Children.Append("default-originate", types.YChild{"DefaultOriginate", &neighborAf.DefaultOriginate})
+    neighborAf.EntityData.Children.Append("soft-reconfiguration", types.YChild{"SoftReconfiguration", &neighborAf.SoftReconfiguration})
+    neighborAf.EntityData.Children.Append("advertise-vrf-imp-disable-v6", types.YChild{"AdvertiseVrfImpDisableV6", &neighborAf.AdvertiseVrfImpDisableV6})
+    neighborAf.EntityData.Children.Append("advertise-v4", types.YChild{"AdvertiseV4", &neighborAf.AdvertiseV4})
+    neighborAf.EntityData.Children.Append("advertise-local-v4", types.YChild{"AdvertiseLocalV4", &neighborAf.AdvertiseLocalV4})
+    neighborAf.EntityData.Children.Append("remove-private-as-entire-as-path", types.YChild{"RemovePrivateAsEntireAsPath", &neighborAf.RemovePrivateAsEntireAsPath})
+    neighborAf.EntityData.Children.Append("advertise-vrf-imp-disable-v4", types.YChild{"AdvertiseVrfImpDisableV4", &neighborAf.AdvertiseVrfImpDisableV4})
+    neighborAf.EntityData.Leafs = types.NewOrderedMap()
+    neighborAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", neighborAf.AfName})
+    neighborAf.EntityData.Leafs.Append("neighbor-af-long-lived-graceful-restart-capable", types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", neighborAf.NeighborAfLongLivedGracefulRestartCapable})
+    neighborAf.EntityData.Leafs.Append("l2vpn-signalling", types.YLeaf{"L2vpnSignalling", neighborAf.L2vpnSignalling})
+    neighborAf.EntityData.Leafs.Append("send-ext-community-ebgp", types.YLeaf{"SendExtCommunityEbgp", neighborAf.SendExtCommunityEbgp})
+    neighborAf.EntityData.Leafs.Append("accept-route-legacy-rt", types.YLeaf{"AcceptRouteLegacyRt", neighborAf.AcceptRouteLegacyRt})
+    neighborAf.EntityData.Leafs.Append("send-community-ebgp", types.YLeaf{"SendCommunityEbgp", neighborAf.SendCommunityEbgp})
+    neighborAf.EntityData.Leafs.Append("send-multicast-attr", types.YLeaf{"SendMulticastAttr", neighborAf.SendMulticastAttr})
+    neighborAf.EntityData.Leafs.Append("next-hop-unchanged", types.YLeaf{"NextHopUnchanged", neighborAf.NextHopUnchanged})
+    neighborAf.EntityData.Leafs.Append("advertise-local-labeled-route", types.YLeaf{"AdvertiseLocalLabeledRoute", neighborAf.AdvertiseLocalLabeledRoute})
+    neighborAf.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", neighborAf.RpkiOriginAsValidationDisable})
+    neighborAf.EntityData.Leafs.Append("flowspec-validation", types.YLeaf{"FlowspecValidation", neighborAf.FlowspecValidation})
+    neighborAf.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", neighborAf.EncapsulationType})
+    neighborAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborAf.RpkiBestpathOriginAsAllowInvalid})
+    neighborAf.EntityData.Leafs.Append("enforce-multiple-labels", types.YLeaf{"EnforceMultipleLabels", neighborAf.EnforceMultipleLabels})
+    neighborAf.EntityData.Leafs.Append("as-override", types.YLeaf{"AsOverride", neighborAf.AsOverride})
+    neighborAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", neighborAf.Multipath})
+    neighborAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborAf.SendCommunityEbgpGracefulShutdown})
+    neighborAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", neighborAf.Activate})
+    neighborAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", neighborAf.PrefixOrfPolicy})
+    neighborAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", neighborAf.Aigp})
+    neighborAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", neighborAf.AigpSendMed})
+    neighborAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", neighborAf.AllowAsIn})
+    neighborAf.EntityData.Leafs.Append("advertise-orf", types.YLeaf{"AdvertiseOrf", neighborAf.AdvertiseOrf})
+    neighborAf.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", neighborAf.RouteReflectorClient})
+    neighborAf.EntityData.Leafs.Append("next-hop-self", types.YLeaf{"NextHopSelf", neighborAf.NextHopSelf})
+    neighborAf.EntityData.Leafs.Append("route-policy-in", types.YLeaf{"RoutePolicyIn", neighborAf.RoutePolicyIn})
+    neighborAf.EntityData.Leafs.Append("default-weight", types.YLeaf{"DefaultWeight", neighborAf.DefaultWeight})
+    neighborAf.EntityData.Leafs.Append("af-group", types.YLeaf{"AfGroup", neighborAf.AfGroup})
+    neighborAf.EntityData.Leafs.Append("next-hop-unchanged-multipath", types.YLeaf{"NextHopUnchangedMultipath", neighborAf.NextHopUnchangedMultipath})
+    neighborAf.EntityData.Leafs.Append("optimal-route-reflection-group", types.YLeaf{"OptimalRouteReflectionGroup", neighborAf.OptimalRouteReflectionGroup})
+    neighborAf.EntityData.Leafs.Append("accept-own", types.YLeaf{"AcceptOwn", neighborAf.AcceptOwn})
+    neighborAf.EntityData.Leafs.Append("route-policy-out", types.YLeaf{"RoutePolicyOut", neighborAf.RoutePolicyOut})
+    neighborAf.EntityData.Leafs.Append("advertise-permanent-network", types.YLeaf{"AdvertisePermanentNetwork", neighborAf.AdvertisePermanentNetwork})
+
+    neighborAf.EntityData.YListKeys = []string {"AfName"}
+
     return &(neighborAf.EntityData)
 }
 
@@ -6800,12 +7254,15 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aigpCostCommunity.EntityData.Children = make(map[string]types.YChild)
-    aigpCostCommunity.EntityData.Leafs = make(map[string]types.YLeaf)
-    aigpCostCommunity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", aigpCostCommunity.Enable}
-    aigpCostCommunity.EntityData.Leafs["cost-community-id"] = types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId}
-    aigpCostCommunity.EntityData.Leafs["transitive"] = types.YLeaf{"Transitive", aigpCostCommunity.Transitive}
-    aigpCostCommunity.EntityData.Leafs["cost-community-poi-type"] = types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType}
+    aigpCostCommunity.EntityData.Children = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", aigpCostCommunity.Enable})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-id", types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId})
+    aigpCostCommunity.EntityData.Leafs.Append("transitive", types.YLeaf{"Transitive", aigpCostCommunity.Transitive})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-poi-type", types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType})
+
+    aigpCostCommunity.EntityData.YListKeys = []string {}
+
     return &(aigpCostCommunity.EntityData)
 }
 
@@ -6835,11 +7292,14 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName}
-    advertiseDefImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption}
-    advertiseDefImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType}
+    advertiseDefImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType})
+
+    advertiseDefImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV6.EntityData)
 }
 
@@ -6869,11 +7329,14 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDisable.EntityData.Children = make(map[string]types.YChild)
-    advertiseDisable.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDisable.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDisable.AfName}
-    advertiseDisable.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption}
-    advertiseDisable.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDisable.RtType}
+    advertiseDisable.EntityData.Children = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDisable.AfName})
+    advertiseDisable.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption})
+    advertiseDisable.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDisable.RtType})
+
+    advertiseDisable.EntityData.YListKeys = []string {}
+
     return &(advertiseDisable.EntityData)
 }
 
@@ -6884,6 +7347,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_MaximumPrefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum prefixes limit. The type is interface{} with range: 1..4294967295.
     // This attribute is mandatory.
@@ -6916,13 +7380,16 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumPrefixes.EntityData.Children = make(map[string]types.YChild)
-    maximumPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumPrefixes.EntityData.Leafs["prefix-limit"] = types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit}
-    maximumPrefixes.EntityData.Leafs["warning-percentage"] = types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage}
-    maximumPrefixes.EntityData.Leafs["warning-only"] = types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly}
-    maximumPrefixes.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", maximumPrefixes.RestartTime}
-    maximumPrefixes.EntityData.Leafs["discard-extra-paths"] = types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths}
+    maximumPrefixes.EntityData.Children = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit})
+    maximumPrefixes.EntityData.Leafs.Append("warning-percentage", types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage})
+    maximumPrefixes.EntityData.Leafs.Append("warning-only", types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly})
+    maximumPrefixes.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", maximumPrefixes.RestartTime})
+    maximumPrefixes.EntityData.Leafs.Append("discard-extra-paths", types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths})
+
+    maximumPrefixes.EntityData.YListKeys = []string {}
+
     return &(maximumPrefixes.EntityData)
 }
 
@@ -6932,6 +7399,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_RemovePrivateAsEntireAsPathInbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from inbound updates. FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -6954,10 +7422,13 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Def
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPathInbound.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable}
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire}
+    removePrivateAsEntireAsPathInbound.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable})
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire})
+
+    removePrivateAsEntireAsPathInbound.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPathInbound.EntityData)
 }
 
@@ -6987,17 +7458,20 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName}
-    advertiseDefImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption}
-    advertiseDefImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType}
+    advertiseDefImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType})
+
+    advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn
 // Advertise Translated Routes to the peer
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7011,28 +7485,31 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     RtType interface{}
 }
 
-func (advertiseL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseL2VpnEvpn.EntityData.YFilter = advertiseL2VpnEvpn.YFilter
-    advertiseL2VpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseL2VpnEvpn.EntityData.ParentYangName = "neighbor-af"
-    advertiseL2VpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseL2vpnEvpn.EntityData.YFilter = advertiseL2vpnEvpn.YFilter
+    advertiseL2vpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseL2vpnEvpn.EntityData.ParentYangName = "neighbor-af"
+    advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseL2VpnEvpn.AfName}
-    advertiseL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseL2VpnEvpn.ReorgOption}
-    advertiseL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseL2VpnEvpn.RtType}
-    return &(advertiseL2VpnEvpn.EntityData)
+    advertiseL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseL2vpnEvpn.AfName})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseL2vpnEvpn.ReorgOption})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseL2vpnEvpn.RtType})
+
+    advertiseL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseL2vpnEvpn.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalL2vpnEvpn
 // Advertise Of Local Routes to the peer with
 // different RT
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7046,22 +7523,25 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     RtType interface{}
 }
 
-func (advertiseLocalL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseLocalL2VpnEvpn.EntityData.YFilter = advertiseLocalL2VpnEvpn.YFilter
-    advertiseLocalL2VpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseLocalL2VpnEvpn.EntityData.ParentYangName = "neighbor-af"
-    advertiseLocalL2VpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseLocalL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseLocalL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseLocalL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseLocalL2vpnEvpn.EntityData.YFilter = advertiseLocalL2vpnEvpn.YFilter
+    advertiseLocalL2vpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "neighbor-af"
+    advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalL2VpnEvpn.AfName}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalL2VpnEvpn.ReorgOption}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalL2VpnEvpn.RtType}
-    return &(advertiseLocalL2VpnEvpn.EntityData)
+    advertiseLocalL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalL2vpnEvpn.AfName})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalL2vpnEvpn.ReorgOption})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalL2vpnEvpn.RtType})
+
+    advertiseLocalL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseLocalL2vpnEvpn.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -7090,10 +7570,13 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = make(map[string]types.YChild)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-send"] = types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend}
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-accept"] = types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept}
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-send", types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend})
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-accept", types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept})
+
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.YListKeys = []string {}
+
     return &(neighborAfLongLivedGracefulRestartStaleTime.EntityData)
 }
 
@@ -7123,11 +7606,14 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV6.AfName}
-    advertiseV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV6.ReorgOption}
-    advertiseV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV6.RtType}
+    advertiseV6.EntityData.Children = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV6.AfName})
+    advertiseV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV6.ReorgOption})
+    advertiseV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV6.RtType})
+
+    advertiseV6.EntityData.YListKeys = []string {}
+
     return &(advertiseV6.EntityData)
 }
 
@@ -7158,11 +7644,14 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV6.AfName}
-    advertiseLocalV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption}
-    advertiseLocalV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV6.RtType}
+    advertiseLocalV6.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV6.AfName})
+    advertiseLocalV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption})
+    advertiseLocalV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV6.RtType})
+
+    advertiseLocalV6.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV6.EntityData)
 }
 
@@ -7196,11 +7685,14 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Ne
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["import-stitching"] = types.YLeaf{"ImportStitching", self.ImportStitching}
-    self.EntityData.Leafs["import-reoriginate"] = types.YLeaf{"ImportReoriginate", self.ImportReoriginate}
-    self.EntityData.Leafs["import-reoriginate-stitching"] = types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("import-stitching", types.YLeaf{"ImportStitching", self.ImportStitching})
+    self.EntityData.Leafs.Append("import-reoriginate", types.YLeaf{"ImportReoriginate", self.ImportReoriginate})
+    self.EntityData.Leafs.Append("import-reoriginate-stitching", types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -7229,10 +7721,13 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultOriginate.EntityData.Children = make(map[string]types.YChild)
-    defaultOriginate.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultOriginate.EntityData.Leafs["enable"] = types.YLeaf{"Enable", defaultOriginate.Enable}
-    defaultOriginate.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName}
+    defaultOriginate.EntityData.Children = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", defaultOriginate.Enable})
+    defaultOriginate.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName})
+
+    defaultOriginate.EntityData.YListKeys = []string {}
+
     return &(defaultOriginate.EntityData)
 }
 
@@ -7262,10 +7757,13 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    softReconfiguration.EntityData.Children = make(map[string]types.YChild)
-    softReconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    softReconfiguration.EntityData.Leafs["inbound-soft"] = types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft}
-    softReconfiguration.EntityData.Leafs["soft-always"] = types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways}
+    softReconfiguration.EntityData.Children = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs.Append("inbound-soft", types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft})
+    softReconfiguration.EntityData.Leafs.Append("soft-always", types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways})
+
+    softReconfiguration.EntityData.YListKeys = []string {}
+
     return &(softReconfiguration.EntityData)
 }
 
@@ -7295,11 +7793,14 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName}
-    advertiseVrfImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption}
-    advertiseVrfImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType}
+    advertiseVrfImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType})
+
+    advertiseVrfImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV6.EntityData)
 }
 
@@ -7329,11 +7830,14 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV4.AfName}
-    advertiseV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV4.ReorgOption}
-    advertiseV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV4.RtType}
+    advertiseV4.EntityData.Children = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV4.AfName})
+    advertiseV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV4.ReorgOption})
+    advertiseV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV4.RtType})
+
+    advertiseV4.EntityData.YListKeys = []string {}
+
     return &(advertiseV4.EntityData)
 }
 
@@ -7364,11 +7868,14 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV4.AfName}
-    advertiseLocalV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption}
-    advertiseLocalV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV4.RtType}
+    advertiseLocalV4.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV4.AfName})
+    advertiseLocalV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption})
+    advertiseLocalV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV4.RtType})
+
+    advertiseLocalV4.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV4.EntityData)
 }
 
@@ -7378,6 +7885,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_RemovePrivateAsEntireAsPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from outbound updates .  FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -7400,10 +7908,13 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPath.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPath.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable}
-    removePrivateAsEntireAsPath.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire}
+    removePrivateAsEntireAsPath.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable})
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire})
+
+    removePrivateAsEntireAsPath.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPath.EntityData)
 }
 
@@ -7433,11 +7944,14 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName}
-    advertiseVrfImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption}
-    advertiseVrfImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType}
+    advertiseVrfImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType})
+
+    advertiseVrfImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
@@ -7453,9 +7967,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -7469,10 +7983,13 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAddress.EntityData.Children = make(map[string]types.YChild)
-    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAddress.EntityData.Leafs["local-address-disable"] = types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable}
-    localAddress.EntityData.Leafs["local-ip-address"] = types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress}
+    localAddress.EntityData.Children = types.NewOrderedMap()
+    localAddress.EntityData.Leafs = types.NewOrderedMap()
+    localAddress.EntityData.Leafs.Append("local-address-disable", types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable})
+    localAddress.EntityData.Leafs.Append("local-ip-address", types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress})
+
+    localAddress.EntityData.YListKeys = []string {}
+
     return &(localAddress.EntityData)
 }
 
@@ -7484,7 +8001,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
 
     // Enable BMP logging for this particular server. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_BmpActivates_BmpActivate.
-    BmpActivate []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_BmpActivates_BmpActivate
+    BmpActivate []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_BmpActivates_BmpActivate
 }
 
 func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_BmpActivates) GetEntityData() *types.CommonEntityData {
@@ -7497,12 +8014,15 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivates.EntityData.Children = make(map[string]types.YChild)
-    bmpActivates.EntityData.Children["bmp-activate"] = types.YChild{"BmpActivate", nil}
+    bmpActivates.EntityData.Children = types.NewOrderedMap()
+    bmpActivates.EntityData.Children.Append("bmp-activate", types.YChild{"BmpActivate", nil})
     for i := range bmpActivates.BmpActivate {
-        bmpActivates.EntityData.Children[types.GetSegmentPath(&bmpActivates.BmpActivate[i])] = types.YChild{"BmpActivate", &bmpActivates.BmpActivate[i]}
+        bmpActivates.EntityData.Children.Append(types.GetSegmentPath(bmpActivates.BmpActivate[i]), types.YChild{"BmpActivate", bmpActivates.BmpActivate[i]})
     }
-    bmpActivates.EntityData.Leafs = make(map[string]types.YLeaf)
+    bmpActivates.EntityData.Leafs = types.NewOrderedMap()
+
+    bmpActivates.EntityData.YListKeys = []string {}
+
     return &(bmpActivates.EntityData)
 }
 
@@ -7522,14 +8042,17 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     bmpActivate.EntityData.YangName = "bmp-activate"
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
-    bmpActivate.EntityData.SegmentPath = "bmp-activate" + "[server-id='" + fmt.Sprintf("%v", bmpActivate.ServerId) + "']"
+    bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivate.EntityData.Children = make(map[string]types.YChild)
-    bmpActivate.EntityData.Leafs = make(map[string]types.YLeaf)
-    bmpActivate.EntityData.Leafs["server-id"] = types.YLeaf{"ServerId", bmpActivate.ServerId}
+    bmpActivate.EntityData.Children = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs.Append("server-id", types.YLeaf{"ServerId", bmpActivate.ServerId})
+
+    bmpActivate.EntityData.YListKeys = []string {"ServerId"}
+
     return &(bmpActivate.EntityData)
 }
 
@@ -7559,10 +8082,13 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ebgpMultihop.EntityData.Children = make(map[string]types.YChild)
-    ebgpMultihop.EntityData.Leafs = make(map[string]types.YLeaf)
-    ebgpMultihop.EntityData.Leafs["max-hop-count"] = types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount}
-    ebgpMultihop.EntityData.Leafs["mpls-deactivation"] = types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation}
+    ebgpMultihop.EntityData.Children = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs.Append("max-hop-count", types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount})
+    ebgpMultihop.EntityData.Leafs.Append("mpls-deactivation", types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation})
+
+    ebgpMultihop.EntityData.YListKeys = []string {}
+
     return &(ebgpMultihop.EntityData)
 }
 
@@ -7589,10 +8115,13 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteAs.EntityData.Children = make(map[string]types.YChild)
-    remoteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", remoteAs.AsXx}
-    remoteAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", remoteAs.AsYy}
+    remoteAs.EntityData.Children = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", remoteAs.AsXx})
+    remoteAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", remoteAs.AsYy})
+
+    remoteAs.EntityData.YListKeys = []string {}
+
     return &(remoteAs.EntityData)
 }
 
@@ -7634,14 +8163,17 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAs.EntityData.Children = make(map[string]types.YChild)
-    localAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", localAs.AsXx}
-    localAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", localAs.AsYy}
-    localAs.EntityData.Leafs["no-prepend"] = types.YLeaf{"NoPrepend", localAs.NoPrepend}
-    localAs.EntityData.Leafs["disable"] = types.YLeaf{"Disable", localAs.Disable}
-    localAs.EntityData.Leafs["replace-as"] = types.YLeaf{"ReplaceAs", localAs.ReplaceAs}
-    localAs.EntityData.Leafs["dual-as"] = types.YLeaf{"DualAs", localAs.DualAs}
+    localAs.EntityData.Children = types.NewOrderedMap()
+    localAs.EntityData.Leafs = types.NewOrderedMap()
+    localAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", localAs.AsXx})
+    localAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", localAs.AsYy})
+    localAs.EntityData.Leafs.Append("no-prepend", types.YLeaf{"NoPrepend", localAs.NoPrepend})
+    localAs.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", localAs.Disable})
+    localAs.EntityData.Leafs.Append("replace-as", types.YLeaf{"ReplaceAs", localAs.ReplaceAs})
+    localAs.EntityData.Leafs.Append("dual-as", types.YLeaf{"DualAs", localAs.DualAs})
+
+    localAs.EntityData.YListKeys = []string {}
+
     return &(localAs.EntityData)
 }
 
@@ -7656,7 +8188,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -7670,10 +8202,13 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    password.EntityData.Children = make(map[string]types.YChild)
-    password.EntityData.Leafs = make(map[string]types.YLeaf)
-    password.EntityData.Leafs["password-disable"] = types.YLeaf{"PasswordDisable", password.PasswordDisable}
-    password.EntityData.Leafs["password"] = types.YLeaf{"Password", password.Password}
+    password.EntityData.Children = types.NewOrderedMap()
+    password.EntityData.Leafs = types.NewOrderedMap()
+    password.EntityData.Leafs.Append("password-disable", types.YLeaf{"PasswordDisable", password.PasswordDisable})
+    password.EntityData.Leafs.Append("password", types.YLeaf{"Password", password.Password})
+
+    password.EntityData.YListKeys = []string {}
+
     return &(password.EntityData)
 }
 
@@ -7684,6 +8219,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_AdvertisementInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Minimum advertisement interval time, secs part. The type is interface{}
     // with range: 0..600. This attribute is mandatory. Units are second.
@@ -7704,10 +8240,13 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEn
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertisementInterval.EntityData.Children = make(map[string]types.YChild)
-    advertisementInterval.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertisementInterval.EntityData.Leafs["minimum-interval"] = types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval}
-    advertisementInterval.EntityData.Leafs["minimum-interval-msecs"] = types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs}
+    advertisementInterval.EntityData.Children = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval", types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval})
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval-msecs", types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs})
+
+    advertisementInterval.EntityData.YListKeys = []string {}
+
     return &(advertisementInterval.EntityData)
 }
 
@@ -7723,7 +8262,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -7737,10 +8276,13 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborClusterId.EntityData.Children = make(map[string]types.YChild)
-    neighborClusterId.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborClusterId.EntityData.Leafs["cluster-id-number"] = types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber}
-    neighborClusterId.EntityData.Leafs["cluster-id-address"] = types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress}
+    neighborClusterId.EntityData.Children = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-number", types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber})
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-address", types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress})
+
+    neighborClusterId.EntityData.YListKeys = []string {}
+
     return &(neighborClusterId.EntityData)
 }
 
@@ -7768,10 +8310,13 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcpmss.EntityData.Children = make(map[string]types.YChild)
-    tcpmss.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpmss.EntityData.Leafs["tcpmss-disable"] = types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable}
-    tcpmss.EntityData.Leafs["mss"] = types.YLeaf{"Mss", tcpmss.Mss}
+    tcpmss.EntityData.Children = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs.Append("tcpmss-disable", types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable})
+    tcpmss.EntityData.Leafs.Append("mss", types.YLeaf{"Mss", tcpmss.Mss})
+
+    tcpmss.EntityData.YListKeys = []string {}
+
     return &(tcpmss.EntityData)
 }
 
@@ -7782,7 +8327,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     YFilter yfilter.YFilter
 
     // Set type of service. The type is BgpTos.
-    Type_ interface{}
+    Type interface{}
 
     // TOS value to set. The type is one of the following types: enumeration
     // BgpPrecedenceDscp, or int with range: 0..63.
@@ -7799,10 +8344,13 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Nei
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tos.EntityData.Children = make(map[string]types.YChild)
-    tos.EntityData.Leafs = make(map[string]types.YLeaf)
-    tos.EntityData.Leafs["type"] = types.YLeaf{"Type_", tos.Type_}
-    tos.EntityData.Leafs["value"] = types.YLeaf{"Value", tos.Value}
+    tos.EntityData.Children = types.NewOrderedMap()
+    tos.EntityData.Leafs = types.NewOrderedMap()
+    tos.EntityData.Leafs.Append("type", types.YLeaf{"Type", tos.Type})
+    tos.EntityData.Leafs.Append("value", types.YLeaf{"Value", tos.Value})
+
+    tos.EntityData.YListKeys = []string {}
+
     return &(tos.EntityData)
 }
 
@@ -7835,12 +8383,15 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFiltering.EntityData.Children = make(map[string]types.YChild)
-    updateInFiltering.EntityData.Children["update-in-filtering-message-buffers"] = types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers}
-    updateInFiltering.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFiltering.EntityData.Leafs["enable"] = types.YLeaf{"Enable", updateInFiltering.Enable}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-attribute-filter-group"] = types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-syslog-disable"] = types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable}
+    updateInFiltering.EntityData.Children = types.NewOrderedMap()
+    updateInFiltering.EntityData.Children.Append("update-in-filtering-message-buffers", types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers})
+    updateInFiltering.EntityData.Leafs = types.NewOrderedMap()
+    updateInFiltering.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", updateInFiltering.Enable})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-attribute-filter-group", types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-syslog-disable", types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable})
+
+    updateInFiltering.EntityData.YListKeys = []string {}
+
     return &(updateInFiltering.EntityData)
 }
 
@@ -7850,6 +8401,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_UpdateInFiltering_UpdateInFilteringMessageBuffers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of message buffers. The type is interface{} with range: 0..25. This
     // attribute is mandatory.
@@ -7870,10 +8422,13 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFilteringMessageBuffers.EntityData.Children = make(map[string]types.YChild)
-    updateInFilteringMessageBuffers.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFilteringMessageBuffers.EntityData.Leafs["number-of-buffers"] = types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers}
-    updateInFilteringMessageBuffers.EntityData.Leafs["non-circular-buffer"] = types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer}
+    updateInFilteringMessageBuffers.EntityData.Children = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("number-of-buffers", types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers})
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("non-circular-buffer", types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer})
+
+    updateInFilteringMessageBuffers.EntityData.YListKeys = []string {}
+
     return &(updateInFilteringMessageBuffers.EntityData)
 }
 
@@ -7905,11 +8460,14 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogOut.EntityData.Children = make(map[string]types.YChild)
-    msgLogOut.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogOut.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount}
-    msgLogOut.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable}
-    msgLogOut.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable}
+    msgLogOut.EntityData.Children = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount})
+    msgLogOut.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable})
+    msgLogOut.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable})
+
+    msgLogOut.EntityData.YListKeys = []string {}
+
     return &(msgLogOut.EntityData)
 }
 
@@ -7939,10 +8497,13 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveBufferSize.EntityData.Children = make(map[string]types.YChild)
-    receiveBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveBufferSize.EntityData.Leafs["socket-receive-size"] = types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize}
-    receiveBufferSize.EntityData.Leafs["bgp-receive-size"] = types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize}
+    receiveBufferSize.EntityData.Children = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs.Append("socket-receive-size", types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize})
+    receiveBufferSize.EntityData.Leafs.Append("bgp-receive-size", types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize})
+
+    receiveBufferSize.EntityData.YListKeys = []string {}
+
     return &(receiveBufferSize.EntityData)
 }
 
@@ -7974,11 +8535,14 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogIn.EntityData.Children = make(map[string]types.YChild)
-    msgLogIn.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogIn.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount}
-    msgLogIn.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable}
-    msgLogIn.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable}
+    msgLogIn.EntityData.Children = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount})
+    msgLogIn.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable})
+    msgLogIn.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable})
+
+    msgLogIn.EntityData.YListKeys = []string {}
+
     return &(msgLogIn.EntityData)
 }
 
@@ -8008,10 +8572,13 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendBufferSize.EntityData.Children = make(map[string]types.YChild)
-    sendBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendBufferSize.EntityData.Leafs["socket-send-size"] = types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize}
-    sendBufferSize.EntityData.Leafs["bgp-send-size"] = types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize}
+    sendBufferSize.EntityData.Children = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs.Append("socket-send-size", types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize})
+    sendBufferSize.EntityData.Leafs.Append("bgp-send-size", types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize})
+
+    sendBufferSize.EntityData.YListKeys = []string {}
+
     return &(sendBufferSize.EntityData)
 }
 
@@ -8044,11 +8611,14 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval}
-    timers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", timers.HoldTime}
-    timers.EntityData.Leafs["min-accept-hold-time"] = types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval})
+    timers.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", timers.HoldTime})
+    timers.EntityData.Leafs.Append("min-accept-hold-time", types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -8077,10 +8647,13 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keychain.EntityData.Children = make(map[string]types.YChild)
-    keychain.EntityData.Leafs = make(map[string]types.YLeaf)
-    keychain.EntityData.Leafs["keychain-disable"] = types.YLeaf{"KeychainDisable", keychain.KeychainDisable}
-    keychain.EntityData.Leafs["keychain-name"] = types.YLeaf{"KeychainName", keychain.KeychainName}
+    keychain.EntityData.Children = types.NewOrderedMap()
+    keychain.EntityData.Leafs = types.NewOrderedMap()
+    keychain.EntityData.Leafs.Append("keychain-disable", types.YLeaf{"KeychainDisable", keychain.KeychainDisable})
+    keychain.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", keychain.KeychainName})
+
+    keychain.EntityData.YListKeys = []string {}
+
     return &(keychain.EntityData)
 }
 
@@ -8114,12 +8687,15 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenance.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-local-preference"] = types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference}
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-as-prepends"] = types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends}
-    gracefulMaintenance.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenance.EntityData.Leafs["enable"] = types.YLeaf{"Enable", gracefulMaintenance.Enable}
-    gracefulMaintenance.EntityData.Leafs["graceful-maintenance-activate"] = types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate}
+    gracefulMaintenance.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-local-preference", types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference})
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-as-prepends", types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends})
+    gracefulMaintenance.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", gracefulMaintenance.Enable})
+    gracefulMaintenance.EntityData.Leafs.Append("graceful-maintenance-activate", types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate})
+
+    gracefulMaintenance.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenance.EntityData)
 }
 
@@ -8147,10 +8723,13 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Def
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceLocalPreference.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["gshut-loc-pref-disable"] = types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable}
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["local-preference"] = types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference}
+    gracefulMaintenanceLocalPreference.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("gshut-loc-pref-disable", types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable})
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("local-preference", types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference})
+
+    gracefulMaintenanceLocalPreference.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceLocalPreference.EntityData)
 }
 
@@ -8179,10 +8758,13 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceAsPrepends.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["gshut-prepends-disable"] = types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable}
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["as-prepends"] = types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends}
+    gracefulMaintenanceAsPrepends.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("gshut-prepends-disable", types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable})
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("as-prepends", types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends})
+
+    gracefulMaintenanceAsPrepends.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceAsPrepends.EntityData)
 }
 
@@ -8198,9 +8780,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // TRUE to preserve the CE path attributes.FALSE to override CE path
@@ -8311,7 +8893,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     UpdateSourceInterface interface{}
 
     // BGP neighbor AF configuration table.
@@ -8377,63 +8959,66 @@ func (neighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnt
     neighborPrefixLength.EntityData.YangName = "neighbor-prefix-length"
     neighborPrefixLength.EntityData.BundleName = "cisco_ios_xr"
     neighborPrefixLength.EntityData.ParentYangName = "neighbors"
-    neighborPrefixLength.EntityData.SegmentPath = "neighbor-prefix-length" + "[prefix-length='" + fmt.Sprintf("%v", neighborPrefixLength.PrefixLength) + "']" + "[neighbor-address='" + fmt.Sprintf("%v", neighborPrefixLength.NeighborAddress) + "']"
+    neighborPrefixLength.EntityData.SegmentPath = "neighbor-prefix-length" + types.AddKeyToken(neighborPrefixLength.PrefixLength, "prefix-length") + types.AddKeyToken(neighborPrefixLength.NeighborAddress, "neighbor-address")
     neighborPrefixLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborPrefixLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborPrefixLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborPrefixLength.EntityData.Children = make(map[string]types.YChild)
-    neighborPrefixLength.EntityData.Children["neighbor-afs"] = types.YChild{"NeighborAfs", &neighborPrefixLength.NeighborAfs}
-    neighborPrefixLength.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &neighborPrefixLength.LocalAddress}
-    neighborPrefixLength.EntityData.Children["bmp-activates"] = types.YChild{"BmpActivates", &neighborPrefixLength.BmpActivates}
-    neighborPrefixLength.EntityData.Children["ebgp-multihop"] = types.YChild{"EbgpMultihop", &neighborPrefixLength.EbgpMultihop}
-    neighborPrefixLength.EntityData.Children["remote-as"] = types.YChild{"RemoteAs", &neighborPrefixLength.RemoteAs}
-    neighborPrefixLength.EntityData.Children["local-as"] = types.YChild{"LocalAs", &neighborPrefixLength.LocalAs}
-    neighborPrefixLength.EntityData.Children["password"] = types.YChild{"Password", &neighborPrefixLength.Password}
-    neighborPrefixLength.EntityData.Children["advertisement-interval"] = types.YChild{"AdvertisementInterval", &neighborPrefixLength.AdvertisementInterval}
-    neighborPrefixLength.EntityData.Children["neighbor-cluster-id"] = types.YChild{"NeighborClusterId", &neighborPrefixLength.NeighborClusterId}
-    neighborPrefixLength.EntityData.Children["tcpmss"] = types.YChild{"Tcpmss", &neighborPrefixLength.Tcpmss}
-    neighborPrefixLength.EntityData.Children["tos"] = types.YChild{"Tos", &neighborPrefixLength.Tos}
-    neighborPrefixLength.EntityData.Children["update-in-filtering"] = types.YChild{"UpdateInFiltering", &neighborPrefixLength.UpdateInFiltering}
-    neighborPrefixLength.EntityData.Children["msg-log-out"] = types.YChild{"MsgLogOut", &neighborPrefixLength.MsgLogOut}
-    neighborPrefixLength.EntityData.Children["receive-buffer-size"] = types.YChild{"ReceiveBufferSize", &neighborPrefixLength.ReceiveBufferSize}
-    neighborPrefixLength.EntityData.Children["msg-log-in"] = types.YChild{"MsgLogIn", &neighborPrefixLength.MsgLogIn}
-    neighborPrefixLength.EntityData.Children["send-buffer-size"] = types.YChild{"SendBufferSize", &neighborPrefixLength.SendBufferSize}
-    neighborPrefixLength.EntityData.Children["timers"] = types.YChild{"Timers", &neighborPrefixLength.Timers}
-    neighborPrefixLength.EntityData.Children["keychain"] = types.YChild{"Keychain", &neighborPrefixLength.Keychain}
-    neighborPrefixLength.EntityData.Children["graceful-maintenance"] = types.YChild{"GracefulMaintenance", &neighborPrefixLength.GracefulMaintenance}
-    neighborPrefixLength.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborPrefixLength.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", neighborPrefixLength.PrefixLength}
-    neighborPrefixLength.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", neighborPrefixLength.NeighborAddress}
-    neighborPrefixLength.EntityData.Leafs["internal-vpn-client-ibgp-ce"] = types.YLeaf{"InternalVpnClientIbgpCe", neighborPrefixLength.InternalVpnClientIbgpCe}
-    neighborPrefixLength.EntityData.Leafs["session-group-add-member"] = types.YLeaf{"SessionGroupAddMember", neighborPrefixLength.SessionGroupAddMember}
-    neighborPrefixLength.EntityData.Leafs["egress-peer-engineering"] = types.YLeaf{"EgressPeerEngineering", neighborPrefixLength.EgressPeerEngineering}
-    neighborPrefixLength.EntityData.Leafs["neighbor-graceful-restart-stalepath-time"] = types.YLeaf{"NeighborGracefulRestartStalepathTime", neighborPrefixLength.NeighborGracefulRestartStalepathTime}
-    neighborPrefixLength.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", neighborPrefixLength.Shutdown}
-    neighborPrefixLength.EntityData.Leafs["description"] = types.YLeaf{"Description", neighborPrefixLength.Description}
-    neighborPrefixLength.EntityData.Leafs["neighbor-group-add-member"] = types.YLeaf{"NeighborGroupAddMember", neighborPrefixLength.NeighborGroupAddMember}
-    neighborPrefixLength.EntityData.Leafs["ebgp-recv-dmz"] = types.YLeaf{"EbgpRecvDmz", neighborPrefixLength.EbgpRecvDmz}
-    neighborPrefixLength.EntityData.Leafs["neighbor-graceful-restart"] = types.YLeaf{"NeighborGracefulRestart", neighborPrefixLength.NeighborGracefulRestart}
-    neighborPrefixLength.EntityData.Leafs["enforce-first-as"] = types.YLeaf{"EnforceFirstAs", neighborPrefixLength.EnforceFirstAs}
-    neighborPrefixLength.EntityData.Leafs["idle-watch-time"] = types.YLeaf{"IdleWatchTime", neighborPrefixLength.IdleWatchTime}
-    neighborPrefixLength.EntityData.Leafs["session-open-mode"] = types.YLeaf{"SessionOpenMode", neighborPrefixLength.SessionOpenMode}
-    neighborPrefixLength.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", neighborPrefixLength.RpkiOriginAsValidationDisable}
-    neighborPrefixLength.EntityData.Leafs["ebgp-send-dmz-enable-modes"] = types.YLeaf{"EbgpSendDmzEnableModes", neighborPrefixLength.EbgpSendDmzEnableModes}
-    neighborPrefixLength.EntityData.Leafs["suppress-all-capabilities"] = types.YLeaf{"SuppressAllCapabilities", neighborPrefixLength.SuppressAllCapabilities}
-    neighborPrefixLength.EntityData.Leafs["max-peers"] = types.YLeaf{"MaxPeers", neighborPrefixLength.MaxPeers}
-    neighborPrefixLength.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborPrefixLength.RpkiBestpathOriginAsAllowInvalid}
-    neighborPrefixLength.EntityData.Leafs["additional-paths-send-capability"] = types.YLeaf{"AdditionalPathsSendCapability", neighborPrefixLength.AdditionalPathsSendCapability}
-    neighborPrefixLength.EntityData.Leafs["propagate-dmz-link-bandwidth"] = types.YLeaf{"PropagateDmzLinkBandwidth", neighborPrefixLength.PropagateDmzLinkBandwidth}
-    neighborPrefixLength.EntityData.Leafs["bfd-enable-modes"] = types.YLeaf{"BfdEnableModes", neighborPrefixLength.BfdEnableModes}
-    neighborPrefixLength.EntityData.Leafs["ttl-security"] = types.YLeaf{"TtlSecurity", neighborPrefixLength.TtlSecurity}
-    neighborPrefixLength.EntityData.Leafs["neighbor-graceful-restart-time"] = types.YLeaf{"NeighborGracefulRestartTime", neighborPrefixLength.NeighborGracefulRestartTime}
-    neighborPrefixLength.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", neighborPrefixLength.BfdMultiplier}
-    neighborPrefixLength.EntityData.Leafs["bfd-minimum-interval"] = types.YLeaf{"BfdMinimumInterval", neighborPrefixLength.BfdMinimumInterval}
-    neighborPrefixLength.EntityData.Leafs["remote-as-list"] = types.YLeaf{"RemoteAsList", neighborPrefixLength.RemoteAsList}
-    neighborPrefixLength.EntityData.Leafs["additional-paths-receive-capability"] = types.YLeaf{"AdditionalPathsReceiveCapability", neighborPrefixLength.AdditionalPathsReceiveCapability}
-    neighborPrefixLength.EntityData.Leafs["ignore-connected-check-ebgp"] = types.YLeaf{"IgnoreConnectedCheckEbgp", neighborPrefixLength.IgnoreConnectedCheckEbgp}
-    neighborPrefixLength.EntityData.Leafs["suppress-four-byte-as-capability"] = types.YLeaf{"SuppressFourByteAsCapability", neighborPrefixLength.SuppressFourByteAsCapability}
-    neighborPrefixLength.EntityData.Leafs["update-source-interface"] = types.YLeaf{"UpdateSourceInterface", neighborPrefixLength.UpdateSourceInterface}
+    neighborPrefixLength.EntityData.Children = types.NewOrderedMap()
+    neighborPrefixLength.EntityData.Children.Append("neighbor-afs", types.YChild{"NeighborAfs", &neighborPrefixLength.NeighborAfs})
+    neighborPrefixLength.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &neighborPrefixLength.LocalAddress})
+    neighborPrefixLength.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &neighborPrefixLength.BmpActivates})
+    neighborPrefixLength.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &neighborPrefixLength.EbgpMultihop})
+    neighborPrefixLength.EntityData.Children.Append("remote-as", types.YChild{"RemoteAs", &neighborPrefixLength.RemoteAs})
+    neighborPrefixLength.EntityData.Children.Append("local-as", types.YChild{"LocalAs", &neighborPrefixLength.LocalAs})
+    neighborPrefixLength.EntityData.Children.Append("password", types.YChild{"Password", &neighborPrefixLength.Password})
+    neighborPrefixLength.EntityData.Children.Append("advertisement-interval", types.YChild{"AdvertisementInterval", &neighborPrefixLength.AdvertisementInterval})
+    neighborPrefixLength.EntityData.Children.Append("neighbor-cluster-id", types.YChild{"NeighborClusterId", &neighborPrefixLength.NeighborClusterId})
+    neighborPrefixLength.EntityData.Children.Append("tcpmss", types.YChild{"Tcpmss", &neighborPrefixLength.Tcpmss})
+    neighborPrefixLength.EntityData.Children.Append("tos", types.YChild{"Tos", &neighborPrefixLength.Tos})
+    neighborPrefixLength.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &neighborPrefixLength.UpdateInFiltering})
+    neighborPrefixLength.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &neighborPrefixLength.MsgLogOut})
+    neighborPrefixLength.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &neighborPrefixLength.ReceiveBufferSize})
+    neighborPrefixLength.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &neighborPrefixLength.MsgLogIn})
+    neighborPrefixLength.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &neighborPrefixLength.SendBufferSize})
+    neighborPrefixLength.EntityData.Children.Append("timers", types.YChild{"Timers", &neighborPrefixLength.Timers})
+    neighborPrefixLength.EntityData.Children.Append("keychain", types.YChild{"Keychain", &neighborPrefixLength.Keychain})
+    neighborPrefixLength.EntityData.Children.Append("graceful-maintenance", types.YChild{"GracefulMaintenance", &neighborPrefixLength.GracefulMaintenance})
+    neighborPrefixLength.EntityData.Leafs = types.NewOrderedMap()
+    neighborPrefixLength.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", neighborPrefixLength.PrefixLength})
+    neighborPrefixLength.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighborPrefixLength.NeighborAddress})
+    neighborPrefixLength.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", neighborPrefixLength.InternalVpnClientIbgpCe})
+    neighborPrefixLength.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", neighborPrefixLength.SessionGroupAddMember})
+    neighborPrefixLength.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", neighborPrefixLength.EgressPeerEngineering})
+    neighborPrefixLength.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", neighborPrefixLength.NeighborGracefulRestartStalepathTime})
+    neighborPrefixLength.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", neighborPrefixLength.Shutdown})
+    neighborPrefixLength.EntityData.Leafs.Append("description", types.YLeaf{"Description", neighborPrefixLength.Description})
+    neighborPrefixLength.EntityData.Leafs.Append("neighbor-group-add-member", types.YLeaf{"NeighborGroupAddMember", neighborPrefixLength.NeighborGroupAddMember})
+    neighborPrefixLength.EntityData.Leafs.Append("ebgp-recv-dmz", types.YLeaf{"EbgpRecvDmz", neighborPrefixLength.EbgpRecvDmz})
+    neighborPrefixLength.EntityData.Leafs.Append("neighbor-graceful-restart", types.YLeaf{"NeighborGracefulRestart", neighborPrefixLength.NeighborGracefulRestart})
+    neighborPrefixLength.EntityData.Leafs.Append("enforce-first-as", types.YLeaf{"EnforceFirstAs", neighborPrefixLength.EnforceFirstAs})
+    neighborPrefixLength.EntityData.Leafs.Append("idle-watch-time", types.YLeaf{"IdleWatchTime", neighborPrefixLength.IdleWatchTime})
+    neighborPrefixLength.EntityData.Leafs.Append("session-open-mode", types.YLeaf{"SessionOpenMode", neighborPrefixLength.SessionOpenMode})
+    neighborPrefixLength.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", neighborPrefixLength.RpkiOriginAsValidationDisable})
+    neighborPrefixLength.EntityData.Leafs.Append("ebgp-send-dmz-enable-modes", types.YLeaf{"EbgpSendDmzEnableModes", neighborPrefixLength.EbgpSendDmzEnableModes})
+    neighborPrefixLength.EntityData.Leafs.Append("suppress-all-capabilities", types.YLeaf{"SuppressAllCapabilities", neighborPrefixLength.SuppressAllCapabilities})
+    neighborPrefixLength.EntityData.Leafs.Append("max-peers", types.YLeaf{"MaxPeers", neighborPrefixLength.MaxPeers})
+    neighborPrefixLength.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborPrefixLength.RpkiBestpathOriginAsAllowInvalid})
+    neighborPrefixLength.EntityData.Leafs.Append("additional-paths-send-capability", types.YLeaf{"AdditionalPathsSendCapability", neighborPrefixLength.AdditionalPathsSendCapability})
+    neighborPrefixLength.EntityData.Leafs.Append("propagate-dmz-link-bandwidth", types.YLeaf{"PropagateDmzLinkBandwidth", neighborPrefixLength.PropagateDmzLinkBandwidth})
+    neighborPrefixLength.EntityData.Leafs.Append("bfd-enable-modes", types.YLeaf{"BfdEnableModes", neighborPrefixLength.BfdEnableModes})
+    neighborPrefixLength.EntityData.Leafs.Append("ttl-security", types.YLeaf{"TtlSecurity", neighborPrefixLength.TtlSecurity})
+    neighborPrefixLength.EntityData.Leafs.Append("neighbor-graceful-restart-time", types.YLeaf{"NeighborGracefulRestartTime", neighborPrefixLength.NeighborGracefulRestartTime})
+    neighborPrefixLength.EntityData.Leafs.Append("bfd-multiplier", types.YLeaf{"BfdMultiplier", neighborPrefixLength.BfdMultiplier})
+    neighborPrefixLength.EntityData.Leafs.Append("bfd-minimum-interval", types.YLeaf{"BfdMinimumInterval", neighborPrefixLength.BfdMinimumInterval})
+    neighborPrefixLength.EntityData.Leafs.Append("remote-as-list", types.YLeaf{"RemoteAsList", neighborPrefixLength.RemoteAsList})
+    neighborPrefixLength.EntityData.Leafs.Append("additional-paths-receive-capability", types.YLeaf{"AdditionalPathsReceiveCapability", neighborPrefixLength.AdditionalPathsReceiveCapability})
+    neighborPrefixLength.EntityData.Leafs.Append("ignore-connected-check-ebgp", types.YLeaf{"IgnoreConnectedCheckEbgp", neighborPrefixLength.IgnoreConnectedCheckEbgp})
+    neighborPrefixLength.EntityData.Leafs.Append("suppress-four-byte-as-capability", types.YLeaf{"SuppressFourByteAsCapability", neighborPrefixLength.SuppressFourByteAsCapability})
+    neighborPrefixLength.EntityData.Leafs.Append("update-source-interface", types.YLeaf{"UpdateSourceInterface", neighborPrefixLength.UpdateSourceInterface})
+
+    neighborPrefixLength.EntityData.YListKeys = []string {"PrefixLength", "NeighborAddress"}
+
     return &(neighborPrefixLength.EntityData)
 }
 
@@ -8445,7 +9030,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // Address family type of neighbor. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf.
-    NeighborAf []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf
+    NeighborAf []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf
 }
 
 func (neighborAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs) GetEntityData() *types.CommonEntityData {
@@ -8458,12 +9043,15 @@ func (neighborAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     neighborAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAfs.EntityData.Children = make(map[string]types.YChild)
-    neighborAfs.EntityData.Children["neighbor-af"] = types.YChild{"NeighborAf", nil}
+    neighborAfs.EntityData.Children = types.NewOrderedMap()
+    neighborAfs.EntityData.Children.Append("neighbor-af", types.YChild{"NeighborAf", nil})
     for i := range neighborAfs.NeighborAf {
-        neighborAfs.EntityData.Children[types.GetSegmentPath(&neighborAfs.NeighborAf[i])] = types.YChild{"NeighborAf", &neighborAfs.NeighborAf[i]}
+        neighborAfs.EntityData.Children.Append(types.GetSegmentPath(neighborAfs.NeighborAf[i]), types.YChild{"NeighborAf", neighborAfs.NeighborAf[i]})
     }
-    neighborAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighborAfs.EntityData.Leafs = types.NewOrderedMap()
+
+    neighborAfs.EntityData.YListKeys = []string {}
+
     return &(neighborAfs.EntityData)
 }
 
@@ -8483,7 +9071,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // Disable signalling type on the peer. The type is BgpSignal.
-    L2VpnSignalling interface{}
+    L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
     // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
@@ -8622,10 +9210,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseDefImpDisableV4
 
     // Advertise Translated Routes to the peer.
-    AdvertiseL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2VpnEvpn
+    AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn
 
     // Advertise Of Local Routes to the peer with different RT.
-    AdvertiseLocalL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalL2VpnEvpn
+    AdvertiseLocalL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalL2vpnEvpn
 
     // Maximum time to wait before purging long lived routes.
     NeighborAfLongLivedGracefulRestartStaleTime Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -8637,7 +9225,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     AdvertiseLocalV6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalV6
 
     // Import Reorigination options for Routes from the peer.
-    Import_ Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_Import
+    Import Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_Import
 
     // Originate default route to this neighbor.
     DefaultOriginate Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_DefaultOriginate
@@ -8667,65 +9255,68 @@ func (neighborAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     neighborAf.EntityData.YangName = "neighbor-af"
     neighborAf.EntityData.BundleName = "cisco_ios_xr"
     neighborAf.EntityData.ParentYangName = "neighbor-afs"
-    neighborAf.EntityData.SegmentPath = "neighbor-af" + "[af-name='" + fmt.Sprintf("%v", neighborAf.AfName) + "']"
+    neighborAf.EntityData.SegmentPath = "neighbor-af" + types.AddKeyToken(neighborAf.AfName, "af-name")
     neighborAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAf.EntityData.Children = make(map[string]types.YChild)
-    neighborAf.EntityData.Children["aigp-cost-community"] = types.YChild{"AigpCostCommunity", &neighborAf.AigpCostCommunity}
-    neighborAf.EntityData.Children["advertise-def-imp-disable-v6"] = types.YChild{"AdvertiseDefImpDisableV6", &neighborAf.AdvertiseDefImpDisableV6}
-    neighborAf.EntityData.Children["advertise-disable"] = types.YChild{"AdvertiseDisable", &neighborAf.AdvertiseDisable}
-    neighborAf.EntityData.Children["maximum-prefixes"] = types.YChild{"MaximumPrefixes", &neighborAf.MaximumPrefixes}
-    neighborAf.EntityData.Children["remove-private-as-entire-as-path-inbound"] = types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborAf.RemovePrivateAsEntireAsPathInbound}
-    neighborAf.EntityData.Children["advertise-def-imp-disable-v4"] = types.YChild{"AdvertiseDefImpDisableV4", &neighborAf.AdvertiseDefImpDisableV4}
-    neighborAf.EntityData.Children["advertise-l2vpn-evpn"] = types.YChild{"AdvertiseL2VpnEvpn", &neighborAf.AdvertiseL2VpnEvpn}
-    neighborAf.EntityData.Children["advertise-local-l2vpn-evpn"] = types.YChild{"AdvertiseLocalL2VpnEvpn", &neighborAf.AdvertiseLocalL2VpnEvpn}
-    neighborAf.EntityData.Children["neighbor-af-long-lived-graceful-restart-stale-time"] = types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborAf.NeighborAfLongLivedGracefulRestartStaleTime}
-    neighborAf.EntityData.Children["advertise-v6"] = types.YChild{"AdvertiseV6", &neighborAf.AdvertiseV6}
-    neighborAf.EntityData.Children["advertise-local-v6"] = types.YChild{"AdvertiseLocalV6", &neighborAf.AdvertiseLocalV6}
-    neighborAf.EntityData.Children["import"] = types.YChild{"Import_", &neighborAf.Import_}
-    neighborAf.EntityData.Children["default-originate"] = types.YChild{"DefaultOriginate", &neighborAf.DefaultOriginate}
-    neighborAf.EntityData.Children["soft-reconfiguration"] = types.YChild{"SoftReconfiguration", &neighborAf.SoftReconfiguration}
-    neighborAf.EntityData.Children["advertise-vrf-imp-disable-v6"] = types.YChild{"AdvertiseVrfImpDisableV6", &neighborAf.AdvertiseVrfImpDisableV6}
-    neighborAf.EntityData.Children["advertise-v4"] = types.YChild{"AdvertiseV4", &neighborAf.AdvertiseV4}
-    neighborAf.EntityData.Children["advertise-local-v4"] = types.YChild{"AdvertiseLocalV4", &neighborAf.AdvertiseLocalV4}
-    neighborAf.EntityData.Children["remove-private-as-entire-as-path"] = types.YChild{"RemovePrivateAsEntireAsPath", &neighborAf.RemovePrivateAsEntireAsPath}
-    neighborAf.EntityData.Children["advertise-vrf-imp-disable-v4"] = types.YChild{"AdvertiseVrfImpDisableV4", &neighborAf.AdvertiseVrfImpDisableV4}
-    neighborAf.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", neighborAf.AfName}
-    neighborAf.EntityData.Leafs["neighbor-af-long-lived-graceful-restart-capable"] = types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", neighborAf.NeighborAfLongLivedGracefulRestartCapable}
-    neighborAf.EntityData.Leafs["l2vpn-signalling"] = types.YLeaf{"L2VpnSignalling", neighborAf.L2VpnSignalling}
-    neighborAf.EntityData.Leafs["send-ext-community-ebgp"] = types.YLeaf{"SendExtCommunityEbgp", neighborAf.SendExtCommunityEbgp}
-    neighborAf.EntityData.Leafs["accept-route-legacy-rt"] = types.YLeaf{"AcceptRouteLegacyRt", neighborAf.AcceptRouteLegacyRt}
-    neighborAf.EntityData.Leafs["send-community-ebgp"] = types.YLeaf{"SendCommunityEbgp", neighborAf.SendCommunityEbgp}
-    neighborAf.EntityData.Leafs["send-multicast-attr"] = types.YLeaf{"SendMulticastAttr", neighborAf.SendMulticastAttr}
-    neighborAf.EntityData.Leafs["next-hop-unchanged"] = types.YLeaf{"NextHopUnchanged", neighborAf.NextHopUnchanged}
-    neighborAf.EntityData.Leafs["advertise-local-labeled-route"] = types.YLeaf{"AdvertiseLocalLabeledRoute", neighborAf.AdvertiseLocalLabeledRoute}
-    neighborAf.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", neighborAf.RpkiOriginAsValidationDisable}
-    neighborAf.EntityData.Leafs["flowspec-validation"] = types.YLeaf{"FlowspecValidation", neighborAf.FlowspecValidation}
-    neighborAf.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", neighborAf.EncapsulationType}
-    neighborAf.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborAf.RpkiBestpathOriginAsAllowInvalid}
-    neighborAf.EntityData.Leafs["enforce-multiple-labels"] = types.YLeaf{"EnforceMultipleLabels", neighborAf.EnforceMultipleLabels}
-    neighborAf.EntityData.Leafs["as-override"] = types.YLeaf{"AsOverride", neighborAf.AsOverride}
-    neighborAf.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", neighborAf.Multipath}
-    neighborAf.EntityData.Leafs["send-community-ebgp-graceful-shutdown"] = types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborAf.SendCommunityEbgpGracefulShutdown}
-    neighborAf.EntityData.Leafs["activate"] = types.YLeaf{"Activate", neighborAf.Activate}
-    neighborAf.EntityData.Leafs["prefix-orf-policy"] = types.YLeaf{"PrefixOrfPolicy", neighborAf.PrefixOrfPolicy}
-    neighborAf.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", neighborAf.Aigp}
-    neighborAf.EntityData.Leafs["aigp-send-med"] = types.YLeaf{"AigpSendMed", neighborAf.AigpSendMed}
-    neighborAf.EntityData.Leafs["allow-as-in"] = types.YLeaf{"AllowAsIn", neighborAf.AllowAsIn}
-    neighborAf.EntityData.Leafs["advertise-orf"] = types.YLeaf{"AdvertiseOrf", neighborAf.AdvertiseOrf}
-    neighborAf.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", neighborAf.RouteReflectorClient}
-    neighborAf.EntityData.Leafs["next-hop-self"] = types.YLeaf{"NextHopSelf", neighborAf.NextHopSelf}
-    neighborAf.EntityData.Leafs["route-policy-in"] = types.YLeaf{"RoutePolicyIn", neighborAf.RoutePolicyIn}
-    neighborAf.EntityData.Leafs["default-weight"] = types.YLeaf{"DefaultWeight", neighborAf.DefaultWeight}
-    neighborAf.EntityData.Leafs["af-group"] = types.YLeaf{"AfGroup", neighborAf.AfGroup}
-    neighborAf.EntityData.Leafs["next-hop-unchanged-multipath"] = types.YLeaf{"NextHopUnchangedMultipath", neighborAf.NextHopUnchangedMultipath}
-    neighborAf.EntityData.Leafs["optimal-route-reflection-group"] = types.YLeaf{"OptimalRouteReflectionGroup", neighborAf.OptimalRouteReflectionGroup}
-    neighborAf.EntityData.Leafs["accept-own"] = types.YLeaf{"AcceptOwn", neighborAf.AcceptOwn}
-    neighborAf.EntityData.Leafs["route-policy-out"] = types.YLeaf{"RoutePolicyOut", neighborAf.RoutePolicyOut}
-    neighborAf.EntityData.Leafs["advertise-permanent-network"] = types.YLeaf{"AdvertisePermanentNetwork", neighborAf.AdvertisePermanentNetwork}
+    neighborAf.EntityData.Children = types.NewOrderedMap()
+    neighborAf.EntityData.Children.Append("aigp-cost-community", types.YChild{"AigpCostCommunity", &neighborAf.AigpCostCommunity})
+    neighborAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &neighborAf.AdvertiseDefImpDisableV6})
+    neighborAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &neighborAf.AdvertiseDisable})
+    neighborAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &neighborAf.MaximumPrefixes})
+    neighborAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborAf.RemovePrivateAsEntireAsPathInbound})
+    neighborAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &neighborAf.AdvertiseDefImpDisableV4})
+    neighborAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &neighborAf.AdvertiseL2vpnEvpn})
+    neighborAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &neighborAf.AdvertiseLocalL2vpnEvpn})
+    neighborAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborAf.NeighborAfLongLivedGracefulRestartStaleTime})
+    neighborAf.EntityData.Children.Append("advertise-v6", types.YChild{"AdvertiseV6", &neighborAf.AdvertiseV6})
+    neighborAf.EntityData.Children.Append("advertise-local-v6", types.YChild{"AdvertiseLocalV6", &neighborAf.AdvertiseLocalV6})
+    neighborAf.EntityData.Children.Append("import", types.YChild{"Import", &neighborAf.Import})
+    neighborAf.EntityData.Children.Append("default-originate", types.YChild{"DefaultOriginate", &neighborAf.DefaultOriginate})
+    neighborAf.EntityData.Children.Append("soft-reconfiguration", types.YChild{"SoftReconfiguration", &neighborAf.SoftReconfiguration})
+    neighborAf.EntityData.Children.Append("advertise-vrf-imp-disable-v6", types.YChild{"AdvertiseVrfImpDisableV6", &neighborAf.AdvertiseVrfImpDisableV6})
+    neighborAf.EntityData.Children.Append("advertise-v4", types.YChild{"AdvertiseV4", &neighborAf.AdvertiseV4})
+    neighborAf.EntityData.Children.Append("advertise-local-v4", types.YChild{"AdvertiseLocalV4", &neighborAf.AdvertiseLocalV4})
+    neighborAf.EntityData.Children.Append("remove-private-as-entire-as-path", types.YChild{"RemovePrivateAsEntireAsPath", &neighborAf.RemovePrivateAsEntireAsPath})
+    neighborAf.EntityData.Children.Append("advertise-vrf-imp-disable-v4", types.YChild{"AdvertiseVrfImpDisableV4", &neighborAf.AdvertiseVrfImpDisableV4})
+    neighborAf.EntityData.Leafs = types.NewOrderedMap()
+    neighborAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", neighborAf.AfName})
+    neighborAf.EntityData.Leafs.Append("neighbor-af-long-lived-graceful-restart-capable", types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", neighborAf.NeighborAfLongLivedGracefulRestartCapable})
+    neighborAf.EntityData.Leafs.Append("l2vpn-signalling", types.YLeaf{"L2vpnSignalling", neighborAf.L2vpnSignalling})
+    neighborAf.EntityData.Leafs.Append("send-ext-community-ebgp", types.YLeaf{"SendExtCommunityEbgp", neighborAf.SendExtCommunityEbgp})
+    neighborAf.EntityData.Leafs.Append("accept-route-legacy-rt", types.YLeaf{"AcceptRouteLegacyRt", neighborAf.AcceptRouteLegacyRt})
+    neighborAf.EntityData.Leafs.Append("send-community-ebgp", types.YLeaf{"SendCommunityEbgp", neighborAf.SendCommunityEbgp})
+    neighborAf.EntityData.Leafs.Append("send-multicast-attr", types.YLeaf{"SendMulticastAttr", neighborAf.SendMulticastAttr})
+    neighborAf.EntityData.Leafs.Append("next-hop-unchanged", types.YLeaf{"NextHopUnchanged", neighborAf.NextHopUnchanged})
+    neighborAf.EntityData.Leafs.Append("advertise-local-labeled-route", types.YLeaf{"AdvertiseLocalLabeledRoute", neighborAf.AdvertiseLocalLabeledRoute})
+    neighborAf.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", neighborAf.RpkiOriginAsValidationDisable})
+    neighborAf.EntityData.Leafs.Append("flowspec-validation", types.YLeaf{"FlowspecValidation", neighborAf.FlowspecValidation})
+    neighborAf.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", neighborAf.EncapsulationType})
+    neighborAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborAf.RpkiBestpathOriginAsAllowInvalid})
+    neighborAf.EntityData.Leafs.Append("enforce-multiple-labels", types.YLeaf{"EnforceMultipleLabels", neighborAf.EnforceMultipleLabels})
+    neighborAf.EntityData.Leafs.Append("as-override", types.YLeaf{"AsOverride", neighborAf.AsOverride})
+    neighborAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", neighborAf.Multipath})
+    neighborAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborAf.SendCommunityEbgpGracefulShutdown})
+    neighborAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", neighborAf.Activate})
+    neighborAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", neighborAf.PrefixOrfPolicy})
+    neighborAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", neighborAf.Aigp})
+    neighborAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", neighborAf.AigpSendMed})
+    neighborAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", neighborAf.AllowAsIn})
+    neighborAf.EntityData.Leafs.Append("advertise-orf", types.YLeaf{"AdvertiseOrf", neighborAf.AdvertiseOrf})
+    neighborAf.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", neighborAf.RouteReflectorClient})
+    neighborAf.EntityData.Leafs.Append("next-hop-self", types.YLeaf{"NextHopSelf", neighborAf.NextHopSelf})
+    neighborAf.EntityData.Leafs.Append("route-policy-in", types.YLeaf{"RoutePolicyIn", neighborAf.RoutePolicyIn})
+    neighborAf.EntityData.Leafs.Append("default-weight", types.YLeaf{"DefaultWeight", neighborAf.DefaultWeight})
+    neighborAf.EntityData.Leafs.Append("af-group", types.YLeaf{"AfGroup", neighborAf.AfGroup})
+    neighborAf.EntityData.Leafs.Append("next-hop-unchanged-multipath", types.YLeaf{"NextHopUnchangedMultipath", neighborAf.NextHopUnchangedMultipath})
+    neighborAf.EntityData.Leafs.Append("optimal-route-reflection-group", types.YLeaf{"OptimalRouteReflectionGroup", neighborAf.OptimalRouteReflectionGroup})
+    neighborAf.EntityData.Leafs.Append("accept-own", types.YLeaf{"AcceptOwn", neighborAf.AcceptOwn})
+    neighborAf.EntityData.Leafs.Append("route-policy-out", types.YLeaf{"RoutePolicyOut", neighborAf.RoutePolicyOut})
+    neighborAf.EntityData.Leafs.Append("advertise-permanent-network", types.YLeaf{"AdvertisePermanentNetwork", neighborAf.AdvertisePermanentNetwork})
+
+    neighborAf.EntityData.YListKeys = []string {"AfName"}
+
     return &(neighborAf.EntityData)
 }
 
@@ -8758,12 +9349,15 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aigpCostCommunity.EntityData.Children = make(map[string]types.YChild)
-    aigpCostCommunity.EntityData.Leafs = make(map[string]types.YLeaf)
-    aigpCostCommunity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", aigpCostCommunity.Enable}
-    aigpCostCommunity.EntityData.Leafs["cost-community-id"] = types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId}
-    aigpCostCommunity.EntityData.Leafs["transitive"] = types.YLeaf{"Transitive", aigpCostCommunity.Transitive}
-    aigpCostCommunity.EntityData.Leafs["cost-community-poi-type"] = types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType}
+    aigpCostCommunity.EntityData.Children = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", aigpCostCommunity.Enable})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-id", types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId})
+    aigpCostCommunity.EntityData.Leafs.Append("transitive", types.YLeaf{"Transitive", aigpCostCommunity.Transitive})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-poi-type", types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType})
+
+    aigpCostCommunity.EntityData.YListKeys = []string {}
+
     return &(aigpCostCommunity.EntityData)
 }
 
@@ -8793,11 +9387,14 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName}
-    advertiseDefImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption}
-    advertiseDefImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType}
+    advertiseDefImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType})
+
+    advertiseDefImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV6.EntityData)
 }
 
@@ -8827,11 +9424,14 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDisable.EntityData.Children = make(map[string]types.YChild)
-    advertiseDisable.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDisable.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDisable.AfName}
-    advertiseDisable.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption}
-    advertiseDisable.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDisable.RtType}
+    advertiseDisable.EntityData.Children = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDisable.AfName})
+    advertiseDisable.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption})
+    advertiseDisable.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDisable.RtType})
+
+    advertiseDisable.EntityData.YListKeys = []string {}
+
     return &(advertiseDisable.EntityData)
 }
 
@@ -8842,6 +9442,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_MaximumPrefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum prefixes limit. The type is interface{} with range: 1..4294967295.
     // This attribute is mandatory.
@@ -8874,13 +9475,16 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumPrefixes.EntityData.Children = make(map[string]types.YChild)
-    maximumPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumPrefixes.EntityData.Leafs["prefix-limit"] = types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit}
-    maximumPrefixes.EntityData.Leafs["warning-percentage"] = types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage}
-    maximumPrefixes.EntityData.Leafs["warning-only"] = types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly}
-    maximumPrefixes.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", maximumPrefixes.RestartTime}
-    maximumPrefixes.EntityData.Leafs["discard-extra-paths"] = types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths}
+    maximumPrefixes.EntityData.Children = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit})
+    maximumPrefixes.EntityData.Leafs.Append("warning-percentage", types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage})
+    maximumPrefixes.EntityData.Leafs.Append("warning-only", types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly})
+    maximumPrefixes.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", maximumPrefixes.RestartTime})
+    maximumPrefixes.EntityData.Leafs.Append("discard-extra-paths", types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths})
+
+    maximumPrefixes.EntityData.YListKeys = []string {}
+
     return &(maximumPrefixes.EntityData)
 }
 
@@ -8890,6 +9494,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_RemovePrivateAsEntireAsPathInbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from inbound updates. FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -8912,10 +9517,13 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Def
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPathInbound.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable}
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire}
+    removePrivateAsEntireAsPathInbound.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable})
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire})
+
+    removePrivateAsEntireAsPathInbound.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPathInbound.EntityData)
 }
 
@@ -8945,17 +9553,20 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName}
-    advertiseDefImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption}
-    advertiseDefImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType}
+    advertiseDefImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType})
+
+    advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn
 // Advertise Translated Routes to the peer
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8969,28 +9580,31 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     RtType interface{}
 }
 
-func (advertiseL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseL2VpnEvpn.EntityData.YFilter = advertiseL2VpnEvpn.YFilter
-    advertiseL2VpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseL2VpnEvpn.EntityData.ParentYangName = "neighbor-af"
-    advertiseL2VpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseL2vpnEvpn.EntityData.YFilter = advertiseL2vpnEvpn.YFilter
+    advertiseL2vpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseL2vpnEvpn.EntityData.ParentYangName = "neighbor-af"
+    advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseL2VpnEvpn.AfName}
-    advertiseL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseL2VpnEvpn.ReorgOption}
-    advertiseL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseL2VpnEvpn.RtType}
-    return &(advertiseL2VpnEvpn.EntityData)
+    advertiseL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseL2vpnEvpn.AfName})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseL2vpnEvpn.ReorgOption})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseL2vpnEvpn.RtType})
+
+    advertiseL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseL2vpnEvpn.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalL2vpnEvpn
 // Advertise Of Local Routes to the peer with
 // different RT
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9004,22 +9618,25 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     RtType interface{}
 }
 
-func (advertiseLocalL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseLocalL2VpnEvpn.EntityData.YFilter = advertiseLocalL2VpnEvpn.YFilter
-    advertiseLocalL2VpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseLocalL2VpnEvpn.EntityData.ParentYangName = "neighbor-af"
-    advertiseLocalL2VpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseLocalL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseLocalL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseLocalL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseLocalL2vpnEvpn.EntityData.YFilter = advertiseLocalL2vpnEvpn.YFilter
+    advertiseLocalL2vpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "neighbor-af"
+    advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalL2VpnEvpn.AfName}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalL2VpnEvpn.ReorgOption}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalL2VpnEvpn.RtType}
-    return &(advertiseLocalL2VpnEvpn.EntityData)
+    advertiseLocalL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalL2vpnEvpn.AfName})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalL2vpnEvpn.ReorgOption})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalL2vpnEvpn.RtType})
+
+    advertiseLocalL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseLocalL2vpnEvpn.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -9048,10 +9665,13 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = make(map[string]types.YChild)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-send"] = types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend}
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-accept"] = types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept}
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-send", types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend})
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-accept", types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept})
+
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.YListKeys = []string {}
+
     return &(neighborAfLongLivedGracefulRestartStaleTime.EntityData)
 }
 
@@ -9081,11 +9701,14 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV6.AfName}
-    advertiseV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV6.ReorgOption}
-    advertiseV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV6.RtType}
+    advertiseV6.EntityData.Children = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV6.AfName})
+    advertiseV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV6.ReorgOption})
+    advertiseV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV6.RtType})
+
+    advertiseV6.EntityData.YListKeys = []string {}
+
     return &(advertiseV6.EntityData)
 }
 
@@ -9116,11 +9739,14 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV6.AfName}
-    advertiseLocalV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption}
-    advertiseLocalV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV6.RtType}
+    advertiseLocalV6.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV6.AfName})
+    advertiseLocalV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption})
+    advertiseLocalV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV6.RtType})
+
+    advertiseLocalV6.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV6.EntityData)
 }
 
@@ -9154,11 +9780,14 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Ne
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["import-stitching"] = types.YLeaf{"ImportStitching", self.ImportStitching}
-    self.EntityData.Leafs["import-reoriginate"] = types.YLeaf{"ImportReoriginate", self.ImportReoriginate}
-    self.EntityData.Leafs["import-reoriginate-stitching"] = types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("import-stitching", types.YLeaf{"ImportStitching", self.ImportStitching})
+    self.EntityData.Leafs.Append("import-reoriginate", types.YLeaf{"ImportReoriginate", self.ImportReoriginate})
+    self.EntityData.Leafs.Append("import-reoriginate-stitching", types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -9187,10 +9816,13 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultOriginate.EntityData.Children = make(map[string]types.YChild)
-    defaultOriginate.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultOriginate.EntityData.Leafs["enable"] = types.YLeaf{"Enable", defaultOriginate.Enable}
-    defaultOriginate.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName}
+    defaultOriginate.EntityData.Children = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", defaultOriginate.Enable})
+    defaultOriginate.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName})
+
+    defaultOriginate.EntityData.YListKeys = []string {}
+
     return &(defaultOriginate.EntityData)
 }
 
@@ -9220,10 +9852,13 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    softReconfiguration.EntityData.Children = make(map[string]types.YChild)
-    softReconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    softReconfiguration.EntityData.Leafs["inbound-soft"] = types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft}
-    softReconfiguration.EntityData.Leafs["soft-always"] = types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways}
+    softReconfiguration.EntityData.Children = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs.Append("inbound-soft", types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft})
+    softReconfiguration.EntityData.Leafs.Append("soft-always", types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways})
+
+    softReconfiguration.EntityData.YListKeys = []string {}
+
     return &(softReconfiguration.EntityData)
 }
 
@@ -9253,11 +9888,14 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName}
-    advertiseVrfImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption}
-    advertiseVrfImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType}
+    advertiseVrfImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType})
+
+    advertiseVrfImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV6.EntityData)
 }
 
@@ -9287,11 +9925,14 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV4.AfName}
-    advertiseV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV4.ReorgOption}
-    advertiseV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV4.RtType}
+    advertiseV4.EntityData.Children = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV4.AfName})
+    advertiseV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV4.ReorgOption})
+    advertiseV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV4.RtType})
+
+    advertiseV4.EntityData.YListKeys = []string {}
+
     return &(advertiseV4.EntityData)
 }
 
@@ -9322,11 +9963,14 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV4.AfName}
-    advertiseLocalV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption}
-    advertiseLocalV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV4.RtType}
+    advertiseLocalV4.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV4.AfName})
+    advertiseLocalV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption})
+    advertiseLocalV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV4.RtType})
+
+    advertiseLocalV4.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV4.EntityData)
 }
 
@@ -9336,6 +9980,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_RemovePrivateAsEntireAsPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from outbound updates .  FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -9358,10 +10003,13 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPath.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPath.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable}
-    removePrivateAsEntireAsPath.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire}
+    removePrivateAsEntireAsPath.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable})
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire})
+
+    removePrivateAsEntireAsPath.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPath.EntityData)
 }
 
@@ -9391,11 +10039,14 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName}
-    advertiseVrfImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption}
-    advertiseVrfImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType}
+    advertiseVrfImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType})
+
+    advertiseVrfImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
@@ -9411,9 +10062,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -9427,10 +10078,13 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAddress.EntityData.Children = make(map[string]types.YChild)
-    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAddress.EntityData.Leafs["local-address-disable"] = types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable}
-    localAddress.EntityData.Leafs["local-ip-address"] = types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress}
+    localAddress.EntityData.Children = types.NewOrderedMap()
+    localAddress.EntityData.Leafs = types.NewOrderedMap()
+    localAddress.EntityData.Leafs.Append("local-address-disable", types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable})
+    localAddress.EntityData.Leafs.Append("local-ip-address", types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress})
+
+    localAddress.EntityData.YListKeys = []string {}
+
     return &(localAddress.EntityData)
 }
 
@@ -9442,7 +10096,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // Enable BMP logging for this particular server. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_BmpActivates_BmpActivate.
-    BmpActivate []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_BmpActivates_BmpActivate
+    BmpActivate []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_BmpActivates_BmpActivate
 }
 
 func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_BmpActivates) GetEntityData() *types.CommonEntityData {
@@ -9455,12 +10109,15 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivates.EntityData.Children = make(map[string]types.YChild)
-    bmpActivates.EntityData.Children["bmp-activate"] = types.YChild{"BmpActivate", nil}
+    bmpActivates.EntityData.Children = types.NewOrderedMap()
+    bmpActivates.EntityData.Children.Append("bmp-activate", types.YChild{"BmpActivate", nil})
     for i := range bmpActivates.BmpActivate {
-        bmpActivates.EntityData.Children[types.GetSegmentPath(&bmpActivates.BmpActivate[i])] = types.YChild{"BmpActivate", &bmpActivates.BmpActivate[i]}
+        bmpActivates.EntityData.Children.Append(types.GetSegmentPath(bmpActivates.BmpActivate[i]), types.YChild{"BmpActivate", bmpActivates.BmpActivate[i]})
     }
-    bmpActivates.EntityData.Leafs = make(map[string]types.YLeaf)
+    bmpActivates.EntityData.Leafs = types.NewOrderedMap()
+
+    bmpActivates.EntityData.YListKeys = []string {}
+
     return &(bmpActivates.EntityData)
 }
 
@@ -9480,14 +10137,17 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     bmpActivate.EntityData.YangName = "bmp-activate"
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
-    bmpActivate.EntityData.SegmentPath = "bmp-activate" + "[server-id='" + fmt.Sprintf("%v", bmpActivate.ServerId) + "']"
+    bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivate.EntityData.Children = make(map[string]types.YChild)
-    bmpActivate.EntityData.Leafs = make(map[string]types.YLeaf)
-    bmpActivate.EntityData.Leafs["server-id"] = types.YLeaf{"ServerId", bmpActivate.ServerId}
+    bmpActivate.EntityData.Children = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs.Append("server-id", types.YLeaf{"ServerId", bmpActivate.ServerId})
+
+    bmpActivate.EntityData.YListKeys = []string {"ServerId"}
+
     return &(bmpActivate.EntityData)
 }
 
@@ -9517,10 +10177,13 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ebgpMultihop.EntityData.Children = make(map[string]types.YChild)
-    ebgpMultihop.EntityData.Leafs = make(map[string]types.YLeaf)
-    ebgpMultihop.EntityData.Leafs["max-hop-count"] = types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount}
-    ebgpMultihop.EntityData.Leafs["mpls-deactivation"] = types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation}
+    ebgpMultihop.EntityData.Children = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs.Append("max-hop-count", types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount})
+    ebgpMultihop.EntityData.Leafs.Append("mpls-deactivation", types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation})
+
+    ebgpMultihop.EntityData.YListKeys = []string {}
+
     return &(ebgpMultihop.EntityData)
 }
 
@@ -9547,10 +10210,13 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteAs.EntityData.Children = make(map[string]types.YChild)
-    remoteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", remoteAs.AsXx}
-    remoteAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", remoteAs.AsYy}
+    remoteAs.EntityData.Children = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", remoteAs.AsXx})
+    remoteAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", remoteAs.AsYy})
+
+    remoteAs.EntityData.YListKeys = []string {}
+
     return &(remoteAs.EntityData)
 }
 
@@ -9592,14 +10258,17 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAs.EntityData.Children = make(map[string]types.YChild)
-    localAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", localAs.AsXx}
-    localAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", localAs.AsYy}
-    localAs.EntityData.Leafs["no-prepend"] = types.YLeaf{"NoPrepend", localAs.NoPrepend}
-    localAs.EntityData.Leafs["disable"] = types.YLeaf{"Disable", localAs.Disable}
-    localAs.EntityData.Leafs["replace-as"] = types.YLeaf{"ReplaceAs", localAs.ReplaceAs}
-    localAs.EntityData.Leafs["dual-as"] = types.YLeaf{"DualAs", localAs.DualAs}
+    localAs.EntityData.Children = types.NewOrderedMap()
+    localAs.EntityData.Leafs = types.NewOrderedMap()
+    localAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", localAs.AsXx})
+    localAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", localAs.AsYy})
+    localAs.EntityData.Leafs.Append("no-prepend", types.YLeaf{"NoPrepend", localAs.NoPrepend})
+    localAs.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", localAs.Disable})
+    localAs.EntityData.Leafs.Append("replace-as", types.YLeaf{"ReplaceAs", localAs.ReplaceAs})
+    localAs.EntityData.Leafs.Append("dual-as", types.YLeaf{"DualAs", localAs.DualAs})
+
+    localAs.EntityData.YListKeys = []string {}
+
     return &(localAs.EntityData)
 }
 
@@ -9614,7 +10283,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -9628,10 +10297,13 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    password.EntityData.Children = make(map[string]types.YChild)
-    password.EntityData.Leafs = make(map[string]types.YLeaf)
-    password.EntityData.Leafs["password-disable"] = types.YLeaf{"PasswordDisable", password.PasswordDisable}
-    password.EntityData.Leafs["password"] = types.YLeaf{"Password", password.Password}
+    password.EntityData.Children = types.NewOrderedMap()
+    password.EntityData.Leafs = types.NewOrderedMap()
+    password.EntityData.Leafs.Append("password-disable", types.YLeaf{"PasswordDisable", password.PasswordDisable})
+    password.EntityData.Leafs.Append("password", types.YLeaf{"Password", password.Password})
+
+    password.EntityData.YListKeys = []string {}
+
     return &(password.EntityData)
 }
 
@@ -9642,6 +10314,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_AdvertisementInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Minimum advertisement interval time, secs part. The type is interface{}
     // with range: 0..600. This attribute is mandatory. Units are second.
@@ -9662,10 +10335,13 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEn
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertisementInterval.EntityData.Children = make(map[string]types.YChild)
-    advertisementInterval.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertisementInterval.EntityData.Leafs["minimum-interval"] = types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval}
-    advertisementInterval.EntityData.Leafs["minimum-interval-msecs"] = types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs}
+    advertisementInterval.EntityData.Children = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval", types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval})
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval-msecs", types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs})
+
+    advertisementInterval.EntityData.YListKeys = []string {}
+
     return &(advertisementInterval.EntityData)
 }
 
@@ -9681,7 +10357,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -9695,10 +10371,13 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborClusterId.EntityData.Children = make(map[string]types.YChild)
-    neighborClusterId.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborClusterId.EntityData.Leafs["cluster-id-number"] = types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber}
-    neighborClusterId.EntityData.Leafs["cluster-id-address"] = types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress}
+    neighborClusterId.EntityData.Children = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-number", types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber})
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-address", types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress})
+
+    neighborClusterId.EntityData.YListKeys = []string {}
+
     return &(neighborClusterId.EntityData)
 }
 
@@ -9726,10 +10405,13 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcpmss.EntityData.Children = make(map[string]types.YChild)
-    tcpmss.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpmss.EntityData.Leafs["tcpmss-disable"] = types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable}
-    tcpmss.EntityData.Leafs["mss"] = types.YLeaf{"Mss", tcpmss.Mss}
+    tcpmss.EntityData.Children = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs.Append("tcpmss-disable", types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable})
+    tcpmss.EntityData.Leafs.Append("mss", types.YLeaf{"Mss", tcpmss.Mss})
+
+    tcpmss.EntityData.YListKeys = []string {}
+
     return &(tcpmss.EntityData)
 }
 
@@ -9740,7 +10422,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     YFilter yfilter.YFilter
 
     // Set type of service. The type is BgpTos.
-    Type_ interface{}
+    Type interface{}
 
     // TOS value to set. The type is one of the following types: enumeration
     // BgpPrecedenceDscp, or int with range: 0..63.
@@ -9757,10 +10439,13 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Nei
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tos.EntityData.Children = make(map[string]types.YChild)
-    tos.EntityData.Leafs = make(map[string]types.YLeaf)
-    tos.EntityData.Leafs["type"] = types.YLeaf{"Type_", tos.Type_}
-    tos.EntityData.Leafs["value"] = types.YLeaf{"Value", tos.Value}
+    tos.EntityData.Children = types.NewOrderedMap()
+    tos.EntityData.Leafs = types.NewOrderedMap()
+    tos.EntityData.Leafs.Append("type", types.YLeaf{"Type", tos.Type})
+    tos.EntityData.Leafs.Append("value", types.YLeaf{"Value", tos.Value})
+
+    tos.EntityData.YListKeys = []string {}
+
     return &(tos.EntityData)
 }
 
@@ -9793,12 +10478,15 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFiltering.EntityData.Children = make(map[string]types.YChild)
-    updateInFiltering.EntityData.Children["update-in-filtering-message-buffers"] = types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers}
-    updateInFiltering.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFiltering.EntityData.Leafs["enable"] = types.YLeaf{"Enable", updateInFiltering.Enable}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-attribute-filter-group"] = types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-syslog-disable"] = types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable}
+    updateInFiltering.EntityData.Children = types.NewOrderedMap()
+    updateInFiltering.EntityData.Children.Append("update-in-filtering-message-buffers", types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers})
+    updateInFiltering.EntityData.Leafs = types.NewOrderedMap()
+    updateInFiltering.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", updateInFiltering.Enable})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-attribute-filter-group", types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-syslog-disable", types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable})
+
+    updateInFiltering.EntityData.YListKeys = []string {}
+
     return &(updateInFiltering.EntityData)
 }
 
@@ -9808,6 +10496,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_UpdateInFiltering_UpdateInFilteringMessageBuffers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of message buffers. The type is interface{} with range: 0..25. This
     // attribute is mandatory.
@@ -9828,10 +10517,13 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFilteringMessageBuffers.EntityData.Children = make(map[string]types.YChild)
-    updateInFilteringMessageBuffers.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFilteringMessageBuffers.EntityData.Leafs["number-of-buffers"] = types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers}
-    updateInFilteringMessageBuffers.EntityData.Leafs["non-circular-buffer"] = types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer}
+    updateInFilteringMessageBuffers.EntityData.Children = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("number-of-buffers", types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers})
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("non-circular-buffer", types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer})
+
+    updateInFilteringMessageBuffers.EntityData.YListKeys = []string {}
+
     return &(updateInFilteringMessageBuffers.EntityData)
 }
 
@@ -9863,11 +10555,14 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogOut.EntityData.Children = make(map[string]types.YChild)
-    msgLogOut.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogOut.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount}
-    msgLogOut.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable}
-    msgLogOut.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable}
+    msgLogOut.EntityData.Children = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount})
+    msgLogOut.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable})
+    msgLogOut.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable})
+
+    msgLogOut.EntityData.YListKeys = []string {}
+
     return &(msgLogOut.EntityData)
 }
 
@@ -9897,10 +10592,13 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveBufferSize.EntityData.Children = make(map[string]types.YChild)
-    receiveBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveBufferSize.EntityData.Leafs["socket-receive-size"] = types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize}
-    receiveBufferSize.EntityData.Leafs["bgp-receive-size"] = types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize}
+    receiveBufferSize.EntityData.Children = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs.Append("socket-receive-size", types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize})
+    receiveBufferSize.EntityData.Leafs.Append("bgp-receive-size", types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize})
+
+    receiveBufferSize.EntityData.YListKeys = []string {}
+
     return &(receiveBufferSize.EntityData)
 }
 
@@ -9932,11 +10630,14 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogIn.EntityData.Children = make(map[string]types.YChild)
-    msgLogIn.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogIn.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount}
-    msgLogIn.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable}
-    msgLogIn.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable}
+    msgLogIn.EntityData.Children = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount})
+    msgLogIn.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable})
+    msgLogIn.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable})
+
+    msgLogIn.EntityData.YListKeys = []string {}
+
     return &(msgLogIn.EntityData)
 }
 
@@ -9966,10 +10667,13 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendBufferSize.EntityData.Children = make(map[string]types.YChild)
-    sendBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendBufferSize.EntityData.Leafs["socket-send-size"] = types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize}
-    sendBufferSize.EntityData.Leafs["bgp-send-size"] = types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize}
+    sendBufferSize.EntityData.Children = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs.Append("socket-send-size", types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize})
+    sendBufferSize.EntityData.Leafs.Append("bgp-send-size", types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize})
+
+    sendBufferSize.EntityData.YListKeys = []string {}
+
     return &(sendBufferSize.EntityData)
 }
 
@@ -10002,11 +10706,14 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval}
-    timers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", timers.HoldTime}
-    timers.EntityData.Leafs["min-accept-hold-time"] = types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval})
+    timers.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", timers.HoldTime})
+    timers.EntityData.Leafs.Append("min-accept-hold-time", types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -10035,10 +10742,13 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keychain.EntityData.Children = make(map[string]types.YChild)
-    keychain.EntityData.Leafs = make(map[string]types.YLeaf)
-    keychain.EntityData.Leafs["keychain-disable"] = types.YLeaf{"KeychainDisable", keychain.KeychainDisable}
-    keychain.EntityData.Leafs["keychain-name"] = types.YLeaf{"KeychainName", keychain.KeychainName}
+    keychain.EntityData.Children = types.NewOrderedMap()
+    keychain.EntityData.Leafs = types.NewOrderedMap()
+    keychain.EntityData.Leafs.Append("keychain-disable", types.YLeaf{"KeychainDisable", keychain.KeychainDisable})
+    keychain.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", keychain.KeychainName})
+
+    keychain.EntityData.YListKeys = []string {}
+
     return &(keychain.EntityData)
 }
 
@@ -10072,12 +10782,15 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenance.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-local-preference"] = types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference}
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-as-prepends"] = types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends}
-    gracefulMaintenance.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenance.EntityData.Leafs["enable"] = types.YLeaf{"Enable", gracefulMaintenance.Enable}
-    gracefulMaintenance.EntityData.Leafs["graceful-maintenance-activate"] = types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate}
+    gracefulMaintenance.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-local-preference", types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference})
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-as-prepends", types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends})
+    gracefulMaintenance.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", gracefulMaintenance.Enable})
+    gracefulMaintenance.EntityData.Leafs.Append("graceful-maintenance-activate", types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate})
+
+    gracefulMaintenance.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenance.EntityData)
 }
 
@@ -10105,10 +10818,13 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Def
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceLocalPreference.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["gshut-loc-pref-disable"] = types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable}
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["local-preference"] = types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference}
+    gracefulMaintenanceLocalPreference.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("gshut-loc-pref-disable", types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable})
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("local-preference", types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference})
+
+    gracefulMaintenanceLocalPreference.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceLocalPreference.EntityData)
 }
 
@@ -10137,10 +10853,13 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceAsPrepends.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["gshut-prepends-disable"] = types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable}
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["as-prepends"] = types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends}
+    gracefulMaintenanceAsPrepends.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("gshut-prepends-disable", types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable})
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("as-prepends", types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends})
+
+    gracefulMaintenanceAsPrepends.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceAsPrepends.EntityData)
 }
 
@@ -10152,7 +10871,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups stru
 
     // A particular BGP neighbor group. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup.
-    NeighborGroup []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup
+    NeighborGroup []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup
 }
 
 func (neighborGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups) GetEntityData() *types.CommonEntityData {
@@ -10165,12 +10884,15 @@ func (neighborGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
     neighborGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborGroups.EntityData.Children = make(map[string]types.YChild)
-    neighborGroups.EntityData.Children["neighbor-group"] = types.YChild{"NeighborGroup", nil}
+    neighborGroups.EntityData.Children = types.NewOrderedMap()
+    neighborGroups.EntityData.Children.Append("neighbor-group", types.YChild{"NeighborGroup", nil})
     for i := range neighborGroups.NeighborGroup {
-        neighborGroups.EntityData.Children[types.GetSegmentPath(&neighborGroups.NeighborGroup[i])] = types.YChild{"NeighborGroup", &neighborGroups.NeighborGroup[i]}
+        neighborGroups.EntityData.Children.Append(types.GetSegmentPath(neighborGroups.NeighborGroup[i]), types.YChild{"NeighborGroup", neighborGroups.NeighborGroup[i]})
     }
-    neighborGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighborGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    neighborGroups.EntityData.YListKeys = []string {}
+
     return &(neighborGroups.EntityData)
 }
 
@@ -10181,7 +10903,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     YFilter yfilter.YFilter
 
     // This attribute is a key. BGP neighbor group name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     NeighborGroupName interface{}
 
     // Inherit configuration from a neighbor-group. The type is string.
@@ -10292,7 +11014,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     UpdateSourceInterface interface{}
 
     // Create this group. Deletion of this object causes deletion of all the
@@ -10363,63 +11085,66 @@ func (neighborGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Nei
     neighborGroup.EntityData.YangName = "neighbor-group"
     neighborGroup.EntityData.BundleName = "cisco_ios_xr"
     neighborGroup.EntityData.ParentYangName = "neighbor-groups"
-    neighborGroup.EntityData.SegmentPath = "neighbor-group" + "[neighbor-group-name='" + fmt.Sprintf("%v", neighborGroup.NeighborGroupName) + "']"
+    neighborGroup.EntityData.SegmentPath = "neighbor-group" + types.AddKeyToken(neighborGroup.NeighborGroupName, "neighbor-group-name")
     neighborGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborGroup.EntityData.Children = make(map[string]types.YChild)
-    neighborGroup.EntityData.Children["neighbor-group-afs"] = types.YChild{"NeighborGroupAfs", &neighborGroup.NeighborGroupAfs}
-    neighborGroup.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &neighborGroup.LocalAddress}
-    neighborGroup.EntityData.Children["bmp-activates"] = types.YChild{"BmpActivates", &neighborGroup.BmpActivates}
-    neighborGroup.EntityData.Children["ebgp-multihop"] = types.YChild{"EbgpMultihop", &neighborGroup.EbgpMultihop}
-    neighborGroup.EntityData.Children["remote-as"] = types.YChild{"RemoteAs", &neighborGroup.RemoteAs}
-    neighborGroup.EntityData.Children["local-as"] = types.YChild{"LocalAs", &neighborGroup.LocalAs}
-    neighborGroup.EntityData.Children["password"] = types.YChild{"Password", &neighborGroup.Password}
-    neighborGroup.EntityData.Children["advertisement-interval"] = types.YChild{"AdvertisementInterval", &neighborGroup.AdvertisementInterval}
-    neighborGroup.EntityData.Children["neighbor-cluster-id"] = types.YChild{"NeighborClusterId", &neighborGroup.NeighborClusterId}
-    neighborGroup.EntityData.Children["tcpmss"] = types.YChild{"Tcpmss", &neighborGroup.Tcpmss}
-    neighborGroup.EntityData.Children["tos"] = types.YChild{"Tos", &neighborGroup.Tos}
-    neighborGroup.EntityData.Children["update-in-filtering"] = types.YChild{"UpdateInFiltering", &neighborGroup.UpdateInFiltering}
-    neighborGroup.EntityData.Children["msg-log-out"] = types.YChild{"MsgLogOut", &neighborGroup.MsgLogOut}
-    neighborGroup.EntityData.Children["receive-buffer-size"] = types.YChild{"ReceiveBufferSize", &neighborGroup.ReceiveBufferSize}
-    neighborGroup.EntityData.Children["msg-log-in"] = types.YChild{"MsgLogIn", &neighborGroup.MsgLogIn}
-    neighborGroup.EntityData.Children["send-buffer-size"] = types.YChild{"SendBufferSize", &neighborGroup.SendBufferSize}
-    neighborGroup.EntityData.Children["timers"] = types.YChild{"Timers", &neighborGroup.Timers}
-    neighborGroup.EntityData.Children["keychain"] = types.YChild{"Keychain", &neighborGroup.Keychain}
-    neighborGroup.EntityData.Children["graceful-maintenance"] = types.YChild{"GracefulMaintenance", &neighborGroup.GracefulMaintenance}
-    neighborGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborGroup.EntityData.Leafs["neighbor-group-name"] = types.YLeaf{"NeighborGroupName", neighborGroup.NeighborGroupName}
-    neighborGroup.EntityData.Leafs["neighbor-group-add-member"] = types.YLeaf{"NeighborGroupAddMember", neighborGroup.NeighborGroupAddMember}
-    neighborGroup.EntityData.Leafs["internal-vpn-client-ibgp-ce"] = types.YLeaf{"InternalVpnClientIbgpCe", neighborGroup.InternalVpnClientIbgpCe}
-    neighborGroup.EntityData.Leafs["session-group-add-member"] = types.YLeaf{"SessionGroupAddMember", neighborGroup.SessionGroupAddMember}
-    neighborGroup.EntityData.Leafs["egress-peer-engineering"] = types.YLeaf{"EgressPeerEngineering", neighborGroup.EgressPeerEngineering}
-    neighborGroup.EntityData.Leafs["neighbor-graceful-restart-stalepath-time"] = types.YLeaf{"NeighborGracefulRestartStalepathTime", neighborGroup.NeighborGracefulRestartStalepathTime}
-    neighborGroup.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", neighborGroup.Shutdown}
-    neighborGroup.EntityData.Leafs["description"] = types.YLeaf{"Description", neighborGroup.Description}
-    neighborGroup.EntityData.Leafs["ebgp-recv-dmz"] = types.YLeaf{"EbgpRecvDmz", neighborGroup.EbgpRecvDmz}
-    neighborGroup.EntityData.Leafs["neighbor-graceful-restart"] = types.YLeaf{"NeighborGracefulRestart", neighborGroup.NeighborGracefulRestart}
-    neighborGroup.EntityData.Leafs["enforce-first-as"] = types.YLeaf{"EnforceFirstAs", neighborGroup.EnforceFirstAs}
-    neighborGroup.EntityData.Leafs["idle-watch-time"] = types.YLeaf{"IdleWatchTime", neighborGroup.IdleWatchTime}
-    neighborGroup.EntityData.Leafs["session-open-mode"] = types.YLeaf{"SessionOpenMode", neighborGroup.SessionOpenMode}
-    neighborGroup.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", neighborGroup.RpkiOriginAsValidationDisable}
-    neighborGroup.EntityData.Leafs["ebgp-send-dmz-enable-modes"] = types.YLeaf{"EbgpSendDmzEnableModes", neighborGroup.EbgpSendDmzEnableModes}
-    neighborGroup.EntityData.Leafs["suppress-all-capabilities"] = types.YLeaf{"SuppressAllCapabilities", neighborGroup.SuppressAllCapabilities}
-    neighborGroup.EntityData.Leafs["max-peers"] = types.YLeaf{"MaxPeers", neighborGroup.MaxPeers}
-    neighborGroup.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborGroup.RpkiBestpathOriginAsAllowInvalid}
-    neighborGroup.EntityData.Leafs["additional-paths-send-capability"] = types.YLeaf{"AdditionalPathsSendCapability", neighborGroup.AdditionalPathsSendCapability}
-    neighborGroup.EntityData.Leafs["propagate-dmz-link-bandwidth"] = types.YLeaf{"PropagateDmzLinkBandwidth", neighborGroup.PropagateDmzLinkBandwidth}
-    neighborGroup.EntityData.Leafs["bfd-enable-modes"] = types.YLeaf{"BfdEnableModes", neighborGroup.BfdEnableModes}
-    neighborGroup.EntityData.Leafs["ttl-security"] = types.YLeaf{"TtlSecurity", neighborGroup.TtlSecurity}
-    neighborGroup.EntityData.Leafs["neighbor-graceful-restart-time"] = types.YLeaf{"NeighborGracefulRestartTime", neighborGroup.NeighborGracefulRestartTime}
-    neighborGroup.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", neighborGroup.BfdMultiplier}
-    neighborGroup.EntityData.Leafs["bfd-minimum-interval"] = types.YLeaf{"BfdMinimumInterval", neighborGroup.BfdMinimumInterval}
-    neighborGroup.EntityData.Leafs["remote-as-list"] = types.YLeaf{"RemoteAsList", neighborGroup.RemoteAsList}
-    neighborGroup.EntityData.Leafs["additional-paths-receive-capability"] = types.YLeaf{"AdditionalPathsReceiveCapability", neighborGroup.AdditionalPathsReceiveCapability}
-    neighborGroup.EntityData.Leafs["ignore-connected-check-ebgp"] = types.YLeaf{"IgnoreConnectedCheckEbgp", neighborGroup.IgnoreConnectedCheckEbgp}
-    neighborGroup.EntityData.Leafs["suppress-four-byte-as-capability"] = types.YLeaf{"SuppressFourByteAsCapability", neighborGroup.SuppressFourByteAsCapability}
-    neighborGroup.EntityData.Leafs["update-source-interface"] = types.YLeaf{"UpdateSourceInterface", neighborGroup.UpdateSourceInterface}
-    neighborGroup.EntityData.Leafs["create"] = types.YLeaf{"Create", neighborGroup.Create}
+    neighborGroup.EntityData.Children = types.NewOrderedMap()
+    neighborGroup.EntityData.Children.Append("neighbor-group-afs", types.YChild{"NeighborGroupAfs", &neighborGroup.NeighborGroupAfs})
+    neighborGroup.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &neighborGroup.LocalAddress})
+    neighborGroup.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &neighborGroup.BmpActivates})
+    neighborGroup.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &neighborGroup.EbgpMultihop})
+    neighborGroup.EntityData.Children.Append("remote-as", types.YChild{"RemoteAs", &neighborGroup.RemoteAs})
+    neighborGroup.EntityData.Children.Append("local-as", types.YChild{"LocalAs", &neighborGroup.LocalAs})
+    neighborGroup.EntityData.Children.Append("password", types.YChild{"Password", &neighborGroup.Password})
+    neighborGroup.EntityData.Children.Append("advertisement-interval", types.YChild{"AdvertisementInterval", &neighborGroup.AdvertisementInterval})
+    neighborGroup.EntityData.Children.Append("neighbor-cluster-id", types.YChild{"NeighborClusterId", &neighborGroup.NeighborClusterId})
+    neighborGroup.EntityData.Children.Append("tcpmss", types.YChild{"Tcpmss", &neighborGroup.Tcpmss})
+    neighborGroup.EntityData.Children.Append("tos", types.YChild{"Tos", &neighborGroup.Tos})
+    neighborGroup.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &neighborGroup.UpdateInFiltering})
+    neighborGroup.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &neighborGroup.MsgLogOut})
+    neighborGroup.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &neighborGroup.ReceiveBufferSize})
+    neighborGroup.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &neighborGroup.MsgLogIn})
+    neighborGroup.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &neighborGroup.SendBufferSize})
+    neighborGroup.EntityData.Children.Append("timers", types.YChild{"Timers", &neighborGroup.Timers})
+    neighborGroup.EntityData.Children.Append("keychain", types.YChild{"Keychain", &neighborGroup.Keychain})
+    neighborGroup.EntityData.Children.Append("graceful-maintenance", types.YChild{"GracefulMaintenance", &neighborGroup.GracefulMaintenance})
+    neighborGroup.EntityData.Leafs = types.NewOrderedMap()
+    neighborGroup.EntityData.Leafs.Append("neighbor-group-name", types.YLeaf{"NeighborGroupName", neighborGroup.NeighborGroupName})
+    neighborGroup.EntityData.Leafs.Append("neighbor-group-add-member", types.YLeaf{"NeighborGroupAddMember", neighborGroup.NeighborGroupAddMember})
+    neighborGroup.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", neighborGroup.InternalVpnClientIbgpCe})
+    neighborGroup.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", neighborGroup.SessionGroupAddMember})
+    neighborGroup.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", neighborGroup.EgressPeerEngineering})
+    neighborGroup.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", neighborGroup.NeighborGracefulRestartStalepathTime})
+    neighborGroup.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", neighborGroup.Shutdown})
+    neighborGroup.EntityData.Leafs.Append("description", types.YLeaf{"Description", neighborGroup.Description})
+    neighborGroup.EntityData.Leafs.Append("ebgp-recv-dmz", types.YLeaf{"EbgpRecvDmz", neighborGroup.EbgpRecvDmz})
+    neighborGroup.EntityData.Leafs.Append("neighbor-graceful-restart", types.YLeaf{"NeighborGracefulRestart", neighborGroup.NeighborGracefulRestart})
+    neighborGroup.EntityData.Leafs.Append("enforce-first-as", types.YLeaf{"EnforceFirstAs", neighborGroup.EnforceFirstAs})
+    neighborGroup.EntityData.Leafs.Append("idle-watch-time", types.YLeaf{"IdleWatchTime", neighborGroup.IdleWatchTime})
+    neighborGroup.EntityData.Leafs.Append("session-open-mode", types.YLeaf{"SessionOpenMode", neighborGroup.SessionOpenMode})
+    neighborGroup.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", neighborGroup.RpkiOriginAsValidationDisable})
+    neighborGroup.EntityData.Leafs.Append("ebgp-send-dmz-enable-modes", types.YLeaf{"EbgpSendDmzEnableModes", neighborGroup.EbgpSendDmzEnableModes})
+    neighborGroup.EntityData.Leafs.Append("suppress-all-capabilities", types.YLeaf{"SuppressAllCapabilities", neighborGroup.SuppressAllCapabilities})
+    neighborGroup.EntityData.Leafs.Append("max-peers", types.YLeaf{"MaxPeers", neighborGroup.MaxPeers})
+    neighborGroup.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborGroup.RpkiBestpathOriginAsAllowInvalid})
+    neighborGroup.EntityData.Leafs.Append("additional-paths-send-capability", types.YLeaf{"AdditionalPathsSendCapability", neighborGroup.AdditionalPathsSendCapability})
+    neighborGroup.EntityData.Leafs.Append("propagate-dmz-link-bandwidth", types.YLeaf{"PropagateDmzLinkBandwidth", neighborGroup.PropagateDmzLinkBandwidth})
+    neighborGroup.EntityData.Leafs.Append("bfd-enable-modes", types.YLeaf{"BfdEnableModes", neighborGroup.BfdEnableModes})
+    neighborGroup.EntityData.Leafs.Append("ttl-security", types.YLeaf{"TtlSecurity", neighborGroup.TtlSecurity})
+    neighborGroup.EntityData.Leafs.Append("neighbor-graceful-restart-time", types.YLeaf{"NeighborGracefulRestartTime", neighborGroup.NeighborGracefulRestartTime})
+    neighborGroup.EntityData.Leafs.Append("bfd-multiplier", types.YLeaf{"BfdMultiplier", neighborGroup.BfdMultiplier})
+    neighborGroup.EntityData.Leafs.Append("bfd-minimum-interval", types.YLeaf{"BfdMinimumInterval", neighborGroup.BfdMinimumInterval})
+    neighborGroup.EntityData.Leafs.Append("remote-as-list", types.YLeaf{"RemoteAsList", neighborGroup.RemoteAsList})
+    neighborGroup.EntityData.Leafs.Append("additional-paths-receive-capability", types.YLeaf{"AdditionalPathsReceiveCapability", neighborGroup.AdditionalPathsReceiveCapability})
+    neighborGroup.EntityData.Leafs.Append("ignore-connected-check-ebgp", types.YLeaf{"IgnoreConnectedCheckEbgp", neighborGroup.IgnoreConnectedCheckEbgp})
+    neighborGroup.EntityData.Leafs.Append("suppress-four-byte-as-capability", types.YLeaf{"SuppressFourByteAsCapability", neighborGroup.SuppressFourByteAsCapability})
+    neighborGroup.EntityData.Leafs.Append("update-source-interface", types.YLeaf{"UpdateSourceInterface", neighborGroup.UpdateSourceInterface})
+    neighborGroup.EntityData.Leafs.Append("create", types.YLeaf{"Create", neighborGroup.Create})
+
+    neighborGroup.EntityData.YListKeys = []string {"NeighborGroupName"}
+
     return &(neighborGroup.EntityData)
 }
 
@@ -10431,7 +11156,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
 
     // Address family type of neighbor group. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf.
-    NeighborGroupAf []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf
+    NeighborGroupAf []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf
 }
 
 func (neighborGroupAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs) GetEntityData() *types.CommonEntityData {
@@ -10444,12 +11169,15 @@ func (neighborGroupAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     neighborGroupAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborGroupAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborGroupAfs.EntityData.Children = make(map[string]types.YChild)
-    neighborGroupAfs.EntityData.Children["neighbor-group-af"] = types.YChild{"NeighborGroupAf", nil}
+    neighborGroupAfs.EntityData.Children = types.NewOrderedMap()
+    neighborGroupAfs.EntityData.Children.Append("neighbor-group-af", types.YChild{"NeighborGroupAf", nil})
     for i := range neighborGroupAfs.NeighborGroupAf {
-        neighborGroupAfs.EntityData.Children[types.GetSegmentPath(&neighborGroupAfs.NeighborGroupAf[i])] = types.YChild{"NeighborGroupAf", &neighborGroupAfs.NeighborGroupAf[i]}
+        neighborGroupAfs.EntityData.Children.Append(types.GetSegmentPath(neighborGroupAfs.NeighborGroupAf[i]), types.YChild{"NeighborGroupAf", neighborGroupAfs.NeighborGroupAf[i]})
     }
-    neighborGroupAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighborGroupAfs.EntityData.Leafs = types.NewOrderedMap()
+
+    neighborGroupAfs.EntityData.YListKeys = []string {}
+
     return &(neighborGroupAfs.EntityData)
 }
 
@@ -10469,7 +11197,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // Disable signalling type on the peer. The type is BgpSignal.
-    L2VpnSignalling interface{}
+    L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
     // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
@@ -10608,10 +11336,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseDefImpDisableV4
 
     // Advertise Translated Routes to the peer.
-    AdvertiseL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2VpnEvpn
+    AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2vpnEvpn
 
     // Advertise Of Local Routes to the peer with different RT.
-    AdvertiseLocalL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalL2VpnEvpn
+    AdvertiseLocalL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalL2vpnEvpn
 
     // Maximum time to wait before purging long lived routes.
     NeighborAfLongLivedGracefulRestartStaleTime Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -10626,7 +11354,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     AdvertiseLocalV6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalV6
 
     // Import Reorigination options for Routes from the peer.
-    Import_ Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_Import
+    Import Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_Import
 
     // Originate default route to this neighbor.
     DefaultOriginate Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_DefaultOriginate
@@ -10656,66 +11384,69 @@ func (neighborGroupAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     neighborGroupAf.EntityData.YangName = "neighbor-group-af"
     neighborGroupAf.EntityData.BundleName = "cisco_ios_xr"
     neighborGroupAf.EntityData.ParentYangName = "neighbor-group-afs"
-    neighborGroupAf.EntityData.SegmentPath = "neighbor-group-af" + "[af-name='" + fmt.Sprintf("%v", neighborGroupAf.AfName) + "']"
+    neighborGroupAf.EntityData.SegmentPath = "neighbor-group-af" + types.AddKeyToken(neighborGroupAf.AfName, "af-name")
     neighborGroupAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborGroupAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborGroupAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborGroupAf.EntityData.Children = make(map[string]types.YChild)
-    neighborGroupAf.EntityData.Children["aigp-cost-community"] = types.YChild{"AigpCostCommunity", &neighborGroupAf.AigpCostCommunity}
-    neighborGroupAf.EntityData.Children["advertise-def-imp-disable-v6"] = types.YChild{"AdvertiseDefImpDisableV6", &neighborGroupAf.AdvertiseDefImpDisableV6}
-    neighborGroupAf.EntityData.Children["advertise-disable"] = types.YChild{"AdvertiseDisable", &neighborGroupAf.AdvertiseDisable}
-    neighborGroupAf.EntityData.Children["maximum-prefixes"] = types.YChild{"MaximumPrefixes", &neighborGroupAf.MaximumPrefixes}
-    neighborGroupAf.EntityData.Children["remove-private-as-entire-as-path-inbound"] = types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborGroupAf.RemovePrivateAsEntireAsPathInbound}
-    neighborGroupAf.EntityData.Children["advertise-def-imp-disable-v4"] = types.YChild{"AdvertiseDefImpDisableV4", &neighborGroupAf.AdvertiseDefImpDisableV4}
-    neighborGroupAf.EntityData.Children["advertise-l2vpn-evpn"] = types.YChild{"AdvertiseL2VpnEvpn", &neighborGroupAf.AdvertiseL2VpnEvpn}
-    neighborGroupAf.EntityData.Children["advertise-local-l2vpn-evpn"] = types.YChild{"AdvertiseLocalL2VpnEvpn", &neighborGroupAf.AdvertiseLocalL2VpnEvpn}
-    neighborGroupAf.EntityData.Children["neighbor-af-long-lived-graceful-restart-stale-time"] = types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime}
-    neighborGroupAf.EntityData.Children["site-of-origin"] = types.YChild{"SiteOfOrigin", &neighborGroupAf.SiteOfOrigin}
-    neighborGroupAf.EntityData.Children["advertise-v6"] = types.YChild{"AdvertiseV6", &neighborGroupAf.AdvertiseV6}
-    neighborGroupAf.EntityData.Children["advertise-local-v6"] = types.YChild{"AdvertiseLocalV6", &neighborGroupAf.AdvertiseLocalV6}
-    neighborGroupAf.EntityData.Children["import"] = types.YChild{"Import_", &neighborGroupAf.Import_}
-    neighborGroupAf.EntityData.Children["default-originate"] = types.YChild{"DefaultOriginate", &neighborGroupAf.DefaultOriginate}
-    neighborGroupAf.EntityData.Children["soft-reconfiguration"] = types.YChild{"SoftReconfiguration", &neighborGroupAf.SoftReconfiguration}
-    neighborGroupAf.EntityData.Children["advertise-vrf-imp-disable-v6"] = types.YChild{"AdvertiseVrfImpDisableV6", &neighborGroupAf.AdvertiseVrfImpDisableV6}
-    neighborGroupAf.EntityData.Children["advertise-v4"] = types.YChild{"AdvertiseV4", &neighborGroupAf.AdvertiseV4}
-    neighborGroupAf.EntityData.Children["advertise-local-v4"] = types.YChild{"AdvertiseLocalV4", &neighborGroupAf.AdvertiseLocalV4}
-    neighborGroupAf.EntityData.Children["remove-private-as-entire-as-path"] = types.YChild{"RemovePrivateAsEntireAsPath", &neighborGroupAf.RemovePrivateAsEntireAsPath}
-    neighborGroupAf.EntityData.Children["advertise-vrf-imp-disable-v4"] = types.YChild{"AdvertiseVrfImpDisableV4", &neighborGroupAf.AdvertiseVrfImpDisableV4}
-    neighborGroupAf.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborGroupAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", neighborGroupAf.AfName}
-    neighborGroupAf.EntityData.Leafs["neighbor-af-long-lived-graceful-restart-capable"] = types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", neighborGroupAf.NeighborAfLongLivedGracefulRestartCapable}
-    neighborGroupAf.EntityData.Leafs["l2vpn-signalling"] = types.YLeaf{"L2VpnSignalling", neighborGroupAf.L2VpnSignalling}
-    neighborGroupAf.EntityData.Leafs["send-ext-community-ebgp"] = types.YLeaf{"SendExtCommunityEbgp", neighborGroupAf.SendExtCommunityEbgp}
-    neighborGroupAf.EntityData.Leafs["accept-route-legacy-rt"] = types.YLeaf{"AcceptRouteLegacyRt", neighborGroupAf.AcceptRouteLegacyRt}
-    neighborGroupAf.EntityData.Leafs["send-community-ebgp"] = types.YLeaf{"SendCommunityEbgp", neighborGroupAf.SendCommunityEbgp}
-    neighborGroupAf.EntityData.Leafs["send-multicast-attr"] = types.YLeaf{"SendMulticastAttr", neighborGroupAf.SendMulticastAttr}
-    neighborGroupAf.EntityData.Leafs["next-hop-unchanged"] = types.YLeaf{"NextHopUnchanged", neighborGroupAf.NextHopUnchanged}
-    neighborGroupAf.EntityData.Leafs["advertise-local-labeled-route"] = types.YLeaf{"AdvertiseLocalLabeledRoute", neighborGroupAf.AdvertiseLocalLabeledRoute}
-    neighborGroupAf.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", neighborGroupAf.RpkiOriginAsValidationDisable}
-    neighborGroupAf.EntityData.Leafs["flowspec-validation"] = types.YLeaf{"FlowspecValidation", neighborGroupAf.FlowspecValidation}
-    neighborGroupAf.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", neighborGroupAf.EncapsulationType}
-    neighborGroupAf.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborGroupAf.RpkiBestpathOriginAsAllowInvalid}
-    neighborGroupAf.EntityData.Leafs["enforce-multiple-labels"] = types.YLeaf{"EnforceMultipleLabels", neighborGroupAf.EnforceMultipleLabels}
-    neighborGroupAf.EntityData.Leafs["as-override"] = types.YLeaf{"AsOverride", neighborGroupAf.AsOverride}
-    neighborGroupAf.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", neighborGroupAf.Multipath}
-    neighborGroupAf.EntityData.Leafs["send-community-ebgp-graceful-shutdown"] = types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborGroupAf.SendCommunityEbgpGracefulShutdown}
-    neighborGroupAf.EntityData.Leafs["activate"] = types.YLeaf{"Activate", neighborGroupAf.Activate}
-    neighborGroupAf.EntityData.Leafs["prefix-orf-policy"] = types.YLeaf{"PrefixOrfPolicy", neighborGroupAf.PrefixOrfPolicy}
-    neighborGroupAf.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", neighborGroupAf.Aigp}
-    neighborGroupAf.EntityData.Leafs["aigp-send-med"] = types.YLeaf{"AigpSendMed", neighborGroupAf.AigpSendMed}
-    neighborGroupAf.EntityData.Leafs["allow-as-in"] = types.YLeaf{"AllowAsIn", neighborGroupAf.AllowAsIn}
-    neighborGroupAf.EntityData.Leafs["advertise-orf"] = types.YLeaf{"AdvertiseOrf", neighborGroupAf.AdvertiseOrf}
-    neighborGroupAf.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", neighborGroupAf.RouteReflectorClient}
-    neighborGroupAf.EntityData.Leafs["next-hop-self"] = types.YLeaf{"NextHopSelf", neighborGroupAf.NextHopSelf}
-    neighborGroupAf.EntityData.Leafs["route-policy-in"] = types.YLeaf{"RoutePolicyIn", neighborGroupAf.RoutePolicyIn}
-    neighborGroupAf.EntityData.Leafs["default-weight"] = types.YLeaf{"DefaultWeight", neighborGroupAf.DefaultWeight}
-    neighborGroupAf.EntityData.Leafs["af-group"] = types.YLeaf{"AfGroup", neighborGroupAf.AfGroup}
-    neighborGroupAf.EntityData.Leafs["next-hop-unchanged-multipath"] = types.YLeaf{"NextHopUnchangedMultipath", neighborGroupAf.NextHopUnchangedMultipath}
-    neighborGroupAf.EntityData.Leafs["optimal-route-reflection-group"] = types.YLeaf{"OptimalRouteReflectionGroup", neighborGroupAf.OptimalRouteReflectionGroup}
-    neighborGroupAf.EntityData.Leafs["accept-own"] = types.YLeaf{"AcceptOwn", neighborGroupAf.AcceptOwn}
-    neighborGroupAf.EntityData.Leafs["route-policy-out"] = types.YLeaf{"RoutePolicyOut", neighborGroupAf.RoutePolicyOut}
-    neighborGroupAf.EntityData.Leafs["advertise-permanent-network"] = types.YLeaf{"AdvertisePermanentNetwork", neighborGroupAf.AdvertisePermanentNetwork}
+    neighborGroupAf.EntityData.Children = types.NewOrderedMap()
+    neighborGroupAf.EntityData.Children.Append("aigp-cost-community", types.YChild{"AigpCostCommunity", &neighborGroupAf.AigpCostCommunity})
+    neighborGroupAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &neighborGroupAf.AdvertiseDefImpDisableV6})
+    neighborGroupAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &neighborGroupAf.AdvertiseDisable})
+    neighborGroupAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &neighborGroupAf.MaximumPrefixes})
+    neighborGroupAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborGroupAf.RemovePrivateAsEntireAsPathInbound})
+    neighborGroupAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &neighborGroupAf.AdvertiseDefImpDisableV4})
+    neighborGroupAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &neighborGroupAf.AdvertiseL2vpnEvpn})
+    neighborGroupAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &neighborGroupAf.AdvertiseLocalL2vpnEvpn})
+    neighborGroupAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime})
+    neighborGroupAf.EntityData.Children.Append("site-of-origin", types.YChild{"SiteOfOrigin", &neighborGroupAf.SiteOfOrigin})
+    neighborGroupAf.EntityData.Children.Append("advertise-v6", types.YChild{"AdvertiseV6", &neighborGroupAf.AdvertiseV6})
+    neighborGroupAf.EntityData.Children.Append("advertise-local-v6", types.YChild{"AdvertiseLocalV6", &neighborGroupAf.AdvertiseLocalV6})
+    neighborGroupAf.EntityData.Children.Append("import", types.YChild{"Import", &neighborGroupAf.Import})
+    neighborGroupAf.EntityData.Children.Append("default-originate", types.YChild{"DefaultOriginate", &neighborGroupAf.DefaultOriginate})
+    neighborGroupAf.EntityData.Children.Append("soft-reconfiguration", types.YChild{"SoftReconfiguration", &neighborGroupAf.SoftReconfiguration})
+    neighborGroupAf.EntityData.Children.Append("advertise-vrf-imp-disable-v6", types.YChild{"AdvertiseVrfImpDisableV6", &neighborGroupAf.AdvertiseVrfImpDisableV6})
+    neighborGroupAf.EntityData.Children.Append("advertise-v4", types.YChild{"AdvertiseV4", &neighborGroupAf.AdvertiseV4})
+    neighborGroupAf.EntityData.Children.Append("advertise-local-v4", types.YChild{"AdvertiseLocalV4", &neighborGroupAf.AdvertiseLocalV4})
+    neighborGroupAf.EntityData.Children.Append("remove-private-as-entire-as-path", types.YChild{"RemovePrivateAsEntireAsPath", &neighborGroupAf.RemovePrivateAsEntireAsPath})
+    neighborGroupAf.EntityData.Children.Append("advertise-vrf-imp-disable-v4", types.YChild{"AdvertiseVrfImpDisableV4", &neighborGroupAf.AdvertiseVrfImpDisableV4})
+    neighborGroupAf.EntityData.Leafs = types.NewOrderedMap()
+    neighborGroupAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", neighborGroupAf.AfName})
+    neighborGroupAf.EntityData.Leafs.Append("neighbor-af-long-lived-graceful-restart-capable", types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", neighborGroupAf.NeighborAfLongLivedGracefulRestartCapable})
+    neighborGroupAf.EntityData.Leafs.Append("l2vpn-signalling", types.YLeaf{"L2vpnSignalling", neighborGroupAf.L2vpnSignalling})
+    neighborGroupAf.EntityData.Leafs.Append("send-ext-community-ebgp", types.YLeaf{"SendExtCommunityEbgp", neighborGroupAf.SendExtCommunityEbgp})
+    neighborGroupAf.EntityData.Leafs.Append("accept-route-legacy-rt", types.YLeaf{"AcceptRouteLegacyRt", neighborGroupAf.AcceptRouteLegacyRt})
+    neighborGroupAf.EntityData.Leafs.Append("send-community-ebgp", types.YLeaf{"SendCommunityEbgp", neighborGroupAf.SendCommunityEbgp})
+    neighborGroupAf.EntityData.Leafs.Append("send-multicast-attr", types.YLeaf{"SendMulticastAttr", neighborGroupAf.SendMulticastAttr})
+    neighborGroupAf.EntityData.Leafs.Append("next-hop-unchanged", types.YLeaf{"NextHopUnchanged", neighborGroupAf.NextHopUnchanged})
+    neighborGroupAf.EntityData.Leafs.Append("advertise-local-labeled-route", types.YLeaf{"AdvertiseLocalLabeledRoute", neighborGroupAf.AdvertiseLocalLabeledRoute})
+    neighborGroupAf.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", neighborGroupAf.RpkiOriginAsValidationDisable})
+    neighborGroupAf.EntityData.Leafs.Append("flowspec-validation", types.YLeaf{"FlowspecValidation", neighborGroupAf.FlowspecValidation})
+    neighborGroupAf.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", neighborGroupAf.EncapsulationType})
+    neighborGroupAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", neighborGroupAf.RpkiBestpathOriginAsAllowInvalid})
+    neighborGroupAf.EntityData.Leafs.Append("enforce-multiple-labels", types.YLeaf{"EnforceMultipleLabels", neighborGroupAf.EnforceMultipleLabels})
+    neighborGroupAf.EntityData.Leafs.Append("as-override", types.YLeaf{"AsOverride", neighborGroupAf.AsOverride})
+    neighborGroupAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", neighborGroupAf.Multipath})
+    neighborGroupAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborGroupAf.SendCommunityEbgpGracefulShutdown})
+    neighborGroupAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", neighborGroupAf.Activate})
+    neighborGroupAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", neighborGroupAf.PrefixOrfPolicy})
+    neighborGroupAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", neighborGroupAf.Aigp})
+    neighborGroupAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", neighborGroupAf.AigpSendMed})
+    neighborGroupAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", neighborGroupAf.AllowAsIn})
+    neighborGroupAf.EntityData.Leafs.Append("advertise-orf", types.YLeaf{"AdvertiseOrf", neighborGroupAf.AdvertiseOrf})
+    neighborGroupAf.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", neighborGroupAf.RouteReflectorClient})
+    neighborGroupAf.EntityData.Leafs.Append("next-hop-self", types.YLeaf{"NextHopSelf", neighborGroupAf.NextHopSelf})
+    neighborGroupAf.EntityData.Leafs.Append("route-policy-in", types.YLeaf{"RoutePolicyIn", neighborGroupAf.RoutePolicyIn})
+    neighborGroupAf.EntityData.Leafs.Append("default-weight", types.YLeaf{"DefaultWeight", neighborGroupAf.DefaultWeight})
+    neighborGroupAf.EntityData.Leafs.Append("af-group", types.YLeaf{"AfGroup", neighborGroupAf.AfGroup})
+    neighborGroupAf.EntityData.Leafs.Append("next-hop-unchanged-multipath", types.YLeaf{"NextHopUnchangedMultipath", neighborGroupAf.NextHopUnchangedMultipath})
+    neighborGroupAf.EntityData.Leafs.Append("optimal-route-reflection-group", types.YLeaf{"OptimalRouteReflectionGroup", neighborGroupAf.OptimalRouteReflectionGroup})
+    neighborGroupAf.EntityData.Leafs.Append("accept-own", types.YLeaf{"AcceptOwn", neighborGroupAf.AcceptOwn})
+    neighborGroupAf.EntityData.Leafs.Append("route-policy-out", types.YLeaf{"RoutePolicyOut", neighborGroupAf.RoutePolicyOut})
+    neighborGroupAf.EntityData.Leafs.Append("advertise-permanent-network", types.YLeaf{"AdvertisePermanentNetwork", neighborGroupAf.AdvertisePermanentNetwork})
+
+    neighborGroupAf.EntityData.YListKeys = []string {"AfName"}
+
     return &(neighborGroupAf.EntityData)
 }
 
@@ -10748,12 +11479,15 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aigpCostCommunity.EntityData.Children = make(map[string]types.YChild)
-    aigpCostCommunity.EntityData.Leafs = make(map[string]types.YLeaf)
-    aigpCostCommunity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", aigpCostCommunity.Enable}
-    aigpCostCommunity.EntityData.Leafs["cost-community-id"] = types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId}
-    aigpCostCommunity.EntityData.Leafs["transitive"] = types.YLeaf{"Transitive", aigpCostCommunity.Transitive}
-    aigpCostCommunity.EntityData.Leafs["cost-community-poi-type"] = types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType}
+    aigpCostCommunity.EntityData.Children = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", aigpCostCommunity.Enable})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-id", types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId})
+    aigpCostCommunity.EntityData.Leafs.Append("transitive", types.YLeaf{"Transitive", aigpCostCommunity.Transitive})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-poi-type", types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType})
+
+    aigpCostCommunity.EntityData.YListKeys = []string {}
+
     return &(aigpCostCommunity.EntityData)
 }
 
@@ -10783,11 +11517,14 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName}
-    advertiseDefImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption}
-    advertiseDefImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType}
+    advertiseDefImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType})
+
+    advertiseDefImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV6.EntityData)
 }
 
@@ -10817,11 +11554,14 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDisable.EntityData.Children = make(map[string]types.YChild)
-    advertiseDisable.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDisable.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDisable.AfName}
-    advertiseDisable.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption}
-    advertiseDisable.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDisable.RtType}
+    advertiseDisable.EntityData.Children = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDisable.AfName})
+    advertiseDisable.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption})
+    advertiseDisable.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDisable.RtType})
+
+    advertiseDisable.EntityData.YListKeys = []string {}
+
     return &(advertiseDisable.EntityData)
 }
 
@@ -10832,6 +11572,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_MaximumPrefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum prefixes limit. The type is interface{} with range: 1..4294967295.
     // This attribute is mandatory.
@@ -10864,13 +11605,16 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumPrefixes.EntityData.Children = make(map[string]types.YChild)
-    maximumPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumPrefixes.EntityData.Leafs["prefix-limit"] = types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit}
-    maximumPrefixes.EntityData.Leafs["warning-percentage"] = types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage}
-    maximumPrefixes.EntityData.Leafs["warning-only"] = types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly}
-    maximumPrefixes.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", maximumPrefixes.RestartTime}
-    maximumPrefixes.EntityData.Leafs["discard-extra-paths"] = types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths}
+    maximumPrefixes.EntityData.Children = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit})
+    maximumPrefixes.EntityData.Leafs.Append("warning-percentage", types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage})
+    maximumPrefixes.EntityData.Leafs.Append("warning-only", types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly})
+    maximumPrefixes.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", maximumPrefixes.RestartTime})
+    maximumPrefixes.EntityData.Leafs.Append("discard-extra-paths", types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths})
+
+    maximumPrefixes.EntityData.YListKeys = []string {}
+
     return &(maximumPrefixes.EntityData)
 }
 
@@ -10880,6 +11624,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_RemovePrivateAsEntireAsPathInbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from inbound updates. FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -10902,10 +11647,13 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Def
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPathInbound.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable}
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire}
+    removePrivateAsEntireAsPathInbound.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable})
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire})
+
+    removePrivateAsEntireAsPathInbound.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPathInbound.EntityData)
 }
 
@@ -10935,17 +11683,20 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName}
-    advertiseDefImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption}
-    advertiseDefImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType}
+    advertiseDefImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType})
+
+    advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2vpnEvpn
 // Advertise Translated Routes to the peer
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -10959,28 +11710,31 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     RtType interface{}
 }
 
-func (advertiseL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseL2VpnEvpn.EntityData.YFilter = advertiseL2VpnEvpn.YFilter
-    advertiseL2VpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseL2VpnEvpn.EntityData.ParentYangName = "neighbor-group-af"
-    advertiseL2VpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseL2vpnEvpn.EntityData.YFilter = advertiseL2vpnEvpn.YFilter
+    advertiseL2vpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseL2vpnEvpn.EntityData.ParentYangName = "neighbor-group-af"
+    advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseL2VpnEvpn.AfName}
-    advertiseL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseL2VpnEvpn.ReorgOption}
-    advertiseL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseL2VpnEvpn.RtType}
-    return &(advertiseL2VpnEvpn.EntityData)
+    advertiseL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseL2vpnEvpn.AfName})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseL2vpnEvpn.ReorgOption})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseL2vpnEvpn.RtType})
+
+    advertiseL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseL2vpnEvpn.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalL2vpnEvpn
 // Advertise Of Local Routes to the peer with
 // different RT
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -10994,22 +11748,25 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     RtType interface{}
 }
 
-func (advertiseLocalL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseLocalL2VpnEvpn.EntityData.YFilter = advertiseLocalL2VpnEvpn.YFilter
-    advertiseLocalL2VpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseLocalL2VpnEvpn.EntityData.ParentYangName = "neighbor-group-af"
-    advertiseLocalL2VpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseLocalL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseLocalL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseLocalL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseLocalL2vpnEvpn.EntityData.YFilter = advertiseLocalL2vpnEvpn.YFilter
+    advertiseLocalL2vpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "neighbor-group-af"
+    advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalL2VpnEvpn.AfName}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalL2VpnEvpn.ReorgOption}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalL2VpnEvpn.RtType}
-    return &(advertiseLocalL2VpnEvpn.EntityData)
+    advertiseLocalL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalL2vpnEvpn.AfName})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalL2vpnEvpn.ReorgOption})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalL2vpnEvpn.RtType})
+
+    advertiseLocalL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseLocalL2vpnEvpn.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -11038,10 +11795,13 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = make(map[string]types.YChild)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-send"] = types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend}
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-accept"] = types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept}
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-send", types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend})
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-accept", types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept})
+
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.YListKeys = []string {}
+
     return &(neighborAfLongLivedGracefulRestartStaleTime.EntityData)
 }
 
@@ -11053,7 +11813,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     YFilter yfilter.YFilter
 
     // Type of Extended community. The type is BgpSiteOfOrigin.
-    Type_ interface{}
+    Type interface{}
 
     // AS number. The type is interface{} with range: 0..4294967295.
     AsXx interface{}
@@ -11065,7 +11825,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address Index. The type is interface{} with range: 0..65535.
@@ -11082,14 +11842,17 @@ func (siteOfOrigin *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siteOfOrigin.EntityData.Children = make(map[string]types.YChild)
-    siteOfOrigin.EntityData.Leafs = make(map[string]types.YLeaf)
-    siteOfOrigin.EntityData.Leafs["type"] = types.YLeaf{"Type_", siteOfOrigin.Type_}
-    siteOfOrigin.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", siteOfOrigin.AsXx}
-    siteOfOrigin.EntityData.Leafs["as"] = types.YLeaf{"As", siteOfOrigin.As}
-    siteOfOrigin.EntityData.Leafs["as-index"] = types.YLeaf{"AsIndex", siteOfOrigin.AsIndex}
-    siteOfOrigin.EntityData.Leafs["address"] = types.YLeaf{"Address", siteOfOrigin.Address}
-    siteOfOrigin.EntityData.Leafs["address-index"] = types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex}
+    siteOfOrigin.EntityData.Children = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs.Append("type", types.YLeaf{"Type", siteOfOrigin.Type})
+    siteOfOrigin.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", siteOfOrigin.AsXx})
+    siteOfOrigin.EntityData.Leafs.Append("as", types.YLeaf{"As", siteOfOrigin.As})
+    siteOfOrigin.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", siteOfOrigin.AsIndex})
+    siteOfOrigin.EntityData.Leafs.Append("address", types.YLeaf{"Address", siteOfOrigin.Address})
+    siteOfOrigin.EntityData.Leafs.Append("address-index", types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex})
+
+    siteOfOrigin.EntityData.YListKeys = []string {}
+
     return &(siteOfOrigin.EntityData)
 }
 
@@ -11119,11 +11882,14 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV6.AfName}
-    advertiseV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV6.ReorgOption}
-    advertiseV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV6.RtType}
+    advertiseV6.EntityData.Children = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV6.AfName})
+    advertiseV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV6.ReorgOption})
+    advertiseV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV6.RtType})
+
+    advertiseV6.EntityData.YListKeys = []string {}
+
     return &(advertiseV6.EntityData)
 }
 
@@ -11154,11 +11920,14 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV6.AfName}
-    advertiseLocalV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption}
-    advertiseLocalV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV6.RtType}
+    advertiseLocalV6.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV6.AfName})
+    advertiseLocalV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption})
+    advertiseLocalV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV6.RtType})
+
+    advertiseLocalV6.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV6.EntityData)
 }
 
@@ -11192,11 +11961,14 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGrou
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["import-stitching"] = types.YLeaf{"ImportStitching", self.ImportStitching}
-    self.EntityData.Leafs["import-reoriginate"] = types.YLeaf{"ImportReoriginate", self.ImportReoriginate}
-    self.EntityData.Leafs["import-reoriginate-stitching"] = types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("import-stitching", types.YLeaf{"ImportStitching", self.ImportStitching})
+    self.EntityData.Leafs.Append("import-reoriginate", types.YLeaf{"ImportReoriginate", self.ImportReoriginate})
+    self.EntityData.Leafs.Append("import-reoriginate-stitching", types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -11225,10 +11997,13 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultOriginate.EntityData.Children = make(map[string]types.YChild)
-    defaultOriginate.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultOriginate.EntityData.Leafs["enable"] = types.YLeaf{"Enable", defaultOriginate.Enable}
-    defaultOriginate.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName}
+    defaultOriginate.EntityData.Children = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", defaultOriginate.Enable})
+    defaultOriginate.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName})
+
+    defaultOriginate.EntityData.YListKeys = []string {}
+
     return &(defaultOriginate.EntityData)
 }
 
@@ -11258,10 +12033,13 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    softReconfiguration.EntityData.Children = make(map[string]types.YChild)
-    softReconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    softReconfiguration.EntityData.Leafs["inbound-soft"] = types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft}
-    softReconfiguration.EntityData.Leafs["soft-always"] = types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways}
+    softReconfiguration.EntityData.Children = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs.Append("inbound-soft", types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft})
+    softReconfiguration.EntityData.Leafs.Append("soft-always", types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways})
+
+    softReconfiguration.EntityData.YListKeys = []string {}
+
     return &(softReconfiguration.EntityData)
 }
 
@@ -11291,11 +12069,14 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName}
-    advertiseVrfImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption}
-    advertiseVrfImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType}
+    advertiseVrfImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType})
+
+    advertiseVrfImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV6.EntityData)
 }
 
@@ -11325,11 +12106,14 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV4.AfName}
-    advertiseV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV4.ReorgOption}
-    advertiseV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV4.RtType}
+    advertiseV4.EntityData.Children = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV4.AfName})
+    advertiseV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV4.ReorgOption})
+    advertiseV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV4.RtType})
+
+    advertiseV4.EntityData.YListKeys = []string {}
+
     return &(advertiseV4.EntityData)
 }
 
@@ -11360,11 +12144,14 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV4.AfName}
-    advertiseLocalV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption}
-    advertiseLocalV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV4.RtType}
+    advertiseLocalV4.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV4.AfName})
+    advertiseLocalV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption})
+    advertiseLocalV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV4.RtType})
+
+    advertiseLocalV4.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV4.EntityData)
 }
 
@@ -11374,6 +12161,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_RemovePrivateAsEntireAsPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from outbound updates .  FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -11396,10 +12184,13 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPath.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPath.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable}
-    removePrivateAsEntireAsPath.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire}
+    removePrivateAsEntireAsPath.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable})
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire})
+
+    removePrivateAsEntireAsPath.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPath.EntityData)
 }
 
@@ -11429,11 +12220,14 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName}
-    advertiseVrfImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption}
-    advertiseVrfImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType}
+    advertiseVrfImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType})
+
+    advertiseVrfImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
@@ -11449,9 +12243,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -11465,10 +12259,13 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAddress.EntityData.Children = make(map[string]types.YChild)
-    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAddress.EntityData.Leafs["local-address-disable"] = types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable}
-    localAddress.EntityData.Leafs["local-ip-address"] = types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress}
+    localAddress.EntityData.Children = types.NewOrderedMap()
+    localAddress.EntityData.Leafs = types.NewOrderedMap()
+    localAddress.EntityData.Leafs.Append("local-address-disable", types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable})
+    localAddress.EntityData.Leafs.Append("local-ip-address", types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress})
+
+    localAddress.EntityData.YListKeys = []string {}
+
     return &(localAddress.EntityData)
 }
 
@@ -11480,7 +12277,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
 
     // Enable BMP logging for this particular server. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_BmpActivates_BmpActivate.
-    BmpActivate []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_BmpActivates_BmpActivate
+    BmpActivate []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_BmpActivates_BmpActivate
 }
 
 func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_BmpActivates) GetEntityData() *types.CommonEntityData {
@@ -11493,12 +12290,15 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivates.EntityData.Children = make(map[string]types.YChild)
-    bmpActivates.EntityData.Children["bmp-activate"] = types.YChild{"BmpActivate", nil}
+    bmpActivates.EntityData.Children = types.NewOrderedMap()
+    bmpActivates.EntityData.Children.Append("bmp-activate", types.YChild{"BmpActivate", nil})
     for i := range bmpActivates.BmpActivate {
-        bmpActivates.EntityData.Children[types.GetSegmentPath(&bmpActivates.BmpActivate[i])] = types.YChild{"BmpActivate", &bmpActivates.BmpActivate[i]}
+        bmpActivates.EntityData.Children.Append(types.GetSegmentPath(bmpActivates.BmpActivate[i]), types.YChild{"BmpActivate", bmpActivates.BmpActivate[i]})
     }
-    bmpActivates.EntityData.Leafs = make(map[string]types.YLeaf)
+    bmpActivates.EntityData.Leafs = types.NewOrderedMap()
+
+    bmpActivates.EntityData.YListKeys = []string {}
+
     return &(bmpActivates.EntityData)
 }
 
@@ -11518,14 +12318,17 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     bmpActivate.EntityData.YangName = "bmp-activate"
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
-    bmpActivate.EntityData.SegmentPath = "bmp-activate" + "[server-id='" + fmt.Sprintf("%v", bmpActivate.ServerId) + "']"
+    bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivate.EntityData.Children = make(map[string]types.YChild)
-    bmpActivate.EntityData.Leafs = make(map[string]types.YLeaf)
-    bmpActivate.EntityData.Leafs["server-id"] = types.YLeaf{"ServerId", bmpActivate.ServerId}
+    bmpActivate.EntityData.Children = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs.Append("server-id", types.YLeaf{"ServerId", bmpActivate.ServerId})
+
+    bmpActivate.EntityData.YListKeys = []string {"ServerId"}
+
     return &(bmpActivate.EntityData)
 }
 
@@ -11555,10 +12358,13 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ebgpMultihop.EntityData.Children = make(map[string]types.YChild)
-    ebgpMultihop.EntityData.Leafs = make(map[string]types.YLeaf)
-    ebgpMultihop.EntityData.Leafs["max-hop-count"] = types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount}
-    ebgpMultihop.EntityData.Leafs["mpls-deactivation"] = types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation}
+    ebgpMultihop.EntityData.Children = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs.Append("max-hop-count", types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount})
+    ebgpMultihop.EntityData.Leafs.Append("mpls-deactivation", types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation})
+
+    ebgpMultihop.EntityData.YListKeys = []string {}
+
     return &(ebgpMultihop.EntityData)
 }
 
@@ -11585,10 +12391,13 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteAs.EntityData.Children = make(map[string]types.YChild)
-    remoteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", remoteAs.AsXx}
-    remoteAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", remoteAs.AsYy}
+    remoteAs.EntityData.Children = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", remoteAs.AsXx})
+    remoteAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", remoteAs.AsYy})
+
+    remoteAs.EntityData.YListKeys = []string {}
+
     return &(remoteAs.EntityData)
 }
 
@@ -11630,14 +12439,17 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborG
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAs.EntityData.Children = make(map[string]types.YChild)
-    localAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", localAs.AsXx}
-    localAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", localAs.AsYy}
-    localAs.EntityData.Leafs["no-prepend"] = types.YLeaf{"NoPrepend", localAs.NoPrepend}
-    localAs.EntityData.Leafs["disable"] = types.YLeaf{"Disable", localAs.Disable}
-    localAs.EntityData.Leafs["replace-as"] = types.YLeaf{"ReplaceAs", localAs.ReplaceAs}
-    localAs.EntityData.Leafs["dual-as"] = types.YLeaf{"DualAs", localAs.DualAs}
+    localAs.EntityData.Children = types.NewOrderedMap()
+    localAs.EntityData.Leafs = types.NewOrderedMap()
+    localAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", localAs.AsXx})
+    localAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", localAs.AsYy})
+    localAs.EntityData.Leafs.Append("no-prepend", types.YLeaf{"NoPrepend", localAs.NoPrepend})
+    localAs.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", localAs.Disable})
+    localAs.EntityData.Leafs.Append("replace-as", types.YLeaf{"ReplaceAs", localAs.ReplaceAs})
+    localAs.EntityData.Leafs.Append("dual-as", types.YLeaf{"DualAs", localAs.DualAs})
+
+    localAs.EntityData.YListKeys = []string {}
+
     return &(localAs.EntityData)
 }
 
@@ -11652,7 +12464,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -11666,10 +12478,13 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    password.EntityData.Children = make(map[string]types.YChild)
-    password.EntityData.Leafs = make(map[string]types.YLeaf)
-    password.EntityData.Leafs["password-disable"] = types.YLeaf{"PasswordDisable", password.PasswordDisable}
-    password.EntityData.Leafs["password"] = types.YLeaf{"Password", password.Password}
+    password.EntityData.Children = types.NewOrderedMap()
+    password.EntityData.Leafs = types.NewOrderedMap()
+    password.EntityData.Leafs.Append("password-disable", types.YLeaf{"PasswordDisable", password.PasswordDisable})
+    password.EntityData.Leafs.Append("password", types.YLeaf{"Password", password.Password})
+
+    password.EntityData.YListKeys = []string {}
+
     return &(password.EntityData)
 }
 
@@ -11680,6 +12495,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_AdvertisementInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Minimum advertisement interval time, secs part. The type is interface{}
     // with range: 0..600. This attribute is mandatory. Units are second.
@@ -11700,10 +12516,13 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEn
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertisementInterval.EntityData.Children = make(map[string]types.YChild)
-    advertisementInterval.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertisementInterval.EntityData.Leafs["minimum-interval"] = types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval}
-    advertisementInterval.EntityData.Leafs["minimum-interval-msecs"] = types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs}
+    advertisementInterval.EntityData.Children = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval", types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval})
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval-msecs", types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs})
+
+    advertisementInterval.EntityData.YListKeys = []string {}
+
     return &(advertisementInterval.EntityData)
 }
 
@@ -11719,7 +12538,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -11733,10 +12552,13 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborClusterId.EntityData.Children = make(map[string]types.YChild)
-    neighborClusterId.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborClusterId.EntityData.Leafs["cluster-id-number"] = types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber}
-    neighborClusterId.EntityData.Leafs["cluster-id-address"] = types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress}
+    neighborClusterId.EntityData.Children = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-number", types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber})
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-address", types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress})
+
+    neighborClusterId.EntityData.YListKeys = []string {}
+
     return &(neighborClusterId.EntityData)
 }
 
@@ -11764,10 +12586,13 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGr
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcpmss.EntityData.Children = make(map[string]types.YChild)
-    tcpmss.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpmss.EntityData.Leafs["tcpmss-disable"] = types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable}
-    tcpmss.EntityData.Leafs["mss"] = types.YLeaf{"Mss", tcpmss.Mss}
+    tcpmss.EntityData.Children = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs.Append("tcpmss-disable", types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable})
+    tcpmss.EntityData.Leafs.Append("mss", types.YLeaf{"Mss", tcpmss.Mss})
+
+    tcpmss.EntityData.YListKeys = []string {}
+
     return &(tcpmss.EntityData)
 }
 
@@ -11778,7 +12603,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     YFilter yfilter.YFilter
 
     // Set type of service. The type is BgpTos.
-    Type_ interface{}
+    Type interface{}
 
     // TOS value to set. The type is one of the following types: enumeration
     // BgpPrecedenceDscp, or int with range: 0..63.
@@ -11795,10 +12620,13 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroup
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tos.EntityData.Children = make(map[string]types.YChild)
-    tos.EntityData.Leafs = make(map[string]types.YLeaf)
-    tos.EntityData.Leafs["type"] = types.YLeaf{"Type_", tos.Type_}
-    tos.EntityData.Leafs["value"] = types.YLeaf{"Value", tos.Value}
+    tos.EntityData.Children = types.NewOrderedMap()
+    tos.EntityData.Leafs = types.NewOrderedMap()
+    tos.EntityData.Leafs.Append("type", types.YLeaf{"Type", tos.Type})
+    tos.EntityData.Leafs.Append("value", types.YLeaf{"Value", tos.Value})
+
+    tos.EntityData.YListKeys = []string {}
+
     return &(tos.EntityData)
 }
 
@@ -11831,12 +12659,15 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFiltering.EntityData.Children = make(map[string]types.YChild)
-    updateInFiltering.EntityData.Children["update-in-filtering-message-buffers"] = types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers}
-    updateInFiltering.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFiltering.EntityData.Leafs["enable"] = types.YLeaf{"Enable", updateInFiltering.Enable}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-attribute-filter-group"] = types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-syslog-disable"] = types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable}
+    updateInFiltering.EntityData.Children = types.NewOrderedMap()
+    updateInFiltering.EntityData.Children.Append("update-in-filtering-message-buffers", types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers})
+    updateInFiltering.EntityData.Leafs = types.NewOrderedMap()
+    updateInFiltering.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", updateInFiltering.Enable})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-attribute-filter-group", types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-syslog-disable", types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable})
+
+    updateInFiltering.EntityData.YListKeys = []string {}
+
     return &(updateInFiltering.EntityData)
 }
 
@@ -11846,6 +12677,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_UpdateInFiltering_UpdateInFilteringMessageBuffers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of message buffers. The type is interface{} with range: 0..25. This
     // attribute is mandatory.
@@ -11866,10 +12698,13 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFilteringMessageBuffers.EntityData.Children = make(map[string]types.YChild)
-    updateInFilteringMessageBuffers.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFilteringMessageBuffers.EntityData.Leafs["number-of-buffers"] = types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers}
-    updateInFilteringMessageBuffers.EntityData.Leafs["non-circular-buffer"] = types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer}
+    updateInFilteringMessageBuffers.EntityData.Children = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("number-of-buffers", types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers})
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("non-circular-buffer", types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer})
+
+    updateInFilteringMessageBuffers.EntityData.YListKeys = []string {}
+
     return &(updateInFilteringMessageBuffers.EntityData)
 }
 
@@ -11901,11 +12736,14 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogOut.EntityData.Children = make(map[string]types.YChild)
-    msgLogOut.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogOut.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount}
-    msgLogOut.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable}
-    msgLogOut.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable}
+    msgLogOut.EntityData.Children = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount})
+    msgLogOut.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable})
+    msgLogOut.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable})
+
+    msgLogOut.EntityData.YListKeys = []string {}
+
     return &(msgLogOut.EntityData)
 }
 
@@ -11935,10 +12773,13 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveBufferSize.EntityData.Children = make(map[string]types.YChild)
-    receiveBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveBufferSize.EntityData.Leafs["socket-receive-size"] = types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize}
-    receiveBufferSize.EntityData.Leafs["bgp-receive-size"] = types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize}
+    receiveBufferSize.EntityData.Children = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs.Append("socket-receive-size", types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize})
+    receiveBufferSize.EntityData.Leafs.Append("bgp-receive-size", types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize})
+
+    receiveBufferSize.EntityData.YListKeys = []string {}
+
     return &(receiveBufferSize.EntityData)
 }
 
@@ -11970,11 +12811,14 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogIn.EntityData.Children = make(map[string]types.YChild)
-    msgLogIn.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogIn.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount}
-    msgLogIn.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable}
-    msgLogIn.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable}
+    msgLogIn.EntityData.Children = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount})
+    msgLogIn.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable})
+    msgLogIn.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable})
+
+    msgLogIn.EntityData.YListKeys = []string {}
+
     return &(msgLogIn.EntityData)
 }
 
@@ -12004,10 +12848,13 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendBufferSize.EntityData.Children = make(map[string]types.YChild)
-    sendBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendBufferSize.EntityData.Leafs["socket-send-size"] = types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize}
-    sendBufferSize.EntityData.Leafs["bgp-send-size"] = types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize}
+    sendBufferSize.EntityData.Children = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs.Append("socket-send-size", types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize})
+    sendBufferSize.EntityData.Leafs.Append("bgp-send-size", types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize})
+
+    sendBufferSize.EntityData.YListKeys = []string {}
+
     return &(sendBufferSize.EntityData)
 }
 
@@ -12040,11 +12887,14 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGr
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval}
-    timers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", timers.HoldTime}
-    timers.EntityData.Leafs["min-accept-hold-time"] = types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval})
+    timers.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", timers.HoldTime})
+    timers.EntityData.Leafs.Append("min-accept-hold-time", types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -12073,10 +12923,13 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keychain.EntityData.Children = make(map[string]types.YChild)
-    keychain.EntityData.Leafs = make(map[string]types.YLeaf)
-    keychain.EntityData.Leafs["keychain-disable"] = types.YLeaf{"KeychainDisable", keychain.KeychainDisable}
-    keychain.EntityData.Leafs["keychain-name"] = types.YLeaf{"KeychainName", keychain.KeychainName}
+    keychain.EntityData.Children = types.NewOrderedMap()
+    keychain.EntityData.Leafs = types.NewOrderedMap()
+    keychain.EntityData.Leafs.Append("keychain-disable", types.YLeaf{"KeychainDisable", keychain.KeychainDisable})
+    keychain.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", keychain.KeychainName})
+
+    keychain.EntityData.YListKeys = []string {}
+
     return &(keychain.EntityData)
 }
 
@@ -12110,12 +12963,15 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenance.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-local-preference"] = types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference}
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-as-prepends"] = types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends}
-    gracefulMaintenance.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenance.EntityData.Leafs["enable"] = types.YLeaf{"Enable", gracefulMaintenance.Enable}
-    gracefulMaintenance.EntityData.Leafs["graceful-maintenance-activate"] = types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate}
+    gracefulMaintenance.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-local-preference", types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference})
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-as-prepends", types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends})
+    gracefulMaintenance.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", gracefulMaintenance.Enable})
+    gracefulMaintenance.EntityData.Leafs.Append("graceful-maintenance-activate", types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate})
+
+    gracefulMaintenance.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenance.EntityData)
 }
 
@@ -12143,10 +12999,13 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Def
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceLocalPreference.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["gshut-loc-pref-disable"] = types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable}
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["local-preference"] = types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference}
+    gracefulMaintenanceLocalPreference.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("gshut-loc-pref-disable", types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable})
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("local-preference", types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference})
+
+    gracefulMaintenanceLocalPreference.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceLocalPreference.EntityData)
 }
 
@@ -12175,10 +13034,13 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceAsPrepends.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["gshut-prepends-disable"] = types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable}
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["as-prepends"] = types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends}
+    gracefulMaintenanceAsPrepends.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("gshut-prepends-disable", types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable})
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("as-prepends", types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends})
+
+    gracefulMaintenanceAsPrepends.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceAsPrepends.EntityData)
 }
 
@@ -12190,7 +13052,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups struct {
 
     // A particular BGP AF group. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup.
-    AfGroup []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup
+    AfGroup []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup
 }
 
 func (afGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups) GetEntityData() *types.CommonEntityData {
@@ -12203,12 +13065,15 @@ func (afGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups
     afGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    afGroups.EntityData.Children = make(map[string]types.YChild)
-    afGroups.EntityData.Children["af-group"] = types.YChild{"AfGroup", nil}
+    afGroups.EntityData.Children = types.NewOrderedMap()
+    afGroups.EntityData.Children.Append("af-group", types.YChild{"AfGroup", nil})
     for i := range afGroups.AfGroup {
-        afGroups.EntityData.Children[types.GetSegmentPath(&afGroups.AfGroup[i])] = types.YChild{"AfGroup", &afGroups.AfGroup[i]}
+        afGroups.EntityData.Children.Append(types.GetSegmentPath(afGroups.AfGroup[i]), types.YChild{"AfGroup", afGroups.AfGroup[i]})
     }
-    afGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    afGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    afGroups.EntityData.YListKeys = []string {}
+
     return &(afGroups.EntityData)
 }
 
@@ -12219,7 +13084,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup st
     YFilter yfilter.YFilter
 
     // This attribute is a key. BGP AF group name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     AfGroupName interface{}
 
     // AF group configuration table.
@@ -12231,15 +13096,18 @@ func (afGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_
     afGroup.EntityData.YangName = "af-group"
     afGroup.EntityData.BundleName = "cisco_ios_xr"
     afGroup.EntityData.ParentYangName = "af-groups"
-    afGroup.EntityData.SegmentPath = "af-group" + "[af-group-name='" + fmt.Sprintf("%v", afGroup.AfGroupName) + "']"
+    afGroup.EntityData.SegmentPath = "af-group" + types.AddKeyToken(afGroup.AfGroupName, "af-group-name")
     afGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    afGroup.EntityData.Children = make(map[string]types.YChild)
-    afGroup.EntityData.Children["af-group-afs"] = types.YChild{"AfGroupAfs", &afGroup.AfGroupAfs}
-    afGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    afGroup.EntityData.Leafs["af-group-name"] = types.YLeaf{"AfGroupName", afGroup.AfGroupName}
+    afGroup.EntityData.Children = types.NewOrderedMap()
+    afGroup.EntityData.Children.Append("af-group-afs", types.YChild{"AfGroupAfs", &afGroup.AfGroupAfs})
+    afGroup.EntityData.Leafs = types.NewOrderedMap()
+    afGroup.EntityData.Leafs.Append("af-group-name", types.YLeaf{"AfGroupName", afGroup.AfGroupName})
+
+    afGroup.EntityData.YListKeys = []string {"AfGroupName"}
+
     return &(afGroup.EntityData)
 }
 
@@ -12251,7 +13119,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
 
     // Address family type of an AF group. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf.
-    AfGroupAf []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf
+    AfGroupAf []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf
 }
 
 func (afGroupAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs) GetEntityData() *types.CommonEntityData {
@@ -12264,12 +13132,15 @@ func (afGroupAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGrou
     afGroupAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afGroupAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    afGroupAfs.EntityData.Children = make(map[string]types.YChild)
-    afGroupAfs.EntityData.Children["af-group-af"] = types.YChild{"AfGroupAf", nil}
+    afGroupAfs.EntityData.Children = types.NewOrderedMap()
+    afGroupAfs.EntityData.Children.Append("af-group-af", types.YChild{"AfGroupAf", nil})
     for i := range afGroupAfs.AfGroupAf {
-        afGroupAfs.EntityData.Children[types.GetSegmentPath(&afGroupAfs.AfGroupAf[i])] = types.YChild{"AfGroupAf", &afGroupAfs.AfGroupAf[i]}
+        afGroupAfs.EntityData.Children.Append(types.GetSegmentPath(afGroupAfs.AfGroupAf[i]), types.YChild{"AfGroupAf", afGroupAfs.AfGroupAf[i]})
     }
-    afGroupAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    afGroupAfs.EntityData.Leafs = types.NewOrderedMap()
+
+    afGroupAfs.EntityData.YListKeys = []string {}
+
     return &(afGroupAfs.EntityData)
 }
 
@@ -12298,7 +13169,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // Disable signalling type on the peer. The type is BgpSignal.
-    L2VpnSignalling interface{}
+    L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
     // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
@@ -12427,10 +13298,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseDefImpDisableV4
 
     // Advertise Translated Routes to the peer.
-    AdvertiseL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2VpnEvpn
+    AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2vpnEvpn
 
     // Advertise Of Local Routes to the peer with different RT.
-    AdvertiseLocalL2VpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalL2VpnEvpn
+    AdvertiseLocalL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalL2vpnEvpn
 
     // Maximum time to wait before purging long lived routes.
     NeighborAfLongLivedGracefulRestartStaleTime Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -12445,7 +13316,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     AdvertiseLocalV6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalV6
 
     // Import Reorigination options for Routes from the peer.
-    Import_ Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_Import
+    Import Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_Import
 
     // Originate default route to this neighbor.
     DefaultOriginate Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_DefaultOriginate
@@ -12475,66 +13346,69 @@ func (afGroupAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroup
     afGroupAf.EntityData.YangName = "af-group-af"
     afGroupAf.EntityData.BundleName = "cisco_ios_xr"
     afGroupAf.EntityData.ParentYangName = "af-group-afs"
-    afGroupAf.EntityData.SegmentPath = "af-group-af" + "[af-name='" + fmt.Sprintf("%v", afGroupAf.AfName) + "']"
+    afGroupAf.EntityData.SegmentPath = "af-group-af" + types.AddKeyToken(afGroupAf.AfName, "af-name")
     afGroupAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afGroupAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afGroupAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    afGroupAf.EntityData.Children = make(map[string]types.YChild)
-    afGroupAf.EntityData.Children["aigp-cost-community"] = types.YChild{"AigpCostCommunity", &afGroupAf.AigpCostCommunity}
-    afGroupAf.EntityData.Children["advertise-def-imp-disable-v6"] = types.YChild{"AdvertiseDefImpDisableV6", &afGroupAf.AdvertiseDefImpDisableV6}
-    afGroupAf.EntityData.Children["advertise-disable"] = types.YChild{"AdvertiseDisable", &afGroupAf.AdvertiseDisable}
-    afGroupAf.EntityData.Children["maximum-prefixes"] = types.YChild{"MaximumPrefixes", &afGroupAf.MaximumPrefixes}
-    afGroupAf.EntityData.Children["remove-private-as-entire-as-path-inbound"] = types.YChild{"RemovePrivateAsEntireAsPathInbound", &afGroupAf.RemovePrivateAsEntireAsPathInbound}
-    afGroupAf.EntityData.Children["advertise-def-imp-disable-v4"] = types.YChild{"AdvertiseDefImpDisableV4", &afGroupAf.AdvertiseDefImpDisableV4}
-    afGroupAf.EntityData.Children["advertise-l2vpn-evpn"] = types.YChild{"AdvertiseL2VpnEvpn", &afGroupAf.AdvertiseL2VpnEvpn}
-    afGroupAf.EntityData.Children["advertise-local-l2vpn-evpn"] = types.YChild{"AdvertiseLocalL2VpnEvpn", &afGroupAf.AdvertiseLocalL2VpnEvpn}
-    afGroupAf.EntityData.Children["neighbor-af-long-lived-graceful-restart-stale-time"] = types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &afGroupAf.NeighborAfLongLivedGracefulRestartStaleTime}
-    afGroupAf.EntityData.Children["site-of-origin"] = types.YChild{"SiteOfOrigin", &afGroupAf.SiteOfOrigin}
-    afGroupAf.EntityData.Children["advertise-v6"] = types.YChild{"AdvertiseV6", &afGroupAf.AdvertiseV6}
-    afGroupAf.EntityData.Children["advertise-local-v6"] = types.YChild{"AdvertiseLocalV6", &afGroupAf.AdvertiseLocalV6}
-    afGroupAf.EntityData.Children["import"] = types.YChild{"Import_", &afGroupAf.Import_}
-    afGroupAf.EntityData.Children["default-originate"] = types.YChild{"DefaultOriginate", &afGroupAf.DefaultOriginate}
-    afGroupAf.EntityData.Children["soft-reconfiguration"] = types.YChild{"SoftReconfiguration", &afGroupAf.SoftReconfiguration}
-    afGroupAf.EntityData.Children["advertise-vrf-imp-disable-v6"] = types.YChild{"AdvertiseVrfImpDisableV6", &afGroupAf.AdvertiseVrfImpDisableV6}
-    afGroupAf.EntityData.Children["advertise-v4"] = types.YChild{"AdvertiseV4", &afGroupAf.AdvertiseV4}
-    afGroupAf.EntityData.Children["advertise-local-v4"] = types.YChild{"AdvertiseLocalV4", &afGroupAf.AdvertiseLocalV4}
-    afGroupAf.EntityData.Children["remove-private-as-entire-as-path"] = types.YChild{"RemovePrivateAsEntireAsPath", &afGroupAf.RemovePrivateAsEntireAsPath}
-    afGroupAf.EntityData.Children["advertise-vrf-imp-disable-v4"] = types.YChild{"AdvertiseVrfImpDisableV4", &afGroupAf.AdvertiseVrfImpDisableV4}
-    afGroupAf.EntityData.Leafs = make(map[string]types.YLeaf)
-    afGroupAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", afGroupAf.AfName}
-    afGroupAf.EntityData.Leafs["af-group"] = types.YLeaf{"AfGroup", afGroupAf.AfGroup}
-    afGroupAf.EntityData.Leafs["create"] = types.YLeaf{"Create", afGroupAf.Create}
-    afGroupAf.EntityData.Leafs["neighbor-af-long-lived-graceful-restart-capable"] = types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", afGroupAf.NeighborAfLongLivedGracefulRestartCapable}
-    afGroupAf.EntityData.Leafs["l2vpn-signalling"] = types.YLeaf{"L2VpnSignalling", afGroupAf.L2VpnSignalling}
-    afGroupAf.EntityData.Leafs["send-ext-community-ebgp"] = types.YLeaf{"SendExtCommunityEbgp", afGroupAf.SendExtCommunityEbgp}
-    afGroupAf.EntityData.Leafs["accept-route-legacy-rt"] = types.YLeaf{"AcceptRouteLegacyRt", afGroupAf.AcceptRouteLegacyRt}
-    afGroupAf.EntityData.Leafs["send-community-ebgp"] = types.YLeaf{"SendCommunityEbgp", afGroupAf.SendCommunityEbgp}
-    afGroupAf.EntityData.Leafs["send-multicast-attr"] = types.YLeaf{"SendMulticastAttr", afGroupAf.SendMulticastAttr}
-    afGroupAf.EntityData.Leafs["next-hop-unchanged"] = types.YLeaf{"NextHopUnchanged", afGroupAf.NextHopUnchanged}
-    afGroupAf.EntityData.Leafs["advertise-local-labeled-route"] = types.YLeaf{"AdvertiseLocalLabeledRoute", afGroupAf.AdvertiseLocalLabeledRoute}
-    afGroupAf.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", afGroupAf.RpkiOriginAsValidationDisable}
-    afGroupAf.EntityData.Leafs["flowspec-validation"] = types.YLeaf{"FlowspecValidation", afGroupAf.FlowspecValidation}
-    afGroupAf.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", afGroupAf.EncapsulationType}
-    afGroupAf.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", afGroupAf.RpkiBestpathOriginAsAllowInvalid}
-    afGroupAf.EntityData.Leafs["enforce-multiple-labels"] = types.YLeaf{"EnforceMultipleLabels", afGroupAf.EnforceMultipleLabels}
-    afGroupAf.EntityData.Leafs["as-override"] = types.YLeaf{"AsOverride", afGroupAf.AsOverride}
-    afGroupAf.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", afGroupAf.Multipath}
-    afGroupAf.EntityData.Leafs["send-community-ebgp-graceful-shutdown"] = types.YLeaf{"SendCommunityEbgpGracefulShutdown", afGroupAf.SendCommunityEbgpGracefulShutdown}
-    afGroupAf.EntityData.Leafs["prefix-orf-policy"] = types.YLeaf{"PrefixOrfPolicy", afGroupAf.PrefixOrfPolicy}
-    afGroupAf.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", afGroupAf.Aigp}
-    afGroupAf.EntityData.Leafs["aigp-send-med"] = types.YLeaf{"AigpSendMed", afGroupAf.AigpSendMed}
-    afGroupAf.EntityData.Leafs["allow-as-in"] = types.YLeaf{"AllowAsIn", afGroupAf.AllowAsIn}
-    afGroupAf.EntityData.Leafs["advertise-orf"] = types.YLeaf{"AdvertiseOrf", afGroupAf.AdvertiseOrf}
-    afGroupAf.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", afGroupAf.RouteReflectorClient}
-    afGroupAf.EntityData.Leafs["next-hop-self"] = types.YLeaf{"NextHopSelf", afGroupAf.NextHopSelf}
-    afGroupAf.EntityData.Leafs["route-policy-in"] = types.YLeaf{"RoutePolicyIn", afGroupAf.RoutePolicyIn}
-    afGroupAf.EntityData.Leafs["default-weight"] = types.YLeaf{"DefaultWeight", afGroupAf.DefaultWeight}
-    afGroupAf.EntityData.Leafs["next-hop-unchanged-multipath"] = types.YLeaf{"NextHopUnchangedMultipath", afGroupAf.NextHopUnchangedMultipath}
-    afGroupAf.EntityData.Leafs["optimal-route-reflection-group"] = types.YLeaf{"OptimalRouteReflectionGroup", afGroupAf.OptimalRouteReflectionGroup}
-    afGroupAf.EntityData.Leafs["accept-own"] = types.YLeaf{"AcceptOwn", afGroupAf.AcceptOwn}
-    afGroupAf.EntityData.Leafs["route-policy-out"] = types.YLeaf{"RoutePolicyOut", afGroupAf.RoutePolicyOut}
-    afGroupAf.EntityData.Leafs["advertise-permanent-network"] = types.YLeaf{"AdvertisePermanentNetwork", afGroupAf.AdvertisePermanentNetwork}
+    afGroupAf.EntityData.Children = types.NewOrderedMap()
+    afGroupAf.EntityData.Children.Append("aigp-cost-community", types.YChild{"AigpCostCommunity", &afGroupAf.AigpCostCommunity})
+    afGroupAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &afGroupAf.AdvertiseDefImpDisableV6})
+    afGroupAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &afGroupAf.AdvertiseDisable})
+    afGroupAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &afGroupAf.MaximumPrefixes})
+    afGroupAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &afGroupAf.RemovePrivateAsEntireAsPathInbound})
+    afGroupAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &afGroupAf.AdvertiseDefImpDisableV4})
+    afGroupAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &afGroupAf.AdvertiseL2vpnEvpn})
+    afGroupAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &afGroupAf.AdvertiseLocalL2vpnEvpn})
+    afGroupAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &afGroupAf.NeighborAfLongLivedGracefulRestartStaleTime})
+    afGroupAf.EntityData.Children.Append("site-of-origin", types.YChild{"SiteOfOrigin", &afGroupAf.SiteOfOrigin})
+    afGroupAf.EntityData.Children.Append("advertise-v6", types.YChild{"AdvertiseV6", &afGroupAf.AdvertiseV6})
+    afGroupAf.EntityData.Children.Append("advertise-local-v6", types.YChild{"AdvertiseLocalV6", &afGroupAf.AdvertiseLocalV6})
+    afGroupAf.EntityData.Children.Append("import", types.YChild{"Import", &afGroupAf.Import})
+    afGroupAf.EntityData.Children.Append("default-originate", types.YChild{"DefaultOriginate", &afGroupAf.DefaultOriginate})
+    afGroupAf.EntityData.Children.Append("soft-reconfiguration", types.YChild{"SoftReconfiguration", &afGroupAf.SoftReconfiguration})
+    afGroupAf.EntityData.Children.Append("advertise-vrf-imp-disable-v6", types.YChild{"AdvertiseVrfImpDisableV6", &afGroupAf.AdvertiseVrfImpDisableV6})
+    afGroupAf.EntityData.Children.Append("advertise-v4", types.YChild{"AdvertiseV4", &afGroupAf.AdvertiseV4})
+    afGroupAf.EntityData.Children.Append("advertise-local-v4", types.YChild{"AdvertiseLocalV4", &afGroupAf.AdvertiseLocalV4})
+    afGroupAf.EntityData.Children.Append("remove-private-as-entire-as-path", types.YChild{"RemovePrivateAsEntireAsPath", &afGroupAf.RemovePrivateAsEntireAsPath})
+    afGroupAf.EntityData.Children.Append("advertise-vrf-imp-disable-v4", types.YChild{"AdvertiseVrfImpDisableV4", &afGroupAf.AdvertiseVrfImpDisableV4})
+    afGroupAf.EntityData.Leafs = types.NewOrderedMap()
+    afGroupAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", afGroupAf.AfName})
+    afGroupAf.EntityData.Leafs.Append("af-group", types.YLeaf{"AfGroup", afGroupAf.AfGroup})
+    afGroupAf.EntityData.Leafs.Append("create", types.YLeaf{"Create", afGroupAf.Create})
+    afGroupAf.EntityData.Leafs.Append("neighbor-af-long-lived-graceful-restart-capable", types.YLeaf{"NeighborAfLongLivedGracefulRestartCapable", afGroupAf.NeighborAfLongLivedGracefulRestartCapable})
+    afGroupAf.EntityData.Leafs.Append("l2vpn-signalling", types.YLeaf{"L2vpnSignalling", afGroupAf.L2vpnSignalling})
+    afGroupAf.EntityData.Leafs.Append("send-ext-community-ebgp", types.YLeaf{"SendExtCommunityEbgp", afGroupAf.SendExtCommunityEbgp})
+    afGroupAf.EntityData.Leafs.Append("accept-route-legacy-rt", types.YLeaf{"AcceptRouteLegacyRt", afGroupAf.AcceptRouteLegacyRt})
+    afGroupAf.EntityData.Leafs.Append("send-community-ebgp", types.YLeaf{"SendCommunityEbgp", afGroupAf.SendCommunityEbgp})
+    afGroupAf.EntityData.Leafs.Append("send-multicast-attr", types.YLeaf{"SendMulticastAttr", afGroupAf.SendMulticastAttr})
+    afGroupAf.EntityData.Leafs.Append("next-hop-unchanged", types.YLeaf{"NextHopUnchanged", afGroupAf.NextHopUnchanged})
+    afGroupAf.EntityData.Leafs.Append("advertise-local-labeled-route", types.YLeaf{"AdvertiseLocalLabeledRoute", afGroupAf.AdvertiseLocalLabeledRoute})
+    afGroupAf.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", afGroupAf.RpkiOriginAsValidationDisable})
+    afGroupAf.EntityData.Leafs.Append("flowspec-validation", types.YLeaf{"FlowspecValidation", afGroupAf.FlowspecValidation})
+    afGroupAf.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", afGroupAf.EncapsulationType})
+    afGroupAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", afGroupAf.RpkiBestpathOriginAsAllowInvalid})
+    afGroupAf.EntityData.Leafs.Append("enforce-multiple-labels", types.YLeaf{"EnforceMultipleLabels", afGroupAf.EnforceMultipleLabels})
+    afGroupAf.EntityData.Leafs.Append("as-override", types.YLeaf{"AsOverride", afGroupAf.AsOverride})
+    afGroupAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", afGroupAf.Multipath})
+    afGroupAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", afGroupAf.SendCommunityEbgpGracefulShutdown})
+    afGroupAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", afGroupAf.PrefixOrfPolicy})
+    afGroupAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", afGroupAf.Aigp})
+    afGroupAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", afGroupAf.AigpSendMed})
+    afGroupAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", afGroupAf.AllowAsIn})
+    afGroupAf.EntityData.Leafs.Append("advertise-orf", types.YLeaf{"AdvertiseOrf", afGroupAf.AdvertiseOrf})
+    afGroupAf.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", afGroupAf.RouteReflectorClient})
+    afGroupAf.EntityData.Leafs.Append("next-hop-self", types.YLeaf{"NextHopSelf", afGroupAf.NextHopSelf})
+    afGroupAf.EntityData.Leafs.Append("route-policy-in", types.YLeaf{"RoutePolicyIn", afGroupAf.RoutePolicyIn})
+    afGroupAf.EntityData.Leafs.Append("default-weight", types.YLeaf{"DefaultWeight", afGroupAf.DefaultWeight})
+    afGroupAf.EntityData.Leafs.Append("next-hop-unchanged-multipath", types.YLeaf{"NextHopUnchangedMultipath", afGroupAf.NextHopUnchangedMultipath})
+    afGroupAf.EntityData.Leafs.Append("optimal-route-reflection-group", types.YLeaf{"OptimalRouteReflectionGroup", afGroupAf.OptimalRouteReflectionGroup})
+    afGroupAf.EntityData.Leafs.Append("accept-own", types.YLeaf{"AcceptOwn", afGroupAf.AcceptOwn})
+    afGroupAf.EntityData.Leafs.Append("route-policy-out", types.YLeaf{"RoutePolicyOut", afGroupAf.RoutePolicyOut})
+    afGroupAf.EntityData.Leafs.Append("advertise-permanent-network", types.YLeaf{"AdvertisePermanentNetwork", afGroupAf.AdvertisePermanentNetwork})
+
+    afGroupAf.EntityData.YListKeys = []string {"AfName"}
+
     return &(afGroupAf.EntityData)
 }
 
@@ -12567,12 +13441,15 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aigpCostCommunity.EntityData.Children = make(map[string]types.YChild)
-    aigpCostCommunity.EntityData.Leafs = make(map[string]types.YLeaf)
-    aigpCostCommunity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", aigpCostCommunity.Enable}
-    aigpCostCommunity.EntityData.Leafs["cost-community-id"] = types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId}
-    aigpCostCommunity.EntityData.Leafs["transitive"] = types.YLeaf{"Transitive", aigpCostCommunity.Transitive}
-    aigpCostCommunity.EntityData.Leafs["cost-community-poi-type"] = types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType}
+    aigpCostCommunity.EntityData.Children = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs = types.NewOrderedMap()
+    aigpCostCommunity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", aigpCostCommunity.Enable})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-id", types.YLeaf{"CostCommunityId", aigpCostCommunity.CostCommunityId})
+    aigpCostCommunity.EntityData.Leafs.Append("transitive", types.YLeaf{"Transitive", aigpCostCommunity.Transitive})
+    aigpCostCommunity.EntityData.Leafs.Append("cost-community-poi-type", types.YLeaf{"CostCommunityPoiType", aigpCostCommunity.CostCommunityPoiType})
+
+    aigpCostCommunity.EntityData.YListKeys = []string {}
+
     return &(aigpCostCommunity.EntityData)
 }
 
@@ -12602,11 +13479,14 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName}
-    advertiseDefImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption}
-    advertiseDefImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType}
+    advertiseDefImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV6.AfName})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV6.AdvOption})
+    advertiseDefImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV6.RtType})
+
+    advertiseDefImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV6.EntityData)
 }
 
@@ -12636,11 +13516,14 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDisable.EntityData.Children = make(map[string]types.YChild)
-    advertiseDisable.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDisable.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDisable.AfName}
-    advertiseDisable.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption}
-    advertiseDisable.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDisable.RtType}
+    advertiseDisable.EntityData.Children = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDisable.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDisable.AfName})
+    advertiseDisable.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseDisable.ReorgOption})
+    advertiseDisable.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDisable.RtType})
+
+    advertiseDisable.EntityData.YListKeys = []string {}
+
     return &(advertiseDisable.EntityData)
 }
 
@@ -12651,6 +13534,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_MaximumPrefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum prefixes limit. The type is interface{} with range: 1..4294967295.
     // This attribute is mandatory.
@@ -12683,13 +13567,16 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_A
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumPrefixes.EntityData.Children = make(map[string]types.YChild)
-    maximumPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumPrefixes.EntityData.Leafs["prefix-limit"] = types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit}
-    maximumPrefixes.EntityData.Leafs["warning-percentage"] = types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage}
-    maximumPrefixes.EntityData.Leafs["warning-only"] = types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly}
-    maximumPrefixes.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", maximumPrefixes.RestartTime}
-    maximumPrefixes.EntityData.Leafs["discard-extra-paths"] = types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths}
+    maximumPrefixes.EntityData.Children = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs = types.NewOrderedMap()
+    maximumPrefixes.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefixes.PrefixLimit})
+    maximumPrefixes.EntityData.Leafs.Append("warning-percentage", types.YLeaf{"WarningPercentage", maximumPrefixes.WarningPercentage})
+    maximumPrefixes.EntityData.Leafs.Append("warning-only", types.YLeaf{"WarningOnly", maximumPrefixes.WarningOnly})
+    maximumPrefixes.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", maximumPrefixes.RestartTime})
+    maximumPrefixes.EntityData.Leafs.Append("discard-extra-paths", types.YLeaf{"DiscardExtraPaths", maximumPrefixes.DiscardExtraPaths})
+
+    maximumPrefixes.EntityData.YListKeys = []string {}
+
     return &(maximumPrefixes.EntityData)
 }
 
@@ -12699,6 +13586,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_A
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_RemovePrivateAsEntireAsPathInbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from inbound updates. FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -12721,10 +13609,13 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Def
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPathInbound.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable}
-    removePrivateAsEntireAsPathInbound.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire}
+    removePrivateAsEntireAsPathInbound.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPathInbound.Enable})
+    removePrivateAsEntireAsPathInbound.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPathInbound.Entire})
+
+    removePrivateAsEntireAsPathInbound.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPathInbound.EntityData)
 }
 
@@ -12754,17 +13645,20 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseDefImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseDefImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseDefImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName}
-    advertiseDefImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption}
-    advertiseDefImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType}
+    advertiseDefImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseDefImpDisableV4.AfName})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseDefImpDisableV4.AdvOption})
+    advertiseDefImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseDefImpDisableV4.RtType})
+
+    advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseDefImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2vpnEvpn
 // Advertise Translated Routes to the peer
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -12778,28 +13672,31 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     RtType interface{}
 }
 
-func (advertiseL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseL2VpnEvpn.EntityData.YFilter = advertiseL2VpnEvpn.YFilter
-    advertiseL2VpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseL2VpnEvpn.EntityData.ParentYangName = "af-group-af"
-    advertiseL2VpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
-    advertiseL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseL2vpnEvpn.EntityData.YFilter = advertiseL2vpnEvpn.YFilter
+    advertiseL2vpnEvpn.EntityData.YangName = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseL2vpnEvpn.EntityData.ParentYangName = "af-group-af"
+    advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseL2VpnEvpn.AfName}
-    advertiseL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseL2VpnEvpn.ReorgOption}
-    advertiseL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseL2VpnEvpn.RtType}
-    return &(advertiseL2VpnEvpn.EntityData)
+    advertiseL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseL2vpnEvpn.AfName})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseL2vpnEvpn.ReorgOption})
+    advertiseL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseL2vpnEvpn.RtType})
+
+    advertiseL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseL2vpnEvpn.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalL2VpnEvpn
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalL2vpnEvpn
 // Advertise Of Local Routes to the peer with
 // different RT
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalL2VpnEvpn struct {
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalL2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -12813,22 +13710,25 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     RtType interface{}
 }
 
-func (advertiseLocalL2VpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalL2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    advertiseLocalL2VpnEvpn.EntityData.YFilter = advertiseLocalL2VpnEvpn.YFilter
-    advertiseLocalL2VpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.BundleName = "cisco_ios_xr"
-    advertiseLocalL2VpnEvpn.EntityData.ParentYangName = "af-group-af"
-    advertiseLocalL2VpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
-    advertiseLocalL2VpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseLocalL2VpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseLocalL2VpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseLocalL2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    advertiseLocalL2vpnEvpn.EntityData.YFilter = advertiseLocalL2vpnEvpn.YFilter
+    advertiseLocalL2vpnEvpn.EntityData.YangName = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
+    advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "af-group-af"
+    advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalL2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalL2VpnEvpn.AfName}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalL2VpnEvpn.ReorgOption}
-    advertiseLocalL2VpnEvpn.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalL2VpnEvpn.RtType}
-    return &(advertiseLocalL2VpnEvpn.EntityData)
+    advertiseLocalL2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalL2vpnEvpn.AfName})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalL2vpnEvpn.ReorgOption})
+    advertiseLocalL2vpnEvpn.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalL2vpnEvpn.RtType})
+
+    advertiseLocalL2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(advertiseLocalL2vpnEvpn.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_NeighborAfLongLivedGracefulRestartStaleTime
@@ -12857,10 +13757,13 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = make(map[string]types.YChild)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-send"] = types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend}
-    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs["stale-time-accept"] = types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept}
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Children = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs = types.NewOrderedMap()
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-send", types.YLeaf{"StaleTimeSend", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeSend})
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.Leafs.Append("stale-time-accept", types.YLeaf{"StaleTimeAccept", neighborAfLongLivedGracefulRestartStaleTime.StaleTimeAccept})
+
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.YListKeys = []string {}
+
     return &(neighborAfLongLivedGracefulRestartStaleTime.EntityData)
 }
 
@@ -12872,7 +13775,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     YFilter yfilter.YFilter
 
     // Type of Extended community. The type is BgpSiteOfOrigin.
-    Type_ interface{}
+    Type interface{}
 
     // AS number. The type is interface{} with range: 0..4294967295.
     AsXx interface{}
@@ -12884,7 +13787,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address Index. The type is interface{} with range: 0..65535.
@@ -12901,14 +13804,17 @@ func (siteOfOrigin *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGr
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siteOfOrigin.EntityData.Children = make(map[string]types.YChild)
-    siteOfOrigin.EntityData.Leafs = make(map[string]types.YLeaf)
-    siteOfOrigin.EntityData.Leafs["type"] = types.YLeaf{"Type_", siteOfOrigin.Type_}
-    siteOfOrigin.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", siteOfOrigin.AsXx}
-    siteOfOrigin.EntityData.Leafs["as"] = types.YLeaf{"As", siteOfOrigin.As}
-    siteOfOrigin.EntityData.Leafs["as-index"] = types.YLeaf{"AsIndex", siteOfOrigin.AsIndex}
-    siteOfOrigin.EntityData.Leafs["address"] = types.YLeaf{"Address", siteOfOrigin.Address}
-    siteOfOrigin.EntityData.Leafs["address-index"] = types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex}
+    siteOfOrigin.EntityData.Children = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs = types.NewOrderedMap()
+    siteOfOrigin.EntityData.Leafs.Append("type", types.YLeaf{"Type", siteOfOrigin.Type})
+    siteOfOrigin.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", siteOfOrigin.AsXx})
+    siteOfOrigin.EntityData.Leafs.Append("as", types.YLeaf{"As", siteOfOrigin.As})
+    siteOfOrigin.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", siteOfOrigin.AsIndex})
+    siteOfOrigin.EntityData.Leafs.Append("address", types.YLeaf{"Address", siteOfOrigin.Address})
+    siteOfOrigin.EntityData.Leafs.Append("address-index", types.YLeaf{"AddressIndex", siteOfOrigin.AddressIndex})
+
+    siteOfOrigin.EntityData.YListKeys = []string {}
+
     return &(siteOfOrigin.EntityData)
 }
 
@@ -12938,11 +13844,14 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGro
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV6.AfName}
-    advertiseV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV6.ReorgOption}
-    advertiseV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV6.RtType}
+    advertiseV6.EntityData.Children = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV6.AfName})
+    advertiseV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV6.ReorgOption})
+    advertiseV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV6.RtType})
+
+    advertiseV6.EntityData.YListKeys = []string {}
+
     return &(advertiseV6.EntityData)
 }
 
@@ -12973,11 +13882,14 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV6.AfName}
-    advertiseLocalV6.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption}
-    advertiseLocalV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV6.RtType}
+    advertiseLocalV6.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV6.AfName})
+    advertiseLocalV6.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV6.ReorgOption})
+    advertiseLocalV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV6.RtType})
+
+    advertiseLocalV6.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV6.EntityData)
 }
 
@@ -13011,11 +13923,14 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfG
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["import-stitching"] = types.YLeaf{"ImportStitching", self.ImportStitching}
-    self.EntityData.Leafs["import-reoriginate"] = types.YLeaf{"ImportReoriginate", self.ImportReoriginate}
-    self.EntityData.Leafs["import-reoriginate-stitching"] = types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("import-stitching", types.YLeaf{"ImportStitching", self.ImportStitching})
+    self.EntityData.Leafs.Append("import-reoriginate", types.YLeaf{"ImportReoriginate", self.ImportReoriginate})
+    self.EntityData.Leafs.Append("import-reoriginate-stitching", types.YLeaf{"ImportReoriginateStitching", self.ImportReoriginateStitching})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -13044,10 +13959,13 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultOriginate.EntityData.Children = make(map[string]types.YChild)
-    defaultOriginate.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultOriginate.EntityData.Leafs["enable"] = types.YLeaf{"Enable", defaultOriginate.Enable}
-    defaultOriginate.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName}
+    defaultOriginate.EntityData.Children = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs = types.NewOrderedMap()
+    defaultOriginate.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", defaultOriginate.Enable})
+    defaultOriginate.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", defaultOriginate.RoutePolicyName})
+
+    defaultOriginate.EntityData.YListKeys = []string {}
+
     return &(defaultOriginate.EntityData)
 }
 
@@ -13077,10 +13995,13 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    softReconfiguration.EntityData.Children = make(map[string]types.YChild)
-    softReconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    softReconfiguration.EntityData.Leafs["inbound-soft"] = types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft}
-    softReconfiguration.EntityData.Leafs["soft-always"] = types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways}
+    softReconfiguration.EntityData.Children = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs = types.NewOrderedMap()
+    softReconfiguration.EntityData.Leafs.Append("inbound-soft", types.YLeaf{"InboundSoft", softReconfiguration.InboundSoft})
+    softReconfiguration.EntityData.Leafs.Append("soft-always", types.YLeaf{"SoftAlways", softReconfiguration.SoftAlways})
+
+    softReconfiguration.EntityData.YListKeys = []string {}
+
     return &(softReconfiguration.EntityData)
 }
 
@@ -13110,11 +14031,14 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV6.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV6.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV6.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName}
-    advertiseVrfImpDisableV6.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption}
-    advertiseVrfImpDisableV6.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType}
+    advertiseVrfImpDisableV6.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV6.AfName})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV6.AdvOption})
+    advertiseVrfImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV6.RtType})
+
+    advertiseVrfImpDisableV6.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV6.EntityData)
 }
 
@@ -13144,11 +14068,14 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGro
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseV4.AfName}
-    advertiseV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseV4.ReorgOption}
-    advertiseV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseV4.RtType}
+    advertiseV4.EntityData.Children = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseV4.AfName})
+    advertiseV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseV4.ReorgOption})
+    advertiseV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseV4.RtType})
+
+    advertiseV4.EntityData.YListKeys = []string {}
+
     return &(advertiseV4.EntityData)
 }
 
@@ -13179,11 +14106,14 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseLocalV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseLocalV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseLocalV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseLocalV4.AfName}
-    advertiseLocalV4.EntityData.Leafs["reorg-option"] = types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption}
-    advertiseLocalV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseLocalV4.RtType}
+    advertiseLocalV4.EntityData.Children = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseLocalV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseLocalV4.AfName})
+    advertiseLocalV4.EntityData.Leafs.Append("reorg-option", types.YLeaf{"ReorgOption", advertiseLocalV4.ReorgOption})
+    advertiseLocalV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseLocalV4.RtType})
+
+    advertiseLocalV4.EntityData.YListKeys = []string {}
+
     return &(advertiseLocalV4.EntityData)
 }
 
@@ -13193,6 +14123,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_RemovePrivateAsEntireAsPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TRUE to remove private AS from outbound updates .  FALSE to prevent
     // remove-private-AS from being inherited. The type is bool. This attribute is
@@ -13215,10 +14146,13 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    removePrivateAsEntireAsPath.EntityData.Children = make(map[string]types.YChild)
-    removePrivateAsEntireAsPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    removePrivateAsEntireAsPath.EntityData.Leafs["enable"] = types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable}
-    removePrivateAsEntireAsPath.EntityData.Leafs["entire"] = types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire}
+    removePrivateAsEntireAsPath.EntityData.Children = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs = types.NewOrderedMap()
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", removePrivateAsEntireAsPath.Enable})
+    removePrivateAsEntireAsPath.EntityData.Leafs.Append("entire", types.YLeaf{"Entire", removePrivateAsEntireAsPath.Entire})
+
+    removePrivateAsEntireAsPath.EntityData.YListKeys = []string {}
+
     return &(removePrivateAsEntireAsPath.EntityData)
 }
 
@@ -13248,11 +14182,14 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertiseVrfImpDisableV4.EntityData.Children = make(map[string]types.YChild)
-    advertiseVrfImpDisableV4.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertiseVrfImpDisableV4.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName}
-    advertiseVrfImpDisableV4.EntityData.Leafs["adv-option"] = types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption}
-    advertiseVrfImpDisableV4.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType}
+    advertiseVrfImpDisableV4.EntityData.Children = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseVrfImpDisableV4.AfName})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseVrfImpDisableV4.AdvOption})
+    advertiseVrfImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseVrfImpDisableV4.RtType})
+
+    advertiseVrfImpDisableV4.EntityData.YListKeys = []string {}
+
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
@@ -13264,7 +14201,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups struc
 
     // A particular BGP session group. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup.
-    SessionGroup []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup
+    SessionGroup []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup
 }
 
 func (sessionGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups) GetEntityData() *types.CommonEntityData {
@@ -13277,12 +14214,15 @@ func (sessionGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ses
     sessionGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionGroups.EntityData.Children = make(map[string]types.YChild)
-    sessionGroups.EntityData.Children["session-group"] = types.YChild{"SessionGroup", nil}
+    sessionGroups.EntityData.Children = types.NewOrderedMap()
+    sessionGroups.EntityData.Children.Append("session-group", types.YChild{"SessionGroup", nil})
     for i := range sessionGroups.SessionGroup {
-        sessionGroups.EntityData.Children[types.GetSegmentPath(&sessionGroups.SessionGroup[i])] = types.YChild{"SessionGroup", &sessionGroups.SessionGroup[i]}
+        sessionGroups.EntityData.Children.Append(types.GetSegmentPath(sessionGroups.SessionGroup[i]), types.YChild{"SessionGroup", sessionGroups.SessionGroup[i]})
     }
-    sessionGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionGroups.EntityData.YListKeys = []string {}
+
     return &(sessionGroups.EntityData)
 }
 
@@ -13293,7 +14233,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     YFilter yfilter.YFilter
 
     // This attribute is a key. BGP session group name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SessionGroupName interface{}
 
     // Inherit address-family independent config from a session-group. The type is
@@ -13401,7 +14341,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     UpdateSourceInterface interface{}
 
     // Create this group. Deletion of this object causes deletion of all the
@@ -13469,61 +14409,64 @@ func (sessionGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     sessionGroup.EntityData.YangName = "session-group"
     sessionGroup.EntityData.BundleName = "cisco_ios_xr"
     sessionGroup.EntityData.ParentYangName = "session-groups"
-    sessionGroup.EntityData.SegmentPath = "session-group" + "[session-group-name='" + fmt.Sprintf("%v", sessionGroup.SessionGroupName) + "']"
+    sessionGroup.EntityData.SegmentPath = "session-group" + types.AddKeyToken(sessionGroup.SessionGroupName, "session-group-name")
     sessionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionGroup.EntityData.Children = make(map[string]types.YChild)
-    sessionGroup.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &sessionGroup.LocalAddress}
-    sessionGroup.EntityData.Children["bmp-activates"] = types.YChild{"BmpActivates", &sessionGroup.BmpActivates}
-    sessionGroup.EntityData.Children["ebgp-multihop"] = types.YChild{"EbgpMultihop", &sessionGroup.EbgpMultihop}
-    sessionGroup.EntityData.Children["remote-as"] = types.YChild{"RemoteAs", &sessionGroup.RemoteAs}
-    sessionGroup.EntityData.Children["local-as"] = types.YChild{"LocalAs", &sessionGroup.LocalAs}
-    sessionGroup.EntityData.Children["password"] = types.YChild{"Password", &sessionGroup.Password}
-    sessionGroup.EntityData.Children["advertisement-interval"] = types.YChild{"AdvertisementInterval", &sessionGroup.AdvertisementInterval}
-    sessionGroup.EntityData.Children["neighbor-cluster-id"] = types.YChild{"NeighborClusterId", &sessionGroup.NeighborClusterId}
-    sessionGroup.EntityData.Children["tcpmss"] = types.YChild{"Tcpmss", &sessionGroup.Tcpmss}
-    sessionGroup.EntityData.Children["tos"] = types.YChild{"Tos", &sessionGroup.Tos}
-    sessionGroup.EntityData.Children["update-in-filtering"] = types.YChild{"UpdateInFiltering", &sessionGroup.UpdateInFiltering}
-    sessionGroup.EntityData.Children["msg-log-out"] = types.YChild{"MsgLogOut", &sessionGroup.MsgLogOut}
-    sessionGroup.EntityData.Children["receive-buffer-size"] = types.YChild{"ReceiveBufferSize", &sessionGroup.ReceiveBufferSize}
-    sessionGroup.EntityData.Children["msg-log-in"] = types.YChild{"MsgLogIn", &sessionGroup.MsgLogIn}
-    sessionGroup.EntityData.Children["send-buffer-size"] = types.YChild{"SendBufferSize", &sessionGroup.SendBufferSize}
-    sessionGroup.EntityData.Children["timers"] = types.YChild{"Timers", &sessionGroup.Timers}
-    sessionGroup.EntityData.Children["keychain"] = types.YChild{"Keychain", &sessionGroup.Keychain}
-    sessionGroup.EntityData.Children["graceful-maintenance"] = types.YChild{"GracefulMaintenance", &sessionGroup.GracefulMaintenance}
-    sessionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionGroup.EntityData.Leafs["session-group-name"] = types.YLeaf{"SessionGroupName", sessionGroup.SessionGroupName}
-    sessionGroup.EntityData.Leafs["session-group-add-member"] = types.YLeaf{"SessionGroupAddMember", sessionGroup.SessionGroupAddMember}
-    sessionGroup.EntityData.Leafs["internal-vpn-client-ibgp-ce"] = types.YLeaf{"InternalVpnClientIbgpCe", sessionGroup.InternalVpnClientIbgpCe}
-    sessionGroup.EntityData.Leafs["egress-peer-engineering"] = types.YLeaf{"EgressPeerEngineering", sessionGroup.EgressPeerEngineering}
-    sessionGroup.EntityData.Leafs["neighbor-graceful-restart-stalepath-time"] = types.YLeaf{"NeighborGracefulRestartStalepathTime", sessionGroup.NeighborGracefulRestartStalepathTime}
-    sessionGroup.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", sessionGroup.Shutdown}
-    sessionGroup.EntityData.Leafs["description"] = types.YLeaf{"Description", sessionGroup.Description}
-    sessionGroup.EntityData.Leafs["ebgp-recv-dmz"] = types.YLeaf{"EbgpRecvDmz", sessionGroup.EbgpRecvDmz}
-    sessionGroup.EntityData.Leafs["neighbor-graceful-restart"] = types.YLeaf{"NeighborGracefulRestart", sessionGroup.NeighborGracefulRestart}
-    sessionGroup.EntityData.Leafs["enforce-first-as"] = types.YLeaf{"EnforceFirstAs", sessionGroup.EnforceFirstAs}
-    sessionGroup.EntityData.Leafs["idle-watch-time"] = types.YLeaf{"IdleWatchTime", sessionGroup.IdleWatchTime}
-    sessionGroup.EntityData.Leafs["session-open-mode"] = types.YLeaf{"SessionOpenMode", sessionGroup.SessionOpenMode}
-    sessionGroup.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", sessionGroup.RpkiOriginAsValidationDisable}
-    sessionGroup.EntityData.Leafs["ebgp-send-dmz-enable-modes"] = types.YLeaf{"EbgpSendDmzEnableModes", sessionGroup.EbgpSendDmzEnableModes}
-    sessionGroup.EntityData.Leafs["suppress-all-capabilities"] = types.YLeaf{"SuppressAllCapabilities", sessionGroup.SuppressAllCapabilities}
-    sessionGroup.EntityData.Leafs["max-peers"] = types.YLeaf{"MaxPeers", sessionGroup.MaxPeers}
-    sessionGroup.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", sessionGroup.RpkiBestpathOriginAsAllowInvalid}
-    sessionGroup.EntityData.Leafs["additional-paths-send-capability"] = types.YLeaf{"AdditionalPathsSendCapability", sessionGroup.AdditionalPathsSendCapability}
-    sessionGroup.EntityData.Leafs["propagate-dmz-link-bandwidth"] = types.YLeaf{"PropagateDmzLinkBandwidth", sessionGroup.PropagateDmzLinkBandwidth}
-    sessionGroup.EntityData.Leafs["bfd-enable-modes"] = types.YLeaf{"BfdEnableModes", sessionGroup.BfdEnableModes}
-    sessionGroup.EntityData.Leafs["ttl-security"] = types.YLeaf{"TtlSecurity", sessionGroup.TtlSecurity}
-    sessionGroup.EntityData.Leafs["neighbor-graceful-restart-time"] = types.YLeaf{"NeighborGracefulRestartTime", sessionGroup.NeighborGracefulRestartTime}
-    sessionGroup.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", sessionGroup.BfdMultiplier}
-    sessionGroup.EntityData.Leafs["bfd-minimum-interval"] = types.YLeaf{"BfdMinimumInterval", sessionGroup.BfdMinimumInterval}
-    sessionGroup.EntityData.Leafs["remote-as-list"] = types.YLeaf{"RemoteAsList", sessionGroup.RemoteAsList}
-    sessionGroup.EntityData.Leafs["additional-paths-receive-capability"] = types.YLeaf{"AdditionalPathsReceiveCapability", sessionGroup.AdditionalPathsReceiveCapability}
-    sessionGroup.EntityData.Leafs["ignore-connected-check-ebgp"] = types.YLeaf{"IgnoreConnectedCheckEbgp", sessionGroup.IgnoreConnectedCheckEbgp}
-    sessionGroup.EntityData.Leafs["suppress-four-byte-as-capability"] = types.YLeaf{"SuppressFourByteAsCapability", sessionGroup.SuppressFourByteAsCapability}
-    sessionGroup.EntityData.Leafs["update-source-interface"] = types.YLeaf{"UpdateSourceInterface", sessionGroup.UpdateSourceInterface}
-    sessionGroup.EntityData.Leafs["create"] = types.YLeaf{"Create", sessionGroup.Create}
+    sessionGroup.EntityData.Children = types.NewOrderedMap()
+    sessionGroup.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &sessionGroup.LocalAddress})
+    sessionGroup.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &sessionGroup.BmpActivates})
+    sessionGroup.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &sessionGroup.EbgpMultihop})
+    sessionGroup.EntityData.Children.Append("remote-as", types.YChild{"RemoteAs", &sessionGroup.RemoteAs})
+    sessionGroup.EntityData.Children.Append("local-as", types.YChild{"LocalAs", &sessionGroup.LocalAs})
+    sessionGroup.EntityData.Children.Append("password", types.YChild{"Password", &sessionGroup.Password})
+    sessionGroup.EntityData.Children.Append("advertisement-interval", types.YChild{"AdvertisementInterval", &sessionGroup.AdvertisementInterval})
+    sessionGroup.EntityData.Children.Append("neighbor-cluster-id", types.YChild{"NeighborClusterId", &sessionGroup.NeighborClusterId})
+    sessionGroup.EntityData.Children.Append("tcpmss", types.YChild{"Tcpmss", &sessionGroup.Tcpmss})
+    sessionGroup.EntityData.Children.Append("tos", types.YChild{"Tos", &sessionGroup.Tos})
+    sessionGroup.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &sessionGroup.UpdateInFiltering})
+    sessionGroup.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &sessionGroup.MsgLogOut})
+    sessionGroup.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &sessionGroup.ReceiveBufferSize})
+    sessionGroup.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &sessionGroup.MsgLogIn})
+    sessionGroup.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &sessionGroup.SendBufferSize})
+    sessionGroup.EntityData.Children.Append("timers", types.YChild{"Timers", &sessionGroup.Timers})
+    sessionGroup.EntityData.Children.Append("keychain", types.YChild{"Keychain", &sessionGroup.Keychain})
+    sessionGroup.EntityData.Children.Append("graceful-maintenance", types.YChild{"GracefulMaintenance", &sessionGroup.GracefulMaintenance})
+    sessionGroup.EntityData.Leafs = types.NewOrderedMap()
+    sessionGroup.EntityData.Leafs.Append("session-group-name", types.YLeaf{"SessionGroupName", sessionGroup.SessionGroupName})
+    sessionGroup.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", sessionGroup.SessionGroupAddMember})
+    sessionGroup.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", sessionGroup.InternalVpnClientIbgpCe})
+    sessionGroup.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", sessionGroup.EgressPeerEngineering})
+    sessionGroup.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", sessionGroup.NeighborGracefulRestartStalepathTime})
+    sessionGroup.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", sessionGroup.Shutdown})
+    sessionGroup.EntityData.Leafs.Append("description", types.YLeaf{"Description", sessionGroup.Description})
+    sessionGroup.EntityData.Leafs.Append("ebgp-recv-dmz", types.YLeaf{"EbgpRecvDmz", sessionGroup.EbgpRecvDmz})
+    sessionGroup.EntityData.Leafs.Append("neighbor-graceful-restart", types.YLeaf{"NeighborGracefulRestart", sessionGroup.NeighborGracefulRestart})
+    sessionGroup.EntityData.Leafs.Append("enforce-first-as", types.YLeaf{"EnforceFirstAs", sessionGroup.EnforceFirstAs})
+    sessionGroup.EntityData.Leafs.Append("idle-watch-time", types.YLeaf{"IdleWatchTime", sessionGroup.IdleWatchTime})
+    sessionGroup.EntityData.Leafs.Append("session-open-mode", types.YLeaf{"SessionOpenMode", sessionGroup.SessionOpenMode})
+    sessionGroup.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", sessionGroup.RpkiOriginAsValidationDisable})
+    sessionGroup.EntityData.Leafs.Append("ebgp-send-dmz-enable-modes", types.YLeaf{"EbgpSendDmzEnableModes", sessionGroup.EbgpSendDmzEnableModes})
+    sessionGroup.EntityData.Leafs.Append("suppress-all-capabilities", types.YLeaf{"SuppressAllCapabilities", sessionGroup.SuppressAllCapabilities})
+    sessionGroup.EntityData.Leafs.Append("max-peers", types.YLeaf{"MaxPeers", sessionGroup.MaxPeers})
+    sessionGroup.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", sessionGroup.RpkiBestpathOriginAsAllowInvalid})
+    sessionGroup.EntityData.Leafs.Append("additional-paths-send-capability", types.YLeaf{"AdditionalPathsSendCapability", sessionGroup.AdditionalPathsSendCapability})
+    sessionGroup.EntityData.Leafs.Append("propagate-dmz-link-bandwidth", types.YLeaf{"PropagateDmzLinkBandwidth", sessionGroup.PropagateDmzLinkBandwidth})
+    sessionGroup.EntityData.Leafs.Append("bfd-enable-modes", types.YLeaf{"BfdEnableModes", sessionGroup.BfdEnableModes})
+    sessionGroup.EntityData.Leafs.Append("ttl-security", types.YLeaf{"TtlSecurity", sessionGroup.TtlSecurity})
+    sessionGroup.EntityData.Leafs.Append("neighbor-graceful-restart-time", types.YLeaf{"NeighborGracefulRestartTime", sessionGroup.NeighborGracefulRestartTime})
+    sessionGroup.EntityData.Leafs.Append("bfd-multiplier", types.YLeaf{"BfdMultiplier", sessionGroup.BfdMultiplier})
+    sessionGroup.EntityData.Leafs.Append("bfd-minimum-interval", types.YLeaf{"BfdMinimumInterval", sessionGroup.BfdMinimumInterval})
+    sessionGroup.EntityData.Leafs.Append("remote-as-list", types.YLeaf{"RemoteAsList", sessionGroup.RemoteAsList})
+    sessionGroup.EntityData.Leafs.Append("additional-paths-receive-capability", types.YLeaf{"AdditionalPathsReceiveCapability", sessionGroup.AdditionalPathsReceiveCapability})
+    sessionGroup.EntityData.Leafs.Append("ignore-connected-check-ebgp", types.YLeaf{"IgnoreConnectedCheckEbgp", sessionGroup.IgnoreConnectedCheckEbgp})
+    sessionGroup.EntityData.Leafs.Append("suppress-four-byte-as-capability", types.YLeaf{"SuppressFourByteAsCapability", sessionGroup.SuppressFourByteAsCapability})
+    sessionGroup.EntityData.Leafs.Append("update-source-interface", types.YLeaf{"UpdateSourceInterface", sessionGroup.UpdateSourceInterface})
+    sessionGroup.EntityData.Leafs.Append("create", types.YLeaf{"Create", sessionGroup.Create})
+
+    sessionGroup.EntityData.YListKeys = []string {"SessionGroupName"}
+
     return &(sessionGroup.EntityData)
 }
 
@@ -13539,9 +14482,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -13555,10 +14498,13 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAddress.EntityData.Children = make(map[string]types.YChild)
-    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAddress.EntityData.Leafs["local-address-disable"] = types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable}
-    localAddress.EntityData.Leafs["local-ip-address"] = types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress}
+    localAddress.EntityData.Children = types.NewOrderedMap()
+    localAddress.EntityData.Leafs = types.NewOrderedMap()
+    localAddress.EntityData.Leafs.Append("local-address-disable", types.YLeaf{"LocalAddressDisable", localAddress.LocalAddressDisable})
+    localAddress.EntityData.Leafs.Append("local-ip-address", types.YLeaf{"LocalIpAddress", localAddress.LocalIpAddress})
+
+    localAddress.EntityData.YListKeys = []string {}
+
     return &(localAddress.EntityData)
 }
 
@@ -13570,7 +14516,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
 
     // Enable BMP logging for this particular server. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_BmpActivates_BmpActivate.
-    BmpActivate []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_BmpActivates_BmpActivate
+    BmpActivate []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_BmpActivates_BmpActivate
 }
 
 func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_BmpActivates) GetEntityData() *types.CommonEntityData {
@@ -13583,12 +14529,15 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivates.EntityData.Children = make(map[string]types.YChild)
-    bmpActivates.EntityData.Children["bmp-activate"] = types.YChild{"BmpActivate", nil}
+    bmpActivates.EntityData.Children = types.NewOrderedMap()
+    bmpActivates.EntityData.Children.Append("bmp-activate", types.YChild{"BmpActivate", nil})
     for i := range bmpActivates.BmpActivate {
-        bmpActivates.EntityData.Children[types.GetSegmentPath(&bmpActivates.BmpActivate[i])] = types.YChild{"BmpActivate", &bmpActivates.BmpActivate[i]}
+        bmpActivates.EntityData.Children.Append(types.GetSegmentPath(bmpActivates.BmpActivate[i]), types.YChild{"BmpActivate", bmpActivates.BmpActivate[i]})
     }
-    bmpActivates.EntityData.Leafs = make(map[string]types.YLeaf)
+    bmpActivates.EntityData.Leafs = types.NewOrderedMap()
+
+    bmpActivates.EntityData.YListKeys = []string {}
+
     return &(bmpActivates.EntityData)
 }
 
@@ -13608,14 +14557,17 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sessi
     bmpActivate.EntityData.YangName = "bmp-activate"
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
-    bmpActivate.EntityData.SegmentPath = "bmp-activate" + "[server-id='" + fmt.Sprintf("%v", bmpActivate.ServerId) + "']"
+    bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpActivate.EntityData.Children = make(map[string]types.YChild)
-    bmpActivate.EntityData.Leafs = make(map[string]types.YLeaf)
-    bmpActivate.EntityData.Leafs["server-id"] = types.YLeaf{"ServerId", bmpActivate.ServerId}
+    bmpActivate.EntityData.Children = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs = types.NewOrderedMap()
+    bmpActivate.EntityData.Leafs.Append("server-id", types.YLeaf{"ServerId", bmpActivate.ServerId})
+
+    bmpActivate.EntityData.YListKeys = []string {"ServerId"}
+
     return &(bmpActivate.EntityData)
 }
 
@@ -13645,10 +14597,13 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ebgpMultihop.EntityData.Children = make(map[string]types.YChild)
-    ebgpMultihop.EntityData.Leafs = make(map[string]types.YLeaf)
-    ebgpMultihop.EntityData.Leafs["max-hop-count"] = types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount}
-    ebgpMultihop.EntityData.Leafs["mpls-deactivation"] = types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation}
+    ebgpMultihop.EntityData.Children = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Leafs.Append("max-hop-count", types.YLeaf{"MaxHopCount", ebgpMultihop.MaxHopCount})
+    ebgpMultihop.EntityData.Leafs.Append("mpls-deactivation", types.YLeaf{"MplsDeactivation", ebgpMultihop.MplsDeactivation})
+
+    ebgpMultihop.EntityData.YListKeys = []string {}
+
     return &(ebgpMultihop.EntityData)
 }
 
@@ -13675,10 +14630,13 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteAs.EntityData.Children = make(map[string]types.YChild)
-    remoteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", remoteAs.AsXx}
-    remoteAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", remoteAs.AsYy}
+    remoteAs.EntityData.Children = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", remoteAs.AsXx})
+    remoteAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", remoteAs.AsYy})
+
+    remoteAs.EntityData.YListKeys = []string {}
+
     return &(remoteAs.EntityData)
 }
 
@@ -13720,14 +14678,17 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGr
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localAs.EntityData.Children = make(map[string]types.YChild)
-    localAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    localAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", localAs.AsXx}
-    localAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", localAs.AsYy}
-    localAs.EntityData.Leafs["no-prepend"] = types.YLeaf{"NoPrepend", localAs.NoPrepend}
-    localAs.EntityData.Leafs["disable"] = types.YLeaf{"Disable", localAs.Disable}
-    localAs.EntityData.Leafs["replace-as"] = types.YLeaf{"ReplaceAs", localAs.ReplaceAs}
-    localAs.EntityData.Leafs["dual-as"] = types.YLeaf{"DualAs", localAs.DualAs}
+    localAs.EntityData.Children = types.NewOrderedMap()
+    localAs.EntityData.Leafs = types.NewOrderedMap()
+    localAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", localAs.AsXx})
+    localAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", localAs.AsYy})
+    localAs.EntityData.Leafs.Append("no-prepend", types.YLeaf{"NoPrepend", localAs.NoPrepend})
+    localAs.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", localAs.Disable})
+    localAs.EntityData.Leafs.Append("replace-as", types.YLeaf{"ReplaceAs", localAs.ReplaceAs})
+    localAs.EntityData.Leafs.Append("dual-as", types.YLeaf{"DualAs", localAs.DualAs})
+
+    localAs.EntityData.YListKeys = []string {}
+
     return &(localAs.EntityData)
 }
 
@@ -13742,7 +14703,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -13756,10 +14717,13 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    password.EntityData.Children = make(map[string]types.YChild)
-    password.EntityData.Leafs = make(map[string]types.YLeaf)
-    password.EntityData.Leafs["password-disable"] = types.YLeaf{"PasswordDisable", password.PasswordDisable}
-    password.EntityData.Leafs["password"] = types.YLeaf{"Password", password.Password}
+    password.EntityData.Children = types.NewOrderedMap()
+    password.EntityData.Leafs = types.NewOrderedMap()
+    password.EntityData.Leafs.Append("password-disable", types.YLeaf{"PasswordDisable", password.PasswordDisable})
+    password.EntityData.Leafs.Append("password", types.YLeaf{"Password", password.Password})
+
+    password.EntityData.YListKeys = []string {}
+
     return &(password.EntityData)
 }
 
@@ -13770,6 +14734,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_AdvertisementInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Minimum advertisement interval time, secs part. The type is interface{}
     // with range: 0..600. This attribute is mandatory. Units are second.
@@ -13790,10 +14755,13 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEn
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    advertisementInterval.EntityData.Children = make(map[string]types.YChild)
-    advertisementInterval.EntityData.Leafs = make(map[string]types.YLeaf)
-    advertisementInterval.EntityData.Leafs["minimum-interval"] = types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval}
-    advertisementInterval.EntityData.Leafs["minimum-interval-msecs"] = types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs}
+    advertisementInterval.EntityData.Children = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs = types.NewOrderedMap()
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval", types.YLeaf{"MinimumInterval", advertisementInterval.MinimumInterval})
+    advertisementInterval.EntityData.Leafs.Append("minimum-interval-msecs", types.YLeaf{"MinimumIntervalMsecs", advertisementInterval.MinimumIntervalMsecs})
+
+    advertisementInterval.EntityData.YListKeys = []string {}
+
     return &(advertisementInterval.EntityData)
 }
 
@@ -13809,7 +14777,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -13823,10 +14791,13 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighborClusterId.EntityData.Children = make(map[string]types.YChild)
-    neighborClusterId.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighborClusterId.EntityData.Leafs["cluster-id-number"] = types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber}
-    neighborClusterId.EntityData.Leafs["cluster-id-address"] = types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress}
+    neighborClusterId.EntityData.Children = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs = types.NewOrderedMap()
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-number", types.YLeaf{"ClusterIdNumber", neighborClusterId.ClusterIdNumber})
+    neighborClusterId.EntityData.Leafs.Append("cluster-id-address", types.YLeaf{"ClusterIdAddress", neighborClusterId.ClusterIdAddress})
+
+    neighborClusterId.EntityData.YListKeys = []string {}
+
     return &(neighborClusterId.EntityData)
 }
 
@@ -13854,10 +14825,13 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGro
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcpmss.EntityData.Children = make(map[string]types.YChild)
-    tcpmss.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpmss.EntityData.Leafs["tcpmss-disable"] = types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable}
-    tcpmss.EntityData.Leafs["mss"] = types.YLeaf{"Mss", tcpmss.Mss}
+    tcpmss.EntityData.Children = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs = types.NewOrderedMap()
+    tcpmss.EntityData.Leafs.Append("tcpmss-disable", types.YLeaf{"TcpmssDisable", tcpmss.TcpmssDisable})
+    tcpmss.EntityData.Leafs.Append("mss", types.YLeaf{"Mss", tcpmss.Mss})
+
+    tcpmss.EntityData.YListKeys = []string {}
+
     return &(tcpmss.EntityData)
 }
 
@@ -13868,7 +14842,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     YFilter yfilter.YFilter
 
     // Set type of service. The type is BgpTos.
-    Type_ interface{}
+    Type interface{}
 
     // TOS value to set. The type is one of the following types: enumeration
     // BgpPrecedenceDscp, or int with range: 0..63.
@@ -13885,10 +14859,13 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tos.EntityData.Children = make(map[string]types.YChild)
-    tos.EntityData.Leafs = make(map[string]types.YLeaf)
-    tos.EntityData.Leafs["type"] = types.YLeaf{"Type_", tos.Type_}
-    tos.EntityData.Leafs["value"] = types.YLeaf{"Value", tos.Value}
+    tos.EntityData.Children = types.NewOrderedMap()
+    tos.EntityData.Leafs = types.NewOrderedMap()
+    tos.EntityData.Leafs.Append("type", types.YLeaf{"Type", tos.Type})
+    tos.EntityData.Leafs.Append("value", types.YLeaf{"Value", tos.Value})
+
+    tos.EntityData.YListKeys = []string {}
+
     return &(tos.EntityData)
 }
 
@@ -13921,12 +14898,15 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFiltering.EntityData.Children = make(map[string]types.YChild)
-    updateInFiltering.EntityData.Children["update-in-filtering-message-buffers"] = types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers}
-    updateInFiltering.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFiltering.EntityData.Leafs["enable"] = types.YLeaf{"Enable", updateInFiltering.Enable}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-attribute-filter-group"] = types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup}
-    updateInFiltering.EntityData.Leafs["update-in-filtering-syslog-disable"] = types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable}
+    updateInFiltering.EntityData.Children = types.NewOrderedMap()
+    updateInFiltering.EntityData.Children.Append("update-in-filtering-message-buffers", types.YChild{"UpdateInFilteringMessageBuffers", &updateInFiltering.UpdateInFilteringMessageBuffers})
+    updateInFiltering.EntityData.Leafs = types.NewOrderedMap()
+    updateInFiltering.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", updateInFiltering.Enable})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-attribute-filter-group", types.YLeaf{"UpdateInFilteringAttributeFilterGroup", updateInFiltering.UpdateInFilteringAttributeFilterGroup})
+    updateInFiltering.EntityData.Leafs.Append("update-in-filtering-syslog-disable", types.YLeaf{"UpdateInFilteringSyslogDisable", updateInFiltering.UpdateInFilteringSyslogDisable})
+
+    updateInFiltering.EntityData.YListKeys = []string {}
+
     return &(updateInFiltering.EntityData)
 }
 
@@ -13936,6 +14916,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_UpdateInFiltering_UpdateInFilteringMessageBuffers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of message buffers. The type is interface{} with range: 0..25. This
     // attribute is mandatory.
@@ -13956,10 +14937,13 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateInFilteringMessageBuffers.EntityData.Children = make(map[string]types.YChild)
-    updateInFilteringMessageBuffers.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateInFilteringMessageBuffers.EntityData.Leafs["number-of-buffers"] = types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers}
-    updateInFilteringMessageBuffers.EntityData.Leafs["non-circular-buffer"] = types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer}
+    updateInFilteringMessageBuffers.EntityData.Children = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs = types.NewOrderedMap()
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("number-of-buffers", types.YLeaf{"NumberOfBuffers", updateInFilteringMessageBuffers.NumberOfBuffers})
+    updateInFilteringMessageBuffers.EntityData.Leafs.Append("non-circular-buffer", types.YLeaf{"NonCircularBuffer", updateInFilteringMessageBuffers.NonCircularBuffer})
+
+    updateInFilteringMessageBuffers.EntityData.YListKeys = []string {}
+
     return &(updateInFilteringMessageBuffers.EntityData)
 }
 
@@ -13991,11 +14975,14 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Session
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogOut.EntityData.Children = make(map[string]types.YChild)
-    msgLogOut.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogOut.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount}
-    msgLogOut.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable}
-    msgLogOut.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable}
+    msgLogOut.EntityData.Children = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs = types.NewOrderedMap()
+    msgLogOut.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogOut.MsgBufCount})
+    msgLogOut.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogOut.MsgLogDisable})
+    msgLogOut.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogOut.MsgLogInheritDisable})
+
+    msgLogOut.EntityData.YListKeys = []string {}
+
     return &(msgLogOut.EntityData)
 }
 
@@ -14025,10 +15012,13 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveBufferSize.EntityData.Children = make(map[string]types.YChild)
-    receiveBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveBufferSize.EntityData.Leafs["socket-receive-size"] = types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize}
-    receiveBufferSize.EntityData.Leafs["bgp-receive-size"] = types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize}
+    receiveBufferSize.EntityData.Children = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    receiveBufferSize.EntityData.Leafs.Append("socket-receive-size", types.YLeaf{"SocketReceiveSize", receiveBufferSize.SocketReceiveSize})
+    receiveBufferSize.EntityData.Leafs.Append("bgp-receive-size", types.YLeaf{"BgpReceiveSize", receiveBufferSize.BgpReceiveSize})
+
+    receiveBufferSize.EntityData.YListKeys = []string {}
+
     return &(receiveBufferSize.EntityData)
 }
 
@@ -14060,11 +15050,14 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msgLogIn.EntityData.Children = make(map[string]types.YChild)
-    msgLogIn.EntityData.Leafs = make(map[string]types.YLeaf)
-    msgLogIn.EntityData.Leafs["msg-buf-count"] = types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount}
-    msgLogIn.EntityData.Leafs["msg-log-disable"] = types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable}
-    msgLogIn.EntityData.Leafs["msg-log-inherit-disable"] = types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable}
+    msgLogIn.EntityData.Children = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs = types.NewOrderedMap()
+    msgLogIn.EntityData.Leafs.Append("msg-buf-count", types.YLeaf{"MsgBufCount", msgLogIn.MsgBufCount})
+    msgLogIn.EntityData.Leafs.Append("msg-log-disable", types.YLeaf{"MsgLogDisable", msgLogIn.MsgLogDisable})
+    msgLogIn.EntityData.Leafs.Append("msg-log-inherit-disable", types.YLeaf{"MsgLogInheritDisable", msgLogIn.MsgLogInheritDisable})
+
+    msgLogIn.EntityData.YListKeys = []string {}
+
     return &(msgLogIn.EntityData)
 }
 
@@ -14094,10 +15087,13 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Se
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendBufferSize.EntityData.Children = make(map[string]types.YChild)
-    sendBufferSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendBufferSize.EntityData.Leafs["socket-send-size"] = types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize}
-    sendBufferSize.EntityData.Leafs["bgp-send-size"] = types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize}
+    sendBufferSize.EntityData.Children = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs = types.NewOrderedMap()
+    sendBufferSize.EntityData.Leafs.Append("socket-send-size", types.YLeaf{"SocketSendSize", sendBufferSize.SocketSendSize})
+    sendBufferSize.EntityData.Leafs.Append("bgp-send-size", types.YLeaf{"BgpSendSize", sendBufferSize.BgpSendSize})
+
+    sendBufferSize.EntityData.YListKeys = []string {}
+
     return &(sendBufferSize.EntityData)
 }
 
@@ -14130,11 +15126,14 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGro
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval}
-    timers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", timers.HoldTime}
-    timers.EntityData.Leafs["min-accept-hold-time"] = types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", timers.KeepaliveInterval})
+    timers.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", timers.HoldTime})
+    timers.EntityData.Leafs.Append("min-accept-hold-time", types.YLeaf{"MinAcceptHoldTime", timers.MinAcceptHoldTime})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -14163,10 +15162,13 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keychain.EntityData.Children = make(map[string]types.YChild)
-    keychain.EntityData.Leafs = make(map[string]types.YLeaf)
-    keychain.EntityData.Leafs["keychain-disable"] = types.YLeaf{"KeychainDisable", keychain.KeychainDisable}
-    keychain.EntityData.Leafs["keychain-name"] = types.YLeaf{"KeychainName", keychain.KeychainName}
+    keychain.EntityData.Children = types.NewOrderedMap()
+    keychain.EntityData.Leafs = types.NewOrderedMap()
+    keychain.EntityData.Leafs.Append("keychain-disable", types.YLeaf{"KeychainDisable", keychain.KeychainDisable})
+    keychain.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", keychain.KeychainName})
+
+    keychain.EntityData.YListKeys = []string {}
+
     return &(keychain.EntityData)
 }
 
@@ -14200,12 +15202,15 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenance.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-local-preference"] = types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference}
-    gracefulMaintenance.EntityData.Children["graceful-maintenance-as-prepends"] = types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends}
-    gracefulMaintenance.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenance.EntityData.Leafs["enable"] = types.YLeaf{"Enable", gracefulMaintenance.Enable}
-    gracefulMaintenance.EntityData.Leafs["graceful-maintenance-activate"] = types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate}
+    gracefulMaintenance.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-local-preference", types.YChild{"GracefulMaintenanceLocalPreference", &gracefulMaintenance.GracefulMaintenanceLocalPreference})
+    gracefulMaintenance.EntityData.Children.Append("graceful-maintenance-as-prepends", types.YChild{"GracefulMaintenanceAsPrepends", &gracefulMaintenance.GracefulMaintenanceAsPrepends})
+    gracefulMaintenance.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenance.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", gracefulMaintenance.Enable})
+    gracefulMaintenance.EntityData.Leafs.Append("graceful-maintenance-activate", types.YLeaf{"GracefulMaintenanceActivate", gracefulMaintenance.GracefulMaintenanceActivate})
+
+    gracefulMaintenance.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenance.EntityData)
 }
 
@@ -14233,10 +15238,13 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Def
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceLocalPreference.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["gshut-loc-pref-disable"] = types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable}
-    gracefulMaintenanceLocalPreference.EntityData.Leafs["local-preference"] = types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference}
+    gracefulMaintenanceLocalPreference.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("gshut-loc-pref-disable", types.YLeaf{"GshutLocPrefDisable", gracefulMaintenanceLocalPreference.GshutLocPrefDisable})
+    gracefulMaintenanceLocalPreference.EntityData.Leafs.Append("local-preference", types.YLeaf{"LocalPreference", gracefulMaintenanceLocalPreference.LocalPreference})
+
+    gracefulMaintenanceLocalPreference.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceLocalPreference.EntityData)
 }
 
@@ -14265,10 +15273,13 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gracefulMaintenanceAsPrepends.EntityData.Children = make(map[string]types.YChild)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["gshut-prepends-disable"] = types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable}
-    gracefulMaintenanceAsPrepends.EntityData.Leafs["as-prepends"] = types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends}
+    gracefulMaintenanceAsPrepends.EntityData.Children = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs = types.NewOrderedMap()
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("gshut-prepends-disable", types.YLeaf{"GshutPrependsDisable", gracefulMaintenanceAsPrepends.GshutPrependsDisable})
+    gracefulMaintenanceAsPrepends.EntityData.Leafs.Append("as-prepends", types.YLeaf{"AsPrepends", gracefulMaintenanceAsPrepends.AsPrepends})
+
+    gracefulMaintenanceAsPrepends.EntityData.YListKeys = []string {}
+
     return &(gracefulMaintenanceAsPrepends.EntityData)
 }
 
@@ -14371,7 +15382,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global struct {
     UpdateErrorHandlingExtendedIbgp interface{}
 
     // Configure Router-id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     RouterId interface{}
 
@@ -14519,72 +15530,75 @@ func (global *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global) GetEntityDat
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Children["cluster-id"] = types.YChild{"ClusterId", &global.ClusterId}
-    global.EntityData.Children["write-limit"] = types.YChild{"WriteLimit", &global.WriteLimit}
-    global.EntityData.Children["update-delay"] = types.YChild{"UpdateDelay", &global.UpdateDelay}
-    global.EntityData.Children["as-league"] = types.YChild{"AsLeague", &global.AsLeague}
-    global.EntityData.Children["rpki-servers"] = types.YChild{"RpkiServers", &global.RpkiServers}
-    global.EntityData.Children["as-list-groups"] = types.YChild{"AsListGroups", &global.AsListGroups}
-    global.EntityData.Children["limits"] = types.YChild{"Limits", &global.Limits}
-    global.EntityData.Children["confederation-domain"] = types.YChild{"ConfederationDomain", &global.ConfederationDomain}
-    global.EntityData.Children["confederation-peer-ases"] = types.YChild{"ConfederationPeerAses", &global.ConfederationPeerAses}
-    global.EntityData.Children["attribute-filter-groups"] = types.YChild{"AttributeFilterGroups", &global.AttributeFilterGroups}
-    global.EntityData.Children["global-graceful-maintenance-activate"] = types.YChild{"GlobalGracefulMaintenanceActivate", &global.GlobalGracefulMaintenanceActivate}
-    global.EntityData.Children["global-afs"] = types.YChild{"GlobalAfs", &global.GlobalAfs}
-    global.EntityData.Children["rpki-static-routes"] = types.YChild{"RpkiStaticRoutes", &global.RpkiStaticRoutes}
-    global.EntityData.Children["mpls-activated-interfaces"] = types.YChild{"MplsActivatedInterfaces", &global.MplsActivatedInterfaces}
-    global.EntityData.Children["global-timers"] = types.YChild{"GlobalTimers", &global.GlobalTimers}
-    global.EntityData.Children["bfd"] = types.YChild{"Bfd", &global.Bfd}
-    global.EntityData.Children["send-socket-buffer-sizes"] = types.YChild{"SendSocketBufferSizes", &global.SendSocketBufferSizes}
-    global.EntityData.Children["receive-socket-buffer-sizes"] = types.YChild{"ReceiveSocketBufferSizes", &global.ReceiveSocketBufferSizes}
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
-    global.EntityData.Leafs["graceful-restart"] = types.YLeaf{"GracefulRestart", global.GracefulRestart}
-    global.EntityData.Leafs["update-out-logging"] = types.YLeaf{"UpdateOutLogging", global.UpdateOutLogging}
-    global.EntityData.Leafs["install-diversion"] = types.YLeaf{"InstallDiversion", global.InstallDiversion}
-    global.EntityData.Leafs["next-hop-trigger-delay"] = types.YLeaf{"NextHopTriggerDelay", global.NextHopTriggerDelay}
-    global.EntityData.Leafs["nsr"] = types.YLeaf{"Nsr", global.Nsr}
-    global.EntityData.Leafs["neighbor-logging-detail"] = types.YLeaf{"NeighborLoggingDetail", global.NeighborLoggingDetail}
-    global.EntityData.Leafs["mvpn"] = types.YLeaf{"Mvpn", global.Mvpn}
-    global.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", global.RpkiOriginAsValidationDisable}
-    global.EntityData.Leafs["rpki-origin-as-validity-signal-ibgp"] = types.YLeaf{"RpkiOriginAsValiditySignalIbgp", global.RpkiOriginAsValiditySignalIbgp}
-    global.EntityData.Leafs["global-scan-time"] = types.YLeaf{"GlobalScanTime", global.GlobalScanTime}
-    global.EntityData.Leafs["rpki-bestpath-use-origin-as-validity"] = types.YLeaf{"RpkiBestpathUseOriginAsValidity", global.RpkiBestpathUseOriginAsValidity}
-    global.EntityData.Leafs["rpki-origin-as-validation-time"] = types.YLeaf{"RpkiOriginAsValidationTime", global.RpkiOriginAsValidationTime}
-    global.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", global.RpkiBestpathOriginAsAllowInvalid}
-    global.EntityData.Leafs["graceful-restart-purge-time"] = types.YLeaf{"GracefulRestartPurgeTime", global.GracefulRestartPurgeTime}
-    global.EntityData.Leafs["enforce-ibgp-out-policy"] = types.YLeaf{"EnforceIbgpOutPolicy", global.EnforceIbgpOutPolicy}
-    global.EntityData.Leafs["update-limit-process"] = types.YLeaf{"UpdateLimitProcess", global.UpdateLimitProcess}
-    global.EntityData.Leafs["graceful-restart-time"] = types.YLeaf{"GracefulRestartTime", global.GracefulRestartTime}
-    global.EntityData.Leafs["update-error-handling-basic-ibgp-disable"] = types.YLeaf{"UpdateErrorHandlingBasicIbgpDisable", global.UpdateErrorHandlingBasicIbgpDisable}
-    global.EntityData.Leafs["read-only"] = types.YLeaf{"ReadOnly", global.ReadOnly}
-    global.EntityData.Leafs["graceful-restart-stalepath-time"] = types.YLeaf{"GracefulRestartStalepathTime", global.GracefulRestartStalepathTime}
-    global.EntityData.Leafs["update-error-handling-extended-ebgp"] = types.YLeaf{"UpdateErrorHandlingExtendedEbgp", global.UpdateErrorHandlingExtendedEbgp}
-    global.EntityData.Leafs["update-error-handling-basic-ebgp-disable"] = types.YLeaf{"UpdateErrorHandlingBasicEbgpDisable", global.UpdateErrorHandlingBasicEbgpDisable}
-    global.EntityData.Leafs["graceful-reset"] = types.YLeaf{"GracefulReset", global.GracefulReset}
-    global.EntityData.Leafs["igp-loop-check"] = types.YLeaf{"IgpLoopCheck", global.IgpLoopCheck}
-    global.EntityData.Leafs["update-error-handling-extended-ibgp"] = types.YLeaf{"UpdateErrorHandlingExtendedIbgp", global.UpdateErrorHandlingExtendedIbgp}
-    global.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", global.RouterId}
-    global.EntityData.Leafs["disable-enforce-first-as"] = types.YLeaf{"DisableEnforceFirstAs", global.DisableEnforceFirstAs}
-    global.EntityData.Leafs["best-path-cost-community"] = types.YLeaf{"BestPathCostCommunity", global.BestPathCostCommunity}
-    global.EntityData.Leafs["best-path-aigp-ignore"] = types.YLeaf{"BestPathAigpIgnore", global.BestPathAigpIgnore}
-    global.EntityData.Leafs["best-path-as-path-length"] = types.YLeaf{"BestPathAsPathLength", global.BestPathAsPathLength}
-    global.EntityData.Leafs["igp-redist-internal"] = types.YLeaf{"IgpRedistInternal", global.IgpRedistInternal}
-    global.EntityData.Leafs["multi-path-as-path-ignore-onwards"] = types.YLeaf{"MultiPathAsPathIgnoreOnwards", global.MultiPathAsPathIgnoreOnwards}
-    global.EntityData.Leafs["disable-fast-external-fallover"] = types.YLeaf{"DisableFastExternalFallover", global.DisableFastExternalFallover}
-    global.EntityData.Leafs["unsafe-ebgp-policy"] = types.YLeaf{"UnsafeEbgpPolicy", global.UnsafeEbgpPolicy}
-    global.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", global.DefaultMetric}
-    global.EntityData.Leafs["default-info-originate"] = types.YLeaf{"DefaultInfoOriginate", global.DefaultInfoOriginate}
-    global.EntityData.Leafs["best-path-confederation-paths"] = types.YLeaf{"BestPathConfederationPaths", global.BestPathConfederationPaths}
-    global.EntityData.Leafs["best-path-as-multipath-relax"] = types.YLeaf{"BestPathAsMultipathRelax", global.BestPathAsMultipathRelax}
-    global.EntityData.Leafs["disable-auto-soft-reset"] = types.YLeaf{"DisableAutoSoftReset", global.DisableAutoSoftReset}
-    global.EntityData.Leafs["disable-msg-log"] = types.YLeaf{"DisableMsgLog", global.DisableMsgLog}
-    global.EntityData.Leafs["next-hop-mpls-fwd-ibgp"] = types.YLeaf{"NextHopMplsFwdIbgp", global.NextHopMplsFwdIbgp}
-    global.EntityData.Leafs["disable-neighbor-logging"] = types.YLeaf{"DisableNeighborLogging", global.DisableNeighborLogging}
-    global.EntityData.Leafs["best-path-med-always"] = types.YLeaf{"BestPathMedAlways", global.BestPathMedAlways}
-    global.EntityData.Leafs["best-path-router-id"] = types.YLeaf{"BestPathRouterId", global.BestPathRouterId}
-    global.EntityData.Leafs["best-path-med-missing"] = types.YLeaf{"BestPathMedMissing", global.BestPathMedMissing}
-    global.EntityData.Leafs["local-preference"] = types.YLeaf{"LocalPreference", global.LocalPreference}
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Children.Append("cluster-id", types.YChild{"ClusterId", &global.ClusterId})
+    global.EntityData.Children.Append("write-limit", types.YChild{"WriteLimit", &global.WriteLimit})
+    global.EntityData.Children.Append("update-delay", types.YChild{"UpdateDelay", &global.UpdateDelay})
+    global.EntityData.Children.Append("as-league", types.YChild{"AsLeague", &global.AsLeague})
+    global.EntityData.Children.Append("rpki-servers", types.YChild{"RpkiServers", &global.RpkiServers})
+    global.EntityData.Children.Append("as-list-groups", types.YChild{"AsListGroups", &global.AsListGroups})
+    global.EntityData.Children.Append("limits", types.YChild{"Limits", &global.Limits})
+    global.EntityData.Children.Append("confederation-domain", types.YChild{"ConfederationDomain", &global.ConfederationDomain})
+    global.EntityData.Children.Append("confederation-peer-ases", types.YChild{"ConfederationPeerAses", &global.ConfederationPeerAses})
+    global.EntityData.Children.Append("attribute-filter-groups", types.YChild{"AttributeFilterGroups", &global.AttributeFilterGroups})
+    global.EntityData.Children.Append("global-graceful-maintenance-activate", types.YChild{"GlobalGracefulMaintenanceActivate", &global.GlobalGracefulMaintenanceActivate})
+    global.EntityData.Children.Append("global-afs", types.YChild{"GlobalAfs", &global.GlobalAfs})
+    global.EntityData.Children.Append("rpki-static-routes", types.YChild{"RpkiStaticRoutes", &global.RpkiStaticRoutes})
+    global.EntityData.Children.Append("mpls-activated-interfaces", types.YChild{"MplsActivatedInterfaces", &global.MplsActivatedInterfaces})
+    global.EntityData.Children.Append("global-timers", types.YChild{"GlobalTimers", &global.GlobalTimers})
+    global.EntityData.Children.Append("bfd", types.YChild{"Bfd", &global.Bfd})
+    global.EntityData.Children.Append("send-socket-buffer-sizes", types.YChild{"SendSocketBufferSizes", &global.SendSocketBufferSizes})
+    global.EntityData.Children.Append("receive-socket-buffer-sizes", types.YChild{"ReceiveSocketBufferSizes", &global.ReceiveSocketBufferSizes})
+    global.EntityData.Leafs = types.NewOrderedMap()
+    global.EntityData.Leafs.Append("graceful-restart", types.YLeaf{"GracefulRestart", global.GracefulRestart})
+    global.EntityData.Leafs.Append("update-out-logging", types.YLeaf{"UpdateOutLogging", global.UpdateOutLogging})
+    global.EntityData.Leafs.Append("install-diversion", types.YLeaf{"InstallDiversion", global.InstallDiversion})
+    global.EntityData.Leafs.Append("next-hop-trigger-delay", types.YLeaf{"NextHopTriggerDelay", global.NextHopTriggerDelay})
+    global.EntityData.Leafs.Append("nsr", types.YLeaf{"Nsr", global.Nsr})
+    global.EntityData.Leafs.Append("neighbor-logging-detail", types.YLeaf{"NeighborLoggingDetail", global.NeighborLoggingDetail})
+    global.EntityData.Leafs.Append("mvpn", types.YLeaf{"Mvpn", global.Mvpn})
+    global.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", global.RpkiOriginAsValidationDisable})
+    global.EntityData.Leafs.Append("rpki-origin-as-validity-signal-ibgp", types.YLeaf{"RpkiOriginAsValiditySignalIbgp", global.RpkiOriginAsValiditySignalIbgp})
+    global.EntityData.Leafs.Append("global-scan-time", types.YLeaf{"GlobalScanTime", global.GlobalScanTime})
+    global.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", global.RpkiBestpathUseOriginAsValidity})
+    global.EntityData.Leafs.Append("rpki-origin-as-validation-time", types.YLeaf{"RpkiOriginAsValidationTime", global.RpkiOriginAsValidationTime})
+    global.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", global.RpkiBestpathOriginAsAllowInvalid})
+    global.EntityData.Leafs.Append("graceful-restart-purge-time", types.YLeaf{"GracefulRestartPurgeTime", global.GracefulRestartPurgeTime})
+    global.EntityData.Leafs.Append("enforce-ibgp-out-policy", types.YLeaf{"EnforceIbgpOutPolicy", global.EnforceIbgpOutPolicy})
+    global.EntityData.Leafs.Append("update-limit-process", types.YLeaf{"UpdateLimitProcess", global.UpdateLimitProcess})
+    global.EntityData.Leafs.Append("graceful-restart-time", types.YLeaf{"GracefulRestartTime", global.GracefulRestartTime})
+    global.EntityData.Leafs.Append("update-error-handling-basic-ibgp-disable", types.YLeaf{"UpdateErrorHandlingBasicIbgpDisable", global.UpdateErrorHandlingBasicIbgpDisable})
+    global.EntityData.Leafs.Append("read-only", types.YLeaf{"ReadOnly", global.ReadOnly})
+    global.EntityData.Leafs.Append("graceful-restart-stalepath-time", types.YLeaf{"GracefulRestartStalepathTime", global.GracefulRestartStalepathTime})
+    global.EntityData.Leafs.Append("update-error-handling-extended-ebgp", types.YLeaf{"UpdateErrorHandlingExtendedEbgp", global.UpdateErrorHandlingExtendedEbgp})
+    global.EntityData.Leafs.Append("update-error-handling-basic-ebgp-disable", types.YLeaf{"UpdateErrorHandlingBasicEbgpDisable", global.UpdateErrorHandlingBasicEbgpDisable})
+    global.EntityData.Leafs.Append("graceful-reset", types.YLeaf{"GracefulReset", global.GracefulReset})
+    global.EntityData.Leafs.Append("igp-loop-check", types.YLeaf{"IgpLoopCheck", global.IgpLoopCheck})
+    global.EntityData.Leafs.Append("update-error-handling-extended-ibgp", types.YLeaf{"UpdateErrorHandlingExtendedIbgp", global.UpdateErrorHandlingExtendedIbgp})
+    global.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", global.RouterId})
+    global.EntityData.Leafs.Append("disable-enforce-first-as", types.YLeaf{"DisableEnforceFirstAs", global.DisableEnforceFirstAs})
+    global.EntityData.Leafs.Append("best-path-cost-community", types.YLeaf{"BestPathCostCommunity", global.BestPathCostCommunity})
+    global.EntityData.Leafs.Append("best-path-aigp-ignore", types.YLeaf{"BestPathAigpIgnore", global.BestPathAigpIgnore})
+    global.EntityData.Leafs.Append("best-path-as-path-length", types.YLeaf{"BestPathAsPathLength", global.BestPathAsPathLength})
+    global.EntityData.Leafs.Append("igp-redist-internal", types.YLeaf{"IgpRedistInternal", global.IgpRedistInternal})
+    global.EntityData.Leafs.Append("multi-path-as-path-ignore-onwards", types.YLeaf{"MultiPathAsPathIgnoreOnwards", global.MultiPathAsPathIgnoreOnwards})
+    global.EntityData.Leafs.Append("disable-fast-external-fallover", types.YLeaf{"DisableFastExternalFallover", global.DisableFastExternalFallover})
+    global.EntityData.Leafs.Append("unsafe-ebgp-policy", types.YLeaf{"UnsafeEbgpPolicy", global.UnsafeEbgpPolicy})
+    global.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", global.DefaultMetric})
+    global.EntityData.Leafs.Append("default-info-originate", types.YLeaf{"DefaultInfoOriginate", global.DefaultInfoOriginate})
+    global.EntityData.Leafs.Append("best-path-confederation-paths", types.YLeaf{"BestPathConfederationPaths", global.BestPathConfederationPaths})
+    global.EntityData.Leafs.Append("best-path-as-multipath-relax", types.YLeaf{"BestPathAsMultipathRelax", global.BestPathAsMultipathRelax})
+    global.EntityData.Leafs.Append("disable-auto-soft-reset", types.YLeaf{"DisableAutoSoftReset", global.DisableAutoSoftReset})
+    global.EntityData.Leafs.Append("disable-msg-log", types.YLeaf{"DisableMsgLog", global.DisableMsgLog})
+    global.EntityData.Leafs.Append("next-hop-mpls-fwd-ibgp", types.YLeaf{"NextHopMplsFwdIbgp", global.NextHopMplsFwdIbgp})
+    global.EntityData.Leafs.Append("disable-neighbor-logging", types.YLeaf{"DisableNeighborLogging", global.DisableNeighborLogging})
+    global.EntityData.Leafs.Append("best-path-med-always", types.YLeaf{"BestPathMedAlways", global.BestPathMedAlways})
+    global.EntityData.Leafs.Append("best-path-router-id", types.YLeaf{"BestPathRouterId", global.BestPathRouterId})
+    global.EntityData.Leafs.Append("best-path-med-missing", types.YLeaf{"BestPathMedMissing", global.BestPathMedMissing})
+    global.EntityData.Leafs.Append("local-preference", types.YLeaf{"LocalPreference", global.LocalPreference})
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
 }
 
@@ -14600,7 +15614,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ClusterId struct {
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -14614,10 +15628,13 @@ func (clusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ClusterId)
     clusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clusterId.EntityData.Children = make(map[string]types.YChild)
-    clusterId.EntityData.Leafs = make(map[string]types.YLeaf)
-    clusterId.EntityData.Leafs["cluster-id-number"] = types.YLeaf{"ClusterIdNumber", clusterId.ClusterIdNumber}
-    clusterId.EntityData.Leafs["cluster-id-address"] = types.YLeaf{"ClusterIdAddress", clusterId.ClusterIdAddress}
+    clusterId.EntityData.Children = types.NewOrderedMap()
+    clusterId.EntityData.Leafs = types.NewOrderedMap()
+    clusterId.EntityData.Leafs.Append("cluster-id-number", types.YLeaf{"ClusterIdNumber", clusterId.ClusterIdNumber})
+    clusterId.EntityData.Leafs.Append("cluster-id-address", types.YLeaf{"ClusterIdAddress", clusterId.ClusterIdAddress})
+
+    clusterId.EntityData.YListKeys = []string {}
+
     return &(clusterId.EntityData)
 }
 
@@ -14650,11 +15667,14 @@ func (writeLimit *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_WriteLimi
     writeLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     writeLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    writeLimit.EntityData.Children = make(map[string]types.YChild)
-    writeLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    writeLimit.EntityData.Leafs["formatted-messages"] = types.YLeaf{"FormattedMessages", writeLimit.FormattedMessages}
-    writeLimit.EntityData.Leafs["enqueued-messages"] = types.YLeaf{"EnqueuedMessages", writeLimit.EnqueuedMessages}
-    writeLimit.EntityData.Leafs["desynchronize"] = types.YLeaf{"Desynchronize", writeLimit.Desynchronize}
+    writeLimit.EntityData.Children = types.NewOrderedMap()
+    writeLimit.EntityData.Leafs = types.NewOrderedMap()
+    writeLimit.EntityData.Leafs.Append("formatted-messages", types.YLeaf{"FormattedMessages", writeLimit.FormattedMessages})
+    writeLimit.EntityData.Leafs.Append("enqueued-messages", types.YLeaf{"EnqueuedMessages", writeLimit.EnqueuedMessages})
+    writeLimit.EntityData.Leafs.Append("desynchronize", types.YLeaf{"Desynchronize", writeLimit.Desynchronize})
+
+    writeLimit.EntityData.YListKeys = []string {}
+
     return &(writeLimit.EntityData)
 }
 
@@ -14684,10 +15704,13 @@ func (updateDelay *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_UpdateDe
     updateDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    updateDelay.EntityData.Children = make(map[string]types.YChild)
-    updateDelay.EntityData.Leafs = make(map[string]types.YLeaf)
-    updateDelay.EntityData.Leafs["delay"] = types.YLeaf{"Delay", updateDelay.Delay}
-    updateDelay.EntityData.Leafs["always"] = types.YLeaf{"Always", updateDelay.Always}
+    updateDelay.EntityData.Children = types.NewOrderedMap()
+    updateDelay.EntityData.Leafs = types.NewOrderedMap()
+    updateDelay.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", updateDelay.Delay})
+    updateDelay.EntityData.Leafs.Append("always", types.YLeaf{"Always", updateDelay.Always})
+
+    updateDelay.EntityData.YListKeys = []string {}
+
     return &(updateDelay.EntityData)
 }
 
@@ -14714,10 +15737,13 @@ func (asLeague *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague) G
     asLeague.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asLeague.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asLeague.EntityData.Children = make(map[string]types.YChild)
-    asLeague.EntityData.Children["peers"] = types.YChild{"Peers", &asLeague.Peers}
-    asLeague.EntityData.Leafs = make(map[string]types.YLeaf)
-    asLeague.EntityData.Leafs["enable"] = types.YLeaf{"Enable", asLeague.Enable}
+    asLeague.EntityData.Children = types.NewOrderedMap()
+    asLeague.EntityData.Children.Append("peers", types.YChild{"Peers", &asLeague.Peers})
+    asLeague.EntityData.Leafs = types.NewOrderedMap()
+    asLeague.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", asLeague.Enable})
+
+    asLeague.EntityData.YListKeys = []string {}
+
     return &(asLeague.EntityData)
 }
 
@@ -14729,7 +15755,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers struct 
 
     // AS League Peer AS. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers_Peer.
-    Peer []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers_Peer
+    Peer []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers_Peer
 }
 
 func (peers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers) GetEntityData() *types.CommonEntityData {
@@ -14742,12 +15768,15 @@ func (peers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -14771,15 +15800,18 @@ func (peer *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers_
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[as-xx='" + fmt.Sprintf("%v", peer.AsXx) + "']" + "[as-yy='" + fmt.Sprintf("%v", peer.AsYy) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.AsXx, "as-xx") + types.AddKeyToken(peer.AsYy, "as-yy")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", peer.AsXx}
-    peer.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", peer.AsYy}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", peer.AsXx})
+    peer.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", peer.AsYy})
+
+    peer.EntityData.YListKeys = []string {"AsXx", "AsYy"}
+
     return &(peer.EntityData)
 }
 
@@ -14791,7 +15823,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServers struct {
 
     // RPKI server configuration. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServers_RpkiServer.
-    RpkiServer []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServers_RpkiServer
+    RpkiServer []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServers_RpkiServer
 }
 
 func (rpkiServers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServers) GetEntityData() *types.CommonEntityData {
@@ -14804,12 +15836,15 @@ func (rpkiServers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServ
     rpkiServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpkiServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpkiServers.EntityData.Children = make(map[string]types.YChild)
-    rpkiServers.EntityData.Children["rpki-server"] = types.YChild{"RpkiServer", nil}
+    rpkiServers.EntityData.Children = types.NewOrderedMap()
+    rpkiServers.EntityData.Children.Append("rpki-server", types.YChild{"RpkiServer", nil})
     for i := range rpkiServers.RpkiServer {
-        rpkiServers.EntityData.Children[types.GetSegmentPath(&rpkiServers.RpkiServer[i])] = types.YChild{"RpkiServer", &rpkiServers.RpkiServer[i]}
+        rpkiServers.EntityData.Children.Append(types.GetSegmentPath(rpkiServers.RpkiServer[i]), types.YChild{"RpkiServer", rpkiServers.RpkiServer[i]})
     }
-    rpkiServers.EntityData.Leafs = make(map[string]types.YLeaf)
+    rpkiServers.EntityData.Leafs = types.NewOrderedMap()
+
+    rpkiServers.EntityData.YListKeys = []string {}
+
     return &(rpkiServers.EntityData)
 }
 
@@ -14820,7 +15855,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServers_RpkiServer
     YFilter yfilter.YFilter
 
     // This attribute is a key. Server address (opaque string). The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Server interface{}
 
     // RPKI server configuration. The type is interface{}.
@@ -14856,22 +15891,25 @@ func (rpkiServer *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServe
     rpkiServer.EntityData.YangName = "rpki-server"
     rpkiServer.EntityData.BundleName = "cisco_ios_xr"
     rpkiServer.EntityData.ParentYangName = "rpki-servers"
-    rpkiServer.EntityData.SegmentPath = "rpki-server" + "[server='" + fmt.Sprintf("%v", rpkiServer.Server) + "']"
+    rpkiServer.EntityData.SegmentPath = "rpki-server" + types.AddKeyToken(rpkiServer.Server, "server")
     rpkiServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpkiServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpkiServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpkiServer.EntityData.Children = make(map[string]types.YChild)
-    rpkiServer.EntityData.Children["transport"] = types.YChild{"Transport", &rpkiServer.Transport}
-    rpkiServer.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpkiServer.EntityData.Leafs["server"] = types.YLeaf{"Server", rpkiServer.Server}
-    rpkiServer.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rpkiServer.Enable}
-    rpkiServer.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", rpkiServer.Shutdown}
-    rpkiServer.EntityData.Leafs["password"] = types.YLeaf{"Password", rpkiServer.Password}
-    rpkiServer.EntityData.Leafs["response-time"] = types.YLeaf{"ResponseTime", rpkiServer.ResponseTime}
-    rpkiServer.EntityData.Leafs["username"] = types.YLeaf{"Username", rpkiServer.Username}
-    rpkiServer.EntityData.Leafs["refresh-time"] = types.YLeaf{"RefreshTime", rpkiServer.RefreshTime}
-    rpkiServer.EntityData.Leafs["purge-time"] = types.YLeaf{"PurgeTime", rpkiServer.PurgeTime}
+    rpkiServer.EntityData.Children = types.NewOrderedMap()
+    rpkiServer.EntityData.Children.Append("transport", types.YChild{"Transport", &rpkiServer.Transport})
+    rpkiServer.EntityData.Leafs = types.NewOrderedMap()
+    rpkiServer.EntityData.Leafs.Append("server", types.YLeaf{"Server", rpkiServer.Server})
+    rpkiServer.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpkiServer.Enable})
+    rpkiServer.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", rpkiServer.Shutdown})
+    rpkiServer.EntityData.Leafs.Append("password", types.YLeaf{"Password", rpkiServer.Password})
+    rpkiServer.EntityData.Leafs.Append("response-time", types.YLeaf{"ResponseTime", rpkiServer.ResponseTime})
+    rpkiServer.EntityData.Leafs.Append("username", types.YLeaf{"Username", rpkiServer.Username})
+    rpkiServer.EntityData.Leafs.Append("refresh-time", types.YLeaf{"RefreshTime", rpkiServer.RefreshTime})
+    rpkiServer.EntityData.Leafs.Append("purge-time", types.YLeaf{"PurgeTime", rpkiServer.PurgeTime})
+
+    rpkiServer.EntityData.YListKeys = []string {"Server"}
+
     return &(rpkiServer.EntityData)
 }
 
@@ -14900,10 +15938,13 @@ func (transport *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServer
     transport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transport.EntityData.Children = make(map[string]types.YChild)
-    transport.EntityData.Leafs = make(map[string]types.YLeaf)
-    transport.EntityData.Leafs["transport"] = types.YLeaf{"Transport", transport.Transport}
-    transport.EntityData.Leafs["port"] = types.YLeaf{"Port", transport.Port}
+    transport.EntityData.Children = types.NewOrderedMap()
+    transport.EntityData.Leafs = types.NewOrderedMap()
+    transport.EntityData.Leafs.Append("transport", types.YLeaf{"Transport", transport.Transport})
+    transport.EntityData.Leafs.Append("port", types.YLeaf{"Port", transport.Port})
+
+    transport.EntityData.YListKeys = []string {}
+
     return &(transport.EntityData)
 }
 
@@ -14915,7 +15956,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups struct {
 
     // AS-List group. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup.
-    AsListGroup []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup
+    AsListGroup []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup
 }
 
 func (asListGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups) GetEntityData() *types.CommonEntityData {
@@ -14928,12 +15969,15 @@ func (asListGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListG
     asListGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asListGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asListGroups.EntityData.Children = make(map[string]types.YChild)
-    asListGroups.EntityData.Children["as-list-group"] = types.YChild{"AsListGroup", nil}
+    asListGroups.EntityData.Children = types.NewOrderedMap()
+    asListGroups.EntityData.Children.Append("as-list-group", types.YChild{"AsListGroup", nil})
     for i := range asListGroups.AsListGroup {
-        asListGroups.EntityData.Children[types.GetSegmentPath(&asListGroups.AsListGroup[i])] = types.YChild{"AsListGroup", &asListGroups.AsListGroup[i]}
+        asListGroups.EntityData.Children.Append(types.GetSegmentPath(asListGroups.AsListGroup[i]), types.YChild{"AsListGroup", asListGroups.AsListGroup[i]})
     }
-    asListGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    asListGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    asListGroups.EntityData.YListKeys = []string {}
+
     return &(asListGroups.EntityData)
 }
 
@@ -14944,7 +15988,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGro
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     AsListGroupName interface{}
 
     // AS-List group creation. The type is interface{}.
@@ -14959,16 +16003,19 @@ func (asListGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGr
     asListGroup.EntityData.YangName = "as-list-group"
     asListGroup.EntityData.BundleName = "cisco_ios_xr"
     asListGroup.EntityData.ParentYangName = "as-list-groups"
-    asListGroup.EntityData.SegmentPath = "as-list-group" + "[as-list-group-name='" + fmt.Sprintf("%v", asListGroup.AsListGroupName) + "']"
+    asListGroup.EntityData.SegmentPath = "as-list-group" + types.AddKeyToken(asListGroup.AsListGroupName, "as-list-group-name")
     asListGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asListGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asListGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asListGroup.EntityData.Children = make(map[string]types.YChild)
-    asListGroup.EntityData.Children["ases"] = types.YChild{"Ases", &asListGroup.Ases}
-    asListGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    asListGroup.EntityData.Leafs["as-list-group-name"] = types.YLeaf{"AsListGroupName", asListGroup.AsListGroupName}
-    asListGroup.EntityData.Leafs["enable"] = types.YLeaf{"Enable", asListGroup.Enable}
+    asListGroup.EntityData.Children = types.NewOrderedMap()
+    asListGroup.EntityData.Children.Append("ases", types.YChild{"Ases", &asListGroup.Ases})
+    asListGroup.EntityData.Leafs = types.NewOrderedMap()
+    asListGroup.EntityData.Leafs.Append("as-list-group-name", types.YLeaf{"AsListGroupName", asListGroup.AsListGroupName})
+    asListGroup.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", asListGroup.Enable})
+
+    asListGroup.EntityData.YListKeys = []string {"AsListGroupName"}
+
     return &(asListGroup.EntityData)
 }
 
@@ -14980,7 +16027,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGro
 
     // AS-List group. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup_Ases_As.
-    As []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup_Ases_As
+    As []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup_Ases_As
 }
 
 func (ases *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup_Ases) GetEntityData() *types.CommonEntityData {
@@ -14993,12 +16040,15 @@ func (ases *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_As
     ases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ases.EntityData.Children = make(map[string]types.YChild)
-    ases.EntityData.Children["as"] = types.YChild{"As", nil}
+    ases.EntityData.Children = types.NewOrderedMap()
+    ases.EntityData.Children.Append("as", types.YChild{"As", nil})
     for i := range ases.As {
-        ases.EntityData.Children[types.GetSegmentPath(&ases.As[i])] = types.YChild{"As", &ases.As[i]}
+        ases.EntityData.Children.Append(types.GetSegmentPath(ases.As[i]), types.YChild{"As", ases.As[i]})
     }
-    ases.EntityData.Leafs = make(map[string]types.YLeaf)
+    ases.EntityData.Leafs = types.NewOrderedMap()
+
+    ases.EntityData.YListKeys = []string {}
+
     return &(ases.EntityData)
 }
 
@@ -15022,15 +16072,18 @@ func (as *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsLi
     as.EntityData.YangName = "as"
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "ases"
-    as.EntityData.SegmentPath = "as" + "[as-xx='" + fmt.Sprintf("%v", as.AsXx) + "']" + "[as-yy='" + fmt.Sprintf("%v", as.AsYy) + "']"
+    as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.AsXx, "as-xx") + types.AddKeyToken(as.AsYy, "as-yy")
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    as.EntityData.Children = make(map[string]types.YChild)
-    as.EntityData.Leafs = make(map[string]types.YLeaf)
-    as.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", as.AsXx}
-    as.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", as.AsYy}
+    as.EntityData.Children = types.NewOrderedMap()
+    as.EntityData.Leafs = types.NewOrderedMap()
+    as.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", as.AsXx})
+    as.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", as.AsYy})
+
+    as.EntityData.YListKeys = []string {"AsXx", "AsYy"}
+
     return &(as.EntityData)
 }
 
@@ -15055,9 +16108,12 @@ func (limits *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Limits) GetEn
     limits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     limits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    limits.EntityData.Children = make(map[string]types.YChild)
-    limits.EntityData.Leafs = make(map[string]types.YLeaf)
-    limits.EntityData.Leafs["maximum-neighbors"] = types.YLeaf{"MaximumNeighbors", limits.MaximumNeighbors}
+    limits.EntityData.Children = types.NewOrderedMap()
+    limits.EntityData.Leafs = types.NewOrderedMap()
+    limits.EntityData.Leafs.Append("maximum-neighbors", types.YLeaf{"MaximumNeighbors", limits.MaximumNeighbors})
+
+    limits.EntityData.YListKeys = []string {}
+
     return &(limits.EntityData)
 }
 
@@ -15084,10 +16140,13 @@ func (confederationDomain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_
     confederationDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     confederationDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    confederationDomain.EntityData.Children = make(map[string]types.YChild)
-    confederationDomain.EntityData.Leafs = make(map[string]types.YLeaf)
-    confederationDomain.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", confederationDomain.AsXx}
-    confederationDomain.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", confederationDomain.AsYy}
+    confederationDomain.EntityData.Children = types.NewOrderedMap()
+    confederationDomain.EntityData.Leafs = types.NewOrderedMap()
+    confederationDomain.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", confederationDomain.AsXx})
+    confederationDomain.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", confederationDomain.AsYy})
+
+    confederationDomain.EntityData.YListKeys = []string {}
+
     return &(confederationDomain.EntityData)
 }
 
@@ -15099,7 +16158,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ConfederationPeerAses 
 
     // Confederation peer AS. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ConfederationPeerAses_ConfederationPeerAs.
-    ConfederationPeerAs []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ConfederationPeerAses_ConfederationPeerAs
+    ConfederationPeerAs []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ConfederationPeerAses_ConfederationPeerAs
 }
 
 func (confederationPeerAses *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ConfederationPeerAses) GetEntityData() *types.CommonEntityData {
@@ -15112,12 +16171,15 @@ func (confederationPeerAses *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Globa
     confederationPeerAses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     confederationPeerAses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    confederationPeerAses.EntityData.Children = make(map[string]types.YChild)
-    confederationPeerAses.EntityData.Children["confederation-peer-as"] = types.YChild{"ConfederationPeerAs", nil}
+    confederationPeerAses.EntityData.Children = types.NewOrderedMap()
+    confederationPeerAses.EntityData.Children.Append("confederation-peer-as", types.YChild{"ConfederationPeerAs", nil})
     for i := range confederationPeerAses.ConfederationPeerAs {
-        confederationPeerAses.EntityData.Children[types.GetSegmentPath(&confederationPeerAses.ConfederationPeerAs[i])] = types.YChild{"ConfederationPeerAs", &confederationPeerAses.ConfederationPeerAs[i]}
+        confederationPeerAses.EntityData.Children.Append(types.GetSegmentPath(confederationPeerAses.ConfederationPeerAs[i]), types.YChild{"ConfederationPeerAs", confederationPeerAses.ConfederationPeerAs[i]})
     }
-    confederationPeerAses.EntityData.Leafs = make(map[string]types.YLeaf)
+    confederationPeerAses.EntityData.Leafs = types.NewOrderedMap()
+
+    confederationPeerAses.EntityData.YListKeys = []string {}
+
     return &(confederationPeerAses.EntityData)
 }
 
@@ -15141,15 +16203,18 @@ func (confederationPeerAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_
     confederationPeerAs.EntityData.YangName = "confederation-peer-as"
     confederationPeerAs.EntityData.BundleName = "cisco_ios_xr"
     confederationPeerAs.EntityData.ParentYangName = "confederation-peer-ases"
-    confederationPeerAs.EntityData.SegmentPath = "confederation-peer-as" + "[as-xx='" + fmt.Sprintf("%v", confederationPeerAs.AsXx) + "']" + "[as-yy='" + fmt.Sprintf("%v", confederationPeerAs.AsYy) + "']"
+    confederationPeerAs.EntityData.SegmentPath = "confederation-peer-as" + types.AddKeyToken(confederationPeerAs.AsXx, "as-xx") + types.AddKeyToken(confederationPeerAs.AsYy, "as-yy")
     confederationPeerAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     confederationPeerAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     confederationPeerAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    confederationPeerAs.EntityData.Children = make(map[string]types.YChild)
-    confederationPeerAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    confederationPeerAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", confederationPeerAs.AsXx}
-    confederationPeerAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", confederationPeerAs.AsYy}
+    confederationPeerAs.EntityData.Children = types.NewOrderedMap()
+    confederationPeerAs.EntityData.Leafs = types.NewOrderedMap()
+    confederationPeerAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", confederationPeerAs.AsXx})
+    confederationPeerAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", confederationPeerAs.AsYy})
+
+    confederationPeerAs.EntityData.YListKeys = []string {"AsXx", "AsYy"}
+
     return &(confederationPeerAs.EntityData)
 }
 
@@ -15161,7 +16226,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups 
 
     // Attribute-filter group. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup.
-    AttributeFilterGroup []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup
+    AttributeFilterGroup []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup
 }
 
 func (attributeFilterGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups) GetEntityData() *types.CommonEntityData {
@@ -15174,12 +16239,15 @@ func (attributeFilterGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Globa
     attributeFilterGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeFilterGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributeFilterGroups.EntityData.Children = make(map[string]types.YChild)
-    attributeFilterGroups.EntityData.Children["attribute-filter-group"] = types.YChild{"AttributeFilterGroup", nil}
+    attributeFilterGroups.EntityData.Children = types.NewOrderedMap()
+    attributeFilterGroups.EntityData.Children.Append("attribute-filter-group", types.YChild{"AttributeFilterGroup", nil})
     for i := range attributeFilterGroups.AttributeFilterGroup {
-        attributeFilterGroups.EntityData.Children[types.GetSegmentPath(&attributeFilterGroups.AttributeFilterGroup[i])] = types.YChild{"AttributeFilterGroup", &attributeFilterGroups.AttributeFilterGroup[i]}
+        attributeFilterGroups.EntityData.Children.Append(types.GetSegmentPath(attributeFilterGroups.AttributeFilterGroup[i]), types.YChild{"AttributeFilterGroup", attributeFilterGroups.AttributeFilterGroup[i]})
     }
-    attributeFilterGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributeFilterGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    attributeFilterGroups.EntityData.YListKeys = []string {}
+
     return &(attributeFilterGroups.EntityData)
 }
 
@@ -15190,7 +16258,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     AttributeFilterGroupName interface{}
 
     // Attribute-filter group creation. The type is interface{}.
@@ -15205,16 +16273,19 @@ func (attributeFilterGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global
     attributeFilterGroup.EntityData.YangName = "attribute-filter-group"
     attributeFilterGroup.EntityData.BundleName = "cisco_ios_xr"
     attributeFilterGroup.EntityData.ParentYangName = "attribute-filter-groups"
-    attributeFilterGroup.EntityData.SegmentPath = "attribute-filter-group" + "[attribute-filter-group-name='" + fmt.Sprintf("%v", attributeFilterGroup.AttributeFilterGroupName) + "']"
+    attributeFilterGroup.EntityData.SegmentPath = "attribute-filter-group" + types.AddKeyToken(attributeFilterGroup.AttributeFilterGroupName, "attribute-filter-group-name")
     attributeFilterGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeFilterGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeFilterGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributeFilterGroup.EntityData.Children = make(map[string]types.YChild)
-    attributeFilterGroup.EntityData.Children["attribute-filters"] = types.YChild{"AttributeFilters", &attributeFilterGroup.AttributeFilters}
-    attributeFilterGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributeFilterGroup.EntityData.Leafs["attribute-filter-group-name"] = types.YLeaf{"AttributeFilterGroupName", attributeFilterGroup.AttributeFilterGroupName}
-    attributeFilterGroup.EntityData.Leafs["enable"] = types.YLeaf{"Enable", attributeFilterGroup.Enable}
+    attributeFilterGroup.EntityData.Children = types.NewOrderedMap()
+    attributeFilterGroup.EntityData.Children.Append("attribute-filters", types.YChild{"AttributeFilters", &attributeFilterGroup.AttributeFilters})
+    attributeFilterGroup.EntityData.Leafs = types.NewOrderedMap()
+    attributeFilterGroup.EntityData.Leafs.Append("attribute-filter-group-name", types.YLeaf{"AttributeFilterGroupName", attributeFilterGroup.AttributeFilterGroupName})
+    attributeFilterGroup.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", attributeFilterGroup.Enable})
+
+    attributeFilterGroup.EntityData.YListKeys = []string {"AttributeFilterGroupName"}
+
     return &(attributeFilterGroup.EntityData)
 }
 
@@ -15226,7 +16297,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_
 
     // Attribute-filter group attribute. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup_AttributeFilters_AttributeFilter.
-    AttributeFilter []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup_AttributeFilters_AttributeFilter
+    AttributeFilter []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup_AttributeFilters_AttributeFilter
 }
 
 func (attributeFilters *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup_AttributeFilters) GetEntityData() *types.CommonEntityData {
@@ -15239,12 +16310,15 @@ func (attributeFilters *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Att
     attributeFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributeFilters.EntityData.Children = make(map[string]types.YChild)
-    attributeFilters.EntityData.Children["attribute-filter"] = types.YChild{"AttributeFilter", nil}
+    attributeFilters.EntityData.Children = types.NewOrderedMap()
+    attributeFilters.EntityData.Children.Append("attribute-filter", types.YChild{"AttributeFilter", nil})
     for i := range attributeFilters.AttributeFilter {
-        attributeFilters.EntityData.Children[types.GetSegmentPath(&attributeFilters.AttributeFilter[i])] = types.YChild{"AttributeFilter", &attributeFilters.AttributeFilter[i]}
+        attributeFilters.EntityData.Children.Append(types.GetSegmentPath(attributeFilters.AttributeFilter[i]), types.YChild{"AttributeFilter", attributeFilters.AttributeFilter[i]})
     }
-    attributeFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributeFilters.EntityData.Leafs = types.NewOrderedMap()
+
+    attributeFilters.EntityData.YListKeys = []string {}
+
     return &(attributeFilters.EntityData)
 }
 
@@ -15272,16 +16346,19 @@ func (attributeFilter *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Attr
     attributeFilter.EntityData.YangName = "attribute-filter"
     attributeFilter.EntityData.BundleName = "cisco_ios_xr"
     attributeFilter.EntityData.ParentYangName = "attribute-filters"
-    attributeFilter.EntityData.SegmentPath = "attribute-filter" + "[attribute-start='" + fmt.Sprintf("%v", attributeFilter.AttributeStart) + "']" + "[attribute-end='" + fmt.Sprintf("%v", attributeFilter.AttributeEnd) + "']"
+    attributeFilter.EntityData.SegmentPath = "attribute-filter" + types.AddKeyToken(attributeFilter.AttributeStart, "attribute-start") + types.AddKeyToken(attributeFilter.AttributeEnd, "attribute-end")
     attributeFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributeFilter.EntityData.Children = make(map[string]types.YChild)
-    attributeFilter.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributeFilter.EntityData.Leafs["attribute-start"] = types.YLeaf{"AttributeStart", attributeFilter.AttributeStart}
-    attributeFilter.EntityData.Leafs["attribute-end"] = types.YLeaf{"AttributeEnd", attributeFilter.AttributeEnd}
-    attributeFilter.EntityData.Leafs["filter-action"] = types.YLeaf{"FilterAction", attributeFilter.FilterAction}
+    attributeFilter.EntityData.Children = types.NewOrderedMap()
+    attributeFilter.EntityData.Leafs = types.NewOrderedMap()
+    attributeFilter.EntityData.Leafs.Append("attribute-start", types.YLeaf{"AttributeStart", attributeFilter.AttributeStart})
+    attributeFilter.EntityData.Leafs.Append("attribute-end", types.YLeaf{"AttributeEnd", attributeFilter.AttributeEnd})
+    attributeFilter.EntityData.Leafs.Append("filter-action", types.YLeaf{"FilterAction", attributeFilter.FilterAction})
+
+    attributeFilter.EntityData.YListKeys = []string {"AttributeStart", "AttributeEnd"}
+
     return &(attributeFilter.EntityData)
 }
 
@@ -15309,10 +16386,13 @@ func (globalGracefulMaintenanceActivate *Bgp_Instance_InstanceAs_FourByteAs_Defa
     globalGracefulMaintenanceActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalGracefulMaintenanceActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalGracefulMaintenanceActivate.EntityData.Children = make(map[string]types.YChild)
-    globalGracefulMaintenanceActivate.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalGracefulMaintenanceActivate.EntityData.Leafs["all-neighbors"] = types.YLeaf{"AllNeighbors", globalGracefulMaintenanceActivate.AllNeighbors}
-    globalGracefulMaintenanceActivate.EntityData.Leafs["retain-routes"] = types.YLeaf{"RetainRoutes", globalGracefulMaintenanceActivate.RetainRoutes}
+    globalGracefulMaintenanceActivate.EntityData.Children = types.NewOrderedMap()
+    globalGracefulMaintenanceActivate.EntityData.Leafs = types.NewOrderedMap()
+    globalGracefulMaintenanceActivate.EntityData.Leafs.Append("all-neighbors", types.YLeaf{"AllNeighbors", globalGracefulMaintenanceActivate.AllNeighbors})
+    globalGracefulMaintenanceActivate.EntityData.Leafs.Append("retain-routes", types.YLeaf{"RetainRoutes", globalGracefulMaintenanceActivate.RetainRoutes})
+
+    globalGracefulMaintenanceActivate.EntityData.YListKeys = []string {}
+
     return &(globalGracefulMaintenanceActivate.EntityData)
 }
 
@@ -15324,7 +16404,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs struct {
 
     // Global AF-specific configuration. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf.
-    GlobalAf []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf
+    GlobalAf []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf
 }
 
 func (globalAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs) GetEntityData() *types.CommonEntityData {
@@ -15337,12 +16417,15 @@ func (globalAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs)
     globalAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalAfs.EntityData.Children = make(map[string]types.YChild)
-    globalAfs.EntityData.Children["global-af"] = types.YChild{"GlobalAf", nil}
+    globalAfs.EntityData.Children = types.NewOrderedMap()
+    globalAfs.EntityData.Children.Append("global-af", types.YChild{"GlobalAf", nil})
     for i := range globalAfs.GlobalAf {
-        globalAfs.EntityData.Children[types.GetSegmentPath(&globalAfs.GlobalAf[i])] = types.YChild{"GlobalAf", &globalAfs.GlobalAf[i]}
+        globalAfs.EntityData.Children.Append(types.GetSegmentPath(globalAfs.GlobalAf[i]), types.YChild{"GlobalAf", globalAfs.GlobalAf[i]})
     }
-    globalAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    globalAfs.EntityData.Leafs = types.NewOrderedMap()
+
+    globalAfs.EntityData.YListKeys = []string {}
+
     return &(globalAfs.EntityData)
 }
 
@@ -15435,6 +16518,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf str
     // Wait for route install before sending updates to neighbors. The type is
     // interface{}.
     WaitRibInstall interface{}
+
+    // Retrieve prefix sid mapping from SRMS. The type is interface{}.
+    PrefixSidMap interface{}
 
     // Update generation delay (in minutes) after a MED change. The type is
     // interface{} with range: 0..10. Units are minute. The default value is 10.
@@ -15568,75 +16654,79 @@ func (globalAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     globalAf.EntityData.YangName = "global-af"
     globalAf.EntityData.BundleName = "cisco_ios_xr"
     globalAf.EntityData.ParentYangName = "global-afs"
-    globalAf.EntityData.SegmentPath = "global-af" + "[af-name='" + fmt.Sprintf("%v", globalAf.AfName) + "']"
+    globalAf.EntityData.SegmentPath = "global-af" + types.AddKeyToken(globalAf.AfName, "af-name")
     globalAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalAf.EntityData.Children = make(map[string]types.YChild)
-    globalAf.EntityData.Children["isis-routes"] = types.YChild{"IsisRoutes", &globalAf.IsisRoutes}
-    globalAf.EntityData.Children["domain-distinguisher"] = types.YChild{"DomainDistinguisher", &globalAf.DomainDistinguisher}
-    globalAf.EntityData.Children["vrf-all"] = types.YChild{"VrfAll", &globalAf.VrfAll}
-    globalAf.EntityData.Children["disable-cluster-client-to-client-rrs"] = types.YChild{"DisableClusterClientToClientRrs", &globalAf.DisableClusterClientToClientRrs}
-    globalAf.EntityData.Children["label-delay"] = types.YChild{"LabelDelay", &globalAf.LabelDelay}
-    globalAf.EntityData.Children["ebgp"] = types.YChild{"Ebgp", &globalAf.Ebgp}
-    globalAf.EntityData.Children["eibgp"] = types.YChild{"Eibgp", &globalAf.Eibgp}
-    globalAf.EntityData.Children["retain-rt"] = types.YChild{"RetainRt", &globalAf.RetainRt}
-    globalAf.EntityData.Children["ibgp"] = types.YChild{"Ibgp", &globalAf.Ibgp}
-    globalAf.EntityData.Children["import-delay"] = types.YChild{"ImportDelay", &globalAf.ImportDelay}
-    globalAf.EntityData.Children["aggregate-addresses"] = types.YChild{"AggregateAddresses", &globalAf.AggregateAddresses}
-    globalAf.EntityData.Children["optimal-route-reflector-groups"] = types.YChild{"OptimalRouteReflectorGroups", &globalAf.OptimalRouteReflectorGroups}
-    globalAf.EntityData.Children["dampening"] = types.YChild{"Dampening", &globalAf.Dampening}
-    globalAf.EntityData.Children["rip-routes"] = types.YChild{"RipRoutes", &globalAf.RipRoutes}
-    globalAf.EntityData.Children["lisp-routes"] = types.YChild{"LispRoutes", &globalAf.LispRoutes}
-    globalAf.EntityData.Children["static-routes"] = types.YChild{"StaticRoutes", &globalAf.StaticRoutes}
-    globalAf.EntityData.Children["distance"] = types.YChild{"Distance", &globalAf.Distance}
-    globalAf.EntityData.Children["application-routes"] = types.YChild{"ApplicationRoutes", &globalAf.ApplicationRoutes}
-    globalAf.EntityData.Children["label-mode"] = types.YChild{"LabelMode", &globalAf.LabelMode}
-    globalAf.EntityData.Children["eigrp-routes"] = types.YChild{"EigrpRoutes", &globalAf.EigrpRoutes}
-    globalAf.EntityData.Children["sourced-networks"] = types.YChild{"SourcedNetworks", &globalAf.SourcedNetworks}
-    globalAf.EntityData.Children["connected-routes"] = types.YChild{"ConnectedRoutes", &globalAf.ConnectedRoutes}
-    globalAf.EntityData.Children["allocate-label"] = types.YChild{"AllocateLabel", &globalAf.AllocateLabel}
-    globalAf.EntityData.Children["additional-paths-selection"] = types.YChild{"AdditionalPathsSelection", &globalAf.AdditionalPathsSelection}
-    globalAf.EntityData.Children["ospf-routes"] = types.YChild{"OspfRoutes", &globalAf.OspfRoutes}
-    globalAf.EntityData.Children["mobile-routes"] = types.YChild{"MobileRoutes", &globalAf.MobileRoutes}
-    globalAf.EntityData.Children["subscriber-routes"] = types.YChild{"SubscriberRoutes", &globalAf.SubscriberRoutes}
-    globalAf.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", globalAf.AfName}
-    globalAf.EntityData.Leafs["rnh-install-format"] = types.YLeaf{"RnhInstallFormat", globalAf.RnhInstallFormat}
-    globalAf.EntityData.Leafs["inter-as-install"] = types.YLeaf{"InterAsInstall", globalAf.InterAsInstall}
-    globalAf.EntityData.Leafs["segmented-mcast"] = types.YLeaf{"SegmentedMcast", globalAf.SegmentedMcast}
-    globalAf.EntityData.Leafs["implicit-import"] = types.YLeaf{"ImplicitImport", globalAf.ImplicitImport}
-    globalAf.EntityData.Leafs["disable-default-martian-check"] = types.YLeaf{"DisableDefaultMartianCheck", globalAf.DisableDefaultMartianCheck}
-    globalAf.EntityData.Leafs["next-hop-critical-trigger-delay"] = types.YLeaf{"NextHopCriticalTriggerDelay", globalAf.NextHopCriticalTriggerDelay}
-    globalAf.EntityData.Leafs["next-hop-non-critical-trigger-delay"] = types.YLeaf{"NextHopNonCriticalTriggerDelay", globalAf.NextHopNonCriticalTriggerDelay}
-    globalAf.EntityData.Leafs["label-security-rpf"] = types.YLeaf{"LabelSecurityRpf", globalAf.LabelSecurityRpf}
-    globalAf.EntityData.Leafs["use-igpsr-label"] = types.YLeaf{"UseIgpsrLabel", globalAf.UseIgpsrLabel}
-    globalAf.EntityData.Leafs["label-retain"] = types.YLeaf{"LabelRetain", globalAf.LabelRetain}
-    globalAf.EntityData.Leafs["scan-time"] = types.YLeaf{"ScanTime", globalAf.ScanTime}
-    globalAf.EntityData.Leafs["rpki-origin-as-validation-disable"] = types.YLeaf{"RpkiOriginAsValidationDisable", globalAf.RpkiOriginAsValidationDisable}
-    globalAf.EntityData.Leafs["rpki-origin-as-validity-signal-ibgp"] = types.YLeaf{"RpkiOriginAsValiditySignalIbgp", globalAf.RpkiOriginAsValiditySignalIbgp}
-    globalAf.EntityData.Leafs["update-limit-sub-group-ebgp"] = types.YLeaf{"UpdateLimitSubGroupEbgp", globalAf.UpdateLimitSubGroupEbgp}
-    globalAf.EntityData.Leafs["update-limit-address-family"] = types.YLeaf{"UpdateLimitAddressFamily", globalAf.UpdateLimitAddressFamily}
-    globalAf.EntityData.Leafs["rpki-bestpath-use-origin-as-validity"] = types.YLeaf{"RpkiBestpathUseOriginAsValidity", globalAf.RpkiBestpathUseOriginAsValidity}
-    globalAf.EntityData.Leafs["update-limit-sub-group-ibgp"] = types.YLeaf{"UpdateLimitSubGroupIbgp", globalAf.UpdateLimitSubGroupIbgp}
-    globalAf.EntityData.Leafs["rpki-bestpath-origin-as-allow-invalid"] = types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", globalAf.RpkiBestpathOriginAsAllowInvalid}
-    globalAf.EntityData.Leafs["disable-client-to-client-rr"] = types.YLeaf{"DisableClientToClientRr", globalAf.DisableClientToClientRr}
-    globalAf.EntityData.Leafs["next-hop-route-policy"] = types.YLeaf{"NextHopRoutePolicy", globalAf.NextHopRoutePolicy}
-    globalAf.EntityData.Leafs["global-table-mcast"] = types.YLeaf{"GlobalTableMcast", globalAf.GlobalTableMcast}
-    globalAf.EntityData.Leafs["wait-rib-install"] = types.YLeaf{"WaitRibInstall", globalAf.WaitRibInstall}
-    globalAf.EntityData.Leafs["dynamic-med-interval"] = types.YLeaf{"DynamicMedInterval", globalAf.DynamicMedInterval}
-    globalAf.EntityData.Leafs["enable"] = types.YLeaf{"Enable", globalAf.Enable}
-    globalAf.EntityData.Leafs["table-policy"] = types.YLeaf{"TablePolicy", globalAf.TablePolicy}
-    globalAf.EntityData.Leafs["attribute-download"] = types.YLeaf{"AttributeDownload", globalAf.AttributeDownload}
-    globalAf.EntityData.Leafs["best-external"] = types.YLeaf{"BestExternal", globalAf.BestExternal}
-    globalAf.EntityData.Leafs["additional-paths-receive"] = types.YLeaf{"AdditionalPathsReceive", globalAf.AdditionalPathsReceive}
-    globalAf.EntityData.Leafs["permanent-network"] = types.YLeaf{"PermanentNetwork", globalAf.PermanentNetwork}
-    globalAf.EntityData.Leafs["next-hop-resolution-prefix-length-minimum"] = types.YLeaf{"NextHopResolutionPrefixLengthMinimum", globalAf.NextHopResolutionPrefixLengthMinimum}
-    globalAf.EntityData.Leafs["reset-weight-on-import"] = types.YLeaf{"ResetWeightOnImport", globalAf.ResetWeightOnImport}
-    globalAf.EntityData.Leafs["additional-paths-send"] = types.YLeaf{"AdditionalPathsSend", globalAf.AdditionalPathsSend}
-    globalAf.EntityData.Leafs["advertise-local-labeled-route-safi-unicast"] = types.YLeaf{"AdvertiseLocalLabeledRouteSafiUnicast", globalAf.AdvertiseLocalLabeledRouteSafiUnicast}
-    globalAf.EntityData.Leafs["disable-as-path-loop-check"] = types.YLeaf{"DisableAsPathLoopCheck", globalAf.DisableAsPathLoopCheck}
+    globalAf.EntityData.Children = types.NewOrderedMap()
+    globalAf.EntityData.Children.Append("isis-routes", types.YChild{"IsisRoutes", &globalAf.IsisRoutes})
+    globalAf.EntityData.Children.Append("domain-distinguisher", types.YChild{"DomainDistinguisher", &globalAf.DomainDistinguisher})
+    globalAf.EntityData.Children.Append("vrf-all", types.YChild{"VrfAll", &globalAf.VrfAll})
+    globalAf.EntityData.Children.Append("disable-cluster-client-to-client-rrs", types.YChild{"DisableClusterClientToClientRrs", &globalAf.DisableClusterClientToClientRrs})
+    globalAf.EntityData.Children.Append("label-delay", types.YChild{"LabelDelay", &globalAf.LabelDelay})
+    globalAf.EntityData.Children.Append("ebgp", types.YChild{"Ebgp", &globalAf.Ebgp})
+    globalAf.EntityData.Children.Append("eibgp", types.YChild{"Eibgp", &globalAf.Eibgp})
+    globalAf.EntityData.Children.Append("retain-rt", types.YChild{"RetainRt", &globalAf.RetainRt})
+    globalAf.EntityData.Children.Append("ibgp", types.YChild{"Ibgp", &globalAf.Ibgp})
+    globalAf.EntityData.Children.Append("import-delay", types.YChild{"ImportDelay", &globalAf.ImportDelay})
+    globalAf.EntityData.Children.Append("aggregate-addresses", types.YChild{"AggregateAddresses", &globalAf.AggregateAddresses})
+    globalAf.EntityData.Children.Append("optimal-route-reflector-groups", types.YChild{"OptimalRouteReflectorGroups", &globalAf.OptimalRouteReflectorGroups})
+    globalAf.EntityData.Children.Append("dampening", types.YChild{"Dampening", &globalAf.Dampening})
+    globalAf.EntityData.Children.Append("rip-routes", types.YChild{"RipRoutes", &globalAf.RipRoutes})
+    globalAf.EntityData.Children.Append("lisp-routes", types.YChild{"LispRoutes", &globalAf.LispRoutes})
+    globalAf.EntityData.Children.Append("static-routes", types.YChild{"StaticRoutes", &globalAf.StaticRoutes})
+    globalAf.EntityData.Children.Append("distance", types.YChild{"Distance", &globalAf.Distance})
+    globalAf.EntityData.Children.Append("application-routes", types.YChild{"ApplicationRoutes", &globalAf.ApplicationRoutes})
+    globalAf.EntityData.Children.Append("label-mode", types.YChild{"LabelMode", &globalAf.LabelMode})
+    globalAf.EntityData.Children.Append("eigrp-routes", types.YChild{"EigrpRoutes", &globalAf.EigrpRoutes})
+    globalAf.EntityData.Children.Append("sourced-networks", types.YChild{"SourcedNetworks", &globalAf.SourcedNetworks})
+    globalAf.EntityData.Children.Append("connected-routes", types.YChild{"ConnectedRoutes", &globalAf.ConnectedRoutes})
+    globalAf.EntityData.Children.Append("allocate-label", types.YChild{"AllocateLabel", &globalAf.AllocateLabel})
+    globalAf.EntityData.Children.Append("additional-paths-selection", types.YChild{"AdditionalPathsSelection", &globalAf.AdditionalPathsSelection})
+    globalAf.EntityData.Children.Append("ospf-routes", types.YChild{"OspfRoutes", &globalAf.OspfRoutes})
+    globalAf.EntityData.Children.Append("mobile-routes", types.YChild{"MobileRoutes", &globalAf.MobileRoutes})
+    globalAf.EntityData.Children.Append("subscriber-routes", types.YChild{"SubscriberRoutes", &globalAf.SubscriberRoutes})
+    globalAf.EntityData.Leafs = types.NewOrderedMap()
+    globalAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", globalAf.AfName})
+    globalAf.EntityData.Leafs.Append("rnh-install-format", types.YLeaf{"RnhInstallFormat", globalAf.RnhInstallFormat})
+    globalAf.EntityData.Leafs.Append("inter-as-install", types.YLeaf{"InterAsInstall", globalAf.InterAsInstall})
+    globalAf.EntityData.Leafs.Append("segmented-mcast", types.YLeaf{"SegmentedMcast", globalAf.SegmentedMcast})
+    globalAf.EntityData.Leafs.Append("implicit-import", types.YLeaf{"ImplicitImport", globalAf.ImplicitImport})
+    globalAf.EntityData.Leafs.Append("disable-default-martian-check", types.YLeaf{"DisableDefaultMartianCheck", globalAf.DisableDefaultMartianCheck})
+    globalAf.EntityData.Leafs.Append("next-hop-critical-trigger-delay", types.YLeaf{"NextHopCriticalTriggerDelay", globalAf.NextHopCriticalTriggerDelay})
+    globalAf.EntityData.Leafs.Append("next-hop-non-critical-trigger-delay", types.YLeaf{"NextHopNonCriticalTriggerDelay", globalAf.NextHopNonCriticalTriggerDelay})
+    globalAf.EntityData.Leafs.Append("label-security-rpf", types.YLeaf{"LabelSecurityRpf", globalAf.LabelSecurityRpf})
+    globalAf.EntityData.Leafs.Append("use-igpsr-label", types.YLeaf{"UseIgpsrLabel", globalAf.UseIgpsrLabel})
+    globalAf.EntityData.Leafs.Append("label-retain", types.YLeaf{"LabelRetain", globalAf.LabelRetain})
+    globalAf.EntityData.Leafs.Append("scan-time", types.YLeaf{"ScanTime", globalAf.ScanTime})
+    globalAf.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", globalAf.RpkiOriginAsValidationDisable})
+    globalAf.EntityData.Leafs.Append("rpki-origin-as-validity-signal-ibgp", types.YLeaf{"RpkiOriginAsValiditySignalIbgp", globalAf.RpkiOriginAsValiditySignalIbgp})
+    globalAf.EntityData.Leafs.Append("update-limit-sub-group-ebgp", types.YLeaf{"UpdateLimitSubGroupEbgp", globalAf.UpdateLimitSubGroupEbgp})
+    globalAf.EntityData.Leafs.Append("update-limit-address-family", types.YLeaf{"UpdateLimitAddressFamily", globalAf.UpdateLimitAddressFamily})
+    globalAf.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", globalAf.RpkiBestpathUseOriginAsValidity})
+    globalAf.EntityData.Leafs.Append("update-limit-sub-group-ibgp", types.YLeaf{"UpdateLimitSubGroupIbgp", globalAf.UpdateLimitSubGroupIbgp})
+    globalAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", globalAf.RpkiBestpathOriginAsAllowInvalid})
+    globalAf.EntityData.Leafs.Append("disable-client-to-client-rr", types.YLeaf{"DisableClientToClientRr", globalAf.DisableClientToClientRr})
+    globalAf.EntityData.Leafs.Append("next-hop-route-policy", types.YLeaf{"NextHopRoutePolicy", globalAf.NextHopRoutePolicy})
+    globalAf.EntityData.Leafs.Append("global-table-mcast", types.YLeaf{"GlobalTableMcast", globalAf.GlobalTableMcast})
+    globalAf.EntityData.Leafs.Append("wait-rib-install", types.YLeaf{"WaitRibInstall", globalAf.WaitRibInstall})
+    globalAf.EntityData.Leafs.Append("prefix-sid-map", types.YLeaf{"PrefixSidMap", globalAf.PrefixSidMap})
+    globalAf.EntityData.Leafs.Append("dynamic-med-interval", types.YLeaf{"DynamicMedInterval", globalAf.DynamicMedInterval})
+    globalAf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", globalAf.Enable})
+    globalAf.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", globalAf.TablePolicy})
+    globalAf.EntityData.Leafs.Append("attribute-download", types.YLeaf{"AttributeDownload", globalAf.AttributeDownload})
+    globalAf.EntityData.Leafs.Append("best-external", types.YLeaf{"BestExternal", globalAf.BestExternal})
+    globalAf.EntityData.Leafs.Append("additional-paths-receive", types.YLeaf{"AdditionalPathsReceive", globalAf.AdditionalPathsReceive})
+    globalAf.EntityData.Leafs.Append("permanent-network", types.YLeaf{"PermanentNetwork", globalAf.PermanentNetwork})
+    globalAf.EntityData.Leafs.Append("next-hop-resolution-prefix-length-minimum", types.YLeaf{"NextHopResolutionPrefixLengthMinimum", globalAf.NextHopResolutionPrefixLengthMinimum})
+    globalAf.EntityData.Leafs.Append("reset-weight-on-import", types.YLeaf{"ResetWeightOnImport", globalAf.ResetWeightOnImport})
+    globalAf.EntityData.Leafs.Append("additional-paths-send", types.YLeaf{"AdditionalPathsSend", globalAf.AdditionalPathsSend})
+    globalAf.EntityData.Leafs.Append("advertise-local-labeled-route-safi-unicast", types.YLeaf{"AdvertiseLocalLabeledRouteSafiUnicast", globalAf.AdvertiseLocalLabeledRouteSafiUnicast})
+    globalAf.EntityData.Leafs.Append("disable-as-path-loop-check", types.YLeaf{"DisableAsPathLoopCheck", globalAf.DisableAsPathLoopCheck})
+
+    globalAf.EntityData.YListKeys = []string {"AfName"}
+
     return &(globalAf.EntityData)
 }
 
@@ -15649,7 +16739,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Isi
 
     // Redistribute IS-IS routes. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_IsisRoutes_IsisRoute.
-    IsisRoute []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_IsisRoutes_IsisRoute
+    IsisRoute []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_IsisRoutes_IsisRoute
 }
 
 func (isisRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_IsisRoutes) GetEntityData() *types.CommonEntityData {
@@ -15662,12 +16752,15 @@ func (isisRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     isisRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isisRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    isisRoutes.EntityData.Children = make(map[string]types.YChild)
-    isisRoutes.EntityData.Children["isis-route"] = types.YChild{"IsisRoute", nil}
+    isisRoutes.EntityData.Children = types.NewOrderedMap()
+    isisRoutes.EntityData.Children.Append("isis-route", types.YChild{"IsisRoute", nil})
     for i := range isisRoutes.IsisRoute {
-        isisRoutes.EntityData.Children[types.GetSegmentPath(&isisRoutes.IsisRoute[i])] = types.YChild{"IsisRoute", &isisRoutes.IsisRoute[i]}
+        isisRoutes.EntityData.Children.Append(types.GetSegmentPath(isisRoutes.IsisRoute[i]), types.YChild{"IsisRoute", isisRoutes.IsisRoute[i]})
     }
-    isisRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    isisRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    isisRoutes.EntityData.YListKeys = []string {}
+
     return &(isisRoutes.EntityData)
 }
 
@@ -15678,7 +16771,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Isi
     YFilter yfilter.YFilter
 
     // This attribute is a key. IS-IS instance name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -15689,7 +16782,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Isi
 
     // Redistribution type: 01 for level 1 routes, 02 for level 2 routes, 04 for
     // level 1 inter-area routes. Logical combinations permitted. The type is
-    // string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // string with pattern: [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -15698,17 +16791,20 @@ func (isisRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     isisRoute.EntityData.YangName = "isis-route"
     isisRoute.EntityData.BundleName = "cisco_ios_xr"
     isisRoute.EntityData.ParentYangName = "isis-routes"
-    isisRoute.EntityData.SegmentPath = "isis-route" + "[instance-name='" + fmt.Sprintf("%v", isisRoute.InstanceName) + "']"
+    isisRoute.EntityData.SegmentPath = "isis-route" + types.AddKeyToken(isisRoute.InstanceName, "instance-name")
     isisRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isisRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isisRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    isisRoute.EntityData.Children = make(map[string]types.YChild)
-    isisRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    isisRoute.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", isisRoute.InstanceName}
-    isisRoute.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", isisRoute.DefaultMetric}
-    isisRoute.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", isisRoute.RoutePolicyName}
-    isisRoute.EntityData.Leafs["redist-type"] = types.YLeaf{"RedistType", isisRoute.RedistType}
+    isisRoute.EntityData.Children = types.NewOrderedMap()
+    isisRoute.EntityData.Leafs = types.NewOrderedMap()
+    isisRoute.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", isisRoute.InstanceName})
+    isisRoute.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", isisRoute.DefaultMetric})
+    isisRoute.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", isisRoute.RoutePolicyName})
+    isisRoute.EntityData.Leafs.Append("redist-type", types.YLeaf{"RedistType", isisRoute.RedistType})
+
+    isisRoute.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(isisRoute.EntityData)
 }
 
@@ -15719,13 +16815,14 @@ func (isisRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DomainDistinguisher struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // AS Number. The type is interface{} with range: 0..4294967295. This
     // attribute is mandatory.
     As interface{}
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     RouterId interface{}
 }
@@ -15740,10 +16837,13 @@ func (domainDistinguisher *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_
     domainDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    domainDistinguisher.EntityData.Children = make(map[string]types.YChild)
-    domainDistinguisher.EntityData.Leafs = make(map[string]types.YLeaf)
-    domainDistinguisher.EntityData.Leafs["as"] = types.YLeaf{"As", domainDistinguisher.As}
-    domainDistinguisher.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", domainDistinguisher.RouterId}
+    domainDistinguisher.EntityData.Children = types.NewOrderedMap()
+    domainDistinguisher.EntityData.Leafs = types.NewOrderedMap()
+    domainDistinguisher.EntityData.Leafs.Append("as", types.YLeaf{"As", domainDistinguisher.As})
+    domainDistinguisher.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", domainDistinguisher.RouterId})
+
+    domainDistinguisher.EntityData.YListKeys = []string {}
+
     return &(domainDistinguisher.EntityData)
 }
 
@@ -15783,13 +16883,16 @@ func (vrfAll *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glo
     vrfAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfAll.EntityData.Children = make(map[string]types.YChild)
-    vrfAll.EntityData.Children["label-mode"] = types.YChild{"LabelMode", &vrfAll.LabelMode}
-    vrfAll.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfAll.EntityData.Leafs["rnh-install-format"] = types.YLeaf{"RnhInstallFormat", vrfAll.RnhInstallFormat}
-    vrfAll.EntityData.Leafs["enable"] = types.YLeaf{"Enable", vrfAll.Enable}
-    vrfAll.EntityData.Leafs["table-policy"] = types.YLeaf{"TablePolicy", vrfAll.TablePolicy}
-    vrfAll.EntityData.Leafs["source-rt-import-policy"] = types.YLeaf{"SourceRtImportPolicy", vrfAll.SourceRtImportPolicy}
+    vrfAll.EntityData.Children = types.NewOrderedMap()
+    vrfAll.EntityData.Children.Append("label-mode", types.YChild{"LabelMode", &vrfAll.LabelMode})
+    vrfAll.EntityData.Leafs = types.NewOrderedMap()
+    vrfAll.EntityData.Leafs.Append("rnh-install-format", types.YLeaf{"RnhInstallFormat", vrfAll.RnhInstallFormat})
+    vrfAll.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrfAll.Enable})
+    vrfAll.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", vrfAll.TablePolicy})
+    vrfAll.EntityData.Leafs.Append("source-rt-import-policy", types.YLeaf{"SourceRtImportPolicy", vrfAll.SourceRtImportPolicy})
+
+    vrfAll.EntityData.YListKeys = []string {}
+
     return &(vrfAll.EntityData)
 }
 
@@ -15817,10 +16920,13 @@ func (labelMode *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     labelMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelMode.EntityData.Children = make(map[string]types.YChild)
-    labelMode.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelMode.EntityData.Leafs["label-allocation-mode"] = types.YLeaf{"LabelAllocationMode", labelMode.LabelAllocationMode}
-    labelMode.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", labelMode.RoutePolicyName}
+    labelMode.EntityData.Children = types.NewOrderedMap()
+    labelMode.EntityData.Leafs = types.NewOrderedMap()
+    labelMode.EntityData.Leafs.Append("label-allocation-mode", types.YLeaf{"LabelAllocationMode", labelMode.LabelAllocationMode})
+    labelMode.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", labelMode.RoutePolicyName})
+
+    labelMode.EntityData.YListKeys = []string {}
+
     return &(labelMode.EntityData)
 }
 
@@ -15833,7 +16939,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dis
 
     // Cluster ID for which reflection is to be disbled. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr.
-    DisableClusterClientToClientRr []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr
+    DisableClusterClientToClientRr []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr
 }
 
 func (disableClusterClientToClientRrs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs) GetEntityData() *types.CommonEntityData {
@@ -15846,12 +16952,15 @@ func (disableClusterClientToClientRrs *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     disableClusterClientToClientRrs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disableClusterClientToClientRrs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    disableClusterClientToClientRrs.EntityData.Children = make(map[string]types.YChild)
-    disableClusterClientToClientRrs.EntityData.Children["disable-cluster-client-to-client-rr"] = types.YChild{"DisableClusterClientToClientRr", nil}
+    disableClusterClientToClientRrs.EntityData.Children = types.NewOrderedMap()
+    disableClusterClientToClientRrs.EntityData.Children.Append("disable-cluster-client-to-client-rr", types.YChild{"DisableClusterClientToClientRr", nil})
     for i := range disableClusterClientToClientRrs.DisableClusterClientToClientRr {
-        disableClusterClientToClientRrs.EntityData.Children[types.GetSegmentPath(&disableClusterClientToClientRrs.DisableClusterClientToClientRr[i])] = types.YChild{"DisableClusterClientToClientRr", &disableClusterClientToClientRrs.DisableClusterClientToClientRr[i]}
+        disableClusterClientToClientRrs.EntityData.Children.Append(types.GetSegmentPath(disableClusterClientToClientRrs.DisableClusterClientToClientRr[i]), types.YChild{"DisableClusterClientToClientRr", disableClusterClientToClientRrs.DisableClusterClientToClientRr[i]})
     }
-    disableClusterClientToClientRrs.EntityData.Leafs = make(map[string]types.YLeaf)
+    disableClusterClientToClientRrs.EntityData.Leafs = types.NewOrderedMap()
+
+    disableClusterClientToClientRrs.EntityData.YListKeys = []string {}
+
     return &(disableClusterClientToClientRrs.EntityData)
 }
 
@@ -15867,11 +16976,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dis
 
     // number. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr_Number.
-    Number []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr_Number
+    Number []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr_Number
 
     // ipv4 address. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr_Ipv4Address.
-    Ipv4Address []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr_Ipv4Address
+    Ipv4Address []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr_Ipv4Address
 }
 
 func (disableClusterClientToClientRr *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr) GetEntityData() *types.CommonEntityData {
@@ -15879,22 +16988,25 @@ func (disableClusterClientToClientRr *Bgp_Instance_InstanceAs_FourByteAs_Default
     disableClusterClientToClientRr.EntityData.YangName = "disable-cluster-client-to-client-rr"
     disableClusterClientToClientRr.EntityData.BundleName = "cisco_ios_xr"
     disableClusterClientToClientRr.EntityData.ParentYangName = "disable-cluster-client-to-client-rrs"
-    disableClusterClientToClientRr.EntityData.SegmentPath = "disable-cluster-client-to-client-rr" + "[cluster-type='" + fmt.Sprintf("%v", disableClusterClientToClientRr.ClusterType) + "']"
+    disableClusterClientToClientRr.EntityData.SegmentPath = "disable-cluster-client-to-client-rr" + types.AddKeyToken(disableClusterClientToClientRr.ClusterType, "cluster-type")
     disableClusterClientToClientRr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disableClusterClientToClientRr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disableClusterClientToClientRr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    disableClusterClientToClientRr.EntityData.Children = make(map[string]types.YChild)
-    disableClusterClientToClientRr.EntityData.Children["number"] = types.YChild{"Number", nil}
+    disableClusterClientToClientRr.EntityData.Children = types.NewOrderedMap()
+    disableClusterClientToClientRr.EntityData.Children.Append("number", types.YChild{"Number", nil})
     for i := range disableClusterClientToClientRr.Number {
-        disableClusterClientToClientRr.EntityData.Children[types.GetSegmentPath(&disableClusterClientToClientRr.Number[i])] = types.YChild{"Number", &disableClusterClientToClientRr.Number[i]}
+        disableClusterClientToClientRr.EntityData.Children.Append(types.GetSegmentPath(disableClusterClientToClientRr.Number[i]), types.YChild{"Number", disableClusterClientToClientRr.Number[i]})
     }
-    disableClusterClientToClientRr.EntityData.Children["ipv4-address"] = types.YChild{"Ipv4Address", nil}
+    disableClusterClientToClientRr.EntityData.Children.Append("ipv4-address", types.YChild{"Ipv4Address", nil})
     for i := range disableClusterClientToClientRr.Ipv4Address {
-        disableClusterClientToClientRr.EntityData.Children[types.GetSegmentPath(&disableClusterClientToClientRr.Ipv4Address[i])] = types.YChild{"Ipv4Address", &disableClusterClientToClientRr.Ipv4Address[i]}
+        disableClusterClientToClientRr.EntityData.Children.Append(types.GetSegmentPath(disableClusterClientToClientRr.Ipv4Address[i]), types.YChild{"Ipv4Address", disableClusterClientToClientRr.Ipv4Address[i]})
     }
-    disableClusterClientToClientRr.EntityData.Leafs = make(map[string]types.YLeaf)
-    disableClusterClientToClientRr.EntityData.Leafs["cluster-type"] = types.YLeaf{"ClusterType", disableClusterClientToClientRr.ClusterType}
+    disableClusterClientToClientRr.EntityData.Leafs = types.NewOrderedMap()
+    disableClusterClientToClientRr.EntityData.Leafs.Append("cluster-type", types.YLeaf{"ClusterType", disableClusterClientToClientRr.ClusterType})
+
+    disableClusterClientToClientRr.EntityData.YListKeys = []string {"ClusterType"}
+
     return &(disableClusterClientToClientRr.EntityData)
 }
 
@@ -15914,14 +17026,17 @@ func (number *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glo
     number.EntityData.YangName = "number"
     number.EntityData.BundleName = "cisco_ios_xr"
     number.EntityData.ParentYangName = "disable-cluster-client-to-client-rr"
-    number.EntityData.SegmentPath = "number" + "[cluster-id-number='" + fmt.Sprintf("%v", number.ClusterIdNumber) + "']"
+    number.EntityData.SegmentPath = "number" + types.AddKeyToken(number.ClusterIdNumber, "cluster-id-number")
     number.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     number.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     number.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    number.EntityData.Children = make(map[string]types.YChild)
-    number.EntityData.Leafs = make(map[string]types.YLeaf)
-    number.EntityData.Leafs["cluster-id-number"] = types.YLeaf{"ClusterIdNumber", number.ClusterIdNumber}
+    number.EntityData.Children = types.NewOrderedMap()
+    number.EntityData.Leafs = types.NewOrderedMap()
+    number.EntityData.Leafs.Append("cluster-id-number", types.YLeaf{"ClusterIdNumber", number.ClusterIdNumber})
+
+    number.EntityData.YListKeys = []string {"ClusterIdNumber"}
+
     return &(number.EntityData)
 }
 
@@ -15933,9 +17048,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dis
 
     // This attribute is a key. Cluster ID: if configured as an IP Address. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -15944,14 +17059,17 @@ func (ipv4Address *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAf
     ipv4Address.EntityData.YangName = "ipv4-address"
     ipv4Address.EntityData.BundleName = "cisco_ios_xr"
     ipv4Address.EntityData.ParentYangName = "disable-cluster-client-to-client-rr"
-    ipv4Address.EntityData.SegmentPath = "ipv4-address" + "[cluster-id-address='" + fmt.Sprintf("%v", ipv4Address.ClusterIdAddress) + "']"
+    ipv4Address.EntityData.SegmentPath = "ipv4-address" + types.AddKeyToken(ipv4Address.ClusterIdAddress, "cluster-id-address")
     ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4Address.EntityData.Children = make(map[string]types.YChild)
-    ipv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4Address.EntityData.Leafs["cluster-id-address"] = types.YLeaf{"ClusterIdAddress", ipv4Address.ClusterIdAddress}
+    ipv4Address.EntityData.Children = types.NewOrderedMap()
+    ipv4Address.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Address.EntityData.Leafs.Append("cluster-id-address", types.YLeaf{"ClusterIdAddress", ipv4Address.ClusterIdAddress})
+
+    ipv4Address.EntityData.YListKeys = []string {"ClusterIdAddress"}
+
     return &(ipv4Address.EntityData)
 }
 
@@ -15961,6 +17079,7 @@ func (ipv4Address *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAf
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_LabelDelay struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Delay, seconds part. The type is interface{} with range: 0..10. This
     // attribute is mandatory. Units are second.
@@ -15981,10 +17100,13 @@ func (labelDelay *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     labelDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelDelay.EntityData.Children = make(map[string]types.YChild)
-    labelDelay.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelDelay.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", labelDelay.Seconds}
-    labelDelay.EntityData.Leafs["milliseconds"] = types.YLeaf{"Milliseconds", labelDelay.Milliseconds}
+    labelDelay.EntityData.Children = types.NewOrderedMap()
+    labelDelay.EntityData.Leafs = types.NewOrderedMap()
+    labelDelay.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", labelDelay.Seconds})
+    labelDelay.EntityData.Leafs.Append("milliseconds", types.YLeaf{"Milliseconds", labelDelay.Milliseconds})
+
+    labelDelay.EntityData.YListKeys = []string {}
+
     return &(labelDelay.EntityData)
 }
 
@@ -15994,6 +17116,7 @@ func (labelDelay *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Ebgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of paths. The type is interface{} with range: 2..64. This attribute
     // is mandatory.
@@ -16021,12 +17144,15 @@ func (ebgp *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Globa
     ebgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ebgp.EntityData.Children = make(map[string]types.YChild)
-    ebgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ebgp.EntityData.Leafs["paths-value"] = types.YLeaf{"PathsValue", ebgp.PathsValue}
-    ebgp.EntityData.Leafs["unequal-cost"] = types.YLeaf{"UnequalCost", ebgp.UnequalCost}
-    ebgp.EntityData.Leafs["selective"] = types.YLeaf{"Selective", ebgp.Selective}
-    ebgp.EntityData.Leafs["order-by-igp-metric"] = types.YLeaf{"OrderByIgpMetric", ebgp.OrderByIgpMetric}
+    ebgp.EntityData.Children = types.NewOrderedMap()
+    ebgp.EntityData.Leafs = types.NewOrderedMap()
+    ebgp.EntityData.Leafs.Append("paths-value", types.YLeaf{"PathsValue", ebgp.PathsValue})
+    ebgp.EntityData.Leafs.Append("unequal-cost", types.YLeaf{"UnequalCost", ebgp.UnequalCost})
+    ebgp.EntityData.Leafs.Append("selective", types.YLeaf{"Selective", ebgp.Selective})
+    ebgp.EntityData.Leafs.Append("order-by-igp-metric", types.YLeaf{"OrderByIgpMetric", ebgp.OrderByIgpMetric})
+
+    ebgp.EntityData.YListKeys = []string {}
+
     return &(ebgp.EntityData)
 }
 
@@ -16036,6 +17162,7 @@ func (ebgp *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Globa
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Eibgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of paths. The type is interface{} with range: 2..64. This attribute
     // is mandatory.
@@ -16063,12 +17190,15 @@ func (eibgp *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glob
     eibgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eibgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eibgp.EntityData.Children = make(map[string]types.YChild)
-    eibgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    eibgp.EntityData.Leafs["paths-value"] = types.YLeaf{"PathsValue", eibgp.PathsValue}
-    eibgp.EntityData.Leafs["unequal-cost"] = types.YLeaf{"UnequalCost", eibgp.UnequalCost}
-    eibgp.EntityData.Leafs["selective"] = types.YLeaf{"Selective", eibgp.Selective}
-    eibgp.EntityData.Leafs["order-by-igp-metric"] = types.YLeaf{"OrderByIgpMetric", eibgp.OrderByIgpMetric}
+    eibgp.EntityData.Children = types.NewOrderedMap()
+    eibgp.EntityData.Leafs = types.NewOrderedMap()
+    eibgp.EntityData.Leafs.Append("paths-value", types.YLeaf{"PathsValue", eibgp.PathsValue})
+    eibgp.EntityData.Leafs.Append("unequal-cost", types.YLeaf{"UnequalCost", eibgp.UnequalCost})
+    eibgp.EntityData.Leafs.Append("selective", types.YLeaf{"Selective", eibgp.Selective})
+    eibgp.EntityData.Leafs.Append("order-by-igp-metric", types.YLeaf{"OrderByIgpMetric", eibgp.OrderByIgpMetric})
+
+    eibgp.EntityData.YListKeys = []string {}
+
     return &(eibgp.EntityData)
 }
 
@@ -16096,10 +17226,13 @@ func (retainRt *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     retainRt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retainRt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    retainRt.EntityData.Children = make(map[string]types.YChild)
-    retainRt.EntityData.Leafs = make(map[string]types.YLeaf)
-    retainRt.EntityData.Leafs["all"] = types.YLeaf{"All", retainRt.All}
-    retainRt.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", retainRt.RoutePolicyName}
+    retainRt.EntityData.Children = types.NewOrderedMap()
+    retainRt.EntityData.Leafs = types.NewOrderedMap()
+    retainRt.EntityData.Leafs.Append("all", types.YLeaf{"All", retainRt.All})
+    retainRt.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", retainRt.RoutePolicyName})
+
+    retainRt.EntityData.YListKeys = []string {}
+
     return &(retainRt.EntityData)
 }
 
@@ -16109,6 +17242,7 @@ func (retainRt *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Ibgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of paths. The type is interface{} with range: 2..64. This attribute
     // is mandatory.
@@ -16137,12 +17271,15 @@ func (ibgp *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Globa
     ibgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ibgp.EntityData.Children = make(map[string]types.YChild)
-    ibgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ibgp.EntityData.Leafs["paths-value"] = types.YLeaf{"PathsValue", ibgp.PathsValue}
-    ibgp.EntityData.Leafs["unequal-cost"] = types.YLeaf{"UnequalCost", ibgp.UnequalCost}
-    ibgp.EntityData.Leafs["selective"] = types.YLeaf{"Selective", ibgp.Selective}
-    ibgp.EntityData.Leafs["order-by-igp-metric"] = types.YLeaf{"OrderByIgpMetric", ibgp.OrderByIgpMetric}
+    ibgp.EntityData.Children = types.NewOrderedMap()
+    ibgp.EntityData.Leafs = types.NewOrderedMap()
+    ibgp.EntityData.Leafs.Append("paths-value", types.YLeaf{"PathsValue", ibgp.PathsValue})
+    ibgp.EntityData.Leafs.Append("unequal-cost", types.YLeaf{"UnequalCost", ibgp.UnequalCost})
+    ibgp.EntityData.Leafs.Append("selective", types.YLeaf{"Selective", ibgp.Selective})
+    ibgp.EntityData.Leafs.Append("order-by-igp-metric", types.YLeaf{"OrderByIgpMetric", ibgp.OrderByIgpMetric})
+
+    ibgp.EntityData.YListKeys = []string {}
+
     return &(ibgp.EntityData)
 }
 
@@ -16152,6 +17289,7 @@ func (ibgp *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Globa
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_ImportDelay struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Delay, seconds part. The type is interface{} with range: 0..10. This
     // attribute is mandatory. Units are second.
@@ -16172,10 +17310,13 @@ func (importDelay *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAf
     importDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     importDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    importDelay.EntityData.Children = make(map[string]types.YChild)
-    importDelay.EntityData.Leafs = make(map[string]types.YLeaf)
-    importDelay.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", importDelay.Seconds}
-    importDelay.EntityData.Leafs["milliseconds"] = types.YLeaf{"Milliseconds", importDelay.Milliseconds}
+    importDelay.EntityData.Children = types.NewOrderedMap()
+    importDelay.EntityData.Leafs = types.NewOrderedMap()
+    importDelay.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", importDelay.Seconds})
+    importDelay.EntityData.Leafs.Append("milliseconds", types.YLeaf{"Milliseconds", importDelay.Milliseconds})
+
+    importDelay.EntityData.YListKeys = []string {}
+
     return &(importDelay.EntityData)
 }
 
@@ -16187,7 +17328,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Agg
 
     // Aggregate address configuration. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_AggregateAddresses_AggregateAddress.
-    AggregateAddress []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_AggregateAddresses_AggregateAddress
+    AggregateAddress []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_AggregateAddresses_AggregateAddress
 }
 
 func (aggregateAddresses *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_AggregateAddresses) GetEntityData() *types.CommonEntityData {
@@ -16200,12 +17341,15 @@ func (aggregateAddresses *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_G
     aggregateAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateAddresses.EntityData.Children = make(map[string]types.YChild)
-    aggregateAddresses.EntityData.Children["aggregate-address"] = types.YChild{"AggregateAddress", nil}
+    aggregateAddresses.EntityData.Children = types.NewOrderedMap()
+    aggregateAddresses.EntityData.Children.Append("aggregate-address", types.YChild{"AggregateAddress", nil})
     for i := range aggregateAddresses.AggregateAddress {
-        aggregateAddresses.EntityData.Children[types.GetSegmentPath(&aggregateAddresses.AggregateAddress[i])] = types.YChild{"AggregateAddress", &aggregateAddresses.AggregateAddress[i]}
+        aggregateAddresses.EntityData.Children.Append(types.GetSegmentPath(aggregateAddresses.AggregateAddress[i]), types.YChild{"AggregateAddress", aggregateAddresses.AggregateAddress[i]})
     }
-    aggregateAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregateAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregateAddresses.EntityData.YListKeys = []string {}
+
     return &(aggregateAddresses.EntityData)
 }
 
@@ -16217,9 +17361,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Agg
 
     // This attribute is a key. Aggregate in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     AggregateAddr interface{}
 
     // This attribute is a key. Aggregate in prefix/length format (prefix part).
@@ -16248,19 +17392,22 @@ func (aggregateAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glo
     aggregateAddress.EntityData.YangName = "aggregate-address"
     aggregateAddress.EntityData.BundleName = "cisco_ios_xr"
     aggregateAddress.EntityData.ParentYangName = "aggregate-addresses"
-    aggregateAddress.EntityData.SegmentPath = "aggregate-address" + "[aggregate-addr='" + fmt.Sprintf("%v", aggregateAddress.AggregateAddr) + "']" + "[aggregate-prefix='" + fmt.Sprintf("%v", aggregateAddress.AggregatePrefix) + "']"
+    aggregateAddress.EntityData.SegmentPath = "aggregate-address" + types.AddKeyToken(aggregateAddress.AggregateAddr, "aggregate-addr") + types.AddKeyToken(aggregateAddress.AggregatePrefix, "aggregate-prefix")
     aggregateAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateAddress.EntityData.Children = make(map[string]types.YChild)
-    aggregateAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregateAddress.EntityData.Leafs["aggregate-addr"] = types.YLeaf{"AggregateAddr", aggregateAddress.AggregateAddr}
-    aggregateAddress.EntityData.Leafs["aggregate-prefix"] = types.YLeaf{"AggregatePrefix", aggregateAddress.AggregatePrefix}
-    aggregateAddress.EntityData.Leafs["generate-set-info"] = types.YLeaf{"GenerateSetInfo", aggregateAddress.GenerateSetInfo}
-    aggregateAddress.EntityData.Leafs["generate-confederation-set-info"] = types.YLeaf{"GenerateConfederationSetInfo", aggregateAddress.GenerateConfederationSetInfo}
-    aggregateAddress.EntityData.Leafs["summary-only"] = types.YLeaf{"SummaryOnly", aggregateAddress.SummaryOnly}
-    aggregateAddress.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", aggregateAddress.RoutePolicyName}
+    aggregateAddress.EntityData.Children = types.NewOrderedMap()
+    aggregateAddress.EntityData.Leafs = types.NewOrderedMap()
+    aggregateAddress.EntityData.Leafs.Append("aggregate-addr", types.YLeaf{"AggregateAddr", aggregateAddress.AggregateAddr})
+    aggregateAddress.EntityData.Leafs.Append("aggregate-prefix", types.YLeaf{"AggregatePrefix", aggregateAddress.AggregatePrefix})
+    aggregateAddress.EntityData.Leafs.Append("generate-set-info", types.YLeaf{"GenerateSetInfo", aggregateAddress.GenerateSetInfo})
+    aggregateAddress.EntityData.Leafs.Append("generate-confederation-set-info", types.YLeaf{"GenerateConfederationSetInfo", aggregateAddress.GenerateConfederationSetInfo})
+    aggregateAddress.EntityData.Leafs.Append("summary-only", types.YLeaf{"SummaryOnly", aggregateAddress.SummaryOnly})
+    aggregateAddress.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", aggregateAddress.RoutePolicyName})
+
+    aggregateAddress.EntityData.YListKeys = []string {"AggregateAddr", "AggregatePrefix"}
+
     return &(aggregateAddress.EntityData)
 }
 
@@ -16273,7 +17420,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Opt
     // Optimal Route Reffelctor group. Each such group is equivalent to an IGP
     // area. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OptimalRouteReflectorGroups_OptimalRouteReflectorGroup.
-    OptimalRouteReflectorGroup []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OptimalRouteReflectorGroups_OptimalRouteReflectorGroup
+    OptimalRouteReflectorGroup []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OptimalRouteReflectorGroups_OptimalRouteReflectorGroup
 }
 
 func (optimalRouteReflectorGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OptimalRouteReflectorGroups) GetEntityData() *types.CommonEntityData {
@@ -16286,12 +17433,15 @@ func (optimalRouteReflectorGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     optimalRouteReflectorGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optimalRouteReflectorGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    optimalRouteReflectorGroups.EntityData.Children = make(map[string]types.YChild)
-    optimalRouteReflectorGroups.EntityData.Children["optimal-route-reflector-group"] = types.YChild{"OptimalRouteReflectorGroup", nil}
+    optimalRouteReflectorGroups.EntityData.Children = types.NewOrderedMap()
+    optimalRouteReflectorGroups.EntityData.Children.Append("optimal-route-reflector-group", types.YChild{"OptimalRouteReflectorGroup", nil})
     for i := range optimalRouteReflectorGroups.OptimalRouteReflectorGroup {
-        optimalRouteReflectorGroups.EntityData.Children[types.GetSegmentPath(&optimalRouteReflectorGroups.OptimalRouteReflectorGroup[i])] = types.YChild{"OptimalRouteReflectorGroup", &optimalRouteReflectorGroups.OptimalRouteReflectorGroup[i]}
+        optimalRouteReflectorGroups.EntityData.Children.Append(types.GetSegmentPath(optimalRouteReflectorGroups.OptimalRouteReflectorGroup[i]), types.YChild{"OptimalRouteReflectorGroup", optimalRouteReflectorGroups.OptimalRouteReflectorGroup[i]})
     }
-    optimalRouteReflectorGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    optimalRouteReflectorGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    optimalRouteReflectorGroups.EntityData.YListKeys = []string {}
+
     return &(optimalRouteReflectorGroups.EntityData)
 }
 
@@ -16303,28 +17453,28 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Opt
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the ORR group. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     GroupName interface{}
 
     // Primary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrimaryRootAddress interface{}
 
     // Secondary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SecondaryRootAddress interface{}
 
     // Tertiary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     TertiaryRootAddress interface{}
 }
 
@@ -16333,17 +17483,20 @@ func (optimalRouteReflectorGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_
     optimalRouteReflectorGroup.EntityData.YangName = "optimal-route-reflector-group"
     optimalRouteReflectorGroup.EntityData.BundleName = "cisco_ios_xr"
     optimalRouteReflectorGroup.EntityData.ParentYangName = "optimal-route-reflector-groups"
-    optimalRouteReflectorGroup.EntityData.SegmentPath = "optimal-route-reflector-group" + "[group-name='" + fmt.Sprintf("%v", optimalRouteReflectorGroup.GroupName) + "']"
+    optimalRouteReflectorGroup.EntityData.SegmentPath = "optimal-route-reflector-group" + types.AddKeyToken(optimalRouteReflectorGroup.GroupName, "group-name")
     optimalRouteReflectorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optimalRouteReflectorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optimalRouteReflectorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    optimalRouteReflectorGroup.EntityData.Children = make(map[string]types.YChild)
-    optimalRouteReflectorGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    optimalRouteReflectorGroup.EntityData.Leafs["group-name"] = types.YLeaf{"GroupName", optimalRouteReflectorGroup.GroupName}
-    optimalRouteReflectorGroup.EntityData.Leafs["primary-root-address"] = types.YLeaf{"PrimaryRootAddress", optimalRouteReflectorGroup.PrimaryRootAddress}
-    optimalRouteReflectorGroup.EntityData.Leafs["secondary-root-address"] = types.YLeaf{"SecondaryRootAddress", optimalRouteReflectorGroup.SecondaryRootAddress}
-    optimalRouteReflectorGroup.EntityData.Leafs["tertiary-root-address"] = types.YLeaf{"TertiaryRootAddress", optimalRouteReflectorGroup.TertiaryRootAddress}
+    optimalRouteReflectorGroup.EntityData.Children = types.NewOrderedMap()
+    optimalRouteReflectorGroup.EntityData.Leafs = types.NewOrderedMap()
+    optimalRouteReflectorGroup.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", optimalRouteReflectorGroup.GroupName})
+    optimalRouteReflectorGroup.EntityData.Leafs.Append("primary-root-address", types.YLeaf{"PrimaryRootAddress", optimalRouteReflectorGroup.PrimaryRootAddress})
+    optimalRouteReflectorGroup.EntityData.Leafs.Append("secondary-root-address", types.YLeaf{"SecondaryRootAddress", optimalRouteReflectorGroup.SecondaryRootAddress})
+    optimalRouteReflectorGroup.EntityData.Leafs.Append("tertiary-root-address", types.YLeaf{"TertiaryRootAddress", optimalRouteReflectorGroup.TertiaryRootAddress})
+
+    optimalRouteReflectorGroup.EntityData.YListKeys = []string {"GroupName"}
+
     return &(optimalRouteReflectorGroup.EntityData)
 }
 
@@ -16353,6 +17506,7 @@ func (optimalRouteReflectorGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dampening struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Half-life time for the penalty (minutes). The type is interface{} with
     // range: 1..45. Units are minute.
@@ -16385,13 +17539,16 @@ func (dampening *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     dampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dampening.EntityData.Children = make(map[string]types.YChild)
-    dampening.EntityData.Leafs = make(map[string]types.YLeaf)
-    dampening.EntityData.Leafs["half-life"] = types.YLeaf{"HalfLife", dampening.HalfLife}
-    dampening.EntityData.Leafs["reuse-threshold"] = types.YLeaf{"ReuseThreshold", dampening.ReuseThreshold}
-    dampening.EntityData.Leafs["suppress-threshold"] = types.YLeaf{"SuppressThreshold", dampening.SuppressThreshold}
-    dampening.EntityData.Leafs["suppress-time"] = types.YLeaf{"SuppressTime", dampening.SuppressTime}
-    dampening.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", dampening.RoutePolicyName}
+    dampening.EntityData.Children = types.NewOrderedMap()
+    dampening.EntityData.Leafs = types.NewOrderedMap()
+    dampening.EntityData.Leafs.Append("half-life", types.YLeaf{"HalfLife", dampening.HalfLife})
+    dampening.EntityData.Leafs.Append("reuse-threshold", types.YLeaf{"ReuseThreshold", dampening.ReuseThreshold})
+    dampening.EntityData.Leafs.Append("suppress-threshold", types.YLeaf{"SuppressThreshold", dampening.SuppressThreshold})
+    dampening.EntityData.Leafs.Append("suppress-time", types.YLeaf{"SuppressTime", dampening.SuppressTime})
+    dampening.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", dampening.RoutePolicyName})
+
+    dampening.EntityData.YListKeys = []string {}
+
     return &(dampening.EntityData)
 }
 
@@ -16401,6 +17558,7 @@ func (dampening *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_RipRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -16422,11 +17580,14 @@ func (ripRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     ripRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ripRoutes.EntityData.Children = make(map[string]types.YChild)
-    ripRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    ripRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", ripRoutes.DefaultMetric}
-    ripRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", ripRoutes.RoutePolicyName}
-    ripRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", ripRoutes.NotUsed}
+    ripRoutes.EntityData.Children = types.NewOrderedMap()
+    ripRoutes.EntityData.Leafs = types.NewOrderedMap()
+    ripRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", ripRoutes.DefaultMetric})
+    ripRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", ripRoutes.RoutePolicyName})
+    ripRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", ripRoutes.NotUsed})
+
+    ripRoutes.EntityData.YListKeys = []string {}
+
     return &(ripRoutes.EntityData)
 }
 
@@ -16436,6 +17597,7 @@ func (ripRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_LispRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -16454,10 +17616,13 @@ func (lispRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     lispRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lispRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lispRoutes.EntityData.Children = make(map[string]types.YChild)
-    lispRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    lispRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", lispRoutes.DefaultMetric}
-    lispRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", lispRoutes.RoutePolicyName}
+    lispRoutes.EntityData.Children = types.NewOrderedMap()
+    lispRoutes.EntityData.Leafs = types.NewOrderedMap()
+    lispRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", lispRoutes.DefaultMetric})
+    lispRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", lispRoutes.RoutePolicyName})
+
+    lispRoutes.EntityData.YListKeys = []string {}
+
     return &(lispRoutes.EntityData)
 }
 
@@ -16467,6 +17632,7 @@ func (lispRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_StaticRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -16488,11 +17654,14 @@ func (staticRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalA
     staticRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRoutes.EntityData.Children = make(map[string]types.YChild)
-    staticRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", staticRoutes.DefaultMetric}
-    staticRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", staticRoutes.RoutePolicyName}
-    staticRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", staticRoutes.NotUsed}
+    staticRoutes.EntityData.Children = types.NewOrderedMap()
+    staticRoutes.EntityData.Leafs = types.NewOrderedMap()
+    staticRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", staticRoutes.DefaultMetric})
+    staticRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", staticRoutes.RoutePolicyName})
+    staticRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", staticRoutes.NotUsed})
+
+    staticRoutes.EntityData.YListKeys = []string {}
+
     return &(staticRoutes.EntityData)
 }
 
@@ -16525,11 +17694,14 @@ func (distance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     distance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    distance.EntityData.Children = make(map[string]types.YChild)
-    distance.EntityData.Leafs = make(map[string]types.YLeaf)
-    distance.EntityData.Leafs["external-routes"] = types.YLeaf{"ExternalRoutes", distance.ExternalRoutes}
-    distance.EntityData.Leafs["internal-routes"] = types.YLeaf{"InternalRoutes", distance.InternalRoutes}
-    distance.EntityData.Leafs["local-routes"] = types.YLeaf{"LocalRoutes", distance.LocalRoutes}
+    distance.EntityData.Children = types.NewOrderedMap()
+    distance.EntityData.Leafs = types.NewOrderedMap()
+    distance.EntityData.Leafs.Append("external-routes", types.YLeaf{"ExternalRoutes", distance.ExternalRoutes})
+    distance.EntityData.Leafs.Append("internal-routes", types.YLeaf{"InternalRoutes", distance.InternalRoutes})
+    distance.EntityData.Leafs.Append("local-routes", types.YLeaf{"LocalRoutes", distance.LocalRoutes})
+
+    distance.EntityData.YListKeys = []string {}
+
     return &(distance.EntityData)
 }
 
@@ -16541,7 +17713,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_App
 
     // Redistribute application routes. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_ApplicationRoutes_ApplicationRoute.
-    ApplicationRoute []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_ApplicationRoutes_ApplicationRoute
+    ApplicationRoute []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_ApplicationRoutes_ApplicationRoute
 }
 
 func (applicationRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_ApplicationRoutes) GetEntityData() *types.CommonEntityData {
@@ -16554,12 +17726,15 @@ func (applicationRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Gl
     applicationRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applicationRoutes.EntityData.Children = make(map[string]types.YChild)
-    applicationRoutes.EntityData.Children["application-route"] = types.YChild{"ApplicationRoute", nil}
+    applicationRoutes.EntityData.Children = types.NewOrderedMap()
+    applicationRoutes.EntityData.Children.Append("application-route", types.YChild{"ApplicationRoute", nil})
     for i := range applicationRoutes.ApplicationRoute {
-        applicationRoutes.EntityData.Children[types.GetSegmentPath(&applicationRoutes.ApplicationRoute[i])] = types.YChild{"ApplicationRoute", &applicationRoutes.ApplicationRoute[i]}
+        applicationRoutes.EntityData.Children.Append(types.GetSegmentPath(applicationRoutes.ApplicationRoute[i]), types.YChild{"ApplicationRoute", applicationRoutes.ApplicationRoute[i]})
     }
-    applicationRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    applicationRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    applicationRoutes.EntityData.YListKeys = []string {}
+
     return &(applicationRoutes.EntityData)
 }
 
@@ -16570,7 +17745,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_App
     YFilter yfilter.YFilter
 
     // This attribute is a key. OnePK application name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -16588,17 +17763,20 @@ func (applicationRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glo
     applicationRoute.EntityData.YangName = "application-route"
     applicationRoute.EntityData.BundleName = "cisco_ios_xr"
     applicationRoute.EntityData.ParentYangName = "application-routes"
-    applicationRoute.EntityData.SegmentPath = "application-route" + "[instance-name='" + fmt.Sprintf("%v", applicationRoute.InstanceName) + "']"
+    applicationRoute.EntityData.SegmentPath = "application-route" + types.AddKeyToken(applicationRoute.InstanceName, "instance-name")
     applicationRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applicationRoute.EntityData.Children = make(map[string]types.YChild)
-    applicationRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    applicationRoute.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", applicationRoute.InstanceName}
-    applicationRoute.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", applicationRoute.DefaultMetric}
-    applicationRoute.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", applicationRoute.RoutePolicyName}
-    applicationRoute.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", applicationRoute.NotUsed}
+    applicationRoute.EntityData.Children = types.NewOrderedMap()
+    applicationRoute.EntityData.Leafs = types.NewOrderedMap()
+    applicationRoute.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", applicationRoute.InstanceName})
+    applicationRoute.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", applicationRoute.DefaultMetric})
+    applicationRoute.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", applicationRoute.RoutePolicyName})
+    applicationRoute.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", applicationRoute.NotUsed})
+
+    applicationRoute.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(applicationRoute.EntityData)
 }
 
@@ -16627,10 +17805,13 @@ func (labelMode *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     labelMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelMode.EntityData.Children = make(map[string]types.YChild)
-    labelMode.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelMode.EntityData.Leafs["label-allocation-mode"] = types.YLeaf{"LabelAllocationMode", labelMode.LabelAllocationMode}
-    labelMode.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", labelMode.RoutePolicyName}
+    labelMode.EntityData.Children = types.NewOrderedMap()
+    labelMode.EntityData.Leafs = types.NewOrderedMap()
+    labelMode.EntityData.Leafs.Append("label-allocation-mode", types.YLeaf{"LabelAllocationMode", labelMode.LabelAllocationMode})
+    labelMode.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", labelMode.RoutePolicyName})
+
+    labelMode.EntityData.YListKeys = []string {}
+
     return &(labelMode.EntityData)
 }
 
@@ -16642,7 +17823,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Eig
 
     // Redistribute EIGRP routes. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_EigrpRoutes_EigrpRoute.
-    EigrpRoute []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_EigrpRoutes_EigrpRoute
+    EigrpRoute []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_EigrpRoutes_EigrpRoute
 }
 
 func (eigrpRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_EigrpRoutes) GetEntityData() *types.CommonEntityData {
@@ -16655,12 +17836,15 @@ func (eigrpRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAf
     eigrpRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eigrpRoutes.EntityData.Children = make(map[string]types.YChild)
-    eigrpRoutes.EntityData.Children["eigrp-route"] = types.YChild{"EigrpRoute", nil}
+    eigrpRoutes.EntityData.Children = types.NewOrderedMap()
+    eigrpRoutes.EntityData.Children.Append("eigrp-route", types.YChild{"EigrpRoute", nil})
     for i := range eigrpRoutes.EigrpRoute {
-        eigrpRoutes.EntityData.Children[types.GetSegmentPath(&eigrpRoutes.EigrpRoute[i])] = types.YChild{"EigrpRoute", &eigrpRoutes.EigrpRoute[i]}
+        eigrpRoutes.EntityData.Children.Append(types.GetSegmentPath(eigrpRoutes.EigrpRoute[i]), types.YChild{"EigrpRoute", eigrpRoutes.EigrpRoute[i]})
     }
-    eigrpRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    eigrpRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    eigrpRoutes.EntityData.YListKeys = []string {}
+
     return &(eigrpRoutes.EntityData)
 }
 
@@ -16671,7 +17855,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Eig
     YFilter yfilter.YFilter
 
     // This attribute is a key. EIGRP router tag. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -16682,7 +17866,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Eig
 
     // Redistribution type: 01 for internal routes, 02 for external routes,
     // Logical combinations permitted. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -16691,17 +17875,20 @@ func (eigrpRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     eigrpRoute.EntityData.YangName = "eigrp-route"
     eigrpRoute.EntityData.BundleName = "cisco_ios_xr"
     eigrpRoute.EntityData.ParentYangName = "eigrp-routes"
-    eigrpRoute.EntityData.SegmentPath = "eigrp-route" + "[instance-name='" + fmt.Sprintf("%v", eigrpRoute.InstanceName) + "']"
+    eigrpRoute.EntityData.SegmentPath = "eigrp-route" + types.AddKeyToken(eigrpRoute.InstanceName, "instance-name")
     eigrpRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrpRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eigrpRoute.EntityData.Children = make(map[string]types.YChild)
-    eigrpRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    eigrpRoute.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", eigrpRoute.InstanceName}
-    eigrpRoute.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", eigrpRoute.DefaultMetric}
-    eigrpRoute.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", eigrpRoute.RoutePolicyName}
-    eigrpRoute.EntityData.Leafs["redist-type"] = types.YLeaf{"RedistType", eigrpRoute.RedistType}
+    eigrpRoute.EntityData.Children = types.NewOrderedMap()
+    eigrpRoute.EntityData.Leafs = types.NewOrderedMap()
+    eigrpRoute.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", eigrpRoute.InstanceName})
+    eigrpRoute.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", eigrpRoute.DefaultMetric})
+    eigrpRoute.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", eigrpRoute.RoutePolicyName})
+    eigrpRoute.EntityData.Leafs.Append("redist-type", types.YLeaf{"RedistType", eigrpRoute.RedistType})
+
+    eigrpRoute.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(eigrpRoute.EntityData)
 }
 
@@ -16713,7 +17900,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Sou
 
     // Sourced network configuration. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SourcedNetworks_SourcedNetwork.
-    SourcedNetwork []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SourcedNetworks_SourcedNetwork
+    SourcedNetwork []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SourcedNetworks_SourcedNetwork
 }
 
 func (sourcedNetworks *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SourcedNetworks) GetEntityData() *types.CommonEntityData {
@@ -16726,12 +17913,15 @@ func (sourcedNetworks *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glob
     sourcedNetworks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcedNetworks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourcedNetworks.EntityData.Children = make(map[string]types.YChild)
-    sourcedNetworks.EntityData.Children["sourced-network"] = types.YChild{"SourcedNetwork", nil}
+    sourcedNetworks.EntityData.Children = types.NewOrderedMap()
+    sourcedNetworks.EntityData.Children.Append("sourced-network", types.YChild{"SourcedNetwork", nil})
     for i := range sourcedNetworks.SourcedNetwork {
-        sourcedNetworks.EntityData.Children[types.GetSegmentPath(&sourcedNetworks.SourcedNetwork[i])] = types.YChild{"SourcedNetwork", &sourcedNetworks.SourcedNetwork[i]}
+        sourcedNetworks.EntityData.Children.Append(types.GetSegmentPath(sourcedNetworks.SourcedNetwork[i]), types.YChild{"SourcedNetwork", sourcedNetworks.SourcedNetwork[i]})
     }
-    sourcedNetworks.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourcedNetworks.EntityData.Leafs = types.NewOrderedMap()
+
+    sourcedNetworks.EntityData.YListKeys = []string {}
+
     return &(sourcedNetworks.EntityData)
 }
 
@@ -16743,9 +17933,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Sou
 
     // This attribute is a key. Network in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NetworkAddr interface{}
 
     // This attribute is a key. Network in prefix/length format (prefix part). The
@@ -16764,17 +17954,20 @@ func (sourcedNetwork *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Globa
     sourcedNetwork.EntityData.YangName = "sourced-network"
     sourcedNetwork.EntityData.BundleName = "cisco_ios_xr"
     sourcedNetwork.EntityData.ParentYangName = "sourced-networks"
-    sourcedNetwork.EntityData.SegmentPath = "sourced-network" + "[network-addr='" + fmt.Sprintf("%v", sourcedNetwork.NetworkAddr) + "']" + "[network-prefix='" + fmt.Sprintf("%v", sourcedNetwork.NetworkPrefix) + "']"
+    sourcedNetwork.EntityData.SegmentPath = "sourced-network" + types.AddKeyToken(sourcedNetwork.NetworkAddr, "network-addr") + types.AddKeyToken(sourcedNetwork.NetworkPrefix, "network-prefix")
     sourcedNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourcedNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcedNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourcedNetwork.EntityData.Children = make(map[string]types.YChild)
-    sourcedNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourcedNetwork.EntityData.Leafs["network-addr"] = types.YLeaf{"NetworkAddr", sourcedNetwork.NetworkAddr}
-    sourcedNetwork.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", sourcedNetwork.NetworkPrefix}
-    sourcedNetwork.EntityData.Leafs["backdoor"] = types.YLeaf{"Backdoor", sourcedNetwork.Backdoor}
-    sourcedNetwork.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", sourcedNetwork.RoutePolicyName}
+    sourcedNetwork.EntityData.Children = types.NewOrderedMap()
+    sourcedNetwork.EntityData.Leafs = types.NewOrderedMap()
+    sourcedNetwork.EntityData.Leafs.Append("network-addr", types.YLeaf{"NetworkAddr", sourcedNetwork.NetworkAddr})
+    sourcedNetwork.EntityData.Leafs.Append("network-prefix", types.YLeaf{"NetworkPrefix", sourcedNetwork.NetworkPrefix})
+    sourcedNetwork.EntityData.Leafs.Append("backdoor", types.YLeaf{"Backdoor", sourcedNetwork.Backdoor})
+    sourcedNetwork.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", sourcedNetwork.RoutePolicyName})
+
+    sourcedNetwork.EntityData.YListKeys = []string {"NetworkAddr", "NetworkPrefix"}
+
     return &(sourcedNetwork.EntityData)
 }
 
@@ -16784,6 +17977,7 @@ func (sourcedNetwork *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Globa
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_ConnectedRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -16805,11 +17999,14 @@ func (connectedRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glob
     connectedRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    connectedRoutes.EntityData.Children = make(map[string]types.YChild)
-    connectedRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    connectedRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", connectedRoutes.DefaultMetric}
-    connectedRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", connectedRoutes.RoutePolicyName}
-    connectedRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", connectedRoutes.NotUsed}
+    connectedRoutes.EntityData.Children = types.NewOrderedMap()
+    connectedRoutes.EntityData.Leafs = types.NewOrderedMap()
+    connectedRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", connectedRoutes.DefaultMetric})
+    connectedRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", connectedRoutes.RoutePolicyName})
+    connectedRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", connectedRoutes.NotUsed})
+
+    connectedRoutes.EntityData.YListKeys = []string {}
+
     return &(connectedRoutes.EntityData)
 }
 
@@ -16836,10 +18033,13 @@ func (allocateLabel *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Global
     allocateLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocateLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allocateLabel.EntityData.Children = make(map[string]types.YChild)
-    allocateLabel.EntityData.Leafs = make(map[string]types.YLeaf)
-    allocateLabel.EntityData.Leafs["all"] = types.YLeaf{"All", allocateLabel.All}
-    allocateLabel.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", allocateLabel.RoutePolicyName}
+    allocateLabel.EntityData.Children = types.NewOrderedMap()
+    allocateLabel.EntityData.Leafs = types.NewOrderedMap()
+    allocateLabel.EntityData.Leafs.Append("all", types.YLeaf{"All", allocateLabel.All})
+    allocateLabel.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", allocateLabel.RoutePolicyName})
+
+    allocateLabel.EntityData.YListKeys = []string {}
+
     return &(allocateLabel.EntityData)
 }
 
@@ -16866,10 +18066,13 @@ func (additionalPathsSelection *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Gl
     additionalPathsSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     additionalPathsSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    additionalPathsSelection.EntityData.Children = make(map[string]types.YChild)
-    additionalPathsSelection.EntityData.Leafs = make(map[string]types.YLeaf)
-    additionalPathsSelection.EntityData.Leafs["selection"] = types.YLeaf{"Selection", additionalPathsSelection.Selection}
-    additionalPathsSelection.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", additionalPathsSelection.RoutePolicyName}
+    additionalPathsSelection.EntityData.Children = types.NewOrderedMap()
+    additionalPathsSelection.EntityData.Leafs = types.NewOrderedMap()
+    additionalPathsSelection.EntityData.Leafs.Append("selection", types.YLeaf{"Selection", additionalPathsSelection.Selection})
+    additionalPathsSelection.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", additionalPathsSelection.RoutePolicyName})
+
+    additionalPathsSelection.EntityData.YListKeys = []string {}
+
     return &(additionalPathsSelection.EntityData)
 }
 
@@ -16881,7 +18084,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Osp
 
     // Redistribute OSPF routes. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OspfRoutes_OspfRoute.
-    OspfRoute []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OspfRoutes_OspfRoute
+    OspfRoute []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OspfRoutes_OspfRoute
 }
 
 func (ospfRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OspfRoutes) GetEntityData() *types.CommonEntityData {
@@ -16894,12 +18097,15 @@ func (ospfRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     ospfRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfRoutes.EntityData.Children = make(map[string]types.YChild)
-    ospfRoutes.EntityData.Children["ospf-route"] = types.YChild{"OspfRoute", nil}
+    ospfRoutes.EntityData.Children = types.NewOrderedMap()
+    ospfRoutes.EntityData.Children.Append("ospf-route", types.YChild{"OspfRoute", nil})
     for i := range ospfRoutes.OspfRoute {
-        ospfRoutes.EntityData.Children[types.GetSegmentPath(&ospfRoutes.OspfRoute[i])] = types.YChild{"OspfRoute", &ospfRoutes.OspfRoute[i]}
+        ospfRoutes.EntityData.Children.Append(types.GetSegmentPath(ospfRoutes.OspfRoute[i]), types.YChild{"OspfRoute", ospfRoutes.OspfRoute[i]})
     }
-    ospfRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfRoutes.EntityData.YListKeys = []string {}
+
     return &(ospfRoutes.EntityData)
 }
 
@@ -16910,7 +18116,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Osp
     YFilter yfilter.YFilter
 
     // This attribute is a key. OSPF router tag. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -16923,7 +18129,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Osp
     // 1, 04 for external routes of type 2, 08 for NSSA external routes of type 1,
     // 10 for NSSA external routes of type 2, 20 for external routes, 40 for NSSA
     // external routes.  Logical combinations permitted. The type is string with
-    // pattern: b'[0-9a-fA-F]{1,8}'.
+    // pattern: [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -16932,17 +18138,20 @@ func (ospfRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     ospfRoute.EntityData.YangName = "ospf-route"
     ospfRoute.EntityData.BundleName = "cisco_ios_xr"
     ospfRoute.EntityData.ParentYangName = "ospf-routes"
-    ospfRoute.EntityData.SegmentPath = "ospf-route" + "[instance-name='" + fmt.Sprintf("%v", ospfRoute.InstanceName) + "']"
+    ospfRoute.EntityData.SegmentPath = "ospf-route" + types.AddKeyToken(ospfRoute.InstanceName, "instance-name")
     ospfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfRoute.EntityData.Children = make(map[string]types.YChild)
-    ospfRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfRoute.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", ospfRoute.InstanceName}
-    ospfRoute.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", ospfRoute.DefaultMetric}
-    ospfRoute.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", ospfRoute.RoutePolicyName}
-    ospfRoute.EntityData.Leafs["redist-type"] = types.YLeaf{"RedistType", ospfRoute.RedistType}
+    ospfRoute.EntityData.Children = types.NewOrderedMap()
+    ospfRoute.EntityData.Leafs = types.NewOrderedMap()
+    ospfRoute.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", ospfRoute.InstanceName})
+    ospfRoute.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", ospfRoute.DefaultMetric})
+    ospfRoute.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", ospfRoute.RoutePolicyName})
+    ospfRoute.EntityData.Leafs.Append("redist-type", types.YLeaf{"RedistType", ospfRoute.RedistType})
+
+    ospfRoute.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(ospfRoute.EntityData)
 }
 
@@ -16952,6 +18161,7 @@ func (ospfRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_MobileRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -16973,11 +18183,14 @@ func (mobileRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalA
     mobileRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobileRoutes.EntityData.Children = make(map[string]types.YChild)
-    mobileRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    mobileRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", mobileRoutes.DefaultMetric}
-    mobileRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", mobileRoutes.RoutePolicyName}
-    mobileRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", mobileRoutes.NotUsed}
+    mobileRoutes.EntityData.Children = types.NewOrderedMap()
+    mobileRoutes.EntityData.Leafs = types.NewOrderedMap()
+    mobileRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", mobileRoutes.DefaultMetric})
+    mobileRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", mobileRoutes.RoutePolicyName})
+    mobileRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", mobileRoutes.NotUsed})
+
+    mobileRoutes.EntityData.YListKeys = []string {}
+
     return &(mobileRoutes.EntityData)
 }
 
@@ -16987,6 +18200,7 @@ func (mobileRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalA
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SubscriberRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Default metric. The type is interface{} with range: 0..4294967295.
     DefaultMetric interface{}
@@ -17008,11 +18222,14 @@ func (subscriberRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glo
     subscriberRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberRoutes.EntityData.Children = make(map[string]types.YChild)
-    subscriberRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscriberRoutes.EntityData.Leafs["default-metric"] = types.YLeaf{"DefaultMetric", subscriberRoutes.DefaultMetric}
-    subscriberRoutes.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", subscriberRoutes.RoutePolicyName}
-    subscriberRoutes.EntityData.Leafs["not-used"] = types.YLeaf{"NotUsed", subscriberRoutes.NotUsed}
+    subscriberRoutes.EntityData.Children = types.NewOrderedMap()
+    subscriberRoutes.EntityData.Leafs = types.NewOrderedMap()
+    subscriberRoutes.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", subscriberRoutes.DefaultMetric})
+    subscriberRoutes.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", subscriberRoutes.RoutePolicyName})
+    subscriberRoutes.EntityData.Leafs.Append("not-used", types.YLeaf{"NotUsed", subscriberRoutes.NotUsed})
+
+    subscriberRoutes.EntityData.YListKeys = []string {}
+
     return &(subscriberRoutes.EntityData)
 }
 
@@ -17024,7 +18241,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes struc
 
     // RPKI static route. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes_RpkiStaticRoute.
-    RpkiStaticRoute []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes_RpkiStaticRoute
+    RpkiStaticRoute []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes_RpkiStaticRoute
 }
 
 func (rpkiStaticRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes) GetEntityData() *types.CommonEntityData {
@@ -17037,12 +18254,15 @@ func (rpkiStaticRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Rpk
     rpkiStaticRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpkiStaticRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpkiStaticRoutes.EntityData.Children = make(map[string]types.YChild)
-    rpkiStaticRoutes.EntityData.Children["rpki-static-route"] = types.YChild{"RpkiStaticRoute", nil}
+    rpkiStaticRoutes.EntityData.Children = types.NewOrderedMap()
+    rpkiStaticRoutes.EntityData.Children.Append("rpki-static-route", types.YChild{"RpkiStaticRoute", nil})
     for i := range rpkiStaticRoutes.RpkiStaticRoute {
-        rpkiStaticRoutes.EntityData.Children[types.GetSegmentPath(&rpkiStaticRoutes.RpkiStaticRoute[i])] = types.YChild{"RpkiStaticRoute", &rpkiStaticRoutes.RpkiStaticRoute[i]}
+        rpkiStaticRoutes.EntityData.Children.Append(types.GetSegmentPath(rpkiStaticRoutes.RpkiStaticRoute[i]), types.YChild{"RpkiStaticRoute", rpkiStaticRoutes.RpkiStaticRoute[i]})
     }
-    rpkiStaticRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    rpkiStaticRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    rpkiStaticRoutes.EntityData.YListKeys = []string {}
+
     return &(rpkiStaticRoutes.EntityData)
 }
 
@@ -17054,17 +18274,17 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes_RpkiS
 
     // This attribute is a key. Address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addrress interface{}
 
     // This attribute is a key. Minimum Prefix Length. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     Minimum interface{}
 
     // This attribute is a key. Maximum Prefix Length. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     Maximum interface{}
 
     // This attribute is a key. AS Number. The type is interface{} with range:
@@ -17077,17 +18297,20 @@ func (rpkiStaticRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Rpki
     rpkiStaticRoute.EntityData.YangName = "rpki-static-route"
     rpkiStaticRoute.EntityData.BundleName = "cisco_ios_xr"
     rpkiStaticRoute.EntityData.ParentYangName = "rpki-static-routes"
-    rpkiStaticRoute.EntityData.SegmentPath = "rpki-static-route" + "[addrress='" + fmt.Sprintf("%v", rpkiStaticRoute.Addrress) + "']" + "[minimum='" + fmt.Sprintf("%v", rpkiStaticRoute.Minimum) + "']" + "[maximum='" + fmt.Sprintf("%v", rpkiStaticRoute.Maximum) + "']" + "[as='" + fmt.Sprintf("%v", rpkiStaticRoute.As) + "']"
+    rpkiStaticRoute.EntityData.SegmentPath = "rpki-static-route" + types.AddKeyToken(rpkiStaticRoute.Addrress, "addrress") + types.AddKeyToken(rpkiStaticRoute.Minimum, "minimum") + types.AddKeyToken(rpkiStaticRoute.Maximum, "maximum") + types.AddKeyToken(rpkiStaticRoute.As, "as")
     rpkiStaticRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpkiStaticRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpkiStaticRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpkiStaticRoute.EntityData.Children = make(map[string]types.YChild)
-    rpkiStaticRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpkiStaticRoute.EntityData.Leafs["addrress"] = types.YLeaf{"Addrress", rpkiStaticRoute.Addrress}
-    rpkiStaticRoute.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", rpkiStaticRoute.Minimum}
-    rpkiStaticRoute.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", rpkiStaticRoute.Maximum}
-    rpkiStaticRoute.EntityData.Leafs["as"] = types.YLeaf{"As", rpkiStaticRoute.As}
+    rpkiStaticRoute.EntityData.Children = types.NewOrderedMap()
+    rpkiStaticRoute.EntityData.Leafs = types.NewOrderedMap()
+    rpkiStaticRoute.EntityData.Leafs.Append("addrress", types.YLeaf{"Addrress", rpkiStaticRoute.Addrress})
+    rpkiStaticRoute.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", rpkiStaticRoute.Minimum})
+    rpkiStaticRoute.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", rpkiStaticRoute.Maximum})
+    rpkiStaticRoute.EntityData.Leafs.Append("as", types.YLeaf{"As", rpkiStaticRoute.As})
+
+    rpkiStaticRoute.EntityData.YListKeys = []string {"Addrress", "Minimum", "Maximum", "As"}
+
     return &(rpkiStaticRoute.EntityData)
 }
 
@@ -17099,7 +18322,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterface
 
     // Configure a MPLS activated interface. The type is slice of
     // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterfaces_MplsActivatedInterface.
-    MplsActivatedInterface []Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterfaces_MplsActivatedInterface
+    MplsActivatedInterface []*Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterfaces_MplsActivatedInterface
 }
 
 func (mplsActivatedInterfaces *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterfaces) GetEntityData() *types.CommonEntityData {
@@ -17112,12 +18335,15 @@ func (mplsActivatedInterfaces *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Glo
     mplsActivatedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsActivatedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mplsActivatedInterfaces.EntityData.Children = make(map[string]types.YChild)
-    mplsActivatedInterfaces.EntityData.Children["mpls-activated-interface"] = types.YChild{"MplsActivatedInterface", nil}
+    mplsActivatedInterfaces.EntityData.Children = types.NewOrderedMap()
+    mplsActivatedInterfaces.EntityData.Children.Append("mpls-activated-interface", types.YChild{"MplsActivatedInterface", nil})
     for i := range mplsActivatedInterfaces.MplsActivatedInterface {
-        mplsActivatedInterfaces.EntityData.Children[types.GetSegmentPath(&mplsActivatedInterfaces.MplsActivatedInterface[i])] = types.YChild{"MplsActivatedInterface", &mplsActivatedInterfaces.MplsActivatedInterface[i]}
+        mplsActivatedInterfaces.EntityData.Children.Append(types.GetSegmentPath(mplsActivatedInterfaces.MplsActivatedInterface[i]), types.YChild{"MplsActivatedInterface", mplsActivatedInterfaces.MplsActivatedInterface[i]})
     }
-    mplsActivatedInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsActivatedInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsActivatedInterfaces.EntityData.YListKeys = []string {}
+
     return &(mplsActivatedInterfaces.EntityData)
 }
 
@@ -17128,7 +18354,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -17137,14 +18363,17 @@ func (mplsActivatedInterface *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Glob
     mplsActivatedInterface.EntityData.YangName = "mpls-activated-interface"
     mplsActivatedInterface.EntityData.BundleName = "cisco_ios_xr"
     mplsActivatedInterface.EntityData.ParentYangName = "mpls-activated-interfaces"
-    mplsActivatedInterface.EntityData.SegmentPath = "mpls-activated-interface" + "[interface-name='" + fmt.Sprintf("%v", mplsActivatedInterface.InterfaceName) + "']"
+    mplsActivatedInterface.EntityData.SegmentPath = "mpls-activated-interface" + types.AddKeyToken(mplsActivatedInterface.InterfaceName, "interface-name")
     mplsActivatedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsActivatedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsActivatedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mplsActivatedInterface.EntityData.Children = make(map[string]types.YChild)
-    mplsActivatedInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsActivatedInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", mplsActivatedInterface.InterfaceName}
+    mplsActivatedInterface.EntityData.Children = types.NewOrderedMap()
+    mplsActivatedInterface.EntityData.Leafs = types.NewOrderedMap()
+    mplsActivatedInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", mplsActivatedInterface.InterfaceName})
+
+    mplsActivatedInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(mplsActivatedInterface.EntityData)
 }
 
@@ -17179,11 +18408,14 @@ func (globalTimers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalT
     globalTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalTimers.EntityData.Children = make(map[string]types.YChild)
-    globalTimers.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalTimers.EntityData.Leafs["keepalive"] = types.YLeaf{"Keepalive", globalTimers.Keepalive}
-    globalTimers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", globalTimers.HoldTime}
-    globalTimers.EntityData.Leafs["min-accept-hold-time"] = types.YLeaf{"MinAcceptHoldTime", globalTimers.MinAcceptHoldTime}
+    globalTimers.EntityData.Children = types.NewOrderedMap()
+    globalTimers.EntityData.Leafs = types.NewOrderedMap()
+    globalTimers.EntityData.Leafs.Append("keepalive", types.YLeaf{"Keepalive", globalTimers.Keepalive})
+    globalTimers.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", globalTimers.HoldTime})
+    globalTimers.EntityData.Leafs.Append("min-accept-hold-time", types.YLeaf{"MinAcceptHoldTime", globalTimers.MinAcceptHoldTime})
+
+    globalTimers.EntityData.YListKeys = []string {}
+
     return &(globalTimers.EntityData)
 }
 
@@ -17212,10 +18444,13 @@ func (bfd *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Bfd) GetEntityDa
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier}
-    bfd.EntityData.Leafs["interval"] = types.YLeaf{"Interval", bfd.Interval}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier})
+    bfd.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", bfd.Interval})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -17244,10 +18479,13 @@ func (sendSocketBufferSizes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Globa
     sendSocketBufferSizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendSocketBufferSizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendSocketBufferSizes.EntityData.Children = make(map[string]types.YChild)
-    sendSocketBufferSizes.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendSocketBufferSizes.EntityData.Leafs["socket-send-size"] = types.YLeaf{"SocketSendSize", sendSocketBufferSizes.SocketSendSize}
-    sendSocketBufferSizes.EntityData.Leafs["bgp-send-size"] = types.YLeaf{"BgpSendSize", sendSocketBufferSizes.BgpSendSize}
+    sendSocketBufferSizes.EntityData.Children = types.NewOrderedMap()
+    sendSocketBufferSizes.EntityData.Leafs = types.NewOrderedMap()
+    sendSocketBufferSizes.EntityData.Leafs.Append("socket-send-size", types.YLeaf{"SocketSendSize", sendSocketBufferSizes.SocketSendSize})
+    sendSocketBufferSizes.EntityData.Leafs.Append("bgp-send-size", types.YLeaf{"BgpSendSize", sendSocketBufferSizes.BgpSendSize})
+
+    sendSocketBufferSizes.EntityData.YListKeys = []string {}
+
     return &(sendSocketBufferSizes.EntityData)
 }
 
@@ -17276,10 +18514,13 @@ func (receiveSocketBufferSizes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Gl
     receiveSocketBufferSizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveSocketBufferSizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveSocketBufferSizes.EntityData.Children = make(map[string]types.YChild)
-    receiveSocketBufferSizes.EntityData.Leafs = make(map[string]types.YLeaf)
-    receiveSocketBufferSizes.EntityData.Leafs["socket-receive-size"] = types.YLeaf{"SocketReceiveSize", receiveSocketBufferSizes.SocketReceiveSize}
-    receiveSocketBufferSizes.EntityData.Leafs["bgp-receive-size"] = types.YLeaf{"BgpReceiveSize", receiveSocketBufferSizes.BgpReceiveSize}
+    receiveSocketBufferSizes.EntityData.Children = types.NewOrderedMap()
+    receiveSocketBufferSizes.EntityData.Leafs = types.NewOrderedMap()
+    receiveSocketBufferSizes.EntityData.Leafs.Append("socket-receive-size", types.YLeaf{"SocketReceiveSize", receiveSocketBufferSizes.SocketReceiveSize})
+    receiveSocketBufferSizes.EntityData.Leafs.Append("bgp-receive-size", types.YLeaf{"BgpReceiveSize", receiveSocketBufferSizes.BgpReceiveSize})
+
+    receiveSocketBufferSizes.EntityData.YListKeys = []string {}
+
     return &(receiveSocketBufferSizes.EntityData)
 }
 
@@ -17311,10 +18552,13 @@ func (bmpServerAll *BmpServerAll) GetEntityData() *types.CommonEntityData {
     bmpServerAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpServerAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpServerAll.EntityData.Children = make(map[string]types.YChild)
-    bmpServerAll.EntityData.Children["route-monitoring"] = types.YChild{"RouteMonitoring", &bmpServerAll.RouteMonitoring}
-    bmpServerAll.EntityData.Leafs = make(map[string]types.YLeaf)
-    bmpServerAll.EntityData.Leafs["maximum-buffer-size"] = types.YLeaf{"MaximumBufferSize", bmpServerAll.MaximumBufferSize}
+    bmpServerAll.EntityData.Children = types.NewOrderedMap()
+    bmpServerAll.EntityData.Children.Append("route-monitoring", types.YChild{"RouteMonitoring", &bmpServerAll.RouteMonitoring})
+    bmpServerAll.EntityData.Leafs = types.NewOrderedMap()
+    bmpServerAll.EntityData.Leafs.Append("maximum-buffer-size", types.YLeaf{"MaximumBufferSize", bmpServerAll.MaximumBufferSize})
+
+    bmpServerAll.EntityData.YListKeys = []string {}
+
     return &(bmpServerAll.EntityData)
 }
 
@@ -17347,10 +18591,13 @@ func (routeMonitoring *BmpServerAll_RouteMonitoring) GetEntityData() *types.Comm
     routeMonitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeMonitoring.EntityData.Children = make(map[string]types.YChild)
-    routeMonitoring.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeMonitoring.EntityData.Leafs["policy"] = types.YLeaf{"Policy", routeMonitoring.Policy}
-    routeMonitoring.EntityData.Leafs["direction"] = types.YLeaf{"Direction", routeMonitoring.Direction}
+    routeMonitoring.EntityData.Children = types.NewOrderedMap()
+    routeMonitoring.EntityData.Leafs = types.NewOrderedMap()
+    routeMonitoring.EntityData.Leafs.Append("policy", types.YLeaf{"Policy", routeMonitoring.Policy})
+    routeMonitoring.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", routeMonitoring.Direction})
+
+    routeMonitoring.EntityData.YListKeys = []string {}
+
     return &(routeMonitoring.EntityData)
 }
 
@@ -17361,7 +18608,7 @@ type BmpServers struct {
     YFilter yfilter.YFilter
 
     // A particular BMP server. The type is slice of BmpServers_BmpServer.
-    BmpServer []BmpServers_BmpServer
+    BmpServer []*BmpServers_BmpServer
 }
 
 func (bmpServers *BmpServers) GetEntityData() *types.CommonEntityData {
@@ -17374,12 +18621,15 @@ func (bmpServers *BmpServers) GetEntityData() *types.CommonEntityData {
     bmpServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpServers.EntityData.Children = make(map[string]types.YChild)
-    bmpServers.EntityData.Children["bmp-server"] = types.YChild{"BmpServer", nil}
+    bmpServers.EntityData.Children = types.NewOrderedMap()
+    bmpServers.EntityData.Children.Append("bmp-server", types.YChild{"BmpServer", nil})
     for i := range bmpServers.BmpServer {
-        bmpServers.EntityData.Children[types.GetSegmentPath(&bmpServers.BmpServer[i])] = types.YChild{"BmpServer", &bmpServers.BmpServer[i]}
+        bmpServers.EntityData.Children.Append(types.GetSegmentPath(bmpServers.BmpServer[i]), types.YChild{"BmpServer", bmpServers.BmpServer[i]})
     }
-    bmpServers.EntityData.Leafs = make(map[string]types.YLeaf)
+    bmpServers.EntityData.Leafs = types.NewOrderedMap()
+
+    bmpServers.EntityData.YListKeys = []string {}
+
     return &(bmpServers.EntityData)
 }
 
@@ -17434,7 +18684,7 @@ type BmpServers_BmpServer struct {
     Shutdown interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     UpdateSourceInterface interface{}
 
     // Initial refresh to generate BGP updates.
@@ -17452,28 +18702,31 @@ func (bmpServer *BmpServers_BmpServer) GetEntityData() *types.CommonEntityData {
     bmpServer.EntityData.YangName = "bmp-server"
     bmpServer.EntityData.BundleName = "cisco_ios_xr"
     bmpServer.EntityData.ParentYangName = "bmp-servers"
-    bmpServer.EntityData.SegmentPath = "bmp-server" + "[server-id='" + fmt.Sprintf("%v", bmpServer.ServerId) + "']"
+    bmpServer.EntityData.SegmentPath = "bmp-server" + types.AddKeyToken(bmpServer.ServerId, "server-id")
     bmpServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bmpServer.EntityData.Children = make(map[string]types.YChild)
-    bmpServer.EntityData.Children["initial-refresh-delay"] = types.YChild{"InitialRefreshDelay", &bmpServer.InitialRefreshDelay}
-    bmpServer.EntityData.Children["host-port"] = types.YChild{"HostPort", &bmpServer.HostPort}
-    bmpServer.EntityData.Children["tos"] = types.YChild{"Tos", &bmpServer.Tos}
-    bmpServer.EntityData.Leafs = make(map[string]types.YLeaf)
-    bmpServer.EntityData.Leafs["server-id"] = types.YLeaf{"ServerId", bmpServer.ServerId}
-    bmpServer.EntityData.Leafs["create"] = types.YLeaf{"Create", bmpServer.Create}
-    bmpServer.EntityData.Leafs["maximum-buffer-size"] = types.YLeaf{"MaximumBufferSize", bmpServer.MaximumBufferSize}
-    bmpServer.EntityData.Leafs["initial-delay"] = types.YLeaf{"InitialDelay", bmpServer.InitialDelay}
-    bmpServer.EntityData.Leafs["flapping-delay"] = types.YLeaf{"FlappingDelay", bmpServer.FlappingDelay}
-    bmpServer.EntityData.Leafs["status-report-interval"] = types.YLeaf{"StatusReportInterval", bmpServer.StatusReportInterval}
-    bmpServer.EntityData.Leafs["description"] = types.YLeaf{"Description", bmpServer.Description}
-    bmpServer.EntityData.Leafs["bmptcp-maximum-segment-size"] = types.YLeaf{"BmptcpMaximumSegmentSize", bmpServer.BmptcpMaximumSegmentSize}
-    bmpServer.EntityData.Leafs["bmptcp-keep-alive"] = types.YLeaf{"BmptcpKeepAlive", bmpServer.BmptcpKeepAlive}
-    bmpServer.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", bmpServer.Vrf}
-    bmpServer.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", bmpServer.Shutdown}
-    bmpServer.EntityData.Leafs["update-source-interface"] = types.YLeaf{"UpdateSourceInterface", bmpServer.UpdateSourceInterface}
+    bmpServer.EntityData.Children = types.NewOrderedMap()
+    bmpServer.EntityData.Children.Append("initial-refresh-delay", types.YChild{"InitialRefreshDelay", &bmpServer.InitialRefreshDelay})
+    bmpServer.EntityData.Children.Append("host-port", types.YChild{"HostPort", &bmpServer.HostPort})
+    bmpServer.EntityData.Children.Append("tos", types.YChild{"Tos", &bmpServer.Tos})
+    bmpServer.EntityData.Leafs = types.NewOrderedMap()
+    bmpServer.EntityData.Leafs.Append("server-id", types.YLeaf{"ServerId", bmpServer.ServerId})
+    bmpServer.EntityData.Leafs.Append("create", types.YLeaf{"Create", bmpServer.Create})
+    bmpServer.EntityData.Leafs.Append("maximum-buffer-size", types.YLeaf{"MaximumBufferSize", bmpServer.MaximumBufferSize})
+    bmpServer.EntityData.Leafs.Append("initial-delay", types.YLeaf{"InitialDelay", bmpServer.InitialDelay})
+    bmpServer.EntityData.Leafs.Append("flapping-delay", types.YLeaf{"FlappingDelay", bmpServer.FlappingDelay})
+    bmpServer.EntityData.Leafs.Append("status-report-interval", types.YLeaf{"StatusReportInterval", bmpServer.StatusReportInterval})
+    bmpServer.EntityData.Leafs.Append("description", types.YLeaf{"Description", bmpServer.Description})
+    bmpServer.EntityData.Leafs.Append("bmptcp-maximum-segment-size", types.YLeaf{"BmptcpMaximumSegmentSize", bmpServer.BmptcpMaximumSegmentSize})
+    bmpServer.EntityData.Leafs.Append("bmptcp-keep-alive", types.YLeaf{"BmptcpKeepAlive", bmpServer.BmptcpKeepAlive})
+    bmpServer.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", bmpServer.Vrf})
+    bmpServer.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", bmpServer.Shutdown})
+    bmpServer.EntityData.Leafs.Append("update-source-interface", types.YLeaf{"UpdateSourceInterface", bmpServer.UpdateSourceInterface})
+
+    bmpServer.EntityData.YListKeys = []string {"ServerId"}
+
     return &(bmpServer.EntityData)
 }
 
@@ -17505,11 +18758,14 @@ func (initialRefreshDelay *BmpServers_BmpServer_InitialRefreshDelay) GetEntityDa
     initialRefreshDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initialRefreshDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    initialRefreshDelay.EntityData.Children = make(map[string]types.YChild)
-    initialRefreshDelay.EntityData.Leafs = make(map[string]types.YLeaf)
-    initialRefreshDelay.EntityData.Leafs["delay"] = types.YLeaf{"Delay", initialRefreshDelay.Delay}
-    initialRefreshDelay.EntityData.Leafs["spread"] = types.YLeaf{"Spread", initialRefreshDelay.Spread}
-    initialRefreshDelay.EntityData.Leafs["skip"] = types.YLeaf{"Skip", initialRefreshDelay.Skip}
+    initialRefreshDelay.EntityData.Children = types.NewOrderedMap()
+    initialRefreshDelay.EntityData.Leafs = types.NewOrderedMap()
+    initialRefreshDelay.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", initialRefreshDelay.Delay})
+    initialRefreshDelay.EntityData.Leafs.Append("spread", types.YLeaf{"Spread", initialRefreshDelay.Spread})
+    initialRefreshDelay.EntityData.Leafs.Append("skip", types.YLeaf{"Skip", initialRefreshDelay.Skip})
+
+    initialRefreshDelay.EntityData.YListKeys = []string {}
+
     return &(initialRefreshDelay.EntityData)
 }
 
@@ -17539,10 +18795,13 @@ func (hostPort *BmpServers_BmpServer_HostPort) GetEntityData() *types.CommonEnti
     hostPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostPort.EntityData.Children = make(map[string]types.YChild)
-    hostPort.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostPort.EntityData.Leafs["host"] = types.YLeaf{"Host", hostPort.Host}
-    hostPort.EntityData.Leafs["port"] = types.YLeaf{"Port", hostPort.Port}
+    hostPort.EntityData.Children = types.NewOrderedMap()
+    hostPort.EntityData.Leafs = types.NewOrderedMap()
+    hostPort.EntityData.Leafs.Append("host", types.YLeaf{"Host", hostPort.Host})
+    hostPort.EntityData.Leafs.Append("port", types.YLeaf{"Port", hostPort.Port})
+
+    hostPort.EntityData.YListKeys = []string {}
+
     return &(hostPort.EntityData)
 }
 
@@ -17553,7 +18812,7 @@ type BmpServers_BmpServer_Tos struct {
     YFilter yfilter.YFilter
 
     // Set type of service. The type is BgpTos.
-    Type_ interface{}
+    Type interface{}
 
     // TOS value to set. The type is one of the following types: enumeration
     // BgpPrecedenceDscp, or int with range: 0..63.
@@ -17570,10 +18829,13 @@ func (tos *BmpServers_BmpServer_Tos) GetEntityData() *types.CommonEntityData {
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tos.EntityData.Children = make(map[string]types.YChild)
-    tos.EntityData.Leafs = make(map[string]types.YLeaf)
-    tos.EntityData.Leafs["type"] = types.YLeaf{"Type_", tos.Type_}
-    tos.EntityData.Leafs["value"] = types.YLeaf{"Value", tos.Value}
+    tos.EntityData.Children = types.NewOrderedMap()
+    tos.EntityData.Leafs = types.NewOrderedMap()
+    tos.EntityData.Leafs.Append("type", types.YLeaf{"Type", tos.Type})
+    tos.EntityData.Leafs.Append("value", types.YLeaf{"Value", tos.Value})
+
+    tos.EntityData.YListKeys = []string {}
+
     return &(tos.EntityData)
 }
 

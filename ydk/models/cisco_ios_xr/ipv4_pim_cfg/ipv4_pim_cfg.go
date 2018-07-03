@@ -24,6 +24,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-pim-cfg:pim", reflect.TypeOf(Pim{}))
 }
 
+// PimProtocolMode represents Pim protocol mode
+type PimProtocolMode string
+
+const (
+    // Sparse Mode
+    PimProtocolMode_sm PimProtocolMode = "sm"
+
+    // Bidirectional
+    PimProtocolMode_bidir PimProtocolMode = "bidir"
+)
+
 // PimMultipath represents Pim multipath
 type PimMultipath string
 
@@ -47,20 +58,8 @@ const (
     PimMultipath_source_group_hash PimMultipath = "source-group-hash"
 )
 
-// PimProtocolMode represents Pim protocol mode
-type PimProtocolMode string
-
-const (
-    // Sparse Mode
-    PimProtocolMode_sm PimProtocolMode = "sm"
-
-    // Bidirectional
-    PimProtocolMode_bidir PimProtocolMode = "bidir"
-)
-
 // Pim
 // PIM configuration
-// This type is a presence type.
 type Pim struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -82,10 +81,13 @@ func (pim *Pim) GetEntityData() *types.CommonEntityData {
     pim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pim.EntityData.Children = make(map[string]types.YChild)
-    pim.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &pim.Vrfs}
-    pim.EntityData.Children["default-context"] = types.YChild{"DefaultContext", &pim.DefaultContext}
-    pim.EntityData.Leafs = make(map[string]types.YLeaf)
+    pim.EntityData.Children = types.NewOrderedMap()
+    pim.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &pim.Vrfs})
+    pim.EntityData.Children.Append("default-context", types.YChild{"DefaultContext", &pim.DefaultContext})
+    pim.EntityData.Leafs = types.NewOrderedMap()
+
+    pim.EntityData.YListKeys = []string {}
+
     return &(pim.EntityData)
 }
 
@@ -96,7 +98,7 @@ type Pim_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF name. The type is slice of Pim_Vrfs_Vrf.
-    Vrf []Pim_Vrfs_Vrf
+    Vrf []*Pim_Vrfs_Vrf
 }
 
 func (vrfs *Pim_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -109,12 +111,15 @@ func (vrfs *Pim_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -139,16 +144,19 @@ func (vrf *Pim_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &vrf.Ipv4}
-    vrf.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &vrf.Ipv6}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &vrf.Ipv4})
+    vrf.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &vrf.Ipv6})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -179,7 +187,7 @@ type Pim_Vrfs_Vrf_Ipv4 struct {
     LogNeighborChanges interface{}
 
     // Source address to use for register messages. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     RegisterSource interface{}
 
     // Access-list which specifies unauthorized sources. The type is string with
@@ -267,37 +275,40 @@ func (ipv4 *Pim_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["sparse-mode-rp-addresses"] = types.YChild{"SparseModeRpAddresses", &ipv4.SparseModeRpAddresses}
-    ipv4.EntityData.Children["inheritable-defaults"] = types.YChild{"InheritableDefaults", &ipv4.InheritableDefaults}
-    ipv4.EntityData.Children["rpf"] = types.YChild{"Rpf", &ipv4.Rpf}
-    ipv4.EntityData.Children["maximum"] = types.YChild{"Maximum", &ipv4.Maximum}
-    ipv4.EntityData.Children["sg-expiry-timer"] = types.YChild{"SgExpiryTimer", &ipv4.SgExpiryTimer}
-    ipv4.EntityData.Children["rpf-vector-enable"] = types.YChild{"RpfVectorEnable", &ipv4.RpfVectorEnable}
-    ipv4.EntityData.Children["ssm"] = types.YChild{"Ssm", &ipv4.Ssm}
-    ipv4.EntityData.Children["injects"] = types.YChild{"Injects", &ipv4.Injects}
-    ipv4.EntityData.Children["bidir-rp-addresses"] = types.YChild{"BidirRpAddresses", &ipv4.BidirRpAddresses}
-    ipv4.EntityData.Children["bsr"] = types.YChild{"Bsr", &ipv4.Bsr}
-    ipv4.EntityData.Children["mofrr"] = types.YChild{"Mofrr", &ipv4.Mofrr}
-    ipv4.EntityData.Children["paths"] = types.YChild{"Paths", &ipv4.Paths}
-    ipv4.EntityData.Children["allow-rp"] = types.YChild{"AllowRp", &ipv4.AllowRp}
-    ipv4.EntityData.Children["convergence"] = types.YChild{"Convergence", &ipv4.Convergence}
-    ipv4.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv4.Interfaces}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["neighbor-check-on-receive"] = types.YLeaf{"NeighborCheckOnReceive", ipv4.NeighborCheckOnReceive}
-    ipv4.EntityData.Leafs["old-register-checksum"] = types.YLeaf{"OldRegisterChecksum", ipv4.OldRegisterChecksum}
-    ipv4.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", ipv4.NeighborFilter}
-    ipv4.EntityData.Leafs["spt-threshold-infinity"] = types.YLeaf{"SptThresholdInfinity", ipv4.SptThresholdInfinity}
-    ipv4.EntityData.Leafs["log-neighbor-changes"] = types.YLeaf{"LogNeighborChanges", ipv4.LogNeighborChanges}
-    ipv4.EntityData.Leafs["register-source"] = types.YLeaf{"RegisterSource", ipv4.RegisterSource}
-    ipv4.EntityData.Leafs["accept-register"] = types.YLeaf{"AcceptRegister", ipv4.AcceptRegister}
-    ipv4.EntityData.Leafs["suppress-rpf-prunes"] = types.YLeaf{"SuppressRpfPrunes", ipv4.SuppressRpfPrunes}
-    ipv4.EntityData.Leafs["ssm-allow-override"] = types.YLeaf{"SsmAllowOverride", ipv4.SsmAllowOverride}
-    ipv4.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", ipv4.Multipath}
-    ipv4.EntityData.Leafs["rp-static-deny"] = types.YLeaf{"RpStaticDeny", ipv4.RpStaticDeny}
-    ipv4.EntityData.Leafs["suppress-data-registers"] = types.YLeaf{"SuppressDataRegisters", ipv4.SuppressDataRegisters}
-    ipv4.EntityData.Leafs["neighbor-check-on-send"] = types.YLeaf{"NeighborCheckOnSend", ipv4.NeighborCheckOnSend}
-    ipv4.EntityData.Leafs["auto-rp-disable"] = types.YLeaf{"AutoRpDisable", ipv4.AutoRpDisable}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("sparse-mode-rp-addresses", types.YChild{"SparseModeRpAddresses", &ipv4.SparseModeRpAddresses})
+    ipv4.EntityData.Children.Append("inheritable-defaults", types.YChild{"InheritableDefaults", &ipv4.InheritableDefaults})
+    ipv4.EntityData.Children.Append("rpf", types.YChild{"Rpf", &ipv4.Rpf})
+    ipv4.EntityData.Children.Append("maximum", types.YChild{"Maximum", &ipv4.Maximum})
+    ipv4.EntityData.Children.Append("sg-expiry-timer", types.YChild{"SgExpiryTimer", &ipv4.SgExpiryTimer})
+    ipv4.EntityData.Children.Append("rpf-vector-enable", types.YChild{"RpfVectorEnable", &ipv4.RpfVectorEnable})
+    ipv4.EntityData.Children.Append("ssm", types.YChild{"Ssm", &ipv4.Ssm})
+    ipv4.EntityData.Children.Append("injects", types.YChild{"Injects", &ipv4.Injects})
+    ipv4.EntityData.Children.Append("bidir-rp-addresses", types.YChild{"BidirRpAddresses", &ipv4.BidirRpAddresses})
+    ipv4.EntityData.Children.Append("bsr", types.YChild{"Bsr", &ipv4.Bsr})
+    ipv4.EntityData.Children.Append("mofrr", types.YChild{"Mofrr", &ipv4.Mofrr})
+    ipv4.EntityData.Children.Append("paths", types.YChild{"Paths", &ipv4.Paths})
+    ipv4.EntityData.Children.Append("allow-rp", types.YChild{"AllowRp", &ipv4.AllowRp})
+    ipv4.EntityData.Children.Append("convergence", types.YChild{"Convergence", &ipv4.Convergence})
+    ipv4.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv4.Interfaces})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("neighbor-check-on-receive", types.YLeaf{"NeighborCheckOnReceive", ipv4.NeighborCheckOnReceive})
+    ipv4.EntityData.Leafs.Append("old-register-checksum", types.YLeaf{"OldRegisterChecksum", ipv4.OldRegisterChecksum})
+    ipv4.EntityData.Leafs.Append("neighbor-filter", types.YLeaf{"NeighborFilter", ipv4.NeighborFilter})
+    ipv4.EntityData.Leafs.Append("spt-threshold-infinity", types.YLeaf{"SptThresholdInfinity", ipv4.SptThresholdInfinity})
+    ipv4.EntityData.Leafs.Append("log-neighbor-changes", types.YLeaf{"LogNeighborChanges", ipv4.LogNeighborChanges})
+    ipv4.EntityData.Leafs.Append("register-source", types.YLeaf{"RegisterSource", ipv4.RegisterSource})
+    ipv4.EntityData.Leafs.Append("accept-register", types.YLeaf{"AcceptRegister", ipv4.AcceptRegister})
+    ipv4.EntityData.Leafs.Append("suppress-rpf-prunes", types.YLeaf{"SuppressRpfPrunes", ipv4.SuppressRpfPrunes})
+    ipv4.EntityData.Leafs.Append("ssm-allow-override", types.YLeaf{"SsmAllowOverride", ipv4.SsmAllowOverride})
+    ipv4.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", ipv4.Multipath})
+    ipv4.EntityData.Leafs.Append("rp-static-deny", types.YLeaf{"RpStaticDeny", ipv4.RpStaticDeny})
+    ipv4.EntityData.Leafs.Append("suppress-data-registers", types.YLeaf{"SuppressDataRegisters", ipv4.SuppressDataRegisters})
+    ipv4.EntityData.Leafs.Append("neighbor-check-on-send", types.YLeaf{"NeighborCheckOnSend", ipv4.NeighborCheckOnSend})
+    ipv4.EntityData.Leafs.Append("auto-rp-disable", types.YLeaf{"AutoRpDisable", ipv4.AutoRpDisable})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -309,7 +320,7 @@ type Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses struct {
 
     // Address of the Rendezvous Point. The type is slice of
     // Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpAddress.
-    SparseModeRpAddress []Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpAddress
+    SparseModeRpAddress []*Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpAddress
 }
 
 func (sparseModeRpAddresses *Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -322,12 +333,15 @@ func (sparseModeRpAddresses *Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses) GetEntityD
     sparseModeRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sparseModeRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    sparseModeRpAddresses.EntityData.Children["sparse-mode-rp-address"] = types.YChild{"SparseModeRpAddress", nil}
+    sparseModeRpAddresses.EntityData.Children = types.NewOrderedMap()
+    sparseModeRpAddresses.EntityData.Children.Append("sparse-mode-rp-address", types.YChild{"SparseModeRpAddress", nil})
     for i := range sparseModeRpAddresses.SparseModeRpAddress {
-        sparseModeRpAddresses.EntityData.Children[types.GetSegmentPath(&sparseModeRpAddresses.SparseModeRpAddress[i])] = types.YChild{"SparseModeRpAddress", &sparseModeRpAddresses.SparseModeRpAddress[i]}
+        sparseModeRpAddresses.EntityData.Children.Append(types.GetSegmentPath(sparseModeRpAddresses.SparseModeRpAddress[i]), types.YChild{"SparseModeRpAddress", sparseModeRpAddresses.SparseModeRpAddress[i]})
     }
-    sparseModeRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    sparseModeRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    sparseModeRpAddresses.EntityData.YListKeys = []string {}
+
     return &(sparseModeRpAddresses.EntityData)
 }
 
@@ -339,9 +353,9 @@ type Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpAddress struct {
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a  given RP. The type is string
@@ -358,16 +372,19 @@ func (sparseModeRpAddress *Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpA
     sparseModeRpAddress.EntityData.YangName = "sparse-mode-rp-address"
     sparseModeRpAddress.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddress.EntityData.ParentYangName = "sparse-mode-rp-addresses"
-    sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + "[rp-address='" + fmt.Sprintf("%v", sparseModeRpAddress.RpAddress) + "']"
+    sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + types.AddKeyToken(sparseModeRpAddress.RpAddress, "rp-address")
     sparseModeRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sparseModeRpAddress.EntityData.Children = make(map[string]types.YChild)
-    sparseModeRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sparseModeRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", sparseModeRpAddress.RpAddress}
-    sparseModeRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", sparseModeRpAddress.AccessListName}
-    sparseModeRpAddress.EntityData.Leafs["auto-rp-override"] = types.YLeaf{"AutoRpOverride", sparseModeRpAddress.AutoRpOverride}
+    sparseModeRpAddress.EntityData.Children = types.NewOrderedMap()
+    sparseModeRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    sparseModeRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", sparseModeRpAddress.RpAddress})
+    sparseModeRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", sparseModeRpAddress.AccessListName})
+    sparseModeRpAddress.EntityData.Leafs.Append("auto-rp-override", types.YLeaf{"AutoRpOverride", sparseModeRpAddress.AutoRpOverride})
+
+    sparseModeRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(sparseModeRpAddress.EntityData)
 }
 
@@ -416,15 +433,18 @@ func (inheritableDefaults *Pim_Vrfs_Vrf_Ipv4_InheritableDefaults) GetEntityData(
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inheritableDefaults.EntityData.Children = make(map[string]types.YChild)
-    inheritableDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    inheritableDefaults.EntityData.Leafs["convergence-timeout"] = types.YLeaf{"ConvergenceTimeout", inheritableDefaults.ConvergenceTimeout}
-    inheritableDefaults.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", inheritableDefaults.HelloInterval}
-    inheritableDefaults.EntityData.Leafs["propagation-delay"] = types.YLeaf{"PropagationDelay", inheritableDefaults.PropagationDelay}
-    inheritableDefaults.EntityData.Leafs["dr-priority"] = types.YLeaf{"DrPriority", inheritableDefaults.DrPriority}
-    inheritableDefaults.EntityData.Leafs["join-prune-mtu"] = types.YLeaf{"JoinPruneMtu", inheritableDefaults.JoinPruneMtu}
-    inheritableDefaults.EntityData.Leafs["jp-interval"] = types.YLeaf{"JpInterval", inheritableDefaults.JpInterval}
-    inheritableDefaults.EntityData.Leafs["override-interval"] = types.YLeaf{"OverrideInterval", inheritableDefaults.OverrideInterval}
+    inheritableDefaults.EntityData.Children = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs.Append("convergence-timeout", types.YLeaf{"ConvergenceTimeout", inheritableDefaults.ConvergenceTimeout})
+    inheritableDefaults.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", inheritableDefaults.HelloInterval})
+    inheritableDefaults.EntityData.Leafs.Append("propagation-delay", types.YLeaf{"PropagationDelay", inheritableDefaults.PropagationDelay})
+    inheritableDefaults.EntityData.Leafs.Append("dr-priority", types.YLeaf{"DrPriority", inheritableDefaults.DrPriority})
+    inheritableDefaults.EntityData.Leafs.Append("join-prune-mtu", types.YLeaf{"JoinPruneMtu", inheritableDefaults.JoinPruneMtu})
+    inheritableDefaults.EntityData.Leafs.Append("jp-interval", types.YLeaf{"JpInterval", inheritableDefaults.JpInterval})
+    inheritableDefaults.EntityData.Leafs.Append("override-interval", types.YLeaf{"OverrideInterval", inheritableDefaults.OverrideInterval})
+
+    inheritableDefaults.EntityData.YListKeys = []string {}
+
     return &(inheritableDefaults.EntityData)
 }
 
@@ -448,9 +468,12 @@ func (rpf *Pim_Vrfs_Vrf_Ipv4_Rpf) GetEntityData() *types.CommonEntityData {
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpf.EntityData.Children = make(map[string]types.YChild)
-    rpf.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpf.EntityData.Leafs["route-policy"] = types.YLeaf{"RoutePolicy", rpf.RoutePolicy}
+    rpf.EntityData.Children = types.NewOrderedMap()
+    rpf.EntityData.Leafs = types.NewOrderedMap()
+    rpf.EntityData.Leafs.Append("route-policy", types.YLeaf{"RoutePolicy", rpf.RoutePolicy})
+
+    rpf.EntityData.YListKeys = []string {}
+
     return &(rpf.EntityData)
 }
 
@@ -491,14 +514,17 @@ func (maximum *Pim_Vrfs_Vrf_Ipv4_Maximum) GetEntityData() *types.CommonEntityDat
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximum.EntityData.Children = make(map[string]types.YChild)
-    maximum.EntityData.Children["group-mappings-auto-rp"] = types.YChild{"GroupMappingsAutoRp", &maximum.GroupMappingsAutoRp}
-    maximum.EntityData.Children["bsr-group-mappings"] = types.YChild{"BsrGroupMappings", &maximum.BsrGroupMappings}
-    maximum.EntityData.Children["register-states"] = types.YChild{"RegisterStates", &maximum.RegisterStates}
-    maximum.EntityData.Children["route-interfaces"] = types.YChild{"RouteInterfaces", &maximum.RouteInterfaces}
-    maximum.EntityData.Children["bsr-candidate-rp-cache"] = types.YChild{"BsrCandidateRpCache", &maximum.BsrCandidateRpCache}
-    maximum.EntityData.Children["routes"] = types.YChild{"Routes", &maximum.Routes}
-    maximum.EntityData.Leafs = make(map[string]types.YLeaf)
+    maximum.EntityData.Children = types.NewOrderedMap()
+    maximum.EntityData.Children.Append("group-mappings-auto-rp", types.YChild{"GroupMappingsAutoRp", &maximum.GroupMappingsAutoRp})
+    maximum.EntityData.Children.Append("bsr-group-mappings", types.YChild{"BsrGroupMappings", &maximum.BsrGroupMappings})
+    maximum.EntityData.Children.Append("register-states", types.YChild{"RegisterStates", &maximum.RegisterStates})
+    maximum.EntityData.Children.Append("route-interfaces", types.YChild{"RouteInterfaces", &maximum.RouteInterfaces})
+    maximum.EntityData.Children.Append("bsr-candidate-rp-cache", types.YChild{"BsrCandidateRpCache", &maximum.BsrCandidateRpCache})
+    maximum.EntityData.Children.Append("routes", types.YChild{"Routes", &maximum.Routes})
+    maximum.EntityData.Leafs = types.NewOrderedMap()
+
+    maximum.EntityData.YListKeys = []string {}
+
     return &(maximum.EntityData)
 }
 
@@ -509,6 +535,7 @@ func (maximum *Pim_Vrfs_Vrf_Ipv4_Maximum) GetEntityData() *types.CommonEntityDat
 type Pim_Vrfs_Vrf_Ipv4_Maximum_GroupMappingsAutoRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from autorp. The type is interface{}
     // with range: 1..10000. This attribute is mandatory.
@@ -529,10 +556,13 @@ func (groupMappingsAutoRp *Pim_Vrfs_Vrf_Ipv4_Maximum_GroupMappingsAutoRp) GetEnt
     groupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupMappingsAutoRp.EntityData.Children = make(map[string]types.YChild)
-    groupMappingsAutoRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupMappingsAutoRp.EntityData.Leafs["maximum-group-ranges-auto-rp"] = types.YLeaf{"MaximumGroupRangesAutoRp", groupMappingsAutoRp.MaximumGroupRangesAutoRp}
-    groupMappingsAutoRp.EntityData.Leafs["threshold-group-ranges-auto-rp"] = types.YLeaf{"ThresholdGroupRangesAutoRp", groupMappingsAutoRp.ThresholdGroupRangesAutoRp}
+    groupMappingsAutoRp.EntityData.Children = types.NewOrderedMap()
+    groupMappingsAutoRp.EntityData.Leafs = types.NewOrderedMap()
+    groupMappingsAutoRp.EntityData.Leafs.Append("maximum-group-ranges-auto-rp", types.YLeaf{"MaximumGroupRangesAutoRp", groupMappingsAutoRp.MaximumGroupRangesAutoRp})
+    groupMappingsAutoRp.EntityData.Leafs.Append("threshold-group-ranges-auto-rp", types.YLeaf{"ThresholdGroupRangesAutoRp", groupMappingsAutoRp.ThresholdGroupRangesAutoRp})
+
+    groupMappingsAutoRp.EntityData.YListKeys = []string {}
+
     return &(groupMappingsAutoRp.EntityData)
 }
 
@@ -543,6 +573,7 @@ func (groupMappingsAutoRp *Pim_Vrfs_Vrf_Ipv4_Maximum_GroupMappingsAutoRp) GetEnt
 type Pim_Vrfs_Vrf_Ipv4_Maximum_BsrGroupMappings struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from BSR. The type is interface{} with
     // range: 1..10000. This attribute is mandatory.
@@ -563,10 +594,13 @@ func (bsrGroupMappings *Pim_Vrfs_Vrf_Ipv4_Maximum_BsrGroupMappings) GetEntityDat
     bsrGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrGroupMappings.EntityData.Children = make(map[string]types.YChild)
-    bsrGroupMappings.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrGroupMappings.EntityData.Leafs["bsr-maximum-group-ranges"] = types.YLeaf{"BsrMaximumGroupRanges", bsrGroupMappings.BsrMaximumGroupRanges}
-    bsrGroupMappings.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrGroupMappings.WarningThreshold}
+    bsrGroupMappings.EntityData.Children = types.NewOrderedMap()
+    bsrGroupMappings.EntityData.Leafs = types.NewOrderedMap()
+    bsrGroupMappings.EntityData.Leafs.Append("bsr-maximum-group-ranges", types.YLeaf{"BsrMaximumGroupRanges", bsrGroupMappings.BsrMaximumGroupRanges})
+    bsrGroupMappings.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrGroupMappings.WarningThreshold})
+
+    bsrGroupMappings.EntityData.YListKeys = []string {}
+
     return &(bsrGroupMappings.EntityData)
 }
 
@@ -577,6 +611,7 @@ func (bsrGroupMappings *Pim_Vrfs_Vrf_Ipv4_Maximum_BsrGroupMappings) GetEntityDat
 type Pim_Vrfs_Vrf_Ipv4_Maximum_RegisterStates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM Sparse-Mode register states. The type is interface{}
     // with range: 0..75000. This attribute is mandatory.
@@ -597,10 +632,13 @@ func (registerStates *Pim_Vrfs_Vrf_Ipv4_Maximum_RegisterStates) GetEntityData() 
     registerStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registerStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    registerStates.EntityData.Children = make(map[string]types.YChild)
-    registerStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    registerStates.EntityData.Leafs["maximum-register-states"] = types.YLeaf{"MaximumRegisterStates", registerStates.MaximumRegisterStates}
-    registerStates.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", registerStates.WarningThreshold}
+    registerStates.EntityData.Children = types.NewOrderedMap()
+    registerStates.EntityData.Leafs = types.NewOrderedMap()
+    registerStates.EntityData.Leafs.Append("maximum-register-states", types.YLeaf{"MaximumRegisterStates", registerStates.MaximumRegisterStates})
+    registerStates.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", registerStates.WarningThreshold})
+
+    registerStates.EntityData.YListKeys = []string {}
+
     return &(registerStates.EntityData)
 }
 
@@ -611,6 +649,7 @@ func (registerStates *Pim_Vrfs_Vrf_Ipv4_Maximum_RegisterStates) GetEntityData() 
 type Pim_Vrfs_Vrf_Ipv4_Maximum_RouteInterfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM route-interfaces. The type is interface{} with range:
     // 1..1100000. This attribute is mandatory.
@@ -631,10 +670,13 @@ func (routeInterfaces *Pim_Vrfs_Vrf_Ipv4_Maximum_RouteInterfaces) GetEntityData(
     routeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeInterfaces.EntityData.Children = make(map[string]types.YChild)
-    routeInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeInterfaces.EntityData.Leafs["maximum-route-interfaces"] = types.YLeaf{"MaximumRouteInterfaces", routeInterfaces.MaximumRouteInterfaces}
-    routeInterfaces.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", routeInterfaces.WarningThreshold}
+    routeInterfaces.EntityData.Children = types.NewOrderedMap()
+    routeInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    routeInterfaces.EntityData.Leafs.Append("maximum-route-interfaces", types.YLeaf{"MaximumRouteInterfaces", routeInterfaces.MaximumRouteInterfaces})
+    routeInterfaces.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", routeInterfaces.WarningThreshold})
+
+    routeInterfaces.EntityData.YListKeys = []string {}
+
     return &(routeInterfaces.EntityData)
 }
 
@@ -645,6 +687,7 @@ func (routeInterfaces *Pim_Vrfs_Vrf_Ipv4_Maximum_RouteInterfaces) GetEntityData(
 type Pim_Vrfs_Vrf_Ipv4_Maximum_BsrCandidateRpCache struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of BSR C-RP cache setting. The type is interface{} with
     // range: 1..10000. This attribute is mandatory.
@@ -665,10 +708,13 @@ func (bsrCandidateRpCache *Pim_Vrfs_Vrf_Ipv4_Maximum_BsrCandidateRpCache) GetEnt
     bsrCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrCandidateRpCache.EntityData.Children = make(map[string]types.YChild)
-    bsrCandidateRpCache.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrCandidateRpCache.EntityData.Leafs["bsr-maximum-candidate-rp-cache"] = types.YLeaf{"BsrMaximumCandidateRpCache", bsrCandidateRpCache.BsrMaximumCandidateRpCache}
-    bsrCandidateRpCache.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrCandidateRpCache.WarningThreshold}
+    bsrCandidateRpCache.EntityData.Children = types.NewOrderedMap()
+    bsrCandidateRpCache.EntityData.Leafs = types.NewOrderedMap()
+    bsrCandidateRpCache.EntityData.Leafs.Append("bsr-maximum-candidate-rp-cache", types.YLeaf{"BsrMaximumCandidateRpCache", bsrCandidateRpCache.BsrMaximumCandidateRpCache})
+    bsrCandidateRpCache.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrCandidateRpCache.WarningThreshold})
+
+    bsrCandidateRpCache.EntityData.YListKeys = []string {}
+
     return &(bsrCandidateRpCache.EntityData)
 }
 
@@ -678,6 +724,7 @@ func (bsrCandidateRpCache *Pim_Vrfs_Vrf_Ipv4_Maximum_BsrCandidateRpCache) GetEnt
 type Pim_Vrfs_Vrf_Ipv4_Maximum_Routes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM routes. The type is interface{} with range:
     // 1..200000. This attribute is mandatory.
@@ -698,10 +745,13 @@ func (routes *Pim_Vrfs_Vrf_Ipv4_Maximum_Routes) GetEntityData() *types.CommonEnt
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
-    routes.EntityData.Leafs["maximum-routes"] = types.YLeaf{"MaximumRoutes", routes.MaximumRoutes}
-    routes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", routes.WarningThreshold}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Leafs = types.NewOrderedMap()
+    routes.EntityData.Leafs.Append("maximum-routes", types.YLeaf{"MaximumRoutes", routes.MaximumRoutes})
+    routes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", routes.WarningThreshold})
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -730,10 +780,13 @@ func (sgExpiryTimer *Pim_Vrfs_Vrf_Ipv4_SgExpiryTimer) GetEntityData() *types.Com
     sgExpiryTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sgExpiryTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sgExpiryTimer.EntityData.Children = make(map[string]types.YChild)
-    sgExpiryTimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    sgExpiryTimer.EntityData.Leafs["interval"] = types.YLeaf{"Interval", sgExpiryTimer.Interval}
-    sgExpiryTimer.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", sgExpiryTimer.AccessListName}
+    sgExpiryTimer.EntityData.Children = types.NewOrderedMap()
+    sgExpiryTimer.EntityData.Leafs = types.NewOrderedMap()
+    sgExpiryTimer.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", sgExpiryTimer.Interval})
+    sgExpiryTimer.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", sgExpiryTimer.AccessListName})
+
+    sgExpiryTimer.EntityData.YListKeys = []string {}
+
     return &(sgExpiryTimer.EntityData)
 }
 
@@ -743,6 +796,7 @@ func (sgExpiryTimer *Pim_Vrfs_Vrf_Ipv4_SgExpiryTimer) GetEntityData() *types.Com
 type Pim_Vrfs_Vrf_Ipv4_RpfVectorEnable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // RPF Vector is turned on if configured. The type is interface{}. This
     // attribute is mandatory.
@@ -765,11 +819,14 @@ func (rpfVectorEnable *Pim_Vrfs_Vrf_Ipv4_RpfVectorEnable) GetEntityData() *types
     rpfVectorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfVectorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpfVectorEnable.EntityData.Children = make(map[string]types.YChild)
-    rpfVectorEnable.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpfVectorEnable.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rpfVectorEnable.Enable}
-    rpfVectorEnable.EntityData.Leafs["allow-ebgp"] = types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp}
-    rpfVectorEnable.EntityData.Leafs["disable-ibgp"] = types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp}
+    rpfVectorEnable.EntityData.Children = types.NewOrderedMap()
+    rpfVectorEnable.EntityData.Leafs = types.NewOrderedMap()
+    rpfVectorEnable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpfVectorEnable.Enable})
+    rpfVectorEnable.EntityData.Leafs.Append("allow-ebgp", types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp})
+    rpfVectorEnable.EntityData.Leafs.Append("disable-ibgp", types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp})
+
+    rpfVectorEnable.EntityData.YListKeys = []string {}
+
     return &(rpfVectorEnable.EntityData)
 }
 
@@ -785,7 +842,7 @@ type Pim_Vrfs_Vrf_Ipv4_Ssm struct {
 
     // Access list of groups enabled with SSM. The type is string with length:
     // 1..64.
-    Range_ interface{}
+    Range interface{}
 }
 
 func (ssm *Pim_Vrfs_Vrf_Ipv4_Ssm) GetEntityData() *types.CommonEntityData {
@@ -798,10 +855,13 @@ func (ssm *Pim_Vrfs_Vrf_Ipv4_Ssm) GetEntityData() *types.CommonEntityData {
     ssm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssm.EntityData.Children = make(map[string]types.YChild)
-    ssm.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssm.EntityData.Leafs["disable"] = types.YLeaf{"Disable", ssm.Disable}
-    ssm.EntityData.Leafs["range"] = types.YLeaf{"Range_", ssm.Range_}
+    ssm.EntityData.Children = types.NewOrderedMap()
+    ssm.EntityData.Leafs = types.NewOrderedMap()
+    ssm.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", ssm.Disable})
+    ssm.EntityData.Leafs.Append("range", types.YLeaf{"Range", ssm.Range})
+
+    ssm.EntityData.YListKeys = []string {}
+
     return &(ssm.EntityData)
 }
 
@@ -813,7 +873,7 @@ type Pim_Vrfs_Vrf_Ipv4_Injects struct {
 
     // Inject Explicit PIM RPF Vector Proxy's. The type is slice of
     // Pim_Vrfs_Vrf_Ipv4_Injects_Inject.
-    Inject []Pim_Vrfs_Vrf_Ipv4_Injects_Inject
+    Inject []*Pim_Vrfs_Vrf_Ipv4_Injects_Inject
 }
 
 func (injects *Pim_Vrfs_Vrf_Ipv4_Injects) GetEntityData() *types.CommonEntityData {
@@ -826,12 +886,15 @@ func (injects *Pim_Vrfs_Vrf_Ipv4_Injects) GetEntityData() *types.CommonEntityDat
     injects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     injects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    injects.EntityData.Children = make(map[string]types.YChild)
-    injects.EntityData.Children["inject"] = types.YChild{"Inject", nil}
+    injects.EntityData.Children = types.NewOrderedMap()
+    injects.EntityData.Children.Append("inject", types.YChild{"Inject", nil})
     for i := range injects.Inject {
-        injects.EntityData.Children[types.GetSegmentPath(&injects.Inject[i])] = types.YChild{"Inject", &injects.Inject[i]}
+        injects.EntityData.Children.Append(types.GetSegmentPath(injects.Inject[i]), types.YChild{"Inject", injects.Inject[i]})
     }
-    injects.EntityData.Leafs = make(map[string]types.YLeaf)
+    injects.EntityData.Leafs = types.NewOrderedMap()
+
+    injects.EntityData.YListKeys = []string {}
+
     return &(injects.EntityData)
 }
 
@@ -842,7 +905,7 @@ type Pim_Vrfs_Vrf_Ipv4_Injects_Inject struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Masklen. The type is interface{} with range:
@@ -850,7 +913,7 @@ type Pim_Vrfs_Vrf_Ipv4_Injects_Inject struct {
     PrefixLength interface{}
 
     // RPF Proxy Address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RpfProxyAddress []interface{}
 }
 
@@ -859,16 +922,19 @@ func (inject *Pim_Vrfs_Vrf_Ipv4_Injects_Inject) GetEntityData() *types.CommonEnt
     inject.EntityData.YangName = "inject"
     inject.EntityData.BundleName = "cisco_ios_xr"
     inject.EntityData.ParentYangName = "injects"
-    inject.EntityData.SegmentPath = "inject" + "[source-address='" + fmt.Sprintf("%v", inject.SourceAddress) + "']" + "[prefix-length='" + fmt.Sprintf("%v", inject.PrefixLength) + "']"
+    inject.EntityData.SegmentPath = "inject" + types.AddKeyToken(inject.SourceAddress, "source-address") + types.AddKeyToken(inject.PrefixLength, "prefix-length")
     inject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inject.EntityData.Children = make(map[string]types.YChild)
-    inject.EntityData.Leafs = make(map[string]types.YLeaf)
-    inject.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", inject.SourceAddress}
-    inject.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", inject.PrefixLength}
-    inject.EntityData.Leafs["rpf-proxy-address"] = types.YLeaf{"RpfProxyAddress", inject.RpfProxyAddress}
+    inject.EntityData.Children = types.NewOrderedMap()
+    inject.EntityData.Leafs = types.NewOrderedMap()
+    inject.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", inject.SourceAddress})
+    inject.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", inject.PrefixLength})
+    inject.EntityData.Leafs.Append("rpf-proxy-address", types.YLeaf{"RpfProxyAddress", inject.RpfProxyAddress})
+
+    inject.EntityData.YListKeys = []string {"SourceAddress", "PrefixLength"}
+
     return &(inject.EntityData)
 }
 
@@ -880,7 +946,7 @@ type Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses struct {
 
     // Address of the Rendezvous Point. The type is slice of
     // Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses_BidirRpAddress.
-    BidirRpAddress []Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses_BidirRpAddress
+    BidirRpAddress []*Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses_BidirRpAddress
 }
 
 func (bidirRpAddresses *Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -893,12 +959,15 @@ func (bidirRpAddresses *Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses) GetEntityData() *typ
     bidirRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bidirRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    bidirRpAddresses.EntityData.Children["bidir-rp-address"] = types.YChild{"BidirRpAddress", nil}
+    bidirRpAddresses.EntityData.Children = types.NewOrderedMap()
+    bidirRpAddresses.EntityData.Children.Append("bidir-rp-address", types.YChild{"BidirRpAddress", nil})
     for i := range bidirRpAddresses.BidirRpAddress {
-        bidirRpAddresses.EntityData.Children[types.GetSegmentPath(&bidirRpAddresses.BidirRpAddress[i])] = types.YChild{"BidirRpAddress", &bidirRpAddresses.BidirRpAddress[i]}
+        bidirRpAddresses.EntityData.Children.Append(types.GetSegmentPath(bidirRpAddresses.BidirRpAddress[i]), types.YChild{"BidirRpAddress", bidirRpAddresses.BidirRpAddress[i]})
     }
-    bidirRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    bidirRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    bidirRpAddresses.EntityData.YListKeys = []string {}
+
     return &(bidirRpAddresses.EntityData)
 }
 
@@ -910,9 +979,9 @@ type Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses_BidirRpAddress struct {
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a given RP. The type is string
@@ -929,16 +998,19 @@ func (bidirRpAddress *Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses_BidirRpAddress) GetEnti
     bidirRpAddress.EntityData.YangName = "bidir-rp-address"
     bidirRpAddress.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddress.EntityData.ParentYangName = "bidir-rp-addresses"
-    bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + "[rp-address='" + fmt.Sprintf("%v", bidirRpAddress.RpAddress) + "']"
+    bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + types.AddKeyToken(bidirRpAddress.RpAddress, "rp-address")
     bidirRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bidirRpAddress.EntityData.Children = make(map[string]types.YChild)
-    bidirRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    bidirRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", bidirRpAddress.RpAddress}
-    bidirRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", bidirRpAddress.AccessListName}
-    bidirRpAddress.EntityData.Leafs["auto-rp-override"] = types.YLeaf{"AutoRpOverride", bidirRpAddress.AutoRpOverride}
+    bidirRpAddress.EntityData.Children = types.NewOrderedMap()
+    bidirRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    bidirRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", bidirRpAddress.RpAddress})
+    bidirRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", bidirRpAddress.AccessListName})
+    bidirRpAddress.EntityData.Leafs.Append("auto-rp-override", types.YLeaf{"AutoRpOverride", bidirRpAddress.AutoRpOverride})
+
+    bidirRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(bidirRpAddress.EntityData)
 }
 
@@ -965,10 +1037,13 @@ func (bsr *Pim_Vrfs_Vrf_Ipv4_Bsr) GetEntityData() *types.CommonEntityData {
     bsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsr.EntityData.Children = make(map[string]types.YChild)
-    bsr.EntityData.Children["candidate-bsr"] = types.YChild{"CandidateBsr", &bsr.CandidateBsr}
-    bsr.EntityData.Children["candidate-rps"] = types.YChild{"CandidateRps", &bsr.CandidateRps}
-    bsr.EntityData.Leafs = make(map[string]types.YLeaf)
+    bsr.EntityData.Children = types.NewOrderedMap()
+    bsr.EntityData.Children.Append("candidate-bsr", types.YChild{"CandidateBsr", &bsr.CandidateBsr})
+    bsr.EntityData.Children.Append("candidate-rps", types.YChild{"CandidateRps", &bsr.CandidateRps})
+    bsr.EntityData.Leafs = types.NewOrderedMap()
+
+    bsr.EntityData.YListKeys = []string {}
+
     return &(bsr.EntityData)
 }
 
@@ -978,12 +1053,13 @@ func (bsr *Pim_Vrfs_Vrf_Ipv4_Bsr) GetEntityData() *types.CommonEntityData {
 type Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateBsr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // BSR Address configured. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     Address interface{}
 
@@ -1006,11 +1082,14 @@ func (candidateBsr *Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateBsr) GetEntityData() *types.C
     candidateBsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateBsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateBsr.EntityData.Children = make(map[string]types.YChild)
-    candidateBsr.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateBsr.EntityData.Leafs["address"] = types.YLeaf{"Address", candidateBsr.Address}
-    candidateBsr.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", candidateBsr.PrefixLength}
-    candidateBsr.EntityData.Leafs["priority"] = types.YLeaf{"Priority", candidateBsr.Priority}
+    candidateBsr.EntityData.Children = types.NewOrderedMap()
+    candidateBsr.EntityData.Leafs = types.NewOrderedMap()
+    candidateBsr.EntityData.Leafs.Append("address", types.YLeaf{"Address", candidateBsr.Address})
+    candidateBsr.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", candidateBsr.PrefixLength})
+    candidateBsr.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", candidateBsr.Priority})
+
+    candidateBsr.EntityData.YListKeys = []string {}
+
     return &(candidateBsr.EntityData)
 }
 
@@ -1022,7 +1101,7 @@ type Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps struct {
 
     // Address of PIM SM BSR Candidate-RP. The type is slice of
     // Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps_CandidateRp.
-    CandidateRp []Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps_CandidateRp
+    CandidateRp []*Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps_CandidateRp
 }
 
 func (candidateRps *Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps) GetEntityData() *types.CommonEntityData {
@@ -1035,12 +1114,15 @@ func (candidateRps *Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps) GetEntityData() *types.C
     candidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRps.EntityData.Children = make(map[string]types.YChild)
-    candidateRps.EntityData.Children["candidate-rp"] = types.YChild{"CandidateRp", nil}
+    candidateRps.EntityData.Children = types.NewOrderedMap()
+    candidateRps.EntityData.Children.Append("candidate-rp", types.YChild{"CandidateRp", nil})
     for i := range candidateRps.CandidateRp {
-        candidateRps.EntityData.Children[types.GetSegmentPath(&candidateRps.CandidateRp[i])] = types.YChild{"CandidateRp", &candidateRps.CandidateRp[i]}
+        candidateRps.EntityData.Children.Append(types.GetSegmentPath(candidateRps.CandidateRp[i]), types.YChild{"CandidateRp", candidateRps.CandidateRp[i]})
     }
-    candidateRps.EntityData.Leafs = make(map[string]types.YLeaf)
+    candidateRps.EntityData.Leafs = types.NewOrderedMap()
+
+    candidateRps.EntityData.YListKeys = []string {}
+
     return &(candidateRps.EntityData)
 }
 
@@ -1052,9 +1134,9 @@ type Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps_CandidateRp struct {
 
     // This attribute is a key. Address of Candidate-RP. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. SM or Bidir. The type is PimProtocolMode.
@@ -1078,18 +1160,21 @@ func (candidateRp *Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps_CandidateRp) GetEntityData
     candidateRp.EntityData.YangName = "candidate-rp"
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "candidate-rps"
-    candidateRp.EntityData.SegmentPath = "candidate-rp" + "[address='" + fmt.Sprintf("%v", candidateRp.Address) + "']" + "[mode='" + fmt.Sprintf("%v", candidateRp.Mode) + "']"
+    candidateRp.EntityData.SegmentPath = "candidate-rp" + types.AddKeyToken(candidateRp.Address, "address") + types.AddKeyToken(candidateRp.Mode, "mode")
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRp.EntityData.Children = make(map[string]types.YChild)
-    candidateRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateRp.EntityData.Leafs["address"] = types.YLeaf{"Address", candidateRp.Address}
-    candidateRp.EntityData.Leafs["mode"] = types.YLeaf{"Mode", candidateRp.Mode}
-    candidateRp.EntityData.Leafs["group-list"] = types.YLeaf{"GroupList", candidateRp.GroupList}
-    candidateRp.EntityData.Leafs["priority"] = types.YLeaf{"Priority", candidateRp.Priority}
-    candidateRp.EntityData.Leafs["interval"] = types.YLeaf{"Interval", candidateRp.Interval}
+    candidateRp.EntityData.Children = types.NewOrderedMap()
+    candidateRp.EntityData.Leafs = types.NewOrderedMap()
+    candidateRp.EntityData.Leafs.Append("address", types.YLeaf{"Address", candidateRp.Address})
+    candidateRp.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", candidateRp.Mode})
+    candidateRp.EntityData.Leafs.Append("group-list", types.YLeaf{"GroupList", candidateRp.GroupList})
+    candidateRp.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", candidateRp.Priority})
+    candidateRp.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", candidateRp.Interval})
+
+    candidateRp.EntityData.YListKeys = []string {"Address", "Mode"}
+
     return &(candidateRp.EntityData)
 }
 
@@ -1130,14 +1215,17 @@ func (mofrr *Pim_Vrfs_Vrf_Ipv4_Mofrr) GetEntityData() *types.CommonEntityData {
     mofrr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mofrr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mofrr.EntityData.Children = make(map[string]types.YChild)
-    mofrr.EntityData.Children["clone-joins"] = types.YChild{"CloneJoins", &mofrr.CloneJoins}
-    mofrr.EntityData.Children["clone-sources"] = types.YChild{"CloneSources", &mofrr.CloneSources}
-    mofrr.EntityData.Leafs = make(map[string]types.YLeaf)
-    mofrr.EntityData.Leafs["rib"] = types.YLeaf{"Rib", mofrr.Rib}
-    mofrr.EntityData.Leafs["non-revertive"] = types.YLeaf{"NonRevertive", mofrr.NonRevertive}
-    mofrr.EntityData.Leafs["enable"] = types.YLeaf{"Enable", mofrr.Enable}
-    mofrr.EntityData.Leafs["flow"] = types.YLeaf{"Flow", mofrr.Flow}
+    mofrr.EntityData.Children = types.NewOrderedMap()
+    mofrr.EntityData.Children.Append("clone-joins", types.YChild{"CloneJoins", &mofrr.CloneJoins})
+    mofrr.EntityData.Children.Append("clone-sources", types.YChild{"CloneSources", &mofrr.CloneSources})
+    mofrr.EntityData.Leafs = types.NewOrderedMap()
+    mofrr.EntityData.Leafs.Append("rib", types.YLeaf{"Rib", mofrr.Rib})
+    mofrr.EntityData.Leafs.Append("non-revertive", types.YLeaf{"NonRevertive", mofrr.NonRevertive})
+    mofrr.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", mofrr.Enable})
+    mofrr.EntityData.Leafs.Append("flow", types.YLeaf{"Flow", mofrr.Flow})
+
+    mofrr.EntityData.YListKeys = []string {}
+
     return &(mofrr.EntityData)
 }
 
@@ -1149,7 +1237,7 @@ type Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins struct {
 
     // Clone S,G joins as S1,G joins and S2,G joins. The type is slice of
     // Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins_CloneJoin.
-    CloneJoin []Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins_CloneJoin
+    CloneJoin []*Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins_CloneJoin
 }
 
 func (cloneJoins *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins) GetEntityData() *types.CommonEntityData {
@@ -1162,12 +1250,15 @@ func (cloneJoins *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins) GetEntityData() *types.Com
     cloneJoins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneJoins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cloneJoins.EntityData.Children = make(map[string]types.YChild)
-    cloneJoins.EntityData.Children["clone-join"] = types.YChild{"CloneJoin", nil}
+    cloneJoins.EntityData.Children = types.NewOrderedMap()
+    cloneJoins.EntityData.Children.Append("clone-join", types.YChild{"CloneJoin", nil})
     for i := range cloneJoins.CloneJoin {
-        cloneJoins.EntityData.Children[types.GetSegmentPath(&cloneJoins.CloneJoin[i])] = types.YChild{"CloneJoin", &cloneJoins.CloneJoin[i]}
+        cloneJoins.EntityData.Children.Append(types.GetSegmentPath(cloneJoins.CloneJoin[i]), types.YChild{"CloneJoin", cloneJoins.CloneJoin[i]})
     }
-    cloneJoins.EntityData.Leafs = make(map[string]types.YLeaf)
+    cloneJoins.EntityData.Leafs = types.NewOrderedMap()
+
+    cloneJoins.EntityData.YListKeys = []string {}
+
     return &(cloneJoins.EntityData)
 }
 
@@ -1179,17 +1270,17 @@ type Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins_CloneJoin struct {
 
     // This attribute is a key. Original source address (S). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // This attribute is a key. Primary cloned address (S1). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Primary interface{}
 
     // This attribute is a key. Backup cloned address (S2). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Backup interface{}
 
     // This attribute is a key. Mask length. The type is interface{} with range:
@@ -1202,17 +1293,20 @@ func (cloneJoin *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins_CloneJoin) GetEntityData() *
     cloneJoin.EntityData.YangName = "clone-join"
     cloneJoin.EntityData.BundleName = "cisco_ios_xr"
     cloneJoin.EntityData.ParentYangName = "clone-joins"
-    cloneJoin.EntityData.SegmentPath = "clone-join" + "[source='" + fmt.Sprintf("%v", cloneJoin.Source) + "']" + "[primary='" + fmt.Sprintf("%v", cloneJoin.Primary) + "']" + "[backup='" + fmt.Sprintf("%v", cloneJoin.Backup) + "']" + "[prefix-length='" + fmt.Sprintf("%v", cloneJoin.PrefixLength) + "']"
+    cloneJoin.EntityData.SegmentPath = "clone-join" + types.AddKeyToken(cloneJoin.Source, "source") + types.AddKeyToken(cloneJoin.Primary, "primary") + types.AddKeyToken(cloneJoin.Backup, "backup") + types.AddKeyToken(cloneJoin.PrefixLength, "prefix-length")
     cloneJoin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneJoin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneJoin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cloneJoin.EntityData.Children = make(map[string]types.YChild)
-    cloneJoin.EntityData.Leafs = make(map[string]types.YLeaf)
-    cloneJoin.EntityData.Leafs["source"] = types.YLeaf{"Source", cloneJoin.Source}
-    cloneJoin.EntityData.Leafs["primary"] = types.YLeaf{"Primary", cloneJoin.Primary}
-    cloneJoin.EntityData.Leafs["backup"] = types.YLeaf{"Backup", cloneJoin.Backup}
-    cloneJoin.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", cloneJoin.PrefixLength}
+    cloneJoin.EntityData.Children = types.NewOrderedMap()
+    cloneJoin.EntityData.Leafs = types.NewOrderedMap()
+    cloneJoin.EntityData.Leafs.Append("source", types.YLeaf{"Source", cloneJoin.Source})
+    cloneJoin.EntityData.Leafs.Append("primary", types.YLeaf{"Primary", cloneJoin.Primary})
+    cloneJoin.EntityData.Leafs.Append("backup", types.YLeaf{"Backup", cloneJoin.Backup})
+    cloneJoin.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", cloneJoin.PrefixLength})
+
+    cloneJoin.EntityData.YListKeys = []string {"Source", "Primary", "Backup", "PrefixLength"}
+
     return &(cloneJoin.EntityData)
 }
 
@@ -1224,7 +1318,7 @@ type Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources struct {
 
     // Clone S,G traffic as S1,G traffic and S2,G traffic. The type is slice of
     // Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources_CloneSource.
-    CloneSource []Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources_CloneSource
+    CloneSource []*Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources_CloneSource
 }
 
 func (cloneSources *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources) GetEntityData() *types.CommonEntityData {
@@ -1237,12 +1331,15 @@ func (cloneSources *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources) GetEntityData() *types
     cloneSources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneSources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cloneSources.EntityData.Children = make(map[string]types.YChild)
-    cloneSources.EntityData.Children["clone-source"] = types.YChild{"CloneSource", nil}
+    cloneSources.EntityData.Children = types.NewOrderedMap()
+    cloneSources.EntityData.Children.Append("clone-source", types.YChild{"CloneSource", nil})
     for i := range cloneSources.CloneSource {
-        cloneSources.EntityData.Children[types.GetSegmentPath(&cloneSources.CloneSource[i])] = types.YChild{"CloneSource", &cloneSources.CloneSource[i]}
+        cloneSources.EntityData.Children.Append(types.GetSegmentPath(cloneSources.CloneSource[i]), types.YChild{"CloneSource", cloneSources.CloneSource[i]})
     }
-    cloneSources.EntityData.Leafs = make(map[string]types.YLeaf)
+    cloneSources.EntityData.Leafs = types.NewOrderedMap()
+
+    cloneSources.EntityData.YListKeys = []string {}
+
     return &(cloneSources.EntityData)
 }
 
@@ -1255,17 +1352,17 @@ type Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources_CloneSource struct {
 
     // This attribute is a key. Original source address (S). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // This attribute is a key. Primary cloned address (S1). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Primary interface{}
 
     // This attribute is a key. Backup cloned address (S2). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Backup interface{}
 
     // This attribute is a key. Mask length. The type is interface{} with range:
@@ -1278,17 +1375,20 @@ func (cloneSource *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources_CloneSource) GetEntityDa
     cloneSource.EntityData.YangName = "clone-source"
     cloneSource.EntityData.BundleName = "cisco_ios_xr"
     cloneSource.EntityData.ParentYangName = "clone-sources"
-    cloneSource.EntityData.SegmentPath = "clone-source" + "[source='" + fmt.Sprintf("%v", cloneSource.Source) + "']" + "[primary='" + fmt.Sprintf("%v", cloneSource.Primary) + "']" + "[backup='" + fmt.Sprintf("%v", cloneSource.Backup) + "']" + "[prefix-length='" + fmt.Sprintf("%v", cloneSource.PrefixLength) + "']"
+    cloneSource.EntityData.SegmentPath = "clone-source" + types.AddKeyToken(cloneSource.Source, "source") + types.AddKeyToken(cloneSource.Primary, "primary") + types.AddKeyToken(cloneSource.Backup, "backup") + types.AddKeyToken(cloneSource.PrefixLength, "prefix-length")
     cloneSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cloneSource.EntityData.Children = make(map[string]types.YChild)
-    cloneSource.EntityData.Leafs = make(map[string]types.YLeaf)
-    cloneSource.EntityData.Leafs["source"] = types.YLeaf{"Source", cloneSource.Source}
-    cloneSource.EntityData.Leafs["primary"] = types.YLeaf{"Primary", cloneSource.Primary}
-    cloneSource.EntityData.Leafs["backup"] = types.YLeaf{"Backup", cloneSource.Backup}
-    cloneSource.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", cloneSource.PrefixLength}
+    cloneSource.EntityData.Children = types.NewOrderedMap()
+    cloneSource.EntityData.Leafs = types.NewOrderedMap()
+    cloneSource.EntityData.Leafs.Append("source", types.YLeaf{"Source", cloneSource.Source})
+    cloneSource.EntityData.Leafs.Append("primary", types.YLeaf{"Primary", cloneSource.Primary})
+    cloneSource.EntityData.Leafs.Append("backup", types.YLeaf{"Backup", cloneSource.Backup})
+    cloneSource.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", cloneSource.PrefixLength})
+
+    cloneSource.EntityData.YListKeys = []string {"Source", "Primary", "Backup", "PrefixLength"}
+
     return &(cloneSource.EntityData)
 }
 
@@ -1300,7 +1400,7 @@ type Pim_Vrfs_Vrf_Ipv4_Paths struct {
 
     // Inject PIM RPF Vector Proxy's. The type is slice of
     // Pim_Vrfs_Vrf_Ipv4_Paths_Path.
-    Path []Pim_Vrfs_Vrf_Ipv4_Paths_Path
+    Path []*Pim_Vrfs_Vrf_Ipv4_Paths_Path
 }
 
 func (paths *Pim_Vrfs_Vrf_Ipv4_Paths) GetEntityData() *types.CommonEntityData {
@@ -1313,12 +1413,15 @@ func (paths *Pim_Vrfs_Vrf_Ipv4_Paths) GetEntityData() *types.CommonEntityData {
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    paths.EntityData.Children = make(map[string]types.YChild)
-    paths.EntityData.Children["path"] = types.YChild{"Path", nil}
+    paths.EntityData.Children = types.NewOrderedMap()
+    paths.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range paths.Path {
-        paths.EntityData.Children[types.GetSegmentPath(&paths.Path[i])] = types.YChild{"Path", &paths.Path[i]}
+        paths.EntityData.Children.Append(types.GetSegmentPath(paths.Path[i]), types.YChild{"Path", paths.Path[i]})
     }
-    paths.EntityData.Leafs = make(map[string]types.YLeaf)
+    paths.EntityData.Leafs = types.NewOrderedMap()
+
+    paths.EntityData.YListKeys = []string {}
+
     return &(paths.EntityData)
 }
 
@@ -1329,7 +1432,7 @@ type Pim_Vrfs_Vrf_Ipv4_Paths_Path struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Masklen. The type is interface{} with range:
@@ -1337,7 +1440,7 @@ type Pim_Vrfs_Vrf_Ipv4_Paths_Path struct {
     PrefixLength interface{}
 
     // RPF Proxy Address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RpfProxyAddress []interface{}
 }
 
@@ -1346,16 +1449,19 @@ func (path *Pim_Vrfs_Vrf_Ipv4_Paths_Path) GetEntityData() *types.CommonEntityDat
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
-    path.EntityData.SegmentPath = "path" + "[source-address='" + fmt.Sprintf("%v", path.SourceAddress) + "']" + "[prefix-length='" + fmt.Sprintf("%v", path.PrefixLength) + "']"
+    path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.SourceAddress, "source-address") + types.AddKeyToken(path.PrefixLength, "prefix-length")
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    path.EntityData.Children = make(map[string]types.YChild)
-    path.EntityData.Leafs = make(map[string]types.YLeaf)
-    path.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", path.SourceAddress}
-    path.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", path.PrefixLength}
-    path.EntityData.Leafs["rpf-proxy-address"] = types.YLeaf{"RpfProxyAddress", path.RpfProxyAddress}
+    path.EntityData.Children = types.NewOrderedMap()
+    path.EntityData.Leafs = types.NewOrderedMap()
+    path.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", path.SourceAddress})
+    path.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", path.PrefixLength})
+    path.EntityData.Leafs.Append("rpf-proxy-address", types.YLeaf{"RpfProxyAddress", path.RpfProxyAddress})
+
+    path.EntityData.YListKeys = []string {"SourceAddress", "PrefixLength"}
+
     return &(path.EntityData)
 }
 
@@ -1365,6 +1471,7 @@ func (path *Pim_Vrfs_Vrf_Ipv4_Paths_Path) GetEntityData() *types.CommonEntityDat
 type Pim_Vrfs_Vrf_Ipv4_AllowRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Access-list specifiying applicable RPs. The type is string with length:
     // 1..64.
@@ -1385,10 +1492,13 @@ func (allowRp *Pim_Vrfs_Vrf_Ipv4_AllowRp) GetEntityData() *types.CommonEntityDat
     allowRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allowRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allowRp.EntityData.Children = make(map[string]types.YChild)
-    allowRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    allowRp.EntityData.Leafs["rp-list-name"] = types.YLeaf{"RpListName", allowRp.RpListName}
-    allowRp.EntityData.Leafs["group-list-name"] = types.YLeaf{"GroupListName", allowRp.GroupListName}
+    allowRp.EntityData.Children = types.NewOrderedMap()
+    allowRp.EntityData.Leafs = types.NewOrderedMap()
+    allowRp.EntityData.Leafs.Append("rp-list-name", types.YLeaf{"RpListName", allowRp.RpListName})
+    allowRp.EntityData.Leafs.Append("group-list-name", types.YLeaf{"GroupListName", allowRp.GroupListName})
+
+    allowRp.EntityData.YListKeys = []string {}
+
     return &(allowRp.EntityData)
 }
 
@@ -1417,10 +1527,13 @@ func (convergence *Pim_Vrfs_Vrf_Ipv4_Convergence) GetEntityData() *types.CommonE
     convergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    convergence.EntityData.Children = make(map[string]types.YChild)
-    convergence.EntityData.Leafs = make(map[string]types.YLeaf)
-    convergence.EntityData.Leafs["rpf-conflict-join-delay"] = types.YLeaf{"RpfConflictJoinDelay", convergence.RpfConflictJoinDelay}
-    convergence.EntityData.Leafs["link-down-prune-delay"] = types.YLeaf{"LinkDownPruneDelay", convergence.LinkDownPruneDelay}
+    convergence.EntityData.Children = types.NewOrderedMap()
+    convergence.EntityData.Leafs = types.NewOrderedMap()
+    convergence.EntityData.Leafs.Append("rpf-conflict-join-delay", types.YLeaf{"RpfConflictJoinDelay", convergence.RpfConflictJoinDelay})
+    convergence.EntityData.Leafs.Append("link-down-prune-delay", types.YLeaf{"LinkDownPruneDelay", convergence.LinkDownPruneDelay})
+
+    convergence.EntityData.YListKeys = []string {}
+
     return &(convergence.EntityData)
 }
 
@@ -1431,8 +1544,8 @@ type Pim_Vrfs_Vrf_Ipv4_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface_.
-    Interface_ []Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface
+    // Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface.
+    Interface []*Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface
 }
 
 func (interfaces *Pim_Vrfs_Vrf_Ipv4_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -1445,12 +1558,15 @@ func (interfaces *Pim_Vrfs_Vrf_Ipv4_Interfaces) GetEntityData() *types.CommonEnt
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -1461,7 +1577,7 @@ type Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Enter PIM Interface processing. The type is interface{}.
@@ -1513,26 +1629,29 @@ func (self *Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface) GetEntityData() *types.Commo
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["maximum-routes"] = types.YChild{"MaximumRoutes", &self.MaximumRoutes}
-    self.EntityData.Children["bfd"] = types.YChild{"Bfd", &self.Bfd}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
-    self.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", self.NeighborFilter}
-    self.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", self.HelloInterval}
-    self.EntityData.Leafs["bsr-border"] = types.YLeaf{"BsrBorder", self.BsrBorder}
-    self.EntityData.Leafs["propagation-delay"] = types.YLeaf{"PropagationDelay", self.PropagationDelay}
-    self.EntityData.Leafs["dr-priority"] = types.YLeaf{"DrPriority", self.DrPriority}
-    self.EntityData.Leafs["join-prune-mtu"] = types.YLeaf{"JoinPruneMtu", self.JoinPruneMtu}
-    self.EntityData.Leafs["interface-enable"] = types.YLeaf{"InterfaceEnable", self.InterfaceEnable}
-    self.EntityData.Leafs["jp-interval"] = types.YLeaf{"JpInterval", self.JpInterval}
-    self.EntityData.Leafs["override-interval"] = types.YLeaf{"OverrideInterval", self.OverrideInterval}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("maximum-routes", types.YChild{"MaximumRoutes", &self.MaximumRoutes})
+    self.EntityData.Children.Append("bfd", types.YChild{"Bfd", &self.Bfd})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
+    self.EntityData.Leafs.Append("neighbor-filter", types.YLeaf{"NeighborFilter", self.NeighborFilter})
+    self.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", self.HelloInterval})
+    self.EntityData.Leafs.Append("bsr-border", types.YLeaf{"BsrBorder", self.BsrBorder})
+    self.EntityData.Leafs.Append("propagation-delay", types.YLeaf{"PropagationDelay", self.PropagationDelay})
+    self.EntityData.Leafs.Append("dr-priority", types.YLeaf{"DrPriority", self.DrPriority})
+    self.EntityData.Leafs.Append("join-prune-mtu", types.YLeaf{"JoinPruneMtu", self.JoinPruneMtu})
+    self.EntityData.Leafs.Append("interface-enable", types.YLeaf{"InterfaceEnable", self.InterfaceEnable})
+    self.EntityData.Leafs.Append("jp-interval", types.YLeaf{"JpInterval", self.JpInterval})
+    self.EntityData.Leafs.Append("override-interval", types.YLeaf{"OverrideInterval", self.OverrideInterval})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1543,6 +1662,7 @@ func (self *Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface) GetEntityData() *types.Commo
 type Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface_MaximumRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of routes for this interface. The type is interface{} with
     // range: 1..1100000. This attribute is mandatory.
@@ -1566,11 +1686,14 @@ func (maximumRoutes *Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface_MaximumRoutes) GetEn
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumRoutes.EntityData.Children = make(map[string]types.YChild)
-    maximumRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumRoutes.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", maximumRoutes.Maximum}
-    maximumRoutes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumRoutes.WarningThreshold}
-    maximumRoutes.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumRoutes.AccessListName}
+    maximumRoutes.EntityData.Children = types.NewOrderedMap()
+    maximumRoutes.EntityData.Leafs = types.NewOrderedMap()
+    maximumRoutes.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", maximumRoutes.Maximum})
+    maximumRoutes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumRoutes.WarningThreshold})
+    maximumRoutes.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumRoutes.AccessListName})
+
+    maximumRoutes.EntityData.YListKeys = []string {}
+
     return &(maximumRoutes.EntityData)
 }
 
@@ -1603,11 +1726,14 @@ func (bfd *Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface_Bfd) GetEntityData() *types.Co
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier}
-    bfd.EntityData.Leafs["interval"] = types.YLeaf{"Interval", bfd.Interval}
-    bfd.EntityData.Leafs["enable"] = types.YLeaf{"Enable", bfd.Enable}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier})
+    bfd.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", bfd.Interval})
+    bfd.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bfd.Enable})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -1638,7 +1764,7 @@ type Pim_Vrfs_Vrf_Ipv6 struct {
     LogNeighborChanges interface{}
 
     // Source address to use for register messages. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     RegisterSource interface{}
 
     // Access-list which specifies unauthorized sources. The type is string with
@@ -1719,35 +1845,38 @@ func (ipv6 *Pim_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["sparse-mode-rp-addresses"] = types.YChild{"SparseModeRpAddresses", &ipv6.SparseModeRpAddresses}
-    ipv6.EntityData.Children["inheritable-defaults"] = types.YChild{"InheritableDefaults", &ipv6.InheritableDefaults}
-    ipv6.EntityData.Children["rpf"] = types.YChild{"Rpf", &ipv6.Rpf}
-    ipv6.EntityData.Children["maximum"] = types.YChild{"Maximum", &ipv6.Maximum}
-    ipv6.EntityData.Children["sg-expiry-timer"] = types.YChild{"SgExpiryTimer", &ipv6.SgExpiryTimer}
-    ipv6.EntityData.Children["rpf-vector-enable"] = types.YChild{"RpfVectorEnable", &ipv6.RpfVectorEnable}
-    ipv6.EntityData.Children["ssm"] = types.YChild{"Ssm", &ipv6.Ssm}
-    ipv6.EntityData.Children["bidir-rp-addresses"] = types.YChild{"BidirRpAddresses", &ipv6.BidirRpAddresses}
-    ipv6.EntityData.Children["bsr"] = types.YChild{"Bsr", &ipv6.Bsr}
-    ipv6.EntityData.Children["allow-rp"] = types.YChild{"AllowRp", &ipv6.AllowRp}
-    ipv6.EntityData.Children["embedded-rp-addresses"] = types.YChild{"EmbeddedRpAddresses", &ipv6.EmbeddedRpAddresses}
-    ipv6.EntityData.Children["convergence"] = types.YChild{"Convergence", &ipv6.Convergence}
-    ipv6.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv6.Interfaces}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["neighbor-check-on-receive"] = types.YLeaf{"NeighborCheckOnReceive", ipv6.NeighborCheckOnReceive}
-    ipv6.EntityData.Leafs["old-register-checksum"] = types.YLeaf{"OldRegisterChecksum", ipv6.OldRegisterChecksum}
-    ipv6.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", ipv6.NeighborFilter}
-    ipv6.EntityData.Leafs["spt-threshold-infinity"] = types.YLeaf{"SptThresholdInfinity", ipv6.SptThresholdInfinity}
-    ipv6.EntityData.Leafs["log-neighbor-changes"] = types.YLeaf{"LogNeighborChanges", ipv6.LogNeighborChanges}
-    ipv6.EntityData.Leafs["register-source"] = types.YLeaf{"RegisterSource", ipv6.RegisterSource}
-    ipv6.EntityData.Leafs["accept-register"] = types.YLeaf{"AcceptRegister", ipv6.AcceptRegister}
-    ipv6.EntityData.Leafs["embedded-rp-disable"] = types.YLeaf{"EmbeddedRpDisable", ipv6.EmbeddedRpDisable}
-    ipv6.EntityData.Leafs["suppress-rpf-prunes"] = types.YLeaf{"SuppressRpfPrunes", ipv6.SuppressRpfPrunes}
-    ipv6.EntityData.Leafs["ssm-allow-override"] = types.YLeaf{"SsmAllowOverride", ipv6.SsmAllowOverride}
-    ipv6.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", ipv6.Multipath}
-    ipv6.EntityData.Leafs["rp-static-deny"] = types.YLeaf{"RpStaticDeny", ipv6.RpStaticDeny}
-    ipv6.EntityData.Leafs["suppress-data-registers"] = types.YLeaf{"SuppressDataRegisters", ipv6.SuppressDataRegisters}
-    ipv6.EntityData.Leafs["neighbor-check-on-send"] = types.YLeaf{"NeighborCheckOnSend", ipv6.NeighborCheckOnSend}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("sparse-mode-rp-addresses", types.YChild{"SparseModeRpAddresses", &ipv6.SparseModeRpAddresses})
+    ipv6.EntityData.Children.Append("inheritable-defaults", types.YChild{"InheritableDefaults", &ipv6.InheritableDefaults})
+    ipv6.EntityData.Children.Append("rpf", types.YChild{"Rpf", &ipv6.Rpf})
+    ipv6.EntityData.Children.Append("maximum", types.YChild{"Maximum", &ipv6.Maximum})
+    ipv6.EntityData.Children.Append("sg-expiry-timer", types.YChild{"SgExpiryTimer", &ipv6.SgExpiryTimer})
+    ipv6.EntityData.Children.Append("rpf-vector-enable", types.YChild{"RpfVectorEnable", &ipv6.RpfVectorEnable})
+    ipv6.EntityData.Children.Append("ssm", types.YChild{"Ssm", &ipv6.Ssm})
+    ipv6.EntityData.Children.Append("bidir-rp-addresses", types.YChild{"BidirRpAddresses", &ipv6.BidirRpAddresses})
+    ipv6.EntityData.Children.Append("bsr", types.YChild{"Bsr", &ipv6.Bsr})
+    ipv6.EntityData.Children.Append("allow-rp", types.YChild{"AllowRp", &ipv6.AllowRp})
+    ipv6.EntityData.Children.Append("embedded-rp-addresses", types.YChild{"EmbeddedRpAddresses", &ipv6.EmbeddedRpAddresses})
+    ipv6.EntityData.Children.Append("convergence", types.YChild{"Convergence", &ipv6.Convergence})
+    ipv6.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv6.Interfaces})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("neighbor-check-on-receive", types.YLeaf{"NeighborCheckOnReceive", ipv6.NeighborCheckOnReceive})
+    ipv6.EntityData.Leafs.Append("old-register-checksum", types.YLeaf{"OldRegisterChecksum", ipv6.OldRegisterChecksum})
+    ipv6.EntityData.Leafs.Append("neighbor-filter", types.YLeaf{"NeighborFilter", ipv6.NeighborFilter})
+    ipv6.EntityData.Leafs.Append("spt-threshold-infinity", types.YLeaf{"SptThresholdInfinity", ipv6.SptThresholdInfinity})
+    ipv6.EntityData.Leafs.Append("log-neighbor-changes", types.YLeaf{"LogNeighborChanges", ipv6.LogNeighborChanges})
+    ipv6.EntityData.Leafs.Append("register-source", types.YLeaf{"RegisterSource", ipv6.RegisterSource})
+    ipv6.EntityData.Leafs.Append("accept-register", types.YLeaf{"AcceptRegister", ipv6.AcceptRegister})
+    ipv6.EntityData.Leafs.Append("embedded-rp-disable", types.YLeaf{"EmbeddedRpDisable", ipv6.EmbeddedRpDisable})
+    ipv6.EntityData.Leafs.Append("suppress-rpf-prunes", types.YLeaf{"SuppressRpfPrunes", ipv6.SuppressRpfPrunes})
+    ipv6.EntityData.Leafs.Append("ssm-allow-override", types.YLeaf{"SsmAllowOverride", ipv6.SsmAllowOverride})
+    ipv6.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", ipv6.Multipath})
+    ipv6.EntityData.Leafs.Append("rp-static-deny", types.YLeaf{"RpStaticDeny", ipv6.RpStaticDeny})
+    ipv6.EntityData.Leafs.Append("suppress-data-registers", types.YLeaf{"SuppressDataRegisters", ipv6.SuppressDataRegisters})
+    ipv6.EntityData.Leafs.Append("neighbor-check-on-send", types.YLeaf{"NeighborCheckOnSend", ipv6.NeighborCheckOnSend})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -1759,7 +1888,7 @@ type Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses struct {
 
     // Address of the Rendezvous Point. The type is slice of
     // Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpAddress.
-    SparseModeRpAddress []Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpAddress
+    SparseModeRpAddress []*Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpAddress
 }
 
 func (sparseModeRpAddresses *Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -1772,12 +1901,15 @@ func (sparseModeRpAddresses *Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses) GetEntityD
     sparseModeRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sparseModeRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    sparseModeRpAddresses.EntityData.Children["sparse-mode-rp-address"] = types.YChild{"SparseModeRpAddress", nil}
+    sparseModeRpAddresses.EntityData.Children = types.NewOrderedMap()
+    sparseModeRpAddresses.EntityData.Children.Append("sparse-mode-rp-address", types.YChild{"SparseModeRpAddress", nil})
     for i := range sparseModeRpAddresses.SparseModeRpAddress {
-        sparseModeRpAddresses.EntityData.Children[types.GetSegmentPath(&sparseModeRpAddresses.SparseModeRpAddress[i])] = types.YChild{"SparseModeRpAddress", &sparseModeRpAddresses.SparseModeRpAddress[i]}
+        sparseModeRpAddresses.EntityData.Children.Append(types.GetSegmentPath(sparseModeRpAddresses.SparseModeRpAddress[i]), types.YChild{"SparseModeRpAddress", sparseModeRpAddresses.SparseModeRpAddress[i]})
     }
-    sparseModeRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    sparseModeRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    sparseModeRpAddresses.EntityData.YListKeys = []string {}
+
     return &(sparseModeRpAddresses.EntityData)
 }
 
@@ -1789,9 +1921,9 @@ type Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpAddress struct {
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a  given RP. The type is string
@@ -1808,16 +1940,19 @@ func (sparseModeRpAddress *Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpA
     sparseModeRpAddress.EntityData.YangName = "sparse-mode-rp-address"
     sparseModeRpAddress.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddress.EntityData.ParentYangName = "sparse-mode-rp-addresses"
-    sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + "[rp-address='" + fmt.Sprintf("%v", sparseModeRpAddress.RpAddress) + "']"
+    sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + types.AddKeyToken(sparseModeRpAddress.RpAddress, "rp-address")
     sparseModeRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sparseModeRpAddress.EntityData.Children = make(map[string]types.YChild)
-    sparseModeRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sparseModeRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", sparseModeRpAddress.RpAddress}
-    sparseModeRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", sparseModeRpAddress.AccessListName}
-    sparseModeRpAddress.EntityData.Leafs["auto-rp-override"] = types.YLeaf{"AutoRpOverride", sparseModeRpAddress.AutoRpOverride}
+    sparseModeRpAddress.EntityData.Children = types.NewOrderedMap()
+    sparseModeRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    sparseModeRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", sparseModeRpAddress.RpAddress})
+    sparseModeRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", sparseModeRpAddress.AccessListName})
+    sparseModeRpAddress.EntityData.Leafs.Append("auto-rp-override", types.YLeaf{"AutoRpOverride", sparseModeRpAddress.AutoRpOverride})
+
+    sparseModeRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(sparseModeRpAddress.EntityData)
 }
 
@@ -1866,15 +2001,18 @@ func (inheritableDefaults *Pim_Vrfs_Vrf_Ipv6_InheritableDefaults) GetEntityData(
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inheritableDefaults.EntityData.Children = make(map[string]types.YChild)
-    inheritableDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    inheritableDefaults.EntityData.Leafs["convergence-timeout"] = types.YLeaf{"ConvergenceTimeout", inheritableDefaults.ConvergenceTimeout}
-    inheritableDefaults.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", inheritableDefaults.HelloInterval}
-    inheritableDefaults.EntityData.Leafs["propagation-delay"] = types.YLeaf{"PropagationDelay", inheritableDefaults.PropagationDelay}
-    inheritableDefaults.EntityData.Leafs["dr-priority"] = types.YLeaf{"DrPriority", inheritableDefaults.DrPriority}
-    inheritableDefaults.EntityData.Leafs["join-prune-mtu"] = types.YLeaf{"JoinPruneMtu", inheritableDefaults.JoinPruneMtu}
-    inheritableDefaults.EntityData.Leafs["jp-interval"] = types.YLeaf{"JpInterval", inheritableDefaults.JpInterval}
-    inheritableDefaults.EntityData.Leafs["override-interval"] = types.YLeaf{"OverrideInterval", inheritableDefaults.OverrideInterval}
+    inheritableDefaults.EntityData.Children = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs.Append("convergence-timeout", types.YLeaf{"ConvergenceTimeout", inheritableDefaults.ConvergenceTimeout})
+    inheritableDefaults.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", inheritableDefaults.HelloInterval})
+    inheritableDefaults.EntityData.Leafs.Append("propagation-delay", types.YLeaf{"PropagationDelay", inheritableDefaults.PropagationDelay})
+    inheritableDefaults.EntityData.Leafs.Append("dr-priority", types.YLeaf{"DrPriority", inheritableDefaults.DrPriority})
+    inheritableDefaults.EntityData.Leafs.Append("join-prune-mtu", types.YLeaf{"JoinPruneMtu", inheritableDefaults.JoinPruneMtu})
+    inheritableDefaults.EntityData.Leafs.Append("jp-interval", types.YLeaf{"JpInterval", inheritableDefaults.JpInterval})
+    inheritableDefaults.EntityData.Leafs.Append("override-interval", types.YLeaf{"OverrideInterval", inheritableDefaults.OverrideInterval})
+
+    inheritableDefaults.EntityData.YListKeys = []string {}
+
     return &(inheritableDefaults.EntityData)
 }
 
@@ -1898,9 +2036,12 @@ func (rpf *Pim_Vrfs_Vrf_Ipv6_Rpf) GetEntityData() *types.CommonEntityData {
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpf.EntityData.Children = make(map[string]types.YChild)
-    rpf.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpf.EntityData.Leafs["route-policy"] = types.YLeaf{"RoutePolicy", rpf.RoutePolicy}
+    rpf.EntityData.Children = types.NewOrderedMap()
+    rpf.EntityData.Leafs = types.NewOrderedMap()
+    rpf.EntityData.Leafs.Append("route-policy", types.YLeaf{"RoutePolicy", rpf.RoutePolicy})
+
+    rpf.EntityData.YListKeys = []string {}
+
     return &(rpf.EntityData)
 }
 
@@ -1941,14 +2082,17 @@ func (maximum *Pim_Vrfs_Vrf_Ipv6_Maximum) GetEntityData() *types.CommonEntityDat
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximum.EntityData.Children = make(map[string]types.YChild)
-    maximum.EntityData.Children["group-mappings-auto-rp"] = types.YChild{"GroupMappingsAutoRp", &maximum.GroupMappingsAutoRp}
-    maximum.EntityData.Children["bsr-group-mappings"] = types.YChild{"BsrGroupMappings", &maximum.BsrGroupMappings}
-    maximum.EntityData.Children["register-states"] = types.YChild{"RegisterStates", &maximum.RegisterStates}
-    maximum.EntityData.Children["route-interfaces"] = types.YChild{"RouteInterfaces", &maximum.RouteInterfaces}
-    maximum.EntityData.Children["bsr-candidate-rp-cache"] = types.YChild{"BsrCandidateRpCache", &maximum.BsrCandidateRpCache}
-    maximum.EntityData.Children["routes"] = types.YChild{"Routes", &maximum.Routes}
-    maximum.EntityData.Leafs = make(map[string]types.YLeaf)
+    maximum.EntityData.Children = types.NewOrderedMap()
+    maximum.EntityData.Children.Append("group-mappings-auto-rp", types.YChild{"GroupMappingsAutoRp", &maximum.GroupMappingsAutoRp})
+    maximum.EntityData.Children.Append("bsr-group-mappings", types.YChild{"BsrGroupMappings", &maximum.BsrGroupMappings})
+    maximum.EntityData.Children.Append("register-states", types.YChild{"RegisterStates", &maximum.RegisterStates})
+    maximum.EntityData.Children.Append("route-interfaces", types.YChild{"RouteInterfaces", &maximum.RouteInterfaces})
+    maximum.EntityData.Children.Append("bsr-candidate-rp-cache", types.YChild{"BsrCandidateRpCache", &maximum.BsrCandidateRpCache})
+    maximum.EntityData.Children.Append("routes", types.YChild{"Routes", &maximum.Routes})
+    maximum.EntityData.Leafs = types.NewOrderedMap()
+
+    maximum.EntityData.YListKeys = []string {}
+
     return &(maximum.EntityData)
 }
 
@@ -1959,6 +2103,7 @@ func (maximum *Pim_Vrfs_Vrf_Ipv6_Maximum) GetEntityData() *types.CommonEntityDat
 type Pim_Vrfs_Vrf_Ipv6_Maximum_GroupMappingsAutoRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from autorp. The type is interface{}
     // with range: 1..10000. This attribute is mandatory.
@@ -1979,10 +2124,13 @@ func (groupMappingsAutoRp *Pim_Vrfs_Vrf_Ipv6_Maximum_GroupMappingsAutoRp) GetEnt
     groupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupMappingsAutoRp.EntityData.Children = make(map[string]types.YChild)
-    groupMappingsAutoRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupMappingsAutoRp.EntityData.Leafs["maximum-group-ranges-auto-rp"] = types.YLeaf{"MaximumGroupRangesAutoRp", groupMappingsAutoRp.MaximumGroupRangesAutoRp}
-    groupMappingsAutoRp.EntityData.Leafs["threshold-group-ranges-auto-rp"] = types.YLeaf{"ThresholdGroupRangesAutoRp", groupMappingsAutoRp.ThresholdGroupRangesAutoRp}
+    groupMappingsAutoRp.EntityData.Children = types.NewOrderedMap()
+    groupMappingsAutoRp.EntityData.Leafs = types.NewOrderedMap()
+    groupMappingsAutoRp.EntityData.Leafs.Append("maximum-group-ranges-auto-rp", types.YLeaf{"MaximumGroupRangesAutoRp", groupMappingsAutoRp.MaximumGroupRangesAutoRp})
+    groupMappingsAutoRp.EntityData.Leafs.Append("threshold-group-ranges-auto-rp", types.YLeaf{"ThresholdGroupRangesAutoRp", groupMappingsAutoRp.ThresholdGroupRangesAutoRp})
+
+    groupMappingsAutoRp.EntityData.YListKeys = []string {}
+
     return &(groupMappingsAutoRp.EntityData)
 }
 
@@ -1993,6 +2141,7 @@ func (groupMappingsAutoRp *Pim_Vrfs_Vrf_Ipv6_Maximum_GroupMappingsAutoRp) GetEnt
 type Pim_Vrfs_Vrf_Ipv6_Maximum_BsrGroupMappings struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from BSR. The type is interface{} with
     // range: 1..10000. This attribute is mandatory.
@@ -2013,10 +2162,13 @@ func (bsrGroupMappings *Pim_Vrfs_Vrf_Ipv6_Maximum_BsrGroupMappings) GetEntityDat
     bsrGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrGroupMappings.EntityData.Children = make(map[string]types.YChild)
-    bsrGroupMappings.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrGroupMappings.EntityData.Leafs["bsr-maximum-group-ranges"] = types.YLeaf{"BsrMaximumGroupRanges", bsrGroupMappings.BsrMaximumGroupRanges}
-    bsrGroupMappings.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrGroupMappings.WarningThreshold}
+    bsrGroupMappings.EntityData.Children = types.NewOrderedMap()
+    bsrGroupMappings.EntityData.Leafs = types.NewOrderedMap()
+    bsrGroupMappings.EntityData.Leafs.Append("bsr-maximum-group-ranges", types.YLeaf{"BsrMaximumGroupRanges", bsrGroupMappings.BsrMaximumGroupRanges})
+    bsrGroupMappings.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrGroupMappings.WarningThreshold})
+
+    bsrGroupMappings.EntityData.YListKeys = []string {}
+
     return &(bsrGroupMappings.EntityData)
 }
 
@@ -2027,6 +2179,7 @@ func (bsrGroupMappings *Pim_Vrfs_Vrf_Ipv6_Maximum_BsrGroupMappings) GetEntityDat
 type Pim_Vrfs_Vrf_Ipv6_Maximum_RegisterStates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM Sparse-Mode register states. The type is interface{}
     // with range: 0..75000. This attribute is mandatory.
@@ -2047,10 +2200,13 @@ func (registerStates *Pim_Vrfs_Vrf_Ipv6_Maximum_RegisterStates) GetEntityData() 
     registerStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registerStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    registerStates.EntityData.Children = make(map[string]types.YChild)
-    registerStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    registerStates.EntityData.Leafs["maximum-register-states"] = types.YLeaf{"MaximumRegisterStates", registerStates.MaximumRegisterStates}
-    registerStates.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", registerStates.WarningThreshold}
+    registerStates.EntityData.Children = types.NewOrderedMap()
+    registerStates.EntityData.Leafs = types.NewOrderedMap()
+    registerStates.EntityData.Leafs.Append("maximum-register-states", types.YLeaf{"MaximumRegisterStates", registerStates.MaximumRegisterStates})
+    registerStates.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", registerStates.WarningThreshold})
+
+    registerStates.EntityData.YListKeys = []string {}
+
     return &(registerStates.EntityData)
 }
 
@@ -2061,6 +2217,7 @@ func (registerStates *Pim_Vrfs_Vrf_Ipv6_Maximum_RegisterStates) GetEntityData() 
 type Pim_Vrfs_Vrf_Ipv6_Maximum_RouteInterfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM route-interfaces. The type is interface{} with range:
     // 1..1100000. This attribute is mandatory.
@@ -2081,10 +2238,13 @@ func (routeInterfaces *Pim_Vrfs_Vrf_Ipv6_Maximum_RouteInterfaces) GetEntityData(
     routeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeInterfaces.EntityData.Children = make(map[string]types.YChild)
-    routeInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeInterfaces.EntityData.Leafs["maximum-route-interfaces"] = types.YLeaf{"MaximumRouteInterfaces", routeInterfaces.MaximumRouteInterfaces}
-    routeInterfaces.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", routeInterfaces.WarningThreshold}
+    routeInterfaces.EntityData.Children = types.NewOrderedMap()
+    routeInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    routeInterfaces.EntityData.Leafs.Append("maximum-route-interfaces", types.YLeaf{"MaximumRouteInterfaces", routeInterfaces.MaximumRouteInterfaces})
+    routeInterfaces.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", routeInterfaces.WarningThreshold})
+
+    routeInterfaces.EntityData.YListKeys = []string {}
+
     return &(routeInterfaces.EntityData)
 }
 
@@ -2095,6 +2255,7 @@ func (routeInterfaces *Pim_Vrfs_Vrf_Ipv6_Maximum_RouteInterfaces) GetEntityData(
 type Pim_Vrfs_Vrf_Ipv6_Maximum_BsrCandidateRpCache struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of BSR C-RP cache setting. The type is interface{} with
     // range: 1..10000. This attribute is mandatory.
@@ -2115,10 +2276,13 @@ func (bsrCandidateRpCache *Pim_Vrfs_Vrf_Ipv6_Maximum_BsrCandidateRpCache) GetEnt
     bsrCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrCandidateRpCache.EntityData.Children = make(map[string]types.YChild)
-    bsrCandidateRpCache.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrCandidateRpCache.EntityData.Leafs["bsr-maximum-candidate-rp-cache"] = types.YLeaf{"BsrMaximumCandidateRpCache", bsrCandidateRpCache.BsrMaximumCandidateRpCache}
-    bsrCandidateRpCache.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrCandidateRpCache.WarningThreshold}
+    bsrCandidateRpCache.EntityData.Children = types.NewOrderedMap()
+    bsrCandidateRpCache.EntityData.Leafs = types.NewOrderedMap()
+    bsrCandidateRpCache.EntityData.Leafs.Append("bsr-maximum-candidate-rp-cache", types.YLeaf{"BsrMaximumCandidateRpCache", bsrCandidateRpCache.BsrMaximumCandidateRpCache})
+    bsrCandidateRpCache.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrCandidateRpCache.WarningThreshold})
+
+    bsrCandidateRpCache.EntityData.YListKeys = []string {}
+
     return &(bsrCandidateRpCache.EntityData)
 }
 
@@ -2128,6 +2292,7 @@ func (bsrCandidateRpCache *Pim_Vrfs_Vrf_Ipv6_Maximum_BsrCandidateRpCache) GetEnt
 type Pim_Vrfs_Vrf_Ipv6_Maximum_Routes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM routes. The type is interface{} with range:
     // 1..200000. This attribute is mandatory.
@@ -2148,10 +2313,13 @@ func (routes *Pim_Vrfs_Vrf_Ipv6_Maximum_Routes) GetEntityData() *types.CommonEnt
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
-    routes.EntityData.Leafs["maximum-routes"] = types.YLeaf{"MaximumRoutes", routes.MaximumRoutes}
-    routes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", routes.WarningThreshold}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Leafs = types.NewOrderedMap()
+    routes.EntityData.Leafs.Append("maximum-routes", types.YLeaf{"MaximumRoutes", routes.MaximumRoutes})
+    routes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", routes.WarningThreshold})
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -2180,10 +2348,13 @@ func (sgExpiryTimer *Pim_Vrfs_Vrf_Ipv6_SgExpiryTimer) GetEntityData() *types.Com
     sgExpiryTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sgExpiryTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sgExpiryTimer.EntityData.Children = make(map[string]types.YChild)
-    sgExpiryTimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    sgExpiryTimer.EntityData.Leafs["interval"] = types.YLeaf{"Interval", sgExpiryTimer.Interval}
-    sgExpiryTimer.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", sgExpiryTimer.AccessListName}
+    sgExpiryTimer.EntityData.Children = types.NewOrderedMap()
+    sgExpiryTimer.EntityData.Leafs = types.NewOrderedMap()
+    sgExpiryTimer.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", sgExpiryTimer.Interval})
+    sgExpiryTimer.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", sgExpiryTimer.AccessListName})
+
+    sgExpiryTimer.EntityData.YListKeys = []string {}
+
     return &(sgExpiryTimer.EntityData)
 }
 
@@ -2193,6 +2364,7 @@ func (sgExpiryTimer *Pim_Vrfs_Vrf_Ipv6_SgExpiryTimer) GetEntityData() *types.Com
 type Pim_Vrfs_Vrf_Ipv6_RpfVectorEnable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // RPF Vector is turned on if configured. The type is interface{}. This
     // attribute is mandatory.
@@ -2215,11 +2387,14 @@ func (rpfVectorEnable *Pim_Vrfs_Vrf_Ipv6_RpfVectorEnable) GetEntityData() *types
     rpfVectorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfVectorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpfVectorEnable.EntityData.Children = make(map[string]types.YChild)
-    rpfVectorEnable.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpfVectorEnable.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rpfVectorEnable.Enable}
-    rpfVectorEnable.EntityData.Leafs["allow-ebgp"] = types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp}
-    rpfVectorEnable.EntityData.Leafs["disable-ibgp"] = types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp}
+    rpfVectorEnable.EntityData.Children = types.NewOrderedMap()
+    rpfVectorEnable.EntityData.Leafs = types.NewOrderedMap()
+    rpfVectorEnable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpfVectorEnable.Enable})
+    rpfVectorEnable.EntityData.Leafs.Append("allow-ebgp", types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp})
+    rpfVectorEnable.EntityData.Leafs.Append("disable-ibgp", types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp})
+
+    rpfVectorEnable.EntityData.YListKeys = []string {}
+
     return &(rpfVectorEnable.EntityData)
 }
 
@@ -2235,7 +2410,7 @@ type Pim_Vrfs_Vrf_Ipv6_Ssm struct {
 
     // Access list of groups enabled with SSM. The type is string with length:
     // 1..64.
-    Range_ interface{}
+    Range interface{}
 }
 
 func (ssm *Pim_Vrfs_Vrf_Ipv6_Ssm) GetEntityData() *types.CommonEntityData {
@@ -2248,10 +2423,13 @@ func (ssm *Pim_Vrfs_Vrf_Ipv6_Ssm) GetEntityData() *types.CommonEntityData {
     ssm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssm.EntityData.Children = make(map[string]types.YChild)
-    ssm.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssm.EntityData.Leafs["disable"] = types.YLeaf{"Disable", ssm.Disable}
-    ssm.EntityData.Leafs["range"] = types.YLeaf{"Range_", ssm.Range_}
+    ssm.EntityData.Children = types.NewOrderedMap()
+    ssm.EntityData.Leafs = types.NewOrderedMap()
+    ssm.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", ssm.Disable})
+    ssm.EntityData.Leafs.Append("range", types.YLeaf{"Range", ssm.Range})
+
+    ssm.EntityData.YListKeys = []string {}
+
     return &(ssm.EntityData)
 }
 
@@ -2263,7 +2441,7 @@ type Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses struct {
 
     // Address of the Rendezvous Point. The type is slice of
     // Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses_BidirRpAddress.
-    BidirRpAddress []Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses_BidirRpAddress
+    BidirRpAddress []*Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses_BidirRpAddress
 }
 
 func (bidirRpAddresses *Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -2276,12 +2454,15 @@ func (bidirRpAddresses *Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses) GetEntityData() *typ
     bidirRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bidirRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    bidirRpAddresses.EntityData.Children["bidir-rp-address"] = types.YChild{"BidirRpAddress", nil}
+    bidirRpAddresses.EntityData.Children = types.NewOrderedMap()
+    bidirRpAddresses.EntityData.Children.Append("bidir-rp-address", types.YChild{"BidirRpAddress", nil})
     for i := range bidirRpAddresses.BidirRpAddress {
-        bidirRpAddresses.EntityData.Children[types.GetSegmentPath(&bidirRpAddresses.BidirRpAddress[i])] = types.YChild{"BidirRpAddress", &bidirRpAddresses.BidirRpAddress[i]}
+        bidirRpAddresses.EntityData.Children.Append(types.GetSegmentPath(bidirRpAddresses.BidirRpAddress[i]), types.YChild{"BidirRpAddress", bidirRpAddresses.BidirRpAddress[i]})
     }
-    bidirRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    bidirRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    bidirRpAddresses.EntityData.YListKeys = []string {}
+
     return &(bidirRpAddresses.EntityData)
 }
 
@@ -2293,9 +2474,9 @@ type Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses_BidirRpAddress struct {
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a given RP. The type is string
@@ -2312,16 +2493,19 @@ func (bidirRpAddress *Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses_BidirRpAddress) GetEnti
     bidirRpAddress.EntityData.YangName = "bidir-rp-address"
     bidirRpAddress.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddress.EntityData.ParentYangName = "bidir-rp-addresses"
-    bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + "[rp-address='" + fmt.Sprintf("%v", bidirRpAddress.RpAddress) + "']"
+    bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + types.AddKeyToken(bidirRpAddress.RpAddress, "rp-address")
     bidirRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bidirRpAddress.EntityData.Children = make(map[string]types.YChild)
-    bidirRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    bidirRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", bidirRpAddress.RpAddress}
-    bidirRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", bidirRpAddress.AccessListName}
-    bidirRpAddress.EntityData.Leafs["auto-rp-override"] = types.YLeaf{"AutoRpOverride", bidirRpAddress.AutoRpOverride}
+    bidirRpAddress.EntityData.Children = types.NewOrderedMap()
+    bidirRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    bidirRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", bidirRpAddress.RpAddress})
+    bidirRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", bidirRpAddress.AccessListName})
+    bidirRpAddress.EntityData.Leafs.Append("auto-rp-override", types.YLeaf{"AutoRpOverride", bidirRpAddress.AutoRpOverride})
+
+    bidirRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(bidirRpAddress.EntityData)
 }
 
@@ -2348,10 +2532,13 @@ func (bsr *Pim_Vrfs_Vrf_Ipv6_Bsr) GetEntityData() *types.CommonEntityData {
     bsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsr.EntityData.Children = make(map[string]types.YChild)
-    bsr.EntityData.Children["candidate-bsr"] = types.YChild{"CandidateBsr", &bsr.CandidateBsr}
-    bsr.EntityData.Children["candidate-rps"] = types.YChild{"CandidateRps", &bsr.CandidateRps}
-    bsr.EntityData.Leafs = make(map[string]types.YLeaf)
+    bsr.EntityData.Children = types.NewOrderedMap()
+    bsr.EntityData.Children.Append("candidate-bsr", types.YChild{"CandidateBsr", &bsr.CandidateBsr})
+    bsr.EntityData.Children.Append("candidate-rps", types.YChild{"CandidateRps", &bsr.CandidateRps})
+    bsr.EntityData.Leafs = types.NewOrderedMap()
+
+    bsr.EntityData.YListKeys = []string {}
+
     return &(bsr.EntityData)
 }
 
@@ -2361,9 +2548,10 @@ func (bsr *Pim_Vrfs_Vrf_Ipv6_Bsr) GetEntityData() *types.CommonEntityData {
 type Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateBsr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // BSR Address configured. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
@@ -2386,11 +2574,14 @@ func (candidateBsr *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateBsr) GetEntityData() *types.C
     candidateBsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateBsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateBsr.EntityData.Children = make(map[string]types.YChild)
-    candidateBsr.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateBsr.EntityData.Leafs["address"] = types.YLeaf{"Address", candidateBsr.Address}
-    candidateBsr.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", candidateBsr.PrefixLength}
-    candidateBsr.EntityData.Leafs["priority"] = types.YLeaf{"Priority", candidateBsr.Priority}
+    candidateBsr.EntityData.Children = types.NewOrderedMap()
+    candidateBsr.EntityData.Leafs = types.NewOrderedMap()
+    candidateBsr.EntityData.Leafs.Append("address", types.YLeaf{"Address", candidateBsr.Address})
+    candidateBsr.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", candidateBsr.PrefixLength})
+    candidateBsr.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", candidateBsr.Priority})
+
+    candidateBsr.EntityData.YListKeys = []string {}
+
     return &(candidateBsr.EntityData)
 }
 
@@ -2402,7 +2593,7 @@ type Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps struct {
 
     // Address of PIM SM BSR Candidate-RP. The type is slice of
     // Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps_CandidateRp.
-    CandidateRp []Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps_CandidateRp
+    CandidateRp []*Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps_CandidateRp
 }
 
 func (candidateRps *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps) GetEntityData() *types.CommonEntityData {
@@ -2415,12 +2606,15 @@ func (candidateRps *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps) GetEntityData() *types.C
     candidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRps.EntityData.Children = make(map[string]types.YChild)
-    candidateRps.EntityData.Children["candidate-rp"] = types.YChild{"CandidateRp", nil}
+    candidateRps.EntityData.Children = types.NewOrderedMap()
+    candidateRps.EntityData.Children.Append("candidate-rp", types.YChild{"CandidateRp", nil})
     for i := range candidateRps.CandidateRp {
-        candidateRps.EntityData.Children[types.GetSegmentPath(&candidateRps.CandidateRp[i])] = types.YChild{"CandidateRp", &candidateRps.CandidateRp[i]}
+        candidateRps.EntityData.Children.Append(types.GetSegmentPath(candidateRps.CandidateRp[i]), types.YChild{"CandidateRp", candidateRps.CandidateRp[i]})
     }
-    candidateRps.EntityData.Leafs = make(map[string]types.YLeaf)
+    candidateRps.EntityData.Leafs = types.NewOrderedMap()
+
+    candidateRps.EntityData.YListKeys = []string {}
+
     return &(candidateRps.EntityData)
 }
 
@@ -2432,9 +2626,9 @@ type Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps_CandidateRp struct {
 
     // This attribute is a key. Address of Candidate-RP. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. SM or Bidir. The type is PimProtocolMode.
@@ -2458,18 +2652,21 @@ func (candidateRp *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps_CandidateRp) GetEntityData
     candidateRp.EntityData.YangName = "candidate-rp"
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "candidate-rps"
-    candidateRp.EntityData.SegmentPath = "candidate-rp" + "[address='" + fmt.Sprintf("%v", candidateRp.Address) + "']" + "[mode='" + fmt.Sprintf("%v", candidateRp.Mode) + "']"
+    candidateRp.EntityData.SegmentPath = "candidate-rp" + types.AddKeyToken(candidateRp.Address, "address") + types.AddKeyToken(candidateRp.Mode, "mode")
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRp.EntityData.Children = make(map[string]types.YChild)
-    candidateRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateRp.EntityData.Leafs["address"] = types.YLeaf{"Address", candidateRp.Address}
-    candidateRp.EntityData.Leafs["mode"] = types.YLeaf{"Mode", candidateRp.Mode}
-    candidateRp.EntityData.Leafs["group-list"] = types.YLeaf{"GroupList", candidateRp.GroupList}
-    candidateRp.EntityData.Leafs["priority"] = types.YLeaf{"Priority", candidateRp.Priority}
-    candidateRp.EntityData.Leafs["interval"] = types.YLeaf{"Interval", candidateRp.Interval}
+    candidateRp.EntityData.Children = types.NewOrderedMap()
+    candidateRp.EntityData.Leafs = types.NewOrderedMap()
+    candidateRp.EntityData.Leafs.Append("address", types.YLeaf{"Address", candidateRp.Address})
+    candidateRp.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", candidateRp.Mode})
+    candidateRp.EntityData.Leafs.Append("group-list", types.YLeaf{"GroupList", candidateRp.GroupList})
+    candidateRp.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", candidateRp.Priority})
+    candidateRp.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", candidateRp.Interval})
+
+    candidateRp.EntityData.YListKeys = []string {"Address", "Mode"}
+
     return &(candidateRp.EntityData)
 }
 
@@ -2479,6 +2676,7 @@ func (candidateRp *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps_CandidateRp) GetEntityData
 type Pim_Vrfs_Vrf_Ipv6_AllowRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Access-list specifiying applicable RPs. The type is string with length:
     // 1..64.
@@ -2499,10 +2697,13 @@ func (allowRp *Pim_Vrfs_Vrf_Ipv6_AllowRp) GetEntityData() *types.CommonEntityDat
     allowRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allowRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allowRp.EntityData.Children = make(map[string]types.YChild)
-    allowRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    allowRp.EntityData.Leafs["rp-list-name"] = types.YLeaf{"RpListName", allowRp.RpListName}
-    allowRp.EntityData.Leafs["group-list-name"] = types.YLeaf{"GroupListName", allowRp.GroupListName}
+    allowRp.EntityData.Children = types.NewOrderedMap()
+    allowRp.EntityData.Leafs = types.NewOrderedMap()
+    allowRp.EntityData.Leafs.Append("rp-list-name", types.YLeaf{"RpListName", allowRp.RpListName})
+    allowRp.EntityData.Leafs.Append("group-list-name", types.YLeaf{"GroupListName", allowRp.GroupListName})
+
+    allowRp.EntityData.YListKeys = []string {}
+
     return &(allowRp.EntityData)
 }
 
@@ -2514,7 +2715,7 @@ type Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses struct {
 
     // Set Embedded RP processing support. The type is slice of
     // Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress.
-    EmbeddedRpAddress []Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress
+    EmbeddedRpAddress []*Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress
 }
 
 func (embeddedRpAddresses *Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -2527,12 +2728,15 @@ func (embeddedRpAddresses *Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses) GetEntityData(
     embeddedRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     embeddedRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    embeddedRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    embeddedRpAddresses.EntityData.Children["embedded-rp-address"] = types.YChild{"EmbeddedRpAddress", nil}
+    embeddedRpAddresses.EntityData.Children = types.NewOrderedMap()
+    embeddedRpAddresses.EntityData.Children.Append("embedded-rp-address", types.YChild{"EmbeddedRpAddress", nil})
     for i := range embeddedRpAddresses.EmbeddedRpAddress {
-        embeddedRpAddresses.EntityData.Children[types.GetSegmentPath(&embeddedRpAddresses.EmbeddedRpAddress[i])] = types.YChild{"EmbeddedRpAddress", &embeddedRpAddresses.EmbeddedRpAddress[i]}
+        embeddedRpAddresses.EntityData.Children.Append(types.GetSegmentPath(embeddedRpAddresses.EmbeddedRpAddress[i]), types.YChild{"EmbeddedRpAddress", embeddedRpAddresses.EmbeddedRpAddress[i]})
     }
-    embeddedRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    embeddedRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    embeddedRpAddresses.EntityData.YListKeys = []string {}
+
     return &(embeddedRpAddresses.EntityData)
 }
 
@@ -2544,9 +2748,9 @@ type Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress struct {
 
     // This attribute is a key. RP address of the Rendezvous Point. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a given RP. The type is string
@@ -2559,15 +2763,18 @@ func (embeddedRpAddress *Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress
     embeddedRpAddress.EntityData.YangName = "embedded-rp-address"
     embeddedRpAddress.EntityData.BundleName = "cisco_ios_xr"
     embeddedRpAddress.EntityData.ParentYangName = "embedded-rp-addresses"
-    embeddedRpAddress.EntityData.SegmentPath = "embedded-rp-address" + "[rp-address='" + fmt.Sprintf("%v", embeddedRpAddress.RpAddress) + "']"
+    embeddedRpAddress.EntityData.SegmentPath = "embedded-rp-address" + types.AddKeyToken(embeddedRpAddress.RpAddress, "rp-address")
     embeddedRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     embeddedRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     embeddedRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    embeddedRpAddress.EntityData.Children = make(map[string]types.YChild)
-    embeddedRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    embeddedRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", embeddedRpAddress.RpAddress}
-    embeddedRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", embeddedRpAddress.AccessListName}
+    embeddedRpAddress.EntityData.Children = types.NewOrderedMap()
+    embeddedRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    embeddedRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", embeddedRpAddress.RpAddress})
+    embeddedRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", embeddedRpAddress.AccessListName})
+
+    embeddedRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(embeddedRpAddress.EntityData)
 }
 
@@ -2596,10 +2803,13 @@ func (convergence *Pim_Vrfs_Vrf_Ipv6_Convergence) GetEntityData() *types.CommonE
     convergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    convergence.EntityData.Children = make(map[string]types.YChild)
-    convergence.EntityData.Leafs = make(map[string]types.YLeaf)
-    convergence.EntityData.Leafs["rpf-conflict-join-delay"] = types.YLeaf{"RpfConflictJoinDelay", convergence.RpfConflictJoinDelay}
-    convergence.EntityData.Leafs["link-down-prune-delay"] = types.YLeaf{"LinkDownPruneDelay", convergence.LinkDownPruneDelay}
+    convergence.EntityData.Children = types.NewOrderedMap()
+    convergence.EntityData.Leafs = types.NewOrderedMap()
+    convergence.EntityData.Leafs.Append("rpf-conflict-join-delay", types.YLeaf{"RpfConflictJoinDelay", convergence.RpfConflictJoinDelay})
+    convergence.EntityData.Leafs.Append("link-down-prune-delay", types.YLeaf{"LinkDownPruneDelay", convergence.LinkDownPruneDelay})
+
+    convergence.EntityData.YListKeys = []string {}
+
     return &(convergence.EntityData)
 }
 
@@ -2610,8 +2820,8 @@ type Pim_Vrfs_Vrf_Ipv6_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface_.
-    Interface_ []Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface
+    // Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface.
+    Interface []*Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface
 }
 
 func (interfaces *Pim_Vrfs_Vrf_Ipv6_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -2624,12 +2834,15 @@ func (interfaces *Pim_Vrfs_Vrf_Ipv6_Interfaces) GetEntityData() *types.CommonEnt
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -2640,7 +2853,7 @@ type Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Enter PIM Interface processing. The type is interface{}.
@@ -2692,26 +2905,29 @@ func (self *Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface) GetEntityData() *types.Commo
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["maximum-routes"] = types.YChild{"MaximumRoutes", &self.MaximumRoutes}
-    self.EntityData.Children["bfd"] = types.YChild{"Bfd", &self.Bfd}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
-    self.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", self.NeighborFilter}
-    self.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", self.HelloInterval}
-    self.EntityData.Leafs["bsr-border"] = types.YLeaf{"BsrBorder", self.BsrBorder}
-    self.EntityData.Leafs["propagation-delay"] = types.YLeaf{"PropagationDelay", self.PropagationDelay}
-    self.EntityData.Leafs["dr-priority"] = types.YLeaf{"DrPriority", self.DrPriority}
-    self.EntityData.Leafs["join-prune-mtu"] = types.YLeaf{"JoinPruneMtu", self.JoinPruneMtu}
-    self.EntityData.Leafs["interface-enable"] = types.YLeaf{"InterfaceEnable", self.InterfaceEnable}
-    self.EntityData.Leafs["jp-interval"] = types.YLeaf{"JpInterval", self.JpInterval}
-    self.EntityData.Leafs["override-interval"] = types.YLeaf{"OverrideInterval", self.OverrideInterval}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("maximum-routes", types.YChild{"MaximumRoutes", &self.MaximumRoutes})
+    self.EntityData.Children.Append("bfd", types.YChild{"Bfd", &self.Bfd})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
+    self.EntityData.Leafs.Append("neighbor-filter", types.YLeaf{"NeighborFilter", self.NeighborFilter})
+    self.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", self.HelloInterval})
+    self.EntityData.Leafs.Append("bsr-border", types.YLeaf{"BsrBorder", self.BsrBorder})
+    self.EntityData.Leafs.Append("propagation-delay", types.YLeaf{"PropagationDelay", self.PropagationDelay})
+    self.EntityData.Leafs.Append("dr-priority", types.YLeaf{"DrPriority", self.DrPriority})
+    self.EntityData.Leafs.Append("join-prune-mtu", types.YLeaf{"JoinPruneMtu", self.JoinPruneMtu})
+    self.EntityData.Leafs.Append("interface-enable", types.YLeaf{"InterfaceEnable", self.InterfaceEnable})
+    self.EntityData.Leafs.Append("jp-interval", types.YLeaf{"JpInterval", self.JpInterval})
+    self.EntityData.Leafs.Append("override-interval", types.YLeaf{"OverrideInterval", self.OverrideInterval})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -2722,6 +2938,7 @@ func (self *Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface) GetEntityData() *types.Commo
 type Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface_MaximumRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of routes for this interface. The type is interface{} with
     // range: 1..1100000. This attribute is mandatory.
@@ -2745,11 +2962,14 @@ func (maximumRoutes *Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface_MaximumRoutes) GetEn
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumRoutes.EntityData.Children = make(map[string]types.YChild)
-    maximumRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumRoutes.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", maximumRoutes.Maximum}
-    maximumRoutes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumRoutes.WarningThreshold}
-    maximumRoutes.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumRoutes.AccessListName}
+    maximumRoutes.EntityData.Children = types.NewOrderedMap()
+    maximumRoutes.EntityData.Leafs = types.NewOrderedMap()
+    maximumRoutes.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", maximumRoutes.Maximum})
+    maximumRoutes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumRoutes.WarningThreshold})
+    maximumRoutes.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumRoutes.AccessListName})
+
+    maximumRoutes.EntityData.YListKeys = []string {}
+
     return &(maximumRoutes.EntityData)
 }
 
@@ -2782,17 +3002,19 @@ func (bfd *Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface_Bfd) GetEntityData() *types.Co
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier}
-    bfd.EntityData.Leafs["interval"] = types.YLeaf{"Interval", bfd.Interval}
-    bfd.EntityData.Leafs["enable"] = types.YLeaf{"Enable", bfd.Enable}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier})
+    bfd.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", bfd.Interval})
+    bfd.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bfd.Enable})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
 // Pim_DefaultContext
 // Default Context
-// This type is a presence type.
 type Pim_DefaultContext struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2814,10 +3036,13 @@ func (defaultContext *Pim_DefaultContext) GetEntityData() *types.CommonEntityDat
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultContext.EntityData.Children = make(map[string]types.YChild)
-    defaultContext.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &defaultContext.Ipv6}
-    defaultContext.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &defaultContext.Ipv4}
-    defaultContext.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultContext.EntityData.Children = types.NewOrderedMap()
+    defaultContext.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &defaultContext.Ipv6})
+    defaultContext.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &defaultContext.Ipv4})
+    defaultContext.EntityData.Leafs = types.NewOrderedMap()
+
+    defaultContext.EntityData.YListKeys = []string {}
+
     return &(defaultContext.EntityData)
 }
 
@@ -2848,7 +3073,7 @@ type Pim_DefaultContext_Ipv6 struct {
     LogNeighborChanges interface{}
 
     // Source address to use for register messages. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     RegisterSource interface{}
 
     // Access-list which specifies unauthorized sources. The type is string with
@@ -2932,36 +3157,39 @@ func (ipv6 *Pim_DefaultContext_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv6.Interfaces}
-    ipv6.EntityData.Children["sparse-mode-rp-addresses"] = types.YChild{"SparseModeRpAddresses", &ipv6.SparseModeRpAddresses}
-    ipv6.EntityData.Children["inheritable-defaults"] = types.YChild{"InheritableDefaults", &ipv6.InheritableDefaults}
-    ipv6.EntityData.Children["rpf"] = types.YChild{"Rpf", &ipv6.Rpf}
-    ipv6.EntityData.Children["sg-expiry-timer"] = types.YChild{"SgExpiryTimer", &ipv6.SgExpiryTimer}
-    ipv6.EntityData.Children["rpf-vector-enable"] = types.YChild{"RpfVectorEnable", &ipv6.RpfVectorEnable}
-    ipv6.EntityData.Children["nsf"] = types.YChild{"Nsf", &ipv6.Nsf}
-    ipv6.EntityData.Children["maximum"] = types.YChild{"Maximum", &ipv6.Maximum}
-    ipv6.EntityData.Children["ssm"] = types.YChild{"Ssm", &ipv6.Ssm}
-    ipv6.EntityData.Children["bidir-rp-addresses"] = types.YChild{"BidirRpAddresses", &ipv6.BidirRpAddresses}
-    ipv6.EntityData.Children["bsr"] = types.YChild{"Bsr", &ipv6.Bsr}
-    ipv6.EntityData.Children["allow-rp"] = types.YChild{"AllowRp", &ipv6.AllowRp}
-    ipv6.EntityData.Children["embedded-rp-addresses"] = types.YChild{"EmbeddedRpAddresses", &ipv6.EmbeddedRpAddresses}
-    ipv6.EntityData.Children["convergence"] = types.YChild{"Convergence", &ipv6.Convergence}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["neighbor-check-on-receive"] = types.YLeaf{"NeighborCheckOnReceive", ipv6.NeighborCheckOnReceive}
-    ipv6.EntityData.Leafs["old-register-checksum"] = types.YLeaf{"OldRegisterChecksum", ipv6.OldRegisterChecksum}
-    ipv6.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", ipv6.NeighborFilter}
-    ipv6.EntityData.Leafs["spt-threshold-infinity"] = types.YLeaf{"SptThresholdInfinity", ipv6.SptThresholdInfinity}
-    ipv6.EntityData.Leafs["log-neighbor-changes"] = types.YLeaf{"LogNeighborChanges", ipv6.LogNeighborChanges}
-    ipv6.EntityData.Leafs["register-source"] = types.YLeaf{"RegisterSource", ipv6.RegisterSource}
-    ipv6.EntityData.Leafs["accept-register"] = types.YLeaf{"AcceptRegister", ipv6.AcceptRegister}
-    ipv6.EntityData.Leafs["embedded-rp-disable"] = types.YLeaf{"EmbeddedRpDisable", ipv6.EmbeddedRpDisable}
-    ipv6.EntityData.Leafs["suppress-rpf-prunes"] = types.YLeaf{"SuppressRpfPrunes", ipv6.SuppressRpfPrunes}
-    ipv6.EntityData.Leafs["ssm-allow-override"] = types.YLeaf{"SsmAllowOverride", ipv6.SsmAllowOverride}
-    ipv6.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", ipv6.Multipath}
-    ipv6.EntityData.Leafs["rp-static-deny"] = types.YLeaf{"RpStaticDeny", ipv6.RpStaticDeny}
-    ipv6.EntityData.Leafs["suppress-data-registers"] = types.YLeaf{"SuppressDataRegisters", ipv6.SuppressDataRegisters}
-    ipv6.EntityData.Leafs["neighbor-check-on-send"] = types.YLeaf{"NeighborCheckOnSend", ipv6.NeighborCheckOnSend}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv6.Interfaces})
+    ipv6.EntityData.Children.Append("sparse-mode-rp-addresses", types.YChild{"SparseModeRpAddresses", &ipv6.SparseModeRpAddresses})
+    ipv6.EntityData.Children.Append("inheritable-defaults", types.YChild{"InheritableDefaults", &ipv6.InheritableDefaults})
+    ipv6.EntityData.Children.Append("rpf", types.YChild{"Rpf", &ipv6.Rpf})
+    ipv6.EntityData.Children.Append("sg-expiry-timer", types.YChild{"SgExpiryTimer", &ipv6.SgExpiryTimer})
+    ipv6.EntityData.Children.Append("rpf-vector-enable", types.YChild{"RpfVectorEnable", &ipv6.RpfVectorEnable})
+    ipv6.EntityData.Children.Append("nsf", types.YChild{"Nsf", &ipv6.Nsf})
+    ipv6.EntityData.Children.Append("maximum", types.YChild{"Maximum", &ipv6.Maximum})
+    ipv6.EntityData.Children.Append("ssm", types.YChild{"Ssm", &ipv6.Ssm})
+    ipv6.EntityData.Children.Append("bidir-rp-addresses", types.YChild{"BidirRpAddresses", &ipv6.BidirRpAddresses})
+    ipv6.EntityData.Children.Append("bsr", types.YChild{"Bsr", &ipv6.Bsr})
+    ipv6.EntityData.Children.Append("allow-rp", types.YChild{"AllowRp", &ipv6.AllowRp})
+    ipv6.EntityData.Children.Append("embedded-rp-addresses", types.YChild{"EmbeddedRpAddresses", &ipv6.EmbeddedRpAddresses})
+    ipv6.EntityData.Children.Append("convergence", types.YChild{"Convergence", &ipv6.Convergence})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("neighbor-check-on-receive", types.YLeaf{"NeighborCheckOnReceive", ipv6.NeighborCheckOnReceive})
+    ipv6.EntityData.Leafs.Append("old-register-checksum", types.YLeaf{"OldRegisterChecksum", ipv6.OldRegisterChecksum})
+    ipv6.EntityData.Leafs.Append("neighbor-filter", types.YLeaf{"NeighborFilter", ipv6.NeighborFilter})
+    ipv6.EntityData.Leafs.Append("spt-threshold-infinity", types.YLeaf{"SptThresholdInfinity", ipv6.SptThresholdInfinity})
+    ipv6.EntityData.Leafs.Append("log-neighbor-changes", types.YLeaf{"LogNeighborChanges", ipv6.LogNeighborChanges})
+    ipv6.EntityData.Leafs.Append("register-source", types.YLeaf{"RegisterSource", ipv6.RegisterSource})
+    ipv6.EntityData.Leafs.Append("accept-register", types.YLeaf{"AcceptRegister", ipv6.AcceptRegister})
+    ipv6.EntityData.Leafs.Append("embedded-rp-disable", types.YLeaf{"EmbeddedRpDisable", ipv6.EmbeddedRpDisable})
+    ipv6.EntityData.Leafs.Append("suppress-rpf-prunes", types.YLeaf{"SuppressRpfPrunes", ipv6.SuppressRpfPrunes})
+    ipv6.EntityData.Leafs.Append("ssm-allow-override", types.YLeaf{"SsmAllowOverride", ipv6.SsmAllowOverride})
+    ipv6.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", ipv6.Multipath})
+    ipv6.EntityData.Leafs.Append("rp-static-deny", types.YLeaf{"RpStaticDeny", ipv6.RpStaticDeny})
+    ipv6.EntityData.Leafs.Append("suppress-data-registers", types.YLeaf{"SuppressDataRegisters", ipv6.SuppressDataRegisters})
+    ipv6.EntityData.Leafs.Append("neighbor-check-on-send", types.YLeaf{"NeighborCheckOnSend", ipv6.NeighborCheckOnSend})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -2972,8 +3200,8 @@ type Pim_DefaultContext_Ipv6_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Pim_DefaultContext_Ipv6_Interfaces_Interface_.
-    Interface_ []Pim_DefaultContext_Ipv6_Interfaces_Interface
+    // Pim_DefaultContext_Ipv6_Interfaces_Interface.
+    Interface []*Pim_DefaultContext_Ipv6_Interfaces_Interface
 }
 
 func (interfaces *Pim_DefaultContext_Ipv6_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -2986,12 +3214,15 @@ func (interfaces *Pim_DefaultContext_Ipv6_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -3002,7 +3233,7 @@ type Pim_DefaultContext_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Enter PIM Interface processing. The type is interface{}.
@@ -3054,26 +3285,29 @@ func (self *Pim_DefaultContext_Ipv6_Interfaces_Interface) GetEntityData() *types
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["maximum-routes"] = types.YChild{"MaximumRoutes", &self.MaximumRoutes}
-    self.EntityData.Children["bfd"] = types.YChild{"Bfd", &self.Bfd}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
-    self.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", self.NeighborFilter}
-    self.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", self.HelloInterval}
-    self.EntityData.Leafs["bsr-border"] = types.YLeaf{"BsrBorder", self.BsrBorder}
-    self.EntityData.Leafs["propagation-delay"] = types.YLeaf{"PropagationDelay", self.PropagationDelay}
-    self.EntityData.Leafs["dr-priority"] = types.YLeaf{"DrPriority", self.DrPriority}
-    self.EntityData.Leafs["join-prune-mtu"] = types.YLeaf{"JoinPruneMtu", self.JoinPruneMtu}
-    self.EntityData.Leafs["interface-enable"] = types.YLeaf{"InterfaceEnable", self.InterfaceEnable}
-    self.EntityData.Leafs["jp-interval"] = types.YLeaf{"JpInterval", self.JpInterval}
-    self.EntityData.Leafs["override-interval"] = types.YLeaf{"OverrideInterval", self.OverrideInterval}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("maximum-routes", types.YChild{"MaximumRoutes", &self.MaximumRoutes})
+    self.EntityData.Children.Append("bfd", types.YChild{"Bfd", &self.Bfd})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
+    self.EntityData.Leafs.Append("neighbor-filter", types.YLeaf{"NeighborFilter", self.NeighborFilter})
+    self.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", self.HelloInterval})
+    self.EntityData.Leafs.Append("bsr-border", types.YLeaf{"BsrBorder", self.BsrBorder})
+    self.EntityData.Leafs.Append("propagation-delay", types.YLeaf{"PropagationDelay", self.PropagationDelay})
+    self.EntityData.Leafs.Append("dr-priority", types.YLeaf{"DrPriority", self.DrPriority})
+    self.EntityData.Leafs.Append("join-prune-mtu", types.YLeaf{"JoinPruneMtu", self.JoinPruneMtu})
+    self.EntityData.Leafs.Append("interface-enable", types.YLeaf{"InterfaceEnable", self.InterfaceEnable})
+    self.EntityData.Leafs.Append("jp-interval", types.YLeaf{"JpInterval", self.JpInterval})
+    self.EntityData.Leafs.Append("override-interval", types.YLeaf{"OverrideInterval", self.OverrideInterval})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -3084,6 +3318,7 @@ func (self *Pim_DefaultContext_Ipv6_Interfaces_Interface) GetEntityData() *types
 type Pim_DefaultContext_Ipv6_Interfaces_Interface_MaximumRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of routes for this interface. The type is interface{} with
     // range: 1..1100000. This attribute is mandatory.
@@ -3107,11 +3342,14 @@ func (maximumRoutes *Pim_DefaultContext_Ipv6_Interfaces_Interface_MaximumRoutes)
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumRoutes.EntityData.Children = make(map[string]types.YChild)
-    maximumRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumRoutes.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", maximumRoutes.Maximum}
-    maximumRoutes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumRoutes.WarningThreshold}
-    maximumRoutes.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumRoutes.AccessListName}
+    maximumRoutes.EntityData.Children = types.NewOrderedMap()
+    maximumRoutes.EntityData.Leafs = types.NewOrderedMap()
+    maximumRoutes.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", maximumRoutes.Maximum})
+    maximumRoutes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumRoutes.WarningThreshold})
+    maximumRoutes.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumRoutes.AccessListName})
+
+    maximumRoutes.EntityData.YListKeys = []string {}
+
     return &(maximumRoutes.EntityData)
 }
 
@@ -3144,11 +3382,14 @@ func (bfd *Pim_DefaultContext_Ipv6_Interfaces_Interface_Bfd) GetEntityData() *ty
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier}
-    bfd.EntityData.Leafs["interval"] = types.YLeaf{"Interval", bfd.Interval}
-    bfd.EntityData.Leafs["enable"] = types.YLeaf{"Enable", bfd.Enable}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier})
+    bfd.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", bfd.Interval})
+    bfd.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bfd.Enable})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -3160,7 +3401,7 @@ type Pim_DefaultContext_Ipv6_SparseModeRpAddresses struct {
 
     // Address of the Rendezvous Point. The type is slice of
     // Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseModeRpAddress.
-    SparseModeRpAddress []Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseModeRpAddress
+    SparseModeRpAddress []*Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseModeRpAddress
 }
 
 func (sparseModeRpAddresses *Pim_DefaultContext_Ipv6_SparseModeRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -3173,12 +3414,15 @@ func (sparseModeRpAddresses *Pim_DefaultContext_Ipv6_SparseModeRpAddresses) GetE
     sparseModeRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sparseModeRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    sparseModeRpAddresses.EntityData.Children["sparse-mode-rp-address"] = types.YChild{"SparseModeRpAddress", nil}
+    sparseModeRpAddresses.EntityData.Children = types.NewOrderedMap()
+    sparseModeRpAddresses.EntityData.Children.Append("sparse-mode-rp-address", types.YChild{"SparseModeRpAddress", nil})
     for i := range sparseModeRpAddresses.SparseModeRpAddress {
-        sparseModeRpAddresses.EntityData.Children[types.GetSegmentPath(&sparseModeRpAddresses.SparseModeRpAddress[i])] = types.YChild{"SparseModeRpAddress", &sparseModeRpAddresses.SparseModeRpAddress[i]}
+        sparseModeRpAddresses.EntityData.Children.Append(types.GetSegmentPath(sparseModeRpAddresses.SparseModeRpAddress[i]), types.YChild{"SparseModeRpAddress", sparseModeRpAddresses.SparseModeRpAddress[i]})
     }
-    sparseModeRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    sparseModeRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    sparseModeRpAddresses.EntityData.YListKeys = []string {}
+
     return &(sparseModeRpAddresses.EntityData)
 }
 
@@ -3190,9 +3434,9 @@ type Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseModeRpAddress struct {
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a  given RP. The type is string
@@ -3209,16 +3453,19 @@ func (sparseModeRpAddress *Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseM
     sparseModeRpAddress.EntityData.YangName = "sparse-mode-rp-address"
     sparseModeRpAddress.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddress.EntityData.ParentYangName = "sparse-mode-rp-addresses"
-    sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + "[rp-address='" + fmt.Sprintf("%v", sparseModeRpAddress.RpAddress) + "']"
+    sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + types.AddKeyToken(sparseModeRpAddress.RpAddress, "rp-address")
     sparseModeRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sparseModeRpAddress.EntityData.Children = make(map[string]types.YChild)
-    sparseModeRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sparseModeRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", sparseModeRpAddress.RpAddress}
-    sparseModeRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", sparseModeRpAddress.AccessListName}
-    sparseModeRpAddress.EntityData.Leafs["auto-rp-override"] = types.YLeaf{"AutoRpOverride", sparseModeRpAddress.AutoRpOverride}
+    sparseModeRpAddress.EntityData.Children = types.NewOrderedMap()
+    sparseModeRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    sparseModeRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", sparseModeRpAddress.RpAddress})
+    sparseModeRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", sparseModeRpAddress.AccessListName})
+    sparseModeRpAddress.EntityData.Leafs.Append("auto-rp-override", types.YLeaf{"AutoRpOverride", sparseModeRpAddress.AutoRpOverride})
+
+    sparseModeRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(sparseModeRpAddress.EntityData)
 }
 
@@ -3267,15 +3514,18 @@ func (inheritableDefaults *Pim_DefaultContext_Ipv6_InheritableDefaults) GetEntit
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inheritableDefaults.EntityData.Children = make(map[string]types.YChild)
-    inheritableDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    inheritableDefaults.EntityData.Leafs["convergence-timeout"] = types.YLeaf{"ConvergenceTimeout", inheritableDefaults.ConvergenceTimeout}
-    inheritableDefaults.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", inheritableDefaults.HelloInterval}
-    inheritableDefaults.EntityData.Leafs["propagation-delay"] = types.YLeaf{"PropagationDelay", inheritableDefaults.PropagationDelay}
-    inheritableDefaults.EntityData.Leafs["dr-priority"] = types.YLeaf{"DrPriority", inheritableDefaults.DrPriority}
-    inheritableDefaults.EntityData.Leafs["join-prune-mtu"] = types.YLeaf{"JoinPruneMtu", inheritableDefaults.JoinPruneMtu}
-    inheritableDefaults.EntityData.Leafs["jp-interval"] = types.YLeaf{"JpInterval", inheritableDefaults.JpInterval}
-    inheritableDefaults.EntityData.Leafs["override-interval"] = types.YLeaf{"OverrideInterval", inheritableDefaults.OverrideInterval}
+    inheritableDefaults.EntityData.Children = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs.Append("convergence-timeout", types.YLeaf{"ConvergenceTimeout", inheritableDefaults.ConvergenceTimeout})
+    inheritableDefaults.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", inheritableDefaults.HelloInterval})
+    inheritableDefaults.EntityData.Leafs.Append("propagation-delay", types.YLeaf{"PropagationDelay", inheritableDefaults.PropagationDelay})
+    inheritableDefaults.EntityData.Leafs.Append("dr-priority", types.YLeaf{"DrPriority", inheritableDefaults.DrPriority})
+    inheritableDefaults.EntityData.Leafs.Append("join-prune-mtu", types.YLeaf{"JoinPruneMtu", inheritableDefaults.JoinPruneMtu})
+    inheritableDefaults.EntityData.Leafs.Append("jp-interval", types.YLeaf{"JpInterval", inheritableDefaults.JpInterval})
+    inheritableDefaults.EntityData.Leafs.Append("override-interval", types.YLeaf{"OverrideInterval", inheritableDefaults.OverrideInterval})
+
+    inheritableDefaults.EntityData.YListKeys = []string {}
+
     return &(inheritableDefaults.EntityData)
 }
 
@@ -3299,9 +3549,12 @@ func (rpf *Pim_DefaultContext_Ipv6_Rpf) GetEntityData() *types.CommonEntityData 
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpf.EntityData.Children = make(map[string]types.YChild)
-    rpf.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpf.EntityData.Leafs["route-policy"] = types.YLeaf{"RoutePolicy", rpf.RoutePolicy}
+    rpf.EntityData.Children = types.NewOrderedMap()
+    rpf.EntityData.Leafs = types.NewOrderedMap()
+    rpf.EntityData.Leafs.Append("route-policy", types.YLeaf{"RoutePolicy", rpf.RoutePolicy})
+
+    rpf.EntityData.YListKeys = []string {}
+
     return &(rpf.EntityData)
 }
 
@@ -3330,10 +3583,13 @@ func (sgExpiryTimer *Pim_DefaultContext_Ipv6_SgExpiryTimer) GetEntityData() *typ
     sgExpiryTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sgExpiryTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sgExpiryTimer.EntityData.Children = make(map[string]types.YChild)
-    sgExpiryTimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    sgExpiryTimer.EntityData.Leafs["interval"] = types.YLeaf{"Interval", sgExpiryTimer.Interval}
-    sgExpiryTimer.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", sgExpiryTimer.AccessListName}
+    sgExpiryTimer.EntityData.Children = types.NewOrderedMap()
+    sgExpiryTimer.EntityData.Leafs = types.NewOrderedMap()
+    sgExpiryTimer.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", sgExpiryTimer.Interval})
+    sgExpiryTimer.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", sgExpiryTimer.AccessListName})
+
+    sgExpiryTimer.EntityData.YListKeys = []string {}
+
     return &(sgExpiryTimer.EntityData)
 }
 
@@ -3343,6 +3599,7 @@ func (sgExpiryTimer *Pim_DefaultContext_Ipv6_SgExpiryTimer) GetEntityData() *typ
 type Pim_DefaultContext_Ipv6_RpfVectorEnable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // RPF Vector is turned on if configured. The type is interface{}. This
     // attribute is mandatory.
@@ -3365,11 +3622,14 @@ func (rpfVectorEnable *Pim_DefaultContext_Ipv6_RpfVectorEnable) GetEntityData() 
     rpfVectorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfVectorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpfVectorEnable.EntityData.Children = make(map[string]types.YChild)
-    rpfVectorEnable.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpfVectorEnable.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rpfVectorEnable.Enable}
-    rpfVectorEnable.EntityData.Leafs["allow-ebgp"] = types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp}
-    rpfVectorEnable.EntityData.Leafs["disable-ibgp"] = types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp}
+    rpfVectorEnable.EntityData.Children = types.NewOrderedMap()
+    rpfVectorEnable.EntityData.Leafs = types.NewOrderedMap()
+    rpfVectorEnable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpfVectorEnable.Enable})
+    rpfVectorEnable.EntityData.Leafs.Append("allow-ebgp", types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp})
+    rpfVectorEnable.EntityData.Leafs.Append("disable-ibgp", types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp})
+
+    rpfVectorEnable.EntityData.YListKeys = []string {}
+
     return &(rpfVectorEnable.EntityData)
 }
 
@@ -3394,9 +3654,12 @@ func (nsf *Pim_DefaultContext_Ipv6_Nsf) GetEntityData() *types.CommonEntityData 
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nsf.EntityData.Children = make(map[string]types.YChild)
-    nsf.EntityData.Leafs = make(map[string]types.YLeaf)
-    nsf.EntityData.Leafs["lifetime"] = types.YLeaf{"Lifetime", nsf.Lifetime}
+    nsf.EntityData.Children = types.NewOrderedMap()
+    nsf.EntityData.Leafs = types.NewOrderedMap()
+    nsf.EntityData.Leafs.Append("lifetime", types.YLeaf{"Lifetime", nsf.Lifetime})
+
+    nsf.EntityData.YListKeys = []string {}
+
     return &(nsf.EntityData)
 }
 
@@ -3464,22 +3727,25 @@ func (maximum *Pim_DefaultContext_Ipv6_Maximum) GetEntityData() *types.CommonEnt
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximum.EntityData.Children = make(map[string]types.YChild)
-    maximum.EntityData.Children["bsr-global-group-mappings"] = types.YChild{"BsrGlobalGroupMappings", &maximum.BsrGlobalGroupMappings}
-    maximum.EntityData.Children["global-routes"] = types.YChild{"GlobalRoutes", &maximum.GlobalRoutes}
-    maximum.EntityData.Children["global-group-mappings-auto-rp"] = types.YChild{"GlobalGroupMappingsAutoRp", &maximum.GlobalGroupMappingsAutoRp}
-    maximum.EntityData.Children["bsr-global-candidate-rp-cache"] = types.YChild{"BsrGlobalCandidateRpCache", &maximum.BsrGlobalCandidateRpCache}
-    maximum.EntityData.Children["global-register-states"] = types.YChild{"GlobalRegisterStates", &maximum.GlobalRegisterStates}
-    maximum.EntityData.Children["global-route-interfaces"] = types.YChild{"GlobalRouteInterfaces", &maximum.GlobalRouteInterfaces}
-    maximum.EntityData.Children["group-mappings-auto-rp"] = types.YChild{"GroupMappingsAutoRp", &maximum.GroupMappingsAutoRp}
-    maximum.EntityData.Children["bsr-group-mappings"] = types.YChild{"BsrGroupMappings", &maximum.BsrGroupMappings}
-    maximum.EntityData.Children["register-states"] = types.YChild{"RegisterStates", &maximum.RegisterStates}
-    maximum.EntityData.Children["route-interfaces"] = types.YChild{"RouteInterfaces", &maximum.RouteInterfaces}
-    maximum.EntityData.Children["bsr-candidate-rp-cache"] = types.YChild{"BsrCandidateRpCache", &maximum.BsrCandidateRpCache}
-    maximum.EntityData.Children["routes"] = types.YChild{"Routes", &maximum.Routes}
-    maximum.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximum.EntityData.Leafs["global-low-priority-packet-queue"] = types.YLeaf{"GlobalLowPriorityPacketQueue", maximum.GlobalLowPriorityPacketQueue}
-    maximum.EntityData.Leafs["global-high-priority-packet-queue"] = types.YLeaf{"GlobalHighPriorityPacketQueue", maximum.GlobalHighPriorityPacketQueue}
+    maximum.EntityData.Children = types.NewOrderedMap()
+    maximum.EntityData.Children.Append("bsr-global-group-mappings", types.YChild{"BsrGlobalGroupMappings", &maximum.BsrGlobalGroupMappings})
+    maximum.EntityData.Children.Append("global-routes", types.YChild{"GlobalRoutes", &maximum.GlobalRoutes})
+    maximum.EntityData.Children.Append("global-group-mappings-auto-rp", types.YChild{"GlobalGroupMappingsAutoRp", &maximum.GlobalGroupMappingsAutoRp})
+    maximum.EntityData.Children.Append("bsr-global-candidate-rp-cache", types.YChild{"BsrGlobalCandidateRpCache", &maximum.BsrGlobalCandidateRpCache})
+    maximum.EntityData.Children.Append("global-register-states", types.YChild{"GlobalRegisterStates", &maximum.GlobalRegisterStates})
+    maximum.EntityData.Children.Append("global-route-interfaces", types.YChild{"GlobalRouteInterfaces", &maximum.GlobalRouteInterfaces})
+    maximum.EntityData.Children.Append("group-mappings-auto-rp", types.YChild{"GroupMappingsAutoRp", &maximum.GroupMappingsAutoRp})
+    maximum.EntityData.Children.Append("bsr-group-mappings", types.YChild{"BsrGroupMappings", &maximum.BsrGroupMappings})
+    maximum.EntityData.Children.Append("register-states", types.YChild{"RegisterStates", &maximum.RegisterStates})
+    maximum.EntityData.Children.Append("route-interfaces", types.YChild{"RouteInterfaces", &maximum.RouteInterfaces})
+    maximum.EntityData.Children.Append("bsr-candidate-rp-cache", types.YChild{"BsrCandidateRpCache", &maximum.BsrCandidateRpCache})
+    maximum.EntityData.Children.Append("routes", types.YChild{"Routes", &maximum.Routes})
+    maximum.EntityData.Leafs = types.NewOrderedMap()
+    maximum.EntityData.Leafs.Append("global-low-priority-packet-queue", types.YLeaf{"GlobalLowPriorityPacketQueue", maximum.GlobalLowPriorityPacketQueue})
+    maximum.EntityData.Leafs.Append("global-high-priority-packet-queue", types.YLeaf{"GlobalHighPriorityPacketQueue", maximum.GlobalHighPriorityPacketQueue})
+
+    maximum.EntityData.YListKeys = []string {}
+
     return &(maximum.EntityData)
 }
 
@@ -3490,6 +3756,7 @@ func (maximum *Pim_DefaultContext_Ipv6_Maximum) GetEntityData() *types.CommonEnt
 type Pim_DefaultContext_Ipv6_Maximum_BsrGlobalGroupMappings struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Global Maximum number of PIM group mapping ranges from BSR. The type is
     // interface{} with range: 1..10000. This attribute is mandatory.
@@ -3510,10 +3777,13 @@ func (bsrGlobalGroupMappings *Pim_DefaultContext_Ipv6_Maximum_BsrGlobalGroupMapp
     bsrGlobalGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGlobalGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrGlobalGroupMappings.EntityData.Children = make(map[string]types.YChild)
-    bsrGlobalGroupMappings.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrGlobalGroupMappings.EntityData.Leafs["bsr-maximum-global-group-mappings"] = types.YLeaf{"BsrMaximumGlobalGroupMappings", bsrGlobalGroupMappings.BsrMaximumGlobalGroupMappings}
-    bsrGlobalGroupMappings.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrGlobalGroupMappings.WarningThreshold}
+    bsrGlobalGroupMappings.EntityData.Children = types.NewOrderedMap()
+    bsrGlobalGroupMappings.EntityData.Leafs = types.NewOrderedMap()
+    bsrGlobalGroupMappings.EntityData.Leafs.Append("bsr-maximum-global-group-mappings", types.YLeaf{"BsrMaximumGlobalGroupMappings", bsrGlobalGroupMappings.BsrMaximumGlobalGroupMappings})
+    bsrGlobalGroupMappings.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrGlobalGroupMappings.WarningThreshold})
+
+    bsrGlobalGroupMappings.EntityData.YListKeys = []string {}
+
     return &(bsrGlobalGroupMappings.EntityData)
 }
 
@@ -3523,6 +3793,7 @@ func (bsrGlobalGroupMappings *Pim_DefaultContext_Ipv6_Maximum_BsrGlobalGroupMapp
 type Pim_DefaultContext_Ipv6_Maximum_GlobalRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM routes. The type is interface{} with range:
     // 1..200000. This attribute is mandatory.
@@ -3543,10 +3814,13 @@ func (globalRoutes *Pim_DefaultContext_Ipv6_Maximum_GlobalRoutes) GetEntityData(
     globalRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalRoutes.EntityData.Children = make(map[string]types.YChild)
-    globalRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalRoutes.EntityData.Leafs["maximum-routes"] = types.YLeaf{"MaximumRoutes", globalRoutes.MaximumRoutes}
-    globalRoutes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", globalRoutes.WarningThreshold}
+    globalRoutes.EntityData.Children = types.NewOrderedMap()
+    globalRoutes.EntityData.Leafs = types.NewOrderedMap()
+    globalRoutes.EntityData.Leafs.Append("maximum-routes", types.YLeaf{"MaximumRoutes", globalRoutes.MaximumRoutes})
+    globalRoutes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", globalRoutes.WarningThreshold})
+
+    globalRoutes.EntityData.YListKeys = []string {}
+
     return &(globalRoutes.EntityData)
 }
 
@@ -3557,6 +3831,7 @@ func (globalRoutes *Pim_DefaultContext_Ipv6_Maximum_GlobalRoutes) GetEntityData(
 type Pim_DefaultContext_Ipv6_Maximum_GlobalGroupMappingsAutoRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from autorp. The type is interface{}
     // with range: 1..10000. This attribute is mandatory.
@@ -3577,10 +3852,13 @@ func (globalGroupMappingsAutoRp *Pim_DefaultContext_Ipv6_Maximum_GlobalGroupMapp
     globalGroupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalGroupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalGroupMappingsAutoRp.EntityData.Children = make(map[string]types.YChild)
-    globalGroupMappingsAutoRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalGroupMappingsAutoRp.EntityData.Leafs["maximum-global-group-ranges-auto-rp"] = types.YLeaf{"MaximumGlobalGroupRangesAutoRp", globalGroupMappingsAutoRp.MaximumGlobalGroupRangesAutoRp}
-    globalGroupMappingsAutoRp.EntityData.Leafs["threshold-global-group-ranges-auto-rp"] = types.YLeaf{"ThresholdGlobalGroupRangesAutoRp", globalGroupMappingsAutoRp.ThresholdGlobalGroupRangesAutoRp}
+    globalGroupMappingsAutoRp.EntityData.Children = types.NewOrderedMap()
+    globalGroupMappingsAutoRp.EntityData.Leafs = types.NewOrderedMap()
+    globalGroupMappingsAutoRp.EntityData.Leafs.Append("maximum-global-group-ranges-auto-rp", types.YLeaf{"MaximumGlobalGroupRangesAutoRp", globalGroupMappingsAutoRp.MaximumGlobalGroupRangesAutoRp})
+    globalGroupMappingsAutoRp.EntityData.Leafs.Append("threshold-global-group-ranges-auto-rp", types.YLeaf{"ThresholdGlobalGroupRangesAutoRp", globalGroupMappingsAutoRp.ThresholdGlobalGroupRangesAutoRp})
+
+    globalGroupMappingsAutoRp.EntityData.YListKeys = []string {}
+
     return &(globalGroupMappingsAutoRp.EntityData)
 }
 
@@ -3591,6 +3869,7 @@ func (globalGroupMappingsAutoRp *Pim_DefaultContext_Ipv6_Maximum_GlobalGroupMapp
 type Pim_DefaultContext_Ipv6_Maximum_BsrGlobalCandidateRpCache struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Global Maximum number of PIM C-RP Sets from BSR. The type is interface{}
     // with range: 1..10000. This attribute is mandatory.
@@ -3611,10 +3890,13 @@ func (bsrGlobalCandidateRpCache *Pim_DefaultContext_Ipv6_Maximum_BsrGlobalCandid
     bsrGlobalCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGlobalCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrGlobalCandidateRpCache.EntityData.Children = make(map[string]types.YChild)
-    bsrGlobalCandidateRpCache.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrGlobalCandidateRpCache.EntityData.Leafs["bsr-maximum-global-candidate-rp-cache"] = types.YLeaf{"BsrMaximumGlobalCandidateRpCache", bsrGlobalCandidateRpCache.BsrMaximumGlobalCandidateRpCache}
-    bsrGlobalCandidateRpCache.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrGlobalCandidateRpCache.WarningThreshold}
+    bsrGlobalCandidateRpCache.EntityData.Children = types.NewOrderedMap()
+    bsrGlobalCandidateRpCache.EntityData.Leafs = types.NewOrderedMap()
+    bsrGlobalCandidateRpCache.EntityData.Leafs.Append("bsr-maximum-global-candidate-rp-cache", types.YLeaf{"BsrMaximumGlobalCandidateRpCache", bsrGlobalCandidateRpCache.BsrMaximumGlobalCandidateRpCache})
+    bsrGlobalCandidateRpCache.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrGlobalCandidateRpCache.WarningThreshold})
+
+    bsrGlobalCandidateRpCache.EntityData.YListKeys = []string {}
+
     return &(bsrGlobalCandidateRpCache.EntityData)
 }
 
@@ -3625,6 +3907,7 @@ func (bsrGlobalCandidateRpCache *Pim_DefaultContext_Ipv6_Maximum_BsrGlobalCandid
 type Pim_DefaultContext_Ipv6_Maximum_GlobalRegisterStates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM Sparse-Mode register states. The type is interface{}
     // with range: 0..75000. This attribute is mandatory.
@@ -3645,10 +3928,13 @@ func (globalRegisterStates *Pim_DefaultContext_Ipv6_Maximum_GlobalRegisterStates
     globalRegisterStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRegisterStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalRegisterStates.EntityData.Children = make(map[string]types.YChild)
-    globalRegisterStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalRegisterStates.EntityData.Leafs["maximum-register-states"] = types.YLeaf{"MaximumRegisterStates", globalRegisterStates.MaximumRegisterStates}
-    globalRegisterStates.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", globalRegisterStates.WarningThreshold}
+    globalRegisterStates.EntityData.Children = types.NewOrderedMap()
+    globalRegisterStates.EntityData.Leafs = types.NewOrderedMap()
+    globalRegisterStates.EntityData.Leafs.Append("maximum-register-states", types.YLeaf{"MaximumRegisterStates", globalRegisterStates.MaximumRegisterStates})
+    globalRegisterStates.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", globalRegisterStates.WarningThreshold})
+
+    globalRegisterStates.EntityData.YListKeys = []string {}
+
     return &(globalRegisterStates.EntityData)
 }
 
@@ -3659,6 +3945,7 @@ func (globalRegisterStates *Pim_DefaultContext_Ipv6_Maximum_GlobalRegisterStates
 type Pim_DefaultContext_Ipv6_Maximum_GlobalRouteInterfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM route-interfaces. The type is interface{} with range:
     // 1..1100000. This attribute is mandatory.
@@ -3679,10 +3966,13 @@ func (globalRouteInterfaces *Pim_DefaultContext_Ipv6_Maximum_GlobalRouteInterfac
     globalRouteInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRouteInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalRouteInterfaces.EntityData.Children = make(map[string]types.YChild)
-    globalRouteInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalRouteInterfaces.EntityData.Leafs["maximum-route-interfaces"] = types.YLeaf{"MaximumRouteInterfaces", globalRouteInterfaces.MaximumRouteInterfaces}
-    globalRouteInterfaces.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", globalRouteInterfaces.WarningThreshold}
+    globalRouteInterfaces.EntityData.Children = types.NewOrderedMap()
+    globalRouteInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    globalRouteInterfaces.EntityData.Leafs.Append("maximum-route-interfaces", types.YLeaf{"MaximumRouteInterfaces", globalRouteInterfaces.MaximumRouteInterfaces})
+    globalRouteInterfaces.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", globalRouteInterfaces.WarningThreshold})
+
+    globalRouteInterfaces.EntityData.YListKeys = []string {}
+
     return &(globalRouteInterfaces.EntityData)
 }
 
@@ -3693,6 +3983,7 @@ func (globalRouteInterfaces *Pim_DefaultContext_Ipv6_Maximum_GlobalRouteInterfac
 type Pim_DefaultContext_Ipv6_Maximum_GroupMappingsAutoRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from autorp. The type is interface{}
     // with range: 1..10000. This attribute is mandatory.
@@ -3713,10 +4004,13 @@ func (groupMappingsAutoRp *Pim_DefaultContext_Ipv6_Maximum_GroupMappingsAutoRp) 
     groupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupMappingsAutoRp.EntityData.Children = make(map[string]types.YChild)
-    groupMappingsAutoRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupMappingsAutoRp.EntityData.Leafs["maximum-group-ranges-auto-rp"] = types.YLeaf{"MaximumGroupRangesAutoRp", groupMappingsAutoRp.MaximumGroupRangesAutoRp}
-    groupMappingsAutoRp.EntityData.Leafs["threshold-group-ranges-auto-rp"] = types.YLeaf{"ThresholdGroupRangesAutoRp", groupMappingsAutoRp.ThresholdGroupRangesAutoRp}
+    groupMappingsAutoRp.EntityData.Children = types.NewOrderedMap()
+    groupMappingsAutoRp.EntityData.Leafs = types.NewOrderedMap()
+    groupMappingsAutoRp.EntityData.Leafs.Append("maximum-group-ranges-auto-rp", types.YLeaf{"MaximumGroupRangesAutoRp", groupMappingsAutoRp.MaximumGroupRangesAutoRp})
+    groupMappingsAutoRp.EntityData.Leafs.Append("threshold-group-ranges-auto-rp", types.YLeaf{"ThresholdGroupRangesAutoRp", groupMappingsAutoRp.ThresholdGroupRangesAutoRp})
+
+    groupMappingsAutoRp.EntityData.YListKeys = []string {}
+
     return &(groupMappingsAutoRp.EntityData)
 }
 
@@ -3727,6 +4021,7 @@ func (groupMappingsAutoRp *Pim_DefaultContext_Ipv6_Maximum_GroupMappingsAutoRp) 
 type Pim_DefaultContext_Ipv6_Maximum_BsrGroupMappings struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from BSR. The type is interface{} with
     // range: 1..10000. This attribute is mandatory.
@@ -3747,10 +4042,13 @@ func (bsrGroupMappings *Pim_DefaultContext_Ipv6_Maximum_BsrGroupMappings) GetEnt
     bsrGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrGroupMappings.EntityData.Children = make(map[string]types.YChild)
-    bsrGroupMappings.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrGroupMappings.EntityData.Leafs["bsr-maximum-group-ranges"] = types.YLeaf{"BsrMaximumGroupRanges", bsrGroupMappings.BsrMaximumGroupRanges}
-    bsrGroupMappings.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrGroupMappings.WarningThreshold}
+    bsrGroupMappings.EntityData.Children = types.NewOrderedMap()
+    bsrGroupMappings.EntityData.Leafs = types.NewOrderedMap()
+    bsrGroupMappings.EntityData.Leafs.Append("bsr-maximum-group-ranges", types.YLeaf{"BsrMaximumGroupRanges", bsrGroupMappings.BsrMaximumGroupRanges})
+    bsrGroupMappings.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrGroupMappings.WarningThreshold})
+
+    bsrGroupMappings.EntityData.YListKeys = []string {}
+
     return &(bsrGroupMappings.EntityData)
 }
 
@@ -3761,6 +4059,7 @@ func (bsrGroupMappings *Pim_DefaultContext_Ipv6_Maximum_BsrGroupMappings) GetEnt
 type Pim_DefaultContext_Ipv6_Maximum_RegisterStates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM Sparse-Mode register states. The type is interface{}
     // with range: 0..75000. This attribute is mandatory.
@@ -3781,10 +4080,13 @@ func (registerStates *Pim_DefaultContext_Ipv6_Maximum_RegisterStates) GetEntityD
     registerStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registerStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    registerStates.EntityData.Children = make(map[string]types.YChild)
-    registerStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    registerStates.EntityData.Leafs["maximum-register-states"] = types.YLeaf{"MaximumRegisterStates", registerStates.MaximumRegisterStates}
-    registerStates.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", registerStates.WarningThreshold}
+    registerStates.EntityData.Children = types.NewOrderedMap()
+    registerStates.EntityData.Leafs = types.NewOrderedMap()
+    registerStates.EntityData.Leafs.Append("maximum-register-states", types.YLeaf{"MaximumRegisterStates", registerStates.MaximumRegisterStates})
+    registerStates.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", registerStates.WarningThreshold})
+
+    registerStates.EntityData.YListKeys = []string {}
+
     return &(registerStates.EntityData)
 }
 
@@ -3795,6 +4097,7 @@ func (registerStates *Pim_DefaultContext_Ipv6_Maximum_RegisterStates) GetEntityD
 type Pim_DefaultContext_Ipv6_Maximum_RouteInterfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM route-interfaces. The type is interface{} with range:
     // 1..1100000. This attribute is mandatory.
@@ -3815,10 +4118,13 @@ func (routeInterfaces *Pim_DefaultContext_Ipv6_Maximum_RouteInterfaces) GetEntit
     routeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeInterfaces.EntityData.Children = make(map[string]types.YChild)
-    routeInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeInterfaces.EntityData.Leafs["maximum-route-interfaces"] = types.YLeaf{"MaximumRouteInterfaces", routeInterfaces.MaximumRouteInterfaces}
-    routeInterfaces.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", routeInterfaces.WarningThreshold}
+    routeInterfaces.EntityData.Children = types.NewOrderedMap()
+    routeInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    routeInterfaces.EntityData.Leafs.Append("maximum-route-interfaces", types.YLeaf{"MaximumRouteInterfaces", routeInterfaces.MaximumRouteInterfaces})
+    routeInterfaces.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", routeInterfaces.WarningThreshold})
+
+    routeInterfaces.EntityData.YListKeys = []string {}
+
     return &(routeInterfaces.EntityData)
 }
 
@@ -3829,6 +4135,7 @@ func (routeInterfaces *Pim_DefaultContext_Ipv6_Maximum_RouteInterfaces) GetEntit
 type Pim_DefaultContext_Ipv6_Maximum_BsrCandidateRpCache struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of BSR C-RP cache setting. The type is interface{} with
     // range: 1..10000. This attribute is mandatory.
@@ -3849,10 +4156,13 @@ func (bsrCandidateRpCache *Pim_DefaultContext_Ipv6_Maximum_BsrCandidateRpCache) 
     bsrCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrCandidateRpCache.EntityData.Children = make(map[string]types.YChild)
-    bsrCandidateRpCache.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrCandidateRpCache.EntityData.Leafs["bsr-maximum-candidate-rp-cache"] = types.YLeaf{"BsrMaximumCandidateRpCache", bsrCandidateRpCache.BsrMaximumCandidateRpCache}
-    bsrCandidateRpCache.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrCandidateRpCache.WarningThreshold}
+    bsrCandidateRpCache.EntityData.Children = types.NewOrderedMap()
+    bsrCandidateRpCache.EntityData.Leafs = types.NewOrderedMap()
+    bsrCandidateRpCache.EntityData.Leafs.Append("bsr-maximum-candidate-rp-cache", types.YLeaf{"BsrMaximumCandidateRpCache", bsrCandidateRpCache.BsrMaximumCandidateRpCache})
+    bsrCandidateRpCache.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrCandidateRpCache.WarningThreshold})
+
+    bsrCandidateRpCache.EntityData.YListKeys = []string {}
+
     return &(bsrCandidateRpCache.EntityData)
 }
 
@@ -3862,6 +4172,7 @@ func (bsrCandidateRpCache *Pim_DefaultContext_Ipv6_Maximum_BsrCandidateRpCache) 
 type Pim_DefaultContext_Ipv6_Maximum_Routes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM routes. The type is interface{} with range:
     // 1..200000. This attribute is mandatory.
@@ -3882,10 +4193,13 @@ func (routes *Pim_DefaultContext_Ipv6_Maximum_Routes) GetEntityData() *types.Com
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
-    routes.EntityData.Leafs["maximum-routes"] = types.YLeaf{"MaximumRoutes", routes.MaximumRoutes}
-    routes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", routes.WarningThreshold}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Leafs = types.NewOrderedMap()
+    routes.EntityData.Leafs.Append("maximum-routes", types.YLeaf{"MaximumRoutes", routes.MaximumRoutes})
+    routes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", routes.WarningThreshold})
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -3901,7 +4215,7 @@ type Pim_DefaultContext_Ipv6_Ssm struct {
 
     // Access list of groups enabled with SSM. The type is string with length:
     // 1..64.
-    Range_ interface{}
+    Range interface{}
 }
 
 func (ssm *Pim_DefaultContext_Ipv6_Ssm) GetEntityData() *types.CommonEntityData {
@@ -3914,10 +4228,13 @@ func (ssm *Pim_DefaultContext_Ipv6_Ssm) GetEntityData() *types.CommonEntityData 
     ssm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssm.EntityData.Children = make(map[string]types.YChild)
-    ssm.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssm.EntityData.Leafs["disable"] = types.YLeaf{"Disable", ssm.Disable}
-    ssm.EntityData.Leafs["range"] = types.YLeaf{"Range_", ssm.Range_}
+    ssm.EntityData.Children = types.NewOrderedMap()
+    ssm.EntityData.Leafs = types.NewOrderedMap()
+    ssm.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", ssm.Disable})
+    ssm.EntityData.Leafs.Append("range", types.YLeaf{"Range", ssm.Range})
+
+    ssm.EntityData.YListKeys = []string {}
+
     return &(ssm.EntityData)
 }
 
@@ -3929,7 +4246,7 @@ type Pim_DefaultContext_Ipv6_BidirRpAddresses struct {
 
     // Address of the Rendezvous Point. The type is slice of
     // Pim_DefaultContext_Ipv6_BidirRpAddresses_BidirRpAddress.
-    BidirRpAddress []Pim_DefaultContext_Ipv6_BidirRpAddresses_BidirRpAddress
+    BidirRpAddress []*Pim_DefaultContext_Ipv6_BidirRpAddresses_BidirRpAddress
 }
 
 func (bidirRpAddresses *Pim_DefaultContext_Ipv6_BidirRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -3942,12 +4259,15 @@ func (bidirRpAddresses *Pim_DefaultContext_Ipv6_BidirRpAddresses) GetEntityData(
     bidirRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bidirRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    bidirRpAddresses.EntityData.Children["bidir-rp-address"] = types.YChild{"BidirRpAddress", nil}
+    bidirRpAddresses.EntityData.Children = types.NewOrderedMap()
+    bidirRpAddresses.EntityData.Children.Append("bidir-rp-address", types.YChild{"BidirRpAddress", nil})
     for i := range bidirRpAddresses.BidirRpAddress {
-        bidirRpAddresses.EntityData.Children[types.GetSegmentPath(&bidirRpAddresses.BidirRpAddress[i])] = types.YChild{"BidirRpAddress", &bidirRpAddresses.BidirRpAddress[i]}
+        bidirRpAddresses.EntityData.Children.Append(types.GetSegmentPath(bidirRpAddresses.BidirRpAddress[i]), types.YChild{"BidirRpAddress", bidirRpAddresses.BidirRpAddress[i]})
     }
-    bidirRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    bidirRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    bidirRpAddresses.EntityData.YListKeys = []string {}
+
     return &(bidirRpAddresses.EntityData)
 }
 
@@ -3959,9 +4279,9 @@ type Pim_DefaultContext_Ipv6_BidirRpAddresses_BidirRpAddress struct {
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a given RP. The type is string
@@ -3978,16 +4298,19 @@ func (bidirRpAddress *Pim_DefaultContext_Ipv6_BidirRpAddresses_BidirRpAddress) G
     bidirRpAddress.EntityData.YangName = "bidir-rp-address"
     bidirRpAddress.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddress.EntityData.ParentYangName = "bidir-rp-addresses"
-    bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + "[rp-address='" + fmt.Sprintf("%v", bidirRpAddress.RpAddress) + "']"
+    bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + types.AddKeyToken(bidirRpAddress.RpAddress, "rp-address")
     bidirRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bidirRpAddress.EntityData.Children = make(map[string]types.YChild)
-    bidirRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    bidirRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", bidirRpAddress.RpAddress}
-    bidirRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", bidirRpAddress.AccessListName}
-    bidirRpAddress.EntityData.Leafs["auto-rp-override"] = types.YLeaf{"AutoRpOverride", bidirRpAddress.AutoRpOverride}
+    bidirRpAddress.EntityData.Children = types.NewOrderedMap()
+    bidirRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    bidirRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", bidirRpAddress.RpAddress})
+    bidirRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", bidirRpAddress.AccessListName})
+    bidirRpAddress.EntityData.Leafs.Append("auto-rp-override", types.YLeaf{"AutoRpOverride", bidirRpAddress.AutoRpOverride})
+
+    bidirRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(bidirRpAddress.EntityData)
 }
 
@@ -4014,10 +4337,13 @@ func (bsr *Pim_DefaultContext_Ipv6_Bsr) GetEntityData() *types.CommonEntityData 
     bsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsr.EntityData.Children = make(map[string]types.YChild)
-    bsr.EntityData.Children["candidate-bsr"] = types.YChild{"CandidateBsr", &bsr.CandidateBsr}
-    bsr.EntityData.Children["candidate-rps"] = types.YChild{"CandidateRps", &bsr.CandidateRps}
-    bsr.EntityData.Leafs = make(map[string]types.YLeaf)
+    bsr.EntityData.Children = types.NewOrderedMap()
+    bsr.EntityData.Children.Append("candidate-bsr", types.YChild{"CandidateBsr", &bsr.CandidateBsr})
+    bsr.EntityData.Children.Append("candidate-rps", types.YChild{"CandidateRps", &bsr.CandidateRps})
+    bsr.EntityData.Leafs = types.NewOrderedMap()
+
+    bsr.EntityData.YListKeys = []string {}
+
     return &(bsr.EntityData)
 }
 
@@ -4027,9 +4353,10 @@ func (bsr *Pim_DefaultContext_Ipv6_Bsr) GetEntityData() *types.CommonEntityData 
 type Pim_DefaultContext_Ipv6_Bsr_CandidateBsr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // BSR Address configured. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
@@ -4052,11 +4379,14 @@ func (candidateBsr *Pim_DefaultContext_Ipv6_Bsr_CandidateBsr) GetEntityData() *t
     candidateBsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateBsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateBsr.EntityData.Children = make(map[string]types.YChild)
-    candidateBsr.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateBsr.EntityData.Leafs["address"] = types.YLeaf{"Address", candidateBsr.Address}
-    candidateBsr.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", candidateBsr.PrefixLength}
-    candidateBsr.EntityData.Leafs["priority"] = types.YLeaf{"Priority", candidateBsr.Priority}
+    candidateBsr.EntityData.Children = types.NewOrderedMap()
+    candidateBsr.EntityData.Leafs = types.NewOrderedMap()
+    candidateBsr.EntityData.Leafs.Append("address", types.YLeaf{"Address", candidateBsr.Address})
+    candidateBsr.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", candidateBsr.PrefixLength})
+    candidateBsr.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", candidateBsr.Priority})
+
+    candidateBsr.EntityData.YListKeys = []string {}
+
     return &(candidateBsr.EntityData)
 }
 
@@ -4068,7 +4398,7 @@ type Pim_DefaultContext_Ipv6_Bsr_CandidateRps struct {
 
     // Address of PIM SM BSR Candidate-RP. The type is slice of
     // Pim_DefaultContext_Ipv6_Bsr_CandidateRps_CandidateRp.
-    CandidateRp []Pim_DefaultContext_Ipv6_Bsr_CandidateRps_CandidateRp
+    CandidateRp []*Pim_DefaultContext_Ipv6_Bsr_CandidateRps_CandidateRp
 }
 
 func (candidateRps *Pim_DefaultContext_Ipv6_Bsr_CandidateRps) GetEntityData() *types.CommonEntityData {
@@ -4081,12 +4411,15 @@ func (candidateRps *Pim_DefaultContext_Ipv6_Bsr_CandidateRps) GetEntityData() *t
     candidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRps.EntityData.Children = make(map[string]types.YChild)
-    candidateRps.EntityData.Children["candidate-rp"] = types.YChild{"CandidateRp", nil}
+    candidateRps.EntityData.Children = types.NewOrderedMap()
+    candidateRps.EntityData.Children.Append("candidate-rp", types.YChild{"CandidateRp", nil})
     for i := range candidateRps.CandidateRp {
-        candidateRps.EntityData.Children[types.GetSegmentPath(&candidateRps.CandidateRp[i])] = types.YChild{"CandidateRp", &candidateRps.CandidateRp[i]}
+        candidateRps.EntityData.Children.Append(types.GetSegmentPath(candidateRps.CandidateRp[i]), types.YChild{"CandidateRp", candidateRps.CandidateRp[i]})
     }
-    candidateRps.EntityData.Leafs = make(map[string]types.YLeaf)
+    candidateRps.EntityData.Leafs = types.NewOrderedMap()
+
+    candidateRps.EntityData.YListKeys = []string {}
+
     return &(candidateRps.EntityData)
 }
 
@@ -4098,9 +4431,9 @@ type Pim_DefaultContext_Ipv6_Bsr_CandidateRps_CandidateRp struct {
 
     // This attribute is a key. Address of Candidate-RP. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. SM or Bidir. The type is PimProtocolMode.
@@ -4124,18 +4457,21 @@ func (candidateRp *Pim_DefaultContext_Ipv6_Bsr_CandidateRps_CandidateRp) GetEnti
     candidateRp.EntityData.YangName = "candidate-rp"
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "candidate-rps"
-    candidateRp.EntityData.SegmentPath = "candidate-rp" + "[address='" + fmt.Sprintf("%v", candidateRp.Address) + "']" + "[mode='" + fmt.Sprintf("%v", candidateRp.Mode) + "']"
+    candidateRp.EntityData.SegmentPath = "candidate-rp" + types.AddKeyToken(candidateRp.Address, "address") + types.AddKeyToken(candidateRp.Mode, "mode")
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRp.EntityData.Children = make(map[string]types.YChild)
-    candidateRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateRp.EntityData.Leafs["address"] = types.YLeaf{"Address", candidateRp.Address}
-    candidateRp.EntityData.Leafs["mode"] = types.YLeaf{"Mode", candidateRp.Mode}
-    candidateRp.EntityData.Leafs["group-list"] = types.YLeaf{"GroupList", candidateRp.GroupList}
-    candidateRp.EntityData.Leafs["priority"] = types.YLeaf{"Priority", candidateRp.Priority}
-    candidateRp.EntityData.Leafs["interval"] = types.YLeaf{"Interval", candidateRp.Interval}
+    candidateRp.EntityData.Children = types.NewOrderedMap()
+    candidateRp.EntityData.Leafs = types.NewOrderedMap()
+    candidateRp.EntityData.Leafs.Append("address", types.YLeaf{"Address", candidateRp.Address})
+    candidateRp.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", candidateRp.Mode})
+    candidateRp.EntityData.Leafs.Append("group-list", types.YLeaf{"GroupList", candidateRp.GroupList})
+    candidateRp.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", candidateRp.Priority})
+    candidateRp.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", candidateRp.Interval})
+
+    candidateRp.EntityData.YListKeys = []string {"Address", "Mode"}
+
     return &(candidateRp.EntityData)
 }
 
@@ -4145,6 +4481,7 @@ func (candidateRp *Pim_DefaultContext_Ipv6_Bsr_CandidateRps_CandidateRp) GetEnti
 type Pim_DefaultContext_Ipv6_AllowRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Access-list specifiying applicable RPs. The type is string with length:
     // 1..64.
@@ -4165,10 +4502,13 @@ func (allowRp *Pim_DefaultContext_Ipv6_AllowRp) GetEntityData() *types.CommonEnt
     allowRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allowRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allowRp.EntityData.Children = make(map[string]types.YChild)
-    allowRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    allowRp.EntityData.Leafs["rp-list-name"] = types.YLeaf{"RpListName", allowRp.RpListName}
-    allowRp.EntityData.Leafs["group-list-name"] = types.YLeaf{"GroupListName", allowRp.GroupListName}
+    allowRp.EntityData.Children = types.NewOrderedMap()
+    allowRp.EntityData.Leafs = types.NewOrderedMap()
+    allowRp.EntityData.Leafs.Append("rp-list-name", types.YLeaf{"RpListName", allowRp.RpListName})
+    allowRp.EntityData.Leafs.Append("group-list-name", types.YLeaf{"GroupListName", allowRp.GroupListName})
+
+    allowRp.EntityData.YListKeys = []string {}
+
     return &(allowRp.EntityData)
 }
 
@@ -4180,7 +4520,7 @@ type Pim_DefaultContext_Ipv6_EmbeddedRpAddresses struct {
 
     // Set Embedded RP processing support. The type is slice of
     // Pim_DefaultContext_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress.
-    EmbeddedRpAddress []Pim_DefaultContext_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress
+    EmbeddedRpAddress []*Pim_DefaultContext_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress
 }
 
 func (embeddedRpAddresses *Pim_DefaultContext_Ipv6_EmbeddedRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -4193,12 +4533,15 @@ func (embeddedRpAddresses *Pim_DefaultContext_Ipv6_EmbeddedRpAddresses) GetEntit
     embeddedRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     embeddedRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    embeddedRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    embeddedRpAddresses.EntityData.Children["embedded-rp-address"] = types.YChild{"EmbeddedRpAddress", nil}
+    embeddedRpAddresses.EntityData.Children = types.NewOrderedMap()
+    embeddedRpAddresses.EntityData.Children.Append("embedded-rp-address", types.YChild{"EmbeddedRpAddress", nil})
     for i := range embeddedRpAddresses.EmbeddedRpAddress {
-        embeddedRpAddresses.EntityData.Children[types.GetSegmentPath(&embeddedRpAddresses.EmbeddedRpAddress[i])] = types.YChild{"EmbeddedRpAddress", &embeddedRpAddresses.EmbeddedRpAddress[i]}
+        embeddedRpAddresses.EntityData.Children.Append(types.GetSegmentPath(embeddedRpAddresses.EmbeddedRpAddress[i]), types.YChild{"EmbeddedRpAddress", embeddedRpAddresses.EmbeddedRpAddress[i]})
     }
-    embeddedRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    embeddedRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    embeddedRpAddresses.EntityData.YListKeys = []string {}
+
     return &(embeddedRpAddresses.EntityData)
 }
 
@@ -4210,9 +4553,9 @@ type Pim_DefaultContext_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress struct {
 
     // This attribute is a key. RP address of the Rendezvous Point. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a given RP. The type is string
@@ -4225,15 +4568,18 @@ func (embeddedRpAddress *Pim_DefaultContext_Ipv6_EmbeddedRpAddresses_EmbeddedRpA
     embeddedRpAddress.EntityData.YangName = "embedded-rp-address"
     embeddedRpAddress.EntityData.BundleName = "cisco_ios_xr"
     embeddedRpAddress.EntityData.ParentYangName = "embedded-rp-addresses"
-    embeddedRpAddress.EntityData.SegmentPath = "embedded-rp-address" + "[rp-address='" + fmt.Sprintf("%v", embeddedRpAddress.RpAddress) + "']"
+    embeddedRpAddress.EntityData.SegmentPath = "embedded-rp-address" + types.AddKeyToken(embeddedRpAddress.RpAddress, "rp-address")
     embeddedRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     embeddedRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     embeddedRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    embeddedRpAddress.EntityData.Children = make(map[string]types.YChild)
-    embeddedRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    embeddedRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", embeddedRpAddress.RpAddress}
-    embeddedRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", embeddedRpAddress.AccessListName}
+    embeddedRpAddress.EntityData.Children = types.NewOrderedMap()
+    embeddedRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    embeddedRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", embeddedRpAddress.RpAddress})
+    embeddedRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", embeddedRpAddress.AccessListName})
+
+    embeddedRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(embeddedRpAddress.EntityData)
 }
 
@@ -4262,10 +4608,13 @@ func (convergence *Pim_DefaultContext_Ipv6_Convergence) GetEntityData() *types.C
     convergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    convergence.EntityData.Children = make(map[string]types.YChild)
-    convergence.EntityData.Leafs = make(map[string]types.YLeaf)
-    convergence.EntityData.Leafs["rpf-conflict-join-delay"] = types.YLeaf{"RpfConflictJoinDelay", convergence.RpfConflictJoinDelay}
-    convergence.EntityData.Leafs["link-down-prune-delay"] = types.YLeaf{"LinkDownPruneDelay", convergence.LinkDownPruneDelay}
+    convergence.EntityData.Children = types.NewOrderedMap()
+    convergence.EntityData.Leafs = types.NewOrderedMap()
+    convergence.EntityData.Leafs.Append("rpf-conflict-join-delay", types.YLeaf{"RpfConflictJoinDelay", convergence.RpfConflictJoinDelay})
+    convergence.EntityData.Leafs.Append("link-down-prune-delay", types.YLeaf{"LinkDownPruneDelay", convergence.LinkDownPruneDelay})
+
+    convergence.EntityData.YListKeys = []string {}
+
     return &(convergence.EntityData)
 }
 
@@ -4296,7 +4645,7 @@ type Pim_DefaultContext_Ipv4 struct {
     LogNeighborChanges interface{}
 
     // Source address to use for register messages. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     RegisterSource interface{}
 
     // Access-list which specifies unauthorized sources. The type is string with
@@ -4396,41 +4745,44 @@ func (ipv4 *Pim_DefaultContext_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["rpf-redirect"] = types.YChild{"RpfRedirect", &ipv4.RpfRedirect}
-    ipv4.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv4.Interfaces}
-    ipv4.EntityData.Children["auto-rp-candidate-rps"] = types.YChild{"AutoRpCandidateRps", &ipv4.AutoRpCandidateRps}
-    ipv4.EntityData.Children["auto-rp-mapping-agent"] = types.YChild{"AutoRpMappingAgent", &ipv4.AutoRpMappingAgent}
-    ipv4.EntityData.Children["sparse-mode-rp-addresses"] = types.YChild{"SparseModeRpAddresses", &ipv4.SparseModeRpAddresses}
-    ipv4.EntityData.Children["inheritable-defaults"] = types.YChild{"InheritableDefaults", &ipv4.InheritableDefaults}
-    ipv4.EntityData.Children["rpf"] = types.YChild{"Rpf", &ipv4.Rpf}
-    ipv4.EntityData.Children["sg-expiry-timer"] = types.YChild{"SgExpiryTimer", &ipv4.SgExpiryTimer}
-    ipv4.EntityData.Children["rpf-vector-enable"] = types.YChild{"RpfVectorEnable", &ipv4.RpfVectorEnable}
-    ipv4.EntityData.Children["nsf"] = types.YChild{"Nsf", &ipv4.Nsf}
-    ipv4.EntityData.Children["maximum"] = types.YChild{"Maximum", &ipv4.Maximum}
-    ipv4.EntityData.Children["ssm"] = types.YChild{"Ssm", &ipv4.Ssm}
-    ipv4.EntityData.Children["injects"] = types.YChild{"Injects", &ipv4.Injects}
-    ipv4.EntityData.Children["bidir-rp-addresses"] = types.YChild{"BidirRpAddresses", &ipv4.BidirRpAddresses}
-    ipv4.EntityData.Children["bsr"] = types.YChild{"Bsr", &ipv4.Bsr}
-    ipv4.EntityData.Children["mofrr"] = types.YChild{"Mofrr", &ipv4.Mofrr}
-    ipv4.EntityData.Children["paths"] = types.YChild{"Paths", &ipv4.Paths}
-    ipv4.EntityData.Children["allow-rp"] = types.YChild{"AllowRp", &ipv4.AllowRp}
-    ipv4.EntityData.Children["convergence"] = types.YChild{"Convergence", &ipv4.Convergence}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["neighbor-check-on-receive"] = types.YLeaf{"NeighborCheckOnReceive", ipv4.NeighborCheckOnReceive}
-    ipv4.EntityData.Leafs["old-register-checksum"] = types.YLeaf{"OldRegisterChecksum", ipv4.OldRegisterChecksum}
-    ipv4.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", ipv4.NeighborFilter}
-    ipv4.EntityData.Leafs["spt-threshold-infinity"] = types.YLeaf{"SptThresholdInfinity", ipv4.SptThresholdInfinity}
-    ipv4.EntityData.Leafs["log-neighbor-changes"] = types.YLeaf{"LogNeighborChanges", ipv4.LogNeighborChanges}
-    ipv4.EntityData.Leafs["register-source"] = types.YLeaf{"RegisterSource", ipv4.RegisterSource}
-    ipv4.EntityData.Leafs["accept-register"] = types.YLeaf{"AcceptRegister", ipv4.AcceptRegister}
-    ipv4.EntityData.Leafs["suppress-rpf-prunes"] = types.YLeaf{"SuppressRpfPrunes", ipv4.SuppressRpfPrunes}
-    ipv4.EntityData.Leafs["ssm-allow-override"] = types.YLeaf{"SsmAllowOverride", ipv4.SsmAllowOverride}
-    ipv4.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", ipv4.Multipath}
-    ipv4.EntityData.Leafs["rp-static-deny"] = types.YLeaf{"RpStaticDeny", ipv4.RpStaticDeny}
-    ipv4.EntityData.Leafs["suppress-data-registers"] = types.YLeaf{"SuppressDataRegisters", ipv4.SuppressDataRegisters}
-    ipv4.EntityData.Leafs["neighbor-check-on-send"] = types.YLeaf{"NeighborCheckOnSend", ipv4.NeighborCheckOnSend}
-    ipv4.EntityData.Leafs["auto-rp-disable"] = types.YLeaf{"AutoRpDisable", ipv4.AutoRpDisable}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("rpf-redirect", types.YChild{"RpfRedirect", &ipv4.RpfRedirect})
+    ipv4.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv4.Interfaces})
+    ipv4.EntityData.Children.Append("auto-rp-candidate-rps", types.YChild{"AutoRpCandidateRps", &ipv4.AutoRpCandidateRps})
+    ipv4.EntityData.Children.Append("auto-rp-mapping-agent", types.YChild{"AutoRpMappingAgent", &ipv4.AutoRpMappingAgent})
+    ipv4.EntityData.Children.Append("sparse-mode-rp-addresses", types.YChild{"SparseModeRpAddresses", &ipv4.SparseModeRpAddresses})
+    ipv4.EntityData.Children.Append("inheritable-defaults", types.YChild{"InheritableDefaults", &ipv4.InheritableDefaults})
+    ipv4.EntityData.Children.Append("rpf", types.YChild{"Rpf", &ipv4.Rpf})
+    ipv4.EntityData.Children.Append("sg-expiry-timer", types.YChild{"SgExpiryTimer", &ipv4.SgExpiryTimer})
+    ipv4.EntityData.Children.Append("rpf-vector-enable", types.YChild{"RpfVectorEnable", &ipv4.RpfVectorEnable})
+    ipv4.EntityData.Children.Append("nsf", types.YChild{"Nsf", &ipv4.Nsf})
+    ipv4.EntityData.Children.Append("maximum", types.YChild{"Maximum", &ipv4.Maximum})
+    ipv4.EntityData.Children.Append("ssm", types.YChild{"Ssm", &ipv4.Ssm})
+    ipv4.EntityData.Children.Append("injects", types.YChild{"Injects", &ipv4.Injects})
+    ipv4.EntityData.Children.Append("bidir-rp-addresses", types.YChild{"BidirRpAddresses", &ipv4.BidirRpAddresses})
+    ipv4.EntityData.Children.Append("bsr", types.YChild{"Bsr", &ipv4.Bsr})
+    ipv4.EntityData.Children.Append("mofrr", types.YChild{"Mofrr", &ipv4.Mofrr})
+    ipv4.EntityData.Children.Append("paths", types.YChild{"Paths", &ipv4.Paths})
+    ipv4.EntityData.Children.Append("allow-rp", types.YChild{"AllowRp", &ipv4.AllowRp})
+    ipv4.EntityData.Children.Append("convergence", types.YChild{"Convergence", &ipv4.Convergence})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("neighbor-check-on-receive", types.YLeaf{"NeighborCheckOnReceive", ipv4.NeighborCheckOnReceive})
+    ipv4.EntityData.Leafs.Append("old-register-checksum", types.YLeaf{"OldRegisterChecksum", ipv4.OldRegisterChecksum})
+    ipv4.EntityData.Leafs.Append("neighbor-filter", types.YLeaf{"NeighborFilter", ipv4.NeighborFilter})
+    ipv4.EntityData.Leafs.Append("spt-threshold-infinity", types.YLeaf{"SptThresholdInfinity", ipv4.SptThresholdInfinity})
+    ipv4.EntityData.Leafs.Append("log-neighbor-changes", types.YLeaf{"LogNeighborChanges", ipv4.LogNeighborChanges})
+    ipv4.EntityData.Leafs.Append("register-source", types.YLeaf{"RegisterSource", ipv4.RegisterSource})
+    ipv4.EntityData.Leafs.Append("accept-register", types.YLeaf{"AcceptRegister", ipv4.AcceptRegister})
+    ipv4.EntityData.Leafs.Append("suppress-rpf-prunes", types.YLeaf{"SuppressRpfPrunes", ipv4.SuppressRpfPrunes})
+    ipv4.EntityData.Leafs.Append("ssm-allow-override", types.YLeaf{"SsmAllowOverride", ipv4.SsmAllowOverride})
+    ipv4.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", ipv4.Multipath})
+    ipv4.EntityData.Leafs.Append("rp-static-deny", types.YLeaf{"RpStaticDeny", ipv4.RpStaticDeny})
+    ipv4.EntityData.Leafs.Append("suppress-data-registers", types.YLeaf{"SuppressDataRegisters", ipv4.SuppressDataRegisters})
+    ipv4.EntityData.Leafs.Append("neighbor-check-on-send", types.YLeaf{"NeighborCheckOnSend", ipv4.NeighborCheckOnSend})
+    ipv4.EntityData.Leafs.Append("auto-rp-disable", types.YLeaf{"AutoRpDisable", ipv4.AutoRpDisable})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -4454,9 +4806,12 @@ func (rpfRedirect *Pim_DefaultContext_Ipv4_RpfRedirect) GetEntityData() *types.C
     rpfRedirect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfRedirect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpfRedirect.EntityData.Children = make(map[string]types.YChild)
-    rpfRedirect.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpfRedirect.EntityData.Leafs["route-policy"] = types.YLeaf{"RoutePolicy", rpfRedirect.RoutePolicy}
+    rpfRedirect.EntityData.Children = types.NewOrderedMap()
+    rpfRedirect.EntityData.Leafs = types.NewOrderedMap()
+    rpfRedirect.EntityData.Leafs.Append("route-policy", types.YLeaf{"RoutePolicy", rpfRedirect.RoutePolicy})
+
+    rpfRedirect.EntityData.YListKeys = []string {}
+
     return &(rpfRedirect.EntityData)
 }
 
@@ -4467,8 +4822,8 @@ type Pim_DefaultContext_Ipv4_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Pim_DefaultContext_Ipv4_Interfaces_Interface_.
-    Interface_ []Pim_DefaultContext_Ipv4_Interfaces_Interface
+    // Pim_DefaultContext_Ipv4_Interfaces_Interface.
+    Interface []*Pim_DefaultContext_Ipv4_Interfaces_Interface
 }
 
 func (interfaces *Pim_DefaultContext_Ipv4_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -4481,12 +4836,15 @@ func (interfaces *Pim_DefaultContext_Ipv4_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -4497,7 +4855,7 @@ type Pim_DefaultContext_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Enter PIM Interface processing. The type is interface{}.
@@ -4552,27 +4910,30 @@ func (self *Pim_DefaultContext_Ipv4_Interfaces_Interface) GetEntityData() *types
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["redirect-bundle"] = types.YChild{"RedirectBundle", &self.RedirectBundle}
-    self.EntityData.Children["maximum-routes"] = types.YChild{"MaximumRoutes", &self.MaximumRoutes}
-    self.EntityData.Children["bfd"] = types.YChild{"Bfd", &self.Bfd}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
-    self.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", self.NeighborFilter}
-    self.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", self.HelloInterval}
-    self.EntityData.Leafs["bsr-border"] = types.YLeaf{"BsrBorder", self.BsrBorder}
-    self.EntityData.Leafs["propagation-delay"] = types.YLeaf{"PropagationDelay", self.PropagationDelay}
-    self.EntityData.Leafs["dr-priority"] = types.YLeaf{"DrPriority", self.DrPriority}
-    self.EntityData.Leafs["join-prune-mtu"] = types.YLeaf{"JoinPruneMtu", self.JoinPruneMtu}
-    self.EntityData.Leafs["interface-enable"] = types.YLeaf{"InterfaceEnable", self.InterfaceEnable}
-    self.EntityData.Leafs["jp-interval"] = types.YLeaf{"JpInterval", self.JpInterval}
-    self.EntityData.Leafs["override-interval"] = types.YLeaf{"OverrideInterval", self.OverrideInterval}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("redirect-bundle", types.YChild{"RedirectBundle", &self.RedirectBundle})
+    self.EntityData.Children.Append("maximum-routes", types.YChild{"MaximumRoutes", &self.MaximumRoutes})
+    self.EntityData.Children.Append("bfd", types.YChild{"Bfd", &self.Bfd})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
+    self.EntityData.Leafs.Append("neighbor-filter", types.YLeaf{"NeighborFilter", self.NeighborFilter})
+    self.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", self.HelloInterval})
+    self.EntityData.Leafs.Append("bsr-border", types.YLeaf{"BsrBorder", self.BsrBorder})
+    self.EntityData.Leafs.Append("propagation-delay", types.YLeaf{"PropagationDelay", self.PropagationDelay})
+    self.EntityData.Leafs.Append("dr-priority", types.YLeaf{"DrPriority", self.DrPriority})
+    self.EntityData.Leafs.Append("join-prune-mtu", types.YLeaf{"JoinPruneMtu", self.JoinPruneMtu})
+    self.EntityData.Leafs.Append("interface-enable", types.YLeaf{"InterfaceEnable", self.InterfaceEnable})
+    self.EntityData.Leafs.Append("jp-interval", types.YLeaf{"JpInterval", self.JpInterval})
+    self.EntityData.Leafs.Append("override-interval", types.YLeaf{"OverrideInterval", self.OverrideInterval})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -4605,11 +4966,14 @@ func (redirectBundle *Pim_DefaultContext_Ipv4_Interfaces_Interface_RedirectBundl
     redirectBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redirectBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redirectBundle.EntityData.Children = make(map[string]types.YChild)
-    redirectBundle.EntityData.Leafs = make(map[string]types.YLeaf)
-    redirectBundle.EntityData.Leafs["bundle-name"] = types.YLeaf{"BundleName", redirectBundle.BundleName}
-    redirectBundle.EntityData.Leafs["interface-bandwidth"] = types.YLeaf{"InterfaceBandwidth", redirectBundle.InterfaceBandwidth}
-    redirectBundle.EntityData.Leafs["threshold-bandwidth"] = types.YLeaf{"ThresholdBandwidth", redirectBundle.ThresholdBandwidth}
+    redirectBundle.EntityData.Children = types.NewOrderedMap()
+    redirectBundle.EntityData.Leafs = types.NewOrderedMap()
+    redirectBundle.EntityData.Leafs.Append("bundle-name", types.YLeaf{"BundleName", redirectBundle.BundleName})
+    redirectBundle.EntityData.Leafs.Append("interface-bandwidth", types.YLeaf{"InterfaceBandwidth", redirectBundle.InterfaceBandwidth})
+    redirectBundle.EntityData.Leafs.Append("threshold-bandwidth", types.YLeaf{"ThresholdBandwidth", redirectBundle.ThresholdBandwidth})
+
+    redirectBundle.EntityData.YListKeys = []string {}
+
     return &(redirectBundle.EntityData)
 }
 
@@ -4620,6 +4984,7 @@ func (redirectBundle *Pim_DefaultContext_Ipv4_Interfaces_Interface_RedirectBundl
 type Pim_DefaultContext_Ipv4_Interfaces_Interface_MaximumRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of routes for this interface. The type is interface{} with
     // range: 1..1100000. This attribute is mandatory.
@@ -4643,11 +5008,14 @@ func (maximumRoutes *Pim_DefaultContext_Ipv4_Interfaces_Interface_MaximumRoutes)
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumRoutes.EntityData.Children = make(map[string]types.YChild)
-    maximumRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumRoutes.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", maximumRoutes.Maximum}
-    maximumRoutes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumRoutes.WarningThreshold}
-    maximumRoutes.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumRoutes.AccessListName}
+    maximumRoutes.EntityData.Children = types.NewOrderedMap()
+    maximumRoutes.EntityData.Leafs = types.NewOrderedMap()
+    maximumRoutes.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", maximumRoutes.Maximum})
+    maximumRoutes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumRoutes.WarningThreshold})
+    maximumRoutes.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumRoutes.AccessListName})
+
+    maximumRoutes.EntityData.YListKeys = []string {}
+
     return &(maximumRoutes.EntityData)
 }
 
@@ -4680,11 +5048,14 @@ func (bfd *Pim_DefaultContext_Ipv4_Interfaces_Interface_Bfd) GetEntityData() *ty
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier}
-    bfd.EntityData.Leafs["interval"] = types.YLeaf{"Interval", bfd.Interval}
-    bfd.EntityData.Leafs["enable"] = types.YLeaf{"Enable", bfd.Enable}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier})
+    bfd.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", bfd.Interval})
+    bfd.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bfd.Enable})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -4696,7 +5067,7 @@ type Pim_DefaultContext_Ipv4_AutoRpCandidateRps struct {
 
     // Specifications for a Candidate-RP. The type is slice of
     // Pim_DefaultContext_Ipv4_AutoRpCandidateRps_AutoRpCandidateRp.
-    AutoRpCandidateRp []Pim_DefaultContext_Ipv4_AutoRpCandidateRps_AutoRpCandidateRp
+    AutoRpCandidateRp []*Pim_DefaultContext_Ipv4_AutoRpCandidateRps_AutoRpCandidateRp
 }
 
 func (autoRpCandidateRps *Pim_DefaultContext_Ipv4_AutoRpCandidateRps) GetEntityData() *types.CommonEntityData {
@@ -4709,12 +5080,15 @@ func (autoRpCandidateRps *Pim_DefaultContext_Ipv4_AutoRpCandidateRps) GetEntityD
     autoRpCandidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRpCandidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoRpCandidateRps.EntityData.Children = make(map[string]types.YChild)
-    autoRpCandidateRps.EntityData.Children["auto-rp-candidate-rp"] = types.YChild{"AutoRpCandidateRp", nil}
+    autoRpCandidateRps.EntityData.Children = types.NewOrderedMap()
+    autoRpCandidateRps.EntityData.Children.Append("auto-rp-candidate-rp", types.YChild{"AutoRpCandidateRp", nil})
     for i := range autoRpCandidateRps.AutoRpCandidateRp {
-        autoRpCandidateRps.EntityData.Children[types.GetSegmentPath(&autoRpCandidateRps.AutoRpCandidateRp[i])] = types.YChild{"AutoRpCandidateRp", &autoRpCandidateRps.AutoRpCandidateRp[i]}
+        autoRpCandidateRps.EntityData.Children.Append(types.GetSegmentPath(autoRpCandidateRps.AutoRpCandidateRp[i]), types.YChild{"AutoRpCandidateRp", autoRpCandidateRps.AutoRpCandidateRp[i]})
     }
-    autoRpCandidateRps.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoRpCandidateRps.EntityData.Leafs = types.NewOrderedMap()
+
+    autoRpCandidateRps.EntityData.YListKeys = []string {}
+
     return &(autoRpCandidateRps.EntityData)
 }
 
@@ -4725,7 +5099,7 @@ type Pim_DefaultContext_Ipv4_AutoRpCandidateRps_AutoRpCandidateRp struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface from which Candidate-RP packets will be
-    // sourced. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // sourced. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Protocol Mode. The type is AutoRpProtocolMode.
@@ -4749,18 +5123,21 @@ func (autoRpCandidateRp *Pim_DefaultContext_Ipv4_AutoRpCandidateRps_AutoRpCandid
     autoRpCandidateRp.EntityData.YangName = "auto-rp-candidate-rp"
     autoRpCandidateRp.EntityData.BundleName = "cisco_ios_xr"
     autoRpCandidateRp.EntityData.ParentYangName = "auto-rp-candidate-rps"
-    autoRpCandidateRp.EntityData.SegmentPath = "auto-rp-candidate-rp" + "[interface-name='" + fmt.Sprintf("%v", autoRpCandidateRp.InterfaceName) + "']" + "[protocol-mode='" + fmt.Sprintf("%v", autoRpCandidateRp.ProtocolMode) + "']"
+    autoRpCandidateRp.EntityData.SegmentPath = "auto-rp-candidate-rp" + types.AddKeyToken(autoRpCandidateRp.InterfaceName, "interface-name") + types.AddKeyToken(autoRpCandidateRp.ProtocolMode, "protocol-mode")
     autoRpCandidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoRpCandidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRpCandidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoRpCandidateRp.EntityData.Children = make(map[string]types.YChild)
-    autoRpCandidateRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    autoRpCandidateRp.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", autoRpCandidateRp.InterfaceName}
-    autoRpCandidateRp.EntityData.Leafs["protocol-mode"] = types.YLeaf{"ProtocolMode", autoRpCandidateRp.ProtocolMode}
-    autoRpCandidateRp.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", autoRpCandidateRp.Ttl}
-    autoRpCandidateRp.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", autoRpCandidateRp.AccessListName}
-    autoRpCandidateRp.EntityData.Leafs["announce-period"] = types.YLeaf{"AnnouncePeriod", autoRpCandidateRp.AnnouncePeriod}
+    autoRpCandidateRp.EntityData.Children = types.NewOrderedMap()
+    autoRpCandidateRp.EntityData.Leafs = types.NewOrderedMap()
+    autoRpCandidateRp.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", autoRpCandidateRp.InterfaceName})
+    autoRpCandidateRp.EntityData.Leafs.Append("protocol-mode", types.YLeaf{"ProtocolMode", autoRpCandidateRp.ProtocolMode})
+    autoRpCandidateRp.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", autoRpCandidateRp.Ttl})
+    autoRpCandidateRp.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", autoRpCandidateRp.AccessListName})
+    autoRpCandidateRp.EntityData.Leafs.Append("announce-period", types.YLeaf{"AnnouncePeriod", autoRpCandidateRp.AnnouncePeriod})
+
+    autoRpCandidateRp.EntityData.YListKeys = []string {"InterfaceName", "ProtocolMode"}
+
     return &(autoRpCandidateRp.EntityData)
 }
 
@@ -4787,10 +5164,13 @@ func (autoRpMappingAgent *Pim_DefaultContext_Ipv4_AutoRpMappingAgent) GetEntityD
     autoRpMappingAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRpMappingAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoRpMappingAgent.EntityData.Children = make(map[string]types.YChild)
-    autoRpMappingAgent.EntityData.Children["parameters"] = types.YChild{"Parameters", &autoRpMappingAgent.Parameters}
-    autoRpMappingAgent.EntityData.Children["cache-limit"] = types.YChild{"CacheLimit", &autoRpMappingAgent.CacheLimit}
-    autoRpMappingAgent.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoRpMappingAgent.EntityData.Children = types.NewOrderedMap()
+    autoRpMappingAgent.EntityData.Children.Append("parameters", types.YChild{"Parameters", &autoRpMappingAgent.Parameters})
+    autoRpMappingAgent.EntityData.Children.Append("cache-limit", types.YChild{"CacheLimit", &autoRpMappingAgent.CacheLimit})
+    autoRpMappingAgent.EntityData.Leafs = types.NewOrderedMap()
+
+    autoRpMappingAgent.EntityData.YListKeys = []string {}
+
     return &(autoRpMappingAgent.EntityData)
 }
 
@@ -4801,9 +5181,10 @@ func (autoRpMappingAgent *Pim_DefaultContext_Ipv4_AutoRpMappingAgent) GetEntityD
 type Pim_DefaultContext_Ipv4_AutoRpMappingAgent_Parameters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Interface from which mapping packets will be sourced . The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'. This attribute is mandatory.
+    // with pattern: [a-zA-Z0-9./-]+. This attribute is mandatory.
     InterfaceName interface{}
 
     // TTL in Hops. The type is interface{} with range: 1..255. This attribute is
@@ -4825,11 +5206,14 @@ func (parameters *Pim_DefaultContext_Ipv4_AutoRpMappingAgent_Parameters) GetEnti
     parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parameters.EntityData.Children = make(map[string]types.YChild)
-    parameters.EntityData.Leafs = make(map[string]types.YLeaf)
-    parameters.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", parameters.InterfaceName}
-    parameters.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", parameters.Ttl}
-    parameters.EntityData.Leafs["announce-period"] = types.YLeaf{"AnnouncePeriod", parameters.AnnouncePeriod}
+    parameters.EntityData.Children = types.NewOrderedMap()
+    parameters.EntityData.Leafs = types.NewOrderedMap()
+    parameters.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", parameters.InterfaceName})
+    parameters.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", parameters.Ttl})
+    parameters.EntityData.Leafs.Append("announce-period", types.YLeaf{"AnnouncePeriod", parameters.AnnouncePeriod})
+
+    parameters.EntityData.YListKeys = []string {}
+
     return &(parameters.EntityData)
 }
 
@@ -4839,6 +5223,7 @@ func (parameters *Pim_DefaultContext_Ipv4_AutoRpMappingAgent_Parameters) GetEnti
 type Pim_DefaultContext_Ipv4_AutoRpMappingAgent_CacheLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of mapping cache entries. The type is interface{} with
     // range: 1..1000. This attribute is mandatory.
@@ -4859,10 +5244,13 @@ func (cacheLimit *Pim_DefaultContext_Ipv4_AutoRpMappingAgent_CacheLimit) GetEnti
     cacheLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cacheLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cacheLimit.EntityData.Children = make(map[string]types.YChild)
-    cacheLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    cacheLimit.EntityData.Leafs["maximum-cache-entry"] = types.YLeaf{"MaximumCacheEntry", cacheLimit.MaximumCacheEntry}
-    cacheLimit.EntityData.Leafs["threshold-cache-entry"] = types.YLeaf{"ThresholdCacheEntry", cacheLimit.ThresholdCacheEntry}
+    cacheLimit.EntityData.Children = types.NewOrderedMap()
+    cacheLimit.EntityData.Leafs = types.NewOrderedMap()
+    cacheLimit.EntityData.Leafs.Append("maximum-cache-entry", types.YLeaf{"MaximumCacheEntry", cacheLimit.MaximumCacheEntry})
+    cacheLimit.EntityData.Leafs.Append("threshold-cache-entry", types.YLeaf{"ThresholdCacheEntry", cacheLimit.ThresholdCacheEntry})
+
+    cacheLimit.EntityData.YListKeys = []string {}
+
     return &(cacheLimit.EntityData)
 }
 
@@ -4874,7 +5262,7 @@ type Pim_DefaultContext_Ipv4_SparseModeRpAddresses struct {
 
     // Address of the Rendezvous Point. The type is slice of
     // Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseModeRpAddress.
-    SparseModeRpAddress []Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseModeRpAddress
+    SparseModeRpAddress []*Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseModeRpAddress
 }
 
 func (sparseModeRpAddresses *Pim_DefaultContext_Ipv4_SparseModeRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -4887,12 +5275,15 @@ func (sparseModeRpAddresses *Pim_DefaultContext_Ipv4_SparseModeRpAddresses) GetE
     sparseModeRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sparseModeRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    sparseModeRpAddresses.EntityData.Children["sparse-mode-rp-address"] = types.YChild{"SparseModeRpAddress", nil}
+    sparseModeRpAddresses.EntityData.Children = types.NewOrderedMap()
+    sparseModeRpAddresses.EntityData.Children.Append("sparse-mode-rp-address", types.YChild{"SparseModeRpAddress", nil})
     for i := range sparseModeRpAddresses.SparseModeRpAddress {
-        sparseModeRpAddresses.EntityData.Children[types.GetSegmentPath(&sparseModeRpAddresses.SparseModeRpAddress[i])] = types.YChild{"SparseModeRpAddress", &sparseModeRpAddresses.SparseModeRpAddress[i]}
+        sparseModeRpAddresses.EntityData.Children.Append(types.GetSegmentPath(sparseModeRpAddresses.SparseModeRpAddress[i]), types.YChild{"SparseModeRpAddress", sparseModeRpAddresses.SparseModeRpAddress[i]})
     }
-    sparseModeRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    sparseModeRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    sparseModeRpAddresses.EntityData.YListKeys = []string {}
+
     return &(sparseModeRpAddresses.EntityData)
 }
 
@@ -4904,9 +5295,9 @@ type Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseModeRpAddress struct {
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a  given RP. The type is string
@@ -4923,16 +5314,19 @@ func (sparseModeRpAddress *Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseM
     sparseModeRpAddress.EntityData.YangName = "sparse-mode-rp-address"
     sparseModeRpAddress.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddress.EntityData.ParentYangName = "sparse-mode-rp-addresses"
-    sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + "[rp-address='" + fmt.Sprintf("%v", sparseModeRpAddress.RpAddress) + "']"
+    sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + types.AddKeyToken(sparseModeRpAddress.RpAddress, "rp-address")
     sparseModeRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sparseModeRpAddress.EntityData.Children = make(map[string]types.YChild)
-    sparseModeRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sparseModeRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", sparseModeRpAddress.RpAddress}
-    sparseModeRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", sparseModeRpAddress.AccessListName}
-    sparseModeRpAddress.EntityData.Leafs["auto-rp-override"] = types.YLeaf{"AutoRpOverride", sparseModeRpAddress.AutoRpOverride}
+    sparseModeRpAddress.EntityData.Children = types.NewOrderedMap()
+    sparseModeRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    sparseModeRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", sparseModeRpAddress.RpAddress})
+    sparseModeRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", sparseModeRpAddress.AccessListName})
+    sparseModeRpAddress.EntityData.Leafs.Append("auto-rp-override", types.YLeaf{"AutoRpOverride", sparseModeRpAddress.AutoRpOverride})
+
+    sparseModeRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(sparseModeRpAddress.EntityData)
 }
 
@@ -4981,15 +5375,18 @@ func (inheritableDefaults *Pim_DefaultContext_Ipv4_InheritableDefaults) GetEntit
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inheritableDefaults.EntityData.Children = make(map[string]types.YChild)
-    inheritableDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    inheritableDefaults.EntityData.Leafs["convergence-timeout"] = types.YLeaf{"ConvergenceTimeout", inheritableDefaults.ConvergenceTimeout}
-    inheritableDefaults.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", inheritableDefaults.HelloInterval}
-    inheritableDefaults.EntityData.Leafs["propagation-delay"] = types.YLeaf{"PropagationDelay", inheritableDefaults.PropagationDelay}
-    inheritableDefaults.EntityData.Leafs["dr-priority"] = types.YLeaf{"DrPriority", inheritableDefaults.DrPriority}
-    inheritableDefaults.EntityData.Leafs["join-prune-mtu"] = types.YLeaf{"JoinPruneMtu", inheritableDefaults.JoinPruneMtu}
-    inheritableDefaults.EntityData.Leafs["jp-interval"] = types.YLeaf{"JpInterval", inheritableDefaults.JpInterval}
-    inheritableDefaults.EntityData.Leafs["override-interval"] = types.YLeaf{"OverrideInterval", inheritableDefaults.OverrideInterval}
+    inheritableDefaults.EntityData.Children = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs.Append("convergence-timeout", types.YLeaf{"ConvergenceTimeout", inheritableDefaults.ConvergenceTimeout})
+    inheritableDefaults.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", inheritableDefaults.HelloInterval})
+    inheritableDefaults.EntityData.Leafs.Append("propagation-delay", types.YLeaf{"PropagationDelay", inheritableDefaults.PropagationDelay})
+    inheritableDefaults.EntityData.Leafs.Append("dr-priority", types.YLeaf{"DrPriority", inheritableDefaults.DrPriority})
+    inheritableDefaults.EntityData.Leafs.Append("join-prune-mtu", types.YLeaf{"JoinPruneMtu", inheritableDefaults.JoinPruneMtu})
+    inheritableDefaults.EntityData.Leafs.Append("jp-interval", types.YLeaf{"JpInterval", inheritableDefaults.JpInterval})
+    inheritableDefaults.EntityData.Leafs.Append("override-interval", types.YLeaf{"OverrideInterval", inheritableDefaults.OverrideInterval})
+
+    inheritableDefaults.EntityData.YListKeys = []string {}
+
     return &(inheritableDefaults.EntityData)
 }
 
@@ -5013,9 +5410,12 @@ func (rpf *Pim_DefaultContext_Ipv4_Rpf) GetEntityData() *types.CommonEntityData 
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpf.EntityData.Children = make(map[string]types.YChild)
-    rpf.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpf.EntityData.Leafs["route-policy"] = types.YLeaf{"RoutePolicy", rpf.RoutePolicy}
+    rpf.EntityData.Children = types.NewOrderedMap()
+    rpf.EntityData.Leafs = types.NewOrderedMap()
+    rpf.EntityData.Leafs.Append("route-policy", types.YLeaf{"RoutePolicy", rpf.RoutePolicy})
+
+    rpf.EntityData.YListKeys = []string {}
+
     return &(rpf.EntityData)
 }
 
@@ -5044,10 +5444,13 @@ func (sgExpiryTimer *Pim_DefaultContext_Ipv4_SgExpiryTimer) GetEntityData() *typ
     sgExpiryTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sgExpiryTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sgExpiryTimer.EntityData.Children = make(map[string]types.YChild)
-    sgExpiryTimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    sgExpiryTimer.EntityData.Leafs["interval"] = types.YLeaf{"Interval", sgExpiryTimer.Interval}
-    sgExpiryTimer.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", sgExpiryTimer.AccessListName}
+    sgExpiryTimer.EntityData.Children = types.NewOrderedMap()
+    sgExpiryTimer.EntityData.Leafs = types.NewOrderedMap()
+    sgExpiryTimer.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", sgExpiryTimer.Interval})
+    sgExpiryTimer.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", sgExpiryTimer.AccessListName})
+
+    sgExpiryTimer.EntityData.YListKeys = []string {}
+
     return &(sgExpiryTimer.EntityData)
 }
 
@@ -5057,6 +5460,7 @@ func (sgExpiryTimer *Pim_DefaultContext_Ipv4_SgExpiryTimer) GetEntityData() *typ
 type Pim_DefaultContext_Ipv4_RpfVectorEnable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // RPF Vector is turned on if configured. The type is interface{}. This
     // attribute is mandatory.
@@ -5079,11 +5483,14 @@ func (rpfVectorEnable *Pim_DefaultContext_Ipv4_RpfVectorEnable) GetEntityData() 
     rpfVectorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfVectorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpfVectorEnable.EntityData.Children = make(map[string]types.YChild)
-    rpfVectorEnable.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpfVectorEnable.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rpfVectorEnable.Enable}
-    rpfVectorEnable.EntityData.Leafs["allow-ebgp"] = types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp}
-    rpfVectorEnable.EntityData.Leafs["disable-ibgp"] = types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp}
+    rpfVectorEnable.EntityData.Children = types.NewOrderedMap()
+    rpfVectorEnable.EntityData.Leafs = types.NewOrderedMap()
+    rpfVectorEnable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpfVectorEnable.Enable})
+    rpfVectorEnable.EntityData.Leafs.Append("allow-ebgp", types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp})
+    rpfVectorEnable.EntityData.Leafs.Append("disable-ibgp", types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp})
+
+    rpfVectorEnable.EntityData.YListKeys = []string {}
+
     return &(rpfVectorEnable.EntityData)
 }
 
@@ -5108,9 +5515,12 @@ func (nsf *Pim_DefaultContext_Ipv4_Nsf) GetEntityData() *types.CommonEntityData 
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nsf.EntityData.Children = make(map[string]types.YChild)
-    nsf.EntityData.Leafs = make(map[string]types.YLeaf)
-    nsf.EntityData.Leafs["lifetime"] = types.YLeaf{"Lifetime", nsf.Lifetime}
+    nsf.EntityData.Children = types.NewOrderedMap()
+    nsf.EntityData.Leafs = types.NewOrderedMap()
+    nsf.EntityData.Leafs.Append("lifetime", types.YLeaf{"Lifetime", nsf.Lifetime})
+
+    nsf.EntityData.YListKeys = []string {}
+
     return &(nsf.EntityData)
 }
 
@@ -5178,22 +5588,25 @@ func (maximum *Pim_DefaultContext_Ipv4_Maximum) GetEntityData() *types.CommonEnt
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximum.EntityData.Children = make(map[string]types.YChild)
-    maximum.EntityData.Children["bsr-global-group-mappings"] = types.YChild{"BsrGlobalGroupMappings", &maximum.BsrGlobalGroupMappings}
-    maximum.EntityData.Children["global-routes"] = types.YChild{"GlobalRoutes", &maximum.GlobalRoutes}
-    maximum.EntityData.Children["global-group-mappings-auto-rp"] = types.YChild{"GlobalGroupMappingsAutoRp", &maximum.GlobalGroupMappingsAutoRp}
-    maximum.EntityData.Children["bsr-global-candidate-rp-cache"] = types.YChild{"BsrGlobalCandidateRpCache", &maximum.BsrGlobalCandidateRpCache}
-    maximum.EntityData.Children["global-register-states"] = types.YChild{"GlobalRegisterStates", &maximum.GlobalRegisterStates}
-    maximum.EntityData.Children["global-route-interfaces"] = types.YChild{"GlobalRouteInterfaces", &maximum.GlobalRouteInterfaces}
-    maximum.EntityData.Children["group-mappings-auto-rp"] = types.YChild{"GroupMappingsAutoRp", &maximum.GroupMappingsAutoRp}
-    maximum.EntityData.Children["bsr-group-mappings"] = types.YChild{"BsrGroupMappings", &maximum.BsrGroupMappings}
-    maximum.EntityData.Children["register-states"] = types.YChild{"RegisterStates", &maximum.RegisterStates}
-    maximum.EntityData.Children["route-interfaces"] = types.YChild{"RouteInterfaces", &maximum.RouteInterfaces}
-    maximum.EntityData.Children["bsr-candidate-rp-cache"] = types.YChild{"BsrCandidateRpCache", &maximum.BsrCandidateRpCache}
-    maximum.EntityData.Children["routes"] = types.YChild{"Routes", &maximum.Routes}
-    maximum.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximum.EntityData.Leafs["global-low-priority-packet-queue"] = types.YLeaf{"GlobalLowPriorityPacketQueue", maximum.GlobalLowPriorityPacketQueue}
-    maximum.EntityData.Leafs["global-high-priority-packet-queue"] = types.YLeaf{"GlobalHighPriorityPacketQueue", maximum.GlobalHighPriorityPacketQueue}
+    maximum.EntityData.Children = types.NewOrderedMap()
+    maximum.EntityData.Children.Append("bsr-global-group-mappings", types.YChild{"BsrGlobalGroupMappings", &maximum.BsrGlobalGroupMappings})
+    maximum.EntityData.Children.Append("global-routes", types.YChild{"GlobalRoutes", &maximum.GlobalRoutes})
+    maximum.EntityData.Children.Append("global-group-mappings-auto-rp", types.YChild{"GlobalGroupMappingsAutoRp", &maximum.GlobalGroupMappingsAutoRp})
+    maximum.EntityData.Children.Append("bsr-global-candidate-rp-cache", types.YChild{"BsrGlobalCandidateRpCache", &maximum.BsrGlobalCandidateRpCache})
+    maximum.EntityData.Children.Append("global-register-states", types.YChild{"GlobalRegisterStates", &maximum.GlobalRegisterStates})
+    maximum.EntityData.Children.Append("global-route-interfaces", types.YChild{"GlobalRouteInterfaces", &maximum.GlobalRouteInterfaces})
+    maximum.EntityData.Children.Append("group-mappings-auto-rp", types.YChild{"GroupMappingsAutoRp", &maximum.GroupMappingsAutoRp})
+    maximum.EntityData.Children.Append("bsr-group-mappings", types.YChild{"BsrGroupMappings", &maximum.BsrGroupMappings})
+    maximum.EntityData.Children.Append("register-states", types.YChild{"RegisterStates", &maximum.RegisterStates})
+    maximum.EntityData.Children.Append("route-interfaces", types.YChild{"RouteInterfaces", &maximum.RouteInterfaces})
+    maximum.EntityData.Children.Append("bsr-candidate-rp-cache", types.YChild{"BsrCandidateRpCache", &maximum.BsrCandidateRpCache})
+    maximum.EntityData.Children.Append("routes", types.YChild{"Routes", &maximum.Routes})
+    maximum.EntityData.Leafs = types.NewOrderedMap()
+    maximum.EntityData.Leafs.Append("global-low-priority-packet-queue", types.YLeaf{"GlobalLowPriorityPacketQueue", maximum.GlobalLowPriorityPacketQueue})
+    maximum.EntityData.Leafs.Append("global-high-priority-packet-queue", types.YLeaf{"GlobalHighPriorityPacketQueue", maximum.GlobalHighPriorityPacketQueue})
+
+    maximum.EntityData.YListKeys = []string {}
+
     return &(maximum.EntityData)
 }
 
@@ -5204,6 +5617,7 @@ func (maximum *Pim_DefaultContext_Ipv4_Maximum) GetEntityData() *types.CommonEnt
 type Pim_DefaultContext_Ipv4_Maximum_BsrGlobalGroupMappings struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Global Maximum number of PIM group mapping ranges from BSR. The type is
     // interface{} with range: 1..10000. This attribute is mandatory.
@@ -5224,10 +5638,13 @@ func (bsrGlobalGroupMappings *Pim_DefaultContext_Ipv4_Maximum_BsrGlobalGroupMapp
     bsrGlobalGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGlobalGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrGlobalGroupMappings.EntityData.Children = make(map[string]types.YChild)
-    bsrGlobalGroupMappings.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrGlobalGroupMappings.EntityData.Leafs["bsr-maximum-global-group-mappings"] = types.YLeaf{"BsrMaximumGlobalGroupMappings", bsrGlobalGroupMappings.BsrMaximumGlobalGroupMappings}
-    bsrGlobalGroupMappings.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrGlobalGroupMappings.WarningThreshold}
+    bsrGlobalGroupMappings.EntityData.Children = types.NewOrderedMap()
+    bsrGlobalGroupMappings.EntityData.Leafs = types.NewOrderedMap()
+    bsrGlobalGroupMappings.EntityData.Leafs.Append("bsr-maximum-global-group-mappings", types.YLeaf{"BsrMaximumGlobalGroupMappings", bsrGlobalGroupMappings.BsrMaximumGlobalGroupMappings})
+    bsrGlobalGroupMappings.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrGlobalGroupMappings.WarningThreshold})
+
+    bsrGlobalGroupMappings.EntityData.YListKeys = []string {}
+
     return &(bsrGlobalGroupMappings.EntityData)
 }
 
@@ -5237,6 +5654,7 @@ func (bsrGlobalGroupMappings *Pim_DefaultContext_Ipv4_Maximum_BsrGlobalGroupMapp
 type Pim_DefaultContext_Ipv4_Maximum_GlobalRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM routes. The type is interface{} with range:
     // 1..200000. This attribute is mandatory.
@@ -5257,10 +5675,13 @@ func (globalRoutes *Pim_DefaultContext_Ipv4_Maximum_GlobalRoutes) GetEntityData(
     globalRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalRoutes.EntityData.Children = make(map[string]types.YChild)
-    globalRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalRoutes.EntityData.Leafs["maximum-routes"] = types.YLeaf{"MaximumRoutes", globalRoutes.MaximumRoutes}
-    globalRoutes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", globalRoutes.WarningThreshold}
+    globalRoutes.EntityData.Children = types.NewOrderedMap()
+    globalRoutes.EntityData.Leafs = types.NewOrderedMap()
+    globalRoutes.EntityData.Leafs.Append("maximum-routes", types.YLeaf{"MaximumRoutes", globalRoutes.MaximumRoutes})
+    globalRoutes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", globalRoutes.WarningThreshold})
+
+    globalRoutes.EntityData.YListKeys = []string {}
+
     return &(globalRoutes.EntityData)
 }
 
@@ -5271,6 +5692,7 @@ func (globalRoutes *Pim_DefaultContext_Ipv4_Maximum_GlobalRoutes) GetEntityData(
 type Pim_DefaultContext_Ipv4_Maximum_GlobalGroupMappingsAutoRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from autorp. The type is interface{}
     // with range: 1..10000. This attribute is mandatory.
@@ -5291,10 +5713,13 @@ func (globalGroupMappingsAutoRp *Pim_DefaultContext_Ipv4_Maximum_GlobalGroupMapp
     globalGroupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalGroupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalGroupMappingsAutoRp.EntityData.Children = make(map[string]types.YChild)
-    globalGroupMappingsAutoRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalGroupMappingsAutoRp.EntityData.Leafs["maximum-global-group-ranges-auto-rp"] = types.YLeaf{"MaximumGlobalGroupRangesAutoRp", globalGroupMappingsAutoRp.MaximumGlobalGroupRangesAutoRp}
-    globalGroupMappingsAutoRp.EntityData.Leafs["threshold-global-group-ranges-auto-rp"] = types.YLeaf{"ThresholdGlobalGroupRangesAutoRp", globalGroupMappingsAutoRp.ThresholdGlobalGroupRangesAutoRp}
+    globalGroupMappingsAutoRp.EntityData.Children = types.NewOrderedMap()
+    globalGroupMappingsAutoRp.EntityData.Leafs = types.NewOrderedMap()
+    globalGroupMappingsAutoRp.EntityData.Leafs.Append("maximum-global-group-ranges-auto-rp", types.YLeaf{"MaximumGlobalGroupRangesAutoRp", globalGroupMappingsAutoRp.MaximumGlobalGroupRangesAutoRp})
+    globalGroupMappingsAutoRp.EntityData.Leafs.Append("threshold-global-group-ranges-auto-rp", types.YLeaf{"ThresholdGlobalGroupRangesAutoRp", globalGroupMappingsAutoRp.ThresholdGlobalGroupRangesAutoRp})
+
+    globalGroupMappingsAutoRp.EntityData.YListKeys = []string {}
+
     return &(globalGroupMappingsAutoRp.EntityData)
 }
 
@@ -5305,6 +5730,7 @@ func (globalGroupMappingsAutoRp *Pim_DefaultContext_Ipv4_Maximum_GlobalGroupMapp
 type Pim_DefaultContext_Ipv4_Maximum_BsrGlobalCandidateRpCache struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Global Maximum number of PIM C-RP Sets from BSR. The type is interface{}
     // with range: 1..10000. This attribute is mandatory.
@@ -5325,10 +5751,13 @@ func (bsrGlobalCandidateRpCache *Pim_DefaultContext_Ipv4_Maximum_BsrGlobalCandid
     bsrGlobalCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGlobalCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrGlobalCandidateRpCache.EntityData.Children = make(map[string]types.YChild)
-    bsrGlobalCandidateRpCache.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrGlobalCandidateRpCache.EntityData.Leafs["bsr-maximum-global-candidate-rp-cache"] = types.YLeaf{"BsrMaximumGlobalCandidateRpCache", bsrGlobalCandidateRpCache.BsrMaximumGlobalCandidateRpCache}
-    bsrGlobalCandidateRpCache.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrGlobalCandidateRpCache.WarningThreshold}
+    bsrGlobalCandidateRpCache.EntityData.Children = types.NewOrderedMap()
+    bsrGlobalCandidateRpCache.EntityData.Leafs = types.NewOrderedMap()
+    bsrGlobalCandidateRpCache.EntityData.Leafs.Append("bsr-maximum-global-candidate-rp-cache", types.YLeaf{"BsrMaximumGlobalCandidateRpCache", bsrGlobalCandidateRpCache.BsrMaximumGlobalCandidateRpCache})
+    bsrGlobalCandidateRpCache.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrGlobalCandidateRpCache.WarningThreshold})
+
+    bsrGlobalCandidateRpCache.EntityData.YListKeys = []string {}
+
     return &(bsrGlobalCandidateRpCache.EntityData)
 }
 
@@ -5339,6 +5768,7 @@ func (bsrGlobalCandidateRpCache *Pim_DefaultContext_Ipv4_Maximum_BsrGlobalCandid
 type Pim_DefaultContext_Ipv4_Maximum_GlobalRegisterStates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM Sparse-Mode register states. The type is interface{}
     // with range: 0..75000. This attribute is mandatory.
@@ -5359,10 +5789,13 @@ func (globalRegisterStates *Pim_DefaultContext_Ipv4_Maximum_GlobalRegisterStates
     globalRegisterStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRegisterStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalRegisterStates.EntityData.Children = make(map[string]types.YChild)
-    globalRegisterStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalRegisterStates.EntityData.Leafs["maximum-register-states"] = types.YLeaf{"MaximumRegisterStates", globalRegisterStates.MaximumRegisterStates}
-    globalRegisterStates.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", globalRegisterStates.WarningThreshold}
+    globalRegisterStates.EntityData.Children = types.NewOrderedMap()
+    globalRegisterStates.EntityData.Leafs = types.NewOrderedMap()
+    globalRegisterStates.EntityData.Leafs.Append("maximum-register-states", types.YLeaf{"MaximumRegisterStates", globalRegisterStates.MaximumRegisterStates})
+    globalRegisterStates.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", globalRegisterStates.WarningThreshold})
+
+    globalRegisterStates.EntityData.YListKeys = []string {}
+
     return &(globalRegisterStates.EntityData)
 }
 
@@ -5373,6 +5806,7 @@ func (globalRegisterStates *Pim_DefaultContext_Ipv4_Maximum_GlobalRegisterStates
 type Pim_DefaultContext_Ipv4_Maximum_GlobalRouteInterfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM route-interfaces. The type is interface{} with range:
     // 1..1100000. This attribute is mandatory.
@@ -5393,10 +5827,13 @@ func (globalRouteInterfaces *Pim_DefaultContext_Ipv4_Maximum_GlobalRouteInterfac
     globalRouteInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRouteInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalRouteInterfaces.EntityData.Children = make(map[string]types.YChild)
-    globalRouteInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalRouteInterfaces.EntityData.Leafs["maximum-route-interfaces"] = types.YLeaf{"MaximumRouteInterfaces", globalRouteInterfaces.MaximumRouteInterfaces}
-    globalRouteInterfaces.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", globalRouteInterfaces.WarningThreshold}
+    globalRouteInterfaces.EntityData.Children = types.NewOrderedMap()
+    globalRouteInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    globalRouteInterfaces.EntityData.Leafs.Append("maximum-route-interfaces", types.YLeaf{"MaximumRouteInterfaces", globalRouteInterfaces.MaximumRouteInterfaces})
+    globalRouteInterfaces.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", globalRouteInterfaces.WarningThreshold})
+
+    globalRouteInterfaces.EntityData.YListKeys = []string {}
+
     return &(globalRouteInterfaces.EntityData)
 }
 
@@ -5407,6 +5844,7 @@ func (globalRouteInterfaces *Pim_DefaultContext_Ipv4_Maximum_GlobalRouteInterfac
 type Pim_DefaultContext_Ipv4_Maximum_GroupMappingsAutoRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from autorp. The type is interface{}
     // with range: 1..10000. This attribute is mandatory.
@@ -5427,10 +5865,13 @@ func (groupMappingsAutoRp *Pim_DefaultContext_Ipv4_Maximum_GroupMappingsAutoRp) 
     groupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupMappingsAutoRp.EntityData.Children = make(map[string]types.YChild)
-    groupMappingsAutoRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupMappingsAutoRp.EntityData.Leafs["maximum-group-ranges-auto-rp"] = types.YLeaf{"MaximumGroupRangesAutoRp", groupMappingsAutoRp.MaximumGroupRangesAutoRp}
-    groupMappingsAutoRp.EntityData.Leafs["threshold-group-ranges-auto-rp"] = types.YLeaf{"ThresholdGroupRangesAutoRp", groupMappingsAutoRp.ThresholdGroupRangesAutoRp}
+    groupMappingsAutoRp.EntityData.Children = types.NewOrderedMap()
+    groupMappingsAutoRp.EntityData.Leafs = types.NewOrderedMap()
+    groupMappingsAutoRp.EntityData.Leafs.Append("maximum-group-ranges-auto-rp", types.YLeaf{"MaximumGroupRangesAutoRp", groupMappingsAutoRp.MaximumGroupRangesAutoRp})
+    groupMappingsAutoRp.EntityData.Leafs.Append("threshold-group-ranges-auto-rp", types.YLeaf{"ThresholdGroupRangesAutoRp", groupMappingsAutoRp.ThresholdGroupRangesAutoRp})
+
+    groupMappingsAutoRp.EntityData.YListKeys = []string {}
+
     return &(groupMappingsAutoRp.EntityData)
 }
 
@@ -5441,6 +5882,7 @@ func (groupMappingsAutoRp *Pim_DefaultContext_Ipv4_Maximum_GroupMappingsAutoRp) 
 type Pim_DefaultContext_Ipv4_Maximum_BsrGroupMappings struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM group mappings from BSR. The type is interface{} with
     // range: 1..10000. This attribute is mandatory.
@@ -5461,10 +5903,13 @@ func (bsrGroupMappings *Pim_DefaultContext_Ipv4_Maximum_BsrGroupMappings) GetEnt
     bsrGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrGroupMappings.EntityData.Children = make(map[string]types.YChild)
-    bsrGroupMappings.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrGroupMappings.EntityData.Leafs["bsr-maximum-group-ranges"] = types.YLeaf{"BsrMaximumGroupRanges", bsrGroupMappings.BsrMaximumGroupRanges}
-    bsrGroupMappings.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrGroupMappings.WarningThreshold}
+    bsrGroupMappings.EntityData.Children = types.NewOrderedMap()
+    bsrGroupMappings.EntityData.Leafs = types.NewOrderedMap()
+    bsrGroupMappings.EntityData.Leafs.Append("bsr-maximum-group-ranges", types.YLeaf{"BsrMaximumGroupRanges", bsrGroupMappings.BsrMaximumGroupRanges})
+    bsrGroupMappings.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrGroupMappings.WarningThreshold})
+
+    bsrGroupMappings.EntityData.YListKeys = []string {}
+
     return &(bsrGroupMappings.EntityData)
 }
 
@@ -5475,6 +5920,7 @@ func (bsrGroupMappings *Pim_DefaultContext_Ipv4_Maximum_BsrGroupMappings) GetEnt
 type Pim_DefaultContext_Ipv4_Maximum_RegisterStates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM Sparse-Mode register states. The type is interface{}
     // with range: 0..75000. This attribute is mandatory.
@@ -5495,10 +5941,13 @@ func (registerStates *Pim_DefaultContext_Ipv4_Maximum_RegisterStates) GetEntityD
     registerStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registerStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    registerStates.EntityData.Children = make(map[string]types.YChild)
-    registerStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    registerStates.EntityData.Leafs["maximum-register-states"] = types.YLeaf{"MaximumRegisterStates", registerStates.MaximumRegisterStates}
-    registerStates.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", registerStates.WarningThreshold}
+    registerStates.EntityData.Children = types.NewOrderedMap()
+    registerStates.EntityData.Leafs = types.NewOrderedMap()
+    registerStates.EntityData.Leafs.Append("maximum-register-states", types.YLeaf{"MaximumRegisterStates", registerStates.MaximumRegisterStates})
+    registerStates.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", registerStates.WarningThreshold})
+
+    registerStates.EntityData.YListKeys = []string {}
+
     return &(registerStates.EntityData)
 }
 
@@ -5509,6 +5958,7 @@ func (registerStates *Pim_DefaultContext_Ipv4_Maximum_RegisterStates) GetEntityD
 type Pim_DefaultContext_Ipv4_Maximum_RouteInterfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM route-interfaces. The type is interface{} with range:
     // 1..1100000. This attribute is mandatory.
@@ -5529,10 +5979,13 @@ func (routeInterfaces *Pim_DefaultContext_Ipv4_Maximum_RouteInterfaces) GetEntit
     routeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeInterfaces.EntityData.Children = make(map[string]types.YChild)
-    routeInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeInterfaces.EntityData.Leafs["maximum-route-interfaces"] = types.YLeaf{"MaximumRouteInterfaces", routeInterfaces.MaximumRouteInterfaces}
-    routeInterfaces.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", routeInterfaces.WarningThreshold}
+    routeInterfaces.EntityData.Children = types.NewOrderedMap()
+    routeInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    routeInterfaces.EntityData.Leafs.Append("maximum-route-interfaces", types.YLeaf{"MaximumRouteInterfaces", routeInterfaces.MaximumRouteInterfaces})
+    routeInterfaces.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", routeInterfaces.WarningThreshold})
+
+    routeInterfaces.EntityData.YListKeys = []string {}
+
     return &(routeInterfaces.EntityData)
 }
 
@@ -5543,6 +5996,7 @@ func (routeInterfaces *Pim_DefaultContext_Ipv4_Maximum_RouteInterfaces) GetEntit
 type Pim_DefaultContext_Ipv4_Maximum_BsrCandidateRpCache struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of BSR C-RP cache setting. The type is interface{} with
     // range: 1..10000. This attribute is mandatory.
@@ -5563,10 +6017,13 @@ func (bsrCandidateRpCache *Pim_DefaultContext_Ipv4_Maximum_BsrCandidateRpCache) 
     bsrCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsrCandidateRpCache.EntityData.Children = make(map[string]types.YChild)
-    bsrCandidateRpCache.EntityData.Leafs = make(map[string]types.YLeaf)
-    bsrCandidateRpCache.EntityData.Leafs["bsr-maximum-candidate-rp-cache"] = types.YLeaf{"BsrMaximumCandidateRpCache", bsrCandidateRpCache.BsrMaximumCandidateRpCache}
-    bsrCandidateRpCache.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", bsrCandidateRpCache.WarningThreshold}
+    bsrCandidateRpCache.EntityData.Children = types.NewOrderedMap()
+    bsrCandidateRpCache.EntityData.Leafs = types.NewOrderedMap()
+    bsrCandidateRpCache.EntityData.Leafs.Append("bsr-maximum-candidate-rp-cache", types.YLeaf{"BsrMaximumCandidateRpCache", bsrCandidateRpCache.BsrMaximumCandidateRpCache})
+    bsrCandidateRpCache.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", bsrCandidateRpCache.WarningThreshold})
+
+    bsrCandidateRpCache.EntityData.YListKeys = []string {}
+
     return &(bsrCandidateRpCache.EntityData)
 }
 
@@ -5576,6 +6033,7 @@ func (bsrCandidateRpCache *Pim_DefaultContext_Ipv4_Maximum_BsrCandidateRpCache) 
 type Pim_DefaultContext_Ipv4_Maximum_Routes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of PIM routes. The type is interface{} with range:
     // 1..200000. This attribute is mandatory.
@@ -5596,10 +6054,13 @@ func (routes *Pim_DefaultContext_Ipv4_Maximum_Routes) GetEntityData() *types.Com
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
-    routes.EntityData.Leafs["maximum-routes"] = types.YLeaf{"MaximumRoutes", routes.MaximumRoutes}
-    routes.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", routes.WarningThreshold}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Leafs = types.NewOrderedMap()
+    routes.EntityData.Leafs.Append("maximum-routes", types.YLeaf{"MaximumRoutes", routes.MaximumRoutes})
+    routes.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", routes.WarningThreshold})
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -5615,7 +6076,7 @@ type Pim_DefaultContext_Ipv4_Ssm struct {
 
     // Access list of groups enabled with SSM. The type is string with length:
     // 1..64.
-    Range_ interface{}
+    Range interface{}
 }
 
 func (ssm *Pim_DefaultContext_Ipv4_Ssm) GetEntityData() *types.CommonEntityData {
@@ -5628,10 +6089,13 @@ func (ssm *Pim_DefaultContext_Ipv4_Ssm) GetEntityData() *types.CommonEntityData 
     ssm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssm.EntityData.Children = make(map[string]types.YChild)
-    ssm.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssm.EntityData.Leafs["disable"] = types.YLeaf{"Disable", ssm.Disable}
-    ssm.EntityData.Leafs["range"] = types.YLeaf{"Range_", ssm.Range_}
+    ssm.EntityData.Children = types.NewOrderedMap()
+    ssm.EntityData.Leafs = types.NewOrderedMap()
+    ssm.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", ssm.Disable})
+    ssm.EntityData.Leafs.Append("range", types.YLeaf{"Range", ssm.Range})
+
+    ssm.EntityData.YListKeys = []string {}
+
     return &(ssm.EntityData)
 }
 
@@ -5643,7 +6107,7 @@ type Pim_DefaultContext_Ipv4_Injects struct {
 
     // Inject Explicit PIM RPF Vector Proxy's. The type is slice of
     // Pim_DefaultContext_Ipv4_Injects_Inject.
-    Inject []Pim_DefaultContext_Ipv4_Injects_Inject
+    Inject []*Pim_DefaultContext_Ipv4_Injects_Inject
 }
 
 func (injects *Pim_DefaultContext_Ipv4_Injects) GetEntityData() *types.CommonEntityData {
@@ -5656,12 +6120,15 @@ func (injects *Pim_DefaultContext_Ipv4_Injects) GetEntityData() *types.CommonEnt
     injects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     injects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    injects.EntityData.Children = make(map[string]types.YChild)
-    injects.EntityData.Children["inject"] = types.YChild{"Inject", nil}
+    injects.EntityData.Children = types.NewOrderedMap()
+    injects.EntityData.Children.Append("inject", types.YChild{"Inject", nil})
     for i := range injects.Inject {
-        injects.EntityData.Children[types.GetSegmentPath(&injects.Inject[i])] = types.YChild{"Inject", &injects.Inject[i]}
+        injects.EntityData.Children.Append(types.GetSegmentPath(injects.Inject[i]), types.YChild{"Inject", injects.Inject[i]})
     }
-    injects.EntityData.Leafs = make(map[string]types.YLeaf)
+    injects.EntityData.Leafs = types.NewOrderedMap()
+
+    injects.EntityData.YListKeys = []string {}
+
     return &(injects.EntityData)
 }
 
@@ -5672,7 +6139,7 @@ type Pim_DefaultContext_Ipv4_Injects_Inject struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Masklen. The type is interface{} with range:
@@ -5680,7 +6147,7 @@ type Pim_DefaultContext_Ipv4_Injects_Inject struct {
     PrefixLength interface{}
 
     // RPF Proxy Address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RpfProxyAddress []interface{}
 }
 
@@ -5689,16 +6156,19 @@ func (inject *Pim_DefaultContext_Ipv4_Injects_Inject) GetEntityData() *types.Com
     inject.EntityData.YangName = "inject"
     inject.EntityData.BundleName = "cisco_ios_xr"
     inject.EntityData.ParentYangName = "injects"
-    inject.EntityData.SegmentPath = "inject" + "[source-address='" + fmt.Sprintf("%v", inject.SourceAddress) + "']" + "[prefix-length='" + fmt.Sprintf("%v", inject.PrefixLength) + "']"
+    inject.EntityData.SegmentPath = "inject" + types.AddKeyToken(inject.SourceAddress, "source-address") + types.AddKeyToken(inject.PrefixLength, "prefix-length")
     inject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inject.EntityData.Children = make(map[string]types.YChild)
-    inject.EntityData.Leafs = make(map[string]types.YLeaf)
-    inject.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", inject.SourceAddress}
-    inject.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", inject.PrefixLength}
-    inject.EntityData.Leafs["rpf-proxy-address"] = types.YLeaf{"RpfProxyAddress", inject.RpfProxyAddress}
+    inject.EntityData.Children = types.NewOrderedMap()
+    inject.EntityData.Leafs = types.NewOrderedMap()
+    inject.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", inject.SourceAddress})
+    inject.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", inject.PrefixLength})
+    inject.EntityData.Leafs.Append("rpf-proxy-address", types.YLeaf{"RpfProxyAddress", inject.RpfProxyAddress})
+
+    inject.EntityData.YListKeys = []string {"SourceAddress", "PrefixLength"}
+
     return &(inject.EntityData)
 }
 
@@ -5710,7 +6180,7 @@ type Pim_DefaultContext_Ipv4_BidirRpAddresses struct {
 
     // Address of the Rendezvous Point. The type is slice of
     // Pim_DefaultContext_Ipv4_BidirRpAddresses_BidirRpAddress.
-    BidirRpAddress []Pim_DefaultContext_Ipv4_BidirRpAddresses_BidirRpAddress
+    BidirRpAddress []*Pim_DefaultContext_Ipv4_BidirRpAddresses_BidirRpAddress
 }
 
 func (bidirRpAddresses *Pim_DefaultContext_Ipv4_BidirRpAddresses) GetEntityData() *types.CommonEntityData {
@@ -5723,12 +6193,15 @@ func (bidirRpAddresses *Pim_DefaultContext_Ipv4_BidirRpAddresses) GetEntityData(
     bidirRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bidirRpAddresses.EntityData.Children = make(map[string]types.YChild)
-    bidirRpAddresses.EntityData.Children["bidir-rp-address"] = types.YChild{"BidirRpAddress", nil}
+    bidirRpAddresses.EntityData.Children = types.NewOrderedMap()
+    bidirRpAddresses.EntityData.Children.Append("bidir-rp-address", types.YChild{"BidirRpAddress", nil})
     for i := range bidirRpAddresses.BidirRpAddress {
-        bidirRpAddresses.EntityData.Children[types.GetSegmentPath(&bidirRpAddresses.BidirRpAddress[i])] = types.YChild{"BidirRpAddress", &bidirRpAddresses.BidirRpAddress[i]}
+        bidirRpAddresses.EntityData.Children.Append(types.GetSegmentPath(bidirRpAddresses.BidirRpAddress[i]), types.YChild{"BidirRpAddress", bidirRpAddresses.BidirRpAddress[i]})
     }
-    bidirRpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    bidirRpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    bidirRpAddresses.EntityData.YListKeys = []string {}
+
     return &(bidirRpAddresses.EntityData)
 }
 
@@ -5740,9 +6213,9 @@ type Pim_DefaultContext_Ipv4_BidirRpAddresses_BidirRpAddress struct {
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Access list of groups that should map to a given RP. The type is string
@@ -5759,16 +6232,19 @@ func (bidirRpAddress *Pim_DefaultContext_Ipv4_BidirRpAddresses_BidirRpAddress) G
     bidirRpAddress.EntityData.YangName = "bidir-rp-address"
     bidirRpAddress.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddress.EntityData.ParentYangName = "bidir-rp-addresses"
-    bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + "[rp-address='" + fmt.Sprintf("%v", bidirRpAddress.RpAddress) + "']"
+    bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + types.AddKeyToken(bidirRpAddress.RpAddress, "rp-address")
     bidirRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bidirRpAddress.EntityData.Children = make(map[string]types.YChild)
-    bidirRpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    bidirRpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", bidirRpAddress.RpAddress}
-    bidirRpAddress.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", bidirRpAddress.AccessListName}
-    bidirRpAddress.EntityData.Leafs["auto-rp-override"] = types.YLeaf{"AutoRpOverride", bidirRpAddress.AutoRpOverride}
+    bidirRpAddress.EntityData.Children = types.NewOrderedMap()
+    bidirRpAddress.EntityData.Leafs = types.NewOrderedMap()
+    bidirRpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", bidirRpAddress.RpAddress})
+    bidirRpAddress.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", bidirRpAddress.AccessListName})
+    bidirRpAddress.EntityData.Leafs.Append("auto-rp-override", types.YLeaf{"AutoRpOverride", bidirRpAddress.AutoRpOverride})
+
+    bidirRpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(bidirRpAddress.EntityData)
 }
 
@@ -5795,10 +6271,13 @@ func (bsr *Pim_DefaultContext_Ipv4_Bsr) GetEntityData() *types.CommonEntityData 
     bsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bsr.EntityData.Children = make(map[string]types.YChild)
-    bsr.EntityData.Children["candidate-bsr"] = types.YChild{"CandidateBsr", &bsr.CandidateBsr}
-    bsr.EntityData.Children["candidate-rps"] = types.YChild{"CandidateRps", &bsr.CandidateRps}
-    bsr.EntityData.Leafs = make(map[string]types.YLeaf)
+    bsr.EntityData.Children = types.NewOrderedMap()
+    bsr.EntityData.Children.Append("candidate-bsr", types.YChild{"CandidateBsr", &bsr.CandidateBsr})
+    bsr.EntityData.Children.Append("candidate-rps", types.YChild{"CandidateRps", &bsr.CandidateRps})
+    bsr.EntityData.Leafs = types.NewOrderedMap()
+
+    bsr.EntityData.YListKeys = []string {}
+
     return &(bsr.EntityData)
 }
 
@@ -5808,12 +6287,13 @@ func (bsr *Pim_DefaultContext_Ipv4_Bsr) GetEntityData() *types.CommonEntityData 
 type Pim_DefaultContext_Ipv4_Bsr_CandidateBsr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // BSR Address configured. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     Address interface{}
 
@@ -5836,11 +6316,14 @@ func (candidateBsr *Pim_DefaultContext_Ipv4_Bsr_CandidateBsr) GetEntityData() *t
     candidateBsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateBsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateBsr.EntityData.Children = make(map[string]types.YChild)
-    candidateBsr.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateBsr.EntityData.Leafs["address"] = types.YLeaf{"Address", candidateBsr.Address}
-    candidateBsr.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", candidateBsr.PrefixLength}
-    candidateBsr.EntityData.Leafs["priority"] = types.YLeaf{"Priority", candidateBsr.Priority}
+    candidateBsr.EntityData.Children = types.NewOrderedMap()
+    candidateBsr.EntityData.Leafs = types.NewOrderedMap()
+    candidateBsr.EntityData.Leafs.Append("address", types.YLeaf{"Address", candidateBsr.Address})
+    candidateBsr.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", candidateBsr.PrefixLength})
+    candidateBsr.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", candidateBsr.Priority})
+
+    candidateBsr.EntityData.YListKeys = []string {}
+
     return &(candidateBsr.EntityData)
 }
 
@@ -5852,7 +6335,7 @@ type Pim_DefaultContext_Ipv4_Bsr_CandidateRps struct {
 
     // Address of PIM SM BSR Candidate-RP. The type is slice of
     // Pim_DefaultContext_Ipv4_Bsr_CandidateRps_CandidateRp.
-    CandidateRp []Pim_DefaultContext_Ipv4_Bsr_CandidateRps_CandidateRp
+    CandidateRp []*Pim_DefaultContext_Ipv4_Bsr_CandidateRps_CandidateRp
 }
 
 func (candidateRps *Pim_DefaultContext_Ipv4_Bsr_CandidateRps) GetEntityData() *types.CommonEntityData {
@@ -5865,12 +6348,15 @@ func (candidateRps *Pim_DefaultContext_Ipv4_Bsr_CandidateRps) GetEntityData() *t
     candidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRps.EntityData.Children = make(map[string]types.YChild)
-    candidateRps.EntityData.Children["candidate-rp"] = types.YChild{"CandidateRp", nil}
+    candidateRps.EntityData.Children = types.NewOrderedMap()
+    candidateRps.EntityData.Children.Append("candidate-rp", types.YChild{"CandidateRp", nil})
     for i := range candidateRps.CandidateRp {
-        candidateRps.EntityData.Children[types.GetSegmentPath(&candidateRps.CandidateRp[i])] = types.YChild{"CandidateRp", &candidateRps.CandidateRp[i]}
+        candidateRps.EntityData.Children.Append(types.GetSegmentPath(candidateRps.CandidateRp[i]), types.YChild{"CandidateRp", candidateRps.CandidateRp[i]})
     }
-    candidateRps.EntityData.Leafs = make(map[string]types.YLeaf)
+    candidateRps.EntityData.Leafs = types.NewOrderedMap()
+
+    candidateRps.EntityData.YListKeys = []string {}
+
     return &(candidateRps.EntityData)
 }
 
@@ -5882,9 +6368,9 @@ type Pim_DefaultContext_Ipv4_Bsr_CandidateRps_CandidateRp struct {
 
     // This attribute is a key. Address of Candidate-RP. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. SM or Bidir. The type is PimProtocolMode.
@@ -5908,18 +6394,21 @@ func (candidateRp *Pim_DefaultContext_Ipv4_Bsr_CandidateRps_CandidateRp) GetEnti
     candidateRp.EntityData.YangName = "candidate-rp"
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "candidate-rps"
-    candidateRp.EntityData.SegmentPath = "candidate-rp" + "[address='" + fmt.Sprintf("%v", candidateRp.Address) + "']" + "[mode='" + fmt.Sprintf("%v", candidateRp.Mode) + "']"
+    candidateRp.EntityData.SegmentPath = "candidate-rp" + types.AddKeyToken(candidateRp.Address, "address") + types.AddKeyToken(candidateRp.Mode, "mode")
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRp.EntityData.Children = make(map[string]types.YChild)
-    candidateRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateRp.EntityData.Leafs["address"] = types.YLeaf{"Address", candidateRp.Address}
-    candidateRp.EntityData.Leafs["mode"] = types.YLeaf{"Mode", candidateRp.Mode}
-    candidateRp.EntityData.Leafs["group-list"] = types.YLeaf{"GroupList", candidateRp.GroupList}
-    candidateRp.EntityData.Leafs["priority"] = types.YLeaf{"Priority", candidateRp.Priority}
-    candidateRp.EntityData.Leafs["interval"] = types.YLeaf{"Interval", candidateRp.Interval}
+    candidateRp.EntityData.Children = types.NewOrderedMap()
+    candidateRp.EntityData.Leafs = types.NewOrderedMap()
+    candidateRp.EntityData.Leafs.Append("address", types.YLeaf{"Address", candidateRp.Address})
+    candidateRp.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", candidateRp.Mode})
+    candidateRp.EntityData.Leafs.Append("group-list", types.YLeaf{"GroupList", candidateRp.GroupList})
+    candidateRp.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", candidateRp.Priority})
+    candidateRp.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", candidateRp.Interval})
+
+    candidateRp.EntityData.YListKeys = []string {"Address", "Mode"}
+
     return &(candidateRp.EntityData)
 }
 
@@ -5960,14 +6449,17 @@ func (mofrr *Pim_DefaultContext_Ipv4_Mofrr) GetEntityData() *types.CommonEntityD
     mofrr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mofrr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mofrr.EntityData.Children = make(map[string]types.YChild)
-    mofrr.EntityData.Children["clone-joins"] = types.YChild{"CloneJoins", &mofrr.CloneJoins}
-    mofrr.EntityData.Children["clone-sources"] = types.YChild{"CloneSources", &mofrr.CloneSources}
-    mofrr.EntityData.Leafs = make(map[string]types.YLeaf)
-    mofrr.EntityData.Leafs["rib"] = types.YLeaf{"Rib", mofrr.Rib}
-    mofrr.EntityData.Leafs["non-revertive"] = types.YLeaf{"NonRevertive", mofrr.NonRevertive}
-    mofrr.EntityData.Leafs["enable"] = types.YLeaf{"Enable", mofrr.Enable}
-    mofrr.EntityData.Leafs["flow"] = types.YLeaf{"Flow", mofrr.Flow}
+    mofrr.EntityData.Children = types.NewOrderedMap()
+    mofrr.EntityData.Children.Append("clone-joins", types.YChild{"CloneJoins", &mofrr.CloneJoins})
+    mofrr.EntityData.Children.Append("clone-sources", types.YChild{"CloneSources", &mofrr.CloneSources})
+    mofrr.EntityData.Leafs = types.NewOrderedMap()
+    mofrr.EntityData.Leafs.Append("rib", types.YLeaf{"Rib", mofrr.Rib})
+    mofrr.EntityData.Leafs.Append("non-revertive", types.YLeaf{"NonRevertive", mofrr.NonRevertive})
+    mofrr.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", mofrr.Enable})
+    mofrr.EntityData.Leafs.Append("flow", types.YLeaf{"Flow", mofrr.Flow})
+
+    mofrr.EntityData.YListKeys = []string {}
+
     return &(mofrr.EntityData)
 }
 
@@ -5979,7 +6471,7 @@ type Pim_DefaultContext_Ipv4_Mofrr_CloneJoins struct {
 
     // Clone S,G joins as S1,G joins and S2,G joins. The type is slice of
     // Pim_DefaultContext_Ipv4_Mofrr_CloneJoins_CloneJoin.
-    CloneJoin []Pim_DefaultContext_Ipv4_Mofrr_CloneJoins_CloneJoin
+    CloneJoin []*Pim_DefaultContext_Ipv4_Mofrr_CloneJoins_CloneJoin
 }
 
 func (cloneJoins *Pim_DefaultContext_Ipv4_Mofrr_CloneJoins) GetEntityData() *types.CommonEntityData {
@@ -5992,12 +6484,15 @@ func (cloneJoins *Pim_DefaultContext_Ipv4_Mofrr_CloneJoins) GetEntityData() *typ
     cloneJoins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneJoins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cloneJoins.EntityData.Children = make(map[string]types.YChild)
-    cloneJoins.EntityData.Children["clone-join"] = types.YChild{"CloneJoin", nil}
+    cloneJoins.EntityData.Children = types.NewOrderedMap()
+    cloneJoins.EntityData.Children.Append("clone-join", types.YChild{"CloneJoin", nil})
     for i := range cloneJoins.CloneJoin {
-        cloneJoins.EntityData.Children[types.GetSegmentPath(&cloneJoins.CloneJoin[i])] = types.YChild{"CloneJoin", &cloneJoins.CloneJoin[i]}
+        cloneJoins.EntityData.Children.Append(types.GetSegmentPath(cloneJoins.CloneJoin[i]), types.YChild{"CloneJoin", cloneJoins.CloneJoin[i]})
     }
-    cloneJoins.EntityData.Leafs = make(map[string]types.YLeaf)
+    cloneJoins.EntityData.Leafs = types.NewOrderedMap()
+
+    cloneJoins.EntityData.YListKeys = []string {}
+
     return &(cloneJoins.EntityData)
 }
 
@@ -6009,17 +6504,17 @@ type Pim_DefaultContext_Ipv4_Mofrr_CloneJoins_CloneJoin struct {
 
     // This attribute is a key. Original source address (S). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // This attribute is a key. Primary cloned address (S1). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Primary interface{}
 
     // This attribute is a key. Backup cloned address (S2). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Backup interface{}
 
     // This attribute is a key. Mask length. The type is interface{} with range:
@@ -6032,17 +6527,20 @@ func (cloneJoin *Pim_DefaultContext_Ipv4_Mofrr_CloneJoins_CloneJoin) GetEntityDa
     cloneJoin.EntityData.YangName = "clone-join"
     cloneJoin.EntityData.BundleName = "cisco_ios_xr"
     cloneJoin.EntityData.ParentYangName = "clone-joins"
-    cloneJoin.EntityData.SegmentPath = "clone-join" + "[source='" + fmt.Sprintf("%v", cloneJoin.Source) + "']" + "[primary='" + fmt.Sprintf("%v", cloneJoin.Primary) + "']" + "[backup='" + fmt.Sprintf("%v", cloneJoin.Backup) + "']" + "[prefix-length='" + fmt.Sprintf("%v", cloneJoin.PrefixLength) + "']"
+    cloneJoin.EntityData.SegmentPath = "clone-join" + types.AddKeyToken(cloneJoin.Source, "source") + types.AddKeyToken(cloneJoin.Primary, "primary") + types.AddKeyToken(cloneJoin.Backup, "backup") + types.AddKeyToken(cloneJoin.PrefixLength, "prefix-length")
     cloneJoin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneJoin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneJoin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cloneJoin.EntityData.Children = make(map[string]types.YChild)
-    cloneJoin.EntityData.Leafs = make(map[string]types.YLeaf)
-    cloneJoin.EntityData.Leafs["source"] = types.YLeaf{"Source", cloneJoin.Source}
-    cloneJoin.EntityData.Leafs["primary"] = types.YLeaf{"Primary", cloneJoin.Primary}
-    cloneJoin.EntityData.Leafs["backup"] = types.YLeaf{"Backup", cloneJoin.Backup}
-    cloneJoin.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", cloneJoin.PrefixLength}
+    cloneJoin.EntityData.Children = types.NewOrderedMap()
+    cloneJoin.EntityData.Leafs = types.NewOrderedMap()
+    cloneJoin.EntityData.Leafs.Append("source", types.YLeaf{"Source", cloneJoin.Source})
+    cloneJoin.EntityData.Leafs.Append("primary", types.YLeaf{"Primary", cloneJoin.Primary})
+    cloneJoin.EntityData.Leafs.Append("backup", types.YLeaf{"Backup", cloneJoin.Backup})
+    cloneJoin.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", cloneJoin.PrefixLength})
+
+    cloneJoin.EntityData.YListKeys = []string {"Source", "Primary", "Backup", "PrefixLength"}
+
     return &(cloneJoin.EntityData)
 }
 
@@ -6054,7 +6552,7 @@ type Pim_DefaultContext_Ipv4_Mofrr_CloneSources struct {
 
     // Clone S,G traffic as S1,G traffic and S2,G traffic. The type is slice of
     // Pim_DefaultContext_Ipv4_Mofrr_CloneSources_CloneSource.
-    CloneSource []Pim_DefaultContext_Ipv4_Mofrr_CloneSources_CloneSource
+    CloneSource []*Pim_DefaultContext_Ipv4_Mofrr_CloneSources_CloneSource
 }
 
 func (cloneSources *Pim_DefaultContext_Ipv4_Mofrr_CloneSources) GetEntityData() *types.CommonEntityData {
@@ -6067,12 +6565,15 @@ func (cloneSources *Pim_DefaultContext_Ipv4_Mofrr_CloneSources) GetEntityData() 
     cloneSources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneSources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cloneSources.EntityData.Children = make(map[string]types.YChild)
-    cloneSources.EntityData.Children["clone-source"] = types.YChild{"CloneSource", nil}
+    cloneSources.EntityData.Children = types.NewOrderedMap()
+    cloneSources.EntityData.Children.Append("clone-source", types.YChild{"CloneSource", nil})
     for i := range cloneSources.CloneSource {
-        cloneSources.EntityData.Children[types.GetSegmentPath(&cloneSources.CloneSource[i])] = types.YChild{"CloneSource", &cloneSources.CloneSource[i]}
+        cloneSources.EntityData.Children.Append(types.GetSegmentPath(cloneSources.CloneSource[i]), types.YChild{"CloneSource", cloneSources.CloneSource[i]})
     }
-    cloneSources.EntityData.Leafs = make(map[string]types.YLeaf)
+    cloneSources.EntityData.Leafs = types.NewOrderedMap()
+
+    cloneSources.EntityData.YListKeys = []string {}
+
     return &(cloneSources.EntityData)
 }
 
@@ -6085,17 +6586,17 @@ type Pim_DefaultContext_Ipv4_Mofrr_CloneSources_CloneSource struct {
 
     // This attribute is a key. Original source address (S). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // This attribute is a key. Primary cloned address (S1). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Primary interface{}
 
     // This attribute is a key. Backup cloned address (S2). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Backup interface{}
 
     // This attribute is a key. Mask length. The type is interface{} with range:
@@ -6108,17 +6609,20 @@ func (cloneSource *Pim_DefaultContext_Ipv4_Mofrr_CloneSources_CloneSource) GetEn
     cloneSource.EntityData.YangName = "clone-source"
     cloneSource.EntityData.BundleName = "cisco_ios_xr"
     cloneSource.EntityData.ParentYangName = "clone-sources"
-    cloneSource.EntityData.SegmentPath = "clone-source" + "[source='" + fmt.Sprintf("%v", cloneSource.Source) + "']" + "[primary='" + fmt.Sprintf("%v", cloneSource.Primary) + "']" + "[backup='" + fmt.Sprintf("%v", cloneSource.Backup) + "']" + "[prefix-length='" + fmt.Sprintf("%v", cloneSource.PrefixLength) + "']"
+    cloneSource.EntityData.SegmentPath = "clone-source" + types.AddKeyToken(cloneSource.Source, "source") + types.AddKeyToken(cloneSource.Primary, "primary") + types.AddKeyToken(cloneSource.Backup, "backup") + types.AddKeyToken(cloneSource.PrefixLength, "prefix-length")
     cloneSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cloneSource.EntityData.Children = make(map[string]types.YChild)
-    cloneSource.EntityData.Leafs = make(map[string]types.YLeaf)
-    cloneSource.EntityData.Leafs["source"] = types.YLeaf{"Source", cloneSource.Source}
-    cloneSource.EntityData.Leafs["primary"] = types.YLeaf{"Primary", cloneSource.Primary}
-    cloneSource.EntityData.Leafs["backup"] = types.YLeaf{"Backup", cloneSource.Backup}
-    cloneSource.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", cloneSource.PrefixLength}
+    cloneSource.EntityData.Children = types.NewOrderedMap()
+    cloneSource.EntityData.Leafs = types.NewOrderedMap()
+    cloneSource.EntityData.Leafs.Append("source", types.YLeaf{"Source", cloneSource.Source})
+    cloneSource.EntityData.Leafs.Append("primary", types.YLeaf{"Primary", cloneSource.Primary})
+    cloneSource.EntityData.Leafs.Append("backup", types.YLeaf{"Backup", cloneSource.Backup})
+    cloneSource.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", cloneSource.PrefixLength})
+
+    cloneSource.EntityData.YListKeys = []string {"Source", "Primary", "Backup", "PrefixLength"}
+
     return &(cloneSource.EntityData)
 }
 
@@ -6130,7 +6634,7 @@ type Pim_DefaultContext_Ipv4_Paths struct {
 
     // Inject PIM RPF Vector Proxy's. The type is slice of
     // Pim_DefaultContext_Ipv4_Paths_Path.
-    Path []Pim_DefaultContext_Ipv4_Paths_Path
+    Path []*Pim_DefaultContext_Ipv4_Paths_Path
 }
 
 func (paths *Pim_DefaultContext_Ipv4_Paths) GetEntityData() *types.CommonEntityData {
@@ -6143,12 +6647,15 @@ func (paths *Pim_DefaultContext_Ipv4_Paths) GetEntityData() *types.CommonEntityD
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    paths.EntityData.Children = make(map[string]types.YChild)
-    paths.EntityData.Children["path"] = types.YChild{"Path", nil}
+    paths.EntityData.Children = types.NewOrderedMap()
+    paths.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range paths.Path {
-        paths.EntityData.Children[types.GetSegmentPath(&paths.Path[i])] = types.YChild{"Path", &paths.Path[i]}
+        paths.EntityData.Children.Append(types.GetSegmentPath(paths.Path[i]), types.YChild{"Path", paths.Path[i]})
     }
-    paths.EntityData.Leafs = make(map[string]types.YLeaf)
+    paths.EntityData.Leafs = types.NewOrderedMap()
+
+    paths.EntityData.YListKeys = []string {}
+
     return &(paths.EntityData)
 }
 
@@ -6159,7 +6666,7 @@ type Pim_DefaultContext_Ipv4_Paths_Path struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Masklen. The type is interface{} with range:
@@ -6167,7 +6674,7 @@ type Pim_DefaultContext_Ipv4_Paths_Path struct {
     PrefixLength interface{}
 
     // RPF Proxy Address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RpfProxyAddress []interface{}
 }
 
@@ -6176,16 +6683,19 @@ func (path *Pim_DefaultContext_Ipv4_Paths_Path) GetEntityData() *types.CommonEnt
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
-    path.EntityData.SegmentPath = "path" + "[source-address='" + fmt.Sprintf("%v", path.SourceAddress) + "']" + "[prefix-length='" + fmt.Sprintf("%v", path.PrefixLength) + "']"
+    path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.SourceAddress, "source-address") + types.AddKeyToken(path.PrefixLength, "prefix-length")
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    path.EntityData.Children = make(map[string]types.YChild)
-    path.EntityData.Leafs = make(map[string]types.YLeaf)
-    path.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", path.SourceAddress}
-    path.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", path.PrefixLength}
-    path.EntityData.Leafs["rpf-proxy-address"] = types.YLeaf{"RpfProxyAddress", path.RpfProxyAddress}
+    path.EntityData.Children = types.NewOrderedMap()
+    path.EntityData.Leafs = types.NewOrderedMap()
+    path.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", path.SourceAddress})
+    path.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", path.PrefixLength})
+    path.EntityData.Leafs.Append("rpf-proxy-address", types.YLeaf{"RpfProxyAddress", path.RpfProxyAddress})
+
+    path.EntityData.YListKeys = []string {"SourceAddress", "PrefixLength"}
+
     return &(path.EntityData)
 }
 
@@ -6195,6 +6705,7 @@ func (path *Pim_DefaultContext_Ipv4_Paths_Path) GetEntityData() *types.CommonEnt
 type Pim_DefaultContext_Ipv4_AllowRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Access-list specifiying applicable RPs. The type is string with length:
     // 1..64.
@@ -6215,10 +6726,13 @@ func (allowRp *Pim_DefaultContext_Ipv4_AllowRp) GetEntityData() *types.CommonEnt
     allowRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allowRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allowRp.EntityData.Children = make(map[string]types.YChild)
-    allowRp.EntityData.Leafs = make(map[string]types.YLeaf)
-    allowRp.EntityData.Leafs["rp-list-name"] = types.YLeaf{"RpListName", allowRp.RpListName}
-    allowRp.EntityData.Leafs["group-list-name"] = types.YLeaf{"GroupListName", allowRp.GroupListName}
+    allowRp.EntityData.Children = types.NewOrderedMap()
+    allowRp.EntityData.Leafs = types.NewOrderedMap()
+    allowRp.EntityData.Leafs.Append("rp-list-name", types.YLeaf{"RpListName", allowRp.RpListName})
+    allowRp.EntityData.Leafs.Append("group-list-name", types.YLeaf{"GroupListName", allowRp.GroupListName})
+
+    allowRp.EntityData.YListKeys = []string {}
+
     return &(allowRp.EntityData)
 }
 
@@ -6247,10 +6761,13 @@ func (convergence *Pim_DefaultContext_Ipv4_Convergence) GetEntityData() *types.C
     convergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    convergence.EntityData.Children = make(map[string]types.YChild)
-    convergence.EntityData.Leafs = make(map[string]types.YLeaf)
-    convergence.EntityData.Leafs["rpf-conflict-join-delay"] = types.YLeaf{"RpfConflictJoinDelay", convergence.RpfConflictJoinDelay}
-    convergence.EntityData.Leafs["link-down-prune-delay"] = types.YLeaf{"LinkDownPruneDelay", convergence.LinkDownPruneDelay}
+    convergence.EntityData.Children = types.NewOrderedMap()
+    convergence.EntityData.Leafs = types.NewOrderedMap()
+    convergence.EntityData.Leafs.Append("rpf-conflict-join-delay", types.YLeaf{"RpfConflictJoinDelay", convergence.RpfConflictJoinDelay})
+    convergence.EntityData.Leafs.Append("link-down-prune-delay", types.YLeaf{"LinkDownPruneDelay", convergence.LinkDownPruneDelay})
+
+    convergence.EntityData.YListKeys = []string {}
+
     return &(convergence.EntityData)
 }
 

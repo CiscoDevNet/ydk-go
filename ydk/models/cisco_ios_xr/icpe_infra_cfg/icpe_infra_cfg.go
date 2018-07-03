@@ -52,9 +52,12 @@ func (nvSatelliteGlobal *NvSatelliteGlobal) GetEntityData() *types.CommonEntityD
     nvSatelliteGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nvSatelliteGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nvSatelliteGlobal.EntityData.Children = make(map[string]types.YChild)
-    nvSatelliteGlobal.EntityData.Children["chassis-mac"] = types.YChild{"ChassisMac", &nvSatelliteGlobal.ChassisMac}
-    nvSatelliteGlobal.EntityData.Leafs = make(map[string]types.YLeaf)
+    nvSatelliteGlobal.EntityData.Children = types.NewOrderedMap()
+    nvSatelliteGlobal.EntityData.Children.Append("chassis-mac", types.YChild{"ChassisMac", &nvSatelliteGlobal.ChassisMac})
+    nvSatelliteGlobal.EntityData.Leafs = types.NewOrderedMap()
+
+    nvSatelliteGlobal.EntityData.YListKeys = []string {}
+
     return &(nvSatelliteGlobal.EntityData)
 }
 
@@ -87,11 +90,14 @@ func (chassisMac *NvSatelliteGlobal_ChassisMac) GetEntityData() *types.CommonEnt
     chassisMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    chassisMac.EntityData.Children = make(map[string]types.YChild)
-    chassisMac.EntityData.Leafs = make(map[string]types.YLeaf)
-    chassisMac.EntityData.Leafs["mac1"] = types.YLeaf{"Mac1", chassisMac.Mac1}
-    chassisMac.EntityData.Leafs["mac2"] = types.YLeaf{"Mac2", chassisMac.Mac2}
-    chassisMac.EntityData.Leafs["mac3"] = types.YLeaf{"Mac3", chassisMac.Mac3}
+    chassisMac.EntityData.Children = types.NewOrderedMap()
+    chassisMac.EntityData.Leafs = types.NewOrderedMap()
+    chassisMac.EntityData.Leafs.Append("mac1", types.YLeaf{"Mac1", chassisMac.Mac1})
+    chassisMac.EntityData.Leafs.Append("mac2", types.YLeaf{"Mac2", chassisMac.Mac2})
+    chassisMac.EntityData.Leafs.Append("mac3", types.YLeaf{"Mac3", chassisMac.Mac3})
+
+    chassisMac.EntityData.YListKeys = []string {}
+
     return &(chassisMac.EntityData)
 }
 
@@ -102,7 +108,7 @@ type NvSatellites struct {
     YFilter yfilter.YFilter
 
     // Satellite Configuration. The type is slice of NvSatellites_NvSatellite.
-    NvSatellite []NvSatellites_NvSatellite
+    NvSatellite []*NvSatellites_NvSatellite
 }
 
 func (nvSatellites *NvSatellites) GetEntityData() *types.CommonEntityData {
@@ -115,12 +121,15 @@ func (nvSatellites *NvSatellites) GetEntityData() *types.CommonEntityData {
     nvSatellites.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nvSatellites.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nvSatellites.EntityData.Children = make(map[string]types.YChild)
-    nvSatellites.EntityData.Children["nv-satellite"] = types.YChild{"NvSatellite", nil}
+    nvSatellites.EntityData.Children = types.NewOrderedMap()
+    nvSatellites.EntityData.Children.Append("nv-satellite", types.YChild{"NvSatellite", nil})
     for i := range nvSatellites.NvSatellite {
-        nvSatellites.EntityData.Children[types.GetSegmentPath(&nvSatellites.NvSatellite[i])] = types.YChild{"NvSatellite", &nvSatellites.NvSatellite[i]}
+        nvSatellites.EntityData.Children.Append(types.GetSegmentPath(nvSatellites.NvSatellite[i]), types.YChild{"NvSatellite", nvSatellites.NvSatellite[i]})
     }
-    nvSatellites.EntityData.Leafs = make(map[string]types.YLeaf)
+    nvSatellites.EntityData.Leafs = types.NewOrderedMap()
+
+    nvSatellites.EntityData.YListKeys = []string {}
+
     return &(nvSatellites.EntityData)
 }
 
@@ -147,10 +156,10 @@ type NvSatellites_NvSatellite struct {
     // Satellite Description. The type is string.
     Description interface{}
 
-    // Satellite Type. The type is string.
-    Type_ interface{}
+    // Satellite Type. The type is string. This attribute is mandatory.
+    Type interface{}
 
-    // Enable. The type is interface{}.
+    // Enable. The type is interface{}. This attribute is mandatory.
     Enable interface{}
 
     // Discovery timeout for the satellite. The type is interface{} with range:
@@ -165,14 +174,14 @@ type NvSatellites_NvSatellite struct {
     SerialNumber interface{}
 
     // Encrypted password for the Satellite. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Secret interface{}
 
     // Satellite IP Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Satellite auto-upgrade capability.
@@ -193,29 +202,32 @@ func (nvSatellite *NvSatellites_NvSatellite) GetEntityData() *types.CommonEntity
     nvSatellite.EntityData.YangName = "nv-satellite"
     nvSatellite.EntityData.BundleName = "cisco_ios_xr"
     nvSatellite.EntityData.ParentYangName = "nv-satellites"
-    nvSatellite.EntityData.SegmentPath = "nv-satellite" + "[satellite-id='" + fmt.Sprintf("%v", nvSatellite.SatelliteId) + "']"
+    nvSatellite.EntityData.SegmentPath = "nv-satellite" + types.AddKeyToken(nvSatellite.SatelliteId, "satellite-id")
     nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nvSatellite.EntityData.Children = make(map[string]types.YChild)
-    nvSatellite.EntityData.Children["upgrade-on-connect"] = types.YChild{"UpgradeOnConnect", &nvSatellite.UpgradeOnConnect}
-    nvSatellite.EntityData.Children["candidate-fabric-ports"] = types.YChild{"CandidateFabricPorts", &nvSatellite.CandidateFabricPorts}
-    nvSatellite.EntityData.Children["connection-info"] = types.YChild{"ConnectionInfo", &nvSatellite.ConnectionInfo}
-    nvSatellite.EntityData.Children["redundancy"] = types.YChild{"Redundancy", &nvSatellite.Redundancy}
-    nvSatellite.EntityData.Leafs = make(map[string]types.YLeaf)
-    nvSatellite.EntityData.Leafs["satellite-id"] = types.YLeaf{"SatelliteId", nvSatellite.SatelliteId}
-    nvSatellite.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", nvSatellite.Vrf}
-    nvSatellite.EntityData.Leafs["timeout-warning"] = types.YLeaf{"TimeoutWarning", nvSatellite.TimeoutWarning}
-    nvSatellite.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", nvSatellite.DeviceName}
-    nvSatellite.EntityData.Leafs["description"] = types.YLeaf{"Description", nvSatellite.Description}
-    nvSatellite.EntityData.Leafs["type"] = types.YLeaf{"Type_", nvSatellite.Type_}
-    nvSatellite.EntityData.Leafs["enable"] = types.YLeaf{"Enable", nvSatellite.Enable}
-    nvSatellite.EntityData.Leafs["disc-timeout"] = types.YLeaf{"DiscTimeout", nvSatellite.DiscTimeout}
-    nvSatellite.EntityData.Leafs["delayed-switchback"] = types.YLeaf{"DelayedSwitchback", nvSatellite.DelayedSwitchback}
-    nvSatellite.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", nvSatellite.SerialNumber}
-    nvSatellite.EntityData.Leafs["secret"] = types.YLeaf{"Secret", nvSatellite.Secret}
-    nvSatellite.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", nvSatellite.IpAddress}
+    nvSatellite.EntityData.Children = types.NewOrderedMap()
+    nvSatellite.EntityData.Children.Append("upgrade-on-connect", types.YChild{"UpgradeOnConnect", &nvSatellite.UpgradeOnConnect})
+    nvSatellite.EntityData.Children.Append("candidate-fabric-ports", types.YChild{"CandidateFabricPorts", &nvSatellite.CandidateFabricPorts})
+    nvSatellite.EntityData.Children.Append("connection-info", types.YChild{"ConnectionInfo", &nvSatellite.ConnectionInfo})
+    nvSatellite.EntityData.Children.Append("redundancy", types.YChild{"Redundancy", &nvSatellite.Redundancy})
+    nvSatellite.EntityData.Leafs = types.NewOrderedMap()
+    nvSatellite.EntityData.Leafs.Append("satellite-id", types.YLeaf{"SatelliteId", nvSatellite.SatelliteId})
+    nvSatellite.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", nvSatellite.Vrf})
+    nvSatellite.EntityData.Leafs.Append("timeout-warning", types.YLeaf{"TimeoutWarning", nvSatellite.TimeoutWarning})
+    nvSatellite.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", nvSatellite.DeviceName})
+    nvSatellite.EntityData.Leafs.Append("description", types.YLeaf{"Description", nvSatellite.Description})
+    nvSatellite.EntityData.Leafs.Append("type", types.YLeaf{"Type", nvSatellite.Type})
+    nvSatellite.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", nvSatellite.Enable})
+    nvSatellite.EntityData.Leafs.Append("disc-timeout", types.YLeaf{"DiscTimeout", nvSatellite.DiscTimeout})
+    nvSatellite.EntityData.Leafs.Append("delayed-switchback", types.YLeaf{"DelayedSwitchback", nvSatellite.DelayedSwitchback})
+    nvSatellite.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", nvSatellite.SerialNumber})
+    nvSatellite.EntityData.Leafs.Append("secret", types.YLeaf{"Secret", nvSatellite.Secret})
+    nvSatellite.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", nvSatellite.IpAddress})
+
+    nvSatellite.EntityData.YListKeys = []string {"SatelliteId"}
+
     return &(nvSatellite.EntityData)
 }
 
@@ -242,10 +254,13 @@ func (upgradeOnConnect *NvSatellites_NvSatellite_UpgradeOnConnect) GetEntityData
     upgradeOnConnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upgradeOnConnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    upgradeOnConnect.EntityData.Children = make(map[string]types.YChild)
-    upgradeOnConnect.EntityData.Leafs = make(map[string]types.YLeaf)
-    upgradeOnConnect.EntityData.Leafs["connect-type"] = types.YLeaf{"ConnectType", upgradeOnConnect.ConnectType}
-    upgradeOnConnect.EntityData.Leafs["reference"] = types.YLeaf{"Reference", upgradeOnConnect.Reference}
+    upgradeOnConnect.EntityData.Children = types.NewOrderedMap()
+    upgradeOnConnect.EntityData.Leafs = types.NewOrderedMap()
+    upgradeOnConnect.EntityData.Leafs.Append("connect-type", types.YLeaf{"ConnectType", upgradeOnConnect.ConnectType})
+    upgradeOnConnect.EntityData.Leafs.Append("reference", types.YLeaf{"Reference", upgradeOnConnect.Reference})
+
+    upgradeOnConnect.EntityData.YListKeys = []string {}
+
     return &(upgradeOnConnect.EntityData)
 }
 
@@ -270,7 +285,7 @@ type NvSatellites_NvSatellite_CandidateFabricPorts struct {
 
     // Enable interfaces on the satellite to be used as fabric ports. The type is
     // slice of NvSatellites_NvSatellite_CandidateFabricPorts_CandidateFabricPort.
-    CandidateFabricPort []NvSatellites_NvSatellite_CandidateFabricPorts_CandidateFabricPort
+    CandidateFabricPort []*NvSatellites_NvSatellite_CandidateFabricPorts_CandidateFabricPort
 }
 
 func (candidateFabricPorts *NvSatellites_NvSatellite_CandidateFabricPorts) GetEntityData() *types.CommonEntityData {
@@ -283,12 +298,15 @@ func (candidateFabricPorts *NvSatellites_NvSatellite_CandidateFabricPorts) GetEn
     candidateFabricPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateFabricPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateFabricPorts.EntityData.Children = make(map[string]types.YChild)
-    candidateFabricPorts.EntityData.Children["candidate-fabric-port"] = types.YChild{"CandidateFabricPort", nil}
+    candidateFabricPorts.EntityData.Children = types.NewOrderedMap()
+    candidateFabricPorts.EntityData.Children.Append("candidate-fabric-port", types.YChild{"CandidateFabricPort", nil})
     for i := range candidateFabricPorts.CandidateFabricPort {
-        candidateFabricPorts.EntityData.Children[types.GetSegmentPath(&candidateFabricPorts.CandidateFabricPort[i])] = types.YChild{"CandidateFabricPort", &candidateFabricPorts.CandidateFabricPort[i]}
+        candidateFabricPorts.EntityData.Children.Append(types.GetSegmentPath(candidateFabricPorts.CandidateFabricPort[i]), types.YChild{"CandidateFabricPort", candidateFabricPorts.CandidateFabricPort[i]})
     }
-    candidateFabricPorts.EntityData.Leafs = make(map[string]types.YLeaf)
+    candidateFabricPorts.EntityData.Leafs = types.NewOrderedMap()
+
+    candidateFabricPorts.EntityData.YListKeys = []string {}
+
     return &(candidateFabricPorts.EntityData)
 }
 
@@ -300,7 +318,7 @@ type NvSatellites_NvSatellite_CandidateFabricPorts_CandidateFabricPort struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port type. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PortType interface{}
 
     // This attribute is a key. Slot. The type is interface{} with range: 0..8.
@@ -319,17 +337,20 @@ func (candidateFabricPort *NvSatellites_NvSatellite_CandidateFabricPorts_Candida
     candidateFabricPort.EntityData.YangName = "candidate-fabric-port"
     candidateFabricPort.EntityData.BundleName = "cisco_ios_xr"
     candidateFabricPort.EntityData.ParentYangName = "candidate-fabric-ports"
-    candidateFabricPort.EntityData.SegmentPath = "candidate-fabric-port" + "[port-type='" + fmt.Sprintf("%v", candidateFabricPort.PortType) + "']" + "[slot='" + fmt.Sprintf("%v", candidateFabricPort.Slot) + "']" + "[sub-slot='" + fmt.Sprintf("%v", candidateFabricPort.SubSlot) + "']"
+    candidateFabricPort.EntityData.SegmentPath = "candidate-fabric-port" + types.AddKeyToken(candidateFabricPort.PortType, "port-type") + types.AddKeyToken(candidateFabricPort.Slot, "slot") + types.AddKeyToken(candidateFabricPort.SubSlot, "sub-slot")
     candidateFabricPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateFabricPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateFabricPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateFabricPort.EntityData.Children = make(map[string]types.YChild)
-    candidateFabricPort.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateFabricPort.EntityData.Leafs["port-type"] = types.YLeaf{"PortType", candidateFabricPort.PortType}
-    candidateFabricPort.EntityData.Leafs["slot"] = types.YLeaf{"Slot", candidateFabricPort.Slot}
-    candidateFabricPort.EntityData.Leafs["sub-slot"] = types.YLeaf{"SubSlot", candidateFabricPort.SubSlot}
-    candidateFabricPort.EntityData.Leafs["port-range"] = types.YLeaf{"PortRange", candidateFabricPort.PortRange}
+    candidateFabricPort.EntityData.Children = types.NewOrderedMap()
+    candidateFabricPort.EntityData.Leafs = types.NewOrderedMap()
+    candidateFabricPort.EntityData.Leafs.Append("port-type", types.YLeaf{"PortType", candidateFabricPort.PortType})
+    candidateFabricPort.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", candidateFabricPort.Slot})
+    candidateFabricPort.EntityData.Leafs.Append("sub-slot", types.YLeaf{"SubSlot", candidateFabricPort.SubSlot})
+    candidateFabricPort.EntityData.Leafs.Append("port-range", types.YLeaf{"PortRange", candidateFabricPort.PortRange})
+
+    candidateFabricPort.EntityData.YListKeys = []string {"PortType", "Slot", "SubSlot"}
+
     return &(candidateFabricPort.EntityData)
 }
 
@@ -343,7 +364,7 @@ type NvSatellites_NvSatellite_ConnectionInfo struct {
     Username interface{}
 
     // Encrypted password for the user. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -357,10 +378,13 @@ func (connectionInfo *NvSatellites_NvSatellite_ConnectionInfo) GetEntityData() *
     connectionInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectionInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    connectionInfo.EntityData.Children = make(map[string]types.YChild)
-    connectionInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    connectionInfo.EntityData.Leafs["username"] = types.YLeaf{"Username", connectionInfo.Username}
-    connectionInfo.EntityData.Leafs["password"] = types.YLeaf{"Password", connectionInfo.Password}
+    connectionInfo.EntityData.Children = types.NewOrderedMap()
+    connectionInfo.EntityData.Leafs = types.NewOrderedMap()
+    connectionInfo.EntityData.Leafs.Append("username", types.YLeaf{"Username", connectionInfo.Username})
+    connectionInfo.EntityData.Leafs.Append("password", types.YLeaf{"Password", connectionInfo.Password})
+
+    connectionInfo.EntityData.YListKeys = []string {}
+
     return &(connectionInfo.EntityData)
 }
 
@@ -385,9 +409,12 @@ func (redundancy *NvSatellites_NvSatellite_Redundancy) GetEntityData() *types.Co
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redundancy.EntityData.Children = make(map[string]types.YChild)
-    redundancy.EntityData.Leafs = make(map[string]types.YLeaf)
-    redundancy.EntityData.Leafs["host-priority"] = types.YLeaf{"HostPriority", redundancy.HostPriority}
+    redundancy.EntityData.Children = types.NewOrderedMap()
+    redundancy.EntityData.Leafs = types.NewOrderedMap()
+    redundancy.EntityData.Leafs.Append("host-priority", types.YLeaf{"HostPriority", redundancy.HostPriority})
+
+    redundancy.EntityData.YListKeys = []string {}
+
     return &(redundancy.EntityData)
 }
 

@@ -9,13 +9,13 @@ module Cisco-IOS-XR-mpls-ldp-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-mpls-ldp-oper-sub3 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-ldp-oper-sub2 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-ldp-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -41,6 +41,10 @@ module Cisco-IOS-XR-mpls-ldp-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -98,7 +102,7 @@ module Cisco-IOS-XR-mpls-ldp-oper {
         description
           "Information on LDP capability";
         leaf capability-type {
-          type int32;
+          type uint32;
           description
             "The capability type (IANA assigned)";
         }
@@ -299,27 +303,27 @@ module Cisco-IOS-XR-mpls-ldp-oper {
             "Peer ID";
         }
         leaf fe-ctype {
-          type int32;
+          type uint32;
           description
             "FEC Type";
         }
         leaf pw-id {
-          type int32;
+          type uint32;
           description
             "PW ID";
         }
         leaf agi-type {
-          type int32;
+          type uint32;
           description
             "AGI Type";
         }
         leaf agi {
-          type int32;
+          type uint32;
           description
             "AGI";
         }
         leaf saii-type {
-          type int32;
+          type uint32;
           description
             "SAII Type";
         }
@@ -329,7 +333,7 @@ module Cisco-IOS-XR-mpls-ldp-oper {
             "SAII Local ID";
         }
         leaf saii-global-id {
-          type int32;
+          type uint32;
           description
             "SAII Global ID";
         }
@@ -339,12 +343,12 @@ module Cisco-IOS-XR-mpls-ldp-oper {
             "SAII Prefix";
         }
         leaf saii-ac-id {
-          type int32;
+          type uint32;
           description
             "SAII AC ID";
         }
         leaf taii-type {
-          type int32;
+          type uint32;
           description
             "TAII Type";
         }
@@ -354,7 +358,7 @@ module Cisco-IOS-XR-mpls-ldp-oper {
             "TAII Local ID";
         }
         leaf taii-global-id {
-          type int32;
+          type uint32;
           description
             "TAII Global ID";
         }
@@ -364,7 +368,7 @@ module Cisco-IOS-XR-mpls-ldp-oper {
             "TAII Prefix";
         }
         leaf taii-ac-id {
-          type int32;
+          type uint32;
           description
             "TAII AC ID";
         }

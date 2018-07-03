@@ -30,6 +30,14 @@ module Cisco-IOS-XR-ip-tcp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2016-02-26 {
     description
       "Descriptions updated.";
@@ -70,7 +78,7 @@ module Cisco-IOS-XR-ip-tcp-cfg {
              .g. flash:)";
         }
         leaf dscp-value {
-          type int32;
+          type uint32;
           description
             "Set IP DSCP (DiffServ CodePoint) for TFTP
              Server Packets";
@@ -145,6 +153,7 @@ module Cisco-IOS-XR-ip-tcp-cfg {
   }
 
   container ip-tcp {
+    presence "Indicates a ip-tcp node is configured.";
     description
       "Global IP TCP configuration";
     container directory {
@@ -265,7 +274,7 @@ module Cisco-IOS-XR-ip-tcp-cfg {
         "Enable TCP timestamp option";
     }
     leaf path-mtu-discovery {
-      type int32;
+      type uint32;
       units "minute";
       default "10";
       description

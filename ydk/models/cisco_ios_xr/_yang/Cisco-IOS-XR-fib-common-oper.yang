@@ -8,20 +8,26 @@ module Cisco-IOS-XR-fib-common-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
+  include Cisco-IOS-XR-fib-common-oper-sub7 {
+    revision-date 2017-09-07;
+  }
+  include Cisco-IOS-XR-fib-common-oper-sub6 {
+    revision-date 2017-09-07;
+  }
   include Cisco-IOS-XR-fib-common-oper-sub5 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-fib-common-oper-sub4 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-fib-common-oper-sub3 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-fib-common-oper-sub2 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-fib-common-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -44,11 +50,16 @@ module Cisco-IOS-XR-fib-common-oper {
      for the following management objects:
        fib-statistics: cef interface drops operational data
        fib: fib
+       oc-aft-l3: oc aft l3
        mpls-forwarding: mpls forwarding
      
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -205,6 +216,31 @@ module Cisco-IOS-XR-fib-common-oper {
       "Mplseos";
   }
 
+  grouping PREFIX-ENTRY-TABLE {
+    description
+      "Common node of ipv6-unicast, ipv4-unicast";
+    container prefix-entries {
+      description
+        "Table of IP prefixes";
+      list prefix-entry {
+        key "network-address mask-length";
+        description
+          "Prefix data";
+        leaf network-address {
+          type inet:ip-address-no-zone;
+          description
+            "Network address";
+        }
+        leaf mask-length {
+          type uint32;
+          description
+            "Mask legnth (prefix length)";
+        }
+        uses FIB-OC-AFT-PREFIX;
+      }
+    }
+  }
+
   container fib-statistics {
     config false;
     description
@@ -243,6 +279,71 @@ module Cisco-IOS-XR-fib-common-oper {
         container global {
           description
             "FIB Global info";
+          container fib-cofo {
+            description
+              "Collapsed Forwarding";
+            container fib-cofo-idb {
+              description
+                "Collapsed Forwarding IDB Table";
+              container fib-cofo-idb-table-entries {
+                description
+                  "Collapsed Forwarding Idb Table Entries";
+                list fib-cofo-idb-table-entry {
+                  description
+                    "Collapsed Forwarding Idb Table Entries";
+                  leaf sdr-id {
+                    type uint32;
+                    description
+                      "SDR ID value";
+                  }
+                  leaf if-index {
+                    type uint32;
+                    description
+                      "Interface Index";
+                  }
+                  uses FIB-SH-COFO-IDB-TBL-ENTRY-INFO;
+                }
+              }
+            }
+            container fib-cofo-table-id {
+              description
+                "Collapsed Forwarding Table Id Table";
+              container fib-cofo-table-id-entries {
+                description
+                  "Collapsed Forwarding Table Id Entries";
+                list fib-cofo-table-id-entry {
+                  description
+                    "Collapsed Forwarding Idb Table Entries";
+                  leaf sdr-id {
+                    type uint32;
+                    description
+                      "SDR ID value";
+                  }
+                  leaf protocol {
+                    type Fib-protocol;
+                    description
+                      "Protocol";
+                  }
+                  leaf rd {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "Route Distinguisher";
+                  }
+                  leaf table-id {
+                    type uint32;
+                    description
+                      "Table Id";
+                  }
+                  uses FIB-SH-COFO-TBL-ID-ENTRY-INFO;
+                }
+              }
+              container fib-cofo-table-id-summary {
+                description
+                  "Collapsed Forwarding Table Id Entries";
+                uses FIB-SH-COFO-TBL-ID-DB-SUM;
+              }
+            }
+          }
           container summary {
             description
               "Global Summary";
@@ -365,7 +466,7 @@ module Cisco-IOS-XR-fib-common-oper {
                       description
                         "Specify index into frr log table";
                       leaf log-index {
-                        type int32;
+                        type uint32;
                         description
                           "FRR Log Index";
                       }
@@ -785,7 +886,7 @@ module Cisco-IOS-XR-fib-common-oper {
                 description
                   "NextHopeId table entry";
                 leaf nh-id-value {
-                  type int32;
+                  type uint32;
                   description
                     "NexthopId Value";
                 }
@@ -810,12 +911,12 @@ module Cisco-IOS-XR-fib-common-oper {
                 description
                   "Summary of the external clients";
                 leaf ecd-ver {
-                  type int32;
+                  type uint32;
                   description
                     "Ecd Version";
                 }
                 leaf id {
-                  type int32;
+                  type uint32;
                   description
                     "ID of the client: ECDv1 is component id,
                      ECDv2 is client id";
@@ -853,7 +954,7 @@ module Cisco-IOS-XR-fib-common-oper {
                       "Type of entry";
                   }
                   leaf pfx-tbl-id {
-                    type int32;
+                    type uint32;
                     description
                       "Table ID of IP prefix";
                   }
@@ -863,7 +964,7 @@ module Cisco-IOS-XR-fib-common-oper {
                       "IP Prefix";
                   }
                   leaf prefix-len {
-                    type int32;
+                    type uint32;
                     description
                       "Length of IP Prefix";
                   }
@@ -882,6 +983,64 @@ module Cisco-IOS-XR-fib-common-oper {
           type xr:Node-id;
           description
             "Node name";
+        }
+      }
+    }
+  }
+  container oc-aft-l3 {
+    config false;
+    description
+      "oc aft l3";
+    container vrfs {
+      description
+        "Table VRFs - openconfig network-instances";
+      list vrf {
+        key "vrf-name";
+        description
+          "VRF/network-instace table";
+        container abstract-forwarding-tables {
+          description
+            "Abstract forwarding table per FIB protocol";
+          container mpls {
+            description
+              "MPLS abstract forwarding table";
+            container label-entries {
+              description
+                "Table of MPLS labels";
+              list label-entry {
+                key "label label-length";
+                description
+                  "Label data";
+                leaf label {
+                  type xr:Cisco-ios-xr-string;
+                  description
+                    "MPLS label";
+                }
+                leaf label-length {
+                  type uint32;
+                  description
+                    "Internal representation of a mask-length
+                     of MPLS label";
+                }
+                uses FIB-OC-AFT-PREFIX;
+              }
+            }
+          }
+          container ipv6-unicast {
+            description
+              "IPv6 abstract forwarding table";
+            uses PREFIX-ENTRY-TABLE;
+          }
+          container ipv4-unicast {
+            description
+              "IPv4 abstract forwarding table";
+            uses PREFIX-ENTRY-TABLE;
+          }
+        }
+        leaf vrf-name {
+          type xr:Cisco-ios-xr-string;
+          description
+            "Network Instance Name";
         }
       }
     }
@@ -910,7 +1069,7 @@ module Cisco-IOS-XR-fib-common-oper {
             description
               "FRR Log information";
             leaf event-id {
-              type int32;
+              type uint32;
               description
                 "Event ID";
             }

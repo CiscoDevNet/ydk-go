@@ -44,9 +44,12 @@ func (diag *Diag) GetEntityData() *types.CommonEntityData {
     diag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diag.EntityData.Children = make(map[string]types.YChild)
-    diag.EntityData.Children["racks"] = types.YChild{"Racks", &diag.Racks}
-    diag.EntityData.Leafs = make(map[string]types.YLeaf)
+    diag.EntityData.Children = types.NewOrderedMap()
+    diag.EntityData.Children.Append("racks", types.YChild{"Racks", &diag.Racks})
+    diag.EntityData.Leafs = types.NewOrderedMap()
+
+    diag.EntityData.YListKeys = []string {}
+
     return &(diag.EntityData)
 }
 
@@ -57,7 +60,7 @@ type Diag_Racks struct {
     YFilter yfilter.YFilter
 
     // Rack name. The type is slice of Diag_Racks_Rack.
-    Rack []Diag_Racks_Rack
+    Rack []*Diag_Racks_Rack
 }
 
 func (racks *Diag_Racks) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (racks *Diag_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
@@ -86,7 +92,7 @@ type Diag_Racks_Rack struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     RackName interface{}
 
     // Table for rack power shelf .
@@ -107,18 +113,21 @@ func (rack *Diag_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[rack-name='" + fmt.Sprintf("%v", rack.RackName) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.RackName, "rack-name")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["power-shelfs"] = types.YChild{"PowerShelfs", &rack.PowerShelfs}
-    rack.EntityData.Children["fan-traies"] = types.YChild{"FanTraies", &rack.FanTraies}
-    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
-    rack.EntityData.Children["chassis"] = types.YChild{"Chassis", &rack.Chassis}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["rack-name"] = types.YLeaf{"RackName", rack.RackName}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("power-shelfs", types.YChild{"PowerShelfs", &rack.PowerShelfs})
+    rack.EntityData.Children.Append("fan-traies", types.YChild{"FanTraies", &rack.FanTraies})
+    rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
+    rack.EntityData.Children.Append("chassis", types.YChild{"Chassis", &rack.Chassis})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("rack-name", types.YLeaf{"RackName", rack.RackName})
+
+    rack.EntityData.YListKeys = []string {"RackName"}
+
     return &(rack.EntityData)
 }
 
@@ -130,7 +139,7 @@ type Diag_Racks_Rack_PowerShelfs struct {
 
     // Power shelf name. The type is slice of
     // Diag_Racks_Rack_PowerShelfs_PowerShelf.
-    PowerShelf []Diag_Racks_Rack_PowerShelfs_PowerShelf
+    PowerShelf []*Diag_Racks_Rack_PowerShelfs_PowerShelf
 }
 
 func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetEntityData() *types.CommonEntityData {
@@ -143,12 +152,15 @@ func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetEntityData() *types.CommonEnt
     powerShelfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerShelfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    powerShelfs.EntityData.Children = make(map[string]types.YChild)
-    powerShelfs.EntityData.Children["power-shelf"] = types.YChild{"PowerShelf", nil}
+    powerShelfs.EntityData.Children = types.NewOrderedMap()
+    powerShelfs.EntityData.Children.Append("power-shelf", types.YChild{"PowerShelf", nil})
     for i := range powerShelfs.PowerShelf {
-        powerShelfs.EntityData.Children[types.GetSegmentPath(&powerShelfs.PowerShelf[i])] = types.YChild{"PowerShelf", &powerShelfs.PowerShelf[i]}
+        powerShelfs.EntityData.Children.Append(types.GetSegmentPath(powerShelfs.PowerShelf[i]), types.YChild{"PowerShelf", powerShelfs.PowerShelf[i]})
     }
-    powerShelfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerShelfs.EntityData.Leafs = types.NewOrderedMap()
+
+    powerShelfs.EntityData.YListKeys = []string {}
+
     return &(powerShelfs.EntityData)
 }
 
@@ -159,7 +171,7 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Power Shelf name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PowerShelfName interface{}
 
     // Table for rack power supply .
@@ -171,15 +183,18 @@ func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetEntityData() *types
     powerShelf.EntityData.YangName = "power-shelf"
     powerShelf.EntityData.BundleName = "cisco_ios_xr"
     powerShelf.EntityData.ParentYangName = "power-shelfs"
-    powerShelf.EntityData.SegmentPath = "power-shelf" + "[power-shelf-name='" + fmt.Sprintf("%v", powerShelf.PowerShelfName) + "']"
+    powerShelf.EntityData.SegmentPath = "power-shelf" + types.AddKeyToken(powerShelf.PowerShelfName, "power-shelf-name")
     powerShelf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerShelf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerShelf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    powerShelf.EntityData.Children = make(map[string]types.YChild)
-    powerShelf.EntityData.Children["power-supplies"] = types.YChild{"PowerSupplies", &powerShelf.PowerSupplies}
-    powerShelf.EntityData.Leafs = make(map[string]types.YLeaf)
-    powerShelf.EntityData.Leafs["power-shelf-name"] = types.YLeaf{"PowerShelfName", powerShelf.PowerShelfName}
+    powerShelf.EntityData.Children = types.NewOrderedMap()
+    powerShelf.EntityData.Children.Append("power-supplies", types.YChild{"PowerSupplies", &powerShelf.PowerSupplies})
+    powerShelf.EntityData.Leafs = types.NewOrderedMap()
+    powerShelf.EntityData.Leafs.Append("power-shelf-name", types.YLeaf{"PowerShelfName", powerShelf.PowerShelfName})
+
+    powerShelf.EntityData.YListKeys = []string {"PowerShelfName"}
+
     return &(powerShelf.EntityData)
 }
 
@@ -191,7 +206,7 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies struct {
 
     // Power Supply name. The type is slice of
     // Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply.
-    PowerSupply []Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply
+    PowerSupply []*Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply
 }
 
 func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetEntityData() *types.CommonEntityData {
@@ -204,12 +219,15 @@ func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetEn
     powerSupplies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerSupplies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    powerSupplies.EntityData.Children = make(map[string]types.YChild)
-    powerSupplies.EntityData.Children["power-supply"] = types.YChild{"PowerSupply", nil}
+    powerSupplies.EntityData.Children = types.NewOrderedMap()
+    powerSupplies.EntityData.Children.Append("power-supply", types.YChild{"PowerSupply", nil})
     for i := range powerSupplies.PowerSupply {
-        powerSupplies.EntityData.Children[types.GetSegmentPath(&powerSupplies.PowerSupply[i])] = types.YChild{"PowerSupply", &powerSupplies.PowerSupply[i]}
+        powerSupplies.EntityData.Children.Append(types.GetSegmentPath(powerSupplies.PowerSupply[i]), types.YChild{"PowerSupply", powerSupplies.PowerSupply[i]})
     }
-    powerSupplies.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerSupplies.EntityData.Leafs = types.NewOrderedMap()
+
+    powerSupplies.EntityData.YListKeys = []string {}
+
     return &(powerSupplies.EntityData)
 }
 
@@ -220,7 +238,7 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Power Supply name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PowerSupplyName interface{}
 
     // Basic information.
@@ -232,15 +250,18 @@ func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSup
     powerSupply.EntityData.YangName = "power-supply"
     powerSupply.EntityData.BundleName = "cisco_ios_xr"
     powerSupply.EntityData.ParentYangName = "power-supplies"
-    powerSupply.EntityData.SegmentPath = "power-supply" + "[power-supply-name='" + fmt.Sprintf("%v", powerSupply.PowerSupplyName) + "']"
+    powerSupply.EntityData.SegmentPath = "power-supply" + types.AddKeyToken(powerSupply.PowerSupplyName, "power-supply-name")
     powerSupply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerSupply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerSupply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    powerSupply.EntityData.Children = make(map[string]types.YChild)
-    powerSupply.EntityData.Children["information"] = types.YChild{"Information", &powerSupply.Information}
-    powerSupply.EntityData.Leafs = make(map[string]types.YLeaf)
-    powerSupply.EntityData.Leafs["power-supply-name"] = types.YLeaf{"PowerSupplyName", powerSupply.PowerSupplyName}
+    powerSupply.EntityData.Children = types.NewOrderedMap()
+    powerSupply.EntityData.Children.Append("information", types.YChild{"Information", &powerSupply.Information})
+    powerSupply.EntityData.Leafs = types.NewOrderedMap()
+    powerSupply.EntityData.Leafs.Append("power-supply-name", types.YLeaf{"PowerSupplyName", powerSupply.PowerSupplyName})
+
+    powerSupply.EntityData.YListKeys = []string {"PowerSupplyName"}
+
     return &(powerSupply.EntityData)
 }
 
@@ -435,65 +456,68 @@ func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSup
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    information.EntityData.Children = make(map[string]types.YChild)
-    information.EntityData.Children["rma"] = types.YChild{"Rma", &information.Rma}
-    information.EntityData.Leafs = make(map[string]types.YLeaf)
-    information.EntityData.Leafs["description"] = types.YLeaf{"Description", information.Description}
-    information.EntityData.Leafs["idprom-format-rev"] = types.YLeaf{"IdpromFormatRev", information.IdpromFormatRev}
-    information.EntityData.Leafs["controller-family"] = types.YLeaf{"ControllerFamily", information.ControllerFamily}
-    information.EntityData.Leafs["controller-type"] = types.YLeaf{"ControllerType", information.ControllerType}
-    information.EntityData.Leafs["vid"] = types.YLeaf{"Vid", information.Vid}
-    information.EntityData.Leafs["hwid"] = types.YLeaf{"Hwid", information.Hwid}
-    information.EntityData.Leafs["pid"] = types.YLeaf{"Pid", information.Pid}
-    information.EntityData.Leafs["udi-description"] = types.YLeaf{"UdiDescription", information.UdiDescription}
-    information.EntityData.Leafs["udi-name"] = types.YLeaf{"UdiName", information.UdiName}
-    information.EntityData.Leafs["clei"] = types.YLeaf{"Clei", information.Clei}
-    information.EntityData.Leafs["eci"] = types.YLeaf{"Eci", information.Eci}
-    information.EntityData.Leafs["top-assem-part-num"] = types.YLeaf{"TopAssemPartNum", information.TopAssemPartNum}
-    information.EntityData.Leafs["top-assem-vid"] = types.YLeaf{"TopAssemVid", information.TopAssemVid}
-    information.EntityData.Leafs["pca-num"] = types.YLeaf{"PcaNum", information.PcaNum}
-    information.EntityData.Leafs["pcavid"] = types.YLeaf{"Pcavid", information.Pcavid}
-    information.EntityData.Leafs["chassis-sid"] = types.YLeaf{"ChassisSid", information.ChassisSid}
-    information.EntityData.Leafs["dev-num1"] = types.YLeaf{"DevNum1", information.DevNum1}
-    information.EntityData.Leafs["dev-num2"] = types.YLeaf{"DevNum2", information.DevNum2}
-    information.EntityData.Leafs["dev-num3"] = types.YLeaf{"DevNum3", information.DevNum3}
-    information.EntityData.Leafs["dev-num4"] = types.YLeaf{"DevNum4", information.DevNum4}
-    information.EntityData.Leafs["dev-num5"] = types.YLeaf{"DevNum5", information.DevNum5}
-    information.EntityData.Leafs["dev-num6"] = types.YLeaf{"DevNum6", information.DevNum6}
-    information.EntityData.Leafs["dev-num7"] = types.YLeaf{"DevNum7", information.DevNum7}
-    information.EntityData.Leafs["manu-test-data"] = types.YLeaf{"ManuTestData", information.ManuTestData}
-    information.EntityData.Leafs["asset-id"] = types.YLeaf{"AssetId", information.AssetId}
-    information.EntityData.Leafs["asset-alias"] = types.YLeaf{"AssetAlias", information.AssetAlias}
-    information.EntityData.Leafs["base-mac-address1"] = types.YLeaf{"BaseMacAddress1", information.BaseMacAddress1}
-    information.EntityData.Leafs["mac-add-blk-size1"] = types.YLeaf{"MacAddBlkSize1", information.MacAddBlkSize1}
-    information.EntityData.Leafs["base-mac-address2"] = types.YLeaf{"BaseMacAddress2", information.BaseMacAddress2}
-    information.EntityData.Leafs["mac-add-blk-size2"] = types.YLeaf{"MacAddBlkSize2", information.MacAddBlkSize2}
-    information.EntityData.Leafs["base-mac-address3"] = types.YLeaf{"BaseMacAddress3", information.BaseMacAddress3}
-    information.EntityData.Leafs["mac-add-blk-size3"] = types.YLeaf{"MacAddBlkSize3", information.MacAddBlkSize3}
-    information.EntityData.Leafs["base-mac-address4"] = types.YLeaf{"BaseMacAddress4", information.BaseMacAddress4}
-    information.EntityData.Leafs["mac-add-blk-size4"] = types.YLeaf{"MacAddBlkSize4", information.MacAddBlkSize4}
-    information.EntityData.Leafs["pcb-serial-num"] = types.YLeaf{"PcbSerialNum", information.PcbSerialNum}
-    information.EntityData.Leafs["power-supply-type"] = types.YLeaf{"PowerSupplyType", information.PowerSupplyType}
-    information.EntityData.Leafs["power-consumption"] = types.YLeaf{"PowerConsumption", information.PowerConsumption}
-    information.EntityData.Leafs["block-signature"] = types.YLeaf{"BlockSignature", information.BlockSignature}
-    information.EntityData.Leafs["block-version"] = types.YLeaf{"BlockVersion", information.BlockVersion}
-    information.EntityData.Leafs["block-length"] = types.YLeaf{"BlockLength", information.BlockLength}
-    information.EntityData.Leafs["block-checksum"] = types.YLeaf{"BlockChecksum", information.BlockChecksum}
-    information.EntityData.Leafs["eeprom-size"] = types.YLeaf{"EepromSize", information.EepromSize}
-    information.EntityData.Leafs["block-count"] = types.YLeaf{"BlockCount", information.BlockCount}
-    information.EntityData.Leafs["fru-major-type"] = types.YLeaf{"FruMajorType", information.FruMajorType}
-    information.EntityData.Leafs["fru-minor-type"] = types.YLeaf{"FruMinorType", information.FruMinorType}
-    information.EntityData.Leafs["oem-string"] = types.YLeaf{"OemString", information.OemString}
-    information.EntityData.Leafs["product-id"] = types.YLeaf{"ProductId", information.ProductId}
-    information.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", information.SerialNumber}
-    information.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", information.PartNumber}
-    information.EntityData.Leafs["part-revision"] = types.YLeaf{"PartRevision", information.PartRevision}
-    information.EntityData.Leafs["mfg-deviation"] = types.YLeaf{"MfgDeviation", information.MfgDeviation}
-    information.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", information.HwVersion}
-    information.EntityData.Leafs["mfg-bits"] = types.YLeaf{"MfgBits", information.MfgBits}
-    information.EntityData.Leafs["engineer-use"] = types.YLeaf{"EngineerUse", information.EngineerUse}
-    information.EntityData.Leafs["snmpoid"] = types.YLeaf{"Snmpoid", information.Snmpoid}
-    information.EntityData.Leafs["rma-code"] = types.YLeaf{"RmaCode", information.RmaCode}
+    information.EntityData.Children = types.NewOrderedMap()
+    information.EntityData.Children.Append("rma", types.YChild{"Rma", &information.Rma})
+    information.EntityData.Leafs = types.NewOrderedMap()
+    information.EntityData.Leafs.Append("description", types.YLeaf{"Description", information.Description})
+    information.EntityData.Leafs.Append("idprom-format-rev", types.YLeaf{"IdpromFormatRev", information.IdpromFormatRev})
+    information.EntityData.Leafs.Append("controller-family", types.YLeaf{"ControllerFamily", information.ControllerFamily})
+    information.EntityData.Leafs.Append("controller-type", types.YLeaf{"ControllerType", information.ControllerType})
+    information.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", information.Vid})
+    information.EntityData.Leafs.Append("hwid", types.YLeaf{"Hwid", information.Hwid})
+    information.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", information.Pid})
+    information.EntityData.Leafs.Append("udi-description", types.YLeaf{"UdiDescription", information.UdiDescription})
+    information.EntityData.Leafs.Append("udi-name", types.YLeaf{"UdiName", information.UdiName})
+    information.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", information.Clei})
+    information.EntityData.Leafs.Append("eci", types.YLeaf{"Eci", information.Eci})
+    information.EntityData.Leafs.Append("top-assem-part-num", types.YLeaf{"TopAssemPartNum", information.TopAssemPartNum})
+    information.EntityData.Leafs.Append("top-assem-vid", types.YLeaf{"TopAssemVid", information.TopAssemVid})
+    information.EntityData.Leafs.Append("pca-num", types.YLeaf{"PcaNum", information.PcaNum})
+    information.EntityData.Leafs.Append("pcavid", types.YLeaf{"Pcavid", information.Pcavid})
+    information.EntityData.Leafs.Append("chassis-sid", types.YLeaf{"ChassisSid", information.ChassisSid})
+    information.EntityData.Leafs.Append("dev-num1", types.YLeaf{"DevNum1", information.DevNum1})
+    information.EntityData.Leafs.Append("dev-num2", types.YLeaf{"DevNum2", information.DevNum2})
+    information.EntityData.Leafs.Append("dev-num3", types.YLeaf{"DevNum3", information.DevNum3})
+    information.EntityData.Leafs.Append("dev-num4", types.YLeaf{"DevNum4", information.DevNum4})
+    information.EntityData.Leafs.Append("dev-num5", types.YLeaf{"DevNum5", information.DevNum5})
+    information.EntityData.Leafs.Append("dev-num6", types.YLeaf{"DevNum6", information.DevNum6})
+    information.EntityData.Leafs.Append("dev-num7", types.YLeaf{"DevNum7", information.DevNum7})
+    information.EntityData.Leafs.Append("manu-test-data", types.YLeaf{"ManuTestData", information.ManuTestData})
+    information.EntityData.Leafs.Append("asset-id", types.YLeaf{"AssetId", information.AssetId})
+    information.EntityData.Leafs.Append("asset-alias", types.YLeaf{"AssetAlias", information.AssetAlias})
+    information.EntityData.Leafs.Append("base-mac-address1", types.YLeaf{"BaseMacAddress1", information.BaseMacAddress1})
+    information.EntityData.Leafs.Append("mac-add-blk-size1", types.YLeaf{"MacAddBlkSize1", information.MacAddBlkSize1})
+    information.EntityData.Leafs.Append("base-mac-address2", types.YLeaf{"BaseMacAddress2", information.BaseMacAddress2})
+    information.EntityData.Leafs.Append("mac-add-blk-size2", types.YLeaf{"MacAddBlkSize2", information.MacAddBlkSize2})
+    information.EntityData.Leafs.Append("base-mac-address3", types.YLeaf{"BaseMacAddress3", information.BaseMacAddress3})
+    information.EntityData.Leafs.Append("mac-add-blk-size3", types.YLeaf{"MacAddBlkSize3", information.MacAddBlkSize3})
+    information.EntityData.Leafs.Append("base-mac-address4", types.YLeaf{"BaseMacAddress4", information.BaseMacAddress4})
+    information.EntityData.Leafs.Append("mac-add-blk-size4", types.YLeaf{"MacAddBlkSize4", information.MacAddBlkSize4})
+    information.EntityData.Leafs.Append("pcb-serial-num", types.YLeaf{"PcbSerialNum", information.PcbSerialNum})
+    information.EntityData.Leafs.Append("power-supply-type", types.YLeaf{"PowerSupplyType", information.PowerSupplyType})
+    information.EntityData.Leafs.Append("power-consumption", types.YLeaf{"PowerConsumption", information.PowerConsumption})
+    information.EntityData.Leafs.Append("block-signature", types.YLeaf{"BlockSignature", information.BlockSignature})
+    information.EntityData.Leafs.Append("block-version", types.YLeaf{"BlockVersion", information.BlockVersion})
+    information.EntityData.Leafs.Append("block-length", types.YLeaf{"BlockLength", information.BlockLength})
+    information.EntityData.Leafs.Append("block-checksum", types.YLeaf{"BlockChecksum", information.BlockChecksum})
+    information.EntityData.Leafs.Append("eeprom-size", types.YLeaf{"EepromSize", information.EepromSize})
+    information.EntityData.Leafs.Append("block-count", types.YLeaf{"BlockCount", information.BlockCount})
+    information.EntityData.Leafs.Append("fru-major-type", types.YLeaf{"FruMajorType", information.FruMajorType})
+    information.EntityData.Leafs.Append("fru-minor-type", types.YLeaf{"FruMinorType", information.FruMinorType})
+    information.EntityData.Leafs.Append("oem-string", types.YLeaf{"OemString", information.OemString})
+    information.EntityData.Leafs.Append("product-id", types.YLeaf{"ProductId", information.ProductId})
+    information.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", information.SerialNumber})
+    information.EntityData.Leafs.Append("part-number", types.YLeaf{"PartNumber", information.PartNumber})
+    information.EntityData.Leafs.Append("part-revision", types.YLeaf{"PartRevision", information.PartRevision})
+    information.EntityData.Leafs.Append("mfg-deviation", types.YLeaf{"MfgDeviation", information.MfgDeviation})
+    information.EntityData.Leafs.Append("hw-version", types.YLeaf{"HwVersion", information.HwVersion})
+    information.EntityData.Leafs.Append("mfg-bits", types.YLeaf{"MfgBits", information.MfgBits})
+    information.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", information.EngineerUse})
+    information.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", information.Snmpoid})
+    information.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", information.RmaCode})
+
+    information.EntityData.YListKeys = []string {}
+
     return &(information.EntityData)
 }
 
@@ -524,11 +548,14 @@ func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Info
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rma.EntityData.Children = make(map[string]types.YChild)
-    rma.EntityData.Leafs = make(map[string]types.YLeaf)
-    rma.EntityData.Leafs["test-history"] = types.YLeaf{"TestHistory", rma.TestHistory}
-    rma.EntityData.Leafs["rma-number"] = types.YLeaf{"RmaNumber", rma.RmaNumber}
-    rma.EntityData.Leafs["rma-history"] = types.YLeaf{"RmaHistory", rma.RmaHistory}
+    rma.EntityData.Children = types.NewOrderedMap()
+    rma.EntityData.Leafs = types.NewOrderedMap()
+    rma.EntityData.Leafs.Append("test-history", types.YLeaf{"TestHistory", rma.TestHistory})
+    rma.EntityData.Leafs.Append("rma-number", types.YLeaf{"RmaNumber", rma.RmaNumber})
+    rma.EntityData.Leafs.Append("rma-history", types.YLeaf{"RmaHistory", rma.RmaHistory})
+
+    rma.EntityData.YListKeys = []string {}
+
     return &(rma.EntityData)
 }
 
@@ -539,7 +566,7 @@ type Diag_Racks_Rack_FanTraies struct {
     YFilter yfilter.YFilter
 
     // Fan tray name. The type is slice of Diag_Racks_Rack_FanTraies_FanTray.
-    FanTray []Diag_Racks_Rack_FanTraies_FanTray
+    FanTray []*Diag_Racks_Rack_FanTraies_FanTray
 }
 
 func (fanTraies *Diag_Racks_Rack_FanTraies) GetEntityData() *types.CommonEntityData {
@@ -552,12 +579,15 @@ func (fanTraies *Diag_Racks_Rack_FanTraies) GetEntityData() *types.CommonEntityD
     fanTraies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanTraies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fanTraies.EntityData.Children = make(map[string]types.YChild)
-    fanTraies.EntityData.Children["fan-tray"] = types.YChild{"FanTray", nil}
+    fanTraies.EntityData.Children = types.NewOrderedMap()
+    fanTraies.EntityData.Children.Append("fan-tray", types.YChild{"FanTray", nil})
     for i := range fanTraies.FanTray {
-        fanTraies.EntityData.Children[types.GetSegmentPath(&fanTraies.FanTray[i])] = types.YChild{"FanTray", &fanTraies.FanTray[i]}
+        fanTraies.EntityData.Children.Append(types.GetSegmentPath(fanTraies.FanTray[i]), types.YChild{"FanTray", fanTraies.FanTray[i]})
     }
-    fanTraies.EntityData.Leafs = make(map[string]types.YLeaf)
+    fanTraies.EntityData.Leafs = types.NewOrderedMap()
+
+    fanTraies.EntityData.YListKeys = []string {}
+
     return &(fanTraies.EntityData)
 }
 
@@ -568,7 +598,7 @@ type Diag_Racks_Rack_FanTraies_FanTray struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fan tray name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FanTrayName interface{}
 
     // Table for rack fans .
@@ -580,15 +610,18 @@ func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetEntityData() *types.CommonE
     fanTray.EntityData.YangName = "fan-tray"
     fanTray.EntityData.BundleName = "cisco_ios_xr"
     fanTray.EntityData.ParentYangName = "fan-traies"
-    fanTray.EntityData.SegmentPath = "fan-tray" + "[fan-tray-name='" + fmt.Sprintf("%v", fanTray.FanTrayName) + "']"
+    fanTray.EntityData.SegmentPath = "fan-tray" + types.AddKeyToken(fanTray.FanTrayName, "fan-tray-name")
     fanTray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanTray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanTray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fanTray.EntityData.Children = make(map[string]types.YChild)
-    fanTray.EntityData.Children["fanses"] = types.YChild{"Fanses", &fanTray.Fanses}
-    fanTray.EntityData.Leafs = make(map[string]types.YLeaf)
-    fanTray.EntityData.Leafs["fan-tray-name"] = types.YLeaf{"FanTrayName", fanTray.FanTrayName}
+    fanTray.EntityData.Children = types.NewOrderedMap()
+    fanTray.EntityData.Children.Append("fanses", types.YChild{"Fanses", &fanTray.Fanses})
+    fanTray.EntityData.Leafs = types.NewOrderedMap()
+    fanTray.EntityData.Leafs.Append("fan-tray-name", types.YLeaf{"FanTrayName", fanTray.FanTrayName})
+
+    fanTray.EntityData.YListKeys = []string {"FanTrayName"}
+
     return &(fanTray.EntityData)
 }
 
@@ -600,7 +633,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Fanses struct {
 
     // Fan name. The type is slice of
     // Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans.
-    Fans []Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans
+    Fans []*Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans
 }
 
 func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetEntityData() *types.CommonEntityData {
@@ -613,12 +646,15 @@ func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetEntityData() *types.C
     fanses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fanses.EntityData.Children = make(map[string]types.YChild)
-    fanses.EntityData.Children["fans"] = types.YChild{"Fans", nil}
+    fanses.EntityData.Children = types.NewOrderedMap()
+    fanses.EntityData.Children.Append("fans", types.YChild{"Fans", nil})
     for i := range fanses.Fans {
-        fanses.EntityData.Children[types.GetSegmentPath(&fanses.Fans[i])] = types.YChild{"Fans", &fanses.Fans[i]}
+        fanses.EntityData.Children.Append(types.GetSegmentPath(fanses.Fans[i]), types.YChild{"Fans", fanses.Fans[i]})
     }
-    fanses.EntityData.Leafs = make(map[string]types.YLeaf)
+    fanses.EntityData.Leafs = types.NewOrderedMap()
+
+    fanses.EntityData.YListKeys = []string {}
+
     return &(fanses.EntityData)
 }
 
@@ -629,7 +665,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fans name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FansName interface{}
 
     // Basic information.
@@ -641,15 +677,18 @@ func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetEntityData() *type
     fans.EntityData.YangName = "fans"
     fans.EntityData.BundleName = "cisco_ios_xr"
     fans.EntityData.ParentYangName = "fanses"
-    fans.EntityData.SegmentPath = "fans" + "[fans-name='" + fmt.Sprintf("%v", fans.FansName) + "']"
+    fans.EntityData.SegmentPath = "fans" + types.AddKeyToken(fans.FansName, "fans-name")
     fans.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fans.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fans.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fans.EntityData.Children = make(map[string]types.YChild)
-    fans.EntityData.Children["information"] = types.YChild{"Information", &fans.Information}
-    fans.EntityData.Leafs = make(map[string]types.YLeaf)
-    fans.EntityData.Leafs["fans-name"] = types.YLeaf{"FansName", fans.FansName}
+    fans.EntityData.Children = types.NewOrderedMap()
+    fans.EntityData.Children.Append("information", types.YChild{"Information", &fans.Information})
+    fans.EntityData.Leafs = types.NewOrderedMap()
+    fans.EntityData.Leafs.Append("fans-name", types.YLeaf{"FansName", fans.FansName})
+
+    fans.EntityData.YListKeys = []string {"FansName"}
+
     return &(fans.EntityData)
 }
 
@@ -844,65 +883,68 @@ func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) Ge
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    information.EntityData.Children = make(map[string]types.YChild)
-    information.EntityData.Children["rma"] = types.YChild{"Rma", &information.Rma}
-    information.EntityData.Leafs = make(map[string]types.YLeaf)
-    information.EntityData.Leafs["description"] = types.YLeaf{"Description", information.Description}
-    information.EntityData.Leafs["idprom-format-rev"] = types.YLeaf{"IdpromFormatRev", information.IdpromFormatRev}
-    information.EntityData.Leafs["controller-family"] = types.YLeaf{"ControllerFamily", information.ControllerFamily}
-    information.EntityData.Leafs["controller-type"] = types.YLeaf{"ControllerType", information.ControllerType}
-    information.EntityData.Leafs["vid"] = types.YLeaf{"Vid", information.Vid}
-    information.EntityData.Leafs["hwid"] = types.YLeaf{"Hwid", information.Hwid}
-    information.EntityData.Leafs["pid"] = types.YLeaf{"Pid", information.Pid}
-    information.EntityData.Leafs["udi-description"] = types.YLeaf{"UdiDescription", information.UdiDescription}
-    information.EntityData.Leafs["udi-name"] = types.YLeaf{"UdiName", information.UdiName}
-    information.EntityData.Leafs["clei"] = types.YLeaf{"Clei", information.Clei}
-    information.EntityData.Leafs["eci"] = types.YLeaf{"Eci", information.Eci}
-    information.EntityData.Leafs["top-assem-part-num"] = types.YLeaf{"TopAssemPartNum", information.TopAssemPartNum}
-    information.EntityData.Leafs["top-assem-vid"] = types.YLeaf{"TopAssemVid", information.TopAssemVid}
-    information.EntityData.Leafs["pca-num"] = types.YLeaf{"PcaNum", information.PcaNum}
-    information.EntityData.Leafs["pcavid"] = types.YLeaf{"Pcavid", information.Pcavid}
-    information.EntityData.Leafs["chassis-sid"] = types.YLeaf{"ChassisSid", information.ChassisSid}
-    information.EntityData.Leafs["dev-num1"] = types.YLeaf{"DevNum1", information.DevNum1}
-    information.EntityData.Leafs["dev-num2"] = types.YLeaf{"DevNum2", information.DevNum2}
-    information.EntityData.Leafs["dev-num3"] = types.YLeaf{"DevNum3", information.DevNum3}
-    information.EntityData.Leafs["dev-num4"] = types.YLeaf{"DevNum4", information.DevNum4}
-    information.EntityData.Leafs["dev-num5"] = types.YLeaf{"DevNum5", information.DevNum5}
-    information.EntityData.Leafs["dev-num6"] = types.YLeaf{"DevNum6", information.DevNum6}
-    information.EntityData.Leafs["dev-num7"] = types.YLeaf{"DevNum7", information.DevNum7}
-    information.EntityData.Leafs["manu-test-data"] = types.YLeaf{"ManuTestData", information.ManuTestData}
-    information.EntityData.Leafs["asset-id"] = types.YLeaf{"AssetId", information.AssetId}
-    information.EntityData.Leafs["asset-alias"] = types.YLeaf{"AssetAlias", information.AssetAlias}
-    information.EntityData.Leafs["base-mac-address1"] = types.YLeaf{"BaseMacAddress1", information.BaseMacAddress1}
-    information.EntityData.Leafs["mac-add-blk-size1"] = types.YLeaf{"MacAddBlkSize1", information.MacAddBlkSize1}
-    information.EntityData.Leafs["base-mac-address2"] = types.YLeaf{"BaseMacAddress2", information.BaseMacAddress2}
-    information.EntityData.Leafs["mac-add-blk-size2"] = types.YLeaf{"MacAddBlkSize2", information.MacAddBlkSize2}
-    information.EntityData.Leafs["base-mac-address3"] = types.YLeaf{"BaseMacAddress3", information.BaseMacAddress3}
-    information.EntityData.Leafs["mac-add-blk-size3"] = types.YLeaf{"MacAddBlkSize3", information.MacAddBlkSize3}
-    information.EntityData.Leafs["base-mac-address4"] = types.YLeaf{"BaseMacAddress4", information.BaseMacAddress4}
-    information.EntityData.Leafs["mac-add-blk-size4"] = types.YLeaf{"MacAddBlkSize4", information.MacAddBlkSize4}
-    information.EntityData.Leafs["pcb-serial-num"] = types.YLeaf{"PcbSerialNum", information.PcbSerialNum}
-    information.EntityData.Leafs["power-supply-type"] = types.YLeaf{"PowerSupplyType", information.PowerSupplyType}
-    information.EntityData.Leafs["power-consumption"] = types.YLeaf{"PowerConsumption", information.PowerConsumption}
-    information.EntityData.Leafs["block-signature"] = types.YLeaf{"BlockSignature", information.BlockSignature}
-    information.EntityData.Leafs["block-version"] = types.YLeaf{"BlockVersion", information.BlockVersion}
-    information.EntityData.Leafs["block-length"] = types.YLeaf{"BlockLength", information.BlockLength}
-    information.EntityData.Leafs["block-checksum"] = types.YLeaf{"BlockChecksum", information.BlockChecksum}
-    information.EntityData.Leafs["eeprom-size"] = types.YLeaf{"EepromSize", information.EepromSize}
-    information.EntityData.Leafs["block-count"] = types.YLeaf{"BlockCount", information.BlockCount}
-    information.EntityData.Leafs["fru-major-type"] = types.YLeaf{"FruMajorType", information.FruMajorType}
-    information.EntityData.Leafs["fru-minor-type"] = types.YLeaf{"FruMinorType", information.FruMinorType}
-    information.EntityData.Leafs["oem-string"] = types.YLeaf{"OemString", information.OemString}
-    information.EntityData.Leafs["product-id"] = types.YLeaf{"ProductId", information.ProductId}
-    information.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", information.SerialNumber}
-    information.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", information.PartNumber}
-    information.EntityData.Leafs["part-revision"] = types.YLeaf{"PartRevision", information.PartRevision}
-    information.EntityData.Leafs["mfg-deviation"] = types.YLeaf{"MfgDeviation", information.MfgDeviation}
-    information.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", information.HwVersion}
-    information.EntityData.Leafs["mfg-bits"] = types.YLeaf{"MfgBits", information.MfgBits}
-    information.EntityData.Leafs["engineer-use"] = types.YLeaf{"EngineerUse", information.EngineerUse}
-    information.EntityData.Leafs["snmpoid"] = types.YLeaf{"Snmpoid", information.Snmpoid}
-    information.EntityData.Leafs["rma-code"] = types.YLeaf{"RmaCode", information.RmaCode}
+    information.EntityData.Children = types.NewOrderedMap()
+    information.EntityData.Children.Append("rma", types.YChild{"Rma", &information.Rma})
+    information.EntityData.Leafs = types.NewOrderedMap()
+    information.EntityData.Leafs.Append("description", types.YLeaf{"Description", information.Description})
+    information.EntityData.Leafs.Append("idprom-format-rev", types.YLeaf{"IdpromFormatRev", information.IdpromFormatRev})
+    information.EntityData.Leafs.Append("controller-family", types.YLeaf{"ControllerFamily", information.ControllerFamily})
+    information.EntityData.Leafs.Append("controller-type", types.YLeaf{"ControllerType", information.ControllerType})
+    information.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", information.Vid})
+    information.EntityData.Leafs.Append("hwid", types.YLeaf{"Hwid", information.Hwid})
+    information.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", information.Pid})
+    information.EntityData.Leafs.Append("udi-description", types.YLeaf{"UdiDescription", information.UdiDescription})
+    information.EntityData.Leafs.Append("udi-name", types.YLeaf{"UdiName", information.UdiName})
+    information.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", information.Clei})
+    information.EntityData.Leafs.Append("eci", types.YLeaf{"Eci", information.Eci})
+    information.EntityData.Leafs.Append("top-assem-part-num", types.YLeaf{"TopAssemPartNum", information.TopAssemPartNum})
+    information.EntityData.Leafs.Append("top-assem-vid", types.YLeaf{"TopAssemVid", information.TopAssemVid})
+    information.EntityData.Leafs.Append("pca-num", types.YLeaf{"PcaNum", information.PcaNum})
+    information.EntityData.Leafs.Append("pcavid", types.YLeaf{"Pcavid", information.Pcavid})
+    information.EntityData.Leafs.Append("chassis-sid", types.YLeaf{"ChassisSid", information.ChassisSid})
+    information.EntityData.Leafs.Append("dev-num1", types.YLeaf{"DevNum1", information.DevNum1})
+    information.EntityData.Leafs.Append("dev-num2", types.YLeaf{"DevNum2", information.DevNum2})
+    information.EntityData.Leafs.Append("dev-num3", types.YLeaf{"DevNum3", information.DevNum3})
+    information.EntityData.Leafs.Append("dev-num4", types.YLeaf{"DevNum4", information.DevNum4})
+    information.EntityData.Leafs.Append("dev-num5", types.YLeaf{"DevNum5", information.DevNum5})
+    information.EntityData.Leafs.Append("dev-num6", types.YLeaf{"DevNum6", information.DevNum6})
+    information.EntityData.Leafs.Append("dev-num7", types.YLeaf{"DevNum7", information.DevNum7})
+    information.EntityData.Leafs.Append("manu-test-data", types.YLeaf{"ManuTestData", information.ManuTestData})
+    information.EntityData.Leafs.Append("asset-id", types.YLeaf{"AssetId", information.AssetId})
+    information.EntityData.Leafs.Append("asset-alias", types.YLeaf{"AssetAlias", information.AssetAlias})
+    information.EntityData.Leafs.Append("base-mac-address1", types.YLeaf{"BaseMacAddress1", information.BaseMacAddress1})
+    information.EntityData.Leafs.Append("mac-add-blk-size1", types.YLeaf{"MacAddBlkSize1", information.MacAddBlkSize1})
+    information.EntityData.Leafs.Append("base-mac-address2", types.YLeaf{"BaseMacAddress2", information.BaseMacAddress2})
+    information.EntityData.Leafs.Append("mac-add-blk-size2", types.YLeaf{"MacAddBlkSize2", information.MacAddBlkSize2})
+    information.EntityData.Leafs.Append("base-mac-address3", types.YLeaf{"BaseMacAddress3", information.BaseMacAddress3})
+    information.EntityData.Leafs.Append("mac-add-blk-size3", types.YLeaf{"MacAddBlkSize3", information.MacAddBlkSize3})
+    information.EntityData.Leafs.Append("base-mac-address4", types.YLeaf{"BaseMacAddress4", information.BaseMacAddress4})
+    information.EntityData.Leafs.Append("mac-add-blk-size4", types.YLeaf{"MacAddBlkSize4", information.MacAddBlkSize4})
+    information.EntityData.Leafs.Append("pcb-serial-num", types.YLeaf{"PcbSerialNum", information.PcbSerialNum})
+    information.EntityData.Leafs.Append("power-supply-type", types.YLeaf{"PowerSupplyType", information.PowerSupplyType})
+    information.EntityData.Leafs.Append("power-consumption", types.YLeaf{"PowerConsumption", information.PowerConsumption})
+    information.EntityData.Leafs.Append("block-signature", types.YLeaf{"BlockSignature", information.BlockSignature})
+    information.EntityData.Leafs.Append("block-version", types.YLeaf{"BlockVersion", information.BlockVersion})
+    information.EntityData.Leafs.Append("block-length", types.YLeaf{"BlockLength", information.BlockLength})
+    information.EntityData.Leafs.Append("block-checksum", types.YLeaf{"BlockChecksum", information.BlockChecksum})
+    information.EntityData.Leafs.Append("eeprom-size", types.YLeaf{"EepromSize", information.EepromSize})
+    information.EntityData.Leafs.Append("block-count", types.YLeaf{"BlockCount", information.BlockCount})
+    information.EntityData.Leafs.Append("fru-major-type", types.YLeaf{"FruMajorType", information.FruMajorType})
+    information.EntityData.Leafs.Append("fru-minor-type", types.YLeaf{"FruMinorType", information.FruMinorType})
+    information.EntityData.Leafs.Append("oem-string", types.YLeaf{"OemString", information.OemString})
+    information.EntityData.Leafs.Append("product-id", types.YLeaf{"ProductId", information.ProductId})
+    information.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", information.SerialNumber})
+    information.EntityData.Leafs.Append("part-number", types.YLeaf{"PartNumber", information.PartNumber})
+    information.EntityData.Leafs.Append("part-revision", types.YLeaf{"PartRevision", information.PartRevision})
+    information.EntityData.Leafs.Append("mfg-deviation", types.YLeaf{"MfgDeviation", information.MfgDeviation})
+    information.EntityData.Leafs.Append("hw-version", types.YLeaf{"HwVersion", information.HwVersion})
+    information.EntityData.Leafs.Append("mfg-bits", types.YLeaf{"MfgBits", information.MfgBits})
+    information.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", information.EngineerUse})
+    information.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", information.Snmpoid})
+    information.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", information.RmaCode})
+
+    information.EntityData.YListKeys = []string {}
+
     return &(information.EntityData)
 }
 
@@ -933,11 +975,14 @@ func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetEnt
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rma.EntityData.Children = make(map[string]types.YChild)
-    rma.EntityData.Leafs = make(map[string]types.YLeaf)
-    rma.EntityData.Leafs["test-history"] = types.YLeaf{"TestHistory", rma.TestHistory}
-    rma.EntityData.Leafs["rma-number"] = types.YLeaf{"RmaNumber", rma.RmaNumber}
-    rma.EntityData.Leafs["rma-history"] = types.YLeaf{"RmaHistory", rma.RmaHistory}
+    rma.EntityData.Children = types.NewOrderedMap()
+    rma.EntityData.Leafs = types.NewOrderedMap()
+    rma.EntityData.Leafs.Append("test-history", types.YLeaf{"TestHistory", rma.TestHistory})
+    rma.EntityData.Leafs.Append("rma-number", types.YLeaf{"RmaNumber", rma.RmaNumber})
+    rma.EntityData.Leafs.Append("rma-history", types.YLeaf{"RmaHistory", rma.RmaHistory})
+
+    rma.EntityData.YListKeys = []string {}
+
     return &(rma.EntityData)
 }
 
@@ -948,7 +993,7 @@ type Diag_Racks_Rack_Slots struct {
     YFilter yfilter.YFilter
 
     // Slot name. The type is slice of Diag_Racks_Rack_Slots_Slot.
-    Slot []Diag_Racks_Rack_Slots_Slot
+    Slot []*Diag_Racks_Rack_Slots_Slot
 }
 
 func (slots *Diag_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
@@ -961,12 +1006,15 @@ func (slots *Diag_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
@@ -977,7 +1025,7 @@ type Diag_Racks_Rack_Slots_Slot struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SlotName interface{}
 
     // Table of instances.
@@ -989,15 +1037,18 @@ func (slot *Diag_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData 
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[slot-name='" + fmt.Sprintf("%v", slot.SlotName) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.SlotName, "slot-name")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["instances"] = types.YChild{"Instances", &slot.Instances}
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["slot-name"] = types.YLeaf{"SlotName", slot.SlotName}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("instances", types.YChild{"Instances", &slot.Instances})
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("slot-name", types.YLeaf{"SlotName", slot.SlotName})
+
+    slot.EntityData.YListKeys = []string {"SlotName"}
+
     return &(slot.EntityData)
 }
 
@@ -1009,7 +1060,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances struct {
 
     // instance number. The type is slice of
     // Diag_Racks_Rack_Slots_Slot_Instances_Instance.
-    Instance []Diag_Racks_Rack_Slots_Slot_Instances_Instance
+    Instance []*Diag_Racks_Rack_Slots_Slot_Instances_Instance
 }
 
 func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetEntityData() *types.CommonEntityData {
@@ -1022,12 +1073,15 @@ func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetEntityData() *types.Co
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instances.EntityData.Children = make(map[string]types.YChild)
-    instances.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    instances.EntityData.Children = types.NewOrderedMap()
+    instances.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range instances.Instance {
-        instances.EntityData.Children[types.GetSegmentPath(&instances.Instance[i])] = types.YChild{"Instance", &instances.Instance[i]}
+        instances.EntityData.Children.Append(types.GetSegmentPath(instances.Instance[i]), types.YChild{"Instance", instances.Instance[i]})
     }
-    instances.EntityData.Leafs = make(map[string]types.YLeaf)
+    instances.EntityData.Leafs = types.NewOrderedMap()
+
+    instances.EntityData.YListKeys = []string {}
+
     return &(instances.EntityData)
 }
 
@@ -1038,7 +1092,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Instance name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Detail information.
@@ -1050,15 +1104,18 @@ func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetEntityData() *
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
-    instance.EntityData.SegmentPath = "instance" + "[name='" + fmt.Sprintf("%v", instance.Name) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.Name, "name")
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["detail"] = types.YChild{"Detail", &instance.Detail}
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["name"] = types.YLeaf{"Name", instance.Name}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("detail", types.YChild{"Detail", &instance.Detail})
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("name", types.YLeaf{"Name", instance.Name})
+
+    instance.EntityData.YListKeys = []string {"Name"}
+
     return &(instance.EntityData)
 }
 
@@ -1085,10 +1142,13 @@ func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetEntityDat
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["card-instance"] = types.YChild{"CardInstance", &detail.CardInstance}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
-    detail.EntityData.Leafs["node-operational-state"] = types.YLeaf{"NodeOperationalState", detail.NodeOperationalState}
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("card-instance", types.YChild{"CardInstance", &detail.CardInstance})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+    detail.EntityData.Leafs.Append("node-operational-state", types.YLeaf{"NodeOperationalState", detail.NodeOperationalState})
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -1283,65 +1343,68 @@ func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardIns
     cardInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cardInstance.EntityData.Children = make(map[string]types.YChild)
-    cardInstance.EntityData.Children["rma"] = types.YChild{"Rma", &cardInstance.Rma}
-    cardInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    cardInstance.EntityData.Leafs["description"] = types.YLeaf{"Description", cardInstance.Description}
-    cardInstance.EntityData.Leafs["idprom-format-rev"] = types.YLeaf{"IdpromFormatRev", cardInstance.IdpromFormatRev}
-    cardInstance.EntityData.Leafs["controller-family"] = types.YLeaf{"ControllerFamily", cardInstance.ControllerFamily}
-    cardInstance.EntityData.Leafs["controller-type"] = types.YLeaf{"ControllerType", cardInstance.ControllerType}
-    cardInstance.EntityData.Leafs["vid"] = types.YLeaf{"Vid", cardInstance.Vid}
-    cardInstance.EntityData.Leafs["hwid"] = types.YLeaf{"Hwid", cardInstance.Hwid}
-    cardInstance.EntityData.Leafs["pid"] = types.YLeaf{"Pid", cardInstance.Pid}
-    cardInstance.EntityData.Leafs["udi-description"] = types.YLeaf{"UdiDescription", cardInstance.UdiDescription}
-    cardInstance.EntityData.Leafs["udi-name"] = types.YLeaf{"UdiName", cardInstance.UdiName}
-    cardInstance.EntityData.Leafs["clei"] = types.YLeaf{"Clei", cardInstance.Clei}
-    cardInstance.EntityData.Leafs["eci"] = types.YLeaf{"Eci", cardInstance.Eci}
-    cardInstance.EntityData.Leafs["top-assem-part-num"] = types.YLeaf{"TopAssemPartNum", cardInstance.TopAssemPartNum}
-    cardInstance.EntityData.Leafs["top-assem-vid"] = types.YLeaf{"TopAssemVid", cardInstance.TopAssemVid}
-    cardInstance.EntityData.Leafs["pca-num"] = types.YLeaf{"PcaNum", cardInstance.PcaNum}
-    cardInstance.EntityData.Leafs["pcavid"] = types.YLeaf{"Pcavid", cardInstance.Pcavid}
-    cardInstance.EntityData.Leafs["chassis-sid"] = types.YLeaf{"ChassisSid", cardInstance.ChassisSid}
-    cardInstance.EntityData.Leafs["dev-num1"] = types.YLeaf{"DevNum1", cardInstance.DevNum1}
-    cardInstance.EntityData.Leafs["dev-num2"] = types.YLeaf{"DevNum2", cardInstance.DevNum2}
-    cardInstance.EntityData.Leafs["dev-num3"] = types.YLeaf{"DevNum3", cardInstance.DevNum3}
-    cardInstance.EntityData.Leafs["dev-num4"] = types.YLeaf{"DevNum4", cardInstance.DevNum4}
-    cardInstance.EntityData.Leafs["dev-num5"] = types.YLeaf{"DevNum5", cardInstance.DevNum5}
-    cardInstance.EntityData.Leafs["dev-num6"] = types.YLeaf{"DevNum6", cardInstance.DevNum6}
-    cardInstance.EntityData.Leafs["dev-num7"] = types.YLeaf{"DevNum7", cardInstance.DevNum7}
-    cardInstance.EntityData.Leafs["manu-test-data"] = types.YLeaf{"ManuTestData", cardInstance.ManuTestData}
-    cardInstance.EntityData.Leafs["asset-id"] = types.YLeaf{"AssetId", cardInstance.AssetId}
-    cardInstance.EntityData.Leafs["asset-alias"] = types.YLeaf{"AssetAlias", cardInstance.AssetAlias}
-    cardInstance.EntityData.Leafs["base-mac-address1"] = types.YLeaf{"BaseMacAddress1", cardInstance.BaseMacAddress1}
-    cardInstance.EntityData.Leafs["mac-add-blk-size1"] = types.YLeaf{"MacAddBlkSize1", cardInstance.MacAddBlkSize1}
-    cardInstance.EntityData.Leafs["base-mac-address2"] = types.YLeaf{"BaseMacAddress2", cardInstance.BaseMacAddress2}
-    cardInstance.EntityData.Leafs["mac-add-blk-size2"] = types.YLeaf{"MacAddBlkSize2", cardInstance.MacAddBlkSize2}
-    cardInstance.EntityData.Leafs["base-mac-address3"] = types.YLeaf{"BaseMacAddress3", cardInstance.BaseMacAddress3}
-    cardInstance.EntityData.Leafs["mac-add-blk-size3"] = types.YLeaf{"MacAddBlkSize3", cardInstance.MacAddBlkSize3}
-    cardInstance.EntityData.Leafs["base-mac-address4"] = types.YLeaf{"BaseMacAddress4", cardInstance.BaseMacAddress4}
-    cardInstance.EntityData.Leafs["mac-add-blk-size4"] = types.YLeaf{"MacAddBlkSize4", cardInstance.MacAddBlkSize4}
-    cardInstance.EntityData.Leafs["pcb-serial-num"] = types.YLeaf{"PcbSerialNum", cardInstance.PcbSerialNum}
-    cardInstance.EntityData.Leafs["power-supply-type"] = types.YLeaf{"PowerSupplyType", cardInstance.PowerSupplyType}
-    cardInstance.EntityData.Leafs["power-consumption"] = types.YLeaf{"PowerConsumption", cardInstance.PowerConsumption}
-    cardInstance.EntityData.Leafs["block-signature"] = types.YLeaf{"BlockSignature", cardInstance.BlockSignature}
-    cardInstance.EntityData.Leafs["block-version"] = types.YLeaf{"BlockVersion", cardInstance.BlockVersion}
-    cardInstance.EntityData.Leafs["block-length"] = types.YLeaf{"BlockLength", cardInstance.BlockLength}
-    cardInstance.EntityData.Leafs["block-checksum"] = types.YLeaf{"BlockChecksum", cardInstance.BlockChecksum}
-    cardInstance.EntityData.Leafs["eeprom-size"] = types.YLeaf{"EepromSize", cardInstance.EepromSize}
-    cardInstance.EntityData.Leafs["block-count"] = types.YLeaf{"BlockCount", cardInstance.BlockCount}
-    cardInstance.EntityData.Leafs["fru-major-type"] = types.YLeaf{"FruMajorType", cardInstance.FruMajorType}
-    cardInstance.EntityData.Leafs["fru-minor-type"] = types.YLeaf{"FruMinorType", cardInstance.FruMinorType}
-    cardInstance.EntityData.Leafs["oem-string"] = types.YLeaf{"OemString", cardInstance.OemString}
-    cardInstance.EntityData.Leafs["product-id"] = types.YLeaf{"ProductId", cardInstance.ProductId}
-    cardInstance.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", cardInstance.SerialNumber}
-    cardInstance.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", cardInstance.PartNumber}
-    cardInstance.EntityData.Leafs["part-revision"] = types.YLeaf{"PartRevision", cardInstance.PartRevision}
-    cardInstance.EntityData.Leafs["mfg-deviation"] = types.YLeaf{"MfgDeviation", cardInstance.MfgDeviation}
-    cardInstance.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", cardInstance.HwVersion}
-    cardInstance.EntityData.Leafs["mfg-bits"] = types.YLeaf{"MfgBits", cardInstance.MfgBits}
-    cardInstance.EntityData.Leafs["engineer-use"] = types.YLeaf{"EngineerUse", cardInstance.EngineerUse}
-    cardInstance.EntityData.Leafs["snmpoid"] = types.YLeaf{"Snmpoid", cardInstance.Snmpoid}
-    cardInstance.EntityData.Leafs["rma-code"] = types.YLeaf{"RmaCode", cardInstance.RmaCode}
+    cardInstance.EntityData.Children = types.NewOrderedMap()
+    cardInstance.EntityData.Children.Append("rma", types.YChild{"Rma", &cardInstance.Rma})
+    cardInstance.EntityData.Leafs = types.NewOrderedMap()
+    cardInstance.EntityData.Leafs.Append("description", types.YLeaf{"Description", cardInstance.Description})
+    cardInstance.EntityData.Leafs.Append("idprom-format-rev", types.YLeaf{"IdpromFormatRev", cardInstance.IdpromFormatRev})
+    cardInstance.EntityData.Leafs.Append("controller-family", types.YLeaf{"ControllerFamily", cardInstance.ControllerFamily})
+    cardInstance.EntityData.Leafs.Append("controller-type", types.YLeaf{"ControllerType", cardInstance.ControllerType})
+    cardInstance.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", cardInstance.Vid})
+    cardInstance.EntityData.Leafs.Append("hwid", types.YLeaf{"Hwid", cardInstance.Hwid})
+    cardInstance.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", cardInstance.Pid})
+    cardInstance.EntityData.Leafs.Append("udi-description", types.YLeaf{"UdiDescription", cardInstance.UdiDescription})
+    cardInstance.EntityData.Leafs.Append("udi-name", types.YLeaf{"UdiName", cardInstance.UdiName})
+    cardInstance.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", cardInstance.Clei})
+    cardInstance.EntityData.Leafs.Append("eci", types.YLeaf{"Eci", cardInstance.Eci})
+    cardInstance.EntityData.Leafs.Append("top-assem-part-num", types.YLeaf{"TopAssemPartNum", cardInstance.TopAssemPartNum})
+    cardInstance.EntityData.Leafs.Append("top-assem-vid", types.YLeaf{"TopAssemVid", cardInstance.TopAssemVid})
+    cardInstance.EntityData.Leafs.Append("pca-num", types.YLeaf{"PcaNum", cardInstance.PcaNum})
+    cardInstance.EntityData.Leafs.Append("pcavid", types.YLeaf{"Pcavid", cardInstance.Pcavid})
+    cardInstance.EntityData.Leafs.Append("chassis-sid", types.YLeaf{"ChassisSid", cardInstance.ChassisSid})
+    cardInstance.EntityData.Leafs.Append("dev-num1", types.YLeaf{"DevNum1", cardInstance.DevNum1})
+    cardInstance.EntityData.Leafs.Append("dev-num2", types.YLeaf{"DevNum2", cardInstance.DevNum2})
+    cardInstance.EntityData.Leafs.Append("dev-num3", types.YLeaf{"DevNum3", cardInstance.DevNum3})
+    cardInstance.EntityData.Leafs.Append("dev-num4", types.YLeaf{"DevNum4", cardInstance.DevNum4})
+    cardInstance.EntityData.Leafs.Append("dev-num5", types.YLeaf{"DevNum5", cardInstance.DevNum5})
+    cardInstance.EntityData.Leafs.Append("dev-num6", types.YLeaf{"DevNum6", cardInstance.DevNum6})
+    cardInstance.EntityData.Leafs.Append("dev-num7", types.YLeaf{"DevNum7", cardInstance.DevNum7})
+    cardInstance.EntityData.Leafs.Append("manu-test-data", types.YLeaf{"ManuTestData", cardInstance.ManuTestData})
+    cardInstance.EntityData.Leafs.Append("asset-id", types.YLeaf{"AssetId", cardInstance.AssetId})
+    cardInstance.EntityData.Leafs.Append("asset-alias", types.YLeaf{"AssetAlias", cardInstance.AssetAlias})
+    cardInstance.EntityData.Leafs.Append("base-mac-address1", types.YLeaf{"BaseMacAddress1", cardInstance.BaseMacAddress1})
+    cardInstance.EntityData.Leafs.Append("mac-add-blk-size1", types.YLeaf{"MacAddBlkSize1", cardInstance.MacAddBlkSize1})
+    cardInstance.EntityData.Leafs.Append("base-mac-address2", types.YLeaf{"BaseMacAddress2", cardInstance.BaseMacAddress2})
+    cardInstance.EntityData.Leafs.Append("mac-add-blk-size2", types.YLeaf{"MacAddBlkSize2", cardInstance.MacAddBlkSize2})
+    cardInstance.EntityData.Leafs.Append("base-mac-address3", types.YLeaf{"BaseMacAddress3", cardInstance.BaseMacAddress3})
+    cardInstance.EntityData.Leafs.Append("mac-add-blk-size3", types.YLeaf{"MacAddBlkSize3", cardInstance.MacAddBlkSize3})
+    cardInstance.EntityData.Leafs.Append("base-mac-address4", types.YLeaf{"BaseMacAddress4", cardInstance.BaseMacAddress4})
+    cardInstance.EntityData.Leafs.Append("mac-add-blk-size4", types.YLeaf{"MacAddBlkSize4", cardInstance.MacAddBlkSize4})
+    cardInstance.EntityData.Leafs.Append("pcb-serial-num", types.YLeaf{"PcbSerialNum", cardInstance.PcbSerialNum})
+    cardInstance.EntityData.Leafs.Append("power-supply-type", types.YLeaf{"PowerSupplyType", cardInstance.PowerSupplyType})
+    cardInstance.EntityData.Leafs.Append("power-consumption", types.YLeaf{"PowerConsumption", cardInstance.PowerConsumption})
+    cardInstance.EntityData.Leafs.Append("block-signature", types.YLeaf{"BlockSignature", cardInstance.BlockSignature})
+    cardInstance.EntityData.Leafs.Append("block-version", types.YLeaf{"BlockVersion", cardInstance.BlockVersion})
+    cardInstance.EntityData.Leafs.Append("block-length", types.YLeaf{"BlockLength", cardInstance.BlockLength})
+    cardInstance.EntityData.Leafs.Append("block-checksum", types.YLeaf{"BlockChecksum", cardInstance.BlockChecksum})
+    cardInstance.EntityData.Leafs.Append("eeprom-size", types.YLeaf{"EepromSize", cardInstance.EepromSize})
+    cardInstance.EntityData.Leafs.Append("block-count", types.YLeaf{"BlockCount", cardInstance.BlockCount})
+    cardInstance.EntityData.Leafs.Append("fru-major-type", types.YLeaf{"FruMajorType", cardInstance.FruMajorType})
+    cardInstance.EntityData.Leafs.Append("fru-minor-type", types.YLeaf{"FruMinorType", cardInstance.FruMinorType})
+    cardInstance.EntityData.Leafs.Append("oem-string", types.YLeaf{"OemString", cardInstance.OemString})
+    cardInstance.EntityData.Leafs.Append("product-id", types.YLeaf{"ProductId", cardInstance.ProductId})
+    cardInstance.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", cardInstance.SerialNumber})
+    cardInstance.EntityData.Leafs.Append("part-number", types.YLeaf{"PartNumber", cardInstance.PartNumber})
+    cardInstance.EntityData.Leafs.Append("part-revision", types.YLeaf{"PartRevision", cardInstance.PartRevision})
+    cardInstance.EntityData.Leafs.Append("mfg-deviation", types.YLeaf{"MfgDeviation", cardInstance.MfgDeviation})
+    cardInstance.EntityData.Leafs.Append("hw-version", types.YLeaf{"HwVersion", cardInstance.HwVersion})
+    cardInstance.EntityData.Leafs.Append("mfg-bits", types.YLeaf{"MfgBits", cardInstance.MfgBits})
+    cardInstance.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", cardInstance.EngineerUse})
+    cardInstance.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", cardInstance.Snmpoid})
+    cardInstance.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", cardInstance.RmaCode})
+
+    cardInstance.EntityData.YListKeys = []string {}
+
     return &(cardInstance.EntityData)
 }
 
@@ -1372,11 +1435,14 @@ func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rma.EntityData.Children = make(map[string]types.YChild)
-    rma.EntityData.Leafs = make(map[string]types.YLeaf)
-    rma.EntityData.Leafs["test-history"] = types.YLeaf{"TestHistory", rma.TestHistory}
-    rma.EntityData.Leafs["rma-number"] = types.YLeaf{"RmaNumber", rma.RmaNumber}
-    rma.EntityData.Leafs["rma-history"] = types.YLeaf{"RmaHistory", rma.RmaHistory}
+    rma.EntityData.Children = types.NewOrderedMap()
+    rma.EntityData.Leafs = types.NewOrderedMap()
+    rma.EntityData.Leafs.Append("test-history", types.YLeaf{"TestHistory", rma.TestHistory})
+    rma.EntityData.Leafs.Append("rma-number", types.YLeaf{"RmaNumber", rma.RmaNumber})
+    rma.EntityData.Leafs.Append("rma-history", types.YLeaf{"RmaHistory", rma.RmaHistory})
+
+    rma.EntityData.YListKeys = []string {}
+
     return &(rma.EntityData)
 }
 
@@ -1571,65 +1637,68 @@ func (chassis *Diag_Racks_Rack_Chassis) GetEntityData() *types.CommonEntityData 
     chassis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    chassis.EntityData.Children = make(map[string]types.YChild)
-    chassis.EntityData.Children["rma"] = types.YChild{"Rma", &chassis.Rma}
-    chassis.EntityData.Leafs = make(map[string]types.YLeaf)
-    chassis.EntityData.Leafs["description"] = types.YLeaf{"Description", chassis.Description}
-    chassis.EntityData.Leafs["idprom-format-rev"] = types.YLeaf{"IdpromFormatRev", chassis.IdpromFormatRev}
-    chassis.EntityData.Leafs["controller-family"] = types.YLeaf{"ControllerFamily", chassis.ControllerFamily}
-    chassis.EntityData.Leafs["controller-type"] = types.YLeaf{"ControllerType", chassis.ControllerType}
-    chassis.EntityData.Leafs["vid"] = types.YLeaf{"Vid", chassis.Vid}
-    chassis.EntityData.Leafs["hwid"] = types.YLeaf{"Hwid", chassis.Hwid}
-    chassis.EntityData.Leafs["pid"] = types.YLeaf{"Pid", chassis.Pid}
-    chassis.EntityData.Leafs["udi-description"] = types.YLeaf{"UdiDescription", chassis.UdiDescription}
-    chassis.EntityData.Leafs["udi-name"] = types.YLeaf{"UdiName", chassis.UdiName}
-    chassis.EntityData.Leafs["clei"] = types.YLeaf{"Clei", chassis.Clei}
-    chassis.EntityData.Leafs["eci"] = types.YLeaf{"Eci", chassis.Eci}
-    chassis.EntityData.Leafs["top-assem-part-num"] = types.YLeaf{"TopAssemPartNum", chassis.TopAssemPartNum}
-    chassis.EntityData.Leafs["top-assem-vid"] = types.YLeaf{"TopAssemVid", chassis.TopAssemVid}
-    chassis.EntityData.Leafs["pca-num"] = types.YLeaf{"PcaNum", chassis.PcaNum}
-    chassis.EntityData.Leafs["pcavid"] = types.YLeaf{"Pcavid", chassis.Pcavid}
-    chassis.EntityData.Leafs["chassis-sid"] = types.YLeaf{"ChassisSid", chassis.ChassisSid}
-    chassis.EntityData.Leafs["dev-num1"] = types.YLeaf{"DevNum1", chassis.DevNum1}
-    chassis.EntityData.Leafs["dev-num2"] = types.YLeaf{"DevNum2", chassis.DevNum2}
-    chassis.EntityData.Leafs["dev-num3"] = types.YLeaf{"DevNum3", chassis.DevNum3}
-    chassis.EntityData.Leafs["dev-num4"] = types.YLeaf{"DevNum4", chassis.DevNum4}
-    chassis.EntityData.Leafs["dev-num5"] = types.YLeaf{"DevNum5", chassis.DevNum5}
-    chassis.EntityData.Leafs["dev-num6"] = types.YLeaf{"DevNum6", chassis.DevNum6}
-    chassis.EntityData.Leafs["dev-num7"] = types.YLeaf{"DevNum7", chassis.DevNum7}
-    chassis.EntityData.Leafs["manu-test-data"] = types.YLeaf{"ManuTestData", chassis.ManuTestData}
-    chassis.EntityData.Leafs["asset-id"] = types.YLeaf{"AssetId", chassis.AssetId}
-    chassis.EntityData.Leafs["asset-alias"] = types.YLeaf{"AssetAlias", chassis.AssetAlias}
-    chassis.EntityData.Leafs["base-mac-address1"] = types.YLeaf{"BaseMacAddress1", chassis.BaseMacAddress1}
-    chassis.EntityData.Leafs["mac-add-blk-size1"] = types.YLeaf{"MacAddBlkSize1", chassis.MacAddBlkSize1}
-    chassis.EntityData.Leafs["base-mac-address2"] = types.YLeaf{"BaseMacAddress2", chassis.BaseMacAddress2}
-    chassis.EntityData.Leafs["mac-add-blk-size2"] = types.YLeaf{"MacAddBlkSize2", chassis.MacAddBlkSize2}
-    chassis.EntityData.Leafs["base-mac-address3"] = types.YLeaf{"BaseMacAddress3", chassis.BaseMacAddress3}
-    chassis.EntityData.Leafs["mac-add-blk-size3"] = types.YLeaf{"MacAddBlkSize3", chassis.MacAddBlkSize3}
-    chassis.EntityData.Leafs["base-mac-address4"] = types.YLeaf{"BaseMacAddress4", chassis.BaseMacAddress4}
-    chassis.EntityData.Leafs["mac-add-blk-size4"] = types.YLeaf{"MacAddBlkSize4", chassis.MacAddBlkSize4}
-    chassis.EntityData.Leafs["pcb-serial-num"] = types.YLeaf{"PcbSerialNum", chassis.PcbSerialNum}
-    chassis.EntityData.Leafs["power-supply-type"] = types.YLeaf{"PowerSupplyType", chassis.PowerSupplyType}
-    chassis.EntityData.Leafs["power-consumption"] = types.YLeaf{"PowerConsumption", chassis.PowerConsumption}
-    chassis.EntityData.Leafs["block-signature"] = types.YLeaf{"BlockSignature", chassis.BlockSignature}
-    chassis.EntityData.Leafs["block-version"] = types.YLeaf{"BlockVersion", chassis.BlockVersion}
-    chassis.EntityData.Leafs["block-length"] = types.YLeaf{"BlockLength", chassis.BlockLength}
-    chassis.EntityData.Leafs["block-checksum"] = types.YLeaf{"BlockChecksum", chassis.BlockChecksum}
-    chassis.EntityData.Leafs["eeprom-size"] = types.YLeaf{"EepromSize", chassis.EepromSize}
-    chassis.EntityData.Leafs["block-count"] = types.YLeaf{"BlockCount", chassis.BlockCount}
-    chassis.EntityData.Leafs["fru-major-type"] = types.YLeaf{"FruMajorType", chassis.FruMajorType}
-    chassis.EntityData.Leafs["fru-minor-type"] = types.YLeaf{"FruMinorType", chassis.FruMinorType}
-    chassis.EntityData.Leafs["oem-string"] = types.YLeaf{"OemString", chassis.OemString}
-    chassis.EntityData.Leafs["product-id"] = types.YLeaf{"ProductId", chassis.ProductId}
-    chassis.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", chassis.SerialNumber}
-    chassis.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", chassis.PartNumber}
-    chassis.EntityData.Leafs["part-revision"] = types.YLeaf{"PartRevision", chassis.PartRevision}
-    chassis.EntityData.Leafs["mfg-deviation"] = types.YLeaf{"MfgDeviation", chassis.MfgDeviation}
-    chassis.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", chassis.HwVersion}
-    chassis.EntityData.Leafs["mfg-bits"] = types.YLeaf{"MfgBits", chassis.MfgBits}
-    chassis.EntityData.Leafs["engineer-use"] = types.YLeaf{"EngineerUse", chassis.EngineerUse}
-    chassis.EntityData.Leafs["snmpoid"] = types.YLeaf{"Snmpoid", chassis.Snmpoid}
-    chassis.EntityData.Leafs["rma-code"] = types.YLeaf{"RmaCode", chassis.RmaCode}
+    chassis.EntityData.Children = types.NewOrderedMap()
+    chassis.EntityData.Children.Append("rma", types.YChild{"Rma", &chassis.Rma})
+    chassis.EntityData.Leafs = types.NewOrderedMap()
+    chassis.EntityData.Leafs.Append("description", types.YLeaf{"Description", chassis.Description})
+    chassis.EntityData.Leafs.Append("idprom-format-rev", types.YLeaf{"IdpromFormatRev", chassis.IdpromFormatRev})
+    chassis.EntityData.Leafs.Append("controller-family", types.YLeaf{"ControllerFamily", chassis.ControllerFamily})
+    chassis.EntityData.Leafs.Append("controller-type", types.YLeaf{"ControllerType", chassis.ControllerType})
+    chassis.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", chassis.Vid})
+    chassis.EntityData.Leafs.Append("hwid", types.YLeaf{"Hwid", chassis.Hwid})
+    chassis.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", chassis.Pid})
+    chassis.EntityData.Leafs.Append("udi-description", types.YLeaf{"UdiDescription", chassis.UdiDescription})
+    chassis.EntityData.Leafs.Append("udi-name", types.YLeaf{"UdiName", chassis.UdiName})
+    chassis.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", chassis.Clei})
+    chassis.EntityData.Leafs.Append("eci", types.YLeaf{"Eci", chassis.Eci})
+    chassis.EntityData.Leafs.Append("top-assem-part-num", types.YLeaf{"TopAssemPartNum", chassis.TopAssemPartNum})
+    chassis.EntityData.Leafs.Append("top-assem-vid", types.YLeaf{"TopAssemVid", chassis.TopAssemVid})
+    chassis.EntityData.Leafs.Append("pca-num", types.YLeaf{"PcaNum", chassis.PcaNum})
+    chassis.EntityData.Leafs.Append("pcavid", types.YLeaf{"Pcavid", chassis.Pcavid})
+    chassis.EntityData.Leafs.Append("chassis-sid", types.YLeaf{"ChassisSid", chassis.ChassisSid})
+    chassis.EntityData.Leafs.Append("dev-num1", types.YLeaf{"DevNum1", chassis.DevNum1})
+    chassis.EntityData.Leafs.Append("dev-num2", types.YLeaf{"DevNum2", chassis.DevNum2})
+    chassis.EntityData.Leafs.Append("dev-num3", types.YLeaf{"DevNum3", chassis.DevNum3})
+    chassis.EntityData.Leafs.Append("dev-num4", types.YLeaf{"DevNum4", chassis.DevNum4})
+    chassis.EntityData.Leafs.Append("dev-num5", types.YLeaf{"DevNum5", chassis.DevNum5})
+    chassis.EntityData.Leafs.Append("dev-num6", types.YLeaf{"DevNum6", chassis.DevNum6})
+    chassis.EntityData.Leafs.Append("dev-num7", types.YLeaf{"DevNum7", chassis.DevNum7})
+    chassis.EntityData.Leafs.Append("manu-test-data", types.YLeaf{"ManuTestData", chassis.ManuTestData})
+    chassis.EntityData.Leafs.Append("asset-id", types.YLeaf{"AssetId", chassis.AssetId})
+    chassis.EntityData.Leafs.Append("asset-alias", types.YLeaf{"AssetAlias", chassis.AssetAlias})
+    chassis.EntityData.Leafs.Append("base-mac-address1", types.YLeaf{"BaseMacAddress1", chassis.BaseMacAddress1})
+    chassis.EntityData.Leafs.Append("mac-add-blk-size1", types.YLeaf{"MacAddBlkSize1", chassis.MacAddBlkSize1})
+    chassis.EntityData.Leafs.Append("base-mac-address2", types.YLeaf{"BaseMacAddress2", chassis.BaseMacAddress2})
+    chassis.EntityData.Leafs.Append("mac-add-blk-size2", types.YLeaf{"MacAddBlkSize2", chassis.MacAddBlkSize2})
+    chassis.EntityData.Leafs.Append("base-mac-address3", types.YLeaf{"BaseMacAddress3", chassis.BaseMacAddress3})
+    chassis.EntityData.Leafs.Append("mac-add-blk-size3", types.YLeaf{"MacAddBlkSize3", chassis.MacAddBlkSize3})
+    chassis.EntityData.Leafs.Append("base-mac-address4", types.YLeaf{"BaseMacAddress4", chassis.BaseMacAddress4})
+    chassis.EntityData.Leafs.Append("mac-add-blk-size4", types.YLeaf{"MacAddBlkSize4", chassis.MacAddBlkSize4})
+    chassis.EntityData.Leafs.Append("pcb-serial-num", types.YLeaf{"PcbSerialNum", chassis.PcbSerialNum})
+    chassis.EntityData.Leafs.Append("power-supply-type", types.YLeaf{"PowerSupplyType", chassis.PowerSupplyType})
+    chassis.EntityData.Leafs.Append("power-consumption", types.YLeaf{"PowerConsumption", chassis.PowerConsumption})
+    chassis.EntityData.Leafs.Append("block-signature", types.YLeaf{"BlockSignature", chassis.BlockSignature})
+    chassis.EntityData.Leafs.Append("block-version", types.YLeaf{"BlockVersion", chassis.BlockVersion})
+    chassis.EntityData.Leafs.Append("block-length", types.YLeaf{"BlockLength", chassis.BlockLength})
+    chassis.EntityData.Leafs.Append("block-checksum", types.YLeaf{"BlockChecksum", chassis.BlockChecksum})
+    chassis.EntityData.Leafs.Append("eeprom-size", types.YLeaf{"EepromSize", chassis.EepromSize})
+    chassis.EntityData.Leafs.Append("block-count", types.YLeaf{"BlockCount", chassis.BlockCount})
+    chassis.EntityData.Leafs.Append("fru-major-type", types.YLeaf{"FruMajorType", chassis.FruMajorType})
+    chassis.EntityData.Leafs.Append("fru-minor-type", types.YLeaf{"FruMinorType", chassis.FruMinorType})
+    chassis.EntityData.Leafs.Append("oem-string", types.YLeaf{"OemString", chassis.OemString})
+    chassis.EntityData.Leafs.Append("product-id", types.YLeaf{"ProductId", chassis.ProductId})
+    chassis.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", chassis.SerialNumber})
+    chassis.EntityData.Leafs.Append("part-number", types.YLeaf{"PartNumber", chassis.PartNumber})
+    chassis.EntityData.Leafs.Append("part-revision", types.YLeaf{"PartRevision", chassis.PartRevision})
+    chassis.EntityData.Leafs.Append("mfg-deviation", types.YLeaf{"MfgDeviation", chassis.MfgDeviation})
+    chassis.EntityData.Leafs.Append("hw-version", types.YLeaf{"HwVersion", chassis.HwVersion})
+    chassis.EntityData.Leafs.Append("mfg-bits", types.YLeaf{"MfgBits", chassis.MfgBits})
+    chassis.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", chassis.EngineerUse})
+    chassis.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", chassis.Snmpoid})
+    chassis.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", chassis.RmaCode})
+
+    chassis.EntityData.YListKeys = []string {}
+
     return &(chassis.EntityData)
 }
 
@@ -1660,11 +1729,14 @@ func (rma *Diag_Racks_Rack_Chassis_Rma) GetEntityData() *types.CommonEntityData 
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rma.EntityData.Children = make(map[string]types.YChild)
-    rma.EntityData.Leafs = make(map[string]types.YLeaf)
-    rma.EntityData.Leafs["test-history"] = types.YLeaf{"TestHistory", rma.TestHistory}
-    rma.EntityData.Leafs["rma-number"] = types.YLeaf{"RmaNumber", rma.RmaNumber}
-    rma.EntityData.Leafs["rma-history"] = types.YLeaf{"RmaHistory", rma.RmaHistory}
+    rma.EntityData.Children = types.NewOrderedMap()
+    rma.EntityData.Leafs = types.NewOrderedMap()
+    rma.EntityData.Leafs.Append("test-history", types.YLeaf{"TestHistory", rma.TestHistory})
+    rma.EntityData.Leafs.Append("rma-number", types.YLeaf{"RmaNumber", rma.RmaNumber})
+    rma.EntityData.Leafs.Append("rma-history", types.YLeaf{"RmaHistory", rma.RmaHistory})
+
+    rma.EntityData.YListKeys = []string {}
+
     return &(rma.EntityData)
 }
 

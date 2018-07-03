@@ -17,6 +17,38 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-fib-oper:fib-oper-data", reflect.TypeOf(FibOperData{}))
 }
 
+// FibPathType represents Type of FIB path used
+type FibPathType string
+
+const (
+    // Unknown FIB path type
+    FibPathType_fib_path_type_unknown FibPathType = "fib-path-type-unknown"
+
+    // Receive FIB path type
+    FibPathType_fib_path_type_receive FibPathType = "fib-path-type-receive"
+
+    // Connected FIB path type
+    FibPathType_fib_path_type_connected FibPathType = "fib-path-type-connected"
+
+    // Attached Prefix FIB path type
+    FibPathType_fib_path_type_attached_prefix FibPathType = "fib-path-type-attached-prefix"
+
+    // Attached Host FIB path type
+    FibPathType_fib_path_type_attached_host FibPathType = "fib-path-type-attached-host"
+
+    // Attached Nexthop FIB path type
+    FibPathType_fib_path_type_attached_nexthop FibPathType = "fib-path-type-attached-nexthop"
+
+    // Recursive FIB path type
+    FibPathType_fib_path_type_recursive FibPathType = "fib-path-type-recursive"
+
+    // Adjacency Prefix FIB path type
+    FibPathType_fib_path_type_adjacency_prefix FibPathType = "fib-path-type-adjacency-prefix"
+
+    // Special Prefix FIB path type
+    FibPathType_fib_path_type_special_prefix FibPathType = "fib-path-type-special-prefix"
+)
+
 // FibAddressFamily represents FIB Address Family Types
 type FibAddressFamily string
 
@@ -51,38 +83,6 @@ const (
     EncapsulationHeaderType_encap_hdr_type_mpls EncapsulationHeaderType = "encap-hdr-type-mpls"
 )
 
-// FibPathType represents Type of FIB path used
-type FibPathType string
-
-const (
-    // Unknown FIB path type
-    FibPathType_fib_path_type_unknown FibPathType = "fib-path-type-unknown"
-
-    // Receive FIB path type
-    FibPathType_fib_path_type_receive FibPathType = "fib-path-type-receive"
-
-    // Connected FIB path type
-    FibPathType_fib_path_type_connected FibPathType = "fib-path-type-connected"
-
-    // Attached Prefix FIB path type
-    FibPathType_fib_path_type_attached_prefix FibPathType = "fib-path-type-attached-prefix"
-
-    // Attached Host FIB path type
-    FibPathType_fib_path_type_attached_host FibPathType = "fib-path-type-attached-host"
-
-    // Attached Nexthop FIB path type
-    FibPathType_fib_path_type_attached_nexthop FibPathType = "fib-path-type-attached-nexthop"
-
-    // Recursive FIB path type
-    FibPathType_fib_path_type_recursive FibPathType = "fib-path-type-recursive"
-
-    // Adjacency Prefix FIB path type
-    FibPathType_fib_path_type_adjacency_prefix FibPathType = "fib-path-type-adjacency-prefix"
-
-    // Special Prefix FIB path type
-    FibPathType_fib_path_type_special_prefix FibPathType = "fib-path-type-special-prefix"
-)
-
 // FibOperData
 // This module contains a collection of YANG definitions for
 // monitoring the operation of IOS-XE CEF.
@@ -93,7 +93,7 @@ type FibOperData struct {
     YFilter yfilter.YFilter
 
     // FIB Network Instances. The type is slice of FibOperData_FibNiEntry.
-    FibNiEntry []FibOperData_FibNiEntry
+    FibNiEntry []*FibOperData_FibNiEntry
 }
 
 func (fibOperData *FibOperData) GetEntityData() *types.CommonEntityData {
@@ -106,12 +106,15 @@ func (fibOperData *FibOperData) GetEntityData() *types.CommonEntityData {
     fibOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fibOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    fibOperData.EntityData.Children = make(map[string]types.YChild)
-    fibOperData.EntityData.Children["fib-ni-entry"] = types.YChild{"FibNiEntry", nil}
+    fibOperData.EntityData.Children = types.NewOrderedMap()
+    fibOperData.EntityData.Children.Append("fib-ni-entry", types.YChild{"FibNiEntry", nil})
     for i := range fibOperData.FibNiEntry {
-        fibOperData.EntityData.Children[types.GetSegmentPath(&fibOperData.FibNiEntry[i])] = types.YChild{"FibNiEntry", &fibOperData.FibNiEntry[i]}
+        fibOperData.EntityData.Children.Append(types.GetSegmentPath(fibOperData.FibNiEntry[i]), types.YChild{"FibNiEntry", fibOperData.FibNiEntry[i]})
     }
-    fibOperData.EntityData.Leafs = make(map[string]types.YLeaf)
+    fibOperData.EntityData.Leafs = types.NewOrderedMap()
+
+    fibOperData.EntityData.YListKeys = []string {}
+
     return &(fibOperData.EntityData)
 }
 
@@ -140,7 +143,7 @@ type FibOperData_FibNiEntry struct {
 
     // List of FIB entries. The type is slice of
     // FibOperData_FibNiEntry_FibEntries.
-    FibEntries []FibOperData_FibNiEntry_FibEntries
+    FibEntries []*FibOperData_FibNiEntry_FibEntries
 }
 
 func (fibNiEntry *FibOperData_FibNiEntry) GetEntityData() *types.CommonEntityData {
@@ -148,22 +151,25 @@ func (fibNiEntry *FibOperData_FibNiEntry) GetEntityData() *types.CommonEntityDat
     fibNiEntry.EntityData.YangName = "fib-ni-entry"
     fibNiEntry.EntityData.BundleName = "cisco_ios_xe"
     fibNiEntry.EntityData.ParentYangName = "fib-oper-data"
-    fibNiEntry.EntityData.SegmentPath = "fib-ni-entry" + "[instance-name='" + fmt.Sprintf("%v", fibNiEntry.InstanceName) + "']"
+    fibNiEntry.EntityData.SegmentPath = "fib-ni-entry" + types.AddKeyToken(fibNiEntry.InstanceName, "instance-name")
     fibNiEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fibNiEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fibNiEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    fibNiEntry.EntityData.Children = make(map[string]types.YChild)
-    fibNiEntry.EntityData.Children["fib-entries"] = types.YChild{"FibEntries", nil}
+    fibNiEntry.EntityData.Children = types.NewOrderedMap()
+    fibNiEntry.EntityData.Children.Append("fib-entries", types.YChild{"FibEntries", nil})
     for i := range fibNiEntry.FibEntries {
-        fibNiEntry.EntityData.Children[types.GetSegmentPath(&fibNiEntry.FibEntries[i])] = types.YChild{"FibEntries", &fibNiEntry.FibEntries[i]}
+        fibNiEntry.EntityData.Children.Append(types.GetSegmentPath(fibNiEntry.FibEntries[i]), types.YChild{"FibEntries", fibNiEntry.FibEntries[i]})
     }
-    fibNiEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    fibNiEntry.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", fibNiEntry.InstanceName}
-    fibNiEntry.EntityData.Leafs["af"] = types.YLeaf{"Af", fibNiEntry.Af}
-    fibNiEntry.EntityData.Leafs["num-pfx"] = types.YLeaf{"NumPfx", fibNiEntry.NumPfx}
-    fibNiEntry.EntityData.Leafs["num-pfx-fwd"] = types.YLeaf{"NumPfxFwd", fibNiEntry.NumPfxFwd}
-    fibNiEntry.EntityData.Leafs["num-pfx-non-fwd"] = types.YLeaf{"NumPfxNonFwd", fibNiEntry.NumPfxNonFwd}
+    fibNiEntry.EntityData.Leafs = types.NewOrderedMap()
+    fibNiEntry.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", fibNiEntry.InstanceName})
+    fibNiEntry.EntityData.Leafs.Append("af", types.YLeaf{"Af", fibNiEntry.Af})
+    fibNiEntry.EntityData.Leafs.Append("num-pfx", types.YLeaf{"NumPfx", fibNiEntry.NumPfx})
+    fibNiEntry.EntityData.Leafs.Append("num-pfx-fwd", types.YLeaf{"NumPfxFwd", fibNiEntry.NumPfxFwd})
+    fibNiEntry.EntityData.Leafs.Append("num-pfx-non-fwd", types.YLeaf{"NumPfxNonFwd", fibNiEntry.NumPfxNonFwd})
+
+    fibNiEntry.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(fibNiEntry.EntityData)
 }
 
@@ -175,9 +181,9 @@ type FibOperData_FibNiEntry_FibEntries struct {
 
     // This attribute is a key. IP address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     IpAddr interface{}
 
     // Instance Name. The type is string.
@@ -199,7 +205,7 @@ type FibOperData_FibNiEntry_FibEntries struct {
 
     // List of FIB next-hop entries. The type is slice of
     // FibOperData_FibNiEntry_FibEntries_FibNexthopEntries.
-    FibNexthopEntries []FibOperData_FibNiEntry_FibEntries_FibNexthopEntries
+    FibNexthopEntries []*FibOperData_FibNiEntry_FibEntries_FibNexthopEntries
 }
 
 func (fibEntries *FibOperData_FibNiEntry_FibEntries) GetEntityData() *types.CommonEntityData {
@@ -207,23 +213,26 @@ func (fibEntries *FibOperData_FibNiEntry_FibEntries) GetEntityData() *types.Comm
     fibEntries.EntityData.YangName = "fib-entries"
     fibEntries.EntityData.BundleName = "cisco_ios_xe"
     fibEntries.EntityData.ParentYangName = "fib-ni-entry"
-    fibEntries.EntityData.SegmentPath = "fib-entries" + "[ip-addr='" + fmt.Sprintf("%v", fibEntries.IpAddr) + "']"
+    fibEntries.EntityData.SegmentPath = "fib-entries" + types.AddKeyToken(fibEntries.IpAddr, "ip-addr")
     fibEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fibEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fibEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    fibEntries.EntityData.Children = make(map[string]types.YChild)
-    fibEntries.EntityData.Children["fib-nexthop-entries"] = types.YChild{"FibNexthopEntries", nil}
+    fibEntries.EntityData.Children = types.NewOrderedMap()
+    fibEntries.EntityData.Children.Append("fib-nexthop-entries", types.YChild{"FibNexthopEntries", nil})
     for i := range fibEntries.FibNexthopEntries {
-        fibEntries.EntityData.Children[types.GetSegmentPath(&fibEntries.FibNexthopEntries[i])] = types.YChild{"FibNexthopEntries", &fibEntries.FibNexthopEntries[i]}
+        fibEntries.EntityData.Children.Append(types.GetSegmentPath(fibEntries.FibNexthopEntries[i]), types.YChild{"FibNexthopEntries", fibEntries.FibNexthopEntries[i]})
     }
-    fibEntries.EntityData.Leafs = make(map[string]types.YLeaf)
-    fibEntries.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", fibEntries.IpAddr}
-    fibEntries.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", fibEntries.InstanceName}
-    fibEntries.EntityData.Leafs["af"] = types.YLeaf{"Af", fibEntries.Af}
-    fibEntries.EntityData.Leafs["num-paths"] = types.YLeaf{"NumPaths", fibEntries.NumPaths}
-    fibEntries.EntityData.Leafs["packets-forwarded"] = types.YLeaf{"PacketsForwarded", fibEntries.PacketsForwarded}
-    fibEntries.EntityData.Leafs["octets-forwarded"] = types.YLeaf{"OctetsForwarded", fibEntries.OctetsForwarded}
+    fibEntries.EntityData.Leafs = types.NewOrderedMap()
+    fibEntries.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", fibEntries.IpAddr})
+    fibEntries.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", fibEntries.InstanceName})
+    fibEntries.EntityData.Leafs.Append("af", types.YLeaf{"Af", fibEntries.Af})
+    fibEntries.EntityData.Leafs.Append("num-paths", types.YLeaf{"NumPaths", fibEntries.NumPaths})
+    fibEntries.EntityData.Leafs.Append("packets-forwarded", types.YLeaf{"PacketsForwarded", fibEntries.PacketsForwarded})
+    fibEntries.EntityData.Leafs.Append("octets-forwarded", types.YLeaf{"OctetsForwarded", fibEntries.OctetsForwarded})
+
+    fibEntries.EntityData.YListKeys = []string {"IpAddr"}
+
     return &(fibEntries.EntityData)
 }
 
@@ -235,9 +244,9 @@ type FibOperData_FibNiEntry_FibEntries_FibNexthopEntries struct {
 
     // This attribute is a key. IP Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     NhAddr interface{}
 
     // Unique Next-hop Path Index. The type is interface{} with range:
@@ -272,22 +281,25 @@ func (fibNexthopEntries *FibOperData_FibNiEntry_FibEntries_FibNexthopEntries) Ge
     fibNexthopEntries.EntityData.YangName = "fib-nexthop-entries"
     fibNexthopEntries.EntityData.BundleName = "cisco_ios_xe"
     fibNexthopEntries.EntityData.ParentYangName = "fib-entries"
-    fibNexthopEntries.EntityData.SegmentPath = "fib-nexthop-entries" + "[nh-addr='" + fmt.Sprintf("%v", fibNexthopEntries.NhAddr) + "']"
+    fibNexthopEntries.EntityData.SegmentPath = "fib-nexthop-entries" + types.AddKeyToken(fibNexthopEntries.NhAddr, "nh-addr")
     fibNexthopEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fibNexthopEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fibNexthopEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    fibNexthopEntries.EntityData.Children = make(map[string]types.YChild)
-    fibNexthopEntries.EntityData.Leafs = make(map[string]types.YLeaf)
-    fibNexthopEntries.EntityData.Leafs["nh-addr"] = types.YLeaf{"NhAddr", fibNexthopEntries.NhAddr}
-    fibNexthopEntries.EntityData.Leafs["index"] = types.YLeaf{"Index", fibNexthopEntries.Index}
-    fibNexthopEntries.EntityData.Leafs["af"] = types.YLeaf{"Af", fibNexthopEntries.Af}
-    fibNexthopEntries.EntityData.Leafs["ifname"] = types.YLeaf{"Ifname", fibNexthopEntries.Ifname}
-    fibNexthopEntries.EntityData.Leafs["path-type"] = types.YLeaf{"PathType", fibNexthopEntries.PathType}
-    fibNexthopEntries.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", fibNexthopEntries.PathId}
-    fibNexthopEntries.EntityData.Leafs["weight"] = types.YLeaf{"Weight", fibNexthopEntries.Weight}
-    fibNexthopEntries.EntityData.Leafs["encap"] = types.YLeaf{"Encap", fibNexthopEntries.Encap}
-    fibNexthopEntries.EntityData.Leafs["decap"] = types.YLeaf{"Decap", fibNexthopEntries.Decap}
+    fibNexthopEntries.EntityData.Children = types.NewOrderedMap()
+    fibNexthopEntries.EntityData.Leafs = types.NewOrderedMap()
+    fibNexthopEntries.EntityData.Leafs.Append("nh-addr", types.YLeaf{"NhAddr", fibNexthopEntries.NhAddr})
+    fibNexthopEntries.EntityData.Leafs.Append("index", types.YLeaf{"Index", fibNexthopEntries.Index})
+    fibNexthopEntries.EntityData.Leafs.Append("af", types.YLeaf{"Af", fibNexthopEntries.Af})
+    fibNexthopEntries.EntityData.Leafs.Append("ifname", types.YLeaf{"Ifname", fibNexthopEntries.Ifname})
+    fibNexthopEntries.EntityData.Leafs.Append("path-type", types.YLeaf{"PathType", fibNexthopEntries.PathType})
+    fibNexthopEntries.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", fibNexthopEntries.PathId})
+    fibNexthopEntries.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", fibNexthopEntries.Weight})
+    fibNexthopEntries.EntityData.Leafs.Append("encap", types.YLeaf{"Encap", fibNexthopEntries.Encap})
+    fibNexthopEntries.EntityData.Leafs.Append("decap", types.YLeaf{"Decap", fibNexthopEntries.Decap})
+
+    fibNexthopEntries.EntityData.YListKeys = []string {"NhAddr"}
+
     return &(fibNexthopEntries.EntityData)
 }
 

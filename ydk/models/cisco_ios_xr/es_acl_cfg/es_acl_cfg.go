@@ -24,7 +24,7 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-es-acl-cfg:es-acl", reflect.TypeOf(EsAcl{}))
 }
 
-// EsAclGrantEnum represents ES acl grant enum
+// EsAclGrantEnum represents ES acl forwarding action.
 type EsAclGrantEnum string
 
 const (
@@ -55,9 +55,12 @@ func (esAcl *EsAcl) GetEntityData() *types.CommonEntityData {
     esAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    esAcl.EntityData.Children = make(map[string]types.YChild)
-    esAcl.EntityData.Children["accesses"] = types.YChild{"Accesses", &esAcl.Accesses}
-    esAcl.EntityData.Leafs = make(map[string]types.YLeaf)
+    esAcl.EntityData.Children = types.NewOrderedMap()
+    esAcl.EntityData.Children.Append("accesses", types.YChild{"Accesses", &esAcl.Accesses})
+    esAcl.EntityData.Leafs = types.NewOrderedMap()
+
+    esAcl.EntityData.YListKeys = []string {}
+
     return &(esAcl.EntityData)
 }
 
@@ -68,7 +71,7 @@ type EsAcl_Accesses struct {
     YFilter yfilter.YFilter
 
     // An ACL. The type is slice of EsAcl_Accesses_Access.
-    Access []EsAcl_Accesses_Access
+    Access []*EsAcl_Accesses_Access
 }
 
 func (accesses *EsAcl_Accesses) GetEntityData() *types.CommonEntityData {
@@ -81,12 +84,15 @@ func (accesses *EsAcl_Accesses) GetEntityData() *types.CommonEntityData {
     accesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accesses.EntityData.Children = make(map[string]types.YChild)
-    accesses.EntityData.Children["access"] = types.YChild{"Access", nil}
+    accesses.EntityData.Children = types.NewOrderedMap()
+    accesses.EntityData.Children.Append("access", types.YChild{"Access", nil})
     for i := range accesses.Access {
-        accesses.EntityData.Children[types.GetSegmentPath(&accesses.Access[i])] = types.YChild{"Access", &accesses.Access[i]}
+        accesses.EntityData.Children.Append(types.GetSegmentPath(accesses.Access[i]), types.YChild{"Access", accesses.Access[i]})
     }
-    accesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    accesses.EntityData.Leafs = types.NewOrderedMap()
+
+    accesses.EntityData.YListKeys = []string {}
+
     return &(accesses.EntityData)
 }
 
@@ -97,7 +103,7 @@ type EsAcl_Accesses_Access struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the access list. The type is string with
-    // length: 1..65.
+    // length: 1..64.
     Name interface{}
 
     // ACL entry table; contains list of access list entries.
@@ -109,15 +115,18 @@ func (access *EsAcl_Accesses_Access) GetEntityData() *types.CommonEntityData {
     access.EntityData.YangName = "access"
     access.EntityData.BundleName = "cisco_ios_xr"
     access.EntityData.ParentYangName = "accesses"
-    access.EntityData.SegmentPath = "access" + "[name='" + fmt.Sprintf("%v", access.Name) + "']"
+    access.EntityData.SegmentPath = "access" + types.AddKeyToken(access.Name, "name")
     access.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     access.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     access.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    access.EntityData.Children = make(map[string]types.YChild)
-    access.EntityData.Children["access-list-entries"] = types.YChild{"AccessListEntries", &access.AccessListEntries}
-    access.EntityData.Leafs = make(map[string]types.YLeaf)
-    access.EntityData.Leafs["name"] = types.YLeaf{"Name", access.Name}
+    access.EntityData.Children = types.NewOrderedMap()
+    access.EntityData.Children.Append("access-list-entries", types.YChild{"AccessListEntries", &access.AccessListEntries})
+    access.EntityData.Leafs = types.NewOrderedMap()
+    access.EntityData.Leafs.Append("name", types.YLeaf{"Name", access.Name})
+
+    access.EntityData.YListKeys = []string {"Name"}
+
     return &(access.EntityData)
 }
 
@@ -131,7 +140,7 @@ type EsAcl_Accesses_Access_AccessListEntries struct {
     // An ACL entry; either a description (remark) or anAccess List Entry to match
     // against. The type is slice of
     // EsAcl_Accesses_Access_AccessListEntries_AccessListEntry.
-    AccessListEntry []EsAcl_Accesses_Access_AccessListEntries_AccessListEntry
+    AccessListEntry []*EsAcl_Accesses_Access_AccessListEntries_AccessListEntry
 }
 
 func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetEntityData() *types.CommonEntityData {
@@ -144,12 +153,15 @@ func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetEntityData(
     accessListEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessListEntries.EntityData.Children = make(map[string]types.YChild)
-    accessListEntries.EntityData.Children["access-list-entry"] = types.YChild{"AccessListEntry", nil}
+    accessListEntries.EntityData.Children = types.NewOrderedMap()
+    accessListEntries.EntityData.Children.Append("access-list-entry", types.YChild{"AccessListEntry", nil})
     for i := range accessListEntries.AccessListEntry {
-        accessListEntries.EntityData.Children[types.GetSegmentPath(&accessListEntries.AccessListEntry[i])] = types.YChild{"AccessListEntry", &accessListEntries.AccessListEntry[i]}
+        accessListEntries.EntityData.Children.Append(types.GetSegmentPath(accessListEntries.AccessListEntry[i]), types.YChild{"AccessListEntry", accessListEntries.AccessListEntry[i]})
     }
-    accessListEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessListEntries.EntityData.Leafs = types.NewOrderedMap()
+
+    accessListEntries.EntityData.YListKeys = []string {}
+
     return &(accessListEntries.EntityData)
 }
 
@@ -164,46 +176,62 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     // interface{} with range: 1..2147483646.
     SequenceNumber interface{}
 
-    // Whether to forward or drop packets matching the ACE. The type is
-    // EsAclGrantEnum.
+    // Forwarding action for the packet. This is required for any non-remark ACE.
+    // Leave unspecified otherwise. The type is EsAclGrantEnum.
     Grant interface{}
 
-    // VLAN ID/range lower limit. The type is interface{} with range: 0..65535.
+    // This 12-bit VLAN-ID in the VLAN Tag header uniquely identifies the VLAN. It
+    // can be used for the lower bound (in range) or single value. Any value not
+    // in the permissible range will be rejected. The type is interface{} with
+    // range: 0..65535.
     Vlan1 interface{}
 
-    // VLAN ID range higher limit. The type is interface{} with range: 0..65535.
+    // This 12 bit VLAN-ID in the VLAN Tag header uniquely identifies the VLAN. It
+    // is used in the upper bound (in range). Any value not in the permissible
+    // range will be rejected. The type is interface{} with range: 0..65535.
     Vlan2 interface{}
 
-    // COS value. The type is interface{} with range: 0..255.
+    // Class of Service value. Any value not in the permissible range will be
+    // rejected. The type is interface{} with range: 0..255.
     Cos interface{}
 
-    // DEI bit. The type is interface{} with range: 0..255.
+    // Discard Eligibility Indication bit. User can specify 1 to indicate the bit
+    // is set. Leave unspecified otherwise. The type is interface{} with range:
+    // 0..255.
     Dei interface{}
 
-    // Inner VLAN ID/range lower limit. The type is interface{} with range:
-    // 0..65535.
+    // This represents the QinQ vlan identifier. It can be used for the lower
+    // bound (in range) or single value. Any value not in the permissible range
+    // will be rejected. The type is interface{} with range: 0..65535.
     InnerVlan1 interface{}
 
-    // Inner VLAN ID range higher limit. The type is interface{} with range:
-    // 0..65535.
+    // This represents the QinQ vlan identifier. It is used in the upper bound (in
+    // range). Any value not in the permissible range will be rejected. The type
+    // is interface{} with range: 0..65535.
     InnerVlan2 interface{}
 
-    // Inner COS value. The type is interface{} with range: 0..255.
+    // Class of Service of Inner Header. Range from 0 to 7. Any value beyond this
+    // range will be rejected by ACL verifier. The type is interface{} with range:
+    // 0..255.
     InnerCos interface{}
 
-    // Inner DEI bit. The type is interface{} with range: 0..255.
+    // Class of Service of Inner Header. Any value not in the permissible range
+    // will be rejected. The type is interface{} with range: 0..255.
     InnerDei interface{}
 
-    // Comments or a description for the access list. The type is string.
+    // Description for the access-list-entry/rule. The type is string with length:
+    // 0..255.
     Remark interface{}
 
-    // Ethernet type Number. The type is interface{} with range: 0..65535.
+    // Ethernet type Number in Hex. Any value not in the permissible range will be
+    // rejected. The type is interface{} with range: 0..65535.
     EtherTypeNumber interface{}
 
-    // Enable capture. The type is bool.
+    // Enable capture if set to TRUE. The type is bool.
     Capture interface{}
 
-    // Whether and how to log matches against this entry. The type is interface{}
+    // Log the packet on this access-list-entry/rule. User can specify 1 to enable
+    // logging the match, leave unspecified otherwise. The type is interface{}
     // with range: 0..255.
     LogOption interface{}
 
@@ -222,30 +250,33 @@ func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) 
     accessListEntry.EntityData.YangName = "access-list-entry"
     accessListEntry.EntityData.BundleName = "cisco_ios_xr"
     accessListEntry.EntityData.ParentYangName = "access-list-entries"
-    accessListEntry.EntityData.SegmentPath = "access-list-entry" + "[sequence-number='" + fmt.Sprintf("%v", accessListEntry.SequenceNumber) + "']"
+    accessListEntry.EntityData.SegmentPath = "access-list-entry" + types.AddKeyToken(accessListEntry.SequenceNumber, "sequence-number")
     accessListEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessListEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessListEntry.EntityData.Children = make(map[string]types.YChild)
-    accessListEntry.EntityData.Children["source-network"] = types.YChild{"SourceNetwork", &accessListEntry.SourceNetwork}
-    accessListEntry.EntityData.Children["destination-network"] = types.YChild{"DestinationNetwork", &accessListEntry.DestinationNetwork}
-    accessListEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessListEntry.EntityData.Leafs["sequence-number"] = types.YLeaf{"SequenceNumber", accessListEntry.SequenceNumber}
-    accessListEntry.EntityData.Leafs["grant"] = types.YLeaf{"Grant", accessListEntry.Grant}
-    accessListEntry.EntityData.Leafs["vlan1"] = types.YLeaf{"Vlan1", accessListEntry.Vlan1}
-    accessListEntry.EntityData.Leafs["vlan2"] = types.YLeaf{"Vlan2", accessListEntry.Vlan2}
-    accessListEntry.EntityData.Leafs["cos"] = types.YLeaf{"Cos", accessListEntry.Cos}
-    accessListEntry.EntityData.Leafs["dei"] = types.YLeaf{"Dei", accessListEntry.Dei}
-    accessListEntry.EntityData.Leafs["inner-vlan1"] = types.YLeaf{"InnerVlan1", accessListEntry.InnerVlan1}
-    accessListEntry.EntityData.Leafs["inner-vlan2"] = types.YLeaf{"InnerVlan2", accessListEntry.InnerVlan2}
-    accessListEntry.EntityData.Leafs["inner-cos"] = types.YLeaf{"InnerCos", accessListEntry.InnerCos}
-    accessListEntry.EntityData.Leafs["inner-dei"] = types.YLeaf{"InnerDei", accessListEntry.InnerDei}
-    accessListEntry.EntityData.Leafs["remark"] = types.YLeaf{"Remark", accessListEntry.Remark}
-    accessListEntry.EntityData.Leafs["ether-type-number"] = types.YLeaf{"EtherTypeNumber", accessListEntry.EtherTypeNumber}
-    accessListEntry.EntityData.Leafs["capture"] = types.YLeaf{"Capture", accessListEntry.Capture}
-    accessListEntry.EntityData.Leafs["log-option"] = types.YLeaf{"LogOption", accessListEntry.LogOption}
-    accessListEntry.EntityData.Leafs["sequence-str"] = types.YLeaf{"SequenceStr", accessListEntry.SequenceStr}
+    accessListEntry.EntityData.Children = types.NewOrderedMap()
+    accessListEntry.EntityData.Children.Append("source-network", types.YChild{"SourceNetwork", &accessListEntry.SourceNetwork})
+    accessListEntry.EntityData.Children.Append("destination-network", types.YChild{"DestinationNetwork", &accessListEntry.DestinationNetwork})
+    accessListEntry.EntityData.Leafs = types.NewOrderedMap()
+    accessListEntry.EntityData.Leafs.Append("sequence-number", types.YLeaf{"SequenceNumber", accessListEntry.SequenceNumber})
+    accessListEntry.EntityData.Leafs.Append("grant", types.YLeaf{"Grant", accessListEntry.Grant})
+    accessListEntry.EntityData.Leafs.Append("vlan1", types.YLeaf{"Vlan1", accessListEntry.Vlan1})
+    accessListEntry.EntityData.Leafs.Append("vlan2", types.YLeaf{"Vlan2", accessListEntry.Vlan2})
+    accessListEntry.EntityData.Leafs.Append("cos", types.YLeaf{"Cos", accessListEntry.Cos})
+    accessListEntry.EntityData.Leafs.Append("dei", types.YLeaf{"Dei", accessListEntry.Dei})
+    accessListEntry.EntityData.Leafs.Append("inner-vlan1", types.YLeaf{"InnerVlan1", accessListEntry.InnerVlan1})
+    accessListEntry.EntityData.Leafs.Append("inner-vlan2", types.YLeaf{"InnerVlan2", accessListEntry.InnerVlan2})
+    accessListEntry.EntityData.Leafs.Append("inner-cos", types.YLeaf{"InnerCos", accessListEntry.InnerCos})
+    accessListEntry.EntityData.Leafs.Append("inner-dei", types.YLeaf{"InnerDei", accessListEntry.InnerDei})
+    accessListEntry.EntityData.Leafs.Append("remark", types.YLeaf{"Remark", accessListEntry.Remark})
+    accessListEntry.EntityData.Leafs.Append("ether-type-number", types.YLeaf{"EtherTypeNumber", accessListEntry.EtherTypeNumber})
+    accessListEntry.EntityData.Leafs.Append("capture", types.YLeaf{"Capture", accessListEntry.Capture})
+    accessListEntry.EntityData.Leafs.Append("log-option", types.YLeaf{"LogOption", accessListEntry.LogOption})
+    accessListEntry.EntityData.Leafs.Append("sequence-str", types.YLeaf{"SequenceStr", accessListEntry.SequenceStr})
+
+    accessListEntry.EntityData.YListKeys = []string {"SequenceNumber"}
+
     return &(accessListEntry.EntityData)
 }
 
@@ -256,12 +287,12 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork struc
     YFilter yfilter.YFilter
 
     // Source address to match, leave unspecified for any. The type is string with
-    // pattern: b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
+    // pattern: ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
     SourceAddress interface{}
 
     // Wildcard bits to apply to source address (if specified), leave unspecified
     // for no wildcarding. The type is string with pattern:
-    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
+    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
     SourceWildCardBits interface{}
 }
 
@@ -275,10 +306,13 @@ func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_Sou
     sourceNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceNetwork.EntityData.Children = make(map[string]types.YChild)
-    sourceNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceNetwork.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", sourceNetwork.SourceAddress}
-    sourceNetwork.EntityData.Leafs["source-wild-card-bits"] = types.YLeaf{"SourceWildCardBits", sourceNetwork.SourceWildCardBits}
+    sourceNetwork.EntityData.Children = types.NewOrderedMap()
+    sourceNetwork.EntityData.Leafs = types.NewOrderedMap()
+    sourceNetwork.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", sourceNetwork.SourceAddress})
+    sourceNetwork.EntityData.Leafs.Append("source-wild-card-bits", types.YLeaf{"SourceWildCardBits", sourceNetwork.SourceWildCardBits})
+
+    sourceNetwork.EntityData.YListKeys = []string {}
+
     return &(sourceNetwork.EntityData)
 }
 
@@ -290,12 +324,12 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork 
 
     // Destination address to match (if a protocol was specified), leave
     // unspecified for any. The type is string with pattern:
-    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
+    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
     DestinationAddress interface{}
 
     // Wildcard bits to apply to destination address (if specified), leave
     // unspecified for no wildcarding. The type is string with pattern:
-    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
+    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
     DestinationWildCardBits interface{}
 }
 
@@ -309,10 +343,13 @@ func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntr
     destinationNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destinationNetwork.EntityData.Children = make(map[string]types.YChild)
-    destinationNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
-    destinationNetwork.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", destinationNetwork.DestinationAddress}
-    destinationNetwork.EntityData.Leafs["destination-wild-card-bits"] = types.YLeaf{"DestinationWildCardBits", destinationNetwork.DestinationWildCardBits}
+    destinationNetwork.EntityData.Children = types.NewOrderedMap()
+    destinationNetwork.EntityData.Leafs = types.NewOrderedMap()
+    destinationNetwork.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", destinationNetwork.DestinationAddress})
+    destinationNetwork.EntityData.Leafs.Append("destination-wild-card-bits", types.YLeaf{"DestinationWildCardBits", destinationNetwork.DestinationWildCardBits})
+
+    destinationNetwork.EntityData.YListKeys = []string {}
+
     return &(destinationNetwork.EntityData)
 }
 

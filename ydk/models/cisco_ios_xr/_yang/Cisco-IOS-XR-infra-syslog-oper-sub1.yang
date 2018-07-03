@@ -26,6 +26,14 @@ submodule Cisco-IOS-XR-infra-syslog-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-22 {
+    description
+      "Fixed syslog message filter.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2016-06-24 {
     description
       "Schema added for Show logging files CLI";

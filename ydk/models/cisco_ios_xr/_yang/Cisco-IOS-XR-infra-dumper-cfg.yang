@@ -183,6 +183,7 @@ module Cisco-IOS-XR-infra-dumper-cfg {
     description
       "Core dump configuration commands";
     container choice1 {
+      presence "enable choice1";
       description
         "Preference of the dump location";
       leaf compress {
@@ -224,6 +225,7 @@ module Cisco-IOS-XR-infra-dumper-cfg {
       }
     }
     container choice3 {
+      presence "enable choice3";
       description
         "Preference of the dump location";
       leaf compress {
@@ -336,6 +338,7 @@ module Cisco-IOS-XR-infra-dumper-cfg {
       }
     }
     container choice2 {
+      presence "enable choice2";
       description
         "Preference of the dump location";
       leaf compress {

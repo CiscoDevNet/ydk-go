@@ -58,10 +58,13 @@ func (icmp *Icmp) GetEntityData() *types.CommonEntityData {
     icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    icmp.EntityData.Children = make(map[string]types.YChild)
-    icmp.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &icmp.Ipv6}
-    icmp.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &icmp.Ipv4}
-    icmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    icmp.EntityData.Children = types.NewOrderedMap()
+    icmp.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &icmp.Ipv6})
+    icmp.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &icmp.Ipv4})
+    icmp.EntityData.Leafs = types.NewOrderedMap()
+
+    icmp.EntityData.YListKeys = []string {}
+
     return &(icmp.EntityData)
 }
 
@@ -88,10 +91,13 @@ func (ipv6 *Icmp_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["rate-limit"] = types.YChild{"RateLimit", &ipv6.RateLimit}
-    ipv6.EntityData.Children["source"] = types.YChild{"Source", &ipv6.Source}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("rate-limit", types.YChild{"RateLimit", &ipv6.RateLimit})
+    ipv6.EntityData.Children.Append("source", types.YChild{"Source", &ipv6.Source})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -115,9 +121,12 @@ func (rateLimit *Icmp_Ipv6_RateLimit) GetEntityData() *types.CommonEntityData {
     rateLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rateLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rateLimit.EntityData.Children = make(map[string]types.YChild)
-    rateLimit.EntityData.Children["unreachable"] = types.YChild{"Unreachable", &rateLimit.Unreachable}
-    rateLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    rateLimit.EntityData.Children = types.NewOrderedMap()
+    rateLimit.EntityData.Children.Append("unreachable", types.YChild{"Unreachable", &rateLimit.Unreachable})
+    rateLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    rateLimit.EntityData.YListKeys = []string {}
+
     return &(rateLimit.EntityData)
 }
 
@@ -146,10 +155,13 @@ func (unreachable *Icmp_Ipv6_RateLimit_Unreachable) GetEntityData() *types.Commo
     unreachable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unreachable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unreachable.EntityData.Children = make(map[string]types.YChild)
-    unreachable.EntityData.Leafs = make(map[string]types.YLeaf)
-    unreachable.EntityData.Leafs["rate"] = types.YLeaf{"Rate", unreachable.Rate}
-    unreachable.EntityData.Leafs["fragmentation"] = types.YLeaf{"Fragmentation", unreachable.Fragmentation}
+    unreachable.EntityData.Children = types.NewOrderedMap()
+    unreachable.EntityData.Leafs = types.NewOrderedMap()
+    unreachable.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", unreachable.Rate})
+    unreachable.EntityData.Leafs.Append("fragmentation", types.YLeaf{"Fragmentation", unreachable.Fragmentation})
+
+    unreachable.EntityData.YListKeys = []string {}
+
     return &(unreachable.EntityData)
 }
 
@@ -173,9 +185,12 @@ func (source *Icmp_Ipv6_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    source.EntityData.Children = make(map[string]types.YChild)
-    source.EntityData.Leafs = make(map[string]types.YLeaf)
-    source.EntityData.Leafs["source-address-policy"] = types.YLeaf{"SourceAddressPolicy", source.SourceAddressPolicy}
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("source-address-policy", types.YLeaf{"SourceAddressPolicy", source.SourceAddressPolicy})
+
+    source.EntityData.YListKeys = []string {}
+
     return &(source.EntityData)
 }
 
@@ -202,10 +217,13 @@ func (ipv4 *Icmp_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["rate-limit"] = types.YChild{"RateLimit", &ipv4.RateLimit}
-    ipv4.EntityData.Children["source"] = types.YChild{"Source", &ipv4.Source}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("rate-limit", types.YChild{"RateLimit", &ipv4.RateLimit})
+    ipv4.EntityData.Children.Append("source", types.YChild{"Source", &ipv4.Source})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -229,9 +247,12 @@ func (rateLimit *Icmp_Ipv4_RateLimit) GetEntityData() *types.CommonEntityData {
     rateLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rateLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rateLimit.EntityData.Children = make(map[string]types.YChild)
-    rateLimit.EntityData.Children["unreachable"] = types.YChild{"Unreachable", &rateLimit.Unreachable}
-    rateLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    rateLimit.EntityData.Children = types.NewOrderedMap()
+    rateLimit.EntityData.Children.Append("unreachable", types.YChild{"Unreachable", &rateLimit.Unreachable})
+    rateLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    rateLimit.EntityData.YListKeys = []string {}
+
     return &(rateLimit.EntityData)
 }
 
@@ -260,10 +281,13 @@ func (unreachable *Icmp_Ipv4_RateLimit_Unreachable) GetEntityData() *types.Commo
     unreachable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unreachable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unreachable.EntityData.Children = make(map[string]types.YChild)
-    unreachable.EntityData.Leafs = make(map[string]types.YLeaf)
-    unreachable.EntityData.Leafs["rate"] = types.YLeaf{"Rate", unreachable.Rate}
-    unreachable.EntityData.Leafs["fragmentation"] = types.YLeaf{"Fragmentation", unreachable.Fragmentation}
+    unreachable.EntityData.Children = types.NewOrderedMap()
+    unreachable.EntityData.Leafs = types.NewOrderedMap()
+    unreachable.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", unreachable.Rate})
+    unreachable.EntityData.Leafs.Append("fragmentation", types.YLeaf{"Fragmentation", unreachable.Fragmentation})
+
+    unreachable.EntityData.YListKeys = []string {}
+
     return &(unreachable.EntityData)
 }
 
@@ -287,9 +311,12 @@ func (source *Icmp_Ipv4_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    source.EntityData.Children = make(map[string]types.YChild)
-    source.EntityData.Leafs = make(map[string]types.YLeaf)
-    source.EntityData.Leafs["source-address-policy"] = types.YLeaf{"SourceAddressPolicy", source.SourceAddressPolicy}
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("source-address-policy", types.YLeaf{"SourceAddressPolicy", source.SourceAddressPolicy})
+
+    source.EntityData.YListKeys = []string {}
+
     return &(source.EntityData)
 }
 

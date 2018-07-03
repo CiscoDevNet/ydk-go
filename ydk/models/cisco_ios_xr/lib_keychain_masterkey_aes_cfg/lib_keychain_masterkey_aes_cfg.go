@@ -44,9 +44,12 @@ func (password *Password) GetEntityData() *types.CommonEntityData {
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    password.EntityData.Children = make(map[string]types.YChild)
-    password.EntityData.Children["encryption"] = types.YChild{"Encryption", &password.Encryption}
-    password.EntityData.Leafs = make(map[string]types.YLeaf)
+    password.EntityData.Children = types.NewOrderedMap()
+    password.EntityData.Children.Append("encryption", types.YChild{"Encryption", &password.Encryption})
+    password.EntityData.Leafs = types.NewOrderedMap()
+
+    password.EntityData.YListKeys = []string {}
+
     return &(password.EntityData)
 }
 
@@ -57,7 +60,7 @@ type Password_Encryption struct {
     YFilter yfilter.YFilter
 
     // encryption type used to store key. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 0.
+    // 0..4294967295. The default value is 0.
     Aes interface{}
 }
 
@@ -71,9 +74,12 @@ func (encryption *Password_Encryption) GetEntityData() *types.CommonEntityData {
     encryption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encryption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    encryption.EntityData.Children = make(map[string]types.YChild)
-    encryption.EntityData.Leafs = make(map[string]types.YLeaf)
-    encryption.EntityData.Leafs["aes"] = types.YLeaf{"Aes", encryption.Aes}
+    encryption.EntityData.Children = types.NewOrderedMap()
+    encryption.EntityData.Leafs = types.NewOrderedMap()
+    encryption.EntityData.Leafs.Append("aes", types.YLeaf{"Aes", encryption.Aes})
+
+    encryption.EntityData.YListKeys = []string {}
+
     return &(encryption.EntityData)
 }
 

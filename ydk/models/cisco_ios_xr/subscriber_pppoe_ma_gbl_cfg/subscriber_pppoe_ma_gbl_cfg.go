@@ -66,11 +66,14 @@ func (pppoeCfg *PppoeCfg) GetEntityData() *types.CommonEntityData {
     pppoeCfg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeCfg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoeCfg.EntityData.Children = make(map[string]types.YChild)
-    pppoeCfg.EntityData.Children["pppoe-bba-groups"] = types.YChild{"PppoeBbaGroups", &pppoeCfg.PppoeBbaGroups}
-    pppoeCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoeCfg.EntityData.Leafs["session-id-space-flat"] = types.YLeaf{"SessionIdSpaceFlat", pppoeCfg.SessionIdSpaceFlat}
-    pppoeCfg.EntityData.Leafs["in-flight-window"] = types.YLeaf{"InFlightWindow", pppoeCfg.InFlightWindow}
+    pppoeCfg.EntityData.Children = types.NewOrderedMap()
+    pppoeCfg.EntityData.Children.Append("pppoe-bba-groups", types.YChild{"PppoeBbaGroups", &pppoeCfg.PppoeBbaGroups})
+    pppoeCfg.EntityData.Leafs = types.NewOrderedMap()
+    pppoeCfg.EntityData.Leafs.Append("session-id-space-flat", types.YLeaf{"SessionIdSpaceFlat", pppoeCfg.SessionIdSpaceFlat})
+    pppoeCfg.EntityData.Leafs.Append("in-flight-window", types.YLeaf{"InFlightWindow", pppoeCfg.InFlightWindow})
+
+    pppoeCfg.EntityData.YListKeys = []string {}
+
     return &(pppoeCfg.EntityData)
 }
 
@@ -82,7 +85,7 @@ type PppoeCfg_PppoeBbaGroups struct {
 
     // PPPoE BBA-Group configuration data. The type is slice of
     // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup.
-    PppoeBbaGroup []PppoeCfg_PppoeBbaGroups_PppoeBbaGroup
+    PppoeBbaGroup []*PppoeCfg_PppoeBbaGroups_PppoeBbaGroup
 }
 
 func (pppoeBbaGroups *PppoeCfg_PppoeBbaGroups) GetEntityData() *types.CommonEntityData {
@@ -95,12 +98,15 @@ func (pppoeBbaGroups *PppoeCfg_PppoeBbaGroups) GetEntityData() *types.CommonEnti
     pppoeBbaGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeBbaGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoeBbaGroups.EntityData.Children = make(map[string]types.YChild)
-    pppoeBbaGroups.EntityData.Children["pppoe-bba-group"] = types.YChild{"PppoeBbaGroup", nil}
+    pppoeBbaGroups.EntityData.Children = types.NewOrderedMap()
+    pppoeBbaGroups.EntityData.Children.Append("pppoe-bba-group", types.YChild{"PppoeBbaGroup", nil})
     for i := range pppoeBbaGroups.PppoeBbaGroup {
-        pppoeBbaGroups.EntityData.Children[types.GetSegmentPath(&pppoeBbaGroups.PppoeBbaGroup[i])] = types.YChild{"PppoeBbaGroup", &pppoeBbaGroups.PppoeBbaGroup[i]}
+        pppoeBbaGroups.EntityData.Children.Append(types.GetSegmentPath(pppoeBbaGroups.PppoeBbaGroup[i]), types.YChild{"PppoeBbaGroup", pppoeBbaGroups.PppoeBbaGroup[i]})
     }
-    pppoeBbaGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    pppoeBbaGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    pppoeBbaGroups.EntityData.YListKeys = []string {}
+
     return &(pppoeBbaGroups.EntityData)
 }
 
@@ -111,7 +117,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. BBA-Group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     BbaGroup interface{}
 
     // PPPoE session completion timeout. The type is interface{} with range:
@@ -145,22 +151,25 @@ func (pppoeBbaGroup *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup) GetEntityData() *typ
     pppoeBbaGroup.EntityData.YangName = "pppoe-bba-group"
     pppoeBbaGroup.EntityData.BundleName = "cisco_ios_xr"
     pppoeBbaGroup.EntityData.ParentYangName = "pppoe-bba-groups"
-    pppoeBbaGroup.EntityData.SegmentPath = "pppoe-bba-group" + "[bba-group='" + fmt.Sprintf("%v", pppoeBbaGroup.BbaGroup) + "']"
+    pppoeBbaGroup.EntityData.SegmentPath = "pppoe-bba-group" + types.AddKeyToken(pppoeBbaGroup.BbaGroup, "bba-group")
     pppoeBbaGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoeBbaGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeBbaGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoeBbaGroup.EntityData.Children = make(map[string]types.YChild)
-    pppoeBbaGroup.EntityData.Children["tag"] = types.YChild{"Tag", &pppoeBbaGroup.Tag}
-    pppoeBbaGroup.EntityData.Children["sessions"] = types.YChild{"Sessions", &pppoeBbaGroup.Sessions}
-    pppoeBbaGroup.EntityData.Children["control-packets"] = types.YChild{"ControlPackets", &pppoeBbaGroup.ControlPackets}
-    pppoeBbaGroup.EntityData.Children["pa-do-delay"] = types.YChild{"PaDoDelay", &pppoeBbaGroup.PaDoDelay}
-    pppoeBbaGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoeBbaGroup.EntityData.Leafs["bba-group"] = types.YLeaf{"BbaGroup", pppoeBbaGroup.BbaGroup}
-    pppoeBbaGroup.EntityData.Leafs["completion-timeout"] = types.YLeaf{"CompletionTimeout", pppoeBbaGroup.CompletionTimeout}
-    pppoeBbaGroup.EntityData.Leafs["invalid-session-id"] = types.YLeaf{"InvalidSessionId", pppoeBbaGroup.InvalidSessionId}
-    pppoeBbaGroup.EntityData.Leafs["enable-padt-after-shut-down"] = types.YLeaf{"EnablePadtAfterShutDown", pppoeBbaGroup.EnablePadtAfterShutDown}
-    pppoeBbaGroup.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", pppoeBbaGroup.Mtu}
+    pppoeBbaGroup.EntityData.Children = types.NewOrderedMap()
+    pppoeBbaGroup.EntityData.Children.Append("tag", types.YChild{"Tag", &pppoeBbaGroup.Tag})
+    pppoeBbaGroup.EntityData.Children.Append("sessions", types.YChild{"Sessions", &pppoeBbaGroup.Sessions})
+    pppoeBbaGroup.EntityData.Children.Append("control-packets", types.YChild{"ControlPackets", &pppoeBbaGroup.ControlPackets})
+    pppoeBbaGroup.EntityData.Children.Append("pa-do-delay", types.YChild{"PaDoDelay", &pppoeBbaGroup.PaDoDelay})
+    pppoeBbaGroup.EntityData.Leafs = types.NewOrderedMap()
+    pppoeBbaGroup.EntityData.Leafs.Append("bba-group", types.YLeaf{"BbaGroup", pppoeBbaGroup.BbaGroup})
+    pppoeBbaGroup.EntityData.Leafs.Append("completion-timeout", types.YLeaf{"CompletionTimeout", pppoeBbaGroup.CompletionTimeout})
+    pppoeBbaGroup.EntityData.Leafs.Append("invalid-session-id", types.YLeaf{"InvalidSessionId", pppoeBbaGroup.InvalidSessionId})
+    pppoeBbaGroup.EntityData.Leafs.Append("enable-padt-after-shut-down", types.YLeaf{"EnablePadtAfterShutDown", pppoeBbaGroup.EnablePadtAfterShutDown})
+    pppoeBbaGroup.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", pppoeBbaGroup.Mtu})
+
+    pppoeBbaGroup.EntityData.YListKeys = []string {"BbaGroup"}
+
     return &(pppoeBbaGroup.EntityData)
 }
 
@@ -199,14 +208,17 @@ func (tag *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag) GetEntityData() *types.Com
     tag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tag.EntityData.Children = make(map[string]types.YChild)
-    tag.EntityData.Children["padr"] = types.YChild{"Padr", &tag.Padr}
-    tag.EntityData.Children["service-name-configureds"] = types.YChild{"ServiceNameConfigureds", &tag.ServiceNameConfigureds}
-    tag.EntityData.Children["ppp-max-payload"] = types.YChild{"PppMaxPayload", &tag.PppMaxPayload}
-    tag.EntityData.Leafs = make(map[string]types.YLeaf)
-    tag.EntityData.Leafs["ppp-max-payload-deny"] = types.YLeaf{"PppMaxPayloadDeny", tag.PppMaxPayloadDeny}
-    tag.EntityData.Leafs["service-selection-disable"] = types.YLeaf{"ServiceSelectionDisable", tag.ServiceSelectionDisable}
-    tag.EntityData.Leafs["ac-name"] = types.YLeaf{"AcName", tag.AcName}
+    tag.EntityData.Children = types.NewOrderedMap()
+    tag.EntityData.Children.Append("padr", types.YChild{"Padr", &tag.Padr})
+    tag.EntityData.Children.Append("service-name-configureds", types.YChild{"ServiceNameConfigureds", &tag.ServiceNameConfigureds})
+    tag.EntityData.Children.Append("ppp-max-payload", types.YChild{"PppMaxPayload", &tag.PppMaxPayload})
+    tag.EntityData.Leafs = types.NewOrderedMap()
+    tag.EntityData.Leafs.Append("ppp-max-payload-deny", types.YLeaf{"PppMaxPayloadDeny", tag.PppMaxPayloadDeny})
+    tag.EntityData.Leafs.Append("service-selection-disable", types.YLeaf{"ServiceSelectionDisable", tag.ServiceSelectionDisable})
+    tag.EntityData.Leafs.Append("ac-name", types.YLeaf{"AcName", tag.AcName})
+
+    tag.EntityData.YListKeys = []string {}
+
     return &(tag.EntityData)
 }
 
@@ -234,10 +246,13 @@ func (padr *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_Padr) GetEntityData() *typ
     padr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     padr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    padr.EntityData.Children = make(map[string]types.YChild)
-    padr.EntityData.Leafs = make(map[string]types.YLeaf)
-    padr.EntityData.Leafs["session-unique-relay-session-id"] = types.YLeaf{"SessionUniqueRelaySessionId", padr.SessionUniqueRelaySessionId}
-    padr.EntityData.Leafs["invalid-payload-allow"] = types.YLeaf{"InvalidPayloadAllow", padr.InvalidPayloadAllow}
+    padr.EntityData.Children = types.NewOrderedMap()
+    padr.EntityData.Leafs = types.NewOrderedMap()
+    padr.EntityData.Leafs.Append("session-unique-relay-session-id", types.YLeaf{"SessionUniqueRelaySessionId", padr.SessionUniqueRelaySessionId})
+    padr.EntityData.Leafs.Append("invalid-payload-allow", types.YLeaf{"InvalidPayloadAllow", padr.InvalidPayloadAllow})
+
+    padr.EntityData.YListKeys = []string {}
+
     return &(padr.EntityData)
 }
 
@@ -249,7 +264,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNameConfigureds struct {
 
     // Service name supported on this group. The type is slice of
     // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNameConfigureds_ServiceNameConfigured.
-    ServiceNameConfigured []PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNameConfigureds_ServiceNameConfigured
+    ServiceNameConfigured []*PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNameConfigureds_ServiceNameConfigured
 }
 
 func (serviceNameConfigureds *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNameConfigureds) GetEntityData() *types.CommonEntityData {
@@ -262,12 +277,15 @@ func (serviceNameConfigureds *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceN
     serviceNameConfigureds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameConfigureds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceNameConfigureds.EntityData.Children = make(map[string]types.YChild)
-    serviceNameConfigureds.EntityData.Children["service-name-configured"] = types.YChild{"ServiceNameConfigured", nil}
+    serviceNameConfigureds.EntityData.Children = types.NewOrderedMap()
+    serviceNameConfigureds.EntityData.Children.Append("service-name-configured", types.YChild{"ServiceNameConfigured", nil})
     for i := range serviceNameConfigureds.ServiceNameConfigured {
-        serviceNameConfigureds.EntityData.Children[types.GetSegmentPath(&serviceNameConfigureds.ServiceNameConfigured[i])] = types.YChild{"ServiceNameConfigured", &serviceNameConfigureds.ServiceNameConfigured[i]}
+        serviceNameConfigureds.EntityData.Children.Append(types.GetSegmentPath(serviceNameConfigureds.ServiceNameConfigured[i]), types.YChild{"ServiceNameConfigured", serviceNameConfigureds.ServiceNameConfigured[i]})
     }
-    serviceNameConfigureds.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceNameConfigureds.EntityData.Leafs = types.NewOrderedMap()
+
+    serviceNameConfigureds.EntityData.YListKeys = []string {}
+
     return &(serviceNameConfigureds.EntityData)
 }
 
@@ -278,7 +296,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNameConfigureds_ServiceNam
     YFilter yfilter.YFilter
 
     // This attribute is a key. Service name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 }
 
@@ -287,14 +305,17 @@ func (serviceNameConfigured *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNa
     serviceNameConfigured.EntityData.YangName = "service-name-configured"
     serviceNameConfigured.EntityData.BundleName = "cisco_ios_xr"
     serviceNameConfigured.EntityData.ParentYangName = "service-name-configureds"
-    serviceNameConfigured.EntityData.SegmentPath = "service-name-configured" + "[name='" + fmt.Sprintf("%v", serviceNameConfigured.Name) + "']"
+    serviceNameConfigured.EntityData.SegmentPath = "service-name-configured" + types.AddKeyToken(serviceNameConfigured.Name, "name")
     serviceNameConfigured.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameConfigured.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameConfigured.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceNameConfigured.EntityData.Children = make(map[string]types.YChild)
-    serviceNameConfigured.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceNameConfigured.EntityData.Leafs["name"] = types.YLeaf{"Name", serviceNameConfigured.Name}
+    serviceNameConfigured.EntityData.Children = types.NewOrderedMap()
+    serviceNameConfigured.EntityData.Leafs = types.NewOrderedMap()
+    serviceNameConfigured.EntityData.Leafs.Append("name", types.YLeaf{"Name", serviceNameConfigured.Name})
+
+    serviceNameConfigured.EntityData.YListKeys = []string {"Name"}
+
     return &(serviceNameConfigured.EntityData)
 }
 
@@ -304,6 +325,7 @@ func (serviceNameConfigured *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNa
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_PppMaxPayload struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Minimum payload. The type is interface{} with range: 500..2000. This
     // attribute is mandatory.
@@ -324,10 +346,13 @@ func (pppMaxPayload *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_PppMaxPayload) Ge
     pppMaxPayload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppMaxPayload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppMaxPayload.EntityData.Children = make(map[string]types.YChild)
-    pppMaxPayload.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppMaxPayload.EntityData.Leafs["min"] = types.YLeaf{"Min", pppMaxPayload.Min}
-    pppMaxPayload.EntityData.Leafs["max"] = types.YLeaf{"Max", pppMaxPayload.Max}
+    pppMaxPayload.EntityData.Children = types.NewOrderedMap()
+    pppMaxPayload.EntityData.Leafs = types.NewOrderedMap()
+    pppMaxPayload.EntityData.Leafs.Append("min", types.YLeaf{"Min", pppMaxPayload.Min})
+    pppMaxPayload.EntityData.Leafs.Append("max", types.YLeaf{"Max", pppMaxPayload.Max})
+
+    pppMaxPayload.EntityData.YListKeys = []string {}
+
     return &(pppMaxPayload.EntityData)
 }
 
@@ -411,29 +436,32 @@ func (sessions *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions) GetEntityData() 
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["vlan-throttle"] = types.YChild{"VlanThrottle", &sessions.VlanThrottle}
-    sessions.EntityData.Children["inner-vlan-throttle"] = types.YChild{"InnerVlanThrottle", &sessions.InnerVlanThrottle}
-    sessions.EntityData.Children["remote-id-limit"] = types.YChild{"RemoteIdLimit", &sessions.RemoteIdLimit}
-    sessions.EntityData.Children["mac-iwf-access-interface-throttle"] = types.YChild{"MacIwfAccessInterfaceThrottle", &sessions.MacIwfAccessInterfaceThrottle}
-    sessions.EntityData.Children["access-interface-limit"] = types.YChild{"AccessInterfaceLimit", &sessions.AccessInterfaceLimit}
-    sessions.EntityData.Children["mac-access-interface-throttle"] = types.YChild{"MacAccessInterfaceThrottle", &sessions.MacAccessInterfaceThrottle}
-    sessions.EntityData.Children["outer-vlan-limit"] = types.YChild{"OuterVlanLimit", &sessions.OuterVlanLimit}
-    sessions.EntityData.Children["circuit-id-throttle"] = types.YChild{"CircuitIdThrottle", &sessions.CircuitIdThrottle}
-    sessions.EntityData.Children["mac-limit"] = types.YChild{"MacLimit", &sessions.MacLimit}
-    sessions.EntityData.Children["circuit-id-limit"] = types.YChild{"CircuitIdLimit", &sessions.CircuitIdLimit}
-    sessions.EntityData.Children["mac-iwf-limit"] = types.YChild{"MacIwfLimit", &sessions.MacIwfLimit}
-    sessions.EntityData.Children["mac-iwf-access-interface-limit"] = types.YChild{"MacIwfAccessInterfaceLimit", &sessions.MacIwfAccessInterfaceLimit}
-    sessions.EntityData.Children["inner-vlan-limit"] = types.YChild{"InnerVlanLimit", &sessions.InnerVlanLimit}
-    sessions.EntityData.Children["outer-vlan-throttle"] = types.YChild{"OuterVlanThrottle", &sessions.OuterVlanThrottle}
-    sessions.EntityData.Children["mac-throttle"] = types.YChild{"MacThrottle", &sessions.MacThrottle}
-    sessions.EntityData.Children["circuit-id-and-remote-id-limit"] = types.YChild{"CircuitIdAndRemoteIdLimit", &sessions.CircuitIdAndRemoteIdLimit}
-    sessions.EntityData.Children["vlan-limit"] = types.YChild{"VlanLimit", &sessions.VlanLimit}
-    sessions.EntityData.Children["mac-access-interface-limit"] = types.YChild{"MacAccessInterfaceLimit", &sessions.MacAccessInterfaceLimit}
-    sessions.EntityData.Children["remote-id-throttle"] = types.YChild{"RemoteIdThrottle", &sessions.RemoteIdThrottle}
-    sessions.EntityData.Children["max-limit"] = types.YChild{"MaxLimit", &sessions.MaxLimit}
-    sessions.EntityData.Children["circuit-id-and-remote-id-throttle"] = types.YChild{"CircuitIdAndRemoteIdThrottle", &sessions.CircuitIdAndRemoteIdThrottle}
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("vlan-throttle", types.YChild{"VlanThrottle", &sessions.VlanThrottle})
+    sessions.EntityData.Children.Append("inner-vlan-throttle", types.YChild{"InnerVlanThrottle", &sessions.InnerVlanThrottle})
+    sessions.EntityData.Children.Append("remote-id-limit", types.YChild{"RemoteIdLimit", &sessions.RemoteIdLimit})
+    sessions.EntityData.Children.Append("mac-iwf-access-interface-throttle", types.YChild{"MacIwfAccessInterfaceThrottle", &sessions.MacIwfAccessInterfaceThrottle})
+    sessions.EntityData.Children.Append("access-interface-limit", types.YChild{"AccessInterfaceLimit", &sessions.AccessInterfaceLimit})
+    sessions.EntityData.Children.Append("mac-access-interface-throttle", types.YChild{"MacAccessInterfaceThrottle", &sessions.MacAccessInterfaceThrottle})
+    sessions.EntityData.Children.Append("outer-vlan-limit", types.YChild{"OuterVlanLimit", &sessions.OuterVlanLimit})
+    sessions.EntityData.Children.Append("circuit-id-throttle", types.YChild{"CircuitIdThrottle", &sessions.CircuitIdThrottle})
+    sessions.EntityData.Children.Append("mac-limit", types.YChild{"MacLimit", &sessions.MacLimit})
+    sessions.EntityData.Children.Append("circuit-id-limit", types.YChild{"CircuitIdLimit", &sessions.CircuitIdLimit})
+    sessions.EntityData.Children.Append("mac-iwf-limit", types.YChild{"MacIwfLimit", &sessions.MacIwfLimit})
+    sessions.EntityData.Children.Append("mac-iwf-access-interface-limit", types.YChild{"MacIwfAccessInterfaceLimit", &sessions.MacIwfAccessInterfaceLimit})
+    sessions.EntityData.Children.Append("inner-vlan-limit", types.YChild{"InnerVlanLimit", &sessions.InnerVlanLimit})
+    sessions.EntityData.Children.Append("outer-vlan-throttle", types.YChild{"OuterVlanThrottle", &sessions.OuterVlanThrottle})
+    sessions.EntityData.Children.Append("mac-throttle", types.YChild{"MacThrottle", &sessions.MacThrottle})
+    sessions.EntityData.Children.Append("circuit-id-and-remote-id-limit", types.YChild{"CircuitIdAndRemoteIdLimit", &sessions.CircuitIdAndRemoteIdLimit})
+    sessions.EntityData.Children.Append("vlan-limit", types.YChild{"VlanLimit", &sessions.VlanLimit})
+    sessions.EntityData.Children.Append("mac-access-interface-limit", types.YChild{"MacAccessInterfaceLimit", &sessions.MacAccessInterfaceLimit})
+    sessions.EntityData.Children.Append("remote-id-throttle", types.YChild{"RemoteIdThrottle", &sessions.RemoteIdThrottle})
+    sessions.EntityData.Children.Append("max-limit", types.YChild{"MaxLimit", &sessions.MaxLimit})
+    sessions.EntityData.Children.Append("circuit-id-and-remote-id-throttle", types.YChild{"CircuitIdAndRemoteIdThrottle", &sessions.CircuitIdAndRemoteIdThrottle})
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -444,6 +472,7 @@ func (sessions *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions) GetEntityData() 
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_VlanThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -468,11 +497,14 @@ func (vlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_VlanThrottle)
     vlanThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vlanThrottle.EntityData.Children = make(map[string]types.YChild)
-    vlanThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    vlanThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", vlanThrottle.Throttle}
-    vlanThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", vlanThrottle.RequestPeriod}
-    vlanThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", vlanThrottle.BlockingPeriod}
+    vlanThrottle.EntityData.Children = types.NewOrderedMap()
+    vlanThrottle.EntityData.Leafs = types.NewOrderedMap()
+    vlanThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", vlanThrottle.Throttle})
+    vlanThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", vlanThrottle.RequestPeriod})
+    vlanThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", vlanThrottle.BlockingPeriod})
+
+    vlanThrottle.EntityData.YListKeys = []string {}
+
     return &(vlanThrottle.EntityData)
 }
 
@@ -482,6 +514,7 @@ func (vlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_VlanThrottle)
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_InnerVlanThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -506,11 +539,14 @@ func (innerVlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_InnerVla
     innerVlanThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     innerVlanThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    innerVlanThrottle.EntityData.Children = make(map[string]types.YChild)
-    innerVlanThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    innerVlanThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", innerVlanThrottle.Throttle}
-    innerVlanThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", innerVlanThrottle.RequestPeriod}
-    innerVlanThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", innerVlanThrottle.BlockingPeriod}
+    innerVlanThrottle.EntityData.Children = types.NewOrderedMap()
+    innerVlanThrottle.EntityData.Leafs = types.NewOrderedMap()
+    innerVlanThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", innerVlanThrottle.Throttle})
+    innerVlanThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", innerVlanThrottle.RequestPeriod})
+    innerVlanThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", innerVlanThrottle.BlockingPeriod})
+
+    innerVlanThrottle.EntityData.YListKeys = []string {}
+
     return &(innerVlanThrottle.EntityData)
 }
 
@@ -520,6 +556,7 @@ func (innerVlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_InnerVla
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_RemoteIdLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-Remote ID limit. The type is interface{} with range: 1..65535. This
     // attribute is mandatory.
@@ -539,10 +576,13 @@ func (remoteIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_RemoteIdLimi
     remoteIdLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteIdLimit.EntityData.Children = make(map[string]types.YChild)
-    remoteIdLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteIdLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", remoteIdLimit.Limit}
-    remoteIdLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", remoteIdLimit.Threshold}
+    remoteIdLimit.EntityData.Children = types.NewOrderedMap()
+    remoteIdLimit.EntityData.Leafs = types.NewOrderedMap()
+    remoteIdLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", remoteIdLimit.Limit})
+    remoteIdLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", remoteIdLimit.Threshold})
+
+    remoteIdLimit.EntityData.YListKeys = []string {}
+
     return &(remoteIdLimit.EntityData)
 }
 
@@ -553,6 +593,7 @@ func (remoteIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_RemoteIdLimi
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacIwfAccessInterfaceThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -577,11 +618,14 @@ func (macIwfAccessInterfaceThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessi
     macIwfAccessInterfaceThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIwfAccessInterfaceThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macIwfAccessInterfaceThrottle.EntityData.Children = make(map[string]types.YChild)
-    macIwfAccessInterfaceThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    macIwfAccessInterfaceThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", macIwfAccessInterfaceThrottle.Throttle}
-    macIwfAccessInterfaceThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", macIwfAccessInterfaceThrottle.RequestPeriod}
-    macIwfAccessInterfaceThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", macIwfAccessInterfaceThrottle.BlockingPeriod}
+    macIwfAccessInterfaceThrottle.EntityData.Children = types.NewOrderedMap()
+    macIwfAccessInterfaceThrottle.EntityData.Leafs = types.NewOrderedMap()
+    macIwfAccessInterfaceThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", macIwfAccessInterfaceThrottle.Throttle})
+    macIwfAccessInterfaceThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", macIwfAccessInterfaceThrottle.RequestPeriod})
+    macIwfAccessInterfaceThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", macIwfAccessInterfaceThrottle.BlockingPeriod})
+
+    macIwfAccessInterfaceThrottle.EntityData.YListKeys = []string {}
+
     return &(macIwfAccessInterfaceThrottle.EntityData)
 }
 
@@ -591,6 +635,7 @@ func (macIwfAccessInterfaceThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessi
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_AccessInterfaceLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-access interface session limit. The type is interface{} with range:
     // 1..65535. This attribute is mandatory.
@@ -611,10 +656,13 @@ func (accessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_Acces
     accessInterfaceLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaceLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessInterfaceLimit.EntityData.Children = make(map[string]types.YChild)
-    accessInterfaceLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessInterfaceLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", accessInterfaceLimit.Limit}
-    accessInterfaceLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", accessInterfaceLimit.Threshold}
+    accessInterfaceLimit.EntityData.Children = types.NewOrderedMap()
+    accessInterfaceLimit.EntityData.Leafs = types.NewOrderedMap()
+    accessInterfaceLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", accessInterfaceLimit.Limit})
+    accessInterfaceLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", accessInterfaceLimit.Threshold})
+
+    accessInterfaceLimit.EntityData.YListKeys = []string {}
+
     return &(accessInterfaceLimit.EntityData)
 }
 
@@ -624,6 +672,7 @@ func (accessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_Acces
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacAccessInterfaceThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -648,11 +697,14 @@ func (macAccessInterfaceThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions
     macAccessInterfaceThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAccessInterfaceThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macAccessInterfaceThrottle.EntityData.Children = make(map[string]types.YChild)
-    macAccessInterfaceThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    macAccessInterfaceThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", macAccessInterfaceThrottle.Throttle}
-    macAccessInterfaceThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", macAccessInterfaceThrottle.RequestPeriod}
-    macAccessInterfaceThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", macAccessInterfaceThrottle.BlockingPeriod}
+    macAccessInterfaceThrottle.EntityData.Children = types.NewOrderedMap()
+    macAccessInterfaceThrottle.EntityData.Leafs = types.NewOrderedMap()
+    macAccessInterfaceThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", macAccessInterfaceThrottle.Throttle})
+    macAccessInterfaceThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", macAccessInterfaceThrottle.RequestPeriod})
+    macAccessInterfaceThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", macAccessInterfaceThrottle.BlockingPeriod})
+
+    macAccessInterfaceThrottle.EntityData.YListKeys = []string {}
+
     return &(macAccessInterfaceThrottle.EntityData)
 }
 
@@ -662,6 +714,7 @@ func (macAccessInterfaceThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_OuterVlanLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-Outer VLAN limit. The type is interface{} with range: 1..65535. This
     // attribute is mandatory.
@@ -681,10 +734,13 @@ func (outerVlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_OuterVlanLi
     outerVlanLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outerVlanLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outerVlanLimit.EntityData.Children = make(map[string]types.YChild)
-    outerVlanLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    outerVlanLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", outerVlanLimit.Limit}
-    outerVlanLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", outerVlanLimit.Threshold}
+    outerVlanLimit.EntityData.Children = types.NewOrderedMap()
+    outerVlanLimit.EntityData.Leafs = types.NewOrderedMap()
+    outerVlanLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", outerVlanLimit.Limit})
+    outerVlanLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", outerVlanLimit.Threshold})
+
+    outerVlanLimit.EntityData.YListKeys = []string {}
+
     return &(outerVlanLimit.EntityData)
 }
 
@@ -694,6 +750,7 @@ func (outerVlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_OuterVlanLi
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitIdThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -718,11 +775,14 @@ func (circuitIdThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitI
     circuitIdThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    circuitIdThrottle.EntityData.Children = make(map[string]types.YChild)
-    circuitIdThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    circuitIdThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", circuitIdThrottle.Throttle}
-    circuitIdThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", circuitIdThrottle.RequestPeriod}
-    circuitIdThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", circuitIdThrottle.BlockingPeriod}
+    circuitIdThrottle.EntityData.Children = types.NewOrderedMap()
+    circuitIdThrottle.EntityData.Leafs = types.NewOrderedMap()
+    circuitIdThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", circuitIdThrottle.Throttle})
+    circuitIdThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", circuitIdThrottle.RequestPeriod})
+    circuitIdThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", circuitIdThrottle.BlockingPeriod})
+
+    circuitIdThrottle.EntityData.YListKeys = []string {}
+
     return &(circuitIdThrottle.EntityData)
 }
 
@@ -733,6 +793,7 @@ func (circuitIdThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitI
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-MAC session limit. The type is interface{} with range: 1..65535. This
     // attribute is mandatory.
@@ -752,10 +813,13 @@ func (macLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacLimit) GetEnti
     macLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macLimit.EntityData.Children = make(map[string]types.YChild)
-    macLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    macLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", macLimit.Limit}
-    macLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", macLimit.Threshold}
+    macLimit.EntityData.Children = types.NewOrderedMap()
+    macLimit.EntityData.Leafs = types.NewOrderedMap()
+    macLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", macLimit.Limit})
+    macLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", macLimit.Threshold})
+
+    macLimit.EntityData.YListKeys = []string {}
+
     return &(macLimit.EntityData)
 }
 
@@ -765,6 +829,7 @@ func (macLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacLimit) GetEnti
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitIdLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-Circuit ID limit. The type is interface{} with range: 1..65535. This
     // attribute is mandatory.
@@ -784,10 +849,13 @@ func (circuitIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitIdLi
     circuitIdLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    circuitIdLimit.EntityData.Children = make(map[string]types.YChild)
-    circuitIdLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    circuitIdLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", circuitIdLimit.Limit}
-    circuitIdLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", circuitIdLimit.Threshold}
+    circuitIdLimit.EntityData.Children = types.NewOrderedMap()
+    circuitIdLimit.EntityData.Leafs = types.NewOrderedMap()
+    circuitIdLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", circuitIdLimit.Limit})
+    circuitIdLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", circuitIdLimit.Threshold})
+
+    circuitIdLimit.EntityData.YListKeys = []string {}
+
     return &(circuitIdLimit.EntityData)
 }
 
@@ -798,6 +866,7 @@ func (circuitIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitIdLi
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacIwfLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-MAC session limit for IWF sessions. The type is interface{} with range:
     // 1..65535. This attribute is mandatory.
@@ -818,10 +887,13 @@ func (macIwfLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacIwfLimit) G
     macIwfLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIwfLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macIwfLimit.EntityData.Children = make(map[string]types.YChild)
-    macIwfLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    macIwfLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", macIwfLimit.Limit}
-    macIwfLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", macIwfLimit.Threshold}
+    macIwfLimit.EntityData.Children = types.NewOrderedMap()
+    macIwfLimit.EntityData.Leafs = types.NewOrderedMap()
+    macIwfLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", macIwfLimit.Limit})
+    macIwfLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", macIwfLimit.Threshold})
+
+    macIwfLimit.EntityData.YListKeys = []string {}
+
     return &(macIwfLimit.EntityData)
 }
 
@@ -832,6 +904,7 @@ func (macIwfLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacIwfLimit) G
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacIwfAccessInterfaceLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-MAC access interface session limit for IWF sessions. The type is
     // interface{} with range: 1..65535. This attribute is mandatory.
@@ -852,10 +925,13 @@ func (macIwfAccessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions
     macIwfAccessInterfaceLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIwfAccessInterfaceLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macIwfAccessInterfaceLimit.EntityData.Children = make(map[string]types.YChild)
-    macIwfAccessInterfaceLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    macIwfAccessInterfaceLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", macIwfAccessInterfaceLimit.Limit}
-    macIwfAccessInterfaceLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", macIwfAccessInterfaceLimit.Threshold}
+    macIwfAccessInterfaceLimit.EntityData.Children = types.NewOrderedMap()
+    macIwfAccessInterfaceLimit.EntityData.Leafs = types.NewOrderedMap()
+    macIwfAccessInterfaceLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", macIwfAccessInterfaceLimit.Limit})
+    macIwfAccessInterfaceLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", macIwfAccessInterfaceLimit.Threshold})
+
+    macIwfAccessInterfaceLimit.EntityData.YListKeys = []string {}
+
     return &(macIwfAccessInterfaceLimit.EntityData)
 }
 
@@ -865,6 +941,7 @@ func (macIwfAccessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_InnerVlanLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-Inner VLAN limit. The type is interface{} with range: 1..65535. This
     // attribute is mandatory.
@@ -884,10 +961,13 @@ func (innerVlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_InnerVlanLi
     innerVlanLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     innerVlanLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    innerVlanLimit.EntityData.Children = make(map[string]types.YChild)
-    innerVlanLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    innerVlanLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", innerVlanLimit.Limit}
-    innerVlanLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", innerVlanLimit.Threshold}
+    innerVlanLimit.EntityData.Children = types.NewOrderedMap()
+    innerVlanLimit.EntityData.Leafs = types.NewOrderedMap()
+    innerVlanLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", innerVlanLimit.Limit})
+    innerVlanLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", innerVlanLimit.Threshold})
+
+    innerVlanLimit.EntityData.YListKeys = []string {}
+
     return &(innerVlanLimit.EntityData)
 }
 
@@ -897,6 +977,7 @@ func (innerVlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_InnerVlanLi
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_OuterVlanThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -921,11 +1002,14 @@ func (outerVlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_OuterVla
     outerVlanThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outerVlanThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outerVlanThrottle.EntityData.Children = make(map[string]types.YChild)
-    outerVlanThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    outerVlanThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", outerVlanThrottle.Throttle}
-    outerVlanThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", outerVlanThrottle.RequestPeriod}
-    outerVlanThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", outerVlanThrottle.BlockingPeriod}
+    outerVlanThrottle.EntityData.Children = types.NewOrderedMap()
+    outerVlanThrottle.EntityData.Leafs = types.NewOrderedMap()
+    outerVlanThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", outerVlanThrottle.Throttle})
+    outerVlanThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", outerVlanThrottle.RequestPeriod})
+    outerVlanThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", outerVlanThrottle.BlockingPeriod})
+
+    outerVlanThrottle.EntityData.YListKeys = []string {}
+
     return &(outerVlanThrottle.EntityData)
 }
 
@@ -935,6 +1019,7 @@ func (outerVlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_OuterVla
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -959,11 +1044,14 @@ func (macThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacThrottle) G
     macThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macThrottle.EntityData.Children = make(map[string]types.YChild)
-    macThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    macThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", macThrottle.Throttle}
-    macThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", macThrottle.RequestPeriod}
-    macThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", macThrottle.BlockingPeriod}
+    macThrottle.EntityData.Children = types.NewOrderedMap()
+    macThrottle.EntityData.Leafs = types.NewOrderedMap()
+    macThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", macThrottle.Throttle})
+    macThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", macThrottle.RequestPeriod})
+    macThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", macThrottle.BlockingPeriod})
+
+    macThrottle.EntityData.YListKeys = []string {}
+
     return &(macThrottle.EntityData)
 }
 
@@ -974,6 +1062,7 @@ func (macThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacThrottle) G
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitIdAndRemoteIdLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-Circuit ID limit. The type is interface{} with range: 1..65535. This
     // attribute is mandatory.
@@ -993,10 +1082,13 @@ func (circuitIdAndRemoteIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_
     circuitIdAndRemoteIdLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdAndRemoteIdLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    circuitIdAndRemoteIdLimit.EntityData.Children = make(map[string]types.YChild)
-    circuitIdAndRemoteIdLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    circuitIdAndRemoteIdLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", circuitIdAndRemoteIdLimit.Limit}
-    circuitIdAndRemoteIdLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", circuitIdAndRemoteIdLimit.Threshold}
+    circuitIdAndRemoteIdLimit.EntityData.Children = types.NewOrderedMap()
+    circuitIdAndRemoteIdLimit.EntityData.Leafs = types.NewOrderedMap()
+    circuitIdAndRemoteIdLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", circuitIdAndRemoteIdLimit.Limit})
+    circuitIdAndRemoteIdLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", circuitIdAndRemoteIdLimit.Threshold})
+
+    circuitIdAndRemoteIdLimit.EntityData.YListKeys = []string {}
+
     return &(circuitIdAndRemoteIdLimit.EntityData)
 }
 
@@ -1007,6 +1099,7 @@ func (circuitIdAndRemoteIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_VlanLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-VLAN (inner + outer tags) limit. The type is interface{} with range:
     // 1..65535. This attribute is mandatory.
@@ -1027,10 +1120,13 @@ func (vlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_VlanLimit) GetEn
     vlanLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vlanLimit.EntityData.Children = make(map[string]types.YChild)
-    vlanLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    vlanLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", vlanLimit.Limit}
-    vlanLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", vlanLimit.Threshold}
+    vlanLimit.EntityData.Children = types.NewOrderedMap()
+    vlanLimit.EntityData.Leafs = types.NewOrderedMap()
+    vlanLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", vlanLimit.Limit})
+    vlanLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", vlanLimit.Threshold})
+
+    vlanLimit.EntityData.YListKeys = []string {}
+
     return &(vlanLimit.EntityData)
 }
 
@@ -1041,6 +1137,7 @@ func (vlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_VlanLimit) GetEn
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacAccessInterfaceLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-MAC access interface session limit. The type is interface{} with range:
     // 1..65535. This attribute is mandatory.
@@ -1061,10 +1158,13 @@ func (macAccessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_Ma
     macAccessInterfaceLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAccessInterfaceLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macAccessInterfaceLimit.EntityData.Children = make(map[string]types.YChild)
-    macAccessInterfaceLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    macAccessInterfaceLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", macAccessInterfaceLimit.Limit}
-    macAccessInterfaceLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", macAccessInterfaceLimit.Threshold}
+    macAccessInterfaceLimit.EntityData.Children = types.NewOrderedMap()
+    macAccessInterfaceLimit.EntityData.Leafs = types.NewOrderedMap()
+    macAccessInterfaceLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", macAccessInterfaceLimit.Limit})
+    macAccessInterfaceLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", macAccessInterfaceLimit.Threshold})
+
+    macAccessInterfaceLimit.EntityData.YListKeys = []string {}
+
     return &(macAccessInterfaceLimit.EntityData)
 }
 
@@ -1074,6 +1174,7 @@ func (macAccessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_Ma
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_RemoteIdThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -1098,11 +1199,14 @@ func (remoteIdThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_RemoteIdT
     remoteIdThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteIdThrottle.EntityData.Children = make(map[string]types.YChild)
-    remoteIdThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteIdThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", remoteIdThrottle.Throttle}
-    remoteIdThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", remoteIdThrottle.RequestPeriod}
-    remoteIdThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", remoteIdThrottle.BlockingPeriod}
+    remoteIdThrottle.EntityData.Children = types.NewOrderedMap()
+    remoteIdThrottle.EntityData.Leafs = types.NewOrderedMap()
+    remoteIdThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", remoteIdThrottle.Throttle})
+    remoteIdThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", remoteIdThrottle.RequestPeriod})
+    remoteIdThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", remoteIdThrottle.BlockingPeriod})
+
+    remoteIdThrottle.EntityData.YListKeys = []string {}
+
     return &(remoteIdThrottle.EntityData)
 }
 
@@ -1112,6 +1216,7 @@ func (remoteIdThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_RemoteIdT
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MaxLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Per-card session limit. The type is interface{} with range: 1..65535. This
     // attribute is mandatory.
@@ -1131,10 +1236,13 @@ func (maxLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MaxLimit) GetEnti
     maxLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maxLimit.EntityData.Children = make(map[string]types.YChild)
-    maxLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    maxLimit.EntityData.Leafs["limit"] = types.YLeaf{"Limit", maxLimit.Limit}
-    maxLimit.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", maxLimit.Threshold}
+    maxLimit.EntityData.Children = types.NewOrderedMap()
+    maxLimit.EntityData.Leafs = types.NewOrderedMap()
+    maxLimit.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", maxLimit.Limit})
+    maxLimit.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", maxLimit.Threshold})
+
+    maxLimit.EntityData.YListKeys = []string {}
+
     return &(maxLimit.EntityData)
 }
 
@@ -1144,6 +1252,7 @@ func (maxLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MaxLimit) GetEnti
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitIdAndRemoteIdThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of requests at which to throttle. The type is interface{} with
     // range: 1..65535. This attribute is mandatory.
@@ -1168,11 +1277,14 @@ func (circuitIdAndRemoteIdThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessio
     circuitIdAndRemoteIdThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdAndRemoteIdThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    circuitIdAndRemoteIdThrottle.EntityData.Children = make(map[string]types.YChild)
-    circuitIdAndRemoteIdThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    circuitIdAndRemoteIdThrottle.EntityData.Leafs["throttle"] = types.YLeaf{"Throttle", circuitIdAndRemoteIdThrottle.Throttle}
-    circuitIdAndRemoteIdThrottle.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", circuitIdAndRemoteIdThrottle.RequestPeriod}
-    circuitIdAndRemoteIdThrottle.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", circuitIdAndRemoteIdThrottle.BlockingPeriod}
+    circuitIdAndRemoteIdThrottle.EntityData.Children = types.NewOrderedMap()
+    circuitIdAndRemoteIdThrottle.EntityData.Leafs = types.NewOrderedMap()
+    circuitIdAndRemoteIdThrottle.EntityData.Leafs.Append("throttle", types.YLeaf{"Throttle", circuitIdAndRemoteIdThrottle.Throttle})
+    circuitIdAndRemoteIdThrottle.EntityData.Leafs.Append("request-period", types.YLeaf{"RequestPeriod", circuitIdAndRemoteIdThrottle.RequestPeriod})
+    circuitIdAndRemoteIdThrottle.EntityData.Leafs.Append("blocking-period", types.YLeaf{"BlockingPeriod", circuitIdAndRemoteIdThrottle.BlockingPeriod})
+
+    circuitIdAndRemoteIdThrottle.EntityData.YListKeys = []string {}
+
     return &(circuitIdAndRemoteIdThrottle.EntityData)
 }
 
@@ -1197,28 +1309,35 @@ func (controlPackets *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_ControlPackets) GetE
     controlPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controlPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controlPackets.EntityData.Children = make(map[string]types.YChild)
-    controlPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    controlPackets.EntityData.Leafs["priority"] = types.YLeaf{"Priority", controlPackets.Priority}
+    controlPackets.EntityData.Children = types.NewOrderedMap()
+    controlPackets.EntityData.Leafs = types.NewOrderedMap()
+    controlPackets.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", controlPackets.Priority})
+
+    controlPackets.EntityData.YListKeys = []string {}
+
     return &(controlPackets.EntityData)
 }
 
 // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay
 // PPPoE PADO delay configuration data
+// This type is a presence type.
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
-    // Units are millisecond.
-    Default_ interface{}
+    // This attribute is mandatory. Units are millisecond.
+    Default interface{}
 
     // Configure PADO delay dependent on the received Circuit ID. The type is
-    // interface{} with range: 0..10000. Units are millisecond.
+    // interface{} with range: 0..10000. This attribute is mandatory. Units are
+    // millisecond.
     CircuitId interface{}
 
     // Configure PADO delay dependent on the received Remote ID. The type is
-    // interface{} with range: 0..10000. Units are millisecond.
+    // interface{} with range: 0..10000. This attribute is mandatory. Units are
+    // millisecond.
     RemoteId interface{}
 
     // Delay the PADO response when the received Remote ID contains the given
@@ -1256,17 +1375,20 @@ func (paDoDelay *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay) GetEntityData(
     paDoDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paDoDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    paDoDelay.EntityData.Children = make(map[string]types.YChild)
-    paDoDelay.EntityData.Children["remote-id-substrings"] = types.YChild{"RemoteIdSubstrings", &paDoDelay.RemoteIdSubstrings}
-    paDoDelay.EntityData.Children["remote-id-strings"] = types.YChild{"RemoteIdStrings", &paDoDelay.RemoteIdStrings}
-    paDoDelay.EntityData.Children["service-name-strings"] = types.YChild{"ServiceNameStrings", &paDoDelay.ServiceNameStrings}
-    paDoDelay.EntityData.Children["circuit-id-substrings"] = types.YChild{"CircuitIdSubstrings", &paDoDelay.CircuitIdSubstrings}
-    paDoDelay.EntityData.Children["service-name-substrings"] = types.YChild{"ServiceNameSubstrings", &paDoDelay.ServiceNameSubstrings}
-    paDoDelay.EntityData.Children["circuit-id-strings"] = types.YChild{"CircuitIdStrings", &paDoDelay.CircuitIdStrings}
-    paDoDelay.EntityData.Leafs = make(map[string]types.YLeaf)
-    paDoDelay.EntityData.Leafs["default"] = types.YLeaf{"Default_", paDoDelay.Default_}
-    paDoDelay.EntityData.Leafs["circuit-id"] = types.YLeaf{"CircuitId", paDoDelay.CircuitId}
-    paDoDelay.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", paDoDelay.RemoteId}
+    paDoDelay.EntityData.Children = types.NewOrderedMap()
+    paDoDelay.EntityData.Children.Append("remote-id-substrings", types.YChild{"RemoteIdSubstrings", &paDoDelay.RemoteIdSubstrings})
+    paDoDelay.EntityData.Children.Append("remote-id-strings", types.YChild{"RemoteIdStrings", &paDoDelay.RemoteIdStrings})
+    paDoDelay.EntityData.Children.Append("service-name-strings", types.YChild{"ServiceNameStrings", &paDoDelay.ServiceNameStrings})
+    paDoDelay.EntityData.Children.Append("circuit-id-substrings", types.YChild{"CircuitIdSubstrings", &paDoDelay.CircuitIdSubstrings})
+    paDoDelay.EntityData.Children.Append("service-name-substrings", types.YChild{"ServiceNameSubstrings", &paDoDelay.ServiceNameSubstrings})
+    paDoDelay.EntityData.Children.Append("circuit-id-strings", types.YChild{"CircuitIdStrings", &paDoDelay.CircuitIdStrings})
+    paDoDelay.EntityData.Leafs = types.NewOrderedMap()
+    paDoDelay.EntityData.Leafs.Append("default", types.YLeaf{"Default", paDoDelay.Default})
+    paDoDelay.EntityData.Leafs.Append("circuit-id", types.YLeaf{"CircuitId", paDoDelay.CircuitId})
+    paDoDelay.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", paDoDelay.RemoteId})
+
+    paDoDelay.EntityData.YListKeys = []string {}
+
     return &(paDoDelay.EntityData)
 }
 
@@ -1280,7 +1402,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSubstrings struct {
     // Delay the PADO response when the received Remote ID contains the given
     // string. The type is slice of
     // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSubstrings_RemoteIdSubstring.
-    RemoteIdSubstring []PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSubstrings_RemoteIdSubstring
+    RemoteIdSubstring []*PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSubstrings_RemoteIdSubstring
 }
 
 func (remoteIdSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSubstrings) GetEntityData() *types.CommonEntityData {
@@ -1293,12 +1415,15 @@ func (remoteIdSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Remote
     remoteIdSubstrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdSubstrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteIdSubstrings.EntityData.Children = make(map[string]types.YChild)
-    remoteIdSubstrings.EntityData.Children["remote-id-substring"] = types.YChild{"RemoteIdSubstring", nil}
+    remoteIdSubstrings.EntityData.Children = types.NewOrderedMap()
+    remoteIdSubstrings.EntityData.Children.Append("remote-id-substring", types.YChild{"RemoteIdSubstring", nil})
     for i := range remoteIdSubstrings.RemoteIdSubstring {
-        remoteIdSubstrings.EntityData.Children[types.GetSegmentPath(&remoteIdSubstrings.RemoteIdSubstring[i])] = types.YChild{"RemoteIdSubstring", &remoteIdSubstrings.RemoteIdSubstring[i]}
+        remoteIdSubstrings.EntityData.Children.Append(types.GetSegmentPath(remoteIdSubstrings.RemoteIdSubstring[i]), types.YChild{"RemoteIdSubstring", remoteIdSubstrings.RemoteIdSubstring[i]})
     }
-    remoteIdSubstrings.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteIdSubstrings.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIdSubstrings.EntityData.YListKeys = []string {}
+
     return &(remoteIdSubstrings.EntityData)
 }
 
@@ -1310,7 +1435,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSubstrings_RemoteId
     YFilter yfilter.YFilter
 
     // This attribute is a key. The string to be contained within the received
-    // Remote ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Remote ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1323,15 +1448,18 @@ func (remoteIdSubstring *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteI
     remoteIdSubstring.EntityData.YangName = "remote-id-substring"
     remoteIdSubstring.EntityData.BundleName = "cisco_ios_xr"
     remoteIdSubstring.EntityData.ParentYangName = "remote-id-substrings"
-    remoteIdSubstring.EntityData.SegmentPath = "remote-id-substring" + "[name='" + fmt.Sprintf("%v", remoteIdSubstring.Name) + "']"
+    remoteIdSubstring.EntityData.SegmentPath = "remote-id-substring" + types.AddKeyToken(remoteIdSubstring.Name, "name")
     remoteIdSubstring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteIdSubstring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdSubstring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteIdSubstring.EntityData.Children = make(map[string]types.YChild)
-    remoteIdSubstring.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteIdSubstring.EntityData.Leafs["name"] = types.YLeaf{"Name", remoteIdSubstring.Name}
-    remoteIdSubstring.EntityData.Leafs["delay"] = types.YLeaf{"Delay", remoteIdSubstring.Delay}
+    remoteIdSubstring.EntityData.Children = types.NewOrderedMap()
+    remoteIdSubstring.EntityData.Leafs = types.NewOrderedMap()
+    remoteIdSubstring.EntityData.Leafs.Append("name", types.YLeaf{"Name", remoteIdSubstring.Name})
+    remoteIdSubstring.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", remoteIdSubstring.Delay})
+
+    remoteIdSubstring.EntityData.YListKeys = []string {"Name"}
+
     return &(remoteIdSubstring.EntityData)
 }
 
@@ -1345,7 +1473,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdStrings struct {
     // Delay the PADO response when there is an exact match on the received Remote
     // ID. The type is slice of
     // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdStrings_RemoteIdString.
-    RemoteIdString []PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdStrings_RemoteIdString
+    RemoteIdString []*PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdStrings_RemoteIdString
 }
 
 func (remoteIdStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdStrings) GetEntityData() *types.CommonEntityData {
@@ -1358,12 +1486,15 @@ func (remoteIdStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdS
     remoteIdStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteIdStrings.EntityData.Children = make(map[string]types.YChild)
-    remoteIdStrings.EntityData.Children["remote-id-string"] = types.YChild{"RemoteIdString", nil}
+    remoteIdStrings.EntityData.Children = types.NewOrderedMap()
+    remoteIdStrings.EntityData.Children.Append("remote-id-string", types.YChild{"RemoteIdString", nil})
     for i := range remoteIdStrings.RemoteIdString {
-        remoteIdStrings.EntityData.Children[types.GetSegmentPath(&remoteIdStrings.RemoteIdString[i])] = types.YChild{"RemoteIdString", &remoteIdStrings.RemoteIdString[i]}
+        remoteIdStrings.EntityData.Children.Append(types.GetSegmentPath(remoteIdStrings.RemoteIdString[i]), types.YChild{"RemoteIdString", remoteIdStrings.RemoteIdString[i]})
     }
-    remoteIdStrings.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteIdStrings.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIdStrings.EntityData.YListKeys = []string {}
+
     return &(remoteIdStrings.EntityData)
 }
 
@@ -1375,7 +1506,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdStrings_RemoteIdStr
     YFilter yfilter.YFilter
 
     // This attribute is a key. The string to exactly match the received Remote
-    // ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1388,15 +1519,18 @@ func (remoteIdString *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSt
     remoteIdString.EntityData.YangName = "remote-id-string"
     remoteIdString.EntityData.BundleName = "cisco_ios_xr"
     remoteIdString.EntityData.ParentYangName = "remote-id-strings"
-    remoteIdString.EntityData.SegmentPath = "remote-id-string" + "[name='" + fmt.Sprintf("%v", remoteIdString.Name) + "']"
+    remoteIdString.EntityData.SegmentPath = "remote-id-string" + types.AddKeyToken(remoteIdString.Name, "name")
     remoteIdString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteIdString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteIdString.EntityData.Children = make(map[string]types.YChild)
-    remoteIdString.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteIdString.EntityData.Leafs["name"] = types.YLeaf{"Name", remoteIdString.Name}
-    remoteIdString.EntityData.Leafs["delay"] = types.YLeaf{"Delay", remoteIdString.Delay}
+    remoteIdString.EntityData.Children = types.NewOrderedMap()
+    remoteIdString.EntityData.Leafs = types.NewOrderedMap()
+    remoteIdString.EntityData.Leafs.Append("name", types.YLeaf{"Name", remoteIdString.Name})
+    remoteIdString.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", remoteIdString.Delay})
+
+    remoteIdString.EntityData.YListKeys = []string {"Name"}
+
     return &(remoteIdString.EntityData)
 }
 
@@ -1410,7 +1544,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameStrings struct {
     // Delay the PADO response when there is an exact match on the received
     // Service Name. The type is slice of
     // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameStrings_ServiceNameString.
-    ServiceNameString []PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameStrings_ServiceNameString
+    ServiceNameString []*PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameStrings_ServiceNameString
 }
 
 func (serviceNameStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameStrings) GetEntityData() *types.CommonEntityData {
@@ -1423,12 +1557,15 @@ func (serviceNameStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Servic
     serviceNameStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceNameStrings.EntityData.Children = make(map[string]types.YChild)
-    serviceNameStrings.EntityData.Children["service-name-string"] = types.YChild{"ServiceNameString", nil}
+    serviceNameStrings.EntityData.Children = types.NewOrderedMap()
+    serviceNameStrings.EntityData.Children.Append("service-name-string", types.YChild{"ServiceNameString", nil})
     for i := range serviceNameStrings.ServiceNameString {
-        serviceNameStrings.EntityData.Children[types.GetSegmentPath(&serviceNameStrings.ServiceNameString[i])] = types.YChild{"ServiceNameString", &serviceNameStrings.ServiceNameString[i]}
+        serviceNameStrings.EntityData.Children.Append(types.GetSegmentPath(serviceNameStrings.ServiceNameString[i]), types.YChild{"ServiceNameString", serviceNameStrings.ServiceNameString[i]})
     }
-    serviceNameStrings.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceNameStrings.EntityData.Leafs = types.NewOrderedMap()
+
+    serviceNameStrings.EntityData.YListKeys = []string {}
+
     return &(serviceNameStrings.EntityData)
 }
 
@@ -1440,7 +1577,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameStrings_ServiceN
     YFilter yfilter.YFilter
 
     // This attribute is a key. The string to exactly match the received Service
-    // Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1453,15 +1590,18 @@ func (serviceNameString *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Service
     serviceNameString.EntityData.YangName = "service-name-string"
     serviceNameString.EntityData.BundleName = "cisco_ios_xr"
     serviceNameString.EntityData.ParentYangName = "service-name-strings"
-    serviceNameString.EntityData.SegmentPath = "service-name-string" + "[name='" + fmt.Sprintf("%v", serviceNameString.Name) + "']"
+    serviceNameString.EntityData.SegmentPath = "service-name-string" + types.AddKeyToken(serviceNameString.Name, "name")
     serviceNameString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceNameString.EntityData.Children = make(map[string]types.YChild)
-    serviceNameString.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceNameString.EntityData.Leafs["name"] = types.YLeaf{"Name", serviceNameString.Name}
-    serviceNameString.EntityData.Leafs["delay"] = types.YLeaf{"Delay", serviceNameString.Delay}
+    serviceNameString.EntityData.Children = types.NewOrderedMap()
+    serviceNameString.EntityData.Leafs = types.NewOrderedMap()
+    serviceNameString.EntityData.Leafs.Append("name", types.YLeaf{"Name", serviceNameString.Name})
+    serviceNameString.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", serviceNameString.Delay})
+
+    serviceNameString.EntityData.YListKeys = []string {"Name"}
+
     return &(serviceNameString.EntityData)
 }
 
@@ -1475,7 +1615,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdSubstrings struct 
     // Delay the PADO response when the received Circuit ID contains the given
     // string. The type is slice of
     // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdSubstrings_CircuitIdSubstring.
-    CircuitIdSubstring []PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdSubstrings_CircuitIdSubstring
+    CircuitIdSubstring []*PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdSubstrings_CircuitIdSubstring
 }
 
 func (circuitIdSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdSubstrings) GetEntityData() *types.CommonEntityData {
@@ -1488,12 +1628,15 @@ func (circuitIdSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Circu
     circuitIdSubstrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdSubstrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    circuitIdSubstrings.EntityData.Children = make(map[string]types.YChild)
-    circuitIdSubstrings.EntityData.Children["circuit-id-substring"] = types.YChild{"CircuitIdSubstring", nil}
+    circuitIdSubstrings.EntityData.Children = types.NewOrderedMap()
+    circuitIdSubstrings.EntityData.Children.Append("circuit-id-substring", types.YChild{"CircuitIdSubstring", nil})
     for i := range circuitIdSubstrings.CircuitIdSubstring {
-        circuitIdSubstrings.EntityData.Children[types.GetSegmentPath(&circuitIdSubstrings.CircuitIdSubstring[i])] = types.YChild{"CircuitIdSubstring", &circuitIdSubstrings.CircuitIdSubstring[i]}
+        circuitIdSubstrings.EntityData.Children.Append(types.GetSegmentPath(circuitIdSubstrings.CircuitIdSubstring[i]), types.YChild{"CircuitIdSubstring", circuitIdSubstrings.CircuitIdSubstring[i]})
     }
-    circuitIdSubstrings.EntityData.Leafs = make(map[string]types.YLeaf)
+    circuitIdSubstrings.EntityData.Leafs = types.NewOrderedMap()
+
+    circuitIdSubstrings.EntityData.YListKeys = []string {}
+
     return &(circuitIdSubstrings.EntityData)
 }
 
@@ -1505,8 +1648,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdSubstrings_Circuit
     YFilter yfilter.YFilter
 
     // This attribute is a key. The string to be contained within the received
-    // Circuit ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Circuit ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1519,15 +1661,18 @@ func (circuitIdSubstring *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Circui
     circuitIdSubstring.EntityData.YangName = "circuit-id-substring"
     circuitIdSubstring.EntityData.BundleName = "cisco_ios_xr"
     circuitIdSubstring.EntityData.ParentYangName = "circuit-id-substrings"
-    circuitIdSubstring.EntityData.SegmentPath = "circuit-id-substring" + "[name='" + fmt.Sprintf("%v", circuitIdSubstring.Name) + "']"
+    circuitIdSubstring.EntityData.SegmentPath = "circuit-id-substring" + types.AddKeyToken(circuitIdSubstring.Name, "name")
     circuitIdSubstring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdSubstring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdSubstring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    circuitIdSubstring.EntityData.Children = make(map[string]types.YChild)
-    circuitIdSubstring.EntityData.Leafs = make(map[string]types.YLeaf)
-    circuitIdSubstring.EntityData.Leafs["name"] = types.YLeaf{"Name", circuitIdSubstring.Name}
-    circuitIdSubstring.EntityData.Leafs["delay"] = types.YLeaf{"Delay", circuitIdSubstring.Delay}
+    circuitIdSubstring.EntityData.Children = types.NewOrderedMap()
+    circuitIdSubstring.EntityData.Leafs = types.NewOrderedMap()
+    circuitIdSubstring.EntityData.Leafs.Append("name", types.YLeaf{"Name", circuitIdSubstring.Name})
+    circuitIdSubstring.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", circuitIdSubstring.Delay})
+
+    circuitIdSubstring.EntityData.YListKeys = []string {"Name"}
+
     return &(circuitIdSubstring.EntityData)
 }
 
@@ -1541,7 +1686,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameSubstrings struc
     // Delay the PADO response when the received Service Name contains the given
     // string. The type is slice of
     // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameSubstrings_ServiceNameSubstring.
-    ServiceNameSubstring []PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameSubstrings_ServiceNameSubstring
+    ServiceNameSubstring []*PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameSubstrings_ServiceNameSubstring
 }
 
 func (serviceNameSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameSubstrings) GetEntityData() *types.CommonEntityData {
@@ -1554,12 +1699,15 @@ func (serviceNameSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Ser
     serviceNameSubstrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameSubstrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceNameSubstrings.EntityData.Children = make(map[string]types.YChild)
-    serviceNameSubstrings.EntityData.Children["service-name-substring"] = types.YChild{"ServiceNameSubstring", nil}
+    serviceNameSubstrings.EntityData.Children = types.NewOrderedMap()
+    serviceNameSubstrings.EntityData.Children.Append("service-name-substring", types.YChild{"ServiceNameSubstring", nil})
     for i := range serviceNameSubstrings.ServiceNameSubstring {
-        serviceNameSubstrings.EntityData.Children[types.GetSegmentPath(&serviceNameSubstrings.ServiceNameSubstring[i])] = types.YChild{"ServiceNameSubstring", &serviceNameSubstrings.ServiceNameSubstring[i]}
+        serviceNameSubstrings.EntityData.Children.Append(types.GetSegmentPath(serviceNameSubstrings.ServiceNameSubstring[i]), types.YChild{"ServiceNameSubstring", serviceNameSubstrings.ServiceNameSubstring[i]})
     }
-    serviceNameSubstrings.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceNameSubstrings.EntityData.Leafs = types.NewOrderedMap()
+
+    serviceNameSubstrings.EntityData.YListKeys = []string {}
+
     return &(serviceNameSubstrings.EntityData)
 }
 
@@ -1571,8 +1719,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameSubstrings_Servi
     YFilter yfilter.YFilter
 
     // This attribute is a key. The string to be contained within the received
-    // Service Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Service Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1585,15 +1732,18 @@ func (serviceNameSubstring *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Serv
     serviceNameSubstring.EntityData.YangName = "service-name-substring"
     serviceNameSubstring.EntityData.BundleName = "cisco_ios_xr"
     serviceNameSubstring.EntityData.ParentYangName = "service-name-substrings"
-    serviceNameSubstring.EntityData.SegmentPath = "service-name-substring" + "[name='" + fmt.Sprintf("%v", serviceNameSubstring.Name) + "']"
+    serviceNameSubstring.EntityData.SegmentPath = "service-name-substring" + types.AddKeyToken(serviceNameSubstring.Name, "name")
     serviceNameSubstring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameSubstring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameSubstring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceNameSubstring.EntityData.Children = make(map[string]types.YChild)
-    serviceNameSubstring.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceNameSubstring.EntityData.Leafs["name"] = types.YLeaf{"Name", serviceNameSubstring.Name}
-    serviceNameSubstring.EntityData.Leafs["delay"] = types.YLeaf{"Delay", serviceNameSubstring.Delay}
+    serviceNameSubstring.EntityData.Children = types.NewOrderedMap()
+    serviceNameSubstring.EntityData.Leafs = types.NewOrderedMap()
+    serviceNameSubstring.EntityData.Leafs.Append("name", types.YLeaf{"Name", serviceNameSubstring.Name})
+    serviceNameSubstring.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", serviceNameSubstring.Delay})
+
+    serviceNameSubstring.EntityData.YListKeys = []string {"Name"}
+
     return &(serviceNameSubstring.EntityData)
 }
 
@@ -1607,7 +1757,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdStrings struct {
     // Delay the PADO response when there is an exact match on the received
     // Circuit ID. The type is slice of
     // PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdStrings_CircuitIdString.
-    CircuitIdString []PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdStrings_CircuitIdString
+    CircuitIdString []*PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdStrings_CircuitIdString
 }
 
 func (circuitIdStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdStrings) GetEntityData() *types.CommonEntityData {
@@ -1620,12 +1770,15 @@ func (circuitIdStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitI
     circuitIdStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    circuitIdStrings.EntityData.Children = make(map[string]types.YChild)
-    circuitIdStrings.EntityData.Children["circuit-id-string"] = types.YChild{"CircuitIdString", nil}
+    circuitIdStrings.EntityData.Children = types.NewOrderedMap()
+    circuitIdStrings.EntityData.Children.Append("circuit-id-string", types.YChild{"CircuitIdString", nil})
     for i := range circuitIdStrings.CircuitIdString {
-        circuitIdStrings.EntityData.Children[types.GetSegmentPath(&circuitIdStrings.CircuitIdString[i])] = types.YChild{"CircuitIdString", &circuitIdStrings.CircuitIdString[i]}
+        circuitIdStrings.EntityData.Children.Append(types.GetSegmentPath(circuitIdStrings.CircuitIdString[i]), types.YChild{"CircuitIdString", circuitIdStrings.CircuitIdString[i]})
     }
-    circuitIdStrings.EntityData.Leafs = make(map[string]types.YLeaf)
+    circuitIdStrings.EntityData.Leafs = types.NewOrderedMap()
+
+    circuitIdStrings.EntityData.YListKeys = []string {}
+
     return &(circuitIdStrings.EntityData)
 }
 
@@ -1637,7 +1790,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdStrings_CircuitIdS
     YFilter yfilter.YFilter
 
     // This attribute is a key. The string to exactly match the received Circuit
-    // ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1650,15 +1803,18 @@ func (circuitIdString *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitId
     circuitIdString.EntityData.YangName = "circuit-id-string"
     circuitIdString.EntityData.BundleName = "cisco_ios_xr"
     circuitIdString.EntityData.ParentYangName = "circuit-id-strings"
-    circuitIdString.EntityData.SegmentPath = "circuit-id-string" + "[name='" + fmt.Sprintf("%v", circuitIdString.Name) + "']"
+    circuitIdString.EntityData.SegmentPath = "circuit-id-string" + types.AddKeyToken(circuitIdString.Name, "name")
     circuitIdString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    circuitIdString.EntityData.Children = make(map[string]types.YChild)
-    circuitIdString.EntityData.Leafs = make(map[string]types.YLeaf)
-    circuitIdString.EntityData.Leafs["name"] = types.YLeaf{"Name", circuitIdString.Name}
-    circuitIdString.EntityData.Leafs["delay"] = types.YLeaf{"Delay", circuitIdString.Delay}
+    circuitIdString.EntityData.Children = types.NewOrderedMap()
+    circuitIdString.EntityData.Leafs = types.NewOrderedMap()
+    circuitIdString.EntityData.Leafs.Append("name", types.YLeaf{"Name", circuitIdString.Name})
+    circuitIdString.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", circuitIdString.Delay})
+
+    circuitIdString.EntityData.YListKeys = []string {"Name"}
+
     return &(circuitIdString.EntityData)
 }
 

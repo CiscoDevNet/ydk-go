@@ -58,10 +58,13 @@ func (autoRp *AutoRp) GetEntityData() *types.CommonEntityData {
     autoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoRp.EntityData.Children = make(map[string]types.YChild)
-    autoRp.EntityData.Children["standby"] = types.YChild{"Standby", &autoRp.Standby}
-    autoRp.EntityData.Children["active"] = types.YChild{"Active", &autoRp.Active}
-    autoRp.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoRp.EntityData.Children = types.NewOrderedMap()
+    autoRp.EntityData.Children.Append("standby", types.YChild{"Standby", &autoRp.Standby})
+    autoRp.EntityData.Children.Append("active", types.YChild{"Active", &autoRp.Active})
+    autoRp.EntityData.Leafs = types.NewOrderedMap()
+
+    autoRp.EntityData.YListKeys = []string {}
+
     return &(autoRp.EntityData)
 }
 
@@ -88,10 +91,13 @@ func (standby *AutoRp_Standby) GetEntityData() *types.CommonEntityData {
     standby.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standby.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standby.EntityData.Children = make(map[string]types.YChild)
-    standby.EntityData.Children["candidate-rp"] = types.YChild{"CandidateRp", &standby.CandidateRp}
-    standby.EntityData.Children["mapping-agent"] = types.YChild{"MappingAgent", &standby.MappingAgent}
-    standby.EntityData.Leafs = make(map[string]types.YLeaf)
+    standby.EntityData.Children = types.NewOrderedMap()
+    standby.EntityData.Children.Append("candidate-rp", types.YChild{"CandidateRp", &standby.CandidateRp})
+    standby.EntityData.Children.Append("mapping-agent", types.YChild{"MappingAgent", &standby.MappingAgent})
+    standby.EntityData.Leafs = types.NewOrderedMap()
+
+    standby.EntityData.YListKeys = []string {}
+
     return &(standby.EntityData)
 }
 
@@ -118,10 +124,13 @@ func (candidateRp *AutoRp_Standby_CandidateRp) GetEntityData() *types.CommonEnti
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRp.EntityData.Children = make(map[string]types.YChild)
-    candidateRp.EntityData.Children["traffic"] = types.YChild{"Traffic", &candidateRp.Traffic}
-    candidateRp.EntityData.Children["rps"] = types.YChild{"Rps", &candidateRp.Rps}
-    candidateRp.EntityData.Leafs = make(map[string]types.YLeaf)
+    candidateRp.EntityData.Children = types.NewOrderedMap()
+    candidateRp.EntityData.Children.Append("traffic", types.YChild{"Traffic", &candidateRp.Traffic})
+    candidateRp.EntityData.Children.Append("rps", types.YChild{"Rps", &candidateRp.Rps})
+    candidateRp.EntityData.Leafs = types.NewOrderedMap()
+
+    candidateRp.EntityData.YListKeys = []string {}
+
     return &(candidateRp.EntityData)
 }
 
@@ -150,10 +159,13 @@ func (traffic *AutoRp_Standby_CandidateRp_Traffic) GetEntityData() *types.Common
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    traffic.EntityData.Leafs["active-sent-packets"] = types.YLeaf{"ActiveSentPackets", traffic.ActiveSentPackets}
-    traffic.EntityData.Leafs["standby-sent-packets"] = types.YLeaf{"StandbySentPackets", traffic.StandbySentPackets}
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+    traffic.EntityData.Leafs.Append("active-sent-packets", types.YLeaf{"ActiveSentPackets", traffic.ActiveSentPackets})
+    traffic.EntityData.Leafs.Append("standby-sent-packets", types.YLeaf{"StandbySentPackets", traffic.StandbySentPackets})
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -165,7 +177,7 @@ type AutoRp_Standby_CandidateRp_Rps struct {
 
     // AutoRP Candidate RP Entry. The type is slice of
     // AutoRp_Standby_CandidateRp_Rps_Rp.
-    Rp []AutoRp_Standby_CandidateRp_Rps_Rp
+    Rp []*AutoRp_Standby_CandidateRp_Rps_Rp
 }
 
 func (rps *AutoRp_Standby_CandidateRp_Rps) GetEntityData() *types.CommonEntityData {
@@ -178,12 +190,15 @@ func (rps *AutoRp_Standby_CandidateRp_Rps) GetEntityData() *types.CommonEntityDa
     rps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rps.EntityData.Children = make(map[string]types.YChild)
-    rps.EntityData.Children["rp"] = types.YChild{"Rp", nil}
+    rps.EntityData.Children = types.NewOrderedMap()
+    rps.EntityData.Children.Append("rp", types.YChild{"Rp", nil})
     for i := range rps.Rp {
-        rps.EntityData.Children[types.GetSegmentPath(&rps.Rp[i])] = types.YChild{"Rp", &rps.Rp[i]}
+        rps.EntityData.Children.Append(types.GetSegmentPath(rps.Rp[i]), types.YChild{"Rp", rps.Rp[i]})
     }
-    rps.EntityData.Leafs = make(map[string]types.YLeaf)
+    rps.EntityData.Leafs = types.NewOrderedMap()
+
+    rps.EntityData.YListKeys = []string {}
+
     return &(rps.EntityData)
 }
 
@@ -193,7 +208,7 @@ type AutoRp_Standby_CandidateRp_Rps_Rp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Protocol Mode. The type is AutoRpProtocolMode.
@@ -203,7 +218,7 @@ type AutoRp_Standby_CandidateRp_Rps_Rp struct {
     AccessListName interface{}
 
     // Candidate RP IP Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CandidateRpAddress interface{}
 
     // TTL. The type is interface{} with range: -2147483648..2147483647.
@@ -227,15 +242,18 @@ func (rp *AutoRp_Standby_CandidateRp_Rps_Rp) GetEntityData() *types.CommonEntity
     rp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rp.EntityData.Children = make(map[string]types.YChild)
-    rp.EntityData.Leafs = make(map[string]types.YLeaf)
-    rp.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", rp.InterfaceName}
-    rp.EntityData.Leafs["protocol-mode"] = types.YLeaf{"ProtocolMode", rp.ProtocolMode}
-    rp.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", rp.AccessListName}
-    rp.EntityData.Leafs["candidate-rp-address"] = types.YLeaf{"CandidateRpAddress", rp.CandidateRpAddress}
-    rp.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", rp.Ttl}
-    rp.EntityData.Leafs["announce-period"] = types.YLeaf{"AnnouncePeriod", rp.AnnouncePeriod}
-    rp.EntityData.Leafs["protocol-mode-xr"] = types.YLeaf{"ProtocolModeXr", rp.ProtocolModeXr}
+    rp.EntityData.Children = types.NewOrderedMap()
+    rp.EntityData.Leafs = types.NewOrderedMap()
+    rp.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", rp.InterfaceName})
+    rp.EntityData.Leafs.Append("protocol-mode", types.YLeaf{"ProtocolMode", rp.ProtocolMode})
+    rp.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", rp.AccessListName})
+    rp.EntityData.Leafs.Append("candidate-rp-address", types.YLeaf{"CandidateRpAddress", rp.CandidateRpAddress})
+    rp.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", rp.Ttl})
+    rp.EntityData.Leafs.Append("announce-period", types.YLeaf{"AnnouncePeriod", rp.AnnouncePeriod})
+    rp.EntityData.Leafs.Append("protocol-mode-xr", types.YLeaf{"ProtocolModeXr", rp.ProtocolModeXr})
+
+    rp.EntityData.YListKeys = []string {}
+
     return &(rp.EntityData)
 }
 
@@ -265,11 +283,14 @@ func (mappingAgent *AutoRp_Standby_MappingAgent) GetEntityData() *types.CommonEn
     mappingAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mappingAgent.EntityData.Children = make(map[string]types.YChild)
-    mappingAgent.EntityData.Children["traffic"] = types.YChild{"Traffic", &mappingAgent.Traffic}
-    mappingAgent.EntityData.Children["rp-addresses"] = types.YChild{"RpAddresses", &mappingAgent.RpAddresses}
-    mappingAgent.EntityData.Children["summary"] = types.YChild{"Summary", &mappingAgent.Summary}
-    mappingAgent.EntityData.Leafs = make(map[string]types.YLeaf)
+    mappingAgent.EntityData.Children = types.NewOrderedMap()
+    mappingAgent.EntityData.Children.Append("traffic", types.YChild{"Traffic", &mappingAgent.Traffic})
+    mappingAgent.EntityData.Children.Append("rp-addresses", types.YChild{"RpAddresses", &mappingAgent.RpAddresses})
+    mappingAgent.EntityData.Children.Append("summary", types.YChild{"Summary", &mappingAgent.Summary})
+    mappingAgent.EntityData.Leafs = types.NewOrderedMap()
+
+    mappingAgent.EntityData.YListKeys = []string {}
+
     return &(mappingAgent.EntityData)
 }
 
@@ -306,12 +327,15 @@ func (traffic *AutoRp_Standby_MappingAgent_Traffic) GetEntityData() *types.Commo
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    traffic.EntityData.Leafs["active-sent-packets"] = types.YLeaf{"ActiveSentPackets", traffic.ActiveSentPackets}
-    traffic.EntityData.Leafs["standby-sent-packets"] = types.YLeaf{"StandbySentPackets", traffic.StandbySentPackets}
-    traffic.EntityData.Leafs["active-received-packets"] = types.YLeaf{"ActiveReceivedPackets", traffic.ActiveReceivedPackets}
-    traffic.EntityData.Leafs["standby-received-packets"] = types.YLeaf{"StandbyReceivedPackets", traffic.StandbyReceivedPackets}
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+    traffic.EntityData.Leafs.Append("active-sent-packets", types.YLeaf{"ActiveSentPackets", traffic.ActiveSentPackets})
+    traffic.EntityData.Leafs.Append("standby-sent-packets", types.YLeaf{"StandbySentPackets", traffic.StandbySentPackets})
+    traffic.EntityData.Leafs.Append("active-received-packets", types.YLeaf{"ActiveReceivedPackets", traffic.ActiveReceivedPackets})
+    traffic.EntityData.Leafs.Append("standby-received-packets", types.YLeaf{"StandbyReceivedPackets", traffic.StandbyReceivedPackets})
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -323,7 +347,7 @@ type AutoRp_Standby_MappingAgent_RpAddresses struct {
 
     // AutoRP Mapping Agent Entry. The type is slice of
     // AutoRp_Standby_MappingAgent_RpAddresses_RpAddress.
-    RpAddress []AutoRp_Standby_MappingAgent_RpAddresses_RpAddress
+    RpAddress []*AutoRp_Standby_MappingAgent_RpAddresses_RpAddress
 }
 
 func (rpAddresses *AutoRp_Standby_MappingAgent_RpAddresses) GetEntityData() *types.CommonEntityData {
@@ -336,12 +360,15 @@ func (rpAddresses *AutoRp_Standby_MappingAgent_RpAddresses) GetEntityData() *typ
     rpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpAddresses.EntityData.Children = make(map[string]types.YChild)
-    rpAddresses.EntityData.Children["rp-address"] = types.YChild{"RpAddress", nil}
+    rpAddresses.EntityData.Children = types.NewOrderedMap()
+    rpAddresses.EntityData.Children.Append("rp-address", types.YChild{"RpAddress", nil})
     for i := range rpAddresses.RpAddress {
-        rpAddresses.EntityData.Children[types.GetSegmentPath(&rpAddresses.RpAddress[i])] = types.YChild{"RpAddress", &rpAddresses.RpAddress[i]}
+        rpAddresses.EntityData.Children.Append(types.GetSegmentPath(rpAddresses.RpAddress[i]), types.YChild{"RpAddress", rpAddresses.RpAddress[i]})
     }
-    rpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    rpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    rpAddresses.EntityData.YListKeys = []string {}
+
     return &(rpAddresses.EntityData)
 }
 
@@ -352,11 +379,11 @@ type AutoRp_Standby_MappingAgent_RpAddresses_RpAddress struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. RP Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Candidate-RP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RpAddressXr interface{}
 
     // Time for expiration in seconds. The type is interface{} with range:
@@ -367,8 +394,8 @@ type AutoRp_Standby_MappingAgent_RpAddresses_RpAddress struct {
     PimVersion interface{}
 
     // Array of ranges. The type is slice of
-    // AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range_.
-    Range_ []AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range
+    // AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range.
+    Range []*AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range
 }
 
 func (rpAddress *AutoRp_Standby_MappingAgent_RpAddresses_RpAddress) GetEntityData() *types.CommonEntityData {
@@ -376,21 +403,24 @@ func (rpAddress *AutoRp_Standby_MappingAgent_RpAddresses_RpAddress) GetEntityDat
     rpAddress.EntityData.YangName = "rp-address"
     rpAddress.EntityData.BundleName = "cisco_ios_xr"
     rpAddress.EntityData.ParentYangName = "rp-addresses"
-    rpAddress.EntityData.SegmentPath = "rp-address" + "[rp-address='" + fmt.Sprintf("%v", rpAddress.RpAddress) + "']"
+    rpAddress.EntityData.SegmentPath = "rp-address" + types.AddKeyToken(rpAddress.RpAddress, "rp-address")
     rpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpAddress.EntityData.Children = make(map[string]types.YChild)
-    rpAddress.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range rpAddress.Range_ {
-        rpAddress.EntityData.Children[types.GetSegmentPath(&rpAddress.Range_[i])] = types.YChild{"Range_", &rpAddress.Range_[i]}
+    rpAddress.EntityData.Children = types.NewOrderedMap()
+    rpAddress.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range rpAddress.Range {
+        rpAddress.EntityData.Children.Append(types.GetSegmentPath(rpAddress.Range[i]), types.YChild{"Range", rpAddress.Range[i]})
     }
-    rpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", rpAddress.RpAddress}
-    rpAddress.EntityData.Leafs["rp-address-xr"] = types.YLeaf{"RpAddressXr", rpAddress.RpAddressXr}
-    rpAddress.EntityData.Leafs["expiry-time"] = types.YLeaf{"ExpiryTime", rpAddress.ExpiryTime}
-    rpAddress.EntityData.Leafs["pim-version"] = types.YLeaf{"PimVersion", rpAddress.PimVersion}
+    rpAddress.EntityData.Leafs = types.NewOrderedMap()
+    rpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", rpAddress.RpAddress})
+    rpAddress.EntityData.Leafs.Append("rp-address-xr", types.YLeaf{"RpAddressXr", rpAddress.RpAddressXr})
+    rpAddress.EntityData.Leafs.Append("expiry-time", types.YLeaf{"ExpiryTime", rpAddress.ExpiryTime})
+    rpAddress.EntityData.Leafs.Append("pim-version", types.YLeaf{"PimVersion", rpAddress.PimVersion})
+
+    rpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(rpAddress.EntityData)
 }
 
@@ -401,7 +431,7 @@ type AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range struct {
     YFilter yfilter.YFilter
 
     // Prefix of the range. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length of the range. The type is interface{} with range: 0..255.
@@ -434,15 +464,18 @@ func (self *AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range) GetEntityDa
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", self.Prefix}
-    self.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", self.PrefixLength}
-    self.EntityData.Leafs["protocol-mode"] = types.YLeaf{"ProtocolMode", self.ProtocolMode}
-    self.EntityData.Leafs["is-advertised"] = types.YLeaf{"IsAdvertised", self.IsAdvertised}
-    self.EntityData.Leafs["create-type"] = types.YLeaf{"CreateType", self.CreateType}
-    self.EntityData.Leafs["check-point-object-id"] = types.YLeaf{"CheckPointObjectId", self.CheckPointObjectId}
-    self.EntityData.Leafs["uptime"] = types.YLeaf{"Uptime", self.Uptime}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", self.Prefix})
+    self.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", self.PrefixLength})
+    self.EntityData.Leafs.Append("protocol-mode", types.YLeaf{"ProtocolMode", self.ProtocolMode})
+    self.EntityData.Leafs.Append("is-advertised", types.YLeaf{"IsAdvertised", self.IsAdvertised})
+    self.EntityData.Leafs.Append("create-type", types.YLeaf{"CreateType", self.CreateType})
+    self.EntityData.Leafs.Append("check-point-object-id", types.YLeaf{"CheckPointObjectId", self.CheckPointObjectId})
+    self.EntityData.Leafs.Append("uptime", types.YLeaf{"Uptime", self.Uptime})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -474,11 +507,14 @@ func (summary *AutoRp_Standby_MappingAgent_Summary) GetEntityData() *types.Commo
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["is-maximum-disabled"] = types.YLeaf{"IsMaximumDisabled", summary.IsMaximumDisabled}
-    summary.EntityData.Leafs["cache-limit"] = types.YLeaf{"CacheLimit", summary.CacheLimit}
-    summary.EntityData.Leafs["cache-count"] = types.YLeaf{"CacheCount", summary.CacheCount}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("is-maximum-disabled", types.YLeaf{"IsMaximumDisabled", summary.IsMaximumDisabled})
+    summary.EntityData.Leafs.Append("cache-limit", types.YLeaf{"CacheLimit", summary.CacheLimit})
+    summary.EntityData.Leafs.Append("cache-count", types.YLeaf{"CacheCount", summary.CacheCount})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -505,10 +541,13 @@ func (active *AutoRp_Active) GetEntityData() *types.CommonEntityData {
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Children["candidate-rp"] = types.YChild{"CandidateRp", &active.CandidateRp}
-    active.EntityData.Children["mapping-agent"] = types.YChild{"MappingAgent", &active.MappingAgent}
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Children.Append("candidate-rp", types.YChild{"CandidateRp", &active.CandidateRp})
+    active.EntityData.Children.Append("mapping-agent", types.YChild{"MappingAgent", &active.MappingAgent})
+    active.EntityData.Leafs = types.NewOrderedMap()
+
+    active.EntityData.YListKeys = []string {}
+
     return &(active.EntityData)
 }
 
@@ -535,10 +574,13 @@ func (candidateRp *AutoRp_Active_CandidateRp) GetEntityData() *types.CommonEntit
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    candidateRp.EntityData.Children = make(map[string]types.YChild)
-    candidateRp.EntityData.Children["traffic"] = types.YChild{"Traffic", &candidateRp.Traffic}
-    candidateRp.EntityData.Children["rps"] = types.YChild{"Rps", &candidateRp.Rps}
-    candidateRp.EntityData.Leafs = make(map[string]types.YLeaf)
+    candidateRp.EntityData.Children = types.NewOrderedMap()
+    candidateRp.EntityData.Children.Append("traffic", types.YChild{"Traffic", &candidateRp.Traffic})
+    candidateRp.EntityData.Children.Append("rps", types.YChild{"Rps", &candidateRp.Rps})
+    candidateRp.EntityData.Leafs = types.NewOrderedMap()
+
+    candidateRp.EntityData.YListKeys = []string {}
+
     return &(candidateRp.EntityData)
 }
 
@@ -567,10 +609,13 @@ func (traffic *AutoRp_Active_CandidateRp_Traffic) GetEntityData() *types.CommonE
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    traffic.EntityData.Leafs["active-sent-packets"] = types.YLeaf{"ActiveSentPackets", traffic.ActiveSentPackets}
-    traffic.EntityData.Leafs["standby-sent-packets"] = types.YLeaf{"StandbySentPackets", traffic.StandbySentPackets}
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+    traffic.EntityData.Leafs.Append("active-sent-packets", types.YLeaf{"ActiveSentPackets", traffic.ActiveSentPackets})
+    traffic.EntityData.Leafs.Append("standby-sent-packets", types.YLeaf{"StandbySentPackets", traffic.StandbySentPackets})
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -582,7 +627,7 @@ type AutoRp_Active_CandidateRp_Rps struct {
 
     // AutoRP Candidate RP Entry. The type is slice of
     // AutoRp_Active_CandidateRp_Rps_Rp.
-    Rp []AutoRp_Active_CandidateRp_Rps_Rp
+    Rp []*AutoRp_Active_CandidateRp_Rps_Rp
 }
 
 func (rps *AutoRp_Active_CandidateRp_Rps) GetEntityData() *types.CommonEntityData {
@@ -595,12 +640,15 @@ func (rps *AutoRp_Active_CandidateRp_Rps) GetEntityData() *types.CommonEntityDat
     rps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rps.EntityData.Children = make(map[string]types.YChild)
-    rps.EntityData.Children["rp"] = types.YChild{"Rp", nil}
+    rps.EntityData.Children = types.NewOrderedMap()
+    rps.EntityData.Children.Append("rp", types.YChild{"Rp", nil})
     for i := range rps.Rp {
-        rps.EntityData.Children[types.GetSegmentPath(&rps.Rp[i])] = types.YChild{"Rp", &rps.Rp[i]}
+        rps.EntityData.Children.Append(types.GetSegmentPath(rps.Rp[i]), types.YChild{"Rp", rps.Rp[i]})
     }
-    rps.EntityData.Leafs = make(map[string]types.YLeaf)
+    rps.EntityData.Leafs = types.NewOrderedMap()
+
+    rps.EntityData.YListKeys = []string {}
+
     return &(rps.EntityData)
 }
 
@@ -610,7 +658,7 @@ type AutoRp_Active_CandidateRp_Rps_Rp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Protocol Mode. The type is AutoRpProtocolMode.
@@ -620,7 +668,7 @@ type AutoRp_Active_CandidateRp_Rps_Rp struct {
     AccessListName interface{}
 
     // Candidate RP IP Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CandidateRpAddress interface{}
 
     // TTL. The type is interface{} with range: -2147483648..2147483647.
@@ -644,15 +692,18 @@ func (rp *AutoRp_Active_CandidateRp_Rps_Rp) GetEntityData() *types.CommonEntityD
     rp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rp.EntityData.Children = make(map[string]types.YChild)
-    rp.EntityData.Leafs = make(map[string]types.YLeaf)
-    rp.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", rp.InterfaceName}
-    rp.EntityData.Leafs["protocol-mode"] = types.YLeaf{"ProtocolMode", rp.ProtocolMode}
-    rp.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", rp.AccessListName}
-    rp.EntityData.Leafs["candidate-rp-address"] = types.YLeaf{"CandidateRpAddress", rp.CandidateRpAddress}
-    rp.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", rp.Ttl}
-    rp.EntityData.Leafs["announce-period"] = types.YLeaf{"AnnouncePeriod", rp.AnnouncePeriod}
-    rp.EntityData.Leafs["protocol-mode-xr"] = types.YLeaf{"ProtocolModeXr", rp.ProtocolModeXr}
+    rp.EntityData.Children = types.NewOrderedMap()
+    rp.EntityData.Leafs = types.NewOrderedMap()
+    rp.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", rp.InterfaceName})
+    rp.EntityData.Leafs.Append("protocol-mode", types.YLeaf{"ProtocolMode", rp.ProtocolMode})
+    rp.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", rp.AccessListName})
+    rp.EntityData.Leafs.Append("candidate-rp-address", types.YLeaf{"CandidateRpAddress", rp.CandidateRpAddress})
+    rp.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", rp.Ttl})
+    rp.EntityData.Leafs.Append("announce-period", types.YLeaf{"AnnouncePeriod", rp.AnnouncePeriod})
+    rp.EntityData.Leafs.Append("protocol-mode-xr", types.YLeaf{"ProtocolModeXr", rp.ProtocolModeXr})
+
+    rp.EntityData.YListKeys = []string {}
+
     return &(rp.EntityData)
 }
 
@@ -682,11 +733,14 @@ func (mappingAgent *AutoRp_Active_MappingAgent) GetEntityData() *types.CommonEnt
     mappingAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mappingAgent.EntityData.Children = make(map[string]types.YChild)
-    mappingAgent.EntityData.Children["traffic"] = types.YChild{"Traffic", &mappingAgent.Traffic}
-    mappingAgent.EntityData.Children["rp-addresses"] = types.YChild{"RpAddresses", &mappingAgent.RpAddresses}
-    mappingAgent.EntityData.Children["summary"] = types.YChild{"Summary", &mappingAgent.Summary}
-    mappingAgent.EntityData.Leafs = make(map[string]types.YLeaf)
+    mappingAgent.EntityData.Children = types.NewOrderedMap()
+    mappingAgent.EntityData.Children.Append("traffic", types.YChild{"Traffic", &mappingAgent.Traffic})
+    mappingAgent.EntityData.Children.Append("rp-addresses", types.YChild{"RpAddresses", &mappingAgent.RpAddresses})
+    mappingAgent.EntityData.Children.Append("summary", types.YChild{"Summary", &mappingAgent.Summary})
+    mappingAgent.EntityData.Leafs = types.NewOrderedMap()
+
+    mappingAgent.EntityData.YListKeys = []string {}
+
     return &(mappingAgent.EntityData)
 }
 
@@ -723,12 +777,15 @@ func (traffic *AutoRp_Active_MappingAgent_Traffic) GetEntityData() *types.Common
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    traffic.EntityData.Leafs["active-sent-packets"] = types.YLeaf{"ActiveSentPackets", traffic.ActiveSentPackets}
-    traffic.EntityData.Leafs["standby-sent-packets"] = types.YLeaf{"StandbySentPackets", traffic.StandbySentPackets}
-    traffic.EntityData.Leafs["active-received-packets"] = types.YLeaf{"ActiveReceivedPackets", traffic.ActiveReceivedPackets}
-    traffic.EntityData.Leafs["standby-received-packets"] = types.YLeaf{"StandbyReceivedPackets", traffic.StandbyReceivedPackets}
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+    traffic.EntityData.Leafs.Append("active-sent-packets", types.YLeaf{"ActiveSentPackets", traffic.ActiveSentPackets})
+    traffic.EntityData.Leafs.Append("standby-sent-packets", types.YLeaf{"StandbySentPackets", traffic.StandbySentPackets})
+    traffic.EntityData.Leafs.Append("active-received-packets", types.YLeaf{"ActiveReceivedPackets", traffic.ActiveReceivedPackets})
+    traffic.EntityData.Leafs.Append("standby-received-packets", types.YLeaf{"StandbyReceivedPackets", traffic.StandbyReceivedPackets})
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -740,7 +797,7 @@ type AutoRp_Active_MappingAgent_RpAddresses struct {
 
     // AutoRP Mapping Agent Entry. The type is slice of
     // AutoRp_Active_MappingAgent_RpAddresses_RpAddress.
-    RpAddress []AutoRp_Active_MappingAgent_RpAddresses_RpAddress
+    RpAddress []*AutoRp_Active_MappingAgent_RpAddresses_RpAddress
 }
 
 func (rpAddresses *AutoRp_Active_MappingAgent_RpAddresses) GetEntityData() *types.CommonEntityData {
@@ -753,12 +810,15 @@ func (rpAddresses *AutoRp_Active_MappingAgent_RpAddresses) GetEntityData() *type
     rpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpAddresses.EntityData.Children = make(map[string]types.YChild)
-    rpAddresses.EntityData.Children["rp-address"] = types.YChild{"RpAddress", nil}
+    rpAddresses.EntityData.Children = types.NewOrderedMap()
+    rpAddresses.EntityData.Children.Append("rp-address", types.YChild{"RpAddress", nil})
     for i := range rpAddresses.RpAddress {
-        rpAddresses.EntityData.Children[types.GetSegmentPath(&rpAddresses.RpAddress[i])] = types.YChild{"RpAddress", &rpAddresses.RpAddress[i]}
+        rpAddresses.EntityData.Children.Append(types.GetSegmentPath(rpAddresses.RpAddress[i]), types.YChild{"RpAddress", rpAddresses.RpAddress[i]})
     }
-    rpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    rpAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    rpAddresses.EntityData.YListKeys = []string {}
+
     return &(rpAddresses.EntityData)
 }
 
@@ -769,11 +829,11 @@ type AutoRp_Active_MappingAgent_RpAddresses_RpAddress struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. RP Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
     // Candidate-RP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RpAddressXr interface{}
 
     // Time for expiration in seconds. The type is interface{} with range:
@@ -784,8 +844,8 @@ type AutoRp_Active_MappingAgent_RpAddresses_RpAddress struct {
     PimVersion interface{}
 
     // Array of ranges. The type is slice of
-    // AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range_.
-    Range_ []AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range
+    // AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range.
+    Range []*AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range
 }
 
 func (rpAddress *AutoRp_Active_MappingAgent_RpAddresses_RpAddress) GetEntityData() *types.CommonEntityData {
@@ -793,21 +853,24 @@ func (rpAddress *AutoRp_Active_MappingAgent_RpAddresses_RpAddress) GetEntityData
     rpAddress.EntityData.YangName = "rp-address"
     rpAddress.EntityData.BundleName = "cisco_ios_xr"
     rpAddress.EntityData.ParentYangName = "rp-addresses"
-    rpAddress.EntityData.SegmentPath = "rp-address" + "[rp-address='" + fmt.Sprintf("%v", rpAddress.RpAddress) + "']"
+    rpAddress.EntityData.SegmentPath = "rp-address" + types.AddKeyToken(rpAddress.RpAddress, "rp-address")
     rpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rpAddress.EntityData.Children = make(map[string]types.YChild)
-    rpAddress.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range rpAddress.Range_ {
-        rpAddress.EntityData.Children[types.GetSegmentPath(&rpAddress.Range_[i])] = types.YChild{"Range_", &rpAddress.Range_[i]}
+    rpAddress.EntityData.Children = types.NewOrderedMap()
+    rpAddress.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range rpAddress.Range {
+        rpAddress.EntityData.Children.Append(types.GetSegmentPath(rpAddress.Range[i]), types.YChild{"Range", rpAddress.Range[i]})
     }
-    rpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    rpAddress.EntityData.Leafs["rp-address"] = types.YLeaf{"RpAddress", rpAddress.RpAddress}
-    rpAddress.EntityData.Leafs["rp-address-xr"] = types.YLeaf{"RpAddressXr", rpAddress.RpAddressXr}
-    rpAddress.EntityData.Leafs["expiry-time"] = types.YLeaf{"ExpiryTime", rpAddress.ExpiryTime}
-    rpAddress.EntityData.Leafs["pim-version"] = types.YLeaf{"PimVersion", rpAddress.PimVersion}
+    rpAddress.EntityData.Leafs = types.NewOrderedMap()
+    rpAddress.EntityData.Leafs.Append("rp-address", types.YLeaf{"RpAddress", rpAddress.RpAddress})
+    rpAddress.EntityData.Leafs.Append("rp-address-xr", types.YLeaf{"RpAddressXr", rpAddress.RpAddressXr})
+    rpAddress.EntityData.Leafs.Append("expiry-time", types.YLeaf{"ExpiryTime", rpAddress.ExpiryTime})
+    rpAddress.EntityData.Leafs.Append("pim-version", types.YLeaf{"PimVersion", rpAddress.PimVersion})
+
+    rpAddress.EntityData.YListKeys = []string {"RpAddress"}
+
     return &(rpAddress.EntityData)
 }
 
@@ -818,7 +881,7 @@ type AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range struct {
     YFilter yfilter.YFilter
 
     // Prefix of the range. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length of the range. The type is interface{} with range: 0..255.
@@ -851,15 +914,18 @@ func (self *AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range) GetEntityDat
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", self.Prefix}
-    self.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", self.PrefixLength}
-    self.EntityData.Leafs["protocol-mode"] = types.YLeaf{"ProtocolMode", self.ProtocolMode}
-    self.EntityData.Leafs["is-advertised"] = types.YLeaf{"IsAdvertised", self.IsAdvertised}
-    self.EntityData.Leafs["create-type"] = types.YLeaf{"CreateType", self.CreateType}
-    self.EntityData.Leafs["check-point-object-id"] = types.YLeaf{"CheckPointObjectId", self.CheckPointObjectId}
-    self.EntityData.Leafs["uptime"] = types.YLeaf{"Uptime", self.Uptime}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", self.Prefix})
+    self.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", self.PrefixLength})
+    self.EntityData.Leafs.Append("protocol-mode", types.YLeaf{"ProtocolMode", self.ProtocolMode})
+    self.EntityData.Leafs.Append("is-advertised", types.YLeaf{"IsAdvertised", self.IsAdvertised})
+    self.EntityData.Leafs.Append("create-type", types.YLeaf{"CreateType", self.CreateType})
+    self.EntityData.Leafs.Append("check-point-object-id", types.YLeaf{"CheckPointObjectId", self.CheckPointObjectId})
+    self.EntityData.Leafs.Append("uptime", types.YLeaf{"Uptime", self.Uptime})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -891,11 +957,14 @@ func (summary *AutoRp_Active_MappingAgent_Summary) GetEntityData() *types.Common
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["is-maximum-disabled"] = types.YLeaf{"IsMaximumDisabled", summary.IsMaximumDisabled}
-    summary.EntityData.Leafs["cache-limit"] = types.YLeaf{"CacheLimit", summary.CacheLimit}
-    summary.EntityData.Leafs["cache-count"] = types.YLeaf{"CacheCount", summary.CacheCount}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("is-maximum-disabled", types.YLeaf{"IsMaximumDisabled", summary.IsMaximumDisabled})
+    summary.EntityData.Leafs.Append("cache-limit", types.YLeaf{"CacheLimit", summary.CacheLimit})
+    summary.EntityData.Leafs.Append("cache-count", types.YLeaf{"CacheCount", summary.CacheCount})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 

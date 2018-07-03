@@ -44,9 +44,12 @@ func (telnet *Telnet) GetEntityData() *types.CommonEntityData {
     telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telnet.EntityData.Children = make(map[string]types.YChild)
-    telnet.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &telnet.Vrfs}
-    telnet.EntityData.Leafs = make(map[string]types.YLeaf)
+    telnet.EntityData.Children = types.NewOrderedMap()
+    telnet.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &telnet.Vrfs})
+    telnet.EntityData.Leafs = types.NewOrderedMap()
+
+    telnet.EntityData.YListKeys = []string {}
+
     return &(telnet.EntityData)
 }
 
@@ -57,7 +60,7 @@ type Telnet_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF name for telnet service. The type is slice of Telnet_Vrfs_Vrf.
-    Vrf []Telnet_Vrfs_Vrf
+    Vrf []*Telnet_Vrfs_Vrf
 }
 
 func (vrfs *Telnet_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (vrfs *Telnet_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -86,7 +92,7 @@ type Telnet_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // IPv4 configuration.
@@ -98,15 +104,18 @@ func (vrf *Telnet_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &vrf.Ipv4}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &vrf.Ipv4})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -130,9 +139,12 @@ func (ipv4 *Telnet_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", ipv4.Dscp}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", ipv4.Dscp})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 

@@ -24,6 +24,58 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ppp-ma-oper:ppp", reflect.TypeOf(Ppp{}))
 }
 
+// NcpIdent represents Ncp ident
+type NcpIdent string
+
+const (
+    // CDP control protocol
+    NcpIdent_cdpcp NcpIdent = "cdpcp"
+
+    // IPv4 control protocol
+    NcpIdent_ipcp NcpIdent = "ipcp"
+
+    // IPv4 Interworking control protocol
+    NcpIdent_ipcpiw NcpIdent = "ipcpiw"
+
+    // IPv6 control protocol
+    NcpIdent_ipv6cp NcpIdent = "ipv6cp"
+
+    // MPLS control protocol
+    NcpIdent_mplscp NcpIdent = "mplscp"
+
+    // OSI (CLNS) control protocol
+    NcpIdent_osicp NcpIdent = "osicp"
+)
+
+// PppSsoFsmState represents Ppp sso fsm state
+type PppSsoFsmState string
+
+const (
+    // Not ready
+    PppSsoFsmState_ppp_sso_state_not_ready_0 PppSsoFsmState = "ppp-sso-state-not-ready-0"
+
+    // S UnNegd
+    PppSsoFsmState_ppp_sso_state_standby_unnegd_1 PppSsoFsmState = "ppp-sso-state-standby-unnegd-1"
+
+    // A Down
+    PppSsoFsmState_ppp_sso_state_active_down_2 PppSsoFsmState = "ppp-sso-state-active-down-2"
+
+    // Deactivating
+    PppSsoFsmState_ppp_sso_state_deactivating_3 PppSsoFsmState = "ppp-sso-state-deactivating-3"
+
+    // A UnNegd
+    PppSsoFsmState_ppp_sso_state_active_unnegd_4 PppSsoFsmState = "ppp-sso-state-active-unnegd-4"
+
+    // S Negd
+    PppSsoFsmState_ppp_sso_state_standby_negd_5 PppSsoFsmState = "ppp-sso-state-standby-negd-5"
+
+    // Activating
+    PppSsoFsmState_ppp_sso_state_activating_6 PppSsoFsmState = "ppp-sso-state-activating-6"
+
+    // A Negd
+    PppSsoFsmState_ppp_sso_state_active_negd_7 PppSsoFsmState = "ppp-sso-state-active-negd-7"
+)
+
 // PppIphcCompression represents IPHC compression type
 type PppIphcCompression string
 
@@ -42,6 +94,41 @@ const (
 
     // CISCO
     PppIphcCompression_ppp_iphc_compression_fmt_cisco PppIphcCompression = "ppp-iphc-compression-fmt-cisco"
+)
+
+// PppFsmState represents Ppp fsm state
+type PppFsmState string
+
+const (
+    // Connection Idle
+    PppFsmState_ppp_fsm_state_initial_0 PppFsmState = "ppp-fsm-state-initial-0"
+
+    // This layer required, but lower layer down
+    PppFsmState_ppp_fsm_state_starting_1 PppFsmState = "ppp-fsm-state-starting-1"
+
+    // Lower layer up, but this layer not required
+    PppFsmState_ppp_fsm_state_closed_2 PppFsmState = "ppp-fsm-state-closed-2"
+
+    // Listening for a Config Request
+    PppFsmState_ppp_fsm_state_stopped_3 PppFsmState = "ppp-fsm-state-stopped-3"
+
+    // Shutting down due to local change
+    PppFsmState_ppp_fsm_state_closing_4 PppFsmState = "ppp-fsm-state-closing-4"
+
+    // Shutting down due to peer's actions
+    PppFsmState_ppp_fsm_state_stopping_5 PppFsmState = "ppp-fsm-state-stopping-5"
+
+    // Config Request Sent
+    PppFsmState_ppp_fsm_state_req_sent_6 PppFsmState = "ppp-fsm-state-req-sent-6"
+
+    // Config Ack Received
+    PppFsmState_ppp_fsm_state_ack_rcvd_7 PppFsmState = "ppp-fsm-state-ack-rcvd-7"
+
+    // Config Ack Sent
+    PppFsmState_ppp_fsm_state_ack_sent_8 PppFsmState = "ppp-fsm-state-ack-sent-8"
+
+    // Connection Open
+    PppFsmState_ppp_fsm_state_opened_9 PppFsmState = "ppp-fsm-state-opened-9"
 )
 
 // PppLcpMpMbrState represents MP member states
@@ -91,93 +178,6 @@ const (
     PppLcpMpMbrState_ppp_lcp_mp_mbr_state_active PppLcpMpMbrState = "ppp-lcp-mp-mbr-state-active"
 )
 
-// PppSsoFsmState represents Ppp sso fsm state
-type PppSsoFsmState string
-
-const (
-    // Not ready
-    PppSsoFsmState_ppp_sso_state_not_ready_0 PppSsoFsmState = "ppp-sso-state-not-ready-0"
-
-    // S UnNegd
-    PppSsoFsmState_ppp_sso_state_standby_unnegd_1 PppSsoFsmState = "ppp-sso-state-standby-unnegd-1"
-
-    // A Down
-    PppSsoFsmState_ppp_sso_state_active_down_2 PppSsoFsmState = "ppp-sso-state-active-down-2"
-
-    // Deactivating
-    PppSsoFsmState_ppp_sso_state_deactivating_3 PppSsoFsmState = "ppp-sso-state-deactivating-3"
-
-    // A UnNegd
-    PppSsoFsmState_ppp_sso_state_active_unnegd_4 PppSsoFsmState = "ppp-sso-state-active-unnegd-4"
-
-    // S Negd
-    PppSsoFsmState_ppp_sso_state_standby_negd_5 PppSsoFsmState = "ppp-sso-state-standby-negd-5"
-
-    // Activating
-    PppSsoFsmState_ppp_sso_state_activating_6 PppSsoFsmState = "ppp-sso-state-activating-6"
-
-    // A Negd
-    PppSsoFsmState_ppp_sso_state_active_negd_7 PppSsoFsmState = "ppp-sso-state-active-negd-7"
-)
-
-// PppFsmState represents Ppp fsm state
-type PppFsmState string
-
-const (
-    // Connection Idle
-    PppFsmState_ppp_fsm_state_initial_0 PppFsmState = "ppp-fsm-state-initial-0"
-
-    // This layer required, but lower layer down
-    PppFsmState_ppp_fsm_state_starting_1 PppFsmState = "ppp-fsm-state-starting-1"
-
-    // Lower layer up, but this layer not required
-    PppFsmState_ppp_fsm_state_closed_2 PppFsmState = "ppp-fsm-state-closed-2"
-
-    // Listening for a Config Request
-    PppFsmState_ppp_fsm_state_stopped_3 PppFsmState = "ppp-fsm-state-stopped-3"
-
-    // Shutting down due to local change
-    PppFsmState_ppp_fsm_state_closing_4 PppFsmState = "ppp-fsm-state-closing-4"
-
-    // Shutting down due to peer's actions
-    PppFsmState_ppp_fsm_state_stopping_5 PppFsmState = "ppp-fsm-state-stopping-5"
-
-    // Config Request Sent
-    PppFsmState_ppp_fsm_state_req_sent_6 PppFsmState = "ppp-fsm-state-req-sent-6"
-
-    // Config Ack Received
-    PppFsmState_ppp_fsm_state_ack_rcvd_7 PppFsmState = "ppp-fsm-state-ack-rcvd-7"
-
-    // Config Ack Sent
-    PppFsmState_ppp_fsm_state_ack_sent_8 PppFsmState = "ppp-fsm-state-ack-sent-8"
-
-    // Connection Open
-    PppFsmState_ppp_fsm_state_opened_9 PppFsmState = "ppp-fsm-state-opened-9"
-)
-
-// NcpIdent represents Ncp ident
-type NcpIdent string
-
-const (
-    // CDP control protocol
-    NcpIdent_cdpcp NcpIdent = "cdpcp"
-
-    // IPv4 control protocol
-    NcpIdent_ipcp NcpIdent = "ipcp"
-
-    // IPv4 Interworking control protocol
-    NcpIdent_ipcpiw NcpIdent = "ipcpiw"
-
-    // IPv6 control protocol
-    NcpIdent_ipv6cp NcpIdent = "ipv6cp"
-
-    // MPLS control protocol
-    NcpIdent_mplscp NcpIdent = "mplscp"
-
-    // OSI (CLNS) control protocol
-    NcpIdent_osicp NcpIdent = "osicp"
-)
-
 // Ppp
 // PPP operational data
 type Ppp struct {
@@ -198,9 +198,12 @@ func (ppp *Ppp) GetEntityData() *types.CommonEntityData {
     ppp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ppp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ppp.EntityData.Children = make(map[string]types.YChild)
-    ppp.EntityData.Children["nodes"] = types.YChild{"Nodes", &ppp.Nodes}
-    ppp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ppp.EntityData.Children = types.NewOrderedMap()
+    ppp.EntityData.Children.Append("nodes", types.YChild{"Nodes", &ppp.Nodes})
+    ppp.EntityData.Leafs = types.NewOrderedMap()
+
+    ppp.EntityData.YListKeys = []string {}
+
     return &(ppp.EntityData)
 }
 
@@ -212,7 +215,7 @@ type Ppp_Nodes struct {
 
     // The PPP operational data for a particular node. The type is slice of
     // Ppp_Nodes_Node.
-    Node []Ppp_Nodes_Node
+    Node []*Ppp_Nodes_Node
 }
 
 func (nodes *Ppp_Nodes) GetEntityData() *types.CommonEntityData {
@@ -225,12 +228,15 @@ func (nodes *Ppp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -241,7 +247,7 @@ type Ppp_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // PPP statistics data for a particular node.
@@ -271,21 +277,24 @@ func (node *Ppp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
-    node.EntityData.Children["node-interfaces"] = types.YChild{"NodeInterfaces", &node.NodeInterfaces}
-    node.EntityData.Children["sso-alerts"] = types.YChild{"SsoAlerts", &node.SsoAlerts}
-    node.EntityData.Children["node-interface-statistics"] = types.YChild{"NodeInterfaceStatistics", &node.NodeInterfaceStatistics}
-    node.EntityData.Children["sso-summary"] = types.YChild{"SsoSummary", &node.SsoSummary}
-    node.EntityData.Children["sso-groups"] = types.YChild{"SsoGroups", &node.SsoGroups}
-    node.EntityData.Children["summary"] = types.YChild{"Summary", &node.Summary}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("statistics", types.YChild{"Statistics", &node.Statistics})
+    node.EntityData.Children.Append("node-interfaces", types.YChild{"NodeInterfaces", &node.NodeInterfaces})
+    node.EntityData.Children.Append("sso-alerts", types.YChild{"SsoAlerts", &node.SsoAlerts})
+    node.EntityData.Children.Append("node-interface-statistics", types.YChild{"NodeInterfaceStatistics", &node.NodeInterfaceStatistics})
+    node.EntityData.Children.Append("sso-summary", types.YChild{"SsoSummary", &node.SsoSummary})
+    node.EntityData.Children.Append("sso-groups", types.YChild{"SsoGroups", &node.SsoGroups})
+    node.EntityData.Children.Append("summary", types.YChild{"Summary", &node.Summary})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -303,7 +312,7 @@ type Ppp_Nodes_Node_Statistics struct {
 
     // Array of PPP NCP Statistics. The type is slice of
     // Ppp_Nodes_Node_Statistics_NcpStatisticsArray.
-    NcpStatisticsArray []Ppp_Nodes_Node_Statistics_NcpStatisticsArray
+    NcpStatisticsArray []*Ppp_Nodes_Node_Statistics_NcpStatisticsArray
 }
 
 func (statistics *Ppp_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
@@ -316,14 +325,17 @@ func (statistics *Ppp_Nodes_Node_Statistics) GetEntityData() *types.CommonEntity
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["lcp-statistics"] = types.YChild{"LcpStatistics", &statistics.LcpStatistics}
-    statistics.EntityData.Children["authentication-statistics"] = types.YChild{"AuthenticationStatistics", &statistics.AuthenticationStatistics}
-    statistics.EntityData.Children["ncp-statistics-array"] = types.YChild{"NcpStatisticsArray", nil}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("lcp-statistics", types.YChild{"LcpStatistics", &statistics.LcpStatistics})
+    statistics.EntityData.Children.Append("authentication-statistics", types.YChild{"AuthenticationStatistics", &statistics.AuthenticationStatistics})
+    statistics.EntityData.Children.Append("ncp-statistics-array", types.YChild{"NcpStatisticsArray", nil})
     for i := range statistics.NcpStatisticsArray {
-        statistics.EntityData.Children[types.GetSegmentPath(&statistics.NcpStatisticsArray[i])] = types.YChild{"NcpStatisticsArray", &statistics.NcpStatisticsArray[i]}
+        statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.NcpStatisticsArray[i]), types.YChild{"NcpStatisticsArray", statistics.NcpStatisticsArray[i]})
     }
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -440,32 +452,35 @@ func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetEntityData() *t
     lcpStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lcpStatistics.EntityData.Children = make(map[string]types.YChild)
-    lcpStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    lcpStatistics.EntityData.Leafs["conf-req-sent"] = types.YLeaf{"ConfReqSent", lcpStatistics.ConfReqSent}
-    lcpStatistics.EntityData.Leafs["conf-req-rcvd"] = types.YLeaf{"ConfReqRcvd", lcpStatistics.ConfReqRcvd}
-    lcpStatistics.EntityData.Leafs["conf-ack-sent"] = types.YLeaf{"ConfAckSent", lcpStatistics.ConfAckSent}
-    lcpStatistics.EntityData.Leafs["conf-ack-rcvd"] = types.YLeaf{"ConfAckRcvd", lcpStatistics.ConfAckRcvd}
-    lcpStatistics.EntityData.Leafs["conf-nak-sent"] = types.YLeaf{"ConfNakSent", lcpStatistics.ConfNakSent}
-    lcpStatistics.EntityData.Leafs["conf-nak-rcvd"] = types.YLeaf{"ConfNakRcvd", lcpStatistics.ConfNakRcvd}
-    lcpStatistics.EntityData.Leafs["conf-rej-sent"] = types.YLeaf{"ConfRejSent", lcpStatistics.ConfRejSent}
-    lcpStatistics.EntityData.Leafs["conf-rej-rcvd"] = types.YLeaf{"ConfRejRcvd", lcpStatistics.ConfRejRcvd}
-    lcpStatistics.EntityData.Leafs["term-req-sent"] = types.YLeaf{"TermReqSent", lcpStatistics.TermReqSent}
-    lcpStatistics.EntityData.Leafs["term-req-rcvd"] = types.YLeaf{"TermReqRcvd", lcpStatistics.TermReqRcvd}
-    lcpStatistics.EntityData.Leafs["term-ack-sent"] = types.YLeaf{"TermAckSent", lcpStatistics.TermAckSent}
-    lcpStatistics.EntityData.Leafs["term-ack-rcvd"] = types.YLeaf{"TermAckRcvd", lcpStatistics.TermAckRcvd}
-    lcpStatistics.EntityData.Leafs["code-rej-sent"] = types.YLeaf{"CodeRejSent", lcpStatistics.CodeRejSent}
-    lcpStatistics.EntityData.Leafs["code-rej-rcvd"] = types.YLeaf{"CodeRejRcvd", lcpStatistics.CodeRejRcvd}
-    lcpStatistics.EntityData.Leafs["proto-rej-sent"] = types.YLeaf{"ProtoRejSent", lcpStatistics.ProtoRejSent}
-    lcpStatistics.EntityData.Leafs["proto-rej-rcvd"] = types.YLeaf{"ProtoRejRcvd", lcpStatistics.ProtoRejRcvd}
-    lcpStatistics.EntityData.Leafs["echo-req-sent"] = types.YLeaf{"EchoReqSent", lcpStatistics.EchoReqSent}
-    lcpStatistics.EntityData.Leafs["echo-req-rcvd"] = types.YLeaf{"EchoReqRcvd", lcpStatistics.EchoReqRcvd}
-    lcpStatistics.EntityData.Leafs["echo-rep-sent"] = types.YLeaf{"EchoRepSent", lcpStatistics.EchoRepSent}
-    lcpStatistics.EntityData.Leafs["echo-rep-rcvd"] = types.YLeaf{"EchoRepRcvd", lcpStatistics.EchoRepRcvd}
-    lcpStatistics.EntityData.Leafs["disc-req-sent"] = types.YLeaf{"DiscReqSent", lcpStatistics.DiscReqSent}
-    lcpStatistics.EntityData.Leafs["disc-req-rcvd"] = types.YLeaf{"DiscReqRcvd", lcpStatistics.DiscReqRcvd}
-    lcpStatistics.EntityData.Leafs["link-up"] = types.YLeaf{"LinkUp", lcpStatistics.LinkUp}
-    lcpStatistics.EntityData.Leafs["link-error"] = types.YLeaf{"LinkError", lcpStatistics.LinkError}
+    lcpStatistics.EntityData.Children = types.NewOrderedMap()
+    lcpStatistics.EntityData.Leafs = types.NewOrderedMap()
+    lcpStatistics.EntityData.Leafs.Append("conf-req-sent", types.YLeaf{"ConfReqSent", lcpStatistics.ConfReqSent})
+    lcpStatistics.EntityData.Leafs.Append("conf-req-rcvd", types.YLeaf{"ConfReqRcvd", lcpStatistics.ConfReqRcvd})
+    lcpStatistics.EntityData.Leafs.Append("conf-ack-sent", types.YLeaf{"ConfAckSent", lcpStatistics.ConfAckSent})
+    lcpStatistics.EntityData.Leafs.Append("conf-ack-rcvd", types.YLeaf{"ConfAckRcvd", lcpStatistics.ConfAckRcvd})
+    lcpStatistics.EntityData.Leafs.Append("conf-nak-sent", types.YLeaf{"ConfNakSent", lcpStatistics.ConfNakSent})
+    lcpStatistics.EntityData.Leafs.Append("conf-nak-rcvd", types.YLeaf{"ConfNakRcvd", lcpStatistics.ConfNakRcvd})
+    lcpStatistics.EntityData.Leafs.Append("conf-rej-sent", types.YLeaf{"ConfRejSent", lcpStatistics.ConfRejSent})
+    lcpStatistics.EntityData.Leafs.Append("conf-rej-rcvd", types.YLeaf{"ConfRejRcvd", lcpStatistics.ConfRejRcvd})
+    lcpStatistics.EntityData.Leafs.Append("term-req-sent", types.YLeaf{"TermReqSent", lcpStatistics.TermReqSent})
+    lcpStatistics.EntityData.Leafs.Append("term-req-rcvd", types.YLeaf{"TermReqRcvd", lcpStatistics.TermReqRcvd})
+    lcpStatistics.EntityData.Leafs.Append("term-ack-sent", types.YLeaf{"TermAckSent", lcpStatistics.TermAckSent})
+    lcpStatistics.EntityData.Leafs.Append("term-ack-rcvd", types.YLeaf{"TermAckRcvd", lcpStatistics.TermAckRcvd})
+    lcpStatistics.EntityData.Leafs.Append("code-rej-sent", types.YLeaf{"CodeRejSent", lcpStatistics.CodeRejSent})
+    lcpStatistics.EntityData.Leafs.Append("code-rej-rcvd", types.YLeaf{"CodeRejRcvd", lcpStatistics.CodeRejRcvd})
+    lcpStatistics.EntityData.Leafs.Append("proto-rej-sent", types.YLeaf{"ProtoRejSent", lcpStatistics.ProtoRejSent})
+    lcpStatistics.EntityData.Leafs.Append("proto-rej-rcvd", types.YLeaf{"ProtoRejRcvd", lcpStatistics.ProtoRejRcvd})
+    lcpStatistics.EntityData.Leafs.Append("echo-req-sent", types.YLeaf{"EchoReqSent", lcpStatistics.EchoReqSent})
+    lcpStatistics.EntityData.Leafs.Append("echo-req-rcvd", types.YLeaf{"EchoReqRcvd", lcpStatistics.EchoReqRcvd})
+    lcpStatistics.EntityData.Leafs.Append("echo-rep-sent", types.YLeaf{"EchoRepSent", lcpStatistics.EchoRepSent})
+    lcpStatistics.EntityData.Leafs.Append("echo-rep-rcvd", types.YLeaf{"EchoRepRcvd", lcpStatistics.EchoRepRcvd})
+    lcpStatistics.EntityData.Leafs.Append("disc-req-sent", types.YLeaf{"DiscReqSent", lcpStatistics.DiscReqSent})
+    lcpStatistics.EntityData.Leafs.Append("disc-req-rcvd", types.YLeaf{"DiscReqRcvd", lcpStatistics.DiscReqRcvd})
+    lcpStatistics.EntityData.Leafs.Append("link-up", types.YLeaf{"LinkUp", lcpStatistics.LinkUp})
+    lcpStatistics.EntityData.Leafs.Append("link-error", types.YLeaf{"LinkError", lcpStatistics.LinkError})
+
+    lcpStatistics.EntityData.YListKeys = []string {}
+
     return &(lcpStatistics.EntityData)
 }
 
@@ -546,23 +561,26 @@ func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatisti
     authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticationStatistics.EntityData.Children = make(map[string]types.YChild)
-    authenticationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticationStatistics.EntityData.Leafs["pap-req-sent"] = types.YLeaf{"PapReqSent", authenticationStatistics.PapReqSent}
-    authenticationStatistics.EntityData.Leafs["pap-req-rcvd"] = types.YLeaf{"PapReqRcvd", authenticationStatistics.PapReqRcvd}
-    authenticationStatistics.EntityData.Leafs["pap-ack-sent"] = types.YLeaf{"PapAckSent", authenticationStatistics.PapAckSent}
-    authenticationStatistics.EntityData.Leafs["pap-ack-rcvd"] = types.YLeaf{"PapAckRcvd", authenticationStatistics.PapAckRcvd}
-    authenticationStatistics.EntityData.Leafs["pap-nak-sent"] = types.YLeaf{"PapNakSent", authenticationStatistics.PapNakSent}
-    authenticationStatistics.EntityData.Leafs["pap-nak-rcvd"] = types.YLeaf{"PapNakRcvd", authenticationStatistics.PapNakRcvd}
-    authenticationStatistics.EntityData.Leafs["chap-chall-sent"] = types.YLeaf{"ChapChallSent", authenticationStatistics.ChapChallSent}
-    authenticationStatistics.EntityData.Leafs["chap-chall-rcvd"] = types.YLeaf{"ChapChallRcvd", authenticationStatistics.ChapChallRcvd}
-    authenticationStatistics.EntityData.Leafs["chap-resp-sent"] = types.YLeaf{"ChapRespSent", authenticationStatistics.ChapRespSent}
-    authenticationStatistics.EntityData.Leafs["chap-resp-rcvd"] = types.YLeaf{"ChapRespRcvd", authenticationStatistics.ChapRespRcvd}
-    authenticationStatistics.EntityData.Leafs["chap-rep-succ-sent"] = types.YLeaf{"ChapRepSuccSent", authenticationStatistics.ChapRepSuccSent}
-    authenticationStatistics.EntityData.Leafs["chap-rep-succ-rcvd"] = types.YLeaf{"ChapRepSuccRcvd", authenticationStatistics.ChapRepSuccRcvd}
-    authenticationStatistics.EntityData.Leafs["chap-rep-fail-sent"] = types.YLeaf{"ChapRepFailSent", authenticationStatistics.ChapRepFailSent}
-    authenticationStatistics.EntityData.Leafs["chap-rep-fail-rcvd"] = types.YLeaf{"ChapRepFailRcvd", authenticationStatistics.ChapRepFailRcvd}
-    authenticationStatistics.EntityData.Leafs["auth-timeout-count"] = types.YLeaf{"AuthTimeoutCount", authenticationStatistics.AuthTimeoutCount}
+    authenticationStatistics.EntityData.Children = types.NewOrderedMap()
+    authenticationStatistics.EntityData.Leafs = types.NewOrderedMap()
+    authenticationStatistics.EntityData.Leafs.Append("pap-req-sent", types.YLeaf{"PapReqSent", authenticationStatistics.PapReqSent})
+    authenticationStatistics.EntityData.Leafs.Append("pap-req-rcvd", types.YLeaf{"PapReqRcvd", authenticationStatistics.PapReqRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("pap-ack-sent", types.YLeaf{"PapAckSent", authenticationStatistics.PapAckSent})
+    authenticationStatistics.EntityData.Leafs.Append("pap-ack-rcvd", types.YLeaf{"PapAckRcvd", authenticationStatistics.PapAckRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("pap-nak-sent", types.YLeaf{"PapNakSent", authenticationStatistics.PapNakSent})
+    authenticationStatistics.EntityData.Leafs.Append("pap-nak-rcvd", types.YLeaf{"PapNakRcvd", authenticationStatistics.PapNakRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("chap-chall-sent", types.YLeaf{"ChapChallSent", authenticationStatistics.ChapChallSent})
+    authenticationStatistics.EntityData.Leafs.Append("chap-chall-rcvd", types.YLeaf{"ChapChallRcvd", authenticationStatistics.ChapChallRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("chap-resp-sent", types.YLeaf{"ChapRespSent", authenticationStatistics.ChapRespSent})
+    authenticationStatistics.EntityData.Leafs.Append("chap-resp-rcvd", types.YLeaf{"ChapRespRcvd", authenticationStatistics.ChapRespRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("chap-rep-succ-sent", types.YLeaf{"ChapRepSuccSent", authenticationStatistics.ChapRepSuccSent})
+    authenticationStatistics.EntityData.Leafs.Append("chap-rep-succ-rcvd", types.YLeaf{"ChapRepSuccRcvd", authenticationStatistics.ChapRepSuccRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("chap-rep-fail-sent", types.YLeaf{"ChapRepFailSent", authenticationStatistics.ChapRepFailSent})
+    authenticationStatistics.EntityData.Leafs.Append("chap-rep-fail-rcvd", types.YLeaf{"ChapRepFailRcvd", authenticationStatistics.ChapRepFailRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("auth-timeout-count", types.YLeaf{"AuthTimeoutCount", authenticationStatistics.AuthTimeoutCount})
+
+    authenticationStatistics.EntityData.YListKeys = []string {}
+
     return &(authenticationStatistics.EntityData)
 }
 
@@ -642,23 +660,26 @@ func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetEntit
     ncpStatisticsArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpStatisticsArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ncpStatisticsArray.EntityData.Children = make(map[string]types.YChild)
-    ncpStatisticsArray.EntityData.Leafs = make(map[string]types.YLeaf)
-    ncpStatisticsArray.EntityData.Leafs["ncp-identifier"] = types.YLeaf{"NcpIdentifier", ncpStatisticsArray.NcpIdentifier}
-    ncpStatisticsArray.EntityData.Leafs["conf-req-sent"] = types.YLeaf{"ConfReqSent", ncpStatisticsArray.ConfReqSent}
-    ncpStatisticsArray.EntityData.Leafs["conf-req-rcvd"] = types.YLeaf{"ConfReqRcvd", ncpStatisticsArray.ConfReqRcvd}
-    ncpStatisticsArray.EntityData.Leafs["conf-ack-sent"] = types.YLeaf{"ConfAckSent", ncpStatisticsArray.ConfAckSent}
-    ncpStatisticsArray.EntityData.Leafs["conf-ack-rcvd"] = types.YLeaf{"ConfAckRcvd", ncpStatisticsArray.ConfAckRcvd}
-    ncpStatisticsArray.EntityData.Leafs["conf-nak-sent"] = types.YLeaf{"ConfNakSent", ncpStatisticsArray.ConfNakSent}
-    ncpStatisticsArray.EntityData.Leafs["conf-nak-rcvd"] = types.YLeaf{"ConfNakRcvd", ncpStatisticsArray.ConfNakRcvd}
-    ncpStatisticsArray.EntityData.Leafs["conf-rej-sent"] = types.YLeaf{"ConfRejSent", ncpStatisticsArray.ConfRejSent}
-    ncpStatisticsArray.EntityData.Leafs["conf-rej-rcvd"] = types.YLeaf{"ConfRejRcvd", ncpStatisticsArray.ConfRejRcvd}
-    ncpStatisticsArray.EntityData.Leafs["term-req-sent"] = types.YLeaf{"TermReqSent", ncpStatisticsArray.TermReqSent}
-    ncpStatisticsArray.EntityData.Leafs["term-req-rcvd"] = types.YLeaf{"TermReqRcvd", ncpStatisticsArray.TermReqRcvd}
-    ncpStatisticsArray.EntityData.Leafs["term-ack-sent"] = types.YLeaf{"TermAckSent", ncpStatisticsArray.TermAckSent}
-    ncpStatisticsArray.EntityData.Leafs["term-ack-rcvd"] = types.YLeaf{"TermAckRcvd", ncpStatisticsArray.TermAckRcvd}
-    ncpStatisticsArray.EntityData.Leafs["proto-rej-sent"] = types.YLeaf{"ProtoRejSent", ncpStatisticsArray.ProtoRejSent}
-    ncpStatisticsArray.EntityData.Leafs["proto-rej-rcvd"] = types.YLeaf{"ProtoRejRcvd", ncpStatisticsArray.ProtoRejRcvd}
+    ncpStatisticsArray.EntityData.Children = types.NewOrderedMap()
+    ncpStatisticsArray.EntityData.Leafs = types.NewOrderedMap()
+    ncpStatisticsArray.EntityData.Leafs.Append("ncp-identifier", types.YLeaf{"NcpIdentifier", ncpStatisticsArray.NcpIdentifier})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-req-sent", types.YLeaf{"ConfReqSent", ncpStatisticsArray.ConfReqSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-req-rcvd", types.YLeaf{"ConfReqRcvd", ncpStatisticsArray.ConfReqRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-ack-sent", types.YLeaf{"ConfAckSent", ncpStatisticsArray.ConfAckSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-ack-rcvd", types.YLeaf{"ConfAckRcvd", ncpStatisticsArray.ConfAckRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-nak-sent", types.YLeaf{"ConfNakSent", ncpStatisticsArray.ConfNakSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-nak-rcvd", types.YLeaf{"ConfNakRcvd", ncpStatisticsArray.ConfNakRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-rej-sent", types.YLeaf{"ConfRejSent", ncpStatisticsArray.ConfRejSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-rej-rcvd", types.YLeaf{"ConfRejRcvd", ncpStatisticsArray.ConfRejRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("term-req-sent", types.YLeaf{"TermReqSent", ncpStatisticsArray.TermReqSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("term-req-rcvd", types.YLeaf{"TermReqRcvd", ncpStatisticsArray.TermReqRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("term-ack-sent", types.YLeaf{"TermAckSent", ncpStatisticsArray.TermAckSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("term-ack-rcvd", types.YLeaf{"TermAckRcvd", ncpStatisticsArray.TermAckRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("proto-rej-sent", types.YLeaf{"ProtoRejSent", ncpStatisticsArray.ProtoRejSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("proto-rej-rcvd", types.YLeaf{"ProtoRejRcvd", ncpStatisticsArray.ProtoRejRcvd})
+
+    ncpStatisticsArray.EntityData.YListKeys = []string {}
+
     return &(ncpStatisticsArray.EntityData)
 }
 
@@ -670,7 +691,7 @@ type Ppp_Nodes_Node_NodeInterfaces struct {
 
     // LCP and summarized NCP data for an interface running PPP. The type is slice
     // of Ppp_Nodes_Node_NodeInterfaces_NodeInterface.
-    NodeInterface []Ppp_Nodes_Node_NodeInterfaces_NodeInterface
+    NodeInterface []*Ppp_Nodes_Node_NodeInterfaces_NodeInterface
 }
 
 func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetEntityData() *types.CommonEntityData {
@@ -683,12 +704,15 @@ func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetEntityData() *types.Comm
     nodeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeInterfaces.EntityData.Children = make(map[string]types.YChild)
-    nodeInterfaces.EntityData.Children["node-interface"] = types.YChild{"NodeInterface", nil}
+    nodeInterfaces.EntityData.Children = types.NewOrderedMap()
+    nodeInterfaces.EntityData.Children.Append("node-interface", types.YChild{"NodeInterface", nil})
     for i := range nodeInterfaces.NodeInterface {
-        nodeInterfaces.EntityData.Children[types.GetSegmentPath(&nodeInterfaces.NodeInterface[i])] = types.YChild{"NodeInterface", &nodeInterfaces.NodeInterface[i]}
+        nodeInterfaces.EntityData.Children.Append(types.GetSegmentPath(nodeInterfaces.NodeInterface[i]), types.YChild{"NodeInterface", nodeInterfaces.NodeInterface[i]})
     }
-    nodeInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodeInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    nodeInterfaces.EntityData.YListKeys = []string {}
+
     return &(nodeInterfaces.EntityData)
 }
 
@@ -700,8 +724,8 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface running PPP. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Parent state. The type is interface{} with range: 0..4294967295.
     ParentState interface{}
@@ -728,7 +752,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface struct {
     IsSsrpConfigured interface{}
 
     // Is L2 AC. The type is bool.
-    IsL2Ac interface{}
+    IsL2ac interface{}
 
     // Provisioned. The type is bool.
     Provisioned interface{}
@@ -796,7 +820,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface struct {
 
     // Array of per-NCP data. The type is slice of
     // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray.
-    NcpInfoArray []Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray
+    NcpInfoArray []*Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray
 }
 
 func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetEntityData() *types.CommonEntityData {
@@ -804,48 +828,51 @@ func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetEntityData(
     nodeInterface.EntityData.YangName = "node-interface"
     nodeInterface.EntityData.BundleName = "cisco_ios_xr"
     nodeInterface.EntityData.ParentYangName = "node-interfaces"
-    nodeInterface.EntityData.SegmentPath = "node-interface" + "[interface='" + fmt.Sprintf("%v", nodeInterface.Interface_) + "']"
+    nodeInterface.EntityData.SegmentPath = "node-interface" + types.AddKeyToken(nodeInterface.Interface, "interface")
     nodeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeInterface.EntityData.Children = make(map[string]types.YChild)
-    nodeInterface.EntityData.Children["mp-info"] = types.YChild{"MpInfo", &nodeInterface.MpInfo}
-    nodeInterface.EntityData.Children["configured-timeout"] = types.YChild{"ConfiguredTimeout", &nodeInterface.ConfiguredTimeout}
-    nodeInterface.EntityData.Children["auth-info"] = types.YChild{"AuthInfo", &nodeInterface.AuthInfo}
-    nodeInterface.EntityData.Children["ncp-info-array"] = types.YChild{"NcpInfoArray", nil}
+    nodeInterface.EntityData.Children = types.NewOrderedMap()
+    nodeInterface.EntityData.Children.Append("mp-info", types.YChild{"MpInfo", &nodeInterface.MpInfo})
+    nodeInterface.EntityData.Children.Append("configured-timeout", types.YChild{"ConfiguredTimeout", &nodeInterface.ConfiguredTimeout})
+    nodeInterface.EntityData.Children.Append("auth-info", types.YChild{"AuthInfo", &nodeInterface.AuthInfo})
+    nodeInterface.EntityData.Children.Append("ncp-info-array", types.YChild{"NcpInfoArray", nil})
     for i := range nodeInterface.NcpInfoArray {
-        nodeInterface.EntityData.Children[types.GetSegmentPath(&nodeInterface.NcpInfoArray[i])] = types.YChild{"NcpInfoArray", &nodeInterface.NcpInfoArray[i]}
+        nodeInterface.EntityData.Children.Append(types.GetSegmentPath(nodeInterface.NcpInfoArray[i]), types.YChild{"NcpInfoArray", nodeInterface.NcpInfoArray[i]})
     }
-    nodeInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeInterface.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", nodeInterface.Interface_}
-    nodeInterface.EntityData.Leafs["parent-state"] = types.YLeaf{"ParentState", nodeInterface.ParentState}
-    nodeInterface.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", nodeInterface.LineState}
-    nodeInterface.EntityData.Leafs["is-loopback-detected"] = types.YLeaf{"IsLoopbackDetected", nodeInterface.IsLoopbackDetected}
-    nodeInterface.EntityData.Leafs["caps-idb-srg-role"] = types.YLeaf{"CapsIdbSrgRole", nodeInterface.CapsIdbSrgRole}
-    nodeInterface.EntityData.Leafs["session-srg-role"] = types.YLeaf{"SessionSrgRole", nodeInterface.SessionSrgRole}
-    nodeInterface.EntityData.Leafs["keepalive-period"] = types.YLeaf{"KeepalivePeriod", nodeInterface.KeepalivePeriod}
-    nodeInterface.EntityData.Leafs["keepalive-retry-count"] = types.YLeaf{"KeepaliveRetryCount", nodeInterface.KeepaliveRetryCount}
-    nodeInterface.EntityData.Leafs["is-ssrp-configured"] = types.YLeaf{"IsSsrpConfigured", nodeInterface.IsSsrpConfigured}
-    nodeInterface.EntityData.Leafs["is-l2ac"] = types.YLeaf{"IsL2Ac", nodeInterface.IsL2Ac}
-    nodeInterface.EntityData.Leafs["provisioned"] = types.YLeaf{"Provisioned", nodeInterface.Provisioned}
-    nodeInterface.EntityData.Leafs["ip-interworking-enabled"] = types.YLeaf{"IpInterworkingEnabled", nodeInterface.IpInterworkingEnabled}
-    nodeInterface.EntityData.Leafs["xconnect-id"] = types.YLeaf{"XconnectId", nodeInterface.XconnectId}
-    nodeInterface.EntityData.Leafs["is-tunneled-session"] = types.YLeaf{"IsTunneledSession", nodeInterface.IsTunneledSession}
-    nodeInterface.EntityData.Leafs["ssrp-peer-id"] = types.YLeaf{"SsrpPeerId", nodeInterface.SsrpPeerId}
-    nodeInterface.EntityData.Leafs["lcp-state"] = types.YLeaf{"LcpState", nodeInterface.LcpState}
-    nodeInterface.EntityData.Leafs["lcpsso-state"] = types.YLeaf{"LcpssoState", nodeInterface.LcpssoState}
-    nodeInterface.EntityData.Leafs["is-lcp-delayed"] = types.YLeaf{"IsLcpDelayed", nodeInterface.IsLcpDelayed}
-    nodeInterface.EntityData.Leafs["local-mru"] = types.YLeaf{"LocalMru", nodeInterface.LocalMru}
-    nodeInterface.EntityData.Leafs["peer-mru"] = types.YLeaf{"PeerMru", nodeInterface.PeerMru}
-    nodeInterface.EntityData.Leafs["local-mrru"] = types.YLeaf{"LocalMrru", nodeInterface.LocalMrru}
-    nodeInterface.EntityData.Leafs["peer-mrru"] = types.YLeaf{"PeerMrru", nodeInterface.PeerMrru}
-    nodeInterface.EntityData.Leafs["local-ed"] = types.YLeaf{"LocalEd", nodeInterface.LocalEd}
-    nodeInterface.EntityData.Leafs["peer-ed"] = types.YLeaf{"PeerEd", nodeInterface.PeerEd}
-    nodeInterface.EntityData.Leafs["is-mcmp-enabled"] = types.YLeaf{"IsMcmpEnabled", nodeInterface.IsMcmpEnabled}
-    nodeInterface.EntityData.Leafs["local-mcmp-classes"] = types.YLeaf{"LocalMcmpClasses", nodeInterface.LocalMcmpClasses}
-    nodeInterface.EntityData.Leafs["peer-mcmp-classes"] = types.YLeaf{"PeerMcmpClasses", nodeInterface.PeerMcmpClasses}
-    nodeInterface.EntityData.Leafs["session-expires"] = types.YLeaf{"SessionExpires", nodeInterface.SessionExpires}
+    nodeInterface.EntityData.Leafs = types.NewOrderedMap()
+    nodeInterface.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", nodeInterface.Interface})
+    nodeInterface.EntityData.Leafs.Append("parent-state", types.YLeaf{"ParentState", nodeInterface.ParentState})
+    nodeInterface.EntityData.Leafs.Append("line-state", types.YLeaf{"LineState", nodeInterface.LineState})
+    nodeInterface.EntityData.Leafs.Append("is-loopback-detected", types.YLeaf{"IsLoopbackDetected", nodeInterface.IsLoopbackDetected})
+    nodeInterface.EntityData.Leafs.Append("caps-idb-srg-role", types.YLeaf{"CapsIdbSrgRole", nodeInterface.CapsIdbSrgRole})
+    nodeInterface.EntityData.Leafs.Append("session-srg-role", types.YLeaf{"SessionSrgRole", nodeInterface.SessionSrgRole})
+    nodeInterface.EntityData.Leafs.Append("keepalive-period", types.YLeaf{"KeepalivePeriod", nodeInterface.KeepalivePeriod})
+    nodeInterface.EntityData.Leafs.Append("keepalive-retry-count", types.YLeaf{"KeepaliveRetryCount", nodeInterface.KeepaliveRetryCount})
+    nodeInterface.EntityData.Leafs.Append("is-ssrp-configured", types.YLeaf{"IsSsrpConfigured", nodeInterface.IsSsrpConfigured})
+    nodeInterface.EntityData.Leafs.Append("is-l2ac", types.YLeaf{"IsL2ac", nodeInterface.IsL2ac})
+    nodeInterface.EntityData.Leafs.Append("provisioned", types.YLeaf{"Provisioned", nodeInterface.Provisioned})
+    nodeInterface.EntityData.Leafs.Append("ip-interworking-enabled", types.YLeaf{"IpInterworkingEnabled", nodeInterface.IpInterworkingEnabled})
+    nodeInterface.EntityData.Leafs.Append("xconnect-id", types.YLeaf{"XconnectId", nodeInterface.XconnectId})
+    nodeInterface.EntityData.Leafs.Append("is-tunneled-session", types.YLeaf{"IsTunneledSession", nodeInterface.IsTunneledSession})
+    nodeInterface.EntityData.Leafs.Append("ssrp-peer-id", types.YLeaf{"SsrpPeerId", nodeInterface.SsrpPeerId})
+    nodeInterface.EntityData.Leafs.Append("lcp-state", types.YLeaf{"LcpState", nodeInterface.LcpState})
+    nodeInterface.EntityData.Leafs.Append("lcpsso-state", types.YLeaf{"LcpssoState", nodeInterface.LcpssoState})
+    nodeInterface.EntityData.Leafs.Append("is-lcp-delayed", types.YLeaf{"IsLcpDelayed", nodeInterface.IsLcpDelayed})
+    nodeInterface.EntityData.Leafs.Append("local-mru", types.YLeaf{"LocalMru", nodeInterface.LocalMru})
+    nodeInterface.EntityData.Leafs.Append("peer-mru", types.YLeaf{"PeerMru", nodeInterface.PeerMru})
+    nodeInterface.EntityData.Leafs.Append("local-mrru", types.YLeaf{"LocalMrru", nodeInterface.LocalMrru})
+    nodeInterface.EntityData.Leafs.Append("peer-mrru", types.YLeaf{"PeerMrru", nodeInterface.PeerMrru})
+    nodeInterface.EntityData.Leafs.Append("local-ed", types.YLeaf{"LocalEd", nodeInterface.LocalEd})
+    nodeInterface.EntityData.Leafs.Append("peer-ed", types.YLeaf{"PeerEd", nodeInterface.PeerEd})
+    nodeInterface.EntityData.Leafs.Append("is-mcmp-enabled", types.YLeaf{"IsMcmpEnabled", nodeInterface.IsMcmpEnabled})
+    nodeInterface.EntityData.Leafs.Append("local-mcmp-classes", types.YLeaf{"LocalMcmpClasses", nodeInterface.LocalMcmpClasses})
+    nodeInterface.EntityData.Leafs.Append("peer-mcmp-classes", types.YLeaf{"PeerMcmpClasses", nodeInterface.PeerMcmpClasses})
+    nodeInterface.EntityData.Leafs.Append("session-expires", types.YLeaf{"SessionExpires", nodeInterface.SessionExpires})
+
+    nodeInterface.EntityData.YListKeys = []string {"Interface"}
+
     return &(nodeInterface.EntityData)
 }
 
@@ -858,7 +885,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo struct {
     // Is an MP bundle. The type is bool.
     IsMpBundle interface{}
 
-    // MP Bundle Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // MP Bundle Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
     MpBundleInterface interface{}
 
     // MP Bundle Member. The type is bool.
@@ -882,7 +909,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo struct {
 
     // Array of MP members. The type is slice of
     // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray.
-    MpMemberInfoArray []Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray
+    MpMemberInfoArray []*Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray
 }
 
 func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetEntityData() *types.CommonEntityData {
@@ -895,20 +922,23 @@ func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetEntityData(
     mpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpInfo.EntityData.Children = make(map[string]types.YChild)
-    mpInfo.EntityData.Children["mp-member-info-array"] = types.YChild{"MpMemberInfoArray", nil}
+    mpInfo.EntityData.Children = types.NewOrderedMap()
+    mpInfo.EntityData.Children.Append("mp-member-info-array", types.YChild{"MpMemberInfoArray", nil})
     for i := range mpInfo.MpMemberInfoArray {
-        mpInfo.EntityData.Children[types.GetSegmentPath(&mpInfo.MpMemberInfoArray[i])] = types.YChild{"MpMemberInfoArray", &mpInfo.MpMemberInfoArray[i]}
+        mpInfo.EntityData.Children.Append(types.GetSegmentPath(mpInfo.MpMemberInfoArray[i]), types.YChild{"MpMemberInfoArray", mpInfo.MpMemberInfoArray[i]})
     }
-    mpInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpInfo.EntityData.Leafs["is-mp-bundle"] = types.YLeaf{"IsMpBundle", mpInfo.IsMpBundle}
-    mpInfo.EntityData.Leafs["mp-bundle-interface"] = types.YLeaf{"MpBundleInterface", mpInfo.MpBundleInterface}
-    mpInfo.EntityData.Leafs["is-mp-bundle-member"] = types.YLeaf{"IsMpBundleMember", mpInfo.IsMpBundleMember}
-    mpInfo.EntityData.Leafs["mp-group"] = types.YLeaf{"MpGroup", mpInfo.MpGroup}
-    mpInfo.EntityData.Leafs["active-links"] = types.YLeaf{"ActiveLinks", mpInfo.ActiveLinks}
-    mpInfo.EntityData.Leafs["inactive-links"] = types.YLeaf{"InactiveLinks", mpInfo.InactiveLinks}
-    mpInfo.EntityData.Leafs["minimum-active-links"] = types.YLeaf{"MinimumActiveLinks", mpInfo.MinimumActiveLinks}
-    mpInfo.EntityData.Leafs["mp-state"] = types.YLeaf{"MpState", mpInfo.MpState}
+    mpInfo.EntityData.Leafs = types.NewOrderedMap()
+    mpInfo.EntityData.Leafs.Append("is-mp-bundle", types.YLeaf{"IsMpBundle", mpInfo.IsMpBundle})
+    mpInfo.EntityData.Leafs.Append("mp-bundle-interface", types.YLeaf{"MpBundleInterface", mpInfo.MpBundleInterface})
+    mpInfo.EntityData.Leafs.Append("is-mp-bundle-member", types.YLeaf{"IsMpBundleMember", mpInfo.IsMpBundleMember})
+    mpInfo.EntityData.Leafs.Append("mp-group", types.YLeaf{"MpGroup", mpInfo.MpGroup})
+    mpInfo.EntityData.Leafs.Append("active-links", types.YLeaf{"ActiveLinks", mpInfo.ActiveLinks})
+    mpInfo.EntityData.Leafs.Append("inactive-links", types.YLeaf{"InactiveLinks", mpInfo.InactiveLinks})
+    mpInfo.EntityData.Leafs.Append("minimum-active-links", types.YLeaf{"MinimumActiveLinks", mpInfo.MinimumActiveLinks})
+    mpInfo.EntityData.Leafs.Append("mp-state", types.YLeaf{"MpState", mpInfo.MpState})
+
+    mpInfo.EntityData.YListKeys = []string {}
+
     return &(mpInfo.EntityData)
 }
 
@@ -918,8 +948,8 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // Member Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Member State. The type is PppLcpMpMbrState.
     State interface{}
@@ -935,10 +965,13 @@ func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMe
     mpMemberInfoArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpMemberInfoArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpMemberInfoArray.EntityData.Children = make(map[string]types.YChild)
-    mpMemberInfoArray.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpMemberInfoArray.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", mpMemberInfoArray.Interface_}
-    mpMemberInfoArray.EntityData.Leafs["state"] = types.YLeaf{"State", mpMemberInfoArray.State}
+    mpMemberInfoArray.EntityData.Children = types.NewOrderedMap()
+    mpMemberInfoArray.EntityData.Leafs = types.NewOrderedMap()
+    mpMemberInfoArray.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", mpMemberInfoArray.Interface})
+    mpMemberInfoArray.EntityData.Leafs.Append("state", types.YLeaf{"State", mpMemberInfoArray.State})
+
+    mpMemberInfoArray.EntityData.YListKeys = []string {}
+
     return &(mpMemberInfoArray.EntityData)
 }
 
@@ -966,10 +999,13 @@ func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredT
     configuredTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuredTimeout.EntityData.Children = make(map[string]types.YChild)
-    configuredTimeout.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuredTimeout.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", configuredTimeout.Minutes}
-    configuredTimeout.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", configuredTimeout.Seconds}
+    configuredTimeout.EntityData.Children = types.NewOrderedMap()
+    configuredTimeout.EntityData.Leafs = types.NewOrderedMap()
+    configuredTimeout.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", configuredTimeout.Minutes})
+    configuredTimeout.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", configuredTimeout.Seconds})
+
+    configuredTimeout.EntityData.YListKeys = []string {}
+
     return &(configuredTimeout.EntityData)
 }
 
@@ -1014,16 +1050,19 @@ func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetEntityD
     authInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authInfo.EntityData.Children = make(map[string]types.YChild)
-    authInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    authInfo.EntityData.Leafs["is-authenticated"] = types.YLeaf{"IsAuthenticated", authInfo.IsAuthenticated}
-    authInfo.EntityData.Leafs["is-sso-authenticated"] = types.YLeaf{"IsSsoAuthenticated", authInfo.IsSsoAuthenticated}
-    authInfo.EntityData.Leafs["of-us-auth"] = types.YLeaf{"OfUsAuth", authInfo.OfUsAuth}
-    authInfo.EntityData.Leafs["of-peer-auth"] = types.YLeaf{"OfPeerAuth", authInfo.OfPeerAuth}
-    authInfo.EntityData.Leafs["of-us-name"] = types.YLeaf{"OfUsName", authInfo.OfUsName}
-    authInfo.EntityData.Leafs["of-peer-name"] = types.YLeaf{"OfPeerName", authInfo.OfPeerName}
-    authInfo.EntityData.Leafs["of-us-sso-state"] = types.YLeaf{"OfUsSsoState", authInfo.OfUsSsoState}
-    authInfo.EntityData.Leafs["of-peer-sso-state"] = types.YLeaf{"OfPeerSsoState", authInfo.OfPeerSsoState}
+    authInfo.EntityData.Children = types.NewOrderedMap()
+    authInfo.EntityData.Leafs = types.NewOrderedMap()
+    authInfo.EntityData.Leafs.Append("is-authenticated", types.YLeaf{"IsAuthenticated", authInfo.IsAuthenticated})
+    authInfo.EntityData.Leafs.Append("is-sso-authenticated", types.YLeaf{"IsSsoAuthenticated", authInfo.IsSsoAuthenticated})
+    authInfo.EntityData.Leafs.Append("of-us-auth", types.YLeaf{"OfUsAuth", authInfo.OfUsAuth})
+    authInfo.EntityData.Leafs.Append("of-peer-auth", types.YLeaf{"OfPeerAuth", authInfo.OfPeerAuth})
+    authInfo.EntityData.Leafs.Append("of-us-name", types.YLeaf{"OfUsName", authInfo.OfUsName})
+    authInfo.EntityData.Leafs.Append("of-peer-name", types.YLeaf{"OfPeerName", authInfo.OfPeerName})
+    authInfo.EntityData.Leafs.Append("of-us-sso-state", types.YLeaf{"OfUsSsoState", authInfo.OfUsSsoState})
+    authInfo.EntityData.Leafs.Append("of-peer-sso-state", types.YLeaf{"OfPeerSsoState", authInfo.OfPeerSsoState})
+
+    authInfo.EntityData.YListKeys = []string {}
+
     return &(authInfo.EntityData)
 }
 
@@ -1059,13 +1098,16 @@ func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) Ge
     ncpInfoArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpInfoArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ncpInfoArray.EntityData.Children = make(map[string]types.YChild)
-    ncpInfoArray.EntityData.Children["ncp-info"] = types.YChild{"NcpInfo", &ncpInfoArray.NcpInfo}
-    ncpInfoArray.EntityData.Leafs = make(map[string]types.YLeaf)
-    ncpInfoArray.EntityData.Leafs["ncp-state"] = types.YLeaf{"NcpState", ncpInfoArray.NcpState}
-    ncpInfoArray.EntityData.Leafs["ncpsso-state"] = types.YLeaf{"NcpssoState", ncpInfoArray.NcpssoState}
-    ncpInfoArray.EntityData.Leafs["is-passive"] = types.YLeaf{"IsPassive", ncpInfoArray.IsPassive}
-    ncpInfoArray.EntityData.Leafs["ncp-identifier"] = types.YLeaf{"NcpIdentifier", ncpInfoArray.NcpIdentifier}
+    ncpInfoArray.EntityData.Children = types.NewOrderedMap()
+    ncpInfoArray.EntityData.Children.Append("ncp-info", types.YChild{"NcpInfo", &ncpInfoArray.NcpInfo})
+    ncpInfoArray.EntityData.Leafs = types.NewOrderedMap()
+    ncpInfoArray.EntityData.Leafs.Append("ncp-state", types.YLeaf{"NcpState", ncpInfoArray.NcpState})
+    ncpInfoArray.EntityData.Leafs.Append("ncpsso-state", types.YLeaf{"NcpssoState", ncpInfoArray.NcpssoState})
+    ncpInfoArray.EntityData.Leafs.Append("is-passive", types.YLeaf{"IsPassive", ncpInfoArray.IsPassive})
+    ncpInfoArray.EntityData.Leafs.Append("ncp-identifier", types.YLeaf{"NcpIdentifier", ncpInfoArray.NcpIdentifier})
+
+    ncpInfoArray.EntityData.YListKeys = []string {}
+
     return &(ncpInfoArray.EntityData)
 }
 
@@ -1076,7 +1118,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo struct {
     YFilter yfilter.YFilter
 
     // Type. The type is NcpIdent.
-    Type_ interface{}
+    Type interface{}
 
     // Info for IPCP.
     IpcpInfo Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo
@@ -1085,7 +1127,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo struct {
     IpcpiwInfo Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo
 
     // Info for IPv6CP.
-    Ipv6CpInfo Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo
+    Ipv6cpInfo Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6cpInfo
 }
 
 func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetEntityData() *types.CommonEntityData {
@@ -1098,12 +1140,15 @@ func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo)
     ncpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ncpInfo.EntityData.Children = make(map[string]types.YChild)
-    ncpInfo.EntityData.Children["ipcp-info"] = types.YChild{"IpcpInfo", &ncpInfo.IpcpInfo}
-    ncpInfo.EntityData.Children["ipcpiw-info"] = types.YChild{"IpcpiwInfo", &ncpInfo.IpcpiwInfo}
-    ncpInfo.EntityData.Children["ipv6cp-info"] = types.YChild{"Ipv6CpInfo", &ncpInfo.Ipv6CpInfo}
-    ncpInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    ncpInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", ncpInfo.Type_}
+    ncpInfo.EntityData.Children = types.NewOrderedMap()
+    ncpInfo.EntityData.Children.Append("ipcp-info", types.YChild{"IpcpInfo", &ncpInfo.IpcpInfo})
+    ncpInfo.EntityData.Children.Append("ipcpiw-info", types.YChild{"IpcpiwInfo", &ncpInfo.IpcpiwInfo})
+    ncpInfo.EntityData.Children.Append("ipv6cp-info", types.YChild{"Ipv6cpInfo", &ncpInfo.Ipv6cpInfo})
+    ncpInfo.EntityData.Leafs = types.NewOrderedMap()
+    ncpInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", ncpInfo.Type})
+
+    ncpInfo.EntityData.YListKeys = []string {}
+
     return &(ncpInfo.EntityData)
 }
 
@@ -1114,31 +1159,31 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo s
     YFilter yfilter.YFilter
 
     // Local IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Peer IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Peer IPv4 netmask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerNetmask interface{}
 
     // Peer DNS Primary. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DnsPrimary interface{}
 
     // Peer DNS Secondary. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DnsSecondary interface{}
 
     // Peer WINS Primary. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     WinsPrimary interface{}
 
     // Peer WINS Secondary. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     WinsSecondary interface{}
 
     // Is IPHC Configured. The type is bool.
@@ -1161,18 +1206,21 @@ func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo
     ipcpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipcpInfo.EntityData.Children = make(map[string]types.YChild)
-    ipcpInfo.EntityData.Children["local-iphc-options"] = types.YChild{"LocalIphcOptions", &ipcpInfo.LocalIphcOptions}
-    ipcpInfo.EntityData.Children["peer-iphc-options"] = types.YChild{"PeerIphcOptions", &ipcpInfo.PeerIphcOptions}
-    ipcpInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipcpInfo.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", ipcpInfo.LocalAddress}
-    ipcpInfo.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", ipcpInfo.PeerAddress}
-    ipcpInfo.EntityData.Leafs["peer-netmask"] = types.YLeaf{"PeerNetmask", ipcpInfo.PeerNetmask}
-    ipcpInfo.EntityData.Leafs["dns-primary"] = types.YLeaf{"DnsPrimary", ipcpInfo.DnsPrimary}
-    ipcpInfo.EntityData.Leafs["dns-secondary"] = types.YLeaf{"DnsSecondary", ipcpInfo.DnsSecondary}
-    ipcpInfo.EntityData.Leafs["wins-primary"] = types.YLeaf{"WinsPrimary", ipcpInfo.WinsPrimary}
-    ipcpInfo.EntityData.Leafs["wins-secondary"] = types.YLeaf{"WinsSecondary", ipcpInfo.WinsSecondary}
-    ipcpInfo.EntityData.Leafs["is-iphc-configured"] = types.YLeaf{"IsIphcConfigured", ipcpInfo.IsIphcConfigured}
+    ipcpInfo.EntityData.Children = types.NewOrderedMap()
+    ipcpInfo.EntityData.Children.Append("local-iphc-options", types.YChild{"LocalIphcOptions", &ipcpInfo.LocalIphcOptions})
+    ipcpInfo.EntityData.Children.Append("peer-iphc-options", types.YChild{"PeerIphcOptions", &ipcpInfo.PeerIphcOptions})
+    ipcpInfo.EntityData.Leafs = types.NewOrderedMap()
+    ipcpInfo.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", ipcpInfo.LocalAddress})
+    ipcpInfo.EntityData.Leafs.Append("peer-address", types.YLeaf{"PeerAddress", ipcpInfo.PeerAddress})
+    ipcpInfo.EntityData.Leafs.Append("peer-netmask", types.YLeaf{"PeerNetmask", ipcpInfo.PeerNetmask})
+    ipcpInfo.EntityData.Leafs.Append("dns-primary", types.YLeaf{"DnsPrimary", ipcpInfo.DnsPrimary})
+    ipcpInfo.EntityData.Leafs.Append("dns-secondary", types.YLeaf{"DnsSecondary", ipcpInfo.DnsSecondary})
+    ipcpInfo.EntityData.Leafs.Append("wins-primary", types.YLeaf{"WinsPrimary", ipcpInfo.WinsPrimary})
+    ipcpInfo.EntityData.Leafs.Append("wins-secondary", types.YLeaf{"WinsSecondary", ipcpInfo.WinsSecondary})
+    ipcpInfo.EntityData.Leafs.Append("is-iphc-configured", types.YLeaf{"IsIphcConfigured", ipcpInfo.IsIphcConfigured})
+
+    ipcpInfo.EntityData.YListKeys = []string {}
+
     return &(ipcpInfo.EntityData)
 }
 
@@ -1217,16 +1265,19 @@ func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray
     localIphcOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localIphcOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localIphcOptions.EntityData.Children = make(map[string]types.YChild)
-    localIphcOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    localIphcOptions.EntityData.Leafs["compression-type"] = types.YLeaf{"CompressionType", localIphcOptions.CompressionType}
-    localIphcOptions.EntityData.Leafs["tcp-space"] = types.YLeaf{"TcpSpace", localIphcOptions.TcpSpace}
-    localIphcOptions.EntityData.Leafs["non-tcp-space"] = types.YLeaf{"NonTcpSpace", localIphcOptions.NonTcpSpace}
-    localIphcOptions.EntityData.Leafs["max-period"] = types.YLeaf{"MaxPeriod", localIphcOptions.MaxPeriod}
-    localIphcOptions.EntityData.Leafs["max-time"] = types.YLeaf{"MaxTime", localIphcOptions.MaxTime}
-    localIphcOptions.EntityData.Leafs["max-header"] = types.YLeaf{"MaxHeader", localIphcOptions.MaxHeader}
-    localIphcOptions.EntityData.Leafs["rtp-compression"] = types.YLeaf{"RtpCompression", localIphcOptions.RtpCompression}
-    localIphcOptions.EntityData.Leafs["ec-rtp-compression"] = types.YLeaf{"EcRtpCompression", localIphcOptions.EcRtpCompression}
+    localIphcOptions.EntityData.Children = types.NewOrderedMap()
+    localIphcOptions.EntityData.Leafs = types.NewOrderedMap()
+    localIphcOptions.EntityData.Leafs.Append("compression-type", types.YLeaf{"CompressionType", localIphcOptions.CompressionType})
+    localIphcOptions.EntityData.Leafs.Append("tcp-space", types.YLeaf{"TcpSpace", localIphcOptions.TcpSpace})
+    localIphcOptions.EntityData.Leafs.Append("non-tcp-space", types.YLeaf{"NonTcpSpace", localIphcOptions.NonTcpSpace})
+    localIphcOptions.EntityData.Leafs.Append("max-period", types.YLeaf{"MaxPeriod", localIphcOptions.MaxPeriod})
+    localIphcOptions.EntityData.Leafs.Append("max-time", types.YLeaf{"MaxTime", localIphcOptions.MaxTime})
+    localIphcOptions.EntityData.Leafs.Append("max-header", types.YLeaf{"MaxHeader", localIphcOptions.MaxHeader})
+    localIphcOptions.EntityData.Leafs.Append("rtp-compression", types.YLeaf{"RtpCompression", localIphcOptions.RtpCompression})
+    localIphcOptions.EntityData.Leafs.Append("ec-rtp-compression", types.YLeaf{"EcRtpCompression", localIphcOptions.EcRtpCompression})
+
+    localIphcOptions.EntityData.YListKeys = []string {}
+
     return &(localIphcOptions.EntityData)
 }
 
@@ -1271,16 +1322,19 @@ func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_
     peerIphcOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerIphcOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerIphcOptions.EntityData.Children = make(map[string]types.YChild)
-    peerIphcOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerIphcOptions.EntityData.Leafs["compression-type"] = types.YLeaf{"CompressionType", peerIphcOptions.CompressionType}
-    peerIphcOptions.EntityData.Leafs["tcp-space"] = types.YLeaf{"TcpSpace", peerIphcOptions.TcpSpace}
-    peerIphcOptions.EntityData.Leafs["non-tcp-space"] = types.YLeaf{"NonTcpSpace", peerIphcOptions.NonTcpSpace}
-    peerIphcOptions.EntityData.Leafs["max-period"] = types.YLeaf{"MaxPeriod", peerIphcOptions.MaxPeriod}
-    peerIphcOptions.EntityData.Leafs["max-time"] = types.YLeaf{"MaxTime", peerIphcOptions.MaxTime}
-    peerIphcOptions.EntityData.Leafs["max-header"] = types.YLeaf{"MaxHeader", peerIphcOptions.MaxHeader}
-    peerIphcOptions.EntityData.Leafs["rtp-compression"] = types.YLeaf{"RtpCompression", peerIphcOptions.RtpCompression}
-    peerIphcOptions.EntityData.Leafs["ec-rtp-compression"] = types.YLeaf{"EcRtpCompression", peerIphcOptions.EcRtpCompression}
+    peerIphcOptions.EntityData.Children = types.NewOrderedMap()
+    peerIphcOptions.EntityData.Leafs = types.NewOrderedMap()
+    peerIphcOptions.EntityData.Leafs.Append("compression-type", types.YLeaf{"CompressionType", peerIphcOptions.CompressionType})
+    peerIphcOptions.EntityData.Leafs.Append("tcp-space", types.YLeaf{"TcpSpace", peerIphcOptions.TcpSpace})
+    peerIphcOptions.EntityData.Leafs.Append("non-tcp-space", types.YLeaf{"NonTcpSpace", peerIphcOptions.NonTcpSpace})
+    peerIphcOptions.EntityData.Leafs.Append("max-period", types.YLeaf{"MaxPeriod", peerIphcOptions.MaxPeriod})
+    peerIphcOptions.EntityData.Leafs.Append("max-time", types.YLeaf{"MaxTime", peerIphcOptions.MaxTime})
+    peerIphcOptions.EntityData.Leafs.Append("max-header", types.YLeaf{"MaxHeader", peerIphcOptions.MaxHeader})
+    peerIphcOptions.EntityData.Leafs.Append("rtp-compression", types.YLeaf{"RtpCompression", peerIphcOptions.RtpCompression})
+    peerIphcOptions.EntityData.Leafs.Append("ec-rtp-compression", types.YLeaf{"EcRtpCompression", peerIphcOptions.EcRtpCompression})
+
+    peerIphcOptions.EntityData.YListKeys = []string {}
+
     return &(peerIphcOptions.EntityData)
 }
 
@@ -1291,11 +1345,11 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo
     YFilter yfilter.YFilter
 
     // Local IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Peer IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 }
 
@@ -1309,43 +1363,49 @@ func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpIn
     ipcpiwInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpiwInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipcpiwInfo.EntityData.Children = make(map[string]types.YChild)
-    ipcpiwInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipcpiwInfo.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", ipcpiwInfo.LocalAddress}
-    ipcpiwInfo.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", ipcpiwInfo.PeerAddress}
+    ipcpiwInfo.EntityData.Children = types.NewOrderedMap()
+    ipcpiwInfo.EntityData.Leafs = types.NewOrderedMap()
+    ipcpiwInfo.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", ipcpiwInfo.LocalAddress})
+    ipcpiwInfo.EntityData.Leafs.Append("peer-address", types.YLeaf{"PeerAddress", ipcpiwInfo.PeerAddress})
+
+    ipcpiwInfo.EntityData.YListKeys = []string {}
+
     return &(ipcpiwInfo.EntityData)
 }
 
-// Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo
+// Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6cpInfo
 // Info for IPv6CP
-type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo struct {
+type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6cpInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Peer IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 }
 
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetEntityData() *types.CommonEntityData {
-    ipv6CpInfo.EntityData.YFilter = ipv6CpInfo.YFilter
-    ipv6CpInfo.EntityData.YangName = "ipv6cp-info"
-    ipv6CpInfo.EntityData.BundleName = "cisco_ios_xr"
-    ipv6CpInfo.EntityData.ParentYangName = "ncp-info"
-    ipv6CpInfo.EntityData.SegmentPath = "ipv6cp-info"
-    ipv6CpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6CpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6CpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv6cpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6cpInfo) GetEntityData() *types.CommonEntityData {
+    ipv6cpInfo.EntityData.YFilter = ipv6cpInfo.YFilter
+    ipv6cpInfo.EntityData.YangName = "ipv6cp-info"
+    ipv6cpInfo.EntityData.BundleName = "cisco_ios_xr"
+    ipv6cpInfo.EntityData.ParentYangName = "ncp-info"
+    ipv6cpInfo.EntityData.SegmentPath = "ipv6cp-info"
+    ipv6cpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6cpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6cpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6CpInfo.EntityData.Children = make(map[string]types.YChild)
-    ipv6CpInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6CpInfo.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", ipv6CpInfo.LocalAddress}
-    ipv6CpInfo.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", ipv6CpInfo.PeerAddress}
-    return &(ipv6CpInfo.EntityData)
+    ipv6cpInfo.EntityData.Children = types.NewOrderedMap()
+    ipv6cpInfo.EntityData.Leafs = types.NewOrderedMap()
+    ipv6cpInfo.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", ipv6cpInfo.LocalAddress})
+    ipv6cpInfo.EntityData.Leafs.Append("peer-address", types.YLeaf{"PeerAddress", ipv6cpInfo.PeerAddress})
+
+    ipv6cpInfo.EntityData.YListKeys = []string {}
+
+    return &(ipv6cpInfo.EntityData)
 }
 
 // Ppp_Nodes_Node_SsoAlerts
@@ -1356,7 +1416,7 @@ type Ppp_Nodes_Node_SsoAlerts struct {
 
     // PPP SSO Alert data for a particular interface. The type is slice of
     // Ppp_Nodes_Node_SsoAlerts_SsoAlert.
-    SsoAlert []Ppp_Nodes_Node_SsoAlerts_SsoAlert
+    SsoAlert []*Ppp_Nodes_Node_SsoAlerts_SsoAlert
 }
 
 func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetEntityData() *types.CommonEntityData {
@@ -1369,12 +1429,15 @@ func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetEntityData() *types.CommonEntityDa
     ssoAlerts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoAlerts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssoAlerts.EntityData.Children = make(map[string]types.YChild)
-    ssoAlerts.EntityData.Children["sso-alert"] = types.YChild{"SsoAlert", nil}
+    ssoAlerts.EntityData.Children = types.NewOrderedMap()
+    ssoAlerts.EntityData.Children.Append("sso-alert", types.YChild{"SsoAlert", nil})
     for i := range ssoAlerts.SsoAlert {
-        ssoAlerts.EntityData.Children[types.GetSegmentPath(&ssoAlerts.SsoAlert[i])] = types.YChild{"SsoAlert", &ssoAlerts.SsoAlert[i]}
+        ssoAlerts.EntityData.Children.Append(types.GetSegmentPath(ssoAlerts.SsoAlert[i]), types.YChild{"SsoAlert", ssoAlerts.SsoAlert[i]})
     }
-    ssoAlerts.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssoAlerts.EntityData.Leafs = types.NewOrderedMap()
+
+    ssoAlerts.EntityData.YListKeys = []string {}
+
     return &(ssoAlerts.EntityData)
 }
 
@@ -1385,8 +1448,8 @@ type Ppp_Nodes_Node_SsoAlerts_SsoAlert struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface with SSO Alert. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // LCP SSO Error.
     LcpError Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError
@@ -1406,18 +1469,21 @@ func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetEntityData() *types.Common
     ssoAlert.EntityData.YangName = "sso-alert"
     ssoAlert.EntityData.BundleName = "cisco_ios_xr"
     ssoAlert.EntityData.ParentYangName = "sso-alerts"
-    ssoAlert.EntityData.SegmentPath = "sso-alert" + "[interface='" + fmt.Sprintf("%v", ssoAlert.Interface_) + "']"
+    ssoAlert.EntityData.SegmentPath = "sso-alert" + types.AddKeyToken(ssoAlert.Interface, "interface")
     ssoAlert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoAlert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoAlert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssoAlert.EntityData.Children = make(map[string]types.YChild)
-    ssoAlert.EntityData.Children["lcp-error"] = types.YChild{"LcpError", &ssoAlert.LcpError}
-    ssoAlert.EntityData.Children["of-us-auth-error"] = types.YChild{"OfUsAuthError", &ssoAlert.OfUsAuthError}
-    ssoAlert.EntityData.Children["of-peer-auth-error"] = types.YChild{"OfPeerAuthError", &ssoAlert.OfPeerAuthError}
-    ssoAlert.EntityData.Children["ipcp-error"] = types.YChild{"IpcpError", &ssoAlert.IpcpError}
-    ssoAlert.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssoAlert.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", ssoAlert.Interface_}
+    ssoAlert.EntityData.Children = types.NewOrderedMap()
+    ssoAlert.EntityData.Children.Append("lcp-error", types.YChild{"LcpError", &ssoAlert.LcpError})
+    ssoAlert.EntityData.Children.Append("of-us-auth-error", types.YChild{"OfUsAuthError", &ssoAlert.OfUsAuthError})
+    ssoAlert.EntityData.Children.Append("of-peer-auth-error", types.YChild{"OfPeerAuthError", &ssoAlert.OfPeerAuthError})
+    ssoAlert.EntityData.Children.Append("ipcp-error", types.YChild{"IpcpError", &ssoAlert.IpcpError})
+    ssoAlert.EntityData.Leafs = types.NewOrderedMap()
+    ssoAlert.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", ssoAlert.Interface})
+
+    ssoAlert.EntityData.YListKeys = []string {"Interface"}
+
     return &(ssoAlert.EntityData)
 }
 
@@ -1447,11 +1513,14 @@ func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetEntityData() *typ
     lcpError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lcpError.EntityData.Children = make(map[string]types.YChild)
-    lcpError.EntityData.Leafs = make(map[string]types.YLeaf)
-    lcpError.EntityData.Leafs["is-error"] = types.YLeaf{"IsError", lcpError.IsError}
-    lcpError.EntityData.Leafs["error"] = types.YLeaf{"Error", lcpError.Error}
-    lcpError.EntityData.Leafs["context"] = types.YLeaf{"Context", lcpError.Context}
+    lcpError.EntityData.Children = types.NewOrderedMap()
+    lcpError.EntityData.Leafs = types.NewOrderedMap()
+    lcpError.EntityData.Leafs.Append("is-error", types.YLeaf{"IsError", lcpError.IsError})
+    lcpError.EntityData.Leafs.Append("error", types.YLeaf{"Error", lcpError.Error})
+    lcpError.EntityData.Leafs.Append("context", types.YLeaf{"Context", lcpError.Context})
+
+    lcpError.EntityData.YListKeys = []string {}
+
     return &(lcpError.EntityData)
 }
 
@@ -1481,11 +1550,14 @@ func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetEntityD
     ofUsAuthError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofUsAuthError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ofUsAuthError.EntityData.Children = make(map[string]types.YChild)
-    ofUsAuthError.EntityData.Leafs = make(map[string]types.YLeaf)
-    ofUsAuthError.EntityData.Leafs["is-error"] = types.YLeaf{"IsError", ofUsAuthError.IsError}
-    ofUsAuthError.EntityData.Leafs["error"] = types.YLeaf{"Error", ofUsAuthError.Error}
-    ofUsAuthError.EntityData.Leafs["context"] = types.YLeaf{"Context", ofUsAuthError.Context}
+    ofUsAuthError.EntityData.Children = types.NewOrderedMap()
+    ofUsAuthError.EntityData.Leafs = types.NewOrderedMap()
+    ofUsAuthError.EntityData.Leafs.Append("is-error", types.YLeaf{"IsError", ofUsAuthError.IsError})
+    ofUsAuthError.EntityData.Leafs.Append("error", types.YLeaf{"Error", ofUsAuthError.Error})
+    ofUsAuthError.EntityData.Leafs.Append("context", types.YLeaf{"Context", ofUsAuthError.Context})
+
+    ofUsAuthError.EntityData.YListKeys = []string {}
+
     return &(ofUsAuthError.EntityData)
 }
 
@@ -1515,11 +1587,14 @@ func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetEnt
     ofPeerAuthError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofPeerAuthError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ofPeerAuthError.EntityData.Children = make(map[string]types.YChild)
-    ofPeerAuthError.EntityData.Leafs = make(map[string]types.YLeaf)
-    ofPeerAuthError.EntityData.Leafs["is-error"] = types.YLeaf{"IsError", ofPeerAuthError.IsError}
-    ofPeerAuthError.EntityData.Leafs["error"] = types.YLeaf{"Error", ofPeerAuthError.Error}
-    ofPeerAuthError.EntityData.Leafs["context"] = types.YLeaf{"Context", ofPeerAuthError.Context}
+    ofPeerAuthError.EntityData.Children = types.NewOrderedMap()
+    ofPeerAuthError.EntityData.Leafs = types.NewOrderedMap()
+    ofPeerAuthError.EntityData.Leafs.Append("is-error", types.YLeaf{"IsError", ofPeerAuthError.IsError})
+    ofPeerAuthError.EntityData.Leafs.Append("error", types.YLeaf{"Error", ofPeerAuthError.Error})
+    ofPeerAuthError.EntityData.Leafs.Append("context", types.YLeaf{"Context", ofPeerAuthError.Context})
+
+    ofPeerAuthError.EntityData.YListKeys = []string {}
+
     return &(ofPeerAuthError.EntityData)
 }
 
@@ -1549,11 +1624,14 @@ func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetEntityData() *t
     ipcpError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipcpError.EntityData.Children = make(map[string]types.YChild)
-    ipcpError.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipcpError.EntityData.Leafs["is-error"] = types.YLeaf{"IsError", ipcpError.IsError}
-    ipcpError.EntityData.Leafs["error"] = types.YLeaf{"Error", ipcpError.Error}
-    ipcpError.EntityData.Leafs["context"] = types.YLeaf{"Context", ipcpError.Context}
+    ipcpError.EntityData.Children = types.NewOrderedMap()
+    ipcpError.EntityData.Leafs = types.NewOrderedMap()
+    ipcpError.EntityData.Leafs.Append("is-error", types.YLeaf{"IsError", ipcpError.IsError})
+    ipcpError.EntityData.Leafs.Append("error", types.YLeaf{"Error", ipcpError.Error})
+    ipcpError.EntityData.Leafs.Append("context", types.YLeaf{"Context", ipcpError.Context})
+
+    ipcpError.EntityData.YListKeys = []string {}
+
     return &(ipcpError.EntityData)
 }
 
@@ -1565,7 +1643,7 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics struct {
 
     // LCP and NCP statistics for an interface running PPP. The type is slice of
     // Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic.
-    NodeInterfaceStatistic []Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic
+    NodeInterfaceStatistic []*Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic
 }
 
 func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetEntityData() *types.CommonEntityData {
@@ -1578,12 +1656,15 @@ func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetEntity
     nodeInterfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeInterfaceStatistics.EntityData.Children = make(map[string]types.YChild)
-    nodeInterfaceStatistics.EntityData.Children["node-interface-statistic"] = types.YChild{"NodeInterfaceStatistic", nil}
+    nodeInterfaceStatistics.EntityData.Children = types.NewOrderedMap()
+    nodeInterfaceStatistics.EntityData.Children.Append("node-interface-statistic", types.YChild{"NodeInterfaceStatistic", nil})
     for i := range nodeInterfaceStatistics.NodeInterfaceStatistic {
-        nodeInterfaceStatistics.EntityData.Children[types.GetSegmentPath(&nodeInterfaceStatistics.NodeInterfaceStatistic[i])] = types.YChild{"NodeInterfaceStatistic", &nodeInterfaceStatistics.NodeInterfaceStatistic[i]}
+        nodeInterfaceStatistics.EntityData.Children.Append(types.GetSegmentPath(nodeInterfaceStatistics.NodeInterfaceStatistic[i]), types.YChild{"NodeInterfaceStatistic", nodeInterfaceStatistics.NodeInterfaceStatistic[i]})
     }
-    nodeInterfaceStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodeInterfaceStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    nodeInterfaceStatistics.EntityData.YListKeys = []string {}
+
     return &(nodeInterfaceStatistics.EntityData)
 }
 
@@ -1595,7 +1676,7 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface running PPP. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // PPP LCP Statistics.
@@ -1606,7 +1687,7 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic struct {
 
     // Array of PPP NCP Statistics. The type is slice of
     // Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray.
-    NcpStatisticsArray []Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray
+    NcpStatisticsArray []*Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray
 }
 
 func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetEntityData() *types.CommonEntityData {
@@ -1614,20 +1695,23 @@ func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfa
     nodeInterfaceStatistic.EntityData.YangName = "node-interface-statistic"
     nodeInterfaceStatistic.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaceStatistic.EntityData.ParentYangName = "node-interface-statistics"
-    nodeInterfaceStatistic.EntityData.SegmentPath = "node-interface-statistic" + "[interface-name='" + fmt.Sprintf("%v", nodeInterfaceStatistic.InterfaceName) + "']"
+    nodeInterfaceStatistic.EntityData.SegmentPath = "node-interface-statistic" + types.AddKeyToken(nodeInterfaceStatistic.InterfaceName, "interface-name")
     nodeInterfaceStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaceStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaceStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeInterfaceStatistic.EntityData.Children = make(map[string]types.YChild)
-    nodeInterfaceStatistic.EntityData.Children["lcp-statistics"] = types.YChild{"LcpStatistics", &nodeInterfaceStatistic.LcpStatistics}
-    nodeInterfaceStatistic.EntityData.Children["authentication-statistics"] = types.YChild{"AuthenticationStatistics", &nodeInterfaceStatistic.AuthenticationStatistics}
-    nodeInterfaceStatistic.EntityData.Children["ncp-statistics-array"] = types.YChild{"NcpStatisticsArray", nil}
+    nodeInterfaceStatistic.EntityData.Children = types.NewOrderedMap()
+    nodeInterfaceStatistic.EntityData.Children.Append("lcp-statistics", types.YChild{"LcpStatistics", &nodeInterfaceStatistic.LcpStatistics})
+    nodeInterfaceStatistic.EntityData.Children.Append("authentication-statistics", types.YChild{"AuthenticationStatistics", &nodeInterfaceStatistic.AuthenticationStatistics})
+    nodeInterfaceStatistic.EntityData.Children.Append("ncp-statistics-array", types.YChild{"NcpStatisticsArray", nil})
     for i := range nodeInterfaceStatistic.NcpStatisticsArray {
-        nodeInterfaceStatistic.EntityData.Children[types.GetSegmentPath(&nodeInterfaceStatistic.NcpStatisticsArray[i])] = types.YChild{"NcpStatisticsArray", &nodeInterfaceStatistic.NcpStatisticsArray[i]}
+        nodeInterfaceStatistic.EntityData.Children.Append(types.GetSegmentPath(nodeInterfaceStatistic.NcpStatisticsArray[i]), types.YChild{"NcpStatisticsArray", nodeInterfaceStatistic.NcpStatisticsArray[i]})
     }
-    nodeInterfaceStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeInterfaceStatistic.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", nodeInterfaceStatistic.InterfaceName}
+    nodeInterfaceStatistic.EntityData.Leafs = types.NewOrderedMap()
+    nodeInterfaceStatistic.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nodeInterfaceStatistic.InterfaceName})
+
+    nodeInterfaceStatistic.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(nodeInterfaceStatistic.EntityData)
 }
 
@@ -1696,24 +1780,27 @@ func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatist
     lcpStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lcpStatistics.EntityData.Children = make(map[string]types.YChild)
-    lcpStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    lcpStatistics.EntityData.Leafs["conf-req-sent"] = types.YLeaf{"ConfReqSent", lcpStatistics.ConfReqSent}
-    lcpStatistics.EntityData.Leafs["conf-req-rcvd"] = types.YLeaf{"ConfReqRcvd", lcpStatistics.ConfReqRcvd}
-    lcpStatistics.EntityData.Leafs["conf-ack-sent"] = types.YLeaf{"ConfAckSent", lcpStatistics.ConfAckSent}
-    lcpStatistics.EntityData.Leafs["conf-ack-rcvd"] = types.YLeaf{"ConfAckRcvd", lcpStatistics.ConfAckRcvd}
-    lcpStatistics.EntityData.Leafs["conf-nak-sent"] = types.YLeaf{"ConfNakSent", lcpStatistics.ConfNakSent}
-    lcpStatistics.EntityData.Leafs["conf-nak-rcvd"] = types.YLeaf{"ConfNakRcvd", lcpStatistics.ConfNakRcvd}
-    lcpStatistics.EntityData.Leafs["conf-rej-sent"] = types.YLeaf{"ConfRejSent", lcpStatistics.ConfRejSent}
-    lcpStatistics.EntityData.Leafs["conf-rej-rcvd"] = types.YLeaf{"ConfRejRcvd", lcpStatistics.ConfRejRcvd}
-    lcpStatistics.EntityData.Leafs["echo-req-sent"] = types.YLeaf{"EchoReqSent", lcpStatistics.EchoReqSent}
-    lcpStatistics.EntityData.Leafs["echo-req-rcvd"] = types.YLeaf{"EchoReqRcvd", lcpStatistics.EchoReqRcvd}
-    lcpStatistics.EntityData.Leafs["echo-rep-sent"] = types.YLeaf{"EchoRepSent", lcpStatistics.EchoRepSent}
-    lcpStatistics.EntityData.Leafs["echo-rep-rcvd"] = types.YLeaf{"EchoRepRcvd", lcpStatistics.EchoRepRcvd}
-    lcpStatistics.EntityData.Leafs["disc-req-sent"] = types.YLeaf{"DiscReqSent", lcpStatistics.DiscReqSent}
-    lcpStatistics.EntityData.Leafs["disc-req-rcvd"] = types.YLeaf{"DiscReqRcvd", lcpStatistics.DiscReqRcvd}
-    lcpStatistics.EntityData.Leafs["link-up"] = types.YLeaf{"LinkUp", lcpStatistics.LinkUp}
-    lcpStatistics.EntityData.Leafs["link-error"] = types.YLeaf{"LinkError", lcpStatistics.LinkError}
+    lcpStatistics.EntityData.Children = types.NewOrderedMap()
+    lcpStatistics.EntityData.Leafs = types.NewOrderedMap()
+    lcpStatistics.EntityData.Leafs.Append("conf-req-sent", types.YLeaf{"ConfReqSent", lcpStatistics.ConfReqSent})
+    lcpStatistics.EntityData.Leafs.Append("conf-req-rcvd", types.YLeaf{"ConfReqRcvd", lcpStatistics.ConfReqRcvd})
+    lcpStatistics.EntityData.Leafs.Append("conf-ack-sent", types.YLeaf{"ConfAckSent", lcpStatistics.ConfAckSent})
+    lcpStatistics.EntityData.Leafs.Append("conf-ack-rcvd", types.YLeaf{"ConfAckRcvd", lcpStatistics.ConfAckRcvd})
+    lcpStatistics.EntityData.Leafs.Append("conf-nak-sent", types.YLeaf{"ConfNakSent", lcpStatistics.ConfNakSent})
+    lcpStatistics.EntityData.Leafs.Append("conf-nak-rcvd", types.YLeaf{"ConfNakRcvd", lcpStatistics.ConfNakRcvd})
+    lcpStatistics.EntityData.Leafs.Append("conf-rej-sent", types.YLeaf{"ConfRejSent", lcpStatistics.ConfRejSent})
+    lcpStatistics.EntityData.Leafs.Append("conf-rej-rcvd", types.YLeaf{"ConfRejRcvd", lcpStatistics.ConfRejRcvd})
+    lcpStatistics.EntityData.Leafs.Append("echo-req-sent", types.YLeaf{"EchoReqSent", lcpStatistics.EchoReqSent})
+    lcpStatistics.EntityData.Leafs.Append("echo-req-rcvd", types.YLeaf{"EchoReqRcvd", lcpStatistics.EchoReqRcvd})
+    lcpStatistics.EntityData.Leafs.Append("echo-rep-sent", types.YLeaf{"EchoRepSent", lcpStatistics.EchoRepSent})
+    lcpStatistics.EntityData.Leafs.Append("echo-rep-rcvd", types.YLeaf{"EchoRepRcvd", lcpStatistics.EchoRepRcvd})
+    lcpStatistics.EntityData.Leafs.Append("disc-req-sent", types.YLeaf{"DiscReqSent", lcpStatistics.DiscReqSent})
+    lcpStatistics.EntityData.Leafs.Append("disc-req-rcvd", types.YLeaf{"DiscReqRcvd", lcpStatistics.DiscReqRcvd})
+    lcpStatistics.EntityData.Leafs.Append("link-up", types.YLeaf{"LinkUp", lcpStatistics.LinkUp})
+    lcpStatistics.EntityData.Leafs.Append("link-error", types.YLeaf{"LinkError", lcpStatistics.LinkError})
+
+    lcpStatistics.EntityData.YListKeys = []string {}
+
     return &(lcpStatistics.EntityData)
 }
 
@@ -1785,23 +1872,26 @@ func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInter
     authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticationStatistics.EntityData.Children = make(map[string]types.YChild)
-    authenticationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticationStatistics.EntityData.Leafs["pap-req-sent"] = types.YLeaf{"PapReqSent", authenticationStatistics.PapReqSent}
-    authenticationStatistics.EntityData.Leafs["pap-req-rcvd"] = types.YLeaf{"PapReqRcvd", authenticationStatistics.PapReqRcvd}
-    authenticationStatistics.EntityData.Leafs["pap-ack-sent"] = types.YLeaf{"PapAckSent", authenticationStatistics.PapAckSent}
-    authenticationStatistics.EntityData.Leafs["pap-ack-rcvd"] = types.YLeaf{"PapAckRcvd", authenticationStatistics.PapAckRcvd}
-    authenticationStatistics.EntityData.Leafs["pap-nak-sent"] = types.YLeaf{"PapNakSent", authenticationStatistics.PapNakSent}
-    authenticationStatistics.EntityData.Leafs["pap-nak-rcvd"] = types.YLeaf{"PapNakRcvd", authenticationStatistics.PapNakRcvd}
-    authenticationStatistics.EntityData.Leafs["chap-chall-sent"] = types.YLeaf{"ChapChallSent", authenticationStatistics.ChapChallSent}
-    authenticationStatistics.EntityData.Leafs["chap-chall-rcvd"] = types.YLeaf{"ChapChallRcvd", authenticationStatistics.ChapChallRcvd}
-    authenticationStatistics.EntityData.Leafs["chap-resp-sent"] = types.YLeaf{"ChapRespSent", authenticationStatistics.ChapRespSent}
-    authenticationStatistics.EntityData.Leafs["chap-resp-rcvd"] = types.YLeaf{"ChapRespRcvd", authenticationStatistics.ChapRespRcvd}
-    authenticationStatistics.EntityData.Leafs["chap-rep-succ-sent"] = types.YLeaf{"ChapRepSuccSent", authenticationStatistics.ChapRepSuccSent}
-    authenticationStatistics.EntityData.Leafs["chap-rep-succ-rcvd"] = types.YLeaf{"ChapRepSuccRcvd", authenticationStatistics.ChapRepSuccRcvd}
-    authenticationStatistics.EntityData.Leafs["chap-rep-fail-sent"] = types.YLeaf{"ChapRepFailSent", authenticationStatistics.ChapRepFailSent}
-    authenticationStatistics.EntityData.Leafs["chap-rep-fail-rcvd"] = types.YLeaf{"ChapRepFailRcvd", authenticationStatistics.ChapRepFailRcvd}
-    authenticationStatistics.EntityData.Leafs["auth-timeout-count"] = types.YLeaf{"AuthTimeoutCount", authenticationStatistics.AuthTimeoutCount}
+    authenticationStatistics.EntityData.Children = types.NewOrderedMap()
+    authenticationStatistics.EntityData.Leafs = types.NewOrderedMap()
+    authenticationStatistics.EntityData.Leafs.Append("pap-req-sent", types.YLeaf{"PapReqSent", authenticationStatistics.PapReqSent})
+    authenticationStatistics.EntityData.Leafs.Append("pap-req-rcvd", types.YLeaf{"PapReqRcvd", authenticationStatistics.PapReqRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("pap-ack-sent", types.YLeaf{"PapAckSent", authenticationStatistics.PapAckSent})
+    authenticationStatistics.EntityData.Leafs.Append("pap-ack-rcvd", types.YLeaf{"PapAckRcvd", authenticationStatistics.PapAckRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("pap-nak-sent", types.YLeaf{"PapNakSent", authenticationStatistics.PapNakSent})
+    authenticationStatistics.EntityData.Leafs.Append("pap-nak-rcvd", types.YLeaf{"PapNakRcvd", authenticationStatistics.PapNakRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("chap-chall-sent", types.YLeaf{"ChapChallSent", authenticationStatistics.ChapChallSent})
+    authenticationStatistics.EntityData.Leafs.Append("chap-chall-rcvd", types.YLeaf{"ChapChallRcvd", authenticationStatistics.ChapChallRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("chap-resp-sent", types.YLeaf{"ChapRespSent", authenticationStatistics.ChapRespSent})
+    authenticationStatistics.EntityData.Leafs.Append("chap-resp-rcvd", types.YLeaf{"ChapRespRcvd", authenticationStatistics.ChapRespRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("chap-rep-succ-sent", types.YLeaf{"ChapRepSuccSent", authenticationStatistics.ChapRepSuccSent})
+    authenticationStatistics.EntityData.Leafs.Append("chap-rep-succ-rcvd", types.YLeaf{"ChapRepSuccRcvd", authenticationStatistics.ChapRepSuccRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("chap-rep-fail-sent", types.YLeaf{"ChapRepFailSent", authenticationStatistics.ChapRepFailSent})
+    authenticationStatistics.EntityData.Leafs.Append("chap-rep-fail-rcvd", types.YLeaf{"ChapRepFailRcvd", authenticationStatistics.ChapRepFailRcvd})
+    authenticationStatistics.EntityData.Leafs.Append("auth-timeout-count", types.YLeaf{"AuthTimeoutCount", authenticationStatistics.AuthTimeoutCount})
+
+    authenticationStatistics.EntityData.YListKeys = []string {}
+
     return &(authenticationStatistics.EntityData)
 }
 
@@ -1849,17 +1939,20 @@ func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceSt
     ncpStatisticsArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpStatisticsArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ncpStatisticsArray.EntityData.Children = make(map[string]types.YChild)
-    ncpStatisticsArray.EntityData.Leafs = make(map[string]types.YLeaf)
-    ncpStatisticsArray.EntityData.Leafs["ncp-identifier"] = types.YLeaf{"NcpIdentifier", ncpStatisticsArray.NcpIdentifier}
-    ncpStatisticsArray.EntityData.Leafs["conf-req-sent"] = types.YLeaf{"ConfReqSent", ncpStatisticsArray.ConfReqSent}
-    ncpStatisticsArray.EntityData.Leafs["conf-req-rcvd"] = types.YLeaf{"ConfReqRcvd", ncpStatisticsArray.ConfReqRcvd}
-    ncpStatisticsArray.EntityData.Leafs["conf-ack-sent"] = types.YLeaf{"ConfAckSent", ncpStatisticsArray.ConfAckSent}
-    ncpStatisticsArray.EntityData.Leafs["conf-ack-rcvd"] = types.YLeaf{"ConfAckRcvd", ncpStatisticsArray.ConfAckRcvd}
-    ncpStatisticsArray.EntityData.Leafs["conf-nak-sent"] = types.YLeaf{"ConfNakSent", ncpStatisticsArray.ConfNakSent}
-    ncpStatisticsArray.EntityData.Leafs["conf-nak-rcvd"] = types.YLeaf{"ConfNakRcvd", ncpStatisticsArray.ConfNakRcvd}
-    ncpStatisticsArray.EntityData.Leafs["conf-rej-sent"] = types.YLeaf{"ConfRejSent", ncpStatisticsArray.ConfRejSent}
-    ncpStatisticsArray.EntityData.Leafs["conf-rej-rcvd"] = types.YLeaf{"ConfRejRcvd", ncpStatisticsArray.ConfRejRcvd}
+    ncpStatisticsArray.EntityData.Children = types.NewOrderedMap()
+    ncpStatisticsArray.EntityData.Leafs = types.NewOrderedMap()
+    ncpStatisticsArray.EntityData.Leafs.Append("ncp-identifier", types.YLeaf{"NcpIdentifier", ncpStatisticsArray.NcpIdentifier})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-req-sent", types.YLeaf{"ConfReqSent", ncpStatisticsArray.ConfReqSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-req-rcvd", types.YLeaf{"ConfReqRcvd", ncpStatisticsArray.ConfReqRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-ack-sent", types.YLeaf{"ConfAckSent", ncpStatisticsArray.ConfAckSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-ack-rcvd", types.YLeaf{"ConfAckRcvd", ncpStatisticsArray.ConfAckRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-nak-sent", types.YLeaf{"ConfNakSent", ncpStatisticsArray.ConfNakSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-nak-rcvd", types.YLeaf{"ConfNakRcvd", ncpStatisticsArray.ConfNakRcvd})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-rej-sent", types.YLeaf{"ConfRejSent", ncpStatisticsArray.ConfRejSent})
+    ncpStatisticsArray.EntityData.Leafs.Append("conf-rej-rcvd", types.YLeaf{"ConfRejRcvd", ncpStatisticsArray.ConfRejRcvd})
+
+    ncpStatisticsArray.EntityData.YListKeys = []string {}
+
     return &(ncpStatisticsArray.EntityData)
 }
 
@@ -1892,12 +1985,15 @@ func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetEntityData() *types.CommonEntity
     ssoSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssoSummary.EntityData.Children = make(map[string]types.YChild)
-    ssoSummary.EntityData.Children["lcp-states"] = types.YChild{"LcpStates", &ssoSummary.LcpStates}
-    ssoSummary.EntityData.Children["of-us-auth-states"] = types.YChild{"OfUsAuthStates", &ssoSummary.OfUsAuthStates}
-    ssoSummary.EntityData.Children["of-peer-auth-states"] = types.YChild{"OfPeerAuthStates", &ssoSummary.OfPeerAuthStates}
-    ssoSummary.EntityData.Children["ipcp-states"] = types.YChild{"IpcpStates", &ssoSummary.IpcpStates}
-    ssoSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssoSummary.EntityData.Children = types.NewOrderedMap()
+    ssoSummary.EntityData.Children.Append("lcp-states", types.YChild{"LcpStates", &ssoSummary.LcpStates})
+    ssoSummary.EntityData.Children.Append("of-us-auth-states", types.YChild{"OfUsAuthStates", &ssoSummary.OfUsAuthStates})
+    ssoSummary.EntityData.Children.Append("of-peer-auth-states", types.YChild{"OfPeerAuthStates", &ssoSummary.OfPeerAuthStates})
+    ssoSummary.EntityData.Children.Append("ipcp-states", types.YChild{"IpcpStates", &ssoSummary.IpcpStates})
+    ssoSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    ssoSummary.EntityData.YListKeys = []string {}
+
     return &(ssoSummary.EntityData)
 }
 
@@ -1926,10 +2022,13 @@ func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetEntityData() *types.Com
     lcpStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lcpStates.EntityData.Children = make(map[string]types.YChild)
-    lcpStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    lcpStates.EntityData.Leafs["total"] = types.YLeaf{"Total", lcpStates.Total}
-    lcpStates.EntityData.Leafs["count"] = types.YLeaf{"Count", lcpStates.Count}
+    lcpStates.EntityData.Children = types.NewOrderedMap()
+    lcpStates.EntityData.Leafs = types.NewOrderedMap()
+    lcpStates.EntityData.Leafs.Append("total", types.YLeaf{"Total", lcpStates.Total})
+    lcpStates.EntityData.Leafs.Append("count", types.YLeaf{"Count", lcpStates.Count})
+
+    lcpStates.EntityData.YListKeys = []string {}
+
     return &(lcpStates.EntityData)
 }
 
@@ -1958,10 +2057,13 @@ func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetEntityData() 
     ofUsAuthStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofUsAuthStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ofUsAuthStates.EntityData.Children = make(map[string]types.YChild)
-    ofUsAuthStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    ofUsAuthStates.EntityData.Leafs["total"] = types.YLeaf{"Total", ofUsAuthStates.Total}
-    ofUsAuthStates.EntityData.Leafs["count"] = types.YLeaf{"Count", ofUsAuthStates.Count}
+    ofUsAuthStates.EntityData.Children = types.NewOrderedMap()
+    ofUsAuthStates.EntityData.Leafs = types.NewOrderedMap()
+    ofUsAuthStates.EntityData.Leafs.Append("total", types.YLeaf{"Total", ofUsAuthStates.Total})
+    ofUsAuthStates.EntityData.Leafs.Append("count", types.YLeaf{"Count", ofUsAuthStates.Count})
+
+    ofUsAuthStates.EntityData.YListKeys = []string {}
+
     return &(ofUsAuthStates.EntityData)
 }
 
@@ -1990,10 +2092,13 @@ func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetEntityDat
     ofPeerAuthStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofPeerAuthStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ofPeerAuthStates.EntityData.Children = make(map[string]types.YChild)
-    ofPeerAuthStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    ofPeerAuthStates.EntityData.Leafs["total"] = types.YLeaf{"Total", ofPeerAuthStates.Total}
-    ofPeerAuthStates.EntityData.Leafs["count"] = types.YLeaf{"Count", ofPeerAuthStates.Count}
+    ofPeerAuthStates.EntityData.Children = types.NewOrderedMap()
+    ofPeerAuthStates.EntityData.Leafs = types.NewOrderedMap()
+    ofPeerAuthStates.EntityData.Leafs.Append("total", types.YLeaf{"Total", ofPeerAuthStates.Total})
+    ofPeerAuthStates.EntityData.Leafs.Append("count", types.YLeaf{"Count", ofPeerAuthStates.Count})
+
+    ofPeerAuthStates.EntityData.YListKeys = []string {}
+
     return &(ofPeerAuthStates.EntityData)
 }
 
@@ -2022,10 +2127,13 @@ func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetEntityData() *types.C
     ipcpStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipcpStates.EntityData.Children = make(map[string]types.YChild)
-    ipcpStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipcpStates.EntityData.Leafs["total"] = types.YLeaf{"Total", ipcpStates.Total}
-    ipcpStates.EntityData.Leafs["count"] = types.YLeaf{"Count", ipcpStates.Count}
+    ipcpStates.EntityData.Children = types.NewOrderedMap()
+    ipcpStates.EntityData.Leafs = types.NewOrderedMap()
+    ipcpStates.EntityData.Leafs.Append("total", types.YLeaf{"Total", ipcpStates.Total})
+    ipcpStates.EntityData.Leafs.Append("count", types.YLeaf{"Count", ipcpStates.Count})
+
+    ipcpStates.EntityData.YListKeys = []string {}
+
     return &(ipcpStates.EntityData)
 }
 
@@ -2037,7 +2145,7 @@ type Ppp_Nodes_Node_SsoGroups struct {
 
     // PPP SSO state data for a particular group. The type is slice of
     // Ppp_Nodes_Node_SsoGroups_SsoGroup.
-    SsoGroup []Ppp_Nodes_Node_SsoGroups_SsoGroup
+    SsoGroup []*Ppp_Nodes_Node_SsoGroups_SsoGroup
 }
 
 func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetEntityData() *types.CommonEntityData {
@@ -2050,12 +2158,15 @@ func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetEntityData() *types.CommonEntityDa
     ssoGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssoGroups.EntityData.Children = make(map[string]types.YChild)
-    ssoGroups.EntityData.Children["sso-group"] = types.YChild{"SsoGroup", nil}
+    ssoGroups.EntityData.Children = types.NewOrderedMap()
+    ssoGroups.EntityData.Children.Append("sso-group", types.YChild{"SsoGroup", nil})
     for i := range ssoGroups.SsoGroup {
-        ssoGroups.EntityData.Children[types.GetSegmentPath(&ssoGroups.SsoGroup[i])] = types.YChild{"SsoGroup", &ssoGroups.SsoGroup[i]}
+        ssoGroups.EntityData.Children.Append(types.GetSegmentPath(ssoGroups.SsoGroup[i]), types.YChild{"SsoGroup", ssoGroups.SsoGroup[i]})
     }
-    ssoGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssoGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    ssoGroups.EntityData.YListKeys = []string {}
+
     return &(ssoGroups.EntityData)
 }
 
@@ -2078,15 +2189,18 @@ func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetEntityData() *types.Common
     ssoGroup.EntityData.YangName = "sso-group"
     ssoGroup.EntityData.BundleName = "cisco_ios_xr"
     ssoGroup.EntityData.ParentYangName = "sso-groups"
-    ssoGroup.EntityData.SegmentPath = "sso-group" + "[group-id='" + fmt.Sprintf("%v", ssoGroup.GroupId) + "']"
+    ssoGroup.EntityData.SegmentPath = "sso-group" + types.AddKeyToken(ssoGroup.GroupId, "group-id")
     ssoGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssoGroup.EntityData.Children = make(map[string]types.YChild)
-    ssoGroup.EntityData.Children["sso-states"] = types.YChild{"SsoStates", &ssoGroup.SsoStates}
-    ssoGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssoGroup.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", ssoGroup.GroupId}
+    ssoGroup.EntityData.Children = types.NewOrderedMap()
+    ssoGroup.EntityData.Children.Append("sso-states", types.YChild{"SsoStates", &ssoGroup.SsoStates})
+    ssoGroup.EntityData.Leafs = types.NewOrderedMap()
+    ssoGroup.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", ssoGroup.GroupId})
+
+    ssoGroup.EntityData.YListKeys = []string {"GroupId"}
+
     return &(ssoGroup.EntityData)
 }
 
@@ -2098,7 +2212,7 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates struct {
 
     // PPP SSO State data for a particular interface. The type is slice of
     // Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState.
-    SsoState []Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState
+    SsoState []*Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState
 }
 
 func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetEntityData() *types.CommonEntityData {
@@ -2111,12 +2225,15 @@ func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetEntityData() *t
     ssoStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssoStates.EntityData.Children = make(map[string]types.YChild)
-    ssoStates.EntityData.Children["sso-state"] = types.YChild{"SsoState", nil}
+    ssoStates.EntityData.Children = types.NewOrderedMap()
+    ssoStates.EntityData.Children.Append("sso-state", types.YChild{"SsoState", nil})
     for i := range ssoStates.SsoState {
-        ssoStates.EntityData.Children[types.GetSegmentPath(&ssoStates.SsoState[i])] = types.YChild{"SsoState", &ssoStates.SsoState[i]}
+        ssoStates.EntityData.Children.Append(types.GetSegmentPath(ssoStates.SsoState[i]), types.YChild{"SsoState", ssoStates.SsoState[i]})
     }
-    ssoStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssoStates.EntityData.Leafs = types.NewOrderedMap()
+
+    ssoStates.EntityData.YListKeys = []string {}
+
     return &(ssoStates.EntityData)
 }
 
@@ -2134,8 +2251,8 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState struct {
     // SSRP Session ID. The type is interface{} with range: 0..4294967295.
     SessionIdXr interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // LCP SSO State.
     LcpState Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState
@@ -2155,20 +2272,23 @@ func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetEntityD
     ssoState.EntityData.YangName = "sso-state"
     ssoState.EntityData.BundleName = "cisco_ios_xr"
     ssoState.EntityData.ParentYangName = "sso-states"
-    ssoState.EntityData.SegmentPath = "sso-state" + "[session-id='" + fmt.Sprintf("%v", ssoState.SessionId) + "']"
+    ssoState.EntityData.SegmentPath = "sso-state" + types.AddKeyToken(ssoState.SessionId, "session-id")
     ssoState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssoState.EntityData.Children = make(map[string]types.YChild)
-    ssoState.EntityData.Children["lcp-state"] = types.YChild{"LcpState", &ssoState.LcpState}
-    ssoState.EntityData.Children["of-us-auth-state"] = types.YChild{"OfUsAuthState", &ssoState.OfUsAuthState}
-    ssoState.EntityData.Children["of-peer-auth-state"] = types.YChild{"OfPeerAuthState", &ssoState.OfPeerAuthState}
-    ssoState.EntityData.Children["ipcp-state"] = types.YChild{"IpcpState", &ssoState.IpcpState}
-    ssoState.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssoState.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", ssoState.SessionId}
-    ssoState.EntityData.Leafs["session-id-xr"] = types.YLeaf{"SessionIdXr", ssoState.SessionIdXr}
-    ssoState.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", ssoState.Interface_}
+    ssoState.EntityData.Children = types.NewOrderedMap()
+    ssoState.EntityData.Children.Append("lcp-state", types.YChild{"LcpState", &ssoState.LcpState})
+    ssoState.EntityData.Children.Append("of-us-auth-state", types.YChild{"OfUsAuthState", &ssoState.OfUsAuthState})
+    ssoState.EntityData.Children.Append("of-peer-auth-state", types.YChild{"OfPeerAuthState", &ssoState.OfPeerAuthState})
+    ssoState.EntityData.Children.Append("ipcp-state", types.YChild{"IpcpState", &ssoState.IpcpState})
+    ssoState.EntityData.Leafs = types.NewOrderedMap()
+    ssoState.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", ssoState.SessionId})
+    ssoState.EntityData.Leafs.Append("session-id-xr", types.YLeaf{"SessionIdXr", ssoState.SessionIdXr})
+    ssoState.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", ssoState.Interface})
+
+    ssoState.EntityData.YListKeys = []string {"SessionId"}
+
     return &(ssoState.EntityData)
 }
 
@@ -2195,10 +2315,13 @@ func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) G
     lcpState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lcpState.EntityData.Children = make(map[string]types.YChild)
-    lcpState.EntityData.Leafs = make(map[string]types.YLeaf)
-    lcpState.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", lcpState.IsRunning}
-    lcpState.EntityData.Leafs["state"] = types.YLeaf{"State", lcpState.State}
+    lcpState.EntityData.Children = types.NewOrderedMap()
+    lcpState.EntityData.Leafs = types.NewOrderedMap()
+    lcpState.EntityData.Leafs.Append("is-running", types.YLeaf{"IsRunning", lcpState.IsRunning})
+    lcpState.EntityData.Leafs.Append("state", types.YLeaf{"State", lcpState.State})
+
+    lcpState.EntityData.YListKeys = []string {}
+
     return &(lcpState.EntityData)
 }
 
@@ -2225,10 +2348,13 @@ func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAu
     ofUsAuthState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofUsAuthState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ofUsAuthState.EntityData.Children = make(map[string]types.YChild)
-    ofUsAuthState.EntityData.Leafs = make(map[string]types.YLeaf)
-    ofUsAuthState.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", ofUsAuthState.IsRunning}
-    ofUsAuthState.EntityData.Leafs["state"] = types.YLeaf{"State", ofUsAuthState.State}
+    ofUsAuthState.EntityData.Children = types.NewOrderedMap()
+    ofUsAuthState.EntityData.Leafs = types.NewOrderedMap()
+    ofUsAuthState.EntityData.Leafs.Append("is-running", types.YLeaf{"IsRunning", ofUsAuthState.IsRunning})
+    ofUsAuthState.EntityData.Leafs.Append("state", types.YLeaf{"State", ofUsAuthState.State})
+
+    ofUsAuthState.EntityData.YListKeys = []string {}
+
     return &(ofUsAuthState.EntityData)
 }
 
@@ -2255,10 +2381,13 @@ func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPe
     ofPeerAuthState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofPeerAuthState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ofPeerAuthState.EntityData.Children = make(map[string]types.YChild)
-    ofPeerAuthState.EntityData.Leafs = make(map[string]types.YLeaf)
-    ofPeerAuthState.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", ofPeerAuthState.IsRunning}
-    ofPeerAuthState.EntityData.Leafs["state"] = types.YLeaf{"State", ofPeerAuthState.State}
+    ofPeerAuthState.EntityData.Children = types.NewOrderedMap()
+    ofPeerAuthState.EntityData.Leafs = types.NewOrderedMap()
+    ofPeerAuthState.EntityData.Leafs.Append("is-running", types.YLeaf{"IsRunning", ofPeerAuthState.IsRunning})
+    ofPeerAuthState.EntityData.Leafs.Append("state", types.YLeaf{"State", ofPeerAuthState.State})
+
+    ofPeerAuthState.EntityData.YListKeys = []string {}
+
     return &(ofPeerAuthState.EntityData)
 }
 
@@ -2285,10 +2414,13 @@ func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState)
     ipcpState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipcpState.EntityData.Children = make(map[string]types.YChild)
-    ipcpState.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipcpState.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", ipcpState.IsRunning}
-    ipcpState.EntityData.Leafs["state"] = types.YLeaf{"State", ipcpState.State}
+    ipcpState.EntityData.Children = types.NewOrderedMap()
+    ipcpState.EntityData.Leafs = types.NewOrderedMap()
+    ipcpState.EntityData.Leafs.Append("is-running", types.YLeaf{"IsRunning", ipcpState.IsRunning})
+    ipcpState.EntityData.Leafs.Append("state", types.YLeaf{"State", ipcpState.State})
+
+    ipcpState.EntityData.YListKeys = []string {}
+
     return &(ipcpState.EntityData)
 }
 
@@ -2318,11 +2450,14 @@ func (summary *Ppp_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["intfs"] = types.YChild{"Intfs", &summary.Intfs}
-    summary.EntityData.Children["fsm-states"] = types.YChild{"FsmStates", &summary.FsmStates}
-    summary.EntityData.Children["lcp-auth-phases"] = types.YChild{"LcpAuthPhases", &summary.LcpAuthPhases}
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("intfs", types.YChild{"Intfs", &summary.Intfs})
+    summary.EntityData.Children.Append("fsm-states", types.YChild{"FsmStates", &summary.FsmStates})
+    summary.EntityData.Children.Append("lcp-auth-phases", types.YChild{"LcpAuthPhases", &summary.LcpAuthPhases})
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -2364,15 +2499,18 @@ func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetEntityData() *types.CommonEntityDa
     intfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    intfs.EntityData.Children = make(map[string]types.YChild)
-    intfs.EntityData.Leafs = make(map[string]types.YLeaf)
-    intfs.EntityData.Leafs["pos-count"] = types.YLeaf{"PosCount", intfs.PosCount}
-    intfs.EntityData.Leafs["serial-count"] = types.YLeaf{"SerialCount", intfs.SerialCount}
-    intfs.EntityData.Leafs["pppoe-count"] = types.YLeaf{"PppoeCount", intfs.PppoeCount}
-    intfs.EntityData.Leafs["multilink-bundle-count"] = types.YLeaf{"MultilinkBundleCount", intfs.MultilinkBundleCount}
-    intfs.EntityData.Leafs["gcc0-count"] = types.YLeaf{"Gcc0Count", intfs.Gcc0Count}
-    intfs.EntityData.Leafs["gcc1-count"] = types.YLeaf{"Gcc1Count", intfs.Gcc1Count}
-    intfs.EntityData.Leafs["total"] = types.YLeaf{"Total", intfs.Total}
+    intfs.EntityData.Children = types.NewOrderedMap()
+    intfs.EntityData.Leafs = types.NewOrderedMap()
+    intfs.EntityData.Leafs.Append("pos-count", types.YLeaf{"PosCount", intfs.PosCount})
+    intfs.EntityData.Leafs.Append("serial-count", types.YLeaf{"SerialCount", intfs.SerialCount})
+    intfs.EntityData.Leafs.Append("pppoe-count", types.YLeaf{"PppoeCount", intfs.PppoeCount})
+    intfs.EntityData.Leafs.Append("multilink-bundle-count", types.YLeaf{"MultilinkBundleCount", intfs.MultilinkBundleCount})
+    intfs.EntityData.Leafs.Append("gcc0-count", types.YLeaf{"Gcc0Count", intfs.Gcc0Count})
+    intfs.EntityData.Leafs.Append("gcc1-count", types.YLeaf{"Gcc1Count", intfs.Gcc1Count})
+    intfs.EntityData.Leafs.Append("total", types.YLeaf{"Total", intfs.Total})
+
+    intfs.EntityData.YListKeys = []string {}
+
     return &(intfs.EntityData)
 }
 
@@ -2387,7 +2525,7 @@ type Ppp_Nodes_Node_Summary_FsmStates struct {
 
     // Array of per-NCP FSM States. The type is slice of
     // Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray.
-    NcpfsmStatesArray []Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray
+    NcpfsmStatesArray []*Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray
 }
 
 func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetEntityData() *types.CommonEntityData {
@@ -2400,13 +2538,16 @@ func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetEntityData() *types.Common
     fsmStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fsmStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fsmStates.EntityData.Children = make(map[string]types.YChild)
-    fsmStates.EntityData.Children["lcpfsm-states"] = types.YChild{"LcpfsmStates", &fsmStates.LcpfsmStates}
-    fsmStates.EntityData.Children["ncpfsm-states-array"] = types.YChild{"NcpfsmStatesArray", nil}
+    fsmStates.EntityData.Children = types.NewOrderedMap()
+    fsmStates.EntityData.Children.Append("lcpfsm-states", types.YChild{"LcpfsmStates", &fsmStates.LcpfsmStates})
+    fsmStates.EntityData.Children.Append("ncpfsm-states-array", types.YChild{"NcpfsmStatesArray", nil})
     for i := range fsmStates.NcpfsmStatesArray {
-        fsmStates.EntityData.Children[types.GetSegmentPath(&fsmStates.NcpfsmStatesArray[i])] = types.YChild{"NcpfsmStatesArray", &fsmStates.NcpfsmStatesArray[i]}
+        fsmStates.EntityData.Children.Append(types.GetSegmentPath(fsmStates.NcpfsmStatesArray[i]), types.YChild{"NcpfsmStatesArray", fsmStates.NcpfsmStatesArray[i]})
     }
-    fsmStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    fsmStates.EntityData.Leafs = types.NewOrderedMap()
+
+    fsmStates.EntityData.YListKeys = []string {}
+
     return &(fsmStates.EntityData)
 }
 
@@ -2435,10 +2576,13 @@ func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetEntityData
     lcpfsmStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpfsmStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lcpfsmStates.EntityData.Children = make(map[string]types.YChild)
-    lcpfsmStates.EntityData.Leafs = make(map[string]types.YLeaf)
-    lcpfsmStates.EntityData.Leafs["total"] = types.YLeaf{"Total", lcpfsmStates.Total}
-    lcpfsmStates.EntityData.Leafs["count"] = types.YLeaf{"Count", lcpfsmStates.Count}
+    lcpfsmStates.EntityData.Children = types.NewOrderedMap()
+    lcpfsmStates.EntityData.Leafs = types.NewOrderedMap()
+    lcpfsmStates.EntityData.Leafs.Append("total", types.YLeaf{"Total", lcpfsmStates.Total})
+    lcpfsmStates.EntityData.Leafs.Append("count", types.YLeaf{"Count", lcpfsmStates.Count})
+
+    lcpfsmStates.EntityData.YListKeys = []string {}
+
     return &(lcpfsmStates.EntityData)
 }
 
@@ -2470,11 +2614,14 @@ func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) Get
     ncpfsmStatesArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpfsmStatesArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ncpfsmStatesArray.EntityData.Children = make(map[string]types.YChild)
-    ncpfsmStatesArray.EntityData.Leafs = make(map[string]types.YLeaf)
-    ncpfsmStatesArray.EntityData.Leafs["ncp-identifier"] = types.YLeaf{"NcpIdentifier", ncpfsmStatesArray.NcpIdentifier}
-    ncpfsmStatesArray.EntityData.Leafs["total"] = types.YLeaf{"Total", ncpfsmStatesArray.Total}
-    ncpfsmStatesArray.EntityData.Leafs["count"] = types.YLeaf{"Count", ncpfsmStatesArray.Count}
+    ncpfsmStatesArray.EntityData.Children = types.NewOrderedMap()
+    ncpfsmStatesArray.EntityData.Leafs = types.NewOrderedMap()
+    ncpfsmStatesArray.EntityData.Leafs.Append("ncp-identifier", types.YLeaf{"NcpIdentifier", ncpfsmStatesArray.NcpIdentifier})
+    ncpfsmStatesArray.EntityData.Leafs.Append("total", types.YLeaf{"Total", ncpfsmStatesArray.Total})
+    ncpfsmStatesArray.EntityData.Leafs.Append("count", types.YLeaf{"Count", ncpfsmStatesArray.Count})
+
+    ncpfsmStatesArray.EntityData.YListKeys = []string {}
+
     return &(ncpfsmStatesArray.EntityData)
 }
 
@@ -2519,14 +2666,17 @@ func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetEntityData() *type
     lcpAuthPhases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpAuthPhases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lcpAuthPhases.EntityData.Children = make(map[string]types.YChild)
-    lcpAuthPhases.EntityData.Leafs = make(map[string]types.YLeaf)
-    lcpAuthPhases.EntityData.Leafs["lcp-not-negotiated"] = types.YLeaf{"LcpNotNegotiated", lcpAuthPhases.LcpNotNegotiated}
-    lcpAuthPhases.EntityData.Leafs["authenticating"] = types.YLeaf{"Authenticating", lcpAuthPhases.Authenticating}
-    lcpAuthPhases.EntityData.Leafs["line-held-down"] = types.YLeaf{"LineHeldDown", lcpAuthPhases.LineHeldDown}
-    lcpAuthPhases.EntityData.Leafs["up-local-term"] = types.YLeaf{"UpLocalTerm", lcpAuthPhases.UpLocalTerm}
-    lcpAuthPhases.EntityData.Leafs["up-l2-fwded"] = types.YLeaf{"UpL2Fwded", lcpAuthPhases.UpL2Fwded}
-    lcpAuthPhases.EntityData.Leafs["up-tunneled"] = types.YLeaf{"UpTunneled", lcpAuthPhases.UpTunneled}
+    lcpAuthPhases.EntityData.Children = types.NewOrderedMap()
+    lcpAuthPhases.EntityData.Leafs = types.NewOrderedMap()
+    lcpAuthPhases.EntityData.Leafs.Append("lcp-not-negotiated", types.YLeaf{"LcpNotNegotiated", lcpAuthPhases.LcpNotNegotiated})
+    lcpAuthPhases.EntityData.Leafs.Append("authenticating", types.YLeaf{"Authenticating", lcpAuthPhases.Authenticating})
+    lcpAuthPhases.EntityData.Leafs.Append("line-held-down", types.YLeaf{"LineHeldDown", lcpAuthPhases.LineHeldDown})
+    lcpAuthPhases.EntityData.Leafs.Append("up-local-term", types.YLeaf{"UpLocalTerm", lcpAuthPhases.UpLocalTerm})
+    lcpAuthPhases.EntityData.Leafs.Append("up-l2-fwded", types.YLeaf{"UpL2Fwded", lcpAuthPhases.UpL2Fwded})
+    lcpAuthPhases.EntityData.Leafs.Append("up-tunneled", types.YLeaf{"UpTunneled", lcpAuthPhases.UpTunneled})
+
+    lcpAuthPhases.EntityData.YListKeys = []string {}
+
     return &(lcpAuthPhases.EntityData)
 }
 

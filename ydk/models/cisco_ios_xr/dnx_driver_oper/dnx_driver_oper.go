@@ -24,63 +24,21 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-dnx-driver-oper:fia", reflect.TypeOf(Fia{}))
 }
 
-// AsicInitMethod represents Asic init method
-type AsicInitMethod string
+// SliceState represents Slice state
+type SliceState string
 
 const (
-    // asic init method unset
-    AsicInitMethod_asic_init_method_unset AsicInitMethod = "asic-init-method-unset"
+    // slice oper unset
+    SliceState_slice_oper_unset SliceState = "slice-oper-unset"
 
-    // asic init method no reset
-    AsicInitMethod_asic_init_method_no_reset AsicInitMethod = "asic-init-method-no-reset"
+    // slice oper down
+    SliceState_slice_oper_down SliceState = "slice-oper-down"
 
-    // asic init method pon reset
-    AsicInitMethod_asic_init_method_pon_reset AsicInitMethod = "asic-init-method-pon-reset"
+    // slice oper up
+    SliceState_slice_oper_up SliceState = "slice-oper-up"
 
-    // asic init method pon reset on intr
-    AsicInitMethod_asic_init_method_pon_reset_on_intr AsicInitMethod = "asic-init-method-pon-reset-on-intr"
-
-    // asic init method hard reset
-    AsicInitMethod_asic_init_method_hard_reset AsicInitMethod = "asic-init-method-hard-reset"
-
-    // asic init method warmboot
-    AsicInitMethod_asic_init_method_warmboot AsicInitMethod = "asic-init-method-warmboot"
-
-    // asic init method issu wb
-    AsicInitMethod_asic_init_method_issu_wb AsicInitMethod = "asic-init-method-issu-wb"
-
-    // asic init method pci shutdown
-    AsicInitMethod_asic_init_method_pci_shutdown AsicInitMethod = "asic-init-method-pci-shutdown"
-
-    // asic init method quiesce
-    AsicInitMethod_asic_init_method_quiesce AsicInitMethod = "asic-init-method-quiesce"
-
-    // asic init method issu started
-    AsicInitMethod_asic_init_method_issu_started AsicInitMethod = "asic-init-method-issu-started"
-
-    // asic init method issu rollback
-    AsicInitMethod_asic_init_method_issu_rollback AsicInitMethod = "asic-init-method-issu-rollback"
-
-    // asic init method issu abort
-    AsicInitMethod_asic_init_method_issu_abort AsicInitMethod = "asic-init-method-issu-abort"
-
-    // asic init method slice cleanup
-    AsicInitMethod_asic_init_method_slice_cleanup AsicInitMethod = "asic-init-method-slice-cleanup"
-
-    // asic init method lc remove
-    AsicInitMethod_asic_init_method_lc_remove AsicInitMethod = "asic-init-method-lc-remove"
-
-    // asic init method node down
-    AsicInitMethod_asic_init_method_node_down AsicInitMethod = "asic-init-method-node-down"
-
-    // asic init method intr
-    AsicInitMethod_asic_init_method_intr AsicInitMethod = "asic-init-method-intr"
-
-    // asic init method board reload
-    AsicInitMethod_asic_init_method_board_reload AsicInitMethod = "asic-init-method-board-reload"
-
-    // asic init method max
-    AsicInitMethod_asic_init_method_max AsicInitMethod = "asic-init-method-max"
+    // slice oper na
+    SliceState_slice_oper_na SliceState = "slice-oper-na"
 )
 
 // AsicAccessState represents Asic access state
@@ -166,6 +124,69 @@ const (
     AsicAccessState_asic_state_max AsicAccessState = "asic-state-max"
 )
 
+// LinkErrorState represents Link error state
+type LinkErrorState string
+
+const (
+    // link error unset
+    LinkErrorState_link_error_unset LinkErrorState = "link-error-unset"
+
+    // link error none
+    LinkErrorState_link_error_none LinkErrorState = "link-error-none"
+
+    // link error shut
+    LinkErrorState_link_error_shut LinkErrorState = "link-error-shut"
+
+    // link error max
+    LinkErrorState_link_error_max LinkErrorState = "link-error-max"
+)
+
+// FcMode represents Fc mode
+type FcMode string
+
+const (
+    // fc mode unset
+    FcMode_fc_mode_unset FcMode = "fc-mode-unset"
+
+    // fc mode unavail
+    FcMode_fc_mode_unavail FcMode = "fc-mode-unavail"
+
+    // fc mode inband
+    FcMode_fc_mode_inband FcMode = "fc-mode-inband"
+
+    // fc mode oob
+    FcMode_fc_mode_oob FcMode = "fc-mode-oob"
+)
+
+// Asic represents Asic
+type Asic string
+
+const (
+    // asic unset
+    Asic_asic_unset Asic = "asic-unset"
+
+    // asic unavail
+    Asic_asic_unavail Asic = "asic-unavail"
+
+    // asic fia
+    Asic_asic_fia Asic = "asic-fia"
+
+    // asic s123
+    Asic_asic_s123 Asic = "asic-s123"
+
+    // asic s13
+    Asic_asic_s13 Asic = "asic-s13"
+
+    // asic s2
+    Asic_asic_s2 Asic = "asic-s2"
+
+    // asic b2b
+    Asic_asic_b2b Asic = "asic-b2b"
+
+    // asic type unknown
+    Asic_asic_type_unknown Asic = "asic-type-unknown"
+)
+
 // AsicOperState represents Asic oper state
 type AsicOperState string
 
@@ -186,55 +207,21 @@ const (
     AsicOperState_asic_card_down AsicOperState = "asic-card-down"
 )
 
-// SliceState represents Slice state
-type SliceState string
+// Link represents Link
+type Link string
 
 const (
-    // slice oper unset
-    SliceState_slice_oper_unset SliceState = "slice-oper-unset"
+    // link type unset
+    Link_link_type_unset Link = "link-type-unset"
 
-    // slice oper down
-    SliceState_slice_oper_down SliceState = "slice-oper-down"
+    // link type unavail
+    Link_link_type_unavail Link = "link-type-unavail"
 
-    // slice oper up
-    SliceState_slice_oper_up SliceState = "slice-oper-up"
+    // link type tx
+    Link_link_type_tx Link = "link-type-tx"
 
-    // slice oper na
-    SliceState_slice_oper_na SliceState = "slice-oper-na"
-)
-
-// FcMode represents Fc mode
-type FcMode string
-
-const (
-    // fc mode unset
-    FcMode_fc_mode_unset FcMode = "fc-mode-unset"
-
-    // fc mode unavail
-    FcMode_fc_mode_unavail FcMode = "fc-mode-unavail"
-
-    // fc mode inband
-    FcMode_fc_mode_inband FcMode = "fc-mode-inband"
-
-    // fc mode oob
-    FcMode_fc_mode_oob FcMode = "fc-mode-oob"
-)
-
-// LinkErrorState represents Link error state
-type LinkErrorState string
-
-const (
-    // link error unset
-    LinkErrorState_link_error_unset LinkErrorState = "link-error-unset"
-
-    // link error none
-    LinkErrorState_link_error_none LinkErrorState = "link-error-none"
-
-    // link error shut
-    LinkErrorState_link_error_shut LinkErrorState = "link-error-shut"
-
-    // link error max
-    LinkErrorState_link_error_max LinkErrorState = "link-error-max"
+    // link type rx
+    Link_link_type_rx Link = "link-type-rx"
 )
 
 // OperState represents Oper state
@@ -255,6 +242,65 @@ const (
 
     // card down
     OperState_card_down OperState = "card-down"
+)
+
+// AsicInitMethod represents Asic init method
+type AsicInitMethod string
+
+const (
+    // asic init method unset
+    AsicInitMethod_asic_init_method_unset AsicInitMethod = "asic-init-method-unset"
+
+    // asic init method no reset
+    AsicInitMethod_asic_init_method_no_reset AsicInitMethod = "asic-init-method-no-reset"
+
+    // asic init method pon reset
+    AsicInitMethod_asic_init_method_pon_reset AsicInitMethod = "asic-init-method-pon-reset"
+
+    // asic init method pon reset on intr
+    AsicInitMethod_asic_init_method_pon_reset_on_intr AsicInitMethod = "asic-init-method-pon-reset-on-intr"
+
+    // asic init method hard reset
+    AsicInitMethod_asic_init_method_hard_reset AsicInitMethod = "asic-init-method-hard-reset"
+
+    // asic init method warmboot
+    AsicInitMethod_asic_init_method_warmboot AsicInitMethod = "asic-init-method-warmboot"
+
+    // asic init method issu wb
+    AsicInitMethod_asic_init_method_issu_wb AsicInitMethod = "asic-init-method-issu-wb"
+
+    // asic init method pci shutdown
+    AsicInitMethod_asic_init_method_pci_shutdown AsicInitMethod = "asic-init-method-pci-shutdown"
+
+    // asic init method quiesce
+    AsicInitMethod_asic_init_method_quiesce AsicInitMethod = "asic-init-method-quiesce"
+
+    // asic init method issu started
+    AsicInitMethod_asic_init_method_issu_started AsicInitMethod = "asic-init-method-issu-started"
+
+    // asic init method issu rollback
+    AsicInitMethod_asic_init_method_issu_rollback AsicInitMethod = "asic-init-method-issu-rollback"
+
+    // asic init method issu abort
+    AsicInitMethod_asic_init_method_issu_abort AsicInitMethod = "asic-init-method-issu-abort"
+
+    // asic init method slice cleanup
+    AsicInitMethod_asic_init_method_slice_cleanup AsicInitMethod = "asic-init-method-slice-cleanup"
+
+    // asic init method lc remove
+    AsicInitMethod_asic_init_method_lc_remove AsicInitMethod = "asic-init-method-lc-remove"
+
+    // asic init method node down
+    AsicInitMethod_asic_init_method_node_down AsicInitMethod = "asic-init-method-node-down"
+
+    // asic init method intr
+    AsicInitMethod_asic_init_method_intr AsicInitMethod = "asic-init-method-intr"
+
+    // asic init method board reload
+    AsicInitMethod_asic_init_method_board_reload AsicInitMethod = "asic-init-method-board-reload"
+
+    // asic init method max
+    AsicInitMethod_asic_init_method_max AsicInitMethod = "asic-init-method-max"
 )
 
 // AdminState represents Admin state
@@ -297,52 +343,6 @@ const (
     LinkStage_link_stage_unknown LinkStage = "link-stage-unknown"
 )
 
-// Link represents Link
-type Link string
-
-const (
-    // link type unset
-    Link_link_type_unset Link = "link-type-unset"
-
-    // link type unavail
-    Link_link_type_unavail Link = "link-type-unavail"
-
-    // link type tx
-    Link_link_type_tx Link = "link-type-tx"
-
-    // link type rx
-    Link_link_type_rx Link = "link-type-rx"
-)
-
-// Asic represents Asic
-type Asic string
-
-const (
-    // asic unset
-    Asic_asic_unset Asic = "asic-unset"
-
-    // asic unavail
-    Asic_asic_unavail Asic = "asic-unavail"
-
-    // asic fia
-    Asic_asic_fia Asic = "asic-fia"
-
-    // asic s123
-    Asic_asic_s123 Asic = "asic-s123"
-
-    // asic s13
-    Asic_asic_s13 Asic = "asic-s13"
-
-    // asic s2
-    Asic_asic_s2 Asic = "asic-s2"
-
-    // asic b2b
-    Asic_asic_b2b Asic = "asic-b2b"
-
-    // asic type unknown
-    Asic_asic_type_unknown Asic = "asic-type-unknown"
-)
-
 // Rack represents Rack
 type Rack string
 
@@ -377,9 +377,12 @@ func (fia *Fia) GetEntityData() *types.CommonEntityData {
     fia.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fia.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fia.EntityData.Children = make(map[string]types.YChild)
-    fia.EntityData.Children["nodes"] = types.YChild{"Nodes", &fia.Nodes}
-    fia.EntityData.Leafs = make(map[string]types.YLeaf)
+    fia.EntityData.Children = types.NewOrderedMap()
+    fia.EntityData.Children.Append("nodes", types.YChild{"Nodes", &fia.Nodes})
+    fia.EntityData.Leafs = types.NewOrderedMap()
+
+    fia.EntityData.YListKeys = []string {}
+
     return &(fia.EntityData)
 }
 
@@ -391,7 +394,7 @@ type Fia_Nodes struct {
 
     // FIA operational data for a particular node. The type is slice of
     // Fia_Nodes_Node.
-    Node []Fia_Nodes_Node
+    Node []*Fia_Nodes_Node
 }
 
 func (nodes *Fia_Nodes) GetEntityData() *types.CommonEntityData {
@@ -404,12 +407,15 @@ func (nodes *Fia_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -420,7 +426,7 @@ type Fia_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // FIA link rx information.
@@ -450,21 +456,24 @@ func (node *Fia_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["rx-link-information"] = types.YChild{"RxLinkInformation", &node.RxLinkInformation}
-    node.EntityData.Children["driver-information"] = types.YChild{"DriverInformation", &node.DriverInformation}
-    node.EntityData.Children["clear-statistics"] = types.YChild{"ClearStatistics", &node.ClearStatistics}
-    node.EntityData.Children["tx-link-information"] = types.YChild{"TxLinkInformation", &node.TxLinkInformation}
-    node.EntityData.Children["diag-shell"] = types.YChild{"DiagShell", &node.DiagShell}
-    node.EntityData.Children["oir-history"] = types.YChild{"OirHistory", &node.OirHistory}
-    node.EntityData.Children["asic-statistics"] = types.YChild{"AsicStatistics", &node.AsicStatistics}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("rx-link-information", types.YChild{"RxLinkInformation", &node.RxLinkInformation})
+    node.EntityData.Children.Append("driver-information", types.YChild{"DriverInformation", &node.DriverInformation})
+    node.EntityData.Children.Append("clear-statistics", types.YChild{"ClearStatistics", &node.ClearStatistics})
+    node.EntityData.Children.Append("tx-link-information", types.YChild{"TxLinkInformation", &node.TxLinkInformation})
+    node.EntityData.Children.Append("diag-shell", types.YChild{"DiagShell", &node.DiagShell})
+    node.EntityData.Children.Append("oir-history", types.YChild{"OirHistory", &node.OirHistory})
+    node.EntityData.Children.Append("asic-statistics", types.YChild{"AsicStatistics", &node.AsicStatistics})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -488,9 +497,12 @@ func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetEntityData() *type
     rxLinkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLinkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLinkInformation.EntityData.Children = make(map[string]types.YChild)
-    rxLinkInformation.EntityData.Children["link-options"] = types.YChild{"LinkOptions", &rxLinkInformation.LinkOptions}
-    rxLinkInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLinkInformation.EntityData.Children = types.NewOrderedMap()
+    rxLinkInformation.EntityData.Children.Append("link-options", types.YChild{"LinkOptions", &rxLinkInformation.LinkOptions})
+    rxLinkInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    rxLinkInformation.EntityData.YListKeys = []string {}
+
     return &(rxLinkInformation.EntityData)
 }
 
@@ -502,7 +514,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions struct {
 
     // Option : topo , flag , stats. The type is slice of
     // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption.
-    LinkOption []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption
+    LinkOption []*Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption
 }
 
 func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetEntityData() *types.CommonEntityData {
@@ -515,12 +527,15 @@ func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetEntityData()
     linkOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkOptions.EntityData.Children = make(map[string]types.YChild)
-    linkOptions.EntityData.Children["link-option"] = types.YChild{"LinkOption", nil}
+    linkOptions.EntityData.Children = types.NewOrderedMap()
+    linkOptions.EntityData.Children.Append("link-option", types.YChild{"LinkOption", nil})
     for i := range linkOptions.LinkOption {
-        linkOptions.EntityData.Children[types.GetSegmentPath(&linkOptions.LinkOption[i])] = types.YChild{"LinkOption", &linkOptions.LinkOption[i]}
+        linkOptions.EntityData.Children.Append(types.GetSegmentPath(linkOptions.LinkOption[i]), types.YChild{"LinkOption", linkOptions.LinkOption[i]})
     }
-    linkOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkOptions.EntityData.Leafs = types.NewOrderedMap()
+
+    linkOptions.EntityData.YListKeys = []string {}
+
     return &(linkOptions.EntityData)
 }
 
@@ -531,7 +546,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Link option. The type is string with pattern:
-    // b'(flap)|(topo)'.
+    // (flap)|(topo).
     Option interface{}
 
     // Instance table for rx information.
@@ -543,15 +558,18 @@ func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetEn
     linkOption.EntityData.YangName = "link-option"
     linkOption.EntityData.BundleName = "cisco_ios_xr"
     linkOption.EntityData.ParentYangName = "link-options"
-    linkOption.EntityData.SegmentPath = "link-option" + "[option='" + fmt.Sprintf("%v", linkOption.Option) + "']"
+    linkOption.EntityData.SegmentPath = "link-option" + types.AddKeyToken(linkOption.Option, "option")
     linkOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkOption.EntityData.Children = make(map[string]types.YChild)
-    linkOption.EntityData.Children["rx-asic-instances"] = types.YChild{"RxAsicInstances", &linkOption.RxAsicInstances}
-    linkOption.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkOption.EntityData.Leafs["option"] = types.YLeaf{"Option", linkOption.Option}
+    linkOption.EntityData.Children = types.NewOrderedMap()
+    linkOption.EntityData.Children.Append("rx-asic-instances", types.YChild{"RxAsicInstances", &linkOption.RxAsicInstances})
+    linkOption.EntityData.Leafs = types.NewOrderedMap()
+    linkOption.EntityData.Leafs.Append("option", types.YLeaf{"Option", linkOption.Option})
+
+    linkOption.EntityData.YListKeys = []string {"Option"}
+
     return &(linkOption.EntityData)
 }
 
@@ -563,7 +581,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances str
 
     // Instance number for rx link information. The type is slice of
     // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance.
-    RxAsicInstance []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance
+    RxAsicInstance []*Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance
 }
 
 func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetEntityData() *types.CommonEntityData {
@@ -576,12 +594,15 @@ func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_R
     rxAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxAsicInstances.EntityData.Children = make(map[string]types.YChild)
-    rxAsicInstances.EntityData.Children["rx-asic-instance"] = types.YChild{"RxAsicInstance", nil}
+    rxAsicInstances.EntityData.Children = types.NewOrderedMap()
+    rxAsicInstances.EntityData.Children.Append("rx-asic-instance", types.YChild{"RxAsicInstance", nil})
     for i := range rxAsicInstances.RxAsicInstance {
-        rxAsicInstances.EntityData.Children[types.GetSegmentPath(&rxAsicInstances.RxAsicInstance[i])] = types.YChild{"RxAsicInstance", &rxAsicInstances.RxAsicInstance[i]}
+        rxAsicInstances.EntityData.Children.Append(types.GetSegmentPath(rxAsicInstances.RxAsicInstance[i]), types.YChild{"RxAsicInstance", rxAsicInstances.RxAsicInstance[i]})
     }
-    rxAsicInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxAsicInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    rxAsicInstances.EntityData.YListKeys = []string {}
+
     return &(rxAsicInstances.EntityData)
 }
 
@@ -604,15 +625,18 @@ func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_Rx
     rxAsicInstance.EntityData.YangName = "rx-asic-instance"
     rxAsicInstance.EntityData.BundleName = "cisco_ios_xr"
     rxAsicInstance.EntityData.ParentYangName = "rx-asic-instances"
-    rxAsicInstance.EntityData.SegmentPath = "rx-asic-instance" + "[instance='" + fmt.Sprintf("%v", rxAsicInstance.Instance) + "']"
+    rxAsicInstance.EntityData.SegmentPath = "rx-asic-instance" + types.AddKeyToken(rxAsicInstance.Instance, "instance")
     rxAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxAsicInstance.EntityData.Children = make(map[string]types.YChild)
-    rxAsicInstance.EntityData.Children["rx-links"] = types.YChild{"RxLinks", &rxAsicInstance.RxLinks}
-    rxAsicInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxAsicInstance.EntityData.Leafs["instance"] = types.YLeaf{"Instance", rxAsicInstance.Instance}
+    rxAsicInstance.EntityData.Children = types.NewOrderedMap()
+    rxAsicInstance.EntityData.Children.Append("rx-links", types.YChild{"RxLinks", &rxAsicInstance.RxLinks})
+    rxAsicInstance.EntityData.Leafs = types.NewOrderedMap()
+    rxAsicInstance.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", rxAsicInstance.Instance})
+
+    rxAsicInstance.EntityData.YListKeys = []string {"Instance"}
+
     return &(rxAsicInstance.EntityData)
 }
 
@@ -624,7 +648,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
 
     // Link number for rx link information. The type is slice of
     // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink.
-    RxLink []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink
+    RxLink []*Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink
 }
 
 func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetEntityData() *types.CommonEntityData {
@@ -637,12 +661,15 @@ func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIns
     rxLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLinks.EntityData.Children = make(map[string]types.YChild)
-    rxLinks.EntityData.Children["rx-link"] = types.YChild{"RxLink", nil}
+    rxLinks.EntityData.Children = types.NewOrderedMap()
+    rxLinks.EntityData.Children.Append("rx-link", types.YChild{"RxLink", nil})
     for i := range rxLinks.RxLink {
-        rxLinks.EntityData.Children[types.GetSegmentPath(&rxLinks.RxLink[i])] = types.YChild{"RxLink", &rxLinks.RxLink[i]}
+        rxLinks.EntityData.Children.Append(types.GetSegmentPath(rxLinks.RxLink[i]), types.YChild{"RxLink", rxLinks.RxLink[i]})
     }
-    rxLinks.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLinks.EntityData.Leafs = types.NewOrderedMap()
+
+    rxLinks.EntityData.YListKeys = []string {}
+
     return &(rxLinks.EntityData)
 }
 
@@ -659,12 +686,12 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     EndNumber interface{}
 
     // RX link status option. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     StatusOption interface{}
 
     // Single link information. The type is slice of
     // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink.
-    RxLink []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_
+    RxLink []*Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink
 }
 
 func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetEntityData() *types.CommonEntityData {
@@ -677,21 +704,24 @@ func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     rxLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLink.EntityData.Children = make(map[string]types.YChild)
-    rxLink.EntityData.Children["rx-link"] = types.YChild{"RxLink", nil}
+    rxLink.EntityData.Children = types.NewOrderedMap()
+    rxLink.EntityData.Children.Append("rx-link", types.YChild{"RxLink", nil})
     for i := range rxLink.RxLink {
-        rxLink.EntityData.Children[types.GetSegmentPath(&rxLink.RxLink[i])] = types.YChild{"RxLink", &rxLink.RxLink[i]}
+        rxLink.EntityData.Children.Append(types.GetSegmentPath(rxLink.RxLink[i]), types.YChild{"RxLink", rxLink.RxLink[i]})
     }
-    rxLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxLink.EntityData.Leafs["start-number"] = types.YLeaf{"StartNumber", rxLink.StartNumber}
-    rxLink.EntityData.Leafs["end-number"] = types.YLeaf{"EndNumber", rxLink.EndNumber}
-    rxLink.EntityData.Leafs["status-option"] = types.YLeaf{"StatusOption", rxLink.StatusOption}
+    rxLink.EntityData.Leafs = types.NewOrderedMap()
+    rxLink.EntityData.Leafs.Append("start-number", types.YLeaf{"StartNumber", rxLink.StartNumber})
+    rxLink.EntityData.Leafs.Append("end-number", types.YLeaf{"EndNumber", rxLink.EndNumber})
+    rxLink.EntityData.Leafs.Append("status-option", types.YLeaf{"StatusOption", rxLink.StatusOption})
+
+    rxLink.EntityData.YListKeys = []string {}
+
     return &(rxLink.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink
 // Single link information
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -738,53 +768,56 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     UncorrectableErrors interface{}
 
     // this link.
-    ThisLink Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink
+    ThisLink Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink
 
     // far end link.
-    FarEndLink Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink
+    FarEndLink Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink
 
     // far end link in hw.
-    FarEndLinkInHw Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw
+    FarEndLinkInHw Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw
 
     // history.
-    History Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History
+    History Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History
 }
 
-func (rxLink_ *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_) GetEntityData() *types.CommonEntityData {
-    rxLink_.EntityData.YFilter = rxLink_.YFilter
-    rxLink_.EntityData.YangName = "rx-link"
-    rxLink_.EntityData.BundleName = "cisco_ios_xr"
-    rxLink_.EntityData.ParentYangName = "rx-link"
-    rxLink_.EntityData.SegmentPath = "rx-link" + "[link='" + fmt.Sprintf("%v", rxLink_.Link) + "']"
-    rxLink_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rxLink_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rxLink_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetEntityData() *types.CommonEntityData {
+    rxLink.EntityData.YFilter = rxLink.YFilter
+    rxLink.EntityData.YangName = "rx-link"
+    rxLink.EntityData.BundleName = "cisco_ios_xr"
+    rxLink.EntityData.ParentYangName = "rx-link"
+    rxLink.EntityData.SegmentPath = "rx-link" + types.AddKeyToken(rxLink.Link, "link")
+    rxLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLink_.EntityData.Children = make(map[string]types.YChild)
-    rxLink_.EntityData.Children["this-link"] = types.YChild{"ThisLink", &rxLink_.ThisLink}
-    rxLink_.EntityData.Children["far-end-link"] = types.YChild{"FarEndLink", &rxLink_.FarEndLink}
-    rxLink_.EntityData.Children["far-end-link-in-hw"] = types.YChild{"FarEndLinkInHw", &rxLink_.FarEndLinkInHw}
-    rxLink_.EntityData.Children["history"] = types.YChild{"History", &rxLink_.History}
-    rxLink_.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxLink_.EntityData.Leafs["link"] = types.YLeaf{"Link", rxLink_.Link}
-    rxLink_.EntityData.Leafs["speed"] = types.YLeaf{"Speed", rxLink_.Speed}
-    rxLink_.EntityData.Leafs["stage"] = types.YLeaf{"Stage", rxLink_.Stage}
-    rxLink_.EntityData.Leafs["is-link-valid"] = types.YLeaf{"IsLinkValid", rxLink_.IsLinkValid}
-    rxLink_.EntityData.Leafs["is-conf-pending"] = types.YLeaf{"IsConfPending", rxLink_.IsConfPending}
-    rxLink_.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", rxLink_.AdminState}
-    rxLink_.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", rxLink_.OperState}
-    rxLink_.EntityData.Leafs["error-state"] = types.YLeaf{"ErrorState", rxLink_.ErrorState}
-    rxLink_.EntityData.Leafs["flags"] = types.YLeaf{"Flags", rxLink_.Flags}
-    rxLink_.EntityData.Leafs["flap-cnt"] = types.YLeaf{"FlapCnt", rxLink_.FlapCnt}
-    rxLink_.EntityData.Leafs["num-admin-shuts"] = types.YLeaf{"NumAdminShuts", rxLink_.NumAdminShuts}
-    rxLink_.EntityData.Leafs["correctable-errors"] = types.YLeaf{"CorrectableErrors", rxLink_.CorrectableErrors}
-    rxLink_.EntityData.Leafs["uncorrectable-errors"] = types.YLeaf{"UncorrectableErrors", rxLink_.UncorrectableErrors}
-    return &(rxLink_.EntityData)
+    rxLink.EntityData.Children = types.NewOrderedMap()
+    rxLink.EntityData.Children.Append("this-link", types.YChild{"ThisLink", &rxLink.ThisLink})
+    rxLink.EntityData.Children.Append("far-end-link", types.YChild{"FarEndLink", &rxLink.FarEndLink})
+    rxLink.EntityData.Children.Append("far-end-link-in-hw", types.YChild{"FarEndLinkInHw", &rxLink.FarEndLinkInHw})
+    rxLink.EntityData.Children.Append("history", types.YChild{"History", &rxLink.History})
+    rxLink.EntityData.Leafs = types.NewOrderedMap()
+    rxLink.EntityData.Leafs.Append("link", types.YLeaf{"Link", rxLink.Link})
+    rxLink.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", rxLink.Speed})
+    rxLink.EntityData.Leafs.Append("stage", types.YLeaf{"Stage", rxLink.Stage})
+    rxLink.EntityData.Leafs.Append("is-link-valid", types.YLeaf{"IsLinkValid", rxLink.IsLinkValid})
+    rxLink.EntityData.Leafs.Append("is-conf-pending", types.YLeaf{"IsConfPending", rxLink.IsConfPending})
+    rxLink.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", rxLink.AdminState})
+    rxLink.EntityData.Leafs.Append("oper-state", types.YLeaf{"OperState", rxLink.OperState})
+    rxLink.EntityData.Leafs.Append("error-state", types.YLeaf{"ErrorState", rxLink.ErrorState})
+    rxLink.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", rxLink.Flags})
+    rxLink.EntityData.Leafs.Append("flap-cnt", types.YLeaf{"FlapCnt", rxLink.FlapCnt})
+    rxLink.EntityData.Leafs.Append("num-admin-shuts", types.YLeaf{"NumAdminShuts", rxLink.NumAdminShuts})
+    rxLink.EntityData.Leafs.Append("correctable-errors", types.YLeaf{"CorrectableErrors", rxLink.CorrectableErrors})
+    rxLink.EntityData.Leafs.Append("uncorrectable-errors", types.YLeaf{"UncorrectableErrors", rxLink.UncorrectableErrors})
+
+    rxLink.EntityData.YListKeys = []string {"Link"}
+
+    return &(rxLink.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink
 // this link
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -801,10 +834,10 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink_AsicId
+    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId
 }
 
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink) GetEntityData() *types.CommonEntityData {
+func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetEntityData() *types.CommonEntityData {
     thisLink.EntityData.YFilter = thisLink.YFilter
     thisLink.EntityData.YangName = "this-link"
     thisLink.EntityData.BundleName = "cisco_ios_xr"
@@ -814,19 +847,22 @@ func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIn
     thisLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thisLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thisLink.EntityData.Children = make(map[string]types.YChild)
-    thisLink.EntityData.Children["asic-id"] = types.YChild{"AsicId", &thisLink.AsicId}
-    thisLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    thisLink.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", thisLink.LinkType}
-    thisLink.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", thisLink.LinkStage}
-    thisLink.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", thisLink.LinkNum}
-    thisLink.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", thisLink.PhyLinkNum}
+    thisLink.EntityData.Children = types.NewOrderedMap()
+    thisLink.EntityData.Children.Append("asic-id", types.YChild{"AsicId", &thisLink.AsicId})
+    thisLink.EntityData.Leafs = types.NewOrderedMap()
+    thisLink.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", thisLink.LinkType})
+    thisLink.EntityData.Leafs.Append("link-stage", types.YLeaf{"LinkStage", thisLink.LinkStage})
+    thisLink.EntityData.Leafs.Append("link-num", types.YLeaf{"LinkNum", thisLink.LinkNum})
+    thisLink.EntityData.Leafs.Append("phy-link-num", types.YLeaf{"PhyLinkNum", thisLink.PhyLinkNum})
+
+    thisLink.EntityData.YListKeys = []string {}
+
     return &(thisLink.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink_AsicId
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId
 // asic id
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink_AsicId struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -846,7 +882,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink_AsicId) GetEntityData() *types.CommonEntityData {
+func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetEntityData() *types.CommonEntityData {
     asicId.EntityData.YFilter = asicId.YFilter
     asicId.EntityData.YangName = "asic-id"
     asicId.EntityData.BundleName = "cisco_ios_xr"
@@ -856,19 +892,22 @@ func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicId.EntityData.Children = make(map[string]types.YChild)
-    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
-    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
-    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
-    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
-    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    asicId.EntityData.Children = types.NewOrderedMap()
+    asicId.EntityData.Leafs = types.NewOrderedMap()
+    asicId.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", asicId.RackType})
+    asicId.EntityData.Leafs.Append("asic-type", types.YLeaf{"AsicType", asicId.AsicType})
+    asicId.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", asicId.RackNum})
+    asicId.EntityData.Leafs.Append("slot-num", types.YLeaf{"SlotNum", asicId.SlotNum})
+    asicId.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", asicId.AsicInstance})
+
+    asicId.EntityData.YListKeys = []string {}
+
     return &(asicId.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink
 // far end link
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -885,10 +924,10 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink_AsicId
+    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId
 }
 
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink) GetEntityData() *types.CommonEntityData {
+func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetEntityData() *types.CommonEntityData {
     farEndLink.EntityData.YFilter = farEndLink.YFilter
     farEndLink.EntityData.YangName = "far-end-link"
     farEndLink.EntityData.BundleName = "cisco_ios_xr"
@@ -898,19 +937,22 @@ func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsic
     farEndLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     farEndLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    farEndLink.EntityData.Children = make(map[string]types.YChild)
-    farEndLink.EntityData.Children["asic-id"] = types.YChild{"AsicId", &farEndLink.AsicId}
-    farEndLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    farEndLink.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", farEndLink.LinkType}
-    farEndLink.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", farEndLink.LinkStage}
-    farEndLink.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", farEndLink.LinkNum}
-    farEndLink.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", farEndLink.PhyLinkNum}
+    farEndLink.EntityData.Children = types.NewOrderedMap()
+    farEndLink.EntityData.Children.Append("asic-id", types.YChild{"AsicId", &farEndLink.AsicId})
+    farEndLink.EntityData.Leafs = types.NewOrderedMap()
+    farEndLink.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", farEndLink.LinkType})
+    farEndLink.EntityData.Leafs.Append("link-stage", types.YLeaf{"LinkStage", farEndLink.LinkStage})
+    farEndLink.EntityData.Leafs.Append("link-num", types.YLeaf{"LinkNum", farEndLink.LinkNum})
+    farEndLink.EntityData.Leafs.Append("phy-link-num", types.YLeaf{"PhyLinkNum", farEndLink.PhyLinkNum})
+
+    farEndLink.EntityData.YListKeys = []string {}
+
     return &(farEndLink.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink_AsicId
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId
 // asic id
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink_AsicId struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -930,7 +972,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink_AsicId) GetEntityData() *types.CommonEntityData {
+func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetEntityData() *types.CommonEntityData {
     asicId.EntityData.YFilter = asicId.YFilter
     asicId.EntityData.YangName = "asic-id"
     asicId.EntityData.BundleName = "cisco_ios_xr"
@@ -940,19 +982,22 @@ func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicId.EntityData.Children = make(map[string]types.YChild)
-    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
-    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
-    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
-    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
-    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    asicId.EntityData.Children = types.NewOrderedMap()
+    asicId.EntityData.Leafs = types.NewOrderedMap()
+    asicId.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", asicId.RackType})
+    asicId.EntityData.Leafs.Append("asic-type", types.YLeaf{"AsicType", asicId.AsicType})
+    asicId.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", asicId.RackNum})
+    asicId.EntityData.Leafs.Append("slot-num", types.YLeaf{"SlotNum", asicId.SlotNum})
+    asicId.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", asicId.AsicInstance})
+
+    asicId.EntityData.YListKeys = []string {}
+
     return &(asicId.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw
 // far end link in hw
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -969,10 +1014,10 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw_AsicId
+    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId
 }
 
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw) GetEntityData() *types.CommonEntityData {
+func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetEntityData() *types.CommonEntityData {
     farEndLinkInHw.EntityData.YFilter = farEndLinkInHw.YFilter
     farEndLinkInHw.EntityData.YangName = "far-end-link-in-hw"
     farEndLinkInHw.EntityData.BundleName = "cisco_ios_xr"
@@ -982,19 +1027,22 @@ func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_Rx
     farEndLinkInHw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     farEndLinkInHw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    farEndLinkInHw.EntityData.Children = make(map[string]types.YChild)
-    farEndLinkInHw.EntityData.Children["asic-id"] = types.YChild{"AsicId", &farEndLinkInHw.AsicId}
-    farEndLinkInHw.EntityData.Leafs = make(map[string]types.YLeaf)
-    farEndLinkInHw.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", farEndLinkInHw.LinkType}
-    farEndLinkInHw.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", farEndLinkInHw.LinkStage}
-    farEndLinkInHw.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", farEndLinkInHw.LinkNum}
-    farEndLinkInHw.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", farEndLinkInHw.PhyLinkNum}
+    farEndLinkInHw.EntityData.Children = types.NewOrderedMap()
+    farEndLinkInHw.EntityData.Children.Append("asic-id", types.YChild{"AsicId", &farEndLinkInHw.AsicId})
+    farEndLinkInHw.EntityData.Leafs = types.NewOrderedMap()
+    farEndLinkInHw.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", farEndLinkInHw.LinkType})
+    farEndLinkInHw.EntityData.Leafs.Append("link-stage", types.YLeaf{"LinkStage", farEndLinkInHw.LinkStage})
+    farEndLinkInHw.EntityData.Leafs.Append("link-num", types.YLeaf{"LinkNum", farEndLinkInHw.LinkNum})
+    farEndLinkInHw.EntityData.Leafs.Append("phy-link-num", types.YLeaf{"PhyLinkNum", farEndLinkInHw.PhyLinkNum})
+
+    farEndLinkInHw.EntityData.YListKeys = []string {}
+
     return &(farEndLinkInHw.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw_AsicId
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId
 // asic id
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw_AsicId struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1014,7 +1062,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw_AsicId) GetEntityData() *types.CommonEntityData {
+func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetEntityData() *types.CommonEntityData {
     asicId.EntityData.YFilter = asicId.YFilter
     asicId.EntityData.YangName = "asic-id"
     asicId.EntityData.BundleName = "cisco_ios_xr"
@@ -1024,19 +1072,22 @@ func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicId.EntityData.Children = make(map[string]types.YChild)
-    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
-    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
-    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
-    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
-    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    asicId.EntityData.Children = types.NewOrderedMap()
+    asicId.EntityData.Leafs = types.NewOrderedMap()
+    asicId.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", asicId.RackType})
+    asicId.EntityData.Leafs.Append("asic-type", types.YLeaf{"AsicType", asicId.AsicType})
+    asicId.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", asicId.RackNum})
+    asicId.EntityData.Leafs.Append("slot-num", types.YLeaf{"SlotNum", asicId.SlotNum})
+    asicId.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", asicId.AsicInstance})
+
+    asicId.EntityData.YListKeys = []string {}
+
     return &(asicId.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History
 // history
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1047,11 +1098,11 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     StartIndex interface{}
 
     // hist. The type is slice of
-    // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist.
-    Hist []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist
+    // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist.
+    Hist []*Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist
 }
 
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History) GetEntityData() *types.CommonEntityData {
+func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetEntityData() *types.CommonEntityData {
     history.EntityData.YFilter = history.YFilter
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
@@ -1061,20 +1112,23 @@ func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIns
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Children["hist"] = types.YChild{"Hist", nil}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Children.Append("hist", types.YChild{"Hist", nil})
     for i := range history.Hist {
-        history.EntityData.Children[types.GetSegmentPath(&history.Hist[i])] = types.YChild{"Hist", &history.Hist[i]}
+        history.EntityData.Children.Append(types.GetSegmentPath(history.Hist[i]), types.YChild{"Hist", history.Hist[i]})
     }
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["histnum"] = types.YLeaf{"Histnum", history.Histnum}
-    history.EntityData.Leafs["start-index"] = types.YLeaf{"StartIndex", history.StartIndex}
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("histnum", types.YLeaf{"Histnum", history.Histnum})
+    history.EntityData.Leafs.Append("start-index", types.YLeaf{"StartIndex", history.StartIndex})
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist
 // hist
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist struct {
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1094,7 +1148,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     Reasons interface{}
 }
 
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist) GetEntityData() *types.CommonEntityData {
+func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetEntityData() *types.CommonEntityData {
     hist.EntityData.YFilter = hist.YFilter
     hist.EntityData.YangName = "hist"
     hist.EntityData.BundleName = "cisco_ios_xr"
@@ -1104,13 +1158,16 @@ func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstan
     hist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hist.EntityData.Children = make(map[string]types.YChild)
-    hist.EntityData.Leafs = make(map[string]types.YLeaf)
-    hist.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", hist.AdminState}
-    hist.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", hist.OperState}
-    hist.EntityData.Leafs["error-state"] = types.YLeaf{"ErrorState", hist.ErrorState}
-    hist.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", hist.Timestamp}
-    hist.EntityData.Leafs["reasons"] = types.YLeaf{"Reasons", hist.Reasons}
+    hist.EntityData.Children = types.NewOrderedMap()
+    hist.EntityData.Leafs = types.NewOrderedMap()
+    hist.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", hist.AdminState})
+    hist.EntityData.Leafs.Append("oper-state", types.YLeaf{"OperState", hist.OperState})
+    hist.EntityData.Leafs.Append("error-state", types.YLeaf{"ErrorState", hist.ErrorState})
+    hist.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", hist.Timestamp})
+    hist.EntityData.Leafs.Append("reasons", types.YLeaf{"Reasons", hist.Reasons})
+
+    hist.EntityData.YListKeys = []string {}
+
     return &(hist.EntityData)
 }
 
@@ -1257,10 +1314,10 @@ type Fia_Nodes_Node_DriverInformation struct {
 
     // device info. The type is slice of
     // Fia_Nodes_Node_DriverInformation_DeviceInfo.
-    DeviceInfo []Fia_Nodes_Node_DriverInformation_DeviceInfo
+    DeviceInfo []*Fia_Nodes_Node_DriverInformation_DeviceInfo
 
     // card info. The type is slice of Fia_Nodes_Node_DriverInformation_CardInfo.
-    CardInfo []Fia_Nodes_Node_DriverInformation_CardInfo
+    CardInfo []*Fia_Nodes_Node_DriverInformation_CardInfo
 }
 
 func (driverInformation *Fia_Nodes_Node_DriverInformation) GetEntityData() *types.CommonEntityData {
@@ -1273,60 +1330,63 @@ func (driverInformation *Fia_Nodes_Node_DriverInformation) GetEntityData() *type
     driverInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     driverInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    driverInformation.EntityData.Children = make(map[string]types.YChild)
-    driverInformation.EntityData.Children["device-info"] = types.YChild{"DeviceInfo", nil}
+    driverInformation.EntityData.Children = types.NewOrderedMap()
+    driverInformation.EntityData.Children.Append("device-info", types.YChild{"DeviceInfo", nil})
     for i := range driverInformation.DeviceInfo {
-        driverInformation.EntityData.Children[types.GetSegmentPath(&driverInformation.DeviceInfo[i])] = types.YChild{"DeviceInfo", &driverInformation.DeviceInfo[i]}
+        driverInformation.EntityData.Children.Append(types.GetSegmentPath(driverInformation.DeviceInfo[i]), types.YChild{"DeviceInfo", driverInformation.DeviceInfo[i]})
     }
-    driverInformation.EntityData.Children["card-info"] = types.YChild{"CardInfo", nil}
+    driverInformation.EntityData.Children.Append("card-info", types.YChild{"CardInfo", nil})
     for i := range driverInformation.CardInfo {
-        driverInformation.EntityData.Children[types.GetSegmentPath(&driverInformation.CardInfo[i])] = types.YChild{"CardInfo", &driverInformation.CardInfo[i]}
+        driverInformation.EntityData.Children.Append(types.GetSegmentPath(driverInformation.CardInfo[i]), types.YChild{"CardInfo", driverInformation.CardInfo[i]})
     }
-    driverInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    driverInformation.EntityData.Leafs["drv-version"] = types.YLeaf{"DrvVersion", driverInformation.DrvVersion}
-    driverInformation.EntityData.Leafs["coeff-major-rev"] = types.YLeaf{"CoeffMajorRev", driverInformation.CoeffMajorRev}
-    driverInformation.EntityData.Leafs["coeff-minor-rev"] = types.YLeaf{"CoeffMinorRev", driverInformation.CoeffMinorRev}
-    driverInformation.EntityData.Leafs["functional-role"] = types.YLeaf{"FunctionalRole", driverInformation.FunctionalRole}
-    driverInformation.EntityData.Leafs["issu-role"] = types.YLeaf{"IssuRole", driverInformation.IssuRole}
-    driverInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", driverInformation.NodeId}
-    driverInformation.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", driverInformation.RackType}
-    driverInformation.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", driverInformation.RackNum}
-    driverInformation.EntityData.Leafs["is-driver-ready"] = types.YLeaf{"IsDriverReady", driverInformation.IsDriverReady}
-    driverInformation.EntityData.Leafs["card-avail-mask"] = types.YLeaf{"CardAvailMask", driverInformation.CardAvailMask}
-    driverInformation.EntityData.Leafs["asic-avail-mask"] = types.YLeaf{"AsicAvailMask", driverInformation.AsicAvailMask}
-    driverInformation.EntityData.Leafs["exp-asic-avail-mask"] = types.YLeaf{"ExpAsicAvailMask", driverInformation.ExpAsicAvailMask}
-    driverInformation.EntityData.Leafs["ucmc-ratio"] = types.YLeaf{"UcmcRatio", driverInformation.UcmcRatio}
-    driverInformation.EntityData.Leafs["asic-oper-notify-to-fsdb-pending-bmap"] = types.YLeaf{"AsicOperNotifyToFsdbPendingBmap", driverInformation.AsicOperNotifyToFsdbPendingBmap}
-    driverInformation.EntityData.Leafs["is-full-fgid-download-req"] = types.YLeaf{"IsFullFgidDownloadReq", driverInformation.IsFullFgidDownloadReq}
-    driverInformation.EntityData.Leafs["is-fgid-download-in-progress"] = types.YLeaf{"IsFgidDownloadInProgress", driverInformation.IsFgidDownloadInProgress}
-    driverInformation.EntityData.Leafs["is-fgid-download-completed"] = types.YLeaf{"IsFgidDownloadCompleted", driverInformation.IsFgidDownloadCompleted}
-    driverInformation.EntityData.Leafs["fsdb-conn-active"] = types.YLeaf{"FsdbConnActive", driverInformation.FsdbConnActive}
-    driverInformation.EntityData.Leafs["fgid-conn-active"] = types.YLeaf{"FgidConnActive", driverInformation.FgidConnActive}
-    driverInformation.EntityData.Leafs["issu-mgr-conn-active"] = types.YLeaf{"IssuMgrConnActive", driverInformation.IssuMgrConnActive}
-    driverInformation.EntityData.Leafs["fsdb-reg-active"] = types.YLeaf{"FsdbRegActive", driverInformation.FsdbRegActive}
-    driverInformation.EntityData.Leafs["fgid-reg-active"] = types.YLeaf{"FgidRegActive", driverInformation.FgidRegActive}
-    driverInformation.EntityData.Leafs["issu-mgr-reg-active"] = types.YLeaf{"IssuMgrRegActive", driverInformation.IssuMgrRegActive}
-    driverInformation.EntityData.Leafs["num-pm-conn-reqs"] = types.YLeaf{"NumPmConnReqs", driverInformation.NumPmConnReqs}
-    driverInformation.EntityData.Leafs["num-fsdb-conn-reqs"] = types.YLeaf{"NumFsdbConnReqs", driverInformation.NumFsdbConnReqs}
-    driverInformation.EntityData.Leafs["num-fgid-conn-reqs"] = types.YLeaf{"NumFgidConnReqs", driverInformation.NumFgidConnReqs}
-    driverInformation.EntityData.Leafs["num-fstats-conn-reqs"] = types.YLeaf{"NumFstatsConnReqs", driverInformation.NumFstatsConnReqs}
-    driverInformation.EntityData.Leafs["num-cm-conn-reqs"] = types.YLeaf{"NumCmConnReqs", driverInformation.NumCmConnReqs}
-    driverInformation.EntityData.Leafs["num-issu-mgr-conn-reqs"] = types.YLeaf{"NumIssuMgrConnReqs", driverInformation.NumIssuMgrConnReqs}
-    driverInformation.EntityData.Leafs["num-peer-fia-conn-reqs"] = types.YLeaf{"NumPeerFiaConnReqs", driverInformation.NumPeerFiaConnReqs}
-    driverInformation.EntityData.Leafs["is-gaspp-registered"] = types.YLeaf{"IsGasppRegistered", driverInformation.IsGasppRegistered}
-    driverInformation.EntityData.Leafs["is-cih-registered"] = types.YLeaf{"IsCihRegistered", driverInformation.IsCihRegistered}
-    driverInformation.EntityData.Leafs["drvr-initial-startup-timestamp"] = types.YLeaf{"DrvrInitialStartupTimestamp", driverInformation.DrvrInitialStartupTimestamp}
-    driverInformation.EntityData.Leafs["drvr-current-startup-timestamp"] = types.YLeaf{"DrvrCurrentStartupTimestamp", driverInformation.DrvrCurrentStartupTimestamp}
-    driverInformation.EntityData.Leafs["num-intf-ports"] = types.YLeaf{"NumIntfPorts", driverInformation.NumIntfPorts}
-    driverInformation.EntityData.Leafs["uc-weight"] = types.YLeaf{"UcWeight", driverInformation.UcWeight}
-    driverInformation.EntityData.Leafs["respawn-count"] = types.YLeaf{"RespawnCount", driverInformation.RespawnCount}
-    driverInformation.EntityData.Leafs["total-asics"] = types.YLeaf{"TotalAsics", driverInformation.TotalAsics}
-    driverInformation.EntityData.Leafs["issu-ready-ntfy-pending"] = types.YLeaf{"IssuReadyNtfyPending", driverInformation.IssuReadyNtfyPending}
-    driverInformation.EntityData.Leafs["issu-abort-sent"] = types.YLeaf{"IssuAbortSent", driverInformation.IssuAbortSent}
-    driverInformation.EntityData.Leafs["issu-abort-rcvd"] = types.YLeaf{"IssuAbortRcvd", driverInformation.IssuAbortRcvd}
-    driverInformation.EntityData.Leafs["fabric-mode"] = types.YLeaf{"FabricMode", driverInformation.FabricMode}
-    driverInformation.EntityData.Leafs["fc-mode"] = types.YLeaf{"FcMode", driverInformation.FcMode}
-    driverInformation.EntityData.Leafs["board-rev-id"] = types.YLeaf{"BoardRevId", driverInformation.BoardRevId}
+    driverInformation.EntityData.Leafs = types.NewOrderedMap()
+    driverInformation.EntityData.Leafs.Append("drv-version", types.YLeaf{"DrvVersion", driverInformation.DrvVersion})
+    driverInformation.EntityData.Leafs.Append("coeff-major-rev", types.YLeaf{"CoeffMajorRev", driverInformation.CoeffMajorRev})
+    driverInformation.EntityData.Leafs.Append("coeff-minor-rev", types.YLeaf{"CoeffMinorRev", driverInformation.CoeffMinorRev})
+    driverInformation.EntityData.Leafs.Append("functional-role", types.YLeaf{"FunctionalRole", driverInformation.FunctionalRole})
+    driverInformation.EntityData.Leafs.Append("issu-role", types.YLeaf{"IssuRole", driverInformation.IssuRole})
+    driverInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", driverInformation.NodeId})
+    driverInformation.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", driverInformation.RackType})
+    driverInformation.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", driverInformation.RackNum})
+    driverInformation.EntityData.Leafs.Append("is-driver-ready", types.YLeaf{"IsDriverReady", driverInformation.IsDriverReady})
+    driverInformation.EntityData.Leafs.Append("card-avail-mask", types.YLeaf{"CardAvailMask", driverInformation.CardAvailMask})
+    driverInformation.EntityData.Leafs.Append("asic-avail-mask", types.YLeaf{"AsicAvailMask", driverInformation.AsicAvailMask})
+    driverInformation.EntityData.Leafs.Append("exp-asic-avail-mask", types.YLeaf{"ExpAsicAvailMask", driverInformation.ExpAsicAvailMask})
+    driverInformation.EntityData.Leafs.Append("ucmc-ratio", types.YLeaf{"UcmcRatio", driverInformation.UcmcRatio})
+    driverInformation.EntityData.Leafs.Append("asic-oper-notify-to-fsdb-pending-bmap", types.YLeaf{"AsicOperNotifyToFsdbPendingBmap", driverInformation.AsicOperNotifyToFsdbPendingBmap})
+    driverInformation.EntityData.Leafs.Append("is-full-fgid-download-req", types.YLeaf{"IsFullFgidDownloadReq", driverInformation.IsFullFgidDownloadReq})
+    driverInformation.EntityData.Leafs.Append("is-fgid-download-in-progress", types.YLeaf{"IsFgidDownloadInProgress", driverInformation.IsFgidDownloadInProgress})
+    driverInformation.EntityData.Leafs.Append("is-fgid-download-completed", types.YLeaf{"IsFgidDownloadCompleted", driverInformation.IsFgidDownloadCompleted})
+    driverInformation.EntityData.Leafs.Append("fsdb-conn-active", types.YLeaf{"FsdbConnActive", driverInformation.FsdbConnActive})
+    driverInformation.EntityData.Leafs.Append("fgid-conn-active", types.YLeaf{"FgidConnActive", driverInformation.FgidConnActive})
+    driverInformation.EntityData.Leafs.Append("issu-mgr-conn-active", types.YLeaf{"IssuMgrConnActive", driverInformation.IssuMgrConnActive})
+    driverInformation.EntityData.Leafs.Append("fsdb-reg-active", types.YLeaf{"FsdbRegActive", driverInformation.FsdbRegActive})
+    driverInformation.EntityData.Leafs.Append("fgid-reg-active", types.YLeaf{"FgidRegActive", driverInformation.FgidRegActive})
+    driverInformation.EntityData.Leafs.Append("issu-mgr-reg-active", types.YLeaf{"IssuMgrRegActive", driverInformation.IssuMgrRegActive})
+    driverInformation.EntityData.Leafs.Append("num-pm-conn-reqs", types.YLeaf{"NumPmConnReqs", driverInformation.NumPmConnReqs})
+    driverInformation.EntityData.Leafs.Append("num-fsdb-conn-reqs", types.YLeaf{"NumFsdbConnReqs", driverInformation.NumFsdbConnReqs})
+    driverInformation.EntityData.Leafs.Append("num-fgid-conn-reqs", types.YLeaf{"NumFgidConnReqs", driverInformation.NumFgidConnReqs})
+    driverInformation.EntityData.Leafs.Append("num-fstats-conn-reqs", types.YLeaf{"NumFstatsConnReqs", driverInformation.NumFstatsConnReqs})
+    driverInformation.EntityData.Leafs.Append("num-cm-conn-reqs", types.YLeaf{"NumCmConnReqs", driverInformation.NumCmConnReqs})
+    driverInformation.EntityData.Leafs.Append("num-issu-mgr-conn-reqs", types.YLeaf{"NumIssuMgrConnReqs", driverInformation.NumIssuMgrConnReqs})
+    driverInformation.EntityData.Leafs.Append("num-peer-fia-conn-reqs", types.YLeaf{"NumPeerFiaConnReqs", driverInformation.NumPeerFiaConnReqs})
+    driverInformation.EntityData.Leafs.Append("is-gaspp-registered", types.YLeaf{"IsGasppRegistered", driverInformation.IsGasppRegistered})
+    driverInformation.EntityData.Leafs.Append("is-cih-registered", types.YLeaf{"IsCihRegistered", driverInformation.IsCihRegistered})
+    driverInformation.EntityData.Leafs.Append("drvr-initial-startup-timestamp", types.YLeaf{"DrvrInitialStartupTimestamp", driverInformation.DrvrInitialStartupTimestamp})
+    driverInformation.EntityData.Leafs.Append("drvr-current-startup-timestamp", types.YLeaf{"DrvrCurrentStartupTimestamp", driverInformation.DrvrCurrentStartupTimestamp})
+    driverInformation.EntityData.Leafs.Append("num-intf-ports", types.YLeaf{"NumIntfPorts", driverInformation.NumIntfPorts})
+    driverInformation.EntityData.Leafs.Append("uc-weight", types.YLeaf{"UcWeight", driverInformation.UcWeight})
+    driverInformation.EntityData.Leafs.Append("respawn-count", types.YLeaf{"RespawnCount", driverInformation.RespawnCount})
+    driverInformation.EntityData.Leafs.Append("total-asics", types.YLeaf{"TotalAsics", driverInformation.TotalAsics})
+    driverInformation.EntityData.Leafs.Append("issu-ready-ntfy-pending", types.YLeaf{"IssuReadyNtfyPending", driverInformation.IssuReadyNtfyPending})
+    driverInformation.EntityData.Leafs.Append("issu-abort-sent", types.YLeaf{"IssuAbortSent", driverInformation.IssuAbortSent})
+    driverInformation.EntityData.Leafs.Append("issu-abort-rcvd", types.YLeaf{"IssuAbortRcvd", driverInformation.IssuAbortRcvd})
+    driverInformation.EntityData.Leafs.Append("fabric-mode", types.YLeaf{"FabricMode", driverInformation.FabricMode})
+    driverInformation.EntityData.Leafs.Append("fc-mode", types.YLeaf{"FcMode", driverInformation.FcMode})
+    driverInformation.EntityData.Leafs.Append("board-rev-id", types.YLeaf{"BoardRevId", driverInformation.BoardRevId})
+
+    driverInformation.EntityData.YListKeys = []string {}
+
     return &(driverInformation.EntityData)
 }
 
@@ -1383,20 +1443,23 @@ func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetEntityData() *
     deviceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deviceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    deviceInfo.EntityData.Children = make(map[string]types.YChild)
-    deviceInfo.EntityData.Children["asic-id"] = types.YChild{"AsicId", &deviceInfo.AsicId}
-    deviceInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    deviceInfo.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", deviceInfo.IsValid}
-    deviceInfo.EntityData.Leafs["fapid"] = types.YLeaf{"Fapid", deviceInfo.Fapid}
-    deviceInfo.EntityData.Leafs["hotplug-event"] = types.YLeaf{"HotplugEvent", deviceInfo.HotplugEvent}
-    deviceInfo.EntityData.Leafs["slice-state"] = types.YLeaf{"SliceState", deviceInfo.SliceState}
-    deviceInfo.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", deviceInfo.AdminState}
-    deviceInfo.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", deviceInfo.OperState}
-    deviceInfo.EntityData.Leafs["asic-state"] = types.YLeaf{"AsicState", deviceInfo.AsicState}
-    deviceInfo.EntityData.Leafs["last-init-cause"] = types.YLeaf{"LastInitCause", deviceInfo.LastInitCause}
-    deviceInfo.EntityData.Leafs["num-pon-resets"] = types.YLeaf{"NumPonResets", deviceInfo.NumPonResets}
-    deviceInfo.EntityData.Leafs["num-hard-resets"] = types.YLeaf{"NumHardResets", deviceInfo.NumHardResets}
-    deviceInfo.EntityData.Leafs["local-switch-state"] = types.YLeaf{"LocalSwitchState", deviceInfo.LocalSwitchState}
+    deviceInfo.EntityData.Children = types.NewOrderedMap()
+    deviceInfo.EntityData.Children.Append("asic-id", types.YChild{"AsicId", &deviceInfo.AsicId})
+    deviceInfo.EntityData.Leafs = types.NewOrderedMap()
+    deviceInfo.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", deviceInfo.IsValid})
+    deviceInfo.EntityData.Leafs.Append("fapid", types.YLeaf{"Fapid", deviceInfo.Fapid})
+    deviceInfo.EntityData.Leafs.Append("hotplug-event", types.YLeaf{"HotplugEvent", deviceInfo.HotplugEvent})
+    deviceInfo.EntityData.Leafs.Append("slice-state", types.YLeaf{"SliceState", deviceInfo.SliceState})
+    deviceInfo.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", deviceInfo.AdminState})
+    deviceInfo.EntityData.Leafs.Append("oper-state", types.YLeaf{"OperState", deviceInfo.OperState})
+    deviceInfo.EntityData.Leafs.Append("asic-state", types.YLeaf{"AsicState", deviceInfo.AsicState})
+    deviceInfo.EntityData.Leafs.Append("last-init-cause", types.YLeaf{"LastInitCause", deviceInfo.LastInitCause})
+    deviceInfo.EntityData.Leafs.Append("num-pon-resets", types.YLeaf{"NumPonResets", deviceInfo.NumPonResets})
+    deviceInfo.EntityData.Leafs.Append("num-hard-resets", types.YLeaf{"NumHardResets", deviceInfo.NumHardResets})
+    deviceInfo.EntityData.Leafs.Append("local-switch-state", types.YLeaf{"LocalSwitchState", deviceInfo.LocalSwitchState})
+
+    deviceInfo.EntityData.YListKeys = []string {}
+
     return &(deviceInfo.EntityData)
 }
 
@@ -1432,13 +1495,16 @@ func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetEntityData(
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicId.EntityData.Children = make(map[string]types.YChild)
-    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
-    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
-    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
-    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
-    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    asicId.EntityData.Children = types.NewOrderedMap()
+    asicId.EntityData.Leafs = types.NewOrderedMap()
+    asicId.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", asicId.RackType})
+    asicId.EntityData.Leafs.Append("asic-type", types.YLeaf{"AsicType", asicId.AsicType})
+    asicId.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", asicId.RackNum})
+    asicId.EntityData.Leafs.Append("slot-num", types.YLeaf{"SlotNum", asicId.SlotNum})
+    asicId.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", asicId.AsicInstance})
+
+    asicId.EntityData.YListKeys = []string {}
+
     return &(asicId.EntityData)
 }
 
@@ -1509,24 +1575,27 @@ func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetEntityData() *type
     cardInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cardInfo.EntityData.Children = make(map[string]types.YChild)
-    cardInfo.EntityData.Children["oir-circular-buffer"] = types.YChild{"OirCircularBuffer", &cardInfo.OirCircularBuffer}
-    cardInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    cardInfo.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", cardInfo.CardType}
-    cardInfo.EntityData.Leafs["card-name"] = types.YLeaf{"CardName", cardInfo.CardName}
-    cardInfo.EntityData.Leafs["slot-no"] = types.YLeaf{"SlotNo", cardInfo.SlotNo}
-    cardInfo.EntityData.Leafs["card-flag"] = types.YLeaf{"CardFlag", cardInfo.CardFlag}
-    cardInfo.EntityData.Leafs["evt-flag"] = types.YLeaf{"EvtFlag", cardInfo.EvtFlag}
-    cardInfo.EntityData.Leafs["reg-flag"] = types.YLeaf{"RegFlag", cardInfo.RegFlag}
-    cardInfo.EntityData.Leafs["instance"] = types.YLeaf{"Instance", cardInfo.Instance}
-    cardInfo.EntityData.Leafs["card-state"] = types.YLeaf{"CardState", cardInfo.CardState}
-    cardInfo.EntityData.Leafs["exp-num-asics"] = types.YLeaf{"ExpNumAsics", cardInfo.ExpNumAsics}
-    cardInfo.EntityData.Leafs["exp-num-asics-per-fsdb"] = types.YLeaf{"ExpNumAsicsPerFsdb", cardInfo.ExpNumAsicsPerFsdb}
-    cardInfo.EntityData.Leafs["is-powered"] = types.YLeaf{"IsPowered", cardInfo.IsPowered}
-    cardInfo.EntityData.Leafs["cxp-avail-bitmap"] = types.YLeaf{"CxpAvailBitmap", cardInfo.CxpAvailBitmap}
-    cardInfo.EntityData.Leafs["num-ilkns-per-asic"] = types.YLeaf{"NumIlknsPerAsic", cardInfo.NumIlknsPerAsic}
-    cardInfo.EntityData.Leafs["num-local-ports-per-ilkn"] = types.YLeaf{"NumLocalPortsPerIlkn", cardInfo.NumLocalPortsPerIlkn}
-    cardInfo.EntityData.Leafs["num-cos-per-port"] = types.YLeaf{"NumCosPerPort", cardInfo.NumCosPerPort}
+    cardInfo.EntityData.Children = types.NewOrderedMap()
+    cardInfo.EntityData.Children.Append("oir-circular-buffer", types.YChild{"OirCircularBuffer", &cardInfo.OirCircularBuffer})
+    cardInfo.EntityData.Leafs = types.NewOrderedMap()
+    cardInfo.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", cardInfo.CardType})
+    cardInfo.EntityData.Leafs.Append("card-name", types.YLeaf{"CardName", cardInfo.CardName})
+    cardInfo.EntityData.Leafs.Append("slot-no", types.YLeaf{"SlotNo", cardInfo.SlotNo})
+    cardInfo.EntityData.Leafs.Append("card-flag", types.YLeaf{"CardFlag", cardInfo.CardFlag})
+    cardInfo.EntityData.Leafs.Append("evt-flag", types.YLeaf{"EvtFlag", cardInfo.EvtFlag})
+    cardInfo.EntityData.Leafs.Append("reg-flag", types.YLeaf{"RegFlag", cardInfo.RegFlag})
+    cardInfo.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", cardInfo.Instance})
+    cardInfo.EntityData.Leafs.Append("card-state", types.YLeaf{"CardState", cardInfo.CardState})
+    cardInfo.EntityData.Leafs.Append("exp-num-asics", types.YLeaf{"ExpNumAsics", cardInfo.ExpNumAsics})
+    cardInfo.EntityData.Leafs.Append("exp-num-asics-per-fsdb", types.YLeaf{"ExpNumAsicsPerFsdb", cardInfo.ExpNumAsicsPerFsdb})
+    cardInfo.EntityData.Leafs.Append("is-powered", types.YLeaf{"IsPowered", cardInfo.IsPowered})
+    cardInfo.EntityData.Leafs.Append("cxp-avail-bitmap", types.YLeaf{"CxpAvailBitmap", cardInfo.CxpAvailBitmap})
+    cardInfo.EntityData.Leafs.Append("num-ilkns-per-asic", types.YLeaf{"NumIlknsPerAsic", cardInfo.NumIlknsPerAsic})
+    cardInfo.EntityData.Leafs.Append("num-local-ports-per-ilkn", types.YLeaf{"NumLocalPortsPerIlkn", cardInfo.NumLocalPortsPerIlkn})
+    cardInfo.EntityData.Leafs.Append("num-cos-per-port", types.YLeaf{"NumCosPerPort", cardInfo.NumCosPerPort})
+
+    cardInfo.EntityData.YListKeys = []string {}
+
     return &(cardInfo.EntityData)
 }
 
@@ -1547,7 +1616,7 @@ type Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer struct {
 
     // fia oir info. The type is slice of
     // Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo.
-    FiaOirInfo []Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo
+    FiaOirInfo []*Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo
 }
 
 func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetEntityData() *types.CommonEntityData {
@@ -1560,15 +1629,18 @@ func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBu
     oirCircularBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oirCircularBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oirCircularBuffer.EntityData.Children = make(map[string]types.YChild)
-    oirCircularBuffer.EntityData.Children["fia-oir-info"] = types.YChild{"FiaOirInfo", nil}
+    oirCircularBuffer.EntityData.Children = types.NewOrderedMap()
+    oirCircularBuffer.EntityData.Children.Append("fia-oir-info", types.YChild{"FiaOirInfo", nil})
     for i := range oirCircularBuffer.FiaOirInfo {
-        oirCircularBuffer.EntityData.Children[types.GetSegmentPath(&oirCircularBuffer.FiaOirInfo[i])] = types.YChild{"FiaOirInfo", &oirCircularBuffer.FiaOirInfo[i]}
+        oirCircularBuffer.EntityData.Children.Append(types.GetSegmentPath(oirCircularBuffer.FiaOirInfo[i]), types.YChild{"FiaOirInfo", oirCircularBuffer.FiaOirInfo[i]})
     }
-    oirCircularBuffer.EntityData.Leafs = make(map[string]types.YLeaf)
-    oirCircularBuffer.EntityData.Leafs["count"] = types.YLeaf{"Count", oirCircularBuffer.Count}
-    oirCircularBuffer.EntityData.Leafs["start"] = types.YLeaf{"Start", oirCircularBuffer.Start}
-    oirCircularBuffer.EntityData.Leafs["end"] = types.YLeaf{"End", oirCircularBuffer.End}
+    oirCircularBuffer.EntityData.Leafs = types.NewOrderedMap()
+    oirCircularBuffer.EntityData.Leafs.Append("count", types.YLeaf{"Count", oirCircularBuffer.Count})
+    oirCircularBuffer.EntityData.Leafs.Append("start", types.YLeaf{"Start", oirCircularBuffer.Start})
+    oirCircularBuffer.EntityData.Leafs.Append("end", types.YLeaf{"End", oirCircularBuffer.End})
+
+    oirCircularBuffer.EntityData.YListKeys = []string {}
+
     return &(oirCircularBuffer.EntityData)
 }
 
@@ -1611,15 +1683,18 @@ func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_Fi
     fiaOirInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fiaOirInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fiaOirInfo.EntityData.Children = make(map[string]types.YChild)
-    fiaOirInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fiaOirInfo.EntityData.Leafs["card-flag"] = types.YLeaf{"CardFlag", fiaOirInfo.CardFlag}
-    fiaOirInfo.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", fiaOirInfo.CardType}
-    fiaOirInfo.EntityData.Leafs["reg-flag"] = types.YLeaf{"RegFlag", fiaOirInfo.RegFlag}
-    fiaOirInfo.EntityData.Leafs["evt-flag"] = types.YLeaf{"EvtFlag", fiaOirInfo.EvtFlag}
-    fiaOirInfo.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", fiaOirInfo.RackNum}
-    fiaOirInfo.EntityData.Leafs["instance"] = types.YLeaf{"Instance", fiaOirInfo.Instance}
-    fiaOirInfo.EntityData.Leafs["cur-card-state"] = types.YLeaf{"CurCardState", fiaOirInfo.CurCardState}
+    fiaOirInfo.EntityData.Children = types.NewOrderedMap()
+    fiaOirInfo.EntityData.Leafs = types.NewOrderedMap()
+    fiaOirInfo.EntityData.Leafs.Append("card-flag", types.YLeaf{"CardFlag", fiaOirInfo.CardFlag})
+    fiaOirInfo.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", fiaOirInfo.CardType})
+    fiaOirInfo.EntityData.Leafs.Append("reg-flag", types.YLeaf{"RegFlag", fiaOirInfo.RegFlag})
+    fiaOirInfo.EntityData.Leafs.Append("evt-flag", types.YLeaf{"EvtFlag", fiaOirInfo.EvtFlag})
+    fiaOirInfo.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", fiaOirInfo.RackNum})
+    fiaOirInfo.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", fiaOirInfo.Instance})
+    fiaOirInfo.EntityData.Leafs.Append("cur-card-state", types.YLeaf{"CurCardState", fiaOirInfo.CurCardState})
+
+    fiaOirInfo.EntityData.YListKeys = []string {}
+
     return &(fiaOirInfo.EntityData)
 }
 
@@ -1643,9 +1718,12 @@ func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetEntityData() *types.Co
     clearStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearStatistics.EntityData.Children = make(map[string]types.YChild)
-    clearStatistics.EntityData.Children["asic-instances"] = types.YChild{"AsicInstances", &clearStatistics.AsicInstances}
-    clearStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearStatistics.EntityData.Children = types.NewOrderedMap()
+    clearStatistics.EntityData.Children.Append("asic-instances", types.YChild{"AsicInstances", &clearStatistics.AsicInstances})
+    clearStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    clearStatistics.EntityData.YListKeys = []string {}
+
     return &(clearStatistics.EntityData)
 }
 
@@ -1658,7 +1736,7 @@ type Fia_Nodes_Node_ClearStatistics_AsicInstances struct {
 
     // Asic instance to be cleared. The type is slice of
     // Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance.
-    AsicInstance []Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance
+    AsicInstance []*Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance
 }
 
 func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetEntityData() *types.CommonEntityData {
@@ -1671,12 +1749,15 @@ func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetEntityData
     asicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicInstances.EntityData.Children = make(map[string]types.YChild)
-    asicInstances.EntityData.Children["asic-instance"] = types.YChild{"AsicInstance", nil}
+    asicInstances.EntityData.Children = types.NewOrderedMap()
+    asicInstances.EntityData.Children.Append("asic-instance", types.YChild{"AsicInstance", nil})
     for i := range asicInstances.AsicInstance {
-        asicInstances.EntityData.Children[types.GetSegmentPath(&asicInstances.AsicInstance[i])] = types.YChild{"AsicInstance", &asicInstances.AsicInstance[i]}
+        asicInstances.EntityData.Children.Append(types.GetSegmentPath(asicInstances.AsicInstance[i]), types.YChild{"AsicInstance", asicInstances.AsicInstance[i]})
     }
-    asicInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    asicInstances.EntityData.YListKeys = []string {}
+
     return &(asicInstances.EntityData)
 }
 
@@ -1700,15 +1781,18 @@ func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) G
     asicInstance.EntityData.YangName = "asic-instance"
     asicInstance.EntityData.BundleName = "cisco_ios_xr"
     asicInstance.EntityData.ParentYangName = "asic-instances"
-    asicInstance.EntityData.SegmentPath = "asic-instance" + "[asic-instance='" + fmt.Sprintf("%v", asicInstance.AsicInstance) + "']"
+    asicInstance.EntityData.SegmentPath = "asic-instance" + types.AddKeyToken(asicInstance.AsicInstance, "asic-instance")
     asicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicInstance.EntityData.Children = make(map[string]types.YChild)
-    asicInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicInstance.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicInstance.AsicInstance}
-    asicInstance.EntityData.Leafs["instance"] = types.YLeaf{"Instance", asicInstance.Instance}
+    asicInstance.EntityData.Children = types.NewOrderedMap()
+    asicInstance.EntityData.Leafs = types.NewOrderedMap()
+    asicInstance.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", asicInstance.AsicInstance})
+    asicInstance.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", asicInstance.Instance})
+
+    asicInstance.EntityData.YListKeys = []string {"AsicInstance"}
+
     return &(asicInstance.EntityData)
 }
 
@@ -1732,9 +1816,12 @@ func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetEntityData() *type
     txLinkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLinkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txLinkInformation.EntityData.Children = make(map[string]types.YChild)
-    txLinkInformation.EntityData.Children["tx-status-option-table"] = types.YChild{"TxStatusOptionTable", &txLinkInformation.TxStatusOptionTable}
-    txLinkInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    txLinkInformation.EntityData.Children = types.NewOrderedMap()
+    txLinkInformation.EntityData.Children.Append("tx-status-option-table", types.YChild{"TxStatusOptionTable", &txLinkInformation.TxStatusOptionTable})
+    txLinkInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    txLinkInformation.EntityData.YListKeys = []string {}
+
     return &(txLinkInformation.EntityData)
 }
 
@@ -1758,9 +1845,12 @@ func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable)
     txStatusOptionTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txStatusOptionTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txStatusOptionTable.EntityData.Children = make(map[string]types.YChild)
-    txStatusOptionTable.EntityData.Children["tx-status-option"] = types.YChild{"TxStatusOption", &txStatusOptionTable.TxStatusOption}
-    txStatusOptionTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    txStatusOptionTable.EntityData.Children = types.NewOrderedMap()
+    txStatusOptionTable.EntityData.Children.Append("tx-status-option", types.YChild{"TxStatusOption", &txStatusOptionTable.TxStatusOption})
+    txStatusOptionTable.EntityData.Leafs = types.NewOrderedMap()
+
+    txStatusOptionTable.EntityData.YListKeys = []string {}
+
     return &(txStatusOptionTable.EntityData)
 }
 
@@ -1784,9 +1874,12 @@ func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxSta
     txStatusOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txStatusOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txStatusOption.EntityData.Children = make(map[string]types.YChild)
-    txStatusOption.EntityData.Children["tx-asic-instances"] = types.YChild{"TxAsicInstances", &txStatusOption.TxAsicInstances}
-    txStatusOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    txStatusOption.EntityData.Children = types.NewOrderedMap()
+    txStatusOption.EntityData.Children.Append("tx-asic-instances", types.YChild{"TxAsicInstances", &txStatusOption.TxAsicInstances})
+    txStatusOption.EntityData.Leafs = types.NewOrderedMap()
+
+    txStatusOption.EntityData.YListKeys = []string {}
+
     return &(txStatusOption.EntityData)
 }
 
@@ -1798,7 +1891,7 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
 
     // Instance number for tx link information. The type is slice of
     // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance.
-    TxAsicInstance []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance
+    TxAsicInstance []*Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance
 }
 
 func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetEntityData() *types.CommonEntityData {
@@ -1811,12 +1904,15 @@ func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxSt
     txAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txAsicInstances.EntityData.Children = make(map[string]types.YChild)
-    txAsicInstances.EntityData.Children["tx-asic-instance"] = types.YChild{"TxAsicInstance", nil}
+    txAsicInstances.EntityData.Children = types.NewOrderedMap()
+    txAsicInstances.EntityData.Children.Append("tx-asic-instance", types.YChild{"TxAsicInstance", nil})
     for i := range txAsicInstances.TxAsicInstance {
-        txAsicInstances.EntityData.Children[types.GetSegmentPath(&txAsicInstances.TxAsicInstance[i])] = types.YChild{"TxAsicInstance", &txAsicInstances.TxAsicInstance[i]}
+        txAsicInstances.EntityData.Children.Append(types.GetSegmentPath(txAsicInstances.TxAsicInstance[i]), types.YChild{"TxAsicInstance", txAsicInstances.TxAsicInstance[i]})
     }
-    txAsicInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    txAsicInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    txAsicInstances.EntityData.YListKeys = []string {}
+
     return &(txAsicInstances.EntityData)
 }
 
@@ -1839,15 +1935,18 @@ func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxSta
     txAsicInstance.EntityData.YangName = "tx-asic-instance"
     txAsicInstance.EntityData.BundleName = "cisco_ios_xr"
     txAsicInstance.EntityData.ParentYangName = "tx-asic-instances"
-    txAsicInstance.EntityData.SegmentPath = "tx-asic-instance" + "[instance='" + fmt.Sprintf("%v", txAsicInstance.Instance) + "']"
+    txAsicInstance.EntityData.SegmentPath = "tx-asic-instance" + types.AddKeyToken(txAsicInstance.Instance, "instance")
     txAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txAsicInstance.EntityData.Children = make(map[string]types.YChild)
-    txAsicInstance.EntityData.Children["tx-links"] = types.YChild{"TxLinks", &txAsicInstance.TxLinks}
-    txAsicInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    txAsicInstance.EntityData.Leafs["instance"] = types.YLeaf{"Instance", txAsicInstance.Instance}
+    txAsicInstance.EntityData.Children = types.NewOrderedMap()
+    txAsicInstance.EntityData.Children.Append("tx-links", types.YChild{"TxLinks", &txAsicInstance.TxLinks})
+    txAsicInstance.EntityData.Leafs = types.NewOrderedMap()
+    txAsicInstance.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", txAsicInstance.Instance})
+
+    txAsicInstance.EntityData.YListKeys = []string {"Instance"}
+
     return &(txAsicInstance.EntityData)
 }
 
@@ -1859,7 +1958,7 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
 
     // Link number for tx link information. The type is slice of
     // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink.
-    TxLink []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink
+    TxLink []*Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink
 }
 
 func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetEntityData() *types.CommonEntityData {
@@ -1872,12 +1971,15 @@ func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpti
     txLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txLinks.EntityData.Children = make(map[string]types.YChild)
-    txLinks.EntityData.Children["tx-link"] = types.YChild{"TxLink", nil}
+    txLinks.EntityData.Children = types.NewOrderedMap()
+    txLinks.EntityData.Children.Append("tx-link", types.YChild{"TxLink", nil})
     for i := range txLinks.TxLink {
-        txLinks.EntityData.Children[types.GetSegmentPath(&txLinks.TxLink[i])] = types.YChild{"TxLink", &txLinks.TxLink[i]}
+        txLinks.EntityData.Children.Append(types.GetSegmentPath(txLinks.TxLink[i]), types.YChild{"TxLink", txLinks.TxLink[i]})
     }
-    txLinks.EntityData.Leafs = make(map[string]types.YLeaf)
+    txLinks.EntityData.Leafs = types.NewOrderedMap()
+
+    txLinks.EntityData.YListKeys = []string {}
+
     return &(txLinks.EntityData)
 }
 
@@ -1895,7 +1997,7 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
 
     // Single link information. The type is slice of
     // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink.
-    TxLink []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_
+    TxLink []*Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink
 }
 
 func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetEntityData() *types.CommonEntityData {
@@ -1908,20 +2010,23 @@ func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOptio
     txLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txLink.EntityData.Children = make(map[string]types.YChild)
-    txLink.EntityData.Children["tx-link"] = types.YChild{"TxLink", nil}
+    txLink.EntityData.Children = types.NewOrderedMap()
+    txLink.EntityData.Children.Append("tx-link", types.YChild{"TxLink", nil})
     for i := range txLink.TxLink {
-        txLink.EntityData.Children[types.GetSegmentPath(&txLink.TxLink[i])] = types.YChild{"TxLink", &txLink.TxLink[i]}
+        txLink.EntityData.Children.Append(types.GetSegmentPath(txLink.TxLink[i]), types.YChild{"TxLink", txLink.TxLink[i]})
     }
-    txLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    txLink.EntityData.Leafs["start-number"] = types.YLeaf{"StartNumber", txLink.StartNumber}
-    txLink.EntityData.Leafs["end-number"] = types.YLeaf{"EndNumber", txLink.EndNumber}
+    txLink.EntityData.Leafs = types.NewOrderedMap()
+    txLink.EntityData.Leafs.Append("start-number", types.YLeaf{"StartNumber", txLink.StartNumber})
+    txLink.EntityData.Leafs.Append("end-number", types.YLeaf{"EndNumber", txLink.EndNumber})
+
+    txLink.EntityData.YListKeys = []string {}
+
     return &(txLink.EntityData)
 }
 
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink
 // Single link information
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ struct {
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1963,52 +2068,55 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     NumAdminShuts interface{}
 
     // this link.
-    ThisLink Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink
+    ThisLink Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink
 
     // far end link.
-    FarEndLink Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink
+    FarEndLink Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink
 
     // stats.
-    Stats Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__Stats
+    Stats Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats
 
     // history.
-    History Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History
+    History Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History
 }
 
-func (txLink_ *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_) GetEntityData() *types.CommonEntityData {
-    txLink_.EntityData.YFilter = txLink_.YFilter
-    txLink_.EntityData.YangName = "tx-link"
-    txLink_.EntityData.BundleName = "cisco_ios_xr"
-    txLink_.EntityData.ParentYangName = "tx-link"
-    txLink_.EntityData.SegmentPath = "tx-link" + "[link='" + fmt.Sprintf("%v", txLink_.Link) + "']"
-    txLink_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    txLink_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    txLink_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetEntityData() *types.CommonEntityData {
+    txLink.EntityData.YFilter = txLink.YFilter
+    txLink.EntityData.YangName = "tx-link"
+    txLink.EntityData.BundleName = "cisco_ios_xr"
+    txLink.EntityData.ParentYangName = "tx-link"
+    txLink.EntityData.SegmentPath = "tx-link" + types.AddKeyToken(txLink.Link, "link")
+    txLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txLink_.EntityData.Children = make(map[string]types.YChild)
-    txLink_.EntityData.Children["this-link"] = types.YChild{"ThisLink", &txLink_.ThisLink}
-    txLink_.EntityData.Children["far-end-link"] = types.YChild{"FarEndLink", &txLink_.FarEndLink}
-    txLink_.EntityData.Children["stats"] = types.YChild{"Stats", &txLink_.Stats}
-    txLink_.EntityData.Children["history"] = types.YChild{"History", &txLink_.History}
-    txLink_.EntityData.Leafs = make(map[string]types.YLeaf)
-    txLink_.EntityData.Leafs["link"] = types.YLeaf{"Link", txLink_.Link}
-    txLink_.EntityData.Leafs["speed"] = types.YLeaf{"Speed", txLink_.Speed}
-    txLink_.EntityData.Leafs["stage"] = types.YLeaf{"Stage", txLink_.Stage}
-    txLink_.EntityData.Leafs["is-link-valid"] = types.YLeaf{"IsLinkValid", txLink_.IsLinkValid}
-    txLink_.EntityData.Leafs["is-conf-pending"] = types.YLeaf{"IsConfPending", txLink_.IsConfPending}
-    txLink_.EntityData.Leafs["is-power-enabled"] = types.YLeaf{"IsPowerEnabled", txLink_.IsPowerEnabled}
-    txLink_.EntityData.Leafs["coeff1"] = types.YLeaf{"Coeff1", txLink_.Coeff1}
-    txLink_.EntityData.Leafs["coeff2"] = types.YLeaf{"Coeff2", txLink_.Coeff2}
-    txLink_.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", txLink_.AdminState}
-    txLink_.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", txLink_.OperState}
-    txLink_.EntityData.Leafs["error-state"] = types.YLeaf{"ErrorState", txLink_.ErrorState}
-    txLink_.EntityData.Leafs["num-admin-shuts"] = types.YLeaf{"NumAdminShuts", txLink_.NumAdminShuts}
-    return &(txLink_.EntityData)
+    txLink.EntityData.Children = types.NewOrderedMap()
+    txLink.EntityData.Children.Append("this-link", types.YChild{"ThisLink", &txLink.ThisLink})
+    txLink.EntityData.Children.Append("far-end-link", types.YChild{"FarEndLink", &txLink.FarEndLink})
+    txLink.EntityData.Children.Append("stats", types.YChild{"Stats", &txLink.Stats})
+    txLink.EntityData.Children.Append("history", types.YChild{"History", &txLink.History})
+    txLink.EntityData.Leafs = types.NewOrderedMap()
+    txLink.EntityData.Leafs.Append("link", types.YLeaf{"Link", txLink.Link})
+    txLink.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", txLink.Speed})
+    txLink.EntityData.Leafs.Append("stage", types.YLeaf{"Stage", txLink.Stage})
+    txLink.EntityData.Leafs.Append("is-link-valid", types.YLeaf{"IsLinkValid", txLink.IsLinkValid})
+    txLink.EntityData.Leafs.Append("is-conf-pending", types.YLeaf{"IsConfPending", txLink.IsConfPending})
+    txLink.EntityData.Leafs.Append("is-power-enabled", types.YLeaf{"IsPowerEnabled", txLink.IsPowerEnabled})
+    txLink.EntityData.Leafs.Append("coeff1", types.YLeaf{"Coeff1", txLink.Coeff1})
+    txLink.EntityData.Leafs.Append("coeff2", types.YLeaf{"Coeff2", txLink.Coeff2})
+    txLink.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", txLink.AdminState})
+    txLink.EntityData.Leafs.Append("oper-state", types.YLeaf{"OperState", txLink.OperState})
+    txLink.EntityData.Leafs.Append("error-state", types.YLeaf{"ErrorState", txLink.ErrorState})
+    txLink.EntityData.Leafs.Append("num-admin-shuts", types.YLeaf{"NumAdminShuts", txLink.NumAdminShuts})
+
+    txLink.EntityData.YListKeys = []string {"Link"}
+
+    return &(txLink.EntityData)
 }
 
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink
 // this link
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink struct {
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2025,10 +2133,10 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink_AsicId
+    AsicId Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId
 }
 
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink) GetEntityData() *types.CommonEntityData {
+func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetEntityData() *types.CommonEntityData {
     thisLink.EntityData.YFilter = thisLink.YFilter
     thisLink.EntityData.YangName = "this-link"
     thisLink.EntityData.BundleName = "cisco_ios_xr"
@@ -2038,19 +2146,22 @@ func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpt
     thisLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thisLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thisLink.EntityData.Children = make(map[string]types.YChild)
-    thisLink.EntityData.Children["asic-id"] = types.YChild{"AsicId", &thisLink.AsicId}
-    thisLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    thisLink.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", thisLink.LinkType}
-    thisLink.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", thisLink.LinkStage}
-    thisLink.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", thisLink.LinkNum}
-    thisLink.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", thisLink.PhyLinkNum}
+    thisLink.EntityData.Children = types.NewOrderedMap()
+    thisLink.EntityData.Children.Append("asic-id", types.YChild{"AsicId", &thisLink.AsicId})
+    thisLink.EntityData.Leafs = types.NewOrderedMap()
+    thisLink.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", thisLink.LinkType})
+    thisLink.EntityData.Leafs.Append("link-stage", types.YLeaf{"LinkStage", thisLink.LinkStage})
+    thisLink.EntityData.Leafs.Append("link-num", types.YLeaf{"LinkNum", thisLink.LinkNum})
+    thisLink.EntityData.Leafs.Append("phy-link-num", types.YLeaf{"PhyLinkNum", thisLink.PhyLinkNum})
+
+    thisLink.EntityData.YListKeys = []string {}
+
     return &(thisLink.EntityData)
 }
 
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink_AsicId
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId
 // asic id
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink_AsicId struct {
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2070,7 +2181,7 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink_AsicId) GetEntityData() *types.CommonEntityData {
+func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetEntityData() *types.CommonEntityData {
     asicId.EntityData.YFilter = asicId.YFilter
     asicId.EntityData.YangName = "asic-id"
     asicId.EntityData.BundleName = "cisco_ios_xr"
@@ -2080,19 +2191,22 @@ func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOptio
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicId.EntityData.Children = make(map[string]types.YChild)
-    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
-    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
-    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
-    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
-    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    asicId.EntityData.Children = types.NewOrderedMap()
+    asicId.EntityData.Leafs = types.NewOrderedMap()
+    asicId.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", asicId.RackType})
+    asicId.EntityData.Leafs.Append("asic-type", types.YLeaf{"AsicType", asicId.AsicType})
+    asicId.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", asicId.RackNum})
+    asicId.EntityData.Leafs.Append("slot-num", types.YLeaf{"SlotNum", asicId.SlotNum})
+    asicId.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", asicId.AsicInstance})
+
+    asicId.EntityData.YListKeys = []string {}
+
     return &(asicId.EntityData)
 }
 
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink
 // far end link
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink struct {
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2109,10 +2223,10 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink_AsicId
+    AsicId Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId
 }
 
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink) GetEntityData() *types.CommonEntityData {
+func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetEntityData() *types.CommonEntityData {
     farEndLink.EntityData.YFilter = farEndLink.YFilter
     farEndLink.EntityData.YangName = "far-end-link"
     farEndLink.EntityData.BundleName = "cisco_ios_xr"
@@ -2122,19 +2236,22 @@ func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusO
     farEndLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     farEndLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    farEndLink.EntityData.Children = make(map[string]types.YChild)
-    farEndLink.EntityData.Children["asic-id"] = types.YChild{"AsicId", &farEndLink.AsicId}
-    farEndLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    farEndLink.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", farEndLink.LinkType}
-    farEndLink.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", farEndLink.LinkStage}
-    farEndLink.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", farEndLink.LinkNum}
-    farEndLink.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", farEndLink.PhyLinkNum}
+    farEndLink.EntityData.Children = types.NewOrderedMap()
+    farEndLink.EntityData.Children.Append("asic-id", types.YChild{"AsicId", &farEndLink.AsicId})
+    farEndLink.EntityData.Leafs = types.NewOrderedMap()
+    farEndLink.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", farEndLink.LinkType})
+    farEndLink.EntityData.Leafs.Append("link-stage", types.YLeaf{"LinkStage", farEndLink.LinkStage})
+    farEndLink.EntityData.Leafs.Append("link-num", types.YLeaf{"LinkNum", farEndLink.LinkNum})
+    farEndLink.EntityData.Leafs.Append("phy-link-num", types.YLeaf{"PhyLinkNum", farEndLink.PhyLinkNum})
+
+    farEndLink.EntityData.YListKeys = []string {}
+
     return &(farEndLink.EntityData)
 }
 
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink_AsicId
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId
 // asic id
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink_AsicId struct {
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2154,7 +2271,7 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink_AsicId) GetEntityData() *types.CommonEntityData {
+func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetEntityData() *types.CommonEntityData {
     asicId.EntityData.YFilter = asicId.YFilter
     asicId.EntityData.YangName = "asic-id"
     asicId.EntityData.BundleName = "cisco_ios_xr"
@@ -2164,19 +2281,22 @@ func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOptio
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicId.EntityData.Children = make(map[string]types.YChild)
-    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
-    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
-    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
-    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
-    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    asicId.EntityData.Children = types.NewOrderedMap()
+    asicId.EntityData.Leafs = types.NewOrderedMap()
+    asicId.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", asicId.RackType})
+    asicId.EntityData.Leafs.Append("asic-type", types.YLeaf{"AsicType", asicId.AsicType})
+    asicId.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", asicId.RackNum})
+    asicId.EntityData.Leafs.Append("slot-num", types.YLeaf{"SlotNum", asicId.SlotNum})
+    asicId.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", asicId.AsicInstance})
+
+    asicId.EntityData.YListKeys = []string {}
+
     return &(asicId.EntityData)
 }
 
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__Stats
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats
 // stats
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__Stats struct {
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2184,7 +2304,7 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     Dummy interface{}
 }
 
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__Stats) GetEntityData() *types.CommonEntityData {
+func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetEntityData() *types.CommonEntityData {
     stats.EntityData.YFilter = stats.YFilter
     stats.EntityData.YangName = "stats"
     stats.EntityData.BundleName = "cisco_ios_xr"
@@ -2194,15 +2314,18 @@ func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", stats.Dummy}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", stats.Dummy})
+
+    stats.EntityData.YListKeys = []string {}
+
     return &(stats.EntityData)
 }
 
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History
 // history
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History struct {
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2213,11 +2336,11 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     StartIndex interface{}
 
     // hist. The type is slice of
-    // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist.
-    Hist []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist
+    // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist.
+    Hist []*Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist
 }
 
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History) GetEntityData() *types.CommonEntityData {
+func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetEntityData() *types.CommonEntityData {
     history.EntityData.YFilter = history.YFilter
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
@@ -2227,20 +2350,23 @@ func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpti
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Children["hist"] = types.YChild{"Hist", nil}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Children.Append("hist", types.YChild{"Hist", nil})
     for i := range history.Hist {
-        history.EntityData.Children[types.GetSegmentPath(&history.Hist[i])] = types.YChild{"Hist", &history.Hist[i]}
+        history.EntityData.Children.Append(types.GetSegmentPath(history.Hist[i]), types.YChild{"Hist", history.Hist[i]})
     }
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["histnum"] = types.YLeaf{"Histnum", history.Histnum}
-    history.EntityData.Leafs["start-index"] = types.YLeaf{"StartIndex", history.StartIndex}
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("histnum", types.YLeaf{"Histnum", history.Histnum})
+    history.EntityData.Leafs.Append("start-index", types.YLeaf{"StartIndex", history.StartIndex})
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist
 // hist
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist struct {
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2260,7 +2386,7 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     Reasons interface{}
 }
 
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist) GetEntityData() *types.CommonEntityData {
+func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetEntityData() *types.CommonEntityData {
     hist.EntityData.YFilter = hist.YFilter
     hist.EntityData.YangName = "hist"
     hist.EntityData.BundleName = "cisco_ios_xr"
@@ -2270,13 +2396,16 @@ func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_
     hist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hist.EntityData.Children = make(map[string]types.YChild)
-    hist.EntityData.Leafs = make(map[string]types.YLeaf)
-    hist.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", hist.AdminState}
-    hist.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", hist.OperState}
-    hist.EntityData.Leafs["error-state"] = types.YLeaf{"ErrorState", hist.ErrorState}
-    hist.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", hist.Timestamp}
-    hist.EntityData.Leafs["reasons"] = types.YLeaf{"Reasons", hist.Reasons}
+    hist.EntityData.Children = types.NewOrderedMap()
+    hist.EntityData.Leafs = types.NewOrderedMap()
+    hist.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", hist.AdminState})
+    hist.EntityData.Leafs.Append("oper-state", types.YLeaf{"OperState", hist.OperState})
+    hist.EntityData.Leafs.Append("error-state", types.YLeaf{"ErrorState", hist.ErrorState})
+    hist.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", hist.Timestamp})
+    hist.EntityData.Leafs.Append("reasons", types.YLeaf{"Reasons", hist.Reasons})
+
+    hist.EntityData.YListKeys = []string {}
+
     return &(hist.EntityData)
 }
 
@@ -2300,9 +2429,12 @@ func (diagShell *Fia_Nodes_Node_DiagShell) GetEntityData() *types.CommonEntityDa
     diagShell.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagShell.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diagShell.EntityData.Children = make(map[string]types.YChild)
-    diagShell.EntityData.Children["diag-shell-units"] = types.YChild{"DiagShellUnits", &diagShell.DiagShellUnits}
-    diagShell.EntityData.Leafs = make(map[string]types.YLeaf)
+    diagShell.EntityData.Children = types.NewOrderedMap()
+    diagShell.EntityData.Children.Append("diag-shell-units", types.YChild{"DiagShellUnits", &diagShell.DiagShellUnits})
+    diagShell.EntityData.Leafs = types.NewOrderedMap()
+
+    diagShell.EntityData.YListKeys = []string {}
+
     return &(diagShell.EntityData)
 }
 
@@ -2314,7 +2446,7 @@ type Fia_Nodes_Node_DiagShell_DiagShellUnits struct {
 
     // Unit number for diag shell statistics. The type is slice of
     // Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit.
-    DiagShellUnit []Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit
+    DiagShellUnit []*Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit
 }
 
 func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetEntityData() *types.CommonEntityData {
@@ -2327,12 +2459,15 @@ func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetEntityData() *
     diagShellUnits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagShellUnits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diagShellUnits.EntityData.Children = make(map[string]types.YChild)
-    diagShellUnits.EntityData.Children["diag-shell-unit"] = types.YChild{"DiagShellUnit", nil}
+    diagShellUnits.EntityData.Children = types.NewOrderedMap()
+    diagShellUnits.EntityData.Children.Append("diag-shell-unit", types.YChild{"DiagShellUnit", nil})
     for i := range diagShellUnits.DiagShellUnit {
-        diagShellUnits.EntityData.Children[types.GetSegmentPath(&diagShellUnits.DiagShellUnit[i])] = types.YChild{"DiagShellUnit", &diagShellUnits.DiagShellUnit[i]}
+        diagShellUnits.EntityData.Children.Append(types.GetSegmentPath(diagShellUnits.DiagShellUnit[i]), types.YChild{"DiagShellUnit", diagShellUnits.DiagShellUnit[i]})
     }
-    diagShellUnits.EntityData.Leafs = make(map[string]types.YLeaf)
+    diagShellUnits.EntityData.Leafs = types.NewOrderedMap()
+
+    diagShellUnits.EntityData.YListKeys = []string {}
+
     return &(diagShellUnits.EntityData)
 }
 
@@ -2355,15 +2490,18 @@ func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetE
     diagShellUnit.EntityData.YangName = "diag-shell-unit"
     diagShellUnit.EntityData.BundleName = "cisco_ios_xr"
     diagShellUnit.EntityData.ParentYangName = "diag-shell-units"
-    diagShellUnit.EntityData.SegmentPath = "diag-shell-unit" + "[unit='" + fmt.Sprintf("%v", diagShellUnit.Unit) + "']"
+    diagShellUnit.EntityData.SegmentPath = "diag-shell-unit" + types.AddKeyToken(diagShellUnit.Unit, "unit")
     diagShellUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diagShellUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagShellUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diagShellUnit.EntityData.Children = make(map[string]types.YChild)
-    diagShellUnit.EntityData.Children["commands"] = types.YChild{"Commands", &diagShellUnit.Commands}
-    diagShellUnit.EntityData.Leafs = make(map[string]types.YLeaf)
-    diagShellUnit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", diagShellUnit.Unit}
+    diagShellUnit.EntityData.Children = types.NewOrderedMap()
+    diagShellUnit.EntityData.Children.Append("commands", types.YChild{"Commands", &diagShellUnit.Commands})
+    diagShellUnit.EntityData.Leafs = types.NewOrderedMap()
+    diagShellUnit.EntityData.Leafs.Append("unit", types.YLeaf{"Unit", diagShellUnit.Unit})
+
+    diagShellUnit.EntityData.YListKeys = []string {"Unit"}
+
     return &(diagShellUnit.EntityData)
 }
 
@@ -2375,7 +2513,7 @@ type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands struct {
 
     // Command for diag shell statistics. The type is slice of
     // Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command.
-    Command []Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command
+    Command []*Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command
 }
 
 func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetEntityData() *types.CommonEntityData {
@@ -2388,12 +2526,15 @@ func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) 
     commands.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commands.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    commands.EntityData.Children = make(map[string]types.YChild)
-    commands.EntityData.Children["command"] = types.YChild{"Command", nil}
+    commands.EntityData.Children = types.NewOrderedMap()
+    commands.EntityData.Children.Append("command", types.YChild{"Command", nil})
     for i := range commands.Command {
-        commands.EntityData.Children[types.GetSegmentPath(&commands.Command[i])] = types.YChild{"Command", &commands.Command[i]}
+        commands.EntityData.Children.Append(types.GetSegmentPath(commands.Command[i]), types.YChild{"Command", commands.Command[i]})
     }
-    commands.EntityData.Leafs = make(map[string]types.YLeaf)
+    commands.EntityData.Leafs = types.NewOrderedMap()
+
+    commands.EntityData.YListKeys = []string {}
+
     return &(commands.EntityData)
 }
 
@@ -2408,7 +2549,7 @@ type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command stru
 
     // Added to support datalist. The type is slice of
     // Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output.
-    Output []Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output
+    Output []*Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output
 }
 
 func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetEntityData() *types.CommonEntityData {
@@ -2416,18 +2557,21 @@ func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Co
     command.EntityData.YangName = "command"
     command.EntityData.BundleName = "cisco_ios_xr"
     command.EntityData.ParentYangName = "commands"
-    command.EntityData.SegmentPath = "command" + "[cmd='" + fmt.Sprintf("%v", command.Cmd) + "']"
+    command.EntityData.SegmentPath = "command" + types.AddKeyToken(command.Cmd, "cmd")
     command.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     command.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     command.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    command.EntityData.Children = make(map[string]types.YChild)
-    command.EntityData.Children["output"] = types.YChild{"Output", nil}
+    command.EntityData.Children = types.NewOrderedMap()
+    command.EntityData.Children.Append("output", types.YChild{"Output", nil})
     for i := range command.Output {
-        command.EntityData.Children[types.GetSegmentPath(&command.Output[i])] = types.YChild{"Output", &command.Output[i]}
+        command.EntityData.Children.Append(types.GetSegmentPath(command.Output[i]), types.YChild{"Output", command.Output[i]})
     }
-    command.EntityData.Leafs = make(map[string]types.YLeaf)
-    command.EntityData.Leafs["cmd"] = types.YLeaf{"Cmd", command.Cmd}
+    command.EntityData.Leafs = types.NewOrderedMap()
+    command.EntityData.Leafs.Append("cmd", types.YLeaf{"Cmd", command.Cmd})
+
+    command.EntityData.YListKeys = []string {"Cmd"}
+
     return &(command.EntityData)
 }
 
@@ -2438,7 +2582,7 @@ type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Outp
     YFilter yfilter.YFilter
 
     // This attribute is a key. First line. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Output interface{}
 
     // output xr. The type is string.
@@ -2450,15 +2594,18 @@ func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Com
     output.EntityData.YangName = "output"
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "command"
-    output.EntityData.SegmentPath = "output" + "[output='" + fmt.Sprintf("%v", output.Output) + "']"
+    output.EntityData.SegmentPath = "output" + types.AddKeyToken(output.Output, "output")
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["output"] = types.YLeaf{"Output", output.Output}
-    output.EntityData.Leafs["output-xr"] = types.YLeaf{"OutputXr", output.OutputXr}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("output", types.YLeaf{"Output", output.Output})
+    output.EntityData.Leafs.Append("output-xr", types.YLeaf{"OutputXr", output.OutputXr})
+
+    output.EntityData.YListKeys = []string {"Output"}
+
     return &(output.EntityData)
 }
 
@@ -2482,9 +2629,12 @@ func (oirHistory *Fia_Nodes_Node_OirHistory) GetEntityData() *types.CommonEntity
     oirHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oirHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oirHistory.EntityData.Children = make(map[string]types.YChild)
-    oirHistory.EntityData.Children["flags"] = types.YChild{"Flags", &oirHistory.Flags}
-    oirHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    oirHistory.EntityData.Children = types.NewOrderedMap()
+    oirHistory.EntityData.Children.Append("flags", types.YChild{"Flags", &oirHistory.Flags})
+    oirHistory.EntityData.Leafs = types.NewOrderedMap()
+
+    oirHistory.EntityData.YListKeys = []string {}
+
     return &(oirHistory.EntityData)
 }
 
@@ -2496,7 +2646,7 @@ type Fia_Nodes_Node_OirHistory_Flags struct {
 
     // Flag value for physical location. The type is slice of
     // Fia_Nodes_Node_OirHistory_Flags_Flag.
-    Flag []Fia_Nodes_Node_OirHistory_Flags_Flag
+    Flag []*Fia_Nodes_Node_OirHistory_Flags_Flag
 }
 
 func (flags *Fia_Nodes_Node_OirHistory_Flags) GetEntityData() *types.CommonEntityData {
@@ -2509,12 +2659,15 @@ func (flags *Fia_Nodes_Node_OirHistory_Flags) GetEntityData() *types.CommonEntit
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flags.EntityData.Children = make(map[string]types.YChild)
-    flags.EntityData.Children["flag"] = types.YChild{"Flag", nil}
+    flags.EntityData.Children = types.NewOrderedMap()
+    flags.EntityData.Children.Append("flag", types.YChild{"Flag", nil})
     for i := range flags.Flag {
-        flags.EntityData.Children[types.GetSegmentPath(&flags.Flag[i])] = types.YChild{"Flag", &flags.Flag[i]}
+        flags.EntityData.Children.Append(types.GetSegmentPath(flags.Flag[i]), types.YChild{"Flag", flags.Flag[i]})
     }
-    flags.EntityData.Leafs = make(map[string]types.YLeaf)
+    flags.EntityData.Leafs = types.NewOrderedMap()
+
+    flags.EntityData.YListKeys = []string {}
+
     return &(flags.EntityData)
 }
 
@@ -2537,15 +2690,18 @@ func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetEntityData() *types.CommonE
     flag.EntityData.YangName = "flag"
     flag.EntityData.BundleName = "cisco_ios_xr"
     flag.EntityData.ParentYangName = "flags"
-    flag.EntityData.SegmentPath = "flag" + "[flag='" + fmt.Sprintf("%v", flag.Flag) + "']"
+    flag.EntityData.SegmentPath = "flag" + types.AddKeyToken(flag.Flag, "flag")
     flag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flag.EntityData.Children = make(map[string]types.YChild)
-    flag.EntityData.Children["slots"] = types.YChild{"Slots", &flag.Slots}
-    flag.EntityData.Leafs = make(map[string]types.YLeaf)
-    flag.EntityData.Leafs["flag"] = types.YLeaf{"Flag", flag.Flag}
+    flag.EntityData.Children = types.NewOrderedMap()
+    flag.EntityData.Children.Append("slots", types.YChild{"Slots", &flag.Slots})
+    flag.EntityData.Leafs = types.NewOrderedMap()
+    flag.EntityData.Leafs.Append("flag", types.YLeaf{"Flag", flag.Flag})
+
+    flag.EntityData.YListKeys = []string {"Flag"}
+
     return &(flag.EntityData)
 }
 
@@ -2557,7 +2713,7 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots struct {
 
     // Slot number for getting history. The type is slice of
     // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot.
-    Slot []Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot
+    Slot []*Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot
 }
 
 func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetEntityData() *types.CommonEntityData {
@@ -2570,12 +2726,15 @@ func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetEntityData() *types.
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
@@ -2726,11 +2885,11 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot struct {
 
     // device info. The type is slice of
     // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo.
-    DeviceInfo []Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo
+    DeviceInfo []*Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo
 
     // card info. The type is slice of
     // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo.
-    CardInfo []Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo
+    CardInfo []*Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo
 }
 
 func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetEntityData() *types.CommonEntityData {
@@ -2738,66 +2897,69 @@ func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetEntityData() *ty
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Slot, "slot")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["device-info"] = types.YChild{"DeviceInfo", nil}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("device-info", types.YChild{"DeviceInfo", nil})
     for i := range slot.DeviceInfo {
-        slot.EntityData.Children[types.GetSegmentPath(&slot.DeviceInfo[i])] = types.YChild{"DeviceInfo", &slot.DeviceInfo[i]}
+        slot.EntityData.Children.Append(types.GetSegmentPath(slot.DeviceInfo[i]), types.YChild{"DeviceInfo", slot.DeviceInfo[i]})
     }
-    slot.EntityData.Children["card-info"] = types.YChild{"CardInfo", nil}
+    slot.EntityData.Children.Append("card-info", types.YChild{"CardInfo", nil})
     for i := range slot.CardInfo {
-        slot.EntityData.Children[types.GetSegmentPath(&slot.CardInfo[i])] = types.YChild{"CardInfo", &slot.CardInfo[i]}
+        slot.EntityData.Children.Append(types.GetSegmentPath(slot.CardInfo[i]), types.YChild{"CardInfo", slot.CardInfo[i]})
     }
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["slot"] = types.YLeaf{"Slot", slot.Slot}
-    slot.EntityData.Leafs["drv-version"] = types.YLeaf{"DrvVersion", slot.DrvVersion}
-    slot.EntityData.Leafs["coeff-major-rev"] = types.YLeaf{"CoeffMajorRev", slot.CoeffMajorRev}
-    slot.EntityData.Leafs["coeff-minor-rev"] = types.YLeaf{"CoeffMinorRev", slot.CoeffMinorRev}
-    slot.EntityData.Leafs["functional-role"] = types.YLeaf{"FunctionalRole", slot.FunctionalRole}
-    slot.EntityData.Leafs["issu-role"] = types.YLeaf{"IssuRole", slot.IssuRole}
-    slot.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", slot.NodeId}
-    slot.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", slot.RackType}
-    slot.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", slot.RackNum}
-    slot.EntityData.Leafs["is-driver-ready"] = types.YLeaf{"IsDriverReady", slot.IsDriverReady}
-    slot.EntityData.Leafs["card-avail-mask"] = types.YLeaf{"CardAvailMask", slot.CardAvailMask}
-    slot.EntityData.Leafs["asic-avail-mask"] = types.YLeaf{"AsicAvailMask", slot.AsicAvailMask}
-    slot.EntityData.Leafs["exp-asic-avail-mask"] = types.YLeaf{"ExpAsicAvailMask", slot.ExpAsicAvailMask}
-    slot.EntityData.Leafs["ucmc-ratio"] = types.YLeaf{"UcmcRatio", slot.UcmcRatio}
-    slot.EntityData.Leafs["asic-oper-notify-to-fsdb-pending-bmap"] = types.YLeaf{"AsicOperNotifyToFsdbPendingBmap", slot.AsicOperNotifyToFsdbPendingBmap}
-    slot.EntityData.Leafs["is-full-fgid-download-req"] = types.YLeaf{"IsFullFgidDownloadReq", slot.IsFullFgidDownloadReq}
-    slot.EntityData.Leafs["is-fgid-download-in-progress"] = types.YLeaf{"IsFgidDownloadInProgress", slot.IsFgidDownloadInProgress}
-    slot.EntityData.Leafs["is-fgid-download-completed"] = types.YLeaf{"IsFgidDownloadCompleted", slot.IsFgidDownloadCompleted}
-    slot.EntityData.Leafs["fsdb-conn-active"] = types.YLeaf{"FsdbConnActive", slot.FsdbConnActive}
-    slot.EntityData.Leafs["fgid-conn-active"] = types.YLeaf{"FgidConnActive", slot.FgidConnActive}
-    slot.EntityData.Leafs["issu-mgr-conn-active"] = types.YLeaf{"IssuMgrConnActive", slot.IssuMgrConnActive}
-    slot.EntityData.Leafs["fsdb-reg-active"] = types.YLeaf{"FsdbRegActive", slot.FsdbRegActive}
-    slot.EntityData.Leafs["fgid-reg-active"] = types.YLeaf{"FgidRegActive", slot.FgidRegActive}
-    slot.EntityData.Leafs["issu-mgr-reg-active"] = types.YLeaf{"IssuMgrRegActive", slot.IssuMgrRegActive}
-    slot.EntityData.Leafs["num-pm-conn-reqs"] = types.YLeaf{"NumPmConnReqs", slot.NumPmConnReqs}
-    slot.EntityData.Leafs["num-fsdb-conn-reqs"] = types.YLeaf{"NumFsdbConnReqs", slot.NumFsdbConnReqs}
-    slot.EntityData.Leafs["num-fgid-conn-reqs"] = types.YLeaf{"NumFgidConnReqs", slot.NumFgidConnReqs}
-    slot.EntityData.Leafs["num-fstats-conn-reqs"] = types.YLeaf{"NumFstatsConnReqs", slot.NumFstatsConnReqs}
-    slot.EntityData.Leafs["num-cm-conn-reqs"] = types.YLeaf{"NumCmConnReqs", slot.NumCmConnReqs}
-    slot.EntityData.Leafs["num-issu-mgr-conn-reqs"] = types.YLeaf{"NumIssuMgrConnReqs", slot.NumIssuMgrConnReqs}
-    slot.EntityData.Leafs["num-peer-fia-conn-reqs"] = types.YLeaf{"NumPeerFiaConnReqs", slot.NumPeerFiaConnReqs}
-    slot.EntityData.Leafs["is-gaspp-registered"] = types.YLeaf{"IsGasppRegistered", slot.IsGasppRegistered}
-    slot.EntityData.Leafs["is-cih-registered"] = types.YLeaf{"IsCihRegistered", slot.IsCihRegistered}
-    slot.EntityData.Leafs["drvr-initial-startup-timestamp"] = types.YLeaf{"DrvrInitialStartupTimestamp", slot.DrvrInitialStartupTimestamp}
-    slot.EntityData.Leafs["drvr-current-startup-timestamp"] = types.YLeaf{"DrvrCurrentStartupTimestamp", slot.DrvrCurrentStartupTimestamp}
-    slot.EntityData.Leafs["num-intf-ports"] = types.YLeaf{"NumIntfPorts", slot.NumIntfPorts}
-    slot.EntityData.Leafs["uc-weight"] = types.YLeaf{"UcWeight", slot.UcWeight}
-    slot.EntityData.Leafs["respawn-count"] = types.YLeaf{"RespawnCount", slot.RespawnCount}
-    slot.EntityData.Leafs["total-asics"] = types.YLeaf{"TotalAsics", slot.TotalAsics}
-    slot.EntityData.Leafs["issu-ready-ntfy-pending"] = types.YLeaf{"IssuReadyNtfyPending", slot.IssuReadyNtfyPending}
-    slot.EntityData.Leafs["issu-abort-sent"] = types.YLeaf{"IssuAbortSent", slot.IssuAbortSent}
-    slot.EntityData.Leafs["issu-abort-rcvd"] = types.YLeaf{"IssuAbortRcvd", slot.IssuAbortRcvd}
-    slot.EntityData.Leafs["fabric-mode"] = types.YLeaf{"FabricMode", slot.FabricMode}
-    slot.EntityData.Leafs["fc-mode"] = types.YLeaf{"FcMode", slot.FcMode}
-    slot.EntityData.Leafs["board-rev-id"] = types.YLeaf{"BoardRevId", slot.BoardRevId}
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", slot.Slot})
+    slot.EntityData.Leafs.Append("drv-version", types.YLeaf{"DrvVersion", slot.DrvVersion})
+    slot.EntityData.Leafs.Append("coeff-major-rev", types.YLeaf{"CoeffMajorRev", slot.CoeffMajorRev})
+    slot.EntityData.Leafs.Append("coeff-minor-rev", types.YLeaf{"CoeffMinorRev", slot.CoeffMinorRev})
+    slot.EntityData.Leafs.Append("functional-role", types.YLeaf{"FunctionalRole", slot.FunctionalRole})
+    slot.EntityData.Leafs.Append("issu-role", types.YLeaf{"IssuRole", slot.IssuRole})
+    slot.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", slot.NodeId})
+    slot.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", slot.RackType})
+    slot.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", slot.RackNum})
+    slot.EntityData.Leafs.Append("is-driver-ready", types.YLeaf{"IsDriverReady", slot.IsDriverReady})
+    slot.EntityData.Leafs.Append("card-avail-mask", types.YLeaf{"CardAvailMask", slot.CardAvailMask})
+    slot.EntityData.Leafs.Append("asic-avail-mask", types.YLeaf{"AsicAvailMask", slot.AsicAvailMask})
+    slot.EntityData.Leafs.Append("exp-asic-avail-mask", types.YLeaf{"ExpAsicAvailMask", slot.ExpAsicAvailMask})
+    slot.EntityData.Leafs.Append("ucmc-ratio", types.YLeaf{"UcmcRatio", slot.UcmcRatio})
+    slot.EntityData.Leafs.Append("asic-oper-notify-to-fsdb-pending-bmap", types.YLeaf{"AsicOperNotifyToFsdbPendingBmap", slot.AsicOperNotifyToFsdbPendingBmap})
+    slot.EntityData.Leafs.Append("is-full-fgid-download-req", types.YLeaf{"IsFullFgidDownloadReq", slot.IsFullFgidDownloadReq})
+    slot.EntityData.Leafs.Append("is-fgid-download-in-progress", types.YLeaf{"IsFgidDownloadInProgress", slot.IsFgidDownloadInProgress})
+    slot.EntityData.Leafs.Append("is-fgid-download-completed", types.YLeaf{"IsFgidDownloadCompleted", slot.IsFgidDownloadCompleted})
+    slot.EntityData.Leafs.Append("fsdb-conn-active", types.YLeaf{"FsdbConnActive", slot.FsdbConnActive})
+    slot.EntityData.Leafs.Append("fgid-conn-active", types.YLeaf{"FgidConnActive", slot.FgidConnActive})
+    slot.EntityData.Leafs.Append("issu-mgr-conn-active", types.YLeaf{"IssuMgrConnActive", slot.IssuMgrConnActive})
+    slot.EntityData.Leafs.Append("fsdb-reg-active", types.YLeaf{"FsdbRegActive", slot.FsdbRegActive})
+    slot.EntityData.Leafs.Append("fgid-reg-active", types.YLeaf{"FgidRegActive", slot.FgidRegActive})
+    slot.EntityData.Leafs.Append("issu-mgr-reg-active", types.YLeaf{"IssuMgrRegActive", slot.IssuMgrRegActive})
+    slot.EntityData.Leafs.Append("num-pm-conn-reqs", types.YLeaf{"NumPmConnReqs", slot.NumPmConnReqs})
+    slot.EntityData.Leafs.Append("num-fsdb-conn-reqs", types.YLeaf{"NumFsdbConnReqs", slot.NumFsdbConnReqs})
+    slot.EntityData.Leafs.Append("num-fgid-conn-reqs", types.YLeaf{"NumFgidConnReqs", slot.NumFgidConnReqs})
+    slot.EntityData.Leafs.Append("num-fstats-conn-reqs", types.YLeaf{"NumFstatsConnReqs", slot.NumFstatsConnReqs})
+    slot.EntityData.Leafs.Append("num-cm-conn-reqs", types.YLeaf{"NumCmConnReqs", slot.NumCmConnReqs})
+    slot.EntityData.Leafs.Append("num-issu-mgr-conn-reqs", types.YLeaf{"NumIssuMgrConnReqs", slot.NumIssuMgrConnReqs})
+    slot.EntityData.Leafs.Append("num-peer-fia-conn-reqs", types.YLeaf{"NumPeerFiaConnReqs", slot.NumPeerFiaConnReqs})
+    slot.EntityData.Leafs.Append("is-gaspp-registered", types.YLeaf{"IsGasppRegistered", slot.IsGasppRegistered})
+    slot.EntityData.Leafs.Append("is-cih-registered", types.YLeaf{"IsCihRegistered", slot.IsCihRegistered})
+    slot.EntityData.Leafs.Append("drvr-initial-startup-timestamp", types.YLeaf{"DrvrInitialStartupTimestamp", slot.DrvrInitialStartupTimestamp})
+    slot.EntityData.Leafs.Append("drvr-current-startup-timestamp", types.YLeaf{"DrvrCurrentStartupTimestamp", slot.DrvrCurrentStartupTimestamp})
+    slot.EntityData.Leafs.Append("num-intf-ports", types.YLeaf{"NumIntfPorts", slot.NumIntfPorts})
+    slot.EntityData.Leafs.Append("uc-weight", types.YLeaf{"UcWeight", slot.UcWeight})
+    slot.EntityData.Leafs.Append("respawn-count", types.YLeaf{"RespawnCount", slot.RespawnCount})
+    slot.EntityData.Leafs.Append("total-asics", types.YLeaf{"TotalAsics", slot.TotalAsics})
+    slot.EntityData.Leafs.Append("issu-ready-ntfy-pending", types.YLeaf{"IssuReadyNtfyPending", slot.IssuReadyNtfyPending})
+    slot.EntityData.Leafs.Append("issu-abort-sent", types.YLeaf{"IssuAbortSent", slot.IssuAbortSent})
+    slot.EntityData.Leafs.Append("issu-abort-rcvd", types.YLeaf{"IssuAbortRcvd", slot.IssuAbortRcvd})
+    slot.EntityData.Leafs.Append("fabric-mode", types.YLeaf{"FabricMode", slot.FabricMode})
+    slot.EntityData.Leafs.Append("fc-mode", types.YLeaf{"FcMode", slot.FcMode})
+    slot.EntityData.Leafs.Append("board-rev-id", types.YLeaf{"BoardRevId", slot.BoardRevId})
+
+    slot.EntityData.YListKeys = []string {"Slot"}
+
     return &(slot.EntityData)
 }
 
@@ -2854,20 +3016,23 @@ func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) Ge
     deviceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deviceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    deviceInfo.EntityData.Children = make(map[string]types.YChild)
-    deviceInfo.EntityData.Children["asic-id"] = types.YChild{"AsicId", &deviceInfo.AsicId}
-    deviceInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    deviceInfo.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", deviceInfo.IsValid}
-    deviceInfo.EntityData.Leafs["fapid"] = types.YLeaf{"Fapid", deviceInfo.Fapid}
-    deviceInfo.EntityData.Leafs["hotplug-event"] = types.YLeaf{"HotplugEvent", deviceInfo.HotplugEvent}
-    deviceInfo.EntityData.Leafs["slice-state"] = types.YLeaf{"SliceState", deviceInfo.SliceState}
-    deviceInfo.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", deviceInfo.AdminState}
-    deviceInfo.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", deviceInfo.OperState}
-    deviceInfo.EntityData.Leafs["asic-state"] = types.YLeaf{"AsicState", deviceInfo.AsicState}
-    deviceInfo.EntityData.Leafs["last-init-cause"] = types.YLeaf{"LastInitCause", deviceInfo.LastInitCause}
-    deviceInfo.EntityData.Leafs["num-pon-resets"] = types.YLeaf{"NumPonResets", deviceInfo.NumPonResets}
-    deviceInfo.EntityData.Leafs["num-hard-resets"] = types.YLeaf{"NumHardResets", deviceInfo.NumHardResets}
-    deviceInfo.EntityData.Leafs["local-switch-state"] = types.YLeaf{"LocalSwitchState", deviceInfo.LocalSwitchState}
+    deviceInfo.EntityData.Children = types.NewOrderedMap()
+    deviceInfo.EntityData.Children.Append("asic-id", types.YChild{"AsicId", &deviceInfo.AsicId})
+    deviceInfo.EntityData.Leafs = types.NewOrderedMap()
+    deviceInfo.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", deviceInfo.IsValid})
+    deviceInfo.EntityData.Leafs.Append("fapid", types.YLeaf{"Fapid", deviceInfo.Fapid})
+    deviceInfo.EntityData.Leafs.Append("hotplug-event", types.YLeaf{"HotplugEvent", deviceInfo.HotplugEvent})
+    deviceInfo.EntityData.Leafs.Append("slice-state", types.YLeaf{"SliceState", deviceInfo.SliceState})
+    deviceInfo.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", deviceInfo.AdminState})
+    deviceInfo.EntityData.Leafs.Append("oper-state", types.YLeaf{"OperState", deviceInfo.OperState})
+    deviceInfo.EntityData.Leafs.Append("asic-state", types.YLeaf{"AsicState", deviceInfo.AsicState})
+    deviceInfo.EntityData.Leafs.Append("last-init-cause", types.YLeaf{"LastInitCause", deviceInfo.LastInitCause})
+    deviceInfo.EntityData.Leafs.Append("num-pon-resets", types.YLeaf{"NumPonResets", deviceInfo.NumPonResets})
+    deviceInfo.EntityData.Leafs.Append("num-hard-resets", types.YLeaf{"NumHardResets", deviceInfo.NumHardResets})
+    deviceInfo.EntityData.Leafs.Append("local-switch-state", types.YLeaf{"LocalSwitchState", deviceInfo.LocalSwitchState})
+
+    deviceInfo.EntityData.YListKeys = []string {}
+
     return &(deviceInfo.EntityData)
 }
 
@@ -2903,13 +3068,16 @@ func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId)
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicId.EntityData.Children = make(map[string]types.YChild)
-    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
-    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
-    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
-    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
-    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    asicId.EntityData.Children = types.NewOrderedMap()
+    asicId.EntityData.Leafs = types.NewOrderedMap()
+    asicId.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", asicId.RackType})
+    asicId.EntityData.Leafs.Append("asic-type", types.YLeaf{"AsicType", asicId.AsicType})
+    asicId.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", asicId.RackNum})
+    asicId.EntityData.Leafs.Append("slot-num", types.YLeaf{"SlotNum", asicId.SlotNum})
+    asicId.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", asicId.AsicInstance})
+
+    asicId.EntityData.YListKeys = []string {}
+
     return &(asicId.EntityData)
 }
 
@@ -2980,24 +3148,27 @@ func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetEnt
     cardInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cardInfo.EntityData.Children = make(map[string]types.YChild)
-    cardInfo.EntityData.Children["oir-circular-buffer"] = types.YChild{"OirCircularBuffer", &cardInfo.OirCircularBuffer}
-    cardInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    cardInfo.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", cardInfo.CardType}
-    cardInfo.EntityData.Leafs["card-name"] = types.YLeaf{"CardName", cardInfo.CardName}
-    cardInfo.EntityData.Leafs["slot-no"] = types.YLeaf{"SlotNo", cardInfo.SlotNo}
-    cardInfo.EntityData.Leafs["card-flag"] = types.YLeaf{"CardFlag", cardInfo.CardFlag}
-    cardInfo.EntityData.Leafs["evt-flag"] = types.YLeaf{"EvtFlag", cardInfo.EvtFlag}
-    cardInfo.EntityData.Leafs["reg-flag"] = types.YLeaf{"RegFlag", cardInfo.RegFlag}
-    cardInfo.EntityData.Leafs["instance"] = types.YLeaf{"Instance", cardInfo.Instance}
-    cardInfo.EntityData.Leafs["card-state"] = types.YLeaf{"CardState", cardInfo.CardState}
-    cardInfo.EntityData.Leafs["exp-num-asics"] = types.YLeaf{"ExpNumAsics", cardInfo.ExpNumAsics}
-    cardInfo.EntityData.Leafs["exp-num-asics-per-fsdb"] = types.YLeaf{"ExpNumAsicsPerFsdb", cardInfo.ExpNumAsicsPerFsdb}
-    cardInfo.EntityData.Leafs["is-powered"] = types.YLeaf{"IsPowered", cardInfo.IsPowered}
-    cardInfo.EntityData.Leafs["cxp-avail-bitmap"] = types.YLeaf{"CxpAvailBitmap", cardInfo.CxpAvailBitmap}
-    cardInfo.EntityData.Leafs["num-ilkns-per-asic"] = types.YLeaf{"NumIlknsPerAsic", cardInfo.NumIlknsPerAsic}
-    cardInfo.EntityData.Leafs["num-local-ports-per-ilkn"] = types.YLeaf{"NumLocalPortsPerIlkn", cardInfo.NumLocalPortsPerIlkn}
-    cardInfo.EntityData.Leafs["num-cos-per-port"] = types.YLeaf{"NumCosPerPort", cardInfo.NumCosPerPort}
+    cardInfo.EntityData.Children = types.NewOrderedMap()
+    cardInfo.EntityData.Children.Append("oir-circular-buffer", types.YChild{"OirCircularBuffer", &cardInfo.OirCircularBuffer})
+    cardInfo.EntityData.Leafs = types.NewOrderedMap()
+    cardInfo.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", cardInfo.CardType})
+    cardInfo.EntityData.Leafs.Append("card-name", types.YLeaf{"CardName", cardInfo.CardName})
+    cardInfo.EntityData.Leafs.Append("slot-no", types.YLeaf{"SlotNo", cardInfo.SlotNo})
+    cardInfo.EntityData.Leafs.Append("card-flag", types.YLeaf{"CardFlag", cardInfo.CardFlag})
+    cardInfo.EntityData.Leafs.Append("evt-flag", types.YLeaf{"EvtFlag", cardInfo.EvtFlag})
+    cardInfo.EntityData.Leafs.Append("reg-flag", types.YLeaf{"RegFlag", cardInfo.RegFlag})
+    cardInfo.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", cardInfo.Instance})
+    cardInfo.EntityData.Leafs.Append("card-state", types.YLeaf{"CardState", cardInfo.CardState})
+    cardInfo.EntityData.Leafs.Append("exp-num-asics", types.YLeaf{"ExpNumAsics", cardInfo.ExpNumAsics})
+    cardInfo.EntityData.Leafs.Append("exp-num-asics-per-fsdb", types.YLeaf{"ExpNumAsicsPerFsdb", cardInfo.ExpNumAsicsPerFsdb})
+    cardInfo.EntityData.Leafs.Append("is-powered", types.YLeaf{"IsPowered", cardInfo.IsPowered})
+    cardInfo.EntityData.Leafs.Append("cxp-avail-bitmap", types.YLeaf{"CxpAvailBitmap", cardInfo.CxpAvailBitmap})
+    cardInfo.EntityData.Leafs.Append("num-ilkns-per-asic", types.YLeaf{"NumIlknsPerAsic", cardInfo.NumIlknsPerAsic})
+    cardInfo.EntityData.Leafs.Append("num-local-ports-per-ilkn", types.YLeaf{"NumLocalPortsPerIlkn", cardInfo.NumLocalPortsPerIlkn})
+    cardInfo.EntityData.Leafs.Append("num-cos-per-port", types.YLeaf{"NumCosPerPort", cardInfo.NumCosPerPort})
+
+    cardInfo.EntityData.YListKeys = []string {}
+
     return &(cardInfo.EntityData)
 }
 
@@ -3018,7 +3189,7 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer 
 
     // fia oir info. The type is slice of
     // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo.
-    FiaOirInfo []Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo
+    FiaOirInfo []*Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo
 }
 
 func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetEntityData() *types.CommonEntityData {
@@ -3031,15 +3202,18 @@ func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInf
     oirCircularBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oirCircularBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oirCircularBuffer.EntityData.Children = make(map[string]types.YChild)
-    oirCircularBuffer.EntityData.Children["fia-oir-info"] = types.YChild{"FiaOirInfo", nil}
+    oirCircularBuffer.EntityData.Children = types.NewOrderedMap()
+    oirCircularBuffer.EntityData.Children.Append("fia-oir-info", types.YChild{"FiaOirInfo", nil})
     for i := range oirCircularBuffer.FiaOirInfo {
-        oirCircularBuffer.EntityData.Children[types.GetSegmentPath(&oirCircularBuffer.FiaOirInfo[i])] = types.YChild{"FiaOirInfo", &oirCircularBuffer.FiaOirInfo[i]}
+        oirCircularBuffer.EntityData.Children.Append(types.GetSegmentPath(oirCircularBuffer.FiaOirInfo[i]), types.YChild{"FiaOirInfo", oirCircularBuffer.FiaOirInfo[i]})
     }
-    oirCircularBuffer.EntityData.Leafs = make(map[string]types.YLeaf)
-    oirCircularBuffer.EntityData.Leafs["count"] = types.YLeaf{"Count", oirCircularBuffer.Count}
-    oirCircularBuffer.EntityData.Leafs["start"] = types.YLeaf{"Start", oirCircularBuffer.Start}
-    oirCircularBuffer.EntityData.Leafs["end"] = types.YLeaf{"End", oirCircularBuffer.End}
+    oirCircularBuffer.EntityData.Leafs = types.NewOrderedMap()
+    oirCircularBuffer.EntityData.Leafs.Append("count", types.YLeaf{"Count", oirCircularBuffer.Count})
+    oirCircularBuffer.EntityData.Leafs.Append("start", types.YLeaf{"Start", oirCircularBuffer.Start})
+    oirCircularBuffer.EntityData.Leafs.Append("end", types.YLeaf{"End", oirCircularBuffer.End})
+
+    oirCircularBuffer.EntityData.YListKeys = []string {}
+
     return &(oirCircularBuffer.EntityData)
 }
 
@@ -3082,15 +3256,18 @@ func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCi
     fiaOirInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fiaOirInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fiaOirInfo.EntityData.Children = make(map[string]types.YChild)
-    fiaOirInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fiaOirInfo.EntityData.Leafs["card-flag"] = types.YLeaf{"CardFlag", fiaOirInfo.CardFlag}
-    fiaOirInfo.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", fiaOirInfo.CardType}
-    fiaOirInfo.EntityData.Leafs["reg-flag"] = types.YLeaf{"RegFlag", fiaOirInfo.RegFlag}
-    fiaOirInfo.EntityData.Leafs["evt-flag"] = types.YLeaf{"EvtFlag", fiaOirInfo.EvtFlag}
-    fiaOirInfo.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", fiaOirInfo.RackNum}
-    fiaOirInfo.EntityData.Leafs["instance"] = types.YLeaf{"Instance", fiaOirInfo.Instance}
-    fiaOirInfo.EntityData.Leafs["cur-card-state"] = types.YLeaf{"CurCardState", fiaOirInfo.CurCardState}
+    fiaOirInfo.EntityData.Children = types.NewOrderedMap()
+    fiaOirInfo.EntityData.Leafs = types.NewOrderedMap()
+    fiaOirInfo.EntityData.Leafs.Append("card-flag", types.YLeaf{"CardFlag", fiaOirInfo.CardFlag})
+    fiaOirInfo.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", fiaOirInfo.CardType})
+    fiaOirInfo.EntityData.Leafs.Append("reg-flag", types.YLeaf{"RegFlag", fiaOirInfo.RegFlag})
+    fiaOirInfo.EntityData.Leafs.Append("evt-flag", types.YLeaf{"EvtFlag", fiaOirInfo.EvtFlag})
+    fiaOirInfo.EntityData.Leafs.Append("rack-num", types.YLeaf{"RackNum", fiaOirInfo.RackNum})
+    fiaOirInfo.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", fiaOirInfo.Instance})
+    fiaOirInfo.EntityData.Leafs.Append("cur-card-state", types.YLeaf{"CurCardState", fiaOirInfo.CurCardState})
+
+    fiaOirInfo.EntityData.YListKeys = []string {}
+
     return &(fiaOirInfo.EntityData)
 }
 
@@ -3114,9 +3291,12 @@ func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetEntityData() *types.Comm
     asicStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicStatistics.EntityData.Children = make(map[string]types.YChild)
-    asicStatistics.EntityData.Children["statistics-asic-instances"] = types.YChild{"StatisticsAsicInstances", &asicStatistics.StatisticsAsicInstances}
-    asicStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicStatistics.EntityData.Children = types.NewOrderedMap()
+    asicStatistics.EntityData.Children.Append("statistics-asic-instances", types.YChild{"StatisticsAsicInstances", &asicStatistics.StatisticsAsicInstances})
+    asicStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    asicStatistics.EntityData.YListKeys = []string {}
+
     return &(asicStatistics.EntityData)
 }
 
@@ -3128,7 +3308,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances struct {
 
     // Asic instance for statistics. The type is slice of
     // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance.
-    StatisticsAsicInstance []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance
+    StatisticsAsicInstance []*Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance
 }
 
 func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetEntityData() *types.CommonEntityData {
@@ -3141,12 +3321,15 @@ func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInsta
     statisticsAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsAsicInstances.EntityData.Children = make(map[string]types.YChild)
-    statisticsAsicInstances.EntityData.Children["statistics-asic-instance"] = types.YChild{"StatisticsAsicInstance", nil}
+    statisticsAsicInstances.EntityData.Children = types.NewOrderedMap()
+    statisticsAsicInstances.EntityData.Children.Append("statistics-asic-instance", types.YChild{"StatisticsAsicInstance", nil})
     for i := range statisticsAsicInstances.StatisticsAsicInstance {
-        statisticsAsicInstances.EntityData.Children[types.GetSegmentPath(&statisticsAsicInstances.StatisticsAsicInstance[i])] = types.YChild{"StatisticsAsicInstance", &statisticsAsicInstances.StatisticsAsicInstance[i]}
+        statisticsAsicInstances.EntityData.Children.Append(types.GetSegmentPath(statisticsAsicInstances.StatisticsAsicInstance[i]), types.YChild{"StatisticsAsicInstance", statisticsAsicInstances.StatisticsAsicInstance[i]})
     }
-    statisticsAsicInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    statisticsAsicInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    statisticsAsicInstances.EntityData.YListKeys = []string {}
+
     return &(statisticsAsicInstances.EntityData)
 }
 
@@ -3172,16 +3355,19 @@ func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstan
     statisticsAsicInstance.EntityData.YangName = "statistics-asic-instance"
     statisticsAsicInstance.EntityData.BundleName = "cisco_ios_xr"
     statisticsAsicInstance.EntityData.ParentYangName = "statistics-asic-instances"
-    statisticsAsicInstance.EntityData.SegmentPath = "statistics-asic-instance" + "[instance='" + fmt.Sprintf("%v", statisticsAsicInstance.Instance) + "']"
+    statisticsAsicInstance.EntityData.SegmentPath = "statistics-asic-instance" + types.AddKeyToken(statisticsAsicInstance.Instance, "instance")
     statisticsAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statisticsAsicInstance.EntityData.Children = make(map[string]types.YChild)
-    statisticsAsicInstance.EntityData.Children["pbc-statistics"] = types.YChild{"PbcStatistics", &statisticsAsicInstance.PbcStatistics}
-    statisticsAsicInstance.EntityData.Children["fmac-statistics"] = types.YChild{"FmacStatistics", &statisticsAsicInstance.FmacStatistics}
-    statisticsAsicInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    statisticsAsicInstance.EntityData.Leafs["instance"] = types.YLeaf{"Instance", statisticsAsicInstance.Instance}
+    statisticsAsicInstance.EntityData.Children = types.NewOrderedMap()
+    statisticsAsicInstance.EntityData.Children.Append("pbc-statistics", types.YChild{"PbcStatistics", &statisticsAsicInstance.PbcStatistics})
+    statisticsAsicInstance.EntityData.Children.Append("fmac-statistics", types.YChild{"FmacStatistics", &statisticsAsicInstance.FmacStatistics})
+    statisticsAsicInstance.EntityData.Leafs = types.NewOrderedMap()
+    statisticsAsicInstance.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", statisticsAsicInstance.Instance})
+
+    statisticsAsicInstance.EntityData.YListKeys = []string {"Instance"}
+
     return &(statisticsAsicInstance.EntityData)
 }
 
@@ -3205,9 +3391,12 @@ func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Stati
     pbcStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbcStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbcStatistics.EntityData.Children = make(map[string]types.YChild)
-    pbcStatistics.EntityData.Children["pbc-stats"] = types.YChild{"PbcStats", &pbcStatistics.PbcStats}
-    pbcStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbcStatistics.EntityData.Children = types.NewOrderedMap()
+    pbcStatistics.EntityData.Children.Append("pbc-stats", types.YChild{"PbcStats", &pbcStatistics.PbcStats})
+    pbcStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    pbcStatistics.EntityData.YListKeys = []string {}
+
     return &(pbcStatistics.EntityData)
 }
 
@@ -3246,14 +3435,17 @@ func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistics
     pbcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbcStats.EntityData.Children = make(map[string]types.YChild)
-    pbcStats.EntityData.Children["stats-info"] = types.YChild{"StatsInfo", &pbcStats.StatsInfo}
-    pbcStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbcStats.EntityData.Leafs["valid"] = types.YLeaf{"Valid", pbcStats.Valid}
-    pbcStats.EntityData.Leafs["rack-no"] = types.YLeaf{"RackNo", pbcStats.RackNo}
-    pbcStats.EntityData.Leafs["slot-no"] = types.YLeaf{"SlotNo", pbcStats.SlotNo}
-    pbcStats.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", pbcStats.AsicInstance}
-    pbcStats.EntityData.Leafs["chip-ver"] = types.YLeaf{"ChipVer", pbcStats.ChipVer}
+    pbcStats.EntityData.Children = types.NewOrderedMap()
+    pbcStats.EntityData.Children.Append("stats-info", types.YChild{"StatsInfo", &pbcStats.StatsInfo})
+    pbcStats.EntityData.Leafs = types.NewOrderedMap()
+    pbcStats.EntityData.Leafs.Append("valid", types.YLeaf{"Valid", pbcStats.Valid})
+    pbcStats.EntityData.Leafs.Append("rack-no", types.YLeaf{"RackNo", pbcStats.RackNo})
+    pbcStats.EntityData.Leafs.Append("slot-no", types.YLeaf{"SlotNo", pbcStats.SlotNo})
+    pbcStats.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", pbcStats.AsicInstance})
+    pbcStats.EntityData.Leafs.Append("chip-ver", types.YLeaf{"ChipVer", pbcStats.ChipVer})
+
+    pbcStats.EntityData.YListKeys = []string {}
+
     return &(pbcStats.EntityData)
 }
 
@@ -3268,7 +3460,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
 
     // block info. The type is slice of
     // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo.
-    BlockInfo []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo
+    BlockInfo []*Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo
 }
 
 func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetEntityData() *types.CommonEntityData {
@@ -3281,13 +3473,16 @@ func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     statsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statsInfo.EntityData.Children = make(map[string]types.YChild)
-    statsInfo.EntityData.Children["block-info"] = types.YChild{"BlockInfo", nil}
+    statsInfo.EntityData.Children = types.NewOrderedMap()
+    statsInfo.EntityData.Children.Append("block-info", types.YChild{"BlockInfo", nil})
     for i := range statsInfo.BlockInfo {
-        statsInfo.EntityData.Children[types.GetSegmentPath(&statsInfo.BlockInfo[i])] = types.YChild{"BlockInfo", &statsInfo.BlockInfo[i]}
+        statsInfo.EntityData.Children.Append(types.GetSegmentPath(statsInfo.BlockInfo[i]), types.YChild{"BlockInfo", statsInfo.BlockInfo[i]})
     }
-    statsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    statsInfo.EntityData.Leafs["num-blocks"] = types.YLeaf{"NumBlocks", statsInfo.NumBlocks}
+    statsInfo.EntityData.Leafs = types.NewOrderedMap()
+    statsInfo.EntityData.Leafs.Append("num-blocks", types.YLeaf{"NumBlocks", statsInfo.NumBlocks})
+
+    statsInfo.EntityData.YListKeys = []string {}
+
     return &(statsInfo.EntityData)
 }
 
@@ -3305,7 +3500,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
 
     // field info. The type is slice of
     // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo.
-    FieldInfo []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo
+    FieldInfo []*Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo
 }
 
 func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetEntityData() *types.CommonEntityData {
@@ -3318,14 +3513,17 @@ func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     blockInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     blockInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    blockInfo.EntityData.Children = make(map[string]types.YChild)
-    blockInfo.EntityData.Children["field-info"] = types.YChild{"FieldInfo", nil}
+    blockInfo.EntityData.Children = types.NewOrderedMap()
+    blockInfo.EntityData.Children.Append("field-info", types.YChild{"FieldInfo", nil})
     for i := range blockInfo.FieldInfo {
-        blockInfo.EntityData.Children[types.GetSegmentPath(&blockInfo.FieldInfo[i])] = types.YChild{"FieldInfo", &blockInfo.FieldInfo[i]}
+        blockInfo.EntityData.Children.Append(types.GetSegmentPath(blockInfo.FieldInfo[i]), types.YChild{"FieldInfo", blockInfo.FieldInfo[i]})
     }
-    blockInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    blockInfo.EntityData.Leafs["block-name"] = types.YLeaf{"BlockName", blockInfo.BlockName}
-    blockInfo.EntityData.Leafs["num-fields"] = types.YLeaf{"NumFields", blockInfo.NumFields}
+    blockInfo.EntityData.Leafs = types.NewOrderedMap()
+    blockInfo.EntityData.Leafs.Append("block-name", types.YLeaf{"BlockName", blockInfo.BlockName})
+    blockInfo.EntityData.Leafs.Append("num-fields", types.YLeaf{"NumFields", blockInfo.NumFields})
+
+    blockInfo.EntityData.YListKeys = []string {}
+
     return &(blockInfo.EntityData)
 }
 
@@ -3355,11 +3553,14 @@ func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     fieldInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fieldInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fieldInfo.EntityData.Children = make(map[string]types.YChild)
-    fieldInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fieldInfo.EntityData.Leafs["field-name"] = types.YLeaf{"FieldName", fieldInfo.FieldName}
-    fieldInfo.EntityData.Leafs["field-value"] = types.YLeaf{"FieldValue", fieldInfo.FieldValue}
-    fieldInfo.EntityData.Leafs["is-ovf"] = types.YLeaf{"IsOvf", fieldInfo.IsOvf}
+    fieldInfo.EntityData.Children = types.NewOrderedMap()
+    fieldInfo.EntityData.Leafs = types.NewOrderedMap()
+    fieldInfo.EntityData.Leafs.Append("field-name", types.YLeaf{"FieldName", fieldInfo.FieldName})
+    fieldInfo.EntityData.Leafs.Append("field-value", types.YLeaf{"FieldValue", fieldInfo.FieldValue})
+    fieldInfo.EntityData.Leafs.Append("is-ovf", types.YLeaf{"IsOvf", fieldInfo.IsOvf})
+
+    fieldInfo.EntityData.YListKeys = []string {}
+
     return &(fieldInfo.EntityData)
 }
 
@@ -3383,9 +3584,12 @@ func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Stat
     fmacStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmacStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fmacStatistics.EntityData.Children = make(map[string]types.YChild)
-    fmacStatistics.EntityData.Children["fmac-links"] = types.YChild{"FmacLinks", &fmacStatistics.FmacLinks}
-    fmacStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    fmacStatistics.EntityData.Children = types.NewOrderedMap()
+    fmacStatistics.EntityData.Children.Append("fmac-links", types.YChild{"FmacLinks", &fmacStatistics.FmacLinks})
+    fmacStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    fmacStatistics.EntityData.YListKeys = []string {}
+
     return &(fmacStatistics.EntityData)
 }
 
@@ -3397,7 +3601,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
 
     // Link number for statistics. The type is slice of
     // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink.
-    FmacLink []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink
+    FmacLink []*Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink
 }
 
 func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetEntityData() *types.CommonEntityData {
@@ -3410,12 +3614,15 @@ func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     fmacLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmacLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fmacLinks.EntityData.Children = make(map[string]types.YChild)
-    fmacLinks.EntityData.Children["fmac-link"] = types.YChild{"FmacLink", nil}
+    fmacLinks.EntityData.Children = types.NewOrderedMap()
+    fmacLinks.EntityData.Children.Append("fmac-link", types.YChild{"FmacLink", nil})
     for i := range fmacLinks.FmacLink {
-        fmacLinks.EntityData.Children[types.GetSegmentPath(&fmacLinks.FmacLink[i])] = types.YChild{"FmacLink", &fmacLinks.FmacLink[i]}
+        fmacLinks.EntityData.Children.Append(types.GetSegmentPath(fmacLinks.FmacLink[i]), types.YChild{"FmacLink", fmacLinks.FmacLink[i]})
     }
-    fmacLinks.EntityData.Leafs = make(map[string]types.YLeaf)
+    fmacLinks.EntityData.Leafs = types.NewOrderedMap()
+
+    fmacLinks.EntityData.YListKeys = []string {}
+
     return &(fmacLinks.EntityData)
 }
 
@@ -3431,7 +3638,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
 
     // Single aisc information. The type is slice of
     // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic.
-    FmacAsic []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic
+    FmacAsic []*Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic
 }
 
 func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetEntityData() *types.CommonEntityData {
@@ -3439,18 +3646,21 @@ func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistics
     fmacLink.EntityData.YangName = "fmac-link"
     fmacLink.EntityData.BundleName = "cisco_ios_xr"
     fmacLink.EntityData.ParentYangName = "fmac-links"
-    fmacLink.EntityData.SegmentPath = "fmac-link" + "[link='" + fmt.Sprintf("%v", fmacLink.Link) + "']"
+    fmacLink.EntityData.SegmentPath = "fmac-link" + types.AddKeyToken(fmacLink.Link, "link")
     fmacLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmacLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmacLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fmacLink.EntityData.Children = make(map[string]types.YChild)
-    fmacLink.EntityData.Children["fmac-asic"] = types.YChild{"FmacAsic", nil}
+    fmacLink.EntityData.Children = types.NewOrderedMap()
+    fmacLink.EntityData.Children.Append("fmac-asic", types.YChild{"FmacAsic", nil})
     for i := range fmacLink.FmacAsic {
-        fmacLink.EntityData.Children[types.GetSegmentPath(&fmacLink.FmacAsic[i])] = types.YChild{"FmacAsic", &fmacLink.FmacAsic[i]}
+        fmacLink.EntityData.Children.Append(types.GetSegmentPath(fmacLink.FmacAsic[i]), types.YChild{"FmacAsic", fmacLink.FmacAsic[i]})
     }
-    fmacLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    fmacLink.EntityData.Leafs["link"] = types.YLeaf{"Link", fmacLink.Link}
+    fmacLink.EntityData.Leafs = types.NewOrderedMap()
+    fmacLink.EntityData.Leafs.Append("link", types.YLeaf{"Link", fmacLink.Link})
+
+    fmacLink.EntityData.YListKeys = []string {"Link"}
+
     return &(fmacLink.EntityData)
 }
 
@@ -3494,22 +3704,25 @@ func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistics
     fmacAsic.EntityData.YangName = "fmac-asic"
     fmacAsic.EntityData.BundleName = "cisco_ios_xr"
     fmacAsic.EntityData.ParentYangName = "fmac-link"
-    fmacAsic.EntityData.SegmentPath = "fmac-asic" + "[asic='" + fmt.Sprintf("%v", fmacAsic.Asic) + "']"
+    fmacAsic.EntityData.SegmentPath = "fmac-asic" + types.AddKeyToken(fmacAsic.Asic, "asic")
     fmacAsic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmacAsic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmacAsic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fmacAsic.EntityData.Children = make(map[string]types.YChild)
-    fmacAsic.EntityData.Children["aggr-stats"] = types.YChild{"AggrStats", &fmacAsic.AggrStats}
-    fmacAsic.EntityData.Children["incr-stats"] = types.YChild{"IncrStats", &fmacAsic.IncrStats}
-    fmacAsic.EntityData.Leafs = make(map[string]types.YLeaf)
-    fmacAsic.EntityData.Leafs["asic"] = types.YLeaf{"Asic", fmacAsic.Asic}
-    fmacAsic.EntityData.Leafs["valid"] = types.YLeaf{"Valid", fmacAsic.Valid}
-    fmacAsic.EntityData.Leafs["rack-no"] = types.YLeaf{"RackNo", fmacAsic.RackNo}
-    fmacAsic.EntityData.Leafs["slot-no"] = types.YLeaf{"SlotNo", fmacAsic.SlotNo}
-    fmacAsic.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", fmacAsic.AsicInstance}
-    fmacAsic.EntityData.Leafs["link-no"] = types.YLeaf{"LinkNo", fmacAsic.LinkNo}
-    fmacAsic.EntityData.Leafs["link-valid"] = types.YLeaf{"LinkValid", fmacAsic.LinkValid}
+    fmacAsic.EntityData.Children = types.NewOrderedMap()
+    fmacAsic.EntityData.Children.Append("aggr-stats", types.YChild{"AggrStats", &fmacAsic.AggrStats})
+    fmacAsic.EntityData.Children.Append("incr-stats", types.YChild{"IncrStats", &fmacAsic.IncrStats})
+    fmacAsic.EntityData.Leafs = types.NewOrderedMap()
+    fmacAsic.EntityData.Leafs.Append("asic", types.YLeaf{"Asic", fmacAsic.Asic})
+    fmacAsic.EntityData.Leafs.Append("valid", types.YLeaf{"Valid", fmacAsic.Valid})
+    fmacAsic.EntityData.Leafs.Append("rack-no", types.YLeaf{"RackNo", fmacAsic.RackNo})
+    fmacAsic.EntityData.Leafs.Append("slot-no", types.YLeaf{"SlotNo", fmacAsic.SlotNo})
+    fmacAsic.EntityData.Leafs.Append("asic-instance", types.YLeaf{"AsicInstance", fmacAsic.AsicInstance})
+    fmacAsic.EntityData.Leafs.Append("link-no", types.YLeaf{"LinkNo", fmacAsic.LinkNo})
+    fmacAsic.EntityData.Leafs.Append("link-valid", types.YLeaf{"LinkValid", fmacAsic.LinkValid})
+
+    fmacAsic.EntityData.YListKeys = []string {"Asic"}
+
     return &(fmacAsic.EntityData)
 }
 
@@ -3539,11 +3752,14 @@ func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     aggrStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggrStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggrStats.EntityData.Children = make(map[string]types.YChild)
-    aggrStats.EntityData.Children["link-error-status"] = types.YChild{"LinkErrorStatus", &aggrStats.LinkErrorStatus}
-    aggrStats.EntityData.Children["link-counters"] = types.YChild{"LinkCounters", &aggrStats.LinkCounters}
-    aggrStats.EntityData.Children["ovf-status"] = types.YChild{"OvfStatus", &aggrStats.OvfStatus}
-    aggrStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggrStats.EntityData.Children = types.NewOrderedMap()
+    aggrStats.EntityData.Children.Append("link-error-status", types.YChild{"LinkErrorStatus", &aggrStats.LinkErrorStatus})
+    aggrStats.EntityData.Children.Append("link-counters", types.YChild{"LinkCounters", &aggrStats.LinkCounters})
+    aggrStats.EntityData.Children.Append("ovf-status", types.YChild{"OvfStatus", &aggrStats.OvfStatus})
+    aggrStats.EntityData.Leafs = types.NewOrderedMap()
+
+    aggrStats.EntityData.YListKeys = []string {}
+
     return &(aggrStats.EntityData)
 }
 
@@ -3589,16 +3805,19 @@ func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Sta
     linkErrorStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkErrorStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkErrorStatus.EntityData.Children = make(map[string]types.YChild)
-    linkErrorStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkErrorStatus.EntityData.Leafs["link-crc-error"] = types.YLeaf{"LinkCrcError", linkErrorStatus.LinkCrcError}
-    linkErrorStatus.EntityData.Leafs["link-size-error"] = types.YLeaf{"LinkSizeError", linkErrorStatus.LinkSizeError}
-    linkErrorStatus.EntityData.Leafs["link-mis-align-error"] = types.YLeaf{"LinkMisAlignError", linkErrorStatus.LinkMisAlignError}
-    linkErrorStatus.EntityData.Leafs["link-code-group-error"] = types.YLeaf{"LinkCodeGroupError", linkErrorStatus.LinkCodeGroupError}
-    linkErrorStatus.EntityData.Leafs["link-no-sig-lock-error"] = types.YLeaf{"LinkNoSigLockError", linkErrorStatus.LinkNoSigLockError}
-    linkErrorStatus.EntityData.Leafs["link-no-sig-accept-error"] = types.YLeaf{"LinkNoSigAcceptError", linkErrorStatus.LinkNoSigAcceptError}
-    linkErrorStatus.EntityData.Leafs["link-tokens-error"] = types.YLeaf{"LinkTokensError", linkErrorStatus.LinkTokensError}
-    linkErrorStatus.EntityData.Leafs["error-token-count"] = types.YLeaf{"ErrorTokenCount", linkErrorStatus.ErrorTokenCount}
+    linkErrorStatus.EntityData.Children = types.NewOrderedMap()
+    linkErrorStatus.EntityData.Leafs = types.NewOrderedMap()
+    linkErrorStatus.EntityData.Leafs.Append("link-crc-error", types.YLeaf{"LinkCrcError", linkErrorStatus.LinkCrcError})
+    linkErrorStatus.EntityData.Leafs.Append("link-size-error", types.YLeaf{"LinkSizeError", linkErrorStatus.LinkSizeError})
+    linkErrorStatus.EntityData.Leafs.Append("link-mis-align-error", types.YLeaf{"LinkMisAlignError", linkErrorStatus.LinkMisAlignError})
+    linkErrorStatus.EntityData.Leafs.Append("link-code-group-error", types.YLeaf{"LinkCodeGroupError", linkErrorStatus.LinkCodeGroupError})
+    linkErrorStatus.EntityData.Leafs.Append("link-no-sig-lock-error", types.YLeaf{"LinkNoSigLockError", linkErrorStatus.LinkNoSigLockError})
+    linkErrorStatus.EntityData.Leafs.Append("link-no-sig-accept-error", types.YLeaf{"LinkNoSigAcceptError", linkErrorStatus.LinkNoSigAcceptError})
+    linkErrorStatus.EntityData.Leafs.Append("link-tokens-error", types.YLeaf{"LinkTokensError", linkErrorStatus.LinkTokensError})
+    linkErrorStatus.EntityData.Leafs.Append("error-token-count", types.YLeaf{"ErrorTokenCount", linkErrorStatus.ErrorTokenCount})
+
+    linkErrorStatus.EntityData.YListKeys = []string {}
+
     return &(linkErrorStatus.EntityData)
 }
 
@@ -3630,7 +3849,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
 
     // RX 8b 10b disparity errors. The type is interface{} with range:
     // 0..18446744073709551615.
-    Rx8B10BDisparityErrors interface{}
+    Rx8b10bDisparityErrors interface{}
 
     // RX Control cells counter. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -3662,7 +3881,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
 
     // RX 8b 10b code errors. The type is interface{} with range:
     // 0..18446744073709551615.
-    Rx8B10BCodeErrors interface{}
+    Rx8b10bCodeErrors interface{}
 }
 
 func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetEntityData() *types.CommonEntityData {
@@ -3675,22 +3894,25 @@ func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statis
     linkCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkCounters.EntityData.Children = make(map[string]types.YChild)
-    linkCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkCounters.EntityData.Leafs["tx-control-cells-counter"] = types.YLeaf{"TxControlCellsCounter", linkCounters.TxControlCellsCounter}
-    linkCounters.EntityData.Leafs["tx-data-cell-counter"] = types.YLeaf{"TxDataCellCounter", linkCounters.TxDataCellCounter}
-    linkCounters.EntityData.Leafs["tx-data-byte-counter"] = types.YLeaf{"TxDataByteCounter", linkCounters.TxDataByteCounter}
-    linkCounters.EntityData.Leafs["rx-crc-errors-counter"] = types.YLeaf{"RxCrcErrorsCounter", linkCounters.RxCrcErrorsCounter}
-    linkCounters.EntityData.Leafs["rx-lfec-fec-correctable-error"] = types.YLeaf{"RxLfecFecCorrectableError", linkCounters.RxLfecFecCorrectableError}
-    linkCounters.EntityData.Leafs["rx-8b-10b-disparity-errors"] = types.YLeaf{"Rx8B10BDisparityErrors", linkCounters.Rx8B10BDisparityErrors}
-    linkCounters.EntityData.Leafs["rx-control-cells-counter"] = types.YLeaf{"RxControlCellsCounter", linkCounters.RxControlCellsCounter}
-    linkCounters.EntityData.Leafs["rx-data-cell-counter"] = types.YLeaf{"RxDataCellCounter", linkCounters.RxDataCellCounter}
-    linkCounters.EntityData.Leafs["rx-data-byte-counter"] = types.YLeaf{"RxDataByteCounter", linkCounters.RxDataByteCounter}
-    linkCounters.EntityData.Leafs["rx-dropped-retransmitted-control"] = types.YLeaf{"RxDroppedRetransmittedControl", linkCounters.RxDroppedRetransmittedControl}
-    linkCounters.EntityData.Leafs["tx-asyn-fifo-rate"] = types.YLeaf{"TxAsynFifoRate", linkCounters.TxAsynFifoRate}
-    linkCounters.EntityData.Leafs["rx-asyn-fifo-rate"] = types.YLeaf{"RxAsynFifoRate", linkCounters.RxAsynFifoRate}
-    linkCounters.EntityData.Leafs["rx-lfec-fec-uncorrectable-errors"] = types.YLeaf{"RxLfecFecUncorrectableErrors", linkCounters.RxLfecFecUncorrectableErrors}
-    linkCounters.EntityData.Leafs["rx-8b-10b-code-errors"] = types.YLeaf{"Rx8B10BCodeErrors", linkCounters.Rx8B10BCodeErrors}
+    linkCounters.EntityData.Children = types.NewOrderedMap()
+    linkCounters.EntityData.Leafs = types.NewOrderedMap()
+    linkCounters.EntityData.Leafs.Append("tx-control-cells-counter", types.YLeaf{"TxControlCellsCounter", linkCounters.TxControlCellsCounter})
+    linkCounters.EntityData.Leafs.Append("tx-data-cell-counter", types.YLeaf{"TxDataCellCounter", linkCounters.TxDataCellCounter})
+    linkCounters.EntityData.Leafs.Append("tx-data-byte-counter", types.YLeaf{"TxDataByteCounter", linkCounters.TxDataByteCounter})
+    linkCounters.EntityData.Leafs.Append("rx-crc-errors-counter", types.YLeaf{"RxCrcErrorsCounter", linkCounters.RxCrcErrorsCounter})
+    linkCounters.EntityData.Leafs.Append("rx-lfec-fec-correctable-error", types.YLeaf{"RxLfecFecCorrectableError", linkCounters.RxLfecFecCorrectableError})
+    linkCounters.EntityData.Leafs.Append("rx-8b-10b-disparity-errors", types.YLeaf{"Rx8b10bDisparityErrors", linkCounters.Rx8b10bDisparityErrors})
+    linkCounters.EntityData.Leafs.Append("rx-control-cells-counter", types.YLeaf{"RxControlCellsCounter", linkCounters.RxControlCellsCounter})
+    linkCounters.EntityData.Leafs.Append("rx-data-cell-counter", types.YLeaf{"RxDataCellCounter", linkCounters.RxDataCellCounter})
+    linkCounters.EntityData.Leafs.Append("rx-data-byte-counter", types.YLeaf{"RxDataByteCounter", linkCounters.RxDataByteCounter})
+    linkCounters.EntityData.Leafs.Append("rx-dropped-retransmitted-control", types.YLeaf{"RxDroppedRetransmittedControl", linkCounters.RxDroppedRetransmittedControl})
+    linkCounters.EntityData.Leafs.Append("tx-asyn-fifo-rate", types.YLeaf{"TxAsynFifoRate", linkCounters.TxAsynFifoRate})
+    linkCounters.EntityData.Leafs.Append("rx-asyn-fifo-rate", types.YLeaf{"RxAsynFifoRate", linkCounters.RxAsynFifoRate})
+    linkCounters.EntityData.Leafs.Append("rx-lfec-fec-uncorrectable-errors", types.YLeaf{"RxLfecFecUncorrectableErrors", linkCounters.RxLfecFecUncorrectableErrors})
+    linkCounters.EntityData.Leafs.Append("rx-8b-10b-code-errors", types.YLeaf{"Rx8b10bCodeErrors", linkCounters.Rx8b10bCodeErrors})
+
+    linkCounters.EntityData.YListKeys = []string {}
+
     return &(linkCounters.EntityData)
 }
 
@@ -3716,7 +3938,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     RxLfecFecCorrectableError interface{}
 
     // RX 8b 10b disparity errors. The type is string with length: 0..6.
-    Rx8B10BDisparityErrors interface{}
+    Rx8b10bDisparityErrors interface{}
 
     // RX Control cells counter. The type is string with length: 0..6.
     RxControlCellsCounter interface{}
@@ -3740,7 +3962,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     RxLfecFecUncorrectableErrors interface{}
 
     // RX 8b 10b code errors. The type is string with length: 0..6.
-    Rx8B10BCodeErrors interface{}
+    Rx8b10bCodeErrors interface{}
 }
 
 func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetEntityData() *types.CommonEntityData {
@@ -3753,22 +3975,25 @@ func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     ovfStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ovfStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ovfStatus.EntityData.Children = make(map[string]types.YChild)
-    ovfStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    ovfStatus.EntityData.Leafs["tx-control-cells-counter"] = types.YLeaf{"TxControlCellsCounter", ovfStatus.TxControlCellsCounter}
-    ovfStatus.EntityData.Leafs["tx-data-cell-counter"] = types.YLeaf{"TxDataCellCounter", ovfStatus.TxDataCellCounter}
-    ovfStatus.EntityData.Leafs["tx-data-byte-counter"] = types.YLeaf{"TxDataByteCounter", ovfStatus.TxDataByteCounter}
-    ovfStatus.EntityData.Leafs["rx-crc-errors-counter"] = types.YLeaf{"RxCrcErrorsCounter", ovfStatus.RxCrcErrorsCounter}
-    ovfStatus.EntityData.Leafs["rx-lfec-fec-correctable-error"] = types.YLeaf{"RxLfecFecCorrectableError", ovfStatus.RxLfecFecCorrectableError}
-    ovfStatus.EntityData.Leafs["rx-8b-10b-disparity-errors"] = types.YLeaf{"Rx8B10BDisparityErrors", ovfStatus.Rx8B10BDisparityErrors}
-    ovfStatus.EntityData.Leafs["rx-control-cells-counter"] = types.YLeaf{"RxControlCellsCounter", ovfStatus.RxControlCellsCounter}
-    ovfStatus.EntityData.Leafs["rx-data-cell-counter"] = types.YLeaf{"RxDataCellCounter", ovfStatus.RxDataCellCounter}
-    ovfStatus.EntityData.Leafs["rx-data-byte-counter"] = types.YLeaf{"RxDataByteCounter", ovfStatus.RxDataByteCounter}
-    ovfStatus.EntityData.Leafs["rx-dropped-retransmitted-control"] = types.YLeaf{"RxDroppedRetransmittedControl", ovfStatus.RxDroppedRetransmittedControl}
-    ovfStatus.EntityData.Leafs["tx-asyn-fifo-rate"] = types.YLeaf{"TxAsynFifoRate", ovfStatus.TxAsynFifoRate}
-    ovfStatus.EntityData.Leafs["rx-asyn-fifo-rate"] = types.YLeaf{"RxAsynFifoRate", ovfStatus.RxAsynFifoRate}
-    ovfStatus.EntityData.Leafs["rx-lfec-fec-uncorrectable-errors"] = types.YLeaf{"RxLfecFecUncorrectableErrors", ovfStatus.RxLfecFecUncorrectableErrors}
-    ovfStatus.EntityData.Leafs["rx-8b-10b-code-errors"] = types.YLeaf{"Rx8B10BCodeErrors", ovfStatus.Rx8B10BCodeErrors}
+    ovfStatus.EntityData.Children = types.NewOrderedMap()
+    ovfStatus.EntityData.Leafs = types.NewOrderedMap()
+    ovfStatus.EntityData.Leafs.Append("tx-control-cells-counter", types.YLeaf{"TxControlCellsCounter", ovfStatus.TxControlCellsCounter})
+    ovfStatus.EntityData.Leafs.Append("tx-data-cell-counter", types.YLeaf{"TxDataCellCounter", ovfStatus.TxDataCellCounter})
+    ovfStatus.EntityData.Leafs.Append("tx-data-byte-counter", types.YLeaf{"TxDataByteCounter", ovfStatus.TxDataByteCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-crc-errors-counter", types.YLeaf{"RxCrcErrorsCounter", ovfStatus.RxCrcErrorsCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-lfec-fec-correctable-error", types.YLeaf{"RxLfecFecCorrectableError", ovfStatus.RxLfecFecCorrectableError})
+    ovfStatus.EntityData.Leafs.Append("rx-8b-10b-disparity-errors", types.YLeaf{"Rx8b10bDisparityErrors", ovfStatus.Rx8b10bDisparityErrors})
+    ovfStatus.EntityData.Leafs.Append("rx-control-cells-counter", types.YLeaf{"RxControlCellsCounter", ovfStatus.RxControlCellsCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-data-cell-counter", types.YLeaf{"RxDataCellCounter", ovfStatus.RxDataCellCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-data-byte-counter", types.YLeaf{"RxDataByteCounter", ovfStatus.RxDataByteCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-dropped-retransmitted-control", types.YLeaf{"RxDroppedRetransmittedControl", ovfStatus.RxDroppedRetransmittedControl})
+    ovfStatus.EntityData.Leafs.Append("tx-asyn-fifo-rate", types.YLeaf{"TxAsynFifoRate", ovfStatus.TxAsynFifoRate})
+    ovfStatus.EntityData.Leafs.Append("rx-asyn-fifo-rate", types.YLeaf{"RxAsynFifoRate", ovfStatus.RxAsynFifoRate})
+    ovfStatus.EntityData.Leafs.Append("rx-lfec-fec-uncorrectable-errors", types.YLeaf{"RxLfecFecUncorrectableErrors", ovfStatus.RxLfecFecUncorrectableErrors})
+    ovfStatus.EntityData.Leafs.Append("rx-8b-10b-code-errors", types.YLeaf{"Rx8b10bCodeErrors", ovfStatus.Rx8b10bCodeErrors})
+
+    ovfStatus.EntityData.YListKeys = []string {}
+
     return &(ovfStatus.EntityData)
 }
 
@@ -3798,11 +4023,14 @@ func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     incrStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incrStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    incrStats.EntityData.Children = make(map[string]types.YChild)
-    incrStats.EntityData.Children["link-error-status"] = types.YChild{"LinkErrorStatus", &incrStats.LinkErrorStatus}
-    incrStats.EntityData.Children["link-counters"] = types.YChild{"LinkCounters", &incrStats.LinkCounters}
-    incrStats.EntityData.Children["ovf-status"] = types.YChild{"OvfStatus", &incrStats.OvfStatus}
-    incrStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    incrStats.EntityData.Children = types.NewOrderedMap()
+    incrStats.EntityData.Children.Append("link-error-status", types.YChild{"LinkErrorStatus", &incrStats.LinkErrorStatus})
+    incrStats.EntityData.Children.Append("link-counters", types.YChild{"LinkCounters", &incrStats.LinkCounters})
+    incrStats.EntityData.Children.Append("ovf-status", types.YChild{"OvfStatus", &incrStats.OvfStatus})
+    incrStats.EntityData.Leafs = types.NewOrderedMap()
+
+    incrStats.EntityData.YListKeys = []string {}
+
     return &(incrStats.EntityData)
 }
 
@@ -3848,16 +4076,19 @@ func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Sta
     linkErrorStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkErrorStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkErrorStatus.EntityData.Children = make(map[string]types.YChild)
-    linkErrorStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkErrorStatus.EntityData.Leafs["link-crc-error"] = types.YLeaf{"LinkCrcError", linkErrorStatus.LinkCrcError}
-    linkErrorStatus.EntityData.Leafs["link-size-error"] = types.YLeaf{"LinkSizeError", linkErrorStatus.LinkSizeError}
-    linkErrorStatus.EntityData.Leafs["link-mis-align-error"] = types.YLeaf{"LinkMisAlignError", linkErrorStatus.LinkMisAlignError}
-    linkErrorStatus.EntityData.Leafs["link-code-group-error"] = types.YLeaf{"LinkCodeGroupError", linkErrorStatus.LinkCodeGroupError}
-    linkErrorStatus.EntityData.Leafs["link-no-sig-lock-error"] = types.YLeaf{"LinkNoSigLockError", linkErrorStatus.LinkNoSigLockError}
-    linkErrorStatus.EntityData.Leafs["link-no-sig-accept-error"] = types.YLeaf{"LinkNoSigAcceptError", linkErrorStatus.LinkNoSigAcceptError}
-    linkErrorStatus.EntityData.Leafs["link-tokens-error"] = types.YLeaf{"LinkTokensError", linkErrorStatus.LinkTokensError}
-    linkErrorStatus.EntityData.Leafs["error-token-count"] = types.YLeaf{"ErrorTokenCount", linkErrorStatus.ErrorTokenCount}
+    linkErrorStatus.EntityData.Children = types.NewOrderedMap()
+    linkErrorStatus.EntityData.Leafs = types.NewOrderedMap()
+    linkErrorStatus.EntityData.Leafs.Append("link-crc-error", types.YLeaf{"LinkCrcError", linkErrorStatus.LinkCrcError})
+    linkErrorStatus.EntityData.Leafs.Append("link-size-error", types.YLeaf{"LinkSizeError", linkErrorStatus.LinkSizeError})
+    linkErrorStatus.EntityData.Leafs.Append("link-mis-align-error", types.YLeaf{"LinkMisAlignError", linkErrorStatus.LinkMisAlignError})
+    linkErrorStatus.EntityData.Leafs.Append("link-code-group-error", types.YLeaf{"LinkCodeGroupError", linkErrorStatus.LinkCodeGroupError})
+    linkErrorStatus.EntityData.Leafs.Append("link-no-sig-lock-error", types.YLeaf{"LinkNoSigLockError", linkErrorStatus.LinkNoSigLockError})
+    linkErrorStatus.EntityData.Leafs.Append("link-no-sig-accept-error", types.YLeaf{"LinkNoSigAcceptError", linkErrorStatus.LinkNoSigAcceptError})
+    linkErrorStatus.EntityData.Leafs.Append("link-tokens-error", types.YLeaf{"LinkTokensError", linkErrorStatus.LinkTokensError})
+    linkErrorStatus.EntityData.Leafs.Append("error-token-count", types.YLeaf{"ErrorTokenCount", linkErrorStatus.ErrorTokenCount})
+
+    linkErrorStatus.EntityData.YListKeys = []string {}
+
     return &(linkErrorStatus.EntityData)
 }
 
@@ -3889,7 +4120,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
 
     // RX 8b 10b disparity errors. The type is interface{} with range:
     // 0..18446744073709551615.
-    Rx8B10BDisparityErrors interface{}
+    Rx8b10bDisparityErrors interface{}
 
     // RX Control cells counter. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -3921,7 +4152,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
 
     // RX 8b 10b code errors. The type is interface{} with range:
     // 0..18446744073709551615.
-    Rx8B10BCodeErrors interface{}
+    Rx8b10bCodeErrors interface{}
 }
 
 func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetEntityData() *types.CommonEntityData {
@@ -3934,22 +4165,25 @@ func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statis
     linkCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkCounters.EntityData.Children = make(map[string]types.YChild)
-    linkCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkCounters.EntityData.Leafs["tx-control-cells-counter"] = types.YLeaf{"TxControlCellsCounter", linkCounters.TxControlCellsCounter}
-    linkCounters.EntityData.Leafs["tx-data-cell-counter"] = types.YLeaf{"TxDataCellCounter", linkCounters.TxDataCellCounter}
-    linkCounters.EntityData.Leafs["tx-data-byte-counter"] = types.YLeaf{"TxDataByteCounter", linkCounters.TxDataByteCounter}
-    linkCounters.EntityData.Leafs["rx-crc-errors-counter"] = types.YLeaf{"RxCrcErrorsCounter", linkCounters.RxCrcErrorsCounter}
-    linkCounters.EntityData.Leafs["rx-lfec-fec-correctable-error"] = types.YLeaf{"RxLfecFecCorrectableError", linkCounters.RxLfecFecCorrectableError}
-    linkCounters.EntityData.Leafs["rx-8b-10b-disparity-errors"] = types.YLeaf{"Rx8B10BDisparityErrors", linkCounters.Rx8B10BDisparityErrors}
-    linkCounters.EntityData.Leafs["rx-control-cells-counter"] = types.YLeaf{"RxControlCellsCounter", linkCounters.RxControlCellsCounter}
-    linkCounters.EntityData.Leafs["rx-data-cell-counter"] = types.YLeaf{"RxDataCellCounter", linkCounters.RxDataCellCounter}
-    linkCounters.EntityData.Leafs["rx-data-byte-counter"] = types.YLeaf{"RxDataByteCounter", linkCounters.RxDataByteCounter}
-    linkCounters.EntityData.Leafs["rx-dropped-retransmitted-control"] = types.YLeaf{"RxDroppedRetransmittedControl", linkCounters.RxDroppedRetransmittedControl}
-    linkCounters.EntityData.Leafs["tx-asyn-fifo-rate"] = types.YLeaf{"TxAsynFifoRate", linkCounters.TxAsynFifoRate}
-    linkCounters.EntityData.Leafs["rx-asyn-fifo-rate"] = types.YLeaf{"RxAsynFifoRate", linkCounters.RxAsynFifoRate}
-    linkCounters.EntityData.Leafs["rx-lfec-fec-uncorrectable-errors"] = types.YLeaf{"RxLfecFecUncorrectableErrors", linkCounters.RxLfecFecUncorrectableErrors}
-    linkCounters.EntityData.Leafs["rx-8b-10b-code-errors"] = types.YLeaf{"Rx8B10BCodeErrors", linkCounters.Rx8B10BCodeErrors}
+    linkCounters.EntityData.Children = types.NewOrderedMap()
+    linkCounters.EntityData.Leafs = types.NewOrderedMap()
+    linkCounters.EntityData.Leafs.Append("tx-control-cells-counter", types.YLeaf{"TxControlCellsCounter", linkCounters.TxControlCellsCounter})
+    linkCounters.EntityData.Leafs.Append("tx-data-cell-counter", types.YLeaf{"TxDataCellCounter", linkCounters.TxDataCellCounter})
+    linkCounters.EntityData.Leafs.Append("tx-data-byte-counter", types.YLeaf{"TxDataByteCounter", linkCounters.TxDataByteCounter})
+    linkCounters.EntityData.Leafs.Append("rx-crc-errors-counter", types.YLeaf{"RxCrcErrorsCounter", linkCounters.RxCrcErrorsCounter})
+    linkCounters.EntityData.Leafs.Append("rx-lfec-fec-correctable-error", types.YLeaf{"RxLfecFecCorrectableError", linkCounters.RxLfecFecCorrectableError})
+    linkCounters.EntityData.Leafs.Append("rx-8b-10b-disparity-errors", types.YLeaf{"Rx8b10bDisparityErrors", linkCounters.Rx8b10bDisparityErrors})
+    linkCounters.EntityData.Leafs.Append("rx-control-cells-counter", types.YLeaf{"RxControlCellsCounter", linkCounters.RxControlCellsCounter})
+    linkCounters.EntityData.Leafs.Append("rx-data-cell-counter", types.YLeaf{"RxDataCellCounter", linkCounters.RxDataCellCounter})
+    linkCounters.EntityData.Leafs.Append("rx-data-byte-counter", types.YLeaf{"RxDataByteCounter", linkCounters.RxDataByteCounter})
+    linkCounters.EntityData.Leafs.Append("rx-dropped-retransmitted-control", types.YLeaf{"RxDroppedRetransmittedControl", linkCounters.RxDroppedRetransmittedControl})
+    linkCounters.EntityData.Leafs.Append("tx-asyn-fifo-rate", types.YLeaf{"TxAsynFifoRate", linkCounters.TxAsynFifoRate})
+    linkCounters.EntityData.Leafs.Append("rx-asyn-fifo-rate", types.YLeaf{"RxAsynFifoRate", linkCounters.RxAsynFifoRate})
+    linkCounters.EntityData.Leafs.Append("rx-lfec-fec-uncorrectable-errors", types.YLeaf{"RxLfecFecUncorrectableErrors", linkCounters.RxLfecFecUncorrectableErrors})
+    linkCounters.EntityData.Leafs.Append("rx-8b-10b-code-errors", types.YLeaf{"Rx8b10bCodeErrors", linkCounters.Rx8b10bCodeErrors})
+
+    linkCounters.EntityData.YListKeys = []string {}
+
     return &(linkCounters.EntityData)
 }
 
@@ -3975,7 +4209,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     RxLfecFecCorrectableError interface{}
 
     // RX 8b 10b disparity errors. The type is string with length: 0..6.
-    Rx8B10BDisparityErrors interface{}
+    Rx8b10bDisparityErrors interface{}
 
     // RX Control cells counter. The type is string with length: 0..6.
     RxControlCellsCounter interface{}
@@ -3999,7 +4233,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     RxLfecFecUncorrectableErrors interface{}
 
     // RX 8b 10b code errors. The type is string with length: 0..6.
-    Rx8B10BCodeErrors interface{}
+    Rx8b10bCodeErrors interface{}
 }
 
 func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetEntityData() *types.CommonEntityData {
@@ -4012,22 +4246,25 @@ func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     ovfStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ovfStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ovfStatus.EntityData.Children = make(map[string]types.YChild)
-    ovfStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    ovfStatus.EntityData.Leafs["tx-control-cells-counter"] = types.YLeaf{"TxControlCellsCounter", ovfStatus.TxControlCellsCounter}
-    ovfStatus.EntityData.Leafs["tx-data-cell-counter"] = types.YLeaf{"TxDataCellCounter", ovfStatus.TxDataCellCounter}
-    ovfStatus.EntityData.Leafs["tx-data-byte-counter"] = types.YLeaf{"TxDataByteCounter", ovfStatus.TxDataByteCounter}
-    ovfStatus.EntityData.Leafs["rx-crc-errors-counter"] = types.YLeaf{"RxCrcErrorsCounter", ovfStatus.RxCrcErrorsCounter}
-    ovfStatus.EntityData.Leafs["rx-lfec-fec-correctable-error"] = types.YLeaf{"RxLfecFecCorrectableError", ovfStatus.RxLfecFecCorrectableError}
-    ovfStatus.EntityData.Leafs["rx-8b-10b-disparity-errors"] = types.YLeaf{"Rx8B10BDisparityErrors", ovfStatus.Rx8B10BDisparityErrors}
-    ovfStatus.EntityData.Leafs["rx-control-cells-counter"] = types.YLeaf{"RxControlCellsCounter", ovfStatus.RxControlCellsCounter}
-    ovfStatus.EntityData.Leafs["rx-data-cell-counter"] = types.YLeaf{"RxDataCellCounter", ovfStatus.RxDataCellCounter}
-    ovfStatus.EntityData.Leafs["rx-data-byte-counter"] = types.YLeaf{"RxDataByteCounter", ovfStatus.RxDataByteCounter}
-    ovfStatus.EntityData.Leafs["rx-dropped-retransmitted-control"] = types.YLeaf{"RxDroppedRetransmittedControl", ovfStatus.RxDroppedRetransmittedControl}
-    ovfStatus.EntityData.Leafs["tx-asyn-fifo-rate"] = types.YLeaf{"TxAsynFifoRate", ovfStatus.TxAsynFifoRate}
-    ovfStatus.EntityData.Leafs["rx-asyn-fifo-rate"] = types.YLeaf{"RxAsynFifoRate", ovfStatus.RxAsynFifoRate}
-    ovfStatus.EntityData.Leafs["rx-lfec-fec-uncorrectable-errors"] = types.YLeaf{"RxLfecFecUncorrectableErrors", ovfStatus.RxLfecFecUncorrectableErrors}
-    ovfStatus.EntityData.Leafs["rx-8b-10b-code-errors"] = types.YLeaf{"Rx8B10BCodeErrors", ovfStatus.Rx8B10BCodeErrors}
+    ovfStatus.EntityData.Children = types.NewOrderedMap()
+    ovfStatus.EntityData.Leafs = types.NewOrderedMap()
+    ovfStatus.EntityData.Leafs.Append("tx-control-cells-counter", types.YLeaf{"TxControlCellsCounter", ovfStatus.TxControlCellsCounter})
+    ovfStatus.EntityData.Leafs.Append("tx-data-cell-counter", types.YLeaf{"TxDataCellCounter", ovfStatus.TxDataCellCounter})
+    ovfStatus.EntityData.Leafs.Append("tx-data-byte-counter", types.YLeaf{"TxDataByteCounter", ovfStatus.TxDataByteCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-crc-errors-counter", types.YLeaf{"RxCrcErrorsCounter", ovfStatus.RxCrcErrorsCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-lfec-fec-correctable-error", types.YLeaf{"RxLfecFecCorrectableError", ovfStatus.RxLfecFecCorrectableError})
+    ovfStatus.EntityData.Leafs.Append("rx-8b-10b-disparity-errors", types.YLeaf{"Rx8b10bDisparityErrors", ovfStatus.Rx8b10bDisparityErrors})
+    ovfStatus.EntityData.Leafs.Append("rx-control-cells-counter", types.YLeaf{"RxControlCellsCounter", ovfStatus.RxControlCellsCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-data-cell-counter", types.YLeaf{"RxDataCellCounter", ovfStatus.RxDataCellCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-data-byte-counter", types.YLeaf{"RxDataByteCounter", ovfStatus.RxDataByteCounter})
+    ovfStatus.EntityData.Leafs.Append("rx-dropped-retransmitted-control", types.YLeaf{"RxDroppedRetransmittedControl", ovfStatus.RxDroppedRetransmittedControl})
+    ovfStatus.EntityData.Leafs.Append("tx-asyn-fifo-rate", types.YLeaf{"TxAsynFifoRate", ovfStatus.TxAsynFifoRate})
+    ovfStatus.EntityData.Leafs.Append("rx-asyn-fifo-rate", types.YLeaf{"RxAsynFifoRate", ovfStatus.RxAsynFifoRate})
+    ovfStatus.EntityData.Leafs.Append("rx-lfec-fec-uncorrectable-errors", types.YLeaf{"RxLfecFecUncorrectableErrors", ovfStatus.RxLfecFecUncorrectableErrors})
+    ovfStatus.EntityData.Leafs.Append("rx-8b-10b-code-errors", types.YLeaf{"Rx8b10bCodeErrors", ovfStatus.Rx8b10bCodeErrors})
+
+    ovfStatus.EntityData.YListKeys = []string {}
+
     return &(ovfStatus.EntityData)
 }
 

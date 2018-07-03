@@ -43,9 +43,12 @@ func (logmsg *Logmsg) GetEntityData() *types.CommonEntityData {
     logmsg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logmsg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logmsg.EntityData.Children = make(map[string]types.YChild)
-    logmsg.EntityData.Children["input"] = types.YChild{"Input", &logmsg.Input}
-    logmsg.EntityData.Leafs = make(map[string]types.YLeaf)
+    logmsg.EntityData.Children = types.NewOrderedMap()
+    logmsg.EntityData.Children.Append("input", types.YChild{"Input", &logmsg.Input})
+    logmsg.EntityData.Leafs = types.NewOrderedMap()
+
+    logmsg.EntityData.YListKeys = []string {}
+
     return &(logmsg.EntityData)
 }
 
@@ -71,10 +74,13 @@ func (input *Logmsg_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["severity"] = types.YLeaf{"Severity", input.Severity}
-    input.EntityData.Leafs["message"] = types.YLeaf{"Message", input.Message}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", input.Severity})
+    input.EntityData.Leafs.Append("message", types.YLeaf{"Message", input.Message})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

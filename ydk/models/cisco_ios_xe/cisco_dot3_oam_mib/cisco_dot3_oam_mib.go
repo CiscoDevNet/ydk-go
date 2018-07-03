@@ -88,14 +88,14 @@ type CISCODOT3OAMMIB struct {
     // capabilities of an Ethernet like interface.  There will be one row in this
     // table for each Ethernet like interface in the system that supports the OAM
     // functions defined in [802.3ah].
-    Cdot3Oamtable CISCODOT3OAMMIB_Cdot3Oamtable
+    Cdot3OamTable CISCODOT3OAMMIB_Cdot3OamTable
 
     // This table contains information about the OAM peer for a particular
     // Ethernet like interface. OAM entities communicate with a single OAM peer
     // entity on Ethernet links on which OAM is enabled and operating properly. 
     // There is one entry in this table for each entry in the cdot3OamTable for
     // which information on the peer OAM entity is available.  .
-    Cdot3Oampeertable CISCODOT3OAMMIB_Cdot3Oampeertable
+    Cdot3OamPeerTable CISCODOT3OAMMIB_Cdot3OamPeerTable
 
     // This table contains controls for the loopback state of the local link as
     // well as indicating the status of the loopback function.  There is one entry
@@ -108,14 +108,14 @@ type CISCODOT3OAMMIB struct {
     // frames are transmitted on the interface. Loopback is thus an intrusive
     // operation that prohibits normal data flow and should be used accordingly. 
     // .
-    Cdot3Oamloopbacktable CISCODOT3OAMMIB_Cdot3Oamloopbacktable
+    Cdot3OamLoopbackTable CISCODOT3OAMMIB_Cdot3OamLoopbackTable
 
     // This table contains statistics for the OAM function on a particular
     // Ethernet like interface. There is an entry in the table for every entry in
     // the cdot3OamTable.   The counters in this table are defined as 32-bit
     // entries to match the counter size as defined in [802.3ah].  Given the OAM
     // protocol is a slow protocol, the counters increment at a slow rate. .
-    Cdot3Oamstatstable CISCODOT3OAMMIB_Cdot3Oamstatstable
+    Cdot3OamStatsTable CISCODOT3OAMMIB_Cdot3OamStatsTable
 
     // Ethernet OAM includes the ability to generate and receive Event
     // Notification OAMPDUs to indicate various link problems. This table contains
@@ -140,7 +140,7 @@ type CISCODOT3OAMMIB struct {
     // frame errors.   There are other events (dying gasp, critical events) that
     // are not threshold crossing events but which can be enabled/disabled via
     // this table.  .
-    Cdot3Oameventconfigtable CISCODOT3OAMMIB_Cdot3Oameventconfigtable
+    Cdot3OamEventConfigTable CISCODOT3OAMMIB_Cdot3OamEventConfigTable
 
     // This table records a history of the events that have occurred at the
     // Ethernet OAM level.  These events can include locally detected events,
@@ -157,7 +157,7 @@ type CISCODOT3OAMMIB struct {
     // detected.  The size of the table is implementation dependent.  When the
     // table reaches its maximum size, older entries are automatically deleted to
     // make room for newer entries. .
-    Cdot3Oameventlogtable CISCODOT3OAMMIB_Cdot3Oameventlogtable
+    Cdot3OamEventLogTable CISCODOT3OAMMIB_Cdot3OamEventLogTable
 }
 
 func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetEntityData() *types.CommonEntityData {
@@ -170,23 +170,26 @@ func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetEntityData() *types.CommonEntityData 
     cISCODOT3OAMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCODOT3OAMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCODOT3OAMMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCODOT3OAMMIB.EntityData.Children["cdot3OamTable"] = types.YChild{"Cdot3Oamtable", &cISCODOT3OAMMIB.Cdot3Oamtable}
-    cISCODOT3OAMMIB.EntityData.Children["cdot3OamPeerTable"] = types.YChild{"Cdot3Oampeertable", &cISCODOT3OAMMIB.Cdot3Oampeertable}
-    cISCODOT3OAMMIB.EntityData.Children["cdot3OamLoopbackTable"] = types.YChild{"Cdot3Oamloopbacktable", &cISCODOT3OAMMIB.Cdot3Oamloopbacktable}
-    cISCODOT3OAMMIB.EntityData.Children["cdot3OamStatsTable"] = types.YChild{"Cdot3Oamstatstable", &cISCODOT3OAMMIB.Cdot3Oamstatstable}
-    cISCODOT3OAMMIB.EntityData.Children["cdot3OamEventConfigTable"] = types.YChild{"Cdot3Oameventconfigtable", &cISCODOT3OAMMIB.Cdot3Oameventconfigtable}
-    cISCODOT3OAMMIB.EntityData.Children["cdot3OamEventLogTable"] = types.YChild{"Cdot3Oameventlogtable", &cISCODOT3OAMMIB.Cdot3Oameventlogtable}
-    cISCODOT3OAMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCODOT3OAMMIB.EntityData.Children = types.NewOrderedMap()
+    cISCODOT3OAMMIB.EntityData.Children.Append("cdot3OamTable", types.YChild{"Cdot3OamTable", &cISCODOT3OAMMIB.Cdot3OamTable})
+    cISCODOT3OAMMIB.EntityData.Children.Append("cdot3OamPeerTable", types.YChild{"Cdot3OamPeerTable", &cISCODOT3OAMMIB.Cdot3OamPeerTable})
+    cISCODOT3OAMMIB.EntityData.Children.Append("cdot3OamLoopbackTable", types.YChild{"Cdot3OamLoopbackTable", &cISCODOT3OAMMIB.Cdot3OamLoopbackTable})
+    cISCODOT3OAMMIB.EntityData.Children.Append("cdot3OamStatsTable", types.YChild{"Cdot3OamStatsTable", &cISCODOT3OAMMIB.Cdot3OamStatsTable})
+    cISCODOT3OAMMIB.EntityData.Children.Append("cdot3OamEventConfigTable", types.YChild{"Cdot3OamEventConfigTable", &cISCODOT3OAMMIB.Cdot3OamEventConfigTable})
+    cISCODOT3OAMMIB.EntityData.Children.Append("cdot3OamEventLogTable", types.YChild{"Cdot3OamEventLogTable", &cISCODOT3OAMMIB.Cdot3OamEventLogTable})
+    cISCODOT3OAMMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCODOT3OAMMIB.EntityData.YListKeys = []string {}
+
     return &(cISCODOT3OAMMIB.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oamtable
+// CISCODOT3OAMMIB_Cdot3OamTable
 // This table contains the primary controls and status for the
 // OAM capabilities of an Ethernet like interface.  There will be
 // one row in this table for each Ethernet like interface in the
 // system that supports the OAM functions defined in [802.3ah].
-type CISCODOT3OAMMIB_Cdot3Oamtable struct {
+type CISCODOT3OAMMIB_Cdot3OamTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -195,30 +198,33 @@ type CISCODOT3OAMMIB_Cdot3Oamtable struct {
     // automatically for each interface supporting Ethernet OAM. The status of the
     // row entry can be determined from cdot3OamOperStatus.    A cdot3OamEntry is
     // indexed in the cdot3OamTable by the ifIndex object of the Interfaces MIB. 
-    // . The type is slice of CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry.
-    Cdot3Oamentry []CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry
+    // . The type is slice of CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry.
+    Cdot3OamEntry []*CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry
 }
 
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetEntityData() *types.CommonEntityData {
-    cdot3Oamtable.EntityData.YFilter = cdot3Oamtable.YFilter
-    cdot3Oamtable.EntityData.YangName = "cdot3OamTable"
-    cdot3Oamtable.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oamtable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
-    cdot3Oamtable.EntityData.SegmentPath = "cdot3OamTable"
-    cdot3Oamtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oamtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oamtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamTable *CISCODOT3OAMMIB_Cdot3OamTable) GetEntityData() *types.CommonEntityData {
+    cdot3OamTable.EntityData.YFilter = cdot3OamTable.YFilter
+    cdot3OamTable.EntityData.YangName = "cdot3OamTable"
+    cdot3OamTable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3OamTable.EntityData.SegmentPath = "cdot3OamTable"
+    cdot3OamTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oamtable.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oamtable.EntityData.Children["cdot3OamEntry"] = types.YChild{"Cdot3Oamentry", nil}
-    for i := range cdot3Oamtable.Cdot3Oamentry {
-        cdot3Oamtable.EntityData.Children[types.GetSegmentPath(&cdot3Oamtable.Cdot3Oamentry[i])] = types.YChild{"Cdot3Oamentry", &cdot3Oamtable.Cdot3Oamentry[i]}
+    cdot3OamTable.EntityData.Children = types.NewOrderedMap()
+    cdot3OamTable.EntityData.Children.Append("cdot3OamEntry", types.YChild{"Cdot3OamEntry", nil})
+    for i := range cdot3OamTable.Cdot3OamEntry {
+        cdot3OamTable.EntityData.Children.Append(types.GetSegmentPath(cdot3OamTable.Cdot3OamEntry[i]), types.YChild{"Cdot3OamEntry", cdot3OamTable.Cdot3OamEntry[i]})
     }
-    cdot3Oamtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdot3Oamtable.EntityData)
+    cdot3OamTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdot3OamTable.EntityData.YListKeys = []string {}
+
+    return &(cdot3OamTable.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry
+// CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry
 // An entry in the table, containing information on the Ethernet
 // OAM function for a single Ethernet like interface. Entries in
 // the table are created automatically for each interface
@@ -227,13 +233,13 @@ func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetEntityData() *types.Commo
 // 
 // A cdot3OamEntry is indexed in the cdot3OamTable by the ifIndex
 // object of the Interfaces MIB.  
-type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry struct {
+type CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This object is used to provision the default administrative OAM mode for
     // this interface.  This object represents the desired state of OAM for this
@@ -241,8 +247,8 @@ type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry struct {
     // until an explicit management action or configuration information retained
     // by the system causes a transition to the enabled(2) state.   When
     // enabled(2), Ethernet OAM will attempt to operate over this interface.  .
-    // The type is Cdot3Oamadminstate.
-    Cdot3Oamadminstate interface{}
+    // The type is Cdot3OamAdminState.
+    Cdot3OamAdminState interface{}
 
     // At initialization and failure conditions, two OAM entities on the same
     // full-duplex Ethernet link begin a discovery phase to determine what OAM
@@ -287,8 +293,8 @@ type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry struct {
     // functions are not designed to work completely over half-duplex interfaces,
     // the value nonOperHalfDuplex(10) is returned whenever Ethernet OAM is
     // enabled (cdot3OamAdminState is enabled(1)) but the interface is in
-    // half-duplex operation.  . The type is Cdot3Oamoperstatus.
-    Cdot3Oamoperstatus interface{}
+    // half-duplex operation.  . The type is Cdot3OamOperStatus.
+    Cdot3OamOperStatus interface{}
 
     // This object configures the mode of OAM operation for this Ethernet like
     // interface.  OAM on Ethernet interfaces may be in 'active' mode or 'passive'
@@ -304,22 +310,22 @@ type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry struct {
     // Changing this value results in incrementing the configuration revision
     // field of locally generated OAMPDUs (30.3.6.1.12) and potentially re-doing
     // the OAM discovery process if the cdot3OamOperStatus was already
-    // operational(9).  . The type is Cdot3Oammode.
-    Cdot3Oammode interface{}
+    // operational(9).  . The type is Cdot3OamMode.
+    Cdot3OamMode interface{}
 
     // The largest OAMPDU that the OAM entity supports.  OAM entities exchange
     // maximum OAMPDU sizes and negotiate to use the smaller of the two maximum
     // OAMPDU sizes between the peers. This value is determined by the local
     // implementation.  . The type is interface{} with range: 64..1518. Units are
     // octets.
-    Cdot3Oammaxoampdusize interface{}
+    Cdot3OamMaxOamPduSize interface{}
 
     // The configuration revision of the OAM entity as reflected in the latest
     // OAMPDU sent by the OAM entity.  The config revision is used by OAM entities
     // to indicate configuration changes have occurred which might require the
     // peer OAM entity to re-evaluate whether OAM peering is allowed. . The type
     // is interface{} with range: 0..65535.
-    Cdot3Oamconfigrevision interface{}
+    Cdot3OamConfigRevision interface{}
 
     // The OAM functions supported on this Ethernet like interface. OAM consists
     // of separate functional sets beyond the basic discovery process which is
@@ -334,82 +340,85 @@ type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry struct {
     // Event Notification OAMPDUs. Setting 'variableSupport(3)' indicates the OAM
     // entity can send and receive Variable Request and Response OAMPDUs.  . The
     // type is map[string]bool.
-    Cdot3Oamfunctionssupported interface{}
+    Cdot3OamFunctionsSupported interface{}
 }
 
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetEntityData() *types.CommonEntityData {
-    cdot3Oamentry.EntityData.YFilter = cdot3Oamentry.YFilter
-    cdot3Oamentry.EntityData.YangName = "cdot3OamEntry"
-    cdot3Oamentry.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oamentry.EntityData.ParentYangName = "cdot3OamTable"
-    cdot3Oamentry.EntityData.SegmentPath = "cdot3OamEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamentry.Ifindex) + "']"
-    cdot3Oamentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oamentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oamentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamEntry *CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry) GetEntityData() *types.CommonEntityData {
+    cdot3OamEntry.EntityData.YFilter = cdot3OamEntry.YFilter
+    cdot3OamEntry.EntityData.YangName = "cdot3OamEntry"
+    cdot3OamEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamEntry.EntityData.ParentYangName = "cdot3OamTable"
+    cdot3OamEntry.EntityData.SegmentPath = "cdot3OamEntry" + types.AddKeyToken(cdot3OamEntry.IfIndex, "ifIndex")
+    cdot3OamEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oamentry.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oamentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdot3Oamentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oamentry.Ifindex}
-    cdot3Oamentry.EntityData.Leafs["cdot3OamAdminState"] = types.YLeaf{"Cdot3Oamadminstate", cdot3Oamentry.Cdot3Oamadminstate}
-    cdot3Oamentry.EntityData.Leafs["cdot3OamOperStatus"] = types.YLeaf{"Cdot3Oamoperstatus", cdot3Oamentry.Cdot3Oamoperstatus}
-    cdot3Oamentry.EntityData.Leafs["cdot3OamMode"] = types.YLeaf{"Cdot3Oammode", cdot3Oamentry.Cdot3Oammode}
-    cdot3Oamentry.EntityData.Leafs["cdot3OamMaxOamPduSize"] = types.YLeaf{"Cdot3Oammaxoampdusize", cdot3Oamentry.Cdot3Oammaxoampdusize}
-    cdot3Oamentry.EntityData.Leafs["cdot3OamConfigRevision"] = types.YLeaf{"Cdot3Oamconfigrevision", cdot3Oamentry.Cdot3Oamconfigrevision}
-    cdot3Oamentry.EntityData.Leafs["cdot3OamFunctionsSupported"] = types.YLeaf{"Cdot3Oamfunctionssupported", cdot3Oamentry.Cdot3Oamfunctionssupported}
-    return &(cdot3Oamentry.EntityData)
+    cdot3OamEntry.EntityData.Children = types.NewOrderedMap()
+    cdot3OamEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdot3OamEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cdot3OamEntry.IfIndex})
+    cdot3OamEntry.EntityData.Leafs.Append("cdot3OamAdminState", types.YLeaf{"Cdot3OamAdminState", cdot3OamEntry.Cdot3OamAdminState})
+    cdot3OamEntry.EntityData.Leafs.Append("cdot3OamOperStatus", types.YLeaf{"Cdot3OamOperStatus", cdot3OamEntry.Cdot3OamOperStatus})
+    cdot3OamEntry.EntityData.Leafs.Append("cdot3OamMode", types.YLeaf{"Cdot3OamMode", cdot3OamEntry.Cdot3OamMode})
+    cdot3OamEntry.EntityData.Leafs.Append("cdot3OamMaxOamPduSize", types.YLeaf{"Cdot3OamMaxOamPduSize", cdot3OamEntry.Cdot3OamMaxOamPduSize})
+    cdot3OamEntry.EntityData.Leafs.Append("cdot3OamConfigRevision", types.YLeaf{"Cdot3OamConfigRevision", cdot3OamEntry.Cdot3OamConfigRevision})
+    cdot3OamEntry.EntityData.Leafs.Append("cdot3OamFunctionsSupported", types.YLeaf{"Cdot3OamFunctionsSupported", cdot3OamEntry.Cdot3OamFunctionsSupported})
+
+    cdot3OamEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cdot3OamEntry.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamadminstate represents to operate over this interface.  
-type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamadminstate string
+// CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamAdminState represents to operate over this interface.  
+type CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamAdminState string
 
 const (
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamadminstate_disabled CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamadminstate = "disabled"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamAdminState_disabled CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamAdminState = "disabled"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamadminstate_enabled CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamadminstate = "enabled"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamAdminState_enabled CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamAdminState = "enabled"
 )
 
-// CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oammode represents cdot3OamOperStatus was already operational(9).  
-type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oammode string
+// CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamMode represents cdot3OamOperStatus was already operational(9).  
+type CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamMode string
 
 const (
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oammode_active CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oammode = "active"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamMode_active CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamMode = "active"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oammode_passive CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oammode = "passive"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamMode_passive CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamMode = "passive"
 )
 
-// CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus represents in half-duplex operation.  
-type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus string
+// CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus represents in half-duplex operation.  
+type CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus string
 
 const (
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_disabled CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "disabled"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_disabled CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "disabled"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_linkFault CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "linkFault"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_linkFault CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "linkFault"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_passiveWait CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "passiveWait"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_passiveWait CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "passiveWait"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_activeSendLocal CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "activeSendLocal"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_activeSendLocal CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "activeSendLocal"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_sendLocalAndRemote CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "sendLocalAndRemote"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_sendLocalAndRemote CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "sendLocalAndRemote"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_sendLocalAndRemoteOk CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "sendLocalAndRemoteOk"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_sendLocalAndRemoteOk CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "sendLocalAndRemoteOk"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_oamPeeringLocallyRejected CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "oamPeeringLocallyRejected"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_oamPeeringLocallyRejected CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "oamPeeringLocallyRejected"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_oamPeeringRemotelyRejected CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "oamPeeringRemotelyRejected"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_oamPeeringRemotelyRejected CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "oamPeeringRemotelyRejected"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_operational CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "operational"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_operational CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "operational"
 
-    CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus_nonOperHalfDuplex CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamoperstatus = "nonOperHalfDuplex"
+    CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus_nonOperHalfDuplex CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry_Cdot3OamOperStatus = "nonOperHalfDuplex"
 )
 
-// CISCODOT3OAMMIB_Cdot3Oampeertable
+// CISCODOT3OAMMIB_Cdot3OamPeerTable
 // This table contains information about the OAM peer for a
 // particular Ethernet like interface. OAM entities communicate
 // with a single OAM peer entity on Ethernet links on which OAM
 // is enabled and operating properly.  There is one entry in this
 // table for each entry in the cdot3OamTable for which information
 // on the peer OAM entity is available.  
-type CISCODOT3OAMMIB_Cdot3Oampeertable struct {
+type CISCODOT3OAMMIB_Cdot3OamPeerTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -421,30 +430,33 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable struct {
     // information is not available when cdot3OamOperStatus is disabled(1),
     // linkFault(2), passiveWait(3), activeSendLocal(4). or
     // nonOperHalfDuplex(10)). . The type is slice of
-    // CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry.
-    Cdot3Oampeerentry []CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry
+    // CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry.
+    Cdot3OamPeerEntry []*CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry
 }
 
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetEntityData() *types.CommonEntityData {
-    cdot3Oampeertable.EntityData.YFilter = cdot3Oampeertable.YFilter
-    cdot3Oampeertable.EntityData.YangName = "cdot3OamPeerTable"
-    cdot3Oampeertable.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oampeertable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
-    cdot3Oampeertable.EntityData.SegmentPath = "cdot3OamPeerTable"
-    cdot3Oampeertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oampeertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oampeertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamPeerTable *CISCODOT3OAMMIB_Cdot3OamPeerTable) GetEntityData() *types.CommonEntityData {
+    cdot3OamPeerTable.EntityData.YFilter = cdot3OamPeerTable.YFilter
+    cdot3OamPeerTable.EntityData.YangName = "cdot3OamPeerTable"
+    cdot3OamPeerTable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamPeerTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3OamPeerTable.EntityData.SegmentPath = "cdot3OamPeerTable"
+    cdot3OamPeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamPeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamPeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oampeertable.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oampeertable.EntityData.Children["cdot3OamPeerEntry"] = types.YChild{"Cdot3Oampeerentry", nil}
-    for i := range cdot3Oampeertable.Cdot3Oampeerentry {
-        cdot3Oampeertable.EntityData.Children[types.GetSegmentPath(&cdot3Oampeertable.Cdot3Oampeerentry[i])] = types.YChild{"Cdot3Oampeerentry", &cdot3Oampeertable.Cdot3Oampeerentry[i]}
+    cdot3OamPeerTable.EntityData.Children = types.NewOrderedMap()
+    cdot3OamPeerTable.EntityData.Children.Append("cdot3OamPeerEntry", types.YChild{"Cdot3OamPeerEntry", nil})
+    for i := range cdot3OamPeerTable.Cdot3OamPeerEntry {
+        cdot3OamPeerTable.EntityData.Children.Append(types.GetSegmentPath(cdot3OamPeerTable.Cdot3OamPeerEntry[i]), types.YChild{"Cdot3OamPeerEntry", cdot3OamPeerTable.Cdot3OamPeerEntry[i]})
     }
-    cdot3Oampeertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdot3Oampeertable.EntityData)
+    cdot3OamPeerTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdot3OamPeerTable.EntityData.YListKeys = []string {}
+
+    return &(cdot3OamPeerTable.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry
+// CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry
 // An entry in the table, containing information on the peer OAM
 // entity for a single Ethernet like interface.  
 // 
@@ -455,25 +467,25 @@ func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetEntityData() *typ
 // communication.  Peer information is not available when
 // cdot3OamOperStatus is disabled(1), linkFault(2),
 // passiveWait(3), activeSendLocal(4). or nonOperHalfDuplex(10)). 
-type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
+type CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The MAC address of the peer OAM entity.  The MAC address is derived from
     // the most recently received OAMPDU. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    Cdot3Oampeermacaddress interface{}
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Cdot3OamPeerMacAddress interface{}
 
     // The OUI of the OAM peer as reflected in the latest Information OAMPDU
     // received with a Local Information TLV.  The OUI can be used to identify the
     // vendor of the remote OAM entity.  This value is initialized to zero before
     // any Local Information TLV is received.  . The type is string with length:
     // 3.
-    Cdot3Oampeervendoroui interface{}
+    Cdot3OamPeerVendorOui interface{}
 
     // The Vendor Info of the OAM peer as reflected in the latest Information
     // OAMPDU received with a Local Information TLV.  The vendor information field
@@ -482,7 +494,7 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
     // information is unspecified within the 32-bit field.  This value is
     // initialized to zero before any Local Information TLV is received.  . The
     // type is interface{} with range: 0..4294967295.
-    Cdot3Oampeervendorinfo interface{}
+    Cdot3OamPeerVendorInfo interface{}
 
     // The mode of the OAM peer as reflected in the latest Information OAMPDU
     // received with a Local Information TLV.  The mode of the peer can be
@@ -491,8 +503,8 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
     // whenever no Local Information TLV has been received.  The values of
     // active(1) and passive(2) are returned when a Local Information TLV has been
     // received indicating the peer is in active or passive mode, respectively. .
-    // The type is Cdot3Oampeermode.
-    Cdot3Oampeermode interface{}
+    // The type is Cdot3OamPeerMode.
+    Cdot3OamPeerMode interface{}
 
     // The maximum size of OAMPDU supported by the peer as reflected in the latest
     // Information OAMPDU received with a Local Information TLV.   Ethernet OAM on
@@ -504,7 +516,7 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
     // this value.   Note that the values 1..63 are invalid sizes for Ethernet
     // frames and should never appear. . The type is interface{} with range:
     // 0..1518. Units are octets.
-    Cdot3Oampeermaxoampdusize interface{}
+    Cdot3OamPeerMaxOamPduSize interface{}
 
     // The configuration revision of the OAM peer as reflected in the latest
     // OAMPDU.  This attribute is changed by the peer whenever it has a local
@@ -513,7 +525,7 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
     // TLV of the most recently received Information OAMPDU with a Local
     // Information TLV. A value of zero is returned if no Local Information TLV
     // has been received.  . The type is interface{} with range: 0..65535.
-    Cdot3Oampeerconfigrevision interface{}
+    Cdot3OamPeerConfigRevision interface{}
 
     // The OAM functions supported on this Ethernet like interface. OAM consists
     // of separate functionality sets above the basic discovery process.  This
@@ -531,44 +543,47 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
     // of the most recently received Information OAMPDU with a Local Information
     // TLV.  All zeros are returned if no Local Information TLV has yet been
     // received. . The type is map[string]bool.
-    Cdot3Oampeerfunctionssupported interface{}
+    Cdot3OamPeerFunctionsSupported interface{}
 }
 
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetEntityData() *types.CommonEntityData {
-    cdot3Oampeerentry.EntityData.YFilter = cdot3Oampeerentry.YFilter
-    cdot3Oampeerentry.EntityData.YangName = "cdot3OamPeerEntry"
-    cdot3Oampeerentry.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oampeerentry.EntityData.ParentYangName = "cdot3OamPeerTable"
-    cdot3Oampeerentry.EntityData.SegmentPath = "cdot3OamPeerEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oampeerentry.Ifindex) + "']"
-    cdot3Oampeerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oampeerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oampeerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamPeerEntry *CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry) GetEntityData() *types.CommonEntityData {
+    cdot3OamPeerEntry.EntityData.YFilter = cdot3OamPeerEntry.YFilter
+    cdot3OamPeerEntry.EntityData.YangName = "cdot3OamPeerEntry"
+    cdot3OamPeerEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamPeerEntry.EntityData.ParentYangName = "cdot3OamPeerTable"
+    cdot3OamPeerEntry.EntityData.SegmentPath = "cdot3OamPeerEntry" + types.AddKeyToken(cdot3OamPeerEntry.IfIndex, "ifIndex")
+    cdot3OamPeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamPeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamPeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oampeerentry.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oampeerentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdot3Oampeerentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oampeerentry.Ifindex}
-    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerMacAddress"] = types.YLeaf{"Cdot3Oampeermacaddress", cdot3Oampeerentry.Cdot3Oampeermacaddress}
-    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerVendorOui"] = types.YLeaf{"Cdot3Oampeervendoroui", cdot3Oampeerentry.Cdot3Oampeervendoroui}
-    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerVendorInfo"] = types.YLeaf{"Cdot3Oampeervendorinfo", cdot3Oampeerentry.Cdot3Oampeervendorinfo}
-    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerMode"] = types.YLeaf{"Cdot3Oampeermode", cdot3Oampeerentry.Cdot3Oampeermode}
-    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerMaxOamPduSize"] = types.YLeaf{"Cdot3Oampeermaxoampdusize", cdot3Oampeerentry.Cdot3Oampeermaxoampdusize}
-    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerConfigRevision"] = types.YLeaf{"Cdot3Oampeerconfigrevision", cdot3Oampeerentry.Cdot3Oampeerconfigrevision}
-    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerFunctionsSupported"] = types.YLeaf{"Cdot3Oampeerfunctionssupported", cdot3Oampeerentry.Cdot3Oampeerfunctionssupported}
-    return &(cdot3Oampeerentry.EntityData)
+    cdot3OamPeerEntry.EntityData.Children = types.NewOrderedMap()
+    cdot3OamPeerEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdot3OamPeerEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cdot3OamPeerEntry.IfIndex})
+    cdot3OamPeerEntry.EntityData.Leafs.Append("cdot3OamPeerMacAddress", types.YLeaf{"Cdot3OamPeerMacAddress", cdot3OamPeerEntry.Cdot3OamPeerMacAddress})
+    cdot3OamPeerEntry.EntityData.Leafs.Append("cdot3OamPeerVendorOui", types.YLeaf{"Cdot3OamPeerVendorOui", cdot3OamPeerEntry.Cdot3OamPeerVendorOui})
+    cdot3OamPeerEntry.EntityData.Leafs.Append("cdot3OamPeerVendorInfo", types.YLeaf{"Cdot3OamPeerVendorInfo", cdot3OamPeerEntry.Cdot3OamPeerVendorInfo})
+    cdot3OamPeerEntry.EntityData.Leafs.Append("cdot3OamPeerMode", types.YLeaf{"Cdot3OamPeerMode", cdot3OamPeerEntry.Cdot3OamPeerMode})
+    cdot3OamPeerEntry.EntityData.Leafs.Append("cdot3OamPeerMaxOamPduSize", types.YLeaf{"Cdot3OamPeerMaxOamPduSize", cdot3OamPeerEntry.Cdot3OamPeerMaxOamPduSize})
+    cdot3OamPeerEntry.EntityData.Leafs.Append("cdot3OamPeerConfigRevision", types.YLeaf{"Cdot3OamPeerConfigRevision", cdot3OamPeerEntry.Cdot3OamPeerConfigRevision})
+    cdot3OamPeerEntry.EntityData.Leafs.Append("cdot3OamPeerFunctionsSupported", types.YLeaf{"Cdot3OamPeerFunctionsSupported", cdot3OamPeerEntry.Cdot3OamPeerFunctionsSupported})
+
+    cdot3OamPeerEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cdot3OamPeerEntry.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode represents active or passive mode, respectively. 
-type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode string
+// CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry_Cdot3OamPeerMode represents active or passive mode, respectively. 
+type CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry_Cdot3OamPeerMode string
 
 const (
-    CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode_active CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode = "active"
+    CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry_Cdot3OamPeerMode_active CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry_Cdot3OamPeerMode = "active"
 
-    CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode_passive CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode = "passive"
+    CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry_Cdot3OamPeerMode_passive CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry_Cdot3OamPeerMode = "passive"
 
-    CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode_unknown CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode = "unknown"
+    CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry_Cdot3OamPeerMode_unknown CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry_Cdot3OamPeerMode = "unknown"
 )
 
-// CISCODOT3OAMMIB_Cdot3Oamloopbacktable
+// CISCODOT3OAMMIB_Cdot3OamLoopbackTable
 // This table contains controls for the loopback state of the
 // local link as well as indicating the status of the loopback
 // function.  There is one entry in this table for each entry in
@@ -583,7 +598,7 @@ const (
 // only the looped back frames are transmitted on the interface.
 // Loopback is thus an intrusive operation that prohibits normal
 // data flow and should be used accordingly.  
-type CISCODOT3OAMMIB_Cdot3Oamloopbacktable struct {
+type CISCODOT3OAMMIB_Cdot3OamLoopbackTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -592,43 +607,46 @@ type CISCODOT3OAMMIB_Cdot3Oamloopbacktable struct {
     // created whenever the local OAM entity supports loopback capabilities.  The
     // loopback status on the interface can be determined from the
     // cdot3OamLoopbackStatus object.  . The type is slice of
-    // CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry.
-    Cdot3Oamloopbackentry []CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry
+    // CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry.
+    Cdot3OamLoopbackEntry []*CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry
 }
 
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetEntityData() *types.CommonEntityData {
-    cdot3Oamloopbacktable.EntityData.YFilter = cdot3Oamloopbacktable.YFilter
-    cdot3Oamloopbacktable.EntityData.YangName = "cdot3OamLoopbackTable"
-    cdot3Oamloopbacktable.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oamloopbacktable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
-    cdot3Oamloopbacktable.EntityData.SegmentPath = "cdot3OamLoopbackTable"
-    cdot3Oamloopbacktable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oamloopbacktable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oamloopbacktable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamLoopbackTable *CISCODOT3OAMMIB_Cdot3OamLoopbackTable) GetEntityData() *types.CommonEntityData {
+    cdot3OamLoopbackTable.EntityData.YFilter = cdot3OamLoopbackTable.YFilter
+    cdot3OamLoopbackTable.EntityData.YangName = "cdot3OamLoopbackTable"
+    cdot3OamLoopbackTable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamLoopbackTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3OamLoopbackTable.EntityData.SegmentPath = "cdot3OamLoopbackTable"
+    cdot3OamLoopbackTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamLoopbackTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamLoopbackTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oamloopbacktable.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oamloopbacktable.EntityData.Children["cdot3OamLoopbackEntry"] = types.YChild{"Cdot3Oamloopbackentry", nil}
-    for i := range cdot3Oamloopbacktable.Cdot3Oamloopbackentry {
-        cdot3Oamloopbacktable.EntityData.Children[types.GetSegmentPath(&cdot3Oamloopbacktable.Cdot3Oamloopbackentry[i])] = types.YChild{"Cdot3Oamloopbackentry", &cdot3Oamloopbacktable.Cdot3Oamloopbackentry[i]}
+    cdot3OamLoopbackTable.EntityData.Children = types.NewOrderedMap()
+    cdot3OamLoopbackTable.EntityData.Children.Append("cdot3OamLoopbackEntry", types.YChild{"Cdot3OamLoopbackEntry", nil})
+    for i := range cdot3OamLoopbackTable.Cdot3OamLoopbackEntry {
+        cdot3OamLoopbackTable.EntityData.Children.Append(types.GetSegmentPath(cdot3OamLoopbackTable.Cdot3OamLoopbackEntry[i]), types.YChild{"Cdot3OamLoopbackEntry", cdot3OamLoopbackTable.Cdot3OamLoopbackEntry[i]})
     }
-    cdot3Oamloopbacktable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdot3Oamloopbacktable.EntityData)
+    cdot3OamLoopbackTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdot3OamLoopbackTable.EntityData.YListKeys = []string {}
+
+    return &(cdot3OamLoopbackTable.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry
+// CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry
 // An entry in the table, containing information on the loopback
 // status for a single Ethernet like interface.  Entries in the
 // table are automatically created whenever the local OAM entity
 // supports loopback capabilities.  The loopback status on the
 // interface can be determined from the cdot3OamLoopbackStatus
 // object.  
-type CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry struct {
+type CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The loopback status of the OAM entity.  This status is determined by a
     // combination of the local parser and multiplexer states, the remote parser
@@ -665,8 +683,8 @@ type CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry struct {
     // rmtLoopback      DISCARD     FWD      LPBK    DISCARD   tmtngLoopback   
     // DISCARD   DISCARD    LPBK    DISCARD   lclLoopback        LPBK    DISCARD  
     // DISCARD     FWD   unknown            ***   any other combination   ***. The
-    // type is Cdot3Oamloopbackstatus.
-    Cdot3Oamloopbackstatus interface{}
+    // type is Cdot3OamLoopbackStatus.
+    Cdot3OamLoopbackStatus interface{}
 
     // Since OAM loopback is a disruptive operation (user traffic does not pass),
     // this attribute provides a mechanism to provide controls over whether
@@ -674,55 +692,58 @@ type CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry struct {
     // ignore(1), received loopback commands are ignored.  When the value is
     // process(2), OAM loopback commands are processed.  The default value is to
     // ignore loopback commands (ignore(1)).  . The type is
-    // Cdot3Oamloopbackignorerx.
-    Cdot3Oamloopbackignorerx interface{}
+    // Cdot3OamLoopbackIgnoreRx.
+    Cdot3OamLoopbackIgnoreRx interface{}
 }
 
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetEntityData() *types.CommonEntityData {
-    cdot3Oamloopbackentry.EntityData.YFilter = cdot3Oamloopbackentry.YFilter
-    cdot3Oamloopbackentry.EntityData.YangName = "cdot3OamLoopbackEntry"
-    cdot3Oamloopbackentry.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oamloopbackentry.EntityData.ParentYangName = "cdot3OamLoopbackTable"
-    cdot3Oamloopbackentry.EntityData.SegmentPath = "cdot3OamLoopbackEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamloopbackentry.Ifindex) + "']"
-    cdot3Oamloopbackentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oamloopbackentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oamloopbackentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamLoopbackEntry *CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry) GetEntityData() *types.CommonEntityData {
+    cdot3OamLoopbackEntry.EntityData.YFilter = cdot3OamLoopbackEntry.YFilter
+    cdot3OamLoopbackEntry.EntityData.YangName = "cdot3OamLoopbackEntry"
+    cdot3OamLoopbackEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamLoopbackEntry.EntityData.ParentYangName = "cdot3OamLoopbackTable"
+    cdot3OamLoopbackEntry.EntityData.SegmentPath = "cdot3OamLoopbackEntry" + types.AddKeyToken(cdot3OamLoopbackEntry.IfIndex, "ifIndex")
+    cdot3OamLoopbackEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamLoopbackEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamLoopbackEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oamloopbackentry.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oamloopbackentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdot3Oamloopbackentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oamloopbackentry.Ifindex}
-    cdot3Oamloopbackentry.EntityData.Leafs["cdot3OamLoopbackStatus"] = types.YLeaf{"Cdot3Oamloopbackstatus", cdot3Oamloopbackentry.Cdot3Oamloopbackstatus}
-    cdot3Oamloopbackentry.EntityData.Leafs["cdot3OamLoopbackIgnoreRx"] = types.YLeaf{"Cdot3Oamloopbackignorerx", cdot3Oamloopbackentry.Cdot3Oamloopbackignorerx}
-    return &(cdot3Oamloopbackentry.EntityData)
+    cdot3OamLoopbackEntry.EntityData.Children = types.NewOrderedMap()
+    cdot3OamLoopbackEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdot3OamLoopbackEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cdot3OamLoopbackEntry.IfIndex})
+    cdot3OamLoopbackEntry.EntityData.Leafs.Append("cdot3OamLoopbackStatus", types.YLeaf{"Cdot3OamLoopbackStatus", cdot3OamLoopbackEntry.Cdot3OamLoopbackStatus})
+    cdot3OamLoopbackEntry.EntityData.Leafs.Append("cdot3OamLoopbackIgnoreRx", types.YLeaf{"Cdot3OamLoopbackIgnoreRx", cdot3OamLoopbackEntry.Cdot3OamLoopbackIgnoreRx})
+
+    cdot3OamLoopbackEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cdot3OamLoopbackEntry.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackignorerx represents ignore loopback commands (ignore(1)).  
-type CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackignorerx string
+// CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackIgnoreRx represents ignore loopback commands (ignore(1)).  
+type CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackIgnoreRx string
 
 const (
-    CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackignorerx_ignore CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackignorerx = "ignore"
+    CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackIgnoreRx_ignore CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackIgnoreRx = "ignore"
 
-    CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackignorerx_process CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackignorerx = "process"
+    CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackIgnoreRx_process CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackIgnoreRx = "process"
 )
 
-// CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus represents   unknown            ***   any other combination   ***
-type CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus string
+// CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus represents   unknown            ***   any other combination   ***
+type CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus string
 
 const (
-    CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus_noLoopback CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus = "noLoopback"
+    CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus_noLoopback CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus = "noLoopback"
 
-    CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus_initiatingLoopback CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus = "initiatingLoopback"
+    CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus_initiatingLoopback CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus = "initiatingLoopback"
 
-    CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus_remoteLoopback CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus = "remoteLoopback"
+    CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus_remoteLoopback CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus = "remoteLoopback"
 
-    CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus_terminatingLoopback CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus = "terminatingLoopback"
+    CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus_terminatingLoopback CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus = "terminatingLoopback"
 
-    CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus_localLoopback CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus = "localLoopback"
+    CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus_localLoopback CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus = "localLoopback"
 
-    CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus_unknown CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackstatus = "unknown"
+    CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus_unknown CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry_Cdot3OamLoopbackStatus = "unknown"
 )
 
-// CISCODOT3OAMMIB_Cdot3Oamstatstable
+// CISCODOT3OAMMIB_Cdot3OamStatsTable
 // This table contains statistics for the OAM function on a
 // particular Ethernet like interface. There is an entry in the
 // table for every entry in the cdot3OamTable. 
@@ -731,7 +752,7 @@ const (
 // match the counter size as defined in [802.3ah].  Given the OAM
 // protocol is a slow protocol, the counters increment at a slow
 // rate. 
-type CISCODOT3OAMMIB_Cdot3Oamstatstable struct {
+type CISCODOT3OAMMIB_Cdot3OamStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -739,56 +760,59 @@ type CISCODOT3OAMMIB_Cdot3Oamstatstable struct {
     // OAM function for a single Ethernet like interface.  Entries are
     // automatically created for every entry in the cdot3OamTable.  Counters are
     // maintained across transitions in cdot3OamOperStatus.  . The type is slice
-    // of CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry.
-    Cdot3Oamstatsentry []CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry
+    // of CISCODOT3OAMMIB_Cdot3OamStatsTable_Cdot3OamStatsEntry.
+    Cdot3OamStatsEntry []*CISCODOT3OAMMIB_Cdot3OamStatsTable_Cdot3OamStatsEntry
 }
 
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetEntityData() *types.CommonEntityData {
-    cdot3Oamstatstable.EntityData.YFilter = cdot3Oamstatstable.YFilter
-    cdot3Oamstatstable.EntityData.YangName = "cdot3OamStatsTable"
-    cdot3Oamstatstable.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oamstatstable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
-    cdot3Oamstatstable.EntityData.SegmentPath = "cdot3OamStatsTable"
-    cdot3Oamstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oamstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oamstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamStatsTable *CISCODOT3OAMMIB_Cdot3OamStatsTable) GetEntityData() *types.CommonEntityData {
+    cdot3OamStatsTable.EntityData.YFilter = cdot3OamStatsTable.YFilter
+    cdot3OamStatsTable.EntityData.YangName = "cdot3OamStatsTable"
+    cdot3OamStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamStatsTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3OamStatsTable.EntityData.SegmentPath = "cdot3OamStatsTable"
+    cdot3OamStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oamstatstable.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oamstatstable.EntityData.Children["cdot3OamStatsEntry"] = types.YChild{"Cdot3Oamstatsentry", nil}
-    for i := range cdot3Oamstatstable.Cdot3Oamstatsentry {
-        cdot3Oamstatstable.EntityData.Children[types.GetSegmentPath(&cdot3Oamstatstable.Cdot3Oamstatsentry[i])] = types.YChild{"Cdot3Oamstatsentry", &cdot3Oamstatstable.Cdot3Oamstatsentry[i]}
+    cdot3OamStatsTable.EntityData.Children = types.NewOrderedMap()
+    cdot3OamStatsTable.EntityData.Children.Append("cdot3OamStatsEntry", types.YChild{"Cdot3OamStatsEntry", nil})
+    for i := range cdot3OamStatsTable.Cdot3OamStatsEntry {
+        cdot3OamStatsTable.EntityData.Children.Append(types.GetSegmentPath(cdot3OamStatsTable.Cdot3OamStatsEntry[i]), types.YChild{"Cdot3OamStatsEntry", cdot3OamStatsTable.Cdot3OamStatsEntry[i]})
     }
-    cdot3Oamstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdot3Oamstatstable.EntityData)
+    cdot3OamStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdot3OamStatsTable.EntityData.YListKeys = []string {}
+
+    return &(cdot3OamStatsTable.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry
+// CISCODOT3OAMMIB_Cdot3OamStatsTable_Cdot3OamStatsEntry
 // An entry in the table, containing statistics information on
 // the Ethernet OAM function for a single Ethernet like
 // interface.  Entries are automatically created for every entry
 // in the cdot3OamTable.  Counters are maintained across
 // transitions in cdot3OamOperStatus.  
-type CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry struct {
+type CISCODOT3OAMMIB_Cdot3OamStatsTable_Cdot3OamStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // A count of the number of Information OAMPDUs transmitted on this interface.
     // Discontinuities of this counter can occur at re-initialization of the
     // management system, and at other times as indicated by the value of the
     // ifCounterDiscontinuityTime.  . The type is interface{} with range:
     // 0..4294967295. Units are frames.
-    Cdot3Oaminformationtx interface{}
+    Cdot3OamInformationTx interface{}
 
     // A count of the number of Information OAMPDUs received on this interface. 
     // Discontinuities of this counter can occur at re-initialization of the
     // management system, and at other times as indicated by the value of the
     // ifCounterDiscontinuityTime.  . The type is interface{} with range:
     // 0..4294967295. Units are frames.
-    Cdot3Oaminformationrx interface{}
+    Cdot3OamInformationRx interface{}
 
     // A count of the number of unique Event OAMPDUs transmitted on this
     // interface.  Event notifications may be sent in duplicate to increase the
@@ -801,7 +825,7 @@ type CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry struct {
     // counter can occur at re-initialization of the management system, and at
     // other times as indicated by the value of the ifCounterDiscontinuityTime.  .
     // The type is interface{} with range: 0..4294967295. Units are frames.
-    Cdot3Oamuniqueeventnotificationtx interface{}
+    Cdot3OamUniqueEventNotificationTx interface{}
 
     // A count of the number of unique Event OAMPDUs received on this interface. 
     // Event notification OAMPDUs may be sent in duplicate to increase the
@@ -814,7 +838,7 @@ type CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry struct {
     // occur at re-initialization of the management system, and at other times as
     // indicated by the value of the ifCounterDiscontinuityTime.  . The type is
     // interface{} with range: 0..4294967295. Units are frames.
-    Cdot3Oamuniqueeventnotificationrx interface{}
+    Cdot3OamUniqueEventNotificationRx interface{}
 
     // A count of the number of duplicate Event OAMPDUs transmitted on this
     // interface.  Event notification OAMPDUs may be sent in duplicate to increase
@@ -826,7 +850,7 @@ type CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry struct {
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamduplicateeventnotificationtx interface{}
+    Cdot3OamDuplicateEventNotificationTx interface{}
 
     // A count of the number of duplicate Event OAMPDUs received on this
     // interface.  Event notification OAMPDUs may be sent in duplicate to increase
@@ -838,77 +862,77 @@ type CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry struct {
     // of the management system, and at other times as indicated by the value of
     // the ifCounterDiscontinuityTime.  . The type is interface{} with range:
     // 0..4294967295. Units are frames.
-    Cdot3Oamduplicateeventnotificationrx interface{}
+    Cdot3OamDuplicateEventNotificationRx interface{}
 
     // A count of the number of Loopback Control OAMPDUs transmitted on this
     // interface.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamloopbackcontroltx interface{}
+    Cdot3OamLoopbackControlTx interface{}
 
     // A count of the number of Loopback Control OAMPDUs received on this
     // interface.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamloopbackcontrolrx interface{}
+    Cdot3OamLoopbackControlRx interface{}
 
     // A count of the number of Variable Request OAMPDUs transmitted on this
     // interface.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamvariablerequesttx interface{}
+    Cdot3OamVariableRequestTx interface{}
 
     // A count of the number of Variable Request OAMPDUs received on this
     // interface.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamvariablerequestrx interface{}
+    Cdot3OamVariableRequestRx interface{}
 
     // A count of the number of Variable Response OAMPDUs transmitted on this
     // interface.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamvariableresponsetx interface{}
+    Cdot3OamVariableResponseTx interface{}
 
     // A count of the number of Variable Response OAMPDUs received on this
     // interface.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamvariableresponserx interface{}
+    Cdot3OamVariableResponseRx interface{}
 
     // A count of the number of Organization Specific OAMPDUs transmitted on this
     // interface.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamorgspecifictx interface{}
+    Cdot3OamOrgSpecificTx interface{}
 
     // A count of the number of Organization Specific OAMPDUs received on this
     // interface.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamorgspecificrx interface{}
+    Cdot3OamOrgSpecificRx interface{}
 
     // A count of the number of OAMPDUs transmitted on this interface with an
     // unsupported op-code.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamunsupportedcodestx interface{}
+    Cdot3OamUnsupportedCodesTx interface{}
 
     // A count of the number of OAMPDUs received on this interface with an
     // unsupported op-code.    Discontinuities of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of the ifCounterDiscontinuityTime.  . The type is interface{}
     // with range: 0..4294967295. Units are frames.
-    Cdot3Oamunsupportedcodesrx interface{}
+    Cdot3OamUnsupportedCodesRx interface{}
 
     // A count of the number of frames that were dropped by the OAM multiplexer. 
     // Since the OAM multiplexer has multiple inputs and a single output, there
@@ -922,43 +946,46 @@ type CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry struct {
     // management system, and at other times as indicated by the value of the
     // ifCounterDiscontinuityTime.  . The type is interface{} with range:
     // 0..4294967295. Units are frames.
-    Cdot3Oamframeslostduetooam interface{}
+    Cdot3OamFramesLostDueToOam interface{}
 }
 
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetEntityData() *types.CommonEntityData {
-    cdot3Oamstatsentry.EntityData.YFilter = cdot3Oamstatsentry.YFilter
-    cdot3Oamstatsentry.EntityData.YangName = "cdot3OamStatsEntry"
-    cdot3Oamstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oamstatsentry.EntityData.ParentYangName = "cdot3OamStatsTable"
-    cdot3Oamstatsentry.EntityData.SegmentPath = "cdot3OamStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamstatsentry.Ifindex) + "']"
-    cdot3Oamstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oamstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oamstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamStatsEntry *CISCODOT3OAMMIB_Cdot3OamStatsTable_Cdot3OamStatsEntry) GetEntityData() *types.CommonEntityData {
+    cdot3OamStatsEntry.EntityData.YFilter = cdot3OamStatsEntry.YFilter
+    cdot3OamStatsEntry.EntityData.YangName = "cdot3OamStatsEntry"
+    cdot3OamStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamStatsEntry.EntityData.ParentYangName = "cdot3OamStatsTable"
+    cdot3OamStatsEntry.EntityData.SegmentPath = "cdot3OamStatsEntry" + types.AddKeyToken(cdot3OamStatsEntry.IfIndex, "ifIndex")
+    cdot3OamStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oamstatsentry.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oamstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdot3Oamstatsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oamstatsentry.Ifindex}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamInformationTx"] = types.YLeaf{"Cdot3Oaminformationtx", cdot3Oamstatsentry.Cdot3Oaminformationtx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamInformationRx"] = types.YLeaf{"Cdot3Oaminformationrx", cdot3Oamstatsentry.Cdot3Oaminformationrx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamUniqueEventNotificationTx"] = types.YLeaf{"Cdot3Oamuniqueeventnotificationtx", cdot3Oamstatsentry.Cdot3Oamuniqueeventnotificationtx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamUniqueEventNotificationRx"] = types.YLeaf{"Cdot3Oamuniqueeventnotificationrx", cdot3Oamstatsentry.Cdot3Oamuniqueeventnotificationrx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamDuplicateEventNotificationTx"] = types.YLeaf{"Cdot3Oamduplicateeventnotificationtx", cdot3Oamstatsentry.Cdot3Oamduplicateeventnotificationtx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamDuplicateEventNotificationRx"] = types.YLeaf{"Cdot3Oamduplicateeventnotificationrx", cdot3Oamstatsentry.Cdot3Oamduplicateeventnotificationrx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamLoopbackControlTx"] = types.YLeaf{"Cdot3Oamloopbackcontroltx", cdot3Oamstatsentry.Cdot3Oamloopbackcontroltx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamLoopbackControlRx"] = types.YLeaf{"Cdot3Oamloopbackcontrolrx", cdot3Oamstatsentry.Cdot3Oamloopbackcontrolrx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamVariableRequestTx"] = types.YLeaf{"Cdot3Oamvariablerequesttx", cdot3Oamstatsentry.Cdot3Oamvariablerequesttx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamVariableRequestRx"] = types.YLeaf{"Cdot3Oamvariablerequestrx", cdot3Oamstatsentry.Cdot3Oamvariablerequestrx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamVariableResponseTx"] = types.YLeaf{"Cdot3Oamvariableresponsetx", cdot3Oamstatsentry.Cdot3Oamvariableresponsetx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamVariableResponseRx"] = types.YLeaf{"Cdot3Oamvariableresponserx", cdot3Oamstatsentry.Cdot3Oamvariableresponserx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamOrgSpecificTx"] = types.YLeaf{"Cdot3Oamorgspecifictx", cdot3Oamstatsentry.Cdot3Oamorgspecifictx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamOrgSpecificRx"] = types.YLeaf{"Cdot3Oamorgspecificrx", cdot3Oamstatsentry.Cdot3Oamorgspecificrx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamUnsupportedCodesTx"] = types.YLeaf{"Cdot3Oamunsupportedcodestx", cdot3Oamstatsentry.Cdot3Oamunsupportedcodestx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamUnsupportedCodesRx"] = types.YLeaf{"Cdot3Oamunsupportedcodesrx", cdot3Oamstatsentry.Cdot3Oamunsupportedcodesrx}
-    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamFramesLostDueToOam"] = types.YLeaf{"Cdot3Oamframeslostduetooam", cdot3Oamstatsentry.Cdot3Oamframeslostduetooam}
-    return &(cdot3Oamstatsentry.EntityData)
+    cdot3OamStatsEntry.EntityData.Children = types.NewOrderedMap()
+    cdot3OamStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdot3OamStatsEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cdot3OamStatsEntry.IfIndex})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamInformationTx", types.YLeaf{"Cdot3OamInformationTx", cdot3OamStatsEntry.Cdot3OamInformationTx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamInformationRx", types.YLeaf{"Cdot3OamInformationRx", cdot3OamStatsEntry.Cdot3OamInformationRx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamUniqueEventNotificationTx", types.YLeaf{"Cdot3OamUniqueEventNotificationTx", cdot3OamStatsEntry.Cdot3OamUniqueEventNotificationTx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamUniqueEventNotificationRx", types.YLeaf{"Cdot3OamUniqueEventNotificationRx", cdot3OamStatsEntry.Cdot3OamUniqueEventNotificationRx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamDuplicateEventNotificationTx", types.YLeaf{"Cdot3OamDuplicateEventNotificationTx", cdot3OamStatsEntry.Cdot3OamDuplicateEventNotificationTx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamDuplicateEventNotificationRx", types.YLeaf{"Cdot3OamDuplicateEventNotificationRx", cdot3OamStatsEntry.Cdot3OamDuplicateEventNotificationRx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamLoopbackControlTx", types.YLeaf{"Cdot3OamLoopbackControlTx", cdot3OamStatsEntry.Cdot3OamLoopbackControlTx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamLoopbackControlRx", types.YLeaf{"Cdot3OamLoopbackControlRx", cdot3OamStatsEntry.Cdot3OamLoopbackControlRx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamVariableRequestTx", types.YLeaf{"Cdot3OamVariableRequestTx", cdot3OamStatsEntry.Cdot3OamVariableRequestTx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamVariableRequestRx", types.YLeaf{"Cdot3OamVariableRequestRx", cdot3OamStatsEntry.Cdot3OamVariableRequestRx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamVariableResponseTx", types.YLeaf{"Cdot3OamVariableResponseTx", cdot3OamStatsEntry.Cdot3OamVariableResponseTx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamVariableResponseRx", types.YLeaf{"Cdot3OamVariableResponseRx", cdot3OamStatsEntry.Cdot3OamVariableResponseRx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamOrgSpecificTx", types.YLeaf{"Cdot3OamOrgSpecificTx", cdot3OamStatsEntry.Cdot3OamOrgSpecificTx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamOrgSpecificRx", types.YLeaf{"Cdot3OamOrgSpecificRx", cdot3OamStatsEntry.Cdot3OamOrgSpecificRx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamUnsupportedCodesTx", types.YLeaf{"Cdot3OamUnsupportedCodesTx", cdot3OamStatsEntry.Cdot3OamUnsupportedCodesTx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamUnsupportedCodesRx", types.YLeaf{"Cdot3OamUnsupportedCodesRx", cdot3OamStatsEntry.Cdot3OamUnsupportedCodesRx})
+    cdot3OamStatsEntry.EntityData.Leafs.Append("cdot3OamFramesLostDueToOam", types.YLeaf{"Cdot3OamFramesLostDueToOam", cdot3OamStatsEntry.Cdot3OamFramesLostDueToOam})
+
+    cdot3OamStatsEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cdot3OamStatsEntry.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oameventconfigtable
+// CISCODOT3OAMMIB_Cdot3OamEventConfigTable
 // Ethernet OAM includes the ability to generate and receive
 // Event Notification OAMPDUs to indicate various link problems.
 // This table contains the mechanisms to enable Event
@@ -990,7 +1017,7 @@ func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry)
 // There are other events (dying gasp, critical events) that are
 // not threshold crossing events but which can be
 // enabled/disabled via this table.  
-type CISCODOT3OAMMIB_Cdot3Oameventconfigtable struct {
+type CISCODOT3OAMMIB_Cdot3OamEventConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1001,30 +1028,33 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable struct {
     // configuration controls when the local management entity sends Event
     // Notification OAMPDUs to its OAM peer, and when certain event flags are set
     // or cleared in OAMPDUs. . The type is slice of
-    // CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry.
-    Cdot3Oameventconfigentry []CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry
+    // CISCODOT3OAMMIB_Cdot3OamEventConfigTable_Cdot3OamEventConfigEntry.
+    Cdot3OamEventConfigEntry []*CISCODOT3OAMMIB_Cdot3OamEventConfigTable_Cdot3OamEventConfigEntry
 }
 
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetEntityData() *types.CommonEntityData {
-    cdot3Oameventconfigtable.EntityData.YFilter = cdot3Oameventconfigtable.YFilter
-    cdot3Oameventconfigtable.EntityData.YangName = "cdot3OamEventConfigTable"
-    cdot3Oameventconfigtable.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oameventconfigtable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
-    cdot3Oameventconfigtable.EntityData.SegmentPath = "cdot3OamEventConfigTable"
-    cdot3Oameventconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oameventconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oameventconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamEventConfigTable *CISCODOT3OAMMIB_Cdot3OamEventConfigTable) GetEntityData() *types.CommonEntityData {
+    cdot3OamEventConfigTable.EntityData.YFilter = cdot3OamEventConfigTable.YFilter
+    cdot3OamEventConfigTable.EntityData.YangName = "cdot3OamEventConfigTable"
+    cdot3OamEventConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamEventConfigTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3OamEventConfigTable.EntityData.SegmentPath = "cdot3OamEventConfigTable"
+    cdot3OamEventConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamEventConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamEventConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oameventconfigtable.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oameventconfigtable.EntityData.Children["cdot3OamEventConfigEntry"] = types.YChild{"Cdot3Oameventconfigentry", nil}
-    for i := range cdot3Oameventconfigtable.Cdot3Oameventconfigentry {
-        cdot3Oameventconfigtable.EntityData.Children[types.GetSegmentPath(&cdot3Oameventconfigtable.Cdot3Oameventconfigentry[i])] = types.YChild{"Cdot3Oameventconfigentry", &cdot3Oameventconfigtable.Cdot3Oameventconfigentry[i]}
+    cdot3OamEventConfigTable.EntityData.Children = types.NewOrderedMap()
+    cdot3OamEventConfigTable.EntityData.Children.Append("cdot3OamEventConfigEntry", types.YChild{"Cdot3OamEventConfigEntry", nil})
+    for i := range cdot3OamEventConfigTable.Cdot3OamEventConfigEntry {
+        cdot3OamEventConfigTable.EntityData.Children.Append(types.GetSegmentPath(cdot3OamEventConfigTable.Cdot3OamEventConfigEntry[i]), types.YChild{"Cdot3OamEventConfigEntry", cdot3OamEventConfigTable.Cdot3OamEventConfigEntry[i]})
     }
-    cdot3Oameventconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdot3Oameventconfigtable.EntityData)
+    cdot3OamEventConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdot3OamEventConfigTable.EntityData.YListKeys = []string {}
+
+    return &(cdot3OamEventConfigTable.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry
+// CISCODOT3OAMMIB_Cdot3OamEventConfigTable_Cdot3OamEventConfigEntry
 // Entries are automatically created and deleted from this
 // table, and exist whenever the OAM entity supports Ethernet OAM
 // events (as indicated by the eventSupport bit in
@@ -1034,13 +1064,13 @@ func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetEnt
 // Event configuration controls when the local management entity
 // sends Event Notification OAMPDUs to its OAM peer, and when
 // certain event flags are set or cleared in OAMPDUs. 
-type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
+type CISCODOT3OAMMIB_Cdot3OamEventConfigTable_Cdot3OamEventConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The two objects cdot3OamErrSymPeriodWindowHi and cdot3OamErrSymPeriodLo
     // together form an unsigned 64-bit integer representing the number of symbols
@@ -1053,7 +1083,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // default value for cdot3OamErrSymPeriodWindow is the number of symbols in
     // one second for the underlying physical layer. The type is interface{} with
     // range: 0..4294967295. Units are 2^32 symbols.
-    Cdot3Oamerrsymperiodwindowhi interface{}
+    Cdot3OamErrSymPeriodWindowHi interface{}
 
     // The two objects cdot3OamErrSymPeriodWindowHi and
     // cdot3OamErrSymPeriodWindowLo together form an unsigned 64-bit integer
@@ -1067,7 +1097,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // default value for cdot3OamErrSymPeriodWindow is the number of symbols in
     // one second for the underlying physical layer. . The type is interface{}
     // with range: 0..4294967295. Units are symbols.
-    Cdot3Oamerrsymperiodwindowlo interface{}
+    Cdot3OamErrSymPeriodWindowLo interface{}
 
     // The two objects cdot3OamErrSymPeriodThresholdHi and
     // cdot3OamErrSymPeriodThresholdLo together form an unsigned 64-bit integer
@@ -1086,7 +1116,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // peer OAM entity of the statistics related to this threshold crossing alarm.
     // . The type is interface{} with range: 0..4294967295. Units are 2^32
     // symbols.
-    Cdot3Oamerrsymperiodthresholdhi interface{}
+    Cdot3OamErrSymPeriodThresholdHi interface{}
 
     // The two objects cdot3OamErrSymPeriodThresholdHi and
     // cdot3OamErrSymPeriodThresholdLo together form an unsigned 64-bit integer
@@ -1104,7 +1134,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // of every window).  This can be used as an asynchronous notification to the
     // peer OAM entity of the statistics related to this threshold crossing alarm.
     // . The type is interface{} with range: 0..4294967295. Units are symbols.
-    Cdot3Oamerrsymperiodthresholdlo interface{}
+    Cdot3OamErrSymPeriodThresholdLo interface{}
 
     // If true, the OAM entity should send an Event Notification OAMPDU when an
     // Errored Symbol Period Event occurs.  By default, this object should have
@@ -1112,7 +1142,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // layer does not support event notifications (as indicated via the
     // cdot3OamFunctionsSupported attribute), this value is ignored. The type is
     // bool.
-    Cdot3Oamerrsymperiodevnotifenable interface{}
+    Cdot3OamErrSymPeriodEvNotifEnable interface{}
 
     // The number of frames over which the threshold is defined. The default value
     // of the window is the number of minimum size Ethernet frames that can be
@@ -1122,7 +1152,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // generated with an Errored Frame Period Event TLV indicating the threshold
     // has been crossed in this window.  . The type is interface{} with range:
     // 0..4294967295. Units are frames.
-    Cdot3Oamerrframeperiodwindow interface{}
+    Cdot3OamErrFramePeriodWindow interface{}
 
     // The number of frame errors that must occur for this event to be triggered. 
     // The default value is one frame error.  If the threshold value is zero, then
@@ -1134,7 +1164,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // generated with an Errored Frame Period Event TLV indicating the threshold
     // has been crossed in this window.  . The type is interface{} with range:
     // 0..4294967295. Units are frames.
-    Cdot3Oamerrframeperiodthreshold interface{}
+    Cdot3OamErrFramePeriodThreshold interface{}
 
     // If true, the OAM entity should send an Event Notification OAMPDU when an
     // Errored Frame Period Event occurs.   By default, this object should have
@@ -1142,7 +1172,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // layer does not support event notifications (as indicated via the
     // cdot3OamFunctionsSupported attribute), this value is ignored. . The type is
     // bool.
-    Cdot3Oamerrframeperiodevnotifenable interface{}
+    Cdot3OamErrFramePeriodEvNotifEnable interface{}
 
     // The amount of time (in 100ms increments) over which the threshold is
     // defined.  The default value is 10 (1 second).                    If
@@ -1151,7 +1181,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // Notification OAMPDU should be generated with an Errored Frame Event TLV
     // indicating the threshold has been crossed in this window.  . The type is
     // interface{} with range: 0..4294967295. Units are tenths of a second.
-    Cdot3Oamerrframewindow interface{}
+    Cdot3OamErrFrameWindow interface{}
 
     // The number of frame errors that must occur for this event to be triggered. 
     // The default value is one frame error. If the threshold value is zero, then
@@ -1163,7 +1193,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // should be generated with an Errored Frame Event TLV indicating the
     // threshold has been crossed in this window.  . The type is interface{} with
     // range: 0..4294967295. Units are frames.
-    Cdot3Oamerrframethreshold interface{}
+    Cdot3OamErrFrameThreshold interface{}
 
     // If true, the OAM entity should send an Event Notification OAMPDU when an
     // Errored Frame Event occurs.                   By default, this object
@@ -1171,7 +1201,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // If the OAM layer does not support event notifications (as indicated via the
     // cdot3OamFunctionsSupported attribute), this value is ignored. . The type is
     // bool.
-    Cdot3Oamerrframeevnotifenable interface{}
+    Cdot3OamErrFrameEvNotifEnable interface{}
 
     // The amount of time (in 100ms intervals) over which the threshold is
     // defined.  The default value is 100 (10 seconds).                    If
@@ -1181,7 +1211,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // Summary Event TLV indicating the threshold has been crossed in this window.
     // . The type is interface{} with range: 100..9000. Units are tenths of a
     // second.
-    Cdot3Oamerrframesecssummarywindow interface{}
+    Cdot3OamErrFrameSecsSummaryWindow interface{}
 
     // The number of errored frame seconds that must occur for this event to be
     // triggered.  The default value is one errored frame second. If the threshold
@@ -1194,7 +1224,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // an Errored Frame Seconds Summary Event TLV indicating the threshold has
     // been crossed in this window.  . The type is interface{} with range: 1..900.
     // Units are errored frame seconds.
-    Cdot3Oamerrframesecssummarythreshold interface{}
+    Cdot3OamErrFrameSecsSummaryThreshold interface{}
 
     // If true, the local OAM entity should send an Event Notification OAMPDU when
     // an Errored Frame Seconds Event occurs.                   By default, this
@@ -1202,7 +1232,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // OAM.  If the OAM layer does not support event notifications (as indicated
     // via the cdot3OamFunctionsSupported attribute), this value is ignored. The
     // type is bool.
-    Cdot3Oamerrframesecsevnotifenable interface{}
+    Cdot3OamErrFrameSecsEvNotifEnable interface{}
 
     // If true, the local OAM entity should attempt to indicate a dying gasp via
     // the OAMPDU flags field to its peer OAM entity when a dying gasp event
@@ -1214,7 +1244,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // not support event notifications (as indicated via the
     // cdot3OamFunctionsSupported attribute), this value is ignored. The type is
     // bool.
-    Cdot3Oamdyinggaspenable interface{}
+    Cdot3OamDyingGaspEnable interface{}
 
     // If true, the local OAM entity should attempt to indicate a critical event
     // via the OAMPDU flags to its peer OAM entity when a critical event occurs.  
@@ -1225,42 +1255,45 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     // interfaces that support OAM.  If the OAM layer does not support event
     // notifications (as indicated via the cdot3OamFunctionsSupported attribute),
     // this value is ignored. The type is bool.
-    Cdot3Oamcriticaleventenable interface{}
+    Cdot3OamCriticalEventEnable interface{}
 }
 
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetEntityData() *types.CommonEntityData {
-    cdot3Oameventconfigentry.EntityData.YFilter = cdot3Oameventconfigentry.YFilter
-    cdot3Oameventconfigentry.EntityData.YangName = "cdot3OamEventConfigEntry"
-    cdot3Oameventconfigentry.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oameventconfigentry.EntityData.ParentYangName = "cdot3OamEventConfigTable"
-    cdot3Oameventconfigentry.EntityData.SegmentPath = "cdot3OamEventConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oameventconfigentry.Ifindex) + "']"
-    cdot3Oameventconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oameventconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oameventconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamEventConfigEntry *CISCODOT3OAMMIB_Cdot3OamEventConfigTable_Cdot3OamEventConfigEntry) GetEntityData() *types.CommonEntityData {
+    cdot3OamEventConfigEntry.EntityData.YFilter = cdot3OamEventConfigEntry.YFilter
+    cdot3OamEventConfigEntry.EntityData.YangName = "cdot3OamEventConfigEntry"
+    cdot3OamEventConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamEventConfigEntry.EntityData.ParentYangName = "cdot3OamEventConfigTable"
+    cdot3OamEventConfigEntry.EntityData.SegmentPath = "cdot3OamEventConfigEntry" + types.AddKeyToken(cdot3OamEventConfigEntry.IfIndex, "ifIndex")
+    cdot3OamEventConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamEventConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamEventConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oameventconfigentry.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oameventconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdot3Oameventconfigentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oameventconfigentry.Ifindex}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodWindowHi"] = types.YLeaf{"Cdot3Oamerrsymperiodwindowhi", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodwindowhi}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodWindowLo"] = types.YLeaf{"Cdot3Oamerrsymperiodwindowlo", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodwindowlo}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodThresholdHi"] = types.YLeaf{"Cdot3Oamerrsymperiodthresholdhi", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodthresholdhi}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodThresholdLo"] = types.YLeaf{"Cdot3Oamerrsymperiodthresholdlo", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodthresholdlo}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodEvNotifEnable"] = types.YLeaf{"Cdot3Oamerrsymperiodevnotifenable", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodevnotifenable}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFramePeriodWindow"] = types.YLeaf{"Cdot3Oamerrframeperiodwindow", cdot3Oameventconfigentry.Cdot3Oamerrframeperiodwindow}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFramePeriodThreshold"] = types.YLeaf{"Cdot3Oamerrframeperiodthreshold", cdot3Oameventconfigentry.Cdot3Oamerrframeperiodthreshold}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFramePeriodEvNotifEnable"] = types.YLeaf{"Cdot3Oamerrframeperiodevnotifenable", cdot3Oameventconfigentry.Cdot3Oamerrframeperiodevnotifenable}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameWindow"] = types.YLeaf{"Cdot3Oamerrframewindow", cdot3Oameventconfigentry.Cdot3Oamerrframewindow}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameThreshold"] = types.YLeaf{"Cdot3Oamerrframethreshold", cdot3Oameventconfigentry.Cdot3Oamerrframethreshold}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameEvNotifEnable"] = types.YLeaf{"Cdot3Oamerrframeevnotifenable", cdot3Oameventconfigentry.Cdot3Oamerrframeevnotifenable}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameSecsSummaryWindow"] = types.YLeaf{"Cdot3Oamerrframesecssummarywindow", cdot3Oameventconfigentry.Cdot3Oamerrframesecssummarywindow}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameSecsSummaryThreshold"] = types.YLeaf{"Cdot3Oamerrframesecssummarythreshold", cdot3Oameventconfigentry.Cdot3Oamerrframesecssummarythreshold}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameSecsEvNotifEnable"] = types.YLeaf{"Cdot3Oamerrframesecsevnotifenable", cdot3Oameventconfigentry.Cdot3Oamerrframesecsevnotifenable}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamDyingGaspEnable"] = types.YLeaf{"Cdot3Oamdyinggaspenable", cdot3Oameventconfigentry.Cdot3Oamdyinggaspenable}
-    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamCriticalEventEnable"] = types.YLeaf{"Cdot3Oamcriticaleventenable", cdot3Oameventconfigentry.Cdot3Oamcriticaleventenable}
-    return &(cdot3Oameventconfigentry.EntityData)
+    cdot3OamEventConfigEntry.EntityData.Children = types.NewOrderedMap()
+    cdot3OamEventConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cdot3OamEventConfigEntry.IfIndex})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrSymPeriodWindowHi", types.YLeaf{"Cdot3OamErrSymPeriodWindowHi", cdot3OamEventConfigEntry.Cdot3OamErrSymPeriodWindowHi})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrSymPeriodWindowLo", types.YLeaf{"Cdot3OamErrSymPeriodWindowLo", cdot3OamEventConfigEntry.Cdot3OamErrSymPeriodWindowLo})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrSymPeriodThresholdHi", types.YLeaf{"Cdot3OamErrSymPeriodThresholdHi", cdot3OamEventConfigEntry.Cdot3OamErrSymPeriodThresholdHi})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrSymPeriodThresholdLo", types.YLeaf{"Cdot3OamErrSymPeriodThresholdLo", cdot3OamEventConfigEntry.Cdot3OamErrSymPeriodThresholdLo})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrSymPeriodEvNotifEnable", types.YLeaf{"Cdot3OamErrSymPeriodEvNotifEnable", cdot3OamEventConfigEntry.Cdot3OamErrSymPeriodEvNotifEnable})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFramePeriodWindow", types.YLeaf{"Cdot3OamErrFramePeriodWindow", cdot3OamEventConfigEntry.Cdot3OamErrFramePeriodWindow})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFramePeriodThreshold", types.YLeaf{"Cdot3OamErrFramePeriodThreshold", cdot3OamEventConfigEntry.Cdot3OamErrFramePeriodThreshold})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFramePeriodEvNotifEnable", types.YLeaf{"Cdot3OamErrFramePeriodEvNotifEnable", cdot3OamEventConfigEntry.Cdot3OamErrFramePeriodEvNotifEnable})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFrameWindow", types.YLeaf{"Cdot3OamErrFrameWindow", cdot3OamEventConfigEntry.Cdot3OamErrFrameWindow})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFrameThreshold", types.YLeaf{"Cdot3OamErrFrameThreshold", cdot3OamEventConfigEntry.Cdot3OamErrFrameThreshold})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFrameEvNotifEnable", types.YLeaf{"Cdot3OamErrFrameEvNotifEnable", cdot3OamEventConfigEntry.Cdot3OamErrFrameEvNotifEnable})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFrameSecsSummaryWindow", types.YLeaf{"Cdot3OamErrFrameSecsSummaryWindow", cdot3OamEventConfigEntry.Cdot3OamErrFrameSecsSummaryWindow})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFrameSecsSummaryThreshold", types.YLeaf{"Cdot3OamErrFrameSecsSummaryThreshold", cdot3OamEventConfigEntry.Cdot3OamErrFrameSecsSummaryThreshold})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamErrFrameSecsEvNotifEnable", types.YLeaf{"Cdot3OamErrFrameSecsEvNotifEnable", cdot3OamEventConfigEntry.Cdot3OamErrFrameSecsEvNotifEnable})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamDyingGaspEnable", types.YLeaf{"Cdot3OamDyingGaspEnable", cdot3OamEventConfigEntry.Cdot3OamDyingGaspEnable})
+    cdot3OamEventConfigEntry.EntityData.Leafs.Append("cdot3OamCriticalEventEnable", types.YLeaf{"Cdot3OamCriticalEventEnable", cdot3OamEventConfigEntry.Cdot3OamCriticalEventEnable})
+
+    cdot3OamEventConfigEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cdot3OamEventConfigEntry.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oameventlogtable
+// CISCODOT3OAMMIB_Cdot3OamEventLogTable
 // This table records a history of the events that have occurred
 // at the Ethernet OAM level.  These events can include locally
 // detected events, which may result in locally generated
@@ -1281,7 +1314,7 @@ func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oa
 // dependent.  When the table reaches its maximum size, older
 // entries are automatically deleted to make room for newer
 // entries. 
-type CISCODOT3OAMMIB_Cdot3Oameventlogtable struct {
+type CISCODOT3OAMMIB_Cdot3OamEventLogTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1293,30 +1326,33 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable struct {
     // automatically deleted to make room for newer events.  The table index
     // cdot3OamEventLogIndex increments for each new entry, and when the maximum
     // value is reached the value restarts at zero.  . The type is slice of
-    // CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry.
-    Cdot3Oameventlogentry []CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry
+    // CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry.
+    Cdot3OamEventLogEntry []*CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry
 }
 
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetEntityData() *types.CommonEntityData {
-    cdot3Oameventlogtable.EntityData.YFilter = cdot3Oameventlogtable.YFilter
-    cdot3Oameventlogtable.EntityData.YangName = "cdot3OamEventLogTable"
-    cdot3Oameventlogtable.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oameventlogtable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
-    cdot3Oameventlogtable.EntityData.SegmentPath = "cdot3OamEventLogTable"
-    cdot3Oameventlogtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oameventlogtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oameventlogtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamEventLogTable *CISCODOT3OAMMIB_Cdot3OamEventLogTable) GetEntityData() *types.CommonEntityData {
+    cdot3OamEventLogTable.EntityData.YFilter = cdot3OamEventLogTable.YFilter
+    cdot3OamEventLogTable.EntityData.YangName = "cdot3OamEventLogTable"
+    cdot3OamEventLogTable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamEventLogTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3OamEventLogTable.EntityData.SegmentPath = "cdot3OamEventLogTable"
+    cdot3OamEventLogTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamEventLogTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamEventLogTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oameventlogtable.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oameventlogtable.EntityData.Children["cdot3OamEventLogEntry"] = types.YChild{"Cdot3Oameventlogentry", nil}
-    for i := range cdot3Oameventlogtable.Cdot3Oameventlogentry {
-        cdot3Oameventlogtable.EntityData.Children[types.GetSegmentPath(&cdot3Oameventlogtable.Cdot3Oameventlogentry[i])] = types.YChild{"Cdot3Oameventlogentry", &cdot3Oameventlogtable.Cdot3Oameventlogentry[i]}
+    cdot3OamEventLogTable.EntityData.Children = types.NewOrderedMap()
+    cdot3OamEventLogTable.EntityData.Children.Append("cdot3OamEventLogEntry", types.YChild{"Cdot3OamEventLogEntry", nil})
+    for i := range cdot3OamEventLogTable.Cdot3OamEventLogEntry {
+        cdot3OamEventLogTable.EntityData.Children.Append(types.GetSegmentPath(cdot3OamEventLogTable.Cdot3OamEventLogEntry[i]), types.YChild{"Cdot3OamEventLogEntry", cdot3OamEventLogTable.Cdot3OamEventLogEntry[i]})
     }
-    cdot3Oameventlogtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdot3Oameventlogtable.EntityData)
+    cdot3OamEventLogTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdot3OamEventLogTable.EntityData.YListKeys = []string {}
+
+    return &(cdot3OamEventLogTable.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry
+// CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry
 // An entry in the cdot3OamEventLogTable.  Entries are
 // automatically created whenever Ethernet OAM events occur at
 // the local OAM entity, and when Event Notification OAMPDUs are
@@ -1327,18 +1363,18 @@ func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetEntityDat
 // events.  The table index cdot3OamEventLogIndex increments for
 // each new entry, and when the maximum value is reached the
 // value restarts at zero.  
-type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
+type CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. An arbitrary integer for identifying individual
     // events within the event log.  . The type is interface{} with range:
     // 0..4294967295.
-    Cdot3Oameventlogindex interface{}
+    Cdot3OamEventLogIndex interface{}
 
     // The value of sysUpTime at the time of the logged event.  For locally
     // generated events, the time of the event can be accurately retrieved from
@@ -1350,7 +1386,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // found of the Event Notification TLVs, which provides an indication of the
     // relative time between events at the peer entity.  . The type is interface{}
     // with range: 0..4294967295.
-    Cdot3Oameventlogtimestamp interface{}
+    Cdot3OamEventLogTimestamp interface{}
 
     // The OUI of the entity defining the object type.  All IEEE 802.3 defined
     // events (as appearing in [802.3ah] except for the Organizationally Unique
@@ -1358,7 +1394,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // their own Event Notification TLVs include their OUI in the Event
     // Notification TLV which gets reflected here.  . The type is string with
     // length: 3.
-    Cdot3Oameventlogoui interface{}
+    Cdot3OamEventLogOui interface{}
 
     // The type of event that generated this entry in the event log.  When the OUI
     // is the IEEE 802.3 OUI of 0x0180C2, the following event types are defined:  
@@ -1372,12 +1408,12 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // subtyping is known to the implementation, it may be reflected here.
     // Otherwise, this value should return all Fs (2^32 - 1).  . The type is
     // interface{} with range: 0..4294967295.
-    Cdot3Oameventlogtype interface{}
+    Cdot3OamEventLogType interface{}
 
     // Whether this event occurred locally (local(1)), or was  received from the
     // OAM peer via Ethernet OAM (remote(2)). The type is
-    // Cdot3Oameventloglocation.
-    Cdot3Oameventloglocation interface{}
+    // Cdot3OamEventLogLocation.
+    Cdot3OamEventLogLocation interface{}
 
     // If the event represents a threshold crossing event, the two objects
     // cdot3OamEventWindowHi and cdot3OamEventWindowLo form an unsigned 64-bit
@@ -1388,7 +1424,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // + cdot3OamEventLogWindowLo   Otherwise, this value is returned as all F's
     // (2^32 - 1) and  adds no useful information.  . The type is interface{} with
     // range: 0..4294967295.
-    Cdot3Oameventlogwindowhi interface{}
+    Cdot3OamEventLogWindowHi interface{}
 
     // If the event represents a threshold crossing event, the two objects
     // cdot3OamEventWindowHi and cdot3OamEventWindowLo form an unsigned 64-bit
@@ -1399,7 +1435,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // + cdot3OamEventLogWindowLo  Otherwise, this value is returned as all F's
     // (2^32 - 1) and  adds no useful information.  . The type is interface{} with
     // range: 0..4294967295.
-    Cdot3Oameventlogwindowlo interface{}
+    Cdot3OamEventLogWindowLo interface{}
 
     // If the event represents a threshold crossing event, the two objects
     // cdot3OamEventThresholdHi and cdot3OamEventThresholdLo form an unsigned
@@ -1410,7 +1446,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // + cdot3OamEventLogThresholdLo  Otherwise, this value is returned as all F's
     // (2^32 -1) and  adds no useful information.  . The type is interface{} with
     // range: 0..4294967295.
-    Cdot3Oameventlogthresholdhi interface{}
+    Cdot3OamEventLogThresholdHi interface{}
 
     // If the event represents a threshold crossing event, the two objects
     // cdot3OamEventThresholdHi and cdot3OamEventThresholdLo form an unsigned
@@ -1421,7 +1457,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // + cdot3OamEventLogThresholdLo  Otherwise, this value is returned as all F's
     // (2^32 - 1) and adds no useful information.  . The type is interface{} with
     // range: 0..4294967295.
-    Cdot3Oameventlogthresholdlo interface{}
+    Cdot3OamEventLogThresholdLo interface{}
 
     // If the event represents a threshold crossing event, this value indicates
     // the value of the parameter within the given window that generated this
@@ -1429,7 +1465,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // threshold was 10).    Otherwise, this value is returned as all F's  (2^64 -
     // 1) and adds no useful information.  . The type is interface{} with range:
     // 0..18446744073709551615.
-    Cdot3Oameventlogvalue interface{}
+    Cdot3OamEventLogValue interface{}
 
     // Each Event Notification TLV contains a running total of the number of times
     // an event has occurred, as well as the number of times an Event Notification
@@ -1443,7 +1479,7 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // last reset, which has resulted in 51 symbol error threshold crossing events
     // since the last reset).  . The type is interface{} with range:
     // 0..18446744073709551615.
-    Cdot3Oameventlogrunningtotal interface{}
+    Cdot3OamEventLogRunningTotal interface{}
 
     // Each Event Notification TLV contains a running total of the number of times
     // an event has occurred, as well as the number of times an Event Notification
@@ -1457,43 +1493,46 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     // have occurred since the last reset, which has resulted in 51 symbol error
     // threshold crossing events since the last reset).  . The type is interface{}
     // with range: 0..4294967295.
-    Cdot3Oameventlogeventtotal interface{}
+    Cdot3OamEventLogEventTotal interface{}
 }
 
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetEntityData() *types.CommonEntityData {
-    cdot3Oameventlogentry.EntityData.YFilter = cdot3Oameventlogentry.YFilter
-    cdot3Oameventlogentry.EntityData.YangName = "cdot3OamEventLogEntry"
-    cdot3Oameventlogentry.EntityData.BundleName = "cisco_ios_xe"
-    cdot3Oameventlogentry.EntityData.ParentYangName = "cdot3OamEventLogTable"
-    cdot3Oameventlogentry.EntityData.SegmentPath = "cdot3OamEventLogEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oameventlogentry.Ifindex) + "']" + "[cdot3OamEventLogIndex='" + fmt.Sprintf("%v", cdot3Oameventlogentry.Cdot3Oameventlogindex) + "']"
-    cdot3Oameventlogentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdot3Oameventlogentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdot3Oameventlogentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdot3OamEventLogEntry *CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry) GetEntityData() *types.CommonEntityData {
+    cdot3OamEventLogEntry.EntityData.YFilter = cdot3OamEventLogEntry.YFilter
+    cdot3OamEventLogEntry.EntityData.YangName = "cdot3OamEventLogEntry"
+    cdot3OamEventLogEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3OamEventLogEntry.EntityData.ParentYangName = "cdot3OamEventLogTable"
+    cdot3OamEventLogEntry.EntityData.SegmentPath = "cdot3OamEventLogEntry" + types.AddKeyToken(cdot3OamEventLogEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdot3OamEventLogEntry.Cdot3OamEventLogIndex, "cdot3OamEventLogIndex")
+    cdot3OamEventLogEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3OamEventLogEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3OamEventLogEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdot3Oameventlogentry.EntityData.Children = make(map[string]types.YChild)
-    cdot3Oameventlogentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdot3Oameventlogentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oameventlogentry.Ifindex}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogIndex"] = types.YLeaf{"Cdot3Oameventlogindex", cdot3Oameventlogentry.Cdot3Oameventlogindex}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogTimestamp"] = types.YLeaf{"Cdot3Oameventlogtimestamp", cdot3Oameventlogentry.Cdot3Oameventlogtimestamp}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogOui"] = types.YLeaf{"Cdot3Oameventlogoui", cdot3Oameventlogentry.Cdot3Oameventlogoui}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogType"] = types.YLeaf{"Cdot3Oameventlogtype", cdot3Oameventlogentry.Cdot3Oameventlogtype}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogLocation"] = types.YLeaf{"Cdot3Oameventloglocation", cdot3Oameventlogentry.Cdot3Oameventloglocation}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogWindowHi"] = types.YLeaf{"Cdot3Oameventlogwindowhi", cdot3Oameventlogentry.Cdot3Oameventlogwindowhi}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogWindowLo"] = types.YLeaf{"Cdot3Oameventlogwindowlo", cdot3Oameventlogentry.Cdot3Oameventlogwindowlo}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogThresholdHi"] = types.YLeaf{"Cdot3Oameventlogthresholdhi", cdot3Oameventlogentry.Cdot3Oameventlogthresholdhi}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogThresholdLo"] = types.YLeaf{"Cdot3Oameventlogthresholdlo", cdot3Oameventlogentry.Cdot3Oameventlogthresholdlo}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogValue"] = types.YLeaf{"Cdot3Oameventlogvalue", cdot3Oameventlogentry.Cdot3Oameventlogvalue}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogRunningTotal"] = types.YLeaf{"Cdot3Oameventlogrunningtotal", cdot3Oameventlogentry.Cdot3Oameventlogrunningtotal}
-    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogEventTotal"] = types.YLeaf{"Cdot3Oameventlogeventtotal", cdot3Oameventlogentry.Cdot3Oameventlogeventtotal}
-    return &(cdot3Oameventlogentry.EntityData)
+    cdot3OamEventLogEntry.EntityData.Children = types.NewOrderedMap()
+    cdot3OamEventLogEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cdot3OamEventLogEntry.IfIndex})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogIndex", types.YLeaf{"Cdot3OamEventLogIndex", cdot3OamEventLogEntry.Cdot3OamEventLogIndex})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogTimestamp", types.YLeaf{"Cdot3OamEventLogTimestamp", cdot3OamEventLogEntry.Cdot3OamEventLogTimestamp})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogOui", types.YLeaf{"Cdot3OamEventLogOui", cdot3OamEventLogEntry.Cdot3OamEventLogOui})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogType", types.YLeaf{"Cdot3OamEventLogType", cdot3OamEventLogEntry.Cdot3OamEventLogType})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogLocation", types.YLeaf{"Cdot3OamEventLogLocation", cdot3OamEventLogEntry.Cdot3OamEventLogLocation})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogWindowHi", types.YLeaf{"Cdot3OamEventLogWindowHi", cdot3OamEventLogEntry.Cdot3OamEventLogWindowHi})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogWindowLo", types.YLeaf{"Cdot3OamEventLogWindowLo", cdot3OamEventLogEntry.Cdot3OamEventLogWindowLo})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogThresholdHi", types.YLeaf{"Cdot3OamEventLogThresholdHi", cdot3OamEventLogEntry.Cdot3OamEventLogThresholdHi})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogThresholdLo", types.YLeaf{"Cdot3OamEventLogThresholdLo", cdot3OamEventLogEntry.Cdot3OamEventLogThresholdLo})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogValue", types.YLeaf{"Cdot3OamEventLogValue", cdot3OamEventLogEntry.Cdot3OamEventLogValue})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogRunningTotal", types.YLeaf{"Cdot3OamEventLogRunningTotal", cdot3OamEventLogEntry.Cdot3OamEventLogRunningTotal})
+    cdot3OamEventLogEntry.EntityData.Leafs.Append("cdot3OamEventLogEventTotal", types.YLeaf{"Cdot3OamEventLogEventTotal", cdot3OamEventLogEntry.Cdot3OamEventLogEventTotal})
+
+    cdot3OamEventLogEntry.EntityData.YListKeys = []string {"IfIndex", "Cdot3OamEventLogIndex"}
+
+    return &(cdot3OamEventLogEntry.EntityData)
 }
 
-// CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry_Cdot3Oameventloglocation represents received from the OAM peer via Ethernet OAM (remote(2)).
-type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry_Cdot3Oameventloglocation string
+// CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry_Cdot3OamEventLogLocation represents received from the OAM peer via Ethernet OAM (remote(2)).
+type CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry_Cdot3OamEventLogLocation string
 
 const (
-    CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry_Cdot3Oameventloglocation_local CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry_Cdot3Oameventloglocation = "local"
+    CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry_Cdot3OamEventLogLocation_local CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry_Cdot3OamEventLogLocation = "local"
 
-    CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry_Cdot3Oameventloglocation_remote CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry_Cdot3Oameventloglocation = "remote"
+    CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry_Cdot3OamEventLogLocation_remote CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry_Cdot3OamEventLogLocation = "remote"
 )
 

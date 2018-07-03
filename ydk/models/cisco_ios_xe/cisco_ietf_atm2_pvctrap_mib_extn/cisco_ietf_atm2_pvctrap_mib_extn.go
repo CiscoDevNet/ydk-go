@@ -25,13 +25,13 @@ type CISCOIETFATM2PVCTRAPMIBEXTN struct {
     // A table indicating all VCLs for which there is an active row in the
     // atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to
     // have changed in the last PVC notification interval.
-    Atmcurrentstatuschangepvcltable CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable
+    AtmCurrentStatusChangePVclTable CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable
 
     // A table indicating more than one VCLs in a consecutive  range and for each
     // VCL there is an active row in the  atmVclTable having an atmVclConnKind
     // value of `pvc' and atmVclOperStatus to have changed in the same direction
     // in the last PVC notification interval.
-    Atmstatuschangepvclrangetable CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable
+    AtmStatusChangePVclRangeTable CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable
 }
 
 func (cISCOIETFATM2PVCTRAPMIBEXTN *CISCOIETFATM2PVCTRAPMIBEXTN) GetEntityData() *types.CommonEntityData {
@@ -44,19 +44,22 @@ func (cISCOIETFATM2PVCTRAPMIBEXTN *CISCOIETFATM2PVCTRAPMIBEXTN) GetEntityData() 
     cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.Children = make(map[string]types.YChild)
-    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.Children["atmCurrentStatusChangePVclTable"] = types.YChild{"Atmcurrentstatuschangepvcltable", &cISCOIETFATM2PVCTRAPMIBEXTN.Atmcurrentstatuschangepvcltable}
-    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.Children["atmStatusChangePVclRangeTable"] = types.YChild{"Atmstatuschangepvclrangetable", &cISCOIETFATM2PVCTRAPMIBEXTN.Atmstatuschangepvclrangetable}
-    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.Children = types.NewOrderedMap()
+    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.Children.Append("atmCurrentStatusChangePVclTable", types.YChild{"AtmCurrentStatusChangePVclTable", &cISCOIETFATM2PVCTRAPMIBEXTN.AtmCurrentStatusChangePVclTable})
+    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.Children.Append("atmStatusChangePVclRangeTable", types.YChild{"AtmStatusChangePVclRangeTable", &cISCOIETFATM2PVCTRAPMIBEXTN.AtmStatusChangePVclRangeTable})
+    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.YListKeys = []string {}
+
     return &(cISCOIETFATM2PVCTRAPMIBEXTN.EntityData)
 }
 
-// CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable
+// CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable
 // A table indicating all VCLs for which there is an
 // active row in the atmVclTable having an atmVclConnKind
 // value of `pvc' and atmVclOperStatus to have changed in the
 // last PVC notification interval.
-type CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable struct {
+type CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -64,92 +67,98 @@ type CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable struct {
     // in the atmVclTable having an atmVclConnKind value of `pvc' and
     // atmVclOperStatus to have changed in the last PVC notification interval. The
     // type is slice of
-    // CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable_Atmcurrentstatuschangepvclentry.
-    Atmcurrentstatuschangepvclentry []CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable_Atmcurrentstatuschangepvclentry
+    // CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable_AtmCurrentStatusChangePVclEntry.
+    AtmCurrentStatusChangePVclEntry []*CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable_AtmCurrentStatusChangePVclEntry
 }
 
-func (atmcurrentstatuschangepvcltable *CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable) GetEntityData() *types.CommonEntityData {
-    atmcurrentstatuschangepvcltable.EntityData.YFilter = atmcurrentstatuschangepvcltable.YFilter
-    atmcurrentstatuschangepvcltable.EntityData.YangName = "atmCurrentStatusChangePVclTable"
-    atmcurrentstatuschangepvcltable.EntityData.BundleName = "cisco_ios_xe"
-    atmcurrentstatuschangepvcltable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
-    atmcurrentstatuschangepvcltable.EntityData.SegmentPath = "atmCurrentStatusChangePVclTable"
-    atmcurrentstatuschangepvcltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmcurrentstatuschangepvcltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmcurrentstatuschangepvcltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmCurrentStatusChangePVclTable *CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable) GetEntityData() *types.CommonEntityData {
+    atmCurrentStatusChangePVclTable.EntityData.YFilter = atmCurrentStatusChangePVclTable.YFilter
+    atmCurrentStatusChangePVclTable.EntityData.YangName = "atmCurrentStatusChangePVclTable"
+    atmCurrentStatusChangePVclTable.EntityData.BundleName = "cisco_ios_xe"
+    atmCurrentStatusChangePVclTable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
+    atmCurrentStatusChangePVclTable.EntityData.SegmentPath = "atmCurrentStatusChangePVclTable"
+    atmCurrentStatusChangePVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmCurrentStatusChangePVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmCurrentStatusChangePVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmcurrentstatuschangepvcltable.EntityData.Children = make(map[string]types.YChild)
-    atmcurrentstatuschangepvcltable.EntityData.Children["atmCurrentStatusChangePVclEntry"] = types.YChild{"Atmcurrentstatuschangepvclentry", nil}
-    for i := range atmcurrentstatuschangepvcltable.Atmcurrentstatuschangepvclentry {
-        atmcurrentstatuschangepvcltable.EntityData.Children[types.GetSegmentPath(&atmcurrentstatuschangepvcltable.Atmcurrentstatuschangepvclentry[i])] = types.YChild{"Atmcurrentstatuschangepvclentry", &atmcurrentstatuschangepvcltable.Atmcurrentstatuschangepvclentry[i]}
+    atmCurrentStatusChangePVclTable.EntityData.Children = types.NewOrderedMap()
+    atmCurrentStatusChangePVclTable.EntityData.Children.Append("atmCurrentStatusChangePVclEntry", types.YChild{"AtmCurrentStatusChangePVclEntry", nil})
+    for i := range atmCurrentStatusChangePVclTable.AtmCurrentStatusChangePVclEntry {
+        atmCurrentStatusChangePVclTable.EntityData.Children.Append(types.GetSegmentPath(atmCurrentStatusChangePVclTable.AtmCurrentStatusChangePVclEntry[i]), types.YChild{"AtmCurrentStatusChangePVclEntry", atmCurrentStatusChangePVclTable.AtmCurrentStatusChangePVclEntry[i]})
     }
-    atmcurrentstatuschangepvcltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atmcurrentstatuschangepvcltable.EntityData)
+    atmCurrentStatusChangePVclTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmCurrentStatusChangePVclTable.EntityData.YListKeys = []string {}
+
+    return &(atmCurrentStatusChangePVclTable.EntityData)
 }
 
-// CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable_Atmcurrentstatuschangepvclentry
+// CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable_AtmCurrentStatusChangePVclEntry
 // Each entry in the table represents a VCL for which
 // there is an active row in the atmVclTable having an
 // atmVclConnKind value of `pvc' and atmVclOperStatus
 // to have changed in the last PVC notification interval.
-type CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable_Atmcurrentstatuschangepvclentry struct {
+type CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable_AtmCurrentStatusChangePVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvci
-    Atmvclvci interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVci
+    AtmVclVci interface{}
 
     // The number of state transitions that has happened  on this PVCL in the last
     // notification interval. The type is interface{} with range: 0..4294967295.
-    Atmpvclstatustransition interface{}
+    AtmPVclStatusTransition interface{}
 
     // The time stamp at which this PVCL changed state for the first time in  the
     // last notification interval. The type is interface{} with range:
     // 0..4294967295.
-    Atmpvclstatuschangestart interface{}
+    AtmPVclStatusChangeStart interface{}
 
     // The time stamp of the last state change of this PVCL in the last
     // notification interval. The type is interface{} with range: 0..4294967295.
-    Atmpvclstatuschangeend interface{}
+    AtmPVclStatusChangeEnd interface{}
 }
 
-func (atmcurrentstatuschangepvclentry *CISCOIETFATM2PVCTRAPMIBEXTN_Atmcurrentstatuschangepvcltable_Atmcurrentstatuschangepvclentry) GetEntityData() *types.CommonEntityData {
-    atmcurrentstatuschangepvclentry.EntityData.YFilter = atmcurrentstatuschangepvclentry.YFilter
-    atmcurrentstatuschangepvclentry.EntityData.YangName = "atmCurrentStatusChangePVclEntry"
-    atmcurrentstatuschangepvclentry.EntityData.BundleName = "cisco_ios_xe"
-    atmcurrentstatuschangepvclentry.EntityData.ParentYangName = "atmCurrentStatusChangePVclTable"
-    atmcurrentstatuschangepvclentry.EntityData.SegmentPath = "atmCurrentStatusChangePVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmcurrentstatuschangepvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", atmcurrentstatuschangepvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", atmcurrentstatuschangepvclentry.Atmvclvci) + "']"
-    atmcurrentstatuschangepvclentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmcurrentstatuschangepvclentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmcurrentstatuschangepvclentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmCurrentStatusChangePVclEntry *CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable_AtmCurrentStatusChangePVclEntry) GetEntityData() *types.CommonEntityData {
+    atmCurrentStatusChangePVclEntry.EntityData.YFilter = atmCurrentStatusChangePVclEntry.YFilter
+    atmCurrentStatusChangePVclEntry.EntityData.YangName = "atmCurrentStatusChangePVclEntry"
+    atmCurrentStatusChangePVclEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmCurrentStatusChangePVclEntry.EntityData.ParentYangName = "atmCurrentStatusChangePVclTable"
+    atmCurrentStatusChangePVclEntry.EntityData.SegmentPath = "atmCurrentStatusChangePVclEntry" + types.AddKeyToken(atmCurrentStatusChangePVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmCurrentStatusChangePVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(atmCurrentStatusChangePVclEntry.AtmVclVci, "atmVclVci")
+    atmCurrentStatusChangePVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmCurrentStatusChangePVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmCurrentStatusChangePVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmcurrentstatuschangepvclentry.EntityData.Children = make(map[string]types.YChild)
-    atmcurrentstatuschangepvclentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmcurrentstatuschangepvclentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atmcurrentstatuschangepvclentry.Ifindex}
-    atmcurrentstatuschangepvclentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", atmcurrentstatuschangepvclentry.Atmvclvpi}
-    atmcurrentstatuschangepvclentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", atmcurrentstatuschangepvclentry.Atmvclvci}
-    atmcurrentstatuschangepvclentry.EntityData.Leafs["atmPVclStatusTransition"] = types.YLeaf{"Atmpvclstatustransition", atmcurrentstatuschangepvclentry.Atmpvclstatustransition}
-    atmcurrentstatuschangepvclentry.EntityData.Leafs["atmPVclStatusChangeStart"] = types.YLeaf{"Atmpvclstatuschangestart", atmcurrentstatuschangepvclentry.Atmpvclstatuschangestart}
-    atmcurrentstatuschangepvclentry.EntityData.Leafs["atmPVclStatusChangeEnd"] = types.YLeaf{"Atmpvclstatuschangeend", atmcurrentstatuschangepvclentry.Atmpvclstatuschangeend}
-    return &(atmcurrentstatuschangepvclentry.EntityData)
+    atmCurrentStatusChangePVclEntry.EntityData.Children = types.NewOrderedMap()
+    atmCurrentStatusChangePVclEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmCurrentStatusChangePVclEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", atmCurrentStatusChangePVclEntry.IfIndex})
+    atmCurrentStatusChangePVclEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", atmCurrentStatusChangePVclEntry.AtmVclVpi})
+    atmCurrentStatusChangePVclEntry.EntityData.Leafs.Append("atmVclVci", types.YLeaf{"AtmVclVci", atmCurrentStatusChangePVclEntry.AtmVclVci})
+    atmCurrentStatusChangePVclEntry.EntityData.Leafs.Append("atmPVclStatusTransition", types.YLeaf{"AtmPVclStatusTransition", atmCurrentStatusChangePVclEntry.AtmPVclStatusTransition})
+    atmCurrentStatusChangePVclEntry.EntityData.Leafs.Append("atmPVclStatusChangeStart", types.YLeaf{"AtmPVclStatusChangeStart", atmCurrentStatusChangePVclEntry.AtmPVclStatusChangeStart})
+    atmCurrentStatusChangePVclEntry.EntityData.Leafs.Append("atmPVclStatusChangeEnd", types.YLeaf{"AtmPVclStatusChangeEnd", atmCurrentStatusChangePVclEntry.AtmPVclStatusChangeEnd})
+
+    atmCurrentStatusChangePVclEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "AtmVclVci"}
+
+    return &(atmCurrentStatusChangePVclEntry.EntityData)
 }
 
-// CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable
+// CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable
 // A table indicating more than one VCLs in a consecutive 
 // range and for each VCL there is an active row in the 
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and atmVclOperStatus to have changed in the same
 // direction in the last PVC notification interval.
-type CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable struct {
+type CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -157,92 +166,98 @@ type CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and atmVclOperStatus to have changed in the same direction in the last
     // notification  interval. The type is slice of
-    // CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable_Atmstatuschangepvclrangeentry.
-    Atmstatuschangepvclrangeentry []CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable_Atmstatuschangepvclrangeentry
+    // CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable_AtmStatusChangePVclRangeEntry.
+    AtmStatusChangePVclRangeEntry []*CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable_AtmStatusChangePVclRangeEntry
 }
 
-func (atmstatuschangepvclrangetable *CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable) GetEntityData() *types.CommonEntityData {
-    atmstatuschangepvclrangetable.EntityData.YFilter = atmstatuschangepvclrangetable.YFilter
-    atmstatuschangepvclrangetable.EntityData.YangName = "atmStatusChangePVclRangeTable"
-    atmstatuschangepvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    atmstatuschangepvclrangetable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
-    atmstatuschangepvclrangetable.EntityData.SegmentPath = "atmStatusChangePVclRangeTable"
-    atmstatuschangepvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmstatuschangepvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmstatuschangepvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmStatusChangePVclRangeTable *CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable) GetEntityData() *types.CommonEntityData {
+    atmStatusChangePVclRangeTable.EntityData.YFilter = atmStatusChangePVclRangeTable.YFilter
+    atmStatusChangePVclRangeTable.EntityData.YangName = "atmStatusChangePVclRangeTable"
+    atmStatusChangePVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    atmStatusChangePVclRangeTable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
+    atmStatusChangePVclRangeTable.EntityData.SegmentPath = "atmStatusChangePVclRangeTable"
+    atmStatusChangePVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmStatusChangePVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmStatusChangePVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmstatuschangepvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    atmstatuschangepvclrangetable.EntityData.Children["atmStatusChangePVclRangeEntry"] = types.YChild{"Atmstatuschangepvclrangeentry", nil}
-    for i := range atmstatuschangepvclrangetable.Atmstatuschangepvclrangeentry {
-        atmstatuschangepvclrangetable.EntityData.Children[types.GetSegmentPath(&atmstatuschangepvclrangetable.Atmstatuschangepvclrangeentry[i])] = types.YChild{"Atmstatuschangepvclrangeentry", &atmstatuschangepvclrangetable.Atmstatuschangepvclrangeentry[i]}
+    atmStatusChangePVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    atmStatusChangePVclRangeTable.EntityData.Children.Append("atmStatusChangePVclRangeEntry", types.YChild{"AtmStatusChangePVclRangeEntry", nil})
+    for i := range atmStatusChangePVclRangeTable.AtmStatusChangePVclRangeEntry {
+        atmStatusChangePVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(atmStatusChangePVclRangeTable.AtmStatusChangePVclRangeEntry[i]), types.YChild{"AtmStatusChangePVclRangeEntry", atmStatusChangePVclRangeTable.AtmStatusChangePVclRangeEntry[i]})
     }
-    atmstatuschangepvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atmstatuschangepvclrangetable.EntityData)
+    atmStatusChangePVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmStatusChangePVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(atmStatusChangePVclRangeTable.EntityData)
 }
 
-// CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable_Atmstatuschangepvclrangeentry
+// CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable_AtmStatusChangePVclRangeEntry
 // Each entry in this table represents a range of VCLs and 
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and atmVclOperStatus to have
 // changed in the same direction in the last notification 
 // interval.
-type CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable_Atmstatuschangepvclrangeentry struct {
+type CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable_AtmStatusChangePVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. Index to represent different ranges, the first
     // range is  indexed by value 0, the second by 1 and so on... The type is
     // interface{} with range: 0..4294967295.
-    Rangeindex interface{}
+    RangeIndex interface{}
 
     // The first PVCL in a range of PVcls for which the  atmVclOperStatus to have
     // changed in the last  notification interval. The type is interface{} with
     // range: 0..65536.
-    Atmpvcllowerrangevalue interface{}
+    AtmPVclLowerRangeValue interface{}
 
     // The last PVCL in a range of PVcls for which the  atmOperStatus to have
     // changed in the last  notification interval. The type is interface{} with
     // range: 0..65536.
-    Atmpvclhigherrangevalue interface{}
+    AtmPVclHigherRangeValue interface{}
 
     // The time stamp at which the first PVCL in the range changed state in the
     // last notification interval. The type is interface{} with range:
     // 0..4294967295.
-    Atmpvclrangestatuschangestart interface{}
+    AtmPVclRangeStatusChangeStart interface{}
 
     // The time stamp at which the last PVCL in the range changed state in the
     // last notification interval. The type is interface{} with range:
     // 0..4294967295.
-    Atmpvclrangestatuschangeend interface{}
+    AtmPVclRangeStatusChangeEnd interface{}
 }
 
-func (atmstatuschangepvclrangeentry *CISCOIETFATM2PVCTRAPMIBEXTN_Atmstatuschangepvclrangetable_Atmstatuschangepvclrangeentry) GetEntityData() *types.CommonEntityData {
-    atmstatuschangepvclrangeentry.EntityData.YFilter = atmstatuschangepvclrangeentry.YFilter
-    atmstatuschangepvclrangeentry.EntityData.YangName = "atmStatusChangePVclRangeEntry"
-    atmstatuschangepvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    atmstatuschangepvclrangeentry.EntityData.ParentYangName = "atmStatusChangePVclRangeTable"
-    atmstatuschangepvclrangeentry.EntityData.SegmentPath = "atmStatusChangePVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmstatuschangepvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", atmstatuschangepvclrangeentry.Atmvclvpi) + "']" + "[rangeIndex='" + fmt.Sprintf("%v", atmstatuschangepvclrangeentry.Rangeindex) + "']"
-    atmstatuschangepvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmstatuschangepvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmstatuschangepvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmStatusChangePVclRangeEntry *CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable_AtmStatusChangePVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    atmStatusChangePVclRangeEntry.EntityData.YFilter = atmStatusChangePVclRangeEntry.YFilter
+    atmStatusChangePVclRangeEntry.EntityData.YangName = "atmStatusChangePVclRangeEntry"
+    atmStatusChangePVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmStatusChangePVclRangeEntry.EntityData.ParentYangName = "atmStatusChangePVclRangeTable"
+    atmStatusChangePVclRangeEntry.EntityData.SegmentPath = "atmStatusChangePVclRangeEntry" + types.AddKeyToken(atmStatusChangePVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmStatusChangePVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(atmStatusChangePVclRangeEntry.RangeIndex, "rangeIndex")
+    atmStatusChangePVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmStatusChangePVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmStatusChangePVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmstatuschangepvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    atmstatuschangepvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmstatuschangepvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atmstatuschangepvclrangeentry.Ifindex}
-    atmstatuschangepvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", atmstatuschangepvclrangeentry.Atmvclvpi}
-    atmstatuschangepvclrangeentry.EntityData.Leafs["rangeIndex"] = types.YLeaf{"Rangeindex", atmstatuschangepvclrangeentry.Rangeindex}
-    atmstatuschangepvclrangeentry.EntityData.Leafs["atmPVclLowerRangeValue"] = types.YLeaf{"Atmpvcllowerrangevalue", atmstatuschangepvclrangeentry.Atmpvcllowerrangevalue}
-    atmstatuschangepvclrangeentry.EntityData.Leafs["atmPVclHigherRangeValue"] = types.YLeaf{"Atmpvclhigherrangevalue", atmstatuschangepvclrangeentry.Atmpvclhigherrangevalue}
-    atmstatuschangepvclrangeentry.EntityData.Leafs["atmPVclRangeStatusChangeStart"] = types.YLeaf{"Atmpvclrangestatuschangestart", atmstatuschangepvclrangeentry.Atmpvclrangestatuschangestart}
-    atmstatuschangepvclrangeentry.EntityData.Leafs["atmPVclRangeStatusChangeEnd"] = types.YLeaf{"Atmpvclrangestatuschangeend", atmstatuschangepvclrangeentry.Atmpvclrangestatuschangeend}
-    return &(atmstatuschangepvclrangeentry.EntityData)
+    atmStatusChangePVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    atmStatusChangePVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmStatusChangePVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", atmStatusChangePVclRangeEntry.IfIndex})
+    atmStatusChangePVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", atmStatusChangePVclRangeEntry.AtmVclVpi})
+    atmStatusChangePVclRangeEntry.EntityData.Leafs.Append("rangeIndex", types.YLeaf{"RangeIndex", atmStatusChangePVclRangeEntry.RangeIndex})
+    atmStatusChangePVclRangeEntry.EntityData.Leafs.Append("atmPVclLowerRangeValue", types.YLeaf{"AtmPVclLowerRangeValue", atmStatusChangePVclRangeEntry.AtmPVclLowerRangeValue})
+    atmStatusChangePVclRangeEntry.EntityData.Leafs.Append("atmPVclHigherRangeValue", types.YLeaf{"AtmPVclHigherRangeValue", atmStatusChangePVclRangeEntry.AtmPVclHigherRangeValue})
+    atmStatusChangePVclRangeEntry.EntityData.Leafs.Append("atmPVclRangeStatusChangeStart", types.YLeaf{"AtmPVclRangeStatusChangeStart", atmStatusChangePVclRangeEntry.AtmPVclRangeStatusChangeStart})
+    atmStatusChangePVclRangeEntry.EntityData.Leafs.Append("atmPVclRangeStatusChangeEnd", types.YLeaf{"AtmPVclRangeStatusChangeEnd", atmStatusChangePVclRangeEntry.AtmPVclRangeStatusChangeEnd})
+
+    atmStatusChangePVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "RangeIndex"}
+
+    return &(atmStatusChangePVclRangeEntry.EntityData)
 }
 

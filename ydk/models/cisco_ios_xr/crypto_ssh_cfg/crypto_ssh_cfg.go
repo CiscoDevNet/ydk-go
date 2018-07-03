@@ -47,10 +47,13 @@ func (ssh *Ssh) GetEntityData() *types.CommonEntityData {
     ssh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssh.EntityData.Children = make(map[string]types.YChild)
-    ssh.EntityData.Children["client"] = types.YChild{"Client", &ssh.Client}
-    ssh.EntityData.Children["server"] = types.YChild{"Server", &ssh.Server}
-    ssh.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssh.EntityData.Children = types.NewOrderedMap()
+    ssh.EntityData.Children.Append("client", types.YChild{"Client", &ssh.Client})
+    ssh.EntityData.Children.Append("server", types.YChild{"Server", &ssh.Server})
+    ssh.EntityData.Leafs = types.NewOrderedMap()
+
+    ssh.EntityData.YListKeys = []string {}
+
     return &(ssh.EntityData)
 }
 
@@ -76,7 +79,7 @@ type Ssh_Client struct {
     RekeyTime interface{}
 
     // Source interface for ssh client sessions. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // Cisco sshd DSCP value. The type is interface{} with range: 0..63.
@@ -99,16 +102,19 @@ func (client *Ssh_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    client.EntityData.Children = make(map[string]types.YChild)
-    client.EntityData.Children["client-algo"] = types.YChild{"ClientAlgo", &client.ClientAlgo}
-    client.EntityData.Children["client-enable"] = types.YChild{"ClientEnable", &client.ClientEnable}
-    client.EntityData.Leafs = make(map[string]types.YLeaf)
-    client.EntityData.Leafs["rekey-volume"] = types.YLeaf{"RekeyVolume", client.RekeyVolume}
-    client.EntityData.Leafs["host-public-key"] = types.YLeaf{"HostPublicKey", client.HostPublicKey}
-    client.EntityData.Leafs["client-vrf"] = types.YLeaf{"ClientVrf", client.ClientVrf}
-    client.EntityData.Leafs["rekey-time"] = types.YLeaf{"RekeyTime", client.RekeyTime}
-    client.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", client.SourceInterface}
-    client.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", client.Dscp}
+    client.EntityData.Children = types.NewOrderedMap()
+    client.EntityData.Children.Append("client-algo", types.YChild{"ClientAlgo", &client.ClientAlgo})
+    client.EntityData.Children.Append("client-enable", types.YChild{"ClientEnable", &client.ClientEnable})
+    client.EntityData.Leafs = types.NewOrderedMap()
+    client.EntityData.Leafs.Append("rekey-volume", types.YLeaf{"RekeyVolume", client.RekeyVolume})
+    client.EntityData.Leafs.Append("host-public-key", types.YLeaf{"HostPublicKey", client.HostPublicKey})
+    client.EntityData.Leafs.Append("client-vrf", types.YLeaf{"ClientVrf", client.ClientVrf})
+    client.EntityData.Leafs.Append("rekey-time", types.YLeaf{"RekeyTime", client.RekeyTime})
+    client.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", client.SourceInterface})
+    client.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", client.Dscp})
+
+    client.EntityData.YListKeys = []string {}
+
     return &(client.EntityData)
 }
 
@@ -119,7 +125,7 @@ type Ssh_Client_ClientAlgo struct {
     YFilter yfilter.YFilter
 
     // Key exchange algorithm.
-    KeyExchange Ssh_Client_ClientAlgo_KeyExchange
+    KeyExchanges Ssh_Client_ClientAlgo_KeyExchanges
 }
 
 func (clientAlgo *Ssh_Client_ClientAlgo) GetEntityData() *types.CommonEntityData {
@@ -132,54 +138,42 @@ func (clientAlgo *Ssh_Client_ClientAlgo) GetEntityData() *types.CommonEntityData
     clientAlgo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientAlgo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientAlgo.EntityData.Children = make(map[string]types.YChild)
-    clientAlgo.EntityData.Children["key-exchange"] = types.YChild{"KeyExchange", &clientAlgo.KeyExchange}
-    clientAlgo.EntityData.Leafs = make(map[string]types.YLeaf)
+    clientAlgo.EntityData.Children = types.NewOrderedMap()
+    clientAlgo.EntityData.Children.Append("key-exchanges", types.YChild{"KeyExchanges", &clientAlgo.KeyExchanges})
+    clientAlgo.EntityData.Leafs = types.NewOrderedMap()
+
+    clientAlgo.EntityData.YListKeys = []string {}
+
     return &(clientAlgo.EntityData)
 }
 
-// Ssh_Client_ClientAlgo_KeyExchange
+// Ssh_Client_ClientAlgo_KeyExchanges
 // Key exchange algorithm
-// This type is a presence type.
-type Ssh_Client_ClientAlgo_KeyExchange struct {
+type Ssh_Client_ClientAlgo_KeyExchanges struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // key exchange algorithm. The type is string with length: 1..32. This
-    // attribute is mandatory.
-    KexAlgo1St interface{}
-
-    // key exchange algorithm. The type is string with length: 1..32.
-    KexAlgo2Nd interface{}
-
-    // key exchange algorithm. The type is string with length: 1..32.
-    KexAlgo3Rd interface{}
-
-    // key exchange algorithm. The type is string with length: 1..32.
-    KexAlgo4Th interface{}
-
-    // key exchange algorithm. The type is string with length: 1..32.
-    KexAlgo5Th interface{}
+    // key exchange algorithm. The type is slice of string with length: 1..32.
+    KeyExchange []interface{}
 }
 
-func (keyExchange *Ssh_Client_ClientAlgo_KeyExchange) GetEntityData() *types.CommonEntityData {
-    keyExchange.EntityData.YFilter = keyExchange.YFilter
-    keyExchange.EntityData.YangName = "key-exchange"
-    keyExchange.EntityData.BundleName = "cisco_ios_xr"
-    keyExchange.EntityData.ParentYangName = "client-algo"
-    keyExchange.EntityData.SegmentPath = "key-exchange"
-    keyExchange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    keyExchange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    keyExchange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (keyExchanges *Ssh_Client_ClientAlgo_KeyExchanges) GetEntityData() *types.CommonEntityData {
+    keyExchanges.EntityData.YFilter = keyExchanges.YFilter
+    keyExchanges.EntityData.YangName = "key-exchanges"
+    keyExchanges.EntityData.BundleName = "cisco_ios_xr"
+    keyExchanges.EntityData.ParentYangName = "client-algo"
+    keyExchanges.EntityData.SegmentPath = "key-exchanges"
+    keyExchanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keyExchanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keyExchanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyExchange.EntityData.Children = make(map[string]types.YChild)
-    keyExchange.EntityData.Leafs = make(map[string]types.YLeaf)
-    keyExchange.EntityData.Leafs["kex-algo1st"] = types.YLeaf{"KexAlgo1St", keyExchange.KexAlgo1St}
-    keyExchange.EntityData.Leafs["kex-algo2nd"] = types.YLeaf{"KexAlgo2Nd", keyExchange.KexAlgo2Nd}
-    keyExchange.EntityData.Leafs["kex-algo3rd"] = types.YLeaf{"KexAlgo3Rd", keyExchange.KexAlgo3Rd}
-    keyExchange.EntityData.Leafs["kex-algo4th"] = types.YLeaf{"KexAlgo4Th", keyExchange.KexAlgo4Th}
-    keyExchange.EntityData.Leafs["kex-algo5th"] = types.YLeaf{"KexAlgo5Th", keyExchange.KexAlgo5Th}
-    return &(keyExchange.EntityData)
+    keyExchanges.EntityData.Children = types.NewOrderedMap()
+    keyExchanges.EntityData.Leafs = types.NewOrderedMap()
+    keyExchanges.EntityData.Leafs.Append("key-exchange", types.YLeaf{"KeyExchange", keyExchanges.KeyExchange})
+
+    keyExchanges.EntityData.YListKeys = []string {}
+
+    return &(keyExchanges.EntityData)
 }
 
 // Ssh_Client_ClientEnable
@@ -202,9 +196,12 @@ func (clientEnable *Ssh_Client_ClientEnable) GetEntityData() *types.CommonEntity
     clientEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientEnable.EntityData.Children = make(map[string]types.YChild)
-    clientEnable.EntityData.Children["client-cipher"] = types.YChild{"ClientCipher", &clientEnable.ClientCipher}
-    clientEnable.EntityData.Leafs = make(map[string]types.YLeaf)
+    clientEnable.EntityData.Children = types.NewOrderedMap()
+    clientEnable.EntityData.Children.Append("client-cipher", types.YChild{"ClientCipher", &clientEnable.ClientCipher})
+    clientEnable.EntityData.Leafs = types.NewOrderedMap()
+
+    clientEnable.EntityData.YListKeys = []string {}
+
     return &(clientEnable.EntityData)
 }
 
@@ -229,9 +226,12 @@ func (clientCipher *Ssh_Client_ClientEnable_ClientCipher) GetEntityData() *types
     clientCipher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientCipher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientCipher.EntityData.Children = make(map[string]types.YChild)
-    clientCipher.EntityData.Leafs = make(map[string]types.YLeaf)
-    clientCipher.EntityData.Leafs["aescbc"] = types.YLeaf{"Aescbc", clientCipher.Aescbc}
+    clientCipher.EntityData.Children = types.NewOrderedMap()
+    clientCipher.EntityData.Leafs = types.NewOrderedMap()
+    clientCipher.EntityData.Leafs.Append("aescbc", types.YLeaf{"Aescbc", clientCipher.Aescbc})
+
+    clientCipher.EntityData.YListKeys = []string {}
+
     return &(clientCipher.EntityData)
 }
 
@@ -303,23 +303,26 @@ func (server *Ssh_Server) GetEntityData() *types.CommonEntityData {
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Children["disable"] = types.YChild{"Disable", &server.Disable}
-    server.EntityData.Children["enable"] = types.YChild{"Enable", &server.Enable}
-    server.EntityData.Children["vrf-table"] = types.YChild{"VrfTable", &server.VrfTable}
-    server.EntityData.Children["server-algo"] = types.YChild{"ServerAlgo", &server.ServerAlgo}
-    server.EntityData.Children["capability"] = types.YChild{"Capability", &server.Capability}
-    server.EntityData.Children["netconf-vrf-table"] = types.YChild{"NetconfVrfTable", &server.NetconfVrfTable}
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
-    server.EntityData.Leafs["rekey-volume"] = types.YLeaf{"RekeyVolume", server.RekeyVolume}
-    server.EntityData.Leafs["session-limit"] = types.YLeaf{"SessionLimit", server.SessionLimit}
-    server.EntityData.Leafs["netconf"] = types.YLeaf{"Netconf", server.Netconf}
-    server.EntityData.Leafs["v2"] = types.YLeaf{"V2", server.V2}
-    server.EntityData.Leafs["rekey-time"] = types.YLeaf{"RekeyTime", server.RekeyTime}
-    server.EntityData.Leafs["logging"] = types.YLeaf{"Logging", server.Logging}
-    server.EntityData.Leafs["rate-limit"] = types.YLeaf{"RateLimit", server.RateLimit}
-    server.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", server.Timeout}
-    server.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", server.Dscp}
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Children.Append("disable", types.YChild{"Disable", &server.Disable})
+    server.EntityData.Children.Append("enable", types.YChild{"Enable", &server.Enable})
+    server.EntityData.Children.Append("vrf-table", types.YChild{"VrfTable", &server.VrfTable})
+    server.EntityData.Children.Append("server-algo", types.YChild{"ServerAlgo", &server.ServerAlgo})
+    server.EntityData.Children.Append("capability", types.YChild{"Capability", &server.Capability})
+    server.EntityData.Children.Append("netconf-vrf-table", types.YChild{"NetconfVrfTable", &server.NetconfVrfTable})
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("rekey-volume", types.YLeaf{"RekeyVolume", server.RekeyVolume})
+    server.EntityData.Leafs.Append("session-limit", types.YLeaf{"SessionLimit", server.SessionLimit})
+    server.EntityData.Leafs.Append("netconf", types.YLeaf{"Netconf", server.Netconf})
+    server.EntityData.Leafs.Append("v2", types.YLeaf{"V2", server.V2})
+    server.EntityData.Leafs.Append("rekey-time", types.YLeaf{"RekeyTime", server.RekeyTime})
+    server.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", server.Logging})
+    server.EntityData.Leafs.Append("rate-limit", types.YLeaf{"RateLimit", server.RateLimit})
+    server.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", server.Timeout})
+    server.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", server.Dscp})
+
+    server.EntityData.YListKeys = []string {}
+
     return &(server.EntityData)
 }
 
@@ -343,9 +346,12 @@ func (disable *Ssh_Server_Disable) GetEntityData() *types.CommonEntityData {
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    disable.EntityData.Children = make(map[string]types.YChild)
-    disable.EntityData.Children["hmac"] = types.YChild{"Hmac", &disable.Hmac}
-    disable.EntityData.Leafs = make(map[string]types.YLeaf)
+    disable.EntityData.Children = types.NewOrderedMap()
+    disable.EntityData.Children.Append("hmac", types.YChild{"Hmac", &disable.Hmac})
+    disable.EntityData.Leafs = types.NewOrderedMap()
+
+    disable.EntityData.YListKeys = []string {}
+
     return &(disable.EntityData)
 }
 
@@ -370,9 +376,12 @@ func (hmac *Ssh_Server_Disable_Hmac) GetEntityData() *types.CommonEntityData {
     hmac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hmac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hmac.EntityData.Children = make(map[string]types.YChild)
-    hmac.EntityData.Leafs = make(map[string]types.YLeaf)
-    hmac.EntityData.Leafs["hmac-sha512"] = types.YLeaf{"HmacSha512", hmac.HmacSha512}
+    hmac.EntityData.Children = types.NewOrderedMap()
+    hmac.EntityData.Leafs = types.NewOrderedMap()
+    hmac.EntityData.Leafs.Append("hmac-sha512", types.YLeaf{"HmacSha512", hmac.HmacSha512})
+
+    hmac.EntityData.YListKeys = []string {}
+
     return &(hmac.EntityData)
 }
 
@@ -396,9 +405,12 @@ func (enable *Ssh_Server_Enable) GetEntityData() *types.CommonEntityData {
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    enable.EntityData.Children = make(map[string]types.YChild)
-    enable.EntityData.Children["cipher"] = types.YChild{"Cipher", &enable.Cipher}
-    enable.EntityData.Leafs = make(map[string]types.YLeaf)
+    enable.EntityData.Children = types.NewOrderedMap()
+    enable.EntityData.Children.Append("cipher", types.YChild{"Cipher", &enable.Cipher})
+    enable.EntityData.Leafs = types.NewOrderedMap()
+
+    enable.EntityData.YListKeys = []string {}
+
     return &(enable.EntityData)
 }
 
@@ -422,9 +434,12 @@ func (cipher *Ssh_Server_Enable_Cipher) GetEntityData() *types.CommonEntityData 
     cipher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cipher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cipher.EntityData.Children = make(map[string]types.YChild)
-    cipher.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipher.EntityData.Leafs["aescbc"] = types.YLeaf{"Aescbc", cipher.Aescbc}
+    cipher.EntityData.Children = types.NewOrderedMap()
+    cipher.EntityData.Leafs = types.NewOrderedMap()
+    cipher.EntityData.Leafs.Append("aescbc", types.YLeaf{"Aescbc", cipher.Aescbc})
+
+    cipher.EntityData.YListKeys = []string {}
+
     return &(cipher.EntityData)
 }
 
@@ -435,7 +450,7 @@ type Ssh_Server_VrfTable struct {
     YFilter yfilter.YFilter
 
     // Enter VRF name. The type is slice of Ssh_Server_VrfTable_Vrf.
-    Vrf []Ssh_Server_VrfTable_Vrf
+    Vrf []*Ssh_Server_VrfTable_Vrf
 }
 
 func (vrfTable *Ssh_Server_VrfTable) GetEntityData() *types.CommonEntityData {
@@ -448,12 +463,15 @@ func (vrfTable *Ssh_Server_VrfTable) GetEntityData() *types.CommonEntityData {
     vrfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfTable.EntityData.Children = make(map[string]types.YChild)
-    vrfTable.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfTable.EntityData.Children = types.NewOrderedMap()
+    vrfTable.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfTable.Vrf {
-        vrfTable.EntityData.Children[types.GetSegmentPath(&vrfTable.Vrf[i])] = types.YChild{"Vrf", &vrfTable.Vrf[i]}
+        vrfTable.EntityData.Children.Append(types.GetSegmentPath(vrfTable.Vrf[i]), types.YChild{"Vrf", vrfTable.Vrf[i]})
     }
-    vrfTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfTable.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfTable.EntityData.YListKeys = []string {}
+
     return &(vrfTable.EntityData)
 }
 
@@ -482,17 +500,20 @@ func (vrf *Ssh_Server_VrfTable_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrf-table"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["enable"] = types.YLeaf{"Enable", vrf.Enable}
-    vrf.EntityData.Leafs["ipv4-access-list"] = types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList}
-    vrf.EntityData.Leafs["ipv6-access-list"] = types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrf.Enable})
+    vrf.EntityData.Leafs.Append("ipv4-access-list", types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList})
+    vrf.EntityData.Leafs.Append("ipv6-access-list", types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -503,7 +524,7 @@ type Ssh_Server_ServerAlgo struct {
     YFilter yfilter.YFilter
 
     // Key exchange algorithm.
-    KeyExchange Ssh_Server_ServerAlgo_KeyExchange
+    KeyExchanges Ssh_Server_ServerAlgo_KeyExchanges
 }
 
 func (serverAlgo *Ssh_Server_ServerAlgo) GetEntityData() *types.CommonEntityData {
@@ -516,54 +537,42 @@ func (serverAlgo *Ssh_Server_ServerAlgo) GetEntityData() *types.CommonEntityData
     serverAlgo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverAlgo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serverAlgo.EntityData.Children = make(map[string]types.YChild)
-    serverAlgo.EntityData.Children["key-exchange"] = types.YChild{"KeyExchange", &serverAlgo.KeyExchange}
-    serverAlgo.EntityData.Leafs = make(map[string]types.YLeaf)
+    serverAlgo.EntityData.Children = types.NewOrderedMap()
+    serverAlgo.EntityData.Children.Append("key-exchanges", types.YChild{"KeyExchanges", &serverAlgo.KeyExchanges})
+    serverAlgo.EntityData.Leafs = types.NewOrderedMap()
+
+    serverAlgo.EntityData.YListKeys = []string {}
+
     return &(serverAlgo.EntityData)
 }
 
-// Ssh_Server_ServerAlgo_KeyExchange
+// Ssh_Server_ServerAlgo_KeyExchanges
 // Key exchange algorithm
-// This type is a presence type.
-type Ssh_Server_ServerAlgo_KeyExchange struct {
+type Ssh_Server_ServerAlgo_KeyExchanges struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // key exchange algorithm. The type is string with length: 1..32. This
-    // attribute is mandatory.
-    KexAlgo1St interface{}
-
-    // key exchange algorithm. The type is string with length: 1..32.
-    KexAlgo2Nd interface{}
-
-    // key exchange algorithm. The type is string with length: 1..32.
-    KexAlgo3Rd interface{}
-
-    // key exchange algorithm. The type is string with length: 1..32.
-    KexAlgo4Th interface{}
-
-    // key exchange algorithm. The type is string with length: 1..32.
-    KexAlgo5Th interface{}
+    // key exchange algorithm. The type is slice of string with length: 1..32.
+    KeyExchange []interface{}
 }
 
-func (keyExchange *Ssh_Server_ServerAlgo_KeyExchange) GetEntityData() *types.CommonEntityData {
-    keyExchange.EntityData.YFilter = keyExchange.YFilter
-    keyExchange.EntityData.YangName = "key-exchange"
-    keyExchange.EntityData.BundleName = "cisco_ios_xr"
-    keyExchange.EntityData.ParentYangName = "server-algo"
-    keyExchange.EntityData.SegmentPath = "key-exchange"
-    keyExchange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    keyExchange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    keyExchange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (keyExchanges *Ssh_Server_ServerAlgo_KeyExchanges) GetEntityData() *types.CommonEntityData {
+    keyExchanges.EntityData.YFilter = keyExchanges.YFilter
+    keyExchanges.EntityData.YangName = "key-exchanges"
+    keyExchanges.EntityData.BundleName = "cisco_ios_xr"
+    keyExchanges.EntityData.ParentYangName = "server-algo"
+    keyExchanges.EntityData.SegmentPath = "key-exchanges"
+    keyExchanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keyExchanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keyExchanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keyExchange.EntityData.Children = make(map[string]types.YChild)
-    keyExchange.EntityData.Leafs = make(map[string]types.YLeaf)
-    keyExchange.EntityData.Leafs["kex-algo1st"] = types.YLeaf{"KexAlgo1St", keyExchange.KexAlgo1St}
-    keyExchange.EntityData.Leafs["kex-algo2nd"] = types.YLeaf{"KexAlgo2Nd", keyExchange.KexAlgo2Nd}
-    keyExchange.EntityData.Leafs["kex-algo3rd"] = types.YLeaf{"KexAlgo3Rd", keyExchange.KexAlgo3Rd}
-    keyExchange.EntityData.Leafs["kex-algo4th"] = types.YLeaf{"KexAlgo4Th", keyExchange.KexAlgo4Th}
-    keyExchange.EntityData.Leafs["kex-algo5th"] = types.YLeaf{"KexAlgo5Th", keyExchange.KexAlgo5Th}
-    return &(keyExchange.EntityData)
+    keyExchanges.EntityData.Children = types.NewOrderedMap()
+    keyExchanges.EntityData.Leafs = types.NewOrderedMap()
+    keyExchanges.EntityData.Leafs.Append("key-exchange", types.YLeaf{"KeyExchange", keyExchanges.KeyExchange})
+
+    keyExchanges.EntityData.YListKeys = []string {}
+
+    return &(keyExchanges.EntityData)
 }
 
 // Ssh_Server_Capability
@@ -587,9 +596,12 @@ func (capability *Ssh_Server_Capability) GetEntityData() *types.CommonEntityData
     capability.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capability.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    capability.EntityData.Children = make(map[string]types.YChild)
-    capability.EntityData.Leafs = make(map[string]types.YLeaf)
-    capability.EntityData.Leafs["netconf-xml"] = types.YLeaf{"NetconfXml", capability.NetconfXml}
+    capability.EntityData.Children = types.NewOrderedMap()
+    capability.EntityData.Leafs = types.NewOrderedMap()
+    capability.EntityData.Leafs.Append("netconf-xml", types.YLeaf{"NetconfXml", capability.NetconfXml})
+
+    capability.EntityData.YListKeys = []string {}
+
     return &(capability.EntityData)
 }
 
@@ -600,7 +612,7 @@ type Ssh_Server_NetconfVrfTable struct {
     YFilter yfilter.YFilter
 
     // Enter VRF name. The type is slice of Ssh_Server_NetconfVrfTable_Vrf.
-    Vrf []Ssh_Server_NetconfVrfTable_Vrf
+    Vrf []*Ssh_Server_NetconfVrfTable_Vrf
 }
 
 func (netconfVrfTable *Ssh_Server_NetconfVrfTable) GetEntityData() *types.CommonEntityData {
@@ -613,12 +625,15 @@ func (netconfVrfTable *Ssh_Server_NetconfVrfTable) GetEntityData() *types.Common
     netconfVrfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfVrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconfVrfTable.EntityData.Children = make(map[string]types.YChild)
-    netconfVrfTable.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    netconfVrfTable.EntityData.Children = types.NewOrderedMap()
+    netconfVrfTable.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range netconfVrfTable.Vrf {
-        netconfVrfTable.EntityData.Children[types.GetSegmentPath(&netconfVrfTable.Vrf[i])] = types.YChild{"Vrf", &netconfVrfTable.Vrf[i]}
+        netconfVrfTable.EntityData.Children.Append(types.GetSegmentPath(netconfVrfTable.Vrf[i]), types.YChild{"Vrf", netconfVrfTable.Vrf[i]})
     }
-    netconfVrfTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconfVrfTable.EntityData.Leafs = types.NewOrderedMap()
+
+    netconfVrfTable.EntityData.YListKeys = []string {}
+
     return &(netconfVrfTable.EntityData)
 }
 
@@ -647,17 +662,20 @@ func (vrf *Ssh_Server_NetconfVrfTable_Vrf) GetEntityData() *types.CommonEntityDa
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "netconf-vrf-table"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["enable"] = types.YLeaf{"Enable", vrf.Enable}
-    vrf.EntityData.Leafs["ipv4-access-list"] = types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList}
-    vrf.EntityData.Leafs["ipv6-access-list"] = types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrf.Enable})
+    vrf.EntityData.Leafs.Append("ipv4-access-list", types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList})
+    vrf.EntityData.Leafs.Append("ipv6-access-list", types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 

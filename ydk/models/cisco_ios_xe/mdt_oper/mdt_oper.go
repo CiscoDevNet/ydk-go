@@ -19,23 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-mdt-oper:mdt-oper-data", reflect.TypeOf(MdtOperData{}))
 }
 
-// MdtSubType represents Subscription types
-type MdtSubType string
-
-const (
-    // Dynamic subscriptions
-    // -do not survive reboot
-    // -existence tied to connection they are created on
-    // -send updates only to peer that creates them
-    MdtSubType_sub_type_dynamic MdtSubType = "sub-type-dynamic"
-
-    // Static subscriptions
-    // -created, (modified), and deleted by management operations
-    // -survive reboot
-    // -receivers are configured 
-    MdtSubType_sub_type_static MdtSubType = "sub-type-static"
-)
-
 // MdtSubState represents Subscription states
 type MdtSubState string
 
@@ -54,6 +37,42 @@ const (
     // The subscription is invalid. This state is valid
     // only for static subscriptions.
     MdtSubState_sub_state_invalid MdtSubState = "sub-state-invalid"
+)
+
+// MdtConState represents Connection states.
+type MdtConState string
+
+const (
+    // The connection is active and usable.
+    MdtConState_con_state_active MdtConState = "con-state-active"
+
+    // An attempt is being made to set the connection up.
+    MdtConState_con_state_connecting MdtConState = "con-state-connecting"
+
+    // The connection is down, but between connection
+    // attempts. It is in this state, for example, during
+    // the idle time between retries.
+    MdtConState_con_state_pending MdtConState = "con-state-pending"
+
+    // The connection is the process of being disconnected.
+    MdtConState_con_state_disconnecting MdtConState = "con-state-disconnecting"
+)
+
+// MdtSubType represents Subscription types
+type MdtSubType string
+
+const (
+    // Dynamic subscriptions
+    // -do not survive reboot
+    // -existence tied to connection they are created on
+    // -send updates only to peer that creates them
+    MdtSubType_sub_type_dynamic MdtSubType = "sub-type-dynamic"
+
+    // Static subscriptions
+    // -created, (modified), and deleted by management operations
+    // -survive reboot
+    // -receivers are configured 
+    MdtSubType_sub_type_static MdtSubType = "sub-type-static"
 )
 
 // MdtReceiverState represents Receiver states.
@@ -76,25 +95,6 @@ const (
     MdtReceiverState_rcvr_state_connected MdtReceiverState = "rcvr-state-connected"
 )
 
-// MdtConState represents Connection states.
-type MdtConState string
-
-const (
-    // The connection is active and usable.
-    MdtConState_con_state_active MdtConState = "con-state-active"
-
-    // An attempt is being made to set the connection up.
-    MdtConState_con_state_connecting MdtConState = "con-state-connecting"
-
-    // The connection is down, but between connection
-    // attempts. It is in this state, for example, during
-    // the idle time between retries.
-    MdtConState_con_state_pending MdtConState = "con-state-pending"
-
-    // The connection is the process of being disconnected.
-    MdtConState_con_state_disconnecting MdtConState = "con-state-disconnecting"
-)
-
 // MdtOperData
 // MDT operational data.
 type MdtOperData struct {
@@ -106,11 +106,11 @@ type MdtOperData struct {
 
     // MDT subscription operational data. The type is slice of
     // MdtOperData_MdtSubscriptions.
-    MdtSubscriptions []MdtOperData_MdtSubscriptions
+    MdtSubscriptions []*MdtOperData_MdtSubscriptions
 
     // MDT subscription connection operational data. The type is slice of
     // MdtOperData_MdtConnections.
-    MdtConnections []MdtOperData_MdtConnections
+    MdtConnections []*MdtOperData_MdtConnections
 }
 
 func (mdtOperData *MdtOperData) GetEntityData() *types.CommonEntityData {
@@ -123,17 +123,20 @@ func (mdtOperData *MdtOperData) GetEntityData() *types.CommonEntityData {
     mdtOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtOperData.EntityData.Children = make(map[string]types.YChild)
-    mdtOperData.EntityData.Children["mdt-streams"] = types.YChild{"MdtStreams", &mdtOperData.MdtStreams}
-    mdtOperData.EntityData.Children["mdt-subscriptions"] = types.YChild{"MdtSubscriptions", nil}
+    mdtOperData.EntityData.Children = types.NewOrderedMap()
+    mdtOperData.EntityData.Children.Append("mdt-streams", types.YChild{"MdtStreams", &mdtOperData.MdtStreams})
+    mdtOperData.EntityData.Children.Append("mdt-subscriptions", types.YChild{"MdtSubscriptions", nil})
     for i := range mdtOperData.MdtSubscriptions {
-        mdtOperData.EntityData.Children[types.GetSegmentPath(&mdtOperData.MdtSubscriptions[i])] = types.YChild{"MdtSubscriptions", &mdtOperData.MdtSubscriptions[i]}
+        mdtOperData.EntityData.Children.Append(types.GetSegmentPath(mdtOperData.MdtSubscriptions[i]), types.YChild{"MdtSubscriptions", mdtOperData.MdtSubscriptions[i]})
     }
-    mdtOperData.EntityData.Children["mdt-connections"] = types.YChild{"MdtConnections", nil}
+    mdtOperData.EntityData.Children.Append("mdt-connections", types.YChild{"MdtConnections", nil})
     for i := range mdtOperData.MdtConnections {
-        mdtOperData.EntityData.Children[types.GetSegmentPath(&mdtOperData.MdtConnections[i])] = types.YChild{"MdtConnections", &mdtOperData.MdtConnections[i]}
+        mdtOperData.EntityData.Children.Append(types.GetSegmentPath(mdtOperData.MdtConnections[i]), types.YChild{"MdtConnections", mdtOperData.MdtConnections[i]})
     }
-    mdtOperData.EntityData.Leafs = make(map[string]types.YLeaf)
+    mdtOperData.EntityData.Leafs = types.NewOrderedMap()
+
+    mdtOperData.EntityData.YListKeys = []string {}
+
     return &(mdtOperData.EntityData)
 }
 
@@ -157,9 +160,12 @@ func (mdtStreams *MdtOperData_MdtStreams) GetEntityData() *types.CommonEntityDat
     mdtStreams.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtStreams.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtStreams.EntityData.Children = make(map[string]types.YChild)
-    mdtStreams.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtStreams.EntityData.Leafs["stream"] = types.YLeaf{"Stream", mdtStreams.Stream}
+    mdtStreams.EntityData.Children = types.NewOrderedMap()
+    mdtStreams.EntityData.Leafs = types.NewOrderedMap()
+    mdtStreams.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", mdtStreams.Stream})
+
+    mdtStreams.EntityData.YListKeys = []string {}
+
     return &(mdtStreams.EntityData)
 }
 
@@ -174,7 +180,7 @@ type MdtOperData_MdtSubscriptions struct {
     SubscriptionId interface{}
 
     // Subscription type. The type is MdtSubType.
-    Type_ interface{}
+    Type interface{}
 
     // Subscription state. The type is MdtSubState.
     State interface{}
@@ -199,7 +205,7 @@ type MdtOperData_MdtSubscriptions struct {
 
     // List of MDT receivers. The type is slice of
     // MdtOperData_MdtSubscriptions_MdtReceivers.
-    MdtReceivers []MdtOperData_MdtSubscriptions_MdtReceivers
+    MdtReceivers []*MdtOperData_MdtSubscriptions_MdtReceivers
 }
 
 func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetEntityData() *types.CommonEntityData {
@@ -207,25 +213,28 @@ func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetEntityData() *types.Com
     mdtSubscriptions.EntityData.YangName = "mdt-subscriptions"
     mdtSubscriptions.EntityData.BundleName = "cisco_ios_xe"
     mdtSubscriptions.EntityData.ParentYangName = "mdt-oper-data"
-    mdtSubscriptions.EntityData.SegmentPath = "mdt-subscriptions" + "[subscription-id='" + fmt.Sprintf("%v", mdtSubscriptions.SubscriptionId) + "']"
+    mdtSubscriptions.EntityData.SegmentPath = "mdt-subscriptions" + types.AddKeyToken(mdtSubscriptions.SubscriptionId, "subscription-id")
     mdtSubscriptions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtSubscriptions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtSubscriptions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtSubscriptions.EntityData.Children = make(map[string]types.YChild)
-    mdtSubscriptions.EntityData.Children["base"] = types.YChild{"Base", &mdtSubscriptions.Base}
-    mdtSubscriptions.EntityData.Children["mdt-receivers"] = types.YChild{"MdtReceivers", nil}
+    mdtSubscriptions.EntityData.Children = types.NewOrderedMap()
+    mdtSubscriptions.EntityData.Children.Append("base", types.YChild{"Base", &mdtSubscriptions.Base})
+    mdtSubscriptions.EntityData.Children.Append("mdt-receivers", types.YChild{"MdtReceivers", nil})
     for i := range mdtSubscriptions.MdtReceivers {
-        mdtSubscriptions.EntityData.Children[types.GetSegmentPath(&mdtSubscriptions.MdtReceivers[i])] = types.YChild{"MdtReceivers", &mdtSubscriptions.MdtReceivers[i]}
+        mdtSubscriptions.EntityData.Children.Append(types.GetSegmentPath(mdtSubscriptions.MdtReceivers[i]), types.YChild{"MdtReceivers", mdtSubscriptions.MdtReceivers[i]})
     }
-    mdtSubscriptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtSubscriptions.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", mdtSubscriptions.SubscriptionId}
-    mdtSubscriptions.EntityData.Leafs["type"] = types.YLeaf{"Type_", mdtSubscriptions.Type_}
-    mdtSubscriptions.EntityData.Leafs["state"] = types.YLeaf{"State", mdtSubscriptions.State}
-    mdtSubscriptions.EntityData.Leafs["comments"] = types.YLeaf{"Comments", mdtSubscriptions.Comments}
-    mdtSubscriptions.EntityData.Leafs["updates-in"] = types.YLeaf{"UpdatesIn", mdtSubscriptions.UpdatesIn}
-    mdtSubscriptions.EntityData.Leafs["updates-dampened"] = types.YLeaf{"UpdatesDampened", mdtSubscriptions.UpdatesDampened}
-    mdtSubscriptions.EntityData.Leafs["updates-dropped"] = types.YLeaf{"UpdatesDropped", mdtSubscriptions.UpdatesDropped}
+    mdtSubscriptions.EntityData.Leafs = types.NewOrderedMap()
+    mdtSubscriptions.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", mdtSubscriptions.SubscriptionId})
+    mdtSubscriptions.EntityData.Leafs.Append("type", types.YLeaf{"Type", mdtSubscriptions.Type})
+    mdtSubscriptions.EntityData.Leafs.Append("state", types.YLeaf{"State", mdtSubscriptions.State})
+    mdtSubscriptions.EntityData.Leafs.Append("comments", types.YLeaf{"Comments", mdtSubscriptions.Comments})
+    mdtSubscriptions.EntityData.Leafs.Append("updates-in", types.YLeaf{"UpdatesIn", mdtSubscriptions.UpdatesIn})
+    mdtSubscriptions.EntityData.Leafs.Append("updates-dampened", types.YLeaf{"UpdatesDampened", mdtSubscriptions.UpdatesDampened})
+    mdtSubscriptions.EntityData.Leafs.Append("updates-dropped", types.YLeaf{"UpdatesDropped", mdtSubscriptions.UpdatesDropped})
+
+    mdtSubscriptions.EntityData.YListKeys = []string {"SubscriptionId"}
+
     return &(mdtSubscriptions.EntityData)
 }
 
@@ -248,9 +257,9 @@ type MdtOperData_MdtSubscriptions_Base struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Placeholder for unset value. The type is interface{} with range:
@@ -294,19 +303,22 @@ func (base *MdtOperData_MdtSubscriptions_Base) GetEntityData() *types.CommonEnti
     base.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     base.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    base.EntityData.Children = make(map[string]types.YChild)
-    base.EntityData.Leafs = make(map[string]types.YLeaf)
-    base.EntityData.Leafs["stream"] = types.YLeaf{"Stream", base.Stream}
-    base.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", base.Encoding}
-    base.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", base.SourceVrf}
-    base.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", base.SourceAddress}
-    base.EntityData.Leafs["no-trigger"] = types.YLeaf{"NoTrigger", base.NoTrigger}
-    base.EntityData.Leafs["period"] = types.YLeaf{"Period", base.Period}
-    base.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", base.NoSynchOnStart}
-    base.EntityData.Leafs["no-filter"] = types.YLeaf{"NoFilter", base.NoFilter}
-    base.EntityData.Leafs["xpath"] = types.YLeaf{"Xpath", base.Xpath}
-    base.EntityData.Leafs["tdl-uri"] = types.YLeaf{"TdlUri", base.TdlUri}
-    base.EntityData.Leafs["transform-name"] = types.YLeaf{"TransformName", base.TransformName}
+    base.EntityData.Children = types.NewOrderedMap()
+    base.EntityData.Leafs = types.NewOrderedMap()
+    base.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", base.Stream})
+    base.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", base.Encoding})
+    base.EntityData.Leafs.Append("source-vrf", types.YLeaf{"SourceVrf", base.SourceVrf})
+    base.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", base.SourceAddress})
+    base.EntityData.Leafs.Append("no-trigger", types.YLeaf{"NoTrigger", base.NoTrigger})
+    base.EntityData.Leafs.Append("period", types.YLeaf{"Period", base.Period})
+    base.EntityData.Leafs.Append("no-synch-on-start", types.YLeaf{"NoSynchOnStart", base.NoSynchOnStart})
+    base.EntityData.Leafs.Append("no-filter", types.YLeaf{"NoFilter", base.NoFilter})
+    base.EntityData.Leafs.Append("xpath", types.YLeaf{"Xpath", base.Xpath})
+    base.EntityData.Leafs.Append("tdl-uri", types.YLeaf{"TdlUri", base.TdlUri})
+    base.EntityData.Leafs.Append("transform-name", types.YLeaf{"TransformName", base.TransformName})
+
+    base.EntityData.YListKeys = []string {}
+
     return &(base.EntityData)
 }
 
@@ -318,9 +330,9 @@ type MdtOperData_MdtSubscriptions_MdtReceivers struct {
 
     // This attribute is a key. IP address of the receiver. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     Address interface{}
 
@@ -346,19 +358,22 @@ func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetEntityData() *
     mdtReceivers.EntityData.YangName = "mdt-receivers"
     mdtReceivers.EntityData.BundleName = "cisco_ios_xe"
     mdtReceivers.EntityData.ParentYangName = "mdt-subscriptions"
-    mdtReceivers.EntityData.SegmentPath = "mdt-receivers" + "[address='" + fmt.Sprintf("%v", mdtReceivers.Address) + "']" + "[port='" + fmt.Sprintf("%v", mdtReceivers.Port) + "']"
+    mdtReceivers.EntityData.SegmentPath = "mdt-receivers" + types.AddKeyToken(mdtReceivers.Address, "address") + types.AddKeyToken(mdtReceivers.Port, "port")
     mdtReceivers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtReceivers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtReceivers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtReceivers.EntityData.Children = make(map[string]types.YChild)
-    mdtReceivers.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtReceivers.EntityData.Leafs["address"] = types.YLeaf{"Address", mdtReceivers.Address}
-    mdtReceivers.EntityData.Leafs["port"] = types.YLeaf{"Port", mdtReceivers.Port}
-    mdtReceivers.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", mdtReceivers.Protocol}
-    mdtReceivers.EntityData.Leafs["state"] = types.YLeaf{"State", mdtReceivers.State}
-    mdtReceivers.EntityData.Leafs["comments"] = types.YLeaf{"Comments", mdtReceivers.Comments}
-    mdtReceivers.EntityData.Leafs["security-profile"] = types.YLeaf{"SecurityProfile", mdtReceivers.SecurityProfile}
+    mdtReceivers.EntityData.Children = types.NewOrderedMap()
+    mdtReceivers.EntityData.Leafs = types.NewOrderedMap()
+    mdtReceivers.EntityData.Leafs.Append("address", types.YLeaf{"Address", mdtReceivers.Address})
+    mdtReceivers.EntityData.Leafs.Append("port", types.YLeaf{"Port", mdtReceivers.Port})
+    mdtReceivers.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", mdtReceivers.Protocol})
+    mdtReceivers.EntityData.Leafs.Append("state", types.YLeaf{"State", mdtReceivers.State})
+    mdtReceivers.EntityData.Leafs.Append("comments", types.YLeaf{"Comments", mdtReceivers.Comments})
+    mdtReceivers.EntityData.Leafs.Append("security-profile", types.YLeaf{"SecurityProfile", mdtReceivers.SecurityProfile})
+
+    mdtReceivers.EntityData.YListKeys = []string {"Address", "Port"}
+
     return &(mdtReceivers.EntityData)
 }
 
@@ -370,9 +385,9 @@ type MdtOperData_MdtConnections struct {
 
     // This attribute is a key. IP address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Network port. The type is interface{} with range:
@@ -385,9 +400,9 @@ type MdtOperData_MdtConnections struct {
 
     // This attribute is a key. The source address used for the connection. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Transport protocol on this connection See transport-protocol from
@@ -406,7 +421,7 @@ type MdtOperData_MdtConnections struct {
 
     // List of subscription specific statistics for this connection. The type is
     // slice of MdtOperData_MdtConnections_MdtSubConStats.
-    MdtSubConStats []MdtOperData_MdtConnections_MdtSubConStats
+    MdtSubConStats []*MdtOperData_MdtConnections_MdtSubConStats
 }
 
 func (mdtConnections *MdtOperData_MdtConnections) GetEntityData() *types.CommonEntityData {
@@ -414,25 +429,28 @@ func (mdtConnections *MdtOperData_MdtConnections) GetEntityData() *types.CommonE
     mdtConnections.EntityData.YangName = "mdt-connections"
     mdtConnections.EntityData.BundleName = "cisco_ios_xe"
     mdtConnections.EntityData.ParentYangName = "mdt-oper-data"
-    mdtConnections.EntityData.SegmentPath = "mdt-connections" + "[address='" + fmt.Sprintf("%v", mdtConnections.Address) + "']" + "[port='" + fmt.Sprintf("%v", mdtConnections.Port) + "']" + "[source-vrf='" + fmt.Sprintf("%v", mdtConnections.SourceVrf) + "']" + "[source-address='" + fmt.Sprintf("%v", mdtConnections.SourceAddress) + "']"
+    mdtConnections.EntityData.SegmentPath = "mdt-connections" + types.AddKeyToken(mdtConnections.Address, "address") + types.AddKeyToken(mdtConnections.Port, "port") + types.AddKeyToken(mdtConnections.SourceVrf, "source-vrf") + types.AddKeyToken(mdtConnections.SourceAddress, "source-address")
     mdtConnections.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtConnections.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtConnections.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtConnections.EntityData.Children = make(map[string]types.YChild)
-    mdtConnections.EntityData.Children["mdt-sub-con-stats"] = types.YChild{"MdtSubConStats", nil}
+    mdtConnections.EntityData.Children = types.NewOrderedMap()
+    mdtConnections.EntityData.Children.Append("mdt-sub-con-stats", types.YChild{"MdtSubConStats", nil})
     for i := range mdtConnections.MdtSubConStats {
-        mdtConnections.EntityData.Children[types.GetSegmentPath(&mdtConnections.MdtSubConStats[i])] = types.YChild{"MdtSubConStats", &mdtConnections.MdtSubConStats[i]}
+        mdtConnections.EntityData.Children.Append(types.GetSegmentPath(mdtConnections.MdtSubConStats[i]), types.YChild{"MdtSubConStats", mdtConnections.MdtSubConStats[i]})
     }
-    mdtConnections.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtConnections.EntityData.Leafs["address"] = types.YLeaf{"Address", mdtConnections.Address}
-    mdtConnections.EntityData.Leafs["port"] = types.YLeaf{"Port", mdtConnections.Port}
-    mdtConnections.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", mdtConnections.SourceVrf}
-    mdtConnections.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", mdtConnections.SourceAddress}
-    mdtConnections.EntityData.Leafs["transport"] = types.YLeaf{"Transport", mdtConnections.Transport}
-    mdtConnections.EntityData.Leafs["peer-id"] = types.YLeaf{"PeerId", mdtConnections.PeerId}
-    mdtConnections.EntityData.Leafs["state"] = types.YLeaf{"State", mdtConnections.State}
-    mdtConnections.EntityData.Leafs["security-profile"] = types.YLeaf{"SecurityProfile", mdtConnections.SecurityProfile}
+    mdtConnections.EntityData.Leafs = types.NewOrderedMap()
+    mdtConnections.EntityData.Leafs.Append("address", types.YLeaf{"Address", mdtConnections.Address})
+    mdtConnections.EntityData.Leafs.Append("port", types.YLeaf{"Port", mdtConnections.Port})
+    mdtConnections.EntityData.Leafs.Append("source-vrf", types.YLeaf{"SourceVrf", mdtConnections.SourceVrf})
+    mdtConnections.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", mdtConnections.SourceAddress})
+    mdtConnections.EntityData.Leafs.Append("transport", types.YLeaf{"Transport", mdtConnections.Transport})
+    mdtConnections.EntityData.Leafs.Append("peer-id", types.YLeaf{"PeerId", mdtConnections.PeerId})
+    mdtConnections.EntityData.Leafs.Append("state", types.YLeaf{"State", mdtConnections.State})
+    mdtConnections.EntityData.Leafs.Append("security-profile", types.YLeaf{"SecurityProfile", mdtConnections.SecurityProfile})
+
+    mdtConnections.EntityData.YListKeys = []string {"Address", "Port", "SourceVrf", "SourceAddress"}
+
     return &(mdtConnections.EntityData)
 }
 
@@ -462,16 +480,19 @@ func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetEntityData()
     mdtSubConStats.EntityData.YangName = "mdt-sub-con-stats"
     mdtSubConStats.EntityData.BundleName = "cisco_ios_xe"
     mdtSubConStats.EntityData.ParentYangName = "mdt-connections"
-    mdtSubConStats.EntityData.SegmentPath = "mdt-sub-con-stats" + "[sub-id='" + fmt.Sprintf("%v", mdtSubConStats.SubId) + "']"
+    mdtSubConStats.EntityData.SegmentPath = "mdt-sub-con-stats" + types.AddKeyToken(mdtSubConStats.SubId, "sub-id")
     mdtSubConStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtSubConStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtSubConStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtSubConStats.EntityData.Children = make(map[string]types.YChild)
-    mdtSubConStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtSubConStats.EntityData.Leafs["sub-id"] = types.YLeaf{"SubId", mdtSubConStats.SubId}
-    mdtSubConStats.EntityData.Leafs["updates-sent"] = types.YLeaf{"UpdatesSent", mdtSubConStats.UpdatesSent}
-    mdtSubConStats.EntityData.Leafs["updates-dropped"] = types.YLeaf{"UpdatesDropped", mdtSubConStats.UpdatesDropped}
+    mdtSubConStats.EntityData.Children = types.NewOrderedMap()
+    mdtSubConStats.EntityData.Leafs = types.NewOrderedMap()
+    mdtSubConStats.EntityData.Leafs.Append("sub-id", types.YLeaf{"SubId", mdtSubConStats.SubId})
+    mdtSubConStats.EntityData.Leafs.Append("updates-sent", types.YLeaf{"UpdatesSent", mdtSubConStats.UpdatesSent})
+    mdtSubConStats.EntityData.Leafs.Append("updates-dropped", types.YLeaf{"UpdatesDropped", mdtSubConStats.UpdatesDropped})
+
+    mdtSubConStats.EntityData.YListKeys = []string {"SubId"}
+
     return &(mdtSubConStats.EntityData)
 }
 

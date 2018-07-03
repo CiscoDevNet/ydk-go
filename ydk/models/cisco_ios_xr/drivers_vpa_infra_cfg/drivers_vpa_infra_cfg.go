@@ -52,9 +52,12 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareModule.EntityData.Children = make(map[string]types.YChild)
-    hardwareModule.EntityData.Children["nodes"] = types.YChild{"Nodes", &hardwareModule.Nodes}
-    hardwareModule.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareModule.EntityData.Children = types.NewOrderedMap()
+    hardwareModule.EntityData.Children.Append("nodes", types.YChild{"Nodes", &hardwareModule.Nodes})
+    hardwareModule.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareModule.EntityData.YListKeys = []string {}
+
     return &(hardwareModule.EntityData)
 }
 
@@ -66,7 +69,7 @@ type HardwareModule_Nodes struct {
 
     // The identifier for a SPA node. The type is slice of
     // HardwareModule_Nodes_Node.
-    Node []HardwareModule_Nodes_Node
+    Node []*HardwareModule_Nodes_Node
 }
 
 func (nodes *HardwareModule_Nodes) GetEntityData() *types.CommonEntityData {
@@ -79,12 +82,15 @@ func (nodes *HardwareModule_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -95,7 +101,7 @@ type HardwareModule_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. A SPA node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Shutdown a subslot h/w module. The type is HwModuleShutdownPowerMode.
@@ -107,15 +113,18 @@ func (node *HardwareModule_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
-    node.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", node.Shutdown}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+    node.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", node.Shutdown})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 

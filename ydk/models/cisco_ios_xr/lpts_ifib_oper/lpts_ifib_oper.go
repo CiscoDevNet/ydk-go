@@ -44,9 +44,12 @@ func (lptsIfib *LptsIfib) GetEntityData() *types.CommonEntityData {
     lptsIfib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsIfib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lptsIfib.EntityData.Children = make(map[string]types.YChild)
-    lptsIfib.EntityData.Children["nodes"] = types.YChild{"Nodes", &lptsIfib.Nodes}
-    lptsIfib.EntityData.Leafs = make(map[string]types.YLeaf)
+    lptsIfib.EntityData.Children = types.NewOrderedMap()
+    lptsIfib.EntityData.Children.Append("nodes", types.YChild{"Nodes", &lptsIfib.Nodes})
+    lptsIfib.EntityData.Leafs = types.NewOrderedMap()
+
+    lptsIfib.EntityData.YListKeys = []string {}
+
     return &(lptsIfib.EntityData)
 }
 
@@ -57,7 +60,7 @@ type LptsIfib_Nodes struct {
     YFilter yfilter.YFilter
 
     // Per node slice . The type is slice of LptsIfib_Nodes_Node.
-    Node []LptsIfib_Nodes_Node
+    Node []*LptsIfib_Nodes_Node
 }
 
 func (nodes *LptsIfib_Nodes) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (nodes *LptsIfib_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -86,7 +92,7 @@ type LptsIfib_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Slice specific.
@@ -98,15 +104,18 @@ func (node *LptsIfib_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["slice-ids"] = types.YChild{"SliceIds", &node.SliceIds}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("slice-ids", types.YChild{"SliceIds", &node.SliceIds})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -117,7 +126,7 @@ type LptsIfib_Nodes_Node_SliceIds struct {
     YFilter yfilter.YFilter
 
     // slice types. The type is slice of LptsIfib_Nodes_Node_SliceIds_SliceId.
-    SliceId []LptsIfib_Nodes_Node_SliceIds_SliceId
+    SliceId []*LptsIfib_Nodes_Node_SliceIds_SliceId
 }
 
 func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetEntityData() *types.CommonEntityData {
@@ -130,12 +139,15 @@ func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetEntityData() *types.CommonEntit
     sliceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sliceIds.EntityData.Children = make(map[string]types.YChild)
-    sliceIds.EntityData.Children["slice-id"] = types.YChild{"SliceId", nil}
+    sliceIds.EntityData.Children = types.NewOrderedMap()
+    sliceIds.EntityData.Children.Append("slice-id", types.YChild{"SliceId", nil})
     for i := range sliceIds.SliceId {
-        sliceIds.EntityData.Children[types.GetSegmentPath(&sliceIds.SliceId[i])] = types.YChild{"SliceId", &sliceIds.SliceId[i]}
+        sliceIds.EntityData.Children.Append(types.GetSegmentPath(sliceIds.SliceId[i]), types.YChild{"SliceId", sliceIds.SliceId[i]})
     }
-    sliceIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    sliceIds.EntityData.Leafs = types.NewOrderedMap()
+
+    sliceIds.EntityData.YListKeys = []string {}
+
     return &(sliceIds.EntityData)
 }
 
@@ -146,12 +158,12 @@ type LptsIfib_Nodes_Node_SliceIds_SliceId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Type value. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SliceName interface{}
 
     // Data for single pre-ifib entry. The type is slice of
     // LptsIfib_Nodes_Node_SliceIds_SliceId_Entry.
-    Entry []LptsIfib_Nodes_Node_SliceIds_SliceId_Entry
+    Entry []*LptsIfib_Nodes_Node_SliceIds_SliceId_Entry
 }
 
 func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetEntityData() *types.CommonEntityData {
@@ -159,18 +171,21 @@ func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetEntityData() *types.Comm
     sliceId.EntityData.YangName = "slice-id"
     sliceId.EntityData.BundleName = "cisco_ios_xr"
     sliceId.EntityData.ParentYangName = "slice-ids"
-    sliceId.EntityData.SegmentPath = "slice-id" + "[slice-name='" + fmt.Sprintf("%v", sliceId.SliceName) + "']"
+    sliceId.EntityData.SegmentPath = "slice-id" + types.AddKeyToken(sliceId.SliceName, "slice-name")
     sliceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sliceId.EntityData.Children = make(map[string]types.YChild)
-    sliceId.EntityData.Children["entry"] = types.YChild{"Entry", nil}
+    sliceId.EntityData.Children = types.NewOrderedMap()
+    sliceId.EntityData.Children.Append("entry", types.YChild{"Entry", nil})
     for i := range sliceId.Entry {
-        sliceId.EntityData.Children[types.GetSegmentPath(&sliceId.Entry[i])] = types.YChild{"Entry", &sliceId.Entry[i]}
+        sliceId.EntityData.Children.Append(types.GetSegmentPath(sliceId.Entry[i]), types.YChild{"Entry", sliceId.Entry[i]})
     }
-    sliceId.EntityData.Leafs = make(map[string]types.YLeaf)
-    sliceId.EntityData.Leafs["slice-name"] = types.YLeaf{"SliceName", sliceId.SliceName}
+    sliceId.EntityData.Leafs = types.NewOrderedMap()
+    sliceId.EntityData.Leafs.Append("slice-name", types.YLeaf{"SliceName", sliceId.SliceName})
+
+    sliceId.EntityData.YListKeys = []string {"SliceName"}
+
     return &(sliceId.EntityData)
 }
 
@@ -181,7 +196,7 @@ type LptsIfib_Nodes_Node_SliceIds_SliceId_Entry struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single Pre-ifib entry. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     Entry interface{}
 
     // Destination Key Type. The type is string.
@@ -206,10 +221,10 @@ type LptsIfib_Nodes_Node_SliceIds_SliceId_Entry struct {
     Vid interface{}
 
     // Layer 3 Protocol. The type is interface{} with range: 0..4294967295.
-    L3Protocol interface{}
+    L3protocol interface{}
 
     // Layer 4 Protocol. The type is interface{} with range: 0..4294967295.
-    L4Protocol interface{}
+    L4protocol interface{}
 
     // Interface Name. The type is string.
     IntfName interface{}
@@ -268,39 +283,42 @@ func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetEntityData() *types.
     entry.EntityData.YangName = "entry"
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "slice-id"
-    entry.EntityData.SegmentPath = "entry" + "[entry='" + fmt.Sprintf("%v", entry.Entry) + "']"
+    entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Entry, "entry")
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entry.EntityData.Children = make(map[string]types.YChild)
-    entry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entry.EntityData.Leafs["entry"] = types.YLeaf{"Entry", entry.Entry}
-    entry.EntityData.Leafs["destination-type"] = types.YLeaf{"DestinationType", entry.DestinationType}
-    entry.EntityData.Leafs["destination-value"] = types.YLeaf{"DestinationValue", entry.DestinationValue}
-    entry.EntityData.Leafs["source-port"] = types.YLeaf{"SourcePort", entry.SourcePort}
-    entry.EntityData.Leafs["destination-addr"] = types.YLeaf{"DestinationAddr", entry.DestinationAddr}
-    entry.EntityData.Leafs["source-addr"] = types.YLeaf{"SourceAddr", entry.SourceAddr}
-    entry.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", entry.VrfName}
-    entry.EntityData.Leafs["vid"] = types.YLeaf{"Vid", entry.Vid}
-    entry.EntityData.Leafs["l3protocol"] = types.YLeaf{"L3Protocol", entry.L3Protocol}
-    entry.EntityData.Leafs["l4protocol"] = types.YLeaf{"L4Protocol", entry.L4Protocol}
-    entry.EntityData.Leafs["intf-name"] = types.YLeaf{"IntfName", entry.IntfName}
-    entry.EntityData.Leafs["intf-handle"] = types.YLeaf{"IntfHandle", entry.IntfHandle}
-    entry.EntityData.Leafs["is-syn"] = types.YLeaf{"IsSyn", entry.IsSyn}
-    entry.EntityData.Leafs["opcode"] = types.YLeaf{"Opcode", entry.Opcode}
-    entry.EntityData.Leafs["accepts"] = types.YLeaf{"Accepts", entry.Accepts}
-    entry.EntityData.Leafs["drops"] = types.YLeaf{"Drops", entry.Drops}
-    entry.EntityData.Leafs["flow-type"] = types.YLeaf{"FlowType", entry.FlowType}
-    entry.EntityData.Leafs["listener-tag"] = types.YLeaf{"ListenerTag", entry.ListenerTag}
-    entry.EntityData.Leafs["local-flag"] = types.YLeaf{"LocalFlag", entry.LocalFlag}
-    entry.EntityData.Leafs["is-fgid"] = types.YLeaf{"IsFgid", entry.IsFgid}
-    entry.EntityData.Leafs["deliver-list-short"] = types.YLeaf{"DeliverListShort", entry.DeliverListShort}
-    entry.EntityData.Leafs["deliver-list-long"] = types.YLeaf{"DeliverListLong", entry.DeliverListLong}
-    entry.EntityData.Leafs["min-ttl"] = types.YLeaf{"MinTtl", entry.MinTtl}
-    entry.EntityData.Leafs["pending-ifibq-delay"] = types.YLeaf{"PendingIfibqDelay", entry.PendingIfibqDelay}
-    entry.EntityData.Leafs["sl-ifibq-delay"] = types.YLeaf{"SlIfibqDelay", entry.SlIfibqDelay}
-    entry.EntityData.Leafs["ifib-program-time"] = types.YLeaf{"IfibProgramTime", entry.IfibProgramTime}
+    entry.EntityData.Children = types.NewOrderedMap()
+    entry.EntityData.Leafs = types.NewOrderedMap()
+    entry.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", entry.Entry})
+    entry.EntityData.Leafs.Append("destination-type", types.YLeaf{"DestinationType", entry.DestinationType})
+    entry.EntityData.Leafs.Append("destination-value", types.YLeaf{"DestinationValue", entry.DestinationValue})
+    entry.EntityData.Leafs.Append("source-port", types.YLeaf{"SourcePort", entry.SourcePort})
+    entry.EntityData.Leafs.Append("destination-addr", types.YLeaf{"DestinationAddr", entry.DestinationAddr})
+    entry.EntityData.Leafs.Append("source-addr", types.YLeaf{"SourceAddr", entry.SourceAddr})
+    entry.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", entry.VrfName})
+    entry.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", entry.Vid})
+    entry.EntityData.Leafs.Append("l3protocol", types.YLeaf{"L3protocol", entry.L3protocol})
+    entry.EntityData.Leafs.Append("l4protocol", types.YLeaf{"L4protocol", entry.L4protocol})
+    entry.EntityData.Leafs.Append("intf-name", types.YLeaf{"IntfName", entry.IntfName})
+    entry.EntityData.Leafs.Append("intf-handle", types.YLeaf{"IntfHandle", entry.IntfHandle})
+    entry.EntityData.Leafs.Append("is-syn", types.YLeaf{"IsSyn", entry.IsSyn})
+    entry.EntityData.Leafs.Append("opcode", types.YLeaf{"Opcode", entry.Opcode})
+    entry.EntityData.Leafs.Append("accepts", types.YLeaf{"Accepts", entry.Accepts})
+    entry.EntityData.Leafs.Append("drops", types.YLeaf{"Drops", entry.Drops})
+    entry.EntityData.Leafs.Append("flow-type", types.YLeaf{"FlowType", entry.FlowType})
+    entry.EntityData.Leafs.Append("listener-tag", types.YLeaf{"ListenerTag", entry.ListenerTag})
+    entry.EntityData.Leafs.Append("local-flag", types.YLeaf{"LocalFlag", entry.LocalFlag})
+    entry.EntityData.Leafs.Append("is-fgid", types.YLeaf{"IsFgid", entry.IsFgid})
+    entry.EntityData.Leafs.Append("deliver-list-short", types.YLeaf{"DeliverListShort", entry.DeliverListShort})
+    entry.EntityData.Leafs.Append("deliver-list-long", types.YLeaf{"DeliverListLong", entry.DeliverListLong})
+    entry.EntityData.Leafs.Append("min-ttl", types.YLeaf{"MinTtl", entry.MinTtl})
+    entry.EntityData.Leafs.Append("pending-ifibq-delay", types.YLeaf{"PendingIfibqDelay", entry.PendingIfibqDelay})
+    entry.EntityData.Leafs.Append("sl-ifibq-delay", types.YLeaf{"SlIfibqDelay", entry.SlIfibqDelay})
+    entry.EntityData.Leafs.Append("ifib-program-time", types.YLeaf{"IfibProgramTime", entry.IfibProgramTime})
+
+    entry.EntityData.YListKeys = []string {"Entry"}
+
     return &(entry.EntityData)
 }
 

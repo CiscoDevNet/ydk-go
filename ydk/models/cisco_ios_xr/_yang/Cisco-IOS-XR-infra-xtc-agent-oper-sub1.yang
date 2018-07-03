@@ -26,7 +26,7 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-xtc-agent package operational data.
      
-     Copyright (c) 2013-2018 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-11 {
@@ -607,6 +607,58 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type uint32;
       description
         "Number of adjacency SIDs";
+    }
+  }
+
+  grouping XTC-CONTROLLER-POLICY-REQ-BAG {
+    description
+      "Controller policy request";
+    container end-point {
+      description
+        "End point";
+      uses XTC-IP-ADDR-TYPE;
+    }
+    leaf source-address-xr {
+      type inet:ipv4-address;
+      description
+        "Source address";
+    }
+    leaf binding-sid {
+      type uint32;
+      description
+        "Binding SID";
+    }
+    leaf preference {
+      type uint32;
+      description
+        "Preference";
+    }
+    leaf color-xr {
+      type uint32;
+      description
+        "Color";
+    }
+    leaf route-distinguisher-xr {
+      type uint32;
+      description
+        "Route distinguisher";
+    }
+    leaf creation-time {
+      type uint32;
+      units "second";
+      description
+        "Creation time of the request in seconds";
+    }
+    leaf last-updated-time {
+      type uint32;
+      units "second";
+      description
+        "Last updated time of the request in seconds";
+    }
+    list paths {
+      description
+        "Path options";
+      uses XTC-POLICY-PATH-BAG;
     }
   }
 

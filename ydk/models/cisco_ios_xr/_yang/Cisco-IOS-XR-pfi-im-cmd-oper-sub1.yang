@@ -243,10 +243,10 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         description
           "Normal";
       }
-      enum "maintainance" {
+      enum "maintenance" {
         value 1;
         description
-          "Maintainance";
+          "Maintenance";
       }
       enum "ais" {
         value 2;
@@ -270,10 +270,10 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         description
           "Out Of Service";
       }
-      enum "maintainance" {
+      enum "maintenance" {
         value 2;
         description
-          "Maintainance";
+          "Maintenance";
       }
       enum "ais" {
         value 3;
@@ -3607,11 +3607,6 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         description
           "im attr media 10gbase acu10m";
       }
-      enum "im-attr-media-4x10g-base-lr" {
-        value 362;
-        description
-          "im attr media 4x10g base lr";
-      }
     }
     description
       "Im attr media";
@@ -3663,16 +3658,6 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       type string;
       description
         "Interface description string";
-    }
-  }
-
-  grouping NV-OPTICAL-INTERFACE-INFO {
-    description
-      "nV Optical Controller information";
-    leaf controller {
-      type string;
-      description
-        "Controller that nV controller maps to";
     }
   }
 
@@ -5975,11 +5960,6 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       description
         "L2 Protocol Statistics";
       uses STATS-DATA;
-    }
-    container nv-optical {
-      description
-        "nV Optical Controller Information";
-      uses NV-OPTICAL-INTERFACE-INFO;
     }
     leaf interface-handle {
       type string;

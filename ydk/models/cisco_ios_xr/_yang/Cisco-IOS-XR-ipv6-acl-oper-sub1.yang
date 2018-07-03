@@ -541,10 +541,20 @@ submodule Cisco-IOS-XR-ipv6-acl-oper-sub1 {
       description
         "IsDSCPPresent";
     }
+    leaf dscp-operator {
+      type uint8;
+      description
+        "DSCP Operator";
+    }
     leaf is-dscp-valu {
-      type uint32;
+      type uint8;
       description
         "IsDSCPValu";
+    }
+    leaf is-dscp-valu2 {
+      type uint8;
+      description
+        "IsDSCPValu2";
     }
     leaf is-precedence-present {
       type int32;

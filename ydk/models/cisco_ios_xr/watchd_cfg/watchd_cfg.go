@@ -67,14 +67,17 @@ func (watchdog *Watchdog) GetEntityData() *types.CommonEntityData {
     watchdog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     watchdog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    watchdog.EntityData.Children = make(map[string]types.YChild)
-    watchdog.EntityData.Children["threshold-memory"] = types.YChild{"ThresholdMemory", &watchdog.ThresholdMemory}
-    watchdog.EntityData.Children["disk-limit"] = types.YChild{"DiskLimit", &watchdog.DiskLimit}
-    watchdog.EntityData.Leafs = make(map[string]types.YLeaf)
-    watchdog.EntityData.Leafs["overload-notification"] = types.YLeaf{"OverloadNotification", watchdog.OverloadNotification}
-    watchdog.EntityData.Leafs["restart-deadlock-disable"] = types.YLeaf{"RestartDeadlockDisable", watchdog.RestartDeadlockDisable}
-    watchdog.EntityData.Leafs["restart-memoryhog-disable"] = types.YLeaf{"RestartMemoryhogDisable", watchdog.RestartMemoryhogDisable}
-    watchdog.EntityData.Leafs["overload-throttle-timeout"] = types.YLeaf{"OverloadThrottleTimeout", watchdog.OverloadThrottleTimeout}
+    watchdog.EntityData.Children = types.NewOrderedMap()
+    watchdog.EntityData.Children.Append("threshold-memory", types.YChild{"ThresholdMemory", &watchdog.ThresholdMemory})
+    watchdog.EntityData.Children.Append("disk-limit", types.YChild{"DiskLimit", &watchdog.DiskLimit})
+    watchdog.EntityData.Leafs = types.NewOrderedMap()
+    watchdog.EntityData.Leafs.Append("overload-notification", types.YLeaf{"OverloadNotification", watchdog.OverloadNotification})
+    watchdog.EntityData.Leafs.Append("restart-deadlock-disable", types.YLeaf{"RestartDeadlockDisable", watchdog.RestartDeadlockDisable})
+    watchdog.EntityData.Leafs.Append("restart-memoryhog-disable", types.YLeaf{"RestartMemoryhogDisable", watchdog.RestartMemoryhogDisable})
+    watchdog.EntityData.Leafs.Append("overload-throttle-timeout", types.YLeaf{"OverloadThrottleTimeout", watchdog.OverloadThrottleTimeout})
+
+    watchdog.EntityData.YListKeys = []string {}
+
     return &(watchdog.EntityData)
 }
 
@@ -104,11 +107,14 @@ func (thresholdMemory *Watchdog_ThresholdMemory) GetEntityData() *types.CommonEn
     thresholdMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdMemory.EntityData.Children = make(map[string]types.YChild)
-    thresholdMemory.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdMemory.EntityData.Leafs["minor"] = types.YLeaf{"Minor", thresholdMemory.Minor}
-    thresholdMemory.EntityData.Leafs["severe"] = types.YLeaf{"Severe", thresholdMemory.Severe}
-    thresholdMemory.EntityData.Leafs["critical"] = types.YLeaf{"Critical", thresholdMemory.Critical}
+    thresholdMemory.EntityData.Children = types.NewOrderedMap()
+    thresholdMemory.EntityData.Leafs = types.NewOrderedMap()
+    thresholdMemory.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", thresholdMemory.Minor})
+    thresholdMemory.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", thresholdMemory.Severe})
+    thresholdMemory.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", thresholdMemory.Critical})
+
+    thresholdMemory.EntityData.YListKeys = []string {}
+
     return &(thresholdMemory.EntityData)
 }
 
@@ -138,11 +144,14 @@ func (diskLimit *Watchdog_DiskLimit) GetEntityData() *types.CommonEntityData {
     diskLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diskLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diskLimit.EntityData.Children = make(map[string]types.YChild)
-    diskLimit.EntityData.Leafs = make(map[string]types.YLeaf)
-    diskLimit.EntityData.Leafs["minor"] = types.YLeaf{"Minor", diskLimit.Minor}
-    diskLimit.EntityData.Leafs["severe"] = types.YLeaf{"Severe", diskLimit.Severe}
-    diskLimit.EntityData.Leafs["critical"] = types.YLeaf{"Critical", diskLimit.Critical}
+    diskLimit.EntityData.Children = types.NewOrderedMap()
+    diskLimit.EntityData.Leafs = types.NewOrderedMap()
+    diskLimit.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", diskLimit.Minor})
+    diskLimit.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", diskLimit.Severe})
+    diskLimit.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", diskLimit.Critical})
+
+    diskLimit.EntityData.YListKeys = []string {}
+
     return &(diskLimit.EntityData)
 }
 
@@ -167,9 +176,12 @@ func (watchd *Watchd) GetEntityData() *types.CommonEntityData {
     watchd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     watchd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    watchd.EntityData.Children = make(map[string]types.YChild)
-    watchd.EntityData.Leafs = make(map[string]types.YLeaf)
-    watchd.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", watchd.Timeout}
+    watchd.EntityData.Children = types.NewOrderedMap()
+    watchd.EntityData.Leafs = types.NewOrderedMap()
+    watchd.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", watchd.Timeout})
+
+    watchd.EntityData.YListKeys = []string {}
+
     return &(watchd.EntityData)
 }
 

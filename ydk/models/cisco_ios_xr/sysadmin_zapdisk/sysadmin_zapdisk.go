@@ -44,10 +44,13 @@ func (zapdisk *Zapdisk) GetEntityData() *types.CommonEntityData {
     zapdisk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     zapdisk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    zapdisk.EntityData.Children = make(map[string]types.YChild)
-    zapdisk.EntityData.Children["input"] = types.YChild{"Input", &zapdisk.Input}
-    zapdisk.EntityData.Children["output"] = types.YChild{"Output", &zapdisk.Output}
-    zapdisk.EntityData.Leafs = make(map[string]types.YLeaf)
+    zapdisk.EntityData.Children = types.NewOrderedMap()
+    zapdisk.EntityData.Children.Append("input", types.YChild{"Input", &zapdisk.Input})
+    zapdisk.EntityData.Children.Append("output", types.YChild{"Output", &zapdisk.Output})
+    zapdisk.EntityData.Leafs = types.NewOrderedMap()
+
+    zapdisk.EntityData.YListKeys = []string {}
+
     return &(zapdisk.EntityData)
 }
 
@@ -73,10 +76,13 @@ func (input *Zapdisk_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["czapdisk-unset"] = types.YChild{"CzapdiskUnset", &input.CzapdiskUnset}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["set"] = types.YLeaf{"Set", input.Set}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("czapdisk-unset", types.YChild{"CzapdiskUnset", &input.CzapdiskUnset})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("set", types.YLeaf{"Set", input.Set})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -99,9 +105,12 @@ func (czapdiskUnset *Zapdisk_Input_CzapdiskUnset) GetEntityData() *types.CommonE
     czapdiskUnset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     czapdiskUnset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    czapdiskUnset.EntityData.Children = make(map[string]types.YChild)
-    czapdiskUnset.EntityData.Leafs = make(map[string]types.YLeaf)
-    czapdiskUnset.EntityData.Leafs["unset"] = types.YLeaf{"Unset", czapdiskUnset.Unset}
+    czapdiskUnset.EntityData.Children = types.NewOrderedMap()
+    czapdiskUnset.EntityData.Leafs = types.NewOrderedMap()
+    czapdiskUnset.EntityData.Leafs.Append("unset", types.YLeaf{"Unset", czapdiskUnset.Unset})
+
+    czapdiskUnset.EntityData.YListKeys = []string {}
+
     return &(czapdiskUnset.EntityData)
 }
 
@@ -124,9 +133,12 @@ func (output *Zapdisk_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 

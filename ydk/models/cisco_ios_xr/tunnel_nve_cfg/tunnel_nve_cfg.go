@@ -38,25 +38,6 @@ const (
     VxlanUdpPortEnum_ivx_lan_udp_port VxlanUdpPortEnum = "ivx-lan-udp-port"
 )
 
-// OverlayEncapEnum represents Overlay encap enum
-type OverlayEncapEnum string
-
-const (
-    // VxLAN Encapsulation
-    OverlayEncapEnum_vx_lan_encapsulation OverlayEncapEnum = "vx-lan-encapsulation"
-
-    // Soft GRE Encapsulation
-    OverlayEncapEnum_soft_gre_encapsulation OverlayEncapEnum = "soft-gre-encapsulation"
-)
-
-// UnknownUnicastFloodingEnum represents Unknown unicast flooding enum
-type UnknownUnicastFloodingEnum string
-
-const (
-    // Suppress unknown unicast flooding
-    UnknownUnicastFloodingEnum_suppress_uuf UnknownUnicastFloodingEnum = "suppress-uuf"
-)
-
 // LoadBalanceEnum represents Load balance enum
 type LoadBalanceEnum string
 
@@ -71,5 +52,24 @@ type IrProtocolEnum string
 const (
     // Use BGP Protocol for Ingress-Replication
     IrProtocolEnum_bgp IrProtocolEnum = "bgp"
+)
+
+// UnknownUnicastFloodingEnum represents Unknown unicast flooding enum
+type UnknownUnicastFloodingEnum string
+
+const (
+    // Suppress unknown unicast flooding
+    UnknownUnicastFloodingEnum_suppress_uuf UnknownUnicastFloodingEnum = "suppress-uuf"
+)
+
+// OverlayEncapEnum represents Overlay encap enum
+type OverlayEncapEnum string
+
+const (
+    // VxLAN Encapsulation
+    OverlayEncapEnum_vx_lan_encapsulation OverlayEncapEnum = "vx-lan-encapsulation"
+
+    // Soft GRE Encapsulation
+    OverlayEncapEnum_soft_gre_encapsulation OverlayEncapEnum = "soft-gre-encapsulation"
 )
 

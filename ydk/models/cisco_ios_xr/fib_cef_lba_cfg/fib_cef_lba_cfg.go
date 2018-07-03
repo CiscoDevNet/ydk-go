@@ -26,15 +26,17 @@ func init() {
 
 // Fiblb
 // FIB load-balancing
+// This type is a presence type.
 type Fiblb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Specify number of fields used for the load balancing. The type is
-    // interface{} with range: 0..1.
+    // interface{} with range: 0..1. This attribute is mandatory.
     Fields interface{}
 
-    // Payload Load-Balancing. The type is bool.
+    // Payload Load-Balancing. The type is bool. This attribute is mandatory.
     Payload interface{}
 }
 
@@ -48,10 +50,13 @@ func (fiblb *Fiblb) GetEntityData() *types.CommonEntityData {
     fiblb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fiblb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fiblb.EntityData.Children = make(map[string]types.YChild)
-    fiblb.EntityData.Leafs = make(map[string]types.YLeaf)
-    fiblb.EntityData.Leafs["fields"] = types.YLeaf{"Fields", fiblb.Fields}
-    fiblb.EntityData.Leafs["payload"] = types.YLeaf{"Payload", fiblb.Payload}
+    fiblb.EntityData.Children = types.NewOrderedMap()
+    fiblb.EntityData.Leafs = types.NewOrderedMap()
+    fiblb.EntityData.Leafs.Append("fields", types.YLeaf{"Fields", fiblb.Fields})
+    fiblb.EntityData.Leafs.Append("payload", types.YLeaf{"Payload", fiblb.Payload})
+
+    fiblb.EntityData.YListKeys = []string {}
+
     return &(fiblb.EntityData)
 }
 

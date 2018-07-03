@@ -28,6 +28,14 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-traffmon-netflow-cfg:net-flow", reflect.TypeOf(NetFlow{}))
 }
 
+// NfSamplingMode represents Nf sampling mode
+type NfSamplingMode string
+
+const (
+    // Random sampling
+    NfSamplingMode_random NfSamplingMode = "random"
+)
+
 // NfCacheAgingMode represents Nf cache aging mode
 type NfCacheAgingMode string
 
@@ -40,14 +48,6 @@ const (
 
     // Immediate, caches age immediately
     NfCacheAgingMode_immediate NfCacheAgingMode = "immediate"
-)
-
-// NfSamplingMode represents Nf sampling mode
-type NfSamplingMode string
-
-const (
-    // Random sampling
-    NfSamplingMode_random NfSamplingMode = "random"
 )
 
 // NetFlow
@@ -79,12 +79,15 @@ func (netFlow *NetFlow) GetEntityData() *types.CommonEntityData {
     netFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netFlow.EntityData.Children = make(map[string]types.YChild)
-    netFlow.EntityData.Children["flow-exporter-maps"] = types.YChild{"FlowExporterMaps", &netFlow.FlowExporterMaps}
-    netFlow.EntityData.Children["flow-sampler-maps"] = types.YChild{"FlowSamplerMaps", &netFlow.FlowSamplerMaps}
-    netFlow.EntityData.Children["flow-monitor-map-table"] = types.YChild{"FlowMonitorMapTable", &netFlow.FlowMonitorMapTable}
-    netFlow.EntityData.Children["flow-monitor-map-performance-table"] = types.YChild{"FlowMonitorMapPerformanceTable", &netFlow.FlowMonitorMapPerformanceTable}
-    netFlow.EntityData.Leafs = make(map[string]types.YLeaf)
+    netFlow.EntityData.Children = types.NewOrderedMap()
+    netFlow.EntityData.Children.Append("flow-exporter-maps", types.YChild{"FlowExporterMaps", &netFlow.FlowExporterMaps})
+    netFlow.EntityData.Children.Append("flow-sampler-maps", types.YChild{"FlowSamplerMaps", &netFlow.FlowSamplerMaps})
+    netFlow.EntityData.Children.Append("flow-monitor-map-table", types.YChild{"FlowMonitorMapTable", &netFlow.FlowMonitorMapTable})
+    netFlow.EntityData.Children.Append("flow-monitor-map-performance-table", types.YChild{"FlowMonitorMapPerformanceTable", &netFlow.FlowMonitorMapPerformanceTable})
+    netFlow.EntityData.Leafs = types.NewOrderedMap()
+
+    netFlow.EntityData.YListKeys = []string {}
+
     return &(netFlow.EntityData)
 }
 
@@ -96,7 +99,7 @@ type NetFlow_FlowExporterMaps struct {
 
     // Exporter map name. The type is slice of
     // NetFlow_FlowExporterMaps_FlowExporterMap.
-    FlowExporterMap []NetFlow_FlowExporterMaps_FlowExporterMap
+    FlowExporterMap []*NetFlow_FlowExporterMaps_FlowExporterMap
 }
 
 func (flowExporterMaps *NetFlow_FlowExporterMaps) GetEntityData() *types.CommonEntityData {
@@ -109,12 +112,15 @@ func (flowExporterMaps *NetFlow_FlowExporterMaps) GetEntityData() *types.CommonE
     flowExporterMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowExporterMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowExporterMaps.EntityData.Children = make(map[string]types.YChild)
-    flowExporterMaps.EntityData.Children["flow-exporter-map"] = types.YChild{"FlowExporterMap", nil}
+    flowExporterMaps.EntityData.Children = types.NewOrderedMap()
+    flowExporterMaps.EntityData.Children.Append("flow-exporter-map", types.YChild{"FlowExporterMap", nil})
     for i := range flowExporterMaps.FlowExporterMap {
-        flowExporterMaps.EntityData.Children[types.GetSegmentPath(&flowExporterMaps.FlowExporterMap[i])] = types.YChild{"FlowExporterMap", &flowExporterMaps.FlowExporterMap[i]}
+        flowExporterMaps.EntityData.Children.Append(types.GetSegmentPath(flowExporterMaps.FlowExporterMap[i]), types.YChild{"FlowExporterMap", flowExporterMaps.FlowExporterMap[i]})
     }
-    flowExporterMaps.EntityData.Leafs = make(map[string]types.YLeaf)
+    flowExporterMaps.EntityData.Leafs = types.NewOrderedMap()
+
+    flowExporterMaps.EntityData.YListKeys = []string {}
+
     return &(flowExporterMaps.EntityData)
 }
 
@@ -129,7 +135,7 @@ type NetFlow_FlowExporterMaps_FlowExporterMap struct {
     ExporterMapName interface{}
 
     // Configure source interface for collector. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // Specify DSCP value for export packets. The type is interface{} with range:
@@ -155,20 +161,23 @@ func (flowExporterMap *NetFlow_FlowExporterMaps_FlowExporterMap) GetEntityData()
     flowExporterMap.EntityData.YangName = "flow-exporter-map"
     flowExporterMap.EntityData.BundleName = "cisco_ios_xr"
     flowExporterMap.EntityData.ParentYangName = "flow-exporter-maps"
-    flowExporterMap.EntityData.SegmentPath = "flow-exporter-map" + "[exporter-map-name='" + fmt.Sprintf("%v", flowExporterMap.ExporterMapName) + "']"
+    flowExporterMap.EntityData.SegmentPath = "flow-exporter-map" + types.AddKeyToken(flowExporterMap.ExporterMapName, "exporter-map-name")
     flowExporterMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowExporterMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowExporterMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowExporterMap.EntityData.Children = make(map[string]types.YChild)
-    flowExporterMap.EntityData.Children["udp"] = types.YChild{"Udp", &flowExporterMap.Udp}
-    flowExporterMap.EntityData.Children["destination"] = types.YChild{"Destination", &flowExporterMap.Destination}
-    flowExporterMap.EntityData.Children["version"] = types.YChild{"Version", &flowExporterMap.Version}
-    flowExporterMap.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowExporterMap.EntityData.Leafs["exporter-map-name"] = types.YLeaf{"ExporterMapName", flowExporterMap.ExporterMapName}
-    flowExporterMap.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", flowExporterMap.SourceInterface}
-    flowExporterMap.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", flowExporterMap.Dscp}
-    flowExporterMap.EntityData.Leafs["packet-length"] = types.YLeaf{"PacketLength", flowExporterMap.PacketLength}
+    flowExporterMap.EntityData.Children = types.NewOrderedMap()
+    flowExporterMap.EntityData.Children.Append("udp", types.YChild{"Udp", &flowExporterMap.Udp})
+    flowExporterMap.EntityData.Children.Append("destination", types.YChild{"Destination", &flowExporterMap.Destination})
+    flowExporterMap.EntityData.Children.Append("version", types.YChild{"Version", &flowExporterMap.Version})
+    flowExporterMap.EntityData.Leafs = types.NewOrderedMap()
+    flowExporterMap.EntityData.Leafs.Append("exporter-map-name", types.YLeaf{"ExporterMapName", flowExporterMap.ExporterMapName})
+    flowExporterMap.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", flowExporterMap.SourceInterface})
+    flowExporterMap.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", flowExporterMap.Dscp})
+    flowExporterMap.EntityData.Leafs.Append("packet-length", types.YLeaf{"PacketLength", flowExporterMap.PacketLength})
+
+    flowExporterMap.EntityData.YListKeys = []string {"ExporterMapName"}
+
     return &(flowExporterMap.EntityData)
 }
 
@@ -193,9 +202,12 @@ func (udp *NetFlow_FlowExporterMaps_FlowExporterMap_Udp) GetEntityData() *types.
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udp.EntityData.Children = make(map[string]types.YChild)
-    udp.EntityData.Leafs = make(map[string]types.YLeaf)
-    udp.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", udp.DestinationPort}
+    udp.EntityData.Children = types.NewOrderedMap()
+    udp.EntityData.Leafs = types.NewOrderedMap()
+    udp.EntityData.Leafs.Append("destination-port", types.YLeaf{"DestinationPort", udp.DestinationPort})
+
+    udp.EntityData.YListKeys = []string {}
+
     return &(udp.EntityData)
 }
 
@@ -206,7 +218,7 @@ type NetFlow_FlowExporterMaps_FlowExporterMap_Destination struct {
     YFilter yfilter.YFilter
 
     // Destination IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // IPV6 address of the tunnel destination. The type is string.
@@ -226,11 +238,14 @@ func (destination *NetFlow_FlowExporterMaps_FlowExporterMap_Destination) GetEnti
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destination.EntityData.Children = make(map[string]types.YChild)
-    destination.EntityData.Leafs = make(map[string]types.YLeaf)
-    destination.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", destination.IpAddress}
-    destination.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", destination.Ipv6Address}
-    destination.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", destination.VrfName}
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", destination.IpAddress})
+    destination.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", destination.Ipv6Address})
+    destination.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", destination.VrfName})
+
+    destination.EntityData.YListKeys = []string {}
+
     return &(destination.EntityData)
 }
 
@@ -269,13 +284,16 @@ func (version *NetFlow_FlowExporterMaps_FlowExporterMap_Version) GetEntityData()
     version.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    version.EntityData.Children = make(map[string]types.YChild)
-    version.EntityData.Children["options"] = types.YChild{"Options", &version.Options}
-    version.EntityData.Leafs = make(map[string]types.YLeaf)
-    version.EntityData.Leafs["version-type"] = types.YLeaf{"VersionType", version.VersionType}
-    version.EntityData.Leafs["options-template-timeout"] = types.YLeaf{"OptionsTemplateTimeout", version.OptionsTemplateTimeout}
-    version.EntityData.Leafs["common-template-timeout"] = types.YLeaf{"CommonTemplateTimeout", version.CommonTemplateTimeout}
-    version.EntityData.Leafs["data-template-timeout"] = types.YLeaf{"DataTemplateTimeout", version.DataTemplateTimeout}
+    version.EntityData.Children = types.NewOrderedMap()
+    version.EntityData.Children.Append("options", types.YChild{"Options", &version.Options})
+    version.EntityData.Leafs = types.NewOrderedMap()
+    version.EntityData.Leafs.Append("version-type", types.YLeaf{"VersionType", version.VersionType})
+    version.EntityData.Leafs.Append("options-template-timeout", types.YLeaf{"OptionsTemplateTimeout", version.OptionsTemplateTimeout})
+    version.EntityData.Leafs.Append("common-template-timeout", types.YLeaf{"CommonTemplateTimeout", version.CommonTemplateTimeout})
+    version.EntityData.Leafs.Append("data-template-timeout", types.YLeaf{"DataTemplateTimeout", version.DataTemplateTimeout})
+
+    version.EntityData.YListKeys = []string {}
+
     return &(version.EntityData)
 }
 
@@ -308,11 +326,14 @@ func (options *NetFlow_FlowExporterMaps_FlowExporterMap_Version_Options) GetEnti
     options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    options.EntityData.Children = make(map[string]types.YChild)
-    options.EntityData.Leafs = make(map[string]types.YLeaf)
-    options.EntityData.Leafs["interface-table-export-timeout"] = types.YLeaf{"InterfaceTableExportTimeout", options.InterfaceTableExportTimeout}
-    options.EntityData.Leafs["sampler-table-export-timeout"] = types.YLeaf{"SamplerTableExportTimeout", options.SamplerTableExportTimeout}
-    options.EntityData.Leafs["vrf-table-export-timeout"] = types.YLeaf{"VrfTableExportTimeout", options.VrfTableExportTimeout}
+    options.EntityData.Children = types.NewOrderedMap()
+    options.EntityData.Leafs = types.NewOrderedMap()
+    options.EntityData.Leafs.Append("interface-table-export-timeout", types.YLeaf{"InterfaceTableExportTimeout", options.InterfaceTableExportTimeout})
+    options.EntityData.Leafs.Append("sampler-table-export-timeout", types.YLeaf{"SamplerTableExportTimeout", options.SamplerTableExportTimeout})
+    options.EntityData.Leafs.Append("vrf-table-export-timeout", types.YLeaf{"VrfTableExportTimeout", options.VrfTableExportTimeout})
+
+    options.EntityData.YListKeys = []string {}
+
     return &(options.EntityData)
 }
 
@@ -324,7 +345,7 @@ type NetFlow_FlowSamplerMaps struct {
 
     // Sampler map name. The type is slice of
     // NetFlow_FlowSamplerMaps_FlowSamplerMap.
-    FlowSamplerMap []NetFlow_FlowSamplerMaps_FlowSamplerMap
+    FlowSamplerMap []*NetFlow_FlowSamplerMaps_FlowSamplerMap
 }
 
 func (flowSamplerMaps *NetFlow_FlowSamplerMaps) GetEntityData() *types.CommonEntityData {
@@ -337,12 +358,15 @@ func (flowSamplerMaps *NetFlow_FlowSamplerMaps) GetEntityData() *types.CommonEnt
     flowSamplerMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSamplerMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowSamplerMaps.EntityData.Children = make(map[string]types.YChild)
-    flowSamplerMaps.EntityData.Children["flow-sampler-map"] = types.YChild{"FlowSamplerMap", nil}
+    flowSamplerMaps.EntityData.Children = types.NewOrderedMap()
+    flowSamplerMaps.EntityData.Children.Append("flow-sampler-map", types.YChild{"FlowSamplerMap", nil})
     for i := range flowSamplerMaps.FlowSamplerMap {
-        flowSamplerMaps.EntityData.Children[types.GetSegmentPath(&flowSamplerMaps.FlowSamplerMap[i])] = types.YChild{"FlowSamplerMap", &flowSamplerMaps.FlowSamplerMap[i]}
+        flowSamplerMaps.EntityData.Children.Append(types.GetSegmentPath(flowSamplerMaps.FlowSamplerMap[i]), types.YChild{"FlowSamplerMap", flowSamplerMaps.FlowSamplerMap[i]})
     }
-    flowSamplerMaps.EntityData.Leafs = make(map[string]types.YLeaf)
+    flowSamplerMaps.EntityData.Leafs = types.NewOrderedMap()
+
+    flowSamplerMaps.EntityData.YListKeys = []string {}
+
     return &(flowSamplerMaps.EntityData)
 }
 
@@ -365,15 +389,18 @@ func (flowSamplerMap *NetFlow_FlowSamplerMaps_FlowSamplerMap) GetEntityData() *t
     flowSamplerMap.EntityData.YangName = "flow-sampler-map"
     flowSamplerMap.EntityData.BundleName = "cisco_ios_xr"
     flowSamplerMap.EntityData.ParentYangName = "flow-sampler-maps"
-    flowSamplerMap.EntityData.SegmentPath = "flow-sampler-map" + "[sampler-map-name='" + fmt.Sprintf("%v", flowSamplerMap.SamplerMapName) + "']"
+    flowSamplerMap.EntityData.SegmentPath = "flow-sampler-map" + types.AddKeyToken(flowSamplerMap.SamplerMapName, "sampler-map-name")
     flowSamplerMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSamplerMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSamplerMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowSamplerMap.EntityData.Children = make(map[string]types.YChild)
-    flowSamplerMap.EntityData.Children["sampling-modes"] = types.YChild{"SamplingModes", &flowSamplerMap.SamplingModes}
-    flowSamplerMap.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowSamplerMap.EntityData.Leafs["sampler-map-name"] = types.YLeaf{"SamplerMapName", flowSamplerMap.SamplerMapName}
+    flowSamplerMap.EntityData.Children = types.NewOrderedMap()
+    flowSamplerMap.EntityData.Children.Append("sampling-modes", types.YChild{"SamplingModes", &flowSamplerMap.SamplingModes})
+    flowSamplerMap.EntityData.Leafs = types.NewOrderedMap()
+    flowSamplerMap.EntityData.Leafs.Append("sampler-map-name", types.YLeaf{"SamplerMapName", flowSamplerMap.SamplerMapName})
+
+    flowSamplerMap.EntityData.YListKeys = []string {"SamplerMapName"}
+
     return &(flowSamplerMap.EntityData)
 }
 
@@ -385,7 +412,7 @@ type NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes struct {
 
     // Configure sampling mode. The type is slice of
     // NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes_SamplingMode.
-    SamplingMode []NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes_SamplingMode
+    SamplingMode []*NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes_SamplingMode
 }
 
 func (samplingModes *NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes) GetEntityData() *types.CommonEntityData {
@@ -398,12 +425,15 @@ func (samplingModes *NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes) GetEn
     samplingModes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samplingModes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samplingModes.EntityData.Children = make(map[string]types.YChild)
-    samplingModes.EntityData.Children["sampling-mode"] = types.YChild{"SamplingMode", nil}
+    samplingModes.EntityData.Children = types.NewOrderedMap()
+    samplingModes.EntityData.Children.Append("sampling-mode", types.YChild{"SamplingMode", nil})
     for i := range samplingModes.SamplingMode {
-        samplingModes.EntityData.Children[types.GetSegmentPath(&samplingModes.SamplingMode[i])] = types.YChild{"SamplingMode", &samplingModes.SamplingMode[i]}
+        samplingModes.EntityData.Children.Append(types.GetSegmentPath(samplingModes.SamplingMode[i]), types.YChild{"SamplingMode", samplingModes.SamplingMode[i]})
     }
-    samplingModes.EntityData.Leafs = make(map[string]types.YLeaf)
+    samplingModes.EntityData.Leafs = types.NewOrderedMap()
+
+    samplingModes.EntityData.YListKeys = []string {}
+
     return &(samplingModes.EntityData)
 }
 
@@ -430,16 +460,19 @@ func (samplingMode *NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes_Samplin
     samplingMode.EntityData.YangName = "sampling-mode"
     samplingMode.EntityData.BundleName = "cisco_ios_xr"
     samplingMode.EntityData.ParentYangName = "sampling-modes"
-    samplingMode.EntityData.SegmentPath = "sampling-mode" + "[mode='" + fmt.Sprintf("%v", samplingMode.Mode) + "']"
+    samplingMode.EntityData.SegmentPath = "sampling-mode" + types.AddKeyToken(samplingMode.Mode, "mode")
     samplingMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samplingMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samplingMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samplingMode.EntityData.Children = make(map[string]types.YChild)
-    samplingMode.EntityData.Leafs = make(map[string]types.YLeaf)
-    samplingMode.EntityData.Leafs["mode"] = types.YLeaf{"Mode", samplingMode.Mode}
-    samplingMode.EntityData.Leafs["sample-number"] = types.YLeaf{"SampleNumber", samplingMode.SampleNumber}
-    samplingMode.EntityData.Leafs["interval"] = types.YLeaf{"Interval", samplingMode.Interval}
+    samplingMode.EntityData.Children = types.NewOrderedMap()
+    samplingMode.EntityData.Leafs = types.NewOrderedMap()
+    samplingMode.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", samplingMode.Mode})
+    samplingMode.EntityData.Leafs.Append("sample-number", types.YLeaf{"SampleNumber", samplingMode.SampleNumber})
+    samplingMode.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", samplingMode.Interval})
+
+    samplingMode.EntityData.YListKeys = []string {"Mode"}
+
     return &(samplingMode.EntityData)
 }
 
@@ -451,7 +484,7 @@ type NetFlow_FlowMonitorMapTable struct {
 
     // Monitor map name. The type is slice of
     // NetFlow_FlowMonitorMapTable_FlowMonitorMap.
-    FlowMonitorMap []NetFlow_FlowMonitorMapTable_FlowMonitorMap
+    FlowMonitorMap []*NetFlow_FlowMonitorMapTable_FlowMonitorMap
 }
 
 func (flowMonitorMapTable *NetFlow_FlowMonitorMapTable) GetEntityData() *types.CommonEntityData {
@@ -464,12 +497,15 @@ func (flowMonitorMapTable *NetFlow_FlowMonitorMapTable) GetEntityData() *types.C
     flowMonitorMapTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowMonitorMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowMonitorMapTable.EntityData.Children = make(map[string]types.YChild)
-    flowMonitorMapTable.EntityData.Children["flow-monitor-map"] = types.YChild{"FlowMonitorMap", nil}
+    flowMonitorMapTable.EntityData.Children = types.NewOrderedMap()
+    flowMonitorMapTable.EntityData.Children.Append("flow-monitor-map", types.YChild{"FlowMonitorMap", nil})
     for i := range flowMonitorMapTable.FlowMonitorMap {
-        flowMonitorMapTable.EntityData.Children[types.GetSegmentPath(&flowMonitorMapTable.FlowMonitorMap[i])] = types.YChild{"FlowMonitorMap", &flowMonitorMapTable.FlowMonitorMap[i]}
+        flowMonitorMapTable.EntityData.Children.Append(types.GetSegmentPath(flowMonitorMapTable.FlowMonitorMap[i]), types.YChild{"FlowMonitorMap", flowMonitorMapTable.FlowMonitorMap[i]})
     }
-    flowMonitorMapTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    flowMonitorMapTable.EntityData.Leafs = types.NewOrderedMap()
+
+    flowMonitorMapTable.EntityData.YListKeys = []string {}
+
     return &(flowMonitorMapTable.EntityData)
 }
 
@@ -522,23 +558,26 @@ func (flowMonitorMap *NetFlow_FlowMonitorMapTable_FlowMonitorMap) GetEntityData(
     flowMonitorMap.EntityData.YangName = "flow-monitor-map"
     flowMonitorMap.EntityData.BundleName = "cisco_ios_xr"
     flowMonitorMap.EntityData.ParentYangName = "flow-monitor-map-table"
-    flowMonitorMap.EntityData.SegmentPath = "flow-monitor-map" + "[monitor-map-name='" + fmt.Sprintf("%v", flowMonitorMap.MonitorMapName) + "']"
+    flowMonitorMap.EntityData.SegmentPath = "flow-monitor-map" + types.AddKeyToken(flowMonitorMap.MonitorMapName, "monitor-map-name")
     flowMonitorMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowMonitorMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowMonitorMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowMonitorMap.EntityData.Children = make(map[string]types.YChild)
-    flowMonitorMap.EntityData.Children["option"] = types.YChild{"Option", &flowMonitorMap.Option}
-    flowMonitorMap.EntityData.Children["exporters"] = types.YChild{"Exporters", &flowMonitorMap.Exporters}
-    flowMonitorMap.EntityData.Children["record"] = types.YChild{"Record", &flowMonitorMap.Record}
-    flowMonitorMap.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowMonitorMap.EntityData.Leafs["monitor-map-name"] = types.YLeaf{"MonitorMapName", flowMonitorMap.MonitorMapName}
-    flowMonitorMap.EntityData.Leafs["cache-update-aging-timeout"] = types.YLeaf{"CacheUpdateAgingTimeout", flowMonitorMap.CacheUpdateAgingTimeout}
-    flowMonitorMap.EntityData.Leafs["cache-entries"] = types.YLeaf{"CacheEntries", flowMonitorMap.CacheEntries}
-    flowMonitorMap.EntityData.Leafs["cache-inactive-aging-timeout"] = types.YLeaf{"CacheInactiveAgingTimeout", flowMonitorMap.CacheInactiveAgingTimeout}
-    flowMonitorMap.EntityData.Leafs["cache-active-aging-timeout"] = types.YLeaf{"CacheActiveAgingTimeout", flowMonitorMap.CacheActiveAgingTimeout}
-    flowMonitorMap.EntityData.Leafs["cache-timeout-rate-limit"] = types.YLeaf{"CacheTimeoutRateLimit", flowMonitorMap.CacheTimeoutRateLimit}
-    flowMonitorMap.EntityData.Leafs["cache-aging-mode"] = types.YLeaf{"CacheAgingMode", flowMonitorMap.CacheAgingMode}
+    flowMonitorMap.EntityData.Children = types.NewOrderedMap()
+    flowMonitorMap.EntityData.Children.Append("option", types.YChild{"Option", &flowMonitorMap.Option})
+    flowMonitorMap.EntityData.Children.Append("exporters", types.YChild{"Exporters", &flowMonitorMap.Exporters})
+    flowMonitorMap.EntityData.Children.Append("record", types.YChild{"Record", &flowMonitorMap.Record})
+    flowMonitorMap.EntityData.Leafs = types.NewOrderedMap()
+    flowMonitorMap.EntityData.Leafs.Append("monitor-map-name", types.YLeaf{"MonitorMapName", flowMonitorMap.MonitorMapName})
+    flowMonitorMap.EntityData.Leafs.Append("cache-update-aging-timeout", types.YLeaf{"CacheUpdateAgingTimeout", flowMonitorMap.CacheUpdateAgingTimeout})
+    flowMonitorMap.EntityData.Leafs.Append("cache-entries", types.YLeaf{"CacheEntries", flowMonitorMap.CacheEntries})
+    flowMonitorMap.EntityData.Leafs.Append("cache-inactive-aging-timeout", types.YLeaf{"CacheInactiveAgingTimeout", flowMonitorMap.CacheInactiveAgingTimeout})
+    flowMonitorMap.EntityData.Leafs.Append("cache-active-aging-timeout", types.YLeaf{"CacheActiveAgingTimeout", flowMonitorMap.CacheActiveAgingTimeout})
+    flowMonitorMap.EntityData.Leafs.Append("cache-timeout-rate-limit", types.YLeaf{"CacheTimeoutRateLimit", flowMonitorMap.CacheTimeoutRateLimit})
+    flowMonitorMap.EntityData.Leafs.Append("cache-aging-mode", types.YLeaf{"CacheAgingMode", flowMonitorMap.CacheAgingMode})
+
+    flowMonitorMap.EntityData.YListKeys = []string {"MonitorMapName"}
+
     return &(flowMonitorMap.EntityData)
 }
 
@@ -574,12 +613,15 @@ func (option *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Option) GetEntityData()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    option.EntityData.Children = make(map[string]types.YChild)
-    option.EntityData.Leafs = make(map[string]types.YLeaf)
-    option.EntityData.Leafs["filtered"] = types.YLeaf{"Filtered", option.Filtered}
-    option.EntityData.Leafs["out-bundle-member"] = types.YLeaf{"OutBundleMember", option.OutBundleMember}
-    option.EntityData.Leafs["out-phys-int"] = types.YLeaf{"OutPhysInt", option.OutPhysInt}
-    option.EntityData.Leafs["bgp-attr"] = types.YLeaf{"BgpAttr", option.BgpAttr}
+    option.EntityData.Children = types.NewOrderedMap()
+    option.EntityData.Leafs = types.NewOrderedMap()
+    option.EntityData.Leafs.Append("filtered", types.YLeaf{"Filtered", option.Filtered})
+    option.EntityData.Leafs.Append("out-bundle-member", types.YLeaf{"OutBundleMember", option.OutBundleMember})
+    option.EntityData.Leafs.Append("out-phys-int", types.YLeaf{"OutPhysInt", option.OutPhysInt})
+    option.EntityData.Leafs.Append("bgp-attr", types.YLeaf{"BgpAttr", option.BgpAttr})
+
+    option.EntityData.YListKeys = []string {}
+
     return &(option.EntityData)
 }
 
@@ -592,7 +634,7 @@ type NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters struct {
 
     // Configure exporter to be used by the monitor-map. The type is slice of
     // NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters_Exporter.
-    Exporter []NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters_Exporter
+    Exporter []*NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters_Exporter
 }
 
 func (exporters *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters) GetEntityData() *types.CommonEntityData {
@@ -605,12 +647,15 @@ func (exporters *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters) GetEntity
     exporters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exporters.EntityData.Children = make(map[string]types.YChild)
-    exporters.EntityData.Children["exporter"] = types.YChild{"Exporter", nil}
+    exporters.EntityData.Children = types.NewOrderedMap()
+    exporters.EntityData.Children.Append("exporter", types.YChild{"Exporter", nil})
     for i := range exporters.Exporter {
-        exporters.EntityData.Children[types.GetSegmentPath(&exporters.Exporter[i])] = types.YChild{"Exporter", &exporters.Exporter[i]}
+        exporters.EntityData.Children.Append(types.GetSegmentPath(exporters.Exporter[i]), types.YChild{"Exporter", exporters.Exporter[i]})
     }
-    exporters.EntityData.Leafs = make(map[string]types.YLeaf)
+    exporters.EntityData.Leafs = types.NewOrderedMap()
+
+    exporters.EntityData.YListKeys = []string {}
+
     return &(exporters.EntityData)
 }
 
@@ -631,14 +676,17 @@ func (exporter *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters_Exporter) G
     exporter.EntityData.YangName = "exporter"
     exporter.EntityData.BundleName = "cisco_ios_xr"
     exporter.EntityData.ParentYangName = "exporters"
-    exporter.EntityData.SegmentPath = "exporter" + "[exporter-name='" + fmt.Sprintf("%v", exporter.ExporterName) + "']"
+    exporter.EntityData.SegmentPath = "exporter" + types.AddKeyToken(exporter.ExporterName, "exporter-name")
     exporter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exporter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exporter.EntityData.Children = make(map[string]types.YChild)
-    exporter.EntityData.Leafs = make(map[string]types.YLeaf)
-    exporter.EntityData.Leafs["exporter-name"] = types.YLeaf{"ExporterName", exporter.ExporterName}
+    exporter.EntityData.Children = types.NewOrderedMap()
+    exporter.EntityData.Leafs = types.NewOrderedMap()
+    exporter.EntityData.Leafs.Append("exporter-name", types.YLeaf{"ExporterName", exporter.ExporterName})
+
+    exporter.EntityData.YListKeys = []string {"ExporterName"}
+
     return &(exporter.EntityData)
 }
 
@@ -648,6 +696,7 @@ func (exporter *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters_Exporter) G
 type NetFlow_FlowMonitorMapTable_FlowMonitorMap_Record struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Flow record format (Either 'ipv4-raw' ,'ipv4-peer-as', 'ipv6', 'mpls',
     // 'mpls-ipv4', 'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as'). The type is
@@ -669,10 +718,13 @@ func (record *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Record) GetEntityData()
     record.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     record.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    record.EntityData.Children = make(map[string]types.YChild)
-    record.EntityData.Leafs = make(map[string]types.YLeaf)
-    record.EntityData.Leafs["record-name"] = types.YLeaf{"RecordName", record.RecordName}
-    record.EntityData.Leafs["label"] = types.YLeaf{"Label", record.Label}
+    record.EntityData.Children = types.NewOrderedMap()
+    record.EntityData.Leafs = types.NewOrderedMap()
+    record.EntityData.Leafs.Append("record-name", types.YLeaf{"RecordName", record.RecordName})
+    record.EntityData.Leafs.Append("label", types.YLeaf{"Label", record.Label})
+
+    record.EntityData.YListKeys = []string {}
+
     return &(record.EntityData)
 }
 
@@ -684,7 +736,7 @@ type NetFlow_FlowMonitorMapPerformanceTable struct {
 
     // Monitor map name. The type is slice of
     // NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap.
-    FlowMonitorMap []NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap
+    FlowMonitorMap []*NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap
 }
 
 func (flowMonitorMapPerformanceTable *NetFlow_FlowMonitorMapPerformanceTable) GetEntityData() *types.CommonEntityData {
@@ -697,12 +749,15 @@ func (flowMonitorMapPerformanceTable *NetFlow_FlowMonitorMapPerformanceTable) Ge
     flowMonitorMapPerformanceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowMonitorMapPerformanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowMonitorMapPerformanceTable.EntityData.Children = make(map[string]types.YChild)
-    flowMonitorMapPerformanceTable.EntityData.Children["flow-monitor-map"] = types.YChild{"FlowMonitorMap", nil}
+    flowMonitorMapPerformanceTable.EntityData.Children = types.NewOrderedMap()
+    flowMonitorMapPerformanceTable.EntityData.Children.Append("flow-monitor-map", types.YChild{"FlowMonitorMap", nil})
     for i := range flowMonitorMapPerformanceTable.FlowMonitorMap {
-        flowMonitorMapPerformanceTable.EntityData.Children[types.GetSegmentPath(&flowMonitorMapPerformanceTable.FlowMonitorMap[i])] = types.YChild{"FlowMonitorMap", &flowMonitorMapPerformanceTable.FlowMonitorMap[i]}
+        flowMonitorMapPerformanceTable.EntityData.Children.Append(types.GetSegmentPath(flowMonitorMapPerformanceTable.FlowMonitorMap[i]), types.YChild{"FlowMonitorMap", flowMonitorMapPerformanceTable.FlowMonitorMap[i]})
     }
-    flowMonitorMapPerformanceTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    flowMonitorMapPerformanceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    flowMonitorMapPerformanceTable.EntityData.YListKeys = []string {}
+
     return &(flowMonitorMapPerformanceTable.EntityData)
 }
 
@@ -755,23 +810,26 @@ func (flowMonitorMap *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap) Get
     flowMonitorMap.EntityData.YangName = "flow-monitor-map"
     flowMonitorMap.EntityData.BundleName = "cisco_ios_xr"
     flowMonitorMap.EntityData.ParentYangName = "flow-monitor-map-performance-table"
-    flowMonitorMap.EntityData.SegmentPath = "flow-monitor-map" + "[monitor-map-name='" + fmt.Sprintf("%v", flowMonitorMap.MonitorMapName) + "']"
+    flowMonitorMap.EntityData.SegmentPath = "flow-monitor-map" + types.AddKeyToken(flowMonitorMap.MonitorMapName, "monitor-map-name")
     flowMonitorMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowMonitorMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowMonitorMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flowMonitorMap.EntityData.Children = make(map[string]types.YChild)
-    flowMonitorMap.EntityData.Children["option"] = types.YChild{"Option", &flowMonitorMap.Option}
-    flowMonitorMap.EntityData.Children["exporters"] = types.YChild{"Exporters", &flowMonitorMap.Exporters}
-    flowMonitorMap.EntityData.Children["record"] = types.YChild{"Record", &flowMonitorMap.Record}
-    flowMonitorMap.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowMonitorMap.EntityData.Leafs["monitor-map-name"] = types.YLeaf{"MonitorMapName", flowMonitorMap.MonitorMapName}
-    flowMonitorMap.EntityData.Leafs["cache-update-aging-timeout"] = types.YLeaf{"CacheUpdateAgingTimeout", flowMonitorMap.CacheUpdateAgingTimeout}
-    flowMonitorMap.EntityData.Leafs["cache-entries"] = types.YLeaf{"CacheEntries", flowMonitorMap.CacheEntries}
-    flowMonitorMap.EntityData.Leafs["cache-inactive-aging-timeout"] = types.YLeaf{"CacheInactiveAgingTimeout", flowMonitorMap.CacheInactiveAgingTimeout}
-    flowMonitorMap.EntityData.Leafs["cache-active-aging-timeout"] = types.YLeaf{"CacheActiveAgingTimeout", flowMonitorMap.CacheActiveAgingTimeout}
-    flowMonitorMap.EntityData.Leafs["cache-timeout-rate-limit"] = types.YLeaf{"CacheTimeoutRateLimit", flowMonitorMap.CacheTimeoutRateLimit}
-    flowMonitorMap.EntityData.Leafs["cache-aging-mode"] = types.YLeaf{"CacheAgingMode", flowMonitorMap.CacheAgingMode}
+    flowMonitorMap.EntityData.Children = types.NewOrderedMap()
+    flowMonitorMap.EntityData.Children.Append("option", types.YChild{"Option", &flowMonitorMap.Option})
+    flowMonitorMap.EntityData.Children.Append("exporters", types.YChild{"Exporters", &flowMonitorMap.Exporters})
+    flowMonitorMap.EntityData.Children.Append("record", types.YChild{"Record", &flowMonitorMap.Record})
+    flowMonitorMap.EntityData.Leafs = types.NewOrderedMap()
+    flowMonitorMap.EntityData.Leafs.Append("monitor-map-name", types.YLeaf{"MonitorMapName", flowMonitorMap.MonitorMapName})
+    flowMonitorMap.EntityData.Leafs.Append("cache-update-aging-timeout", types.YLeaf{"CacheUpdateAgingTimeout", flowMonitorMap.CacheUpdateAgingTimeout})
+    flowMonitorMap.EntityData.Leafs.Append("cache-entries", types.YLeaf{"CacheEntries", flowMonitorMap.CacheEntries})
+    flowMonitorMap.EntityData.Leafs.Append("cache-inactive-aging-timeout", types.YLeaf{"CacheInactiveAgingTimeout", flowMonitorMap.CacheInactiveAgingTimeout})
+    flowMonitorMap.EntityData.Leafs.Append("cache-active-aging-timeout", types.YLeaf{"CacheActiveAgingTimeout", flowMonitorMap.CacheActiveAgingTimeout})
+    flowMonitorMap.EntityData.Leafs.Append("cache-timeout-rate-limit", types.YLeaf{"CacheTimeoutRateLimit", flowMonitorMap.CacheTimeoutRateLimit})
+    flowMonitorMap.EntityData.Leafs.Append("cache-aging-mode", types.YLeaf{"CacheAgingMode", flowMonitorMap.CacheAgingMode})
+
+    flowMonitorMap.EntityData.YListKeys = []string {"MonitorMapName"}
+
     return &(flowMonitorMap.EntityData)
 }
 
@@ -807,12 +865,15 @@ func (option *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Option) GetE
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    option.EntityData.Children = make(map[string]types.YChild)
-    option.EntityData.Leafs = make(map[string]types.YLeaf)
-    option.EntityData.Leafs["filtered"] = types.YLeaf{"Filtered", option.Filtered}
-    option.EntityData.Leafs["out-bundle-member"] = types.YLeaf{"OutBundleMember", option.OutBundleMember}
-    option.EntityData.Leafs["out-phys-int"] = types.YLeaf{"OutPhysInt", option.OutPhysInt}
-    option.EntityData.Leafs["bgp-attr"] = types.YLeaf{"BgpAttr", option.BgpAttr}
+    option.EntityData.Children = types.NewOrderedMap()
+    option.EntityData.Leafs = types.NewOrderedMap()
+    option.EntityData.Leafs.Append("filtered", types.YLeaf{"Filtered", option.Filtered})
+    option.EntityData.Leafs.Append("out-bundle-member", types.YLeaf{"OutBundleMember", option.OutBundleMember})
+    option.EntityData.Leafs.Append("out-phys-int", types.YLeaf{"OutPhysInt", option.OutPhysInt})
+    option.EntityData.Leafs.Append("bgp-attr", types.YLeaf{"BgpAttr", option.BgpAttr})
+
+    option.EntityData.YListKeys = []string {}
+
     return &(option.EntityData)
 }
 
@@ -825,7 +886,7 @@ type NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters struct {
 
     // Configure exporter to be used by the monitor-map. The type is slice of
     // NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters_Exporter.
-    Exporter []NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters_Exporter
+    Exporter []*NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters_Exporter
 }
 
 func (exporters *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters) GetEntityData() *types.CommonEntityData {
@@ -838,12 +899,15 @@ func (exporters *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters
     exporters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exporters.EntityData.Children = make(map[string]types.YChild)
-    exporters.EntityData.Children["exporter"] = types.YChild{"Exporter", nil}
+    exporters.EntityData.Children = types.NewOrderedMap()
+    exporters.EntityData.Children.Append("exporter", types.YChild{"Exporter", nil})
     for i := range exporters.Exporter {
-        exporters.EntityData.Children[types.GetSegmentPath(&exporters.Exporter[i])] = types.YChild{"Exporter", &exporters.Exporter[i]}
+        exporters.EntityData.Children.Append(types.GetSegmentPath(exporters.Exporter[i]), types.YChild{"Exporter", exporters.Exporter[i]})
     }
-    exporters.EntityData.Leafs = make(map[string]types.YLeaf)
+    exporters.EntityData.Leafs = types.NewOrderedMap()
+
+    exporters.EntityData.YListKeys = []string {}
+
     return &(exporters.EntityData)
 }
 
@@ -864,14 +928,17 @@ func (exporter *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters_
     exporter.EntityData.YangName = "exporter"
     exporter.EntityData.BundleName = "cisco_ios_xr"
     exporter.EntityData.ParentYangName = "exporters"
-    exporter.EntityData.SegmentPath = "exporter" + "[exporter-name='" + fmt.Sprintf("%v", exporter.ExporterName) + "']"
+    exporter.EntityData.SegmentPath = "exporter" + types.AddKeyToken(exporter.ExporterName, "exporter-name")
     exporter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exporter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exporter.EntityData.Children = make(map[string]types.YChild)
-    exporter.EntityData.Leafs = make(map[string]types.YLeaf)
-    exporter.EntityData.Leafs["exporter-name"] = types.YLeaf{"ExporterName", exporter.ExporterName}
+    exporter.EntityData.Children = types.NewOrderedMap()
+    exporter.EntityData.Leafs = types.NewOrderedMap()
+    exporter.EntityData.Leafs.Append("exporter-name", types.YLeaf{"ExporterName", exporter.ExporterName})
+
+    exporter.EntityData.YListKeys = []string {"ExporterName"}
+
     return &(exporter.EntityData)
 }
 
@@ -881,6 +948,7 @@ func (exporter *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters_
 type NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Record struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Flow record format (Either 'ipv4-raw' ,'ipv4-peer-as', 'ipv6', 'mpls',
     // 'mpls-ipv4', 'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as'). The type is
@@ -902,10 +970,13 @@ func (record *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Record) GetE
     record.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     record.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    record.EntityData.Children = make(map[string]types.YChild)
-    record.EntityData.Leafs = make(map[string]types.YLeaf)
-    record.EntityData.Leafs["record-name"] = types.YLeaf{"RecordName", record.RecordName}
-    record.EntityData.Leafs["label"] = types.YLeaf{"Label", record.Label}
+    record.EntityData.Children = types.NewOrderedMap()
+    record.EntityData.Leafs = types.NewOrderedMap()
+    record.EntityData.Leafs.Append("record-name", types.YLeaf{"RecordName", record.RecordName})
+    record.EntityData.Leafs.Append("label", types.YLeaf{"Label", record.Label})
+
+    record.EntityData.YListKeys = []string {}
+
     return &(record.EntityData)
 }
 

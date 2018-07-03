@@ -24,6 +24,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-lmp-cfg:lmp", reflect.TypeOf(Lmp{}))
 }
 
+// OlmSwitchingCap represents Olm switching cap
+type OlmSwitchingCap string
+
+const (
+    // Lambda switch capable
+    OlmSwitchingCap_lsc OlmSwitchingCap = "lsc"
+
+    // Fiber switch capable
+    OlmSwitchingCap_fsc OlmSwitchingCap = "fsc"
+)
+
 // OlmAddr represents Olm addr
 type OlmAddr string
 
@@ -41,17 +52,6 @@ const (
     OlmAddr_nsap OlmAddr = "nsap"
 )
 
-// OlmSwitchingCap represents Olm switching cap
-type OlmSwitchingCap string
-
-const (
-    // Lambda switch capable
-    OlmSwitchingCap_lsc OlmSwitchingCap = "lsc"
-
-    // Fiber switch capable
-    OlmSwitchingCap_fsc OlmSwitchingCap = "fsc"
-)
-
 // Lmp
 // Main common OLM/LMP configuration container
 type Lmp struct {
@@ -60,10 +60,6 @@ type Lmp struct {
 
     // Enable the OLM/LMP application. The type is interface{}.
     Enable interface{}
-
-    // LMP protocol UDP port number. The type is interface{} with range: 1..65535.
-    // The default value is 701.
-    Port interface{}
 
     // GMPLS UNI specific OLM/LMP configuration.
     GmplsUni Lmp_GmplsUni
@@ -79,11 +75,13 @@ func (lmp *Lmp) GetEntityData() *types.CommonEntityData {
     lmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lmp.EntityData.Children = make(map[string]types.YChild)
-    lmp.EntityData.Children["gmpls-uni"] = types.YChild{"GmplsUni", &lmp.GmplsUni}
-    lmp.EntityData.Leafs = make(map[string]types.YLeaf)
-    lmp.EntityData.Leafs["enable"] = types.YLeaf{"Enable", lmp.Enable}
-    lmp.EntityData.Leafs["port"] = types.YLeaf{"Port", lmp.Port}
+    lmp.EntityData.Children = types.NewOrderedMap()
+    lmp.EntityData.Children.Append("gmpls-uni", types.YChild{"GmplsUni", &lmp.GmplsUni})
+    lmp.EntityData.Leafs = types.NewOrderedMap()
+    lmp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", lmp.Enable})
+
+    lmp.EntityData.YListKeys = []string {}
+
     return &(lmp.EntityData)
 }
 
@@ -113,11 +111,14 @@ func (gmplsUni *Lmp_GmplsUni) GetEntityData() *types.CommonEntityData {
     gmplsUni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gmplsUni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    gmplsUni.EntityData.Children = make(map[string]types.YChild)
-    gmplsUni.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &gmplsUni.Neighbors}
-    gmplsUni.EntityData.Children["router-id"] = types.YChild{"RouterId", &gmplsUni.RouterId}
-    gmplsUni.EntityData.Children["controllers"] = types.YChild{"Controllers", &gmplsUni.Controllers}
-    gmplsUni.EntityData.Leafs = make(map[string]types.YLeaf)
+    gmplsUni.EntityData.Children = types.NewOrderedMap()
+    gmplsUni.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &gmplsUni.Neighbors})
+    gmplsUni.EntityData.Children.Append("router-id", types.YChild{"RouterId", &gmplsUni.RouterId})
+    gmplsUni.EntityData.Children.Append("controllers", types.YChild{"Controllers", &gmplsUni.Controllers})
+    gmplsUni.EntityData.Leafs = types.NewOrderedMap()
+
+    gmplsUni.EntityData.YListKeys = []string {}
+
     return &(gmplsUni.EntityData)
 }
 
@@ -129,7 +130,7 @@ type Lmp_GmplsUni_Neighbors struct {
 
     // Neighbor configuration. The type is slice of
     // Lmp_GmplsUni_Neighbors_Neighbor.
-    Neighbor []Lmp_GmplsUni_Neighbors_Neighbor
+    Neighbor []*Lmp_GmplsUni_Neighbors_Neighbor
 }
 
 func (neighbors *Lmp_GmplsUni_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -142,12 +143,15 @@ func (neighbors *Lmp_GmplsUni_Neighbors) GetEntityData() *types.CommonEntityData
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -165,7 +169,7 @@ type Lmp_GmplsUni_Neighbors_Neighbor struct {
     Enable interface{}
 
     // Neighbor router ID (IPv4 Address). The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouterId interface{}
 
     // IPCC configuration.
@@ -177,17 +181,20 @@ func (neighbor *Lmp_GmplsUni_Neighbors_Neighbor) GetEntityData() *types.CommonEn
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-name='" + fmt.Sprintf("%v", neighbor.NeighborName) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborName, "neighbor-name")
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["ipcc"] = types.YChild{"Ipcc", &neighbor.Ipcc}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-name"] = types.YLeaf{"NeighborName", neighbor.NeighborName}
-    neighbor.EntityData.Leafs["enable"] = types.YLeaf{"Enable", neighbor.Enable}
-    neighbor.EntityData.Leafs["neighbor-router-id"] = types.YLeaf{"NeighborRouterId", neighbor.NeighborRouterId}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("ipcc", types.YChild{"Ipcc", &neighbor.Ipcc})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-name", types.YLeaf{"NeighborName", neighbor.NeighborName})
+    neighbor.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", neighbor.Enable})
+    neighbor.EntityData.Leafs.Append("neighbor-router-id", types.YLeaf{"NeighborRouterId", neighbor.NeighborRouterId})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborName"}
+
     return &(neighbor.EntityData)
 }
 
@@ -211,9 +218,12 @@ func (ipcc *Lmp_GmplsUni_Neighbors_Neighbor_Ipcc) GetEntityData() *types.CommonE
     ipcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipcc.EntityData.Children = make(map[string]types.YChild)
-    ipcc.EntityData.Children["routed"] = types.YChild{"Routed", &ipcc.Routed}
-    ipcc.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipcc.EntityData.Children = types.NewOrderedMap()
+    ipcc.EntityData.Children.Append("routed", types.YChild{"Routed", &ipcc.Routed})
+    ipcc.EntityData.Leafs = types.NewOrderedMap()
+
+    ipcc.EntityData.YListKeys = []string {}
+
     return &(ipcc.EntityData)
 }
 
@@ -237,9 +247,12 @@ func (routed *Lmp_GmplsUni_Neighbors_Neighbor_Ipcc_Routed) GetEntityData() *type
     routed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routed.EntityData.Children = make(map[string]types.YChild)
-    routed.EntityData.Leafs = make(map[string]types.YLeaf)
-    routed.EntityData.Leafs["enable"] = types.YLeaf{"Enable", routed.Enable}
+    routed.EntityData.Children = types.NewOrderedMap()
+    routed.EntityData.Leafs = types.NewOrderedMap()
+    routed.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", routed.Enable})
+
+    routed.EntityData.YListKeys = []string {}
+
     return &(routed.EntityData)
 }
 
@@ -249,12 +262,13 @@ func (routed *Lmp_GmplsUni_Neighbors_Neighbor_Ipcc_Routed) GetEntityData() *type
 type Lmp_GmplsUni_RouterId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
-    // Name of interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Name of interface. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Local router ID (IPv4 Address). The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -268,10 +282,13 @@ func (routerId *Lmp_GmplsUni_RouterId) GetEntityData() *types.CommonEntityData {
     routerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routerId.EntityData.Children = make(map[string]types.YChild)
-    routerId.EntityData.Leafs = make(map[string]types.YLeaf)
-    routerId.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", routerId.InterfaceName}
-    routerId.EntityData.Leafs["address"] = types.YLeaf{"Address", routerId.Address}
+    routerId.EntityData.Children = types.NewOrderedMap()
+    routerId.EntityData.Leafs = types.NewOrderedMap()
+    routerId.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", routerId.InterfaceName})
+    routerId.EntityData.Leafs.Append("address", types.YLeaf{"Address", routerId.Address})
+
+    routerId.EntityData.YListKeys = []string {}
+
     return &(routerId.EntityData)
 }
 
@@ -283,7 +300,7 @@ type Lmp_GmplsUni_Controllers struct {
 
     // Configure an GMPLS UNI OLM/LMP contoller. The type is slice of
     // Lmp_GmplsUni_Controllers_Controller.
-    Controller []Lmp_GmplsUni_Controllers_Controller
+    Controller []*Lmp_GmplsUni_Controllers_Controller
 }
 
 func (controllers *Lmp_GmplsUni_Controllers) GetEntityData() *types.CommonEntityData {
@@ -296,12 +313,15 @@ func (controllers *Lmp_GmplsUni_Controllers) GetEntityData() *types.CommonEntity
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controllers.EntityData.Children = make(map[string]types.YChild)
-    controllers.EntityData.Children["controller"] = types.YChild{"Controller", nil}
+    controllers.EntityData.Children = types.NewOrderedMap()
+    controllers.EntityData.Children.Append("controller", types.YChild{"Controller", nil})
     for i := range controllers.Controller {
-        controllers.EntityData.Children[types.GetSegmentPath(&controllers.Controller[i])] = types.YChild{"Controller", &controllers.Controller[i]}
+        controllers.EntityData.Children.Append(types.GetSegmentPath(controllers.Controller[i]), types.YChild{"Controller", controllers.Controller[i]})
     }
-    controllers.EntityData.Leafs = make(map[string]types.YLeaf)
+    controllers.EntityData.Leafs = types.NewOrderedMap()
+
+    controllers.EntityData.YListKeys = []string {}
+
     return &(controllers.EntityData)
 }
 
@@ -312,7 +332,7 @@ type Lmp_GmplsUni_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     ControllerName interface{}
 
     // Enable the OLM/LMP application on this controller. The type is interface{}.
@@ -330,17 +350,20 @@ func (controller *Lmp_GmplsUni_Controllers_Controller) GetEntityData() *types.Co
     controller.EntityData.YangName = "controller"
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
-    controller.EntityData.SegmentPath = "controller" + "[controller-name='" + fmt.Sprintf("%v", controller.ControllerName) + "']"
+    controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controller.EntityData.Children = make(map[string]types.YChild)
-    controller.EntityData.Children["local-link-id"] = types.YChild{"LocalLinkId", &controller.LocalLinkId}
-    controller.EntityData.Children["adjacency"] = types.YChild{"Adjacency", &controller.Adjacency}
-    controller.EntityData.Leafs = make(map[string]types.YLeaf)
-    controller.EntityData.Leafs["controller-name"] = types.YLeaf{"ControllerName", controller.ControllerName}
-    controller.EntityData.Leafs["enable"] = types.YLeaf{"Enable", controller.Enable}
+    controller.EntityData.Children = types.NewOrderedMap()
+    controller.EntityData.Children.Append("local-link-id", types.YChild{"LocalLinkId", &controller.LocalLinkId})
+    controller.EntityData.Children.Append("adjacency", types.YChild{"Adjacency", &controller.Adjacency})
+    controller.EntityData.Leafs = types.NewOrderedMap()
+    controller.EntityData.Leafs.Append("controller-name", types.YLeaf{"ControllerName", controller.ControllerName})
+    controller.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", controller.Enable})
+
+    controller.EntityData.YListKeys = []string {"ControllerName"}
+
     return &(controller.EntityData)
 }
 
@@ -354,11 +377,11 @@ type Lmp_GmplsUni_Controllers_Controller_LocalLinkId struct {
     AddressType interface{}
 
     // Local address unnumbered . The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Unnumbered interface{}
 
     // Local link ID address IPv4. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -372,11 +395,14 @@ func (localLinkId *Lmp_GmplsUni_Controllers_Controller_LocalLinkId) GetEntityDat
     localLinkId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLinkId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localLinkId.EntityData.Children = make(map[string]types.YChild)
-    localLinkId.EntityData.Leafs = make(map[string]types.YLeaf)
-    localLinkId.EntityData.Leafs["address-type"] = types.YLeaf{"AddressType", localLinkId.AddressType}
-    localLinkId.EntityData.Leafs["unnumbered"] = types.YLeaf{"Unnumbered", localLinkId.Unnumbered}
-    localLinkId.EntityData.Leafs["address"] = types.YLeaf{"Address", localLinkId.Address}
+    localLinkId.EntityData.Children = types.NewOrderedMap()
+    localLinkId.EntityData.Leafs = types.NewOrderedMap()
+    localLinkId.EntityData.Leafs.Append("address-type", types.YLeaf{"AddressType", localLinkId.AddressType})
+    localLinkId.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", localLinkId.Unnumbered})
+    localLinkId.EntityData.Leafs.Append("address", types.YLeaf{"Address", localLinkId.Address})
+
+    localLinkId.EntityData.YListKeys = []string {}
+
     return &(localLinkId.EntityData)
 }
 
@@ -400,9 +426,12 @@ func (adjacency *Lmp_GmplsUni_Controllers_Controller_Adjacency) GetEntityData() 
     adjacency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    adjacency.EntityData.Children = make(map[string]types.YChild)
-    adjacency.EntityData.Children["remote-neighbor"] = types.YChild{"RemoteNeighbor", &adjacency.RemoteNeighbor}
-    adjacency.EntityData.Leafs = make(map[string]types.YLeaf)
+    adjacency.EntityData.Children = types.NewOrderedMap()
+    adjacency.EntityData.Children.Append("remote-neighbor", types.YChild{"RemoteNeighbor", &adjacency.RemoteNeighbor})
+    adjacency.EntityData.Leafs = types.NewOrderedMap()
+
+    adjacency.EntityData.YListKeys = []string {}
+
     return &(adjacency.EntityData)
 }
 
@@ -421,7 +450,7 @@ type Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor struct {
     LinkSwitchingCapability interface{}
 
     // Remote node flexi grid capability . The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     FlexiGridCapable interface{}
 
     // Neighbor Interface ID configuration.
@@ -441,13 +470,16 @@ func (remoteNeighbor *Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighb
     remoteNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteNeighbor.EntityData.Children = make(map[string]types.YChild)
-    remoteNeighbor.EntityData.Children["interface-id"] = types.YChild{"InterfaceId", &remoteNeighbor.InterfaceId}
-    remoteNeighbor.EntityData.Children["link-id"] = types.YChild{"LinkId", &remoteNeighbor.LinkId}
-    remoteNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteNeighbor.EntityData.Leafs["neighbor-association"] = types.YLeaf{"NeighborAssociation", remoteNeighbor.NeighborAssociation}
-    remoteNeighbor.EntityData.Leafs["link-switching-capability"] = types.YLeaf{"LinkSwitchingCapability", remoteNeighbor.LinkSwitchingCapability}
-    remoteNeighbor.EntityData.Leafs["flexi-grid-capable"] = types.YLeaf{"FlexiGridCapable", remoteNeighbor.FlexiGridCapable}
+    remoteNeighbor.EntityData.Children = types.NewOrderedMap()
+    remoteNeighbor.EntityData.Children.Append("interface-id", types.YChild{"InterfaceId", &remoteNeighbor.InterfaceId})
+    remoteNeighbor.EntityData.Children.Append("link-id", types.YChild{"LinkId", &remoteNeighbor.LinkId})
+    remoteNeighbor.EntityData.Leafs = types.NewOrderedMap()
+    remoteNeighbor.EntityData.Leafs.Append("neighbor-association", types.YLeaf{"NeighborAssociation", remoteNeighbor.NeighborAssociation})
+    remoteNeighbor.EntityData.Leafs.Append("link-switching-capability", types.YLeaf{"LinkSwitchingCapability", remoteNeighbor.LinkSwitchingCapability})
+    remoteNeighbor.EntityData.Leafs.Append("flexi-grid-capable", types.YLeaf{"FlexiGridCapable", remoteNeighbor.FlexiGridCapable})
+
+    remoteNeighbor.EntityData.YListKeys = []string {}
+
     return &(remoteNeighbor.EntityData)
 }
 
@@ -461,11 +493,11 @@ type Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor_InterfaceId st
     AddressType interface{}
 
     // Local address unnumbered . The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Unnumbered interface{}
 
     // Local link ID address IPv4. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -479,11 +511,14 @@ func (interfaceId *Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor_
     interfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceId.EntityData.Children = make(map[string]types.YChild)
-    interfaceId.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceId.EntityData.Leafs["address-type"] = types.YLeaf{"AddressType", interfaceId.AddressType}
-    interfaceId.EntityData.Leafs["unnumbered"] = types.YLeaf{"Unnumbered", interfaceId.Unnumbered}
-    interfaceId.EntityData.Leafs["address"] = types.YLeaf{"Address", interfaceId.Address}
+    interfaceId.EntityData.Children = types.NewOrderedMap()
+    interfaceId.EntityData.Leafs = types.NewOrderedMap()
+    interfaceId.EntityData.Leafs.Append("address-type", types.YLeaf{"AddressType", interfaceId.AddressType})
+    interfaceId.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", interfaceId.Unnumbered})
+    interfaceId.EntityData.Leafs.Append("address", types.YLeaf{"Address", interfaceId.Address})
+
+    interfaceId.EntityData.YListKeys = []string {}
+
     return &(interfaceId.EntityData)
 }
 
@@ -497,11 +532,11 @@ type Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor_LinkId struct 
     AddressType interface{}
 
     // Neighbor address unnumbered [Not supported]. The type is interface{} with
-    // range: -2147483648..2147483647.
+    // range: 0..4294967295.
     Unnumbered interface{}
 
     // Neighbor ID address IPv4. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -515,11 +550,14 @@ func (linkId *Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor_LinkI
     linkId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkId.EntityData.Children = make(map[string]types.YChild)
-    linkId.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkId.EntityData.Leafs["address-type"] = types.YLeaf{"AddressType", linkId.AddressType}
-    linkId.EntityData.Leafs["unnumbered"] = types.YLeaf{"Unnumbered", linkId.Unnumbered}
-    linkId.EntityData.Leafs["address"] = types.YLeaf{"Address", linkId.Address}
+    linkId.EntityData.Children = types.NewOrderedMap()
+    linkId.EntityData.Leafs = types.NewOrderedMap()
+    linkId.EntityData.Leafs.Append("address-type", types.YLeaf{"AddressType", linkId.AddressType})
+    linkId.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", linkId.Unnumbered})
+    linkId.EntityData.Leafs.Append("address", types.YLeaf{"Address", linkId.Address})
+
+    linkId.EntityData.YListKeys = []string {}
+
     return &(linkId.EntityData)
 }
 

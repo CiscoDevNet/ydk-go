@@ -1,8 +1,14 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin dumper to
 // configure file path options to copy the core files to.
 // 
 // Copyright(c) 2015-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_dumper
 
@@ -27,7 +33,7 @@ type Exception struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Exception_Choice.
-    Choice []Exception_Choice
+    Choice []*Exception_Choice
 }
 
 func (exception *Exception) GetEntityData() *types.CommonEntityData {
@@ -40,12 +46,15 @@ func (exception *Exception) GetEntityData() *types.CommonEntityData {
     exception.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exception.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exception.EntityData.Children = make(map[string]types.YChild)
-    exception.EntityData.Children["choice"] = types.YChild{"Choice", nil}
+    exception.EntityData.Children = types.NewOrderedMap()
+    exception.EntityData.Children.Append("choice", types.YChild{"Choice", nil})
     for i := range exception.Choice {
-        exception.EntityData.Children[types.GetSegmentPath(&exception.Choice[i])] = types.YChild{"Choice", &exception.Choice[i]}
+        exception.EntityData.Children.Append(types.GetSegmentPath(exception.Choice[i]), types.YChild{"Choice", exception.Choice[i]})
     }
-    exception.EntityData.Leafs = make(map[string]types.YLeaf)
+    exception.EntityData.Leafs = types.NewOrderedMap()
+
+    exception.EntityData.YListKeys = []string {}
+
     return &(exception.EntityData)
 }
 
@@ -66,15 +75,18 @@ func (choice *Exception_Choice) GetEntityData() *types.CommonEntityData {
     choice.EntityData.YangName = "choice"
     choice.EntityData.BundleName = "cisco_ios_xr"
     choice.EntityData.ParentYangName = "exception"
-    choice.EntityData.SegmentPath = "choice" + "[order='" + fmt.Sprintf("%v", choice.Order) + "']"
+    choice.EntityData.SegmentPath = "choice" + types.AddKeyToken(choice.Order, "order")
     choice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     choice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     choice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    choice.EntityData.Children = make(map[string]types.YChild)
-    choice.EntityData.Leafs = make(map[string]types.YLeaf)
-    choice.EntityData.Leafs["order"] = types.YLeaf{"Order", choice.Order}
-    choice.EntityData.Leafs["filepath"] = types.YLeaf{"Filepath", choice.Filepath}
+    choice.EntityData.Children = types.NewOrderedMap()
+    choice.EntityData.Leafs = types.NewOrderedMap()
+    choice.EntityData.Leafs.Append("order", types.YLeaf{"Order", choice.Order})
+    choice.EntityData.Leafs.Append("filepath", types.YLeaf{"Filepath", choice.Filepath})
+
+    choice.EntityData.YListKeys = []string {"Order"}
+
     return &(choice.EntityData)
 }
 

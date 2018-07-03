@@ -3,7 +3,7 @@ module Cisco-IOS-XR-infra-correlator-oper {
   prefix infra-correlator-oper;
 
   include Cisco-IOS-XR-infra-correlator-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -30,6 +30,10 @@ module Cisco-IOS-XR-infra-correlator-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -116,7 +120,7 @@ module Cisco-IOS-XR-infra-correlator-oper {
         description
           "One of the correlated alarms";
         leaf alarm-id {
-          type int32;
+          type uint32;
           description
             "Alarm ID";
         }

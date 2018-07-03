@@ -36,6 +36,10 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -63,10 +67,12 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
       "This augment extends the configuration data of
        'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg'";
     container pppoe-template {
+      presence "Indicates a pppoe-template node is configured.";
       description
         "PPPoE template configuration data";
       leaf port-limit {
         type xr:Cisco-ios-xr-port-number;
+        mandatory true;
         description
           "Specify the Port limit (attr 62) to apply to
            the subscriber";
@@ -682,6 +688,7 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
           }
         }
         container pa-do-delay {
+          presence "Indicates a pa-do-delay node is configured.";
           description
             "PPPoE PADO delay configuration data";
           container remote-id-substrings {
@@ -845,6 +852,7 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
               range "0..10000";
             }
             units "millisecond";
+            mandatory true;
             description
               "PADO delay (in milliseconds)";
           }
@@ -853,6 +861,7 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
               range "0..10000";
             }
             units "millisecond";
+            mandatory true;
             description
               "Configure PADO delay dependent on the
                received Circuit ID";
@@ -862,6 +871,7 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
               range "0..10000";
             }
             units "millisecond";
+            mandatory true;
             description
               "Configure PADO delay dependent on the
                received Remote ID";

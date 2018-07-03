@@ -34,7 +34,7 @@ type CISCOIPTAPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Citapstreamencodepacket CISCOIPTAPMIB_Citapstreamencodepacket
+    CitapStreamEncodePacket CISCOIPTAPMIB_CitapStreamEncodePacket
 
     // The Intercept Stream IP Table lists the IPv4 and IPv6 streams to be
     // intercepted.  The same data stream may be required by multiple taps, and
@@ -56,7 +56,7 @@ type CISCOIPTAPMIB struct {
     // index is that of the stream's counter entry in the  cTap2StreamTable. 
     // Entries are added to this table via citapStreamStatus in  accordance with
     // the RowStatus convention.
-    Citapstreamtable CISCOIPTAPMIB_Citapstreamtable
+    CitapStreamTable CISCOIPTAPMIB_CitapStreamTable
 }
 
 func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetEntityData() *types.CommonEntityData {
@@ -69,15 +69,18 @@ func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetEntityData() *types.CommonEntityData {
     cISCOIPTAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPTAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIPTAPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIPTAPMIB.EntityData.Children["citapStreamEncodePacket"] = types.YChild{"Citapstreamencodepacket", &cISCOIPTAPMIB.Citapstreamencodepacket}
-    cISCOIPTAPMIB.EntityData.Children["citapStreamTable"] = types.YChild{"Citapstreamtable", &cISCOIPTAPMIB.Citapstreamtable}
-    cISCOIPTAPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIPTAPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIPTAPMIB.EntityData.Children.Append("citapStreamEncodePacket", types.YChild{"CitapStreamEncodePacket", &cISCOIPTAPMIB.CitapStreamEncodePacket})
+    cISCOIPTAPMIB.EntityData.Children.Append("citapStreamTable", types.YChild{"CitapStreamTable", &cISCOIPTAPMIB.CitapStreamTable})
+    cISCOIPTAPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIPTAPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIPTAPMIB.EntityData)
 }
 
-// CISCOIPTAPMIB_Citapstreamencodepacket
-type CISCOIPTAPMIB_Citapstreamencodepacket struct {
+// CISCOIPTAPMIB_CitapStreamEncodePacket
+type CISCOIPTAPMIB_CitapStreamEncodePacket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -98,26 +101,29 @@ type CISCOIPTAPMIB_Citapstreamencodepacket struct {
     // belonging to a voice session may                  be intercepted using
     // source IPv4 address and                  source UDP port. The type is
     // map[string]bool.
-    Citapstreamcapabilities interface{}
+    CitapStreamCapabilities interface{}
 }
 
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetEntityData() *types.CommonEntityData {
-    citapstreamencodepacket.EntityData.YFilter = citapstreamencodepacket.YFilter
-    citapstreamencodepacket.EntityData.YangName = "citapStreamEncodePacket"
-    citapstreamencodepacket.EntityData.BundleName = "cisco_ios_xe"
-    citapstreamencodepacket.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
-    citapstreamencodepacket.EntityData.SegmentPath = "citapStreamEncodePacket"
-    citapstreamencodepacket.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    citapstreamencodepacket.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    citapstreamencodepacket.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (citapStreamEncodePacket *CISCOIPTAPMIB_CitapStreamEncodePacket) GetEntityData() *types.CommonEntityData {
+    citapStreamEncodePacket.EntityData.YFilter = citapStreamEncodePacket.YFilter
+    citapStreamEncodePacket.EntityData.YangName = "citapStreamEncodePacket"
+    citapStreamEncodePacket.EntityData.BundleName = "cisco_ios_xe"
+    citapStreamEncodePacket.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
+    citapStreamEncodePacket.EntityData.SegmentPath = "citapStreamEncodePacket"
+    citapStreamEncodePacket.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    citapStreamEncodePacket.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    citapStreamEncodePacket.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    citapstreamencodepacket.EntityData.Children = make(map[string]types.YChild)
-    citapstreamencodepacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    citapstreamencodepacket.EntityData.Leafs["citapStreamCapabilities"] = types.YLeaf{"Citapstreamcapabilities", citapstreamencodepacket.Citapstreamcapabilities}
-    return &(citapstreamencodepacket.EntityData)
+    citapStreamEncodePacket.EntityData.Children = types.NewOrderedMap()
+    citapStreamEncodePacket.EntityData.Leafs = types.NewOrderedMap()
+    citapStreamEncodePacket.EntityData.Leafs.Append("citapStreamCapabilities", types.YLeaf{"CitapStreamCapabilities", citapStreamEncodePacket.CitapStreamCapabilities})
+
+    citapStreamEncodePacket.EntityData.YListKeys = []string {}
+
+    return &(citapStreamEncodePacket.EntityData)
 }
 
-// CISCOIPTAPMIB_Citapstreamtable
+// CISCOIPTAPMIB_CitapStreamTable
 // The Intercept Stream IP Table lists the IPv4 and IPv6 streams
 // to be intercepted.  The same data stream may be required by
 // multiple taps, and one might assume that often the intercepted
@@ -149,54 +155,57 @@ func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetEntityD
 // 
 // Entries are added to this table via citapStreamStatus in 
 // accordance with the RowStatus convention.
-type CISCOIPTAPMIB_Citapstreamtable struct {
+type CISCOIPTAPMIB_CitapStreamTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A stream entry indicates a single data stream to be intercepted to a
     // Mediation Device. Many selected data streams may go to the same application
     // interface, and many application interfaces are supported. The type is slice
-    // of CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry.
-    Citapstreamentry []CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry
+    // of CISCOIPTAPMIB_CitapStreamTable_CitapStreamEntry.
+    CitapStreamEntry []*CISCOIPTAPMIB_CitapStreamTable_CitapStreamEntry
 }
 
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetEntityData() *types.CommonEntityData {
-    citapstreamtable.EntityData.YFilter = citapstreamtable.YFilter
-    citapstreamtable.EntityData.YangName = "citapStreamTable"
-    citapstreamtable.EntityData.BundleName = "cisco_ios_xe"
-    citapstreamtable.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
-    citapstreamtable.EntityData.SegmentPath = "citapStreamTable"
-    citapstreamtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    citapstreamtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    citapstreamtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (citapStreamTable *CISCOIPTAPMIB_CitapStreamTable) GetEntityData() *types.CommonEntityData {
+    citapStreamTable.EntityData.YFilter = citapStreamTable.YFilter
+    citapStreamTable.EntityData.YangName = "citapStreamTable"
+    citapStreamTable.EntityData.BundleName = "cisco_ios_xe"
+    citapStreamTable.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
+    citapStreamTable.EntityData.SegmentPath = "citapStreamTable"
+    citapStreamTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    citapStreamTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    citapStreamTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    citapstreamtable.EntityData.Children = make(map[string]types.YChild)
-    citapstreamtable.EntityData.Children["citapStreamEntry"] = types.YChild{"Citapstreamentry", nil}
-    for i := range citapstreamtable.Citapstreamentry {
-        citapstreamtable.EntityData.Children[types.GetSegmentPath(&citapstreamtable.Citapstreamentry[i])] = types.YChild{"Citapstreamentry", &citapstreamtable.Citapstreamentry[i]}
+    citapStreamTable.EntityData.Children = types.NewOrderedMap()
+    citapStreamTable.EntityData.Children.Append("citapStreamEntry", types.YChild{"CitapStreamEntry", nil})
+    for i := range citapStreamTable.CitapStreamEntry {
+        citapStreamTable.EntityData.Children.Append(types.GetSegmentPath(citapStreamTable.CitapStreamEntry[i]), types.YChild{"CitapStreamEntry", citapStreamTable.CitapStreamEntry[i]})
     }
-    citapstreamtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(citapstreamtable.EntityData)
+    citapStreamTable.EntityData.Leafs = types.NewOrderedMap()
+
+    citapStreamTable.EntityData.YListKeys = []string {}
+
+    return &(citapStreamTable.EntityData)
 }
 
-// CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry
+// CISCOIPTAPMIB_CitapStreamTable_CitapStreamEntry
 // A stream entry indicates a single data stream to be
 // intercepted to a Mediation Device. Many selected data
 // streams may go to the same application interface, and many
 // application interfaces are supported.
-type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
+type CISCOIPTAPMIB_CitapStreamTable_CitapStreamEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_tap2_mib.CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry_Ctap2Mediationcontentid
-    Ctap2Mediationcontentid interface{}
+    // cisco_tap2_mib.CISCOTAP2MIB_CTap2MediationTable_CTap2MediationEntry_CTap2MediationContentId
+    CTap2MediationContentId interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_tap2_mib.CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry_Ctap2Streamindex
-    Ctap2Streamindex interface{}
+    // cisco_tap2_mib.CISCOTAP2MIB_CTap2StreamTable_CTap2StreamEntry_CTap2StreamIndex
+    CTap2StreamIndex interface{}
 
     // The ifIndex value of the interface over which traffic to be intercepted is
     // received or transmitted. The interface may be physical or virtual. If this
@@ -226,52 +235,52 @@ type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
     // either to select an interface, to select all interfaces, or to select the
     // interface that routing chooses. Some platforms may not implement the entire
     // range of options. The type is interface{} with range: -2..2147483647.
-    Citapstreaminterface interface{}
+    CitapStreamInterface interface{}
 
     // The type of address, used in packet selection. The type is InetAddressType.
-    Citapstreamaddrtype interface{}
+    CitapStreamAddrType interface{}
 
     // The Destination address or prefix used in packet selection. This address
     // will be of the type specified in citapStreamAddrType. The type is string
     // with length: 0..255.
-    Citapstreamdestinationaddress interface{}
+    CitapStreamDestinationAddress interface{}
 
     // The length of the Destination Prefix. A value of zero causes all addresses
     // to match.  This prefix length will be consistent with the type specified in
     // citapStreamAddrType. The type is interface{} with range: 0..2040.
-    Citapstreamdestinationlength interface{}
+    CitapStreamDestinationLength interface{}
 
     // The Source Address used in packet selection. This address will be of the
     // type specified in citapStreamAddrType. The type is string with length:
     // 0..255.
-    Citapstreamsourceaddress interface{}
+    CitapStreamSourceAddress interface{}
 
     // The length of the Source Prefix. A value of zero causes all addresses to
     // match. This prefix length will be consistent with the type specified in
     // citapStreamAddrType. The type is interface{} with range: 0..2040.
-    Citapstreamsourcelength interface{}
+    CitapStreamSourceLength interface{}
 
     // The value of the TOS byte, when masked with citapStreamTosByteMask, of
     // traffic to be intercepted.  If
     // citapStreamTosByte&(~citapStreamTosByteMask)!=0, configuration is rejected.
     // The type is interface{} with range: 0..255.
-    Citapstreamtosbyte interface{}
+    CitapStreamTosByte interface{}
 
     // The value of the TOS byte in an IPv4 or IPv6 header is ANDed with
     // citapStreamTosByteMask and compared with citapStreamTosByte.  If the values
     // are equal, the comparison is equal. If the mask is zero and the TosByte
     // value is zero, the result is to always accept. The type is interface{} with
     // range: 0..255.
-    Citapstreamtosbytemask interface{}
+    CitapStreamTosByteMask interface{}
 
     // The flow identifier in an IPv6 header. -1 indicates that the Flow Id is
     // unused. The type is interface{} with range: -1..1048575.
-    Citapstreamflowid interface{}
+    CitapStreamFlowId interface{}
 
     // The IP protocol to match against the IPv4 protocol number or the IPv6 Next-
     // Header number in the packet. -1 means 'any IP protocol'. The type is
     // interface{} with range: -1..255.
-    Citapstreamprotocol interface{}
+    CitapStreamProtocol interface{}
 
     // The minimum value that the layer-4 destination port number in the packet
     // must have in order to match.  This value must be equal to or less than the
@@ -279,7 +288,7 @@ type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
     // citapStreamDestL4PortMin and citapStreamDestL4PortMax are at their default
     // values, the port number is effectively unused. The type is interface{} with
     // range: 0..65535.
-    Citapstreamdestl4Portmin interface{}
+    CitapStreamDestL4PortMin interface{}
 
     // The maximum value that the layer-4 destination port number in the packet
     // must have in order to match this classifier entry. This value must be equal
@@ -287,7 +296,7 @@ type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
     // citapStreamDestL4PortMin.   If both citapStreamDestL4PortMin and
     // citapStreamDestL4PortMax are at their default values, the port number is
     // effectively unused. The type is interface{} with range: 0..65535.
-    Citapstreamdestl4Portmax interface{}
+    CitapStreamDestL4PortMax interface{}
 
     // The minimum value that the layer-4 destination port number in the packet
     // must have in order to match.  This value must be equal to or less than the
@@ -295,7 +304,7 @@ type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
     // citapStreamSourceL4PortMin and citapStreamSourceL4PortMax are at their
     // default values, the port number is effectively unused. The type is
     // interface{} with range: 0..65535.
-    Citapstreamsourcel4Portmin interface{}
+    CitapStreamSourceL4PortMin interface{}
 
     // The maximum value that the layer-4 destination port number in the packet
     // must have in order to match this classifier entry. This value must be equal
@@ -303,7 +312,7 @@ type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
     // citapStreamSourceL4PortMin.   If both citapStreamSourceL4PortMin and
     // citapStreamSourceL4PortMax are at their default values, the port number is
     // effectively unused. The type is interface{} with range: 0..65535.
-    Citapstreamsourcel4Portmax interface{}
+    CitapStreamSourceL4PortMax interface{}
 
     // An ASCII string, which is the name of a Virtual Routing and Forwarding
     // (VRF) table comprising the routing context of a Virtual Private Network.
@@ -311,45 +320,48 @@ type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
     // should be  selected from the set of interfaces in the VRF table.  A string
     // length of zero implies that global routing table be used for selection of
     // interfaces on which the packet might be found. The type is string.
-    Citapstreamvrf interface{}
+    CitapStreamVRF interface{}
 
     // The status of this conceptual row. This object manages creation,
     // modification, and deletion of rows in this table. When any rows must be
     // changed, citapStreamStatus must be first  set to 'notInService'. The type
     // is RowStatus.
-    Citapstreamstatus interface{}
+    CitapStreamStatus interface{}
 }
 
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetEntityData() *types.CommonEntityData {
-    citapstreamentry.EntityData.YFilter = citapstreamentry.YFilter
-    citapstreamentry.EntityData.YangName = "citapStreamEntry"
-    citapstreamentry.EntityData.BundleName = "cisco_ios_xe"
-    citapstreamentry.EntityData.ParentYangName = "citapStreamTable"
-    citapstreamentry.EntityData.SegmentPath = "citapStreamEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", citapstreamentry.Ctap2Mediationcontentid) + "']" + "[cTap2StreamIndex='" + fmt.Sprintf("%v", citapstreamentry.Ctap2Streamindex) + "']"
-    citapstreamentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    citapstreamentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    citapstreamentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (citapStreamEntry *CISCOIPTAPMIB_CitapStreamTable_CitapStreamEntry) GetEntityData() *types.CommonEntityData {
+    citapStreamEntry.EntityData.YFilter = citapStreamEntry.YFilter
+    citapStreamEntry.EntityData.YangName = "citapStreamEntry"
+    citapStreamEntry.EntityData.BundleName = "cisco_ios_xe"
+    citapStreamEntry.EntityData.ParentYangName = "citapStreamTable"
+    citapStreamEntry.EntityData.SegmentPath = "citapStreamEntry" + types.AddKeyToken(citapStreamEntry.CTap2MediationContentId, "cTap2MediationContentId") + types.AddKeyToken(citapStreamEntry.CTap2StreamIndex, "cTap2StreamIndex")
+    citapStreamEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    citapStreamEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    citapStreamEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    citapstreamentry.EntityData.Children = make(map[string]types.YChild)
-    citapstreamentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    citapstreamentry.EntityData.Leafs["cTap2MediationContentId"] = types.YLeaf{"Ctap2Mediationcontentid", citapstreamentry.Ctap2Mediationcontentid}
-    citapstreamentry.EntityData.Leafs["cTap2StreamIndex"] = types.YLeaf{"Ctap2Streamindex", citapstreamentry.Ctap2Streamindex}
-    citapstreamentry.EntityData.Leafs["citapStreamInterface"] = types.YLeaf{"Citapstreaminterface", citapstreamentry.Citapstreaminterface}
-    citapstreamentry.EntityData.Leafs["citapStreamAddrType"] = types.YLeaf{"Citapstreamaddrtype", citapstreamentry.Citapstreamaddrtype}
-    citapstreamentry.EntityData.Leafs["citapStreamDestinationAddress"] = types.YLeaf{"Citapstreamdestinationaddress", citapstreamentry.Citapstreamdestinationaddress}
-    citapstreamentry.EntityData.Leafs["citapStreamDestinationLength"] = types.YLeaf{"Citapstreamdestinationlength", citapstreamentry.Citapstreamdestinationlength}
-    citapstreamentry.EntityData.Leafs["citapStreamSourceAddress"] = types.YLeaf{"Citapstreamsourceaddress", citapstreamentry.Citapstreamsourceaddress}
-    citapstreamentry.EntityData.Leafs["citapStreamSourceLength"] = types.YLeaf{"Citapstreamsourcelength", citapstreamentry.Citapstreamsourcelength}
-    citapstreamentry.EntityData.Leafs["citapStreamTosByte"] = types.YLeaf{"Citapstreamtosbyte", citapstreamentry.Citapstreamtosbyte}
-    citapstreamentry.EntityData.Leafs["citapStreamTosByteMask"] = types.YLeaf{"Citapstreamtosbytemask", citapstreamentry.Citapstreamtosbytemask}
-    citapstreamentry.EntityData.Leafs["citapStreamFlowId"] = types.YLeaf{"Citapstreamflowid", citapstreamentry.Citapstreamflowid}
-    citapstreamentry.EntityData.Leafs["citapStreamProtocol"] = types.YLeaf{"Citapstreamprotocol", citapstreamentry.Citapstreamprotocol}
-    citapstreamentry.EntityData.Leafs["citapStreamDestL4PortMin"] = types.YLeaf{"Citapstreamdestl4Portmin", citapstreamentry.Citapstreamdestl4Portmin}
-    citapstreamentry.EntityData.Leafs["citapStreamDestL4PortMax"] = types.YLeaf{"Citapstreamdestl4Portmax", citapstreamentry.Citapstreamdestl4Portmax}
-    citapstreamentry.EntityData.Leafs["citapStreamSourceL4PortMin"] = types.YLeaf{"Citapstreamsourcel4Portmin", citapstreamentry.Citapstreamsourcel4Portmin}
-    citapstreamentry.EntityData.Leafs["citapStreamSourceL4PortMax"] = types.YLeaf{"Citapstreamsourcel4Portmax", citapstreamentry.Citapstreamsourcel4Portmax}
-    citapstreamentry.EntityData.Leafs["citapStreamVRF"] = types.YLeaf{"Citapstreamvrf", citapstreamentry.Citapstreamvrf}
-    citapstreamentry.EntityData.Leafs["citapStreamStatus"] = types.YLeaf{"Citapstreamstatus", citapstreamentry.Citapstreamstatus}
-    return &(citapstreamentry.EntityData)
+    citapStreamEntry.EntityData.Children = types.NewOrderedMap()
+    citapStreamEntry.EntityData.Leafs = types.NewOrderedMap()
+    citapStreamEntry.EntityData.Leafs.Append("cTap2MediationContentId", types.YLeaf{"CTap2MediationContentId", citapStreamEntry.CTap2MediationContentId})
+    citapStreamEntry.EntityData.Leafs.Append("cTap2StreamIndex", types.YLeaf{"CTap2StreamIndex", citapStreamEntry.CTap2StreamIndex})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamInterface", types.YLeaf{"CitapStreamInterface", citapStreamEntry.CitapStreamInterface})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamAddrType", types.YLeaf{"CitapStreamAddrType", citapStreamEntry.CitapStreamAddrType})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamDestinationAddress", types.YLeaf{"CitapStreamDestinationAddress", citapStreamEntry.CitapStreamDestinationAddress})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamDestinationLength", types.YLeaf{"CitapStreamDestinationLength", citapStreamEntry.CitapStreamDestinationLength})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamSourceAddress", types.YLeaf{"CitapStreamSourceAddress", citapStreamEntry.CitapStreamSourceAddress})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamSourceLength", types.YLeaf{"CitapStreamSourceLength", citapStreamEntry.CitapStreamSourceLength})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamTosByte", types.YLeaf{"CitapStreamTosByte", citapStreamEntry.CitapStreamTosByte})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamTosByteMask", types.YLeaf{"CitapStreamTosByteMask", citapStreamEntry.CitapStreamTosByteMask})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamFlowId", types.YLeaf{"CitapStreamFlowId", citapStreamEntry.CitapStreamFlowId})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamProtocol", types.YLeaf{"CitapStreamProtocol", citapStreamEntry.CitapStreamProtocol})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamDestL4PortMin", types.YLeaf{"CitapStreamDestL4PortMin", citapStreamEntry.CitapStreamDestL4PortMin})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamDestL4PortMax", types.YLeaf{"CitapStreamDestL4PortMax", citapStreamEntry.CitapStreamDestL4PortMax})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamSourceL4PortMin", types.YLeaf{"CitapStreamSourceL4PortMin", citapStreamEntry.CitapStreamSourceL4PortMin})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamSourceL4PortMax", types.YLeaf{"CitapStreamSourceL4PortMax", citapStreamEntry.CitapStreamSourceL4PortMax})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamVRF", types.YLeaf{"CitapStreamVRF", citapStreamEntry.CitapStreamVRF})
+    citapStreamEntry.EntityData.Leafs.Append("citapStreamStatus", types.YLeaf{"CitapStreamStatus", citapStreamEntry.CitapStreamStatus})
+
+    citapStreamEntry.EntityData.YListKeys = []string {"CTap2MediationContentId", "CTap2StreamIndex"}
+
+    return &(citapStreamEntry.EntityData)
 }
 

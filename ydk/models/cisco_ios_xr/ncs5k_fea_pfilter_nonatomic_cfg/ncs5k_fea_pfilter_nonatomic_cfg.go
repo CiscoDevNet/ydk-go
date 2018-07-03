@@ -55,9 +55,12 @@ func (hardware *Hardware) GetEntityData() *types.CommonEntityData {
     hardware.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardware.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardware.EntityData.Children = make(map[string]types.YChild)
-    hardware.EntityData.Children["access-list"] = types.YChild{"AccessList", &hardware.AccessList}
-    hardware.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardware.EntityData.Children = types.NewOrderedMap()
+    hardware.EntityData.Children.Append("access-list", types.YChild{"AccessList", &hardware.AccessList})
+    hardware.EntityData.Leafs = types.NewOrderedMap()
+
+    hardware.EntityData.YListKeys = []string {}
+
     return &(hardware.EntityData)
 }
 
@@ -81,9 +84,12 @@ func (accessList *Hardware_AccessList) GetEntityData() *types.CommonEntityData {
     accessList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessList.EntityData.Children = make(map[string]types.YChild)
-    accessList.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessList.EntityData.Leafs["atomic-disable"] = types.YLeaf{"AtomicDisable", accessList.AtomicDisable}
+    accessList.EntityData.Children = types.NewOrderedMap()
+    accessList.EntityData.Leafs = types.NewOrderedMap()
+    accessList.EntityData.Leafs.Append("atomic-disable", types.YLeaf{"AtomicDisable", accessList.AtomicDisable})
+
+    accessList.EntityData.YListKeys = []string {}
+
     return &(accessList.EntityData)
 }
 

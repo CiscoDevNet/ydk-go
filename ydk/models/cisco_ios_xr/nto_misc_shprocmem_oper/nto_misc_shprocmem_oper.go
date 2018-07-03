@@ -44,9 +44,12 @@ func (processesMemory *ProcessesMemory) GetEntityData() *types.CommonEntityData 
     processesMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processesMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processesMemory.EntityData.Children = make(map[string]types.YChild)
-    processesMemory.EntityData.Children["nodes"] = types.YChild{"Nodes", &processesMemory.Nodes}
-    processesMemory.EntityData.Leafs = make(map[string]types.YLeaf)
+    processesMemory.EntityData.Children = types.NewOrderedMap()
+    processesMemory.EntityData.Children.Append("nodes", types.YChild{"Nodes", &processesMemory.Nodes})
+    processesMemory.EntityData.Leafs = types.NewOrderedMap()
+
+    processesMemory.EntityData.YListKeys = []string {}
+
     return &(processesMemory.EntityData)
 }
 
@@ -57,7 +60,7 @@ type ProcessesMemory_Nodes struct {
     YFilter yfilter.YFilter
 
     // Node ID. The type is slice of ProcessesMemory_Nodes_Node.
-    Node []ProcessesMemory_Nodes_Node
+    Node []*ProcessesMemory_Nodes_Node
 }
 
 func (nodes *ProcessesMemory_Nodes) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (nodes *ProcessesMemory_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -86,7 +92,7 @@ type ProcessesMemory_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // List of jobs.
@@ -98,15 +104,18 @@ func (node *ProcessesMemory_Nodes_Node) GetEntityData() *types.CommonEntityData 
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["job-ids"] = types.YChild{"JobIds", &node.JobIds}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("job-ids", types.YChild{"JobIds", &node.JobIds})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -117,7 +126,7 @@ type ProcessesMemory_Nodes_Node_JobIds struct {
     YFilter yfilter.YFilter
 
     // Job Id. The type is slice of ProcessesMemory_Nodes_Node_JobIds_JobId.
-    JobId []ProcessesMemory_Nodes_Node_JobIds_JobId
+    JobId []*ProcessesMemory_Nodes_Node_JobIds_JobId
 }
 
 func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetEntityData() *types.CommonEntityData {
@@ -130,12 +139,15 @@ func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetEntityData() *types.CommonEn
     jobIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     jobIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    jobIds.EntityData.Children = make(map[string]types.YChild)
-    jobIds.EntityData.Children["job-id"] = types.YChild{"JobId", nil}
+    jobIds.EntityData.Children = types.NewOrderedMap()
+    jobIds.EntityData.Children.Append("job-id", types.YChild{"JobId", nil})
     for i := range jobIds.JobId {
-        jobIds.EntityData.Children[types.GetSegmentPath(&jobIds.JobId[i])] = types.YChild{"JobId", &jobIds.JobId[i]}
+        jobIds.EntityData.Children.Append(types.GetSegmentPath(jobIds.JobId[i]), types.YChild{"JobId", jobIds.JobId[i]})
     }
-    jobIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    jobIds.EntityData.Leafs = types.NewOrderedMap()
+
+    jobIds.EntityData.YListKeys = []string {}
+
     return &(jobIds.EntityData)
 }
 
@@ -146,7 +158,7 @@ type ProcessesMemory_Nodes_Node_JobIds_JobId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Job Id. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     JobId interface{}
 
     // Process name. The type is string.
@@ -173,20 +185,23 @@ func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetEntityData() *types.Com
     jobId.EntityData.YangName = "job-id"
     jobId.EntityData.BundleName = "cisco_ios_xr"
     jobId.EntityData.ParentYangName = "job-ids"
-    jobId.EntityData.SegmentPath = "job-id" + "[job-id='" + fmt.Sprintf("%v", jobId.JobId) + "']"
+    jobId.EntityData.SegmentPath = "job-id" + types.AddKeyToken(jobId.JobId, "job-id")
     jobId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     jobId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     jobId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    jobId.EntityData.Children = make(map[string]types.YChild)
-    jobId.EntityData.Leafs = make(map[string]types.YLeaf)
-    jobId.EntityData.Leafs["job-id"] = types.YLeaf{"JobId", jobId.JobId}
-    jobId.EntityData.Leafs["name"] = types.YLeaf{"Name", jobId.Name}
-    jobId.EntityData.Leafs["jid"] = types.YLeaf{"Jid", jobId.Jid}
-    jobId.EntityData.Leafs["text-seg-size"] = types.YLeaf{"TextSegSize", jobId.TextSegSize}
-    jobId.EntityData.Leafs["data-seg-size"] = types.YLeaf{"DataSegSize", jobId.DataSegSize}
-    jobId.EntityData.Leafs["stack-seg-size"] = types.YLeaf{"StackSegSize", jobId.StackSegSize}
-    jobId.EntityData.Leafs["malloc-size"] = types.YLeaf{"MallocSize", jobId.MallocSize}
+    jobId.EntityData.Children = types.NewOrderedMap()
+    jobId.EntityData.Leafs = types.NewOrderedMap()
+    jobId.EntityData.Leafs.Append("job-id", types.YLeaf{"JobId", jobId.JobId})
+    jobId.EntityData.Leafs.Append("name", types.YLeaf{"Name", jobId.Name})
+    jobId.EntityData.Leafs.Append("jid", types.YLeaf{"Jid", jobId.Jid})
+    jobId.EntityData.Leafs.Append("text-seg-size", types.YLeaf{"TextSegSize", jobId.TextSegSize})
+    jobId.EntityData.Leafs.Append("data-seg-size", types.YLeaf{"DataSegSize", jobId.DataSegSize})
+    jobId.EntityData.Leafs.Append("stack-seg-size", types.YLeaf{"StackSegSize", jobId.StackSegSize})
+    jobId.EntityData.Leafs.Append("malloc-size", types.YLeaf{"MallocSize", jobId.MallocSize})
+
+    jobId.EntityData.YListKeys = []string {"JobId"}
+
     return &(jobId.EntityData)
 }
 

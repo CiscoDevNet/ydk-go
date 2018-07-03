@@ -19,23 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-dhcp-oper:dhcp-oper-data", reflect.TypeOf(DhcpOperData{}))
 }
 
-// DhcpServerBindingState represents DHCP server binding states 
-type DhcpServerBindingState string
-
-const (
-    // Server state is in Selecting mode
-    DhcpServerBindingState_dhcp_server_binding_state_selecting DhcpServerBindingState = "dhcp-server-binding-state-selecting"
-
-    // Server state Active new address provided
-    DhcpServerBindingState_dhcp_server_binding_state_active DhcpServerBindingState = "dhcp-server-binding-state-active"
-
-    // Server terminated the connection with a client
-    DhcpServerBindingState_dhcp_server_binding_state_terminated DhcpServerBindingState = "dhcp-server-binding-state-terminated"
-
-    // Server state unknown
-    DhcpServerBindingState_dhcp_server_binding_state_unknown DhcpServerBindingState = "dhcp-server-binding-state-unknown"
-)
-
 // DhcpServerBindingType represents DHCP server binding type
 type DhcpServerBindingType string
 
@@ -60,6 +43,34 @@ const (
 
     // Server binding type remembered
     DhcpServerBindingType_dhcp_server_binding_type_remembered DhcpServerBindingType = "dhcp-server-binding-type-remembered"
+)
+
+// DhcpExpiryOption represents DHCP expiration option 
+type DhcpExpiryOption string
+
+const (
+    // Expiration option time
+    DhcpExpiryOption_dhcp_expiration_time DhcpExpiryOption = "dhcp-expiration-time"
+
+    // Expiration option infinite
+    DhcpExpiryOption_dhcp_expiration_infinite DhcpExpiryOption = "dhcp-expiration-infinite"
+)
+
+// DhcpClientIdType represents DHCP Client id hardware types 
+type DhcpClientIdType string
+
+const (
+    // DHCP Client hardware type Ethernet
+    DhcpClientIdType_dhcp_htype_ethernet DhcpClientIdType = "dhcp-htype-ethernet"
+
+    // DHCP Client hardware type 802
+    DhcpClientIdType_dhcp_htype_ieee802 DhcpClientIdType = "dhcp-htype-ieee802"
+
+    // DHCP Client hardware type RFCLIMIT
+    DhcpClientIdType_dhcp_htype_rfclimit DhcpClientIdType = "dhcp-htype-rfclimit"
+
+    // DHCP Client hardware type CLIENTID
+    DhcpClientIdType_dhcp_htype_clientid DhcpClientIdType = "dhcp-htype-clientid"
 )
 
 // DhcpClientState represents DHCP Client state
@@ -109,32 +120,21 @@ const (
     DhcpClientState_dhcp_client_state_unknown DhcpClientState = "dhcp-client-state-unknown"
 )
 
-// DhcpExpiryOption represents DHCP expiration option 
-type DhcpExpiryOption string
+// DhcpServerBindingState represents DHCP server binding states 
+type DhcpServerBindingState string
 
 const (
-    // Expiration option time
-    DhcpExpiryOption_dhcp_expiration_time DhcpExpiryOption = "dhcp-expiration-time"
+    // Server state is in Selecting mode
+    DhcpServerBindingState_dhcp_server_binding_state_selecting DhcpServerBindingState = "dhcp-server-binding-state-selecting"
 
-    // Expiration option infinite
-    DhcpExpiryOption_dhcp_expiration_infinite DhcpExpiryOption = "dhcp-expiration-infinite"
-)
+    // Server state Active new address provided
+    DhcpServerBindingState_dhcp_server_binding_state_active DhcpServerBindingState = "dhcp-server-binding-state-active"
 
-// DhcpClientIdType represents DHCP Client id hardware types 
-type DhcpClientIdType string
+    // Server terminated the connection with a client
+    DhcpServerBindingState_dhcp_server_binding_state_terminated DhcpServerBindingState = "dhcp-server-binding-state-terminated"
 
-const (
-    // DHCP Client hardware type Ethernet
-    DhcpClientIdType_dhcp_htype_ethernet DhcpClientIdType = "dhcp-htype-ethernet"
-
-    // DHCP Client hardware type 802
-    DhcpClientIdType_dhcp_htype_ieee802 DhcpClientIdType = "dhcp-htype-ieee802"
-
-    // DHCP Client hardware type RFCLIMIT
-    DhcpClientIdType_dhcp_htype_rfclimit DhcpClientIdType = "dhcp-htype-rfclimit"
-
-    // DHCP Client hardware type CLIENTID
-    DhcpClientIdType_dhcp_htype_clientid DhcpClientIdType = "dhcp-htype-clientid"
+    // Server state unknown
+    DhcpServerBindingState_dhcp_server_binding_state_unknown DhcpServerBindingState = "dhcp-server-binding-state-unknown"
 )
 
 // DhcpOperData
@@ -145,10 +145,10 @@ type DhcpOperData struct {
 
     // List of DHCP server bidning. The type is slice of
     // DhcpOperData_Dhcpv4ServerOper.
-    Dhcpv4ServerOper []DhcpOperData_Dhcpv4ServerOper
+    Dhcpv4ServerOper []*DhcpOperData_Dhcpv4ServerOper
 
     // List of DHCP clients. The type is slice of DhcpOperData_Dhcpv4ClientOper.
-    Dhcpv4ClientOper []DhcpOperData_Dhcpv4ClientOper
+    Dhcpv4ClientOper []*DhcpOperData_Dhcpv4ClientOper
 }
 
 func (dhcpOperData *DhcpOperData) GetEntityData() *types.CommonEntityData {
@@ -161,16 +161,19 @@ func (dhcpOperData *DhcpOperData) GetEntityData() *types.CommonEntityData {
     dhcpOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dhcpOperData.EntityData.Children = make(map[string]types.YChild)
-    dhcpOperData.EntityData.Children["dhcpv4-server-oper"] = types.YChild{"Dhcpv4ServerOper", nil}
+    dhcpOperData.EntityData.Children = types.NewOrderedMap()
+    dhcpOperData.EntityData.Children.Append("dhcpv4-server-oper", types.YChild{"Dhcpv4ServerOper", nil})
     for i := range dhcpOperData.Dhcpv4ServerOper {
-        dhcpOperData.EntityData.Children[types.GetSegmentPath(&dhcpOperData.Dhcpv4ServerOper[i])] = types.YChild{"Dhcpv4ServerOper", &dhcpOperData.Dhcpv4ServerOper[i]}
+        dhcpOperData.EntityData.Children.Append(types.GetSegmentPath(dhcpOperData.Dhcpv4ServerOper[i]), types.YChild{"Dhcpv4ServerOper", dhcpOperData.Dhcpv4ServerOper[i]})
     }
-    dhcpOperData.EntityData.Children["dhcpv4-client-oper"] = types.YChild{"Dhcpv4ClientOper", nil}
+    dhcpOperData.EntityData.Children.Append("dhcpv4-client-oper", types.YChild{"Dhcpv4ClientOper", nil})
     for i := range dhcpOperData.Dhcpv4ClientOper {
-        dhcpOperData.EntityData.Children[types.GetSegmentPath(&dhcpOperData.Dhcpv4ClientOper[i])] = types.YChild{"Dhcpv4ClientOper", &dhcpOperData.Dhcpv4ClientOper[i]}
+        dhcpOperData.EntityData.Children.Append(types.GetSegmentPath(dhcpOperData.Dhcpv4ClientOper[i]), types.YChild{"Dhcpv4ClientOper", dhcpOperData.Dhcpv4ClientOper[i]})
     }
-    dhcpOperData.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcpOperData.EntityData.Leafs = types.NewOrderedMap()
+
+    dhcpOperData.EntityData.YListKeys = []string {}
+
     return &(dhcpOperData.EntityData)
 }
 
@@ -186,9 +189,9 @@ type DhcpOperData_Dhcpv4ServerOper struct {
 
     // This attribute is a key. ipaddress released for a speicfic Client  from
     // Server. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ClientIp interface{}
 
     // This attribute is a key. Query based on the vrfname speicfic to that pool
@@ -203,13 +206,13 @@ type DhcpOperData_Dhcpv4ServerOper struct {
     ClientId interface{}
 
     // Server binding type. The type is DhcpServerBindingType.
-    Type_ interface{}
+    Type interface{}
 
     // Server binding states. The type is DhcpServerBindingState.
     State interface{}
 
     // interface name of the pool. The type is string.
-    Interface_ interface{}
+    Interface interface{}
 
     // Expiration time infomation.
     Expiration DhcpOperData_Dhcpv4ServerOper_Expiration
@@ -220,22 +223,25 @@ func (dhcpv4ServerOper *DhcpOperData_Dhcpv4ServerOper) GetEntityData() *types.Co
     dhcpv4ServerOper.EntityData.YangName = "dhcpv4-server-oper"
     dhcpv4ServerOper.EntityData.BundleName = "cisco_ios_xe"
     dhcpv4ServerOper.EntityData.ParentYangName = "dhcp-oper-data"
-    dhcpv4ServerOper.EntityData.SegmentPath = "dhcpv4-server-oper" + "[pool-name='" + fmt.Sprintf("%v", dhcpv4ServerOper.PoolName) + "']" + "[client-ip='" + fmt.Sprintf("%v", dhcpv4ServerOper.ClientIp) + "']" + "[vrf-name='" + fmt.Sprintf("%v", dhcpv4ServerOper.VrfName) + "']"
+    dhcpv4ServerOper.EntityData.SegmentPath = "dhcpv4-server-oper" + types.AddKeyToken(dhcpv4ServerOper.PoolName, "pool-name") + types.AddKeyToken(dhcpv4ServerOper.ClientIp, "client-ip") + types.AddKeyToken(dhcpv4ServerOper.VrfName, "vrf-name")
     dhcpv4ServerOper.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcpv4ServerOper.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpv4ServerOper.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dhcpv4ServerOper.EntityData.Children = make(map[string]types.YChild)
-    dhcpv4ServerOper.EntityData.Children["expiration"] = types.YChild{"Expiration", &dhcpv4ServerOper.Expiration}
-    dhcpv4ServerOper.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcpv4ServerOper.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", dhcpv4ServerOper.PoolName}
-    dhcpv4ServerOper.EntityData.Leafs["client-ip"] = types.YLeaf{"ClientIp", dhcpv4ServerOper.ClientIp}
-    dhcpv4ServerOper.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", dhcpv4ServerOper.VrfName}
-    dhcpv4ServerOper.EntityData.Leafs["client-id-type"] = types.YLeaf{"ClientIdType", dhcpv4ServerOper.ClientIdType}
-    dhcpv4ServerOper.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", dhcpv4ServerOper.ClientId}
-    dhcpv4ServerOper.EntityData.Leafs["type"] = types.YLeaf{"Type_", dhcpv4ServerOper.Type_}
-    dhcpv4ServerOper.EntityData.Leafs["state"] = types.YLeaf{"State", dhcpv4ServerOper.State}
-    dhcpv4ServerOper.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", dhcpv4ServerOper.Interface_}
+    dhcpv4ServerOper.EntityData.Children = types.NewOrderedMap()
+    dhcpv4ServerOper.EntityData.Children.Append("expiration", types.YChild{"Expiration", &dhcpv4ServerOper.Expiration})
+    dhcpv4ServerOper.EntityData.Leafs = types.NewOrderedMap()
+    dhcpv4ServerOper.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", dhcpv4ServerOper.PoolName})
+    dhcpv4ServerOper.EntityData.Leafs.Append("client-ip", types.YLeaf{"ClientIp", dhcpv4ServerOper.ClientIp})
+    dhcpv4ServerOper.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", dhcpv4ServerOper.VrfName})
+    dhcpv4ServerOper.EntityData.Leafs.Append("client-id-type", types.YLeaf{"ClientIdType", dhcpv4ServerOper.ClientIdType})
+    dhcpv4ServerOper.EntityData.Leafs.Append("client-id", types.YLeaf{"ClientId", dhcpv4ServerOper.ClientId})
+    dhcpv4ServerOper.EntityData.Leafs.Append("type", types.YLeaf{"Type", dhcpv4ServerOper.Type})
+    dhcpv4ServerOper.EntityData.Leafs.Append("state", types.YLeaf{"State", dhcpv4ServerOper.State})
+    dhcpv4ServerOper.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", dhcpv4ServerOper.Interface})
+
+    dhcpv4ServerOper.EntityData.YListKeys = []string {"PoolName", "ClientIp", "VrfName"}
+
     return &(dhcpv4ServerOper.EntityData)
 }
 
@@ -246,7 +252,7 @@ type DhcpOperData_Dhcpv4ServerOper_Expiration struct {
     YFilter yfilter.YFilter
 
     // Date and time of expiry . The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     Time interface{}
 
     // Expiry time infinite. The type is interface{}.
@@ -263,10 +269,13 @@ func (expiration *DhcpOperData_Dhcpv4ServerOper_Expiration) GetEntityData() *typ
     expiration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expiration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    expiration.EntityData.Children = make(map[string]types.YChild)
-    expiration.EntityData.Leafs = make(map[string]types.YLeaf)
-    expiration.EntityData.Leafs["time"] = types.YLeaf{"Time", expiration.Time}
-    expiration.EntityData.Leafs["infinite"] = types.YLeaf{"Infinite", expiration.Infinite}
+    expiration.EntityData.Children = types.NewOrderedMap()
+    expiration.EntityData.Leafs = types.NewOrderedMap()
+    expiration.EntityData.Leafs.Append("time", types.YLeaf{"Time", expiration.Time})
+    expiration.EntityData.Leafs.Append("infinite", types.YLeaf{"Infinite", expiration.Infinite})
+
+    expiration.EntityData.YListKeys = []string {}
+
     return &(expiration.EntityData)
 }
 
@@ -282,9 +291,9 @@ type DhcpOperData_Dhcpv4ClientOper struct {
 
     // This attribute is a key. Client_addr address Allocated from Server. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ClientAddr interface{}
 
     // This attribute is a key. Vrfname infomation related to Client. The type is
@@ -296,16 +305,16 @@ type DhcpOperData_Dhcpv4ClientOper struct {
 
     // IP address of Server from where we got IP. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LeaseServerAddr interface{}
 
     // Gateway Address we got from Server. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GatewayAddr interface{}
 
     // Total Lease Time in Seconds. The type is interface{} with range:
@@ -318,9 +327,9 @@ type DhcpOperData_Dhcpv4ClientOper struct {
 
     // DNS list based on index. The type is one of the following types: slice of
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DnsList []interface{}
 
     // Lease Expiry time for the IP address we got.
@@ -332,23 +341,26 @@ func (dhcpv4ClientOper *DhcpOperData_Dhcpv4ClientOper) GetEntityData() *types.Co
     dhcpv4ClientOper.EntityData.YangName = "dhcpv4-client-oper"
     dhcpv4ClientOper.EntityData.BundleName = "cisco_ios_xe"
     dhcpv4ClientOper.EntityData.ParentYangName = "dhcp-oper-data"
-    dhcpv4ClientOper.EntityData.SegmentPath = "dhcpv4-client-oper" + "[if-name='" + fmt.Sprintf("%v", dhcpv4ClientOper.IfName) + "']" + "[client-addr='" + fmt.Sprintf("%v", dhcpv4ClientOper.ClientAddr) + "']" + "[vrf-name='" + fmt.Sprintf("%v", dhcpv4ClientOper.VrfName) + "']"
+    dhcpv4ClientOper.EntityData.SegmentPath = "dhcpv4-client-oper" + types.AddKeyToken(dhcpv4ClientOper.IfName, "if-name") + types.AddKeyToken(dhcpv4ClientOper.ClientAddr, "client-addr") + types.AddKeyToken(dhcpv4ClientOper.VrfName, "vrf-name")
     dhcpv4ClientOper.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcpv4ClientOper.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpv4ClientOper.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dhcpv4ClientOper.EntityData.Children = make(map[string]types.YChild)
-    dhcpv4ClientOper.EntityData.Children["lease-expiry"] = types.YChild{"LeaseExpiry", &dhcpv4ClientOper.LeaseExpiry}
-    dhcpv4ClientOper.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcpv4ClientOper.EntityData.Leafs["if-name"] = types.YLeaf{"IfName", dhcpv4ClientOper.IfName}
-    dhcpv4ClientOper.EntityData.Leafs["client-addr"] = types.YLeaf{"ClientAddr", dhcpv4ClientOper.ClientAddr}
-    dhcpv4ClientOper.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", dhcpv4ClientOper.VrfName}
-    dhcpv4ClientOper.EntityData.Leafs["state"] = types.YLeaf{"State", dhcpv4ClientOper.State}
-    dhcpv4ClientOper.EntityData.Leafs["lease-server-addr"] = types.YLeaf{"LeaseServerAddr", dhcpv4ClientOper.LeaseServerAddr}
-    dhcpv4ClientOper.EntityData.Leafs["gateway-addr"] = types.YLeaf{"GatewayAddr", dhcpv4ClientOper.GatewayAddr}
-    dhcpv4ClientOper.EntityData.Leafs["lease-time"] = types.YLeaf{"LeaseTime", dhcpv4ClientOper.LeaseTime}
-    dhcpv4ClientOper.EntityData.Leafs["lease-remaining"] = types.YLeaf{"LeaseRemaining", dhcpv4ClientOper.LeaseRemaining}
-    dhcpv4ClientOper.EntityData.Leafs["dns-list"] = types.YLeaf{"DnsList", dhcpv4ClientOper.DnsList}
+    dhcpv4ClientOper.EntityData.Children = types.NewOrderedMap()
+    dhcpv4ClientOper.EntityData.Children.Append("lease-expiry", types.YChild{"LeaseExpiry", &dhcpv4ClientOper.LeaseExpiry})
+    dhcpv4ClientOper.EntityData.Leafs = types.NewOrderedMap()
+    dhcpv4ClientOper.EntityData.Leafs.Append("if-name", types.YLeaf{"IfName", dhcpv4ClientOper.IfName})
+    dhcpv4ClientOper.EntityData.Leafs.Append("client-addr", types.YLeaf{"ClientAddr", dhcpv4ClientOper.ClientAddr})
+    dhcpv4ClientOper.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", dhcpv4ClientOper.VrfName})
+    dhcpv4ClientOper.EntityData.Leafs.Append("state", types.YLeaf{"State", dhcpv4ClientOper.State})
+    dhcpv4ClientOper.EntityData.Leafs.Append("lease-server-addr", types.YLeaf{"LeaseServerAddr", dhcpv4ClientOper.LeaseServerAddr})
+    dhcpv4ClientOper.EntityData.Leafs.Append("gateway-addr", types.YLeaf{"GatewayAddr", dhcpv4ClientOper.GatewayAddr})
+    dhcpv4ClientOper.EntityData.Leafs.Append("lease-time", types.YLeaf{"LeaseTime", dhcpv4ClientOper.LeaseTime})
+    dhcpv4ClientOper.EntityData.Leafs.Append("lease-remaining", types.YLeaf{"LeaseRemaining", dhcpv4ClientOper.LeaseRemaining})
+    dhcpv4ClientOper.EntityData.Leafs.Append("dns-list", types.YLeaf{"DnsList", dhcpv4ClientOper.DnsList})
+
+    dhcpv4ClientOper.EntityData.YListKeys = []string {"IfName", "ClientAddr", "VrfName"}
+
     return &(dhcpv4ClientOper.EntityData)
 }
 
@@ -359,7 +371,7 @@ type DhcpOperData_Dhcpv4ClientOper_LeaseExpiry struct {
     YFilter yfilter.YFilter
 
     // Date and time of expiry . The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     Time interface{}
 
     // Expiry time infinite. The type is interface{}.
@@ -376,10 +388,13 @@ func (leaseExpiry *DhcpOperData_Dhcpv4ClientOper_LeaseExpiry) GetEntityData() *t
     leaseExpiry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     leaseExpiry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    leaseExpiry.EntityData.Children = make(map[string]types.YChild)
-    leaseExpiry.EntityData.Leafs = make(map[string]types.YLeaf)
-    leaseExpiry.EntityData.Leafs["time"] = types.YLeaf{"Time", leaseExpiry.Time}
-    leaseExpiry.EntityData.Leafs["infinite"] = types.YLeaf{"Infinite", leaseExpiry.Infinite}
+    leaseExpiry.EntityData.Children = types.NewOrderedMap()
+    leaseExpiry.EntityData.Leafs = types.NewOrderedMap()
+    leaseExpiry.EntityData.Leafs.Append("time", types.YLeaf{"Time", leaseExpiry.Time})
+    leaseExpiry.EntityData.Leafs.Append("infinite", types.YLeaf{"Infinite", leaseExpiry.Infinite})
+
+    leaseExpiry.EntityData.YListKeys = []string {}
+
     return &(leaseExpiry.EntityData)
 }
 

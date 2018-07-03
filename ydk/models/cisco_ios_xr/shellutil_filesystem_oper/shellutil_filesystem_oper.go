@@ -31,7 +31,7 @@ type FileSystem struct {
     YFilter yfilter.YFilter
 
     // Node ID. The type is slice of FileSystem_Node.
-    Node []FileSystem_Node
+    Node []*FileSystem_Node
 }
 
 func (fileSystem *FileSystem) GetEntityData() *types.CommonEntityData {
@@ -44,12 +44,15 @@ func (fileSystem *FileSystem) GetEntityData() *types.CommonEntityData {
     fileSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fileSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fileSystem.EntityData.Children = make(map[string]types.YChild)
-    fileSystem.EntityData.Children["node"] = types.YChild{"Node", nil}
+    fileSystem.EntityData.Children = types.NewOrderedMap()
+    fileSystem.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range fileSystem.Node {
-        fileSystem.EntityData.Children[types.GetSegmentPath(&fileSystem.Node[i])] = types.YChild{"Node", &fileSystem.Node[i]}
+        fileSystem.EntityData.Children.Append(types.GetSegmentPath(fileSystem.Node[i]), types.YChild{"Node", fileSystem.Node[i]})
     }
-    fileSystem.EntityData.Leafs = make(map[string]types.YLeaf)
+    fileSystem.EntityData.Leafs = types.NewOrderedMap()
+
+    fileSystem.EntityData.YListKeys = []string {}
+
     return &(fileSystem.EntityData)
 }
 
@@ -60,11 +63,11 @@ type FileSystem_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Available file systems. The type is slice of FileSystem_Node_FileSystem.
-    FileSystem []FileSystem_Node_FileSystem_
+    FileSystem []*FileSystem_Node_FileSystem
 }
 
 func (node *FileSystem_Node) GetEntityData() *types.CommonEntityData {
@@ -72,24 +75,27 @@ func (node *FileSystem_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "file-system"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["file-system"] = types.YChild{"FileSystem", nil}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("file-system", types.YChild{"FileSystem", nil})
     for i := range node.FileSystem {
-        node.EntityData.Children[types.GetSegmentPath(&node.FileSystem[i])] = types.YChild{"FileSystem", &node.FileSystem[i]}
+        node.EntityData.Children.Append(types.GetSegmentPath(node.FileSystem[i]), types.YChild{"FileSystem", node.FileSystem[i]})
     }
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
-// FileSystem_Node_FileSystem_
+// FileSystem_Node_FileSystem
 // Available file systems
-type FileSystem_Node_FileSystem_ struct {
+type FileSystem_Node_FileSystem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -100,7 +106,7 @@ type FileSystem_Node_FileSystem_ struct {
     Free interface{}
 
     // Type of file system. The type is string.
-    Type_ interface{}
+    Type interface{}
 
     // Flags of file system. The type is string.
     Flags interface{}
@@ -109,23 +115,26 @@ type FileSystem_Node_FileSystem_ struct {
     Prefixes interface{}
 }
 
-func (fileSystem_ *FileSystem_Node_FileSystem_) GetEntityData() *types.CommonEntityData {
-    fileSystem_.EntityData.YFilter = fileSystem_.YFilter
-    fileSystem_.EntityData.YangName = "file-system"
-    fileSystem_.EntityData.BundleName = "cisco_ios_xr"
-    fileSystem_.EntityData.ParentYangName = "node"
-    fileSystem_.EntityData.SegmentPath = "file-system"
-    fileSystem_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fileSystem_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fileSystem_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (fileSystem *FileSystem_Node_FileSystem) GetEntityData() *types.CommonEntityData {
+    fileSystem.EntityData.YFilter = fileSystem.YFilter
+    fileSystem.EntityData.YangName = "file-system"
+    fileSystem.EntityData.BundleName = "cisco_ios_xr"
+    fileSystem.EntityData.ParentYangName = "node"
+    fileSystem.EntityData.SegmentPath = "file-system"
+    fileSystem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fileSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fileSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fileSystem_.EntityData.Children = make(map[string]types.YChild)
-    fileSystem_.EntityData.Leafs = make(map[string]types.YLeaf)
-    fileSystem_.EntityData.Leafs["size"] = types.YLeaf{"Size", fileSystem_.Size}
-    fileSystem_.EntityData.Leafs["free"] = types.YLeaf{"Free", fileSystem_.Free}
-    fileSystem_.EntityData.Leafs["type"] = types.YLeaf{"Type_", fileSystem_.Type_}
-    fileSystem_.EntityData.Leafs["flags"] = types.YLeaf{"Flags", fileSystem_.Flags}
-    fileSystem_.EntityData.Leafs["prefixes"] = types.YLeaf{"Prefixes", fileSystem_.Prefixes}
-    return &(fileSystem_.EntityData)
+    fileSystem.EntityData.Children = types.NewOrderedMap()
+    fileSystem.EntityData.Leafs = types.NewOrderedMap()
+    fileSystem.EntityData.Leafs.Append("size", types.YLeaf{"Size", fileSystem.Size})
+    fileSystem.EntityData.Leafs.Append("free", types.YLeaf{"Free", fileSystem.Free})
+    fileSystem.EntityData.Leafs.Append("type", types.YLeaf{"Type", fileSystem.Type})
+    fileSystem.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", fileSystem.Flags})
+    fileSystem.EntityData.Leafs.Append("prefixes", types.YLeaf{"Prefixes", fileSystem.Prefixes})
+
+    fileSystem.EntityData.YListKeys = []string {}
+
+    return &(fileSystem.EntityData)
 }
 

@@ -32,6 +32,14 @@ module Cisco-IOS-XR-infra-xtc-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2016-05-31 {
     description
       "Revision description string.";
@@ -109,6 +117,20 @@ module Cisco-IOS-XR-infra-xtc-cfg {
   container pce {
     description
       "PCE configuration data";
+    container ipv6-state-syncs {
+      description
+        "Standby IPv6 PCE configuration";
+      list ipv6-state-sync {
+        key "address";
+        description
+          "Standby PCE ipv6 address";
+        leaf address {
+          type inet:ipv6-address-no-zone;
+          description
+            "IPv6 address";
+        }
+      }
+    }
     container pcc-addresses {
       description
         "Path computation client configuration";
@@ -124,6 +146,7 @@ module Cisco-IOS-XR-infra-xtc-cfg {
             description
               "MPLS label switched path";
             container rsvp-te {
+              presence "Indicates a rsvp-te node is configured.";
               description
                 "RSVP-TE configuration";
               container affinity {
@@ -172,8 +195,9 @@ module Cisco-IOS-XR-infra-xtc-cfg {
                   "Enable fast protection";
               }
               leaf bandwidth {
-                type int32;
+                type uint32;
                 units "kbit/s";
+                mandatory true;
                 description
                   "Bandwidth configuration";
               }
@@ -186,6 +210,7 @@ module Cisco-IOS-XR-infra-xtc-cfg {
             }
             leaf explicit-path-name {
               type string;
+              mandatory true;
               description
                 "Explicit-path name";
             }
@@ -225,6 +250,7 @@ module Cisco-IOS-XR-infra-xtc-cfg {
       }
     }
     container backoff {
+      presence "Indicates a backoff node is configured.";
       description
         "PCE backoff configuration";
       leaf ratio {
@@ -254,7 +280,7 @@ module Cisco-IOS-XR-infra-xtc-cfg {
     }
     container state-syncs {
       description
-        "Standby PCE configuration";
+        "Standby IPv4 PCE configuration";
       list state-sync {
         key "address";
         description
@@ -281,6 +307,7 @@ module Cisco-IOS-XR-infra-xtc-cfg {
       }
     }
     container timers {
+      presence "Indicates a timers node is configured.";
       description
         "PCE Timers configuration";
       leaf reoptimization-timer {
@@ -316,15 +343,18 @@ module Cisco-IOS-XR-infra-xtc-cfg {
       description
         "NETCONF configuration";
       container netconf-ssh {
+        presence "Indicates a netconf-ssh node is configured.";
         description
           "NETCONF SSH configuration";
         leaf netconf-ssh-password {
           type xr:Proprietary-password;
+          mandatory true;
           description
             "Password to use for NETCONF SSH connections";
         }
         leaf netconf-ssh-user {
           type string;
+          mandatory true;
           description
             "User name to use for NETCONF SSH connections";
         }
@@ -366,7 +396,7 @@ module Cisco-IOS-XR-infra-xtc-cfg {
                   "Identifying name for LSP";
               }
               leaf disj-path {
-                type int32;
+                type uint32;
                 description
                   "Set LSP to follow shortest-path";
               }
@@ -475,6 +505,11 @@ module Cisco-IOS-XR-infra-xtc-cfg {
       type inet:ipv4-address-no-zone;
       description
         "IPv4 address of PCE server";
+    }
+    leaf ipv6-server-address {
+      type inet:ipv6-address-no-zone;
+      description
+        "IPv6 address of PCE server";
     }
     leaf password {
       type xr:Proprietary-password;

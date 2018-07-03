@@ -40,11 +40,39 @@ func init() {
     ydk.RegisterEntity("ietf-routing:fib-route", reflect.TypeOf(FibRoute{}))
 }
 
-type AddressFamily struct {
+type VrfRoutingInstance struct {
 }
 
-func (id AddressFamily) String() string {
-	return "ietf-routing:address-family"
+func (id VrfRoutingInstance) String() string {
+	return "ietf-routing:vrf-routing-instance"
+}
+
+type Direct struct {
+}
+
+func (id Direct) String() string {
+	return "ietf-routing:direct"
+}
+
+type DefaultRoutingInstance struct {
+}
+
+func (id DefaultRoutingInstance) String() string {
+	return "ietf-routing:default-routing-instance"
+}
+
+type RoutingProtocol struct {
+}
+
+func (id RoutingProtocol) String() string {
+	return "ietf-routing:routing-protocol"
+}
+
+type Static struct {
+}
+
+func (id Static) String() string {
+	return "ietf-routing:static"
 }
 
 type Ipv4 struct {
@@ -68,39 +96,11 @@ func (id RoutingInstance) String() string {
 	return "ietf-routing:routing-instance"
 }
 
-type DefaultRoutingInstance struct {
+type AddressFamily struct {
 }
 
-func (id DefaultRoutingInstance) String() string {
-	return "ietf-routing:default-routing-instance"
-}
-
-type VrfRoutingInstance struct {
-}
-
-func (id VrfRoutingInstance) String() string {
-	return "ietf-routing:vrf-routing-instance"
-}
-
-type RoutingProtocol struct {
-}
-
-func (id RoutingProtocol) String() string {
-	return "ietf-routing:routing-protocol"
-}
-
-type Direct struct {
-}
-
-func (id Direct) String() string {
-	return "ietf-routing:direct"
-}
-
-type Static struct {
-}
-
-func (id Static) String() string {
-	return "ietf-routing:static"
+func (id AddressFamily) String() string {
+	return "ietf-routing:address-family"
 }
 
 // RoutingState
@@ -117,7 +117,7 @@ type RoutingState struct {
     // system-controlled instance, and MAY allow the clients to create
     // user-controlled routing instances in configuration. The type is slice of
     // RoutingState_RoutingInstance.
-    RoutingInstance []RoutingState_RoutingInstance
+    RoutingInstance []*RoutingState_RoutingInstance
 }
 
 func (routingState *RoutingState) GetEntityData() *types.CommonEntityData {
@@ -130,12 +130,15 @@ func (routingState *RoutingState) GetEntityData() *types.CommonEntityData {
     routingState.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routingState.EntityData.Children = make(map[string]types.YChild)
-    routingState.EntityData.Children["routing-instance"] = types.YChild{"RoutingInstance", nil}
+    routingState.EntityData.Children = types.NewOrderedMap()
+    routingState.EntityData.Children.Append("routing-instance", types.YChild{"RoutingInstance", nil})
     for i := range routingState.RoutingInstance {
-        routingState.EntityData.Children[types.GetSegmentPath(&routingState.RoutingInstance[i])] = types.YChild{"RoutingInstance", &routingState.RoutingInstance[i]}
+        routingState.EntityData.Children.Append(types.GetSegmentPath(routingState.RoutingInstance[i]), types.YChild{"RoutingInstance", routingState.RoutingInstance[i]})
     }
-    routingState.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingState.EntityData.Leafs = types.NewOrderedMap()
+
+    routingState.EntityData.YListKeys = []string {}
+
     return &(routingState.EntityData)
 }
 
@@ -162,12 +165,12 @@ type RoutingState_RoutingInstance struct {
     Name interface{}
 
     // The routing instance type. The type is one of the following:
-    // DefaultRoutingInstanceVrfRoutingInstance.
-    Type_ interface{}
+    // VrfRoutingInstanceDefaultRoutingInstance.
+    Type interface{}
 
     // A 32-bit number in the form of a dotted quad that is used by some routing
     // protocols identifying a router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // Network layer interfaces belonging to the routing instance.
@@ -185,19 +188,22 @@ func (routingInstance *RoutingState_RoutingInstance) GetEntityData() *types.Comm
     routingInstance.EntityData.YangName = "routing-instance"
     routingInstance.EntityData.BundleName = "ietf"
     routingInstance.EntityData.ParentYangName = "routing-state"
-    routingInstance.EntityData.SegmentPath = "routing-instance" + "[name='" + fmt.Sprintf("%v", routingInstance.Name) + "']"
+    routingInstance.EntityData.SegmentPath = "routing-instance" + types.AddKeyToken(routingInstance.Name, "name")
     routingInstance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingInstance.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingInstance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routingInstance.EntityData.Children = make(map[string]types.YChild)
-    routingInstance.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &routingInstance.Interfaces}
-    routingInstance.EntityData.Children["routing-protocols"] = types.YChild{"RoutingProtocols", &routingInstance.RoutingProtocols}
-    routingInstance.EntityData.Children["ribs"] = types.YChild{"Ribs", &routingInstance.Ribs}
-    routingInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    routingInstance.EntityData.Leafs["name"] = types.YLeaf{"Name", routingInstance.Name}
-    routingInstance.EntityData.Leafs["type"] = types.YLeaf{"Type_", routingInstance.Type_}
-    routingInstance.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", routingInstance.RouterId}
+    routingInstance.EntityData.Children = types.NewOrderedMap()
+    routingInstance.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &routingInstance.Interfaces})
+    routingInstance.EntityData.Children.Append("routing-protocols", types.YChild{"RoutingProtocols", &routingInstance.RoutingProtocols})
+    routingInstance.EntityData.Children.Append("ribs", types.YChild{"Ribs", &routingInstance.Ribs})
+    routingInstance.EntityData.Leafs = types.NewOrderedMap()
+    routingInstance.EntityData.Leafs.Append("name", types.YLeaf{"Name", routingInstance.Name})
+    routingInstance.EntityData.Leafs.Append("type", types.YLeaf{"Type", routingInstance.Type})
+    routingInstance.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", routingInstance.RouterId})
+
+    routingInstance.EntityData.YListKeys = []string {"Name"}
+
     return &(routingInstance.EntityData)
 }
 
@@ -211,7 +217,7 @@ type RoutingState_RoutingInstance_Interfaces struct {
     // Each entry is a reference to the name of a configured network layer
     // interface. The type is slice of string. Refers to
     // interfaces.InterfacesState_Interface_Name
-    Interface_ []interface{}
+    Interface []interface{}
 }
 
 func (interfaces *RoutingState_RoutingInstance_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -224,9 +230,12 @@ func (interfaces *RoutingState_RoutingInstance_Interfaces) GetEntityData() *type
     interfaces.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaces.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", interfaces.Interface_}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+    interfaces.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", interfaces.Interface})
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -240,7 +249,7 @@ type RoutingState_RoutingInstance_RoutingProtocols struct {
     // exactly one system-controlled instance of the type 'direct'. Other
     // instances MAY be created by configuration. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol.
-    RoutingProtocol []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
+    RoutingProtocol []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
 }
 
 func (routingProtocols *RoutingState_RoutingInstance_RoutingProtocols) GetEntityData() *types.CommonEntityData {
@@ -253,12 +262,15 @@ func (routingProtocols *RoutingState_RoutingInstance_RoutingProtocols) GetEntity
     routingProtocols.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingProtocols.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routingProtocols.EntityData.Children = make(map[string]types.YChild)
-    routingProtocols.EntityData.Children["routing-protocol"] = types.YChild{"RoutingProtocol", nil}
+    routingProtocols.EntityData.Children = types.NewOrderedMap()
+    routingProtocols.EntityData.Children.Append("routing-protocol", types.YChild{"RoutingProtocol", nil})
     for i := range routingProtocols.RoutingProtocol {
-        routingProtocols.EntityData.Children[types.GetSegmentPath(&routingProtocols.RoutingProtocol[i])] = types.YChild{"RoutingProtocol", &routingProtocols.RoutingProtocol[i]}
+        routingProtocols.EntityData.Children.Append(types.GetSegmentPath(routingProtocols.RoutingProtocol[i]), types.YChild{"RoutingProtocol", routingProtocols.RoutingProtocol[i]})
     }
-    routingProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingProtocols.EntityData.Leafs = types.NewOrderedMap()
+
+    routingProtocols.EntityData.YListKeys = []string {}
+
     return &(routingProtocols.EntityData)
 }
 
@@ -273,8 +285,8 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Type of the routing protocol. The type is one of
-    // the following: OspfOspfv2Ospfv3DirectStatic.
-    Type_ interface{}
+    // the following: Ospfv3Ospfv2OspfDirectStatic.
+    Type interface{}
 
     // This attribute is a key. The name of the routing protocol instance.  For
     // system-controlled instances this name is persistent, i.e., it SHOULD NOT
@@ -290,16 +302,19 @@ func (routingProtocol *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     routingProtocol.EntityData.YangName = "routing-protocol"
     routingProtocol.EntityData.BundleName = "ietf"
     routingProtocol.EntityData.ParentYangName = "routing-protocols"
-    routingProtocol.EntityData.SegmentPath = "routing-protocol" + "[type='" + fmt.Sprintf("%v", routingProtocol.Type_) + "']" + "[name='" + fmt.Sprintf("%v", routingProtocol.Name) + "']"
+    routingProtocol.EntityData.SegmentPath = "routing-protocol" + types.AddKeyToken(routingProtocol.Type, "type") + types.AddKeyToken(routingProtocol.Name, "name")
     routingProtocol.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingProtocol.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingProtocol.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routingProtocol.EntityData.Children = make(map[string]types.YChild)
-    routingProtocol.EntityData.Children["ietf-ospf:ospf"] = types.YChild{"Ospf", &routingProtocol.Ospf}
-    routingProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    routingProtocol.EntityData.Leafs["type"] = types.YLeaf{"Type_", routingProtocol.Type_}
-    routingProtocol.EntityData.Leafs["name"] = types.YLeaf{"Name", routingProtocol.Name}
+    routingProtocol.EntityData.Children = types.NewOrderedMap()
+    routingProtocol.EntityData.Children.Append("ietf-ospf:ospf", types.YChild{"Ospf", &routingProtocol.Ospf})
+    routingProtocol.EntityData.Leafs = types.NewOrderedMap()
+    routingProtocol.EntityData.Leafs.Append("type", types.YLeaf{"Type", routingProtocol.Type})
+    routingProtocol.EntityData.Leafs.Append("name", types.YLeaf{"Name", routingProtocol.Name})
+
+    routingProtocol.EntityData.YListKeys = []string {"Type", "Name"}
+
     return &(routingProtocol.EntityData)
 }
 
@@ -314,7 +329,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf struct {
 
     // An OSPF routing protocol instance. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance.
-    Instance []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
+    Instance []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 }
 
 func (ospf *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf) GetEntityData() *types.CommonEntityData {
@@ -327,13 +342,16 @@ func (ospf *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf) 
     ospf.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ospf.EntityData.Children = make(map[string]types.YChild)
-    ospf.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    ospf.EntityData.Children = types.NewOrderedMap()
+    ospf.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range ospf.Instance {
-        ospf.EntityData.Children[types.GetSegmentPath(&ospf.Instance[i])] = types.YChild{"Instance", &ospf.Instance[i]}
+        ospf.EntityData.Children.Append(types.GetSegmentPath(ospf.Instance[i]), types.YChild{"Instance", ospf.Instance[i]})
     }
-    ospf.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospf.EntityData.Leafs["operation-mode"] = types.YLeaf{"OperationMode", ospf.OperationMode}
+    ospf.EntityData.Leafs = types.NewOrderedMap()
+    ospf.EntityData.Leafs.Append("operation-mode", types.YLeaf{"OperationMode", ospf.OperationMode})
+
+    ospf.EntityData.YListKeys = []string {}
+
     return &(ospf.EntityData)
 }
 
@@ -349,20 +367,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Defined in RFC 2328. A 32-bit number that uniquely identifies the router.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // List of OSPF areas. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area.
-    Area []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
+    Area []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // List OSPF AS scope LSA databases. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas.
-    AsScopeLsas []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas
+    AsScopeLsas []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas
 
     // OSPF topology. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology
 }
 
 func (instance *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance) GetEntityData() *types.CommonEntityData {
@@ -370,27 +388,30 @@ func (instance *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "ietf"
     instance.EntityData.ParentYangName = "ospf"
-    instance.EntityData.SegmentPath = "instance" + "[af='" + fmt.Sprintf("%v", instance.Af) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.Af, "af")
     instance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     instance.EntityData.NamespaceTable = ietf.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["area"] = types.YChild{"Area", nil}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("area", types.YChild{"Area", nil})
     for i := range instance.Area {
-        instance.EntityData.Children[types.GetSegmentPath(&instance.Area[i])] = types.YChild{"Area", &instance.Area[i]}
+        instance.EntityData.Children.Append(types.GetSegmentPath(instance.Area[i]), types.YChild{"Area", instance.Area[i]})
     }
-    instance.EntityData.Children["as-scope-lsas"] = types.YChild{"AsScopeLsas", nil}
+    instance.EntityData.Children.Append("as-scope-lsas", types.YChild{"AsScopeLsas", nil})
     for i := range instance.AsScopeLsas {
-        instance.EntityData.Children[types.GetSegmentPath(&instance.AsScopeLsas[i])] = types.YChild{"AsScopeLsas", &instance.AsScopeLsas[i]}
+        instance.EntityData.Children.Append(types.GetSegmentPath(instance.AsScopeLsas[i]), types.YChild{"AsScopeLsas", instance.AsScopeLsas[i]})
     }
-    instance.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    instance.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range instance.Topology {
-        instance.EntityData.Children[types.GetSegmentPath(&instance.Topology[i])] = types.YChild{"Topology", &instance.Topology[i]}
+        instance.EntityData.Children.Append(types.GetSegmentPath(instance.Topology[i]), types.YChild{"Topology", instance.Topology[i]})
     }
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["af"] = types.YLeaf{"Af", instance.Af}
-    instance.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", instance.RouterId}
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("af", types.YLeaf{"Af", instance.Af})
+    instance.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", instance.RouterId})
+
+    instance.EntityData.YListKeys = []string {"Af"}
+
     return &(instance.EntityData)
 }
 
@@ -402,16 +423,16 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AreaId interface{}
 
     // List of OSPF interfaces. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces.
-    Interfaces []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces
+    Interfaces []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces
 
     // List OSPF area scope LSA databases. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas.
-    AreaScopeLsas []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas
+    AreaScopeLsas []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas
 }
 
 func (area *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area) GetEntityData() *types.CommonEntityData {
@@ -419,22 +440,25 @@ func (area *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     area.EntityData.YangName = "area"
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "instance"
-    area.EntityData.SegmentPath = "area" + "[area-id='" + fmt.Sprintf("%v", area.AreaId) + "']"
+    area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    area.EntityData.Children = make(map[string]types.YChild)
-    area.EntityData.Children["interfaces"] = types.YChild{"Interfaces", nil}
+    area.EntityData.Children = types.NewOrderedMap()
+    area.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", nil})
     for i := range area.Interfaces {
-        area.EntityData.Children[types.GetSegmentPath(&area.Interfaces[i])] = types.YChild{"Interfaces", &area.Interfaces[i]}
+        area.EntityData.Children.Append(types.GetSegmentPath(area.Interfaces[i]), types.YChild{"Interfaces", area.Interfaces[i]})
     }
-    area.EntityData.Children["area-scope-lsas"] = types.YChild{"AreaScopeLsas", nil}
+    area.EntityData.Children.Append("area-scope-lsas", types.YChild{"AreaScopeLsas", nil})
     for i := range area.AreaScopeLsas {
-        area.EntityData.Children[types.GetSegmentPath(&area.AreaScopeLsas[i])] = types.YChild{"AreaScopeLsas", &area.AreaScopeLsas[i]}
+        area.EntityData.Children.Append(types.GetSegmentPath(area.AreaScopeLsas[i]), types.YChild{"AreaScopeLsas", area.AreaScopeLsas[i]})
     }
-    area.EntityData.Leafs = make(map[string]types.YLeaf)
-    area.EntityData.Leafs["area-id"] = types.YLeaf{"AreaId", area.AreaId}
+    area.EntityData.Leafs = types.NewOrderedMap()
+    area.EntityData.Leafs.Append("area-id", types.YLeaf{"AreaId", area.AreaId})
+
+    area.EntityData.YListKeys = []string {"AreaId"}
+
     return &(area.EntityData)
 }
 
@@ -445,7 +469,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string.
-    Interface_ interface{}
+    Interface interface{}
 
     // Network type. The type is NetworkType.
     NetworkType interface{}
@@ -507,11 +531,11 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     WaitTimer interface{}
 
     // DR. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Dr interface{}
 
     // BDR. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Bdr interface{}
 
     // Configure ospf multi-area.
@@ -531,15 +555,15 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of OSPF neighbors. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_Neighbor.
-    Neighbor []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_Neighbor
+    Neighbor []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_Neighbor
 
     // List OSPF link scope LSA databases. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas.
-    LinkScopeLsas []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas
+    LinkScopeLsas []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas
 
     // OSPF interface topology. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_Topology
 }
 
 func (interfaces *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -547,50 +571,53 @@ func (interfaces *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     interfaces.EntityData.YangName = "interfaces"
     interfaces.EntityData.BundleName = "ietf"
     interfaces.EntityData.ParentYangName = "area"
-    interfaces.EntityData.SegmentPath = "interfaces" + "[interface='" + fmt.Sprintf("%v", interfaces.Interface_) + "']"
+    interfaces.EntityData.SegmentPath = "interfaces" + types.AddKeyToken(interfaces.Interface, "interface")
     interfaces.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interfaces.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["multi-area"] = types.YChild{"MultiArea", &interfaces.MultiArea}
-    interfaces.EntityData.Children["static-neighbors"] = types.YChild{"StaticNeighbors", &interfaces.StaticNeighbors}
-    interfaces.EntityData.Children["fast-reroute"] = types.YChild{"FastReroute", &interfaces.FastReroute}
-    interfaces.EntityData.Children["ttl-security"] = types.YChild{"TtlSecurity", &interfaces.TtlSecurity}
-    interfaces.EntityData.Children["authentication"] = types.YChild{"Authentication", &interfaces.Authentication}
-    interfaces.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("multi-area", types.YChild{"MultiArea", &interfaces.MultiArea})
+    interfaces.EntityData.Children.Append("static-neighbors", types.YChild{"StaticNeighbors", &interfaces.StaticNeighbors})
+    interfaces.EntityData.Children.Append("fast-reroute", types.YChild{"FastReroute", &interfaces.FastReroute})
+    interfaces.EntityData.Children.Append("ttl-security", types.YChild{"TtlSecurity", &interfaces.TtlSecurity})
+    interfaces.EntityData.Children.Append("authentication", types.YChild{"Authentication", &interfaces.Authentication})
+    interfaces.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range interfaces.Neighbor {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Neighbor[i])] = types.YChild{"Neighbor", &interfaces.Neighbor[i]}
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Neighbor[i]), types.YChild{"Neighbor", interfaces.Neighbor[i]})
     }
-    interfaces.EntityData.Children["link-scope-lsas"] = types.YChild{"LinkScopeLsas", nil}
+    interfaces.EntityData.Children.Append("link-scope-lsas", types.YChild{"LinkScopeLsas", nil})
     for i := range interfaces.LinkScopeLsas {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.LinkScopeLsas[i])] = types.YChild{"LinkScopeLsas", &interfaces.LinkScopeLsas[i]}
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.LinkScopeLsas[i]), types.YChild{"LinkScopeLsas", interfaces.LinkScopeLsas[i]})
     }
-    interfaces.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    interfaces.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range interfaces.Topology {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Topology[i])] = types.YChild{"Topology", &interfaces.Topology[i]}
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Topology[i]), types.YChild{"Topology", interfaces.Topology[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaces.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", interfaces.Interface_}
-    interfaces.EntityData.Leafs["network-type"] = types.YLeaf{"NetworkType", interfaces.NetworkType}
-    interfaces.EntityData.Leafs["passive"] = types.YLeaf{"Passive", interfaces.Passive}
-    interfaces.EntityData.Leafs["demand-circuit"] = types.YLeaf{"DemandCircuit", interfaces.DemandCircuit}
-    interfaces.EntityData.Leafs["node-flag"] = types.YLeaf{"NodeFlag", interfaces.NodeFlag}
-    interfaces.EntityData.Leafs["cost"] = types.YLeaf{"Cost", interfaces.Cost}
-    interfaces.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", interfaces.HelloInterval}
-    interfaces.EntityData.Leafs["dead-interval"] = types.YLeaf{"DeadInterval", interfaces.DeadInterval}
-    interfaces.EntityData.Leafs["retransmit-interval"] = types.YLeaf{"RetransmitInterval", interfaces.RetransmitInterval}
-    interfaces.EntityData.Leafs["transmit-delay"] = types.YLeaf{"TransmitDelay", interfaces.TransmitDelay}
-    interfaces.EntityData.Leafs["mtu-ignore"] = types.YLeaf{"MtuIgnore", interfaces.MtuIgnore}
-    interfaces.EntityData.Leafs["lls"] = types.YLeaf{"Lls", interfaces.Lls}
-    interfaces.EntityData.Leafs["prefix-suppression"] = types.YLeaf{"PrefixSuppression", interfaces.PrefixSuppression}
-    interfaces.EntityData.Leafs["bfd"] = types.YLeaf{"Bfd", interfaces.Bfd}
-    interfaces.EntityData.Leafs["enable"] = types.YLeaf{"Enable", interfaces.Enable}
-    interfaces.EntityData.Leafs["state"] = types.YLeaf{"State", interfaces.State}
-    interfaces.EntityData.Leafs["hello-timer"] = types.YLeaf{"HelloTimer", interfaces.HelloTimer}
-    interfaces.EntityData.Leafs["wait-timer"] = types.YLeaf{"WaitTimer", interfaces.WaitTimer}
-    interfaces.EntityData.Leafs["dr"] = types.YLeaf{"Dr", interfaces.Dr}
-    interfaces.EntityData.Leafs["bdr"] = types.YLeaf{"Bdr", interfaces.Bdr}
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+    interfaces.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", interfaces.Interface})
+    interfaces.EntityData.Leafs.Append("network-type", types.YLeaf{"NetworkType", interfaces.NetworkType})
+    interfaces.EntityData.Leafs.Append("passive", types.YLeaf{"Passive", interfaces.Passive})
+    interfaces.EntityData.Leafs.Append("demand-circuit", types.YLeaf{"DemandCircuit", interfaces.DemandCircuit})
+    interfaces.EntityData.Leafs.Append("node-flag", types.YLeaf{"NodeFlag", interfaces.NodeFlag})
+    interfaces.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", interfaces.Cost})
+    interfaces.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", interfaces.HelloInterval})
+    interfaces.EntityData.Leafs.Append("dead-interval", types.YLeaf{"DeadInterval", interfaces.DeadInterval})
+    interfaces.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", interfaces.RetransmitInterval})
+    interfaces.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", interfaces.TransmitDelay})
+    interfaces.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", interfaces.MtuIgnore})
+    interfaces.EntityData.Leafs.Append("lls", types.YLeaf{"Lls", interfaces.Lls})
+    interfaces.EntityData.Leafs.Append("prefix-suppression", types.YLeaf{"PrefixSuppression", interfaces.PrefixSuppression})
+    interfaces.EntityData.Leafs.Append("bfd", types.YLeaf{"Bfd", interfaces.Bfd})
+    interfaces.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaces.Enable})
+    interfaces.EntityData.Leafs.Append("state", types.YLeaf{"State", interfaces.State})
+    interfaces.EntityData.Leafs.Append("hello-timer", types.YLeaf{"HelloTimer", interfaces.HelloTimer})
+    interfaces.EntityData.Leafs.Append("wait-timer", types.YLeaf{"WaitTimer", interfaces.WaitTimer})
+    interfaces.EntityData.Leafs.Append("dr", types.YLeaf{"Dr", interfaces.Dr})
+    interfaces.EntityData.Leafs.Append("bdr", types.YLeaf{"Bdr", interfaces.Bdr})
+
+    interfaces.EntityData.YListKeys = []string {"Interface"}
+
     return &(interfaces.EntityData)
 }
 
@@ -602,7 +629,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Multi-area ID. The type is one of the following types: int with range:
     // 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     MultiAreaId interface{}
 
     // Interface cost for multi-area. The type is interface{} with range:
@@ -620,10 +647,13 @@ func (multiArea *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     multiArea.EntityData.NamespaceTable = ietf.GetNamespaces()
     multiArea.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    multiArea.EntityData.Children = make(map[string]types.YChild)
-    multiArea.EntityData.Leafs = make(map[string]types.YLeaf)
-    multiArea.EntityData.Leafs["multi-area-id"] = types.YLeaf{"MultiAreaId", multiArea.MultiAreaId}
-    multiArea.EntityData.Leafs["cost"] = types.YLeaf{"Cost", multiArea.Cost}
+    multiArea.EntityData.Children = types.NewOrderedMap()
+    multiArea.EntityData.Leafs = types.NewOrderedMap()
+    multiArea.EntityData.Leafs.Append("multi-area-id", types.YLeaf{"MultiAreaId", multiArea.MultiAreaId})
+    multiArea.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", multiArea.Cost})
+
+    multiArea.EntityData.YListKeys = []string {}
+
     return &(multiArea.EntityData)
 }
 
@@ -635,7 +665,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Specify a neighbor router. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_StaticNeighbors_Neighbor.
-    Neighbor []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_StaticNeighbors_Neighbor
+    Neighbor []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_StaticNeighbors_Neighbor
 }
 
 func (staticNeighbors *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_StaticNeighbors) GetEntityData() *types.CommonEntityData {
@@ -648,12 +678,15 @@ func (staticNeighbors *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     staticNeighbors.EntityData.NamespaceTable = ietf.GetNamespaces()
     staticNeighbors.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    staticNeighbors.EntityData.Children = make(map[string]types.YChild)
-    staticNeighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    staticNeighbors.EntityData.Children = types.NewOrderedMap()
+    staticNeighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range staticNeighbors.Neighbor {
-        staticNeighbors.EntityData.Children[types.GetSegmentPath(&staticNeighbors.Neighbor[i])] = types.YChild{"Neighbor", &staticNeighbors.Neighbor[i]}
+        staticNeighbors.EntityData.Children.Append(types.GetSegmentPath(staticNeighbors.Neighbor[i]), types.YChild{"Neighbor", staticNeighbors.Neighbor[i]})
     }
-    staticNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticNeighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    staticNeighbors.EntityData.YListKeys = []string {}
+
     return &(staticNeighbors.EntityData)
 }
 
@@ -665,9 +698,9 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Neighbor cost. The type is interface{} with range: 1..65535.
@@ -687,17 +720,20 @@ func (neighbor *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "static-neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[address='" + fmt.Sprintf("%v", neighbor.Address) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Address, "address")
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["address"] = types.YLeaf{"Address", neighbor.Address}
-    neighbor.EntityData.Leafs["cost"] = types.YLeaf{"Cost", neighbor.Cost}
-    neighbor.EntityData.Leafs["poll-interval"] = types.YLeaf{"PollInterval", neighbor.PollInterval}
-    neighbor.EntityData.Leafs["priority"] = types.YLeaf{"Priority", neighbor.Priority}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighbor.Address})
+    neighbor.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", neighbor.Cost})
+    neighbor.EntityData.Leafs.Append("poll-interval", types.YLeaf{"PollInterval", neighbor.PollInterval})
+    neighbor.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", neighbor.Priority})
+
+    neighbor.EntityData.YListKeys = []string {"Address"}
+
     return &(neighbor.EntityData)
 }
 
@@ -721,9 +757,12 @@ func (fastReroute *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
     fastReroute.EntityData.NamespaceTable = ietf.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    fastReroute.EntityData.Children = make(map[string]types.YChild)
-    fastReroute.EntityData.Children["lfa"] = types.YChild{"Lfa", &fastReroute.Lfa}
-    fastReroute.EntityData.Leafs = make(map[string]types.YLeaf)
+    fastReroute.EntityData.Children = types.NewOrderedMap()
+    fastReroute.EntityData.Children.Append("lfa", types.YChild{"Lfa", &fastReroute.Lfa})
+    fastReroute.EntityData.Leafs = types.NewOrderedMap()
+
+    fastReroute.EntityData.YListKeys = []string {}
+
     return &(fastReroute.EntityData)
 }
 
@@ -754,11 +793,14 @@ func (lfa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     lfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     lfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    lfa.EntityData.Children = make(map[string]types.YChild)
-    lfa.EntityData.Children["remote-lfa"] = types.YChild{"RemoteLfa", &lfa.RemoteLfa}
-    lfa.EntityData.Leafs = make(map[string]types.YLeaf)
-    lfa.EntityData.Leafs["candidate-disabled"] = types.YLeaf{"CandidateDisabled", lfa.CandidateDisabled}
-    lfa.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", lfa.Enabled}
+    lfa.EntityData.Children = types.NewOrderedMap()
+    lfa.EntityData.Children.Append("remote-lfa", types.YChild{"RemoteLfa", &lfa.RemoteLfa})
+    lfa.EntityData.Leafs = types.NewOrderedMap()
+    lfa.EntityData.Leafs.Append("candidate-disabled", types.YLeaf{"CandidateDisabled", lfa.CandidateDisabled})
+    lfa.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", lfa.Enabled})
+
+    lfa.EntityData.YListKeys = []string {}
+
     return &(lfa.EntityData)
 }
 
@@ -782,9 +824,12 @@ func (remoteLfa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     remoteLfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     remoteLfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    remoteLfa.EntityData.Children = make(map[string]types.YChild)
-    remoteLfa.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteLfa.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", remoteLfa.Enabled}
+    remoteLfa.EntityData.Children = types.NewOrderedMap()
+    remoteLfa.EntityData.Leafs = types.NewOrderedMap()
+    remoteLfa.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", remoteLfa.Enabled})
+
+    remoteLfa.EntityData.YListKeys = []string {}
+
     return &(remoteLfa.EntityData)
 }
 
@@ -812,10 +857,13 @@ func (ttlSecurity *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
     ttlSecurity.EntityData.NamespaceTable = ietf.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ttlSecurity.EntityData.Children = make(map[string]types.YChild)
-    ttlSecurity.EntityData.Leafs = make(map[string]types.YLeaf)
-    ttlSecurity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ttlSecurity.Enable}
-    ttlSecurity.EntityData.Leafs["hops"] = types.YLeaf{"Hops", ttlSecurity.Hops}
+    ttlSecurity.EntityData.Children = types.NewOrderedMap()
+    ttlSecurity.EntityData.Leafs = types.NewOrderedMap()
+    ttlSecurity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ttlSecurity.Enable})
+    ttlSecurity.EntityData.Leafs.Append("hops", types.YLeaf{"Hops", ttlSecurity.Hops})
+
+    ttlSecurity.EntityData.YListKeys = []string {}
+
     return &(ttlSecurity.EntityData)
 }
 
@@ -848,12 +896,15 @@ func (authentication *RoutingState_RoutingInstance_RoutingProtocols_RoutingProto
     authentication.EntityData.NamespaceTable = ietf.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Children["crypto-algorithm"] = types.YChild{"CryptoAlgorithm", &authentication.CryptoAlgorithm}
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["sa"] = types.YLeaf{"Sa", authentication.Sa}
-    authentication.EntityData.Leafs["key-chain"] = types.YLeaf{"KeyChain", authentication.KeyChain}
-    authentication.EntityData.Leafs["key"] = types.YLeaf{"Key", authentication.Key}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Children.Append("crypto-algorithm", types.YChild{"CryptoAlgorithm", &authentication.CryptoAlgorithm})
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("sa", types.YLeaf{"Sa", authentication.Sa})
+    authentication.EntityData.Leafs.Append("key-chain", types.YLeaf{"KeyChain", authentication.KeyChain})
+    authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -898,16 +949,19 @@ func (cryptoAlgorithm *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    cryptoAlgorithm.EntityData.Children = make(map[string]types.YChild)
-    cryptoAlgorithm.EntityData.Leafs = make(map[string]types.YLeaf)
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-12"] = types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-20"] = types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120}
-    cryptoAlgorithm.EntityData.Leafs["md5"] = types.YLeaf{"Md5", cryptoAlgorithm.Md5}
-    cryptoAlgorithm.EntityData.Leafs["sha-1"] = types.YLeaf{"Sha1", cryptoAlgorithm.Sha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-1"] = types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-256"] = types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-384"] = types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-512"] = types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512}
+    cryptoAlgorithm.EntityData.Children = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-12", types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-20", types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120})
+    cryptoAlgorithm.EntityData.Leafs.Append("md5", types.YLeaf{"Md5", cryptoAlgorithm.Md5})
+    cryptoAlgorithm.EntityData.Leafs.Append("sha-1", types.YLeaf{"Sha1", cryptoAlgorithm.Sha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-1", types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-256", types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-384", types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-512", types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512})
+
+    cryptoAlgorithm.EntityData.YListKeys = []string {}
+
     return &(cryptoAlgorithm.EntityData)
 }
 
@@ -918,22 +972,22 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // This attribute is a key. Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborId interface{}
 
     // Neighbor address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Designated Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Dr interface{}
 
     // Backup Designated Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Bdr interface{}
 
     // OSPF neighbor state. The type is NbrStateType.
@@ -945,18 +999,21 @@ func (neighbor *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "interfaces"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-id='" + fmt.Sprintf("%v", neighbor.NeighborId) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborId, "neighbor-id")
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-id"] = types.YLeaf{"NeighborId", neighbor.NeighborId}
-    neighbor.EntityData.Leafs["address"] = types.YLeaf{"Address", neighbor.Address}
-    neighbor.EntityData.Leafs["dr"] = types.YLeaf{"Dr", neighbor.Dr}
-    neighbor.EntityData.Leafs["bdr"] = types.YLeaf{"Bdr", neighbor.Bdr}
-    neighbor.EntityData.Leafs["state"] = types.YLeaf{"State", neighbor.State}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
+    neighbor.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighbor.Address})
+    neighbor.EntityData.Leafs.Append("dr", types.YLeaf{"Dr", neighbor.Dr})
+    neighbor.EntityData.Leafs.Append("bdr", types.YLeaf{"Bdr", neighbor.Bdr})
+    neighbor.EntityData.Leafs.Append("state", types.YLeaf{"State", neighbor.State})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborId"}
+
     return &(neighbor.EntityData)
 }
 
@@ -972,7 +1029,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of OSPF link scope LSAs. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa.
-    LinkScopeLsa []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa
+    LinkScopeLsa []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa
 }
 
 func (linkScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas) GetEntityData() *types.CommonEntityData {
@@ -980,18 +1037,21 @@ func (linkScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     linkScopeLsas.EntityData.YangName = "link-scope-lsas"
     linkScopeLsas.EntityData.BundleName = "ietf"
     linkScopeLsas.EntityData.ParentYangName = "interfaces"
-    linkScopeLsas.EntityData.SegmentPath = "link-scope-lsas" + "[lsa-type='" + fmt.Sprintf("%v", linkScopeLsas.LsaType) + "']"
+    linkScopeLsas.EntityData.SegmentPath = "link-scope-lsas" + types.AddKeyToken(linkScopeLsas.LsaType, "lsa-type")
     linkScopeLsas.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     linkScopeLsas.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkScopeLsas.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    linkScopeLsas.EntityData.Children = make(map[string]types.YChild)
-    linkScopeLsas.EntityData.Children["link-scope-lsa"] = types.YChild{"LinkScopeLsa", nil}
+    linkScopeLsas.EntityData.Children = types.NewOrderedMap()
+    linkScopeLsas.EntityData.Children.Append("link-scope-lsa", types.YChild{"LinkScopeLsa", nil})
     for i := range linkScopeLsas.LinkScopeLsa {
-        linkScopeLsas.EntityData.Children[types.GetSegmentPath(&linkScopeLsas.LinkScopeLsa[i])] = types.YChild{"LinkScopeLsa", &linkScopeLsas.LinkScopeLsa[i]}
+        linkScopeLsas.EntityData.Children.Append(types.GetSegmentPath(linkScopeLsas.LinkScopeLsa[i]), types.YChild{"LinkScopeLsa", linkScopeLsas.LinkScopeLsa[i]})
     }
-    linkScopeLsas.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkScopeLsas.EntityData.Leafs["lsa-type"] = types.YLeaf{"LsaType", linkScopeLsas.LsaType}
+    linkScopeLsas.EntityData.Leafs = types.NewOrderedMap()
+    linkScopeLsas.EntityData.Leafs.Append("lsa-type", types.YLeaf{"LsaType", linkScopeLsas.LsaType})
+
+    linkScopeLsas.EntityData.YListKeys = []string {"LsaType"}
+
     return &(linkScopeLsas.EntityData)
 }
 
@@ -1003,20 +1063,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LsaId interface{}
 
     // This attribute is a key. Advertising router. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvRouter interface{}
 
     // The OSPF LSA body is fully decoded. The type is bool.
     DecodedCompleted interface{}
 
     // The complete LSA in network byte order as received/sent over the wire. The
-    // type is string with pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // OSPFv2 LSA.
@@ -1031,19 +1091,22 @@ func (linkScopeLsa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoco
     linkScopeLsa.EntityData.YangName = "link-scope-lsa"
     linkScopeLsa.EntityData.BundleName = "ietf"
     linkScopeLsa.EntityData.ParentYangName = "link-scope-lsas"
-    linkScopeLsa.EntityData.SegmentPath = "link-scope-lsa" + "[lsa-id='" + fmt.Sprintf("%v", linkScopeLsa.LsaId) + "']" + "[adv-router='" + fmt.Sprintf("%v", linkScopeLsa.AdvRouter) + "']"
+    linkScopeLsa.EntityData.SegmentPath = "link-scope-lsa" + types.AddKeyToken(linkScopeLsa.LsaId, "lsa-id") + types.AddKeyToken(linkScopeLsa.AdvRouter, "adv-router")
     linkScopeLsa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     linkScopeLsa.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkScopeLsa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    linkScopeLsa.EntityData.Children = make(map[string]types.YChild)
-    linkScopeLsa.EntityData.Children["ospfv2"] = types.YChild{"Ospfv2", &linkScopeLsa.Ospfv2}
-    linkScopeLsa.EntityData.Children["ospfv3"] = types.YChild{"Ospfv3", &linkScopeLsa.Ospfv3}
-    linkScopeLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkScopeLsa.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", linkScopeLsa.LsaId}
-    linkScopeLsa.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", linkScopeLsa.AdvRouter}
-    linkScopeLsa.EntityData.Leafs["decoded-completed"] = types.YLeaf{"DecodedCompleted", linkScopeLsa.DecodedCompleted}
-    linkScopeLsa.EntityData.Leafs["raw-data"] = types.YLeaf{"RawData", linkScopeLsa.RawData}
+    linkScopeLsa.EntityData.Children = types.NewOrderedMap()
+    linkScopeLsa.EntityData.Children.Append("ospfv2", types.YChild{"Ospfv2", &linkScopeLsa.Ospfv2})
+    linkScopeLsa.EntityData.Children.Append("ospfv3", types.YChild{"Ospfv3", &linkScopeLsa.Ospfv3})
+    linkScopeLsa.EntityData.Leafs = types.NewOrderedMap()
+    linkScopeLsa.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", linkScopeLsa.LsaId})
+    linkScopeLsa.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", linkScopeLsa.AdvRouter})
+    linkScopeLsa.EntityData.Leafs.Append("decoded-completed", types.YLeaf{"DecodedCompleted", linkScopeLsa.DecodedCompleted})
+    linkScopeLsa.EntityData.Leafs.Append("raw-data", types.YLeaf{"RawData", linkScopeLsa.RawData})
+
+    linkScopeLsa.EntityData.YListKeys = []string {"LsaId", "AdvRouter"}
+
     return &(linkScopeLsa.EntityData)
 }
 
@@ -1070,10 +1133,13 @@ func (ospfv2 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv2.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv2.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ospfv2.EntityData.Children = make(map[string]types.YChild)
-    ospfv2.EntityData.Children["header"] = types.YChild{"Header", &ospfv2.Header}
-    ospfv2.EntityData.Children["body"] = types.YChild{"Body", &ospfv2.Body}
-    ospfv2.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2.EntityData.Children = types.NewOrderedMap()
+    ospfv2.EntityData.Children.Append("header", types.YChild{"Header", &ospfv2.Header})
+    ospfv2.EntityData.Children.Append("body", types.YChild{"Body", &ospfv2.Body})
+    ospfv2.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2.EntityData.YListKeys = []string {}
+
     return &(ospfv2.EntityData)
 }
 
@@ -1087,7 +1153,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Options interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     LsaId interface{}
 
@@ -1105,10 +1171,10 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // LSA type. The type is interface{} with range: 0..65535. This attribute is
     // mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -1133,18 +1199,21 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["options"] = types.YLeaf{"Options", header.Options}
-    header.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", header.LsaId}
-    header.EntityData.Leafs["opaque-type"] = types.YLeaf{"OpaqueType", header.OpaqueType}
-    header.EntityData.Leafs["opaque-id"] = types.YLeaf{"OpaqueId", header.OpaqueId}
-    header.EntityData.Leafs["age"] = types.YLeaf{"Age", header.Age}
-    header.EntityData.Leafs["type"] = types.YLeaf{"Type_", header.Type_}
-    header.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", header.AdvRouter}
-    header.EntityData.Leafs["seq-num"] = types.YLeaf{"SeqNum", header.SeqNum}
-    header.EntityData.Leafs["checksum"] = types.YLeaf{"Checksum", header.Checksum}
-    header.EntityData.Leafs["length"] = types.YLeaf{"Length", header.Length}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("options", types.YLeaf{"Options", header.Options})
+    header.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", header.LsaId})
+    header.EntityData.Leafs.Append("opaque-type", types.YLeaf{"OpaqueType", header.OpaqueType})
+    header.EntityData.Leafs.Append("opaque-id", types.YLeaf{"OpaqueId", header.OpaqueId})
+    header.EntityData.Leafs.Append("age", types.YLeaf{"Age", header.Age})
+    header.EntityData.Leafs.Append("type", types.YLeaf{"Type", header.Type})
+    header.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", header.AdvRouter})
+    header.EntityData.Leafs.Append("seq-num", types.YLeaf{"SeqNum", header.SeqNum})
+    header.EntityData.Leafs.Append("checksum", types.YLeaf{"Checksum", header.Checksum})
+    header.EntityData.Leafs.Append("length", types.YLeaf{"Length", header.Length})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -1180,13 +1249,16 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    body.EntityData.Children = make(map[string]types.YChild)
-    body.EntityData.Children["router"] = types.YChild{"Router", &body.Router}
-    body.EntityData.Children["network"] = types.YChild{"Network", &body.Network}
-    body.EntityData.Children["summary"] = types.YChild{"Summary", &body.Summary}
-    body.EntityData.Children["external"] = types.YChild{"External", &body.External}
-    body.EntityData.Children["opaque"] = types.YChild{"Opaque", &body.Opaque}
-    body.EntityData.Leafs = make(map[string]types.YLeaf)
+    body.EntityData.Children = types.NewOrderedMap()
+    body.EntityData.Children.Append("router", types.YChild{"Router", &body.Router})
+    body.EntityData.Children.Append("network", types.YChild{"Network", &body.Network})
+    body.EntityData.Children.Append("summary", types.YChild{"Summary", &body.Summary})
+    body.EntityData.Children.Append("external", types.YChild{"External", &body.External})
+    body.EntityData.Children.Append("opaque", types.YChild{"Opaque", &body.Opaque})
+    body.EntityData.Leafs = types.NewOrderedMap()
+
+    body.EntityData.YListKeys = []string {}
+
     return &(body.EntityData)
 }
 
@@ -1204,7 +1276,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Router LSA link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link.
-    Link []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link
+    Link []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link
 }
 
 func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router) GetEntityData() *types.CommonEntityData {
@@ -1217,14 +1289,17 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    router.EntityData.Children = make(map[string]types.YChild)
-    router.EntityData.Children["link"] = types.YChild{"Link", nil}
+    router.EntityData.Children = types.NewOrderedMap()
+    router.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range router.Link {
-        router.EntityData.Children[types.GetSegmentPath(&router.Link[i])] = types.YChild{"Link", &router.Link[i]}
+        router.EntityData.Children.Append(types.GetSegmentPath(router.Link[i]), types.YChild{"Link", router.Link[i]})
     }
-    router.EntityData.Leafs = make(map[string]types.YLeaf)
-    router.EntityData.Leafs["flags"] = types.YLeaf{"Flags", router.Flags}
-    router.EntityData.Leafs["num-of-links"] = types.YLeaf{"NumOfLinks", router.NumOfLinks}
+    router.EntityData.Leafs = types.NewOrderedMap()
+    router.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", router.Flags})
+    router.EntityData.Leafs.Append("num-of-links", types.YLeaf{"NumOfLinks", router.NumOfLinks})
+
+    router.EntityData.YListKeys = []string {}
+
     return &(router.EntityData)
 }
 
@@ -1236,23 +1311,23 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     LinkId interface{}
 
     // This attribute is a key. Link data. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LinkData interface{}
 
     // Link type. The type is interface{} with range: 0..255.
-    Type_ interface{}
+    Type interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link_Topology
 }
 
 func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link) GetEntityData() *types.CommonEntityData {
@@ -1260,20 +1335,23 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
-    link.EntityData.SegmentPath = "link" + "[link-id='" + fmt.Sprintf("%v", link.LinkId) + "']" + "[link-data='" + fmt.Sprintf("%v", link.LinkData) + "']"
+    link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.LinkId, "link-id") + types.AddKeyToken(link.LinkData, "link-data")
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range link.Topology {
-        link.EntityData.Children[types.GetSegmentPath(&link.Topology[i])] = types.YChild{"Topology", &link.Topology[i]}
+        link.EntityData.Children.Append(types.GetSegmentPath(link.Topology[i]), types.YChild{"Topology", link.Topology[i]})
     }
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["link-id"] = types.YLeaf{"LinkId", link.LinkId}
-    link.EntityData.Leafs["link-data"] = types.YLeaf{"LinkData", link.LinkData}
-    link.EntityData.Leafs["type"] = types.YLeaf{"Type_", link.Type_}
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("link-id", types.YLeaf{"LinkId", link.LinkId})
+    link.EntityData.Leafs.Append("link-data", types.YLeaf{"LinkData", link.LinkData})
+    link.EntityData.Leafs.Append("type", types.YLeaf{"Type", link.Type})
+
+    link.EntityData.YListKeys = []string {"LinkId", "LinkData"}
+
     return &(link.EntityData)
 }
 
@@ -1296,15 +1374,18 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "link"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -1315,12 +1396,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -1334,10 +1415,13 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", network.NetworkMask}
-    network.EntityData.Leafs["attached-router"] = types.YLeaf{"AttachedRouter", network.AttachedRouter}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", network.NetworkMask})
+    network.EntityData.Leafs.Append("attached-router", types.YLeaf{"AttachedRouter", network.AttachedRouter})
+
+    network.EntityData.YListKeys = []string {}
+
     return &(network.EntityData)
 }
 
@@ -1348,12 +1432,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Summary_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Summary_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Summary_Topology
 }
 
 func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Summary) GetEntityData() *types.CommonEntityData {
@@ -1366,13 +1450,16 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     summary.EntityData.NamespaceTable = ietf.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range summary.Topology {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.Topology[i])] = types.YChild{"Topology", &summary.Topology[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.Topology[i]), types.YChild{"Topology", summary.Topology[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", summary.NetworkMask}
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", summary.NetworkMask})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -1395,15 +1482,18 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "summary"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -1414,12 +1504,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_External_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_External_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_External_Topology
 }
 
 func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_External) GetEntityData() *types.CommonEntityData {
@@ -1432,13 +1522,16 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     external.EntityData.NamespaceTable = ietf.GetNamespaces()
     external.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    external.EntityData.Children = make(map[string]types.YChild)
-    external.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    external.EntityData.Children = types.NewOrderedMap()
+    external.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range external.Topology {
-        external.EntityData.Children[types.GetSegmentPath(&external.Topology[i])] = types.YChild{"Topology", &external.Topology[i]}
+        external.EntityData.Children.Append(types.GetSegmentPath(external.Topology[i]), types.YChild{"Topology", external.Topology[i]})
     }
-    external.EntityData.Leafs = make(map[string]types.YLeaf)
-    external.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", external.NetworkMask}
+    external.EntityData.Leafs = types.NewOrderedMap()
+    external.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", external.NetworkMask})
+
+    external.EntityData.YListKeys = []string {}
+
     return &(external.EntityData)
 }
 
@@ -1459,7 +1552,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Metric interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -1471,18 +1564,21 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "external"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["flags"] = types.YLeaf{"Flags", topology.Flags}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
-    topology.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", topology.ForwardingAddress}
-    topology.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", topology.ExternalRouteTag}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", topology.Flags})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+    topology.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", topology.ForwardingAddress})
+    topology.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", topology.ExternalRouteTag})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -1494,7 +1590,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Unknown TLV. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_UnknownTlv.
-    UnknownTlv []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_UnknownTlv
+    UnknownTlv []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_UnknownTlv
 
     // Router address TLV.
     RouterAddressTlv RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_RouterAddressTlv
@@ -1513,14 +1609,17 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     opaque.EntityData.NamespaceTable = ietf.GetNamespaces()
     opaque.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    opaque.EntityData.Children = make(map[string]types.YChild)
-    opaque.EntityData.Children["unknown-tlv"] = types.YChild{"UnknownTlv", nil}
+    opaque.EntityData.Children = types.NewOrderedMap()
+    opaque.EntityData.Children.Append("unknown-tlv", types.YChild{"UnknownTlv", nil})
     for i := range opaque.UnknownTlv {
-        opaque.EntityData.Children[types.GetSegmentPath(&opaque.UnknownTlv[i])] = types.YChild{"UnknownTlv", &opaque.UnknownTlv[i]}
+        opaque.EntityData.Children.Append(types.GetSegmentPath(opaque.UnknownTlv[i]), types.YChild{"UnknownTlv", opaque.UnknownTlv[i]})
     }
-    opaque.EntityData.Children["router-address-tlv"] = types.YChild{"RouterAddressTlv", &opaque.RouterAddressTlv}
-    opaque.EntityData.Children["link-tlv"] = types.YChild{"LinkTlv", &opaque.LinkTlv}
-    opaque.EntityData.Leafs = make(map[string]types.YLeaf)
+    opaque.EntityData.Children.Append("router-address-tlv", types.YChild{"RouterAddressTlv", &opaque.RouterAddressTlv})
+    opaque.EntityData.Children.Append("link-tlv", types.YChild{"LinkTlv", &opaque.LinkTlv})
+    opaque.EntityData.Leafs = types.NewOrderedMap()
+
+    opaque.EntityData.YListKeys = []string {}
+
     return &(opaque.EntityData)
 }
 
@@ -1532,13 +1631,13 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
-    Type_ interface{}
+    Type interface{}
 
     // TLV length. The type is interface{} with range: 0..65535.
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -1547,16 +1646,19 @@ func (unknownTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     unknownTlv.EntityData.YangName = "unknown-tlv"
     unknownTlv.EntityData.BundleName = "ietf"
     unknownTlv.EntityData.ParentYangName = "opaque"
-    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + "[type='" + fmt.Sprintf("%v", unknownTlv.Type_) + "']"
+    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddKeyToken(unknownTlv.Type, "type")
     unknownTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    unknownTlv.EntityData.Children = make(map[string]types.YChild)
-    unknownTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownTlv.EntityData.Leafs["type"] = types.YLeaf{"Type_", unknownTlv.Type_}
-    unknownTlv.EntityData.Leafs["length"] = types.YLeaf{"Length", unknownTlv.Length}
-    unknownTlv.EntityData.Leafs["value"] = types.YLeaf{"Value", unknownTlv.Value}
+    unknownTlv.EntityData.Children = types.NewOrderedMap()
+    unknownTlv.EntityData.Leafs = types.NewOrderedMap()
+    unknownTlv.EntityData.Leafs.Append("type", types.YLeaf{"Type", unknownTlv.Type})
+    unknownTlv.EntityData.Leafs.Append("length", types.YLeaf{"Length", unknownTlv.Length})
+    unknownTlv.EntityData.Leafs.Append("value", types.YLeaf{"Value", unknownTlv.Value})
+
+    unknownTlv.EntityData.YListKeys = []string {"Type"}
+
     return &(unknownTlv.EntityData)
 }
 
@@ -1567,7 +1669,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // Router address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterAddress interface{}
 }
 
@@ -1581,9 +1683,12 @@ func (routerAddressTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingPro
     routerAddressTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     routerAddressTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routerAddressTlv.EntityData.Children = make(map[string]types.YChild)
-    routerAddressTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    routerAddressTlv.EntityData.Leafs["router-address"] = types.YLeaf{"RouterAddress", routerAddressTlv.RouterAddress}
+    routerAddressTlv.EntityData.Children = types.NewOrderedMap()
+    routerAddressTlv.EntityData.Leafs = types.NewOrderedMap()
+    routerAddressTlv.EntityData.Leafs.Append("router-address", types.YLeaf{"RouterAddress", routerAddressTlv.RouterAddress})
+
+    routerAddressTlv.EntityData.YListKeys = []string {}
+
     return &(routerAddressTlv.EntityData)
 }
 
@@ -1598,20 +1703,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     LinkType interface{}
 
     // Link ID. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
     // This attribute is mandatory..
     LinkId interface{}
 
     // List of local interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIfIpv4Addr []interface{}
 
     // List of remote interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalRemoteIpv4Addr []interface{}
 
     // TE metric. The type is interface{} with range: 0..4294967295.
@@ -1635,7 +1740,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Unknown sub-TLV. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv.
-    UnknownSubtlv []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv
+    UnknownSubtlv []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv
 }
 
 func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_LinkTlv) GetEntityData() *types.CommonEntityData {
@@ -1648,21 +1753,24 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     linkTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    linkTlv.EntityData.Children = make(map[string]types.YChild)
-    linkTlv.EntityData.Children["unknown-subtlv"] = types.YChild{"UnknownSubtlv", nil}
+    linkTlv.EntityData.Children = types.NewOrderedMap()
+    linkTlv.EntityData.Children.Append("unknown-subtlv", types.YChild{"UnknownSubtlv", nil})
     for i := range linkTlv.UnknownSubtlv {
-        linkTlv.EntityData.Children[types.GetSegmentPath(&linkTlv.UnknownSubtlv[i])] = types.YChild{"UnknownSubtlv", &linkTlv.UnknownSubtlv[i]}
+        linkTlv.EntityData.Children.Append(types.GetSegmentPath(linkTlv.UnknownSubtlv[i]), types.YChild{"UnknownSubtlv", linkTlv.UnknownSubtlv[i]})
     }
-    linkTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkTlv.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", linkTlv.LinkType}
-    linkTlv.EntityData.Leafs["link-id"] = types.YLeaf{"LinkId", linkTlv.LinkId}
-    linkTlv.EntityData.Leafs["local-if-ipv4-addr"] = types.YLeaf{"LocalIfIpv4Addr", linkTlv.LocalIfIpv4Addr}
-    linkTlv.EntityData.Leafs["local-remote-ipv4-addr"] = types.YLeaf{"LocalRemoteIpv4Addr", linkTlv.LocalRemoteIpv4Addr}
-    linkTlv.EntityData.Leafs["te-metric"] = types.YLeaf{"TeMetric", linkTlv.TeMetric}
-    linkTlv.EntityData.Leafs["max-bandwidth"] = types.YLeaf{"MaxBandwidth", linkTlv.MaxBandwidth}
-    linkTlv.EntityData.Leafs["max-reservable-bandwidth"] = types.YLeaf{"MaxReservableBandwidth", linkTlv.MaxReservableBandwidth}
-    linkTlv.EntityData.Leafs["unreserved-bandwidth"] = types.YLeaf{"UnreservedBandwidth", linkTlv.UnreservedBandwidth}
-    linkTlv.EntityData.Leafs["admin-group"] = types.YLeaf{"AdminGroup", linkTlv.AdminGroup}
+    linkTlv.EntityData.Leafs = types.NewOrderedMap()
+    linkTlv.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", linkTlv.LinkType})
+    linkTlv.EntityData.Leafs.Append("link-id", types.YLeaf{"LinkId", linkTlv.LinkId})
+    linkTlv.EntityData.Leafs.Append("local-if-ipv4-addr", types.YLeaf{"LocalIfIpv4Addr", linkTlv.LocalIfIpv4Addr})
+    linkTlv.EntityData.Leafs.Append("local-remote-ipv4-addr", types.YLeaf{"LocalRemoteIpv4Addr", linkTlv.LocalRemoteIpv4Addr})
+    linkTlv.EntityData.Leafs.Append("te-metric", types.YLeaf{"TeMetric", linkTlv.TeMetric})
+    linkTlv.EntityData.Leafs.Append("max-bandwidth", types.YLeaf{"MaxBandwidth", linkTlv.MaxBandwidth})
+    linkTlv.EntityData.Leafs.Append("max-reservable-bandwidth", types.YLeaf{"MaxReservableBandwidth", linkTlv.MaxReservableBandwidth})
+    linkTlv.EntityData.Leafs.Append("unreserved-bandwidth", types.YLeaf{"UnreservedBandwidth", linkTlv.UnreservedBandwidth})
+    linkTlv.EntityData.Leafs.Append("admin-group", types.YLeaf{"AdminGroup", linkTlv.AdminGroup})
+
+    linkTlv.EntityData.YListKeys = []string {}
+
     return &(linkTlv.EntityData)
 }
 
@@ -1674,13 +1782,13 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
-    Type_ interface{}
+    Type interface{}
 
     // TLV length. The type is interface{} with range: 0..65535.
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -1689,16 +1797,19 @@ func (unknownSubtlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     unknownSubtlv.EntityData.YangName = "unknown-subtlv"
     unknownSubtlv.EntityData.BundleName = "ietf"
     unknownSubtlv.EntityData.ParentYangName = "link-tlv"
-    unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + "[type='" + fmt.Sprintf("%v", unknownSubtlv.Type_) + "']"
+    unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + types.AddKeyToken(unknownSubtlv.Type, "type")
     unknownSubtlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownSubtlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownSubtlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    unknownSubtlv.EntityData.Children = make(map[string]types.YChild)
-    unknownSubtlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownSubtlv.EntityData.Leafs["type"] = types.YLeaf{"Type_", unknownSubtlv.Type_}
-    unknownSubtlv.EntityData.Leafs["length"] = types.YLeaf{"Length", unknownSubtlv.Length}
-    unknownSubtlv.EntityData.Leafs["value"] = types.YLeaf{"Value", unknownSubtlv.Value}
+    unknownSubtlv.EntityData.Children = types.NewOrderedMap()
+    unknownSubtlv.EntityData.Leafs = types.NewOrderedMap()
+    unknownSubtlv.EntityData.Leafs.Append("type", types.YLeaf{"Type", unknownSubtlv.Type})
+    unknownSubtlv.EntityData.Leafs.Append("length", types.YLeaf{"Length", unknownSubtlv.Length})
+    unknownSubtlv.EntityData.Leafs.Append("value", types.YLeaf{"Value", unknownSubtlv.Value})
+
+    unknownSubtlv.EntityData.YListKeys = []string {"Type"}
+
     return &(unknownSubtlv.EntityData)
 }
 
@@ -1725,10 +1836,13 @@ func (ospfv3 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv3.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ospfv3.EntityData.Children = make(map[string]types.YChild)
-    ospfv3.EntityData.Children["header"] = types.YChild{"Header", &ospfv3.Header}
-    ospfv3.EntityData.Children["body"] = types.YChild{"Body", &ospfv3.Body}
-    ospfv3.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3.EntityData.Children = types.NewOrderedMap()
+    ospfv3.EntityData.Children.Append("header", types.YChild{"Header", &ospfv3.Header})
+    ospfv3.EntityData.Children.Append("body", types.YChild{"Body", &ospfv3.Body})
+    ospfv3.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3.EntityData.YListKeys = []string {}
+
     return &(ospfv3.EntityData)
 }
 
@@ -1748,10 +1862,10 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // LSA type. The type is interface{} with range: 0..65535. This attribute is
     // mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -1780,16 +1894,19 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", header.LsaId}
-    header.EntityData.Leafs["age"] = types.YLeaf{"Age", header.Age}
-    header.EntityData.Leafs["type"] = types.YLeaf{"Type_", header.Type_}
-    header.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", header.AdvRouter}
-    header.EntityData.Leafs["seq-num"] = types.YLeaf{"SeqNum", header.SeqNum}
-    header.EntityData.Leafs["checksum"] = types.YLeaf{"Checksum", header.Checksum}
-    header.EntityData.Leafs["length"] = types.YLeaf{"Length", header.Length}
-    header.EntityData.Leafs["options"] = types.YLeaf{"Options", header.Options}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", header.LsaId})
+    header.EntityData.Leafs.Append("age", types.YLeaf{"Age", header.Age})
+    header.EntityData.Leafs.Append("type", types.YLeaf{"Type", header.Type})
+    header.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", header.AdvRouter})
+    header.EntityData.Leafs.Append("seq-num", types.YLeaf{"SeqNum", header.SeqNum})
+    header.EntityData.Leafs.Append("checksum", types.YLeaf{"Checksum", header.Checksum})
+    header.EntityData.Leafs.Append("length", types.YLeaf{"Length", header.Length})
+    header.EntityData.Leafs.Append("options", types.YLeaf{"Options", header.Options})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -1834,16 +1951,19 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    body.EntityData.Children = make(map[string]types.YChild)
-    body.EntityData.Children["router"] = types.YChild{"Router", &body.Router}
-    body.EntityData.Children["network"] = types.YChild{"Network", &body.Network}
-    body.EntityData.Children["inter-area-prefix"] = types.YChild{"InterAreaPrefix", &body.InterAreaPrefix}
-    body.EntityData.Children["inter-area-router"] = types.YChild{"InterAreaRouter", &body.InterAreaRouter}
-    body.EntityData.Children["as-external"] = types.YChild{"AsExternal", &body.AsExternal}
-    body.EntityData.Children["nssa"] = types.YChild{"Nssa", &body.Nssa}
-    body.EntityData.Children["link"] = types.YChild{"Link", &body.Link}
-    body.EntityData.Children["intra-area-prefix"] = types.YChild{"IntraAreaPrefix", &body.IntraAreaPrefix}
-    body.EntityData.Leafs = make(map[string]types.YLeaf)
+    body.EntityData.Children = types.NewOrderedMap()
+    body.EntityData.Children.Append("router", types.YChild{"Router", &body.Router})
+    body.EntityData.Children.Append("network", types.YChild{"Network", &body.Network})
+    body.EntityData.Children.Append("inter-area-prefix", types.YChild{"InterAreaPrefix", &body.InterAreaPrefix})
+    body.EntityData.Children.Append("inter-area-router", types.YChild{"InterAreaRouter", &body.InterAreaRouter})
+    body.EntityData.Children.Append("as-external", types.YChild{"AsExternal", &body.AsExternal})
+    body.EntityData.Children.Append("nssa", types.YChild{"Nssa", &body.Nssa})
+    body.EntityData.Children.Append("link", types.YChild{"Link", &body.Link})
+    body.EntityData.Children.Append("intra-area-prefix", types.YChild{"IntraAreaPrefix", &body.IntraAreaPrefix})
+    body.EntityData.Leafs = types.NewOrderedMap()
+
+    body.EntityData.YListKeys = []string {}
+
     return &(body.EntityData)
 }
 
@@ -1862,7 +1982,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Router LSA link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Router_Link.
-    Link []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Router_Link
+    Link []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Router_Link
 }
 
 func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Router) GetEntityData() *types.CommonEntityData {
@@ -1875,14 +1995,17 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    router.EntityData.Children = make(map[string]types.YChild)
-    router.EntityData.Children["link"] = types.YChild{"Link", nil}
+    router.EntityData.Children = types.NewOrderedMap()
+    router.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range router.Link {
-        router.EntityData.Children[types.GetSegmentPath(&router.Link[i])] = types.YChild{"Link", &router.Link[i]}
+        router.EntityData.Children.Append(types.GetSegmentPath(router.Link[i]), types.YChild{"Link", router.Link[i]})
     }
-    router.EntityData.Leafs = make(map[string]types.YLeaf)
-    router.EntityData.Leafs["flags"] = types.YLeaf{"Flags", router.Flags}
-    router.EntityData.Leafs["options"] = types.YLeaf{"Options", router.Options}
+    router.EntityData.Leafs = types.NewOrderedMap()
+    router.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", router.Flags})
+    router.EntityData.Leafs.Append("options", types.YLeaf{"Options", router.Options})
+
+    router.EntityData.YListKeys = []string {}
+
     return &(router.EntityData)
 }
 
@@ -1902,11 +2025,11 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Neighbor Router ID. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     NeighborRouterId interface{}
 
     // Link type. The type is interface{} with range: 0..255.
-    Type_ interface{}
+    Type interface{}
 
     // Metric. The type is interface{} with range: 0..65535.
     Metric interface{}
@@ -1917,18 +2040,21 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
-    link.EntityData.SegmentPath = "link" + "[interface-id='" + fmt.Sprintf("%v", link.InterfaceId) + "']" + "[neighbor-interface-id='" + fmt.Sprintf("%v", link.NeighborInterfaceId) + "']" + "[neighbor-router-id='" + fmt.Sprintf("%v", link.NeighborRouterId) + "']"
+    link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.InterfaceId, "interface-id") + types.AddKeyToken(link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(link.NeighborRouterId, "neighbor-router-id")
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["interface-id"] = types.YLeaf{"InterfaceId", link.InterfaceId}
-    link.EntityData.Leafs["neighbor-interface-id"] = types.YLeaf{"NeighborInterfaceId", link.NeighborInterfaceId}
-    link.EntityData.Leafs["neighbor-router-id"] = types.YLeaf{"NeighborRouterId", link.NeighborRouterId}
-    link.EntityData.Leafs["type"] = types.YLeaf{"Type_", link.Type_}
-    link.EntityData.Leafs["metric"] = types.YLeaf{"Metric", link.Metric}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", link.InterfaceId})
+    link.EntityData.Leafs.Append("neighbor-interface-id", types.YLeaf{"NeighborInterfaceId", link.NeighborInterfaceId})
+    link.EntityData.Leafs.Append("neighbor-router-id", types.YLeaf{"NeighborRouterId", link.NeighborRouterId})
+    link.EntityData.Leafs.Append("type", types.YLeaf{"Type", link.Type})
+    link.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", link.Metric})
+
+    link.EntityData.YListKeys = []string {"InterfaceId", "NeighborInterfaceId", "NeighborRouterId"}
+
     return &(link.EntityData)
 }
 
@@ -1944,7 +2070,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -1958,10 +2084,13 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["options"] = types.YLeaf{"Options", network.Options}
-    network.EntityData.Leafs["attached-router"] = types.YLeaf{"AttachedRouter", network.AttachedRouter}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("options", types.YLeaf{"Options", network.Options})
+    network.EntityData.Leafs.Append("attached-router", types.YLeaf{"AttachedRouter", network.AttachedRouter})
+
+    network.EntityData.YListKeys = []string {}
+
     return &(network.EntityData)
 }
 
@@ -1991,11 +2120,14 @@ func (interAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interAreaPrefix.EntityData.Children = make(map[string]types.YChild)
-    interAreaPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    interAreaPrefix.EntityData.Leafs["metric"] = types.YLeaf{"Metric", interAreaPrefix.Metric}
-    interAreaPrefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", interAreaPrefix.Prefix}
-    interAreaPrefix.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", interAreaPrefix.PrefixOptions}
+    interAreaPrefix.EntityData.Children = types.NewOrderedMap()
+    interAreaPrefix.EntityData.Leafs = types.NewOrderedMap()
+    interAreaPrefix.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", interAreaPrefix.Metric})
+    interAreaPrefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", interAreaPrefix.Prefix})
+    interAreaPrefix.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", interAreaPrefix.PrefixOptions})
+
+    interAreaPrefix.EntityData.YListKeys = []string {}
+
     return &(interAreaPrefix.EntityData)
 }
 
@@ -2014,7 +2146,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The Router ID of the router being described by the LSA. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     DestinationRouterId interface{}
 }
 
@@ -2028,11 +2160,14 @@ func (interAreaRouter *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaRouter.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaRouter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interAreaRouter.EntityData.Children = make(map[string]types.YChild)
-    interAreaRouter.EntityData.Leafs = make(map[string]types.YLeaf)
-    interAreaRouter.EntityData.Leafs["options"] = types.YLeaf{"Options", interAreaRouter.Options}
-    interAreaRouter.EntityData.Leafs["metric"] = types.YLeaf{"Metric", interAreaRouter.Metric}
-    interAreaRouter.EntityData.Leafs["destination-router-id"] = types.YLeaf{"DestinationRouterId", interAreaRouter.DestinationRouterId}
+    interAreaRouter.EntityData.Children = types.NewOrderedMap()
+    interAreaRouter.EntityData.Leafs = types.NewOrderedMap()
+    interAreaRouter.EntityData.Leafs.Append("options", types.YLeaf{"Options", interAreaRouter.Options})
+    interAreaRouter.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", interAreaRouter.Metric})
+    interAreaRouter.EntityData.Leafs.Append("destination-router-id", types.YLeaf{"DestinationRouterId", interAreaRouter.DestinationRouterId})
+
+    interAreaRouter.EntityData.YListKeys = []string {}
+
     return &(interAreaRouter.EntityData)
 }
 
@@ -2058,7 +2193,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -2079,16 +2214,19 @@ func (asExternal *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     asExternal.EntityData.NamespaceTable = ietf.GetNamespaces()
     asExternal.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    asExternal.EntityData.Children = make(map[string]types.YChild)
-    asExternal.EntityData.Leafs = make(map[string]types.YLeaf)
-    asExternal.EntityData.Leafs["metric"] = types.YLeaf{"Metric", asExternal.Metric}
-    asExternal.EntityData.Leafs["flags"] = types.YLeaf{"Flags", asExternal.Flags}
-    asExternal.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", asExternal.ReferencedLsType}
-    asExternal.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", asExternal.Prefix}
-    asExternal.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", asExternal.PrefixOptions}
-    asExternal.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", asExternal.ForwardingAddress}
-    asExternal.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", asExternal.ExternalRouteTag}
-    asExternal.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", asExternal.ReferencedLinkStateId}
+    asExternal.EntityData.Children = types.NewOrderedMap()
+    asExternal.EntityData.Leafs = types.NewOrderedMap()
+    asExternal.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", asExternal.Metric})
+    asExternal.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", asExternal.Flags})
+    asExternal.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", asExternal.ReferencedLsType})
+    asExternal.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", asExternal.Prefix})
+    asExternal.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", asExternal.PrefixOptions})
+    asExternal.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", asExternal.ForwardingAddress})
+    asExternal.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", asExternal.ExternalRouteTag})
+    asExternal.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", asExternal.ReferencedLinkStateId})
+
+    asExternal.EntityData.YListKeys = []string {}
+
     return &(asExternal.EntityData)
 }
 
@@ -2114,7 +2252,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -2135,16 +2273,19 @@ func (nssa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     nssa.EntityData.NamespaceTable = ietf.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    nssa.EntityData.Children = make(map[string]types.YChild)
-    nssa.EntityData.Leafs = make(map[string]types.YLeaf)
-    nssa.EntityData.Leafs["metric"] = types.YLeaf{"Metric", nssa.Metric}
-    nssa.EntityData.Leafs["flags"] = types.YLeaf{"Flags", nssa.Flags}
-    nssa.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", nssa.ReferencedLsType}
-    nssa.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", nssa.Prefix}
-    nssa.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", nssa.PrefixOptions}
-    nssa.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", nssa.ForwardingAddress}
-    nssa.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", nssa.ExternalRouteTag}
-    nssa.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", nssa.ReferencedLinkStateId}
+    nssa.EntityData.Children = types.NewOrderedMap()
+    nssa.EntityData.Leafs = types.NewOrderedMap()
+    nssa.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", nssa.Metric})
+    nssa.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", nssa.Flags})
+    nssa.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", nssa.ReferencedLsType})
+    nssa.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", nssa.Prefix})
+    nssa.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", nssa.PrefixOptions})
+    nssa.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", nssa.ForwardingAddress})
+    nssa.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", nssa.ExternalRouteTag})
+    nssa.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", nssa.ReferencedLinkStateId})
+
+    nssa.EntityData.YListKeys = []string {}
+
     return &(nssa.EntityData)
 }
 
@@ -2164,9 +2305,9 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The originating router's link-local interface address on the link. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LinkLocalInterfaceAddress interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..4294967295.
@@ -2174,7 +2315,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of prefixes associated with the link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Link_PrefixList.
-    PrefixList []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Link_PrefixList
+    PrefixList []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Link_PrefixList
 }
 
 func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Link) GetEntityData() *types.CommonEntityData {
@@ -2187,16 +2328,19 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Children["prefix-list"] = types.YChild{"PrefixList", nil}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Children.Append("prefix-list", types.YChild{"PrefixList", nil})
     for i := range link.PrefixList {
-        link.EntityData.Children[types.GetSegmentPath(&link.PrefixList[i])] = types.YChild{"PrefixList", &link.PrefixList[i]}
+        link.EntityData.Children.Append(types.GetSegmentPath(link.PrefixList[i]), types.YChild{"PrefixList", link.PrefixList[i]})
     }
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["rtr-priority"] = types.YLeaf{"RtrPriority", link.RtrPriority}
-    link.EntityData.Leafs["options"] = types.YLeaf{"Options", link.Options}
-    link.EntityData.Leafs["link-local-interface-address"] = types.YLeaf{"LinkLocalInterfaceAddress", link.LinkLocalInterfaceAddress}
-    link.EntityData.Leafs["num-of-prefixes"] = types.YLeaf{"NumOfPrefixes", link.NumOfPrefixes}
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("rtr-priority", types.YLeaf{"RtrPriority", link.RtrPriority})
+    link.EntityData.Leafs.Append("options", types.YLeaf{"Options", link.Options})
+    link.EntityData.Leafs.Append("link-local-interface-address", types.YLeaf{"LinkLocalInterfaceAddress", link.LinkLocalInterfaceAddress})
+    link.EntityData.Leafs.Append("num-of-prefixes", types.YLeaf{"NumOfPrefixes", link.NumOfPrefixes})
+
+    link.EntityData.YListKeys = []string {}
+
     return &(link.EntityData)
 }
 
@@ -2218,15 +2362,18 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.YangName = "prefix-list"
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "link"
-    prefixList.EntityData.SegmentPath = "prefix-list" + "[prefix='" + fmt.Sprintf("%v", prefixList.Prefix) + "']"
+    prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    prefixList.EntityData.Children = make(map[string]types.YChild)
-    prefixList.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixList.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefixList.Prefix}
-    prefixList.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", prefixList.PrefixOptions}
+    prefixList.EntityData.Children = types.NewOrderedMap()
+    prefixList.EntityData.Leafs = types.NewOrderedMap()
+    prefixList.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefixList.Prefix})
+    prefixList.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", prefixList.PrefixOptions})
+
+    prefixList.EntityData.YListKeys = []string {"Prefix"}
+
     return &(prefixList.EntityData)
 }
 
@@ -2244,7 +2391,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     ReferencedLinkStateId interface{}
 
     // Referenced Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferencedAdvRouter interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..65535.
@@ -2252,7 +2399,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of prefixes associated with the link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList.
-    PrefixList []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList
+    PrefixList []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList
 }
 
 func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_IntraAreaPrefix) GetEntityData() *types.CommonEntityData {
@@ -2265,16 +2412,19 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     intraAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     intraAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    intraAreaPrefix.EntityData.Children = make(map[string]types.YChild)
-    intraAreaPrefix.EntityData.Children["prefix-list"] = types.YChild{"PrefixList", nil}
+    intraAreaPrefix.EntityData.Children = types.NewOrderedMap()
+    intraAreaPrefix.EntityData.Children.Append("prefix-list", types.YChild{"PrefixList", nil})
     for i := range intraAreaPrefix.PrefixList {
-        intraAreaPrefix.EntityData.Children[types.GetSegmentPath(&intraAreaPrefix.PrefixList[i])] = types.YChild{"PrefixList", &intraAreaPrefix.PrefixList[i]}
+        intraAreaPrefix.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefix.PrefixList[i]), types.YChild{"PrefixList", intraAreaPrefix.PrefixList[i]})
     }
-    intraAreaPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    intraAreaPrefix.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", intraAreaPrefix.ReferencedLsType}
-    intraAreaPrefix.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", intraAreaPrefix.ReferencedLinkStateId}
-    intraAreaPrefix.EntityData.Leafs["referenced-adv-router"] = types.YLeaf{"ReferencedAdvRouter", intraAreaPrefix.ReferencedAdvRouter}
-    intraAreaPrefix.EntityData.Leafs["num-of-prefixes"] = types.YLeaf{"NumOfPrefixes", intraAreaPrefix.NumOfPrefixes}
+    intraAreaPrefix.EntityData.Leafs = types.NewOrderedMap()
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", intraAreaPrefix.ReferencedLsType})
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", intraAreaPrefix.ReferencedLinkStateId})
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-adv-router", types.YLeaf{"ReferencedAdvRouter", intraAreaPrefix.ReferencedAdvRouter})
+    intraAreaPrefix.EntityData.Leafs.Append("num-of-prefixes", types.YLeaf{"NumOfPrefixes", intraAreaPrefix.NumOfPrefixes})
+
+    intraAreaPrefix.EntityData.YListKeys = []string {}
+
     return &(intraAreaPrefix.EntityData)
 }
 
@@ -2299,16 +2449,19 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.YangName = "prefix-list"
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "intra-area-prefix"
-    prefixList.EntityData.SegmentPath = "prefix-list" + "[prefix='" + fmt.Sprintf("%v", prefixList.Prefix) + "']"
+    prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    prefixList.EntityData.Children = make(map[string]types.YChild)
-    prefixList.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixList.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefixList.Prefix}
-    prefixList.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", prefixList.PrefixOptions}
-    prefixList.EntityData.Leafs["metric"] = types.YLeaf{"Metric", prefixList.Metric}
+    prefixList.EntityData.Children = types.NewOrderedMap()
+    prefixList.EntityData.Leafs = types.NewOrderedMap()
+    prefixList.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefixList.Prefix})
+    prefixList.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", prefixList.PrefixOptions})
+    prefixList.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", prefixList.Metric})
+
+    prefixList.EntityData.YListKeys = []string {"Prefix"}
+
     return &(prefixList.EntityData)
 }
 
@@ -2328,14 +2481,17 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "interfaces"
-    topology.EntityData.SegmentPath = "topology" + "[name='" + fmt.Sprintf("%v", topology.Name) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.Name, "name")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["name"] = types.YLeaf{"Name", topology.Name}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("name", types.YLeaf{"Name", topology.Name})
+
+    topology.EntityData.YListKeys = []string {"Name"}
+
     return &(topology.EntityData)
 }
 
@@ -2369,7 +2525,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of OSPF area scope LSAs. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa.
-    AreaScopeLsa []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa
+    AreaScopeLsa []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa
 }
 
 func (areaScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas) GetEntityData() *types.CommonEntityData {
@@ -2377,18 +2533,21 @@ func (areaScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     areaScopeLsas.EntityData.YangName = "area-scope-lsas"
     areaScopeLsas.EntityData.BundleName = "ietf"
     areaScopeLsas.EntityData.ParentYangName = "area"
-    areaScopeLsas.EntityData.SegmentPath = "area-scope-lsas" + "[lsa-type='" + fmt.Sprintf("%v", areaScopeLsas.LsaType) + "']"
+    areaScopeLsas.EntityData.SegmentPath = "area-scope-lsas" + types.AddKeyToken(areaScopeLsas.LsaType, "lsa-type")
     areaScopeLsas.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     areaScopeLsas.EntityData.NamespaceTable = ietf.GetNamespaces()
     areaScopeLsas.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    areaScopeLsas.EntityData.Children = make(map[string]types.YChild)
-    areaScopeLsas.EntityData.Children["area-scope-lsa"] = types.YChild{"AreaScopeLsa", nil}
+    areaScopeLsas.EntityData.Children = types.NewOrderedMap()
+    areaScopeLsas.EntityData.Children.Append("area-scope-lsa", types.YChild{"AreaScopeLsa", nil})
     for i := range areaScopeLsas.AreaScopeLsa {
-        areaScopeLsas.EntityData.Children[types.GetSegmentPath(&areaScopeLsas.AreaScopeLsa[i])] = types.YChild{"AreaScopeLsa", &areaScopeLsas.AreaScopeLsa[i]}
+        areaScopeLsas.EntityData.Children.Append(types.GetSegmentPath(areaScopeLsas.AreaScopeLsa[i]), types.YChild{"AreaScopeLsa", areaScopeLsas.AreaScopeLsa[i]})
     }
-    areaScopeLsas.EntityData.Leafs = make(map[string]types.YLeaf)
-    areaScopeLsas.EntityData.Leafs["lsa-type"] = types.YLeaf{"LsaType", areaScopeLsas.LsaType}
+    areaScopeLsas.EntityData.Leafs = types.NewOrderedMap()
+    areaScopeLsas.EntityData.Leafs.Append("lsa-type", types.YLeaf{"LsaType", areaScopeLsas.LsaType})
+
+    areaScopeLsas.EntityData.YListKeys = []string {"LsaType"}
+
     return &(areaScopeLsas.EntityData)
 }
 
@@ -2400,20 +2559,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LsaId interface{}
 
     // This attribute is a key. Advertising router. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvRouter interface{}
 
     // The OSPF LSA body is fully decoded. The type is bool.
     DecodedCompleted interface{}
 
     // The complete LSA in network byte order as received/sent over the wire. The
-    // type is string with pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // OSPFv2 LSA.
@@ -2428,19 +2587,22 @@ func (areaScopeLsa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoco
     areaScopeLsa.EntityData.YangName = "area-scope-lsa"
     areaScopeLsa.EntityData.BundleName = "ietf"
     areaScopeLsa.EntityData.ParentYangName = "area-scope-lsas"
-    areaScopeLsa.EntityData.SegmentPath = "area-scope-lsa" + "[lsa-id='" + fmt.Sprintf("%v", areaScopeLsa.LsaId) + "']" + "[adv-router='" + fmt.Sprintf("%v", areaScopeLsa.AdvRouter) + "']"
+    areaScopeLsa.EntityData.SegmentPath = "area-scope-lsa" + types.AddKeyToken(areaScopeLsa.LsaId, "lsa-id") + types.AddKeyToken(areaScopeLsa.AdvRouter, "adv-router")
     areaScopeLsa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     areaScopeLsa.EntityData.NamespaceTable = ietf.GetNamespaces()
     areaScopeLsa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    areaScopeLsa.EntityData.Children = make(map[string]types.YChild)
-    areaScopeLsa.EntityData.Children["ospfv2"] = types.YChild{"Ospfv2", &areaScopeLsa.Ospfv2}
-    areaScopeLsa.EntityData.Children["ospfv3"] = types.YChild{"Ospfv3", &areaScopeLsa.Ospfv3}
-    areaScopeLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    areaScopeLsa.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", areaScopeLsa.LsaId}
-    areaScopeLsa.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", areaScopeLsa.AdvRouter}
-    areaScopeLsa.EntityData.Leafs["decoded-completed"] = types.YLeaf{"DecodedCompleted", areaScopeLsa.DecodedCompleted}
-    areaScopeLsa.EntityData.Leafs["raw-data"] = types.YLeaf{"RawData", areaScopeLsa.RawData}
+    areaScopeLsa.EntityData.Children = types.NewOrderedMap()
+    areaScopeLsa.EntityData.Children.Append("ospfv2", types.YChild{"Ospfv2", &areaScopeLsa.Ospfv2})
+    areaScopeLsa.EntityData.Children.Append("ospfv3", types.YChild{"Ospfv3", &areaScopeLsa.Ospfv3})
+    areaScopeLsa.EntityData.Leafs = types.NewOrderedMap()
+    areaScopeLsa.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", areaScopeLsa.LsaId})
+    areaScopeLsa.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", areaScopeLsa.AdvRouter})
+    areaScopeLsa.EntityData.Leafs.Append("decoded-completed", types.YLeaf{"DecodedCompleted", areaScopeLsa.DecodedCompleted})
+    areaScopeLsa.EntityData.Leafs.Append("raw-data", types.YLeaf{"RawData", areaScopeLsa.RawData})
+
+    areaScopeLsa.EntityData.YListKeys = []string {"LsaId", "AdvRouter"}
+
     return &(areaScopeLsa.EntityData)
 }
 
@@ -2467,10 +2629,13 @@ func (ospfv2 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv2.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv2.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ospfv2.EntityData.Children = make(map[string]types.YChild)
-    ospfv2.EntityData.Children["header"] = types.YChild{"Header", &ospfv2.Header}
-    ospfv2.EntityData.Children["body"] = types.YChild{"Body", &ospfv2.Body}
-    ospfv2.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2.EntityData.Children = types.NewOrderedMap()
+    ospfv2.EntityData.Children.Append("header", types.YChild{"Header", &ospfv2.Header})
+    ospfv2.EntityData.Children.Append("body", types.YChild{"Body", &ospfv2.Body})
+    ospfv2.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2.EntityData.YListKeys = []string {}
+
     return &(ospfv2.EntityData)
 }
 
@@ -2484,7 +2649,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Options interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     LsaId interface{}
 
@@ -2502,10 +2667,10 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // LSA type. The type is interface{} with range: 0..65535. This attribute is
     // mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -2530,18 +2695,21 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["options"] = types.YLeaf{"Options", header.Options}
-    header.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", header.LsaId}
-    header.EntityData.Leafs["opaque-type"] = types.YLeaf{"OpaqueType", header.OpaqueType}
-    header.EntityData.Leafs["opaque-id"] = types.YLeaf{"OpaqueId", header.OpaqueId}
-    header.EntityData.Leafs["age"] = types.YLeaf{"Age", header.Age}
-    header.EntityData.Leafs["type"] = types.YLeaf{"Type_", header.Type_}
-    header.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", header.AdvRouter}
-    header.EntityData.Leafs["seq-num"] = types.YLeaf{"SeqNum", header.SeqNum}
-    header.EntityData.Leafs["checksum"] = types.YLeaf{"Checksum", header.Checksum}
-    header.EntityData.Leafs["length"] = types.YLeaf{"Length", header.Length}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("options", types.YLeaf{"Options", header.Options})
+    header.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", header.LsaId})
+    header.EntityData.Leafs.Append("opaque-type", types.YLeaf{"OpaqueType", header.OpaqueType})
+    header.EntityData.Leafs.Append("opaque-id", types.YLeaf{"OpaqueId", header.OpaqueId})
+    header.EntityData.Leafs.Append("age", types.YLeaf{"Age", header.Age})
+    header.EntityData.Leafs.Append("type", types.YLeaf{"Type", header.Type})
+    header.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", header.AdvRouter})
+    header.EntityData.Leafs.Append("seq-num", types.YLeaf{"SeqNum", header.SeqNum})
+    header.EntityData.Leafs.Append("checksum", types.YLeaf{"Checksum", header.Checksum})
+    header.EntityData.Leafs.Append("length", types.YLeaf{"Length", header.Length})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -2577,13 +2745,16 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    body.EntityData.Children = make(map[string]types.YChild)
-    body.EntityData.Children["router"] = types.YChild{"Router", &body.Router}
-    body.EntityData.Children["network"] = types.YChild{"Network", &body.Network}
-    body.EntityData.Children["summary"] = types.YChild{"Summary", &body.Summary}
-    body.EntityData.Children["external"] = types.YChild{"External", &body.External}
-    body.EntityData.Children["opaque"] = types.YChild{"Opaque", &body.Opaque}
-    body.EntityData.Leafs = make(map[string]types.YLeaf)
+    body.EntityData.Children = types.NewOrderedMap()
+    body.EntityData.Children.Append("router", types.YChild{"Router", &body.Router})
+    body.EntityData.Children.Append("network", types.YChild{"Network", &body.Network})
+    body.EntityData.Children.Append("summary", types.YChild{"Summary", &body.Summary})
+    body.EntityData.Children.Append("external", types.YChild{"External", &body.External})
+    body.EntityData.Children.Append("opaque", types.YChild{"Opaque", &body.Opaque})
+    body.EntityData.Leafs = types.NewOrderedMap()
+
+    body.EntityData.YListKeys = []string {}
+
     return &(body.EntityData)
 }
 
@@ -2601,7 +2772,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Router LSA link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link.
-    Link []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link
+    Link []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link
 }
 
 func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router) GetEntityData() *types.CommonEntityData {
@@ -2614,14 +2785,17 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    router.EntityData.Children = make(map[string]types.YChild)
-    router.EntityData.Children["link"] = types.YChild{"Link", nil}
+    router.EntityData.Children = types.NewOrderedMap()
+    router.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range router.Link {
-        router.EntityData.Children[types.GetSegmentPath(&router.Link[i])] = types.YChild{"Link", &router.Link[i]}
+        router.EntityData.Children.Append(types.GetSegmentPath(router.Link[i]), types.YChild{"Link", router.Link[i]})
     }
-    router.EntityData.Leafs = make(map[string]types.YLeaf)
-    router.EntityData.Leafs["flags"] = types.YLeaf{"Flags", router.Flags}
-    router.EntityData.Leafs["num-of-links"] = types.YLeaf{"NumOfLinks", router.NumOfLinks}
+    router.EntityData.Leafs = types.NewOrderedMap()
+    router.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", router.Flags})
+    router.EntityData.Leafs.Append("num-of-links", types.YLeaf{"NumOfLinks", router.NumOfLinks})
+
+    router.EntityData.YListKeys = []string {}
+
     return &(router.EntityData)
 }
 
@@ -2633,23 +2807,23 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     LinkId interface{}
 
     // This attribute is a key. Link data. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LinkData interface{}
 
     // Link type. The type is interface{} with range: 0..255.
-    Type_ interface{}
+    Type interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link_Topology
 }
 
 func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link) GetEntityData() *types.CommonEntityData {
@@ -2657,20 +2831,23 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
-    link.EntityData.SegmentPath = "link" + "[link-id='" + fmt.Sprintf("%v", link.LinkId) + "']" + "[link-data='" + fmt.Sprintf("%v", link.LinkData) + "']"
+    link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.LinkId, "link-id") + types.AddKeyToken(link.LinkData, "link-data")
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range link.Topology {
-        link.EntityData.Children[types.GetSegmentPath(&link.Topology[i])] = types.YChild{"Topology", &link.Topology[i]}
+        link.EntityData.Children.Append(types.GetSegmentPath(link.Topology[i]), types.YChild{"Topology", link.Topology[i]})
     }
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["link-id"] = types.YLeaf{"LinkId", link.LinkId}
-    link.EntityData.Leafs["link-data"] = types.YLeaf{"LinkData", link.LinkData}
-    link.EntityData.Leafs["type"] = types.YLeaf{"Type_", link.Type_}
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("link-id", types.YLeaf{"LinkId", link.LinkId})
+    link.EntityData.Leafs.Append("link-data", types.YLeaf{"LinkData", link.LinkData})
+    link.EntityData.Leafs.Append("type", types.YLeaf{"Type", link.Type})
+
+    link.EntityData.YListKeys = []string {"LinkId", "LinkData"}
+
     return &(link.EntityData)
 }
 
@@ -2693,15 +2870,18 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "link"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -2712,12 +2892,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -2731,10 +2911,13 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", network.NetworkMask}
-    network.EntityData.Leafs["attached-router"] = types.YLeaf{"AttachedRouter", network.AttachedRouter}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", network.NetworkMask})
+    network.EntityData.Leafs.Append("attached-router", types.YLeaf{"AttachedRouter", network.AttachedRouter})
+
+    network.EntityData.YListKeys = []string {}
+
     return &(network.EntityData)
 }
 
@@ -2745,12 +2928,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Summary_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Summary_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Summary_Topology
 }
 
 func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Summary) GetEntityData() *types.CommonEntityData {
@@ -2763,13 +2946,16 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     summary.EntityData.NamespaceTable = ietf.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range summary.Topology {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.Topology[i])] = types.YChild{"Topology", &summary.Topology[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.Topology[i]), types.YChild{"Topology", summary.Topology[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", summary.NetworkMask}
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", summary.NetworkMask})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -2792,15 +2978,18 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "summary"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -2811,12 +3000,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_External_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_External_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_External_Topology
 }
 
 func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_External) GetEntityData() *types.CommonEntityData {
@@ -2829,13 +3018,16 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     external.EntityData.NamespaceTable = ietf.GetNamespaces()
     external.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    external.EntityData.Children = make(map[string]types.YChild)
-    external.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    external.EntityData.Children = types.NewOrderedMap()
+    external.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range external.Topology {
-        external.EntityData.Children[types.GetSegmentPath(&external.Topology[i])] = types.YChild{"Topology", &external.Topology[i]}
+        external.EntityData.Children.Append(types.GetSegmentPath(external.Topology[i]), types.YChild{"Topology", external.Topology[i]})
     }
-    external.EntityData.Leafs = make(map[string]types.YLeaf)
-    external.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", external.NetworkMask}
+    external.EntityData.Leafs = types.NewOrderedMap()
+    external.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", external.NetworkMask})
+
+    external.EntityData.YListKeys = []string {}
+
     return &(external.EntityData)
 }
 
@@ -2856,7 +3048,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Metric interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -2868,18 +3060,21 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "external"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["flags"] = types.YLeaf{"Flags", topology.Flags}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
-    topology.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", topology.ForwardingAddress}
-    topology.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", topology.ExternalRouteTag}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", topology.Flags})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+    topology.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", topology.ForwardingAddress})
+    topology.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", topology.ExternalRouteTag})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -2891,7 +3086,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Unknown TLV. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_UnknownTlv.
-    UnknownTlv []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_UnknownTlv
+    UnknownTlv []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_UnknownTlv
 
     // Router address TLV.
     RouterAddressTlv RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_RouterAddressTlv
@@ -2910,14 +3105,17 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     opaque.EntityData.NamespaceTable = ietf.GetNamespaces()
     opaque.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    opaque.EntityData.Children = make(map[string]types.YChild)
-    opaque.EntityData.Children["unknown-tlv"] = types.YChild{"UnknownTlv", nil}
+    opaque.EntityData.Children = types.NewOrderedMap()
+    opaque.EntityData.Children.Append("unknown-tlv", types.YChild{"UnknownTlv", nil})
     for i := range opaque.UnknownTlv {
-        opaque.EntityData.Children[types.GetSegmentPath(&opaque.UnknownTlv[i])] = types.YChild{"UnknownTlv", &opaque.UnknownTlv[i]}
+        opaque.EntityData.Children.Append(types.GetSegmentPath(opaque.UnknownTlv[i]), types.YChild{"UnknownTlv", opaque.UnknownTlv[i]})
     }
-    opaque.EntityData.Children["router-address-tlv"] = types.YChild{"RouterAddressTlv", &opaque.RouterAddressTlv}
-    opaque.EntityData.Children["link-tlv"] = types.YChild{"LinkTlv", &opaque.LinkTlv}
-    opaque.EntityData.Leafs = make(map[string]types.YLeaf)
+    opaque.EntityData.Children.Append("router-address-tlv", types.YChild{"RouterAddressTlv", &opaque.RouterAddressTlv})
+    opaque.EntityData.Children.Append("link-tlv", types.YChild{"LinkTlv", &opaque.LinkTlv})
+    opaque.EntityData.Leafs = types.NewOrderedMap()
+
+    opaque.EntityData.YListKeys = []string {}
+
     return &(opaque.EntityData)
 }
 
@@ -2929,13 +3127,13 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
-    Type_ interface{}
+    Type interface{}
 
     // TLV length. The type is interface{} with range: 0..65535.
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -2944,16 +3142,19 @@ func (unknownTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     unknownTlv.EntityData.YangName = "unknown-tlv"
     unknownTlv.EntityData.BundleName = "ietf"
     unknownTlv.EntityData.ParentYangName = "opaque"
-    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + "[type='" + fmt.Sprintf("%v", unknownTlv.Type_) + "']"
+    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddKeyToken(unknownTlv.Type, "type")
     unknownTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    unknownTlv.EntityData.Children = make(map[string]types.YChild)
-    unknownTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownTlv.EntityData.Leafs["type"] = types.YLeaf{"Type_", unknownTlv.Type_}
-    unknownTlv.EntityData.Leafs["length"] = types.YLeaf{"Length", unknownTlv.Length}
-    unknownTlv.EntityData.Leafs["value"] = types.YLeaf{"Value", unknownTlv.Value}
+    unknownTlv.EntityData.Children = types.NewOrderedMap()
+    unknownTlv.EntityData.Leafs = types.NewOrderedMap()
+    unknownTlv.EntityData.Leafs.Append("type", types.YLeaf{"Type", unknownTlv.Type})
+    unknownTlv.EntityData.Leafs.Append("length", types.YLeaf{"Length", unknownTlv.Length})
+    unknownTlv.EntityData.Leafs.Append("value", types.YLeaf{"Value", unknownTlv.Value})
+
+    unknownTlv.EntityData.YListKeys = []string {"Type"}
+
     return &(unknownTlv.EntityData)
 }
 
@@ -2964,7 +3165,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // Router address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterAddress interface{}
 }
 
@@ -2978,9 +3179,12 @@ func (routerAddressTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingPro
     routerAddressTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     routerAddressTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routerAddressTlv.EntityData.Children = make(map[string]types.YChild)
-    routerAddressTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    routerAddressTlv.EntityData.Leafs["router-address"] = types.YLeaf{"RouterAddress", routerAddressTlv.RouterAddress}
+    routerAddressTlv.EntityData.Children = types.NewOrderedMap()
+    routerAddressTlv.EntityData.Leafs = types.NewOrderedMap()
+    routerAddressTlv.EntityData.Leafs.Append("router-address", types.YLeaf{"RouterAddress", routerAddressTlv.RouterAddress})
+
+    routerAddressTlv.EntityData.YListKeys = []string {}
+
     return &(routerAddressTlv.EntityData)
 }
 
@@ -2995,20 +3199,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     LinkType interface{}
 
     // Link ID. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
     // This attribute is mandatory..
     LinkId interface{}
 
     // List of local interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIfIpv4Addr []interface{}
 
     // List of remote interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalRemoteIpv4Addr []interface{}
 
     // TE metric. The type is interface{} with range: 0..4294967295.
@@ -3032,7 +3236,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Unknown sub-TLV. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv.
-    UnknownSubtlv []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv
+    UnknownSubtlv []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv
 }
 
 func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_LinkTlv) GetEntityData() *types.CommonEntityData {
@@ -3045,21 +3249,24 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     linkTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    linkTlv.EntityData.Children = make(map[string]types.YChild)
-    linkTlv.EntityData.Children["unknown-subtlv"] = types.YChild{"UnknownSubtlv", nil}
+    linkTlv.EntityData.Children = types.NewOrderedMap()
+    linkTlv.EntityData.Children.Append("unknown-subtlv", types.YChild{"UnknownSubtlv", nil})
     for i := range linkTlv.UnknownSubtlv {
-        linkTlv.EntityData.Children[types.GetSegmentPath(&linkTlv.UnknownSubtlv[i])] = types.YChild{"UnknownSubtlv", &linkTlv.UnknownSubtlv[i]}
+        linkTlv.EntityData.Children.Append(types.GetSegmentPath(linkTlv.UnknownSubtlv[i]), types.YChild{"UnknownSubtlv", linkTlv.UnknownSubtlv[i]})
     }
-    linkTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkTlv.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", linkTlv.LinkType}
-    linkTlv.EntityData.Leafs["link-id"] = types.YLeaf{"LinkId", linkTlv.LinkId}
-    linkTlv.EntityData.Leafs["local-if-ipv4-addr"] = types.YLeaf{"LocalIfIpv4Addr", linkTlv.LocalIfIpv4Addr}
-    linkTlv.EntityData.Leafs["local-remote-ipv4-addr"] = types.YLeaf{"LocalRemoteIpv4Addr", linkTlv.LocalRemoteIpv4Addr}
-    linkTlv.EntityData.Leafs["te-metric"] = types.YLeaf{"TeMetric", linkTlv.TeMetric}
-    linkTlv.EntityData.Leafs["max-bandwidth"] = types.YLeaf{"MaxBandwidth", linkTlv.MaxBandwidth}
-    linkTlv.EntityData.Leafs["max-reservable-bandwidth"] = types.YLeaf{"MaxReservableBandwidth", linkTlv.MaxReservableBandwidth}
-    linkTlv.EntityData.Leafs["unreserved-bandwidth"] = types.YLeaf{"UnreservedBandwidth", linkTlv.UnreservedBandwidth}
-    linkTlv.EntityData.Leafs["admin-group"] = types.YLeaf{"AdminGroup", linkTlv.AdminGroup}
+    linkTlv.EntityData.Leafs = types.NewOrderedMap()
+    linkTlv.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", linkTlv.LinkType})
+    linkTlv.EntityData.Leafs.Append("link-id", types.YLeaf{"LinkId", linkTlv.LinkId})
+    linkTlv.EntityData.Leafs.Append("local-if-ipv4-addr", types.YLeaf{"LocalIfIpv4Addr", linkTlv.LocalIfIpv4Addr})
+    linkTlv.EntityData.Leafs.Append("local-remote-ipv4-addr", types.YLeaf{"LocalRemoteIpv4Addr", linkTlv.LocalRemoteIpv4Addr})
+    linkTlv.EntityData.Leafs.Append("te-metric", types.YLeaf{"TeMetric", linkTlv.TeMetric})
+    linkTlv.EntityData.Leafs.Append("max-bandwidth", types.YLeaf{"MaxBandwidth", linkTlv.MaxBandwidth})
+    linkTlv.EntityData.Leafs.Append("max-reservable-bandwidth", types.YLeaf{"MaxReservableBandwidth", linkTlv.MaxReservableBandwidth})
+    linkTlv.EntityData.Leafs.Append("unreserved-bandwidth", types.YLeaf{"UnreservedBandwidth", linkTlv.UnreservedBandwidth})
+    linkTlv.EntityData.Leafs.Append("admin-group", types.YLeaf{"AdminGroup", linkTlv.AdminGroup})
+
+    linkTlv.EntityData.YListKeys = []string {}
+
     return &(linkTlv.EntityData)
 }
 
@@ -3071,13 +3278,13 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
-    Type_ interface{}
+    Type interface{}
 
     // TLV length. The type is interface{} with range: 0..65535.
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -3086,16 +3293,19 @@ func (unknownSubtlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     unknownSubtlv.EntityData.YangName = "unknown-subtlv"
     unknownSubtlv.EntityData.BundleName = "ietf"
     unknownSubtlv.EntityData.ParentYangName = "link-tlv"
-    unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + "[type='" + fmt.Sprintf("%v", unknownSubtlv.Type_) + "']"
+    unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + types.AddKeyToken(unknownSubtlv.Type, "type")
     unknownSubtlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownSubtlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownSubtlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    unknownSubtlv.EntityData.Children = make(map[string]types.YChild)
-    unknownSubtlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownSubtlv.EntityData.Leafs["type"] = types.YLeaf{"Type_", unknownSubtlv.Type_}
-    unknownSubtlv.EntityData.Leafs["length"] = types.YLeaf{"Length", unknownSubtlv.Length}
-    unknownSubtlv.EntityData.Leafs["value"] = types.YLeaf{"Value", unknownSubtlv.Value}
+    unknownSubtlv.EntityData.Children = types.NewOrderedMap()
+    unknownSubtlv.EntityData.Leafs = types.NewOrderedMap()
+    unknownSubtlv.EntityData.Leafs.Append("type", types.YLeaf{"Type", unknownSubtlv.Type})
+    unknownSubtlv.EntityData.Leafs.Append("length", types.YLeaf{"Length", unknownSubtlv.Length})
+    unknownSubtlv.EntityData.Leafs.Append("value", types.YLeaf{"Value", unknownSubtlv.Value})
+
+    unknownSubtlv.EntityData.YListKeys = []string {"Type"}
+
     return &(unknownSubtlv.EntityData)
 }
 
@@ -3122,10 +3332,13 @@ func (ospfv3 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv3.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ospfv3.EntityData.Children = make(map[string]types.YChild)
-    ospfv3.EntityData.Children["header"] = types.YChild{"Header", &ospfv3.Header}
-    ospfv3.EntityData.Children["body"] = types.YChild{"Body", &ospfv3.Body}
-    ospfv3.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3.EntityData.Children = types.NewOrderedMap()
+    ospfv3.EntityData.Children.Append("header", types.YChild{"Header", &ospfv3.Header})
+    ospfv3.EntityData.Children.Append("body", types.YChild{"Body", &ospfv3.Body})
+    ospfv3.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3.EntityData.YListKeys = []string {}
+
     return &(ospfv3.EntityData)
 }
 
@@ -3145,10 +3358,10 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // LSA type. The type is interface{} with range: 0..65535. This attribute is
     // mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -3177,16 +3390,19 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", header.LsaId}
-    header.EntityData.Leafs["age"] = types.YLeaf{"Age", header.Age}
-    header.EntityData.Leafs["type"] = types.YLeaf{"Type_", header.Type_}
-    header.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", header.AdvRouter}
-    header.EntityData.Leafs["seq-num"] = types.YLeaf{"SeqNum", header.SeqNum}
-    header.EntityData.Leafs["checksum"] = types.YLeaf{"Checksum", header.Checksum}
-    header.EntityData.Leafs["length"] = types.YLeaf{"Length", header.Length}
-    header.EntityData.Leafs["options"] = types.YLeaf{"Options", header.Options}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", header.LsaId})
+    header.EntityData.Leafs.Append("age", types.YLeaf{"Age", header.Age})
+    header.EntityData.Leafs.Append("type", types.YLeaf{"Type", header.Type})
+    header.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", header.AdvRouter})
+    header.EntityData.Leafs.Append("seq-num", types.YLeaf{"SeqNum", header.SeqNum})
+    header.EntityData.Leafs.Append("checksum", types.YLeaf{"Checksum", header.Checksum})
+    header.EntityData.Leafs.Append("length", types.YLeaf{"Length", header.Length})
+    header.EntityData.Leafs.Append("options", types.YLeaf{"Options", header.Options})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -3231,16 +3447,19 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    body.EntityData.Children = make(map[string]types.YChild)
-    body.EntityData.Children["router"] = types.YChild{"Router", &body.Router}
-    body.EntityData.Children["network"] = types.YChild{"Network", &body.Network}
-    body.EntityData.Children["inter-area-prefix"] = types.YChild{"InterAreaPrefix", &body.InterAreaPrefix}
-    body.EntityData.Children["inter-area-router"] = types.YChild{"InterAreaRouter", &body.InterAreaRouter}
-    body.EntityData.Children["as-external"] = types.YChild{"AsExternal", &body.AsExternal}
-    body.EntityData.Children["nssa"] = types.YChild{"Nssa", &body.Nssa}
-    body.EntityData.Children["link"] = types.YChild{"Link", &body.Link}
-    body.EntityData.Children["intra-area-prefix"] = types.YChild{"IntraAreaPrefix", &body.IntraAreaPrefix}
-    body.EntityData.Leafs = make(map[string]types.YLeaf)
+    body.EntityData.Children = types.NewOrderedMap()
+    body.EntityData.Children.Append("router", types.YChild{"Router", &body.Router})
+    body.EntityData.Children.Append("network", types.YChild{"Network", &body.Network})
+    body.EntityData.Children.Append("inter-area-prefix", types.YChild{"InterAreaPrefix", &body.InterAreaPrefix})
+    body.EntityData.Children.Append("inter-area-router", types.YChild{"InterAreaRouter", &body.InterAreaRouter})
+    body.EntityData.Children.Append("as-external", types.YChild{"AsExternal", &body.AsExternal})
+    body.EntityData.Children.Append("nssa", types.YChild{"Nssa", &body.Nssa})
+    body.EntityData.Children.Append("link", types.YChild{"Link", &body.Link})
+    body.EntityData.Children.Append("intra-area-prefix", types.YChild{"IntraAreaPrefix", &body.IntraAreaPrefix})
+    body.EntityData.Leafs = types.NewOrderedMap()
+
+    body.EntityData.YListKeys = []string {}
+
     return &(body.EntityData)
 }
 
@@ -3259,7 +3478,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Router LSA link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Router_Link.
-    Link []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Router_Link
+    Link []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Router_Link
 }
 
 func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Router) GetEntityData() *types.CommonEntityData {
@@ -3272,14 +3491,17 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    router.EntityData.Children = make(map[string]types.YChild)
-    router.EntityData.Children["link"] = types.YChild{"Link", nil}
+    router.EntityData.Children = types.NewOrderedMap()
+    router.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range router.Link {
-        router.EntityData.Children[types.GetSegmentPath(&router.Link[i])] = types.YChild{"Link", &router.Link[i]}
+        router.EntityData.Children.Append(types.GetSegmentPath(router.Link[i]), types.YChild{"Link", router.Link[i]})
     }
-    router.EntityData.Leafs = make(map[string]types.YLeaf)
-    router.EntityData.Leafs["flags"] = types.YLeaf{"Flags", router.Flags}
-    router.EntityData.Leafs["options"] = types.YLeaf{"Options", router.Options}
+    router.EntityData.Leafs = types.NewOrderedMap()
+    router.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", router.Flags})
+    router.EntityData.Leafs.Append("options", types.YLeaf{"Options", router.Options})
+
+    router.EntityData.YListKeys = []string {}
+
     return &(router.EntityData)
 }
 
@@ -3299,11 +3521,11 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Neighbor Router ID. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     NeighborRouterId interface{}
 
     // Link type. The type is interface{} with range: 0..255.
-    Type_ interface{}
+    Type interface{}
 
     // Metric. The type is interface{} with range: 0..65535.
     Metric interface{}
@@ -3314,18 +3536,21 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
-    link.EntityData.SegmentPath = "link" + "[interface-id='" + fmt.Sprintf("%v", link.InterfaceId) + "']" + "[neighbor-interface-id='" + fmt.Sprintf("%v", link.NeighborInterfaceId) + "']" + "[neighbor-router-id='" + fmt.Sprintf("%v", link.NeighborRouterId) + "']"
+    link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.InterfaceId, "interface-id") + types.AddKeyToken(link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(link.NeighborRouterId, "neighbor-router-id")
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["interface-id"] = types.YLeaf{"InterfaceId", link.InterfaceId}
-    link.EntityData.Leafs["neighbor-interface-id"] = types.YLeaf{"NeighborInterfaceId", link.NeighborInterfaceId}
-    link.EntityData.Leafs["neighbor-router-id"] = types.YLeaf{"NeighborRouterId", link.NeighborRouterId}
-    link.EntityData.Leafs["type"] = types.YLeaf{"Type_", link.Type_}
-    link.EntityData.Leafs["metric"] = types.YLeaf{"Metric", link.Metric}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", link.InterfaceId})
+    link.EntityData.Leafs.Append("neighbor-interface-id", types.YLeaf{"NeighborInterfaceId", link.NeighborInterfaceId})
+    link.EntityData.Leafs.Append("neighbor-router-id", types.YLeaf{"NeighborRouterId", link.NeighborRouterId})
+    link.EntityData.Leafs.Append("type", types.YLeaf{"Type", link.Type})
+    link.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", link.Metric})
+
+    link.EntityData.YListKeys = []string {"InterfaceId", "NeighborInterfaceId", "NeighborRouterId"}
+
     return &(link.EntityData)
 }
 
@@ -3341,7 +3566,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -3355,10 +3580,13 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["options"] = types.YLeaf{"Options", network.Options}
-    network.EntityData.Leafs["attached-router"] = types.YLeaf{"AttachedRouter", network.AttachedRouter}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("options", types.YLeaf{"Options", network.Options})
+    network.EntityData.Leafs.Append("attached-router", types.YLeaf{"AttachedRouter", network.AttachedRouter})
+
+    network.EntityData.YListKeys = []string {}
+
     return &(network.EntityData)
 }
 
@@ -3388,11 +3616,14 @@ func (interAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interAreaPrefix.EntityData.Children = make(map[string]types.YChild)
-    interAreaPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    interAreaPrefix.EntityData.Leafs["metric"] = types.YLeaf{"Metric", interAreaPrefix.Metric}
-    interAreaPrefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", interAreaPrefix.Prefix}
-    interAreaPrefix.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", interAreaPrefix.PrefixOptions}
+    interAreaPrefix.EntityData.Children = types.NewOrderedMap()
+    interAreaPrefix.EntityData.Leafs = types.NewOrderedMap()
+    interAreaPrefix.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", interAreaPrefix.Metric})
+    interAreaPrefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", interAreaPrefix.Prefix})
+    interAreaPrefix.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", interAreaPrefix.PrefixOptions})
+
+    interAreaPrefix.EntityData.YListKeys = []string {}
+
     return &(interAreaPrefix.EntityData)
 }
 
@@ -3411,7 +3642,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The Router ID of the router being described by the LSA. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     DestinationRouterId interface{}
 }
 
@@ -3425,11 +3656,14 @@ func (interAreaRouter *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaRouter.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaRouter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interAreaRouter.EntityData.Children = make(map[string]types.YChild)
-    interAreaRouter.EntityData.Leafs = make(map[string]types.YLeaf)
-    interAreaRouter.EntityData.Leafs["options"] = types.YLeaf{"Options", interAreaRouter.Options}
-    interAreaRouter.EntityData.Leafs["metric"] = types.YLeaf{"Metric", interAreaRouter.Metric}
-    interAreaRouter.EntityData.Leafs["destination-router-id"] = types.YLeaf{"DestinationRouterId", interAreaRouter.DestinationRouterId}
+    interAreaRouter.EntityData.Children = types.NewOrderedMap()
+    interAreaRouter.EntityData.Leafs = types.NewOrderedMap()
+    interAreaRouter.EntityData.Leafs.Append("options", types.YLeaf{"Options", interAreaRouter.Options})
+    interAreaRouter.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", interAreaRouter.Metric})
+    interAreaRouter.EntityData.Leafs.Append("destination-router-id", types.YLeaf{"DestinationRouterId", interAreaRouter.DestinationRouterId})
+
+    interAreaRouter.EntityData.YListKeys = []string {}
+
     return &(interAreaRouter.EntityData)
 }
 
@@ -3455,7 +3689,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -3476,16 +3710,19 @@ func (asExternal *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     asExternal.EntityData.NamespaceTable = ietf.GetNamespaces()
     asExternal.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    asExternal.EntityData.Children = make(map[string]types.YChild)
-    asExternal.EntityData.Leafs = make(map[string]types.YLeaf)
-    asExternal.EntityData.Leafs["metric"] = types.YLeaf{"Metric", asExternal.Metric}
-    asExternal.EntityData.Leafs["flags"] = types.YLeaf{"Flags", asExternal.Flags}
-    asExternal.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", asExternal.ReferencedLsType}
-    asExternal.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", asExternal.Prefix}
-    asExternal.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", asExternal.PrefixOptions}
-    asExternal.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", asExternal.ForwardingAddress}
-    asExternal.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", asExternal.ExternalRouteTag}
-    asExternal.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", asExternal.ReferencedLinkStateId}
+    asExternal.EntityData.Children = types.NewOrderedMap()
+    asExternal.EntityData.Leafs = types.NewOrderedMap()
+    asExternal.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", asExternal.Metric})
+    asExternal.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", asExternal.Flags})
+    asExternal.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", asExternal.ReferencedLsType})
+    asExternal.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", asExternal.Prefix})
+    asExternal.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", asExternal.PrefixOptions})
+    asExternal.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", asExternal.ForwardingAddress})
+    asExternal.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", asExternal.ExternalRouteTag})
+    asExternal.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", asExternal.ReferencedLinkStateId})
+
+    asExternal.EntityData.YListKeys = []string {}
+
     return &(asExternal.EntityData)
 }
 
@@ -3511,7 +3748,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -3532,16 +3769,19 @@ func (nssa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     nssa.EntityData.NamespaceTable = ietf.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    nssa.EntityData.Children = make(map[string]types.YChild)
-    nssa.EntityData.Leafs = make(map[string]types.YLeaf)
-    nssa.EntityData.Leafs["metric"] = types.YLeaf{"Metric", nssa.Metric}
-    nssa.EntityData.Leafs["flags"] = types.YLeaf{"Flags", nssa.Flags}
-    nssa.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", nssa.ReferencedLsType}
-    nssa.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", nssa.Prefix}
-    nssa.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", nssa.PrefixOptions}
-    nssa.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", nssa.ForwardingAddress}
-    nssa.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", nssa.ExternalRouteTag}
-    nssa.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", nssa.ReferencedLinkStateId}
+    nssa.EntityData.Children = types.NewOrderedMap()
+    nssa.EntityData.Leafs = types.NewOrderedMap()
+    nssa.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", nssa.Metric})
+    nssa.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", nssa.Flags})
+    nssa.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", nssa.ReferencedLsType})
+    nssa.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", nssa.Prefix})
+    nssa.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", nssa.PrefixOptions})
+    nssa.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", nssa.ForwardingAddress})
+    nssa.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", nssa.ExternalRouteTag})
+    nssa.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", nssa.ReferencedLinkStateId})
+
+    nssa.EntityData.YListKeys = []string {}
+
     return &(nssa.EntityData)
 }
 
@@ -3561,9 +3801,9 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The originating router's link-local interface address on the link. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LinkLocalInterfaceAddress interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..4294967295.
@@ -3571,7 +3811,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of prefixes associated with the link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Link_PrefixList.
-    PrefixList []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Link_PrefixList
+    PrefixList []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Link_PrefixList
 }
 
 func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Link) GetEntityData() *types.CommonEntityData {
@@ -3584,16 +3824,19 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Children["prefix-list"] = types.YChild{"PrefixList", nil}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Children.Append("prefix-list", types.YChild{"PrefixList", nil})
     for i := range link.PrefixList {
-        link.EntityData.Children[types.GetSegmentPath(&link.PrefixList[i])] = types.YChild{"PrefixList", &link.PrefixList[i]}
+        link.EntityData.Children.Append(types.GetSegmentPath(link.PrefixList[i]), types.YChild{"PrefixList", link.PrefixList[i]})
     }
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["rtr-priority"] = types.YLeaf{"RtrPriority", link.RtrPriority}
-    link.EntityData.Leafs["options"] = types.YLeaf{"Options", link.Options}
-    link.EntityData.Leafs["link-local-interface-address"] = types.YLeaf{"LinkLocalInterfaceAddress", link.LinkLocalInterfaceAddress}
-    link.EntityData.Leafs["num-of-prefixes"] = types.YLeaf{"NumOfPrefixes", link.NumOfPrefixes}
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("rtr-priority", types.YLeaf{"RtrPriority", link.RtrPriority})
+    link.EntityData.Leafs.Append("options", types.YLeaf{"Options", link.Options})
+    link.EntityData.Leafs.Append("link-local-interface-address", types.YLeaf{"LinkLocalInterfaceAddress", link.LinkLocalInterfaceAddress})
+    link.EntityData.Leafs.Append("num-of-prefixes", types.YLeaf{"NumOfPrefixes", link.NumOfPrefixes})
+
+    link.EntityData.YListKeys = []string {}
+
     return &(link.EntityData)
 }
 
@@ -3615,15 +3858,18 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.YangName = "prefix-list"
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "link"
-    prefixList.EntityData.SegmentPath = "prefix-list" + "[prefix='" + fmt.Sprintf("%v", prefixList.Prefix) + "']"
+    prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    prefixList.EntityData.Children = make(map[string]types.YChild)
-    prefixList.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixList.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefixList.Prefix}
-    prefixList.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", prefixList.PrefixOptions}
+    prefixList.EntityData.Children = types.NewOrderedMap()
+    prefixList.EntityData.Leafs = types.NewOrderedMap()
+    prefixList.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefixList.Prefix})
+    prefixList.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", prefixList.PrefixOptions})
+
+    prefixList.EntityData.YListKeys = []string {"Prefix"}
+
     return &(prefixList.EntityData)
 }
 
@@ -3641,7 +3887,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     ReferencedLinkStateId interface{}
 
     // Referenced Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferencedAdvRouter interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..65535.
@@ -3649,7 +3895,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of prefixes associated with the link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList.
-    PrefixList []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList
+    PrefixList []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList
 }
 
 func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_IntraAreaPrefix) GetEntityData() *types.CommonEntityData {
@@ -3662,16 +3908,19 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     intraAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     intraAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    intraAreaPrefix.EntityData.Children = make(map[string]types.YChild)
-    intraAreaPrefix.EntityData.Children["prefix-list"] = types.YChild{"PrefixList", nil}
+    intraAreaPrefix.EntityData.Children = types.NewOrderedMap()
+    intraAreaPrefix.EntityData.Children.Append("prefix-list", types.YChild{"PrefixList", nil})
     for i := range intraAreaPrefix.PrefixList {
-        intraAreaPrefix.EntityData.Children[types.GetSegmentPath(&intraAreaPrefix.PrefixList[i])] = types.YChild{"PrefixList", &intraAreaPrefix.PrefixList[i]}
+        intraAreaPrefix.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefix.PrefixList[i]), types.YChild{"PrefixList", intraAreaPrefix.PrefixList[i]})
     }
-    intraAreaPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    intraAreaPrefix.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", intraAreaPrefix.ReferencedLsType}
-    intraAreaPrefix.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", intraAreaPrefix.ReferencedLinkStateId}
-    intraAreaPrefix.EntityData.Leafs["referenced-adv-router"] = types.YLeaf{"ReferencedAdvRouter", intraAreaPrefix.ReferencedAdvRouter}
-    intraAreaPrefix.EntityData.Leafs["num-of-prefixes"] = types.YLeaf{"NumOfPrefixes", intraAreaPrefix.NumOfPrefixes}
+    intraAreaPrefix.EntityData.Leafs = types.NewOrderedMap()
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", intraAreaPrefix.ReferencedLsType})
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", intraAreaPrefix.ReferencedLinkStateId})
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-adv-router", types.YLeaf{"ReferencedAdvRouter", intraAreaPrefix.ReferencedAdvRouter})
+    intraAreaPrefix.EntityData.Leafs.Append("num-of-prefixes", types.YLeaf{"NumOfPrefixes", intraAreaPrefix.NumOfPrefixes})
+
+    intraAreaPrefix.EntityData.YListKeys = []string {}
+
     return &(intraAreaPrefix.EntityData)
 }
 
@@ -3696,16 +3945,19 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.YangName = "prefix-list"
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "intra-area-prefix"
-    prefixList.EntityData.SegmentPath = "prefix-list" + "[prefix='" + fmt.Sprintf("%v", prefixList.Prefix) + "']"
+    prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    prefixList.EntityData.Children = make(map[string]types.YChild)
-    prefixList.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixList.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefixList.Prefix}
-    prefixList.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", prefixList.PrefixOptions}
-    prefixList.EntityData.Leafs["metric"] = types.YLeaf{"Metric", prefixList.Metric}
+    prefixList.EntityData.Children = types.NewOrderedMap()
+    prefixList.EntityData.Leafs = types.NewOrderedMap()
+    prefixList.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefixList.Prefix})
+    prefixList.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", prefixList.PrefixOptions})
+    prefixList.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", prefixList.Metric})
+
+    prefixList.EntityData.YListKeys = []string {"Prefix"}
+
     return &(prefixList.EntityData)
 }
 
@@ -3721,7 +3973,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of OSPF AS scope LSAs. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa.
-    AsScopeLsa []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa
+    AsScopeLsa []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa
 }
 
 func (asScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas) GetEntityData() *types.CommonEntityData {
@@ -3729,18 +3981,21 @@ func (asScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
     asScopeLsas.EntityData.YangName = "as-scope-lsas"
     asScopeLsas.EntityData.BundleName = "ietf"
     asScopeLsas.EntityData.ParentYangName = "instance"
-    asScopeLsas.EntityData.SegmentPath = "as-scope-lsas" + "[lsa-type='" + fmt.Sprintf("%v", asScopeLsas.LsaType) + "']"
+    asScopeLsas.EntityData.SegmentPath = "as-scope-lsas" + types.AddKeyToken(asScopeLsas.LsaType, "lsa-type")
     asScopeLsas.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     asScopeLsas.EntityData.NamespaceTable = ietf.GetNamespaces()
     asScopeLsas.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    asScopeLsas.EntityData.Children = make(map[string]types.YChild)
-    asScopeLsas.EntityData.Children["as-scope-lsa"] = types.YChild{"AsScopeLsa", nil}
+    asScopeLsas.EntityData.Children = types.NewOrderedMap()
+    asScopeLsas.EntityData.Children.Append("as-scope-lsa", types.YChild{"AsScopeLsa", nil})
     for i := range asScopeLsas.AsScopeLsa {
-        asScopeLsas.EntityData.Children[types.GetSegmentPath(&asScopeLsas.AsScopeLsa[i])] = types.YChild{"AsScopeLsa", &asScopeLsas.AsScopeLsa[i]}
+        asScopeLsas.EntityData.Children.Append(types.GetSegmentPath(asScopeLsas.AsScopeLsa[i]), types.YChild{"AsScopeLsa", asScopeLsas.AsScopeLsa[i]})
     }
-    asScopeLsas.EntityData.Leafs = make(map[string]types.YLeaf)
-    asScopeLsas.EntityData.Leafs["lsa-type"] = types.YLeaf{"LsaType", asScopeLsas.LsaType}
+    asScopeLsas.EntityData.Leafs = types.NewOrderedMap()
+    asScopeLsas.EntityData.Leafs.Append("lsa-type", types.YLeaf{"LsaType", asScopeLsas.LsaType})
+
+    asScopeLsas.EntityData.YListKeys = []string {"LsaType"}
+
     return &(asScopeLsas.EntityData)
 }
 
@@ -3752,20 +4007,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LsaId interface{}
 
     // This attribute is a key. Advertising router. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvRouter interface{}
 
     // The OSPF LSA body is fully decoded. The type is bool.
     DecodedCompleted interface{}
 
     // The complete LSA in network byte order as received/sent over the wire. The
-    // type is string with pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // OSPFv2 LSA.
@@ -3780,19 +4035,22 @@ func (asScopeLsa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     asScopeLsa.EntityData.YangName = "as-scope-lsa"
     asScopeLsa.EntityData.BundleName = "ietf"
     asScopeLsa.EntityData.ParentYangName = "as-scope-lsas"
-    asScopeLsa.EntityData.SegmentPath = "as-scope-lsa" + "[lsa-id='" + fmt.Sprintf("%v", asScopeLsa.LsaId) + "']" + "[adv-router='" + fmt.Sprintf("%v", asScopeLsa.AdvRouter) + "']"
+    asScopeLsa.EntityData.SegmentPath = "as-scope-lsa" + types.AddKeyToken(asScopeLsa.LsaId, "lsa-id") + types.AddKeyToken(asScopeLsa.AdvRouter, "adv-router")
     asScopeLsa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     asScopeLsa.EntityData.NamespaceTable = ietf.GetNamespaces()
     asScopeLsa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    asScopeLsa.EntityData.Children = make(map[string]types.YChild)
-    asScopeLsa.EntityData.Children["ospfv2"] = types.YChild{"Ospfv2", &asScopeLsa.Ospfv2}
-    asScopeLsa.EntityData.Children["ospfv3"] = types.YChild{"Ospfv3", &asScopeLsa.Ospfv3}
-    asScopeLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    asScopeLsa.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", asScopeLsa.LsaId}
-    asScopeLsa.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", asScopeLsa.AdvRouter}
-    asScopeLsa.EntityData.Leafs["decoded-completed"] = types.YLeaf{"DecodedCompleted", asScopeLsa.DecodedCompleted}
-    asScopeLsa.EntityData.Leafs["raw-data"] = types.YLeaf{"RawData", asScopeLsa.RawData}
+    asScopeLsa.EntityData.Children = types.NewOrderedMap()
+    asScopeLsa.EntityData.Children.Append("ospfv2", types.YChild{"Ospfv2", &asScopeLsa.Ospfv2})
+    asScopeLsa.EntityData.Children.Append("ospfv3", types.YChild{"Ospfv3", &asScopeLsa.Ospfv3})
+    asScopeLsa.EntityData.Leafs = types.NewOrderedMap()
+    asScopeLsa.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", asScopeLsa.LsaId})
+    asScopeLsa.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", asScopeLsa.AdvRouter})
+    asScopeLsa.EntityData.Leafs.Append("decoded-completed", types.YLeaf{"DecodedCompleted", asScopeLsa.DecodedCompleted})
+    asScopeLsa.EntityData.Leafs.Append("raw-data", types.YLeaf{"RawData", asScopeLsa.RawData})
+
+    asScopeLsa.EntityData.YListKeys = []string {"LsaId", "AdvRouter"}
+
     return &(asScopeLsa.EntityData)
 }
 
@@ -3819,10 +4077,13 @@ func (ospfv2 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv2.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv2.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ospfv2.EntityData.Children = make(map[string]types.YChild)
-    ospfv2.EntityData.Children["header"] = types.YChild{"Header", &ospfv2.Header}
-    ospfv2.EntityData.Children["body"] = types.YChild{"Body", &ospfv2.Body}
-    ospfv2.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2.EntityData.Children = types.NewOrderedMap()
+    ospfv2.EntityData.Children.Append("header", types.YChild{"Header", &ospfv2.Header})
+    ospfv2.EntityData.Children.Append("body", types.YChild{"Body", &ospfv2.Body})
+    ospfv2.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2.EntityData.YListKeys = []string {}
+
     return &(ospfv2.EntityData)
 }
 
@@ -3836,7 +4097,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Options interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     LsaId interface{}
 
@@ -3854,10 +4115,10 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // LSA type. The type is interface{} with range: 0..65535. This attribute is
     // mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -3882,18 +4143,21 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["options"] = types.YLeaf{"Options", header.Options}
-    header.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", header.LsaId}
-    header.EntityData.Leafs["opaque-type"] = types.YLeaf{"OpaqueType", header.OpaqueType}
-    header.EntityData.Leafs["opaque-id"] = types.YLeaf{"OpaqueId", header.OpaqueId}
-    header.EntityData.Leafs["age"] = types.YLeaf{"Age", header.Age}
-    header.EntityData.Leafs["type"] = types.YLeaf{"Type_", header.Type_}
-    header.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", header.AdvRouter}
-    header.EntityData.Leafs["seq-num"] = types.YLeaf{"SeqNum", header.SeqNum}
-    header.EntityData.Leafs["checksum"] = types.YLeaf{"Checksum", header.Checksum}
-    header.EntityData.Leafs["length"] = types.YLeaf{"Length", header.Length}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("options", types.YLeaf{"Options", header.Options})
+    header.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", header.LsaId})
+    header.EntityData.Leafs.Append("opaque-type", types.YLeaf{"OpaqueType", header.OpaqueType})
+    header.EntityData.Leafs.Append("opaque-id", types.YLeaf{"OpaqueId", header.OpaqueId})
+    header.EntityData.Leafs.Append("age", types.YLeaf{"Age", header.Age})
+    header.EntityData.Leafs.Append("type", types.YLeaf{"Type", header.Type})
+    header.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", header.AdvRouter})
+    header.EntityData.Leafs.Append("seq-num", types.YLeaf{"SeqNum", header.SeqNum})
+    header.EntityData.Leafs.Append("checksum", types.YLeaf{"Checksum", header.Checksum})
+    header.EntityData.Leafs.Append("length", types.YLeaf{"Length", header.Length})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -3929,13 +4193,16 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    body.EntityData.Children = make(map[string]types.YChild)
-    body.EntityData.Children["router"] = types.YChild{"Router", &body.Router}
-    body.EntityData.Children["network"] = types.YChild{"Network", &body.Network}
-    body.EntityData.Children["summary"] = types.YChild{"Summary", &body.Summary}
-    body.EntityData.Children["external"] = types.YChild{"External", &body.External}
-    body.EntityData.Children["opaque"] = types.YChild{"Opaque", &body.Opaque}
-    body.EntityData.Leafs = make(map[string]types.YLeaf)
+    body.EntityData.Children = types.NewOrderedMap()
+    body.EntityData.Children.Append("router", types.YChild{"Router", &body.Router})
+    body.EntityData.Children.Append("network", types.YChild{"Network", &body.Network})
+    body.EntityData.Children.Append("summary", types.YChild{"Summary", &body.Summary})
+    body.EntityData.Children.Append("external", types.YChild{"External", &body.External})
+    body.EntityData.Children.Append("opaque", types.YChild{"Opaque", &body.Opaque})
+    body.EntityData.Leafs = types.NewOrderedMap()
+
+    body.EntityData.YListKeys = []string {}
+
     return &(body.EntityData)
 }
 
@@ -3953,7 +4220,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Router LSA link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link.
-    Link []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link
+    Link []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link
 }
 
 func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router) GetEntityData() *types.CommonEntityData {
@@ -3966,14 +4233,17 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    router.EntityData.Children = make(map[string]types.YChild)
-    router.EntityData.Children["link"] = types.YChild{"Link", nil}
+    router.EntityData.Children = types.NewOrderedMap()
+    router.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range router.Link {
-        router.EntityData.Children[types.GetSegmentPath(&router.Link[i])] = types.YChild{"Link", &router.Link[i]}
+        router.EntityData.Children.Append(types.GetSegmentPath(router.Link[i]), types.YChild{"Link", router.Link[i]})
     }
-    router.EntityData.Leafs = make(map[string]types.YLeaf)
-    router.EntityData.Leafs["flags"] = types.YLeaf{"Flags", router.Flags}
-    router.EntityData.Leafs["num-of-links"] = types.YLeaf{"NumOfLinks", router.NumOfLinks}
+    router.EntityData.Leafs = types.NewOrderedMap()
+    router.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", router.Flags})
+    router.EntityData.Leafs.Append("num-of-links", types.YLeaf{"NumOfLinks", router.NumOfLinks})
+
+    router.EntityData.YListKeys = []string {}
+
     return &(router.EntityData)
 }
 
@@ -3985,23 +4255,23 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     LinkId interface{}
 
     // This attribute is a key. Link data. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LinkData interface{}
 
     // Link type. The type is interface{} with range: 0..255.
-    Type_ interface{}
+    Type interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link_Topology
 }
 
 func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link) GetEntityData() *types.CommonEntityData {
@@ -4009,20 +4279,23 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
-    link.EntityData.SegmentPath = "link" + "[link-id='" + fmt.Sprintf("%v", link.LinkId) + "']" + "[link-data='" + fmt.Sprintf("%v", link.LinkData) + "']"
+    link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.LinkId, "link-id") + types.AddKeyToken(link.LinkData, "link-data")
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range link.Topology {
-        link.EntityData.Children[types.GetSegmentPath(&link.Topology[i])] = types.YChild{"Topology", &link.Topology[i]}
+        link.EntityData.Children.Append(types.GetSegmentPath(link.Topology[i]), types.YChild{"Topology", link.Topology[i]})
     }
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["link-id"] = types.YLeaf{"LinkId", link.LinkId}
-    link.EntityData.Leafs["link-data"] = types.YLeaf{"LinkData", link.LinkData}
-    link.EntityData.Leafs["type"] = types.YLeaf{"Type_", link.Type_}
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("link-id", types.YLeaf{"LinkId", link.LinkId})
+    link.EntityData.Leafs.Append("link-data", types.YLeaf{"LinkData", link.LinkData})
+    link.EntityData.Leafs.Append("type", types.YLeaf{"Type", link.Type})
+
+    link.EntityData.YListKeys = []string {"LinkId", "LinkData"}
+
     return &(link.EntityData)
 }
 
@@ -4045,15 +4318,18 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "link"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -4064,12 +4340,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -4083,10 +4359,13 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", network.NetworkMask}
-    network.EntityData.Leafs["attached-router"] = types.YLeaf{"AttachedRouter", network.AttachedRouter}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", network.NetworkMask})
+    network.EntityData.Leafs.Append("attached-router", types.YLeaf{"AttachedRouter", network.AttachedRouter})
+
+    network.EntityData.YListKeys = []string {}
+
     return &(network.EntityData)
 }
 
@@ -4097,12 +4376,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Summary_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Summary_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Summary_Topology
 }
 
 func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Summary) GetEntityData() *types.CommonEntityData {
@@ -4115,13 +4394,16 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     summary.EntityData.NamespaceTable = ietf.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range summary.Topology {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.Topology[i])] = types.YChild{"Topology", &summary.Topology[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.Topology[i]), types.YChild{"Topology", summary.Topology[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", summary.NetworkMask}
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", summary.NetworkMask})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -4144,15 +4426,18 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "summary"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -4163,12 +4448,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_External_Topology.
-    Topology []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_External_Topology
+    Topology []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_External_Topology
 }
 
 func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_External) GetEntityData() *types.CommonEntityData {
@@ -4181,13 +4466,16 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     external.EntityData.NamespaceTable = ietf.GetNamespaces()
     external.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    external.EntityData.Children = make(map[string]types.YChild)
-    external.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    external.EntityData.Children = types.NewOrderedMap()
+    external.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range external.Topology {
-        external.EntityData.Children[types.GetSegmentPath(&external.Topology[i])] = types.YChild{"Topology", &external.Topology[i]}
+        external.EntityData.Children.Append(types.GetSegmentPath(external.Topology[i]), types.YChild{"Topology", external.Topology[i]})
     }
-    external.EntityData.Leafs = make(map[string]types.YLeaf)
-    external.EntityData.Leafs["network-mask"] = types.YLeaf{"NetworkMask", external.NetworkMask}
+    external.EntityData.Leafs = types.NewOrderedMap()
+    external.EntityData.Leafs.Append("network-mask", types.YLeaf{"NetworkMask", external.NetworkMask})
+
+    external.EntityData.YListKeys = []string {}
+
     return &(external.EntityData)
 }
 
@@ -4208,7 +4496,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Metric interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -4220,18 +4508,21 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "external"
-    topology.EntityData.SegmentPath = "topology" + "[mt-id='" + fmt.Sprintf("%v", topology.MtId) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["mt-id"] = types.YLeaf{"MtId", topology.MtId}
-    topology.EntityData.Leafs["flags"] = types.YLeaf{"Flags", topology.Flags}
-    topology.EntityData.Leafs["metric"] = types.YLeaf{"Metric", topology.Metric}
-    topology.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", topology.ForwardingAddress}
-    topology.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", topology.ExternalRouteTag}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", topology.MtId})
+    topology.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", topology.Flags})
+    topology.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", topology.Metric})
+    topology.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", topology.ForwardingAddress})
+    topology.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", topology.ExternalRouteTag})
+
+    topology.EntityData.YListKeys = []string {"MtId"}
+
     return &(topology.EntityData)
 }
 
@@ -4243,7 +4534,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Unknown TLV. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_UnknownTlv.
-    UnknownTlv []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_UnknownTlv
+    UnknownTlv []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_UnknownTlv
 
     // Router address TLV.
     RouterAddressTlv RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_RouterAddressTlv
@@ -4262,14 +4553,17 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     opaque.EntityData.NamespaceTable = ietf.GetNamespaces()
     opaque.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    opaque.EntityData.Children = make(map[string]types.YChild)
-    opaque.EntityData.Children["unknown-tlv"] = types.YChild{"UnknownTlv", nil}
+    opaque.EntityData.Children = types.NewOrderedMap()
+    opaque.EntityData.Children.Append("unknown-tlv", types.YChild{"UnknownTlv", nil})
     for i := range opaque.UnknownTlv {
-        opaque.EntityData.Children[types.GetSegmentPath(&opaque.UnknownTlv[i])] = types.YChild{"UnknownTlv", &opaque.UnknownTlv[i]}
+        opaque.EntityData.Children.Append(types.GetSegmentPath(opaque.UnknownTlv[i]), types.YChild{"UnknownTlv", opaque.UnknownTlv[i]})
     }
-    opaque.EntityData.Children["router-address-tlv"] = types.YChild{"RouterAddressTlv", &opaque.RouterAddressTlv}
-    opaque.EntityData.Children["link-tlv"] = types.YChild{"LinkTlv", &opaque.LinkTlv}
-    opaque.EntityData.Leafs = make(map[string]types.YLeaf)
+    opaque.EntityData.Children.Append("router-address-tlv", types.YChild{"RouterAddressTlv", &opaque.RouterAddressTlv})
+    opaque.EntityData.Children.Append("link-tlv", types.YChild{"LinkTlv", &opaque.LinkTlv})
+    opaque.EntityData.Leafs = types.NewOrderedMap()
+
+    opaque.EntityData.YListKeys = []string {}
+
     return &(opaque.EntityData)
 }
 
@@ -4281,13 +4575,13 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
-    Type_ interface{}
+    Type interface{}
 
     // TLV length. The type is interface{} with range: 0..65535.
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -4296,16 +4590,19 @@ func (unknownTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     unknownTlv.EntityData.YangName = "unknown-tlv"
     unknownTlv.EntityData.BundleName = "ietf"
     unknownTlv.EntityData.ParentYangName = "opaque"
-    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + "[type='" + fmt.Sprintf("%v", unknownTlv.Type_) + "']"
+    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddKeyToken(unknownTlv.Type, "type")
     unknownTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    unknownTlv.EntityData.Children = make(map[string]types.YChild)
-    unknownTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownTlv.EntityData.Leafs["type"] = types.YLeaf{"Type_", unknownTlv.Type_}
-    unknownTlv.EntityData.Leafs["length"] = types.YLeaf{"Length", unknownTlv.Length}
-    unknownTlv.EntityData.Leafs["value"] = types.YLeaf{"Value", unknownTlv.Value}
+    unknownTlv.EntityData.Children = types.NewOrderedMap()
+    unknownTlv.EntityData.Leafs = types.NewOrderedMap()
+    unknownTlv.EntityData.Leafs.Append("type", types.YLeaf{"Type", unknownTlv.Type})
+    unknownTlv.EntityData.Leafs.Append("length", types.YLeaf{"Length", unknownTlv.Length})
+    unknownTlv.EntityData.Leafs.Append("value", types.YLeaf{"Value", unknownTlv.Value})
+
+    unknownTlv.EntityData.YListKeys = []string {"Type"}
+
     return &(unknownTlv.EntityData)
 }
 
@@ -4316,7 +4613,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // Router address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterAddress interface{}
 }
 
@@ -4330,9 +4627,12 @@ func (routerAddressTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingPro
     routerAddressTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     routerAddressTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routerAddressTlv.EntityData.Children = make(map[string]types.YChild)
-    routerAddressTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    routerAddressTlv.EntityData.Leafs["router-address"] = types.YLeaf{"RouterAddress", routerAddressTlv.RouterAddress}
+    routerAddressTlv.EntityData.Children = types.NewOrderedMap()
+    routerAddressTlv.EntityData.Leafs = types.NewOrderedMap()
+    routerAddressTlv.EntityData.Leafs.Append("router-address", types.YLeaf{"RouterAddress", routerAddressTlv.RouterAddress})
+
+    routerAddressTlv.EntityData.YListKeys = []string {}
+
     return &(routerAddressTlv.EntityData)
 }
 
@@ -4347,20 +4647,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     LinkType interface{}
 
     // Link ID. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
     // This attribute is mandatory..
     LinkId interface{}
 
     // List of local interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIfIpv4Addr []interface{}
 
     // List of remote interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalRemoteIpv4Addr []interface{}
 
     // TE metric. The type is interface{} with range: 0..4294967295.
@@ -4384,7 +4684,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Unknown sub-TLV. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv.
-    UnknownSubtlv []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv
+    UnknownSubtlv []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv
 }
 
 func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_LinkTlv) GetEntityData() *types.CommonEntityData {
@@ -4397,21 +4697,24 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     linkTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    linkTlv.EntityData.Children = make(map[string]types.YChild)
-    linkTlv.EntityData.Children["unknown-subtlv"] = types.YChild{"UnknownSubtlv", nil}
+    linkTlv.EntityData.Children = types.NewOrderedMap()
+    linkTlv.EntityData.Children.Append("unknown-subtlv", types.YChild{"UnknownSubtlv", nil})
     for i := range linkTlv.UnknownSubtlv {
-        linkTlv.EntityData.Children[types.GetSegmentPath(&linkTlv.UnknownSubtlv[i])] = types.YChild{"UnknownSubtlv", &linkTlv.UnknownSubtlv[i]}
+        linkTlv.EntityData.Children.Append(types.GetSegmentPath(linkTlv.UnknownSubtlv[i]), types.YChild{"UnknownSubtlv", linkTlv.UnknownSubtlv[i]})
     }
-    linkTlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkTlv.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", linkTlv.LinkType}
-    linkTlv.EntityData.Leafs["link-id"] = types.YLeaf{"LinkId", linkTlv.LinkId}
-    linkTlv.EntityData.Leafs["local-if-ipv4-addr"] = types.YLeaf{"LocalIfIpv4Addr", linkTlv.LocalIfIpv4Addr}
-    linkTlv.EntityData.Leafs["local-remote-ipv4-addr"] = types.YLeaf{"LocalRemoteIpv4Addr", linkTlv.LocalRemoteIpv4Addr}
-    linkTlv.EntityData.Leafs["te-metric"] = types.YLeaf{"TeMetric", linkTlv.TeMetric}
-    linkTlv.EntityData.Leafs["max-bandwidth"] = types.YLeaf{"MaxBandwidth", linkTlv.MaxBandwidth}
-    linkTlv.EntityData.Leafs["max-reservable-bandwidth"] = types.YLeaf{"MaxReservableBandwidth", linkTlv.MaxReservableBandwidth}
-    linkTlv.EntityData.Leafs["unreserved-bandwidth"] = types.YLeaf{"UnreservedBandwidth", linkTlv.UnreservedBandwidth}
-    linkTlv.EntityData.Leafs["admin-group"] = types.YLeaf{"AdminGroup", linkTlv.AdminGroup}
+    linkTlv.EntityData.Leafs = types.NewOrderedMap()
+    linkTlv.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", linkTlv.LinkType})
+    linkTlv.EntityData.Leafs.Append("link-id", types.YLeaf{"LinkId", linkTlv.LinkId})
+    linkTlv.EntityData.Leafs.Append("local-if-ipv4-addr", types.YLeaf{"LocalIfIpv4Addr", linkTlv.LocalIfIpv4Addr})
+    linkTlv.EntityData.Leafs.Append("local-remote-ipv4-addr", types.YLeaf{"LocalRemoteIpv4Addr", linkTlv.LocalRemoteIpv4Addr})
+    linkTlv.EntityData.Leafs.Append("te-metric", types.YLeaf{"TeMetric", linkTlv.TeMetric})
+    linkTlv.EntityData.Leafs.Append("max-bandwidth", types.YLeaf{"MaxBandwidth", linkTlv.MaxBandwidth})
+    linkTlv.EntityData.Leafs.Append("max-reservable-bandwidth", types.YLeaf{"MaxReservableBandwidth", linkTlv.MaxReservableBandwidth})
+    linkTlv.EntityData.Leafs.Append("unreserved-bandwidth", types.YLeaf{"UnreservedBandwidth", linkTlv.UnreservedBandwidth})
+    linkTlv.EntityData.Leafs.Append("admin-group", types.YLeaf{"AdminGroup", linkTlv.AdminGroup})
+
+    linkTlv.EntityData.YListKeys = []string {}
+
     return &(linkTlv.EntityData)
 }
 
@@ -4423,13 +4726,13 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
-    Type_ interface{}
+    Type interface{}
 
     // TLV length. The type is interface{} with range: 0..65535.
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -4438,16 +4741,19 @@ func (unknownSubtlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     unknownSubtlv.EntityData.YangName = "unknown-subtlv"
     unknownSubtlv.EntityData.BundleName = "ietf"
     unknownSubtlv.EntityData.ParentYangName = "link-tlv"
-    unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + "[type='" + fmt.Sprintf("%v", unknownSubtlv.Type_) + "']"
+    unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + types.AddKeyToken(unknownSubtlv.Type, "type")
     unknownSubtlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownSubtlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownSubtlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    unknownSubtlv.EntityData.Children = make(map[string]types.YChild)
-    unknownSubtlv.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownSubtlv.EntityData.Leafs["type"] = types.YLeaf{"Type_", unknownSubtlv.Type_}
-    unknownSubtlv.EntityData.Leafs["length"] = types.YLeaf{"Length", unknownSubtlv.Length}
-    unknownSubtlv.EntityData.Leafs["value"] = types.YLeaf{"Value", unknownSubtlv.Value}
+    unknownSubtlv.EntityData.Children = types.NewOrderedMap()
+    unknownSubtlv.EntityData.Leafs = types.NewOrderedMap()
+    unknownSubtlv.EntityData.Leafs.Append("type", types.YLeaf{"Type", unknownSubtlv.Type})
+    unknownSubtlv.EntityData.Leafs.Append("length", types.YLeaf{"Length", unknownSubtlv.Length})
+    unknownSubtlv.EntityData.Leafs.Append("value", types.YLeaf{"Value", unknownSubtlv.Value})
+
+    unknownSubtlv.EntityData.YListKeys = []string {"Type"}
+
     return &(unknownSubtlv.EntityData)
 }
 
@@ -4474,10 +4780,13 @@ func (ospfv3 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv3.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ospfv3.EntityData.Children = make(map[string]types.YChild)
-    ospfv3.EntityData.Children["header"] = types.YChild{"Header", &ospfv3.Header}
-    ospfv3.EntityData.Children["body"] = types.YChild{"Body", &ospfv3.Body}
-    ospfv3.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3.EntityData.Children = types.NewOrderedMap()
+    ospfv3.EntityData.Children.Append("header", types.YChild{"Header", &ospfv3.Header})
+    ospfv3.EntityData.Children.Append("body", types.YChild{"Body", &ospfv3.Body})
+    ospfv3.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3.EntityData.YListKeys = []string {}
+
     return &(ospfv3.EntityData)
 }
 
@@ -4497,10 +4806,10 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // LSA type. The type is interface{} with range: 0..65535. This attribute is
     // mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -4529,16 +4838,19 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
-    header.EntityData.Leafs["lsa-id"] = types.YLeaf{"LsaId", header.LsaId}
-    header.EntityData.Leafs["age"] = types.YLeaf{"Age", header.Age}
-    header.EntityData.Leafs["type"] = types.YLeaf{"Type_", header.Type_}
-    header.EntityData.Leafs["adv-router"] = types.YLeaf{"AdvRouter", header.AdvRouter}
-    header.EntityData.Leafs["seq-num"] = types.YLeaf{"SeqNum", header.SeqNum}
-    header.EntityData.Leafs["checksum"] = types.YLeaf{"Checksum", header.Checksum}
-    header.EntityData.Leafs["length"] = types.YLeaf{"Length", header.Length}
-    header.EntityData.Leafs["options"] = types.YLeaf{"Options", header.Options}
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Leafs = types.NewOrderedMap()
+    header.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", header.LsaId})
+    header.EntityData.Leafs.Append("age", types.YLeaf{"Age", header.Age})
+    header.EntityData.Leafs.Append("type", types.YLeaf{"Type", header.Type})
+    header.EntityData.Leafs.Append("adv-router", types.YLeaf{"AdvRouter", header.AdvRouter})
+    header.EntityData.Leafs.Append("seq-num", types.YLeaf{"SeqNum", header.SeqNum})
+    header.EntityData.Leafs.Append("checksum", types.YLeaf{"Checksum", header.Checksum})
+    header.EntityData.Leafs.Append("length", types.YLeaf{"Length", header.Length})
+    header.EntityData.Leafs.Append("options", types.YLeaf{"Options", header.Options})
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -4583,16 +4895,19 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    body.EntityData.Children = make(map[string]types.YChild)
-    body.EntityData.Children["router"] = types.YChild{"Router", &body.Router}
-    body.EntityData.Children["network"] = types.YChild{"Network", &body.Network}
-    body.EntityData.Children["inter-area-prefix"] = types.YChild{"InterAreaPrefix", &body.InterAreaPrefix}
-    body.EntityData.Children["inter-area-router"] = types.YChild{"InterAreaRouter", &body.InterAreaRouter}
-    body.EntityData.Children["as-external"] = types.YChild{"AsExternal", &body.AsExternal}
-    body.EntityData.Children["nssa"] = types.YChild{"Nssa", &body.Nssa}
-    body.EntityData.Children["link"] = types.YChild{"Link", &body.Link}
-    body.EntityData.Children["intra-area-prefix"] = types.YChild{"IntraAreaPrefix", &body.IntraAreaPrefix}
-    body.EntityData.Leafs = make(map[string]types.YLeaf)
+    body.EntityData.Children = types.NewOrderedMap()
+    body.EntityData.Children.Append("router", types.YChild{"Router", &body.Router})
+    body.EntityData.Children.Append("network", types.YChild{"Network", &body.Network})
+    body.EntityData.Children.Append("inter-area-prefix", types.YChild{"InterAreaPrefix", &body.InterAreaPrefix})
+    body.EntityData.Children.Append("inter-area-router", types.YChild{"InterAreaRouter", &body.InterAreaRouter})
+    body.EntityData.Children.Append("as-external", types.YChild{"AsExternal", &body.AsExternal})
+    body.EntityData.Children.Append("nssa", types.YChild{"Nssa", &body.Nssa})
+    body.EntityData.Children.Append("link", types.YChild{"Link", &body.Link})
+    body.EntityData.Children.Append("intra-area-prefix", types.YChild{"IntraAreaPrefix", &body.IntraAreaPrefix})
+    body.EntityData.Leafs = types.NewOrderedMap()
+
+    body.EntityData.YListKeys = []string {}
+
     return &(body.EntityData)
 }
 
@@ -4611,7 +4926,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Router LSA link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Router_Link.
-    Link []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Router_Link
+    Link []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Router_Link
 }
 
 func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Router) GetEntityData() *types.CommonEntityData {
@@ -4624,14 +4939,17 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    router.EntityData.Children = make(map[string]types.YChild)
-    router.EntityData.Children["link"] = types.YChild{"Link", nil}
+    router.EntityData.Children = types.NewOrderedMap()
+    router.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range router.Link {
-        router.EntityData.Children[types.GetSegmentPath(&router.Link[i])] = types.YChild{"Link", &router.Link[i]}
+        router.EntityData.Children.Append(types.GetSegmentPath(router.Link[i]), types.YChild{"Link", router.Link[i]})
     }
-    router.EntityData.Leafs = make(map[string]types.YLeaf)
-    router.EntityData.Leafs["flags"] = types.YLeaf{"Flags", router.Flags}
-    router.EntityData.Leafs["options"] = types.YLeaf{"Options", router.Options}
+    router.EntityData.Leafs = types.NewOrderedMap()
+    router.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", router.Flags})
+    router.EntityData.Leafs.Append("options", types.YLeaf{"Options", router.Options})
+
+    router.EntityData.YListKeys = []string {}
+
     return &(router.EntityData)
 }
 
@@ -4651,11 +4969,11 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Neighbor Router ID. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     NeighborRouterId interface{}
 
     // Link type. The type is interface{} with range: 0..255.
-    Type_ interface{}
+    Type interface{}
 
     // Metric. The type is interface{} with range: 0..65535.
     Metric interface{}
@@ -4666,18 +4984,21 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
-    link.EntityData.SegmentPath = "link" + "[interface-id='" + fmt.Sprintf("%v", link.InterfaceId) + "']" + "[neighbor-interface-id='" + fmt.Sprintf("%v", link.NeighborInterfaceId) + "']" + "[neighbor-router-id='" + fmt.Sprintf("%v", link.NeighborRouterId) + "']"
+    link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.InterfaceId, "interface-id") + types.AddKeyToken(link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(link.NeighborRouterId, "neighbor-router-id")
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["interface-id"] = types.YLeaf{"InterfaceId", link.InterfaceId}
-    link.EntityData.Leafs["neighbor-interface-id"] = types.YLeaf{"NeighborInterfaceId", link.NeighborInterfaceId}
-    link.EntityData.Leafs["neighbor-router-id"] = types.YLeaf{"NeighborRouterId", link.NeighborRouterId}
-    link.EntityData.Leafs["type"] = types.YLeaf{"Type_", link.Type_}
-    link.EntityData.Leafs["metric"] = types.YLeaf{"Metric", link.Metric}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", link.InterfaceId})
+    link.EntityData.Leafs.Append("neighbor-interface-id", types.YLeaf{"NeighborInterfaceId", link.NeighborInterfaceId})
+    link.EntityData.Leafs.Append("neighbor-router-id", types.YLeaf{"NeighborRouterId", link.NeighborRouterId})
+    link.EntityData.Leafs.Append("type", types.YLeaf{"Type", link.Type})
+    link.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", link.Metric})
+
+    link.EntityData.YListKeys = []string {"InterfaceId", "NeighborInterfaceId", "NeighborRouterId"}
+
     return &(link.EntityData)
 }
 
@@ -4693,7 +5014,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -4707,10 +5028,13 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["options"] = types.YLeaf{"Options", network.Options}
-    network.EntityData.Leafs["attached-router"] = types.YLeaf{"AttachedRouter", network.AttachedRouter}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("options", types.YLeaf{"Options", network.Options})
+    network.EntityData.Leafs.Append("attached-router", types.YLeaf{"AttachedRouter", network.AttachedRouter})
+
+    network.EntityData.YListKeys = []string {}
+
     return &(network.EntityData)
 }
 
@@ -4740,11 +5064,14 @@ func (interAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interAreaPrefix.EntityData.Children = make(map[string]types.YChild)
-    interAreaPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    interAreaPrefix.EntityData.Leafs["metric"] = types.YLeaf{"Metric", interAreaPrefix.Metric}
-    interAreaPrefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", interAreaPrefix.Prefix}
-    interAreaPrefix.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", interAreaPrefix.PrefixOptions}
+    interAreaPrefix.EntityData.Children = types.NewOrderedMap()
+    interAreaPrefix.EntityData.Leafs = types.NewOrderedMap()
+    interAreaPrefix.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", interAreaPrefix.Metric})
+    interAreaPrefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", interAreaPrefix.Prefix})
+    interAreaPrefix.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", interAreaPrefix.PrefixOptions})
+
+    interAreaPrefix.EntityData.YListKeys = []string {}
+
     return &(interAreaPrefix.EntityData)
 }
 
@@ -4763,7 +5090,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The Router ID of the router being described by the LSA. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     DestinationRouterId interface{}
 }
 
@@ -4777,11 +5104,14 @@ func (interAreaRouter *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaRouter.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaRouter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interAreaRouter.EntityData.Children = make(map[string]types.YChild)
-    interAreaRouter.EntityData.Leafs = make(map[string]types.YLeaf)
-    interAreaRouter.EntityData.Leafs["options"] = types.YLeaf{"Options", interAreaRouter.Options}
-    interAreaRouter.EntityData.Leafs["metric"] = types.YLeaf{"Metric", interAreaRouter.Metric}
-    interAreaRouter.EntityData.Leafs["destination-router-id"] = types.YLeaf{"DestinationRouterId", interAreaRouter.DestinationRouterId}
+    interAreaRouter.EntityData.Children = types.NewOrderedMap()
+    interAreaRouter.EntityData.Leafs = types.NewOrderedMap()
+    interAreaRouter.EntityData.Leafs.Append("options", types.YLeaf{"Options", interAreaRouter.Options})
+    interAreaRouter.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", interAreaRouter.Metric})
+    interAreaRouter.EntityData.Leafs.Append("destination-router-id", types.YLeaf{"DestinationRouterId", interAreaRouter.DestinationRouterId})
+
+    interAreaRouter.EntityData.YListKeys = []string {}
+
     return &(interAreaRouter.EntityData)
 }
 
@@ -4807,7 +5137,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -4828,16 +5158,19 @@ func (asExternal *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     asExternal.EntityData.NamespaceTable = ietf.GetNamespaces()
     asExternal.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    asExternal.EntityData.Children = make(map[string]types.YChild)
-    asExternal.EntityData.Leafs = make(map[string]types.YLeaf)
-    asExternal.EntityData.Leafs["metric"] = types.YLeaf{"Metric", asExternal.Metric}
-    asExternal.EntityData.Leafs["flags"] = types.YLeaf{"Flags", asExternal.Flags}
-    asExternal.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", asExternal.ReferencedLsType}
-    asExternal.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", asExternal.Prefix}
-    asExternal.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", asExternal.PrefixOptions}
-    asExternal.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", asExternal.ForwardingAddress}
-    asExternal.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", asExternal.ExternalRouteTag}
-    asExternal.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", asExternal.ReferencedLinkStateId}
+    asExternal.EntityData.Children = types.NewOrderedMap()
+    asExternal.EntityData.Leafs = types.NewOrderedMap()
+    asExternal.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", asExternal.Metric})
+    asExternal.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", asExternal.Flags})
+    asExternal.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", asExternal.ReferencedLsType})
+    asExternal.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", asExternal.Prefix})
+    asExternal.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", asExternal.PrefixOptions})
+    asExternal.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", asExternal.ForwardingAddress})
+    asExternal.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", asExternal.ExternalRouteTag})
+    asExternal.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", asExternal.ReferencedLinkStateId})
+
+    asExternal.EntityData.YListKeys = []string {}
+
     return &(asExternal.EntityData)
 }
 
@@ -4863,7 +5196,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -4884,16 +5217,19 @@ func (nssa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     nssa.EntityData.NamespaceTable = ietf.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    nssa.EntityData.Children = make(map[string]types.YChild)
-    nssa.EntityData.Leafs = make(map[string]types.YLeaf)
-    nssa.EntityData.Leafs["metric"] = types.YLeaf{"Metric", nssa.Metric}
-    nssa.EntityData.Leafs["flags"] = types.YLeaf{"Flags", nssa.Flags}
-    nssa.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", nssa.ReferencedLsType}
-    nssa.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", nssa.Prefix}
-    nssa.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", nssa.PrefixOptions}
-    nssa.EntityData.Leafs["forwarding-address"] = types.YLeaf{"ForwardingAddress", nssa.ForwardingAddress}
-    nssa.EntityData.Leafs["external-route-tag"] = types.YLeaf{"ExternalRouteTag", nssa.ExternalRouteTag}
-    nssa.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", nssa.ReferencedLinkStateId}
+    nssa.EntityData.Children = types.NewOrderedMap()
+    nssa.EntityData.Leafs = types.NewOrderedMap()
+    nssa.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", nssa.Metric})
+    nssa.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", nssa.Flags})
+    nssa.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", nssa.ReferencedLsType})
+    nssa.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", nssa.Prefix})
+    nssa.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", nssa.PrefixOptions})
+    nssa.EntityData.Leafs.Append("forwarding-address", types.YLeaf{"ForwardingAddress", nssa.ForwardingAddress})
+    nssa.EntityData.Leafs.Append("external-route-tag", types.YLeaf{"ExternalRouteTag", nssa.ExternalRouteTag})
+    nssa.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", nssa.ReferencedLinkStateId})
+
+    nssa.EntityData.YListKeys = []string {}
+
     return &(nssa.EntityData)
 }
 
@@ -4913,9 +5249,9 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The originating router's link-local interface address on the link. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LinkLocalInterfaceAddress interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..4294967295.
@@ -4923,7 +5259,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of prefixes associated with the link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Link_PrefixList.
-    PrefixList []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Link_PrefixList
+    PrefixList []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Link_PrefixList
 }
 
 func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Link) GetEntityData() *types.CommonEntityData {
@@ -4936,16 +5272,19 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Children["prefix-list"] = types.YChild{"PrefixList", nil}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Children.Append("prefix-list", types.YChild{"PrefixList", nil})
     for i := range link.PrefixList {
-        link.EntityData.Children[types.GetSegmentPath(&link.PrefixList[i])] = types.YChild{"PrefixList", &link.PrefixList[i]}
+        link.EntityData.Children.Append(types.GetSegmentPath(link.PrefixList[i]), types.YChild{"PrefixList", link.PrefixList[i]})
     }
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
-    link.EntityData.Leafs["rtr-priority"] = types.YLeaf{"RtrPriority", link.RtrPriority}
-    link.EntityData.Leafs["options"] = types.YLeaf{"Options", link.Options}
-    link.EntityData.Leafs["link-local-interface-address"] = types.YLeaf{"LinkLocalInterfaceAddress", link.LinkLocalInterfaceAddress}
-    link.EntityData.Leafs["num-of-prefixes"] = types.YLeaf{"NumOfPrefixes", link.NumOfPrefixes}
+    link.EntityData.Leafs = types.NewOrderedMap()
+    link.EntityData.Leafs.Append("rtr-priority", types.YLeaf{"RtrPriority", link.RtrPriority})
+    link.EntityData.Leafs.Append("options", types.YLeaf{"Options", link.Options})
+    link.EntityData.Leafs.Append("link-local-interface-address", types.YLeaf{"LinkLocalInterfaceAddress", link.LinkLocalInterfaceAddress})
+    link.EntityData.Leafs.Append("num-of-prefixes", types.YLeaf{"NumOfPrefixes", link.NumOfPrefixes})
+
+    link.EntityData.YListKeys = []string {}
+
     return &(link.EntityData)
 }
 
@@ -4967,15 +5306,18 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.YangName = "prefix-list"
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "link"
-    prefixList.EntityData.SegmentPath = "prefix-list" + "[prefix='" + fmt.Sprintf("%v", prefixList.Prefix) + "']"
+    prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    prefixList.EntityData.Children = make(map[string]types.YChild)
-    prefixList.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixList.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefixList.Prefix}
-    prefixList.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", prefixList.PrefixOptions}
+    prefixList.EntityData.Children = types.NewOrderedMap()
+    prefixList.EntityData.Leafs = types.NewOrderedMap()
+    prefixList.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefixList.Prefix})
+    prefixList.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", prefixList.PrefixOptions})
+
+    prefixList.EntityData.YListKeys = []string {"Prefix"}
+
     return &(prefixList.EntityData)
 }
 
@@ -4993,7 +5335,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     ReferencedLinkStateId interface{}
 
     // Referenced Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferencedAdvRouter interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..65535.
@@ -5001,7 +5343,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of prefixes associated with the link. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList.
-    PrefixList []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList
+    PrefixList []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList
 }
 
 func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_IntraAreaPrefix) GetEntityData() *types.CommonEntityData {
@@ -5014,16 +5356,19 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     intraAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     intraAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    intraAreaPrefix.EntityData.Children = make(map[string]types.YChild)
-    intraAreaPrefix.EntityData.Children["prefix-list"] = types.YChild{"PrefixList", nil}
+    intraAreaPrefix.EntityData.Children = types.NewOrderedMap()
+    intraAreaPrefix.EntityData.Children.Append("prefix-list", types.YChild{"PrefixList", nil})
     for i := range intraAreaPrefix.PrefixList {
-        intraAreaPrefix.EntityData.Children[types.GetSegmentPath(&intraAreaPrefix.PrefixList[i])] = types.YChild{"PrefixList", &intraAreaPrefix.PrefixList[i]}
+        intraAreaPrefix.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefix.PrefixList[i]), types.YChild{"PrefixList", intraAreaPrefix.PrefixList[i]})
     }
-    intraAreaPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    intraAreaPrefix.EntityData.Leafs["referenced-ls-type"] = types.YLeaf{"ReferencedLsType", intraAreaPrefix.ReferencedLsType}
-    intraAreaPrefix.EntityData.Leafs["referenced-link-state-id"] = types.YLeaf{"ReferencedLinkStateId", intraAreaPrefix.ReferencedLinkStateId}
-    intraAreaPrefix.EntityData.Leafs["referenced-adv-router"] = types.YLeaf{"ReferencedAdvRouter", intraAreaPrefix.ReferencedAdvRouter}
-    intraAreaPrefix.EntityData.Leafs["num-of-prefixes"] = types.YLeaf{"NumOfPrefixes", intraAreaPrefix.NumOfPrefixes}
+    intraAreaPrefix.EntityData.Leafs = types.NewOrderedMap()
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-ls-type", types.YLeaf{"ReferencedLsType", intraAreaPrefix.ReferencedLsType})
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-link-state-id", types.YLeaf{"ReferencedLinkStateId", intraAreaPrefix.ReferencedLinkStateId})
+    intraAreaPrefix.EntityData.Leafs.Append("referenced-adv-router", types.YLeaf{"ReferencedAdvRouter", intraAreaPrefix.ReferencedAdvRouter})
+    intraAreaPrefix.EntityData.Leafs.Append("num-of-prefixes", types.YLeaf{"NumOfPrefixes", intraAreaPrefix.NumOfPrefixes})
+
+    intraAreaPrefix.EntityData.YListKeys = []string {}
+
     return &(intraAreaPrefix.EntityData)
 }
 
@@ -5048,16 +5393,19 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.YangName = "prefix-list"
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "intra-area-prefix"
-    prefixList.EntityData.SegmentPath = "prefix-list" + "[prefix='" + fmt.Sprintf("%v", prefixList.Prefix) + "']"
+    prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    prefixList.EntityData.Children = make(map[string]types.YChild)
-    prefixList.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixList.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefixList.Prefix}
-    prefixList.EntityData.Leafs["prefix-options"] = types.YLeaf{"PrefixOptions", prefixList.PrefixOptions}
-    prefixList.EntityData.Leafs["metric"] = types.YLeaf{"Metric", prefixList.Metric}
+    prefixList.EntityData.Children = types.NewOrderedMap()
+    prefixList.EntityData.Leafs = types.NewOrderedMap()
+    prefixList.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefixList.Prefix})
+    prefixList.EntityData.Leafs.Append("prefix-options", types.YLeaf{"PrefixOptions", prefixList.PrefixOptions})
+    prefixList.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", prefixList.Metric})
+
+    prefixList.EntityData.YListKeys = []string {"Prefix"}
+
     return &(prefixList.EntityData)
 }
 
@@ -5073,7 +5421,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of ospf areas. The type is slice of
     // RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area.
-    Area []RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area
+    Area []*RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area
 }
 
 func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology) GetEntityData() *types.CommonEntityData {
@@ -5081,18 +5429,21 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "instance"
-    topology.EntityData.SegmentPath = "topology" + "[name='" + fmt.Sprintf("%v", topology.Name) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.Name, "name")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Children["area"] = types.YChild{"Area", nil}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Children.Append("area", types.YChild{"Area", nil})
     for i := range topology.Area {
-        topology.EntityData.Children[types.GetSegmentPath(&topology.Area[i])] = types.YChild{"Area", &topology.Area[i]}
+        topology.EntityData.Children.Append(types.GetSegmentPath(topology.Area[i]), types.YChild{"Area", topology.Area[i]})
     }
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["name"] = types.YLeaf{"Name", topology.Name}
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("name", types.YLeaf{"Name", topology.Name})
+
+    topology.EntityData.YListKeys = []string {"Name"}
+
     return &(topology.EntityData)
 }
 
@@ -5104,7 +5455,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AreaId interface{}
 }
 
@@ -5113,14 +5464,17 @@ func (area *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     area.EntityData.YangName = "area"
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "topology"
-    area.EntityData.SegmentPath = "area" + "[area-id='" + fmt.Sprintf("%v", area.AreaId) + "']"
+    area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    area.EntityData.Children = make(map[string]types.YChild)
-    area.EntityData.Leafs = make(map[string]types.YLeaf)
-    area.EntityData.Leafs["area-id"] = types.YLeaf{"AreaId", area.AreaId}
+    area.EntityData.Children = types.NewOrderedMap()
+    area.EntityData.Leafs = types.NewOrderedMap()
+    area.EntityData.Leafs.Append("area-id", types.YLeaf{"AreaId", area.AreaId})
+
+    area.EntityData.YListKeys = []string {"AreaId"}
+
     return &(area.EntityData)
 }
 
@@ -5135,7 +5489,7 @@ type RoutingState_RoutingInstance_Ribs struct {
     // implementation SHOULD provide one system-controlled default RIB for each
     // supported address family. The type is slice of
     // RoutingState_RoutingInstance_Ribs_Rib.
-    Rib []RoutingState_RoutingInstance_Ribs_Rib
+    Rib []*RoutingState_RoutingInstance_Ribs_Rib
 }
 
 func (ribs *RoutingState_RoutingInstance_Ribs) GetEntityData() *types.CommonEntityData {
@@ -5148,12 +5502,15 @@ func (ribs *RoutingState_RoutingInstance_Ribs) GetEntityData() *types.CommonEnti
     ribs.EntityData.NamespaceTable = ietf.GetNamespaces()
     ribs.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ribs.EntityData.Children = make(map[string]types.YChild)
-    ribs.EntityData.Children["rib"] = types.YChild{"Rib", nil}
+    ribs.EntityData.Children = types.NewOrderedMap()
+    ribs.EntityData.Children.Append("rib", types.YChild{"Rib", nil})
     for i := range ribs.Rib {
-        ribs.EntityData.Children[types.GetSegmentPath(&ribs.Rib[i])] = types.YChild{"Rib", &ribs.Rib[i]}
+        ribs.EntityData.Children.Append(types.GetSegmentPath(ribs.Rib[i]), types.YChild{"Rib", ribs.Rib[i]})
     }
-    ribs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ribs.EntityData.Leafs = types.NewOrderedMap()
+
+    ribs.EntityData.YListKeys = []string {}
+
     return &(ribs.EntityData)
 }
 
@@ -5191,17 +5548,20 @@ func (rib *RoutingState_RoutingInstance_Ribs_Rib) GetEntityData() *types.CommonE
     rib.EntityData.YangName = "rib"
     rib.EntityData.BundleName = "ietf"
     rib.EntityData.ParentYangName = "ribs"
-    rib.EntityData.SegmentPath = "rib" + "[name='" + fmt.Sprintf("%v", rib.Name) + "']"
+    rib.EntityData.SegmentPath = "rib" + types.AddKeyToken(rib.Name, "name")
     rib.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     rib.EntityData.NamespaceTable = ietf.GetNamespaces()
     rib.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    rib.EntityData.Children = make(map[string]types.YChild)
-    rib.EntityData.Children["routes"] = types.YChild{"Routes", &rib.Routes}
-    rib.EntityData.Leafs = make(map[string]types.YLeaf)
-    rib.EntityData.Leafs["name"] = types.YLeaf{"Name", rib.Name}
-    rib.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", rib.AddressFamily}
-    rib.EntityData.Leafs["default-rib"] = types.YLeaf{"DefaultRib", rib.DefaultRib}
+    rib.EntityData.Children = types.NewOrderedMap()
+    rib.EntityData.Children.Append("routes", types.YChild{"Routes", &rib.Routes})
+    rib.EntityData.Leafs = types.NewOrderedMap()
+    rib.EntityData.Leafs.Append("name", types.YLeaf{"Name", rib.Name})
+    rib.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", rib.AddressFamily})
+    rib.EntityData.Leafs.Append("default-rib", types.YLeaf{"DefaultRib", rib.DefaultRib})
+
+    rib.EntityData.YListKeys = []string {"Name"}
+
     return &(rib.EntityData)
 }
 
@@ -5214,7 +5574,7 @@ type RoutingState_RoutingInstance_Ribs_Rib_Routes struct {
     // A RIB route entry. This data node MUST be augmented with information
     // specific for routes of each address family. The type is slice of
     // RoutingState_RoutingInstance_Ribs_Rib_Routes_Route.
-    Route []RoutingState_RoutingInstance_Ribs_Rib_Routes_Route
+    Route []*RoutingState_RoutingInstance_Ribs_Rib_Routes_Route
 }
 
 func (routes *RoutingState_RoutingInstance_Ribs_Rib_Routes) GetEntityData() *types.CommonEntityData {
@@ -5227,12 +5587,15 @@ func (routes *RoutingState_RoutingInstance_Ribs_Rib_Routes) GetEntityData() *typ
     routes.EntityData.NamespaceTable = ietf.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -5258,7 +5621,7 @@ type RoutingState_RoutingInstance_Ribs_Rib_Routes_Route struct {
     Metric interface{}
 
     // Type of the routing protocol from which the route originated. The type is
-    // one of the following: OspfOspfv2Ospfv3DirectStatic. This attribute is
+    // one of the following: Ospfv3Ospfv2OspfDirectStatic. This attribute is
     // mandatory.
     SourceProtocol interface{}
 
@@ -5270,7 +5633,7 @@ type RoutingState_RoutingInstance_Ribs_Rib_Routes_Route struct {
     // Time stamp of the last modification of the route. If the route was never
     // modified, it is the time when the route was inserted into the RIB. The type
     // is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdated interface{}
 
     // Update source for the route. The type is string.
@@ -5292,23 +5655,26 @@ func (route *RoutingState_RoutingInstance_Ribs_Rib_Routes_Route) GetEntityData()
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "ietf"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route" + "[destination-prefix='" + fmt.Sprintf("%v", route.DestinationPrefix) + "']"
+    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.DestinationPrefix, "destination-prefix")
     route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     route.EntityData.NamespaceTable = ietf.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["next-hop"] = types.YChild{"NextHop", &route.NextHop}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["destination-prefix"] = types.YLeaf{"DestinationPrefix", route.DestinationPrefix}
-    route.EntityData.Leafs["route-preference"] = types.YLeaf{"RoutePreference", route.RoutePreference}
-    route.EntityData.Leafs["metric"] = types.YLeaf{"Metric", route.Metric}
-    route.EntityData.Leafs["source-protocol"] = types.YLeaf{"SourceProtocol", route.SourceProtocol}
-    route.EntityData.Leafs["active"] = types.YLeaf{"Active", route.Active}
-    route.EntityData.Leafs["last-updated"] = types.YLeaf{"LastUpdated", route.LastUpdated}
-    route.EntityData.Leafs["update-source"] = types.YLeaf{"UpdateSource", route.UpdateSource}
-    route.EntityData.Leafs["tag"] = types.YLeaf{"Tag", route.Tag}
-    route.EntityData.Leafs["route-type"] = types.YLeaf{"RouteType", route.RouteType}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("next-hop", types.YChild{"NextHop", &route.NextHop})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"DestinationPrefix", route.DestinationPrefix})
+    route.EntityData.Leafs.Append("route-preference", types.YLeaf{"RoutePreference", route.RoutePreference})
+    route.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", route.Metric})
+    route.EntityData.Leafs.Append("source-protocol", types.YLeaf{"SourceProtocol", route.SourceProtocol})
+    route.EntityData.Leafs.Append("active", types.YLeaf{"Active", route.Active})
+    route.EntityData.Leafs.Append("last-updated", types.YLeaf{"LastUpdated", route.LastUpdated})
+    route.EntityData.Leafs.Append("update-source", types.YLeaf{"UpdateSource", route.UpdateSource})
+    route.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", route.Tag})
+    route.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", route.RouteType})
+
+    route.EntityData.YListKeys = []string {"DestinationPrefix"}
+
     return &(route.EntityData)
 }
 
@@ -5338,11 +5704,14 @@ func (nextHop *RoutingState_RoutingInstance_Ribs_Rib_Routes_Route_NextHop) GetEn
     nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    nextHop.EntityData.Children = make(map[string]types.YChild)
-    nextHop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nextHop.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface}
-    nextHop.EntityData.Leafs["next-hop-address"] = types.YLeaf{"NextHopAddress", nextHop.NextHopAddress}
-    nextHop.EntityData.Leafs["special-next-hop"] = types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop}
+    nextHop.EntityData.Children = types.NewOrderedMap()
+    nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", nextHop.NextHopAddress})
+    nextHop.EntityData.Leafs.Append("special-next-hop", types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop})
+
+    nextHop.EntityData.YListKeys = []string {}
+
     return &(nextHop.EntityData)
 }
 
@@ -5398,7 +5767,7 @@ type Routing struct {
 
     // Configuration of a routing instance. The type is slice of
     // Routing_RoutingInstance.
-    RoutingInstance []Routing_RoutingInstance
+    RoutingInstance []*Routing_RoutingInstance
 }
 
 func (routing *Routing) GetEntityData() *types.CommonEntityData {
@@ -5411,12 +5780,15 @@ func (routing *Routing) GetEntityData() *types.CommonEntityData {
     routing.EntityData.NamespaceTable = ietf.GetNamespaces()
     routing.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routing.EntityData.Children = make(map[string]types.YChild)
-    routing.EntityData.Children["routing-instance"] = types.YChild{"RoutingInstance", nil}
+    routing.EntityData.Children = types.NewOrderedMap()
+    routing.EntityData.Children.Append("routing-instance", types.YChild{"RoutingInstance", nil})
     for i := range routing.RoutingInstance {
-        routing.EntityData.Children[types.GetSegmentPath(&routing.RoutingInstance[i])] = types.YChild{"RoutingInstance", &routing.RoutingInstance[i]}
+        routing.EntityData.Children.Append(types.GetSegmentPath(routing.RoutingInstance[i]), types.YChild{"RoutingInstance", routing.RoutingInstance[i]})
     }
-    routing.EntityData.Leafs = make(map[string]types.YLeaf)
+    routing.EntityData.Leafs = types.NewOrderedMap()
+
+    routing.EntityData.YListKeys = []string {}
+
     return &(routing.EntityData)
 }
 
@@ -5433,9 +5805,9 @@ type Routing_RoutingInstance struct {
     Name interface{}
 
     // The type of the routing instance. The type is one of the following:
-    // DefaultRoutingInstanceVrfRoutingInstance. The default value is
+    // VrfRoutingInstanceDefaultRoutingInstance. The default value is
     // rt:default-routing-instance.
-    Type_ interface{}
+    Type interface{}
 
     // Enable/disable the routing instance.  If this parameter is false, the
     // parent routing instance is disabled and does not appear in state data,
@@ -5445,7 +5817,7 @@ type Routing_RoutingInstance struct {
 
     // A 32-bit number in the form of a dotted quad that is used by some routing
     // protocols identifying a router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // Textual description of the routing instance. The type is string.
@@ -5466,21 +5838,24 @@ func (routingInstance *Routing_RoutingInstance) GetEntityData() *types.CommonEnt
     routingInstance.EntityData.YangName = "routing-instance"
     routingInstance.EntityData.BundleName = "ietf"
     routingInstance.EntityData.ParentYangName = "routing"
-    routingInstance.EntityData.SegmentPath = "routing-instance" + "[name='" + fmt.Sprintf("%v", routingInstance.Name) + "']"
+    routingInstance.EntityData.SegmentPath = "routing-instance" + types.AddKeyToken(routingInstance.Name, "name")
     routingInstance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingInstance.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingInstance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routingInstance.EntityData.Children = make(map[string]types.YChild)
-    routingInstance.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &routingInstance.Interfaces}
-    routingInstance.EntityData.Children["routing-protocols"] = types.YChild{"RoutingProtocols", &routingInstance.RoutingProtocols}
-    routingInstance.EntityData.Children["ribs"] = types.YChild{"Ribs", &routingInstance.Ribs}
-    routingInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    routingInstance.EntityData.Leafs["name"] = types.YLeaf{"Name", routingInstance.Name}
-    routingInstance.EntityData.Leafs["type"] = types.YLeaf{"Type_", routingInstance.Type_}
-    routingInstance.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", routingInstance.Enabled}
-    routingInstance.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", routingInstance.RouterId}
-    routingInstance.EntityData.Leafs["description"] = types.YLeaf{"Description", routingInstance.Description}
+    routingInstance.EntityData.Children = types.NewOrderedMap()
+    routingInstance.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &routingInstance.Interfaces})
+    routingInstance.EntityData.Children.Append("routing-protocols", types.YChild{"RoutingProtocols", &routingInstance.RoutingProtocols})
+    routingInstance.EntityData.Children.Append("ribs", types.YChild{"Ribs", &routingInstance.Ribs})
+    routingInstance.EntityData.Leafs = types.NewOrderedMap()
+    routingInstance.EntityData.Leafs.Append("name", types.YLeaf{"Name", routingInstance.Name})
+    routingInstance.EntityData.Leafs.Append("type", types.YLeaf{"Type", routingInstance.Type})
+    routingInstance.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", routingInstance.Enabled})
+    routingInstance.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", routingInstance.RouterId})
+    routingInstance.EntityData.Leafs.Append("description", types.YLeaf{"Description", routingInstance.Description})
+
+    routingInstance.EntityData.YListKeys = []string {"Name"}
+
     return &(routingInstance.EntityData)
 }
 
@@ -5493,7 +5868,7 @@ type Routing_RoutingInstance_Interfaces struct {
     // The name of a configured network layer interface to be assigned to the
     // routing-instance. The type is slice of string. Refers to
     // interfaces.Interfaces_Interface_Name
-    Interface_ []interface{}
+    Interface []interface{}
 }
 
 func (interfaces *Routing_RoutingInstance_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -5506,9 +5881,12 @@ func (interfaces *Routing_RoutingInstance_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaces.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", interfaces.Interface_}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+    interfaces.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", interfaces.Interface})
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -5520,7 +5898,7 @@ type Routing_RoutingInstance_RoutingProtocols struct {
 
     // Each entry contains configuration of a routing protocol instance. The type
     // is slice of Routing_RoutingInstance_RoutingProtocols_RoutingProtocol.
-    RoutingProtocol []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol
+    RoutingProtocol []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol
 }
 
 func (routingProtocols *Routing_RoutingInstance_RoutingProtocols) GetEntityData() *types.CommonEntityData {
@@ -5533,12 +5911,15 @@ func (routingProtocols *Routing_RoutingInstance_RoutingProtocols) GetEntityData(
     routingProtocols.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingProtocols.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routingProtocols.EntityData.Children = make(map[string]types.YChild)
-    routingProtocols.EntityData.Children["routing-protocol"] = types.YChild{"RoutingProtocol", nil}
+    routingProtocols.EntityData.Children = types.NewOrderedMap()
+    routingProtocols.EntityData.Children.Append("routing-protocol", types.YChild{"RoutingProtocol", nil})
     for i := range routingProtocols.RoutingProtocol {
-        routingProtocols.EntityData.Children[types.GetSegmentPath(&routingProtocols.RoutingProtocol[i])] = types.YChild{"RoutingProtocol", &routingProtocols.RoutingProtocol[i]}
+        routingProtocols.EntityData.Children.Append(types.GetSegmentPath(routingProtocols.RoutingProtocol[i]), types.YChild{"RoutingProtocol", routingProtocols.RoutingProtocol[i]})
     }
-    routingProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingProtocols.EntityData.Leafs = types.NewOrderedMap()
+
+    routingProtocols.EntityData.YListKeys = []string {}
+
     return &(routingProtocols.EntityData)
 }
 
@@ -5551,8 +5932,8 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol struct {
 
     // This attribute is a key. Type of the routing protocol - an identity derived
     // from the 'routing-protocol' base identity. The type is one of the
-    // following: OspfOspfv2Ospfv3DirectStatic.
-    Type_ interface{}
+    // following: Ospfv3Ospfv2OspfDirectStatic.
+    Type interface{}
 
     // This attribute is a key. An arbitrary name of the routing protocol
     // instance. The type is string.
@@ -5574,18 +5955,21 @@ func (routingProtocol *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol)
     routingProtocol.EntityData.YangName = "routing-protocol"
     routingProtocol.EntityData.BundleName = "ietf"
     routingProtocol.EntityData.ParentYangName = "routing-protocols"
-    routingProtocol.EntityData.SegmentPath = "routing-protocol" + "[type='" + fmt.Sprintf("%v", routingProtocol.Type_) + "']" + "[name='" + fmt.Sprintf("%v", routingProtocol.Name) + "']"
+    routingProtocol.EntityData.SegmentPath = "routing-protocol" + types.AddKeyToken(routingProtocol.Type, "type") + types.AddKeyToken(routingProtocol.Name, "name")
     routingProtocol.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingProtocol.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingProtocol.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    routingProtocol.EntityData.Children = make(map[string]types.YChild)
-    routingProtocol.EntityData.Children["static-routes"] = types.YChild{"StaticRoutes", &routingProtocol.StaticRoutes}
-    routingProtocol.EntityData.Children["ietf-ospf:ospf"] = types.YChild{"Ospf", &routingProtocol.Ospf}
-    routingProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    routingProtocol.EntityData.Leafs["type"] = types.YLeaf{"Type_", routingProtocol.Type_}
-    routingProtocol.EntityData.Leafs["name"] = types.YLeaf{"Name", routingProtocol.Name}
-    routingProtocol.EntityData.Leafs["description"] = types.YLeaf{"Description", routingProtocol.Description}
+    routingProtocol.EntityData.Children = types.NewOrderedMap()
+    routingProtocol.EntityData.Children.Append("static-routes", types.YChild{"StaticRoutes", &routingProtocol.StaticRoutes})
+    routingProtocol.EntityData.Children.Append("ietf-ospf:ospf", types.YChild{"Ospf", &routingProtocol.Ospf})
+    routingProtocol.EntityData.Leafs = types.NewOrderedMap()
+    routingProtocol.EntityData.Leafs.Append("type", types.YLeaf{"Type", routingProtocol.Type})
+    routingProtocol.EntityData.Leafs.Append("name", types.YLeaf{"Name", routingProtocol.Name})
+    routingProtocol.EntityData.Leafs.Append("description", types.YLeaf{"Description", routingProtocol.Description})
+
+    routingProtocol.EntityData.YListKeys = []string {"Type", "Name"}
+
     return &(routingProtocol.EntityData)
 }
 
@@ -5600,11 +5984,11 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes struc
 
     // Configuration of a 'static' pseudo-protocol instance consists of a list of
     // routes.
-    Ipv4 Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4
+    Ipv6 Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6
 
     // Configuration of a 'static' pseudo-protocol instance consists of a list of
     // routes.
-    Ipv6 Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6
+    Ipv4 Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4
 }
 
 func (staticRoutes *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes) GetEntityData() *types.CommonEntityData {
@@ -5617,136 +6001,15 @@ func (staticRoutes *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Sta
     staticRoutes.EntityData.NamespaceTable = ietf.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    staticRoutes.EntityData.Children = make(map[string]types.YChild)
-    staticRoutes.EntityData.Children["ietf-ipv4-unicast-routing:ipv4"] = types.YChild{"Ipv4", &staticRoutes.Ipv4}
-    staticRoutes.EntityData.Children["ietf-ipv6-unicast-routing:ipv6"] = types.YChild{"Ipv6", &staticRoutes.Ipv6}
-    staticRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticRoutes.EntityData.Children = types.NewOrderedMap()
+    staticRoutes.EntityData.Children.Append("ietf-ipv6-unicast-routing:ipv6", types.YChild{"Ipv6", &staticRoutes.Ipv6})
+    staticRoutes.EntityData.Children.Append("ietf-ipv4-unicast-routing:ipv4", types.YChild{"Ipv4", &staticRoutes.Ipv4})
+    staticRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    staticRoutes.EntityData.YListKeys = []string {}
+
     return &(staticRoutes.EntityData)
 }
-
-// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4
-// Configuration of a 'static' pseudo-protocol instance
-// consists of a list of routes.
-type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // A user-ordered list of static routes. The type is slice of
-    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route.
-    Route []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route
-}
-
-func (ipv4 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4) GetEntityData() *types.CommonEntityData {
-    ipv4.EntityData.YFilter = ipv4.YFilter
-    ipv4.EntityData.YangName = "ipv4"
-    ipv4.EntityData.BundleName = "ietf"
-    ipv4.EntityData.ParentYangName = "static-routes"
-    ipv4.EntityData.SegmentPath = "ietf-ipv4-unicast-routing:ipv4"
-    ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
-    ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["route"] = types.YChild{"Route", nil}
-    for i := range ipv4.Route {
-        ipv4.EntityData.Children[types.GetSegmentPath(&ipv4.Route[i])] = types.YChild{"Route", &ipv4.Route[i]}
-    }
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4.EntityData)
-}
-
-// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route
-// A user-ordered list of static routes.
-type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. IPv4 destination prefix. The type is string with
-    // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
-    // This attribute is mandatory.
-    DestinationPrefix interface{}
-
-    // Textual description of the route. The type is string.
-    Description interface{}
-
-    // Configuration of next-hop.
-    NextHop Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop
-}
-
-func (route *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route) GetEntityData() *types.CommonEntityData {
-    route.EntityData.YFilter = route.YFilter
-    route.EntityData.YangName = "route"
-    route.EntityData.BundleName = "ietf"
-    route.EntityData.ParentYangName = "ipv4"
-    route.EntityData.SegmentPath = "route" + "[destination-prefix='" + fmt.Sprintf("%v", route.DestinationPrefix) + "']"
-    route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    route.EntityData.NamespaceTable = ietf.GetNamespaces()
-    route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["next-hop"] = types.YChild{"NextHop", &route.NextHop}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["destination-prefix"] = types.YLeaf{"DestinationPrefix", route.DestinationPrefix}
-    route.EntityData.Leafs["description"] = types.YLeaf{"Description", route.Description}
-    return &(route.EntityData)
-}
-
-// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop
-// Configuration of next-hop.
-type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Name of the outgoing interface. The type is string.
-    OutgoingInterface interface{}
-
-    // Special next-hop options. The type is SpecialNextHop.
-    SpecialNextHop interface{}
-
-    // IPv4 address of the next-hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    NextHopAddress interface{}
-}
-
-func (nextHop *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop) GetEntityData() *types.CommonEntityData {
-    nextHop.EntityData.YFilter = nextHop.YFilter
-    nextHop.EntityData.YangName = "next-hop"
-    nextHop.EntityData.BundleName = "ietf"
-    nextHop.EntityData.ParentYangName = "route"
-    nextHop.EntityData.SegmentPath = "next-hop"
-    nextHop.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
-    nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    nextHop.EntityData.Children = make(map[string]types.YChild)
-    nextHop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nextHop.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface}
-    nextHop.EntityData.Leafs["special-next-hop"] = types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop}
-    nextHop.EntityData.Leafs["next-hop-address"] = types.YLeaf{"NextHopAddress", nextHop.NextHopAddress}
-    return &(nextHop.EntityData)
-}
-
-// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop represents Special next-hop options.
-type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop string
-
-const (
-    // Silently discard the packet.
-    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_blackhole Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "blackhole"
-
-    // Discard the packet and notify the sender with an error
-    // message indicating that the destination host is
-    // unreachable.
-    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_unreachable Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "unreachable"
-
-    // Discard the packet and notify the sender with an error
-    // message indicating that the communication is
-    // administratively prohibited.
-    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_prohibit Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "prohibit"
-
-    // The packet will be received by the local system.
-    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_receive Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "receive"
-)
 
 // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6
 // Configuration of a 'static' pseudo-protocol instance
@@ -5757,7 +6020,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6 
 
     // A user-ordered list of static routes. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_Route.
-    Route []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_Route
+    Route []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_Route
 }
 
 func (ipv6 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6) GetEntityData() *types.CommonEntityData {
@@ -5770,12 +6033,15 @@ func (ipv6 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoute
     ipv6.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["route"] = types.YChild{"Route", nil}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range ipv6.Route {
-        ipv6.EntityData.Children[types.GetSegmentPath(&ipv6.Route[i])] = types.YChild{"Route", &ipv6.Route[i]}
+        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Route[i]), types.YChild{"Route", ipv6.Route[i]})
     }
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -5787,7 +6053,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_
 
     // This attribute is a key. IPv6 destination prefix. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     // This attribute is mandatory.
     DestinationPrefix interface{}
 
@@ -5803,16 +6069,19 @@ func (route *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRout
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "ietf"
     route.EntityData.ParentYangName = "ipv6"
-    route.EntityData.SegmentPath = "route" + "[destination-prefix='" + fmt.Sprintf("%v", route.DestinationPrefix) + "']"
+    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.DestinationPrefix, "destination-prefix")
     route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     route.EntityData.NamespaceTable = ietf.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["next-hop"] = types.YChild{"NextHop", &route.NextHop}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["destination-prefix"] = types.YLeaf{"DestinationPrefix", route.DestinationPrefix}
-    route.EntityData.Leafs["description"] = types.YLeaf{"Description", route.Description}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("next-hop", types.YChild{"NextHop", &route.NextHop})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"DestinationPrefix", route.DestinationPrefix})
+    route.EntityData.Leafs.Append("description", types.YLeaf{"Description", route.Description})
+
+    route.EntityData.YListKeys = []string {"DestinationPrefix"}
+
     return &(route.EntityData)
 }
 
@@ -5829,7 +6098,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_
     SpecialNextHop interface{}
 
     // IPv6 address of the next-hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 }
 
@@ -5843,11 +6112,14 @@ func (nextHop *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRo
     nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    nextHop.EntityData.Children = make(map[string]types.YChild)
-    nextHop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nextHop.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface}
-    nextHop.EntityData.Leafs["special-next-hop"] = types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop}
-    nextHop.EntityData.Leafs["next-hop-address"] = types.YLeaf{"NextHopAddress", nextHop.NextHopAddress}
+    nextHop.EntityData.Children = types.NewOrderedMap()
+    nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface})
+    nextHop.EntityData.Leafs.Append("special-next-hop", types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", nextHop.NextHopAddress})
+
+    nextHop.EntityData.YListKeys = []string {}
+
     return &(nextHop.EntityData)
 }
 
@@ -5872,6 +6144,139 @@ const (
     Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_Route_NextHop_SpecialNextHop_receive Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_Route_NextHop_SpecialNextHop = "receive"
 )
 
+// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4
+// Configuration of a 'static' pseudo-protocol instance
+// consists of a list of routes.
+type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A user-ordered list of static routes. The type is slice of
+    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route.
+    Route []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route
+}
+
+func (ipv4 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "ietf"
+    ipv4.EntityData.ParentYangName = "static-routes"
+    ipv4.EntityData.SegmentPath = "ietf-ipv4-unicast-routing:ipv4"
+    ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("route", types.YChild{"Route", nil})
+    for i := range ipv4.Route {
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Route[i]), types.YChild{"Route", ipv4.Route[i]})
+    }
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
+    return &(ipv4.EntityData)
+}
+
+// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route
+// A user-ordered list of static routes.
+type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. IPv4 destination prefix. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
+    // This attribute is mandatory.
+    DestinationPrefix interface{}
+
+    // Textual description of the route. The type is string.
+    Description interface{}
+
+    // Configuration of next-hop.
+    NextHop Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop
+}
+
+func (route *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route) GetEntityData() *types.CommonEntityData {
+    route.EntityData.YFilter = route.YFilter
+    route.EntityData.YangName = "route"
+    route.EntityData.BundleName = "ietf"
+    route.EntityData.ParentYangName = "ipv4"
+    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.DestinationPrefix, "destination-prefix")
+    route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    route.EntityData.NamespaceTable = ietf.GetNamespaces()
+    route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("next-hop", types.YChild{"NextHop", &route.NextHop})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"DestinationPrefix", route.DestinationPrefix})
+    route.EntityData.Leafs.Append("description", types.YLeaf{"Description", route.Description})
+
+    route.EntityData.YListKeys = []string {"DestinationPrefix"}
+
+    return &(route.EntityData)
+}
+
+// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop
+// Configuration of next-hop.
+type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the outgoing interface. The type is string.
+    OutgoingInterface interface{}
+
+    // Special next-hop options. The type is SpecialNextHop.
+    SpecialNextHop interface{}
+
+    // IPv4 address of the next-hop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    NextHopAddress interface{}
+}
+
+func (nextHop *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop) GetEntityData() *types.CommonEntityData {
+    nextHop.EntityData.YFilter = nextHop.YFilter
+    nextHop.EntityData.YangName = "next-hop"
+    nextHop.EntityData.BundleName = "ietf"
+    nextHop.EntityData.ParentYangName = "route"
+    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
+    nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    nextHop.EntityData.Children = types.NewOrderedMap()
+    nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface})
+    nextHop.EntityData.Leafs.Append("special-next-hop", types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", nextHop.NextHopAddress})
+
+    nextHop.EntityData.YListKeys = []string {}
+
+    return &(nextHop.EntityData)
+}
+
+// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop represents Special next-hop options.
+type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop string
+
+const (
+    // Silently discard the packet.
+    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_blackhole Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "blackhole"
+
+    // Discard the packet and notify the sender with an error
+    // message indicating that the destination host is
+    // unreachable.
+    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_unreachable Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "unreachable"
+
+    // Discard the packet and notify the sender with an error
+    // message indicating that the communication is
+    // administratively prohibited.
+    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_prohibit Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "prohibit"
+
+    // The packet will be received by the local system.
+    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_receive Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "receive"
+)
+
 // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 // OSPF.
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf struct {
@@ -5887,7 +6292,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf struct {
 
     // An OSPF routing protocol instance. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance.
-    Instance []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
+    Instance []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 }
 
 func (ospf *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf) GetEntityData() *types.CommonEntityData {
@@ -5900,14 +6305,17 @@ func (ospf *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf) GetEn
     ospf.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ospf.EntityData.Children = make(map[string]types.YChild)
-    ospf.EntityData.Children["all-instances-inherit"] = types.YChild{"AllInstancesInherit", &ospf.AllInstancesInherit}
-    ospf.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    ospf.EntityData.Children = types.NewOrderedMap()
+    ospf.EntityData.Children.Append("all-instances-inherit", types.YChild{"AllInstancesInherit", &ospf.AllInstancesInherit})
+    ospf.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range ospf.Instance {
-        ospf.EntityData.Children[types.GetSegmentPath(&ospf.Instance[i])] = types.YChild{"Instance", &ospf.Instance[i]}
+        ospf.EntityData.Children.Append(types.GetSegmentPath(ospf.Instance[i]), types.YChild{"Instance", ospf.Instance[i]})
     }
-    ospf.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospf.EntityData.Leafs["operation-mode"] = types.YLeaf{"OperationMode", ospf.OperationMode}
+    ospf.EntityData.Leafs = types.NewOrderedMap()
+    ospf.EntityData.Leafs.Append("operation-mode", types.YLeaf{"OperationMode", ospf.OperationMode})
+
+    ospf.EntityData.YListKeys = []string {}
+
     return &(ospf.EntityData)
 }
 
@@ -5921,7 +6329,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllInstancesI
     Area Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllInstancesInherit_Area
 
     // Interface config to be inherited by all interfaces in all instances.
-    Interface_ Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllInstancesInherit_Interface
+    Interface Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllInstancesInherit_Interface
 }
 
 func (allInstancesInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllInstancesInherit) GetEntityData() *types.CommonEntityData {
@@ -5934,10 +6342,13 @@ func (allInstancesInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProto
     allInstancesInherit.EntityData.NamespaceTable = ietf.GetNamespaces()
     allInstancesInherit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    allInstancesInherit.EntityData.Children = make(map[string]types.YChild)
-    allInstancesInherit.EntityData.Children["area"] = types.YChild{"Area", &allInstancesInherit.Area}
-    allInstancesInherit.EntityData.Children["interface"] = types.YChild{"Interface_", &allInstancesInherit.Interface_}
-    allInstancesInherit.EntityData.Leafs = make(map[string]types.YLeaf)
+    allInstancesInherit.EntityData.Children = types.NewOrderedMap()
+    allInstancesInherit.EntityData.Children.Append("area", types.YChild{"Area", &allInstancesInherit.Area})
+    allInstancesInherit.EntityData.Children.Append("interface", types.YChild{"Interface", &allInstancesInherit.Interface})
+    allInstancesInherit.EntityData.Leafs = types.NewOrderedMap()
+
+    allInstancesInherit.EntityData.YListKeys = []string {}
+
     return &(allInstancesInherit.EntityData)
 }
 
@@ -5959,8 +6370,11 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllIns
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    area.EntityData.Children = make(map[string]types.YChild)
-    area.EntityData.Leafs = make(map[string]types.YLeaf)
+    area.EntityData.Children = types.NewOrderedMap()
+    area.EntityData.Leafs = types.NewOrderedMap()
+
+    area.EntityData.YListKeys = []string {}
+
     return &(area.EntityData)
 }
 
@@ -5982,8 +6396,11 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllIns
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -5999,7 +6416,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance stru
 
     // Defined in RFC 2328. A 32-bit number that uniquely identifies the router.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // Enable/Disable the protocol. The type is bool. The default value is true.
@@ -6037,11 +6454,11 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance stru
 
     // List of ospf areas. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area.
-    Area []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
+    Area []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // OSPF topology. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology.
-    Topology []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology
+    Topology []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology
 }
 
 func (instance *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance) GetEntityData() *types.CommonEntityData {
@@ -6049,34 +6466,37 @@ func (instance *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "ietf"
     instance.EntityData.ParentYangName = "ospf"
-    instance.EntityData.SegmentPath = "instance" + "[af='" + fmt.Sprintf("%v", instance.Af) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.Af, "af")
     instance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     instance.EntityData.NamespaceTable = ietf.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["admin-distance"] = types.YChild{"AdminDistance", &instance.AdminDistance}
-    instance.EntityData.Children["nsr"] = types.YChild{"Nsr", &instance.Nsr}
-    instance.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &instance.GracefulRestart}
-    instance.EntityData.Children["auto-cost"] = types.YChild{"AutoCost", &instance.AutoCost}
-    instance.EntityData.Children["spf-control"] = types.YChild{"SpfControl", &instance.SpfControl}
-    instance.EntityData.Children["database-control"] = types.YChild{"DatabaseControl", &instance.DatabaseControl}
-    instance.EntityData.Children["reload-control"] = types.YChild{"ReloadControl", &instance.ReloadControl}
-    instance.EntityData.Children["mpls"] = types.YChild{"Mpls", &instance.Mpls}
-    instance.EntityData.Children["fast-reroute"] = types.YChild{"FastReroute", &instance.FastReroute}
-    instance.EntityData.Children["all-areas-inherit"] = types.YChild{"AllAreasInherit", &instance.AllAreasInherit}
-    instance.EntityData.Children["area"] = types.YChild{"Area", nil}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("admin-distance", types.YChild{"AdminDistance", &instance.AdminDistance})
+    instance.EntityData.Children.Append("nsr", types.YChild{"Nsr", &instance.Nsr})
+    instance.EntityData.Children.Append("graceful-restart", types.YChild{"GracefulRestart", &instance.GracefulRestart})
+    instance.EntityData.Children.Append("auto-cost", types.YChild{"AutoCost", &instance.AutoCost})
+    instance.EntityData.Children.Append("spf-control", types.YChild{"SpfControl", &instance.SpfControl})
+    instance.EntityData.Children.Append("database-control", types.YChild{"DatabaseControl", &instance.DatabaseControl})
+    instance.EntityData.Children.Append("reload-control", types.YChild{"ReloadControl", &instance.ReloadControl})
+    instance.EntityData.Children.Append("mpls", types.YChild{"Mpls", &instance.Mpls})
+    instance.EntityData.Children.Append("fast-reroute", types.YChild{"FastReroute", &instance.FastReroute})
+    instance.EntityData.Children.Append("all-areas-inherit", types.YChild{"AllAreasInherit", &instance.AllAreasInherit})
+    instance.EntityData.Children.Append("area", types.YChild{"Area", nil})
     for i := range instance.Area {
-        instance.EntityData.Children[types.GetSegmentPath(&instance.Area[i])] = types.YChild{"Area", &instance.Area[i]}
+        instance.EntityData.Children.Append(types.GetSegmentPath(instance.Area[i]), types.YChild{"Area", instance.Area[i]})
     }
-    instance.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    instance.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range instance.Topology {
-        instance.EntityData.Children[types.GetSegmentPath(&instance.Topology[i])] = types.YChild{"Topology", &instance.Topology[i]}
+        instance.EntityData.Children.Append(types.GetSegmentPath(instance.Topology[i]), types.YChild{"Topology", instance.Topology[i]})
     }
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["af"] = types.YLeaf{"Af", instance.Af}
-    instance.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", instance.RouterId}
-    instance.EntityData.Leafs["enable"] = types.YLeaf{"Enable", instance.Enable}
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("af", types.YLeaf{"Af", instance.Af})
+    instance.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", instance.RouterId})
+    instance.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", instance.Enable})
+
+    instance.EntityData.YListKeys = []string {"Af"}
+
     return &(instance.EntityData)
 }
 
@@ -6113,12 +6533,15 @@ func (adminDistance *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     adminDistance.EntityData.NamespaceTable = ietf.GetNamespaces()
     adminDistance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    adminDistance.EntityData.Children = make(map[string]types.YChild)
-    adminDistance.EntityData.Leafs = make(map[string]types.YLeaf)
-    adminDistance.EntityData.Leafs["intra-area"] = types.YLeaf{"IntraArea", adminDistance.IntraArea}
-    adminDistance.EntityData.Leafs["inter-area"] = types.YLeaf{"InterArea", adminDistance.InterArea}
-    adminDistance.EntityData.Leafs["internal"] = types.YLeaf{"Internal", adminDistance.Internal}
-    adminDistance.EntityData.Leafs["external"] = types.YLeaf{"External", adminDistance.External}
+    adminDistance.EntityData.Children = types.NewOrderedMap()
+    adminDistance.EntityData.Leafs = types.NewOrderedMap()
+    adminDistance.EntityData.Leafs.Append("intra-area", types.YLeaf{"IntraArea", adminDistance.IntraArea})
+    adminDistance.EntityData.Leafs.Append("inter-area", types.YLeaf{"InterArea", adminDistance.InterArea})
+    adminDistance.EntityData.Leafs.Append("internal", types.YLeaf{"Internal", adminDistance.Internal})
+    adminDistance.EntityData.Leafs.Append("external", types.YLeaf{"External", adminDistance.External})
+
+    adminDistance.EntityData.YListKeys = []string {}
+
     return &(adminDistance.EntityData)
 }
 
@@ -6142,9 +6565,12 @@ func (nsr *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instanc
     nsr.EntityData.NamespaceTable = ietf.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    nsr.EntityData.Children = make(map[string]types.YChild)
-    nsr.EntityData.Leafs = make(map[string]types.YLeaf)
-    nsr.EntityData.Leafs["enable"] = types.YLeaf{"Enable", nsr.Enable}
+    nsr.EntityData.Children = types.NewOrderedMap()
+    nsr.EntityData.Leafs = types.NewOrderedMap()
+    nsr.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", nsr.Enable})
+
+    nsr.EntityData.YListKeys = []string {}
+
     return &(nsr.EntityData)
 }
 
@@ -6179,12 +6605,15 @@ func (gracefulRestart *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     gracefulRestart.EntityData.NamespaceTable = ietf.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
-    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
-    gracefulRestart.EntityData.Leafs["enable"] = types.YLeaf{"Enable", gracefulRestart.Enable}
-    gracefulRestart.EntityData.Leafs["helper-enable"] = types.YLeaf{"HelperEnable", gracefulRestart.HelperEnable}
-    gracefulRestart.EntityData.Leafs["restart-interval"] = types.YLeaf{"RestartInterval", gracefulRestart.RestartInterval}
-    gracefulRestart.EntityData.Leafs["helper-strict-lsa-checking"] = types.YLeaf{"HelperStrictLsaChecking", gracefulRestart.HelperStrictLsaChecking}
+    gracefulRestart.EntityData.Children = types.NewOrderedMap()
+    gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
+    gracefulRestart.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", gracefulRestart.Enable})
+    gracefulRestart.EntityData.Leafs.Append("helper-enable", types.YLeaf{"HelperEnable", gracefulRestart.HelperEnable})
+    gracefulRestart.EntityData.Leafs.Append("restart-interval", types.YLeaf{"RestartInterval", gracefulRestart.RestartInterval})
+    gracefulRestart.EntityData.Leafs.Append("helper-strict-lsa-checking", types.YLeaf{"HelperStrictLsaChecking", gracefulRestart.HelperStrictLsaChecking})
+
+    gracefulRestart.EntityData.YListKeys = []string {}
+
     return &(gracefulRestart.EntityData)
 }
 
@@ -6212,10 +6641,13 @@ func (autoCost *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     autoCost.EntityData.NamespaceTable = ietf.GetNamespaces()
     autoCost.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    autoCost.EntityData.Children = make(map[string]types.YChild)
-    autoCost.EntityData.Leafs = make(map[string]types.YLeaf)
-    autoCost.EntityData.Leafs["enable"] = types.YLeaf{"Enable", autoCost.Enable}
-    autoCost.EntityData.Leafs["reference-bandwidth"] = types.YLeaf{"ReferenceBandwidth", autoCost.ReferenceBandwidth}
+    autoCost.EntityData.Children = types.NewOrderedMap()
+    autoCost.EntityData.Leafs = types.NewOrderedMap()
+    autoCost.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoCost.Enable})
+    autoCost.EntityData.Leafs.Append("reference-bandwidth", types.YLeaf{"ReferenceBandwidth", autoCost.ReferenceBandwidth})
+
+    autoCost.EntityData.YListKeys = []string {}
+
     return &(autoCost.EntityData)
 }
 
@@ -6239,9 +6671,12 @@ func (spfControl *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_
     spfControl.EntityData.NamespaceTable = ietf.GetNamespaces()
     spfControl.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    spfControl.EntityData.Children = make(map[string]types.YChild)
-    spfControl.EntityData.Leafs = make(map[string]types.YLeaf)
-    spfControl.EntityData.Leafs["paths"] = types.YLeaf{"Paths", spfControl.Paths}
+    spfControl.EntityData.Children = types.NewOrderedMap()
+    spfControl.EntityData.Leafs = types.NewOrderedMap()
+    spfControl.EntityData.Leafs.Append("paths", types.YLeaf{"Paths", spfControl.Paths})
+
+    spfControl.EntityData.YListKeys = []string {}
+
     return &(spfControl.EntityData)
 }
 
@@ -6266,9 +6701,12 @@ func (databaseControl *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     databaseControl.EntityData.NamespaceTable = ietf.GetNamespaces()
     databaseControl.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    databaseControl.EntityData.Children = make(map[string]types.YChild)
-    databaseControl.EntityData.Leafs = make(map[string]types.YLeaf)
-    databaseControl.EntityData.Leafs["max-lsa"] = types.YLeaf{"MaxLsa", databaseControl.MaxLsa}
+    databaseControl.EntityData.Children = types.NewOrderedMap()
+    databaseControl.EntityData.Leafs = types.NewOrderedMap()
+    databaseControl.EntityData.Leafs.Append("max-lsa", types.YLeaf{"MaxLsa", databaseControl.MaxLsa})
+
+    databaseControl.EntityData.YListKeys = []string {}
+
     return &(databaseControl.EntityData)
 }
 
@@ -6289,8 +6727,11 @@ func (reloadControl *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     reloadControl.EntityData.NamespaceTable = ietf.GetNamespaces()
     reloadControl.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    reloadControl.EntityData.Children = make(map[string]types.YChild)
-    reloadControl.EntityData.Leafs = make(map[string]types.YLeaf)
+    reloadControl.EntityData.Children = types.NewOrderedMap()
+    reloadControl.EntityData.Leafs = types.NewOrderedMap()
+
+    reloadControl.EntityData.YListKeys = []string {}
+
     return &(reloadControl.EntityData)
 }
 
@@ -6317,10 +6758,13 @@ func (mpls *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     mpls.EntityData.NamespaceTable = ietf.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    mpls.EntityData.Children = make(map[string]types.YChild)
-    mpls.EntityData.Children["te-rid"] = types.YChild{"TeRid", &mpls.TeRid}
-    mpls.EntityData.Children["ldp"] = types.YChild{"Ldp", &mpls.Ldp}
-    mpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpls.EntityData.Children = types.NewOrderedMap()
+    mpls.EntityData.Children.Append("te-rid", types.YChild{"TeRid", &mpls.TeRid})
+    mpls.EntityData.Children.Append("ldp", types.YChild{"Ldp", &mpls.Ldp})
+    mpls.EntityData.Leafs = types.NewOrderedMap()
+
+    mpls.EntityData.YListKeys = []string {}
+
     return &(mpls.EntityData)
 }
 
@@ -6332,10 +6776,10 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Mpls
 
     // Take the interface's IPv4 address as TE router ID. The type is string.
     // Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Explicitly configure the TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 }
 
@@ -6349,10 +6793,13 @@ func (teRid *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Insta
     teRid.EntityData.NamespaceTable = ietf.GetNamespaces()
     teRid.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    teRid.EntityData.Children = make(map[string]types.YChild)
-    teRid.EntityData.Leafs = make(map[string]types.YLeaf)
-    teRid.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", teRid.Interface_}
-    teRid.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", teRid.RouterId}
+    teRid.EntityData.Children = types.NewOrderedMap()
+    teRid.EntityData.Leafs = types.NewOrderedMap()
+    teRid.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", teRid.Interface})
+    teRid.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", teRid.RouterId})
+
+    teRid.EntityData.YListKeys = []string {}
+
     return &(teRid.EntityData)
 }
 
@@ -6379,10 +6826,13 @@ func (ldp *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instanc
     ldp.EntityData.NamespaceTable = ietf.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ldp.EntityData.Children = make(map[string]types.YChild)
-    ldp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ldp.EntityData.Leafs["igp-sync"] = types.YLeaf{"IgpSync", ldp.IgpSync}
-    ldp.EntityData.Leafs["autoconfig"] = types.YLeaf{"Autoconfig", ldp.Autoconfig}
+    ldp.EntityData.Children = types.NewOrderedMap()
+    ldp.EntityData.Leafs = types.NewOrderedMap()
+    ldp.EntityData.Leafs.Append("igp-sync", types.YLeaf{"IgpSync", ldp.IgpSync})
+    ldp.EntityData.Leafs.Append("autoconfig", types.YLeaf{"Autoconfig", ldp.Autoconfig})
+
+    ldp.EntityData.YListKeys = []string {}
+
     return &(ldp.EntityData)
 }
 
@@ -6408,9 +6858,12 @@ func (fastReroute *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     fastReroute.EntityData.NamespaceTable = ietf.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    fastReroute.EntityData.Children = make(map[string]types.YChild)
-    fastReroute.EntityData.Children["lfa"] = types.YChild{"Lfa", &fastReroute.Lfa}
-    fastReroute.EntityData.Leafs = make(map[string]types.YLeaf)
+    fastReroute.EntityData.Children = types.NewOrderedMap()
+    fastReroute.EntityData.Children.Append("lfa", types.YChild{"Lfa", &fastReroute.Lfa})
+    fastReroute.EntityData.Leafs = types.NewOrderedMap()
+
+    fastReroute.EntityData.YListKeys = []string {}
+
     return &(fastReroute.EntityData)
 }
 
@@ -6434,8 +6887,11 @@ func (lfa *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instanc
     lfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     lfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    lfa.EntityData.Children = make(map[string]types.YChild)
-    lfa.EntityData.Leafs = make(map[string]types.YLeaf)
+    lfa.EntityData.Children = types.NewOrderedMap()
+    lfa.EntityData.Leafs = types.NewOrderedMap()
+
+    lfa.EntityData.YListKeys = []string {}
+
     return &(lfa.EntityData)
 }
 
@@ -6449,7 +6905,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AllA
     Area Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AllAreasInherit_Area
 
     // Interface config to be inherited by all interfaces in all areas.
-    Interface_ Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AllAreasInherit_Interface
+    Interface Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AllAreasInherit_Interface
 }
 
 func (allAreasInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AllAreasInherit) GetEntityData() *types.CommonEntityData {
@@ -6462,10 +6918,13 @@ func (allAreasInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     allAreasInherit.EntityData.NamespaceTable = ietf.GetNamespaces()
     allAreasInherit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    allAreasInherit.EntityData.Children = make(map[string]types.YChild)
-    allAreasInherit.EntityData.Children["area"] = types.YChild{"Area", &allAreasInherit.Area}
-    allAreasInherit.EntityData.Children["interface"] = types.YChild{"Interface_", &allAreasInherit.Interface_}
-    allAreasInherit.EntityData.Leafs = make(map[string]types.YLeaf)
+    allAreasInherit.EntityData.Children = types.NewOrderedMap()
+    allAreasInherit.EntityData.Children.Append("area", types.YChild{"Area", &allAreasInherit.Area})
+    allAreasInherit.EntityData.Children.Append("interface", types.YChild{"Interface", &allAreasInherit.Interface})
+    allAreasInherit.EntityData.Leafs = types.NewOrderedMap()
+
+    allAreasInherit.EntityData.YListKeys = []string {}
+
     return &(allAreasInherit.EntityData)
 }
 
@@ -6486,8 +6945,11 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    area.EntityData.Children = make(map[string]types.YChild)
-    area.EntityData.Leafs = make(map[string]types.YLeaf)
+    area.EntityData.Children = types.NewOrderedMap()
+    area.EntityData.Leafs = types.NewOrderedMap()
+
+    area.EntityData.YListKeys = []string {}
+
     return &(area.EntityData)
 }
 
@@ -6509,8 +6971,11 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -6522,10 +6987,10 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AreaId interface{}
 
-    // Area type. The type is one of the following: NormalStubNssa. The default
+    // Area type. The type is one of the following: NormalNssaStub. The default
     // value is normal.
     AreaType interface{}
 
@@ -6539,23 +7004,23 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // Summarize routes matching address/mask (border routers only). The type is
     // slice of
-    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Range_.
-    Range_ []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Range
+    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Range.
+    Range []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Range
 
     // Inheritance for all interfaces.
     AllInterfacesInherit Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AllInterfacesInherit
 
     // OSPF virtual link. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_VirtualLink.
-    VirtualLink []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_VirtualLink
+    VirtualLink []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_VirtualLink
 
     // OSPF sham link. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_ShamLink.
-    ShamLink []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_ShamLink
+    ShamLink []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_ShamLink
 
     // List of OSPF interfaces. The type is slice of
-    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_.
-    Interface_ []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface
+    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface.
+    Interface []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface
 }
 
 func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area) GetEntityData() *types.CommonEntityData {
@@ -6563,34 +7028,37 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     area.EntityData.YangName = "area"
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "instance"
-    area.EntityData.SegmentPath = "area" + "[area-id='" + fmt.Sprintf("%v", area.AreaId) + "']"
+    area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    area.EntityData.Children = make(map[string]types.YChild)
-    area.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range area.Range_ {
-        area.EntityData.Children[types.GetSegmentPath(&area.Range_[i])] = types.YChild{"Range_", &area.Range_[i]}
+    area.EntityData.Children = types.NewOrderedMap()
+    area.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range area.Range {
+        area.EntityData.Children.Append(types.GetSegmentPath(area.Range[i]), types.YChild{"Range", area.Range[i]})
     }
-    area.EntityData.Children["all-interfaces-inherit"] = types.YChild{"AllInterfacesInherit", &area.AllInterfacesInherit}
-    area.EntityData.Children["virtual-link"] = types.YChild{"VirtualLink", nil}
+    area.EntityData.Children.Append("all-interfaces-inherit", types.YChild{"AllInterfacesInherit", &area.AllInterfacesInherit})
+    area.EntityData.Children.Append("virtual-link", types.YChild{"VirtualLink", nil})
     for i := range area.VirtualLink {
-        area.EntityData.Children[types.GetSegmentPath(&area.VirtualLink[i])] = types.YChild{"VirtualLink", &area.VirtualLink[i]}
+        area.EntityData.Children.Append(types.GetSegmentPath(area.VirtualLink[i]), types.YChild{"VirtualLink", area.VirtualLink[i]})
     }
-    area.EntityData.Children["sham-link"] = types.YChild{"ShamLink", nil}
+    area.EntityData.Children.Append("sham-link", types.YChild{"ShamLink", nil})
     for i := range area.ShamLink {
-        area.EntityData.Children[types.GetSegmentPath(&area.ShamLink[i])] = types.YChild{"ShamLink", &area.ShamLink[i]}
+        area.EntityData.Children.Append(types.GetSegmentPath(area.ShamLink[i]), types.YChild{"ShamLink", area.ShamLink[i]})
     }
-    area.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range area.Interface_ {
-        area.EntityData.Children[types.GetSegmentPath(&area.Interface_[i])] = types.YChild{"Interface_", &area.Interface_[i]}
+    area.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range area.Interface {
+        area.EntityData.Children.Append(types.GetSegmentPath(area.Interface[i]), types.YChild{"Interface", area.Interface[i]})
     }
-    area.EntityData.Leafs = make(map[string]types.YLeaf)
-    area.EntityData.Leafs["area-id"] = types.YLeaf{"AreaId", area.AreaId}
-    area.EntityData.Leafs["area-type"] = types.YLeaf{"AreaType", area.AreaType}
-    area.EntityData.Leafs["summary"] = types.YLeaf{"Summary", area.Summary}
-    area.EntityData.Leafs["default-cost"] = types.YLeaf{"DefaultCost", area.DefaultCost}
+    area.EntityData.Leafs = types.NewOrderedMap()
+    area.EntityData.Leafs.Append("area-id", types.YLeaf{"AreaId", area.AreaId})
+    area.EntityData.Leafs.Append("area-type", types.YLeaf{"AreaType", area.AreaType})
+    area.EntityData.Leafs.Append("summary", types.YLeaf{"Summary", area.Summary})
+    area.EntityData.Leafs.Append("default-cost", types.YLeaf{"DefaultCost", area.DefaultCost})
+
+    area.EntityData.YListKeys = []string {"AreaId"}
+
     return &(area.EntityData)
 }
 
@@ -6616,16 +7084,19 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "area"
-    self.EntityData.SegmentPath = "range" + "[prefix='" + fmt.Sprintf("%v", self.Prefix) + "']"
+    self.EntityData.SegmentPath = "range" + types.AddKeyToken(self.Prefix, "prefix")
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", self.Prefix}
-    self.EntityData.Leafs["advertise"] = types.YLeaf{"Advertise", self.Advertise}
-    self.EntityData.Leafs["cost"] = types.YLeaf{"Cost", self.Cost}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", self.Prefix})
+    self.EntityData.Leafs.Append("advertise", types.YLeaf{"Advertise", self.Advertise})
+    self.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", self.Cost})
+
+    self.EntityData.YListKeys = []string {"Prefix"}
+
     return &(self.EntityData)
 }
 
@@ -6636,7 +7107,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
     YFilter yfilter.YFilter
 
     // Interface config to be inherited by all interfaces.
-    Interface_ Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AllInterfacesInherit_Interface
+    Interface Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AllInterfacesInherit_Interface
 }
 
 func (allInterfacesInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AllInterfacesInherit) GetEntityData() *types.CommonEntityData {
@@ -6649,9 +7120,12 @@ func (allInterfacesInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProt
     allInterfacesInherit.EntityData.NamespaceTable = ietf.GetNamespaces()
     allInterfacesInherit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    allInterfacesInherit.EntityData.Children = make(map[string]types.YChild)
-    allInterfacesInherit.EntityData.Children["interface"] = types.YChild{"Interface_", &allInterfacesInherit.Interface_}
-    allInterfacesInherit.EntityData.Leafs = make(map[string]types.YLeaf)
+    allInterfacesInherit.EntityData.Children = types.NewOrderedMap()
+    allInterfacesInherit.EntityData.Children.Append("interface", types.YChild{"Interface", &allInterfacesInherit.Interface})
+    allInterfacesInherit.EntityData.Leafs = types.NewOrderedMap()
+
+    allInterfacesInherit.EntityData.YListKeys = []string {}
+
     return &(allInterfacesInherit.EntityData)
 }
 
@@ -6673,8 +7147,11 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -6686,7 +7163,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Virtual link router ID. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -6736,26 +7213,29 @@ func (virtualLink *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     virtualLink.EntityData.YangName = "virtual-link"
     virtualLink.EntityData.BundleName = "ietf"
     virtualLink.EntityData.ParentYangName = "area"
-    virtualLink.EntityData.SegmentPath = "virtual-link" + "[router-id='" + fmt.Sprintf("%v", virtualLink.RouterId) + "']"
+    virtualLink.EntityData.SegmentPath = "virtual-link" + types.AddKeyToken(virtualLink.RouterId, "router-id")
     virtualLink.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     virtualLink.EntityData.NamespaceTable = ietf.GetNamespaces()
     virtualLink.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    virtualLink.EntityData.Children = make(map[string]types.YChild)
-    virtualLink.EntityData.Children["ttl-security"] = types.YChild{"TtlSecurity", &virtualLink.TtlSecurity}
-    virtualLink.EntityData.Children["authentication"] = types.YChild{"Authentication", &virtualLink.Authentication}
-    virtualLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    virtualLink.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", virtualLink.RouterId}
-    virtualLink.EntityData.Leafs["cost"] = types.YLeaf{"Cost", virtualLink.Cost}
-    virtualLink.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", virtualLink.HelloInterval}
-    virtualLink.EntityData.Leafs["dead-interval"] = types.YLeaf{"DeadInterval", virtualLink.DeadInterval}
-    virtualLink.EntityData.Leafs["retransmit-interval"] = types.YLeaf{"RetransmitInterval", virtualLink.RetransmitInterval}
-    virtualLink.EntityData.Leafs["transmit-delay"] = types.YLeaf{"TransmitDelay", virtualLink.TransmitDelay}
-    virtualLink.EntityData.Leafs["mtu-ignore"] = types.YLeaf{"MtuIgnore", virtualLink.MtuIgnore}
-    virtualLink.EntityData.Leafs["lls"] = types.YLeaf{"Lls", virtualLink.Lls}
-    virtualLink.EntityData.Leafs["prefix-suppression"] = types.YLeaf{"PrefixSuppression", virtualLink.PrefixSuppression}
-    virtualLink.EntityData.Leafs["bfd"] = types.YLeaf{"Bfd", virtualLink.Bfd}
-    virtualLink.EntityData.Leafs["enable"] = types.YLeaf{"Enable", virtualLink.Enable}
+    virtualLink.EntityData.Children = types.NewOrderedMap()
+    virtualLink.EntityData.Children.Append("ttl-security", types.YChild{"TtlSecurity", &virtualLink.TtlSecurity})
+    virtualLink.EntityData.Children.Append("authentication", types.YChild{"Authentication", &virtualLink.Authentication})
+    virtualLink.EntityData.Leafs = types.NewOrderedMap()
+    virtualLink.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", virtualLink.RouterId})
+    virtualLink.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", virtualLink.Cost})
+    virtualLink.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", virtualLink.HelloInterval})
+    virtualLink.EntityData.Leafs.Append("dead-interval", types.YLeaf{"DeadInterval", virtualLink.DeadInterval})
+    virtualLink.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", virtualLink.RetransmitInterval})
+    virtualLink.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", virtualLink.TransmitDelay})
+    virtualLink.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", virtualLink.MtuIgnore})
+    virtualLink.EntityData.Leafs.Append("lls", types.YLeaf{"Lls", virtualLink.Lls})
+    virtualLink.EntityData.Leafs.Append("prefix-suppression", types.YLeaf{"PrefixSuppression", virtualLink.PrefixSuppression})
+    virtualLink.EntityData.Leafs.Append("bfd", types.YLeaf{"Bfd", virtualLink.Bfd})
+    virtualLink.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", virtualLink.Enable})
+
+    virtualLink.EntityData.YListKeys = []string {"RouterId"}
+
     return &(virtualLink.EntityData)
 }
 
@@ -6783,10 +7263,13 @@ func (ttlSecurity *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ttlSecurity.EntityData.NamespaceTable = ietf.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ttlSecurity.EntityData.Children = make(map[string]types.YChild)
-    ttlSecurity.EntityData.Leafs = make(map[string]types.YLeaf)
-    ttlSecurity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ttlSecurity.Enable}
-    ttlSecurity.EntityData.Leafs["hops"] = types.YLeaf{"Hops", ttlSecurity.Hops}
+    ttlSecurity.EntityData.Children = types.NewOrderedMap()
+    ttlSecurity.EntityData.Leafs = types.NewOrderedMap()
+    ttlSecurity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ttlSecurity.Enable})
+    ttlSecurity.EntityData.Leafs.Append("hops", types.YLeaf{"Hops", ttlSecurity.Hops})
+
+    ttlSecurity.EntityData.YListKeys = []string {}
+
     return &(ttlSecurity.EntityData)
 }
 
@@ -6819,12 +7302,15 @@ func (authentication *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     authentication.EntityData.NamespaceTable = ietf.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Children["crypto-algorithm"] = types.YChild{"CryptoAlgorithm", &authentication.CryptoAlgorithm}
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["sa"] = types.YLeaf{"Sa", authentication.Sa}
-    authentication.EntityData.Leafs["key-chain"] = types.YLeaf{"KeyChain", authentication.KeyChain}
-    authentication.EntityData.Leafs["key"] = types.YLeaf{"Key", authentication.Key}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Children.Append("crypto-algorithm", types.YChild{"CryptoAlgorithm", &authentication.CryptoAlgorithm})
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("sa", types.YLeaf{"Sa", authentication.Sa})
+    authentication.EntityData.Leafs.Append("key-chain", types.YLeaf{"KeyChain", authentication.KeyChain})
+    authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -6869,16 +7355,19 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    cryptoAlgorithm.EntityData.Children = make(map[string]types.YChild)
-    cryptoAlgorithm.EntityData.Leafs = make(map[string]types.YLeaf)
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-12"] = types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-20"] = types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120}
-    cryptoAlgorithm.EntityData.Leafs["md5"] = types.YLeaf{"Md5", cryptoAlgorithm.Md5}
-    cryptoAlgorithm.EntityData.Leafs["sha-1"] = types.YLeaf{"Sha1", cryptoAlgorithm.Sha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-1"] = types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-256"] = types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-384"] = types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-512"] = types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512}
+    cryptoAlgorithm.EntityData.Children = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-12", types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-20", types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120})
+    cryptoAlgorithm.EntityData.Leafs.Append("md5", types.YLeaf{"Md5", cryptoAlgorithm.Md5})
+    cryptoAlgorithm.EntityData.Leafs.Append("sha-1", types.YLeaf{"Sha1", cryptoAlgorithm.Sha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-1", types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-256", types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-384", types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-512", types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512})
+
+    cryptoAlgorithm.EntityData.YListKeys = []string {}
+
     return &(cryptoAlgorithm.EntityData)
 }
 
@@ -6890,16 +7379,16 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Address of the local end-point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalId interface{}
 
     // This attribute is a key. Address of the remote end-point. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RemoteId interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -6949,27 +7438,30 @@ func (shamLink *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     shamLink.EntityData.YangName = "sham-link"
     shamLink.EntityData.BundleName = "ietf"
     shamLink.EntityData.ParentYangName = "area"
-    shamLink.EntityData.SegmentPath = "sham-link" + "[local-id='" + fmt.Sprintf("%v", shamLink.LocalId) + "']" + "[remote-id='" + fmt.Sprintf("%v", shamLink.RemoteId) + "']"
+    shamLink.EntityData.SegmentPath = "sham-link" + types.AddKeyToken(shamLink.LocalId, "local-id") + types.AddKeyToken(shamLink.RemoteId, "remote-id")
     shamLink.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     shamLink.EntityData.NamespaceTable = ietf.GetNamespaces()
     shamLink.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    shamLink.EntityData.Children = make(map[string]types.YChild)
-    shamLink.EntityData.Children["ttl-security"] = types.YChild{"TtlSecurity", &shamLink.TtlSecurity}
-    shamLink.EntityData.Children["authentication"] = types.YChild{"Authentication", &shamLink.Authentication}
-    shamLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    shamLink.EntityData.Leafs["local-id"] = types.YLeaf{"LocalId", shamLink.LocalId}
-    shamLink.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", shamLink.RemoteId}
-    shamLink.EntityData.Leafs["cost"] = types.YLeaf{"Cost", shamLink.Cost}
-    shamLink.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", shamLink.HelloInterval}
-    shamLink.EntityData.Leafs["dead-interval"] = types.YLeaf{"DeadInterval", shamLink.DeadInterval}
-    shamLink.EntityData.Leafs["retransmit-interval"] = types.YLeaf{"RetransmitInterval", shamLink.RetransmitInterval}
-    shamLink.EntityData.Leafs["transmit-delay"] = types.YLeaf{"TransmitDelay", shamLink.TransmitDelay}
-    shamLink.EntityData.Leafs["mtu-ignore"] = types.YLeaf{"MtuIgnore", shamLink.MtuIgnore}
-    shamLink.EntityData.Leafs["lls"] = types.YLeaf{"Lls", shamLink.Lls}
-    shamLink.EntityData.Leafs["prefix-suppression"] = types.YLeaf{"PrefixSuppression", shamLink.PrefixSuppression}
-    shamLink.EntityData.Leafs["bfd"] = types.YLeaf{"Bfd", shamLink.Bfd}
-    shamLink.EntityData.Leafs["enable"] = types.YLeaf{"Enable", shamLink.Enable}
+    shamLink.EntityData.Children = types.NewOrderedMap()
+    shamLink.EntityData.Children.Append("ttl-security", types.YChild{"TtlSecurity", &shamLink.TtlSecurity})
+    shamLink.EntityData.Children.Append("authentication", types.YChild{"Authentication", &shamLink.Authentication})
+    shamLink.EntityData.Leafs = types.NewOrderedMap()
+    shamLink.EntityData.Leafs.Append("local-id", types.YLeaf{"LocalId", shamLink.LocalId})
+    shamLink.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", shamLink.RemoteId})
+    shamLink.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", shamLink.Cost})
+    shamLink.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", shamLink.HelloInterval})
+    shamLink.EntityData.Leafs.Append("dead-interval", types.YLeaf{"DeadInterval", shamLink.DeadInterval})
+    shamLink.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", shamLink.RetransmitInterval})
+    shamLink.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", shamLink.TransmitDelay})
+    shamLink.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", shamLink.MtuIgnore})
+    shamLink.EntityData.Leafs.Append("lls", types.YLeaf{"Lls", shamLink.Lls})
+    shamLink.EntityData.Leafs.Append("prefix-suppression", types.YLeaf{"PrefixSuppression", shamLink.PrefixSuppression})
+    shamLink.EntityData.Leafs.Append("bfd", types.YLeaf{"Bfd", shamLink.Bfd})
+    shamLink.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", shamLink.Enable})
+
+    shamLink.EntityData.YListKeys = []string {"LocalId", "RemoteId"}
+
     return &(shamLink.EntityData)
 }
 
@@ -6997,10 +7489,13 @@ func (ttlSecurity *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ttlSecurity.EntityData.NamespaceTable = ietf.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ttlSecurity.EntityData.Children = make(map[string]types.YChild)
-    ttlSecurity.EntityData.Leafs = make(map[string]types.YLeaf)
-    ttlSecurity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ttlSecurity.Enable}
-    ttlSecurity.EntityData.Leafs["hops"] = types.YLeaf{"Hops", ttlSecurity.Hops}
+    ttlSecurity.EntityData.Children = types.NewOrderedMap()
+    ttlSecurity.EntityData.Leafs = types.NewOrderedMap()
+    ttlSecurity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ttlSecurity.Enable})
+    ttlSecurity.EntityData.Leafs.Append("hops", types.YLeaf{"Hops", ttlSecurity.Hops})
+
+    ttlSecurity.EntityData.YListKeys = []string {}
+
     return &(ttlSecurity.EntityData)
 }
 
@@ -7033,12 +7528,15 @@ func (authentication *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     authentication.EntityData.NamespaceTable = ietf.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Children["crypto-algorithm"] = types.YChild{"CryptoAlgorithm", &authentication.CryptoAlgorithm}
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["sa"] = types.YLeaf{"Sa", authentication.Sa}
-    authentication.EntityData.Leafs["key-chain"] = types.YLeaf{"KeyChain", authentication.KeyChain}
-    authentication.EntityData.Leafs["key"] = types.YLeaf{"Key", authentication.Key}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Children.Append("crypto-algorithm", types.YChild{"CryptoAlgorithm", &authentication.CryptoAlgorithm})
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("sa", types.YLeaf{"Sa", authentication.Sa})
+    authentication.EntityData.Leafs.Append("key-chain", types.YLeaf{"KeyChain", authentication.KeyChain})
+    authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -7083,16 +7581,19 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    cryptoAlgorithm.EntityData.Children = make(map[string]types.YChild)
-    cryptoAlgorithm.EntityData.Leafs = make(map[string]types.YLeaf)
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-12"] = types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-20"] = types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120}
-    cryptoAlgorithm.EntityData.Leafs["md5"] = types.YLeaf{"Md5", cryptoAlgorithm.Md5}
-    cryptoAlgorithm.EntityData.Leafs["sha-1"] = types.YLeaf{"Sha1", cryptoAlgorithm.Sha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-1"] = types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-256"] = types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-384"] = types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-512"] = types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512}
+    cryptoAlgorithm.EntityData.Children = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-12", types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-20", types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120})
+    cryptoAlgorithm.EntityData.Leafs.Append("md5", types.YLeaf{"Md5", cryptoAlgorithm.Md5})
+    cryptoAlgorithm.EntityData.Leafs.Append("sha-1", types.YLeaf{"Sha1", cryptoAlgorithm.Sha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-1", types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-256", types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-384", types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-512", types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512})
+
+    cryptoAlgorithm.EntityData.YListKeys = []string {}
+
     return &(cryptoAlgorithm.EntityData)
 }
 
@@ -7104,7 +7605,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Interface. The type is string. Refers to
     // interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Network type. The type is NetworkType.
     NetworkType interface{}
@@ -7171,7 +7672,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // OSPF interface topology. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_Topology.
-    Topology []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_Topology
+    Topology []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_Topology
 }
 
 func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface) GetEntityData() *types.CommonEntityData {
@@ -7179,37 +7680,40 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "area"
-    self.EntityData.SegmentPath = "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["multi-area"] = types.YChild{"MultiArea", &self.MultiArea}
-    self.EntityData.Children["static-neighbors"] = types.YChild{"StaticNeighbors", &self.StaticNeighbors}
-    self.EntityData.Children["fast-reroute"] = types.YChild{"FastReroute", &self.FastReroute}
-    self.EntityData.Children["ttl-security"] = types.YChild{"TtlSecurity", &self.TtlSecurity}
-    self.EntityData.Children["authentication"] = types.YChild{"Authentication", &self.Authentication}
-    self.EntityData.Children["topology"] = types.YChild{"Topology", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("multi-area", types.YChild{"MultiArea", &self.MultiArea})
+    self.EntityData.Children.Append("static-neighbors", types.YChild{"StaticNeighbors", &self.StaticNeighbors})
+    self.EntityData.Children.Append("fast-reroute", types.YChild{"FastReroute", &self.FastReroute})
+    self.EntityData.Children.Append("ttl-security", types.YChild{"TtlSecurity", &self.TtlSecurity})
+    self.EntityData.Children.Append("authentication", types.YChild{"Authentication", &self.Authentication})
+    self.EntityData.Children.Append("topology", types.YChild{"Topology", nil})
     for i := range self.Topology {
-        self.EntityData.Children[types.GetSegmentPath(&self.Topology[i])] = types.YChild{"Topology", &self.Topology[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.Topology[i]), types.YChild{"Topology", self.Topology[i]})
     }
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
-    self.EntityData.Leafs["network-type"] = types.YLeaf{"NetworkType", self.NetworkType}
-    self.EntityData.Leafs["passive"] = types.YLeaf{"Passive", self.Passive}
-    self.EntityData.Leafs["demand-circuit"] = types.YLeaf{"DemandCircuit", self.DemandCircuit}
-    self.EntityData.Leafs["node-flag"] = types.YLeaf{"NodeFlag", self.NodeFlag}
-    self.EntityData.Leafs["cost"] = types.YLeaf{"Cost", self.Cost}
-    self.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", self.HelloInterval}
-    self.EntityData.Leafs["dead-interval"] = types.YLeaf{"DeadInterval", self.DeadInterval}
-    self.EntityData.Leafs["retransmit-interval"] = types.YLeaf{"RetransmitInterval", self.RetransmitInterval}
-    self.EntityData.Leafs["transmit-delay"] = types.YLeaf{"TransmitDelay", self.TransmitDelay}
-    self.EntityData.Leafs["mtu-ignore"] = types.YLeaf{"MtuIgnore", self.MtuIgnore}
-    self.EntityData.Leafs["lls"] = types.YLeaf{"Lls", self.Lls}
-    self.EntityData.Leafs["prefix-suppression"] = types.YLeaf{"PrefixSuppression", self.PrefixSuppression}
-    self.EntityData.Leafs["bfd"] = types.YLeaf{"Bfd", self.Bfd}
-    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", self.Interface})
+    self.EntityData.Leafs.Append("network-type", types.YLeaf{"NetworkType", self.NetworkType})
+    self.EntityData.Leafs.Append("passive", types.YLeaf{"Passive", self.Passive})
+    self.EntityData.Leafs.Append("demand-circuit", types.YLeaf{"DemandCircuit", self.DemandCircuit})
+    self.EntityData.Leafs.Append("node-flag", types.YLeaf{"NodeFlag", self.NodeFlag})
+    self.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", self.Cost})
+    self.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", self.HelloInterval})
+    self.EntityData.Leafs.Append("dead-interval", types.YLeaf{"DeadInterval", self.DeadInterval})
+    self.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", self.RetransmitInterval})
+    self.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", self.TransmitDelay})
+    self.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", self.MtuIgnore})
+    self.EntityData.Leafs.Append("lls", types.YLeaf{"Lls", self.Lls})
+    self.EntityData.Leafs.Append("prefix-suppression", types.YLeaf{"PrefixSuppression", self.PrefixSuppression})
+    self.EntityData.Leafs.Append("bfd", types.YLeaf{"Bfd", self.Bfd})
+    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
+
+    self.EntityData.YListKeys = []string {"Interface"}
+
     return &(self.EntityData)
 }
 
@@ -7221,7 +7725,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // Multi-area ID. The type is one of the following types: int with range:
     // 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     MultiAreaId interface{}
 
     // Interface cost for multi-area. The type is interface{} with range:
@@ -7239,10 +7743,13 @@ func (multiArea *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     multiArea.EntityData.NamespaceTable = ietf.GetNamespaces()
     multiArea.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    multiArea.EntityData.Children = make(map[string]types.YChild)
-    multiArea.EntityData.Leafs = make(map[string]types.YLeaf)
-    multiArea.EntityData.Leafs["multi-area-id"] = types.YLeaf{"MultiAreaId", multiArea.MultiAreaId}
-    multiArea.EntityData.Leafs["cost"] = types.YLeaf{"Cost", multiArea.Cost}
+    multiArea.EntityData.Children = types.NewOrderedMap()
+    multiArea.EntityData.Leafs = types.NewOrderedMap()
+    multiArea.EntityData.Leafs.Append("multi-area-id", types.YLeaf{"MultiAreaId", multiArea.MultiAreaId})
+    multiArea.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", multiArea.Cost})
+
+    multiArea.EntityData.YListKeys = []string {}
+
     return &(multiArea.EntityData)
 }
 
@@ -7254,7 +7761,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // Specify a neighbor router. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_StaticNeighbors_Neighbor.
-    Neighbor []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_StaticNeighbors_Neighbor
+    Neighbor []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_StaticNeighbors_Neighbor
 }
 
 func (staticNeighbors *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_StaticNeighbors) GetEntityData() *types.CommonEntityData {
@@ -7267,12 +7774,15 @@ func (staticNeighbors *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     staticNeighbors.EntityData.NamespaceTable = ietf.GetNamespaces()
     staticNeighbors.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    staticNeighbors.EntityData.Children = make(map[string]types.YChild)
-    staticNeighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    staticNeighbors.EntityData.Children = types.NewOrderedMap()
+    staticNeighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range staticNeighbors.Neighbor {
-        staticNeighbors.EntityData.Children[types.GetSegmentPath(&staticNeighbors.Neighbor[i])] = types.YChild{"Neighbor", &staticNeighbors.Neighbor[i]}
+        staticNeighbors.EntityData.Children.Append(types.GetSegmentPath(staticNeighbors.Neighbor[i]), types.YChild{"Neighbor", staticNeighbors.Neighbor[i]})
     }
-    staticNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticNeighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    staticNeighbors.EntityData.YListKeys = []string {}
+
     return &(staticNeighbors.EntityData)
 }
 
@@ -7284,9 +7794,9 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Neighbor cost. The type is interface{} with range: 1..65535.
@@ -7306,17 +7816,20 @@ func (neighbor *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "static-neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[address='" + fmt.Sprintf("%v", neighbor.Address) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Address, "address")
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["address"] = types.YLeaf{"Address", neighbor.Address}
-    neighbor.EntityData.Leafs["cost"] = types.YLeaf{"Cost", neighbor.Cost}
-    neighbor.EntityData.Leafs["poll-interval"] = types.YLeaf{"PollInterval", neighbor.PollInterval}
-    neighbor.EntityData.Leafs["priority"] = types.YLeaf{"Priority", neighbor.Priority}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighbor.Address})
+    neighbor.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", neighbor.Cost})
+    neighbor.EntityData.Leafs.Append("poll-interval", types.YLeaf{"PollInterval", neighbor.PollInterval})
+    neighbor.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", neighbor.Priority})
+
+    neighbor.EntityData.YListKeys = []string {"Address"}
+
     return &(neighbor.EntityData)
 }
 
@@ -7340,9 +7853,12 @@ func (fastReroute *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     fastReroute.EntityData.NamespaceTable = ietf.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    fastReroute.EntityData.Children = make(map[string]types.YChild)
-    fastReroute.EntityData.Children["lfa"] = types.YChild{"Lfa", &fastReroute.Lfa}
-    fastReroute.EntityData.Leafs = make(map[string]types.YLeaf)
+    fastReroute.EntityData.Children = types.NewOrderedMap()
+    fastReroute.EntityData.Children.Append("lfa", types.YChild{"Lfa", &fastReroute.Lfa})
+    fastReroute.EntityData.Leafs = types.NewOrderedMap()
+
+    fastReroute.EntityData.YListKeys = []string {}
+
     return &(fastReroute.EntityData)
 }
 
@@ -7373,11 +7889,14 @@ func (lfa *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instanc
     lfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     lfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    lfa.EntityData.Children = make(map[string]types.YChild)
-    lfa.EntityData.Children["remote-lfa"] = types.YChild{"RemoteLfa", &lfa.RemoteLfa}
-    lfa.EntityData.Leafs = make(map[string]types.YLeaf)
-    lfa.EntityData.Leafs["candidate-disabled"] = types.YLeaf{"CandidateDisabled", lfa.CandidateDisabled}
-    lfa.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", lfa.Enabled}
+    lfa.EntityData.Children = types.NewOrderedMap()
+    lfa.EntityData.Children.Append("remote-lfa", types.YChild{"RemoteLfa", &lfa.RemoteLfa})
+    lfa.EntityData.Leafs = types.NewOrderedMap()
+    lfa.EntityData.Leafs.Append("candidate-disabled", types.YLeaf{"CandidateDisabled", lfa.CandidateDisabled})
+    lfa.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", lfa.Enabled})
+
+    lfa.EntityData.YListKeys = []string {}
+
     return &(lfa.EntityData)
 }
 
@@ -7401,9 +7920,12 @@ func (remoteLfa *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     remoteLfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     remoteLfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    remoteLfa.EntityData.Children = make(map[string]types.YChild)
-    remoteLfa.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteLfa.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", remoteLfa.Enabled}
+    remoteLfa.EntityData.Children = types.NewOrderedMap()
+    remoteLfa.EntityData.Leafs = types.NewOrderedMap()
+    remoteLfa.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", remoteLfa.Enabled})
+
+    remoteLfa.EntityData.YListKeys = []string {}
+
     return &(remoteLfa.EntityData)
 }
 
@@ -7431,10 +7953,13 @@ func (ttlSecurity *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ttlSecurity.EntityData.NamespaceTable = ietf.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ttlSecurity.EntityData.Children = make(map[string]types.YChild)
-    ttlSecurity.EntityData.Leafs = make(map[string]types.YLeaf)
-    ttlSecurity.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ttlSecurity.Enable}
-    ttlSecurity.EntityData.Leafs["hops"] = types.YLeaf{"Hops", ttlSecurity.Hops}
+    ttlSecurity.EntityData.Children = types.NewOrderedMap()
+    ttlSecurity.EntityData.Leafs = types.NewOrderedMap()
+    ttlSecurity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ttlSecurity.Enable})
+    ttlSecurity.EntityData.Leafs.Append("hops", types.YLeaf{"Hops", ttlSecurity.Hops})
+
+    ttlSecurity.EntityData.YListKeys = []string {}
+
     return &(ttlSecurity.EntityData)
 }
 
@@ -7467,12 +7992,15 @@ func (authentication *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     authentication.EntityData.NamespaceTable = ietf.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Children["crypto-algorithm"] = types.YChild{"CryptoAlgorithm", &authentication.CryptoAlgorithm}
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["sa"] = types.YLeaf{"Sa", authentication.Sa}
-    authentication.EntityData.Leafs["key-chain"] = types.YLeaf{"KeyChain", authentication.KeyChain}
-    authentication.EntityData.Leafs["key"] = types.YLeaf{"Key", authentication.Key}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Children.Append("crypto-algorithm", types.YChild{"CryptoAlgorithm", &authentication.CryptoAlgorithm})
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("sa", types.YLeaf{"Sa", authentication.Sa})
+    authentication.EntityData.Leafs.Append("key-chain", types.YLeaf{"KeyChain", authentication.KeyChain})
+    authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -7517,16 +8045,19 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    cryptoAlgorithm.EntityData.Children = make(map[string]types.YChild)
-    cryptoAlgorithm.EntityData.Leafs = make(map[string]types.YLeaf)
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-12"] = types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-20"] = types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120}
-    cryptoAlgorithm.EntityData.Leafs["md5"] = types.YLeaf{"Md5", cryptoAlgorithm.Md5}
-    cryptoAlgorithm.EntityData.Leafs["sha-1"] = types.YLeaf{"Sha1", cryptoAlgorithm.Sha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-1"] = types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-256"] = types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-384"] = types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-512"] = types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512}
+    cryptoAlgorithm.EntityData.Children = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-12", types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-20", types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120})
+    cryptoAlgorithm.EntityData.Leafs.Append("md5", types.YLeaf{"Md5", cryptoAlgorithm.Md5})
+    cryptoAlgorithm.EntityData.Leafs.Append("sha-1", types.YLeaf{"Sha1", cryptoAlgorithm.Sha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-1", types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-256", types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-384", types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-512", types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512})
+
+    cryptoAlgorithm.EntityData.YListKeys = []string {}
+
     return &(cryptoAlgorithm.EntityData)
 }
 
@@ -7550,15 +8081,18 @@ func (topology *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "interface"
-    topology.EntityData.SegmentPath = "topology" + "[name='" + fmt.Sprintf("%v", topology.Name) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.Name, "name")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["name"] = types.YLeaf{"Name", topology.Name}
-    topology.EntityData.Leafs["cost"] = types.YLeaf{"Cost", topology.Cost}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("name", types.YLeaf{"Name", topology.Name})
+    topology.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", topology.Cost})
+
+    topology.EntityData.YListKeys = []string {"Name"}
+
     return &(topology.EntityData)
 }
 
@@ -7592,7 +8126,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topo
 
     // List of ospf areas. The type is slice of
     // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area.
-    Area []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area
+    Area []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area
 }
 
 func (topology *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology) GetEntityData() *types.CommonEntityData {
@@ -7600,18 +8134,21 @@ func (topology *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     topology.EntityData.YangName = "topology"
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "instance"
-    topology.EntityData.SegmentPath = "topology" + "[name='" + fmt.Sprintf("%v", topology.Name) + "']"
+    topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.Name, "name")
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    topology.EntityData.Children = make(map[string]types.YChild)
-    topology.EntityData.Children["area"] = types.YChild{"Area", nil}
+    topology.EntityData.Children = types.NewOrderedMap()
+    topology.EntityData.Children.Append("area", types.YChild{"Area", nil})
     for i := range topology.Area {
-        topology.EntityData.Children[types.GetSegmentPath(&topology.Area[i])] = types.YChild{"Area", &topology.Area[i]}
+        topology.EntityData.Children.Append(types.GetSegmentPath(topology.Area[i]), types.YChild{"Area", topology.Area[i]})
     }
-    topology.EntityData.Leafs = make(map[string]types.YLeaf)
-    topology.EntityData.Leafs["name"] = types.YLeaf{"Name", topology.Name}
+    topology.EntityData.Leafs = types.NewOrderedMap()
+    topology.EntityData.Leafs.Append("name", types.YLeaf{"Name", topology.Name})
+
+    topology.EntityData.YListKeys = []string {"Name"}
+
     return &(topology.EntityData)
 }
 
@@ -7623,10 +8160,10 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topo
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AreaId interface{}
 
-    // Area type. The type is one of the following: NormalStubNssa. The default
+    // Area type. The type is one of the following: NormalNssaStub. The default
     // value is normal.
     AreaType interface{}
 
@@ -7640,8 +8177,8 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topo
 
     // Summarize routes matching address/mask (border routers only). The type is
     // slice of
-    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area_Range_.
-    Range_ []Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area_Range
+    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area_Range.
+    Range []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area_Range
 }
 
 func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area) GetEntityData() *types.CommonEntityData {
@@ -7649,21 +8186,24 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     area.EntityData.YangName = "area"
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "topology"
-    area.EntityData.SegmentPath = "area" + "[area-id='" + fmt.Sprintf("%v", area.AreaId) + "']"
+    area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    area.EntityData.Children = make(map[string]types.YChild)
-    area.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range area.Range_ {
-        area.EntityData.Children[types.GetSegmentPath(&area.Range_[i])] = types.YChild{"Range_", &area.Range_[i]}
+    area.EntityData.Children = types.NewOrderedMap()
+    area.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range area.Range {
+        area.EntityData.Children.Append(types.GetSegmentPath(area.Range[i]), types.YChild{"Range", area.Range[i]})
     }
-    area.EntityData.Leafs = make(map[string]types.YLeaf)
-    area.EntityData.Leafs["area-id"] = types.YLeaf{"AreaId", area.AreaId}
-    area.EntityData.Leafs["area-type"] = types.YLeaf{"AreaType", area.AreaType}
-    area.EntityData.Leafs["summary"] = types.YLeaf{"Summary", area.Summary}
-    area.EntityData.Leafs["default-cost"] = types.YLeaf{"DefaultCost", area.DefaultCost}
+    area.EntityData.Leafs = types.NewOrderedMap()
+    area.EntityData.Leafs.Append("area-id", types.YLeaf{"AreaId", area.AreaId})
+    area.EntityData.Leafs.Append("area-type", types.YLeaf{"AreaType", area.AreaType})
+    area.EntityData.Leafs.Append("summary", types.YLeaf{"Summary", area.Summary})
+    area.EntityData.Leafs.Append("default-cost", types.YLeaf{"DefaultCost", area.DefaultCost})
+
+    area.EntityData.YListKeys = []string {"AreaId"}
+
     return &(area.EntityData)
 }
 
@@ -7689,16 +8229,19 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "area"
-    self.EntityData.SegmentPath = "range" + "[prefix='" + fmt.Sprintf("%v", self.Prefix) + "']"
+    self.EntityData.SegmentPath = "range" + types.AddKeyToken(self.Prefix, "prefix")
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", self.Prefix}
-    self.EntityData.Leafs["advertise"] = types.YLeaf{"Advertise", self.Advertise}
-    self.EntityData.Leafs["cost"] = types.YLeaf{"Cost", self.Cost}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", self.Prefix})
+    self.EntityData.Leafs.Append("advertise", types.YLeaf{"Advertise", self.Advertise})
+    self.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", self.Cost})
+
+    self.EntityData.YListKeys = []string {"Prefix"}
+
     return &(self.EntityData)
 }
 
@@ -7713,7 +8256,7 @@ type Routing_RoutingInstance_Ribs struct {
     // /routing-state/routing-instance/ribs/rib are used for configuring
     // parameters of that entry. Other entries define additional user-controlled
     // RIBs. The type is slice of Routing_RoutingInstance_Ribs_Rib.
-    Rib []Routing_RoutingInstance_Ribs_Rib
+    Rib []*Routing_RoutingInstance_Ribs_Rib
 }
 
 func (ribs *Routing_RoutingInstance_Ribs) GetEntityData() *types.CommonEntityData {
@@ -7726,12 +8269,15 @@ func (ribs *Routing_RoutingInstance_Ribs) GetEntityData() *types.CommonEntityDat
     ribs.EntityData.NamespaceTable = ietf.GetNamespaces()
     ribs.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ribs.EntityData.Children = make(map[string]types.YChild)
-    ribs.EntityData.Children["rib"] = types.YChild{"Rib", nil}
+    ribs.EntityData.Children = types.NewOrderedMap()
+    ribs.EntityData.Children.Append("rib", types.YChild{"Rib", nil})
     for i := range ribs.Rib {
-        ribs.EntityData.Children[types.GetSegmentPath(&ribs.Rib[i])] = types.YChild{"Rib", &ribs.Rib[i]}
+        ribs.EntityData.Children.Append(types.GetSegmentPath(ribs.Rib[i]), types.YChild{"Rib", ribs.Rib[i]})
     }
-    ribs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ribs.EntityData.Leafs = types.NewOrderedMap()
+
+    ribs.EntityData.YListKeys = []string {}
+
     return &(ribs.EntityData)
 }
 
@@ -7766,16 +8312,19 @@ func (rib *Routing_RoutingInstance_Ribs_Rib) GetEntityData() *types.CommonEntity
     rib.EntityData.YangName = "rib"
     rib.EntityData.BundleName = "ietf"
     rib.EntityData.ParentYangName = "ribs"
-    rib.EntityData.SegmentPath = "rib" + "[name='" + fmt.Sprintf("%v", rib.Name) + "']"
+    rib.EntityData.SegmentPath = "rib" + types.AddKeyToken(rib.Name, "name")
     rib.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     rib.EntityData.NamespaceTable = ietf.GetNamespaces()
     rib.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    rib.EntityData.Children = make(map[string]types.YChild)
-    rib.EntityData.Leafs = make(map[string]types.YLeaf)
-    rib.EntityData.Leafs["name"] = types.YLeaf{"Name", rib.Name}
-    rib.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", rib.AddressFamily}
-    rib.EntityData.Leafs["description"] = types.YLeaf{"Description", rib.Description}
+    rib.EntityData.Children = types.NewOrderedMap()
+    rib.EntityData.Leafs = types.NewOrderedMap()
+    rib.EntityData.Leafs.Append("name", types.YLeaf{"Name", rib.Name})
+    rib.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", rib.AddressFamily})
+    rib.EntityData.Leafs.Append("description", types.YLeaf{"Description", rib.Description})
+
+    rib.EntityData.YListKeys = []string {"Name"}
+
     return &(rib.EntityData)
 }
 
@@ -7803,10 +8352,13 @@ func (fibRoute *FibRoute) GetEntityData() *types.CommonEntityData {
     fibRoute.EntityData.NamespaceTable = ietf.GetNamespaces()
     fibRoute.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    fibRoute.EntityData.Children = make(map[string]types.YChild)
-    fibRoute.EntityData.Children["input"] = types.YChild{"Input", &fibRoute.Input}
-    fibRoute.EntityData.Children["output"] = types.YChild{"Output", &fibRoute.Output}
-    fibRoute.EntityData.Leafs = make(map[string]types.YLeaf)
+    fibRoute.EntityData.Children = types.NewOrderedMap()
+    fibRoute.EntityData.Children.Append("input", types.YChild{"Input", &fibRoute.Input})
+    fibRoute.EntityData.Children.Append("output", types.YChild{"Output", &fibRoute.Output})
+    fibRoute.EntityData.Leafs = types.NewOrderedMap()
+
+    fibRoute.EntityData.YListKeys = []string {}
+
     return &(fibRoute.EntityData)
 }
 
@@ -7837,10 +8389,13 @@ func (input *FibRoute_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["destination-address"] = types.YChild{"DestinationAddress", &input.DestinationAddress}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["routing-instance-name"] = types.YLeaf{"RoutingInstanceName", input.RoutingInstanceName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("destination-address", types.YChild{"DestinationAddress", &input.DestinationAddress})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("routing-instance-name", types.YLeaf{"RoutingInstanceName", input.RoutingInstanceName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -7857,13 +8412,13 @@ type FibRoute_Input_DestinationAddress struct {
     // Ipv4Ipv4UnicastIpv6Ipv6Unicast. This attribute is mandatory.
     AddressFamily interface{}
 
-    // IPv4 destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    IetfIpv4UnicastRoutingAddress interface{}
-
     // IPv6 destination address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IetfIpv6UnicastRoutingAddress interface{}
+
+    // IPv4 destination address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IetfIpv4UnicastRoutingAddress interface{}
 }
 
 func (destinationAddress *FibRoute_Input_DestinationAddress) GetEntityData() *types.CommonEntityData {
@@ -7876,11 +8431,14 @@ func (destinationAddress *FibRoute_Input_DestinationAddress) GetEntityData() *ty
     destinationAddress.EntityData.NamespaceTable = ietf.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    destinationAddress.EntityData.Children = make(map[string]types.YChild)
-    destinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    destinationAddress.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", destinationAddress.AddressFamily}
-    destinationAddress.EntityData.Leafs["address"] = types.YLeaf{"IetfIpv4UnicastRoutingAddress", destinationAddress.IetfIpv4UnicastRoutingAddress}
-    destinationAddress.EntityData.Leafs["address"] = types.YLeaf{"IetfIpv6UnicastRoutingAddress", destinationAddress.IetfIpv6UnicastRoutingAddress}
+    destinationAddress.EntityData.Children = types.NewOrderedMap()
+    destinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    destinationAddress.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", destinationAddress.AddressFamily})
+    destinationAddress.EntityData.Leafs.Append("address", types.YLeaf{"IetfIpv6UnicastRoutingAddress", destinationAddress.IetfIpv6UnicastRoutingAddress})
+    destinationAddress.EntityData.Leafs.Append("address", types.YLeaf{"IetfIpv4UnicastRoutingAddress", destinationAddress.IetfIpv4UnicastRoutingAddress})
+
+    destinationAddress.EntityData.YListKeys = []string {}
+
     return &(destinationAddress.EntityData)
 }
 
@@ -7907,9 +8465,12 @@ func (output *FibRoute_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Children["route"] = types.YChild{"Route", &output.Route}
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Children.Append("route", types.YChild{"Route", &output.Route})
+    output.EntityData.Leafs = types.NewOrderedMap()
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -7932,7 +8493,7 @@ type FibRoute_Output_Route struct {
     AddressFamily interface{}
 
     // Type of the routing protocol from which the route originated. The type is
-    // one of the following: OspfOspfv2Ospfv3DirectStatic. This attribute is
+    // one of the following: Ospfv3Ospfv2OspfDirectStatic. This attribute is
     // mandatory.
     SourceProtocol interface{}
 
@@ -7944,16 +8505,16 @@ type FibRoute_Output_Route struct {
     // Time stamp of the last modification of the route. If the route was never
     // modified, it is the time when the route was inserted into the RIB. The type
     // is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdated interface{}
 
-    // IPv4 destination prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
-    IetfIpv4UnicastRoutingDestinationPrefix interface{}
-
     // IPv6 destination prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     IetfIpv6UnicastRoutingDestinationPrefix interface{}
+
+    // IPv4 destination prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
+    IetfIpv4UnicastRoutingDestinationPrefix interface{}
 
     // Route's next-hop attribute.
     NextHop FibRoute_Output_Route_NextHop
@@ -7969,15 +8530,18 @@ func (route *FibRoute_Output_Route) GetEntityData() *types.CommonEntityData {
     route.EntityData.NamespaceTable = ietf.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["next-hop"] = types.YChild{"NextHop", &route.NextHop}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", route.AddressFamily}
-    route.EntityData.Leafs["source-protocol"] = types.YLeaf{"SourceProtocol", route.SourceProtocol}
-    route.EntityData.Leafs["active"] = types.YLeaf{"Active", route.Active}
-    route.EntityData.Leafs["last-updated"] = types.YLeaf{"LastUpdated", route.LastUpdated}
-    route.EntityData.Leafs["destination-prefix"] = types.YLeaf{"IetfIpv4UnicastRoutingDestinationPrefix", route.IetfIpv4UnicastRoutingDestinationPrefix}
-    route.EntityData.Leafs["destination-prefix"] = types.YLeaf{"IetfIpv6UnicastRoutingDestinationPrefix", route.IetfIpv6UnicastRoutingDestinationPrefix}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("next-hop", types.YChild{"NextHop", &route.NextHop})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", route.AddressFamily})
+    route.EntityData.Leafs.Append("source-protocol", types.YLeaf{"SourceProtocol", route.SourceProtocol})
+    route.EntityData.Leafs.Append("active", types.YLeaf{"Active", route.Active})
+    route.EntityData.Leafs.Append("last-updated", types.YLeaf{"LastUpdated", route.LastUpdated})
+    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"IetfIpv6UnicastRoutingDestinationPrefix", route.IetfIpv6UnicastRoutingDestinationPrefix})
+    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"IetfIpv4UnicastRoutingDestinationPrefix", route.IetfIpv4UnicastRoutingDestinationPrefix})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -7993,13 +8557,13 @@ type FibRoute_Output_Route_NextHop struct {
     // IP address. The type is string.
     IetfRoutingNextHopAddress interface{}
 
-    // IPv4 address of the next-hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    IetfIpv4UnicastRoutingNextHopAddress interface{}
-
     // IPv6 address of the next-hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IetfIpv6UnicastRoutingNextHopAddress interface{}
+
+    // IPv4 address of the next-hop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IetfIpv4UnicastRoutingNextHopAddress interface{}
 
     // Special next-hop options. The type is SpecialNextHop.
     SpecialNextHop interface{}
@@ -8015,13 +8579,16 @@ func (nextHop *FibRoute_Output_Route_NextHop) GetEntityData() *types.CommonEntit
     nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    nextHop.EntityData.Children = make(map[string]types.YChild)
-    nextHop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nextHop.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface}
-    nextHop.EntityData.Leafs["next-hop-address"] = types.YLeaf{"IetfRoutingNextHopAddress", nextHop.IetfRoutingNextHopAddress}
-    nextHop.EntityData.Leafs["next-hop-address"] = types.YLeaf{"IetfIpv4UnicastRoutingNextHopAddress", nextHop.IetfIpv4UnicastRoutingNextHopAddress}
-    nextHop.EntityData.Leafs["next-hop-address"] = types.YLeaf{"IetfIpv6UnicastRoutingNextHopAddress", nextHop.IetfIpv6UnicastRoutingNextHopAddress}
-    nextHop.EntityData.Leafs["special-next-hop"] = types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop}
+    nextHop.EntityData.Children = types.NewOrderedMap()
+    nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfRoutingNextHopAddress", nextHop.IetfRoutingNextHopAddress})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfIpv6UnicastRoutingNextHopAddress", nextHop.IetfIpv6UnicastRoutingNextHopAddress})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfIpv4UnicastRoutingNextHopAddress", nextHop.IetfIpv4UnicastRoutingNextHopAddress})
+    nextHop.EntityData.Leafs.Append("special-next-hop", types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop})
+
+    nextHop.EntityData.YListKeys = []string {}
+
     return &(nextHop.EntityData)
 }
 

@@ -136,6 +136,15 @@ module Cisco-IOS-XR-parser-cfg {
           "disable interactive mode";
       }
     }
+    container commit-optimized {
+      description
+        "Enable optimization for regular commit";
+      leaf commit-optimized-enable {
+        type boolean;
+        description
+          "Enable the feature";
+      }
+    }
     container sysadmin-login-banner {
       description
         "Configuration to disable sysadmin login banner";

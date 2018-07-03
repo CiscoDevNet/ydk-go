@@ -19,53 +19,41 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-cellwan-oper:cellwan-oper-data", reflect.TypeOf(CellwanOperData{}))
 }
 
-// ModemStatus represents Modem status indicates the current state of cellular modem
-type ModemStatus string
+// ModemService represents Modem service indicates the current network service type for cellular modem
+type ModemService string
 
 const (
-    // Modem is in Offline state
-    ModemStatus_modem_status_offline ModemStatus = "modem-status-offline"
+    // Cellular Network service type is circuit-switched
+    ModemService_service_type_circuit_switched ModemService = "service-type-circuit-switched"
 
-    // Modem is in Online state
-    ModemStatus_modem_status_online ModemStatus = "modem-status-online"
+    // Cellular Network service type is packet-switched
+    ModemService_service_type_packet_switched ModemService = "service-type-packet-switched"
 
-    // Modem is in Low Power Mode state
-    ModemStatus_modem_status_low_power ModemStatus = "modem-status-low-power"
+    // Cellular Network service type is combined
+    ModemService_service_type_combined ModemService = "service-type-combined"
 
-    // Modem is in power off state
-    ModemStatus_modem_status_power_off ModemStatus = "modem-status-power-off"
+    // Cellular Network service type is invalid
+    ModemService_service_type_invalid ModemService = "service-type-invalid"
 
-    // Modem is in boot ready state
-    ModemStatus_modem_status_boot_ready ModemStatus = "modem-status-boot-ready"
-
-    // Modem is in unknown state
-    ModemStatus_modem_status_unknown ModemStatus = "modem-status-unknown"
+    // Cellular Network service type is unknown
+    ModemService_service_type_unknown ModemService = "service-type-unknown"
 )
 
-// CwRadioPowerStatus represents Radio power status indicates the current radio power mode of cellular modem
-type CwRadioPowerStatus string
+// ServiceStatus represents Service status indicates the current network service for cellular modem
+type ServiceStatus string
 
 const (
-    // Cellular modem is in online radio mode
-    CwRadioPowerStatus_radio_power_mode_online CwRadioPowerStatus = "radio-power-mode-online"
+    // Cellular Network status is in normal state
+    ServiceStatus_service_status_normal ServiceStatus = "service-status-normal"
 
-    // Cellular modem is in low power radio mode
-    CwRadioPowerStatus_radio_power_mode_low_power CwRadioPowerStatus = "radio-power-mode-low-power"
+    // Cellular Network status is in emergency state
+    ServiceStatus_service_status_emergency ServiceStatus = "service-status-emergency"
 
-    // Cellular modem is in factory test radio mode
-    CwRadioPowerStatus_radio_power_mode_factory_test CwRadioPowerStatus = "radio-power-mode-factory-test"
+    // Cellular Network status is in no service state
+    ServiceStatus_service_status_no_service ServiceStatus = "service-status-no-service"
 
-    // Cellular modem is in offline radio mode
-    CwRadioPowerStatus_radio_power_mode_offline CwRadioPowerStatus = "radio-power-mode-offline"
-
-    // Cellular modem is in reset radio mode
-    CwRadioPowerStatus_radio_power_mode_reset CwRadioPowerStatus = "radio-power-mode-reset"
-
-    // Cellular modem is in off radio mode
-    CwRadioPowerStatus_radio_power_mode_off CwRadioPowerStatus = "radio-power-mode-off"
-
-    // Cellular modem is in persistent low power radio mode
-    CwRadioPowerStatus_radio_power_mode_persistent_low_power CwRadioPowerStatus = "radio-power-mode-persistent-low-power"
+    // Cellular Network status is in unknown state
+    ServiceStatus_service_status_unknown ServiceStatus = "service-status-unknown"
 )
 
 // RadioBandwidth represents Radio bandwidth indicates the current cellular radio bandwidth selected in MHz
@@ -95,112 +83,6 @@ const (
 
     // Cellular radio bandwidth is unknown
     RadioBandwidth_bandwidth_unknown RadioBandwidth = "bandwidth-unknown"
-)
-
-// ModemTechnology represents Modem technology indicates the current cellular technology selected
-type ModemTechnology string
-
-const (
-    // Modem technology selected is CDMA (Code Division Multiple Access) / 
-    //   EVDO (Evolution-Data Optimized) / 
-    //   1xRTT (Single carrier (1x) radio transmission technology)
-    ModemTechnology_cdma_evdo_1x_rtt ModemTechnology = "cdma-evdo-1x-rtt"
-
-    // Modem technology selected is GSM (Global System for Mobile Communications) 
-    //   / UMTS (Universal Mobile Telecommunications Service) 
-    //   / GPRS (General Packet Radio Service)
-    ModemTechnology_gsm_umts_gprs ModemTechnology = "gsm-umts-gprs"
-
-    // Modem technology selected is unknown
-    ModemTechnology_tech_unknown ModemTechnology = "tech-unknown"
-)
-
-// RatPreference represents RAT preference indicates the current radio technology preference
-type RatPreference string
-
-const (
-    // Radio technology preference is no svc
-    RatPreference_lte_radio_tech_no_svc RatPreference = "lte-radio-tech-no-svc"
-
-    // Radio technology preference is CDMA (Code Division Multiple Access) 
-    // / 1xRTT (Single carrier (1x) radio transmission technology)
-    RatPreference_lte_radio_tech_cdma_1_xrtt RatPreference = "lte-radio-tech-cdma-1-xrtt"
-
-    // Radio technology preference is CDMA (Code Division Multiple Access) 
-    // / EVDO (Evolution-Data Optimized) 
-    RatPreference_lte_radio_tech_cdma_evdo RatPreference = "lte-radio-tech-cdma-evdo"
-
-    // Radio technology preference is AMPS (Advanced Mobile Phone Service)
-    RatPreference_lte_radio_tech_amps RatPreference = "lte-radio-tech-amps"
-
-    // Radio technology preference is GSM (Global System for Mobile Communications)
-    RatPreference_lte_radio_tech_gsm RatPreference = "lte-radio-tech-gsm"
-
-    // Radio technology preference is UMTS (Universal Mobile Telecommunications Service)
-    RatPreference_lte_radio_tech_umts RatPreference = "lte-radio-tech-umts"
-
-    // Radio technology preference is WLAN (wireless local area network)
-    RatPreference_lte_radio_tech_wlan RatPreference = "lte-radio-tech-wlan"
-
-    // Radio technology preference is GPRS (General Packet Radio Service)
-    RatPreference_lte_radio_tech_gprs RatPreference = "lte-radio-tech-gprs"
-
-    // Radio technology preference is LTE (Long-Term Evolution)
-    RatPreference_lte_radio_tech_lte RatPreference = "lte-radio-tech-lte"
-
-    // Radio technology preference is AUTO 
-    RatPreference_lte_radio_tech_auto RatPreference = "lte-radio-tech-auto"
-
-    // Radio technology preference is Hybrid CDMA (Hybrid Code Division Multiple Access)
-    RatPreference_lte_radio_tech_hybrid_cdma RatPreference = "lte-radio-tech-hybrid-cdma"
-
-    // Radio technology preference is WCDMA (Wideband Code Division Multiplexing Access)
-    RatPreference_lte_radio_tech_wcdma RatPreference = "lte-radio-tech-wcdma"
-
-    // Radio technology preference is GWL 
-    RatPreference_lte_radio_tech_gwl RatPreference = "lte-radio-tech-gwl"
-
-    // Radio technology preference is EDGE (Enhanced Data rates for GSM Evolution)
-    RatPreference_lte_radio_tech_edge RatPreference = "lte-radio-tech-edge"
-
-    // Radio technology preference is HSDPA (High Speed Downlink Packet Access)
-    // & WCDMA (Wideband Code Division Multiplexing Access)
-    RatPreference_lte_radio_tech_hsdpa_n_wcdma RatPreference = "lte-radio-tech-hsdpa-n-wcdma"
-
-    // Radio technology preference is WCDMA (Wideband Code Division Multiplexing Access)
-    //   & HSUPA (High Speed Uplink Packet Access)
-    RatPreference_lte_radio_tech_wcdma_n_hsupa RatPreference = "lte-radio-tech-wcdma-n-hsupa"
-
-    // Radio technology preference is HSDPA (High Speed Downlink Packet Access)
-    //   & HSUPA (High Speed Uplink Packet Access)
-    RatPreference_lte_radio_tech_hsdpa_n_hsupa RatPreference = "lte-radio-tech-hsdpa-n-hsupa"
-
-    // Radio technology preference is HSDPA+ (High Speed Downlink Packet Access plus) 
-    //   & WCDMA (Wideband Code Division Multiplexing Access)
-    RatPreference_lte_radio_tech_hsdpa_plus_n_wcdma RatPreference = "lte-radio-tech-hsdpa-plus-n-wcdma"
-
-    // Radio technology preference is HSDPA+ (High Speed Downlink Packet Access plus)
-    //   & HSUPA (High Speed Uplink Packet Access)
-    RatPreference_lte_radio_tech_hsdpa_plus_n_hsupa RatPreference = "lte-radio-tech-hsdpa-plus-n-hsupa"
-
-    // Radio technology preference is 
-    //   DC HSDPA+ (Dual Carrier High Speed Downlink Packet Access plus) 
-    //   & WCDMA (Wideband Code Division Multiplexing Access)
-    RatPreference_lte_radio_tech_dc_hsdpa_plus_n_wcdma RatPreference = "lte-radio-tech-dc-hsdpa-plus-n-wcdma"
-
-    // Radio technology preference is 
-    //   DC HSDPA+ (Dual Carrier High Speed Downlink Packet Access plus) 
-    //   & HSUPA (High Speed Uplink Packet Access)
-    RatPreference_lte_radio_tech_dc_hsdpa_plus_n_hsupa RatPreference = "lte-radio-tech-dc-hsdpa-plus-n-hsupa"
-
-    // Radio technology preference is Null Bearer 
-    RatPreference_lte_radio_tech_null_bearer RatPreference = "lte-radio-tech-null-bearer"
-
-    // Radio technology preference is Unknown 
-    RatPreference_lte_radio_tech_unknown RatPreference = "lte-radio-tech-unknown"
-
-    // Radio technology preference is unchanged 
-    RatPreference_lte_radio_tech_no_change RatPreference = "lte-radio-tech-no-change"
 )
 
 // RatTechnology represents RAT technology indicates the current radio technology selected
@@ -291,41 +173,158 @@ const (
     RatTechnology_system_mode_unknown RatTechnology = "system-mode-unknown"
 )
 
-// ServiceStatus represents Service status indicates the current network service for cellular modem
-type ServiceStatus string
+// RatPreference represents RAT preference indicates the current radio technology preference
+type RatPreference string
 
 const (
-    // Cellular Network status is in normal state
-    ServiceStatus_service_status_normal ServiceStatus = "service-status-normal"
+    // Radio technology preference is no svc
+    RatPreference_lte_radio_tech_no_svc RatPreference = "lte-radio-tech-no-svc"
 
-    // Cellular Network status is in emergency state
-    ServiceStatus_service_status_emergency ServiceStatus = "service-status-emergency"
+    // Radio technology preference is CDMA (Code Division Multiple Access) 
+    // / 1xRTT (Single carrier (1x) radio transmission technology)
+    RatPreference_lte_radio_tech_cdma_1_xrtt RatPreference = "lte-radio-tech-cdma-1-xrtt"
 
-    // Cellular Network status is in no service state
-    ServiceStatus_service_status_no_service ServiceStatus = "service-status-no-service"
+    // Radio technology preference is CDMA (Code Division Multiple Access) 
+    // / EVDO (Evolution-Data Optimized) 
+    RatPreference_lte_radio_tech_cdma_evdo RatPreference = "lte-radio-tech-cdma-evdo"
 
-    // Cellular Network status is in unknown state
-    ServiceStatus_service_status_unknown ServiceStatus = "service-status-unknown"
+    // Radio technology preference is AMPS (Advanced Mobile Phone Service)
+    RatPreference_lte_radio_tech_amps RatPreference = "lte-radio-tech-amps"
+
+    // Radio technology preference is GSM (Global System for Mobile Communications)
+    RatPreference_lte_radio_tech_gsm RatPreference = "lte-radio-tech-gsm"
+
+    // Radio technology preference is UMTS (Universal Mobile Telecommunications Service)
+    RatPreference_lte_radio_tech_umts RatPreference = "lte-radio-tech-umts"
+
+    // Radio technology preference is WLAN (wireless local area network)
+    RatPreference_lte_radio_tech_wlan RatPreference = "lte-radio-tech-wlan"
+
+    // Radio technology preference is GPRS (General Packet Radio Service)
+    RatPreference_lte_radio_tech_gprs RatPreference = "lte-radio-tech-gprs"
+
+    // Radio technology preference is LTE (Long-Term Evolution)
+    RatPreference_lte_radio_tech_lte RatPreference = "lte-radio-tech-lte"
+
+    // Radio technology preference is AUTO 
+    RatPreference_lte_radio_tech_auto RatPreference = "lte-radio-tech-auto"
+
+    // Radio technology preference is Hybrid CDMA (Hybrid Code Division Multiple Access)
+    RatPreference_lte_radio_tech_hybrid_cdma RatPreference = "lte-radio-tech-hybrid-cdma"
+
+    // Radio technology preference is WCDMA (Wideband Code Division Multiplexing Access)
+    RatPreference_lte_radio_tech_wcdma RatPreference = "lte-radio-tech-wcdma"
+
+    // Radio technology preference is GWL 
+    RatPreference_lte_radio_tech_gwl RatPreference = "lte-radio-tech-gwl"
+
+    // Radio technology preference is EDGE (Enhanced Data rates for GSM Evolution)
+    RatPreference_lte_radio_tech_edge RatPreference = "lte-radio-tech-edge"
+
+    // Radio technology preference is HSDPA (High Speed Downlink Packet Access)
+    // & WCDMA (Wideband Code Division Multiplexing Access)
+    RatPreference_lte_radio_tech_hsdpa_n_wcdma RatPreference = "lte-radio-tech-hsdpa-n-wcdma"
+
+    // Radio technology preference is WCDMA (Wideband Code Division Multiplexing Access)
+    //   & HSUPA (High Speed Uplink Packet Access)
+    RatPreference_lte_radio_tech_wcdma_n_hsupa RatPreference = "lte-radio-tech-wcdma-n-hsupa"
+
+    // Radio technology preference is HSDPA (High Speed Downlink Packet Access)
+    //   & HSUPA (High Speed Uplink Packet Access)
+    RatPreference_lte_radio_tech_hsdpa_n_hsupa RatPreference = "lte-radio-tech-hsdpa-n-hsupa"
+
+    // Radio technology preference is HSDPA+ (High Speed Downlink Packet Access plus) 
+    //   & WCDMA (Wideband Code Division Multiplexing Access)
+    RatPreference_lte_radio_tech_hsdpa_plus_n_wcdma RatPreference = "lte-radio-tech-hsdpa-plus-n-wcdma"
+
+    // Radio technology preference is HSDPA+ (High Speed Downlink Packet Access plus)
+    //   & HSUPA (High Speed Uplink Packet Access)
+    RatPreference_lte_radio_tech_hsdpa_plus_n_hsupa RatPreference = "lte-radio-tech-hsdpa-plus-n-hsupa"
+
+    // Radio technology preference is 
+    //   DC HSDPA+ (Dual Carrier High Speed Downlink Packet Access plus) 
+    //   & WCDMA (Wideband Code Division Multiplexing Access)
+    RatPreference_lte_radio_tech_dc_hsdpa_plus_n_wcdma RatPreference = "lte-radio-tech-dc-hsdpa-plus-n-wcdma"
+
+    // Radio technology preference is 
+    //   DC HSDPA+ (Dual Carrier High Speed Downlink Packet Access plus) 
+    //   & HSUPA (High Speed Uplink Packet Access)
+    RatPreference_lte_radio_tech_dc_hsdpa_plus_n_hsupa RatPreference = "lte-radio-tech-dc-hsdpa-plus-n-hsupa"
+
+    // Radio technology preference is Null Bearer 
+    RatPreference_lte_radio_tech_null_bearer RatPreference = "lte-radio-tech-null-bearer"
+
+    // Radio technology preference is Unknown 
+    RatPreference_lte_radio_tech_unknown RatPreference = "lte-radio-tech-unknown"
+
+    // Radio technology preference is unchanged 
+    RatPreference_lte_radio_tech_no_change RatPreference = "lte-radio-tech-no-change"
 )
 
-// ModemService represents Modem service indicates the current network service type for cellular modem
-type ModemService string
+// PacketSessStatus represents Packet Session Status indicates the Cellular packet session state
+type PacketSessStatus string
 
 const (
-    // Cellular Network service type is circuit-switched
-    ModemService_service_type_circuit_switched ModemService = "service-type-circuit-switched"
+    // Cellular packet session status is inactive
+    PacketSessStatus_packet_session_status_inactive PacketSessStatus = "packet-session-status-inactive"
 
-    // Cellular Network service type is packet-switched
-    ModemService_service_type_packet_switched ModemService = "service-type-packet-switched"
+    // Cellular packet session status is active
+    PacketSessStatus_packet_session_status_active PacketSessStatus = "packet-session-status-active"
+)
 
-    // Cellular Network service type is combined
-    ModemService_service_type_combined ModemService = "service-type-combined"
+// CwRadioPowerStatus represents Radio power status indicates the current radio power mode of cellular modem
+type CwRadioPowerStatus string
 
-    // Cellular Network service type is invalid
-    ModemService_service_type_invalid ModemService = "service-type-invalid"
+const (
+    // Cellular modem is in online radio mode
+    CwRadioPowerStatus_radio_power_mode_online CwRadioPowerStatus = "radio-power-mode-online"
 
-    // Cellular Network service type is unknown
-    ModemService_service_type_unknown ModemService = "service-type-unknown"
+    // Cellular modem is in low power radio mode
+    CwRadioPowerStatus_radio_power_mode_low_power CwRadioPowerStatus = "radio-power-mode-low-power"
+
+    // Cellular modem is in factory test radio mode
+    CwRadioPowerStatus_radio_power_mode_factory_test CwRadioPowerStatus = "radio-power-mode-factory-test"
+
+    // Cellular modem is in offline radio mode
+    CwRadioPowerStatus_radio_power_mode_offline CwRadioPowerStatus = "radio-power-mode-offline"
+
+    // Cellular modem is in reset radio mode
+    CwRadioPowerStatus_radio_power_mode_reset CwRadioPowerStatus = "radio-power-mode-reset"
+
+    // Cellular modem is in off radio mode
+    CwRadioPowerStatus_radio_power_mode_off CwRadioPowerStatus = "radio-power-mode-off"
+
+    // Cellular modem is in persistent low power radio mode
+    CwRadioPowerStatus_radio_power_mode_persistent_low_power CwRadioPowerStatus = "radio-power-mode-persistent-low-power"
+)
+
+// ModemTechnology represents Modem technology indicates the current cellular technology selected
+type ModemTechnology string
+
+const (
+    // Modem technology selected is CDMA (Code Division Multiple Access) / 
+    //   EVDO (Evolution-Data Optimized) / 
+    //   1xRTT (Single carrier (1x) radio transmission technology)
+    ModemTechnology_cdma_evdo_1x_rtt ModemTechnology = "cdma-evdo-1x-rtt"
+
+    // Modem technology selected is GSM (Global System for Mobile Communications) 
+    //   / UMTS (Universal Mobile Telecommunications Service) 
+    //   / GPRS (General Packet Radio Service)
+    ModemTechnology_gsm_umts_gprs ModemTechnology = "gsm-umts-gprs"
+
+    // Modem technology selected is unknown
+    ModemTechnology_tech_unknown ModemTechnology = "tech-unknown"
+)
+
+// ProfileScope represents Profile Scope indicates the IP address scope
+type ProfileScope string
+
+const (
+    // IP address scope is Global
+    ProfileScope_scope_global ProfileScope = "scope-global"
+
+    // IP address scope is Link
+    ProfileScope_scope_link ProfileScope = "scope-link"
 )
 
 // LteCa represents LTE CA indicates the LTE carrier aggregation status for cellular modem
@@ -343,6 +342,29 @@ const (
 
     // LTE carrier aggregation is unsupported
     LteCa_lte_ca_unsupported LteCa = "lte-ca-unsupported"
+)
+
+// ModemStatus represents Modem status indicates the current state of cellular modem
+type ModemStatus string
+
+const (
+    // Modem is in Offline state
+    ModemStatus_modem_status_offline ModemStatus = "modem-status-offline"
+
+    // Modem is in Online state
+    ModemStatus_modem_status_online ModemStatus = "modem-status-online"
+
+    // Modem is in Low Power Mode state
+    ModemStatus_modem_status_low_power ModemStatus = "modem-status-low-power"
+
+    // Modem is in power off state
+    ModemStatus_modem_status_power_off ModemStatus = "modem-status-power-off"
+
+    // Modem is in boot ready state
+    ModemStatus_modem_status_boot_ready ModemStatus = "modem-status-boot-ready"
+
+    // Modem is in unknown state
+    ModemStatus_modem_status_unknown ModemStatus = "modem-status-unknown"
 )
 
 // RegState represents Registration state indicates the current cellular network registration state
@@ -365,28 +387,6 @@ const (
     RegState_reg_status_unsupported RegState = "reg-status-unsupported"
 )
 
-// PacketSessStatus represents Packet Session Status indicates the Cellular packet session state
-type PacketSessStatus string
-
-const (
-    // Cellular packet session status is inactive
-    PacketSessStatus_packet_session_status_inactive PacketSessStatus = "packet-session-status-inactive"
-
-    // Cellular packet session status is active
-    PacketSessStatus_packet_session_status_active PacketSessStatus = "packet-session-status-active"
-)
-
-// ProfileScope represents Profile Scope indicates the IP address scope
-type ProfileScope string
-
-const (
-    // IP address scope is Global
-    ProfileScope_scope_global ProfileScope = "scope-global"
-
-    // IP address scope is Link
-    ProfileScope_scope_link ProfileScope = "scope-link"
-)
-
 // CellwanOperData
 // Cellwan operational data
 type CellwanOperData struct {
@@ -395,19 +395,19 @@ type CellwanOperData struct {
 
     // Cellwan modem hardware data. The type is slice of
     // CellwanOperData_CellwanHardware.
-    CellwanHardware []CellwanOperData_CellwanHardware
+    CellwanHardware []*CellwanOperData_CellwanHardware
 
     // Cellwan modem radio data. The type is slice of
     // CellwanOperData_CellwanRadio.
-    CellwanRadio []CellwanOperData_CellwanRadio
+    CellwanRadio []*CellwanOperData_CellwanRadio
 
     // Cellwan modem network data. The type is slice of
     // CellwanOperData_CellwanNetwork.
-    CellwanNetwork []CellwanOperData_CellwanNetwork
+    CellwanNetwork []*CellwanOperData_CellwanNetwork
 
     // Cellwan modem connection data. The type is slice of
     // CellwanOperData_CellwanConnection.
-    CellwanConnection []CellwanOperData_CellwanConnection
+    CellwanConnection []*CellwanOperData_CellwanConnection
 }
 
 func (cellwanOperData *CellwanOperData) GetEntityData() *types.CommonEntityData {
@@ -420,24 +420,27 @@ func (cellwanOperData *CellwanOperData) GetEntityData() *types.CommonEntityData 
     cellwanOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cellwanOperData.EntityData.Children = make(map[string]types.YChild)
-    cellwanOperData.EntityData.Children["cellwan-hardware"] = types.YChild{"CellwanHardware", nil}
+    cellwanOperData.EntityData.Children = types.NewOrderedMap()
+    cellwanOperData.EntityData.Children.Append("cellwan-hardware", types.YChild{"CellwanHardware", nil})
     for i := range cellwanOperData.CellwanHardware {
-        cellwanOperData.EntityData.Children[types.GetSegmentPath(&cellwanOperData.CellwanHardware[i])] = types.YChild{"CellwanHardware", &cellwanOperData.CellwanHardware[i]}
+        cellwanOperData.EntityData.Children.Append(types.GetSegmentPath(cellwanOperData.CellwanHardware[i]), types.YChild{"CellwanHardware", cellwanOperData.CellwanHardware[i]})
     }
-    cellwanOperData.EntityData.Children["cellwan-radio"] = types.YChild{"CellwanRadio", nil}
+    cellwanOperData.EntityData.Children.Append("cellwan-radio", types.YChild{"CellwanRadio", nil})
     for i := range cellwanOperData.CellwanRadio {
-        cellwanOperData.EntityData.Children[types.GetSegmentPath(&cellwanOperData.CellwanRadio[i])] = types.YChild{"CellwanRadio", &cellwanOperData.CellwanRadio[i]}
+        cellwanOperData.EntityData.Children.Append(types.GetSegmentPath(cellwanOperData.CellwanRadio[i]), types.YChild{"CellwanRadio", cellwanOperData.CellwanRadio[i]})
     }
-    cellwanOperData.EntityData.Children["cellwan-network"] = types.YChild{"CellwanNetwork", nil}
+    cellwanOperData.EntityData.Children.Append("cellwan-network", types.YChild{"CellwanNetwork", nil})
     for i := range cellwanOperData.CellwanNetwork {
-        cellwanOperData.EntityData.Children[types.GetSegmentPath(&cellwanOperData.CellwanNetwork[i])] = types.YChild{"CellwanNetwork", &cellwanOperData.CellwanNetwork[i]}
+        cellwanOperData.EntityData.Children.Append(types.GetSegmentPath(cellwanOperData.CellwanNetwork[i]), types.YChild{"CellwanNetwork", cellwanOperData.CellwanNetwork[i]})
     }
-    cellwanOperData.EntityData.Children["cellwan-connection"] = types.YChild{"CellwanConnection", nil}
+    cellwanOperData.EntityData.Children.Append("cellwan-connection", types.YChild{"CellwanConnection", nil})
     for i := range cellwanOperData.CellwanConnection {
-        cellwanOperData.EntityData.Children[types.GetSegmentPath(&cellwanOperData.CellwanConnection[i])] = types.YChild{"CellwanConnection", &cellwanOperData.CellwanConnection[i]}
+        cellwanOperData.EntityData.Children.Append(types.GetSegmentPath(cellwanOperData.CellwanConnection[i]), types.YChild{"CellwanConnection", cellwanOperData.CellwanConnection[i]})
     }
-    cellwanOperData.EntityData.Leafs = make(map[string]types.YLeaf)
+    cellwanOperData.EntityData.Leafs = types.NewOrderedMap()
+
+    cellwanOperData.EntityData.YListKeys = []string {}
+
     return &(cellwanOperData.EntityData)
 }
 
@@ -502,29 +505,32 @@ func (cellwanHardware *CellwanOperData_CellwanHardware) GetEntityData() *types.C
     cellwanHardware.EntityData.YangName = "cellwan-hardware"
     cellwanHardware.EntityData.BundleName = "cisco_ios_xe"
     cellwanHardware.EntityData.ParentYangName = "cellwan-oper-data"
-    cellwanHardware.EntityData.SegmentPath = "cellwan-hardware" + "[cellular-interface='" + fmt.Sprintf("%v", cellwanHardware.CellularInterface) + "']"
+    cellwanHardware.EntityData.SegmentPath = "cellwan-hardware" + types.AddKeyToken(cellwanHardware.CellularInterface, "cellular-interface")
     cellwanHardware.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanHardware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanHardware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cellwanHardware.EntityData.Children = make(map[string]types.YChild)
-    cellwanHardware.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellwanHardware.EntityData.Leafs["cellular-interface"] = types.YLeaf{"CellularInterface", cellwanHardware.CellularInterface}
-    cellwanHardware.EntityData.Leafs["cellular-firmware-version"] = types.YLeaf{"CellularFirmwareVersion", cellwanHardware.CellularFirmwareVersion}
-    cellwanHardware.EntityData.Leafs["cellular-firmware-build-time"] = types.YLeaf{"CellularFirmwareBuildTime", cellwanHardware.CellularFirmwareBuildTime}
-    cellwanHardware.EntityData.Leafs["cellular-hardware-version"] = types.YLeaf{"CellularHardwareVersion", cellwanHardware.CellularHardwareVersion}
-    cellwanHardware.EntityData.Leafs["cellular-device-model"] = types.YLeaf{"CellularDeviceModel", cellwanHardware.CellularDeviceModel}
-    cellwanHardware.EntityData.Leafs["cellular-imsi"] = types.YLeaf{"CellularImsi", cellwanHardware.CellularImsi}
-    cellwanHardware.EntityData.Leafs["cellular-imei"] = types.YLeaf{"CellularImei", cellwanHardware.CellularImei}
-    cellwanHardware.EntityData.Leafs["cellular-iccid"] = types.YLeaf{"CellularIccid", cellwanHardware.CellularIccid}
-    cellwanHardware.EntityData.Leafs["cellular-msisdn"] = types.YLeaf{"CellularMsisdn", cellwanHardware.CellularMsisdn}
-    cellwanHardware.EntityData.Leafs["cellular-fsn"] = types.YLeaf{"CellularFsn", cellwanHardware.CellularFsn}
-    cellwanHardware.EntityData.Leafs["cellular-modem-status"] = types.YLeaf{"CellularModemStatus", cellwanHardware.CellularModemStatus}
-    cellwanHardware.EntityData.Leafs["cellular-modem-temperature"] = types.YLeaf{"CellularModemTemperature", cellwanHardware.CellularModemTemperature}
-    cellwanHardware.EntityData.Leafs["cellular-pri-skuid"] = types.YLeaf{"CellularPriSkuid", cellwanHardware.CellularPriSkuid}
-    cellwanHardware.EntityData.Leafs["cellular-pri-version"] = types.YLeaf{"CellularPriVersion", cellwanHardware.CellularPriVersion}
-    cellwanHardware.EntityData.Leafs["cellular-carrier"] = types.YLeaf{"CellularCarrier", cellwanHardware.CellularCarrier}
-    cellwanHardware.EntityData.Leafs["cellular-oem-pri-version"] = types.YLeaf{"CellularOemPriVersion", cellwanHardware.CellularOemPriVersion}
+    cellwanHardware.EntityData.Children = types.NewOrderedMap()
+    cellwanHardware.EntityData.Leafs = types.NewOrderedMap()
+    cellwanHardware.EntityData.Leafs.Append("cellular-interface", types.YLeaf{"CellularInterface", cellwanHardware.CellularInterface})
+    cellwanHardware.EntityData.Leafs.Append("cellular-firmware-version", types.YLeaf{"CellularFirmwareVersion", cellwanHardware.CellularFirmwareVersion})
+    cellwanHardware.EntityData.Leafs.Append("cellular-firmware-build-time", types.YLeaf{"CellularFirmwareBuildTime", cellwanHardware.CellularFirmwareBuildTime})
+    cellwanHardware.EntityData.Leafs.Append("cellular-hardware-version", types.YLeaf{"CellularHardwareVersion", cellwanHardware.CellularHardwareVersion})
+    cellwanHardware.EntityData.Leafs.Append("cellular-device-model", types.YLeaf{"CellularDeviceModel", cellwanHardware.CellularDeviceModel})
+    cellwanHardware.EntityData.Leafs.Append("cellular-imsi", types.YLeaf{"CellularImsi", cellwanHardware.CellularImsi})
+    cellwanHardware.EntityData.Leafs.Append("cellular-imei", types.YLeaf{"CellularImei", cellwanHardware.CellularImei})
+    cellwanHardware.EntityData.Leafs.Append("cellular-iccid", types.YLeaf{"CellularIccid", cellwanHardware.CellularIccid})
+    cellwanHardware.EntityData.Leafs.Append("cellular-msisdn", types.YLeaf{"CellularMsisdn", cellwanHardware.CellularMsisdn})
+    cellwanHardware.EntityData.Leafs.Append("cellular-fsn", types.YLeaf{"CellularFsn", cellwanHardware.CellularFsn})
+    cellwanHardware.EntityData.Leafs.Append("cellular-modem-status", types.YLeaf{"CellularModemStatus", cellwanHardware.CellularModemStatus})
+    cellwanHardware.EntityData.Leafs.Append("cellular-modem-temperature", types.YLeaf{"CellularModemTemperature", cellwanHardware.CellularModemTemperature})
+    cellwanHardware.EntityData.Leafs.Append("cellular-pri-skuid", types.YLeaf{"CellularPriSkuid", cellwanHardware.CellularPriSkuid})
+    cellwanHardware.EntityData.Leafs.Append("cellular-pri-version", types.YLeaf{"CellularPriVersion", cellwanHardware.CellularPriVersion})
+    cellwanHardware.EntityData.Leafs.Append("cellular-carrier", types.YLeaf{"CellularCarrier", cellwanHardware.CellularCarrier})
+    cellwanHardware.EntityData.Leafs.Append("cellular-oem-pri-version", types.YLeaf{"CellularOemPriVersion", cellwanHardware.CellularOemPriVersion})
+
+    cellwanHardware.EntityData.YListKeys = []string {"CellularInterface"}
+
     return &(cellwanHardware.EntityData)
 }
 
@@ -586,26 +592,29 @@ func (cellwanRadio *CellwanOperData_CellwanRadio) GetEntityData() *types.CommonE
     cellwanRadio.EntityData.YangName = "cellwan-radio"
     cellwanRadio.EntityData.BundleName = "cisco_ios_xe"
     cellwanRadio.EntityData.ParentYangName = "cellwan-oper-data"
-    cellwanRadio.EntityData.SegmentPath = "cellwan-radio" + "[cellular-interface='" + fmt.Sprintf("%v", cellwanRadio.CellularInterface) + "']"
+    cellwanRadio.EntityData.SegmentPath = "cellwan-radio" + types.AddKeyToken(cellwanRadio.CellularInterface, "cellular-interface")
     cellwanRadio.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanRadio.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanRadio.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cellwanRadio.EntityData.Children = make(map[string]types.YChild)
-    cellwanRadio.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellwanRadio.EntityData.Leafs["cellular-interface"] = types.YLeaf{"CellularInterface", cellwanRadio.CellularInterface}
-    cellwanRadio.EntityData.Leafs["technology"] = types.YLeaf{"Technology", cellwanRadio.Technology}
-    cellwanRadio.EntityData.Leafs["radio-power-mode"] = types.YLeaf{"RadioPowerMode", cellwanRadio.RadioPowerMode}
-    cellwanRadio.EntityData.Leafs["radio-rx-channel"] = types.YLeaf{"RadioRxChannel", cellwanRadio.RadioRxChannel}
-    cellwanRadio.EntityData.Leafs["radio-tx-channel"] = types.YLeaf{"RadioTxChannel", cellwanRadio.RadioTxChannel}
-    cellwanRadio.EntityData.Leafs["radio-band"] = types.YLeaf{"RadioBand", cellwanRadio.RadioBand}
-    cellwanRadio.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", cellwanRadio.Bandwidth}
-    cellwanRadio.EntityData.Leafs["radio-rssi"] = types.YLeaf{"RadioRssi", cellwanRadio.RadioRssi}
-    cellwanRadio.EntityData.Leafs["radio-rsrp"] = types.YLeaf{"RadioRsrp", cellwanRadio.RadioRsrp}
-    cellwanRadio.EntityData.Leafs["radio-rsrq"] = types.YLeaf{"RadioRsrq", cellwanRadio.RadioRsrq}
-    cellwanRadio.EntityData.Leafs["radio-snr"] = types.YLeaf{"RadioSnr", cellwanRadio.RadioSnr}
-    cellwanRadio.EntityData.Leafs["radio-rat-preference"] = types.YLeaf{"RadioRatPreference", cellwanRadio.RadioRatPreference}
-    cellwanRadio.EntityData.Leafs["radio-rat-selected"] = types.YLeaf{"RadioRatSelected", cellwanRadio.RadioRatSelected}
+    cellwanRadio.EntityData.Children = types.NewOrderedMap()
+    cellwanRadio.EntityData.Leafs = types.NewOrderedMap()
+    cellwanRadio.EntityData.Leafs.Append("cellular-interface", types.YLeaf{"CellularInterface", cellwanRadio.CellularInterface})
+    cellwanRadio.EntityData.Leafs.Append("technology", types.YLeaf{"Technology", cellwanRadio.Technology})
+    cellwanRadio.EntityData.Leafs.Append("radio-power-mode", types.YLeaf{"RadioPowerMode", cellwanRadio.RadioPowerMode})
+    cellwanRadio.EntityData.Leafs.Append("radio-rx-channel", types.YLeaf{"RadioRxChannel", cellwanRadio.RadioRxChannel})
+    cellwanRadio.EntityData.Leafs.Append("radio-tx-channel", types.YLeaf{"RadioTxChannel", cellwanRadio.RadioTxChannel})
+    cellwanRadio.EntityData.Leafs.Append("radio-band", types.YLeaf{"RadioBand", cellwanRadio.RadioBand})
+    cellwanRadio.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", cellwanRadio.Bandwidth})
+    cellwanRadio.EntityData.Leafs.Append("radio-rssi", types.YLeaf{"RadioRssi", cellwanRadio.RadioRssi})
+    cellwanRadio.EntityData.Leafs.Append("radio-rsrp", types.YLeaf{"RadioRsrp", cellwanRadio.RadioRsrp})
+    cellwanRadio.EntityData.Leafs.Append("radio-rsrq", types.YLeaf{"RadioRsrq", cellwanRadio.RadioRsrq})
+    cellwanRadio.EntityData.Leafs.Append("radio-snr", types.YLeaf{"RadioSnr", cellwanRadio.RadioSnr})
+    cellwanRadio.EntityData.Leafs.Append("radio-rat-preference", types.YLeaf{"RadioRatPreference", cellwanRadio.RadioRatPreference})
+    cellwanRadio.EntityData.Leafs.Append("radio-rat-selected", types.YLeaf{"RadioRatSelected", cellwanRadio.RadioRatSelected})
+
+    cellwanRadio.EntityData.YListKeys = []string {"CellularInterface"}
+
     return &(cellwanRadio.EntityData)
 }
 
@@ -619,7 +628,7 @@ type CellwanOperData_CellwanNetwork struct {
     CellularInterface interface{}
 
     // Current Cellular modem time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CellularModemTime interface{}
 
     // Cellular Radio Access Technology selected. The type is RatTechnology.
@@ -693,34 +702,37 @@ func (cellwanNetwork *CellwanOperData_CellwanNetwork) GetEntityData() *types.Com
     cellwanNetwork.EntityData.YangName = "cellwan-network"
     cellwanNetwork.EntityData.BundleName = "cisco_ios_xe"
     cellwanNetwork.EntityData.ParentYangName = "cellwan-oper-data"
-    cellwanNetwork.EntityData.SegmentPath = "cellwan-network" + "[cellular-interface='" + fmt.Sprintf("%v", cellwanNetwork.CellularInterface) + "']"
+    cellwanNetwork.EntityData.SegmentPath = "cellwan-network" + types.AddKeyToken(cellwanNetwork.CellularInterface, "cellular-interface")
     cellwanNetwork.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanNetwork.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cellwanNetwork.EntityData.Children = make(map[string]types.YChild)
-    cellwanNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellwanNetwork.EntityData.Leafs["cellular-interface"] = types.YLeaf{"CellularInterface", cellwanNetwork.CellularInterface}
-    cellwanNetwork.EntityData.Leafs["cellular-modem-time"] = types.YLeaf{"CellularModemTime", cellwanNetwork.CellularModemTime}
-    cellwanNetwork.EntityData.Leafs["radio-access-technology-selected"] = types.YLeaf{"RadioAccessTechnologySelected", cellwanNetwork.RadioAccessTechnologySelected}
-    cellwanNetwork.EntityData.Leafs["current-service-status"] = types.YLeaf{"CurrentServiceStatus", cellwanNetwork.CurrentServiceStatus}
-    cellwanNetwork.EntityData.Leafs["current-system-identifier"] = types.YLeaf{"CurrentSystemIdentifier", cellwanNetwork.CurrentSystemIdentifier}
-    cellwanNetwork.EntityData.Leafs["current-network-identifier"] = types.YLeaf{"CurrentNetworkIdentifier", cellwanNetwork.CurrentNetworkIdentifier}
-    cellwanNetwork.EntityData.Leafs["current-service-type"] = types.YLeaf{"CurrentServiceType", cellwanNetwork.CurrentServiceType}
-    cellwanNetwork.EntityData.Leafs["current-roaming-status"] = types.YLeaf{"CurrentRoamingStatus", cellwanNetwork.CurrentRoamingStatus}
-    cellwanNetwork.EntityData.Leafs["network-selection-mode"] = types.YLeaf{"NetworkSelectionMode", cellwanNetwork.NetworkSelectionMode}
-    cellwanNetwork.EntityData.Leafs["network-name"] = types.YLeaf{"NetworkName", cellwanNetwork.NetworkName}
-    cellwanNetwork.EntityData.Leafs["mobile-country-code"] = types.YLeaf{"MobileCountryCode", cellwanNetwork.MobileCountryCode}
-    cellwanNetwork.EntityData.Leafs["mobile-network-code"] = types.YLeaf{"MobileNetworkCode", cellwanNetwork.MobileNetworkCode}
-    cellwanNetwork.EntityData.Leafs["packet-switch-domain-state"] = types.YLeaf{"PacketSwitchDomainState", cellwanNetwork.PacketSwitchDomainState}
-    cellwanNetwork.EntityData.Leafs["lte-carrier-aggregation"] = types.YLeaf{"LteCarrierAggregation", cellwanNetwork.LteCarrierAggregation}
-    cellwanNetwork.EntityData.Leafs["registration-state"] = types.YLeaf{"RegistrationState", cellwanNetwork.RegistrationState}
-    cellwanNetwork.EntityData.Leafs["emm-state"] = types.YLeaf{"EmmState", cellwanNetwork.EmmState}
-    cellwanNetwork.EntityData.Leafs["emm-substate"] = types.YLeaf{"EmmSubstate", cellwanNetwork.EmmSubstate}
-    cellwanNetwork.EntityData.Leafs["location-area-code"] = types.YLeaf{"LocationAreaCode", cellwanNetwork.LocationAreaCode}
-    cellwanNetwork.EntityData.Leafs["tracking-area-code"] = types.YLeaf{"TrackingAreaCode", cellwanNetwork.TrackingAreaCode}
-    cellwanNetwork.EntityData.Leafs["cell-id"] = types.YLeaf{"CellId", cellwanNetwork.CellId}
-    cellwanNetwork.EntityData.Leafs["negotiated-network-mtu"] = types.YLeaf{"NegotiatedNetworkMtu", cellwanNetwork.NegotiatedNetworkMtu}
+    cellwanNetwork.EntityData.Children = types.NewOrderedMap()
+    cellwanNetwork.EntityData.Leafs = types.NewOrderedMap()
+    cellwanNetwork.EntityData.Leafs.Append("cellular-interface", types.YLeaf{"CellularInterface", cellwanNetwork.CellularInterface})
+    cellwanNetwork.EntityData.Leafs.Append("cellular-modem-time", types.YLeaf{"CellularModemTime", cellwanNetwork.CellularModemTime})
+    cellwanNetwork.EntityData.Leafs.Append("radio-access-technology-selected", types.YLeaf{"RadioAccessTechnologySelected", cellwanNetwork.RadioAccessTechnologySelected})
+    cellwanNetwork.EntityData.Leafs.Append("current-service-status", types.YLeaf{"CurrentServiceStatus", cellwanNetwork.CurrentServiceStatus})
+    cellwanNetwork.EntityData.Leafs.Append("current-system-identifier", types.YLeaf{"CurrentSystemIdentifier", cellwanNetwork.CurrentSystemIdentifier})
+    cellwanNetwork.EntityData.Leafs.Append("current-network-identifier", types.YLeaf{"CurrentNetworkIdentifier", cellwanNetwork.CurrentNetworkIdentifier})
+    cellwanNetwork.EntityData.Leafs.Append("current-service-type", types.YLeaf{"CurrentServiceType", cellwanNetwork.CurrentServiceType})
+    cellwanNetwork.EntityData.Leafs.Append("current-roaming-status", types.YLeaf{"CurrentRoamingStatus", cellwanNetwork.CurrentRoamingStatus})
+    cellwanNetwork.EntityData.Leafs.Append("network-selection-mode", types.YLeaf{"NetworkSelectionMode", cellwanNetwork.NetworkSelectionMode})
+    cellwanNetwork.EntityData.Leafs.Append("network-name", types.YLeaf{"NetworkName", cellwanNetwork.NetworkName})
+    cellwanNetwork.EntityData.Leafs.Append("mobile-country-code", types.YLeaf{"MobileCountryCode", cellwanNetwork.MobileCountryCode})
+    cellwanNetwork.EntityData.Leafs.Append("mobile-network-code", types.YLeaf{"MobileNetworkCode", cellwanNetwork.MobileNetworkCode})
+    cellwanNetwork.EntityData.Leafs.Append("packet-switch-domain-state", types.YLeaf{"PacketSwitchDomainState", cellwanNetwork.PacketSwitchDomainState})
+    cellwanNetwork.EntityData.Leafs.Append("lte-carrier-aggregation", types.YLeaf{"LteCarrierAggregation", cellwanNetwork.LteCarrierAggregation})
+    cellwanNetwork.EntityData.Leafs.Append("registration-state", types.YLeaf{"RegistrationState", cellwanNetwork.RegistrationState})
+    cellwanNetwork.EntityData.Leafs.Append("emm-state", types.YLeaf{"EmmState", cellwanNetwork.EmmState})
+    cellwanNetwork.EntityData.Leafs.Append("emm-substate", types.YLeaf{"EmmSubstate", cellwanNetwork.EmmSubstate})
+    cellwanNetwork.EntityData.Leafs.Append("location-area-code", types.YLeaf{"LocationAreaCode", cellwanNetwork.LocationAreaCode})
+    cellwanNetwork.EntityData.Leafs.Append("tracking-area-code", types.YLeaf{"TrackingAreaCode", cellwanNetwork.TrackingAreaCode})
+    cellwanNetwork.EntityData.Leafs.Append("cell-id", types.YLeaf{"CellId", cellwanNetwork.CellId})
+    cellwanNetwork.EntityData.Leafs.Append("negotiated-network-mtu", types.YLeaf{"NegotiatedNetworkMtu", cellwanNetwork.NegotiatedNetworkMtu})
+
+    cellwanNetwork.EntityData.YListKeys = []string {"CellularInterface"}
+
     return &(cellwanNetwork.EntityData)
 }
 
@@ -758,44 +770,44 @@ type CellwanOperData_CellwanConnection struct {
 
     // Cellular interface IPv4 Address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv4Addr interface{}
 
     // Cellular interface IPv6 Address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Addr interface{}
 
     // Cellular interface primary IPv4 DNS Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv4DnsPri interface{}
 
     // Cellular interface secondary IPv4 DNS Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv4DnsSec interface{}
 
     // Cellular interface primary IPv6 DNS Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6DnsPri interface{}
 
     // Cellular interface secondary IPv6 DNS Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6DnsSec interface{}
 
     // Cellular interface profile IP address scope. The type is ProfileScope.
@@ -807,27 +819,30 @@ func (cellwanConnection *CellwanOperData_CellwanConnection) GetEntityData() *typ
     cellwanConnection.EntityData.YangName = "cellwan-connection"
     cellwanConnection.EntityData.BundleName = "cisco_ios_xe"
     cellwanConnection.EntityData.ParentYangName = "cellwan-oper-data"
-    cellwanConnection.EntityData.SegmentPath = "cellwan-connection" + "[cellular-interface='" + fmt.Sprintf("%v", cellwanConnection.CellularInterface) + "']"
+    cellwanConnection.EntityData.SegmentPath = "cellwan-connection" + types.AddKeyToken(cellwanConnection.CellularInterface, "cellular-interface")
     cellwanConnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanConnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanConnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cellwanConnection.EntityData.Children = make(map[string]types.YChild)
-    cellwanConnection.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellwanConnection.EntityData.Leafs["cellular-interface"] = types.YLeaf{"CellularInterface", cellwanConnection.CellularInterface}
-    cellwanConnection.EntityData.Leafs["active-profile"] = types.YLeaf{"ActiveProfile", cellwanConnection.ActiveProfile}
-    cellwanConnection.EntityData.Leafs["cellular-packet-status"] = types.YLeaf{"CellularPacketStatus", cellwanConnection.CellularPacketStatus}
-    cellwanConnection.EntityData.Leafs["tx-packets"] = types.YLeaf{"TxPackets", cellwanConnection.TxPackets}
-    cellwanConnection.EntityData.Leafs["rx-packets"] = types.YLeaf{"RxPackets", cellwanConnection.RxPackets}
-    cellwanConnection.EntityData.Leafs["tx-bytes"] = types.YLeaf{"TxBytes", cellwanConnection.TxBytes}
-    cellwanConnection.EntityData.Leafs["rx-bytes"] = types.YLeaf{"RxBytes", cellwanConnection.RxBytes}
-    cellwanConnection.EntityData.Leafs["ipv4-addr"] = types.YLeaf{"Ipv4Addr", cellwanConnection.Ipv4Addr}
-    cellwanConnection.EntityData.Leafs["ipv6-addr"] = types.YLeaf{"Ipv6Addr", cellwanConnection.Ipv6Addr}
-    cellwanConnection.EntityData.Leafs["ipv4-dns-pri"] = types.YLeaf{"Ipv4DnsPri", cellwanConnection.Ipv4DnsPri}
-    cellwanConnection.EntityData.Leafs["ipv4-dns-sec"] = types.YLeaf{"Ipv4DnsSec", cellwanConnection.Ipv4DnsSec}
-    cellwanConnection.EntityData.Leafs["ipv6-dns-pri"] = types.YLeaf{"Ipv6DnsPri", cellwanConnection.Ipv6DnsPri}
-    cellwanConnection.EntityData.Leafs["ipv6-dns-sec"] = types.YLeaf{"Ipv6DnsSec", cellwanConnection.Ipv6DnsSec}
-    cellwanConnection.EntityData.Leafs["scope"] = types.YLeaf{"Scope", cellwanConnection.Scope}
+    cellwanConnection.EntityData.Children = types.NewOrderedMap()
+    cellwanConnection.EntityData.Leafs = types.NewOrderedMap()
+    cellwanConnection.EntityData.Leafs.Append("cellular-interface", types.YLeaf{"CellularInterface", cellwanConnection.CellularInterface})
+    cellwanConnection.EntityData.Leafs.Append("active-profile", types.YLeaf{"ActiveProfile", cellwanConnection.ActiveProfile})
+    cellwanConnection.EntityData.Leafs.Append("cellular-packet-status", types.YLeaf{"CellularPacketStatus", cellwanConnection.CellularPacketStatus})
+    cellwanConnection.EntityData.Leafs.Append("tx-packets", types.YLeaf{"TxPackets", cellwanConnection.TxPackets})
+    cellwanConnection.EntityData.Leafs.Append("rx-packets", types.YLeaf{"RxPackets", cellwanConnection.RxPackets})
+    cellwanConnection.EntityData.Leafs.Append("tx-bytes", types.YLeaf{"TxBytes", cellwanConnection.TxBytes})
+    cellwanConnection.EntityData.Leafs.Append("rx-bytes", types.YLeaf{"RxBytes", cellwanConnection.RxBytes})
+    cellwanConnection.EntityData.Leafs.Append("ipv4-addr", types.YLeaf{"Ipv4Addr", cellwanConnection.Ipv4Addr})
+    cellwanConnection.EntityData.Leafs.Append("ipv6-addr", types.YLeaf{"Ipv6Addr", cellwanConnection.Ipv6Addr})
+    cellwanConnection.EntityData.Leafs.Append("ipv4-dns-pri", types.YLeaf{"Ipv4DnsPri", cellwanConnection.Ipv4DnsPri})
+    cellwanConnection.EntityData.Leafs.Append("ipv4-dns-sec", types.YLeaf{"Ipv4DnsSec", cellwanConnection.Ipv4DnsSec})
+    cellwanConnection.EntityData.Leafs.Append("ipv6-dns-pri", types.YLeaf{"Ipv6DnsPri", cellwanConnection.Ipv6DnsPri})
+    cellwanConnection.EntityData.Leafs.Append("ipv6-dns-sec", types.YLeaf{"Ipv6DnsSec", cellwanConnection.Ipv6DnsSec})
+    cellwanConnection.EntityData.Leafs.Append("scope", types.YLeaf{"Scope", cellwanConnection.Scope})
+
+    cellwanConnection.EntityData.YListKeys = []string {"CellularInterface"}
+
     return &(cellwanConnection.EntityData)
 }
 

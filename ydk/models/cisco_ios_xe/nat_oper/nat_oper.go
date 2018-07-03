@@ -29,7 +29,7 @@ type NatData struct {
     IpNatStatistics NatData_IpNatStatistics
 
     // IP NAT translations. The type is slice of NatData_IpNatTranslation.
-    IpNatTranslation []NatData_IpNatTranslation
+    IpNatTranslation []*NatData_IpNatTranslation
 }
 
 func (natData *NatData) GetEntityData() *types.CommonEntityData {
@@ -42,13 +42,16 @@ func (natData *NatData) GetEntityData() *types.CommonEntityData {
     natData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     natData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    natData.EntityData.Children = make(map[string]types.YChild)
-    natData.EntityData.Children["ip-nat-statistics"] = types.YChild{"IpNatStatistics", &natData.IpNatStatistics}
-    natData.EntityData.Children["ip-nat-translation"] = types.YChild{"IpNatTranslation", nil}
+    natData.EntityData.Children = types.NewOrderedMap()
+    natData.EntityData.Children.Append("ip-nat-statistics", types.YChild{"IpNatStatistics", &natData.IpNatStatistics})
+    natData.EntityData.Children.Append("ip-nat-translation", types.YChild{"IpNatTranslation", nil})
     for i := range natData.IpNatTranslation {
-        natData.EntityData.Children[types.GetSegmentPath(&natData.IpNatTranslation[i])] = types.YChild{"IpNatTranslation", &natData.IpNatTranslation[i]}
+        natData.EntityData.Children.Append(types.GetSegmentPath(natData.IpNatTranslation[i]), types.YChild{"IpNatTranslation", natData.IpNatTranslation[i]})
     }
-    natData.EntityData.Leafs = make(map[string]types.YLeaf)
+    natData.EntityData.Leafs = types.NewOrderedMap()
+
+    natData.EntityData.YListKeys = []string {}
+
     return &(natData.EntityData)
 }
 
@@ -58,6 +61,7 @@ func (natData *NatData) GetEntityData() *types.CommonEntityData {
 type NatData_IpNatStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Indicates if the NAT feature has been initialized. The type is bool.
     Initialized interface{}
@@ -131,11 +135,11 @@ type NatData_IpNatStatistics struct {
 
     // Counter for NAT inside->outside drops. The type is interface{} with range:
     // 0..18446744073709551615.
-    In2OutDrops interface{}
+    In2outDrops interface{}
 
     // Counter for NAT outside->inside drops. The type is interface{} with range:
     // 0..18446744073709551615.
-    Out2InDrops interface{}
+    Out2inDrops interface{}
 
     // MIB counter for address binds. The type is interface{} with range:
     // 0..4294967295.
@@ -156,30 +160,33 @@ func (ipNatStatistics *NatData_IpNatStatistics) GetEntityData() *types.CommonEnt
     ipNatStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNatStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipNatStatistics.EntityData.Children = make(map[string]types.YChild)
-    ipNatStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipNatStatistics.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", ipNatStatistics.Initialized}
-    ipNatStatistics.EntityData.Leafs["entries"] = types.YLeaf{"Entries", ipNatStatistics.Entries}
-    ipNatStatistics.EntityData.Leafs["statics"] = types.YLeaf{"Statics", ipNatStatistics.Statics}
-    ipNatStatistics.EntityData.Leafs["statics-sorted"] = types.YLeaf{"StaticsSorted", ipNatStatistics.StaticsSorted}
-    ipNatStatistics.EntityData.Leafs["flows"] = types.YLeaf{"Flows", ipNatStatistics.Flows}
-    ipNatStatistics.EntityData.Leafs["insides"] = types.YLeaf{"Insides", ipNatStatistics.Insides}
-    ipNatStatistics.EntityData.Leafs["outsides"] = types.YLeaf{"Outsides", ipNatStatistics.Outsides}
-    ipNatStatistics.EntityData.Leafs["entry-timeouts"] = types.YLeaf{"EntryTimeouts", ipNatStatistics.EntryTimeouts}
-    ipNatStatistics.EntityData.Leafs["hits"] = types.YLeaf{"Hits", ipNatStatistics.Hits}
-    ipNatStatistics.EntityData.Leafs["misses"] = types.YLeaf{"Misses", ipNatStatistics.Misses}
-    ipNatStatistics.EntityData.Leafs["interrupt-switched"] = types.YLeaf{"InterruptSwitched", ipNatStatistics.InterruptSwitched}
-    ipNatStatistics.EntityData.Leafs["packets-punted"] = types.YLeaf{"PacketsPunted", ipNatStatistics.PacketsPunted}
-    ipNatStatistics.EntityData.Leafs["frag-pak-count"] = types.YLeaf{"FragPakCount", ipNatStatistics.FragPakCount}
-    ipNatStatistics.EntityData.Leafs["pool-stats-drop"] = types.YLeaf{"PoolStatsDrop", ipNatStatistics.PoolStatsDrop}
-    ipNatStatistics.EntityData.Leafs["mapping-stats-drop"] = types.YLeaf{"MappingStatsDrop", ipNatStatistics.MappingStatsDrop}
-    ipNatStatistics.EntityData.Leafs["portlist-req-fail"] = types.YLeaf{"PortlistReqFail", ipNatStatistics.PortlistReqFail}
-    ipNatStatistics.EntityData.Leafs["ipalias-add-fail"] = types.YLeaf{"IpaliasAddFail", ipNatStatistics.IpaliasAddFail}
-    ipNatStatistics.EntityData.Leafs["limit-entry-add-fail"] = types.YLeaf{"LimitEntryAddFail", ipNatStatistics.LimitEntryAddFail}
-    ipNatStatistics.EntityData.Leafs["in2out-drops"] = types.YLeaf{"In2OutDrops", ipNatStatistics.In2OutDrops}
-    ipNatStatistics.EntityData.Leafs["out2in-drops"] = types.YLeaf{"Out2InDrops", ipNatStatistics.Out2InDrops}
-    ipNatStatistics.EntityData.Leafs["mib-addr-binds"] = types.YLeaf{"MibAddrBinds", ipNatStatistics.MibAddrBinds}
-    ipNatStatistics.EntityData.Leafs["mib-addport-binds"] = types.YLeaf{"MibAddportBinds", ipNatStatistics.MibAddportBinds}
+    ipNatStatistics.EntityData.Children = types.NewOrderedMap()
+    ipNatStatistics.EntityData.Leafs = types.NewOrderedMap()
+    ipNatStatistics.EntityData.Leafs.Append("initialized", types.YLeaf{"Initialized", ipNatStatistics.Initialized})
+    ipNatStatistics.EntityData.Leafs.Append("entries", types.YLeaf{"Entries", ipNatStatistics.Entries})
+    ipNatStatistics.EntityData.Leafs.Append("statics", types.YLeaf{"Statics", ipNatStatistics.Statics})
+    ipNatStatistics.EntityData.Leafs.Append("statics-sorted", types.YLeaf{"StaticsSorted", ipNatStatistics.StaticsSorted})
+    ipNatStatistics.EntityData.Leafs.Append("flows", types.YLeaf{"Flows", ipNatStatistics.Flows})
+    ipNatStatistics.EntityData.Leafs.Append("insides", types.YLeaf{"Insides", ipNatStatistics.Insides})
+    ipNatStatistics.EntityData.Leafs.Append("outsides", types.YLeaf{"Outsides", ipNatStatistics.Outsides})
+    ipNatStatistics.EntityData.Leafs.Append("entry-timeouts", types.YLeaf{"EntryTimeouts", ipNatStatistics.EntryTimeouts})
+    ipNatStatistics.EntityData.Leafs.Append("hits", types.YLeaf{"Hits", ipNatStatistics.Hits})
+    ipNatStatistics.EntityData.Leafs.Append("misses", types.YLeaf{"Misses", ipNatStatistics.Misses})
+    ipNatStatistics.EntityData.Leafs.Append("interrupt-switched", types.YLeaf{"InterruptSwitched", ipNatStatistics.InterruptSwitched})
+    ipNatStatistics.EntityData.Leafs.Append("packets-punted", types.YLeaf{"PacketsPunted", ipNatStatistics.PacketsPunted})
+    ipNatStatistics.EntityData.Leafs.Append("frag-pak-count", types.YLeaf{"FragPakCount", ipNatStatistics.FragPakCount})
+    ipNatStatistics.EntityData.Leafs.Append("pool-stats-drop", types.YLeaf{"PoolStatsDrop", ipNatStatistics.PoolStatsDrop})
+    ipNatStatistics.EntityData.Leafs.Append("mapping-stats-drop", types.YLeaf{"MappingStatsDrop", ipNatStatistics.MappingStatsDrop})
+    ipNatStatistics.EntityData.Leafs.Append("portlist-req-fail", types.YLeaf{"PortlistReqFail", ipNatStatistics.PortlistReqFail})
+    ipNatStatistics.EntityData.Leafs.Append("ipalias-add-fail", types.YLeaf{"IpaliasAddFail", ipNatStatistics.IpaliasAddFail})
+    ipNatStatistics.EntityData.Leafs.Append("limit-entry-add-fail", types.YLeaf{"LimitEntryAddFail", ipNatStatistics.LimitEntryAddFail})
+    ipNatStatistics.EntityData.Leafs.Append("in2out-drops", types.YLeaf{"In2outDrops", ipNatStatistics.In2outDrops})
+    ipNatStatistics.EntityData.Leafs.Append("out2in-drops", types.YLeaf{"Out2inDrops", ipNatStatistics.Out2inDrops})
+    ipNatStatistics.EntityData.Leafs.Append("mib-addr-binds", types.YLeaf{"MibAddrBinds", ipNatStatistics.MibAddrBinds})
+    ipNatStatistics.EntityData.Leafs.Append("mib-addport-binds", types.YLeaf{"MibAddportBinds", ipNatStatistics.MibAddportBinds})
+
+    ipNatStatistics.EntityData.YListKeys = []string {}
+
     return &(ipNatStatistics.EntityData)
 }
 
@@ -191,12 +198,12 @@ type NatData_IpNatTranslation struct {
 
     // This attribute is a key. Inside local address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InsideLocalAddr interface{}
 
     // This attribute is a key. Outside local address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OutsideLocalAddr interface{}
 
     // This attribute is a key. Inside local port. The type is interface{} with
@@ -216,11 +223,11 @@ type NatData_IpNatTranslation struct {
     Protocol interface{}
 
     // Inside global address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InsideGlobalAddr interface{}
 
     // Outside global address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OutsideGlobalAddr interface{}
 
     // Inside global port. The type is interface{} with range: 0..65535.
@@ -241,25 +248,28 @@ func (ipNatTranslation *NatData_IpNatTranslation) GetEntityData() *types.CommonE
     ipNatTranslation.EntityData.YangName = "ip-nat-translation"
     ipNatTranslation.EntityData.BundleName = "cisco_ios_xe"
     ipNatTranslation.EntityData.ParentYangName = "nat-data"
-    ipNatTranslation.EntityData.SegmentPath = "ip-nat-translation" + "[inside-local-addr='" + fmt.Sprintf("%v", ipNatTranslation.InsideLocalAddr) + "']" + "[outside-local-addr='" + fmt.Sprintf("%v", ipNatTranslation.OutsideLocalAddr) + "']" + "[inside-local-port='" + fmt.Sprintf("%v", ipNatTranslation.InsideLocalPort) + "']" + "[outside-local-port='" + fmt.Sprintf("%v", ipNatTranslation.OutsideLocalPort) + "']" + "[vrfid='" + fmt.Sprintf("%v", ipNatTranslation.Vrfid) + "']" + "[protocol='" + fmt.Sprintf("%v", ipNatTranslation.Protocol) + "']"
+    ipNatTranslation.EntityData.SegmentPath = "ip-nat-translation" + types.AddKeyToken(ipNatTranslation.InsideLocalAddr, "inside-local-addr") + types.AddKeyToken(ipNatTranslation.OutsideLocalAddr, "outside-local-addr") + types.AddKeyToken(ipNatTranslation.InsideLocalPort, "inside-local-port") + types.AddKeyToken(ipNatTranslation.OutsideLocalPort, "outside-local-port") + types.AddKeyToken(ipNatTranslation.Vrfid, "vrfid") + types.AddKeyToken(ipNatTranslation.Protocol, "protocol")
     ipNatTranslation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNatTranslation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNatTranslation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipNatTranslation.EntityData.Children = make(map[string]types.YChild)
-    ipNatTranslation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipNatTranslation.EntityData.Leafs["inside-local-addr"] = types.YLeaf{"InsideLocalAddr", ipNatTranslation.InsideLocalAddr}
-    ipNatTranslation.EntityData.Leafs["outside-local-addr"] = types.YLeaf{"OutsideLocalAddr", ipNatTranslation.OutsideLocalAddr}
-    ipNatTranslation.EntityData.Leafs["inside-local-port"] = types.YLeaf{"InsideLocalPort", ipNatTranslation.InsideLocalPort}
-    ipNatTranslation.EntityData.Leafs["outside-local-port"] = types.YLeaf{"OutsideLocalPort", ipNatTranslation.OutsideLocalPort}
-    ipNatTranslation.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", ipNatTranslation.Vrfid}
-    ipNatTranslation.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", ipNatTranslation.Protocol}
-    ipNatTranslation.EntityData.Leafs["inside-global-addr"] = types.YLeaf{"InsideGlobalAddr", ipNatTranslation.InsideGlobalAddr}
-    ipNatTranslation.EntityData.Leafs["outside-global-addr"] = types.YLeaf{"OutsideGlobalAddr", ipNatTranslation.OutsideGlobalAddr}
-    ipNatTranslation.EntityData.Leafs["inside-global-port"] = types.YLeaf{"InsideGlobalPort", ipNatTranslation.InsideGlobalPort}
-    ipNatTranslation.EntityData.Leafs["outside-global-port"] = types.YLeaf{"OutsideGlobalPort", ipNatTranslation.OutsideGlobalPort}
-    ipNatTranslation.EntityData.Leafs["flags"] = types.YLeaf{"Flags", ipNatTranslation.Flags}
-    ipNatTranslation.EntityData.Leafs["application-type"] = types.YLeaf{"ApplicationType", ipNatTranslation.ApplicationType}
+    ipNatTranslation.EntityData.Children = types.NewOrderedMap()
+    ipNatTranslation.EntityData.Leafs = types.NewOrderedMap()
+    ipNatTranslation.EntityData.Leafs.Append("inside-local-addr", types.YLeaf{"InsideLocalAddr", ipNatTranslation.InsideLocalAddr})
+    ipNatTranslation.EntityData.Leafs.Append("outside-local-addr", types.YLeaf{"OutsideLocalAddr", ipNatTranslation.OutsideLocalAddr})
+    ipNatTranslation.EntityData.Leafs.Append("inside-local-port", types.YLeaf{"InsideLocalPort", ipNatTranslation.InsideLocalPort})
+    ipNatTranslation.EntityData.Leafs.Append("outside-local-port", types.YLeaf{"OutsideLocalPort", ipNatTranslation.OutsideLocalPort})
+    ipNatTranslation.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", ipNatTranslation.Vrfid})
+    ipNatTranslation.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", ipNatTranslation.Protocol})
+    ipNatTranslation.EntityData.Leafs.Append("inside-global-addr", types.YLeaf{"InsideGlobalAddr", ipNatTranslation.InsideGlobalAddr})
+    ipNatTranslation.EntityData.Leafs.Append("outside-global-addr", types.YLeaf{"OutsideGlobalAddr", ipNatTranslation.OutsideGlobalAddr})
+    ipNatTranslation.EntityData.Leafs.Append("inside-global-port", types.YLeaf{"InsideGlobalPort", ipNatTranslation.InsideGlobalPort})
+    ipNatTranslation.EntityData.Leafs.Append("outside-global-port", types.YLeaf{"OutsideGlobalPort", ipNatTranslation.OutsideGlobalPort})
+    ipNatTranslation.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", ipNatTranslation.Flags})
+    ipNatTranslation.EntityData.Leafs.Append("application-type", types.YLeaf{"ApplicationType", ipNatTranslation.ApplicationType})
+
+    ipNatTranslation.EntityData.YListKeys = []string {"InsideLocalAddr", "OutsideLocalAddr", "InsideLocalPort", "OutsideLocalPort", "Vrfid", "Protocol"}
+
     return &(ipNatTranslation.EntityData)
 }
 

@@ -69,9 +69,12 @@ func (netconf *Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconf.EntityData.Children = make(map[string]types.YChild)
-    netconf.EntityData.Children["agent"] = types.YChild{"Agent", &netconf.Agent}
-    netconf.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconf.EntityData.Children = types.NewOrderedMap()
+    netconf.EntityData.Children.Append("agent", types.YChild{"Agent", &netconf.Agent})
+    netconf.EntityData.Leafs = types.NewOrderedMap()
+
+    netconf.EntityData.YListKeys = []string {}
+
     return &(netconf.EntityData)
 }
 
@@ -95,9 +98,12 @@ func (agent *Netconf_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agent.EntityData.Children = make(map[string]types.YChild)
-    agent.EntityData.Children["tty"] = types.YChild{"Tty", &agent.Tty}
-    agent.EntityData.Leafs = make(map[string]types.YLeaf)
+    agent.EntityData.Children = types.NewOrderedMap()
+    agent.EntityData.Children.Append("tty", types.YChild{"Tty", &agent.Tty})
+    agent.EntityData.Leafs = types.NewOrderedMap()
+
+    agent.EntityData.YListKeys = []string {}
+
     return &(agent.EntityData)
 }
 
@@ -121,9 +127,12 @@ func (tty *Netconf_Agent_Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tty.EntityData.Children = make(map[string]types.YChild)
-    tty.EntityData.Children["sessions"] = types.YChild{"Sessions", &tty.Sessions}
-    tty.EntityData.Leafs = make(map[string]types.YLeaf)
+    tty.EntityData.Children = types.NewOrderedMap()
+    tty.EntityData.Children.Append("sessions", types.YChild{"Sessions", &tty.Sessions})
+    tty.EntityData.Leafs = types.NewOrderedMap()
+
+    tty.EntityData.YListKeys = []string {}
+
     return &(tty.EntityData)
 }
 
@@ -135,7 +144,7 @@ type Netconf_Agent_Tty_Sessions struct {
 
     // Session information. The type is slice of
     // Netconf_Agent_Tty_Sessions_Session.
-    Session []Netconf_Agent_Tty_Sessions_Session
+    Session []*Netconf_Agent_Tty_Sessions_Session
 }
 
 func (sessions *Netconf_Agent_Tty_Sessions) GetEntityData() *types.CommonEntityData {
@@ -148,12 +157,15 @@ func (sessions *Netconf_Agent_Tty_Sessions) GetEntityData() *types.CommonEntityD
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -210,25 +222,28 @@ func (session *Netconf_Agent_Tty_Sessions_Session) GetEntityData() *types.Common
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
-    session.EntityData.SegmentPath = "session" + "[session-id='" + fmt.Sprintf("%v", session.SessionId) + "']"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", session.SessionId}
-    session.EntityData.Leafs["username"] = types.YLeaf{"Username", session.Username}
-    session.EntityData.Leafs["state"] = types.YLeaf{"State", session.State}
-    session.EntityData.Leafs["client-address"] = types.YLeaf{"ClientAddress", session.ClientAddress}
-    session.EntityData.Leafs["client-port"] = types.YLeaf{"ClientPort", session.ClientPort}
-    session.EntityData.Leafs["config-session-id"] = types.YLeaf{"ConfigSessionId", session.ConfigSessionId}
-    session.EntityData.Leafs["admin-config-session-id"] = types.YLeaf{"AdminConfigSessionId", session.AdminConfigSessionId}
-    session.EntityData.Leafs["alarm-notification"] = types.YLeaf{"AlarmNotification", session.AlarmNotification}
-    session.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", session.VrfName}
-    session.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", session.StartTime}
-    session.EntityData.Leafs["elapsed-time"] = types.YLeaf{"ElapsedTime", session.ElapsedTime}
-    session.EntityData.Leafs["last-state-change"] = types.YLeaf{"LastStateChange", session.LastStateChange}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", session.SessionId})
+    session.EntityData.Leafs.Append("username", types.YLeaf{"Username", session.Username})
+    session.EntityData.Leafs.Append("state", types.YLeaf{"State", session.State})
+    session.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", session.ClientAddress})
+    session.EntityData.Leafs.Append("client-port", types.YLeaf{"ClientPort", session.ClientPort})
+    session.EntityData.Leafs.Append("config-session-id", types.YLeaf{"ConfigSessionId", session.ConfigSessionId})
+    session.EntityData.Leafs.Append("admin-config-session-id", types.YLeaf{"AdminConfigSessionId", session.AdminConfigSessionId})
+    session.EntityData.Leafs.Append("alarm-notification", types.YLeaf{"AlarmNotification", session.AlarmNotification})
+    session.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", session.VrfName})
+    session.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", session.StartTime})
+    session.EntityData.Leafs.Append("elapsed-time", types.YLeaf{"ElapsedTime", session.ElapsedTime})
+    session.EntityData.Leafs.Append("last-state-change", types.YLeaf{"LastStateChange", session.LastStateChange})
+
+    session.EntityData.YListKeys = []string {"SessionId"}
+
     return &(session.EntityData)
 }
 
@@ -252,9 +267,12 @@ func (xrXml *XrXml) GetEntityData() *types.CommonEntityData {
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    xrXml.EntityData.Children = make(map[string]types.YChild)
-    xrXml.EntityData.Children["agent"] = types.YChild{"Agent", &xrXml.Agent}
-    xrXml.EntityData.Leafs = make(map[string]types.YLeaf)
+    xrXml.EntityData.Children = types.NewOrderedMap()
+    xrXml.EntityData.Children.Append("agent", types.YChild{"Agent", &xrXml.Agent})
+    xrXml.EntityData.Leafs = types.NewOrderedMap()
+
+    xrXml.EntityData.YListKeys = []string {}
+
     return &(xrXml.EntityData)
 }
 
@@ -268,7 +286,7 @@ type XrXml_Agent struct {
     Tty XrXml_Agent_Tty
 
     // Default sessions information.
-    Default_ XrXml_Agent_Default
+    Default XrXml_Agent_Default
 
     // SSL sessions information.
     Ssl XrXml_Agent_Ssl
@@ -284,11 +302,14 @@ func (agent *XrXml_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agent.EntityData.Children = make(map[string]types.YChild)
-    agent.EntityData.Children["tty"] = types.YChild{"Tty", &agent.Tty}
-    agent.EntityData.Children["default"] = types.YChild{"Default_", &agent.Default_}
-    agent.EntityData.Children["ssl"] = types.YChild{"Ssl", &agent.Ssl}
-    agent.EntityData.Leafs = make(map[string]types.YLeaf)
+    agent.EntityData.Children = types.NewOrderedMap()
+    agent.EntityData.Children.Append("tty", types.YChild{"Tty", &agent.Tty})
+    agent.EntityData.Children.Append("default", types.YChild{"Default", &agent.Default})
+    agent.EntityData.Children.Append("ssl", types.YChild{"Ssl", &agent.Ssl})
+    agent.EntityData.Leafs = types.NewOrderedMap()
+
+    agent.EntityData.YListKeys = []string {}
+
     return &(agent.EntityData)
 }
 
@@ -312,9 +333,12 @@ func (tty *XrXml_Agent_Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tty.EntityData.Children = make(map[string]types.YChild)
-    tty.EntityData.Children["sessions"] = types.YChild{"Sessions", &tty.Sessions}
-    tty.EntityData.Leafs = make(map[string]types.YLeaf)
+    tty.EntityData.Children = types.NewOrderedMap()
+    tty.EntityData.Children.Append("sessions", types.YChild{"Sessions", &tty.Sessions})
+    tty.EntityData.Leafs = types.NewOrderedMap()
+
+    tty.EntityData.YListKeys = []string {}
+
     return &(tty.EntityData)
 }
 
@@ -326,7 +350,7 @@ type XrXml_Agent_Tty_Sessions struct {
 
     // xml sessions information. The type is slice of
     // XrXml_Agent_Tty_Sessions_Session.
-    Session []XrXml_Agent_Tty_Sessions_Session
+    Session []*XrXml_Agent_Tty_Sessions_Session
 }
 
 func (sessions *XrXml_Agent_Tty_Sessions) GetEntityData() *types.CommonEntityData {
@@ -339,12 +363,15 @@ func (sessions *XrXml_Agent_Tty_Sessions) GetEntityData() *types.CommonEntityDat
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -401,25 +428,28 @@ func (session *XrXml_Agent_Tty_Sessions_Session) GetEntityData() *types.CommonEn
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
-    session.EntityData.SegmentPath = "session" + "[session-id='" + fmt.Sprintf("%v", session.SessionId) + "']"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", session.SessionId}
-    session.EntityData.Leafs["username"] = types.YLeaf{"Username", session.Username}
-    session.EntityData.Leafs["state"] = types.YLeaf{"State", session.State}
-    session.EntityData.Leafs["client-address"] = types.YLeaf{"ClientAddress", session.ClientAddress}
-    session.EntityData.Leafs["client-port"] = types.YLeaf{"ClientPort", session.ClientPort}
-    session.EntityData.Leafs["config-session-id"] = types.YLeaf{"ConfigSessionId", session.ConfigSessionId}
-    session.EntityData.Leafs["admin-config-session-id"] = types.YLeaf{"AdminConfigSessionId", session.AdminConfigSessionId}
-    session.EntityData.Leafs["alarm-notification"] = types.YLeaf{"AlarmNotification", session.AlarmNotification}
-    session.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", session.VrfName}
-    session.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", session.StartTime}
-    session.EntityData.Leafs["elapsed-time"] = types.YLeaf{"ElapsedTime", session.ElapsedTime}
-    session.EntityData.Leafs["last-state-change"] = types.YLeaf{"LastStateChange", session.LastStateChange}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", session.SessionId})
+    session.EntityData.Leafs.Append("username", types.YLeaf{"Username", session.Username})
+    session.EntityData.Leafs.Append("state", types.YLeaf{"State", session.State})
+    session.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", session.ClientAddress})
+    session.EntityData.Leafs.Append("client-port", types.YLeaf{"ClientPort", session.ClientPort})
+    session.EntityData.Leafs.Append("config-session-id", types.YLeaf{"ConfigSessionId", session.ConfigSessionId})
+    session.EntityData.Leafs.Append("admin-config-session-id", types.YLeaf{"AdminConfigSessionId", session.AdminConfigSessionId})
+    session.EntityData.Leafs.Append("alarm-notification", types.YLeaf{"AlarmNotification", session.AlarmNotification})
+    session.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", session.VrfName})
+    session.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", session.StartTime})
+    session.EntityData.Leafs.Append("elapsed-time", types.YLeaf{"ElapsedTime", session.ElapsedTime})
+    session.EntityData.Leafs.Append("last-state-change", types.YLeaf{"LastStateChange", session.LastStateChange})
+
+    session.EntityData.YListKeys = []string {"SessionId"}
+
     return &(session.EntityData)
 }
 
@@ -443,9 +473,12 @@ func (self *XrXml_Agent_Default) GetEntityData() *types.CommonEntityData {
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["sessions"] = types.YChild{"Sessions", &self.Sessions}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("sessions", types.YChild{"Sessions", &self.Sessions})
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -457,7 +490,7 @@ type XrXml_Agent_Default_Sessions struct {
 
     // xml sessions information. The type is slice of
     // XrXml_Agent_Default_Sessions_Session.
-    Session []XrXml_Agent_Default_Sessions_Session
+    Session []*XrXml_Agent_Default_Sessions_Session
 }
 
 func (sessions *XrXml_Agent_Default_Sessions) GetEntityData() *types.CommonEntityData {
@@ -470,12 +503,15 @@ func (sessions *XrXml_Agent_Default_Sessions) GetEntityData() *types.CommonEntit
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -532,25 +568,28 @@ func (session *XrXml_Agent_Default_Sessions_Session) GetEntityData() *types.Comm
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
-    session.EntityData.SegmentPath = "session" + "[session-id='" + fmt.Sprintf("%v", session.SessionId) + "']"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", session.SessionId}
-    session.EntityData.Leafs["username"] = types.YLeaf{"Username", session.Username}
-    session.EntityData.Leafs["state"] = types.YLeaf{"State", session.State}
-    session.EntityData.Leafs["client-address"] = types.YLeaf{"ClientAddress", session.ClientAddress}
-    session.EntityData.Leafs["client-port"] = types.YLeaf{"ClientPort", session.ClientPort}
-    session.EntityData.Leafs["config-session-id"] = types.YLeaf{"ConfigSessionId", session.ConfigSessionId}
-    session.EntityData.Leafs["admin-config-session-id"] = types.YLeaf{"AdminConfigSessionId", session.AdminConfigSessionId}
-    session.EntityData.Leafs["alarm-notification"] = types.YLeaf{"AlarmNotification", session.AlarmNotification}
-    session.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", session.VrfName}
-    session.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", session.StartTime}
-    session.EntityData.Leafs["elapsed-time"] = types.YLeaf{"ElapsedTime", session.ElapsedTime}
-    session.EntityData.Leafs["last-state-change"] = types.YLeaf{"LastStateChange", session.LastStateChange}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", session.SessionId})
+    session.EntityData.Leafs.Append("username", types.YLeaf{"Username", session.Username})
+    session.EntityData.Leafs.Append("state", types.YLeaf{"State", session.State})
+    session.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", session.ClientAddress})
+    session.EntityData.Leafs.Append("client-port", types.YLeaf{"ClientPort", session.ClientPort})
+    session.EntityData.Leafs.Append("config-session-id", types.YLeaf{"ConfigSessionId", session.ConfigSessionId})
+    session.EntityData.Leafs.Append("admin-config-session-id", types.YLeaf{"AdminConfigSessionId", session.AdminConfigSessionId})
+    session.EntityData.Leafs.Append("alarm-notification", types.YLeaf{"AlarmNotification", session.AlarmNotification})
+    session.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", session.VrfName})
+    session.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", session.StartTime})
+    session.EntityData.Leafs.Append("elapsed-time", types.YLeaf{"ElapsedTime", session.ElapsedTime})
+    session.EntityData.Leafs.Append("last-state-change", types.YLeaf{"LastStateChange", session.LastStateChange})
+
+    session.EntityData.YListKeys = []string {"SessionId"}
+
     return &(session.EntityData)
 }
 
@@ -574,9 +613,12 @@ func (ssl *XrXml_Agent_Ssl) GetEntityData() *types.CommonEntityData {
     ssl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssl.EntityData.Children = make(map[string]types.YChild)
-    ssl.EntityData.Children["sessions"] = types.YChild{"Sessions", &ssl.Sessions}
-    ssl.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssl.EntityData.Children = types.NewOrderedMap()
+    ssl.EntityData.Children.Append("sessions", types.YChild{"Sessions", &ssl.Sessions})
+    ssl.EntityData.Leafs = types.NewOrderedMap()
+
+    ssl.EntityData.YListKeys = []string {}
+
     return &(ssl.EntityData)
 }
 
@@ -588,7 +630,7 @@ type XrXml_Agent_Ssl_Sessions struct {
 
     // xml sessions information. The type is slice of
     // XrXml_Agent_Ssl_Sessions_Session.
-    Session []XrXml_Agent_Ssl_Sessions_Session
+    Session []*XrXml_Agent_Ssl_Sessions_Session
 }
 
 func (sessions *XrXml_Agent_Ssl_Sessions) GetEntityData() *types.CommonEntityData {
@@ -601,12 +643,15 @@ func (sessions *XrXml_Agent_Ssl_Sessions) GetEntityData() *types.CommonEntityDat
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -663,25 +708,28 @@ func (session *XrXml_Agent_Ssl_Sessions_Session) GetEntityData() *types.CommonEn
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
-    session.EntityData.SegmentPath = "session" + "[session-id='" + fmt.Sprintf("%v", session.SessionId) + "']"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", session.SessionId}
-    session.EntityData.Leafs["username"] = types.YLeaf{"Username", session.Username}
-    session.EntityData.Leafs["state"] = types.YLeaf{"State", session.State}
-    session.EntityData.Leafs["client-address"] = types.YLeaf{"ClientAddress", session.ClientAddress}
-    session.EntityData.Leafs["client-port"] = types.YLeaf{"ClientPort", session.ClientPort}
-    session.EntityData.Leafs["config-session-id"] = types.YLeaf{"ConfigSessionId", session.ConfigSessionId}
-    session.EntityData.Leafs["admin-config-session-id"] = types.YLeaf{"AdminConfigSessionId", session.AdminConfigSessionId}
-    session.EntityData.Leafs["alarm-notification"] = types.YLeaf{"AlarmNotification", session.AlarmNotification}
-    session.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", session.VrfName}
-    session.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", session.StartTime}
-    session.EntityData.Leafs["elapsed-time"] = types.YLeaf{"ElapsedTime", session.ElapsedTime}
-    session.EntityData.Leafs["last-state-change"] = types.YLeaf{"LastStateChange", session.LastStateChange}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", session.SessionId})
+    session.EntityData.Leafs.Append("username", types.YLeaf{"Username", session.Username})
+    session.EntityData.Leafs.Append("state", types.YLeaf{"State", session.State})
+    session.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", session.ClientAddress})
+    session.EntityData.Leafs.Append("client-port", types.YLeaf{"ClientPort", session.ClientPort})
+    session.EntityData.Leafs.Append("config-session-id", types.YLeaf{"ConfigSessionId", session.ConfigSessionId})
+    session.EntityData.Leafs.Append("admin-config-session-id", types.YLeaf{"AdminConfigSessionId", session.AdminConfigSessionId})
+    session.EntityData.Leafs.Append("alarm-notification", types.YLeaf{"AlarmNotification", session.AlarmNotification})
+    session.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", session.VrfName})
+    session.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", session.StartTime})
+    session.EntityData.Leafs.Append("elapsed-time", types.YLeaf{"ElapsedTime", session.ElapsedTime})
+    session.EntityData.Leafs.Append("last-state-change", types.YLeaf{"LastStateChange", session.LastStateChange})
+
+    session.EntityData.YListKeys = []string {"SessionId"}
+
     return &(session.EntityData)
 }
 

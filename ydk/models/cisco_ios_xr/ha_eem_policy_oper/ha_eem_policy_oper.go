@@ -56,13 +56,16 @@ func (eem *Eem) GetEntityData() *types.CommonEntityData {
     eem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eem.EntityData.Children = make(map[string]types.YChild)
-    eem.EntityData.Children["dir-user"] = types.YChild{"DirUser", &eem.DirUser}
-    eem.EntityData.Children["env-variables"] = types.YChild{"EnvVariables", &eem.EnvVariables}
-    eem.EntityData.Children["refresh-time"] = types.YChild{"RefreshTime", &eem.RefreshTime}
-    eem.EntityData.Children["reg-policies"] = types.YChild{"RegPolicies", &eem.RegPolicies}
-    eem.EntityData.Children["avl-policies"] = types.YChild{"AvlPolicies", &eem.AvlPolicies}
-    eem.EntityData.Leafs = make(map[string]types.YLeaf)
+    eem.EntityData.Children = types.NewOrderedMap()
+    eem.EntityData.Children.Append("dir-user", types.YChild{"DirUser", &eem.DirUser})
+    eem.EntityData.Children.Append("env-variables", types.YChild{"EnvVariables", &eem.EnvVariables})
+    eem.EntityData.Children.Append("refresh-time", types.YChild{"RefreshTime", &eem.RefreshTime})
+    eem.EntityData.Children.Append("reg-policies", types.YChild{"RegPolicies", &eem.RegPolicies})
+    eem.EntityData.Children.Append("avl-policies", types.YChild{"AvlPolicies", &eem.AvlPolicies})
+    eem.EntityData.Leafs = types.NewOrderedMap()
+
+    eem.EntityData.YListKeys = []string {}
+
     return &(eem.EntityData)
 }
 
@@ -89,10 +92,13 @@ func (dirUser *Eem_DirUser) GetEntityData() *types.CommonEntityData {
     dirUser.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dirUser.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dirUser.EntityData.Children = make(map[string]types.YChild)
-    dirUser.EntityData.Children["library"] = types.YChild{"Library", &dirUser.Library}
-    dirUser.EntityData.Children["policy"] = types.YChild{"Policy", &dirUser.Policy}
-    dirUser.EntityData.Leafs = make(map[string]types.YLeaf)
+    dirUser.EntityData.Children = types.NewOrderedMap()
+    dirUser.EntityData.Children.Append("library", types.YChild{"Library", &dirUser.Library})
+    dirUser.EntityData.Children.Append("policy", types.YChild{"Policy", &dirUser.Policy})
+    dirUser.EntityData.Leafs = types.NewOrderedMap()
+
+    dirUser.EntityData.YListKeys = []string {}
+
     return &(dirUser.EntityData)
 }
 
@@ -119,10 +125,13 @@ func (library *Eem_DirUser_Library) GetEntityData() *types.CommonEntityData {
     library.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     library.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    library.EntityData.Children = make(map[string]types.YChild)
-    library.EntityData.Leafs = make(map[string]types.YLeaf)
-    library.EntityData.Leafs["policy"] = types.YLeaf{"Policy", library.Policy}
-    library.EntityData.Leafs["library"] = types.YLeaf{"Library", library.Library}
+    library.EntityData.Children = types.NewOrderedMap()
+    library.EntityData.Leafs = types.NewOrderedMap()
+    library.EntityData.Leafs.Append("policy", types.YLeaf{"Policy", library.Policy})
+    library.EntityData.Leafs.Append("library", types.YLeaf{"Library", library.Library})
+
+    library.EntityData.YListKeys = []string {}
+
     return &(library.EntityData)
 }
 
@@ -149,10 +158,13 @@ func (policy *Eem_DirUser_Policy) GetEntityData() *types.CommonEntityData {
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policy.EntityData.Children = make(map[string]types.YChild)
-    policy.EntityData.Leafs = make(map[string]types.YLeaf)
-    policy.EntityData.Leafs["policy"] = types.YLeaf{"Policy", policy.Policy}
-    policy.EntityData.Leafs["library"] = types.YLeaf{"Library", policy.Library}
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Leafs = types.NewOrderedMap()
+    policy.EntityData.Leafs.Append("policy", types.YLeaf{"Policy", policy.Policy})
+    policy.EntityData.Leafs.Append("library", types.YLeaf{"Library", policy.Library})
+
+    policy.EntityData.YListKeys = []string {}
+
     return &(policy.EntityData)
 }
 
@@ -164,7 +176,7 @@ type Eem_EnvVariables struct {
 
     // environmental variables name and value . The type is slice of
     // Eem_EnvVariables_EnvVariable.
-    EnvVariable []Eem_EnvVariables_EnvVariable
+    EnvVariable []*Eem_EnvVariables_EnvVariable
 }
 
 func (envVariables *Eem_EnvVariables) GetEntityData() *types.CommonEntityData {
@@ -177,12 +189,15 @@ func (envVariables *Eem_EnvVariables) GetEntityData() *types.CommonEntityData {
     envVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    envVariables.EntityData.Children = make(map[string]types.YChild)
-    envVariables.EntityData.Children["env-variable"] = types.YChild{"EnvVariable", nil}
+    envVariables.EntityData.Children = types.NewOrderedMap()
+    envVariables.EntityData.Children.Append("env-variable", types.YChild{"EnvVariable", nil})
     for i := range envVariables.EnvVariable {
-        envVariables.EntityData.Children[types.GetSegmentPath(&envVariables.EnvVariable[i])] = types.YChild{"EnvVariable", &envVariables.EnvVariable[i]}
+        envVariables.EntityData.Children.Append(types.GetSegmentPath(envVariables.EnvVariable[i]), types.YChild{"EnvVariable", envVariables.EnvVariable[i]})
     }
-    envVariables.EntityData.Leafs = make(map[string]types.YLeaf)
+    envVariables.EntityData.Leafs = types.NewOrderedMap()
+
+    envVariables.EntityData.YListKeys = []string {}
+
     return &(envVariables.EntityData)
 }
 
@@ -193,7 +208,7 @@ type Eem_EnvVariables_EnvVariable struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Environmental variable name. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // variable name. The type is string.
@@ -208,16 +223,19 @@ func (envVariable *Eem_EnvVariables_EnvVariable) GetEntityData() *types.CommonEn
     envVariable.EntityData.YangName = "env-variable"
     envVariable.EntityData.BundleName = "cisco_ios_xr"
     envVariable.EntityData.ParentYangName = "env-variables"
-    envVariable.EntityData.SegmentPath = "env-variable" + "[name='" + fmt.Sprintf("%v", envVariable.Name) + "']"
+    envVariable.EntityData.SegmentPath = "env-variable" + types.AddKeyToken(envVariable.Name, "name")
     envVariable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envVariable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envVariable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    envVariable.EntityData.Children = make(map[string]types.YChild)
-    envVariable.EntityData.Leafs = make(map[string]types.YLeaf)
-    envVariable.EntityData.Leafs["name"] = types.YLeaf{"Name", envVariable.Name}
-    envVariable.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", envVariable.NameXr}
-    envVariable.EntityData.Leafs["value"] = types.YLeaf{"Value", envVariable.Value}
+    envVariable.EntityData.Children = types.NewOrderedMap()
+    envVariable.EntityData.Leafs = types.NewOrderedMap()
+    envVariable.EntityData.Leafs.Append("name", types.YLeaf{"Name", envVariable.Name})
+    envVariable.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", envVariable.NameXr})
+    envVariable.EntityData.Leafs.Append("value", types.YLeaf{"Value", envVariable.Value})
+
+    envVariable.EntityData.YListKeys = []string {"Name"}
+
     return &(envVariable.EntityData)
 }
 
@@ -242,9 +260,12 @@ func (refreshTime *Eem_RefreshTime) GetEntityData() *types.CommonEntityData {
     refreshTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     refreshTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    refreshTime.EntityData.Children = make(map[string]types.YChild)
-    refreshTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    refreshTime.EntityData.Leafs["refreshtime"] = types.YLeaf{"Refreshtime", refreshTime.Refreshtime}
+    refreshTime.EntityData.Children = types.NewOrderedMap()
+    refreshTime.EntityData.Leafs = types.NewOrderedMap()
+    refreshTime.EntityData.Leafs.Append("refreshtime", types.YLeaf{"Refreshtime", refreshTime.Refreshtime})
+
+    refreshTime.EntityData.YListKeys = []string {}
+
     return &(refreshTime.EntityData)
 }
 
@@ -256,7 +277,7 @@ type Eem_RegPolicies struct {
 
     // policy name and create time . The type is slice of
     // Eem_RegPolicies_RegPolicy.
-    RegPolicy []Eem_RegPolicies_RegPolicy
+    RegPolicy []*Eem_RegPolicies_RegPolicy
 }
 
 func (regPolicies *Eem_RegPolicies) GetEntityData() *types.CommonEntityData {
@@ -269,12 +290,15 @@ func (regPolicies *Eem_RegPolicies) GetEntityData() *types.CommonEntityData {
     regPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    regPolicies.EntityData.Children = make(map[string]types.YChild)
-    regPolicies.EntityData.Children["reg-policy"] = types.YChild{"RegPolicy", nil}
+    regPolicies.EntityData.Children = types.NewOrderedMap()
+    regPolicies.EntityData.Children.Append("reg-policy", types.YChild{"RegPolicy", nil})
     for i := range regPolicies.RegPolicy {
-        regPolicies.EntityData.Children[types.GetSegmentPath(&regPolicies.RegPolicy[i])] = types.YChild{"RegPolicy", &regPolicies.RegPolicy[i]}
+        regPolicies.EntityData.Children.Append(types.GetSegmentPath(regPolicies.RegPolicy[i]), types.YChild{"RegPolicy", regPolicies.RegPolicy[i]})
     }
-    regPolicies.EntityData.Leafs = make(map[string]types.YLeaf)
+    regPolicies.EntityData.Leafs = types.NewOrderedMap()
+
+    regPolicies.EntityData.YListKeys = []string {}
+
     return &(regPolicies.EntityData)
 }
 
@@ -285,11 +309,11 @@ type Eem_RegPolicies_RegPolicy struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. policy name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // policy type. The type is string.
-    Type_ interface{}
+    Type interface{}
 
     // time created. The type is string.
     TimeCreated interface{}
@@ -321,23 +345,26 @@ func (regPolicy *Eem_RegPolicies_RegPolicy) GetEntityData() *types.CommonEntityD
     regPolicy.EntityData.YangName = "reg-policy"
     regPolicy.EntityData.BundleName = "cisco_ios_xr"
     regPolicy.EntityData.ParentYangName = "reg-policies"
-    regPolicy.EntityData.SegmentPath = "reg-policy" + "[name='" + fmt.Sprintf("%v", regPolicy.Name) + "']"
+    regPolicy.EntityData.SegmentPath = "reg-policy" + types.AddKeyToken(regPolicy.Name, "name")
     regPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    regPolicy.EntityData.Children = make(map[string]types.YChild)
-    regPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
-    regPolicy.EntityData.Leafs["name"] = types.YLeaf{"Name", regPolicy.Name}
-    regPolicy.EntityData.Leafs["type"] = types.YLeaf{"Type_", regPolicy.Type_}
-    regPolicy.EntityData.Leafs["time-created"] = types.YLeaf{"TimeCreated", regPolicy.TimeCreated}
-    regPolicy.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", regPolicy.PolicyName}
-    regPolicy.EntityData.Leafs["class"] = types.YLeaf{"Class", regPolicy.Class}
-    regPolicy.EntityData.Leafs["event-type"] = types.YLeaf{"EventType", regPolicy.EventType}
-    regPolicy.EntityData.Leafs["trap"] = types.YLeaf{"Trap", regPolicy.Trap}
-    regPolicy.EntityData.Leafs["persist-time"] = types.YLeaf{"PersistTime", regPolicy.PersistTime}
-    regPolicy.EntityData.Leafs["username"] = types.YLeaf{"Username", regPolicy.Username}
-    regPolicy.EntityData.Leafs["description"] = types.YLeaf{"Description", regPolicy.Description}
+    regPolicy.EntityData.Children = types.NewOrderedMap()
+    regPolicy.EntityData.Leafs = types.NewOrderedMap()
+    regPolicy.EntityData.Leafs.Append("name", types.YLeaf{"Name", regPolicy.Name})
+    regPolicy.EntityData.Leafs.Append("type", types.YLeaf{"Type", regPolicy.Type})
+    regPolicy.EntityData.Leafs.Append("time-created", types.YLeaf{"TimeCreated", regPolicy.TimeCreated})
+    regPolicy.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", regPolicy.PolicyName})
+    regPolicy.EntityData.Leafs.Append("class", types.YLeaf{"Class", regPolicy.Class})
+    regPolicy.EntityData.Leafs.Append("event-type", types.YLeaf{"EventType", regPolicy.EventType})
+    regPolicy.EntityData.Leafs.Append("trap", types.YLeaf{"Trap", regPolicy.Trap})
+    regPolicy.EntityData.Leafs.Append("persist-time", types.YLeaf{"PersistTime", regPolicy.PersistTime})
+    regPolicy.EntityData.Leafs.Append("username", types.YLeaf{"Username", regPolicy.Username})
+    regPolicy.EntityData.Leafs.Append("description", types.YLeaf{"Description", regPolicy.Description})
+
+    regPolicy.EntityData.YListKeys = []string {"Name"}
+
     return &(regPolicy.EntityData)
 }
 
@@ -349,7 +376,7 @@ type Eem_AvlPolicies struct {
 
     // policy name and create time . The type is slice of
     // Eem_AvlPolicies_AvlPolicy.
-    AvlPolicy []Eem_AvlPolicies_AvlPolicy
+    AvlPolicy []*Eem_AvlPolicies_AvlPolicy
 }
 
 func (avlPolicies *Eem_AvlPolicies) GetEntityData() *types.CommonEntityData {
@@ -362,12 +389,15 @@ func (avlPolicies *Eem_AvlPolicies) GetEntityData() *types.CommonEntityData {
     avlPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     avlPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    avlPolicies.EntityData.Children = make(map[string]types.YChild)
-    avlPolicies.EntityData.Children["avl-policy"] = types.YChild{"AvlPolicy", nil}
+    avlPolicies.EntityData.Children = types.NewOrderedMap()
+    avlPolicies.EntityData.Children.Append("avl-policy", types.YChild{"AvlPolicy", nil})
     for i := range avlPolicies.AvlPolicy {
-        avlPolicies.EntityData.Children[types.GetSegmentPath(&avlPolicies.AvlPolicy[i])] = types.YChild{"AvlPolicy", &avlPolicies.AvlPolicy[i]}
+        avlPolicies.EntityData.Children.Append(types.GetSegmentPath(avlPolicies.AvlPolicy[i]), types.YChild{"AvlPolicy", avlPolicies.AvlPolicy[i]})
     }
-    avlPolicies.EntityData.Leafs = make(map[string]types.YLeaf)
+    avlPolicies.EntityData.Leafs = types.NewOrderedMap()
+
+    avlPolicies.EntityData.YListKeys = []string {}
+
     return &(avlPolicies.EntityData)
 }
 
@@ -378,11 +408,11 @@ type Eem_AvlPolicies_AvlPolicy struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. System policy name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // policy type. The type is string.
-    Type_ interface{}
+    Type interface{}
 
     // time created. The type is string.
     TimeCreated interface{}
@@ -396,17 +426,20 @@ func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetEntityData() *types.CommonEntityD
     avlPolicy.EntityData.YangName = "avl-policy"
     avlPolicy.EntityData.BundleName = "cisco_ios_xr"
     avlPolicy.EntityData.ParentYangName = "avl-policies"
-    avlPolicy.EntityData.SegmentPath = "avl-policy" + "[name='" + fmt.Sprintf("%v", avlPolicy.Name) + "']"
+    avlPolicy.EntityData.SegmentPath = "avl-policy" + types.AddKeyToken(avlPolicy.Name, "name")
     avlPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     avlPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     avlPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    avlPolicy.EntityData.Children = make(map[string]types.YChild)
-    avlPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
-    avlPolicy.EntityData.Leafs["name"] = types.YLeaf{"Name", avlPolicy.Name}
-    avlPolicy.EntityData.Leafs["type"] = types.YLeaf{"Type_", avlPolicy.Type_}
-    avlPolicy.EntityData.Leafs["time-created"] = types.YLeaf{"TimeCreated", avlPolicy.TimeCreated}
-    avlPolicy.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", avlPolicy.PolicyName}
+    avlPolicy.EntityData.Children = types.NewOrderedMap()
+    avlPolicy.EntityData.Leafs = types.NewOrderedMap()
+    avlPolicy.EntityData.Leafs.Append("name", types.YLeaf{"Name", avlPolicy.Name})
+    avlPolicy.EntityData.Leafs.Append("type", types.YLeaf{"Type", avlPolicy.Type})
+    avlPolicy.EntityData.Leafs.Append("time-created", types.YLeaf{"TimeCreated", avlPolicy.TimeCreated})
+    avlPolicy.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", avlPolicy.PolicyName})
+
+    avlPolicy.EntityData.YListKeys = []string {"Name"}
+
     return &(avlPolicy.EntityData)
 }
 

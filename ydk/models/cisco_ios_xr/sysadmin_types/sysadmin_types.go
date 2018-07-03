@@ -23,7 +23,34 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package sysadmin_types"))
 }
 
-// RackId represents FCC racks are identified by numbers F0..F3
+// GenericOperStatus
+type GenericOperStatus string
+
+const (
+    GenericOperStatus_up GenericOperStatus = "up"
+
+    GenericOperStatus_down GenericOperStatus = "down"
+)
+
+// GenericHaRole
+type GenericHaRole string
+
+const (
+    GenericHaRole_no_ha_role GenericHaRole = "no-ha-role"
+
+    GenericHaRole_Active GenericHaRole = "Active"
+
+    GenericHaRole_Standby GenericHaRole = "Standby"
+)
+
+// Adminstate
+type Adminstate string
+
+const (
+    Adminstate_disable Adminstate = "disable"
+)
+
+// RackId represents BSC racks are identified by numbers 128..129
 type RackId string
 
 const (
@@ -66,51 +93,10 @@ const (
     RackId_F2 RackId = "F2"
 
     RackId_F3 RackId = "F3"
-)
 
-// Adminstate
-type Adminstate string
+    RackId_B0 RackId = "B0"
 
-const (
-    Adminstate_disable Adminstate = "disable"
-)
-
-// GenericOperStatus
-type GenericOperStatus string
-
-const (
-    GenericOperStatus_up GenericOperStatus = "up"
-
-    GenericOperStatus_down GenericOperStatus = "down"
-)
-
-// GenericOperStatus_
-type GenericOperStatus_ string
-
-const (
-    GenericOperStatus__up GenericOperStatus_ = "up"
-
-    GenericOperStatus__down GenericOperStatus_ = "down"
-)
-
-// GenericOperStatus_
-type GenericOperStatus_ string
-
-const (
-    GenericOperStatus__up GenericOperStatus_ = "up"
-
-    GenericOperStatus__down GenericOperStatus_ = "down"
-)
-
-// GenericHaRole
-type GenericHaRole string
-
-const (
-    GenericHaRole_no_ha_role GenericHaRole = "no-ha-role"
-
-    GenericHaRole_Active GenericHaRole = "Active"
-
-    GenericHaRole_Standby GenericHaRole = "Standby"
+    RackId_B1 RackId = "B1"
 )
 
 // FabricLinkTypes
@@ -122,5 +108,23 @@ const (
     FabricLinkTypes_S2 FabricLinkTypes = "S2"
 
     FabricLinkTypes_S3 FabricLinkTypes = "S3"
+)
+
+// GenericOperStatus_
+type GenericOperStatus_ string
+
+const (
+    GenericOperStatus__up GenericOperStatus_ = "up"
+
+    GenericOperStatus__down GenericOperStatus_ = "down"
+)
+
+// GenericOperStatus_
+type GenericOperStatus_ string
+
+const (
+    GenericOperStatus__up GenericOperStatus_ = "up"
+
+    GenericOperStatus__down GenericOperStatus_ = "down"
 )
 

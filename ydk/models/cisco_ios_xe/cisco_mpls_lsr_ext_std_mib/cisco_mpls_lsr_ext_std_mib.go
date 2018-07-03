@@ -29,7 +29,7 @@ type CISCOMPLSLSREXTSTDMIB struct {
 
     // This table sparse augments the mplsXCTable of MPLS-LSR-STD-MIB [RFC3813] to
     // provide MPLS-TP specific information about associated tunnel information.
-    Cmplsxcexttable CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable
+    CmplsXCExtTable CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable
 }
 
 func (cISCOMPLSLSREXTSTDMIB *CISCOMPLSLSREXTSTDMIB) GetEntityData() *types.CommonEntityData {
@@ -42,17 +42,20 @@ func (cISCOMPLSLSREXTSTDMIB *CISCOMPLSLSREXTSTDMIB) GetEntityData() *types.Commo
     cISCOMPLSLSREXTSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOMPLSLSREXTSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOMPLSLSREXTSTDMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOMPLSLSREXTSTDMIB.EntityData.Children["cmplsXCExtTable"] = types.YChild{"Cmplsxcexttable", &cISCOMPLSLSREXTSTDMIB.Cmplsxcexttable}
-    cISCOMPLSLSREXTSTDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOMPLSLSREXTSTDMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOMPLSLSREXTSTDMIB.EntityData.Children.Append("cmplsXCExtTable", types.YChild{"CmplsXCExtTable", &cISCOMPLSLSREXTSTDMIB.CmplsXCExtTable})
+    cISCOMPLSLSREXTSTDMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOMPLSLSREXTSTDMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOMPLSLSREXTSTDMIB.EntityData)
 }
 
-// CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable
+// CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable
 // This table sparse augments the mplsXCTable of
 // MPLS-LSR-STD-MIB [RFC3813] to provide MPLS-TP specific
 // information about associated tunnel information
-type CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable struct {
+type CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -60,82 +63,88 @@ type CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable struct {
     // an entry in the mplsXCTable in MPLS-LSR-STD-MIB [RFC3813] through a sparse
     // augmentation.  An entry can be created by a network administrator via SNMP
     // SET commands, or in response to signaling protocol events. The type is
-    // slice of CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable_Cmplsxcextentry.
-    Cmplsxcextentry []CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable_Cmplsxcextentry
+    // slice of CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable_CmplsXCExtEntry.
+    CmplsXCExtEntry []*CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable_CmplsXCExtEntry
 }
 
-func (cmplsxcexttable *CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable) GetEntityData() *types.CommonEntityData {
-    cmplsxcexttable.EntityData.YFilter = cmplsxcexttable.YFilter
-    cmplsxcexttable.EntityData.YangName = "cmplsXCExtTable"
-    cmplsxcexttable.EntityData.BundleName = "cisco_ios_xe"
-    cmplsxcexttable.EntityData.ParentYangName = "CISCO-MPLS-LSR-EXT-STD-MIB"
-    cmplsxcexttable.EntityData.SegmentPath = "cmplsXCExtTable"
-    cmplsxcexttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsxcexttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsxcexttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsXCExtTable *CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable) GetEntityData() *types.CommonEntityData {
+    cmplsXCExtTable.EntityData.YFilter = cmplsXCExtTable.YFilter
+    cmplsXCExtTable.EntityData.YangName = "cmplsXCExtTable"
+    cmplsXCExtTable.EntityData.BundleName = "cisco_ios_xe"
+    cmplsXCExtTable.EntityData.ParentYangName = "CISCO-MPLS-LSR-EXT-STD-MIB"
+    cmplsXCExtTable.EntityData.SegmentPath = "cmplsXCExtTable"
+    cmplsXCExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsXCExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsXCExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsxcexttable.EntityData.Children = make(map[string]types.YChild)
-    cmplsxcexttable.EntityData.Children["cmplsXCExtEntry"] = types.YChild{"Cmplsxcextentry", nil}
-    for i := range cmplsxcexttable.Cmplsxcextentry {
-        cmplsxcexttable.EntityData.Children[types.GetSegmentPath(&cmplsxcexttable.Cmplsxcextentry[i])] = types.YChild{"Cmplsxcextentry", &cmplsxcexttable.Cmplsxcextentry[i]}
+    cmplsXCExtTable.EntityData.Children = types.NewOrderedMap()
+    cmplsXCExtTable.EntityData.Children.Append("cmplsXCExtEntry", types.YChild{"CmplsXCExtEntry", nil})
+    for i := range cmplsXCExtTable.CmplsXCExtEntry {
+        cmplsXCExtTable.EntityData.Children.Append(types.GetSegmentPath(cmplsXCExtTable.CmplsXCExtEntry[i]), types.YChild{"CmplsXCExtEntry", cmplsXCExtTable.CmplsXCExtEntry[i]})
     }
-    cmplsxcexttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cmplsxcexttable.EntityData)
+    cmplsXCExtTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cmplsXCExtTable.EntityData.YListKeys = []string {}
+
+    return &(cmplsXCExtTable.EntityData)
 }
 
-// CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable_Cmplsxcextentry
+// CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable_CmplsXCExtEntry
 // An entry in this table extends the cross connect
 // information represented by an entry in
 // the mplsXCTable in MPLS-LSR-STD-MIB [RFC3813] through
 // a sparse augmentation.  An entry can be created by
 // a network administrator via SNMP SET commands, or in
 // response to signaling protocol events.
-type CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable_Cmplsxcextentry struct {
+type CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable_CmplsXCExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..24. Refers to
-    // mpls_lsr_std_mib.MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry_Mplsxcindex
-    Mplsxcindex interface{}
+    // mpls_lsr_std_mib.MPLSLSRSTDMIB_MplsXCTable_MplsXCEntry_MplsXCIndex
+    MplsXCIndex interface{}
 
     // This attribute is a key. The type is string with length: 1..24. Refers to
-    // mpls_lsr_std_mib.MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry_Mplsxcinsegmentindex
-    Mplsxcinsegmentindex interface{}
+    // mpls_lsr_std_mib.MPLSLSRSTDMIB_MplsXCTable_MplsXCEntry_MplsXCInSegmentIndex
+    MplsXCInSegmentIndex interface{}
 
     // This attribute is a key. The type is string with length: 1..24. Refers to
-    // mpls_lsr_std_mib.MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry_Mplsxcoutsegmentindex
-    Mplsxcoutsegmentindex interface{}
+    // mpls_lsr_std_mib.MPLSLSRSTDMIB_MplsXCTable_MplsXCEntry_MplsXCOutSegmentIndex
+    MplsXCOutSegmentIndex interface{}
 
     // This object indicates the back pointer to the tunnel entry segment.  This
     // object cannot be modified if mplsXCRowStatus for the corresponding entry in
     // the mplsXCTable is active(1). The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cmplsxcexttunnelpointer interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CmplsXCExtTunnelPointer interface{}
 
     // This object indicates the pointer to the opposite direction XC entry.  This
     // object cannot be modified if mplsXCRowStatus for the corresponding entry in
     // the mplsXCTable is active(1). The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cmplsxcoppositedirxcptr interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CmplsXCOppositeDirXCPtr interface{}
 }
 
-func (cmplsxcextentry *CISCOMPLSLSREXTSTDMIB_Cmplsxcexttable_Cmplsxcextentry) GetEntityData() *types.CommonEntityData {
-    cmplsxcextentry.EntityData.YFilter = cmplsxcextentry.YFilter
-    cmplsxcextentry.EntityData.YangName = "cmplsXCExtEntry"
-    cmplsxcextentry.EntityData.BundleName = "cisco_ios_xe"
-    cmplsxcextentry.EntityData.ParentYangName = "cmplsXCExtTable"
-    cmplsxcextentry.EntityData.SegmentPath = "cmplsXCExtEntry" + "[mplsXCIndex='" + fmt.Sprintf("%v", cmplsxcextentry.Mplsxcindex) + "']" + "[mplsXCInSegmentIndex='" + fmt.Sprintf("%v", cmplsxcextentry.Mplsxcinsegmentindex) + "']" + "[mplsXCOutSegmentIndex='" + fmt.Sprintf("%v", cmplsxcextentry.Mplsxcoutsegmentindex) + "']"
-    cmplsxcextentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsxcextentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsxcextentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsXCExtEntry *CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable_CmplsXCExtEntry) GetEntityData() *types.CommonEntityData {
+    cmplsXCExtEntry.EntityData.YFilter = cmplsXCExtEntry.YFilter
+    cmplsXCExtEntry.EntityData.YangName = "cmplsXCExtEntry"
+    cmplsXCExtEntry.EntityData.BundleName = "cisco_ios_xe"
+    cmplsXCExtEntry.EntityData.ParentYangName = "cmplsXCExtTable"
+    cmplsXCExtEntry.EntityData.SegmentPath = "cmplsXCExtEntry" + types.AddKeyToken(cmplsXCExtEntry.MplsXCIndex, "mplsXCIndex") + types.AddKeyToken(cmplsXCExtEntry.MplsXCInSegmentIndex, "mplsXCInSegmentIndex") + types.AddKeyToken(cmplsXCExtEntry.MplsXCOutSegmentIndex, "mplsXCOutSegmentIndex")
+    cmplsXCExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsXCExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsXCExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsxcextentry.EntityData.Children = make(map[string]types.YChild)
-    cmplsxcextentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cmplsxcextentry.EntityData.Leafs["mplsXCIndex"] = types.YLeaf{"Mplsxcindex", cmplsxcextentry.Mplsxcindex}
-    cmplsxcextentry.EntityData.Leafs["mplsXCInSegmentIndex"] = types.YLeaf{"Mplsxcinsegmentindex", cmplsxcextentry.Mplsxcinsegmentindex}
-    cmplsxcextentry.EntityData.Leafs["mplsXCOutSegmentIndex"] = types.YLeaf{"Mplsxcoutsegmentindex", cmplsxcextentry.Mplsxcoutsegmentindex}
-    cmplsxcextentry.EntityData.Leafs["cmplsXCExtTunnelPointer"] = types.YLeaf{"Cmplsxcexttunnelpointer", cmplsxcextentry.Cmplsxcexttunnelpointer}
-    cmplsxcextentry.EntityData.Leafs["cmplsXCOppositeDirXCPtr"] = types.YLeaf{"Cmplsxcoppositedirxcptr", cmplsxcextentry.Cmplsxcoppositedirxcptr}
-    return &(cmplsxcextentry.EntityData)
+    cmplsXCExtEntry.EntityData.Children = types.NewOrderedMap()
+    cmplsXCExtEntry.EntityData.Leafs = types.NewOrderedMap()
+    cmplsXCExtEntry.EntityData.Leafs.Append("mplsXCIndex", types.YLeaf{"MplsXCIndex", cmplsXCExtEntry.MplsXCIndex})
+    cmplsXCExtEntry.EntityData.Leafs.Append("mplsXCInSegmentIndex", types.YLeaf{"MplsXCInSegmentIndex", cmplsXCExtEntry.MplsXCInSegmentIndex})
+    cmplsXCExtEntry.EntityData.Leafs.Append("mplsXCOutSegmentIndex", types.YLeaf{"MplsXCOutSegmentIndex", cmplsXCExtEntry.MplsXCOutSegmentIndex})
+    cmplsXCExtEntry.EntityData.Leafs.Append("cmplsXCExtTunnelPointer", types.YLeaf{"CmplsXCExtTunnelPointer", cmplsXCExtEntry.CmplsXCExtTunnelPointer})
+    cmplsXCExtEntry.EntityData.Leafs.Append("cmplsXCOppositeDirXCPtr", types.YLeaf{"CmplsXCOppositeDirXCPtr", cmplsXCExtEntry.CmplsXCOppositeDirXCPtr})
+
+    cmplsXCExtEntry.EntityData.YListKeys = []string {"MplsXCIndex", "MplsXCInSegmentIndex", "MplsXCOutSegmentIndex"}
+
+    return &(cmplsXCExtEntry.EntityData)
 }
 

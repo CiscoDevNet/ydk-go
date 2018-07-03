@@ -18,17 +18,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package infra_ltrace_cfg"))
 }
 
-// InfraLtraceMode represents Infra ltrace mode
-type InfraLtraceMode string
-
-const (
-    // Set ltrace memory allocation to static mode
-    InfraLtraceMode_static InfraLtraceMode = "static"
-
-    // Set ltrace memory allocation to dynamic mode
-    InfraLtraceMode_dynamic InfraLtraceMode = "dynamic"
-)
-
 // InfraLtraceScale represents Infra ltrace scale
 type InfraLtraceScale string
 
@@ -50,5 +39,16 @@ const (
 
     // Scale down ltrace memory request by 16
     InfraLtraceScale_Y_16 InfraLtraceScale = "16"
+)
+
+// InfraLtraceMode represents Infra ltrace mode
+type InfraLtraceMode string
+
+const (
+    // Set ltrace memory allocation to static mode
+    InfraLtraceMode_static InfraLtraceMode = "static"
+
+    // Set ltrace memory allocation to dynamic mode
+    InfraLtraceMode_dynamic InfraLtraceMode = "dynamic"
 )
 

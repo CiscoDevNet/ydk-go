@@ -55,11 +55,13 @@ submodule Cisco-IOS-XR-asr9k-lc-ethctrl-oper-sub1 {
       description
         "es";
     }
-    leaf-list macaddr {
-      type uint16;
+    list macaddr {
       max-elements "3";
       description
         "macaddr";
+      leaf entry {
+        type uint16;
+      }
     }
   }
 
@@ -343,11 +345,13 @@ submodule Cisco-IOS-XR-asr9k-lc-ethctrl-oper-sub1 {
   grouping MLAN-SWITCH-REG-BANK {
     description
       "MLAN SWITCH REG BANK";
-    leaf-list reg {
-      type uint16;
+    list reg {
       max-elements "32";
       description
         "reg";
+      leaf entry {
+        type uint16;
+      }
     }
   }
 

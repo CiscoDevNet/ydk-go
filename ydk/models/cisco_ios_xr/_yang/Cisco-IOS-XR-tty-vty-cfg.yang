@@ -29,6 +29,10 @@ module Cisco-IOS-XR-tty-vty-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-09-16 {
     description
       "Descriptions updated.";
@@ -58,14 +62,14 @@ module Cisco-IOS-XR-tty-vty-cfg {
              string";
         }
         leaf first-vty {
-          type int32;
+          type uint32;
           mandatory true;
           description
             "First VTY number,For default VTY use 0,For
              user-defined use 5,For fault-manager use 100";
         }
         leaf last-vty {
-          type int32;
+          type uint32;
           mandatory true;
           description
             "Last VTY number,For default configure between

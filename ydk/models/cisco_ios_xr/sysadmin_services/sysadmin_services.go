@@ -1,3 +1,6 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
@@ -5,6 +8,9 @@
 // sysadmin plane.
 // 
 // Copyright(c) 2016 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_services
 
@@ -42,9 +48,12 @@ func (service *Service) GetEntityData() *types.CommonEntityData {
     service.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     service.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    service.EntityData.Children = make(map[string]types.YChild)
-    service.EntityData.Children["cli"] = types.YChild{"Cli", &service.Cli}
-    service.EntityData.Leafs = make(map[string]types.YLeaf)
+    service.EntityData.Children = types.NewOrderedMap()
+    service.EntityData.Children.Append("cli", types.YChild{"Cli", &service.Cli})
+    service.EntityData.Leafs = types.NewOrderedMap()
+
+    service.EntityData.YListKeys = []string {}
+
     return &(service.EntityData)
 }
 
@@ -67,9 +76,12 @@ func (cli *Service_Cli) GetEntityData() *types.CommonEntityData {
     cli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cli.EntityData.Children = make(map[string]types.YChild)
-    cli.EntityData.Children["interactive"] = types.YChild{"Interactive", &cli.Interactive}
-    cli.EntityData.Leafs = make(map[string]types.YLeaf)
+    cli.EntityData.Children = types.NewOrderedMap()
+    cli.EntityData.Children.Append("interactive", types.YChild{"Interactive", &cli.Interactive})
+    cli.EntityData.Leafs = types.NewOrderedMap()
+
+    cli.EntityData.YListKeys = []string {}
+
     return &(cli.EntityData)
 }
 
@@ -92,9 +104,12 @@ func (interactive *Service_Cli_Interactive) GetEntityData() *types.CommonEntityD
     interactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interactive.EntityData.Children = make(map[string]types.YChild)
-    interactive.EntityData.Leafs = make(map[string]types.YLeaf)
-    interactive.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", interactive.Enabled}
+    interactive.EntityData.Children = types.NewOrderedMap()
+    interactive.EntityData.Leafs = types.NewOrderedMap()
+    interactive.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", interactive.Enabled})
+
+    interactive.EntityData.YListKeys = []string {}
+
     return &(interactive.EntityData)
 }
 

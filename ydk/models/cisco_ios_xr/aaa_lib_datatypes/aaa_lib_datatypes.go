@@ -14,6 +14,21 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package aaa_lib_datatypes"))
 }
 
+// AaaAccountingUpdate represents Aaa accounting update
+type AaaAccountingUpdate string
+
+const (
+    // Not Set
+    AaaAccountingUpdate_none AaaAccountingUpdate = "none"
+
+    // Update records for new accountable information
+    // only
+    AaaAccountingUpdate_newinfo AaaAccountingUpdate = "newinfo"
+
+    // Update records at periodic intervals
+    AaaAccountingUpdate_periodic AaaAccountingUpdate = "periodic"
+)
+
 // AaaAccounting represents Aaa accounting
 type AaaAccounting string
 
@@ -26,84 +41,6 @@ const (
 
     // Stop Only
     AaaAccounting_stop_only AaaAccounting = "stop-only"
-)
-
-// AaaAccountingRpFailover represents Aaa accounting rp failover
-type AaaAccountingRpFailover string
-
-const (
-    // Disable rpfailover
-    AaaAccountingRpFailover_disable AaaAccountingRpFailover = "disable"
-
-    // Enable rpfailover
-    AaaAccountingRpFailover_enable AaaAccountingRpFailover = "enable"
-)
-
-// AaaAccountingBroadcast represents Aaa accounting broadcast
-type AaaAccountingBroadcast string
-
-const (
-    // Disable Broadcast
-    AaaAccountingBroadcast_disable AaaAccountingBroadcast = "disable"
-
-    // Enable Broadcast
-    AaaAccountingBroadcast_enable AaaAccountingBroadcast = "enable"
-)
-
-// AaaMethodAccounting represents Aaa method accounting
-type AaaMethodAccounting string
-
-const (
-    // Not Set
-    AaaMethodAccounting_not_set AaaMethodAccounting = "not-set"
-
-    // None
-    AaaMethodAccounting_none AaaMethodAccounting = "none"
-
-    // Radius
-    AaaMethodAccounting_radius AaaMethodAccounting = "radius"
-
-    // TACACS+
-    AaaMethodAccounting_tacacs_plus AaaMethodAccounting = "tacacs-plus"
-
-    // DSMD
-    AaaMethodAccounting_dsmd AaaMethodAccounting = "dsmd"
-
-    // SGBP
-    AaaMethodAccounting_sgbp AaaMethodAccounting = "sgbp"
-
-    // AcctD
-    AaaMethodAccounting_acct_d AaaMethodAccounting = "acct-d"
-
-    // Error
-    AaaMethodAccounting_error AaaMethodAccounting = "error"
-
-    // If Authenticated
-    AaaMethodAccounting_if_authenticated AaaMethodAccounting = "if-authenticated"
-
-    // Server Group
-    AaaMethodAccounting_server_group AaaMethodAccounting = "server-group"
-
-    // Server Group Not Defined
-    AaaMethodAccounting_server_group_not_defined AaaMethodAccounting = "server-group-not-defined"
-
-    // Line
-    AaaMethodAccounting_line AaaMethodAccounting = "line"
-
-    // Enable
-    AaaMethodAccounting_enable AaaMethodAccounting = "enable"
-
-    // Kerberos
-    AaaMethodAccounting_kerberos AaaMethodAccounting = "kerberos"
-
-    // Diameter
-    AaaMethodAccounting_diameter AaaMethodAccounting = "diameter"
-
-    // Last
-    AaaMethodAccounting_last AaaMethodAccounting = "last"
-
-    // Local
-    AaaMethodAccounting_local AaaMethodAccounting = "local"
 )
 
 // AaaMethod represents Aaa method
@@ -135,7 +72,7 @@ const (
     AaaMethod_acct_d AaaMethod = "acct-d"
 
     // Error
-    AaaMethod_error AaaMethod = "error"
+    AaaMethod_error_ AaaMethod = "error"
 
     // If Authenticated
     AaaMethod_if_authenticated AaaMethod = "if-authenticated"
@@ -162,18 +99,25 @@ const (
     AaaMethod_last AaaMethod = "last"
 )
 
-// AaaAccountingUpdate represents Aaa accounting update
-type AaaAccountingUpdate string
+// AaaAccountingBroadcast represents Aaa accounting broadcast
+type AaaAccountingBroadcast string
 
 const (
-    // Not Set
-    AaaAccountingUpdate_none AaaAccountingUpdate = "none"
+    // Disable Broadcast
+    AaaAccountingBroadcast_disable AaaAccountingBroadcast = "disable"
 
-    // Update records for new accountable information
-    // only
-    AaaAccountingUpdate_newinfo AaaAccountingUpdate = "newinfo"
+    // Enable Broadcast
+    AaaAccountingBroadcast_enable AaaAccountingBroadcast = "enable"
+)
 
-    // Update records at periodic intervals
-    AaaAccountingUpdate_periodic AaaAccountingUpdate = "periodic"
+// AaaAccountingRpFailover represents Aaa accounting rp failover
+type AaaAccountingRpFailover string
+
+const (
+    // Disable rpfailover
+    AaaAccountingRpFailover_disable AaaAccountingRpFailover = "disable"
+
+    // Enable rpfailover
+    AaaAccountingRpFailover_enable AaaAccountingRpFailover = "enable"
 )
 

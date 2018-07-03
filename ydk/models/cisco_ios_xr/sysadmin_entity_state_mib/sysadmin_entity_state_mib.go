@@ -26,7 +26,7 @@ type ENTITYSTATEMIB struct {
     YFilter yfilter.YFilter
 
     
-    Entstatetable ENTITYSTATEMIB_Entstatetable
+    EntStateTable ENTITYSTATEMIB_EntStateTable
 }
 
 func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetEntityData() *types.CommonEntityData {
@@ -39,87 +39,96 @@ func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetEntityData() *types.CommonEntityData {
     eNTITYSTATEMIB.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eNTITYSTATEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eNTITYSTATEMIB.EntityData.Children = make(map[string]types.YChild)
-    eNTITYSTATEMIB.EntityData.Children["entStateTable"] = types.YChild{"Entstatetable", &eNTITYSTATEMIB.Entstatetable}
-    eNTITYSTATEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    eNTITYSTATEMIB.EntityData.Children = types.NewOrderedMap()
+    eNTITYSTATEMIB.EntityData.Children.Append("entStateTable", types.YChild{"EntStateTable", &eNTITYSTATEMIB.EntStateTable})
+    eNTITYSTATEMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    eNTITYSTATEMIB.EntityData.YListKeys = []string {}
+
     return &(eNTITYSTATEMIB.EntityData)
 }
 
-// ENTITYSTATEMIB_Entstatetable
-type ENTITYSTATEMIB_Entstatetable struct {
+// ENTITYSTATEMIB_EntStateTable
+type ENTITYSTATEMIB_EntStateTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is slice of ENTITYSTATEMIB_Entstatetable_Entstateentry.
-    Entstateentry []ENTITYSTATEMIB_Entstatetable_Entstateentry
+    // The type is slice of ENTITYSTATEMIB_EntStateTable_EntStateEntry.
+    EntStateEntry []*ENTITYSTATEMIB_EntStateTable_EntStateEntry
 }
 
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetEntityData() *types.CommonEntityData {
-    entstatetable.EntityData.YFilter = entstatetable.YFilter
-    entstatetable.EntityData.YangName = "entStateTable"
-    entstatetable.EntityData.BundleName = "cisco_ios_xr"
-    entstatetable.EntityData.ParentYangName = "ENTITY-STATE-MIB"
-    entstatetable.EntityData.SegmentPath = "entStateTable"
-    entstatetable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    entstatetable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    entstatetable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (entStateTable *ENTITYSTATEMIB_EntStateTable) GetEntityData() *types.CommonEntityData {
+    entStateTable.EntityData.YFilter = entStateTable.YFilter
+    entStateTable.EntityData.YangName = "entStateTable"
+    entStateTable.EntityData.BundleName = "cisco_ios_xr"
+    entStateTable.EntityData.ParentYangName = "ENTITY-STATE-MIB"
+    entStateTable.EntityData.SegmentPath = "entStateTable"
+    entStateTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entStateTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entStateTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entstatetable.EntityData.Children = make(map[string]types.YChild)
-    entstatetable.EntityData.Children["entStateEntry"] = types.YChild{"Entstateentry", nil}
-    for i := range entstatetable.Entstateentry {
-        entstatetable.EntityData.Children[types.GetSegmentPath(&entstatetable.Entstateentry[i])] = types.YChild{"Entstateentry", &entstatetable.Entstateentry[i]}
+    entStateTable.EntityData.Children = types.NewOrderedMap()
+    entStateTable.EntityData.Children.Append("entStateEntry", types.YChild{"EntStateEntry", nil})
+    for i := range entStateTable.EntStateEntry {
+        entStateTable.EntityData.Children.Append(types.GetSegmentPath(entStateTable.EntStateEntry[i]), types.YChild{"EntStateEntry", entStateTable.EntStateEntry[i]})
     }
-    entstatetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(entstatetable.EntityData)
+    entStateTable.EntityData.Leafs = types.NewOrderedMap()
+
+    entStateTable.EntityData.YListKeys = []string {}
+
+    return &(entStateTable.EntityData)
 }
 
-// ENTITYSTATEMIB_Entstatetable_Entstateentry
-type ENTITYSTATEMIB_Entstatetable_Entstateentry struct {
+// ENTITYSTATEMIB_EntStateTable_EntStateEntry
+type ENTITYSTATEMIB_EntStateTable_EntStateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
-    Entphysicalindex interface{}
+    EntPhysicalIndex interface{}
 
     // The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    Entstatelastchanged interface{}
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    EntStateLastChanged interface{}
 
     // The type is EntityAdminState.
-    Entstateadmin interface{}
+    EntStateAdmin interface{}
 
     // The type is EntityOperState.
-    Entstateoper interface{}
+    EntStateOper interface{}
 
     // The type is EntityUsageState.
-    Entstateusage interface{}
+    EntStateUsage interface{}
 
     // The type is map[string]bool.
-    Entstatealarm interface{}
+    EntStateAlarm interface{}
 
     // The type is EntityStandbyStatus.
-    Entstatestandby interface{}
+    EntStateStandby interface{}
 }
 
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetEntityData() *types.CommonEntityData {
-    entstateentry.EntityData.YFilter = entstateentry.YFilter
-    entstateentry.EntityData.YangName = "entStateEntry"
-    entstateentry.EntityData.BundleName = "cisco_ios_xr"
-    entstateentry.EntityData.ParentYangName = "entStateTable"
-    entstateentry.EntityData.SegmentPath = "entStateEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entstateentry.Entphysicalindex) + "']"
-    entstateentry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    entstateentry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    entstateentry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (entStateEntry *ENTITYSTATEMIB_EntStateTable_EntStateEntry) GetEntityData() *types.CommonEntityData {
+    entStateEntry.EntityData.YFilter = entStateEntry.YFilter
+    entStateEntry.EntityData.YangName = "entStateEntry"
+    entStateEntry.EntityData.BundleName = "cisco_ios_xr"
+    entStateEntry.EntityData.ParentYangName = "entStateTable"
+    entStateEntry.EntityData.SegmentPath = "entStateEntry" + types.AddKeyToken(entStateEntry.EntPhysicalIndex, "entPhysicalIndex")
+    entStateEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entStateEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entStateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entstateentry.EntityData.Children = make(map[string]types.YChild)
-    entstateentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entstateentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", entstateentry.Entphysicalindex}
-    entstateentry.EntityData.Leafs["entStateLastChanged"] = types.YLeaf{"Entstatelastchanged", entstateentry.Entstatelastchanged}
-    entstateentry.EntityData.Leafs["entStateAdmin"] = types.YLeaf{"Entstateadmin", entstateentry.Entstateadmin}
-    entstateentry.EntityData.Leafs["entStateOper"] = types.YLeaf{"Entstateoper", entstateentry.Entstateoper}
-    entstateentry.EntityData.Leafs["entStateUsage"] = types.YLeaf{"Entstateusage", entstateentry.Entstateusage}
-    entstateentry.EntityData.Leafs["entStateAlarm"] = types.YLeaf{"Entstatealarm", entstateentry.Entstatealarm}
-    entstateentry.EntityData.Leafs["entStateStandby"] = types.YLeaf{"Entstatestandby", entstateentry.Entstatestandby}
-    return &(entstateentry.EntityData)
+    entStateEntry.EntityData.Children = types.NewOrderedMap()
+    entStateEntry.EntityData.Leafs = types.NewOrderedMap()
+    entStateEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", entStateEntry.EntPhysicalIndex})
+    entStateEntry.EntityData.Leafs.Append("entStateLastChanged", types.YLeaf{"EntStateLastChanged", entStateEntry.EntStateLastChanged})
+    entStateEntry.EntityData.Leafs.Append("entStateAdmin", types.YLeaf{"EntStateAdmin", entStateEntry.EntStateAdmin})
+    entStateEntry.EntityData.Leafs.Append("entStateOper", types.YLeaf{"EntStateOper", entStateEntry.EntStateOper})
+    entStateEntry.EntityData.Leafs.Append("entStateUsage", types.YLeaf{"EntStateUsage", entStateEntry.EntStateUsage})
+    entStateEntry.EntityData.Leafs.Append("entStateAlarm", types.YLeaf{"EntStateAlarm", entStateEntry.EntStateAlarm})
+    entStateEntry.EntityData.Leafs.Append("entStateStandby", types.YLeaf{"EntStateStandby", entStateEntry.EntStateStandby})
+
+    entStateEntry.EntityData.YListKeys = []string {"EntPhysicalIndex"}
+
+    return &(entStateEntry.EntityData)
 }
 

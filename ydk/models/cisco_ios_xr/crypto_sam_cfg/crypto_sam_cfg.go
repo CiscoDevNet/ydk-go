@@ -55,9 +55,12 @@ func (sam *Sam) GetEntityData() *types.CommonEntityData {
     sam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sam.EntityData.Children = make(map[string]types.YChild)
-    sam.EntityData.Children["prompt-interval"] = types.YChild{"PromptInterval", &sam.PromptInterval}
-    sam.EntityData.Leafs = make(map[string]types.YLeaf)
+    sam.EntityData.Children = types.NewOrderedMap()
+    sam.EntityData.Children.Append("prompt-interval", types.YChild{"PromptInterval", &sam.PromptInterval})
+    sam.EntityData.Leafs = types.NewOrderedMap()
+
+    sam.EntityData.YListKeys = []string {}
+
     return &(sam.EntityData)
 }
 
@@ -67,6 +70,7 @@ func (sam *Sam) GetEntityData() *types.CommonEntityData {
 type Sam_PromptInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Respond to SAM prompt either Proceed/Terminate. The type is
     // CryptoSamAction. This attribute is mandatory.
@@ -87,10 +91,13 @@ func (promptInterval *Sam_PromptInterval) GetEntityData() *types.CommonEntityDat
     promptInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     promptInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    promptInterval.EntityData.Children = make(map[string]types.YChild)
-    promptInterval.EntityData.Leafs = make(map[string]types.YLeaf)
-    promptInterval.EntityData.Leafs["action"] = types.YLeaf{"Action", promptInterval.Action}
-    promptInterval.EntityData.Leafs["prompt-time"] = types.YLeaf{"PromptTime", promptInterval.PromptTime}
+    promptInterval.EntityData.Children = types.NewOrderedMap()
+    promptInterval.EntityData.Leafs = types.NewOrderedMap()
+    promptInterval.EntityData.Leafs.Append("action", types.YLeaf{"Action", promptInterval.Action})
+    promptInterval.EntityData.Leafs.Append("prompt-time", types.YLeaf{"PromptTime", promptInterval.PromptTime})
+
+    promptInterval.EntityData.YListKeys = []string {}
+
     return &(promptInterval.EntityData)
 }
 

@@ -3,7 +3,7 @@ module Cisco-IOS-XR-l2rib-oper {
   prefix l2rib-oper;
 
   include Cisco-IOS-XR-l2rib-oper-sub1 {
-    revision-date 2017-08-16;
+    revision-date 2015-11-09;
   }
 
   organization
@@ -29,10 +29,6 @@ module Cisco-IOS-XR-l2rib-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-08-16 {
-    description
-      "Descriptions switch int32 to uint32.";
-  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

@@ -82,23 +82,23 @@ type CISCOPOWERETHERNETEXTMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cpeextmibobjects CISCOPOWERETHERNETEXTMIB_Cpeextmibobjects
+    CpeExtMIBObjects CISCOPOWERETHERNETEXTMIB_CpeExtMIBObjects
 
     
-    Cpeextpdstatistics CISCOPOWERETHERNETEXTMIB_Cpeextpdstatistics
+    CpeExtPdStatistics CISCOPOWERETHERNETEXTMIB_CpeExtPdStatistics
 
     // This table contains the additional information for the main PSE group in
     // pethMainPseTable.
-    Cpeextmainpsetable CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable
+    CpeExtMainPseTable CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable
 
     // This table contains the statistics information of the powered devices
     // fallen into different power classifications in the system.
-    Cpeextpdstatstable CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable
+    CpeExtPdStatsTable CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable
 
     // A table provides the Link Layer Discovery Protocol (LLDP) based Data Link
     // Layer (DLL) power classification characteristics of PSE ports and PDs
     // attached to them.
-    Cpeextpseportlldptable CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable
+    CpeExtPsePortLldpTable CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable
 }
 
 func (cISCOPOWERETHERNETEXTMIB *CISCOPOWERETHERNETEXTMIB) GetEntityData() *types.CommonEntityData {
@@ -111,18 +111,21 @@ func (cISCOPOWERETHERNETEXTMIB *CISCOPOWERETHERNETEXTMIB) GetEntityData() *types
     cISCOPOWERETHERNETEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOPOWERETHERNETEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOPOWERETHERNETEXTMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOPOWERETHERNETEXTMIB.EntityData.Children["cpeExtMIBObjects"] = types.YChild{"Cpeextmibobjects", &cISCOPOWERETHERNETEXTMIB.Cpeextmibobjects}
-    cISCOPOWERETHERNETEXTMIB.EntityData.Children["cpeExtPdStatistics"] = types.YChild{"Cpeextpdstatistics", &cISCOPOWERETHERNETEXTMIB.Cpeextpdstatistics}
-    cISCOPOWERETHERNETEXTMIB.EntityData.Children["cpeExtMainPseTable"] = types.YChild{"Cpeextmainpsetable", &cISCOPOWERETHERNETEXTMIB.Cpeextmainpsetable}
-    cISCOPOWERETHERNETEXTMIB.EntityData.Children["cpeExtPdStatsTable"] = types.YChild{"Cpeextpdstatstable", &cISCOPOWERETHERNETEXTMIB.Cpeextpdstatstable}
-    cISCOPOWERETHERNETEXTMIB.EntityData.Children["cpeExtPsePortLldpTable"] = types.YChild{"Cpeextpseportlldptable", &cISCOPOWERETHERNETEXTMIB.Cpeextpseportlldptable}
-    cISCOPOWERETHERNETEXTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOPOWERETHERNETEXTMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOPOWERETHERNETEXTMIB.EntityData.Children.Append("cpeExtMIBObjects", types.YChild{"CpeExtMIBObjects", &cISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects})
+    cISCOPOWERETHERNETEXTMIB.EntityData.Children.Append("cpeExtPdStatistics", types.YChild{"CpeExtPdStatistics", &cISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics})
+    cISCOPOWERETHERNETEXTMIB.EntityData.Children.Append("cpeExtMainPseTable", types.YChild{"CpeExtMainPseTable", &cISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable})
+    cISCOPOWERETHERNETEXTMIB.EntityData.Children.Append("cpeExtPdStatsTable", types.YChild{"CpeExtPdStatsTable", &cISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable})
+    cISCOPOWERETHERNETEXTMIB.EntityData.Children.Append("cpeExtPsePortLldpTable", types.YChild{"CpeExtPsePortLldpTable", &cISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable})
+    cISCOPOWERETHERNETEXTMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOPOWERETHERNETEXTMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOPOWERETHERNETEXTMIB.EntityData)
 }
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextmibobjects
-type CISCOPOWERETHERNETEXTMIB_Cpeextmibobjects struct {
+// CISCOPOWERETHERNETEXTMIB_CpeExtMIBObjects
+type CISCOPOWERETHERNETEXTMIB_CpeExtMIBObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -133,39 +136,42 @@ type CISCOPOWERETHERNETEXTMIB_Cpeextmibobjects struct {
     // much power to allocate to a port. The system will use the lower of the two
     // numbers. The type is interface{} with range: 0..4294967295. Units are
     // milliwatts.
-    Cpeextdefaultallocation interface{}
+    CpeExtDefaultAllocation interface{}
 
     // This object is used to enable/disable the the cpeExtPolicingNotif
     // notification. The type is bool.
-    Cpeextpolicingnotifenable interface{}
+    CpeExtPolicingNotifEnable interface{}
 
     // This object is the global control of the power priority feature on the
     // device. 'true' indicates that the power priority feature is globally
     // enabled. 'false' indicates that the power priority feature is globally
     // disabled. The type is bool.
-    Cpeextpowerpriorityenable interface{}
+    CpeExtPowerPriorityEnable interface{}
 }
 
-func (cpeextmibobjects *CISCOPOWERETHERNETEXTMIB_Cpeextmibobjects) GetEntityData() *types.CommonEntityData {
-    cpeextmibobjects.EntityData.YFilter = cpeextmibobjects.YFilter
-    cpeextmibobjects.EntityData.YangName = "cpeExtMIBObjects"
-    cpeextmibobjects.EntityData.BundleName = "cisco_ios_xe"
-    cpeextmibobjects.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
-    cpeextmibobjects.EntityData.SegmentPath = "cpeExtMIBObjects"
-    cpeextmibobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeextmibobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeextmibobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpeExtMIBObjects *CISCOPOWERETHERNETEXTMIB_CpeExtMIBObjects) GetEntityData() *types.CommonEntityData {
+    cpeExtMIBObjects.EntityData.YFilter = cpeExtMIBObjects.YFilter
+    cpeExtMIBObjects.EntityData.YangName = "cpeExtMIBObjects"
+    cpeExtMIBObjects.EntityData.BundleName = "cisco_ios_xe"
+    cpeExtMIBObjects.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
+    cpeExtMIBObjects.EntityData.SegmentPath = "cpeExtMIBObjects"
+    cpeExtMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeExtMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeExtMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeextmibobjects.EntityData.Children = make(map[string]types.YChild)
-    cpeextmibobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpeextmibobjects.EntityData.Leafs["cpeExtDefaultAllocation"] = types.YLeaf{"Cpeextdefaultallocation", cpeextmibobjects.Cpeextdefaultallocation}
-    cpeextmibobjects.EntityData.Leafs["cpeExtPolicingNotifEnable"] = types.YLeaf{"Cpeextpolicingnotifenable", cpeextmibobjects.Cpeextpolicingnotifenable}
-    cpeextmibobjects.EntityData.Leafs["cpeExtPowerPriorityEnable"] = types.YLeaf{"Cpeextpowerpriorityenable", cpeextmibobjects.Cpeextpowerpriorityenable}
-    return &(cpeextmibobjects.EntityData)
+    cpeExtMIBObjects.EntityData.Children = types.NewOrderedMap()
+    cpeExtMIBObjects.EntityData.Leafs = types.NewOrderedMap()
+    cpeExtMIBObjects.EntityData.Leafs.Append("cpeExtDefaultAllocation", types.YLeaf{"CpeExtDefaultAllocation", cpeExtMIBObjects.CpeExtDefaultAllocation})
+    cpeExtMIBObjects.EntityData.Leafs.Append("cpeExtPolicingNotifEnable", types.YLeaf{"CpeExtPolicingNotifEnable", cpeExtMIBObjects.CpeExtPolicingNotifEnable})
+    cpeExtMIBObjects.EntityData.Leafs.Append("cpeExtPowerPriorityEnable", types.YLeaf{"CpeExtPowerPriorityEnable", cpeExtMIBObjects.CpeExtPowerPriorityEnable})
+
+    cpeExtMIBObjects.EntityData.YListKeys = []string {}
+
+    return &(cpeExtMIBObjects.EntityData)
 }
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextpdstatistics
-type CISCOPOWERETHERNETEXTMIB_Cpeextpdstatistics struct {
+// CISCOPOWERETHERNETEXTMIB_CpeExtPdStatistics
+type CISCOPOWERETHERNETEXTMIB_CpeExtPdStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -175,29 +181,32 @@ type CISCOPOWERETHERNETEXTMIB_Cpeextpdstatistics struct {
     // consumption. Devices such as IP telephones, WLAN access points and others,
     // will be classified according to their power requirements. The type is
     // interface{} with range: 0..4294967295.
-    Cpeextpdstatstotaldevices interface{}
+    CpeExtPdStatsTotalDevices interface{}
 }
 
-func (cpeextpdstatistics *CISCOPOWERETHERNETEXTMIB_Cpeextpdstatistics) GetEntityData() *types.CommonEntityData {
-    cpeextpdstatistics.EntityData.YFilter = cpeextpdstatistics.YFilter
-    cpeextpdstatistics.EntityData.YangName = "cpeExtPdStatistics"
-    cpeextpdstatistics.EntityData.BundleName = "cisco_ios_xe"
-    cpeextpdstatistics.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
-    cpeextpdstatistics.EntityData.SegmentPath = "cpeExtPdStatistics"
-    cpeextpdstatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeextpdstatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeextpdstatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpeExtPdStatistics *CISCOPOWERETHERNETEXTMIB_CpeExtPdStatistics) GetEntityData() *types.CommonEntityData {
+    cpeExtPdStatistics.EntityData.YFilter = cpeExtPdStatistics.YFilter
+    cpeExtPdStatistics.EntityData.YangName = "cpeExtPdStatistics"
+    cpeExtPdStatistics.EntityData.BundleName = "cisco_ios_xe"
+    cpeExtPdStatistics.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
+    cpeExtPdStatistics.EntityData.SegmentPath = "cpeExtPdStatistics"
+    cpeExtPdStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeExtPdStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeExtPdStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeextpdstatistics.EntityData.Children = make(map[string]types.YChild)
-    cpeextpdstatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpeextpdstatistics.EntityData.Leafs["cpeExtPdStatsTotalDevices"] = types.YLeaf{"Cpeextpdstatstotaldevices", cpeextpdstatistics.Cpeextpdstatstotaldevices}
-    return &(cpeextpdstatistics.EntityData)
+    cpeExtPdStatistics.EntityData.Children = types.NewOrderedMap()
+    cpeExtPdStatistics.EntityData.Leafs = types.NewOrderedMap()
+    cpeExtPdStatistics.EntityData.Leafs.Append("cpeExtPdStatsTotalDevices", types.YLeaf{"CpeExtPdStatsTotalDevices", cpeExtPdStatistics.CpeExtPdStatsTotalDevices})
+
+    cpeExtPdStatistics.EntityData.YListKeys = []string {}
+
+    return &(cpeExtPdStatistics.EntityData)
 }
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable
+// CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable
 // This table contains the additional information for the
 // main PSE group in pethMainPseTable.
-type CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable struct {
+type CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -205,131 +214,140 @@ type CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable struct {
     // pethMainPseGroupIndex. An entry is created by the agent when a main PSE
     // group is added to the pethMainPseTable. An entry is deleted by the agent
     // when a main PSE group is removed from the pethMainPseTable. The type is
-    // slice of CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable_Cpeextmainpseentry.
-    Cpeextmainpseentry []CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable_Cpeextmainpseentry
+    // slice of CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable_CpeExtMainPseEntry.
+    CpeExtMainPseEntry []*CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable_CpeExtMainPseEntry
 }
 
-func (cpeextmainpsetable *CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable) GetEntityData() *types.CommonEntityData {
-    cpeextmainpsetable.EntityData.YFilter = cpeextmainpsetable.YFilter
-    cpeextmainpsetable.EntityData.YangName = "cpeExtMainPseTable"
-    cpeextmainpsetable.EntityData.BundleName = "cisco_ios_xe"
-    cpeextmainpsetable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
-    cpeextmainpsetable.EntityData.SegmentPath = "cpeExtMainPseTable"
-    cpeextmainpsetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeextmainpsetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeextmainpsetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpeExtMainPseTable *CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable) GetEntityData() *types.CommonEntityData {
+    cpeExtMainPseTable.EntityData.YFilter = cpeExtMainPseTable.YFilter
+    cpeExtMainPseTable.EntityData.YangName = "cpeExtMainPseTable"
+    cpeExtMainPseTable.EntityData.BundleName = "cisco_ios_xe"
+    cpeExtMainPseTable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
+    cpeExtMainPseTable.EntityData.SegmentPath = "cpeExtMainPseTable"
+    cpeExtMainPseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeExtMainPseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeExtMainPseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeextmainpsetable.EntityData.Children = make(map[string]types.YChild)
-    cpeextmainpsetable.EntityData.Children["cpeExtMainPseEntry"] = types.YChild{"Cpeextmainpseentry", nil}
-    for i := range cpeextmainpsetable.Cpeextmainpseentry {
-        cpeextmainpsetable.EntityData.Children[types.GetSegmentPath(&cpeextmainpsetable.Cpeextmainpseentry[i])] = types.YChild{"Cpeextmainpseentry", &cpeextmainpsetable.Cpeextmainpseentry[i]}
+    cpeExtMainPseTable.EntityData.Children = types.NewOrderedMap()
+    cpeExtMainPseTable.EntityData.Children.Append("cpeExtMainPseEntry", types.YChild{"CpeExtMainPseEntry", nil})
+    for i := range cpeExtMainPseTable.CpeExtMainPseEntry {
+        cpeExtMainPseTable.EntityData.Children.Append(types.GetSegmentPath(cpeExtMainPseTable.CpeExtMainPseEntry[i]), types.YChild{"CpeExtMainPseEntry", cpeExtMainPseTable.CpeExtMainPseEntry[i]})
     }
-    cpeextmainpsetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpeextmainpsetable.EntityData)
+    cpeExtMainPseTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpeExtMainPseTable.EntityData.YListKeys = []string {}
+
+    return &(cpeExtMainPseTable.EntityData)
 }
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable_Cpeextmainpseentry
+// CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable_CpeExtMainPseEntry
 // A cpeExtMainPseEntry contains information about
 // a particular pethMainPseGroupIndex. An entry is
 // created by the agent when a main PSE group is added
 // to the pethMainPseTable. An entry is deleted by the
 // agent when a main PSE group is removed from the
 // pethMainPseTable.
-type CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable_Cpeextmainpseentry struct {
+type CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable_CpeExtMainPseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // power_ethernet_mib.POWERETHERNETMIB_Pethmainpsetable_Pethmainpseentry_Pethmainpsegroupindex
-    Pethmainpsegroupindex interface{}
+    // power_ethernet_mib.POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry_PethMainPseGroupIndex
+    PethMainPseGroupIndex interface{}
 
     // The entPhysicalIndex value that uniquely identifies the main PSE group. If
     // the main PSE group does not have a corresponding physical entry in
     // entPhysicalTable or if the entPhysicalTable is not supported by the
     // management system, then this object has the value of zero. The type is
     // interface{} with range: 0..2147483647.
-    Cpeextmainpseentphyindex interface{}
+    CpeExtMainPseEntPhyIndex interface{}
 
     // A textual string containing information about the Power Source Equipment
     // (PSE) group. The type is string.
-    Cpeextmainpsedescr interface{}
+    CpeExtMainPseDescr interface{}
 
     // This object indicates if the given group is capable of monitoring the power
     // consumption of the interfaces that belong to the group. The value 'true'
     // means that the group is capable. The value 'false' means that the group in
     // not capable. The type is bool.
-    Cpeextmainpsepwrmonitorcapable interface{}
+    CpeExtMainPsePwrMonitorCapable interface{}
 
     // Used power expressed in miliwatts. The type is interface{} with range:
     // 0..4294967295. Units are miliwatts.
-    Cpeextmainpseusedpower interface{}
+    CpeExtMainPseUsedPower interface{}
 
     // Remaining power expressed in miliwatts, this parameter is calculated as
     // pethMainPsePower minus cpeExtMainPseUsedPower. The type is interface{} with
     // range: 0..4294967295. Units are miliwatts.
-    Cpeextmainpseremainingpower interface{}
+    CpeExtMainPseRemainingPower interface{}
 }
 
-func (cpeextmainpseentry *CISCOPOWERETHERNETEXTMIB_Cpeextmainpsetable_Cpeextmainpseentry) GetEntityData() *types.CommonEntityData {
-    cpeextmainpseentry.EntityData.YFilter = cpeextmainpseentry.YFilter
-    cpeextmainpseentry.EntityData.YangName = "cpeExtMainPseEntry"
-    cpeextmainpseentry.EntityData.BundleName = "cisco_ios_xe"
-    cpeextmainpseentry.EntityData.ParentYangName = "cpeExtMainPseTable"
-    cpeextmainpseentry.EntityData.SegmentPath = "cpeExtMainPseEntry" + "[pethMainPseGroupIndex='" + fmt.Sprintf("%v", cpeextmainpseentry.Pethmainpsegroupindex) + "']"
-    cpeextmainpseentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeextmainpseentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeextmainpseentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpeExtMainPseEntry *CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable_CpeExtMainPseEntry) GetEntityData() *types.CommonEntityData {
+    cpeExtMainPseEntry.EntityData.YFilter = cpeExtMainPseEntry.YFilter
+    cpeExtMainPseEntry.EntityData.YangName = "cpeExtMainPseEntry"
+    cpeExtMainPseEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpeExtMainPseEntry.EntityData.ParentYangName = "cpeExtMainPseTable"
+    cpeExtMainPseEntry.EntityData.SegmentPath = "cpeExtMainPseEntry" + types.AddKeyToken(cpeExtMainPseEntry.PethMainPseGroupIndex, "pethMainPseGroupIndex")
+    cpeExtMainPseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeExtMainPseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeExtMainPseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeextmainpseentry.EntityData.Children = make(map[string]types.YChild)
-    cpeextmainpseentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpeextmainpseentry.EntityData.Leafs["pethMainPseGroupIndex"] = types.YLeaf{"Pethmainpsegroupindex", cpeextmainpseentry.Pethmainpsegroupindex}
-    cpeextmainpseentry.EntityData.Leafs["cpeExtMainPseEntPhyIndex"] = types.YLeaf{"Cpeextmainpseentphyindex", cpeextmainpseentry.Cpeextmainpseentphyindex}
-    cpeextmainpseentry.EntityData.Leafs["cpeExtMainPseDescr"] = types.YLeaf{"Cpeextmainpsedescr", cpeextmainpseentry.Cpeextmainpsedescr}
-    cpeextmainpseentry.EntityData.Leafs["cpeExtMainPsePwrMonitorCapable"] = types.YLeaf{"Cpeextmainpsepwrmonitorcapable", cpeextmainpseentry.Cpeextmainpsepwrmonitorcapable}
-    cpeextmainpseentry.EntityData.Leafs["cpeExtMainPseUsedPower"] = types.YLeaf{"Cpeextmainpseusedpower", cpeextmainpseentry.Cpeextmainpseusedpower}
-    cpeextmainpseentry.EntityData.Leafs["cpeExtMainPseRemainingPower"] = types.YLeaf{"Cpeextmainpseremainingpower", cpeextmainpseentry.Cpeextmainpseremainingpower}
-    return &(cpeextmainpseentry.EntityData)
+    cpeExtMainPseEntry.EntityData.Children = types.NewOrderedMap()
+    cpeExtMainPseEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpeExtMainPseEntry.EntityData.Leafs.Append("pethMainPseGroupIndex", types.YLeaf{"PethMainPseGroupIndex", cpeExtMainPseEntry.PethMainPseGroupIndex})
+    cpeExtMainPseEntry.EntityData.Leafs.Append("cpeExtMainPseEntPhyIndex", types.YLeaf{"CpeExtMainPseEntPhyIndex", cpeExtMainPseEntry.CpeExtMainPseEntPhyIndex})
+    cpeExtMainPseEntry.EntityData.Leafs.Append("cpeExtMainPseDescr", types.YLeaf{"CpeExtMainPseDescr", cpeExtMainPseEntry.CpeExtMainPseDescr})
+    cpeExtMainPseEntry.EntityData.Leafs.Append("cpeExtMainPsePwrMonitorCapable", types.YLeaf{"CpeExtMainPsePwrMonitorCapable", cpeExtMainPseEntry.CpeExtMainPsePwrMonitorCapable})
+    cpeExtMainPseEntry.EntityData.Leafs.Append("cpeExtMainPseUsedPower", types.YLeaf{"CpeExtMainPseUsedPower", cpeExtMainPseEntry.CpeExtMainPseUsedPower})
+    cpeExtMainPseEntry.EntityData.Leafs.Append("cpeExtMainPseRemainingPower", types.YLeaf{"CpeExtMainPseRemainingPower", cpeExtMainPseEntry.CpeExtMainPseRemainingPower})
+
+    cpeExtMainPseEntry.EntityData.YListKeys = []string {"PethMainPseGroupIndex"}
+
+    return &(cpeExtMainPseEntry.EntityData)
 }
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable
+// CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable
 // This table contains the statistics information
 // of the powered devices fallen into different power
 // classifications in the system.
-type CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable struct {
+type CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cpeExtPdStatsEntry contains the statistics information about a particular
     // power classification defined in cpeExtPdStatsIndex. The type is slice of
-    // CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry.
-    Cpeextpdstatsentry []CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry
+    // CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry.
+    CpeExtPdStatsEntry []*CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry
 }
 
-func (cpeextpdstatstable *CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable) GetEntityData() *types.CommonEntityData {
-    cpeextpdstatstable.EntityData.YFilter = cpeextpdstatstable.YFilter
-    cpeextpdstatstable.EntityData.YangName = "cpeExtPdStatsTable"
-    cpeextpdstatstable.EntityData.BundleName = "cisco_ios_xe"
-    cpeextpdstatstable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
-    cpeextpdstatstable.EntityData.SegmentPath = "cpeExtPdStatsTable"
-    cpeextpdstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeextpdstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeextpdstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpeExtPdStatsTable *CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable) GetEntityData() *types.CommonEntityData {
+    cpeExtPdStatsTable.EntityData.YFilter = cpeExtPdStatsTable.YFilter
+    cpeExtPdStatsTable.EntityData.YangName = "cpeExtPdStatsTable"
+    cpeExtPdStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    cpeExtPdStatsTable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
+    cpeExtPdStatsTable.EntityData.SegmentPath = "cpeExtPdStatsTable"
+    cpeExtPdStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeExtPdStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeExtPdStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeextpdstatstable.EntityData.Children = make(map[string]types.YChild)
-    cpeextpdstatstable.EntityData.Children["cpeExtPdStatsEntry"] = types.YChild{"Cpeextpdstatsentry", nil}
-    for i := range cpeextpdstatstable.Cpeextpdstatsentry {
-        cpeextpdstatstable.EntityData.Children[types.GetSegmentPath(&cpeextpdstatstable.Cpeextpdstatsentry[i])] = types.YChild{"Cpeextpdstatsentry", &cpeextpdstatstable.Cpeextpdstatsentry[i]}
+    cpeExtPdStatsTable.EntityData.Children = types.NewOrderedMap()
+    cpeExtPdStatsTable.EntityData.Children.Append("cpeExtPdStatsEntry", types.YChild{"CpeExtPdStatsEntry", nil})
+    for i := range cpeExtPdStatsTable.CpeExtPdStatsEntry {
+        cpeExtPdStatsTable.EntityData.Children.Append(types.GetSegmentPath(cpeExtPdStatsTable.CpeExtPdStatsEntry[i]), types.YChild{"CpeExtPdStatsEntry", cpeExtPdStatsTable.CpeExtPdStatsEntry[i]})
     }
-    cpeextpdstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpeextpdstatstable.EntityData)
+    cpeExtPdStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpeExtPdStatsTable.EntityData.YListKeys = []string {}
+
+    return &(cpeExtPdStatsTable.EntityData)
 }
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry
+// CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry
 // A cpeExtPdStatsEntry contains the statistics
 // information about a particular power classification
 // defined in cpeExtPdStatsIndex.
-type CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry struct {
+type CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -346,54 +364,57 @@ type CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry struct {
     // classification of the powered devices falls into class 3 in IEEE
     // specifications.  A value of 'class4' indicates that the power
     // classification of the powered devices falls into class 4 in IEEE
-    // specifications. The type is Cpeextpdstatsclass.
-    Cpeextpdstatsclass interface{}
+    // specifications. The type is CpeExtPdStatsClass.
+    CpeExtPdStatsClass interface{}
 
     // This object indicates the count of the powered devices whose power
     // classification falls into  a specific value of cpeExtPdStatsIndex. The type
     // is interface{} with range: 0..4294967295.
-    Cpeextpdstatsdevicecount interface{}
+    CpeExtPdStatsDeviceCount interface{}
 }
 
-func (cpeextpdstatsentry *CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry) GetEntityData() *types.CommonEntityData {
-    cpeextpdstatsentry.EntityData.YFilter = cpeextpdstatsentry.YFilter
-    cpeextpdstatsentry.EntityData.YangName = "cpeExtPdStatsEntry"
-    cpeextpdstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    cpeextpdstatsentry.EntityData.ParentYangName = "cpeExtPdStatsTable"
-    cpeextpdstatsentry.EntityData.SegmentPath = "cpeExtPdStatsEntry" + "[cpeExtPdStatsClass='" + fmt.Sprintf("%v", cpeextpdstatsentry.Cpeextpdstatsclass) + "']"
-    cpeextpdstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeextpdstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeextpdstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpeExtPdStatsEntry *CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry) GetEntityData() *types.CommonEntityData {
+    cpeExtPdStatsEntry.EntityData.YFilter = cpeExtPdStatsEntry.YFilter
+    cpeExtPdStatsEntry.EntityData.YangName = "cpeExtPdStatsEntry"
+    cpeExtPdStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpeExtPdStatsEntry.EntityData.ParentYangName = "cpeExtPdStatsTable"
+    cpeExtPdStatsEntry.EntityData.SegmentPath = "cpeExtPdStatsEntry" + types.AddKeyToken(cpeExtPdStatsEntry.CpeExtPdStatsClass, "cpeExtPdStatsClass")
+    cpeExtPdStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeExtPdStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeExtPdStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeextpdstatsentry.EntityData.Children = make(map[string]types.YChild)
-    cpeextpdstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpeextpdstatsentry.EntityData.Leafs["cpeExtPdStatsClass"] = types.YLeaf{"Cpeextpdstatsclass", cpeextpdstatsentry.Cpeextpdstatsclass}
-    cpeextpdstatsentry.EntityData.Leafs["cpeExtPdStatsDeviceCount"] = types.YLeaf{"Cpeextpdstatsdevicecount", cpeextpdstatsentry.Cpeextpdstatsdevicecount}
-    return &(cpeextpdstatsentry.EntityData)
+    cpeExtPdStatsEntry.EntityData.Children = types.NewOrderedMap()
+    cpeExtPdStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpeExtPdStatsEntry.EntityData.Leafs.Append("cpeExtPdStatsClass", types.YLeaf{"CpeExtPdStatsClass", cpeExtPdStatsEntry.CpeExtPdStatsClass})
+    cpeExtPdStatsEntry.EntityData.Leafs.Append("cpeExtPdStatsDeviceCount", types.YLeaf{"CpeExtPdStatsDeviceCount", cpeExtPdStatsEntry.CpeExtPdStatsDeviceCount})
+
+    cpeExtPdStatsEntry.EntityData.YListKeys = []string {"CpeExtPdStatsClass"}
+
+    return &(cpeExtPdStatsEntry.EntityData)
 }
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass represents class 4 in IEEE specifications.
-type CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass string
+// CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass represents class 4 in IEEE specifications.
+type CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass string
 
 const (
-    CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass_cisco CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass = "cisco"
+    CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass_cisco CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass = "cisco"
 
-    CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass_class0 CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass = "class0"
+    CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass_class0 CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass = "class0"
 
-    CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass_class1 CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass = "class1"
+    CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass_class1 CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass = "class1"
 
-    CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass_class2 CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass = "class2"
+    CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass_class2 CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass = "class2"
 
-    CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass_class3 CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass = "class3"
+    CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass_class3 CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass = "class3"
 
-    CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass_class4 CISCOPOWERETHERNETEXTMIB_Cpeextpdstatstable_Cpeextpdstatsentry_Cpeextpdstatsclass = "class4"
+    CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass_class4 CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry_CpeExtPdStatsClass = "class4"
 )
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable
+// CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable
 // A table provides the Link Layer Discovery Protocol (LLDP)
 // based Data Link Layer (DLL) power classification
 // characteristics of PSE ports and PDs attached to them.
-type CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable struct {
+type CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -403,30 +424,33 @@ type CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable struct {
     // satisfied: - The LLDP power classification is globally enabled. - It has a
     // PD attached. - LLDP is the operational power negotiation protocol between  
     // the PSE and the PD attached. The type is slice of
-    // CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable_Cpeextpseportlldpentry.
-    Cpeextpseportlldpentry []CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable_Cpeextpseportlldpentry
+    // CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry.
+    CpeExtPsePortLldpEntry []*CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry
 }
 
-func (cpeextpseportlldptable *CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable) GetEntityData() *types.CommonEntityData {
-    cpeextpseportlldptable.EntityData.YFilter = cpeextpseportlldptable.YFilter
-    cpeextpseportlldptable.EntityData.YangName = "cpeExtPsePortLldpTable"
-    cpeextpseportlldptable.EntityData.BundleName = "cisco_ios_xe"
-    cpeextpseportlldptable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
-    cpeextpseportlldptable.EntityData.SegmentPath = "cpeExtPsePortLldpTable"
-    cpeextpseportlldptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeextpseportlldptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeextpseportlldptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpeExtPsePortLldpTable *CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable) GetEntityData() *types.CommonEntityData {
+    cpeExtPsePortLldpTable.EntityData.YFilter = cpeExtPsePortLldpTable.YFilter
+    cpeExtPsePortLldpTable.EntityData.YangName = "cpeExtPsePortLldpTable"
+    cpeExtPsePortLldpTable.EntityData.BundleName = "cisco_ios_xe"
+    cpeExtPsePortLldpTable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
+    cpeExtPsePortLldpTable.EntityData.SegmentPath = "cpeExtPsePortLldpTable"
+    cpeExtPsePortLldpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeExtPsePortLldpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeExtPsePortLldpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeextpseportlldptable.EntityData.Children = make(map[string]types.YChild)
-    cpeextpseportlldptable.EntityData.Children["cpeExtPsePortLldpEntry"] = types.YChild{"Cpeextpseportlldpentry", nil}
-    for i := range cpeextpseportlldptable.Cpeextpseportlldpentry {
-        cpeextpseportlldptable.EntityData.Children[types.GetSegmentPath(&cpeextpseportlldptable.Cpeextpseportlldpentry[i])] = types.YChild{"Cpeextpseportlldpentry", &cpeextpseportlldptable.Cpeextpseportlldpentry[i]}
+    cpeExtPsePortLldpTable.EntityData.Children = types.NewOrderedMap()
+    cpeExtPsePortLldpTable.EntityData.Children.Append("cpeExtPsePortLldpEntry", types.YChild{"CpeExtPsePortLldpEntry", nil})
+    for i := range cpeExtPsePortLldpTable.CpeExtPsePortLldpEntry {
+        cpeExtPsePortLldpTable.EntityData.Children.Append(types.GetSegmentPath(cpeExtPsePortLldpTable.CpeExtPsePortLldpEntry[i]), types.YChild{"CpeExtPsePortLldpEntry", cpeExtPsePortLldpTable.CpeExtPsePortLldpEntry[i]})
     }
-    cpeextpseportlldptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpeextpseportlldptable.EntityData)
+    cpeExtPsePortLldpTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpeExtPsePortLldpTable.EntityData.YListKeys = []string {}
+
+    return &(cpeExtPsePortLldpTable.EntityData)
 }
 
-// CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable_Cpeextpseportlldpentry
+// CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry
 // A cpeExtPseDllPowerEntry entry contains the LLDP
 // based DLL power classification characteristics for a particular
 // PSE and the PD attached to it. 
@@ -437,84 +461,87 @@ func (cpeextpseportlldptable *CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable) G
 // - It has a PD attached.
 // - LLDP is the operational power negotiation protocol between
 //   the PSE and the PD attached.
-type CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable_Cpeextpseportlldpentry struct {
+type CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // power_ethernet_mib.POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportgroupindex
-    Pethpseportgroupindex interface{}
+    // power_ethernet_mib.POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortGroupIndex
+    PethPsePortGroupIndex interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // power_ethernet_mib.POWERETHERNETMIB_Pethpseporttable_Pethpseportentry_Pethpseportindex
-    Pethpseportindex interface{}
+    // power_ethernet_mib.POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry_PethPsePortIndex
+    PethPsePortIndex interface{}
 
     // The DTE Power via MDI type of the local system (PSE). The type is
     // CpeExtLldpPwrType.
-    Cpeextpseportlldppwrtype interface{}
+    CpeExtPsePortLldpPwrType interface{}
 
     // The DTE Power via MDI type of the remote system (PD). The type is
     // CpeExtLldpPwrType.
-    Cpeextpseportlldppdpwrtype interface{}
+    CpeExtPsePortLldpPdPwrType interface{}
 
     // The power source of the local system (PSE). The type is CpeExtLldpPwrSrc.
-    Cpeextpseportlldppwrsrc interface{}
+    CpeExtPsePortLldpPwrSrc interface{}
 
     // The power source of the remote system (PD). The type is CpeExtLldpPwrSrc.
-    Cpeextpseportlldppdpwrsrc interface{}
+    CpeExtPsePortLldpPdPwrSrc interface{}
 
     // The power priority of the local system (PSE). The type is
     // CpeExtPwrPriority.
-    Cpeextpseportlldppwrpriority interface{}
+    CpeExtPsePortLldpPwrPriority interface{}
 
     // The power priority of the remote system (PD). The type is
     // CpeExtPwrPriority.
-    Cpeextpseportlldppdpwrpriority interface{}
+    CpeExtPsePortLldpPdPwrPriority interface{}
 
     // The requested PD power value that the local system (PSE) mirrors back to
     // the remote system (PD). The type is interface{} with range: 0..4294967295.
     // Units are milliwatts.
-    Cpeextpseportlldppwrreq interface{}
+    CpeExtPsePortLldpPwrReq interface{}
 
     // The PD requested power value received from the remote system (PD). The type
     // is interface{} with range: 0..4294967295. Units are milliwatts.
-    Cpeextpseportlldppdpwrreq interface{}
+    CpeExtPsePortLldpPdPwrReq interface{}
 
     // The PSE allocated power value for the remote system (PD). The type is
     // interface{} with range: 0..4294967295. Units are milliwatts.
-    Cpeextpseportlldppwralloc interface{}
+    CpeExtPsePortLldpPwrAlloc interface{}
 
     // The PSE allocated power value received from the remote system (PD). The
     // type is interface{} with range: 0..4294967295. Units are milliwatts.
-    Cpeextpseportlldppdpwralloc interface{}
+    CpeExtPsePortLldpPdPwrAlloc interface{}
 }
 
-func (cpeextpseportlldpentry *CISCOPOWERETHERNETEXTMIB_Cpeextpseportlldptable_Cpeextpseportlldpentry) GetEntityData() *types.CommonEntityData {
-    cpeextpseportlldpentry.EntityData.YFilter = cpeextpseportlldpentry.YFilter
-    cpeextpseportlldpentry.EntityData.YangName = "cpeExtPsePortLldpEntry"
-    cpeextpseportlldpentry.EntityData.BundleName = "cisco_ios_xe"
-    cpeextpseportlldpentry.EntityData.ParentYangName = "cpeExtPsePortLldpTable"
-    cpeextpseportlldpentry.EntityData.SegmentPath = "cpeExtPsePortLldpEntry" + "[pethPsePortGroupIndex='" + fmt.Sprintf("%v", cpeextpseportlldpentry.Pethpseportgroupindex) + "']" + "[pethPsePortIndex='" + fmt.Sprintf("%v", cpeextpseportlldpentry.Pethpseportindex) + "']"
-    cpeextpseportlldpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeextpseportlldpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeextpseportlldpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpeExtPsePortLldpEntry *CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry) GetEntityData() *types.CommonEntityData {
+    cpeExtPsePortLldpEntry.EntityData.YFilter = cpeExtPsePortLldpEntry.YFilter
+    cpeExtPsePortLldpEntry.EntityData.YangName = "cpeExtPsePortLldpEntry"
+    cpeExtPsePortLldpEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpeExtPsePortLldpEntry.EntityData.ParentYangName = "cpeExtPsePortLldpTable"
+    cpeExtPsePortLldpEntry.EntityData.SegmentPath = "cpeExtPsePortLldpEntry" + types.AddKeyToken(cpeExtPsePortLldpEntry.PethPsePortGroupIndex, "pethPsePortGroupIndex") + types.AddKeyToken(cpeExtPsePortLldpEntry.PethPsePortIndex, "pethPsePortIndex")
+    cpeExtPsePortLldpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeExtPsePortLldpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeExtPsePortLldpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeextpseportlldpentry.EntityData.Children = make(map[string]types.YChild)
-    cpeextpseportlldpentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpeextpseportlldpentry.EntityData.Leafs["pethPsePortGroupIndex"] = types.YLeaf{"Pethpseportgroupindex", cpeextpseportlldpentry.Pethpseportgroupindex}
-    cpeextpseportlldpentry.EntityData.Leafs["pethPsePortIndex"] = types.YLeaf{"Pethpseportindex", cpeextpseportlldpentry.Pethpseportindex}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPwrType"] = types.YLeaf{"Cpeextpseportlldppwrtype", cpeextpseportlldpentry.Cpeextpseportlldppwrtype}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPdPwrType"] = types.YLeaf{"Cpeextpseportlldppdpwrtype", cpeextpseportlldpentry.Cpeextpseportlldppdpwrtype}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPwrSrc"] = types.YLeaf{"Cpeextpseportlldppwrsrc", cpeextpseportlldpentry.Cpeextpseportlldppwrsrc}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPdPwrSrc"] = types.YLeaf{"Cpeextpseportlldppdpwrsrc", cpeextpseportlldpentry.Cpeextpseportlldppdpwrsrc}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPwrPriority"] = types.YLeaf{"Cpeextpseportlldppwrpriority", cpeextpseportlldpentry.Cpeextpseportlldppwrpriority}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPdPwrPriority"] = types.YLeaf{"Cpeextpseportlldppdpwrpriority", cpeextpseportlldpentry.Cpeextpseportlldppdpwrpriority}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPwrReq"] = types.YLeaf{"Cpeextpseportlldppwrreq", cpeextpseportlldpentry.Cpeextpseportlldppwrreq}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPdPwrReq"] = types.YLeaf{"Cpeextpseportlldppdpwrreq", cpeextpseportlldpentry.Cpeextpseportlldppdpwrreq}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPwrAlloc"] = types.YLeaf{"Cpeextpseportlldppwralloc", cpeextpseportlldpentry.Cpeextpseportlldppwralloc}
-    cpeextpseportlldpentry.EntityData.Leafs["cpeExtPsePortLldpPdPwrAlloc"] = types.YLeaf{"Cpeextpseportlldppdpwralloc", cpeextpseportlldpentry.Cpeextpseportlldppdpwralloc}
-    return &(cpeextpseportlldpentry.EntityData)
+    cpeExtPsePortLldpEntry.EntityData.Children = types.NewOrderedMap()
+    cpeExtPsePortLldpEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("pethPsePortGroupIndex", types.YLeaf{"PethPsePortGroupIndex", cpeExtPsePortLldpEntry.PethPsePortGroupIndex})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("pethPsePortIndex", types.YLeaf{"PethPsePortIndex", cpeExtPsePortLldpEntry.PethPsePortIndex})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPwrType", types.YLeaf{"CpeExtPsePortLldpPwrType", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPwrType})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrType", types.YLeaf{"CpeExtPsePortLldpPdPwrType", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrType})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPwrSrc", types.YLeaf{"CpeExtPsePortLldpPwrSrc", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPwrSrc})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrSrc", types.YLeaf{"CpeExtPsePortLldpPdPwrSrc", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrSrc})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPwrPriority", types.YLeaf{"CpeExtPsePortLldpPwrPriority", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPwrPriority})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrPriority", types.YLeaf{"CpeExtPsePortLldpPdPwrPriority", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrPriority})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPwrReq", types.YLeaf{"CpeExtPsePortLldpPwrReq", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPwrReq})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrReq", types.YLeaf{"CpeExtPsePortLldpPdPwrReq", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrReq})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPwrAlloc", types.YLeaf{"CpeExtPsePortLldpPwrAlloc", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPwrAlloc})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrAlloc", types.YLeaf{"CpeExtPsePortLldpPdPwrAlloc", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrAlloc})
+
+    cpeExtPsePortLldpEntry.EntityData.YListKeys = []string {"PethPsePortGroupIndex", "PethPsePortIndex"}
+
+    return &(cpeExtPsePortLldpEntry.EntityData)
 }
 

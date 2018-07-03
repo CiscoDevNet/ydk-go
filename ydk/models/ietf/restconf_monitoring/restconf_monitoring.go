@@ -54,10 +54,13 @@ func (restconfState *RestconfState) GetEntityData() *types.CommonEntityData {
     restconfState.EntityData.NamespaceTable = ietf.GetNamespaces()
     restconfState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    restconfState.EntityData.Children = make(map[string]types.YChild)
-    restconfState.EntityData.Children["capabilities"] = types.YChild{"Capabilities", &restconfState.Capabilities}
-    restconfState.EntityData.Children["streams"] = types.YChild{"Streams", &restconfState.Streams}
-    restconfState.EntityData.Leafs = make(map[string]types.YLeaf)
+    restconfState.EntityData.Children = types.NewOrderedMap()
+    restconfState.EntityData.Children.Append("capabilities", types.YChild{"Capabilities", &restconfState.Capabilities})
+    restconfState.EntityData.Children.Append("streams", types.YChild{"Streams", &restconfState.Streams})
+    restconfState.EntityData.Leafs = types.NewOrderedMap()
+
+    restconfState.EntityData.YListKeys = []string {}
+
     return &(restconfState.EntityData)
 }
 
@@ -81,9 +84,12 @@ func (capabilities *RestconfState_Capabilities) GetEntityData() *types.CommonEnt
     capabilities.EntityData.NamespaceTable = ietf.GetNamespaces()
     capabilities.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    capabilities.EntityData.Children = make(map[string]types.YChild)
-    capabilities.EntityData.Leafs = make(map[string]types.YLeaf)
-    capabilities.EntityData.Leafs["capability"] = types.YLeaf{"Capability", capabilities.Capability}
+    capabilities.EntityData.Children = types.NewOrderedMap()
+    capabilities.EntityData.Leafs = types.NewOrderedMap()
+    capabilities.EntityData.Leafs.Append("capability", types.YLeaf{"Capability", capabilities.Capability})
+
+    capabilities.EntityData.YListKeys = []string {}
+
     return &(capabilities.EntityData)
 }
 
@@ -96,7 +102,7 @@ type RestconfState_Streams struct {
 
     // Each entry describes an event stream supported by the server. The type is
     // slice of RestconfState_Streams_Stream.
-    Stream []RestconfState_Streams_Stream
+    Stream []*RestconfState_Streams_Stream
 }
 
 func (streams *RestconfState_Streams) GetEntityData() *types.CommonEntityData {
@@ -109,12 +115,15 @@ func (streams *RestconfState_Streams) GetEntityData() *types.CommonEntityData {
     streams.EntityData.NamespaceTable = ietf.GetNamespaces()
     streams.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    streams.EntityData.Children = make(map[string]types.YChild)
-    streams.EntityData.Children["stream"] = types.YChild{"Stream", nil}
+    streams.EntityData.Children = types.NewOrderedMap()
+    streams.EntityData.Children.Append("stream", types.YChild{"Stream", nil})
     for i := range streams.Stream {
-        streams.EntityData.Children[types.GetSegmentPath(&streams.Stream[i])] = types.YChild{"Stream", &streams.Stream[i]}
+        streams.EntityData.Children.Append(types.GetSegmentPath(streams.Stream[i]), types.YChild{"Stream", streams.Stream[i]})
     }
-    streams.EntityData.Leafs = make(map[string]types.YLeaf)
+    streams.EntityData.Leafs = types.NewOrderedMap()
+
+    streams.EntityData.YListKeys = []string {}
+
     return &(streams.EntityData)
 }
 
@@ -138,7 +147,7 @@ type RestconfState_Streams_Stream struct {
 
     // Indicates the time the replay log for this stream was created. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ReplayLogCreationTime interface{}
 
     // The server will create an entry in this list for each encoding format that
@@ -146,7 +155,7 @@ type RestconfState_Streams_Stream struct {
     // expected for all event streams. This list identifies the sub-types
     // supported for this stream. The type is slice of
     // RestconfState_Streams_Stream_Access.
-    Access []RestconfState_Streams_Stream_Access
+    Access []*RestconfState_Streams_Stream_Access
 }
 
 func (stream *RestconfState_Streams_Stream) GetEntityData() *types.CommonEntityData {
@@ -154,21 +163,24 @@ func (stream *RestconfState_Streams_Stream) GetEntityData() *types.CommonEntityD
     stream.EntityData.YangName = "stream"
     stream.EntityData.BundleName = "ietf"
     stream.EntityData.ParentYangName = "streams"
-    stream.EntityData.SegmentPath = "stream" + "[name='" + fmt.Sprintf("%v", stream.Name) + "']"
+    stream.EntityData.SegmentPath = "stream" + types.AddKeyToken(stream.Name, "name")
     stream.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     stream.EntityData.NamespaceTable = ietf.GetNamespaces()
     stream.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    stream.EntityData.Children = make(map[string]types.YChild)
-    stream.EntityData.Children["access"] = types.YChild{"Access", nil}
+    stream.EntityData.Children = types.NewOrderedMap()
+    stream.EntityData.Children.Append("access", types.YChild{"Access", nil})
     for i := range stream.Access {
-        stream.EntityData.Children[types.GetSegmentPath(&stream.Access[i])] = types.YChild{"Access", &stream.Access[i]}
+        stream.EntityData.Children.Append(types.GetSegmentPath(stream.Access[i]), types.YChild{"Access", stream.Access[i]})
     }
-    stream.EntityData.Leafs = make(map[string]types.YLeaf)
-    stream.EntityData.Leafs["name"] = types.YLeaf{"Name", stream.Name}
-    stream.EntityData.Leafs["description"] = types.YLeaf{"Description", stream.Description}
-    stream.EntityData.Leafs["replay-support"] = types.YLeaf{"ReplaySupport", stream.ReplaySupport}
-    stream.EntityData.Leafs["replay-log-creation-time"] = types.YLeaf{"ReplayLogCreationTime", stream.ReplayLogCreationTime}
+    stream.EntityData.Leafs = types.NewOrderedMap()
+    stream.EntityData.Leafs.Append("name", types.YLeaf{"Name", stream.Name})
+    stream.EntityData.Leafs.Append("description", types.YLeaf{"Description", stream.Description})
+    stream.EntityData.Leafs.Append("replay-support", types.YLeaf{"ReplaySupport", stream.ReplaySupport})
+    stream.EntityData.Leafs.Append("replay-log-creation-time", types.YLeaf{"ReplayLogCreationTime", stream.ReplayLogCreationTime})
+
+    stream.EntityData.YListKeys = []string {"Name"}
+
     return &(stream.EntityData)
 }
 
@@ -199,15 +211,18 @@ func (access *RestconfState_Streams_Stream_Access) GetEntityData() *types.Common
     access.EntityData.YangName = "access"
     access.EntityData.BundleName = "ietf"
     access.EntityData.ParentYangName = "stream"
-    access.EntityData.SegmentPath = "access" + "[encoding='" + fmt.Sprintf("%v", access.Encoding) + "']"
+    access.EntityData.SegmentPath = "access" + types.AddKeyToken(access.Encoding, "encoding")
     access.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     access.EntityData.NamespaceTable = ietf.GetNamespaces()
     access.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    access.EntityData.Children = make(map[string]types.YChild)
-    access.EntityData.Leafs = make(map[string]types.YLeaf)
-    access.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", access.Encoding}
-    access.EntityData.Leafs["location"] = types.YLeaf{"Location", access.Location}
+    access.EntityData.Children = types.NewOrderedMap()
+    access.EntityData.Leafs = types.NewOrderedMap()
+    access.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", access.Encoding})
+    access.EntityData.Leafs.Append("location", types.YLeaf{"Location", access.Location})
+
+    access.EntityData.YListKeys = []string {"Encoding"}
+
     return &(access.EntityData)
 }
 

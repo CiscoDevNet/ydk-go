@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-08-24 {
     description
       "Added C flag to pcep flags.";
@@ -149,34 +153,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       "PCE Headends Swap Code";
   }
 
-  typedef Pce-ipv6-address {
-    type inet:ipv6-address;
-    description
-      "Pce ipv6 address";
-  }
-
-  typedef Pce-af-id {
-    type enumeration {
-      enum "none" {
-        value 0;
-        description
-          "None";
-      }
-      enum "ipv4" {
-        value 1;
-        description
-          "IPv4";
-      }
-      enum "ipv6" {
-        value 2;
-        description
-          "IPv6";
-      }
-    }
-    description
-      "Pce af id";
-  }
-
   typedef Sid {
     type enumeration {
       enum "sr-protected-adj-sid" {
@@ -207,12 +183,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
     description
       "SID Types";
-  }
-
-  typedef Pce-ipv4-address {
-    type inet:ipv4-address;
-    description
-      "Pce ipv4 address";
   }
 
   typedef Pce-igp-info-id {
@@ -320,6 +290,14 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
         description
           "IPv4 Adjacency SID";
       }
+      enum "ipv6-node-sid" {
+        description
+          "IPv6 Node SID";
+      }
+      enum "ipv6-adjacency-sid" {
+        description
+          "IPv6 Adjacency SID";
+      }
       enum "unknown-sid" {
         description
           "Unknown SID";
@@ -390,6 +368,40 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       "LSP setup type";
   }
 
+  typedef Pce-ipv6-address {
+    type inet:ipv6-address;
+    description
+      "Pce ipv6 address";
+  }
+
+  typedef Pce-ipv4-address {
+    type inet:ipv4-address;
+    description
+      "Pce ipv4 address";
+  }
+
+  typedef Pce-af-id {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "None";
+      }
+      enum "ipv4" {
+        value 1;
+        description
+          "IPv4";
+      }
+      enum "ipv6" {
+        value 2;
+        description
+          "IPv6";
+      }
+    }
+    description
+      "Pce af id";
+  }
+
   grouping PCE-ADDR-BAG {
     description
       "PCE Address Information";
@@ -448,6 +460,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "CSPF Result";
     }
+    leaf iterations-done {
+      type uint32;
+      description
+        "Iterations of the Suurballe-Tarjan algorithm";
+    }
     list output-path {
       description
         "Output PCE paths";
@@ -458,10 +475,10 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-ASSO-LSP-INFO {
     description
       "Association LSP common information";
-    leaf pcc-address {
-      type inet:ipv4-address;
+    container pcc-address {
       description
         "PCC address";
+      uses PCE-IP-ADDR-TYPE;
     }
     leaf tunnel-id {
       type uint32;
@@ -493,6 +510,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-ASSO-BAG {
     description
       "PCE Association information";
+    container association-source {
+      description
+        "Association Source";
+      uses PCE-IP-ADDR-TYPE;
+    }
     leaf association-type {
       type uint32;
       description
@@ -502,11 +524,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type uint32;
       description
         "Association ID";
-    }
-    leaf association-source {
-      type inet:ipv4-address;
-      description
-        "Association Source";
     }
     leaf strict {
       type boolean;
@@ -530,16 +547,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
   }
 
-  grouping PCE-PFX-ENTRY {
-    description
-      "PCE prefix etnry";
-    container ip {
-      description
-        "Prefix IP address";
-      uses PCE-IP-ADDR-TYPE;
-    }
-  }
-
   grouping PCE-PFX-BAG {
     description
       "PCE Prefix Information";
@@ -556,7 +563,7 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     list address {
       description
         "Prefix address";
-      uses PCE-PFX-ENTRY;
+      uses PCE-IP-ADDR-TYPE;
     }
   }
 
@@ -610,6 +617,16 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
   }
 
+  grouping PCE-LINK-PM-METRICS {
+    description
+      "PCE link performance metric information";
+    leaf unidirectional-min-delay {
+      type uint32;
+      description
+        "Min delay";
+    }
+  }
+
   grouping PCE-IPV4-LINK-BAG {
     description
       "PCE IPv4 Link Information";
@@ -622,6 +639,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Remote node protocol identifier";
       uses PCE-NODE-PID-BAG;
+    }
+    container performance-metrics {
+      description
+        "Performance metrics";
+      uses PCE-LINK-PM-METRICS;
     }
     leaf local-ipv4-address {
       type inet:ipv4-address;
@@ -662,34 +684,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Adjacency SIDs";
       uses PCE-SID-BAG;
-    }
-  }
-
-  grouping PCE-IP-ADDR-TYPE {
-    description
-      "PCE IP ADDR TYPE";
-    leaf af-name {
-      type Pce-af-id;
-      description
-        "AFName";
-    }
-    leaf ipv4 {
-      when "../af-name = 'ipv4'" {
-        description
-          "../AFName = 'IPv4'";
-      }
-      type Pce-ipv4-address;
-      description
-        "IPv4 address type";
-    }
-    leaf ipv6 {
-      when "../af-name = 'ipv6'" {
-        description
-          "../AFName = 'IPv6'";
-      }
-      type Pce-ipv6-address;
-      description
-        "IPv6 address type";
     }
   }
 
@@ -1058,15 +1052,15 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-PEER-BAG {
     description
       "Peer information";
+    container peer-address-xr {
+      description
+        "Peer address";
+      uses PCE-IP-ADDR-TYPE;
+    }
     container brief-pcep-information {
       description
         "PCE protocol information";
       uses PCE-PCEP-BAG;
-    }
-    leaf peer-address-xr {
-      type inet:ipv4-address;
-      description
-        "Peer address";
     }
     leaf peer-protocol {
       type Pce-proto;
@@ -1303,15 +1297,15 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-PEER-DETAIL-BAG {
     description
       "Detailed PCEP peer information";
+    container peer-address-xr {
+      description
+        "Peer address";
+      uses PCE-IP-ADDR-TYPE;
+    }
     container detail-pcep-information {
       description
         "Detailed PCE protocol information";
       uses PCE-PCEP-DETAIL-BAG;
-    }
-    leaf peer-address-xr {
-      type inet:ipv4-address;
-      description
-        "Peer address";
     }
     leaf peer-protocol {
       type Pce-proto;
@@ -1383,6 +1377,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-ASSO-INFO {
     description
       "PCE LSP association information";
+    container association-source {
+      description
+        "Association Source";
+      uses PCE-IP-ADDR-TYPE;
+    }
     leaf association-type {
       type uint32;
       description
@@ -1392,11 +1391,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type uint32;
       description
         "Association ID";
-    }
-    leaf association-source {
-      type inet:ipv4-address;
-      description
-        "Association Source";
     }
   }
 
@@ -1503,6 +1497,16 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-SR-HOP-TYPE {
     description
       "SR hop type";
+    container local-addr {
+      description
+        "Local Address";
+      uses PCE-IP-ADDR-TYPE;
+    }
+    container remote-addr {
+      description
+        "Remote Address";
+      uses PCE-IP-ADDR-TYPE;
+    }
     leaf sid-type {
       type Pce-sr-sid;
       description
@@ -1512,16 +1516,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type uint32;
       description
         "Label";
-    }
-    leaf local-addr {
-      type inet:ipv4-address;
-      description
-        "Local Address";
-    }
-    leaf remote-addr {
-      type inet:ipv4-address;
-      description
-        "Remote Address";
     }
   }
 
@@ -1613,6 +1607,21 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
         "LSP attributes";
       uses PCE-LSPA-INFO;
     }
+    container sub-delegated-pce {
+      description
+        "Sub delegated PCE";
+      uses PCE-IP-ADDR-TYPE;
+    }
+    container state-sync-pce {
+      description
+        "State-sync PCE";
+      uses PCE-IP-ADDR-TYPE;
+    }
+    container reporting-pcc-address {
+      description
+        "Reporting PCC address";
+      uses PCE-IP-ADDR-TYPE;
+    }
     leaf signaled-bandwidth-specified {
       type boolean;
       description
@@ -1643,21 +1652,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Computing PCE";
     }
-    leaf sub-delegated-pce {
-      type inet:ipv4-address;
-      description
-        "Sub delegated PCE";
-    }
-    leaf state-sync-pce {
-      type inet:ipv4-address;
-      description
-        "State-sync PCE";
-    }
-    leaf reporting-pcc-address {
-      type inet:ipv4-address;
-      description
-        "Reporting PCC address";
-    }
     leaf-list srlg-info {
       type uint32;
       description
@@ -1673,20 +1667,30 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-TUN-DETAIL-BAG {
     description
       "Tunnel detail information";
+    container pcc-address {
+      description
+        "PCC address";
+      uses PCE-IP-ADDR-TYPE;
+    }
     container private-lsp-information {
       description
         "Private LSP information";
       uses PCE-EVENT-BAG;
     }
-    leaf pcc-address {
-      type inet:ipv4-address;
-      description
-        "PCC address";
-    }
     leaf tunnel-name-xr {
       type string;
       description
         "Tunnel Name";
+    }
+    leaf xtc-controlled {
+      type boolean;
+      description
+        "Allow XTC reoptimizations";
+    }
+    leaf color {
+      type uint32;
+      description
+        "Color";
     }
     list detail-lsp-information {
       description
@@ -1733,10 +1737,10 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
         "Number of LSPs for specific peer";
       uses PCE-LSP-COUNTS-BAG;
     }
-    leaf peer-address {
-      type inet:ipv4-address;
+    container peer-address {
       description
-        "Peer IPv4 address";
+        "Peer address";
+      uses PCE-IP-ADDR-TYPE;
     }
   }
 
@@ -1758,15 +1762,15 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
   grouping PCE-LSP-INFO {
     description
       "LSP common information";
-    leaf source-address {
-      type inet:ipv4-address;
+    container source-address {
       description
         "Source address";
+      uses PCE-IP-ADDR-TYPE;
     }
-    leaf destination-address {
-      type inet:ipv4-address;
+    container destination-address {
       description
         "Destination address";
+      uses PCE-IP-ADDR-TYPE;
     }
     leaf tunnel-id {
       type uint32;
@@ -1800,13 +1804,41 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
   }
 
+  grouping PCE-IP-ADDR-TYPE {
+    description
+      "PCE IP ADDR TYPE";
+    leaf af-name {
+      type Pce-af-id;
+      description
+        "AFName";
+    }
+    leaf ipv4 {
+      when "../af-name = 'ipv4'" {
+        description
+          "../AFName = 'IPv4'";
+      }
+      type Pce-ipv4-address;
+      description
+        "IPv4 address type";
+    }
+    leaf ipv6 {
+      when "../af-name = 'ipv6'" {
+        description
+          "../AFName = 'IPv6'";
+      }
+      type Pce-ipv6-address;
+      description
+        "IPv6 address type";
+    }
+  }
+
   grouping PCE-TUN-BAG {
     description
       "Tunnel information";
-    leaf pcc-address {
-      type inet:ipv4-address;
+    container pcc-address {
       description
         "PCC address";
+      uses PCE-IP-ADDR-TYPE;
     }
     leaf tunnel-name-xr {
       type string;

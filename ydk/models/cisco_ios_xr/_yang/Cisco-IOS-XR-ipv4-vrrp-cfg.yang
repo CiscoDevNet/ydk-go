@@ -39,6 +39,10 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-11-05 {
+    description
+      "Corrected boolean values in when statements.";
+  }
   revision 2017-05-19 {
     description
       "Marked delay leafs min-delay and reload-delay as mandatory.";
@@ -205,9 +209,9 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                   description
                     "The VRRP IPv6 virtual linklocal address";
                   leaf ip-address {
-                    when "../auto-configure = 0" {
+                    when "../auto-configure = 'false'" {
                       description
-                        "../AutoConfigure = <expr>";
+                        "../AutoConfigure = 'false'";
                     }
                     type inet:ip-address-no-zone;
                     description
@@ -278,9 +282,9 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                 description
                   "The VRRP IPv6 virtual linklocal address";
                 leaf ip-address {
-                  when "../auto-configure = 0" {
+                  when "../auto-configure = 'false'" {
                     description
-                      "../AutoConfigure = <expr>";
+                      "../AutoConfigure = 'false'";
                   }
                   type inet:ip-address-no-zone;
                   description

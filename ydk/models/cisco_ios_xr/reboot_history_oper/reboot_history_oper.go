@@ -31,7 +31,7 @@ type RebootHistory struct {
     YFilter yfilter.YFilter
 
     // Node ID. The type is slice of RebootHistory_Node.
-    Node []RebootHistory_Node
+    Node []*RebootHistory_Node
 }
 
 func (rebootHistory *RebootHistory) GetEntityData() *types.CommonEntityData {
@@ -44,12 +44,15 @@ func (rebootHistory *RebootHistory) GetEntityData() *types.CommonEntityData {
     rebootHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rebootHistory.EntityData.Children = make(map[string]types.YChild)
-    rebootHistory.EntityData.Children["node"] = types.YChild{"Node", nil}
+    rebootHistory.EntityData.Children = types.NewOrderedMap()
+    rebootHistory.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range rebootHistory.Node {
-        rebootHistory.EntityData.Children[types.GetSegmentPath(&rebootHistory.Node[i])] = types.YChild{"Node", &rebootHistory.Node[i]}
+        rebootHistory.EntityData.Children.Append(types.GetSegmentPath(rebootHistory.Node[i]), types.YChild{"Node", rebootHistory.Node[i]})
     }
-    rebootHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    rebootHistory.EntityData.Leafs = types.NewOrderedMap()
+
+    rebootHistory.EntityData.YListKeys = []string {}
+
     return &(rebootHistory.EntityData)
 }
 
@@ -60,11 +63,11 @@ type RebootHistory_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Last Reboots. The type is slice of RebootHistory_Node_RebootHistory.
-    RebootHistory []RebootHistory_Node_RebootHistory_
+    RebootHistory []*RebootHistory_Node_RebootHistory
 }
 
 func (node *RebootHistory_Node) GetEntityData() *types.CommonEntityData {
@@ -72,24 +75,27 @@ func (node *RebootHistory_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "reboot-history"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["reboot-history"] = types.YChild{"RebootHistory", nil}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("reboot-history", types.YChild{"RebootHistory", nil})
     for i := range node.RebootHistory {
-        node.EntityData.Children[types.GetSegmentPath(&node.RebootHistory[i])] = types.YChild{"RebootHistory", &node.RebootHistory[i]}
+        node.EntityData.Children.Append(types.GetSegmentPath(node.RebootHistory[i]), types.YChild{"RebootHistory", node.RebootHistory[i]})
     }
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
-// RebootHistory_Node_RebootHistory_
+// RebootHistory_Node_RebootHistory
 // Last Reboots
-type RebootHistory_Node_RebootHistory_ struct {
+type RebootHistory_Node_RebootHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -106,22 +112,25 @@ type RebootHistory_Node_RebootHistory_ struct {
     Reason interface{}
 }
 
-func (rebootHistory_ *RebootHistory_Node_RebootHistory_) GetEntityData() *types.CommonEntityData {
-    rebootHistory_.EntityData.YFilter = rebootHistory_.YFilter
-    rebootHistory_.EntityData.YangName = "reboot-history"
-    rebootHistory_.EntityData.BundleName = "cisco_ios_xr"
-    rebootHistory_.EntityData.ParentYangName = "node"
-    rebootHistory_.EntityData.SegmentPath = "reboot-history"
-    rebootHistory_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rebootHistory_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rebootHistory_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (rebootHistory *RebootHistory_Node_RebootHistory) GetEntityData() *types.CommonEntityData {
+    rebootHistory.EntityData.YFilter = rebootHistory.YFilter
+    rebootHistory.EntityData.YangName = "reboot-history"
+    rebootHistory.EntityData.BundleName = "cisco_ios_xr"
+    rebootHistory.EntityData.ParentYangName = "node"
+    rebootHistory.EntityData.SegmentPath = "reboot-history"
+    rebootHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rebootHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rebootHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rebootHistory_.EntityData.Children = make(map[string]types.YChild)
-    rebootHistory_.EntityData.Leafs = make(map[string]types.YLeaf)
-    rebootHistory_.EntityData.Leafs["no"] = types.YLeaf{"No", rebootHistory_.No}
-    rebootHistory_.EntityData.Leafs["time"] = types.YLeaf{"Time", rebootHistory_.Time}
-    rebootHistory_.EntityData.Leafs["cause-code"] = types.YLeaf{"CauseCode", rebootHistory_.CauseCode}
-    rebootHistory_.EntityData.Leafs["reason"] = types.YLeaf{"Reason", rebootHistory_.Reason}
-    return &(rebootHistory_.EntityData)
+    rebootHistory.EntityData.Children = types.NewOrderedMap()
+    rebootHistory.EntityData.Leafs = types.NewOrderedMap()
+    rebootHistory.EntityData.Leafs.Append("no", types.YLeaf{"No", rebootHistory.No})
+    rebootHistory.EntityData.Leafs.Append("time", types.YLeaf{"Time", rebootHistory.Time})
+    rebootHistory.EntityData.Leafs.Append("cause-code", types.YLeaf{"CauseCode", rebootHistory.CauseCode})
+    rebootHistory.EntityData.Leafs.Append("reason", types.YLeaf{"Reason", rebootHistory.Reason})
+
+    rebootHistory.EntityData.YListKeys = []string {}
+
+    return &(rebootHistory.EntityData)
 }
 

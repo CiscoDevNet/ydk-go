@@ -52,10 +52,13 @@ func (rib *Rib) GetEntityData() *types.CommonEntityData {
     rib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rib.EntityData.Children = make(map[string]types.YChild)
-    rib.EntityData.Children["af"] = types.YChild{"Af", &rib.Af}
-    rib.EntityData.Leafs = make(map[string]types.YLeaf)
-    rib.EntityData.Leafs["max-recursion-depth"] = types.YLeaf{"MaxRecursionDepth", rib.MaxRecursionDepth}
+    rib.EntityData.Children = types.NewOrderedMap()
+    rib.EntityData.Children.Append("af", types.YChild{"Af", &rib.Af})
+    rib.EntityData.Leafs = types.NewOrderedMap()
+    rib.EntityData.Leafs.Append("max-recursion-depth", types.YLeaf{"MaxRecursionDepth", rib.MaxRecursionDepth})
+
+    rib.EntityData.YListKeys = []string {}
+
     return &(rib.EntityData)
 }
 
@@ -82,10 +85,13 @@ func (af *Rib_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    af.EntityData.Children = make(map[string]types.YChild)
-    af.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &af.Ipv4}
-    af.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &af.Ipv6}
-    af.EntityData.Leafs = make(map[string]types.YLeaf)
+    af.EntityData.Children = types.NewOrderedMap()
+    af.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &af.Ipv4})
+    af.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &af.Ipv6})
+    af.EntityData.Leafs = types.NewOrderedMap()
+
+    af.EntityData.YListKeys = []string {}
+
     return &(af.EntityData)
 }
 
@@ -112,10 +118,13 @@ func (ipv4 *Rib_Af_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["redistribution-history"] = types.YChild{"RedistributionHistory", &ipv4.RedistributionHistory}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["next-hop-dampening-disable"] = types.YLeaf{"NextHopDampeningDisable", ipv4.NextHopDampeningDisable}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("redistribution-history", types.YChild{"RedistributionHistory", &ipv4.RedistributionHistory})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("next-hop-dampening-disable", types.YLeaf{"NextHopDampeningDisable", ipv4.NextHopDampeningDisable})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -147,11 +156,14 @@ func (redistributionHistory *Rib_Af_Ipv4_RedistributionHistory) GetEntityData() 
     redistributionHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributionHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redistributionHistory.EntityData.Children = make(map[string]types.YChild)
-    redistributionHistory.EntityData.Children["keep"] = types.YChild{"Keep", &redistributionHistory.Keep}
-    redistributionHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    redistributionHistory.EntityData.Leafs["bcdl-client"] = types.YLeaf{"BcdlClient", redistributionHistory.BcdlClient}
-    redistributionHistory.EntityData.Leafs["protocol-client"] = types.YLeaf{"ProtocolClient", redistributionHistory.ProtocolClient}
+    redistributionHistory.EntityData.Children = types.NewOrderedMap()
+    redistributionHistory.EntityData.Children.Append("keep", types.YChild{"Keep", &redistributionHistory.Keep})
+    redistributionHistory.EntityData.Leafs = types.NewOrderedMap()
+    redistributionHistory.EntityData.Leafs.Append("bcdl-client", types.YLeaf{"BcdlClient", redistributionHistory.BcdlClient})
+    redistributionHistory.EntityData.Leafs.Append("protocol-client", types.YLeaf{"ProtocolClient", redistributionHistory.ProtocolClient})
+
+    redistributionHistory.EntityData.YListKeys = []string {}
+
     return &(redistributionHistory.EntityData)
 }
 
@@ -175,9 +187,12 @@ func (keep *Rib_Af_Ipv4_RedistributionHistory_Keep) GetEntityData() *types.Commo
     keep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keep.EntityData.Children = make(map[string]types.YChild)
-    keep.EntityData.Leafs = make(map[string]types.YLeaf)
-    keep.EntityData.Leafs["bcdl"] = types.YLeaf{"Bcdl", keep.Bcdl}
+    keep.EntityData.Children = types.NewOrderedMap()
+    keep.EntityData.Leafs = types.NewOrderedMap()
+    keep.EntityData.Leafs.Append("bcdl", types.YLeaf{"Bcdl", keep.Bcdl})
+
+    keep.EntityData.YListKeys = []string {}
+
     return &(keep.EntityData)
 }
 
@@ -204,10 +219,13 @@ func (ipv6 *Rib_Af_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["redistribution-history"] = types.YChild{"RedistributionHistory", &ipv6.RedistributionHistory}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["next-hop-dampening-disable"] = types.YLeaf{"NextHopDampeningDisable", ipv6.NextHopDampeningDisable}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("redistribution-history", types.YChild{"RedistributionHistory", &ipv6.RedistributionHistory})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("next-hop-dampening-disable", types.YLeaf{"NextHopDampeningDisable", ipv6.NextHopDampeningDisable})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -239,11 +257,14 @@ func (redistributionHistory *Rib_Af_Ipv6_RedistributionHistory) GetEntityData() 
     redistributionHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributionHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redistributionHistory.EntityData.Children = make(map[string]types.YChild)
-    redistributionHistory.EntityData.Children["keep"] = types.YChild{"Keep", &redistributionHistory.Keep}
-    redistributionHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    redistributionHistory.EntityData.Leafs["bcdl-client"] = types.YLeaf{"BcdlClient", redistributionHistory.BcdlClient}
-    redistributionHistory.EntityData.Leafs["protocol-client"] = types.YLeaf{"ProtocolClient", redistributionHistory.ProtocolClient}
+    redistributionHistory.EntityData.Children = types.NewOrderedMap()
+    redistributionHistory.EntityData.Children.Append("keep", types.YChild{"Keep", &redistributionHistory.Keep})
+    redistributionHistory.EntityData.Leafs = types.NewOrderedMap()
+    redistributionHistory.EntityData.Leafs.Append("bcdl-client", types.YLeaf{"BcdlClient", redistributionHistory.BcdlClient})
+    redistributionHistory.EntityData.Leafs.Append("protocol-client", types.YLeaf{"ProtocolClient", redistributionHistory.ProtocolClient})
+
+    redistributionHistory.EntityData.YListKeys = []string {}
+
     return &(redistributionHistory.EntityData)
 }
 
@@ -267,9 +288,12 @@ func (keep *Rib_Af_Ipv6_RedistributionHistory_Keep) GetEntityData() *types.Commo
     keep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keep.EntityData.Children = make(map[string]types.YChild)
-    keep.EntityData.Leafs = make(map[string]types.YLeaf)
-    keep.EntityData.Leafs["bcdl"] = types.YLeaf{"Bcdl", keep.Bcdl}
+    keep.EntityData.Children = types.NewOrderedMap()
+    keep.EntityData.Leafs = types.NewOrderedMap()
+    keep.EntityData.Leafs.Append("bcdl", types.YLeaf{"Bcdl", keep.Bcdl})
+
+    keep.EntityData.YListKeys = []string {}
+
     return &(keep.EntityData)
 }
 

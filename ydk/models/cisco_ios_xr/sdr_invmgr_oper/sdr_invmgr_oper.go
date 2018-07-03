@@ -44,9 +44,12 @@ func (sdrInventory *SdrInventory) GetEntityData() *types.CommonEntityData {
     sdrInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrInventory.EntityData.Children = make(map[string]types.YChild)
-    sdrInventory.EntityData.Children["racks"] = types.YChild{"Racks", &sdrInventory.Racks}
-    sdrInventory.EntityData.Leafs = make(map[string]types.YLeaf)
+    sdrInventory.EntityData.Children = types.NewOrderedMap()
+    sdrInventory.EntityData.Children.Append("racks", types.YChild{"Racks", &sdrInventory.Racks})
+    sdrInventory.EntityData.Leafs = types.NewOrderedMap()
+
+    sdrInventory.EntityData.YListKeys = []string {}
+
     return &(sdrInventory.EntityData)
 }
 
@@ -57,7 +60,7 @@ type SdrInventory_Racks struct {
     YFilter yfilter.YFilter
 
     // Rack name. The type is slice of SdrInventory_Racks_Rack.
-    Rack []SdrInventory_Racks_Rack
+    Rack []*SdrInventory_Racks_Rack
 }
 
 func (racks *SdrInventory_Racks) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (racks *SdrInventory_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
@@ -86,11 +92,11 @@ type SdrInventory_Racks_Rack struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Slot name. The type is slice of SdrInventory_Racks_Rack_Slot.
-    Slot []SdrInventory_Racks_Rack_Slot
+    Slot []*SdrInventory_Racks_Rack_Slot
 }
 
 func (rack *SdrInventory_Racks_Rack) GetEntityData() *types.CommonEntityData {
@@ -98,18 +104,21 @@ func (rack *SdrInventory_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[name='" + fmt.Sprintf("%v", rack.Name) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Name, "name")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range rack.Slot {
-        rack.EntityData.Children[types.GetSegmentPath(&rack.Slot[i])] = types.YChild{"Slot", &rack.Slot[i]}
+        rack.EntityData.Children.Append(types.GetSegmentPath(rack.Slot[i]), types.YChild{"Slot", rack.Slot[i]})
     }
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["name"] = types.YLeaf{"Name", rack.Name}
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("name", types.YLeaf{"Name", rack.Name})
+
+    rack.EntityData.YListKeys = []string {"Name"}
+
     return &(rack.EntityData)
 }
 
@@ -120,11 +129,11 @@ type SdrInventory_Racks_Rack_Slot struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Card. The type is slice of SdrInventory_Racks_Rack_Slot_Card.
-    Card []SdrInventory_Racks_Rack_Slot_Card
+    Card []*SdrInventory_Racks_Rack_Slot_Card
 }
 
 func (slot *SdrInventory_Racks_Rack_Slot) GetEntityData() *types.CommonEntityData {
@@ -132,18 +141,21 @@ func (slot *SdrInventory_Racks_Rack_Slot) GetEntityData() *types.CommonEntityDat
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "rack"
-    slot.EntityData.SegmentPath = "slot" + "[name='" + fmt.Sprintf("%v", slot.Name) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Name, "name")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["card"] = types.YChild{"Card", nil}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("card", types.YChild{"Card", nil})
     for i := range slot.Card {
-        slot.EntityData.Children[types.GetSegmentPath(&slot.Card[i])] = types.YChild{"Card", &slot.Card[i]}
+        slot.EntityData.Children.Append(types.GetSegmentPath(slot.Card[i]), types.YChild{"Card", slot.Card[i]})
     }
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["name"] = types.YLeaf{"Name", slot.Name}
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("name", types.YLeaf{"Name", slot.Name})
+
+    slot.EntityData.YListKeys = []string {"Name"}
+
     return &(slot.EntityData)
 }
 
@@ -154,7 +166,7 @@ type SdrInventory_Racks_Rack_Slot_Card struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Card. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -166,15 +178,18 @@ func (card *SdrInventory_Racks_Rack_Slot_Card) GetEntityData() *types.CommonEnti
     card.EntityData.YangName = "card"
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "slot"
-    card.EntityData.SegmentPath = "card" + "[name='" + fmt.Sprintf("%v", card.Name) + "']"
+    card.EntityData.SegmentPath = "card" + types.AddKeyToken(card.Name, "name")
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    card.EntityData.Children = make(map[string]types.YChild)
-    card.EntityData.Children["attributes"] = types.YChild{"Attributes", &card.Attributes}
-    card.EntityData.Leafs = make(map[string]types.YLeaf)
-    card.EntityData.Leafs["name"] = types.YLeaf{"Name", card.Name}
+    card.EntityData.Children = types.NewOrderedMap()
+    card.EntityData.Children.Append("attributes", types.YChild{"Attributes", &card.Attributes})
+    card.EntityData.Leafs = types.NewOrderedMap()
+    card.EntityData.Leafs.Append("name", types.YLeaf{"Name", card.Name})
+
+    card.EntityData.YListKeys = []string {"Name"}
+
     return &(card.EntityData)
 }
 
@@ -247,22 +262,25 @@ func (attributes *SdrInventory_Racks_Rack_Slot_Card_Attributes) GetEntityData() 
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["config-state-string"] = types.YLeaf{"ConfigStateString", attributes.ConfigStateString}
-    attributes.EntityData.Leafs["power"] = types.YLeaf{"Power", attributes.Power}
-    attributes.EntityData.Leafs["config-state"] = types.YLeaf{"ConfigState", attributes.ConfigState}
-    attributes.EntityData.Leafs["card-state"] = types.YLeaf{"CardState", attributes.CardState}
-    attributes.EntityData.Leafs["vm-state"] = types.YLeaf{"VmState", attributes.VmState}
-    attributes.EntityData.Leafs["card-admin-state"] = types.YLeaf{"CardAdminState", attributes.CardAdminState}
-    attributes.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", attributes.CardType}
-    attributes.EntityData.Leafs["card-type-string"] = types.YLeaf{"CardTypeString", attributes.CardTypeString}
-    attributes.EntityData.Leafs["node-name-string"] = types.YLeaf{"NodeNameString", attributes.NodeNameString}
-    attributes.EntityData.Leafs["pi-slot-number"] = types.YLeaf{"PiSlotNumber", attributes.PiSlotNumber}
-    attributes.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", attributes.Shutdown}
-    attributes.EntityData.Leafs["ctype"] = types.YLeaf{"Ctype", attributes.Ctype}
-    attributes.EntityData.Leafs["card-state-string"] = types.YLeaf{"CardStateString", attributes.CardStateString}
-    attributes.EntityData.Leafs["monitor"] = types.YLeaf{"Monitor", attributes.Monitor}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("config-state-string", types.YLeaf{"ConfigStateString", attributes.ConfigStateString})
+    attributes.EntityData.Leafs.Append("power", types.YLeaf{"Power", attributes.Power})
+    attributes.EntityData.Leafs.Append("config-state", types.YLeaf{"ConfigState", attributes.ConfigState})
+    attributes.EntityData.Leafs.Append("card-state", types.YLeaf{"CardState", attributes.CardState})
+    attributes.EntityData.Leafs.Append("vm-state", types.YLeaf{"VmState", attributes.VmState})
+    attributes.EntityData.Leafs.Append("card-admin-state", types.YLeaf{"CardAdminState", attributes.CardAdminState})
+    attributes.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", attributes.CardType})
+    attributes.EntityData.Leafs.Append("card-type-string", types.YLeaf{"CardTypeString", attributes.CardTypeString})
+    attributes.EntityData.Leafs.Append("node-name-string", types.YLeaf{"NodeNameString", attributes.NodeNameString})
+    attributes.EntityData.Leafs.Append("pi-slot-number", types.YLeaf{"PiSlotNumber", attributes.PiSlotNumber})
+    attributes.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", attributes.Shutdown})
+    attributes.EntityData.Leafs.Append("ctype", types.YLeaf{"Ctype", attributes.Ctype})
+    attributes.EntityData.Leafs.Append("card-state-string", types.YLeaf{"CardStateString", attributes.CardStateString})
+    attributes.EntityData.Leafs.Append("monitor", types.YLeaf{"Monitor", attributes.Monitor})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 

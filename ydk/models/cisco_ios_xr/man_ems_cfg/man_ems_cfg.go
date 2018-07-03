@@ -43,8 +43,17 @@ type Grpc struct {
     // 1..32.
     MaxRequestPerUser interface{}
 
+    // No TLS. The type is interface{}.
+    NoTls interface{}
+
+    // Trustpoint Name. The type is string.
+    TlsTrustpoint interface{}
+
     // Address family identifier type. The type is string.
     AddressFamily interface{}
+
+    // TLS mutual authentication. The type is interface{}.
+    TlsMutual interface{}
 
     // Maximum concurrent requests in total. The type is interface{} with range:
     // 1..256.
@@ -52,9 +61,6 @@ type Grpc struct {
 
     // Service Layer.
     ServiceLayer Grpc_ServiceLayer
-
-    // Transport Layer Security (TLS).
-    Tls Grpc_Tls
 }
 
 func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
@@ -67,16 +73,21 @@ func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
     grpc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     grpc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    grpc.EntityData.Children = make(map[string]types.YChild)
-    grpc.EntityData.Children["service-layer"] = types.YChild{"ServiceLayer", &grpc.ServiceLayer}
-    grpc.EntityData.Children["tls"] = types.YChild{"Tls", &grpc.Tls}
-    grpc.EntityData.Leafs = make(map[string]types.YLeaf)
-    grpc.EntityData.Leafs["port"] = types.YLeaf{"Port", grpc.Port}
-    grpc.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", grpc.Vrf}
-    grpc.EntityData.Leafs["enable"] = types.YLeaf{"Enable", grpc.Enable}
-    grpc.EntityData.Leafs["max-request-per-user"] = types.YLeaf{"MaxRequestPerUser", grpc.MaxRequestPerUser}
-    grpc.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", grpc.AddressFamily}
-    grpc.EntityData.Leafs["max-request-total"] = types.YLeaf{"MaxRequestTotal", grpc.MaxRequestTotal}
+    grpc.EntityData.Children = types.NewOrderedMap()
+    grpc.EntityData.Children.Append("service-layer", types.YChild{"ServiceLayer", &grpc.ServiceLayer})
+    grpc.EntityData.Leafs = types.NewOrderedMap()
+    grpc.EntityData.Leafs.Append("port", types.YLeaf{"Port", grpc.Port})
+    grpc.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", grpc.Vrf})
+    grpc.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", grpc.Enable})
+    grpc.EntityData.Leafs.Append("max-request-per-user", types.YLeaf{"MaxRequestPerUser", grpc.MaxRequestPerUser})
+    grpc.EntityData.Leafs.Append("no-tls", types.YLeaf{"NoTls", grpc.NoTls})
+    grpc.EntityData.Leafs.Append("tls-trustpoint", types.YLeaf{"TlsTrustpoint", grpc.TlsTrustpoint})
+    grpc.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", grpc.AddressFamily})
+    grpc.EntityData.Leafs.Append("tls-mutual", types.YLeaf{"TlsMutual", grpc.TlsMutual})
+    grpc.EntityData.Leafs.Append("max-request-total", types.YLeaf{"MaxRequestTotal", grpc.MaxRequestTotal})
+
+    grpc.EntityData.YListKeys = []string {}
+
     return &(grpc.EntityData)
 }
 
@@ -100,39 +111,12 @@ func (serviceLayer *Grpc_ServiceLayer) GetEntityData() *types.CommonEntityData {
     serviceLayer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceLayer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceLayer.EntityData.Children = make(map[string]types.YChild)
-    serviceLayer.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceLayer.EntityData.Leafs["enable"] = types.YLeaf{"Enable", serviceLayer.Enable}
+    serviceLayer.EntityData.Children = types.NewOrderedMap()
+    serviceLayer.EntityData.Leafs = types.NewOrderedMap()
+    serviceLayer.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", serviceLayer.Enable})
+
+    serviceLayer.EntityData.YListKeys = []string {}
+
     return &(serviceLayer.EntityData)
-}
-
-// Grpc_Tls
-// Transport Layer Security (TLS)
-type Grpc_Tls struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Trustpoint Name. The type is string.
-    Trustpoint interface{}
-
-    // Enable TLS. The type is interface{}.
-    Enable interface{}
-}
-
-func (tls *Grpc_Tls) GetEntityData() *types.CommonEntityData {
-    tls.EntityData.YFilter = tls.YFilter
-    tls.EntityData.YangName = "tls"
-    tls.EntityData.BundleName = "cisco_ios_xr"
-    tls.EntityData.ParentYangName = "grpc"
-    tls.EntityData.SegmentPath = "tls"
-    tls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tls.EntityData.Children = make(map[string]types.YChild)
-    tls.EntityData.Leafs = make(map[string]types.YLeaf)
-    tls.EntityData.Leafs["trustpoint"] = types.YLeaf{"Trustpoint", tls.Trustpoint}
-    tls.EntityData.Leafs["enable"] = types.YLeaf{"Enable", tls.Enable}
-    return &(tls.EntityData)
 }
 

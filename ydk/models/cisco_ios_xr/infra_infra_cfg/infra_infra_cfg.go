@@ -54,7 +54,7 @@ type Banners struct {
     YFilter yfilter.YFilter
 
     // Select a Banner Type. The type is slice of Banners_Banner.
-    Banner []Banners_Banner
+    Banner []*Banners_Banner
 }
 
 func (banners *Banners) GetEntityData() *types.CommonEntityData {
@@ -67,12 +67,15 @@ func (banners *Banners) GetEntityData() *types.CommonEntityData {
     banners.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     banners.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    banners.EntityData.Children = make(map[string]types.YChild)
-    banners.EntityData.Children["banner"] = types.YChild{"Banner", nil}
+    banners.EntityData.Children = types.NewOrderedMap()
+    banners.EntityData.Children.Append("banner", types.YChild{"Banner", nil})
     for i := range banners.Banner {
-        banners.EntityData.Children[types.GetSegmentPath(&banners.Banner[i])] = types.YChild{"Banner", &banners.Banner[i]}
+        banners.EntityData.Children.Append(types.GetSegmentPath(banners.Banner[i]), types.YChild{"Banner", banners.Banner[i]})
     }
-    banners.EntityData.Leafs = make(map[string]types.YLeaf)
+    banners.EntityData.Leafs = types.NewOrderedMap()
+
+    banners.EntityData.YListKeys = []string {}
+
     return &(banners.EntityData)
 }
 
@@ -94,15 +97,18 @@ func (banner *Banners_Banner) GetEntityData() *types.CommonEntityData {
     banner.EntityData.YangName = "banner"
     banner.EntityData.BundleName = "cisco_ios_xr"
     banner.EntityData.ParentYangName = "banners"
-    banner.EntityData.SegmentPath = "banner" + "[banner-name='" + fmt.Sprintf("%v", banner.BannerName) + "']"
+    banner.EntityData.SegmentPath = "banner" + types.AddKeyToken(banner.BannerName, "banner-name")
     banner.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     banner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     banner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    banner.EntityData.Children = make(map[string]types.YChild)
-    banner.EntityData.Leafs = make(map[string]types.YLeaf)
-    banner.EntityData.Leafs["banner-name"] = types.YLeaf{"BannerName", banner.BannerName}
-    banner.EntityData.Leafs["banner-text"] = types.YLeaf{"BannerText", banner.BannerText}
+    banner.EntityData.Children = types.NewOrderedMap()
+    banner.EntityData.Leafs = types.NewOrderedMap()
+    banner.EntityData.Leafs.Append("banner-name", types.YLeaf{"BannerName", banner.BannerName})
+    banner.EntityData.Leafs.Append("banner-text", types.YLeaf{"BannerText", banner.BannerText})
+
+    banner.EntityData.YListKeys = []string {"BannerName"}
+
     return &(banner.EntityData)
 }
 

@@ -20,55 +20,58 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package dot1x_oper"))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-dot1x-oper dot1x}", reflect.TypeOf(Dot1X{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-dot1x-oper:dot1x", reflect.TypeOf(Dot1X{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-dot1x-oper dot1x}", reflect.TypeOf(Dot1x{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-dot1x-oper:dot1x", reflect.TypeOf(Dot1x{}))
 }
 
-// Dot1X
+// Dot1x
 // Dot1x operational data
-type Dot1X struct {
+type Dot1x struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dot1x operational data.
-    Statistics Dot1X_Statistics
+    Statistics Dot1x_Statistics
 
     // Node-specific Dot1x operational data.
-    Nodes Dot1X_Nodes
+    Nodes Dot1x_Nodes
 
     // Dot1x operational data.
-    Session Dot1X_Session
+    Session Dot1x_Session
 }
 
-func (dot1X *Dot1X) GetEntityData() *types.CommonEntityData {
-    dot1X.EntityData.YFilter = dot1X.YFilter
-    dot1X.EntityData.YangName = "dot1x"
-    dot1X.EntityData.BundleName = "cisco_ios_xr"
-    dot1X.EntityData.ParentYangName = "Cisco-IOS-XR-dot1x-oper"
-    dot1X.EntityData.SegmentPath = "Cisco-IOS-XR-dot1x-oper:dot1x"
-    dot1X.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dot1X.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dot1X.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (dot1x *Dot1x) GetEntityData() *types.CommonEntityData {
+    dot1x.EntityData.YFilter = dot1x.YFilter
+    dot1x.EntityData.YangName = "dot1x"
+    dot1x.EntityData.BundleName = "cisco_ios_xr"
+    dot1x.EntityData.ParentYangName = "Cisco-IOS-XR-dot1x-oper"
+    dot1x.EntityData.SegmentPath = "Cisco-IOS-XR-dot1x-oper:dot1x"
+    dot1x.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dot1x.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dot1x.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dot1X.EntityData.Children = make(map[string]types.YChild)
-    dot1X.EntityData.Children["statistics"] = types.YChild{"Statistics", &dot1X.Statistics}
-    dot1X.EntityData.Children["nodes"] = types.YChild{"Nodes", &dot1X.Nodes}
-    dot1X.EntityData.Children["session"] = types.YChild{"Session", &dot1X.Session}
-    dot1X.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1X.EntityData)
+    dot1x.EntityData.Children = types.NewOrderedMap()
+    dot1x.EntityData.Children.Append("statistics", types.YChild{"Statistics", &dot1x.Statistics})
+    dot1x.EntityData.Children.Append("nodes", types.YChild{"Nodes", &dot1x.Nodes})
+    dot1x.EntityData.Children.Append("session", types.YChild{"Session", &dot1x.Session})
+    dot1x.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1x.EntityData.YListKeys = []string {}
+
+    return &(dot1x.EntityData)
 }
 
-// Dot1X_Statistics
+// Dot1x_Statistics
 // Dot1x operational data
-type Dot1X_Statistics struct {
+type Dot1x_Statistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interfaces with Dot1x.
-    InterfaceStatistics Dot1X_Statistics_InterfaceStatistics
+    InterfaceStatistics Dot1x_Statistics_InterfaceStatistics
 }
 
-func (statistics *Dot1X_Statistics) GetEntityData() *types.CommonEntityData {
+func (statistics *Dot1x_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.YFilter = statistics.YFilter
     statistics.EntityData.YangName = "statistics"
     statistics.EntityData.BundleName = "cisco_ios_xr"
@@ -78,24 +81,27 @@ func (statistics *Dot1X_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["interface-statistics"] = types.YChild{"InterfaceStatistics", &statistics.InterfaceStatistics}
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("interface-statistics", types.YChild{"InterfaceStatistics", &statistics.InterfaceStatistics})
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
-// Dot1X_Statistics_InterfaceStatistics
+// Dot1x_Statistics_InterfaceStatistics
 // Interfaces with Dot1x
-type Dot1X_Statistics_InterfaceStatistics struct {
+type Dot1x_Statistics_InterfaceStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dot1x Data for that Interface. The type is slice of
-    // Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic.
-    InterfaceStatistic []Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic
+    // Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic.
+    InterfaceStatistic []*Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic
 }
 
-func (interfaceStatistics *Dot1X_Statistics_InterfaceStatistics) GetEntityData() *types.CommonEntityData {
+func (interfaceStatistics *Dot1x_Statistics_InterfaceStatistics) GetEntityData() *types.CommonEntityData {
     interfaceStatistics.EntityData.YFilter = interfaceStatistics.YFilter
     interfaceStatistics.EntityData.YangName = "interface-statistics"
     interfaceStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -105,23 +111,26 @@ func (interfaceStatistics *Dot1X_Statistics_InterfaceStatistics) GetEntityData()
     interfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceStatistics.EntityData.Children = make(map[string]types.YChild)
-    interfaceStatistics.EntityData.Children["interface-statistic"] = types.YChild{"InterfaceStatistic", nil}
+    interfaceStatistics.EntityData.Children = types.NewOrderedMap()
+    interfaceStatistics.EntityData.Children.Append("interface-statistic", types.YChild{"InterfaceStatistic", nil})
     for i := range interfaceStatistics.InterfaceStatistic {
-        interfaceStatistics.EntityData.Children[types.GetSegmentPath(&interfaceStatistics.InterfaceStatistic[i])] = types.YChild{"InterfaceStatistic", &interfaceStatistics.InterfaceStatistic[i]}
+        interfaceStatistics.EntityData.Children.Append(types.GetSegmentPath(interfaceStatistics.InterfaceStatistic[i]), types.YChild{"InterfaceStatistic", interfaceStatistics.InterfaceStatistic[i]})
     }
-    interfaceStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceStatistics.EntityData.YListKeys = []string {}
+
     return &(interfaceStatistics.EntityData)
 }
 
-// Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic
+// Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic
 // Dot1x Data for that Interface
-type Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic struct {
+type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Name interface{}
 
     // Interface Display name . The type is string.
@@ -131,39 +140,42 @@ type Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic struct {
     Pae interface{}
 
     // Dot1x interface database Statistics.
-    Idb Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Idb
+    Idb Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Idb
 
     // Dot1x Authenticator Port Statistics.
-    Auth Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Auth
+    Auth Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth
 
     // Dot1x Supplicant Port Statistics.
-    Supp Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Supp
+    Supp Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Supp
 }
 
-func (interfaceStatistic *Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic) GetEntityData() *types.CommonEntityData {
+func (interfaceStatistic *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic) GetEntityData() *types.CommonEntityData {
     interfaceStatistic.EntityData.YFilter = interfaceStatistic.YFilter
     interfaceStatistic.EntityData.YangName = "interface-statistic"
     interfaceStatistic.EntityData.BundleName = "cisco_ios_xr"
     interfaceStatistic.EntityData.ParentYangName = "interface-statistics"
-    interfaceStatistic.EntityData.SegmentPath = "interface-statistic" + "[name='" + fmt.Sprintf("%v", interfaceStatistic.Name) + "']"
+    interfaceStatistic.EntityData.SegmentPath = "interface-statistic" + types.AddKeyToken(interfaceStatistic.Name, "name")
     interfaceStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceStatistic.EntityData.Children = make(map[string]types.YChild)
-    interfaceStatistic.EntityData.Children["idb"] = types.YChild{"Idb", &interfaceStatistic.Idb}
-    interfaceStatistic.EntityData.Children["auth"] = types.YChild{"Auth", &interfaceStatistic.Auth}
-    interfaceStatistic.EntityData.Children["supp"] = types.YChild{"Supp", &interfaceStatistic.Supp}
-    interfaceStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceStatistic.EntityData.Leafs["name"] = types.YLeaf{"Name", interfaceStatistic.Name}
-    interfaceStatistic.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceStatistic.InterfaceName}
-    interfaceStatistic.EntityData.Leafs["pae"] = types.YLeaf{"Pae", interfaceStatistic.Pae}
+    interfaceStatistic.EntityData.Children = types.NewOrderedMap()
+    interfaceStatistic.EntityData.Children.Append("idb", types.YChild{"Idb", &interfaceStatistic.Idb})
+    interfaceStatistic.EntityData.Children.Append("auth", types.YChild{"Auth", &interfaceStatistic.Auth})
+    interfaceStatistic.EntityData.Children.Append("supp", types.YChild{"Supp", &interfaceStatistic.Supp})
+    interfaceStatistic.EntityData.Leafs = types.NewOrderedMap()
+    interfaceStatistic.EntityData.Leafs.Append("name", types.YLeaf{"Name", interfaceStatistic.Name})
+    interfaceStatistic.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceStatistic.InterfaceName})
+    interfaceStatistic.EntityData.Leafs.Append("pae", types.YLeaf{"Pae", interfaceStatistic.Pae})
+
+    interfaceStatistic.EntityData.YListKeys = []string {"Name"}
+
     return &(interfaceStatistic.EntityData)
 }
 
-// Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Idb
+// Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Idb
 // Dot1x interface database Statistics
-type Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Idb struct {
+type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Idb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -177,7 +189,7 @@ type Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Idb struct {
     NoRxOnIntfDown interface{}
 }
 
-func (idb *Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Idb) GetEntityData() *types.CommonEntityData {
+func (idb *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Idb) GetEntityData() *types.CommonEntityData {
     idb.EntityData.YFilter = idb.YFilter
     idb.EntityData.YangName = "idb"
     idb.EntityData.BundleName = "cisco_ios_xr"
@@ -187,17 +199,20 @@ func (idb *Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Idb) GetEntit
     idb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    idb.EntityData.Children = make(map[string]types.YChild)
-    idb.EntityData.Leafs = make(map[string]types.YLeaf)
-    idb.EntityData.Leafs["rx-total"] = types.YLeaf{"RxTotal", idb.RxTotal}
-    idb.EntityData.Leafs["tx-total"] = types.YLeaf{"TxTotal", idb.TxTotal}
-    idb.EntityData.Leafs["no-rx-on-intf-down"] = types.YLeaf{"NoRxOnIntfDown", idb.NoRxOnIntfDown}
+    idb.EntityData.Children = types.NewOrderedMap()
+    idb.EntityData.Leafs = types.NewOrderedMap()
+    idb.EntityData.Leafs.Append("rx-total", types.YLeaf{"RxTotal", idb.RxTotal})
+    idb.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", idb.TxTotal})
+    idb.EntityData.Leafs.Append("no-rx-on-intf-down", types.YLeaf{"NoRxOnIntfDown", idb.NoRxOnIntfDown})
+
+    idb.EntityData.YListKeys = []string {}
+
     return &(idb.EntityData)
 }
 
-// Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Auth
+// Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth
 // Dot1x Authenticator Port Statistics
-type Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Auth struct {
+type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -235,7 +250,7 @@ type Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Auth struct {
     TxTotal interface{}
 }
 
-func (auth *Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Auth) GetEntityData() *types.CommonEntityData {
+func (auth *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth) GetEntityData() *types.CommonEntityData {
     auth.EntityData.YFilter = auth.YFilter
     auth.EntityData.YangName = "auth"
     auth.EntityData.BundleName = "cisco_ios_xr"
@@ -245,25 +260,28 @@ func (auth *Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Auth) GetEnt
     auth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    auth.EntityData.Children = make(map[string]types.YChild)
-    auth.EntityData.Leafs = make(map[string]types.YLeaf)
-    auth.EntityData.Leafs["rx-start"] = types.YLeaf{"RxStart", auth.RxStart}
-    auth.EntityData.Leafs["rx-logoff"] = types.YLeaf{"RxLogoff", auth.RxLogoff}
-    auth.EntityData.Leafs["rx-resp"] = types.YLeaf{"RxResp", auth.RxResp}
-    auth.EntityData.Leafs["rx-resp-id"] = types.YLeaf{"RxRespId", auth.RxRespId}
-    auth.EntityData.Leafs["rx-invalid"] = types.YLeaf{"RxInvalid", auth.RxInvalid}
-    auth.EntityData.Leafs["rx-len-err"] = types.YLeaf{"RxLenErr", auth.RxLenErr}
-    auth.EntityData.Leafs["rx-my-mac-err"] = types.YLeaf{"RxMyMacErr", auth.RxMyMacErr}
-    auth.EntityData.Leafs["rx-total"] = types.YLeaf{"RxTotal", auth.RxTotal}
-    auth.EntityData.Leafs["tx-req"] = types.YLeaf{"TxReq", auth.TxReq}
-    auth.EntityData.Leafs["tx-reqid"] = types.YLeaf{"TxReqid", auth.TxReqid}
-    auth.EntityData.Leafs["tx-total"] = types.YLeaf{"TxTotal", auth.TxTotal}
+    auth.EntityData.Children = types.NewOrderedMap()
+    auth.EntityData.Leafs = types.NewOrderedMap()
+    auth.EntityData.Leafs.Append("rx-start", types.YLeaf{"RxStart", auth.RxStart})
+    auth.EntityData.Leafs.Append("rx-logoff", types.YLeaf{"RxLogoff", auth.RxLogoff})
+    auth.EntityData.Leafs.Append("rx-resp", types.YLeaf{"RxResp", auth.RxResp})
+    auth.EntityData.Leafs.Append("rx-resp-id", types.YLeaf{"RxRespId", auth.RxRespId})
+    auth.EntityData.Leafs.Append("rx-invalid", types.YLeaf{"RxInvalid", auth.RxInvalid})
+    auth.EntityData.Leafs.Append("rx-len-err", types.YLeaf{"RxLenErr", auth.RxLenErr})
+    auth.EntityData.Leafs.Append("rx-my-mac-err", types.YLeaf{"RxMyMacErr", auth.RxMyMacErr})
+    auth.EntityData.Leafs.Append("rx-total", types.YLeaf{"RxTotal", auth.RxTotal})
+    auth.EntityData.Leafs.Append("tx-req", types.YLeaf{"TxReq", auth.TxReq})
+    auth.EntityData.Leafs.Append("tx-reqid", types.YLeaf{"TxReqid", auth.TxReqid})
+    auth.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", auth.TxTotal})
+
+    auth.EntityData.YListKeys = []string {}
+
     return &(auth.EntityData)
 }
 
-// Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Supp
+// Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Supp
 // Dot1x Supplicant Port Statistics
-type Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Supp struct {
+type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Supp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -295,7 +313,7 @@ type Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Supp struct {
     TxTotal interface{}
 }
 
-func (supp *Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Supp) GetEntityData() *types.CommonEntityData {
+func (supp *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Supp) GetEntityData() *types.CommonEntityData {
     supp.EntityData.YFilter = supp.YFilter
     supp.EntityData.YangName = "supp"
     supp.EntityData.BundleName = "cisco_ios_xr"
@@ -305,32 +323,35 @@ func (supp *Dot1X_Statistics_InterfaceStatistics_InterfaceStatistic_Supp) GetEnt
     supp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     supp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    supp.EntityData.Children = make(map[string]types.YChild)
-    supp.EntityData.Leafs = make(map[string]types.YLeaf)
-    supp.EntityData.Leafs["rx-req"] = types.YLeaf{"RxReq", supp.RxReq}
-    supp.EntityData.Leafs["rx-invalid"] = types.YLeaf{"RxInvalid", supp.RxInvalid}
-    supp.EntityData.Leafs["rx-len-err"] = types.YLeaf{"RxLenErr", supp.RxLenErr}
-    supp.EntityData.Leafs["rx-my-mac-err"] = types.YLeaf{"RxMyMacErr", supp.RxMyMacErr}
-    supp.EntityData.Leafs["rx-total"] = types.YLeaf{"RxTotal", supp.RxTotal}
-    supp.EntityData.Leafs["tx-start"] = types.YLeaf{"TxStart", supp.TxStart}
-    supp.EntityData.Leafs["tx-logoff"] = types.YLeaf{"TxLogoff", supp.TxLogoff}
-    supp.EntityData.Leafs["tx-resp"] = types.YLeaf{"TxResp", supp.TxResp}
-    supp.EntityData.Leafs["tx-total"] = types.YLeaf{"TxTotal", supp.TxTotal}
+    supp.EntityData.Children = types.NewOrderedMap()
+    supp.EntityData.Leafs = types.NewOrderedMap()
+    supp.EntityData.Leafs.Append("rx-req", types.YLeaf{"RxReq", supp.RxReq})
+    supp.EntityData.Leafs.Append("rx-invalid", types.YLeaf{"RxInvalid", supp.RxInvalid})
+    supp.EntityData.Leafs.Append("rx-len-err", types.YLeaf{"RxLenErr", supp.RxLenErr})
+    supp.EntityData.Leafs.Append("rx-my-mac-err", types.YLeaf{"RxMyMacErr", supp.RxMyMacErr})
+    supp.EntityData.Leafs.Append("rx-total", types.YLeaf{"RxTotal", supp.RxTotal})
+    supp.EntityData.Leafs.Append("tx-start", types.YLeaf{"TxStart", supp.TxStart})
+    supp.EntityData.Leafs.Append("tx-logoff", types.YLeaf{"TxLogoff", supp.TxLogoff})
+    supp.EntityData.Leafs.Append("tx-resp", types.YLeaf{"TxResp", supp.TxResp})
+    supp.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", supp.TxTotal})
+
+    supp.EntityData.YListKeys = []string {}
+
     return &(supp.EntityData)
 }
 
-// Dot1X_Nodes
+// Dot1x_Nodes
 // Node-specific Dot1x operational data
-type Dot1X_Nodes struct {
+type Dot1x_Nodes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dot1x operational data for a particular node. The type is slice of
-    // Dot1X_Nodes_Node.
-    Node []Dot1X_Nodes_Node
+    // Dot1x_Nodes_Node.
+    Node []*Dot1x_Nodes_Node
 }
 
-func (nodes *Dot1X_Nodes) GetEntityData() *types.CommonEntityData {
+func (nodes *Dot1x_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.YFilter = nodes.YFilter
     nodes.EntityData.YangName = "nodes"
     nodes.EntityData.BundleName = "cisco_ios_xr"
@@ -340,53 +361,59 @@ func (nodes *Dot1X_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
-// Dot1X_Nodes_Node
+// Dot1x_Nodes_Node
 // Dot1x operational data for a particular node
-type Dot1X_Nodes_Node struct {
+type Dot1x_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Dot1x Default Values.
-    Dot1XDefaults Dot1X_Nodes_Node_Dot1XDefaults
+    Dot1xDefaults Dot1x_Nodes_Node_Dot1xDefaults
 
     // Dot1x Default Values.
-    Statistics Dot1X_Nodes_Node_Statistics
+    Statistics Dot1x_Nodes_Node_Statistics
 }
 
-func (node *Dot1X_Nodes_Node) GetEntityData() *types.CommonEntityData {
+func (node *Dot1x_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YFilter = node.YFilter
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["dot1x-defaults"] = types.YChild{"Dot1XDefaults", &node.Dot1XDefaults}
-    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("dot1x-defaults", types.YChild{"Dot1xDefaults", &node.Dot1xDefaults})
+    node.EntityData.Children.Append("statistics", types.YChild{"Statistics", &node.Statistics})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
-// Dot1X_Nodes_Node_Dot1XDefaults
+// Dot1x_Nodes_Node_Dot1xDefaults
 // Dot1x Default Values
-type Dot1X_Nodes_Node_Dot1XDefaults struct {
+type Dot1x_Nodes_Node_Dot1xDefaults struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -394,33 +421,36 @@ type Dot1X_Nodes_Node_Dot1XDefaults struct {
     Version interface{}
 
     // Dot1x Authenticator default Timer values.
-    AuthTimers Dot1X_Nodes_Node_Dot1XDefaults_AuthTimers
+    AuthTimers Dot1x_Nodes_Node_Dot1xDefaults_AuthTimers
 
     // Dot1x Supllicant default Timer values.
-    SuppTimers Dot1X_Nodes_Node_Dot1XDefaults_SuppTimers
+    SuppTimers Dot1x_Nodes_Node_Dot1xDefaults_SuppTimers
 }
 
-func (dot1XDefaults *Dot1X_Nodes_Node_Dot1XDefaults) GetEntityData() *types.CommonEntityData {
-    dot1XDefaults.EntityData.YFilter = dot1XDefaults.YFilter
-    dot1XDefaults.EntityData.YangName = "dot1x-defaults"
-    dot1XDefaults.EntityData.BundleName = "cisco_ios_xr"
-    dot1XDefaults.EntityData.ParentYangName = "node"
-    dot1XDefaults.EntityData.SegmentPath = "dot1x-defaults"
-    dot1XDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dot1XDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dot1XDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (dot1xDefaults *Dot1x_Nodes_Node_Dot1xDefaults) GetEntityData() *types.CommonEntityData {
+    dot1xDefaults.EntityData.YFilter = dot1xDefaults.YFilter
+    dot1xDefaults.EntityData.YangName = "dot1x-defaults"
+    dot1xDefaults.EntityData.BundleName = "cisco_ios_xr"
+    dot1xDefaults.EntityData.ParentYangName = "node"
+    dot1xDefaults.EntityData.SegmentPath = "dot1x-defaults"
+    dot1xDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dot1xDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dot1xDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dot1XDefaults.EntityData.Children = make(map[string]types.YChild)
-    dot1XDefaults.EntityData.Children["auth-timers"] = types.YChild{"AuthTimers", &dot1XDefaults.AuthTimers}
-    dot1XDefaults.EntityData.Children["supp-timers"] = types.YChild{"SuppTimers", &dot1XDefaults.SuppTimers}
-    dot1XDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1XDefaults.EntityData.Leafs["version"] = types.YLeaf{"Version", dot1XDefaults.Version}
-    return &(dot1XDefaults.EntityData)
+    dot1xDefaults.EntityData.Children = types.NewOrderedMap()
+    dot1xDefaults.EntityData.Children.Append("auth-timers", types.YChild{"AuthTimers", &dot1xDefaults.AuthTimers})
+    dot1xDefaults.EntityData.Children.Append("supp-timers", types.YChild{"SuppTimers", &dot1xDefaults.SuppTimers})
+    dot1xDefaults.EntityData.Leafs = types.NewOrderedMap()
+    dot1xDefaults.EntityData.Leafs.Append("version", types.YLeaf{"Version", dot1xDefaults.Version})
+
+    dot1xDefaults.EntityData.YListKeys = []string {}
+
+    return &(dot1xDefaults.EntityData)
 }
 
-// Dot1X_Nodes_Node_Dot1XDefaults_AuthTimers
+// Dot1x_Nodes_Node_Dot1xDefaults_AuthTimers
 // Dot1x Authenticator default Timer values
-type Dot1X_Nodes_Node_Dot1XDefaults_AuthTimers struct {
+type Dot1x_Nodes_Node_Dot1xDefaults_AuthTimers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -455,7 +485,7 @@ type Dot1X_Nodes_Node_Dot1XDefaults_AuthTimers struct {
     ReauthPeriod interface{}
 }
 
-func (authTimers *Dot1X_Nodes_Node_Dot1XDefaults_AuthTimers) GetEntityData() *types.CommonEntityData {
+func (authTimers *Dot1x_Nodes_Node_Dot1xDefaults_AuthTimers) GetEntityData() *types.CommonEntityData {
     authTimers.EntityData.YFilter = authTimers.YFilter
     authTimers.EntityData.YangName = "auth-timers"
     authTimers.EntityData.BundleName = "cisco_ios_xr"
@@ -465,20 +495,23 @@ func (authTimers *Dot1X_Nodes_Node_Dot1XDefaults_AuthTimers) GetEntityData() *ty
     authTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authTimers.EntityData.Children = make(map[string]types.YChild)
-    authTimers.EntityData.Leafs = make(map[string]types.YLeaf)
-    authTimers.EntityData.Leafs["quiet-period"] = types.YLeaf{"QuietPeriod", authTimers.QuietPeriod}
-    authTimers.EntityData.Leafs["tx-period"] = types.YLeaf{"TxPeriod", authTimers.TxPeriod}
-    authTimers.EntityData.Leafs["max-reauth-req"] = types.YLeaf{"MaxReauthReq", authTimers.MaxReauthReq}
-    authTimers.EntityData.Leafs["supp-timeout"] = types.YLeaf{"SuppTimeout", authTimers.SuppTimeout}
-    authTimers.EntityData.Leafs["max-req"] = types.YLeaf{"MaxReq", authTimers.MaxReq}
-    authTimers.EntityData.Leafs["reauth-period"] = types.YLeaf{"ReauthPeriod", authTimers.ReauthPeriod}
+    authTimers.EntityData.Children = types.NewOrderedMap()
+    authTimers.EntityData.Leafs = types.NewOrderedMap()
+    authTimers.EntityData.Leafs.Append("quiet-period", types.YLeaf{"QuietPeriod", authTimers.QuietPeriod})
+    authTimers.EntityData.Leafs.Append("tx-period", types.YLeaf{"TxPeriod", authTimers.TxPeriod})
+    authTimers.EntityData.Leafs.Append("max-reauth-req", types.YLeaf{"MaxReauthReq", authTimers.MaxReauthReq})
+    authTimers.EntityData.Leafs.Append("supp-timeout", types.YLeaf{"SuppTimeout", authTimers.SuppTimeout})
+    authTimers.EntityData.Leafs.Append("max-req", types.YLeaf{"MaxReq", authTimers.MaxReq})
+    authTimers.EntityData.Leafs.Append("reauth-period", types.YLeaf{"ReauthPeriod", authTimers.ReauthPeriod})
+
+    authTimers.EntityData.YListKeys = []string {}
+
     return &(authTimers.EntityData)
 }
 
-// Dot1X_Nodes_Node_Dot1XDefaults_SuppTimers
+// Dot1x_Nodes_Node_Dot1xDefaults_SuppTimers
 // Dot1x Supllicant default Timer values
-type Dot1X_Nodes_Node_Dot1XDefaults_SuppTimers struct {
+type Dot1x_Nodes_Node_Dot1xDefaults_SuppTimers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -503,7 +536,7 @@ type Dot1X_Nodes_Node_Dot1XDefaults_SuppTimers struct {
     MaxStart interface{}
 }
 
-func (suppTimers *Dot1X_Nodes_Node_Dot1XDefaults_SuppTimers) GetEntityData() *types.CommonEntityData {
+func (suppTimers *Dot1x_Nodes_Node_Dot1xDefaults_SuppTimers) GetEntityData() *types.CommonEntityData {
     suppTimers.EntityData.YFilter = suppTimers.YFilter
     suppTimers.EntityData.YangName = "supp-timers"
     suppTimers.EntityData.BundleName = "cisco_ios_xr"
@@ -513,30 +546,33 @@ func (suppTimers *Dot1X_Nodes_Node_Dot1XDefaults_SuppTimers) GetEntityData() *ty
     suppTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppTimers.EntityData.Children = make(map[string]types.YChild)
-    suppTimers.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppTimers.EntityData.Leafs["auth-period"] = types.YLeaf{"AuthPeriod", suppTimers.AuthPeriod}
-    suppTimers.EntityData.Leafs["held-period"] = types.YLeaf{"HeldPeriod", suppTimers.HeldPeriod}
-    suppTimers.EntityData.Leafs["start-period"] = types.YLeaf{"StartPeriod", suppTimers.StartPeriod}
-    suppTimers.EntityData.Leafs["max-start"] = types.YLeaf{"MaxStart", suppTimers.MaxStart}
+    suppTimers.EntityData.Children = types.NewOrderedMap()
+    suppTimers.EntityData.Leafs = types.NewOrderedMap()
+    suppTimers.EntityData.Leafs.Append("auth-period", types.YLeaf{"AuthPeriod", suppTimers.AuthPeriod})
+    suppTimers.EntityData.Leafs.Append("held-period", types.YLeaf{"HeldPeriod", suppTimers.HeldPeriod})
+    suppTimers.EntityData.Leafs.Append("start-period", types.YLeaf{"StartPeriod", suppTimers.StartPeriod})
+    suppTimers.EntityData.Leafs.Append("max-start", types.YLeaf{"MaxStart", suppTimers.MaxStart})
+
+    suppTimers.EntityData.YListKeys = []string {}
+
     return &(suppTimers.EntityData)
 }
 
-// Dot1X_Nodes_Node_Statistics
+// Dot1x_Nodes_Node_Statistics
 // Dot1x Default Values
-type Dot1X_Nodes_Node_Statistics struct {
+type Dot1x_Nodes_Node_Statistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Global statistics.
-    GlStats Dot1X_Nodes_Node_Statistics_GlStats
+    GlStats Dot1x_Nodes_Node_Statistics_GlStats
 
     // dot1x interface statistics list. The type is slice of
-    // Dot1X_Nodes_Node_Statistics_IfStats.
-    IfStats []Dot1X_Nodes_Node_Statistics_IfStats
+    // Dot1x_Nodes_Node_Statistics_IfStats.
+    IfStats []*Dot1x_Nodes_Node_Statistics_IfStats
 }
 
-func (statistics *Dot1X_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
+func (statistics *Dot1x_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.YFilter = statistics.YFilter
     statistics.EntityData.YangName = "statistics"
     statistics.EntityData.BundleName = "cisco_ios_xr"
@@ -546,19 +582,22 @@ func (statistics *Dot1X_Nodes_Node_Statistics) GetEntityData() *types.CommonEnti
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["gl-stats"] = types.YChild{"GlStats", &statistics.GlStats}
-    statistics.EntityData.Children["if-stats"] = types.YChild{"IfStats", nil}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("gl-stats", types.YChild{"GlStats", &statistics.GlStats})
+    statistics.EntityData.Children.Append("if-stats", types.YChild{"IfStats", nil})
     for i := range statistics.IfStats {
-        statistics.EntityData.Children[types.GetSegmentPath(&statistics.IfStats[i])] = types.YChild{"IfStats", &statistics.IfStats[i]}
+        statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.IfStats[i]), types.YChild{"IfStats", statistics.IfStats[i]})
     }
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
-// Dot1X_Nodes_Node_Statistics_GlStats
+// Dot1x_Nodes_Node_Statistics_GlStats
 // Global statistics
-type Dot1X_Nodes_Node_Statistics_GlStats struct {
+type Dot1x_Nodes_Node_Statistics_GlStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -572,7 +611,7 @@ type Dot1X_Nodes_Node_Statistics_GlStats struct {
     RxNoIdb interface{}
 }
 
-func (glStats *Dot1X_Nodes_Node_Statistics_GlStats) GetEntityData() *types.CommonEntityData {
+func (glStats *Dot1x_Nodes_Node_Statistics_GlStats) GetEntityData() *types.CommonEntityData {
     glStats.EntityData.YFilter = glStats.YFilter
     glStats.EntityData.YangName = "gl-stats"
     glStats.EntityData.BundleName = "cisco_ios_xr"
@@ -582,17 +621,20 @@ func (glStats *Dot1X_Nodes_Node_Statistics_GlStats) GetEntityData() *types.Commo
     glStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     glStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    glStats.EntityData.Children = make(map[string]types.YChild)
-    glStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    glStats.EntityData.Leafs["tx-total"] = types.YLeaf{"TxTotal", glStats.TxTotal}
-    glStats.EntityData.Leafs["rx-total"] = types.YLeaf{"RxTotal", glStats.RxTotal}
-    glStats.EntityData.Leafs["rx-no-idb"] = types.YLeaf{"RxNoIdb", glStats.RxNoIdb}
+    glStats.EntityData.Children = types.NewOrderedMap()
+    glStats.EntityData.Leafs = types.NewOrderedMap()
+    glStats.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", glStats.TxTotal})
+    glStats.EntityData.Leafs.Append("rx-total", types.YLeaf{"RxTotal", glStats.RxTotal})
+    glStats.EntityData.Leafs.Append("rx-no-idb", types.YLeaf{"RxNoIdb", glStats.RxNoIdb})
+
+    glStats.EntityData.YListKeys = []string {}
+
     return &(glStats.EntityData)
 }
 
-// Dot1X_Nodes_Node_Statistics_IfStats
+// Dot1x_Nodes_Node_Statistics_IfStats
 // dot1x interface statistics list
-type Dot1X_Nodes_Node_Statistics_IfStats struct {
+type Dot1x_Nodes_Node_Statistics_IfStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -603,16 +645,16 @@ type Dot1X_Nodes_Node_Statistics_IfStats struct {
     Pae interface{}
 
     // Dot1x interface database Statistics.
-    Idb Dot1X_Nodes_Node_Statistics_IfStats_Idb
+    Idb Dot1x_Nodes_Node_Statistics_IfStats_Idb
 
     // Dot1x Authenticator Port Statistics.
-    Auth Dot1X_Nodes_Node_Statistics_IfStats_Auth
+    Auth Dot1x_Nodes_Node_Statistics_IfStats_Auth
 
     // Dot1x Supplicant Port Statistics.
-    Supp Dot1X_Nodes_Node_Statistics_IfStats_Supp
+    Supp Dot1x_Nodes_Node_Statistics_IfStats_Supp
 }
 
-func (ifStats *Dot1X_Nodes_Node_Statistics_IfStats) GetEntityData() *types.CommonEntityData {
+func (ifStats *Dot1x_Nodes_Node_Statistics_IfStats) GetEntityData() *types.CommonEntityData {
     ifStats.EntityData.YFilter = ifStats.YFilter
     ifStats.EntityData.YangName = "if-stats"
     ifStats.EntityData.BundleName = "cisco_ios_xr"
@@ -622,19 +664,22 @@ func (ifStats *Dot1X_Nodes_Node_Statistics_IfStats) GetEntityData() *types.Commo
     ifStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ifStats.EntityData.Children = make(map[string]types.YChild)
-    ifStats.EntityData.Children["idb"] = types.YChild{"Idb", &ifStats.Idb}
-    ifStats.EntityData.Children["auth"] = types.YChild{"Auth", &ifStats.Auth}
-    ifStats.EntityData.Children["supp"] = types.YChild{"Supp", &ifStats.Supp}
-    ifStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    ifStats.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ifStats.InterfaceName}
-    ifStats.EntityData.Leafs["pae"] = types.YLeaf{"Pae", ifStats.Pae}
+    ifStats.EntityData.Children = types.NewOrderedMap()
+    ifStats.EntityData.Children.Append("idb", types.YChild{"Idb", &ifStats.Idb})
+    ifStats.EntityData.Children.Append("auth", types.YChild{"Auth", &ifStats.Auth})
+    ifStats.EntityData.Children.Append("supp", types.YChild{"Supp", &ifStats.Supp})
+    ifStats.EntityData.Leafs = types.NewOrderedMap()
+    ifStats.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ifStats.InterfaceName})
+    ifStats.EntityData.Leafs.Append("pae", types.YLeaf{"Pae", ifStats.Pae})
+
+    ifStats.EntityData.YListKeys = []string {}
+
     return &(ifStats.EntityData)
 }
 
-// Dot1X_Nodes_Node_Statistics_IfStats_Idb
+// Dot1x_Nodes_Node_Statistics_IfStats_Idb
 // Dot1x interface database Statistics
-type Dot1X_Nodes_Node_Statistics_IfStats_Idb struct {
+type Dot1x_Nodes_Node_Statistics_IfStats_Idb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -648,7 +693,7 @@ type Dot1X_Nodes_Node_Statistics_IfStats_Idb struct {
     NoRxOnIntfDown interface{}
 }
 
-func (idb *Dot1X_Nodes_Node_Statistics_IfStats_Idb) GetEntityData() *types.CommonEntityData {
+func (idb *Dot1x_Nodes_Node_Statistics_IfStats_Idb) GetEntityData() *types.CommonEntityData {
     idb.EntityData.YFilter = idb.YFilter
     idb.EntityData.YangName = "idb"
     idb.EntityData.BundleName = "cisco_ios_xr"
@@ -658,17 +703,20 @@ func (idb *Dot1X_Nodes_Node_Statistics_IfStats_Idb) GetEntityData() *types.Commo
     idb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    idb.EntityData.Children = make(map[string]types.YChild)
-    idb.EntityData.Leafs = make(map[string]types.YLeaf)
-    idb.EntityData.Leafs["rx-total"] = types.YLeaf{"RxTotal", idb.RxTotal}
-    idb.EntityData.Leafs["tx-total"] = types.YLeaf{"TxTotal", idb.TxTotal}
-    idb.EntityData.Leafs["no-rx-on-intf-down"] = types.YLeaf{"NoRxOnIntfDown", idb.NoRxOnIntfDown}
+    idb.EntityData.Children = types.NewOrderedMap()
+    idb.EntityData.Leafs = types.NewOrderedMap()
+    idb.EntityData.Leafs.Append("rx-total", types.YLeaf{"RxTotal", idb.RxTotal})
+    idb.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", idb.TxTotal})
+    idb.EntityData.Leafs.Append("no-rx-on-intf-down", types.YLeaf{"NoRxOnIntfDown", idb.NoRxOnIntfDown})
+
+    idb.EntityData.YListKeys = []string {}
+
     return &(idb.EntityData)
 }
 
-// Dot1X_Nodes_Node_Statistics_IfStats_Auth
+// Dot1x_Nodes_Node_Statistics_IfStats_Auth
 // Dot1x Authenticator Port Statistics
-type Dot1X_Nodes_Node_Statistics_IfStats_Auth struct {
+type Dot1x_Nodes_Node_Statistics_IfStats_Auth struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -706,7 +754,7 @@ type Dot1X_Nodes_Node_Statistics_IfStats_Auth struct {
     TxTotal interface{}
 }
 
-func (auth *Dot1X_Nodes_Node_Statistics_IfStats_Auth) GetEntityData() *types.CommonEntityData {
+func (auth *Dot1x_Nodes_Node_Statistics_IfStats_Auth) GetEntityData() *types.CommonEntityData {
     auth.EntityData.YFilter = auth.YFilter
     auth.EntityData.YangName = "auth"
     auth.EntityData.BundleName = "cisco_ios_xr"
@@ -716,25 +764,28 @@ func (auth *Dot1X_Nodes_Node_Statistics_IfStats_Auth) GetEntityData() *types.Com
     auth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    auth.EntityData.Children = make(map[string]types.YChild)
-    auth.EntityData.Leafs = make(map[string]types.YLeaf)
-    auth.EntityData.Leafs["rx-start"] = types.YLeaf{"RxStart", auth.RxStart}
-    auth.EntityData.Leafs["rx-logoff"] = types.YLeaf{"RxLogoff", auth.RxLogoff}
-    auth.EntityData.Leafs["rx-resp"] = types.YLeaf{"RxResp", auth.RxResp}
-    auth.EntityData.Leafs["rx-resp-id"] = types.YLeaf{"RxRespId", auth.RxRespId}
-    auth.EntityData.Leafs["rx-invalid"] = types.YLeaf{"RxInvalid", auth.RxInvalid}
-    auth.EntityData.Leafs["rx-len-err"] = types.YLeaf{"RxLenErr", auth.RxLenErr}
-    auth.EntityData.Leafs["rx-my-mac-err"] = types.YLeaf{"RxMyMacErr", auth.RxMyMacErr}
-    auth.EntityData.Leafs["rx-total"] = types.YLeaf{"RxTotal", auth.RxTotal}
-    auth.EntityData.Leafs["tx-req"] = types.YLeaf{"TxReq", auth.TxReq}
-    auth.EntityData.Leafs["tx-reqid"] = types.YLeaf{"TxReqid", auth.TxReqid}
-    auth.EntityData.Leafs["tx-total"] = types.YLeaf{"TxTotal", auth.TxTotal}
+    auth.EntityData.Children = types.NewOrderedMap()
+    auth.EntityData.Leafs = types.NewOrderedMap()
+    auth.EntityData.Leafs.Append("rx-start", types.YLeaf{"RxStart", auth.RxStart})
+    auth.EntityData.Leafs.Append("rx-logoff", types.YLeaf{"RxLogoff", auth.RxLogoff})
+    auth.EntityData.Leafs.Append("rx-resp", types.YLeaf{"RxResp", auth.RxResp})
+    auth.EntityData.Leafs.Append("rx-resp-id", types.YLeaf{"RxRespId", auth.RxRespId})
+    auth.EntityData.Leafs.Append("rx-invalid", types.YLeaf{"RxInvalid", auth.RxInvalid})
+    auth.EntityData.Leafs.Append("rx-len-err", types.YLeaf{"RxLenErr", auth.RxLenErr})
+    auth.EntityData.Leafs.Append("rx-my-mac-err", types.YLeaf{"RxMyMacErr", auth.RxMyMacErr})
+    auth.EntityData.Leafs.Append("rx-total", types.YLeaf{"RxTotal", auth.RxTotal})
+    auth.EntityData.Leafs.Append("tx-req", types.YLeaf{"TxReq", auth.TxReq})
+    auth.EntityData.Leafs.Append("tx-reqid", types.YLeaf{"TxReqid", auth.TxReqid})
+    auth.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", auth.TxTotal})
+
+    auth.EntityData.YListKeys = []string {}
+
     return &(auth.EntityData)
 }
 
-// Dot1X_Nodes_Node_Statistics_IfStats_Supp
+// Dot1x_Nodes_Node_Statistics_IfStats_Supp
 // Dot1x Supplicant Port Statistics
-type Dot1X_Nodes_Node_Statistics_IfStats_Supp struct {
+type Dot1x_Nodes_Node_Statistics_IfStats_Supp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -766,7 +817,7 @@ type Dot1X_Nodes_Node_Statistics_IfStats_Supp struct {
     TxTotal interface{}
 }
 
-func (supp *Dot1X_Nodes_Node_Statistics_IfStats_Supp) GetEntityData() *types.CommonEntityData {
+func (supp *Dot1x_Nodes_Node_Statistics_IfStats_Supp) GetEntityData() *types.CommonEntityData {
     supp.EntityData.YFilter = supp.YFilter
     supp.EntityData.YangName = "supp"
     supp.EntityData.BundleName = "cisco_ios_xr"
@@ -776,31 +827,34 @@ func (supp *Dot1X_Nodes_Node_Statistics_IfStats_Supp) GetEntityData() *types.Com
     supp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     supp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    supp.EntityData.Children = make(map[string]types.YChild)
-    supp.EntityData.Leafs = make(map[string]types.YLeaf)
-    supp.EntityData.Leafs["rx-req"] = types.YLeaf{"RxReq", supp.RxReq}
-    supp.EntityData.Leafs["rx-invalid"] = types.YLeaf{"RxInvalid", supp.RxInvalid}
-    supp.EntityData.Leafs["rx-len-err"] = types.YLeaf{"RxLenErr", supp.RxLenErr}
-    supp.EntityData.Leafs["rx-my-mac-err"] = types.YLeaf{"RxMyMacErr", supp.RxMyMacErr}
-    supp.EntityData.Leafs["rx-total"] = types.YLeaf{"RxTotal", supp.RxTotal}
-    supp.EntityData.Leafs["tx-start"] = types.YLeaf{"TxStart", supp.TxStart}
-    supp.EntityData.Leafs["tx-logoff"] = types.YLeaf{"TxLogoff", supp.TxLogoff}
-    supp.EntityData.Leafs["tx-resp"] = types.YLeaf{"TxResp", supp.TxResp}
-    supp.EntityData.Leafs["tx-total"] = types.YLeaf{"TxTotal", supp.TxTotal}
+    supp.EntityData.Children = types.NewOrderedMap()
+    supp.EntityData.Leafs = types.NewOrderedMap()
+    supp.EntityData.Leafs.Append("rx-req", types.YLeaf{"RxReq", supp.RxReq})
+    supp.EntityData.Leafs.Append("rx-invalid", types.YLeaf{"RxInvalid", supp.RxInvalid})
+    supp.EntityData.Leafs.Append("rx-len-err", types.YLeaf{"RxLenErr", supp.RxLenErr})
+    supp.EntityData.Leafs.Append("rx-my-mac-err", types.YLeaf{"RxMyMacErr", supp.RxMyMacErr})
+    supp.EntityData.Leafs.Append("rx-total", types.YLeaf{"RxTotal", supp.RxTotal})
+    supp.EntityData.Leafs.Append("tx-start", types.YLeaf{"TxStart", supp.TxStart})
+    supp.EntityData.Leafs.Append("tx-logoff", types.YLeaf{"TxLogoff", supp.TxLogoff})
+    supp.EntityData.Leafs.Append("tx-resp", types.YLeaf{"TxResp", supp.TxResp})
+    supp.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", supp.TxTotal})
+
+    supp.EntityData.YListKeys = []string {}
+
     return &(supp.EntityData)
 }
 
-// Dot1X_Session
+// Dot1x_Session
 // Dot1x operational data
-type Dot1X_Session struct {
+type Dot1x_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interfaces with Dot1x.
-    InterfaceSessions Dot1X_Session_InterfaceSessions
+    InterfaceSessions Dot1x_Session_InterfaceSessions
 }
 
-func (session *Dot1X_Session) GetEntityData() *types.CommonEntityData {
+func (session *Dot1x_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.YFilter = session.YFilter
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
@@ -810,24 +864,27 @@ func (session *Dot1X_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Children["interface-sessions"] = types.YChild{"InterfaceSessions", &session.InterfaceSessions}
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Children.Append("interface-sessions", types.YChild{"InterfaceSessions", &session.InterfaceSessions})
+    session.EntityData.Leafs = types.NewOrderedMap()
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 
-// Dot1X_Session_InterfaceSessions
+// Dot1x_Session_InterfaceSessions
 // Interfaces with Dot1x
-type Dot1X_Session_InterfaceSessions struct {
+type Dot1x_Session_InterfaceSessions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dot1x Data for that Interface. The type is slice of
-    // Dot1X_Session_InterfaceSessions_InterfaceSession.
-    InterfaceSession []Dot1X_Session_InterfaceSessions_InterfaceSession
+    // Dot1x_Session_InterfaceSessions_InterfaceSession.
+    InterfaceSession []*Dot1x_Session_InterfaceSessions_InterfaceSession
 }
 
-func (interfaceSessions *Dot1X_Session_InterfaceSessions) GetEntityData() *types.CommonEntityData {
+func (interfaceSessions *Dot1x_Session_InterfaceSessions) GetEntityData() *types.CommonEntityData {
     interfaceSessions.EntityData.YFilter = interfaceSessions.YFilter
     interfaceSessions.EntityData.YangName = "interface-sessions"
     interfaceSessions.EntityData.BundleName = "cisco_ios_xr"
@@ -837,23 +894,26 @@ func (interfaceSessions *Dot1X_Session_InterfaceSessions) GetEntityData() *types
     interfaceSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceSessions.EntityData.Children = make(map[string]types.YChild)
-    interfaceSessions.EntityData.Children["interface-session"] = types.YChild{"InterfaceSession", nil}
+    interfaceSessions.EntityData.Children = types.NewOrderedMap()
+    interfaceSessions.EntityData.Children.Append("interface-session", types.YChild{"InterfaceSession", nil})
     for i := range interfaceSessions.InterfaceSession {
-        interfaceSessions.EntityData.Children[types.GetSegmentPath(&interfaceSessions.InterfaceSession[i])] = types.YChild{"InterfaceSession", &interfaceSessions.InterfaceSession[i]}
+        interfaceSessions.EntityData.Children.Append(types.GetSegmentPath(interfaceSessions.InterfaceSession[i]), types.YChild{"InterfaceSession", interfaceSessions.InterfaceSession[i]})
     }
-    interfaceSessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceSessions.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceSessions.EntityData.YListKeys = []string {}
+
     return &(interfaceSessions.EntityData)
 }
 
-// Dot1X_Session_InterfaceSessions_InterfaceSession
+// Dot1x_Session_InterfaceSessions_InterfaceSession
 // Dot1x Data for that Interface
-type Dot1X_Session_InterfaceSessions_InterfaceSession struct {
+type Dot1x_Session_InterfaceSessions_InterfaceSession struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Name interface{}
 
     // Interface Display name . The type is string.
@@ -872,38 +932,41 @@ type Dot1X_Session_InterfaceSessions_InterfaceSession struct {
     Ethertype interface{}
 
     // Dot1x interface Info.
-    IntfInfo Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo
+    IntfInfo Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo
 
     // MKA session secure status.
-    MkaStatusInfo Dot1X_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo
+    MkaStatusInfo Dot1x_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo
 }
 
-func (interfaceSession *Dot1X_Session_InterfaceSessions_InterfaceSession) GetEntityData() *types.CommonEntityData {
+func (interfaceSession *Dot1x_Session_InterfaceSessions_InterfaceSession) GetEntityData() *types.CommonEntityData {
     interfaceSession.EntityData.YFilter = interfaceSession.YFilter
     interfaceSession.EntityData.YangName = "interface-session"
     interfaceSession.EntityData.BundleName = "cisco_ios_xr"
     interfaceSession.EntityData.ParentYangName = "interface-sessions"
-    interfaceSession.EntityData.SegmentPath = "interface-session" + "[name='" + fmt.Sprintf("%v", interfaceSession.Name) + "']"
+    interfaceSession.EntityData.SegmentPath = "interface-session" + types.AddKeyToken(interfaceSession.Name, "name")
     interfaceSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceSession.EntityData.Children = make(map[string]types.YChild)
-    interfaceSession.EntityData.Children["intf-info"] = types.YChild{"IntfInfo", &interfaceSession.IntfInfo}
-    interfaceSession.EntityData.Children["mka-status-info"] = types.YChild{"MkaStatusInfo", &interfaceSession.MkaStatusInfo}
-    interfaceSession.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceSession.EntityData.Leafs["name"] = types.YLeaf{"Name", interfaceSession.Name}
-    interfaceSession.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceSession.InterfaceName}
-    interfaceSession.EntityData.Leafs["interface-sname"] = types.YLeaf{"InterfaceSname", interfaceSession.InterfaceSname}
-    interfaceSession.EntityData.Leafs["if-handle"] = types.YLeaf{"IfHandle", interfaceSession.IfHandle}
-    interfaceSession.EntityData.Leafs["mac"] = types.YLeaf{"Mac", interfaceSession.Mac}
-    interfaceSession.EntityData.Leafs["ethertype"] = types.YLeaf{"Ethertype", interfaceSession.Ethertype}
+    interfaceSession.EntityData.Children = types.NewOrderedMap()
+    interfaceSession.EntityData.Children.Append("intf-info", types.YChild{"IntfInfo", &interfaceSession.IntfInfo})
+    interfaceSession.EntityData.Children.Append("mka-status-info", types.YChild{"MkaStatusInfo", &interfaceSession.MkaStatusInfo})
+    interfaceSession.EntityData.Leafs = types.NewOrderedMap()
+    interfaceSession.EntityData.Leafs.Append("name", types.YLeaf{"Name", interfaceSession.Name})
+    interfaceSession.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceSession.InterfaceName})
+    interfaceSession.EntityData.Leafs.Append("interface-sname", types.YLeaf{"InterfaceSname", interfaceSession.InterfaceSname})
+    interfaceSession.EntityData.Leafs.Append("if-handle", types.YLeaf{"IfHandle", interfaceSession.IfHandle})
+    interfaceSession.EntityData.Leafs.Append("mac", types.YLeaf{"Mac", interfaceSession.Mac})
+    interfaceSession.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", interfaceSession.Ethertype})
+
+    interfaceSession.EntityData.YListKeys = []string {"Name"}
+
     return &(interfaceSession.EntityData)
 }
 
-// Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo
+// Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo
 // Dot1x interface Info
-type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo struct {
+type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -914,16 +977,16 @@ type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo struct {
     PortStatus interface{}
 
     // Dot1x Profile. The type is string.
-    Dot1XProfile interface{}
+    Dot1xProfile interface{}
 
     // Dot1x Authenticator info.
-    AuthInfo Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo
+    AuthInfo Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo
 
     // Dot1x Supplicant info.
-    SuppInfo Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo
+    SuppInfo Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo
 }
 
-func (intfInfo *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo) GetEntityData() *types.CommonEntityData {
+func (intfInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo) GetEntityData() *types.CommonEntityData {
     intfInfo.EntityData.YFilter = intfInfo.YFilter
     intfInfo.EntityData.YangName = "intf-info"
     intfInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -933,19 +996,22 @@ func (intfInfo *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo) GetEn
     intfInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    intfInfo.EntityData.Children = make(map[string]types.YChild)
-    intfInfo.EntityData.Children["auth-info"] = types.YChild{"AuthInfo", &intfInfo.AuthInfo}
-    intfInfo.EntityData.Children["supp-info"] = types.YChild{"SuppInfo", &intfInfo.SuppInfo}
-    intfInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    intfInfo.EntityData.Leafs["pae"] = types.YLeaf{"Pae", intfInfo.Pae}
-    intfInfo.EntityData.Leafs["port-status"] = types.YLeaf{"PortStatus", intfInfo.PortStatus}
-    intfInfo.EntityData.Leafs["dot1x-profile"] = types.YLeaf{"Dot1XProfile", intfInfo.Dot1XProfile}
+    intfInfo.EntityData.Children = types.NewOrderedMap()
+    intfInfo.EntityData.Children.Append("auth-info", types.YChild{"AuthInfo", &intfInfo.AuthInfo})
+    intfInfo.EntityData.Children.Append("supp-info", types.YChild{"SuppInfo", &intfInfo.SuppInfo})
+    intfInfo.EntityData.Leafs = types.NewOrderedMap()
+    intfInfo.EntityData.Leafs.Append("pae", types.YLeaf{"Pae", intfInfo.Pae})
+    intfInfo.EntityData.Leafs.Append("port-status", types.YLeaf{"PortStatus", intfInfo.PortStatus})
+    intfInfo.EntityData.Leafs.Append("dot1x-profile", types.YLeaf{"Dot1xProfile", intfInfo.Dot1xProfile})
+
+    intfInfo.EntityData.YListKeys = []string {}
+
     return &(intfInfo.EntityData)
 }
 
-// Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo
+// Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo
 // Dot1x Authenticator info
-type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo struct {
+type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -956,11 +1022,11 @@ type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo struct {
     ConfigDependency interface{}
 
     // Authenticator client list. The type is slice of
-    // Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client.
-    Client []Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client
+    // Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client.
+    Client []*Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client
 }
 
-func (authInfo *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo) GetEntityData() *types.CommonEntityData {
+func (authInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo) GetEntityData() *types.CommonEntityData {
     authInfo.EntityData.YFilter = authInfo.YFilter
     authInfo.EntityData.YangName = "auth-info"
     authInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -970,20 +1036,23 @@ func (authInfo *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthIn
     authInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authInfo.EntityData.Children = make(map[string]types.YChild)
-    authInfo.EntityData.Children["client"] = types.YChild{"Client", nil}
+    authInfo.EntityData.Children = types.NewOrderedMap()
+    authInfo.EntityData.Children.Append("client", types.YChild{"Client", nil})
     for i := range authInfo.Client {
-        authInfo.EntityData.Children[types.GetSegmentPath(&authInfo.Client[i])] = types.YChild{"Client", &authInfo.Client[i]}
+        authInfo.EntityData.Children.Append(types.GetSegmentPath(authInfo.Client[i]), types.YChild{"Client", authInfo.Client[i]})
     }
-    authInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    authInfo.EntityData.Leafs["reauth"] = types.YLeaf{"Reauth", authInfo.Reauth}
-    authInfo.EntityData.Leafs["config-dependency"] = types.YLeaf{"ConfigDependency", authInfo.ConfigDependency}
+    authInfo.EntityData.Leafs = types.NewOrderedMap()
+    authInfo.EntityData.Leafs.Append("reauth", types.YLeaf{"Reauth", authInfo.Reauth})
+    authInfo.EntityData.Leafs.Append("config-dependency", types.YLeaf{"ConfigDependency", authInfo.ConfigDependency})
+
+    authInfo.EntityData.YListKeys = []string {}
+
     return &(authInfo.EntityData)
 }
 
-// Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client
+// Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client
 // Authenticator client list
-type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client struct {
+type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1001,9 +1070,12 @@ type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client s
 
     // Last Authenticated Timestamp (formatted). The type is string.
     LastAuthTime interface{}
+
+    // Last Authenticated Server. The type is string.
+    LastAuthServer interface{}
 }
 
-func (client *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client) GetEntityData() *types.CommonEntityData {
+func (client *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.YFilter = client.YFilter
     client.EntityData.YangName = "client"
     client.EntityData.BundleName = "cisco_ios_xr"
@@ -1013,19 +1085,23 @@ func (client *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    client.EntityData.Children = make(map[string]types.YChild)
-    client.EntityData.Leafs = make(map[string]types.YLeaf)
-    client.EntityData.Leafs["mac"] = types.YLeaf{"Mac", client.Mac}
-    client.EntityData.Leafs["auth-sm-state"] = types.YLeaf{"AuthSmState", client.AuthSmState}
-    client.EntityData.Leafs["auth-bend-sm-state"] = types.YLeaf{"AuthBendSmState", client.AuthBendSmState}
-    client.EntityData.Leafs["time-to-next-reauth"] = types.YLeaf{"TimeToNextReauth", client.TimeToNextReauth}
-    client.EntityData.Leafs["last-auth-time"] = types.YLeaf{"LastAuthTime", client.LastAuthTime}
+    client.EntityData.Children = types.NewOrderedMap()
+    client.EntityData.Leafs = types.NewOrderedMap()
+    client.EntityData.Leafs.Append("mac", types.YLeaf{"Mac", client.Mac})
+    client.EntityData.Leafs.Append("auth-sm-state", types.YLeaf{"AuthSmState", client.AuthSmState})
+    client.EntityData.Leafs.Append("auth-bend-sm-state", types.YLeaf{"AuthBendSmState", client.AuthBendSmState})
+    client.EntityData.Leafs.Append("time-to-next-reauth", types.YLeaf{"TimeToNextReauth", client.TimeToNextReauth})
+    client.EntityData.Leafs.Append("last-auth-time", types.YLeaf{"LastAuthTime", client.LastAuthTime})
+    client.EntityData.Leafs.Append("last-auth-server", types.YLeaf{"LastAuthServer", client.LastAuthServer})
+
+    client.EntityData.YListKeys = []string {}
+
     return &(client.EntityData)
 }
 
-// Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo
+// Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo
 // Dot1x Supplicant info
-type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo struct {
+type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1036,11 +1112,11 @@ type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo struct {
     ConfigDependency interface{}
 
     // Supp Client info. The type is slice of
-    // Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client.
-    Client []Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client
+    // Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client.
+    Client []*Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client
 }
 
-func (suppInfo *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo) GetEntityData() *types.CommonEntityData {
+func (suppInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo) GetEntityData() *types.CommonEntityData {
     suppInfo.EntityData.YFilter = suppInfo.YFilter
     suppInfo.EntityData.YangName = "supp-info"
     suppInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -1050,20 +1126,23 @@ func (suppInfo *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppIn
     suppInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppInfo.EntityData.Children = make(map[string]types.YChild)
-    suppInfo.EntityData.Children["client"] = types.YChild{"Client", nil}
+    suppInfo.EntityData.Children = types.NewOrderedMap()
+    suppInfo.EntityData.Children.Append("client", types.YChild{"Client", nil})
     for i := range suppInfo.Client {
-        suppInfo.EntityData.Children[types.GetSegmentPath(&suppInfo.Client[i])] = types.YChild{"Client", &suppInfo.Client[i]}
+        suppInfo.EntityData.Children.Append(types.GetSegmentPath(suppInfo.Client[i]), types.YChild{"Client", suppInfo.Client[i]})
     }
-    suppInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppInfo.EntityData.Leafs["eap-profile"] = types.YLeaf{"EapProfile", suppInfo.EapProfile}
-    suppInfo.EntityData.Leafs["config-dependency"] = types.YLeaf{"ConfigDependency", suppInfo.ConfigDependency}
+    suppInfo.EntityData.Leafs = types.NewOrderedMap()
+    suppInfo.EntityData.Leafs.Append("eap-profile", types.YLeaf{"EapProfile", suppInfo.EapProfile})
+    suppInfo.EntityData.Leafs.Append("config-dependency", types.YLeaf{"ConfigDependency", suppInfo.ConfigDependency})
+
+    suppInfo.EntityData.YListKeys = []string {}
+
     return &(suppInfo.EntityData)
 }
 
-// Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client
+// Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client
 // Supp Client info
-type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client struct {
+type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1083,7 +1162,7 @@ type Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client s
     AuthBendSmState interface{}
 }
 
-func (client *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client) GetEntityData() *types.CommonEntityData {
+func (client *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.YFilter = client.YFilter
     client.EntityData.YangName = "client"
     client.EntityData.BundleName = "cisco_ios_xr"
@@ -1093,19 +1172,22 @@ func (client *Dot1X_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    client.EntityData.Children = make(map[string]types.YChild)
-    client.EntityData.Leafs = make(map[string]types.YLeaf)
-    client.EntityData.Leafs["mac"] = types.YLeaf{"Mac", client.Mac}
-    client.EntityData.Leafs["eap-method"] = types.YLeaf{"EapMethod", client.EapMethod}
-    client.EntityData.Leafs["last-auth-time"] = types.YLeaf{"LastAuthTime", client.LastAuthTime}
-    client.EntityData.Leafs["auth-sm-state"] = types.YLeaf{"AuthSmState", client.AuthSmState}
-    client.EntityData.Leafs["auth-bend-sm-state"] = types.YLeaf{"AuthBendSmState", client.AuthBendSmState}
+    client.EntityData.Children = types.NewOrderedMap()
+    client.EntityData.Leafs = types.NewOrderedMap()
+    client.EntityData.Leafs.Append("mac", types.YLeaf{"Mac", client.Mac})
+    client.EntityData.Leafs.Append("eap-method", types.YLeaf{"EapMethod", client.EapMethod})
+    client.EntityData.Leafs.Append("last-auth-time", types.YLeaf{"LastAuthTime", client.LastAuthTime})
+    client.EntityData.Leafs.Append("auth-sm-state", types.YLeaf{"AuthSmState", client.AuthSmState})
+    client.EntityData.Leafs.Append("auth-bend-sm-state", types.YLeaf{"AuthBendSmState", client.AuthBendSmState})
+
+    client.EntityData.YListKeys = []string {}
+
     return &(client.EntityData)
 }
 
-// Dot1X_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo
+// Dot1x_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo
 // MKA session secure status
-type Dot1X_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo struct {
+type Dot1x_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1128,7 +1210,7 @@ type Dot1X_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo struct {
     MkaResponseTime interface{}
 }
 
-func (mkaStatusInfo *Dot1X_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo) GetEntityData() *types.CommonEntityData {
+func (mkaStatusInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_MkaStatusInfo) GetEntityData() *types.CommonEntityData {
     mkaStatusInfo.EntityData.YFilter = mkaStatusInfo.YFilter
     mkaStatusInfo.EntityData.YangName = "mka-status-info"
     mkaStatusInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -1138,13 +1220,16 @@ func (mkaStatusInfo *Dot1X_Session_InterfaceSessions_InterfaceSession_MkaStatusI
     mkaStatusInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mkaStatusInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mkaStatusInfo.EntityData.Children = make(map[string]types.YChild)
-    mkaStatusInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    mkaStatusInfo.EntityData.Leafs["tie-break-role"] = types.YLeaf{"TieBreakRole", mkaStatusInfo.TieBreakRole}
-    mkaStatusInfo.EntityData.Leafs["eap-based-macsec"] = types.YLeaf{"EapBasedMacsec", mkaStatusInfo.EapBasedMacsec}
-    mkaStatusInfo.EntityData.Leafs["mka-start-time"] = types.YLeaf{"MkaStartTime", mkaStatusInfo.MkaStartTime}
-    mkaStatusInfo.EntityData.Leafs["mka-stop-time"] = types.YLeaf{"MkaStopTime", mkaStatusInfo.MkaStopTime}
-    mkaStatusInfo.EntityData.Leafs["mka-response-time"] = types.YLeaf{"MkaResponseTime", mkaStatusInfo.MkaResponseTime}
+    mkaStatusInfo.EntityData.Children = types.NewOrderedMap()
+    mkaStatusInfo.EntityData.Leafs = types.NewOrderedMap()
+    mkaStatusInfo.EntityData.Leafs.Append("tie-break-role", types.YLeaf{"TieBreakRole", mkaStatusInfo.TieBreakRole})
+    mkaStatusInfo.EntityData.Leafs.Append("eap-based-macsec", types.YLeaf{"EapBasedMacsec", mkaStatusInfo.EapBasedMacsec})
+    mkaStatusInfo.EntityData.Leafs.Append("mka-start-time", types.YLeaf{"MkaStartTime", mkaStatusInfo.MkaStartTime})
+    mkaStatusInfo.EntityData.Leafs.Append("mka-stop-time", types.YLeaf{"MkaStopTime", mkaStatusInfo.MkaStopTime})
+    mkaStatusInfo.EntityData.Leafs.Append("mka-response-time", types.YLeaf{"MkaResponseTime", mkaStatusInfo.MkaResponseTime})
+
+    mkaStatusInfo.EntityData.YListKeys = []string {}
+
     return &(mkaStatusInfo.EntityData)
 }
 

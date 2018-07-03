@@ -23,19 +23,19 @@ type CISCOBULKFILEMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cbfdefine CISCOBULKFILEMIB_Cbfdefine
+    CbfDefine CISCOBULKFILEMIB_CbfDefine
 
     
-    Cbfstatus CISCOBULKFILEMIB_Cbfstatus
+    CbfStatus CISCOBULKFILEMIB_CbfStatus
 
     // A table of bulk file definition and creation controls.
-    Cbfdefinefiletable CISCOBULKFILEMIB_Cbfdefinefiletable
+    CbfDefineFileTable CISCOBULKFILEMIB_CbfDefineFileTable
 
     // A table of objects to go in bulk files.
-    Cbfdefineobjecttable CISCOBULKFILEMIB_Cbfdefineobjecttable
+    CbfDefineObjectTable CISCOBULKFILEMIB_CbfDefineObjectTable
 
     // A table of bulk file status.
-    Cbfstatusfiletable CISCOBULKFILEMIB_Cbfstatusfiletable
+    CbfStatusFileTable CISCOBULKFILEMIB_CbfStatusFileTable
 }
 
 func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetEntityData() *types.CommonEntityData {
@@ -48,18 +48,21 @@ func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetEntityData() *types.CommonEntityDat
     cISCOBULKFILEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOBULKFILEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOBULKFILEMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOBULKFILEMIB.EntityData.Children["cbfDefine"] = types.YChild{"Cbfdefine", &cISCOBULKFILEMIB.Cbfdefine}
-    cISCOBULKFILEMIB.EntityData.Children["cbfStatus"] = types.YChild{"Cbfstatus", &cISCOBULKFILEMIB.Cbfstatus}
-    cISCOBULKFILEMIB.EntityData.Children["cbfDefineFileTable"] = types.YChild{"Cbfdefinefiletable", &cISCOBULKFILEMIB.Cbfdefinefiletable}
-    cISCOBULKFILEMIB.EntityData.Children["cbfDefineObjectTable"] = types.YChild{"Cbfdefineobjecttable", &cISCOBULKFILEMIB.Cbfdefineobjecttable}
-    cISCOBULKFILEMIB.EntityData.Children["cbfStatusFileTable"] = types.YChild{"Cbfstatusfiletable", &cISCOBULKFILEMIB.Cbfstatusfiletable}
-    cISCOBULKFILEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOBULKFILEMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOBULKFILEMIB.EntityData.Children.Append("cbfDefine", types.YChild{"CbfDefine", &cISCOBULKFILEMIB.CbfDefine})
+    cISCOBULKFILEMIB.EntityData.Children.Append("cbfStatus", types.YChild{"CbfStatus", &cISCOBULKFILEMIB.CbfStatus})
+    cISCOBULKFILEMIB.EntityData.Children.Append("cbfDefineFileTable", types.YChild{"CbfDefineFileTable", &cISCOBULKFILEMIB.CbfDefineFileTable})
+    cISCOBULKFILEMIB.EntityData.Children.Append("cbfDefineObjectTable", types.YChild{"CbfDefineObjectTable", &cISCOBULKFILEMIB.CbfDefineObjectTable})
+    cISCOBULKFILEMIB.EntityData.Children.Append("cbfStatusFileTable", types.YChild{"CbfStatusFileTable", &cISCOBULKFILEMIB.CbfStatusFileTable})
+    cISCOBULKFILEMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOBULKFILEMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOBULKFILEMIB.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfdefine
-type CISCOBULKFILEMIB_Cbfdefine struct {
+// CISCOBULKFILEMIB_CbfDefine
+type CISCOBULKFILEMIB_CbfDefine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -68,20 +71,20 @@ type CISCOBULKFILEMIB_Cbfdefine struct {
     // object may be read-only on some systems.  Changing this number does not
     // disturb existing entries. The type is interface{} with range:
     // 0..4294967295.
-    Cbfdefinemaxfiles interface{}
+    CbfDefineMaxFiles interface{}
 
     // The current number of file definitions in cbfDefineFileTable. The type is
     // interface{} with range: 0..4294967295.
-    Cbfdefinefiles interface{}
+    CbfDefineFiles interface{}
 
     // The maximum value of cbfDefineFiles since system  initialization. The type
     // is interface{} with range: 0..4294967295.
-    Cbfdefinehighfiles interface{}
+    CbfDefineHighFiles interface{}
 
     // The number of attempts to create a file definition that failed due to
     // exceeding cbfDefineMaxFiles. The type is interface{} with range:
     // 0..4294967295.
-    Cbfdefinefilesrefused interface{}
+    CbfDefineFilesRefused interface{}
 
     // The maximum total number of object selections to go with file definitions
     // this system, that is, the total number of objects this system can hold in
@@ -89,47 +92,50 @@ type CISCOBULKFILEMIB_Cbfdefine struct {
     // object may be read-only on some systems.  Changing this number does not
     // disturb existing entries. The type is interface{} with range:
     // 0..4294967295.
-    Cbfdefinemaxobjects interface{}
+    CbfDefineMaxObjects interface{}
 
     // The current number of object selections in  cbfDefineObjectTable. The type
     // is interface{} with range: 0..4294967295.
-    Cbfdefineobjects interface{}
+    CbfDefineObjects interface{}
 
     // The maximum value of cbfDefineObjects since system  initialization. The
     // type is interface{} with range: 0..4294967295.
-    Cbfdefinehighobjects interface{}
+    CbfDefineHighObjects interface{}
 
     // The number of attempts to create an object selection that failed due to
     // exceeding cbfDefineMaxObjects. The type is interface{} with range:
     // 0..4294967295.
-    Cbfdefineobjectsrefused interface{}
+    CbfDefineObjectsRefused interface{}
 }
 
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetEntityData() *types.CommonEntityData {
-    cbfdefine.EntityData.YFilter = cbfdefine.YFilter
-    cbfdefine.EntityData.YangName = "cbfDefine"
-    cbfdefine.EntityData.BundleName = "cisco_ios_xe"
-    cbfdefine.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
-    cbfdefine.EntityData.SegmentPath = "cbfDefine"
-    cbfdefine.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbfdefine.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbfdefine.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbfDefine *CISCOBULKFILEMIB_CbfDefine) GetEntityData() *types.CommonEntityData {
+    cbfDefine.EntityData.YFilter = cbfDefine.YFilter
+    cbfDefine.EntityData.YangName = "cbfDefine"
+    cbfDefine.EntityData.BundleName = "cisco_ios_xe"
+    cbfDefine.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfDefine.EntityData.SegmentPath = "cbfDefine"
+    cbfDefine.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfDefine.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfDefine.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbfdefine.EntityData.Children = make(map[string]types.YChild)
-    cbfdefine.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbfdefine.EntityData.Leafs["cbfDefineMaxFiles"] = types.YLeaf{"Cbfdefinemaxfiles", cbfdefine.Cbfdefinemaxfiles}
-    cbfdefine.EntityData.Leafs["cbfDefineFiles"] = types.YLeaf{"Cbfdefinefiles", cbfdefine.Cbfdefinefiles}
-    cbfdefine.EntityData.Leafs["cbfDefineHighFiles"] = types.YLeaf{"Cbfdefinehighfiles", cbfdefine.Cbfdefinehighfiles}
-    cbfdefine.EntityData.Leafs["cbfDefineFilesRefused"] = types.YLeaf{"Cbfdefinefilesrefused", cbfdefine.Cbfdefinefilesrefused}
-    cbfdefine.EntityData.Leafs["cbfDefineMaxObjects"] = types.YLeaf{"Cbfdefinemaxobjects", cbfdefine.Cbfdefinemaxobjects}
-    cbfdefine.EntityData.Leafs["cbfDefineObjects"] = types.YLeaf{"Cbfdefineobjects", cbfdefine.Cbfdefineobjects}
-    cbfdefine.EntityData.Leafs["cbfDefineHighObjects"] = types.YLeaf{"Cbfdefinehighobjects", cbfdefine.Cbfdefinehighobjects}
-    cbfdefine.EntityData.Leafs["cbfDefineObjectsRefused"] = types.YLeaf{"Cbfdefineobjectsrefused", cbfdefine.Cbfdefineobjectsrefused}
-    return &(cbfdefine.EntityData)
+    cbfDefine.EntityData.Children = types.NewOrderedMap()
+    cbfDefine.EntityData.Leafs = types.NewOrderedMap()
+    cbfDefine.EntityData.Leafs.Append("cbfDefineMaxFiles", types.YLeaf{"CbfDefineMaxFiles", cbfDefine.CbfDefineMaxFiles})
+    cbfDefine.EntityData.Leafs.Append("cbfDefineFiles", types.YLeaf{"CbfDefineFiles", cbfDefine.CbfDefineFiles})
+    cbfDefine.EntityData.Leafs.Append("cbfDefineHighFiles", types.YLeaf{"CbfDefineHighFiles", cbfDefine.CbfDefineHighFiles})
+    cbfDefine.EntityData.Leafs.Append("cbfDefineFilesRefused", types.YLeaf{"CbfDefineFilesRefused", cbfDefine.CbfDefineFilesRefused})
+    cbfDefine.EntityData.Leafs.Append("cbfDefineMaxObjects", types.YLeaf{"CbfDefineMaxObjects", cbfDefine.CbfDefineMaxObjects})
+    cbfDefine.EntityData.Leafs.Append("cbfDefineObjects", types.YLeaf{"CbfDefineObjects", cbfDefine.CbfDefineObjects})
+    cbfDefine.EntityData.Leafs.Append("cbfDefineHighObjects", types.YLeaf{"CbfDefineHighObjects", cbfDefine.CbfDefineHighObjects})
+    cbfDefine.EntityData.Leafs.Append("cbfDefineObjectsRefused", types.YLeaf{"CbfDefineObjectsRefused", cbfDefine.CbfDefineObjectsRefused})
+
+    cbfDefine.EntityData.YListKeys = []string {}
+
+    return &(cbfDefine.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfstatus
-type CISCOBULKFILEMIB_Cbfstatus struct {
+// CISCOBULKFILEMIB_CbfStatus
+type CISCOBULKFILEMIB_CbfStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -138,43 +144,46 @@ type CISCOBULKFILEMIB_Cbfstatus struct {
     // object may be read-only on some systems.  Changing this number deletes the
     // oldest finished entries until the new limit is satisfied. The type is
     // interface{} with range: 0..4294967295.
-    Cbfstatusmaxfiles interface{}
+    CbfStatusMaxFiles interface{}
 
     // The current number of file statuses in cbfStatusFileTable. The type is
     // interface{} with range: 0..4294967295.
-    Cbfstatusfiles interface{}
+    CbfStatusFiles interface{}
 
     // The maximum value of cbfStatusFiles since system  initialization. The type
     // is interface{} with range: 0..4294967295.
-    Cbfstatushighfiles interface{}
+    CbfStatusHighFiles interface{}
 
     // The number times the oldest entry was deleted due to exceeding
     // cbfStatusMaxFiles. The type is interface{} with range: 0..4294967295.
-    Cbfstatusfilesbumped interface{}
+    CbfStatusFilesBumped interface{}
 }
 
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetEntityData() *types.CommonEntityData {
-    cbfstatus.EntityData.YFilter = cbfstatus.YFilter
-    cbfstatus.EntityData.YangName = "cbfStatus"
-    cbfstatus.EntityData.BundleName = "cisco_ios_xe"
-    cbfstatus.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
-    cbfstatus.EntityData.SegmentPath = "cbfStatus"
-    cbfstatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbfstatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbfstatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbfStatus *CISCOBULKFILEMIB_CbfStatus) GetEntityData() *types.CommonEntityData {
+    cbfStatus.EntityData.YFilter = cbfStatus.YFilter
+    cbfStatus.EntityData.YangName = "cbfStatus"
+    cbfStatus.EntityData.BundleName = "cisco_ios_xe"
+    cbfStatus.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfStatus.EntityData.SegmentPath = "cbfStatus"
+    cbfStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbfstatus.EntityData.Children = make(map[string]types.YChild)
-    cbfstatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbfstatus.EntityData.Leafs["cbfStatusMaxFiles"] = types.YLeaf{"Cbfstatusmaxfiles", cbfstatus.Cbfstatusmaxfiles}
-    cbfstatus.EntityData.Leafs["cbfStatusFiles"] = types.YLeaf{"Cbfstatusfiles", cbfstatus.Cbfstatusfiles}
-    cbfstatus.EntityData.Leafs["cbfStatusHighFiles"] = types.YLeaf{"Cbfstatushighfiles", cbfstatus.Cbfstatushighfiles}
-    cbfstatus.EntityData.Leafs["cbfStatusFilesBumped"] = types.YLeaf{"Cbfstatusfilesbumped", cbfstatus.Cbfstatusfilesbumped}
-    return &(cbfstatus.EntityData)
+    cbfStatus.EntityData.Children = types.NewOrderedMap()
+    cbfStatus.EntityData.Leafs = types.NewOrderedMap()
+    cbfStatus.EntityData.Leafs.Append("cbfStatusMaxFiles", types.YLeaf{"CbfStatusMaxFiles", cbfStatus.CbfStatusMaxFiles})
+    cbfStatus.EntityData.Leafs.Append("cbfStatusFiles", types.YLeaf{"CbfStatusFiles", cbfStatus.CbfStatusFiles})
+    cbfStatus.EntityData.Leafs.Append("cbfStatusHighFiles", types.YLeaf{"CbfStatusHighFiles", cbfStatus.CbfStatusHighFiles})
+    cbfStatus.EntityData.Leafs.Append("cbfStatusFilesBumped", types.YLeaf{"CbfStatusFilesBumped", cbfStatus.CbfStatusFilesBumped})
+
+    cbfStatus.EntityData.YListKeys = []string {}
+
+    return &(cbfStatus.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfdefinefiletable
+// CISCOBULKFILEMIB_CbfDefineFileTable
 // A table of bulk file definition and creation controls.
-type CISCOBULKFILEMIB_Cbfdefinefiletable struct {
+type CISCOBULKFILEMIB_CbfDefineFileTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -187,30 +196,33 @@ type CISCOBULKFILEMIB_Cbfdefinefiletable struct {
     // corresponding entries in cbfDefineObjectTable and cbfStatusFileTable.  An
     // entry may not be modified or deleted while its cbfDefineFileNow has the
     // value 'running'. The type is slice of
-    // CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry.
-    Cbfdefinefileentry []CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry
+    // CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry.
+    CbfDefineFileEntry []*CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry
 }
 
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetEntityData() *types.CommonEntityData {
-    cbfdefinefiletable.EntityData.YFilter = cbfdefinefiletable.YFilter
-    cbfdefinefiletable.EntityData.YangName = "cbfDefineFileTable"
-    cbfdefinefiletable.EntityData.BundleName = "cisco_ios_xe"
-    cbfdefinefiletable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
-    cbfdefinefiletable.EntityData.SegmentPath = "cbfDefineFileTable"
-    cbfdefinefiletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbfdefinefiletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbfdefinefiletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbfDefineFileTable *CISCOBULKFILEMIB_CbfDefineFileTable) GetEntityData() *types.CommonEntityData {
+    cbfDefineFileTable.EntityData.YFilter = cbfDefineFileTable.YFilter
+    cbfDefineFileTable.EntityData.YangName = "cbfDefineFileTable"
+    cbfDefineFileTable.EntityData.BundleName = "cisco_ios_xe"
+    cbfDefineFileTable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfDefineFileTable.EntityData.SegmentPath = "cbfDefineFileTable"
+    cbfDefineFileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfDefineFileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfDefineFileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbfdefinefiletable.EntityData.Children = make(map[string]types.YChild)
-    cbfdefinefiletable.EntityData.Children["cbfDefineFileEntry"] = types.YChild{"Cbfdefinefileentry", nil}
-    for i := range cbfdefinefiletable.Cbfdefinefileentry {
-        cbfdefinefiletable.EntityData.Children[types.GetSegmentPath(&cbfdefinefiletable.Cbfdefinefileentry[i])] = types.YChild{"Cbfdefinefileentry", &cbfdefinefiletable.Cbfdefinefileentry[i]}
+    cbfDefineFileTable.EntityData.Children = types.NewOrderedMap()
+    cbfDefineFileTable.EntityData.Children.Append("cbfDefineFileEntry", types.YChild{"CbfDefineFileEntry", nil})
+    for i := range cbfDefineFileTable.CbfDefineFileEntry {
+        cbfDefineFileTable.EntityData.Children.Append(types.GetSegmentPath(cbfDefineFileTable.CbfDefineFileEntry[i]), types.YChild{"CbfDefineFileEntry", cbfDefineFileTable.CbfDefineFileEntry[i]})
     }
-    cbfdefinefiletable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbfdefinefiletable.EntityData)
+    cbfDefineFileTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbfDefineFileTable.EntityData.YListKeys = []string {}
+
+    return &(cbfDefineFileTable.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry
+// CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry
 // Information for creation of a bulk file.
 // 
 // To creat a bulk file an application creates an entry in this
@@ -227,35 +239,35 @@ func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetEntityData() *
 // 
 // An entry may not be modified or deleted while its
 // cbfDefineFileNow has the value 'running'.
-type CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry struct {
+type CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary integer to uniquely identify this
     // entry.  To create an entry a management application should pick a random
     // number. The type is interface{} with range: 1..4294967295.
-    Cbfdefinefileindex interface{}
+    CbfDefineFileIndex interface{}
 
     // The file name which is to be created.  Explicit device or path choices in
     // the value of this object override cbfDefineFileStorage. The type is string
     // with length: 0..255.
-    Cbfdefinefilename interface{}
+    CbfDefineFileName interface{}
 
     // The type of file storage to use:  ephemeral        data exists in small
     // amounts until read volatile        data exists in volatile memory permanent
     // data survives reboot  An ephemeral file is suitable to be read only one
     // time.  Note that this value is taken as advisory and may be overridden by
     // explicit device or path choices in cbfDefineFile.  A given system may
-    // support any or all of these. The type is Cbfdefinefilestorage.
-    Cbfdefinefilestorage interface{}
+    // support any or all of these. The type is CbfDefineFileStorage.
+    CbfDefineFileStorage interface{}
 
     // The format of the data in the file:  StandardBER        standard SNMP ASN.1
     // BER bulkBinary        a binary format specified with this MIB bulkASCII    
     // a human-readable form of bulkBinary variantBERWithCksum ASN.1 BER encoding
     // with checksum variantBinWithCksum a binary format with checksum      A
     // given system may support any or all of these. The type is
-    // Cbfdefinefileformat.
-    Cbfdefinefileformat interface{}
+    // CbfDefineFileFormat.
+    CbfDefineFileFormat interface{}
 
     // The control to cause file creation.  The only values that can be set are
     // 'create' and 'forcedCreate'. These can be set only  when the value is
@@ -269,88 +281,91 @@ type CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry struct {
     // corresponding cbfDefineObjectEntryStatus is not active.  When
     // cbfDefineFileEntryStatus becomes active and all corresponding
     // cbfDefineObjectEntryStatuses are active this  object automatically goes to
-    // 'ready'. The type is Cbfdefinefilenow.
-    Cbfdefinefilenow interface{}
+    // 'ready'. The type is CbfDefineFileNow.
+    CbfDefineFileNow interface{}
 
     // The control that allows creation, modification, and deletion of entries. 
     // For detailed rules see the DESCRIPTION for cbfDefineFileEntry. The type is
     // RowStatus.
-    Cbfdefinefileentrystatus interface{}
+    CbfDefineFileEntryStatus interface{}
 
     // This controls the cbfDefineFileCompletion notification.  If true,
     // cbfDefineFileCompletion notification will be generated. It is the
     // responsibility of the  management entity to ensure that the SNMP
     // administrative  model is configured in such a way as to allow the 
     // notification to be delivered. The type is bool.
-    Cbfdefinefilenotifyoncompletion interface{}
+    CbfDefineFileNotifyOnCompletion interface{}
 }
 
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetEntityData() *types.CommonEntityData {
-    cbfdefinefileentry.EntityData.YFilter = cbfdefinefileentry.YFilter
-    cbfdefinefileentry.EntityData.YangName = "cbfDefineFileEntry"
-    cbfdefinefileentry.EntityData.BundleName = "cisco_ios_xe"
-    cbfdefinefileentry.EntityData.ParentYangName = "cbfDefineFileTable"
-    cbfdefinefileentry.EntityData.SegmentPath = "cbfDefineFileEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfdefinefileentry.Cbfdefinefileindex) + "']"
-    cbfdefinefileentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbfdefinefileentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbfdefinefileentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbfDefineFileEntry *CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry) GetEntityData() *types.CommonEntityData {
+    cbfDefineFileEntry.EntityData.YFilter = cbfDefineFileEntry.YFilter
+    cbfDefineFileEntry.EntityData.YangName = "cbfDefineFileEntry"
+    cbfDefineFileEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbfDefineFileEntry.EntityData.ParentYangName = "cbfDefineFileTable"
+    cbfDefineFileEntry.EntityData.SegmentPath = "cbfDefineFileEntry" + types.AddKeyToken(cbfDefineFileEntry.CbfDefineFileIndex, "cbfDefineFileIndex")
+    cbfDefineFileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfDefineFileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfDefineFileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbfdefinefileentry.EntityData.Children = make(map[string]types.YChild)
-    cbfdefinefileentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileIndex"] = types.YLeaf{"Cbfdefinefileindex", cbfdefinefileentry.Cbfdefinefileindex}
-    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileName"] = types.YLeaf{"Cbfdefinefilename", cbfdefinefileentry.Cbfdefinefilename}
-    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileStorage"] = types.YLeaf{"Cbfdefinefilestorage", cbfdefinefileentry.Cbfdefinefilestorage}
-    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileFormat"] = types.YLeaf{"Cbfdefinefileformat", cbfdefinefileentry.Cbfdefinefileformat}
-    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileNow"] = types.YLeaf{"Cbfdefinefilenow", cbfdefinefileentry.Cbfdefinefilenow}
-    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileEntryStatus"] = types.YLeaf{"Cbfdefinefileentrystatus", cbfdefinefileentry.Cbfdefinefileentrystatus}
-    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileNotifyOnCompletion"] = types.YLeaf{"Cbfdefinefilenotifyoncompletion", cbfdefinefileentry.Cbfdefinefilenotifyoncompletion}
-    return &(cbfdefinefileentry.EntityData)
+    cbfDefineFileEntry.EntityData.Children = types.NewOrderedMap()
+    cbfDefineFileEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbfDefineFileEntry.EntityData.Leafs.Append("cbfDefineFileIndex", types.YLeaf{"CbfDefineFileIndex", cbfDefineFileEntry.CbfDefineFileIndex})
+    cbfDefineFileEntry.EntityData.Leafs.Append("cbfDefineFileName", types.YLeaf{"CbfDefineFileName", cbfDefineFileEntry.CbfDefineFileName})
+    cbfDefineFileEntry.EntityData.Leafs.Append("cbfDefineFileStorage", types.YLeaf{"CbfDefineFileStorage", cbfDefineFileEntry.CbfDefineFileStorage})
+    cbfDefineFileEntry.EntityData.Leafs.Append("cbfDefineFileFormat", types.YLeaf{"CbfDefineFileFormat", cbfDefineFileEntry.CbfDefineFileFormat})
+    cbfDefineFileEntry.EntityData.Leafs.Append("cbfDefineFileNow", types.YLeaf{"CbfDefineFileNow", cbfDefineFileEntry.CbfDefineFileNow})
+    cbfDefineFileEntry.EntityData.Leafs.Append("cbfDefineFileEntryStatus", types.YLeaf{"CbfDefineFileEntryStatus", cbfDefineFileEntry.CbfDefineFileEntryStatus})
+    cbfDefineFileEntry.EntityData.Leafs.Append("cbfDefineFileNotifyOnCompletion", types.YLeaf{"CbfDefineFileNotifyOnCompletion", cbfDefineFileEntry.CbfDefineFileNotifyOnCompletion})
+
+    cbfDefineFileEntry.EntityData.YListKeys = []string {"CbfDefineFileIndex"}
+
+    return &(cbfDefineFileEntry.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat represents     A given system may support any or all of these.
-type CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat string
+// CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat represents     A given system may support any or all of these.
+type CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat string
 
 const (
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat_standardBER CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat = "standardBER"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat_standardBER CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat = "standardBER"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat_bulkBinary CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat = "bulkBinary"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat_bulkBinary CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat = "bulkBinary"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat_bulkASCII CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat = "bulkASCII"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat_bulkASCII CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat = "bulkASCII"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat_variantBERWithCksum CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat = "variantBERWithCksum"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat_variantBERWithCksum CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat = "variantBERWithCksum"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat_variantBinWithCksum CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat = "variantBinWithCksum"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat_variantBinWithCksum CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileFormat = "variantBinWithCksum"
 )
 
-// CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow represents object automatically goes to 'ready'.
-type CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow string
+// CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow represents object automatically goes to 'ready'.
+type CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow string
 
 const (
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow_notActive CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow = "notActive"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow_notActive CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow = "notActive"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow_ready CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow = "ready"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow_ready CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow = "ready"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow_create CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow = "create"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow_create CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow = "create"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow_running CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow = "running"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow_running CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow = "running"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow_forcedCreate CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilenow = "forcedCreate"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow_forcedCreate CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileNow = "forcedCreate"
 )
 
-// CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilestorage represents A given system may support any or all of these.
-type CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilestorage string
+// CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileStorage represents A given system may support any or all of these.
+type CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileStorage string
 
 const (
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilestorage_ephemeral CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilestorage = "ephemeral"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileStorage_ephemeral CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileStorage = "ephemeral"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilestorage_volatile CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilestorage = "volatile"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileStorage_volatile CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileStorage = "volatile"
 
-    CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilestorage_permanent CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefilestorage = "permanent"
+    CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileStorage_permanent CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileStorage = "permanent"
 )
 
-// CISCOBULKFILEMIB_Cbfdefineobjecttable
+// CISCOBULKFILEMIB_CbfDefineObjectTable
 // A table of objects to go in bulk files.
-type CISCOBULKFILEMIB_Cbfdefineobjecttable struct {
+type CISCOBULKFILEMIB_CbfDefineObjectTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -359,30 +374,33 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable struct {
     // correspondence with entries in cbfDefineFileTable, which must be created
     // first.  Entries in this table may not be changed, created or deleted while
     // the corresponding value of cbfDefineFileNow is 'running'. The type is slice
-    // of CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry.
-    Cbfdefineobjectentry []CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry
+    // of CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry.
+    CbfDefineObjectEntry []*CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry
 }
 
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetEntityData() *types.CommonEntityData {
-    cbfdefineobjecttable.EntityData.YFilter = cbfdefineobjecttable.YFilter
-    cbfdefineobjecttable.EntityData.YangName = "cbfDefineObjectTable"
-    cbfdefineobjecttable.EntityData.BundleName = "cisco_ios_xe"
-    cbfdefineobjecttable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
-    cbfdefineobjecttable.EntityData.SegmentPath = "cbfDefineObjectTable"
-    cbfdefineobjecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbfdefineobjecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbfdefineobjecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbfDefineObjectTable *CISCOBULKFILEMIB_CbfDefineObjectTable) GetEntityData() *types.CommonEntityData {
+    cbfDefineObjectTable.EntityData.YFilter = cbfDefineObjectTable.YFilter
+    cbfDefineObjectTable.EntityData.YangName = "cbfDefineObjectTable"
+    cbfDefineObjectTable.EntityData.BundleName = "cisco_ios_xe"
+    cbfDefineObjectTable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfDefineObjectTable.EntityData.SegmentPath = "cbfDefineObjectTable"
+    cbfDefineObjectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfDefineObjectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfDefineObjectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbfdefineobjecttable.EntityData.Children = make(map[string]types.YChild)
-    cbfdefineobjecttable.EntityData.Children["cbfDefineObjectEntry"] = types.YChild{"Cbfdefineobjectentry", nil}
-    for i := range cbfdefineobjecttable.Cbfdefineobjectentry {
-        cbfdefineobjecttable.EntityData.Children[types.GetSegmentPath(&cbfdefineobjecttable.Cbfdefineobjectentry[i])] = types.YChild{"Cbfdefineobjectentry", &cbfdefineobjecttable.Cbfdefineobjectentry[i]}
+    cbfDefineObjectTable.EntityData.Children = types.NewOrderedMap()
+    cbfDefineObjectTable.EntityData.Children.Append("cbfDefineObjectEntry", types.YChild{"CbfDefineObjectEntry", nil})
+    for i := range cbfDefineObjectTable.CbfDefineObjectEntry {
+        cbfDefineObjectTable.EntityData.Children.Append(types.GetSegmentPath(cbfDefineObjectTable.CbfDefineObjectEntry[i]), types.YChild{"CbfDefineObjectEntry", cbfDefineObjectTable.CbfDefineObjectEntry[i]})
     }
-    cbfdefineobjecttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbfdefineobjecttable.EntityData)
+    cbfDefineObjectTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbfDefineObjectTable.EntityData.YListKeys = []string {}
+
+    return &(cbfDefineObjectTable.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry
+// CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry
 // Information about one object for a particular file.
 // 
 // An application uses cbfDefineObjectEntryStatus to create entries
@@ -391,19 +409,19 @@ func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetEntityData
 // 
 // Entries in this table may not be changed, created or deleted
 // while the corresponding value of cbfDefineFileNow is 'running'.
-type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
+type CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_bulk_file_mib.CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileindex
-    Cbfdefinefileindex interface{}
+    // cisco_bulk_file_mib.CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileIndex
+    CbfDefineFileIndex interface{}
 
     // This attribute is a key. An arbitrary integer to uniquely identify this
     // entry.  The numeric order of the entries controls the order of the objects
     // in the file. The type is interface{} with range: 1..4294967295.
-    Cbfdefineobjectindex interface{}
+    CbfDefineObjectIndex interface{}
 
     // The meaning of each object class is given below:  object          a single
     // MIB object is retrieved.  lexicalTable    an entire table or partial table 
@@ -411,21 +429,21 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
     // retrieved with                 lowest CPU utilization.                
     // Lexical ordering of rows may not be                  maintained and is
     // dependent upon                  individual MIB implementation. The type is
-    // Cbfdefineobjectclass.
-    Cbfdefineobjectclass interface{}
+    // CbfDefineObjectClass.
+    CbfDefineObjectClass interface{}
 
     // The object identifier of a MIB object to be included in the file.  If
     // cbfDefineObjectClass is 'object' this must be a full OID, including all
     // instance information.  If cbfDefineObjectClass is 'lexicalTable' or
     // 'leastCpuTable' this must be the OID of the table-defining SEQUENCE OF
     // registration point. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cbfdefineobjectid interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CbfDefineObjectID interface{}
 
     // The control that allows creation, modification, and deletion of entries. 
     // For detailed rules see the DESCRIPTION for cbfDefineObjectEntry. The type
     // is RowStatus.
-    Cbfdefineobjectentrystatus interface{}
+    CbfDefineObjectEntryStatus interface{}
 
     // If cbfDefineObjectClass is 'lexicalTable', then this object represents the
     // starting instance in the cbfDefineObjectID table. The file created will
@@ -449,9 +467,8 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
     // table(represented  by cbfDefineObjectID) which lexicographically follow 
     // cbfDefineObjectTableInstance are retrieved.  This object is irrelevent if
     // cbfDefineObjectClass is not 'lexicalTable'. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cbfdefineobjecttableinstance interface{}
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CbfDefineObjectTableInstance interface{}
 
     // If cbfDefineObjectClass is 'lexicalTable', then this object represents the
     // maximum number of entries which will be  populated in the file starting
@@ -460,7 +477,7 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
     // cbfDefineObjectClass is not 'lexicalTable'.  Refer to the description of
     // cbfDefineObjectTableInstance for examples and different scenarios relating
     // to this object. The type is interface{} with range: 0..4294967295.
-    Cbfdefineobjectnumentries interface{}
+    CbfDefineObjectNumEntries interface{}
 
     // This object represents the last polled instance in the table.  The value
     // represented by this object will be relevent only if the corresponding
@@ -469,47 +486,50 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
     // of last polled  object.  An NMS can use the value of this object and
     // populate the cbfDefineObjectTableInstance to retrieve a contiguous set of
     // rows in a table. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cbfdefineobjectlastpolledinst interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CbfDefineObjectLastPolledInst interface{}
 }
 
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetEntityData() *types.CommonEntityData {
-    cbfdefineobjectentry.EntityData.YFilter = cbfdefineobjectentry.YFilter
-    cbfdefineobjectentry.EntityData.YangName = "cbfDefineObjectEntry"
-    cbfdefineobjectentry.EntityData.BundleName = "cisco_ios_xe"
-    cbfdefineobjectentry.EntityData.ParentYangName = "cbfDefineObjectTable"
-    cbfdefineobjectentry.EntityData.SegmentPath = "cbfDefineObjectEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfdefineobjectentry.Cbfdefinefileindex) + "']" + "[cbfDefineObjectIndex='" + fmt.Sprintf("%v", cbfdefineobjectentry.Cbfdefineobjectindex) + "']"
-    cbfdefineobjectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbfdefineobjectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbfdefineobjectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbfDefineObjectEntry *CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry) GetEntityData() *types.CommonEntityData {
+    cbfDefineObjectEntry.EntityData.YFilter = cbfDefineObjectEntry.YFilter
+    cbfDefineObjectEntry.EntityData.YangName = "cbfDefineObjectEntry"
+    cbfDefineObjectEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbfDefineObjectEntry.EntityData.ParentYangName = "cbfDefineObjectTable"
+    cbfDefineObjectEntry.EntityData.SegmentPath = "cbfDefineObjectEntry" + types.AddKeyToken(cbfDefineObjectEntry.CbfDefineFileIndex, "cbfDefineFileIndex") + types.AddKeyToken(cbfDefineObjectEntry.CbfDefineObjectIndex, "cbfDefineObjectIndex")
+    cbfDefineObjectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfDefineObjectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfDefineObjectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbfdefineobjectentry.EntityData.Children = make(map[string]types.YChild)
-    cbfdefineobjectentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbfdefineobjectentry.EntityData.Leafs["cbfDefineFileIndex"] = types.YLeaf{"Cbfdefinefileindex", cbfdefineobjectentry.Cbfdefinefileindex}
-    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectIndex"] = types.YLeaf{"Cbfdefineobjectindex", cbfdefineobjectentry.Cbfdefineobjectindex}
-    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectClass"] = types.YLeaf{"Cbfdefineobjectclass", cbfdefineobjectentry.Cbfdefineobjectclass}
-    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectID"] = types.YLeaf{"Cbfdefineobjectid", cbfdefineobjectentry.Cbfdefineobjectid}
-    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectEntryStatus"] = types.YLeaf{"Cbfdefineobjectentrystatus", cbfdefineobjectentry.Cbfdefineobjectentrystatus}
-    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectTableInstance"] = types.YLeaf{"Cbfdefineobjecttableinstance", cbfdefineobjectentry.Cbfdefineobjecttableinstance}
-    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectNumEntries"] = types.YLeaf{"Cbfdefineobjectnumentries", cbfdefineobjectentry.Cbfdefineobjectnumentries}
-    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectLastPolledInst"] = types.YLeaf{"Cbfdefineobjectlastpolledinst", cbfdefineobjectentry.Cbfdefineobjectlastpolledinst}
-    return &(cbfdefineobjectentry.EntityData)
+    cbfDefineObjectEntry.EntityData.Children = types.NewOrderedMap()
+    cbfDefineObjectEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbfDefineObjectEntry.EntityData.Leafs.Append("cbfDefineFileIndex", types.YLeaf{"CbfDefineFileIndex", cbfDefineObjectEntry.CbfDefineFileIndex})
+    cbfDefineObjectEntry.EntityData.Leafs.Append("cbfDefineObjectIndex", types.YLeaf{"CbfDefineObjectIndex", cbfDefineObjectEntry.CbfDefineObjectIndex})
+    cbfDefineObjectEntry.EntityData.Leafs.Append("cbfDefineObjectClass", types.YLeaf{"CbfDefineObjectClass", cbfDefineObjectEntry.CbfDefineObjectClass})
+    cbfDefineObjectEntry.EntityData.Leafs.Append("cbfDefineObjectID", types.YLeaf{"CbfDefineObjectID", cbfDefineObjectEntry.CbfDefineObjectID})
+    cbfDefineObjectEntry.EntityData.Leafs.Append("cbfDefineObjectEntryStatus", types.YLeaf{"CbfDefineObjectEntryStatus", cbfDefineObjectEntry.CbfDefineObjectEntryStatus})
+    cbfDefineObjectEntry.EntityData.Leafs.Append("cbfDefineObjectTableInstance", types.YLeaf{"CbfDefineObjectTableInstance", cbfDefineObjectEntry.CbfDefineObjectTableInstance})
+    cbfDefineObjectEntry.EntityData.Leafs.Append("cbfDefineObjectNumEntries", types.YLeaf{"CbfDefineObjectNumEntries", cbfDefineObjectEntry.CbfDefineObjectNumEntries})
+    cbfDefineObjectEntry.EntityData.Leafs.Append("cbfDefineObjectLastPolledInst", types.YLeaf{"CbfDefineObjectLastPolledInst", cbfDefineObjectEntry.CbfDefineObjectLastPolledInst})
+
+    cbfDefineObjectEntry.EntityData.YListKeys = []string {"CbfDefineFileIndex", "CbfDefineObjectIndex"}
+
+    return &(cbfDefineObjectEntry.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass represents                 individual MIB implementation.
-type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass string
+// CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry_CbfDefineObjectClass represents                 individual MIB implementation.
+type CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry_CbfDefineObjectClass string
 
 const (
-    CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass_object CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass = "object"
+    CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry_CbfDefineObjectClass_object CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry_CbfDefineObjectClass = "object"
 
-    CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass_lexicalTable CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass = "lexicalTable"
+    CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry_CbfDefineObjectClass_lexicalTable CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry_CbfDefineObjectClass = "lexicalTable"
 
-    CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass_leastCpuTable CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass = "leastCpuTable"
+    CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry_CbfDefineObjectClass_leastCpuTable CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry_CbfDefineObjectClass = "leastCpuTable"
 )
 
-// CISCOBULKFILEMIB_Cbfstatusfiletable
+// CISCOBULKFILEMIB_CbfStatusFileTable
 // A table of bulk file status.
-type CISCOBULKFILEMIB_Cbfstatusfiletable struct {
+type CISCOBULKFILEMIB_CbfStatusFileTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -519,30 +539,33 @@ type CISCOBULKFILEMIB_Cbfstatusfiletable struct {
     // for a new entry.  Deleting an entry with cbfStatusFileState 'running'
     // aborts the file creation attempt.  It is implementation and file-system
     // specific whether deleting the entry also deletes the file. The type is
-    // slice of CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry.
-    Cbfstatusfileentry []CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry
+    // slice of CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry.
+    CbfStatusFileEntry []*CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry
 }
 
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetEntityData() *types.CommonEntityData {
-    cbfstatusfiletable.EntityData.YFilter = cbfstatusfiletable.YFilter
-    cbfstatusfiletable.EntityData.YangName = "cbfStatusFileTable"
-    cbfstatusfiletable.EntityData.BundleName = "cisco_ios_xe"
-    cbfstatusfiletable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
-    cbfstatusfiletable.EntityData.SegmentPath = "cbfStatusFileTable"
-    cbfstatusfiletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbfstatusfiletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbfstatusfiletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbfStatusFileTable *CISCOBULKFILEMIB_CbfStatusFileTable) GetEntityData() *types.CommonEntityData {
+    cbfStatusFileTable.EntityData.YFilter = cbfStatusFileTable.YFilter
+    cbfStatusFileTable.EntityData.YangName = "cbfStatusFileTable"
+    cbfStatusFileTable.EntityData.BundleName = "cisco_ios_xe"
+    cbfStatusFileTable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfStatusFileTable.EntityData.SegmentPath = "cbfStatusFileTable"
+    cbfStatusFileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfStatusFileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfStatusFileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbfstatusfiletable.EntityData.Children = make(map[string]types.YChild)
-    cbfstatusfiletable.EntityData.Children["cbfStatusFileEntry"] = types.YChild{"Cbfstatusfileentry", nil}
-    for i := range cbfstatusfiletable.Cbfstatusfileentry {
-        cbfstatusfiletable.EntityData.Children[types.GetSegmentPath(&cbfstatusfiletable.Cbfstatusfileentry[i])] = types.YChild{"Cbfstatusfileentry", &cbfstatusfiletable.Cbfstatusfileentry[i]}
+    cbfStatusFileTable.EntityData.Children = types.NewOrderedMap()
+    cbfStatusFileTable.EntityData.Children.Append("cbfStatusFileEntry", types.YChild{"CbfStatusFileEntry", nil})
+    for i := range cbfStatusFileTable.CbfStatusFileEntry {
+        cbfStatusFileTable.EntityData.Children.Append(types.GetSegmentPath(cbfStatusFileTable.CbfStatusFileEntry[i]), types.YChild{"CbfStatusFileEntry", cbfStatusFileTable.CbfStatusFileEntry[i]})
     }
-    cbfstatusfiletable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbfstatusfiletable.EntityData)
+    cbfStatusFileTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbfStatusFileTable.EntityData.YListKeys = []string {}
+
+    return &(cbfStatusFileTable.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry
+// CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry
 // Status for a particular file.
 // 
 // An entry exists in this table for each time cbfDefineFileNow
@@ -555,19 +578,19 @@ func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetEntityData() *
 // 
 // It is implementation and file-system specific whether deleting
 // the entry also deletes the file.
-type CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry struct {
+type CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_bulk_file_mib.CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileindex
-    Cbfdefinefileindex interface{}
+    // cisco_bulk_file_mib.CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry_CbfDefineFileIndex
+    CbfDefineFileIndex interface{}
 
     // This attribute is a key. An arbitrary integer to uniquely identify this
     // file.  The numeric order of the entries implies the creation order of the
     // files. The type is interface{} with range: 1..4294967295.
-    Cbfstatusfileindex interface{}
+    CbfStatusFileIndex interface{}
 
     // The file state:  running    data is being written to the file ready     
     // the file is ready to be read emptied    an ephemeral file was successfully
@@ -577,61 +600,64 @@ type CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry struct {
     // implementation buffer too small aborted    short terminated by operator
     // command  Only the 'ready' state implies that the file is available for
     // transfer.  The disposition of files after an error is implementation and
-    // file-syste specific. The type is Cbfstatusfilestate.
-    Cbfstatusfilestate interface{}
+    // file-syste specific. The type is CbfStatusFileState.
+    CbfStatusFileState interface{}
 
     // The value of sysUpTime when the creation attempt completed. A value of 0
     // indicates not complete.  For ephemeral files this is the time when
     // cbfStatusFileState goes to 'emptied'.  For others this is the time when the
     // state leaves 'running'. The type is interface{} with range: 0..4294967295.
-    Cbfstatusfilecompletiontime interface{}
+    CbfStatusFileCompletionTime interface{}
 
     // The control that allows deletion of entries. For detailed rules see the
     // DESCRIPTION for cbfStatusFileEntry.  This object may not be set to any
     // value other than 'destroy'. The type is RowStatus.
-    Cbfstatusfileentrystatus interface{}
+    CbfStatusFileEntryStatus interface{}
 }
 
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetEntityData() *types.CommonEntityData {
-    cbfstatusfileentry.EntityData.YFilter = cbfstatusfileentry.YFilter
-    cbfstatusfileentry.EntityData.YangName = "cbfStatusFileEntry"
-    cbfstatusfileentry.EntityData.BundleName = "cisco_ios_xe"
-    cbfstatusfileentry.EntityData.ParentYangName = "cbfStatusFileTable"
-    cbfstatusfileentry.EntityData.SegmentPath = "cbfStatusFileEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfstatusfileentry.Cbfdefinefileindex) + "']" + "[cbfStatusFileIndex='" + fmt.Sprintf("%v", cbfstatusfileentry.Cbfstatusfileindex) + "']"
-    cbfstatusfileentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbfstatusfileentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbfstatusfileentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbfStatusFileEntry *CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry) GetEntityData() *types.CommonEntityData {
+    cbfStatusFileEntry.EntityData.YFilter = cbfStatusFileEntry.YFilter
+    cbfStatusFileEntry.EntityData.YangName = "cbfStatusFileEntry"
+    cbfStatusFileEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbfStatusFileEntry.EntityData.ParentYangName = "cbfStatusFileTable"
+    cbfStatusFileEntry.EntityData.SegmentPath = "cbfStatusFileEntry" + types.AddKeyToken(cbfStatusFileEntry.CbfDefineFileIndex, "cbfDefineFileIndex") + types.AddKeyToken(cbfStatusFileEntry.CbfStatusFileIndex, "cbfStatusFileIndex")
+    cbfStatusFileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfStatusFileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfStatusFileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbfstatusfileentry.EntityData.Children = make(map[string]types.YChild)
-    cbfstatusfileentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbfstatusfileentry.EntityData.Leafs["cbfDefineFileIndex"] = types.YLeaf{"Cbfdefinefileindex", cbfstatusfileentry.Cbfdefinefileindex}
-    cbfstatusfileentry.EntityData.Leafs["cbfStatusFileIndex"] = types.YLeaf{"Cbfstatusfileindex", cbfstatusfileentry.Cbfstatusfileindex}
-    cbfstatusfileentry.EntityData.Leafs["cbfStatusFileState"] = types.YLeaf{"Cbfstatusfilestate", cbfstatusfileentry.Cbfstatusfilestate}
-    cbfstatusfileentry.EntityData.Leafs["cbfStatusFileCompletionTime"] = types.YLeaf{"Cbfstatusfilecompletiontime", cbfstatusfileentry.Cbfstatusfilecompletiontime}
-    cbfstatusfileentry.EntityData.Leafs["cbfStatusFileEntryStatus"] = types.YLeaf{"Cbfstatusfileentrystatus", cbfstatusfileentry.Cbfstatusfileentrystatus}
-    return &(cbfstatusfileentry.EntityData)
+    cbfStatusFileEntry.EntityData.Children = types.NewOrderedMap()
+    cbfStatusFileEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbfStatusFileEntry.EntityData.Leafs.Append("cbfDefineFileIndex", types.YLeaf{"CbfDefineFileIndex", cbfStatusFileEntry.CbfDefineFileIndex})
+    cbfStatusFileEntry.EntityData.Leafs.Append("cbfStatusFileIndex", types.YLeaf{"CbfStatusFileIndex", cbfStatusFileEntry.CbfStatusFileIndex})
+    cbfStatusFileEntry.EntityData.Leafs.Append("cbfStatusFileState", types.YLeaf{"CbfStatusFileState", cbfStatusFileEntry.CbfStatusFileState})
+    cbfStatusFileEntry.EntityData.Leafs.Append("cbfStatusFileCompletionTime", types.YLeaf{"CbfStatusFileCompletionTime", cbfStatusFileEntry.CbfStatusFileCompletionTime})
+    cbfStatusFileEntry.EntityData.Leafs.Append("cbfStatusFileEntryStatus", types.YLeaf{"CbfStatusFileEntryStatus", cbfStatusFileEntry.CbfStatusFileEntryStatus})
+
+    cbfStatusFileEntry.EntityData.YListKeys = []string {"CbfDefineFileIndex", "CbfStatusFileIndex"}
+
+    return &(cbfStatusFileEntry.EntityData)
 }
 
-// CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate represents and file-syste specific.
-type CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate string
+// CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState represents and file-syste specific.
+type CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState string
 
 const (
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_running CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "running"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_running CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "running"
 
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_ready CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "ready"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_ready CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "ready"
 
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_emptied CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "emptied"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_emptied CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "emptied"
 
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_noSpace CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "noSpace"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_noSpace CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "noSpace"
 
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_badName CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "badName"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_badName CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "badName"
 
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_writeErr CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "writeErr"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_writeErr CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "writeErr"
 
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_noMem CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "noMem"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_noMem CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "noMem"
 
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_buffErr CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "buffErr"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_buffErr CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "buffErr"
 
-    CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate_aborted CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate = "aborted"
+    CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState_aborted CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry_CbfStatusFileState = "aborted"
 )
 

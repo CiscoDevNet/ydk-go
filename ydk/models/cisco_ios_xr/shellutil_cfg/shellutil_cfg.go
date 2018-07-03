@@ -44,9 +44,12 @@ func (hostNames *HostNames) GetEntityData() *types.CommonEntityData {
     hostNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostNames.EntityData.Children = make(map[string]types.YChild)
-    hostNames.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostNames.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", hostNames.HostName}
+    hostNames.EntityData.Children = types.NewOrderedMap()
+    hostNames.EntityData.Leafs = types.NewOrderedMap()
+    hostNames.EntityData.Leafs.Append("host-name", types.YLeaf{"HostName", hostNames.HostName})
+
+    hostNames.EntityData.YListKeys = []string {}
+
     return &(hostNames.EntityData)
 }
 

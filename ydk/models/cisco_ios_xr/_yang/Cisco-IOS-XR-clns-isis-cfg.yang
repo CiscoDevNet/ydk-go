@@ -42,9 +42,21 @@ module Cisco-IOS-XR-clns-isis-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-12-15 {
+    description
+      "Change metric-style to include transition modes.";
+  }
   revision 2017-11-20 {
     description
       "Change micro-loop-avoidance enable default to none. Add distribute-list-in and vrf-context.";
+  }
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
   }
   revision 2017-06-02 {
     description
@@ -199,23 +211,6 @@ module Cisco-IOS-XR-clns-isis-cfg {
     }
     description
       "Isis label preference";
-  }
-
-  typedef Isis-metric-style-transition {
-    type enumeration {
-      enum "disabled" {
-        value 0;
-        description
-          "Disabled";
-      }
-      enum "enabled" {
-        value 1;
-        description
-          "Enabled";
-      }
-    }
-    description
-      "Isis metric style transition";
   }
 
   typedef Isissid1 {
@@ -579,6 +574,16 @@ module Cisco-IOS-XR-clns-isis-cfg {
         value 2;
         description
           "Both forms of metric style";
+      }
+      enum "old-metric-style-transition" {
+        value 3;
+        description
+          "Send ISO 10589 metric style but accept both";
+      }
+      enum "new-metric-style-transition" {
+        value 4;
+        description
+          "Send 32-bit metric style but accept both";
       }
     }
     description
@@ -1538,19 +1543,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   }
                   leaf style {
                     type Isis-metric-style;
-                    default "old-metric-style";
+                    mandatory true;
                     description
                       "Metric Style";
-                  }
-                  leaf transition-state {
-                    when "../style != 'both-metric-style'" {
-                      description
-                        "../Style != 2";
-                    }
-                    type Isis-metric-style-transition;
-                    default "disabled";
-                    description
-                      "Transition state";
                   }
                 }
               }
@@ -1683,7 +1678,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   "Stable IP address for system. Will only be
                    applied for the unicast sub-address-family.";
                 leaf address {
-                  type inet:ip-address-no-zone;
+                  type string;
                   must "not(../interface-name)";
                   description
                     "IPv4/IPv6 address to be used as a router
@@ -1929,7 +1924,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
                         "IS-IS metric type";
                     }
                     leaf ospf-route-type {
-                      type int32;
+                      type uint32;
                       description
                         "OSPF route types to redistribute.  May
                          only be specified if Protocol is OSPF.";
@@ -2054,6 +2049,26 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   }
                 }
               }
+              container distribute-list-in {
+                description
+                  "Filter routes sent to the RIB";
+                leaf prefix-list-name {
+                  type xr:Cisco-ios-xr-string {
+                    length "1..64";
+                  }
+                  description
+                    "Prefix list to control routes installed in
+                     RIB.";
+                }
+                leaf route-policy-name {
+                  type xr:Cisco-ios-xr-string {
+                    length "1..64";
+                  }
+                  description
+                    "Route policy to control routes installed
+                     in RIB.";
+                }
+              }
               container spf-intervals {
                 description
                   "SPF-interval configuration";
@@ -2132,7 +2147,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
                 leaf policy-name {
                   when "../use-policy != 'false'" {
                     description
-                      "../UsePolicy != 0";
+                      "../UsePolicy != false";
                   }
                   type xr:Cisco-ios-xr-string {
                     length "1..64";
@@ -2357,7 +2372,6 @@ module Cisco-IOS-XR-clns-isis-cfg {
               uses WEIGHT-TABLE;
             }
             container af-data {
-              presence "Indicates a af-data node is configured.";
               description
                 "Data container.";
               uses AF-CONTENT;
@@ -2412,10 +2426,10 @@ module Cisco-IOS-XR-clns-isis-cfg {
         container distribute {
           presence "enable distribute";
           description
-            "IS-IS Distribute BGP-LS configuration";
+            "Distribute link-state configuration";
           leaf dist-inst-id {
             type uint32 {
-              range "1..65535";
+              range "32..4294967295";
             }
             description
               "Instance ID";
@@ -2688,7 +2702,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
             leaf hippity-period {
               when "../overload-bit-mode = 'startup-period'" {
                 description
-                  "../OverloadBitMode = 2";
+                  "../OverloadBitMode = StartupPeriod";
               }
               type uint32 {
                 range "5..86400";

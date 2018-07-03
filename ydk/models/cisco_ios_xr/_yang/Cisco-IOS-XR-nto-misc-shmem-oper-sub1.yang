@@ -136,11 +136,6 @@ submodule Cisco-IOS-XR-nto-misc-shmem-oper-sub1 {
       description
         "Program Stack Size";
     }
-    leaf total-used {
-      type uint64;
-      description
-        "Total Used";
-    }
     list shared-window {
       description
         "Available Shared windows";

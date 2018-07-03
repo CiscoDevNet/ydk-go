@@ -66,10 +66,13 @@ func (hsrp *Hsrp) GetEntityData() *types.CommonEntityData {
     hsrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hsrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hsrp.EntityData.Children = make(map[string]types.YChild)
-    hsrp.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &hsrp.Interfaces}
-    hsrp.EntityData.Children["logging"] = types.YChild{"Logging", &hsrp.Logging}
-    hsrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    hsrp.EntityData.Children = types.NewOrderedMap()
+    hsrp.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &hsrp.Interfaces})
+    hsrp.EntityData.Children.Append("logging", types.YChild{"Logging", &hsrp.Logging})
+    hsrp.EntityData.Leafs = types.NewOrderedMap()
+
+    hsrp.EntityData.YListKeys = []string {}
+
     return &(hsrp.EntityData)
 }
 
@@ -80,8 +83,8 @@ type Hsrp_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Per-interface HSRP configuration. The type is slice of
-    // Hsrp_Interfaces_Interface_.
-    Interface_ []Hsrp_Interfaces_Interface
+    // Hsrp_Interfaces_Interface.
+    Interface []*Hsrp_Interfaces_Interface
 }
 
 func (interfaces *Hsrp_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -94,12 +97,15 @@ func (interfaces *Hsrp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -110,7 +116,7 @@ type Hsrp_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // HSRP MGO slave MAC refresh rate. The type is interface{} with range:
@@ -141,21 +147,24 @@ func (self *Hsrp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &self.Ipv6}
-    self.EntityData.Children["bfd"] = types.YChild{"Bfd", &self.Bfd}
-    self.EntityData.Children["delay"] = types.YChild{"Delay", &self.Delay}
-    self.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &self.Ipv4}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["mac-refresh"] = types.YLeaf{"MacRefresh", self.MacRefresh}
-    self.EntityData.Leafs["use-bia"] = types.YLeaf{"UseBia", self.UseBia}
-    self.EntityData.Leafs["redirects-disable"] = types.YLeaf{"RedirectsDisable", self.RedirectsDisable}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &self.Ipv6})
+    self.EntityData.Children.Append("bfd", types.YChild{"Bfd", &self.Bfd})
+    self.EntityData.Children.Append("delay", types.YChild{"Delay", &self.Delay})
+    self.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &self.Ipv4})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("mac-refresh", types.YLeaf{"MacRefresh", self.MacRefresh})
+    self.EntityData.Leafs.Append("use-bia", types.YLeaf{"UseBia", self.UseBia})
+    self.EntityData.Leafs.Append("redirects-disable", types.YLeaf{"RedirectsDisable", self.RedirectsDisable})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -182,10 +191,13 @@ func (ipv6 *Hsrp_Interfaces_Interface_Ipv6) GetEntityData() *types.CommonEntityD
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["version2"] = types.YChild{"Version2", &ipv6.Version2}
-    ipv6.EntityData.Children["slave-groups"] = types.YChild{"SlaveGroups", &ipv6.SlaveGroups}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("version2", types.YChild{"Version2", &ipv6.Version2})
+    ipv6.EntityData.Children.Append("slave-groups", types.YChild{"SlaveGroups", &ipv6.SlaveGroups})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -209,9 +221,12 @@ func (version2 *Hsrp_Interfaces_Interface_Ipv6_Version2) GetEntityData() *types.
     version2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    version2.EntityData.Children = make(map[string]types.YChild)
-    version2.EntityData.Children["groups"] = types.YChild{"Groups", &version2.Groups}
-    version2.EntityData.Leafs = make(map[string]types.YLeaf)
+    version2.EntityData.Children = types.NewOrderedMap()
+    version2.EntityData.Children.Append("groups", types.YChild{"Groups", &version2.Groups})
+    version2.EntityData.Leafs = types.NewOrderedMap()
+
+    version2.EntityData.YListKeys = []string {}
+
     return &(version2.EntityData)
 }
 
@@ -223,7 +238,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups struct {
 
     // The HSRP group being configured. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group.
-    Group []Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group
+    Group []*Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group
 }
 
 func (groups *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups) GetEntityData() *types.CommonEntityData {
@@ -236,12 +251,15 @@ func (groups *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups) GetEntityData() *t
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -260,14 +278,14 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group struct {
     Priority interface{}
 
     // Force active if higher priority. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 0.
+    // 0..4294967295. The default value is 0.
     Preempt interface{}
 
     // HSRP Session name (for MGO). The type is string with length: 1..16.
     SessionName interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMacAddress interface{}
 
     // Enable use of Bidirectional Forwarding Detection.
@@ -294,24 +312,27 @@ func (group *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group) GetEntityData
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group-number='" + fmt.Sprintf("%v", group.GroupNumber) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupNumber, "group-number")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Children["bfd"] = types.YChild{"Bfd", &group.Bfd}
-    group.EntityData.Children["tracked-interfaces"] = types.YChild{"TrackedInterfaces", &group.TrackedInterfaces}
-    group.EntityData.Children["tracked-objects"] = types.YChild{"TrackedObjects", &group.TrackedObjects}
-    group.EntityData.Children["timers"] = types.YChild{"Timers", &group.Timers}
-    group.EntityData.Children["link-local-ipv6-address"] = types.YChild{"LinkLocalIpv6Address", &group.LinkLocalIpv6Address}
-    group.EntityData.Children["global-ipv6-addresses"] = types.YChild{"GlobalIpv6Addresses", &group.GlobalIpv6Addresses}
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group-number"] = types.YLeaf{"GroupNumber", group.GroupNumber}
-    group.EntityData.Leafs["priority"] = types.YLeaf{"Priority", group.Priority}
-    group.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", group.Preempt}
-    group.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", group.SessionName}
-    group.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", group.VirtualMacAddress}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Children.Append("bfd", types.YChild{"Bfd", &group.Bfd})
+    group.EntityData.Children.Append("tracked-interfaces", types.YChild{"TrackedInterfaces", &group.TrackedInterfaces})
+    group.EntityData.Children.Append("tracked-objects", types.YChild{"TrackedObjects", &group.TrackedObjects})
+    group.EntityData.Children.Append("timers", types.YChild{"Timers", &group.Timers})
+    group.EntityData.Children.Append("link-local-ipv6-address", types.YChild{"LinkLocalIpv6Address", &group.LinkLocalIpv6Address})
+    group.EntityData.Children.Append("global-ipv6-addresses", types.YChild{"GlobalIpv6Addresses", &group.GlobalIpv6Addresses})
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group-number", types.YLeaf{"GroupNumber", group.GroupNumber})
+    group.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", group.Priority})
+    group.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", group.Preempt})
+    group.EntityData.Leafs.Append("session-name", types.YLeaf{"SessionName", group.SessionName})
+    group.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", group.VirtualMacAddress})
+
+    group.EntityData.YListKeys = []string {"GroupNumber"}
+
     return &(group.EntityData)
 }
 
@@ -323,11 +344,11 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Bfd struct {
     YFilter yfilter.YFilter
 
     // Enable BFD for this remote IP. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -341,10 +362,13 @@ func (bfd *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Bfd) GetEntityDa
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["address"] = types.YLeaf{"Address", bfd.Address}
-    bfd.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfd.InterfaceName}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("address", types.YLeaf{"Address", bfd.Address})
+    bfd.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfd.InterfaceName})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -357,7 +381,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces stru
 
     // Interface being tracked. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces_TrackedInterface.
-    TrackedInterface []Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces_TrackedInterface
+    TrackedInterface []*Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces_TrackedInterface
 }
 
 func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces) GetEntityData() *types.CommonEntityData {
@@ -370,12 +394,15 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Tr
     trackedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedInterfaces.EntityData.Children = make(map[string]types.YChild)
-    trackedInterfaces.EntityData.Children["tracked-interface"] = types.YChild{"TrackedInterface", nil}
+    trackedInterfaces.EntityData.Children = types.NewOrderedMap()
+    trackedInterfaces.EntityData.Children.Append("tracked-interface", types.YChild{"TrackedInterface", nil})
     for i := range trackedInterfaces.TrackedInterface {
-        trackedInterfaces.EntityData.Children[types.GetSegmentPath(&trackedInterfaces.TrackedInterface[i])] = types.YChild{"TrackedInterface", &trackedInterfaces.TrackedInterface[i]}
+        trackedInterfaces.EntityData.Children.Append(types.GetSegmentPath(trackedInterfaces.TrackedInterface[i]), types.YChild{"TrackedInterface", trackedInterfaces.TrackedInterface[i]})
     }
-    trackedInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackedInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    trackedInterfaces.EntityData.YListKeys = []string {}
+
     return &(trackedInterfaces.EntityData)
 }
 
@@ -386,7 +413,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces_Trac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -399,15 +426,18 @@ func (trackedInterface *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Tra
     trackedInterface.EntityData.YangName = "tracked-interface"
     trackedInterface.EntityData.BundleName = "cisco_ios_xr"
     trackedInterface.EntityData.ParentYangName = "tracked-interfaces"
-    trackedInterface.EntityData.SegmentPath = "tracked-interface" + "[interface-name='" + fmt.Sprintf("%v", trackedInterface.InterfaceName) + "']"
+    trackedInterface.EntityData.SegmentPath = "tracked-interface" + types.AddKeyToken(trackedInterface.InterfaceName, "interface-name")
     trackedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedInterface.EntityData.Children = make(map[string]types.YChild)
-    trackedInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackedInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", trackedInterface.InterfaceName}
-    trackedInterface.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", trackedInterface.PriorityDecrement}
+    trackedInterface.EntityData.Children = types.NewOrderedMap()
+    trackedInterface.EntityData.Leafs = types.NewOrderedMap()
+    trackedInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", trackedInterface.InterfaceName})
+    trackedInterface.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", trackedInterface.PriorityDecrement})
+
+    trackedInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(trackedInterface.EntityData)
 }
 
@@ -420,7 +450,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedObjects struct 
 
     // Object being tracked. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedObjects_TrackedObject.
-    TrackedObject []Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedObjects_TrackedObject
+    TrackedObject []*Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedObjects_TrackedObject
 }
 
 func (trackedObjects *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedObjects) GetEntityData() *types.CommonEntityData {
@@ -433,12 +463,15 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Track
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedObjects.EntityData.Children = make(map[string]types.YChild)
-    trackedObjects.EntityData.Children["tracked-object"] = types.YChild{"TrackedObject", nil}
+    trackedObjects.EntityData.Children = types.NewOrderedMap()
+    trackedObjects.EntityData.Children.Append("tracked-object", types.YChild{"TrackedObject", nil})
     for i := range trackedObjects.TrackedObject {
-        trackedObjects.EntityData.Children[types.GetSegmentPath(&trackedObjects.TrackedObject[i])] = types.YChild{"TrackedObject", &trackedObjects.TrackedObject[i]}
+        trackedObjects.EntityData.Children.Append(types.GetSegmentPath(trackedObjects.TrackedObject[i]), types.YChild{"TrackedObject", trackedObjects.TrackedObject[i]})
     }
-    trackedObjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackedObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    trackedObjects.EntityData.YListKeys = []string {}
+
     return &(trackedObjects.EntityData)
 }
 
@@ -449,7 +482,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedObjects_Tracked
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -462,15 +495,18 @@ func (trackedObject *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Tracke
     trackedObject.EntityData.YangName = "tracked-object"
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
-    trackedObject.EntityData.SegmentPath = "tracked-object" + "[object-name='" + fmt.Sprintf("%v", trackedObject.ObjectName) + "']"
+    trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedObject.EntityData.Children = make(map[string]types.YChild)
-    trackedObject.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackedObject.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", trackedObject.ObjectName}
-    trackedObject.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", trackedObject.PriorityDecrement}
+    trackedObject.EntityData.Children = types.NewOrderedMap()
+    trackedObject.EntityData.Leafs = types.NewOrderedMap()
+    trackedObject.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", trackedObject.ObjectName})
+    trackedObject.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", trackedObject.PriorityDecrement})
+
+    trackedObject.EntityData.YListKeys = []string {"ObjectName"}
+
     return &(trackedObject.EntityData)
 }
 
@@ -515,14 +551,17 @@ func (timers *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Timers) GetEn
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["hello-msec-flag"] = types.YLeaf{"HelloMsecFlag", timers.HelloMsecFlag}
-    timers.EntityData.Leafs["hello-msec"] = types.YLeaf{"HelloMsec", timers.HelloMsec}
-    timers.EntityData.Leafs["hello-sec"] = types.YLeaf{"HelloSec", timers.HelloSec}
-    timers.EntityData.Leafs["hold-msec-flag"] = types.YLeaf{"HoldMsecFlag", timers.HoldMsecFlag}
-    timers.EntityData.Leafs["hold-msec"] = types.YLeaf{"HoldMsec", timers.HoldMsec}
-    timers.EntityData.Leafs["hold-sec"] = types.YLeaf{"HoldSec", timers.HoldSec}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("hello-msec-flag", types.YLeaf{"HelloMsecFlag", timers.HelloMsecFlag})
+    timers.EntityData.Leafs.Append("hello-msec", types.YLeaf{"HelloMsec", timers.HelloMsec})
+    timers.EntityData.Leafs.Append("hello-sec", types.YLeaf{"HelloSec", timers.HelloSec})
+    timers.EntityData.Leafs.Append("hold-msec-flag", types.YLeaf{"HoldMsecFlag", timers.HoldMsecFlag})
+    timers.EntityData.Leafs.Append("hold-msec", types.YLeaf{"HoldMsec", timers.HoldMsec})
+    timers.EntityData.Leafs.Append("hold-sec", types.YLeaf{"HoldSec", timers.HoldSec})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -533,7 +572,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_LinkLocalIpv6Address s
     YFilter yfilter.YFilter
 
     // HSRP IPv6 virtual linklocal address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Linklocal Configuration Type. The type is HsrpLinklocal. The default value
@@ -551,10 +590,13 @@ func (linkLocalIpv6Address *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group
     linkLocalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLocalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkLocalIpv6Address.EntityData.Children = make(map[string]types.YChild)
-    linkLocalIpv6Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkLocalIpv6Address.EntityData.Leafs["address"] = types.YLeaf{"Address", linkLocalIpv6Address.Address}
-    linkLocalIpv6Address.EntityData.Leafs["auto-configure"] = types.YLeaf{"AutoConfigure", linkLocalIpv6Address.AutoConfigure}
+    linkLocalIpv6Address.EntityData.Children = types.NewOrderedMap()
+    linkLocalIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    linkLocalIpv6Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", linkLocalIpv6Address.Address})
+    linkLocalIpv6Address.EntityData.Leafs.Append("auto-configure", types.YLeaf{"AutoConfigure", linkLocalIpv6Address.AutoConfigure})
+
+    linkLocalIpv6Address.EntityData.YListKeys = []string {}
+
     return &(linkLocalIpv6Address.EntityData)
 }
 
@@ -567,7 +609,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_GlobalIpv6Addresses st
 
     // A HSRP virtual global IPv6 IP address. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_GlobalIpv6Addresses_GlobalIpv6Address.
-    GlobalIpv6Address []Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_GlobalIpv6Addresses_GlobalIpv6Address
+    GlobalIpv6Address []*Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_GlobalIpv6Addresses_GlobalIpv6Address
 }
 
 func (globalIpv6Addresses *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_GlobalIpv6Addresses) GetEntityData() *types.CommonEntityData {
@@ -580,12 +622,15 @@ func (globalIpv6Addresses *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_
     globalIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalIpv6Addresses.EntityData.Children = make(map[string]types.YChild)
-    globalIpv6Addresses.EntityData.Children["global-ipv6-address"] = types.YChild{"GlobalIpv6Address", nil}
+    globalIpv6Addresses.EntityData.Children = types.NewOrderedMap()
+    globalIpv6Addresses.EntityData.Children.Append("global-ipv6-address", types.YChild{"GlobalIpv6Address", nil})
     for i := range globalIpv6Addresses.GlobalIpv6Address {
-        globalIpv6Addresses.EntityData.Children[types.GetSegmentPath(&globalIpv6Addresses.GlobalIpv6Address[i])] = types.YChild{"GlobalIpv6Address", &globalIpv6Addresses.GlobalIpv6Address[i]}
+        globalIpv6Addresses.EntityData.Children.Append(types.GetSegmentPath(globalIpv6Addresses.GlobalIpv6Address[i]), types.YChild{"GlobalIpv6Address", globalIpv6Addresses.GlobalIpv6Address[i]})
     }
-    globalIpv6Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    globalIpv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    globalIpv6Addresses.EntityData.YListKeys = []string {}
+
     return &(globalIpv6Addresses.EntityData)
 }
 
@@ -597,7 +642,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_GlobalIpv6Addresses_Gl
 
     // This attribute is a key. HSRP virtual global IPv6 address. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -606,14 +651,17 @@ func (globalIpv6Address *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Gl
     globalIpv6Address.EntityData.YangName = "global-ipv6-address"
     globalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Address.EntityData.ParentYangName = "global-ipv6-addresses"
-    globalIpv6Address.EntityData.SegmentPath = "global-ipv6-address" + "[address='" + fmt.Sprintf("%v", globalIpv6Address.Address) + "']"
+    globalIpv6Address.EntityData.SegmentPath = "global-ipv6-address" + types.AddKeyToken(globalIpv6Address.Address, "address")
     globalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalIpv6Address.EntityData.Children = make(map[string]types.YChild)
-    globalIpv6Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalIpv6Address.EntityData.Leafs["address"] = types.YLeaf{"Address", globalIpv6Address.Address}
+    globalIpv6Address.EntityData.Children = types.NewOrderedMap()
+    globalIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    globalIpv6Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", globalIpv6Address.Address})
+
+    globalIpv6Address.EntityData.YListKeys = []string {"Address"}
+
     return &(globalIpv6Address.EntityData)
 }
 
@@ -625,7 +673,7 @@ type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups struct {
 
     // The HSRP slave group being configured. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup.
-    SlaveGroup []Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup
+    SlaveGroup []*Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup
 }
 
 func (slaveGroups *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups) GetEntityData() *types.CommonEntityData {
@@ -638,12 +686,15 @@ func (slaveGroups *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups) GetEntityData() *
     slaveGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slaveGroups.EntityData.Children = make(map[string]types.YChild)
-    slaveGroups.EntityData.Children["slave-group"] = types.YChild{"SlaveGroup", nil}
+    slaveGroups.EntityData.Children = types.NewOrderedMap()
+    slaveGroups.EntityData.Children.Append("slave-group", types.YChild{"SlaveGroup", nil})
     for i := range slaveGroups.SlaveGroup {
-        slaveGroups.EntityData.Children[types.GetSegmentPath(&slaveGroups.SlaveGroup[i])] = types.YChild{"SlaveGroup", &slaveGroups.SlaveGroup[i]}
+        slaveGroups.EntityData.Children.Append(types.GetSegmentPath(slaveGroups.SlaveGroup[i]), types.YChild{"SlaveGroup", slaveGroups.SlaveGroup[i]})
     }
-    slaveGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    slaveGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    slaveGroups.EntityData.YListKeys = []string {}
+
     return &(slaveGroups.EntityData)
 }
 
@@ -661,7 +712,7 @@ type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup struct {
     Follow interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMacAddress interface{}
 
     // The HSRP IPv6 virtual linklocal address.
@@ -676,18 +727,21 @@ func (slaveGroup *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup) GetEnti
     slaveGroup.EntityData.YangName = "slave-group"
     slaveGroup.EntityData.BundleName = "cisco_ios_xr"
     slaveGroup.EntityData.ParentYangName = "slave-groups"
-    slaveGroup.EntityData.SegmentPath = "slave-group" + "[slave-group-number='" + fmt.Sprintf("%v", slaveGroup.SlaveGroupNumber) + "']"
+    slaveGroup.EntityData.SegmentPath = "slave-group" + types.AddKeyToken(slaveGroup.SlaveGroupNumber, "slave-group-number")
     slaveGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slaveGroup.EntityData.Children = make(map[string]types.YChild)
-    slaveGroup.EntityData.Children["link-local-ipv6-address"] = types.YChild{"LinkLocalIpv6Address", &slaveGroup.LinkLocalIpv6Address}
-    slaveGroup.EntityData.Children["global-ipv6-addresses"] = types.YChild{"GlobalIpv6Addresses", &slaveGroup.GlobalIpv6Addresses}
-    slaveGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    slaveGroup.EntityData.Leafs["slave-group-number"] = types.YLeaf{"SlaveGroupNumber", slaveGroup.SlaveGroupNumber}
-    slaveGroup.EntityData.Leafs["follow"] = types.YLeaf{"Follow", slaveGroup.Follow}
-    slaveGroup.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", slaveGroup.VirtualMacAddress}
+    slaveGroup.EntityData.Children = types.NewOrderedMap()
+    slaveGroup.EntityData.Children.Append("link-local-ipv6-address", types.YChild{"LinkLocalIpv6Address", &slaveGroup.LinkLocalIpv6Address})
+    slaveGroup.EntityData.Children.Append("global-ipv6-addresses", types.YChild{"GlobalIpv6Addresses", &slaveGroup.GlobalIpv6Addresses})
+    slaveGroup.EntityData.Leafs = types.NewOrderedMap()
+    slaveGroup.EntityData.Leafs.Append("slave-group-number", types.YLeaf{"SlaveGroupNumber", slaveGroup.SlaveGroupNumber})
+    slaveGroup.EntityData.Leafs.Append("follow", types.YLeaf{"Follow", slaveGroup.Follow})
+    slaveGroup.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", slaveGroup.VirtualMacAddress})
+
+    slaveGroup.EntityData.YListKeys = []string {"SlaveGroupNumber"}
+
     return &(slaveGroup.EntityData)
 }
 
@@ -698,7 +752,7 @@ type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_LinkLocalIpv6Address 
     YFilter yfilter.YFilter
 
     // HSRP IPv6 virtual linklocal address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Linklocal Configuration Type. The type is HsrpLinklocal. The default value
@@ -716,10 +770,13 @@ func (linkLocalIpv6Address *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGrou
     linkLocalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLocalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkLocalIpv6Address.EntityData.Children = make(map[string]types.YChild)
-    linkLocalIpv6Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkLocalIpv6Address.EntityData.Leafs["address"] = types.YLeaf{"Address", linkLocalIpv6Address.Address}
-    linkLocalIpv6Address.EntityData.Leafs["auto-configure"] = types.YLeaf{"AutoConfigure", linkLocalIpv6Address.AutoConfigure}
+    linkLocalIpv6Address.EntityData.Children = types.NewOrderedMap()
+    linkLocalIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    linkLocalIpv6Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", linkLocalIpv6Address.Address})
+    linkLocalIpv6Address.EntityData.Leafs.Append("auto-configure", types.YLeaf{"AutoConfigure", linkLocalIpv6Address.AutoConfigure})
+
+    linkLocalIpv6Address.EntityData.YListKeys = []string {}
+
     return &(linkLocalIpv6Address.EntityData)
 }
 
@@ -732,7 +789,7 @@ type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_GlobalIpv6Addresses s
 
     // A HSRP virtual global IPv6 IP address. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_GlobalIpv6Addresses_GlobalIpv6Address.
-    GlobalIpv6Address []Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_GlobalIpv6Addresses_GlobalIpv6Address
+    GlobalIpv6Address []*Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_GlobalIpv6Addresses_GlobalIpv6Address
 }
 
 func (globalIpv6Addresses *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_GlobalIpv6Addresses) GetEntityData() *types.CommonEntityData {
@@ -745,12 +802,15 @@ func (globalIpv6Addresses *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup
     globalIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalIpv6Addresses.EntityData.Children = make(map[string]types.YChild)
-    globalIpv6Addresses.EntityData.Children["global-ipv6-address"] = types.YChild{"GlobalIpv6Address", nil}
+    globalIpv6Addresses.EntityData.Children = types.NewOrderedMap()
+    globalIpv6Addresses.EntityData.Children.Append("global-ipv6-address", types.YChild{"GlobalIpv6Address", nil})
     for i := range globalIpv6Addresses.GlobalIpv6Address {
-        globalIpv6Addresses.EntityData.Children[types.GetSegmentPath(&globalIpv6Addresses.GlobalIpv6Address[i])] = types.YChild{"GlobalIpv6Address", &globalIpv6Addresses.GlobalIpv6Address[i]}
+        globalIpv6Addresses.EntityData.Children.Append(types.GetSegmentPath(globalIpv6Addresses.GlobalIpv6Address[i]), types.YChild{"GlobalIpv6Address", globalIpv6Addresses.GlobalIpv6Address[i]})
     }
-    globalIpv6Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    globalIpv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    globalIpv6Addresses.EntityData.YListKeys = []string {}
+
     return &(globalIpv6Addresses.EntityData)
 }
 
@@ -762,7 +822,7 @@ type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_GlobalIpv6Addresses_G
 
     // This attribute is a key. HSRP virtual global IPv6 address. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -771,14 +831,17 @@ func (globalIpv6Address *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_G
     globalIpv6Address.EntityData.YangName = "global-ipv6-address"
     globalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Address.EntityData.ParentYangName = "global-ipv6-addresses"
-    globalIpv6Address.EntityData.SegmentPath = "global-ipv6-address" + "[address='" + fmt.Sprintf("%v", globalIpv6Address.Address) + "']"
+    globalIpv6Address.EntityData.SegmentPath = "global-ipv6-address" + types.AddKeyToken(globalIpv6Address.Address, "address")
     globalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalIpv6Address.EntityData.Children = make(map[string]types.YChild)
-    globalIpv6Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalIpv6Address.EntityData.Leafs["address"] = types.YLeaf{"Address", globalIpv6Address.Address}
+    globalIpv6Address.EntityData.Children = types.NewOrderedMap()
+    globalIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    globalIpv6Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", globalIpv6Address.Address})
+
+    globalIpv6Address.EntityData.YListKeys = []string {"Address"}
+
     return &(globalIpv6Address.EntityData)
 }
 
@@ -807,10 +870,13 @@ func (bfd *Hsrp_Interfaces_Interface_Bfd) GetEntityData() *types.CommonEntityDat
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier}
-    bfd.EntityData.Leafs["interval"] = types.YLeaf{"Interval", bfd.Interval}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", bfd.DetectionMultiplier})
+    bfd.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", bfd.Interval})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -820,6 +886,7 @@ func (bfd *Hsrp_Interfaces_Interface_Bfd) GetEntityData() *types.CommonEntityDat
 type Hsrp_Interfaces_Interface_Delay struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Minimum delay in seconds. The type is interface{} with range: 0..10000.
     // This attribute is mandatory. Units are second.
@@ -840,10 +907,13 @@ func (delay *Hsrp_Interfaces_Interface_Delay) GetEntityData() *types.CommonEntit
     delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    delay.EntityData.Children = make(map[string]types.YChild)
-    delay.EntityData.Leafs = make(map[string]types.YLeaf)
-    delay.EntityData.Leafs["minimum-delay"] = types.YLeaf{"MinimumDelay", delay.MinimumDelay}
-    delay.EntityData.Leafs["reload-delay"] = types.YLeaf{"ReloadDelay", delay.ReloadDelay}
+    delay.EntityData.Children = types.NewOrderedMap()
+    delay.EntityData.Leafs = types.NewOrderedMap()
+    delay.EntityData.Leafs.Append("minimum-delay", types.YLeaf{"MinimumDelay", delay.MinimumDelay})
+    delay.EntityData.Leafs.Append("reload-delay", types.YLeaf{"ReloadDelay", delay.ReloadDelay})
+
+    delay.EntityData.YListKeys = []string {}
+
     return &(delay.EntityData)
 }
 
@@ -873,11 +943,14 @@ func (ipv4 *Hsrp_Interfaces_Interface_Ipv4) GetEntityData() *types.CommonEntityD
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["slave-groups"] = types.YChild{"SlaveGroups", &ipv4.SlaveGroups}
-    ipv4.EntityData.Children["version1"] = types.YChild{"Version1", &ipv4.Version1}
-    ipv4.EntityData.Children["version2"] = types.YChild{"Version2", &ipv4.Version2}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("slave-groups", types.YChild{"SlaveGroups", &ipv4.SlaveGroups})
+    ipv4.EntityData.Children.Append("version1", types.YChild{"Version1", &ipv4.Version1})
+    ipv4.EntityData.Children.Append("version2", types.YChild{"Version2", &ipv4.Version2})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -889,7 +962,7 @@ type Hsrp_Interfaces_Interface_Ipv4_SlaveGroups struct {
 
     // The HSRP slave group being configured. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup.
-    SlaveGroup []Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup
+    SlaveGroup []*Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup
 }
 
 func (slaveGroups *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups) GetEntityData() *types.CommonEntityData {
@@ -902,12 +975,15 @@ func (slaveGroups *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups) GetEntityData() *
     slaveGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slaveGroups.EntityData.Children = make(map[string]types.YChild)
-    slaveGroups.EntityData.Children["slave-group"] = types.YChild{"SlaveGroup", nil}
+    slaveGroups.EntityData.Children = types.NewOrderedMap()
+    slaveGroups.EntityData.Children.Append("slave-group", types.YChild{"SlaveGroup", nil})
     for i := range slaveGroups.SlaveGroup {
-        slaveGroups.EntityData.Children[types.GetSegmentPath(&slaveGroups.SlaveGroup[i])] = types.YChild{"SlaveGroup", &slaveGroups.SlaveGroup[i]}
+        slaveGroups.EntityData.Children.Append(types.GetSegmentPath(slaveGroups.SlaveGroup[i]), types.YChild{"SlaveGroup", slaveGroups.SlaveGroup[i]})
     }
-    slaveGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    slaveGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    slaveGroups.EntityData.YListKeys = []string {}
+
     return &(slaveGroups.EntityData)
 }
 
@@ -925,11 +1001,11 @@ type Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup struct {
     Follow interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMacAddress interface{}
 
     // Primary HSRP IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryIpv4Address interface{}
 
     // Secondary HSRP IP address Table.
@@ -941,18 +1017,21 @@ func (slaveGroup *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup) GetEnti
     slaveGroup.EntityData.YangName = "slave-group"
     slaveGroup.EntityData.BundleName = "cisco_ios_xr"
     slaveGroup.EntityData.ParentYangName = "slave-groups"
-    slaveGroup.EntityData.SegmentPath = "slave-group" + "[slave-group-number='" + fmt.Sprintf("%v", slaveGroup.SlaveGroupNumber) + "']"
+    slaveGroup.EntityData.SegmentPath = "slave-group" + types.AddKeyToken(slaveGroup.SlaveGroupNumber, "slave-group-number")
     slaveGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slaveGroup.EntityData.Children = make(map[string]types.YChild)
-    slaveGroup.EntityData.Children["secondary-ipv4-addresses"] = types.YChild{"SecondaryIpv4Addresses", &slaveGroup.SecondaryIpv4Addresses}
-    slaveGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    slaveGroup.EntityData.Leafs["slave-group-number"] = types.YLeaf{"SlaveGroupNumber", slaveGroup.SlaveGroupNumber}
-    slaveGroup.EntityData.Leafs["follow"] = types.YLeaf{"Follow", slaveGroup.Follow}
-    slaveGroup.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", slaveGroup.VirtualMacAddress}
-    slaveGroup.EntityData.Leafs["primary-ipv4-address"] = types.YLeaf{"PrimaryIpv4Address", slaveGroup.PrimaryIpv4Address}
+    slaveGroup.EntityData.Children = types.NewOrderedMap()
+    slaveGroup.EntityData.Children.Append("secondary-ipv4-addresses", types.YChild{"SecondaryIpv4Addresses", &slaveGroup.SecondaryIpv4Addresses})
+    slaveGroup.EntityData.Leafs = types.NewOrderedMap()
+    slaveGroup.EntityData.Leafs.Append("slave-group-number", types.YLeaf{"SlaveGroupNumber", slaveGroup.SlaveGroupNumber})
+    slaveGroup.EntityData.Leafs.Append("follow", types.YLeaf{"Follow", slaveGroup.Follow})
+    slaveGroup.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", slaveGroup.VirtualMacAddress})
+    slaveGroup.EntityData.Leafs.Append("primary-ipv4-address", types.YLeaf{"PrimaryIpv4Address", slaveGroup.PrimaryIpv4Address})
+
+    slaveGroup.EntityData.YListKeys = []string {"SlaveGroupNumber"}
+
     return &(slaveGroup.EntityData)
 }
 
@@ -964,7 +1043,7 @@ type Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup_SecondaryIpv4Addresse
 
     // Secondary HSRP IP address. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup_SecondaryIpv4Addresses_SecondaryIpv4Address.
-    SecondaryIpv4Address []Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup_SecondaryIpv4Addresses_SecondaryIpv4Address
+    SecondaryIpv4Address []*Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup_SecondaryIpv4Addresses_SecondaryIpv4Address
 }
 
 func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup_SecondaryIpv4Addresses) GetEntityData() *types.CommonEntityData {
@@ -977,12 +1056,15 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGr
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    secondaryIpv4Addresses.EntityData.Children = make(map[string]types.YChild)
-    secondaryIpv4Addresses.EntityData.Children["secondary-ipv4-address"] = types.YChild{"SecondaryIpv4Address", nil}
+    secondaryIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    secondaryIpv4Addresses.EntityData.Children.Append("secondary-ipv4-address", types.YChild{"SecondaryIpv4Address", nil})
     for i := range secondaryIpv4Addresses.SecondaryIpv4Address {
-        secondaryIpv4Addresses.EntityData.Children[types.GetSegmentPath(&secondaryIpv4Addresses.SecondaryIpv4Address[i])] = types.YChild{"SecondaryIpv4Address", &secondaryIpv4Addresses.SecondaryIpv4Address[i]}
+        secondaryIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(secondaryIpv4Addresses.SecondaryIpv4Address[i]), types.YChild{"SecondaryIpv4Address", secondaryIpv4Addresses.SecondaryIpv4Address[i]})
     }
-    secondaryIpv4Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    secondaryIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    secondaryIpv4Addresses.EntityData.YListKeys = []string {}
+
     return &(secondaryIpv4Addresses.EntityData)
 }
 
@@ -993,7 +1075,7 @@ type Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup_SecondaryIpv4Addresse
     YFilter yfilter.YFilter
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1002,14 +1084,17 @@ func (secondaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGrou
     secondaryIpv4Address.EntityData.YangName = "secondary-ipv4-address"
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
-    secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + "[address='" + fmt.Sprintf("%v", secondaryIpv4Address.Address) + "']"
+    secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.Address, "address")
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    secondaryIpv4Address.EntityData.Children = make(map[string]types.YChild)
-    secondaryIpv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    secondaryIpv4Address.EntityData.Leafs["address"] = types.YLeaf{"Address", secondaryIpv4Address.Address}
+    secondaryIpv4Address.EntityData.Children = types.NewOrderedMap()
+    secondaryIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    secondaryIpv4Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", secondaryIpv4Address.Address})
+
+    secondaryIpv4Address.EntityData.YListKeys = []string {"Address"}
+
     return &(secondaryIpv4Address.EntityData)
 }
 
@@ -1033,9 +1118,12 @@ func (version1 *Hsrp_Interfaces_Interface_Ipv4_Version1) GetEntityData() *types.
     version1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    version1.EntityData.Children = make(map[string]types.YChild)
-    version1.EntityData.Children["groups"] = types.YChild{"Groups", &version1.Groups}
-    version1.EntityData.Leafs = make(map[string]types.YLeaf)
+    version1.EntityData.Children = types.NewOrderedMap()
+    version1.EntityData.Children.Append("groups", types.YChild{"Groups", &version1.Groups})
+    version1.EntityData.Leafs = types.NewOrderedMap()
+
+    version1.EntityData.YListKeys = []string {}
+
     return &(version1.EntityData)
 }
 
@@ -1047,7 +1135,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups struct {
 
     // The HSRP group being configured. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group.
-    Group []Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group
+    Group []*Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group
 }
 
 func (groups *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups) GetEntityData() *types.CommonEntityData {
@@ -1060,12 +1148,15 @@ func (groups *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups) GetEntityData() *t
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -1091,11 +1182,11 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group struct {
     Priority interface{}
 
     // Force active if higher priority. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 0.
+    // 0..4294967295. The default value is 0.
     Preempt interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMacAddress interface{}
 
     // The HSRP tracked interface configuration table.
@@ -1122,25 +1213,28 @@ func (group *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group) GetEntityData
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group-number='" + fmt.Sprintf("%v", group.GroupNumber) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupNumber, "group-number")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Children["tracked-interfaces"] = types.YChild{"TrackedInterfaces", &group.TrackedInterfaces}
-    group.EntityData.Children["bfd"] = types.YChild{"Bfd", &group.Bfd}
-    group.EntityData.Children["tracked-objects"] = types.YChild{"TrackedObjects", &group.TrackedObjects}
-    group.EntityData.Children["timers"] = types.YChild{"Timers", &group.Timers}
-    group.EntityData.Children["primary-ipv4-address"] = types.YChild{"PrimaryIpv4Address", &group.PrimaryIpv4Address}
-    group.EntityData.Children["secondary-ipv4-addresses"] = types.YChild{"SecondaryIpv4Addresses", &group.SecondaryIpv4Addresses}
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group-number"] = types.YLeaf{"GroupNumber", group.GroupNumber}
-    group.EntityData.Leafs["authentication"] = types.YLeaf{"Authentication", group.Authentication}
-    group.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", group.SessionName}
-    group.EntityData.Leafs["priority"] = types.YLeaf{"Priority", group.Priority}
-    group.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", group.Preempt}
-    group.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", group.VirtualMacAddress}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Children.Append("tracked-interfaces", types.YChild{"TrackedInterfaces", &group.TrackedInterfaces})
+    group.EntityData.Children.Append("bfd", types.YChild{"Bfd", &group.Bfd})
+    group.EntityData.Children.Append("tracked-objects", types.YChild{"TrackedObjects", &group.TrackedObjects})
+    group.EntityData.Children.Append("timers", types.YChild{"Timers", &group.Timers})
+    group.EntityData.Children.Append("primary-ipv4-address", types.YChild{"PrimaryIpv4Address", &group.PrimaryIpv4Address})
+    group.EntityData.Children.Append("secondary-ipv4-addresses", types.YChild{"SecondaryIpv4Addresses", &group.SecondaryIpv4Addresses})
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group-number", types.YLeaf{"GroupNumber", group.GroupNumber})
+    group.EntityData.Leafs.Append("authentication", types.YLeaf{"Authentication", group.Authentication})
+    group.EntityData.Leafs.Append("session-name", types.YLeaf{"SessionName", group.SessionName})
+    group.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", group.Priority})
+    group.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", group.Preempt})
+    group.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", group.VirtualMacAddress})
+
+    group.EntityData.YListKeys = []string {"GroupNumber"}
+
     return &(group.EntityData)
 }
 
@@ -1153,7 +1247,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces stru
 
     // Interface being tracked. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces_TrackedInterface.
-    TrackedInterface []Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces_TrackedInterface
+    TrackedInterface []*Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces_TrackedInterface
 }
 
 func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces) GetEntityData() *types.CommonEntityData {
@@ -1166,12 +1260,15 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Tr
     trackedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedInterfaces.EntityData.Children = make(map[string]types.YChild)
-    trackedInterfaces.EntityData.Children["tracked-interface"] = types.YChild{"TrackedInterface", nil}
+    trackedInterfaces.EntityData.Children = types.NewOrderedMap()
+    trackedInterfaces.EntityData.Children.Append("tracked-interface", types.YChild{"TrackedInterface", nil})
     for i := range trackedInterfaces.TrackedInterface {
-        trackedInterfaces.EntityData.Children[types.GetSegmentPath(&trackedInterfaces.TrackedInterface[i])] = types.YChild{"TrackedInterface", &trackedInterfaces.TrackedInterface[i]}
+        trackedInterfaces.EntityData.Children.Append(types.GetSegmentPath(trackedInterfaces.TrackedInterface[i]), types.YChild{"TrackedInterface", trackedInterfaces.TrackedInterface[i]})
     }
-    trackedInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackedInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    trackedInterfaces.EntityData.YListKeys = []string {}
+
     return &(trackedInterfaces.EntityData)
 }
 
@@ -1182,7 +1279,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces_Trac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -1195,15 +1292,18 @@ func (trackedInterface *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Tra
     trackedInterface.EntityData.YangName = "tracked-interface"
     trackedInterface.EntityData.BundleName = "cisco_ios_xr"
     trackedInterface.EntityData.ParentYangName = "tracked-interfaces"
-    trackedInterface.EntityData.SegmentPath = "tracked-interface" + "[interface-name='" + fmt.Sprintf("%v", trackedInterface.InterfaceName) + "']"
+    trackedInterface.EntityData.SegmentPath = "tracked-interface" + types.AddKeyToken(trackedInterface.InterfaceName, "interface-name")
     trackedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedInterface.EntityData.Children = make(map[string]types.YChild)
-    trackedInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackedInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", trackedInterface.InterfaceName}
-    trackedInterface.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", trackedInterface.PriorityDecrement}
+    trackedInterface.EntityData.Children = types.NewOrderedMap()
+    trackedInterface.EntityData.Leafs = types.NewOrderedMap()
+    trackedInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", trackedInterface.InterfaceName})
+    trackedInterface.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", trackedInterface.PriorityDecrement})
+
+    trackedInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(trackedInterface.EntityData)
 }
 
@@ -1215,11 +1315,11 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Bfd struct {
     YFilter yfilter.YFilter
 
     // Enable BFD for this remote IP. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -1233,10 +1333,13 @@ func (bfd *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Bfd) GetEntityDa
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["address"] = types.YLeaf{"Address", bfd.Address}
-    bfd.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfd.InterfaceName}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("address", types.YLeaf{"Address", bfd.Address})
+    bfd.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfd.InterfaceName})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -1249,7 +1352,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedObjects struct 
 
     // Object being tracked. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedObjects_TrackedObject.
-    TrackedObject []Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedObjects_TrackedObject
+    TrackedObject []*Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedObjects_TrackedObject
 }
 
 func (trackedObjects *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedObjects) GetEntityData() *types.CommonEntityData {
@@ -1262,12 +1365,15 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Track
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedObjects.EntityData.Children = make(map[string]types.YChild)
-    trackedObjects.EntityData.Children["tracked-object"] = types.YChild{"TrackedObject", nil}
+    trackedObjects.EntityData.Children = types.NewOrderedMap()
+    trackedObjects.EntityData.Children.Append("tracked-object", types.YChild{"TrackedObject", nil})
     for i := range trackedObjects.TrackedObject {
-        trackedObjects.EntityData.Children[types.GetSegmentPath(&trackedObjects.TrackedObject[i])] = types.YChild{"TrackedObject", &trackedObjects.TrackedObject[i]}
+        trackedObjects.EntityData.Children.Append(types.GetSegmentPath(trackedObjects.TrackedObject[i]), types.YChild{"TrackedObject", trackedObjects.TrackedObject[i]})
     }
-    trackedObjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackedObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    trackedObjects.EntityData.YListKeys = []string {}
+
     return &(trackedObjects.EntityData)
 }
 
@@ -1278,7 +1384,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedObjects_Tracked
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -1291,15 +1397,18 @@ func (trackedObject *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Tracke
     trackedObject.EntityData.YangName = "tracked-object"
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
-    trackedObject.EntityData.SegmentPath = "tracked-object" + "[object-name='" + fmt.Sprintf("%v", trackedObject.ObjectName) + "']"
+    trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedObject.EntityData.Children = make(map[string]types.YChild)
-    trackedObject.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackedObject.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", trackedObject.ObjectName}
-    trackedObject.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", trackedObject.PriorityDecrement}
+    trackedObject.EntityData.Children = types.NewOrderedMap()
+    trackedObject.EntityData.Leafs = types.NewOrderedMap()
+    trackedObject.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", trackedObject.ObjectName})
+    trackedObject.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", trackedObject.PriorityDecrement})
+
+    trackedObject.EntityData.YListKeys = []string {"ObjectName"}
+
     return &(trackedObject.EntityData)
 }
 
@@ -1344,14 +1453,17 @@ func (timers *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Timers) GetEn
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["hello-msec-flag"] = types.YLeaf{"HelloMsecFlag", timers.HelloMsecFlag}
-    timers.EntityData.Leafs["hello-msec"] = types.YLeaf{"HelloMsec", timers.HelloMsec}
-    timers.EntityData.Leafs["hello-sec"] = types.YLeaf{"HelloSec", timers.HelloSec}
-    timers.EntityData.Leafs["hold-msec-flag"] = types.YLeaf{"HoldMsecFlag", timers.HoldMsecFlag}
-    timers.EntityData.Leafs["hold-msec"] = types.YLeaf{"HoldMsec", timers.HoldMsec}
-    timers.EntityData.Leafs["hold-sec"] = types.YLeaf{"HoldSec", timers.HoldSec}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("hello-msec-flag", types.YLeaf{"HelloMsecFlag", timers.HelloMsecFlag})
+    timers.EntityData.Leafs.Append("hello-msec", types.YLeaf{"HelloMsec", timers.HelloMsec})
+    timers.EntityData.Leafs.Append("hello-sec", types.YLeaf{"HelloSec", timers.HelloSec})
+    timers.EntityData.Leafs.Append("hold-msec-flag", types.YLeaf{"HoldMsecFlag", timers.HoldMsecFlag})
+    timers.EntityData.Leafs.Append("hold-msec", types.YLeaf{"HoldMsec", timers.HoldMsec})
+    timers.EntityData.Leafs.Append("hold-sec", types.YLeaf{"HoldSec", timers.HoldSec})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -1366,7 +1478,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_PrimaryIpv4Address str
     VirtualIpLearn interface{}
 
     // HSRP IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1380,10 +1492,13 @@ func (primaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_P
     primaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    primaryIpv4Address.EntityData.Children = make(map[string]types.YChild)
-    primaryIpv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    primaryIpv4Address.EntityData.Leafs["virtual-ip-learn"] = types.YLeaf{"VirtualIpLearn", primaryIpv4Address.VirtualIpLearn}
-    primaryIpv4Address.EntityData.Leafs["address"] = types.YLeaf{"Address", primaryIpv4Address.Address}
+    primaryIpv4Address.EntityData.Children = types.NewOrderedMap()
+    primaryIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    primaryIpv4Address.EntityData.Leafs.Append("virtual-ip-learn", types.YLeaf{"VirtualIpLearn", primaryIpv4Address.VirtualIpLearn})
+    primaryIpv4Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", primaryIpv4Address.Address})
+
+    primaryIpv4Address.EntityData.YListKeys = []string {}
+
     return &(primaryIpv4Address.EntityData)
 }
 
@@ -1395,7 +1510,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_SecondaryIpv4Addresses
 
     // Secondary HSRP IP address. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_SecondaryIpv4Addresses_SecondaryIpv4Address.
-    SecondaryIpv4Address []Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_SecondaryIpv4Addresses_SecondaryIpv4Address
+    SecondaryIpv4Address []*Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_SecondaryIpv4Addresses_SecondaryIpv4Address
 }
 
 func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_SecondaryIpv4Addresses) GetEntityData() *types.CommonEntityData {
@@ -1408,12 +1523,15 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Gro
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    secondaryIpv4Addresses.EntityData.Children = make(map[string]types.YChild)
-    secondaryIpv4Addresses.EntityData.Children["secondary-ipv4-address"] = types.YChild{"SecondaryIpv4Address", nil}
+    secondaryIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    secondaryIpv4Addresses.EntityData.Children.Append("secondary-ipv4-address", types.YChild{"SecondaryIpv4Address", nil})
     for i := range secondaryIpv4Addresses.SecondaryIpv4Address {
-        secondaryIpv4Addresses.EntityData.Children[types.GetSegmentPath(&secondaryIpv4Addresses.SecondaryIpv4Address[i])] = types.YChild{"SecondaryIpv4Address", &secondaryIpv4Addresses.SecondaryIpv4Address[i]}
+        secondaryIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(secondaryIpv4Addresses.SecondaryIpv4Address[i]), types.YChild{"SecondaryIpv4Address", secondaryIpv4Addresses.SecondaryIpv4Address[i]})
     }
-    secondaryIpv4Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    secondaryIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    secondaryIpv4Addresses.EntityData.YListKeys = []string {}
+
     return &(secondaryIpv4Addresses.EntityData)
 }
 
@@ -1424,7 +1542,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_SecondaryIpv4Addresses
     YFilter yfilter.YFilter
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1433,14 +1551,17 @@ func (secondaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group
     secondaryIpv4Address.EntityData.YangName = "secondary-ipv4-address"
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
-    secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + "[address='" + fmt.Sprintf("%v", secondaryIpv4Address.Address) + "']"
+    secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.Address, "address")
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    secondaryIpv4Address.EntityData.Children = make(map[string]types.YChild)
-    secondaryIpv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    secondaryIpv4Address.EntityData.Leafs["address"] = types.YLeaf{"Address", secondaryIpv4Address.Address}
+    secondaryIpv4Address.EntityData.Children = types.NewOrderedMap()
+    secondaryIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    secondaryIpv4Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", secondaryIpv4Address.Address})
+
+    secondaryIpv4Address.EntityData.YListKeys = []string {"Address"}
+
     return &(secondaryIpv4Address.EntityData)
 }
 
@@ -1464,9 +1585,12 @@ func (version2 *Hsrp_Interfaces_Interface_Ipv4_Version2) GetEntityData() *types.
     version2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    version2.EntityData.Children = make(map[string]types.YChild)
-    version2.EntityData.Children["groups"] = types.YChild{"Groups", &version2.Groups}
-    version2.EntityData.Leafs = make(map[string]types.YLeaf)
+    version2.EntityData.Children = types.NewOrderedMap()
+    version2.EntityData.Children.Append("groups", types.YChild{"Groups", &version2.Groups})
+    version2.EntityData.Leafs = types.NewOrderedMap()
+
+    version2.EntityData.YListKeys = []string {}
+
     return &(version2.EntityData)
 }
 
@@ -1478,7 +1602,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups struct {
 
     // The HSRP group being configured. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group.
-    Group []Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group
+    Group []*Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group
 }
 
 func (groups *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups) GetEntityData() *types.CommonEntityData {
@@ -1491,12 +1615,15 @@ func (groups *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups) GetEntityData() *t
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -1511,7 +1638,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group struct {
     GroupNumber interface{}
 
     // Force active if higher priority. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 0.
+    // 0..4294967295. The default value is 0.
     Preempt interface{}
 
     // Priority value. The type is interface{} with range: 0..255. The default
@@ -1519,7 +1646,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group struct {
     Priority interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMacAddress interface{}
 
     // HSRP Session name (for MGO). The type is string with length: 1..16.
@@ -1549,24 +1676,27 @@ func (group *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group) GetEntityData
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group-number='" + fmt.Sprintf("%v", group.GroupNumber) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupNumber, "group-number")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Children["secondary-ipv4-addresses"] = types.YChild{"SecondaryIpv4Addresses", &group.SecondaryIpv4Addresses}
-    group.EntityData.Children["bfd"] = types.YChild{"Bfd", &group.Bfd}
-    group.EntityData.Children["primary-ipv4-address"] = types.YChild{"PrimaryIpv4Address", &group.PrimaryIpv4Address}
-    group.EntityData.Children["tracked-objects"] = types.YChild{"TrackedObjects", &group.TrackedObjects}
-    group.EntityData.Children["tracked-interfaces"] = types.YChild{"TrackedInterfaces", &group.TrackedInterfaces}
-    group.EntityData.Children["timers"] = types.YChild{"Timers", &group.Timers}
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group-number"] = types.YLeaf{"GroupNumber", group.GroupNumber}
-    group.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", group.Preempt}
-    group.EntityData.Leafs["priority"] = types.YLeaf{"Priority", group.Priority}
-    group.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", group.VirtualMacAddress}
-    group.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", group.SessionName}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Children.Append("secondary-ipv4-addresses", types.YChild{"SecondaryIpv4Addresses", &group.SecondaryIpv4Addresses})
+    group.EntityData.Children.Append("bfd", types.YChild{"Bfd", &group.Bfd})
+    group.EntityData.Children.Append("primary-ipv4-address", types.YChild{"PrimaryIpv4Address", &group.PrimaryIpv4Address})
+    group.EntityData.Children.Append("tracked-objects", types.YChild{"TrackedObjects", &group.TrackedObjects})
+    group.EntityData.Children.Append("tracked-interfaces", types.YChild{"TrackedInterfaces", &group.TrackedInterfaces})
+    group.EntityData.Children.Append("timers", types.YChild{"Timers", &group.Timers})
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group-number", types.YLeaf{"GroupNumber", group.GroupNumber})
+    group.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", group.Preempt})
+    group.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", group.Priority})
+    group.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", group.VirtualMacAddress})
+    group.EntityData.Leafs.Append("session-name", types.YLeaf{"SessionName", group.SessionName})
+
+    group.EntityData.YListKeys = []string {"GroupNumber"}
+
     return &(group.EntityData)
 }
 
@@ -1578,7 +1708,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_SecondaryIpv4Addresses
 
     // Secondary HSRP IP address. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_SecondaryIpv4Addresses_SecondaryIpv4Address.
-    SecondaryIpv4Address []Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_SecondaryIpv4Addresses_SecondaryIpv4Address
+    SecondaryIpv4Address []*Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_SecondaryIpv4Addresses_SecondaryIpv4Address
 }
 
 func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_SecondaryIpv4Addresses) GetEntityData() *types.CommonEntityData {
@@ -1591,12 +1721,15 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Gro
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    secondaryIpv4Addresses.EntityData.Children = make(map[string]types.YChild)
-    secondaryIpv4Addresses.EntityData.Children["secondary-ipv4-address"] = types.YChild{"SecondaryIpv4Address", nil}
+    secondaryIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    secondaryIpv4Addresses.EntityData.Children.Append("secondary-ipv4-address", types.YChild{"SecondaryIpv4Address", nil})
     for i := range secondaryIpv4Addresses.SecondaryIpv4Address {
-        secondaryIpv4Addresses.EntityData.Children[types.GetSegmentPath(&secondaryIpv4Addresses.SecondaryIpv4Address[i])] = types.YChild{"SecondaryIpv4Address", &secondaryIpv4Addresses.SecondaryIpv4Address[i]}
+        secondaryIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(secondaryIpv4Addresses.SecondaryIpv4Address[i]), types.YChild{"SecondaryIpv4Address", secondaryIpv4Addresses.SecondaryIpv4Address[i]})
     }
-    secondaryIpv4Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    secondaryIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    secondaryIpv4Addresses.EntityData.YListKeys = []string {}
+
     return &(secondaryIpv4Addresses.EntityData)
 }
 
@@ -1607,7 +1740,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_SecondaryIpv4Addresses
     YFilter yfilter.YFilter
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1616,14 +1749,17 @@ func (secondaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group
     secondaryIpv4Address.EntityData.YangName = "secondary-ipv4-address"
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
-    secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + "[address='" + fmt.Sprintf("%v", secondaryIpv4Address.Address) + "']"
+    secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.Address, "address")
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    secondaryIpv4Address.EntityData.Children = make(map[string]types.YChild)
-    secondaryIpv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    secondaryIpv4Address.EntityData.Leafs["address"] = types.YLeaf{"Address", secondaryIpv4Address.Address}
+    secondaryIpv4Address.EntityData.Children = types.NewOrderedMap()
+    secondaryIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    secondaryIpv4Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", secondaryIpv4Address.Address})
+
+    secondaryIpv4Address.EntityData.YListKeys = []string {"Address"}
+
     return &(secondaryIpv4Address.EntityData)
 }
 
@@ -1635,11 +1771,11 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Bfd struct {
     YFilter yfilter.YFilter
 
     // Enable BFD for this remote IP. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -1653,10 +1789,13 @@ func (bfd *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Bfd) GetEntityDa
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfd.EntityData.Leafs["address"] = types.YLeaf{"Address", bfd.Address}
-    bfd.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfd.InterfaceName}
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("address", types.YLeaf{"Address", bfd.Address})
+    bfd.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfd.InterfaceName})
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -1671,7 +1810,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_PrimaryIpv4Address str
     VirtualIpLearn interface{}
 
     // HSRP IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1685,10 +1824,13 @@ func (primaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_P
     primaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    primaryIpv4Address.EntityData.Children = make(map[string]types.YChild)
-    primaryIpv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    primaryIpv4Address.EntityData.Leafs["virtual-ip-learn"] = types.YLeaf{"VirtualIpLearn", primaryIpv4Address.VirtualIpLearn}
-    primaryIpv4Address.EntityData.Leafs["address"] = types.YLeaf{"Address", primaryIpv4Address.Address}
+    primaryIpv4Address.EntityData.Children = types.NewOrderedMap()
+    primaryIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    primaryIpv4Address.EntityData.Leafs.Append("virtual-ip-learn", types.YLeaf{"VirtualIpLearn", primaryIpv4Address.VirtualIpLearn})
+    primaryIpv4Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", primaryIpv4Address.Address})
+
+    primaryIpv4Address.EntityData.YListKeys = []string {}
+
     return &(primaryIpv4Address.EntityData)
 }
 
@@ -1701,7 +1843,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedObjects struct 
 
     // Object being tracked. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedObjects_TrackedObject.
-    TrackedObject []Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedObjects_TrackedObject
+    TrackedObject []*Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedObjects_TrackedObject
 }
 
 func (trackedObjects *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedObjects) GetEntityData() *types.CommonEntityData {
@@ -1714,12 +1856,15 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Track
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedObjects.EntityData.Children = make(map[string]types.YChild)
-    trackedObjects.EntityData.Children["tracked-object"] = types.YChild{"TrackedObject", nil}
+    trackedObjects.EntityData.Children = types.NewOrderedMap()
+    trackedObjects.EntityData.Children.Append("tracked-object", types.YChild{"TrackedObject", nil})
     for i := range trackedObjects.TrackedObject {
-        trackedObjects.EntityData.Children[types.GetSegmentPath(&trackedObjects.TrackedObject[i])] = types.YChild{"TrackedObject", &trackedObjects.TrackedObject[i]}
+        trackedObjects.EntityData.Children.Append(types.GetSegmentPath(trackedObjects.TrackedObject[i]), types.YChild{"TrackedObject", trackedObjects.TrackedObject[i]})
     }
-    trackedObjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackedObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    trackedObjects.EntityData.YListKeys = []string {}
+
     return &(trackedObjects.EntityData)
 }
 
@@ -1730,7 +1875,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedObjects_Tracked
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -1743,15 +1888,18 @@ func (trackedObject *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Tracke
     trackedObject.EntityData.YangName = "tracked-object"
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
-    trackedObject.EntityData.SegmentPath = "tracked-object" + "[object-name='" + fmt.Sprintf("%v", trackedObject.ObjectName) + "']"
+    trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedObject.EntityData.Children = make(map[string]types.YChild)
-    trackedObject.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackedObject.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", trackedObject.ObjectName}
-    trackedObject.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", trackedObject.PriorityDecrement}
+    trackedObject.EntityData.Children = types.NewOrderedMap()
+    trackedObject.EntityData.Leafs = types.NewOrderedMap()
+    trackedObject.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", trackedObject.ObjectName})
+    trackedObject.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", trackedObject.PriorityDecrement})
+
+    trackedObject.EntityData.YListKeys = []string {"ObjectName"}
+
     return &(trackedObject.EntityData)
 }
 
@@ -1764,7 +1912,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces stru
 
     // Interface being tracked. The type is slice of
     // Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces_TrackedInterface.
-    TrackedInterface []Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces_TrackedInterface
+    TrackedInterface []*Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces_TrackedInterface
 }
 
 func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces) GetEntityData() *types.CommonEntityData {
@@ -1777,12 +1925,15 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Tr
     trackedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedInterfaces.EntityData.Children = make(map[string]types.YChild)
-    trackedInterfaces.EntityData.Children["tracked-interface"] = types.YChild{"TrackedInterface", nil}
+    trackedInterfaces.EntityData.Children = types.NewOrderedMap()
+    trackedInterfaces.EntityData.Children.Append("tracked-interface", types.YChild{"TrackedInterface", nil})
     for i := range trackedInterfaces.TrackedInterface {
-        trackedInterfaces.EntityData.Children[types.GetSegmentPath(&trackedInterfaces.TrackedInterface[i])] = types.YChild{"TrackedInterface", &trackedInterfaces.TrackedInterface[i]}
+        trackedInterfaces.EntityData.Children.Append(types.GetSegmentPath(trackedInterfaces.TrackedInterface[i]), types.YChild{"TrackedInterface", trackedInterfaces.TrackedInterface[i]})
     }
-    trackedInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackedInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    trackedInterfaces.EntityData.YListKeys = []string {}
+
     return &(trackedInterfaces.EntityData)
 }
 
@@ -1793,7 +1944,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces_Trac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -1806,15 +1957,18 @@ func (trackedInterface *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Tra
     trackedInterface.EntityData.YangName = "tracked-interface"
     trackedInterface.EntityData.BundleName = "cisco_ios_xr"
     trackedInterface.EntityData.ParentYangName = "tracked-interfaces"
-    trackedInterface.EntityData.SegmentPath = "tracked-interface" + "[interface-name='" + fmt.Sprintf("%v", trackedInterface.InterfaceName) + "']"
+    trackedInterface.EntityData.SegmentPath = "tracked-interface" + types.AddKeyToken(trackedInterface.InterfaceName, "interface-name")
     trackedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackedInterface.EntityData.Children = make(map[string]types.YChild)
-    trackedInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackedInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", trackedInterface.InterfaceName}
-    trackedInterface.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", trackedInterface.PriorityDecrement}
+    trackedInterface.EntityData.Children = types.NewOrderedMap()
+    trackedInterface.EntityData.Leafs = types.NewOrderedMap()
+    trackedInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", trackedInterface.InterfaceName})
+    trackedInterface.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", trackedInterface.PriorityDecrement})
+
+    trackedInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(trackedInterface.EntityData)
 }
 
@@ -1859,14 +2013,17 @@ func (timers *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Timers) GetEn
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    timers.EntityData.Leafs["hello-msec-flag"] = types.YLeaf{"HelloMsecFlag", timers.HelloMsecFlag}
-    timers.EntityData.Leafs["hello-msec"] = types.YLeaf{"HelloMsec", timers.HelloMsec}
-    timers.EntityData.Leafs["hello-sec"] = types.YLeaf{"HelloSec", timers.HelloSec}
-    timers.EntityData.Leafs["hold-msec-flag"] = types.YLeaf{"HoldMsecFlag", timers.HoldMsecFlag}
-    timers.EntityData.Leafs["hold-msec"] = types.YLeaf{"HoldMsec", timers.HoldMsec}
-    timers.EntityData.Leafs["hold-sec"] = types.YLeaf{"HoldSec", timers.HoldSec}
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("hello-msec-flag", types.YLeaf{"HelloMsecFlag", timers.HelloMsecFlag})
+    timers.EntityData.Leafs.Append("hello-msec", types.YLeaf{"HelloMsec", timers.HelloMsec})
+    timers.EntityData.Leafs.Append("hello-sec", types.YLeaf{"HelloSec", timers.HelloSec})
+    timers.EntityData.Leafs.Append("hold-msec-flag", types.YLeaf{"HoldMsecFlag", timers.HoldMsecFlag})
+    timers.EntityData.Leafs.Append("hold-msec", types.YLeaf{"HoldMsec", timers.HoldMsec})
+    timers.EntityData.Leafs.Append("hold-sec", types.YLeaf{"HoldSec", timers.HoldSec})
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -1890,9 +2047,12 @@ func (logging *Hsrp_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logging.EntityData.Children = make(map[string]types.YChild)
-    logging.EntityData.Leafs = make(map[string]types.YLeaf)
-    logging.EntityData.Leafs["state-change-disable"] = types.YLeaf{"StateChangeDisable", logging.StateChangeDisable}
+    logging.EntityData.Children = types.NewOrderedMap()
+    logging.EntityData.Leafs = types.NewOrderedMap()
+    logging.EntityData.Leafs.Append("state-change-disable", types.YLeaf{"StateChangeDisable", logging.StateChangeDisable})
+
+    logging.EntityData.YListKeys = []string {}
+
     return &(logging.EntityData)
 }
 

@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-msdp-cfg:msdp", reflect.TypeOf(Msdp{}))
 }
 
-// MsdpFilterTypeVrf represents Msdp filter type vrf
-type MsdpFilterTypeVrf string
-
-const (
-    // Incoming Mode
-    MsdpFilterTypeVrf_incoming MsdpFilterTypeVrf = "incoming"
-
-    // Outgoing Mode
-    MsdpFilterTypeVrf_outgoing MsdpFilterTypeVrf = "outgoing"
-)
-
 // MsdpListTypeVrf represents Msdp list type vrf
 type MsdpListTypeVrf string
 
@@ -44,6 +33,17 @@ const (
 
     // RPList
     MsdpListTypeVrf_rp_list MsdpListTypeVrf = "rp-list"
+)
+
+// MsdpFilterTypeVrf represents Msdp filter type vrf
+type MsdpFilterTypeVrf string
+
+const (
+    // Incoming Mode
+    MsdpFilterTypeVrf_incoming MsdpFilterTypeVrf = "incoming"
+
+    // Outgoing Mode
+    MsdpFilterTypeVrf_outgoing MsdpFilterTypeVrf = "outgoing"
 )
 
 // Msdp
@@ -77,12 +77,15 @@ func (msdp *Msdp) GetEntityData() *types.CommonEntityData {
     msdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    msdp.EntityData.Children = make(map[string]types.YChild)
-    msdp.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &msdp.Vrfs}
-    msdp.EntityData.Children["default-context"] = types.YChild{"DefaultContext", &msdp.DefaultContext}
-    msdp.EntityData.Leafs = make(map[string]types.YLeaf)
-    msdp.EntityData.Leafs["global-max-sa"] = types.YLeaf{"GlobalMaxSa", msdp.GlobalMaxSa}
-    msdp.EntityData.Leafs["nsr-delay"] = types.YLeaf{"NsrDelay", msdp.NsrDelay}
+    msdp.EntityData.Children = types.NewOrderedMap()
+    msdp.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &msdp.Vrfs})
+    msdp.EntityData.Children.Append("default-context", types.YChild{"DefaultContext", &msdp.DefaultContext})
+    msdp.EntityData.Leafs = types.NewOrderedMap()
+    msdp.EntityData.Leafs.Append("global-max-sa", types.YLeaf{"GlobalMaxSa", msdp.GlobalMaxSa})
+    msdp.EntityData.Leafs.Append("nsr-delay", types.YLeaf{"NsrDelay", msdp.NsrDelay})
+
+    msdp.EntityData.YListKeys = []string {}
+
     return &(msdp.EntityData)
 }
 
@@ -93,7 +96,7 @@ type Msdp_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF Name. The type is slice of Msdp_Vrfs_Vrf.
-    Vrf []Msdp_Vrfs_Vrf
+    Vrf []*Msdp_Vrfs_Vrf
 }
 
 func (vrfs *Msdp_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -106,12 +109,15 @@ func (vrfs *Msdp_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -133,11 +139,11 @@ type Msdp_Vrfs_Vrf struct {
     MaxPeerSa interface{}
 
     // Configure default peers for the box. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DefaultPeer interface{}
 
     // Configure interface name used as originator ID. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     OriginatorId interface{}
 
     // Configure context's MAX SA state for the router. The type is interface{}
@@ -145,7 +151,7 @@ type Msdp_Vrfs_Vrf struct {
     MaxSa interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     ConnectSource interface{}
 
     // Configure this systems SA cache access-lists.
@@ -166,24 +172,27 @@ func (vrf *Msdp_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["cache-state"] = types.YChild{"CacheState", &vrf.CacheState}
-    vrf.EntityData.Children["keep-alive"] = types.YChild{"KeepAlive", &vrf.KeepAlive}
-    vrf.EntityData.Children["peers"] = types.YChild{"Peers", &vrf.Peers}
-    vrf.EntityData.Children["sa-filters"] = types.YChild{"SaFilters", &vrf.SaFilters}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["ttl-threshold"] = types.YLeaf{"TtlThreshold", vrf.TtlThreshold}
-    vrf.EntityData.Leafs["max-peer-sa"] = types.YLeaf{"MaxPeerSa", vrf.MaxPeerSa}
-    vrf.EntityData.Leafs["default-peer"] = types.YLeaf{"DefaultPeer", vrf.DefaultPeer}
-    vrf.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", vrf.OriginatorId}
-    vrf.EntityData.Leafs["max-sa"] = types.YLeaf{"MaxSa", vrf.MaxSa}
-    vrf.EntityData.Leafs["connect-source"] = types.YLeaf{"ConnectSource", vrf.ConnectSource}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("cache-state", types.YChild{"CacheState", &vrf.CacheState})
+    vrf.EntityData.Children.Append("keep-alive", types.YChild{"KeepAlive", &vrf.KeepAlive})
+    vrf.EntityData.Children.Append("peers", types.YChild{"Peers", &vrf.Peers})
+    vrf.EntityData.Children.Append("sa-filters", types.YChild{"SaFilters", &vrf.SaFilters})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("ttl-threshold", types.YLeaf{"TtlThreshold", vrf.TtlThreshold})
+    vrf.EntityData.Leafs.Append("max-peer-sa", types.YLeaf{"MaxPeerSa", vrf.MaxPeerSa})
+    vrf.EntityData.Leafs.Append("default-peer", types.YLeaf{"DefaultPeer", vrf.DefaultPeer})
+    vrf.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", vrf.OriginatorId})
+    vrf.EntityData.Leafs.Append("max-sa", types.YLeaf{"MaxSa", vrf.MaxSa})
+    vrf.EntityData.Leafs.Append("connect-source", types.YLeaf{"ConnectSource", vrf.ConnectSource})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -214,11 +223,14 @@ func (cacheState *Msdp_Vrfs_Vrf_CacheState) GetEntityData() *types.CommonEntityD
     cacheState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cacheState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cacheState.EntityData.Children = make(map[string]types.YChild)
-    cacheState.EntityData.Leafs = make(map[string]types.YLeaf)
-    cacheState.EntityData.Leafs["sa-holdtime"] = types.YLeaf{"SaHoldtime", cacheState.SaHoldtime}
-    cacheState.EntityData.Leafs["list"] = types.YLeaf{"List", cacheState.List}
-    cacheState.EntityData.Leafs["rp-list"] = types.YLeaf{"RpList", cacheState.RpList}
+    cacheState.EntityData.Children = types.NewOrderedMap()
+    cacheState.EntityData.Leafs = types.NewOrderedMap()
+    cacheState.EntityData.Leafs.Append("sa-holdtime", types.YLeaf{"SaHoldtime", cacheState.SaHoldtime})
+    cacheState.EntityData.Leafs.Append("list", types.YLeaf{"List", cacheState.List})
+    cacheState.EntityData.Leafs.Append("rp-list", types.YLeaf{"RpList", cacheState.RpList})
+
+    cacheState.EntityData.YListKeys = []string {}
+
     return &(cacheState.EntityData)
 }
 
@@ -228,6 +240,7 @@ func (cacheState *Msdp_Vrfs_Vrf_CacheState) GetEntityData() *types.CommonEntityD
 type Msdp_Vrfs_Vrf_KeepAlive struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Keep alive period in seconds. The type is interface{} with range: 1..60.
     // This attribute is mandatory. Units are second.
@@ -248,10 +261,13 @@ func (keepAlive *Msdp_Vrfs_Vrf_KeepAlive) GetEntityData() *types.CommonEntityDat
     keepAlive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepAlive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keepAlive.EntityData.Children = make(map[string]types.YChild)
-    keepAlive.EntityData.Leafs = make(map[string]types.YLeaf)
-    keepAlive.EntityData.Leafs["keep-alive-period"] = types.YLeaf{"KeepAlivePeriod", keepAlive.KeepAlivePeriod}
-    keepAlive.EntityData.Leafs["peer-timeout-period"] = types.YLeaf{"PeerTimeoutPeriod", keepAlive.PeerTimeoutPeriod}
+    keepAlive.EntityData.Children = types.NewOrderedMap()
+    keepAlive.EntityData.Leafs = types.NewOrderedMap()
+    keepAlive.EntityData.Leafs.Append("keep-alive-period", types.YLeaf{"KeepAlivePeriod", keepAlive.KeepAlivePeriod})
+    keepAlive.EntityData.Leafs.Append("peer-timeout-period", types.YLeaf{"PeerTimeoutPeriod", keepAlive.PeerTimeoutPeriod})
+
+    keepAlive.EntityData.YListKeys = []string {}
+
     return &(keepAlive.EntityData)
 }
 
@@ -262,7 +278,7 @@ type Msdp_Vrfs_Vrf_Peers struct {
     YFilter yfilter.YFilter
 
     // Peer address. The type is slice of Msdp_Vrfs_Vrf_Peers_Peer.
-    Peer []Msdp_Vrfs_Vrf_Peers_Peer
+    Peer []*Msdp_Vrfs_Vrf_Peers_Peer
 }
 
 func (peers *Msdp_Vrfs_Vrf_Peers) GetEntityData() *types.CommonEntityData {
@@ -275,12 +291,15 @@ func (peers *Msdp_Vrfs_Vrf_Peers) GetEntityData() *types.CommonEntityData {
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -291,7 +310,7 @@ type Msdp_Vrfs_Vrf_Peers_Peer struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Peer address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // MSDP Peer Shutdown. The type is interface{}.
@@ -312,7 +331,7 @@ type Msdp_Vrfs_Vrf_Peers_Peer struct {
     NsrDown interface{}
 
     // Configuration of password of peer. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     PeerPassword interface{}
 
     // Configure an MSDP mesh-group. The type is string with length: 1..32.
@@ -323,7 +342,7 @@ type Msdp_Vrfs_Vrf_Peers_Peer struct {
     TtlThreshold interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     ConnectSource interface{}
 
     // Configure the remote AS of this peer.
@@ -341,26 +360,29 @@ func (peer *Msdp_Vrfs_Vrf_Peers_Peer) GetEntityData() *types.CommonEntityData {
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[peer-address='" + fmt.Sprintf("%v", peer.PeerAddress) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PeerAddress, "peer-address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Children["remote-as"] = types.YChild{"RemoteAs", &peer.RemoteAs}
-    peer.EntityData.Children["keep-alive"] = types.YChild{"KeepAlive", &peer.KeepAlive}
-    peer.EntityData.Children["sa-filters"] = types.YChild{"SaFilters", &peer.SaFilters}
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", peer.PeerAddress}
-    peer.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", peer.Shutdown}
-    peer.EntityData.Leafs["description"] = types.YLeaf{"Description", peer.Description}
-    peer.EntityData.Leafs["enable"] = types.YLeaf{"Enable", peer.Enable}
-    peer.EntityData.Leafs["max-sa"] = types.YLeaf{"MaxSa", peer.MaxSa}
-    peer.EntityData.Leafs["nsr-down"] = types.YLeaf{"NsrDown", peer.NsrDown}
-    peer.EntityData.Leafs["peer-password"] = types.YLeaf{"PeerPassword", peer.PeerPassword}
-    peer.EntityData.Leafs["mesh-group"] = types.YLeaf{"MeshGroup", peer.MeshGroup}
-    peer.EntityData.Leafs["ttl-threshold"] = types.YLeaf{"TtlThreshold", peer.TtlThreshold}
-    peer.EntityData.Leafs["connect-source"] = types.YLeaf{"ConnectSource", peer.ConnectSource}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Children.Append("remote-as", types.YChild{"RemoteAs", &peer.RemoteAs})
+    peer.EntityData.Children.Append("keep-alive", types.YChild{"KeepAlive", &peer.KeepAlive})
+    peer.EntityData.Children.Append("sa-filters", types.YChild{"SaFilters", &peer.SaFilters})
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("peer-address", types.YLeaf{"PeerAddress", peer.PeerAddress})
+    peer.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", peer.Shutdown})
+    peer.EntityData.Leafs.Append("description", types.YLeaf{"Description", peer.Description})
+    peer.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", peer.Enable})
+    peer.EntityData.Leafs.Append("max-sa", types.YLeaf{"MaxSa", peer.MaxSa})
+    peer.EntityData.Leafs.Append("nsr-down", types.YLeaf{"NsrDown", peer.NsrDown})
+    peer.EntityData.Leafs.Append("peer-password", types.YLeaf{"PeerPassword", peer.PeerPassword})
+    peer.EntityData.Leafs.Append("mesh-group", types.YLeaf{"MeshGroup", peer.MeshGroup})
+    peer.EntityData.Leafs.Append("ttl-threshold", types.YLeaf{"TtlThreshold", peer.TtlThreshold})
+    peer.EntityData.Leafs.Append("connect-source", types.YLeaf{"ConnectSource", peer.ConnectSource})
+
+    peer.EntityData.YListKeys = []string {"PeerAddress"}
+
     return &(peer.EntityData)
 }
 
@@ -370,6 +392,7 @@ func (peer *Msdp_Vrfs_Vrf_Peers_Peer) GetEntityData() *types.CommonEntityData {
 type Msdp_Vrfs_Vrf_Peers_Peer_RemoteAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // First half of ASN in asdot format or 0 in asplain. The type is interface{}
     // with range: 0..65535. The default value is 0.
@@ -390,10 +413,13 @@ func (remoteAs *Msdp_Vrfs_Vrf_Peers_Peer_RemoteAs) GetEntityData() *types.Common
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteAs.EntityData.Children = make(map[string]types.YChild)
-    remoteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", remoteAs.AsXx}
-    remoteAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", remoteAs.AsYy}
+    remoteAs.EntityData.Children = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", remoteAs.AsXx})
+    remoteAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", remoteAs.AsYy})
+
+    remoteAs.EntityData.YListKeys = []string {}
+
     return &(remoteAs.EntityData)
 }
 
@@ -403,6 +429,7 @@ func (remoteAs *Msdp_Vrfs_Vrf_Peers_Peer_RemoteAs) GetEntityData() *types.Common
 type Msdp_Vrfs_Vrf_Peers_Peer_KeepAlive struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Keep alive period in seconds. The type is interface{} with range: 1..60.
     // This attribute is mandatory. Units are second.
@@ -423,10 +450,13 @@ func (keepAlive *Msdp_Vrfs_Vrf_Peers_Peer_KeepAlive) GetEntityData() *types.Comm
     keepAlive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepAlive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keepAlive.EntityData.Children = make(map[string]types.YChild)
-    keepAlive.EntityData.Leafs = make(map[string]types.YLeaf)
-    keepAlive.EntityData.Leafs["keep-alive-period"] = types.YLeaf{"KeepAlivePeriod", keepAlive.KeepAlivePeriod}
-    keepAlive.EntityData.Leafs["peer-timeout-period"] = types.YLeaf{"PeerTimeoutPeriod", keepAlive.PeerTimeoutPeriod}
+    keepAlive.EntityData.Children = types.NewOrderedMap()
+    keepAlive.EntityData.Leafs = types.NewOrderedMap()
+    keepAlive.EntityData.Leafs.Append("keep-alive-period", types.YLeaf{"KeepAlivePeriod", keepAlive.KeepAlivePeriod})
+    keepAlive.EntityData.Leafs.Append("peer-timeout-period", types.YLeaf{"PeerTimeoutPeriod", keepAlive.PeerTimeoutPeriod})
+
+    keepAlive.EntityData.YListKeys = []string {}
+
     return &(keepAlive.EntityData)
 }
 
@@ -438,7 +468,7 @@ type Msdp_Vrfs_Vrf_Peers_Peer_SaFilters struct {
 
     // SA-Filter incoming/outgoing list or RPlist. The type is slice of
     // Msdp_Vrfs_Vrf_Peers_Peer_SaFilters_SaFilter.
-    SaFilter []Msdp_Vrfs_Vrf_Peers_Peer_SaFilters_SaFilter
+    SaFilter []*Msdp_Vrfs_Vrf_Peers_Peer_SaFilters_SaFilter
 }
 
 func (saFilters *Msdp_Vrfs_Vrf_Peers_Peer_SaFilters) GetEntityData() *types.CommonEntityData {
@@ -451,12 +481,15 @@ func (saFilters *Msdp_Vrfs_Vrf_Peers_Peer_SaFilters) GetEntityData() *types.Comm
     saFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    saFilters.EntityData.Children = make(map[string]types.YChild)
-    saFilters.EntityData.Children["sa-filter"] = types.YChild{"SaFilter", nil}
+    saFilters.EntityData.Children = types.NewOrderedMap()
+    saFilters.EntityData.Children.Append("sa-filter", types.YChild{"SaFilter", nil})
     for i := range saFilters.SaFilter {
-        saFilters.EntityData.Children[types.GetSegmentPath(&saFilters.SaFilter[i])] = types.YChild{"SaFilter", &saFilters.SaFilter[i]}
+        saFilters.EntityData.Children.Append(types.GetSegmentPath(saFilters.SaFilter[i]), types.YChild{"SaFilter", saFilters.SaFilter[i]})
     }
-    saFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    saFilters.EntityData.Leafs = types.NewOrderedMap()
+
+    saFilters.EntityData.YListKeys = []string {}
+
     return &(saFilters.EntityData)
 }
 
@@ -483,16 +516,19 @@ func (saFilter *Msdp_Vrfs_Vrf_Peers_Peer_SaFilters_SaFilter) GetEntityData() *ty
     saFilter.EntityData.YangName = "sa-filter"
     saFilter.EntityData.BundleName = "cisco_ios_xr"
     saFilter.EntityData.ParentYangName = "sa-filters"
-    saFilter.EntityData.SegmentPath = "sa-filter" + "[list='" + fmt.Sprintf("%v", saFilter.List) + "']" + "[filter-type='" + fmt.Sprintf("%v", saFilter.FilterType) + "']"
+    saFilter.EntityData.SegmentPath = "sa-filter" + types.AddKeyToken(saFilter.List, "list") + types.AddKeyToken(saFilter.FilterType, "filter-type")
     saFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    saFilter.EntityData.Children = make(map[string]types.YChild)
-    saFilter.EntityData.Leafs = make(map[string]types.YLeaf)
-    saFilter.EntityData.Leafs["list"] = types.YLeaf{"List", saFilter.List}
-    saFilter.EntityData.Leafs["filter-type"] = types.YLeaf{"FilterType", saFilter.FilterType}
-    saFilter.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", saFilter.AccessListName}
+    saFilter.EntityData.Children = types.NewOrderedMap()
+    saFilter.EntityData.Leafs = types.NewOrderedMap()
+    saFilter.EntityData.Leafs.Append("list", types.YLeaf{"List", saFilter.List})
+    saFilter.EntityData.Leafs.Append("filter-type", types.YLeaf{"FilterType", saFilter.FilterType})
+    saFilter.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", saFilter.AccessListName})
+
+    saFilter.EntityData.YListKeys = []string {"List", "FilterType"}
+
     return &(saFilter.EntityData)
 }
 
@@ -504,7 +540,7 @@ type Msdp_Vrfs_Vrf_SaFilters struct {
 
     // SA-Filter incoming/outgoing list or RPlist. The type is slice of
     // Msdp_Vrfs_Vrf_SaFilters_SaFilter.
-    SaFilter []Msdp_Vrfs_Vrf_SaFilters_SaFilter
+    SaFilter []*Msdp_Vrfs_Vrf_SaFilters_SaFilter
 }
 
 func (saFilters *Msdp_Vrfs_Vrf_SaFilters) GetEntityData() *types.CommonEntityData {
@@ -517,12 +553,15 @@ func (saFilters *Msdp_Vrfs_Vrf_SaFilters) GetEntityData() *types.CommonEntityDat
     saFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    saFilters.EntityData.Children = make(map[string]types.YChild)
-    saFilters.EntityData.Children["sa-filter"] = types.YChild{"SaFilter", nil}
+    saFilters.EntityData.Children = types.NewOrderedMap()
+    saFilters.EntityData.Children.Append("sa-filter", types.YChild{"SaFilter", nil})
     for i := range saFilters.SaFilter {
-        saFilters.EntityData.Children[types.GetSegmentPath(&saFilters.SaFilter[i])] = types.YChild{"SaFilter", &saFilters.SaFilter[i]}
+        saFilters.EntityData.Children.Append(types.GetSegmentPath(saFilters.SaFilter[i]), types.YChild{"SaFilter", saFilters.SaFilter[i]})
     }
-    saFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    saFilters.EntityData.Leafs = types.NewOrderedMap()
+
+    saFilters.EntityData.YListKeys = []string {}
+
     return &(saFilters.EntityData)
 }
 
@@ -549,22 +588,24 @@ func (saFilter *Msdp_Vrfs_Vrf_SaFilters_SaFilter) GetEntityData() *types.CommonE
     saFilter.EntityData.YangName = "sa-filter"
     saFilter.EntityData.BundleName = "cisco_ios_xr"
     saFilter.EntityData.ParentYangName = "sa-filters"
-    saFilter.EntityData.SegmentPath = "sa-filter" + "[list='" + fmt.Sprintf("%v", saFilter.List) + "']" + "[filter-type='" + fmt.Sprintf("%v", saFilter.FilterType) + "']"
+    saFilter.EntityData.SegmentPath = "sa-filter" + types.AddKeyToken(saFilter.List, "list") + types.AddKeyToken(saFilter.FilterType, "filter-type")
     saFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    saFilter.EntityData.Children = make(map[string]types.YChild)
-    saFilter.EntityData.Leafs = make(map[string]types.YLeaf)
-    saFilter.EntityData.Leafs["list"] = types.YLeaf{"List", saFilter.List}
-    saFilter.EntityData.Leafs["filter-type"] = types.YLeaf{"FilterType", saFilter.FilterType}
-    saFilter.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", saFilter.AccessListName}
+    saFilter.EntityData.Children = types.NewOrderedMap()
+    saFilter.EntityData.Leafs = types.NewOrderedMap()
+    saFilter.EntityData.Leafs.Append("list", types.YLeaf{"List", saFilter.List})
+    saFilter.EntityData.Leafs.Append("filter-type", types.YLeaf{"FilterType", saFilter.FilterType})
+    saFilter.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", saFilter.AccessListName})
+
+    saFilter.EntityData.YListKeys = []string {"List", "FilterType"}
+
     return &(saFilter.EntityData)
 }
 
 // Msdp_DefaultContext
 // Default Context
-// This type is a presence type.
 type Msdp_DefaultContext struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -578,11 +619,11 @@ type Msdp_DefaultContext struct {
     MaxPeerSa interface{}
 
     // Configure default peers for the box. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DefaultPeer interface{}
 
     // Configure interface name used as originator ID. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     OriginatorId interface{}
 
     // Configure context's MAX SA state for the router. The type is interface{}
@@ -590,7 +631,7 @@ type Msdp_DefaultContext struct {
     MaxSa interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     ConnectSource interface{}
 
     // Configure this systems SA cache access-lists.
@@ -616,18 +657,21 @@ func (defaultContext *Msdp_DefaultContext) GetEntityData() *types.CommonEntityDa
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultContext.EntityData.Children = make(map[string]types.YChild)
-    defaultContext.EntityData.Children["cache-state"] = types.YChild{"CacheState", &defaultContext.CacheState}
-    defaultContext.EntityData.Children["keep-alive"] = types.YChild{"KeepAlive", &defaultContext.KeepAlive}
-    defaultContext.EntityData.Children["peers"] = types.YChild{"Peers", &defaultContext.Peers}
-    defaultContext.EntityData.Children["sa-filters"] = types.YChild{"SaFilters", &defaultContext.SaFilters}
-    defaultContext.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultContext.EntityData.Leafs["ttl-threshold"] = types.YLeaf{"TtlThreshold", defaultContext.TtlThreshold}
-    defaultContext.EntityData.Leafs["max-peer-sa"] = types.YLeaf{"MaxPeerSa", defaultContext.MaxPeerSa}
-    defaultContext.EntityData.Leafs["default-peer"] = types.YLeaf{"DefaultPeer", defaultContext.DefaultPeer}
-    defaultContext.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", defaultContext.OriginatorId}
-    defaultContext.EntityData.Leafs["max-sa"] = types.YLeaf{"MaxSa", defaultContext.MaxSa}
-    defaultContext.EntityData.Leafs["connect-source"] = types.YLeaf{"ConnectSource", defaultContext.ConnectSource}
+    defaultContext.EntityData.Children = types.NewOrderedMap()
+    defaultContext.EntityData.Children.Append("cache-state", types.YChild{"CacheState", &defaultContext.CacheState})
+    defaultContext.EntityData.Children.Append("keep-alive", types.YChild{"KeepAlive", &defaultContext.KeepAlive})
+    defaultContext.EntityData.Children.Append("peers", types.YChild{"Peers", &defaultContext.Peers})
+    defaultContext.EntityData.Children.Append("sa-filters", types.YChild{"SaFilters", &defaultContext.SaFilters})
+    defaultContext.EntityData.Leafs = types.NewOrderedMap()
+    defaultContext.EntityData.Leafs.Append("ttl-threshold", types.YLeaf{"TtlThreshold", defaultContext.TtlThreshold})
+    defaultContext.EntityData.Leafs.Append("max-peer-sa", types.YLeaf{"MaxPeerSa", defaultContext.MaxPeerSa})
+    defaultContext.EntityData.Leafs.Append("default-peer", types.YLeaf{"DefaultPeer", defaultContext.DefaultPeer})
+    defaultContext.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", defaultContext.OriginatorId})
+    defaultContext.EntityData.Leafs.Append("max-sa", types.YLeaf{"MaxSa", defaultContext.MaxSa})
+    defaultContext.EntityData.Leafs.Append("connect-source", types.YLeaf{"ConnectSource", defaultContext.ConnectSource})
+
+    defaultContext.EntityData.YListKeys = []string {}
+
     return &(defaultContext.EntityData)
 }
 
@@ -658,11 +702,14 @@ func (cacheState *Msdp_DefaultContext_CacheState) GetEntityData() *types.CommonE
     cacheState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cacheState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cacheState.EntityData.Children = make(map[string]types.YChild)
-    cacheState.EntityData.Leafs = make(map[string]types.YLeaf)
-    cacheState.EntityData.Leafs["sa-holdtime"] = types.YLeaf{"SaHoldtime", cacheState.SaHoldtime}
-    cacheState.EntityData.Leafs["list"] = types.YLeaf{"List", cacheState.List}
-    cacheState.EntityData.Leafs["rp-list"] = types.YLeaf{"RpList", cacheState.RpList}
+    cacheState.EntityData.Children = types.NewOrderedMap()
+    cacheState.EntityData.Leafs = types.NewOrderedMap()
+    cacheState.EntityData.Leafs.Append("sa-holdtime", types.YLeaf{"SaHoldtime", cacheState.SaHoldtime})
+    cacheState.EntityData.Leafs.Append("list", types.YLeaf{"List", cacheState.List})
+    cacheState.EntityData.Leafs.Append("rp-list", types.YLeaf{"RpList", cacheState.RpList})
+
+    cacheState.EntityData.YListKeys = []string {}
+
     return &(cacheState.EntityData)
 }
 
@@ -672,6 +719,7 @@ func (cacheState *Msdp_DefaultContext_CacheState) GetEntityData() *types.CommonE
 type Msdp_DefaultContext_KeepAlive struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Keep alive period in seconds. The type is interface{} with range: 1..60.
     // This attribute is mandatory. Units are second.
@@ -692,10 +740,13 @@ func (keepAlive *Msdp_DefaultContext_KeepAlive) GetEntityData() *types.CommonEnt
     keepAlive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepAlive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keepAlive.EntityData.Children = make(map[string]types.YChild)
-    keepAlive.EntityData.Leafs = make(map[string]types.YLeaf)
-    keepAlive.EntityData.Leafs["keep-alive-period"] = types.YLeaf{"KeepAlivePeriod", keepAlive.KeepAlivePeriod}
-    keepAlive.EntityData.Leafs["peer-timeout-period"] = types.YLeaf{"PeerTimeoutPeriod", keepAlive.PeerTimeoutPeriod}
+    keepAlive.EntityData.Children = types.NewOrderedMap()
+    keepAlive.EntityData.Leafs = types.NewOrderedMap()
+    keepAlive.EntityData.Leafs.Append("keep-alive-period", types.YLeaf{"KeepAlivePeriod", keepAlive.KeepAlivePeriod})
+    keepAlive.EntityData.Leafs.Append("peer-timeout-period", types.YLeaf{"PeerTimeoutPeriod", keepAlive.PeerTimeoutPeriod})
+
+    keepAlive.EntityData.YListKeys = []string {}
+
     return &(keepAlive.EntityData)
 }
 
@@ -706,7 +757,7 @@ type Msdp_DefaultContext_Peers struct {
     YFilter yfilter.YFilter
 
     // Peer address. The type is slice of Msdp_DefaultContext_Peers_Peer.
-    Peer []Msdp_DefaultContext_Peers_Peer
+    Peer []*Msdp_DefaultContext_Peers_Peer
 }
 
 func (peers *Msdp_DefaultContext_Peers) GetEntityData() *types.CommonEntityData {
@@ -719,12 +770,15 @@ func (peers *Msdp_DefaultContext_Peers) GetEntityData() *types.CommonEntityData 
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -735,7 +789,7 @@ type Msdp_DefaultContext_Peers_Peer struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Peer address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // MSDP Peer Shutdown. The type is interface{}.
@@ -756,7 +810,7 @@ type Msdp_DefaultContext_Peers_Peer struct {
     NsrDown interface{}
 
     // Configuration of password of peer. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     PeerPassword interface{}
 
     // Configure an MSDP mesh-group. The type is string with length: 1..32.
@@ -767,7 +821,7 @@ type Msdp_DefaultContext_Peers_Peer struct {
     TtlThreshold interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     ConnectSource interface{}
 
     // Configure the remote AS of this peer.
@@ -785,26 +839,29 @@ func (peer *Msdp_DefaultContext_Peers_Peer) GetEntityData() *types.CommonEntityD
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[peer-address='" + fmt.Sprintf("%v", peer.PeerAddress) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PeerAddress, "peer-address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Children["remote-as"] = types.YChild{"RemoteAs", &peer.RemoteAs}
-    peer.EntityData.Children["keep-alive"] = types.YChild{"KeepAlive", &peer.KeepAlive}
-    peer.EntityData.Children["sa-filters"] = types.YChild{"SaFilters", &peer.SaFilters}
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", peer.PeerAddress}
-    peer.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", peer.Shutdown}
-    peer.EntityData.Leafs["description"] = types.YLeaf{"Description", peer.Description}
-    peer.EntityData.Leafs["enable"] = types.YLeaf{"Enable", peer.Enable}
-    peer.EntityData.Leafs["max-sa"] = types.YLeaf{"MaxSa", peer.MaxSa}
-    peer.EntityData.Leafs["nsr-down"] = types.YLeaf{"NsrDown", peer.NsrDown}
-    peer.EntityData.Leafs["peer-password"] = types.YLeaf{"PeerPassword", peer.PeerPassword}
-    peer.EntityData.Leafs["mesh-group"] = types.YLeaf{"MeshGroup", peer.MeshGroup}
-    peer.EntityData.Leafs["ttl-threshold"] = types.YLeaf{"TtlThreshold", peer.TtlThreshold}
-    peer.EntityData.Leafs["connect-source"] = types.YLeaf{"ConnectSource", peer.ConnectSource}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Children.Append("remote-as", types.YChild{"RemoteAs", &peer.RemoteAs})
+    peer.EntityData.Children.Append("keep-alive", types.YChild{"KeepAlive", &peer.KeepAlive})
+    peer.EntityData.Children.Append("sa-filters", types.YChild{"SaFilters", &peer.SaFilters})
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("peer-address", types.YLeaf{"PeerAddress", peer.PeerAddress})
+    peer.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", peer.Shutdown})
+    peer.EntityData.Leafs.Append("description", types.YLeaf{"Description", peer.Description})
+    peer.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", peer.Enable})
+    peer.EntityData.Leafs.Append("max-sa", types.YLeaf{"MaxSa", peer.MaxSa})
+    peer.EntityData.Leafs.Append("nsr-down", types.YLeaf{"NsrDown", peer.NsrDown})
+    peer.EntityData.Leafs.Append("peer-password", types.YLeaf{"PeerPassword", peer.PeerPassword})
+    peer.EntityData.Leafs.Append("mesh-group", types.YLeaf{"MeshGroup", peer.MeshGroup})
+    peer.EntityData.Leafs.Append("ttl-threshold", types.YLeaf{"TtlThreshold", peer.TtlThreshold})
+    peer.EntityData.Leafs.Append("connect-source", types.YLeaf{"ConnectSource", peer.ConnectSource})
+
+    peer.EntityData.YListKeys = []string {"PeerAddress"}
+
     return &(peer.EntityData)
 }
 
@@ -814,6 +871,7 @@ func (peer *Msdp_DefaultContext_Peers_Peer) GetEntityData() *types.CommonEntityD
 type Msdp_DefaultContext_Peers_Peer_RemoteAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // First half of ASN in asdot format or 0 in asplain. The type is interface{}
     // with range: 0..65535. The default value is 0.
@@ -834,10 +892,13 @@ func (remoteAs *Msdp_DefaultContext_Peers_Peer_RemoteAs) GetEntityData() *types.
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    remoteAs.EntityData.Children = make(map[string]types.YChild)
-    remoteAs.EntityData.Leafs = make(map[string]types.YLeaf)
-    remoteAs.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", remoteAs.AsXx}
-    remoteAs.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", remoteAs.AsYy}
+    remoteAs.EntityData.Children = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs = types.NewOrderedMap()
+    remoteAs.EntityData.Leafs.Append("as-xx", types.YLeaf{"AsXx", remoteAs.AsXx})
+    remoteAs.EntityData.Leafs.Append("as-yy", types.YLeaf{"AsYy", remoteAs.AsYy})
+
+    remoteAs.EntityData.YListKeys = []string {}
+
     return &(remoteAs.EntityData)
 }
 
@@ -847,6 +908,7 @@ func (remoteAs *Msdp_DefaultContext_Peers_Peer_RemoteAs) GetEntityData() *types.
 type Msdp_DefaultContext_Peers_Peer_KeepAlive struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Keep alive period in seconds. The type is interface{} with range: 1..60.
     // This attribute is mandatory. Units are second.
@@ -867,10 +929,13 @@ func (keepAlive *Msdp_DefaultContext_Peers_Peer_KeepAlive) GetEntityData() *type
     keepAlive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepAlive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keepAlive.EntityData.Children = make(map[string]types.YChild)
-    keepAlive.EntityData.Leafs = make(map[string]types.YLeaf)
-    keepAlive.EntityData.Leafs["keep-alive-period"] = types.YLeaf{"KeepAlivePeriod", keepAlive.KeepAlivePeriod}
-    keepAlive.EntityData.Leafs["peer-timeout-period"] = types.YLeaf{"PeerTimeoutPeriod", keepAlive.PeerTimeoutPeriod}
+    keepAlive.EntityData.Children = types.NewOrderedMap()
+    keepAlive.EntityData.Leafs = types.NewOrderedMap()
+    keepAlive.EntityData.Leafs.Append("keep-alive-period", types.YLeaf{"KeepAlivePeriod", keepAlive.KeepAlivePeriod})
+    keepAlive.EntityData.Leafs.Append("peer-timeout-period", types.YLeaf{"PeerTimeoutPeriod", keepAlive.PeerTimeoutPeriod})
+
+    keepAlive.EntityData.YListKeys = []string {}
+
     return &(keepAlive.EntityData)
 }
 
@@ -882,7 +947,7 @@ type Msdp_DefaultContext_Peers_Peer_SaFilters struct {
 
     // SA-Filter incoming/outgoing list or RPlist. The type is slice of
     // Msdp_DefaultContext_Peers_Peer_SaFilters_SaFilter.
-    SaFilter []Msdp_DefaultContext_Peers_Peer_SaFilters_SaFilter
+    SaFilter []*Msdp_DefaultContext_Peers_Peer_SaFilters_SaFilter
 }
 
 func (saFilters *Msdp_DefaultContext_Peers_Peer_SaFilters) GetEntityData() *types.CommonEntityData {
@@ -895,12 +960,15 @@ func (saFilters *Msdp_DefaultContext_Peers_Peer_SaFilters) GetEntityData() *type
     saFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    saFilters.EntityData.Children = make(map[string]types.YChild)
-    saFilters.EntityData.Children["sa-filter"] = types.YChild{"SaFilter", nil}
+    saFilters.EntityData.Children = types.NewOrderedMap()
+    saFilters.EntityData.Children.Append("sa-filter", types.YChild{"SaFilter", nil})
     for i := range saFilters.SaFilter {
-        saFilters.EntityData.Children[types.GetSegmentPath(&saFilters.SaFilter[i])] = types.YChild{"SaFilter", &saFilters.SaFilter[i]}
+        saFilters.EntityData.Children.Append(types.GetSegmentPath(saFilters.SaFilter[i]), types.YChild{"SaFilter", saFilters.SaFilter[i]})
     }
-    saFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    saFilters.EntityData.Leafs = types.NewOrderedMap()
+
+    saFilters.EntityData.YListKeys = []string {}
+
     return &(saFilters.EntityData)
 }
 
@@ -927,16 +995,19 @@ func (saFilter *Msdp_DefaultContext_Peers_Peer_SaFilters_SaFilter) GetEntityData
     saFilter.EntityData.YangName = "sa-filter"
     saFilter.EntityData.BundleName = "cisco_ios_xr"
     saFilter.EntityData.ParentYangName = "sa-filters"
-    saFilter.EntityData.SegmentPath = "sa-filter" + "[list='" + fmt.Sprintf("%v", saFilter.List) + "']" + "[filter-type='" + fmt.Sprintf("%v", saFilter.FilterType) + "']"
+    saFilter.EntityData.SegmentPath = "sa-filter" + types.AddKeyToken(saFilter.List, "list") + types.AddKeyToken(saFilter.FilterType, "filter-type")
     saFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    saFilter.EntityData.Children = make(map[string]types.YChild)
-    saFilter.EntityData.Leafs = make(map[string]types.YLeaf)
-    saFilter.EntityData.Leafs["list"] = types.YLeaf{"List", saFilter.List}
-    saFilter.EntityData.Leafs["filter-type"] = types.YLeaf{"FilterType", saFilter.FilterType}
-    saFilter.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", saFilter.AccessListName}
+    saFilter.EntityData.Children = types.NewOrderedMap()
+    saFilter.EntityData.Leafs = types.NewOrderedMap()
+    saFilter.EntityData.Leafs.Append("list", types.YLeaf{"List", saFilter.List})
+    saFilter.EntityData.Leafs.Append("filter-type", types.YLeaf{"FilterType", saFilter.FilterType})
+    saFilter.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", saFilter.AccessListName})
+
+    saFilter.EntityData.YListKeys = []string {"List", "FilterType"}
+
     return &(saFilter.EntityData)
 }
 
@@ -948,7 +1019,7 @@ type Msdp_DefaultContext_SaFilters struct {
 
     // SA-Filter incoming/outgoing list or RPlist. The type is slice of
     // Msdp_DefaultContext_SaFilters_SaFilter.
-    SaFilter []Msdp_DefaultContext_SaFilters_SaFilter
+    SaFilter []*Msdp_DefaultContext_SaFilters_SaFilter
 }
 
 func (saFilters *Msdp_DefaultContext_SaFilters) GetEntityData() *types.CommonEntityData {
@@ -961,12 +1032,15 @@ func (saFilters *Msdp_DefaultContext_SaFilters) GetEntityData() *types.CommonEnt
     saFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    saFilters.EntityData.Children = make(map[string]types.YChild)
-    saFilters.EntityData.Children["sa-filter"] = types.YChild{"SaFilter", nil}
+    saFilters.EntityData.Children = types.NewOrderedMap()
+    saFilters.EntityData.Children.Append("sa-filter", types.YChild{"SaFilter", nil})
     for i := range saFilters.SaFilter {
-        saFilters.EntityData.Children[types.GetSegmentPath(&saFilters.SaFilter[i])] = types.YChild{"SaFilter", &saFilters.SaFilter[i]}
+        saFilters.EntityData.Children.Append(types.GetSegmentPath(saFilters.SaFilter[i]), types.YChild{"SaFilter", saFilters.SaFilter[i]})
     }
-    saFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    saFilters.EntityData.Leafs = types.NewOrderedMap()
+
+    saFilters.EntityData.YListKeys = []string {}
+
     return &(saFilters.EntityData)
 }
 
@@ -993,16 +1067,19 @@ func (saFilter *Msdp_DefaultContext_SaFilters_SaFilter) GetEntityData() *types.C
     saFilter.EntityData.YangName = "sa-filter"
     saFilter.EntityData.BundleName = "cisco_ios_xr"
     saFilter.EntityData.ParentYangName = "sa-filters"
-    saFilter.EntityData.SegmentPath = "sa-filter" + "[list='" + fmt.Sprintf("%v", saFilter.List) + "']" + "[filter-type='" + fmt.Sprintf("%v", saFilter.FilterType) + "']"
+    saFilter.EntityData.SegmentPath = "sa-filter" + types.AddKeyToken(saFilter.List, "list") + types.AddKeyToken(saFilter.FilterType, "filter-type")
     saFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    saFilter.EntityData.Children = make(map[string]types.YChild)
-    saFilter.EntityData.Leafs = make(map[string]types.YLeaf)
-    saFilter.EntityData.Leafs["list"] = types.YLeaf{"List", saFilter.List}
-    saFilter.EntityData.Leafs["filter-type"] = types.YLeaf{"FilterType", saFilter.FilterType}
-    saFilter.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", saFilter.AccessListName}
+    saFilter.EntityData.Children = types.NewOrderedMap()
+    saFilter.EntityData.Leafs = types.NewOrderedMap()
+    saFilter.EntityData.Leafs.Append("list", types.YLeaf{"List", saFilter.List})
+    saFilter.EntityData.Leafs.Append("filter-type", types.YLeaf{"FilterType", saFilter.FilterType})
+    saFilter.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", saFilter.AccessListName})
+
+    saFilter.EntityData.YListKeys = []string {"List", "FilterType"}
+
     return &(saFilter.EntityData)
 }
 

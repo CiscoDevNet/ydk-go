@@ -80,18 +80,21 @@ func (watchdog *Watchdog) GetEntityData() *types.CommonEntityData {
     watchdog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     watchdog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    watchdog.EntityData.Children = make(map[string]types.YChild)
-    watchdog.EntityData.Children["threshold-memory"] = types.YChild{"ThresholdMemory", &watchdog.ThresholdMemory}
-    watchdog.EntityData.Leafs = make(map[string]types.YLeaf)
-    watchdog.EntityData.Leafs["threshold-memory-switchover"] = types.YLeaf{"ThresholdMemorySwitchover", watchdog.ThresholdMemorySwitchover}
-    watchdog.EntityData.Leafs["restart-deadlock-disable"] = types.YLeaf{"RestartDeadlockDisable", watchdog.RestartDeadlockDisable}
-    watchdog.EntityData.Leafs["monitor-qnet-timeout"] = types.YLeaf{"MonitorQnetTimeout", watchdog.MonitorQnetTimeout}
-    watchdog.EntityData.Leafs["monitor-cpuhog-timeout"] = types.YLeaf{"MonitorCpuhogTimeout", watchdog.MonitorCpuhogTimeout}
-    watchdog.EntityData.Leafs["monitor-procnto-timeout"] = types.YLeaf{"MonitorProcntoTimeout", watchdog.MonitorProcntoTimeout}
-    watchdog.EntityData.Leafs["overload-notification"] = types.YLeaf{"OverloadNotification", watchdog.OverloadNotification}
-    watchdog.EntityData.Leafs["restart-cpuhog-disable"] = types.YLeaf{"RestartCpuhogDisable", watchdog.RestartCpuhogDisable}
-    watchdog.EntityData.Leafs["restart-memoryhog-disable"] = types.YLeaf{"RestartMemoryhogDisable", watchdog.RestartMemoryhogDisable}
-    watchdog.EntityData.Leafs["overload-throttle-timeout"] = types.YLeaf{"OverloadThrottleTimeout", watchdog.OverloadThrottleTimeout}
+    watchdog.EntityData.Children = types.NewOrderedMap()
+    watchdog.EntityData.Children.Append("threshold-memory", types.YChild{"ThresholdMemory", &watchdog.ThresholdMemory})
+    watchdog.EntityData.Leafs = types.NewOrderedMap()
+    watchdog.EntityData.Leafs.Append("threshold-memory-switchover", types.YLeaf{"ThresholdMemorySwitchover", watchdog.ThresholdMemorySwitchover})
+    watchdog.EntityData.Leafs.Append("restart-deadlock-disable", types.YLeaf{"RestartDeadlockDisable", watchdog.RestartDeadlockDisable})
+    watchdog.EntityData.Leafs.Append("monitor-qnet-timeout", types.YLeaf{"MonitorQnetTimeout", watchdog.MonitorQnetTimeout})
+    watchdog.EntityData.Leafs.Append("monitor-cpuhog-timeout", types.YLeaf{"MonitorCpuhogTimeout", watchdog.MonitorCpuhogTimeout})
+    watchdog.EntityData.Leafs.Append("monitor-procnto-timeout", types.YLeaf{"MonitorProcntoTimeout", watchdog.MonitorProcntoTimeout})
+    watchdog.EntityData.Leafs.Append("overload-notification", types.YLeaf{"OverloadNotification", watchdog.OverloadNotification})
+    watchdog.EntityData.Leafs.Append("restart-cpuhog-disable", types.YLeaf{"RestartCpuhogDisable", watchdog.RestartCpuhogDisable})
+    watchdog.EntityData.Leafs.Append("restart-memoryhog-disable", types.YLeaf{"RestartMemoryhogDisable", watchdog.RestartMemoryhogDisable})
+    watchdog.EntityData.Leafs.Append("overload-throttle-timeout", types.YLeaf{"OverloadThrottleTimeout", watchdog.OverloadThrottleTimeout})
+
+    watchdog.EntityData.YListKeys = []string {}
+
     return &(watchdog.EntityData)
 }
 
@@ -121,11 +124,14 @@ func (thresholdMemory *Watchdog_ThresholdMemory) GetEntityData() *types.CommonEn
     thresholdMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdMemory.EntityData.Children = make(map[string]types.YChild)
-    thresholdMemory.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdMemory.EntityData.Leafs["minor"] = types.YLeaf{"Minor", thresholdMemory.Minor}
-    thresholdMemory.EntityData.Leafs["severe"] = types.YLeaf{"Severe", thresholdMemory.Severe}
-    thresholdMemory.EntityData.Leafs["critical"] = types.YLeaf{"Critical", thresholdMemory.Critical}
+    thresholdMemory.EntityData.Children = types.NewOrderedMap()
+    thresholdMemory.EntityData.Leafs = types.NewOrderedMap()
+    thresholdMemory.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", thresholdMemory.Minor})
+    thresholdMemory.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", thresholdMemory.Severe})
+    thresholdMemory.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", thresholdMemory.Critical})
+
+    thresholdMemory.EntityData.YListKeys = []string {}
+
     return &(thresholdMemory.EntityData)
 }
 

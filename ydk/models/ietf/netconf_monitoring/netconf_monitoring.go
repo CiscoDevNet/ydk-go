@@ -32,11 +32,11 @@ func init() {
     ydk.RegisterEntity("ietf-netconf-monitoring:netconf-state", reflect.TypeOf(NetconfState{}))
 }
 
-type Transport struct {
+type NetconfBeep struct {
 }
 
-func (id Transport) String() string {
-	return "ietf-netconf-monitoring:transport"
+func (id NetconfBeep) String() string {
+	return "ietf-netconf-monitoring:netconf-beep"
 }
 
 type NetconfSsh struct {
@@ -46,53 +46,11 @@ func (id NetconfSsh) String() string {
 	return "ietf-netconf-monitoring:netconf-ssh"
 }
 
-type NetconfSoapOverBeep struct {
+type Rnc struct {
 }
 
-func (id NetconfSoapOverBeep) String() string {
-	return "ietf-netconf-monitoring:netconf-soap-over-beep"
-}
-
-type NetconfSoapOverHttps struct {
-}
-
-func (id NetconfSoapOverHttps) String() string {
-	return "ietf-netconf-monitoring:netconf-soap-over-https"
-}
-
-type NetconfBeep struct {
-}
-
-func (id NetconfBeep) String() string {
-	return "ietf-netconf-monitoring:netconf-beep"
-}
-
-type NetconfTls struct {
-}
-
-func (id NetconfTls) String() string {
-	return "ietf-netconf-monitoring:netconf-tls"
-}
-
-type SchemaFormat struct {
-}
-
-func (id SchemaFormat) String() string {
-	return "ietf-netconf-monitoring:schema-format"
-}
-
-type Xsd struct {
-}
-
-func (id Xsd) String() string {
-	return "ietf-netconf-monitoring:xsd"
-}
-
-type Yang struct {
-}
-
-func (id Yang) String() string {
-	return "ietf-netconf-monitoring:yang"
+func (id Rnc) String() string {
+	return "ietf-netconf-monitoring:rnc"
 }
 
 type Yin struct {
@@ -109,11 +67,53 @@ func (id Rng) String() string {
 	return "ietf-netconf-monitoring:rng"
 }
 
-type Rnc struct {
+type Xsd struct {
 }
 
-func (id Rnc) String() string {
-	return "ietf-netconf-monitoring:rnc"
+func (id Xsd) String() string {
+	return "ietf-netconf-monitoring:xsd"
+}
+
+type NetconfSoapOverBeep struct {
+}
+
+func (id NetconfSoapOverBeep) String() string {
+	return "ietf-netconf-monitoring:netconf-soap-over-beep"
+}
+
+type NetconfTls struct {
+}
+
+func (id NetconfTls) String() string {
+	return "ietf-netconf-monitoring:netconf-tls"
+}
+
+type Yang struct {
+}
+
+func (id Yang) String() string {
+	return "ietf-netconf-monitoring:yang"
+}
+
+type SchemaFormat struct {
+}
+
+func (id SchemaFormat) String() string {
+	return "ietf-netconf-monitoring:schema-format"
+}
+
+type NetconfSoapOverHttps struct {
+}
+
+func (id NetconfSoapOverHttps) String() string {
+	return "ietf-netconf-monitoring:netconf-soap-over-https"
+}
+
+type Transport struct {
+}
+
+func (id Transport) String() string {
+	return "ietf-netconf-monitoring:transport"
 }
 
 // NetconfDatastoreType represents Enumeration of possible NETCONF datastore types.
@@ -162,10 +162,13 @@ func (getSchema *GetSchema) GetEntityData() *types.CommonEntityData {
     getSchema.EntityData.NamespaceTable = ietf.GetNamespaces()
     getSchema.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    getSchema.EntityData.Children = make(map[string]types.YChild)
-    getSchema.EntityData.Children["input"] = types.YChild{"Input", &getSchema.Input}
-    getSchema.EntityData.Children["output"] = types.YChild{"Output", &getSchema.Output}
-    getSchema.EntityData.Leafs = make(map[string]types.YLeaf)
+    getSchema.EntityData.Children = types.NewOrderedMap()
+    getSchema.EntityData.Children.Append("input", types.YChild{"Input", &getSchema.Input})
+    getSchema.EntityData.Children.Append("output", types.YChild{"Output", &getSchema.Output})
+    getSchema.EntityData.Leafs = types.NewOrderedMap()
+
+    getSchema.EntityData.YListKeys = []string {}
+
     return &(getSchema.EntityData)
 }
 
@@ -187,7 +190,7 @@ type GetSchema_Input struct {
     // The data modeling language of the schema.  If this parameter is not
     // present, and more than one formats of the schema exists on the server, a
     // 'data-not-unique' error is returned, as described above. The type is one of
-    // the following: XsdYangYinRngRnc.
+    // the following: RncYinRngXsdYang.
     Format interface{}
 }
 
@@ -201,11 +204,14 @@ func (input *GetSchema_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", input.Identifier}
-    input.EntityData.Leafs["version"] = types.YLeaf{"Version", input.Version}
-    input.EntityData.Leafs["format"] = types.YLeaf{"Format", input.Format}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("identifier", types.YLeaf{"Identifier", input.Identifier})
+    input.EntityData.Leafs.Append("version", types.YLeaf{"Version", input.Version})
+    input.EntityData.Leafs.Append("format", types.YLeaf{"Format", input.Format})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -228,9 +234,12 @@ func (output *GetSchema_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["data"] = types.YLeaf{"Data", output.Data}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("data", types.YLeaf{"Data", output.Data})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -269,13 +278,16 @@ func (netconfState *NetconfState) GetEntityData() *types.CommonEntityData {
     netconfState.EntityData.NamespaceTable = ietf.GetNamespaces()
     netconfState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    netconfState.EntityData.Children = make(map[string]types.YChild)
-    netconfState.EntityData.Children["capabilities"] = types.YChild{"Capabilities", &netconfState.Capabilities}
-    netconfState.EntityData.Children["datastores"] = types.YChild{"Datastores", &netconfState.Datastores}
-    netconfState.EntityData.Children["schemas"] = types.YChild{"Schemas", &netconfState.Schemas}
-    netconfState.EntityData.Children["sessions"] = types.YChild{"Sessions", &netconfState.Sessions}
-    netconfState.EntityData.Children["statistics"] = types.YChild{"Statistics", &netconfState.Statistics}
-    netconfState.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconfState.EntityData.Children = types.NewOrderedMap()
+    netconfState.EntityData.Children.Append("capabilities", types.YChild{"Capabilities", &netconfState.Capabilities})
+    netconfState.EntityData.Children.Append("datastores", types.YChild{"Datastores", &netconfState.Datastores})
+    netconfState.EntityData.Children.Append("schemas", types.YChild{"Schemas", &netconfState.Schemas})
+    netconfState.EntityData.Children.Append("sessions", types.YChild{"Sessions", &netconfState.Sessions})
+    netconfState.EntityData.Children.Append("statistics", types.YChild{"Statistics", &netconfState.Statistics})
+    netconfState.EntityData.Leafs = types.NewOrderedMap()
+
+    netconfState.EntityData.YListKeys = []string {}
+
     return &(netconfState.EntityData)
 }
 
@@ -301,9 +313,12 @@ func (capabilities *NetconfState_Capabilities) GetEntityData() *types.CommonEnti
     capabilities.EntityData.NamespaceTable = ietf.GetNamespaces()
     capabilities.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    capabilities.EntityData.Children = make(map[string]types.YChild)
-    capabilities.EntityData.Leafs = make(map[string]types.YLeaf)
-    capabilities.EntityData.Leafs["capability"] = types.YLeaf{"Capability", capabilities.Capability}
+    capabilities.EntityData.Children = types.NewOrderedMap()
+    capabilities.EntityData.Leafs = types.NewOrderedMap()
+    capabilities.EntityData.Leafs.Append("capability", types.YLeaf{"Capability", capabilities.Capability})
+
+    capabilities.EntityData.YListKeys = []string {}
+
     return &(capabilities.EntityData)
 }
 
@@ -316,7 +331,7 @@ type NetconfState_Datastores struct {
     // List of NETCONF configuration datastores supported by the NETCONF server
     // and related information. The type is slice of
     // NetconfState_Datastores_Datastore.
-    Datastore []NetconfState_Datastores_Datastore
+    Datastore []*NetconfState_Datastores_Datastore
 }
 
 func (datastores *NetconfState_Datastores) GetEntityData() *types.CommonEntityData {
@@ -329,12 +344,15 @@ func (datastores *NetconfState_Datastores) GetEntityData() *types.CommonEntityDa
     datastores.EntityData.NamespaceTable = ietf.GetNamespaces()
     datastores.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    datastores.EntityData.Children = make(map[string]types.YChild)
-    datastores.EntityData.Children["datastore"] = types.YChild{"Datastore", nil}
+    datastores.EntityData.Children = types.NewOrderedMap()
+    datastores.EntityData.Children.Append("datastore", types.YChild{"Datastore", nil})
     for i := range datastores.Datastore {
-        datastores.EntityData.Children[types.GetSegmentPath(&datastores.Datastore[i])] = types.YChild{"Datastore", &datastores.Datastore[i]}
+        datastores.EntityData.Children.Append(types.GetSegmentPath(datastores.Datastore[i]), types.YChild{"Datastore", datastores.Datastore[i]})
     }
-    datastores.EntityData.Leafs = make(map[string]types.YLeaf)
+    datastores.EntityData.Leafs = types.NewOrderedMap()
+
+    datastores.EntityData.YListKeys = []string {}
+
     return &(datastores.EntityData)
 }
 
@@ -364,15 +382,18 @@ func (datastore *NetconfState_Datastores_Datastore) GetEntityData() *types.Commo
     datastore.EntityData.YangName = "datastore"
     datastore.EntityData.BundleName = "ietf"
     datastore.EntityData.ParentYangName = "datastores"
-    datastore.EntityData.SegmentPath = "datastore" + "[name='" + fmt.Sprintf("%v", datastore.Name) + "']"
+    datastore.EntityData.SegmentPath = "datastore" + types.AddKeyToken(datastore.Name, "name")
     datastore.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     datastore.EntityData.NamespaceTable = ietf.GetNamespaces()
     datastore.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    datastore.EntityData.Children = make(map[string]types.YChild)
-    datastore.EntityData.Children["locks"] = types.YChild{"Locks", &datastore.Locks}
-    datastore.EntityData.Leafs = make(map[string]types.YLeaf)
-    datastore.EntityData.Leafs["name"] = types.YLeaf{"Name", datastore.Name}
+    datastore.EntityData.Children = types.NewOrderedMap()
+    datastore.EntityData.Children.Append("locks", types.YChild{"Locks", &datastore.Locks})
+    datastore.EntityData.Leafs = types.NewOrderedMap()
+    datastore.EntityData.Leafs.Append("name", types.YLeaf{"Name", datastore.Name})
+
+    datastore.EntityData.YListKeys = []string {"Name"}
+
     return &(datastore.EntityData)
 }
 
@@ -392,13 +413,14 @@ func (datastore *NetconfState_Datastores_Datastore) GetEntityData() *types.Commo
 type NetconfState_Datastores_Datastore_Locks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Present if the global lock is set.
     GlobalLock NetconfState_Datastores_Datastore_Locks_GlobalLock
 
     // List of partial locks. The type is slice of
     // NetconfState_Datastores_Datastore_Locks_PartialLock.
-    PartialLock []NetconfState_Datastores_Datastore_Locks_PartialLock
+    PartialLock []*NetconfState_Datastores_Datastore_Locks_PartialLock
 }
 
 func (locks *NetconfState_Datastores_Datastore_Locks) GetEntityData() *types.CommonEntityData {
@@ -411,13 +433,16 @@ func (locks *NetconfState_Datastores_Datastore_Locks) GetEntityData() *types.Com
     locks.EntityData.NamespaceTable = ietf.GetNamespaces()
     locks.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    locks.EntityData.Children = make(map[string]types.YChild)
-    locks.EntityData.Children["global-lock"] = types.YChild{"GlobalLock", &locks.GlobalLock}
-    locks.EntityData.Children["partial-lock"] = types.YChild{"PartialLock", nil}
+    locks.EntityData.Children = types.NewOrderedMap()
+    locks.EntityData.Children.Append("global-lock", types.YChild{"GlobalLock", &locks.GlobalLock})
+    locks.EntityData.Children.Append("partial-lock", types.YChild{"PartialLock", nil})
     for i := range locks.PartialLock {
-        locks.EntityData.Children[types.GetSegmentPath(&locks.PartialLock[i])] = types.YChild{"PartialLock", &locks.PartialLock[i]}
+        locks.EntityData.Children.Append(types.GetSegmentPath(locks.PartialLock[i]), types.YChild{"PartialLock", locks.PartialLock[i]})
     }
-    locks.EntityData.Leafs = make(map[string]types.YLeaf)
+    locks.EntityData.Leafs = types.NewOrderedMap()
+
+    locks.EntityData.YListKeys = []string {}
+
     return &(locks.EntityData)
 }
 
@@ -435,8 +460,7 @@ type NetconfState_Datastores_Datastore_Locks_GlobalLock struct {
     LockedBySession interface{}
 
     // The date and time of when the resource was locked. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     // This attribute is mandatory.
     LockedTime interface{}
 }
@@ -451,10 +475,13 @@ func (globalLock *NetconfState_Datastores_Datastore_Locks_GlobalLock) GetEntityD
     globalLock.EntityData.NamespaceTable = ietf.GetNamespaces()
     globalLock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    globalLock.EntityData.Children = make(map[string]types.YChild)
-    globalLock.EntityData.Leafs = make(map[string]types.YLeaf)
-    globalLock.EntityData.Leafs["locked-by-session"] = types.YLeaf{"LockedBySession", globalLock.LockedBySession}
-    globalLock.EntityData.Leafs["locked-time"] = types.YLeaf{"LockedTime", globalLock.LockedTime}
+    globalLock.EntityData.Children = types.NewOrderedMap()
+    globalLock.EntityData.Leafs = types.NewOrderedMap()
+    globalLock.EntityData.Leafs.Append("locked-by-session", types.YLeaf{"LockedBySession", globalLock.LockedBySession})
+    globalLock.EntityData.Leafs.Append("locked-time", types.YLeaf{"LockedTime", globalLock.LockedTime})
+
+    globalLock.EntityData.YListKeys = []string {}
+
     return &(globalLock.EntityData)
 }
 
@@ -476,15 +503,14 @@ type NetconfState_Datastores_Datastore_Locks_PartialLock struct {
     LockedBySession interface{}
 
     // The date and time of when the resource was locked. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     // This attribute is mandatory.
     LockedTime interface{}
 
     // The xpath expression that was used to request the lock.  The select
     // expression indicates the original intended scope of the lock. The type is
     // slice of string.
-    Select_ []interface{}
+    Select []interface{}
 
     // The list of instance-identifiers (i.e., the locked nodes).  The scope of
     // the partial lock is defined by the list of locked nodes. The type is slice
@@ -497,18 +523,21 @@ func (partialLock *NetconfState_Datastores_Datastore_Locks_PartialLock) GetEntit
     partialLock.EntityData.YangName = "partial-lock"
     partialLock.EntityData.BundleName = "ietf"
     partialLock.EntityData.ParentYangName = "locks"
-    partialLock.EntityData.SegmentPath = "partial-lock" + "[lock-id='" + fmt.Sprintf("%v", partialLock.LockId) + "']"
+    partialLock.EntityData.SegmentPath = "partial-lock" + types.AddKeyToken(partialLock.LockId, "lock-id")
     partialLock.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     partialLock.EntityData.NamespaceTable = ietf.GetNamespaces()
     partialLock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    partialLock.EntityData.Children = make(map[string]types.YChild)
-    partialLock.EntityData.Leafs = make(map[string]types.YLeaf)
-    partialLock.EntityData.Leafs["lock-id"] = types.YLeaf{"LockId", partialLock.LockId}
-    partialLock.EntityData.Leafs["locked-by-session"] = types.YLeaf{"LockedBySession", partialLock.LockedBySession}
-    partialLock.EntityData.Leafs["locked-time"] = types.YLeaf{"LockedTime", partialLock.LockedTime}
-    partialLock.EntityData.Leafs["select"] = types.YLeaf{"Select_", partialLock.Select_}
-    partialLock.EntityData.Leafs["locked-node"] = types.YLeaf{"LockedNode", partialLock.LockedNode}
+    partialLock.EntityData.Children = types.NewOrderedMap()
+    partialLock.EntityData.Leafs = types.NewOrderedMap()
+    partialLock.EntityData.Leafs.Append("lock-id", types.YLeaf{"LockId", partialLock.LockId})
+    partialLock.EntityData.Leafs.Append("locked-by-session", types.YLeaf{"LockedBySession", partialLock.LockedBySession})
+    partialLock.EntityData.Leafs.Append("locked-time", types.YLeaf{"LockedTime", partialLock.LockedTime})
+    partialLock.EntityData.Leafs.Append("select", types.YLeaf{"Select", partialLock.Select})
+    partialLock.EntityData.Leafs.Append("locked-node", types.YLeaf{"LockedNode", partialLock.LockedNode})
+
+    partialLock.EntityData.YListKeys = []string {"LockId"}
+
     return &(partialLock.EntityData)
 }
 
@@ -521,7 +550,7 @@ type NetconfState_Schemas struct {
 
     // List of data model schemas supported by the server. The type is slice of
     // NetconfState_Schemas_Schema.
-    Schema []NetconfState_Schemas_Schema
+    Schema []*NetconfState_Schemas_Schema
 }
 
 func (schemas *NetconfState_Schemas) GetEntityData() *types.CommonEntityData {
@@ -534,12 +563,15 @@ func (schemas *NetconfState_Schemas) GetEntityData() *types.CommonEntityData {
     schemas.EntityData.NamespaceTable = ietf.GetNamespaces()
     schemas.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    schemas.EntityData.Children = make(map[string]types.YChild)
-    schemas.EntityData.Children["schema"] = types.YChild{"Schema", nil}
+    schemas.EntityData.Children = types.NewOrderedMap()
+    schemas.EntityData.Children.Append("schema", types.YChild{"Schema", nil})
     for i := range schemas.Schema {
-        schemas.EntityData.Children[types.GetSegmentPath(&schemas.Schema[i])] = types.YChild{"Schema", &schemas.Schema[i]}
+        schemas.EntityData.Children.Append(types.GetSegmentPath(schemas.Schema[i]), types.YChild{"Schema", schemas.Schema[i]})
     }
-    schemas.EntityData.Leafs = make(map[string]types.YLeaf)
+    schemas.EntityData.Leafs = types.NewOrderedMap()
+
+    schemas.EntityData.YListKeys = []string {}
+
     return &(schemas.EntityData)
 }
 
@@ -570,7 +602,7 @@ type NetconfState_Schemas_Schema struct {
     // This attribute is a key. The data modeling language the schema is written
     // in (currently xsd, yang, yin, rng, or rnc). For YANG data models, 'yang'
     // format MUST be supported and 'yin' format MAY also be provided. The type is
-    // one of the following: XsdYangYinRngRnc.
+    // one of the following: RncYinRngXsdYang.
     Format interface{}
 
     // The XML namespace defined by the data model.  For YANG data models, this is
@@ -596,18 +628,21 @@ func (schema *NetconfState_Schemas_Schema) GetEntityData() *types.CommonEntityDa
     schema.EntityData.YangName = "schema"
     schema.EntityData.BundleName = "ietf"
     schema.EntityData.ParentYangName = "schemas"
-    schema.EntityData.SegmentPath = "schema" + "[identifier='" + fmt.Sprintf("%v", schema.Identifier) + "']" + "[version='" + fmt.Sprintf("%v", schema.Version) + "']" + "[format='" + fmt.Sprintf("%v", schema.Format) + "']"
+    schema.EntityData.SegmentPath = "schema" + types.AddKeyToken(schema.Identifier, "identifier") + types.AddKeyToken(schema.Version, "version") + types.AddKeyToken(schema.Format, "format")
     schema.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     schema.EntityData.NamespaceTable = ietf.GetNamespaces()
     schema.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    schema.EntityData.Children = make(map[string]types.YChild)
-    schema.EntityData.Leafs = make(map[string]types.YLeaf)
-    schema.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", schema.Identifier}
-    schema.EntityData.Leafs["version"] = types.YLeaf{"Version", schema.Version}
-    schema.EntityData.Leafs["format"] = types.YLeaf{"Format", schema.Format}
-    schema.EntityData.Leafs["namespace"] = types.YLeaf{"Namespace", schema.Namespace}
-    schema.EntityData.Leafs["location"] = types.YLeaf{"Location", schema.Location}
+    schema.EntityData.Children = types.NewOrderedMap()
+    schema.EntityData.Leafs = types.NewOrderedMap()
+    schema.EntityData.Leafs.Append("identifier", types.YLeaf{"Identifier", schema.Identifier})
+    schema.EntityData.Leafs.Append("version", types.YLeaf{"Version", schema.Version})
+    schema.EntityData.Leafs.Append("format", types.YLeaf{"Format", schema.Format})
+    schema.EntityData.Leafs.Append("namespace", types.YLeaf{"Namespace", schema.Namespace})
+    schema.EntityData.Leafs.Append("location", types.YLeaf{"Location", schema.Location})
+
+    schema.EntityData.YListKeys = []string {"Identifier", "Version", "Format"}
+
     return &(schema.EntityData)
 }
 
@@ -628,7 +663,7 @@ type NetconfState_Sessions struct {
 
     // All NETCONF sessions managed by the NETCONF server MUST be reported in this
     // list. The type is slice of NetconfState_Sessions_Session.
-    Session []NetconfState_Sessions_Session
+    Session []*NetconfState_Sessions_Session
 }
 
 func (sessions *NetconfState_Sessions) GetEntityData() *types.CommonEntityData {
@@ -641,12 +676,15 @@ func (sessions *NetconfState_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.NamespaceTable = ietf.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -664,7 +702,7 @@ type NetconfState_Sessions_Session struct {
 
     // Identifies the transport for each session, e.g., 'netconf-ssh',
     // 'netconf-soap', etc. The type is one of the following:
-    // NetconfSshNetconfSoapOverBeepNetconfSoapOverHttpsNetconfBeepNetconfTls.
+    // NetconfBeepNetconfSshNetconfSoapOverBeepNetconfTlsNetconfSoapOverHttps.
     // This attribute is mandatory.
     Transport interface{}
 
@@ -678,17 +716,17 @@ type NetconfState_Sessions_Session struct {
     // Host identifier of the NETCONF client.  The value returned is
     // implementation specific (e.g., hostname, IPv4 address, IPv6 address). The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
     // or string with pattern:
-    // b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'.
+    // ((([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.)*([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.?)|\..
     SourceHost interface{}
 
     // Time at the server at which the session was established. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    // This attribute is mandatory.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}). This
+    // attribute is mandatory.
     LoginTime interface{}
 
     // Number of correct <rpc> messages received. The type is interface{} with
@@ -714,22 +752,25 @@ func (session *NetconfState_Sessions_Session) GetEntityData() *types.CommonEntit
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "ietf"
     session.EntityData.ParentYangName = "sessions"
-    session.EntityData.SegmentPath = "session" + "[session-id='" + fmt.Sprintf("%v", session.SessionId) + "']"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
     session.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     session.EntityData.NamespaceTable = ietf.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", session.SessionId}
-    session.EntityData.Leafs["transport"] = types.YLeaf{"Transport", session.Transport}
-    session.EntityData.Leafs["username"] = types.YLeaf{"Username", session.Username}
-    session.EntityData.Leafs["source-host"] = types.YLeaf{"SourceHost", session.SourceHost}
-    session.EntityData.Leafs["login-time"] = types.YLeaf{"LoginTime", session.LoginTime}
-    session.EntityData.Leafs["in-rpcs"] = types.YLeaf{"InRpcs", session.InRpcs}
-    session.EntityData.Leafs["in-bad-rpcs"] = types.YLeaf{"InBadRpcs", session.InBadRpcs}
-    session.EntityData.Leafs["out-rpc-errors"] = types.YLeaf{"OutRpcErrors", session.OutRpcErrors}
-    session.EntityData.Leafs["out-notifications"] = types.YLeaf{"OutNotifications", session.OutNotifications}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", session.SessionId})
+    session.EntityData.Leafs.Append("transport", types.YLeaf{"Transport", session.Transport})
+    session.EntityData.Leafs.Append("username", types.YLeaf{"Username", session.Username})
+    session.EntityData.Leafs.Append("source-host", types.YLeaf{"SourceHost", session.SourceHost})
+    session.EntityData.Leafs.Append("login-time", types.YLeaf{"LoginTime", session.LoginTime})
+    session.EntityData.Leafs.Append("in-rpcs", types.YLeaf{"InRpcs", session.InRpcs})
+    session.EntityData.Leafs.Append("in-bad-rpcs", types.YLeaf{"InBadRpcs", session.InBadRpcs})
+    session.EntityData.Leafs.Append("out-rpc-errors", types.YLeaf{"OutRpcErrors", session.OutRpcErrors})
+    session.EntityData.Leafs.Append("out-notifications", types.YLeaf{"OutNotifications", session.OutNotifications})
+
+    session.EntityData.YListKeys = []string {"SessionId"}
+
     return &(session.EntityData)
 }
 
@@ -741,7 +782,7 @@ type NetconfState_Statistics struct {
 
     // Date and time at which the management subsystem was started. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NetconfStartTime interface{}
 
     // Number of sessions silently dropped because an invalid <hello> message was
@@ -791,16 +832,19 @@ func (statistics *NetconfState_Statistics) GetEntityData() *types.CommonEntityDa
     statistics.EntityData.NamespaceTable = ietf.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistics.EntityData.Leafs["netconf-start-time"] = types.YLeaf{"NetconfStartTime", statistics.NetconfStartTime}
-    statistics.EntityData.Leafs["in-bad-hellos"] = types.YLeaf{"InBadHellos", statistics.InBadHellos}
-    statistics.EntityData.Leafs["in-sessions"] = types.YLeaf{"InSessions", statistics.InSessions}
-    statistics.EntityData.Leafs["dropped-sessions"] = types.YLeaf{"DroppedSessions", statistics.DroppedSessions}
-    statistics.EntityData.Leafs["in-rpcs"] = types.YLeaf{"InRpcs", statistics.InRpcs}
-    statistics.EntityData.Leafs["in-bad-rpcs"] = types.YLeaf{"InBadRpcs", statistics.InBadRpcs}
-    statistics.EntityData.Leafs["out-rpc-errors"] = types.YLeaf{"OutRpcErrors", statistics.OutRpcErrors}
-    statistics.EntityData.Leafs["out-notifications"] = types.YLeaf{"OutNotifications", statistics.OutNotifications}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+    statistics.EntityData.Leafs.Append("netconf-start-time", types.YLeaf{"NetconfStartTime", statistics.NetconfStartTime})
+    statistics.EntityData.Leafs.Append("in-bad-hellos", types.YLeaf{"InBadHellos", statistics.InBadHellos})
+    statistics.EntityData.Leafs.Append("in-sessions", types.YLeaf{"InSessions", statistics.InSessions})
+    statistics.EntityData.Leafs.Append("dropped-sessions", types.YLeaf{"DroppedSessions", statistics.DroppedSessions})
+    statistics.EntityData.Leafs.Append("in-rpcs", types.YLeaf{"InRpcs", statistics.InRpcs})
+    statistics.EntityData.Leafs.Append("in-bad-rpcs", types.YLeaf{"InBadRpcs", statistics.InBadRpcs})
+    statistics.EntityData.Leafs.Append("out-rpc-errors", types.YLeaf{"OutRpcErrors", statistics.OutRpcErrors})
+    statistics.EntityData.Leafs.Append("out-notifications", types.YLeaf{"OutNotifications", statistics.OutNotifications})
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 

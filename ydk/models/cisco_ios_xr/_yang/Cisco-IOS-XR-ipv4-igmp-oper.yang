@@ -9,7 +9,7 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-igmp-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -36,6 +36,10 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -98,7 +102,7 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
             "Group address";
         }
         leaf group-mask {
-          type int32;
+          type uint32;
           description
             "Group Mask";
         }
@@ -318,7 +322,7 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
               "Gateway Address";
           }
           leaf port {
-            type int32;
+            type uint32;
             description
               "Port";
           }

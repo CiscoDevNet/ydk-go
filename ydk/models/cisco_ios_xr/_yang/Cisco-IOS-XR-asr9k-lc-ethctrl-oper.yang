@@ -61,7 +61,7 @@ module Cisco-IOS-XR-asr9k-lc-ethctrl-oper {
               uses MLAN-PORT-STATUS;
             }
             leaf number {
-              type int32;
+              type uint32;
               description
                 "port number";
             }
@@ -89,7 +89,7 @@ module Cisco-IOS-XR-asr9k-lc-ethctrl-oper {
               uses MLAN-PORT-COUNTERS;
             }
             leaf number {
-              type int32;
+              type uint32;
               description
                 "port number";
             }
@@ -108,7 +108,7 @@ module Cisco-IOS-XR-asr9k-lc-ethctrl-oper {
               uses MLAN-SWITCH-ATU-DATA;
             }
             leaf entry {
-              type int32;
+              type uint32;
               description
                 "entry number";
             }

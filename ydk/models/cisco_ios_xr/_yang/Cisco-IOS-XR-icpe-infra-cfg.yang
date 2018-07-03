@@ -47,6 +47,10 @@ module Cisco-IOS-XR-icpe-infra-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -90,6 +94,7 @@ module Cisco-IOS-XR-icpe-infra-cfg {
        satellites";
     leaf enable {
       type empty;
+      mandatory true;
       description
         "Enable";
     }
@@ -168,10 +173,12 @@ module Cisco-IOS-XR-icpe-infra-cfg {
       "This augment extends the configuration data of
        'Cisco-IOS-XR-ifmgr-cfg'";
     container nv-satellite-fabric-link {
+      presence "Indicates a nv-satellite-fabric-link node is configured.";
       description
         "nV Satellite Fabric Link Configuration";
       leaf satellite {
         type Icpe-sat-id;
+        mandatory true;
         description
           "Hub & Spoke connection to a single Satellite";
       }
@@ -189,6 +196,7 @@ module Cisco-IOS-XR-icpe-infra-cfg {
       "This augment extends the configuration data of
        'Cisco-IOS-XR-ifmgr-cfg'";
     container nv-satellite-fabric-network {
+      presence "Indicates a nv-satellite-fabric-network node is configured.";
       description
         "Complex Network connection to one or more
          Satellites";
@@ -372,11 +380,13 @@ module Cisco-IOS-XR-icpe-infra-cfg {
       }
       leaf type {
         type string;
+        mandatory true;
         description
           "Satellite Type";
       }
       leaf enable {
         type empty;
+        mandatory true;
         description
           "Enable";
       }

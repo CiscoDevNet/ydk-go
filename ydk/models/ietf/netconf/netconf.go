@@ -53,6 +53,17 @@ func init() {
     ydk.RegisterEntity("ietf-netconf:validate", reflect.TypeOf(Validate{}))
 }
 
+// ErrorSeverityType represents NETCONF Error Severity
+type ErrorSeverityType string
+
+const (
+    // Error severity
+    ErrorSeverityType_error_ ErrorSeverityType = "error"
+
+    // Warning severity
+    ErrorSeverityType_warning ErrorSeverityType = "warning"
+)
+
 // ErrorTagType represents NETCONF Error Tag
 type ErrorTagType string
 
@@ -140,17 +151,6 @@ const (
     ErrorTagType_malformed_message ErrorTagType = "malformed-message"
 )
 
-// ErrorSeverityType represents NETCONF Error Severity
-type ErrorSeverityType string
-
-const (
-    // Error severity
-    ErrorSeverityType_error ErrorSeverityType = "error"
-
-    // Warning severity
-    ErrorSeverityType_warning ErrorSeverityType = "warning"
-)
-
 // EditOperationType represents NETCONF 'operation' attribute values
 type EditOperationType string
 
@@ -189,7 +189,7 @@ const (
     // datastore.  If the configuration data does not
     // exist, an <rpc-error> element is returned with
     // an <error-tag> value of 'data-missing'.
-    EditOperationType_delete EditOperationType = "delete"
+    EditOperationType_delete_ EditOperationType = "delete"
 
     // The configuration data identified by the element
     // containing this attribute is deleted from the
@@ -224,10 +224,13 @@ func (getConfig *GetConfig) GetEntityData() *types.CommonEntityData {
     getConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     getConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    getConfig.EntityData.Children = make(map[string]types.YChild)
-    getConfig.EntityData.Children["input"] = types.YChild{"Input", &getConfig.Input}
-    getConfig.EntityData.Children["output"] = types.YChild{"Output", &getConfig.Output}
-    getConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    getConfig.EntityData.Children = types.NewOrderedMap()
+    getConfig.EntityData.Children.Append("input", types.YChild{"Input", &getConfig.Input})
+    getConfig.EntityData.Children.Append("output", types.YChild{"Output", &getConfig.Output})
+    getConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    getConfig.EntityData.YListKeys = []string {}
+
     return &(getConfig.EntityData)
 }
 
@@ -257,11 +260,14 @@ func (input *GetConfig_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["source"] = types.YChild{"Source", &input.Source}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
-    input.EntityData.Leafs["with-defaults"] = types.YLeaf{"WithDefaults", input.WithDefaults}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("source", types.YChild{"Source", &input.Source})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", input.Filter})
+    input.EntityData.Leafs.Append("with-defaults", types.YLeaf{"WithDefaults", input.WithDefaults})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -293,11 +299,14 @@ func (source *GetConfig_Input_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.NamespaceTable = ietf.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    source.EntityData.Children = make(map[string]types.YChild)
-    source.EntityData.Leafs = make(map[string]types.YLeaf)
-    source.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", source.Candidate}
-    source.EntityData.Leafs["running"] = types.YLeaf{"Running", source.Running}
-    source.EntityData.Leafs["startup"] = types.YLeaf{"Startup", source.Startup}
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("candidate", types.YLeaf{"Candidate", source.Candidate})
+    source.EntityData.Leafs.Append("running", types.YLeaf{"Running", source.Running})
+    source.EntityData.Leafs.Append("startup", types.YLeaf{"Startup", source.Startup})
+
+    source.EntityData.YListKeys = []string {}
+
     return &(source.EntityData)
 }
 
@@ -322,9 +331,12 @@ func (output *GetConfig_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["data"] = types.YLeaf{"Data", output.Data}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("data", types.YLeaf{"Data", output.Data})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -349,9 +361,12 @@ func (editConfig *EditConfig) GetEntityData() *types.CommonEntityData {
     editConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     editConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    editConfig.EntityData.Children = make(map[string]types.YChild)
-    editConfig.EntityData.Children["input"] = types.YChild{"Input", &editConfig.Input}
-    editConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    editConfig.EntityData.Children = types.NewOrderedMap()
+    editConfig.EntityData.Children.Append("input", types.YChild{"Input", &editConfig.Input})
+    editConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    editConfig.EntityData.YListKeys = []string {}
+
     return &(editConfig.EntityData)
 }
 
@@ -392,14 +407,17 @@ func (input *EditConfig_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["default-operation"] = types.YLeaf{"DefaultOperation", input.DefaultOperation}
-    input.EntityData.Leafs["test-option"] = types.YLeaf{"TestOption", input.TestOption}
-    input.EntityData.Leafs["error-option"] = types.YLeaf{"ErrorOption", input.ErrorOption}
-    input.EntityData.Leafs["config"] = types.YLeaf{"Config", input.Config}
-    input.EntityData.Leafs["url"] = types.YLeaf{"Url", input.Url}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("target", types.YChild{"Target", &input.Target})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("default-operation", types.YLeaf{"DefaultOperation", input.DefaultOperation})
+    input.EntityData.Leafs.Append("test-option", types.YLeaf{"TestOption", input.TestOption})
+    input.EntityData.Leafs.Append("error-option", types.YLeaf{"ErrorOption", input.ErrorOption})
+    input.EntityData.Leafs.Append("config", types.YLeaf{"Config", input.Config})
+    input.EntityData.Leafs.Append("url", types.YLeaf{"Url", input.Url})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -426,10 +444,13 @@ func (target *EditConfig_Input_Target) GetEntityData() *types.CommonEntityData {
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    target.EntityData.Children = make(map[string]types.YChild)
-    target.EntityData.Leafs = make(map[string]types.YLeaf)
-    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
-    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
+    target.EntityData.Children = types.NewOrderedMap()
+    target.EntityData.Leafs = types.NewOrderedMap()
+    target.EntityData.Leafs.Append("candidate", types.YLeaf{"Candidate", target.Candidate})
+    target.EntityData.Leafs.Append("running", types.YLeaf{"Running", target.Running})
+
+    target.EntityData.YListKeys = []string {}
+
     return &(target.EntityData)
 }
 
@@ -499,9 +520,12 @@ func (copyConfig *CopyConfig) GetEntityData() *types.CommonEntityData {
     copyConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     copyConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    copyConfig.EntityData.Children = make(map[string]types.YChild)
-    copyConfig.EntityData.Children["input"] = types.YChild{"Input", &copyConfig.Input}
-    copyConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    copyConfig.EntityData.Children = types.NewOrderedMap()
+    copyConfig.EntityData.Children.Append("input", types.YChild{"Input", &copyConfig.Input})
+    copyConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    copyConfig.EntityData.YListKeys = []string {}
+
     return &(copyConfig.EntityData)
 }
 
@@ -531,11 +555,14 @@ func (input *CopyConfig_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
-    input.EntityData.Children["source"] = types.YChild{"Source", &input.Source}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["with-defaults"] = types.YLeaf{"WithDefaults", input.WithDefaults}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("target", types.YChild{"Target", &input.Target})
+    input.EntityData.Children.Append("source", types.YChild{"Source", &input.Source})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("with-defaults", types.YLeaf{"WithDefaults", input.WithDefaults})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -569,12 +596,15 @@ func (target *CopyConfig_Input_Target) GetEntityData() *types.CommonEntityData {
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    target.EntityData.Children = make(map[string]types.YChild)
-    target.EntityData.Leafs = make(map[string]types.YLeaf)
-    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
-    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
-    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
-    target.EntityData.Leafs["url"] = types.YLeaf{"Url", target.Url}
+    target.EntityData.Children = types.NewOrderedMap()
+    target.EntityData.Leafs = types.NewOrderedMap()
+    target.EntityData.Leafs.Append("candidate", types.YLeaf{"Candidate", target.Candidate})
+    target.EntityData.Leafs.Append("running", types.YLeaf{"Running", target.Running})
+    target.EntityData.Leafs.Append("startup", types.YLeaf{"Startup", target.Startup})
+    target.EntityData.Leafs.Append("url", types.YLeaf{"Url", target.Url})
+
+    target.EntityData.YListKeys = []string {}
+
     return &(target.EntityData)
 }
 
@@ -612,13 +642,16 @@ func (source *CopyConfig_Input_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.NamespaceTable = ietf.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    source.EntityData.Children = make(map[string]types.YChild)
-    source.EntityData.Leafs = make(map[string]types.YLeaf)
-    source.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", source.Candidate}
-    source.EntityData.Leafs["running"] = types.YLeaf{"Running", source.Running}
-    source.EntityData.Leafs["startup"] = types.YLeaf{"Startup", source.Startup}
-    source.EntityData.Leafs["url"] = types.YLeaf{"Url", source.Url}
-    source.EntityData.Leafs["config"] = types.YLeaf{"Config", source.Config}
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("candidate", types.YLeaf{"Candidate", source.Candidate})
+    source.EntityData.Leafs.Append("running", types.YLeaf{"Running", source.Running})
+    source.EntityData.Leafs.Append("startup", types.YLeaf{"Startup", source.Startup})
+    source.EntityData.Leafs.Append("url", types.YLeaf{"Url", source.Url})
+    source.EntityData.Leafs.Append("config", types.YLeaf{"Config", source.Config})
+
+    source.EntityData.YListKeys = []string {}
+
     return &(source.EntityData)
 }
 
@@ -642,9 +675,12 @@ func (deleteConfig *DeleteConfig) GetEntityData() *types.CommonEntityData {
     deleteConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     deleteConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    deleteConfig.EntityData.Children = make(map[string]types.YChild)
-    deleteConfig.EntityData.Children["input"] = types.YChild{"Input", &deleteConfig.Input}
-    deleteConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    deleteConfig.EntityData.Children = types.NewOrderedMap()
+    deleteConfig.EntityData.Children.Append("input", types.YChild{"Input", &deleteConfig.Input})
+    deleteConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    deleteConfig.EntityData.YListKeys = []string {}
+
     return &(deleteConfig.EntityData)
 }
 
@@ -667,9 +703,12 @@ func (input *DeleteConfig_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("target", types.YChild{"Target", &input.Target})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -696,10 +735,13 @@ func (target *DeleteConfig_Input_Target) GetEntityData() *types.CommonEntityData
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    target.EntityData.Children = make(map[string]types.YChild)
-    target.EntityData.Leafs = make(map[string]types.YLeaf)
-    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
-    target.EntityData.Leafs["url"] = types.YLeaf{"Url", target.Url}
+    target.EntityData.Children = types.NewOrderedMap()
+    target.EntityData.Leafs = types.NewOrderedMap()
+    target.EntityData.Leafs.Append("startup", types.YLeaf{"Startup", target.Startup})
+    target.EntityData.Leafs.Append("url", types.YLeaf{"Url", target.Url})
+
+    target.EntityData.YListKeys = []string {}
+
     return &(target.EntityData)
 }
 
@@ -724,9 +766,12 @@ func (lock *Lock) GetEntityData() *types.CommonEntityData {
     lock.EntityData.NamespaceTable = ietf.GetNamespaces()
     lock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    lock.EntityData.Children = make(map[string]types.YChild)
-    lock.EntityData.Children["input"] = types.YChild{"Input", &lock.Input}
-    lock.EntityData.Leafs = make(map[string]types.YLeaf)
+    lock.EntityData.Children = types.NewOrderedMap()
+    lock.EntityData.Children.Append("input", types.YChild{"Input", &lock.Input})
+    lock.EntityData.Leafs = types.NewOrderedMap()
+
+    lock.EntityData.YListKeys = []string {}
+
     return &(lock.EntityData)
 }
 
@@ -749,9 +794,12 @@ func (input *Lock_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("target", types.YChild{"Target", &input.Target})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -781,11 +829,14 @@ func (target *Lock_Input_Target) GetEntityData() *types.CommonEntityData {
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    target.EntityData.Children = make(map[string]types.YChild)
-    target.EntityData.Leafs = make(map[string]types.YLeaf)
-    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
-    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
-    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
+    target.EntityData.Children = types.NewOrderedMap()
+    target.EntityData.Leafs = types.NewOrderedMap()
+    target.EntityData.Leafs.Append("candidate", types.YLeaf{"Candidate", target.Candidate})
+    target.EntityData.Leafs.Append("running", types.YLeaf{"Running", target.Running})
+    target.EntityData.Leafs.Append("startup", types.YLeaf{"Startup", target.Startup})
+
+    target.EntityData.YListKeys = []string {}
+
     return &(target.EntityData)
 }
 
@@ -810,9 +861,12 @@ func (unlock *Unlock) GetEntityData() *types.CommonEntityData {
     unlock.EntityData.NamespaceTable = ietf.GetNamespaces()
     unlock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    unlock.EntityData.Children = make(map[string]types.YChild)
-    unlock.EntityData.Children["input"] = types.YChild{"Input", &unlock.Input}
-    unlock.EntityData.Leafs = make(map[string]types.YLeaf)
+    unlock.EntityData.Children = types.NewOrderedMap()
+    unlock.EntityData.Children.Append("input", types.YChild{"Input", &unlock.Input})
+    unlock.EntityData.Leafs = types.NewOrderedMap()
+
+    unlock.EntityData.YListKeys = []string {}
+
     return &(unlock.EntityData)
 }
 
@@ -835,9 +889,12 @@ func (input *Unlock_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("target", types.YChild{"Target", &input.Target})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -867,11 +924,14 @@ func (target *Unlock_Input_Target) GetEntityData() *types.CommonEntityData {
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    target.EntityData.Children = make(map[string]types.YChild)
-    target.EntityData.Leafs = make(map[string]types.YLeaf)
-    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
-    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
-    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
+    target.EntityData.Children = types.NewOrderedMap()
+    target.EntityData.Leafs = types.NewOrderedMap()
+    target.EntityData.Leafs.Append("candidate", types.YLeaf{"Candidate", target.Candidate})
+    target.EntityData.Leafs.Append("running", types.YLeaf{"Running", target.Running})
+    target.EntityData.Leafs.Append("startup", types.YLeaf{"Startup", target.Startup})
+
+    target.EntityData.YListKeys = []string {}
+
     return &(target.EntityData)
 }
 
@@ -898,10 +958,13 @@ func (get *Get) GetEntityData() *types.CommonEntityData {
     get.EntityData.NamespaceTable = ietf.GetNamespaces()
     get.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    get.EntityData.Children = make(map[string]types.YChild)
-    get.EntityData.Children["input"] = types.YChild{"Input", &get.Input}
-    get.EntityData.Children["output"] = types.YChild{"Output", &get.Output}
-    get.EntityData.Leafs = make(map[string]types.YLeaf)
+    get.EntityData.Children = types.NewOrderedMap()
+    get.EntityData.Children.Append("input", types.YChild{"Input", &get.Input})
+    get.EntityData.Children.Append("output", types.YChild{"Output", &get.Output})
+    get.EntityData.Leafs = types.NewOrderedMap()
+
+    get.EntityData.YListKeys = []string {}
+
     return &(get.EntityData)
 }
 
@@ -929,10 +992,13 @@ func (input *Get_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
-    input.EntityData.Leafs["with-defaults"] = types.YLeaf{"WithDefaults", input.WithDefaults}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("filter", types.YLeaf{"Filter", input.Filter})
+    input.EntityData.Leafs.Append("with-defaults", types.YLeaf{"WithDefaults", input.WithDefaults})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -957,9 +1023,12 @@ func (output *Get_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["data"] = types.YLeaf{"Data", output.Data}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("data", types.YLeaf{"Data", output.Data})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -980,8 +1049,11 @@ func (closeSession *CloseSession) GetEntityData() *types.CommonEntityData {
     closeSession.EntityData.NamespaceTable = ietf.GetNamespaces()
     closeSession.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    closeSession.EntityData.Children = make(map[string]types.YChild)
-    closeSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    closeSession.EntityData.Children = types.NewOrderedMap()
+    closeSession.EntityData.Leafs = types.NewOrderedMap()
+
+    closeSession.EntityData.YListKeys = []string {}
+
     return &(closeSession.EntityData)
 }
 
@@ -1005,9 +1077,12 @@ func (killSession *KillSession) GetEntityData() *types.CommonEntityData {
     killSession.EntityData.NamespaceTable = ietf.GetNamespaces()
     killSession.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    killSession.EntityData.Children = make(map[string]types.YChild)
-    killSession.EntityData.Children["input"] = types.YChild{"Input", &killSession.Input}
-    killSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    killSession.EntityData.Children = types.NewOrderedMap()
+    killSession.EntityData.Children.Append("input", types.YChild{"Input", &killSession.Input})
+    killSession.EntityData.Leafs = types.NewOrderedMap()
+
+    killSession.EntityData.YListKeys = []string {}
+
     return &(killSession.EntityData)
 }
 
@@ -1031,9 +1106,12 @@ func (input *KillSession_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", input.SessionId}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", input.SessionId})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1058,9 +1136,12 @@ func (commit *Commit) GetEntityData() *types.CommonEntityData {
     commit.EntityData.NamespaceTable = ietf.GetNamespaces()
     commit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    commit.EntityData.Children = make(map[string]types.YChild)
-    commit.EntityData.Children["input"] = types.YChild{"Input", &commit.Input}
-    commit.EntityData.Leafs = make(map[string]types.YLeaf)
+    commit.EntityData.Children = types.NewOrderedMap()
+    commit.EntityData.Children.Append("input", types.YChild{"Input", &commit.Input})
+    commit.EntityData.Leafs = types.NewOrderedMap()
+
+    commit.EntityData.YListKeys = []string {}
+
     return &(commit.EntityData)
 }
 
@@ -1102,12 +1183,15 @@ func (input *Commit_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["confirmed"] = types.YLeaf{"Confirmed", input.Confirmed}
-    input.EntityData.Leafs["confirm-timeout"] = types.YLeaf{"ConfirmTimeout", input.ConfirmTimeout}
-    input.EntityData.Leafs["persist"] = types.YLeaf{"Persist", input.Persist}
-    input.EntityData.Leafs["persist-id"] = types.YLeaf{"PersistId", input.PersistId}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("confirmed", types.YLeaf{"Confirmed", input.Confirmed})
+    input.EntityData.Leafs.Append("confirm-timeout", types.YLeaf{"ConfirmTimeout", input.ConfirmTimeout})
+    input.EntityData.Leafs.Append("persist", types.YLeaf{"Persist", input.Persist})
+    input.EntityData.Leafs.Append("persist-id", types.YLeaf{"PersistId", input.PersistId})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1129,8 +1213,11 @@ func (discardChanges *DiscardChanges) GetEntityData() *types.CommonEntityData {
     discardChanges.EntityData.NamespaceTable = ietf.GetNamespaces()
     discardChanges.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    discardChanges.EntityData.Children = make(map[string]types.YChild)
-    discardChanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    discardChanges.EntityData.Children = types.NewOrderedMap()
+    discardChanges.EntityData.Leafs = types.NewOrderedMap()
+
+    discardChanges.EntityData.YListKeys = []string {}
+
     return &(discardChanges.EntityData)
 }
 
@@ -1157,9 +1244,12 @@ func (cancelCommit *CancelCommit) GetEntityData() *types.CommonEntityData {
     cancelCommit.EntityData.NamespaceTable = ietf.GetNamespaces()
     cancelCommit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    cancelCommit.EntityData.Children = make(map[string]types.YChild)
-    cancelCommit.EntityData.Children["input"] = types.YChild{"Input", &cancelCommit.Input}
-    cancelCommit.EntityData.Leafs = make(map[string]types.YLeaf)
+    cancelCommit.EntityData.Children = types.NewOrderedMap()
+    cancelCommit.EntityData.Children.Append("input", types.YChild{"Input", &cancelCommit.Input})
+    cancelCommit.EntityData.Leafs = types.NewOrderedMap()
+
+    cancelCommit.EntityData.YListKeys = []string {}
+
     return &(cancelCommit.EntityData)
 }
 
@@ -1185,9 +1275,12 @@ func (input *CancelCommit_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["persist-id"] = types.YLeaf{"PersistId", input.PersistId}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("persist-id", types.YLeaf{"PersistId", input.PersistId})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1211,9 +1304,12 @@ func (validate *Validate) GetEntityData() *types.CommonEntityData {
     validate.EntityData.NamespaceTable = ietf.GetNamespaces()
     validate.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    validate.EntityData.Children = make(map[string]types.YChild)
-    validate.EntityData.Children["input"] = types.YChild{"Input", &validate.Input}
-    validate.EntityData.Leafs = make(map[string]types.YLeaf)
+    validate.EntityData.Children = types.NewOrderedMap()
+    validate.EntityData.Children.Append("input", types.YChild{"Input", &validate.Input})
+    validate.EntityData.Leafs = types.NewOrderedMap()
+
+    validate.EntityData.YListKeys = []string {}
+
     return &(validate.EntityData)
 }
 
@@ -1236,9 +1332,12 @@ func (input *Validate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["source"] = types.YChild{"Source", &input.Source}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("source", types.YChild{"Source", &input.Source})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1276,13 +1375,16 @@ func (source *Validate_Input_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.NamespaceTable = ietf.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    source.EntityData.Children = make(map[string]types.YChild)
-    source.EntityData.Leafs = make(map[string]types.YLeaf)
-    source.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", source.Candidate}
-    source.EntityData.Leafs["running"] = types.YLeaf{"Running", source.Running}
-    source.EntityData.Leafs["startup"] = types.YLeaf{"Startup", source.Startup}
-    source.EntityData.Leafs["url"] = types.YLeaf{"Url", source.Url}
-    source.EntityData.Leafs["config"] = types.YLeaf{"Config", source.Config}
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("candidate", types.YLeaf{"Candidate", source.Candidate})
+    source.EntityData.Leafs.Append("running", types.YLeaf{"Running", source.Running})
+    source.EntityData.Leafs.Append("startup", types.YLeaf{"Startup", source.Startup})
+    source.EntityData.Leafs.Append("url", types.YLeaf{"Url", source.Url})
+    source.EntityData.Leafs.Append("config", types.YLeaf{"Config", source.Config})
+
+    source.EntityData.YListKeys = []string {}
+
     return &(source.EntityData)
 }
 

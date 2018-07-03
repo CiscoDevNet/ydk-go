@@ -50,11 +50,14 @@ func (context *Context) GetEntityData() *types.CommonEntityData {
     context.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     context.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    context.EntityData.Children = make(map[string]types.YChild)
-    context.EntityData.Children["context-numbers"] = types.YChild{"ContextNumbers", &context.ContextNumbers}
-    context.EntityData.Children["context-locations"] = types.YChild{"ContextLocations", &context.ContextLocations}
-    context.EntityData.Children["all"] = types.YChild{"All", &context.All}
-    context.EntityData.Leafs = make(map[string]types.YLeaf)
+    context.EntityData.Children = types.NewOrderedMap()
+    context.EntityData.Children.Append("context-numbers", types.YChild{"ContextNumbers", &context.ContextNumbers})
+    context.EntityData.Children.Append("context-locations", types.YChild{"ContextLocations", &context.ContextLocations})
+    context.EntityData.Children.Append("all", types.YChild{"All", &context.All})
+    context.EntityData.Leafs = types.NewOrderedMap()
+
+    context.EntityData.YListKeys = []string {}
+
     return &(context.EntityData)
 }
 
@@ -65,7 +68,7 @@ type Context_ContextNumbers struct {
     YFilter yfilter.YFilter
 
     // Context number . The type is slice of Context_ContextNumbers_ContextNumber.
-    ContextNumber []Context_ContextNumbers_ContextNumber
+    ContextNumber []*Context_ContextNumbers_ContextNumber
 }
 
 func (contextNumbers *Context_ContextNumbers) GetEntityData() *types.CommonEntityData {
@@ -78,12 +81,15 @@ func (contextNumbers *Context_ContextNumbers) GetEntityData() *types.CommonEntit
     contextNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextNumbers.EntityData.Children = make(map[string]types.YChild)
-    contextNumbers.EntityData.Children["context-number"] = types.YChild{"ContextNumber", nil}
+    contextNumbers.EntityData.Children = types.NewOrderedMap()
+    contextNumbers.EntityData.Children.Append("context-number", types.YChild{"ContextNumber", nil})
     for i := range contextNumbers.ContextNumber {
-        contextNumbers.EntityData.Children[types.GetSegmentPath(&contextNumbers.ContextNumber[i])] = types.YChild{"ContextNumber", &contextNumbers.ContextNumber[i]}
+        contextNumbers.EntityData.Children.Append(types.GetSegmentPath(contextNumbers.ContextNumber[i]), types.YChild{"ContextNumber", contextNumbers.ContextNumber[i]})
     }
-    contextNumbers.EntityData.Leafs = make(map[string]types.YLeaf)
+    contextNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    contextNumbers.EntityData.YListKeys = []string {}
+
     return &(contextNumbers.EntityData)
 }
 
@@ -109,16 +115,19 @@ func (contextNumber *Context_ContextNumbers_ContextNumber) GetEntityData() *type
     contextNumber.EntityData.YangName = "context-number"
     contextNumber.EntityData.BundleName = "cisco_ios_xr"
     contextNumber.EntityData.ParentYangName = "context-numbers"
-    contextNumber.EntityData.SegmentPath = "context-number" + "[context-num='" + fmt.Sprintf("%v", contextNumber.ContextNum) + "']"
+    contextNumber.EntityData.SegmentPath = "context-number" + types.AddKeyToken(contextNumber.ContextNum, "context-num")
     contextNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     contextNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextNumber.EntityData.Children = make(map[string]types.YChild)
-    contextNumber.EntityData.Children["locations"] = types.YChild{"Locations", &contextNumber.Locations}
-    contextNumber.EntityData.Children["all"] = types.YChild{"All", &contextNumber.All}
-    contextNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    contextNumber.EntityData.Leafs["context-num"] = types.YLeaf{"ContextNum", contextNumber.ContextNum}
+    contextNumber.EntityData.Children = types.NewOrderedMap()
+    contextNumber.EntityData.Children.Append("locations", types.YChild{"Locations", &contextNumber.Locations})
+    contextNumber.EntityData.Children.Append("all", types.YChild{"All", &contextNumber.All})
+    contextNumber.EntityData.Leafs = types.NewOrderedMap()
+    contextNumber.EntityData.Leafs.Append("context-num", types.YLeaf{"ContextNum", contextNumber.ContextNum})
+
+    contextNumber.EntityData.YListKeys = []string {"ContextNum"}
+
     return &(contextNumber.EntityData)
 }
 
@@ -130,7 +139,7 @@ type Context_ContextNumbers_ContextNumber_Locations struct {
 
     // Operational Context for a particular location. The type is slice of
     // Context_ContextNumbers_ContextNumber_Locations_Location.
-    Location []Context_ContextNumbers_ContextNumber_Locations_Location
+    Location []*Context_ContextNumbers_ContextNumber_Locations_Location
 }
 
 func (locations *Context_ContextNumbers_ContextNumber_Locations) GetEntityData() *types.CommonEntityData {
@@ -143,12 +152,15 @@ func (locations *Context_ContextNumbers_ContextNumber_Locations) GetEntityData()
     locations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locations.EntityData.Children = make(map[string]types.YChild)
-    locations.EntityData.Children["location"] = types.YChild{"Location", nil}
+    locations.EntityData.Children = types.NewOrderedMap()
+    locations.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range locations.Location {
-        locations.EntityData.Children[types.GetSegmentPath(&locations.Location[i])] = types.YChild{"Location", &locations.Location[i]}
+        locations.EntityData.Children.Append(types.GetSegmentPath(locations.Location[i]), types.YChild{"Location", locations.Location[i]})
     }
-    locations.EntityData.Leafs = make(map[string]types.YLeaf)
+    locations.EntityData.Leafs = types.NewOrderedMap()
+
+    locations.EntityData.YListKeys = []string {}
+
     return &(locations.EntityData)
 }
 
@@ -159,7 +171,7 @@ type Context_ContextNumbers_ContextNumber_Locations_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Context info bag.
@@ -171,15 +183,18 @@ func (location *Context_ContextNumbers_ContextNumber_Locations_Location) GetEnti
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "locations"
-    location.EntityData.SegmentPath = "location" + "[node-name='" + fmt.Sprintf("%v", location.NodeName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeName, "node-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["enter"] = types.YChild{"Enter", &location.Enter}
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", location.NodeName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("enter", types.YChild{"Enter", &location.Enter})
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", location.NodeName})
+
+    location.EntityData.YListKeys = []string {"NodeName"}
+
     return &(location.EntityData)
 }
 
@@ -191,7 +206,7 @@ type Context_ContextNumbers_ContextNumber_Locations_Location_Enter struct {
 
     // All crash info. The type is slice of
     // Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo.
-    CrashInfo []Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo
+    CrashInfo []*Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo
 }
 
 func (enter *Context_ContextNumbers_ContextNumber_Locations_Location_Enter) GetEntityData() *types.CommonEntityData {
@@ -204,12 +219,15 @@ func (enter *Context_ContextNumbers_ContextNumber_Locations_Location_Enter) GetE
     enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    enter.EntityData.Children = make(map[string]types.YChild)
-    enter.EntityData.Children["crash-info"] = types.YChild{"CrashInfo", nil}
+    enter.EntityData.Children = types.NewOrderedMap()
+    enter.EntityData.Children.Append("crash-info", types.YChild{"CrashInfo", nil})
     for i := range enter.CrashInfo {
-        enter.EntityData.Children[types.GetSegmentPath(&enter.CrashInfo[i])] = types.YChild{"CrashInfo", &enter.CrashInfo[i]}
+        enter.EntityData.Children.Append(types.GetSegmentPath(enter.CrashInfo[i]), types.YChild{"CrashInfo", enter.CrashInfo[i]})
     }
-    enter.EntityData.Leafs = make(map[string]types.YLeaf)
+    enter.EntityData.Leafs = types.NewOrderedMap()
+
+    enter.EntityData.YListKeys = []string {}
+
     return &(enter.EntityData)
 }
 
@@ -224,11 +242,11 @@ type Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo str
 
     // Context Information. The type is slice of
     // Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo.
-    ContextInfo []Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo
+    ContextInfo []*Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo
 
     // Crash Package Information. The type is slice of
     // Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_CrashPackageInformation.
-    CrashPackageInformation []Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_CrashPackageInformation
+    CrashPackageInformation []*Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_CrashPackageInformation
 }
 
 func (crashInfo *Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo) GetEntityData() *types.CommonEntityData {
@@ -241,17 +259,20 @@ func (crashInfo *Context_ContextNumbers_ContextNumber_Locations_Location_Enter_C
     crashInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashInfo.EntityData.Children = make(map[string]types.YChild)
-    crashInfo.EntityData.Children["context-info"] = types.YChild{"ContextInfo", nil}
+    crashInfo.EntityData.Children = types.NewOrderedMap()
+    crashInfo.EntityData.Children.Append("context-info", types.YChild{"ContextInfo", nil})
     for i := range crashInfo.ContextInfo {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.ContextInfo[i])] = types.YChild{"ContextInfo", &crashInfo.ContextInfo[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.ContextInfo[i]), types.YChild{"ContextInfo", crashInfo.ContextInfo[i]})
     }
-    crashInfo.EntityData.Children["crash-package-information"] = types.YChild{"CrashPackageInformation", nil}
+    crashInfo.EntityData.Children.Append("crash-package-information", types.YChild{"CrashPackageInformation", nil})
     for i := range crashInfo.CrashPackageInformation {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.CrashPackageInformation[i])] = types.YChild{"CrashPackageInformation", &crashInfo.CrashPackageInformation[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.CrashPackageInformation[i]), types.YChild{"CrashPackageInformation", crashInfo.CrashPackageInformation[i]})
     }
-    crashInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashInfo.EntityData.Leafs["node"] = types.YLeaf{"Node", crashInfo.Node}
+    crashInfo.EntityData.Leafs = types.NewOrderedMap()
+    crashInfo.EntityData.Leafs.Append("node", types.YLeaf{"Node", crashInfo.Node})
+
+    crashInfo.EntityData.YListKeys = []string {}
+
     return &(crashInfo.EntityData)
 }
 
@@ -296,11 +317,11 @@ type Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_Con
 
     // Stack Trace. The type is slice of
     // Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo_StackTrace.
-    StackTrace []Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo_StackTrace
+    StackTrace []*Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo_StackTrace
 
     // DLL Information. The type is slice of
     // Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo_DllInfo.
-    DllInfo []Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo_DllInfo
+    DllInfo []*Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo_DllInfo
 }
 
 func (contextInfo *Context_ContextNumbers_ContextNumber_Locations_Location_Enter_CrashInfo_ContextInfo) GetEntityData() *types.CommonEntityData {
@@ -313,27 +334,30 @@ func (contextInfo *Context_ContextNumbers_ContextNumber_Locations_Location_Enter
     contextInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextInfo.EntityData.Children = make(map[string]types.YChild)
-    contextInfo.EntityData.Children["stack-trace"] = types.YChild{"StackTrace", nil}
+    contextInfo.EntityData.Children = types.NewOrderedMap()
+    contextInfo.EntityData.Children.Append("stack-trace", types.YChild{"StackTrace", nil})
     for i := range contextInfo.StackTrace {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.StackTrace[i])] = types.YChild{"StackTrace", &contextInfo.StackTrace[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.StackTrace[i]), types.YChild{"StackTrace", contextInfo.StackTrace[i]})
     }
-    contextInfo.EntityData.Children["dll-info"] = types.YChild{"DllInfo", nil}
+    contextInfo.EntityData.Children.Append("dll-info", types.YChild{"DllInfo", nil})
     for i := range contextInfo.DllInfo {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.DllInfo[i])] = types.YChild{"DllInfo", &contextInfo.DllInfo[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.DllInfo[i]), types.YChild{"DllInfo", contextInfo.DllInfo[i]})
     }
-    contextInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    contextInfo.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", contextInfo.ProcessName}
-    contextInfo.EntityData.Leafs["pid"] = types.YLeaf{"Pid", contextInfo.Pid}
-    contextInfo.EntityData.Leafs["tid"] = types.YLeaf{"Tid", contextInfo.Tid}
-    contextInfo.EntityData.Leafs["core-dump-time"] = types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime}
-    contextInfo.EntityData.Leafs["sig-num"] = types.YLeaf{"SigNum", contextInfo.SigNum}
-    contextInfo.EntityData.Leafs["sin-err-str"] = types.YLeaf{"SinErrStr", contextInfo.SinErrStr}
-    contextInfo.EntityData.Leafs["sig-send-pid"] = types.YLeaf{"SigSendPid", contextInfo.SigSendPid}
-    contextInfo.EntityData.Leafs["sig-code"] = types.YLeaf{"SigCode", contextInfo.SigCode}
-    contextInfo.EntityData.Leafs["sin-info"] = types.YLeaf{"SinInfo", contextInfo.SinInfo}
-    contextInfo.EntityData.Leafs["core-for-process"] = types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess}
-    contextInfo.EntityData.Leafs["registers-info"] = types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo}
+    contextInfo.EntityData.Leafs = types.NewOrderedMap()
+    contextInfo.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", contextInfo.ProcessName})
+    contextInfo.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", contextInfo.Pid})
+    contextInfo.EntityData.Leafs.Append("tid", types.YLeaf{"Tid", contextInfo.Tid})
+    contextInfo.EntityData.Leafs.Append("core-dump-time", types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime})
+    contextInfo.EntityData.Leafs.Append("sig-num", types.YLeaf{"SigNum", contextInfo.SigNum})
+    contextInfo.EntityData.Leafs.Append("sin-err-str", types.YLeaf{"SinErrStr", contextInfo.SinErrStr})
+    contextInfo.EntityData.Leafs.Append("sig-send-pid", types.YLeaf{"SigSendPid", contextInfo.SigSendPid})
+    contextInfo.EntityData.Leafs.Append("sig-code", types.YLeaf{"SigCode", contextInfo.SigCode})
+    contextInfo.EntityData.Leafs.Append("sin-info", types.YLeaf{"SinInfo", contextInfo.SinInfo})
+    contextInfo.EntityData.Leafs.Append("core-for-process", types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess})
+    contextInfo.EntityData.Leafs.Append("registers-info", types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo})
+
+    contextInfo.EntityData.YListKeys = []string {}
+
     return &(contextInfo.EntityData)
 }
 
@@ -357,9 +381,12 @@ func (stackTrace *Context_ContextNumbers_ContextNumber_Locations_Location_Enter_
     stackTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stackTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stackTrace.EntityData.Children = make(map[string]types.YChild)
-    stackTrace.EntityData.Leafs = make(map[string]types.YLeaf)
-    stackTrace.EntityData.Leafs["stack-trace"] = types.YLeaf{"StackTrace", stackTrace.StackTrace}
+    stackTrace.EntityData.Children = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs.Append("stack-trace", types.YLeaf{"StackTrace", stackTrace.StackTrace})
+
+    stackTrace.EntityData.YListKeys = []string {}
+
     return &(stackTrace.EntityData)
 }
 
@@ -398,14 +425,17 @@ func (dllInfo *Context_ContextNumbers_ContextNumber_Locations_Location_Enter_Cra
     dllInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dllInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dllInfo.EntityData.Children = make(map[string]types.YChild)
-    dllInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    dllInfo.EntityData.Leafs["path"] = types.YLeaf{"Path", dllInfo.Path}
-    dllInfo.EntityData.Leafs["text-addr"] = types.YLeaf{"TextAddr", dllInfo.TextAddr}
-    dllInfo.EntityData.Leafs["text-size"] = types.YLeaf{"TextSize", dllInfo.TextSize}
-    dllInfo.EntityData.Leafs["data-addr"] = types.YLeaf{"DataAddr", dllInfo.DataAddr}
-    dllInfo.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", dllInfo.DataSize}
-    dllInfo.EntityData.Leafs["version"] = types.YLeaf{"Version", dllInfo.Version}
+    dllInfo.EntityData.Children = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs.Append("path", types.YLeaf{"Path", dllInfo.Path})
+    dllInfo.EntityData.Leafs.Append("text-addr", types.YLeaf{"TextAddr", dllInfo.TextAddr})
+    dllInfo.EntityData.Leafs.Append("text-size", types.YLeaf{"TextSize", dllInfo.TextSize})
+    dllInfo.EntityData.Leafs.Append("data-addr", types.YLeaf{"DataAddr", dllInfo.DataAddr})
+    dllInfo.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", dllInfo.DataSize})
+    dllInfo.EntityData.Leafs.Append("version", types.YLeaf{"Version", dllInfo.Version})
+
+    dllInfo.EntityData.YListKeys = []string {}
+
     return &(dllInfo.EntityData)
 }
 
@@ -432,10 +462,13 @@ func (crashPackageInformation *Context_ContextNumbers_ContextNumber_Locations_Lo
     crashPackageInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashPackageInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashPackageInformation.EntityData.Children = make(map[string]types.YChild)
-    crashPackageInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashPackageInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", crashPackageInformation.Name}
-    crashPackageInformation.EntityData.Leafs["source"] = types.YLeaf{"Source", crashPackageInformation.Source}
+    crashPackageInformation.EntityData.Children = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", crashPackageInformation.Name})
+    crashPackageInformation.EntityData.Leafs.Append("source", types.YLeaf{"Source", crashPackageInformation.Source})
+
+    crashPackageInformation.EntityData.YListKeys = []string {}
+
     return &(crashPackageInformation.EntityData)
 }
 
@@ -447,7 +480,7 @@ type Context_ContextNumbers_ContextNumber_All struct {
 
     // All crash info. The type is slice of
     // Context_ContextNumbers_ContextNumber_All_CrashInfo.
-    CrashInfo []Context_ContextNumbers_ContextNumber_All_CrashInfo
+    CrashInfo []*Context_ContextNumbers_ContextNumber_All_CrashInfo
 }
 
 func (all *Context_ContextNumbers_ContextNumber_All) GetEntityData() *types.CommonEntityData {
@@ -460,12 +493,15 @@ func (all *Context_ContextNumbers_ContextNumber_All) GetEntityData() *types.Comm
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["crash-info"] = types.YChild{"CrashInfo", nil}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("crash-info", types.YChild{"CrashInfo", nil})
     for i := range all.CrashInfo {
-        all.EntityData.Children[types.GetSegmentPath(&all.CrashInfo[i])] = types.YChild{"CrashInfo", &all.CrashInfo[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.CrashInfo[i]), types.YChild{"CrashInfo", all.CrashInfo[i]})
     }
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -480,11 +516,11 @@ type Context_ContextNumbers_ContextNumber_All_CrashInfo struct {
 
     // Context Information. The type is slice of
     // Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo.
-    ContextInfo []Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo
+    ContextInfo []*Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo
 
     // Crash Package Information. The type is slice of
     // Context_ContextNumbers_ContextNumber_All_CrashInfo_CrashPackageInformation.
-    CrashPackageInformation []Context_ContextNumbers_ContextNumber_All_CrashInfo_CrashPackageInformation
+    CrashPackageInformation []*Context_ContextNumbers_ContextNumber_All_CrashInfo_CrashPackageInformation
 }
 
 func (crashInfo *Context_ContextNumbers_ContextNumber_All_CrashInfo) GetEntityData() *types.CommonEntityData {
@@ -497,17 +533,20 @@ func (crashInfo *Context_ContextNumbers_ContextNumber_All_CrashInfo) GetEntityDa
     crashInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashInfo.EntityData.Children = make(map[string]types.YChild)
-    crashInfo.EntityData.Children["context-info"] = types.YChild{"ContextInfo", nil}
+    crashInfo.EntityData.Children = types.NewOrderedMap()
+    crashInfo.EntityData.Children.Append("context-info", types.YChild{"ContextInfo", nil})
     for i := range crashInfo.ContextInfo {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.ContextInfo[i])] = types.YChild{"ContextInfo", &crashInfo.ContextInfo[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.ContextInfo[i]), types.YChild{"ContextInfo", crashInfo.ContextInfo[i]})
     }
-    crashInfo.EntityData.Children["crash-package-information"] = types.YChild{"CrashPackageInformation", nil}
+    crashInfo.EntityData.Children.Append("crash-package-information", types.YChild{"CrashPackageInformation", nil})
     for i := range crashInfo.CrashPackageInformation {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.CrashPackageInformation[i])] = types.YChild{"CrashPackageInformation", &crashInfo.CrashPackageInformation[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.CrashPackageInformation[i]), types.YChild{"CrashPackageInformation", crashInfo.CrashPackageInformation[i]})
     }
-    crashInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashInfo.EntityData.Leafs["node"] = types.YLeaf{"Node", crashInfo.Node}
+    crashInfo.EntityData.Leafs = types.NewOrderedMap()
+    crashInfo.EntityData.Leafs.Append("node", types.YLeaf{"Node", crashInfo.Node})
+
+    crashInfo.EntityData.YListKeys = []string {}
+
     return &(crashInfo.EntityData)
 }
 
@@ -552,11 +591,11 @@ type Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo struct {
 
     // Stack Trace. The type is slice of
     // Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo_StackTrace.
-    StackTrace []Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo_StackTrace
+    StackTrace []*Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo_StackTrace
 
     // DLL Information. The type is slice of
     // Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo_DllInfo.
-    DllInfo []Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo_DllInfo
+    DllInfo []*Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo_DllInfo
 }
 
 func (contextInfo *Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo) GetEntityData() *types.CommonEntityData {
@@ -569,27 +608,30 @@ func (contextInfo *Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInf
     contextInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextInfo.EntityData.Children = make(map[string]types.YChild)
-    contextInfo.EntityData.Children["stack-trace"] = types.YChild{"StackTrace", nil}
+    contextInfo.EntityData.Children = types.NewOrderedMap()
+    contextInfo.EntityData.Children.Append("stack-trace", types.YChild{"StackTrace", nil})
     for i := range contextInfo.StackTrace {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.StackTrace[i])] = types.YChild{"StackTrace", &contextInfo.StackTrace[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.StackTrace[i]), types.YChild{"StackTrace", contextInfo.StackTrace[i]})
     }
-    contextInfo.EntityData.Children["dll-info"] = types.YChild{"DllInfo", nil}
+    contextInfo.EntityData.Children.Append("dll-info", types.YChild{"DllInfo", nil})
     for i := range contextInfo.DllInfo {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.DllInfo[i])] = types.YChild{"DllInfo", &contextInfo.DllInfo[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.DllInfo[i]), types.YChild{"DllInfo", contextInfo.DllInfo[i]})
     }
-    contextInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    contextInfo.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", contextInfo.ProcessName}
-    contextInfo.EntityData.Leafs["pid"] = types.YLeaf{"Pid", contextInfo.Pid}
-    contextInfo.EntityData.Leafs["tid"] = types.YLeaf{"Tid", contextInfo.Tid}
-    contextInfo.EntityData.Leafs["core-dump-time"] = types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime}
-    contextInfo.EntityData.Leafs["sig-num"] = types.YLeaf{"SigNum", contextInfo.SigNum}
-    contextInfo.EntityData.Leafs["sin-err-str"] = types.YLeaf{"SinErrStr", contextInfo.SinErrStr}
-    contextInfo.EntityData.Leafs["sig-send-pid"] = types.YLeaf{"SigSendPid", contextInfo.SigSendPid}
-    contextInfo.EntityData.Leafs["sig-code"] = types.YLeaf{"SigCode", contextInfo.SigCode}
-    contextInfo.EntityData.Leafs["sin-info"] = types.YLeaf{"SinInfo", contextInfo.SinInfo}
-    contextInfo.EntityData.Leafs["core-for-process"] = types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess}
-    contextInfo.EntityData.Leafs["registers-info"] = types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo}
+    contextInfo.EntityData.Leafs = types.NewOrderedMap()
+    contextInfo.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", contextInfo.ProcessName})
+    contextInfo.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", contextInfo.Pid})
+    contextInfo.EntityData.Leafs.Append("tid", types.YLeaf{"Tid", contextInfo.Tid})
+    contextInfo.EntityData.Leafs.Append("core-dump-time", types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime})
+    contextInfo.EntityData.Leafs.Append("sig-num", types.YLeaf{"SigNum", contextInfo.SigNum})
+    contextInfo.EntityData.Leafs.Append("sin-err-str", types.YLeaf{"SinErrStr", contextInfo.SinErrStr})
+    contextInfo.EntityData.Leafs.Append("sig-send-pid", types.YLeaf{"SigSendPid", contextInfo.SigSendPid})
+    contextInfo.EntityData.Leafs.Append("sig-code", types.YLeaf{"SigCode", contextInfo.SigCode})
+    contextInfo.EntityData.Leafs.Append("sin-info", types.YLeaf{"SinInfo", contextInfo.SinInfo})
+    contextInfo.EntityData.Leafs.Append("core-for-process", types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess})
+    contextInfo.EntityData.Leafs.Append("registers-info", types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo})
+
+    contextInfo.EntityData.YListKeys = []string {}
+
     return &(contextInfo.EntityData)
 }
 
@@ -613,9 +655,12 @@ func (stackTrace *Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo
     stackTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stackTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stackTrace.EntityData.Children = make(map[string]types.YChild)
-    stackTrace.EntityData.Leafs = make(map[string]types.YLeaf)
-    stackTrace.EntityData.Leafs["stack-trace"] = types.YLeaf{"StackTrace", stackTrace.StackTrace}
+    stackTrace.EntityData.Children = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs.Append("stack-trace", types.YLeaf{"StackTrace", stackTrace.StackTrace})
+
+    stackTrace.EntityData.YListKeys = []string {}
+
     return &(stackTrace.EntityData)
 }
 
@@ -654,14 +699,17 @@ func (dllInfo *Context_ContextNumbers_ContextNumber_All_CrashInfo_ContextInfo_Dl
     dllInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dllInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dllInfo.EntityData.Children = make(map[string]types.YChild)
-    dllInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    dllInfo.EntityData.Leafs["path"] = types.YLeaf{"Path", dllInfo.Path}
-    dllInfo.EntityData.Leafs["text-addr"] = types.YLeaf{"TextAddr", dllInfo.TextAddr}
-    dllInfo.EntityData.Leafs["text-size"] = types.YLeaf{"TextSize", dllInfo.TextSize}
-    dllInfo.EntityData.Leafs["data-addr"] = types.YLeaf{"DataAddr", dllInfo.DataAddr}
-    dllInfo.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", dllInfo.DataSize}
-    dllInfo.EntityData.Leafs["version"] = types.YLeaf{"Version", dllInfo.Version}
+    dllInfo.EntityData.Children = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs.Append("path", types.YLeaf{"Path", dllInfo.Path})
+    dllInfo.EntityData.Leafs.Append("text-addr", types.YLeaf{"TextAddr", dllInfo.TextAddr})
+    dllInfo.EntityData.Leafs.Append("text-size", types.YLeaf{"TextSize", dllInfo.TextSize})
+    dllInfo.EntityData.Leafs.Append("data-addr", types.YLeaf{"DataAddr", dllInfo.DataAddr})
+    dllInfo.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", dllInfo.DataSize})
+    dllInfo.EntityData.Leafs.Append("version", types.YLeaf{"Version", dllInfo.Version})
+
+    dllInfo.EntityData.YListKeys = []string {}
+
     return &(dllInfo.EntityData)
 }
 
@@ -688,10 +736,13 @@ func (crashPackageInformation *Context_ContextNumbers_ContextNumber_All_CrashInf
     crashPackageInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashPackageInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashPackageInformation.EntityData.Children = make(map[string]types.YChild)
-    crashPackageInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashPackageInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", crashPackageInformation.Name}
-    crashPackageInformation.EntityData.Leafs["source"] = types.YLeaf{"Source", crashPackageInformation.Source}
+    crashPackageInformation.EntityData.Children = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", crashPackageInformation.Name})
+    crashPackageInformation.EntityData.Leafs.Append("source", types.YLeaf{"Source", crashPackageInformation.Source})
+
+    crashPackageInformation.EntityData.YListKeys = []string {}
+
     return &(crashPackageInformation.EntityData)
 }
 
@@ -703,7 +754,7 @@ type Context_ContextLocations struct {
 
     // Operational Context for a particular location. The type is slice of
     // Context_ContextLocations_ContextLocation.
-    ContextLocation []Context_ContextLocations_ContextLocation
+    ContextLocation []*Context_ContextLocations_ContextLocation
 }
 
 func (contextLocations *Context_ContextLocations) GetEntityData() *types.CommonEntityData {
@@ -716,12 +767,15 @@ func (contextLocations *Context_ContextLocations) GetEntityData() *types.CommonE
     contextLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextLocations.EntityData.Children = make(map[string]types.YChild)
-    contextLocations.EntityData.Children["context-location"] = types.YChild{"ContextLocation", nil}
+    contextLocations.EntityData.Children = types.NewOrderedMap()
+    contextLocations.EntityData.Children.Append("context-location", types.YChild{"ContextLocation", nil})
     for i := range contextLocations.ContextLocation {
-        contextLocations.EntityData.Children[types.GetSegmentPath(&contextLocations.ContextLocation[i])] = types.YChild{"ContextLocation", &contextLocations.ContextLocation[i]}
+        contextLocations.EntityData.Children.Append(types.GetSegmentPath(contextLocations.ContextLocation[i]), types.YChild{"ContextLocation", contextLocations.ContextLocation[i]})
     }
-    contextLocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    contextLocations.EntityData.Leafs = types.NewOrderedMap()
+
+    contextLocations.EntityData.YListKeys = []string {}
+
     return &(contextLocations.EntityData)
 }
 
@@ -732,7 +786,7 @@ type Context_ContextLocations_ContextLocation struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Context number Table.
@@ -747,16 +801,19 @@ func (contextLocation *Context_ContextLocations_ContextLocation) GetEntityData()
     contextLocation.EntityData.YangName = "context-location"
     contextLocation.EntityData.BundleName = "cisco_ios_xr"
     contextLocation.EntityData.ParentYangName = "context-locations"
-    contextLocation.EntityData.SegmentPath = "context-location" + "[node-name='" + fmt.Sprintf("%v", contextLocation.NodeName) + "']"
+    contextLocation.EntityData.SegmentPath = "context-location" + types.AddKeyToken(contextLocation.NodeName, "node-name")
     contextLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     contextLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextLocation.EntityData.Children = make(map[string]types.YChild)
-    contextLocation.EntityData.Children["numbers"] = types.YChild{"Numbers", &contextLocation.Numbers}
-    contextLocation.EntityData.Children["all"] = types.YChild{"All", &contextLocation.All}
-    contextLocation.EntityData.Leafs = make(map[string]types.YLeaf)
-    contextLocation.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", contextLocation.NodeName}
+    contextLocation.EntityData.Children = types.NewOrderedMap()
+    contextLocation.EntityData.Children.Append("numbers", types.YChild{"Numbers", &contextLocation.Numbers})
+    contextLocation.EntityData.Children.Append("all", types.YChild{"All", &contextLocation.All})
+    contextLocation.EntityData.Leafs = types.NewOrderedMap()
+    contextLocation.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", contextLocation.NodeName})
+
+    contextLocation.EntityData.YListKeys = []string {"NodeName"}
+
     return &(contextLocation.EntityData)
 }
 
@@ -768,7 +825,7 @@ type Context_ContextLocations_ContextLocation_Numbers struct {
 
     // Context number. The type is slice of
     // Context_ContextLocations_ContextLocation_Numbers_Number.
-    Number []Context_ContextLocations_ContextLocation_Numbers_Number
+    Number []*Context_ContextLocations_ContextLocation_Numbers_Number
 }
 
 func (numbers *Context_ContextLocations_ContextLocation_Numbers) GetEntityData() *types.CommonEntityData {
@@ -781,12 +838,15 @@ func (numbers *Context_ContextLocations_ContextLocation_Numbers) GetEntityData()
     numbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    numbers.EntityData.Children = make(map[string]types.YChild)
-    numbers.EntityData.Children["number"] = types.YChild{"Number", nil}
+    numbers.EntityData.Children = types.NewOrderedMap()
+    numbers.EntityData.Children.Append("number", types.YChild{"Number", nil})
     for i := range numbers.Number {
-        numbers.EntityData.Children[types.GetSegmentPath(&numbers.Number[i])] = types.YChild{"Number", &numbers.Number[i]}
+        numbers.EntityData.Children.Append(types.GetSegmentPath(numbers.Number[i]), types.YChild{"Number", numbers.Number[i]})
     }
-    numbers.EntityData.Leafs = make(map[string]types.YLeaf)
+    numbers.EntityData.Leafs = types.NewOrderedMap()
+
+    numbers.EntityData.YListKeys = []string {}
+
     return &(numbers.EntityData)
 }
 
@@ -809,15 +869,18 @@ func (number *Context_ContextLocations_ContextLocation_Numbers_Number) GetEntity
     number.EntityData.YangName = "number"
     number.EntityData.BundleName = "cisco_ios_xr"
     number.EntityData.ParentYangName = "numbers"
-    number.EntityData.SegmentPath = "number" + "[context-num='" + fmt.Sprintf("%v", number.ContextNum) + "']"
+    number.EntityData.SegmentPath = "number" + types.AddKeyToken(number.ContextNum, "context-num")
     number.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     number.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     number.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    number.EntityData.Children = make(map[string]types.YChild)
-    number.EntityData.Children["enter"] = types.YChild{"Enter", &number.Enter}
-    number.EntityData.Leafs = make(map[string]types.YLeaf)
-    number.EntityData.Leafs["context-num"] = types.YLeaf{"ContextNum", number.ContextNum}
+    number.EntityData.Children = types.NewOrderedMap()
+    number.EntityData.Children.Append("enter", types.YChild{"Enter", &number.Enter})
+    number.EntityData.Leafs = types.NewOrderedMap()
+    number.EntityData.Leafs.Append("context-num", types.YLeaf{"ContextNum", number.ContextNum})
+
+    number.EntityData.YListKeys = []string {"ContextNum"}
+
     return &(number.EntityData)
 }
 
@@ -829,7 +892,7 @@ type Context_ContextLocations_ContextLocation_Numbers_Number_Enter struct {
 
     // All crash info. The type is slice of
     // Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo.
-    CrashInfo []Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo
+    CrashInfo []*Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo
 }
 
 func (enter *Context_ContextLocations_ContextLocation_Numbers_Number_Enter) GetEntityData() *types.CommonEntityData {
@@ -842,12 +905,15 @@ func (enter *Context_ContextLocations_ContextLocation_Numbers_Number_Enter) GetE
     enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    enter.EntityData.Children = make(map[string]types.YChild)
-    enter.EntityData.Children["crash-info"] = types.YChild{"CrashInfo", nil}
+    enter.EntityData.Children = types.NewOrderedMap()
+    enter.EntityData.Children.Append("crash-info", types.YChild{"CrashInfo", nil})
     for i := range enter.CrashInfo {
-        enter.EntityData.Children[types.GetSegmentPath(&enter.CrashInfo[i])] = types.YChild{"CrashInfo", &enter.CrashInfo[i]}
+        enter.EntityData.Children.Append(types.GetSegmentPath(enter.CrashInfo[i]), types.YChild{"CrashInfo", enter.CrashInfo[i]})
     }
-    enter.EntityData.Leafs = make(map[string]types.YLeaf)
+    enter.EntityData.Leafs = types.NewOrderedMap()
+
+    enter.EntityData.YListKeys = []string {}
+
     return &(enter.EntityData)
 }
 
@@ -862,11 +928,11 @@ type Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo str
 
     // Context Information. The type is slice of
     // Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo.
-    ContextInfo []Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo
+    ContextInfo []*Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo
 
     // Crash Package Information. The type is slice of
     // Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_CrashPackageInformation.
-    CrashPackageInformation []Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_CrashPackageInformation
+    CrashPackageInformation []*Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_CrashPackageInformation
 }
 
 func (crashInfo *Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo) GetEntityData() *types.CommonEntityData {
@@ -879,17 +945,20 @@ func (crashInfo *Context_ContextLocations_ContextLocation_Numbers_Number_Enter_C
     crashInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashInfo.EntityData.Children = make(map[string]types.YChild)
-    crashInfo.EntityData.Children["context-info"] = types.YChild{"ContextInfo", nil}
+    crashInfo.EntityData.Children = types.NewOrderedMap()
+    crashInfo.EntityData.Children.Append("context-info", types.YChild{"ContextInfo", nil})
     for i := range crashInfo.ContextInfo {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.ContextInfo[i])] = types.YChild{"ContextInfo", &crashInfo.ContextInfo[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.ContextInfo[i]), types.YChild{"ContextInfo", crashInfo.ContextInfo[i]})
     }
-    crashInfo.EntityData.Children["crash-package-information"] = types.YChild{"CrashPackageInformation", nil}
+    crashInfo.EntityData.Children.Append("crash-package-information", types.YChild{"CrashPackageInformation", nil})
     for i := range crashInfo.CrashPackageInformation {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.CrashPackageInformation[i])] = types.YChild{"CrashPackageInformation", &crashInfo.CrashPackageInformation[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.CrashPackageInformation[i]), types.YChild{"CrashPackageInformation", crashInfo.CrashPackageInformation[i]})
     }
-    crashInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashInfo.EntityData.Leafs["node"] = types.YLeaf{"Node", crashInfo.Node}
+    crashInfo.EntityData.Leafs = types.NewOrderedMap()
+    crashInfo.EntityData.Leafs.Append("node", types.YLeaf{"Node", crashInfo.Node})
+
+    crashInfo.EntityData.YListKeys = []string {}
+
     return &(crashInfo.EntityData)
 }
 
@@ -934,11 +1003,11 @@ type Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_Con
 
     // Stack Trace. The type is slice of
     // Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo_StackTrace.
-    StackTrace []Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo_StackTrace
+    StackTrace []*Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo_StackTrace
 
     // DLL Information. The type is slice of
     // Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo_DllInfo.
-    DllInfo []Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo_DllInfo
+    DllInfo []*Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo_DllInfo
 }
 
 func (contextInfo *Context_ContextLocations_ContextLocation_Numbers_Number_Enter_CrashInfo_ContextInfo) GetEntityData() *types.CommonEntityData {
@@ -951,27 +1020,30 @@ func (contextInfo *Context_ContextLocations_ContextLocation_Numbers_Number_Enter
     contextInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextInfo.EntityData.Children = make(map[string]types.YChild)
-    contextInfo.EntityData.Children["stack-trace"] = types.YChild{"StackTrace", nil}
+    contextInfo.EntityData.Children = types.NewOrderedMap()
+    contextInfo.EntityData.Children.Append("stack-trace", types.YChild{"StackTrace", nil})
     for i := range contextInfo.StackTrace {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.StackTrace[i])] = types.YChild{"StackTrace", &contextInfo.StackTrace[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.StackTrace[i]), types.YChild{"StackTrace", contextInfo.StackTrace[i]})
     }
-    contextInfo.EntityData.Children["dll-info"] = types.YChild{"DllInfo", nil}
+    contextInfo.EntityData.Children.Append("dll-info", types.YChild{"DllInfo", nil})
     for i := range contextInfo.DllInfo {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.DllInfo[i])] = types.YChild{"DllInfo", &contextInfo.DllInfo[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.DllInfo[i]), types.YChild{"DllInfo", contextInfo.DllInfo[i]})
     }
-    contextInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    contextInfo.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", contextInfo.ProcessName}
-    contextInfo.EntityData.Leafs["pid"] = types.YLeaf{"Pid", contextInfo.Pid}
-    contextInfo.EntityData.Leafs["tid"] = types.YLeaf{"Tid", contextInfo.Tid}
-    contextInfo.EntityData.Leafs["core-dump-time"] = types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime}
-    contextInfo.EntityData.Leafs["sig-num"] = types.YLeaf{"SigNum", contextInfo.SigNum}
-    contextInfo.EntityData.Leafs["sin-err-str"] = types.YLeaf{"SinErrStr", contextInfo.SinErrStr}
-    contextInfo.EntityData.Leafs["sig-send-pid"] = types.YLeaf{"SigSendPid", contextInfo.SigSendPid}
-    contextInfo.EntityData.Leafs["sig-code"] = types.YLeaf{"SigCode", contextInfo.SigCode}
-    contextInfo.EntityData.Leafs["sin-info"] = types.YLeaf{"SinInfo", contextInfo.SinInfo}
-    contextInfo.EntityData.Leafs["core-for-process"] = types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess}
-    contextInfo.EntityData.Leafs["registers-info"] = types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo}
+    contextInfo.EntityData.Leafs = types.NewOrderedMap()
+    contextInfo.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", contextInfo.ProcessName})
+    contextInfo.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", contextInfo.Pid})
+    contextInfo.EntityData.Leafs.Append("tid", types.YLeaf{"Tid", contextInfo.Tid})
+    contextInfo.EntityData.Leafs.Append("core-dump-time", types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime})
+    contextInfo.EntityData.Leafs.Append("sig-num", types.YLeaf{"SigNum", contextInfo.SigNum})
+    contextInfo.EntityData.Leafs.Append("sin-err-str", types.YLeaf{"SinErrStr", contextInfo.SinErrStr})
+    contextInfo.EntityData.Leafs.Append("sig-send-pid", types.YLeaf{"SigSendPid", contextInfo.SigSendPid})
+    contextInfo.EntityData.Leafs.Append("sig-code", types.YLeaf{"SigCode", contextInfo.SigCode})
+    contextInfo.EntityData.Leafs.Append("sin-info", types.YLeaf{"SinInfo", contextInfo.SinInfo})
+    contextInfo.EntityData.Leafs.Append("core-for-process", types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess})
+    contextInfo.EntityData.Leafs.Append("registers-info", types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo})
+
+    contextInfo.EntityData.YListKeys = []string {}
+
     return &(contextInfo.EntityData)
 }
 
@@ -995,9 +1067,12 @@ func (stackTrace *Context_ContextLocations_ContextLocation_Numbers_Number_Enter_
     stackTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stackTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stackTrace.EntityData.Children = make(map[string]types.YChild)
-    stackTrace.EntityData.Leafs = make(map[string]types.YLeaf)
-    stackTrace.EntityData.Leafs["stack-trace"] = types.YLeaf{"StackTrace", stackTrace.StackTrace}
+    stackTrace.EntityData.Children = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs.Append("stack-trace", types.YLeaf{"StackTrace", stackTrace.StackTrace})
+
+    stackTrace.EntityData.YListKeys = []string {}
+
     return &(stackTrace.EntityData)
 }
 
@@ -1036,14 +1111,17 @@ func (dllInfo *Context_ContextLocations_ContextLocation_Numbers_Number_Enter_Cra
     dllInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dllInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dllInfo.EntityData.Children = make(map[string]types.YChild)
-    dllInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    dllInfo.EntityData.Leafs["path"] = types.YLeaf{"Path", dllInfo.Path}
-    dllInfo.EntityData.Leafs["text-addr"] = types.YLeaf{"TextAddr", dllInfo.TextAddr}
-    dllInfo.EntityData.Leafs["text-size"] = types.YLeaf{"TextSize", dllInfo.TextSize}
-    dllInfo.EntityData.Leafs["data-addr"] = types.YLeaf{"DataAddr", dllInfo.DataAddr}
-    dllInfo.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", dllInfo.DataSize}
-    dllInfo.EntityData.Leafs["version"] = types.YLeaf{"Version", dllInfo.Version}
+    dllInfo.EntityData.Children = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs.Append("path", types.YLeaf{"Path", dllInfo.Path})
+    dllInfo.EntityData.Leafs.Append("text-addr", types.YLeaf{"TextAddr", dllInfo.TextAddr})
+    dllInfo.EntityData.Leafs.Append("text-size", types.YLeaf{"TextSize", dllInfo.TextSize})
+    dllInfo.EntityData.Leafs.Append("data-addr", types.YLeaf{"DataAddr", dllInfo.DataAddr})
+    dllInfo.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", dllInfo.DataSize})
+    dllInfo.EntityData.Leafs.Append("version", types.YLeaf{"Version", dllInfo.Version})
+
+    dllInfo.EntityData.YListKeys = []string {}
+
     return &(dllInfo.EntityData)
 }
 
@@ -1070,10 +1148,13 @@ func (crashPackageInformation *Context_ContextLocations_ContextLocation_Numbers_
     crashPackageInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashPackageInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashPackageInformation.EntityData.Children = make(map[string]types.YChild)
-    crashPackageInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashPackageInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", crashPackageInformation.Name}
-    crashPackageInformation.EntityData.Leafs["source"] = types.YLeaf{"Source", crashPackageInformation.Source}
+    crashPackageInformation.EntityData.Children = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", crashPackageInformation.Name})
+    crashPackageInformation.EntityData.Leafs.Append("source", types.YLeaf{"Source", crashPackageInformation.Source})
+
+    crashPackageInformation.EntityData.YListKeys = []string {}
+
     return &(crashPackageInformation.EntityData)
 }
 
@@ -1085,7 +1166,7 @@ type Context_ContextLocations_ContextLocation_All struct {
 
     // All crash info. The type is slice of
     // Context_ContextLocations_ContextLocation_All_CrashInfo.
-    CrashInfo []Context_ContextLocations_ContextLocation_All_CrashInfo
+    CrashInfo []*Context_ContextLocations_ContextLocation_All_CrashInfo
 }
 
 func (all *Context_ContextLocations_ContextLocation_All) GetEntityData() *types.CommonEntityData {
@@ -1098,12 +1179,15 @@ func (all *Context_ContextLocations_ContextLocation_All) GetEntityData() *types.
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["crash-info"] = types.YChild{"CrashInfo", nil}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("crash-info", types.YChild{"CrashInfo", nil})
     for i := range all.CrashInfo {
-        all.EntityData.Children[types.GetSegmentPath(&all.CrashInfo[i])] = types.YChild{"CrashInfo", &all.CrashInfo[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.CrashInfo[i]), types.YChild{"CrashInfo", all.CrashInfo[i]})
     }
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -1118,11 +1202,11 @@ type Context_ContextLocations_ContextLocation_All_CrashInfo struct {
 
     // Context Information. The type is slice of
     // Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo.
-    ContextInfo []Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo
+    ContextInfo []*Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo
 
     // Crash Package Information. The type is slice of
     // Context_ContextLocations_ContextLocation_All_CrashInfo_CrashPackageInformation.
-    CrashPackageInformation []Context_ContextLocations_ContextLocation_All_CrashInfo_CrashPackageInformation
+    CrashPackageInformation []*Context_ContextLocations_ContextLocation_All_CrashInfo_CrashPackageInformation
 }
 
 func (crashInfo *Context_ContextLocations_ContextLocation_All_CrashInfo) GetEntityData() *types.CommonEntityData {
@@ -1135,17 +1219,20 @@ func (crashInfo *Context_ContextLocations_ContextLocation_All_CrashInfo) GetEnti
     crashInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashInfo.EntityData.Children = make(map[string]types.YChild)
-    crashInfo.EntityData.Children["context-info"] = types.YChild{"ContextInfo", nil}
+    crashInfo.EntityData.Children = types.NewOrderedMap()
+    crashInfo.EntityData.Children.Append("context-info", types.YChild{"ContextInfo", nil})
     for i := range crashInfo.ContextInfo {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.ContextInfo[i])] = types.YChild{"ContextInfo", &crashInfo.ContextInfo[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.ContextInfo[i]), types.YChild{"ContextInfo", crashInfo.ContextInfo[i]})
     }
-    crashInfo.EntityData.Children["crash-package-information"] = types.YChild{"CrashPackageInformation", nil}
+    crashInfo.EntityData.Children.Append("crash-package-information", types.YChild{"CrashPackageInformation", nil})
     for i := range crashInfo.CrashPackageInformation {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.CrashPackageInformation[i])] = types.YChild{"CrashPackageInformation", &crashInfo.CrashPackageInformation[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.CrashPackageInformation[i]), types.YChild{"CrashPackageInformation", crashInfo.CrashPackageInformation[i]})
     }
-    crashInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashInfo.EntityData.Leafs["node"] = types.YLeaf{"Node", crashInfo.Node}
+    crashInfo.EntityData.Leafs = types.NewOrderedMap()
+    crashInfo.EntityData.Leafs.Append("node", types.YLeaf{"Node", crashInfo.Node})
+
+    crashInfo.EntityData.YListKeys = []string {}
+
     return &(crashInfo.EntityData)
 }
 
@@ -1190,11 +1277,11 @@ type Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo struct {
 
     // Stack Trace. The type is slice of
     // Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo_StackTrace.
-    StackTrace []Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo_StackTrace
+    StackTrace []*Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo_StackTrace
 
     // DLL Information. The type is slice of
     // Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo_DllInfo.
-    DllInfo []Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo_DllInfo
+    DllInfo []*Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo_DllInfo
 }
 
 func (contextInfo *Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInfo) GetEntityData() *types.CommonEntityData {
@@ -1207,27 +1294,30 @@ func (contextInfo *Context_ContextLocations_ContextLocation_All_CrashInfo_Contex
     contextInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextInfo.EntityData.Children = make(map[string]types.YChild)
-    contextInfo.EntityData.Children["stack-trace"] = types.YChild{"StackTrace", nil}
+    contextInfo.EntityData.Children = types.NewOrderedMap()
+    contextInfo.EntityData.Children.Append("stack-trace", types.YChild{"StackTrace", nil})
     for i := range contextInfo.StackTrace {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.StackTrace[i])] = types.YChild{"StackTrace", &contextInfo.StackTrace[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.StackTrace[i]), types.YChild{"StackTrace", contextInfo.StackTrace[i]})
     }
-    contextInfo.EntityData.Children["dll-info"] = types.YChild{"DllInfo", nil}
+    contextInfo.EntityData.Children.Append("dll-info", types.YChild{"DllInfo", nil})
     for i := range contextInfo.DllInfo {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.DllInfo[i])] = types.YChild{"DllInfo", &contextInfo.DllInfo[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.DllInfo[i]), types.YChild{"DllInfo", contextInfo.DllInfo[i]})
     }
-    contextInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    contextInfo.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", contextInfo.ProcessName}
-    contextInfo.EntityData.Leafs["pid"] = types.YLeaf{"Pid", contextInfo.Pid}
-    contextInfo.EntityData.Leafs["tid"] = types.YLeaf{"Tid", contextInfo.Tid}
-    contextInfo.EntityData.Leafs["core-dump-time"] = types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime}
-    contextInfo.EntityData.Leafs["sig-num"] = types.YLeaf{"SigNum", contextInfo.SigNum}
-    contextInfo.EntityData.Leafs["sin-err-str"] = types.YLeaf{"SinErrStr", contextInfo.SinErrStr}
-    contextInfo.EntityData.Leafs["sig-send-pid"] = types.YLeaf{"SigSendPid", contextInfo.SigSendPid}
-    contextInfo.EntityData.Leafs["sig-code"] = types.YLeaf{"SigCode", contextInfo.SigCode}
-    contextInfo.EntityData.Leafs["sin-info"] = types.YLeaf{"SinInfo", contextInfo.SinInfo}
-    contextInfo.EntityData.Leafs["core-for-process"] = types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess}
-    contextInfo.EntityData.Leafs["registers-info"] = types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo}
+    contextInfo.EntityData.Leafs = types.NewOrderedMap()
+    contextInfo.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", contextInfo.ProcessName})
+    contextInfo.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", contextInfo.Pid})
+    contextInfo.EntityData.Leafs.Append("tid", types.YLeaf{"Tid", contextInfo.Tid})
+    contextInfo.EntityData.Leafs.Append("core-dump-time", types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime})
+    contextInfo.EntityData.Leafs.Append("sig-num", types.YLeaf{"SigNum", contextInfo.SigNum})
+    contextInfo.EntityData.Leafs.Append("sin-err-str", types.YLeaf{"SinErrStr", contextInfo.SinErrStr})
+    contextInfo.EntityData.Leafs.Append("sig-send-pid", types.YLeaf{"SigSendPid", contextInfo.SigSendPid})
+    contextInfo.EntityData.Leafs.Append("sig-code", types.YLeaf{"SigCode", contextInfo.SigCode})
+    contextInfo.EntityData.Leafs.Append("sin-info", types.YLeaf{"SinInfo", contextInfo.SinInfo})
+    contextInfo.EntityData.Leafs.Append("core-for-process", types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess})
+    contextInfo.EntityData.Leafs.Append("registers-info", types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo})
+
+    contextInfo.EntityData.YListKeys = []string {}
+
     return &(contextInfo.EntityData)
 }
 
@@ -1251,9 +1341,12 @@ func (stackTrace *Context_ContextLocations_ContextLocation_All_CrashInfo_Context
     stackTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stackTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stackTrace.EntityData.Children = make(map[string]types.YChild)
-    stackTrace.EntityData.Leafs = make(map[string]types.YLeaf)
-    stackTrace.EntityData.Leafs["stack-trace"] = types.YLeaf{"StackTrace", stackTrace.StackTrace}
+    stackTrace.EntityData.Children = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs.Append("stack-trace", types.YLeaf{"StackTrace", stackTrace.StackTrace})
+
+    stackTrace.EntityData.YListKeys = []string {}
+
     return &(stackTrace.EntityData)
 }
 
@@ -1292,14 +1385,17 @@ func (dllInfo *Context_ContextLocations_ContextLocation_All_CrashInfo_ContextInf
     dllInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dllInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dllInfo.EntityData.Children = make(map[string]types.YChild)
-    dllInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    dllInfo.EntityData.Leafs["path"] = types.YLeaf{"Path", dllInfo.Path}
-    dllInfo.EntityData.Leafs["text-addr"] = types.YLeaf{"TextAddr", dllInfo.TextAddr}
-    dllInfo.EntityData.Leafs["text-size"] = types.YLeaf{"TextSize", dllInfo.TextSize}
-    dllInfo.EntityData.Leafs["data-addr"] = types.YLeaf{"DataAddr", dllInfo.DataAddr}
-    dllInfo.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", dllInfo.DataSize}
-    dllInfo.EntityData.Leafs["version"] = types.YLeaf{"Version", dllInfo.Version}
+    dllInfo.EntityData.Children = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs.Append("path", types.YLeaf{"Path", dllInfo.Path})
+    dllInfo.EntityData.Leafs.Append("text-addr", types.YLeaf{"TextAddr", dllInfo.TextAddr})
+    dllInfo.EntityData.Leafs.Append("text-size", types.YLeaf{"TextSize", dllInfo.TextSize})
+    dllInfo.EntityData.Leafs.Append("data-addr", types.YLeaf{"DataAddr", dllInfo.DataAddr})
+    dllInfo.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", dllInfo.DataSize})
+    dllInfo.EntityData.Leafs.Append("version", types.YLeaf{"Version", dllInfo.Version})
+
+    dllInfo.EntityData.YListKeys = []string {}
+
     return &(dllInfo.EntityData)
 }
 
@@ -1326,10 +1422,13 @@ func (crashPackageInformation *Context_ContextLocations_ContextLocation_All_Cras
     crashPackageInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashPackageInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashPackageInformation.EntityData.Children = make(map[string]types.YChild)
-    crashPackageInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashPackageInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", crashPackageInformation.Name}
-    crashPackageInformation.EntityData.Leafs["source"] = types.YLeaf{"Source", crashPackageInformation.Source}
+    crashPackageInformation.EntityData.Children = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", crashPackageInformation.Name})
+    crashPackageInformation.EntityData.Leafs.Append("source", types.YLeaf{"Source", crashPackageInformation.Source})
+
+    crashPackageInformation.EntityData.YListKeys = []string {}
+
     return &(crashPackageInformation.EntityData)
 }
 
@@ -1340,7 +1439,7 @@ type Context_All struct {
     YFilter yfilter.YFilter
 
     // All crash info. The type is slice of Context_All_CrashInfo.
-    CrashInfo []Context_All_CrashInfo
+    CrashInfo []*Context_All_CrashInfo
 }
 
 func (all *Context_All) GetEntityData() *types.CommonEntityData {
@@ -1353,12 +1452,15 @@ func (all *Context_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["crash-info"] = types.YChild{"CrashInfo", nil}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("crash-info", types.YChild{"CrashInfo", nil})
     for i := range all.CrashInfo {
-        all.EntityData.Children[types.GetSegmentPath(&all.CrashInfo[i])] = types.YChild{"CrashInfo", &all.CrashInfo[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.CrashInfo[i]), types.YChild{"CrashInfo", all.CrashInfo[i]})
     }
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -1373,11 +1475,11 @@ type Context_All_CrashInfo struct {
 
     // Context Information. The type is slice of
     // Context_All_CrashInfo_ContextInfo.
-    ContextInfo []Context_All_CrashInfo_ContextInfo
+    ContextInfo []*Context_All_CrashInfo_ContextInfo
 
     // Crash Package Information. The type is slice of
     // Context_All_CrashInfo_CrashPackageInformation.
-    CrashPackageInformation []Context_All_CrashInfo_CrashPackageInformation
+    CrashPackageInformation []*Context_All_CrashInfo_CrashPackageInformation
 }
 
 func (crashInfo *Context_All_CrashInfo) GetEntityData() *types.CommonEntityData {
@@ -1390,17 +1492,20 @@ func (crashInfo *Context_All_CrashInfo) GetEntityData() *types.CommonEntityData 
     crashInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashInfo.EntityData.Children = make(map[string]types.YChild)
-    crashInfo.EntityData.Children["context-info"] = types.YChild{"ContextInfo", nil}
+    crashInfo.EntityData.Children = types.NewOrderedMap()
+    crashInfo.EntityData.Children.Append("context-info", types.YChild{"ContextInfo", nil})
     for i := range crashInfo.ContextInfo {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.ContextInfo[i])] = types.YChild{"ContextInfo", &crashInfo.ContextInfo[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.ContextInfo[i]), types.YChild{"ContextInfo", crashInfo.ContextInfo[i]})
     }
-    crashInfo.EntityData.Children["crash-package-information"] = types.YChild{"CrashPackageInformation", nil}
+    crashInfo.EntityData.Children.Append("crash-package-information", types.YChild{"CrashPackageInformation", nil})
     for i := range crashInfo.CrashPackageInformation {
-        crashInfo.EntityData.Children[types.GetSegmentPath(&crashInfo.CrashPackageInformation[i])] = types.YChild{"CrashPackageInformation", &crashInfo.CrashPackageInformation[i]}
+        crashInfo.EntityData.Children.Append(types.GetSegmentPath(crashInfo.CrashPackageInformation[i]), types.YChild{"CrashPackageInformation", crashInfo.CrashPackageInformation[i]})
     }
-    crashInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashInfo.EntityData.Leafs["node"] = types.YLeaf{"Node", crashInfo.Node}
+    crashInfo.EntityData.Leafs = types.NewOrderedMap()
+    crashInfo.EntityData.Leafs.Append("node", types.YLeaf{"Node", crashInfo.Node})
+
+    crashInfo.EntityData.YListKeys = []string {}
+
     return &(crashInfo.EntityData)
 }
 
@@ -1445,11 +1550,11 @@ type Context_All_CrashInfo_ContextInfo struct {
 
     // Stack Trace. The type is slice of
     // Context_All_CrashInfo_ContextInfo_StackTrace.
-    StackTrace []Context_All_CrashInfo_ContextInfo_StackTrace
+    StackTrace []*Context_All_CrashInfo_ContextInfo_StackTrace
 
     // DLL Information. The type is slice of
     // Context_All_CrashInfo_ContextInfo_DllInfo.
-    DllInfo []Context_All_CrashInfo_ContextInfo_DllInfo
+    DllInfo []*Context_All_CrashInfo_ContextInfo_DllInfo
 }
 
 func (contextInfo *Context_All_CrashInfo_ContextInfo) GetEntityData() *types.CommonEntityData {
@@ -1462,27 +1567,30 @@ func (contextInfo *Context_All_CrashInfo_ContextInfo) GetEntityData() *types.Com
     contextInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextInfo.EntityData.Children = make(map[string]types.YChild)
-    contextInfo.EntityData.Children["stack-trace"] = types.YChild{"StackTrace", nil}
+    contextInfo.EntityData.Children = types.NewOrderedMap()
+    contextInfo.EntityData.Children.Append("stack-trace", types.YChild{"StackTrace", nil})
     for i := range contextInfo.StackTrace {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.StackTrace[i])] = types.YChild{"StackTrace", &contextInfo.StackTrace[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.StackTrace[i]), types.YChild{"StackTrace", contextInfo.StackTrace[i]})
     }
-    contextInfo.EntityData.Children["dll-info"] = types.YChild{"DllInfo", nil}
+    contextInfo.EntityData.Children.Append("dll-info", types.YChild{"DllInfo", nil})
     for i := range contextInfo.DllInfo {
-        contextInfo.EntityData.Children[types.GetSegmentPath(&contextInfo.DllInfo[i])] = types.YChild{"DllInfo", &contextInfo.DllInfo[i]}
+        contextInfo.EntityData.Children.Append(types.GetSegmentPath(contextInfo.DllInfo[i]), types.YChild{"DllInfo", contextInfo.DllInfo[i]})
     }
-    contextInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    contextInfo.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", contextInfo.ProcessName}
-    contextInfo.EntityData.Leafs["pid"] = types.YLeaf{"Pid", contextInfo.Pid}
-    contextInfo.EntityData.Leafs["tid"] = types.YLeaf{"Tid", contextInfo.Tid}
-    contextInfo.EntityData.Leafs["core-dump-time"] = types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime}
-    contextInfo.EntityData.Leafs["sig-num"] = types.YLeaf{"SigNum", contextInfo.SigNum}
-    contextInfo.EntityData.Leafs["sin-err-str"] = types.YLeaf{"SinErrStr", contextInfo.SinErrStr}
-    contextInfo.EntityData.Leafs["sig-send-pid"] = types.YLeaf{"SigSendPid", contextInfo.SigSendPid}
-    contextInfo.EntityData.Leafs["sig-code"] = types.YLeaf{"SigCode", contextInfo.SigCode}
-    contextInfo.EntityData.Leafs["sin-info"] = types.YLeaf{"SinInfo", contextInfo.SinInfo}
-    contextInfo.EntityData.Leafs["core-for-process"] = types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess}
-    contextInfo.EntityData.Leafs["registers-info"] = types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo}
+    contextInfo.EntityData.Leafs = types.NewOrderedMap()
+    contextInfo.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", contextInfo.ProcessName})
+    contextInfo.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", contextInfo.Pid})
+    contextInfo.EntityData.Leafs.Append("tid", types.YLeaf{"Tid", contextInfo.Tid})
+    contextInfo.EntityData.Leafs.Append("core-dump-time", types.YLeaf{"CoreDumpTime", contextInfo.CoreDumpTime})
+    contextInfo.EntityData.Leafs.Append("sig-num", types.YLeaf{"SigNum", contextInfo.SigNum})
+    contextInfo.EntityData.Leafs.Append("sin-err-str", types.YLeaf{"SinErrStr", contextInfo.SinErrStr})
+    contextInfo.EntityData.Leafs.Append("sig-send-pid", types.YLeaf{"SigSendPid", contextInfo.SigSendPid})
+    contextInfo.EntityData.Leafs.Append("sig-code", types.YLeaf{"SigCode", contextInfo.SigCode})
+    contextInfo.EntityData.Leafs.Append("sin-info", types.YLeaf{"SinInfo", contextInfo.SinInfo})
+    contextInfo.EntityData.Leafs.Append("core-for-process", types.YLeaf{"CoreForProcess", contextInfo.CoreForProcess})
+    contextInfo.EntityData.Leafs.Append("registers-info", types.YLeaf{"RegistersInfo", contextInfo.RegistersInfo})
+
+    contextInfo.EntityData.YListKeys = []string {}
+
     return &(contextInfo.EntityData)
 }
 
@@ -1506,9 +1614,12 @@ func (stackTrace *Context_All_CrashInfo_ContextInfo_StackTrace) GetEntityData() 
     stackTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stackTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stackTrace.EntityData.Children = make(map[string]types.YChild)
-    stackTrace.EntityData.Leafs = make(map[string]types.YLeaf)
-    stackTrace.EntityData.Leafs["stack-trace"] = types.YLeaf{"StackTrace", stackTrace.StackTrace}
+    stackTrace.EntityData.Children = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs = types.NewOrderedMap()
+    stackTrace.EntityData.Leafs.Append("stack-trace", types.YLeaf{"StackTrace", stackTrace.StackTrace})
+
+    stackTrace.EntityData.YListKeys = []string {}
+
     return &(stackTrace.EntityData)
 }
 
@@ -1547,14 +1658,17 @@ func (dllInfo *Context_All_CrashInfo_ContextInfo_DllInfo) GetEntityData() *types
     dllInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dllInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dllInfo.EntityData.Children = make(map[string]types.YChild)
-    dllInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    dllInfo.EntityData.Leafs["path"] = types.YLeaf{"Path", dllInfo.Path}
-    dllInfo.EntityData.Leafs["text-addr"] = types.YLeaf{"TextAddr", dllInfo.TextAddr}
-    dllInfo.EntityData.Leafs["text-size"] = types.YLeaf{"TextSize", dllInfo.TextSize}
-    dllInfo.EntityData.Leafs["data-addr"] = types.YLeaf{"DataAddr", dllInfo.DataAddr}
-    dllInfo.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", dllInfo.DataSize}
-    dllInfo.EntityData.Leafs["version"] = types.YLeaf{"Version", dllInfo.Version}
+    dllInfo.EntityData.Children = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs = types.NewOrderedMap()
+    dllInfo.EntityData.Leafs.Append("path", types.YLeaf{"Path", dllInfo.Path})
+    dllInfo.EntityData.Leafs.Append("text-addr", types.YLeaf{"TextAddr", dllInfo.TextAddr})
+    dllInfo.EntityData.Leafs.Append("text-size", types.YLeaf{"TextSize", dllInfo.TextSize})
+    dllInfo.EntityData.Leafs.Append("data-addr", types.YLeaf{"DataAddr", dllInfo.DataAddr})
+    dllInfo.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", dllInfo.DataSize})
+    dllInfo.EntityData.Leafs.Append("version", types.YLeaf{"Version", dllInfo.Version})
+
+    dllInfo.EntityData.YListKeys = []string {}
+
     return &(dllInfo.EntityData)
 }
 
@@ -1581,10 +1695,13 @@ func (crashPackageInformation *Context_All_CrashInfo_CrashPackageInformation) Ge
     crashPackageInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crashPackageInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crashPackageInformation.EntityData.Children = make(map[string]types.YChild)
-    crashPackageInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    crashPackageInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", crashPackageInformation.Name}
-    crashPackageInformation.EntityData.Leafs["source"] = types.YLeaf{"Source", crashPackageInformation.Source}
+    crashPackageInformation.EntityData.Children = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs = types.NewOrderedMap()
+    crashPackageInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", crashPackageInformation.Name})
+    crashPackageInformation.EntityData.Leafs.Append("source", types.YLeaf{"Source", crashPackageInformation.Source})
+
+    crashPackageInformation.EntityData.YListKeys = []string {}
+
     return &(crashPackageInformation.EntityData)
 }
 

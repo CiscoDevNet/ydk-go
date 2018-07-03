@@ -24,21 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt", reflect.TypeOf(PerfMgmt{}))
 }
 
-// PmThresholdRearm represents Pm threshold rearm
-type PmThresholdRearm string
-
-const (
-    // Rearm Always
-    PmThresholdRearm_always PmThresholdRearm = "always"
-
-    // Rearm after window of sampling periods
-    PmThresholdRearm_window PmThresholdRearm = "window"
-
-    // Rearm after the first period when condition is
-    // not met
-    PmThresholdRearm_toggle PmThresholdRearm = "toggle"
-)
-
 // PmThresholdOp represents Pm threshold op
 type PmThresholdOp string
 
@@ -63,6 +48,21 @@ const (
 
     // Not in Range
     PmThresholdOp_rg PmThresholdOp = "rg"
+)
+
+// PmThresholdRearm represents Pm threshold rearm
+type PmThresholdRearm string
+
+const (
+    // Rearm Always
+    PmThresholdRearm_always PmThresholdRearm = "always"
+
+    // Rearm after window of sampling periods
+    PmThresholdRearm_window PmThresholdRearm = "window"
+
+    // Rearm after the first period when condition is
+    // not met
+    PmThresholdRearm_toggle PmThresholdRearm = "toggle"
 )
 
 // PerfMgmt
@@ -97,13 +97,16 @@ func (perfMgmt *PerfMgmt) GetEntityData() *types.CommonEntityData {
     perfMgmt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     perfMgmt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    perfMgmt.EntityData.Children = make(map[string]types.YChild)
-    perfMgmt.EntityData.Children["resources"] = types.YChild{"Resources", &perfMgmt.Resources}
-    perfMgmt.EntityData.Children["statistics"] = types.YChild{"Statistics", &perfMgmt.Statistics}
-    perfMgmt.EntityData.Children["enable"] = types.YChild{"Enable", &perfMgmt.Enable}
-    perfMgmt.EntityData.Children["reg-exp-groups"] = types.YChild{"RegExpGroups", &perfMgmt.RegExpGroups}
-    perfMgmt.EntityData.Children["threshold"] = types.YChild{"Threshold", &perfMgmt.Threshold}
-    perfMgmt.EntityData.Leafs = make(map[string]types.YLeaf)
+    perfMgmt.EntityData.Children = types.NewOrderedMap()
+    perfMgmt.EntityData.Children.Append("resources", types.YChild{"Resources", &perfMgmt.Resources})
+    perfMgmt.EntityData.Children.Append("statistics", types.YChild{"Statistics", &perfMgmt.Statistics})
+    perfMgmt.EntityData.Children.Append("enable", types.YChild{"Enable", &perfMgmt.Enable})
+    perfMgmt.EntityData.Children.Append("reg-exp-groups", types.YChild{"RegExpGroups", &perfMgmt.RegExpGroups})
+    perfMgmt.EntityData.Children.Append("threshold", types.YChild{"Threshold", &perfMgmt.Threshold})
+    perfMgmt.EntityData.Leafs = types.NewOrderedMap()
+
+    perfMgmt.EntityData.YListKeys = []string {}
+
     return &(perfMgmt.EntityData)
 }
 
@@ -133,11 +136,14 @@ func (resources *PerfMgmt_Resources) GetEntityData() *types.CommonEntityData {
     resources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resources.EntityData.Children = make(map[string]types.YChild)
-    resources.EntityData.Children["tftp-resources"] = types.YChild{"TftpResources", &resources.TftpResources}
-    resources.EntityData.Children["dump-local"] = types.YChild{"DumpLocal", &resources.DumpLocal}
-    resources.EntityData.Children["memory-resources"] = types.YChild{"MemoryResources", &resources.MemoryResources}
-    resources.EntityData.Leafs = make(map[string]types.YLeaf)
+    resources.EntityData.Children = types.NewOrderedMap()
+    resources.EntityData.Children.Append("tftp-resources", types.YChild{"TftpResources", &resources.TftpResources})
+    resources.EntityData.Children.Append("dump-local", types.YChild{"DumpLocal", &resources.DumpLocal})
+    resources.EntityData.Children.Append("memory-resources", types.YChild{"MemoryResources", &resources.MemoryResources})
+    resources.EntityData.Leafs = types.NewOrderedMap()
+
+    resources.EntityData.YListKeys = []string {}
+
     return &(resources.EntityData)
 }
 
@@ -148,9 +154,10 @@ func (resources *PerfMgmt_Resources) GetEntityData() *types.CommonEntityData {
 type PerfMgmt_Resources_TftpResources struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // IP address of the TFTP server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     ServerAddress interface{}
 
@@ -172,11 +179,14 @@ func (tftpResources *PerfMgmt_Resources_TftpResources) GetEntityData() *types.Co
     tftpResources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpResources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftpResources.EntityData.Children = make(map[string]types.YChild)
-    tftpResources.EntityData.Leafs = make(map[string]types.YLeaf)
-    tftpResources.EntityData.Leafs["server-address"] = types.YLeaf{"ServerAddress", tftpResources.ServerAddress}
-    tftpResources.EntityData.Leafs["directory"] = types.YLeaf{"Directory", tftpResources.Directory}
-    tftpResources.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", tftpResources.VrfName}
+    tftpResources.EntityData.Children = types.NewOrderedMap()
+    tftpResources.EntityData.Leafs = types.NewOrderedMap()
+    tftpResources.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", tftpResources.ServerAddress})
+    tftpResources.EntityData.Leafs.Append("directory", types.YLeaf{"Directory", tftpResources.Directory})
+    tftpResources.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", tftpResources.VrfName})
+
+    tftpResources.EntityData.YListKeys = []string {}
+
     return &(tftpResources.EntityData)
 }
 
@@ -200,9 +210,12 @@ func (dumpLocal *PerfMgmt_Resources_DumpLocal) GetEntityData() *types.CommonEnti
     dumpLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dumpLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dumpLocal.EntityData.Children = make(map[string]types.YChild)
-    dumpLocal.EntityData.Leafs = make(map[string]types.YLeaf)
-    dumpLocal.EntityData.Leafs["enable"] = types.YLeaf{"Enable", dumpLocal.Enable}
+    dumpLocal.EntityData.Children = types.NewOrderedMap()
+    dumpLocal.EntityData.Leafs = types.NewOrderedMap()
+    dumpLocal.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", dumpLocal.Enable})
+
+    dumpLocal.EntityData.YListKeys = []string {}
+
     return &(dumpLocal.EntityData)
 }
 
@@ -233,10 +246,13 @@ func (memoryResources *PerfMgmt_Resources_MemoryResources) GetEntityData() *type
     memoryResources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryResources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryResources.EntityData.Children = make(map[string]types.YChild)
-    memoryResources.EntityData.Leafs = make(map[string]types.YLeaf)
-    memoryResources.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", memoryResources.MaxLimit}
-    memoryResources.EntityData.Leafs["min-reserved"] = types.YLeaf{"MinReserved", memoryResources.MinReserved}
+    memoryResources.EntityData.Children = types.NewOrderedMap()
+    memoryResources.EntityData.Leafs = types.NewOrderedMap()
+    memoryResources.EntityData.Leafs.Append("max-limit", types.YLeaf{"MaxLimit", memoryResources.MaxLimit})
+    memoryResources.EntityData.Leafs.Append("min-reserved", types.YLeaf{"MinReserved", memoryResources.MinReserved})
+
+    memoryResources.EntityData.YListKeys = []string {}
+
     return &(memoryResources.EntityData)
 }
 
@@ -287,18 +303,21 @@ func (statistics *PerfMgmt_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["generic-counter-interface"] = types.YChild{"GenericCounterInterface", &statistics.GenericCounterInterface}
-    statistics.EntityData.Children["process-node"] = types.YChild{"ProcessNode", &statistics.ProcessNode}
-    statistics.EntityData.Children["basic-counter-interface"] = types.YChild{"BasicCounterInterface", &statistics.BasicCounterInterface}
-    statistics.EntityData.Children["ospfv3-protocol"] = types.YChild{"Ospfv3Protocol", &statistics.Ospfv3Protocol}
-    statistics.EntityData.Children["cpu-node"] = types.YChild{"CpuNode", &statistics.CpuNode}
-    statistics.EntityData.Children["data-rate-interface"] = types.YChild{"DataRateInterface", &statistics.DataRateInterface}
-    statistics.EntityData.Children["memory-node"] = types.YChild{"MemoryNode", &statistics.MemoryNode}
-    statistics.EntityData.Children["ldp-mpls"] = types.YChild{"LdpMpls", &statistics.LdpMpls}
-    statistics.EntityData.Children["bgp"] = types.YChild{"Bgp", &statistics.Bgp}
-    statistics.EntityData.Children["ospfv2-protocol"] = types.YChild{"Ospfv2Protocol", &statistics.Ospfv2Protocol}
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("generic-counter-interface", types.YChild{"GenericCounterInterface", &statistics.GenericCounterInterface})
+    statistics.EntityData.Children.Append("process-node", types.YChild{"ProcessNode", &statistics.ProcessNode})
+    statistics.EntityData.Children.Append("basic-counter-interface", types.YChild{"BasicCounterInterface", &statistics.BasicCounterInterface})
+    statistics.EntityData.Children.Append("ospfv3-protocol", types.YChild{"Ospfv3Protocol", &statistics.Ospfv3Protocol})
+    statistics.EntityData.Children.Append("cpu-node", types.YChild{"CpuNode", &statistics.CpuNode})
+    statistics.EntityData.Children.Append("data-rate-interface", types.YChild{"DataRateInterface", &statistics.DataRateInterface})
+    statistics.EntityData.Children.Append("memory-node", types.YChild{"MemoryNode", &statistics.MemoryNode})
+    statistics.EntityData.Children.Append("ldp-mpls", types.YChild{"LdpMpls", &statistics.LdpMpls})
+    statistics.EntityData.Children.Append("bgp", types.YChild{"Bgp", &statistics.Bgp})
+    statistics.EntityData.Children.Append("ospfv2-protocol", types.YChild{"Ospfv2Protocol", &statistics.Ospfv2Protocol})
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -323,9 +342,12 @@ func (genericCounterInterface *PerfMgmt_Statistics_GenericCounterInterface) GetE
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterface.EntityData.Children["templates"] = types.YChild{"Templates", &genericCounterInterface.Templates}
-    genericCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericCounterInterface.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Children.Append("templates", types.YChild{"Templates", &genericCounterInterface.Templates})
+    genericCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    genericCounterInterface.EntityData.YListKeys = []string {}
+
     return &(genericCounterInterface.EntityData)
 }
 
@@ -337,7 +359,7 @@ type PerfMgmt_Statistics_GenericCounterInterface_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_GenericCounterInterface_Templates_Template.
-    Template []PerfMgmt_Statistics_GenericCounterInterface_Templates_Template
+    Template []*PerfMgmt_Statistics_GenericCounterInterface_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_GenericCounterInterface_Templates) GetEntityData() *types.CommonEntityData {
@@ -350,12 +372,15 @@ func (templates *PerfMgmt_Statistics_GenericCounterInterface_Templates) GetEntit
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -366,7 +391,7 @@ type PerfMgmt_Statistics_GenericCounterInterface_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -393,19 +418,22 @@ func (template *PerfMgmt_Statistics_GenericCounterInterface_Templates_Template) 
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -429,9 +457,12 @@ func (processNode *PerfMgmt_Statistics_ProcessNode) GetEntityData() *types.Commo
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processNode.EntityData.Children = make(map[string]types.YChild)
-    processNode.EntityData.Children["templates"] = types.YChild{"Templates", &processNode.Templates}
-    processNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    processNode.EntityData.Children = types.NewOrderedMap()
+    processNode.EntityData.Children.Append("templates", types.YChild{"Templates", &processNode.Templates})
+    processNode.EntityData.Leafs = types.NewOrderedMap()
+
+    processNode.EntityData.YListKeys = []string {}
+
     return &(processNode.EntityData)
 }
 
@@ -443,7 +474,7 @@ type PerfMgmt_Statistics_ProcessNode_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_ProcessNode_Templates_Template.
-    Template []PerfMgmt_Statistics_ProcessNode_Templates_Template
+    Template []*PerfMgmt_Statistics_ProcessNode_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_ProcessNode_Templates) GetEntityData() *types.CommonEntityData {
@@ -456,12 +487,15 @@ func (templates *PerfMgmt_Statistics_ProcessNode_Templates) GetEntityData() *typ
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -472,7 +506,7 @@ type PerfMgmt_Statistics_ProcessNode_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -499,19 +533,22 @@ func (template *PerfMgmt_Statistics_ProcessNode_Templates_Template) GetEntityDat
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -535,9 +572,12 @@ func (basicCounterInterface *PerfMgmt_Statistics_BasicCounterInterface) GetEntit
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterface.EntityData.Children["templates"] = types.YChild{"Templates", &basicCounterInterface.Templates}
-    basicCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicCounterInterface.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Children.Append("templates", types.YChild{"Templates", &basicCounterInterface.Templates})
+    basicCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    basicCounterInterface.EntityData.YListKeys = []string {}
+
     return &(basicCounterInterface.EntityData)
 }
 
@@ -549,7 +589,7 @@ type PerfMgmt_Statistics_BasicCounterInterface_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_BasicCounterInterface_Templates_Template.
-    Template []PerfMgmt_Statistics_BasicCounterInterface_Templates_Template
+    Template []*PerfMgmt_Statistics_BasicCounterInterface_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_BasicCounterInterface_Templates) GetEntityData() *types.CommonEntityData {
@@ -562,12 +602,15 @@ func (templates *PerfMgmt_Statistics_BasicCounterInterface_Templates) GetEntityD
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -578,7 +621,7 @@ type PerfMgmt_Statistics_BasicCounterInterface_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -605,19 +648,22 @@ func (template *PerfMgmt_Statistics_BasicCounterInterface_Templates_Template) Ge
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -641,9 +687,12 @@ func (ospfv3Protocol *PerfMgmt_Statistics_Ospfv3Protocol) GetEntityData() *types
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv3Protocol.EntityData.Children["templates"] = types.YChild{"Templates", &ospfv3Protocol.Templates}
-    ospfv3Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv3Protocol.EntityData.Children.Append("templates", types.YChild{"Templates", &ospfv3Protocol.Templates})
+    ospfv3Protocol.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv3Protocol.EntityData)
 }
 
@@ -655,7 +704,7 @@ type PerfMgmt_Statistics_Ospfv3Protocol_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_Ospfv3Protocol_Templates_Template.
-    Template []PerfMgmt_Statistics_Ospfv3Protocol_Templates_Template
+    Template []*PerfMgmt_Statistics_Ospfv3Protocol_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_Ospfv3Protocol_Templates) GetEntityData() *types.CommonEntityData {
@@ -668,12 +717,15 @@ func (templates *PerfMgmt_Statistics_Ospfv3Protocol_Templates) GetEntityData() *
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -684,7 +736,7 @@ type PerfMgmt_Statistics_Ospfv3Protocol_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -711,19 +763,22 @@ func (template *PerfMgmt_Statistics_Ospfv3Protocol_Templates_Template) GetEntity
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -747,9 +802,12 @@ func (cpuNode *PerfMgmt_Statistics_CpuNode) GetEntityData() *types.CommonEntityD
     cpuNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cpuNode.EntityData.Children = make(map[string]types.YChild)
-    cpuNode.EntityData.Children["templates"] = types.YChild{"Templates", &cpuNode.Templates}
-    cpuNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuNode.EntityData.Children = types.NewOrderedMap()
+    cpuNode.EntityData.Children.Append("templates", types.YChild{"Templates", &cpuNode.Templates})
+    cpuNode.EntityData.Leafs = types.NewOrderedMap()
+
+    cpuNode.EntityData.YListKeys = []string {}
+
     return &(cpuNode.EntityData)
 }
 
@@ -761,7 +819,7 @@ type PerfMgmt_Statistics_CpuNode_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_CpuNode_Templates_Template.
-    Template []PerfMgmt_Statistics_CpuNode_Templates_Template
+    Template []*PerfMgmt_Statistics_CpuNode_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_CpuNode_Templates) GetEntityData() *types.CommonEntityData {
@@ -774,12 +832,15 @@ func (templates *PerfMgmt_Statistics_CpuNode_Templates) GetEntityData() *types.C
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -790,7 +851,7 @@ type PerfMgmt_Statistics_CpuNode_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -817,19 +878,22 @@ func (template *PerfMgmt_Statistics_CpuNode_Templates_Template) GetEntityData() 
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -853,9 +917,12 @@ func (dataRateInterface *PerfMgmt_Statistics_DataRateInterface) GetEntityData() 
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterface.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterface.EntityData.Children["templates"] = types.YChild{"Templates", &dataRateInterface.Templates}
-    dataRateInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataRateInterface.EntityData.Children = types.NewOrderedMap()
+    dataRateInterface.EntityData.Children.Append("templates", types.YChild{"Templates", &dataRateInterface.Templates})
+    dataRateInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    dataRateInterface.EntityData.YListKeys = []string {}
+
     return &(dataRateInterface.EntityData)
 }
 
@@ -867,7 +934,7 @@ type PerfMgmt_Statistics_DataRateInterface_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_DataRateInterface_Templates_Template.
-    Template []PerfMgmt_Statistics_DataRateInterface_Templates_Template
+    Template []*PerfMgmt_Statistics_DataRateInterface_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_DataRateInterface_Templates) GetEntityData() *types.CommonEntityData {
@@ -880,12 +947,15 @@ func (templates *PerfMgmt_Statistics_DataRateInterface_Templates) GetEntityData(
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -896,7 +966,7 @@ type PerfMgmt_Statistics_DataRateInterface_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -923,19 +993,22 @@ func (template *PerfMgmt_Statistics_DataRateInterface_Templates_Template) GetEnt
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -959,9 +1032,12 @@ func (memoryNode *PerfMgmt_Statistics_MemoryNode) GetEntityData() *types.CommonE
     memoryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryNode.EntityData.Children = make(map[string]types.YChild)
-    memoryNode.EntityData.Children["templates"] = types.YChild{"Templates", &memoryNode.Templates}
-    memoryNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryNode.EntityData.Children = types.NewOrderedMap()
+    memoryNode.EntityData.Children.Append("templates", types.YChild{"Templates", &memoryNode.Templates})
+    memoryNode.EntityData.Leafs = types.NewOrderedMap()
+
+    memoryNode.EntityData.YListKeys = []string {}
+
     return &(memoryNode.EntityData)
 }
 
@@ -973,7 +1049,7 @@ type PerfMgmt_Statistics_MemoryNode_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_MemoryNode_Templates_Template.
-    Template []PerfMgmt_Statistics_MemoryNode_Templates_Template
+    Template []*PerfMgmt_Statistics_MemoryNode_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_MemoryNode_Templates) GetEntityData() *types.CommonEntityData {
@@ -986,12 +1062,15 @@ func (templates *PerfMgmt_Statistics_MemoryNode_Templates) GetEntityData() *type
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -1002,7 +1081,7 @@ type PerfMgmt_Statistics_MemoryNode_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1029,19 +1108,22 @@ func (template *PerfMgmt_Statistics_MemoryNode_Templates_Template) GetEntityData
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -1065,9 +1147,12 @@ func (ldpMpls *PerfMgmt_Statistics_LdpMpls) GetEntityData() *types.CommonEntityD
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpMpls.EntityData.Children = make(map[string]types.YChild)
-    ldpMpls.EntityData.Children["templates"] = types.YChild{"Templates", &ldpMpls.Templates}
-    ldpMpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    ldpMpls.EntityData.Children = types.NewOrderedMap()
+    ldpMpls.EntityData.Children.Append("templates", types.YChild{"Templates", &ldpMpls.Templates})
+    ldpMpls.EntityData.Leafs = types.NewOrderedMap()
+
+    ldpMpls.EntityData.YListKeys = []string {}
+
     return &(ldpMpls.EntityData)
 }
 
@@ -1079,7 +1164,7 @@ type PerfMgmt_Statistics_LdpMpls_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_LdpMpls_Templates_Template.
-    Template []PerfMgmt_Statistics_LdpMpls_Templates_Template
+    Template []*PerfMgmt_Statistics_LdpMpls_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_LdpMpls_Templates) GetEntityData() *types.CommonEntityData {
@@ -1092,12 +1177,15 @@ func (templates *PerfMgmt_Statistics_LdpMpls_Templates) GetEntityData() *types.C
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -1108,7 +1196,7 @@ type PerfMgmt_Statistics_LdpMpls_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1135,19 +1223,22 @@ func (template *PerfMgmt_Statistics_LdpMpls_Templates_Template) GetEntityData() 
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -1171,9 +1262,12 @@ func (bgp *PerfMgmt_Statistics_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Children["templates"] = types.YChild{"Templates", &bgp.Templates}
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Children.Append("templates", types.YChild{"Templates", &bgp.Templates})
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -1185,7 +1279,7 @@ type PerfMgmt_Statistics_Bgp_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_Bgp_Templates_Template.
-    Template []PerfMgmt_Statistics_Bgp_Templates_Template
+    Template []*PerfMgmt_Statistics_Bgp_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_Bgp_Templates) GetEntityData() *types.CommonEntityData {
@@ -1198,12 +1292,15 @@ func (templates *PerfMgmt_Statistics_Bgp_Templates) GetEntityData() *types.Commo
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -1214,7 +1311,7 @@ type PerfMgmt_Statistics_Bgp_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1241,19 +1338,22 @@ func (template *PerfMgmt_Statistics_Bgp_Templates_Template) GetEntityData() *typ
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -1277,9 +1377,12 @@ func (ospfv2Protocol *PerfMgmt_Statistics_Ospfv2Protocol) GetEntityData() *types
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv2Protocol.EntityData.Children["templates"] = types.YChild{"Templates", &ospfv2Protocol.Templates}
-    ospfv2Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv2Protocol.EntityData.Children.Append("templates", types.YChild{"Templates", &ospfv2Protocol.Templates})
+    ospfv2Protocol.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv2Protocol.EntityData)
 }
 
@@ -1291,7 +1394,7 @@ type PerfMgmt_Statistics_Ospfv2Protocol_Templates struct {
 
     // A template instance. The type is slice of
     // PerfMgmt_Statistics_Ospfv2Protocol_Templates_Template.
-    Template []PerfMgmt_Statistics_Ospfv2Protocol_Templates_Template
+    Template []*PerfMgmt_Statistics_Ospfv2Protocol_Templates_Template
 }
 
 func (templates *PerfMgmt_Statistics_Ospfv2Protocol_Templates) GetEntityData() *types.CommonEntityData {
@@ -1304,12 +1407,15 @@ func (templates *PerfMgmt_Statistics_Ospfv2Protocol_Templates) GetEntityData() *
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -1320,7 +1426,7 @@ type PerfMgmt_Statistics_Ospfv2Protocol_Templates_Template struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1347,19 +1453,22 @@ func (template *PerfMgmt_Statistics_Ospfv2Protocol_Templates_Template) GetEntity
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", template.RegExpGroup}
-    template.EntityData.Leafs["history-persistent"] = types.YLeaf{"HistoryPersistent", template.HistoryPersistent}
-    template.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", template.VrfGroup}
-    template.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", template.SampleInterval}
-    template.EntityData.Leafs["sample-size"] = types.YLeaf{"SampleSize", template.SampleSize}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", template.RegExpGroup})
+    template.EntityData.Leafs.Append("history-persistent", types.YLeaf{"HistoryPersistent", template.HistoryPersistent})
+    template.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", template.VrfGroup})
+    template.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", template.SampleInterval})
+    template.EntityData.Leafs.Append("sample-size", types.YLeaf{"SampleSize", template.SampleSize})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -1390,11 +1499,14 @@ func (enable *PerfMgmt_Enable) GetEntityData() *types.CommonEntityData {
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    enable.EntityData.Children = make(map[string]types.YChild)
-    enable.EntityData.Children["threshold"] = types.YChild{"Threshold", &enable.Threshold}
-    enable.EntityData.Children["statistics"] = types.YChild{"Statistics", &enable.Statistics}
-    enable.EntityData.Children["monitor-enable"] = types.YChild{"MonitorEnable", &enable.MonitorEnable}
-    enable.EntityData.Leafs = make(map[string]types.YLeaf)
+    enable.EntityData.Children = types.NewOrderedMap()
+    enable.EntityData.Children.Append("threshold", types.YChild{"Threshold", &enable.Threshold})
+    enable.EntityData.Children.Append("statistics", types.YChild{"Statistics", &enable.Statistics})
+    enable.EntityData.Children.Append("monitor-enable", types.YChild{"MonitorEnable", &enable.MonitorEnable})
+    enable.EntityData.Leafs = types.NewOrderedMap()
+
+    enable.EntityData.YListKeys = []string {}
+
     return &(enable.EntityData)
 }
 
@@ -1446,18 +1558,21 @@ func (threshold *PerfMgmt_Enable_Threshold) GetEntityData() *types.CommonEntityD
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Children["ospfv3-protocol"] = types.YChild{"Ospfv3Protocol", &threshold.Ospfv3Protocol}
-    threshold.EntityData.Children["bgp"] = types.YChild{"Bgp", &threshold.Bgp}
-    threshold.EntityData.Children["data-rate-interface"] = types.YChild{"DataRateInterface", &threshold.DataRateInterface}
-    threshold.EntityData.Children["ospfv2-protocol"] = types.YChild{"Ospfv2Protocol", &threshold.Ospfv2Protocol}
-    threshold.EntityData.Children["memory-node"] = types.YChild{"MemoryNode", &threshold.MemoryNode}
-    threshold.EntityData.Children["generic-counter-interface"] = types.YChild{"GenericCounterInterface", &threshold.GenericCounterInterface}
-    threshold.EntityData.Children["cpu-node"] = types.YChild{"CpuNode", &threshold.CpuNode}
-    threshold.EntityData.Children["ldp-mpls"] = types.YChild{"LdpMpls", &threshold.LdpMpls}
-    threshold.EntityData.Children["process-node"] = types.YChild{"ProcessNode", &threshold.ProcessNode}
-    threshold.EntityData.Children["basic-counter-interface"] = types.YChild{"BasicCounterInterface", &threshold.BasicCounterInterface}
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Children.Append("ospfv3-protocol", types.YChild{"Ospfv3Protocol", &threshold.Ospfv3Protocol})
+    threshold.EntityData.Children.Append("bgp", types.YChild{"Bgp", &threshold.Bgp})
+    threshold.EntityData.Children.Append("data-rate-interface", types.YChild{"DataRateInterface", &threshold.DataRateInterface})
+    threshold.EntityData.Children.Append("ospfv2-protocol", types.YChild{"Ospfv2Protocol", &threshold.Ospfv2Protocol})
+    threshold.EntityData.Children.Append("memory-node", types.YChild{"MemoryNode", &threshold.MemoryNode})
+    threshold.EntityData.Children.Append("generic-counter-interface", types.YChild{"GenericCounterInterface", &threshold.GenericCounterInterface})
+    threshold.EntityData.Children.Append("cpu-node", types.YChild{"CpuNode", &threshold.CpuNode})
+    threshold.EntityData.Children.Append("ldp-mpls", types.YChild{"LdpMpls", &threshold.LdpMpls})
+    threshold.EntityData.Children.Append("process-node", types.YChild{"ProcessNode", &threshold.ProcessNode})
+    threshold.EntityData.Children.Append("basic-counter-interface", types.YChild{"BasicCounterInterface", &threshold.BasicCounterInterface})
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 
@@ -1481,9 +1596,12 @@ func (ospfv3Protocol *PerfMgmt_Enable_Threshold_Ospfv3Protocol) GetEntityData() 
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv3Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv3Protocol.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ospfv3Protocol.TemplateName}
+    ospfv3Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv3Protocol.EntityData.Leafs = types.NewOrderedMap()
+    ospfv3Protocol.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ospfv3Protocol.TemplateName})
+
+    ospfv3Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv3Protocol.EntityData)
 }
 
@@ -1507,9 +1625,12 @@ func (bgp *PerfMgmt_Enable_Threshold_Bgp) GetEntityData() *types.CommonEntityDat
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    bgp.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", bgp.TemplateName}
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+    bgp.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", bgp.TemplateName})
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -1533,9 +1654,12 @@ func (dataRateInterface *PerfMgmt_Enable_Threshold_DataRateInterface) GetEntityD
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterface.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRateInterface.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", dataRateInterface.TemplateName}
+    dataRateInterface.EntityData.Children = types.NewOrderedMap()
+    dataRateInterface.EntityData.Leafs = types.NewOrderedMap()
+    dataRateInterface.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", dataRateInterface.TemplateName})
+
+    dataRateInterface.EntityData.YListKeys = []string {}
+
     return &(dataRateInterface.EntityData)
 }
 
@@ -1559,9 +1683,12 @@ func (ospfv2Protocol *PerfMgmt_Enable_Threshold_Ospfv2Protocol) GetEntityData() 
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv2Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv2Protocol.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ospfv2Protocol.TemplateName}
+    ospfv2Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv2Protocol.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2Protocol.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ospfv2Protocol.TemplateName})
+
+    ospfv2Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv2Protocol.EntityData)
 }
 
@@ -1588,10 +1715,13 @@ func (memoryNode *PerfMgmt_Enable_Threshold_MemoryNode) GetEntityData() *types.C
     memoryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryNode.EntityData.Children = make(map[string]types.YChild)
-    memoryNode.EntityData.Children["nodes"] = types.YChild{"Nodes", &memoryNode.Nodes}
-    memoryNode.EntityData.Children["node-all"] = types.YChild{"NodeAll", &memoryNode.NodeAll}
-    memoryNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryNode.EntityData.Children = types.NewOrderedMap()
+    memoryNode.EntityData.Children.Append("nodes", types.YChild{"Nodes", &memoryNode.Nodes})
+    memoryNode.EntityData.Children.Append("node-all", types.YChild{"NodeAll", &memoryNode.NodeAll})
+    memoryNode.EntityData.Leafs = types.NewOrderedMap()
+
+    memoryNode.EntityData.YListKeys = []string {}
+
     return &(memoryNode.EntityData)
 }
 
@@ -1603,7 +1733,7 @@ type PerfMgmt_Enable_Threshold_MemoryNode_Nodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_Threshold_MemoryNode_Nodes_Node.
-    Node []PerfMgmt_Enable_Threshold_MemoryNode_Nodes_Node
+    Node []*PerfMgmt_Enable_Threshold_MemoryNode_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Enable_Threshold_MemoryNode_Nodes) GetEntityData() *types.CommonEntityData {
@@ -1616,12 +1746,15 @@ func (nodes *PerfMgmt_Enable_Threshold_MemoryNode_Nodes) GetEntityData() *types.
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -1632,7 +1765,7 @@ type PerfMgmt_Enable_Threshold_MemoryNode_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Template name. The type is string.
@@ -1644,15 +1777,18 @@ func (node *PerfMgmt_Enable_Threshold_MemoryNode_Nodes_Node) GetEntityData() *ty
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
-    node.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", node.TemplateName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+    node.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", node.TemplateName})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -1676,9 +1812,12 @@ func (nodeAll *PerfMgmt_Enable_Threshold_MemoryNode_NodeAll) GetEntityData() *ty
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeAll.EntityData.Children = make(map[string]types.YChild)
-    nodeAll.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeAll.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", nodeAll.TemplateName}
+    nodeAll.EntityData.Children = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", nodeAll.TemplateName})
+
+    nodeAll.EntityData.YListKeys = []string {}
+
     return &(nodeAll.EntityData)
 }
 
@@ -1703,9 +1842,12 @@ func (genericCounterInterface *PerfMgmt_Enable_Threshold_GenericCounterInterface
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounterInterface.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", genericCounterInterface.TemplateName}
+    genericCounterInterface.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", genericCounterInterface.TemplateName})
+
+    genericCounterInterface.EntityData.YListKeys = []string {}
+
     return &(genericCounterInterface.EntityData)
 }
 
@@ -1732,10 +1874,13 @@ func (cpuNode *PerfMgmt_Enable_Threshold_CpuNode) GetEntityData() *types.CommonE
     cpuNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cpuNode.EntityData.Children = make(map[string]types.YChild)
-    cpuNode.EntityData.Children["nodes"] = types.YChild{"Nodes", &cpuNode.Nodes}
-    cpuNode.EntityData.Children["node-all"] = types.YChild{"NodeAll", &cpuNode.NodeAll}
-    cpuNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuNode.EntityData.Children = types.NewOrderedMap()
+    cpuNode.EntityData.Children.Append("nodes", types.YChild{"Nodes", &cpuNode.Nodes})
+    cpuNode.EntityData.Children.Append("node-all", types.YChild{"NodeAll", &cpuNode.NodeAll})
+    cpuNode.EntityData.Leafs = types.NewOrderedMap()
+
+    cpuNode.EntityData.YListKeys = []string {}
+
     return &(cpuNode.EntityData)
 }
 
@@ -1747,7 +1892,7 @@ type PerfMgmt_Enable_Threshold_CpuNode_Nodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_Threshold_CpuNode_Nodes_Node.
-    Node []PerfMgmt_Enable_Threshold_CpuNode_Nodes_Node
+    Node []*PerfMgmt_Enable_Threshold_CpuNode_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Enable_Threshold_CpuNode_Nodes) GetEntityData() *types.CommonEntityData {
@@ -1760,12 +1905,15 @@ func (nodes *PerfMgmt_Enable_Threshold_CpuNode_Nodes) GetEntityData() *types.Com
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -1776,7 +1924,7 @@ type PerfMgmt_Enable_Threshold_CpuNode_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Template name. The type is string.
@@ -1788,15 +1936,18 @@ func (node *PerfMgmt_Enable_Threshold_CpuNode_Nodes_Node) GetEntityData() *types
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
-    node.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", node.TemplateName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+    node.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", node.TemplateName})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -1820,9 +1971,12 @@ func (nodeAll *PerfMgmt_Enable_Threshold_CpuNode_NodeAll) GetEntityData() *types
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeAll.EntityData.Children = make(map[string]types.YChild)
-    nodeAll.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeAll.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", nodeAll.TemplateName}
+    nodeAll.EntityData.Children = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", nodeAll.TemplateName})
+
+    nodeAll.EntityData.YListKeys = []string {}
+
     return &(nodeAll.EntityData)
 }
 
@@ -1846,9 +2000,12 @@ func (ldpMpls *PerfMgmt_Enable_Threshold_LdpMpls) GetEntityData() *types.CommonE
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpMpls.EntityData.Children = make(map[string]types.YChild)
-    ldpMpls.EntityData.Leafs = make(map[string]types.YLeaf)
-    ldpMpls.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ldpMpls.TemplateName}
+    ldpMpls.EntityData.Children = types.NewOrderedMap()
+    ldpMpls.EntityData.Leafs = types.NewOrderedMap()
+    ldpMpls.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ldpMpls.TemplateName})
+
+    ldpMpls.EntityData.YListKeys = []string {}
+
     return &(ldpMpls.EntityData)
 }
 
@@ -1875,10 +2032,13 @@ func (processNode *PerfMgmt_Enable_Threshold_ProcessNode) GetEntityData() *types
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processNode.EntityData.Children = make(map[string]types.YChild)
-    processNode.EntityData.Children["nodes"] = types.YChild{"Nodes", &processNode.Nodes}
-    processNode.EntityData.Children["node-all"] = types.YChild{"NodeAll", &processNode.NodeAll}
-    processNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    processNode.EntityData.Children = types.NewOrderedMap()
+    processNode.EntityData.Children.Append("nodes", types.YChild{"Nodes", &processNode.Nodes})
+    processNode.EntityData.Children.Append("node-all", types.YChild{"NodeAll", &processNode.NodeAll})
+    processNode.EntityData.Leafs = types.NewOrderedMap()
+
+    processNode.EntityData.YListKeys = []string {}
+
     return &(processNode.EntityData)
 }
 
@@ -1890,7 +2050,7 @@ type PerfMgmt_Enable_Threshold_ProcessNode_Nodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_Threshold_ProcessNode_Nodes_Node.
-    Node []PerfMgmt_Enable_Threshold_ProcessNode_Nodes_Node
+    Node []*PerfMgmt_Enable_Threshold_ProcessNode_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Enable_Threshold_ProcessNode_Nodes) GetEntityData() *types.CommonEntityData {
@@ -1903,12 +2063,15 @@ func (nodes *PerfMgmt_Enable_Threshold_ProcessNode_Nodes) GetEntityData() *types
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -1919,7 +2082,7 @@ type PerfMgmt_Enable_Threshold_ProcessNode_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Template name. The type is string.
@@ -1931,15 +2094,18 @@ func (node *PerfMgmt_Enable_Threshold_ProcessNode_Nodes_Node) GetEntityData() *t
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
-    node.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", node.TemplateName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+    node.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", node.TemplateName})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -1963,9 +2129,12 @@ func (nodeAll *PerfMgmt_Enable_Threshold_ProcessNode_NodeAll) GetEntityData() *t
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeAll.EntityData.Children = make(map[string]types.YChild)
-    nodeAll.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeAll.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", nodeAll.TemplateName}
+    nodeAll.EntityData.Children = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", nodeAll.TemplateName})
+
+    nodeAll.EntityData.YListKeys = []string {}
+
     return &(nodeAll.EntityData)
 }
 
@@ -1990,9 +2159,12 @@ func (basicCounterInterface *PerfMgmt_Enable_Threshold_BasicCounterInterface) Ge
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicCounterInterface.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", basicCounterInterface.TemplateName}
+    basicCounterInterface.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", basicCounterInterface.TemplateName})
+
+    basicCounterInterface.EntityData.YListKeys = []string {}
+
     return &(basicCounterInterface.EntityData)
 }
 
@@ -2044,18 +2216,21 @@ func (statistics *PerfMgmt_Enable_Statistics) GetEntityData() *types.CommonEntit
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["generic-counter-interface"] = types.YChild{"GenericCounterInterface", &statistics.GenericCounterInterface}
-    statistics.EntityData.Children["bgp"] = types.YChild{"Bgp", &statistics.Bgp}
-    statistics.EntityData.Children["ospfv2-protocol"] = types.YChild{"Ospfv2Protocol", &statistics.Ospfv2Protocol}
-    statistics.EntityData.Children["ospfv3-protocol"] = types.YChild{"Ospfv3Protocol", &statistics.Ospfv3Protocol}
-    statistics.EntityData.Children["cpu-node"] = types.YChild{"CpuNode", &statistics.CpuNode}
-    statistics.EntityData.Children["basic-counter-interface"] = types.YChild{"BasicCounterInterface", &statistics.BasicCounterInterface}
-    statistics.EntityData.Children["process-node"] = types.YChild{"ProcessNode", &statistics.ProcessNode}
-    statistics.EntityData.Children["data-rate-interface"] = types.YChild{"DataRateInterface", &statistics.DataRateInterface}
-    statistics.EntityData.Children["memory-node"] = types.YChild{"MemoryNode", &statistics.MemoryNode}
-    statistics.EntityData.Children["ldp-mpls"] = types.YChild{"LdpMpls", &statistics.LdpMpls}
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("generic-counter-interface", types.YChild{"GenericCounterInterface", &statistics.GenericCounterInterface})
+    statistics.EntityData.Children.Append("bgp", types.YChild{"Bgp", &statistics.Bgp})
+    statistics.EntityData.Children.Append("ospfv2-protocol", types.YChild{"Ospfv2Protocol", &statistics.Ospfv2Protocol})
+    statistics.EntityData.Children.Append("ospfv3-protocol", types.YChild{"Ospfv3Protocol", &statistics.Ospfv3Protocol})
+    statistics.EntityData.Children.Append("cpu-node", types.YChild{"CpuNode", &statistics.CpuNode})
+    statistics.EntityData.Children.Append("basic-counter-interface", types.YChild{"BasicCounterInterface", &statistics.BasicCounterInterface})
+    statistics.EntityData.Children.Append("process-node", types.YChild{"ProcessNode", &statistics.ProcessNode})
+    statistics.EntityData.Children.Append("data-rate-interface", types.YChild{"DataRateInterface", &statistics.DataRateInterface})
+    statistics.EntityData.Children.Append("memory-node", types.YChild{"MemoryNode", &statistics.MemoryNode})
+    statistics.EntityData.Children.Append("ldp-mpls", types.YChild{"LdpMpls", &statistics.LdpMpls})
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -2079,9 +2254,12 @@ func (genericCounterInterface *PerfMgmt_Enable_Statistics_GenericCounterInterfac
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounterInterface.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", genericCounterInterface.TemplateName}
+    genericCounterInterface.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", genericCounterInterface.TemplateName})
+
+    genericCounterInterface.EntityData.YListKeys = []string {}
+
     return &(genericCounterInterface.EntityData)
 }
 
@@ -2105,9 +2283,12 @@ func (bgp *PerfMgmt_Enable_Statistics_Bgp) GetEntityData() *types.CommonEntityDa
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
-    bgp.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", bgp.TemplateName}
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+    bgp.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", bgp.TemplateName})
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -2131,9 +2312,12 @@ func (ospfv2Protocol *PerfMgmt_Enable_Statistics_Ospfv2Protocol) GetEntityData()
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv2Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv2Protocol.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ospfv2Protocol.TemplateName}
+    ospfv2Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv2Protocol.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2Protocol.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ospfv2Protocol.TemplateName})
+
+    ospfv2Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv2Protocol.EntityData)
 }
 
@@ -2157,9 +2341,12 @@ func (ospfv3Protocol *PerfMgmt_Enable_Statistics_Ospfv3Protocol) GetEntityData()
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv3Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv3Protocol.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ospfv3Protocol.TemplateName}
+    ospfv3Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv3Protocol.EntityData.Leafs = types.NewOrderedMap()
+    ospfv3Protocol.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ospfv3Protocol.TemplateName})
+
+    ospfv3Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv3Protocol.EntityData)
 }
 
@@ -2186,10 +2373,13 @@ func (cpuNode *PerfMgmt_Enable_Statistics_CpuNode) GetEntityData() *types.Common
     cpuNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cpuNode.EntityData.Children = make(map[string]types.YChild)
-    cpuNode.EntityData.Children["node-all"] = types.YChild{"NodeAll", &cpuNode.NodeAll}
-    cpuNode.EntityData.Children["nodes"] = types.YChild{"Nodes", &cpuNode.Nodes}
-    cpuNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuNode.EntityData.Children = types.NewOrderedMap()
+    cpuNode.EntityData.Children.Append("node-all", types.YChild{"NodeAll", &cpuNode.NodeAll})
+    cpuNode.EntityData.Children.Append("nodes", types.YChild{"Nodes", &cpuNode.Nodes})
+    cpuNode.EntityData.Leafs = types.NewOrderedMap()
+
+    cpuNode.EntityData.YListKeys = []string {}
+
     return &(cpuNode.EntityData)
 }
 
@@ -2213,9 +2403,12 @@ func (nodeAll *PerfMgmt_Enable_Statistics_CpuNode_NodeAll) GetEntityData() *type
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeAll.EntityData.Children = make(map[string]types.YChild)
-    nodeAll.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeAll.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", nodeAll.TemplateName}
+    nodeAll.EntityData.Children = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", nodeAll.TemplateName})
+
+    nodeAll.EntityData.YListKeys = []string {}
+
     return &(nodeAll.EntityData)
 }
 
@@ -2227,7 +2420,7 @@ type PerfMgmt_Enable_Statistics_CpuNode_Nodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_Statistics_CpuNode_Nodes_Node.
-    Node []PerfMgmt_Enable_Statistics_CpuNode_Nodes_Node
+    Node []*PerfMgmt_Enable_Statistics_CpuNode_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Enable_Statistics_CpuNode_Nodes) GetEntityData() *types.CommonEntityData {
@@ -2240,12 +2433,15 @@ func (nodes *PerfMgmt_Enable_Statistics_CpuNode_Nodes) GetEntityData() *types.Co
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -2256,7 +2452,7 @@ type PerfMgmt_Enable_Statistics_CpuNode_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Template name. The type is string.
@@ -2268,15 +2464,18 @@ func (node *PerfMgmt_Enable_Statistics_CpuNode_Nodes_Node) GetEntityData() *type
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
-    node.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", node.TemplateName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+    node.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", node.TemplateName})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -2300,9 +2499,12 @@ func (basicCounterInterface *PerfMgmt_Enable_Statistics_BasicCounterInterface) G
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicCounterInterface.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", basicCounterInterface.TemplateName}
+    basicCounterInterface.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", basicCounterInterface.TemplateName})
+
+    basicCounterInterface.EntityData.YListKeys = []string {}
+
     return &(basicCounterInterface.EntityData)
 }
 
@@ -2329,10 +2531,13 @@ func (processNode *PerfMgmt_Enable_Statistics_ProcessNode) GetEntityData() *type
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processNode.EntityData.Children = make(map[string]types.YChild)
-    processNode.EntityData.Children["node-all"] = types.YChild{"NodeAll", &processNode.NodeAll}
-    processNode.EntityData.Children["nodes"] = types.YChild{"Nodes", &processNode.Nodes}
-    processNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    processNode.EntityData.Children = types.NewOrderedMap()
+    processNode.EntityData.Children.Append("node-all", types.YChild{"NodeAll", &processNode.NodeAll})
+    processNode.EntityData.Children.Append("nodes", types.YChild{"Nodes", &processNode.Nodes})
+    processNode.EntityData.Leafs = types.NewOrderedMap()
+
+    processNode.EntityData.YListKeys = []string {}
+
     return &(processNode.EntityData)
 }
 
@@ -2356,9 +2561,12 @@ func (nodeAll *PerfMgmt_Enable_Statistics_ProcessNode_NodeAll) GetEntityData() *
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeAll.EntityData.Children = make(map[string]types.YChild)
-    nodeAll.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeAll.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", nodeAll.TemplateName}
+    nodeAll.EntityData.Children = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", nodeAll.TemplateName})
+
+    nodeAll.EntityData.YListKeys = []string {}
+
     return &(nodeAll.EntityData)
 }
 
@@ -2370,7 +2578,7 @@ type PerfMgmt_Enable_Statistics_ProcessNode_Nodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_Statistics_ProcessNode_Nodes_Node.
-    Node []PerfMgmt_Enable_Statistics_ProcessNode_Nodes_Node
+    Node []*PerfMgmt_Enable_Statistics_ProcessNode_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Enable_Statistics_ProcessNode_Nodes) GetEntityData() *types.CommonEntityData {
@@ -2383,12 +2591,15 @@ func (nodes *PerfMgmt_Enable_Statistics_ProcessNode_Nodes) GetEntityData() *type
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -2399,7 +2610,7 @@ type PerfMgmt_Enable_Statistics_ProcessNode_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Template name. The type is string.
@@ -2411,15 +2622,18 @@ func (node *PerfMgmt_Enable_Statistics_ProcessNode_Nodes_Node) GetEntityData() *
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
-    node.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", node.TemplateName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+    node.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", node.TemplateName})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -2443,9 +2657,12 @@ func (dataRateInterface *PerfMgmt_Enable_Statistics_DataRateInterface) GetEntity
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterface.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRateInterface.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", dataRateInterface.TemplateName}
+    dataRateInterface.EntityData.Children = types.NewOrderedMap()
+    dataRateInterface.EntityData.Leafs = types.NewOrderedMap()
+    dataRateInterface.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", dataRateInterface.TemplateName})
+
+    dataRateInterface.EntityData.YListKeys = []string {}
+
     return &(dataRateInterface.EntityData)
 }
 
@@ -2472,10 +2689,13 @@ func (memoryNode *PerfMgmt_Enable_Statistics_MemoryNode) GetEntityData() *types.
     memoryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryNode.EntityData.Children = make(map[string]types.YChild)
-    memoryNode.EntityData.Children["node-all"] = types.YChild{"NodeAll", &memoryNode.NodeAll}
-    memoryNode.EntityData.Children["nodes"] = types.YChild{"Nodes", &memoryNode.Nodes}
-    memoryNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryNode.EntityData.Children = types.NewOrderedMap()
+    memoryNode.EntityData.Children.Append("node-all", types.YChild{"NodeAll", &memoryNode.NodeAll})
+    memoryNode.EntityData.Children.Append("nodes", types.YChild{"Nodes", &memoryNode.Nodes})
+    memoryNode.EntityData.Leafs = types.NewOrderedMap()
+
+    memoryNode.EntityData.YListKeys = []string {}
+
     return &(memoryNode.EntityData)
 }
 
@@ -2499,9 +2719,12 @@ func (nodeAll *PerfMgmt_Enable_Statistics_MemoryNode_NodeAll) GetEntityData() *t
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeAll.EntityData.Children = make(map[string]types.YChild)
-    nodeAll.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeAll.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", nodeAll.TemplateName}
+    nodeAll.EntityData.Children = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs = types.NewOrderedMap()
+    nodeAll.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", nodeAll.TemplateName})
+
+    nodeAll.EntityData.YListKeys = []string {}
+
     return &(nodeAll.EntityData)
 }
 
@@ -2513,7 +2736,7 @@ type PerfMgmt_Enable_Statistics_MemoryNode_Nodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_Statistics_MemoryNode_Nodes_Node.
-    Node []PerfMgmt_Enable_Statistics_MemoryNode_Nodes_Node
+    Node []*PerfMgmt_Enable_Statistics_MemoryNode_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Enable_Statistics_MemoryNode_Nodes) GetEntityData() *types.CommonEntityData {
@@ -2526,12 +2749,15 @@ func (nodes *PerfMgmt_Enable_Statistics_MemoryNode_Nodes) GetEntityData() *types
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -2542,7 +2768,7 @@ type PerfMgmt_Enable_Statistics_MemoryNode_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Template name. The type is string.
@@ -2554,15 +2780,18 @@ func (node *PerfMgmt_Enable_Statistics_MemoryNode_Nodes_Node) GetEntityData() *t
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
-    node.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", node.TemplateName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+    node.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", node.TemplateName})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -2586,9 +2815,12 @@ func (ldpMpls *PerfMgmt_Enable_Statistics_LdpMpls) GetEntityData() *types.Common
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpMpls.EntityData.Children = make(map[string]types.YChild)
-    ldpMpls.EntityData.Leafs = make(map[string]types.YLeaf)
-    ldpMpls.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ldpMpls.TemplateName}
+    ldpMpls.EntityData.Children = types.NewOrderedMap()
+    ldpMpls.EntityData.Leafs = types.NewOrderedMap()
+    ldpMpls.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ldpMpls.TemplateName})
+
+    ldpMpls.EntityData.YListKeys = []string {}
+
     return &(ldpMpls.EntityData)
 }
 
@@ -2639,18 +2871,21 @@ func (monitorEnable *PerfMgmt_Enable_MonitorEnable) GetEntityData() *types.Commo
     monitorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    monitorEnable.EntityData.Children = make(map[string]types.YChild)
-    monitorEnable.EntityData.Children["ldp-mpls"] = types.YChild{"LdpMpls", &monitorEnable.LdpMpls}
-    monitorEnable.EntityData.Children["ospfv3-protocol"] = types.YChild{"Ospfv3Protocol", &monitorEnable.Ospfv3Protocol}
-    monitorEnable.EntityData.Children["generic-counters"] = types.YChild{"GenericCounters", &monitorEnable.GenericCounters}
-    monitorEnable.EntityData.Children["process"] = types.YChild{"Process", &monitorEnable.Process}
-    monitorEnable.EntityData.Children["basic-counters"] = types.YChild{"BasicCounters", &monitorEnable.BasicCounters}
-    monitorEnable.EntityData.Children["memory"] = types.YChild{"Memory", &monitorEnable.Memory}
-    monitorEnable.EntityData.Children["ospfv2-protocol"] = types.YChild{"Ospfv2Protocol", &monitorEnable.Ospfv2Protocol}
-    monitorEnable.EntityData.Children["cpu"] = types.YChild{"Cpu", &monitorEnable.Cpu}
-    monitorEnable.EntityData.Children["bgp"] = types.YChild{"Bgp", &monitorEnable.Bgp}
-    monitorEnable.EntityData.Children["data-rates"] = types.YChild{"DataRates", &monitorEnable.DataRates}
-    monitorEnable.EntityData.Leafs = make(map[string]types.YLeaf)
+    monitorEnable.EntityData.Children = types.NewOrderedMap()
+    monitorEnable.EntityData.Children.Append("ldp-mpls", types.YChild{"LdpMpls", &monitorEnable.LdpMpls})
+    monitorEnable.EntityData.Children.Append("ospfv3-protocol", types.YChild{"Ospfv3Protocol", &monitorEnable.Ospfv3Protocol})
+    monitorEnable.EntityData.Children.Append("generic-counters", types.YChild{"GenericCounters", &monitorEnable.GenericCounters})
+    monitorEnable.EntityData.Children.Append("process", types.YChild{"Process", &monitorEnable.Process})
+    monitorEnable.EntityData.Children.Append("basic-counters", types.YChild{"BasicCounters", &monitorEnable.BasicCounters})
+    monitorEnable.EntityData.Children.Append("memory", types.YChild{"Memory", &monitorEnable.Memory})
+    monitorEnable.EntityData.Children.Append("ospfv2-protocol", types.YChild{"Ospfv2Protocol", &monitorEnable.Ospfv2Protocol})
+    monitorEnable.EntityData.Children.Append("cpu", types.YChild{"Cpu", &monitorEnable.Cpu})
+    monitorEnable.EntityData.Children.Append("bgp", types.YChild{"Bgp", &monitorEnable.Bgp})
+    monitorEnable.EntityData.Children.Append("data-rates", types.YChild{"DataRates", &monitorEnable.DataRates})
+    monitorEnable.EntityData.Leafs = types.NewOrderedMap()
+
+    monitorEnable.EntityData.YListKeys = []string {}
+
     return &(monitorEnable.EntityData)
 }
 
@@ -2674,9 +2909,12 @@ func (ldpMpls *PerfMgmt_Enable_MonitorEnable_LdpMpls) GetEntityData() *types.Com
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpMpls.EntityData.Children = make(map[string]types.YChild)
-    ldpMpls.EntityData.Children["sessions"] = types.YChild{"Sessions", &ldpMpls.Sessions}
-    ldpMpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    ldpMpls.EntityData.Children = types.NewOrderedMap()
+    ldpMpls.EntityData.Children.Append("sessions", types.YChild{"Sessions", &ldpMpls.Sessions})
+    ldpMpls.EntityData.Leafs = types.NewOrderedMap()
+
+    ldpMpls.EntityData.YListKeys = []string {}
+
     return &(ldpMpls.EntityData)
 }
 
@@ -2688,7 +2926,7 @@ type PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions struct {
 
     // IP address of the LDP Session. The type is slice of
     // PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions_Session.
-    Session []PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions_Session
+    Session []*PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions_Session
 }
 
 func (sessions *PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions) GetEntityData() *types.CommonEntityData {
@@ -2701,12 +2939,15 @@ func (sessions *PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions) GetEntityData() 
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -2718,7 +2959,7 @@ type PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions_Session struct {
 
     // This attribute is a key. IP address of the LDP Session. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Session interface{}
 
     // Template name. The type is string.
@@ -2730,15 +2971,18 @@ func (session *PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions_Session) GetEntity
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
-    session.EntityData.SegmentPath = "session" + "[session='" + fmt.Sprintf("%v", session.Session) + "']"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.Session, "session")
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["session"] = types.YLeaf{"Session", session.Session}
-    session.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", session.TemplateName}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session", types.YLeaf{"Session", session.Session})
+    session.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", session.TemplateName})
+
+    session.EntityData.YListKeys = []string {"Session"}
+
     return &(session.EntityData)
 }
 
@@ -2762,9 +3006,12 @@ func (ospfv3Protocol *PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol) GetEntityDat
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv3Protocol.EntityData.Children["ospf-instances"] = types.YChild{"OspfInstances", &ospfv3Protocol.OspfInstances}
-    ospfv3Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv3Protocol.EntityData.Children.Append("ospf-instances", types.YChild{"OspfInstances", &ospfv3Protocol.OspfInstances})
+    ospfv3Protocol.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv3Protocol.EntityData)
 }
 
@@ -2776,7 +3023,7 @@ type PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances struct {
 
     // Instance being monitored. The type is slice of
     // PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances_OspfInstance.
-    OspfInstance []PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances_OspfInstance
+    OspfInstance []*PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances_OspfInstance
 }
 
 func (ospfInstances *PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances) GetEntityData() *types.CommonEntityData {
@@ -2789,12 +3036,15 @@ func (ospfInstances *PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances)
     ospfInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfInstances.EntityData.Children = make(map[string]types.YChild)
-    ospfInstances.EntityData.Children["ospf-instance"] = types.YChild{"OspfInstance", nil}
+    ospfInstances.EntityData.Children = types.NewOrderedMap()
+    ospfInstances.EntityData.Children.Append("ospf-instance", types.YChild{"OspfInstance", nil})
     for i := range ospfInstances.OspfInstance {
-        ospfInstances.EntityData.Children[types.GetSegmentPath(&ospfInstances.OspfInstance[i])] = types.YChild{"OspfInstance", &ospfInstances.OspfInstance[i]}
+        ospfInstances.EntityData.Children.Append(types.GetSegmentPath(ospfInstances.OspfInstance[i]), types.YChild{"OspfInstance", ospfInstances.OspfInstance[i]})
     }
-    ospfInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfInstances.EntityData.YListKeys = []string {}
+
     return &(ospfInstances.EntityData)
 }
 
@@ -2805,7 +3055,7 @@ type PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances_OspfInstance str
     YFilter yfilter.YFilter
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Template name. The type is string.
@@ -2817,15 +3067,18 @@ func (ospfInstance *PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances_O
     ospfInstance.EntityData.YangName = "ospf-instance"
     ospfInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfInstance.EntityData.ParentYangName = "ospf-instances"
-    ospfInstance.EntityData.SegmentPath = "ospf-instance" + "[instance-name='" + fmt.Sprintf("%v", ospfInstance.InstanceName) + "']"
+    ospfInstance.EntityData.SegmentPath = "ospf-instance" + types.AddKeyToken(ospfInstance.InstanceName, "instance-name")
     ospfInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfInstance.EntityData.Children = make(map[string]types.YChild)
-    ospfInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfInstance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", ospfInstance.InstanceName}
-    ospfInstance.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ospfInstance.TemplateName}
+    ospfInstance.EntityData.Children = types.NewOrderedMap()
+    ospfInstance.EntityData.Leafs = types.NewOrderedMap()
+    ospfInstance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", ospfInstance.InstanceName})
+    ospfInstance.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ospfInstance.TemplateName})
+
+    ospfInstance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(ospfInstance.EntityData)
 }
 
@@ -2849,9 +3102,12 @@ func (genericCounters *PerfMgmt_Enable_MonitorEnable_GenericCounters) GetEntityD
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounters.EntityData.Children = make(map[string]types.YChild)
-    genericCounters.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &genericCounters.Interfaces}
-    genericCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericCounters.EntityData.Children = types.NewOrderedMap()
+    genericCounters.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &genericCounters.Interfaces})
+    genericCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    genericCounters.EntityData.YListKeys = []string {}
+
     return &(genericCounters.EntityData)
 }
 
@@ -2862,8 +3118,8 @@ type PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Interface being Monitored. The type is slice of
-    // PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface_.
-    Interface_ []PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface
+    // PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface.
+    Interface []*PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface
 }
 
 func (interfaces *PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -2876,12 +3132,15 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces) GetE
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -2892,7 +3151,7 @@ type PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -2904,15 +3163,18 @@ func (self *PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface) 
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", self.TemplateName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", self.TemplateName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -2936,9 +3198,12 @@ func (process *PerfMgmt_Enable_MonitorEnable_Process) GetEntityData() *types.Com
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    process.EntityData.Children = make(map[string]types.YChild)
-    process.EntityData.Children["process-nodes"] = types.YChild{"ProcessNodes", &process.ProcessNodes}
-    process.EntityData.Leafs = make(map[string]types.YLeaf)
+    process.EntityData.Children = types.NewOrderedMap()
+    process.EntityData.Children.Append("process-nodes", types.YChild{"ProcessNodes", &process.ProcessNodes})
+    process.EntityData.Leafs = types.NewOrderedMap()
+
+    process.EntityData.YListKeys = []string {}
+
     return &(process.EntityData)
 }
 
@@ -2950,7 +3215,7 @@ type PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode.
-    ProcessNode []PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode
+    ProcessNode []*PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode
 }
 
 func (processNodes *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes) GetEntityData() *types.CommonEntityData {
@@ -2963,12 +3228,15 @@ func (processNodes *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes) GetEntit
     processNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processNodes.EntityData.Children = make(map[string]types.YChild)
-    processNodes.EntityData.Children["process-node"] = types.YChild{"ProcessNode", nil}
+    processNodes.EntityData.Children = types.NewOrderedMap()
+    processNodes.EntityData.Children.Append("process-node", types.YChild{"ProcessNode", nil})
     for i := range processNodes.ProcessNode {
-        processNodes.EntityData.Children[types.GetSegmentPath(&processNodes.ProcessNode[i])] = types.YChild{"ProcessNode", &processNodes.ProcessNode[i]}
+        processNodes.EntityData.Children.Append(types.GetSegmentPath(processNodes.ProcessNode[i]), types.YChild{"ProcessNode", processNodes.ProcessNode[i]})
     }
-    processNodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    processNodes.EntityData.Leafs = types.NewOrderedMap()
+
+    processNodes.EntityData.YListKeys = []string {}
+
     return &(processNodes.EntityData)
 }
 
@@ -2979,7 +3247,7 @@ type PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Process ID specification.
@@ -2991,15 +3259,18 @@ func (processNode *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNod
     processNode.EntityData.YangName = "process-node"
     processNode.EntityData.BundleName = "cisco_ios_xr"
     processNode.EntityData.ParentYangName = "process-nodes"
-    processNode.EntityData.SegmentPath = "process-node" + "[node-id='" + fmt.Sprintf("%v", processNode.NodeId) + "']"
+    processNode.EntityData.SegmentPath = "process-node" + types.AddKeyToken(processNode.NodeId, "node-id")
     processNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processNode.EntityData.Children = make(map[string]types.YChild)
-    processNode.EntityData.Children["pids"] = types.YChild{"Pids", &processNode.Pids}
-    processNode.EntityData.Leafs = make(map[string]types.YLeaf)
-    processNode.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", processNode.NodeId}
+    processNode.EntityData.Children = types.NewOrderedMap()
+    processNode.EntityData.Children.Append("pids", types.YChild{"Pids", &processNode.Pids})
+    processNode.EntityData.Leafs = types.NewOrderedMap()
+    processNode.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", processNode.NodeId})
+
+    processNode.EntityData.YListKeys = []string {"NodeId"}
+
     return &(processNode.EntityData)
 }
 
@@ -3011,7 +3282,7 @@ type PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids struct 
 
     // Specify an existing template for data collection. The type is slice of
     // PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids_Pid.
-    Pid []PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids_Pid
+    Pid []*PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids_Pid
 }
 
 func (pids *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids) GetEntityData() *types.CommonEntityData {
@@ -3024,12 +3295,15 @@ func (pids *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids)
     pids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pids.EntityData.Children = make(map[string]types.YChild)
-    pids.EntityData.Children["pid"] = types.YChild{"Pid", nil}
+    pids.EntityData.Children = types.NewOrderedMap()
+    pids.EntityData.Children.Append("pid", types.YChild{"Pid", nil})
     for i := range pids.Pid {
-        pids.EntityData.Children[types.GetSegmentPath(&pids.Pid[i])] = types.YChild{"Pid", &pids.Pid[i]}
+        pids.EntityData.Children.Append(types.GetSegmentPath(pids.Pid[i]), types.YChild{"Pid", pids.Pid[i]})
     }
-    pids.EntityData.Leafs = make(map[string]types.YLeaf)
+    pids.EntityData.Leafs = types.NewOrderedMap()
+
+    pids.EntityData.YListKeys = []string {}
+
     return &(pids.EntityData)
 }
 
@@ -3053,15 +3327,18 @@ func (pid *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids_P
     pid.EntityData.YangName = "pid"
     pid.EntityData.BundleName = "cisco_ios_xr"
     pid.EntityData.ParentYangName = "pids"
-    pid.EntityData.SegmentPath = "pid" + "[pid='" + fmt.Sprintf("%v", pid.Pid) + "']"
+    pid.EntityData.SegmentPath = "pid" + types.AddKeyToken(pid.Pid, "pid")
     pid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pid.EntityData.Children = make(map[string]types.YChild)
-    pid.EntityData.Leafs = make(map[string]types.YLeaf)
-    pid.EntityData.Leafs["pid"] = types.YLeaf{"Pid", pid.Pid}
-    pid.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", pid.TemplateName}
+    pid.EntityData.Children = types.NewOrderedMap()
+    pid.EntityData.Leafs = types.NewOrderedMap()
+    pid.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", pid.Pid})
+    pid.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", pid.TemplateName})
+
+    pid.EntityData.YListKeys = []string {"Pid"}
+
     return &(pid.EntityData)
 }
 
@@ -3085,9 +3362,12 @@ func (basicCounters *PerfMgmt_Enable_MonitorEnable_BasicCounters) GetEntityData(
     basicCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounters.EntityData.Children = make(map[string]types.YChild)
-    basicCounters.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &basicCounters.Interfaces}
-    basicCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicCounters.EntityData.Children = types.NewOrderedMap()
+    basicCounters.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &basicCounters.Interfaces})
+    basicCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    basicCounters.EntityData.YListKeys = []string {}
+
     return &(basicCounters.EntityData)
 }
 
@@ -3098,8 +3378,8 @@ type PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Interface being Monitored. The type is slice of
-    // PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface_.
-    Interface_ []PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface
+    // PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface.
+    Interface []*PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface
 }
 
 func (interfaces *PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -3112,12 +3392,15 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces) GetEnt
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -3128,7 +3411,7 @@ type PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -3140,15 +3423,18 @@ func (self *PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface) Ge
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", self.TemplateName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", self.TemplateName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -3172,9 +3458,12 @@ func (memory *PerfMgmt_Enable_MonitorEnable_Memory) GetEntityData() *types.Commo
     memory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memory.EntityData.Children = make(map[string]types.YChild)
-    memory.EntityData.Children["nodes"] = types.YChild{"Nodes", &memory.Nodes}
-    memory.EntityData.Leafs = make(map[string]types.YLeaf)
+    memory.EntityData.Children = types.NewOrderedMap()
+    memory.EntityData.Children.Append("nodes", types.YChild{"Nodes", &memory.Nodes})
+    memory.EntityData.Leafs = types.NewOrderedMap()
+
+    memory.EntityData.YListKeys = []string {}
+
     return &(memory.EntityData)
 }
 
@@ -3186,7 +3475,7 @@ type PerfMgmt_Enable_MonitorEnable_Memory_Nodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_MonitorEnable_Memory_Nodes_Node.
-    Node []PerfMgmt_Enable_MonitorEnable_Memory_Nodes_Node
+    Node []*PerfMgmt_Enable_MonitorEnable_Memory_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Enable_MonitorEnable_Memory_Nodes) GetEntityData() *types.CommonEntityData {
@@ -3199,12 +3488,15 @@ func (nodes *PerfMgmt_Enable_MonitorEnable_Memory_Nodes) GetEntityData() *types.
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -3215,7 +3507,7 @@ type PerfMgmt_Enable_MonitorEnable_Memory_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Template name. The type is string.
@@ -3227,15 +3519,18 @@ func (node *PerfMgmt_Enable_MonitorEnable_Memory_Nodes_Node) GetEntityData() *ty
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
-    node.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", node.TemplateName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+    node.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", node.TemplateName})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -3259,9 +3554,12 @@ func (ospfv2Protocol *PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol) GetEntityDat
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv2Protocol.EntityData.Children["ospf-instances"] = types.YChild{"OspfInstances", &ospfv2Protocol.OspfInstances}
-    ospfv2Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv2Protocol.EntityData.Children.Append("ospf-instances", types.YChild{"OspfInstances", &ospfv2Protocol.OspfInstances})
+    ospfv2Protocol.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv2Protocol.EntityData)
 }
 
@@ -3273,7 +3571,7 @@ type PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances struct {
 
     // Instance being monitored. The type is slice of
     // PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances_OspfInstance.
-    OspfInstance []PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances_OspfInstance
+    OspfInstance []*PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances_OspfInstance
 }
 
 func (ospfInstances *PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances) GetEntityData() *types.CommonEntityData {
@@ -3286,12 +3584,15 @@ func (ospfInstances *PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances)
     ospfInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfInstances.EntityData.Children = make(map[string]types.YChild)
-    ospfInstances.EntityData.Children["ospf-instance"] = types.YChild{"OspfInstance", nil}
+    ospfInstances.EntityData.Children = types.NewOrderedMap()
+    ospfInstances.EntityData.Children.Append("ospf-instance", types.YChild{"OspfInstance", nil})
     for i := range ospfInstances.OspfInstance {
-        ospfInstances.EntityData.Children[types.GetSegmentPath(&ospfInstances.OspfInstance[i])] = types.YChild{"OspfInstance", &ospfInstances.OspfInstance[i]}
+        ospfInstances.EntityData.Children.Append(types.GetSegmentPath(ospfInstances.OspfInstance[i]), types.YChild{"OspfInstance", ospfInstances.OspfInstance[i]})
     }
-    ospfInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfInstances.EntityData.YListKeys = []string {}
+
     return &(ospfInstances.EntityData)
 }
 
@@ -3302,7 +3603,7 @@ type PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances_OspfInstance str
     YFilter yfilter.YFilter
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Template name. The type is string.
@@ -3314,15 +3615,18 @@ func (ospfInstance *PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances_O
     ospfInstance.EntityData.YangName = "ospf-instance"
     ospfInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfInstance.EntityData.ParentYangName = "ospf-instances"
-    ospfInstance.EntityData.SegmentPath = "ospf-instance" + "[instance-name='" + fmt.Sprintf("%v", ospfInstance.InstanceName) + "']"
+    ospfInstance.EntityData.SegmentPath = "ospf-instance" + types.AddKeyToken(ospfInstance.InstanceName, "instance-name")
     ospfInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfInstance.EntityData.Children = make(map[string]types.YChild)
-    ospfInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfInstance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", ospfInstance.InstanceName}
-    ospfInstance.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ospfInstance.TemplateName}
+    ospfInstance.EntityData.Children = types.NewOrderedMap()
+    ospfInstance.EntityData.Leafs = types.NewOrderedMap()
+    ospfInstance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", ospfInstance.InstanceName})
+    ospfInstance.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ospfInstance.TemplateName})
+
+    ospfInstance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(ospfInstance.EntityData)
 }
 
@@ -3346,9 +3650,12 @@ func (cpu *PerfMgmt_Enable_MonitorEnable_Cpu) GetEntityData() *types.CommonEntit
     cpu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cpu.EntityData.Children = make(map[string]types.YChild)
-    cpu.EntityData.Children["nodes"] = types.YChild{"Nodes", &cpu.Nodes}
-    cpu.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpu.EntityData.Children = types.NewOrderedMap()
+    cpu.EntityData.Children.Append("nodes", types.YChild{"Nodes", &cpu.Nodes})
+    cpu.EntityData.Leafs = types.NewOrderedMap()
+
+    cpu.EntityData.YListKeys = []string {}
+
     return &(cpu.EntityData)
 }
 
@@ -3360,7 +3667,7 @@ type PerfMgmt_Enable_MonitorEnable_Cpu_Nodes struct {
 
     // Node instance. The type is slice of
     // PerfMgmt_Enable_MonitorEnable_Cpu_Nodes_Node.
-    Node []PerfMgmt_Enable_MonitorEnable_Cpu_Nodes_Node
+    Node []*PerfMgmt_Enable_MonitorEnable_Cpu_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Enable_MonitorEnable_Cpu_Nodes) GetEntityData() *types.CommonEntityData {
@@ -3373,12 +3680,15 @@ func (nodes *PerfMgmt_Enable_MonitorEnable_Cpu_Nodes) GetEntityData() *types.Com
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -3389,7 +3699,7 @@ type PerfMgmt_Enable_MonitorEnable_Cpu_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Template name. The type is string.
@@ -3401,15 +3711,18 @@ func (node *PerfMgmt_Enable_MonitorEnable_Cpu_Nodes_Node) GetEntityData() *types
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
-    node.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", node.TemplateName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+    node.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", node.TemplateName})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -3433,9 +3746,12 @@ func (bgp *PerfMgmt_Enable_MonitorEnable_Bgp) GetEntityData() *types.CommonEntit
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &bgp.Neighbors}
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &bgp.Neighbors})
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -3447,7 +3763,7 @@ type PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors struct {
 
     // Neighbor being monitored. The type is slice of
     // PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors_Neighbor.
-    Neighbor []PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors_Neighbor
+    Neighbor []*PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors_Neighbor
 }
 
 func (neighbors *PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -3460,12 +3776,15 @@ func (neighbors *PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors) GetEntityData() *t
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -3477,7 +3796,7 @@ type PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors_Neighbor struct {
 
     // This attribute is a key. IP address of the Neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Template name. The type is string.
@@ -3489,15 +3808,18 @@ func (neighbor *PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors_Neighbor) GetEntityD
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[peer-address='" + fmt.Sprintf("%v", neighbor.PeerAddress) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.PeerAddress, "peer-address")
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", neighbor.PeerAddress}
-    neighbor.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", neighbor.TemplateName}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("peer-address", types.YLeaf{"PeerAddress", neighbor.PeerAddress})
+    neighbor.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", neighbor.TemplateName})
+
+    neighbor.EntityData.YListKeys = []string {"PeerAddress"}
+
     return &(neighbor.EntityData)
 }
 
@@ -3521,9 +3843,12 @@ func (dataRates *PerfMgmt_Enable_MonitorEnable_DataRates) GetEntityData() *types
     dataRates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRates.EntityData.Children = make(map[string]types.YChild)
-    dataRates.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &dataRates.Interfaces}
-    dataRates.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataRates.EntityData.Children = types.NewOrderedMap()
+    dataRates.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &dataRates.Interfaces})
+    dataRates.EntityData.Leafs = types.NewOrderedMap()
+
+    dataRates.EntityData.YListKeys = []string {}
+
     return &(dataRates.EntityData)
 }
 
@@ -3534,8 +3859,8 @@ type PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Interface being Monitored. The type is slice of
-    // PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface_.
-    Interface_ []PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface
+    // PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface.
+    Interface []*PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface
 }
 
 func (interfaces *PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -3548,12 +3873,15 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces) GetEntityD
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -3564,7 +3892,7 @@ type PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -3576,15 +3904,18 @@ func (self *PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface) GetEnt
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", self.TemplateName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", self.TemplateName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -3596,7 +3927,7 @@ type PerfMgmt_RegExpGroups struct {
 
     // Specify regular expression group name. The type is slice of
     // PerfMgmt_RegExpGroups_RegExpGroup.
-    RegExpGroup []PerfMgmt_RegExpGroups_RegExpGroup
+    RegExpGroup []*PerfMgmt_RegExpGroups_RegExpGroup
 }
 
 func (regExpGroups *PerfMgmt_RegExpGroups) GetEntityData() *types.CommonEntityData {
@@ -3609,12 +3940,15 @@ func (regExpGroups *PerfMgmt_RegExpGroups) GetEntityData() *types.CommonEntityDa
     regExpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regExpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    regExpGroups.EntityData.Children = make(map[string]types.YChild)
-    regExpGroups.EntityData.Children["reg-exp-group"] = types.YChild{"RegExpGroup", nil}
+    regExpGroups.EntityData.Children = types.NewOrderedMap()
+    regExpGroups.EntityData.Children.Append("reg-exp-group", types.YChild{"RegExpGroup", nil})
     for i := range regExpGroups.RegExpGroup {
-        regExpGroups.EntityData.Children[types.GetSegmentPath(&regExpGroups.RegExpGroup[i])] = types.YChild{"RegExpGroup", &regExpGroups.RegExpGroup[i]}
+        regExpGroups.EntityData.Children.Append(types.GetSegmentPath(regExpGroups.RegExpGroup[i]), types.YChild{"RegExpGroup", regExpGroups.RegExpGroup[i]})
     }
-    regExpGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    regExpGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    regExpGroups.EntityData.YListKeys = []string {}
+
     return &(regExpGroups.EntityData)
 }
 
@@ -3637,15 +3971,18 @@ func (regExpGroup *PerfMgmt_RegExpGroups_RegExpGroup) GetEntityData() *types.Com
     regExpGroup.EntityData.YangName = "reg-exp-group"
     regExpGroup.EntityData.BundleName = "cisco_ios_xr"
     regExpGroup.EntityData.ParentYangName = "reg-exp-groups"
-    regExpGroup.EntityData.SegmentPath = "reg-exp-group" + "[reg-exp-group-name='" + fmt.Sprintf("%v", regExpGroup.RegExpGroupName) + "']"
+    regExpGroup.EntityData.SegmentPath = "reg-exp-group" + types.AddKeyToken(regExpGroup.RegExpGroupName, "reg-exp-group-name")
     regExpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regExpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regExpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    regExpGroup.EntityData.Children = make(map[string]types.YChild)
-    regExpGroup.EntityData.Children["reg-exps"] = types.YChild{"RegExps", &regExpGroup.RegExps}
-    regExpGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    regExpGroup.EntityData.Leafs["reg-exp-group-name"] = types.YLeaf{"RegExpGroupName", regExpGroup.RegExpGroupName}
+    regExpGroup.EntityData.Children = types.NewOrderedMap()
+    regExpGroup.EntityData.Children.Append("reg-exps", types.YChild{"RegExps", &regExpGroup.RegExps})
+    regExpGroup.EntityData.Leafs = types.NewOrderedMap()
+    regExpGroup.EntityData.Leafs.Append("reg-exp-group-name", types.YLeaf{"RegExpGroupName", regExpGroup.RegExpGroupName})
+
+    regExpGroup.EntityData.YListKeys = []string {"RegExpGroupName"}
+
     return &(regExpGroup.EntityData)
 }
 
@@ -3657,7 +3994,7 @@ type PerfMgmt_RegExpGroups_RegExpGroup_RegExps struct {
 
     // Specify regular expression index number. The type is slice of
     // PerfMgmt_RegExpGroups_RegExpGroup_RegExps_RegExp.
-    RegExp []PerfMgmt_RegExpGroups_RegExpGroup_RegExps_RegExp
+    RegExp []*PerfMgmt_RegExpGroups_RegExpGroup_RegExps_RegExp
 }
 
 func (regExps *PerfMgmt_RegExpGroups_RegExpGroup_RegExps) GetEntityData() *types.CommonEntityData {
@@ -3670,12 +4007,15 @@ func (regExps *PerfMgmt_RegExpGroups_RegExpGroup_RegExps) GetEntityData() *types
     regExps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regExps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    regExps.EntityData.Children = make(map[string]types.YChild)
-    regExps.EntityData.Children["reg-exp"] = types.YChild{"RegExp", nil}
+    regExps.EntityData.Children = types.NewOrderedMap()
+    regExps.EntityData.Children.Append("reg-exp", types.YChild{"RegExp", nil})
     for i := range regExps.RegExp {
-        regExps.EntityData.Children[types.GetSegmentPath(&regExps.RegExp[i])] = types.YChild{"RegExp", &regExps.RegExp[i]}
+        regExps.EntityData.Children.Append(types.GetSegmentPath(regExps.RegExp[i]), types.YChild{"RegExp", regExps.RegExp[i]})
     }
-    regExps.EntityData.Leafs = make(map[string]types.YLeaf)
+    regExps.EntityData.Leafs = types.NewOrderedMap()
+
+    regExps.EntityData.YListKeys = []string {}
+
     return &(regExps.EntityData)
 }
 
@@ -3699,15 +4039,18 @@ func (regExp *PerfMgmt_RegExpGroups_RegExpGroup_RegExps_RegExp) GetEntityData() 
     regExp.EntityData.YangName = "reg-exp"
     regExp.EntityData.BundleName = "cisco_ios_xr"
     regExp.EntityData.ParentYangName = "reg-exps"
-    regExp.EntityData.SegmentPath = "reg-exp" + "[reg-exp-index='" + fmt.Sprintf("%v", regExp.RegExpIndex) + "']"
+    regExp.EntityData.SegmentPath = "reg-exp" + types.AddKeyToken(regExp.RegExpIndex, "reg-exp-index")
     regExp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regExp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regExp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    regExp.EntityData.Children = make(map[string]types.YChild)
-    regExp.EntityData.Leafs = make(map[string]types.YLeaf)
-    regExp.EntityData.Leafs["reg-exp-index"] = types.YLeaf{"RegExpIndex", regExp.RegExpIndex}
-    regExp.EntityData.Leafs["reg-exp-string"] = types.YLeaf{"RegExpString", regExp.RegExpString}
+    regExp.EntityData.Children = types.NewOrderedMap()
+    regExp.EntityData.Leafs = types.NewOrderedMap()
+    regExp.EntityData.Leafs.Append("reg-exp-index", types.YLeaf{"RegExpIndex", regExp.RegExpIndex})
+    regExp.EntityData.Leafs.Append("reg-exp-string", types.YLeaf{"RegExpString", regExp.RegExpString})
+
+    regExp.EntityData.YListKeys = []string {"RegExpIndex"}
+
     return &(regExp.EntityData)
 }
 
@@ -3758,18 +4101,21 @@ func (threshold *PerfMgmt_Threshold) GetEntityData() *types.CommonEntityData {
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Children["generic-counter-interface"] = types.YChild{"GenericCounterInterface", &threshold.GenericCounterInterface}
-    threshold.EntityData.Children["ldp-mpls"] = types.YChild{"LdpMpls", &threshold.LdpMpls}
-    threshold.EntityData.Children["basic-counter-interface"] = types.YChild{"BasicCounterInterface", &threshold.BasicCounterInterface}
-    threshold.EntityData.Children["bgp"] = types.YChild{"Bgp", &threshold.Bgp}
-    threshold.EntityData.Children["ospfv2-protocol"] = types.YChild{"Ospfv2Protocol", &threshold.Ospfv2Protocol}
-    threshold.EntityData.Children["cpu-node"] = types.YChild{"CpuNode", &threshold.CpuNode}
-    threshold.EntityData.Children["data-rate-interface"] = types.YChild{"DataRateInterface", &threshold.DataRateInterface}
-    threshold.EntityData.Children["process-node"] = types.YChild{"ProcessNode", &threshold.ProcessNode}
-    threshold.EntityData.Children["memory-node"] = types.YChild{"MemoryNode", &threshold.MemoryNode}
-    threshold.EntityData.Children["ospfv3-protocol"] = types.YChild{"Ospfv3Protocol", &threshold.Ospfv3Protocol}
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Children.Append("generic-counter-interface", types.YChild{"GenericCounterInterface", &threshold.GenericCounterInterface})
+    threshold.EntityData.Children.Append("ldp-mpls", types.YChild{"LdpMpls", &threshold.LdpMpls})
+    threshold.EntityData.Children.Append("basic-counter-interface", types.YChild{"BasicCounterInterface", &threshold.BasicCounterInterface})
+    threshold.EntityData.Children.Append("bgp", types.YChild{"Bgp", &threshold.Bgp})
+    threshold.EntityData.Children.Append("ospfv2-protocol", types.YChild{"Ospfv2Protocol", &threshold.Ospfv2Protocol})
+    threshold.EntityData.Children.Append("cpu-node", types.YChild{"CpuNode", &threshold.CpuNode})
+    threshold.EntityData.Children.Append("data-rate-interface", types.YChild{"DataRateInterface", &threshold.DataRateInterface})
+    threshold.EntityData.Children.Append("process-node", types.YChild{"ProcessNode", &threshold.ProcessNode})
+    threshold.EntityData.Children.Append("memory-node", types.YChild{"MemoryNode", &threshold.MemoryNode})
+    threshold.EntityData.Children.Append("ospfv3-protocol", types.YChild{"Ospfv3Protocol", &threshold.Ospfv3Protocol})
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 
@@ -3794,9 +4140,12 @@ func (genericCounterInterface *PerfMgmt_Threshold_GenericCounterInterface) GetEn
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterface.EntityData.Children["generic-counter-interface-templates"] = types.YChild{"GenericCounterInterfaceTemplates", &genericCounterInterface.GenericCounterInterfaceTemplates}
-    genericCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericCounterInterface.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Children.Append("generic-counter-interface-templates", types.YChild{"GenericCounterInterfaceTemplates", &genericCounterInterface.GenericCounterInterfaceTemplates})
+    genericCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    genericCounterInterface.EntityData.YListKeys = []string {}
+
     return &(genericCounterInterface.EntityData)
 }
 
@@ -3808,7 +4157,7 @@ type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates
 
     // Interface Generic Counter threshold template instance. The type is slice of
     // PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate.
-    GenericCounterInterfaceTemplate []PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate
+    GenericCounterInterfaceTemplate []*PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate
 }
 
 func (genericCounterInterfaceTemplates *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates) GetEntityData() *types.CommonEntityData {
@@ -3821,12 +4170,15 @@ func (genericCounterInterfaceTemplates *PerfMgmt_Threshold_GenericCounterInterfa
     genericCounterInterfaceTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterfaceTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterfaceTemplates.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterfaceTemplates.EntityData.Children["generic-counter-interface-template"] = types.YChild{"GenericCounterInterfaceTemplate", nil}
+    genericCounterInterfaceTemplates.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterfaceTemplates.EntityData.Children.Append("generic-counter-interface-template", types.YChild{"GenericCounterInterfaceTemplate", nil})
     for i := range genericCounterInterfaceTemplates.GenericCounterInterfaceTemplate {
-        genericCounterInterfaceTemplates.EntityData.Children[types.GetSegmentPath(&genericCounterInterfaceTemplates.GenericCounterInterfaceTemplate[i])] = types.YChild{"GenericCounterInterfaceTemplate", &genericCounterInterfaceTemplates.GenericCounterInterfaceTemplate[i]}
+        genericCounterInterfaceTemplates.EntityData.Children.Append(types.GetSegmentPath(genericCounterInterfaceTemplates.GenericCounterInterfaceTemplate[i]), types.YChild{"GenericCounterInterfaceTemplate", genericCounterInterfaceTemplates.GenericCounterInterfaceTemplate[i]})
     }
-    genericCounterInterfaceTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericCounterInterfaceTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    genericCounterInterfaceTemplates.EntityData.YListKeys = []string {}
+
     return &(genericCounterInterfaceTemplates.EntityData)
 }
 
@@ -3838,7 +4190,7 @@ type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -3919,37 +4271,40 @@ func (genericCounterInterfaceTemplate *PerfMgmt_Threshold_GenericCounterInterfac
     genericCounterInterfaceTemplate.EntityData.YangName = "generic-counter-interface-template"
     genericCounterInterfaceTemplate.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterfaceTemplate.EntityData.ParentYangName = "generic-counter-interface-templates"
-    genericCounterInterfaceTemplate.EntityData.SegmentPath = "generic-counter-interface-template" + "[template-name='" + fmt.Sprintf("%v", genericCounterInterfaceTemplate.TemplateName) + "']"
+    genericCounterInterfaceTemplate.EntityData.SegmentPath = "generic-counter-interface-template" + types.AddKeyToken(genericCounterInterfaceTemplate.TemplateName, "template-name")
     genericCounterInterfaceTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterfaceTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterfaceTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterfaceTemplate.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterfaceTemplate.EntityData.Children["in-octets"] = types.YChild{"InOctets", &genericCounterInterfaceTemplate.InOctets}
-    genericCounterInterfaceTemplate.EntityData.Children["in-ucast-pkts"] = types.YChild{"InUcastPkts", &genericCounterInterfaceTemplate.InUcastPkts}
-    genericCounterInterfaceTemplate.EntityData.Children["out-ucast-pkts"] = types.YChild{"OutUcastPkts", &genericCounterInterfaceTemplate.OutUcastPkts}
-    genericCounterInterfaceTemplate.EntityData.Children["out-broadcast-pkts"] = types.YChild{"OutBroadcastPkts", &genericCounterInterfaceTemplate.OutBroadcastPkts}
-    genericCounterInterfaceTemplate.EntityData.Children["out-multicast-pkts"] = types.YChild{"OutMulticastPkts", &genericCounterInterfaceTemplate.OutMulticastPkts}
-    genericCounterInterfaceTemplate.EntityData.Children["input-overrun"] = types.YChild{"InputOverrun", &genericCounterInterfaceTemplate.InputOverrun}
-    genericCounterInterfaceTemplate.EntityData.Children["out-octets"] = types.YChild{"OutOctets", &genericCounterInterfaceTemplate.OutOctets}
-    genericCounterInterfaceTemplate.EntityData.Children["output-underrun"] = types.YChild{"OutputUnderrun", &genericCounterInterfaceTemplate.OutputUnderrun}
-    genericCounterInterfaceTemplate.EntityData.Children["input-total-errors"] = types.YChild{"InputTotalErrors", &genericCounterInterfaceTemplate.InputTotalErrors}
-    genericCounterInterfaceTemplate.EntityData.Children["output-total-drops"] = types.YChild{"OutputTotalDrops", &genericCounterInterfaceTemplate.OutputTotalDrops}
-    genericCounterInterfaceTemplate.EntityData.Children["input-crc"] = types.YChild{"InputCrc", &genericCounterInterfaceTemplate.InputCrc}
-    genericCounterInterfaceTemplate.EntityData.Children["in-broadcast-pkts"] = types.YChild{"InBroadcastPkts", &genericCounterInterfaceTemplate.InBroadcastPkts}
-    genericCounterInterfaceTemplate.EntityData.Children["in-multicast-pkts"] = types.YChild{"InMulticastPkts", &genericCounterInterfaceTemplate.InMulticastPkts}
-    genericCounterInterfaceTemplate.EntityData.Children["out-packets"] = types.YChild{"OutPackets", &genericCounterInterfaceTemplate.OutPackets}
-    genericCounterInterfaceTemplate.EntityData.Children["output-total-errors"] = types.YChild{"OutputTotalErrors", &genericCounterInterfaceTemplate.OutputTotalErrors}
-    genericCounterInterfaceTemplate.EntityData.Children["in-packets"] = types.YChild{"InPackets", &genericCounterInterfaceTemplate.InPackets}
-    genericCounterInterfaceTemplate.EntityData.Children["input-unknown-proto"] = types.YChild{"InputUnknownProto", &genericCounterInterfaceTemplate.InputUnknownProto}
-    genericCounterInterfaceTemplate.EntityData.Children["input-queue-drops"] = types.YChild{"InputQueueDrops", &genericCounterInterfaceTemplate.InputQueueDrops}
-    genericCounterInterfaceTemplate.EntityData.Children["input-total-drops"] = types.YChild{"InputTotalDrops", &genericCounterInterfaceTemplate.InputTotalDrops}
-    genericCounterInterfaceTemplate.EntityData.Children["input-frame"] = types.YChild{"InputFrame", &genericCounterInterfaceTemplate.InputFrame}
-    genericCounterInterfaceTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounterInterfaceTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", genericCounterInterfaceTemplate.TemplateName}
-    genericCounterInterfaceTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", genericCounterInterfaceTemplate.SampleInterval}
-    genericCounterInterfaceTemplate.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", genericCounterInterfaceTemplate.RegExpGroup}
-    genericCounterInterfaceTemplate.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", genericCounterInterfaceTemplate.VrfGroup}
+    genericCounterInterfaceTemplate.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterfaceTemplate.EntityData.Children.Append("in-octets", types.YChild{"InOctets", &genericCounterInterfaceTemplate.InOctets})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("in-ucast-pkts", types.YChild{"InUcastPkts", &genericCounterInterfaceTemplate.InUcastPkts})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("out-ucast-pkts", types.YChild{"OutUcastPkts", &genericCounterInterfaceTemplate.OutUcastPkts})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("out-broadcast-pkts", types.YChild{"OutBroadcastPkts", &genericCounterInterfaceTemplate.OutBroadcastPkts})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("out-multicast-pkts", types.YChild{"OutMulticastPkts", &genericCounterInterfaceTemplate.OutMulticastPkts})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("input-overrun", types.YChild{"InputOverrun", &genericCounterInterfaceTemplate.InputOverrun})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("out-octets", types.YChild{"OutOctets", &genericCounterInterfaceTemplate.OutOctets})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("output-underrun", types.YChild{"OutputUnderrun", &genericCounterInterfaceTemplate.OutputUnderrun})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("input-total-errors", types.YChild{"InputTotalErrors", &genericCounterInterfaceTemplate.InputTotalErrors})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("output-total-drops", types.YChild{"OutputTotalDrops", &genericCounterInterfaceTemplate.OutputTotalDrops})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("input-crc", types.YChild{"InputCrc", &genericCounterInterfaceTemplate.InputCrc})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("in-broadcast-pkts", types.YChild{"InBroadcastPkts", &genericCounterInterfaceTemplate.InBroadcastPkts})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("in-multicast-pkts", types.YChild{"InMulticastPkts", &genericCounterInterfaceTemplate.InMulticastPkts})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("out-packets", types.YChild{"OutPackets", &genericCounterInterfaceTemplate.OutPackets})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("output-total-errors", types.YChild{"OutputTotalErrors", &genericCounterInterfaceTemplate.OutputTotalErrors})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("in-packets", types.YChild{"InPackets", &genericCounterInterfaceTemplate.InPackets})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("input-unknown-proto", types.YChild{"InputUnknownProto", &genericCounterInterfaceTemplate.InputUnknownProto})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("input-queue-drops", types.YChild{"InputQueueDrops", &genericCounterInterfaceTemplate.InputQueueDrops})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("input-total-drops", types.YChild{"InputTotalDrops", &genericCounterInterfaceTemplate.InputTotalDrops})
+    genericCounterInterfaceTemplate.EntityData.Children.Append("input-frame", types.YChild{"InputFrame", &genericCounterInterfaceTemplate.InputFrame})
+    genericCounterInterfaceTemplate.EntityData.Leafs = types.NewOrderedMap()
+    genericCounterInterfaceTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", genericCounterInterfaceTemplate.TemplateName})
+    genericCounterInterfaceTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", genericCounterInterfaceTemplate.SampleInterval})
+    genericCounterInterfaceTemplate.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", genericCounterInterfaceTemplate.RegExpGroup})
+    genericCounterInterfaceTemplate.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", genericCounterInterfaceTemplate.VrfGroup})
+
+    genericCounterInterfaceTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(genericCounterInterfaceTemplate.EntityData)
 }
 
@@ -3959,6 +4314,7 @@ func (genericCounterInterfaceTemplate *PerfMgmt_Threshold_GenericCounterInterfac
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InOctets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -3992,14 +4348,17 @@ func (inOctets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfa
     inOctets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inOctets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inOctets.EntityData.Children = make(map[string]types.YChild)
-    inOctets.EntityData.Leafs = make(map[string]types.YLeaf)
-    inOctets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inOctets.Operator}
-    inOctets.EntityData.Leafs["value"] = types.YLeaf{"Value", inOctets.Value}
-    inOctets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inOctets.EndRangeValue}
-    inOctets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inOctets.Percent}
-    inOctets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inOctets.RearmType}
-    inOctets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inOctets.RearmWindow}
+    inOctets.EntityData.Children = types.NewOrderedMap()
+    inOctets.EntityData.Leafs = types.NewOrderedMap()
+    inOctets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inOctets.Operator})
+    inOctets.EntityData.Leafs.Append("value", types.YLeaf{"Value", inOctets.Value})
+    inOctets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inOctets.EndRangeValue})
+    inOctets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inOctets.Percent})
+    inOctets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inOctets.RearmType})
+    inOctets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inOctets.RearmWindow})
+
+    inOctets.EntityData.YListKeys = []string {}
+
     return &(inOctets.EntityData)
 }
 
@@ -4009,6 +4368,7 @@ func (inOctets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfa
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InUcastPkts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4042,14 +4402,17 @@ func (inUcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInte
     inUcastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inUcastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inUcastPkts.EntityData.Children = make(map[string]types.YChild)
-    inUcastPkts.EntityData.Leafs = make(map[string]types.YLeaf)
-    inUcastPkts.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inUcastPkts.Operator}
-    inUcastPkts.EntityData.Leafs["value"] = types.YLeaf{"Value", inUcastPkts.Value}
-    inUcastPkts.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inUcastPkts.EndRangeValue}
-    inUcastPkts.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inUcastPkts.Percent}
-    inUcastPkts.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inUcastPkts.RearmType}
-    inUcastPkts.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inUcastPkts.RearmWindow}
+    inUcastPkts.EntityData.Children = types.NewOrderedMap()
+    inUcastPkts.EntityData.Leafs = types.NewOrderedMap()
+    inUcastPkts.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inUcastPkts.Operator})
+    inUcastPkts.EntityData.Leafs.Append("value", types.YLeaf{"Value", inUcastPkts.Value})
+    inUcastPkts.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inUcastPkts.EndRangeValue})
+    inUcastPkts.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inUcastPkts.Percent})
+    inUcastPkts.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inUcastPkts.RearmType})
+    inUcastPkts.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inUcastPkts.RearmWindow})
+
+    inUcastPkts.EntityData.YListKeys = []string {}
+
     return &(inUcastPkts.EntityData)
 }
 
@@ -4059,6 +4422,7 @@ func (inUcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInte
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_OutUcastPkts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4092,14 +4456,17 @@ func (outUcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInt
     outUcastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outUcastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outUcastPkts.EntityData.Children = make(map[string]types.YChild)
-    outUcastPkts.EntityData.Leafs = make(map[string]types.YLeaf)
-    outUcastPkts.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outUcastPkts.Operator}
-    outUcastPkts.EntityData.Leafs["value"] = types.YLeaf{"Value", outUcastPkts.Value}
-    outUcastPkts.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outUcastPkts.EndRangeValue}
-    outUcastPkts.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outUcastPkts.Percent}
-    outUcastPkts.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outUcastPkts.RearmType}
-    outUcastPkts.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outUcastPkts.RearmWindow}
+    outUcastPkts.EntityData.Children = types.NewOrderedMap()
+    outUcastPkts.EntityData.Leafs = types.NewOrderedMap()
+    outUcastPkts.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outUcastPkts.Operator})
+    outUcastPkts.EntityData.Leafs.Append("value", types.YLeaf{"Value", outUcastPkts.Value})
+    outUcastPkts.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outUcastPkts.EndRangeValue})
+    outUcastPkts.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outUcastPkts.Percent})
+    outUcastPkts.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outUcastPkts.RearmType})
+    outUcastPkts.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outUcastPkts.RearmWindow})
+
+    outUcastPkts.EntityData.YListKeys = []string {}
+
     return &(outUcastPkts.EntityData)
 }
 
@@ -4109,6 +4476,7 @@ func (outUcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInt
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_OutBroadcastPkts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4142,14 +4510,17 @@ func (outBroadcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
     outBroadcastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outBroadcastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outBroadcastPkts.EntityData.Children = make(map[string]types.YChild)
-    outBroadcastPkts.EntityData.Leafs = make(map[string]types.YLeaf)
-    outBroadcastPkts.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outBroadcastPkts.Operator}
-    outBroadcastPkts.EntityData.Leafs["value"] = types.YLeaf{"Value", outBroadcastPkts.Value}
-    outBroadcastPkts.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outBroadcastPkts.EndRangeValue}
-    outBroadcastPkts.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outBroadcastPkts.Percent}
-    outBroadcastPkts.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outBroadcastPkts.RearmType}
-    outBroadcastPkts.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outBroadcastPkts.RearmWindow}
+    outBroadcastPkts.EntityData.Children = types.NewOrderedMap()
+    outBroadcastPkts.EntityData.Leafs = types.NewOrderedMap()
+    outBroadcastPkts.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outBroadcastPkts.Operator})
+    outBroadcastPkts.EntityData.Leafs.Append("value", types.YLeaf{"Value", outBroadcastPkts.Value})
+    outBroadcastPkts.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outBroadcastPkts.EndRangeValue})
+    outBroadcastPkts.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outBroadcastPkts.Percent})
+    outBroadcastPkts.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outBroadcastPkts.RearmType})
+    outBroadcastPkts.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outBroadcastPkts.RearmWindow})
+
+    outBroadcastPkts.EntityData.YListKeys = []string {}
+
     return &(outBroadcastPkts.EntityData)
 }
 
@@ -4159,6 +4530,7 @@ func (outBroadcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_OutMulticastPkts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4192,14 +4564,17 @@ func (outMulticastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
     outMulticastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outMulticastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outMulticastPkts.EntityData.Children = make(map[string]types.YChild)
-    outMulticastPkts.EntityData.Leafs = make(map[string]types.YLeaf)
-    outMulticastPkts.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outMulticastPkts.Operator}
-    outMulticastPkts.EntityData.Leafs["value"] = types.YLeaf{"Value", outMulticastPkts.Value}
-    outMulticastPkts.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outMulticastPkts.EndRangeValue}
-    outMulticastPkts.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outMulticastPkts.Percent}
-    outMulticastPkts.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outMulticastPkts.RearmType}
-    outMulticastPkts.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outMulticastPkts.RearmWindow}
+    outMulticastPkts.EntityData.Children = types.NewOrderedMap()
+    outMulticastPkts.EntityData.Leafs = types.NewOrderedMap()
+    outMulticastPkts.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outMulticastPkts.Operator})
+    outMulticastPkts.EntityData.Leafs.Append("value", types.YLeaf{"Value", outMulticastPkts.Value})
+    outMulticastPkts.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outMulticastPkts.EndRangeValue})
+    outMulticastPkts.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outMulticastPkts.Percent})
+    outMulticastPkts.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outMulticastPkts.RearmType})
+    outMulticastPkts.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outMulticastPkts.RearmWindow})
+
+    outMulticastPkts.EntityData.YListKeys = []string {}
+
     return &(outMulticastPkts.EntityData)
 }
 
@@ -4210,6 +4585,7 @@ func (outMulticastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InputOverrun struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4243,14 +4619,17 @@ func (inputOverrun *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInt
     inputOverrun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputOverrun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputOverrun.EntityData.Children = make(map[string]types.YChild)
-    inputOverrun.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputOverrun.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputOverrun.Operator}
-    inputOverrun.EntityData.Leafs["value"] = types.YLeaf{"Value", inputOverrun.Value}
-    inputOverrun.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputOverrun.EndRangeValue}
-    inputOverrun.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputOverrun.Percent}
-    inputOverrun.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputOverrun.RearmType}
-    inputOverrun.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputOverrun.RearmWindow}
+    inputOverrun.EntityData.Children = types.NewOrderedMap()
+    inputOverrun.EntityData.Leafs = types.NewOrderedMap()
+    inputOverrun.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputOverrun.Operator})
+    inputOverrun.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputOverrun.Value})
+    inputOverrun.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputOverrun.EndRangeValue})
+    inputOverrun.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputOverrun.Percent})
+    inputOverrun.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputOverrun.RearmType})
+    inputOverrun.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputOverrun.RearmWindow})
+
+    inputOverrun.EntityData.YListKeys = []string {}
+
     return &(inputOverrun.EntityData)
 }
 
@@ -4260,6 +4639,7 @@ func (inputOverrun *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInt
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_OutOctets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4293,14 +4673,17 @@ func (outOctets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterf
     outOctets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outOctets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outOctets.EntityData.Children = make(map[string]types.YChild)
-    outOctets.EntityData.Leafs = make(map[string]types.YLeaf)
-    outOctets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outOctets.Operator}
-    outOctets.EntityData.Leafs["value"] = types.YLeaf{"Value", outOctets.Value}
-    outOctets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outOctets.EndRangeValue}
-    outOctets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outOctets.Percent}
-    outOctets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outOctets.RearmType}
-    outOctets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outOctets.RearmWindow}
+    outOctets.EntityData.Children = types.NewOrderedMap()
+    outOctets.EntityData.Leafs = types.NewOrderedMap()
+    outOctets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outOctets.Operator})
+    outOctets.EntityData.Leafs.Append("value", types.YLeaf{"Value", outOctets.Value})
+    outOctets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outOctets.EndRangeValue})
+    outOctets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outOctets.Percent})
+    outOctets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outOctets.RearmType})
+    outOctets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outOctets.RearmWindow})
+
+    outOctets.EntityData.YListKeys = []string {}
+
     return &(outOctets.EntityData)
 }
 
@@ -4311,6 +4694,7 @@ func (outOctets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterf
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_OutputUnderrun struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4344,14 +4728,17 @@ func (outputUnderrun *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterI
     outputUnderrun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputUnderrun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputUnderrun.EntityData.Children = make(map[string]types.YChild)
-    outputUnderrun.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputUnderrun.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputUnderrun.Operator}
-    outputUnderrun.EntityData.Leafs["value"] = types.YLeaf{"Value", outputUnderrun.Value}
-    outputUnderrun.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputUnderrun.EndRangeValue}
-    outputUnderrun.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputUnderrun.Percent}
-    outputUnderrun.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputUnderrun.RearmType}
-    outputUnderrun.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputUnderrun.RearmWindow}
+    outputUnderrun.EntityData.Children = types.NewOrderedMap()
+    outputUnderrun.EntityData.Leafs = types.NewOrderedMap()
+    outputUnderrun.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputUnderrun.Operator})
+    outputUnderrun.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputUnderrun.Value})
+    outputUnderrun.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputUnderrun.EndRangeValue})
+    outputUnderrun.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputUnderrun.Percent})
+    outputUnderrun.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputUnderrun.RearmType})
+    outputUnderrun.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputUnderrun.RearmWindow})
+
+    outputUnderrun.EntityData.YListKeys = []string {}
+
     return &(outputUnderrun.EntityData)
 }
 
@@ -4362,6 +4749,7 @@ func (outputUnderrun *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterI
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InputTotalErrors struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4395,14 +4783,17 @@ func (inputTotalErrors *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
     inputTotalErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputTotalErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputTotalErrors.EntityData.Children = make(map[string]types.YChild)
-    inputTotalErrors.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputTotalErrors.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputTotalErrors.Operator}
-    inputTotalErrors.EntityData.Leafs["value"] = types.YLeaf{"Value", inputTotalErrors.Value}
-    inputTotalErrors.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputTotalErrors.EndRangeValue}
-    inputTotalErrors.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputTotalErrors.Percent}
-    inputTotalErrors.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputTotalErrors.RearmType}
-    inputTotalErrors.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputTotalErrors.RearmWindow}
+    inputTotalErrors.EntityData.Children = types.NewOrderedMap()
+    inputTotalErrors.EntityData.Leafs = types.NewOrderedMap()
+    inputTotalErrors.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputTotalErrors.Operator})
+    inputTotalErrors.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputTotalErrors.Value})
+    inputTotalErrors.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputTotalErrors.EndRangeValue})
+    inputTotalErrors.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputTotalErrors.Percent})
+    inputTotalErrors.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputTotalErrors.RearmType})
+    inputTotalErrors.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputTotalErrors.RearmWindow})
+
+    inputTotalErrors.EntityData.YListKeys = []string {}
+
     return &(inputTotalErrors.EntityData)
 }
 
@@ -4412,6 +4803,7 @@ func (inputTotalErrors *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_OutputTotalDrops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4445,14 +4837,17 @@ func (outputTotalDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
     outputTotalDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputTotalDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputTotalDrops.EntityData.Children = make(map[string]types.YChild)
-    outputTotalDrops.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputTotalDrops.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputTotalDrops.Operator}
-    outputTotalDrops.EntityData.Leafs["value"] = types.YLeaf{"Value", outputTotalDrops.Value}
-    outputTotalDrops.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputTotalDrops.EndRangeValue}
-    outputTotalDrops.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputTotalDrops.Percent}
-    outputTotalDrops.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputTotalDrops.RearmType}
-    outputTotalDrops.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputTotalDrops.RearmWindow}
+    outputTotalDrops.EntityData.Children = types.NewOrderedMap()
+    outputTotalDrops.EntityData.Leafs = types.NewOrderedMap()
+    outputTotalDrops.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputTotalDrops.Operator})
+    outputTotalDrops.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputTotalDrops.Value})
+    outputTotalDrops.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputTotalDrops.EndRangeValue})
+    outputTotalDrops.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputTotalDrops.Percent})
+    outputTotalDrops.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputTotalDrops.RearmType})
+    outputTotalDrops.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputTotalDrops.RearmWindow})
+
+    outputTotalDrops.EntityData.YListKeys = []string {}
+
     return &(outputTotalDrops.EntityData)
 }
 
@@ -4463,6 +4858,7 @@ func (outputTotalDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InputCrc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4496,14 +4892,17 @@ func (inputCrc *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfa
     inputCrc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputCrc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputCrc.EntityData.Children = make(map[string]types.YChild)
-    inputCrc.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputCrc.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputCrc.Operator}
-    inputCrc.EntityData.Leafs["value"] = types.YLeaf{"Value", inputCrc.Value}
-    inputCrc.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputCrc.EndRangeValue}
-    inputCrc.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputCrc.Percent}
-    inputCrc.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputCrc.RearmType}
-    inputCrc.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputCrc.RearmWindow}
+    inputCrc.EntityData.Children = types.NewOrderedMap()
+    inputCrc.EntityData.Leafs = types.NewOrderedMap()
+    inputCrc.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputCrc.Operator})
+    inputCrc.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputCrc.Value})
+    inputCrc.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputCrc.EndRangeValue})
+    inputCrc.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputCrc.Percent})
+    inputCrc.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputCrc.RearmType})
+    inputCrc.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputCrc.RearmWindow})
+
+    inputCrc.EntityData.YListKeys = []string {}
+
     return &(inputCrc.EntityData)
 }
 
@@ -4513,6 +4912,7 @@ func (inputCrc *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfa
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InBroadcastPkts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4546,14 +4946,17 @@ func (inBroadcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
     inBroadcastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inBroadcastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inBroadcastPkts.EntityData.Children = make(map[string]types.YChild)
-    inBroadcastPkts.EntityData.Leafs = make(map[string]types.YLeaf)
-    inBroadcastPkts.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inBroadcastPkts.Operator}
-    inBroadcastPkts.EntityData.Leafs["value"] = types.YLeaf{"Value", inBroadcastPkts.Value}
-    inBroadcastPkts.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inBroadcastPkts.EndRangeValue}
-    inBroadcastPkts.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inBroadcastPkts.Percent}
-    inBroadcastPkts.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inBroadcastPkts.RearmType}
-    inBroadcastPkts.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inBroadcastPkts.RearmWindow}
+    inBroadcastPkts.EntityData.Children = types.NewOrderedMap()
+    inBroadcastPkts.EntityData.Leafs = types.NewOrderedMap()
+    inBroadcastPkts.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inBroadcastPkts.Operator})
+    inBroadcastPkts.EntityData.Leafs.Append("value", types.YLeaf{"Value", inBroadcastPkts.Value})
+    inBroadcastPkts.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inBroadcastPkts.EndRangeValue})
+    inBroadcastPkts.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inBroadcastPkts.Percent})
+    inBroadcastPkts.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inBroadcastPkts.RearmType})
+    inBroadcastPkts.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inBroadcastPkts.RearmWindow})
+
+    inBroadcastPkts.EntityData.YListKeys = []string {}
+
     return &(inBroadcastPkts.EntityData)
 }
 
@@ -4563,6 +4966,7 @@ func (inBroadcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InMulticastPkts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4596,14 +5000,17 @@ func (inMulticastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
     inMulticastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inMulticastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inMulticastPkts.EntityData.Children = make(map[string]types.YChild)
-    inMulticastPkts.EntityData.Leafs = make(map[string]types.YLeaf)
-    inMulticastPkts.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inMulticastPkts.Operator}
-    inMulticastPkts.EntityData.Leafs["value"] = types.YLeaf{"Value", inMulticastPkts.Value}
-    inMulticastPkts.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inMulticastPkts.EndRangeValue}
-    inMulticastPkts.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inMulticastPkts.Percent}
-    inMulticastPkts.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inMulticastPkts.RearmType}
-    inMulticastPkts.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inMulticastPkts.RearmWindow}
+    inMulticastPkts.EntityData.Children = types.NewOrderedMap()
+    inMulticastPkts.EntityData.Leafs = types.NewOrderedMap()
+    inMulticastPkts.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inMulticastPkts.Operator})
+    inMulticastPkts.EntityData.Leafs.Append("value", types.YLeaf{"Value", inMulticastPkts.Value})
+    inMulticastPkts.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inMulticastPkts.EndRangeValue})
+    inMulticastPkts.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inMulticastPkts.Percent})
+    inMulticastPkts.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inMulticastPkts.RearmType})
+    inMulticastPkts.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inMulticastPkts.RearmWindow})
+
+    inMulticastPkts.EntityData.YListKeys = []string {}
+
     return &(inMulticastPkts.EntityData)
 }
 
@@ -4613,6 +5020,7 @@ func (inMulticastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_OutPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4646,14 +5054,17 @@ func (outPackets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInter
     outPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outPackets.EntityData.Children = make(map[string]types.YChild)
-    outPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    outPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outPackets.Operator}
-    outPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", outPackets.Value}
-    outPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outPackets.EndRangeValue}
-    outPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outPackets.Percent}
-    outPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outPackets.RearmType}
-    outPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outPackets.RearmWindow}
+    outPackets.EntityData.Children = types.NewOrderedMap()
+    outPackets.EntityData.Leafs = types.NewOrderedMap()
+    outPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outPackets.Operator})
+    outPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", outPackets.Value})
+    outPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outPackets.EndRangeValue})
+    outPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outPackets.Percent})
+    outPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outPackets.RearmType})
+    outPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outPackets.RearmWindow})
+
+    outPackets.EntityData.YListKeys = []string {}
+
     return &(outPackets.EntityData)
 }
 
@@ -4664,6 +5075,7 @@ func (outPackets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInter
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_OutputTotalErrors struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4697,14 +5109,17 @@ func (outputTotalErrors *PerfMgmt_Threshold_GenericCounterInterface_GenericCount
     outputTotalErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputTotalErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputTotalErrors.EntityData.Children = make(map[string]types.YChild)
-    outputTotalErrors.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputTotalErrors.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputTotalErrors.Operator}
-    outputTotalErrors.EntityData.Leafs["value"] = types.YLeaf{"Value", outputTotalErrors.Value}
-    outputTotalErrors.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputTotalErrors.EndRangeValue}
-    outputTotalErrors.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputTotalErrors.Percent}
-    outputTotalErrors.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputTotalErrors.RearmType}
-    outputTotalErrors.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputTotalErrors.RearmWindow}
+    outputTotalErrors.EntityData.Children = types.NewOrderedMap()
+    outputTotalErrors.EntityData.Leafs = types.NewOrderedMap()
+    outputTotalErrors.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputTotalErrors.Operator})
+    outputTotalErrors.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputTotalErrors.Value})
+    outputTotalErrors.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputTotalErrors.EndRangeValue})
+    outputTotalErrors.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputTotalErrors.Percent})
+    outputTotalErrors.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputTotalErrors.RearmType})
+    outputTotalErrors.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputTotalErrors.RearmWindow})
+
+    outputTotalErrors.EntityData.YListKeys = []string {}
+
     return &(outputTotalErrors.EntityData)
 }
 
@@ -4714,6 +5129,7 @@ func (outputTotalErrors *PerfMgmt_Threshold_GenericCounterInterface_GenericCount
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4747,14 +5163,17 @@ func (inPackets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterf
     inPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inPackets.EntityData.Children = make(map[string]types.YChild)
-    inPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    inPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inPackets.Operator}
-    inPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", inPackets.Value}
-    inPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inPackets.EndRangeValue}
-    inPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inPackets.Percent}
-    inPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inPackets.RearmType}
-    inPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inPackets.RearmWindow}
+    inPackets.EntityData.Children = types.NewOrderedMap()
+    inPackets.EntityData.Leafs = types.NewOrderedMap()
+    inPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inPackets.Operator})
+    inPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", inPackets.Value})
+    inPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inPackets.EndRangeValue})
+    inPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inPackets.Percent})
+    inPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inPackets.RearmType})
+    inPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inPackets.RearmWindow})
+
+    inPackets.EntityData.YListKeys = []string {}
+
     return &(inPackets.EntityData)
 }
 
@@ -4765,6 +5184,7 @@ func (inPackets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterf
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InputUnknownProto struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4798,14 +5218,17 @@ func (inputUnknownProto *PerfMgmt_Threshold_GenericCounterInterface_GenericCount
     inputUnknownProto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputUnknownProto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputUnknownProto.EntityData.Children = make(map[string]types.YChild)
-    inputUnknownProto.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputUnknownProto.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputUnknownProto.Operator}
-    inputUnknownProto.EntityData.Leafs["value"] = types.YLeaf{"Value", inputUnknownProto.Value}
-    inputUnknownProto.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputUnknownProto.EndRangeValue}
-    inputUnknownProto.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputUnknownProto.Percent}
-    inputUnknownProto.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputUnknownProto.RearmType}
-    inputUnknownProto.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputUnknownProto.RearmWindow}
+    inputUnknownProto.EntityData.Children = types.NewOrderedMap()
+    inputUnknownProto.EntityData.Leafs = types.NewOrderedMap()
+    inputUnknownProto.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputUnknownProto.Operator})
+    inputUnknownProto.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputUnknownProto.Value})
+    inputUnknownProto.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputUnknownProto.EndRangeValue})
+    inputUnknownProto.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputUnknownProto.Percent})
+    inputUnknownProto.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputUnknownProto.RearmType})
+    inputUnknownProto.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputUnknownProto.RearmWindow})
+
+    inputUnknownProto.EntityData.YListKeys = []string {}
+
     return &(inputUnknownProto.EntityData)
 }
 
@@ -4815,6 +5238,7 @@ func (inputUnknownProto *PerfMgmt_Threshold_GenericCounterInterface_GenericCount
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InputQueueDrops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4848,14 +5272,17 @@ func (inputQueueDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
     inputQueueDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputQueueDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputQueueDrops.EntityData.Children = make(map[string]types.YChild)
-    inputQueueDrops.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputQueueDrops.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputQueueDrops.Operator}
-    inputQueueDrops.EntityData.Leafs["value"] = types.YLeaf{"Value", inputQueueDrops.Value}
-    inputQueueDrops.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputQueueDrops.EndRangeValue}
-    inputQueueDrops.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputQueueDrops.Percent}
-    inputQueueDrops.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputQueueDrops.RearmType}
-    inputQueueDrops.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputQueueDrops.RearmWindow}
+    inputQueueDrops.EntityData.Children = types.NewOrderedMap()
+    inputQueueDrops.EntityData.Leafs = types.NewOrderedMap()
+    inputQueueDrops.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputQueueDrops.Operator})
+    inputQueueDrops.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputQueueDrops.Value})
+    inputQueueDrops.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputQueueDrops.EndRangeValue})
+    inputQueueDrops.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputQueueDrops.Percent})
+    inputQueueDrops.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputQueueDrops.RearmType})
+    inputQueueDrops.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputQueueDrops.RearmWindow})
+
+    inputQueueDrops.EntityData.YListKeys = []string {}
+
     return &(inputQueueDrops.EntityData)
 }
 
@@ -4865,6 +5292,7 @@ func (inputQueueDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InputTotalDrops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4898,14 +5326,17 @@ func (inputTotalDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
     inputTotalDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputTotalDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputTotalDrops.EntityData.Children = make(map[string]types.YChild)
-    inputTotalDrops.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputTotalDrops.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputTotalDrops.Operator}
-    inputTotalDrops.EntityData.Leafs["value"] = types.YLeaf{"Value", inputTotalDrops.Value}
-    inputTotalDrops.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputTotalDrops.EndRangeValue}
-    inputTotalDrops.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputTotalDrops.Percent}
-    inputTotalDrops.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputTotalDrops.RearmType}
-    inputTotalDrops.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputTotalDrops.RearmWindow}
+    inputTotalDrops.EntityData.Children = types.NewOrderedMap()
+    inputTotalDrops.EntityData.Leafs = types.NewOrderedMap()
+    inputTotalDrops.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputTotalDrops.Operator})
+    inputTotalDrops.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputTotalDrops.Value})
+    inputTotalDrops.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputTotalDrops.EndRangeValue})
+    inputTotalDrops.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputTotalDrops.Percent})
+    inputTotalDrops.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputTotalDrops.RearmType})
+    inputTotalDrops.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputTotalDrops.RearmWindow})
+
+    inputTotalDrops.EntityData.YListKeys = []string {}
+
     return &(inputTotalDrops.EntityData)
 }
 
@@ -4916,6 +5347,7 @@ func (inputTotalDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate_InputFrame struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -4949,14 +5381,17 @@ func (inputFrame *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInter
     inputFrame.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputFrame.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputFrame.EntityData.Children = make(map[string]types.YChild)
-    inputFrame.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputFrame.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputFrame.Operator}
-    inputFrame.EntityData.Leafs["value"] = types.YLeaf{"Value", inputFrame.Value}
-    inputFrame.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputFrame.EndRangeValue}
-    inputFrame.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputFrame.Percent}
-    inputFrame.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputFrame.RearmType}
-    inputFrame.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputFrame.RearmWindow}
+    inputFrame.EntityData.Children = types.NewOrderedMap()
+    inputFrame.EntityData.Leafs = types.NewOrderedMap()
+    inputFrame.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputFrame.Operator})
+    inputFrame.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputFrame.Value})
+    inputFrame.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputFrame.EndRangeValue})
+    inputFrame.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputFrame.Percent})
+    inputFrame.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputFrame.RearmType})
+    inputFrame.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputFrame.RearmWindow})
+
+    inputFrame.EntityData.YListKeys = []string {}
+
     return &(inputFrame.EntityData)
 }
 
@@ -4980,9 +5415,12 @@ func (ldpMpls *PerfMgmt_Threshold_LdpMpls) GetEntityData() *types.CommonEntityDa
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpMpls.EntityData.Children = make(map[string]types.YChild)
-    ldpMpls.EntityData.Children["ldp-mpls-templates"] = types.YChild{"LdpMplsTemplates", &ldpMpls.LdpMplsTemplates}
-    ldpMpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    ldpMpls.EntityData.Children = types.NewOrderedMap()
+    ldpMpls.EntityData.Children.Append("ldp-mpls-templates", types.YChild{"LdpMplsTemplates", &ldpMpls.LdpMplsTemplates})
+    ldpMpls.EntityData.Leafs = types.NewOrderedMap()
+
+    ldpMpls.EntityData.YListKeys = []string {}
+
     return &(ldpMpls.EntityData)
 }
 
@@ -4994,7 +5432,7 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates struct {
 
     // MPLS LDP threshold template instance. The type is slice of
     // PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate.
-    LdpMplsTemplate []PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate
+    LdpMplsTemplate []*PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate
 }
 
 func (ldpMplsTemplates *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates) GetEntityData() *types.CommonEntityData {
@@ -5007,12 +5445,15 @@ func (ldpMplsTemplates *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates) GetEntityDa
     ldpMplsTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMplsTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpMplsTemplates.EntityData.Children = make(map[string]types.YChild)
-    ldpMplsTemplates.EntityData.Children["ldp-mpls-template"] = types.YChild{"LdpMplsTemplate", nil}
+    ldpMplsTemplates.EntityData.Children = types.NewOrderedMap()
+    ldpMplsTemplates.EntityData.Children.Append("ldp-mpls-template", types.YChild{"LdpMplsTemplate", nil})
     for i := range ldpMplsTemplates.LdpMplsTemplate {
-        ldpMplsTemplates.EntityData.Children[types.GetSegmentPath(&ldpMplsTemplates.LdpMplsTemplate[i])] = types.YChild{"LdpMplsTemplate", &ldpMplsTemplates.LdpMplsTemplate[i]}
+        ldpMplsTemplates.EntityData.Children.Append(types.GetSegmentPath(ldpMplsTemplates.LdpMplsTemplate[i]), types.YChild{"LdpMplsTemplate", ldpMplsTemplates.LdpMplsTemplate[i]})
     }
-    ldpMplsTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    ldpMplsTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    ldpMplsTemplates.EntityData.YListKeys = []string {}
+
     return &(ldpMplsTemplates.EntityData)
 }
 
@@ -5023,7 +5464,7 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -5090,33 +5531,36 @@ func (ldpMplsTemplate *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTempla
     ldpMplsTemplate.EntityData.YangName = "ldp-mpls-template"
     ldpMplsTemplate.EntityData.BundleName = "cisco_ios_xr"
     ldpMplsTemplate.EntityData.ParentYangName = "ldp-mpls-templates"
-    ldpMplsTemplate.EntityData.SegmentPath = "ldp-mpls-template" + "[template-name='" + fmt.Sprintf("%v", ldpMplsTemplate.TemplateName) + "']"
+    ldpMplsTemplate.EntityData.SegmentPath = "ldp-mpls-template" + types.AddKeyToken(ldpMplsTemplate.TemplateName, "template-name")
     ldpMplsTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpMplsTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMplsTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpMplsTemplate.EntityData.Children = make(map[string]types.YChild)
-    ldpMplsTemplate.EntityData.Children["address-withdraw-msgs-rcvd"] = types.YChild{"AddressWithdrawMsgsRcvd", &ldpMplsTemplate.AddressWithdrawMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["label-withdraw-msgs-rcvd"] = types.YChild{"LabelWithdrawMsgsRcvd", &ldpMplsTemplate.LabelWithdrawMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["address-withdraw-msgs-sent"] = types.YChild{"AddressWithdrawMsgsSent", &ldpMplsTemplate.AddressWithdrawMsgsSent}
-    ldpMplsTemplate.EntityData.Children["label-withdraw-msgs-sent"] = types.YChild{"LabelWithdrawMsgsSent", &ldpMplsTemplate.LabelWithdrawMsgsSent}
-    ldpMplsTemplate.EntityData.Children["notification-msgs-rcvd"] = types.YChild{"NotificationMsgsRcvd", &ldpMplsTemplate.NotificationMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["total-msgs-rcvd"] = types.YChild{"TotalMsgsRcvd", &ldpMplsTemplate.TotalMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["notification-msgs-sent"] = types.YChild{"NotificationMsgsSent", &ldpMplsTemplate.NotificationMsgsSent}
-    ldpMplsTemplate.EntityData.Children["total-msgs-sent"] = types.YChild{"TotalMsgsSent", &ldpMplsTemplate.TotalMsgsSent}
-    ldpMplsTemplate.EntityData.Children["label-release-msgs-rcvd"] = types.YChild{"LabelReleaseMsgsRcvd", &ldpMplsTemplate.LabelReleaseMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["init-msgs-rcvd"] = types.YChild{"InitMsgsRcvd", &ldpMplsTemplate.InitMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["label-release-msgs-sent"] = types.YChild{"LabelReleaseMsgsSent", &ldpMplsTemplate.LabelReleaseMsgsSent}
-    ldpMplsTemplate.EntityData.Children["init-msgs-sent"] = types.YChild{"InitMsgsSent", &ldpMplsTemplate.InitMsgsSent}
-    ldpMplsTemplate.EntityData.Children["label-mapping-msgs-rcvd"] = types.YChild{"LabelMappingMsgsRcvd", &ldpMplsTemplate.LabelMappingMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["keepalive-msgs-rcvd"] = types.YChild{"KeepaliveMsgsRcvd", &ldpMplsTemplate.KeepaliveMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["label-mapping-msgs-sent"] = types.YChild{"LabelMappingMsgsSent", &ldpMplsTemplate.LabelMappingMsgsSent}
-    ldpMplsTemplate.EntityData.Children["keepalive-msgs-sent"] = types.YChild{"KeepaliveMsgsSent", &ldpMplsTemplate.KeepaliveMsgsSent}
-    ldpMplsTemplate.EntityData.Children["address-msgs-rcvd"] = types.YChild{"AddressMsgsRcvd", &ldpMplsTemplate.AddressMsgsRcvd}
-    ldpMplsTemplate.EntityData.Children["address-msgs-sent"] = types.YChild{"AddressMsgsSent", &ldpMplsTemplate.AddressMsgsSent}
-    ldpMplsTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    ldpMplsTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ldpMplsTemplate.TemplateName}
-    ldpMplsTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", ldpMplsTemplate.SampleInterval}
+    ldpMplsTemplate.EntityData.Children = types.NewOrderedMap()
+    ldpMplsTemplate.EntityData.Children.Append("address-withdraw-msgs-rcvd", types.YChild{"AddressWithdrawMsgsRcvd", &ldpMplsTemplate.AddressWithdrawMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("label-withdraw-msgs-rcvd", types.YChild{"LabelWithdrawMsgsRcvd", &ldpMplsTemplate.LabelWithdrawMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("address-withdraw-msgs-sent", types.YChild{"AddressWithdrawMsgsSent", &ldpMplsTemplate.AddressWithdrawMsgsSent})
+    ldpMplsTemplate.EntityData.Children.Append("label-withdraw-msgs-sent", types.YChild{"LabelWithdrawMsgsSent", &ldpMplsTemplate.LabelWithdrawMsgsSent})
+    ldpMplsTemplate.EntityData.Children.Append("notification-msgs-rcvd", types.YChild{"NotificationMsgsRcvd", &ldpMplsTemplate.NotificationMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("total-msgs-rcvd", types.YChild{"TotalMsgsRcvd", &ldpMplsTemplate.TotalMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("notification-msgs-sent", types.YChild{"NotificationMsgsSent", &ldpMplsTemplate.NotificationMsgsSent})
+    ldpMplsTemplate.EntityData.Children.Append("total-msgs-sent", types.YChild{"TotalMsgsSent", &ldpMplsTemplate.TotalMsgsSent})
+    ldpMplsTemplate.EntityData.Children.Append("label-release-msgs-rcvd", types.YChild{"LabelReleaseMsgsRcvd", &ldpMplsTemplate.LabelReleaseMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("init-msgs-rcvd", types.YChild{"InitMsgsRcvd", &ldpMplsTemplate.InitMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("label-release-msgs-sent", types.YChild{"LabelReleaseMsgsSent", &ldpMplsTemplate.LabelReleaseMsgsSent})
+    ldpMplsTemplate.EntityData.Children.Append("init-msgs-sent", types.YChild{"InitMsgsSent", &ldpMplsTemplate.InitMsgsSent})
+    ldpMplsTemplate.EntityData.Children.Append("label-mapping-msgs-rcvd", types.YChild{"LabelMappingMsgsRcvd", &ldpMplsTemplate.LabelMappingMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("keepalive-msgs-rcvd", types.YChild{"KeepaliveMsgsRcvd", &ldpMplsTemplate.KeepaliveMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("label-mapping-msgs-sent", types.YChild{"LabelMappingMsgsSent", &ldpMplsTemplate.LabelMappingMsgsSent})
+    ldpMplsTemplate.EntityData.Children.Append("keepalive-msgs-sent", types.YChild{"KeepaliveMsgsSent", &ldpMplsTemplate.KeepaliveMsgsSent})
+    ldpMplsTemplate.EntityData.Children.Append("address-msgs-rcvd", types.YChild{"AddressMsgsRcvd", &ldpMplsTemplate.AddressMsgsRcvd})
+    ldpMplsTemplate.EntityData.Children.Append("address-msgs-sent", types.YChild{"AddressMsgsSent", &ldpMplsTemplate.AddressMsgsSent})
+    ldpMplsTemplate.EntityData.Leafs = types.NewOrderedMap()
+    ldpMplsTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ldpMplsTemplate.TemplateName})
+    ldpMplsTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", ldpMplsTemplate.SampleInterval})
+
+    ldpMplsTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(ldpMplsTemplate.EntityData)
 }
 
@@ -5126,6 +5570,7 @@ func (ldpMplsTemplate *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTempla
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_AddressWithdrawMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5159,14 +5604,17 @@ func (addressWithdrawMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMp
     addressWithdrawMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressWithdrawMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressWithdrawMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    addressWithdrawMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressWithdrawMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", addressWithdrawMsgsRcvd.Operator}
-    addressWithdrawMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", addressWithdrawMsgsRcvd.Value}
-    addressWithdrawMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", addressWithdrawMsgsRcvd.EndRangeValue}
-    addressWithdrawMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", addressWithdrawMsgsRcvd.Percent}
-    addressWithdrawMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", addressWithdrawMsgsRcvd.RearmType}
-    addressWithdrawMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", addressWithdrawMsgsRcvd.RearmWindow}
+    addressWithdrawMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    addressWithdrawMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    addressWithdrawMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", addressWithdrawMsgsRcvd.Operator})
+    addressWithdrawMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", addressWithdrawMsgsRcvd.Value})
+    addressWithdrawMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", addressWithdrawMsgsRcvd.EndRangeValue})
+    addressWithdrawMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", addressWithdrawMsgsRcvd.Percent})
+    addressWithdrawMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", addressWithdrawMsgsRcvd.RearmType})
+    addressWithdrawMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", addressWithdrawMsgsRcvd.RearmWindow})
+
+    addressWithdrawMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(addressWithdrawMsgsRcvd.EntityData)
 }
 
@@ -5176,6 +5624,7 @@ func (addressWithdrawMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMp
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelWithdrawMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5209,14 +5658,17 @@ func (labelWithdrawMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMpls
     labelWithdrawMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelWithdrawMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelWithdrawMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    labelWithdrawMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelWithdrawMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", labelWithdrawMsgsRcvd.Operator}
-    labelWithdrawMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", labelWithdrawMsgsRcvd.Value}
-    labelWithdrawMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", labelWithdrawMsgsRcvd.EndRangeValue}
-    labelWithdrawMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", labelWithdrawMsgsRcvd.Percent}
-    labelWithdrawMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", labelWithdrawMsgsRcvd.RearmType}
-    labelWithdrawMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", labelWithdrawMsgsRcvd.RearmWindow}
+    labelWithdrawMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    labelWithdrawMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    labelWithdrawMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", labelWithdrawMsgsRcvd.Operator})
+    labelWithdrawMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", labelWithdrawMsgsRcvd.Value})
+    labelWithdrawMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", labelWithdrawMsgsRcvd.EndRangeValue})
+    labelWithdrawMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", labelWithdrawMsgsRcvd.Percent})
+    labelWithdrawMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", labelWithdrawMsgsRcvd.RearmType})
+    labelWithdrawMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", labelWithdrawMsgsRcvd.RearmWindow})
+
+    labelWithdrawMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(labelWithdrawMsgsRcvd.EntityData)
 }
 
@@ -5226,6 +5678,7 @@ func (labelWithdrawMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMpls
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_AddressWithdrawMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5259,14 +5712,17 @@ func (addressWithdrawMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMp
     addressWithdrawMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressWithdrawMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressWithdrawMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    addressWithdrawMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressWithdrawMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", addressWithdrawMsgsSent.Operator}
-    addressWithdrawMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", addressWithdrawMsgsSent.Value}
-    addressWithdrawMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", addressWithdrawMsgsSent.EndRangeValue}
-    addressWithdrawMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", addressWithdrawMsgsSent.Percent}
-    addressWithdrawMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", addressWithdrawMsgsSent.RearmType}
-    addressWithdrawMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", addressWithdrawMsgsSent.RearmWindow}
+    addressWithdrawMsgsSent.EntityData.Children = types.NewOrderedMap()
+    addressWithdrawMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    addressWithdrawMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", addressWithdrawMsgsSent.Operator})
+    addressWithdrawMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", addressWithdrawMsgsSent.Value})
+    addressWithdrawMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", addressWithdrawMsgsSent.EndRangeValue})
+    addressWithdrawMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", addressWithdrawMsgsSent.Percent})
+    addressWithdrawMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", addressWithdrawMsgsSent.RearmType})
+    addressWithdrawMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", addressWithdrawMsgsSent.RearmWindow})
+
+    addressWithdrawMsgsSent.EntityData.YListKeys = []string {}
+
     return &(addressWithdrawMsgsSent.EntityData)
 }
 
@@ -5276,6 +5732,7 @@ func (addressWithdrawMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMp
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelWithdrawMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5309,14 +5766,17 @@ func (labelWithdrawMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMpls
     labelWithdrawMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelWithdrawMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelWithdrawMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    labelWithdrawMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelWithdrawMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", labelWithdrawMsgsSent.Operator}
-    labelWithdrawMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", labelWithdrawMsgsSent.Value}
-    labelWithdrawMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", labelWithdrawMsgsSent.EndRangeValue}
-    labelWithdrawMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", labelWithdrawMsgsSent.Percent}
-    labelWithdrawMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", labelWithdrawMsgsSent.RearmType}
-    labelWithdrawMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", labelWithdrawMsgsSent.RearmWindow}
+    labelWithdrawMsgsSent.EntityData.Children = types.NewOrderedMap()
+    labelWithdrawMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    labelWithdrawMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", labelWithdrawMsgsSent.Operator})
+    labelWithdrawMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", labelWithdrawMsgsSent.Value})
+    labelWithdrawMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", labelWithdrawMsgsSent.EndRangeValue})
+    labelWithdrawMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", labelWithdrawMsgsSent.Percent})
+    labelWithdrawMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", labelWithdrawMsgsSent.RearmType})
+    labelWithdrawMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", labelWithdrawMsgsSent.RearmWindow})
+
+    labelWithdrawMsgsSent.EntityData.YListKeys = []string {}
+
     return &(labelWithdrawMsgsSent.EntityData)
 }
 
@@ -5326,6 +5786,7 @@ func (labelWithdrawMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMpls
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_NotificationMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5359,14 +5820,17 @@ func (notificationMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     notificationMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     notificationMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    notificationMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    notificationMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    notificationMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", notificationMsgsRcvd.Operator}
-    notificationMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", notificationMsgsRcvd.Value}
-    notificationMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", notificationMsgsRcvd.EndRangeValue}
-    notificationMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", notificationMsgsRcvd.Percent}
-    notificationMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", notificationMsgsRcvd.RearmType}
-    notificationMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", notificationMsgsRcvd.RearmWindow}
+    notificationMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    notificationMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    notificationMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", notificationMsgsRcvd.Operator})
+    notificationMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", notificationMsgsRcvd.Value})
+    notificationMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", notificationMsgsRcvd.EndRangeValue})
+    notificationMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", notificationMsgsRcvd.Percent})
+    notificationMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", notificationMsgsRcvd.RearmType})
+    notificationMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", notificationMsgsRcvd.RearmWindow})
+
+    notificationMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(notificationMsgsRcvd.EntityData)
 }
 
@@ -5376,6 +5840,7 @@ func (notificationMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_TotalMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5409,14 +5874,17 @@ func (totalMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate
     totalMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     totalMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    totalMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    totalMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    totalMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", totalMsgsRcvd.Operator}
-    totalMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", totalMsgsRcvd.Value}
-    totalMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", totalMsgsRcvd.EndRangeValue}
-    totalMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", totalMsgsRcvd.Percent}
-    totalMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", totalMsgsRcvd.RearmType}
-    totalMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", totalMsgsRcvd.RearmWindow}
+    totalMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    totalMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    totalMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", totalMsgsRcvd.Operator})
+    totalMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", totalMsgsRcvd.Value})
+    totalMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", totalMsgsRcvd.EndRangeValue})
+    totalMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", totalMsgsRcvd.Percent})
+    totalMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", totalMsgsRcvd.RearmType})
+    totalMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", totalMsgsRcvd.RearmWindow})
+
+    totalMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(totalMsgsRcvd.EntityData)
 }
 
@@ -5426,6 +5894,7 @@ func (totalMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_NotificationMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5459,14 +5928,17 @@ func (notificationMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     notificationMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     notificationMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    notificationMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    notificationMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    notificationMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", notificationMsgsSent.Operator}
-    notificationMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", notificationMsgsSent.Value}
-    notificationMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", notificationMsgsSent.EndRangeValue}
-    notificationMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", notificationMsgsSent.Percent}
-    notificationMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", notificationMsgsSent.RearmType}
-    notificationMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", notificationMsgsSent.RearmWindow}
+    notificationMsgsSent.EntityData.Children = types.NewOrderedMap()
+    notificationMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    notificationMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", notificationMsgsSent.Operator})
+    notificationMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", notificationMsgsSent.Value})
+    notificationMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", notificationMsgsSent.EndRangeValue})
+    notificationMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", notificationMsgsSent.Percent})
+    notificationMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", notificationMsgsSent.RearmType})
+    notificationMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", notificationMsgsSent.RearmWindow})
+
+    notificationMsgsSent.EntityData.YListKeys = []string {}
+
     return &(notificationMsgsSent.EntityData)
 }
 
@@ -5476,6 +5948,7 @@ func (notificationMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_TotalMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5509,14 +5982,17 @@ func (totalMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate
     totalMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     totalMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    totalMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    totalMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    totalMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", totalMsgsSent.Operator}
-    totalMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", totalMsgsSent.Value}
-    totalMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", totalMsgsSent.EndRangeValue}
-    totalMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", totalMsgsSent.Percent}
-    totalMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", totalMsgsSent.RearmType}
-    totalMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", totalMsgsSent.RearmWindow}
+    totalMsgsSent.EntityData.Children = types.NewOrderedMap()
+    totalMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    totalMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", totalMsgsSent.Operator})
+    totalMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", totalMsgsSent.Value})
+    totalMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", totalMsgsSent.EndRangeValue})
+    totalMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", totalMsgsSent.Percent})
+    totalMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", totalMsgsSent.RearmType})
+    totalMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", totalMsgsSent.RearmWindow})
+
+    totalMsgsSent.EntityData.YListKeys = []string {}
+
     return &(totalMsgsSent.EntityData)
 }
 
@@ -5526,6 +6002,7 @@ func (totalMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelReleaseMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5559,14 +6036,17 @@ func (labelReleaseMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     labelReleaseMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelReleaseMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelReleaseMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    labelReleaseMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelReleaseMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", labelReleaseMsgsRcvd.Operator}
-    labelReleaseMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", labelReleaseMsgsRcvd.Value}
-    labelReleaseMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", labelReleaseMsgsRcvd.EndRangeValue}
-    labelReleaseMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", labelReleaseMsgsRcvd.Percent}
-    labelReleaseMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", labelReleaseMsgsRcvd.RearmType}
-    labelReleaseMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", labelReleaseMsgsRcvd.RearmWindow}
+    labelReleaseMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    labelReleaseMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    labelReleaseMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", labelReleaseMsgsRcvd.Operator})
+    labelReleaseMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", labelReleaseMsgsRcvd.Value})
+    labelReleaseMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", labelReleaseMsgsRcvd.EndRangeValue})
+    labelReleaseMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", labelReleaseMsgsRcvd.Percent})
+    labelReleaseMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", labelReleaseMsgsRcvd.RearmType})
+    labelReleaseMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", labelReleaseMsgsRcvd.RearmWindow})
+
+    labelReleaseMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(labelReleaseMsgsRcvd.EntityData)
 }
 
@@ -5576,6 +6056,7 @@ func (labelReleaseMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_InitMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5609,14 +6090,17 @@ func (initMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_
     initMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    initMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    initMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    initMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", initMsgsRcvd.Operator}
-    initMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", initMsgsRcvd.Value}
-    initMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", initMsgsRcvd.EndRangeValue}
-    initMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", initMsgsRcvd.Percent}
-    initMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", initMsgsRcvd.RearmType}
-    initMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", initMsgsRcvd.RearmWindow}
+    initMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    initMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    initMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", initMsgsRcvd.Operator})
+    initMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", initMsgsRcvd.Value})
+    initMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", initMsgsRcvd.EndRangeValue})
+    initMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", initMsgsRcvd.Percent})
+    initMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", initMsgsRcvd.RearmType})
+    initMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", initMsgsRcvd.RearmWindow})
+
+    initMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(initMsgsRcvd.EntityData)
 }
 
@@ -5626,6 +6110,7 @@ func (initMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelReleaseMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5659,14 +6144,17 @@ func (labelReleaseMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     labelReleaseMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelReleaseMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelReleaseMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    labelReleaseMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelReleaseMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", labelReleaseMsgsSent.Operator}
-    labelReleaseMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", labelReleaseMsgsSent.Value}
-    labelReleaseMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", labelReleaseMsgsSent.EndRangeValue}
-    labelReleaseMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", labelReleaseMsgsSent.Percent}
-    labelReleaseMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", labelReleaseMsgsSent.RearmType}
-    labelReleaseMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", labelReleaseMsgsSent.RearmWindow}
+    labelReleaseMsgsSent.EntityData.Children = types.NewOrderedMap()
+    labelReleaseMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    labelReleaseMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", labelReleaseMsgsSent.Operator})
+    labelReleaseMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", labelReleaseMsgsSent.Value})
+    labelReleaseMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", labelReleaseMsgsSent.EndRangeValue})
+    labelReleaseMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", labelReleaseMsgsSent.Percent})
+    labelReleaseMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", labelReleaseMsgsSent.RearmType})
+    labelReleaseMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", labelReleaseMsgsSent.RearmWindow})
+
+    labelReleaseMsgsSent.EntityData.YListKeys = []string {}
+
     return &(labelReleaseMsgsSent.EntityData)
 }
 
@@ -5676,6 +6164,7 @@ func (labelReleaseMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_InitMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5709,14 +6198,17 @@ func (initMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_
     initMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    initMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    initMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    initMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", initMsgsSent.Operator}
-    initMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", initMsgsSent.Value}
-    initMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", initMsgsSent.EndRangeValue}
-    initMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", initMsgsSent.Percent}
-    initMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", initMsgsSent.RearmType}
-    initMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", initMsgsSent.RearmWindow}
+    initMsgsSent.EntityData.Children = types.NewOrderedMap()
+    initMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    initMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", initMsgsSent.Operator})
+    initMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", initMsgsSent.Value})
+    initMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", initMsgsSent.EndRangeValue})
+    initMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", initMsgsSent.Percent})
+    initMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", initMsgsSent.RearmType})
+    initMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", initMsgsSent.RearmWindow})
+
+    initMsgsSent.EntityData.YListKeys = []string {}
+
     return &(initMsgsSent.EntityData)
 }
 
@@ -5726,6 +6218,7 @@ func (initMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelMappingMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5759,14 +6252,17 @@ func (labelMappingMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     labelMappingMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMappingMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelMappingMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    labelMappingMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelMappingMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", labelMappingMsgsRcvd.Operator}
-    labelMappingMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", labelMappingMsgsRcvd.Value}
-    labelMappingMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", labelMappingMsgsRcvd.EndRangeValue}
-    labelMappingMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", labelMappingMsgsRcvd.Percent}
-    labelMappingMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", labelMappingMsgsRcvd.RearmType}
-    labelMappingMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", labelMappingMsgsRcvd.RearmWindow}
+    labelMappingMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    labelMappingMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    labelMappingMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", labelMappingMsgsRcvd.Operator})
+    labelMappingMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", labelMappingMsgsRcvd.Value})
+    labelMappingMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", labelMappingMsgsRcvd.EndRangeValue})
+    labelMappingMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", labelMappingMsgsRcvd.Percent})
+    labelMappingMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", labelMappingMsgsRcvd.RearmType})
+    labelMappingMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", labelMappingMsgsRcvd.RearmWindow})
+
+    labelMappingMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(labelMappingMsgsRcvd.EntityData)
 }
 
@@ -5776,6 +6272,7 @@ func (labelMappingMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_KeepaliveMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5809,14 +6306,17 @@ func (keepaliveMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemp
     keepaliveMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepaliveMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keepaliveMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    keepaliveMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    keepaliveMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", keepaliveMsgsRcvd.Operator}
-    keepaliveMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", keepaliveMsgsRcvd.Value}
-    keepaliveMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", keepaliveMsgsRcvd.EndRangeValue}
-    keepaliveMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", keepaliveMsgsRcvd.Percent}
-    keepaliveMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", keepaliveMsgsRcvd.RearmType}
-    keepaliveMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", keepaliveMsgsRcvd.RearmWindow}
+    keepaliveMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    keepaliveMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    keepaliveMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", keepaliveMsgsRcvd.Operator})
+    keepaliveMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", keepaliveMsgsRcvd.Value})
+    keepaliveMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", keepaliveMsgsRcvd.EndRangeValue})
+    keepaliveMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", keepaliveMsgsRcvd.Percent})
+    keepaliveMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", keepaliveMsgsRcvd.RearmType})
+    keepaliveMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", keepaliveMsgsRcvd.RearmWindow})
+
+    keepaliveMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(keepaliveMsgsRcvd.EntityData)
 }
 
@@ -5826,6 +6326,7 @@ func (keepaliveMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemp
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelMappingMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5859,14 +6360,17 @@ func (labelMappingMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     labelMappingMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMappingMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelMappingMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    labelMappingMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelMappingMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", labelMappingMsgsSent.Operator}
-    labelMappingMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", labelMappingMsgsSent.Value}
-    labelMappingMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", labelMappingMsgsSent.EndRangeValue}
-    labelMappingMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", labelMappingMsgsSent.Percent}
-    labelMappingMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", labelMappingMsgsSent.RearmType}
-    labelMappingMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", labelMappingMsgsSent.RearmWindow}
+    labelMappingMsgsSent.EntityData.Children = types.NewOrderedMap()
+    labelMappingMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    labelMappingMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", labelMappingMsgsSent.Operator})
+    labelMappingMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", labelMappingMsgsSent.Value})
+    labelMappingMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", labelMappingMsgsSent.EndRangeValue})
+    labelMappingMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", labelMappingMsgsSent.Percent})
+    labelMappingMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", labelMappingMsgsSent.RearmType})
+    labelMappingMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", labelMappingMsgsSent.RearmWindow})
+
+    labelMappingMsgsSent.EntityData.YListKeys = []string {}
+
     return &(labelMappingMsgsSent.EntityData)
 }
 
@@ -5876,6 +6380,7 @@ func (labelMappingMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_KeepaliveMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5909,14 +6414,17 @@ func (keepaliveMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemp
     keepaliveMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepaliveMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keepaliveMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    keepaliveMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    keepaliveMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", keepaliveMsgsSent.Operator}
-    keepaliveMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", keepaliveMsgsSent.Value}
-    keepaliveMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", keepaliveMsgsSent.EndRangeValue}
-    keepaliveMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", keepaliveMsgsSent.Percent}
-    keepaliveMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", keepaliveMsgsSent.RearmType}
-    keepaliveMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", keepaliveMsgsSent.RearmWindow}
+    keepaliveMsgsSent.EntityData.Children = types.NewOrderedMap()
+    keepaliveMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    keepaliveMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", keepaliveMsgsSent.Operator})
+    keepaliveMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", keepaliveMsgsSent.Value})
+    keepaliveMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", keepaliveMsgsSent.EndRangeValue})
+    keepaliveMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", keepaliveMsgsSent.Percent})
+    keepaliveMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", keepaliveMsgsSent.RearmType})
+    keepaliveMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", keepaliveMsgsSent.RearmWindow})
+
+    keepaliveMsgsSent.EntityData.YListKeys = []string {}
+
     return &(keepaliveMsgsSent.EntityData)
 }
 
@@ -5926,6 +6434,7 @@ func (keepaliveMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemp
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_AddressMsgsRcvd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -5959,14 +6468,17 @@ func (addressMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTempla
     addressMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressMsgsRcvd.EntityData.Children = make(map[string]types.YChild)
-    addressMsgsRcvd.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressMsgsRcvd.EntityData.Leafs["operator"] = types.YLeaf{"Operator", addressMsgsRcvd.Operator}
-    addressMsgsRcvd.EntityData.Leafs["value"] = types.YLeaf{"Value", addressMsgsRcvd.Value}
-    addressMsgsRcvd.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", addressMsgsRcvd.EndRangeValue}
-    addressMsgsRcvd.EntityData.Leafs["percent"] = types.YLeaf{"Percent", addressMsgsRcvd.Percent}
-    addressMsgsRcvd.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", addressMsgsRcvd.RearmType}
-    addressMsgsRcvd.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", addressMsgsRcvd.RearmWindow}
+    addressMsgsRcvd.EntityData.Children = types.NewOrderedMap()
+    addressMsgsRcvd.EntityData.Leafs = types.NewOrderedMap()
+    addressMsgsRcvd.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", addressMsgsRcvd.Operator})
+    addressMsgsRcvd.EntityData.Leafs.Append("value", types.YLeaf{"Value", addressMsgsRcvd.Value})
+    addressMsgsRcvd.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", addressMsgsRcvd.EndRangeValue})
+    addressMsgsRcvd.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", addressMsgsRcvd.Percent})
+    addressMsgsRcvd.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", addressMsgsRcvd.RearmType})
+    addressMsgsRcvd.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", addressMsgsRcvd.RearmWindow})
+
+    addressMsgsRcvd.EntityData.YListKeys = []string {}
+
     return &(addressMsgsRcvd.EntityData)
 }
 
@@ -5976,6 +6488,7 @@ func (addressMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTempla
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_AddressMsgsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6009,14 +6522,17 @@ func (addressMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTempla
     addressMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressMsgsSent.EntityData.Children = make(map[string]types.YChild)
-    addressMsgsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressMsgsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", addressMsgsSent.Operator}
-    addressMsgsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", addressMsgsSent.Value}
-    addressMsgsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", addressMsgsSent.EndRangeValue}
-    addressMsgsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", addressMsgsSent.Percent}
-    addressMsgsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", addressMsgsSent.RearmType}
-    addressMsgsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", addressMsgsSent.RearmWindow}
+    addressMsgsSent.EntityData.Children = types.NewOrderedMap()
+    addressMsgsSent.EntityData.Leafs = types.NewOrderedMap()
+    addressMsgsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", addressMsgsSent.Operator})
+    addressMsgsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", addressMsgsSent.Value})
+    addressMsgsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", addressMsgsSent.EndRangeValue})
+    addressMsgsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", addressMsgsSent.Percent})
+    addressMsgsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", addressMsgsSent.RearmType})
+    addressMsgsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", addressMsgsSent.RearmWindow})
+
+    addressMsgsSent.EntityData.YListKeys = []string {}
+
     return &(addressMsgsSent.EntityData)
 }
 
@@ -6040,9 +6556,12 @@ func (basicCounterInterface *PerfMgmt_Threshold_BasicCounterInterface) GetEntity
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterface.EntityData.Children["basic-counter-interface-templates"] = types.YChild{"BasicCounterInterfaceTemplates", &basicCounterInterface.BasicCounterInterfaceTemplates}
-    basicCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicCounterInterface.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Children.Append("basic-counter-interface-templates", types.YChild{"BasicCounterInterfaceTemplates", &basicCounterInterface.BasicCounterInterfaceTemplates})
+    basicCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    basicCounterInterface.EntityData.YListKeys = []string {}
+
     return &(basicCounterInterface.EntityData)
 }
 
@@ -6054,7 +6573,7 @@ type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates str
 
     // Interface Basic Counter threshold template instance. The type is slice of
     // PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate.
-    BasicCounterInterfaceTemplate []PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate
+    BasicCounterInterfaceTemplate []*PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate
 }
 
 func (basicCounterInterfaceTemplates *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates) GetEntityData() *types.CommonEntityData {
@@ -6067,12 +6586,15 @@ func (basicCounterInterfaceTemplates *PerfMgmt_Threshold_BasicCounterInterface_B
     basicCounterInterfaceTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterfaceTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterfaceTemplates.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterfaceTemplates.EntityData.Children["basic-counter-interface-template"] = types.YChild{"BasicCounterInterfaceTemplate", nil}
+    basicCounterInterfaceTemplates.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterfaceTemplates.EntityData.Children.Append("basic-counter-interface-template", types.YChild{"BasicCounterInterfaceTemplate", nil})
     for i := range basicCounterInterfaceTemplates.BasicCounterInterfaceTemplate {
-        basicCounterInterfaceTemplates.EntityData.Children[types.GetSegmentPath(&basicCounterInterfaceTemplates.BasicCounterInterfaceTemplate[i])] = types.YChild{"BasicCounterInterfaceTemplate", &basicCounterInterfaceTemplates.BasicCounterInterfaceTemplate[i]}
+        basicCounterInterfaceTemplates.EntityData.Children.Append(types.GetSegmentPath(basicCounterInterfaceTemplates.BasicCounterInterfaceTemplate[i]), types.YChild{"BasicCounterInterfaceTemplate", basicCounterInterfaceTemplates.BasicCounterInterfaceTemplate[i]})
     }
-    basicCounterInterfaceTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicCounterInterfaceTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    basicCounterInterfaceTemplates.EntityData.YListKeys = []string {}
+
     return &(basicCounterInterfaceTemplates.EntityData)
 }
 
@@ -6084,7 +6606,7 @@ type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_Bas
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -6135,27 +6657,30 @@ func (basicCounterInterfaceTemplate *PerfMgmt_Threshold_BasicCounterInterface_Ba
     basicCounterInterfaceTemplate.EntityData.YangName = "basic-counter-interface-template"
     basicCounterInterfaceTemplate.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterfaceTemplate.EntityData.ParentYangName = "basic-counter-interface-templates"
-    basicCounterInterfaceTemplate.EntityData.SegmentPath = "basic-counter-interface-template" + "[template-name='" + fmt.Sprintf("%v", basicCounterInterfaceTemplate.TemplateName) + "']"
+    basicCounterInterfaceTemplate.EntityData.SegmentPath = "basic-counter-interface-template" + types.AddKeyToken(basicCounterInterfaceTemplate.TemplateName, "template-name")
     basicCounterInterfaceTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterfaceTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterfaceTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterfaceTemplate.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterfaceTemplate.EntityData.Children["in-octets"] = types.YChild{"InOctets", &basicCounterInterfaceTemplate.InOctets}
-    basicCounterInterfaceTemplate.EntityData.Children["out-octets"] = types.YChild{"OutOctets", &basicCounterInterfaceTemplate.OutOctets}
-    basicCounterInterfaceTemplate.EntityData.Children["output-queue-drops"] = types.YChild{"OutputQueueDrops", &basicCounterInterfaceTemplate.OutputQueueDrops}
-    basicCounterInterfaceTemplate.EntityData.Children["input-total-errors"] = types.YChild{"InputTotalErrors", &basicCounterInterfaceTemplate.InputTotalErrors}
-    basicCounterInterfaceTemplate.EntityData.Children["output-total-drops"] = types.YChild{"OutputTotalDrops", &basicCounterInterfaceTemplate.OutputTotalDrops}
-    basicCounterInterfaceTemplate.EntityData.Children["out-packets"] = types.YChild{"OutPackets", &basicCounterInterfaceTemplate.OutPackets}
-    basicCounterInterfaceTemplate.EntityData.Children["output-total-errors"] = types.YChild{"OutputTotalErrors", &basicCounterInterfaceTemplate.OutputTotalErrors}
-    basicCounterInterfaceTemplate.EntityData.Children["in-packets"] = types.YChild{"InPackets", &basicCounterInterfaceTemplate.InPackets}
-    basicCounterInterfaceTemplate.EntityData.Children["input-queue-drops"] = types.YChild{"InputQueueDrops", &basicCounterInterfaceTemplate.InputQueueDrops}
-    basicCounterInterfaceTemplate.EntityData.Children["input-total-drops"] = types.YChild{"InputTotalDrops", &basicCounterInterfaceTemplate.InputTotalDrops}
-    basicCounterInterfaceTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicCounterInterfaceTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", basicCounterInterfaceTemplate.TemplateName}
-    basicCounterInterfaceTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", basicCounterInterfaceTemplate.SampleInterval}
-    basicCounterInterfaceTemplate.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", basicCounterInterfaceTemplate.RegExpGroup}
-    basicCounterInterfaceTemplate.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", basicCounterInterfaceTemplate.VrfGroup}
+    basicCounterInterfaceTemplate.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterfaceTemplate.EntityData.Children.Append("in-octets", types.YChild{"InOctets", &basicCounterInterfaceTemplate.InOctets})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("out-octets", types.YChild{"OutOctets", &basicCounterInterfaceTemplate.OutOctets})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("output-queue-drops", types.YChild{"OutputQueueDrops", &basicCounterInterfaceTemplate.OutputQueueDrops})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("input-total-errors", types.YChild{"InputTotalErrors", &basicCounterInterfaceTemplate.InputTotalErrors})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("output-total-drops", types.YChild{"OutputTotalDrops", &basicCounterInterfaceTemplate.OutputTotalDrops})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("out-packets", types.YChild{"OutPackets", &basicCounterInterfaceTemplate.OutPackets})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("output-total-errors", types.YChild{"OutputTotalErrors", &basicCounterInterfaceTemplate.OutputTotalErrors})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("in-packets", types.YChild{"InPackets", &basicCounterInterfaceTemplate.InPackets})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("input-queue-drops", types.YChild{"InputQueueDrops", &basicCounterInterfaceTemplate.InputQueueDrops})
+    basicCounterInterfaceTemplate.EntityData.Children.Append("input-total-drops", types.YChild{"InputTotalDrops", &basicCounterInterfaceTemplate.InputTotalDrops})
+    basicCounterInterfaceTemplate.EntityData.Leafs = types.NewOrderedMap()
+    basicCounterInterfaceTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", basicCounterInterfaceTemplate.TemplateName})
+    basicCounterInterfaceTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", basicCounterInterfaceTemplate.SampleInterval})
+    basicCounterInterfaceTemplate.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", basicCounterInterfaceTemplate.RegExpGroup})
+    basicCounterInterfaceTemplate.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", basicCounterInterfaceTemplate.VrfGroup})
+
+    basicCounterInterfaceTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(basicCounterInterfaceTemplate.EntityData)
 }
 
@@ -6165,6 +6690,7 @@ func (basicCounterInterfaceTemplate *PerfMgmt_Threshold_BasicCounterInterface_Ba
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_InOctets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6198,14 +6724,17 @@ func (inOctets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTe
     inOctets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inOctets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inOctets.EntityData.Children = make(map[string]types.YChild)
-    inOctets.EntityData.Leafs = make(map[string]types.YLeaf)
-    inOctets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inOctets.Operator}
-    inOctets.EntityData.Leafs["value"] = types.YLeaf{"Value", inOctets.Value}
-    inOctets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inOctets.EndRangeValue}
-    inOctets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inOctets.Percent}
-    inOctets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inOctets.RearmType}
-    inOctets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inOctets.RearmWindow}
+    inOctets.EntityData.Children = types.NewOrderedMap()
+    inOctets.EntityData.Leafs = types.NewOrderedMap()
+    inOctets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inOctets.Operator})
+    inOctets.EntityData.Leafs.Append("value", types.YLeaf{"Value", inOctets.Value})
+    inOctets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inOctets.EndRangeValue})
+    inOctets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inOctets.Percent})
+    inOctets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inOctets.RearmType})
+    inOctets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inOctets.RearmWindow})
+
+    inOctets.EntityData.YListKeys = []string {}
+
     return &(inOctets.EntityData)
 }
 
@@ -6215,6 +6744,7 @@ func (inOctets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTe
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_OutOctets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6248,14 +6778,17 @@ func (outOctets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceT
     outOctets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outOctets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outOctets.EntityData.Children = make(map[string]types.YChild)
-    outOctets.EntityData.Leafs = make(map[string]types.YLeaf)
-    outOctets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outOctets.Operator}
-    outOctets.EntityData.Leafs["value"] = types.YLeaf{"Value", outOctets.Value}
-    outOctets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outOctets.EndRangeValue}
-    outOctets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outOctets.Percent}
-    outOctets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outOctets.RearmType}
-    outOctets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outOctets.RearmWindow}
+    outOctets.EntityData.Children = types.NewOrderedMap()
+    outOctets.EntityData.Leafs = types.NewOrderedMap()
+    outOctets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outOctets.Operator})
+    outOctets.EntityData.Leafs.Append("value", types.YLeaf{"Value", outOctets.Value})
+    outOctets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outOctets.EndRangeValue})
+    outOctets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outOctets.Percent})
+    outOctets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outOctets.RearmType})
+    outOctets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outOctets.RearmWindow})
+
+    outOctets.EntityData.YListKeys = []string {}
+
     return &(outOctets.EntityData)
 }
 
@@ -6265,6 +6798,7 @@ func (outOctets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceT
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_OutputQueueDrops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6298,14 +6832,17 @@ func (outputQueueDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
     outputQueueDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputQueueDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputQueueDrops.EntityData.Children = make(map[string]types.YChild)
-    outputQueueDrops.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputQueueDrops.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputQueueDrops.Operator}
-    outputQueueDrops.EntityData.Leafs["value"] = types.YLeaf{"Value", outputQueueDrops.Value}
-    outputQueueDrops.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputQueueDrops.EndRangeValue}
-    outputQueueDrops.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputQueueDrops.Percent}
-    outputQueueDrops.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputQueueDrops.RearmType}
-    outputQueueDrops.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputQueueDrops.RearmWindow}
+    outputQueueDrops.EntityData.Children = types.NewOrderedMap()
+    outputQueueDrops.EntityData.Leafs = types.NewOrderedMap()
+    outputQueueDrops.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputQueueDrops.Operator})
+    outputQueueDrops.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputQueueDrops.Value})
+    outputQueueDrops.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputQueueDrops.EndRangeValue})
+    outputQueueDrops.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputQueueDrops.Percent})
+    outputQueueDrops.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputQueueDrops.RearmType})
+    outputQueueDrops.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputQueueDrops.RearmWindow})
+
+    outputQueueDrops.EntityData.YListKeys = []string {}
+
     return &(outputQueueDrops.EntityData)
 }
 
@@ -6316,6 +6853,7 @@ func (outputQueueDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_InputTotalErrors struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6349,14 +6887,17 @@ func (inputTotalErrors *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
     inputTotalErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputTotalErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputTotalErrors.EntityData.Children = make(map[string]types.YChild)
-    inputTotalErrors.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputTotalErrors.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputTotalErrors.Operator}
-    inputTotalErrors.EntityData.Leafs["value"] = types.YLeaf{"Value", inputTotalErrors.Value}
-    inputTotalErrors.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputTotalErrors.EndRangeValue}
-    inputTotalErrors.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputTotalErrors.Percent}
-    inputTotalErrors.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputTotalErrors.RearmType}
-    inputTotalErrors.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputTotalErrors.RearmWindow}
+    inputTotalErrors.EntityData.Children = types.NewOrderedMap()
+    inputTotalErrors.EntityData.Leafs = types.NewOrderedMap()
+    inputTotalErrors.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputTotalErrors.Operator})
+    inputTotalErrors.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputTotalErrors.Value})
+    inputTotalErrors.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputTotalErrors.EndRangeValue})
+    inputTotalErrors.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputTotalErrors.Percent})
+    inputTotalErrors.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputTotalErrors.RearmType})
+    inputTotalErrors.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputTotalErrors.RearmWindow})
+
+    inputTotalErrors.EntityData.YListKeys = []string {}
+
     return &(inputTotalErrors.EntityData)
 }
 
@@ -6366,6 +6907,7 @@ func (inputTotalErrors *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_OutputTotalDrops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6399,14 +6941,17 @@ func (outputTotalDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
     outputTotalDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputTotalDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputTotalDrops.EntityData.Children = make(map[string]types.YChild)
-    outputTotalDrops.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputTotalDrops.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputTotalDrops.Operator}
-    outputTotalDrops.EntityData.Leafs["value"] = types.YLeaf{"Value", outputTotalDrops.Value}
-    outputTotalDrops.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputTotalDrops.EndRangeValue}
-    outputTotalDrops.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputTotalDrops.Percent}
-    outputTotalDrops.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputTotalDrops.RearmType}
-    outputTotalDrops.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputTotalDrops.RearmWindow}
+    outputTotalDrops.EntityData.Children = types.NewOrderedMap()
+    outputTotalDrops.EntityData.Leafs = types.NewOrderedMap()
+    outputTotalDrops.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputTotalDrops.Operator})
+    outputTotalDrops.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputTotalDrops.Value})
+    outputTotalDrops.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputTotalDrops.EndRangeValue})
+    outputTotalDrops.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputTotalDrops.Percent})
+    outputTotalDrops.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputTotalDrops.RearmType})
+    outputTotalDrops.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputTotalDrops.RearmWindow})
+
+    outputTotalDrops.EntityData.YListKeys = []string {}
+
     return &(outputTotalDrops.EntityData)
 }
 
@@ -6416,6 +6961,7 @@ func (outputTotalDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_OutPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6449,14 +6995,17 @@ func (outPackets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterface
     outPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outPackets.EntityData.Children = make(map[string]types.YChild)
-    outPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    outPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outPackets.Operator}
-    outPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", outPackets.Value}
-    outPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outPackets.EndRangeValue}
-    outPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outPackets.Percent}
-    outPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outPackets.RearmType}
-    outPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outPackets.RearmWindow}
+    outPackets.EntityData.Children = types.NewOrderedMap()
+    outPackets.EntityData.Leafs = types.NewOrderedMap()
+    outPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outPackets.Operator})
+    outPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", outPackets.Value})
+    outPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outPackets.EndRangeValue})
+    outPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outPackets.Percent})
+    outPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outPackets.RearmType})
+    outPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outPackets.RearmWindow})
+
+    outPackets.EntityData.YListKeys = []string {}
+
     return &(outPackets.EntityData)
 }
 
@@ -6467,6 +7016,7 @@ func (outPackets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterface
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_OutputTotalErrors struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6500,14 +7050,17 @@ func (outputTotalErrors *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterIn
     outputTotalErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputTotalErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputTotalErrors.EntityData.Children = make(map[string]types.YChild)
-    outputTotalErrors.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputTotalErrors.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputTotalErrors.Operator}
-    outputTotalErrors.EntityData.Leafs["value"] = types.YLeaf{"Value", outputTotalErrors.Value}
-    outputTotalErrors.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputTotalErrors.EndRangeValue}
-    outputTotalErrors.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputTotalErrors.Percent}
-    outputTotalErrors.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputTotalErrors.RearmType}
-    outputTotalErrors.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputTotalErrors.RearmWindow}
+    outputTotalErrors.EntityData.Children = types.NewOrderedMap()
+    outputTotalErrors.EntityData.Leafs = types.NewOrderedMap()
+    outputTotalErrors.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputTotalErrors.Operator})
+    outputTotalErrors.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputTotalErrors.Value})
+    outputTotalErrors.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputTotalErrors.EndRangeValue})
+    outputTotalErrors.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputTotalErrors.Percent})
+    outputTotalErrors.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputTotalErrors.RearmType})
+    outputTotalErrors.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputTotalErrors.RearmWindow})
+
+    outputTotalErrors.EntityData.YListKeys = []string {}
+
     return &(outputTotalErrors.EntityData)
 }
 
@@ -6517,6 +7070,7 @@ func (outputTotalErrors *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterIn
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_InPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6550,14 +7104,17 @@ func (inPackets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceT
     inPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inPackets.EntityData.Children = make(map[string]types.YChild)
-    inPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    inPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inPackets.Operator}
-    inPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", inPackets.Value}
-    inPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inPackets.EndRangeValue}
-    inPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inPackets.Percent}
-    inPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inPackets.RearmType}
-    inPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inPackets.RearmWindow}
+    inPackets.EntityData.Children = types.NewOrderedMap()
+    inPackets.EntityData.Leafs = types.NewOrderedMap()
+    inPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inPackets.Operator})
+    inPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", inPackets.Value})
+    inPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inPackets.EndRangeValue})
+    inPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inPackets.Percent})
+    inPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inPackets.RearmType})
+    inPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inPackets.RearmWindow})
+
+    inPackets.EntityData.YListKeys = []string {}
+
     return &(inPackets.EntityData)
 }
 
@@ -6567,6 +7124,7 @@ func (inPackets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceT
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_InputQueueDrops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6600,14 +7158,17 @@ func (inputQueueDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInte
     inputQueueDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputQueueDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputQueueDrops.EntityData.Children = make(map[string]types.YChild)
-    inputQueueDrops.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputQueueDrops.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputQueueDrops.Operator}
-    inputQueueDrops.EntityData.Leafs["value"] = types.YLeaf{"Value", inputQueueDrops.Value}
-    inputQueueDrops.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputQueueDrops.EndRangeValue}
-    inputQueueDrops.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputQueueDrops.Percent}
-    inputQueueDrops.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputQueueDrops.RearmType}
-    inputQueueDrops.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputQueueDrops.RearmWindow}
+    inputQueueDrops.EntityData.Children = types.NewOrderedMap()
+    inputQueueDrops.EntityData.Leafs = types.NewOrderedMap()
+    inputQueueDrops.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputQueueDrops.Operator})
+    inputQueueDrops.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputQueueDrops.Value})
+    inputQueueDrops.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputQueueDrops.EndRangeValue})
+    inputQueueDrops.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputQueueDrops.Percent})
+    inputQueueDrops.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputQueueDrops.RearmType})
+    inputQueueDrops.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputQueueDrops.RearmWindow})
+
+    inputQueueDrops.EntityData.YListKeys = []string {}
+
     return &(inputQueueDrops.EntityData)
 }
 
@@ -6617,6 +7178,7 @@ func (inputQueueDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInte
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate_InputTotalDrops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6650,14 +7212,17 @@ func (inputTotalDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInte
     inputTotalDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputTotalDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputTotalDrops.EntityData.Children = make(map[string]types.YChild)
-    inputTotalDrops.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputTotalDrops.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputTotalDrops.Operator}
-    inputTotalDrops.EntityData.Leafs["value"] = types.YLeaf{"Value", inputTotalDrops.Value}
-    inputTotalDrops.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputTotalDrops.EndRangeValue}
-    inputTotalDrops.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputTotalDrops.Percent}
-    inputTotalDrops.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputTotalDrops.RearmType}
-    inputTotalDrops.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputTotalDrops.RearmWindow}
+    inputTotalDrops.EntityData.Children = types.NewOrderedMap()
+    inputTotalDrops.EntityData.Leafs = types.NewOrderedMap()
+    inputTotalDrops.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputTotalDrops.Operator})
+    inputTotalDrops.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputTotalDrops.Value})
+    inputTotalDrops.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputTotalDrops.EndRangeValue})
+    inputTotalDrops.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputTotalDrops.Percent})
+    inputTotalDrops.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputTotalDrops.RearmType})
+    inputTotalDrops.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputTotalDrops.RearmWindow})
+
+    inputTotalDrops.EntityData.YListKeys = []string {}
+
     return &(inputTotalDrops.EntityData)
 }
 
@@ -6681,9 +7246,12 @@ func (bgp *PerfMgmt_Threshold_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Children["bgp-templates"] = types.YChild{"BgpTemplates", &bgp.BgpTemplates}
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Children.Append("bgp-templates", types.YChild{"BgpTemplates", &bgp.BgpTemplates})
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -6695,7 +7263,7 @@ type PerfMgmt_Threshold_Bgp_BgpTemplates struct {
 
     // BGP threshold template instance. The type is slice of
     // PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate.
-    BgpTemplate []PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate
+    BgpTemplate []*PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate
 }
 
 func (bgpTemplates *PerfMgmt_Threshold_Bgp_BgpTemplates) GetEntityData() *types.CommonEntityData {
@@ -6708,12 +7276,15 @@ func (bgpTemplates *PerfMgmt_Threshold_Bgp_BgpTemplates) GetEntityData() *types.
     bgpTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgpTemplates.EntityData.Children = make(map[string]types.YChild)
-    bgpTemplates.EntityData.Children["bgp-template"] = types.YChild{"BgpTemplate", nil}
+    bgpTemplates.EntityData.Children = types.NewOrderedMap()
+    bgpTemplates.EntityData.Children.Append("bgp-template", types.YChild{"BgpTemplate", nil})
     for i := range bgpTemplates.BgpTemplate {
-        bgpTemplates.EntityData.Children[types.GetSegmentPath(&bgpTemplates.BgpTemplate[i])] = types.YChild{"BgpTemplate", &bgpTemplates.BgpTemplate[i]}
+        bgpTemplates.EntityData.Children.Append(types.GetSegmentPath(bgpTemplates.BgpTemplate[i]), types.YChild{"BgpTemplate", bgpTemplates.BgpTemplate[i]})
     }
-    bgpTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    bgpTemplates.EntityData.YListKeys = []string {}
+
     return &(bgpTemplates.EntityData)
 }
 
@@ -6724,7 +7295,7 @@ type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -6761,23 +7332,26 @@ func (bgpTemplate *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate) GetEntityDat
     bgpTemplate.EntityData.YangName = "bgp-template"
     bgpTemplate.EntityData.BundleName = "cisco_ios_xr"
     bgpTemplate.EntityData.ParentYangName = "bgp-templates"
-    bgpTemplate.EntityData.SegmentPath = "bgp-template" + "[template-name='" + fmt.Sprintf("%v", bgpTemplate.TemplateName) + "']"
+    bgpTemplate.EntityData.SegmentPath = "bgp-template" + types.AddKeyToken(bgpTemplate.TemplateName, "template-name")
     bgpTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgpTemplate.EntityData.Children = make(map[string]types.YChild)
-    bgpTemplate.EntityData.Children["output-update-messages"] = types.YChild{"OutputUpdateMessages", &bgpTemplate.OutputUpdateMessages}
-    bgpTemplate.EntityData.Children["errors-received"] = types.YChild{"ErrorsReceived", &bgpTemplate.ErrorsReceived}
-    bgpTemplate.EntityData.Children["conn-established"] = types.YChild{"ConnEstablished", &bgpTemplate.ConnEstablished}
-    bgpTemplate.EntityData.Children["output-messages"] = types.YChild{"OutputMessages", &bgpTemplate.OutputMessages}
-    bgpTemplate.EntityData.Children["conn-dropped"] = types.YChild{"ConnDropped", &bgpTemplate.ConnDropped}
-    bgpTemplate.EntityData.Children["input-update-messages"] = types.YChild{"InputUpdateMessages", &bgpTemplate.InputUpdateMessages}
-    bgpTemplate.EntityData.Children["errors-sent"] = types.YChild{"ErrorsSent", &bgpTemplate.ErrorsSent}
-    bgpTemplate.EntityData.Children["input-messages"] = types.YChild{"InputMessages", &bgpTemplate.InputMessages}
-    bgpTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    bgpTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", bgpTemplate.TemplateName}
-    bgpTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", bgpTemplate.SampleInterval}
+    bgpTemplate.EntityData.Children = types.NewOrderedMap()
+    bgpTemplate.EntityData.Children.Append("output-update-messages", types.YChild{"OutputUpdateMessages", &bgpTemplate.OutputUpdateMessages})
+    bgpTemplate.EntityData.Children.Append("errors-received", types.YChild{"ErrorsReceived", &bgpTemplate.ErrorsReceived})
+    bgpTemplate.EntityData.Children.Append("conn-established", types.YChild{"ConnEstablished", &bgpTemplate.ConnEstablished})
+    bgpTemplate.EntityData.Children.Append("output-messages", types.YChild{"OutputMessages", &bgpTemplate.OutputMessages})
+    bgpTemplate.EntityData.Children.Append("conn-dropped", types.YChild{"ConnDropped", &bgpTemplate.ConnDropped})
+    bgpTemplate.EntityData.Children.Append("input-update-messages", types.YChild{"InputUpdateMessages", &bgpTemplate.InputUpdateMessages})
+    bgpTemplate.EntityData.Children.Append("errors-sent", types.YChild{"ErrorsSent", &bgpTemplate.ErrorsSent})
+    bgpTemplate.EntityData.Children.Append("input-messages", types.YChild{"InputMessages", &bgpTemplate.InputMessages})
+    bgpTemplate.EntityData.Leafs = types.NewOrderedMap()
+    bgpTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", bgpTemplate.TemplateName})
+    bgpTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", bgpTemplate.SampleInterval})
+
+    bgpTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(bgpTemplate.EntityData)
 }
 
@@ -6787,6 +7361,7 @@ func (bgpTemplate *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate) GetEntityDat
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_OutputUpdateMessages struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6820,14 +7395,17 @@ func (outputUpdateMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_Outp
     outputUpdateMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputUpdateMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputUpdateMessages.EntityData.Children = make(map[string]types.YChild)
-    outputUpdateMessages.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputUpdateMessages.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputUpdateMessages.Operator}
-    outputUpdateMessages.EntityData.Leafs["value"] = types.YLeaf{"Value", outputUpdateMessages.Value}
-    outputUpdateMessages.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputUpdateMessages.EndRangeValue}
-    outputUpdateMessages.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputUpdateMessages.Percent}
-    outputUpdateMessages.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputUpdateMessages.RearmType}
-    outputUpdateMessages.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputUpdateMessages.RearmWindow}
+    outputUpdateMessages.EntityData.Children = types.NewOrderedMap()
+    outputUpdateMessages.EntityData.Leafs = types.NewOrderedMap()
+    outputUpdateMessages.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputUpdateMessages.Operator})
+    outputUpdateMessages.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputUpdateMessages.Value})
+    outputUpdateMessages.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputUpdateMessages.EndRangeValue})
+    outputUpdateMessages.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputUpdateMessages.Percent})
+    outputUpdateMessages.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputUpdateMessages.RearmType})
+    outputUpdateMessages.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputUpdateMessages.RearmWindow})
+
+    outputUpdateMessages.EntityData.YListKeys = []string {}
+
     return &(outputUpdateMessages.EntityData)
 }
 
@@ -6837,6 +7415,7 @@ func (outputUpdateMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_Outp
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ErrorsReceived struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6870,14 +7449,17 @@ func (errorsReceived *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ErrorsRece
     errorsReceived.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorsReceived.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorsReceived.EntityData.Children = make(map[string]types.YChild)
-    errorsReceived.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorsReceived.EntityData.Leafs["operator"] = types.YLeaf{"Operator", errorsReceived.Operator}
-    errorsReceived.EntityData.Leafs["value"] = types.YLeaf{"Value", errorsReceived.Value}
-    errorsReceived.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", errorsReceived.EndRangeValue}
-    errorsReceived.EntityData.Leafs["percent"] = types.YLeaf{"Percent", errorsReceived.Percent}
-    errorsReceived.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", errorsReceived.RearmType}
-    errorsReceived.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", errorsReceived.RearmWindow}
+    errorsReceived.EntityData.Children = types.NewOrderedMap()
+    errorsReceived.EntityData.Leafs = types.NewOrderedMap()
+    errorsReceived.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", errorsReceived.Operator})
+    errorsReceived.EntityData.Leafs.Append("value", types.YLeaf{"Value", errorsReceived.Value})
+    errorsReceived.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", errorsReceived.EndRangeValue})
+    errorsReceived.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", errorsReceived.Percent})
+    errorsReceived.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", errorsReceived.RearmType})
+    errorsReceived.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", errorsReceived.RearmWindow})
+
+    errorsReceived.EntityData.YListKeys = []string {}
+
     return &(errorsReceived.EntityData)
 }
 
@@ -6888,6 +7470,7 @@ func (errorsReceived *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ErrorsRece
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ConnEstablished struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6921,14 +7504,17 @@ func (connEstablished *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ConnEstab
     connEstablished.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connEstablished.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    connEstablished.EntityData.Children = make(map[string]types.YChild)
-    connEstablished.EntityData.Leafs = make(map[string]types.YLeaf)
-    connEstablished.EntityData.Leafs["operator"] = types.YLeaf{"Operator", connEstablished.Operator}
-    connEstablished.EntityData.Leafs["value"] = types.YLeaf{"Value", connEstablished.Value}
-    connEstablished.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", connEstablished.EndRangeValue}
-    connEstablished.EntityData.Leafs["percent"] = types.YLeaf{"Percent", connEstablished.Percent}
-    connEstablished.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", connEstablished.RearmType}
-    connEstablished.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", connEstablished.RearmWindow}
+    connEstablished.EntityData.Children = types.NewOrderedMap()
+    connEstablished.EntityData.Leafs = types.NewOrderedMap()
+    connEstablished.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", connEstablished.Operator})
+    connEstablished.EntityData.Leafs.Append("value", types.YLeaf{"Value", connEstablished.Value})
+    connEstablished.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", connEstablished.EndRangeValue})
+    connEstablished.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", connEstablished.Percent})
+    connEstablished.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", connEstablished.RearmType})
+    connEstablished.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", connEstablished.RearmWindow})
+
+    connEstablished.EntityData.YListKeys = []string {}
+
     return &(connEstablished.EntityData)
 }
 
@@ -6938,6 +7524,7 @@ func (connEstablished *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ConnEstab
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_OutputMessages struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -6971,14 +7558,17 @@ func (outputMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_OutputMess
     outputMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputMessages.EntityData.Children = make(map[string]types.YChild)
-    outputMessages.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputMessages.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputMessages.Operator}
-    outputMessages.EntityData.Leafs["value"] = types.YLeaf{"Value", outputMessages.Value}
-    outputMessages.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputMessages.EndRangeValue}
-    outputMessages.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputMessages.Percent}
-    outputMessages.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputMessages.RearmType}
-    outputMessages.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputMessages.RearmWindow}
+    outputMessages.EntityData.Children = types.NewOrderedMap()
+    outputMessages.EntityData.Leafs = types.NewOrderedMap()
+    outputMessages.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputMessages.Operator})
+    outputMessages.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputMessages.Value})
+    outputMessages.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputMessages.EndRangeValue})
+    outputMessages.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputMessages.Percent})
+    outputMessages.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputMessages.RearmType})
+    outputMessages.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputMessages.RearmWindow})
+
+    outputMessages.EntityData.YListKeys = []string {}
+
     return &(outputMessages.EntityData)
 }
 
@@ -6988,6 +7578,7 @@ func (outputMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_OutputMess
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ConnDropped struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7021,14 +7612,17 @@ func (connDropped *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ConnDropped) 
     connDropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connDropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    connDropped.EntityData.Children = make(map[string]types.YChild)
-    connDropped.EntityData.Leafs = make(map[string]types.YLeaf)
-    connDropped.EntityData.Leafs["operator"] = types.YLeaf{"Operator", connDropped.Operator}
-    connDropped.EntityData.Leafs["value"] = types.YLeaf{"Value", connDropped.Value}
-    connDropped.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", connDropped.EndRangeValue}
-    connDropped.EntityData.Leafs["percent"] = types.YLeaf{"Percent", connDropped.Percent}
-    connDropped.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", connDropped.RearmType}
-    connDropped.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", connDropped.RearmWindow}
+    connDropped.EntityData.Children = types.NewOrderedMap()
+    connDropped.EntityData.Leafs = types.NewOrderedMap()
+    connDropped.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", connDropped.Operator})
+    connDropped.EntityData.Leafs.Append("value", types.YLeaf{"Value", connDropped.Value})
+    connDropped.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", connDropped.EndRangeValue})
+    connDropped.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", connDropped.Percent})
+    connDropped.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", connDropped.RearmType})
+    connDropped.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", connDropped.RearmWindow})
+
+    connDropped.EntityData.YListKeys = []string {}
+
     return &(connDropped.EntityData)
 }
 
@@ -7038,6 +7632,7 @@ func (connDropped *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ConnDropped) 
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_InputUpdateMessages struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7071,14 +7666,17 @@ func (inputUpdateMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_Input
     inputUpdateMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputUpdateMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputUpdateMessages.EntityData.Children = make(map[string]types.YChild)
-    inputUpdateMessages.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputUpdateMessages.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputUpdateMessages.Operator}
-    inputUpdateMessages.EntityData.Leafs["value"] = types.YLeaf{"Value", inputUpdateMessages.Value}
-    inputUpdateMessages.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputUpdateMessages.EndRangeValue}
-    inputUpdateMessages.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputUpdateMessages.Percent}
-    inputUpdateMessages.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputUpdateMessages.RearmType}
-    inputUpdateMessages.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputUpdateMessages.RearmWindow}
+    inputUpdateMessages.EntityData.Children = types.NewOrderedMap()
+    inputUpdateMessages.EntityData.Leafs = types.NewOrderedMap()
+    inputUpdateMessages.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputUpdateMessages.Operator})
+    inputUpdateMessages.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputUpdateMessages.Value})
+    inputUpdateMessages.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputUpdateMessages.EndRangeValue})
+    inputUpdateMessages.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputUpdateMessages.Percent})
+    inputUpdateMessages.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputUpdateMessages.RearmType})
+    inputUpdateMessages.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputUpdateMessages.RearmWindow})
+
+    inputUpdateMessages.EntityData.YListKeys = []string {}
+
     return &(inputUpdateMessages.EntityData)
 }
 
@@ -7088,6 +7686,7 @@ func (inputUpdateMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_Input
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ErrorsSent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7121,14 +7720,17 @@ func (errorsSent *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ErrorsSent) Ge
     errorsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    errorsSent.EntityData.Children = make(map[string]types.YChild)
-    errorsSent.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorsSent.EntityData.Leafs["operator"] = types.YLeaf{"Operator", errorsSent.Operator}
-    errorsSent.EntityData.Leafs["value"] = types.YLeaf{"Value", errorsSent.Value}
-    errorsSent.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", errorsSent.EndRangeValue}
-    errorsSent.EntityData.Leafs["percent"] = types.YLeaf{"Percent", errorsSent.Percent}
-    errorsSent.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", errorsSent.RearmType}
-    errorsSent.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", errorsSent.RearmWindow}
+    errorsSent.EntityData.Children = types.NewOrderedMap()
+    errorsSent.EntityData.Leafs = types.NewOrderedMap()
+    errorsSent.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", errorsSent.Operator})
+    errorsSent.EntityData.Leafs.Append("value", types.YLeaf{"Value", errorsSent.Value})
+    errorsSent.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", errorsSent.EndRangeValue})
+    errorsSent.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", errorsSent.Percent})
+    errorsSent.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", errorsSent.RearmType})
+    errorsSent.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", errorsSent.RearmWindow})
+
+    errorsSent.EntityData.YListKeys = []string {}
+
     return &(errorsSent.EntityData)
 }
 
@@ -7138,6 +7740,7 @@ func (errorsSent *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ErrorsSent) Ge
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_InputMessages struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7171,14 +7774,17 @@ func (inputMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_InputMessag
     inputMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputMessages.EntityData.Children = make(map[string]types.YChild)
-    inputMessages.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputMessages.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputMessages.Operator}
-    inputMessages.EntityData.Leafs["value"] = types.YLeaf{"Value", inputMessages.Value}
-    inputMessages.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputMessages.EndRangeValue}
-    inputMessages.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputMessages.Percent}
-    inputMessages.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputMessages.RearmType}
-    inputMessages.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputMessages.RearmWindow}
+    inputMessages.EntityData.Children = types.NewOrderedMap()
+    inputMessages.EntityData.Leafs = types.NewOrderedMap()
+    inputMessages.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputMessages.Operator})
+    inputMessages.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputMessages.Value})
+    inputMessages.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputMessages.EndRangeValue})
+    inputMessages.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputMessages.Percent})
+    inputMessages.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputMessages.RearmType})
+    inputMessages.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputMessages.RearmWindow})
+
+    inputMessages.EntityData.YListKeys = []string {}
+
     return &(inputMessages.EntityData)
 }
 
@@ -7202,9 +7808,12 @@ func (ospfv2Protocol *PerfMgmt_Threshold_Ospfv2Protocol) GetEntityData() *types.
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv2Protocol.EntityData.Children["ospfv2-protocol-templates"] = types.YChild{"Ospfv2ProtocolTemplates", &ospfv2Protocol.Ospfv2ProtocolTemplates}
-    ospfv2Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv2Protocol.EntityData.Children.Append("ospfv2-protocol-templates", types.YChild{"Ospfv2ProtocolTemplates", &ospfv2Protocol.Ospfv2ProtocolTemplates})
+    ospfv2Protocol.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv2Protocol.EntityData)
 }
 
@@ -7216,7 +7825,7 @@ type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates struct {
 
     // OSPF v2 Protocol threshold template instance. The type is slice of
     // PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate.
-    Ospfv2ProtocolTemplate []PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate
+    Ospfv2ProtocolTemplate []*PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate
 }
 
 func (ospfv2ProtocolTemplates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates) GetEntityData() *types.CommonEntityData {
@@ -7229,12 +7838,15 @@ func (ospfv2ProtocolTemplates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolT
     ospfv2ProtocolTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2ProtocolTemplates.EntityData.Children = make(map[string]types.YChild)
-    ospfv2ProtocolTemplates.EntityData.Children["ospfv2-protocol-template"] = types.YChild{"Ospfv2ProtocolTemplate", nil}
+    ospfv2ProtocolTemplates.EntityData.Children = types.NewOrderedMap()
+    ospfv2ProtocolTemplates.EntityData.Children.Append("ospfv2-protocol-template", types.YChild{"Ospfv2ProtocolTemplate", nil})
     for i := range ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate {
-        ospfv2ProtocolTemplates.EntityData.Children[types.GetSegmentPath(&ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate[i])] = types.YChild{"Ospfv2ProtocolTemplate", &ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate[i]}
+        ospfv2ProtocolTemplates.EntityData.Children.Append(types.GetSegmentPath(ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate[i]), types.YChild{"Ospfv2ProtocolTemplate", ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate[i]})
     }
-    ospfv2ProtocolTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2ProtocolTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2ProtocolTemplates.EntityData.YListKeys = []string {}
+
     return &(ospfv2ProtocolTemplates.EntityData)
 }
 
@@ -7245,7 +7857,7 @@ type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTem
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -7321,36 +7933,39 @@ func (ospfv2ProtocolTemplate *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTe
     ospfv2ProtocolTemplate.EntityData.YangName = "ospfv2-protocol-template"
     ospfv2ProtocolTemplate.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolTemplate.EntityData.ParentYangName = "ospfv2-protocol-templates"
-    ospfv2ProtocolTemplate.EntityData.SegmentPath = "ospfv2-protocol-template" + "[template-name='" + fmt.Sprintf("%v", ospfv2ProtocolTemplate.TemplateName) + "']"
+    ospfv2ProtocolTemplate.EntityData.SegmentPath = "ospfv2-protocol-template" + types.AddKeyToken(ospfv2ProtocolTemplate.TemplateName, "template-name")
     ospfv2ProtocolTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2ProtocolTemplate.EntityData.Children = make(map[string]types.YChild)
-    ospfv2ProtocolTemplate.EntityData.Children["checksum-errors"] = types.YChild{"ChecksumErrors", &ospfv2ProtocolTemplate.ChecksumErrors}
-    ospfv2ProtocolTemplate.EntityData.Children["input-lsa-acks-lsa"] = types.YChild{"InputLsaAcksLsa", &ospfv2ProtocolTemplate.InputLsaAcksLsa}
-    ospfv2ProtocolTemplate.EntityData.Children["output-db-ds-lsa"] = types.YChild{"OutputDbDsLsa", &ospfv2ProtocolTemplate.OutputDbDsLsa}
-    ospfv2ProtocolTemplate.EntityData.Children["input-db-ds-lsa"] = types.YChild{"InputDbDsLsa", &ospfv2ProtocolTemplate.InputDbDsLsa}
-    ospfv2ProtocolTemplate.EntityData.Children["input-lsa-updates"] = types.YChild{"InputLsaUpdates", &ospfv2ProtocolTemplate.InputLsaUpdates}
-    ospfv2ProtocolTemplate.EntityData.Children["output-db-ds"] = types.YChild{"OutputDbDs", &ospfv2ProtocolTemplate.OutputDbDs}
-    ospfv2ProtocolTemplate.EntityData.Children["output-lsa-updates-lsa"] = types.YChild{"OutputLsaUpdatesLsa", &ospfv2ProtocolTemplate.OutputLsaUpdatesLsa}
-    ospfv2ProtocolTemplate.EntityData.Children["input-db-ds"] = types.YChild{"InputDbDs", &ospfv2ProtocolTemplate.InputDbDs}
-    ospfv2ProtocolTemplate.EntityData.Children["input-lsa-updates-lsa"] = types.YChild{"InputLsaUpdatesLsa", &ospfv2ProtocolTemplate.InputLsaUpdatesLsa}
-    ospfv2ProtocolTemplate.EntityData.Children["output-packets"] = types.YChild{"OutputPackets", &ospfv2ProtocolTemplate.OutputPackets}
-    ospfv2ProtocolTemplate.EntityData.Children["input-packets"] = types.YChild{"InputPackets", &ospfv2ProtocolTemplate.InputPackets}
-    ospfv2ProtocolTemplate.EntityData.Children["output-hello-packets"] = types.YChild{"OutputHelloPackets", &ospfv2ProtocolTemplate.OutputHelloPackets}
-    ospfv2ProtocolTemplate.EntityData.Children["input-hello-packets"] = types.YChild{"InputHelloPackets", &ospfv2ProtocolTemplate.InputHelloPackets}
-    ospfv2ProtocolTemplate.EntityData.Children["output-ls-requests"] = types.YChild{"OutputLsRequests", &ospfv2ProtocolTemplate.OutputLsRequests}
-    ospfv2ProtocolTemplate.EntityData.Children["output-lsa-acks-lsa"] = types.YChild{"OutputLsaAcksLsa", &ospfv2ProtocolTemplate.OutputLsaAcksLsa}
-    ospfv2ProtocolTemplate.EntityData.Children["output-lsa-acks"] = types.YChild{"OutputLsaAcks", &ospfv2ProtocolTemplate.OutputLsaAcks}
-    ospfv2ProtocolTemplate.EntityData.Children["input-lsa-acks"] = types.YChild{"InputLsaAcks", &ospfv2ProtocolTemplate.InputLsaAcks}
-    ospfv2ProtocolTemplate.EntityData.Children["output-lsa-updates"] = types.YChild{"OutputLsaUpdates", &ospfv2ProtocolTemplate.OutputLsaUpdates}
-    ospfv2ProtocolTemplate.EntityData.Children["output-ls-requests-lsa"] = types.YChild{"OutputLsRequestsLsa", &ospfv2ProtocolTemplate.OutputLsRequestsLsa}
-    ospfv2ProtocolTemplate.EntityData.Children["input-ls-requests-lsa"] = types.YChild{"InputLsRequestsLsa", &ospfv2ProtocolTemplate.InputLsRequestsLsa}
-    ospfv2ProtocolTemplate.EntityData.Children["input-ls-requests"] = types.YChild{"InputLsRequests", &ospfv2ProtocolTemplate.InputLsRequests}
-    ospfv2ProtocolTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv2ProtocolTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ospfv2ProtocolTemplate.TemplateName}
-    ospfv2ProtocolTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", ospfv2ProtocolTemplate.SampleInterval}
+    ospfv2ProtocolTemplate.EntityData.Children = types.NewOrderedMap()
+    ospfv2ProtocolTemplate.EntityData.Children.Append("checksum-errors", types.YChild{"ChecksumErrors", &ospfv2ProtocolTemplate.ChecksumErrors})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-lsa-acks-lsa", types.YChild{"InputLsaAcksLsa", &ospfv2ProtocolTemplate.InputLsaAcksLsa})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-db-ds-lsa", types.YChild{"OutputDbDsLsa", &ospfv2ProtocolTemplate.OutputDbDsLsa})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-db-ds-lsa", types.YChild{"InputDbDsLsa", &ospfv2ProtocolTemplate.InputDbDsLsa})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-lsa-updates", types.YChild{"InputLsaUpdates", &ospfv2ProtocolTemplate.InputLsaUpdates})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-db-ds", types.YChild{"OutputDbDs", &ospfv2ProtocolTemplate.OutputDbDs})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-lsa-updates-lsa", types.YChild{"OutputLsaUpdatesLsa", &ospfv2ProtocolTemplate.OutputLsaUpdatesLsa})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-db-ds", types.YChild{"InputDbDs", &ospfv2ProtocolTemplate.InputDbDs})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-lsa-updates-lsa", types.YChild{"InputLsaUpdatesLsa", &ospfv2ProtocolTemplate.InputLsaUpdatesLsa})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-packets", types.YChild{"OutputPackets", &ospfv2ProtocolTemplate.OutputPackets})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-packets", types.YChild{"InputPackets", &ospfv2ProtocolTemplate.InputPackets})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-hello-packets", types.YChild{"OutputHelloPackets", &ospfv2ProtocolTemplate.OutputHelloPackets})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-hello-packets", types.YChild{"InputHelloPackets", &ospfv2ProtocolTemplate.InputHelloPackets})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-ls-requests", types.YChild{"OutputLsRequests", &ospfv2ProtocolTemplate.OutputLsRequests})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-lsa-acks-lsa", types.YChild{"OutputLsaAcksLsa", &ospfv2ProtocolTemplate.OutputLsaAcksLsa})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-lsa-acks", types.YChild{"OutputLsaAcks", &ospfv2ProtocolTemplate.OutputLsaAcks})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-lsa-acks", types.YChild{"InputLsaAcks", &ospfv2ProtocolTemplate.InputLsaAcks})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-lsa-updates", types.YChild{"OutputLsaUpdates", &ospfv2ProtocolTemplate.OutputLsaUpdates})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("output-ls-requests-lsa", types.YChild{"OutputLsRequestsLsa", &ospfv2ProtocolTemplate.OutputLsRequestsLsa})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-ls-requests-lsa", types.YChild{"InputLsRequestsLsa", &ospfv2ProtocolTemplate.InputLsRequestsLsa})
+    ospfv2ProtocolTemplate.EntityData.Children.Append("input-ls-requests", types.YChild{"InputLsRequests", &ospfv2ProtocolTemplate.InputLsRequests})
+    ospfv2ProtocolTemplate.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2ProtocolTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ospfv2ProtocolTemplate.TemplateName})
+    ospfv2ProtocolTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", ospfv2ProtocolTemplate.SampleInterval})
+
+    ospfv2ProtocolTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(ospfv2ProtocolTemplate.EntityData)
 }
 
@@ -7361,6 +7976,7 @@ func (ospfv2ProtocolTemplate *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTe
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_ChecksumErrors struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7394,14 +8010,17 @@ func (checksumErrors *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_
     checksumErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     checksumErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    checksumErrors.EntityData.Children = make(map[string]types.YChild)
-    checksumErrors.EntityData.Leafs = make(map[string]types.YLeaf)
-    checksumErrors.EntityData.Leafs["operator"] = types.YLeaf{"Operator", checksumErrors.Operator}
-    checksumErrors.EntityData.Leafs["value"] = types.YLeaf{"Value", checksumErrors.Value}
-    checksumErrors.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", checksumErrors.EndRangeValue}
-    checksumErrors.EntityData.Leafs["percent"] = types.YLeaf{"Percent", checksumErrors.Percent}
-    checksumErrors.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", checksumErrors.RearmType}
-    checksumErrors.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", checksumErrors.RearmWindow}
+    checksumErrors.EntityData.Children = types.NewOrderedMap()
+    checksumErrors.EntityData.Leafs = types.NewOrderedMap()
+    checksumErrors.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", checksumErrors.Operator})
+    checksumErrors.EntityData.Leafs.Append("value", types.YLeaf{"Value", checksumErrors.Value})
+    checksumErrors.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", checksumErrors.EndRangeValue})
+    checksumErrors.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", checksumErrors.Percent})
+    checksumErrors.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", checksumErrors.RearmType})
+    checksumErrors.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", checksumErrors.RearmWindow})
+
+    checksumErrors.EntityData.YListKeys = []string {}
+
     return &(checksumErrors.EntityData)
 }
 
@@ -7411,6 +8030,7 @@ func (checksumErrors *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputLsaAcksLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7444,14 +8064,17 @@ func (inputLsaAcksLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates
     inputLsaAcksLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaAcksLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsaAcksLsa.EntityData.Children = make(map[string]types.YChild)
-    inputLsaAcksLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsaAcksLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsaAcksLsa.Operator}
-    inputLsaAcksLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsaAcksLsa.Value}
-    inputLsaAcksLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsaAcksLsa.EndRangeValue}
-    inputLsaAcksLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsaAcksLsa.Percent}
-    inputLsaAcksLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsaAcksLsa.RearmType}
-    inputLsaAcksLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsaAcksLsa.RearmWindow}
+    inputLsaAcksLsa.EntityData.Children = types.NewOrderedMap()
+    inputLsaAcksLsa.EntityData.Leafs = types.NewOrderedMap()
+    inputLsaAcksLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsaAcksLsa.Operator})
+    inputLsaAcksLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsaAcksLsa.Value})
+    inputLsaAcksLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsaAcksLsa.EndRangeValue})
+    inputLsaAcksLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsaAcksLsa.Percent})
+    inputLsaAcksLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsaAcksLsa.RearmType})
+    inputLsaAcksLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsaAcksLsa.RearmWindow})
+
+    inputLsaAcksLsa.EntityData.YListKeys = []string {}
+
     return &(inputLsaAcksLsa.EntityData)
 }
 
@@ -7461,6 +8084,7 @@ func (inputLsaAcksLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputDbDsLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7494,14 +8118,17 @@ func (outputDbDsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
     outputDbDsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDbDsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputDbDsLsa.EntityData.Children = make(map[string]types.YChild)
-    outputDbDsLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputDbDsLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputDbDsLsa.Operator}
-    outputDbDsLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", outputDbDsLsa.Value}
-    outputDbDsLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputDbDsLsa.EndRangeValue}
-    outputDbDsLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputDbDsLsa.Percent}
-    outputDbDsLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputDbDsLsa.RearmType}
-    outputDbDsLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputDbDsLsa.RearmWindow}
+    outputDbDsLsa.EntityData.Children = types.NewOrderedMap()
+    outputDbDsLsa.EntityData.Leafs = types.NewOrderedMap()
+    outputDbDsLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputDbDsLsa.Operator})
+    outputDbDsLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputDbDsLsa.Value})
+    outputDbDsLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputDbDsLsa.EndRangeValue})
+    outputDbDsLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputDbDsLsa.Percent})
+    outputDbDsLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputDbDsLsa.RearmType})
+    outputDbDsLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputDbDsLsa.RearmWindow})
+
+    outputDbDsLsa.EntityData.YListKeys = []string {}
+
     return &(outputDbDsLsa.EntityData)
 }
 
@@ -7511,6 +8138,7 @@ func (outputDbDsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputDbDsLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7544,14 +8172,17 @@ func (inputDbDsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
     inputDbDsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDbDsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputDbDsLsa.EntityData.Children = make(map[string]types.YChild)
-    inputDbDsLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputDbDsLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputDbDsLsa.Operator}
-    inputDbDsLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", inputDbDsLsa.Value}
-    inputDbDsLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputDbDsLsa.EndRangeValue}
-    inputDbDsLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputDbDsLsa.Percent}
-    inputDbDsLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputDbDsLsa.RearmType}
-    inputDbDsLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputDbDsLsa.RearmWindow}
+    inputDbDsLsa.EntityData.Children = types.NewOrderedMap()
+    inputDbDsLsa.EntityData.Leafs = types.NewOrderedMap()
+    inputDbDsLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputDbDsLsa.Operator})
+    inputDbDsLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputDbDsLsa.Value})
+    inputDbDsLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputDbDsLsa.EndRangeValue})
+    inputDbDsLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputDbDsLsa.Percent})
+    inputDbDsLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputDbDsLsa.RearmType})
+    inputDbDsLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputDbDsLsa.RearmWindow})
+
+    inputDbDsLsa.EntityData.YListKeys = []string {}
+
     return &(inputDbDsLsa.EntityData)
 }
 
@@ -7561,6 +8192,7 @@ func (inputDbDsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputLsaUpdates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7594,14 +8226,17 @@ func (inputLsaUpdates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates
     inputLsaUpdates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaUpdates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsaUpdates.EntityData.Children = make(map[string]types.YChild)
-    inputLsaUpdates.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsaUpdates.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsaUpdates.Operator}
-    inputLsaUpdates.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsaUpdates.Value}
-    inputLsaUpdates.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsaUpdates.EndRangeValue}
-    inputLsaUpdates.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsaUpdates.Percent}
-    inputLsaUpdates.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsaUpdates.RearmType}
-    inputLsaUpdates.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsaUpdates.RearmWindow}
+    inputLsaUpdates.EntityData.Children = types.NewOrderedMap()
+    inputLsaUpdates.EntityData.Leafs = types.NewOrderedMap()
+    inputLsaUpdates.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsaUpdates.Operator})
+    inputLsaUpdates.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsaUpdates.Value})
+    inputLsaUpdates.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsaUpdates.EndRangeValue})
+    inputLsaUpdates.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsaUpdates.Percent})
+    inputLsaUpdates.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsaUpdates.RearmType})
+    inputLsaUpdates.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsaUpdates.RearmWindow})
+
+    inputLsaUpdates.EntityData.YListKeys = []string {}
+
     return &(inputLsaUpdates.EntityData)
 }
 
@@ -7611,6 +8246,7 @@ func (inputLsaUpdates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputDbDs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7644,14 +8280,17 @@ func (outputDbDs *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospf
     outputDbDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDbDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputDbDs.EntityData.Children = make(map[string]types.YChild)
-    outputDbDs.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputDbDs.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputDbDs.Operator}
-    outputDbDs.EntityData.Leafs["value"] = types.YLeaf{"Value", outputDbDs.Value}
-    outputDbDs.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputDbDs.EndRangeValue}
-    outputDbDs.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputDbDs.Percent}
-    outputDbDs.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputDbDs.RearmType}
-    outputDbDs.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputDbDs.RearmWindow}
+    outputDbDs.EntityData.Children = types.NewOrderedMap()
+    outputDbDs.EntityData.Leafs = types.NewOrderedMap()
+    outputDbDs.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputDbDs.Operator})
+    outputDbDs.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputDbDs.Value})
+    outputDbDs.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputDbDs.EndRangeValue})
+    outputDbDs.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputDbDs.Percent})
+    outputDbDs.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputDbDs.RearmType})
+    outputDbDs.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputDbDs.RearmWindow})
+
+    outputDbDs.EntityData.YListKeys = []string {}
+
     return &(outputDbDs.EntityData)
 }
 
@@ -7661,6 +8300,7 @@ func (outputDbDs *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospf
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputLsaUpdatesLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7694,14 +8334,17 @@ func (outputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempl
     outputLsaUpdatesLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaUpdatesLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsaUpdatesLsa.EntityData.Children = make(map[string]types.YChild)
-    outputLsaUpdatesLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsaUpdatesLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsaUpdatesLsa.Operator}
-    outputLsaUpdatesLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsaUpdatesLsa.Value}
-    outputLsaUpdatesLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsaUpdatesLsa.EndRangeValue}
-    outputLsaUpdatesLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsaUpdatesLsa.Percent}
-    outputLsaUpdatesLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsaUpdatesLsa.RearmType}
-    outputLsaUpdatesLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsaUpdatesLsa.RearmWindow}
+    outputLsaUpdatesLsa.EntityData.Children = types.NewOrderedMap()
+    outputLsaUpdatesLsa.EntityData.Leafs = types.NewOrderedMap()
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsaUpdatesLsa.Operator})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsaUpdatesLsa.Value})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsaUpdatesLsa.EndRangeValue})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsaUpdatesLsa.Percent})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsaUpdatesLsa.RearmType})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsaUpdatesLsa.RearmWindow})
+
+    outputLsaUpdatesLsa.EntityData.YListKeys = []string {}
+
     return &(outputLsaUpdatesLsa.EntityData)
 }
 
@@ -7711,6 +8354,7 @@ func (outputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempl
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputDbDs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7744,14 +8388,17 @@ func (inputDbDs *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv
     inputDbDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDbDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputDbDs.EntityData.Children = make(map[string]types.YChild)
-    inputDbDs.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputDbDs.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputDbDs.Operator}
-    inputDbDs.EntityData.Leafs["value"] = types.YLeaf{"Value", inputDbDs.Value}
-    inputDbDs.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputDbDs.EndRangeValue}
-    inputDbDs.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputDbDs.Percent}
-    inputDbDs.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputDbDs.RearmType}
-    inputDbDs.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputDbDs.RearmWindow}
+    inputDbDs.EntityData.Children = types.NewOrderedMap()
+    inputDbDs.EntityData.Leafs = types.NewOrderedMap()
+    inputDbDs.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputDbDs.Operator})
+    inputDbDs.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputDbDs.Value})
+    inputDbDs.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputDbDs.EndRangeValue})
+    inputDbDs.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputDbDs.Percent})
+    inputDbDs.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputDbDs.RearmType})
+    inputDbDs.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputDbDs.RearmWindow})
+
+    inputDbDs.EntityData.YListKeys = []string {}
+
     return &(inputDbDs.EntityData)
 }
 
@@ -7761,6 +8408,7 @@ func (inputDbDs *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputLsaUpdatesLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7794,14 +8442,17 @@ func (inputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
     inputLsaUpdatesLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaUpdatesLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsaUpdatesLsa.EntityData.Children = make(map[string]types.YChild)
-    inputLsaUpdatesLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsaUpdatesLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsaUpdatesLsa.Operator}
-    inputLsaUpdatesLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsaUpdatesLsa.Value}
-    inputLsaUpdatesLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsaUpdatesLsa.EndRangeValue}
-    inputLsaUpdatesLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsaUpdatesLsa.Percent}
-    inputLsaUpdatesLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsaUpdatesLsa.RearmType}
-    inputLsaUpdatesLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsaUpdatesLsa.RearmWindow}
+    inputLsaUpdatesLsa.EntityData.Children = types.NewOrderedMap()
+    inputLsaUpdatesLsa.EntityData.Leafs = types.NewOrderedMap()
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsaUpdatesLsa.Operator})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsaUpdatesLsa.Value})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsaUpdatesLsa.EndRangeValue})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsaUpdatesLsa.Percent})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsaUpdatesLsa.RearmType})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsaUpdatesLsa.RearmWindow})
+
+    inputLsaUpdatesLsa.EntityData.YListKeys = []string {}
+
     return &(inputLsaUpdatesLsa.EntityData)
 }
 
@@ -7811,6 +8462,7 @@ func (inputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7844,14 +8496,17 @@ func (outputPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
     outputPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputPackets.EntityData.Children = make(map[string]types.YChild)
-    outputPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputPackets.Operator}
-    outputPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", outputPackets.Value}
-    outputPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputPackets.EndRangeValue}
-    outputPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputPackets.Percent}
-    outputPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputPackets.RearmType}
-    outputPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputPackets.RearmWindow}
+    outputPackets.EntityData.Children = types.NewOrderedMap()
+    outputPackets.EntityData.Leafs = types.NewOrderedMap()
+    outputPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputPackets.Operator})
+    outputPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputPackets.Value})
+    outputPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputPackets.EndRangeValue})
+    outputPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputPackets.Percent})
+    outputPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputPackets.RearmType})
+    outputPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputPackets.RearmWindow})
+
+    outputPackets.EntityData.YListKeys = []string {}
+
     return &(outputPackets.EntityData)
 }
 
@@ -7861,6 +8516,7 @@ func (outputPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7894,14 +8550,17 @@ func (inputPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
     inputPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputPackets.EntityData.Children = make(map[string]types.YChild)
-    inputPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputPackets.Operator}
-    inputPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", inputPackets.Value}
-    inputPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputPackets.EndRangeValue}
-    inputPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputPackets.Percent}
-    inputPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputPackets.RearmType}
-    inputPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputPackets.RearmWindow}
+    inputPackets.EntityData.Children = types.NewOrderedMap()
+    inputPackets.EntityData.Leafs = types.NewOrderedMap()
+    inputPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputPackets.Operator})
+    inputPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputPackets.Value})
+    inputPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputPackets.EndRangeValue})
+    inputPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputPackets.Percent})
+    inputPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputPackets.RearmType})
+    inputPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputPackets.RearmWindow})
+
+    inputPackets.EntityData.YListKeys = []string {}
+
     return &(inputPackets.EntityData)
 }
 
@@ -7911,6 +8570,7 @@ func (inputPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputHelloPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7944,14 +8604,17 @@ func (outputHelloPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
     outputHelloPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputHelloPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputHelloPackets.EntityData.Children = make(map[string]types.YChild)
-    outputHelloPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputHelloPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputHelloPackets.Operator}
-    outputHelloPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", outputHelloPackets.Value}
-    outputHelloPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputHelloPackets.EndRangeValue}
-    outputHelloPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputHelloPackets.Percent}
-    outputHelloPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputHelloPackets.RearmType}
-    outputHelloPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputHelloPackets.RearmWindow}
+    outputHelloPackets.EntityData.Children = types.NewOrderedMap()
+    outputHelloPackets.EntityData.Leafs = types.NewOrderedMap()
+    outputHelloPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputHelloPackets.Operator})
+    outputHelloPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputHelloPackets.Value})
+    outputHelloPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputHelloPackets.EndRangeValue})
+    outputHelloPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputHelloPackets.Percent})
+    outputHelloPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputHelloPackets.RearmType})
+    outputHelloPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputHelloPackets.RearmWindow})
+
+    outputHelloPackets.EntityData.YListKeys = []string {}
+
     return &(outputHelloPackets.EntityData)
 }
 
@@ -7961,6 +8624,7 @@ func (outputHelloPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputHelloPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -7994,14 +8658,17 @@ func (inputHelloPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplat
     inputHelloPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputHelloPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputHelloPackets.EntityData.Children = make(map[string]types.YChild)
-    inputHelloPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputHelloPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputHelloPackets.Operator}
-    inputHelloPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", inputHelloPackets.Value}
-    inputHelloPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputHelloPackets.EndRangeValue}
-    inputHelloPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputHelloPackets.Percent}
-    inputHelloPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputHelloPackets.RearmType}
-    inputHelloPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputHelloPackets.RearmWindow}
+    inputHelloPackets.EntityData.Children = types.NewOrderedMap()
+    inputHelloPackets.EntityData.Leafs = types.NewOrderedMap()
+    inputHelloPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputHelloPackets.Operator})
+    inputHelloPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputHelloPackets.Value})
+    inputHelloPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputHelloPackets.EndRangeValue})
+    inputHelloPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputHelloPackets.Percent})
+    inputHelloPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputHelloPackets.RearmType})
+    inputHelloPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputHelloPackets.RearmWindow})
+
+    inputHelloPackets.EntityData.YListKeys = []string {}
+
     return &(inputHelloPackets.EntityData)
 }
 
@@ -8011,6 +8678,7 @@ func (inputHelloPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplat
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputLsRequests struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8044,14 +8712,17 @@ func (outputLsRequests *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
     outputLsRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsRequests.EntityData.Children = make(map[string]types.YChild)
-    outputLsRequests.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsRequests.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsRequests.Operator}
-    outputLsRequests.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsRequests.Value}
-    outputLsRequests.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsRequests.EndRangeValue}
-    outputLsRequests.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsRequests.Percent}
-    outputLsRequests.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsRequests.RearmType}
-    outputLsRequests.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsRequests.RearmWindow}
+    outputLsRequests.EntityData.Children = types.NewOrderedMap()
+    outputLsRequests.EntityData.Leafs = types.NewOrderedMap()
+    outputLsRequests.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsRequests.Operator})
+    outputLsRequests.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsRequests.Value})
+    outputLsRequests.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsRequests.EndRangeValue})
+    outputLsRequests.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsRequests.Percent})
+    outputLsRequests.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsRequests.RearmType})
+    outputLsRequests.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsRequests.RearmWindow})
+
+    outputLsRequests.EntityData.YListKeys = []string {}
+
     return &(outputLsRequests.EntityData)
 }
 
@@ -8061,6 +8732,7 @@ func (outputLsRequests *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputLsaAcksLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8094,14 +8766,17 @@ func (outputLsaAcksLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
     outputLsaAcksLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaAcksLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsaAcksLsa.EntityData.Children = make(map[string]types.YChild)
-    outputLsaAcksLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsaAcksLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsaAcksLsa.Operator}
-    outputLsaAcksLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsaAcksLsa.Value}
-    outputLsaAcksLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsaAcksLsa.EndRangeValue}
-    outputLsaAcksLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsaAcksLsa.Percent}
-    outputLsaAcksLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsaAcksLsa.RearmType}
-    outputLsaAcksLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsaAcksLsa.RearmWindow}
+    outputLsaAcksLsa.EntityData.Children = types.NewOrderedMap()
+    outputLsaAcksLsa.EntityData.Leafs = types.NewOrderedMap()
+    outputLsaAcksLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsaAcksLsa.Operator})
+    outputLsaAcksLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsaAcksLsa.Value})
+    outputLsaAcksLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsaAcksLsa.EndRangeValue})
+    outputLsaAcksLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsaAcksLsa.Percent})
+    outputLsaAcksLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsaAcksLsa.RearmType})
+    outputLsaAcksLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsaAcksLsa.RearmWindow})
+
+    outputLsaAcksLsa.EntityData.YListKeys = []string {}
+
     return &(outputLsaAcksLsa.EntityData)
 }
 
@@ -8111,6 +8786,7 @@ func (outputLsaAcksLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputLsaAcks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8144,14 +8820,17 @@ func (outputLsaAcks *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
     outputLsaAcks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaAcks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsaAcks.EntityData.Children = make(map[string]types.YChild)
-    outputLsaAcks.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsaAcks.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsaAcks.Operator}
-    outputLsaAcks.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsaAcks.Value}
-    outputLsaAcks.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsaAcks.EndRangeValue}
-    outputLsaAcks.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsaAcks.Percent}
-    outputLsaAcks.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsaAcks.RearmType}
-    outputLsaAcks.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsaAcks.RearmWindow}
+    outputLsaAcks.EntityData.Children = types.NewOrderedMap()
+    outputLsaAcks.EntityData.Leafs = types.NewOrderedMap()
+    outputLsaAcks.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsaAcks.Operator})
+    outputLsaAcks.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsaAcks.Value})
+    outputLsaAcks.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsaAcks.EndRangeValue})
+    outputLsaAcks.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsaAcks.Percent})
+    outputLsaAcks.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsaAcks.RearmType})
+    outputLsaAcks.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsaAcks.RearmWindow})
+
+    outputLsaAcks.EntityData.YListKeys = []string {}
+
     return &(outputLsaAcks.EntityData)
 }
 
@@ -8161,6 +8840,7 @@ func (outputLsaAcks *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputLsaAcks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8194,14 +8874,17 @@ func (inputLsaAcks *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
     inputLsaAcks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaAcks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsaAcks.EntityData.Children = make(map[string]types.YChild)
-    inputLsaAcks.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsaAcks.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsaAcks.Operator}
-    inputLsaAcks.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsaAcks.Value}
-    inputLsaAcks.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsaAcks.EndRangeValue}
-    inputLsaAcks.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsaAcks.Percent}
-    inputLsaAcks.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsaAcks.RearmType}
-    inputLsaAcks.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsaAcks.RearmWindow}
+    inputLsaAcks.EntityData.Children = types.NewOrderedMap()
+    inputLsaAcks.EntityData.Leafs = types.NewOrderedMap()
+    inputLsaAcks.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsaAcks.Operator})
+    inputLsaAcks.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsaAcks.Value})
+    inputLsaAcks.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsaAcks.EndRangeValue})
+    inputLsaAcks.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsaAcks.Percent})
+    inputLsaAcks.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsaAcks.RearmType})
+    inputLsaAcks.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsaAcks.RearmWindow})
+
+    inputLsaAcks.EntityData.YListKeys = []string {}
+
     return &(inputLsaAcks.EntityData)
 }
 
@@ -8211,6 +8894,7 @@ func (inputLsaAcks *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputLsaUpdates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8244,14 +8928,17 @@ func (outputLsaUpdates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
     outputLsaUpdates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaUpdates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsaUpdates.EntityData.Children = make(map[string]types.YChild)
-    outputLsaUpdates.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsaUpdates.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsaUpdates.Operator}
-    outputLsaUpdates.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsaUpdates.Value}
-    outputLsaUpdates.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsaUpdates.EndRangeValue}
-    outputLsaUpdates.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsaUpdates.Percent}
-    outputLsaUpdates.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsaUpdates.RearmType}
-    outputLsaUpdates.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsaUpdates.RearmWindow}
+    outputLsaUpdates.EntityData.Children = types.NewOrderedMap()
+    outputLsaUpdates.EntityData.Leafs = types.NewOrderedMap()
+    outputLsaUpdates.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsaUpdates.Operator})
+    outputLsaUpdates.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsaUpdates.Value})
+    outputLsaUpdates.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsaUpdates.EndRangeValue})
+    outputLsaUpdates.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsaUpdates.Percent})
+    outputLsaUpdates.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsaUpdates.RearmType})
+    outputLsaUpdates.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsaUpdates.RearmWindow})
+
+    outputLsaUpdates.EntityData.YListKeys = []string {}
+
     return &(outputLsaUpdates.EntityData)
 }
 
@@ -8261,6 +8948,7 @@ func (outputLsaUpdates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_OutputLsRequestsLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8294,14 +8982,17 @@ func (outputLsRequestsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempl
     outputLsRequestsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsRequestsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsRequestsLsa.EntityData.Children = make(map[string]types.YChild)
-    outputLsRequestsLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsRequestsLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsRequestsLsa.Operator}
-    outputLsRequestsLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsRequestsLsa.Value}
-    outputLsRequestsLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsRequestsLsa.EndRangeValue}
-    outputLsRequestsLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsRequestsLsa.Percent}
-    outputLsRequestsLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsRequestsLsa.RearmType}
-    outputLsRequestsLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsRequestsLsa.RearmWindow}
+    outputLsRequestsLsa.EntityData.Children = types.NewOrderedMap()
+    outputLsRequestsLsa.EntityData.Leafs = types.NewOrderedMap()
+    outputLsRequestsLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsRequestsLsa.Operator})
+    outputLsRequestsLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsRequestsLsa.Value})
+    outputLsRequestsLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsRequestsLsa.EndRangeValue})
+    outputLsRequestsLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsRequestsLsa.Percent})
+    outputLsRequestsLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsRequestsLsa.RearmType})
+    outputLsRequestsLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsRequestsLsa.RearmWindow})
+
+    outputLsRequestsLsa.EntityData.YListKeys = []string {}
+
     return &(outputLsRequestsLsa.EntityData)
 }
 
@@ -8311,6 +9002,7 @@ func (outputLsRequestsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempl
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputLsRequestsLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8344,14 +9036,17 @@ func (inputLsRequestsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
     inputLsRequestsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsRequestsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsRequestsLsa.EntityData.Children = make(map[string]types.YChild)
-    inputLsRequestsLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsRequestsLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsRequestsLsa.Operator}
-    inputLsRequestsLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsRequestsLsa.Value}
-    inputLsRequestsLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsRequestsLsa.EndRangeValue}
-    inputLsRequestsLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsRequestsLsa.Percent}
-    inputLsRequestsLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsRequestsLsa.RearmType}
-    inputLsRequestsLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsRequestsLsa.RearmWindow}
+    inputLsRequestsLsa.EntityData.Children = types.NewOrderedMap()
+    inputLsRequestsLsa.EntityData.Leafs = types.NewOrderedMap()
+    inputLsRequestsLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsRequestsLsa.Operator})
+    inputLsRequestsLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsRequestsLsa.Value})
+    inputLsRequestsLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsRequestsLsa.EndRangeValue})
+    inputLsRequestsLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsRequestsLsa.Percent})
+    inputLsRequestsLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsRequestsLsa.RearmType})
+    inputLsRequestsLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsRequestsLsa.RearmWindow})
+
+    inputLsRequestsLsa.EntityData.YListKeys = []string {}
+
     return &(inputLsRequestsLsa.EntityData)
 }
 
@@ -8361,6 +9056,7 @@ func (inputLsRequestsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate_InputLsRequests struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8394,14 +9090,17 @@ func (inputLsRequests *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates
     inputLsRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsRequests.EntityData.Children = make(map[string]types.YChild)
-    inputLsRequests.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsRequests.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsRequests.Operator}
-    inputLsRequests.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsRequests.Value}
-    inputLsRequests.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsRequests.EndRangeValue}
-    inputLsRequests.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsRequests.Percent}
-    inputLsRequests.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsRequests.RearmType}
-    inputLsRequests.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsRequests.RearmWindow}
+    inputLsRequests.EntityData.Children = types.NewOrderedMap()
+    inputLsRequests.EntityData.Leafs = types.NewOrderedMap()
+    inputLsRequests.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsRequests.Operator})
+    inputLsRequests.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsRequests.Value})
+    inputLsRequests.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsRequests.EndRangeValue})
+    inputLsRequests.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsRequests.Percent})
+    inputLsRequests.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsRequests.RearmType})
+    inputLsRequests.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsRequests.RearmWindow})
+
+    inputLsRequests.EntityData.YListKeys = []string {}
+
     return &(inputLsRequests.EntityData)
 }
 
@@ -8425,9 +9124,12 @@ func (cpuNode *PerfMgmt_Threshold_CpuNode) GetEntityData() *types.CommonEntityDa
     cpuNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cpuNode.EntityData.Children = make(map[string]types.YChild)
-    cpuNode.EntityData.Children["cpu-node-templates"] = types.YChild{"CpuNodeTemplates", &cpuNode.CpuNodeTemplates}
-    cpuNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuNode.EntityData.Children = types.NewOrderedMap()
+    cpuNode.EntityData.Children.Append("cpu-node-templates", types.YChild{"CpuNodeTemplates", &cpuNode.CpuNodeTemplates})
+    cpuNode.EntityData.Leafs = types.NewOrderedMap()
+
+    cpuNode.EntityData.YListKeys = []string {}
+
     return &(cpuNode.EntityData)
 }
 
@@ -8439,7 +9141,7 @@ type PerfMgmt_Threshold_CpuNode_CpuNodeTemplates struct {
 
     // Node CPU threshold configuration template instances. The type is slice of
     // PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate.
-    CpuNodeTemplate []PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate
+    CpuNodeTemplate []*PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate
 }
 
 func (cpuNodeTemplates *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates) GetEntityData() *types.CommonEntityData {
@@ -8452,12 +9154,15 @@ func (cpuNodeTemplates *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates) GetEntityDa
     cpuNodeTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNodeTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cpuNodeTemplates.EntityData.Children = make(map[string]types.YChild)
-    cpuNodeTemplates.EntityData.Children["cpu-node-template"] = types.YChild{"CpuNodeTemplate", nil}
+    cpuNodeTemplates.EntityData.Children = types.NewOrderedMap()
+    cpuNodeTemplates.EntityData.Children.Append("cpu-node-template", types.YChild{"CpuNodeTemplate", nil})
     for i := range cpuNodeTemplates.CpuNodeTemplate {
-        cpuNodeTemplates.EntityData.Children[types.GetSegmentPath(&cpuNodeTemplates.CpuNodeTemplate[i])] = types.YChild{"CpuNodeTemplate", &cpuNodeTemplates.CpuNodeTemplate[i]}
+        cpuNodeTemplates.EntityData.Children.Append(types.GetSegmentPath(cpuNodeTemplates.CpuNodeTemplate[i]), types.YChild{"CpuNodeTemplate", cpuNodeTemplates.CpuNodeTemplate[i]})
     }
-    cpuNodeTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuNodeTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    cpuNodeTemplates.EntityData.YListKeys = []string {}
+
     return &(cpuNodeTemplates.EntityData)
 }
 
@@ -8469,7 +9174,7 @@ type PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -8488,17 +9193,20 @@ func (cpuNodeTemplate *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTempla
     cpuNodeTemplate.EntityData.YangName = "cpu-node-template"
     cpuNodeTemplate.EntityData.BundleName = "cisco_ios_xr"
     cpuNodeTemplate.EntityData.ParentYangName = "cpu-node-templates"
-    cpuNodeTemplate.EntityData.SegmentPath = "cpu-node-template" + "[template-name='" + fmt.Sprintf("%v", cpuNodeTemplate.TemplateName) + "']"
+    cpuNodeTemplate.EntityData.SegmentPath = "cpu-node-template" + types.AddKeyToken(cpuNodeTemplate.TemplateName, "template-name")
     cpuNodeTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpuNodeTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNodeTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cpuNodeTemplate.EntityData.Children = make(map[string]types.YChild)
-    cpuNodeTemplate.EntityData.Children["average-cpu-used"] = types.YChild{"AverageCpuUsed", &cpuNodeTemplate.AverageCpuUsed}
-    cpuNodeTemplate.EntityData.Children["no-processes"] = types.YChild{"NoProcesses", &cpuNodeTemplate.NoProcesses}
-    cpuNodeTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpuNodeTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", cpuNodeTemplate.TemplateName}
-    cpuNodeTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", cpuNodeTemplate.SampleInterval}
+    cpuNodeTemplate.EntityData.Children = types.NewOrderedMap()
+    cpuNodeTemplate.EntityData.Children.Append("average-cpu-used", types.YChild{"AverageCpuUsed", &cpuNodeTemplate.AverageCpuUsed})
+    cpuNodeTemplate.EntityData.Children.Append("no-processes", types.YChild{"NoProcesses", &cpuNodeTemplate.NoProcesses})
+    cpuNodeTemplate.EntityData.Leafs = types.NewOrderedMap()
+    cpuNodeTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", cpuNodeTemplate.TemplateName})
+    cpuNodeTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", cpuNodeTemplate.SampleInterval})
+
+    cpuNodeTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(cpuNodeTemplate.EntityData)
 }
 
@@ -8508,6 +9216,7 @@ func (cpuNodeTemplate *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTempla
 type PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate_AverageCpuUsed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8541,14 +9250,17 @@ func (averageCpuUsed *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplat
     averageCpuUsed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageCpuUsed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageCpuUsed.EntityData.Children = make(map[string]types.YChild)
-    averageCpuUsed.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageCpuUsed.EntityData.Leafs["operator"] = types.YLeaf{"Operator", averageCpuUsed.Operator}
-    averageCpuUsed.EntityData.Leafs["value"] = types.YLeaf{"Value", averageCpuUsed.Value}
-    averageCpuUsed.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", averageCpuUsed.EndRangeValue}
-    averageCpuUsed.EntityData.Leafs["percent"] = types.YLeaf{"Percent", averageCpuUsed.Percent}
-    averageCpuUsed.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", averageCpuUsed.RearmType}
-    averageCpuUsed.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", averageCpuUsed.RearmWindow}
+    averageCpuUsed.EntityData.Children = types.NewOrderedMap()
+    averageCpuUsed.EntityData.Leafs = types.NewOrderedMap()
+    averageCpuUsed.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", averageCpuUsed.Operator})
+    averageCpuUsed.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageCpuUsed.Value})
+    averageCpuUsed.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", averageCpuUsed.EndRangeValue})
+    averageCpuUsed.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", averageCpuUsed.Percent})
+    averageCpuUsed.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", averageCpuUsed.RearmType})
+    averageCpuUsed.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", averageCpuUsed.RearmWindow})
+
+    averageCpuUsed.EntityData.YListKeys = []string {}
+
     return &(averageCpuUsed.EntityData)
 }
 
@@ -8558,6 +9270,7 @@ func (averageCpuUsed *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplat
 type PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate_NoProcesses struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8591,14 +9304,17 @@ func (noProcesses *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate_N
     noProcesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     noProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    noProcesses.EntityData.Children = make(map[string]types.YChild)
-    noProcesses.EntityData.Leafs = make(map[string]types.YLeaf)
-    noProcesses.EntityData.Leafs["operator"] = types.YLeaf{"Operator", noProcesses.Operator}
-    noProcesses.EntityData.Leafs["value"] = types.YLeaf{"Value", noProcesses.Value}
-    noProcesses.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", noProcesses.EndRangeValue}
-    noProcesses.EntityData.Leafs["percent"] = types.YLeaf{"Percent", noProcesses.Percent}
-    noProcesses.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", noProcesses.RearmType}
-    noProcesses.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", noProcesses.RearmWindow}
+    noProcesses.EntityData.Children = types.NewOrderedMap()
+    noProcesses.EntityData.Leafs = types.NewOrderedMap()
+    noProcesses.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", noProcesses.Operator})
+    noProcesses.EntityData.Leafs.Append("value", types.YLeaf{"Value", noProcesses.Value})
+    noProcesses.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", noProcesses.EndRangeValue})
+    noProcesses.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", noProcesses.Percent})
+    noProcesses.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", noProcesses.RearmType})
+    noProcesses.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", noProcesses.RearmWindow})
+
+    noProcesses.EntityData.YListKeys = []string {}
+
     return &(noProcesses.EntityData)
 }
 
@@ -8622,9 +9338,12 @@ func (dataRateInterface *PerfMgmt_Threshold_DataRateInterface) GetEntityData() *
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterface.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterface.EntityData.Children["data-rate-interface-templates"] = types.YChild{"DataRateInterfaceTemplates", &dataRateInterface.DataRateInterfaceTemplates}
-    dataRateInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataRateInterface.EntityData.Children = types.NewOrderedMap()
+    dataRateInterface.EntityData.Children.Append("data-rate-interface-templates", types.YChild{"DataRateInterfaceTemplates", &dataRateInterface.DataRateInterfaceTemplates})
+    dataRateInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    dataRateInterface.EntityData.YListKeys = []string {}
+
     return &(dataRateInterface.EntityData)
 }
 
@@ -8636,7 +9355,7 @@ type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates struct {
 
     // Interface Data Rates threshold template instance. The type is slice of
     // PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate.
-    DataRateInterfaceTemplate []PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate
+    DataRateInterfaceTemplate []*PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate
 }
 
 func (dataRateInterfaceTemplates *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates) GetEntityData() *types.CommonEntityData {
@@ -8649,12 +9368,15 @@ func (dataRateInterfaceTemplates *PerfMgmt_Threshold_DataRateInterface_DataRateI
     dataRateInterfaceTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterfaceTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterfaceTemplates.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterfaceTemplates.EntityData.Children["data-rate-interface-template"] = types.YChild{"DataRateInterfaceTemplate", nil}
+    dataRateInterfaceTemplates.EntityData.Children = types.NewOrderedMap()
+    dataRateInterfaceTemplates.EntityData.Children.Append("data-rate-interface-template", types.YChild{"DataRateInterfaceTemplate", nil})
     for i := range dataRateInterfaceTemplates.DataRateInterfaceTemplate {
-        dataRateInterfaceTemplates.EntityData.Children[types.GetSegmentPath(&dataRateInterfaceTemplates.DataRateInterfaceTemplate[i])] = types.YChild{"DataRateInterfaceTemplate", &dataRateInterfaceTemplates.DataRateInterfaceTemplate[i]}
+        dataRateInterfaceTemplates.EntityData.Children.Append(types.GetSegmentPath(dataRateInterfaceTemplates.DataRateInterfaceTemplate[i]), types.YChild{"DataRateInterfaceTemplate", dataRateInterfaceTemplates.DataRateInterfaceTemplate[i]})
     }
-    dataRateInterfaceTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataRateInterfaceTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    dataRateInterfaceTemplates.EntityData.YListKeys = []string {}
+
     return &(dataRateInterfaceTemplates.EntityData)
 }
 
@@ -8666,7 +9388,7 @@ type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInt
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -8714,26 +9436,29 @@ func (dataRateInterfaceTemplate *PerfMgmt_Threshold_DataRateInterface_DataRateIn
     dataRateInterfaceTemplate.EntityData.YangName = "data-rate-interface-template"
     dataRateInterfaceTemplate.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterfaceTemplate.EntityData.ParentYangName = "data-rate-interface-templates"
-    dataRateInterfaceTemplate.EntityData.SegmentPath = "data-rate-interface-template" + "[template-name='" + fmt.Sprintf("%v", dataRateInterfaceTemplate.TemplateName) + "']"
+    dataRateInterfaceTemplate.EntityData.SegmentPath = "data-rate-interface-template" + types.AddKeyToken(dataRateInterfaceTemplate.TemplateName, "template-name")
     dataRateInterfaceTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterfaceTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterfaceTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterfaceTemplate.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterfaceTemplate.EntityData.Children["input-data-rate"] = types.YChild{"InputDataRate", &dataRateInterfaceTemplate.InputDataRate}
-    dataRateInterfaceTemplate.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &dataRateInterfaceTemplate.Bandwidth}
-    dataRateInterfaceTemplate.EntityData.Children["output-packet-rate"] = types.YChild{"OutputPacketRate", &dataRateInterfaceTemplate.OutputPacketRate}
-    dataRateInterfaceTemplate.EntityData.Children["input-peak-pkts"] = types.YChild{"InputPeakPkts", &dataRateInterfaceTemplate.InputPeakPkts}
-    dataRateInterfaceTemplate.EntityData.Children["output-peak-rate"] = types.YChild{"OutputPeakRate", &dataRateInterfaceTemplate.OutputPeakRate}
-    dataRateInterfaceTemplate.EntityData.Children["output-data-rate"] = types.YChild{"OutputDataRate", &dataRateInterfaceTemplate.OutputDataRate}
-    dataRateInterfaceTemplate.EntityData.Children["input-packet-rate"] = types.YChild{"InputPacketRate", &dataRateInterfaceTemplate.InputPacketRate}
-    dataRateInterfaceTemplate.EntityData.Children["output-peak-pkts"] = types.YChild{"OutputPeakPkts", &dataRateInterfaceTemplate.OutputPeakPkts}
-    dataRateInterfaceTemplate.EntityData.Children["input-peak-rate"] = types.YChild{"InputPeakRate", &dataRateInterfaceTemplate.InputPeakRate}
-    dataRateInterfaceTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRateInterfaceTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", dataRateInterfaceTemplate.TemplateName}
-    dataRateInterfaceTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", dataRateInterfaceTemplate.SampleInterval}
-    dataRateInterfaceTemplate.EntityData.Leafs["reg-exp-group"] = types.YLeaf{"RegExpGroup", dataRateInterfaceTemplate.RegExpGroup}
-    dataRateInterfaceTemplate.EntityData.Leafs["vrf-group"] = types.YLeaf{"VrfGroup", dataRateInterfaceTemplate.VrfGroup}
+    dataRateInterfaceTemplate.EntityData.Children = types.NewOrderedMap()
+    dataRateInterfaceTemplate.EntityData.Children.Append("input-data-rate", types.YChild{"InputDataRate", &dataRateInterfaceTemplate.InputDataRate})
+    dataRateInterfaceTemplate.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &dataRateInterfaceTemplate.Bandwidth})
+    dataRateInterfaceTemplate.EntityData.Children.Append("output-packet-rate", types.YChild{"OutputPacketRate", &dataRateInterfaceTemplate.OutputPacketRate})
+    dataRateInterfaceTemplate.EntityData.Children.Append("input-peak-pkts", types.YChild{"InputPeakPkts", &dataRateInterfaceTemplate.InputPeakPkts})
+    dataRateInterfaceTemplate.EntityData.Children.Append("output-peak-rate", types.YChild{"OutputPeakRate", &dataRateInterfaceTemplate.OutputPeakRate})
+    dataRateInterfaceTemplate.EntityData.Children.Append("output-data-rate", types.YChild{"OutputDataRate", &dataRateInterfaceTemplate.OutputDataRate})
+    dataRateInterfaceTemplate.EntityData.Children.Append("input-packet-rate", types.YChild{"InputPacketRate", &dataRateInterfaceTemplate.InputPacketRate})
+    dataRateInterfaceTemplate.EntityData.Children.Append("output-peak-pkts", types.YChild{"OutputPeakPkts", &dataRateInterfaceTemplate.OutputPeakPkts})
+    dataRateInterfaceTemplate.EntityData.Children.Append("input-peak-rate", types.YChild{"InputPeakRate", &dataRateInterfaceTemplate.InputPeakRate})
+    dataRateInterfaceTemplate.EntityData.Leafs = types.NewOrderedMap()
+    dataRateInterfaceTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", dataRateInterfaceTemplate.TemplateName})
+    dataRateInterfaceTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", dataRateInterfaceTemplate.SampleInterval})
+    dataRateInterfaceTemplate.EntityData.Leafs.Append("reg-exp-group", types.YLeaf{"RegExpGroup", dataRateInterfaceTemplate.RegExpGroup})
+    dataRateInterfaceTemplate.EntityData.Leafs.Append("vrf-group", types.YLeaf{"VrfGroup", dataRateInterfaceTemplate.VrfGroup})
+
+    dataRateInterfaceTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(dataRateInterfaceTemplate.EntityData)
 }
 
@@ -8743,6 +9468,7 @@ func (dataRateInterfaceTemplate *PerfMgmt_Threshold_DataRateInterface_DataRateIn
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_InputDataRate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8776,14 +9502,17 @@ func (inputDataRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTempl
     inputDataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputDataRate.EntityData.Children = make(map[string]types.YChild)
-    inputDataRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputDataRate.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputDataRate.Operator}
-    inputDataRate.EntityData.Leafs["value"] = types.YLeaf{"Value", inputDataRate.Value}
-    inputDataRate.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputDataRate.EndRangeValue}
-    inputDataRate.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputDataRate.Percent}
-    inputDataRate.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputDataRate.RearmType}
-    inputDataRate.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputDataRate.RearmWindow}
+    inputDataRate.EntityData.Children = types.NewOrderedMap()
+    inputDataRate.EntityData.Leafs = types.NewOrderedMap()
+    inputDataRate.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputDataRate.Operator})
+    inputDataRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputDataRate.Value})
+    inputDataRate.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputDataRate.EndRangeValue})
+    inputDataRate.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputDataRate.Percent})
+    inputDataRate.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputDataRate.RearmType})
+    inputDataRate.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputDataRate.RearmWindow})
+
+    inputDataRate.EntityData.YListKeys = []string {}
+
     return &(inputDataRate.EntityData)
 }
 
@@ -8793,6 +9522,7 @@ func (inputDataRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTempl
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_Bandwidth struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8826,14 +9556,17 @@ func (bandwidth *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["operator"] = types.YLeaf{"Operator", bandwidth.Operator}
-    bandwidth.EntityData.Leafs["value"] = types.YLeaf{"Value", bandwidth.Value}
-    bandwidth.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", bandwidth.EndRangeValue}
-    bandwidth.EntityData.Leafs["percent"] = types.YLeaf{"Percent", bandwidth.Percent}
-    bandwidth.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", bandwidth.RearmType}
-    bandwidth.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", bandwidth.RearmWindow}
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+    bandwidth.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", bandwidth.Operator})
+    bandwidth.EntityData.Leafs.Append("value", types.YLeaf{"Value", bandwidth.Value})
+    bandwidth.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", bandwidth.EndRangeValue})
+    bandwidth.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", bandwidth.Percent})
+    bandwidth.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", bandwidth.RearmType})
+    bandwidth.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", bandwidth.RearmWindow})
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
@@ -8843,6 +9576,7 @@ func (bandwidth *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_OutputPacketRate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8876,14 +9610,17 @@ func (outputPacketRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTe
     outputPacketRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPacketRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputPacketRate.EntityData.Children = make(map[string]types.YChild)
-    outputPacketRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPacketRate.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputPacketRate.Operator}
-    outputPacketRate.EntityData.Leafs["value"] = types.YLeaf{"Value", outputPacketRate.Value}
-    outputPacketRate.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputPacketRate.EndRangeValue}
-    outputPacketRate.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputPacketRate.Percent}
-    outputPacketRate.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputPacketRate.RearmType}
-    outputPacketRate.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputPacketRate.RearmWindow}
+    outputPacketRate.EntityData.Children = types.NewOrderedMap()
+    outputPacketRate.EntityData.Leafs = types.NewOrderedMap()
+    outputPacketRate.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputPacketRate.Operator})
+    outputPacketRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputPacketRate.Value})
+    outputPacketRate.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputPacketRate.EndRangeValue})
+    outputPacketRate.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputPacketRate.Percent})
+    outputPacketRate.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputPacketRate.RearmType})
+    outputPacketRate.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputPacketRate.RearmWindow})
+
+    outputPacketRate.EntityData.YListKeys = []string {}
+
     return &(outputPacketRate.EntityData)
 }
 
@@ -8893,6 +9630,7 @@ func (outputPacketRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTe
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_InputPeakPkts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8926,14 +9664,17 @@ func (inputPeakPkts *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTempl
     inputPeakPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPeakPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputPeakPkts.EntityData.Children = make(map[string]types.YChild)
-    inputPeakPkts.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPeakPkts.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputPeakPkts.Operator}
-    inputPeakPkts.EntityData.Leafs["value"] = types.YLeaf{"Value", inputPeakPkts.Value}
-    inputPeakPkts.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputPeakPkts.EndRangeValue}
-    inputPeakPkts.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputPeakPkts.Percent}
-    inputPeakPkts.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputPeakPkts.RearmType}
-    inputPeakPkts.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputPeakPkts.RearmWindow}
+    inputPeakPkts.EntityData.Children = types.NewOrderedMap()
+    inputPeakPkts.EntityData.Leafs = types.NewOrderedMap()
+    inputPeakPkts.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputPeakPkts.Operator})
+    inputPeakPkts.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputPeakPkts.Value})
+    inputPeakPkts.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputPeakPkts.EndRangeValue})
+    inputPeakPkts.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputPeakPkts.Percent})
+    inputPeakPkts.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputPeakPkts.RearmType})
+    inputPeakPkts.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputPeakPkts.RearmWindow})
+
+    inputPeakPkts.EntityData.YListKeys = []string {}
+
     return &(inputPeakPkts.EntityData)
 }
 
@@ -8943,6 +9684,7 @@ func (inputPeakPkts *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTempl
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_OutputPeakRate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -8976,14 +9718,17 @@ func (outputPeakRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
     outputPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputPeakRate.EntityData.Children = make(map[string]types.YChild)
-    outputPeakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPeakRate.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputPeakRate.Operator}
-    outputPeakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", outputPeakRate.Value}
-    outputPeakRate.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputPeakRate.EndRangeValue}
-    outputPeakRate.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputPeakRate.Percent}
-    outputPeakRate.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputPeakRate.RearmType}
-    outputPeakRate.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputPeakRate.RearmWindow}
+    outputPeakRate.EntityData.Children = types.NewOrderedMap()
+    outputPeakRate.EntityData.Leafs = types.NewOrderedMap()
+    outputPeakRate.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputPeakRate.Operator})
+    outputPeakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputPeakRate.Value})
+    outputPeakRate.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputPeakRate.EndRangeValue})
+    outputPeakRate.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputPeakRate.Percent})
+    outputPeakRate.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputPeakRate.RearmType})
+    outputPeakRate.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputPeakRate.RearmWindow})
+
+    outputPeakRate.EntityData.YListKeys = []string {}
+
     return &(outputPeakRate.EntityData)
 }
 
@@ -8993,6 +9738,7 @@ func (outputPeakRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_OutputDataRate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9026,14 +9772,17 @@ func (outputDataRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
     outputDataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputDataRate.EntityData.Children = make(map[string]types.YChild)
-    outputDataRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputDataRate.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputDataRate.Operator}
-    outputDataRate.EntityData.Leafs["value"] = types.YLeaf{"Value", outputDataRate.Value}
-    outputDataRate.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputDataRate.EndRangeValue}
-    outputDataRate.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputDataRate.Percent}
-    outputDataRate.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputDataRate.RearmType}
-    outputDataRate.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputDataRate.RearmWindow}
+    outputDataRate.EntityData.Children = types.NewOrderedMap()
+    outputDataRate.EntityData.Leafs = types.NewOrderedMap()
+    outputDataRate.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputDataRate.Operator})
+    outputDataRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputDataRate.Value})
+    outputDataRate.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputDataRate.EndRangeValue})
+    outputDataRate.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputDataRate.Percent})
+    outputDataRate.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputDataRate.RearmType})
+    outputDataRate.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputDataRate.RearmWindow})
+
+    outputDataRate.EntityData.YListKeys = []string {}
+
     return &(outputDataRate.EntityData)
 }
 
@@ -9043,6 +9792,7 @@ func (outputDataRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_InputPacketRate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9076,14 +9826,17 @@ func (inputPacketRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTem
     inputPacketRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPacketRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputPacketRate.EntityData.Children = make(map[string]types.YChild)
-    inputPacketRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPacketRate.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputPacketRate.Operator}
-    inputPacketRate.EntityData.Leafs["value"] = types.YLeaf{"Value", inputPacketRate.Value}
-    inputPacketRate.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputPacketRate.EndRangeValue}
-    inputPacketRate.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputPacketRate.Percent}
-    inputPacketRate.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputPacketRate.RearmType}
-    inputPacketRate.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputPacketRate.RearmWindow}
+    inputPacketRate.EntityData.Children = types.NewOrderedMap()
+    inputPacketRate.EntityData.Leafs = types.NewOrderedMap()
+    inputPacketRate.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputPacketRate.Operator})
+    inputPacketRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputPacketRate.Value})
+    inputPacketRate.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputPacketRate.EndRangeValue})
+    inputPacketRate.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputPacketRate.Percent})
+    inputPacketRate.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputPacketRate.RearmType})
+    inputPacketRate.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputPacketRate.RearmWindow})
+
+    inputPacketRate.EntityData.YListKeys = []string {}
+
     return &(inputPacketRate.EntityData)
 }
 
@@ -9093,6 +9846,7 @@ func (inputPacketRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTem
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_OutputPeakPkts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9126,14 +9880,17 @@ func (outputPeakPkts *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
     outputPeakPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPeakPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputPeakPkts.EntityData.Children = make(map[string]types.YChild)
-    outputPeakPkts.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPeakPkts.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputPeakPkts.Operator}
-    outputPeakPkts.EntityData.Leafs["value"] = types.YLeaf{"Value", outputPeakPkts.Value}
-    outputPeakPkts.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputPeakPkts.EndRangeValue}
-    outputPeakPkts.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputPeakPkts.Percent}
-    outputPeakPkts.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputPeakPkts.RearmType}
-    outputPeakPkts.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputPeakPkts.RearmWindow}
+    outputPeakPkts.EntityData.Children = types.NewOrderedMap()
+    outputPeakPkts.EntityData.Leafs = types.NewOrderedMap()
+    outputPeakPkts.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputPeakPkts.Operator})
+    outputPeakPkts.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputPeakPkts.Value})
+    outputPeakPkts.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputPeakPkts.EndRangeValue})
+    outputPeakPkts.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputPeakPkts.Percent})
+    outputPeakPkts.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputPeakPkts.RearmType})
+    outputPeakPkts.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputPeakPkts.RearmWindow})
+
+    outputPeakPkts.EntityData.YListKeys = []string {}
+
     return &(outputPeakPkts.EntityData)
 }
 
@@ -9143,6 +9900,7 @@ func (outputPeakPkts *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate_InputPeakRate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9176,14 +9934,17 @@ func (inputPeakRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTempl
     inputPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputPeakRate.EntityData.Children = make(map[string]types.YChild)
-    inputPeakRate.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPeakRate.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputPeakRate.Operator}
-    inputPeakRate.EntityData.Leafs["value"] = types.YLeaf{"Value", inputPeakRate.Value}
-    inputPeakRate.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputPeakRate.EndRangeValue}
-    inputPeakRate.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputPeakRate.Percent}
-    inputPeakRate.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputPeakRate.RearmType}
-    inputPeakRate.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputPeakRate.RearmWindow}
+    inputPeakRate.EntityData.Children = types.NewOrderedMap()
+    inputPeakRate.EntityData.Leafs = types.NewOrderedMap()
+    inputPeakRate.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputPeakRate.Operator})
+    inputPeakRate.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputPeakRate.Value})
+    inputPeakRate.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputPeakRate.EndRangeValue})
+    inputPeakRate.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputPeakRate.Percent})
+    inputPeakRate.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputPeakRate.RearmType})
+    inputPeakRate.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputPeakRate.RearmWindow})
+
+    inputPeakRate.EntityData.YListKeys = []string {}
+
     return &(inputPeakRate.EntityData)
 }
 
@@ -9207,9 +9968,12 @@ func (processNode *PerfMgmt_Threshold_ProcessNode) GetEntityData() *types.Common
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processNode.EntityData.Children = make(map[string]types.YChild)
-    processNode.EntityData.Children["process-node-templates"] = types.YChild{"ProcessNodeTemplates", &processNode.ProcessNodeTemplates}
-    processNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    processNode.EntityData.Children = types.NewOrderedMap()
+    processNode.EntityData.Children.Append("process-node-templates", types.YChild{"ProcessNodeTemplates", &processNode.ProcessNodeTemplates})
+    processNode.EntityData.Leafs = types.NewOrderedMap()
+
+    processNode.EntityData.YListKeys = []string {}
+
     return &(processNode.EntityData)
 }
 
@@ -9221,7 +9985,7 @@ type PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates struct {
 
     // Node Memory threshold template instance. The type is slice of
     // PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate.
-    ProcessNodeTemplate []PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate
+    ProcessNodeTemplate []*PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate
 }
 
 func (processNodeTemplates *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates) GetEntityData() *types.CommonEntityData {
@@ -9234,12 +9998,15 @@ func (processNodeTemplates *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates)
     processNodeTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNodeTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processNodeTemplates.EntityData.Children = make(map[string]types.YChild)
-    processNodeTemplates.EntityData.Children["process-node-template"] = types.YChild{"ProcessNodeTemplate", nil}
+    processNodeTemplates.EntityData.Children = types.NewOrderedMap()
+    processNodeTemplates.EntityData.Children.Append("process-node-template", types.YChild{"ProcessNodeTemplate", nil})
     for i := range processNodeTemplates.ProcessNodeTemplate {
-        processNodeTemplates.EntityData.Children[types.GetSegmentPath(&processNodeTemplates.ProcessNodeTemplate[i])] = types.YChild{"ProcessNodeTemplate", &processNodeTemplates.ProcessNodeTemplate[i]}
+        processNodeTemplates.EntityData.Children.Append(types.GetSegmentPath(processNodeTemplates.ProcessNodeTemplate[i]), types.YChild{"ProcessNodeTemplate", processNodeTemplates.ProcessNodeTemplate[i]})
     }
-    processNodeTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    processNodeTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    processNodeTemplates.EntityData.YListKeys = []string {}
+
     return &(processNodeTemplates.EntityData)
 }
 
@@ -9250,7 +10017,7 @@ type PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -9272,18 +10039,21 @@ func (processNodeTemplate *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_P
     processNodeTemplate.EntityData.YangName = "process-node-template"
     processNodeTemplate.EntityData.BundleName = "cisco_ios_xr"
     processNodeTemplate.EntityData.ParentYangName = "process-node-templates"
-    processNodeTemplate.EntityData.SegmentPath = "process-node-template" + "[template-name='" + fmt.Sprintf("%v", processNodeTemplate.TemplateName) + "']"
+    processNodeTemplate.EntityData.SegmentPath = "process-node-template" + types.AddKeyToken(processNodeTemplate.TemplateName, "template-name")
     processNodeTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNodeTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNodeTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processNodeTemplate.EntityData.Children = make(map[string]types.YChild)
-    processNodeTemplate.EntityData.Children["average-cpu-used"] = types.YChild{"AverageCpuUsed", &processNodeTemplate.AverageCpuUsed}
-    processNodeTemplate.EntityData.Children["peak-memory"] = types.YChild{"PeakMemory", &processNodeTemplate.PeakMemory}
-    processNodeTemplate.EntityData.Children["no-threads"] = types.YChild{"NoThreads", &processNodeTemplate.NoThreads}
-    processNodeTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    processNodeTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", processNodeTemplate.TemplateName}
-    processNodeTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", processNodeTemplate.SampleInterval}
+    processNodeTemplate.EntityData.Children = types.NewOrderedMap()
+    processNodeTemplate.EntityData.Children.Append("average-cpu-used", types.YChild{"AverageCpuUsed", &processNodeTemplate.AverageCpuUsed})
+    processNodeTemplate.EntityData.Children.Append("peak-memory", types.YChild{"PeakMemory", &processNodeTemplate.PeakMemory})
+    processNodeTemplate.EntityData.Children.Append("no-threads", types.YChild{"NoThreads", &processNodeTemplate.NoThreads})
+    processNodeTemplate.EntityData.Leafs = types.NewOrderedMap()
+    processNodeTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", processNodeTemplate.TemplateName})
+    processNodeTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", processNodeTemplate.SampleInterval})
+
+    processNodeTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(processNodeTemplate.EntityData)
 }
 
@@ -9293,6 +10063,7 @@ func (processNodeTemplate *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_P
 type PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate_AverageCpuUsed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9326,14 +10097,17 @@ func (averageCpuUsed *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_Proces
     averageCpuUsed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageCpuUsed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    averageCpuUsed.EntityData.Children = make(map[string]types.YChild)
-    averageCpuUsed.EntityData.Leafs = make(map[string]types.YLeaf)
-    averageCpuUsed.EntityData.Leafs["operator"] = types.YLeaf{"Operator", averageCpuUsed.Operator}
-    averageCpuUsed.EntityData.Leafs["value"] = types.YLeaf{"Value", averageCpuUsed.Value}
-    averageCpuUsed.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", averageCpuUsed.EndRangeValue}
-    averageCpuUsed.EntityData.Leafs["percent"] = types.YLeaf{"Percent", averageCpuUsed.Percent}
-    averageCpuUsed.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", averageCpuUsed.RearmType}
-    averageCpuUsed.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", averageCpuUsed.RearmWindow}
+    averageCpuUsed.EntityData.Children = types.NewOrderedMap()
+    averageCpuUsed.EntityData.Leafs = types.NewOrderedMap()
+    averageCpuUsed.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", averageCpuUsed.Operator})
+    averageCpuUsed.EntityData.Leafs.Append("value", types.YLeaf{"Value", averageCpuUsed.Value})
+    averageCpuUsed.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", averageCpuUsed.EndRangeValue})
+    averageCpuUsed.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", averageCpuUsed.Percent})
+    averageCpuUsed.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", averageCpuUsed.RearmType})
+    averageCpuUsed.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", averageCpuUsed.RearmWindow})
+
+    averageCpuUsed.EntityData.YListKeys = []string {}
+
     return &(averageCpuUsed.EntityData)
 }
 
@@ -9343,6 +10117,7 @@ func (averageCpuUsed *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_Proces
 type PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate_PeakMemory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9376,14 +10151,17 @@ func (peakMemory *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNod
     peakMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakMemory.EntityData.Children = make(map[string]types.YChild)
-    peakMemory.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakMemory.EntityData.Leafs["operator"] = types.YLeaf{"Operator", peakMemory.Operator}
-    peakMemory.EntityData.Leafs["value"] = types.YLeaf{"Value", peakMemory.Value}
-    peakMemory.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", peakMemory.EndRangeValue}
-    peakMemory.EntityData.Leafs["percent"] = types.YLeaf{"Percent", peakMemory.Percent}
-    peakMemory.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", peakMemory.RearmType}
-    peakMemory.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", peakMemory.RearmWindow}
+    peakMemory.EntityData.Children = types.NewOrderedMap()
+    peakMemory.EntityData.Leafs = types.NewOrderedMap()
+    peakMemory.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", peakMemory.Operator})
+    peakMemory.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakMemory.Value})
+    peakMemory.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", peakMemory.EndRangeValue})
+    peakMemory.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", peakMemory.Percent})
+    peakMemory.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", peakMemory.RearmType})
+    peakMemory.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", peakMemory.RearmWindow})
+
+    peakMemory.EntityData.YListKeys = []string {}
+
     return &(peakMemory.EntityData)
 }
 
@@ -9393,6 +10171,7 @@ func (peakMemory *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNod
 type PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate_NoThreads struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9426,14 +10205,17 @@ func (noThreads *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNode
     noThreads.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     noThreads.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    noThreads.EntityData.Children = make(map[string]types.YChild)
-    noThreads.EntityData.Leafs = make(map[string]types.YLeaf)
-    noThreads.EntityData.Leafs["operator"] = types.YLeaf{"Operator", noThreads.Operator}
-    noThreads.EntityData.Leafs["value"] = types.YLeaf{"Value", noThreads.Value}
-    noThreads.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", noThreads.EndRangeValue}
-    noThreads.EntityData.Leafs["percent"] = types.YLeaf{"Percent", noThreads.Percent}
-    noThreads.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", noThreads.RearmType}
-    noThreads.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", noThreads.RearmWindow}
+    noThreads.EntityData.Children = types.NewOrderedMap()
+    noThreads.EntityData.Leafs = types.NewOrderedMap()
+    noThreads.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", noThreads.Operator})
+    noThreads.EntityData.Leafs.Append("value", types.YLeaf{"Value", noThreads.Value})
+    noThreads.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", noThreads.EndRangeValue})
+    noThreads.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", noThreads.Percent})
+    noThreads.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", noThreads.RearmType})
+    noThreads.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", noThreads.RearmWindow})
+
+    noThreads.EntityData.YListKeys = []string {}
+
     return &(noThreads.EntityData)
 }
 
@@ -9457,9 +10239,12 @@ func (memoryNode *PerfMgmt_Threshold_MemoryNode) GetEntityData() *types.CommonEn
     memoryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryNode.EntityData.Children = make(map[string]types.YChild)
-    memoryNode.EntityData.Children["memory-node-templates"] = types.YChild{"MemoryNodeTemplates", &memoryNode.MemoryNodeTemplates}
-    memoryNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryNode.EntityData.Children = types.NewOrderedMap()
+    memoryNode.EntityData.Children.Append("memory-node-templates", types.YChild{"MemoryNodeTemplates", &memoryNode.MemoryNodeTemplates})
+    memoryNode.EntityData.Leafs = types.NewOrderedMap()
+
+    memoryNode.EntityData.YListKeys = []string {}
+
     return &(memoryNode.EntityData)
 }
 
@@ -9471,7 +10256,7 @@ type PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates struct {
 
     // Node Memory threshold configuration template instance. The type is slice of
     // PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate.
-    MemoryNodeTemplate []PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate
+    MemoryNodeTemplate []*PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate
 }
 
 func (memoryNodeTemplates *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates) GetEntityData() *types.CommonEntityData {
@@ -9484,12 +10269,15 @@ func (memoryNodeTemplates *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates) Ge
     memoryNodeTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNodeTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryNodeTemplates.EntityData.Children = make(map[string]types.YChild)
-    memoryNodeTemplates.EntityData.Children["memory-node-template"] = types.YChild{"MemoryNodeTemplate", nil}
+    memoryNodeTemplates.EntityData.Children = types.NewOrderedMap()
+    memoryNodeTemplates.EntityData.Children.Append("memory-node-template", types.YChild{"MemoryNodeTemplate", nil})
     for i := range memoryNodeTemplates.MemoryNodeTemplate {
-        memoryNodeTemplates.EntityData.Children[types.GetSegmentPath(&memoryNodeTemplates.MemoryNodeTemplate[i])] = types.YChild{"MemoryNodeTemplate", &memoryNodeTemplates.MemoryNodeTemplate[i]}
+        memoryNodeTemplates.EntityData.Children.Append(types.GetSegmentPath(memoryNodeTemplates.MemoryNodeTemplate[i]), types.YChild{"MemoryNodeTemplate", memoryNodeTemplates.MemoryNodeTemplate[i]})
     }
-    memoryNodeTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryNodeTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    memoryNodeTemplates.EntityData.YListKeys = []string {}
+
     return &(memoryNodeTemplates.EntityData)
 }
 
@@ -9501,7 +10289,7 @@ type PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate struct
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -9520,17 +10308,20 @@ func (memoryNodeTemplate *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_Memo
     memoryNodeTemplate.EntityData.YangName = "memory-node-template"
     memoryNodeTemplate.EntityData.BundleName = "cisco_ios_xr"
     memoryNodeTemplate.EntityData.ParentYangName = "memory-node-templates"
-    memoryNodeTemplate.EntityData.SegmentPath = "memory-node-template" + "[template-name='" + fmt.Sprintf("%v", memoryNodeTemplate.TemplateName) + "']"
+    memoryNodeTemplate.EntityData.SegmentPath = "memory-node-template" + types.AddKeyToken(memoryNodeTemplate.TemplateName, "template-name")
     memoryNodeTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryNodeTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNodeTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryNodeTemplate.EntityData.Children = make(map[string]types.YChild)
-    memoryNodeTemplate.EntityData.Children["peak-memory"] = types.YChild{"PeakMemory", &memoryNodeTemplate.PeakMemory}
-    memoryNodeTemplate.EntityData.Children["curr-memory"] = types.YChild{"CurrMemory", &memoryNodeTemplate.CurrMemory}
-    memoryNodeTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    memoryNodeTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", memoryNodeTemplate.TemplateName}
-    memoryNodeTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", memoryNodeTemplate.SampleInterval}
+    memoryNodeTemplate.EntityData.Children = types.NewOrderedMap()
+    memoryNodeTemplate.EntityData.Children.Append("peak-memory", types.YChild{"PeakMemory", &memoryNodeTemplate.PeakMemory})
+    memoryNodeTemplate.EntityData.Children.Append("curr-memory", types.YChild{"CurrMemory", &memoryNodeTemplate.CurrMemory})
+    memoryNodeTemplate.EntityData.Leafs = types.NewOrderedMap()
+    memoryNodeTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", memoryNodeTemplate.TemplateName})
+    memoryNodeTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", memoryNodeTemplate.SampleInterval})
+
+    memoryNodeTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(memoryNodeTemplate.EntityData)
 }
 
@@ -9540,6 +10331,7 @@ func (memoryNodeTemplate *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_Memo
 type PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate_PeakMemory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9573,14 +10365,17 @@ func (peakMemory *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTe
     peakMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peakMemory.EntityData.Children = make(map[string]types.YChild)
-    peakMemory.EntityData.Leafs = make(map[string]types.YLeaf)
-    peakMemory.EntityData.Leafs["operator"] = types.YLeaf{"Operator", peakMemory.Operator}
-    peakMemory.EntityData.Leafs["value"] = types.YLeaf{"Value", peakMemory.Value}
-    peakMemory.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", peakMemory.EndRangeValue}
-    peakMemory.EntityData.Leafs["percent"] = types.YLeaf{"Percent", peakMemory.Percent}
-    peakMemory.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", peakMemory.RearmType}
-    peakMemory.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", peakMemory.RearmWindow}
+    peakMemory.EntityData.Children = types.NewOrderedMap()
+    peakMemory.EntityData.Leafs = types.NewOrderedMap()
+    peakMemory.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", peakMemory.Operator})
+    peakMemory.EntityData.Leafs.Append("value", types.YLeaf{"Value", peakMemory.Value})
+    peakMemory.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", peakMemory.EndRangeValue})
+    peakMemory.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", peakMemory.Percent})
+    peakMemory.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", peakMemory.RearmType})
+    peakMemory.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", peakMemory.RearmWindow})
+
+    peakMemory.EntityData.YListKeys = []string {}
+
     return &(peakMemory.EntityData)
 }
 
@@ -9590,6 +10385,7 @@ func (peakMemory *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTe
 type PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate_CurrMemory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9623,14 +10419,17 @@ func (currMemory *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTe
     currMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    currMemory.EntityData.Children = make(map[string]types.YChild)
-    currMemory.EntityData.Leafs = make(map[string]types.YLeaf)
-    currMemory.EntityData.Leafs["operator"] = types.YLeaf{"Operator", currMemory.Operator}
-    currMemory.EntityData.Leafs["value"] = types.YLeaf{"Value", currMemory.Value}
-    currMemory.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", currMemory.EndRangeValue}
-    currMemory.EntityData.Leafs["percent"] = types.YLeaf{"Percent", currMemory.Percent}
-    currMemory.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", currMemory.RearmType}
-    currMemory.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", currMemory.RearmWindow}
+    currMemory.EntityData.Children = types.NewOrderedMap()
+    currMemory.EntityData.Leafs = types.NewOrderedMap()
+    currMemory.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", currMemory.Operator})
+    currMemory.EntityData.Leafs.Append("value", types.YLeaf{"Value", currMemory.Value})
+    currMemory.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", currMemory.EndRangeValue})
+    currMemory.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", currMemory.Percent})
+    currMemory.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", currMemory.RearmType})
+    currMemory.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", currMemory.RearmWindow})
+
+    currMemory.EntityData.YListKeys = []string {}
+
     return &(currMemory.EntityData)
 }
 
@@ -9654,9 +10453,12 @@ func (ospfv3Protocol *PerfMgmt_Threshold_Ospfv3Protocol) GetEntityData() *types.
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3Protocol.EntityData.Children = make(map[string]types.YChild)
-    ospfv3Protocol.EntityData.Children["ospfv3-protocol-templates"] = types.YChild{"Ospfv3ProtocolTemplates", &ospfv3Protocol.Ospfv3ProtocolTemplates}
-    ospfv3Protocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3Protocol.EntityData.Children = types.NewOrderedMap()
+    ospfv3Protocol.EntityData.Children.Append("ospfv3-protocol-templates", types.YChild{"Ospfv3ProtocolTemplates", &ospfv3Protocol.Ospfv3ProtocolTemplates})
+    ospfv3Protocol.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3Protocol.EntityData.YListKeys = []string {}
+
     return &(ospfv3Protocol.EntityData)
 }
 
@@ -9668,7 +10470,7 @@ type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates struct {
 
     // OSPF v2 Protocol threshold template instance. The type is slice of
     // PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate.
-    Ospfv3ProtocolTemplate []PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate
+    Ospfv3ProtocolTemplate []*PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate
 }
 
 func (ospfv3ProtocolTemplates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates) GetEntityData() *types.CommonEntityData {
@@ -9681,12 +10483,15 @@ func (ospfv3ProtocolTemplates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolT
     ospfv3ProtocolTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3ProtocolTemplates.EntityData.Children = make(map[string]types.YChild)
-    ospfv3ProtocolTemplates.EntityData.Children["ospfv3-protocol-template"] = types.YChild{"Ospfv3ProtocolTemplate", nil}
+    ospfv3ProtocolTemplates.EntityData.Children = types.NewOrderedMap()
+    ospfv3ProtocolTemplates.EntityData.Children.Append("ospfv3-protocol-template", types.YChild{"Ospfv3ProtocolTemplate", nil})
     for i := range ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate {
-        ospfv3ProtocolTemplates.EntityData.Children[types.GetSegmentPath(&ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate[i])] = types.YChild{"Ospfv3ProtocolTemplate", &ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate[i]}
+        ospfv3ProtocolTemplates.EntityData.Children.Append(types.GetSegmentPath(ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate[i]), types.YChild{"Ospfv3ProtocolTemplate", ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate[i]})
     }
-    ospfv3ProtocolTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3ProtocolTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3ProtocolTemplates.EntityData.YListKeys = []string {}
+
     return &(ospfv3ProtocolTemplates.EntityData)
 }
 
@@ -9697,7 +10502,7 @@ type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTem
     YFilter yfilter.YFilter
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -9770,35 +10575,38 @@ func (ospfv3ProtocolTemplate *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTe
     ospfv3ProtocolTemplate.EntityData.YangName = "ospfv3-protocol-template"
     ospfv3ProtocolTemplate.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolTemplate.EntityData.ParentYangName = "ospfv3-protocol-templates"
-    ospfv3ProtocolTemplate.EntityData.SegmentPath = "ospfv3-protocol-template" + "[template-name='" + fmt.Sprintf("%v", ospfv3ProtocolTemplate.TemplateName) + "']"
+    ospfv3ProtocolTemplate.EntityData.SegmentPath = "ospfv3-protocol-template" + types.AddKeyToken(ospfv3ProtocolTemplate.TemplateName, "template-name")
     ospfv3ProtocolTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3ProtocolTemplate.EntityData.Children = make(map[string]types.YChild)
-    ospfv3ProtocolTemplate.EntityData.Children["input-lsa-acks-lsa"] = types.YChild{"InputLsaAcksLsa", &ospfv3ProtocolTemplate.InputLsaAcksLsa}
-    ospfv3ProtocolTemplate.EntityData.Children["output-db-ds-lsa"] = types.YChild{"OutputDbDsLsa", &ospfv3ProtocolTemplate.OutputDbDsLsa}
-    ospfv3ProtocolTemplate.EntityData.Children["input-db-ds-lsa"] = types.YChild{"InputDbDsLsa", &ospfv3ProtocolTemplate.InputDbDsLsa}
-    ospfv3ProtocolTemplate.EntityData.Children["input-lsa-updates"] = types.YChild{"InputLsaUpdates", &ospfv3ProtocolTemplate.InputLsaUpdates}
-    ospfv3ProtocolTemplate.EntityData.Children["output-db-ds"] = types.YChild{"OutputDbDs", &ospfv3ProtocolTemplate.OutputDbDs}
-    ospfv3ProtocolTemplate.EntityData.Children["output-lsa-updates-lsa"] = types.YChild{"OutputLsaUpdatesLsa", &ospfv3ProtocolTemplate.OutputLsaUpdatesLsa}
-    ospfv3ProtocolTemplate.EntityData.Children["input-db-ds"] = types.YChild{"InputDbDs", &ospfv3ProtocolTemplate.InputDbDs}
-    ospfv3ProtocolTemplate.EntityData.Children["input-lsa-updates-lsa"] = types.YChild{"InputLsaUpdatesLsa", &ospfv3ProtocolTemplate.InputLsaUpdatesLsa}
-    ospfv3ProtocolTemplate.EntityData.Children["output-packets"] = types.YChild{"OutputPackets", &ospfv3ProtocolTemplate.OutputPackets}
-    ospfv3ProtocolTemplate.EntityData.Children["input-packets"] = types.YChild{"InputPackets", &ospfv3ProtocolTemplate.InputPackets}
-    ospfv3ProtocolTemplate.EntityData.Children["output-hello-packets"] = types.YChild{"OutputHelloPackets", &ospfv3ProtocolTemplate.OutputHelloPackets}
-    ospfv3ProtocolTemplate.EntityData.Children["input-hello-packets"] = types.YChild{"InputHelloPackets", &ospfv3ProtocolTemplate.InputHelloPackets}
-    ospfv3ProtocolTemplate.EntityData.Children["output-ls-requests"] = types.YChild{"OutputLsRequests", &ospfv3ProtocolTemplate.OutputLsRequests}
-    ospfv3ProtocolTemplate.EntityData.Children["output-lsa-acks-lsa"] = types.YChild{"OutputLsaAcksLsa", &ospfv3ProtocolTemplate.OutputLsaAcksLsa}
-    ospfv3ProtocolTemplate.EntityData.Children["output-lsa-acks"] = types.YChild{"OutputLsaAcks", &ospfv3ProtocolTemplate.OutputLsaAcks}
-    ospfv3ProtocolTemplate.EntityData.Children["input-lsa-acks"] = types.YChild{"InputLsaAcks", &ospfv3ProtocolTemplate.InputLsaAcks}
-    ospfv3ProtocolTemplate.EntityData.Children["output-lsa-updates"] = types.YChild{"OutputLsaUpdates", &ospfv3ProtocolTemplate.OutputLsaUpdates}
-    ospfv3ProtocolTemplate.EntityData.Children["output-ls-requests-lsa"] = types.YChild{"OutputLsRequestsLsa", &ospfv3ProtocolTemplate.OutputLsRequestsLsa}
-    ospfv3ProtocolTemplate.EntityData.Children["input-ls-requests-lsa"] = types.YChild{"InputLsRequestsLsa", &ospfv3ProtocolTemplate.InputLsRequestsLsa}
-    ospfv3ProtocolTemplate.EntityData.Children["input-ls-requests"] = types.YChild{"InputLsRequests", &ospfv3ProtocolTemplate.InputLsRequests}
-    ospfv3ProtocolTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv3ProtocolTemplate.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ospfv3ProtocolTemplate.TemplateName}
-    ospfv3ProtocolTemplate.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", ospfv3ProtocolTemplate.SampleInterval}
+    ospfv3ProtocolTemplate.EntityData.Children = types.NewOrderedMap()
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-lsa-acks-lsa", types.YChild{"InputLsaAcksLsa", &ospfv3ProtocolTemplate.InputLsaAcksLsa})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-db-ds-lsa", types.YChild{"OutputDbDsLsa", &ospfv3ProtocolTemplate.OutputDbDsLsa})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-db-ds-lsa", types.YChild{"InputDbDsLsa", &ospfv3ProtocolTemplate.InputDbDsLsa})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-lsa-updates", types.YChild{"InputLsaUpdates", &ospfv3ProtocolTemplate.InputLsaUpdates})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-db-ds", types.YChild{"OutputDbDs", &ospfv3ProtocolTemplate.OutputDbDs})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-lsa-updates-lsa", types.YChild{"OutputLsaUpdatesLsa", &ospfv3ProtocolTemplate.OutputLsaUpdatesLsa})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-db-ds", types.YChild{"InputDbDs", &ospfv3ProtocolTemplate.InputDbDs})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-lsa-updates-lsa", types.YChild{"InputLsaUpdatesLsa", &ospfv3ProtocolTemplate.InputLsaUpdatesLsa})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-packets", types.YChild{"OutputPackets", &ospfv3ProtocolTemplate.OutputPackets})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-packets", types.YChild{"InputPackets", &ospfv3ProtocolTemplate.InputPackets})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-hello-packets", types.YChild{"OutputHelloPackets", &ospfv3ProtocolTemplate.OutputHelloPackets})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-hello-packets", types.YChild{"InputHelloPackets", &ospfv3ProtocolTemplate.InputHelloPackets})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-ls-requests", types.YChild{"OutputLsRequests", &ospfv3ProtocolTemplate.OutputLsRequests})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-lsa-acks-lsa", types.YChild{"OutputLsaAcksLsa", &ospfv3ProtocolTemplate.OutputLsaAcksLsa})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-lsa-acks", types.YChild{"OutputLsaAcks", &ospfv3ProtocolTemplate.OutputLsaAcks})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-lsa-acks", types.YChild{"InputLsaAcks", &ospfv3ProtocolTemplate.InputLsaAcks})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-lsa-updates", types.YChild{"OutputLsaUpdates", &ospfv3ProtocolTemplate.OutputLsaUpdates})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("output-ls-requests-lsa", types.YChild{"OutputLsRequestsLsa", &ospfv3ProtocolTemplate.OutputLsRequestsLsa})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-ls-requests-lsa", types.YChild{"InputLsRequestsLsa", &ospfv3ProtocolTemplate.InputLsRequestsLsa})
+    ospfv3ProtocolTemplate.EntityData.Children.Append("input-ls-requests", types.YChild{"InputLsRequests", &ospfv3ProtocolTemplate.InputLsRequests})
+    ospfv3ProtocolTemplate.EntityData.Leafs = types.NewOrderedMap()
+    ospfv3ProtocolTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ospfv3ProtocolTemplate.TemplateName})
+    ospfv3ProtocolTemplate.EntityData.Leafs.Append("sample-interval", types.YLeaf{"SampleInterval", ospfv3ProtocolTemplate.SampleInterval})
+
+    ospfv3ProtocolTemplate.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(ospfv3ProtocolTemplate.EntityData)
 }
 
@@ -9808,6 +10616,7 @@ func (ospfv3ProtocolTemplate *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTe
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputLsaAcksLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9841,14 +10650,17 @@ func (inputLsaAcksLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates
     inputLsaAcksLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaAcksLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsaAcksLsa.EntityData.Children = make(map[string]types.YChild)
-    inputLsaAcksLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsaAcksLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsaAcksLsa.Operator}
-    inputLsaAcksLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsaAcksLsa.Value}
-    inputLsaAcksLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsaAcksLsa.EndRangeValue}
-    inputLsaAcksLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsaAcksLsa.Percent}
-    inputLsaAcksLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsaAcksLsa.RearmType}
-    inputLsaAcksLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsaAcksLsa.RearmWindow}
+    inputLsaAcksLsa.EntityData.Children = types.NewOrderedMap()
+    inputLsaAcksLsa.EntityData.Leafs = types.NewOrderedMap()
+    inputLsaAcksLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsaAcksLsa.Operator})
+    inputLsaAcksLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsaAcksLsa.Value})
+    inputLsaAcksLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsaAcksLsa.EndRangeValue})
+    inputLsaAcksLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsaAcksLsa.Percent})
+    inputLsaAcksLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsaAcksLsa.RearmType})
+    inputLsaAcksLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsaAcksLsa.RearmWindow})
+
+    inputLsaAcksLsa.EntityData.YListKeys = []string {}
+
     return &(inputLsaAcksLsa.EntityData)
 }
 
@@ -9858,6 +10670,7 @@ func (inputLsaAcksLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputDbDsLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9891,14 +10704,17 @@ func (outputDbDsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
     outputDbDsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDbDsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputDbDsLsa.EntityData.Children = make(map[string]types.YChild)
-    outputDbDsLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputDbDsLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputDbDsLsa.Operator}
-    outputDbDsLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", outputDbDsLsa.Value}
-    outputDbDsLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputDbDsLsa.EndRangeValue}
-    outputDbDsLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputDbDsLsa.Percent}
-    outputDbDsLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputDbDsLsa.RearmType}
-    outputDbDsLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputDbDsLsa.RearmWindow}
+    outputDbDsLsa.EntityData.Children = types.NewOrderedMap()
+    outputDbDsLsa.EntityData.Leafs = types.NewOrderedMap()
+    outputDbDsLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputDbDsLsa.Operator})
+    outputDbDsLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputDbDsLsa.Value})
+    outputDbDsLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputDbDsLsa.EndRangeValue})
+    outputDbDsLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputDbDsLsa.Percent})
+    outputDbDsLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputDbDsLsa.RearmType})
+    outputDbDsLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputDbDsLsa.RearmWindow})
+
+    outputDbDsLsa.EntityData.YListKeys = []string {}
+
     return &(outputDbDsLsa.EntityData)
 }
 
@@ -9908,6 +10724,7 @@ func (outputDbDsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputDbDsLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9941,14 +10758,17 @@ func (inputDbDsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
     inputDbDsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDbDsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputDbDsLsa.EntityData.Children = make(map[string]types.YChild)
-    inputDbDsLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputDbDsLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputDbDsLsa.Operator}
-    inputDbDsLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", inputDbDsLsa.Value}
-    inputDbDsLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputDbDsLsa.EndRangeValue}
-    inputDbDsLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputDbDsLsa.Percent}
-    inputDbDsLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputDbDsLsa.RearmType}
-    inputDbDsLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputDbDsLsa.RearmWindow}
+    inputDbDsLsa.EntityData.Children = types.NewOrderedMap()
+    inputDbDsLsa.EntityData.Leafs = types.NewOrderedMap()
+    inputDbDsLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputDbDsLsa.Operator})
+    inputDbDsLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputDbDsLsa.Value})
+    inputDbDsLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputDbDsLsa.EndRangeValue})
+    inputDbDsLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputDbDsLsa.Percent})
+    inputDbDsLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputDbDsLsa.RearmType})
+    inputDbDsLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputDbDsLsa.RearmWindow})
+
+    inputDbDsLsa.EntityData.YListKeys = []string {}
+
     return &(inputDbDsLsa.EntityData)
 }
 
@@ -9958,6 +10778,7 @@ func (inputDbDsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputLsaUpdates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -9991,14 +10812,17 @@ func (inputLsaUpdates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates
     inputLsaUpdates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaUpdates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsaUpdates.EntityData.Children = make(map[string]types.YChild)
-    inputLsaUpdates.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsaUpdates.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsaUpdates.Operator}
-    inputLsaUpdates.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsaUpdates.Value}
-    inputLsaUpdates.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsaUpdates.EndRangeValue}
-    inputLsaUpdates.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsaUpdates.Percent}
-    inputLsaUpdates.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsaUpdates.RearmType}
-    inputLsaUpdates.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsaUpdates.RearmWindow}
+    inputLsaUpdates.EntityData.Children = types.NewOrderedMap()
+    inputLsaUpdates.EntityData.Leafs = types.NewOrderedMap()
+    inputLsaUpdates.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsaUpdates.Operator})
+    inputLsaUpdates.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsaUpdates.Value})
+    inputLsaUpdates.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsaUpdates.EndRangeValue})
+    inputLsaUpdates.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsaUpdates.Percent})
+    inputLsaUpdates.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsaUpdates.RearmType})
+    inputLsaUpdates.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsaUpdates.RearmWindow})
+
+    inputLsaUpdates.EntityData.YListKeys = []string {}
+
     return &(inputLsaUpdates.EntityData)
 }
 
@@ -10008,6 +10832,7 @@ func (inputLsaUpdates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputDbDs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10041,14 +10866,17 @@ func (outputDbDs *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospf
     outputDbDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDbDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputDbDs.EntityData.Children = make(map[string]types.YChild)
-    outputDbDs.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputDbDs.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputDbDs.Operator}
-    outputDbDs.EntityData.Leafs["value"] = types.YLeaf{"Value", outputDbDs.Value}
-    outputDbDs.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputDbDs.EndRangeValue}
-    outputDbDs.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputDbDs.Percent}
-    outputDbDs.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputDbDs.RearmType}
-    outputDbDs.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputDbDs.RearmWindow}
+    outputDbDs.EntityData.Children = types.NewOrderedMap()
+    outputDbDs.EntityData.Leafs = types.NewOrderedMap()
+    outputDbDs.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputDbDs.Operator})
+    outputDbDs.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputDbDs.Value})
+    outputDbDs.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputDbDs.EndRangeValue})
+    outputDbDs.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputDbDs.Percent})
+    outputDbDs.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputDbDs.RearmType})
+    outputDbDs.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputDbDs.RearmWindow})
+
+    outputDbDs.EntityData.YListKeys = []string {}
+
     return &(outputDbDs.EntityData)
 }
 
@@ -10058,6 +10886,7 @@ func (outputDbDs *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospf
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputLsaUpdatesLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10091,14 +10920,17 @@ func (outputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempl
     outputLsaUpdatesLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaUpdatesLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsaUpdatesLsa.EntityData.Children = make(map[string]types.YChild)
-    outputLsaUpdatesLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsaUpdatesLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsaUpdatesLsa.Operator}
-    outputLsaUpdatesLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsaUpdatesLsa.Value}
-    outputLsaUpdatesLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsaUpdatesLsa.EndRangeValue}
-    outputLsaUpdatesLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsaUpdatesLsa.Percent}
-    outputLsaUpdatesLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsaUpdatesLsa.RearmType}
-    outputLsaUpdatesLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsaUpdatesLsa.RearmWindow}
+    outputLsaUpdatesLsa.EntityData.Children = types.NewOrderedMap()
+    outputLsaUpdatesLsa.EntityData.Leafs = types.NewOrderedMap()
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsaUpdatesLsa.Operator})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsaUpdatesLsa.Value})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsaUpdatesLsa.EndRangeValue})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsaUpdatesLsa.Percent})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsaUpdatesLsa.RearmType})
+    outputLsaUpdatesLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsaUpdatesLsa.RearmWindow})
+
+    outputLsaUpdatesLsa.EntityData.YListKeys = []string {}
+
     return &(outputLsaUpdatesLsa.EntityData)
 }
 
@@ -10108,6 +10940,7 @@ func (outputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempl
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputDbDs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10141,14 +10974,17 @@ func (inputDbDs *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv
     inputDbDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDbDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputDbDs.EntityData.Children = make(map[string]types.YChild)
-    inputDbDs.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputDbDs.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputDbDs.Operator}
-    inputDbDs.EntityData.Leafs["value"] = types.YLeaf{"Value", inputDbDs.Value}
-    inputDbDs.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputDbDs.EndRangeValue}
-    inputDbDs.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputDbDs.Percent}
-    inputDbDs.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputDbDs.RearmType}
-    inputDbDs.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputDbDs.RearmWindow}
+    inputDbDs.EntityData.Children = types.NewOrderedMap()
+    inputDbDs.EntityData.Leafs = types.NewOrderedMap()
+    inputDbDs.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputDbDs.Operator})
+    inputDbDs.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputDbDs.Value})
+    inputDbDs.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputDbDs.EndRangeValue})
+    inputDbDs.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputDbDs.Percent})
+    inputDbDs.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputDbDs.RearmType})
+    inputDbDs.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputDbDs.RearmWindow})
+
+    inputDbDs.EntityData.YListKeys = []string {}
+
     return &(inputDbDs.EntityData)
 }
 
@@ -10158,6 +10994,7 @@ func (inputDbDs *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputLsaUpdatesLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10191,14 +11028,17 @@ func (inputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
     inputLsaUpdatesLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaUpdatesLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsaUpdatesLsa.EntityData.Children = make(map[string]types.YChild)
-    inputLsaUpdatesLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsaUpdatesLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsaUpdatesLsa.Operator}
-    inputLsaUpdatesLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsaUpdatesLsa.Value}
-    inputLsaUpdatesLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsaUpdatesLsa.EndRangeValue}
-    inputLsaUpdatesLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsaUpdatesLsa.Percent}
-    inputLsaUpdatesLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsaUpdatesLsa.RearmType}
-    inputLsaUpdatesLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsaUpdatesLsa.RearmWindow}
+    inputLsaUpdatesLsa.EntityData.Children = types.NewOrderedMap()
+    inputLsaUpdatesLsa.EntityData.Leafs = types.NewOrderedMap()
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsaUpdatesLsa.Operator})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsaUpdatesLsa.Value})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsaUpdatesLsa.EndRangeValue})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsaUpdatesLsa.Percent})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsaUpdatesLsa.RearmType})
+    inputLsaUpdatesLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsaUpdatesLsa.RearmWindow})
+
+    inputLsaUpdatesLsa.EntityData.YListKeys = []string {}
+
     return &(inputLsaUpdatesLsa.EntityData)
 }
 
@@ -10208,6 +11048,7 @@ func (inputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10241,14 +11082,17 @@ func (outputPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
     outputPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputPackets.EntityData.Children = make(map[string]types.YChild)
-    outputPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputPackets.Operator}
-    outputPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", outputPackets.Value}
-    outputPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputPackets.EndRangeValue}
-    outputPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputPackets.Percent}
-    outputPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputPackets.RearmType}
-    outputPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputPackets.RearmWindow}
+    outputPackets.EntityData.Children = types.NewOrderedMap()
+    outputPackets.EntityData.Leafs = types.NewOrderedMap()
+    outputPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputPackets.Operator})
+    outputPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputPackets.Value})
+    outputPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputPackets.EndRangeValue})
+    outputPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputPackets.Percent})
+    outputPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputPackets.RearmType})
+    outputPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputPackets.RearmWindow})
+
+    outputPackets.EntityData.YListKeys = []string {}
+
     return &(outputPackets.EntityData)
 }
 
@@ -10258,6 +11102,7 @@ func (outputPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10291,14 +11136,17 @@ func (inputPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
     inputPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputPackets.EntityData.Children = make(map[string]types.YChild)
-    inputPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputPackets.Operator}
-    inputPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", inputPackets.Value}
-    inputPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputPackets.EndRangeValue}
-    inputPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputPackets.Percent}
-    inputPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputPackets.RearmType}
-    inputPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputPackets.RearmWindow}
+    inputPackets.EntityData.Children = types.NewOrderedMap()
+    inputPackets.EntityData.Leafs = types.NewOrderedMap()
+    inputPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputPackets.Operator})
+    inputPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputPackets.Value})
+    inputPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputPackets.EndRangeValue})
+    inputPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputPackets.Percent})
+    inputPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputPackets.RearmType})
+    inputPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputPackets.RearmWindow})
+
+    inputPackets.EntityData.YListKeys = []string {}
+
     return &(inputPackets.EntityData)
 }
 
@@ -10308,6 +11156,7 @@ func (inputPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputHelloPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10341,14 +11190,17 @@ func (outputHelloPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
     outputHelloPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputHelloPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputHelloPackets.EntityData.Children = make(map[string]types.YChild)
-    outputHelloPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputHelloPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputHelloPackets.Operator}
-    outputHelloPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", outputHelloPackets.Value}
-    outputHelloPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputHelloPackets.EndRangeValue}
-    outputHelloPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputHelloPackets.Percent}
-    outputHelloPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputHelloPackets.RearmType}
-    outputHelloPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputHelloPackets.RearmWindow}
+    outputHelloPackets.EntityData.Children = types.NewOrderedMap()
+    outputHelloPackets.EntityData.Leafs = types.NewOrderedMap()
+    outputHelloPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputHelloPackets.Operator})
+    outputHelloPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputHelloPackets.Value})
+    outputHelloPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputHelloPackets.EndRangeValue})
+    outputHelloPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputHelloPackets.Percent})
+    outputHelloPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputHelloPackets.RearmType})
+    outputHelloPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputHelloPackets.RearmWindow})
+
+    outputHelloPackets.EntityData.YListKeys = []string {}
+
     return &(outputHelloPackets.EntityData)
 }
 
@@ -10358,6 +11210,7 @@ func (outputHelloPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputHelloPackets struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10391,14 +11244,17 @@ func (inputHelloPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplat
     inputHelloPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputHelloPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputHelloPackets.EntityData.Children = make(map[string]types.YChild)
-    inputHelloPackets.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputHelloPackets.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputHelloPackets.Operator}
-    inputHelloPackets.EntityData.Leafs["value"] = types.YLeaf{"Value", inputHelloPackets.Value}
-    inputHelloPackets.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputHelloPackets.EndRangeValue}
-    inputHelloPackets.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputHelloPackets.Percent}
-    inputHelloPackets.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputHelloPackets.RearmType}
-    inputHelloPackets.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputHelloPackets.RearmWindow}
+    inputHelloPackets.EntityData.Children = types.NewOrderedMap()
+    inputHelloPackets.EntityData.Leafs = types.NewOrderedMap()
+    inputHelloPackets.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputHelloPackets.Operator})
+    inputHelloPackets.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputHelloPackets.Value})
+    inputHelloPackets.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputHelloPackets.EndRangeValue})
+    inputHelloPackets.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputHelloPackets.Percent})
+    inputHelloPackets.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputHelloPackets.RearmType})
+    inputHelloPackets.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputHelloPackets.RearmWindow})
+
+    inputHelloPackets.EntityData.YListKeys = []string {}
+
     return &(inputHelloPackets.EntityData)
 }
 
@@ -10408,6 +11264,7 @@ func (inputHelloPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplat
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputLsRequests struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10441,14 +11298,17 @@ func (outputLsRequests *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
     outputLsRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsRequests.EntityData.Children = make(map[string]types.YChild)
-    outputLsRequests.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsRequests.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsRequests.Operator}
-    outputLsRequests.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsRequests.Value}
-    outputLsRequests.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsRequests.EndRangeValue}
-    outputLsRequests.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsRequests.Percent}
-    outputLsRequests.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsRequests.RearmType}
-    outputLsRequests.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsRequests.RearmWindow}
+    outputLsRequests.EntityData.Children = types.NewOrderedMap()
+    outputLsRequests.EntityData.Leafs = types.NewOrderedMap()
+    outputLsRequests.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsRequests.Operator})
+    outputLsRequests.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsRequests.Value})
+    outputLsRequests.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsRequests.EndRangeValue})
+    outputLsRequests.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsRequests.Percent})
+    outputLsRequests.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsRequests.RearmType})
+    outputLsRequests.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsRequests.RearmWindow})
+
+    outputLsRequests.EntityData.YListKeys = []string {}
+
     return &(outputLsRequests.EntityData)
 }
 
@@ -10458,6 +11318,7 @@ func (outputLsRequests *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputLsaAcksLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10491,14 +11352,17 @@ func (outputLsaAcksLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
     outputLsaAcksLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaAcksLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsaAcksLsa.EntityData.Children = make(map[string]types.YChild)
-    outputLsaAcksLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsaAcksLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsaAcksLsa.Operator}
-    outputLsaAcksLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsaAcksLsa.Value}
-    outputLsaAcksLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsaAcksLsa.EndRangeValue}
-    outputLsaAcksLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsaAcksLsa.Percent}
-    outputLsaAcksLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsaAcksLsa.RearmType}
-    outputLsaAcksLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsaAcksLsa.RearmWindow}
+    outputLsaAcksLsa.EntityData.Children = types.NewOrderedMap()
+    outputLsaAcksLsa.EntityData.Leafs = types.NewOrderedMap()
+    outputLsaAcksLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsaAcksLsa.Operator})
+    outputLsaAcksLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsaAcksLsa.Value})
+    outputLsaAcksLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsaAcksLsa.EndRangeValue})
+    outputLsaAcksLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsaAcksLsa.Percent})
+    outputLsaAcksLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsaAcksLsa.RearmType})
+    outputLsaAcksLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsaAcksLsa.RearmWindow})
+
+    outputLsaAcksLsa.EntityData.YListKeys = []string {}
+
     return &(outputLsaAcksLsa.EntityData)
 }
 
@@ -10508,6 +11372,7 @@ func (outputLsaAcksLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputLsaAcks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10541,14 +11406,17 @@ func (outputLsaAcks *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
     outputLsaAcks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaAcks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsaAcks.EntityData.Children = make(map[string]types.YChild)
-    outputLsaAcks.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsaAcks.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsaAcks.Operator}
-    outputLsaAcks.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsaAcks.Value}
-    outputLsaAcks.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsaAcks.EndRangeValue}
-    outputLsaAcks.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsaAcks.Percent}
-    outputLsaAcks.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsaAcks.RearmType}
-    outputLsaAcks.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsaAcks.RearmWindow}
+    outputLsaAcks.EntityData.Children = types.NewOrderedMap()
+    outputLsaAcks.EntityData.Leafs = types.NewOrderedMap()
+    outputLsaAcks.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsaAcks.Operator})
+    outputLsaAcks.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsaAcks.Value})
+    outputLsaAcks.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsaAcks.EndRangeValue})
+    outputLsaAcks.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsaAcks.Percent})
+    outputLsaAcks.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsaAcks.RearmType})
+    outputLsaAcks.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsaAcks.RearmWindow})
+
+    outputLsaAcks.EntityData.YListKeys = []string {}
+
     return &(outputLsaAcks.EntityData)
 }
 
@@ -10558,6 +11426,7 @@ func (outputLsaAcks *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputLsaAcks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10591,14 +11460,17 @@ func (inputLsaAcks *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
     inputLsaAcks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaAcks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsaAcks.EntityData.Children = make(map[string]types.YChild)
-    inputLsaAcks.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsaAcks.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsaAcks.Operator}
-    inputLsaAcks.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsaAcks.Value}
-    inputLsaAcks.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsaAcks.EndRangeValue}
-    inputLsaAcks.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsaAcks.Percent}
-    inputLsaAcks.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsaAcks.RearmType}
-    inputLsaAcks.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsaAcks.RearmWindow}
+    inputLsaAcks.EntityData.Children = types.NewOrderedMap()
+    inputLsaAcks.EntityData.Leafs = types.NewOrderedMap()
+    inputLsaAcks.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsaAcks.Operator})
+    inputLsaAcks.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsaAcks.Value})
+    inputLsaAcks.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsaAcks.EndRangeValue})
+    inputLsaAcks.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsaAcks.Percent})
+    inputLsaAcks.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsaAcks.RearmType})
+    inputLsaAcks.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsaAcks.RearmWindow})
+
+    inputLsaAcks.EntityData.YListKeys = []string {}
+
     return &(inputLsaAcks.EntityData)
 }
 
@@ -10608,6 +11480,7 @@ func (inputLsaAcks *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputLsaUpdates struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10641,14 +11514,17 @@ func (outputLsaUpdates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
     outputLsaUpdates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaUpdates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsaUpdates.EntityData.Children = make(map[string]types.YChild)
-    outputLsaUpdates.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsaUpdates.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsaUpdates.Operator}
-    outputLsaUpdates.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsaUpdates.Value}
-    outputLsaUpdates.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsaUpdates.EndRangeValue}
-    outputLsaUpdates.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsaUpdates.Percent}
-    outputLsaUpdates.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsaUpdates.RearmType}
-    outputLsaUpdates.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsaUpdates.RearmWindow}
+    outputLsaUpdates.EntityData.Children = types.NewOrderedMap()
+    outputLsaUpdates.EntityData.Leafs = types.NewOrderedMap()
+    outputLsaUpdates.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsaUpdates.Operator})
+    outputLsaUpdates.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsaUpdates.Value})
+    outputLsaUpdates.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsaUpdates.EndRangeValue})
+    outputLsaUpdates.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsaUpdates.Percent})
+    outputLsaUpdates.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsaUpdates.RearmType})
+    outputLsaUpdates.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsaUpdates.RearmWindow})
+
+    outputLsaUpdates.EntityData.YListKeys = []string {}
+
     return &(outputLsaUpdates.EntityData)
 }
 
@@ -10658,6 +11534,7 @@ func (outputLsaUpdates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_OutputLsRequestsLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10691,14 +11568,17 @@ func (outputLsRequestsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempl
     outputLsRequestsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsRequestsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outputLsRequestsLsa.EntityData.Children = make(map[string]types.YChild)
-    outputLsRequestsLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputLsRequestsLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", outputLsRequestsLsa.Operator}
-    outputLsRequestsLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", outputLsRequestsLsa.Value}
-    outputLsRequestsLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", outputLsRequestsLsa.EndRangeValue}
-    outputLsRequestsLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", outputLsRequestsLsa.Percent}
-    outputLsRequestsLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", outputLsRequestsLsa.RearmType}
-    outputLsRequestsLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", outputLsRequestsLsa.RearmWindow}
+    outputLsRequestsLsa.EntityData.Children = types.NewOrderedMap()
+    outputLsRequestsLsa.EntityData.Leafs = types.NewOrderedMap()
+    outputLsRequestsLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", outputLsRequestsLsa.Operator})
+    outputLsRequestsLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", outputLsRequestsLsa.Value})
+    outputLsRequestsLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", outputLsRequestsLsa.EndRangeValue})
+    outputLsRequestsLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", outputLsRequestsLsa.Percent})
+    outputLsRequestsLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", outputLsRequestsLsa.RearmType})
+    outputLsRequestsLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", outputLsRequestsLsa.RearmWindow})
+
+    outputLsRequestsLsa.EntityData.YListKeys = []string {}
+
     return &(outputLsRequestsLsa.EntityData)
 }
 
@@ -10708,6 +11588,7 @@ func (outputLsRequestsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempl
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputLsRequestsLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10741,14 +11622,17 @@ func (inputLsRequestsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
     inputLsRequestsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsRequestsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsRequestsLsa.EntityData.Children = make(map[string]types.YChild)
-    inputLsRequestsLsa.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsRequestsLsa.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsRequestsLsa.Operator}
-    inputLsRequestsLsa.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsRequestsLsa.Value}
-    inputLsRequestsLsa.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsRequestsLsa.EndRangeValue}
-    inputLsRequestsLsa.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsRequestsLsa.Percent}
-    inputLsRequestsLsa.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsRequestsLsa.RearmType}
-    inputLsRequestsLsa.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsRequestsLsa.RearmWindow}
+    inputLsRequestsLsa.EntityData.Children = types.NewOrderedMap()
+    inputLsRequestsLsa.EntityData.Leafs = types.NewOrderedMap()
+    inputLsRequestsLsa.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsRequestsLsa.Operator})
+    inputLsRequestsLsa.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsRequestsLsa.Value})
+    inputLsRequestsLsa.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsRequestsLsa.EndRangeValue})
+    inputLsRequestsLsa.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsRequestsLsa.Percent})
+    inputLsRequestsLsa.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsRequestsLsa.RearmType})
+    inputLsRequestsLsa.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsRequestsLsa.RearmWindow})
+
+    inputLsRequestsLsa.EntityData.YListKeys = []string {}
+
     return &(inputLsRequestsLsa.EntityData)
 }
 
@@ -10758,6 +11642,7 @@ func (inputLsRequestsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate_InputLsRequests struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Operator. The type is PmThresholdOp.
     Operator interface{}
@@ -10791,14 +11676,17 @@ func (inputLsRequests *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates
     inputLsRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inputLsRequests.EntityData.Children = make(map[string]types.YChild)
-    inputLsRequests.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputLsRequests.EntityData.Leafs["operator"] = types.YLeaf{"Operator", inputLsRequests.Operator}
-    inputLsRequests.EntityData.Leafs["value"] = types.YLeaf{"Value", inputLsRequests.Value}
-    inputLsRequests.EntityData.Leafs["end-range-value"] = types.YLeaf{"EndRangeValue", inputLsRequests.EndRangeValue}
-    inputLsRequests.EntityData.Leafs["percent"] = types.YLeaf{"Percent", inputLsRequests.Percent}
-    inputLsRequests.EntityData.Leafs["rearm-type"] = types.YLeaf{"RearmType", inputLsRequests.RearmType}
-    inputLsRequests.EntityData.Leafs["rearm-window"] = types.YLeaf{"RearmWindow", inputLsRequests.RearmWindow}
+    inputLsRequests.EntityData.Children = types.NewOrderedMap()
+    inputLsRequests.EntityData.Leafs = types.NewOrderedMap()
+    inputLsRequests.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", inputLsRequests.Operator})
+    inputLsRequests.EntityData.Leafs.Append("value", types.YLeaf{"Value", inputLsRequests.Value})
+    inputLsRequests.EntityData.Leafs.Append("end-range-value", types.YLeaf{"EndRangeValue", inputLsRequests.EndRangeValue})
+    inputLsRequests.EntityData.Leafs.Append("percent", types.YLeaf{"Percent", inputLsRequests.Percent})
+    inputLsRequests.EntityData.Leafs.Append("rearm-type", types.YLeaf{"RearmType", inputLsRequests.RearmType})
+    inputLsRequests.EntityData.Leafs.Append("rearm-window", types.YLeaf{"RearmWindow", inputLsRequests.RearmWindow})
+
+    inputLsRequests.EntityData.YListKeys = []string {}
+
     return &(inputLsRequests.EntityData)
 }
 

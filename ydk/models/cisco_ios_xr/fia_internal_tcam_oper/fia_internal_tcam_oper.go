@@ -44,9 +44,12 @@ func (controller *Controller) GetEntityData() *types.CommonEntityData {
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controller.EntityData.Children = make(map[string]types.YChild)
-    controller.EntityData.Children["dpa"] = types.YChild{"Dpa", &controller.Dpa}
-    controller.EntityData.Leafs = make(map[string]types.YLeaf)
+    controller.EntityData.Children = types.NewOrderedMap()
+    controller.EntityData.Children.Append("dpa", types.YChild{"Dpa", &controller.Dpa})
+    controller.EntityData.Leafs = types.NewOrderedMap()
+
+    controller.EntityData.YListKeys = []string {}
+
     return &(controller.EntityData)
 }
 
@@ -70,9 +73,12 @@ func (dpa *Controller_Dpa) GetEntityData() *types.CommonEntityData {
     dpa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dpa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dpa.EntityData.Children = make(map[string]types.YChild)
-    dpa.EntityData.Children["nodes"] = types.YChild{"Nodes", &dpa.Nodes}
-    dpa.EntityData.Leafs = make(map[string]types.YLeaf)
+    dpa.EntityData.Children = types.NewOrderedMap()
+    dpa.EntityData.Children.Append("nodes", types.YChild{"Nodes", &dpa.Nodes})
+    dpa.EntityData.Leafs = types.NewOrderedMap()
+
+    dpa.EntityData.YListKeys = []string {}
+
     return &(dpa.EntityData)
 }
 
@@ -84,7 +90,7 @@ type Controller_Dpa_Nodes struct {
 
     // DPA operational data for a particular node. The type is slice of
     // Controller_Dpa_Nodes_Node.
-    Node []Controller_Dpa_Nodes_Node
+    Node []*Controller_Dpa_Nodes_Node
 }
 
 func (nodes *Controller_Dpa_Nodes) GetEntityData() *types.CommonEntityData {
@@ -97,12 +103,15 @@ func (nodes *Controller_Dpa_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -113,7 +122,7 @@ type Controller_Dpa_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // External TCAM Resource Information.
@@ -128,16 +137,19 @@ func (node *Controller_Dpa_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["external-tcam-resources"] = types.YChild{"ExternalTcamResources", &node.ExternalTcamResources}
-    node.EntityData.Children["internal-tcam-resources"] = types.YChild{"InternalTcamResources", &node.InternalTcamResources}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("external-tcam-resources", types.YChild{"ExternalTcamResources", &node.ExternalTcamResources})
+    node.EntityData.Children.Append("internal-tcam-resources", types.YChild{"InternalTcamResources", &node.InternalTcamResources})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -149,7 +161,7 @@ type Controller_Dpa_Nodes_Node_ExternalTcamResources struct {
 
     // npu tcam. The type is slice of
     // Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam.
-    NpuTcam []Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam
+    NpuTcam []*Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam
 }
 
 func (externalTcamResources *Controller_Dpa_Nodes_Node_ExternalTcamResources) GetEntityData() *types.CommonEntityData {
@@ -162,12 +174,15 @@ func (externalTcamResources *Controller_Dpa_Nodes_Node_ExternalTcamResources) Ge
     externalTcamResources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalTcamResources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    externalTcamResources.EntityData.Children = make(map[string]types.YChild)
-    externalTcamResources.EntityData.Children["npu-tcam"] = types.YChild{"NpuTcam", nil}
+    externalTcamResources.EntityData.Children = types.NewOrderedMap()
+    externalTcamResources.EntityData.Children.Append("npu-tcam", types.YChild{"NpuTcam", nil})
     for i := range externalTcamResources.NpuTcam {
-        externalTcamResources.EntityData.Children[types.GetSegmentPath(&externalTcamResources.NpuTcam[i])] = types.YChild{"NpuTcam", &externalTcamResources.NpuTcam[i]}
+        externalTcamResources.EntityData.Children.Append(types.GetSegmentPath(externalTcamResources.NpuTcam[i]), types.YChild{"NpuTcam", externalTcamResources.NpuTcam[i]})
     }
-    externalTcamResources.EntityData.Leafs = make(map[string]types.YLeaf)
+    externalTcamResources.EntityData.Leafs = types.NewOrderedMap()
+
+    externalTcamResources.EntityData.YListKeys = []string {}
+
     return &(externalTcamResources.EntityData)
 }
 
@@ -182,7 +197,7 @@ type Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam struct {
 
     // tcam bank. The type is slice of
     // Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank.
-    TcamBank []Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank
+    TcamBank []*Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank
 }
 
 func (npuTcam *Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam) GetEntityData() *types.CommonEntityData {
@@ -195,13 +210,16 @@ func (npuTcam *Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam) GetEntit
     npuTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npuTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    npuTcam.EntityData.Children = make(map[string]types.YChild)
-    npuTcam.EntityData.Children["tcam-bank"] = types.YChild{"TcamBank", nil}
+    npuTcam.EntityData.Children = types.NewOrderedMap()
+    npuTcam.EntityData.Children.Append("tcam-bank", types.YChild{"TcamBank", nil})
     for i := range npuTcam.TcamBank {
-        npuTcam.EntityData.Children[types.GetSegmentPath(&npuTcam.TcamBank[i])] = types.YChild{"TcamBank", &npuTcam.TcamBank[i]}
+        npuTcam.EntityData.Children.Append(types.GetSegmentPath(npuTcam.TcamBank[i]), types.YChild{"TcamBank", npuTcam.TcamBank[i]})
     }
-    npuTcam.EntityData.Leafs = make(map[string]types.YLeaf)
-    npuTcam.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", npuTcam.NpuId}
+    npuTcam.EntityData.Leafs = types.NewOrderedMap()
+    npuTcam.EntityData.Leafs.Append("npu-id", types.YLeaf{"NpuId", npuTcam.NpuId})
+
+    npuTcam.EntityData.YListKeys = []string {}
+
     return &(npuTcam.EntityData)
 }
 
@@ -231,7 +249,7 @@ type Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank struct {
 
     // bank db. The type is slice of
     // Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank_BankDb.
-    BankDb []Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank_BankDb
+    BankDb []*Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank_BankDb
 }
 
 func (tcamBank *Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank) GetEntityData() *types.CommonEntityData {
@@ -244,18 +262,21 @@ func (tcamBank *Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank
     tcamBank.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamBank.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamBank.EntityData.Children = make(map[string]types.YChild)
-    tcamBank.EntityData.Children["bank-db"] = types.YChild{"BankDb", nil}
+    tcamBank.EntityData.Children = types.NewOrderedMap()
+    tcamBank.EntityData.Children.Append("bank-db", types.YChild{"BankDb", nil})
     for i := range tcamBank.BankDb {
-        tcamBank.EntityData.Children[types.GetSegmentPath(&tcamBank.BankDb[i])] = types.YChild{"BankDb", &tcamBank.BankDb[i]}
+        tcamBank.EntityData.Children.Append(types.GetSegmentPath(tcamBank.BankDb[i]), types.YChild{"BankDb", tcamBank.BankDb[i]})
     }
-    tcamBank.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamBank.EntityData.Leafs["bank-id"] = types.YLeaf{"BankId", tcamBank.BankId}
-    tcamBank.EntityData.Leafs["bank-key-size"] = types.YLeaf{"BankKeySize", tcamBank.BankKeySize}
-    tcamBank.EntityData.Leafs["bank-free-entries"] = types.YLeaf{"BankFreeEntries", tcamBank.BankFreeEntries}
-    tcamBank.EntityData.Leafs["bank-inuse-entries"] = types.YLeaf{"BankInuseEntries", tcamBank.BankInuseEntries}
-    tcamBank.EntityData.Leafs["owner"] = types.YLeaf{"Owner", tcamBank.Owner}
-    tcamBank.EntityData.Leafs["nof-dbs"] = types.YLeaf{"NofDbs", tcamBank.NofDbs}
+    tcamBank.EntityData.Leafs = types.NewOrderedMap()
+    tcamBank.EntityData.Leafs.Append("bank-id", types.YLeaf{"BankId", tcamBank.BankId})
+    tcamBank.EntityData.Leafs.Append("bank-key-size", types.YLeaf{"BankKeySize", tcamBank.BankKeySize})
+    tcamBank.EntityData.Leafs.Append("bank-free-entries", types.YLeaf{"BankFreeEntries", tcamBank.BankFreeEntries})
+    tcamBank.EntityData.Leafs.Append("bank-inuse-entries", types.YLeaf{"BankInuseEntries", tcamBank.BankInuseEntries})
+    tcamBank.EntityData.Leafs.Append("owner", types.YLeaf{"Owner", tcamBank.Owner})
+    tcamBank.EntityData.Leafs.Append("nof-dbs", types.YLeaf{"NofDbs", tcamBank.NofDbs})
+
+    tcamBank.EntityData.YListKeys = []string {}
+
     return &(tcamBank.EntityData)
 }
 
@@ -285,11 +306,14 @@ func (bankDb *Controller_Dpa_Nodes_Node_ExternalTcamResources_NpuTcam_TcamBank_B
     bankDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bankDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bankDb.EntityData.Children = make(map[string]types.YChild)
-    bankDb.EntityData.Leafs = make(map[string]types.YLeaf)
-    bankDb.EntityData.Leafs["db-id"] = types.YLeaf{"DbId", bankDb.DbId}
-    bankDb.EntityData.Leafs["db-inuse-entries"] = types.YLeaf{"DbInuseEntries", bankDb.DbInuseEntries}
-    bankDb.EntityData.Leafs["db-prefix"] = types.YLeaf{"DbPrefix", bankDb.DbPrefix}
+    bankDb.EntityData.Children = types.NewOrderedMap()
+    bankDb.EntityData.Leafs = types.NewOrderedMap()
+    bankDb.EntityData.Leafs.Append("db-id", types.YLeaf{"DbId", bankDb.DbId})
+    bankDb.EntityData.Leafs.Append("db-inuse-entries", types.YLeaf{"DbInuseEntries", bankDb.DbInuseEntries})
+    bankDb.EntityData.Leafs.Append("db-prefix", types.YLeaf{"DbPrefix", bankDb.DbPrefix})
+
+    bankDb.EntityData.YListKeys = []string {}
+
     return &(bankDb.EntityData)
 }
 
@@ -301,7 +325,7 @@ type Controller_Dpa_Nodes_Node_InternalTcamResources struct {
 
     // npu tcam. The type is slice of
     // Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam.
-    NpuTcam []Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam
+    NpuTcam []*Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam
 }
 
 func (internalTcamResources *Controller_Dpa_Nodes_Node_InternalTcamResources) GetEntityData() *types.CommonEntityData {
@@ -314,12 +338,15 @@ func (internalTcamResources *Controller_Dpa_Nodes_Node_InternalTcamResources) Ge
     internalTcamResources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalTcamResources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    internalTcamResources.EntityData.Children = make(map[string]types.YChild)
-    internalTcamResources.EntityData.Children["npu-tcam"] = types.YChild{"NpuTcam", nil}
+    internalTcamResources.EntityData.Children = types.NewOrderedMap()
+    internalTcamResources.EntityData.Children.Append("npu-tcam", types.YChild{"NpuTcam", nil})
     for i := range internalTcamResources.NpuTcam {
-        internalTcamResources.EntityData.Children[types.GetSegmentPath(&internalTcamResources.NpuTcam[i])] = types.YChild{"NpuTcam", &internalTcamResources.NpuTcam[i]}
+        internalTcamResources.EntityData.Children.Append(types.GetSegmentPath(internalTcamResources.NpuTcam[i]), types.YChild{"NpuTcam", internalTcamResources.NpuTcam[i]})
     }
-    internalTcamResources.EntityData.Leafs = make(map[string]types.YLeaf)
+    internalTcamResources.EntityData.Leafs = types.NewOrderedMap()
+
+    internalTcamResources.EntityData.YListKeys = []string {}
+
     return &(internalTcamResources.EntityData)
 }
 
@@ -334,7 +361,7 @@ type Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam struct {
 
     // tcam bank. The type is slice of
     // Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank.
-    TcamBank []Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank
+    TcamBank []*Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank
 }
 
 func (npuTcam *Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam) GetEntityData() *types.CommonEntityData {
@@ -347,13 +374,16 @@ func (npuTcam *Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam) GetEntit
     npuTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npuTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    npuTcam.EntityData.Children = make(map[string]types.YChild)
-    npuTcam.EntityData.Children["tcam-bank"] = types.YChild{"TcamBank", nil}
+    npuTcam.EntityData.Children = types.NewOrderedMap()
+    npuTcam.EntityData.Children.Append("tcam-bank", types.YChild{"TcamBank", nil})
     for i := range npuTcam.TcamBank {
-        npuTcam.EntityData.Children[types.GetSegmentPath(&npuTcam.TcamBank[i])] = types.YChild{"TcamBank", &npuTcam.TcamBank[i]}
+        npuTcam.EntityData.Children.Append(types.GetSegmentPath(npuTcam.TcamBank[i]), types.YChild{"TcamBank", npuTcam.TcamBank[i]})
     }
-    npuTcam.EntityData.Leafs = make(map[string]types.YLeaf)
-    npuTcam.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", npuTcam.NpuId}
+    npuTcam.EntityData.Leafs = types.NewOrderedMap()
+    npuTcam.EntityData.Leafs.Append("npu-id", types.YLeaf{"NpuId", npuTcam.NpuId})
+
+    npuTcam.EntityData.YListKeys = []string {}
+
     return &(npuTcam.EntityData)
 }
 
@@ -383,7 +413,7 @@ type Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank struct {
 
     // bank db. The type is slice of
     // Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank_BankDb.
-    BankDb []Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank_BankDb
+    BankDb []*Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank_BankDb
 }
 
 func (tcamBank *Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank) GetEntityData() *types.CommonEntityData {
@@ -396,18 +426,21 @@ func (tcamBank *Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank
     tcamBank.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamBank.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamBank.EntityData.Children = make(map[string]types.YChild)
-    tcamBank.EntityData.Children["bank-db"] = types.YChild{"BankDb", nil}
+    tcamBank.EntityData.Children = types.NewOrderedMap()
+    tcamBank.EntityData.Children.Append("bank-db", types.YChild{"BankDb", nil})
     for i := range tcamBank.BankDb {
-        tcamBank.EntityData.Children[types.GetSegmentPath(&tcamBank.BankDb[i])] = types.YChild{"BankDb", &tcamBank.BankDb[i]}
+        tcamBank.EntityData.Children.Append(types.GetSegmentPath(tcamBank.BankDb[i]), types.YChild{"BankDb", tcamBank.BankDb[i]})
     }
-    tcamBank.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamBank.EntityData.Leafs["bank-id"] = types.YLeaf{"BankId", tcamBank.BankId}
-    tcamBank.EntityData.Leafs["bank-key-size"] = types.YLeaf{"BankKeySize", tcamBank.BankKeySize}
-    tcamBank.EntityData.Leafs["bank-free-entries"] = types.YLeaf{"BankFreeEntries", tcamBank.BankFreeEntries}
-    tcamBank.EntityData.Leafs["bank-inuse-entries"] = types.YLeaf{"BankInuseEntries", tcamBank.BankInuseEntries}
-    tcamBank.EntityData.Leafs["owner"] = types.YLeaf{"Owner", tcamBank.Owner}
-    tcamBank.EntityData.Leafs["nof-dbs"] = types.YLeaf{"NofDbs", tcamBank.NofDbs}
+    tcamBank.EntityData.Leafs = types.NewOrderedMap()
+    tcamBank.EntityData.Leafs.Append("bank-id", types.YLeaf{"BankId", tcamBank.BankId})
+    tcamBank.EntityData.Leafs.Append("bank-key-size", types.YLeaf{"BankKeySize", tcamBank.BankKeySize})
+    tcamBank.EntityData.Leafs.Append("bank-free-entries", types.YLeaf{"BankFreeEntries", tcamBank.BankFreeEntries})
+    tcamBank.EntityData.Leafs.Append("bank-inuse-entries", types.YLeaf{"BankInuseEntries", tcamBank.BankInuseEntries})
+    tcamBank.EntityData.Leafs.Append("owner", types.YLeaf{"Owner", tcamBank.Owner})
+    tcamBank.EntityData.Leafs.Append("nof-dbs", types.YLeaf{"NofDbs", tcamBank.NofDbs})
+
+    tcamBank.EntityData.YListKeys = []string {}
+
     return &(tcamBank.EntityData)
 }
 
@@ -437,11 +470,14 @@ func (bankDb *Controller_Dpa_Nodes_Node_InternalTcamResources_NpuTcam_TcamBank_B
     bankDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bankDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bankDb.EntityData.Children = make(map[string]types.YChild)
-    bankDb.EntityData.Leafs = make(map[string]types.YLeaf)
-    bankDb.EntityData.Leafs["db-id"] = types.YLeaf{"DbId", bankDb.DbId}
-    bankDb.EntityData.Leafs["db-inuse-entries"] = types.YLeaf{"DbInuseEntries", bankDb.DbInuseEntries}
-    bankDb.EntityData.Leafs["db-prefix"] = types.YLeaf{"DbPrefix", bankDb.DbPrefix}
+    bankDb.EntityData.Children = types.NewOrderedMap()
+    bankDb.EntityData.Leafs = types.NewOrderedMap()
+    bankDb.EntityData.Leafs.Append("db-id", types.YLeaf{"DbId", bankDb.DbId})
+    bankDb.EntityData.Leafs.Append("db-inuse-entries", types.YLeaf{"DbInuseEntries", bankDb.DbInuseEntries})
+    bankDb.EntityData.Leafs.Append("db-prefix", types.YLeaf{"DbPrefix", bankDb.DbPrefix})
+
+    bankDb.EntityData.YListKeys = []string {}
+
     return &(bankDb.EntityData)
 }
 

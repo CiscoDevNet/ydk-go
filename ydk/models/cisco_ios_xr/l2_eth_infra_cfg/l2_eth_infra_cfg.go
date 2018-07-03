@@ -29,6 +29,20 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features", reflect.TypeOf(EthernetFeatures{}))
 }
 
+// EgressFiltering represents Egress filtering
+type EgressFiltering string
+
+const (
+    // Strict Egress Filtering
+    EgressFiltering_egress_filtering_type_strict EgressFiltering = "egress-filtering-type-strict"
+
+    // Egress Filtering Disabled
+    EgressFiltering_egress_filtering_type_disable EgressFiltering = "egress-filtering-type-disable"
+
+    // Default Egress Filtering Behavior
+    EgressFiltering_egress_filtering_type_default EgressFiltering = "egress-filtering-type-default"
+)
+
 // L2ProtocolName represents L2 protocol name
 type L2ProtocolName string
 
@@ -49,6 +63,19 @@ const (
     L2ProtocolName_cpsv L2ProtocolName = "cpsv"
 )
 
+// Filtering represents Filtering
+type Filtering string
+
+const (
+    // C-Vlan ingress frame filtering (Table 8-1 of
+    // 802.1ad standard)
+    Filtering_filtering_type_dot1q Filtering = "filtering-type-dot1q"
+
+    // S-Vlan ingress frame filtering (Table 8-2 of
+    // 802.1ad standard)
+    Filtering_filtering_type_dot1ad Filtering = "filtering-type-dot1ad"
+)
+
 // L2ProtocolMode represents L2 protocol mode
 type L2ProtocolMode string
 
@@ -64,33 +91,6 @@ const (
 
     // Tunnel egress frames, untunnel ingress frames
     L2ProtocolMode_reverse_tunnel L2ProtocolMode = "reverse-tunnel"
-)
-
-// EgressFiltering represents Egress filtering
-type EgressFiltering string
-
-const (
-    // Strict Egress Filtering
-    EgressFiltering_egress_filtering_type_strict EgressFiltering = "egress-filtering-type-strict"
-
-    // Egress Filtering Disabled
-    EgressFiltering_egress_filtering_type_disable EgressFiltering = "egress-filtering-type-disable"
-
-    // Default Egress Filtering Behavior
-    EgressFiltering_egress_filtering_type_default EgressFiltering = "egress-filtering-type-default"
-)
-
-// Filtering represents Filtering
-type Filtering string
-
-const (
-    // C-Vlan ingress frame filtering (Table 8-1 of
-    // 802.1ad standard)
-    Filtering_filtering_type_dot1q Filtering = "filtering-type-dot1q"
-
-    // S-Vlan ingress frame filtering (Table 8-2 of
-    // 802.1ad standard)
-    Filtering_filtering_type_dot1ad Filtering = "filtering-type-dot1ad"
 )
 
 // EthernetFeatures
@@ -119,11 +119,14 @@ func (ethernetFeatures *EthernetFeatures) GetEntityData() *types.CommonEntityDat
     ethernetFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ethernetFeatures.EntityData.Children = make(map[string]types.YChild)
-    ethernetFeatures.EntityData.Children["egress-filtering"] = types.YChild{"EgressFiltering", &ethernetFeatures.EgressFiltering}
-    ethernetFeatures.EntityData.Children["Cisco-IOS-XR-ethernet-cfm-cfg:cfm"] = types.YChild{"Cfm", &ethernetFeatures.Cfm}
-    ethernetFeatures.EntityData.Children["Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam"] = types.YChild{"EtherLinkOam", &ethernetFeatures.EtherLinkOam}
-    ethernetFeatures.EntityData.Leafs = make(map[string]types.YLeaf)
+    ethernetFeatures.EntityData.Children = types.NewOrderedMap()
+    ethernetFeatures.EntityData.Children.Append("egress-filtering", types.YChild{"EgressFiltering", &ethernetFeatures.EgressFiltering})
+    ethernetFeatures.EntityData.Children.Append("Cisco-IOS-XR-ethernet-cfm-cfg:cfm", types.YChild{"Cfm", &ethernetFeatures.Cfm})
+    ethernetFeatures.EntityData.Children.Append("Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam", types.YChild{"EtherLinkOam", &ethernetFeatures.EtherLinkOam})
+    ethernetFeatures.EntityData.Leafs = types.NewOrderedMap()
+
+    ethernetFeatures.EntityData.YListKeys = []string {}
+
     return &(ethernetFeatures.EntityData)
 }
 
@@ -147,9 +150,12 @@ func (egressFiltering *EthernetFeatures_EgressFiltering) GetEntityData() *types.
     egressFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    egressFiltering.EntityData.Children = make(map[string]types.YChild)
-    egressFiltering.EntityData.Leafs = make(map[string]types.YLeaf)
-    egressFiltering.EntityData.Leafs["egress-filtering-default-on"] = types.YLeaf{"EgressFilteringDefaultOn", egressFiltering.EgressFilteringDefaultOn}
+    egressFiltering.EntityData.Children = types.NewOrderedMap()
+    egressFiltering.EntityData.Leafs = types.NewOrderedMap()
+    egressFiltering.EntityData.Leafs.Append("egress-filtering-default-on", types.YLeaf{"EgressFilteringDefaultOn", egressFiltering.EgressFilteringDefaultOn})
+
+    egressFiltering.EntityData.YListKeys = []string {}
+
     return &(egressFiltering.EntityData)
 }
 
@@ -180,11 +186,14 @@ func (cfm *EthernetFeatures_Cfm) GetEntityData() *types.CommonEntityData {
     cfm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cfm.EntityData.Children = make(map[string]types.YChild)
-    cfm.EntityData.Children["traceroute-cache"] = types.YChild{"TracerouteCache", &cfm.TracerouteCache}
-    cfm.EntityData.Children["domains"] = types.YChild{"Domains", &cfm.Domains}
-    cfm.EntityData.Leafs = make(map[string]types.YLeaf)
-    cfm.EntityData.Leafs["nv-satellite-sla-processing-disable"] = types.YLeaf{"NvSatelliteSlaProcessingDisable", cfm.NvSatelliteSlaProcessingDisable}
+    cfm.EntityData.Children = types.NewOrderedMap()
+    cfm.EntityData.Children.Append("traceroute-cache", types.YChild{"TracerouteCache", &cfm.TracerouteCache})
+    cfm.EntityData.Children.Append("domains", types.YChild{"Domains", &cfm.Domains})
+    cfm.EntityData.Leafs = types.NewOrderedMap()
+    cfm.EntityData.Leafs.Append("nv-satellite-sla-processing-disable", types.YLeaf{"NvSatelliteSlaProcessingDisable", cfm.NvSatelliteSlaProcessingDisable})
+
+    cfm.EntityData.YListKeys = []string {}
+
     return &(cfm.EntityData)
 }
 
@@ -213,10 +222,13 @@ func (tracerouteCache *EthernetFeatures_Cfm_TracerouteCache) GetEntityData() *ty
     tracerouteCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracerouteCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tracerouteCache.EntityData.Children = make(map[string]types.YChild)
-    tracerouteCache.EntityData.Leafs = make(map[string]types.YLeaf)
-    tracerouteCache.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", tracerouteCache.HoldTime}
-    tracerouteCache.EntityData.Leafs["cache-size"] = types.YLeaf{"CacheSize", tracerouteCache.CacheSize}
+    tracerouteCache.EntityData.Children = types.NewOrderedMap()
+    tracerouteCache.EntityData.Leafs = types.NewOrderedMap()
+    tracerouteCache.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", tracerouteCache.HoldTime})
+    tracerouteCache.EntityData.Leafs.Append("cache-size", types.YLeaf{"CacheSize", tracerouteCache.CacheSize})
+
+    tracerouteCache.EntityData.YListKeys = []string {}
+
     return &(tracerouteCache.EntityData)
 }
 
@@ -228,7 +240,7 @@ type EthernetFeatures_Cfm_Domains struct {
 
     // Configuration for a particular Maintenance Domain. The type is slice of
     // EthernetFeatures_Cfm_Domains_Domain.
-    Domain []EthernetFeatures_Cfm_Domains_Domain
+    Domain []*EthernetFeatures_Cfm_Domains_Domain
 }
 
 func (domains *EthernetFeatures_Cfm_Domains) GetEntityData() *types.CommonEntityData {
@@ -241,12 +253,15 @@ func (domains *EthernetFeatures_Cfm_Domains) GetEntityData() *types.CommonEntity
     domains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    domains.EntityData.Children = make(map[string]types.YChild)
-    domains.EntityData.Children["domain"] = types.YChild{"Domain", nil}
+    domains.EntityData.Children = types.NewOrderedMap()
+    domains.EntityData.Children.Append("domain", types.YChild{"Domain", nil})
     for i := range domains.Domain {
-        domains.EntityData.Children[types.GetSegmentPath(&domains.Domain[i])] = types.YChild{"Domain", &domains.Domain[i]}
+        domains.EntityData.Children.Append(types.GetSegmentPath(domains.Domain[i]), types.YChild{"Domain", domains.Domain[i]})
     }
-    domains.EntityData.Leafs = make(map[string]types.YLeaf)
+    domains.EntityData.Leafs = types.NewOrderedMap()
+
+    domains.EntityData.YListKeys = []string {}
+
     return &(domains.EntityData)
 }
 
@@ -273,16 +288,19 @@ func (domain *EthernetFeatures_Cfm_Domains_Domain) GetEntityData() *types.Common
     domain.EntityData.YangName = "domain"
     domain.EntityData.BundleName = "cisco_ios_xr"
     domain.EntityData.ParentYangName = "domains"
-    domain.EntityData.SegmentPath = "domain" + "[domain='" + fmt.Sprintf("%v", domain.Domain) + "']"
+    domain.EntityData.SegmentPath = "domain" + types.AddKeyToken(domain.Domain, "domain")
     domain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    domain.EntityData.Children = make(map[string]types.YChild)
-    domain.EntityData.Children["services"] = types.YChild{"Services", &domain.Services}
-    domain.EntityData.Children["domain-properties"] = types.YChild{"DomainProperties", &domain.DomainProperties}
-    domain.EntityData.Leafs = make(map[string]types.YLeaf)
-    domain.EntityData.Leafs["domain"] = types.YLeaf{"Domain", domain.Domain}
+    domain.EntityData.Children = types.NewOrderedMap()
+    domain.EntityData.Children.Append("services", types.YChild{"Services", &domain.Services})
+    domain.EntityData.Children.Append("domain-properties", types.YChild{"DomainProperties", &domain.DomainProperties})
+    domain.EntityData.Leafs = types.NewOrderedMap()
+    domain.EntityData.Leafs.Append("domain", types.YLeaf{"Domain", domain.Domain})
+
+    domain.EntityData.YListKeys = []string {"Domain"}
+
     return &(domain.EntityData)
 }
 
@@ -294,7 +312,7 @@ type EthernetFeatures_Cfm_Domains_Domain_Services struct {
 
     // Configuration for a particular Service (Maintenance Association). The type
     // is slice of EthernetFeatures_Cfm_Domains_Domain_Services_Service.
-    Service []EthernetFeatures_Cfm_Domains_Domain_Services_Service
+    Service []*EthernetFeatures_Cfm_Domains_Domain_Services_Service
 }
 
 func (services *EthernetFeatures_Cfm_Domains_Domain_Services) GetEntityData() *types.CommonEntityData {
@@ -307,12 +325,15 @@ func (services *EthernetFeatures_Cfm_Domains_Domain_Services) GetEntityData() *t
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    services.EntityData.Children = make(map[string]types.YChild)
-    services.EntityData.Children["service"] = types.YChild{"Service", nil}
+    services.EntityData.Children = types.NewOrderedMap()
+    services.EntityData.Children.Append("service", types.YChild{"Service", nil})
     for i := range services.Service {
-        services.EntityData.Children[types.GetSegmentPath(&services.Service[i])] = types.YChild{"Service", &services.Service[i]}
+        services.EntityData.Children.Append(types.GetSegmentPath(services.Service[i]), types.YChild{"Service", services.Service[i]})
     }
-    services.EntityData.Leafs = make(map[string]types.YLeaf)
+    services.EntityData.Leafs = types.NewOrderedMap()
+
+    services.EntityData.YListKeys = []string {}
+
     return &(services.EntityData)
 }
 
@@ -383,29 +404,32 @@ func (service *EthernetFeatures_Cfm_Domains_Domain_Services_Service) GetEntityDa
     service.EntityData.YangName = "service"
     service.EntityData.BundleName = "cisco_ios_xr"
     service.EntityData.ParentYangName = "services"
-    service.EntityData.SegmentPath = "service" + "[service='" + fmt.Sprintf("%v", service.Service) + "']"
+    service.EntityData.SegmentPath = "service" + types.AddKeyToken(service.Service, "service")
     service.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     service.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     service.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    service.EntityData.Children = make(map[string]types.YChild)
-    service.EntityData.Children["efd2"] = types.YChild{"Efd2", &service.Efd2}
-    service.EntityData.Children["continuity-check-interval"] = types.YChild{"ContinuityCheckInterval", &service.ContinuityCheckInterval}
-    service.EntityData.Children["mip-auto-creation"] = types.YChild{"MipAutoCreation", &service.MipAutoCreation}
-    service.EntityData.Children["ais"] = types.YChild{"Ais", &service.Ais}
-    service.EntityData.Children["cross-check"] = types.YChild{"CrossCheck", &service.CrossCheck}
-    service.EntityData.Children["service-properties"] = types.YChild{"ServiceProperties", &service.ServiceProperties}
-    service.EntityData.Leafs = make(map[string]types.YLeaf)
-    service.EntityData.Leafs["service"] = types.YLeaf{"Service", service.Service}
-    service.EntityData.Leafs["maximum-meps"] = types.YLeaf{"MaximumMeps", service.MaximumMeps}
-    service.EntityData.Leafs["log-cross-check-errors"] = types.YLeaf{"LogCrossCheckErrors", service.LogCrossCheckErrors}
-    service.EntityData.Leafs["continuity-check-archive-hold-time"] = types.YLeaf{"ContinuityCheckArchiveHoldTime", service.ContinuityCheckArchiveHoldTime}
-    service.EntityData.Leafs["tags"] = types.YLeaf{"Tags", service.Tags}
-    service.EntityData.Leafs["log-continuity-check-state-changes"] = types.YLeaf{"LogContinuityCheckStateChanges", service.LogContinuityCheckStateChanges}
-    service.EntityData.Leafs["log-efd"] = types.YLeaf{"LogEfd", service.LogEfd}
-    service.EntityData.Leafs["continuity-check-auto-traceroute"] = types.YLeaf{"ContinuityCheckAutoTraceroute", service.ContinuityCheckAutoTraceroute}
-    service.EntityData.Leafs["log-continuity-check-errors"] = types.YLeaf{"LogContinuityCheckErrors", service.LogContinuityCheckErrors}
-    service.EntityData.Leafs["log-ais"] = types.YLeaf{"LogAis", service.LogAis}
+    service.EntityData.Children = types.NewOrderedMap()
+    service.EntityData.Children.Append("efd2", types.YChild{"Efd2", &service.Efd2})
+    service.EntityData.Children.Append("continuity-check-interval", types.YChild{"ContinuityCheckInterval", &service.ContinuityCheckInterval})
+    service.EntityData.Children.Append("mip-auto-creation", types.YChild{"MipAutoCreation", &service.MipAutoCreation})
+    service.EntityData.Children.Append("ais", types.YChild{"Ais", &service.Ais})
+    service.EntityData.Children.Append("cross-check", types.YChild{"CrossCheck", &service.CrossCheck})
+    service.EntityData.Children.Append("service-properties", types.YChild{"ServiceProperties", &service.ServiceProperties})
+    service.EntityData.Leafs = types.NewOrderedMap()
+    service.EntityData.Leafs.Append("service", types.YLeaf{"Service", service.Service})
+    service.EntityData.Leafs.Append("maximum-meps", types.YLeaf{"MaximumMeps", service.MaximumMeps})
+    service.EntityData.Leafs.Append("log-cross-check-errors", types.YLeaf{"LogCrossCheckErrors", service.LogCrossCheckErrors})
+    service.EntityData.Leafs.Append("continuity-check-archive-hold-time", types.YLeaf{"ContinuityCheckArchiveHoldTime", service.ContinuityCheckArchiveHoldTime})
+    service.EntityData.Leafs.Append("tags", types.YLeaf{"Tags", service.Tags})
+    service.EntityData.Leafs.Append("log-continuity-check-state-changes", types.YLeaf{"LogContinuityCheckStateChanges", service.LogContinuityCheckStateChanges})
+    service.EntityData.Leafs.Append("log-efd", types.YLeaf{"LogEfd", service.LogEfd})
+    service.EntityData.Leafs.Append("continuity-check-auto-traceroute", types.YLeaf{"ContinuityCheckAutoTraceroute", service.ContinuityCheckAutoTraceroute})
+    service.EntityData.Leafs.Append("log-continuity-check-errors", types.YLeaf{"LogContinuityCheckErrors", service.LogContinuityCheckErrors})
+    service.EntityData.Leafs.Append("log-ais", types.YLeaf{"LogAis", service.LogAis})
+
+    service.EntityData.YListKeys = []string {"Service"}
+
     return &(service.EntityData)
 }
 
@@ -416,6 +440,7 @@ func (service *EthernetFeatures_Cfm_Domains_Domain_Services_Service) GetEntityDa
 type EthernetFeatures_Cfm_Domains_Domain_Services_Service_Efd2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable EFD. The type is interface{}. This attribute is mandatory.
     Enable interface{}
@@ -434,10 +459,13 @@ func (efd2 *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Efd2) GetEntity
     efd2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     efd2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    efd2.EntityData.Children = make(map[string]types.YChild)
-    efd2.EntityData.Leafs = make(map[string]types.YLeaf)
-    efd2.EntityData.Leafs["enable"] = types.YLeaf{"Enable", efd2.Enable}
-    efd2.EntityData.Leafs["protection-switching-enable"] = types.YLeaf{"ProtectionSwitchingEnable", efd2.ProtectionSwitchingEnable}
+    efd2.EntityData.Children = types.NewOrderedMap()
+    efd2.EntityData.Leafs = types.NewOrderedMap()
+    efd2.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", efd2.Enable})
+    efd2.EntityData.Leafs.Append("protection-switching-enable", types.YLeaf{"ProtectionSwitchingEnable", efd2.ProtectionSwitchingEnable})
+
+    efd2.EntityData.YListKeys = []string {}
+
     return &(efd2.EntityData)
 }
 
@@ -449,6 +477,7 @@ func (efd2 *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Efd2) GetEntity
 type EthernetFeatures_Cfm_Domains_Domain_Services_Service_ContinuityCheckInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // CCM Interval. The type is CfmCcmInterval. This attribute is mandatory.
     CcmInterval interface{}
@@ -467,10 +496,13 @@ func (continuityCheckInterval *EthernetFeatures_Cfm_Domains_Domain_Services_Serv
     continuityCheckInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     continuityCheckInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    continuityCheckInterval.EntityData.Children = make(map[string]types.YChild)
-    continuityCheckInterval.EntityData.Leafs = make(map[string]types.YLeaf)
-    continuityCheckInterval.EntityData.Leafs["ccm-interval"] = types.YLeaf{"CcmInterval", continuityCheckInterval.CcmInterval}
-    continuityCheckInterval.EntityData.Leafs["loss-threshold"] = types.YLeaf{"LossThreshold", continuityCheckInterval.LossThreshold}
+    continuityCheckInterval.EntityData.Children = types.NewOrderedMap()
+    continuityCheckInterval.EntityData.Leafs = types.NewOrderedMap()
+    continuityCheckInterval.EntityData.Leafs.Append("ccm-interval", types.YLeaf{"CcmInterval", continuityCheckInterval.CcmInterval})
+    continuityCheckInterval.EntityData.Leafs.Append("loss-threshold", types.YLeaf{"LossThreshold", continuityCheckInterval.LossThreshold})
+
+    continuityCheckInterval.EntityData.YListKeys = []string {}
+
     return &(continuityCheckInterval.EntityData)
 }
 
@@ -480,6 +512,7 @@ func (continuityCheckInterval *EthernetFeatures_Cfm_Domains_Domain_Services_Serv
 type EthernetFeatures_Cfm_Domains_Domain_Services_Service_MipAutoCreation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // MIP Auto-creation Policy. The type is CfmMipPolicy. This attribute is
     // mandatory.
@@ -499,10 +532,13 @@ func (mipAutoCreation *EthernetFeatures_Cfm_Domains_Domain_Services_Service_MipA
     mipAutoCreation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mipAutoCreation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mipAutoCreation.EntityData.Children = make(map[string]types.YChild)
-    mipAutoCreation.EntityData.Leafs = make(map[string]types.YLeaf)
-    mipAutoCreation.EntityData.Leafs["mip-policy"] = types.YLeaf{"MipPolicy", mipAutoCreation.MipPolicy}
-    mipAutoCreation.EntityData.Leafs["ccm-learning-enable"] = types.YLeaf{"CcmLearningEnable", mipAutoCreation.CcmLearningEnable}
+    mipAutoCreation.EntityData.Children = types.NewOrderedMap()
+    mipAutoCreation.EntityData.Leafs = types.NewOrderedMap()
+    mipAutoCreation.EntityData.Leafs.Append("mip-policy", types.YLeaf{"MipPolicy", mipAutoCreation.MipPolicy})
+    mipAutoCreation.EntityData.Leafs.Append("ccm-learning-enable", types.YLeaf{"CcmLearningEnable", mipAutoCreation.CcmLearningEnable})
+
+    mipAutoCreation.EntityData.YListKeys = []string {}
+
     return &(mipAutoCreation.EntityData)
 }
 
@@ -526,9 +562,12 @@ func (ais *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Ais) GetEntityDa
     ais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ais.EntityData.Children = make(map[string]types.YChild)
-    ais.EntityData.Children["transmission"] = types.YChild{"Transmission", &ais.Transmission}
-    ais.EntityData.Leafs = make(map[string]types.YLeaf)
+    ais.EntityData.Children = types.NewOrderedMap()
+    ais.EntityData.Children.Append("transmission", types.YChild{"Transmission", &ais.Transmission})
+    ais.EntityData.Leafs = types.NewOrderedMap()
+
+    ais.EntityData.YListKeys = []string {}
+
     return &(ais.EntityData)
 }
 
@@ -538,6 +577,7 @@ func (ais *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Ais) GetEntityDa
 type EthernetFeatures_Cfm_Domains_Domain_Services_Service_Ais_Transmission struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // AIS Interval. The type is CfmAisInterval.
     AisInterval interface{}
@@ -556,10 +596,13 @@ func (transmission *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Ais_Tra
     transmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmission.EntityData.Children = make(map[string]types.YChild)
-    transmission.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmission.EntityData.Leafs["ais-interval"] = types.YLeaf{"AisInterval", transmission.AisInterval}
-    transmission.EntityData.Leafs["cos"] = types.YLeaf{"Cos", transmission.Cos}
+    transmission.EntityData.Children = types.NewOrderedMap()
+    transmission.EntityData.Leafs = types.NewOrderedMap()
+    transmission.EntityData.Leafs.Append("ais-interval", types.YLeaf{"AisInterval", transmission.AisInterval})
+    transmission.EntityData.Leafs.Append("cos", types.YLeaf{"Cos", transmission.Cos})
+
+    transmission.EntityData.YListKeys = []string {}
+
     return &(transmission.EntityData)
 }
 
@@ -586,10 +629,13 @@ func (crossCheck *EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossChec
     crossCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crossCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crossCheck.EntityData.Children = make(map[string]types.YChild)
-    crossCheck.EntityData.Children["cross-check-meps"] = types.YChild{"CrossCheckMeps", &crossCheck.CrossCheckMeps}
-    crossCheck.EntityData.Leafs = make(map[string]types.YLeaf)
-    crossCheck.EntityData.Leafs["auto"] = types.YLeaf{"Auto", crossCheck.Auto}
+    crossCheck.EntityData.Children = types.NewOrderedMap()
+    crossCheck.EntityData.Children.Append("cross-check-meps", types.YChild{"CrossCheckMeps", &crossCheck.CrossCheckMeps})
+    crossCheck.EntityData.Leafs = types.NewOrderedMap()
+    crossCheck.EntityData.Leafs.Append("auto", types.YLeaf{"Auto", crossCheck.Auto})
+
+    crossCheck.EntityData.YListKeys = []string {}
+
     return &(crossCheck.EntityData)
 }
 
@@ -601,7 +647,7 @@ type EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossCheck_CrossCheckM
 
     // MEP ID and optional MAC Address for Cross-check. The type is slice of
     // EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossCheck_CrossCheckMeps_CrossCheckMep.
-    CrossCheckMep []EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossCheck_CrossCheckMeps_CrossCheckMep
+    CrossCheckMep []*EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossCheck_CrossCheckMeps_CrossCheckMep
 }
 
 func (crossCheckMeps *EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossCheck_CrossCheckMeps) GetEntityData() *types.CommonEntityData {
@@ -614,12 +660,15 @@ func (crossCheckMeps *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Cross
     crossCheckMeps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crossCheckMeps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crossCheckMeps.EntityData.Children = make(map[string]types.YChild)
-    crossCheckMeps.EntityData.Children["cross-check-mep"] = types.YChild{"CrossCheckMep", nil}
+    crossCheckMeps.EntityData.Children = types.NewOrderedMap()
+    crossCheckMeps.EntityData.Children.Append("cross-check-mep", types.YChild{"CrossCheckMep", nil})
     for i := range crossCheckMeps.CrossCheckMep {
-        crossCheckMeps.EntityData.Children[types.GetSegmentPath(&crossCheckMeps.CrossCheckMep[i])] = types.YChild{"CrossCheckMep", &crossCheckMeps.CrossCheckMep[i]}
+        crossCheckMeps.EntityData.Children.Append(types.GetSegmentPath(crossCheckMeps.CrossCheckMep[i]), types.YChild{"CrossCheckMep", crossCheckMeps.CrossCheckMep[i]})
     }
-    crossCheckMeps.EntityData.Leafs = make(map[string]types.YLeaf)
+    crossCheckMeps.EntityData.Leafs = types.NewOrderedMap()
+
+    crossCheckMeps.EntityData.YListKeys = []string {}
+
     return &(crossCheckMeps.EntityData)
 }
 
@@ -638,7 +687,7 @@ type EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossCheck_CrossCheckM
     EnableMacAddress interface{}
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -647,16 +696,19 @@ func (crossCheckMep *EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossC
     crossCheckMep.EntityData.YangName = "cross-check-mep"
     crossCheckMep.EntityData.BundleName = "cisco_ios_xr"
     crossCheckMep.EntityData.ParentYangName = "cross-check-meps"
-    crossCheckMep.EntityData.SegmentPath = "cross-check-mep" + "[mep-id='" + fmt.Sprintf("%v", crossCheckMep.MepId) + "']"
+    crossCheckMep.EntityData.SegmentPath = "cross-check-mep" + types.AddKeyToken(crossCheckMep.MepId, "mep-id")
     crossCheckMep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crossCheckMep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crossCheckMep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crossCheckMep.EntityData.Children = make(map[string]types.YChild)
-    crossCheckMep.EntityData.Leafs = make(map[string]types.YLeaf)
-    crossCheckMep.EntityData.Leafs["mep-id"] = types.YLeaf{"MepId", crossCheckMep.MepId}
-    crossCheckMep.EntityData.Leafs["enable-mac-address"] = types.YLeaf{"EnableMacAddress", crossCheckMep.EnableMacAddress}
-    crossCheckMep.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", crossCheckMep.MacAddress}
+    crossCheckMep.EntityData.Children = types.NewOrderedMap()
+    crossCheckMep.EntityData.Leafs = types.NewOrderedMap()
+    crossCheckMep.EntityData.Leafs.Append("mep-id", types.YLeaf{"MepId", crossCheckMep.MepId})
+    crossCheckMep.EntityData.Leafs.Append("enable-mac-address", types.YLeaf{"EnableMacAddress", crossCheckMep.EnableMacAddress})
+    crossCheckMep.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", crossCheckMep.MacAddress})
+
+    crossCheckMep.EntityData.YListKeys = []string {"MepId"}
+
     return &(crossCheckMep.EntityData)
 }
 
@@ -667,6 +719,7 @@ func (crossCheckMep *EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossC
 type EthernetFeatures_Cfm_Domains_Domain_Services_Service_ServiceProperties struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Type of Service. The type is CfmService. This attribute is mandatory.
     ServiceType interface{}
@@ -706,7 +759,7 @@ type EthernetFeatures_Cfm_Domains_Domain_Services_Service_ServiceProperties stru
     ShortMaNameOui interface{}
 
     // VPN Index, if Short MA Name format is VPN_ID. The type is interface{} with
-    // range: -2147483648..2147483647.
+    // range: 0..4294967295.
     ShortMaNameVpnIndex interface{}
 
     // ITU Carrier Code (ICC), if format is ICCBased. The type is string with
@@ -728,21 +781,24 @@ func (serviceProperties *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Se
     serviceProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceProperties.EntityData.Children = make(map[string]types.YChild)
-    serviceProperties.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceProperties.EntityData.Leafs["service-type"] = types.YLeaf{"ServiceType", serviceProperties.ServiceType}
-    serviceProperties.EntityData.Leafs["group-name"] = types.YLeaf{"GroupName", serviceProperties.GroupName}
-    serviceProperties.EntityData.Leafs["switching-name"] = types.YLeaf{"SwitchingName", serviceProperties.SwitchingName}
-    serviceProperties.EntityData.Leafs["ce-id"] = types.YLeaf{"CeId", serviceProperties.CeId}
-    serviceProperties.EntityData.Leafs["remote-ce-id"] = types.YLeaf{"RemoteCeId", serviceProperties.RemoteCeId}
-    serviceProperties.EntityData.Leafs["evi"] = types.YLeaf{"Evi", serviceProperties.Evi}
-    serviceProperties.EntityData.Leafs["short-ma-name-format"] = types.YLeaf{"ShortMaNameFormat", serviceProperties.ShortMaNameFormat}
-    serviceProperties.EntityData.Leafs["short-ma-name-string"] = types.YLeaf{"ShortMaNameString", serviceProperties.ShortMaNameString}
-    serviceProperties.EntityData.Leafs["short-ma-name-number"] = types.YLeaf{"ShortMaNameNumber", serviceProperties.ShortMaNameNumber}
-    serviceProperties.EntityData.Leafs["short-ma-name-oui"] = types.YLeaf{"ShortMaNameOui", serviceProperties.ShortMaNameOui}
-    serviceProperties.EntityData.Leafs["short-ma-name-vpn-index"] = types.YLeaf{"ShortMaNameVpnIndex", serviceProperties.ShortMaNameVpnIndex}
-    serviceProperties.EntityData.Leafs["short-ma-name-icc"] = types.YLeaf{"ShortMaNameIcc", serviceProperties.ShortMaNameIcc}
-    serviceProperties.EntityData.Leafs["short-ma-name-umc"] = types.YLeaf{"ShortMaNameUmc", serviceProperties.ShortMaNameUmc}
+    serviceProperties.EntityData.Children = types.NewOrderedMap()
+    serviceProperties.EntityData.Leafs = types.NewOrderedMap()
+    serviceProperties.EntityData.Leafs.Append("service-type", types.YLeaf{"ServiceType", serviceProperties.ServiceType})
+    serviceProperties.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", serviceProperties.GroupName})
+    serviceProperties.EntityData.Leafs.Append("switching-name", types.YLeaf{"SwitchingName", serviceProperties.SwitchingName})
+    serviceProperties.EntityData.Leafs.Append("ce-id", types.YLeaf{"CeId", serviceProperties.CeId})
+    serviceProperties.EntityData.Leafs.Append("remote-ce-id", types.YLeaf{"RemoteCeId", serviceProperties.RemoteCeId})
+    serviceProperties.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", serviceProperties.Evi})
+    serviceProperties.EntityData.Leafs.Append("short-ma-name-format", types.YLeaf{"ShortMaNameFormat", serviceProperties.ShortMaNameFormat})
+    serviceProperties.EntityData.Leafs.Append("short-ma-name-string", types.YLeaf{"ShortMaNameString", serviceProperties.ShortMaNameString})
+    serviceProperties.EntityData.Leafs.Append("short-ma-name-number", types.YLeaf{"ShortMaNameNumber", serviceProperties.ShortMaNameNumber})
+    serviceProperties.EntityData.Leafs.Append("short-ma-name-oui", types.YLeaf{"ShortMaNameOui", serviceProperties.ShortMaNameOui})
+    serviceProperties.EntityData.Leafs.Append("short-ma-name-vpn-index", types.YLeaf{"ShortMaNameVpnIndex", serviceProperties.ShortMaNameVpnIndex})
+    serviceProperties.EntityData.Leafs.Append("short-ma-name-icc", types.YLeaf{"ShortMaNameIcc", serviceProperties.ShortMaNameIcc})
+    serviceProperties.EntityData.Leafs.Append("short-ma-name-umc", types.YLeaf{"ShortMaNameUmc", serviceProperties.ShortMaNameUmc})
+
+    serviceProperties.EntityData.YListKeys = []string {}
+
     return &(serviceProperties.EntityData)
 }
 
@@ -759,7 +815,7 @@ type EthernetFeatures_Cfm_Domains_Domain_DomainProperties struct {
     MdidFormat interface{}
 
     // MAC Address, if MDID Format is MACAddress. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MdidMacAddress interface{}
 
     // Unsigned 16-bit Interger, if MDID Format is MACAddress. The type is
@@ -781,13 +837,16 @@ func (domainProperties *EthernetFeatures_Cfm_Domains_Domain_DomainProperties) Ge
     domainProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    domainProperties.EntityData.Children = make(map[string]types.YChild)
-    domainProperties.EntityData.Leafs = make(map[string]types.YLeaf)
-    domainProperties.EntityData.Leafs["level"] = types.YLeaf{"Level", domainProperties.Level}
-    domainProperties.EntityData.Leafs["mdid-format"] = types.YLeaf{"MdidFormat", domainProperties.MdidFormat}
-    domainProperties.EntityData.Leafs["mdid-mac-address"] = types.YLeaf{"MdidMacAddress", domainProperties.MdidMacAddress}
-    domainProperties.EntityData.Leafs["mdid-number"] = types.YLeaf{"MdidNumber", domainProperties.MdidNumber}
-    domainProperties.EntityData.Leafs["mdid-string"] = types.YLeaf{"MdidString", domainProperties.MdidString}
+    domainProperties.EntityData.Children = types.NewOrderedMap()
+    domainProperties.EntityData.Leafs = types.NewOrderedMap()
+    domainProperties.EntityData.Leafs.Append("level", types.YLeaf{"Level", domainProperties.Level})
+    domainProperties.EntityData.Leafs.Append("mdid-format", types.YLeaf{"MdidFormat", domainProperties.MdidFormat})
+    domainProperties.EntityData.Leafs.Append("mdid-mac-address", types.YLeaf{"MdidMacAddress", domainProperties.MdidMacAddress})
+    domainProperties.EntityData.Leafs.Append("mdid-number", types.YLeaf{"MdidNumber", domainProperties.MdidNumber})
+    domainProperties.EntityData.Leafs.Append("mdid-string", types.YLeaf{"MdidString", domainProperties.MdidString})
+
+    domainProperties.EntityData.YListKeys = []string {}
+
     return &(domainProperties.EntityData)
 }
 
@@ -811,9 +870,12 @@ func (etherLinkOam *EthernetFeatures_EtherLinkOam) GetEntityData() *types.Common
     etherLinkOam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     etherLinkOam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    etherLinkOam.EntityData.Children = make(map[string]types.YChild)
-    etherLinkOam.EntityData.Children["profiles"] = types.YChild{"Profiles", &etherLinkOam.Profiles}
-    etherLinkOam.EntityData.Leafs = make(map[string]types.YLeaf)
+    etherLinkOam.EntityData.Children = types.NewOrderedMap()
+    etherLinkOam.EntityData.Children.Append("profiles", types.YChild{"Profiles", &etherLinkOam.Profiles})
+    etherLinkOam.EntityData.Leafs = types.NewOrderedMap()
+
+    etherLinkOam.EntityData.YListKeys = []string {}
+
     return &(etherLinkOam.EntityData)
 }
 
@@ -825,7 +887,7 @@ type EthernetFeatures_EtherLinkOam_Profiles struct {
 
     // Name of the profile. The type is slice of
     // EthernetFeatures_EtherLinkOam_Profiles_Profile.
-    Profile []EthernetFeatures_EtherLinkOam_Profiles_Profile
+    Profile []*EthernetFeatures_EtherLinkOam_Profiles_Profile
 }
 
 func (profiles *EthernetFeatures_EtherLinkOam_Profiles) GetEntityData() *types.CommonEntityData {
@@ -838,12 +900,15 @@ func (profiles *EthernetFeatures_EtherLinkOam_Profiles) GetEntityData() *types.C
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profiles.EntityData.Children = make(map[string]types.YChild)
-    profiles.EntityData.Children["profile"] = types.YChild{"Profile", nil}
+    profiles.EntityData.Children = types.NewOrderedMap()
+    profiles.EntityData.Children.Append("profile", types.YChild{"Profile", nil})
     for i := range profiles.Profile {
-        profiles.EntityData.Children[types.GetSegmentPath(&profiles.Profile[i])] = types.YChild{"Profile", &profiles.Profile[i]}
+        profiles.EntityData.Children.Append(types.GetSegmentPath(profiles.Profile[i]), types.YChild{"Profile", profiles.Profile[i]})
     }
-    profiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    profiles.EntityData.Leafs = types.NewOrderedMap()
+
+    profiles.EntityData.YListKeys = []string {}
+
     return &(profiles.EntityData)
 }
 
@@ -854,7 +919,7 @@ type EthernetFeatures_EtherLinkOam_Profiles_Profile struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. none. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Profile interface{}
 
     // Enable or disable MIB retrieval support. The type is bool.
@@ -893,23 +958,26 @@ func (profile *EthernetFeatures_EtherLinkOam_Profiles_Profile) GetEntityData() *
     profile.EntityData.YangName = "profile"
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
-    profile.EntityData.SegmentPath = "profile" + "[profile='" + fmt.Sprintf("%v", profile.Profile) + "']"
+    profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.Profile, "profile")
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profile.EntityData.Children = make(map[string]types.YChild)
-    profile.EntityData.Children["action"] = types.YChild{"Action", &profile.Action}
-    profile.EntityData.Children["require-remote"] = types.YChild{"RequireRemote", &profile.RequireRemote}
-    profile.EntityData.Children["link-monitoring"] = types.YChild{"LinkMonitoring", &profile.LinkMonitoring}
-    profile.EntityData.Leafs = make(map[string]types.YLeaf)
-    profile.EntityData.Leafs["profile"] = types.YLeaf{"Profile", profile.Profile}
-    profile.EntityData.Leafs["mib-retrieval"] = types.YLeaf{"MibRetrieval", profile.MibRetrieval}
-    profile.EntityData.Leafs["udlf"] = types.YLeaf{"Udlf", profile.Udlf}
-    profile.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", profile.HelloInterval}
-    profile.EntityData.Leafs["mode"] = types.YLeaf{"Mode", profile.Mode}
-    profile.EntityData.Leafs["remote-loopback"] = types.YLeaf{"RemoteLoopback", profile.RemoteLoopback}
-    profile.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", profile.Timeout}
+    profile.EntityData.Children = types.NewOrderedMap()
+    profile.EntityData.Children.Append("action", types.YChild{"Action", &profile.Action})
+    profile.EntityData.Children.Append("require-remote", types.YChild{"RequireRemote", &profile.RequireRemote})
+    profile.EntityData.Children.Append("link-monitoring", types.YChild{"LinkMonitoring", &profile.LinkMonitoring})
+    profile.EntityData.Leafs = types.NewOrderedMap()
+    profile.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", profile.Profile})
+    profile.EntityData.Leafs.Append("mib-retrieval", types.YLeaf{"MibRetrieval", profile.MibRetrieval})
+    profile.EntityData.Leafs.Append("udlf", types.YLeaf{"Udlf", profile.Udlf})
+    profile.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", profile.HelloInterval})
+    profile.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", profile.Mode})
+    profile.EntityData.Leafs.Append("remote-loopback", types.YLeaf{"RemoteLoopback", profile.RemoteLoopback})
+    profile.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", profile.Timeout})
+
+    profile.EntityData.YListKeys = []string {"Profile"}
+
     return &(profile.EntityData)
 }
 
@@ -970,18 +1038,21 @@ func (action *EthernetFeatures_EtherLinkOam_Profiles_Profile_Action) GetEntityDa
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    action.EntityData.Children = make(map[string]types.YChild)
-    action.EntityData.Leafs = make(map[string]types.YLeaf)
-    action.EntityData.Leafs["dying-gasp"] = types.YLeaf{"DyingGasp", action.DyingGasp}
-    action.EntityData.Leafs["session-up"] = types.YLeaf{"SessionUp", action.SessionUp}
-    action.EntityData.Leafs["critical-event"] = types.YLeaf{"CriticalEvent", action.CriticalEvent}
-    action.EntityData.Leafs["session-down"] = types.YLeaf{"SessionDown", action.SessionDown}
-    action.EntityData.Leafs["discovery-timeout"] = types.YLeaf{"DiscoveryTimeout", action.DiscoveryTimeout}
-    action.EntityData.Leafs["high-threshold"] = types.YLeaf{"HighThreshold", action.HighThreshold}
-    action.EntityData.Leafs["capabilities-conflict"] = types.YLeaf{"CapabilitiesConflict", action.CapabilitiesConflict}
-    action.EntityData.Leafs["remote-loopback"] = types.YLeaf{"RemoteLoopback", action.RemoteLoopback}
-    action.EntityData.Leafs["link-fault"] = types.YLeaf{"LinkFault", action.LinkFault}
-    action.EntityData.Leafs["wiring-conflict"] = types.YLeaf{"WiringConflict", action.WiringConflict}
+    action.EntityData.Children = types.NewOrderedMap()
+    action.EntityData.Leafs = types.NewOrderedMap()
+    action.EntityData.Leafs.Append("dying-gasp", types.YLeaf{"DyingGasp", action.DyingGasp})
+    action.EntityData.Leafs.Append("session-up", types.YLeaf{"SessionUp", action.SessionUp})
+    action.EntityData.Leafs.Append("critical-event", types.YLeaf{"CriticalEvent", action.CriticalEvent})
+    action.EntityData.Leafs.Append("session-down", types.YLeaf{"SessionDown", action.SessionDown})
+    action.EntityData.Leafs.Append("discovery-timeout", types.YLeaf{"DiscoveryTimeout", action.DiscoveryTimeout})
+    action.EntityData.Leafs.Append("high-threshold", types.YLeaf{"HighThreshold", action.HighThreshold})
+    action.EntityData.Leafs.Append("capabilities-conflict", types.YLeaf{"CapabilitiesConflict", action.CapabilitiesConflict})
+    action.EntityData.Leafs.Append("remote-loopback", types.YLeaf{"RemoteLoopback", action.RemoteLoopback})
+    action.EntityData.Leafs.Append("link-fault", types.YLeaf{"LinkFault", action.LinkFault})
+    action.EntityData.Leafs.Append("wiring-conflict", types.YLeaf{"WiringConflict", action.WiringConflict})
+
+    action.EntityData.YListKeys = []string {}
+
     return &(action.EntityData)
 }
 
@@ -1014,12 +1085,15 @@ func (requireRemote *EthernetFeatures_EtherLinkOam_Profiles_Profile_RequireRemot
     requireRemote.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requireRemote.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    requireRemote.EntityData.Children = make(map[string]types.YChild)
-    requireRemote.EntityData.Leafs = make(map[string]types.YLeaf)
-    requireRemote.EntityData.Leafs["mib-retrieval"] = types.YLeaf{"MibRetrieval", requireRemote.MibRetrieval}
-    requireRemote.EntityData.Leafs["mode"] = types.YLeaf{"Mode", requireRemote.Mode}
-    requireRemote.EntityData.Leafs["remote-loopback"] = types.YLeaf{"RemoteLoopback", requireRemote.RemoteLoopback}
-    requireRemote.EntityData.Leafs["link-monitoring"] = types.YLeaf{"LinkMonitoring", requireRemote.LinkMonitoring}
+    requireRemote.EntityData.Children = types.NewOrderedMap()
+    requireRemote.EntityData.Leafs = types.NewOrderedMap()
+    requireRemote.EntityData.Leafs.Append("mib-retrieval", types.YLeaf{"MibRetrieval", requireRemote.MibRetrieval})
+    requireRemote.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", requireRemote.Mode})
+    requireRemote.EntityData.Leafs.Append("remote-loopback", types.YLeaf{"RemoteLoopback", requireRemote.RemoteLoopback})
+    requireRemote.EntityData.Leafs.Append("link-monitoring", types.YLeaf{"LinkMonitoring", requireRemote.LinkMonitoring})
+
+    requireRemote.EntityData.YListKeys = []string {}
+
     return &(requireRemote.EntityData)
 }
 
@@ -1055,13 +1129,16 @@ func (linkMonitoring *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitor
     linkMonitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkMonitoring.EntityData.Children = make(map[string]types.YChild)
-    linkMonitoring.EntityData.Children["symbol-period"] = types.YChild{"SymbolPeriod", &linkMonitoring.SymbolPeriod}
-    linkMonitoring.EntityData.Children["frame-period"] = types.YChild{"FramePeriod", &linkMonitoring.FramePeriod}
-    linkMonitoring.EntityData.Children["frame-seconds"] = types.YChild{"FrameSeconds", &linkMonitoring.FrameSeconds}
-    linkMonitoring.EntityData.Children["frame"] = types.YChild{"Frame", &linkMonitoring.Frame}
-    linkMonitoring.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkMonitoring.EntityData.Leafs["monitoring"] = types.YLeaf{"Monitoring", linkMonitoring.Monitoring}
+    linkMonitoring.EntityData.Children = types.NewOrderedMap()
+    linkMonitoring.EntityData.Children.Append("symbol-period", types.YChild{"SymbolPeriod", &linkMonitoring.SymbolPeriod})
+    linkMonitoring.EntityData.Children.Append("frame-period", types.YChild{"FramePeriod", &linkMonitoring.FramePeriod})
+    linkMonitoring.EntityData.Children.Append("frame-seconds", types.YChild{"FrameSeconds", &linkMonitoring.FrameSeconds})
+    linkMonitoring.EntityData.Children.Append("frame", types.YChild{"Frame", &linkMonitoring.Frame})
+    linkMonitoring.EntityData.Leafs = types.NewOrderedMap()
+    linkMonitoring.EntityData.Leafs.Append("monitoring", types.YLeaf{"Monitoring", linkMonitoring.Monitoring})
+
+    linkMonitoring.EntityData.YListKeys = []string {}
+
     return &(linkMonitoring.EntityData)
 }
 
@@ -1088,10 +1165,13 @@ func (symbolPeriod *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitorin
     symbolPeriod.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     symbolPeriod.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    symbolPeriod.EntityData.Children = make(map[string]types.YChild)
-    symbolPeriod.EntityData.Children["window"] = types.YChild{"Window", &symbolPeriod.Window}
-    symbolPeriod.EntityData.Children["threshold"] = types.YChild{"Threshold", &symbolPeriod.Threshold}
-    symbolPeriod.EntityData.Leafs = make(map[string]types.YLeaf)
+    symbolPeriod.EntityData.Children = types.NewOrderedMap()
+    symbolPeriod.EntityData.Children.Append("window", types.YChild{"Window", &symbolPeriod.Window})
+    symbolPeriod.EntityData.Children.Append("threshold", types.YChild{"Threshold", &symbolPeriod.Threshold})
+    symbolPeriod.EntityData.Leafs = types.NewOrderedMap()
+
+    symbolPeriod.EntityData.YListKeys = []string {}
+
     return &(symbolPeriod.EntityData)
 }
 
@@ -1102,6 +1182,7 @@ func (symbolPeriod *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitorin
 type EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_SymbolPeriod_Window struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Size of the symbol-period window. The type is interface{} with range:
     // 1..4294967295. This attribute is mandatory.
@@ -1127,11 +1208,14 @@ func (window *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_Symb
     window.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     window.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    window.EntityData.Children = make(map[string]types.YChild)
-    window.EntityData.Leafs = make(map[string]types.YLeaf)
-    window.EntityData.Leafs["window"] = types.YLeaf{"Window", window.Window}
-    window.EntityData.Leafs["units"] = types.YLeaf{"Units", window.Units}
-    window.EntityData.Leafs["multiplier"] = types.YLeaf{"Multiplier", window.Multiplier}
+    window.EntityData.Children = types.NewOrderedMap()
+    window.EntityData.Leafs = types.NewOrderedMap()
+    window.EntityData.Leafs.Append("window", types.YLeaf{"Window", window.Window})
+    window.EntityData.Leafs.Append("units", types.YLeaf{"Units", window.Units})
+    window.EntityData.Leafs.Append("multiplier", types.YLeaf{"Multiplier", window.Multiplier})
+
+    window.EntityData.YListKeys = []string {}
+
     return &(window.EntityData)
 }
 
@@ -1175,13 +1259,16 @@ func (threshold *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_S
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["threshold-low"] = types.YLeaf{"ThresholdLow", threshold.ThresholdLow}
-    threshold.EntityData.Leafs["threshold-high"] = types.YLeaf{"ThresholdHigh", threshold.ThresholdHigh}
-    threshold.EntityData.Leafs["units"] = types.YLeaf{"Units", threshold.Units}
-    threshold.EntityData.Leafs["multiplier-low"] = types.YLeaf{"MultiplierLow", threshold.MultiplierLow}
-    threshold.EntityData.Leafs["multiplier-high"] = types.YLeaf{"MultiplierHigh", threshold.MultiplierHigh}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("threshold-low", types.YLeaf{"ThresholdLow", threshold.ThresholdLow})
+    threshold.EntityData.Leafs.Append("threshold-high", types.YLeaf{"ThresholdHigh", threshold.ThresholdHigh})
+    threshold.EntityData.Leafs.Append("units", types.YLeaf{"Units", threshold.Units})
+    threshold.EntityData.Leafs.Append("multiplier-low", types.YLeaf{"MultiplierLow", threshold.MultiplierLow})
+    threshold.EntityData.Leafs.Append("multiplier-high", types.YLeaf{"MultiplierHigh", threshold.MultiplierHigh})
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 
@@ -1208,10 +1295,13 @@ func (framePeriod *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring
     framePeriod.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     framePeriod.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    framePeriod.EntityData.Children = make(map[string]types.YChild)
-    framePeriod.EntityData.Children["window"] = types.YChild{"Window", &framePeriod.Window}
-    framePeriod.EntityData.Children["threshold"] = types.YChild{"Threshold", &framePeriod.Threshold}
-    framePeriod.EntityData.Leafs = make(map[string]types.YLeaf)
+    framePeriod.EntityData.Children = types.NewOrderedMap()
+    framePeriod.EntityData.Children.Append("window", types.YChild{"Window", &framePeriod.Window})
+    framePeriod.EntityData.Children.Append("threshold", types.YChild{"Threshold", &framePeriod.Threshold})
+    framePeriod.EntityData.Leafs = types.NewOrderedMap()
+
+    framePeriod.EntityData.YListKeys = []string {}
+
     return &(framePeriod.EntityData)
 }
 
@@ -1222,6 +1312,7 @@ func (framePeriod *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring
 type EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_FramePeriod_Window struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Size of the frame-period window. The type is interface{} with range:
     // 1..4294967295. This attribute is mandatory.
@@ -1247,11 +1338,14 @@ func (window *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_Fram
     window.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     window.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    window.EntityData.Children = make(map[string]types.YChild)
-    window.EntityData.Leafs = make(map[string]types.YLeaf)
-    window.EntityData.Leafs["window"] = types.YLeaf{"Window", window.Window}
-    window.EntityData.Leafs["units"] = types.YLeaf{"Units", window.Units}
-    window.EntityData.Leafs["multiplier"] = types.YLeaf{"Multiplier", window.Multiplier}
+    window.EntityData.Children = types.NewOrderedMap()
+    window.EntityData.Leafs = types.NewOrderedMap()
+    window.EntityData.Leafs.Append("window", types.YLeaf{"Window", window.Window})
+    window.EntityData.Leafs.Append("units", types.YLeaf{"Units", window.Units})
+    window.EntityData.Leafs.Append("multiplier", types.YLeaf{"Multiplier", window.Multiplier})
+
+    window.EntityData.YListKeys = []string {}
+
     return &(window.EntityData)
 }
 
@@ -1295,13 +1389,16 @@ func (threshold *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_F
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["threshold-low"] = types.YLeaf{"ThresholdLow", threshold.ThresholdLow}
-    threshold.EntityData.Leafs["threshold-high"] = types.YLeaf{"ThresholdHigh", threshold.ThresholdHigh}
-    threshold.EntityData.Leafs["units"] = types.YLeaf{"Units", threshold.Units}
-    threshold.EntityData.Leafs["multiplier-low"] = types.YLeaf{"MultiplierLow", threshold.MultiplierLow}
-    threshold.EntityData.Leafs["multiplier-high"] = types.YLeaf{"MultiplierHigh", threshold.MultiplierHigh}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("threshold-low", types.YLeaf{"ThresholdLow", threshold.ThresholdLow})
+    threshold.EntityData.Leafs.Append("threshold-high", types.YLeaf{"ThresholdHigh", threshold.ThresholdHigh})
+    threshold.EntityData.Leafs.Append("units", types.YLeaf{"Units", threshold.Units})
+    threshold.EntityData.Leafs.Append("multiplier-low", types.YLeaf{"MultiplierLow", threshold.MultiplierLow})
+    threshold.EntityData.Leafs.Append("multiplier-high", types.YLeaf{"MultiplierHigh", threshold.MultiplierHigh})
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 
@@ -1330,10 +1427,13 @@ func (frameSeconds *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitorin
     frameSeconds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frameSeconds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    frameSeconds.EntityData.Children = make(map[string]types.YChild)
-    frameSeconds.EntityData.Children["threshold"] = types.YChild{"Threshold", &frameSeconds.Threshold}
-    frameSeconds.EntityData.Leafs = make(map[string]types.YLeaf)
-    frameSeconds.EntityData.Leafs["window"] = types.YLeaf{"Window", frameSeconds.Window}
+    frameSeconds.EntityData.Children = types.NewOrderedMap()
+    frameSeconds.EntityData.Children.Append("threshold", types.YChild{"Threshold", &frameSeconds.Threshold})
+    frameSeconds.EntityData.Leafs = types.NewOrderedMap()
+    frameSeconds.EntityData.Leafs.Append("window", types.YLeaf{"Window", frameSeconds.Window})
+
+    frameSeconds.EntityData.YListKeys = []string {}
+
     return &(frameSeconds.EntityData)
 }
 
@@ -1363,10 +1463,13 @@ func (threshold *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_F
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["threshold-low"] = types.YLeaf{"ThresholdLow", threshold.ThresholdLow}
-    threshold.EntityData.Leafs["threshold-high"] = types.YLeaf{"ThresholdHigh", threshold.ThresholdHigh}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("threshold-low", types.YLeaf{"ThresholdLow", threshold.ThresholdLow})
+    threshold.EntityData.Leafs.Append("threshold-high", types.YLeaf{"ThresholdHigh", threshold.ThresholdHigh})
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 
@@ -1394,10 +1497,13 @@ func (frame *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_Frame
     frame.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frame.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    frame.EntityData.Children = make(map[string]types.YChild)
-    frame.EntityData.Children["threshold"] = types.YChild{"Threshold", &frame.Threshold}
-    frame.EntityData.Leafs = make(map[string]types.YLeaf)
-    frame.EntityData.Leafs["window"] = types.YLeaf{"Window", frame.Window}
+    frame.EntityData.Children = types.NewOrderedMap()
+    frame.EntityData.Children.Append("threshold", types.YChild{"Threshold", &frame.Threshold})
+    frame.EntityData.Leafs = types.NewOrderedMap()
+    frame.EntityData.Leafs.Append("window", types.YLeaf{"Window", frame.Window})
+
+    frame.EntityData.YListKeys = []string {}
+
     return &(frame.EntityData)
 }
 
@@ -1435,12 +1541,15 @@ func (threshold *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_F
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    threshold.EntityData.Leafs["threshold-low"] = types.YLeaf{"ThresholdLow", threshold.ThresholdLow}
-    threshold.EntityData.Leafs["threshold-high"] = types.YLeaf{"ThresholdHigh", threshold.ThresholdHigh}
-    threshold.EntityData.Leafs["multiplier-low"] = types.YLeaf{"MultiplierLow", threshold.MultiplierLow}
-    threshold.EntityData.Leafs["multiplier-high"] = types.YLeaf{"MultiplierHigh", threshold.MultiplierHigh}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+    threshold.EntityData.Leafs.Append("threshold-low", types.YLeaf{"ThresholdLow", threshold.ThresholdLow})
+    threshold.EntityData.Leafs.Append("threshold-high", types.YLeaf{"ThresholdHigh", threshold.ThresholdHigh})
+    threshold.EntityData.Leafs.Append("multiplier-low", types.YLeaf{"MultiplierLow", threshold.MultiplierLow})
+    threshold.EntityData.Leafs.Append("multiplier-high", types.YLeaf{"MultiplierHigh", threshold.MultiplierHigh})
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 

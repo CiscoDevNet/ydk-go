@@ -63,13 +63,16 @@ func (cdp *Cdp) GetEntityData() *types.CommonEntityData {
     cdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cdp.EntityData.Children = make(map[string]types.YChild)
-    cdp.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdp.EntityData.Leafs["timer"] = types.YLeaf{"Timer", cdp.Timer}
-    cdp.EntityData.Leafs["advertise-v1-only"] = types.YLeaf{"AdvertiseV1Only", cdp.AdvertiseV1Only}
-    cdp.EntityData.Leafs["enable"] = types.YLeaf{"Enable", cdp.Enable}
-    cdp.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", cdp.HoldTime}
-    cdp.EntityData.Leafs["log-adjacency"] = types.YLeaf{"LogAdjacency", cdp.LogAdjacency}
+    cdp.EntityData.Children = types.NewOrderedMap()
+    cdp.EntityData.Leafs = types.NewOrderedMap()
+    cdp.EntityData.Leafs.Append("timer", types.YLeaf{"Timer", cdp.Timer})
+    cdp.EntityData.Leafs.Append("advertise-v1-only", types.YLeaf{"AdvertiseV1Only", cdp.AdvertiseV1Only})
+    cdp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", cdp.Enable})
+    cdp.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", cdp.HoldTime})
+    cdp.EntityData.Leafs.Append("log-adjacency", types.YLeaf{"LogAdjacency", cdp.LogAdjacency})
+
+    cdp.EntityData.YListKeys = []string {}
+
     return &(cdp.EntityData)
 }
 

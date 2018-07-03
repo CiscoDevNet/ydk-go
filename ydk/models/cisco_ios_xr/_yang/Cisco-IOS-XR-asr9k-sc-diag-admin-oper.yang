@@ -138,7 +138,7 @@ module Cisco-IOS-XR-asr9k-sc-diag-admin-oper {
           uses DIAG-SUMMARY;
         }
         leaf rack-name {
-          type int32;
+          type uint32;
           description
             "Rack name";
         }

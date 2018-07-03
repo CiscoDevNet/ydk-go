@@ -44,9 +44,12 @@ func (memorySummary *MemorySummary) GetEntityData() *types.CommonEntityData {
     memorySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memorySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memorySummary.EntityData.Children = make(map[string]types.YChild)
-    memorySummary.EntityData.Children["nodes"] = types.YChild{"Nodes", &memorySummary.Nodes}
-    memorySummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    memorySummary.EntityData.Children = types.NewOrderedMap()
+    memorySummary.EntityData.Children.Append("nodes", types.YChild{"Nodes", &memorySummary.Nodes})
+    memorySummary.EntityData.Leafs = types.NewOrderedMap()
+
+    memorySummary.EntityData.YListKeys = []string {}
+
     return &(memorySummary.EntityData)
 }
 
@@ -57,7 +60,7 @@ type MemorySummary_Nodes struct {
     YFilter yfilter.YFilter
 
     // Name of nodes. The type is slice of MemorySummary_Nodes_Node.
-    Node []MemorySummary_Nodes_Node
+    Node []*MemorySummary_Nodes_Node
 }
 
 func (nodes *MemorySummary_Nodes) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (nodes *MemorySummary_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -86,7 +92,7 @@ type MemorySummary_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Memory summary information for a specific node.
@@ -101,16 +107,19 @@ func (node *MemorySummary_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["summary"] = types.YChild{"Summary", &node.Summary}
-    node.EntityData.Children["detail"] = types.YChild{"Detail", &node.Detail}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("summary", types.YChild{"Summary", &node.Summary})
+    node.EntityData.Children.Append("detail", types.YChild{"Detail", &node.Detail})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -171,18 +180,21 @@ func (summary *MemorySummary_Nodes_Node_Summary) GetEntityData() *types.CommonEn
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["page-size"] = types.YLeaf{"PageSize", summary.PageSize}
-    summary.EntityData.Leafs["ram-memory"] = types.YLeaf{"RamMemory", summary.RamMemory}
-    summary.EntityData.Leafs["free-physical-memory"] = types.YLeaf{"FreePhysicalMemory", summary.FreePhysicalMemory}
-    summary.EntityData.Leafs["system-ram-memory"] = types.YLeaf{"SystemRamMemory", summary.SystemRamMemory}
-    summary.EntityData.Leafs["free-application-memory"] = types.YLeaf{"FreeApplicationMemory", summary.FreeApplicationMemory}
-    summary.EntityData.Leafs["image-memory"] = types.YLeaf{"ImageMemory", summary.ImageMemory}
-    summary.EntityData.Leafs["boot-ram-size"] = types.YLeaf{"BootRamSize", summary.BootRamSize}
-    summary.EntityData.Leafs["reserved-memory"] = types.YLeaf{"ReservedMemory", summary.ReservedMemory}
-    summary.EntityData.Leafs["io-memory"] = types.YLeaf{"IoMemory", summary.IoMemory}
-    summary.EntityData.Leafs["flash-system"] = types.YLeaf{"FlashSystem", summary.FlashSystem}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("page-size", types.YLeaf{"PageSize", summary.PageSize})
+    summary.EntityData.Leafs.Append("ram-memory", types.YLeaf{"RamMemory", summary.RamMemory})
+    summary.EntityData.Leafs.Append("free-physical-memory", types.YLeaf{"FreePhysicalMemory", summary.FreePhysicalMemory})
+    summary.EntityData.Leafs.Append("system-ram-memory", types.YLeaf{"SystemRamMemory", summary.SystemRamMemory})
+    summary.EntityData.Leafs.Append("free-application-memory", types.YLeaf{"FreeApplicationMemory", summary.FreeApplicationMemory})
+    summary.EntityData.Leafs.Append("image-memory", types.YLeaf{"ImageMemory", summary.ImageMemory})
+    summary.EntityData.Leafs.Append("boot-ram-size", types.YLeaf{"BootRamSize", summary.BootRamSize})
+    summary.EntityData.Leafs.Append("reserved-memory", types.YLeaf{"ReservedMemory", summary.ReservedMemory})
+    summary.EntityData.Leafs.Append("io-memory", types.YLeaf{"IoMemory", summary.IoMemory})
+    summary.EntityData.Leafs.Append("flash-system", types.YLeaf{"FlashSystem", summary.FlashSystem})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -257,12 +269,9 @@ type MemorySummary_Nodes_Node_Detail struct {
     // 0..18446744073709551615.
     ProgramStack interface{}
 
-    // Total Used. The type is interface{} with range: 0..18446744073709551615.
-    TotalUsed interface{}
-
     // Available Shared windows. The type is slice of
     // MemorySummary_Nodes_Node_Detail_SharedWindow.
-    SharedWindow []MemorySummary_Nodes_Node_Detail_SharedWindow
+    SharedWindow []*MemorySummary_Nodes_Node_Detail_SharedWindow
 }
 
 func (detail *MemorySummary_Nodes_Node_Detail) GetEntityData() *types.CommonEntityData {
@@ -275,29 +284,31 @@ func (detail *MemorySummary_Nodes_Node_Detail) GetEntityData() *types.CommonEnti
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["shared-window"] = types.YChild{"SharedWindow", nil}
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("shared-window", types.YChild{"SharedWindow", nil})
     for i := range detail.SharedWindow {
-        detail.EntityData.Children[types.GetSegmentPath(&detail.SharedWindow[i])] = types.YChild{"SharedWindow", &detail.SharedWindow[i]}
+        detail.EntityData.Children.Append(types.GetSegmentPath(detail.SharedWindow[i]), types.YChild{"SharedWindow", detail.SharedWindow[i]})
     }
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
-    detail.EntityData.Leafs["page-size"] = types.YLeaf{"PageSize", detail.PageSize}
-    detail.EntityData.Leafs["ram-memory"] = types.YLeaf{"RamMemory", detail.RamMemory}
-    detail.EntityData.Leafs["free-physical-memory"] = types.YLeaf{"FreePhysicalMemory", detail.FreePhysicalMemory}
-    detail.EntityData.Leafs["private-physical-memory"] = types.YLeaf{"PrivatePhysicalMemory", detail.PrivatePhysicalMemory}
-    detail.EntityData.Leafs["system-ram-memory"] = types.YLeaf{"SystemRamMemory", detail.SystemRamMemory}
-    detail.EntityData.Leafs["free-application-memory"] = types.YLeaf{"FreeApplicationMemory", detail.FreeApplicationMemory}
-    detail.EntityData.Leafs["image-memory"] = types.YLeaf{"ImageMemory", detail.ImageMemory}
-    detail.EntityData.Leafs["boot-ram-size"] = types.YLeaf{"BootRamSize", detail.BootRamSize}
-    detail.EntityData.Leafs["reserved-memory"] = types.YLeaf{"ReservedMemory", detail.ReservedMemory}
-    detail.EntityData.Leafs["io-memory"] = types.YLeaf{"IoMemory", detail.IoMemory}
-    detail.EntityData.Leafs["flash-system"] = types.YLeaf{"FlashSystem", detail.FlashSystem}
-    detail.EntityData.Leafs["total-shared-window"] = types.YLeaf{"TotalSharedWindow", detail.TotalSharedWindow}
-    detail.EntityData.Leafs["allocated-memory"] = types.YLeaf{"AllocatedMemory", detail.AllocatedMemory}
-    detail.EntityData.Leafs["program-text"] = types.YLeaf{"ProgramText", detail.ProgramText}
-    detail.EntityData.Leafs["program-data"] = types.YLeaf{"ProgramData", detail.ProgramData}
-    detail.EntityData.Leafs["program-stack"] = types.YLeaf{"ProgramStack", detail.ProgramStack}
-    detail.EntityData.Leafs["total-used"] = types.YLeaf{"TotalUsed", detail.TotalUsed}
+    detail.EntityData.Leafs = types.NewOrderedMap()
+    detail.EntityData.Leafs.Append("page-size", types.YLeaf{"PageSize", detail.PageSize})
+    detail.EntityData.Leafs.Append("ram-memory", types.YLeaf{"RamMemory", detail.RamMemory})
+    detail.EntityData.Leafs.Append("free-physical-memory", types.YLeaf{"FreePhysicalMemory", detail.FreePhysicalMemory})
+    detail.EntityData.Leafs.Append("private-physical-memory", types.YLeaf{"PrivatePhysicalMemory", detail.PrivatePhysicalMemory})
+    detail.EntityData.Leafs.Append("system-ram-memory", types.YLeaf{"SystemRamMemory", detail.SystemRamMemory})
+    detail.EntityData.Leafs.Append("free-application-memory", types.YLeaf{"FreeApplicationMemory", detail.FreeApplicationMemory})
+    detail.EntityData.Leafs.Append("image-memory", types.YLeaf{"ImageMemory", detail.ImageMemory})
+    detail.EntityData.Leafs.Append("boot-ram-size", types.YLeaf{"BootRamSize", detail.BootRamSize})
+    detail.EntityData.Leafs.Append("reserved-memory", types.YLeaf{"ReservedMemory", detail.ReservedMemory})
+    detail.EntityData.Leafs.Append("io-memory", types.YLeaf{"IoMemory", detail.IoMemory})
+    detail.EntityData.Leafs.Append("flash-system", types.YLeaf{"FlashSystem", detail.FlashSystem})
+    detail.EntityData.Leafs.Append("total-shared-window", types.YLeaf{"TotalSharedWindow", detail.TotalSharedWindow})
+    detail.EntityData.Leafs.Append("allocated-memory", types.YLeaf{"AllocatedMemory", detail.AllocatedMemory})
+    detail.EntityData.Leafs.Append("program-text", types.YLeaf{"ProgramText", detail.ProgramText})
+    detail.EntityData.Leafs.Append("program-data", types.YLeaf{"ProgramData", detail.ProgramData})
+    detail.EntityData.Leafs.Append("program-stack", types.YLeaf{"ProgramStack", detail.ProgramStack})
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -325,10 +336,13 @@ func (sharedWindow *MemorySummary_Nodes_Node_Detail_SharedWindow) GetEntityData(
     sharedWindow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sharedWindow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sharedWindow.EntityData.Children = make(map[string]types.YChild)
-    sharedWindow.EntityData.Leafs = make(map[string]types.YLeaf)
-    sharedWindow.EntityData.Leafs["shared-window"] = types.YLeaf{"SharedWindow", sharedWindow.SharedWindow}
-    sharedWindow.EntityData.Leafs["window-size"] = types.YLeaf{"WindowSize", sharedWindow.WindowSize}
+    sharedWindow.EntityData.Children = types.NewOrderedMap()
+    sharedWindow.EntityData.Leafs = types.NewOrderedMap()
+    sharedWindow.EntityData.Leafs.Append("shared-window", types.YLeaf{"SharedWindow", sharedWindow.SharedWindow})
+    sharedWindow.EntityData.Leafs.Append("window-size", types.YLeaf{"WindowSize", sharedWindow.WindowSize})
+
+    sharedWindow.EntityData.YListKeys = []string {}
+
     return &(sharedWindow.EntityData)
 }
 

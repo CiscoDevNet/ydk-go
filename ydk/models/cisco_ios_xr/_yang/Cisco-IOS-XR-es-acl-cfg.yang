@@ -9,7 +9,7 @@ module Cisco-IOS-XR-es-acl-cfg {
     prefix dt1;
   }
   include Cisco-IOS-XR-es-ace-cfg {
-    revision-date 2017-05-01;
+    revision-date 2018-01-03;
   }
 
   organization
@@ -35,9 +35,9 @@ module Cisco-IOS-XR-es-acl-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-05-01 {
+  revision 2018-01-03 {
     description
-      "Fixing backward compatibility error in module.";
+      "6.4.1 revision. Fixed a few typos in the description.";
   }
   revision 2015-11-09 {
     description
@@ -46,7 +46,7 @@ module Cisco-IOS-XR-es-acl-cfg {
 
   typedef Es-acl-name {
     type xr:Cisco-ios-xr-string {
-      length "1..65";
+      length "1..64";
     }
     description
       "Es acl name";

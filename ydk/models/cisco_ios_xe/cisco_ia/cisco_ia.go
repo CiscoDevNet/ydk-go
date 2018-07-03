@@ -28,6 +28,27 @@ func init() {
     ydk.RegisterEntity("cisco-ia:rollback", reflect.TypeOf(Rollback{}))
 }
 
+// CiaLogLevel represents Logging levels for DMI
+type CiaLogLevel string
+
+const (
+    // No logging
+    CiaLogLevel_none CiaLogLevel = "none"
+
+    // Log errors only
+    CiaLogLevel_error_ CiaLogLevel = "error"
+
+    // Log errors and warnings only
+    CiaLogLevel_warning CiaLogLevel = "warning"
+
+    // Log errors, warnings, and information only
+    CiaLogLevel_information CiaLogLevel = "information"
+
+    // Log errors, warnings, information,
+    // and debug messages
+    CiaLogLevel_debug CiaLogLevel = "debug"
+)
+
 // CiaSyncType represents database from the Network Element
 type CiaSyncType string
 
@@ -43,55 +64,6 @@ const (
     // Collect "show running all" from 
     // the Network Element
     CiaSyncType_include_defaults CiaSyncType = "include-defaults"
-)
-
-// CiaLogLevel represents Logging levels for DMI
-type CiaLogLevel string
-
-const (
-    // No logging
-    CiaLogLevel_none CiaLogLevel = "none"
-
-    // Log errors only
-    CiaLogLevel_error CiaLogLevel = "error"
-
-    // Log errors and warnings only
-    CiaLogLevel_warning CiaLogLevel = "warning"
-
-    // Log errors, warnings, and information only
-    CiaLogLevel_information CiaLogLevel = "information"
-
-    // Log errors, warnings, information,
-    // and debug messages
-    CiaLogLevel_debug CiaLogLevel = "debug"
-)
-
-// OnepLogLevel represents Logging levels for Onep
-type OnepLogLevel string
-
-const (
-    // No logging
-    OnepLogLevel_none OnepLogLevel = "none"
-
-    // Log fatal events only
-    OnepLogLevel_fatal OnepLogLevel = "fatal"
-
-    // Log fatal events and errors only
-    OnepLogLevel_error OnepLogLevel = "error"
-
-    // Log fatal events, errors, and warnings only
-    OnepLogLevel_warning OnepLogLevel = "warning"
-
-    // Log fatal events, errors, warnings, 
-    // and information only
-    OnepLogLevel_information OnepLogLevel = "information"
-
-    // Log fatal events, errors, warnings, information,
-    // and debug messages
-    OnepLogLevel_debug OnepLogLevel = "debug"
-
-    // Log all messages
-    OnepLogLevel_trace OnepLogLevel = "trace"
 )
 
 // SyslogSeverity represents Standard Syslog logging levels)
@@ -111,7 +83,7 @@ const (
     SyslogSeverity_critical SyslogSeverity = "critical"
 
     // Error Level Msg
-    SyslogSeverity_error SyslogSeverity = "error"
+    SyslogSeverity_error_ SyslogSeverity = "error"
 
     // Warning Level Msg
     SyslogSeverity_warning SyslogSeverity = "warning"
@@ -124,6 +96,34 @@ const (
 
     // Debugging Level Msg
     SyslogSeverity_debug SyslogSeverity = "debug"
+)
+
+// OnepLogLevel represents Logging levels for Onep
+type OnepLogLevel string
+
+const (
+    // No logging
+    OnepLogLevel_none OnepLogLevel = "none"
+
+    // Log fatal events only
+    OnepLogLevel_fatal OnepLogLevel = "fatal"
+
+    // Log fatal events and errors only
+    OnepLogLevel_error_ OnepLogLevel = "error"
+
+    // Log fatal events, errors, and warnings only
+    OnepLogLevel_warning OnepLogLevel = "warning"
+
+    // Log fatal events, errors, warnings, 
+    // and information only
+    OnepLogLevel_information OnepLogLevel = "information"
+
+    // Log fatal events, errors, warnings, information,
+    // and debug messages
+    OnepLogLevel_debug OnepLogLevel = "debug"
+
+    // Log all messages
+    OnepLogLevel_trace OnepLogLevel = "trace"
 )
 
 // SyncFrom
@@ -150,10 +150,13 @@ func (syncFrom *SyncFrom) GetEntityData() *types.CommonEntityData {
     syncFrom.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     syncFrom.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    syncFrom.EntityData.Children = make(map[string]types.YChild)
-    syncFrom.EntityData.Children["input"] = types.YChild{"Input", &syncFrom.Input}
-    syncFrom.EntityData.Children["output"] = types.YChild{"Output", &syncFrom.Output}
-    syncFrom.EntityData.Leafs = make(map[string]types.YLeaf)
+    syncFrom.EntityData.Children = types.NewOrderedMap()
+    syncFrom.EntityData.Children.Append("input", types.YChild{"Input", &syncFrom.Input})
+    syncFrom.EntityData.Children.Append("output", types.YChild{"Output", &syncFrom.Output})
+    syncFrom.EntityData.Leafs = types.NewOrderedMap()
+
+    syncFrom.EntityData.YListKeys = []string {}
+
     return &(syncFrom.EntityData)
 }
 
@@ -181,10 +184,13 @@ func (input *SyncFrom_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["sync-defaults"] = types.YLeaf{"SyncDefaults", input.SyncDefaults}
-    input.EntityData.Leafs["ignore-presrv-paths"] = types.YLeaf{"IgnorePresrvPaths", input.IgnorePresrvPaths}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("sync-defaults", types.YLeaf{"SyncDefaults", input.SyncDefaults})
+    input.EntityData.Leafs.Append("ignore-presrv-paths", types.YLeaf{"IgnorePresrvPaths", input.IgnorePresrvPaths})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -207,9 +213,12 @@ func (output *SyncFrom_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -235,9 +244,12 @@ func (saveConfig *SaveConfig) GetEntityData() *types.CommonEntityData {
     saveConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     saveConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    saveConfig.EntityData.Children = make(map[string]types.YChild)
-    saveConfig.EntityData.Children["output"] = types.YChild{"Output", &saveConfig.Output}
-    saveConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    saveConfig.EntityData.Children = types.NewOrderedMap()
+    saveConfig.EntityData.Children.Append("output", types.YChild{"Output", &saveConfig.Output})
+    saveConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    saveConfig.EntityData.YListKeys = []string {}
+
     return &(saveConfig.EntityData)
 }
 
@@ -260,9 +272,12 @@ func (output *SaveConfig_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -288,9 +303,12 @@ func (isSyncing *IsSyncing) GetEntityData() *types.CommonEntityData {
     isSyncing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     isSyncing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    isSyncing.EntityData.Children = make(map[string]types.YChild)
-    isSyncing.EntityData.Children["output"] = types.YChild{"Output", &isSyncing.Output}
-    isSyncing.EntityData.Leafs = make(map[string]types.YLeaf)
+    isSyncing.EntityData.Children = types.NewOrderedMap()
+    isSyncing.EntityData.Children.Append("output", types.YChild{"Output", &isSyncing.Output})
+    isSyncing.EntityData.Leafs = types.NewOrderedMap()
+
+    isSyncing.EntityData.YListKeys = []string {}
+
     return &(isSyncing.EntityData)
 }
 
@@ -313,9 +331,12 @@ func (output *IsSyncing_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -340,9 +361,12 @@ func (checkpoint *Checkpoint) GetEntityData() *types.CommonEntityData {
     checkpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     checkpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    checkpoint.EntityData.Children = make(map[string]types.YChild)
-    checkpoint.EntityData.Children["output"] = types.YChild{"Output", &checkpoint.Output}
-    checkpoint.EntityData.Leafs = make(map[string]types.YLeaf)
+    checkpoint.EntityData.Children = types.NewOrderedMap()
+    checkpoint.EntityData.Children.Append("output", types.YChild{"Output", &checkpoint.Output})
+    checkpoint.EntityData.Leafs = types.NewOrderedMap()
+
+    checkpoint.EntityData.YListKeys = []string {}
+
     return &(checkpoint.EntityData)
 }
 
@@ -365,9 +389,12 @@ func (output *Checkpoint_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -396,10 +423,13 @@ func (revert *Revert) GetEntityData() *types.CommonEntityData {
     revert.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     revert.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    revert.EntityData.Children = make(map[string]types.YChild)
-    revert.EntityData.Children["input"] = types.YChild{"Input", &revert.Input}
-    revert.EntityData.Children["output"] = types.YChild{"Output", &revert.Output}
-    revert.EntityData.Leafs = make(map[string]types.YLeaf)
+    revert.EntityData.Children = types.NewOrderedMap()
+    revert.EntityData.Children.Append("input", types.YChild{"Input", &revert.Input})
+    revert.EntityData.Children.Append("output", types.YChild{"Output", &revert.Output})
+    revert.EntityData.Leafs = types.NewOrderedMap()
+
+    revert.EntityData.YListKeys = []string {}
+
     return &(revert.EntityData)
 }
 
@@ -431,11 +461,14 @@ func (input *Revert_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["now"] = types.YLeaf{"Now", input.Now}
-    input.EntityData.Leafs["timer"] = types.YLeaf{"Timer", input.Timer}
-    input.EntityData.Leafs["idle"] = types.YLeaf{"Idle", input.Idle}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("now", types.YLeaf{"Now", input.Now})
+    input.EntityData.Leafs.Append("timer", types.YLeaf{"Timer", input.Timer})
+    input.EntityData.Leafs.Append("idle", types.YLeaf{"Idle", input.Idle})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -458,9 +491,12 @@ func (output *Revert_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -488,10 +524,13 @@ func (rollback *Rollback) GetEntityData() *types.CommonEntityData {
     rollback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rollback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rollback.EntityData.Children = make(map[string]types.YChild)
-    rollback.EntityData.Children["input"] = types.YChild{"Input", &rollback.Input}
-    rollback.EntityData.Children["output"] = types.YChild{"Output", &rollback.Output}
-    rollback.EntityData.Leafs = make(map[string]types.YLeaf)
+    rollback.EntityData.Children = types.NewOrderedMap()
+    rollback.EntityData.Children.Append("input", types.YChild{"Input", &rollback.Input})
+    rollback.EntityData.Children.Append("output", types.YChild{"Output", &rollback.Output})
+    rollback.EntityData.Leafs = types.NewOrderedMap()
+
+    rollback.EntityData.YListKeys = []string {}
+
     return &(rollback.EntityData)
 }
 
@@ -533,13 +572,16 @@ func (input *Rollback_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["target-url"] = types.YLeaf{"TargetUrl", input.TargetUrl}
-    input.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", input.Verbose}
-    input.EntityData.Leafs["nolock"] = types.YLeaf{"Nolock", input.Nolock}
-    input.EntityData.Leafs["revert-on-error"] = types.YLeaf{"RevertOnError", input.RevertOnError}
-    input.EntityData.Leafs["revert-timer"] = types.YLeaf{"RevertTimer", input.RevertTimer}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("target-url", types.YLeaf{"TargetUrl", input.TargetUrl})
+    input.EntityData.Leafs.Append("verbose", types.YLeaf{"Verbose", input.Verbose})
+    input.EntityData.Leafs.Append("nolock", types.YLeaf{"Nolock", input.Nolock})
+    input.EntityData.Leafs.Append("revert-on-error", types.YLeaf{"RevertOnError", input.RevertOnError})
+    input.EntityData.Leafs.Append("revert-timer", types.YLeaf{"RevertTimer", input.RevertTimer})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -562,9 +604,12 @@ func (output *Rollback_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 

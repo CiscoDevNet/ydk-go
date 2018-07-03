@@ -80,15 +80,18 @@ func (mplsLsd *MplsLsd) GetEntityData() *types.CommonEntityData {
     mplsLsd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLsd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mplsLsd.EntityData.Children = make(map[string]types.YChild)
-    mplsLsd.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &mplsLsd.Ipv6}
-    mplsLsd.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &mplsLsd.Ipv4}
-    mplsLsd.EntityData.Children["label-databases"] = types.YChild{"LabelDatabases", &mplsLsd.LabelDatabases}
-    mplsLsd.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsLsd.EntityData.Leafs["ltrace-multiplier"] = types.YLeaf{"LtraceMultiplier", mplsLsd.LtraceMultiplier}
-    mplsLsd.EntityData.Leafs["app-reg-delay-disable"] = types.YLeaf{"AppRegDelayDisable", mplsLsd.AppRegDelayDisable}
-    mplsLsd.EntityData.Leafs["mpls-entropy-label"] = types.YLeaf{"MplsEntropyLabel", mplsLsd.MplsEntropyLabel}
-    mplsLsd.EntityData.Leafs["mpls-ip-ttl-propagate-disable"] = types.YLeaf{"MplsIpTtlPropagateDisable", mplsLsd.MplsIpTtlPropagateDisable}
+    mplsLsd.EntityData.Children = types.NewOrderedMap()
+    mplsLsd.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &mplsLsd.Ipv6})
+    mplsLsd.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &mplsLsd.Ipv4})
+    mplsLsd.EntityData.Children.Append("label-databases", types.YChild{"LabelDatabases", &mplsLsd.LabelDatabases})
+    mplsLsd.EntityData.Leafs = types.NewOrderedMap()
+    mplsLsd.EntityData.Leafs.Append("ltrace-multiplier", types.YLeaf{"LtraceMultiplier", mplsLsd.LtraceMultiplier})
+    mplsLsd.EntityData.Leafs.Append("app-reg-delay-disable", types.YLeaf{"AppRegDelayDisable", mplsLsd.AppRegDelayDisable})
+    mplsLsd.EntityData.Leafs.Append("mpls-entropy-label", types.YLeaf{"MplsEntropyLabel", mplsLsd.MplsEntropyLabel})
+    mplsLsd.EntityData.Leafs.Append("mpls-ip-ttl-propagate-disable", types.YLeaf{"MplsIpTtlPropagateDisable", mplsLsd.MplsIpTtlPropagateDisable})
+
+    mplsLsd.EntityData.YListKeys = []string {}
+
     return &(mplsLsd.EntityData)
 }
 
@@ -113,9 +116,12 @@ func (ipv6 *MplsLsd_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["ttl-expiration-pop"] = types.YLeaf{"TtlExpirationPop", ipv6.TtlExpirationPop}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("ttl-expiration-pop", types.YLeaf{"TtlExpirationPop", ipv6.TtlExpirationPop})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -140,9 +146,12 @@ func (ipv4 *MplsLsd_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["ttl-expiration-pop"] = types.YLeaf{"TtlExpirationPop", ipv4.TtlExpirationPop}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("ttl-expiration-pop", types.YLeaf{"TtlExpirationPop", ipv4.TtlExpirationPop})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -154,7 +163,7 @@ type MplsLsd_LabelDatabases struct {
 
     // A label database. The type is slice of
     // MplsLsd_LabelDatabases_LabelDatabase.
-    LabelDatabase []MplsLsd_LabelDatabases_LabelDatabase
+    LabelDatabase []*MplsLsd_LabelDatabases_LabelDatabase
 }
 
 func (labelDatabases *MplsLsd_LabelDatabases) GetEntityData() *types.CommonEntityData {
@@ -167,12 +176,15 @@ func (labelDatabases *MplsLsd_LabelDatabases) GetEntityData() *types.CommonEntit
     labelDatabases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelDatabases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelDatabases.EntityData.Children = make(map[string]types.YChild)
-    labelDatabases.EntityData.Children["label-database"] = types.YChild{"LabelDatabase", nil}
+    labelDatabases.EntityData.Children = types.NewOrderedMap()
+    labelDatabases.EntityData.Children.Append("label-database", types.YChild{"LabelDatabase", nil})
     for i := range labelDatabases.LabelDatabase {
-        labelDatabases.EntityData.Children[types.GetSegmentPath(&labelDatabases.LabelDatabase[i])] = types.YChild{"LabelDatabase", &labelDatabases.LabelDatabase[i]}
+        labelDatabases.EntityData.Children.Append(types.GetSegmentPath(labelDatabases.LabelDatabase[i]), types.YChild{"LabelDatabase", labelDatabases.LabelDatabase[i]})
     }
-    labelDatabases.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelDatabases.EntityData.Leafs = types.NewOrderedMap()
+
+    labelDatabases.EntityData.YListKeys = []string {}
+
     return &(labelDatabases.EntityData)
 }
 
@@ -195,15 +207,18 @@ func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetEntityData() *type
     labelDatabase.EntityData.YangName = "label-database"
     labelDatabase.EntityData.BundleName = "cisco_ios_xr"
     labelDatabase.EntityData.ParentYangName = "label-databases"
-    labelDatabase.EntityData.SegmentPath = "label-database" + "[label-database-id='" + fmt.Sprintf("%v", labelDatabase.LabelDatabaseId) + "']"
+    labelDatabase.EntityData.SegmentPath = "label-database" + types.AddKeyToken(labelDatabase.LabelDatabaseId, "label-database-id")
     labelDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelDatabase.EntityData.Children = make(map[string]types.YChild)
-    labelDatabase.EntityData.Children["label-range"] = types.YChild{"LabelRange", &labelDatabase.LabelRange}
-    labelDatabase.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelDatabase.EntityData.Leafs["label-database-id"] = types.YLeaf{"LabelDatabaseId", labelDatabase.LabelDatabaseId}
+    labelDatabase.EntityData.Children = types.NewOrderedMap()
+    labelDatabase.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &labelDatabase.LabelRange})
+    labelDatabase.EntityData.Leafs = types.NewOrderedMap()
+    labelDatabase.EntityData.Leafs.Append("label-database-id", types.YLeaf{"LabelDatabaseId", labelDatabase.LabelDatabaseId})
+
+    labelDatabase.EntityData.YListKeys = []string {"LabelDatabaseId"}
+
     return &(labelDatabase.EntityData)
 }
 
@@ -236,12 +251,15 @@ func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetEntityData
     labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelRange.EntityData.Children = make(map[string]types.YChild)
-    labelRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelRange.EntityData.Leafs["minvalue"] = types.YLeaf{"Minvalue", labelRange.Minvalue}
-    labelRange.EntityData.Leafs["max-value"] = types.YLeaf{"MaxValue", labelRange.MaxValue}
-    labelRange.EntityData.Leafs["min-static-value"] = types.YLeaf{"MinStaticValue", labelRange.MinStaticValue}
-    labelRange.EntityData.Leafs["max-static-value"] = types.YLeaf{"MaxStaticValue", labelRange.MaxStaticValue}
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("minvalue", types.YLeaf{"Minvalue", labelRange.Minvalue})
+    labelRange.EntityData.Leafs.Append("max-value", types.YLeaf{"MaxValue", labelRange.MaxValue})
+    labelRange.EntityData.Leafs.Append("min-static-value", types.YLeaf{"MinStaticValue", labelRange.MinStaticValue})
+    labelRange.EntityData.Leafs.Append("max-static-value", types.YLeaf{"MaxStaticValue", labelRange.MaxStaticValue})
+
+    labelRange.EntityData.YListKeys = []string {}
+
     return &(labelRange.EntityData)
 }
 

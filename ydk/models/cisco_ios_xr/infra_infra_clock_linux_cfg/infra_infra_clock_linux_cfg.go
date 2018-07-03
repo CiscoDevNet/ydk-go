@@ -44,9 +44,12 @@ func (clock *Clock) GetEntityData() *types.CommonEntityData {
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clock.EntityData.Children = make(map[string]types.YChild)
-    clock.EntityData.Children["time-zone"] = types.YChild{"TimeZone", &clock.TimeZone}
-    clock.EntityData.Leafs = make(map[string]types.YLeaf)
+    clock.EntityData.Children = types.NewOrderedMap()
+    clock.EntityData.Children.Append("time-zone", types.YChild{"TimeZone", &clock.TimeZone})
+    clock.EntityData.Leafs = types.NewOrderedMap()
+
+    clock.EntityData.YListKeys = []string {}
+
     return &(clock.EntityData)
 }
 
@@ -56,6 +59,7 @@ func (clock *Clock) GetEntityData() *types.CommonEntityData {
 type Clock_TimeZone struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Name of time zone. The type is string. This attribute is mandatory.
     TimeZoneName interface{}
@@ -75,10 +79,13 @@ func (timeZone *Clock_TimeZone) GetEntityData() *types.CommonEntityData {
     timeZone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeZone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timeZone.EntityData.Children = make(map[string]types.YChild)
-    timeZone.EntityData.Leafs = make(map[string]types.YLeaf)
-    timeZone.EntityData.Leafs["time-zone-name"] = types.YLeaf{"TimeZoneName", timeZone.TimeZoneName}
-    timeZone.EntityData.Leafs["area-name"] = types.YLeaf{"AreaName", timeZone.AreaName}
+    timeZone.EntityData.Children = types.NewOrderedMap()
+    timeZone.EntityData.Leafs = types.NewOrderedMap()
+    timeZone.EntityData.Leafs.Append("time-zone-name", types.YLeaf{"TimeZoneName", timeZone.TimeZoneName})
+    timeZone.EntityData.Leafs.Append("area-name", types.YLeaf{"AreaName", timeZone.AreaName})
+
+    timeZone.EntityData.YListKeys = []string {}
+
     return &(timeZone.EntityData)
 }
 

@@ -43,10 +43,13 @@ func (ping *Ping) GetEntityData() *types.CommonEntityData {
     ping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ping.EntityData.Children = make(map[string]types.YChild)
-    ping.EntityData.Children["input"] = types.YChild{"Input", &ping.Input}
-    ping.EntityData.Children["output"] = types.YChild{"Output", &ping.Output}
-    ping.EntityData.Leafs = make(map[string]types.YLeaf)
+    ping.EntityData.Children = types.NewOrderedMap()
+    ping.EntityData.Children.Append("input", types.YChild{"Input", &ping.Input})
+    ping.EntityData.Children.Append("output", types.YChild{"Output", &ping.Output})
+    ping.EntityData.Leafs = types.NewOrderedMap()
+
+    ping.EntityData.YListKeys = []string {}
+
     return &(ping.EntityData)
 }
 
@@ -59,7 +62,7 @@ type Ping_Input struct {
     Destination Ping_Input_Destination
 
     // The type is slice of Ping_Input_Ipv4.
-    Ipv4 []Ping_Input_Ipv4
+    Ipv4 []*Ping_Input_Ipv4
 
     
     Ipv6 Ping_Input_Ipv6
@@ -75,14 +78,17 @@ func (input *Ping_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["destination"] = types.YChild{"Destination", &input.Destination}
-    input.EntityData.Children["ipv4"] = types.YChild{"Ipv4", nil}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("destination", types.YChild{"Destination", &input.Destination})
+    input.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", nil})
     for i := range input.Ipv4 {
-        input.EntityData.Children[types.GetSegmentPath(&input.Ipv4[i])] = types.YChild{"Ipv4", &input.Ipv4[i]}
+        input.EntityData.Children.Append(types.GetSegmentPath(input.Ipv4[i]), types.YChild{"Ipv4", input.Ipv4[i]})
     }
-    input.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &input.Ipv6}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &input.Ipv6})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -111,8 +117,7 @@ type Ping_Input_Destination struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -154,23 +159,26 @@ func (destination *Ping_Input_Destination) GetEntityData() *types.CommonEntityDa
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destination.EntityData.Children = make(map[string]types.YChild)
-    destination.EntityData.Leafs = make(map[string]types.YLeaf)
-    destination.EntityData.Leafs["destination"] = types.YLeaf{"Destination", destination.Destination}
-    destination.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", destination.RepeatCount}
-    destination.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", destination.DataSize}
-    destination.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", destination.Timeout}
-    destination.EntityData.Leafs["interval"] = types.YLeaf{"Interval", destination.Interval}
-    destination.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", destination.Pattern}
-    destination.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", destination.Sweep}
-    destination.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", destination.VrfName}
-    destination.EntityData.Leafs["source"] = types.YLeaf{"Source", destination.Source}
-    destination.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", destination.Verbose}
-    destination.EntityData.Leafs["type-of-service"] = types.YLeaf{"TypeOfService", destination.TypeOfService}
-    destination.EntityData.Leafs["do-not-frag"] = types.YLeaf{"DoNotFrag", destination.DoNotFrag}
-    destination.EntityData.Leafs["validate"] = types.YLeaf{"Validate", destination.Validate}
-    destination.EntityData.Leafs["priority"] = types.YLeaf{"Priority", destination.Priority}
-    destination.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", destination.OutgoingInterface}
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", destination.Destination})
+    destination.EntityData.Leafs.Append("repeat-count", types.YLeaf{"RepeatCount", destination.RepeatCount})
+    destination.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", destination.DataSize})
+    destination.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", destination.Timeout})
+    destination.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", destination.Interval})
+    destination.EntityData.Leafs.Append("pattern", types.YLeaf{"Pattern", destination.Pattern})
+    destination.EntityData.Leafs.Append("sweep", types.YLeaf{"Sweep", destination.Sweep})
+    destination.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", destination.VrfName})
+    destination.EntityData.Leafs.Append("source", types.YLeaf{"Source", destination.Source})
+    destination.EntityData.Leafs.Append("verbose", types.YLeaf{"Verbose", destination.Verbose})
+    destination.EntityData.Leafs.Append("type-of-service", types.YLeaf{"TypeOfService", destination.TypeOfService})
+    destination.EntityData.Leafs.Append("do-not-frag", types.YLeaf{"DoNotFrag", destination.DoNotFrag})
+    destination.EntityData.Leafs.Append("validate", types.YLeaf{"Validate", destination.Validate})
+    destination.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", destination.Priority})
+    destination.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", destination.OutgoingInterface})
+
+    destination.EntityData.YListKeys = []string {}
+
     return &(destination.EntityData)
 }
 
@@ -199,8 +207,7 @@ type Ping_Input_Ipv4 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -230,26 +237,29 @@ func (ipv4 *Ping_Input_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.YangName = "ipv4"
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "input"
-    ipv4.EntityData.SegmentPath = "ipv4" + "[destination='" + fmt.Sprintf("%v", ipv4.Destination) + "']"
+    ipv4.EntityData.SegmentPath = "ipv4" + types.AddKeyToken(ipv4.Destination, "destination")
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv4.Destination}
-    ipv4.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", ipv4.RepeatCount}
-    ipv4.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", ipv4.DataSize}
-    ipv4.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv4.Timeout}
-    ipv4.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ipv4.Interval}
-    ipv4.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", ipv4.Pattern}
-    ipv4.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", ipv4.Sweep}
-    ipv4.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4.VrfName}
-    ipv4.EntityData.Leafs["source"] = types.YLeaf{"Source", ipv4.Source}
-    ipv4.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", ipv4.Verbose}
-    ipv4.EntityData.Leafs["type-of-service"] = types.YLeaf{"TypeOfService", ipv4.TypeOfService}
-    ipv4.EntityData.Leafs["do-not-frag"] = types.YLeaf{"DoNotFrag", ipv4.DoNotFrag}
-    ipv4.EntityData.Leafs["validate"] = types.YLeaf{"Validate", ipv4.Validate}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", ipv4.Destination})
+    ipv4.EntityData.Leafs.Append("repeat-count", types.YLeaf{"RepeatCount", ipv4.RepeatCount})
+    ipv4.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", ipv4.DataSize})
+    ipv4.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", ipv4.Timeout})
+    ipv4.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ipv4.Interval})
+    ipv4.EntityData.Leafs.Append("pattern", types.YLeaf{"Pattern", ipv4.Pattern})
+    ipv4.EntityData.Leafs.Append("sweep", types.YLeaf{"Sweep", ipv4.Sweep})
+    ipv4.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4.VrfName})
+    ipv4.EntityData.Leafs.Append("source", types.YLeaf{"Source", ipv4.Source})
+    ipv4.EntityData.Leafs.Append("verbose", types.YLeaf{"Verbose", ipv4.Verbose})
+    ipv4.EntityData.Leafs.Append("type-of-service", types.YLeaf{"TypeOfService", ipv4.TypeOfService})
+    ipv4.EntityData.Leafs.Append("do-not-frag", types.YLeaf{"DoNotFrag", ipv4.DoNotFrag})
+    ipv4.EntityData.Leafs.Append("validate", types.YLeaf{"Validate", ipv4.Validate})
+
+    ipv4.EntityData.YListKeys = []string {"Destination"}
+
     return &(ipv4.EntityData)
 }
 
@@ -278,8 +288,7 @@ type Ping_Input_Ipv6 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -312,20 +321,23 @@ func (ipv6 *Ping_Input_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv6.Destination}
-    ipv6.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", ipv6.RepeatCount}
-    ipv6.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", ipv6.DataSize}
-    ipv6.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv6.Timeout}
-    ipv6.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ipv6.Interval}
-    ipv6.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", ipv6.Pattern}
-    ipv6.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", ipv6.Sweep}
-    ipv6.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6.VrfName}
-    ipv6.EntityData.Leafs["source"] = types.YLeaf{"Source", ipv6.Source}
-    ipv6.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", ipv6.Verbose}
-    ipv6.EntityData.Leafs["priority"] = types.YLeaf{"Priority", ipv6.Priority}
-    ipv6.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", ipv6.OutgoingInterface}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", ipv6.Destination})
+    ipv6.EntityData.Leafs.Append("repeat-count", types.YLeaf{"RepeatCount", ipv6.RepeatCount})
+    ipv6.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", ipv6.DataSize})
+    ipv6.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", ipv6.Timeout})
+    ipv6.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ipv6.Interval})
+    ipv6.EntityData.Leafs.Append("pattern", types.YLeaf{"Pattern", ipv6.Pattern})
+    ipv6.EntityData.Leafs.Append("sweep", types.YLeaf{"Sweep", ipv6.Sweep})
+    ipv6.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6.VrfName})
+    ipv6.EntityData.Leafs.Append("source", types.YLeaf{"Source", ipv6.Source})
+    ipv6.EntityData.Leafs.Append("verbose", types.YLeaf{"Verbose", ipv6.Verbose})
+    ipv6.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", ipv6.Priority})
+    ipv6.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", ipv6.OutgoingInterface})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -348,9 +360,12 @@ func (output *Ping_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Children["ping-response"] = types.YChild{"PingResponse", &output.PingResponse}
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Children.Append("ping-response", types.YChild{"PingResponse", &output.PingResponse})
+    output.EntityData.Leafs = types.NewOrderedMap()
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -360,7 +375,7 @@ type Ping_Output_PingResponse struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Ping_Output_PingResponse_Ipv4.
-    Ipv4 []Ping_Output_PingResponse_Ipv4
+    Ipv4 []*Ping_Output_PingResponse_Ipv4
 
     
     Ipv6 Ping_Output_PingResponse_Ipv6
@@ -376,13 +391,16 @@ func (pingResponse *Ping_Output_PingResponse) GetEntityData() *types.CommonEntit
     pingResponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pingResponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pingResponse.EntityData.Children = make(map[string]types.YChild)
-    pingResponse.EntityData.Children["ipv4"] = types.YChild{"Ipv4", nil}
+    pingResponse.EntityData.Children = types.NewOrderedMap()
+    pingResponse.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", nil})
     for i := range pingResponse.Ipv4 {
-        pingResponse.EntityData.Children[types.GetSegmentPath(&pingResponse.Ipv4[i])] = types.YChild{"Ipv4", &pingResponse.Ipv4[i]}
+        pingResponse.EntityData.Children.Append(types.GetSegmentPath(pingResponse.Ipv4[i]), types.YChild{"Ipv4", pingResponse.Ipv4[i]})
     }
-    pingResponse.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &pingResponse.Ipv6}
-    pingResponse.EntityData.Leafs = make(map[string]types.YLeaf)
+    pingResponse.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &pingResponse.Ipv6})
+    pingResponse.EntityData.Leafs = types.NewOrderedMap()
+
+    pingResponse.EntityData.YListKeys = []string {}
+
     return &(pingResponse.EntityData)
 }
 
@@ -411,8 +429,7 @@ type Ping_Output_PingResponse_Ipv4 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -465,31 +482,34 @@ func (ipv4 *Ping_Output_PingResponse_Ipv4) GetEntityData() *types.CommonEntityDa
     ipv4.EntityData.YangName = "ipv4"
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "ping-response"
-    ipv4.EntityData.SegmentPath = "ipv4" + "[destination='" + fmt.Sprintf("%v", ipv4.Destination) + "']"
+    ipv4.EntityData.SegmentPath = "ipv4" + types.AddKeyToken(ipv4.Destination, "destination")
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["replies"] = types.YChild{"Replies", &ipv4.Replies}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv4.Destination}
-    ipv4.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", ipv4.RepeatCount}
-    ipv4.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", ipv4.DataSize}
-    ipv4.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv4.Timeout}
-    ipv4.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ipv4.Interval}
-    ipv4.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", ipv4.Pattern}
-    ipv4.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", ipv4.Sweep}
-    ipv4.EntityData.Leafs["hits"] = types.YLeaf{"Hits", ipv4.Hits}
-    ipv4.EntityData.Leafs["total"] = types.YLeaf{"Total", ipv4.Total}
-    ipv4.EntityData.Leafs["success-rate"] = types.YLeaf{"SuccessRate", ipv4.SuccessRate}
-    ipv4.EntityData.Leafs["rtt-min"] = types.YLeaf{"RttMin", ipv4.RttMin}
-    ipv4.EntityData.Leafs["rtt-avg"] = types.YLeaf{"RttAvg", ipv4.RttAvg}
-    ipv4.EntityData.Leafs["rtt-max"] = types.YLeaf{"RttMax", ipv4.RttMax}
-    ipv4.EntityData.Leafs["sweep-min"] = types.YLeaf{"SweepMin", ipv4.SweepMin}
-    ipv4.EntityData.Leafs["sweep-max"] = types.YLeaf{"SweepMax", ipv4.SweepMax}
-    ipv4.EntityData.Leafs["rotate-pattern"] = types.YLeaf{"RotatePattern", ipv4.RotatePattern}
-    ipv4.EntityData.Leafs["ping-error-response"] = types.YLeaf{"PingErrorResponse", ipv4.PingErrorResponse}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("replies", types.YChild{"Replies", &ipv4.Replies})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", ipv4.Destination})
+    ipv4.EntityData.Leafs.Append("repeat-count", types.YLeaf{"RepeatCount", ipv4.RepeatCount})
+    ipv4.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", ipv4.DataSize})
+    ipv4.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", ipv4.Timeout})
+    ipv4.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ipv4.Interval})
+    ipv4.EntityData.Leafs.Append("pattern", types.YLeaf{"Pattern", ipv4.Pattern})
+    ipv4.EntityData.Leafs.Append("sweep", types.YLeaf{"Sweep", ipv4.Sweep})
+    ipv4.EntityData.Leafs.Append("hits", types.YLeaf{"Hits", ipv4.Hits})
+    ipv4.EntityData.Leafs.Append("total", types.YLeaf{"Total", ipv4.Total})
+    ipv4.EntityData.Leafs.Append("success-rate", types.YLeaf{"SuccessRate", ipv4.SuccessRate})
+    ipv4.EntityData.Leafs.Append("rtt-min", types.YLeaf{"RttMin", ipv4.RttMin})
+    ipv4.EntityData.Leafs.Append("rtt-avg", types.YLeaf{"RttAvg", ipv4.RttAvg})
+    ipv4.EntityData.Leafs.Append("rtt-max", types.YLeaf{"RttMax", ipv4.RttMax})
+    ipv4.EntityData.Leafs.Append("sweep-min", types.YLeaf{"SweepMin", ipv4.SweepMin})
+    ipv4.EntityData.Leafs.Append("sweep-max", types.YLeaf{"SweepMax", ipv4.SweepMax})
+    ipv4.EntityData.Leafs.Append("rotate-pattern", types.YLeaf{"RotatePattern", ipv4.RotatePattern})
+    ipv4.EntityData.Leafs.Append("ping-error-response", types.YLeaf{"PingErrorResponse", ipv4.PingErrorResponse})
+
+    ipv4.EntityData.YListKeys = []string {"Destination"}
+
     return &(ipv4.EntityData)
 }
 
@@ -499,7 +519,7 @@ type Ping_Output_PingResponse_Ipv4_Replies struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Ping_Output_PingResponse_Ipv4_Replies_Reply.
-    Reply []Ping_Output_PingResponse_Ipv4_Replies_Reply
+    Reply []*Ping_Output_PingResponse_Ipv4_Replies_Reply
 }
 
 func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetEntityData() *types.CommonEntityData {
@@ -512,12 +532,15 @@ func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetEntityData() *types.Com
     replies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    replies.EntityData.Children = make(map[string]types.YChild)
-    replies.EntityData.Children["reply"] = types.YChild{"Reply", nil}
+    replies.EntityData.Children = types.NewOrderedMap()
+    replies.EntityData.Children.Append("reply", types.YChild{"Reply", nil})
     for i := range replies.Reply {
-        replies.EntityData.Children[types.GetSegmentPath(&replies.Reply[i])] = types.YChild{"Reply", &replies.Reply[i]}
+        replies.EntityData.Children.Append(types.GetSegmentPath(replies.Reply[i]), types.YChild{"Reply", replies.Reply[i]})
     }
-    replies.EntityData.Leafs = make(map[string]types.YLeaf)
+    replies.EntityData.Leafs = types.NewOrderedMap()
+
+    replies.EntityData.YListKeys = []string {}
+
     return &(replies.EntityData)
 }
 
@@ -542,16 +565,19 @@ func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetEntityData() *types
     reply.EntityData.YangName = "reply"
     reply.EntityData.BundleName = "cisco_ios_xr"
     reply.EntityData.ParentYangName = "replies"
-    reply.EntityData.SegmentPath = "reply" + "[reply-index='" + fmt.Sprintf("%v", reply.ReplyIndex) + "']"
+    reply.EntityData.SegmentPath = "reply" + types.AddKeyToken(reply.ReplyIndex, "reply-index")
     reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reply.EntityData.Children = make(map[string]types.YChild)
-    reply.EntityData.Children["broadcast-reply-addresses"] = types.YChild{"BroadcastReplyAddresses", &reply.BroadcastReplyAddresses}
-    reply.EntityData.Leafs = make(map[string]types.YLeaf)
-    reply.EntityData.Leafs["reply-index"] = types.YLeaf{"ReplyIndex", reply.ReplyIndex}
-    reply.EntityData.Leafs["result"] = types.YLeaf{"Result", reply.Result}
+    reply.EntityData.Children = types.NewOrderedMap()
+    reply.EntityData.Children.Append("broadcast-reply-addresses", types.YChild{"BroadcastReplyAddresses", &reply.BroadcastReplyAddresses})
+    reply.EntityData.Leafs = types.NewOrderedMap()
+    reply.EntityData.Leafs.Append("reply-index", types.YLeaf{"ReplyIndex", reply.ReplyIndex})
+    reply.EntityData.Leafs.Append("result", types.YLeaf{"Result", reply.Result})
+
+    reply.EntityData.YListKeys = []string {"ReplyIndex"}
+
     return &(reply.EntityData)
 }
 
@@ -562,7 +588,7 @@ type Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses struct 
 
     // The type is slice of
     // Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress.
-    BroadcastReplyAddress []Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress
+    BroadcastReplyAddress []*Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress
 }
 
 func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetEntityData() *types.CommonEntityData {
@@ -575,12 +601,15 @@ func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_Broad
     broadcastReplyAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastReplyAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    broadcastReplyAddresses.EntityData.Children = make(map[string]types.YChild)
-    broadcastReplyAddresses.EntityData.Children["broadcast-reply-address"] = types.YChild{"BroadcastReplyAddress", nil}
+    broadcastReplyAddresses.EntityData.Children = types.NewOrderedMap()
+    broadcastReplyAddresses.EntityData.Children.Append("broadcast-reply-address", types.YChild{"BroadcastReplyAddress", nil})
     for i := range broadcastReplyAddresses.BroadcastReplyAddress {
-        broadcastReplyAddresses.EntityData.Children[types.GetSegmentPath(&broadcastReplyAddresses.BroadcastReplyAddress[i])] = types.YChild{"BroadcastReplyAddress", &broadcastReplyAddresses.BroadcastReplyAddress[i]}
+        broadcastReplyAddresses.EntityData.Children.Append(types.GetSegmentPath(broadcastReplyAddresses.BroadcastReplyAddress[i]), types.YChild{"BroadcastReplyAddress", broadcastReplyAddresses.BroadcastReplyAddress[i]})
     }
-    broadcastReplyAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    broadcastReplyAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    broadcastReplyAddresses.EntityData.YListKeys = []string {}
+
     return &(broadcastReplyAddresses.EntityData)
 }
 
@@ -601,15 +630,18 @@ func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_Broadca
     broadcastReplyAddress.EntityData.YangName = "broadcast-reply-address"
     broadcastReplyAddress.EntityData.BundleName = "cisco_ios_xr"
     broadcastReplyAddress.EntityData.ParentYangName = "broadcast-reply-addresses"
-    broadcastReplyAddress.EntityData.SegmentPath = "broadcast-reply-address" + "[reply-address='" + fmt.Sprintf("%v", broadcastReplyAddress.ReplyAddress) + "']"
+    broadcastReplyAddress.EntityData.SegmentPath = "broadcast-reply-address" + types.AddKeyToken(broadcastReplyAddress.ReplyAddress, "reply-address")
     broadcastReplyAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastReplyAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastReplyAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    broadcastReplyAddress.EntityData.Children = make(map[string]types.YChild)
-    broadcastReplyAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    broadcastReplyAddress.EntityData.Leafs["reply-address"] = types.YLeaf{"ReplyAddress", broadcastReplyAddress.ReplyAddress}
-    broadcastReplyAddress.EntityData.Leafs["result"] = types.YLeaf{"Result", broadcastReplyAddress.Result}
+    broadcastReplyAddress.EntityData.Children = types.NewOrderedMap()
+    broadcastReplyAddress.EntityData.Leafs = types.NewOrderedMap()
+    broadcastReplyAddress.EntityData.Leafs.Append("reply-address", types.YLeaf{"ReplyAddress", broadcastReplyAddress.ReplyAddress})
+    broadcastReplyAddress.EntityData.Leafs.Append("result", types.YLeaf{"Result", broadcastReplyAddress.Result})
+
+    broadcastReplyAddress.EntityData.YListKeys = []string {"ReplyAddress"}
+
     return &(broadcastReplyAddress.EntityData)
 }
 
@@ -638,8 +670,7 @@ type Ping_Output_PingResponse_Ipv6 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -694,25 +725,28 @@ func (ipv6 *Ping_Output_PingResponse_Ipv6) GetEntityData() *types.CommonEntityDa
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["replies"] = types.YChild{"Replies", &ipv6.Replies}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv6.Destination}
-    ipv6.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", ipv6.RepeatCount}
-    ipv6.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", ipv6.DataSize}
-    ipv6.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv6.Timeout}
-    ipv6.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ipv6.Interval}
-    ipv6.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", ipv6.Pattern}
-    ipv6.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", ipv6.Sweep}
-    ipv6.EntityData.Leafs["sweep-min"] = types.YLeaf{"SweepMin", ipv6.SweepMin}
-    ipv6.EntityData.Leafs["sweep-max"] = types.YLeaf{"SweepMax", ipv6.SweepMax}
-    ipv6.EntityData.Leafs["rotate-pattern"] = types.YLeaf{"RotatePattern", ipv6.RotatePattern}
-    ipv6.EntityData.Leafs["hits"] = types.YLeaf{"Hits", ipv6.Hits}
-    ipv6.EntityData.Leafs["total"] = types.YLeaf{"Total", ipv6.Total}
-    ipv6.EntityData.Leafs["success-rate"] = types.YLeaf{"SuccessRate", ipv6.SuccessRate}
-    ipv6.EntityData.Leafs["rtt-min"] = types.YLeaf{"RttMin", ipv6.RttMin}
-    ipv6.EntityData.Leafs["rtt-avg"] = types.YLeaf{"RttAvg", ipv6.RttAvg}
-    ipv6.EntityData.Leafs["rtt-max"] = types.YLeaf{"RttMax", ipv6.RttMax}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("replies", types.YChild{"Replies", &ipv6.Replies})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", ipv6.Destination})
+    ipv6.EntityData.Leafs.Append("repeat-count", types.YLeaf{"RepeatCount", ipv6.RepeatCount})
+    ipv6.EntityData.Leafs.Append("data-size", types.YLeaf{"DataSize", ipv6.DataSize})
+    ipv6.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", ipv6.Timeout})
+    ipv6.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ipv6.Interval})
+    ipv6.EntityData.Leafs.Append("pattern", types.YLeaf{"Pattern", ipv6.Pattern})
+    ipv6.EntityData.Leafs.Append("sweep", types.YLeaf{"Sweep", ipv6.Sweep})
+    ipv6.EntityData.Leafs.Append("sweep-min", types.YLeaf{"SweepMin", ipv6.SweepMin})
+    ipv6.EntityData.Leafs.Append("sweep-max", types.YLeaf{"SweepMax", ipv6.SweepMax})
+    ipv6.EntityData.Leafs.Append("rotate-pattern", types.YLeaf{"RotatePattern", ipv6.RotatePattern})
+    ipv6.EntityData.Leafs.Append("hits", types.YLeaf{"Hits", ipv6.Hits})
+    ipv6.EntityData.Leafs.Append("total", types.YLeaf{"Total", ipv6.Total})
+    ipv6.EntityData.Leafs.Append("success-rate", types.YLeaf{"SuccessRate", ipv6.SuccessRate})
+    ipv6.EntityData.Leafs.Append("rtt-min", types.YLeaf{"RttMin", ipv6.RttMin})
+    ipv6.EntityData.Leafs.Append("rtt-avg", types.YLeaf{"RttAvg", ipv6.RttAvg})
+    ipv6.EntityData.Leafs.Append("rtt-max", types.YLeaf{"RttMax", ipv6.RttMax})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -722,7 +756,7 @@ type Ping_Output_PingResponse_Ipv6_Replies struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Ping_Output_PingResponse_Ipv6_Replies_Reply.
-    Reply []Ping_Output_PingResponse_Ipv6_Replies_Reply
+    Reply []*Ping_Output_PingResponse_Ipv6_Replies_Reply
 }
 
 func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetEntityData() *types.CommonEntityData {
@@ -735,12 +769,15 @@ func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetEntityData() *types.Com
     replies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    replies.EntityData.Children = make(map[string]types.YChild)
-    replies.EntityData.Children["reply"] = types.YChild{"Reply", nil}
+    replies.EntityData.Children = types.NewOrderedMap()
+    replies.EntityData.Children.Append("reply", types.YChild{"Reply", nil})
     for i := range replies.Reply {
-        replies.EntityData.Children[types.GetSegmentPath(&replies.Reply[i])] = types.YChild{"Reply", &replies.Reply[i]}
+        replies.EntityData.Children.Append(types.GetSegmentPath(replies.Reply[i]), types.YChild{"Reply", replies.Reply[i]})
     }
-    replies.EntityData.Leafs = make(map[string]types.YLeaf)
+    replies.EntityData.Leafs = types.NewOrderedMap()
+
+    replies.EntityData.YListKeys = []string {}
+
     return &(replies.EntityData)
 }
 
@@ -762,15 +799,18 @@ func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetEntityData() *types
     reply.EntityData.YangName = "reply"
     reply.EntityData.BundleName = "cisco_ios_xr"
     reply.EntityData.ParentYangName = "replies"
-    reply.EntityData.SegmentPath = "reply" + "[reply-index='" + fmt.Sprintf("%v", reply.ReplyIndex) + "']"
+    reply.EntityData.SegmentPath = "reply" + types.AddKeyToken(reply.ReplyIndex, "reply-index")
     reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reply.EntityData.Children = make(map[string]types.YChild)
-    reply.EntityData.Leafs = make(map[string]types.YLeaf)
-    reply.EntityData.Leafs["reply-index"] = types.YLeaf{"ReplyIndex", reply.ReplyIndex}
-    reply.EntityData.Leafs["result"] = types.YLeaf{"Result", reply.Result}
+    reply.EntityData.Children = types.NewOrderedMap()
+    reply.EntityData.Leafs = types.NewOrderedMap()
+    reply.EntityData.Leafs.Append("reply-index", types.YLeaf{"ReplyIndex", reply.ReplyIndex})
+    reply.EntityData.Leafs.Append("result", types.YLeaf{"Result", reply.Result})
+
+    reply.EntityData.YListKeys = []string {"ReplyIndex"}
+
     return &(reply.EntityData)
 }
 

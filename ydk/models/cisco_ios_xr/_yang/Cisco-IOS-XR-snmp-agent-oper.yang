@@ -9,25 +9,25 @@ module Cisco-IOS-XR-snmp-agent-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-snmp-agent-oper-sub7 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-snmp-agent-oper-sub6 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-snmp-agent-oper-sub5 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-snmp-agent-oper-sub4 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-snmp-agent-oper-sub3 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-snmp-agent-oper-sub2 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-snmp-agent-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -53,6 +53,10 @@ module Cisco-IOS-XR-snmp-agent-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -345,7 +349,7 @@ module Cisco-IOS-XR-snmp-agent-oper {
               "Serial number";
           }
           leaf req-id {
-            type int32;
+            type uint32;
             description
               "Request ID";
           }
@@ -488,7 +492,7 @@ module Cisco-IOS-XR-snmp-agent-oper {
             "Interface Name";
         }
         leaf interface-index {
-          type int32;
+          type uint32;
           mandatory true;
           description
             "Interface Index as used by MIB tables";
@@ -547,7 +551,7 @@ module Cisco-IOS-XR-snmp-agent-oper {
           description
             "One of the correlated traps";
           leaf entry-id {
-            type int32;
+            type uint32;
             description
               "Entry ID";
           }
@@ -563,7 +567,7 @@ module Cisco-IOS-XR-snmp-agent-oper {
         description
           "Interface Index";
         leaf interface-index {
-          type int32;
+          type uint32;
           description
             "Interface Index as used by MIB tables";
         }
@@ -583,7 +587,7 @@ module Cisco-IOS-XR-snmp-agent-oper {
         description
           "Interface Index";
         leaf interface-index {
-          type int32;
+          type uint32;
           description
             "Interface Index as used by MIB tables";
         }

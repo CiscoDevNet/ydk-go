@@ -44,9 +44,12 @@ func (upgradeFpd *UpgradeFpd) GetEntityData() *types.CommonEntityData {
     upgradeFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upgradeFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    upgradeFpd.EntityData.Children = make(map[string]types.YChild)
-    upgradeFpd.EntityData.Children["input"] = types.YChild{"Input", &upgradeFpd.Input}
-    upgradeFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    upgradeFpd.EntityData.Children = types.NewOrderedMap()
+    upgradeFpd.EntityData.Children.Append("input", types.YChild{"Input", &upgradeFpd.Input})
+    upgradeFpd.EntityData.Leafs = types.NewOrderedMap()
+
+    upgradeFpd.EntityData.YListKeys = []string {}
+
     return &(upgradeFpd.EntityData)
 }
 
@@ -77,11 +80,14 @@ func (input *UpgradeFpd_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["location"] = types.YLeaf{"Location", input.Location}
-    input.EntityData.Leafs["fpd"] = types.YLeaf{"Fpd", input.Fpd}
-    input.EntityData.Leafs["force"] = types.YLeaf{"Force", input.Force}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("location", types.YLeaf{"Location", input.Location})
+    input.EntityData.Leafs.Append("fpd", types.YLeaf{"Fpd", input.Fpd})
+    input.EntityData.Leafs.Append("force", types.YLeaf{"Force", input.Force})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

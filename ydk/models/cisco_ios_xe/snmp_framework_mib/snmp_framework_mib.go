@@ -20,18 +20,18 @@ func init() {
     ydk.RegisterEntity("SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB", reflect.TypeOf(SNMPFRAMEWORKMIB{}))
 }
 
-type Snmpauthprotocols struct {
+type SnmpPrivProtocols struct {
 }
 
-func (id Snmpauthprotocols) String() string {
-	return "SNMP-FRAMEWORK-MIB:snmpAuthProtocols"
-}
-
-type Snmpprivprotocols struct {
-}
-
-func (id Snmpprivprotocols) String() string {
+func (id SnmpPrivProtocols) String() string {
 	return "SNMP-FRAMEWORK-MIB:snmpPrivProtocols"
+}
+
+type SnmpAuthProtocols struct {
+}
+
+func (id SnmpAuthProtocols) String() string {
+	return "SNMP-FRAMEWORK-MIB:snmpAuthProtocols"
 }
 
 // SnmpSecurityLevel represents authNoPriv is less than authPriv.
@@ -51,7 +51,7 @@ type SNMPFRAMEWORKMIB struct {
     YFilter yfilter.YFilter
 
     
-    Snmpengine SNMPFRAMEWORKMIB_Snmpengine
+    SnmpEngine SNMPFRAMEWORKMIB_SnmpEngine
 }
 
 func (sNMPFRAMEWORKMIB *SNMPFRAMEWORKMIB) GetEntityData() *types.CommonEntityData {
@@ -64,14 +64,17 @@ func (sNMPFRAMEWORKMIB *SNMPFRAMEWORKMIB) GetEntityData() *types.CommonEntityDat
     sNMPFRAMEWORKMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sNMPFRAMEWORKMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sNMPFRAMEWORKMIB.EntityData.Children = make(map[string]types.YChild)
-    sNMPFRAMEWORKMIB.EntityData.Children["snmpEngine"] = types.YChild{"Snmpengine", &sNMPFRAMEWORKMIB.Snmpengine}
-    sNMPFRAMEWORKMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    sNMPFRAMEWORKMIB.EntityData.Children = types.NewOrderedMap()
+    sNMPFRAMEWORKMIB.EntityData.Children.Append("snmpEngine", types.YChild{"SnmpEngine", &sNMPFRAMEWORKMIB.SnmpEngine})
+    sNMPFRAMEWORKMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    sNMPFRAMEWORKMIB.EntityData.YListKeys = []string {}
+
     return &(sNMPFRAMEWORKMIB.EntityData)
 }
 
-// SNMPFRAMEWORKMIB_Snmpengine
-type SNMPFRAMEWORKMIB_Snmpengine struct {
+// SNMPFRAMEWORKMIB_SnmpEngine
+type SNMPFRAMEWORKMIB_SnmpEngine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -79,44 +82,47 @@ type SNMPFRAMEWORKMIB_Snmpengine struct {
     // SHOULD be stored in non-volatile storage so that it remains constant across
     // re-initializations of the SNMP engine. The type is string with length:
     // 5..32.
-    Snmpengineid interface{}
+    SnmpEngineID interface{}
 
     // The number of times that the SNMP engine has (re-)initialized itself since
     // snmpEngineID was last configured. The type is interface{} with range:
     // 1..2147483647.
-    Snmpengineboots interface{}
+    SnmpEngineBoots interface{}
 
     // The number of seconds since the value of the snmpEngineBoots object last
     // changed. When incrementing this object's value would cause it to exceed its
     // maximum, snmpEngineBoots is incremented as if a re-initialization had
     // occurred, and this object's value consequently reverts to zero. The type is
     // interface{} with range: 0..2147483647. Units are seconds.
-    Snmpenginetime interface{}
+    SnmpEngineTime interface{}
 
     // The maximum length in octets of an SNMP message which this SNMP engine can
     // send or receive and process, determined as the minimum of the maximum
     // message size values supported among all of the transports available to and
     // supported by the engine. The type is interface{} with range:
     // 484..2147483647.
-    Snmpenginemaxmessagesize interface{}
+    SnmpEngineMaxMessageSize interface{}
 }
 
-func (snmpengine *SNMPFRAMEWORKMIB_Snmpengine) GetEntityData() *types.CommonEntityData {
-    snmpengine.EntityData.YFilter = snmpengine.YFilter
-    snmpengine.EntityData.YangName = "snmpEngine"
-    snmpengine.EntityData.BundleName = "cisco_ios_xe"
-    snmpengine.EntityData.ParentYangName = "SNMP-FRAMEWORK-MIB"
-    snmpengine.EntityData.SegmentPath = "snmpEngine"
-    snmpengine.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    snmpengine.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    snmpengine.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (snmpEngine *SNMPFRAMEWORKMIB_SnmpEngine) GetEntityData() *types.CommonEntityData {
+    snmpEngine.EntityData.YFilter = snmpEngine.YFilter
+    snmpEngine.EntityData.YangName = "snmpEngine"
+    snmpEngine.EntityData.BundleName = "cisco_ios_xe"
+    snmpEngine.EntityData.ParentYangName = "SNMP-FRAMEWORK-MIB"
+    snmpEngine.EntityData.SegmentPath = "snmpEngine"
+    snmpEngine.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpEngine.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpEngine.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmpengine.EntityData.Children = make(map[string]types.YChild)
-    snmpengine.EntityData.Leafs = make(map[string]types.YLeaf)
-    snmpengine.EntityData.Leafs["snmpEngineID"] = types.YLeaf{"Snmpengineid", snmpengine.Snmpengineid}
-    snmpengine.EntityData.Leafs["snmpEngineBoots"] = types.YLeaf{"Snmpengineboots", snmpengine.Snmpengineboots}
-    snmpengine.EntityData.Leafs["snmpEngineTime"] = types.YLeaf{"Snmpenginetime", snmpengine.Snmpenginetime}
-    snmpengine.EntityData.Leafs["snmpEngineMaxMessageSize"] = types.YLeaf{"Snmpenginemaxmessagesize", snmpengine.Snmpenginemaxmessagesize}
-    return &(snmpengine.EntityData)
+    snmpEngine.EntityData.Children = types.NewOrderedMap()
+    snmpEngine.EntityData.Leafs = types.NewOrderedMap()
+    snmpEngine.EntityData.Leafs.Append("snmpEngineID", types.YLeaf{"SnmpEngineID", snmpEngine.SnmpEngineID})
+    snmpEngine.EntityData.Leafs.Append("snmpEngineBoots", types.YLeaf{"SnmpEngineBoots", snmpEngine.SnmpEngineBoots})
+    snmpEngine.EntityData.Leafs.Append("snmpEngineTime", types.YLeaf{"SnmpEngineTime", snmpEngine.SnmpEngineTime})
+    snmpEngine.EntityData.Leafs.Append("snmpEngineMaxMessageSize", types.YLeaf{"SnmpEngineMaxMessageSize", snmpEngine.SnmpEngineMaxMessageSize})
+
+    snmpEngine.EntityData.YListKeys = []string {}
+
+    return &(snmpEngine.EntityData)
 }
 

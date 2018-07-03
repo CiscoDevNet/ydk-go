@@ -44,9 +44,12 @@ func (sessionMon *SessionMon) GetEntityData() *types.CommonEntityData {
     sessionMon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionMon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionMon.EntityData.Children = make(map[string]types.YChild)
-    sessionMon.EntityData.Children["nodes"] = types.YChild{"Nodes", &sessionMon.Nodes}
-    sessionMon.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionMon.EntityData.Children = types.NewOrderedMap()
+    sessionMon.EntityData.Children.Append("nodes", types.YChild{"Nodes", &sessionMon.Nodes})
+    sessionMon.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionMon.EntityData.YListKeys = []string {}
+
     return &(sessionMon.EntityData)
 }
 
@@ -58,7 +61,7 @@ type SessionMon_Nodes struct {
 
     // Subscriber sessionmon operational data for a particular node. The type is
     // slice of SessionMon_Nodes_Node.
-    Node []SessionMon_Nodes_Node
+    Node []*SessionMon_Nodes_Node
 }
 
 func (nodes *SessionMon_Nodes) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (nodes *SessionMon_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -88,7 +94,7 @@ type SessionMon_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Nodeid location . The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Session Mon Statistics.
@@ -106,17 +112,20 @@ func (node *SessionMon_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["session-mon-statistics"] = types.YChild{"SessionMonStatistics", &node.SessionMonStatistics}
-    node.EntityData.Children["interface-all-statistics"] = types.YChild{"InterfaceAllStatistics", &node.InterfaceAllStatistics}
-    node.EntityData.Children["license-statistics"] = types.YChild{"LicenseStatistics", &node.LicenseStatistics}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("session-mon-statistics", types.YChild{"SessionMonStatistics", &node.SessionMonStatistics})
+    node.EntityData.Children.Append("interface-all-statistics", types.YChild{"InterfaceAllStatistics", &node.InterfaceAllStatistics})
+    node.EntityData.Children.Append("license-statistics", types.YChild{"LicenseStatistics", &node.LicenseStatistics})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -176,21 +185,24 @@ func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetEntit
     sessionMonStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionMonStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionMonStatistics.EntityData.Children = make(map[string]types.YChild)
-    sessionMonStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionMonStatistics.EntityData.Leafs["total"] = types.YLeaf{"Total", sessionMonStatistics.Total}
-    sessionMonStatistics.EntityData.Leafs["pppoe"] = types.YLeaf{"Pppoe", sessionMonStatistics.Pppoe}
-    sessionMonStatistics.EntityData.Leafs["pppoe-ds"] = types.YLeaf{"PppoeDs", sessionMonStatistics.PppoeDs}
-    sessionMonStatistics.EntityData.Leafs["dhcpv4"] = types.YLeaf{"Dhcpv4", sessionMonStatistics.Dhcpv4}
-    sessionMonStatistics.EntityData.Leafs["dhcpv6"] = types.YLeaf{"Dhcpv6", sessionMonStatistics.Dhcpv6}
-    sessionMonStatistics.EntityData.Leafs["dhcp-ds"] = types.YLeaf{"DhcpDs", sessionMonStatistics.DhcpDs}
-    sessionMonStatistics.EntityData.Leafs["ippkt"] = types.YLeaf{"Ippkt", sessionMonStatistics.Ippkt}
-    sessionMonStatistics.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", sessionMonStatistics.ActiveSessions}
-    sessionMonStatistics.EntityData.Leafs["standby-sessions"] = types.YLeaf{"StandbySessions", sessionMonStatistics.StandbySessions}
-    sessionMonStatistics.EntityData.Leafs["peak-active-sessions"] = types.YLeaf{"PeakActiveSessions", sessionMonStatistics.PeakActiveSessions}
-    sessionMonStatistics.EntityData.Leafs["peak-standby-sessions"] = types.YLeaf{"PeakStandbySessions", sessionMonStatistics.PeakStandbySessions}
-    sessionMonStatistics.EntityData.Leafs["peak-start-time"] = types.YLeaf{"PeakStartTime", sessionMonStatistics.PeakStartTime}
-    sessionMonStatistics.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", sessionMonStatistics.TimeoutValue}
+    sessionMonStatistics.EntityData.Children = types.NewOrderedMap()
+    sessionMonStatistics.EntityData.Leafs = types.NewOrderedMap()
+    sessionMonStatistics.EntityData.Leafs.Append("total", types.YLeaf{"Total", sessionMonStatistics.Total})
+    sessionMonStatistics.EntityData.Leafs.Append("pppoe", types.YLeaf{"Pppoe", sessionMonStatistics.Pppoe})
+    sessionMonStatistics.EntityData.Leafs.Append("pppoe-ds", types.YLeaf{"PppoeDs", sessionMonStatistics.PppoeDs})
+    sessionMonStatistics.EntityData.Leafs.Append("dhcpv4", types.YLeaf{"Dhcpv4", sessionMonStatistics.Dhcpv4})
+    sessionMonStatistics.EntityData.Leafs.Append("dhcpv6", types.YLeaf{"Dhcpv6", sessionMonStatistics.Dhcpv6})
+    sessionMonStatistics.EntityData.Leafs.Append("dhcp-ds", types.YLeaf{"DhcpDs", sessionMonStatistics.DhcpDs})
+    sessionMonStatistics.EntityData.Leafs.Append("ippkt", types.YLeaf{"Ippkt", sessionMonStatistics.Ippkt})
+    sessionMonStatistics.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", sessionMonStatistics.ActiveSessions})
+    sessionMonStatistics.EntityData.Leafs.Append("standby-sessions", types.YLeaf{"StandbySessions", sessionMonStatistics.StandbySessions})
+    sessionMonStatistics.EntityData.Leafs.Append("peak-active-sessions", types.YLeaf{"PeakActiveSessions", sessionMonStatistics.PeakActiveSessions})
+    sessionMonStatistics.EntityData.Leafs.Append("peak-standby-sessions", types.YLeaf{"PeakStandbySessions", sessionMonStatistics.PeakStandbySessions})
+    sessionMonStatistics.EntityData.Leafs.Append("peak-start-time", types.YLeaf{"PeakStartTime", sessionMonStatistics.PeakStartTime})
+    sessionMonStatistics.EntityData.Leafs.Append("timeout-value", types.YLeaf{"TimeoutValue", sessionMonStatistics.TimeoutValue})
+
+    sessionMonStatistics.EntityData.YListKeys = []string {}
+
     return &(sessionMonStatistics.EntityData)
 }
 
@@ -202,7 +214,7 @@ type SessionMon_Nodes_Node_InterfaceAllStatistics struct {
 
     // Statistics. The type is slice of
     // SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic.
-    InterfaceAllStatistic []SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic
+    InterfaceAllStatistic []*SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic
 }
 
 func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetEntityData() *types.CommonEntityData {
@@ -215,12 +227,15 @@ func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetE
     interfaceAllStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAllStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceAllStatistics.EntityData.Children = make(map[string]types.YChild)
-    interfaceAllStatistics.EntityData.Children["interface-all-statistic"] = types.YChild{"InterfaceAllStatistic", nil}
+    interfaceAllStatistics.EntityData.Children = types.NewOrderedMap()
+    interfaceAllStatistics.EntityData.Children.Append("interface-all-statistic", types.YChild{"InterfaceAllStatistic", nil})
     for i := range interfaceAllStatistics.InterfaceAllStatistic {
-        interfaceAllStatistics.EntityData.Children[types.GetSegmentPath(&interfaceAllStatistics.InterfaceAllStatistic[i])] = types.YChild{"InterfaceAllStatistic", &interfaceAllStatistics.InterfaceAllStatistic[i]}
+        interfaceAllStatistics.EntityData.Children.Append(types.GetSegmentPath(interfaceAllStatistics.InterfaceAllStatistic[i]), types.YChild{"InterfaceAllStatistic", interfaceAllStatistics.InterfaceAllStatistic[i]})
     }
-    interfaceAllStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceAllStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceAllStatistics.EntityData.YListKeys = []string {}
+
     return &(interfaceAllStatistics.EntityData)
 }
 
@@ -231,7 +246,7 @@ type SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // total. The type is interface{} with range: 0..4294967295.
@@ -279,27 +294,30 @@ func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_Interf
     interfaceAllStatistic.EntityData.YangName = "interface-all-statistic"
     interfaceAllStatistic.EntityData.BundleName = "cisco_ios_xr"
     interfaceAllStatistic.EntityData.ParentYangName = "interface-all-statistics"
-    interfaceAllStatistic.EntityData.SegmentPath = "interface-all-statistic" + "[interface-name='" + fmt.Sprintf("%v", interfaceAllStatistic.InterfaceName) + "']"
+    interfaceAllStatistic.EntityData.SegmentPath = "interface-all-statistic" + types.AddKeyToken(interfaceAllStatistic.InterfaceName, "interface-name")
     interfaceAllStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAllStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAllStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceAllStatistic.EntityData.Children = make(map[string]types.YChild)
-    interfaceAllStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceAllStatistic.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceAllStatistic.InterfaceName}
-    interfaceAllStatistic.EntityData.Leafs["total"] = types.YLeaf{"Total", interfaceAllStatistic.Total}
-    interfaceAllStatistic.EntityData.Leafs["pppoe"] = types.YLeaf{"Pppoe", interfaceAllStatistic.Pppoe}
-    interfaceAllStatistic.EntityData.Leafs["pppoe-ds"] = types.YLeaf{"PppoeDs", interfaceAllStatistic.PppoeDs}
-    interfaceAllStatistic.EntityData.Leafs["dhcpv4"] = types.YLeaf{"Dhcpv4", interfaceAllStatistic.Dhcpv4}
-    interfaceAllStatistic.EntityData.Leafs["dhcpv6"] = types.YLeaf{"Dhcpv6", interfaceAllStatistic.Dhcpv6}
-    interfaceAllStatistic.EntityData.Leafs["dhcp-ds"] = types.YLeaf{"DhcpDs", interfaceAllStatistic.DhcpDs}
-    interfaceAllStatistic.EntityData.Leafs["ippkt"] = types.YLeaf{"Ippkt", interfaceAllStatistic.Ippkt}
-    interfaceAllStatistic.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", interfaceAllStatistic.ActiveSessions}
-    interfaceAllStatistic.EntityData.Leafs["standby-sessions"] = types.YLeaf{"StandbySessions", interfaceAllStatistic.StandbySessions}
-    interfaceAllStatistic.EntityData.Leafs["peak-active-sessions"] = types.YLeaf{"PeakActiveSessions", interfaceAllStatistic.PeakActiveSessions}
-    interfaceAllStatistic.EntityData.Leafs["peak-standby-sessions"] = types.YLeaf{"PeakStandbySessions", interfaceAllStatistic.PeakStandbySessions}
-    interfaceAllStatistic.EntityData.Leafs["peak-start-time"] = types.YLeaf{"PeakStartTime", interfaceAllStatistic.PeakStartTime}
-    interfaceAllStatistic.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", interfaceAllStatistic.TimeoutValue}
+    interfaceAllStatistic.EntityData.Children = types.NewOrderedMap()
+    interfaceAllStatistic.EntityData.Leafs = types.NewOrderedMap()
+    interfaceAllStatistic.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceAllStatistic.InterfaceName})
+    interfaceAllStatistic.EntityData.Leafs.Append("total", types.YLeaf{"Total", interfaceAllStatistic.Total})
+    interfaceAllStatistic.EntityData.Leafs.Append("pppoe", types.YLeaf{"Pppoe", interfaceAllStatistic.Pppoe})
+    interfaceAllStatistic.EntityData.Leafs.Append("pppoe-ds", types.YLeaf{"PppoeDs", interfaceAllStatistic.PppoeDs})
+    interfaceAllStatistic.EntityData.Leafs.Append("dhcpv4", types.YLeaf{"Dhcpv4", interfaceAllStatistic.Dhcpv4})
+    interfaceAllStatistic.EntityData.Leafs.Append("dhcpv6", types.YLeaf{"Dhcpv6", interfaceAllStatistic.Dhcpv6})
+    interfaceAllStatistic.EntityData.Leafs.Append("dhcp-ds", types.YLeaf{"DhcpDs", interfaceAllStatistic.DhcpDs})
+    interfaceAllStatistic.EntityData.Leafs.Append("ippkt", types.YLeaf{"Ippkt", interfaceAllStatistic.Ippkt})
+    interfaceAllStatistic.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", interfaceAllStatistic.ActiveSessions})
+    interfaceAllStatistic.EntityData.Leafs.Append("standby-sessions", types.YLeaf{"StandbySessions", interfaceAllStatistic.StandbySessions})
+    interfaceAllStatistic.EntityData.Leafs.Append("peak-active-sessions", types.YLeaf{"PeakActiveSessions", interfaceAllStatistic.PeakActiveSessions})
+    interfaceAllStatistic.EntityData.Leafs.Append("peak-standby-sessions", types.YLeaf{"PeakStandbySessions", interfaceAllStatistic.PeakStandbySessions})
+    interfaceAllStatistic.EntityData.Leafs.Append("peak-start-time", types.YLeaf{"PeakStartTime", interfaceAllStatistic.PeakStartTime})
+    interfaceAllStatistic.EntityData.Leafs.Append("timeout-value", types.YLeaf{"TimeoutValue", interfaceAllStatistic.TimeoutValue})
+
+    interfaceAllStatistic.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(interfaceAllStatistic.EntityData)
 }
 
@@ -359,21 +377,24 @@ func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetEntityData(
     licenseStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     licenseStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    licenseStatistics.EntityData.Children = make(map[string]types.YChild)
-    licenseStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    licenseStatistics.EntityData.Leafs["total"] = types.YLeaf{"Total", licenseStatistics.Total}
-    licenseStatistics.EntityData.Leafs["pppoe"] = types.YLeaf{"Pppoe", licenseStatistics.Pppoe}
-    licenseStatistics.EntityData.Leafs["pppoe-ds"] = types.YLeaf{"PppoeDs", licenseStatistics.PppoeDs}
-    licenseStatistics.EntityData.Leafs["dhcpv4"] = types.YLeaf{"Dhcpv4", licenseStatistics.Dhcpv4}
-    licenseStatistics.EntityData.Leafs["dhcpv6"] = types.YLeaf{"Dhcpv6", licenseStatistics.Dhcpv6}
-    licenseStatistics.EntityData.Leafs["dhcp-ds"] = types.YLeaf{"DhcpDs", licenseStatistics.DhcpDs}
-    licenseStatistics.EntityData.Leafs["ippkt"] = types.YLeaf{"Ippkt", licenseStatistics.Ippkt}
-    licenseStatistics.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", licenseStatistics.ActiveSessions}
-    licenseStatistics.EntityData.Leafs["standby-sessions"] = types.YLeaf{"StandbySessions", licenseStatistics.StandbySessions}
-    licenseStatistics.EntityData.Leafs["peak-active-sessions"] = types.YLeaf{"PeakActiveSessions", licenseStatistics.PeakActiveSessions}
-    licenseStatistics.EntityData.Leafs["peak-standby-sessions"] = types.YLeaf{"PeakStandbySessions", licenseStatistics.PeakStandbySessions}
-    licenseStatistics.EntityData.Leafs["peak-start-time"] = types.YLeaf{"PeakStartTime", licenseStatistics.PeakStartTime}
-    licenseStatistics.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", licenseStatistics.TimeoutValue}
+    licenseStatistics.EntityData.Children = types.NewOrderedMap()
+    licenseStatistics.EntityData.Leafs = types.NewOrderedMap()
+    licenseStatistics.EntityData.Leafs.Append("total", types.YLeaf{"Total", licenseStatistics.Total})
+    licenseStatistics.EntityData.Leafs.Append("pppoe", types.YLeaf{"Pppoe", licenseStatistics.Pppoe})
+    licenseStatistics.EntityData.Leafs.Append("pppoe-ds", types.YLeaf{"PppoeDs", licenseStatistics.PppoeDs})
+    licenseStatistics.EntityData.Leafs.Append("dhcpv4", types.YLeaf{"Dhcpv4", licenseStatistics.Dhcpv4})
+    licenseStatistics.EntityData.Leafs.Append("dhcpv6", types.YLeaf{"Dhcpv6", licenseStatistics.Dhcpv6})
+    licenseStatistics.EntityData.Leafs.Append("dhcp-ds", types.YLeaf{"DhcpDs", licenseStatistics.DhcpDs})
+    licenseStatistics.EntityData.Leafs.Append("ippkt", types.YLeaf{"Ippkt", licenseStatistics.Ippkt})
+    licenseStatistics.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", licenseStatistics.ActiveSessions})
+    licenseStatistics.EntityData.Leafs.Append("standby-sessions", types.YLeaf{"StandbySessions", licenseStatistics.StandbySessions})
+    licenseStatistics.EntityData.Leafs.Append("peak-active-sessions", types.YLeaf{"PeakActiveSessions", licenseStatistics.PeakActiveSessions})
+    licenseStatistics.EntityData.Leafs.Append("peak-standby-sessions", types.YLeaf{"PeakStandbySessions", licenseStatistics.PeakStandbySessions})
+    licenseStatistics.EntityData.Leafs.Append("peak-start-time", types.YLeaf{"PeakStartTime", licenseStatistics.PeakStartTime})
+    licenseStatistics.EntityData.Leafs.Append("timeout-value", types.YLeaf{"TimeoutValue", licenseStatistics.TimeoutValue})
+
+    licenseStatistics.EntityData.YListKeys = []string {}
+
     return &(licenseStatistics.EntityData)
 }
 

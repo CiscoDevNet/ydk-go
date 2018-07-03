@@ -19,6 +19,20 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-device-hardware-oper:device-hardware-data", reflect.TypeOf(DeviceHardwareData{}))
 }
 
+// AlarmSeverity represents Alarm severity
+type AlarmSeverity string
+
+const (
+    // Critical Alarms
+    AlarmSeverity_alarm_severity_critical AlarmSeverity = "alarm-severity-critical"
+
+    // Major Alarms
+    AlarmSeverity_alarm_severity_major AlarmSeverity = "alarm-severity-major"
+
+    // Minor Alarms
+    AlarmSeverity_alarm_severity_minor AlarmSeverity = "alarm-severity-minor"
+)
+
 // HwType represents The broad type of hardware device
 type HwType string
 
@@ -60,20 +74,6 @@ const (
     HwType_hw_type_pem HwType = "hw-type-pem"
 )
 
-// AlarmSeverity represents Alarm severity
-type AlarmSeverity string
-
-const (
-    // Critical Alarms
-    AlarmSeverity_alarm_severity_critical AlarmSeverity = "alarm-severity-critical"
-
-    // Major Alarms
-    AlarmSeverity_alarm_severity_major AlarmSeverity = "alarm-severity-major"
-
-    // Minor Alarms
-    AlarmSeverity_alarm_severity_minor AlarmSeverity = "alarm-severity-minor"
-)
-
 // DeviceHardwareData
 // Device Hardware
 type DeviceHardwareData struct {
@@ -94,9 +94,12 @@ func (deviceHardwareData *DeviceHardwareData) GetEntityData() *types.CommonEntit
     deviceHardwareData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceHardwareData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    deviceHardwareData.EntityData.Children = make(map[string]types.YChild)
-    deviceHardwareData.EntityData.Children["device-hardware"] = types.YChild{"DeviceHardware", &deviceHardwareData.DeviceHardware}
-    deviceHardwareData.EntityData.Leafs = make(map[string]types.YLeaf)
+    deviceHardwareData.EntityData.Children = types.NewOrderedMap()
+    deviceHardwareData.EntityData.Children.Append("device-hardware", types.YChild{"DeviceHardware", &deviceHardwareData.DeviceHardware})
+    deviceHardwareData.EntityData.Leafs = types.NewOrderedMap()
+
+    deviceHardwareData.EntityData.YListKeys = []string {}
+
     return &(deviceHardwareData.EntityData)
 }
 
@@ -106,14 +109,15 @@ func (deviceHardwareData *DeviceHardwareData) GetEntityData() *types.CommonEntit
 type DeviceHardwareData_DeviceHardware struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // All the inventory in the hardware. The type is slice of
     // DeviceHardwareData_DeviceHardware_DeviceInventory.
-    DeviceInventory []DeviceHardwareData_DeviceHardware_DeviceInventory
+    DeviceInventory []*DeviceHardwareData_DeviceHardware_DeviceInventory
 
     // The current alarms. The type is slice of
     // DeviceHardwareData_DeviceHardware_DeviceAlarm.
-    DeviceAlarm []DeviceHardwareData_DeviceHardware_DeviceAlarm
+    DeviceAlarm []*DeviceHardwareData_DeviceHardware_DeviceAlarm
 
     // The current device system data.
     DeviceSystemData DeviceHardwareData_DeviceHardware_DeviceSystemData
@@ -129,17 +133,20 @@ func (deviceHardware *DeviceHardwareData_DeviceHardware) GetEntityData() *types.
     deviceHardware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceHardware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    deviceHardware.EntityData.Children = make(map[string]types.YChild)
-    deviceHardware.EntityData.Children["device-inventory"] = types.YChild{"DeviceInventory", nil}
+    deviceHardware.EntityData.Children = types.NewOrderedMap()
+    deviceHardware.EntityData.Children.Append("device-inventory", types.YChild{"DeviceInventory", nil})
     for i := range deviceHardware.DeviceInventory {
-        deviceHardware.EntityData.Children[types.GetSegmentPath(&deviceHardware.DeviceInventory[i])] = types.YChild{"DeviceInventory", &deviceHardware.DeviceInventory[i]}
+        deviceHardware.EntityData.Children.Append(types.GetSegmentPath(deviceHardware.DeviceInventory[i]), types.YChild{"DeviceInventory", deviceHardware.DeviceInventory[i]})
     }
-    deviceHardware.EntityData.Children["device-alarm"] = types.YChild{"DeviceAlarm", nil}
+    deviceHardware.EntityData.Children.Append("device-alarm", types.YChild{"DeviceAlarm", nil})
     for i := range deviceHardware.DeviceAlarm {
-        deviceHardware.EntityData.Children[types.GetSegmentPath(&deviceHardware.DeviceAlarm[i])] = types.YChild{"DeviceAlarm", &deviceHardware.DeviceAlarm[i]}
+        deviceHardware.EntityData.Children.Append(types.GetSegmentPath(deviceHardware.DeviceAlarm[i]), types.YChild{"DeviceAlarm", deviceHardware.DeviceAlarm[i]})
     }
-    deviceHardware.EntityData.Children["device-system-data"] = types.YChild{"DeviceSystemData", &deviceHardware.DeviceSystemData}
-    deviceHardware.EntityData.Leafs = make(map[string]types.YLeaf)
+    deviceHardware.EntityData.Children.Append("device-system-data", types.YChild{"DeviceSystemData", &deviceHardware.DeviceSystemData})
+    deviceHardware.EntityData.Leafs = types.NewOrderedMap()
+
+    deviceHardware.EntityData.YListKeys = []string {}
+
     return &(deviceHardware.EntityData)
 }
 
@@ -177,19 +184,22 @@ func (deviceInventory *DeviceHardwareData_DeviceHardware_DeviceInventory) GetEnt
     deviceInventory.EntityData.YangName = "device-inventory"
     deviceInventory.EntityData.BundleName = "cisco_ios_xe"
     deviceInventory.EntityData.ParentYangName = "device-hardware"
-    deviceInventory.EntityData.SegmentPath = "device-inventory" + "[hw-type='" + fmt.Sprintf("%v", deviceInventory.HwType) + "']" + "[hw-dev-index='" + fmt.Sprintf("%v", deviceInventory.HwDevIndex) + "']"
+    deviceInventory.EntityData.SegmentPath = "device-inventory" + types.AddKeyToken(deviceInventory.HwType, "hw-type") + types.AddKeyToken(deviceInventory.HwDevIndex, "hw-dev-index")
     deviceInventory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deviceInventory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceInventory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    deviceInventory.EntityData.Children = make(map[string]types.YChild)
-    deviceInventory.EntityData.Leafs = make(map[string]types.YLeaf)
-    deviceInventory.EntityData.Leafs["hw-type"] = types.YLeaf{"HwType", deviceInventory.HwType}
-    deviceInventory.EntityData.Leafs["hw-dev-index"] = types.YLeaf{"HwDevIndex", deviceInventory.HwDevIndex}
-    deviceInventory.EntityData.Leafs["version"] = types.YLeaf{"Version", deviceInventory.Version}
-    deviceInventory.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", deviceInventory.PartNumber}
-    deviceInventory.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", deviceInventory.SerialNumber}
-    deviceInventory.EntityData.Leafs["hw-description"] = types.YLeaf{"HwDescription", deviceInventory.HwDescription}
+    deviceInventory.EntityData.Children = types.NewOrderedMap()
+    deviceInventory.EntityData.Leafs = types.NewOrderedMap()
+    deviceInventory.EntityData.Leafs.Append("hw-type", types.YLeaf{"HwType", deviceInventory.HwType})
+    deviceInventory.EntityData.Leafs.Append("hw-dev-index", types.YLeaf{"HwDevIndex", deviceInventory.HwDevIndex})
+    deviceInventory.EntityData.Leafs.Append("version", types.YLeaf{"Version", deviceInventory.Version})
+    deviceInventory.EntityData.Leafs.Append("part-number", types.YLeaf{"PartNumber", deviceInventory.PartNumber})
+    deviceInventory.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", deviceInventory.SerialNumber})
+    deviceInventory.EntityData.Leafs.Append("hw-description", types.YLeaf{"HwDescription", deviceInventory.HwDescription})
+
+    deviceInventory.EntityData.YListKeys = []string {"HwType", "HwDevIndex"}
+
     return &(deviceInventory.EntityData)
 }
 
@@ -215,7 +225,7 @@ type DeviceHardwareData_DeviceHardware_DeviceAlarm struct {
     AlarmCategory interface{}
 
     // Time the alarm was raised. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AlarmTime interface{}
 
     // Description of the alarm. The type is string.
@@ -227,19 +237,22 @@ func (deviceAlarm *DeviceHardwareData_DeviceHardware_DeviceAlarm) GetEntityData(
     deviceAlarm.EntityData.YangName = "device-alarm"
     deviceAlarm.EntityData.BundleName = "cisco_ios_xe"
     deviceAlarm.EntityData.ParentYangName = "device-hardware"
-    deviceAlarm.EntityData.SegmentPath = "device-alarm" + "[alarm-id='" + fmt.Sprintf("%v", deviceAlarm.AlarmId) + "']" + "[alarm-instance='" + fmt.Sprintf("%v", deviceAlarm.AlarmInstance) + "']"
+    deviceAlarm.EntityData.SegmentPath = "device-alarm" + types.AddKeyToken(deviceAlarm.AlarmId, "alarm-id") + types.AddKeyToken(deviceAlarm.AlarmInstance, "alarm-instance")
     deviceAlarm.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deviceAlarm.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceAlarm.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    deviceAlarm.EntityData.Children = make(map[string]types.YChild)
-    deviceAlarm.EntityData.Leafs = make(map[string]types.YLeaf)
-    deviceAlarm.EntityData.Leafs["alarm-id"] = types.YLeaf{"AlarmId", deviceAlarm.AlarmId}
-    deviceAlarm.EntityData.Leafs["alarm-instance"] = types.YLeaf{"AlarmInstance", deviceAlarm.AlarmInstance}
-    deviceAlarm.EntityData.Leafs["alarm-name"] = types.YLeaf{"AlarmName", deviceAlarm.AlarmName}
-    deviceAlarm.EntityData.Leafs["alarm-category"] = types.YLeaf{"AlarmCategory", deviceAlarm.AlarmCategory}
-    deviceAlarm.EntityData.Leafs["alarm-time"] = types.YLeaf{"AlarmTime", deviceAlarm.AlarmTime}
-    deviceAlarm.EntityData.Leafs["alarm-description"] = types.YLeaf{"AlarmDescription", deviceAlarm.AlarmDescription}
+    deviceAlarm.EntityData.Children = types.NewOrderedMap()
+    deviceAlarm.EntityData.Leafs = types.NewOrderedMap()
+    deviceAlarm.EntityData.Leafs.Append("alarm-id", types.YLeaf{"AlarmId", deviceAlarm.AlarmId})
+    deviceAlarm.EntityData.Leafs.Append("alarm-instance", types.YLeaf{"AlarmInstance", deviceAlarm.AlarmInstance})
+    deviceAlarm.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", deviceAlarm.AlarmName})
+    deviceAlarm.EntityData.Leafs.Append("alarm-category", types.YLeaf{"AlarmCategory", deviceAlarm.AlarmCategory})
+    deviceAlarm.EntityData.Leafs.Append("alarm-time", types.YLeaf{"AlarmTime", deviceAlarm.AlarmTime})
+    deviceAlarm.EntityData.Leafs.Append("alarm-description", types.YLeaf{"AlarmDescription", deviceAlarm.AlarmDescription})
+
+    deviceAlarm.EntityData.YListKeys = []string {"AlarmId", "AlarmInstance"}
+
     return &(deviceAlarm.EntityData)
 }
 
@@ -249,15 +262,16 @@ func (deviceAlarm *DeviceHardwareData_DeviceHardware_DeviceAlarm) GetEntityData(
 type DeviceHardwareData_DeviceHardware_DeviceSystemData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Current time on device in UTC. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CurrentTime interface{}
 
     // This timestamp indicates the time that the system was last restarted.  The
     // value is the timestamp in seconds relative to the Unix Epoch (Jan 1, 1970
     // 00:00:00 UTC). The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     BootTime interface{}
 
     // Software version. The type is string.
@@ -280,13 +294,16 @@ func (deviceSystemData *DeviceHardwareData_DeviceHardware_DeviceSystemData) GetE
     deviceSystemData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceSystemData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    deviceSystemData.EntityData.Children = make(map[string]types.YChild)
-    deviceSystemData.EntityData.Leafs = make(map[string]types.YLeaf)
-    deviceSystemData.EntityData.Leafs["current-time"] = types.YLeaf{"CurrentTime", deviceSystemData.CurrentTime}
-    deviceSystemData.EntityData.Leafs["boot-time"] = types.YLeaf{"BootTime", deviceSystemData.BootTime}
-    deviceSystemData.EntityData.Leafs["software-version"] = types.YLeaf{"SoftwareVersion", deviceSystemData.SoftwareVersion}
-    deviceSystemData.EntityData.Leafs["rommon-version"] = types.YLeaf{"RommonVersion", deviceSystemData.RommonVersion}
-    deviceSystemData.EntityData.Leafs["last-reboot-reason"] = types.YLeaf{"LastRebootReason", deviceSystemData.LastRebootReason}
+    deviceSystemData.EntityData.Children = types.NewOrderedMap()
+    deviceSystemData.EntityData.Leafs = types.NewOrderedMap()
+    deviceSystemData.EntityData.Leafs.Append("current-time", types.YLeaf{"CurrentTime", deviceSystemData.CurrentTime})
+    deviceSystemData.EntityData.Leafs.Append("boot-time", types.YLeaf{"BootTime", deviceSystemData.BootTime})
+    deviceSystemData.EntityData.Leafs.Append("software-version", types.YLeaf{"SoftwareVersion", deviceSystemData.SoftwareVersion})
+    deviceSystemData.EntityData.Leafs.Append("rommon-version", types.YLeaf{"RommonVersion", deviceSystemData.RommonVersion})
+    deviceSystemData.EntityData.Leafs.Append("last-reboot-reason", types.YLeaf{"LastRebootReason", deviceSystemData.LastRebootReason})
+
+    deviceSystemData.EntityData.YListKeys = []string {}
+
     return &(deviceSystemData.EntityData)
 }
 

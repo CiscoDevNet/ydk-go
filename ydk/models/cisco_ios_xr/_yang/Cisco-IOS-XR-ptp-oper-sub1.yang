@@ -150,10 +150,87 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       "Restrict Port State";
   }
 
-  typedef Im-state {
-    type uint32;
+  typedef Im-state-enum {
+    type enumeration {
+      enum "im-state-not-ready" {
+        description
+          "im state not ready";
+      }
+      enum "im-state-admin-down" {
+        description
+          "im state admin down";
+      }
+      enum "im-state-down" {
+        description
+          "im state down";
+      }
+      enum "im-state-up" {
+        description
+          "im state up";
+      }
+      enum "im-state-shutdown" {
+        description
+          "im state shutdown";
+      }
+      enum "im-state-err-disable" {
+        description
+          "im state err disable";
+      }
+      enum "im-state-down-immediate" {
+        description
+          "im state down immediate";
+      }
+      enum "im-state-down-immediate-admin" {
+        description
+          "im state down immediate admin";
+      }
+      enum "im-state-down-graceful" {
+        description
+          "im state down graceful";
+      }
+      enum "im-state-begin-shutdown" {
+        description
+          "im state begin shutdown";
+      }
+      enum "im-state-end-shutdown" {
+        description
+          "im state end shutdown";
+      }
+      enum "im-state-begin-error-disable" {
+        description
+          "im state begin error disable";
+      }
+      enum "im-state-end-error-disable" {
+        description
+          "im state end error disable";
+      }
+      enum "im-state-begin-down-graceful" {
+        description
+          "im state begin down graceful";
+      }
+      enum "im-state-reset" {
+        description
+          "im state reset";
+      }
+      enum "im-state-operational" {
+        description
+          "im state operational";
+      }
+      enum "im-state-not-operational" {
+        description
+          "im state not operational";
+      }
+      enum "im-state-unknown" {
+        description
+          "im state unknown";
+      }
+      enum "im-state-last" {
+        description
+          "im state last";
+      }
+    }
     description
-      "Im state";
+      "Im state enum";
   }
 
   typedef Ptp-bag-port-state {
@@ -1120,6 +1197,18 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
         "Reducing invalid unicast grants is not
          compatible with configured profile";
     }
+    leaf invalid-master-config {
+      type boolean;
+      description
+        "Master configuration is not compatible with
+         configured clock-type";
+    }
+    leaf invalid-slave-config {
+      type boolean;
+      description
+        "Slave configuration is not compatible with
+         configured clock-type";
+    }
   }
 
   grouping PTP-IF-CONFIG-ERRORS-ENTRY {
@@ -1602,7 +1691,7 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
         "Port number";
     }
     leaf line-state {
-      type Im-state;
+      type Im-state-enum;
       description
         "Line state";
     }
@@ -1659,6 +1748,16 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       description
         "The configured port state";
     }
+    leaf supports-unicast {
+      type boolean;
+      description
+        "The interface supports unicast";
+    }
+    leaf supports-master {
+      type boolean;
+      description
+        "The interface supports operation in master mode";
+    }
     leaf supports-one-step {
       type boolean;
       description
@@ -1678,6 +1777,11 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       type boolean;
       description
         "The interface supports multicast";
+    }
+    leaf supports-ipv4 {
+      type boolean;
+      description
+        "The interface supports IPv4 transport";
     }
     leaf supports-ipv6 {
       type boolean;

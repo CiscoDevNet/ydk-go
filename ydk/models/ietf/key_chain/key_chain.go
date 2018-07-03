@@ -34,7 +34,7 @@ type KeyChains struct {
     AcceptTolerance KeyChains_AcceptTolerance
 
     // One key. The type is slice of KeyChains_Key.
-    Key []KeyChains_Key
+    Key []*KeyChains_Key
 }
 
 func (keyChains *KeyChains) GetEntityData() *types.CommonEntityData {
@@ -42,19 +42,22 @@ func (keyChains *KeyChains) GetEntityData() *types.CommonEntityData {
     keyChains.EntityData.YangName = "key-chains"
     keyChains.EntityData.BundleName = "ietf"
     keyChains.EntityData.ParentYangName = "ietf-key-chain"
-    keyChains.EntityData.SegmentPath = "ietf-key-chain:key-chains" + "[name='" + fmt.Sprintf("%v", keyChains.Name) + "']"
+    keyChains.EntityData.SegmentPath = "ietf-key-chain:key-chains" + types.AddKeyToken(keyChains.Name, "name")
     keyChains.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     keyChains.EntityData.NamespaceTable = ietf.GetNamespaces()
     keyChains.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    keyChains.EntityData.Children = make(map[string]types.YChild)
-    keyChains.EntityData.Children["accept-tolerance"] = types.YChild{"AcceptTolerance", &keyChains.AcceptTolerance}
-    keyChains.EntityData.Children["key"] = types.YChild{"Key", nil}
+    keyChains.EntityData.Children = types.NewOrderedMap()
+    keyChains.EntityData.Children.Append("accept-tolerance", types.YChild{"AcceptTolerance", &keyChains.AcceptTolerance})
+    keyChains.EntityData.Children.Append("key", types.YChild{"Key", nil})
     for i := range keyChains.Key {
-        keyChains.EntityData.Children[types.GetSegmentPath(&keyChains.Key[i])] = types.YChild{"Key", &keyChains.Key[i]}
+        keyChains.EntityData.Children.Append(types.GetSegmentPath(keyChains.Key[i]), types.YChild{"Key", keyChains.Key[i]})
     }
-    keyChains.EntityData.Leafs = make(map[string]types.YLeaf)
-    keyChains.EntityData.Leafs["name"] = types.YLeaf{"Name", keyChains.Name}
+    keyChains.EntityData.Leafs = types.NewOrderedMap()
+    keyChains.EntityData.Leafs.Append("name", types.YLeaf{"Name", keyChains.Name})
+
+    keyChains.EntityData.YListKeys = []string {"Name"}
+
     return &(keyChains.EntityData)
 }
 
@@ -79,9 +82,12 @@ func (acceptTolerance *KeyChains_AcceptTolerance) GetEntityData() *types.CommonE
     acceptTolerance.EntityData.NamespaceTable = ietf.GetNamespaces()
     acceptTolerance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    acceptTolerance.EntityData.Children = make(map[string]types.YChild)
-    acceptTolerance.EntityData.Leafs = make(map[string]types.YLeaf)
-    acceptTolerance.EntityData.Leafs["duration"] = types.YLeaf{"Duration", acceptTolerance.Duration}
+    acceptTolerance.EntityData.Children = types.NewOrderedMap()
+    acceptTolerance.EntityData.Leafs = types.NewOrderedMap()
+    acceptTolerance.EntityData.Leafs.Append("duration", types.YLeaf{"Duration", acceptTolerance.Duration})
+
+    acceptTolerance.EntityData.YListKeys = []string {}
+
     return &(acceptTolerance.EntityData)
 }
 
@@ -110,17 +116,20 @@ func (key *KeyChains_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.YangName = "key"
     key.EntityData.BundleName = "ietf"
     key.EntityData.ParentYangName = "key-chains"
-    key.EntityData.SegmentPath = "key" + "[key-id='" + fmt.Sprintf("%v", key.KeyId) + "']"
+    key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyId, "key-id")
     key.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     key.EntityData.NamespaceTable = ietf.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    key.EntityData.Children = make(map[string]types.YChild)
-    key.EntityData.Children["key-string"] = types.YChild{"KeyString", &key.KeyString}
-    key.EntityData.Children["lifetime"] = types.YChild{"Lifetime", &key.Lifetime}
-    key.EntityData.Children["crypto-algorithm"] = types.YChild{"CryptoAlgorithm", &key.CryptoAlgorithm}
-    key.EntityData.Leafs = make(map[string]types.YLeaf)
-    key.EntityData.Leafs["key-id"] = types.YLeaf{"KeyId", key.KeyId}
+    key.EntityData.Children = types.NewOrderedMap()
+    key.EntityData.Children.Append("key-string", types.YChild{"KeyString", &key.KeyString})
+    key.EntityData.Children.Append("lifetime", types.YChild{"Lifetime", &key.Lifetime})
+    key.EntityData.Children.Append("crypto-algorithm", types.YChild{"CryptoAlgorithm", &key.CryptoAlgorithm})
+    key.EntityData.Leafs = types.NewOrderedMap()
+    key.EntityData.Leafs.Append("key-id", types.YLeaf{"KeyId", key.KeyId})
+
+    key.EntityData.YListKeys = []string {"KeyId"}
+
     return &(key.EntityData)
 }
 
@@ -134,7 +143,7 @@ type KeyChains_Key_KeyString struct {
     Keystring interface{}
 
     // Key in hexadecimal string format. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     HexadecimalString interface{}
 }
 
@@ -148,10 +157,13 @@ func (keyString *KeyChains_Key_KeyString) GetEntityData() *types.CommonEntityDat
     keyString.EntityData.NamespaceTable = ietf.GetNamespaces()
     keyString.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    keyString.EntityData.Children = make(map[string]types.YChild)
-    keyString.EntityData.Leafs = make(map[string]types.YLeaf)
-    keyString.EntityData.Leafs["keystring"] = types.YLeaf{"Keystring", keyString.Keystring}
-    keyString.EntityData.Leafs["hexadecimal-string"] = types.YLeaf{"HexadecimalString", keyString.HexadecimalString}
+    keyString.EntityData.Children = types.NewOrderedMap()
+    keyString.EntityData.Leafs = types.NewOrderedMap()
+    keyString.EntityData.Leafs.Append("keystring", types.YLeaf{"Keystring", keyString.Keystring})
+    keyString.EntityData.Leafs.Append("hexadecimal-string", types.YLeaf{"HexadecimalString", keyString.HexadecimalString})
+
+    keyString.EntityData.YListKeys = []string {}
+
     return &(keyString.EntityData)
 }
 
@@ -181,11 +193,14 @@ func (lifetime *KeyChains_Key_Lifetime) GetEntityData() *types.CommonEntityData 
     lifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
     lifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    lifetime.EntityData.Children = make(map[string]types.YChild)
-    lifetime.EntityData.Children["send-accept-lifetime"] = types.YChild{"SendAcceptLifetime", &lifetime.SendAcceptLifetime}
-    lifetime.EntityData.Children["send-lifetime"] = types.YChild{"SendLifetime", &lifetime.SendLifetime}
-    lifetime.EntityData.Children["accept-lifetime"] = types.YChild{"AcceptLifetime", &lifetime.AcceptLifetime}
-    lifetime.EntityData.Leafs = make(map[string]types.YLeaf)
+    lifetime.EntityData.Children = types.NewOrderedMap()
+    lifetime.EntityData.Children.Append("send-accept-lifetime", types.YChild{"SendAcceptLifetime", &lifetime.SendAcceptLifetime})
+    lifetime.EntityData.Children.Append("send-lifetime", types.YChild{"SendLifetime", &lifetime.SendLifetime})
+    lifetime.EntityData.Children.Append("accept-lifetime", types.YChild{"AcceptLifetime", &lifetime.AcceptLifetime})
+    lifetime.EntityData.Leafs = types.NewOrderedMap()
+
+    lifetime.EntityData.YListKeys = []string {}
+
     return &(lifetime.EntityData)
 }
 
@@ -200,7 +215,7 @@ type KeyChains_Key_Lifetime_SendAcceptLifetime struct {
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -211,7 +226,7 @@ type KeyChains_Key_Lifetime_SendAcceptLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndDateTime interface{}
 }
 
@@ -225,13 +240,16 @@ func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetEntityDa
     sendAcceptLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
     sendAcceptLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    sendAcceptLifetime.EntityData.Children = make(map[string]types.YChild)
-    sendAcceptLifetime.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendAcceptLifetime.EntityData.Leafs["always"] = types.YLeaf{"Always", sendAcceptLifetime.Always}
-    sendAcceptLifetime.EntityData.Leafs["start-date-time"] = types.YLeaf{"StartDateTime", sendAcceptLifetime.StartDateTime}
-    sendAcceptLifetime.EntityData.Leafs["no-end-time"] = types.YLeaf{"NoEndTime", sendAcceptLifetime.NoEndTime}
-    sendAcceptLifetime.EntityData.Leafs["duration"] = types.YLeaf{"Duration", sendAcceptLifetime.Duration}
-    sendAcceptLifetime.EntityData.Leafs["end-date-time"] = types.YLeaf{"EndDateTime", sendAcceptLifetime.EndDateTime}
+    sendAcceptLifetime.EntityData.Children = types.NewOrderedMap()
+    sendAcceptLifetime.EntityData.Leafs = types.NewOrderedMap()
+    sendAcceptLifetime.EntityData.Leafs.Append("always", types.YLeaf{"Always", sendAcceptLifetime.Always})
+    sendAcceptLifetime.EntityData.Leafs.Append("start-date-time", types.YLeaf{"StartDateTime", sendAcceptLifetime.StartDateTime})
+    sendAcceptLifetime.EntityData.Leafs.Append("no-end-time", types.YLeaf{"NoEndTime", sendAcceptLifetime.NoEndTime})
+    sendAcceptLifetime.EntityData.Leafs.Append("duration", types.YLeaf{"Duration", sendAcceptLifetime.Duration})
+    sendAcceptLifetime.EntityData.Leafs.Append("end-date-time", types.YLeaf{"EndDateTime", sendAcceptLifetime.EndDateTime})
+
+    sendAcceptLifetime.EntityData.YListKeys = []string {}
+
     return &(sendAcceptLifetime.EntityData)
 }
 
@@ -246,7 +264,7 @@ type KeyChains_Key_Lifetime_SendLifetime struct {
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -257,7 +275,7 @@ type KeyChains_Key_Lifetime_SendLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndDateTime interface{}
 }
 
@@ -271,13 +289,16 @@ func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetEntityData() *types.
     sendLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
     sendLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    sendLifetime.EntityData.Children = make(map[string]types.YChild)
-    sendLifetime.EntityData.Leafs = make(map[string]types.YLeaf)
-    sendLifetime.EntityData.Leafs["always"] = types.YLeaf{"Always", sendLifetime.Always}
-    sendLifetime.EntityData.Leafs["start-date-time"] = types.YLeaf{"StartDateTime", sendLifetime.StartDateTime}
-    sendLifetime.EntityData.Leafs["no-end-time"] = types.YLeaf{"NoEndTime", sendLifetime.NoEndTime}
-    sendLifetime.EntityData.Leafs["duration"] = types.YLeaf{"Duration", sendLifetime.Duration}
-    sendLifetime.EntityData.Leafs["end-date-time"] = types.YLeaf{"EndDateTime", sendLifetime.EndDateTime}
+    sendLifetime.EntityData.Children = types.NewOrderedMap()
+    sendLifetime.EntityData.Leafs = types.NewOrderedMap()
+    sendLifetime.EntityData.Leafs.Append("always", types.YLeaf{"Always", sendLifetime.Always})
+    sendLifetime.EntityData.Leafs.Append("start-date-time", types.YLeaf{"StartDateTime", sendLifetime.StartDateTime})
+    sendLifetime.EntityData.Leafs.Append("no-end-time", types.YLeaf{"NoEndTime", sendLifetime.NoEndTime})
+    sendLifetime.EntityData.Leafs.Append("duration", types.YLeaf{"Duration", sendLifetime.Duration})
+    sendLifetime.EntityData.Leafs.Append("end-date-time", types.YLeaf{"EndDateTime", sendLifetime.EndDateTime})
+
+    sendLifetime.EntityData.YListKeys = []string {}
+
     return &(sendLifetime.EntityData)
 }
 
@@ -292,7 +313,7 @@ type KeyChains_Key_Lifetime_AcceptLifetime struct {
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -303,7 +324,7 @@ type KeyChains_Key_Lifetime_AcceptLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndDateTime interface{}
 }
 
@@ -317,13 +338,16 @@ func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetEntityData() *ty
     acceptLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
     acceptLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    acceptLifetime.EntityData.Children = make(map[string]types.YChild)
-    acceptLifetime.EntityData.Leafs = make(map[string]types.YLeaf)
-    acceptLifetime.EntityData.Leafs["always"] = types.YLeaf{"Always", acceptLifetime.Always}
-    acceptLifetime.EntityData.Leafs["start-date-time"] = types.YLeaf{"StartDateTime", acceptLifetime.StartDateTime}
-    acceptLifetime.EntityData.Leafs["no-end-time"] = types.YLeaf{"NoEndTime", acceptLifetime.NoEndTime}
-    acceptLifetime.EntityData.Leafs["duration"] = types.YLeaf{"Duration", acceptLifetime.Duration}
-    acceptLifetime.EntityData.Leafs["end-date-time"] = types.YLeaf{"EndDateTime", acceptLifetime.EndDateTime}
+    acceptLifetime.EntityData.Children = types.NewOrderedMap()
+    acceptLifetime.EntityData.Leafs = types.NewOrderedMap()
+    acceptLifetime.EntityData.Leafs.Append("always", types.YLeaf{"Always", acceptLifetime.Always})
+    acceptLifetime.EntityData.Leafs.Append("start-date-time", types.YLeaf{"StartDateTime", acceptLifetime.StartDateTime})
+    acceptLifetime.EntityData.Leafs.Append("no-end-time", types.YLeaf{"NoEndTime", acceptLifetime.NoEndTime})
+    acceptLifetime.EntityData.Leafs.Append("duration", types.YLeaf{"Duration", acceptLifetime.Duration})
+    acceptLifetime.EntityData.Leafs.Append("end-date-time", types.YLeaf{"EndDateTime", acceptLifetime.EndDateTime})
+
+    acceptLifetime.EntityData.YListKeys = []string {}
+
     return &(acceptLifetime.EntityData)
 }
 
@@ -368,16 +392,19 @@ func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetEntityData() *types.Com
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    cryptoAlgorithm.EntityData.Children = make(map[string]types.YChild)
-    cryptoAlgorithm.EntityData.Leafs = make(map[string]types.YLeaf)
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-12"] = types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-20"] = types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120}
-    cryptoAlgorithm.EntityData.Leafs["md5"] = types.YLeaf{"Md5", cryptoAlgorithm.Md5}
-    cryptoAlgorithm.EntityData.Leafs["sha-1"] = types.YLeaf{"Sha1", cryptoAlgorithm.Sha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-1"] = types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-256"] = types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-384"] = types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384}
-    cryptoAlgorithm.EntityData.Leafs["hmac-sha-512"] = types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512}
+    cryptoAlgorithm.EntityData.Children = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs = types.NewOrderedMap()
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-12", types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha1-20", types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120})
+    cryptoAlgorithm.EntityData.Leafs.Append("md5", types.YLeaf{"Md5", cryptoAlgorithm.Md5})
+    cryptoAlgorithm.EntityData.Leafs.Append("sha-1", types.YLeaf{"Sha1", cryptoAlgorithm.Sha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-1", types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-256", types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-384", types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384})
+    cryptoAlgorithm.EntityData.Leafs.Append("hmac-sha-512", types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512})
+
+    cryptoAlgorithm.EntityData.YListKeys = []string {}
+
     return &(cryptoAlgorithm.EntityData)
 }
 

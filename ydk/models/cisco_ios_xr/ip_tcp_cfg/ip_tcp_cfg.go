@@ -29,9 +29,11 @@ func init() {
 
 // IpTcp
 // Global IP TCP configuration
+// This type is a presence type.
 type IpTcp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // TCP connection accept rate. The type is interface{} with range: 1..1000.
     // The default value is 500.
@@ -59,8 +61,7 @@ type IpTcp struct {
     Timestamp interface{}
 
     // Aging time; 0 for infinite, and range be (10,30). The type is interface{}
-    // with range: -2147483648..2147483647. Units are minute. The default value is
-    // 10.
+    // with range: 0..4294967295. Units are minute. The default value is 10.
     PathMtuDiscovery interface{}
 
     // TCP directory details.
@@ -83,19 +84,22 @@ func (ipTcp *IpTcp) GetEntityData() *types.CommonEntityData {
     ipTcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipTcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipTcp.EntityData.Children = make(map[string]types.YChild)
-    ipTcp.EntityData.Children["directory"] = types.YChild{"Directory", &ipTcp.Directory}
-    ipTcp.EntityData.Children["throttle"] = types.YChild{"Throttle", &ipTcp.Throttle}
-    ipTcp.EntityData.Children["num-thread"] = types.YChild{"NumThread", &ipTcp.NumThread}
-    ipTcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipTcp.EntityData.Leafs["accept-rate"] = types.YLeaf{"AcceptRate", ipTcp.AcceptRate}
-    ipTcp.EntityData.Leafs["selective-ack"] = types.YLeaf{"SelectiveAck", ipTcp.SelectiveAck}
-    ipTcp.EntityData.Leafs["window-size"] = types.YLeaf{"WindowSize", ipTcp.WindowSize}
-    ipTcp.EntityData.Leafs["receive-q"] = types.YLeaf{"ReceiveQ", ipTcp.ReceiveQ}
-    ipTcp.EntityData.Leafs["maximum-segment-size"] = types.YLeaf{"MaximumSegmentSize", ipTcp.MaximumSegmentSize}
-    ipTcp.EntityData.Leafs["syn-wait-time"] = types.YLeaf{"SynWaitTime", ipTcp.SynWaitTime}
-    ipTcp.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", ipTcp.Timestamp}
-    ipTcp.EntityData.Leafs["path-mtu-discovery"] = types.YLeaf{"PathMtuDiscovery", ipTcp.PathMtuDiscovery}
+    ipTcp.EntityData.Children = types.NewOrderedMap()
+    ipTcp.EntityData.Children.Append("directory", types.YChild{"Directory", &ipTcp.Directory})
+    ipTcp.EntityData.Children.Append("throttle", types.YChild{"Throttle", &ipTcp.Throttle})
+    ipTcp.EntityData.Children.Append("num-thread", types.YChild{"NumThread", &ipTcp.NumThread})
+    ipTcp.EntityData.Leafs = types.NewOrderedMap()
+    ipTcp.EntityData.Leafs.Append("accept-rate", types.YLeaf{"AcceptRate", ipTcp.AcceptRate})
+    ipTcp.EntityData.Leafs.Append("selective-ack", types.YLeaf{"SelectiveAck", ipTcp.SelectiveAck})
+    ipTcp.EntityData.Leafs.Append("window-size", types.YLeaf{"WindowSize", ipTcp.WindowSize})
+    ipTcp.EntityData.Leafs.Append("receive-q", types.YLeaf{"ReceiveQ", ipTcp.ReceiveQ})
+    ipTcp.EntityData.Leafs.Append("maximum-segment-size", types.YLeaf{"MaximumSegmentSize", ipTcp.MaximumSegmentSize})
+    ipTcp.EntityData.Leafs.Append("syn-wait-time", types.YLeaf{"SynWaitTime", ipTcp.SynWaitTime})
+    ipTcp.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", ipTcp.Timestamp})
+    ipTcp.EntityData.Leafs.Append("path-mtu-discovery", types.YLeaf{"PathMtuDiscovery", ipTcp.PathMtuDiscovery})
+
+    ipTcp.EntityData.YListKeys = []string {}
+
     return &(ipTcp.EntityData)
 }
 
@@ -105,6 +109,7 @@ func (ipTcp *IpTcp) GetEntityData() *types.CommonEntityData {
 type IpTcp_Directory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Directory name . The type is string. This attribute is mandatory.
     Directoryname interface{}
@@ -128,11 +133,14 @@ func (directory *IpTcp_Directory) GetEntityData() *types.CommonEntityData {
     directory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     directory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    directory.EntityData.Children = make(map[string]types.YChild)
-    directory.EntityData.Leafs = make(map[string]types.YLeaf)
-    directory.EntityData.Leafs["directoryname"] = types.YLeaf{"Directoryname", directory.Directoryname}
-    directory.EntityData.Leafs["max-debug-files"] = types.YLeaf{"MaxDebugFiles", directory.MaxDebugFiles}
-    directory.EntityData.Leafs["max-file-size-files"] = types.YLeaf{"MaxFileSizeFiles", directory.MaxFileSizeFiles}
+    directory.EntityData.Children = types.NewOrderedMap()
+    directory.EntityData.Leafs = types.NewOrderedMap()
+    directory.EntityData.Leafs.Append("directoryname", types.YLeaf{"Directoryname", directory.Directoryname})
+    directory.EntityData.Leafs.Append("max-debug-files", types.YLeaf{"MaxDebugFiles", directory.MaxDebugFiles})
+    directory.EntityData.Leafs.Append("max-file-size-files", types.YLeaf{"MaxFileSizeFiles", directory.MaxFileSizeFiles})
+
+    directory.EntityData.YListKeys = []string {}
+
     return &(directory.EntityData)
 }
 
@@ -142,6 +150,7 @@ func (directory *IpTcp_Directory) GetEntityData() *types.CommonEntityData {
 type IpTcp_Throttle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Min throttle. The type is interface{} with range: 0..100. This attribute is
     // mandatory.
@@ -162,10 +171,13 @@ func (throttle *IpTcp_Throttle) GetEntityData() *types.CommonEntityData {
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    throttle.EntityData.Children = make(map[string]types.YChild)
-    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
-    throttle.EntityData.Leafs["tcpmin-throttle"] = types.YLeaf{"TcpminThrottle", throttle.TcpminThrottle}
-    throttle.EntityData.Leafs["tcpmaxthrottle"] = types.YLeaf{"Tcpmaxthrottle", throttle.Tcpmaxthrottle}
+    throttle.EntityData.Children = types.NewOrderedMap()
+    throttle.EntityData.Leafs = types.NewOrderedMap()
+    throttle.EntityData.Leafs.Append("tcpmin-throttle", types.YLeaf{"TcpminThrottle", throttle.TcpminThrottle})
+    throttle.EntityData.Leafs.Append("tcpmaxthrottle", types.YLeaf{"Tcpmaxthrottle", throttle.Tcpmaxthrottle})
+
+    throttle.EntityData.YListKeys = []string {}
+
     return &(throttle.EntityData)
 }
 
@@ -175,6 +187,7 @@ func (throttle *IpTcp_Throttle) GetEntityData() *types.CommonEntityData {
 type IpTcp_NumThread struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // InQ Threads. The type is interface{} with range: 1..16. This attribute is
     // mandatory.
@@ -195,10 +208,13 @@ func (numThread *IpTcp_NumThread) GetEntityData() *types.CommonEntityData {
     numThread.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numThread.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    numThread.EntityData.Children = make(map[string]types.YChild)
-    numThread.EntityData.Leafs = make(map[string]types.YLeaf)
-    numThread.EntityData.Leafs["tcp-in-q-threads"] = types.YLeaf{"TcpInQThreads", numThread.TcpInQThreads}
-    numThread.EntityData.Leafs["tcp-out-q-threads"] = types.YLeaf{"TcpOutQThreads", numThread.TcpOutQThreads}
+    numThread.EntityData.Children = types.NewOrderedMap()
+    numThread.EntityData.Leafs = types.NewOrderedMap()
+    numThread.EntityData.Leafs.Append("tcp-in-q-threads", types.YLeaf{"TcpInQThreads", numThread.TcpInQThreads})
+    numThread.EntityData.Leafs.Append("tcp-out-q-threads", types.YLeaf{"TcpOutQThreads", numThread.TcpOutQThreads})
+
+    numThread.EntityData.YListKeys = []string {}
+
     return &(numThread.EntityData)
 }
 
@@ -225,10 +241,13 @@ func (ip *Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ip.EntityData.Children = make(map[string]types.YChild)
-    ip.EntityData.Children["cinetd"] = types.YChild{"Cinetd", &ip.Cinetd}
-    ip.EntityData.Children["Cisco-IOS-XR-ip-udp-cfg:forward-protocol"] = types.YChild{"ForwardProtocol", &ip.ForwardProtocol}
-    ip.EntityData.Leafs = make(map[string]types.YLeaf)
+    ip.EntityData.Children = types.NewOrderedMap()
+    ip.EntityData.Children.Append("cinetd", types.YChild{"Cinetd", &ip.Cinetd})
+    ip.EntityData.Children.Append("Cisco-IOS-XR-ip-udp-cfg:forward-protocol", types.YChild{"ForwardProtocol", &ip.ForwardProtocol})
+    ip.EntityData.Leafs = types.NewOrderedMap()
+
+    ip.EntityData.YListKeys = []string {}
+
     return &(ip.EntityData)
 }
 
@@ -256,10 +275,13 @@ func (cinetd *Ip_Cinetd) GetEntityData() *types.CommonEntityData {
     cinetd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cinetd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cinetd.EntityData.Children = make(map[string]types.YChild)
-    cinetd.EntityData.Children["services"] = types.YChild{"Services", &cinetd.Services}
-    cinetd.EntityData.Leafs = make(map[string]types.YLeaf)
-    cinetd.EntityData.Leafs["rate-limit"] = types.YLeaf{"RateLimit", cinetd.RateLimit}
+    cinetd.EntityData.Children = types.NewOrderedMap()
+    cinetd.EntityData.Children.Append("services", types.YChild{"Services", &cinetd.Services})
+    cinetd.EntityData.Leafs = types.NewOrderedMap()
+    cinetd.EntityData.Leafs.Append("rate-limit", types.YLeaf{"RateLimit", cinetd.RateLimit})
+
+    cinetd.EntityData.YListKeys = []string {}
+
     return &(cinetd.EntityData)
 }
 
@@ -289,11 +311,14 @@ func (services *Ip_Cinetd_Services) GetEntityData() *types.CommonEntityData {
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    services.EntityData.Children = make(map[string]types.YChild)
-    services.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &services.Ipv4}
-    services.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &services.Vrfs}
-    services.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &services.Ipv6}
-    services.EntityData.Leafs = make(map[string]types.YLeaf)
+    services.EntityData.Children = types.NewOrderedMap()
+    services.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &services.Ipv4})
+    services.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &services.Vrfs})
+    services.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &services.Ipv6})
+    services.EntityData.Leafs = types.NewOrderedMap()
+
+    services.EntityData.YListKeys = []string {}
+
     return &(services.EntityData)
 }
 
@@ -317,9 +342,12 @@ func (ipv4 *Ip_Cinetd_Services_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["small-servers"] = types.YChild{"SmallServers", &ipv4.SmallServers}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("small-servers", types.YChild{"SmallServers", &ipv4.SmallServers})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -346,10 +374,13 @@ func (smallServers *Ip_Cinetd_Services_Ipv4_SmallServers) GetEntityData() *types
     smallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     smallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    smallServers.EntityData.Children = make(map[string]types.YChild)
-    smallServers.EntityData.Children["tcp-small-servers"] = types.YChild{"TcpSmallServers", &smallServers.TcpSmallServers}
-    smallServers.EntityData.Children["Cisco-IOS-XR-ip-udp-cfg:udp-small-servers"] = types.YChild{"UdpSmallServers", &smallServers.UdpSmallServers}
-    smallServers.EntityData.Leafs = make(map[string]types.YLeaf)
+    smallServers.EntityData.Children = types.NewOrderedMap()
+    smallServers.EntityData.Children.Append("tcp-small-servers", types.YChild{"TcpSmallServers", &smallServers.TcpSmallServers})
+    smallServers.EntityData.Children.Append("Cisco-IOS-XR-ip-udp-cfg:udp-small-servers", types.YChild{"UdpSmallServers", &smallServers.UdpSmallServers})
+    smallServers.EntityData.Leafs = types.NewOrderedMap()
+
+    smallServers.EntityData.YListKeys = []string {}
+
     return &(smallServers.EntityData)
 }
 
@@ -360,6 +391,7 @@ func (smallServers *Ip_Cinetd_Services_Ipv4_SmallServers) GetEntityData() *types
 type Ip_Cinetd_Services_Ipv4_SmallServers_TcpSmallServers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Specify the access list. The type is string.
     AccessControlListName interface{}
@@ -382,10 +414,13 @@ func (tcpSmallServers *Ip_Cinetd_Services_Ipv4_SmallServers_TcpSmallServers) Get
     tcpSmallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpSmallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcpSmallServers.EntityData.Children = make(map[string]types.YChild)
-    tcpSmallServers.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpSmallServers.EntityData.Leafs["access-control-list-name"] = types.YLeaf{"AccessControlListName", tcpSmallServers.AccessControlListName}
-    tcpSmallServers.EntityData.Leafs["small-server"] = types.YLeaf{"SmallServer", tcpSmallServers.SmallServer}
+    tcpSmallServers.EntityData.Children = types.NewOrderedMap()
+    tcpSmallServers.EntityData.Leafs = types.NewOrderedMap()
+    tcpSmallServers.EntityData.Leafs.Append("access-control-list-name", types.YLeaf{"AccessControlListName", tcpSmallServers.AccessControlListName})
+    tcpSmallServers.EntityData.Leafs.Append("small-server", types.YLeaf{"SmallServer", tcpSmallServers.SmallServer})
+
+    tcpSmallServers.EntityData.YListKeys = []string {}
+
     return &(tcpSmallServers.EntityData)
 }
 
@@ -403,6 +438,7 @@ const (
 type Ip_Cinetd_Services_Ipv4_SmallServers_UdpSmallServers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Specify the access list. The type is string.
     AccessControlListName interface{}
@@ -425,10 +461,13 @@ func (udpSmallServers *Ip_Cinetd_Services_Ipv4_SmallServers_UdpSmallServers) Get
     udpSmallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpSmallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udpSmallServers.EntityData.Children = make(map[string]types.YChild)
-    udpSmallServers.EntityData.Leafs = make(map[string]types.YLeaf)
-    udpSmallServers.EntityData.Leafs["access-control-list-name"] = types.YLeaf{"AccessControlListName", udpSmallServers.AccessControlListName}
-    udpSmallServers.EntityData.Leafs["small-server"] = types.YLeaf{"SmallServer", udpSmallServers.SmallServer}
+    udpSmallServers.EntityData.Children = types.NewOrderedMap()
+    udpSmallServers.EntityData.Leafs = types.NewOrderedMap()
+    udpSmallServers.EntityData.Leafs.Append("access-control-list-name", types.YLeaf{"AccessControlListName", udpSmallServers.AccessControlListName})
+    udpSmallServers.EntityData.Leafs.Append("small-server", types.YLeaf{"SmallServer", udpSmallServers.SmallServer})
+
+    udpSmallServers.EntityData.YListKeys = []string {}
+
     return &(udpSmallServers.EntityData)
 }
 
@@ -447,7 +486,7 @@ type Ip_Cinetd_Services_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF specific data. The type is slice of Ip_Cinetd_Services_Vrfs_Vrf.
-    Vrf []Ip_Cinetd_Services_Vrfs_Vrf
+    Vrf []*Ip_Cinetd_Services_Vrfs_Vrf
 }
 
 func (vrfs *Ip_Cinetd_Services_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -460,12 +499,15 @@ func (vrfs *Ip_Cinetd_Services_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -476,7 +518,7 @@ type Ip_Cinetd_Services_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // IPV6 related services.
@@ -491,16 +533,19 @@ func (vrf *Ip_Cinetd_Services_Vrfs_Vrf) GetEntityData() *types.CommonEntityData 
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &vrf.Ipv6}
-    vrf.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &vrf.Ipv4}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &vrf.Ipv6})
+    vrf.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &vrf.Ipv4})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -527,10 +572,13 @@ func (ipv6 *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntit
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["telnet"] = types.YChild{"Telnet", &ipv6.Telnet}
-    ipv6.EntityData.Children["tftp"] = types.YChild{"Tftp", &ipv6.Tftp}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("telnet", types.YChild{"Telnet", &ipv6.Telnet})
+    ipv6.EntityData.Children.Append("tftp", types.YChild{"Tftp", &ipv6.Tftp})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -554,9 +602,12 @@ func (telnet *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Telnet) GetEntityData() *types.Co
     telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telnet.EntityData.Children = make(map[string]types.YChild)
-    telnet.EntityData.Children["tcp"] = types.YChild{"Tcp", &telnet.Tcp}
-    telnet.EntityData.Leafs = make(map[string]types.YLeaf)
+    telnet.EntityData.Children = types.NewOrderedMap()
+    telnet.EntityData.Children.Append("tcp", types.YChild{"Tcp", &telnet.Tcp})
+    telnet.EntityData.Leafs = types.NewOrderedMap()
+
+    telnet.EntityData.YListKeys = []string {}
+
     return &(telnet.EntityData)
 }
 
@@ -566,6 +617,7 @@ func (telnet *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Telnet) GetEntityData() *types.Co
 type Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Telnet_Tcp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Access list. The type is string.
     AccessListName interface{}
@@ -585,10 +637,13 @@ func (tcp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Telnet_Tcp) GetEntityData() *types.C
     tcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcp.EntityData.Children = make(map[string]types.YChild)
-    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcp.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", tcp.AccessListName}
-    tcp.EntityData.Leafs["maximum-server"] = types.YLeaf{"MaximumServer", tcp.MaximumServer}
+    tcp.EntityData.Children = types.NewOrderedMap()
+    tcp.EntityData.Leafs = types.NewOrderedMap()
+    tcp.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", tcp.AccessListName})
+    tcp.EntityData.Leafs.Append("maximum-server", types.YLeaf{"MaximumServer", tcp.MaximumServer})
+
+    tcp.EntityData.YListKeys = []string {}
+
     return &(tcp.EntityData)
 }
 
@@ -612,9 +667,12 @@ func (tftp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Tftp) GetEntityData() *types.Common
     tftp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftp.EntityData.Children = make(map[string]types.YChild)
-    tftp.EntityData.Children["udp"] = types.YChild{"Udp", &tftp.Udp}
-    tftp.EntityData.Leafs = make(map[string]types.YLeaf)
+    tftp.EntityData.Children = types.NewOrderedMap()
+    tftp.EntityData.Children.Append("udp", types.YChild{"Udp", &tftp.Udp})
+    tftp.EntityData.Leafs = types.NewOrderedMap()
+
+    tftp.EntityData.YListKeys = []string {}
+
     return &(tftp.EntityData)
 }
 
@@ -624,6 +682,7 @@ func (tftp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Tftp) GetEntityData() *types.Common
 type Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Tftp_Udp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Access list. The type is string.
     AccessListName interface{}
@@ -637,7 +696,7 @@ type Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Tftp_Udp struct {
     HomeDirectory interface{}
 
     // Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     DscpValue interface{}
 }
 
@@ -651,12 +710,15 @@ func (udp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Tftp_Udp) GetEntityData() *types.Com
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udp.EntityData.Children = make(map[string]types.YChild)
-    udp.EntityData.Leafs = make(map[string]types.YLeaf)
-    udp.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", udp.AccessListName}
-    udp.EntityData.Leafs["maximum-server"] = types.YLeaf{"MaximumServer", udp.MaximumServer}
-    udp.EntityData.Leafs["home-directory"] = types.YLeaf{"HomeDirectory", udp.HomeDirectory}
-    udp.EntityData.Leafs["dscp-value"] = types.YLeaf{"DscpValue", udp.DscpValue}
+    udp.EntityData.Children = types.NewOrderedMap()
+    udp.EntityData.Leafs = types.NewOrderedMap()
+    udp.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", udp.AccessListName})
+    udp.EntityData.Leafs.Append("maximum-server", types.YLeaf{"MaximumServer", udp.MaximumServer})
+    udp.EntityData.Leafs.Append("home-directory", types.YLeaf{"HomeDirectory", udp.HomeDirectory})
+    udp.EntityData.Leafs.Append("dscp-value", types.YLeaf{"DscpValue", udp.DscpValue})
+
+    udp.EntityData.YListKeys = []string {}
+
     return &(udp.EntityData)
 }
 
@@ -683,10 +745,13 @@ func (ipv4 *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntit
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["telnet"] = types.YChild{"Telnet", &ipv4.Telnet}
-    ipv4.EntityData.Children["tftp"] = types.YChild{"Tftp", &ipv4.Tftp}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("telnet", types.YChild{"Telnet", &ipv4.Telnet})
+    ipv4.EntityData.Children.Append("tftp", types.YChild{"Tftp", &ipv4.Tftp})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -710,9 +775,12 @@ func (telnet *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Telnet) GetEntityData() *types.Co
     telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telnet.EntityData.Children = make(map[string]types.YChild)
-    telnet.EntityData.Children["tcp"] = types.YChild{"Tcp", &telnet.Tcp}
-    telnet.EntityData.Leafs = make(map[string]types.YLeaf)
+    telnet.EntityData.Children = types.NewOrderedMap()
+    telnet.EntityData.Children.Append("tcp", types.YChild{"Tcp", &telnet.Tcp})
+    telnet.EntityData.Leafs = types.NewOrderedMap()
+
+    telnet.EntityData.YListKeys = []string {}
+
     return &(telnet.EntityData)
 }
 
@@ -722,6 +790,7 @@ func (telnet *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Telnet) GetEntityData() *types.Co
 type Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Telnet_Tcp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Access list. The type is string.
     AccessListName interface{}
@@ -741,10 +810,13 @@ func (tcp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Telnet_Tcp) GetEntityData() *types.C
     tcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcp.EntityData.Children = make(map[string]types.YChild)
-    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcp.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", tcp.AccessListName}
-    tcp.EntityData.Leafs["maximum-server"] = types.YLeaf{"MaximumServer", tcp.MaximumServer}
+    tcp.EntityData.Children = types.NewOrderedMap()
+    tcp.EntityData.Leafs = types.NewOrderedMap()
+    tcp.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", tcp.AccessListName})
+    tcp.EntityData.Leafs.Append("maximum-server", types.YLeaf{"MaximumServer", tcp.MaximumServer})
+
+    tcp.EntityData.YListKeys = []string {}
+
     return &(tcp.EntityData)
 }
 
@@ -768,9 +840,12 @@ func (tftp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Tftp) GetEntityData() *types.Common
     tftp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftp.EntityData.Children = make(map[string]types.YChild)
-    tftp.EntityData.Children["udp"] = types.YChild{"Udp", &tftp.Udp}
-    tftp.EntityData.Leafs = make(map[string]types.YLeaf)
+    tftp.EntityData.Children = types.NewOrderedMap()
+    tftp.EntityData.Children.Append("udp", types.YChild{"Udp", &tftp.Udp})
+    tftp.EntityData.Leafs = types.NewOrderedMap()
+
+    tftp.EntityData.YListKeys = []string {}
+
     return &(tftp.EntityData)
 }
 
@@ -780,6 +855,7 @@ func (tftp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Tftp) GetEntityData() *types.Common
 type Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Tftp_Udp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Access list. The type is string.
     AccessListName interface{}
@@ -793,7 +869,7 @@ type Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Tftp_Udp struct {
     HomeDirectory interface{}
 
     // Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     DscpValue interface{}
 }
 
@@ -807,12 +883,15 @@ func (udp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Tftp_Udp) GetEntityData() *types.Com
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udp.EntityData.Children = make(map[string]types.YChild)
-    udp.EntityData.Leafs = make(map[string]types.YLeaf)
-    udp.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", udp.AccessListName}
-    udp.EntityData.Leafs["maximum-server"] = types.YLeaf{"MaximumServer", udp.MaximumServer}
-    udp.EntityData.Leafs["home-directory"] = types.YLeaf{"HomeDirectory", udp.HomeDirectory}
-    udp.EntityData.Leafs["dscp-value"] = types.YLeaf{"DscpValue", udp.DscpValue}
+    udp.EntityData.Children = types.NewOrderedMap()
+    udp.EntityData.Leafs = types.NewOrderedMap()
+    udp.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", udp.AccessListName})
+    udp.EntityData.Leafs.Append("maximum-server", types.YLeaf{"MaximumServer", udp.MaximumServer})
+    udp.EntityData.Leafs.Append("home-directory", types.YLeaf{"HomeDirectory", udp.HomeDirectory})
+    udp.EntityData.Leafs.Append("dscp-value", types.YLeaf{"DscpValue", udp.DscpValue})
+
+    udp.EntityData.YListKeys = []string {}
+
     return &(udp.EntityData)
 }
 
@@ -836,9 +915,12 @@ func (ipv6 *Ip_Cinetd_Services_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["small-servers"] = types.YChild{"SmallServers", &ipv6.SmallServers}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("small-servers", types.YChild{"SmallServers", &ipv6.SmallServers})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -865,10 +947,13 @@ func (smallServers *Ip_Cinetd_Services_Ipv6_SmallServers) GetEntityData() *types
     smallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     smallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    smallServers.EntityData.Children = make(map[string]types.YChild)
-    smallServers.EntityData.Children["tcp-small-servers"] = types.YChild{"TcpSmallServers", &smallServers.TcpSmallServers}
-    smallServers.EntityData.Children["Cisco-IOS-XR-ip-udp-cfg:udp-small-servers"] = types.YChild{"UdpSmallServers", &smallServers.UdpSmallServers}
-    smallServers.EntityData.Leafs = make(map[string]types.YLeaf)
+    smallServers.EntityData.Children = types.NewOrderedMap()
+    smallServers.EntityData.Children.Append("tcp-small-servers", types.YChild{"TcpSmallServers", &smallServers.TcpSmallServers})
+    smallServers.EntityData.Children.Append("Cisco-IOS-XR-ip-udp-cfg:udp-small-servers", types.YChild{"UdpSmallServers", &smallServers.UdpSmallServers})
+    smallServers.EntityData.Leafs = types.NewOrderedMap()
+
+    smallServers.EntityData.YListKeys = []string {}
+
     return &(smallServers.EntityData)
 }
 
@@ -879,6 +964,7 @@ func (smallServers *Ip_Cinetd_Services_Ipv6_SmallServers) GetEntityData() *types
 type Ip_Cinetd_Services_Ipv6_SmallServers_TcpSmallServers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Specify the access list. The type is string.
     AccessControlListName interface{}
@@ -901,10 +987,13 @@ func (tcpSmallServers *Ip_Cinetd_Services_Ipv6_SmallServers_TcpSmallServers) Get
     tcpSmallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpSmallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcpSmallServers.EntityData.Children = make(map[string]types.YChild)
-    tcpSmallServers.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpSmallServers.EntityData.Leafs["access-control-list-name"] = types.YLeaf{"AccessControlListName", tcpSmallServers.AccessControlListName}
-    tcpSmallServers.EntityData.Leafs["small-server"] = types.YLeaf{"SmallServer", tcpSmallServers.SmallServer}
+    tcpSmallServers.EntityData.Children = types.NewOrderedMap()
+    tcpSmallServers.EntityData.Leafs = types.NewOrderedMap()
+    tcpSmallServers.EntityData.Leafs.Append("access-control-list-name", types.YLeaf{"AccessControlListName", tcpSmallServers.AccessControlListName})
+    tcpSmallServers.EntityData.Leafs.Append("small-server", types.YLeaf{"SmallServer", tcpSmallServers.SmallServer})
+
+    tcpSmallServers.EntityData.YListKeys = []string {}
+
     return &(tcpSmallServers.EntityData)
 }
 
@@ -922,6 +1011,7 @@ const (
 type Ip_Cinetd_Services_Ipv6_SmallServers_UdpSmallServers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Specify the access list. The type is string.
     AccessControlListName interface{}
@@ -944,10 +1034,13 @@ func (udpSmallServers *Ip_Cinetd_Services_Ipv6_SmallServers_UdpSmallServers) Get
     udpSmallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpSmallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udpSmallServers.EntityData.Children = make(map[string]types.YChild)
-    udpSmallServers.EntityData.Leafs = make(map[string]types.YLeaf)
-    udpSmallServers.EntityData.Leafs["access-control-list-name"] = types.YLeaf{"AccessControlListName", udpSmallServers.AccessControlListName}
-    udpSmallServers.EntityData.Leafs["small-server"] = types.YLeaf{"SmallServer", udpSmallServers.SmallServer}
+    udpSmallServers.EntityData.Children = types.NewOrderedMap()
+    udpSmallServers.EntityData.Leafs = types.NewOrderedMap()
+    udpSmallServers.EntityData.Leafs.Append("access-control-list-name", types.YLeaf{"AccessControlListName", udpSmallServers.AccessControlListName})
+    udpSmallServers.EntityData.Leafs.Append("small-server", types.YLeaf{"SmallServer", udpSmallServers.SmallServer})
+
+    udpSmallServers.EntityData.YListKeys = []string {}
+
     return &(udpSmallServers.EntityData)
 }
 
@@ -980,9 +1073,12 @@ func (forwardProtocol *Ip_ForwardProtocol) GetEntityData() *types.CommonEntityDa
     forwardProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    forwardProtocol.EntityData.Children = make(map[string]types.YChild)
-    forwardProtocol.EntityData.Children["udp"] = types.YChild{"Udp", &forwardProtocol.Udp}
-    forwardProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    forwardProtocol.EntityData.Children = types.NewOrderedMap()
+    forwardProtocol.EntityData.Children.Append("udp", types.YChild{"Udp", &forwardProtocol.Udp})
+    forwardProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    forwardProtocol.EntityData.YListKeys = []string {}
+
     return &(forwardProtocol.EntityData)
 }
 
@@ -1009,10 +1105,13 @@ func (udp *Ip_ForwardProtocol_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udp.EntityData.Children = make(map[string]types.YChild)
-    udp.EntityData.Children["ports"] = types.YChild{"Ports", &udp.Ports}
-    udp.EntityData.Leafs = make(map[string]types.YLeaf)
-    udp.EntityData.Leafs["disable"] = types.YLeaf{"Disable", udp.Disable}
+    udp.EntityData.Children = types.NewOrderedMap()
+    udp.EntityData.Children.Append("ports", types.YChild{"Ports", &udp.Ports})
+    udp.EntityData.Leafs = types.NewOrderedMap()
+    udp.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", udp.Disable})
+
+    udp.EntityData.YListKeys = []string {}
+
     return &(udp.EntityData)
 }
 
@@ -1025,7 +1124,7 @@ type Ip_ForwardProtocol_Udp_Ports struct {
     // Well-known ports are enabled by default and non well-known ports are
     // disabled by default. It is not allowed to configure the default. The type
     // is slice of Ip_ForwardProtocol_Udp_Ports_Port.
-    Port []Ip_ForwardProtocol_Udp_Ports_Port
+    Port []*Ip_ForwardProtocol_Udp_Ports_Port
 }
 
 func (ports *Ip_ForwardProtocol_Udp_Ports) GetEntityData() *types.CommonEntityData {
@@ -1038,12 +1137,15 @@ func (ports *Ip_ForwardProtocol_Udp_Ports) GetEntityData() *types.CommonEntityDa
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ports.EntityData.Children = make(map[string]types.YChild)
-    ports.EntityData.Children["port"] = types.YChild{"Port", nil}
+    ports.EntityData.Children = types.NewOrderedMap()
+    ports.EntityData.Children.Append("port", types.YChild{"Port", nil})
     for i := range ports.Port {
-        ports.EntityData.Children[types.GetSegmentPath(&ports.Port[i])] = types.YChild{"Port", &ports.Port[i]}
+        ports.EntityData.Children.Append(types.GetSegmentPath(ports.Port[i]), types.YChild{"Port", ports.Port[i]})
     }
-    ports.EntityData.Leafs = make(map[string]types.YLeaf)
+    ports.EntityData.Leafs = types.NewOrderedMap()
+
+    ports.EntityData.YListKeys = []string {}
+
     return &(ports.EntityData)
 }
 
@@ -1071,15 +1173,18 @@ func (port *Ip_ForwardProtocol_Udp_Ports_Port) GetEntityData() *types.CommonEnti
     port.EntityData.YangName = "port"
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "ports"
-    port.EntityData.SegmentPath = "port" + "[port-id='" + fmt.Sprintf("%v", port.PortId) + "']"
+    port.EntityData.SegmentPath = "port" + types.AddKeyToken(port.PortId, "port-id")
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    port.EntityData.Children = make(map[string]types.YChild)
-    port.EntityData.Leafs = make(map[string]types.YLeaf)
-    port.EntityData.Leafs["port-id"] = types.YLeaf{"PortId", port.PortId}
-    port.EntityData.Leafs["enable"] = types.YLeaf{"Enable", port.Enable}
+    port.EntityData.Children = types.NewOrderedMap()
+    port.EntityData.Leafs = types.NewOrderedMap()
+    port.EntityData.Leafs.Append("port-id", types.YLeaf{"PortId", port.PortId})
+    port.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", port.Enable})
+
+    port.EntityData.YListKeys = []string {"PortId"}
+
     return &(port.EntityData)
 }
 

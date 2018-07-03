@@ -44,9 +44,12 @@ func (addressPoolService *AddressPoolService) GetEntityData() *types.CommonEntit
     addressPoolService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressPoolService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressPoolService.EntityData.Children = make(map[string]types.YChild)
-    addressPoolService.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &addressPoolService.Vrfs}
-    addressPoolService.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressPoolService.EntityData.Children = types.NewOrderedMap()
+    addressPoolService.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &addressPoolService.Vrfs})
+    addressPoolService.EntityData.Leafs = types.NewOrderedMap()
+
+    addressPoolService.EntityData.YListKeys = []string {}
+
     return &(addressPoolService.EntityData)
 }
 
@@ -57,7 +60,7 @@ type AddressPoolService_Vrfs struct {
     YFilter yfilter.YFilter
 
     // Specify VRF Name. The type is slice of AddressPoolService_Vrfs_Vrf.
-    Vrf []AddressPoolService_Vrfs_Vrf
+    Vrf []*AddressPoolService_Vrfs_Vrf
 }
 
 func (vrfs *AddressPoolService_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (vrfs *AddressPoolService_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -86,7 +92,7 @@ type AddressPoolService_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. none. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Enter IPv6 specific mode.
@@ -101,16 +107,19 @@ func (vrf *AddressPoolService_Vrfs_Vrf) GetEntityData() *types.CommonEntityData 
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &vrf.Ipv6}
-    vrf.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &vrf.Ipv4}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &vrf.Ipv6})
+    vrf.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &vrf.Ipv4})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -134,9 +143,12 @@ func (ipv6 *AddressPoolService_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntit
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["pools"] = types.YChild{"Pools", &ipv6.Pools}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("pools", types.YChild{"Pools", &ipv6.Pools})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -148,7 +160,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools struct {
 
     // Enter the IPv6 Pool name. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool.
-    Pool []AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool
+    Pool []*AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool
 }
 
 func (pools *AddressPoolService_Vrfs_Vrf_Ipv6_Pools) GetEntityData() *types.CommonEntityData {
@@ -161,12 +173,15 @@ func (pools *AddressPoolService_Vrfs_Vrf_Ipv6_Pools) GetEntityData() *types.Comm
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pools.EntityData.Children = make(map[string]types.YChild)
-    pools.EntityData.Children["pool"] = types.YChild{"Pool", nil}
+    pools.EntityData.Children = types.NewOrderedMap()
+    pools.EntityData.Children.Append("pool", types.YChild{"Pool", nil})
     for i := range pools.Pool {
-        pools.EntityData.Children[types.GetSegmentPath(&pools.Pool[i])] = types.YChild{"Pool", &pools.Pool[i]}
+        pools.EntityData.Children.Append(types.GetSegmentPath(pools.Pool[i]), types.YChild{"Pool", pools.Pool[i]})
     }
-    pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    pools.EntityData.Leafs = types.NewOrderedMap()
+
+    pools.EntityData.YListKeys = []string {}
+
     return &(pools.EntityData)
 }
 
@@ -177,7 +192,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Enter the IPv6 Pool name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Ipv6PoolName interface{}
 
     // Enter the prefix-length for the Pool. The type is interface{} with range:
@@ -205,20 +220,23 @@ func (pool *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool) GetEntityData() *types.
     pool.EntityData.YangName = "pool"
     pool.EntityData.BundleName = "cisco_ios_xr"
     pool.EntityData.ParentYangName = "pools"
-    pool.EntityData.SegmentPath = "pool" + "[ipv6-pool-name='" + fmt.Sprintf("%v", pool.Ipv6PoolName) + "']"
+    pool.EntityData.SegmentPath = "pool" + types.AddKeyToken(pool.Ipv6PoolName, "ipv6-pool-name")
     pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pool.EntityData.Children = make(map[string]types.YChild)
-    pool.EntityData.Children["address-ranges"] = types.YChild{"AddressRanges", &pool.AddressRanges}
-    pool.EntityData.Children["excludes"] = types.YChild{"Excludes", &pool.Excludes}
-    pool.EntityData.Children["utilization-mark"] = types.YChild{"UtilizationMark", &pool.UtilizationMark}
-    pool.EntityData.Children["prefix-ranges"] = types.YChild{"PrefixRanges", &pool.PrefixRanges}
-    pool.EntityData.Children["networks"] = types.YChild{"Networks", &pool.Networks}
-    pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    pool.EntityData.Leafs["ipv6-pool-name"] = types.YLeaf{"Ipv6PoolName", pool.Ipv6PoolName}
-    pool.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", pool.PrefixLength}
+    pool.EntityData.Children = types.NewOrderedMap()
+    pool.EntityData.Children.Append("address-ranges", types.YChild{"AddressRanges", &pool.AddressRanges})
+    pool.EntityData.Children.Append("excludes", types.YChild{"Excludes", &pool.Excludes})
+    pool.EntityData.Children.Append("utilization-mark", types.YChild{"UtilizationMark", &pool.UtilizationMark})
+    pool.EntityData.Children.Append("prefix-ranges", types.YChild{"PrefixRanges", &pool.PrefixRanges})
+    pool.EntityData.Children.Append("networks", types.YChild{"Networks", &pool.Networks})
+    pool.EntityData.Leafs = types.NewOrderedMap()
+    pool.EntityData.Leafs.Append("ipv6-pool-name", types.YLeaf{"Ipv6PoolName", pool.Ipv6PoolName})
+    pool.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", pool.PrefixLength})
+
+    pool.EntityData.YListKeys = []string {"Ipv6PoolName"}
+
     return &(pool.EntityData)
 }
 
@@ -230,7 +248,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges struct {
 
     // None. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges_AddressRange.
-    AddressRange []AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges_AddressRange
+    AddressRange []*AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges_AddressRange
 }
 
 func (addressRanges *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges) GetEntityData() *types.CommonEntityData {
@@ -243,12 +261,15 @@ func (addressRanges *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges) 
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRanges.EntityData.Children = make(map[string]types.YChild)
-    addressRanges.EntityData.Children["address-range"] = types.YChild{"AddressRange", nil}
+    addressRanges.EntityData.Children = types.NewOrderedMap()
+    addressRanges.EntityData.Children.Append("address-range", types.YChild{"AddressRange", nil})
     for i := range addressRanges.AddressRange {
-        addressRanges.EntityData.Children[types.GetSegmentPath(&addressRanges.AddressRange[i])] = types.YChild{"AddressRange", &addressRanges.AddressRange[i]}
+        addressRanges.EntityData.Children.Append(types.GetSegmentPath(addressRanges.AddressRange[i]), types.YChild{"AddressRange", addressRanges.AddressRange[i]})
     }
-    addressRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    addressRanges.EntityData.YListKeys = []string {}
+
     return &(addressRanges.EntityData)
 }
 
@@ -260,19 +281,19 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges_AddressRange stru
 
     // This attribute is a key. Start address of the range. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
-    // Blocked flag. The type is interface{} with range: -2147483648..2147483647.
+    // Blocked flag. The type is interface{} with range: 0..4294967295.
     Blocked interface{}
 
     // End Address of the range. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     EndAddress interface{}
 }
@@ -282,16 +303,19 @@ func (addressRange *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges_Ad
     addressRange.EntityData.YangName = "address-range"
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
-    addressRange.EntityData.SegmentPath = "address-range" + "[start-address='" + fmt.Sprintf("%v", addressRange.StartAddress) + "']"
+    addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address")
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRange.EntityData.Children = make(map[string]types.YChild)
-    addressRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressRange.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", addressRange.StartAddress}
-    addressRange.EntityData.Leafs["blocked"] = types.YLeaf{"Blocked", addressRange.Blocked}
-    addressRange.EntityData.Leafs["end-address"] = types.YLeaf{"EndAddress", addressRange.EndAddress}
+    addressRange.EntityData.Children = types.NewOrderedMap()
+    addressRange.EntityData.Leafs = types.NewOrderedMap()
+    addressRange.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", addressRange.StartAddress})
+    addressRange.EntityData.Leafs.Append("blocked", types.YLeaf{"Blocked", addressRange.Blocked})
+    addressRange.EntityData.Leafs.Append("end-address", types.YLeaf{"EndAddress", addressRange.EndAddress})
+
+    addressRange.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(addressRange.EntityData)
 }
 
@@ -303,7 +327,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes struct {
 
     // None. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes_Exclude.
-    Exclude []AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes_Exclude
+    Exclude []*AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes_Exclude
 }
 
 func (excludes *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes) GetEntityData() *types.CommonEntityData {
@@ -316,12 +340,15 @@ func (excludes *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes) GetEntityD
     excludes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    excludes.EntityData.Children = make(map[string]types.YChild)
-    excludes.EntityData.Children["exclude"] = types.YChild{"Exclude", nil}
+    excludes.EntityData.Children = types.NewOrderedMap()
+    excludes.EntityData.Children.Append("exclude", types.YChild{"Exclude", nil})
     for i := range excludes.Exclude {
-        excludes.EntityData.Children[types.GetSegmentPath(&excludes.Exclude[i])] = types.YChild{"Exclude", &excludes.Exclude[i]}
+        excludes.EntityData.Children.Append(types.GetSegmentPath(excludes.Exclude[i]), types.YChild{"Exclude", excludes.Exclude[i]})
     }
-    excludes.EntityData.Leafs = make(map[string]types.YLeaf)
+    excludes.EntityData.Leafs = types.NewOrderedMap()
+
+    excludes.EntityData.YListKeys = []string {}
+
     return &(excludes.EntityData)
 }
 
@@ -333,16 +360,16 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes_Exclude struct {
 
     // This attribute is a key. First Address in IPv6 exclude range. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // Last address in exclude Range. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     EndAddress interface{}
 }
@@ -352,15 +379,18 @@ func (exclude *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes_Exclude) Get
     exclude.EntityData.YangName = "exclude"
     exclude.EntityData.BundleName = "cisco_ios_xr"
     exclude.EntityData.ParentYangName = "excludes"
-    exclude.EntityData.SegmentPath = "exclude" + "[start-address='" + fmt.Sprintf("%v", exclude.StartAddress) + "']"
+    exclude.EntityData.SegmentPath = "exclude" + types.AddKeyToken(exclude.StartAddress, "start-address")
     exclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exclude.EntityData.Children = make(map[string]types.YChild)
-    exclude.EntityData.Leafs = make(map[string]types.YLeaf)
-    exclude.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", exclude.StartAddress}
-    exclude.EntityData.Leafs["end-address"] = types.YLeaf{"EndAddress", exclude.EndAddress}
+    exclude.EntityData.Children = types.NewOrderedMap()
+    exclude.EntityData.Leafs = types.NewOrderedMap()
+    exclude.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", exclude.StartAddress})
+    exclude.EntityData.Leafs.Append("end-address", types.YLeaf{"EndAddress", exclude.EndAddress})
+
+    exclude.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(exclude.EntityData)
 }
 
@@ -389,10 +419,13 @@ func (utilizationMark *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_UtilizationMa
     utilizationMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utilizationMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    utilizationMark.EntityData.Children = make(map[string]types.YChild)
-    utilizationMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    utilizationMark.EntityData.Leafs["high-mark"] = types.YLeaf{"HighMark", utilizationMark.HighMark}
-    utilizationMark.EntityData.Leafs["low-mark"] = types.YLeaf{"LowMark", utilizationMark.LowMark}
+    utilizationMark.EntityData.Children = types.NewOrderedMap()
+    utilizationMark.EntityData.Leafs = types.NewOrderedMap()
+    utilizationMark.EntityData.Leafs.Append("high-mark", types.YLeaf{"HighMark", utilizationMark.HighMark})
+    utilizationMark.EntityData.Leafs.Append("low-mark", types.YLeaf{"LowMark", utilizationMark.LowMark})
+
+    utilizationMark.EntityData.YListKeys = []string {}
+
     return &(utilizationMark.EntityData)
 }
 
@@ -404,7 +437,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges struct {
 
     // None. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges_PrefixRange.
-    PrefixRange []AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges_PrefixRange
+    PrefixRange []*AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges_PrefixRange
 }
 
 func (prefixRanges *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges) GetEntityData() *types.CommonEntityData {
@@ -417,12 +450,15 @@ func (prefixRanges *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges) Ge
     prefixRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixRanges.EntityData.Children = make(map[string]types.YChild)
-    prefixRanges.EntityData.Children["prefix-range"] = types.YChild{"PrefixRange", nil}
+    prefixRanges.EntityData.Children = types.NewOrderedMap()
+    prefixRanges.EntityData.Children.Append("prefix-range", types.YChild{"PrefixRange", nil})
     for i := range prefixRanges.PrefixRange {
-        prefixRanges.EntityData.Children[types.GetSegmentPath(&prefixRanges.PrefixRange[i])] = types.YChild{"PrefixRange", &prefixRanges.PrefixRange[i]}
+        prefixRanges.EntityData.Children.Append(types.GetSegmentPath(prefixRanges.PrefixRange[i]), types.YChild{"PrefixRange", prefixRanges.PrefixRange[i]})
     }
-    prefixRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixRanges.EntityData.YListKeys = []string {}
+
     return &(prefixRanges.EntityData)
 }
 
@@ -434,19 +470,19 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges_PrefixRange struct
 
     // This attribute is a key. First prefix of range. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartPrefix interface{}
 
-    // Blocked flag. The type is interface{} with range: -2147483648..2147483647.
+    // Blocked flag. The type is interface{} with range: 0..4294967295.
     Blocked interface{}
 
     // Last prefix of range. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     EndPrefix interface{}
 }
@@ -456,16 +492,19 @@ func (prefixRange *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges_Pref
     prefixRange.EntityData.YangName = "prefix-range"
     prefixRange.EntityData.BundleName = "cisco_ios_xr"
     prefixRange.EntityData.ParentYangName = "prefix-ranges"
-    prefixRange.EntityData.SegmentPath = "prefix-range" + "[start-prefix='" + fmt.Sprintf("%v", prefixRange.StartPrefix) + "']"
+    prefixRange.EntityData.SegmentPath = "prefix-range" + types.AddKeyToken(prefixRange.StartPrefix, "start-prefix")
     prefixRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixRange.EntityData.Children = make(map[string]types.YChild)
-    prefixRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixRange.EntityData.Leafs["start-prefix"] = types.YLeaf{"StartPrefix", prefixRange.StartPrefix}
-    prefixRange.EntityData.Leafs["blocked"] = types.YLeaf{"Blocked", prefixRange.Blocked}
-    prefixRange.EntityData.Leafs["end-prefix"] = types.YLeaf{"EndPrefix", prefixRange.EndPrefix}
+    prefixRange.EntityData.Children = types.NewOrderedMap()
+    prefixRange.EntityData.Leafs = types.NewOrderedMap()
+    prefixRange.EntityData.Leafs.Append("start-prefix", types.YLeaf{"StartPrefix", prefixRange.StartPrefix})
+    prefixRange.EntityData.Leafs.Append("blocked", types.YLeaf{"Blocked", prefixRange.Blocked})
+    prefixRange.EntityData.Leafs.Append("end-prefix", types.YLeaf{"EndPrefix", prefixRange.EndPrefix})
+
+    prefixRange.EntityData.YListKeys = []string {"StartPrefix"}
+
     return &(prefixRange.EntityData)
 }
 
@@ -477,7 +516,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks struct {
 
     // None. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks_Network.
-    Network []AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks_Network
+    Network []*AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks_Network
 }
 
 func (networks *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks) GetEntityData() *types.CommonEntityData {
@@ -490,12 +529,15 @@ func (networks *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks) GetEntityD
     networks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networks.EntityData.Children = make(map[string]types.YChild)
-    networks.EntityData.Children["network"] = types.YChild{"Network", nil}
+    networks.EntityData.Children = types.NewOrderedMap()
+    networks.EntityData.Children.Append("network", types.YChild{"Network", nil})
     for i := range networks.Network {
-        networks.EntityData.Children[types.GetSegmentPath(&networks.Network[i])] = types.YChild{"Network", &networks.Network[i]}
+        networks.EntityData.Children.Append(types.GetSegmentPath(networks.Network[i]), types.YChild{"Network", networks.Network[i]})
     }
-    networks.EntityData.Leafs = make(map[string]types.YLeaf)
+    networks.EntityData.Leafs = types.NewOrderedMap()
+
+    networks.EntityData.YListKeys = []string {}
+
     return &(networks.EntityData)
 }
 
@@ -507,12 +549,12 @@ type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks_Network struct {
 
     // This attribute is a key. None. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
-    // Blocked flag. The type is interface{} with range: -2147483648..2147483647.
+    // Blocked flag. The type is interface{} with range: 0..4294967295.
     Blocked interface{}
 
     // Prefix length for the IPv6 Prefix. The type is interface{} with range:
@@ -525,16 +567,19 @@ func (network *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks_Network) Get
     network.EntityData.YangName = "network"
     network.EntityData.BundleName = "cisco_ios_xr"
     network.EntityData.ParentYangName = "networks"
-    network.EntityData.SegmentPath = "network" + "[prefix='" + fmt.Sprintf("%v", network.Prefix) + "']"
+    network.EntityData.SegmentPath = "network" + types.AddKeyToken(network.Prefix, "prefix")
     network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", network.Prefix}
-    network.EntityData.Leafs["blocked"] = types.YLeaf{"Blocked", network.Blocked}
-    network.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", network.PrefixLength}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", network.Prefix})
+    network.EntityData.Leafs.Append("blocked", types.YLeaf{"Blocked", network.Blocked})
+    network.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", network.PrefixLength})
+
+    network.EntityData.YListKeys = []string {"Prefix"}
+
     return &(network.EntityData)
 }
 
@@ -558,9 +603,12 @@ func (ipv4 *AddressPoolService_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntit
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["pools"] = types.YChild{"Pools", &ipv4.Pools}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("pools", types.YChild{"Pools", &ipv4.Pools})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -572,7 +620,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv4_Pools struct {
 
     // IPv4 Pool name. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool.
-    Pool []AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool
+    Pool []*AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool
 }
 
 func (pools *AddressPoolService_Vrfs_Vrf_Ipv4_Pools) GetEntityData() *types.CommonEntityData {
@@ -585,12 +633,15 @@ func (pools *AddressPoolService_Vrfs_Vrf_Ipv4_Pools) GetEntityData() *types.Comm
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pools.EntityData.Children = make(map[string]types.YChild)
-    pools.EntityData.Children["pool"] = types.YChild{"Pool", nil}
+    pools.EntityData.Children = types.NewOrderedMap()
+    pools.EntityData.Children.Append("pool", types.YChild{"Pool", nil})
     for i := range pools.Pool {
-        pools.EntityData.Children[types.GetSegmentPath(&pools.Pool[i])] = types.YChild{"Pool", &pools.Pool[i]}
+        pools.EntityData.Children.Append(types.GetSegmentPath(pools.Pool[i]), types.YChild{"Pool", pools.Pool[i]})
     }
-    pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    pools.EntityData.Leafs = types.NewOrderedMap()
+
+    pools.EntityData.YListKeys = []string {}
+
     return &(pools.EntityData)
 }
 
@@ -601,7 +652,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Enter the IPv4 Pool name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PoolName interface{}
 
     // address range for allocation.
@@ -622,18 +673,21 @@ func (pool *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool) GetEntityData() *types.
     pool.EntityData.YangName = "pool"
     pool.EntityData.BundleName = "cisco_ios_xr"
     pool.EntityData.ParentYangName = "pools"
-    pool.EntityData.SegmentPath = "pool" + "[pool-name='" + fmt.Sprintf("%v", pool.PoolName) + "']"
+    pool.EntityData.SegmentPath = "pool" + types.AddKeyToken(pool.PoolName, "pool-name")
     pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pool.EntityData.Children = make(map[string]types.YChild)
-    pool.EntityData.Children["address-ranges"] = types.YChild{"AddressRanges", &pool.AddressRanges}
-    pool.EntityData.Children["excludes"] = types.YChild{"Excludes", &pool.Excludes}
-    pool.EntityData.Children["utilization-mark"] = types.YChild{"UtilizationMark", &pool.UtilizationMark}
-    pool.EntityData.Children["networks"] = types.YChild{"Networks", &pool.Networks}
-    pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    pool.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", pool.PoolName}
+    pool.EntityData.Children = types.NewOrderedMap()
+    pool.EntityData.Children.Append("address-ranges", types.YChild{"AddressRanges", &pool.AddressRanges})
+    pool.EntityData.Children.Append("excludes", types.YChild{"Excludes", &pool.Excludes})
+    pool.EntityData.Children.Append("utilization-mark", types.YChild{"UtilizationMark", &pool.UtilizationMark})
+    pool.EntityData.Children.Append("networks", types.YChild{"Networks", &pool.Networks})
+    pool.EntityData.Leafs = types.NewOrderedMap()
+    pool.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", pool.PoolName})
+
+    pool.EntityData.YListKeys = []string {"PoolName"}
+
     return &(pool.EntityData)
 }
 
@@ -645,7 +699,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges struct {
 
     // Specify first address in range. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges_AddressRange.
-    AddressRange []AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges_AddressRange
+    AddressRange []*AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges_AddressRange
 }
 
 func (addressRanges *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges) GetEntityData() *types.CommonEntityData {
@@ -658,12 +712,15 @@ func (addressRanges *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges) 
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRanges.EntityData.Children = make(map[string]types.YChild)
-    addressRanges.EntityData.Children["address-range"] = types.YChild{"AddressRange", nil}
+    addressRanges.EntityData.Children = types.NewOrderedMap()
+    addressRanges.EntityData.Children.Append("address-range", types.YChild{"AddressRange", nil})
     for i := range addressRanges.AddressRange {
-        addressRanges.EntityData.Children[types.GetSegmentPath(&addressRanges.AddressRange[i])] = types.YChild{"AddressRange", &addressRanges.AddressRange[i]}
+        addressRanges.EntityData.Children.Append(types.GetSegmentPath(addressRanges.AddressRange[i]), types.YChild{"AddressRange", addressRanges.AddressRange[i]})
     }
-    addressRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    addressRanges.EntityData.YListKeys = []string {}
+
     return &(addressRanges.EntityData)
 }
 
@@ -675,18 +732,18 @@ type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges_AddressRange stru
 
     // This attribute is a key. Specify first address of the range. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // Last address of the range. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     EndAddress interface{}
 
-    // Blocked flag. The type is interface{} with range: -2147483648..2147483647.
+    // Blocked flag. The type is interface{} with range: 0..4294967295.
     Blocked interface{}
 }
 
@@ -695,16 +752,19 @@ func (addressRange *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges_Ad
     addressRange.EntityData.YangName = "address-range"
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
-    addressRange.EntityData.SegmentPath = "address-range" + "[start-address='" + fmt.Sprintf("%v", addressRange.StartAddress) + "']"
+    addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address")
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRange.EntityData.Children = make(map[string]types.YChild)
-    addressRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressRange.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", addressRange.StartAddress}
-    addressRange.EntityData.Leafs["end-address"] = types.YLeaf{"EndAddress", addressRange.EndAddress}
-    addressRange.EntityData.Leafs["blocked"] = types.YLeaf{"Blocked", addressRange.Blocked}
+    addressRange.EntityData.Children = types.NewOrderedMap()
+    addressRange.EntityData.Leafs = types.NewOrderedMap()
+    addressRange.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", addressRange.StartAddress})
+    addressRange.EntityData.Leafs.Append("end-address", types.YLeaf{"EndAddress", addressRange.EndAddress})
+    addressRange.EntityData.Leafs.Append("blocked", types.YLeaf{"Blocked", addressRange.Blocked})
+
+    addressRange.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(addressRange.EntityData)
 }
 
@@ -716,7 +776,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes struct {
 
     // First address in range. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes_Exclude.
-    Exclude []AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes_Exclude
+    Exclude []*AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes_Exclude
 }
 
 func (excludes *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes) GetEntityData() *types.CommonEntityData {
@@ -729,12 +789,15 @@ func (excludes *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes) GetEntityD
     excludes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    excludes.EntityData.Children = make(map[string]types.YChild)
-    excludes.EntityData.Children["exclude"] = types.YChild{"Exclude", nil}
+    excludes.EntityData.Children = types.NewOrderedMap()
+    excludes.EntityData.Children.Append("exclude", types.YChild{"Exclude", nil})
     for i := range excludes.Exclude {
-        excludes.EntityData.Children[types.GetSegmentPath(&excludes.Exclude[i])] = types.YChild{"Exclude", &excludes.Exclude[i]}
+        excludes.EntityData.Children.Append(types.GetSegmentPath(excludes.Exclude[i]), types.YChild{"Exclude", excludes.Exclude[i]})
     }
-    excludes.EntityData.Leafs = make(map[string]types.YLeaf)
+    excludes.EntityData.Leafs = types.NewOrderedMap()
+
+    excludes.EntityData.YListKeys = []string {}
+
     return &(excludes.EntityData)
 }
 
@@ -746,14 +809,14 @@ type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes_Exclude struct {
 
     // This attribute is a key. First address in exclude range. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // Last address in excluded range. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     EndAddress interface{}
 }
@@ -763,15 +826,18 @@ func (exclude *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes_Exclude) Get
     exclude.EntityData.YangName = "exclude"
     exclude.EntityData.BundleName = "cisco_ios_xr"
     exclude.EntityData.ParentYangName = "excludes"
-    exclude.EntityData.SegmentPath = "exclude" + "[start-address='" + fmt.Sprintf("%v", exclude.StartAddress) + "']"
+    exclude.EntityData.SegmentPath = "exclude" + types.AddKeyToken(exclude.StartAddress, "start-address")
     exclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exclude.EntityData.Children = make(map[string]types.YChild)
-    exclude.EntityData.Leafs = make(map[string]types.YLeaf)
-    exclude.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", exclude.StartAddress}
-    exclude.EntityData.Leafs["end-address"] = types.YLeaf{"EndAddress", exclude.EndAddress}
+    exclude.EntityData.Children = types.NewOrderedMap()
+    exclude.EntityData.Leafs = types.NewOrderedMap()
+    exclude.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", exclude.StartAddress})
+    exclude.EntityData.Leafs.Append("end-address", types.YLeaf{"EndAddress", exclude.EndAddress})
+
+    exclude.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(exclude.EntityData)
 }
 
@@ -800,10 +866,13 @@ func (utilizationMark *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_UtilizationMa
     utilizationMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utilizationMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    utilizationMark.EntityData.Children = make(map[string]types.YChild)
-    utilizationMark.EntityData.Leafs = make(map[string]types.YLeaf)
-    utilizationMark.EntityData.Leafs["high"] = types.YLeaf{"High", utilizationMark.High}
-    utilizationMark.EntityData.Leafs["low"] = types.YLeaf{"Low", utilizationMark.Low}
+    utilizationMark.EntityData.Children = types.NewOrderedMap()
+    utilizationMark.EntityData.Leafs = types.NewOrderedMap()
+    utilizationMark.EntityData.Leafs.Append("high", types.YLeaf{"High", utilizationMark.High})
+    utilizationMark.EntityData.Leafs.Append("low", types.YLeaf{"Low", utilizationMark.Low})
+
+    utilizationMark.EntityData.YListKeys = []string {}
+
     return &(utilizationMark.EntityData)
 }
 
@@ -815,7 +884,7 @@ type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks struct {
 
     // Network Prefix. The type is slice of
     // AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks_Network.
-    Network []AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks_Network
+    Network []*AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks_Network
 }
 
 func (networks *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks) GetEntityData() *types.CommonEntityData {
@@ -828,12 +897,15 @@ func (networks *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks) GetEntityD
     networks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networks.EntityData.Children = make(map[string]types.YChild)
-    networks.EntityData.Children["network"] = types.YChild{"Network", nil}
+    networks.EntityData.Children = types.NewOrderedMap()
+    networks.EntityData.Children.Append("network", types.YChild{"Network", nil})
     for i := range networks.Network {
-        networks.EntityData.Children[types.GetSegmentPath(&networks.Network[i])] = types.YChild{"Network", &networks.Network[i]}
+        networks.EntityData.Children.Append(types.GetSegmentPath(networks.Network[i]), types.YChild{"Network", networks.Network[i]})
     }
-    networks.EntityData.Leafs = make(map[string]types.YLeaf)
+    networks.EntityData.Leafs = types.NewOrderedMap()
+
+    networks.EntityData.YListKeys = []string {}
+
     return &(networks.EntityData)
 }
 
@@ -845,20 +917,20 @@ type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks_Network struct {
 
     // This attribute is a key. None. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
-    // Blocked flag. The type is interface{} with range: -2147483648..2147483647.
+    // Blocked flag. The type is interface{} with range: 0..4294967295.
     Blocked interface{}
 
     // Subnet Length for IPv4 subnet. The type is interface{} with range:
-    // -2147483648..2147483647. This attribute is mandatory.
+    // 0..4294967295. This attribute is mandatory.
     PrefixLength interface{}
 
     // Default Gateway for IPv4 subnet. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DefaultRouter interface{}
 }
 
@@ -867,17 +939,20 @@ func (network *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks_Network) Get
     network.EntityData.YangName = "network"
     network.EntityData.BundleName = "cisco_ios_xr"
     network.EntityData.ParentYangName = "networks"
-    network.EntityData.SegmentPath = "network" + "[ipv4-prefix='" + fmt.Sprintf("%v", network.Ipv4Prefix) + "']"
+    network.EntityData.SegmentPath = "network" + types.AddKeyToken(network.Ipv4Prefix, "ipv4-prefix")
     network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", network.Ipv4Prefix}
-    network.EntityData.Leafs["blocked"] = types.YLeaf{"Blocked", network.Blocked}
-    network.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", network.PrefixLength}
-    network.EntityData.Leafs["default-router"] = types.YLeaf{"DefaultRouter", network.DefaultRouter}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", network.Ipv4Prefix})
+    network.EntityData.Leafs.Append("blocked", types.YLeaf{"Blocked", network.Blocked})
+    network.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", network.PrefixLength})
+    network.EntityData.Leafs.Append("default-router", types.YLeaf{"DefaultRouter", network.DefaultRouter})
+
+    network.EntityData.YListKeys = []string {"Ipv4Prefix"}
+
     return &(network.EntityData)
 }
 

@@ -58,10 +58,13 @@ func (startQuery *StartQuery) GetEntityData() *types.CommonEntityData {
     startQuery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     startQuery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    startQuery.EntityData.Children = make(map[string]types.YChild)
-    startQuery.EntityData.Children["input"] = types.YChild{"Input", &startQuery.Input}
-    startQuery.EntityData.Children["output"] = types.YChild{"Output", &startQuery.Output}
-    startQuery.EntityData.Leafs = make(map[string]types.YLeaf)
+    startQuery.EntityData.Children = types.NewOrderedMap()
+    startQuery.EntityData.Children.Append("input", types.YChild{"Input", &startQuery.Input})
+    startQuery.EntityData.Children.Append("output", types.YChild{"Output", &startQuery.Output})
+    startQuery.EntityData.Leafs = types.NewOrderedMap()
+
+    startQuery.EntityData.YListKeys = []string {}
+
     return &(startQuery.EntityData)
 }
 
@@ -106,8 +109,8 @@ type StartQuery_Input struct {
 
     // A list of expressions that define what to return from each node in the node
     // set returned by the 'foreach' expression. The type is slice of
-    // StartQuery_Input_Select_.
-    Select_ []StartQuery_Input_Select
+    // StartQuery_Input_Select.
+    Select []*StartQuery_Input_Select
 }
 
 func (input *StartQuery_Input) GetEntityData() *types.CommonEntityData {
@@ -120,17 +123,20 @@ func (input *StartQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["select"] = types.YChild{"Select_", nil}
-    for i := range input.Select_ {
-        input.EntityData.Children[types.GetSegmentPath(&input.Select_[i])] = types.YChild{"Select_", &input.Select_[i]}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("select", types.YChild{"Select", nil})
+    for i := range input.Select {
+        input.EntityData.Children.Append(types.GetSegmentPath(input.Select[i]), types.YChild{"Select", input.Select[i]})
     }
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["foreach"] = types.YLeaf{"Foreach", input.Foreach}
-    input.EntityData.Leafs["sort-by"] = types.YLeaf{"SortBy", input.SortBy}
-    input.EntityData.Leafs["limit"] = types.YLeaf{"Limit", input.Limit}
-    input.EntityData.Leafs["offset"] = types.YLeaf{"Offset", input.Offset}
-    input.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", input.Timeout}
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("foreach", types.YLeaf{"Foreach", input.Foreach})
+    input.EntityData.Leafs.Append("sort-by", types.YLeaf{"SortBy", input.SortBy})
+    input.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", input.Limit})
+    input.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", input.Offset})
+    input.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", input.Timeout})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -166,11 +172,14 @@ func (self *StartQuery_Input_Select) GetEntityData() *types.CommonEntityData {
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["label"] = types.YLeaf{"Label", self.Label}
-    self.EntityData.Leafs["expression"] = types.YLeaf{"Expression", self.Expression}
-    self.EntityData.Leafs["result-type"] = types.YLeaf{"ResultType", self.ResultType}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("label", types.YLeaf{"Label", self.Label})
+    self.EntityData.Leafs.Append("expression", types.YLeaf{"Expression", self.Expression})
+    self.EntityData.Leafs.Append("result-type", types.YLeaf{"ResultType", self.ResultType})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -218,9 +227,12 @@ func (output *StartQuery_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["query-handle"] = types.YLeaf{"QueryHandle", output.QueryHandle}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("query-handle", types.YLeaf{"QueryHandle", output.QueryHandle})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -246,10 +258,13 @@ func (fetchQueryResult *FetchQueryResult) GetEntityData() *types.CommonEntityDat
     fetchQueryResult.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fetchQueryResult.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    fetchQueryResult.EntityData.Children = make(map[string]types.YChild)
-    fetchQueryResult.EntityData.Children["input"] = types.YChild{"Input", &fetchQueryResult.Input}
-    fetchQueryResult.EntityData.Children["output"] = types.YChild{"Output", &fetchQueryResult.Output}
-    fetchQueryResult.EntityData.Leafs = make(map[string]types.YLeaf)
+    fetchQueryResult.EntityData.Children = types.NewOrderedMap()
+    fetchQueryResult.EntityData.Children.Append("input", types.YChild{"Input", &fetchQueryResult.Input})
+    fetchQueryResult.EntityData.Children.Append("output", types.YChild{"Output", &fetchQueryResult.Output})
+    fetchQueryResult.EntityData.Leafs = types.NewOrderedMap()
+
+    fetchQueryResult.EntityData.YListKeys = []string {}
+
     return &(fetchQueryResult.EntityData)
 }
 
@@ -272,9 +287,12 @@ func (input *FetchQueryResult_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["query-handle"] = types.YLeaf{"QueryHandle", input.QueryHandle}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("query-handle", types.YLeaf{"QueryHandle", input.QueryHandle})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -297,9 +315,12 @@ func (output *FetchQueryResult_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Children["query-result"] = types.YChild{"QueryResult", &output.QueryResult}
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Children.Append("query-result", types.YChild{"QueryResult", &output.QueryResult})
+    output.EntityData.Leafs = types.NewOrderedMap()
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -311,7 +332,7 @@ type FetchQueryResult_Output_QueryResult struct {
     // There will be one result for each node in the node set produced by
     // evaluating the 'foreach' expression. The type is slice of
     // FetchQueryResult_Output_QueryResult_Result.
-    Result []FetchQueryResult_Output_QueryResult_Result
+    Result []*FetchQueryResult_Output_QueryResult_Result
 }
 
 func (queryResult *FetchQueryResult_Output_QueryResult) GetEntityData() *types.CommonEntityData {
@@ -324,12 +345,15 @@ func (queryResult *FetchQueryResult_Output_QueryResult) GetEntityData() *types.C
     queryResult.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     queryResult.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    queryResult.EntityData.Children = make(map[string]types.YChild)
-    queryResult.EntityData.Children["result"] = types.YChild{"Result", nil}
+    queryResult.EntityData.Children = types.NewOrderedMap()
+    queryResult.EntityData.Children.Append("result", types.YChild{"Result", nil})
     for i := range queryResult.Result {
-        queryResult.EntityData.Children[types.GetSegmentPath(&queryResult.Result[i])] = types.YChild{"Result", &queryResult.Result[i]}
+        queryResult.EntityData.Children.Append(types.GetSegmentPath(queryResult.Result[i]), types.YChild{"Result", queryResult.Result[i]})
     }
-    queryResult.EntityData.Leafs = make(map[string]types.YLeaf)
+    queryResult.EntityData.Leafs = types.NewOrderedMap()
+
+    queryResult.EntityData.YListKeys = []string {}
+
     return &(queryResult.EntityData)
 }
 
@@ -340,8 +364,8 @@ type FetchQueryResult_Output_QueryResult_Result struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is slice of FetchQueryResult_Output_QueryResult_Result_Select_.
-    Select_ []FetchQueryResult_Output_QueryResult_Result_Select
+    // The type is slice of FetchQueryResult_Output_QueryResult_Result_Select.
+    Select []*FetchQueryResult_Output_QueryResult_Result_Select
 }
 
 func (result *FetchQueryResult_Output_QueryResult_Result) GetEntityData() *types.CommonEntityData {
@@ -354,12 +378,15 @@ func (result *FetchQueryResult_Output_QueryResult_Result) GetEntityData() *types
     result.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     result.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    result.EntityData.Children = make(map[string]types.YChild)
-    result.EntityData.Children["select"] = types.YChild{"Select_", nil}
-    for i := range result.Select_ {
-        result.EntityData.Children[types.GetSegmentPath(&result.Select_[i])] = types.YChild{"Select_", &result.Select_[i]}
+    result.EntityData.Children = types.NewOrderedMap()
+    result.EntityData.Children.Append("select", types.YChild{"Select", nil})
+    for i := range result.Select {
+        result.EntityData.Children.Append(types.GetSegmentPath(result.Select[i]), types.YChild{"Select", result.Select[i]})
     }
-    result.EntityData.Leafs = make(map[string]types.YLeaf)
+    result.EntityData.Leafs = types.NewOrderedMap()
+
+    result.EntityData.YListKeys = []string {}
+
     return &(result.EntityData)
 }
 
@@ -393,12 +420,15 @@ func (self *FetchQueryResult_Output_QueryResult_Result_Select) GetEntityData() *
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["label"] = types.YLeaf{"Label", self.Label}
-    self.EntityData.Leafs["path"] = types.YLeaf{"Path", self.Path}
-    self.EntityData.Leafs["value"] = types.YLeaf{"Value", self.Value}
-    self.EntityData.Leafs["data"] = types.YLeaf{"Data", self.Data}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("label", types.YLeaf{"Label", self.Label})
+    self.EntityData.Leafs.Append("path", types.YLeaf{"Path", self.Path})
+    self.EntityData.Leafs.Append("value", types.YLeaf{"Value", self.Value})
+    self.EntityData.Leafs.Append("data", types.YLeaf{"Data", self.Data})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -421,9 +451,12 @@ func (resetQuery *ResetQuery) GetEntityData() *types.CommonEntityData {
     resetQuery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     resetQuery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    resetQuery.EntityData.Children = make(map[string]types.YChild)
-    resetQuery.EntityData.Children["input"] = types.YChild{"Input", &resetQuery.Input}
-    resetQuery.EntityData.Leafs = make(map[string]types.YLeaf)
+    resetQuery.EntityData.Children = types.NewOrderedMap()
+    resetQuery.EntityData.Children.Append("input", types.YChild{"Input", &resetQuery.Input})
+    resetQuery.EntityData.Leafs = types.NewOrderedMap()
+
+    resetQuery.EntityData.YListKeys = []string {}
+
     return &(resetQuery.EntityData)
 }
 
@@ -454,11 +487,14 @@ func (input *ResetQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["query-handle"] = types.YLeaf{"QueryHandle", input.QueryHandle}
-    input.EntityData.Leafs["offset"] = types.YLeaf{"Offset", input.Offset}
-    input.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", input.Timeout}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("query-handle", types.YLeaf{"QueryHandle", input.QueryHandle})
+    input.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", input.Offset})
+    input.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", input.Timeout})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -481,9 +517,12 @@ func (stopQuery *StopQuery) GetEntityData() *types.CommonEntityData {
     stopQuery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stopQuery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stopQuery.EntityData.Children = make(map[string]types.YChild)
-    stopQuery.EntityData.Children["input"] = types.YChild{"Input", &stopQuery.Input}
-    stopQuery.EntityData.Leafs = make(map[string]types.YLeaf)
+    stopQuery.EntityData.Children = types.NewOrderedMap()
+    stopQuery.EntityData.Children.Append("input", types.YChild{"Input", &stopQuery.Input})
+    stopQuery.EntityData.Leafs = types.NewOrderedMap()
+
+    stopQuery.EntityData.YListKeys = []string {}
+
     return &(stopQuery.EntityData)
 }
 
@@ -506,9 +545,12 @@ func (input *StopQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["query-handle"] = types.YLeaf{"QueryHandle", input.QueryHandle}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("query-handle", types.YLeaf{"QueryHandle", input.QueryHandle})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

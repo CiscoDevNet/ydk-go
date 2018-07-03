@@ -20,8 +20,8 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package mpls_vpn_oper"))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-vpn-oper l3vpn}", reflect.TypeOf(L3Vpn{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-mpls-vpn-oper:l3vpn", reflect.TypeOf(L3Vpn{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-vpn-oper l3vpn}", reflect.TypeOf(L3vpn{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-mpls-vpn-oper:l3vpn", reflect.TypeOf(L3vpn{}))
 }
 
 // MplsVpnRt represents Layer 3 VPN Route Target Type
@@ -38,6 +38,17 @@ const (
     MplsVpnRt_both MplsVpnRt = "both"
 )
 
+// MplsVpnAfi represents Layer 3 VPN Address Family Type
+type MplsVpnAfi string
+
+const (
+    // VRF IPv4 address family
+    MplsVpnAfi_ipv4 MplsVpnAfi = "ipv4"
+
+    // VRF IPv6 address family
+    MplsVpnAfi_ipv6 MplsVpnAfi = "ipv6"
+)
+
 // MplsVpnSafi represents Layer 3 VPN Sub-Address Family Type
 type MplsVpnSafi string
 
@@ -52,60 +63,52 @@ const (
     MplsVpnSafi_flowspec MplsVpnSafi = "flowspec"
 )
 
-// MplsVpnAfi represents Layer 3 VPN Address Family Type
-type MplsVpnAfi string
-
-const (
-    // VRF IPv4 address family
-    MplsVpnAfi_ipv4 MplsVpnAfi = "ipv4"
-
-    // VRF IPv6 address family
-    MplsVpnAfi_ipv6 MplsVpnAfi = "ipv6"
-)
-
-// L3Vpn
+// L3vpn
 // L3VPN operational data
-type L3Vpn struct {
+type L3vpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Invalid VRF Table (VRFs that are forward referenced).
-    InvalidVrfs L3Vpn_InvalidVrfs
+    InvalidVrfs L3vpn_InvalidVrfs
 
     // VRF Table.
-    Vrfs L3Vpn_Vrfs
+    Vrfs L3vpn_Vrfs
 }
 
-func (l3Vpn *L3Vpn) GetEntityData() *types.CommonEntityData {
-    l3Vpn.EntityData.YFilter = l3Vpn.YFilter
-    l3Vpn.EntityData.YangName = "l3vpn"
-    l3Vpn.EntityData.BundleName = "cisco_ios_xr"
-    l3Vpn.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-vpn-oper"
-    l3Vpn.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn"
-    l3Vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    l3Vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    l3Vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (l3vpn *L3vpn) GetEntityData() *types.CommonEntityData {
+    l3vpn.EntityData.YFilter = l3vpn.YFilter
+    l3vpn.EntityData.YangName = "l3vpn"
+    l3vpn.EntityData.BundleName = "cisco_ios_xr"
+    l3vpn.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-vpn-oper"
+    l3vpn.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn"
+    l3vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l3vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l3vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    l3Vpn.EntityData.Children = make(map[string]types.YChild)
-    l3Vpn.EntityData.Children["invalid-vrfs"] = types.YChild{"InvalidVrfs", &l3Vpn.InvalidVrfs}
-    l3Vpn.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &l3Vpn.Vrfs}
-    l3Vpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3Vpn.EntityData)
+    l3vpn.EntityData.Children = types.NewOrderedMap()
+    l3vpn.EntityData.Children.Append("invalid-vrfs", types.YChild{"InvalidVrfs", &l3vpn.InvalidVrfs})
+    l3vpn.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &l3vpn.Vrfs})
+    l3vpn.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpn.EntityData.YListKeys = []string {}
+
+    return &(l3vpn.EntityData)
 }
 
-// L3Vpn_InvalidVrfs
+// L3vpn_InvalidVrfs
 // Invalid VRF Table (VRFs that are forward
 // referenced)
-type L3Vpn_InvalidVrfs struct {
+type L3vpn_InvalidVrfs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Invalid VRF (VRF that is forward referenced). The type is slice of
-    // L3Vpn_InvalidVrfs_InvalidVrf.
-    InvalidVrf []L3Vpn_InvalidVrfs_InvalidVrf
+    // L3vpn_InvalidVrfs_InvalidVrf.
+    InvalidVrf []*L3vpn_InvalidVrfs_InvalidVrf
 }
 
-func (invalidVrfs *L3Vpn_InvalidVrfs) GetEntityData() *types.CommonEntityData {
+func (invalidVrfs *L3vpn_InvalidVrfs) GetEntityData() *types.CommonEntityData {
     invalidVrfs.EntityData.YFilter = invalidVrfs.YFilter
     invalidVrfs.EntityData.YangName = "invalid-vrfs"
     invalidVrfs.EntityData.BundleName = "cisco_ios_xr"
@@ -115,18 +118,21 @@ func (invalidVrfs *L3Vpn_InvalidVrfs) GetEntityData() *types.CommonEntityData {
     invalidVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    invalidVrfs.EntityData.Children = make(map[string]types.YChild)
-    invalidVrfs.EntityData.Children["invalid-vrf"] = types.YChild{"InvalidVrf", nil}
+    invalidVrfs.EntityData.Children = types.NewOrderedMap()
+    invalidVrfs.EntityData.Children.Append("invalid-vrf", types.YChild{"InvalidVrf", nil})
     for i := range invalidVrfs.InvalidVrf {
-        invalidVrfs.EntityData.Children[types.GetSegmentPath(&invalidVrfs.InvalidVrf[i])] = types.YChild{"InvalidVrf", &invalidVrfs.InvalidVrf[i]}
+        invalidVrfs.EntityData.Children.Append(types.GetSegmentPath(invalidVrfs.InvalidVrf[i]), types.YChild{"InvalidVrf", invalidVrfs.InvalidVrf[i]})
     }
-    invalidVrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    invalidVrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    invalidVrfs.EntityData.YListKeys = []string {}
+
     return &(invalidVrfs.EntityData)
 }
 
-// L3Vpn_InvalidVrfs_InvalidVrf
+// L3vpn_InvalidVrfs_InvalidVrf
 // Invalid VRF (VRF that is forward referenced)
-type L3Vpn_InvalidVrfs_InvalidVrf struct {
+type L3vpn_InvalidVrfs_InvalidVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -146,44 +152,47 @@ type L3Vpn_InvalidVrfs_InvalidVrf struct {
     IsBigVrf interface{}
 
     // Interfaces in VRF. The type is slice of
-    // L3Vpn_InvalidVrfs_InvalidVrf_Interface_.
-    Interface_ []L3Vpn_InvalidVrfs_InvalidVrf_Interface
+    // L3vpn_InvalidVrfs_InvalidVrf_Interface.
+    Interface []*L3vpn_InvalidVrfs_InvalidVrf_Interface
 
-    // AF/SAF information. The type is slice of L3Vpn_InvalidVrfs_InvalidVrf_Af.
-    Af []L3Vpn_InvalidVrfs_InvalidVrf_Af
+    // AF/SAF information. The type is slice of L3vpn_InvalidVrfs_InvalidVrf_Af.
+    Af []*L3vpn_InvalidVrfs_InvalidVrf_Af
 }
 
-func (invalidVrf *L3Vpn_InvalidVrfs_InvalidVrf) GetEntityData() *types.CommonEntityData {
+func (invalidVrf *L3vpn_InvalidVrfs_InvalidVrf) GetEntityData() *types.CommonEntityData {
     invalidVrf.EntityData.YFilter = invalidVrf.YFilter
     invalidVrf.EntityData.YangName = "invalid-vrf"
     invalidVrf.EntityData.BundleName = "cisco_ios_xr"
     invalidVrf.EntityData.ParentYangName = "invalid-vrfs"
-    invalidVrf.EntityData.SegmentPath = "invalid-vrf" + "[vrf-name='" + fmt.Sprintf("%v", invalidVrf.VrfName) + "']"
+    invalidVrf.EntityData.SegmentPath = "invalid-vrf" + types.AddKeyToken(invalidVrf.VrfName, "vrf-name")
     invalidVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    invalidVrf.EntityData.Children = make(map[string]types.YChild)
-    invalidVrf.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range invalidVrf.Interface_ {
-        invalidVrf.EntityData.Children[types.GetSegmentPath(&invalidVrf.Interface_[i])] = types.YChild{"Interface_", &invalidVrf.Interface_[i]}
+    invalidVrf.EntityData.Children = types.NewOrderedMap()
+    invalidVrf.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range invalidVrf.Interface {
+        invalidVrf.EntityData.Children.Append(types.GetSegmentPath(invalidVrf.Interface[i]), types.YChild{"Interface", invalidVrf.Interface[i]})
     }
-    invalidVrf.EntityData.Children["af"] = types.YChild{"Af", nil}
+    invalidVrf.EntityData.Children.Append("af", types.YChild{"Af", nil})
     for i := range invalidVrf.Af {
-        invalidVrf.EntityData.Children[types.GetSegmentPath(&invalidVrf.Af[i])] = types.YChild{"Af", &invalidVrf.Af[i]}
+        invalidVrf.EntityData.Children.Append(types.GetSegmentPath(invalidVrf.Af[i]), types.YChild{"Af", invalidVrf.Af[i]})
     }
-    invalidVrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    invalidVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", invalidVrf.VrfName}
-    invalidVrf.EntityData.Leafs["vrf-name-xr"] = types.YLeaf{"VrfNameXr", invalidVrf.VrfNameXr}
-    invalidVrf.EntityData.Leafs["vrf-description"] = types.YLeaf{"VrfDescription", invalidVrf.VrfDescription}
-    invalidVrf.EntityData.Leafs["route-distinguisher"] = types.YLeaf{"RouteDistinguisher", invalidVrf.RouteDistinguisher}
-    invalidVrf.EntityData.Leafs["is-big-vrf"] = types.YLeaf{"IsBigVrf", invalidVrf.IsBigVrf}
+    invalidVrf.EntityData.Leafs = types.NewOrderedMap()
+    invalidVrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", invalidVrf.VrfName})
+    invalidVrf.EntityData.Leafs.Append("vrf-name-xr", types.YLeaf{"VrfNameXr", invalidVrf.VrfNameXr})
+    invalidVrf.EntityData.Leafs.Append("vrf-description", types.YLeaf{"VrfDescription", invalidVrf.VrfDescription})
+    invalidVrf.EntityData.Leafs.Append("route-distinguisher", types.YLeaf{"RouteDistinguisher", invalidVrf.RouteDistinguisher})
+    invalidVrf.EntityData.Leafs.Append("is-big-vrf", types.YLeaf{"IsBigVrf", invalidVrf.IsBigVrf})
+
+    invalidVrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(invalidVrf.EntityData)
 }
 
-// L3Vpn_InvalidVrfs_InvalidVrf_Interface
+// L3vpn_InvalidVrfs_InvalidVrf_Interface
 // Interfaces in VRF
-type L3Vpn_InvalidVrfs_InvalidVrf_Interface struct {
+type L3vpn_InvalidVrfs_InvalidVrf_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -191,7 +200,7 @@ type L3Vpn_InvalidVrfs_InvalidVrf_Interface struct {
     InterfaceName interface{}
 }
 
-func (self *L3Vpn_InvalidVrfs_InvalidVrf_Interface) GetEntityData() *types.CommonEntityData {
+func (self *L3vpn_InvalidVrfs_InvalidVrf_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YFilter = self.YFilter
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
@@ -201,15 +210,18 @@ func (self *L3Vpn_InvalidVrfs_InvalidVrf_Interface) GetEntityData() *types.Commo
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
-// L3Vpn_InvalidVrfs_InvalidVrf_Af
+// L3vpn_InvalidVrfs_InvalidVrf_Af
 // AF/SAF information
-type L3Vpn_InvalidVrfs_InvalidVrf_Af struct {
+type L3vpn_InvalidVrfs_InvalidVrf_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -226,11 +238,11 @@ type L3Vpn_InvalidVrfs_InvalidVrf_Af struct {
     ExportRoutePolicy interface{}
 
     // Route Targets. The type is slice of
-    // L3Vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget.
-    RouteTarget []L3Vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget
+    // L3vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget.
+    RouteTarget []*L3vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget
 }
 
-func (af *L3Vpn_InvalidVrfs_InvalidVrf_Af) GetEntityData() *types.CommonEntityData {
+func (af *L3vpn_InvalidVrfs_InvalidVrf_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.YFilter = af.YFilter
     af.EntityData.YangName = "af"
     af.EntityData.BundleName = "cisco_ios_xr"
@@ -240,22 +252,25 @@ func (af *L3Vpn_InvalidVrfs_InvalidVrf_Af) GetEntityData() *types.CommonEntityDa
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    af.EntityData.Children = make(map[string]types.YChild)
-    af.EntityData.Children["route-target"] = types.YChild{"RouteTarget", nil}
+    af.EntityData.Children = types.NewOrderedMap()
+    af.EntityData.Children.Append("route-target", types.YChild{"RouteTarget", nil})
     for i := range af.RouteTarget {
-        af.EntityData.Children[types.GetSegmentPath(&af.RouteTarget[i])] = types.YChild{"RouteTarget", &af.RouteTarget[i]}
+        af.EntityData.Children.Append(types.GetSegmentPath(af.RouteTarget[i]), types.YChild{"RouteTarget", af.RouteTarget[i]})
     }
-    af.EntityData.Leafs = make(map[string]types.YLeaf)
-    af.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", af.AfName}
-    af.EntityData.Leafs["saf-name"] = types.YLeaf{"SafName", af.SafName}
-    af.EntityData.Leafs["import-route-policy"] = types.YLeaf{"ImportRoutePolicy", af.ImportRoutePolicy}
-    af.EntityData.Leafs["export-route-policy"] = types.YLeaf{"ExportRoutePolicy", af.ExportRoutePolicy}
+    af.EntityData.Leafs = types.NewOrderedMap()
+    af.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", af.AfName})
+    af.EntityData.Leafs.Append("saf-name", types.YLeaf{"SafName", af.SafName})
+    af.EntityData.Leafs.Append("import-route-policy", types.YLeaf{"ImportRoutePolicy", af.ImportRoutePolicy})
+    af.EntityData.Leafs.Append("export-route-policy", types.YLeaf{"ExportRoutePolicy", af.ExportRoutePolicy})
+
+    af.EntityData.YListKeys = []string {}
+
     return &(af.EntityData)
 }
 
-// L3Vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget
+// L3vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget
 // Route Targets
-type L3Vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget struct {
+type L3vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -272,7 +287,7 @@ type L3Vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget struct {
     SafName interface{}
 }
 
-func (routeTarget *L3Vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget) GetEntityData() *types.CommonEntityData {
+func (routeTarget *L3vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget) GetEntityData() *types.CommonEntityData {
     routeTarget.EntityData.YFilter = routeTarget.YFilter
     routeTarget.EntityData.YangName = "route-target"
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
@@ -282,26 +297,29 @@ func (routeTarget *L3Vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget) GetEntityData() 
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTarget.EntityData.Children = make(map[string]types.YChild)
-    routeTarget.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTarget.EntityData.Leafs["route-target-type"] = types.YLeaf{"RouteTargetType", routeTarget.RouteTargetType}
-    routeTarget.EntityData.Leafs["route-target-value"] = types.YLeaf{"RouteTargetValue", routeTarget.RouteTargetValue}
-    routeTarget.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", routeTarget.AfName}
-    routeTarget.EntityData.Leafs["saf-name"] = types.YLeaf{"SafName", routeTarget.SafName}
+    routeTarget.EntityData.Children = types.NewOrderedMap()
+    routeTarget.EntityData.Leafs = types.NewOrderedMap()
+    routeTarget.EntityData.Leafs.Append("route-target-type", types.YLeaf{"RouteTargetType", routeTarget.RouteTargetType})
+    routeTarget.EntityData.Leafs.Append("route-target-value", types.YLeaf{"RouteTargetValue", routeTarget.RouteTargetValue})
+    routeTarget.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", routeTarget.AfName})
+    routeTarget.EntityData.Leafs.Append("saf-name", types.YLeaf{"SafName", routeTarget.SafName})
+
+    routeTarget.EntityData.YListKeys = []string {}
+
     return &(routeTarget.EntityData)
 }
 
-// L3Vpn_Vrfs
+// L3vpn_Vrfs
 // VRF Table
-type L3Vpn_Vrfs struct {
+type L3vpn_Vrfs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // VRF. The type is slice of L3Vpn_Vrfs_Vrf.
-    Vrf []L3Vpn_Vrfs_Vrf
+    // VRF. The type is slice of L3vpn_Vrfs_Vrf.
+    Vrf []*L3vpn_Vrfs_Vrf
 }
 
-func (vrfs *L3Vpn_Vrfs) GetEntityData() *types.CommonEntityData {
+func (vrfs *L3vpn_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.YFilter = vrfs.YFilter
     vrfs.EntityData.YangName = "vrfs"
     vrfs.EntityData.BundleName = "cisco_ios_xr"
@@ -311,18 +329,21 @@ func (vrfs *L3Vpn_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
-// L3Vpn_Vrfs_Vrf
+// L3vpn_Vrfs_Vrf
 // VRF
-type L3Vpn_Vrfs_Vrf struct {
+type L3vpn_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -341,44 +362,47 @@ type L3Vpn_Vrfs_Vrf struct {
     // VRF mode information. The type is bool.
     IsBigVrf interface{}
 
-    // Interfaces in VRF. The type is slice of L3Vpn_Vrfs_Vrf_Interface_.
-    Interface_ []L3Vpn_Vrfs_Vrf_Interface
+    // Interfaces in VRF. The type is slice of L3vpn_Vrfs_Vrf_Interface.
+    Interface []*L3vpn_Vrfs_Vrf_Interface
 
-    // AF/SAF information. The type is slice of L3Vpn_Vrfs_Vrf_Af.
-    Af []L3Vpn_Vrfs_Vrf_Af
+    // AF/SAF information. The type is slice of L3vpn_Vrfs_Vrf_Af.
+    Af []*L3vpn_Vrfs_Vrf_Af
 }
 
-func (vrf *L3Vpn_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+func (vrf *L3vpn_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YFilter = vrf.YFilter
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range vrf.Interface_ {
-        vrf.EntityData.Children[types.GetSegmentPath(&vrf.Interface_[i])] = types.YChild{"Interface_", &vrf.Interface_[i]}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range vrf.Interface {
+        vrf.EntityData.Children.Append(types.GetSegmentPath(vrf.Interface[i]), types.YChild{"Interface", vrf.Interface[i]})
     }
-    vrf.EntityData.Children["af"] = types.YChild{"Af", nil}
+    vrf.EntityData.Children.Append("af", types.YChild{"Af", nil})
     for i := range vrf.Af {
-        vrf.EntityData.Children[types.GetSegmentPath(&vrf.Af[i])] = types.YChild{"Af", &vrf.Af[i]}
+        vrf.EntityData.Children.Append(types.GetSegmentPath(vrf.Af[i]), types.YChild{"Af", vrf.Af[i]})
     }
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["vrf-name-xr"] = types.YLeaf{"VrfNameXr", vrf.VrfNameXr}
-    vrf.EntityData.Leafs["vrf-description"] = types.YLeaf{"VrfDescription", vrf.VrfDescription}
-    vrf.EntityData.Leafs["route-distinguisher"] = types.YLeaf{"RouteDistinguisher", vrf.RouteDistinguisher}
-    vrf.EntityData.Leafs["is-big-vrf"] = types.YLeaf{"IsBigVrf", vrf.IsBigVrf}
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("vrf-name-xr", types.YLeaf{"VrfNameXr", vrf.VrfNameXr})
+    vrf.EntityData.Leafs.Append("vrf-description", types.YLeaf{"VrfDescription", vrf.VrfDescription})
+    vrf.EntityData.Leafs.Append("route-distinguisher", types.YLeaf{"RouteDistinguisher", vrf.RouteDistinguisher})
+    vrf.EntityData.Leafs.Append("is-big-vrf", types.YLeaf{"IsBigVrf", vrf.IsBigVrf})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
-// L3Vpn_Vrfs_Vrf_Interface
+// L3vpn_Vrfs_Vrf_Interface
 // Interfaces in VRF
-type L3Vpn_Vrfs_Vrf_Interface struct {
+type L3vpn_Vrfs_Vrf_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -386,7 +410,7 @@ type L3Vpn_Vrfs_Vrf_Interface struct {
     InterfaceName interface{}
 }
 
-func (self *L3Vpn_Vrfs_Vrf_Interface) GetEntityData() *types.CommonEntityData {
+func (self *L3vpn_Vrfs_Vrf_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YFilter = self.YFilter
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
@@ -396,15 +420,18 @@ func (self *L3Vpn_Vrfs_Vrf_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
-// L3Vpn_Vrfs_Vrf_Af
+// L3vpn_Vrfs_Vrf_Af
 // AF/SAF information
-type L3Vpn_Vrfs_Vrf_Af struct {
+type L3vpn_Vrfs_Vrf_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -420,11 +447,11 @@ type L3Vpn_Vrfs_Vrf_Af struct {
     // Export Route Policy. The type is string.
     ExportRoutePolicy interface{}
 
-    // Route Targets. The type is slice of L3Vpn_Vrfs_Vrf_Af_RouteTarget.
-    RouteTarget []L3Vpn_Vrfs_Vrf_Af_RouteTarget
+    // Route Targets. The type is slice of L3vpn_Vrfs_Vrf_Af_RouteTarget.
+    RouteTarget []*L3vpn_Vrfs_Vrf_Af_RouteTarget
 }
 
-func (af *L3Vpn_Vrfs_Vrf_Af) GetEntityData() *types.CommonEntityData {
+func (af *L3vpn_Vrfs_Vrf_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.YFilter = af.YFilter
     af.EntityData.YangName = "af"
     af.EntityData.BundleName = "cisco_ios_xr"
@@ -434,22 +461,25 @@ func (af *L3Vpn_Vrfs_Vrf_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    af.EntityData.Children = make(map[string]types.YChild)
-    af.EntityData.Children["route-target"] = types.YChild{"RouteTarget", nil}
+    af.EntityData.Children = types.NewOrderedMap()
+    af.EntityData.Children.Append("route-target", types.YChild{"RouteTarget", nil})
     for i := range af.RouteTarget {
-        af.EntityData.Children[types.GetSegmentPath(&af.RouteTarget[i])] = types.YChild{"RouteTarget", &af.RouteTarget[i]}
+        af.EntityData.Children.Append(types.GetSegmentPath(af.RouteTarget[i]), types.YChild{"RouteTarget", af.RouteTarget[i]})
     }
-    af.EntityData.Leafs = make(map[string]types.YLeaf)
-    af.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", af.AfName}
-    af.EntityData.Leafs["saf-name"] = types.YLeaf{"SafName", af.SafName}
-    af.EntityData.Leafs["import-route-policy"] = types.YLeaf{"ImportRoutePolicy", af.ImportRoutePolicy}
-    af.EntityData.Leafs["export-route-policy"] = types.YLeaf{"ExportRoutePolicy", af.ExportRoutePolicy}
+    af.EntityData.Leafs = types.NewOrderedMap()
+    af.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", af.AfName})
+    af.EntityData.Leafs.Append("saf-name", types.YLeaf{"SafName", af.SafName})
+    af.EntityData.Leafs.Append("import-route-policy", types.YLeaf{"ImportRoutePolicy", af.ImportRoutePolicy})
+    af.EntityData.Leafs.Append("export-route-policy", types.YLeaf{"ExportRoutePolicy", af.ExportRoutePolicy})
+
+    af.EntityData.YListKeys = []string {}
+
     return &(af.EntityData)
 }
 
-// L3Vpn_Vrfs_Vrf_Af_RouteTarget
+// L3vpn_Vrfs_Vrf_Af_RouteTarget
 // Route Targets
-type L3Vpn_Vrfs_Vrf_Af_RouteTarget struct {
+type L3vpn_Vrfs_Vrf_Af_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -466,7 +496,7 @@ type L3Vpn_Vrfs_Vrf_Af_RouteTarget struct {
     SafName interface{}
 }
 
-func (routeTarget *L3Vpn_Vrfs_Vrf_Af_RouteTarget) GetEntityData() *types.CommonEntityData {
+func (routeTarget *L3vpn_Vrfs_Vrf_Af_RouteTarget) GetEntityData() *types.CommonEntityData {
     routeTarget.EntityData.YFilter = routeTarget.YFilter
     routeTarget.EntityData.YangName = "route-target"
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
@@ -476,12 +506,15 @@ func (routeTarget *L3Vpn_Vrfs_Vrf_Af_RouteTarget) GetEntityData() *types.CommonE
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTarget.EntityData.Children = make(map[string]types.YChild)
-    routeTarget.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTarget.EntityData.Leafs["route-target-type"] = types.YLeaf{"RouteTargetType", routeTarget.RouteTargetType}
-    routeTarget.EntityData.Leafs["route-target-value"] = types.YLeaf{"RouteTargetValue", routeTarget.RouteTargetValue}
-    routeTarget.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", routeTarget.AfName}
-    routeTarget.EntityData.Leafs["saf-name"] = types.YLeaf{"SafName", routeTarget.SafName}
+    routeTarget.EntityData.Children = types.NewOrderedMap()
+    routeTarget.EntityData.Leafs = types.NewOrderedMap()
+    routeTarget.EntityData.Leafs.Append("route-target-type", types.YLeaf{"RouteTargetType", routeTarget.RouteTargetType})
+    routeTarget.EntityData.Leafs.Append("route-target-value", types.YLeaf{"RouteTargetValue", routeTarget.RouteTargetValue})
+    routeTarget.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", routeTarget.AfName})
+    routeTarget.EntityData.Leafs.Append("saf-name", types.YLeaf{"SafName", routeTarget.SafName})
+
+    routeTarget.EntityData.YListKeys = []string {}
+
     return &(routeTarget.EntityData)
 }
 

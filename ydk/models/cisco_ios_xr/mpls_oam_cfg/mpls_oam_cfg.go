@@ -52,11 +52,14 @@ func (mplsOam *MplsOam) GetEntityData() *types.CommonEntityData {
     mplsOam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsOam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mplsOam.EntityData.Children = make(map[string]types.YChild)
-    mplsOam.EntityData.Children["reply-mode"] = types.YChild{"ReplyMode", &mplsOam.ReplyMode}
-    mplsOam.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsOam.EntityData.Leafs["enable-oam"] = types.YLeaf{"EnableOam", mplsOam.EnableOam}
-    mplsOam.EntityData.Leafs["disable-vendor-extension"] = types.YLeaf{"DisableVendorExtension", mplsOam.DisableVendorExtension}
+    mplsOam.EntityData.Children = types.NewOrderedMap()
+    mplsOam.EntityData.Children.Append("reply-mode", types.YChild{"ReplyMode", &mplsOam.ReplyMode})
+    mplsOam.EntityData.Leafs = types.NewOrderedMap()
+    mplsOam.EntityData.Leafs.Append("enable-oam", types.YLeaf{"EnableOam", mplsOam.EnableOam})
+    mplsOam.EntityData.Leafs.Append("disable-vendor-extension", types.YLeaf{"DisableVendorExtension", mplsOam.DisableVendorExtension})
+
+    mplsOam.EntityData.YListKeys = []string {}
+
     return &(mplsOam.EntityData)
 }
 
@@ -80,9 +83,12 @@ func (replyMode *MplsOam_ReplyMode) GetEntityData() *types.CommonEntityData {
     replyMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replyMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    replyMode.EntityData.Children = make(map[string]types.YChild)
-    replyMode.EntityData.Children["control-channel"] = types.YChild{"ControlChannel", &replyMode.ControlChannel}
-    replyMode.EntityData.Leafs = make(map[string]types.YLeaf)
+    replyMode.EntityData.Children = types.NewOrderedMap()
+    replyMode.EntityData.Children.Append("control-channel", types.YChild{"ControlChannel", &replyMode.ControlChannel})
+    replyMode.EntityData.Leafs = types.NewOrderedMap()
+
+    replyMode.EntityData.YListKeys = []string {}
+
     return &(replyMode.EntityData)
 }
 
@@ -106,9 +112,12 @@ func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetEntityData() *types.C
     controlChannel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controlChannel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controlChannel.EntityData.Children = make(map[string]types.YChild)
-    controlChannel.EntityData.Leafs = make(map[string]types.YLeaf)
-    controlChannel.EntityData.Leafs["allow-reverse-lsp"] = types.YLeaf{"AllowReverseLsp", controlChannel.AllowReverseLsp}
+    controlChannel.EntityData.Children = types.NewOrderedMap()
+    controlChannel.EntityData.Leafs = types.NewOrderedMap()
+    controlChannel.EntityData.Leafs.Append("allow-reverse-lsp", types.YLeaf{"AllowReverseLsp", controlChannel.AllowReverseLsp})
+
+    controlChannel.EntityData.YListKeys = []string {}
+
     return &(controlChannel.EntityData)
 }
 

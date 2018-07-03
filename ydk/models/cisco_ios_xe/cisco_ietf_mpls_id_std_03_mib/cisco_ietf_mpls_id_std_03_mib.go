@@ -28,7 +28,7 @@ type CISCOIETFMPLSIDSTD03MIB struct {
     YFilter yfilter.YFilter
 
     
-    Cmplsidobjects CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects
+    CmplsIdObjects CISCOIETFMPLSIDSTD03MIB_CmplsIdObjects
 }
 
 func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetEntityData() *types.CommonEntityData {
@@ -41,47 +41,53 @@ func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetEntityData() *types.C
     cISCOIETFMPLSIDSTD03MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFMPLSIDSTD03MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIETFMPLSIDSTD03MIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIETFMPLSIDSTD03MIB.EntityData.Children["cmplsIdObjects"] = types.YChild{"Cmplsidobjects", &cISCOIETFMPLSIDSTD03MIB.Cmplsidobjects}
-    cISCOIETFMPLSIDSTD03MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIETFMPLSIDSTD03MIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIETFMPLSIDSTD03MIB.EntityData.Children.Append("cmplsIdObjects", types.YChild{"CmplsIdObjects", &cISCOIETFMPLSIDSTD03MIB.CmplsIdObjects})
+    cISCOIETFMPLSIDSTD03MIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIETFMPLSIDSTD03MIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIETFMPLSIDSTD03MIB.EntityData)
 }
 
-// CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects
-type CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects struct {
+// CISCOIETFMPLSIDSTD03MIB_CmplsIdObjects
+type CISCOIETFMPLSIDSTD03MIB_CmplsIdObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object allows the administrator to assign a unique operator identifier
     // also called MPLS-TP Global_ID. The type is string with length: 4.
-    Cmplsglobalid interface{}
+    CmplsGlobalId interface{}
 
     // This object allows the operator or service provider to assign a unique
     // MPLS-TP ITU-T Carrier Code (ICC) to a network. The type is string with
     // length: 1..6.
-    Cmplsicc interface{}
+    CmplsIcc interface{}
 
     // This object allows the operator or service provider to assign a unique
     // MPLS-TP Node_ID.  The Node_ID is assigned within the scope of the
     // Global_ID. The type is interface{} with range: 0..4294967295.
-    Cmplsnodeid interface{}
+    CmplsNodeId interface{}
 }
 
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetEntityData() *types.CommonEntityData {
-    cmplsidobjects.EntityData.YFilter = cmplsidobjects.YFilter
-    cmplsidobjects.EntityData.YangName = "cmplsIdObjects"
-    cmplsidobjects.EntityData.BundleName = "cisco_ios_xe"
-    cmplsidobjects.EntityData.ParentYangName = "CISCO-IETF-MPLS-ID-STD-03-MIB"
-    cmplsidobjects.EntityData.SegmentPath = "cmplsIdObjects"
-    cmplsidobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cmplsidobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cmplsidobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cmplsIdObjects *CISCOIETFMPLSIDSTD03MIB_CmplsIdObjects) GetEntityData() *types.CommonEntityData {
+    cmplsIdObjects.EntityData.YFilter = cmplsIdObjects.YFilter
+    cmplsIdObjects.EntityData.YangName = "cmplsIdObjects"
+    cmplsIdObjects.EntityData.BundleName = "cisco_ios_xe"
+    cmplsIdObjects.EntityData.ParentYangName = "CISCO-IETF-MPLS-ID-STD-03-MIB"
+    cmplsIdObjects.EntityData.SegmentPath = "cmplsIdObjects"
+    cmplsIdObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsIdObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsIdObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cmplsidobjects.EntityData.Children = make(map[string]types.YChild)
-    cmplsidobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    cmplsidobjects.EntityData.Leafs["cmplsGlobalId"] = types.YLeaf{"Cmplsglobalid", cmplsidobjects.Cmplsglobalid}
-    cmplsidobjects.EntityData.Leafs["cmplsIcc"] = types.YLeaf{"Cmplsicc", cmplsidobjects.Cmplsicc}
-    cmplsidobjects.EntityData.Leafs["cmplsNodeId"] = types.YLeaf{"Cmplsnodeid", cmplsidobjects.Cmplsnodeid}
-    return &(cmplsidobjects.EntityData)
+    cmplsIdObjects.EntityData.Children = types.NewOrderedMap()
+    cmplsIdObjects.EntityData.Leafs = types.NewOrderedMap()
+    cmplsIdObjects.EntityData.Leafs.Append("cmplsGlobalId", types.YLeaf{"CmplsGlobalId", cmplsIdObjects.CmplsGlobalId})
+    cmplsIdObjects.EntityData.Leafs.Append("cmplsIcc", types.YLeaf{"CmplsIcc", cmplsIdObjects.CmplsIcc})
+    cmplsIdObjects.EntityData.Leafs.Append("cmplsNodeId", types.YLeaf{"CmplsNodeId", cmplsIdObjects.CmplsNodeId})
+
+    cmplsIdObjects.EntityData.YListKeys = []string {}
+
+    return &(cmplsIdObjects.EntityData)
 }
 

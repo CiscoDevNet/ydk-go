@@ -50,9 +50,12 @@ func (cfmStatistics *CfmStatistics) GetEntityData() *types.CommonEntityData {
     cfmStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfmStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cfmStatistics.EntityData.Children = make(map[string]types.YChild)
-    cfmStatistics.EntityData.Children["cfm-meps"] = types.YChild{"CfmMeps", &cfmStatistics.CfmMeps}
-    cfmStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    cfmStatistics.EntityData.Children = types.NewOrderedMap()
+    cfmStatistics.EntityData.Children.Append("cfm-meps", types.YChild{"CfmMeps", &cfmStatistics.CfmMeps})
+    cfmStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    cfmStatistics.EntityData.YListKeys = []string {}
+
     return &(cfmStatistics.EntityData)
 }
 
@@ -64,7 +67,7 @@ type CfmStatistics_CfmMeps struct {
 
     // The list of MEP entries in the system. The type is slice of
     // CfmStatistics_CfmMeps_CfmMep.
-    CfmMep []CfmStatistics_CfmMeps_CfmMep
+    CfmMep []*CfmStatistics_CfmMeps_CfmMep
 }
 
 func (cfmMeps *CfmStatistics_CfmMeps) GetEntityData() *types.CommonEntityData {
@@ -77,12 +80,15 @@ func (cfmMeps *CfmStatistics_CfmMeps) GetEntityData() *types.CommonEntityData {
     cfmMeps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfmMeps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cfmMeps.EntityData.Children = make(map[string]types.YChild)
-    cfmMeps.EntityData.Children["cfm-mep"] = types.YChild{"CfmMep", nil}
+    cfmMeps.EntityData.Children = types.NewOrderedMap()
+    cfmMeps.EntityData.Children.Append("cfm-mep", types.YChild{"CfmMep", nil})
     for i := range cfmMeps.CfmMep {
-        cfmMeps.EntityData.Children[types.GetSegmentPath(&cfmMeps.CfmMep[i])] = types.YChild{"CfmMep", &cfmMeps.CfmMep[i]}
+        cfmMeps.EntityData.Children.Append(types.GetSegmentPath(cfmMeps.CfmMep[i]), types.YChild{"CfmMep", cfmMeps.CfmMep[i]})
     }
-    cfmMeps.EntityData.Leafs = make(map[string]types.YLeaf)
+    cfmMeps.EntityData.Leafs = types.NewOrderedMap()
+
+    cfmMeps.EntityData.YListKeys = []string {}
+
     return &(cfmMeps.EntityData)
 }
 
@@ -141,24 +147,27 @@ func (cfmMep *CfmStatistics_CfmMeps_CfmMep) GetEntityData() *types.CommonEntityD
     cfmMep.EntityData.YangName = "cfm-mep"
     cfmMep.EntityData.BundleName = "cisco_ios_xe"
     cfmMep.EntityData.ParentYangName = "cfm-meps"
-    cfmMep.EntityData.SegmentPath = "cfm-mep" + "[domain-name='" + fmt.Sprintf("%v", cfmMep.DomainName) + "']" + "[ma-name='" + fmt.Sprintf("%v", cfmMep.MaName) + "']" + "[mpid='" + fmt.Sprintf("%v", cfmMep.Mpid) + "']"
+    cfmMep.EntityData.SegmentPath = "cfm-mep" + types.AddKeyToken(cfmMep.DomainName, "domain-name") + types.AddKeyToken(cfmMep.MaName, "ma-name") + types.AddKeyToken(cfmMep.Mpid, "mpid")
     cfmMep.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cfmMep.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfmMep.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cfmMep.EntityData.Children = make(map[string]types.YChild)
-    cfmMep.EntityData.Children["last-cleared"] = types.YChild{"LastCleared", &cfmMep.LastCleared}
-    cfmMep.EntityData.Leafs = make(map[string]types.YLeaf)
-    cfmMep.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", cfmMep.DomainName}
-    cfmMep.EntityData.Leafs["ma-name"] = types.YLeaf{"MaName", cfmMep.MaName}
-    cfmMep.EntityData.Leafs["mpid"] = types.YLeaf{"Mpid", cfmMep.Mpid}
-    cfmMep.EntityData.Leafs["ccm-transmitted"] = types.YLeaf{"CcmTransmitted", cfmMep.CcmTransmitted}
-    cfmMep.EntityData.Leafs["ccm-seq-errors"] = types.YLeaf{"CcmSeqErrors", cfmMep.CcmSeqErrors}
-    cfmMep.EntityData.Leafs["ltr-unexpected"] = types.YLeaf{"LtrUnexpected", cfmMep.LtrUnexpected}
-    cfmMep.EntityData.Leafs["lbr-transmitted"] = types.YLeaf{"LbrTransmitted", cfmMep.LbrTransmitted}
-    cfmMep.EntityData.Leafs["lbr-seq-errors"] = types.YLeaf{"LbrSeqErrors", cfmMep.LbrSeqErrors}
-    cfmMep.EntityData.Leafs["lbr-received-ok"] = types.YLeaf{"LbrReceivedOk", cfmMep.LbrReceivedOk}
-    cfmMep.EntityData.Leafs["lbr-received-bad"] = types.YLeaf{"LbrReceivedBad", cfmMep.LbrReceivedBad}
+    cfmMep.EntityData.Children = types.NewOrderedMap()
+    cfmMep.EntityData.Children.Append("last-cleared", types.YChild{"LastCleared", &cfmMep.LastCleared})
+    cfmMep.EntityData.Leafs = types.NewOrderedMap()
+    cfmMep.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", cfmMep.DomainName})
+    cfmMep.EntityData.Leafs.Append("ma-name", types.YLeaf{"MaName", cfmMep.MaName})
+    cfmMep.EntityData.Leafs.Append("mpid", types.YLeaf{"Mpid", cfmMep.Mpid})
+    cfmMep.EntityData.Leafs.Append("ccm-transmitted", types.YLeaf{"CcmTransmitted", cfmMep.CcmTransmitted})
+    cfmMep.EntityData.Leafs.Append("ccm-seq-errors", types.YLeaf{"CcmSeqErrors", cfmMep.CcmSeqErrors})
+    cfmMep.EntityData.Leafs.Append("ltr-unexpected", types.YLeaf{"LtrUnexpected", cfmMep.LtrUnexpected})
+    cfmMep.EntityData.Leafs.Append("lbr-transmitted", types.YLeaf{"LbrTransmitted", cfmMep.LbrTransmitted})
+    cfmMep.EntityData.Leafs.Append("lbr-seq-errors", types.YLeaf{"LbrSeqErrors", cfmMep.LbrSeqErrors})
+    cfmMep.EntityData.Leafs.Append("lbr-received-ok", types.YLeaf{"LbrReceivedOk", cfmMep.LbrReceivedOk})
+    cfmMep.EntityData.Leafs.Append("lbr-received-bad", types.YLeaf{"LbrReceivedBad", cfmMep.LbrReceivedBad})
+
+    cfmMep.EntityData.YListKeys = []string {"DomainName", "MaName", "Mpid"}
+
     return &(cfmMep.EntityData)
 }
 
@@ -172,8 +181,7 @@ type CfmStatistics_CfmMeps_CfmMep_LastCleared struct {
     Never interface{}
 
     // Date and time of the last time stats were cleared. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     Time interface{}
 }
 
@@ -187,10 +195,13 @@ func (lastCleared *CfmStatistics_CfmMeps_CfmMep_LastCleared) GetEntityData() *ty
     lastCleared.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lastCleared.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    lastCleared.EntityData.Children = make(map[string]types.YChild)
-    lastCleared.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastCleared.EntityData.Leafs["never"] = types.YLeaf{"Never", lastCleared.Never}
-    lastCleared.EntityData.Leafs["time"] = types.YLeaf{"Time", lastCleared.Time}
+    lastCleared.EntityData.Children = types.NewOrderedMap()
+    lastCleared.EntityData.Leafs = types.NewOrderedMap()
+    lastCleared.EntityData.Leafs.Append("never", types.YLeaf{"Never", lastCleared.Never})
+    lastCleared.EntityData.Leafs.Append("time", types.YLeaf{"Time", lastCleared.Time})
+
+    lastCleared.EntityData.YListKeys = []string {}
+
     return &(lastCleared.EntityData)
 }
 

@@ -166,7 +166,7 @@ module Cisco-IOS-XR-tunnel-nve-cfg {
               "Enable Backbone VxLAN";
           }
           leaf backbone-vx-laniccp {
-            type int32;
+            type uint32;
             description
               "VxLAN backbone ICCP group";
           }
@@ -175,7 +175,7 @@ module Cisco-IOS-XR-tunnel-nve-cfg {
           description
             "MPLS backbone";
           leaf backbone-mplsiccp {
-            type int32;
+            type uint32;
             description
               "MPLS backbone ICCP group";
           }

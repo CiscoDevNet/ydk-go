@@ -55,9 +55,12 @@ func (pbr *Pbr) GetEntityData() *types.CommonEntityData {
     pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbr.EntityData.Children = make(map[string]types.YChild)
-    pbr.EntityData.Children["nodes"] = types.YChild{"Nodes", &pbr.Nodes}
-    pbr.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbr.EntityData.Children = types.NewOrderedMap()
+    pbr.EntityData.Children.Append("nodes", types.YChild{"Nodes", &pbr.Nodes})
+    pbr.EntityData.Leafs = types.NewOrderedMap()
+
+    pbr.EntityData.YListKeys = []string {}
+
     return &(pbr.EntityData)
 }
 
@@ -69,7 +72,7 @@ type Pbr_Nodes struct {
 
     // PBR operational data for a particular node. The type is slice of
     // Pbr_Nodes_Node.
-    Node []Pbr_Nodes_Node
+    Node []*Pbr_Nodes_Node
 }
 
 func (nodes *Pbr_Nodes) GetEntityData() *types.CommonEntityData {
@@ -82,12 +85,15 @@ func (nodes *Pbr_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -98,7 +104,7 @@ type Pbr_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Operational data for policymaps.
@@ -110,15 +116,18 @@ func (node *Pbr_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["policy-map"] = types.YChild{"PolicyMap", &node.PolicyMap}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("policy-map", types.YChild{"PolicyMap", &node.PolicyMap})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -142,9 +151,12 @@ func (policyMap *Pbr_Nodes_Node_PolicyMap) GetEntityData() *types.CommonEntityDa
     policyMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policyMap.EntityData.Children = make(map[string]types.YChild)
-    policyMap.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &policyMap.Interfaces}
-    policyMap.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyMap.EntityData.Children = types.NewOrderedMap()
+    policyMap.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &policyMap.Interfaces})
+    policyMap.EntityData.Leafs = types.NewOrderedMap()
+
+    policyMap.EntityData.YListKeys = []string {}
+
     return &(policyMap.EntityData)
 }
 
@@ -155,8 +167,8 @@ type Pbr_Nodes_Node_PolicyMap_Interfaces struct {
     YFilter yfilter.YFilter
 
     // PBR action data for a particular interface. The type is slice of
-    // Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_.
-    Interface_ []Pbr_Nodes_Node_PolicyMap_Interfaces_Interface
+    // Pbr_Nodes_Node_PolicyMap_Interfaces_Interface.
+    Interface []*Pbr_Nodes_Node_PolicyMap_Interfaces_Interface
 }
 
 func (interfaces *Pbr_Nodes_Node_PolicyMap_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -169,12 +181,15 @@ func (interfaces *Pbr_Nodes_Node_PolicyMap_Interfaces) GetEntityData() *types.Co
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -185,7 +200,7 @@ type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // PBR direction.
@@ -197,15 +212,18 @@ func (self *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface) GetEntityData() *type
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["direction"] = types.YChild{"Direction", &self.Direction}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("direction", types.YChild{"Direction", &self.Direction})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -229,9 +247,12 @@ func (direction *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction) GetEnt
     direction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     direction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    direction.EntityData.Children = make(map[string]types.YChild)
-    direction.EntityData.Children["input"] = types.YChild{"Input", &direction.Input}
-    direction.EntityData.Leafs = make(map[string]types.YLeaf)
+    direction.EntityData.Children = types.NewOrderedMap()
+    direction.EntityData.Children.Append("input", types.YChild{"Input", &direction.Input})
+    direction.EntityData.Leafs = types.NewOrderedMap()
+
+    direction.EntityData.YListKeys = []string {}
+
     return &(direction.EntityData)
 }
 
@@ -255,7 +276,7 @@ type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input struct {
 
     // Array of classes contained in policy. The type is slice of
     // Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat.
-    ClassStat []Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat
+    ClassStat []*Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat
 }
 
 func (input *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input) GetEntityData() *types.CommonEntityData {
@@ -268,16 +289,19 @@ func (input *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input) GetE
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["class-stat"] = types.YChild{"ClassStat", nil}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("class-stat", types.YChild{"ClassStat", nil})
     for i := range input.ClassStat {
-        input.EntityData.Children[types.GetSegmentPath(&input.ClassStat[i])] = types.YChild{"ClassStat", &input.ClassStat[i]}
+        input.EntityData.Children.Append(types.GetSegmentPath(input.ClassStat[i]), types.YChild{"ClassStat", input.ClassStat[i]})
     }
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", input.NodeName}
-    input.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", input.PolicyName}
-    input.EntityData.Leafs["state"] = types.YLeaf{"State", input.State}
-    input.EntityData.Leafs["state-description"] = types.YLeaf{"StateDescription", input.StateDescription}
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", input.NodeName})
+    input.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", input.PolicyName})
+    input.EntityData.Leafs.Append("state", types.YLeaf{"State", input.State})
+    input.EntityData.Leafs.Append("state-description", types.YLeaf{"StateDescription", input.StateDescription})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -323,13 +347,16 @@ func (classStat *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_C
     classStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    classStat.EntityData.Children = make(map[string]types.YChild)
-    classStat.EntityData.Children["general-stats"] = types.YChild{"GeneralStats", &classStat.GeneralStats}
-    classStat.EntityData.Children["httpr-stats"] = types.YChild{"HttprStats", &classStat.HttprStats}
-    classStat.EntityData.Leafs = make(map[string]types.YLeaf)
-    classStat.EntityData.Leafs["counter-validity-bitmask"] = types.YLeaf{"CounterValidityBitmask", classStat.CounterValidityBitmask}
-    classStat.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", classStat.ClassName}
-    classStat.EntityData.Leafs["class-id"] = types.YLeaf{"ClassId", classStat.ClassId}
+    classStat.EntityData.Children = types.NewOrderedMap()
+    classStat.EntityData.Children.Append("general-stats", types.YChild{"GeneralStats", &classStat.GeneralStats})
+    classStat.EntityData.Children.Append("httpr-stats", types.YChild{"HttprStats", &classStat.HttprStats})
+    classStat.EntityData.Leafs = types.NewOrderedMap()
+    classStat.EntityData.Leafs.Append("counter-validity-bitmask", types.YLeaf{"CounterValidityBitmask", classStat.CounterValidityBitmask})
+    classStat.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", classStat.ClassName})
+    classStat.EntityData.Leafs.Append("class-id", types.YLeaf{"ClassId", classStat.ClassId})
+
+    classStat.EntityData.YListKeys = []string {}
+
     return &(classStat.EntityData)
 }
 
@@ -386,17 +413,20 @@ func (generalStats *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Inpu
     generalStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    generalStats.EntityData.Children = make(map[string]types.YChild)
-    generalStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    generalStats.EntityData.Leafs["transmit-packets"] = types.YLeaf{"TransmitPackets", generalStats.TransmitPackets}
-    generalStats.EntityData.Leafs["transmit-bytes"] = types.YLeaf{"TransmitBytes", generalStats.TransmitBytes}
-    generalStats.EntityData.Leafs["total-drop-packets"] = types.YLeaf{"TotalDropPackets", generalStats.TotalDropPackets}
-    generalStats.EntityData.Leafs["total-drop-bytes"] = types.YLeaf{"TotalDropBytes", generalStats.TotalDropBytes}
-    generalStats.EntityData.Leafs["total-drop-rate"] = types.YLeaf{"TotalDropRate", generalStats.TotalDropRate}
-    generalStats.EntityData.Leafs["match-data-rate"] = types.YLeaf{"MatchDataRate", generalStats.MatchDataRate}
-    generalStats.EntityData.Leafs["total-transmit-rate"] = types.YLeaf{"TotalTransmitRate", generalStats.TotalTransmitRate}
-    generalStats.EntityData.Leafs["pre-policy-matched-packets"] = types.YLeaf{"PrePolicyMatchedPackets", generalStats.PrePolicyMatchedPackets}
-    generalStats.EntityData.Leafs["pre-policy-matched-bytes"] = types.YLeaf{"PrePolicyMatchedBytes", generalStats.PrePolicyMatchedBytes}
+    generalStats.EntityData.Children = types.NewOrderedMap()
+    generalStats.EntityData.Leafs = types.NewOrderedMap()
+    generalStats.EntityData.Leafs.Append("transmit-packets", types.YLeaf{"TransmitPackets", generalStats.TransmitPackets})
+    generalStats.EntityData.Leafs.Append("transmit-bytes", types.YLeaf{"TransmitBytes", generalStats.TransmitBytes})
+    generalStats.EntityData.Leafs.Append("total-drop-packets", types.YLeaf{"TotalDropPackets", generalStats.TotalDropPackets})
+    generalStats.EntityData.Leafs.Append("total-drop-bytes", types.YLeaf{"TotalDropBytes", generalStats.TotalDropBytes})
+    generalStats.EntityData.Leafs.Append("total-drop-rate", types.YLeaf{"TotalDropRate", generalStats.TotalDropRate})
+    generalStats.EntityData.Leafs.Append("match-data-rate", types.YLeaf{"MatchDataRate", generalStats.MatchDataRate})
+    generalStats.EntityData.Leafs.Append("total-transmit-rate", types.YLeaf{"TotalTransmitRate", generalStats.TotalTransmitRate})
+    generalStats.EntityData.Leafs.Append("pre-policy-matched-packets", types.YLeaf{"PrePolicyMatchedPackets", generalStats.PrePolicyMatchedPackets})
+    generalStats.EntityData.Leafs.Append("pre-policy-matched-bytes", types.YLeaf{"PrePolicyMatchedBytes", generalStats.PrePolicyMatchedBytes})
+
+    generalStats.EntityData.YListKeys = []string {}
+
     return &(generalStats.EntityData)
 }
 
@@ -441,14 +471,17 @@ func (httprStats *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_
     httprStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httprStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    httprStats.EntityData.Children = make(map[string]types.YChild)
-    httprStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    httprStats.EntityData.Leafs["rqst-rcvd-packets"] = types.YLeaf{"RqstRcvdPackets", httprStats.RqstRcvdPackets}
-    httprStats.EntityData.Leafs["rqst-rcvd-bytes"] = types.YLeaf{"RqstRcvdBytes", httprStats.RqstRcvdBytes}
-    httprStats.EntityData.Leafs["drop-packets"] = types.YLeaf{"DropPackets", httprStats.DropPackets}
-    httprStats.EntityData.Leafs["drop-bytes"] = types.YLeaf{"DropBytes", httprStats.DropBytes}
-    httprStats.EntityData.Leafs["resp-sent-packets"] = types.YLeaf{"RespSentPackets", httprStats.RespSentPackets}
-    httprStats.EntityData.Leafs["resp-sent-bytes"] = types.YLeaf{"RespSentBytes", httprStats.RespSentBytes}
+    httprStats.EntityData.Children = types.NewOrderedMap()
+    httprStats.EntityData.Leafs = types.NewOrderedMap()
+    httprStats.EntityData.Leafs.Append("rqst-rcvd-packets", types.YLeaf{"RqstRcvdPackets", httprStats.RqstRcvdPackets})
+    httprStats.EntityData.Leafs.Append("rqst-rcvd-bytes", types.YLeaf{"RqstRcvdBytes", httprStats.RqstRcvdBytes})
+    httprStats.EntityData.Leafs.Append("drop-packets", types.YLeaf{"DropPackets", httprStats.DropPackets})
+    httprStats.EntityData.Leafs.Append("drop-bytes", types.YLeaf{"DropBytes", httprStats.DropBytes})
+    httprStats.EntityData.Leafs.Append("resp-sent-packets", types.YLeaf{"RespSentPackets", httprStats.RespSentPackets})
+    httprStats.EntityData.Leafs.Append("resp-sent-bytes", types.YLeaf{"RespSentBytes", httprStats.RespSentBytes})
+
+    httprStats.EntityData.YListKeys = []string {}
+
     return &(httprStats.EntityData)
 }
 

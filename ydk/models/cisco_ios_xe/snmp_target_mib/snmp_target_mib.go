@@ -24,15 +24,15 @@ type SNMPTARGETMIB struct {
     YFilter yfilter.YFilter
 
     
-    Snmptargetobjects SNMPTARGETMIB_Snmptargetobjects
+    SnmpTargetObjects SNMPTARGETMIB_SnmpTargetObjects
 
     // A table of transport addresses to be used in the generation of SNMP
     // messages.
-    Snmptargetaddrtable SNMPTARGETMIB_Snmptargetaddrtable
+    SnmpTargetAddrTable SNMPTARGETMIB_SnmpTargetAddrTable
 
     // A table of SNMP target information to be used in the generation of SNMP
     // messages.
-    Snmptargetparamstable SNMPTARGETMIB_Snmptargetparamstable
+    SnmpTargetParamsTable SNMPTARGETMIB_SnmpTargetParamsTable
 }
 
 func (sNMPTARGETMIB *SNMPTARGETMIB) GetEntityData() *types.CommonEntityData {
@@ -45,16 +45,19 @@ func (sNMPTARGETMIB *SNMPTARGETMIB) GetEntityData() *types.CommonEntityData {
     sNMPTARGETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sNMPTARGETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sNMPTARGETMIB.EntityData.Children = make(map[string]types.YChild)
-    sNMPTARGETMIB.EntityData.Children["snmpTargetObjects"] = types.YChild{"Snmptargetobjects", &sNMPTARGETMIB.Snmptargetobjects}
-    sNMPTARGETMIB.EntityData.Children["snmpTargetAddrTable"] = types.YChild{"Snmptargetaddrtable", &sNMPTARGETMIB.Snmptargetaddrtable}
-    sNMPTARGETMIB.EntityData.Children["snmpTargetParamsTable"] = types.YChild{"Snmptargetparamstable", &sNMPTARGETMIB.Snmptargetparamstable}
-    sNMPTARGETMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    sNMPTARGETMIB.EntityData.Children = types.NewOrderedMap()
+    sNMPTARGETMIB.EntityData.Children.Append("snmpTargetObjects", types.YChild{"SnmpTargetObjects", &sNMPTARGETMIB.SnmpTargetObjects})
+    sNMPTARGETMIB.EntityData.Children.Append("snmpTargetAddrTable", types.YChild{"SnmpTargetAddrTable", &sNMPTARGETMIB.SnmpTargetAddrTable})
+    sNMPTARGETMIB.EntityData.Children.Append("snmpTargetParamsTable", types.YChild{"SnmpTargetParamsTable", &sNMPTARGETMIB.SnmpTargetParamsTable})
+    sNMPTARGETMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    sNMPTARGETMIB.EntityData.YListKeys = []string {}
+
     return &(sNMPTARGETMIB.EntityData)
 }
 
-// SNMPTARGETMIB_Snmptargetobjects
-type SNMPTARGETMIB_Snmptargetobjects struct {
+// SNMPTARGETMIB_SnmpTargetObjects
+type SNMPTARGETMIB_SnmpTargetObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -68,94 +71,100 @@ type SNMPTARGETMIB_Snmptargetobjects struct {
     // retrieved value, and the value of         snmpTargetAddrTagList to the new
     // value.  If         the set fails for the snmpTargetSpinLock         object,
     // go back to step 1. The type is interface{} with range: 0..2147483647.
-    Snmptargetspinlock interface{}
+    SnmpTargetSpinLock interface{}
 
     // The total number of packets received by the SNMP engine which were dropped
     // because the context contained in the message was unavailable. The type is
     // interface{} with range: 0..4294967295.
-    Snmpunavailablecontexts interface{}
+    SnmpUnavailableContexts interface{}
 
     // The total number of packets received by the SNMP engine which were dropped
     // because the context contained in the message was unknown. The type is
     // interface{} with range: 0..4294967295.
-    Snmpunknowncontexts interface{}
+    SnmpUnknownContexts interface{}
 }
 
-func (snmptargetobjects *SNMPTARGETMIB_Snmptargetobjects) GetEntityData() *types.CommonEntityData {
-    snmptargetobjects.EntityData.YFilter = snmptargetobjects.YFilter
-    snmptargetobjects.EntityData.YangName = "snmpTargetObjects"
-    snmptargetobjects.EntityData.BundleName = "cisco_ios_xe"
-    snmptargetobjects.EntityData.ParentYangName = "SNMP-TARGET-MIB"
-    snmptargetobjects.EntityData.SegmentPath = "snmpTargetObjects"
-    snmptargetobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    snmptargetobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    snmptargetobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (snmpTargetObjects *SNMPTARGETMIB_SnmpTargetObjects) GetEntityData() *types.CommonEntityData {
+    snmpTargetObjects.EntityData.YFilter = snmpTargetObjects.YFilter
+    snmpTargetObjects.EntityData.YangName = "snmpTargetObjects"
+    snmpTargetObjects.EntityData.BundleName = "cisco_ios_xe"
+    snmpTargetObjects.EntityData.ParentYangName = "SNMP-TARGET-MIB"
+    snmpTargetObjects.EntityData.SegmentPath = "snmpTargetObjects"
+    snmpTargetObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpTargetObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpTargetObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmptargetobjects.EntityData.Children = make(map[string]types.YChild)
-    snmptargetobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    snmptargetobjects.EntityData.Leafs["snmpTargetSpinLock"] = types.YLeaf{"Snmptargetspinlock", snmptargetobjects.Snmptargetspinlock}
-    snmptargetobjects.EntityData.Leafs["snmpUnavailableContexts"] = types.YLeaf{"Snmpunavailablecontexts", snmptargetobjects.Snmpunavailablecontexts}
-    snmptargetobjects.EntityData.Leafs["snmpUnknownContexts"] = types.YLeaf{"Snmpunknowncontexts", snmptargetobjects.Snmpunknowncontexts}
-    return &(snmptargetobjects.EntityData)
+    snmpTargetObjects.EntityData.Children = types.NewOrderedMap()
+    snmpTargetObjects.EntityData.Leafs = types.NewOrderedMap()
+    snmpTargetObjects.EntityData.Leafs.Append("snmpTargetSpinLock", types.YLeaf{"SnmpTargetSpinLock", snmpTargetObjects.SnmpTargetSpinLock})
+    snmpTargetObjects.EntityData.Leafs.Append("snmpUnavailableContexts", types.YLeaf{"SnmpUnavailableContexts", snmpTargetObjects.SnmpUnavailableContexts})
+    snmpTargetObjects.EntityData.Leafs.Append("snmpUnknownContexts", types.YLeaf{"SnmpUnknownContexts", snmpTargetObjects.SnmpUnknownContexts})
+
+    snmpTargetObjects.EntityData.YListKeys = []string {}
+
+    return &(snmpTargetObjects.EntityData)
 }
 
-// SNMPTARGETMIB_Snmptargetaddrtable
+// SNMPTARGETMIB_SnmpTargetAddrTable
 // A table of transport addresses to be used in the generation
 // of SNMP messages.
-type SNMPTARGETMIB_Snmptargetaddrtable struct {
+type SNMPTARGETMIB_SnmpTargetAddrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A transport address to be used in the generation of SNMP operations. 
     // Entries in the snmpTargetAddrTable are created and deleted using the
     // snmpTargetAddrRowStatus object. The type is slice of
-    // SNMPTARGETMIB_Snmptargetaddrtable_Snmptargetaddrentry.
-    Snmptargetaddrentry []SNMPTARGETMIB_Snmptargetaddrtable_Snmptargetaddrentry
+    // SNMPTARGETMIB_SnmpTargetAddrTable_SnmpTargetAddrEntry.
+    SnmpTargetAddrEntry []*SNMPTARGETMIB_SnmpTargetAddrTable_SnmpTargetAddrEntry
 }
 
-func (snmptargetaddrtable *SNMPTARGETMIB_Snmptargetaddrtable) GetEntityData() *types.CommonEntityData {
-    snmptargetaddrtable.EntityData.YFilter = snmptargetaddrtable.YFilter
-    snmptargetaddrtable.EntityData.YangName = "snmpTargetAddrTable"
-    snmptargetaddrtable.EntityData.BundleName = "cisco_ios_xe"
-    snmptargetaddrtable.EntityData.ParentYangName = "SNMP-TARGET-MIB"
-    snmptargetaddrtable.EntityData.SegmentPath = "snmpTargetAddrTable"
-    snmptargetaddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    snmptargetaddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    snmptargetaddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (snmpTargetAddrTable *SNMPTARGETMIB_SnmpTargetAddrTable) GetEntityData() *types.CommonEntityData {
+    snmpTargetAddrTable.EntityData.YFilter = snmpTargetAddrTable.YFilter
+    snmpTargetAddrTable.EntityData.YangName = "snmpTargetAddrTable"
+    snmpTargetAddrTable.EntityData.BundleName = "cisco_ios_xe"
+    snmpTargetAddrTable.EntityData.ParentYangName = "SNMP-TARGET-MIB"
+    snmpTargetAddrTable.EntityData.SegmentPath = "snmpTargetAddrTable"
+    snmpTargetAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpTargetAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpTargetAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmptargetaddrtable.EntityData.Children = make(map[string]types.YChild)
-    snmptargetaddrtable.EntityData.Children["snmpTargetAddrEntry"] = types.YChild{"Snmptargetaddrentry", nil}
-    for i := range snmptargetaddrtable.Snmptargetaddrentry {
-        snmptargetaddrtable.EntityData.Children[types.GetSegmentPath(&snmptargetaddrtable.Snmptargetaddrentry[i])] = types.YChild{"Snmptargetaddrentry", &snmptargetaddrtable.Snmptargetaddrentry[i]}
+    snmpTargetAddrTable.EntityData.Children = types.NewOrderedMap()
+    snmpTargetAddrTable.EntityData.Children.Append("snmpTargetAddrEntry", types.YChild{"SnmpTargetAddrEntry", nil})
+    for i := range snmpTargetAddrTable.SnmpTargetAddrEntry {
+        snmpTargetAddrTable.EntityData.Children.Append(types.GetSegmentPath(snmpTargetAddrTable.SnmpTargetAddrEntry[i]), types.YChild{"SnmpTargetAddrEntry", snmpTargetAddrTable.SnmpTargetAddrEntry[i]})
     }
-    snmptargetaddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(snmptargetaddrtable.EntityData)
+    snmpTargetAddrTable.EntityData.Leafs = types.NewOrderedMap()
+
+    snmpTargetAddrTable.EntityData.YListKeys = []string {}
+
+    return &(snmpTargetAddrTable.EntityData)
 }
 
-// SNMPTARGETMIB_Snmptargetaddrtable_Snmptargetaddrentry
+// SNMPTARGETMIB_SnmpTargetAddrTable_SnmpTargetAddrEntry
 // A transport address to be used in the generation
 // of SNMP operations.
 // 
 // Entries in the snmpTargetAddrTable are created and
 // deleted using the snmpTargetAddrRowStatus object.
-type SNMPTARGETMIB_Snmptargetaddrtable_Snmptargetaddrentry struct {
+type SNMPTARGETMIB_SnmpTargetAddrTable_SnmpTargetAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The locally arbitrary, but unique identifier
     // associated with this snmpTargetAddrEntry. The type is string with length:
     // 1..32.
-    Snmptargetaddrname interface{}
+    SnmpTargetAddrName interface{}
 
     // This object indicates the transport type of the address contained in the
     // snmpTargetAddrTAddress object. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Snmptargetaddrtdomain interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    SnmpTargetAddrTDomain interface{}
 
     // This object contains a transport address.  The format of this address
     // depends on the value of the snmpTargetAddrTDomain object. The type is
     // string with length: 1..255.
-    Snmptargetaddrtaddress interface{}
+    SnmpTargetAddrTAddress interface{}
 
     // This object should reflect the expected maximum round trip time for
     // communicating with the transport address defined by this row.  When a
@@ -172,26 +181,26 @@ type SNMPTARGETMIB_Snmptargetaddrtable_Snmptargetaddrentry struct {
     // both authentication and privacy, the derived value may be increased to
     // compensate for extra processing time spent during authentication and
     // encryption processing. The type is interface{} with range: 0..2147483647.
-    Snmptargetaddrtimeout interface{}
+    SnmpTargetAddrTimeout interface{}
 
     // This object specifies a default number of retries to be attempted when a
     // response is not received for a generated message.  An application may
     // provide its own retry count, in which case the value of this object is
     // ignored. The type is interface{} with range: 0..255.
-    Snmptargetaddrretrycount interface{}
+    SnmpTargetAddrRetryCount interface{}
 
     // This object contains a list of tag values which are used to select target
     // addresses for a particular operation. The type is string.
-    Snmptargetaddrtaglist interface{}
+    SnmpTargetAddrTagList interface{}
 
     // The value of this object identifies an entry in the snmpTargetParamsTable. 
     // The identified entry contains SNMP parameters to be used when generating
     // messages to be sent to this transport address. The type is string with
     // length: 1..32.
-    Snmptargetaddrparams interface{}
+    SnmpTargetAddrParams interface{}
 
     // The storage type for this conceptual row. The type is StorageType.
-    Snmptargetaddrstoragetype interface{}
+    SnmpTargetAddrStorageType interface{}
 
     // The status of this conceptual row.  To create a row in this table, a
     // manager must set this object to either createAndGo(4) or createAndWait(5). 
@@ -204,100 +213,106 @@ type SNMPTARGETMIB_Snmptargetaddrtable_Snmptargetaddrentry struct {
     // active(1):     - snmpTargetAddrTDomain     - snmpTargetAddrTAddress An
     // attempt to set these objects while the value of snmpTargetAddrRowStatus is
     // active(1) will result in an inconsistentValue error. The type is RowStatus.
-    Snmptargetaddrrowstatus interface{}
+    SnmpTargetAddrRowStatus interface{}
 }
 
-func (snmptargetaddrentry *SNMPTARGETMIB_Snmptargetaddrtable_Snmptargetaddrentry) GetEntityData() *types.CommonEntityData {
-    snmptargetaddrentry.EntityData.YFilter = snmptargetaddrentry.YFilter
-    snmptargetaddrentry.EntityData.YangName = "snmpTargetAddrEntry"
-    snmptargetaddrentry.EntityData.BundleName = "cisco_ios_xe"
-    snmptargetaddrentry.EntityData.ParentYangName = "snmpTargetAddrTable"
-    snmptargetaddrentry.EntityData.SegmentPath = "snmpTargetAddrEntry" + "[snmpTargetAddrName='" + fmt.Sprintf("%v", snmptargetaddrentry.Snmptargetaddrname) + "']"
-    snmptargetaddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    snmptargetaddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    snmptargetaddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (snmpTargetAddrEntry *SNMPTARGETMIB_SnmpTargetAddrTable_SnmpTargetAddrEntry) GetEntityData() *types.CommonEntityData {
+    snmpTargetAddrEntry.EntityData.YFilter = snmpTargetAddrEntry.YFilter
+    snmpTargetAddrEntry.EntityData.YangName = "snmpTargetAddrEntry"
+    snmpTargetAddrEntry.EntityData.BundleName = "cisco_ios_xe"
+    snmpTargetAddrEntry.EntityData.ParentYangName = "snmpTargetAddrTable"
+    snmpTargetAddrEntry.EntityData.SegmentPath = "snmpTargetAddrEntry" + types.AddKeyToken(snmpTargetAddrEntry.SnmpTargetAddrName, "snmpTargetAddrName")
+    snmpTargetAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpTargetAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpTargetAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmptargetaddrentry.EntityData.Children = make(map[string]types.YChild)
-    snmptargetaddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrName"] = types.YLeaf{"Snmptargetaddrname", snmptargetaddrentry.Snmptargetaddrname}
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrTDomain"] = types.YLeaf{"Snmptargetaddrtdomain", snmptargetaddrentry.Snmptargetaddrtdomain}
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrTAddress"] = types.YLeaf{"Snmptargetaddrtaddress", snmptargetaddrentry.Snmptargetaddrtaddress}
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrTimeout"] = types.YLeaf{"Snmptargetaddrtimeout", snmptargetaddrentry.Snmptargetaddrtimeout}
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrRetryCount"] = types.YLeaf{"Snmptargetaddrretrycount", snmptargetaddrentry.Snmptargetaddrretrycount}
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrTagList"] = types.YLeaf{"Snmptargetaddrtaglist", snmptargetaddrentry.Snmptargetaddrtaglist}
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrParams"] = types.YLeaf{"Snmptargetaddrparams", snmptargetaddrentry.Snmptargetaddrparams}
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrStorageType"] = types.YLeaf{"Snmptargetaddrstoragetype", snmptargetaddrentry.Snmptargetaddrstoragetype}
-    snmptargetaddrentry.EntityData.Leafs["snmpTargetAddrRowStatus"] = types.YLeaf{"Snmptargetaddrrowstatus", snmptargetaddrentry.Snmptargetaddrrowstatus}
-    return &(snmptargetaddrentry.EntityData)
+    snmpTargetAddrEntry.EntityData.Children = types.NewOrderedMap()
+    snmpTargetAddrEntry.EntityData.Leafs = types.NewOrderedMap()
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrName", types.YLeaf{"SnmpTargetAddrName", snmpTargetAddrEntry.SnmpTargetAddrName})
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrTDomain", types.YLeaf{"SnmpTargetAddrTDomain", snmpTargetAddrEntry.SnmpTargetAddrTDomain})
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrTAddress", types.YLeaf{"SnmpTargetAddrTAddress", snmpTargetAddrEntry.SnmpTargetAddrTAddress})
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrTimeout", types.YLeaf{"SnmpTargetAddrTimeout", snmpTargetAddrEntry.SnmpTargetAddrTimeout})
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrRetryCount", types.YLeaf{"SnmpTargetAddrRetryCount", snmpTargetAddrEntry.SnmpTargetAddrRetryCount})
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrTagList", types.YLeaf{"SnmpTargetAddrTagList", snmpTargetAddrEntry.SnmpTargetAddrTagList})
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrParams", types.YLeaf{"SnmpTargetAddrParams", snmpTargetAddrEntry.SnmpTargetAddrParams})
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrStorageType", types.YLeaf{"SnmpTargetAddrStorageType", snmpTargetAddrEntry.SnmpTargetAddrStorageType})
+    snmpTargetAddrEntry.EntityData.Leafs.Append("snmpTargetAddrRowStatus", types.YLeaf{"SnmpTargetAddrRowStatus", snmpTargetAddrEntry.SnmpTargetAddrRowStatus})
+
+    snmpTargetAddrEntry.EntityData.YListKeys = []string {"SnmpTargetAddrName"}
+
+    return &(snmpTargetAddrEntry.EntityData)
 }
 
-// SNMPTARGETMIB_Snmptargetparamstable
+// SNMPTARGETMIB_SnmpTargetParamsTable
 // A table of SNMP target information to be used
 // in the generation of SNMP messages.
-type SNMPTARGETMIB_Snmptargetparamstable struct {
+type SNMPTARGETMIB_SnmpTargetParamsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of SNMP target information.  Entries in the snmpTargetParamsTable are
     // created and deleted using the snmpTargetParamsRowStatus object. The type is
-    // slice of SNMPTARGETMIB_Snmptargetparamstable_Snmptargetparamsentry.
-    Snmptargetparamsentry []SNMPTARGETMIB_Snmptargetparamstable_Snmptargetparamsentry
+    // slice of SNMPTARGETMIB_SnmpTargetParamsTable_SnmpTargetParamsEntry.
+    SnmpTargetParamsEntry []*SNMPTARGETMIB_SnmpTargetParamsTable_SnmpTargetParamsEntry
 }
 
-func (snmptargetparamstable *SNMPTARGETMIB_Snmptargetparamstable) GetEntityData() *types.CommonEntityData {
-    snmptargetparamstable.EntityData.YFilter = snmptargetparamstable.YFilter
-    snmptargetparamstable.EntityData.YangName = "snmpTargetParamsTable"
-    snmptargetparamstable.EntityData.BundleName = "cisco_ios_xe"
-    snmptargetparamstable.EntityData.ParentYangName = "SNMP-TARGET-MIB"
-    snmptargetparamstable.EntityData.SegmentPath = "snmpTargetParamsTable"
-    snmptargetparamstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    snmptargetparamstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    snmptargetparamstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (snmpTargetParamsTable *SNMPTARGETMIB_SnmpTargetParamsTable) GetEntityData() *types.CommonEntityData {
+    snmpTargetParamsTable.EntityData.YFilter = snmpTargetParamsTable.YFilter
+    snmpTargetParamsTable.EntityData.YangName = "snmpTargetParamsTable"
+    snmpTargetParamsTable.EntityData.BundleName = "cisco_ios_xe"
+    snmpTargetParamsTable.EntityData.ParentYangName = "SNMP-TARGET-MIB"
+    snmpTargetParamsTable.EntityData.SegmentPath = "snmpTargetParamsTable"
+    snmpTargetParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpTargetParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpTargetParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmptargetparamstable.EntityData.Children = make(map[string]types.YChild)
-    snmptargetparamstable.EntityData.Children["snmpTargetParamsEntry"] = types.YChild{"Snmptargetparamsentry", nil}
-    for i := range snmptargetparamstable.Snmptargetparamsentry {
-        snmptargetparamstable.EntityData.Children[types.GetSegmentPath(&snmptargetparamstable.Snmptargetparamsentry[i])] = types.YChild{"Snmptargetparamsentry", &snmptargetparamstable.Snmptargetparamsentry[i]}
+    snmpTargetParamsTable.EntityData.Children = types.NewOrderedMap()
+    snmpTargetParamsTable.EntityData.Children.Append("snmpTargetParamsEntry", types.YChild{"SnmpTargetParamsEntry", nil})
+    for i := range snmpTargetParamsTable.SnmpTargetParamsEntry {
+        snmpTargetParamsTable.EntityData.Children.Append(types.GetSegmentPath(snmpTargetParamsTable.SnmpTargetParamsEntry[i]), types.YChild{"SnmpTargetParamsEntry", snmpTargetParamsTable.SnmpTargetParamsEntry[i]})
     }
-    snmptargetparamstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(snmptargetparamstable.EntityData)
+    snmpTargetParamsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    snmpTargetParamsTable.EntityData.YListKeys = []string {}
+
+    return &(snmpTargetParamsTable.EntityData)
 }
 
-// SNMPTARGETMIB_Snmptargetparamstable_Snmptargetparamsentry
+// SNMPTARGETMIB_SnmpTargetParamsTable_SnmpTargetParamsEntry
 // A set of SNMP target information.
 // 
 // Entries in the snmpTargetParamsTable are created and
 // deleted using the snmpTargetParamsRowStatus object.
-type SNMPTARGETMIB_Snmptargetparamstable_Snmptargetparamsentry struct {
+type SNMPTARGETMIB_SnmpTargetParamsTable_SnmpTargetParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The locally arbitrary, but unique identifier
     // associated with this snmpTargetParamsEntry. The type is string with length:
     // 1..32.
-    Snmptargetparamsname interface{}
+    SnmpTargetParamsName interface{}
 
     // The Message Processing Model to be used when generating SNMP messages using
     // this entry. The type is interface{} with range: 0..2147483647.
-    Snmptargetparamsmpmodel interface{}
+    SnmpTargetParamsMPModel interface{}
 
     // The Security Model to be used when generating SNMP messages using this
     // entry.  An implementation may choose to return an inconsistentValue error
     // if an attempt is made to set this variable to a value for a security model
     // which the implementation does      not support. The type is interface{}
     // with range: 1..2147483647.
-    Snmptargetparamssecuritymodel interface{}
+    SnmpTargetParamsSecurityModel interface{}
 
     // The securityName which identifies the Principal on whose behalf SNMP
     // messages will be generated using this entry. The type is string.
-    Snmptargetparamssecurityname interface{}
+    SnmpTargetParamsSecurityName interface{}
 
     // The Level of Security to be used when generating SNMP messages using this
     // entry. The type is SnmpSecurityLevel.
-    Snmptargetparamssecuritylevel interface{}
+    SnmpTargetParamsSecurityLevel interface{}
 
     // The storage type for this conceptual row. The type is StorageType.
-    Snmptargetparamsstoragetype interface{}
+    SnmpTargetParamsStorageType interface{}
 
     // The status of this conceptual row.  To create a row in this table, a
     // manager must set this object to either createAndGo(4) or createAndWait(5). 
@@ -312,28 +327,31 @@ type SNMPTARGETMIB_Snmptargetparamstable_Snmptargetparamsentry struct {
     // snmpTargetParamsSecurityName     - snmpTargetParamsSecurityLevel An attempt
     // to set these objects while the value of snmpTargetParamsRowStatus is
     // active(1) will result in an inconsistentValue error. The type is RowStatus.
-    Snmptargetparamsrowstatus interface{}
+    SnmpTargetParamsRowStatus interface{}
 }
 
-func (snmptargetparamsentry *SNMPTARGETMIB_Snmptargetparamstable_Snmptargetparamsentry) GetEntityData() *types.CommonEntityData {
-    snmptargetparamsentry.EntityData.YFilter = snmptargetparamsentry.YFilter
-    snmptargetparamsentry.EntityData.YangName = "snmpTargetParamsEntry"
-    snmptargetparamsentry.EntityData.BundleName = "cisco_ios_xe"
-    snmptargetparamsentry.EntityData.ParentYangName = "snmpTargetParamsTable"
-    snmptargetparamsentry.EntityData.SegmentPath = "snmpTargetParamsEntry" + "[snmpTargetParamsName='" + fmt.Sprintf("%v", snmptargetparamsentry.Snmptargetparamsname) + "']"
-    snmptargetparamsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    snmptargetparamsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    snmptargetparamsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (snmpTargetParamsEntry *SNMPTARGETMIB_SnmpTargetParamsTable_SnmpTargetParamsEntry) GetEntityData() *types.CommonEntityData {
+    snmpTargetParamsEntry.EntityData.YFilter = snmpTargetParamsEntry.YFilter
+    snmpTargetParamsEntry.EntityData.YangName = "snmpTargetParamsEntry"
+    snmpTargetParamsEntry.EntityData.BundleName = "cisco_ios_xe"
+    snmpTargetParamsEntry.EntityData.ParentYangName = "snmpTargetParamsTable"
+    snmpTargetParamsEntry.EntityData.SegmentPath = "snmpTargetParamsEntry" + types.AddKeyToken(snmpTargetParamsEntry.SnmpTargetParamsName, "snmpTargetParamsName")
+    snmpTargetParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpTargetParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpTargetParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmptargetparamsentry.EntityData.Children = make(map[string]types.YChild)
-    snmptargetparamsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    snmptargetparamsentry.EntityData.Leafs["snmpTargetParamsName"] = types.YLeaf{"Snmptargetparamsname", snmptargetparamsentry.Snmptargetparamsname}
-    snmptargetparamsentry.EntityData.Leafs["snmpTargetParamsMPModel"] = types.YLeaf{"Snmptargetparamsmpmodel", snmptargetparamsentry.Snmptargetparamsmpmodel}
-    snmptargetparamsentry.EntityData.Leafs["snmpTargetParamsSecurityModel"] = types.YLeaf{"Snmptargetparamssecuritymodel", snmptargetparamsentry.Snmptargetparamssecuritymodel}
-    snmptargetparamsentry.EntityData.Leafs["snmpTargetParamsSecurityName"] = types.YLeaf{"Snmptargetparamssecurityname", snmptargetparamsentry.Snmptargetparamssecurityname}
-    snmptargetparamsentry.EntityData.Leafs["snmpTargetParamsSecurityLevel"] = types.YLeaf{"Snmptargetparamssecuritylevel", snmptargetparamsentry.Snmptargetparamssecuritylevel}
-    snmptargetparamsentry.EntityData.Leafs["snmpTargetParamsStorageType"] = types.YLeaf{"Snmptargetparamsstoragetype", snmptargetparamsentry.Snmptargetparamsstoragetype}
-    snmptargetparamsentry.EntityData.Leafs["snmpTargetParamsRowStatus"] = types.YLeaf{"Snmptargetparamsrowstatus", snmptargetparamsentry.Snmptargetparamsrowstatus}
-    return &(snmptargetparamsentry.EntityData)
+    snmpTargetParamsEntry.EntityData.Children = types.NewOrderedMap()
+    snmpTargetParamsEntry.EntityData.Leafs = types.NewOrderedMap()
+    snmpTargetParamsEntry.EntityData.Leafs.Append("snmpTargetParamsName", types.YLeaf{"SnmpTargetParamsName", snmpTargetParamsEntry.SnmpTargetParamsName})
+    snmpTargetParamsEntry.EntityData.Leafs.Append("snmpTargetParamsMPModel", types.YLeaf{"SnmpTargetParamsMPModel", snmpTargetParamsEntry.SnmpTargetParamsMPModel})
+    snmpTargetParamsEntry.EntityData.Leafs.Append("snmpTargetParamsSecurityModel", types.YLeaf{"SnmpTargetParamsSecurityModel", snmpTargetParamsEntry.SnmpTargetParamsSecurityModel})
+    snmpTargetParamsEntry.EntityData.Leafs.Append("snmpTargetParamsSecurityName", types.YLeaf{"SnmpTargetParamsSecurityName", snmpTargetParamsEntry.SnmpTargetParamsSecurityName})
+    snmpTargetParamsEntry.EntityData.Leafs.Append("snmpTargetParamsSecurityLevel", types.YLeaf{"SnmpTargetParamsSecurityLevel", snmpTargetParamsEntry.SnmpTargetParamsSecurityLevel})
+    snmpTargetParamsEntry.EntityData.Leafs.Append("snmpTargetParamsStorageType", types.YLeaf{"SnmpTargetParamsStorageType", snmpTargetParamsEntry.SnmpTargetParamsStorageType})
+    snmpTargetParamsEntry.EntityData.Leafs.Append("snmpTargetParamsRowStatus", types.YLeaf{"SnmpTargetParamsRowStatus", snmpTargetParamsEntry.SnmpTargetParamsRowStatus})
+
+    snmpTargetParamsEntry.EntityData.YListKeys = []string {"SnmpTargetParamsName"}
+
+    return &(snmpTargetParamsEntry.EntityData)
 }
 

@@ -50,9 +50,12 @@ func (clearIsisProcess *ClearIsisProcess) GetEntityData() *types.CommonEntityDat
     clearIsisProcess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisProcess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearIsisProcess.EntityData.Children = make(map[string]types.YChild)
-    clearIsisProcess.EntityData.Children["input"] = types.YChild{"Input", &clearIsisProcess.Input}
-    clearIsisProcess.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearIsisProcess.EntityData.Children = types.NewOrderedMap()
+    clearIsisProcess.EntityData.Children.Append("input", types.YChild{"Input", &clearIsisProcess.Input})
+    clearIsisProcess.EntityData.Leafs = types.NewOrderedMap()
+
+    clearIsisProcess.EntityData.YListKeys = []string {}
+
     return &(clearIsisProcess.EntityData)
 }
 
@@ -78,10 +81,13 @@ func (input *ClearIsisProcess_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["process"] = types.YLeaf{"Process", input.Process}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("process", types.YLeaf{"Process", input.Process})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -105,9 +111,12 @@ func (instance *ClearIsisProcess_Input_Instance) GetEntityData() *types.CommonEn
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -131,9 +140,12 @@ func (clearIsisRoute *ClearIsisRoute) GetEntityData() *types.CommonEntityData {
     clearIsisRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearIsisRoute.EntityData.Children = make(map[string]types.YChild)
-    clearIsisRoute.EntityData.Children["input"] = types.YChild{"Input", &clearIsisRoute.Input}
-    clearIsisRoute.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearIsisRoute.EntityData.Children = types.NewOrderedMap()
+    clearIsisRoute.EntityData.Children.Append("input", types.YChild{"Input", &clearIsisRoute.Input})
+    clearIsisRoute.EntityData.Leafs = types.NewOrderedMap()
+
+    clearIsisRoute.EntityData.YListKeys = []string {}
+
     return &(clearIsisRoute.EntityData)
 }
 
@@ -159,10 +171,13 @@ func (input *ClearIsisRoute_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["route"] = types.YLeaf{"Route", input.Route}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("route", types.YLeaf{"Route", input.Route})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -186,9 +201,12 @@ func (instance *ClearIsisRoute_Input_Instance) GetEntityData() *types.CommonEnti
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -212,9 +230,12 @@ func (clearIsisStat *ClearIsisStat) GetEntityData() *types.CommonEntityData {
     clearIsisStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearIsisStat.EntityData.Children = make(map[string]types.YChild)
-    clearIsisStat.EntityData.Children["input"] = types.YChild{"Input", &clearIsisStat.Input}
-    clearIsisStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearIsisStat.EntityData.Children = types.NewOrderedMap()
+    clearIsisStat.EntityData.Children.Append("input", types.YChild{"Input", &clearIsisStat.Input})
+    clearIsisStat.EntityData.Leafs = types.NewOrderedMap()
+
+    clearIsisStat.EntityData.YListKeys = []string {}
+
     return &(clearIsisStat.EntityData)
 }
 
@@ -240,10 +261,13 @@ func (input *ClearIsisStat_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Children["statistics"] = types.YChild{"Statistics", &input.Statistics}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Children.Append("statistics", types.YChild{"Statistics", &input.Statistics})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -267,9 +291,12 @@ func (instance *ClearIsisStat_Input_Instance) GetEntityData() *types.CommonEntit
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -279,7 +306,7 @@ type ClearIsisStat_Input_Statistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'. This
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+. This
     // attribute is mandatory.
     InterfaceName interface{}
 }
@@ -294,9 +321,12 @@ func (statistics *ClearIsisStat_Input_Statistics) GetEntityData() *types.CommonE
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistics.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", statistics.InterfaceName}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+    statistics.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", statistics.InterfaceName})
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -320,9 +350,12 @@ func (clearIsisDist *ClearIsisDist) GetEntityData() *types.CommonEntityData {
     clearIsisDist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisDist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearIsisDist.EntityData.Children = make(map[string]types.YChild)
-    clearIsisDist.EntityData.Children["input"] = types.YChild{"Input", &clearIsisDist.Input}
-    clearIsisDist.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearIsisDist.EntityData.Children = types.NewOrderedMap()
+    clearIsisDist.EntityData.Children.Append("input", types.YChild{"Input", &clearIsisDist.Input})
+    clearIsisDist.EntityData.Leafs = types.NewOrderedMap()
+
+    clearIsisDist.EntityData.YListKeys = []string {}
+
     return &(clearIsisDist.EntityData)
 }
 
@@ -348,10 +381,13 @@ func (input *ClearIsisDist_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["distribution"] = types.YLeaf{"Distribution", input.Distribution}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("distribution", types.YLeaf{"Distribution", input.Distribution})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -375,9 +411,12 @@ func (instance *ClearIsisDist_Input_Instance) GetEntityData() *types.CommonEntit
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -401,9 +440,12 @@ func (clearIsisLocalLsp *ClearIsisLocalLsp) GetEntityData() *types.CommonEntityD
     clearIsisLocalLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisLocalLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearIsisLocalLsp.EntityData.Children = make(map[string]types.YChild)
-    clearIsisLocalLsp.EntityData.Children["input"] = types.YChild{"Input", &clearIsisLocalLsp.Input}
-    clearIsisLocalLsp.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearIsisLocalLsp.EntityData.Children = types.NewOrderedMap()
+    clearIsisLocalLsp.EntityData.Children.Append("input", types.YChild{"Input", &clearIsisLocalLsp.Input})
+    clearIsisLocalLsp.EntityData.Leafs = types.NewOrderedMap()
+
+    clearIsisLocalLsp.EntityData.YListKeys = []string {}
+
     return &(clearIsisLocalLsp.EntityData)
 }
 
@@ -429,10 +471,13 @@ func (input *ClearIsisLocalLsp_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["local-lsp"] = types.YLeaf{"LocalLsp", input.LocalLsp}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("local-lsp", types.YLeaf{"LocalLsp", input.LocalLsp})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -456,9 +501,12 @@ func (instance *ClearIsisLocalLsp_Input_Instance) GetEntityData() *types.CommonE
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -482,9 +530,12 @@ func (clearIsis *ClearIsis) GetEntityData() *types.CommonEntityData {
     clearIsis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearIsis.EntityData.Children = make(map[string]types.YChild)
-    clearIsis.EntityData.Children["input"] = types.YChild{"Input", &clearIsis.Input}
-    clearIsis.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearIsis.EntityData.Children = types.NewOrderedMap()
+    clearIsis.EntityData.Children.Append("input", types.YChild{"Input", &clearIsis.Input})
+    clearIsis.EntityData.Leafs = types.NewOrderedMap()
+
+    clearIsis.EntityData.YListKeys = []string {}
+
     return &(clearIsis.EntityData)
 }
 
@@ -516,12 +567,15 @@ func (input *ClearIsis_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["rt-type"] = types.YLeaf{"RtType", input.RtType}
-    input.EntityData.Leafs["route"] = types.YLeaf{"Route", input.Route}
-    input.EntityData.Leafs["topology"] = types.YLeaf{"Topology", input.Topology}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", input.RtType})
+    input.EntityData.Leafs.Append("route", types.YLeaf{"Route", input.Route})
+    input.EntityData.Leafs.Append("topology", types.YLeaf{"Topology", input.Topology})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -545,9 +599,12 @@ func (instance *ClearIsis_Input_Instance) GetEntityData() *types.CommonEntityDat
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 

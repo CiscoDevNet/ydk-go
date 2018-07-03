@@ -25,119 +25,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_rttmon_tc_mib"))
 }
 
-// RttReset represents the value is 'ready'.
-type RttReset string
-
-const (
-    RttReset_ready RttReset = "ready"
-
-    RttReset_reset RttReset = "reset"
-)
-
-// RttMonOperation represents                            Connect /OK
-type RttMonOperation string
-
-const (
-    RttMonOperation_notApplicable RttMonOperation = "notApplicable"
-
-    RttMonOperation_httpGet RttMonOperation = "httpGet"
-
-    RttMonOperation_httpRaw RttMonOperation = "httpRaw"
-
-    RttMonOperation_ftpGet RttMonOperation = "ftpGet"
-
-    RttMonOperation_ftpPassive RttMonOperation = "ftpPassive"
-
-    RttMonOperation_ftpActive RttMonOperation = "ftpActive"
-
-    RttMonOperation_voipDTAlertRinging RttMonOperation = "voipDTAlertRinging"
-
-    RttMonOperation_voipDTConnectOK RttMonOperation = "voipDTConnectOK"
-)
-
-// RttResponseSense represents                  - Stats retrieve request fail due to port in use.
-type RttResponseSense string
-
-const (
-    RttResponseSense_other RttResponseSense = "other"
-
-    RttResponseSense_ok RttResponseSense = "ok"
-
-    RttResponseSense_disconnected RttResponseSense = "disconnected"
-
-    RttResponseSense_overThreshold RttResponseSense = "overThreshold"
-
-    RttResponseSense_timeout RttResponseSense = "timeout"
-
-    RttResponseSense_busy RttResponseSense = "busy"
-
-    RttResponseSense_notConnected RttResponseSense = "notConnected"
-
-    RttResponseSense_dropped RttResponseSense = "dropped"
-
-    RttResponseSense_sequenceError RttResponseSense = "sequenceError"
-
-    RttResponseSense_verifyError RttResponseSense = "verifyError"
-
-    RttResponseSense_applicationSpecific RttResponseSense = "applicationSpecific"
-
-    RttResponseSense_dnsServerTimeout RttResponseSense = "dnsServerTimeout"
-
-    RttResponseSense_tcpConnectTimeout RttResponseSense = "tcpConnectTimeout"
-
-    RttResponseSense_httpTransactionTimeout RttResponseSense = "httpTransactionTimeout"
-
-    RttResponseSense_dnsQueryError RttResponseSense = "dnsQueryError"
-
-    RttResponseSense_httpError RttResponseSense = "httpError"
-
-    RttResponseSense_error RttResponseSense = "error"
-
-    RttResponseSense_mplsLspEchoTxError RttResponseSense = "mplsLspEchoTxError"
-
-    RttResponseSense_mplsLspUnreachable RttResponseSense = "mplsLspUnreachable"
-
-    RttResponseSense_mplsLspMalformedReq RttResponseSense = "mplsLspMalformedReq"
-
-    RttResponseSense_mplsLspReachButNotFEC RttResponseSense = "mplsLspReachButNotFEC"
-
-    RttResponseSense_enableOk RttResponseSense = "enableOk"
-
-    RttResponseSense_enableNoConnect RttResponseSense = "enableNoConnect"
-
-    RttResponseSense_enableVersionFail RttResponseSense = "enableVersionFail"
-
-    RttResponseSense_enableInternalError RttResponseSense = "enableInternalError"
-
-    RttResponseSense_enableAbort RttResponseSense = "enableAbort"
-
-    RttResponseSense_enableFail RttResponseSense = "enableFail"
-
-    RttResponseSense_enableAuthFail RttResponseSense = "enableAuthFail"
-
-    RttResponseSense_enableFormatError RttResponseSense = "enableFormatError"
-
-    RttResponseSense_enablePortInUse RttResponseSense = "enablePortInUse"
-
-    RttResponseSense_statsRetrieveOk RttResponseSense = "statsRetrieveOk"
-
-    RttResponseSense_statsRetrieveNoConnect RttResponseSense = "statsRetrieveNoConnect"
-
-    RttResponseSense_statsRetrieveVersionFail RttResponseSense = "statsRetrieveVersionFail"
-
-    RttResponseSense_statsRetrieveInternalError RttResponseSense = "statsRetrieveInternalError"
-
-    RttResponseSense_statsRetrieveAbort RttResponseSense = "statsRetrieveAbort"
-
-    RttResponseSense_statsRetrieveFail RttResponseSense = "statsRetrieveFail"
-
-    RttResponseSense_statsRetrieveAuthFail RttResponseSense = "statsRetrieveAuthFail"
-
-    RttResponseSense_statsRetrieveFormatError RttResponseSense = "statsRetrieveFormatError"
-
-    RttResponseSense_statsRetrievePortInUse RttResponseSense = "statsRetrievePortInUse"
-)
-
 // RttMonRttType represents udp jitter stream analysis on a multicast network.
 type RttMonRttType string
 
@@ -195,47 +82,13 @@ const (
     RttMonRttType_mcastJitter RttMonRttType = "mcastJitter"
 )
 
-// RttMplsVpnMonRttType represents automatically configure jitter operations.
-type RttMplsVpnMonRttType string
+// RttMonLSPPingReplyMode represents                          unreliable.
+type RttMonLSPPingReplyMode string
 
 const (
-    RttMplsVpnMonRttType_jitter RttMplsVpnMonRttType = "jitter"
+    RttMonLSPPingReplyMode_replyIpv4Udp RttMonLSPPingReplyMode = "replyIpv4Udp"
 
-    RttMplsVpnMonRttType_echo RttMplsVpnMonRttType = "echo"
-
-    RttMplsVpnMonRttType_pathEcho RttMplsVpnMonRttType = "pathEcho"
-)
-
-// RttMplsVpnMonLpdFailureSense represents                                   Discovery.
-type RttMplsVpnMonLpdFailureSense string
-
-const (
-    RttMplsVpnMonLpdFailureSense_unknown RttMplsVpnMonLpdFailureSense = "unknown"
-
-    RttMplsVpnMonLpdFailureSense_noPath RttMplsVpnMonLpdFailureSense = "noPath"
-
-    RttMplsVpnMonLpdFailureSense_allPathsBroken RttMplsVpnMonLpdFailureSense = "allPathsBroken"
-
-    RttMplsVpnMonLpdFailureSense_allPathsUnexplorable RttMplsVpnMonLpdFailureSense = "allPathsUnexplorable"
-
-    RttMplsVpnMonLpdFailureSense_allPathsBrokenOrUnexplorable RttMplsVpnMonLpdFailureSense = "allPathsBrokenOrUnexplorable"
-
-    RttMplsVpnMonLpdFailureSense_timeout RttMplsVpnMonLpdFailureSense = "timeout"
-
-    RttMplsVpnMonLpdFailureSense_error RttMplsVpnMonLpdFailureSense = "error"
-)
-
-// RttMplsVpnMonLpdGrpStatus represents              PE.
-type RttMplsVpnMonLpdGrpStatus string
-
-const (
-    RttMplsVpnMonLpdGrpStatus_unknown RttMplsVpnMonLpdGrpStatus = "unknown"
-
-    RttMplsVpnMonLpdGrpStatus_up RttMplsVpnMonLpdGrpStatus = "up"
-
-    RttMplsVpnMonLpdGrpStatus_partial RttMplsVpnMonLpdGrpStatus = "partial"
-
-    RttMplsVpnMonLpdGrpStatus_down RttMplsVpnMonLpdGrpStatus = "down"
+    RttMonLSPPingReplyMode_replyIpv4UdpRA RttMonLSPPingReplyMode = "replyIpv4UdpRA"
 )
 
 // RttMonProtocol represents                       performance
@@ -331,26 +184,17 @@ const (
     RttMonProtocol_y1731dmmv1 RttMonProtocol = "y1731dmmv1"
 )
 
-// RttMonCodecType represents g729a             - uses G.729 8000 bps
-type RttMonCodecType string
+// RttMplsVpnMonLpdGrpStatus represents              PE.
+type RttMplsVpnMonLpdGrpStatus string
 
 const (
-    RttMonCodecType_notApplicable RttMonCodecType = "notApplicable"
+    RttMplsVpnMonLpdGrpStatus_unknown RttMplsVpnMonLpdGrpStatus = "unknown"
 
-    RttMonCodecType_g711ulaw RttMonCodecType = "g711ulaw"
+    RttMplsVpnMonLpdGrpStatus_up RttMplsVpnMonLpdGrpStatus = "up"
 
-    RttMonCodecType_g711alaw RttMonCodecType = "g711alaw"
+    RttMplsVpnMonLpdGrpStatus_partial RttMplsVpnMonLpdGrpStatus = "partial"
 
-    RttMonCodecType_g729a RttMonCodecType = "g729a"
-)
-
-// RttMonLSPPingReplyMode represents                          unreliable.
-type RttMonLSPPingReplyMode string
-
-const (
-    RttMonLSPPingReplyMode_replyIpv4Udp RttMonLSPPingReplyMode = "replyIpv4Udp"
-
-    RttMonLSPPingReplyMode_replyIpv4UdpRA RttMonLSPPingReplyMode = "replyIpv4UdpRA"
+    RttMplsVpnMonLpdGrpStatus_down RttMplsVpnMonLpdGrpStatus = "down"
 )
 
 // RttMonReactVar represents  rFactorSD(32)           - R-Factor value at Destination.
@@ -420,5 +264,161 @@ const (
     RttMonReactVar_mosCQSD RttMonReactVar = "mosCQSD"
 
     RttMonReactVar_rFactorSD RttMonReactVar = "rFactorSD"
+)
+
+// RttReset represents the value is 'ready'.
+type RttReset string
+
+const (
+    RttReset_ready RttReset = "ready"
+
+    RttReset_reset RttReset = "reset"
+)
+
+// RttMplsVpnMonLpdFailureSense represents                                   Discovery.
+type RttMplsVpnMonLpdFailureSense string
+
+const (
+    RttMplsVpnMonLpdFailureSense_unknown RttMplsVpnMonLpdFailureSense = "unknown"
+
+    RttMplsVpnMonLpdFailureSense_noPath RttMplsVpnMonLpdFailureSense = "noPath"
+
+    RttMplsVpnMonLpdFailureSense_allPathsBroken RttMplsVpnMonLpdFailureSense = "allPathsBroken"
+
+    RttMplsVpnMonLpdFailureSense_allPathsUnexplorable RttMplsVpnMonLpdFailureSense = "allPathsUnexplorable"
+
+    RttMplsVpnMonLpdFailureSense_allPathsBrokenOrUnexplorable RttMplsVpnMonLpdFailureSense = "allPathsBrokenOrUnexplorable"
+
+    RttMplsVpnMonLpdFailureSense_timeout RttMplsVpnMonLpdFailureSense = "timeout"
+
+    RttMplsVpnMonLpdFailureSense_error_ RttMplsVpnMonLpdFailureSense = "error"
+)
+
+// RttMonCodecType represents g729a             - uses G.729 8000 bps
+type RttMonCodecType string
+
+const (
+    RttMonCodecType_notApplicable RttMonCodecType = "notApplicable"
+
+    RttMonCodecType_g711ulaw RttMonCodecType = "g711ulaw"
+
+    RttMonCodecType_g711alaw RttMonCodecType = "g711alaw"
+
+    RttMonCodecType_g729a RttMonCodecType = "g729a"
+)
+
+// RttMonOperation represents                            Connect /OK
+type RttMonOperation string
+
+const (
+    RttMonOperation_notApplicable RttMonOperation = "notApplicable"
+
+    RttMonOperation_httpGet RttMonOperation = "httpGet"
+
+    RttMonOperation_httpRaw RttMonOperation = "httpRaw"
+
+    RttMonOperation_ftpGet RttMonOperation = "ftpGet"
+
+    RttMonOperation_ftpPassive RttMonOperation = "ftpPassive"
+
+    RttMonOperation_ftpActive RttMonOperation = "ftpActive"
+
+    RttMonOperation_voipDTAlertRinging RttMonOperation = "voipDTAlertRinging"
+
+    RttMonOperation_voipDTConnectOK RttMonOperation = "voipDTConnectOK"
+)
+
+// RttMplsVpnMonRttType represents automatically configure jitter operations.
+type RttMplsVpnMonRttType string
+
+const (
+    RttMplsVpnMonRttType_jitter RttMplsVpnMonRttType = "jitter"
+
+    RttMplsVpnMonRttType_echo RttMplsVpnMonRttType = "echo"
+
+    RttMplsVpnMonRttType_pathEcho RttMplsVpnMonRttType = "pathEcho"
+)
+
+// RttResponseSense represents                  - Stats retrieve request fail due to port in use.
+type RttResponseSense string
+
+const (
+    RttResponseSense_other RttResponseSense = "other"
+
+    RttResponseSense_ok RttResponseSense = "ok"
+
+    RttResponseSense_disconnected RttResponseSense = "disconnected"
+
+    RttResponseSense_overThreshold RttResponseSense = "overThreshold"
+
+    RttResponseSense_timeout RttResponseSense = "timeout"
+
+    RttResponseSense_busy RttResponseSense = "busy"
+
+    RttResponseSense_notConnected RttResponseSense = "notConnected"
+
+    RttResponseSense_dropped RttResponseSense = "dropped"
+
+    RttResponseSense_sequenceError RttResponseSense = "sequenceError"
+
+    RttResponseSense_verifyError RttResponseSense = "verifyError"
+
+    RttResponseSense_applicationSpecific RttResponseSense = "applicationSpecific"
+
+    RttResponseSense_dnsServerTimeout RttResponseSense = "dnsServerTimeout"
+
+    RttResponseSense_tcpConnectTimeout RttResponseSense = "tcpConnectTimeout"
+
+    RttResponseSense_httpTransactionTimeout RttResponseSense = "httpTransactionTimeout"
+
+    RttResponseSense_dnsQueryError RttResponseSense = "dnsQueryError"
+
+    RttResponseSense_httpError RttResponseSense = "httpError"
+
+    RttResponseSense_error_ RttResponseSense = "error"
+
+    RttResponseSense_mplsLspEchoTxError RttResponseSense = "mplsLspEchoTxError"
+
+    RttResponseSense_mplsLspUnreachable RttResponseSense = "mplsLspUnreachable"
+
+    RttResponseSense_mplsLspMalformedReq RttResponseSense = "mplsLspMalformedReq"
+
+    RttResponseSense_mplsLspReachButNotFEC RttResponseSense = "mplsLspReachButNotFEC"
+
+    RttResponseSense_enableOk RttResponseSense = "enableOk"
+
+    RttResponseSense_enableNoConnect RttResponseSense = "enableNoConnect"
+
+    RttResponseSense_enableVersionFail RttResponseSense = "enableVersionFail"
+
+    RttResponseSense_enableInternalError RttResponseSense = "enableInternalError"
+
+    RttResponseSense_enableAbort RttResponseSense = "enableAbort"
+
+    RttResponseSense_enableFail RttResponseSense = "enableFail"
+
+    RttResponseSense_enableAuthFail RttResponseSense = "enableAuthFail"
+
+    RttResponseSense_enableFormatError RttResponseSense = "enableFormatError"
+
+    RttResponseSense_enablePortInUse RttResponseSense = "enablePortInUse"
+
+    RttResponseSense_statsRetrieveOk RttResponseSense = "statsRetrieveOk"
+
+    RttResponseSense_statsRetrieveNoConnect RttResponseSense = "statsRetrieveNoConnect"
+
+    RttResponseSense_statsRetrieveVersionFail RttResponseSense = "statsRetrieveVersionFail"
+
+    RttResponseSense_statsRetrieveInternalError RttResponseSense = "statsRetrieveInternalError"
+
+    RttResponseSense_statsRetrieveAbort RttResponseSense = "statsRetrieveAbort"
+
+    RttResponseSense_statsRetrieveFail RttResponseSense = "statsRetrieveFail"
+
+    RttResponseSense_statsRetrieveAuthFail RttResponseSense = "statsRetrieveAuthFail"
+
+    RttResponseSense_statsRetrieveFormatError RttResponseSense = "statsRetrieveFormatError"
+
+    RttResponseSense_statsRetrievePortInUse RttResponseSense = "statsRetrievePortInUse"
 )
 

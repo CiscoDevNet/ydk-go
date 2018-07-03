@@ -27,7 +27,7 @@ type MemoryStatistics struct {
 
     // The list of software memory pools in the system. The type is slice of
     // MemoryStatistics_MemoryStatistic.
-    MemoryStatistic []MemoryStatistics_MemoryStatistic
+    MemoryStatistic []*MemoryStatistics_MemoryStatistic
 }
 
 func (memoryStatistics *MemoryStatistics) GetEntityData() *types.CommonEntityData {
@@ -40,12 +40,15 @@ func (memoryStatistics *MemoryStatistics) GetEntityData() *types.CommonEntityDat
     memoryStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    memoryStatistics.EntityData.Children = make(map[string]types.YChild)
-    memoryStatistics.EntityData.Children["memory-statistic"] = types.YChild{"MemoryStatistic", nil}
+    memoryStatistics.EntityData.Children = types.NewOrderedMap()
+    memoryStatistics.EntityData.Children.Append("memory-statistic", types.YChild{"MemoryStatistic", nil})
     for i := range memoryStatistics.MemoryStatistic {
-        memoryStatistics.EntityData.Children[types.GetSegmentPath(&memoryStatistics.MemoryStatistic[i])] = types.YChild{"MemoryStatistic", &memoryStatistics.MemoryStatistic[i]}
+        memoryStatistics.EntityData.Children.Append(types.GetSegmentPath(memoryStatistics.MemoryStatistic[i]), types.YChild{"MemoryStatistic", memoryStatistics.MemoryStatistic[i]})
     }
-    memoryStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    memoryStatistics.EntityData.YListKeys = []string {}
+
     return &(memoryStatistics.EntityData)
 }
 
@@ -84,19 +87,22 @@ func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetEntityData() *types.
     memoryStatistic.EntityData.YangName = "memory-statistic"
     memoryStatistic.EntityData.BundleName = "cisco_ios_xe"
     memoryStatistic.EntityData.ParentYangName = "memory-statistics"
-    memoryStatistic.EntityData.SegmentPath = "memory-statistic" + "[name='" + fmt.Sprintf("%v", memoryStatistic.Name) + "']"
+    memoryStatistic.EntityData.SegmentPath = "memory-statistic" + types.AddKeyToken(memoryStatistic.Name, "name")
     memoryStatistic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     memoryStatistic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    memoryStatistic.EntityData.Children = make(map[string]types.YChild)
-    memoryStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    memoryStatistic.EntityData.Leafs["name"] = types.YLeaf{"Name", memoryStatistic.Name}
-    memoryStatistic.EntityData.Leafs["total-memory"] = types.YLeaf{"TotalMemory", memoryStatistic.TotalMemory}
-    memoryStatistic.EntityData.Leafs["used-memory"] = types.YLeaf{"UsedMemory", memoryStatistic.UsedMemory}
-    memoryStatistic.EntityData.Leafs["free-memory"] = types.YLeaf{"FreeMemory", memoryStatistic.FreeMemory}
-    memoryStatistic.EntityData.Leafs["lowest-usage"] = types.YLeaf{"LowestUsage", memoryStatistic.LowestUsage}
-    memoryStatistic.EntityData.Leafs["highest-usage"] = types.YLeaf{"HighestUsage", memoryStatistic.HighestUsage}
+    memoryStatistic.EntityData.Children = types.NewOrderedMap()
+    memoryStatistic.EntityData.Leafs = types.NewOrderedMap()
+    memoryStatistic.EntityData.Leafs.Append("name", types.YLeaf{"Name", memoryStatistic.Name})
+    memoryStatistic.EntityData.Leafs.Append("total-memory", types.YLeaf{"TotalMemory", memoryStatistic.TotalMemory})
+    memoryStatistic.EntityData.Leafs.Append("used-memory", types.YLeaf{"UsedMemory", memoryStatistic.UsedMemory})
+    memoryStatistic.EntityData.Leafs.Append("free-memory", types.YLeaf{"FreeMemory", memoryStatistic.FreeMemory})
+    memoryStatistic.EntityData.Leafs.Append("lowest-usage", types.YLeaf{"LowestUsage", memoryStatistic.LowestUsage})
+    memoryStatistic.EntityData.Leafs.Append("highest-usage", types.YLeaf{"HighestUsage", memoryStatistic.HighestUsage})
+
+    memoryStatistic.EntityData.YListKeys = []string {"Name"}
+
     return &(memoryStatistic.EntityData)
 }
 

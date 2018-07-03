@@ -55,7 +55,7 @@ const (
     AlAlarmSeverity_critical AlAlarmSeverity = "critical"
 
     // error
-    AlAlarmSeverity_error AlAlarmSeverity = "error"
+    AlAlarmSeverity_error_ AlAlarmSeverity = "error"
 
     // warning
     AlAlarmSeverity_warning AlAlarmSeverity = "warning"
@@ -93,10 +93,13 @@ func (alarmLogger *AlarmLogger) GetEntityData() *types.CommonEntityData {
     alarmLogger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmLogger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmLogger.EntityData.Children = make(map[string]types.YChild)
-    alarmLogger.EntityData.Children["buffer-status"] = types.YChild{"BufferStatus", &alarmLogger.BufferStatus}
-    alarmLogger.EntityData.Children["alarms"] = types.YChild{"Alarms", &alarmLogger.Alarms}
-    alarmLogger.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarmLogger.EntityData.Children = types.NewOrderedMap()
+    alarmLogger.EntityData.Children.Append("buffer-status", types.YChild{"BufferStatus", &alarmLogger.BufferStatus})
+    alarmLogger.EntityData.Children.Append("alarms", types.YChild{"Alarms", &alarmLogger.Alarms})
+    alarmLogger.EntityData.Leafs = types.NewOrderedMap()
+
+    alarmLogger.EntityData.YListKeys = []string {}
+
     return &(alarmLogger.EntityData)
 }
 
@@ -138,13 +141,16 @@ func (bufferStatus *AlarmLogger_BufferStatus) GetEntityData() *types.CommonEntit
     bufferStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bufferStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bufferStatus.EntityData.Children = make(map[string]types.YChild)
-    bufferStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    bufferStatus.EntityData.Leafs["log-buffer-size"] = types.YLeaf{"LogBufferSize", bufferStatus.LogBufferSize}
-    bufferStatus.EntityData.Leafs["max-log-buffer-size"] = types.YLeaf{"MaxLogBufferSize", bufferStatus.MaxLogBufferSize}
-    bufferStatus.EntityData.Leafs["record-count"] = types.YLeaf{"RecordCount", bufferStatus.RecordCount}
-    bufferStatus.EntityData.Leafs["capacity-threshold"] = types.YLeaf{"CapacityThreshold", bufferStatus.CapacityThreshold}
-    bufferStatus.EntityData.Leafs["severity-filter"] = types.YLeaf{"SeverityFilter", bufferStatus.SeverityFilter}
+    bufferStatus.EntityData.Children = types.NewOrderedMap()
+    bufferStatus.EntityData.Leafs = types.NewOrderedMap()
+    bufferStatus.EntityData.Leafs.Append("log-buffer-size", types.YLeaf{"LogBufferSize", bufferStatus.LogBufferSize})
+    bufferStatus.EntityData.Leafs.Append("max-log-buffer-size", types.YLeaf{"MaxLogBufferSize", bufferStatus.MaxLogBufferSize})
+    bufferStatus.EntityData.Leafs.Append("record-count", types.YLeaf{"RecordCount", bufferStatus.RecordCount})
+    bufferStatus.EntityData.Leafs.Append("capacity-threshold", types.YLeaf{"CapacityThreshold", bufferStatus.CapacityThreshold})
+    bufferStatus.EntityData.Leafs.Append("severity-filter", types.YLeaf{"SeverityFilter", bufferStatus.SeverityFilter})
+
+    bufferStatus.EntityData.YListKeys = []string {}
+
     return &(bufferStatus.EntityData)
 }
 
@@ -156,7 +162,7 @@ type AlarmLogger_Alarms struct {
     YFilter yfilter.YFilter
 
     // One of the logged alarms. The type is slice of AlarmLogger_Alarms_Alarm.
-    Alarm []AlarmLogger_Alarms_Alarm
+    Alarm []*AlarmLogger_Alarms_Alarm
 }
 
 func (alarms *AlarmLogger_Alarms) GetEntityData() *types.CommonEntityData {
@@ -169,12 +175,15 @@ func (alarms *AlarmLogger_Alarms) GetEntityData() *types.CommonEntityData {
     alarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarms.EntityData.Children = make(map[string]types.YChild)
-    alarms.EntityData.Children["alarm"] = types.YChild{"Alarm", nil}
+    alarms.EntityData.Children = types.NewOrderedMap()
+    alarms.EntityData.Children.Append("alarm", types.YChild{"Alarm", nil})
     for i := range alarms.Alarm {
-        alarms.EntityData.Children[types.GetSegmentPath(&alarms.Alarm[i])] = types.YChild{"Alarm", &alarms.Alarm[i]}
+        alarms.EntityData.Children.Append(types.GetSegmentPath(alarms.Alarm[i]), types.YChild{"Alarm", alarms.Alarm[i]})
     }
-    alarms.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarms.EntityData.Leafs = types.NewOrderedMap()
+
+    alarms.EntityData.YListKeys = []string {}
+
     return &(alarms.EntityData)
 }
 
@@ -185,7 +194,7 @@ type AlarmLogger_Alarms_Alarm struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Event ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     EventId interface{}
 
     // Source Identifier(Location).Indicates the node in which the alarm was
@@ -228,24 +237,27 @@ func (alarm *AlarmLogger_Alarms_Alarm) GetEntityData() *types.CommonEntityData {
     alarm.EntityData.YangName = "alarm"
     alarm.EntityData.BundleName = "cisco_ios_xr"
     alarm.EntityData.ParentYangName = "alarms"
-    alarm.EntityData.SegmentPath = "alarm" + "[event-id='" + fmt.Sprintf("%v", alarm.EventId) + "']"
+    alarm.EntityData.SegmentPath = "alarm" + types.AddKeyToken(alarm.EventId, "event-id")
     alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarm.EntityData.Children = make(map[string]types.YChild)
-    alarm.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarm.EntityData.Leafs["event-id"] = types.YLeaf{"EventId", alarm.EventId}
-    alarm.EntityData.Leafs["source-id"] = types.YLeaf{"SourceId", alarm.SourceId}
-    alarm.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", alarm.Timestamp}
-    alarm.EntityData.Leafs["category"] = types.YLeaf{"Category", alarm.Category}
-    alarm.EntityData.Leafs["group"] = types.YLeaf{"Group", alarm.Group}
-    alarm.EntityData.Leafs["code"] = types.YLeaf{"Code", alarm.Code}
-    alarm.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarm.Severity}
-    alarm.EntityData.Leafs["state"] = types.YLeaf{"State", alarm.State}
-    alarm.EntityData.Leafs["correlation-id"] = types.YLeaf{"CorrelationId", alarm.CorrelationId}
-    alarm.EntityData.Leafs["is-admin"] = types.YLeaf{"IsAdmin", alarm.IsAdmin}
-    alarm.EntityData.Leafs["additional-text"] = types.YLeaf{"AdditionalText", alarm.AdditionalText}
+    alarm.EntityData.Children = types.NewOrderedMap()
+    alarm.EntityData.Leafs = types.NewOrderedMap()
+    alarm.EntityData.Leafs.Append("event-id", types.YLeaf{"EventId", alarm.EventId})
+    alarm.EntityData.Leafs.Append("source-id", types.YLeaf{"SourceId", alarm.SourceId})
+    alarm.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", alarm.Timestamp})
+    alarm.EntityData.Leafs.Append("category", types.YLeaf{"Category", alarm.Category})
+    alarm.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarm.Group})
+    alarm.EntityData.Leafs.Append("code", types.YLeaf{"Code", alarm.Code})
+    alarm.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarm.Severity})
+    alarm.EntityData.Leafs.Append("state", types.YLeaf{"State", alarm.State})
+    alarm.EntityData.Leafs.Append("correlation-id", types.YLeaf{"CorrelationId", alarm.CorrelationId})
+    alarm.EntityData.Leafs.Append("is-admin", types.YLeaf{"IsAdmin", alarm.IsAdmin})
+    alarm.EntityData.Leafs.Append("additional-text", types.YLeaf{"AdditionalText", alarm.AdditionalText})
+
+    alarm.EntityData.YListKeys = []string {"EventId"}
+
     return &(alarm.EntityData)
 }
 

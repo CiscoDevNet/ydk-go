@@ -47,9 +47,12 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareModule.EntityData.Children = make(map[string]types.YChild)
-    hardwareModule.EntityData.Children["nodes"] = types.YChild{"Nodes", &hardwareModule.Nodes}
-    hardwareModule.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareModule.EntityData.Children = types.NewOrderedMap()
+    hardwareModule.EntityData.Children.Append("nodes", types.YChild{"Nodes", &hardwareModule.Nodes})
+    hardwareModule.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareModule.EntityData.YListKeys = []string {}
+
     return &(hardwareModule.EntityData)
 }
 
@@ -60,7 +63,7 @@ type HardwareModule_Nodes struct {
     YFilter yfilter.YFilter
 
     // Node Information. The type is slice of HardwareModule_Nodes_Node.
-    Node []HardwareModule_Nodes_Node
+    Node []*HardwareModule_Nodes_Node
 }
 
 func (nodes *HardwareModule_Nodes) GetEntityData() *types.CommonEntityData {
@@ -73,12 +76,15 @@ func (nodes *HardwareModule_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -89,7 +95,7 @@ type HardwareModule_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Server specific.
@@ -101,15 +107,18 @@ func (node *HardwareModule_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["np"] = types.YChild{"Np", &node.Np}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("np", types.YChild{"Np", &node.Np})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -136,10 +145,13 @@ func (np *HardwareModule_Nodes_Node_Np) GetEntityData() *types.CommonEntityData 
     np.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     np.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    np.EntityData.Children = make(map[string]types.YChild)
-    np.EntityData.Children["cpu"] = types.YChild{"Cpu", &np.Cpu}
-    np.EntityData.Children["platform-drop"] = types.YChild{"PlatformDrop", &np.PlatformDrop}
-    np.EntityData.Leafs = make(map[string]types.YLeaf)
+    np.EntityData.Children = types.NewOrderedMap()
+    np.EntityData.Children.Append("cpu", types.YChild{"Cpu", &np.Cpu})
+    np.EntityData.Children.Append("platform-drop", types.YChild{"PlatformDrop", &np.PlatformDrop})
+    np.EntityData.Leafs = types.NewOrderedMap()
+
+    np.EntityData.YListKeys = []string {}
+
     return &(np.EntityData)
 }
 
@@ -163,9 +175,12 @@ func (cpu *HardwareModule_Nodes_Node_Np_Cpu) GetEntityData() *types.CommonEntity
     cpu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cpu.EntityData.Children = make(map[string]types.YChild)
-    cpu.EntityData.Children["indexes"] = types.YChild{"Indexes", &cpu.Indexes}
-    cpu.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpu.EntityData.Children = types.NewOrderedMap()
+    cpu.EntityData.Children.Append("indexes", types.YChild{"Indexes", &cpu.Indexes})
+    cpu.EntityData.Leafs = types.NewOrderedMap()
+
+    cpu.EntityData.YListKeys = []string {}
+
     return &(cpu.EntityData)
 }
 
@@ -177,7 +192,7 @@ type HardwareModule_Nodes_Node_Np_Cpu_Indexes struct {
 
     // Queue Stats. The type is slice of
     // HardwareModule_Nodes_Node_Np_Cpu_Indexes_Index.
-    Index []HardwareModule_Nodes_Node_Np_Cpu_Indexes_Index
+    Index []*HardwareModule_Nodes_Node_Np_Cpu_Indexes_Index
 }
 
 func (indexes *HardwareModule_Nodes_Node_Np_Cpu_Indexes) GetEntityData() *types.CommonEntityData {
@@ -190,12 +205,15 @@ func (indexes *HardwareModule_Nodes_Node_Np_Cpu_Indexes) GetEntityData() *types.
     indexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indexes.EntityData.Children = make(map[string]types.YChild)
-    indexes.EntityData.Children["index"] = types.YChild{"Index", nil}
+    indexes.EntityData.Children = types.NewOrderedMap()
+    indexes.EntityData.Children.Append("index", types.YChild{"Index", nil})
     for i := range indexes.Index {
-        indexes.EntityData.Children[types.GetSegmentPath(&indexes.Index[i])] = types.YChild{"Index", &indexes.Index[i]}
+        indexes.EntityData.Children.Append(types.GetSegmentPath(indexes.Index[i]), types.YChild{"Index", indexes.Index[i]})
     }
-    indexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    indexes.EntityData.Leafs = types.NewOrderedMap()
+
+    indexes.EntityData.YListKeys = []string {}
+
     return &(indexes.EntityData)
 }
 
@@ -206,7 +224,7 @@ type HardwareModule_Nodes_Node_Np_Cpu_Indexes_Index struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Index interface{}
 
     // CosQ Name. The type is string with length: 0..1024.
@@ -236,21 +254,24 @@ func (index *HardwareModule_Nodes_Node_Np_Cpu_Indexes_Index) GetEntityData() *ty
     index.EntityData.YangName = "index"
     index.EntityData.BundleName = "cisco_ios_xr"
     index.EntityData.ParentYangName = "indexes"
-    index.EntityData.SegmentPath = "index" + "[index='" + fmt.Sprintf("%v", index.Index) + "']"
+    index.EntityData.SegmentPath = "index" + types.AddKeyToken(index.Index, "index")
     index.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     index.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     index.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    index.EntityData.Children = make(map[string]types.YChild)
-    index.EntityData.Leafs = make(map[string]types.YLeaf)
-    index.EntityData.Leafs["index"] = types.YLeaf{"Index", index.Index}
-    index.EntityData.Leafs["cos-q-name"] = types.YLeaf{"CosQName", index.CosQName}
-    index.EntityData.Leafs["cos-q"] = types.YLeaf{"CosQ", index.CosQ}
-    index.EntityData.Leafs["rx-channel"] = types.YLeaf{"RxChannel", index.RxChannel}
-    index.EntityData.Leafs["flow-rate"] = types.YLeaf{"FlowRate", index.FlowRate}
-    index.EntityData.Leafs["burst"] = types.YLeaf{"Burst", index.Burst}
-    index.EntityData.Leafs["accepted"] = types.YLeaf{"Accepted", index.Accepted}
-    index.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", index.Dropped}
+    index.EntityData.Children = types.NewOrderedMap()
+    index.EntityData.Leafs = types.NewOrderedMap()
+    index.EntityData.Leafs.Append("index", types.YLeaf{"Index", index.Index})
+    index.EntityData.Leafs.Append("cos-q-name", types.YLeaf{"CosQName", index.CosQName})
+    index.EntityData.Leafs.Append("cos-q", types.YLeaf{"CosQ", index.CosQ})
+    index.EntityData.Leafs.Append("rx-channel", types.YLeaf{"RxChannel", index.RxChannel})
+    index.EntityData.Leafs.Append("flow-rate", types.YLeaf{"FlowRate", index.FlowRate})
+    index.EntityData.Leafs.Append("burst", types.YLeaf{"Burst", index.Burst})
+    index.EntityData.Leafs.Append("accepted", types.YLeaf{"Accepted", index.Accepted})
+    index.EntityData.Leafs.Append("dropped", types.YLeaf{"Dropped", index.Dropped})
+
+    index.EntityData.YListKeys = []string {"Index"}
+
     return &(index.EntityData)
 }
 
@@ -277,10 +298,13 @@ func (platformDrop *HardwareModule_Nodes_Node_Np_PlatformDrop) GetEntityData() *
     platformDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platformDrop.EntityData.Children = make(map[string]types.YChild)
-    platformDrop.EntityData.Children["indxes"] = types.YChild{"Indxes", &platformDrop.Indxes}
-    platformDrop.EntityData.Children["idxes"] = types.YChild{"Idxes", &platformDrop.Idxes}
-    platformDrop.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformDrop.EntityData.Children = types.NewOrderedMap()
+    platformDrop.EntityData.Children.Append("indxes", types.YChild{"Indxes", &platformDrop.Indxes})
+    platformDrop.EntityData.Children.Append("idxes", types.YChild{"Idxes", &platformDrop.Idxes})
+    platformDrop.EntityData.Leafs = types.NewOrderedMap()
+
+    platformDrop.EntityData.YListKeys = []string {}
+
     return &(platformDrop.EntityData)
 }
 
@@ -292,7 +316,7 @@ type HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes struct {
 
     // Captured packets. The type is slice of
     // HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes_Indx.
-    Indx []HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes_Indx
+    Indx []*HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes_Indx
 }
 
 func (indxes *HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes) GetEntityData() *types.CommonEntityData {
@@ -305,12 +329,15 @@ func (indxes *HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes) GetEntityData() 
     indxes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indxes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indxes.EntityData.Children = make(map[string]types.YChild)
-    indxes.EntityData.Children["indx"] = types.YChild{"Indx", nil}
+    indxes.EntityData.Children = types.NewOrderedMap()
+    indxes.EntityData.Children.Append("indx", types.YChild{"Indx", nil})
     for i := range indxes.Indx {
-        indxes.EntityData.Children[types.GetSegmentPath(&indxes.Indx[i])] = types.YChild{"Indx", &indxes.Indx[i]}
+        indxes.EntityData.Children.Append(types.GetSegmentPath(indxes.Indx[i]), types.YChild{"Indx", indxes.Indx[i]})
     }
-    indxes.EntityData.Leafs = make(map[string]types.YLeaf)
+    indxes.EntityData.Leafs = types.NewOrderedMap()
+
+    indxes.EntityData.YListKeys = []string {}
+
     return &(indxes.EntityData)
 }
 
@@ -321,7 +348,7 @@ type HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes_Indx struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Index interface{}
 
     // Total packets Captured. The type is interface{} with range: 0..4294967295.
@@ -370,26 +397,29 @@ func (indx *HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes_Indx) GetEntityData
     indx.EntityData.YangName = "indx"
     indx.EntityData.BundleName = "cisco_ios_xr"
     indx.EntityData.ParentYangName = "indxes"
-    indx.EntityData.SegmentPath = "indx" + "[index='" + fmt.Sprintf("%v", indx.Index) + "']"
+    indx.EntityData.SegmentPath = "indx" + types.AddKeyToken(indx.Index, "index")
     indx.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indx.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indx.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indx.EntityData.Children = make(map[string]types.YChild)
-    indx.EntityData.Leafs = make(map[string]types.YLeaf)
-    indx.EntityData.Leafs["index"] = types.YLeaf{"Index", indx.Index}
-    indx.EntityData.Leafs["total-captured"] = types.YLeaf{"TotalCaptured", indx.TotalCaptured}
-    indx.EntityData.Leafs["captured-pak"] = types.YLeaf{"CapturedPak", indx.CapturedPak}
-    indx.EntityData.Leafs["pkt-index"] = types.YLeaf{"PktIndex", indx.PktIndex}
-    indx.EntityData.Leafs["ifhandle"] = types.YLeaf{"Ifhandle", indx.Ifhandle}
-    indx.EntityData.Leafs["buffer-len"] = types.YLeaf{"BufferLen", indx.BufferLen}
-    indx.EntityData.Leafs["reason-hi"] = types.YLeaf{"ReasonHi", indx.ReasonHi}
-    indx.EntityData.Leafs["reason"] = types.YLeaf{"Reason", indx.Reason}
-    indx.EntityData.Leafs["years"] = types.YLeaf{"Years", indx.Years}
-    indx.EntityData.Leafs["hours"] = types.YLeaf{"Hours", indx.Hours}
-    indx.EntityData.Leafs["days"] = types.YLeaf{"Days", indx.Days}
-    indx.EntityData.Leafs["mins"] = types.YLeaf{"Mins", indx.Mins}
-    indx.EntityData.Leafs["secs"] = types.YLeaf{"Secs", indx.Secs}
+    indx.EntityData.Children = types.NewOrderedMap()
+    indx.EntityData.Leafs = types.NewOrderedMap()
+    indx.EntityData.Leafs.Append("index", types.YLeaf{"Index", indx.Index})
+    indx.EntityData.Leafs.Append("total-captured", types.YLeaf{"TotalCaptured", indx.TotalCaptured})
+    indx.EntityData.Leafs.Append("captured-pak", types.YLeaf{"CapturedPak", indx.CapturedPak})
+    indx.EntityData.Leafs.Append("pkt-index", types.YLeaf{"PktIndex", indx.PktIndex})
+    indx.EntityData.Leafs.Append("ifhandle", types.YLeaf{"Ifhandle", indx.Ifhandle})
+    indx.EntityData.Leafs.Append("buffer-len", types.YLeaf{"BufferLen", indx.BufferLen})
+    indx.EntityData.Leafs.Append("reason-hi", types.YLeaf{"ReasonHi", indx.ReasonHi})
+    indx.EntityData.Leafs.Append("reason", types.YLeaf{"Reason", indx.Reason})
+    indx.EntityData.Leafs.Append("years", types.YLeaf{"Years", indx.Years})
+    indx.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", indx.Hours})
+    indx.EntityData.Leafs.Append("days", types.YLeaf{"Days", indx.Days})
+    indx.EntityData.Leafs.Append("mins", types.YLeaf{"Mins", indx.Mins})
+    indx.EntityData.Leafs.Append("secs", types.YLeaf{"Secs", indx.Secs})
+
+    indx.EntityData.YListKeys = []string {"Index"}
+
     return &(indx.EntityData)
 }
 
@@ -401,7 +431,7 @@ type HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes struct {
 
     // Drop Stats. The type is slice of
     // HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes_Idx.
-    Idx []HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes_Idx
+    Idx []*HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes_Idx
 }
 
 func (idxes *HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes) GetEntityData() *types.CommonEntityData {
@@ -414,12 +444,15 @@ func (idxes *HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes) GetEntityData() *t
     idxes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idxes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    idxes.EntityData.Children = make(map[string]types.YChild)
-    idxes.EntityData.Children["idx"] = types.YChild{"Idx", nil}
+    idxes.EntityData.Children = types.NewOrderedMap()
+    idxes.EntityData.Children.Append("idx", types.YChild{"Idx", nil})
     for i := range idxes.Idx {
-        idxes.EntityData.Children[types.GetSegmentPath(&idxes.Idx[i])] = types.YChild{"Idx", &idxes.Idx[i]}
+        idxes.EntityData.Children.Append(types.GetSegmentPath(idxes.Idx[i]), types.YChild{"Idx", idxes.Idx[i]})
     }
-    idxes.EntityData.Leafs = make(map[string]types.YLeaf)
+    idxes.EntityData.Leafs = types.NewOrderedMap()
+
+    idxes.EntityData.YListKeys = []string {}
+
     return &(idxes.EntityData)
 }
 
@@ -430,7 +463,7 @@ type HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes_Idx struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Index interface{}
 
     // Drop Reason. The type is string with length: 0..1024.
@@ -445,16 +478,19 @@ func (idx *HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes_Idx) GetEntityData() 
     idx.EntityData.YangName = "idx"
     idx.EntityData.BundleName = "cisco_ios_xr"
     idx.EntityData.ParentYangName = "idxes"
-    idx.EntityData.SegmentPath = "idx" + "[index='" + fmt.Sprintf("%v", idx.Index) + "']"
+    idx.EntityData.SegmentPath = "idx" + types.AddKeyToken(idx.Index, "index")
     idx.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idx.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idx.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    idx.EntityData.Children = make(map[string]types.YChild)
-    idx.EntityData.Leafs = make(map[string]types.YLeaf)
-    idx.EntityData.Leafs["index"] = types.YLeaf{"Index", idx.Index}
-    idx.EntityData.Leafs["drop-reason"] = types.YLeaf{"DropReason", idx.DropReason}
-    idx.EntityData.Leafs["counters"] = types.YLeaf{"Counters", idx.Counters}
+    idx.EntityData.Children = types.NewOrderedMap()
+    idx.EntityData.Leafs = types.NewOrderedMap()
+    idx.EntityData.Leafs.Append("index", types.YLeaf{"Index", idx.Index})
+    idx.EntityData.Leafs.Append("drop-reason", types.YLeaf{"DropReason", idx.DropReason})
+    idx.EntityData.Leafs.Append("counters", types.YLeaf{"Counters", idx.Counters})
+
+    idx.EntityData.YListKeys = []string {"Index"}
+
     return &(idx.EntityData)
 }
 
@@ -478,9 +514,12 @@ func (prm *Prm) GetEntityData() *types.CommonEntityData {
     prm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prm.EntityData.Children = make(map[string]types.YChild)
-    prm.EntityData.Children["nodes"] = types.YChild{"Nodes", &prm.Nodes}
-    prm.EntityData.Leafs = make(map[string]types.YLeaf)
+    prm.EntityData.Children = types.NewOrderedMap()
+    prm.EntityData.Children.Append("nodes", types.YChild{"Nodes", &prm.Nodes})
+    prm.EntityData.Leafs = types.NewOrderedMap()
+
+    prm.EntityData.YListKeys = []string {}
+
     return &(prm.EntityData)
 }
 
@@ -491,7 +530,7 @@ type Prm_Nodes struct {
     YFilter yfilter.YFilter
 
     // Node Information. The type is slice of Prm_Nodes_Node.
-    Node []Prm_Nodes_Node
+    Node []*Prm_Nodes_Node
 }
 
 func (nodes *Prm_Nodes) GetEntityData() *types.CommonEntityData {
@@ -504,12 +543,15 @@ func (nodes *Prm_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -520,7 +562,7 @@ type Prm_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Server specific.
@@ -532,15 +574,18 @@ func (node *Prm_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["server"] = types.YChild{"Server", &node.Server}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("server", types.YChild{"Server", &node.Server})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -564,9 +609,12 @@ func (server *Prm_Nodes_Node_Server) GetEntityData() *types.CommonEntityData {
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Children["resource"] = types.YChild{"Resource", &server.Resource}
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Children.Append("resource", types.YChild{"Resource", &server.Resource})
+    server.EntityData.Leafs = types.NewOrderedMap()
+
+    server.EntityData.YListKeys = []string {}
+
     return &(server.EntityData)
 }
 
@@ -590,9 +638,12 @@ func (resource *Prm_Nodes_Node_Server_Resource) GetEntityData() *types.CommonEnt
     resource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resource.EntityData.Children = make(map[string]types.YChild)
-    resource.EntityData.Children["indexes"] = types.YChild{"Indexes", &resource.Indexes}
-    resource.EntityData.Leafs = make(map[string]types.YLeaf)
+    resource.EntityData.Children = types.NewOrderedMap()
+    resource.EntityData.Children.Append("indexes", types.YChild{"Indexes", &resource.Indexes})
+    resource.EntityData.Leafs = types.NewOrderedMap()
+
+    resource.EntityData.YListKeys = []string {}
+
     return &(resource.EntityData)
 }
 
@@ -604,7 +655,7 @@ type Prm_Nodes_Node_Server_Resource_Indexes struct {
 
     // Data for software resource. The type is slice of
     // Prm_Nodes_Node_Server_Resource_Indexes_Index.
-    Index []Prm_Nodes_Node_Server_Resource_Indexes_Index
+    Index []*Prm_Nodes_Node_Server_Resource_Indexes_Index
 }
 
 func (indexes *Prm_Nodes_Node_Server_Resource_Indexes) GetEntityData() *types.CommonEntityData {
@@ -617,12 +668,15 @@ func (indexes *Prm_Nodes_Node_Server_Resource_Indexes) GetEntityData() *types.Co
     indexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indexes.EntityData.Children = make(map[string]types.YChild)
-    indexes.EntityData.Children["index"] = types.YChild{"Index", nil}
+    indexes.EntityData.Children = types.NewOrderedMap()
+    indexes.EntityData.Children.Append("index", types.YChild{"Index", nil})
     for i := range indexes.Index {
-        indexes.EntityData.Children[types.GetSegmentPath(&indexes.Index[i])] = types.YChild{"Index", &indexes.Index[i]}
+        indexes.EntityData.Children.Append(types.GetSegmentPath(indexes.Index[i]), types.YChild{"Index", indexes.Index[i]})
     }
-    indexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    indexes.EntityData.Leafs = types.NewOrderedMap()
+
+    indexes.EntityData.YListKeys = []string {}
+
     return &(indexes.EntityData)
 }
 
@@ -633,7 +687,7 @@ type Prm_Nodes_Node_Server_Resource_Indexes_Index struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Index interface{}
 
     // Resource Name. The type is string with length: 0..1024.
@@ -669,23 +723,26 @@ func (index *Prm_Nodes_Node_Server_Resource_Indexes_Index) GetEntityData() *type
     index.EntityData.YangName = "index"
     index.EntityData.BundleName = "cisco_ios_xr"
     index.EntityData.ParentYangName = "indexes"
-    index.EntityData.SegmentPath = "index" + "[index='" + fmt.Sprintf("%v", index.Index) + "']"
+    index.EntityData.SegmentPath = "index" + types.AddKeyToken(index.Index, "index")
     index.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     index.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     index.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    index.EntityData.Children = make(map[string]types.YChild)
-    index.EntityData.Leafs = make(map[string]types.YLeaf)
-    index.EntityData.Leafs["index"] = types.YLeaf{"Index", index.Index}
-    index.EntityData.Leafs["resource-name"] = types.YLeaf{"ResourceName", index.ResourceName}
-    index.EntityData.Leafs["resource-type"] = types.YLeaf{"ResourceType", index.ResourceType}
-    index.EntityData.Leafs["total-num"] = types.YLeaf{"TotalNum", index.TotalNum}
-    index.EntityData.Leafs["free-num"] = types.YLeaf{"FreeNum", index.FreeNum}
-    index.EntityData.Leafs["first-available-index"] = types.YLeaf{"FirstAvailableIndex", index.FirstAvailableIndex}
-    index.EntityData.Leafs["start-index"] = types.YLeaf{"StartIndex", index.StartIndex}
-    index.EntityData.Leafs["availability-status"] = types.YLeaf{"AvailabilityStatus", index.AvailabilityStatus}
-    index.EntityData.Leafs["flags"] = types.YLeaf{"Flags", index.Flags}
-    index.EntityData.Leafs["inconsistent"] = types.YLeaf{"Inconsistent", index.Inconsistent}
+    index.EntityData.Children = types.NewOrderedMap()
+    index.EntityData.Leafs = types.NewOrderedMap()
+    index.EntityData.Leafs.Append("index", types.YLeaf{"Index", index.Index})
+    index.EntityData.Leafs.Append("resource-name", types.YLeaf{"ResourceName", index.ResourceName})
+    index.EntityData.Leafs.Append("resource-type", types.YLeaf{"ResourceType", index.ResourceType})
+    index.EntityData.Leafs.Append("total-num", types.YLeaf{"TotalNum", index.TotalNum})
+    index.EntityData.Leafs.Append("free-num", types.YLeaf{"FreeNum", index.FreeNum})
+    index.EntityData.Leafs.Append("first-available-index", types.YLeaf{"FirstAvailableIndex", index.FirstAvailableIndex})
+    index.EntityData.Leafs.Append("start-index", types.YLeaf{"StartIndex", index.StartIndex})
+    index.EntityData.Leafs.Append("availability-status", types.YLeaf{"AvailabilityStatus", index.AvailabilityStatus})
+    index.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", index.Flags})
+    index.EntityData.Leafs.Append("inconsistent", types.YLeaf{"Inconsistent", index.Inconsistent})
+
+    index.EntityData.YListKeys = []string {"Index"}
+
     return &(index.EntityData)
 }
 

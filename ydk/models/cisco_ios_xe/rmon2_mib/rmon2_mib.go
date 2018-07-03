@@ -25,13 +25,13 @@ type RMON2MIB struct {
     YFilter yfilter.YFilter
 
     
-    Protocoldir RMON2MIB_Protocoldir
+    ProtocolDir RMON2MIB_ProtocolDir
 
     
-    Addressmap RMON2MIB_Addressmap
+    AddressMap RMON2MIB_AddressMap
 
     
-    Probeconfig RMON2MIB_Probeconfig
+    ProbeConfig RMON2MIB_ProbeConfig
 
     // This table lists the protocols that this agent has the capability to decode
     // and count.  There is one entry in this table for each such protocol.  These
@@ -42,7 +42,7 @@ type RMON2MIB struct {
     // higher than the network layer (at least for the protocol distribution
     // group), even for implementations that don't support the application layer
     // groups.
-    Protocoldirtable RMON2MIB_Protocoldirtable
+    ProtocolDirTable RMON2MIB_ProtocolDirTable
 
     // Controls the setup of protocol type distribution statistics tables. 
     // Implementations are encouraged to add an entry per monitored interface upon
@@ -53,7 +53,7 @@ type RMON2MIB struct {
     // utilized by different protocols.  A media-specific statistics collection
     // could also be configured (e.g. etherStats, trPStats) to easily obtain total
     // frame, octet, and droppedEvents for the same interface.
-    Protocoldistcontroltable RMON2MIB_Protocoldistcontroltable
+    ProtocolDistControlTable RMON2MIB_ProtocolDistControlTable
 
     // An entry is made in this table for every protocol in the     
     // protocolDirTable which has been seen in at least one packet. Counters are
@@ -61,7 +61,7 @@ type RMON2MIB struct {
     // parsing a packet, but no counters are updated for packets with MAC-layer
     // errors.  Note that if a protocolDirEntry is deleted, all associated entries
     // in this table are removed.
-    Protocoldiststatstable RMON2MIB_Protocoldiststatstable
+    ProtocolDistStatsTable RMON2MIB_ProtocolDistStatsTable
 
     // A table to control the collection of network layer address to physical
     // address to interface mappings.  Note that this is not like the typical RMON
@@ -71,7 +71,7 @@ type RMON2MIB struct {
     // addressMapTable.  Implementations are encouraged to add an entry per
     // monitored interface upon initialization so that a default collection of
     // address mappings is available.
-    Addressmapcontroltable RMON2MIB_Addressmapcontroltable
+    AddressMapControlTable RMON2MIB_AddressMapControlTable
 
     // A table of network layer address to physical address to interface mappings.
     // The probe will add entries to this table based on the source MAC and
@@ -80,7 +80,7 @@ type RMON2MIB struct {
     // value of protocolDirAddressMapConfig is equal to supportedOn(3), and will
     // delete any entries whose protocolDirEntry is deleted or has a
     // protocolDirAddressMapConfig value of supportedOff(2).
-    Addressmaptable RMON2MIB_Addressmaptable
+    AddressMapTable RMON2MIB_AddressMapTable
 
     // A list of higher layer (i.e. non-MAC) host table control entries.  These
     // entries will enable the collection of the network and application level
@@ -95,7 +95,7 @@ type RMON2MIB struct {
     // created on behalf of each entry in this table.  Implementations are
     // encouraged to add an entry per monitored interface upon initialization so
     // that a default collection of host statistics is available.
-    Hlhostcontroltable RMON2MIB_Hlhostcontroltable
+    HlHostControlTable RMON2MIB_HlHostControlTable
 
     // A collection of statistics for a particular network layer address that has
     // been discovered on an interface of this device.  The probe will populate
@@ -106,7 +106,7 @@ type RMON2MIB struct {
     // table all addresses seen as the source or destination address in all
     // packets with no MAC errors, and will increment octet and packet counts in
     // the table for all packets with no MAC errors.
-    Nlhosttable RMON2MIB_Nlhosttable
+    NlHostTable RMON2MIB_NlHostTable
 
     // A list of higher layer (i.e. non-MAC) matrix control entries.  These
     // entries will enable the collection of the network and application level
@@ -120,7 +120,7 @@ type RMON2MIB struct {
     // nlMatrixDSTable will be created on behalf of each entry in this table. 
     // Additionally, if this probe implements the alMatrix tables, entries in the
     // alMatrix tables will be created on behalf of each entry in this table.
-    Hlmatrixcontroltable RMON2MIB_Hlmatrixcontroltable
+    HlMatrixControlTable RMON2MIB_HlMatrixControlTable
 
     // A list of traffic matrix entries which collect statistics for conversations
     // between two network-level addresses.  This table is indexed first by the
@@ -135,7 +135,7 @@ type RMON2MIB struct {
     // for all packets with no MAC errors.  Further, this table will only contain
     // entries that have a corresponding entry in the nlMatrixDSTable with the
     // same source address and destination address.
-    Nlmatrixsdtable RMON2MIB_Nlmatrixsdtable
+    NlMatrixSDTable RMON2MIB_NlMatrixSDTable
 
     // A list of traffic matrix entries which collect statistics for conversations
     // between two network-level addresses.  This table is indexed first by the
@@ -150,15 +150,15 @@ type RMON2MIB struct {
     // packets with no MAC errors.  Further, this table will only contain entries
     // that have a corresponding entry in the nlMatrixSDTable with the same source
     // address and destination address.
-    Nlmatrixdstable RMON2MIB_Nlmatrixdstable
+    NlMatrixDSTable RMON2MIB_NlMatrixDSTable
 
     // A set of parameters that control the creation of a report of the top N
     // matrix entries according to a selected metric.
-    Nlmatrixtopncontroltable RMON2MIB_Nlmatrixtopncontroltable
+    NlMatrixTopNControlTable RMON2MIB_NlMatrixTopNControlTable
 
     // A set of statistics for those network layer matrix entries that have
     // counted the highest number of octets or packets.
-    Nlmatrixtopntable RMON2MIB_Nlmatrixtopntable
+    NlMatrixTopNTable RMON2MIB_NlMatrixTopNTable
 
     // A collection of statistics for a particular protocol from a particular
     // network address that has been discovered on an interface of this device. 
@@ -172,7 +172,7 @@ type RMON2MIB struct {
     // entries will only be added to this table if their address exists in the
     // nlHostTable and will be deleted from this table if their address is deleted
     // from the nlHostTable.
-    Alhosttable RMON2MIB_Alhosttable
+    AlHostTable RMON2MIB_AlHostTable
 
     // A list of application traffic matrix entries which collect      statistics
     // for conversations of a particular protocol between two network-level
@@ -188,7 +188,7 @@ type RMON2MIB struct {
     // MAC errors.  Further, entries will only be added to this table if their
     // address pair exists in the nlMatrixSDTable and will be deleted from this
     // table if the address pair is deleted from the nlMatrixSDTable.
-    Almatrixsdtable RMON2MIB_Almatrixsdtable
+    AlMatrixSDTable RMON2MIB_AlMatrixSDTable
 
     // A list of application traffic matrix entries which collect statistics for
     // conversations of a particular protocol between two network-level addresses.
@@ -204,38 +204,38 @@ type RMON2MIB struct {
     // will only be added to this table if their address pair exists in the
     // nlMatrixDSTable and will be deleted from this table if the address pair is
     // deleted from the nlMatrixDSTable.
-    Almatrixdstable RMON2MIB_Almatrixdstable
+    AlMatrixDSTable RMON2MIB_AlMatrixDSTable
 
     // A set of parameters that control the creation of a report of the top N
     // matrix entries according to a selected metric.
-    Almatrixtopncontroltable RMON2MIB_Almatrixtopncontroltable
+    AlMatrixTopNControlTable RMON2MIB_AlMatrixTopNControlTable
 
     // A set of statistics for those application layer matrix entries that have
     // counted the highest number of octets or packets.
-    Almatrixtopntable RMON2MIB_Almatrixtopntable
+    AlMatrixTopNTable RMON2MIB_AlMatrixTopNTable
 
     // A list of data-collection configuration entries.
-    Usrhistorycontroltable RMON2MIB_Usrhistorycontroltable
+    UsrHistoryControlTable RMON2MIB_UsrHistoryControlTable
 
     // A list of data-collection configuration entries.
-    Usrhistoryobjecttable RMON2MIB_Usrhistoryobjecttable
+    UsrHistoryObjectTable RMON2MIB_UsrHistoryObjectTable
 
     // A list of user defined history entries.
-    Usrhistorytable RMON2MIB_Usrhistorytable
+    UsrHistoryTable RMON2MIB_UsrHistoryTable
 
     // A table of serial interface configuration entries.  This data will be
     // stored in non-volatile memory and preserved across probe resets or power
     // loss.
-    Serialconfigtable RMON2MIB_Serialconfigtable
+    SerialConfigTable RMON2MIB_SerialConfigTable
 
     // A table of netConfigEntries.
-    Netconfigtable RMON2MIB_Netconfigtable
+    NetConfigTable RMON2MIB_NetConfigTable
 
     // A list of trap destination entries.
-    Trapdesttable RMON2MIB_Trapdesttable
+    TrapDestTable RMON2MIB_TrapDestTable
 
     // A list of serialConnectionEntries.
-    Serialconnectiontable RMON2MIB_Serialconnectiontable
+    SerialConnectionTable RMON2MIB_SerialConnectionTable
 }
 
 func (rMON2MIB *RMON2MIB) GetEntityData() *types.CommonEntityData {
@@ -248,40 +248,43 @@ func (rMON2MIB *RMON2MIB) GetEntityData() *types.CommonEntityData {
     rMON2MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rMON2MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rMON2MIB.EntityData.Children = make(map[string]types.YChild)
-    rMON2MIB.EntityData.Children["protocolDir"] = types.YChild{"Protocoldir", &rMON2MIB.Protocoldir}
-    rMON2MIB.EntityData.Children["addressMap"] = types.YChild{"Addressmap", &rMON2MIB.Addressmap}
-    rMON2MIB.EntityData.Children["probeConfig"] = types.YChild{"Probeconfig", &rMON2MIB.Probeconfig}
-    rMON2MIB.EntityData.Children["protocolDirTable"] = types.YChild{"Protocoldirtable", &rMON2MIB.Protocoldirtable}
-    rMON2MIB.EntityData.Children["protocolDistControlTable"] = types.YChild{"Protocoldistcontroltable", &rMON2MIB.Protocoldistcontroltable}
-    rMON2MIB.EntityData.Children["protocolDistStatsTable"] = types.YChild{"Protocoldiststatstable", &rMON2MIB.Protocoldiststatstable}
-    rMON2MIB.EntityData.Children["addressMapControlTable"] = types.YChild{"Addressmapcontroltable", &rMON2MIB.Addressmapcontroltable}
-    rMON2MIB.EntityData.Children["addressMapTable"] = types.YChild{"Addressmaptable", &rMON2MIB.Addressmaptable}
-    rMON2MIB.EntityData.Children["hlHostControlTable"] = types.YChild{"Hlhostcontroltable", &rMON2MIB.Hlhostcontroltable}
-    rMON2MIB.EntityData.Children["nlHostTable"] = types.YChild{"Nlhosttable", &rMON2MIB.Nlhosttable}
-    rMON2MIB.EntityData.Children["hlMatrixControlTable"] = types.YChild{"Hlmatrixcontroltable", &rMON2MIB.Hlmatrixcontroltable}
-    rMON2MIB.EntityData.Children["nlMatrixSDTable"] = types.YChild{"Nlmatrixsdtable", &rMON2MIB.Nlmatrixsdtable}
-    rMON2MIB.EntityData.Children["nlMatrixDSTable"] = types.YChild{"Nlmatrixdstable", &rMON2MIB.Nlmatrixdstable}
-    rMON2MIB.EntityData.Children["nlMatrixTopNControlTable"] = types.YChild{"Nlmatrixtopncontroltable", &rMON2MIB.Nlmatrixtopncontroltable}
-    rMON2MIB.EntityData.Children["nlMatrixTopNTable"] = types.YChild{"Nlmatrixtopntable", &rMON2MIB.Nlmatrixtopntable}
-    rMON2MIB.EntityData.Children["alHostTable"] = types.YChild{"Alhosttable", &rMON2MIB.Alhosttable}
-    rMON2MIB.EntityData.Children["alMatrixSDTable"] = types.YChild{"Almatrixsdtable", &rMON2MIB.Almatrixsdtable}
-    rMON2MIB.EntityData.Children["alMatrixDSTable"] = types.YChild{"Almatrixdstable", &rMON2MIB.Almatrixdstable}
-    rMON2MIB.EntityData.Children["alMatrixTopNControlTable"] = types.YChild{"Almatrixtopncontroltable", &rMON2MIB.Almatrixtopncontroltable}
-    rMON2MIB.EntityData.Children["alMatrixTopNTable"] = types.YChild{"Almatrixtopntable", &rMON2MIB.Almatrixtopntable}
-    rMON2MIB.EntityData.Children["usrHistoryControlTable"] = types.YChild{"Usrhistorycontroltable", &rMON2MIB.Usrhistorycontroltable}
-    rMON2MIB.EntityData.Children["usrHistoryObjectTable"] = types.YChild{"Usrhistoryobjecttable", &rMON2MIB.Usrhistoryobjecttable}
-    rMON2MIB.EntityData.Children["usrHistoryTable"] = types.YChild{"Usrhistorytable", &rMON2MIB.Usrhistorytable}
-    rMON2MIB.EntityData.Children["serialConfigTable"] = types.YChild{"Serialconfigtable", &rMON2MIB.Serialconfigtable}
-    rMON2MIB.EntityData.Children["netConfigTable"] = types.YChild{"Netconfigtable", &rMON2MIB.Netconfigtable}
-    rMON2MIB.EntityData.Children["trapDestTable"] = types.YChild{"Trapdesttable", &rMON2MIB.Trapdesttable}
-    rMON2MIB.EntityData.Children["serialConnectionTable"] = types.YChild{"Serialconnectiontable", &rMON2MIB.Serialconnectiontable}
-    rMON2MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    rMON2MIB.EntityData.Children = types.NewOrderedMap()
+    rMON2MIB.EntityData.Children.Append("protocolDir", types.YChild{"ProtocolDir", &rMON2MIB.ProtocolDir})
+    rMON2MIB.EntityData.Children.Append("addressMap", types.YChild{"AddressMap", &rMON2MIB.AddressMap})
+    rMON2MIB.EntityData.Children.Append("probeConfig", types.YChild{"ProbeConfig", &rMON2MIB.ProbeConfig})
+    rMON2MIB.EntityData.Children.Append("protocolDirTable", types.YChild{"ProtocolDirTable", &rMON2MIB.ProtocolDirTable})
+    rMON2MIB.EntityData.Children.Append("protocolDistControlTable", types.YChild{"ProtocolDistControlTable", &rMON2MIB.ProtocolDistControlTable})
+    rMON2MIB.EntityData.Children.Append("protocolDistStatsTable", types.YChild{"ProtocolDistStatsTable", &rMON2MIB.ProtocolDistStatsTable})
+    rMON2MIB.EntityData.Children.Append("addressMapControlTable", types.YChild{"AddressMapControlTable", &rMON2MIB.AddressMapControlTable})
+    rMON2MIB.EntityData.Children.Append("addressMapTable", types.YChild{"AddressMapTable", &rMON2MIB.AddressMapTable})
+    rMON2MIB.EntityData.Children.Append("hlHostControlTable", types.YChild{"HlHostControlTable", &rMON2MIB.HlHostControlTable})
+    rMON2MIB.EntityData.Children.Append("nlHostTable", types.YChild{"NlHostTable", &rMON2MIB.NlHostTable})
+    rMON2MIB.EntityData.Children.Append("hlMatrixControlTable", types.YChild{"HlMatrixControlTable", &rMON2MIB.HlMatrixControlTable})
+    rMON2MIB.EntityData.Children.Append("nlMatrixSDTable", types.YChild{"NlMatrixSDTable", &rMON2MIB.NlMatrixSDTable})
+    rMON2MIB.EntityData.Children.Append("nlMatrixDSTable", types.YChild{"NlMatrixDSTable", &rMON2MIB.NlMatrixDSTable})
+    rMON2MIB.EntityData.Children.Append("nlMatrixTopNControlTable", types.YChild{"NlMatrixTopNControlTable", &rMON2MIB.NlMatrixTopNControlTable})
+    rMON2MIB.EntityData.Children.Append("nlMatrixTopNTable", types.YChild{"NlMatrixTopNTable", &rMON2MIB.NlMatrixTopNTable})
+    rMON2MIB.EntityData.Children.Append("alHostTable", types.YChild{"AlHostTable", &rMON2MIB.AlHostTable})
+    rMON2MIB.EntityData.Children.Append("alMatrixSDTable", types.YChild{"AlMatrixSDTable", &rMON2MIB.AlMatrixSDTable})
+    rMON2MIB.EntityData.Children.Append("alMatrixDSTable", types.YChild{"AlMatrixDSTable", &rMON2MIB.AlMatrixDSTable})
+    rMON2MIB.EntityData.Children.Append("alMatrixTopNControlTable", types.YChild{"AlMatrixTopNControlTable", &rMON2MIB.AlMatrixTopNControlTable})
+    rMON2MIB.EntityData.Children.Append("alMatrixTopNTable", types.YChild{"AlMatrixTopNTable", &rMON2MIB.AlMatrixTopNTable})
+    rMON2MIB.EntityData.Children.Append("usrHistoryControlTable", types.YChild{"UsrHistoryControlTable", &rMON2MIB.UsrHistoryControlTable})
+    rMON2MIB.EntityData.Children.Append("usrHistoryObjectTable", types.YChild{"UsrHistoryObjectTable", &rMON2MIB.UsrHistoryObjectTable})
+    rMON2MIB.EntityData.Children.Append("usrHistoryTable", types.YChild{"UsrHistoryTable", &rMON2MIB.UsrHistoryTable})
+    rMON2MIB.EntityData.Children.Append("serialConfigTable", types.YChild{"SerialConfigTable", &rMON2MIB.SerialConfigTable})
+    rMON2MIB.EntityData.Children.Append("netConfigTable", types.YChild{"NetConfigTable", &rMON2MIB.NetConfigTable})
+    rMON2MIB.EntityData.Children.Append("trapDestTable", types.YChild{"TrapDestTable", &rMON2MIB.TrapDestTable})
+    rMON2MIB.EntityData.Children.Append("serialConnectionTable", types.YChild{"SerialConnectionTable", &rMON2MIB.SerialConnectionTable})
+    rMON2MIB.EntityData.Leafs = types.NewOrderedMap()
+
+    rMON2MIB.EntityData.YListKeys = []string {}
+
     return &(rMON2MIB.EntityData)
 }
 
-// RMON2MIB_Protocoldir
-type RMON2MIB_Protocoldir struct {
+// RMON2MIB_ProtocolDir
+type RMON2MIB_ProtocolDir struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -289,27 +292,30 @@ type RMON2MIB_Protocoldir struct {
     // modified, either through insertions or deletions, or through modifications
     // of either the protocolDirAddressMapConfig, protocolDirHostConfig, or
     // protocolDirMatrixConfig. The type is interface{} with range: 0..4294967295.
-    Protocoldirlastchange interface{}
+    ProtocolDirLastChange interface{}
 }
 
-func (protocoldir *RMON2MIB_Protocoldir) GetEntityData() *types.CommonEntityData {
-    protocoldir.EntityData.YFilter = protocoldir.YFilter
-    protocoldir.EntityData.YangName = "protocolDir"
-    protocoldir.EntityData.BundleName = "cisco_ios_xe"
-    protocoldir.EntityData.ParentYangName = "RMON2-MIB"
-    protocoldir.EntityData.SegmentPath = "protocolDir"
-    protocoldir.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    protocoldir.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    protocoldir.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (protocolDir *RMON2MIB_ProtocolDir) GetEntityData() *types.CommonEntityData {
+    protocolDir.EntityData.YFilter = protocolDir.YFilter
+    protocolDir.EntityData.YangName = "protocolDir"
+    protocolDir.EntityData.BundleName = "cisco_ios_xe"
+    protocolDir.EntityData.ParentYangName = "RMON2-MIB"
+    protocolDir.EntityData.SegmentPath = "protocolDir"
+    protocolDir.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    protocolDir.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    protocolDir.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    protocoldir.EntityData.Children = make(map[string]types.YChild)
-    protocoldir.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocoldir.EntityData.Leafs["protocolDirLastChange"] = types.YLeaf{"Protocoldirlastchange", protocoldir.Protocoldirlastchange}
-    return &(protocoldir.EntityData)
+    protocolDir.EntityData.Children = types.NewOrderedMap()
+    protocolDir.EntityData.Leafs = types.NewOrderedMap()
+    protocolDir.EntityData.Leafs.Append("protocolDirLastChange", types.YLeaf{"ProtocolDirLastChange", protocolDir.ProtocolDirLastChange})
+
+    protocolDir.EntityData.YListKeys = []string {}
+
+    return &(protocolDir.EntityData)
 }
 
-// RMON2MIB_Addressmap
-type RMON2MIB_Addressmap struct {
+// RMON2MIB_AddressMap
+type RMON2MIB_AddressMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -318,14 +324,14 @@ type RMON2MIB_Addressmap struct {
     // this counter will be incremented by 2.  Note that the table size can be
     // determined by subtracting addressMapDeletes from addressMapInserts. The
     // type is interface{} with range: 0..4294967295.
-    Addressmapinserts interface{}
+    AddressMapInserts interface{}
 
     // The number of times an address mapping entry has been deleted from the
     // addressMapTable (for any reason).  If an entry is deleted, then inserted,
     // and then deleted, this counter will be incremented by 2.  Note that the
     // table size can be determined by subtracting addressMapDeletes from
     // addressMapInserts. The type is interface{} with range: 0..4294967295.
-    Addressmapdeletes interface{}
+    AddressMapDeletes interface{}
 
     // The maximum number of entries that are desired in the addressMapTable. The
     // probe will not create more than this number of entries in the table, but
@@ -337,43 +343,46 @@ type RMON2MIB_Addressmap struct {
     // the probe may create any number of entries in this table.  This object may
     // be used to control how resources are allocated on the probe for the various
     // RMON functions. The type is interface{} with range: -1..2147483647.
-    Addressmapmaxdesiredentries interface{}
+    AddressMapMaxDesiredEntries interface{}
 }
 
-func (addressmap *RMON2MIB_Addressmap) GetEntityData() *types.CommonEntityData {
-    addressmap.EntityData.YFilter = addressmap.YFilter
-    addressmap.EntityData.YangName = "addressMap"
-    addressmap.EntityData.BundleName = "cisco_ios_xe"
-    addressmap.EntityData.ParentYangName = "RMON2-MIB"
-    addressmap.EntityData.SegmentPath = "addressMap"
-    addressmap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    addressmap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    addressmap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (addressMap *RMON2MIB_AddressMap) GetEntityData() *types.CommonEntityData {
+    addressMap.EntityData.YFilter = addressMap.YFilter
+    addressMap.EntityData.YangName = "addressMap"
+    addressMap.EntityData.BundleName = "cisco_ios_xe"
+    addressMap.EntityData.ParentYangName = "RMON2-MIB"
+    addressMap.EntityData.SegmentPath = "addressMap"
+    addressMap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    addressMap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    addressMap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    addressmap.EntityData.Children = make(map[string]types.YChild)
-    addressmap.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressmap.EntityData.Leafs["addressMapInserts"] = types.YLeaf{"Addressmapinserts", addressmap.Addressmapinserts}
-    addressmap.EntityData.Leafs["addressMapDeletes"] = types.YLeaf{"Addressmapdeletes", addressmap.Addressmapdeletes}
-    addressmap.EntityData.Leafs["addressMapMaxDesiredEntries"] = types.YLeaf{"Addressmapmaxdesiredentries", addressmap.Addressmapmaxdesiredentries}
-    return &(addressmap.EntityData)
+    addressMap.EntityData.Children = types.NewOrderedMap()
+    addressMap.EntityData.Leafs = types.NewOrderedMap()
+    addressMap.EntityData.Leafs.Append("addressMapInserts", types.YLeaf{"AddressMapInserts", addressMap.AddressMapInserts})
+    addressMap.EntityData.Leafs.Append("addressMapDeletes", types.YLeaf{"AddressMapDeletes", addressMap.AddressMapDeletes})
+    addressMap.EntityData.Leafs.Append("addressMapMaxDesiredEntries", types.YLeaf{"AddressMapMaxDesiredEntries", addressMap.AddressMapMaxDesiredEntries})
+
+    addressMap.EntityData.YListKeys = []string {}
+
+    return &(addressMap.EntityData)
 }
 
-// RMON2MIB_Probeconfig
-type RMON2MIB_Probeconfig struct {
+// RMON2MIB_ProbeConfig
+type RMON2MIB_ProbeConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An indication of the RMON MIB groups supported on at least one interface by
     // this probe. The type is string with length: 1.
-    Probecapabilities interface{}
+    ProbeCapabilities interface{}
 
     // The software revision of this device.  This string will have a zero length
     // if the revision is unknown. The type is string with length: 0..31.
-    Probesoftwarerev interface{}
+    ProbeSoftwareRev interface{}
 
     // The hardware revision of this device.  This string will have a zero length
     // if the revision is unknown. The type is string with length: 0..31.
-    Probehardwarerev interface{}
+    ProbeHardwareRev interface{}
 
     // Probe's current date and time.  field  octets  contents                 
     // range -----  ------  --------                  -----   1      1-2   year   
@@ -388,7 +397,7 @@ type RMON2MIB_Probeconfig struct {
     // timezone information (fields 8-10) is not present, and if no time
     // information is known, the null string is returned. The type is string with
     // length: 0 | 8 | 11.
-    Probedatetime interface{}
+    ProbeDateTime interface{}
 
     // Setting this object to warmBoot(2) causes the device to restart the
     // application software with current configuration parameters saved in
@@ -396,19 +405,19 @@ type RMON2MIB_Probeconfig struct {
     // to reinitialize configuration parameters in non-volatile memory to default
     // values and restart the application software.  When the device is running
     // normally, this variable has a value of running(1). The type is
-    // Proberesetcontrol.
-    Proberesetcontrol interface{}
+    // ProbeResetControl.
+    ProbeResetControl interface{}
 
     // The file name to be downloaded from the TFTP server when a download is next
     // requested via this MIB.  This value is set to the zero length string when
     // no file name has been specified. The type is string with length: 0..127.
-    Probedownloadfile interface{}
+    ProbeDownloadFile interface{}
 
     // The IP address of the TFTP server that contains the boot image to load when
     // a download is next requested via this MIB. This value is set to `0.0.0.0'
     // when no IP address has been specified. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Probedownloadtftpserver interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    ProbeDownloadTFTPServer interface{}
 
     // When this object is set to downloadToRAM(2) or downloadToPROM(3), the
     // device will discontinue its normal operation and begin download of the
@@ -420,89 +429,92 @@ type RMON2MIB_Probeconfig struct {
     // verified to be correct. When the download process is completed, the device
     // will      warm boot to restart the newly loaded application. When the
     // device is not downloading, this object will have a value of
-    // notDownloading(1). The type is Probedownloadaction.
-    Probedownloadaction interface{}
+    // notDownloading(1). The type is ProbeDownloadAction.
+    ProbeDownloadAction interface{}
 
     // The status of the last download procedure, if any.  This object will have a
     // value of downloadStatusUnknown(2) if no download process has been
-    // performed. The type is Probedownloadstatus.
-    Probedownloadstatus interface{}
+    // performed. The type is ProbeDownloadStatus.
+    ProbeDownloadStatus interface{}
 
     // The IP Address of the default gateway.  If this value is undefined or
     // unknown, it shall have the value 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Netdefaultgateway interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    NetDefaultGateway interface{}
 }
 
-func (probeconfig *RMON2MIB_Probeconfig) GetEntityData() *types.CommonEntityData {
-    probeconfig.EntityData.YFilter = probeconfig.YFilter
-    probeconfig.EntityData.YangName = "probeConfig"
-    probeconfig.EntityData.BundleName = "cisco_ios_xe"
-    probeconfig.EntityData.ParentYangName = "RMON2-MIB"
-    probeconfig.EntityData.SegmentPath = "probeConfig"
-    probeconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    probeconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    probeconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (probeConfig *RMON2MIB_ProbeConfig) GetEntityData() *types.CommonEntityData {
+    probeConfig.EntityData.YFilter = probeConfig.YFilter
+    probeConfig.EntityData.YangName = "probeConfig"
+    probeConfig.EntityData.BundleName = "cisco_ios_xe"
+    probeConfig.EntityData.ParentYangName = "RMON2-MIB"
+    probeConfig.EntityData.SegmentPath = "probeConfig"
+    probeConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    probeConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    probeConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    probeconfig.EntityData.Children = make(map[string]types.YChild)
-    probeconfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    probeconfig.EntityData.Leafs["probeCapabilities"] = types.YLeaf{"Probecapabilities", probeconfig.Probecapabilities}
-    probeconfig.EntityData.Leafs["probeSoftwareRev"] = types.YLeaf{"Probesoftwarerev", probeconfig.Probesoftwarerev}
-    probeconfig.EntityData.Leafs["probeHardwareRev"] = types.YLeaf{"Probehardwarerev", probeconfig.Probehardwarerev}
-    probeconfig.EntityData.Leafs["probeDateTime"] = types.YLeaf{"Probedatetime", probeconfig.Probedatetime}
-    probeconfig.EntityData.Leafs["probeResetControl"] = types.YLeaf{"Proberesetcontrol", probeconfig.Proberesetcontrol}
-    probeconfig.EntityData.Leafs["probeDownloadFile"] = types.YLeaf{"Probedownloadfile", probeconfig.Probedownloadfile}
-    probeconfig.EntityData.Leafs["probeDownloadTFTPServer"] = types.YLeaf{"Probedownloadtftpserver", probeconfig.Probedownloadtftpserver}
-    probeconfig.EntityData.Leafs["probeDownloadAction"] = types.YLeaf{"Probedownloadaction", probeconfig.Probedownloadaction}
-    probeconfig.EntityData.Leafs["probeDownloadStatus"] = types.YLeaf{"Probedownloadstatus", probeconfig.Probedownloadstatus}
-    probeconfig.EntityData.Leafs["netDefaultGateway"] = types.YLeaf{"Netdefaultgateway", probeconfig.Netdefaultgateway}
-    return &(probeconfig.EntityData)
+    probeConfig.EntityData.Children = types.NewOrderedMap()
+    probeConfig.EntityData.Leafs = types.NewOrderedMap()
+    probeConfig.EntityData.Leafs.Append("probeCapabilities", types.YLeaf{"ProbeCapabilities", probeConfig.ProbeCapabilities})
+    probeConfig.EntityData.Leafs.Append("probeSoftwareRev", types.YLeaf{"ProbeSoftwareRev", probeConfig.ProbeSoftwareRev})
+    probeConfig.EntityData.Leafs.Append("probeHardwareRev", types.YLeaf{"ProbeHardwareRev", probeConfig.ProbeHardwareRev})
+    probeConfig.EntityData.Leafs.Append("probeDateTime", types.YLeaf{"ProbeDateTime", probeConfig.ProbeDateTime})
+    probeConfig.EntityData.Leafs.Append("probeResetControl", types.YLeaf{"ProbeResetControl", probeConfig.ProbeResetControl})
+    probeConfig.EntityData.Leafs.Append("probeDownloadFile", types.YLeaf{"ProbeDownloadFile", probeConfig.ProbeDownloadFile})
+    probeConfig.EntityData.Leafs.Append("probeDownloadTFTPServer", types.YLeaf{"ProbeDownloadTFTPServer", probeConfig.ProbeDownloadTFTPServer})
+    probeConfig.EntityData.Leafs.Append("probeDownloadAction", types.YLeaf{"ProbeDownloadAction", probeConfig.ProbeDownloadAction})
+    probeConfig.EntityData.Leafs.Append("probeDownloadStatus", types.YLeaf{"ProbeDownloadStatus", probeConfig.ProbeDownloadStatus})
+    probeConfig.EntityData.Leafs.Append("netDefaultGateway", types.YLeaf{"NetDefaultGateway", probeConfig.NetDefaultGateway})
+
+    probeConfig.EntityData.YListKeys = []string {}
+
+    return &(probeConfig.EntityData)
 }
 
-// RMON2MIB_Probeconfig_Probedownloadaction represents a value of notDownloading(1).
-type RMON2MIB_Probeconfig_Probedownloadaction string
+// RMON2MIB_ProbeConfig_ProbeDownloadAction represents a value of notDownloading(1).
+type RMON2MIB_ProbeConfig_ProbeDownloadAction string
 
 const (
-    RMON2MIB_Probeconfig_Probedownloadaction_notDownloading RMON2MIB_Probeconfig_Probedownloadaction = "notDownloading"
+    RMON2MIB_ProbeConfig_ProbeDownloadAction_notDownloading RMON2MIB_ProbeConfig_ProbeDownloadAction = "notDownloading"
 
-    RMON2MIB_Probeconfig_Probedownloadaction_downloadToPROM RMON2MIB_Probeconfig_Probedownloadaction = "downloadToPROM"
+    RMON2MIB_ProbeConfig_ProbeDownloadAction_downloadToPROM RMON2MIB_ProbeConfig_ProbeDownloadAction = "downloadToPROM"
 
-    RMON2MIB_Probeconfig_Probedownloadaction_downloadToRAM RMON2MIB_Probeconfig_Probedownloadaction = "downloadToRAM"
+    RMON2MIB_ProbeConfig_ProbeDownloadAction_downloadToRAM RMON2MIB_ProbeConfig_ProbeDownloadAction = "downloadToRAM"
 )
 
-// RMON2MIB_Probeconfig_Probedownloadstatus represents download process has been performed.
-type RMON2MIB_Probeconfig_Probedownloadstatus string
+// RMON2MIB_ProbeConfig_ProbeDownloadStatus represents download process has been performed.
+type RMON2MIB_ProbeConfig_ProbeDownloadStatus string
 
 const (
-    RMON2MIB_Probeconfig_Probedownloadstatus_downloadSuccess RMON2MIB_Probeconfig_Probedownloadstatus = "downloadSuccess"
+    RMON2MIB_ProbeConfig_ProbeDownloadStatus_downloadSuccess RMON2MIB_ProbeConfig_ProbeDownloadStatus = "downloadSuccess"
 
-    RMON2MIB_Probeconfig_Probedownloadstatus_downloadStatusUnknown RMON2MIB_Probeconfig_Probedownloadstatus = "downloadStatusUnknown"
+    RMON2MIB_ProbeConfig_ProbeDownloadStatus_downloadStatusUnknown RMON2MIB_ProbeConfig_ProbeDownloadStatus = "downloadStatusUnknown"
 
-    RMON2MIB_Probeconfig_Probedownloadstatus_downloadGeneralError RMON2MIB_Probeconfig_Probedownloadstatus = "downloadGeneralError"
+    RMON2MIB_ProbeConfig_ProbeDownloadStatus_downloadGeneralError RMON2MIB_ProbeConfig_ProbeDownloadStatus = "downloadGeneralError"
 
-    RMON2MIB_Probeconfig_Probedownloadstatus_downloadNoResponseFromServer RMON2MIB_Probeconfig_Probedownloadstatus = "downloadNoResponseFromServer"
+    RMON2MIB_ProbeConfig_ProbeDownloadStatus_downloadNoResponseFromServer RMON2MIB_ProbeConfig_ProbeDownloadStatus = "downloadNoResponseFromServer"
 
-    RMON2MIB_Probeconfig_Probedownloadstatus_downloadChecksumError RMON2MIB_Probeconfig_Probedownloadstatus = "downloadChecksumError"
+    RMON2MIB_ProbeConfig_ProbeDownloadStatus_downloadChecksumError RMON2MIB_ProbeConfig_ProbeDownloadStatus = "downloadChecksumError"
 
-    RMON2MIB_Probeconfig_Probedownloadstatus_downloadIncompatibleImage RMON2MIB_Probeconfig_Probedownloadstatus = "downloadIncompatibleImage"
+    RMON2MIB_ProbeConfig_ProbeDownloadStatus_downloadIncompatibleImage RMON2MIB_ProbeConfig_ProbeDownloadStatus = "downloadIncompatibleImage"
 
-    RMON2MIB_Probeconfig_Probedownloadstatus_downloadTftpFileNotFound RMON2MIB_Probeconfig_Probedownloadstatus = "downloadTftpFileNotFound"
+    RMON2MIB_ProbeConfig_ProbeDownloadStatus_downloadTftpFileNotFound RMON2MIB_ProbeConfig_ProbeDownloadStatus = "downloadTftpFileNotFound"
 
-    RMON2MIB_Probeconfig_Probedownloadstatus_downloadTftpAccessViolation RMON2MIB_Probeconfig_Probedownloadstatus = "downloadTftpAccessViolation"
+    RMON2MIB_ProbeConfig_ProbeDownloadStatus_downloadTftpAccessViolation RMON2MIB_ProbeConfig_ProbeDownloadStatus = "downloadTftpAccessViolation"
 )
 
-// RMON2MIB_Probeconfig_Proberesetcontrol represents running(1).
-type RMON2MIB_Probeconfig_Proberesetcontrol string
+// RMON2MIB_ProbeConfig_ProbeResetControl represents running(1).
+type RMON2MIB_ProbeConfig_ProbeResetControl string
 
 const (
-    RMON2MIB_Probeconfig_Proberesetcontrol_running RMON2MIB_Probeconfig_Proberesetcontrol = "running"
+    RMON2MIB_ProbeConfig_ProbeResetControl_running RMON2MIB_ProbeConfig_ProbeResetControl = "running"
 
-    RMON2MIB_Probeconfig_Proberesetcontrol_warmBoot RMON2MIB_Probeconfig_Proberesetcontrol = "warmBoot"
+    RMON2MIB_ProbeConfig_ProbeResetControl_warmBoot RMON2MIB_ProbeConfig_ProbeResetControl = "warmBoot"
 
-    RMON2MIB_Probeconfig_Proberesetcontrol_coldBoot RMON2MIB_Probeconfig_Proberesetcontrol = "coldBoot"
+    RMON2MIB_ProbeConfig_ProbeResetControl_coldBoot RMON2MIB_ProbeConfig_ProbeResetControl = "coldBoot"
 )
 
-// RMON2MIB_Protocoldirtable
+// RMON2MIB_ProtocolDirTable
 // This table lists the protocols that this agent has the
 // capability to decode and count.  There is one entry in this
 // table for each such protocol.  These protocols represent
@@ -513,7 +525,7 @@ const (
 // support protocols higher than the network layer (at least for
 // the protocol distribution group), even for implementations
 // that don't support the application layer groups.
-type RMON2MIB_Protocoldirtable struct {
+type RMON2MIB_ProtocolDirTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -522,30 +534,33 @@ type RMON2MIB_Protocoldirtable struct {
     // encoding of a length of 8, followed by 8 subids encoding the protocolDirID
     // of 1.2048, followed by a length of 2 and the 2 subids encoding zero-valued
     // parameters. The type is slice of
-    // RMON2MIB_Protocoldirtable_Protocoldirentry.
-    Protocoldirentry []RMON2MIB_Protocoldirtable_Protocoldirentry
+    // RMON2MIB_ProtocolDirTable_ProtocolDirEntry.
+    ProtocolDirEntry []*RMON2MIB_ProtocolDirTable_ProtocolDirEntry
 }
 
-func (protocoldirtable *RMON2MIB_Protocoldirtable) GetEntityData() *types.CommonEntityData {
-    protocoldirtable.EntityData.YFilter = protocoldirtable.YFilter
-    protocoldirtable.EntityData.YangName = "protocolDirTable"
-    protocoldirtable.EntityData.BundleName = "cisco_ios_xe"
-    protocoldirtable.EntityData.ParentYangName = "RMON2-MIB"
-    protocoldirtable.EntityData.SegmentPath = "protocolDirTable"
-    protocoldirtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    protocoldirtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    protocoldirtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (protocolDirTable *RMON2MIB_ProtocolDirTable) GetEntityData() *types.CommonEntityData {
+    protocolDirTable.EntityData.YFilter = protocolDirTable.YFilter
+    protocolDirTable.EntityData.YangName = "protocolDirTable"
+    protocolDirTable.EntityData.BundleName = "cisco_ios_xe"
+    protocolDirTable.EntityData.ParentYangName = "RMON2-MIB"
+    protocolDirTable.EntityData.SegmentPath = "protocolDirTable"
+    protocolDirTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    protocolDirTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    protocolDirTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    protocoldirtable.EntityData.Children = make(map[string]types.YChild)
-    protocoldirtable.EntityData.Children["protocolDirEntry"] = types.YChild{"Protocoldirentry", nil}
-    for i := range protocoldirtable.Protocoldirentry {
-        protocoldirtable.EntityData.Children[types.GetSegmentPath(&protocoldirtable.Protocoldirentry[i])] = types.YChild{"Protocoldirentry", &protocoldirtable.Protocoldirentry[i]}
+    protocolDirTable.EntityData.Children = types.NewOrderedMap()
+    protocolDirTable.EntityData.Children.Append("protocolDirEntry", types.YChild{"ProtocolDirEntry", nil})
+    for i := range protocolDirTable.ProtocolDirEntry {
+        protocolDirTable.EntityData.Children.Append(types.GetSegmentPath(protocolDirTable.ProtocolDirEntry[i]), types.YChild{"ProtocolDirEntry", protocolDirTable.ProtocolDirEntry[i]})
     }
-    protocoldirtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(protocoldirtable.EntityData)
+    protocolDirTable.EntityData.Leafs = types.NewOrderedMap()
+
+    protocolDirTable.EntityData.YListKeys = []string {}
+
+    return &(protocolDirTable.EntityData)
 }
 
-// RMON2MIB_Protocoldirtable_Protocoldirentry
+// RMON2MIB_ProtocolDirTable_ProtocolDirEntry
 // A conceptual row in the protocolDirTable.
 // 
 // An example of the indexing of this entry is
@@ -553,7 +568,7 @@ func (protocoldirtable *RMON2MIB_Protocoldirtable) GetEntityData() *types.Common
 // encoding of a length of 8, followed by 8 subids encoding the
 // protocolDirID of 1.2048, followed by a length of 2 and the
 // 2 subids encoding zero-valued parameters.
-type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
+type RMON2MIB_ProtocolDirTable_ProtocolDirEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -572,7 +587,7 @@ type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
     // the agent doesn't understand, either directly or algorithmically, the SET
     // request will be rejected with an inconsistentName or badValue (for SNMPv1)
     // error. The type is string.
-    Protocoldirid interface{}
+    ProtocolDirID interface{}
 
     // This attribute is a key. A set of parameters for the associated
     // protocolDirID. See the associated RMON2 Protocol Identifiers document for a
@@ -586,7 +601,7 @@ type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
     // value in this string for each node is not optional - what is optional is
     // that a node may have no parameters defined, in which case the parameter
     // field for that node will be zero. The type is string.
-    Protocoldirparameters interface{}
+    ProtocolDirParameters interface{}
 
     // The locally arbitrary, but unique identifier associated with this
     // protocolDir entry.  The value for each supported protocol must remain
@@ -598,14 +613,14 @@ type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
     // not be re-used until the next agent-restart in the event the protocol
     // directory entry is deleted. The type is interface{} with range:
     // 1..2147483647.
-    Protocoldirlocalindex interface{}
+    ProtocolDirLocalIndex interface{}
 
     // A textual description of the protocol encapsulation. A probe may choose to
     // describe only a subset of the entire encapsulation (e.g. only the highest
     // layer).  This object is intended for human consumption only.  This object
     // may not be modified if the associated protocolDirStatus object is equal to
     // active(1). The type is string with length: 1..64.
-    Protocoldirdescr interface{}
+    ProtocolDirDescr interface{}
 
     // This object describes 2 attributes of this protocol directory entry.  The
     // presence or absence of the `extensible' bit describes whether or not this
@@ -635,7 +650,7 @@ type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
     // that since row creations usually exercise the limited extensibility
     // feature, these bits will usually be set to zero. The type is string with
     // length: 1.
-    Protocoldirtype interface{}
+    ProtocolDirType interface{}
 
     // This object describes and configures the probe's support for address
     // mapping for this protocol.  When the probe creates entries in this table
@@ -657,8 +672,8 @@ type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
     // for any addressMappingControlEntries and all interfaces. Whenever this
     // value changes from supportedOn(3) to supportedOff(2), the probe shall
     // delete all related entries in the addressMappingTable. The type is
-    // Protocoldiraddressmapconfig.
-    Protocoldiraddressmapconfig interface{}
+    // ProtocolDirAddressMapConfig.
+    ProtocolDirAddressMapConfig interface{}
 
     // This object describes and configures the probe's support for the network
     // layer and application layer host tables for this protocol.  When the probe
@@ -686,8 +701,8 @@ type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
     // alHostEntry references 2 protocol directory entries, one for the network
     // address and one for the type of the highest protocol recognized, that an
     // entry will only be created in that table if this value is supportedOn(3)
-    // for both protocols. The type is Protocoldirhostconfig.
-    Protocoldirhostconfig interface{}
+    // for both protocols. The type is ProtocolDirHostConfig.
+    ProtocolDirHostConfig interface{}
 
     // This object describes and configures the probe's support for the network
     // layer and application layer matrix tables for this protocol.  When the
@@ -718,12 +733,12 @@ type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
     // directory entries, one for the network address and one for the type of the
     // highest protocol recognized, that an entry will only be created in that
     // table if this value is supportedOn(3) for both protocols. The type is
-    // Protocoldirmatrixconfig.
-    Protocoldirmatrixconfig interface{}
+    // ProtocolDirMatrixConfig.
+    ProtocolDirMatrixConfig interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Protocoldirowner interface{}
+    ProtocolDirOwner interface{}
 
     // The status of this protocol directory entry.  An entry may not exist in the
     // active state unless all      objects in the entry have an appropriate
@@ -731,68 +746,71 @@ type RMON2MIB_Protocoldirtable_Protocoldirentry struct {
     // the nlHostTable, nlMatrixSDTable, nlMatrixDSTable, alHostTable,
     // alMatrixSDTable, and alMatrixDSTable shall be deleted. The type is
     // RowStatus.
-    Protocoldirstatus interface{}
+    ProtocolDirStatus interface{}
 }
 
-func (protocoldirentry *RMON2MIB_Protocoldirtable_Protocoldirentry) GetEntityData() *types.CommonEntityData {
-    protocoldirentry.EntityData.YFilter = protocoldirentry.YFilter
-    protocoldirentry.EntityData.YangName = "protocolDirEntry"
-    protocoldirentry.EntityData.BundleName = "cisco_ios_xe"
-    protocoldirentry.EntityData.ParentYangName = "protocolDirTable"
-    protocoldirentry.EntityData.SegmentPath = "protocolDirEntry" + "[protocolDirID='" + fmt.Sprintf("%v", protocoldirentry.Protocoldirid) + "']" + "[protocolDirParameters='" + fmt.Sprintf("%v", protocoldirentry.Protocoldirparameters) + "']"
-    protocoldirentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    protocoldirentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    protocoldirentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (protocolDirEntry *RMON2MIB_ProtocolDirTable_ProtocolDirEntry) GetEntityData() *types.CommonEntityData {
+    protocolDirEntry.EntityData.YFilter = protocolDirEntry.YFilter
+    protocolDirEntry.EntityData.YangName = "protocolDirEntry"
+    protocolDirEntry.EntityData.BundleName = "cisco_ios_xe"
+    protocolDirEntry.EntityData.ParentYangName = "protocolDirTable"
+    protocolDirEntry.EntityData.SegmentPath = "protocolDirEntry" + types.AddKeyToken(protocolDirEntry.ProtocolDirID, "protocolDirID") + types.AddKeyToken(protocolDirEntry.ProtocolDirParameters, "protocolDirParameters")
+    protocolDirEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    protocolDirEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    protocolDirEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    protocoldirentry.EntityData.Children = make(map[string]types.YChild)
-    protocoldirentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocoldirentry.EntityData.Leafs["protocolDirID"] = types.YLeaf{"Protocoldirid", protocoldirentry.Protocoldirid}
-    protocoldirentry.EntityData.Leafs["protocolDirParameters"] = types.YLeaf{"Protocoldirparameters", protocoldirentry.Protocoldirparameters}
-    protocoldirentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", protocoldirentry.Protocoldirlocalindex}
-    protocoldirentry.EntityData.Leafs["protocolDirDescr"] = types.YLeaf{"Protocoldirdescr", protocoldirentry.Protocoldirdescr}
-    protocoldirentry.EntityData.Leafs["protocolDirType"] = types.YLeaf{"Protocoldirtype", protocoldirentry.Protocoldirtype}
-    protocoldirentry.EntityData.Leafs["protocolDirAddressMapConfig"] = types.YLeaf{"Protocoldiraddressmapconfig", protocoldirentry.Protocoldiraddressmapconfig}
-    protocoldirentry.EntityData.Leafs["protocolDirHostConfig"] = types.YLeaf{"Protocoldirhostconfig", protocoldirentry.Protocoldirhostconfig}
-    protocoldirentry.EntityData.Leafs["protocolDirMatrixConfig"] = types.YLeaf{"Protocoldirmatrixconfig", protocoldirentry.Protocoldirmatrixconfig}
-    protocoldirentry.EntityData.Leafs["protocolDirOwner"] = types.YLeaf{"Protocoldirowner", protocoldirentry.Protocoldirowner}
-    protocoldirentry.EntityData.Leafs["protocolDirStatus"] = types.YLeaf{"Protocoldirstatus", protocoldirentry.Protocoldirstatus}
-    return &(protocoldirentry.EntityData)
+    protocolDirEntry.EntityData.Children = types.NewOrderedMap()
+    protocolDirEntry.EntityData.Leafs = types.NewOrderedMap()
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirID", types.YLeaf{"ProtocolDirID", protocolDirEntry.ProtocolDirID})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirParameters", types.YLeaf{"ProtocolDirParameters", protocolDirEntry.ProtocolDirParameters})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", protocolDirEntry.ProtocolDirLocalIndex})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirDescr", types.YLeaf{"ProtocolDirDescr", protocolDirEntry.ProtocolDirDescr})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirType", types.YLeaf{"ProtocolDirType", protocolDirEntry.ProtocolDirType})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirAddressMapConfig", types.YLeaf{"ProtocolDirAddressMapConfig", protocolDirEntry.ProtocolDirAddressMapConfig})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirHostConfig", types.YLeaf{"ProtocolDirHostConfig", protocolDirEntry.ProtocolDirHostConfig})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirMatrixConfig", types.YLeaf{"ProtocolDirMatrixConfig", protocolDirEntry.ProtocolDirMatrixConfig})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirOwner", types.YLeaf{"ProtocolDirOwner", protocolDirEntry.ProtocolDirOwner})
+    protocolDirEntry.EntityData.Leafs.Append("protocolDirStatus", types.YLeaf{"ProtocolDirStatus", protocolDirEntry.ProtocolDirStatus})
+
+    protocolDirEntry.EntityData.YListKeys = []string {"ProtocolDirID", "ProtocolDirParameters"}
+
+    return &(protocolDirEntry.EntityData)
 }
 
-// RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldiraddressmapconfig represents the addressMappingTable.
-type RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldiraddressmapconfig string
+// RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirAddressMapConfig represents the addressMappingTable.
+type RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirAddressMapConfig string
 
 const (
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldiraddressmapconfig_notSupported RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldiraddressmapconfig = "notSupported"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirAddressMapConfig_notSupported RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirAddressMapConfig = "notSupported"
 
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldiraddressmapconfig_supportedOff RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldiraddressmapconfig = "supportedOff"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirAddressMapConfig_supportedOff RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirAddressMapConfig = "supportedOff"
 
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldiraddressmapconfig_supportedOn RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldiraddressmapconfig = "supportedOn"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirAddressMapConfig_supportedOn RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirAddressMapConfig = "supportedOn"
 )
 
-// RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirhostconfig represents for both protocols.
-type RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirhostconfig string
+// RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirHostConfig represents for both protocols.
+type RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirHostConfig string
 
 const (
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirhostconfig_notSupported RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirhostconfig = "notSupported"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirHostConfig_notSupported RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirHostConfig = "notSupported"
 
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirhostconfig_supportedOff RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirhostconfig = "supportedOff"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirHostConfig_supportedOff RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirHostConfig = "supportedOff"
 
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirhostconfig_supportedOn RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirhostconfig = "supportedOn"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirHostConfig_supportedOn RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirHostConfig = "supportedOn"
 )
 
-// RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirmatrixconfig represents for both protocols.
-type RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirmatrixconfig string
+// RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirMatrixConfig represents for both protocols.
+type RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirMatrixConfig string
 
 const (
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirmatrixconfig_notSupported RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirmatrixconfig = "notSupported"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirMatrixConfig_notSupported RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirMatrixConfig = "notSupported"
 
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirmatrixconfig_supportedOff RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirmatrixconfig = "supportedOff"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirMatrixConfig_supportedOff RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirMatrixConfig = "supportedOff"
 
-    RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirmatrixconfig_supportedOn RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirmatrixconfig = "supportedOn"
+    RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirMatrixConfig_supportedOn RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirMatrixConfig = "supportedOn"
 )
 
-// RMON2MIB_Protocoldistcontroltable
+// RMON2MIB_ProtocolDistControlTable
 // Controls the setup of protocol type distribution statistics
 // tables.
 // 
@@ -810,36 +828,39 @@ const (
 // be configured (e.g. etherStats, trPStats) to easily obtain
 // total frame, octet, and droppedEvents for the same
 // interface.
-type RMON2MIB_Protocoldistcontroltable struct {
+type RMON2MIB_ProtocolDistControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the protocolDistControlTable.  An example of the
     // indexing of this entry is      protocolDistControlDroppedFrames.7. The type
-    // is slice of RMON2MIB_Protocoldistcontroltable_Protocoldistcontrolentry.
-    Protocoldistcontrolentry []RMON2MIB_Protocoldistcontroltable_Protocoldistcontrolentry
+    // is slice of RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry.
+    ProtocolDistControlEntry []*RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry
 }
 
-func (protocoldistcontroltable *RMON2MIB_Protocoldistcontroltable) GetEntityData() *types.CommonEntityData {
-    protocoldistcontroltable.EntityData.YFilter = protocoldistcontroltable.YFilter
-    protocoldistcontroltable.EntityData.YangName = "protocolDistControlTable"
-    protocoldistcontroltable.EntityData.BundleName = "cisco_ios_xe"
-    protocoldistcontroltable.EntityData.ParentYangName = "RMON2-MIB"
-    protocoldistcontroltable.EntityData.SegmentPath = "protocolDistControlTable"
-    protocoldistcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    protocoldistcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    protocoldistcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (protocolDistControlTable *RMON2MIB_ProtocolDistControlTable) GetEntityData() *types.CommonEntityData {
+    protocolDistControlTable.EntityData.YFilter = protocolDistControlTable.YFilter
+    protocolDistControlTable.EntityData.YangName = "protocolDistControlTable"
+    protocolDistControlTable.EntityData.BundleName = "cisco_ios_xe"
+    protocolDistControlTable.EntityData.ParentYangName = "RMON2-MIB"
+    protocolDistControlTable.EntityData.SegmentPath = "protocolDistControlTable"
+    protocolDistControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    protocolDistControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    protocolDistControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    protocoldistcontroltable.EntityData.Children = make(map[string]types.YChild)
-    protocoldistcontroltable.EntityData.Children["protocolDistControlEntry"] = types.YChild{"Protocoldistcontrolentry", nil}
-    for i := range protocoldistcontroltable.Protocoldistcontrolentry {
-        protocoldistcontroltable.EntityData.Children[types.GetSegmentPath(&protocoldistcontroltable.Protocoldistcontrolentry[i])] = types.YChild{"Protocoldistcontrolentry", &protocoldistcontroltable.Protocoldistcontrolentry[i]}
+    protocolDistControlTable.EntityData.Children = types.NewOrderedMap()
+    protocolDistControlTable.EntityData.Children.Append("protocolDistControlEntry", types.YChild{"ProtocolDistControlEntry", nil})
+    for i := range protocolDistControlTable.ProtocolDistControlEntry {
+        protocolDistControlTable.EntityData.Children.Append(types.GetSegmentPath(protocolDistControlTable.ProtocolDistControlEntry[i]), types.YChild{"ProtocolDistControlEntry", protocolDistControlTable.ProtocolDistControlEntry[i]})
     }
-    protocoldistcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(protocoldistcontroltable.EntityData)
+    protocolDistControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    protocolDistControlTable.EntityData.YListKeys = []string {}
+
+    return &(protocolDistControlTable.EntityData)
 }
 
-// RMON2MIB_Protocoldistcontroltable_Protocoldistcontrolentry
+// RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry
 // A conceptual row in the protocolDistControlTable.
 // 
 // An example of the indexing of this entry is
@@ -849,21 +870,21 @@ func (protocoldistcontroltable *RMON2MIB_Protocoldistcontroltable) GetEntityData
 // 
 // 
 // protocolDistControlDroppedFrames.7
-type RMON2MIB_Protocoldistcontroltable_Protocoldistcontrolentry struct {
+type RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique index for this protocolDistControlEntry.
     // The type is interface{} with range: 1..65535.
-    Protocoldistcontrolindex interface{}
+    ProtocolDistControlIndex interface{}
 
     // The source of data for the this protocol distribution.  The statistics in
     // this group reflect all packets on the local network segment attached to the
     // identified interface.  This object may not be modified if the associated
     // protocolDistControlStatus object is equal to active(1). The type is string
     // with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Protocoldistcontroldatasource interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    ProtocolDistControlDataSource interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -873,47 +894,50 @@ type RMON2MIB_Protocoldistcontroltable_Protocoldistcontrolentry struct {
     // not counted because they had MAC-layer errors.  Note that, unlike the
     // dropEvents counter, this number is the exact number of frames dropped. The
     // type is interface{} with range: 0..4294967295.
-    Protocoldistcontroldroppedframes interface{}
+    ProtocolDistControlDroppedFrames interface{}
 
     // The value of sysUpTime when this control entry was last activated. This can
     // be used by the management station to ensure that the table has not been
     // deleted and recreated between polls. The type is interface{} with range:
     // 0..4294967295.
-    Protocoldistcontrolcreatetime interface{}
+    ProtocolDistControlCreateTime interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Protocoldistcontrolowner interface{}
+    ProtocolDistControlOwner interface{}
 
     // The status of this row.  An entry may not exist in the active state unless
     // all objects in the entry have an appropriate value.  If this object is not
     // equal to active(1), all associated entries in the protocolDistStatsTable
     // shall be deleted. The type is RowStatus.
-    Protocoldistcontrolstatus interface{}
+    ProtocolDistControlStatus interface{}
 }
 
-func (protocoldistcontrolentry *RMON2MIB_Protocoldistcontroltable_Protocoldistcontrolentry) GetEntityData() *types.CommonEntityData {
-    protocoldistcontrolentry.EntityData.YFilter = protocoldistcontrolentry.YFilter
-    protocoldistcontrolentry.EntityData.YangName = "protocolDistControlEntry"
-    protocoldistcontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    protocoldistcontrolentry.EntityData.ParentYangName = "protocolDistControlTable"
-    protocoldistcontrolentry.EntityData.SegmentPath = "protocolDistControlEntry" + "[protocolDistControlIndex='" + fmt.Sprintf("%v", protocoldistcontrolentry.Protocoldistcontrolindex) + "']"
-    protocoldistcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    protocoldistcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    protocoldistcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (protocolDistControlEntry *RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry) GetEntityData() *types.CommonEntityData {
+    protocolDistControlEntry.EntityData.YFilter = protocolDistControlEntry.YFilter
+    protocolDistControlEntry.EntityData.YangName = "protocolDistControlEntry"
+    protocolDistControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    protocolDistControlEntry.EntityData.ParentYangName = "protocolDistControlTable"
+    protocolDistControlEntry.EntityData.SegmentPath = "protocolDistControlEntry" + types.AddKeyToken(protocolDistControlEntry.ProtocolDistControlIndex, "protocolDistControlIndex")
+    protocolDistControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    protocolDistControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    protocolDistControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    protocoldistcontrolentry.EntityData.Children = make(map[string]types.YChild)
-    protocoldistcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocoldistcontrolentry.EntityData.Leafs["protocolDistControlIndex"] = types.YLeaf{"Protocoldistcontrolindex", protocoldistcontrolentry.Protocoldistcontrolindex}
-    protocoldistcontrolentry.EntityData.Leafs["protocolDistControlDataSource"] = types.YLeaf{"Protocoldistcontroldatasource", protocoldistcontrolentry.Protocoldistcontroldatasource}
-    protocoldistcontrolentry.EntityData.Leafs["protocolDistControlDroppedFrames"] = types.YLeaf{"Protocoldistcontroldroppedframes", protocoldistcontrolentry.Protocoldistcontroldroppedframes}
-    protocoldistcontrolentry.EntityData.Leafs["protocolDistControlCreateTime"] = types.YLeaf{"Protocoldistcontrolcreatetime", protocoldistcontrolentry.Protocoldistcontrolcreatetime}
-    protocoldistcontrolentry.EntityData.Leafs["protocolDistControlOwner"] = types.YLeaf{"Protocoldistcontrolowner", protocoldistcontrolentry.Protocoldistcontrolowner}
-    protocoldistcontrolentry.EntityData.Leafs["protocolDistControlStatus"] = types.YLeaf{"Protocoldistcontrolstatus", protocoldistcontrolentry.Protocoldistcontrolstatus}
-    return &(protocoldistcontrolentry.EntityData)
+    protocolDistControlEntry.EntityData.Children = types.NewOrderedMap()
+    protocolDistControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    protocolDistControlEntry.EntityData.Leafs.Append("protocolDistControlIndex", types.YLeaf{"ProtocolDistControlIndex", protocolDistControlEntry.ProtocolDistControlIndex})
+    protocolDistControlEntry.EntityData.Leafs.Append("protocolDistControlDataSource", types.YLeaf{"ProtocolDistControlDataSource", protocolDistControlEntry.ProtocolDistControlDataSource})
+    protocolDistControlEntry.EntityData.Leafs.Append("protocolDistControlDroppedFrames", types.YLeaf{"ProtocolDistControlDroppedFrames", protocolDistControlEntry.ProtocolDistControlDroppedFrames})
+    protocolDistControlEntry.EntityData.Leafs.Append("protocolDistControlCreateTime", types.YLeaf{"ProtocolDistControlCreateTime", protocolDistControlEntry.ProtocolDistControlCreateTime})
+    protocolDistControlEntry.EntityData.Leafs.Append("protocolDistControlOwner", types.YLeaf{"ProtocolDistControlOwner", protocolDistControlEntry.ProtocolDistControlOwner})
+    protocolDistControlEntry.EntityData.Leafs.Append("protocolDistControlStatus", types.YLeaf{"ProtocolDistControlStatus", protocolDistControlEntry.ProtocolDistControlStatus})
+
+    protocolDistControlEntry.EntityData.YListKeys = []string {"ProtocolDistControlIndex"}
+
+    return &(protocolDistControlEntry.EntityData)
 }
 
-// RMON2MIB_Protocoldiststatstable
+// RMON2MIB_ProtocolDistStatsTable
 // An entry is made in this table for every protocol in the
 // 
 // 
@@ -927,7 +951,7 @@ func (protocoldistcontrolentry *RMON2MIB_Protocoldistcontroltable_Protocoldistco
 // 
 // Note that if a protocolDirEntry is deleted, all associated
 // entries in this table are removed.
-type RMON2MIB_Protocoldiststatstable struct {
+type RMON2MIB_ProtocolDistStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -938,30 +962,33 @@ type RMON2MIB_Protocoldiststatstable struct {
     // distribution an entry is a part of as well as the particular protocol that
     // it represents.  An example of the indexing of this entry is
     // protocolDistStatsPkts.1.18. The type is slice of
-    // RMON2MIB_Protocoldiststatstable_Protocoldiststatsentry.
-    Protocoldiststatsentry []RMON2MIB_Protocoldiststatstable_Protocoldiststatsentry
+    // RMON2MIB_ProtocolDistStatsTable_ProtocolDistStatsEntry.
+    ProtocolDistStatsEntry []*RMON2MIB_ProtocolDistStatsTable_ProtocolDistStatsEntry
 }
 
-func (protocoldiststatstable *RMON2MIB_Protocoldiststatstable) GetEntityData() *types.CommonEntityData {
-    protocoldiststatstable.EntityData.YFilter = protocoldiststatstable.YFilter
-    protocoldiststatstable.EntityData.YangName = "protocolDistStatsTable"
-    protocoldiststatstable.EntityData.BundleName = "cisco_ios_xe"
-    protocoldiststatstable.EntityData.ParentYangName = "RMON2-MIB"
-    protocoldiststatstable.EntityData.SegmentPath = "protocolDistStatsTable"
-    protocoldiststatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    protocoldiststatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    protocoldiststatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (protocolDistStatsTable *RMON2MIB_ProtocolDistStatsTable) GetEntityData() *types.CommonEntityData {
+    protocolDistStatsTable.EntityData.YFilter = protocolDistStatsTable.YFilter
+    protocolDistStatsTable.EntityData.YangName = "protocolDistStatsTable"
+    protocolDistStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    protocolDistStatsTable.EntityData.ParentYangName = "RMON2-MIB"
+    protocolDistStatsTable.EntityData.SegmentPath = "protocolDistStatsTable"
+    protocolDistStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    protocolDistStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    protocolDistStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    protocoldiststatstable.EntityData.Children = make(map[string]types.YChild)
-    protocoldiststatstable.EntityData.Children["protocolDistStatsEntry"] = types.YChild{"Protocoldiststatsentry", nil}
-    for i := range protocoldiststatstable.Protocoldiststatsentry {
-        protocoldiststatstable.EntityData.Children[types.GetSegmentPath(&protocoldiststatstable.Protocoldiststatsentry[i])] = types.YChild{"Protocoldiststatsentry", &protocoldiststatstable.Protocoldiststatsentry[i]}
+    protocolDistStatsTable.EntityData.Children = types.NewOrderedMap()
+    protocolDistStatsTable.EntityData.Children.Append("protocolDistStatsEntry", types.YChild{"ProtocolDistStatsEntry", nil})
+    for i := range protocolDistStatsTable.ProtocolDistStatsEntry {
+        protocolDistStatsTable.EntityData.Children.Append(types.GetSegmentPath(protocolDistStatsTable.ProtocolDistStatsEntry[i]), types.YChild{"ProtocolDistStatsEntry", protocolDistStatsTable.ProtocolDistStatsEntry[i]})
     }
-    protocoldiststatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(protocoldiststatstable.EntityData)
+    protocolDistStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    protocolDistStatsTable.EntityData.YListKeys = []string {}
+
+    return &(protocolDistStatsTable.EntityData)
 }
 
-// RMON2MIB_Protocoldiststatstable_Protocoldiststatsentry
+// RMON2MIB_ProtocolDistStatsTable_ProtocolDistStatsEntry
 // A conceptual row in the protocolDistStatsTable.
 // 
 // The index is composed of the protocolDistControlIndex of the
@@ -973,25 +1000,25 @@ func (protocoldiststatstable *RMON2MIB_Protocoldiststatstable) GetEntityData() *
 // 
 // An example of the indexing of this entry is
 // protocolDistStatsPkts.1.18
-type RMON2MIB_Protocoldiststatstable_Protocoldiststatsentry struct {
+type RMON2MIB_ProtocolDistStatsTable_ProtocolDistStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Protocoldistcontroltable_Protocoldistcontrolentry_Protocoldistcontrolindex
-    Protocoldistcontrolindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry_ProtocolDistControlIndex
+    ProtocolDistControlIndex interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex interface{}
 
     // The number of packets without errors received of this protocol type.  Note
     // that this is the number of link-layer packets, so if a single network-layer
     // packet is fragmented into several link-layer frames, this counter is
     // incremented several times. The type is interface{} with range:
     // 0..4294967295.
-    Protocoldiststatspkts interface{}
+    ProtocolDistStatsPkts interface{}
 
     // The number of octets in packets received of this protocol type since it was
     // added to the protocolDistStatsTable (excluding framing bits but including
@@ -999,29 +1026,32 @@ type RMON2MIB_Protocoldiststatstable_Protocoldiststatsentry struct {
     // Note this doesn't count just those octets in the particular protocol
     // frames, but includes the entire packet that contained the protocol. The
     // type is interface{} with range: 0..4294967295.
-    Protocoldiststatsoctets interface{}
+    ProtocolDistStatsOctets interface{}
 }
 
-func (protocoldiststatsentry *RMON2MIB_Protocoldiststatstable_Protocoldiststatsentry) GetEntityData() *types.CommonEntityData {
-    protocoldiststatsentry.EntityData.YFilter = protocoldiststatsentry.YFilter
-    protocoldiststatsentry.EntityData.YangName = "protocolDistStatsEntry"
-    protocoldiststatsentry.EntityData.BundleName = "cisco_ios_xe"
-    protocoldiststatsentry.EntityData.ParentYangName = "protocolDistStatsTable"
-    protocoldiststatsentry.EntityData.SegmentPath = "protocolDistStatsEntry" + "[protocolDistControlIndex='" + fmt.Sprintf("%v", protocoldiststatsentry.Protocoldistcontrolindex) + "']" + "[protocolDirLocalIndex='" + fmt.Sprintf("%v", protocoldiststatsentry.Protocoldirlocalindex) + "']"
-    protocoldiststatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    protocoldiststatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    protocoldiststatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (protocolDistStatsEntry *RMON2MIB_ProtocolDistStatsTable_ProtocolDistStatsEntry) GetEntityData() *types.CommonEntityData {
+    protocolDistStatsEntry.EntityData.YFilter = protocolDistStatsEntry.YFilter
+    protocolDistStatsEntry.EntityData.YangName = "protocolDistStatsEntry"
+    protocolDistStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    protocolDistStatsEntry.EntityData.ParentYangName = "protocolDistStatsTable"
+    protocolDistStatsEntry.EntityData.SegmentPath = "protocolDistStatsEntry" + types.AddKeyToken(protocolDistStatsEntry.ProtocolDistControlIndex, "protocolDistControlIndex") + types.AddKeyToken(protocolDistStatsEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex")
+    protocolDistStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    protocolDistStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    protocolDistStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    protocoldiststatsentry.EntityData.Children = make(map[string]types.YChild)
-    protocoldiststatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocoldiststatsentry.EntityData.Leafs["protocolDistControlIndex"] = types.YLeaf{"Protocoldistcontrolindex", protocoldiststatsentry.Protocoldistcontrolindex}
-    protocoldiststatsentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", protocoldiststatsentry.Protocoldirlocalindex}
-    protocoldiststatsentry.EntityData.Leafs["protocolDistStatsPkts"] = types.YLeaf{"Protocoldiststatspkts", protocoldiststatsentry.Protocoldiststatspkts}
-    protocoldiststatsentry.EntityData.Leafs["protocolDistStatsOctets"] = types.YLeaf{"Protocoldiststatsoctets", protocoldiststatsentry.Protocoldiststatsoctets}
-    return &(protocoldiststatsentry.EntityData)
+    protocolDistStatsEntry.EntityData.Children = types.NewOrderedMap()
+    protocolDistStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    protocolDistStatsEntry.EntityData.Leafs.Append("protocolDistControlIndex", types.YLeaf{"ProtocolDistControlIndex", protocolDistStatsEntry.ProtocolDistControlIndex})
+    protocolDistStatsEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", protocolDistStatsEntry.ProtocolDirLocalIndex})
+    protocolDistStatsEntry.EntityData.Leafs.Append("protocolDistStatsPkts", types.YLeaf{"ProtocolDistStatsPkts", protocolDistStatsEntry.ProtocolDistStatsPkts})
+    protocolDistStatsEntry.EntityData.Leafs.Append("protocolDistStatsOctets", types.YLeaf{"ProtocolDistStatsOctets", protocolDistStatsEntry.ProtocolDistStatsOctets})
+
+    protocolDistStatsEntry.EntityData.YListKeys = []string {"ProtocolDistControlIndex", "ProtocolDirLocalIndex"}
+
+    return &(protocolDistStatsEntry.EntityData)
 }
 
-// RMON2MIB_Addressmapcontroltable
+// RMON2MIB_AddressMapControlTable
 // A table to control the collection of network layer address to
 // physical address to interface mappings.
 // 
@@ -1034,36 +1064,39 @@ func (protocoldiststatsentry *RMON2MIB_Protocoldiststatstable_Protocoldiststatse
 // Implementations are encouraged to add an entry per monitored
 // interface upon initialization so that a default collection
 // of address mappings is available.
-type RMON2MIB_Addressmapcontroltable struct {
+type RMON2MIB_AddressMapControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the addressMapControlTable.      An example of the
     // indexing of this entry is addressMapControlDroppedFrames.1. The type is
-    // slice of RMON2MIB_Addressmapcontroltable_Addressmapcontrolentry.
-    Addressmapcontrolentry []RMON2MIB_Addressmapcontroltable_Addressmapcontrolentry
+    // slice of RMON2MIB_AddressMapControlTable_AddressMapControlEntry.
+    AddressMapControlEntry []*RMON2MIB_AddressMapControlTable_AddressMapControlEntry
 }
 
-func (addressmapcontroltable *RMON2MIB_Addressmapcontroltable) GetEntityData() *types.CommonEntityData {
-    addressmapcontroltable.EntityData.YFilter = addressmapcontroltable.YFilter
-    addressmapcontroltable.EntityData.YangName = "addressMapControlTable"
-    addressmapcontroltable.EntityData.BundleName = "cisco_ios_xe"
-    addressmapcontroltable.EntityData.ParentYangName = "RMON2-MIB"
-    addressmapcontroltable.EntityData.SegmentPath = "addressMapControlTable"
-    addressmapcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    addressmapcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    addressmapcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (addressMapControlTable *RMON2MIB_AddressMapControlTable) GetEntityData() *types.CommonEntityData {
+    addressMapControlTable.EntityData.YFilter = addressMapControlTable.YFilter
+    addressMapControlTable.EntityData.YangName = "addressMapControlTable"
+    addressMapControlTable.EntityData.BundleName = "cisco_ios_xe"
+    addressMapControlTable.EntityData.ParentYangName = "RMON2-MIB"
+    addressMapControlTable.EntityData.SegmentPath = "addressMapControlTable"
+    addressMapControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    addressMapControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    addressMapControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    addressmapcontroltable.EntityData.Children = make(map[string]types.YChild)
-    addressmapcontroltable.EntityData.Children["addressMapControlEntry"] = types.YChild{"Addressmapcontrolentry", nil}
-    for i := range addressmapcontroltable.Addressmapcontrolentry {
-        addressmapcontroltable.EntityData.Children[types.GetSegmentPath(&addressmapcontroltable.Addressmapcontrolentry[i])] = types.YChild{"Addressmapcontrolentry", &addressmapcontroltable.Addressmapcontrolentry[i]}
+    addressMapControlTable.EntityData.Children = types.NewOrderedMap()
+    addressMapControlTable.EntityData.Children.Append("addressMapControlEntry", types.YChild{"AddressMapControlEntry", nil})
+    for i := range addressMapControlTable.AddressMapControlEntry {
+        addressMapControlTable.EntityData.Children.Append(types.GetSegmentPath(addressMapControlTable.AddressMapControlEntry[i]), types.YChild{"AddressMapControlEntry", addressMapControlTable.AddressMapControlEntry[i]})
     }
-    addressmapcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(addressmapcontroltable.EntityData)
+    addressMapControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    addressMapControlTable.EntityData.YListKeys = []string {}
+
+    return &(addressMapControlTable.EntityData)
 }
 
-// RMON2MIB_Addressmapcontroltable_Addressmapcontrolentry
+// RMON2MIB_AddressMapControlTable_AddressMapControlEntry
 // A conceptual row in the addressMapControlTable.
 // 
 // 
@@ -1072,18 +1105,17 @@ func (addressmapcontroltable *RMON2MIB_Addressmapcontroltable) GetEntityData() *
 // 
 // An example of the indexing of this entry is
 // addressMapControlDroppedFrames.1
-type RMON2MIB_Addressmapcontroltable_Addressmapcontrolentry struct {
+type RMON2MIB_AddressMapControlTable_AddressMapControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique index for this entry in the
     // addressMapControlTable. The type is interface{} with range: 1..65535.
-    Addressmapcontrolindex interface{}
+    AddressMapControlIndex interface{}
 
     // The source of data for this addressMapControlEntry. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Addressmapcontroldatasource interface{}
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    AddressMapControlDataSource interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -1093,40 +1125,43 @@ type RMON2MIB_Addressmapcontroltable_Addressmapcontrolentry struct {
     // counted because they had MAC-layer errors.  Note that, unlike the
     // dropEvents counter, this number is the exact number of frames dropped. The
     // type is interface{} with range: 0..4294967295.
-    Addressmapcontroldroppedframes interface{}
+    AddressMapControlDroppedFrames interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Addressmapcontrolowner interface{}
+    AddressMapControlOwner interface{}
 
     // The status of this addressMap control entry.  An entry may not exist in the
     // active state unless all objects in the entry have an appropriate value.  If
     // this object is not equal to active(1), all associated entries in the
     // addressMapTable shall be deleted. The type is RowStatus.
-    Addressmapcontrolstatus interface{}
+    AddressMapControlStatus interface{}
 }
 
-func (addressmapcontrolentry *RMON2MIB_Addressmapcontroltable_Addressmapcontrolentry) GetEntityData() *types.CommonEntityData {
-    addressmapcontrolentry.EntityData.YFilter = addressmapcontrolentry.YFilter
-    addressmapcontrolentry.EntityData.YangName = "addressMapControlEntry"
-    addressmapcontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    addressmapcontrolentry.EntityData.ParentYangName = "addressMapControlTable"
-    addressmapcontrolentry.EntityData.SegmentPath = "addressMapControlEntry" + "[addressMapControlIndex='" + fmt.Sprintf("%v", addressmapcontrolentry.Addressmapcontrolindex) + "']"
-    addressmapcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    addressmapcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    addressmapcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (addressMapControlEntry *RMON2MIB_AddressMapControlTable_AddressMapControlEntry) GetEntityData() *types.CommonEntityData {
+    addressMapControlEntry.EntityData.YFilter = addressMapControlEntry.YFilter
+    addressMapControlEntry.EntityData.YangName = "addressMapControlEntry"
+    addressMapControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    addressMapControlEntry.EntityData.ParentYangName = "addressMapControlTable"
+    addressMapControlEntry.EntityData.SegmentPath = "addressMapControlEntry" + types.AddKeyToken(addressMapControlEntry.AddressMapControlIndex, "addressMapControlIndex")
+    addressMapControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    addressMapControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    addressMapControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    addressmapcontrolentry.EntityData.Children = make(map[string]types.YChild)
-    addressmapcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressmapcontrolentry.EntityData.Leafs["addressMapControlIndex"] = types.YLeaf{"Addressmapcontrolindex", addressmapcontrolentry.Addressmapcontrolindex}
-    addressmapcontrolentry.EntityData.Leafs["addressMapControlDataSource"] = types.YLeaf{"Addressmapcontroldatasource", addressmapcontrolentry.Addressmapcontroldatasource}
-    addressmapcontrolentry.EntityData.Leafs["addressMapControlDroppedFrames"] = types.YLeaf{"Addressmapcontroldroppedframes", addressmapcontrolentry.Addressmapcontroldroppedframes}
-    addressmapcontrolentry.EntityData.Leafs["addressMapControlOwner"] = types.YLeaf{"Addressmapcontrolowner", addressmapcontrolentry.Addressmapcontrolowner}
-    addressmapcontrolentry.EntityData.Leafs["addressMapControlStatus"] = types.YLeaf{"Addressmapcontrolstatus", addressmapcontrolentry.Addressmapcontrolstatus}
-    return &(addressmapcontrolentry.EntityData)
+    addressMapControlEntry.EntityData.Children = types.NewOrderedMap()
+    addressMapControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    addressMapControlEntry.EntityData.Leafs.Append("addressMapControlIndex", types.YLeaf{"AddressMapControlIndex", addressMapControlEntry.AddressMapControlIndex})
+    addressMapControlEntry.EntityData.Leafs.Append("addressMapControlDataSource", types.YLeaf{"AddressMapControlDataSource", addressMapControlEntry.AddressMapControlDataSource})
+    addressMapControlEntry.EntityData.Leafs.Append("addressMapControlDroppedFrames", types.YLeaf{"AddressMapControlDroppedFrames", addressMapControlEntry.AddressMapControlDroppedFrames})
+    addressMapControlEntry.EntityData.Leafs.Append("addressMapControlOwner", types.YLeaf{"AddressMapControlOwner", addressMapControlEntry.AddressMapControlOwner})
+    addressMapControlEntry.EntityData.Leafs.Append("addressMapControlStatus", types.YLeaf{"AddressMapControlStatus", addressMapControlEntry.AddressMapControlStatus})
+
+    addressMapControlEntry.EntityData.YListKeys = []string {"AddressMapControlIndex"}
+
+    return &(addressMapControlEntry.EntityData)
 }
 
-// RMON2MIB_Addressmaptable
+// RMON2MIB_AddressMapTable
 // A table of network layer address to physical address to
 // interface mappings.
 // 
@@ -1137,7 +1172,7 @@ func (addressmapcontrolentry *RMON2MIB_Addressmapcontroltable_Addressmapcontrole
 // protocolDirAddressMapConfig is equal to supportedOn(3), and
 // will delete any entries whose protocolDirEntry is deleted or
 // has a protocolDirAddressMapConfig value of supportedOff(2).
-type RMON2MIB_Addressmaptable struct {
+type RMON2MIB_AddressMapTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1145,30 +1180,33 @@ type RMON2MIB_Addressmaptable struct {
     // index identifies the network layer protocol of the
     // addressMapNetworkAddress.      An example of the indexing of this entry is
     // addressMapSource.783495.18.4.128.2.6.6.11.1.3.6.1.2.1.2.2.1.1.1. The type
-    // is slice of RMON2MIB_Addressmaptable_Addressmapentry.
-    Addressmapentry []RMON2MIB_Addressmaptable_Addressmapentry
+    // is slice of RMON2MIB_AddressMapTable_AddressMapEntry.
+    AddressMapEntry []*RMON2MIB_AddressMapTable_AddressMapEntry
 }
 
-func (addressmaptable *RMON2MIB_Addressmaptable) GetEntityData() *types.CommonEntityData {
-    addressmaptable.EntityData.YFilter = addressmaptable.YFilter
-    addressmaptable.EntityData.YangName = "addressMapTable"
-    addressmaptable.EntityData.BundleName = "cisco_ios_xe"
-    addressmaptable.EntityData.ParentYangName = "RMON2-MIB"
-    addressmaptable.EntityData.SegmentPath = "addressMapTable"
-    addressmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    addressmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    addressmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (addressMapTable *RMON2MIB_AddressMapTable) GetEntityData() *types.CommonEntityData {
+    addressMapTable.EntityData.YFilter = addressMapTable.YFilter
+    addressMapTable.EntityData.YangName = "addressMapTable"
+    addressMapTable.EntityData.BundleName = "cisco_ios_xe"
+    addressMapTable.EntityData.ParentYangName = "RMON2-MIB"
+    addressMapTable.EntityData.SegmentPath = "addressMapTable"
+    addressMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    addressMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    addressMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    addressmaptable.EntityData.Children = make(map[string]types.YChild)
-    addressmaptable.EntityData.Children["addressMapEntry"] = types.YChild{"Addressmapentry", nil}
-    for i := range addressmaptable.Addressmapentry {
-        addressmaptable.EntityData.Children[types.GetSegmentPath(&addressmaptable.Addressmapentry[i])] = types.YChild{"Addressmapentry", &addressmaptable.Addressmapentry[i]}
+    addressMapTable.EntityData.Children = types.NewOrderedMap()
+    addressMapTable.EntityData.Children.Append("addressMapEntry", types.YChild{"AddressMapEntry", nil})
+    for i := range addressMapTable.AddressMapEntry {
+        addressMapTable.EntityData.Children.Append(types.GetSegmentPath(addressMapTable.AddressMapEntry[i]), types.YChild{"AddressMapEntry", addressMapTable.AddressMapEntry[i]})
     }
-    addressmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(addressmaptable.EntityData)
+    addressMapTable.EntityData.Leafs = types.NewOrderedMap()
+
+    addressMapTable.EntityData.YListKeys = []string {}
+
+    return &(addressMapTable.EntityData)
 }
 
-// RMON2MIB_Addressmaptable_Addressmapentry
+// RMON2MIB_AddressMapTable_AddressMapEntry
 // A conceptual row in the addressMapTable.
 // The protocolDirLocalIndex in the index identifies the network
 // layer protocol of the addressMapNetworkAddress.
@@ -1179,19 +1217,19 @@ func (addressmaptable *RMON2MIB_Addressmaptable) GetEntityData() *types.CommonEn
 // 
 // An example of the indexing of this entry is
 // addressMapSource.783495.18.4.128.2.6.6.11.1.3.6.1.2.1.2.2.1.1.1
-type RMON2MIB_Addressmaptable_Addressmapentry struct {
+type RMON2MIB_AddressMapTable_AddressMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
     // range: 0..4294967295.
-    Addressmaptimemark interface{}
+    AddressMapTimeMark interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex interface{}
 
     // This attribute is a key. The network address for this relation.  This is
     // represented as an octet string with specific semantics and length as
@@ -1199,7 +1237,7 @@ type RMON2MIB_Addressmaptable_Addressmapentry struct {
     // example, if the protocolDirLocalIndex indicates an encapsulation of ip,
     // this object is encoded as a length octet of 4, followed by the 4 octets of
     // the ip address, in network byte order. The type is string.
-    Addressmapnetworkaddress interface{}
+    AddressMapNetworkAddress interface{}
 
     // This attribute is a key. The interface or port on which the associated
     // network address was most recently seen.      If this address mapping was
@@ -1216,8 +1254,8 @@ type RMON2MIB_Addressmaptable_Addressmapentry struct {
     // to an interface which is a locally attached repeater and the agent has
     // additional information about the source port of traffic seen on that
     // repeater. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Addressmapsource interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    AddressMapSource interface{}
 
     // The last source physical address on which the associated network address
     // was seen.  If the protocol of the associated network address was
@@ -1225,37 +1263,40 @@ type RMON2MIB_Addressmaptable_Addressmapentry struct {
     // address of the next-lower protocol with the addressRecognitionCapable bit
     // enabled and will be formatted as specified for that protocol. The type is
     // string.
-    Addressmapphysicaladdress interface{}
+    AddressMapPhysicalAddress interface{}
 
     // The value of sysUpTime at the time this entry was last created or the
     // values of the physical address changed.  This can be used to help detect
     // duplicate address problems, in which case this object will be updated
     // frequently. The type is interface{} with range: 0..4294967295.
-    Addressmaplastchange interface{}
+    AddressMapLastChange interface{}
 }
 
-func (addressmapentry *RMON2MIB_Addressmaptable_Addressmapentry) GetEntityData() *types.CommonEntityData {
-    addressmapentry.EntityData.YFilter = addressmapentry.YFilter
-    addressmapentry.EntityData.YangName = "addressMapEntry"
-    addressmapentry.EntityData.BundleName = "cisco_ios_xe"
-    addressmapentry.EntityData.ParentYangName = "addressMapTable"
-    addressmapentry.EntityData.SegmentPath = "addressMapEntry" + "[addressMapTimeMark='" + fmt.Sprintf("%v", addressmapentry.Addressmaptimemark) + "']" + "[protocolDirLocalIndex='" + fmt.Sprintf("%v", addressmapentry.Protocoldirlocalindex) + "']" + "[addressMapNetworkAddress='" + fmt.Sprintf("%v", addressmapentry.Addressmapnetworkaddress) + "']" + "[addressMapSource='" + fmt.Sprintf("%v", addressmapentry.Addressmapsource) + "']"
-    addressmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    addressmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    addressmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (addressMapEntry *RMON2MIB_AddressMapTable_AddressMapEntry) GetEntityData() *types.CommonEntityData {
+    addressMapEntry.EntityData.YFilter = addressMapEntry.YFilter
+    addressMapEntry.EntityData.YangName = "addressMapEntry"
+    addressMapEntry.EntityData.BundleName = "cisco_ios_xe"
+    addressMapEntry.EntityData.ParentYangName = "addressMapTable"
+    addressMapEntry.EntityData.SegmentPath = "addressMapEntry" + types.AddKeyToken(addressMapEntry.AddressMapTimeMark, "addressMapTimeMark") + types.AddKeyToken(addressMapEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(addressMapEntry.AddressMapNetworkAddress, "addressMapNetworkAddress") + types.AddKeyToken(addressMapEntry.AddressMapSource, "addressMapSource")
+    addressMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    addressMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    addressMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    addressmapentry.EntityData.Children = make(map[string]types.YChild)
-    addressmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressmapentry.EntityData.Leafs["addressMapTimeMark"] = types.YLeaf{"Addressmaptimemark", addressmapentry.Addressmaptimemark}
-    addressmapentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", addressmapentry.Protocoldirlocalindex}
-    addressmapentry.EntityData.Leafs["addressMapNetworkAddress"] = types.YLeaf{"Addressmapnetworkaddress", addressmapentry.Addressmapnetworkaddress}
-    addressmapentry.EntityData.Leafs["addressMapSource"] = types.YLeaf{"Addressmapsource", addressmapentry.Addressmapsource}
-    addressmapentry.EntityData.Leafs["addressMapPhysicalAddress"] = types.YLeaf{"Addressmapphysicaladdress", addressmapentry.Addressmapphysicaladdress}
-    addressmapentry.EntityData.Leafs["addressMapLastChange"] = types.YLeaf{"Addressmaplastchange", addressmapentry.Addressmaplastchange}
-    return &(addressmapentry.EntityData)
+    addressMapEntry.EntityData.Children = types.NewOrderedMap()
+    addressMapEntry.EntityData.Leafs = types.NewOrderedMap()
+    addressMapEntry.EntityData.Leafs.Append("addressMapTimeMark", types.YLeaf{"AddressMapTimeMark", addressMapEntry.AddressMapTimeMark})
+    addressMapEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", addressMapEntry.ProtocolDirLocalIndex})
+    addressMapEntry.EntityData.Leafs.Append("addressMapNetworkAddress", types.YLeaf{"AddressMapNetworkAddress", addressMapEntry.AddressMapNetworkAddress})
+    addressMapEntry.EntityData.Leafs.Append("addressMapSource", types.YLeaf{"AddressMapSource", addressMapEntry.AddressMapSource})
+    addressMapEntry.EntityData.Leafs.Append("addressMapPhysicalAddress", types.YLeaf{"AddressMapPhysicalAddress", addressMapEntry.AddressMapPhysicalAddress})
+    addressMapEntry.EntityData.Leafs.Append("addressMapLastChange", types.YLeaf{"AddressMapLastChange", addressMapEntry.AddressMapLastChange})
+
+    addressMapEntry.EntityData.YListKeys = []string {"AddressMapTimeMark", "ProtocolDirLocalIndex", "AddressMapNetworkAddress", "AddressMapSource"}
+
+    return &(addressMapEntry.EntityData)
 }
 
-// RMON2MIB_Hlhostcontroltable
+// RMON2MIB_HlHostControlTable
 // A list of higher layer (i.e. non-MAC) host table control entries.
 // 
 // These entries will enable the collection of the network and
@@ -1275,41 +1316,44 @@ func (addressmapentry *RMON2MIB_Addressmaptable_Addressmapentry) GetEntityData()
 // Implementations are encouraged to add an entry per monitored
 // interface upon initialization so that a default collection
 // of host statistics is available.
-type RMON2MIB_Hlhostcontroltable struct {
+type RMON2MIB_HlHostControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the hlHostControlTable.  An example of the indexing of
     // this entry is hlHostControlNlDroppedFrames.1. The type is slice of
-    // RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry.
-    Hlhostcontrolentry []RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry
+    // RMON2MIB_HlHostControlTable_HlHostControlEntry.
+    HlHostControlEntry []*RMON2MIB_HlHostControlTable_HlHostControlEntry
 }
 
-func (hlhostcontroltable *RMON2MIB_Hlhostcontroltable) GetEntityData() *types.CommonEntityData {
-    hlhostcontroltable.EntityData.YFilter = hlhostcontroltable.YFilter
-    hlhostcontroltable.EntityData.YangName = "hlHostControlTable"
-    hlhostcontroltable.EntityData.BundleName = "cisco_ios_xe"
-    hlhostcontroltable.EntityData.ParentYangName = "RMON2-MIB"
-    hlhostcontroltable.EntityData.SegmentPath = "hlHostControlTable"
-    hlhostcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    hlhostcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    hlhostcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (hlHostControlTable *RMON2MIB_HlHostControlTable) GetEntityData() *types.CommonEntityData {
+    hlHostControlTable.EntityData.YFilter = hlHostControlTable.YFilter
+    hlHostControlTable.EntityData.YangName = "hlHostControlTable"
+    hlHostControlTable.EntityData.BundleName = "cisco_ios_xe"
+    hlHostControlTable.EntityData.ParentYangName = "RMON2-MIB"
+    hlHostControlTable.EntityData.SegmentPath = "hlHostControlTable"
+    hlHostControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hlHostControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hlHostControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    hlhostcontroltable.EntityData.Children = make(map[string]types.YChild)
-    hlhostcontroltable.EntityData.Children["hlHostControlEntry"] = types.YChild{"Hlhostcontrolentry", nil}
-    for i := range hlhostcontroltable.Hlhostcontrolentry {
-        hlhostcontroltable.EntityData.Children[types.GetSegmentPath(&hlhostcontroltable.Hlhostcontrolentry[i])] = types.YChild{"Hlhostcontrolentry", &hlhostcontroltable.Hlhostcontrolentry[i]}
+    hlHostControlTable.EntityData.Children = types.NewOrderedMap()
+    hlHostControlTable.EntityData.Children.Append("hlHostControlEntry", types.YChild{"HlHostControlEntry", nil})
+    for i := range hlHostControlTable.HlHostControlEntry {
+        hlHostControlTable.EntityData.Children.Append(types.GetSegmentPath(hlHostControlTable.HlHostControlEntry[i]), types.YChild{"HlHostControlEntry", hlHostControlTable.HlHostControlEntry[i]})
     }
-    hlhostcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(hlhostcontroltable.EntityData)
+    hlHostControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    hlHostControlTable.EntityData.YListKeys = []string {}
+
+    return &(hlHostControlTable.EntityData)
 }
 
-// RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry
+// RMON2MIB_HlHostControlTable_HlHostControlEntry
 // A conceptual row in the hlHostControlTable.
 // 
 // An example of the indexing of this entry is
 // hlHostControlNlDroppedFrames.1
-type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
+type RMON2MIB_HlHostControlTable_HlHostControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1318,15 +1362,14 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // hosts on a particular interface and places statistics about them in the
     // nlHostTable, and optionally in the alHostTable, on behalf of this
     // hlHostControlEntry. The type is interface{} with range: 1..65535.
-    Hlhostcontrolindex interface{}
+    HlHostControlIndex interface{}
 
     // The source of data for the associated host tables.  The statistics in this
     // group reflect all packets on the local network segment attached to the
     // identified interface.  This object may not be modified if the associated
     // hlHostControlStatus object is equal to active(1). The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Hlhostcontroldatasource interface{}
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    HlHostControlDataSource interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -1338,7 +1381,7 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // protocol directory, this value should be 0.  Note that, unlike the
     // dropEvents counter, this number is the exact number of frames dropped. The
     // type is interface{} with range: 0..4294967295.
-    Hlhostcontrolnldroppedframes interface{}
+    HlHostControlNlDroppedFrames interface{}
 
     // The number of times an nlHost entry has been inserted into the nlHost
     // table.  If an entry is inserted, then deleted, and then inserted, this
@@ -1350,7 +1393,7 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // periods of time.  Note that the table size can be determined by subtracting
     // hlHostControlNlDeletes from hlHostControlNlInserts. The type is interface{}
     // with range: 0..4294967295.
-    Hlhostcontrolnlinserts interface{}
+    HlHostControlNlInserts interface{}
 
     // The number of times an nlHost entry has been deleted from the nlHost table
     // (for any reason).  If an entry is deleted, then inserted, and then deleted,
@@ -1362,7 +1405,7 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // structures for those short periods of time.  Note that the table size can
     // be determined by subtracting hlHostControlNlDeletes from
     // hlHostControlNlInserts. The type is interface{} with range: 0..4294967295.
-    Hlhostcontrolnldeletes interface{}
+    HlHostControlNlDeletes interface{}
 
     // The maximum number of entries that are desired in the nlHostTable on behalf
     // of this control entry. The probe will not create more than this number of
@@ -1376,7 +1419,7 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // this object may not be modified.  This object may be used to control how
     // resources are allocated on the probe for the various RMON functions. The
     // type is interface{} with range: -1..2147483647.
-    Hlhostcontrolnlmaxdesiredentries interface{}
+    HlHostControlNlMaxDesiredEntries interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -1388,7 +1431,7 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // protocols are enabled in the protocol directory, this value should be 0. 
     // Note that, unlike the dropEvents counter, this number is the exact number
     // of frames dropped. The type is interface{} with range: 0..4294967295.
-    Hlhostcontrolaldroppedframes interface{}
+    HlHostControlAlDroppedFrames interface{}
 
     // The number of times an alHost entry has been inserted into the alHost
     // table.  If an entry is inserted, then deleted, and then inserted, this
@@ -1400,7 +1443,7 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // periods of time.  Note that the table size can be determined by subtracting
     // hlHostControlAlDeletes from hlHostControlAlInserts. The type is interface{}
     // with range: 0..4294967295.
-    Hlhostcontrolalinserts interface{}
+    HlHostControlAlInserts interface{}
 
     // The number of times an alHost entry has been deleted from the alHost table
     // (for any reason).  If an entry is deleted, then inserted, and then deleted,
@@ -1412,7 +1455,7 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // those short periods of time.  Note that the table size can be determined by
     // subtracting hlHostControlAlDeletes from hlHostControlAlInserts. The type is
     // interface{} with range: 0..4294967295.
-    Hlhostcontrolaldeletes interface{}
+    HlHostControlAlDeletes interface{}
 
     // The maximum number of entries that are desired in the alHost table on
     // behalf of this control entry. The probe will not create more than this
@@ -1426,47 +1469,50 @@ type RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry struct {
     // `active', this object may not be modified.  This object may be used to
     // control how resources are allocated on the probe for the various RMON
     // functions. The type is interface{} with range: -1..2147483647.
-    Hlhostcontrolalmaxdesiredentries interface{}
+    HlHostControlAlMaxDesiredEntries interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Hlhostcontrolowner interface{}
+    HlHostControlOwner interface{}
 
     // The status of this hlHostControlEntry.  An entry may not exist in the
     // active state unless all objects in the entry have an appropriate value.  If
     // this object is not equal to active(1), all associated entries in the
     // nlHostTable and alHostTable shall be deleted. The type is RowStatus.
-    Hlhostcontrolstatus interface{}
+    HlHostControlStatus interface{}
 }
 
-func (hlhostcontrolentry *RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry) GetEntityData() *types.CommonEntityData {
-    hlhostcontrolentry.EntityData.YFilter = hlhostcontrolentry.YFilter
-    hlhostcontrolentry.EntityData.YangName = "hlHostControlEntry"
-    hlhostcontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    hlhostcontrolentry.EntityData.ParentYangName = "hlHostControlTable"
-    hlhostcontrolentry.EntityData.SegmentPath = "hlHostControlEntry" + "[hlHostControlIndex='" + fmt.Sprintf("%v", hlhostcontrolentry.Hlhostcontrolindex) + "']"
-    hlhostcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    hlhostcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    hlhostcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (hlHostControlEntry *RMON2MIB_HlHostControlTable_HlHostControlEntry) GetEntityData() *types.CommonEntityData {
+    hlHostControlEntry.EntityData.YFilter = hlHostControlEntry.YFilter
+    hlHostControlEntry.EntityData.YangName = "hlHostControlEntry"
+    hlHostControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    hlHostControlEntry.EntityData.ParentYangName = "hlHostControlTable"
+    hlHostControlEntry.EntityData.SegmentPath = "hlHostControlEntry" + types.AddKeyToken(hlHostControlEntry.HlHostControlIndex, "hlHostControlIndex")
+    hlHostControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hlHostControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hlHostControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    hlhostcontrolentry.EntityData.Children = make(map[string]types.YChild)
-    hlhostcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlIndex"] = types.YLeaf{"Hlhostcontrolindex", hlhostcontrolentry.Hlhostcontrolindex}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlDataSource"] = types.YLeaf{"Hlhostcontroldatasource", hlhostcontrolentry.Hlhostcontroldatasource}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlNlDroppedFrames"] = types.YLeaf{"Hlhostcontrolnldroppedframes", hlhostcontrolentry.Hlhostcontrolnldroppedframes}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlNlInserts"] = types.YLeaf{"Hlhostcontrolnlinserts", hlhostcontrolentry.Hlhostcontrolnlinserts}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlNlDeletes"] = types.YLeaf{"Hlhostcontrolnldeletes", hlhostcontrolentry.Hlhostcontrolnldeletes}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlNlMaxDesiredEntries"] = types.YLeaf{"Hlhostcontrolnlmaxdesiredentries", hlhostcontrolentry.Hlhostcontrolnlmaxdesiredentries}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlAlDroppedFrames"] = types.YLeaf{"Hlhostcontrolaldroppedframes", hlhostcontrolentry.Hlhostcontrolaldroppedframes}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlAlInserts"] = types.YLeaf{"Hlhostcontrolalinserts", hlhostcontrolentry.Hlhostcontrolalinserts}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlAlDeletes"] = types.YLeaf{"Hlhostcontrolaldeletes", hlhostcontrolentry.Hlhostcontrolaldeletes}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlAlMaxDesiredEntries"] = types.YLeaf{"Hlhostcontrolalmaxdesiredentries", hlhostcontrolentry.Hlhostcontrolalmaxdesiredentries}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlOwner"] = types.YLeaf{"Hlhostcontrolowner", hlhostcontrolentry.Hlhostcontrolowner}
-    hlhostcontrolentry.EntityData.Leafs["hlHostControlStatus"] = types.YLeaf{"Hlhostcontrolstatus", hlhostcontrolentry.Hlhostcontrolstatus}
-    return &(hlhostcontrolentry.EntityData)
+    hlHostControlEntry.EntityData.Children = types.NewOrderedMap()
+    hlHostControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlIndex", types.YLeaf{"HlHostControlIndex", hlHostControlEntry.HlHostControlIndex})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlDataSource", types.YLeaf{"HlHostControlDataSource", hlHostControlEntry.HlHostControlDataSource})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlNlDroppedFrames", types.YLeaf{"HlHostControlNlDroppedFrames", hlHostControlEntry.HlHostControlNlDroppedFrames})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlNlInserts", types.YLeaf{"HlHostControlNlInserts", hlHostControlEntry.HlHostControlNlInserts})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlNlDeletes", types.YLeaf{"HlHostControlNlDeletes", hlHostControlEntry.HlHostControlNlDeletes})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlNlMaxDesiredEntries", types.YLeaf{"HlHostControlNlMaxDesiredEntries", hlHostControlEntry.HlHostControlNlMaxDesiredEntries})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlAlDroppedFrames", types.YLeaf{"HlHostControlAlDroppedFrames", hlHostControlEntry.HlHostControlAlDroppedFrames})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlAlInserts", types.YLeaf{"HlHostControlAlInserts", hlHostControlEntry.HlHostControlAlInserts})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlAlDeletes", types.YLeaf{"HlHostControlAlDeletes", hlHostControlEntry.HlHostControlAlDeletes})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlAlMaxDesiredEntries", types.YLeaf{"HlHostControlAlMaxDesiredEntries", hlHostControlEntry.HlHostControlAlMaxDesiredEntries})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlOwner", types.YLeaf{"HlHostControlOwner", hlHostControlEntry.HlHostControlOwner})
+    hlHostControlEntry.EntityData.Leafs.Append("hlHostControlStatus", types.YLeaf{"HlHostControlStatus", hlHostControlEntry.HlHostControlStatus})
+
+    hlHostControlEntry.EntityData.YListKeys = []string {"HlHostControlIndex"}
+
+    return &(hlHostControlEntry.EntityData)
 }
 
-// RMON2MIB_Nlhosttable
+// RMON2MIB_NlHostTable
 // A collection of statistics for a particular network layer
 // address that has been discovered on an interface of this
 // device.
@@ -1481,7 +1527,7 @@ func (hlhostcontrolentry *RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry) GetEnt
 // as the source or destination address in all packets with no
 // MAC errors, and will increment octet and packet counts in the
 // table for all packets with no MAC errors.
-type RMON2MIB_Nlhosttable struct {
+type RMON2MIB_NlHostTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1490,30 +1536,33 @@ type RMON2MIB_Nlhosttable struct {
     // created. The protocolDirLocalIndex value in the index identifies the
     // network layer protocol of the nlHostAddress.  An example of the indexing of
     // this entry is nlHostOutPkts.1.783495.18.4.128.2.6.6. The type is slice of
-    // RMON2MIB_Nlhosttable_Nlhostentry.
-    Nlhostentry []RMON2MIB_Nlhosttable_Nlhostentry
+    // RMON2MIB_NlHostTable_NlHostEntry.
+    NlHostEntry []*RMON2MIB_NlHostTable_NlHostEntry
 }
 
-func (nlhosttable *RMON2MIB_Nlhosttable) GetEntityData() *types.CommonEntityData {
-    nlhosttable.EntityData.YFilter = nlhosttable.YFilter
-    nlhosttable.EntityData.YangName = "nlHostTable"
-    nlhosttable.EntityData.BundleName = "cisco_ios_xe"
-    nlhosttable.EntityData.ParentYangName = "RMON2-MIB"
-    nlhosttable.EntityData.SegmentPath = "nlHostTable"
-    nlhosttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlhosttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlhosttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlHostTable *RMON2MIB_NlHostTable) GetEntityData() *types.CommonEntityData {
+    nlHostTable.EntityData.YFilter = nlHostTable.YFilter
+    nlHostTable.EntityData.YangName = "nlHostTable"
+    nlHostTable.EntityData.BundleName = "cisco_ios_xe"
+    nlHostTable.EntityData.ParentYangName = "RMON2-MIB"
+    nlHostTable.EntityData.SegmentPath = "nlHostTable"
+    nlHostTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlHostTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlHostTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlhosttable.EntityData.Children = make(map[string]types.YChild)
-    nlhosttable.EntityData.Children["nlHostEntry"] = types.YChild{"Nlhostentry", nil}
-    for i := range nlhosttable.Nlhostentry {
-        nlhosttable.EntityData.Children[types.GetSegmentPath(&nlhosttable.Nlhostentry[i])] = types.YChild{"Nlhostentry", &nlhosttable.Nlhostentry[i]}
+    nlHostTable.EntityData.Children = types.NewOrderedMap()
+    nlHostTable.EntityData.Children.Append("nlHostEntry", types.YChild{"NlHostEntry", nil})
+    for i := range nlHostTable.NlHostEntry {
+        nlHostTable.EntityData.Children.Append(types.GetSegmentPath(nlHostTable.NlHostEntry[i]), types.YChild{"NlHostEntry", nlHostTable.NlHostEntry[i]})
     }
-    nlhosttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nlhosttable.EntityData)
+    nlHostTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nlHostTable.EntityData.YListKeys = []string {}
+
+    return &(nlHostTable.EntityData)
 }
 
-// RMON2MIB_Nlhosttable_Nlhostentry
+// RMON2MIB_NlHostTable_NlHostEntry
 // A conceptual row in the nlHostTable.
 // 
 // The hlHostControlIndex value in the index identifies the
@@ -1523,23 +1572,23 @@ func (nlhosttable *RMON2MIB_Nlhosttable) GetEntityData() *types.CommonEntityData
 // 
 // An example of the indexing of this entry is
 // nlHostOutPkts.1.783495.18.4.128.2.6.6.
-type RMON2MIB_Nlhosttable_Nlhostentry struct {
+type RMON2MIB_NlHostTable_NlHostEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry_Hlhostcontrolindex
-    Hlhostcontrolindex interface{}
+    // rmon2_mib.RMON2MIB_HlHostControlTable_HlHostControlEntry_HlHostControlIndex
+    HlHostControlIndex interface{}
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
     // range: 0..4294967295.
-    Nlhosttimemark interface{}
+    NlHostTimeMark interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex interface{}
 
     // This attribute is a key. The network address for this nlHostEntry.  This is
     // represented as an octet string with specific semantics and length as
@@ -1547,21 +1596,21 @@ type RMON2MIB_Nlhosttable_Nlhostentry struct {
     // example, if the protocolDirLocalIndex indicates an encapsulation of ip,
     // this object is encoded as a length octet of 4, followed by the 4 octets of
     // the ip address, in network byte order. The type is string.
-    Nlhostaddress interface{}
+    NlHostAddress interface{}
 
     // The number of packets without errors transmitted to this address since it
     // was added to the nlHostTable.  Note that this is the number of link-layer
     // packets, so if a single network-layer packet is fragmented into several
     // link-layer frames, this counter is incremented several times. The type is
     // interface{} with range: 0..4294967295.
-    Nlhostinpkts interface{}
+    NlHostInPkts interface{}
 
     // The number of packets without errors transmitted by      this address since
     // it was added to the nlHostTable.  Note that this is the number of
     // link-layer packets, so if a single network-layer packet is fragmented into
     // several link-layer frames, this counter is incremented several times. The
     // type is interface{} with range: 0..4294967295.
-    Nlhostoutpkts interface{}
+    NlHostOutPkts interface{}
 
     // The number of octets transmitted to this address since it was added to the
     // nlHostTable (excluding framing bits but including FCS octets), excluding
@@ -1569,7 +1618,7 @@ type RMON2MIB_Nlhosttable_Nlhostentry struct {
     // just those octets in the particular protocol frames, but includes the
     // entire packet that contained the protocol. The type is interface{} with
     // range: 0..4294967295.
-    Nlhostinoctets interface{}
+    NlHostInOctets interface{}
 
     // The number of octets transmitted by this address since it was added to the
     // nlHostTable (excluding framing bits but including FCS octets), excluding
@@ -1577,7 +1626,7 @@ type RMON2MIB_Nlhosttable_Nlhostentry struct {
     // just those octets in the particular protocol frames, but includes the
     // entire packet that contained the protocol. The type is interface{} with
     // range: 0..4294967295.
-    Nlhostoutoctets interface{}
+    NlHostOutOctets interface{}
 
     // The number of packets without errors transmitted by this address that were
     // directed to any MAC broadcast addresses or to any MAC multicast addresses
@@ -1585,40 +1634,43 @@ type RMON2MIB_Nlhosttable_Nlhostentry struct {
     // of link-layer packets, so if a single network-layer packet is fragmented
     // into several link-layer frames, this counter is incremented several times.
     // The type is interface{} with range: 0..4294967295.
-    Nlhostoutmacnonunicastpkts interface{}
+    NlHostOutMacNonUnicastPkts interface{}
 
     // The value of sysUpTime when this entry was last activated. This can be used
     // by the management station to ensure that the entry has not been deleted and
     // recreated between polls. The type is interface{} with range: 0..4294967295.
-    Nlhostcreatetime interface{}
+    NlHostCreateTime interface{}
 }
 
-func (nlhostentry *RMON2MIB_Nlhosttable_Nlhostentry) GetEntityData() *types.CommonEntityData {
-    nlhostentry.EntityData.YFilter = nlhostentry.YFilter
-    nlhostentry.EntityData.YangName = "nlHostEntry"
-    nlhostentry.EntityData.BundleName = "cisco_ios_xe"
-    nlhostentry.EntityData.ParentYangName = "nlHostTable"
-    nlhostentry.EntityData.SegmentPath = "nlHostEntry" + "[hlHostControlIndex='" + fmt.Sprintf("%v", nlhostentry.Hlhostcontrolindex) + "']" + "[nlHostTimeMark='" + fmt.Sprintf("%v", nlhostentry.Nlhosttimemark) + "']" + "[protocolDirLocalIndex='" + fmt.Sprintf("%v", nlhostentry.Protocoldirlocalindex) + "']" + "[nlHostAddress='" + fmt.Sprintf("%v", nlhostentry.Nlhostaddress) + "']"
-    nlhostentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlhostentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlhostentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlHostEntry *RMON2MIB_NlHostTable_NlHostEntry) GetEntityData() *types.CommonEntityData {
+    nlHostEntry.EntityData.YFilter = nlHostEntry.YFilter
+    nlHostEntry.EntityData.YangName = "nlHostEntry"
+    nlHostEntry.EntityData.BundleName = "cisco_ios_xe"
+    nlHostEntry.EntityData.ParentYangName = "nlHostTable"
+    nlHostEntry.EntityData.SegmentPath = "nlHostEntry" + types.AddKeyToken(nlHostEntry.HlHostControlIndex, "hlHostControlIndex") + types.AddKeyToken(nlHostEntry.NlHostTimeMark, "nlHostTimeMark") + types.AddKeyToken(nlHostEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(nlHostEntry.NlHostAddress, "nlHostAddress")
+    nlHostEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlHostEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlHostEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlhostentry.EntityData.Children = make(map[string]types.YChild)
-    nlhostentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nlhostentry.EntityData.Leafs["hlHostControlIndex"] = types.YLeaf{"Hlhostcontrolindex", nlhostentry.Hlhostcontrolindex}
-    nlhostentry.EntityData.Leafs["nlHostTimeMark"] = types.YLeaf{"Nlhosttimemark", nlhostentry.Nlhosttimemark}
-    nlhostentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", nlhostentry.Protocoldirlocalindex}
-    nlhostentry.EntityData.Leafs["nlHostAddress"] = types.YLeaf{"Nlhostaddress", nlhostentry.Nlhostaddress}
-    nlhostentry.EntityData.Leafs["nlHostInPkts"] = types.YLeaf{"Nlhostinpkts", nlhostentry.Nlhostinpkts}
-    nlhostentry.EntityData.Leafs["nlHostOutPkts"] = types.YLeaf{"Nlhostoutpkts", nlhostentry.Nlhostoutpkts}
-    nlhostentry.EntityData.Leafs["nlHostInOctets"] = types.YLeaf{"Nlhostinoctets", nlhostentry.Nlhostinoctets}
-    nlhostentry.EntityData.Leafs["nlHostOutOctets"] = types.YLeaf{"Nlhostoutoctets", nlhostentry.Nlhostoutoctets}
-    nlhostentry.EntityData.Leafs["nlHostOutMacNonUnicastPkts"] = types.YLeaf{"Nlhostoutmacnonunicastpkts", nlhostentry.Nlhostoutmacnonunicastpkts}
-    nlhostentry.EntityData.Leafs["nlHostCreateTime"] = types.YLeaf{"Nlhostcreatetime", nlhostentry.Nlhostcreatetime}
-    return &(nlhostentry.EntityData)
+    nlHostEntry.EntityData.Children = types.NewOrderedMap()
+    nlHostEntry.EntityData.Leafs = types.NewOrderedMap()
+    nlHostEntry.EntityData.Leafs.Append("hlHostControlIndex", types.YLeaf{"HlHostControlIndex", nlHostEntry.HlHostControlIndex})
+    nlHostEntry.EntityData.Leafs.Append("nlHostTimeMark", types.YLeaf{"NlHostTimeMark", nlHostEntry.NlHostTimeMark})
+    nlHostEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", nlHostEntry.ProtocolDirLocalIndex})
+    nlHostEntry.EntityData.Leafs.Append("nlHostAddress", types.YLeaf{"NlHostAddress", nlHostEntry.NlHostAddress})
+    nlHostEntry.EntityData.Leafs.Append("nlHostInPkts", types.YLeaf{"NlHostInPkts", nlHostEntry.NlHostInPkts})
+    nlHostEntry.EntityData.Leafs.Append("nlHostOutPkts", types.YLeaf{"NlHostOutPkts", nlHostEntry.NlHostOutPkts})
+    nlHostEntry.EntityData.Leafs.Append("nlHostInOctets", types.YLeaf{"NlHostInOctets", nlHostEntry.NlHostInOctets})
+    nlHostEntry.EntityData.Leafs.Append("nlHostOutOctets", types.YLeaf{"NlHostOutOctets", nlHostEntry.NlHostOutOctets})
+    nlHostEntry.EntityData.Leafs.Append("nlHostOutMacNonUnicastPkts", types.YLeaf{"NlHostOutMacNonUnicastPkts", nlHostEntry.NlHostOutMacNonUnicastPkts})
+    nlHostEntry.EntityData.Leafs.Append("nlHostCreateTime", types.YLeaf{"NlHostCreateTime", nlHostEntry.NlHostCreateTime})
+
+    nlHostEntry.EntityData.YListKeys = []string {"HlHostControlIndex", "NlHostTimeMark", "ProtocolDirLocalIndex", "NlHostAddress"}
+
+    return &(nlHostEntry.EntityData)
 }
 
-// RMON2MIB_Hlmatrixcontroltable
+// RMON2MIB_HlMatrixControlTable
 // A list of higher layer (i.e. non-MAC) matrix control entries.
 // 
 // These entries will enable the collection of the network and
@@ -1637,41 +1689,44 @@ func (nlhostentry *RMON2MIB_Nlhosttable_Nlhostentry) GetEntityData() *types.Comm
 // if this probe implements the alMatrix tables, entries in the
 // alMatrix tables will be created on behalf of each entry in
 // this table.
-type RMON2MIB_Hlmatrixcontroltable struct {
+type RMON2MIB_HlMatrixControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the hlMatrixControlTable.  An example of indexing of
     // this entry is hlMatrixControlNlDroppedFrames.1. The type is slice of
-    // RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry.
-    Hlmatrixcontrolentry []RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry
+    // RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry.
+    HlMatrixControlEntry []*RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry
 }
 
-func (hlmatrixcontroltable *RMON2MIB_Hlmatrixcontroltable) GetEntityData() *types.CommonEntityData {
-    hlmatrixcontroltable.EntityData.YFilter = hlmatrixcontroltable.YFilter
-    hlmatrixcontroltable.EntityData.YangName = "hlMatrixControlTable"
-    hlmatrixcontroltable.EntityData.BundleName = "cisco_ios_xe"
-    hlmatrixcontroltable.EntityData.ParentYangName = "RMON2-MIB"
-    hlmatrixcontroltable.EntityData.SegmentPath = "hlMatrixControlTable"
-    hlmatrixcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    hlmatrixcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    hlmatrixcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (hlMatrixControlTable *RMON2MIB_HlMatrixControlTable) GetEntityData() *types.CommonEntityData {
+    hlMatrixControlTable.EntityData.YFilter = hlMatrixControlTable.YFilter
+    hlMatrixControlTable.EntityData.YangName = "hlMatrixControlTable"
+    hlMatrixControlTable.EntityData.BundleName = "cisco_ios_xe"
+    hlMatrixControlTable.EntityData.ParentYangName = "RMON2-MIB"
+    hlMatrixControlTable.EntityData.SegmentPath = "hlMatrixControlTable"
+    hlMatrixControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hlMatrixControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hlMatrixControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    hlmatrixcontroltable.EntityData.Children = make(map[string]types.YChild)
-    hlmatrixcontroltable.EntityData.Children["hlMatrixControlEntry"] = types.YChild{"Hlmatrixcontrolentry", nil}
-    for i := range hlmatrixcontroltable.Hlmatrixcontrolentry {
-        hlmatrixcontroltable.EntityData.Children[types.GetSegmentPath(&hlmatrixcontroltable.Hlmatrixcontrolentry[i])] = types.YChild{"Hlmatrixcontrolentry", &hlmatrixcontroltable.Hlmatrixcontrolentry[i]}
+    hlMatrixControlTable.EntityData.Children = types.NewOrderedMap()
+    hlMatrixControlTable.EntityData.Children.Append("hlMatrixControlEntry", types.YChild{"HlMatrixControlEntry", nil})
+    for i := range hlMatrixControlTable.HlMatrixControlEntry {
+        hlMatrixControlTable.EntityData.Children.Append(types.GetSegmentPath(hlMatrixControlTable.HlMatrixControlEntry[i]), types.YChild{"HlMatrixControlEntry", hlMatrixControlTable.HlMatrixControlEntry[i]})
     }
-    hlmatrixcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(hlmatrixcontroltable.EntityData)
+    hlMatrixControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    hlMatrixControlTable.EntityData.YListKeys = []string {}
+
+    return &(hlMatrixControlTable.EntityData)
 }
 
-// RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry
+// RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry
 // A conceptual row in the hlMatrixControlTable.
 // 
 // An example of indexing of this entry is
 // hlMatrixControlNlDroppedFrames.1
-type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
+type RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1681,15 +1736,14 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // the nlMatrixSDTable and the nlMatrixDSTable, and optionally the
     // alMatrixSDTable and alMatrixDSTable, on behalf of this
     // hlMatrixControlEntry. The type is interface{} with range: 1..65535.
-    Hlmatrixcontrolindex interface{}
+    HlMatrixControlIndex interface{}
 
     // The source of the data for the associated matrix tables.  The statistics in
     // this group reflect all packets on the local network segment attached to the
     // identified interface.  This object may not be modified if the associated
     // hlMatrixControlStatus object is equal to active(1). The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Hlmatrixcontroldatasource interface{}
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    HlMatrixControlDataSource interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -1701,7 +1755,7 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // this value should be 0.  Note that, unlike the dropEvents counter, this
     // number is the exact number of frames dropped. The type is interface{} with
     // range: 0..4294967295.
-    Hlmatrixcontrolnldroppedframes interface{}
+    HlMatrixControlNlDroppedFrames interface{}
 
     // The number of times an nlMatrix entry has been inserted into the nlMatrix
     // tables.  If an entry is inserted, then deleted, and then inserted, this
@@ -1717,7 +1771,7 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // nlMatrixDSTable sizes can be determined by subtracting
     // hlMatrixControlNlDeletes from hlMatrixControlNlInserts. The type is
     // interface{} with range: 0..4294967295.
-    Hlmatrixcontrolnlinserts interface{}
+    HlMatrixControlNlInserts interface{}
 
     // The number of times an nlMatrix entry has been deleted from the nlMatrix
     // tables (for any reason).  If an entry is deleted, then inserted, and then
@@ -1732,7 +1786,7 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // those short periods of time.  Note that the table size can be determined by
     // subtracting hlMatrixControlNlDeletes from hlMatrixControlNlInserts. The
     // type is interface{} with range: 0..4294967295.
-    Hlmatrixcontrolnldeletes interface{}
+    HlMatrixControlNlDeletes interface{}
 
     // The maximum number of entries that are desired in the nlMatrix tables on
     // behalf of this control entry. The probe will not create more than this
@@ -1746,7 +1800,7 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // to `active', this object may not be modified.  This object may be used to
     // control how resources are allocated on the probe for the various RMON
     // functions. The type is interface{} with range: -1..2147483647.
-    Hlmatrixcontrolnlmaxdesiredentries interface{}
+    HlMatrixControlNlMaxDesiredEntries interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -1758,7 +1812,7 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // protocol directory, this value should be 0.  Note that, unlike the
     // dropEvents counter, this number is the exact number of frames dropped. The
     // type is interface{} with range: 0..4294967295.
-    Hlmatrixcontrolaldroppedframes interface{}
+    HlMatrixControlAlDroppedFrames interface{}
 
     // The number of times an alMatrix entry has been inserted into the alMatrix
     // tables.  If an entry is inserted, then deleted, and then inserted, this
@@ -1773,7 +1827,7 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // periods of time.  Note that the table size can be determined by subtracting
     // hlMatrixControlAlDeletes from hlMatrixControlAlInserts. The type is
     // interface{} with range: 0..4294967295.
-    Hlmatrixcontrolalinserts interface{}
+    HlMatrixControlAlInserts interface{}
 
     // The number of times an alMatrix entry has been deleted from the alMatrix
     // tables.  If an entry is deleted, then inserted, and then deleted, this
@@ -1788,7 +1842,7 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // periods of time.  Note that the table size can be determined by subtracting
     // hlMatrixControlAlDeletes from hlMatrixControlAlInserts. The type is
     // interface{} with range: 0..4294967295.
-    Hlmatrixcontrolaldeletes interface{}
+    HlMatrixControlAlDeletes interface{}
 
     // The maximum number of entries that are desired in the alMatrix tables on
     // behalf of this control entry. The probe will not create more than this
@@ -1802,48 +1856,51 @@ type RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry struct {
     // to `active', this object may not be modified.  This object may be used to
     // control how resources are allocated on the probe for the various RMON
     // functions. The type is interface{} with range: -1..2147483647.
-    Hlmatrixcontrolalmaxdesiredentries interface{}
+    HlMatrixControlAlMaxDesiredEntries interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Hlmatrixcontrolowner interface{}
+    HlMatrixControlOwner interface{}
 
     // The status of this hlMatrixControlEntry.  An entry may not exist in the
     // active state unless all objects in the entry have an appropriate value.  If
     // this object is not equal to active(1), all associated entries in the
     // nlMatrixSDTable, nlMatrixDSTable, alMatrixSDTable, and the alMatrixDSTable
     // shall be deleted by the agent. The type is RowStatus.
-    Hlmatrixcontrolstatus interface{}
+    HlMatrixControlStatus interface{}
 }
 
-func (hlmatrixcontrolentry *RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry) GetEntityData() *types.CommonEntityData {
-    hlmatrixcontrolentry.EntityData.YFilter = hlmatrixcontrolentry.YFilter
-    hlmatrixcontrolentry.EntityData.YangName = "hlMatrixControlEntry"
-    hlmatrixcontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    hlmatrixcontrolentry.EntityData.ParentYangName = "hlMatrixControlTable"
-    hlmatrixcontrolentry.EntityData.SegmentPath = "hlMatrixControlEntry" + "[hlMatrixControlIndex='" + fmt.Sprintf("%v", hlmatrixcontrolentry.Hlmatrixcontrolindex) + "']"
-    hlmatrixcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    hlmatrixcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    hlmatrixcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (hlMatrixControlEntry *RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry) GetEntityData() *types.CommonEntityData {
+    hlMatrixControlEntry.EntityData.YFilter = hlMatrixControlEntry.YFilter
+    hlMatrixControlEntry.EntityData.YangName = "hlMatrixControlEntry"
+    hlMatrixControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    hlMatrixControlEntry.EntityData.ParentYangName = "hlMatrixControlTable"
+    hlMatrixControlEntry.EntityData.SegmentPath = "hlMatrixControlEntry" + types.AddKeyToken(hlMatrixControlEntry.HlMatrixControlIndex, "hlMatrixControlIndex")
+    hlMatrixControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hlMatrixControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hlMatrixControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    hlmatrixcontrolentry.EntityData.Children = make(map[string]types.YChild)
-    hlmatrixcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlIndex"] = types.YLeaf{"Hlmatrixcontrolindex", hlmatrixcontrolentry.Hlmatrixcontrolindex}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlDataSource"] = types.YLeaf{"Hlmatrixcontroldatasource", hlmatrixcontrolentry.Hlmatrixcontroldatasource}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlNlDroppedFrames"] = types.YLeaf{"Hlmatrixcontrolnldroppedframes", hlmatrixcontrolentry.Hlmatrixcontrolnldroppedframes}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlNlInserts"] = types.YLeaf{"Hlmatrixcontrolnlinserts", hlmatrixcontrolentry.Hlmatrixcontrolnlinserts}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlNlDeletes"] = types.YLeaf{"Hlmatrixcontrolnldeletes", hlmatrixcontrolentry.Hlmatrixcontrolnldeletes}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlNlMaxDesiredEntries"] = types.YLeaf{"Hlmatrixcontrolnlmaxdesiredentries", hlmatrixcontrolentry.Hlmatrixcontrolnlmaxdesiredentries}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlAlDroppedFrames"] = types.YLeaf{"Hlmatrixcontrolaldroppedframes", hlmatrixcontrolentry.Hlmatrixcontrolaldroppedframes}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlAlInserts"] = types.YLeaf{"Hlmatrixcontrolalinserts", hlmatrixcontrolentry.Hlmatrixcontrolalinserts}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlAlDeletes"] = types.YLeaf{"Hlmatrixcontrolaldeletes", hlmatrixcontrolentry.Hlmatrixcontrolaldeletes}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlAlMaxDesiredEntries"] = types.YLeaf{"Hlmatrixcontrolalmaxdesiredentries", hlmatrixcontrolentry.Hlmatrixcontrolalmaxdesiredentries}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlOwner"] = types.YLeaf{"Hlmatrixcontrolowner", hlmatrixcontrolentry.Hlmatrixcontrolowner}
-    hlmatrixcontrolentry.EntityData.Leafs["hlMatrixControlStatus"] = types.YLeaf{"Hlmatrixcontrolstatus", hlmatrixcontrolentry.Hlmatrixcontrolstatus}
-    return &(hlmatrixcontrolentry.EntityData)
+    hlMatrixControlEntry.EntityData.Children = types.NewOrderedMap()
+    hlMatrixControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlIndex", types.YLeaf{"HlMatrixControlIndex", hlMatrixControlEntry.HlMatrixControlIndex})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlDataSource", types.YLeaf{"HlMatrixControlDataSource", hlMatrixControlEntry.HlMatrixControlDataSource})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlNlDroppedFrames", types.YLeaf{"HlMatrixControlNlDroppedFrames", hlMatrixControlEntry.HlMatrixControlNlDroppedFrames})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlNlInserts", types.YLeaf{"HlMatrixControlNlInserts", hlMatrixControlEntry.HlMatrixControlNlInserts})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlNlDeletes", types.YLeaf{"HlMatrixControlNlDeletes", hlMatrixControlEntry.HlMatrixControlNlDeletes})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlNlMaxDesiredEntries", types.YLeaf{"HlMatrixControlNlMaxDesiredEntries", hlMatrixControlEntry.HlMatrixControlNlMaxDesiredEntries})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlAlDroppedFrames", types.YLeaf{"HlMatrixControlAlDroppedFrames", hlMatrixControlEntry.HlMatrixControlAlDroppedFrames})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlAlInserts", types.YLeaf{"HlMatrixControlAlInserts", hlMatrixControlEntry.HlMatrixControlAlInserts})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlAlDeletes", types.YLeaf{"HlMatrixControlAlDeletes", hlMatrixControlEntry.HlMatrixControlAlDeletes})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlAlMaxDesiredEntries", types.YLeaf{"HlMatrixControlAlMaxDesiredEntries", hlMatrixControlEntry.HlMatrixControlAlMaxDesiredEntries})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlOwner", types.YLeaf{"HlMatrixControlOwner", hlMatrixControlEntry.HlMatrixControlOwner})
+    hlMatrixControlEntry.EntityData.Leafs.Append("hlMatrixControlStatus", types.YLeaf{"HlMatrixControlStatus", hlMatrixControlEntry.HlMatrixControlStatus})
+
+    hlMatrixControlEntry.EntityData.YListKeys = []string {"HlMatrixControlIndex"}
+
+    return &(hlMatrixControlEntry.EntityData)
 }
 
-// RMON2MIB_Nlmatrixsdtable
+// RMON2MIB_NlMatrixSDTable
 // A list of traffic matrix entries which collect statistics for
 // conversations between two network-level addresses.  This table
 // is indexed first by the source address and then by the
@@ -1868,7 +1925,7 @@ func (hlmatrixcontrolentry *RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry) 
 // Further, this table will only contain entries that have a
 // corresponding entry in the nlMatrixDSTable with the same
 // source address and destination address.
-type RMON2MIB_Nlmatrixsdtable struct {
+type RMON2MIB_NlMatrixSDTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1878,30 +1935,33 @@ type RMON2MIB_Nlmatrixsdtable struct {
     // network layer protocol of the nlMatrixSDSourceAddress and
     // nlMatrixSDDestAddress.  An example of the indexing of this table is
     // nlMatrixSDPkts.1.783495.18.4.128.2.6.6.4.128.2.6.7. The type is slice of
-    // RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry.
-    Nlmatrixsdentry []RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry
+    // RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry.
+    NlMatrixSDEntry []*RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry
 }
 
-func (nlmatrixsdtable *RMON2MIB_Nlmatrixsdtable) GetEntityData() *types.CommonEntityData {
-    nlmatrixsdtable.EntityData.YFilter = nlmatrixsdtable.YFilter
-    nlmatrixsdtable.EntityData.YangName = "nlMatrixSDTable"
-    nlmatrixsdtable.EntityData.BundleName = "cisco_ios_xe"
-    nlmatrixsdtable.EntityData.ParentYangName = "RMON2-MIB"
-    nlmatrixsdtable.EntityData.SegmentPath = "nlMatrixSDTable"
-    nlmatrixsdtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlmatrixsdtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlmatrixsdtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlMatrixSDTable *RMON2MIB_NlMatrixSDTable) GetEntityData() *types.CommonEntityData {
+    nlMatrixSDTable.EntityData.YFilter = nlMatrixSDTable.YFilter
+    nlMatrixSDTable.EntityData.YangName = "nlMatrixSDTable"
+    nlMatrixSDTable.EntityData.BundleName = "cisco_ios_xe"
+    nlMatrixSDTable.EntityData.ParentYangName = "RMON2-MIB"
+    nlMatrixSDTable.EntityData.SegmentPath = "nlMatrixSDTable"
+    nlMatrixSDTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlMatrixSDTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlMatrixSDTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlmatrixsdtable.EntityData.Children = make(map[string]types.YChild)
-    nlmatrixsdtable.EntityData.Children["nlMatrixSDEntry"] = types.YChild{"Nlmatrixsdentry", nil}
-    for i := range nlmatrixsdtable.Nlmatrixsdentry {
-        nlmatrixsdtable.EntityData.Children[types.GetSegmentPath(&nlmatrixsdtable.Nlmatrixsdentry[i])] = types.YChild{"Nlmatrixsdentry", &nlmatrixsdtable.Nlmatrixsdentry[i]}
+    nlMatrixSDTable.EntityData.Children = types.NewOrderedMap()
+    nlMatrixSDTable.EntityData.Children.Append("nlMatrixSDEntry", types.YChild{"NlMatrixSDEntry", nil})
+    for i := range nlMatrixSDTable.NlMatrixSDEntry {
+        nlMatrixSDTable.EntityData.Children.Append(types.GetSegmentPath(nlMatrixSDTable.NlMatrixSDEntry[i]), types.YChild{"NlMatrixSDEntry", nlMatrixSDTable.NlMatrixSDEntry[i]})
     }
-    nlmatrixsdtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nlmatrixsdtable.EntityData)
+    nlMatrixSDTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nlMatrixSDTable.EntityData.YListKeys = []string {}
+
+    return &(nlMatrixSDTable.EntityData)
 }
 
-// RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry
+// RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry
 // A conceptual row in the nlMatrixSDTable.
 // 
 // The hlMatrixControlIndex value in the index identifies the
@@ -1912,23 +1972,23 @@ func (nlmatrixsdtable *RMON2MIB_Nlmatrixsdtable) GetEntityData() *types.CommonEn
 // 
 // An example of the indexing of this table is
 // nlMatrixSDPkts.1.783495.18.4.128.2.6.6.4.128.2.6.7
-type RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry struct {
+type RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry_Hlmatrixcontrolindex
-    Hlmatrixcontrolindex interface{}
+    // rmon2_mib.RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry_HlMatrixControlIndex
+    HlMatrixControlIndex interface{}
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
     // range: 0..4294967295.
-    Nlmatrixsdtimemark interface{}
+    NlMatrixSDTimeMark interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex interface{}
 
     // This attribute is a key. The network source address for this
     // nlMatrixSDEntry.  This is represented as an octet string with specific
@@ -1937,7 +1997,7 @@ type RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry struct {
     // encapsulation of ip, this object is encoded as a length octet of 4,
     // followed by the 4 octets of the ip address, in network byte order. The type
     // is string.
-    Nlmatrixsdsourceaddress interface{}
+    NlMatrixSDSourceAddress interface{}
 
     // This attribute is a key. The network destination address for this
     // nlMatrixSDEntry.  This is represented as an octet string with specific
@@ -1946,7 +2006,7 @@ type RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry struct {
     // encapsulation of ip, this object is encoded as a length octet of 4,
     // followed by the 4 octets of the ip address, in network byte order. The type
     // is string.
-    Nlmatrixsddestaddress interface{}
+    NlMatrixSDDestAddress interface{}
 
     // The number of packets without errors transmitted from the source address to
     // the destination address since this entry was added to the nlMatrixSDTable. 
@@ -1954,7 +2014,7 @@ type RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry struct {
     // network-layer packet is fragmented into several link-layer frames, this
     // counter is incremented several times. The type is interface{} with range:
     // 0..4294967295.
-    Nlmatrixsdpkts interface{}
+    NlMatrixSDPkts interface{}
 
     // The number of octets transmitted from the source address to the destination
     // address since this entry was added to the nlMatrixSDTable (excluding
@@ -1962,38 +2022,41 @@ type RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry struct {
     // that contained errors.  Note this doesn't count just those octets in the
     // particular protocol frames, but includes the entire packet that contained
     // the protocol. The type is interface{} with range: 0..4294967295.
-    Nlmatrixsdoctets interface{}
+    NlMatrixSDOctets interface{}
 
     // The value of sysUpTime when this entry was last activated. This can be used
     // by the management station to ensure that the entry has not been deleted and
     // recreated between polls. The type is interface{} with range: 0..4294967295.
-    Nlmatrixsdcreatetime interface{}
+    NlMatrixSDCreateTime interface{}
 }
 
-func (nlmatrixsdentry *RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry) GetEntityData() *types.CommonEntityData {
-    nlmatrixsdentry.EntityData.YFilter = nlmatrixsdentry.YFilter
-    nlmatrixsdentry.EntityData.YangName = "nlMatrixSDEntry"
-    nlmatrixsdentry.EntityData.BundleName = "cisco_ios_xe"
-    nlmatrixsdentry.EntityData.ParentYangName = "nlMatrixSDTable"
-    nlmatrixsdentry.EntityData.SegmentPath = "nlMatrixSDEntry" + "[hlMatrixControlIndex='" + fmt.Sprintf("%v", nlmatrixsdentry.Hlmatrixcontrolindex) + "']" + "[nlMatrixSDTimeMark='" + fmt.Sprintf("%v", nlmatrixsdentry.Nlmatrixsdtimemark) + "']" + "[protocolDirLocalIndex='" + fmt.Sprintf("%v", nlmatrixsdentry.Protocoldirlocalindex) + "']" + "[nlMatrixSDSourceAddress='" + fmt.Sprintf("%v", nlmatrixsdentry.Nlmatrixsdsourceaddress) + "']" + "[nlMatrixSDDestAddress='" + fmt.Sprintf("%v", nlmatrixsdentry.Nlmatrixsddestaddress) + "']"
-    nlmatrixsdentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlmatrixsdentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlmatrixsdentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlMatrixSDEntry *RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry) GetEntityData() *types.CommonEntityData {
+    nlMatrixSDEntry.EntityData.YFilter = nlMatrixSDEntry.YFilter
+    nlMatrixSDEntry.EntityData.YangName = "nlMatrixSDEntry"
+    nlMatrixSDEntry.EntityData.BundleName = "cisco_ios_xe"
+    nlMatrixSDEntry.EntityData.ParentYangName = "nlMatrixSDTable"
+    nlMatrixSDEntry.EntityData.SegmentPath = "nlMatrixSDEntry" + types.AddKeyToken(nlMatrixSDEntry.HlMatrixControlIndex, "hlMatrixControlIndex") + types.AddKeyToken(nlMatrixSDEntry.NlMatrixSDTimeMark, "nlMatrixSDTimeMark") + types.AddKeyToken(nlMatrixSDEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(nlMatrixSDEntry.NlMatrixSDSourceAddress, "nlMatrixSDSourceAddress") + types.AddKeyToken(nlMatrixSDEntry.NlMatrixSDDestAddress, "nlMatrixSDDestAddress")
+    nlMatrixSDEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlMatrixSDEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlMatrixSDEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlmatrixsdentry.EntityData.Children = make(map[string]types.YChild)
-    nlmatrixsdentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nlmatrixsdentry.EntityData.Leafs["hlMatrixControlIndex"] = types.YLeaf{"Hlmatrixcontrolindex", nlmatrixsdentry.Hlmatrixcontrolindex}
-    nlmatrixsdentry.EntityData.Leafs["nlMatrixSDTimeMark"] = types.YLeaf{"Nlmatrixsdtimemark", nlmatrixsdentry.Nlmatrixsdtimemark}
-    nlmatrixsdentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", nlmatrixsdentry.Protocoldirlocalindex}
-    nlmatrixsdentry.EntityData.Leafs["nlMatrixSDSourceAddress"] = types.YLeaf{"Nlmatrixsdsourceaddress", nlmatrixsdentry.Nlmatrixsdsourceaddress}
-    nlmatrixsdentry.EntityData.Leafs["nlMatrixSDDestAddress"] = types.YLeaf{"Nlmatrixsddestaddress", nlmatrixsdentry.Nlmatrixsddestaddress}
-    nlmatrixsdentry.EntityData.Leafs["nlMatrixSDPkts"] = types.YLeaf{"Nlmatrixsdpkts", nlmatrixsdentry.Nlmatrixsdpkts}
-    nlmatrixsdentry.EntityData.Leafs["nlMatrixSDOctets"] = types.YLeaf{"Nlmatrixsdoctets", nlmatrixsdentry.Nlmatrixsdoctets}
-    nlmatrixsdentry.EntityData.Leafs["nlMatrixSDCreateTime"] = types.YLeaf{"Nlmatrixsdcreatetime", nlmatrixsdentry.Nlmatrixsdcreatetime}
-    return &(nlmatrixsdentry.EntityData)
+    nlMatrixSDEntry.EntityData.Children = types.NewOrderedMap()
+    nlMatrixSDEntry.EntityData.Leafs = types.NewOrderedMap()
+    nlMatrixSDEntry.EntityData.Leafs.Append("hlMatrixControlIndex", types.YLeaf{"HlMatrixControlIndex", nlMatrixSDEntry.HlMatrixControlIndex})
+    nlMatrixSDEntry.EntityData.Leafs.Append("nlMatrixSDTimeMark", types.YLeaf{"NlMatrixSDTimeMark", nlMatrixSDEntry.NlMatrixSDTimeMark})
+    nlMatrixSDEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", nlMatrixSDEntry.ProtocolDirLocalIndex})
+    nlMatrixSDEntry.EntityData.Leafs.Append("nlMatrixSDSourceAddress", types.YLeaf{"NlMatrixSDSourceAddress", nlMatrixSDEntry.NlMatrixSDSourceAddress})
+    nlMatrixSDEntry.EntityData.Leafs.Append("nlMatrixSDDestAddress", types.YLeaf{"NlMatrixSDDestAddress", nlMatrixSDEntry.NlMatrixSDDestAddress})
+    nlMatrixSDEntry.EntityData.Leafs.Append("nlMatrixSDPkts", types.YLeaf{"NlMatrixSDPkts", nlMatrixSDEntry.NlMatrixSDPkts})
+    nlMatrixSDEntry.EntityData.Leafs.Append("nlMatrixSDOctets", types.YLeaf{"NlMatrixSDOctets", nlMatrixSDEntry.NlMatrixSDOctets})
+    nlMatrixSDEntry.EntityData.Leafs.Append("nlMatrixSDCreateTime", types.YLeaf{"NlMatrixSDCreateTime", nlMatrixSDEntry.NlMatrixSDCreateTime})
+
+    nlMatrixSDEntry.EntityData.YListKeys = []string {"HlMatrixControlIndex", "NlMatrixSDTimeMark", "ProtocolDirLocalIndex", "NlMatrixSDSourceAddress", "NlMatrixSDDestAddress"}
+
+    return &(nlMatrixSDEntry.EntityData)
 }
 
-// RMON2MIB_Nlmatrixdstable
+// RMON2MIB_NlMatrixDSTable
 // A list of traffic matrix entries which collect statistics for
 // conversations between two network-level addresses.  This table
 // is indexed first by the destination address and then by the
@@ -2019,7 +2082,7 @@ func (nlmatrixsdentry *RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry) GetEntityData()
 // Further, this table will only contain entries that have a
 // corresponding entry in the nlMatrixSDTable with the same
 // source address and destination address.
-type RMON2MIB_Nlmatrixdstable struct {
+type RMON2MIB_NlMatrixDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2029,30 +2092,33 @@ type RMON2MIB_Nlmatrixdstable struct {
     // network layer protocol of the nlMatrixDSSourceAddress and
     // nlMatrixDSDestAddress.  An example of the indexing of this table is
     // nlMatrixDSPkts.1.783495.18.4.128.2.6.7.4.128.2.6.6. The type is slice of
-    // RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry.
-    Nlmatrixdsentry []RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry
+    // RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry.
+    NlMatrixDSEntry []*RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry
 }
 
-func (nlmatrixdstable *RMON2MIB_Nlmatrixdstable) GetEntityData() *types.CommonEntityData {
-    nlmatrixdstable.EntityData.YFilter = nlmatrixdstable.YFilter
-    nlmatrixdstable.EntityData.YangName = "nlMatrixDSTable"
-    nlmatrixdstable.EntityData.BundleName = "cisco_ios_xe"
-    nlmatrixdstable.EntityData.ParentYangName = "RMON2-MIB"
-    nlmatrixdstable.EntityData.SegmentPath = "nlMatrixDSTable"
-    nlmatrixdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlmatrixdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlmatrixdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlMatrixDSTable *RMON2MIB_NlMatrixDSTable) GetEntityData() *types.CommonEntityData {
+    nlMatrixDSTable.EntityData.YFilter = nlMatrixDSTable.YFilter
+    nlMatrixDSTable.EntityData.YangName = "nlMatrixDSTable"
+    nlMatrixDSTable.EntityData.BundleName = "cisco_ios_xe"
+    nlMatrixDSTable.EntityData.ParentYangName = "RMON2-MIB"
+    nlMatrixDSTable.EntityData.SegmentPath = "nlMatrixDSTable"
+    nlMatrixDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlMatrixDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlMatrixDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlmatrixdstable.EntityData.Children = make(map[string]types.YChild)
-    nlmatrixdstable.EntityData.Children["nlMatrixDSEntry"] = types.YChild{"Nlmatrixdsentry", nil}
-    for i := range nlmatrixdstable.Nlmatrixdsentry {
-        nlmatrixdstable.EntityData.Children[types.GetSegmentPath(&nlmatrixdstable.Nlmatrixdsentry[i])] = types.YChild{"Nlmatrixdsentry", &nlmatrixdstable.Nlmatrixdsentry[i]}
+    nlMatrixDSTable.EntityData.Children = types.NewOrderedMap()
+    nlMatrixDSTable.EntityData.Children.Append("nlMatrixDSEntry", types.YChild{"NlMatrixDSEntry", nil})
+    for i := range nlMatrixDSTable.NlMatrixDSEntry {
+        nlMatrixDSTable.EntityData.Children.Append(types.GetSegmentPath(nlMatrixDSTable.NlMatrixDSEntry[i]), types.YChild{"NlMatrixDSEntry", nlMatrixDSTable.NlMatrixDSEntry[i]})
     }
-    nlmatrixdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nlmatrixdstable.EntityData)
+    nlMatrixDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nlMatrixDSTable.EntityData.YListKeys = []string {}
+
+    return &(nlMatrixDSTable.EntityData)
 }
 
-// RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry
+// RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry
 // A conceptual row in the nlMatrixDSTable.
 // 
 // The hlMatrixControlIndex value in the index identifies the
@@ -2063,23 +2129,23 @@ func (nlmatrixdstable *RMON2MIB_Nlmatrixdstable) GetEntityData() *types.CommonEn
 // 
 // An example of the indexing of this table is
 // nlMatrixDSPkts.1.783495.18.4.128.2.6.7.4.128.2.6.6
-type RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry struct {
+type RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry_Hlmatrixcontrolindex
-    Hlmatrixcontrolindex interface{}
+    // rmon2_mib.RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry_HlMatrixControlIndex
+    HlMatrixControlIndex interface{}
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
     // range: 0..4294967295.
-    Nlmatrixdstimemark interface{}
+    NlMatrixDSTimeMark interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex interface{}
 
     // This attribute is a key. The network destination address for this
     // nlMatrixDSEntry.  This is represented as an octet string with specific
@@ -2088,7 +2154,7 @@ type RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry struct {
     // encapsulation of ip, this object is encoded as a length octet of 4,
     // followed by the 4 octets of the ip address, in network byte order. The type
     // is string.
-    Nlmatrixdsdestaddress interface{}
+    NlMatrixDSDestAddress interface{}
 
     // This attribute is a key. The network source address for this
     // nlMatrixDSEntry.  This is represented as an octet string with specific
@@ -2097,7 +2163,7 @@ type RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry struct {
     // encapsulation of ip, this object is encoded as a length octet of 4,
     // followed by the 4 octets of the ip address, in network byte order. The type
     // is string.
-    Nlmatrixdssourceaddress interface{}
+    NlMatrixDSSourceAddress interface{}
 
     // The number of packets without errors transmitted from the source address to
     // the destination address since this entry was added to the nlMatrixDSTable. 
@@ -2105,7 +2171,7 @@ type RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry struct {
     // network-layer packet is fragmented into several link-layer frames, this
     // counter is incremented several times. The type is interface{} with range:
     // 0..4294967295.
-    Nlmatrixdspkts interface{}
+    NlMatrixDSPkts interface{}
 
     // The number of octets transmitted from the source address to the destination
     // address since this entry was added to the nlMatrixDSTable (excluding
@@ -2113,83 +2179,89 @@ type RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry struct {
     // that contained errors.  Note this doesn't count just those octets in the
     // particular protocol frames, but includes the entire packet that contained
     // the protocol. The type is interface{} with range: 0..4294967295.
-    Nlmatrixdsoctets interface{}
+    NlMatrixDSOctets interface{}
 
     // The value of sysUpTime when this entry was last activated. This can be used
     // by the management station to ensure that the entry has not been deleted and
     // recreated between polls. The type is interface{} with range: 0..4294967295.
-    Nlmatrixdscreatetime interface{}
+    NlMatrixDSCreateTime interface{}
 }
 
-func (nlmatrixdsentry *RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry) GetEntityData() *types.CommonEntityData {
-    nlmatrixdsentry.EntityData.YFilter = nlmatrixdsentry.YFilter
-    nlmatrixdsentry.EntityData.YangName = "nlMatrixDSEntry"
-    nlmatrixdsentry.EntityData.BundleName = "cisco_ios_xe"
-    nlmatrixdsentry.EntityData.ParentYangName = "nlMatrixDSTable"
-    nlmatrixdsentry.EntityData.SegmentPath = "nlMatrixDSEntry" + "[hlMatrixControlIndex='" + fmt.Sprintf("%v", nlmatrixdsentry.Hlmatrixcontrolindex) + "']" + "[nlMatrixDSTimeMark='" + fmt.Sprintf("%v", nlmatrixdsentry.Nlmatrixdstimemark) + "']" + "[protocolDirLocalIndex='" + fmt.Sprintf("%v", nlmatrixdsentry.Protocoldirlocalindex) + "']" + "[nlMatrixDSDestAddress='" + fmt.Sprintf("%v", nlmatrixdsentry.Nlmatrixdsdestaddress) + "']" + "[nlMatrixDSSourceAddress='" + fmt.Sprintf("%v", nlmatrixdsentry.Nlmatrixdssourceaddress) + "']"
-    nlmatrixdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlmatrixdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlmatrixdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlMatrixDSEntry *RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry) GetEntityData() *types.CommonEntityData {
+    nlMatrixDSEntry.EntityData.YFilter = nlMatrixDSEntry.YFilter
+    nlMatrixDSEntry.EntityData.YangName = "nlMatrixDSEntry"
+    nlMatrixDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    nlMatrixDSEntry.EntityData.ParentYangName = "nlMatrixDSTable"
+    nlMatrixDSEntry.EntityData.SegmentPath = "nlMatrixDSEntry" + types.AddKeyToken(nlMatrixDSEntry.HlMatrixControlIndex, "hlMatrixControlIndex") + types.AddKeyToken(nlMatrixDSEntry.NlMatrixDSTimeMark, "nlMatrixDSTimeMark") + types.AddKeyToken(nlMatrixDSEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(nlMatrixDSEntry.NlMatrixDSDestAddress, "nlMatrixDSDestAddress") + types.AddKeyToken(nlMatrixDSEntry.NlMatrixDSSourceAddress, "nlMatrixDSSourceAddress")
+    nlMatrixDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlMatrixDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlMatrixDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlmatrixdsentry.EntityData.Children = make(map[string]types.YChild)
-    nlmatrixdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nlmatrixdsentry.EntityData.Leafs["hlMatrixControlIndex"] = types.YLeaf{"Hlmatrixcontrolindex", nlmatrixdsentry.Hlmatrixcontrolindex}
-    nlmatrixdsentry.EntityData.Leafs["nlMatrixDSTimeMark"] = types.YLeaf{"Nlmatrixdstimemark", nlmatrixdsentry.Nlmatrixdstimemark}
-    nlmatrixdsentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", nlmatrixdsentry.Protocoldirlocalindex}
-    nlmatrixdsentry.EntityData.Leafs["nlMatrixDSDestAddress"] = types.YLeaf{"Nlmatrixdsdestaddress", nlmatrixdsentry.Nlmatrixdsdestaddress}
-    nlmatrixdsentry.EntityData.Leafs["nlMatrixDSSourceAddress"] = types.YLeaf{"Nlmatrixdssourceaddress", nlmatrixdsentry.Nlmatrixdssourceaddress}
-    nlmatrixdsentry.EntityData.Leafs["nlMatrixDSPkts"] = types.YLeaf{"Nlmatrixdspkts", nlmatrixdsentry.Nlmatrixdspkts}
-    nlmatrixdsentry.EntityData.Leafs["nlMatrixDSOctets"] = types.YLeaf{"Nlmatrixdsoctets", nlmatrixdsentry.Nlmatrixdsoctets}
-    nlmatrixdsentry.EntityData.Leafs["nlMatrixDSCreateTime"] = types.YLeaf{"Nlmatrixdscreatetime", nlmatrixdsentry.Nlmatrixdscreatetime}
-    return &(nlmatrixdsentry.EntityData)
+    nlMatrixDSEntry.EntityData.Children = types.NewOrderedMap()
+    nlMatrixDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    nlMatrixDSEntry.EntityData.Leafs.Append("hlMatrixControlIndex", types.YLeaf{"HlMatrixControlIndex", nlMatrixDSEntry.HlMatrixControlIndex})
+    nlMatrixDSEntry.EntityData.Leafs.Append("nlMatrixDSTimeMark", types.YLeaf{"NlMatrixDSTimeMark", nlMatrixDSEntry.NlMatrixDSTimeMark})
+    nlMatrixDSEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", nlMatrixDSEntry.ProtocolDirLocalIndex})
+    nlMatrixDSEntry.EntityData.Leafs.Append("nlMatrixDSDestAddress", types.YLeaf{"NlMatrixDSDestAddress", nlMatrixDSEntry.NlMatrixDSDestAddress})
+    nlMatrixDSEntry.EntityData.Leafs.Append("nlMatrixDSSourceAddress", types.YLeaf{"NlMatrixDSSourceAddress", nlMatrixDSEntry.NlMatrixDSSourceAddress})
+    nlMatrixDSEntry.EntityData.Leafs.Append("nlMatrixDSPkts", types.YLeaf{"NlMatrixDSPkts", nlMatrixDSEntry.NlMatrixDSPkts})
+    nlMatrixDSEntry.EntityData.Leafs.Append("nlMatrixDSOctets", types.YLeaf{"NlMatrixDSOctets", nlMatrixDSEntry.NlMatrixDSOctets})
+    nlMatrixDSEntry.EntityData.Leafs.Append("nlMatrixDSCreateTime", types.YLeaf{"NlMatrixDSCreateTime", nlMatrixDSEntry.NlMatrixDSCreateTime})
+
+    nlMatrixDSEntry.EntityData.YListKeys = []string {"HlMatrixControlIndex", "NlMatrixDSTimeMark", "ProtocolDirLocalIndex", "NlMatrixDSDestAddress", "NlMatrixDSSourceAddress"}
+
+    return &(nlMatrixDSEntry.EntityData)
 }
 
-// RMON2MIB_Nlmatrixtopncontroltable
+// RMON2MIB_NlMatrixTopNControlTable
 // A set of parameters that control the creation of a
 // report of the top N matrix entries according to
 // a selected metric.
-type RMON2MIB_Nlmatrixtopncontroltable struct {
+type RMON2MIB_NlMatrixTopNControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the nlMatrixTopNControlTable.  An example of the
     // indexing of this table is nlMatrixTopNControlDuration.3. The type is slice
-    // of RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry.
-    Nlmatrixtopncontrolentry []RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry
+    // of RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry.
+    NlMatrixTopNControlEntry []*RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry
 }
 
-func (nlmatrixtopncontroltable *RMON2MIB_Nlmatrixtopncontroltable) GetEntityData() *types.CommonEntityData {
-    nlmatrixtopncontroltable.EntityData.YFilter = nlmatrixtopncontroltable.YFilter
-    nlmatrixtopncontroltable.EntityData.YangName = "nlMatrixTopNControlTable"
-    nlmatrixtopncontroltable.EntityData.BundleName = "cisco_ios_xe"
-    nlmatrixtopncontroltable.EntityData.ParentYangName = "RMON2-MIB"
-    nlmatrixtopncontroltable.EntityData.SegmentPath = "nlMatrixTopNControlTable"
-    nlmatrixtopncontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlmatrixtopncontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlmatrixtopncontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlMatrixTopNControlTable *RMON2MIB_NlMatrixTopNControlTable) GetEntityData() *types.CommonEntityData {
+    nlMatrixTopNControlTable.EntityData.YFilter = nlMatrixTopNControlTable.YFilter
+    nlMatrixTopNControlTable.EntityData.YangName = "nlMatrixTopNControlTable"
+    nlMatrixTopNControlTable.EntityData.BundleName = "cisco_ios_xe"
+    nlMatrixTopNControlTable.EntityData.ParentYangName = "RMON2-MIB"
+    nlMatrixTopNControlTable.EntityData.SegmentPath = "nlMatrixTopNControlTable"
+    nlMatrixTopNControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlMatrixTopNControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlMatrixTopNControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlmatrixtopncontroltable.EntityData.Children = make(map[string]types.YChild)
-    nlmatrixtopncontroltable.EntityData.Children["nlMatrixTopNControlEntry"] = types.YChild{"Nlmatrixtopncontrolentry", nil}
-    for i := range nlmatrixtopncontroltable.Nlmatrixtopncontrolentry {
-        nlmatrixtopncontroltable.EntityData.Children[types.GetSegmentPath(&nlmatrixtopncontroltable.Nlmatrixtopncontrolentry[i])] = types.YChild{"Nlmatrixtopncontrolentry", &nlmatrixtopncontroltable.Nlmatrixtopncontrolentry[i]}
+    nlMatrixTopNControlTable.EntityData.Children = types.NewOrderedMap()
+    nlMatrixTopNControlTable.EntityData.Children.Append("nlMatrixTopNControlEntry", types.YChild{"NlMatrixTopNControlEntry", nil})
+    for i := range nlMatrixTopNControlTable.NlMatrixTopNControlEntry {
+        nlMatrixTopNControlTable.EntityData.Children.Append(types.GetSegmentPath(nlMatrixTopNControlTable.NlMatrixTopNControlEntry[i]), types.YChild{"NlMatrixTopNControlEntry", nlMatrixTopNControlTable.NlMatrixTopNControlEntry[i]})
     }
-    nlmatrixtopncontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nlmatrixtopncontroltable.EntityData)
+    nlMatrixTopNControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nlMatrixTopNControlTable.EntityData.YListKeys = []string {}
+
+    return &(nlMatrixTopNControlTable.EntityData)
 }
 
-// RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry
+// RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry
 // A conceptual row in the nlMatrixTopNControlTable.
 // 
 // An example of the indexing of this table is
 // nlMatrixTopNControlDuration.3
-type RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry struct {
+type RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // nlMatrixTopNControlTable.  Each such entry defines one top N report
     // prepared for one interface. The type is interface{} with range: 1..65535.
-    Nlmatrixtopncontrolindex interface{}
+    NlMatrixTopNControlIndex interface{}
 
     // The nlMatrix[SD/DS] table for which a top N report will be prepared on
     // behalf of this entry.  The nlMatrix[SD/DS] table is identified by the value
@@ -2197,13 +2269,13 @@ type RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry struct {
     // identify the particular table.  This object may not be modified if the
     // associated nlMatrixTopNControlStatus object is equal to active(1). The type
     // is interface{} with range: 1..65535.
-    Nlmatrixtopncontrolmatrixindex interface{}
+    NlMatrixTopNControlMatrixIndex interface{}
 
     // The variable for each nlMatrix[SD/DS] entry that the nlMatrixTopNEntries
     // are sorted by.      This object may not be modified if the associated
     // nlMatrixTopNControlStatus object is equal to active(1). The type is
-    // Nlmatrixtopncontrolratebase.
-    Nlmatrixtopncontrolratebase interface{}
+    // NlMatrixTopNControlRateBase.
+    NlMatrixTopNControlRateBase interface{}
 
     // The number of seconds left in the report currently being collected.  When
     // this object is modified by the management station, a new collection is
@@ -2222,11 +2294,11 @@ type RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry struct {
     // associated entries in the nlMatrixTopNTable shall be deleted.  (Note that
     // this is a different algorithm than the one used in the hostTopNTable). The
     // type is interface{} with range: 0..2147483647.
-    Nlmatrixtopncontroltimeremaining interface{}
+    NlMatrixTopNControlTimeRemaining interface{}
 
     // The number of reports that have been generated by this entry. The type is
     // interface{} with range: 0..4294967295.
-    Nlmatrixtopncontrolgeneratedreports interface{}
+    NlMatrixTopNControlGeneratedReports interface{}
 
     // The number of seconds that this report has collected during the last
     // sampling interval.  When the associated nlMatrixTopNControlTimeRemaining
@@ -2235,14 +2307,14 @@ type RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry struct {
     // nlMatrixTopNControlTimeRemaining is set. This value shall be zero if no
     // reports have been requested for this nlMatrixTopNControlEntry. The type is
     // interface{} with range: -2147483648..2147483647.
-    Nlmatrixtopncontrolduration interface{}
+    NlMatrixTopNControlDuration interface{}
 
     // The maximum number of matrix entries requested for this report.  When this
     // object is created or modified, the probe should set
     // nlMatrixTopNControlGrantedSize as closely to this object as is possible for
     // the particular probe implementation and available resources. The type is
     // interface{} with range: 0..2147483647.
-    Nlmatrixtopncontrolrequestedsize interface{}
+    NlMatrixTopNControlRequestedSize interface{}
 
     // The maximum number of matrix entries in this report.  When the associated
     // nlMatrixTopNControlRequestedSize object is created or modified, the probe
@@ -2263,7 +2335,7 @@ type RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry struct {
     // nlMatrixTopNOctetRate are sorted.  It is also an implementation-specific
     // matter as to whether or not zero-valued entries are available. The type is
     // interface{} with range: 0..2147483647.
-    Nlmatrixtopncontrolgrantedsize interface{}
+    NlMatrixTopNControlGrantedSize interface{}
 
     // The value of sysUpTime when this top N report was last started.  In other
     // words, this is the time that the associated
@@ -2271,58 +2343,61 @@ type RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry struct {
     // report or the time the report was last automatically (re)started.  This
     // object may be used by the management station to determine if a report was
     // missed or not. The type is interface{} with range: 0..4294967295.
-    Nlmatrixtopncontrolstarttime interface{}
+    NlMatrixTopNControlStartTime interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Nlmatrixtopncontrolowner interface{}
+    NlMatrixTopNControlOwner interface{}
 
     // The status of this nlMatrixTopNControlEntry.  An entry may not exist in the
     // active state unless all objects in the entry have an appropriate value.    
     // If this object is not equal to active(1), all associated entries in the
     // nlMatrixTopNTable shall be deleted by the agent. The type is RowStatus.
-    Nlmatrixtopncontrolstatus interface{}
+    NlMatrixTopNControlStatus interface{}
 }
 
-func (nlmatrixtopncontrolentry *RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry) GetEntityData() *types.CommonEntityData {
-    nlmatrixtopncontrolentry.EntityData.YFilter = nlmatrixtopncontrolentry.YFilter
-    nlmatrixtopncontrolentry.EntityData.YangName = "nlMatrixTopNControlEntry"
-    nlmatrixtopncontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    nlmatrixtopncontrolentry.EntityData.ParentYangName = "nlMatrixTopNControlTable"
-    nlmatrixtopncontrolentry.EntityData.SegmentPath = "nlMatrixTopNControlEntry" + "[nlMatrixTopNControlIndex='" + fmt.Sprintf("%v", nlmatrixtopncontrolentry.Nlmatrixtopncontrolindex) + "']"
-    nlmatrixtopncontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlmatrixtopncontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlmatrixtopncontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlMatrixTopNControlEntry *RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry) GetEntityData() *types.CommonEntityData {
+    nlMatrixTopNControlEntry.EntityData.YFilter = nlMatrixTopNControlEntry.YFilter
+    nlMatrixTopNControlEntry.EntityData.YangName = "nlMatrixTopNControlEntry"
+    nlMatrixTopNControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    nlMatrixTopNControlEntry.EntityData.ParentYangName = "nlMatrixTopNControlTable"
+    nlMatrixTopNControlEntry.EntityData.SegmentPath = "nlMatrixTopNControlEntry" + types.AddKeyToken(nlMatrixTopNControlEntry.NlMatrixTopNControlIndex, "nlMatrixTopNControlIndex")
+    nlMatrixTopNControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlMatrixTopNControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlMatrixTopNControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlmatrixtopncontrolentry.EntityData.Children = make(map[string]types.YChild)
-    nlmatrixtopncontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlIndex"] = types.YLeaf{"Nlmatrixtopncontrolindex", nlmatrixtopncontrolentry.Nlmatrixtopncontrolindex}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlMatrixIndex"] = types.YLeaf{"Nlmatrixtopncontrolmatrixindex", nlmatrixtopncontrolentry.Nlmatrixtopncontrolmatrixindex}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlRateBase"] = types.YLeaf{"Nlmatrixtopncontrolratebase", nlmatrixtopncontrolentry.Nlmatrixtopncontrolratebase}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlTimeRemaining"] = types.YLeaf{"Nlmatrixtopncontroltimeremaining", nlmatrixtopncontrolentry.Nlmatrixtopncontroltimeremaining}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlGeneratedReports"] = types.YLeaf{"Nlmatrixtopncontrolgeneratedreports", nlmatrixtopncontrolentry.Nlmatrixtopncontrolgeneratedreports}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlDuration"] = types.YLeaf{"Nlmatrixtopncontrolduration", nlmatrixtopncontrolentry.Nlmatrixtopncontrolduration}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlRequestedSize"] = types.YLeaf{"Nlmatrixtopncontrolrequestedsize", nlmatrixtopncontrolentry.Nlmatrixtopncontrolrequestedsize}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlGrantedSize"] = types.YLeaf{"Nlmatrixtopncontrolgrantedsize", nlmatrixtopncontrolentry.Nlmatrixtopncontrolgrantedsize}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlStartTime"] = types.YLeaf{"Nlmatrixtopncontrolstarttime", nlmatrixtopncontrolentry.Nlmatrixtopncontrolstarttime}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlOwner"] = types.YLeaf{"Nlmatrixtopncontrolowner", nlmatrixtopncontrolentry.Nlmatrixtopncontrolowner}
-    nlmatrixtopncontrolentry.EntityData.Leafs["nlMatrixTopNControlStatus"] = types.YLeaf{"Nlmatrixtopncontrolstatus", nlmatrixtopncontrolentry.Nlmatrixtopncontrolstatus}
-    return &(nlmatrixtopncontrolentry.EntityData)
+    nlMatrixTopNControlEntry.EntityData.Children = types.NewOrderedMap()
+    nlMatrixTopNControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlIndex", types.YLeaf{"NlMatrixTopNControlIndex", nlMatrixTopNControlEntry.NlMatrixTopNControlIndex})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlMatrixIndex", types.YLeaf{"NlMatrixTopNControlMatrixIndex", nlMatrixTopNControlEntry.NlMatrixTopNControlMatrixIndex})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlRateBase", types.YLeaf{"NlMatrixTopNControlRateBase", nlMatrixTopNControlEntry.NlMatrixTopNControlRateBase})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlTimeRemaining", types.YLeaf{"NlMatrixTopNControlTimeRemaining", nlMatrixTopNControlEntry.NlMatrixTopNControlTimeRemaining})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlGeneratedReports", types.YLeaf{"NlMatrixTopNControlGeneratedReports", nlMatrixTopNControlEntry.NlMatrixTopNControlGeneratedReports})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlDuration", types.YLeaf{"NlMatrixTopNControlDuration", nlMatrixTopNControlEntry.NlMatrixTopNControlDuration})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlRequestedSize", types.YLeaf{"NlMatrixTopNControlRequestedSize", nlMatrixTopNControlEntry.NlMatrixTopNControlRequestedSize})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlGrantedSize", types.YLeaf{"NlMatrixTopNControlGrantedSize", nlMatrixTopNControlEntry.NlMatrixTopNControlGrantedSize})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlStartTime", types.YLeaf{"NlMatrixTopNControlStartTime", nlMatrixTopNControlEntry.NlMatrixTopNControlStartTime})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlOwner", types.YLeaf{"NlMatrixTopNControlOwner", nlMatrixTopNControlEntry.NlMatrixTopNControlOwner})
+    nlMatrixTopNControlEntry.EntityData.Leafs.Append("nlMatrixTopNControlStatus", types.YLeaf{"NlMatrixTopNControlStatus", nlMatrixTopNControlEntry.NlMatrixTopNControlStatus})
+
+    nlMatrixTopNControlEntry.EntityData.YListKeys = []string {"NlMatrixTopNControlIndex"}
+
+    return &(nlMatrixTopNControlEntry.EntityData)
 }
 
-// RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry_Nlmatrixtopncontrolratebase represents nlMatrixTopNControlStatus object is equal to active(1).
-type RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry_Nlmatrixtopncontrolratebase string
+// RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry_NlMatrixTopNControlRateBase represents nlMatrixTopNControlStatus object is equal to active(1).
+type RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry_NlMatrixTopNControlRateBase string
 
 const (
-    RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry_Nlmatrixtopncontrolratebase_nlMatrixTopNPkts RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry_Nlmatrixtopncontrolratebase = "nlMatrixTopNPkts"
+    RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry_NlMatrixTopNControlRateBase_nlMatrixTopNPkts RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry_NlMatrixTopNControlRateBase = "nlMatrixTopNPkts"
 
-    RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry_Nlmatrixtopncontrolratebase_nlMatrixTopNOctets RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry_Nlmatrixtopncontrolratebase = "nlMatrixTopNOctets"
+    RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry_NlMatrixTopNControlRateBase_nlMatrixTopNOctets RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry_NlMatrixTopNControlRateBase = "nlMatrixTopNOctets"
 )
 
-// RMON2MIB_Nlmatrixtopntable
+// RMON2MIB_NlMatrixTopNTable
 // A set of statistics for those network layer matrix entries
 // that have counted the highest number of octets or packets.
-type RMON2MIB_Nlmatrixtopntable struct {
+type RMON2MIB_NlMatrixTopNTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2330,30 +2405,33 @@ type RMON2MIB_Nlmatrixtopntable struct {
     // value in the index identifies the nlMatrixTopNControlEntry on whose behalf
     // this entry was created.  An example of the indexing of this table is
     // nlMatrixTopNPktRate.3.10. The type is slice of
-    // RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry.
-    Nlmatrixtopnentry []RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry
+    // RMON2MIB_NlMatrixTopNTable_NlMatrixTopNEntry.
+    NlMatrixTopNEntry []*RMON2MIB_NlMatrixTopNTable_NlMatrixTopNEntry
 }
 
-func (nlmatrixtopntable *RMON2MIB_Nlmatrixtopntable) GetEntityData() *types.CommonEntityData {
-    nlmatrixtopntable.EntityData.YFilter = nlmatrixtopntable.YFilter
-    nlmatrixtopntable.EntityData.YangName = "nlMatrixTopNTable"
-    nlmatrixtopntable.EntityData.BundleName = "cisco_ios_xe"
-    nlmatrixtopntable.EntityData.ParentYangName = "RMON2-MIB"
-    nlmatrixtopntable.EntityData.SegmentPath = "nlMatrixTopNTable"
-    nlmatrixtopntable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlmatrixtopntable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlmatrixtopntable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlMatrixTopNTable *RMON2MIB_NlMatrixTopNTable) GetEntityData() *types.CommonEntityData {
+    nlMatrixTopNTable.EntityData.YFilter = nlMatrixTopNTable.YFilter
+    nlMatrixTopNTable.EntityData.YangName = "nlMatrixTopNTable"
+    nlMatrixTopNTable.EntityData.BundleName = "cisco_ios_xe"
+    nlMatrixTopNTable.EntityData.ParentYangName = "RMON2-MIB"
+    nlMatrixTopNTable.EntityData.SegmentPath = "nlMatrixTopNTable"
+    nlMatrixTopNTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlMatrixTopNTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlMatrixTopNTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlmatrixtopntable.EntityData.Children = make(map[string]types.YChild)
-    nlmatrixtopntable.EntityData.Children["nlMatrixTopNEntry"] = types.YChild{"Nlmatrixtopnentry", nil}
-    for i := range nlmatrixtopntable.Nlmatrixtopnentry {
-        nlmatrixtopntable.EntityData.Children[types.GetSegmentPath(&nlmatrixtopntable.Nlmatrixtopnentry[i])] = types.YChild{"Nlmatrixtopnentry", &nlmatrixtopntable.Nlmatrixtopnentry[i]}
+    nlMatrixTopNTable.EntityData.Children = types.NewOrderedMap()
+    nlMatrixTopNTable.EntityData.Children.Append("nlMatrixTopNEntry", types.YChild{"NlMatrixTopNEntry", nil})
+    for i := range nlMatrixTopNTable.NlMatrixTopNEntry {
+        nlMatrixTopNTable.EntityData.Children.Append(types.GetSegmentPath(nlMatrixTopNTable.NlMatrixTopNEntry[i]), types.YChild{"NlMatrixTopNEntry", nlMatrixTopNTable.NlMatrixTopNEntry[i]})
     }
-    nlmatrixtopntable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nlmatrixtopntable.EntityData)
+    nlMatrixTopNTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nlMatrixTopNTable.EntityData.YListKeys = []string {}
+
+    return &(nlMatrixTopNTable.EntityData)
 }
 
-// RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry
+// RMON2MIB_NlMatrixTopNTable_NlMatrixTopNEntry
 // A conceptual row in the nlMatrixTopNTable.
 // 
 // The nlMatrixTopNControlIndex value in the index identifies the
@@ -2362,13 +2440,13 @@ func (nlmatrixtopntable *RMON2MIB_Nlmatrixtopntable) GetEntityData() *types.Comm
 // 
 // An example of the indexing of this table is
 // nlMatrixTopNPktRate.3.10
-type RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry struct {
+type RMON2MIB_NlMatrixTopNTable_NlMatrixTopNEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Nlmatrixtopncontroltable_Nlmatrixtopncontrolentry_Nlmatrixtopncontrolindex
-    Nlmatrixtopncontrolindex interface{}
+    // rmon2_mib.RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry_NlMatrixTopNControlIndex
+    NlMatrixTopNControlIndex interface{}
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // nlMatrixTopNTable among those in the same report.      This index is
@@ -2381,11 +2459,11 @@ type RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry struct {
     // values of nlMatrixTopNIndex shall be assigned to entries with decreasing
     // values of nlMatrixTopNOctetRate until index N is assigned or there are no
     // more nlMatrixTopNEntries. The type is interface{} with range: 1..65535.
-    Nlmatrixtopnindex interface{}
+    NlMatrixTopNIndex interface{}
 
     // The protocolDirLocalIndex of the network layer protocol of this entry's
     // network address. The type is interface{} with range: 1..2147483647.
-    Nlmatrixtopnprotocoldirlocalindex interface{}
+    NlMatrixTopNProtocolDirLocalIndex interface{}
 
     // The network layer address of the source host in this conversation.  This is
     // represented as an octet string with specific semantics and length as
@@ -2393,7 +2471,7 @@ type RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry struct {
     // example, if the protocolDirLocalIndex indicates an encapsulation of ip,
     // this object is encoded as a length octet of 4, followed by the 4 octets of
     // the ip address, in network byte order. The type is string.
-    Nlmatrixtopnsourceaddress interface{}
+    NlMatrixTopNSourceAddress interface{}
 
     // The network layer address of the destination host in this conversation. 
     // This is represented as an octet string with specific semantics and length
@@ -2402,14 +2480,14 @@ type RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry struct {
     // encapsulation of ip, this object is encoded as a length octet of 4,
     // followed by the 4 octets of the ip address, in network byte order. The type
     // is string.
-    Nlmatrixtopndestaddress interface{}
+    NlMatrixTopNDestAddress interface{}
 
     // The number of packets seen from the source host to the destination host
     // during this sampling interval, counted using the rules for counting the
     // nlMatrixSDPkts object. If the value of nlMatrixTopNControlRateBase is
     // nlMatrixTopNPkts, this variable will be used to sort this report. The type
     // is interface{} with range: 0..4294967295.
-    Nlmatrixtopnpktrate interface{}
+    NlMatrixTopNPktRate interface{}
 
     // The number of packets seen from the destination host to the source host
     // during this sampling interval, counted using the rules for counting the
@@ -2420,14 +2498,14 @@ type RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry struct {
     // nlMatrixTopNControlRateBase is equal to nlMatrixTopNPkts, the sort of topN
     // entries is based entirely on nlMatrixTopNPktRate, and not on the value of
     // this object. The type is interface{} with range: 0..4294967295.
-    Nlmatrixtopnreversepktrate interface{}
+    NlMatrixTopNReversePktRate interface{}
 
     // The number of octets seen from the source host to the destination host
     // during this sampling interval, counted using the rules for counting the
     // nlMatrixSDOctets object.  If the value of nlMatrixTopNControlRateBase is
     // nlMatrixTopNOctets, this variable will be used to sort this report. The
     // type is interface{} with range: 0..4294967295.
-    Nlmatrixtopnoctetrate interface{}
+    NlMatrixTopNOctetRate interface{}
 
     // The number of octets seen from the destination host to the source host
     // during this sampling interval, counted using the rules for counting the
@@ -2438,34 +2516,37 @@ type RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry struct {
     // nlMatrixTopNControlRateBase is equal to nlMatrixTopNOctets, the sort of
     // topN entries is based entirely on nlMatrixTopNOctetRate, and not on the
     // value of this object. The type is interface{} with range: 0..4294967295.
-    Nlmatrixtopnreverseoctetrate interface{}
+    NlMatrixTopNReverseOctetRate interface{}
 }
 
-func (nlmatrixtopnentry *RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry) GetEntityData() *types.CommonEntityData {
-    nlmatrixtopnentry.EntityData.YFilter = nlmatrixtopnentry.YFilter
-    nlmatrixtopnentry.EntityData.YangName = "nlMatrixTopNEntry"
-    nlmatrixtopnentry.EntityData.BundleName = "cisco_ios_xe"
-    nlmatrixtopnentry.EntityData.ParentYangName = "nlMatrixTopNTable"
-    nlmatrixtopnentry.EntityData.SegmentPath = "nlMatrixTopNEntry" + "[nlMatrixTopNControlIndex='" + fmt.Sprintf("%v", nlmatrixtopnentry.Nlmatrixtopncontrolindex) + "']" + "[nlMatrixTopNIndex='" + fmt.Sprintf("%v", nlmatrixtopnentry.Nlmatrixtopnindex) + "']"
-    nlmatrixtopnentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nlmatrixtopnentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nlmatrixtopnentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nlMatrixTopNEntry *RMON2MIB_NlMatrixTopNTable_NlMatrixTopNEntry) GetEntityData() *types.CommonEntityData {
+    nlMatrixTopNEntry.EntityData.YFilter = nlMatrixTopNEntry.YFilter
+    nlMatrixTopNEntry.EntityData.YangName = "nlMatrixTopNEntry"
+    nlMatrixTopNEntry.EntityData.BundleName = "cisco_ios_xe"
+    nlMatrixTopNEntry.EntityData.ParentYangName = "nlMatrixTopNTable"
+    nlMatrixTopNEntry.EntityData.SegmentPath = "nlMatrixTopNEntry" + types.AddKeyToken(nlMatrixTopNEntry.NlMatrixTopNControlIndex, "nlMatrixTopNControlIndex") + types.AddKeyToken(nlMatrixTopNEntry.NlMatrixTopNIndex, "nlMatrixTopNIndex")
+    nlMatrixTopNEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlMatrixTopNEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlMatrixTopNEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nlmatrixtopnentry.EntityData.Children = make(map[string]types.YChild)
-    nlmatrixtopnentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNControlIndex"] = types.YLeaf{"Nlmatrixtopncontrolindex", nlmatrixtopnentry.Nlmatrixtopncontrolindex}
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNIndex"] = types.YLeaf{"Nlmatrixtopnindex", nlmatrixtopnentry.Nlmatrixtopnindex}
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNProtocolDirLocalIndex"] = types.YLeaf{"Nlmatrixtopnprotocoldirlocalindex", nlmatrixtopnentry.Nlmatrixtopnprotocoldirlocalindex}
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNSourceAddress"] = types.YLeaf{"Nlmatrixtopnsourceaddress", nlmatrixtopnentry.Nlmatrixtopnsourceaddress}
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNDestAddress"] = types.YLeaf{"Nlmatrixtopndestaddress", nlmatrixtopnentry.Nlmatrixtopndestaddress}
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNPktRate"] = types.YLeaf{"Nlmatrixtopnpktrate", nlmatrixtopnentry.Nlmatrixtopnpktrate}
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNReversePktRate"] = types.YLeaf{"Nlmatrixtopnreversepktrate", nlmatrixtopnentry.Nlmatrixtopnreversepktrate}
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNOctetRate"] = types.YLeaf{"Nlmatrixtopnoctetrate", nlmatrixtopnentry.Nlmatrixtopnoctetrate}
-    nlmatrixtopnentry.EntityData.Leafs["nlMatrixTopNReverseOctetRate"] = types.YLeaf{"Nlmatrixtopnreverseoctetrate", nlmatrixtopnentry.Nlmatrixtopnreverseoctetrate}
-    return &(nlmatrixtopnentry.EntityData)
+    nlMatrixTopNEntry.EntityData.Children = types.NewOrderedMap()
+    nlMatrixTopNEntry.EntityData.Leafs = types.NewOrderedMap()
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNControlIndex", types.YLeaf{"NlMatrixTopNControlIndex", nlMatrixTopNEntry.NlMatrixTopNControlIndex})
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNIndex", types.YLeaf{"NlMatrixTopNIndex", nlMatrixTopNEntry.NlMatrixTopNIndex})
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNProtocolDirLocalIndex", types.YLeaf{"NlMatrixTopNProtocolDirLocalIndex", nlMatrixTopNEntry.NlMatrixTopNProtocolDirLocalIndex})
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNSourceAddress", types.YLeaf{"NlMatrixTopNSourceAddress", nlMatrixTopNEntry.NlMatrixTopNSourceAddress})
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNDestAddress", types.YLeaf{"NlMatrixTopNDestAddress", nlMatrixTopNEntry.NlMatrixTopNDestAddress})
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNPktRate", types.YLeaf{"NlMatrixTopNPktRate", nlMatrixTopNEntry.NlMatrixTopNPktRate})
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNReversePktRate", types.YLeaf{"NlMatrixTopNReversePktRate", nlMatrixTopNEntry.NlMatrixTopNReversePktRate})
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNOctetRate", types.YLeaf{"NlMatrixTopNOctetRate", nlMatrixTopNEntry.NlMatrixTopNOctetRate})
+    nlMatrixTopNEntry.EntityData.Leafs.Append("nlMatrixTopNReverseOctetRate", types.YLeaf{"NlMatrixTopNReverseOctetRate", nlMatrixTopNEntry.NlMatrixTopNReverseOctetRate})
+
+    nlMatrixTopNEntry.EntityData.YListKeys = []string {"NlMatrixTopNControlIndex", "NlMatrixTopNIndex"}
+
+    return &(nlMatrixTopNEntry.EntityData)
 }
 
-// RMON2MIB_Alhosttable
+// RMON2MIB_AlHostTable
 // A collection of statistics for a particular protocol from a
 // particular network address that has been discovered on an
 // interface of this device.
@@ -2483,7 +2564,7 @@ func (nlmatrixtopnentry *RMON2MIB_Nlmatrixtopntable_Nlmatrixtopnentry) GetEntity
 // entries will only be added to this table if their address
 // exists in the nlHostTable and will be deleted from this table
 // if their address is deleted from the nlHostTable.
-type RMON2MIB_Alhosttable struct {
+type RMON2MIB_AlHostTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2495,30 +2576,33 @@ type RMON2MIB_Alhosttable struct {
     // protocolDirLocalIndex value in the index identifies the protocol that is
     // counted by this entry.  An example of the indexing in this entry is
     // alHostOutPkts.1.783495.18.4.128.2.6.6.34. The type is slice of
-    // RMON2MIB_Alhosttable_Alhostentry.
-    Alhostentry []RMON2MIB_Alhosttable_Alhostentry
+    // RMON2MIB_AlHostTable_AlHostEntry.
+    AlHostEntry []*RMON2MIB_AlHostTable_AlHostEntry
 }
 
-func (alhosttable *RMON2MIB_Alhosttable) GetEntityData() *types.CommonEntityData {
-    alhosttable.EntityData.YFilter = alhosttable.YFilter
-    alhosttable.EntityData.YangName = "alHostTable"
-    alhosttable.EntityData.BundleName = "cisco_ios_xe"
-    alhosttable.EntityData.ParentYangName = "RMON2-MIB"
-    alhosttable.EntityData.SegmentPath = "alHostTable"
-    alhosttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    alhosttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    alhosttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alHostTable *RMON2MIB_AlHostTable) GetEntityData() *types.CommonEntityData {
+    alHostTable.EntityData.YFilter = alHostTable.YFilter
+    alHostTable.EntityData.YangName = "alHostTable"
+    alHostTable.EntityData.BundleName = "cisco_ios_xe"
+    alHostTable.EntityData.ParentYangName = "RMON2-MIB"
+    alHostTable.EntityData.SegmentPath = "alHostTable"
+    alHostTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alHostTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alHostTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    alhosttable.EntityData.Children = make(map[string]types.YChild)
-    alhosttable.EntityData.Children["alHostEntry"] = types.YChild{"Alhostentry", nil}
-    for i := range alhosttable.Alhostentry {
-        alhosttable.EntityData.Children[types.GetSegmentPath(&alhosttable.Alhostentry[i])] = types.YChild{"Alhostentry", &alhosttable.Alhostentry[i]}
+    alHostTable.EntityData.Children = types.NewOrderedMap()
+    alHostTable.EntityData.Children.Append("alHostEntry", types.YChild{"AlHostEntry", nil})
+    for i := range alHostTable.AlHostEntry {
+        alHostTable.EntityData.Children.Append(types.GetSegmentPath(alHostTable.AlHostEntry[i]), types.YChild{"AlHostEntry", alHostTable.AlHostEntry[i]})
     }
-    alhosttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(alhosttable.EntityData)
+    alHostTable.EntityData.Leafs = types.NewOrderedMap()
+
+    alHostTable.EntityData.YListKeys = []string {}
+
+    return &(alHostTable.EntityData)
 }
 
-// RMON2MIB_Alhosttable_Alhostentry
+// RMON2MIB_AlHostTable_AlHostEntry
 // A conceptual row in the alHostTable.
 // 
 // The hlHostControlIndex value in the index identifies the
@@ -2532,46 +2616,46 @@ func (alhosttable *RMON2MIB_Alhosttable) GetEntityData() *types.CommonEntityData
 // 
 // An example of the indexing in this entry is
 // alHostOutPkts.1.783495.18.4.128.2.6.6.34
-type RMON2MIB_Alhosttable_Alhostentry struct {
+type RMON2MIB_AlHostTable_AlHostEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Hlhostcontroltable_Hlhostcontrolentry_Hlhostcontrolindex
-    Hlhostcontrolindex interface{}
+    // rmon2_mib.RMON2MIB_HlHostControlTable_HlHostControlEntry_HlHostControlIndex
+    HlHostControlIndex interface{}
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
     // range: 0..4294967295.
-    Alhosttimemark interface{}
+    AlHostTimeMark interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // rmon2_mib.RMON2MIB_Nlhosttable_Nlhostentry_Nlhostaddress
-    Nlhostaddress interface{}
+    // rmon2_mib.RMON2MIB_NlHostTable_NlHostEntry_NlHostAddress
+    NlHostAddress interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex2 interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex2 interface{}
 
     // The number of packets of this protocol type without errors transmitted to
     // this address since it was added to the alHostTable.  Note that this is the
     // number of link-layer packets, so if a single network-layer packet is
     // fragmented into several link-layer frames, this counter is incremented
     // several times. The type is interface{} with range: 0..4294967295.
-    Alhostinpkts interface{}
+    AlHostInPkts interface{}
 
     // The number of packets of this protocol type without errors transmitted by
     // this address since it was added to the alHostTable.  Note that this is the
     // number of link-layer packets, so if a single network-layer packet is
     // fragmented into several link-layer frames, this counter is incremented
     // several times. The type is interface{} with range: 0..4294967295.
-    Alhostoutpkts interface{}
+    AlHostOutPkts interface{}
 
     // The number of octets transmitted to this address of this protocol type
     // since it was added to the alHostTable (excluding framing bits but including
@@ -2579,7 +2663,7 @@ type RMON2MIB_Alhosttable_Alhostentry struct {
     // this doesn't count just those octets in the particular protocol frames, but
     // includes the entire packet that contained the protocol. The type is
     // interface{} with range: 0..4294967295.
-    Alhostinoctets interface{}
+    AlHostInOctets interface{}
 
     // The number of octets transmitted by this address of this protocol type
     // since it was added to the alHostTable (excluding framing bits but including
@@ -2587,40 +2671,43 @@ type RMON2MIB_Alhosttable_Alhostentry struct {
     // this doesn't count just those octets in the particular protocol frames, but
     // includes the entire packet that contained the protocol. The type is
     // interface{} with range: 0..4294967295.
-    Alhostoutoctets interface{}
+    AlHostOutOctets interface{}
 
     // The value of sysUpTime when this entry was last activated. This can be used
     // by the management station to ensure that the entry has not been deleted and
     // recreated between polls. The type is interface{} with range: 0..4294967295.
-    Alhostcreatetime interface{}
+    AlHostCreateTime interface{}
 }
 
-func (alhostentry *RMON2MIB_Alhosttable_Alhostentry) GetEntityData() *types.CommonEntityData {
-    alhostentry.EntityData.YFilter = alhostentry.YFilter
-    alhostentry.EntityData.YangName = "alHostEntry"
-    alhostentry.EntityData.BundleName = "cisco_ios_xe"
-    alhostentry.EntityData.ParentYangName = "alHostTable"
-    alhostentry.EntityData.SegmentPath = "alHostEntry" + "[hlHostControlIndex='" + fmt.Sprintf("%v", alhostentry.Hlhostcontrolindex) + "']" + "[alHostTimeMark='" + fmt.Sprintf("%v", alhostentry.Alhosttimemark) + "']" + "[protocolDirLocalIndex='" + fmt.Sprintf("%v", alhostentry.Protocoldirlocalindex) + "']" + "[nlHostAddress='" + fmt.Sprintf("%v", alhostentry.Nlhostaddress) + "']" + "[protocolDirLocalIndex_2='" + fmt.Sprintf("%v", alhostentry.Protocoldirlocalindex2) + "']"
-    alhostentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    alhostentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    alhostentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alHostEntry *RMON2MIB_AlHostTable_AlHostEntry) GetEntityData() *types.CommonEntityData {
+    alHostEntry.EntityData.YFilter = alHostEntry.YFilter
+    alHostEntry.EntityData.YangName = "alHostEntry"
+    alHostEntry.EntityData.BundleName = "cisco_ios_xe"
+    alHostEntry.EntityData.ParentYangName = "alHostTable"
+    alHostEntry.EntityData.SegmentPath = "alHostEntry" + types.AddKeyToken(alHostEntry.HlHostControlIndex, "hlHostControlIndex") + types.AddKeyToken(alHostEntry.AlHostTimeMark, "alHostTimeMark") + types.AddKeyToken(alHostEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(alHostEntry.NlHostAddress, "nlHostAddress") + types.AddKeyToken(alHostEntry.ProtocolDirLocalIndex2, "protocolDirLocalIndex_2")
+    alHostEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alHostEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alHostEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    alhostentry.EntityData.Children = make(map[string]types.YChild)
-    alhostentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    alhostentry.EntityData.Leafs["hlHostControlIndex"] = types.YLeaf{"Hlhostcontrolindex", alhostentry.Hlhostcontrolindex}
-    alhostentry.EntityData.Leafs["alHostTimeMark"] = types.YLeaf{"Alhosttimemark", alhostentry.Alhosttimemark}
-    alhostentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", alhostentry.Protocoldirlocalindex}
-    alhostentry.EntityData.Leafs["nlHostAddress"] = types.YLeaf{"Nlhostaddress", alhostentry.Nlhostaddress}
-    alhostentry.EntityData.Leafs["protocolDirLocalIndex_2"] = types.YLeaf{"Protocoldirlocalindex2", alhostentry.Protocoldirlocalindex2}
-    alhostentry.EntityData.Leafs["alHostInPkts"] = types.YLeaf{"Alhostinpkts", alhostentry.Alhostinpkts}
-    alhostentry.EntityData.Leafs["alHostOutPkts"] = types.YLeaf{"Alhostoutpkts", alhostentry.Alhostoutpkts}
-    alhostentry.EntityData.Leafs["alHostInOctets"] = types.YLeaf{"Alhostinoctets", alhostentry.Alhostinoctets}
-    alhostentry.EntityData.Leafs["alHostOutOctets"] = types.YLeaf{"Alhostoutoctets", alhostentry.Alhostoutoctets}
-    alhostentry.EntityData.Leafs["alHostCreateTime"] = types.YLeaf{"Alhostcreatetime", alhostentry.Alhostcreatetime}
-    return &(alhostentry.EntityData)
+    alHostEntry.EntityData.Children = types.NewOrderedMap()
+    alHostEntry.EntityData.Leafs = types.NewOrderedMap()
+    alHostEntry.EntityData.Leafs.Append("hlHostControlIndex", types.YLeaf{"HlHostControlIndex", alHostEntry.HlHostControlIndex})
+    alHostEntry.EntityData.Leafs.Append("alHostTimeMark", types.YLeaf{"AlHostTimeMark", alHostEntry.AlHostTimeMark})
+    alHostEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", alHostEntry.ProtocolDirLocalIndex})
+    alHostEntry.EntityData.Leafs.Append("nlHostAddress", types.YLeaf{"NlHostAddress", alHostEntry.NlHostAddress})
+    alHostEntry.EntityData.Leafs.Append("protocolDirLocalIndex_2", types.YLeaf{"ProtocolDirLocalIndex2", alHostEntry.ProtocolDirLocalIndex2})
+    alHostEntry.EntityData.Leafs.Append("alHostInPkts", types.YLeaf{"AlHostInPkts", alHostEntry.AlHostInPkts})
+    alHostEntry.EntityData.Leafs.Append("alHostOutPkts", types.YLeaf{"AlHostOutPkts", alHostEntry.AlHostOutPkts})
+    alHostEntry.EntityData.Leafs.Append("alHostInOctets", types.YLeaf{"AlHostInOctets", alHostEntry.AlHostInOctets})
+    alHostEntry.EntityData.Leafs.Append("alHostOutOctets", types.YLeaf{"AlHostOutOctets", alHostEntry.AlHostOutOctets})
+    alHostEntry.EntityData.Leafs.Append("alHostCreateTime", types.YLeaf{"AlHostCreateTime", alHostEntry.AlHostCreateTime})
+
+    alHostEntry.EntityData.YListKeys = []string {"HlHostControlIndex", "AlHostTimeMark", "ProtocolDirLocalIndex", "NlHostAddress", "ProtocolDirLocalIndex2"}
+
+    return &(alHostEntry.EntityData)
 }
 
-// RMON2MIB_Almatrixsdtable
+// RMON2MIB_AlMatrixSDTable
 // A list of application traffic matrix entries which collect
 // 
 // 
@@ -2646,7 +2733,7 @@ func (alhostentry *RMON2MIB_Alhosttable_Alhostentry) GetEntityData() *types.Comm
 // this table if their address pair exists in the nlMatrixSDTable
 // and will be deleted from this table if the address pair is
 // deleted from the nlMatrixSDTable.
-type RMON2MIB_Almatrixsdtable struct {
+type RMON2MIB_AlMatrixSDTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2661,30 +2748,33 @@ type RMON2MIB_Almatrixsdtable struct {
     // second protocolDirLocalIndex value in the index identifies the protocol
     // that is counted by this entry.  An example of the indexing of this entry is
     // alMatrixSDPkts.1.783495.18.4.128.2.6.6.4.128.2.6.7.34. The type is slice of
-    // RMON2MIB_Almatrixsdtable_Almatrixsdentry.
-    Almatrixsdentry []RMON2MIB_Almatrixsdtable_Almatrixsdentry
+    // RMON2MIB_AlMatrixSDTable_AlMatrixSDEntry.
+    AlMatrixSDEntry []*RMON2MIB_AlMatrixSDTable_AlMatrixSDEntry
 }
 
-func (almatrixsdtable *RMON2MIB_Almatrixsdtable) GetEntityData() *types.CommonEntityData {
-    almatrixsdtable.EntityData.YFilter = almatrixsdtable.YFilter
-    almatrixsdtable.EntityData.YangName = "alMatrixSDTable"
-    almatrixsdtable.EntityData.BundleName = "cisco_ios_xe"
-    almatrixsdtable.EntityData.ParentYangName = "RMON2-MIB"
-    almatrixsdtable.EntityData.SegmentPath = "alMatrixSDTable"
-    almatrixsdtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    almatrixsdtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    almatrixsdtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alMatrixSDTable *RMON2MIB_AlMatrixSDTable) GetEntityData() *types.CommonEntityData {
+    alMatrixSDTable.EntityData.YFilter = alMatrixSDTable.YFilter
+    alMatrixSDTable.EntityData.YangName = "alMatrixSDTable"
+    alMatrixSDTable.EntityData.BundleName = "cisco_ios_xe"
+    alMatrixSDTable.EntityData.ParentYangName = "RMON2-MIB"
+    alMatrixSDTable.EntityData.SegmentPath = "alMatrixSDTable"
+    alMatrixSDTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alMatrixSDTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alMatrixSDTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    almatrixsdtable.EntityData.Children = make(map[string]types.YChild)
-    almatrixsdtable.EntityData.Children["alMatrixSDEntry"] = types.YChild{"Almatrixsdentry", nil}
-    for i := range almatrixsdtable.Almatrixsdentry {
-        almatrixsdtable.EntityData.Children[types.GetSegmentPath(&almatrixsdtable.Almatrixsdentry[i])] = types.YChild{"Almatrixsdentry", &almatrixsdtable.Almatrixsdentry[i]}
+    alMatrixSDTable.EntityData.Children = types.NewOrderedMap()
+    alMatrixSDTable.EntityData.Children.Append("alMatrixSDEntry", types.YChild{"AlMatrixSDEntry", nil})
+    for i := range alMatrixSDTable.AlMatrixSDEntry {
+        alMatrixSDTable.EntityData.Children.Append(types.GetSegmentPath(alMatrixSDTable.AlMatrixSDEntry[i]), types.YChild{"AlMatrixSDEntry", alMatrixSDTable.AlMatrixSDEntry[i]})
     }
-    almatrixsdtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(almatrixsdtable.EntityData)
+    alMatrixSDTable.EntityData.Leafs = types.NewOrderedMap()
+
+    alMatrixSDTable.EntityData.YListKeys = []string {}
+
+    return &(alMatrixSDTable.EntityData)
 }
 
-// RMON2MIB_Almatrixsdtable_Almatrixsdentry
+// RMON2MIB_AlMatrixSDTable_AlMatrixSDEntry
 // A conceptual row in the alMatrixSDTable.
 // 
 // The hlMatrixControlIndex value in the index identifies the
@@ -2702,36 +2792,36 @@ func (almatrixsdtable *RMON2MIB_Almatrixsdtable) GetEntityData() *types.CommonEn
 // 
 // An example of the indexing of this entry is
 // alMatrixSDPkts.1.783495.18.4.128.2.6.6.4.128.2.6.7.34
-type RMON2MIB_Almatrixsdtable_Almatrixsdentry struct {
+type RMON2MIB_AlMatrixSDTable_AlMatrixSDEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry_Hlmatrixcontrolindex
-    Hlmatrixcontrolindex interface{}
+    // rmon2_mib.RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry_HlMatrixControlIndex
+    HlMatrixControlIndex interface{}
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
     // range: 0..4294967295.
-    Almatrixsdtimemark interface{}
+    AlMatrixSDTimeMark interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // rmon2_mib.RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry_Nlmatrixsdsourceaddress
-    Nlmatrixsdsourceaddress interface{}
+    // rmon2_mib.RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry_NlMatrixSDSourceAddress
+    NlMatrixSDSourceAddress interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // rmon2_mib.RMON2MIB_Nlmatrixsdtable_Nlmatrixsdentry_Nlmatrixsddestaddress
-    Nlmatrixsddestaddress interface{}
+    // rmon2_mib.RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry_NlMatrixSDDestAddress
+    NlMatrixSDDestAddress interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex2 interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex2 interface{}
 
     // The number of packets of this protocol type without errors transmitted from
     // the source address to the destination address since this entry was added to
@@ -2739,7 +2829,7 @@ type RMON2MIB_Almatrixsdtable_Almatrixsdentry struct {
     // so if a single network-layer packet is fragmented into several link-layer
     // frames, this counter is incremented several times. The type is interface{}
     // with range: 0..4294967295.
-    Almatrixsdpkts interface{}
+    AlMatrixSDPkts interface{}
 
     // The number of octets in packets of this protocol type transmitted from the
     // source address to the destination address since this entry was added to the
@@ -2748,39 +2838,42 @@ type RMON2MIB_Almatrixsdtable_Almatrixsdentry struct {
     // count just those octets in the particular protocol frames, but includes the
     // entire packet that contained the protocol. The type is interface{} with
     // range: 0..4294967295.
-    Almatrixsdoctets interface{}
+    AlMatrixSDOctets interface{}
 
     // The value of sysUpTime when this entry was last activated. This can be used
     // by the management station to ensure that the entry has not been deleted and
     // recreated between polls. The type is interface{} with range: 0..4294967295.
-    Almatrixsdcreatetime interface{}
+    AlMatrixSDCreateTime interface{}
 }
 
-func (almatrixsdentry *RMON2MIB_Almatrixsdtable_Almatrixsdentry) GetEntityData() *types.CommonEntityData {
-    almatrixsdentry.EntityData.YFilter = almatrixsdentry.YFilter
-    almatrixsdentry.EntityData.YangName = "alMatrixSDEntry"
-    almatrixsdentry.EntityData.BundleName = "cisco_ios_xe"
-    almatrixsdentry.EntityData.ParentYangName = "alMatrixSDTable"
-    almatrixsdentry.EntityData.SegmentPath = "alMatrixSDEntry" + "[hlMatrixControlIndex='" + fmt.Sprintf("%v", almatrixsdentry.Hlmatrixcontrolindex) + "']" + "[alMatrixSDTimeMark='" + fmt.Sprintf("%v", almatrixsdentry.Almatrixsdtimemark) + "']" + "[protocolDirLocalIndex='" + fmt.Sprintf("%v", almatrixsdentry.Protocoldirlocalindex) + "']" + "[nlMatrixSDSourceAddress='" + fmt.Sprintf("%v", almatrixsdentry.Nlmatrixsdsourceaddress) + "']" + "[nlMatrixSDDestAddress='" + fmt.Sprintf("%v", almatrixsdentry.Nlmatrixsddestaddress) + "']" + "[protocolDirLocalIndex_2='" + fmt.Sprintf("%v", almatrixsdentry.Protocoldirlocalindex2) + "']"
-    almatrixsdentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    almatrixsdentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    almatrixsdentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alMatrixSDEntry *RMON2MIB_AlMatrixSDTable_AlMatrixSDEntry) GetEntityData() *types.CommonEntityData {
+    alMatrixSDEntry.EntityData.YFilter = alMatrixSDEntry.YFilter
+    alMatrixSDEntry.EntityData.YangName = "alMatrixSDEntry"
+    alMatrixSDEntry.EntityData.BundleName = "cisco_ios_xe"
+    alMatrixSDEntry.EntityData.ParentYangName = "alMatrixSDTable"
+    alMatrixSDEntry.EntityData.SegmentPath = "alMatrixSDEntry" + types.AddKeyToken(alMatrixSDEntry.HlMatrixControlIndex, "hlMatrixControlIndex") + types.AddKeyToken(alMatrixSDEntry.AlMatrixSDTimeMark, "alMatrixSDTimeMark") + types.AddKeyToken(alMatrixSDEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(alMatrixSDEntry.NlMatrixSDSourceAddress, "nlMatrixSDSourceAddress") + types.AddKeyToken(alMatrixSDEntry.NlMatrixSDDestAddress, "nlMatrixSDDestAddress") + types.AddKeyToken(alMatrixSDEntry.ProtocolDirLocalIndex2, "protocolDirLocalIndex_2")
+    alMatrixSDEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alMatrixSDEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alMatrixSDEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    almatrixsdentry.EntityData.Children = make(map[string]types.YChild)
-    almatrixsdentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    almatrixsdentry.EntityData.Leafs["hlMatrixControlIndex"] = types.YLeaf{"Hlmatrixcontrolindex", almatrixsdentry.Hlmatrixcontrolindex}
-    almatrixsdentry.EntityData.Leafs["alMatrixSDTimeMark"] = types.YLeaf{"Almatrixsdtimemark", almatrixsdentry.Almatrixsdtimemark}
-    almatrixsdentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", almatrixsdentry.Protocoldirlocalindex}
-    almatrixsdentry.EntityData.Leafs["nlMatrixSDSourceAddress"] = types.YLeaf{"Nlmatrixsdsourceaddress", almatrixsdentry.Nlmatrixsdsourceaddress}
-    almatrixsdentry.EntityData.Leafs["nlMatrixSDDestAddress"] = types.YLeaf{"Nlmatrixsddestaddress", almatrixsdentry.Nlmatrixsddestaddress}
-    almatrixsdentry.EntityData.Leafs["protocolDirLocalIndex_2"] = types.YLeaf{"Protocoldirlocalindex2", almatrixsdentry.Protocoldirlocalindex2}
-    almatrixsdentry.EntityData.Leafs["alMatrixSDPkts"] = types.YLeaf{"Almatrixsdpkts", almatrixsdentry.Almatrixsdpkts}
-    almatrixsdentry.EntityData.Leafs["alMatrixSDOctets"] = types.YLeaf{"Almatrixsdoctets", almatrixsdentry.Almatrixsdoctets}
-    almatrixsdentry.EntityData.Leafs["alMatrixSDCreateTime"] = types.YLeaf{"Almatrixsdcreatetime", almatrixsdentry.Almatrixsdcreatetime}
-    return &(almatrixsdentry.EntityData)
+    alMatrixSDEntry.EntityData.Children = types.NewOrderedMap()
+    alMatrixSDEntry.EntityData.Leafs = types.NewOrderedMap()
+    alMatrixSDEntry.EntityData.Leafs.Append("hlMatrixControlIndex", types.YLeaf{"HlMatrixControlIndex", alMatrixSDEntry.HlMatrixControlIndex})
+    alMatrixSDEntry.EntityData.Leafs.Append("alMatrixSDTimeMark", types.YLeaf{"AlMatrixSDTimeMark", alMatrixSDEntry.AlMatrixSDTimeMark})
+    alMatrixSDEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", alMatrixSDEntry.ProtocolDirLocalIndex})
+    alMatrixSDEntry.EntityData.Leafs.Append("nlMatrixSDSourceAddress", types.YLeaf{"NlMatrixSDSourceAddress", alMatrixSDEntry.NlMatrixSDSourceAddress})
+    alMatrixSDEntry.EntityData.Leafs.Append("nlMatrixSDDestAddress", types.YLeaf{"NlMatrixSDDestAddress", alMatrixSDEntry.NlMatrixSDDestAddress})
+    alMatrixSDEntry.EntityData.Leafs.Append("protocolDirLocalIndex_2", types.YLeaf{"ProtocolDirLocalIndex2", alMatrixSDEntry.ProtocolDirLocalIndex2})
+    alMatrixSDEntry.EntityData.Leafs.Append("alMatrixSDPkts", types.YLeaf{"AlMatrixSDPkts", alMatrixSDEntry.AlMatrixSDPkts})
+    alMatrixSDEntry.EntityData.Leafs.Append("alMatrixSDOctets", types.YLeaf{"AlMatrixSDOctets", alMatrixSDEntry.AlMatrixSDOctets})
+    alMatrixSDEntry.EntityData.Leafs.Append("alMatrixSDCreateTime", types.YLeaf{"AlMatrixSDCreateTime", alMatrixSDEntry.AlMatrixSDCreateTime})
+
+    alMatrixSDEntry.EntityData.YListKeys = []string {"HlMatrixControlIndex", "AlMatrixSDTimeMark", "ProtocolDirLocalIndex", "NlMatrixSDSourceAddress", "NlMatrixSDDestAddress", "ProtocolDirLocalIndex2"}
+
+    return &(alMatrixSDEntry.EntityData)
 }
 
-// RMON2MIB_Almatrixdstable
+// RMON2MIB_AlMatrixDSTable
 // A list of application traffic matrix entries which collect
 // statistics for conversations of a particular protocol between
 // two network-level addresses.  This table is indexed first by
@@ -2801,7 +2894,7 @@ func (almatrixsdentry *RMON2MIB_Almatrixsdtable_Almatrixsdentry) GetEntityData()
 // this table if their address pair exists in the nlMatrixDSTable
 // and will be deleted from this table if the address pair is
 // deleted from the nlMatrixDSTable.
-type RMON2MIB_Almatrixdstable struct {
+type RMON2MIB_AlMatrixDSTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2816,30 +2909,33 @@ type RMON2MIB_Almatrixdstable struct {
     // protocolDirLocalIndex value in the index identifies the protocol that is
     // counted by this entry.  An example of the indexing of this entry is
     // alMatrixDSPkts.1.783495.18.4.128.2.6.7.4.128.2.6.6.34. The type is slice of
-    // RMON2MIB_Almatrixdstable_Almatrixdsentry.
-    Almatrixdsentry []RMON2MIB_Almatrixdstable_Almatrixdsentry
+    // RMON2MIB_AlMatrixDSTable_AlMatrixDSEntry.
+    AlMatrixDSEntry []*RMON2MIB_AlMatrixDSTable_AlMatrixDSEntry
 }
 
-func (almatrixdstable *RMON2MIB_Almatrixdstable) GetEntityData() *types.CommonEntityData {
-    almatrixdstable.EntityData.YFilter = almatrixdstable.YFilter
-    almatrixdstable.EntityData.YangName = "alMatrixDSTable"
-    almatrixdstable.EntityData.BundleName = "cisco_ios_xe"
-    almatrixdstable.EntityData.ParentYangName = "RMON2-MIB"
-    almatrixdstable.EntityData.SegmentPath = "alMatrixDSTable"
-    almatrixdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    almatrixdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    almatrixdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alMatrixDSTable *RMON2MIB_AlMatrixDSTable) GetEntityData() *types.CommonEntityData {
+    alMatrixDSTable.EntityData.YFilter = alMatrixDSTable.YFilter
+    alMatrixDSTable.EntityData.YangName = "alMatrixDSTable"
+    alMatrixDSTable.EntityData.BundleName = "cisco_ios_xe"
+    alMatrixDSTable.EntityData.ParentYangName = "RMON2-MIB"
+    alMatrixDSTable.EntityData.SegmentPath = "alMatrixDSTable"
+    alMatrixDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alMatrixDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alMatrixDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    almatrixdstable.EntityData.Children = make(map[string]types.YChild)
-    almatrixdstable.EntityData.Children["alMatrixDSEntry"] = types.YChild{"Almatrixdsentry", nil}
-    for i := range almatrixdstable.Almatrixdsentry {
-        almatrixdstable.EntityData.Children[types.GetSegmentPath(&almatrixdstable.Almatrixdsentry[i])] = types.YChild{"Almatrixdsentry", &almatrixdstable.Almatrixdsentry[i]}
+    alMatrixDSTable.EntityData.Children = types.NewOrderedMap()
+    alMatrixDSTable.EntityData.Children.Append("alMatrixDSEntry", types.YChild{"AlMatrixDSEntry", nil})
+    for i := range alMatrixDSTable.AlMatrixDSEntry {
+        alMatrixDSTable.EntityData.Children.Append(types.GetSegmentPath(alMatrixDSTable.AlMatrixDSEntry[i]), types.YChild{"AlMatrixDSEntry", alMatrixDSTable.AlMatrixDSEntry[i]})
     }
-    almatrixdstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(almatrixdstable.EntityData)
+    alMatrixDSTable.EntityData.Leafs = types.NewOrderedMap()
+
+    alMatrixDSTable.EntityData.YListKeys = []string {}
+
+    return &(alMatrixDSTable.EntityData)
 }
 
-// RMON2MIB_Almatrixdstable_Almatrixdsentry
+// RMON2MIB_AlMatrixDSTable_AlMatrixDSEntry
 // A conceptual row in the alMatrixDSTable.
 // 
 // The hlMatrixControlIndex value in the index identifies the
@@ -2862,36 +2958,36 @@ func (almatrixdstable *RMON2MIB_Almatrixdstable) GetEntityData() *types.CommonEn
 // 
 // An example of the indexing of this entry is
 // alMatrixDSPkts.1.783495.18.4.128.2.6.7.4.128.2.6.6.34
-type RMON2MIB_Almatrixdstable_Almatrixdsentry struct {
+type RMON2MIB_AlMatrixDSTable_AlMatrixDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Hlmatrixcontroltable_Hlmatrixcontrolentry_Hlmatrixcontrolindex
-    Hlmatrixcontrolindex interface{}
+    // rmon2_mib.RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry_HlMatrixControlIndex
+    HlMatrixControlIndex interface{}
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
     // range: 0..4294967295.
-    Almatrixdstimemark interface{}
+    AlMatrixDSTimeMark interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // rmon2_mib.RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry_Nlmatrixdsdestaddress
-    Nlmatrixdsdestaddress interface{}
+    // rmon2_mib.RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry_NlMatrixDSDestAddress
+    NlMatrixDSDestAddress interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // rmon2_mib.RMON2MIB_Nlmatrixdstable_Nlmatrixdsentry_Nlmatrixdssourceaddress
-    Nlmatrixdssourceaddress interface{}
+    // rmon2_mib.RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry_NlMatrixDSSourceAddress
+    NlMatrixDSSourceAddress interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // rmon2_mib.RMON2MIB_Protocoldirtable_Protocoldirentry_Protocoldirlocalindex
-    Protocoldirlocalindex2 interface{}
+    // rmon2_mib.RMON2MIB_ProtocolDirTable_ProtocolDirEntry_ProtocolDirLocalIndex
+    ProtocolDirLocalIndex2 interface{}
 
     // The number of packets of this protocol type without errors transmitted from
     // the source address to the destination address since this entry was added to
@@ -2899,7 +2995,7 @@ type RMON2MIB_Almatrixdstable_Almatrixdsentry struct {
     // so if a single network-layer packet is fragmented into several link-layer
     // frames, this counter is incremented several times. The type is interface{}
     // with range: 0..4294967295.
-    Almatrixdspkts interface{}
+    AlMatrixDSPkts interface{}
 
     // The number of octets in packets of this protocol type transmitted from the
     // source address to the destination address since this entry was added to the
@@ -2908,84 +3004,90 @@ type RMON2MIB_Almatrixdstable_Almatrixdsentry struct {
     // count just those octets in the particular protocol frames, but includes the
     // entire packet that contained the protocol. The type is interface{} with
     // range: 0..4294967295.
-    Almatrixdsoctets interface{}
+    AlMatrixDSOctets interface{}
 
     // The value of sysUpTime when this entry was last activated. This can be used
     // by the management station to ensure that the entry has not been deleted and
     // recreated between polls. The type is interface{} with range: 0..4294967295.
-    Almatrixdscreatetime interface{}
+    AlMatrixDSCreateTime interface{}
 }
 
-func (almatrixdsentry *RMON2MIB_Almatrixdstable_Almatrixdsentry) GetEntityData() *types.CommonEntityData {
-    almatrixdsentry.EntityData.YFilter = almatrixdsentry.YFilter
-    almatrixdsentry.EntityData.YangName = "alMatrixDSEntry"
-    almatrixdsentry.EntityData.BundleName = "cisco_ios_xe"
-    almatrixdsentry.EntityData.ParentYangName = "alMatrixDSTable"
-    almatrixdsentry.EntityData.SegmentPath = "alMatrixDSEntry" + "[hlMatrixControlIndex='" + fmt.Sprintf("%v", almatrixdsentry.Hlmatrixcontrolindex) + "']" + "[alMatrixDSTimeMark='" + fmt.Sprintf("%v", almatrixdsentry.Almatrixdstimemark) + "']" + "[protocolDirLocalIndex='" + fmt.Sprintf("%v", almatrixdsentry.Protocoldirlocalindex) + "']" + "[nlMatrixDSDestAddress='" + fmt.Sprintf("%v", almatrixdsentry.Nlmatrixdsdestaddress) + "']" + "[nlMatrixDSSourceAddress='" + fmt.Sprintf("%v", almatrixdsentry.Nlmatrixdssourceaddress) + "']" + "[protocolDirLocalIndex_2='" + fmt.Sprintf("%v", almatrixdsentry.Protocoldirlocalindex2) + "']"
-    almatrixdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    almatrixdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    almatrixdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alMatrixDSEntry *RMON2MIB_AlMatrixDSTable_AlMatrixDSEntry) GetEntityData() *types.CommonEntityData {
+    alMatrixDSEntry.EntityData.YFilter = alMatrixDSEntry.YFilter
+    alMatrixDSEntry.EntityData.YangName = "alMatrixDSEntry"
+    alMatrixDSEntry.EntityData.BundleName = "cisco_ios_xe"
+    alMatrixDSEntry.EntityData.ParentYangName = "alMatrixDSTable"
+    alMatrixDSEntry.EntityData.SegmentPath = "alMatrixDSEntry" + types.AddKeyToken(alMatrixDSEntry.HlMatrixControlIndex, "hlMatrixControlIndex") + types.AddKeyToken(alMatrixDSEntry.AlMatrixDSTimeMark, "alMatrixDSTimeMark") + types.AddKeyToken(alMatrixDSEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(alMatrixDSEntry.NlMatrixDSDestAddress, "nlMatrixDSDestAddress") + types.AddKeyToken(alMatrixDSEntry.NlMatrixDSSourceAddress, "nlMatrixDSSourceAddress") + types.AddKeyToken(alMatrixDSEntry.ProtocolDirLocalIndex2, "protocolDirLocalIndex_2")
+    alMatrixDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alMatrixDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alMatrixDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    almatrixdsentry.EntityData.Children = make(map[string]types.YChild)
-    almatrixdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    almatrixdsentry.EntityData.Leafs["hlMatrixControlIndex"] = types.YLeaf{"Hlmatrixcontrolindex", almatrixdsentry.Hlmatrixcontrolindex}
-    almatrixdsentry.EntityData.Leafs["alMatrixDSTimeMark"] = types.YLeaf{"Almatrixdstimemark", almatrixdsentry.Almatrixdstimemark}
-    almatrixdsentry.EntityData.Leafs["protocolDirLocalIndex"] = types.YLeaf{"Protocoldirlocalindex", almatrixdsentry.Protocoldirlocalindex}
-    almatrixdsentry.EntityData.Leafs["nlMatrixDSDestAddress"] = types.YLeaf{"Nlmatrixdsdestaddress", almatrixdsentry.Nlmatrixdsdestaddress}
-    almatrixdsentry.EntityData.Leafs["nlMatrixDSSourceAddress"] = types.YLeaf{"Nlmatrixdssourceaddress", almatrixdsentry.Nlmatrixdssourceaddress}
-    almatrixdsentry.EntityData.Leafs["protocolDirLocalIndex_2"] = types.YLeaf{"Protocoldirlocalindex2", almatrixdsentry.Protocoldirlocalindex2}
-    almatrixdsentry.EntityData.Leafs["alMatrixDSPkts"] = types.YLeaf{"Almatrixdspkts", almatrixdsentry.Almatrixdspkts}
-    almatrixdsentry.EntityData.Leafs["alMatrixDSOctets"] = types.YLeaf{"Almatrixdsoctets", almatrixdsentry.Almatrixdsoctets}
-    almatrixdsentry.EntityData.Leafs["alMatrixDSCreateTime"] = types.YLeaf{"Almatrixdscreatetime", almatrixdsentry.Almatrixdscreatetime}
-    return &(almatrixdsentry.EntityData)
+    alMatrixDSEntry.EntityData.Children = types.NewOrderedMap()
+    alMatrixDSEntry.EntityData.Leafs = types.NewOrderedMap()
+    alMatrixDSEntry.EntityData.Leafs.Append("hlMatrixControlIndex", types.YLeaf{"HlMatrixControlIndex", alMatrixDSEntry.HlMatrixControlIndex})
+    alMatrixDSEntry.EntityData.Leafs.Append("alMatrixDSTimeMark", types.YLeaf{"AlMatrixDSTimeMark", alMatrixDSEntry.AlMatrixDSTimeMark})
+    alMatrixDSEntry.EntityData.Leafs.Append("protocolDirLocalIndex", types.YLeaf{"ProtocolDirLocalIndex", alMatrixDSEntry.ProtocolDirLocalIndex})
+    alMatrixDSEntry.EntityData.Leafs.Append("nlMatrixDSDestAddress", types.YLeaf{"NlMatrixDSDestAddress", alMatrixDSEntry.NlMatrixDSDestAddress})
+    alMatrixDSEntry.EntityData.Leafs.Append("nlMatrixDSSourceAddress", types.YLeaf{"NlMatrixDSSourceAddress", alMatrixDSEntry.NlMatrixDSSourceAddress})
+    alMatrixDSEntry.EntityData.Leafs.Append("protocolDirLocalIndex_2", types.YLeaf{"ProtocolDirLocalIndex2", alMatrixDSEntry.ProtocolDirLocalIndex2})
+    alMatrixDSEntry.EntityData.Leafs.Append("alMatrixDSPkts", types.YLeaf{"AlMatrixDSPkts", alMatrixDSEntry.AlMatrixDSPkts})
+    alMatrixDSEntry.EntityData.Leafs.Append("alMatrixDSOctets", types.YLeaf{"AlMatrixDSOctets", alMatrixDSEntry.AlMatrixDSOctets})
+    alMatrixDSEntry.EntityData.Leafs.Append("alMatrixDSCreateTime", types.YLeaf{"AlMatrixDSCreateTime", alMatrixDSEntry.AlMatrixDSCreateTime})
+
+    alMatrixDSEntry.EntityData.YListKeys = []string {"HlMatrixControlIndex", "AlMatrixDSTimeMark", "ProtocolDirLocalIndex", "NlMatrixDSDestAddress", "NlMatrixDSSourceAddress", "ProtocolDirLocalIndex2"}
+
+    return &(alMatrixDSEntry.EntityData)
 }
 
-// RMON2MIB_Almatrixtopncontroltable
+// RMON2MIB_AlMatrixTopNControlTable
 // A set of parameters that control the creation of a
 // report of the top N matrix entries according to
 // a selected metric.
-type RMON2MIB_Almatrixtopncontroltable struct {
+type RMON2MIB_AlMatrixTopNControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the alMatrixTopNControlTable.  An example of the
     // indexing of this table is alMatrixTopNControlDuration.3. The type is slice
-    // of RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry.
-    Almatrixtopncontrolentry []RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry
+    // of RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry.
+    AlMatrixTopNControlEntry []*RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry
 }
 
-func (almatrixtopncontroltable *RMON2MIB_Almatrixtopncontroltable) GetEntityData() *types.CommonEntityData {
-    almatrixtopncontroltable.EntityData.YFilter = almatrixtopncontroltable.YFilter
-    almatrixtopncontroltable.EntityData.YangName = "alMatrixTopNControlTable"
-    almatrixtopncontroltable.EntityData.BundleName = "cisco_ios_xe"
-    almatrixtopncontroltable.EntityData.ParentYangName = "RMON2-MIB"
-    almatrixtopncontroltable.EntityData.SegmentPath = "alMatrixTopNControlTable"
-    almatrixtopncontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    almatrixtopncontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    almatrixtopncontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alMatrixTopNControlTable *RMON2MIB_AlMatrixTopNControlTable) GetEntityData() *types.CommonEntityData {
+    alMatrixTopNControlTable.EntityData.YFilter = alMatrixTopNControlTable.YFilter
+    alMatrixTopNControlTable.EntityData.YangName = "alMatrixTopNControlTable"
+    alMatrixTopNControlTable.EntityData.BundleName = "cisco_ios_xe"
+    alMatrixTopNControlTable.EntityData.ParentYangName = "RMON2-MIB"
+    alMatrixTopNControlTable.EntityData.SegmentPath = "alMatrixTopNControlTable"
+    alMatrixTopNControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alMatrixTopNControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alMatrixTopNControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    almatrixtopncontroltable.EntityData.Children = make(map[string]types.YChild)
-    almatrixtopncontroltable.EntityData.Children["alMatrixTopNControlEntry"] = types.YChild{"Almatrixtopncontrolentry", nil}
-    for i := range almatrixtopncontroltable.Almatrixtopncontrolentry {
-        almatrixtopncontroltable.EntityData.Children[types.GetSegmentPath(&almatrixtopncontroltable.Almatrixtopncontrolentry[i])] = types.YChild{"Almatrixtopncontrolentry", &almatrixtopncontroltable.Almatrixtopncontrolentry[i]}
+    alMatrixTopNControlTable.EntityData.Children = types.NewOrderedMap()
+    alMatrixTopNControlTable.EntityData.Children.Append("alMatrixTopNControlEntry", types.YChild{"AlMatrixTopNControlEntry", nil})
+    for i := range alMatrixTopNControlTable.AlMatrixTopNControlEntry {
+        alMatrixTopNControlTable.EntityData.Children.Append(types.GetSegmentPath(alMatrixTopNControlTable.AlMatrixTopNControlEntry[i]), types.YChild{"AlMatrixTopNControlEntry", alMatrixTopNControlTable.AlMatrixTopNControlEntry[i]})
     }
-    almatrixtopncontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(almatrixtopncontroltable.EntityData)
+    alMatrixTopNControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    alMatrixTopNControlTable.EntityData.YListKeys = []string {}
+
+    return &(alMatrixTopNControlTable.EntityData)
 }
 
-// RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry
+// RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry
 // A conceptual row in the alMatrixTopNControlTable.
 // 
 // An example of the indexing of this table is
 // alMatrixTopNControlDuration.3
-type RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry struct {
+type RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // alMatrixTopNControlTable.  Each such entry defines one top N report
     // prepared for one interface. The type is interface{} with range: 1..65535.
-    Almatrixtopncontrolindex interface{}
+    AlMatrixTopNControlIndex interface{}
 
     // The alMatrix[SD/DS] table for which a top N report will be prepared on
     // behalf of this entry.  The alMatrix[SD/DS] table is identified by the value
@@ -2993,7 +3095,7 @@ type RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry struct {
     // identify the particular table.  This object may not be modified if the
     // associated alMatrixTopNControlStatus object is equal to active(1). The type
     // is interface{} with range: 1..65535.
-    Almatrixtopncontrolmatrixindex interface{}
+    AlMatrixTopNControlMatrixIndex interface{}
 
     // The variable for each alMatrix[SD/DS] entry that the     
     // alMatrixTopNEntries are sorted by, as well as the selector of the view of
@@ -3002,8 +3104,8 @@ type RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry struct {
     // have no child protocols that are counted.  The values alMatrixTopNAllPkts
     // and alMatrixTopNAllOctets cause collection from all alMatrix entries.  This
     // object may not be modified if the associated alMatrixTopNControlStatus
-    // object is equal to active(1). The type is Almatrixtopncontrolratebase.
-    Almatrixtopncontrolratebase interface{}
+    // object is equal to active(1). The type is AlMatrixTopNControlRateBase.
+    AlMatrixTopNControlRateBase interface{}
 
     // The number of seconds left in the report currently being collected.  When
     // this object is modified by the management station, a new collection is
@@ -3022,11 +3124,11 @@ type RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry struct {
     // associated entries in the alMatrixTopNTable shall be deleted.  (Note that
     // this is a different algorithm than the one used in the hostTopNTable). The
     // type is interface{} with range: 0..2147483647.
-    Almatrixtopncontroltimeremaining interface{}
+    AlMatrixTopNControlTimeRemaining interface{}
 
     // The number of reports that have been generated by this entry. The type is
     // interface{} with range: 0..4294967295.
-    Almatrixtopncontrolgeneratedreports interface{}
+    AlMatrixTopNControlGeneratedReports interface{}
 
     // The number of seconds that this report has collected during the last
     // sampling interval.  When the associated alMatrixTopNControlTimeRemaining
@@ -3035,14 +3137,14 @@ type RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry struct {
     // alMatrixTopNControlTimeRemaining is set.  This value shall be zero if no
     // reports have been requested for this alMatrixTopNControlEntry. The type is
     // interface{} with range: -2147483648..2147483647.
-    Almatrixtopncontrolduration interface{}
+    AlMatrixTopNControlDuration interface{}
 
     // The maximum number of matrix entries requested for this report.  When this
     // object is created or modified, the probe should set
     // alMatrixTopNControlGrantedSize as closely to this object as is possible for
     // the particular probe implementation and available resources. The type is
     // interface{} with range: 0..2147483647.
-    Almatrixtopncontrolrequestedsize interface{}
+    AlMatrixTopNControlRequestedSize interface{}
 
     // The maximum number of matrix entries in this report.  When the associated
     // alMatrixTopNControlRequestedSize object is created or modified, the probe
@@ -3063,7 +3165,7 @@ type RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry struct {
     // value of alMatrixTopNPktRate or alMatrixTopNOctetRate are sorted.  It is
     // also an implementation-specific matter as to whether or not zero-valued
     // entries are available. The type is interface{} with range: 0..2147483647.
-    Almatrixtopncontrolgrantedsize interface{}
+    AlMatrixTopNControlGrantedSize interface{}
 
     // The value of sysUpTime when this top N report was last started.  In other
     // words, this is the time that the associated
@@ -3071,63 +3173,66 @@ type RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry struct {
     // report or the time the report was last automatically (re)started.  This
     // object may be used by the management station to determine if a report was
     // missed or not. The type is interface{} with range: 0..4294967295.
-    Almatrixtopncontrolstarttime interface{}
+    AlMatrixTopNControlStartTime interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Almatrixtopncontrolowner interface{}
+    AlMatrixTopNControlOwner interface{}
 
     // The status of this alMatrixTopNControlEntry.  An entry may not exist in the
     // active state unless all objects in the entry have an appropriate value.  If
     // this object is not equal to active(1), all associated entries in the
     // alMatrixTopNTable shall be deleted by the agent. The type is RowStatus.
-    Almatrixtopncontrolstatus interface{}
+    AlMatrixTopNControlStatus interface{}
 }
 
-func (almatrixtopncontrolentry *RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry) GetEntityData() *types.CommonEntityData {
-    almatrixtopncontrolentry.EntityData.YFilter = almatrixtopncontrolentry.YFilter
-    almatrixtopncontrolentry.EntityData.YangName = "alMatrixTopNControlEntry"
-    almatrixtopncontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    almatrixtopncontrolentry.EntityData.ParentYangName = "alMatrixTopNControlTable"
-    almatrixtopncontrolentry.EntityData.SegmentPath = "alMatrixTopNControlEntry" + "[alMatrixTopNControlIndex='" + fmt.Sprintf("%v", almatrixtopncontrolentry.Almatrixtopncontrolindex) + "']"
-    almatrixtopncontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    almatrixtopncontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    almatrixtopncontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alMatrixTopNControlEntry *RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry) GetEntityData() *types.CommonEntityData {
+    alMatrixTopNControlEntry.EntityData.YFilter = alMatrixTopNControlEntry.YFilter
+    alMatrixTopNControlEntry.EntityData.YangName = "alMatrixTopNControlEntry"
+    alMatrixTopNControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    alMatrixTopNControlEntry.EntityData.ParentYangName = "alMatrixTopNControlTable"
+    alMatrixTopNControlEntry.EntityData.SegmentPath = "alMatrixTopNControlEntry" + types.AddKeyToken(alMatrixTopNControlEntry.AlMatrixTopNControlIndex, "alMatrixTopNControlIndex")
+    alMatrixTopNControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alMatrixTopNControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alMatrixTopNControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    almatrixtopncontrolentry.EntityData.Children = make(map[string]types.YChild)
-    almatrixtopncontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlIndex"] = types.YLeaf{"Almatrixtopncontrolindex", almatrixtopncontrolentry.Almatrixtopncontrolindex}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlMatrixIndex"] = types.YLeaf{"Almatrixtopncontrolmatrixindex", almatrixtopncontrolentry.Almatrixtopncontrolmatrixindex}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlRateBase"] = types.YLeaf{"Almatrixtopncontrolratebase", almatrixtopncontrolentry.Almatrixtopncontrolratebase}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlTimeRemaining"] = types.YLeaf{"Almatrixtopncontroltimeremaining", almatrixtopncontrolentry.Almatrixtopncontroltimeremaining}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlGeneratedReports"] = types.YLeaf{"Almatrixtopncontrolgeneratedreports", almatrixtopncontrolentry.Almatrixtopncontrolgeneratedreports}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlDuration"] = types.YLeaf{"Almatrixtopncontrolduration", almatrixtopncontrolentry.Almatrixtopncontrolduration}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlRequestedSize"] = types.YLeaf{"Almatrixtopncontrolrequestedsize", almatrixtopncontrolentry.Almatrixtopncontrolrequestedsize}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlGrantedSize"] = types.YLeaf{"Almatrixtopncontrolgrantedsize", almatrixtopncontrolentry.Almatrixtopncontrolgrantedsize}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlStartTime"] = types.YLeaf{"Almatrixtopncontrolstarttime", almatrixtopncontrolentry.Almatrixtopncontrolstarttime}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlOwner"] = types.YLeaf{"Almatrixtopncontrolowner", almatrixtopncontrolentry.Almatrixtopncontrolowner}
-    almatrixtopncontrolentry.EntityData.Leafs["alMatrixTopNControlStatus"] = types.YLeaf{"Almatrixtopncontrolstatus", almatrixtopncontrolentry.Almatrixtopncontrolstatus}
-    return &(almatrixtopncontrolentry.EntityData)
+    alMatrixTopNControlEntry.EntityData.Children = types.NewOrderedMap()
+    alMatrixTopNControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlIndex", types.YLeaf{"AlMatrixTopNControlIndex", alMatrixTopNControlEntry.AlMatrixTopNControlIndex})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlMatrixIndex", types.YLeaf{"AlMatrixTopNControlMatrixIndex", alMatrixTopNControlEntry.AlMatrixTopNControlMatrixIndex})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlRateBase", types.YLeaf{"AlMatrixTopNControlRateBase", alMatrixTopNControlEntry.AlMatrixTopNControlRateBase})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlTimeRemaining", types.YLeaf{"AlMatrixTopNControlTimeRemaining", alMatrixTopNControlEntry.AlMatrixTopNControlTimeRemaining})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlGeneratedReports", types.YLeaf{"AlMatrixTopNControlGeneratedReports", alMatrixTopNControlEntry.AlMatrixTopNControlGeneratedReports})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlDuration", types.YLeaf{"AlMatrixTopNControlDuration", alMatrixTopNControlEntry.AlMatrixTopNControlDuration})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlRequestedSize", types.YLeaf{"AlMatrixTopNControlRequestedSize", alMatrixTopNControlEntry.AlMatrixTopNControlRequestedSize})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlGrantedSize", types.YLeaf{"AlMatrixTopNControlGrantedSize", alMatrixTopNControlEntry.AlMatrixTopNControlGrantedSize})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlStartTime", types.YLeaf{"AlMatrixTopNControlStartTime", alMatrixTopNControlEntry.AlMatrixTopNControlStartTime})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlOwner", types.YLeaf{"AlMatrixTopNControlOwner", alMatrixTopNControlEntry.AlMatrixTopNControlOwner})
+    alMatrixTopNControlEntry.EntityData.Leafs.Append("alMatrixTopNControlStatus", types.YLeaf{"AlMatrixTopNControlStatus", alMatrixTopNControlEntry.AlMatrixTopNControlStatus})
+
+    alMatrixTopNControlEntry.EntityData.YListKeys = []string {"AlMatrixTopNControlIndex"}
+
+    return &(alMatrixTopNControlEntry.EntityData)
 }
 
-// RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase represents alMatrixTopNControlStatus object is equal to active(1).
-type RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase string
+// RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase represents alMatrixTopNControlStatus object is equal to active(1).
+type RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase string
 
 const (
-    RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase_alMatrixTopNTerminalsPkts RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase = "alMatrixTopNTerminalsPkts"
+    RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase_alMatrixTopNTerminalsPkts RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase = "alMatrixTopNTerminalsPkts"
 
-    RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase_alMatrixTopNTerminalsOctets RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase = "alMatrixTopNTerminalsOctets"
+    RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase_alMatrixTopNTerminalsOctets RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase = "alMatrixTopNTerminalsOctets"
 
-    RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase_alMatrixTopNAllPkts RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase = "alMatrixTopNAllPkts"
+    RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase_alMatrixTopNAllPkts RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase = "alMatrixTopNAllPkts"
 
-    RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase_alMatrixTopNAllOctets RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolratebase = "alMatrixTopNAllOctets"
+    RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase_alMatrixTopNAllOctets RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlRateBase = "alMatrixTopNAllOctets"
 )
 
-// RMON2MIB_Almatrixtopntable
+// RMON2MIB_AlMatrixTopNTable
 // A set of statistics for those application layer matrix
 // entries that have counted the highest number of octets or
 // packets.
-type RMON2MIB_Almatrixtopntable struct {
+type RMON2MIB_AlMatrixTopNTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3135,30 +3240,33 @@ type RMON2MIB_Almatrixtopntable struct {
     // value in the index identifies the alMatrixTopNControlEntry on whose behalf
     // this entry was created.  An example of the indexing of this table is
     // alMatrixTopNPktRate.3.10. The type is slice of
-    // RMON2MIB_Almatrixtopntable_Almatrixtopnentry.
-    Almatrixtopnentry []RMON2MIB_Almatrixtopntable_Almatrixtopnentry
+    // RMON2MIB_AlMatrixTopNTable_AlMatrixTopNEntry.
+    AlMatrixTopNEntry []*RMON2MIB_AlMatrixTopNTable_AlMatrixTopNEntry
 }
 
-func (almatrixtopntable *RMON2MIB_Almatrixtopntable) GetEntityData() *types.CommonEntityData {
-    almatrixtopntable.EntityData.YFilter = almatrixtopntable.YFilter
-    almatrixtopntable.EntityData.YangName = "alMatrixTopNTable"
-    almatrixtopntable.EntityData.BundleName = "cisco_ios_xe"
-    almatrixtopntable.EntityData.ParentYangName = "RMON2-MIB"
-    almatrixtopntable.EntityData.SegmentPath = "alMatrixTopNTable"
-    almatrixtopntable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    almatrixtopntable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    almatrixtopntable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alMatrixTopNTable *RMON2MIB_AlMatrixTopNTable) GetEntityData() *types.CommonEntityData {
+    alMatrixTopNTable.EntityData.YFilter = alMatrixTopNTable.YFilter
+    alMatrixTopNTable.EntityData.YangName = "alMatrixTopNTable"
+    alMatrixTopNTable.EntityData.BundleName = "cisco_ios_xe"
+    alMatrixTopNTable.EntityData.ParentYangName = "RMON2-MIB"
+    alMatrixTopNTable.EntityData.SegmentPath = "alMatrixTopNTable"
+    alMatrixTopNTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alMatrixTopNTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alMatrixTopNTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    almatrixtopntable.EntityData.Children = make(map[string]types.YChild)
-    almatrixtopntable.EntityData.Children["alMatrixTopNEntry"] = types.YChild{"Almatrixtopnentry", nil}
-    for i := range almatrixtopntable.Almatrixtopnentry {
-        almatrixtopntable.EntityData.Children[types.GetSegmentPath(&almatrixtopntable.Almatrixtopnentry[i])] = types.YChild{"Almatrixtopnentry", &almatrixtopntable.Almatrixtopnentry[i]}
+    alMatrixTopNTable.EntityData.Children = types.NewOrderedMap()
+    alMatrixTopNTable.EntityData.Children.Append("alMatrixTopNEntry", types.YChild{"AlMatrixTopNEntry", nil})
+    for i := range alMatrixTopNTable.AlMatrixTopNEntry {
+        alMatrixTopNTable.EntityData.Children.Append(types.GetSegmentPath(alMatrixTopNTable.AlMatrixTopNEntry[i]), types.YChild{"AlMatrixTopNEntry", alMatrixTopNTable.AlMatrixTopNEntry[i]})
     }
-    almatrixtopntable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(almatrixtopntable.EntityData)
+    alMatrixTopNTable.EntityData.Leafs = types.NewOrderedMap()
+
+    alMatrixTopNTable.EntityData.YListKeys = []string {}
+
+    return &(alMatrixTopNTable.EntityData)
 }
 
-// RMON2MIB_Almatrixtopntable_Almatrixtopnentry
+// RMON2MIB_AlMatrixTopNTable_AlMatrixTopNEntry
 // A conceptual row in the alMatrixTopNTable.
 // 
 // The alMatrixTopNControlIndex value in the index identifies
@@ -3167,13 +3275,13 @@ func (almatrixtopntable *RMON2MIB_Almatrixtopntable) GetEntityData() *types.Comm
 // 
 // An example of the indexing of this table is
 // alMatrixTopNPktRate.3.10
-type RMON2MIB_Almatrixtopntable_Almatrixtopnentry struct {
+type RMON2MIB_AlMatrixTopNTable_AlMatrixTopNEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Almatrixtopncontroltable_Almatrixtopncontrolentry_Almatrixtopncontrolindex
-    Almatrixtopncontrolindex interface{}
+    // rmon2_mib.RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlIndex
+    AlMatrixTopNControlIndex interface{}
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // alMatrixTopNTable among those in the same report. This index is between 1
@@ -3187,11 +3295,11 @@ type RMON2MIB_Almatrixtopntable_Almatrixtopnentry struct {
     // assigned to entries with decreasing values of alMatrixTopNOctetRate until
     // index N is assigned or there are no more alMatrixTopNEntries. The type is
     // interface{} with range: 1..65535.
-    Almatrixtopnindex interface{}
+    AlMatrixTopNIndex interface{}
 
     // The protocolDirLocalIndex of the network layer protocol of this entry's
     // network address. The type is interface{} with range: 1..2147483647.
-    Almatrixtopnprotocoldirlocalindex interface{}
+    AlMatrixTopNProtocolDirLocalIndex interface{}
 
     // The network layer address of the source host in this conversation. This is
     // represented as an octet string with specific semantics and length as
@@ -3200,7 +3308,7 @@ type RMON2MIB_Almatrixtopntable_Almatrixtopnentry struct {
     // encapsulation of ip, this object is encoded as a length octet of 4,
     // followed by the 4 octets of the ip address, in network byte order. The type
     // is string.
-    Almatrixtopnsourceaddress interface{}
+    AlMatrixTopNSourceAddress interface{}
 
     // The network layer address of the destination host in this conversation. 
     // This is represented as an octet string with specific semantics and length
@@ -3209,11 +3317,11 @@ type RMON2MIB_Almatrixtopntable_Almatrixtopnentry struct {
     // encapsulation of ip, this object is encoded as a length octet of 4,
     // followed by the 4 octets of the ip address, in network byte order. The type
     // is string.
-    Almatrixtopndestaddress interface{}
+    AlMatrixTopNDestAddress interface{}
 
     // The type of the protocol counted by this matrix entry. The type is
     // interface{} with range: 1..2147483647.
-    Almatrixtopnappprotocoldirlocalindex interface{}
+    AlMatrixTopNAppProtocolDirLocalIndex interface{}
 
     // The number of packets seen of this protocol from the source host to the
     // destination host during this sampling interval, counted using the rules for
@@ -3221,7 +3329,7 @@ type RMON2MIB_Almatrixtopntable_Almatrixtopnentry struct {
     // alMatrixTopNControlRateBase is alMatrixTopNTerminalsPkts or
     // alMatrixTopNAllPkts, this variable will be used to sort this report. The
     // type is interface{} with range: 0..4294967295.
-    Almatrixtopnpktrate interface{}
+    AlMatrixTopNPktRate interface{}
 
     // The number of packets seen of this protocol from the destination host to
     // the source host during this sampling interval, counted using the rules for
@@ -3233,7 +3341,7 @@ type RMON2MIB_Almatrixtopntable_Almatrixtopnentry struct {
     // alMatrixTopNAllPkts, the sort of topN entries is based entirely on
     // alMatrixTopNPktRate, and not on the value of this object. The type is
     // interface{} with range: 0..4294967295.
-    Almatrixtopnreversepktrate interface{}
+    AlMatrixTopNReversePktRate interface{}
 
     // The number of octets seen of this protocol from the source host to the
     // destination host during this sampling interval, counted using the rules for
@@ -3241,7 +3349,7 @@ type RMON2MIB_Almatrixtopntable_Almatrixtopnentry struct {
     // alMatrixTopNControlRateBase is alMatrixTopNTerminalsOctets or
     // alMatrixTopNAllOctets, this variable will be used to sort this report. The
     // type is interface{} with range: 0..4294967295.
-    Almatrixtopnoctetrate interface{}
+    AlMatrixTopNOctetRate interface{}
 
     // The number of octets seen of this protocol from the destination host to the
     // source host during this sampling interval, counted using the rules for
@@ -3253,74 +3361,80 @@ type RMON2MIB_Almatrixtopntable_Almatrixtopnentry struct {
     // alMatrixTopNAllOctets, the sort of topN entries is based entirely on
     // alMatrixTopNOctetRate, and not on the value of this object. The type is
     // interface{} with range: 0..4294967295.
-    Almatrixtopnreverseoctetrate interface{}
+    AlMatrixTopNReverseOctetRate interface{}
 }
 
-func (almatrixtopnentry *RMON2MIB_Almatrixtopntable_Almatrixtopnentry) GetEntityData() *types.CommonEntityData {
-    almatrixtopnentry.EntityData.YFilter = almatrixtopnentry.YFilter
-    almatrixtopnentry.EntityData.YangName = "alMatrixTopNEntry"
-    almatrixtopnentry.EntityData.BundleName = "cisco_ios_xe"
-    almatrixtopnentry.EntityData.ParentYangName = "alMatrixTopNTable"
-    almatrixtopnentry.EntityData.SegmentPath = "alMatrixTopNEntry" + "[alMatrixTopNControlIndex='" + fmt.Sprintf("%v", almatrixtopnentry.Almatrixtopncontrolindex) + "']" + "[alMatrixTopNIndex='" + fmt.Sprintf("%v", almatrixtopnentry.Almatrixtopnindex) + "']"
-    almatrixtopnentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    almatrixtopnentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    almatrixtopnentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (alMatrixTopNEntry *RMON2MIB_AlMatrixTopNTable_AlMatrixTopNEntry) GetEntityData() *types.CommonEntityData {
+    alMatrixTopNEntry.EntityData.YFilter = alMatrixTopNEntry.YFilter
+    alMatrixTopNEntry.EntityData.YangName = "alMatrixTopNEntry"
+    alMatrixTopNEntry.EntityData.BundleName = "cisco_ios_xe"
+    alMatrixTopNEntry.EntityData.ParentYangName = "alMatrixTopNTable"
+    alMatrixTopNEntry.EntityData.SegmentPath = "alMatrixTopNEntry" + types.AddKeyToken(alMatrixTopNEntry.AlMatrixTopNControlIndex, "alMatrixTopNControlIndex") + types.AddKeyToken(alMatrixTopNEntry.AlMatrixTopNIndex, "alMatrixTopNIndex")
+    alMatrixTopNEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alMatrixTopNEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alMatrixTopNEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    almatrixtopnentry.EntityData.Children = make(map[string]types.YChild)
-    almatrixtopnentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNControlIndex"] = types.YLeaf{"Almatrixtopncontrolindex", almatrixtopnentry.Almatrixtopncontrolindex}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNIndex"] = types.YLeaf{"Almatrixtopnindex", almatrixtopnentry.Almatrixtopnindex}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNProtocolDirLocalIndex"] = types.YLeaf{"Almatrixtopnprotocoldirlocalindex", almatrixtopnentry.Almatrixtopnprotocoldirlocalindex}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNSourceAddress"] = types.YLeaf{"Almatrixtopnsourceaddress", almatrixtopnentry.Almatrixtopnsourceaddress}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNDestAddress"] = types.YLeaf{"Almatrixtopndestaddress", almatrixtopnentry.Almatrixtopndestaddress}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNAppProtocolDirLocalIndex"] = types.YLeaf{"Almatrixtopnappprotocoldirlocalindex", almatrixtopnentry.Almatrixtopnappprotocoldirlocalindex}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNPktRate"] = types.YLeaf{"Almatrixtopnpktrate", almatrixtopnentry.Almatrixtopnpktrate}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNReversePktRate"] = types.YLeaf{"Almatrixtopnreversepktrate", almatrixtopnentry.Almatrixtopnreversepktrate}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNOctetRate"] = types.YLeaf{"Almatrixtopnoctetrate", almatrixtopnentry.Almatrixtopnoctetrate}
-    almatrixtopnentry.EntityData.Leafs["alMatrixTopNReverseOctetRate"] = types.YLeaf{"Almatrixtopnreverseoctetrate", almatrixtopnentry.Almatrixtopnreverseoctetrate}
-    return &(almatrixtopnentry.EntityData)
+    alMatrixTopNEntry.EntityData.Children = types.NewOrderedMap()
+    alMatrixTopNEntry.EntityData.Leafs = types.NewOrderedMap()
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNControlIndex", types.YLeaf{"AlMatrixTopNControlIndex", alMatrixTopNEntry.AlMatrixTopNControlIndex})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNIndex", types.YLeaf{"AlMatrixTopNIndex", alMatrixTopNEntry.AlMatrixTopNIndex})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNProtocolDirLocalIndex", types.YLeaf{"AlMatrixTopNProtocolDirLocalIndex", alMatrixTopNEntry.AlMatrixTopNProtocolDirLocalIndex})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNSourceAddress", types.YLeaf{"AlMatrixTopNSourceAddress", alMatrixTopNEntry.AlMatrixTopNSourceAddress})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNDestAddress", types.YLeaf{"AlMatrixTopNDestAddress", alMatrixTopNEntry.AlMatrixTopNDestAddress})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNAppProtocolDirLocalIndex", types.YLeaf{"AlMatrixTopNAppProtocolDirLocalIndex", alMatrixTopNEntry.AlMatrixTopNAppProtocolDirLocalIndex})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNPktRate", types.YLeaf{"AlMatrixTopNPktRate", alMatrixTopNEntry.AlMatrixTopNPktRate})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNReversePktRate", types.YLeaf{"AlMatrixTopNReversePktRate", alMatrixTopNEntry.AlMatrixTopNReversePktRate})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNOctetRate", types.YLeaf{"AlMatrixTopNOctetRate", alMatrixTopNEntry.AlMatrixTopNOctetRate})
+    alMatrixTopNEntry.EntityData.Leafs.Append("alMatrixTopNReverseOctetRate", types.YLeaf{"AlMatrixTopNReverseOctetRate", alMatrixTopNEntry.AlMatrixTopNReverseOctetRate})
+
+    alMatrixTopNEntry.EntityData.YListKeys = []string {"AlMatrixTopNControlIndex", "AlMatrixTopNIndex"}
+
+    return &(alMatrixTopNEntry.EntityData)
 }
 
-// RMON2MIB_Usrhistorycontroltable
+// RMON2MIB_UsrHistoryControlTable
 // A list of data-collection configuration entries.
-type RMON2MIB_Usrhistorycontroltable struct {
+type RMON2MIB_UsrHistoryControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of parameters that set up a group of user-defined MIB objects to be
     // sampled periodically (called a bucket-group).  For example, an instance of
     // usrHistoryControlInterval might be named usrHistoryControlInterval.1. The
-    // type is slice of RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry.
-    Usrhistorycontrolentry []RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry
+    // type is slice of RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry.
+    UsrHistoryControlEntry []*RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry
 }
 
-func (usrhistorycontroltable *RMON2MIB_Usrhistorycontroltable) GetEntityData() *types.CommonEntityData {
-    usrhistorycontroltable.EntityData.YFilter = usrhistorycontroltable.YFilter
-    usrhistorycontroltable.EntityData.YangName = "usrHistoryControlTable"
-    usrhistorycontroltable.EntityData.BundleName = "cisco_ios_xe"
-    usrhistorycontroltable.EntityData.ParentYangName = "RMON2-MIB"
-    usrhistorycontroltable.EntityData.SegmentPath = "usrHistoryControlTable"
-    usrhistorycontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    usrhistorycontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    usrhistorycontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (usrHistoryControlTable *RMON2MIB_UsrHistoryControlTable) GetEntityData() *types.CommonEntityData {
+    usrHistoryControlTable.EntityData.YFilter = usrHistoryControlTable.YFilter
+    usrHistoryControlTable.EntityData.YangName = "usrHistoryControlTable"
+    usrHistoryControlTable.EntityData.BundleName = "cisco_ios_xe"
+    usrHistoryControlTable.EntityData.ParentYangName = "RMON2-MIB"
+    usrHistoryControlTable.EntityData.SegmentPath = "usrHistoryControlTable"
+    usrHistoryControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    usrHistoryControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    usrHistoryControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    usrhistorycontroltable.EntityData.Children = make(map[string]types.YChild)
-    usrhistorycontroltable.EntityData.Children["usrHistoryControlEntry"] = types.YChild{"Usrhistorycontrolentry", nil}
-    for i := range usrhistorycontroltable.Usrhistorycontrolentry {
-        usrhistorycontroltable.EntityData.Children[types.GetSegmentPath(&usrhistorycontroltable.Usrhistorycontrolentry[i])] = types.YChild{"Usrhistorycontrolentry", &usrhistorycontroltable.Usrhistorycontrolentry[i]}
+    usrHistoryControlTable.EntityData.Children = types.NewOrderedMap()
+    usrHistoryControlTable.EntityData.Children.Append("usrHistoryControlEntry", types.YChild{"UsrHistoryControlEntry", nil})
+    for i := range usrHistoryControlTable.UsrHistoryControlEntry {
+        usrHistoryControlTable.EntityData.Children.Append(types.GetSegmentPath(usrHistoryControlTable.UsrHistoryControlEntry[i]), types.YChild{"UsrHistoryControlEntry", usrHistoryControlTable.UsrHistoryControlEntry[i]})
     }
-    usrhistorycontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(usrhistorycontroltable.EntityData)
+    usrHistoryControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    usrHistoryControlTable.EntityData.YListKeys = []string {}
+
+    return &(usrHistoryControlTable.EntityData)
 }
 
-// RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry
+// RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry
 // A list of parameters that set up a group of user-defined
 // MIB objects to be sampled periodically (called a
 // bucket-group).
 // 
 // For example, an instance of usrHistoryControlInterval
 // might be named usrHistoryControlInterval.1
-type RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry struct {
+type RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3328,13 +3442,13 @@ type RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry struct {
     // usrHistoryControlTable.  Each such entry defines a set of samples at a
     // particular interval for a specified set of MIB instances available from the
     // managed system. The type is interface{} with range: 1..65535.
-    Usrhistorycontrolindex interface{}
+    UsrHistoryControlIndex interface{}
 
     // The number of MIB objects to be collected in the portion of usrHistoryTable
     // associated with this usrHistoryControlEntry.  This object may not be
     // modified if the associated instance of usrHistoryControlStatus is equal to
     // active(1). The type is interface{} with range: 1..65535.
-    Usrhistorycontrolobjects interface{}
+    UsrHistoryControlObjects interface{}
 
     // The requested number of discrete time intervals over which data is to be
     // saved in the part of the usrHistoryTable associated with this
@@ -3342,7 +3456,7 @@ type RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry struct {
     // should set usrHistoryControlBucketsGranted as closely to this object as is
     // possible for the particular probe implementation and available resources.
     // The type is interface{} with range: 1..65535.
-    Usrhistorycontrolbucketsrequested interface{}
+    UsrHistoryControlBucketsRequested interface{}
 
     // The number of discrete sampling intervals over which data shall be saved in
     // the part of the usrHistoryTable associated with this
@@ -3369,7 +3483,7 @@ type RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry struct {
     // changes to a value greater than the current value, the number of associated
     // usrHistory entries may be allowed to grow. The type is interface{} with
     // range: 1..65535.
-    Usrhistorycontrolbucketsgranted interface{}
+    UsrHistoryControlBucketsGranted interface{}
 
     // The interval in seconds over which the data is sampled for each bucket in
     // the part of the usrHistory table associated with this
@@ -3381,44 +3495,47 @@ type RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry struct {
     // object to a value less than this interval.  This object may not be modified
     // if the associated usrHistoryControlStatus object is equal to active(1). The
     // type is interface{} with range: 1..2147483647.
-    Usrhistorycontrolinterval interface{}
+    UsrHistoryControlInterval interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Usrhistorycontrolowner interface{}
+    UsrHistoryControlOwner interface{}
 
     // The status of this variable history control entry.  An entry may not exist
     // in the active state unless all objects in the entry have an appropriate
     // value.  If this object is not equal to active(1), all associated entries in
     // the usrHistoryTable shall be deleted. The type is RowStatus.
-    Usrhistorycontrolstatus interface{}
+    UsrHistoryControlStatus interface{}
 }
 
-func (usrhistorycontrolentry *RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry) GetEntityData() *types.CommonEntityData {
-    usrhistorycontrolentry.EntityData.YFilter = usrhistorycontrolentry.YFilter
-    usrhistorycontrolentry.EntityData.YangName = "usrHistoryControlEntry"
-    usrhistorycontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    usrhistorycontrolentry.EntityData.ParentYangName = "usrHistoryControlTable"
-    usrhistorycontrolentry.EntityData.SegmentPath = "usrHistoryControlEntry" + "[usrHistoryControlIndex='" + fmt.Sprintf("%v", usrhistorycontrolentry.Usrhistorycontrolindex) + "']"
-    usrhistorycontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    usrhistorycontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    usrhistorycontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (usrHistoryControlEntry *RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry) GetEntityData() *types.CommonEntityData {
+    usrHistoryControlEntry.EntityData.YFilter = usrHistoryControlEntry.YFilter
+    usrHistoryControlEntry.EntityData.YangName = "usrHistoryControlEntry"
+    usrHistoryControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    usrHistoryControlEntry.EntityData.ParentYangName = "usrHistoryControlTable"
+    usrHistoryControlEntry.EntityData.SegmentPath = "usrHistoryControlEntry" + types.AddKeyToken(usrHistoryControlEntry.UsrHistoryControlIndex, "usrHistoryControlIndex")
+    usrHistoryControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    usrHistoryControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    usrHistoryControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    usrhistorycontrolentry.EntityData.Children = make(map[string]types.YChild)
-    usrhistorycontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    usrhistorycontrolentry.EntityData.Leafs["usrHistoryControlIndex"] = types.YLeaf{"Usrhistorycontrolindex", usrhistorycontrolentry.Usrhistorycontrolindex}
-    usrhistorycontrolentry.EntityData.Leafs["usrHistoryControlObjects"] = types.YLeaf{"Usrhistorycontrolobjects", usrhistorycontrolentry.Usrhistorycontrolobjects}
-    usrhistorycontrolentry.EntityData.Leafs["usrHistoryControlBucketsRequested"] = types.YLeaf{"Usrhistorycontrolbucketsrequested", usrhistorycontrolentry.Usrhistorycontrolbucketsrequested}
-    usrhistorycontrolentry.EntityData.Leafs["usrHistoryControlBucketsGranted"] = types.YLeaf{"Usrhistorycontrolbucketsgranted", usrhistorycontrolentry.Usrhistorycontrolbucketsgranted}
-    usrhistorycontrolentry.EntityData.Leafs["usrHistoryControlInterval"] = types.YLeaf{"Usrhistorycontrolinterval", usrhistorycontrolentry.Usrhistorycontrolinterval}
-    usrhistorycontrolentry.EntityData.Leafs["usrHistoryControlOwner"] = types.YLeaf{"Usrhistorycontrolowner", usrhistorycontrolentry.Usrhistorycontrolowner}
-    usrhistorycontrolentry.EntityData.Leafs["usrHistoryControlStatus"] = types.YLeaf{"Usrhistorycontrolstatus", usrhistorycontrolentry.Usrhistorycontrolstatus}
-    return &(usrhistorycontrolentry.EntityData)
+    usrHistoryControlEntry.EntityData.Children = types.NewOrderedMap()
+    usrHistoryControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    usrHistoryControlEntry.EntityData.Leafs.Append("usrHistoryControlIndex", types.YLeaf{"UsrHistoryControlIndex", usrHistoryControlEntry.UsrHistoryControlIndex})
+    usrHistoryControlEntry.EntityData.Leafs.Append("usrHistoryControlObjects", types.YLeaf{"UsrHistoryControlObjects", usrHistoryControlEntry.UsrHistoryControlObjects})
+    usrHistoryControlEntry.EntityData.Leafs.Append("usrHistoryControlBucketsRequested", types.YLeaf{"UsrHistoryControlBucketsRequested", usrHistoryControlEntry.UsrHistoryControlBucketsRequested})
+    usrHistoryControlEntry.EntityData.Leafs.Append("usrHistoryControlBucketsGranted", types.YLeaf{"UsrHistoryControlBucketsGranted", usrHistoryControlEntry.UsrHistoryControlBucketsGranted})
+    usrHistoryControlEntry.EntityData.Leafs.Append("usrHistoryControlInterval", types.YLeaf{"UsrHistoryControlInterval", usrHistoryControlEntry.UsrHistoryControlInterval})
+    usrHistoryControlEntry.EntityData.Leafs.Append("usrHistoryControlOwner", types.YLeaf{"UsrHistoryControlOwner", usrHistoryControlEntry.UsrHistoryControlOwner})
+    usrHistoryControlEntry.EntityData.Leafs.Append("usrHistoryControlStatus", types.YLeaf{"UsrHistoryControlStatus", usrHistoryControlEntry.UsrHistoryControlStatus})
+
+    usrHistoryControlEntry.EntityData.YListKeys = []string {"UsrHistoryControlIndex"}
+
+    return &(usrHistoryControlEntry.EntityData)
 }
 
-// RMON2MIB_Usrhistoryobjecttable
+// RMON2MIB_UsrHistoryObjectTable
 // A list of data-collection configuration entries.
-type RMON2MIB_Usrhistoryobjecttable struct {
+type RMON2MIB_UsrHistoryObjectTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3427,30 +3544,33 @@ type RMON2MIB_Usrhistoryobjecttable struct {
     // The usrHistoryControlIndex value in the index is that of the associated
     // usrHistoryControlEntry.  For example, an instance of
     // usrHistoryObjectVariable might be usrHistoryObjectVariable.1.3. The type is
-    // slice of RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry.
-    Usrhistoryobjectentry []RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry
+    // slice of RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry.
+    UsrHistoryObjectEntry []*RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry
 }
 
-func (usrhistoryobjecttable *RMON2MIB_Usrhistoryobjecttable) GetEntityData() *types.CommonEntityData {
-    usrhistoryobjecttable.EntityData.YFilter = usrhistoryobjecttable.YFilter
-    usrhistoryobjecttable.EntityData.YangName = "usrHistoryObjectTable"
-    usrhistoryobjecttable.EntityData.BundleName = "cisco_ios_xe"
-    usrhistoryobjecttable.EntityData.ParentYangName = "RMON2-MIB"
-    usrhistoryobjecttable.EntityData.SegmentPath = "usrHistoryObjectTable"
-    usrhistoryobjecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    usrhistoryobjecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    usrhistoryobjecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (usrHistoryObjectTable *RMON2MIB_UsrHistoryObjectTable) GetEntityData() *types.CommonEntityData {
+    usrHistoryObjectTable.EntityData.YFilter = usrHistoryObjectTable.YFilter
+    usrHistoryObjectTable.EntityData.YangName = "usrHistoryObjectTable"
+    usrHistoryObjectTable.EntityData.BundleName = "cisco_ios_xe"
+    usrHistoryObjectTable.EntityData.ParentYangName = "RMON2-MIB"
+    usrHistoryObjectTable.EntityData.SegmentPath = "usrHistoryObjectTable"
+    usrHistoryObjectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    usrHistoryObjectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    usrHistoryObjectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    usrhistoryobjecttable.EntityData.Children = make(map[string]types.YChild)
-    usrhistoryobjecttable.EntityData.Children["usrHistoryObjectEntry"] = types.YChild{"Usrhistoryobjectentry", nil}
-    for i := range usrhistoryobjecttable.Usrhistoryobjectentry {
-        usrhistoryobjecttable.EntityData.Children[types.GetSegmentPath(&usrhistoryobjecttable.Usrhistoryobjectentry[i])] = types.YChild{"Usrhistoryobjectentry", &usrhistoryobjecttable.Usrhistoryobjectentry[i]}
+    usrHistoryObjectTable.EntityData.Children = types.NewOrderedMap()
+    usrHistoryObjectTable.EntityData.Children.Append("usrHistoryObjectEntry", types.YChild{"UsrHistoryObjectEntry", nil})
+    for i := range usrHistoryObjectTable.UsrHistoryObjectEntry {
+        usrHistoryObjectTable.EntityData.Children.Append(types.GetSegmentPath(usrHistoryObjectTable.UsrHistoryObjectEntry[i]), types.YChild{"UsrHistoryObjectEntry", usrHistoryObjectTable.UsrHistoryObjectEntry[i]})
     }
-    usrhistoryobjecttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(usrhistoryobjecttable.EntityData)
+    usrHistoryObjectTable.EntityData.Leafs = types.NewOrderedMap()
+
+    usrHistoryObjectTable.EntityData.YListKeys = []string {}
+
+    return &(usrHistoryObjectTable.EntityData)
 }
 
-// RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry
+// RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry
 // A list of MIB instances to be sampled periodically.
 // 
 // Entries in this table are created when an associated
@@ -3461,18 +3581,18 @@ func (usrhistoryobjecttable *RMON2MIB_Usrhistoryobjecttable) GetEntityData() *ty
 // 
 // For example, an instance of usrHistoryObjectVariable might be
 // usrHistoryObjectVariable.1.3
-type RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry struct {
+type RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry_Usrhistorycontrolindex
-    Usrhistorycontrolindex interface{}
+    // rmon2_mib.RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry_UsrHistoryControlIndex
+    UsrHistoryControlIndex interface{}
 
     // This attribute is a key. An index used to uniquely identify an entry in the
     // usrHistoryObject table.  Each such entry defines a MIB instance to be
     // collected periodically. The type is interface{} with range: 1..65535.
-    Usrhistoryobjectindex interface{}
+    UsrHistoryObjectIndex interface{}
 
     // The object identifier of the particular variable to be sampled.  Only
     // variables that resolve to an ASN.1 primitive type of Integer32 (Integer32,
@@ -3488,8 +3608,8 @@ type RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry struct {
     // returned.  This object may not be modified if the associated
     // usrHistoryControlStatus object is equal to active(1). The type is string
     // with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Usrhistoryobjectvariable interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    UsrHistoryObjectVariable interface{}
 
     // The method of sampling the selected variable for storage in the
     // usrHistoryTable.  If the value of this object is absoluteValue(1), the
@@ -3502,41 +3622,44 @@ type RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry struct {
     // value of the associated usrHistoryValStatus object for this interval will
     // be valueNotAvailable(1).  This object may not be modified if the associated
     // usrHistoryControlStatus object is equal to active(1). The type is
-    // Usrhistoryobjectsampletype.
-    Usrhistoryobjectsampletype interface{}
+    // UsrHistoryObjectSampleType.
+    UsrHistoryObjectSampleType interface{}
 }
 
-func (usrhistoryobjectentry *RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry) GetEntityData() *types.CommonEntityData {
-    usrhistoryobjectentry.EntityData.YFilter = usrhistoryobjectentry.YFilter
-    usrhistoryobjectentry.EntityData.YangName = "usrHistoryObjectEntry"
-    usrhistoryobjectentry.EntityData.BundleName = "cisco_ios_xe"
-    usrhistoryobjectentry.EntityData.ParentYangName = "usrHistoryObjectTable"
-    usrhistoryobjectentry.EntityData.SegmentPath = "usrHistoryObjectEntry" + "[usrHistoryControlIndex='" + fmt.Sprintf("%v", usrhistoryobjectentry.Usrhistorycontrolindex) + "']" + "[usrHistoryObjectIndex='" + fmt.Sprintf("%v", usrhistoryobjectentry.Usrhistoryobjectindex) + "']"
-    usrhistoryobjectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    usrhistoryobjectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    usrhistoryobjectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (usrHistoryObjectEntry *RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry) GetEntityData() *types.CommonEntityData {
+    usrHistoryObjectEntry.EntityData.YFilter = usrHistoryObjectEntry.YFilter
+    usrHistoryObjectEntry.EntityData.YangName = "usrHistoryObjectEntry"
+    usrHistoryObjectEntry.EntityData.BundleName = "cisco_ios_xe"
+    usrHistoryObjectEntry.EntityData.ParentYangName = "usrHistoryObjectTable"
+    usrHistoryObjectEntry.EntityData.SegmentPath = "usrHistoryObjectEntry" + types.AddKeyToken(usrHistoryObjectEntry.UsrHistoryControlIndex, "usrHistoryControlIndex") + types.AddKeyToken(usrHistoryObjectEntry.UsrHistoryObjectIndex, "usrHistoryObjectIndex")
+    usrHistoryObjectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    usrHistoryObjectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    usrHistoryObjectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    usrhistoryobjectentry.EntityData.Children = make(map[string]types.YChild)
-    usrhistoryobjectentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    usrhistoryobjectentry.EntityData.Leafs["usrHistoryControlIndex"] = types.YLeaf{"Usrhistorycontrolindex", usrhistoryobjectentry.Usrhistorycontrolindex}
-    usrhistoryobjectentry.EntityData.Leafs["usrHistoryObjectIndex"] = types.YLeaf{"Usrhistoryobjectindex", usrhistoryobjectentry.Usrhistoryobjectindex}
-    usrhistoryobjectentry.EntityData.Leafs["usrHistoryObjectVariable"] = types.YLeaf{"Usrhistoryobjectvariable", usrhistoryobjectentry.Usrhistoryobjectvariable}
-    usrhistoryobjectentry.EntityData.Leafs["usrHistoryObjectSampleType"] = types.YLeaf{"Usrhistoryobjectsampletype", usrhistoryobjectentry.Usrhistoryobjectsampletype}
-    return &(usrhistoryobjectentry.EntityData)
+    usrHistoryObjectEntry.EntityData.Children = types.NewOrderedMap()
+    usrHistoryObjectEntry.EntityData.Leafs = types.NewOrderedMap()
+    usrHistoryObjectEntry.EntityData.Leafs.Append("usrHistoryControlIndex", types.YLeaf{"UsrHistoryControlIndex", usrHistoryObjectEntry.UsrHistoryControlIndex})
+    usrHistoryObjectEntry.EntityData.Leafs.Append("usrHistoryObjectIndex", types.YLeaf{"UsrHistoryObjectIndex", usrHistoryObjectEntry.UsrHistoryObjectIndex})
+    usrHistoryObjectEntry.EntityData.Leafs.Append("usrHistoryObjectVariable", types.YLeaf{"UsrHistoryObjectVariable", usrHistoryObjectEntry.UsrHistoryObjectVariable})
+    usrHistoryObjectEntry.EntityData.Leafs.Append("usrHistoryObjectSampleType", types.YLeaf{"UsrHistoryObjectSampleType", usrHistoryObjectEntry.UsrHistoryObjectSampleType})
+
+    usrHistoryObjectEntry.EntityData.YListKeys = []string {"UsrHistoryControlIndex", "UsrHistoryObjectIndex"}
+
+    return &(usrHistoryObjectEntry.EntityData)
 }
 
-// RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry_Usrhistoryobjectsampletype represents usrHistoryControlStatus object is equal to active(1).
-type RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry_Usrhistoryobjectsampletype string
+// RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry_UsrHistoryObjectSampleType represents usrHistoryControlStatus object is equal to active(1).
+type RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry_UsrHistoryObjectSampleType string
 
 const (
-    RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry_Usrhistoryobjectsampletype_absoluteValue RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry_Usrhistoryobjectsampletype = "absoluteValue"
+    RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry_UsrHistoryObjectSampleType_absoluteValue RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry_UsrHistoryObjectSampleType = "absoluteValue"
 
-    RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry_Usrhistoryobjectsampletype_deltaValue RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry_Usrhistoryobjectsampletype = "deltaValue"
+    RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry_UsrHistoryObjectSampleType_deltaValue RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry_UsrHistoryObjectSampleType = "deltaValue"
 )
 
-// RMON2MIB_Usrhistorytable
+// RMON2MIB_UsrHistoryTable
 // A list of user defined history entries.
-type RMON2MIB_Usrhistorytable struct {
+type RMON2MIB_UsrHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3549,30 +3672,33 @@ type RMON2MIB_Usrhistorytable struct {
     // an instance of usrHistoryAbsValue, which represents the 14th sample of a
     // variable collected as specified by usrHistoryControlEntry.1 and
     // usrHistoryObjectEntry.1.5, would be named usrHistoryAbsValue.1.14.5. The
-    // type is slice of RMON2MIB_Usrhistorytable_Usrhistoryentry.
-    Usrhistoryentry []RMON2MIB_Usrhistorytable_Usrhistoryentry
+    // type is slice of RMON2MIB_UsrHistoryTable_UsrHistoryEntry.
+    UsrHistoryEntry []*RMON2MIB_UsrHistoryTable_UsrHistoryEntry
 }
 
-func (usrhistorytable *RMON2MIB_Usrhistorytable) GetEntityData() *types.CommonEntityData {
-    usrhistorytable.EntityData.YFilter = usrhistorytable.YFilter
-    usrhistorytable.EntityData.YangName = "usrHistoryTable"
-    usrhistorytable.EntityData.BundleName = "cisco_ios_xe"
-    usrhistorytable.EntityData.ParentYangName = "RMON2-MIB"
-    usrhistorytable.EntityData.SegmentPath = "usrHistoryTable"
-    usrhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    usrhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    usrhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (usrHistoryTable *RMON2MIB_UsrHistoryTable) GetEntityData() *types.CommonEntityData {
+    usrHistoryTable.EntityData.YFilter = usrHistoryTable.YFilter
+    usrHistoryTable.EntityData.YangName = "usrHistoryTable"
+    usrHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    usrHistoryTable.EntityData.ParentYangName = "RMON2-MIB"
+    usrHistoryTable.EntityData.SegmentPath = "usrHistoryTable"
+    usrHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    usrHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    usrHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    usrhistorytable.EntityData.Children = make(map[string]types.YChild)
-    usrhistorytable.EntityData.Children["usrHistoryEntry"] = types.YChild{"Usrhistoryentry", nil}
-    for i := range usrhistorytable.Usrhistoryentry {
-        usrhistorytable.EntityData.Children[types.GetSegmentPath(&usrhistorytable.Usrhistoryentry[i])] = types.YChild{"Usrhistoryentry", &usrhistorytable.Usrhistoryentry[i]}
+    usrHistoryTable.EntityData.Children = types.NewOrderedMap()
+    usrHistoryTable.EntityData.Children.Append("usrHistoryEntry", types.YChild{"UsrHistoryEntry", nil})
+    for i := range usrHistoryTable.UsrHistoryEntry {
+        usrHistoryTable.EntityData.Children.Append(types.GetSegmentPath(usrHistoryTable.UsrHistoryEntry[i]), types.YChild{"UsrHistoryEntry", usrHistoryTable.UsrHistoryEntry[i]})
     }
-    usrhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(usrhistorytable.EntityData)
+    usrHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    usrHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(usrHistoryTable.EntityData)
 }
 
-// RMON2MIB_Usrhistorytable_Usrhistoryentry
+// RMON2MIB_UsrHistoryTable_UsrHistoryEntry
 // A historical sample of user-defined variables.  This sample
 // is associated with the usrHistoryControlEntry which set up the
 // parameters for a regular collection of these samples.
@@ -3587,23 +3713,23 @@ func (usrhistorytable *RMON2MIB_Usrhistorytable) GetEntityData() *types.CommonEn
 // the 14th sample of a variable collected as specified by
 // usrHistoryControlEntry.1 and usrHistoryObjectEntry.1.5,
 // would be named usrHistoryAbsValue.1.14.5
-type RMON2MIB_Usrhistorytable_Usrhistoryentry struct {
+type RMON2MIB_UsrHistoryTable_UsrHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Usrhistorycontroltable_Usrhistorycontrolentry_Usrhistorycontrolindex
-    Usrhistorycontrolindex interface{}
+    // rmon2_mib.RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry_UsrHistoryControlIndex
+    UsrHistoryControlIndex interface{}
 
     // This attribute is a key. An index that uniquely identifies the particular
     // sample this entry represents among all samples associated with the same
     // usrHistoryControlEntry. This index starts at 1 and increases by one as each
     // new sample is taken. The type is interface{} with range: 1..2147483647.
-    Usrhistorysampleindex interface{}
+    UsrHistorySampleIndex interface{}
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // rmon2_mib.RMON2MIB_Usrhistoryobjecttable_Usrhistoryobjectentry_Usrhistoryobjectindex
-    Usrhistoryobjectindex interface{}
+    // rmon2_mib.RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry_UsrHistoryObjectIndex
+    UsrHistoryObjectIndex interface{}
 
     // The value of sysUpTime at the start of the interval over which this sample
     // was measured.  If the probe keeps track of the time of day, it should start
@@ -3614,11 +3740,11 @@ type RMON2MIB_Usrhistorytable_Usrhistoryentry struct {
     // sample which is currently being collected is not accessible in this table
     // until the end of its interval. The type is interface{} with range:
     // 0..4294967295.
-    Usrhistoryintervalstart interface{}
+    UsrHistoryIntervalStart interface{}
 
     // The value of sysUpTime at the end of the interval over which this sample
     // was measured. The type is interface{} with range: 0..4294967295.
-    Usrhistoryintervalend interface{}
+    UsrHistoryIntervalEnd interface{}
 
     // The absolute value (i.e. unsigned value) of the user-specified statistic
     // during the last sampling period. The value during the current sampling
@@ -3629,7 +3755,7 @@ type RMON2MIB_Usrhistorytable_Usrhistoryentry struct {
     // interval, then this object will have a value of zero and the associated
     // instance of usrHistoryValStatus will be set to 'valueNotAvailable(1)'. The
     // type is interface{} with range: 0..4294967295.
-    Usrhistoryabsvalue interface{}
+    UsrHistoryAbsValue interface{}
 
     // This object indicates the validity and sign of the data in the associated
     // instance of usrHistoryAbsValue.  If the MIB instance could not be accessed
@@ -3639,100 +3765,106 @@ type RMON2MIB_Usrhistorytable_Usrhistoryentry struct {
     // and the actual value of the sample is less than zero, 'valueNegative(3)'
     // will be returned. The associated instance of usrHistoryAbsValue should be
     // multiplied by -1 to obtain the true sample value. The type is
-    // Usrhistoryvalstatus.
-    Usrhistoryvalstatus interface{}
+    // UsrHistoryValStatus.
+    UsrHistoryValStatus interface{}
 }
 
-func (usrhistoryentry *RMON2MIB_Usrhistorytable_Usrhistoryentry) GetEntityData() *types.CommonEntityData {
-    usrhistoryentry.EntityData.YFilter = usrhistoryentry.YFilter
-    usrhistoryentry.EntityData.YangName = "usrHistoryEntry"
-    usrhistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    usrhistoryentry.EntityData.ParentYangName = "usrHistoryTable"
-    usrhistoryentry.EntityData.SegmentPath = "usrHistoryEntry" + "[usrHistoryControlIndex='" + fmt.Sprintf("%v", usrhistoryentry.Usrhistorycontrolindex) + "']" + "[usrHistorySampleIndex='" + fmt.Sprintf("%v", usrhistoryentry.Usrhistorysampleindex) + "']" + "[usrHistoryObjectIndex='" + fmt.Sprintf("%v", usrhistoryentry.Usrhistoryobjectindex) + "']"
-    usrhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    usrhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    usrhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (usrHistoryEntry *RMON2MIB_UsrHistoryTable_UsrHistoryEntry) GetEntityData() *types.CommonEntityData {
+    usrHistoryEntry.EntityData.YFilter = usrHistoryEntry.YFilter
+    usrHistoryEntry.EntityData.YangName = "usrHistoryEntry"
+    usrHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    usrHistoryEntry.EntityData.ParentYangName = "usrHistoryTable"
+    usrHistoryEntry.EntityData.SegmentPath = "usrHistoryEntry" + types.AddKeyToken(usrHistoryEntry.UsrHistoryControlIndex, "usrHistoryControlIndex") + types.AddKeyToken(usrHistoryEntry.UsrHistorySampleIndex, "usrHistorySampleIndex") + types.AddKeyToken(usrHistoryEntry.UsrHistoryObjectIndex, "usrHistoryObjectIndex")
+    usrHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    usrHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    usrHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    usrhistoryentry.EntityData.Children = make(map[string]types.YChild)
-    usrhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    usrhistoryentry.EntityData.Leafs["usrHistoryControlIndex"] = types.YLeaf{"Usrhistorycontrolindex", usrhistoryentry.Usrhistorycontrolindex}
-    usrhistoryentry.EntityData.Leafs["usrHistorySampleIndex"] = types.YLeaf{"Usrhistorysampleindex", usrhistoryentry.Usrhistorysampleindex}
-    usrhistoryentry.EntityData.Leafs["usrHistoryObjectIndex"] = types.YLeaf{"Usrhistoryobjectindex", usrhistoryentry.Usrhistoryobjectindex}
-    usrhistoryentry.EntityData.Leafs["usrHistoryIntervalStart"] = types.YLeaf{"Usrhistoryintervalstart", usrhistoryentry.Usrhistoryintervalstart}
-    usrhistoryentry.EntityData.Leafs["usrHistoryIntervalEnd"] = types.YLeaf{"Usrhistoryintervalend", usrhistoryentry.Usrhistoryintervalend}
-    usrhistoryentry.EntityData.Leafs["usrHistoryAbsValue"] = types.YLeaf{"Usrhistoryabsvalue", usrhistoryentry.Usrhistoryabsvalue}
-    usrhistoryentry.EntityData.Leafs["usrHistoryValStatus"] = types.YLeaf{"Usrhistoryvalstatus", usrhistoryentry.Usrhistoryvalstatus}
-    return &(usrhistoryentry.EntityData)
+    usrHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    usrHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    usrHistoryEntry.EntityData.Leafs.Append("usrHistoryControlIndex", types.YLeaf{"UsrHistoryControlIndex", usrHistoryEntry.UsrHistoryControlIndex})
+    usrHistoryEntry.EntityData.Leafs.Append("usrHistorySampleIndex", types.YLeaf{"UsrHistorySampleIndex", usrHistoryEntry.UsrHistorySampleIndex})
+    usrHistoryEntry.EntityData.Leafs.Append("usrHistoryObjectIndex", types.YLeaf{"UsrHistoryObjectIndex", usrHistoryEntry.UsrHistoryObjectIndex})
+    usrHistoryEntry.EntityData.Leafs.Append("usrHistoryIntervalStart", types.YLeaf{"UsrHistoryIntervalStart", usrHistoryEntry.UsrHistoryIntervalStart})
+    usrHistoryEntry.EntityData.Leafs.Append("usrHistoryIntervalEnd", types.YLeaf{"UsrHistoryIntervalEnd", usrHistoryEntry.UsrHistoryIntervalEnd})
+    usrHistoryEntry.EntityData.Leafs.Append("usrHistoryAbsValue", types.YLeaf{"UsrHistoryAbsValue", usrHistoryEntry.UsrHistoryAbsValue})
+    usrHistoryEntry.EntityData.Leafs.Append("usrHistoryValStatus", types.YLeaf{"UsrHistoryValStatus", usrHistoryEntry.UsrHistoryValStatus})
+
+    usrHistoryEntry.EntityData.YListKeys = []string {"UsrHistoryControlIndex", "UsrHistorySampleIndex", "UsrHistoryObjectIndex"}
+
+    return &(usrHistoryEntry.EntityData)
 }
 
-// RMON2MIB_Usrhistorytable_Usrhistoryentry_Usrhistoryvalstatus represents by -1 to obtain the true sample value.
-type RMON2MIB_Usrhistorytable_Usrhistoryentry_Usrhistoryvalstatus string
+// RMON2MIB_UsrHistoryTable_UsrHistoryEntry_UsrHistoryValStatus represents by -1 to obtain the true sample value.
+type RMON2MIB_UsrHistoryTable_UsrHistoryEntry_UsrHistoryValStatus string
 
 const (
-    RMON2MIB_Usrhistorytable_Usrhistoryentry_Usrhistoryvalstatus_valueNotAvailable RMON2MIB_Usrhistorytable_Usrhistoryentry_Usrhistoryvalstatus = "valueNotAvailable"
+    RMON2MIB_UsrHistoryTable_UsrHistoryEntry_UsrHistoryValStatus_valueNotAvailable RMON2MIB_UsrHistoryTable_UsrHistoryEntry_UsrHistoryValStatus = "valueNotAvailable"
 
-    RMON2MIB_Usrhistorytable_Usrhistoryentry_Usrhistoryvalstatus_valuePositive RMON2MIB_Usrhistorytable_Usrhistoryentry_Usrhistoryvalstatus = "valuePositive"
+    RMON2MIB_UsrHistoryTable_UsrHistoryEntry_UsrHistoryValStatus_valuePositive RMON2MIB_UsrHistoryTable_UsrHistoryEntry_UsrHistoryValStatus = "valuePositive"
 
-    RMON2MIB_Usrhistorytable_Usrhistoryentry_Usrhistoryvalstatus_valueNegative RMON2MIB_Usrhistorytable_Usrhistoryentry_Usrhistoryvalstatus = "valueNegative"
+    RMON2MIB_UsrHistoryTable_UsrHistoryEntry_UsrHistoryValStatus_valueNegative RMON2MIB_UsrHistoryTable_UsrHistoryEntry_UsrHistoryValStatus = "valueNegative"
 )
 
-// RMON2MIB_Serialconfigtable
+// RMON2MIB_SerialConfigTable
 // A table of serial interface configuration entries.  This data
 // will be stored in non-volatile memory and preserved across
 // probe resets or power loss.
-type RMON2MIB_Serialconfigtable struct {
+type RMON2MIB_SerialConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of configuration parameters for a particular serial interface on this
     // device. If the device has no serial interfaces, this table is empty.  The
     // index is composed of the ifIndex assigned to this serial line interface.
-    // The type is slice of RMON2MIB_Serialconfigtable_Serialconfigentry.
-    Serialconfigentry []RMON2MIB_Serialconfigtable_Serialconfigentry
+    // The type is slice of RMON2MIB_SerialConfigTable_SerialConfigEntry.
+    SerialConfigEntry []*RMON2MIB_SerialConfigTable_SerialConfigEntry
 }
 
-func (serialconfigtable *RMON2MIB_Serialconfigtable) GetEntityData() *types.CommonEntityData {
-    serialconfigtable.EntityData.YFilter = serialconfigtable.YFilter
-    serialconfigtable.EntityData.YangName = "serialConfigTable"
-    serialconfigtable.EntityData.BundleName = "cisco_ios_xe"
-    serialconfigtable.EntityData.ParentYangName = "RMON2-MIB"
-    serialconfigtable.EntityData.SegmentPath = "serialConfigTable"
-    serialconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    serialconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    serialconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (serialConfigTable *RMON2MIB_SerialConfigTable) GetEntityData() *types.CommonEntityData {
+    serialConfigTable.EntityData.YFilter = serialConfigTable.YFilter
+    serialConfigTable.EntityData.YangName = "serialConfigTable"
+    serialConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    serialConfigTable.EntityData.ParentYangName = "RMON2-MIB"
+    serialConfigTable.EntityData.SegmentPath = "serialConfigTable"
+    serialConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    serialConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    serialConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    serialconfigtable.EntityData.Children = make(map[string]types.YChild)
-    serialconfigtable.EntityData.Children["serialConfigEntry"] = types.YChild{"Serialconfigentry", nil}
-    for i := range serialconfigtable.Serialconfigentry {
-        serialconfigtable.EntityData.Children[types.GetSegmentPath(&serialconfigtable.Serialconfigentry[i])] = types.YChild{"Serialconfigentry", &serialconfigtable.Serialconfigentry[i]}
+    serialConfigTable.EntityData.Children = types.NewOrderedMap()
+    serialConfigTable.EntityData.Children.Append("serialConfigEntry", types.YChild{"SerialConfigEntry", nil})
+    for i := range serialConfigTable.SerialConfigEntry {
+        serialConfigTable.EntityData.Children.Append(types.GetSegmentPath(serialConfigTable.SerialConfigEntry[i]), types.YChild{"SerialConfigEntry", serialConfigTable.SerialConfigEntry[i]})
     }
-    serialconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(serialconfigtable.EntityData)
+    serialConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    serialConfigTable.EntityData.YListKeys = []string {}
+
+    return &(serialConfigTable.EntityData)
 }
 
-// RMON2MIB_Serialconfigtable_Serialconfigentry
+// RMON2MIB_SerialConfigTable_SerialConfigEntry
 // A set of configuration parameters for a particular
 // serial interface on this device. If the device has no serial
 // interfaces, this table is empty.
 // 
 // The index is composed of the ifIndex assigned to this serial
 // line interface.
-type RMON2MIB_Serialconfigtable_Serialconfigentry struct {
+type RMON2MIB_SerialConfigTable_SerialConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range:
     // -2147483648..2147483647. Refers to
-    // rfc1213_mib.RFC1213MIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // rfc1213_mib.RFC1213MIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The type of incoming connection to expect on this serial interface. The
-    // type is Serialmode.
-    Serialmode interface{}
+    // type is SerialMode.
+    SerialMode interface{}
 
     // The type of data link encapsulation to be used on this serial interface.
-    // The type is Serialprotocol.
-    Serialprotocol interface{}
+    // The type is SerialProtocol.
+    SerialProtocol interface{}
 
     // This timeout value is used when the Management Station has initiated the
     // conversation over the serial link. This variable represents the number of
@@ -3740,7 +3872,7 @@ type RMON2MIB_Serialconfigtable_Serialconfigentry struct {
     // serial interface. Use the      serialDialoutTimeout in the case where the
     // probe has initiated the connection for the purpose of sending a trap. The
     // type is interface{} with range: 1..65535.
-    Serialtimeout interface{}
+    SerialTimeout interface{}
 
     // A control string which controls how a modem attached to this serial
     // interface should be initialized.  The initialization is performed once
@@ -3748,14 +3880,14 @@ type RMON2MIB_Serialconfigtable_Serialconfigentry struct {
     // associated serialMode has the value of modem(2).  A control string that is
     // appropriate for a wide variety of modems is: '^s^MATE0Q0V1X4 S0=1 S2=43^M'.
     // The type is string with length: 0..255.
-    Serialmodeminitstring interface{}
+    SerialModemInitString interface{}
 
     // A control string which specifies how to disconnect a modem connection on
     // this serial interface.  This object is only meaningful if the associated
     // serialMode has the value of modem(2). A control string that is appropriate
     // for a wide variety of modems is: '^d2^s+++^d2^sATH0^M^d2'. The type is
     // string with length: 0..255.
-    Serialmodemhangupstring interface{}
+    SerialModemHangUpString interface{}
 
     // An ASCII string containing substrings that describe the expected modem
     // connection response code and associated bps rate.  The substrings are
@@ -3770,7 +3902,7 @@ type RMON2MIB_Serialconfigtable_Serialconfigentry struct {
     // '/CONNECT/300/CONNECT 1200/1200/CONNECT 2400/2400/  CONNECT
     // 4800/4800/CONNECT 9600/9600/CONNECT 14400/14400/ CONNECT
     // 19200/19200/CONNECT 38400/38400/'. The type is string with length: 0..255.
-    Serialmodemconnectresp interface{}
+    SerialModemConnectResp interface{}
 
     // An ASCII string containing response codes that may be generated by a modem
     // to report the reason why a connection attempt has failed.  The response
@@ -3781,113 +3913,119 @@ type RMON2MIB_Serialconfigtable_Serialconfigentry struct {
     // serialModemHangUpString.  A value that is appropriate for a wide variety of
     // modems is: '/NO CARRIER/BUSY/NO DIALTONE/NO ANSWER/ERROR/'. The type is
     // string with length: 0..255.
-    Serialmodemnoconnectresp interface{}
+    SerialModemNoConnectResp interface{}
 
     // This timeout value is used when the probe initiates the serial connection
     // with the intention of contacting a management station. This variable
     // represents the number of seconds of inactivity allowed before terminating
     // the connection on this serial interface. The type is interface{} with
     // range: 1..65535.
-    Serialdialouttimeout interface{}
+    SerialDialoutTimeout interface{}
 
     // The status of this serialConfigEntry.  An entry may not exist in the active
     // state unless all objects in the entry have an appropriate value. The type
     // is RowStatus.
-    Serialstatus interface{}
+    SerialStatus interface{}
 }
 
-func (serialconfigentry *RMON2MIB_Serialconfigtable_Serialconfigentry) GetEntityData() *types.CommonEntityData {
-    serialconfigentry.EntityData.YFilter = serialconfigentry.YFilter
-    serialconfigentry.EntityData.YangName = "serialConfigEntry"
-    serialconfigentry.EntityData.BundleName = "cisco_ios_xe"
-    serialconfigentry.EntityData.ParentYangName = "serialConfigTable"
-    serialconfigentry.EntityData.SegmentPath = "serialConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", serialconfigentry.Ifindex) + "']"
-    serialconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    serialconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    serialconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (serialConfigEntry *RMON2MIB_SerialConfigTable_SerialConfigEntry) GetEntityData() *types.CommonEntityData {
+    serialConfigEntry.EntityData.YFilter = serialConfigEntry.YFilter
+    serialConfigEntry.EntityData.YangName = "serialConfigEntry"
+    serialConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    serialConfigEntry.EntityData.ParentYangName = "serialConfigTable"
+    serialConfigEntry.EntityData.SegmentPath = "serialConfigEntry" + types.AddKeyToken(serialConfigEntry.IfIndex, "ifIndex")
+    serialConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    serialConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    serialConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    serialconfigentry.EntityData.Children = make(map[string]types.YChild)
-    serialconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    serialconfigentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", serialconfigentry.Ifindex}
-    serialconfigentry.EntityData.Leafs["serialMode"] = types.YLeaf{"Serialmode", serialconfigentry.Serialmode}
-    serialconfigentry.EntityData.Leafs["serialProtocol"] = types.YLeaf{"Serialprotocol", serialconfigentry.Serialprotocol}
-    serialconfigentry.EntityData.Leafs["serialTimeout"] = types.YLeaf{"Serialtimeout", serialconfigentry.Serialtimeout}
-    serialconfigentry.EntityData.Leafs["serialModemInitString"] = types.YLeaf{"Serialmodeminitstring", serialconfigentry.Serialmodeminitstring}
-    serialconfigentry.EntityData.Leafs["serialModemHangUpString"] = types.YLeaf{"Serialmodemhangupstring", serialconfigentry.Serialmodemhangupstring}
-    serialconfigentry.EntityData.Leafs["serialModemConnectResp"] = types.YLeaf{"Serialmodemconnectresp", serialconfigentry.Serialmodemconnectresp}
-    serialconfigentry.EntityData.Leafs["serialModemNoConnectResp"] = types.YLeaf{"Serialmodemnoconnectresp", serialconfigentry.Serialmodemnoconnectresp}
-    serialconfigentry.EntityData.Leafs["serialDialoutTimeout"] = types.YLeaf{"Serialdialouttimeout", serialconfigentry.Serialdialouttimeout}
-    serialconfigentry.EntityData.Leafs["serialStatus"] = types.YLeaf{"Serialstatus", serialconfigentry.Serialstatus}
-    return &(serialconfigentry.EntityData)
+    serialConfigEntry.EntityData.Children = types.NewOrderedMap()
+    serialConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    serialConfigEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", serialConfigEntry.IfIndex})
+    serialConfigEntry.EntityData.Leafs.Append("serialMode", types.YLeaf{"SerialMode", serialConfigEntry.SerialMode})
+    serialConfigEntry.EntityData.Leafs.Append("serialProtocol", types.YLeaf{"SerialProtocol", serialConfigEntry.SerialProtocol})
+    serialConfigEntry.EntityData.Leafs.Append("serialTimeout", types.YLeaf{"SerialTimeout", serialConfigEntry.SerialTimeout})
+    serialConfigEntry.EntityData.Leafs.Append("serialModemInitString", types.YLeaf{"SerialModemInitString", serialConfigEntry.SerialModemInitString})
+    serialConfigEntry.EntityData.Leafs.Append("serialModemHangUpString", types.YLeaf{"SerialModemHangUpString", serialConfigEntry.SerialModemHangUpString})
+    serialConfigEntry.EntityData.Leafs.Append("serialModemConnectResp", types.YLeaf{"SerialModemConnectResp", serialConfigEntry.SerialModemConnectResp})
+    serialConfigEntry.EntityData.Leafs.Append("serialModemNoConnectResp", types.YLeaf{"SerialModemNoConnectResp", serialConfigEntry.SerialModemNoConnectResp})
+    serialConfigEntry.EntityData.Leafs.Append("serialDialoutTimeout", types.YLeaf{"SerialDialoutTimeout", serialConfigEntry.SerialDialoutTimeout})
+    serialConfigEntry.EntityData.Leafs.Append("serialStatus", types.YLeaf{"SerialStatus", serialConfigEntry.SerialStatus})
+
+    serialConfigEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(serialConfigEntry.EntityData)
 }
 
-// RMON2MIB_Serialconfigtable_Serialconfigentry_Serialmode represents interface.
-type RMON2MIB_Serialconfigtable_Serialconfigentry_Serialmode string
+// RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialMode represents interface.
+type RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialMode string
 
 const (
-    RMON2MIB_Serialconfigtable_Serialconfigentry_Serialmode_direct RMON2MIB_Serialconfigtable_Serialconfigentry_Serialmode = "direct"
+    RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialMode_direct RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialMode = "direct"
 
-    RMON2MIB_Serialconfigtable_Serialconfigentry_Serialmode_modem RMON2MIB_Serialconfigtable_Serialconfigentry_Serialmode = "modem"
+    RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialMode_modem RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialMode = "modem"
 )
 
-// RMON2MIB_Serialconfigtable_Serialconfigentry_Serialprotocol represents serial interface.
-type RMON2MIB_Serialconfigtable_Serialconfigentry_Serialprotocol string
+// RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialProtocol represents serial interface.
+type RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialProtocol string
 
 const (
-    RMON2MIB_Serialconfigtable_Serialconfigentry_Serialprotocol_other RMON2MIB_Serialconfigtable_Serialconfigentry_Serialprotocol = "other"
+    RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialProtocol_other RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialProtocol = "other"
 
-    RMON2MIB_Serialconfigtable_Serialconfigentry_Serialprotocol_slip RMON2MIB_Serialconfigtable_Serialconfigentry_Serialprotocol = "slip"
+    RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialProtocol_slip RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialProtocol = "slip"
 
-    RMON2MIB_Serialconfigtable_Serialconfigentry_Serialprotocol_ppp RMON2MIB_Serialconfigtable_Serialconfigentry_Serialprotocol = "ppp"
+    RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialProtocol_ppp RMON2MIB_SerialConfigTable_SerialConfigEntry_SerialProtocol = "ppp"
 )
 
-// RMON2MIB_Netconfigtable
+// RMON2MIB_NetConfigTable
 // A table of netConfigEntries.
-type RMON2MIB_Netconfigtable struct {
+type RMON2MIB_NetConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of configuration parameters for a particular network interface on
     // this device. If the device has no network interface, this table is empty. 
     // The index is composed of the ifIndex assigned to the corresponding
-    // interface. The type is slice of RMON2MIB_Netconfigtable_Netconfigentry.
-    Netconfigentry []RMON2MIB_Netconfigtable_Netconfigentry
+    // interface. The type is slice of RMON2MIB_NetConfigTable_NetConfigEntry.
+    NetConfigEntry []*RMON2MIB_NetConfigTable_NetConfigEntry
 }
 
-func (netconfigtable *RMON2MIB_Netconfigtable) GetEntityData() *types.CommonEntityData {
-    netconfigtable.EntityData.YFilter = netconfigtable.YFilter
-    netconfigtable.EntityData.YangName = "netConfigTable"
-    netconfigtable.EntityData.BundleName = "cisco_ios_xe"
-    netconfigtable.EntityData.ParentYangName = "RMON2-MIB"
-    netconfigtable.EntityData.SegmentPath = "netConfigTable"
-    netconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    netconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    netconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (netConfigTable *RMON2MIB_NetConfigTable) GetEntityData() *types.CommonEntityData {
+    netConfigTable.EntityData.YFilter = netConfigTable.YFilter
+    netConfigTable.EntityData.YangName = "netConfigTable"
+    netConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    netConfigTable.EntityData.ParentYangName = "RMON2-MIB"
+    netConfigTable.EntityData.SegmentPath = "netConfigTable"
+    netConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    netConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    netConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    netconfigtable.EntityData.Children = make(map[string]types.YChild)
-    netconfigtable.EntityData.Children["netConfigEntry"] = types.YChild{"Netconfigentry", nil}
-    for i := range netconfigtable.Netconfigentry {
-        netconfigtable.EntityData.Children[types.GetSegmentPath(&netconfigtable.Netconfigentry[i])] = types.YChild{"Netconfigentry", &netconfigtable.Netconfigentry[i]}
+    netConfigTable.EntityData.Children = types.NewOrderedMap()
+    netConfigTable.EntityData.Children.Append("netConfigEntry", types.YChild{"NetConfigEntry", nil})
+    for i := range netConfigTable.NetConfigEntry {
+        netConfigTable.EntityData.Children.Append(types.GetSegmentPath(netConfigTable.NetConfigEntry[i]), types.YChild{"NetConfigEntry", netConfigTable.NetConfigEntry[i]})
     }
-    netconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(netconfigtable.EntityData)
+    netConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    netConfigTable.EntityData.YListKeys = []string {}
+
+    return &(netConfigTable.EntityData)
 }
 
-// RMON2MIB_Netconfigtable_Netconfigentry
+// RMON2MIB_NetConfigTable_NetConfigEntry
 // A set of configuration parameters for a particular
 // network interface on this device. If the device has no network
 // interface, this table is empty.
 // 
 // The index is composed of the ifIndex assigned to the
 // corresponding interface.
-type RMON2MIB_Netconfigtable_Netconfigentry struct {
+type RMON2MIB_NetConfigTable_NetConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range:
     // -2147483648..2147483647. Refers to
-    // rfc1213_mib.RFC1213MIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // rfc1213_mib.RFC1213MIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The IP address of this Net interface.  The default value for this object is
     // 0.0.0.0.  If either the netConfigIPAddress or netConfigSubnetMask are
@@ -3897,8 +4035,8 @@ type RMON2MIB_Netconfigtable_Netconfigentry struct {
     // attached to the device). If BOOTP is      used, care should be taken to not
     // send BOOTP broadcasts too frequently and to eventually send very
     // infrequently if no replies are received. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Netconfigipaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    NetConfigIPAddress interface{}
 
     // The subnet mask of this Net interface.  The default value for this object
     // is 0.0.0.0.  If either the netConfigIPAddress or netConfigSubnetMask are
@@ -3908,74 +4046,80 @@ type RMON2MIB_Netconfigtable_Netconfigentry struct {
     // attached to the device). If BOOTP is used, care should be taken to not send
     // BOOTP broadcasts too frequently and to eventually send very infrequently if
     // no replies are received. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Netconfigsubnetmask interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    NetConfigSubnetMask interface{}
 
     // The status of this netConfigEntry.  An entry may not exist in the active
     // state unless all objects in the entry have an appropriate value. The type
     // is RowStatus.
-    Netconfigstatus interface{}
+    NetConfigStatus interface{}
 }
 
-func (netconfigentry *RMON2MIB_Netconfigtable_Netconfigentry) GetEntityData() *types.CommonEntityData {
-    netconfigentry.EntityData.YFilter = netconfigentry.YFilter
-    netconfigentry.EntityData.YangName = "netConfigEntry"
-    netconfigentry.EntityData.BundleName = "cisco_ios_xe"
-    netconfigentry.EntityData.ParentYangName = "netConfigTable"
-    netconfigentry.EntityData.SegmentPath = "netConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", netconfigentry.Ifindex) + "']"
-    netconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    netconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    netconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (netConfigEntry *RMON2MIB_NetConfigTable_NetConfigEntry) GetEntityData() *types.CommonEntityData {
+    netConfigEntry.EntityData.YFilter = netConfigEntry.YFilter
+    netConfigEntry.EntityData.YangName = "netConfigEntry"
+    netConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    netConfigEntry.EntityData.ParentYangName = "netConfigTable"
+    netConfigEntry.EntityData.SegmentPath = "netConfigEntry" + types.AddKeyToken(netConfigEntry.IfIndex, "ifIndex")
+    netConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    netConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    netConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    netconfigentry.EntityData.Children = make(map[string]types.YChild)
-    netconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    netconfigentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", netconfigentry.Ifindex}
-    netconfigentry.EntityData.Leafs["netConfigIPAddress"] = types.YLeaf{"Netconfigipaddress", netconfigentry.Netconfigipaddress}
-    netconfigentry.EntityData.Leafs["netConfigSubnetMask"] = types.YLeaf{"Netconfigsubnetmask", netconfigentry.Netconfigsubnetmask}
-    netconfigentry.EntityData.Leafs["netConfigStatus"] = types.YLeaf{"Netconfigstatus", netconfigentry.Netconfigstatus}
-    return &(netconfigentry.EntityData)
+    netConfigEntry.EntityData.Children = types.NewOrderedMap()
+    netConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    netConfigEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", netConfigEntry.IfIndex})
+    netConfigEntry.EntityData.Leafs.Append("netConfigIPAddress", types.YLeaf{"NetConfigIPAddress", netConfigEntry.NetConfigIPAddress})
+    netConfigEntry.EntityData.Leafs.Append("netConfigSubnetMask", types.YLeaf{"NetConfigSubnetMask", netConfigEntry.NetConfigSubnetMask})
+    netConfigEntry.EntityData.Leafs.Append("netConfigStatus", types.YLeaf{"NetConfigStatus", netConfigEntry.NetConfigStatus})
+
+    netConfigEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(netConfigEntry.EntityData)
 }
 
-// RMON2MIB_Trapdesttable
+// RMON2MIB_TrapDestTable
 // A list of trap destination entries.
-type RMON2MIB_Trapdesttable struct {
+type RMON2MIB_TrapDestTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry includes a destination IP address to which to send traps for
-    // this community. The type is slice of RMON2MIB_Trapdesttable_Trapdestentry.
-    Trapdestentry []RMON2MIB_Trapdesttable_Trapdestentry
+    // this community. The type is slice of RMON2MIB_TrapDestTable_TrapDestEntry.
+    TrapDestEntry []*RMON2MIB_TrapDestTable_TrapDestEntry
 }
 
-func (trapdesttable *RMON2MIB_Trapdesttable) GetEntityData() *types.CommonEntityData {
-    trapdesttable.EntityData.YFilter = trapdesttable.YFilter
-    trapdesttable.EntityData.YangName = "trapDestTable"
-    trapdesttable.EntityData.BundleName = "cisco_ios_xe"
-    trapdesttable.EntityData.ParentYangName = "RMON2-MIB"
-    trapdesttable.EntityData.SegmentPath = "trapDestTable"
-    trapdesttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    trapdesttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    trapdesttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (trapDestTable *RMON2MIB_TrapDestTable) GetEntityData() *types.CommonEntityData {
+    trapDestTable.EntityData.YFilter = trapDestTable.YFilter
+    trapDestTable.EntityData.YangName = "trapDestTable"
+    trapDestTable.EntityData.BundleName = "cisco_ios_xe"
+    trapDestTable.EntityData.ParentYangName = "RMON2-MIB"
+    trapDestTable.EntityData.SegmentPath = "trapDestTable"
+    trapDestTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    trapDestTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    trapDestTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    trapdesttable.EntityData.Children = make(map[string]types.YChild)
-    trapdesttable.EntityData.Children["trapDestEntry"] = types.YChild{"Trapdestentry", nil}
-    for i := range trapdesttable.Trapdestentry {
-        trapdesttable.EntityData.Children[types.GetSegmentPath(&trapdesttable.Trapdestentry[i])] = types.YChild{"Trapdestentry", &trapdesttable.Trapdestentry[i]}
+    trapDestTable.EntityData.Children = types.NewOrderedMap()
+    trapDestTable.EntityData.Children.Append("trapDestEntry", types.YChild{"TrapDestEntry", nil})
+    for i := range trapDestTable.TrapDestEntry {
+        trapDestTable.EntityData.Children.Append(types.GetSegmentPath(trapDestTable.TrapDestEntry[i]), types.YChild{"TrapDestEntry", trapDestTable.TrapDestEntry[i]})
     }
-    trapdesttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(trapdesttable.EntityData)
+    trapDestTable.EntityData.Leafs = types.NewOrderedMap()
+
+    trapDestTable.EntityData.YListKeys = []string {}
+
+    return &(trapDestTable.EntityData)
 }
 
-// RMON2MIB_Trapdesttable_Trapdestentry
+// RMON2MIB_TrapDestTable_TrapDestEntry
 // This entry includes a destination IP address to which to send
 // traps for this community.
-type RMON2MIB_Trapdesttable_Trapdestentry struct {
+type RMON2MIB_TrapDestTable_TrapDestEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A value that uniquely identifies this
     // trapDestEntry. The type is interface{} with range: 1..65535.
-    Trapdestindex interface{}
+    TrapDestIndex interface{}
 
     // A community to which this destination address belongs. This entry is
     // associated with any eventEntries in the RMON      MIB whose value of
@@ -3985,10 +4129,10 @@ type RMON2MIB_Trapdesttable_Trapdestentry struct {
     // eventCommunity.  This object may not be modified if the associated
     // trapDestStatus object is equal to active(1). The type is string with
     // length: 0..127.
-    Trapdestcommunity interface{}
+    TrapDestCommunity interface{}
 
-    // The protocol with which to send this trap. The type is Trapdestprotocol.
-    Trapdestprotocol interface{}
+    // The protocol with which to send this trap. The type is TrapDestProtocol.
+    TrapDestProtocol interface{}
 
     // The address to send traps on behalf of this entry.  If the associated
     // trapDestProtocol object is equal to ip(1), the encoding of this object is
@@ -4003,94 +4147,100 @@ type RMON2MIB_Trapdesttable_Trapdestentry struct {
     // -- 11-12    socket-number       network-byte order  This object may not be
     // modified if the associated      trapDestStatus object is equal to
     // active(1). The type is string.
-    Trapdestaddress interface{}
+    TrapDestAddress interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Trapdestowner interface{}
+    TrapDestOwner interface{}
 
     // The status of this trap destination entry.  An entry may not exist in the
     // active state unless all objects in the entry have an appropriate value. The
     // type is RowStatus.
-    Trapdeststatus interface{}
+    TrapDestStatus interface{}
 }
 
-func (trapdestentry *RMON2MIB_Trapdesttable_Trapdestentry) GetEntityData() *types.CommonEntityData {
-    trapdestentry.EntityData.YFilter = trapdestentry.YFilter
-    trapdestentry.EntityData.YangName = "trapDestEntry"
-    trapdestentry.EntityData.BundleName = "cisco_ios_xe"
-    trapdestentry.EntityData.ParentYangName = "trapDestTable"
-    trapdestentry.EntityData.SegmentPath = "trapDestEntry" + "[trapDestIndex='" + fmt.Sprintf("%v", trapdestentry.Trapdestindex) + "']"
-    trapdestentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    trapdestentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    trapdestentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (trapDestEntry *RMON2MIB_TrapDestTable_TrapDestEntry) GetEntityData() *types.CommonEntityData {
+    trapDestEntry.EntityData.YFilter = trapDestEntry.YFilter
+    trapDestEntry.EntityData.YangName = "trapDestEntry"
+    trapDestEntry.EntityData.BundleName = "cisco_ios_xe"
+    trapDestEntry.EntityData.ParentYangName = "trapDestTable"
+    trapDestEntry.EntityData.SegmentPath = "trapDestEntry" + types.AddKeyToken(trapDestEntry.TrapDestIndex, "trapDestIndex")
+    trapDestEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    trapDestEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    trapDestEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    trapdestentry.EntityData.Children = make(map[string]types.YChild)
-    trapdestentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapdestentry.EntityData.Leafs["trapDestIndex"] = types.YLeaf{"Trapdestindex", trapdestentry.Trapdestindex}
-    trapdestentry.EntityData.Leafs["trapDestCommunity"] = types.YLeaf{"Trapdestcommunity", trapdestentry.Trapdestcommunity}
-    trapdestentry.EntityData.Leafs["trapDestProtocol"] = types.YLeaf{"Trapdestprotocol", trapdestentry.Trapdestprotocol}
-    trapdestentry.EntityData.Leafs["trapDestAddress"] = types.YLeaf{"Trapdestaddress", trapdestentry.Trapdestaddress}
-    trapdestentry.EntityData.Leafs["trapDestOwner"] = types.YLeaf{"Trapdestowner", trapdestentry.Trapdestowner}
-    trapdestentry.EntityData.Leafs["trapDestStatus"] = types.YLeaf{"Trapdeststatus", trapdestentry.Trapdeststatus}
-    return &(trapdestentry.EntityData)
+    trapDestEntry.EntityData.Children = types.NewOrderedMap()
+    trapDestEntry.EntityData.Leafs = types.NewOrderedMap()
+    trapDestEntry.EntityData.Leafs.Append("trapDestIndex", types.YLeaf{"TrapDestIndex", trapDestEntry.TrapDestIndex})
+    trapDestEntry.EntityData.Leafs.Append("trapDestCommunity", types.YLeaf{"TrapDestCommunity", trapDestEntry.TrapDestCommunity})
+    trapDestEntry.EntityData.Leafs.Append("trapDestProtocol", types.YLeaf{"TrapDestProtocol", trapDestEntry.TrapDestProtocol})
+    trapDestEntry.EntityData.Leafs.Append("trapDestAddress", types.YLeaf{"TrapDestAddress", trapDestEntry.TrapDestAddress})
+    trapDestEntry.EntityData.Leafs.Append("trapDestOwner", types.YLeaf{"TrapDestOwner", trapDestEntry.TrapDestOwner})
+    trapDestEntry.EntityData.Leafs.Append("trapDestStatus", types.YLeaf{"TrapDestStatus", trapDestEntry.TrapDestStatus})
+
+    trapDestEntry.EntityData.YListKeys = []string {"TrapDestIndex"}
+
+    return &(trapDestEntry.EntityData)
 }
 
-// RMON2MIB_Trapdesttable_Trapdestentry_Trapdestprotocol represents The protocol with which to send this trap.
-type RMON2MIB_Trapdesttable_Trapdestentry_Trapdestprotocol string
+// RMON2MIB_TrapDestTable_TrapDestEntry_TrapDestProtocol represents The protocol with which to send this trap.
+type RMON2MIB_TrapDestTable_TrapDestEntry_TrapDestProtocol string
 
 const (
-    RMON2MIB_Trapdesttable_Trapdestentry_Trapdestprotocol_ip RMON2MIB_Trapdesttable_Trapdestentry_Trapdestprotocol = "ip"
+    RMON2MIB_TrapDestTable_TrapDestEntry_TrapDestProtocol_ip RMON2MIB_TrapDestTable_TrapDestEntry_TrapDestProtocol = "ip"
 
-    RMON2MIB_Trapdesttable_Trapdestentry_Trapdestprotocol_ipx RMON2MIB_Trapdesttable_Trapdestentry_Trapdestprotocol = "ipx"
+    RMON2MIB_TrapDestTable_TrapDestEntry_TrapDestProtocol_ipx RMON2MIB_TrapDestTable_TrapDestEntry_TrapDestProtocol = "ipx"
 )
 
-// RMON2MIB_Serialconnectiontable
+// RMON2MIB_SerialConnectionTable
 // A list of serialConnectionEntries.
-type RMON2MIB_Serialconnectiontable struct {
+type RMON2MIB_SerialConnectionTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration for a SLIP link over a serial line. The type is slice of
-    // RMON2MIB_Serialconnectiontable_Serialconnectionentry.
-    Serialconnectionentry []RMON2MIB_Serialconnectiontable_Serialconnectionentry
+    // RMON2MIB_SerialConnectionTable_SerialConnectionEntry.
+    SerialConnectionEntry []*RMON2MIB_SerialConnectionTable_SerialConnectionEntry
 }
 
-func (serialconnectiontable *RMON2MIB_Serialconnectiontable) GetEntityData() *types.CommonEntityData {
-    serialconnectiontable.EntityData.YFilter = serialconnectiontable.YFilter
-    serialconnectiontable.EntityData.YangName = "serialConnectionTable"
-    serialconnectiontable.EntityData.BundleName = "cisco_ios_xe"
-    serialconnectiontable.EntityData.ParentYangName = "RMON2-MIB"
-    serialconnectiontable.EntityData.SegmentPath = "serialConnectionTable"
-    serialconnectiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    serialconnectiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    serialconnectiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (serialConnectionTable *RMON2MIB_SerialConnectionTable) GetEntityData() *types.CommonEntityData {
+    serialConnectionTable.EntityData.YFilter = serialConnectionTable.YFilter
+    serialConnectionTable.EntityData.YangName = "serialConnectionTable"
+    serialConnectionTable.EntityData.BundleName = "cisco_ios_xe"
+    serialConnectionTable.EntityData.ParentYangName = "RMON2-MIB"
+    serialConnectionTable.EntityData.SegmentPath = "serialConnectionTable"
+    serialConnectionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    serialConnectionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    serialConnectionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    serialconnectiontable.EntityData.Children = make(map[string]types.YChild)
-    serialconnectiontable.EntityData.Children["serialConnectionEntry"] = types.YChild{"Serialconnectionentry", nil}
-    for i := range serialconnectiontable.Serialconnectionentry {
-        serialconnectiontable.EntityData.Children[types.GetSegmentPath(&serialconnectiontable.Serialconnectionentry[i])] = types.YChild{"Serialconnectionentry", &serialconnectiontable.Serialconnectionentry[i]}
+    serialConnectionTable.EntityData.Children = types.NewOrderedMap()
+    serialConnectionTable.EntityData.Children.Append("serialConnectionEntry", types.YChild{"SerialConnectionEntry", nil})
+    for i := range serialConnectionTable.SerialConnectionEntry {
+        serialConnectionTable.EntityData.Children.Append(types.GetSegmentPath(serialConnectionTable.SerialConnectionEntry[i]), types.YChild{"SerialConnectionEntry", serialConnectionTable.SerialConnectionEntry[i]})
     }
-    serialconnectiontable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(serialconnectiontable.EntityData)
+    serialConnectionTable.EntityData.Leafs = types.NewOrderedMap()
+
+    serialConnectionTable.EntityData.YListKeys = []string {}
+
+    return &(serialConnectionTable.EntityData)
 }
 
-// RMON2MIB_Serialconnectiontable_Serialconnectionentry
+// RMON2MIB_SerialConnectionTable_SerialConnectionEntry
 // Configuration for a SLIP link over a serial line.
-type RMON2MIB_Serialconnectiontable_Serialconnectionentry struct {
+type RMON2MIB_SerialConnectionTable_SerialConnectionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A value that uniquely identifies this
     // serialConnection entry. The type is interface{} with range: 1..65535.
-    Serialconnectindex interface{}
+    SerialConnectIndex interface{}
 
     // The IP Address that can be reached at the other end of this serial
     // connection. This object may not be modified if the associated
     // serialConnectStatus object is equal to active(1). The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Serialconnectdestipaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    SerialConnectDestIpAddress interface{}
 
     // The type of outgoing connection to make.  If this object has the value
     // direct(1), then a direct serial connection is assumed.  If this object has
@@ -4102,8 +4252,8 @@ type RMON2MIB_Serialconnectiontable_Serialconnectionentry struct {
     // then a modem connection will be made first followed by the switch
     // connection.  This object may not be modified if the associated
     // serialConnectStatus object is equal to active(1). The type is
-    // Serialconnecttype.
-    Serialconnecttype interface{}
+    // SerialConnectType.
+    SerialConnectType interface{}
 
     // A control string which specifies how to dial the phone number in order to
     // establish a modem connection.  The string should include dialing prefix and
@@ -4112,27 +4262,27 @@ type RMON2MIB_Serialconnectiontable_Serialconnectionentry struct {
     // number ``9,888-1234'', and a carriage return as the dialing suffix. This
     // object may not be modified if the associated serialConnectStatus object is
     // equal to active(1). The type is string with length: 0..255.
-    Serialconnectdialstring interface{}
+    SerialConnectDialString interface{}
 
     // A control string which specifies how to establish a data switch connection.
     // This object may not be modified if the associated serialConnectStatus
     // object is equal to active(1). The type is string with length: 0..255.
-    Serialconnectswitchconnectseq interface{}
+    SerialConnectSwitchConnectSeq interface{}
 
     // A control string which specifies how to terminate a data switch connection.
     // This object may not be modified if the associated      serialConnectStatus
     // object is equal to active(1). The type is string with length: 0..255.
-    Serialconnectswitchdisconnectseq interface{}
+    SerialConnectSwitchDisconnectSeq interface{}
 
     // A control string which specifies how to reset a data switch in the event of
     // a timeout. This object may not be modified if the associated
     // serialConnectStatus object is equal to active(1). The type is string with
     // length: 0..255.
-    Serialconnectswitchresetseq interface{}
+    SerialConnectSwitchResetSeq interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string with length: 0..127.
-    Serialconnectowner interface{}
+    SerialConnectOwner interface{}
 
     // The status of this serialConnectionEntry.  If the manager attempts to set
     // this object to active(1) when the serialConnectType is set to modem(2) or
@@ -4146,43 +4296,46 @@ type RMON2MIB_Serialconnectiontable_Serialconnectionentry struct {
     // set request will be rejected with badValue(3).  An entry may not exist in
     // the active state unless all objects in the entry have an appropriate value.
     // The type is RowStatus.
-    Serialconnectstatus interface{}
+    SerialConnectStatus interface{}
 }
 
-func (serialconnectionentry *RMON2MIB_Serialconnectiontable_Serialconnectionentry) GetEntityData() *types.CommonEntityData {
-    serialconnectionentry.EntityData.YFilter = serialconnectionentry.YFilter
-    serialconnectionentry.EntityData.YangName = "serialConnectionEntry"
-    serialconnectionentry.EntityData.BundleName = "cisco_ios_xe"
-    serialconnectionentry.EntityData.ParentYangName = "serialConnectionTable"
-    serialconnectionentry.EntityData.SegmentPath = "serialConnectionEntry" + "[serialConnectIndex='" + fmt.Sprintf("%v", serialconnectionentry.Serialconnectindex) + "']"
-    serialconnectionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    serialconnectionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    serialconnectionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (serialConnectionEntry *RMON2MIB_SerialConnectionTable_SerialConnectionEntry) GetEntityData() *types.CommonEntityData {
+    serialConnectionEntry.EntityData.YFilter = serialConnectionEntry.YFilter
+    serialConnectionEntry.EntityData.YangName = "serialConnectionEntry"
+    serialConnectionEntry.EntityData.BundleName = "cisco_ios_xe"
+    serialConnectionEntry.EntityData.ParentYangName = "serialConnectionTable"
+    serialConnectionEntry.EntityData.SegmentPath = "serialConnectionEntry" + types.AddKeyToken(serialConnectionEntry.SerialConnectIndex, "serialConnectIndex")
+    serialConnectionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    serialConnectionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    serialConnectionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    serialconnectionentry.EntityData.Children = make(map[string]types.YChild)
-    serialconnectionentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    serialconnectionentry.EntityData.Leafs["serialConnectIndex"] = types.YLeaf{"Serialconnectindex", serialconnectionentry.Serialconnectindex}
-    serialconnectionentry.EntityData.Leafs["serialConnectDestIpAddress"] = types.YLeaf{"Serialconnectdestipaddress", serialconnectionentry.Serialconnectdestipaddress}
-    serialconnectionentry.EntityData.Leafs["serialConnectType"] = types.YLeaf{"Serialconnecttype", serialconnectionentry.Serialconnecttype}
-    serialconnectionentry.EntityData.Leafs["serialConnectDialString"] = types.YLeaf{"Serialconnectdialstring", serialconnectionentry.Serialconnectdialstring}
-    serialconnectionentry.EntityData.Leafs["serialConnectSwitchConnectSeq"] = types.YLeaf{"Serialconnectswitchconnectseq", serialconnectionentry.Serialconnectswitchconnectseq}
-    serialconnectionentry.EntityData.Leafs["serialConnectSwitchDisconnectSeq"] = types.YLeaf{"Serialconnectswitchdisconnectseq", serialconnectionentry.Serialconnectswitchdisconnectseq}
-    serialconnectionentry.EntityData.Leafs["serialConnectSwitchResetSeq"] = types.YLeaf{"Serialconnectswitchresetseq", serialconnectionentry.Serialconnectswitchresetseq}
-    serialconnectionentry.EntityData.Leafs["serialConnectOwner"] = types.YLeaf{"Serialconnectowner", serialconnectionentry.Serialconnectowner}
-    serialconnectionentry.EntityData.Leafs["serialConnectStatus"] = types.YLeaf{"Serialconnectstatus", serialconnectionentry.Serialconnectstatus}
-    return &(serialconnectionentry.EntityData)
+    serialConnectionEntry.EntityData.Children = types.NewOrderedMap()
+    serialConnectionEntry.EntityData.Leafs = types.NewOrderedMap()
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectIndex", types.YLeaf{"SerialConnectIndex", serialConnectionEntry.SerialConnectIndex})
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectDestIpAddress", types.YLeaf{"SerialConnectDestIpAddress", serialConnectionEntry.SerialConnectDestIpAddress})
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectType", types.YLeaf{"SerialConnectType", serialConnectionEntry.SerialConnectType})
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectDialString", types.YLeaf{"SerialConnectDialString", serialConnectionEntry.SerialConnectDialString})
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectSwitchConnectSeq", types.YLeaf{"SerialConnectSwitchConnectSeq", serialConnectionEntry.SerialConnectSwitchConnectSeq})
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectSwitchDisconnectSeq", types.YLeaf{"SerialConnectSwitchDisconnectSeq", serialConnectionEntry.SerialConnectSwitchDisconnectSeq})
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectSwitchResetSeq", types.YLeaf{"SerialConnectSwitchResetSeq", serialConnectionEntry.SerialConnectSwitchResetSeq})
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectOwner", types.YLeaf{"SerialConnectOwner", serialConnectionEntry.SerialConnectOwner})
+    serialConnectionEntry.EntityData.Leafs.Append("serialConnectStatus", types.YLeaf{"SerialConnectStatus", serialConnectionEntry.SerialConnectStatus})
+
+    serialConnectionEntry.EntityData.YListKeys = []string {"SerialConnectIndex"}
+
+    return &(serialConnectionEntry.EntityData)
 }
 
-// RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype represents serialConnectStatus object is equal to active(1).
-type RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype string
+// RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType represents serialConnectStatus object is equal to active(1).
+type RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType string
 
 const (
-    RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype_direct RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype = "direct"
+    RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType_direct RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType = "direct"
 
-    RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype_modem RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype = "modem"
+    RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType_modem RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType = "modem"
 
-    RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype_switch_ RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype = "switch"
+    RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType_switch_ RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType = "switch"
 
-    RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype_modemSwitch RMON2MIB_Serialconnectiontable_Serialconnectionentry_Serialconnecttype = "modemSwitch"
+    RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType_modemSwitch RMON2MIB_SerialConnectionTable_SerialConnectionEntry_SerialConnectType = "modemSwitch"
 )
 

@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub2 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-08-08 {
+    description
+      "Add openconfig network instance model isis telemetry EDM function support.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";

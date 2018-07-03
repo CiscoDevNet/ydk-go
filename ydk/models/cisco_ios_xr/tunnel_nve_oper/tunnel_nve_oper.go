@@ -47,10 +47,13 @@ func (nve *Nve) GetEntityData() *types.CommonEntityData {
     nve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nve.EntityData.Children = make(map[string]types.YChild)
-    nve.EntityData.Children["vnis"] = types.YChild{"Vnis", &nve.Vnis}
-    nve.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &nve.Interfaces}
-    nve.EntityData.Leafs = make(map[string]types.YLeaf)
+    nve.EntityData.Children = types.NewOrderedMap()
+    nve.EntityData.Children.Append("vnis", types.YChild{"Vnis", &nve.Vnis})
+    nve.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &nve.Interfaces})
+    nve.EntityData.Leafs = types.NewOrderedMap()
+
+    nve.EntityData.YListKeys = []string {}
+
     return &(nve.EntityData)
 }
 
@@ -61,7 +64,7 @@ type Nve_Vnis struct {
     YFilter yfilter.YFilter
 
     // The attributes for a particular VNI. The type is slice of Nve_Vnis_Vni.
-    Vni []Nve_Vnis_Vni
+    Vni []*Nve_Vnis_Vni
 }
 
 func (vnis *Nve_Vnis) GetEntityData() *types.CommonEntityData {
@@ -74,12 +77,15 @@ func (vnis *Nve_Vnis) GetEntityData() *types.CommonEntityData {
     vnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vnis.EntityData.Children = make(map[string]types.YChild)
-    vnis.EntityData.Children["vni"] = types.YChild{"Vni", nil}
+    vnis.EntityData.Children = types.NewOrderedMap()
+    vnis.EntityData.Children.Append("vni", types.YChild{"Vni", nil})
     for i := range vnis.Vni {
-        vnis.EntityData.Children[types.GetSegmentPath(&vnis.Vni[i])] = types.YChild{"Vni", &vnis.Vni[i]}
+        vnis.EntityData.Children.Append(types.GetSegmentPath(vnis.Vni[i]), types.YChild{"Vni", vnis.Vni[i]})
     }
-    vnis.EntityData.Leafs = make(map[string]types.YLeaf)
+    vnis.EntityData.Leafs = types.NewOrderedMap()
+
+    vnis.EntityData.YListKeys = []string {}
+
     return &(vnis.EntityData)
 }
 
@@ -90,7 +96,7 @@ type Nve_Vnis_Vni struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VNI ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Vni interface{}
 
     // NVE Interface name. The type is string.
@@ -103,7 +109,7 @@ type Nve_Vnis_Vni struct {
     State interface{}
 
     // MCAST IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     McastIpv4Address interface{}
 
     // Flags. The type is interface{} with range: 0..4294967295.
@@ -128,7 +134,7 @@ type Nve_Vnis_Vni struct {
     BviState interface{}
 
     // BVI MAC address. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     BviMac interface{}
 
     // L3 VRF Name. The type is string.
@@ -161,34 +167,37 @@ func (vni *Nve_Vnis_Vni) GetEntityData() *types.CommonEntityData {
     vni.EntityData.YangName = "vni"
     vni.EntityData.BundleName = "cisco_ios_xr"
     vni.EntityData.ParentYangName = "vnis"
-    vni.EntityData.SegmentPath = "vni" + "[vni='" + fmt.Sprintf("%v", vni.Vni) + "']"
+    vni.EntityData.SegmentPath = "vni" + types.AddKeyToken(vni.Vni, "vni")
     vni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vni.EntityData.Children = make(map[string]types.YChild)
-    vni.EntityData.Leafs = make(map[string]types.YLeaf)
-    vni.EntityData.Leafs["vni"] = types.YLeaf{"Vni", vni.Vni}
-    vni.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", vni.InterfaceName}
-    vni.EntityData.Leafs["vni-xr"] = types.YLeaf{"VniXr", vni.VniXr}
-    vni.EntityData.Leafs["state"] = types.YLeaf{"State", vni.State}
-    vni.EntityData.Leafs["mcast-ipv4-address"] = types.YLeaf{"McastIpv4Address", vni.McastIpv4Address}
-    vni.EntityData.Leafs["flags"] = types.YLeaf{"Flags", vni.Flags}
-    vni.EntityData.Leafs["vni-min"] = types.YLeaf{"VniMin", vni.VniMin}
-    vni.EntityData.Leafs["vni-max"] = types.YLeaf{"VniMax", vni.VniMax}
-    vni.EntityData.Leafs["mcast-flags"] = types.YLeaf{"McastFlags", vni.McastFlags}
-    vni.EntityData.Leafs["udp-port"] = types.YLeaf{"UdpPort", vni.UdpPort}
-    vni.EntityData.Leafs["bvi-ifh"] = types.YLeaf{"BviIfh", vni.BviIfh}
-    vni.EntityData.Leafs["bvi-state"] = types.YLeaf{"BviState", vni.BviState}
-    vni.EntityData.Leafs["bvi-mac"] = types.YLeaf{"BviMac", vni.BviMac}
-    vni.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vni.VrfName}
-    vni.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", vni.VrfId}
-    vni.EntityData.Leafs["ipv4-tbl-id"] = types.YLeaf{"Ipv4TblId", vni.Ipv4TblId}
-    vni.EntityData.Leafs["ipv6-tbl-id"] = types.YLeaf{"Ipv6TblId", vni.Ipv6TblId}
-    vni.EntityData.Leafs["vrf-vni"] = types.YLeaf{"VrfVni", vni.VrfVni}
-    vni.EntityData.Leafs["topo-valid"] = types.YLeaf{"TopoValid", vni.TopoValid}
-    vni.EntityData.Leafs["topo-id"] = types.YLeaf{"TopoId", vni.TopoId}
-    vni.EntityData.Leafs["topo-name"] = types.YLeaf{"TopoName", vni.TopoName}
+    vni.EntityData.Children = types.NewOrderedMap()
+    vni.EntityData.Leafs = types.NewOrderedMap()
+    vni.EntityData.Leafs.Append("vni", types.YLeaf{"Vni", vni.Vni})
+    vni.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", vni.InterfaceName})
+    vni.EntityData.Leafs.Append("vni-xr", types.YLeaf{"VniXr", vni.VniXr})
+    vni.EntityData.Leafs.Append("state", types.YLeaf{"State", vni.State})
+    vni.EntityData.Leafs.Append("mcast-ipv4-address", types.YLeaf{"McastIpv4Address", vni.McastIpv4Address})
+    vni.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", vni.Flags})
+    vni.EntityData.Leafs.Append("vni-min", types.YLeaf{"VniMin", vni.VniMin})
+    vni.EntityData.Leafs.Append("vni-max", types.YLeaf{"VniMax", vni.VniMax})
+    vni.EntityData.Leafs.Append("mcast-flags", types.YLeaf{"McastFlags", vni.McastFlags})
+    vni.EntityData.Leafs.Append("udp-port", types.YLeaf{"UdpPort", vni.UdpPort})
+    vni.EntityData.Leafs.Append("bvi-ifh", types.YLeaf{"BviIfh", vni.BviIfh})
+    vni.EntityData.Leafs.Append("bvi-state", types.YLeaf{"BviState", vni.BviState})
+    vni.EntityData.Leafs.Append("bvi-mac", types.YLeaf{"BviMac", vni.BviMac})
+    vni.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vni.VrfName})
+    vni.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", vni.VrfId})
+    vni.EntityData.Leafs.Append("ipv4-tbl-id", types.YLeaf{"Ipv4TblId", vni.Ipv4TblId})
+    vni.EntityData.Leafs.Append("ipv6-tbl-id", types.YLeaf{"Ipv6TblId", vni.Ipv6TblId})
+    vni.EntityData.Leafs.Append("vrf-vni", types.YLeaf{"VrfVni", vni.VrfVni})
+    vni.EntityData.Leafs.Append("topo-valid", types.YLeaf{"TopoValid", vni.TopoValid})
+    vni.EntityData.Leafs.Append("topo-id", types.YLeaf{"TopoId", vni.TopoId})
+    vni.EntityData.Leafs.Append("topo-name", types.YLeaf{"TopoName", vni.TopoName})
+
+    vni.EntityData.YListKeys = []string {"Vni"}
+
     return &(vni.EntityData)
 }
 
@@ -199,8 +208,8 @@ type Nve_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The attributes for a particular interface. The type is slice of
-    // Nve_Interfaces_Interface_.
-    Interface_ []Nve_Interfaces_Interface
+    // Nve_Interfaces_Interface.
+    Interface []*Nve_Interfaces_Interface
 }
 
 func (interfaces *Nve_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -213,12 +222,15 @@ func (interfaces *Nve_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -229,7 +241,7 @@ type Nve_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -251,7 +263,7 @@ type Nve_Interfaces_Interface struct {
     SourceInterfaceName interface{}
 
     // Source IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceIpv4Address interface{}
 
     // NVE IfHandle. The type is interface{} with range: 0..18446744073709551615.
@@ -267,7 +279,7 @@ type Nve_Interfaces_Interface struct {
     AnyCastSourceInterfaceName interface{}
 
     // Anycast Source IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AnyCastSourceIpv4Address interface{}
 
     // Anycast Source Interface State. The type is interface{} with range:
@@ -275,7 +287,7 @@ type Nve_Interfaces_Interface struct {
     AnyCastSourceState interface{}
 
     // MCAST sync group IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SyncMcastIpv4Address interface{}
 
     // Sync McastFlags. The type is interface{} with range: 0..4294967295.
@@ -287,29 +299,32 @@ func (self *Nve_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", self.InterfaceNameXr}
-    self.EntityData.Leafs["state"] = types.YLeaf{"State", self.State}
-    self.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", self.AdminState}
-    self.EntityData.Leafs["flags"] = types.YLeaf{"Flags", self.Flags}
-    self.EntityData.Leafs["encap"] = types.YLeaf{"Encap", self.Encap}
-    self.EntityData.Leafs["source-interface-name"] = types.YLeaf{"SourceInterfaceName", self.SourceInterfaceName}
-    self.EntityData.Leafs["source-ipv4-address"] = types.YLeaf{"SourceIpv4Address", self.SourceIpv4Address}
-    self.EntityData.Leafs["if-handle"] = types.YLeaf{"IfHandle", self.IfHandle}
-    self.EntityData.Leafs["source-state"] = types.YLeaf{"SourceState", self.SourceState}
-    self.EntityData.Leafs["udp-port"] = types.YLeaf{"UdpPort", self.UdpPort}
-    self.EntityData.Leafs["any-cast-source-interface-name"] = types.YLeaf{"AnyCastSourceInterfaceName", self.AnyCastSourceInterfaceName}
-    self.EntityData.Leafs["any-cast-source-ipv4-address"] = types.YLeaf{"AnyCastSourceIpv4Address", self.AnyCastSourceIpv4Address}
-    self.EntityData.Leafs["any-cast-source-state"] = types.YLeaf{"AnyCastSourceState", self.AnyCastSourceState}
-    self.EntityData.Leafs["sync-mcast-ipv4-address"] = types.YLeaf{"SyncMcastIpv4Address", self.SyncMcastIpv4Address}
-    self.EntityData.Leafs["sync-mcast-flags"] = types.YLeaf{"SyncMcastFlags", self.SyncMcastFlags}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", self.InterfaceNameXr})
+    self.EntityData.Leafs.Append("state", types.YLeaf{"State", self.State})
+    self.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", self.AdminState})
+    self.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", self.Flags})
+    self.EntityData.Leafs.Append("encap", types.YLeaf{"Encap", self.Encap})
+    self.EntityData.Leafs.Append("source-interface-name", types.YLeaf{"SourceInterfaceName", self.SourceInterfaceName})
+    self.EntityData.Leafs.Append("source-ipv4-address", types.YLeaf{"SourceIpv4Address", self.SourceIpv4Address})
+    self.EntityData.Leafs.Append("if-handle", types.YLeaf{"IfHandle", self.IfHandle})
+    self.EntityData.Leafs.Append("source-state", types.YLeaf{"SourceState", self.SourceState})
+    self.EntityData.Leafs.Append("udp-port", types.YLeaf{"UdpPort", self.UdpPort})
+    self.EntityData.Leafs.Append("any-cast-source-interface-name", types.YLeaf{"AnyCastSourceInterfaceName", self.AnyCastSourceInterfaceName})
+    self.EntityData.Leafs.Append("any-cast-source-ipv4-address", types.YLeaf{"AnyCastSourceIpv4Address", self.AnyCastSourceIpv4Address})
+    self.EntityData.Leafs.Append("any-cast-source-state", types.YLeaf{"AnyCastSourceState", self.AnyCastSourceState})
+    self.EntityData.Leafs.Append("sync-mcast-ipv4-address", types.YLeaf{"SyncMcastIpv4Address", self.SyncMcastIpv4Address})
+    self.EntityData.Leafs.Append("sync-mcast-flags", types.YLeaf{"SyncMcastFlags", self.SyncMcastFlags})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 

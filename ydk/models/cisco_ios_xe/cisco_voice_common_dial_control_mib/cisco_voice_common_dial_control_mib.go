@@ -28,6 +28,128 @@ func init() {
     ydk.RegisterEntity("CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB", reflect.TypeOf(CISCOVOICECOMMONDIALCONTROLMIB{}))
 }
 
+// CvcInBandSignaling represents               GR303
+type CvcInBandSignaling string
+
+const (
+    CvcInBandSignaling_cas CvcInBandSignaling = "cas"
+
+    CvcInBandSignaling_none CvcInBandSignaling = "none"
+
+    CvcInBandSignaling_cept CvcInBandSignaling = "cept"
+
+    CvcInBandSignaling_transparent CvcInBandSignaling = "transparent"
+
+    CvcInBandSignaling_gr303 CvcInBandSignaling = "gr303"
+)
+
+// CvcCoderTypeRate represents aacld          - AAC-LD MPEG-4 Low Delay Audio Coder
+type CvcCoderTypeRate string
+
+const (
+    CvcCoderTypeRate_other CvcCoderTypeRate = "other"
+
+    CvcCoderTypeRate_fax2400 CvcCoderTypeRate = "fax2400"
+
+    CvcCoderTypeRate_fax4800 CvcCoderTypeRate = "fax4800"
+
+    CvcCoderTypeRate_fax7200 CvcCoderTypeRate = "fax7200"
+
+    CvcCoderTypeRate_fax9600 CvcCoderTypeRate = "fax9600"
+
+    CvcCoderTypeRate_fax14400 CvcCoderTypeRate = "fax14400"
+
+    CvcCoderTypeRate_fax12000 CvcCoderTypeRate = "fax12000"
+
+    CvcCoderTypeRate_g729r8000 CvcCoderTypeRate = "g729r8000"
+
+    CvcCoderTypeRate_g729Ar8000 CvcCoderTypeRate = "g729Ar8000"
+
+    CvcCoderTypeRate_g726r16000 CvcCoderTypeRate = "g726r16000"
+
+    CvcCoderTypeRate_g726r24000 CvcCoderTypeRate = "g726r24000"
+
+    CvcCoderTypeRate_g726r32000 CvcCoderTypeRate = "g726r32000"
+
+    CvcCoderTypeRate_g711ulawr64000 CvcCoderTypeRate = "g711ulawr64000"
+
+    CvcCoderTypeRate_g711Alawr64000 CvcCoderTypeRate = "g711Alawr64000"
+
+    CvcCoderTypeRate_g728r16000 CvcCoderTypeRate = "g728r16000"
+
+    CvcCoderTypeRate_g723r6300 CvcCoderTypeRate = "g723r6300"
+
+    CvcCoderTypeRate_g723r5300 CvcCoderTypeRate = "g723r5300"
+
+    CvcCoderTypeRate_gsmr13200 CvcCoderTypeRate = "gsmr13200"
+
+    CvcCoderTypeRate_g729Br8000 CvcCoderTypeRate = "g729Br8000"
+
+    CvcCoderTypeRate_g729ABr8000 CvcCoderTypeRate = "g729ABr8000"
+
+    CvcCoderTypeRate_g723Ar6300 CvcCoderTypeRate = "g723Ar6300"
+
+    CvcCoderTypeRate_g723Ar5300 CvcCoderTypeRate = "g723Ar5300"
+
+    CvcCoderTypeRate_ietfg729r8000 CvcCoderTypeRate = "ietfg729r8000"
+
+    CvcCoderTypeRate_gsmeEr12200 CvcCoderTypeRate = "gsmeEr12200"
+
+    CvcCoderTypeRate_clearChannel CvcCoderTypeRate = "clearChannel"
+
+    CvcCoderTypeRate_g726r40000 CvcCoderTypeRate = "g726r40000"
+
+    CvcCoderTypeRate_llcc CvcCoderTypeRate = "llcc"
+
+    CvcCoderTypeRate_gsmAmrNb CvcCoderTypeRate = "gsmAmrNb"
+
+    CvcCoderTypeRate_g722 CvcCoderTypeRate = "g722"
+
+    CvcCoderTypeRate_iLBC CvcCoderTypeRate = "iLBC"
+
+    CvcCoderTypeRate_iLBCr15200 CvcCoderTypeRate = "iLBCr15200"
+
+    CvcCoderTypeRate_iLBCr13330 CvcCoderTypeRate = "iLBCr13330"
+
+    CvcCoderTypeRate_g722r4800 CvcCoderTypeRate = "g722r4800"
+
+    CvcCoderTypeRate_g722r5600 CvcCoderTypeRate = "g722r5600"
+
+    CvcCoderTypeRate_g722r6400 CvcCoderTypeRate = "g722r6400"
+
+    CvcCoderTypeRate_iSAC CvcCoderTypeRate = "iSAC"
+
+    CvcCoderTypeRate_aaclc CvcCoderTypeRate = "aaclc"
+
+    CvcCoderTypeRate_aacld CvcCoderTypeRate = "aacld"
+)
+
+// CvcVideoCoderRate represents the video data of the voice call.
+type CvcVideoCoderRate string
+
+const (
+    CvcVideoCoderRate_none CvcVideoCoderRate = "none"
+
+    CvcVideoCoderRate_h261 CvcVideoCoderRate = "h261"
+
+    CvcVideoCoderRate_h263 CvcVideoCoderRate = "h263"
+
+    CvcVideoCoderRate_h263plus CvcVideoCoderRate = "h263plus"
+
+    CvcVideoCoderRate_h264 CvcVideoCoderRate = "h264"
+)
+
+// CvcH320CallType represents This object specifies the H320 call type of a voice call.
+type CvcH320CallType string
+
+const (
+    CvcH320CallType_none CvcH320CallType = "none"
+
+    CvcH320CallType_primary CvcH320CallType = "primary"
+
+    CvcH320CallType_secondary CvcH320CallType = "secondary"
+)
+
 // CvcSpeechCoderRate represents aacld          - AAC-LD MPEG-4 Low Delay Audio Coder
 type CvcSpeechCoderRate string
 
@@ -114,128 +236,6 @@ const (
     CvcFaxTransmitRate_fax12000 CvcFaxTransmitRate = "fax12000"
 )
 
-// CvcCoderTypeRate represents aacld          - AAC-LD MPEG-4 Low Delay Audio Coder
-type CvcCoderTypeRate string
-
-const (
-    CvcCoderTypeRate_other CvcCoderTypeRate = "other"
-
-    CvcCoderTypeRate_fax2400 CvcCoderTypeRate = "fax2400"
-
-    CvcCoderTypeRate_fax4800 CvcCoderTypeRate = "fax4800"
-
-    CvcCoderTypeRate_fax7200 CvcCoderTypeRate = "fax7200"
-
-    CvcCoderTypeRate_fax9600 CvcCoderTypeRate = "fax9600"
-
-    CvcCoderTypeRate_fax14400 CvcCoderTypeRate = "fax14400"
-
-    CvcCoderTypeRate_fax12000 CvcCoderTypeRate = "fax12000"
-
-    CvcCoderTypeRate_g729r8000 CvcCoderTypeRate = "g729r8000"
-
-    CvcCoderTypeRate_g729Ar8000 CvcCoderTypeRate = "g729Ar8000"
-
-    CvcCoderTypeRate_g726r16000 CvcCoderTypeRate = "g726r16000"
-
-    CvcCoderTypeRate_g726r24000 CvcCoderTypeRate = "g726r24000"
-
-    CvcCoderTypeRate_g726r32000 CvcCoderTypeRate = "g726r32000"
-
-    CvcCoderTypeRate_g711ulawr64000 CvcCoderTypeRate = "g711ulawr64000"
-
-    CvcCoderTypeRate_g711Alawr64000 CvcCoderTypeRate = "g711Alawr64000"
-
-    CvcCoderTypeRate_g728r16000 CvcCoderTypeRate = "g728r16000"
-
-    CvcCoderTypeRate_g723r6300 CvcCoderTypeRate = "g723r6300"
-
-    CvcCoderTypeRate_g723r5300 CvcCoderTypeRate = "g723r5300"
-
-    CvcCoderTypeRate_gsmr13200 CvcCoderTypeRate = "gsmr13200"
-
-    CvcCoderTypeRate_g729Br8000 CvcCoderTypeRate = "g729Br8000"
-
-    CvcCoderTypeRate_g729ABr8000 CvcCoderTypeRate = "g729ABr8000"
-
-    CvcCoderTypeRate_g723Ar6300 CvcCoderTypeRate = "g723Ar6300"
-
-    CvcCoderTypeRate_g723Ar5300 CvcCoderTypeRate = "g723Ar5300"
-
-    CvcCoderTypeRate_ietfg729r8000 CvcCoderTypeRate = "ietfg729r8000"
-
-    CvcCoderTypeRate_gsmeEr12200 CvcCoderTypeRate = "gsmeEr12200"
-
-    CvcCoderTypeRate_clearChannel CvcCoderTypeRate = "clearChannel"
-
-    CvcCoderTypeRate_g726r40000 CvcCoderTypeRate = "g726r40000"
-
-    CvcCoderTypeRate_llcc CvcCoderTypeRate = "llcc"
-
-    CvcCoderTypeRate_gsmAmrNb CvcCoderTypeRate = "gsmAmrNb"
-
-    CvcCoderTypeRate_g722 CvcCoderTypeRate = "g722"
-
-    CvcCoderTypeRate_iLBC CvcCoderTypeRate = "iLBC"
-
-    CvcCoderTypeRate_iLBCr15200 CvcCoderTypeRate = "iLBCr15200"
-
-    CvcCoderTypeRate_iLBCr13330 CvcCoderTypeRate = "iLBCr13330"
-
-    CvcCoderTypeRate_g722r4800 CvcCoderTypeRate = "g722r4800"
-
-    CvcCoderTypeRate_g722r5600 CvcCoderTypeRate = "g722r5600"
-
-    CvcCoderTypeRate_g722r6400 CvcCoderTypeRate = "g722r6400"
-
-    CvcCoderTypeRate_iSAC CvcCoderTypeRate = "iSAC"
-
-    CvcCoderTypeRate_aaclc CvcCoderTypeRate = "aaclc"
-
-    CvcCoderTypeRate_aacld CvcCoderTypeRate = "aacld"
-)
-
-// CvcInBandSignaling represents               GR303
-type CvcInBandSignaling string
-
-const (
-    CvcInBandSignaling_cas CvcInBandSignaling = "cas"
-
-    CvcInBandSignaling_none CvcInBandSignaling = "none"
-
-    CvcInBandSignaling_cept CvcInBandSignaling = "cept"
-
-    CvcInBandSignaling_transparent CvcInBandSignaling = "transparent"
-
-    CvcInBandSignaling_gr303 CvcInBandSignaling = "gr303"
-)
-
-// CvcH320CallType represents This object specifies the H320 call type of a voice call.
-type CvcH320CallType string
-
-const (
-    CvcH320CallType_none CvcH320CallType = "none"
-
-    CvcH320CallType_primary CvcH320CallType = "primary"
-
-    CvcH320CallType_secondary CvcH320CallType = "secondary"
-)
-
-// CvcVideoCoderRate represents the video data of the voice call.
-type CvcVideoCoderRate string
-
-const (
-    CvcVideoCoderRate_none CvcVideoCoderRate = "none"
-
-    CvcVideoCoderRate_h261 CvcVideoCoderRate = "h261"
-
-    CvcVideoCoderRate_h263 CvcVideoCoderRate = "h263"
-
-    CvcVideoCoderRate_h263plus CvcVideoCoderRate = "h263plus"
-
-    CvcVideoCoderRate_h264 CvcVideoCoderRate = "h264"
-)
-
 // CISCOVOICECOMMONDIALCONTROLMIB
 type CISCOVOICECOMMONDIALCONTROLMIB struct {
     EntityData types.CommonEntityData
@@ -244,12 +244,12 @@ type CISCOVOICECOMMONDIALCONTROLMIB struct {
     // This table is a common extension to the call active table of IETF Dial
     // Control MIB. It contains common call  leg information about a network call
     // leg.
-    Cvcommondccallactivetable CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable
+    CvCommonDcCallActiveTable CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable
 
     // This table is the Common extension to the call history table of IETF Dial
     // Control MIB. It contains Common call  leg information about a network call
     // leg.
-    Cvcommondccallhistorytable CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable
+    CvCommonDcCallHistoryTable CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable
 }
 
 func (cISCOVOICECOMMONDIALCONTROLMIB *CISCOVOICECOMMONDIALCONTROLMIB) GetEntityData() *types.CommonEntityData {
@@ -262,18 +262,21 @@ func (cISCOVOICECOMMONDIALCONTROLMIB *CISCOVOICECOMMONDIALCONTROLMIB) GetEntityD
     cISCOVOICECOMMONDIALCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVOICECOMMONDIALCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.Children["cvCommonDcCallActiveTable"] = types.YChild{"Cvcommondccallactivetable", &cISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable}
-    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.Children["cvCommonDcCallHistoryTable"] = types.YChild{"Cvcommondccallhistorytable", &cISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable}
-    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.Children.Append("cvCommonDcCallActiveTable", types.YChild{"CvCommonDcCallActiveTable", &cISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable})
+    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.Children.Append("cvCommonDcCallHistoryTable", types.YChild{"CvCommonDcCallHistoryTable", &cISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable})
+    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOVOICECOMMONDIALCONTROLMIB.EntityData)
 }
 
-// CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable
+// CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable
 // This table is a common extension to the call active
 // table of IETF Dial Control MIB. It contains common call 
 // leg information about a network call leg.
-type CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable struct {
+type CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -285,30 +288,33 @@ type CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable struct {
     // for the  call establishment to a network dialpeer.              The entry
     // is deleted when its associated call active entry  in the IETF Dial Control
     // MIB is deleted. The type is slice of
-    // CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable_Cvcommondccallactiveentry.
-    Cvcommondccallactiveentry []CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable_Cvcommondccallactiveentry
+    // CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable_CvCommonDcCallActiveEntry.
+    CvCommonDcCallActiveEntry []*CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable_CvCommonDcCallActiveEntry
 }
 
-func (cvcommondccallactivetable *CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable) GetEntityData() *types.CommonEntityData {
-    cvcommondccallactivetable.EntityData.YFilter = cvcommondccallactivetable.YFilter
-    cvcommondccallactivetable.EntityData.YangName = "cvCommonDcCallActiveTable"
-    cvcommondccallactivetable.EntityData.BundleName = "cisco_ios_xe"
-    cvcommondccallactivetable.EntityData.ParentYangName = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
-    cvcommondccallactivetable.EntityData.SegmentPath = "cvCommonDcCallActiveTable"
-    cvcommondccallactivetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cvcommondccallactivetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cvcommondccallactivetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cvCommonDcCallActiveTable *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable) GetEntityData() *types.CommonEntityData {
+    cvCommonDcCallActiveTable.EntityData.YFilter = cvCommonDcCallActiveTable.YFilter
+    cvCommonDcCallActiveTable.EntityData.YangName = "cvCommonDcCallActiveTable"
+    cvCommonDcCallActiveTable.EntityData.BundleName = "cisco_ios_xe"
+    cvCommonDcCallActiveTable.EntityData.ParentYangName = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
+    cvCommonDcCallActiveTable.EntityData.SegmentPath = "cvCommonDcCallActiveTable"
+    cvCommonDcCallActiveTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvCommonDcCallActiveTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvCommonDcCallActiveTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cvcommondccallactivetable.EntityData.Children = make(map[string]types.YChild)
-    cvcommondccallactivetable.EntityData.Children["cvCommonDcCallActiveEntry"] = types.YChild{"Cvcommondccallactiveentry", nil}
-    for i := range cvcommondccallactivetable.Cvcommondccallactiveentry {
-        cvcommondccallactivetable.EntityData.Children[types.GetSegmentPath(&cvcommondccallactivetable.Cvcommondccallactiveentry[i])] = types.YChild{"Cvcommondccallactiveentry", &cvcommondccallactivetable.Cvcommondccallactiveentry[i]}
+    cvCommonDcCallActiveTable.EntityData.Children = types.NewOrderedMap()
+    cvCommonDcCallActiveTable.EntityData.Children.Append("cvCommonDcCallActiveEntry", types.YChild{"CvCommonDcCallActiveEntry", nil})
+    for i := range cvCommonDcCallActiveTable.CvCommonDcCallActiveEntry {
+        cvCommonDcCallActiveTable.EntityData.Children.Append(types.GetSegmentPath(cvCommonDcCallActiveTable.CvCommonDcCallActiveEntry[i]), types.YChild{"CvCommonDcCallActiveEntry", cvCommonDcCallActiveTable.CvCommonDcCallActiveEntry[i]})
     }
-    cvcommondccallactivetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cvcommondccallactivetable.EntityData)
+    cvCommonDcCallActiveTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cvCommonDcCallActiveTable.EntityData.YListKeys = []string {}
+
+    return &(cvCommonDcCallActiveTable.EntityData)
 }
 
-// CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable_Cvcommondccallactiveentry
+// CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable_CvCommonDcCallActiveEntry
 // The common information regarding a single network call
 // leg. The call leg entry is identified by using the same 
 // index objects that are used by Call Active table of IETF 
@@ -319,82 +325,85 @@ func (cvcommondccallactivetable *CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallac
 // call establishment to a network dialpeer.             
 // The entry is deleted when its associated call active entry 
 // in the IETF Dial Control MIB is deleted.
-type CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable_Cvcommondccallactiveentry struct {
+type CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable_CvCommonDcCallActiveEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // dial_control_mib.DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivesetuptime
-    Callactivesetuptime interface{}
+    // dial_control_mib.DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveSetupTime
+    CallActiveSetupTime interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // dial_control_mib.DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveindex
-    Callactiveindex interface{}
+    // dial_control_mib.DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveIndex
+    CallActiveIndex interface{}
 
     // The global call identifier for the network call. The type is string with
     // length: 0..16.
-    Cvcommondccallactiveconnectionid interface{}
+    CvCommonDcCallActiveConnectionId interface{}
 
     // The object indicates whether or not the VAD (Voice Activity Detection) is
     // enabled for the voice call. The type is bool.
-    Cvcommondccallactivevadenable interface{}
+    CvCommonDcCallActiveVADEnable interface{}
 
     // The negotiated coder rate. It specifies the transmit rate of voice/fax
     // compression to its associated call leg  for the call. This rate is
     // different from the configuration rate  because of rate negotiation during
     // the call. The type is CvcCoderTypeRate.
-    Cvcommondccallactivecodertyperate interface{}
+    CvCommonDcCallActiveCoderTypeRate interface{}
 
     // Specifies the payload size of the voice packet. The type is interface{}
     // with range: 10..255.
-    Cvcommondccallactivecodecbytes interface{}
+    CvCommonDcCallActiveCodecBytes interface{}
 
     // Specifies the type of in-band signaling being used on the call.  This
     // object is instantiated only for  Connection Trunk calls. The type is
     // CvcInBandSignaling.
-    Cvcommondccallactiveinbandsignaling interface{}
+    CvCommonDcCallActiveInBandSignaling interface{}
 
     // The calling party name this call is connected to. If the name is not
     // available, then it will have a length of zero. The type is string with
     // length: 0..64.
-    Cvcommondccallactivecallingname interface{}
+    CvCommonDcCallActiveCallingName interface{}
 
     // The object indicates whether or not the caller ID feature is blocked for
     // this voice call. The type is bool.
-    Cvcommondccallactivecalleridblock interface{}
+    CvCommonDcCallActiveCallerIDBlock interface{}
 }
 
-func (cvcommondccallactiveentry *CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallactivetable_Cvcommondccallactiveentry) GetEntityData() *types.CommonEntityData {
-    cvcommondccallactiveentry.EntityData.YFilter = cvcommondccallactiveentry.YFilter
-    cvcommondccallactiveentry.EntityData.YangName = "cvCommonDcCallActiveEntry"
-    cvcommondccallactiveentry.EntityData.BundleName = "cisco_ios_xe"
-    cvcommondccallactiveentry.EntityData.ParentYangName = "cvCommonDcCallActiveTable"
-    cvcommondccallactiveentry.EntityData.SegmentPath = "cvCommonDcCallActiveEntry" + "[callActiveSetupTime='" + fmt.Sprintf("%v", cvcommondccallactiveentry.Callactivesetuptime) + "']" + "[callActiveIndex='" + fmt.Sprintf("%v", cvcommondccallactiveentry.Callactiveindex) + "']"
-    cvcommondccallactiveentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cvcommondccallactiveentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cvcommondccallactiveentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cvCommonDcCallActiveEntry *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable_CvCommonDcCallActiveEntry) GetEntityData() *types.CommonEntityData {
+    cvCommonDcCallActiveEntry.EntityData.YFilter = cvCommonDcCallActiveEntry.YFilter
+    cvCommonDcCallActiveEntry.EntityData.YangName = "cvCommonDcCallActiveEntry"
+    cvCommonDcCallActiveEntry.EntityData.BundleName = "cisco_ios_xe"
+    cvCommonDcCallActiveEntry.EntityData.ParentYangName = "cvCommonDcCallActiveTable"
+    cvCommonDcCallActiveEntry.EntityData.SegmentPath = "cvCommonDcCallActiveEntry" + types.AddKeyToken(cvCommonDcCallActiveEntry.CallActiveSetupTime, "callActiveSetupTime") + types.AddKeyToken(cvCommonDcCallActiveEntry.CallActiveIndex, "callActiveIndex")
+    cvCommonDcCallActiveEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvCommonDcCallActiveEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvCommonDcCallActiveEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cvcommondccallactiveentry.EntityData.Children = make(map[string]types.YChild)
-    cvcommondccallactiveentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cvcommondccallactiveentry.EntityData.Leafs["callActiveSetupTime"] = types.YLeaf{"Callactivesetuptime", cvcommondccallactiveentry.Callactivesetuptime}
-    cvcommondccallactiveentry.EntityData.Leafs["callActiveIndex"] = types.YLeaf{"Callactiveindex", cvcommondccallactiveentry.Callactiveindex}
-    cvcommondccallactiveentry.EntityData.Leafs["cvCommonDcCallActiveConnectionId"] = types.YLeaf{"Cvcommondccallactiveconnectionid", cvcommondccallactiveentry.Cvcommondccallactiveconnectionid}
-    cvcommondccallactiveentry.EntityData.Leafs["cvCommonDcCallActiveVADEnable"] = types.YLeaf{"Cvcommondccallactivevadenable", cvcommondccallactiveentry.Cvcommondccallactivevadenable}
-    cvcommondccallactiveentry.EntityData.Leafs["cvCommonDcCallActiveCoderTypeRate"] = types.YLeaf{"Cvcommondccallactivecodertyperate", cvcommondccallactiveentry.Cvcommondccallactivecodertyperate}
-    cvcommondccallactiveentry.EntityData.Leafs["cvCommonDcCallActiveCodecBytes"] = types.YLeaf{"Cvcommondccallactivecodecbytes", cvcommondccallactiveentry.Cvcommondccallactivecodecbytes}
-    cvcommondccallactiveentry.EntityData.Leafs["cvCommonDcCallActiveInBandSignaling"] = types.YLeaf{"Cvcommondccallactiveinbandsignaling", cvcommondccallactiveentry.Cvcommondccallactiveinbandsignaling}
-    cvcommondccallactiveentry.EntityData.Leafs["cvCommonDcCallActiveCallingName"] = types.YLeaf{"Cvcommondccallactivecallingname", cvcommondccallactiveentry.Cvcommondccallactivecallingname}
-    cvcommondccallactiveentry.EntityData.Leafs["cvCommonDcCallActiveCallerIDBlock"] = types.YLeaf{"Cvcommondccallactivecalleridblock", cvcommondccallactiveentry.Cvcommondccallactivecalleridblock}
-    return &(cvcommondccallactiveentry.EntityData)
+    cvCommonDcCallActiveEntry.EntityData.Children = types.NewOrderedMap()
+    cvCommonDcCallActiveEntry.EntityData.Leafs = types.NewOrderedMap()
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("callActiveSetupTime", types.YLeaf{"CallActiveSetupTime", cvCommonDcCallActiveEntry.CallActiveSetupTime})
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("callActiveIndex", types.YLeaf{"CallActiveIndex", cvCommonDcCallActiveEntry.CallActiveIndex})
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("cvCommonDcCallActiveConnectionId", types.YLeaf{"CvCommonDcCallActiveConnectionId", cvCommonDcCallActiveEntry.CvCommonDcCallActiveConnectionId})
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("cvCommonDcCallActiveVADEnable", types.YLeaf{"CvCommonDcCallActiveVADEnable", cvCommonDcCallActiveEntry.CvCommonDcCallActiveVADEnable})
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("cvCommonDcCallActiveCoderTypeRate", types.YLeaf{"CvCommonDcCallActiveCoderTypeRate", cvCommonDcCallActiveEntry.CvCommonDcCallActiveCoderTypeRate})
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("cvCommonDcCallActiveCodecBytes", types.YLeaf{"CvCommonDcCallActiveCodecBytes", cvCommonDcCallActiveEntry.CvCommonDcCallActiveCodecBytes})
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("cvCommonDcCallActiveInBandSignaling", types.YLeaf{"CvCommonDcCallActiveInBandSignaling", cvCommonDcCallActiveEntry.CvCommonDcCallActiveInBandSignaling})
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("cvCommonDcCallActiveCallingName", types.YLeaf{"CvCommonDcCallActiveCallingName", cvCommonDcCallActiveEntry.CvCommonDcCallActiveCallingName})
+    cvCommonDcCallActiveEntry.EntityData.Leafs.Append("cvCommonDcCallActiveCallerIDBlock", types.YLeaf{"CvCommonDcCallActiveCallerIDBlock", cvCommonDcCallActiveEntry.CvCommonDcCallActiveCallerIDBlock})
+
+    cvCommonDcCallActiveEntry.EntityData.YListKeys = []string {"CallActiveSetupTime", "CallActiveIndex"}
+
+    return &(cvCommonDcCallActiveEntry.EntityData)
 }
 
-// CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable
+// CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable
 // This table is the Common extension to the call history
 // table of IETF Dial Control MIB. It contains Common call 
 // leg information about a network call leg.
-type CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable struct {
+type CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -406,30 +415,33 @@ type CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable struct {
     // information  for the call establishment to a network dialpeer. The entry is
     // deleted when its associated call history  entry in the IETF Dial Control
     // MIB is deleted. The type is slice of
-    // CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable_Cvcommondccallhistoryentry.
-    Cvcommondccallhistoryentry []CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable_Cvcommondccallhistoryentry
+    // CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable_CvCommonDcCallHistoryEntry.
+    CvCommonDcCallHistoryEntry []*CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable_CvCommonDcCallHistoryEntry
 }
 
-func (cvcommondccallhistorytable *CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable) GetEntityData() *types.CommonEntityData {
-    cvcommondccallhistorytable.EntityData.YFilter = cvcommondccallhistorytable.YFilter
-    cvcommondccallhistorytable.EntityData.YangName = "cvCommonDcCallHistoryTable"
-    cvcommondccallhistorytable.EntityData.BundleName = "cisco_ios_xe"
-    cvcommondccallhistorytable.EntityData.ParentYangName = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
-    cvcommondccallhistorytable.EntityData.SegmentPath = "cvCommonDcCallHistoryTable"
-    cvcommondccallhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cvcommondccallhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cvcommondccallhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cvCommonDcCallHistoryTable *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable) GetEntityData() *types.CommonEntityData {
+    cvCommonDcCallHistoryTable.EntityData.YFilter = cvCommonDcCallHistoryTable.YFilter
+    cvCommonDcCallHistoryTable.EntityData.YangName = "cvCommonDcCallHistoryTable"
+    cvCommonDcCallHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    cvCommonDcCallHistoryTable.EntityData.ParentYangName = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
+    cvCommonDcCallHistoryTable.EntityData.SegmentPath = "cvCommonDcCallHistoryTable"
+    cvCommonDcCallHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvCommonDcCallHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvCommonDcCallHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cvcommondccallhistorytable.EntityData.Children = make(map[string]types.YChild)
-    cvcommondccallhistorytable.EntityData.Children["cvCommonDcCallHistoryEntry"] = types.YChild{"Cvcommondccallhistoryentry", nil}
-    for i := range cvcommondccallhistorytable.Cvcommondccallhistoryentry {
-        cvcommondccallhistorytable.EntityData.Children[types.GetSegmentPath(&cvcommondccallhistorytable.Cvcommondccallhistoryentry[i])] = types.YChild{"Cvcommondccallhistoryentry", &cvcommondccallhistorytable.Cvcommondccallhistoryentry[i]}
+    cvCommonDcCallHistoryTable.EntityData.Children = types.NewOrderedMap()
+    cvCommonDcCallHistoryTable.EntityData.Children.Append("cvCommonDcCallHistoryEntry", types.YChild{"CvCommonDcCallHistoryEntry", nil})
+    for i := range cvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry {
+        cvCommonDcCallHistoryTable.EntityData.Children.Append(types.GetSegmentPath(cvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry[i]), types.YChild{"CvCommonDcCallHistoryEntry", cvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry[i]})
     }
-    cvcommondccallhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cvcommondccallhistorytable.EntityData)
+    cvCommonDcCallHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cvCommonDcCallHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(cvCommonDcCallHistoryTable.EntityData)
 }
 
-// CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable_Cvcommondccallhistoryentry
+// CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable_CvCommonDcCallHistoryEntry
 // The common information regarding a single network call
 // leg. The call leg entry is identified by using the same 
 // index objects that are used by Call Active table of IETF 
@@ -440,68 +452,71 @@ func (cvcommondccallhistorytable *CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallh
 // for the call establishment to a network dialpeer.
 // The entry is deleted when its associated call history 
 // entry in the IETF Dial Control MIB is deleted.
-type CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable_Cvcommondccallhistoryentry struct {
+type CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable_CvCommonDcCallHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_dial_control_mib.CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryindex
-    Ccallhistoryindex interface{}
+    // cisco_dial_control_mib.CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryIndex
+    CCallHistoryIndex interface{}
 
     // The global call identifier for the gateway call. The type is string with
     // length: 0..16.
-    Cvcommondccallhistoryconnectionid interface{}
+    CvCommonDcCallHistoryConnectionId interface{}
 
     // The object indicates whether or not the VAD (Voice Activity Detection) was
     // enabled for the voice call. The type is bool.
-    Cvcommondccallhistoryvadenable interface{}
+    CvCommonDcCallHistoryVADEnable interface{}
 
     // The negotiated coder rate. It specifies the transmit rate of voice/fax
     // compression to its associated call leg for  the call. This rate is
     // different from the configuration rate  because of rate negotiation during
     // the call. The type is CvcCoderTypeRate.
-    Cvcommondccallhistorycodertyperate interface{}
+    CvCommonDcCallHistoryCoderTypeRate interface{}
 
     // Specifies the payload size of the voice packet. The type is interface{}
     // with range: 10..255.
-    Cvcommondccallhistorycodecbytes interface{}
+    CvCommonDcCallHistoryCodecBytes interface{}
 
     // Specifies the type of in-band signaling used on the call.  This object is
     // instantiated only for  Connection Trunk calls. The type is
     // CvcInBandSignaling.
-    Cvcommondccallhistoryinbandsignaling interface{}
+    CvCommonDcCallHistoryInBandSignaling interface{}
 
     // The calling party name this call is connected to. If the name is not
     // available, then it will have a length  of zero. The type is string with
     // length: 0..64.
-    Cvcommondccallhistorycallingname interface{}
+    CvCommonDcCallHistoryCallingName interface{}
 
     // The object indicates whether or not the caller ID feature is blocked for
     // this voice call. The type is bool.
-    Cvcommondccallhistorycalleridblock interface{}
+    CvCommonDcCallHistoryCallerIDBlock interface{}
 }
 
-func (cvcommondccallhistoryentry *CISCOVOICECOMMONDIALCONTROLMIB_Cvcommondccallhistorytable_Cvcommondccallhistoryentry) GetEntityData() *types.CommonEntityData {
-    cvcommondccallhistoryentry.EntityData.YFilter = cvcommondccallhistoryentry.YFilter
-    cvcommondccallhistoryentry.EntityData.YangName = "cvCommonDcCallHistoryEntry"
-    cvcommondccallhistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    cvcommondccallhistoryentry.EntityData.ParentYangName = "cvCommonDcCallHistoryTable"
-    cvcommondccallhistoryentry.EntityData.SegmentPath = "cvCommonDcCallHistoryEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", cvcommondccallhistoryentry.Ccallhistoryindex) + "']"
-    cvcommondccallhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cvcommondccallhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cvcommondccallhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cvCommonDcCallHistoryEntry *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable_CvCommonDcCallHistoryEntry) GetEntityData() *types.CommonEntityData {
+    cvCommonDcCallHistoryEntry.EntityData.YFilter = cvCommonDcCallHistoryEntry.YFilter
+    cvCommonDcCallHistoryEntry.EntityData.YangName = "cvCommonDcCallHistoryEntry"
+    cvCommonDcCallHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    cvCommonDcCallHistoryEntry.EntityData.ParentYangName = "cvCommonDcCallHistoryTable"
+    cvCommonDcCallHistoryEntry.EntityData.SegmentPath = "cvCommonDcCallHistoryEntry" + types.AddKeyToken(cvCommonDcCallHistoryEntry.CCallHistoryIndex, "cCallHistoryIndex")
+    cvCommonDcCallHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvCommonDcCallHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvCommonDcCallHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cvcommondccallhistoryentry.EntityData.Children = make(map[string]types.YChild)
-    cvcommondccallhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cvcommondccallhistoryentry.EntityData.Leafs["cCallHistoryIndex"] = types.YLeaf{"Ccallhistoryindex", cvcommondccallhistoryentry.Ccallhistoryindex}
-    cvcommondccallhistoryentry.EntityData.Leafs["cvCommonDcCallHistoryConnectionId"] = types.YLeaf{"Cvcommondccallhistoryconnectionid", cvcommondccallhistoryentry.Cvcommondccallhistoryconnectionid}
-    cvcommondccallhistoryentry.EntityData.Leafs["cvCommonDcCallHistoryVADEnable"] = types.YLeaf{"Cvcommondccallhistoryvadenable", cvcommondccallhistoryentry.Cvcommondccallhistoryvadenable}
-    cvcommondccallhistoryentry.EntityData.Leafs["cvCommonDcCallHistoryCoderTypeRate"] = types.YLeaf{"Cvcommondccallhistorycodertyperate", cvcommondccallhistoryentry.Cvcommondccallhistorycodertyperate}
-    cvcommondccallhistoryentry.EntityData.Leafs["cvCommonDcCallHistoryCodecBytes"] = types.YLeaf{"Cvcommondccallhistorycodecbytes", cvcommondccallhistoryentry.Cvcommondccallhistorycodecbytes}
-    cvcommondccallhistoryentry.EntityData.Leafs["cvCommonDcCallHistoryInBandSignaling"] = types.YLeaf{"Cvcommondccallhistoryinbandsignaling", cvcommondccallhistoryentry.Cvcommondccallhistoryinbandsignaling}
-    cvcommondccallhistoryentry.EntityData.Leafs["cvCommonDcCallHistoryCallingName"] = types.YLeaf{"Cvcommondccallhistorycallingname", cvcommondccallhistoryentry.Cvcommondccallhistorycallingname}
-    cvcommondccallhistoryentry.EntityData.Leafs["cvCommonDcCallHistoryCallerIDBlock"] = types.YLeaf{"Cvcommondccallhistorycalleridblock", cvcommondccallhistoryentry.Cvcommondccallhistorycalleridblock}
-    return &(cvcommondccallhistoryentry.EntityData)
+    cvCommonDcCallHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    cvCommonDcCallHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    cvCommonDcCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryIndex", types.YLeaf{"CCallHistoryIndex", cvCommonDcCallHistoryEntry.CCallHistoryIndex})
+    cvCommonDcCallHistoryEntry.EntityData.Leafs.Append("cvCommonDcCallHistoryConnectionId", types.YLeaf{"CvCommonDcCallHistoryConnectionId", cvCommonDcCallHistoryEntry.CvCommonDcCallHistoryConnectionId})
+    cvCommonDcCallHistoryEntry.EntityData.Leafs.Append("cvCommonDcCallHistoryVADEnable", types.YLeaf{"CvCommonDcCallHistoryVADEnable", cvCommonDcCallHistoryEntry.CvCommonDcCallHistoryVADEnable})
+    cvCommonDcCallHistoryEntry.EntityData.Leafs.Append("cvCommonDcCallHistoryCoderTypeRate", types.YLeaf{"CvCommonDcCallHistoryCoderTypeRate", cvCommonDcCallHistoryEntry.CvCommonDcCallHistoryCoderTypeRate})
+    cvCommonDcCallHistoryEntry.EntityData.Leafs.Append("cvCommonDcCallHistoryCodecBytes", types.YLeaf{"CvCommonDcCallHistoryCodecBytes", cvCommonDcCallHistoryEntry.CvCommonDcCallHistoryCodecBytes})
+    cvCommonDcCallHistoryEntry.EntityData.Leafs.Append("cvCommonDcCallHistoryInBandSignaling", types.YLeaf{"CvCommonDcCallHistoryInBandSignaling", cvCommonDcCallHistoryEntry.CvCommonDcCallHistoryInBandSignaling})
+    cvCommonDcCallHistoryEntry.EntityData.Leafs.Append("cvCommonDcCallHistoryCallingName", types.YLeaf{"CvCommonDcCallHistoryCallingName", cvCommonDcCallHistoryEntry.CvCommonDcCallHistoryCallingName})
+    cvCommonDcCallHistoryEntry.EntityData.Leafs.Append("cvCommonDcCallHistoryCallerIDBlock", types.YLeaf{"CvCommonDcCallHistoryCallerIDBlock", cvCommonDcCallHistoryEntry.CvCommonDcCallHistoryCallerIDBlock})
+
+    cvCommonDcCallHistoryEntry.EntityData.YListKeys = []string {"CCallHistoryIndex"}
+
+    return &(cvCommonDcCallHistoryEntry.EntityData)
 }
 

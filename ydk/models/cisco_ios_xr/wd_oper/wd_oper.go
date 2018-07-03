@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-wd-oper:watchdog", reflect.TypeOf(Watchdog{}))
 }
 
-// OverloadCtrlNotif represents Overload control notification
-type OverloadCtrlNotif string
-
-const (
-    // Diabled
-    OverloadCtrlNotif_disabled OverloadCtrlNotif = "disabled"
-
-    // Enabled
-    OverloadCtrlNotif_enabled OverloadCtrlNotif = "enabled"
-)
-
 // MemoryState represents Memory state options
 type MemoryState string
 
@@ -53,6 +42,17 @@ const (
 
     // Memory state critical
     MemoryState_critical MemoryState = "critical"
+)
+
+// OverloadCtrlNotif represents Overload control notification
+type OverloadCtrlNotif string
+
+const (
+    // Diabled
+    OverloadCtrlNotif_disabled OverloadCtrlNotif = "disabled"
+
+    // Enabled
+    OverloadCtrlNotif_enabled OverloadCtrlNotif = "enabled"
 )
 
 // Watchdog
@@ -75,9 +75,12 @@ func (watchdog *Watchdog) GetEntityData() *types.CommonEntityData {
     watchdog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     watchdog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    watchdog.EntityData.Children = make(map[string]types.YChild)
-    watchdog.EntityData.Children["nodes"] = types.YChild{"Nodes", &watchdog.Nodes}
-    watchdog.EntityData.Leafs = make(map[string]types.YLeaf)
+    watchdog.EntityData.Children = types.NewOrderedMap()
+    watchdog.EntityData.Children.Append("nodes", types.YChild{"Nodes", &watchdog.Nodes})
+    watchdog.EntityData.Leafs = types.NewOrderedMap()
+
+    watchdog.EntityData.YListKeys = []string {}
+
     return &(watchdog.EntityData)
 }
 
@@ -88,7 +91,7 @@ type Watchdog_Nodes struct {
     YFilter yfilter.YFilter
 
     // Node ID. The type is slice of Watchdog_Nodes_Node.
-    Node []Watchdog_Nodes_Node
+    Node []*Watchdog_Nodes_Node
 }
 
 func (nodes *Watchdog_Nodes) GetEntityData() *types.CommonEntityData {
@@ -101,12 +104,15 @@ func (nodes *Watchdog_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -117,7 +123,7 @@ type Watchdog_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Threshold memory.
@@ -135,17 +141,20 @@ func (node *Watchdog_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["threshold-memory"] = types.YChild{"ThresholdMemory", &node.ThresholdMemory}
-    node.EntityData.Children["memory-state"] = types.YChild{"MemoryState", &node.MemoryState}
-    node.EntityData.Children["overload-state"] = types.YChild{"OverloadState", &node.OverloadState}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("threshold-memory", types.YChild{"ThresholdMemory", &node.ThresholdMemory})
+    node.EntityData.Children.Append("memory-state", types.YChild{"MemoryState", &node.MemoryState})
+    node.EntityData.Children.Append("overload-state", types.YChild{"OverloadState", &node.OverloadState})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -156,7 +165,7 @@ type Watchdog_Nodes_Node_ThresholdMemory struct {
     YFilter yfilter.YFilter
 
     // System default memory.
-    Default_ Watchdog_Nodes_Node_ThresholdMemory_Default
+    Default Watchdog_Nodes_Node_ThresholdMemory_Default
 
     // Memory configured by user.
     Configured Watchdog_Nodes_Node_ThresholdMemory_Configured
@@ -172,10 +181,13 @@ func (thresholdMemory *Watchdog_Nodes_Node_ThresholdMemory) GetEntityData() *typ
     thresholdMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdMemory.EntityData.Children = make(map[string]types.YChild)
-    thresholdMemory.EntityData.Children["default"] = types.YChild{"Default_", &thresholdMemory.Default_}
-    thresholdMemory.EntityData.Children["configured"] = types.YChild{"Configured", &thresholdMemory.Configured}
-    thresholdMemory.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdMemory.EntityData.Children = types.NewOrderedMap()
+    thresholdMemory.EntityData.Children.Append("default", types.YChild{"Default", &thresholdMemory.Default})
+    thresholdMemory.EntityData.Children.Append("configured", types.YChild{"Configured", &thresholdMemory.Configured})
+    thresholdMemory.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdMemory.EntityData.YListKeys = []string {}
+
     return &(thresholdMemory.EntityData)
 }
 
@@ -202,10 +214,13 @@ func (self *Watchdog_Nodes_Node_ThresholdMemory_Default) GetEntityData() *types.
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["configured-memory"] = types.YChild{"ConfiguredMemory", &self.ConfiguredMemory}
-    self.EntityData.Children["memory"] = types.YChild{"Memory", &self.Memory}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("configured-memory", types.YChild{"ConfiguredMemory", &self.ConfiguredMemory})
+    self.EntityData.Children.Append("memory", types.YChild{"Memory", &self.Memory})
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -238,11 +253,14 @@ func (configuredMemory *Watchdog_Nodes_Node_ThresholdMemory_Default_ConfiguredMe
     configuredMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuredMemory.EntityData.Children = make(map[string]types.YChild)
-    configuredMemory.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuredMemory.EntityData.Leafs["minor"] = types.YLeaf{"Minor", configuredMemory.Minor}
-    configuredMemory.EntityData.Leafs["severe"] = types.YLeaf{"Severe", configuredMemory.Severe}
-    configuredMemory.EntityData.Leafs["critical"] = types.YLeaf{"Critical", configuredMemory.Critical}
+    configuredMemory.EntityData.Children = types.NewOrderedMap()
+    configuredMemory.EntityData.Leafs = types.NewOrderedMap()
+    configuredMemory.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", configuredMemory.Minor})
+    configuredMemory.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", configuredMemory.Severe})
+    configuredMemory.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", configuredMemory.Critical})
+
+    configuredMemory.EntityData.YListKeys = []string {}
+
     return &(configuredMemory.EntityData)
 }
 
@@ -274,11 +292,14 @@ func (memory *Watchdog_Nodes_Node_ThresholdMemory_Default_Memory) GetEntityData(
     memory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memory.EntityData.Children = make(map[string]types.YChild)
-    memory.EntityData.Leafs = make(map[string]types.YLeaf)
-    memory.EntityData.Leafs["physical-memory"] = types.YLeaf{"PhysicalMemory", memory.PhysicalMemory}
-    memory.EntityData.Leafs["free-memory"] = types.YLeaf{"FreeMemory", memory.FreeMemory}
-    memory.EntityData.Leafs["memory-state"] = types.YLeaf{"MemoryState", memory.MemoryState}
+    memory.EntityData.Children = types.NewOrderedMap()
+    memory.EntityData.Leafs = types.NewOrderedMap()
+    memory.EntityData.Leafs.Append("physical-memory", types.YLeaf{"PhysicalMemory", memory.PhysicalMemory})
+    memory.EntityData.Leafs.Append("free-memory", types.YLeaf{"FreeMemory", memory.FreeMemory})
+    memory.EntityData.Leafs.Append("memory-state", types.YLeaf{"MemoryState", memory.MemoryState})
+
+    memory.EntityData.YListKeys = []string {}
+
     return &(memory.EntityData)
 }
 
@@ -311,11 +332,14 @@ func (configured *Watchdog_Nodes_Node_ThresholdMemory_Configured) GetEntityData(
     configured.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configured.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configured.EntityData.Children = make(map[string]types.YChild)
-    configured.EntityData.Leafs = make(map[string]types.YLeaf)
-    configured.EntityData.Leafs["minor"] = types.YLeaf{"Minor", configured.Minor}
-    configured.EntityData.Leafs["severe"] = types.YLeaf{"Severe", configured.Severe}
-    configured.EntityData.Leafs["critical"] = types.YLeaf{"Critical", configured.Critical}
+    configured.EntityData.Children = types.NewOrderedMap()
+    configured.EntityData.Leafs = types.NewOrderedMap()
+    configured.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", configured.Minor})
+    configured.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", configured.Severe})
+    configured.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", configured.Critical})
+
+    configured.EntityData.YListKeys = []string {}
+
     return &(configured.EntityData)
 }
 
@@ -347,11 +371,14 @@ func (memoryState *Watchdog_Nodes_Node_MemoryState) GetEntityData() *types.Commo
     memoryState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryState.EntityData.Children = make(map[string]types.YChild)
-    memoryState.EntityData.Leafs = make(map[string]types.YLeaf)
-    memoryState.EntityData.Leafs["physical-memory"] = types.YLeaf{"PhysicalMemory", memoryState.PhysicalMemory}
-    memoryState.EntityData.Leafs["free-memory"] = types.YLeaf{"FreeMemory", memoryState.FreeMemory}
-    memoryState.EntityData.Leafs["memory-state"] = types.YLeaf{"MemoryState", memoryState.MemoryState}
+    memoryState.EntityData.Children = types.NewOrderedMap()
+    memoryState.EntityData.Leafs = types.NewOrderedMap()
+    memoryState.EntityData.Leafs.Append("physical-memory", types.YLeaf{"PhysicalMemory", memoryState.PhysicalMemory})
+    memoryState.EntityData.Leafs.Append("free-memory", types.YLeaf{"FreeMemory", memoryState.FreeMemory})
+    memoryState.EntityData.Leafs.Append("memory-state", types.YLeaf{"MemoryState", memoryState.MemoryState})
+
+    memoryState.EntityData.YListKeys = []string {}
+
     return &(memoryState.EntityData)
 }
 
@@ -376,7 +403,7 @@ type Watchdog_Nodes_Node_OverloadState struct {
 
     // Last throttle information. The type is slice of
     // Watchdog_Nodes_Node_OverloadState_LastThrottle.
-    LastThrottle []Watchdog_Nodes_Node_OverloadState_LastThrottle
+    LastThrottle []*Watchdog_Nodes_Node_OverloadState_LastThrottle
 }
 
 func (overloadState *Watchdog_Nodes_Node_OverloadState) GetEntityData() *types.CommonEntityData {
@@ -389,16 +416,19 @@ func (overloadState *Watchdog_Nodes_Node_OverloadState) GetEntityData() *types.C
     overloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    overloadState.EntityData.Children = make(map[string]types.YChild)
-    overloadState.EntityData.Children["current-throttle"] = types.YChild{"CurrentThrottle", &overloadState.CurrentThrottle}
-    overloadState.EntityData.Children["last-throttle"] = types.YChild{"LastThrottle", nil}
+    overloadState.EntityData.Children = types.NewOrderedMap()
+    overloadState.EntityData.Children.Append("current-throttle", types.YChild{"CurrentThrottle", &overloadState.CurrentThrottle})
+    overloadState.EntityData.Children.Append("last-throttle", types.YChild{"LastThrottle", nil})
     for i := range overloadState.LastThrottle {
-        overloadState.EntityData.Children[types.GetSegmentPath(&overloadState.LastThrottle[i])] = types.YChild{"LastThrottle", &overloadState.LastThrottle[i]}
+        overloadState.EntityData.Children.Append(types.GetSegmentPath(overloadState.LastThrottle[i]), types.YChild{"LastThrottle", overloadState.LastThrottle[i]})
     }
-    overloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    overloadState.EntityData.Leafs["overload-control-notification"] = types.YLeaf{"OverloadControlNotification", overloadState.OverloadControlNotification}
-    overloadState.EntityData.Leafs["default-wdsysmon-throttle"] = types.YLeaf{"DefaultWdsysmonThrottle", overloadState.DefaultWdsysmonThrottle}
-    overloadState.EntityData.Leafs["configured-wdsysmon-throttle"] = types.YLeaf{"ConfiguredWdsysmonThrottle", overloadState.ConfiguredWdsysmonThrottle}
+    overloadState.EntityData.Leafs = types.NewOrderedMap()
+    overloadState.EntityData.Leafs.Append("overload-control-notification", types.YLeaf{"OverloadControlNotification", overloadState.OverloadControlNotification})
+    overloadState.EntityData.Leafs.Append("default-wdsysmon-throttle", types.YLeaf{"DefaultWdsysmonThrottle", overloadState.DefaultWdsysmonThrottle})
+    overloadState.EntityData.Leafs.Append("configured-wdsysmon-throttle", types.YLeaf{"ConfiguredWdsysmonThrottle", overloadState.ConfiguredWdsysmonThrottle})
+
+    overloadState.EntityData.YListKeys = []string {}
+
     return &(overloadState.EntityData)
 }
 
@@ -428,10 +458,13 @@ func (currentThrottle *Watchdog_Nodes_Node_OverloadState_CurrentThrottle) GetEnt
     currentThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currentThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    currentThrottle.EntityData.Children = make(map[string]types.YChild)
-    currentThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    currentThrottle.EntityData.Leafs["throttle-duration"] = types.YLeaf{"ThrottleDuration", currentThrottle.ThrottleDuration}
-    currentThrottle.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", currentThrottle.StartTime}
+    currentThrottle.EntityData.Children = types.NewOrderedMap()
+    currentThrottle.EntityData.Leafs = types.NewOrderedMap()
+    currentThrottle.EntityData.Leafs.Append("throttle-duration", types.YLeaf{"ThrottleDuration", currentThrottle.ThrottleDuration})
+    currentThrottle.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", currentThrottle.StartTime})
+
+    currentThrottle.EntityData.YListKeys = []string {}
+
     return &(currentThrottle.EntityData)
 }
 
@@ -465,11 +498,14 @@ func (lastThrottle *Watchdog_Nodes_Node_OverloadState_LastThrottle) GetEntityDat
     lastThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastThrottle.EntityData.Children = make(map[string]types.YChild)
-    lastThrottle.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastThrottle.EntityData.Leafs["throttle-duration"] = types.YLeaf{"ThrottleDuration", lastThrottle.ThrottleDuration}
-    lastThrottle.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", lastThrottle.StartTime}
-    lastThrottle.EntityData.Leafs["stop-time"] = types.YLeaf{"StopTime", lastThrottle.StopTime}
+    lastThrottle.EntityData.Children = types.NewOrderedMap()
+    lastThrottle.EntityData.Leafs = types.NewOrderedMap()
+    lastThrottle.EntityData.Leafs.Append("throttle-duration", types.YLeaf{"ThrottleDuration", lastThrottle.ThrottleDuration})
+    lastThrottle.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", lastThrottle.StartTime})
+    lastThrottle.EntityData.Leafs.Append("stop-time", types.YLeaf{"StopTime", lastThrottle.StopTime})
+
+    lastThrottle.EntityData.YListKeys = []string {}
+
     return &(lastThrottle.EntityData)
 }
 

@@ -47,10 +47,13 @@ func (perfMgmt *PerfMgmt) GetEntityData() *types.CommonEntityData {
     perfMgmt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     perfMgmt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    perfMgmt.EntityData.Children = make(map[string]types.YChild)
-    perfMgmt.EntityData.Children["periodic"] = types.YChild{"Periodic", &perfMgmt.Periodic}
-    perfMgmt.EntityData.Children["monitor"] = types.YChild{"Monitor", &perfMgmt.Monitor}
-    perfMgmt.EntityData.Leafs = make(map[string]types.YLeaf)
+    perfMgmt.EntityData.Children = types.NewOrderedMap()
+    perfMgmt.EntityData.Children.Append("periodic", types.YChild{"Periodic", &perfMgmt.Periodic})
+    perfMgmt.EntityData.Children.Append("monitor", types.YChild{"Monitor", &perfMgmt.Monitor})
+    perfMgmt.EntityData.Leafs = types.NewOrderedMap()
+
+    perfMgmt.EntityData.YListKeys = []string {}
+
     return &(perfMgmt.EntityData)
 }
 
@@ -73,7 +76,7 @@ type PerfMgmt_Periodic struct {
     Bgp PerfMgmt_Periodic_Bgp
 
     // Collected Interface data.
-    Interface_ PerfMgmt_Periodic_Interface
+    Interface PerfMgmt_Periodic_Interface
 }
 
 func (periodic *PerfMgmt_Periodic) GetEntityData() *types.CommonEntityData {
@@ -86,13 +89,16 @@ func (periodic *PerfMgmt_Periodic) GetEntityData() *types.CommonEntityData {
     periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    periodic.EntityData.Children = make(map[string]types.YChild)
-    periodic.EntityData.Children["ospf"] = types.YChild{"Ospf", &periodic.Ospf}
-    periodic.EntityData.Children["mpls"] = types.YChild{"Mpls", &periodic.Mpls}
-    periodic.EntityData.Children["nodes"] = types.YChild{"Nodes", &periodic.Nodes}
-    periodic.EntityData.Children["bgp"] = types.YChild{"Bgp", &periodic.Bgp}
-    periodic.EntityData.Children["interface"] = types.YChild{"Interface_", &periodic.Interface_}
-    periodic.EntityData.Leafs = make(map[string]types.YLeaf)
+    periodic.EntityData.Children = types.NewOrderedMap()
+    periodic.EntityData.Children.Append("ospf", types.YChild{"Ospf", &periodic.Ospf})
+    periodic.EntityData.Children.Append("mpls", types.YChild{"Mpls", &periodic.Mpls})
+    periodic.EntityData.Children.Append("nodes", types.YChild{"Nodes", &periodic.Nodes})
+    periodic.EntityData.Children.Append("bgp", types.YChild{"Bgp", &periodic.Bgp})
+    periodic.EntityData.Children.Append("interface", types.YChild{"Interface", &periodic.Interface})
+    periodic.EntityData.Leafs = types.NewOrderedMap()
+
+    periodic.EntityData.YListKeys = []string {}
+
     return &(periodic.EntityData)
 }
 
@@ -119,10 +125,13 @@ func (ospf *PerfMgmt_Periodic_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospf.EntityData.Children = make(map[string]types.YChild)
-    ospf.EntityData.Children["ospfv2-protocol-instances"] = types.YChild{"Ospfv2ProtocolInstances", &ospf.Ospfv2ProtocolInstances}
-    ospf.EntityData.Children["ospfv3-protocol-instances"] = types.YChild{"Ospfv3ProtocolInstances", &ospf.Ospfv3ProtocolInstances}
-    ospf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospf.EntityData.Children = types.NewOrderedMap()
+    ospf.EntityData.Children.Append("ospfv2-protocol-instances", types.YChild{"Ospfv2ProtocolInstances", &ospf.Ospfv2ProtocolInstances})
+    ospf.EntityData.Children.Append("ospfv3-protocol-instances", types.YChild{"Ospfv3ProtocolInstances", &ospf.Ospfv3ProtocolInstances})
+    ospf.EntityData.Leafs = types.NewOrderedMap()
+
+    ospf.EntityData.YListKeys = []string {}
+
     return &(ospf.EntityData)
 }
 
@@ -135,7 +144,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances struct {
 
     // Protocol samples for a particular OSPF v2 instance. The type is slice of
     // PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance.
-    Ospfv2ProtocolInstance []PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance
+    Ospfv2ProtocolInstance []*PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance
 }
 
 func (ospfv2ProtocolInstances *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances) GetEntityData() *types.CommonEntityData {
@@ -148,12 +157,15 @@ func (ospfv2ProtocolInstances *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances) G
     ospfv2ProtocolInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2ProtocolInstances.EntityData.Children = make(map[string]types.YChild)
-    ospfv2ProtocolInstances.EntityData.Children["ospfv2-protocol-instance"] = types.YChild{"Ospfv2ProtocolInstance", nil}
+    ospfv2ProtocolInstances.EntityData.Children = types.NewOrderedMap()
+    ospfv2ProtocolInstances.EntityData.Children.Append("ospfv2-protocol-instance", types.YChild{"Ospfv2ProtocolInstance", nil})
     for i := range ospfv2ProtocolInstances.Ospfv2ProtocolInstance {
-        ospfv2ProtocolInstances.EntityData.Children[types.GetSegmentPath(&ospfv2ProtocolInstances.Ospfv2ProtocolInstance[i])] = types.YChild{"Ospfv2ProtocolInstance", &ospfv2ProtocolInstances.Ospfv2ProtocolInstance[i]}
+        ospfv2ProtocolInstances.EntityData.Children.Append(types.GetSegmentPath(ospfv2ProtocolInstances.Ospfv2ProtocolInstance[i]), types.YChild{"Ospfv2ProtocolInstance", ospfv2ProtocolInstances.Ospfv2ProtocolInstance[i]})
     }
-    ospfv2ProtocolInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2ProtocolInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2ProtocolInstances.EntityData.YListKeys = []string {}
+
     return &(ospfv2ProtocolInstances.EntityData)
 }
 
@@ -165,7 +177,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Sample Table for an OSPV v2 instance.
@@ -177,15 +189,18 @@ func (ospfv2ProtocolInstance *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Osp
     ospfv2ProtocolInstance.EntityData.YangName = "ospfv2-protocol-instance"
     ospfv2ProtocolInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolInstance.EntityData.ParentYangName = "ospfv2-protocol-instances"
-    ospfv2ProtocolInstance.EntityData.SegmentPath = "ospfv2-protocol-instance" + "[instance-name='" + fmt.Sprintf("%v", ospfv2ProtocolInstance.InstanceName) + "']"
+    ospfv2ProtocolInstance.EntityData.SegmentPath = "ospfv2-protocol-instance" + types.AddKeyToken(ospfv2ProtocolInstance.InstanceName, "instance-name")
     ospfv2ProtocolInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2ProtocolInstance.EntityData.Children = make(map[string]types.YChild)
-    ospfv2ProtocolInstance.EntityData.Children["samples"] = types.YChild{"Samples", &ospfv2ProtocolInstance.Samples}
-    ospfv2ProtocolInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv2ProtocolInstance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", ospfv2ProtocolInstance.InstanceName}
+    ospfv2ProtocolInstance.EntityData.Children = types.NewOrderedMap()
+    ospfv2ProtocolInstance.EntityData.Children.Append("samples", types.YChild{"Samples", &ospfv2ProtocolInstance.Samples})
+    ospfv2ProtocolInstance.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2ProtocolInstance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", ospfv2ProtocolInstance.InstanceName})
+
+    ospfv2ProtocolInstance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(ospfv2ProtocolInstance.EntityData)
 }
 
@@ -197,7 +212,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Sampl
 
     // Generic Counters sample. The type is slice of
     // PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples) GetEntityData() *types.CommonEntityData {
@@ -210,12 +225,15 @@ func (samples *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInst
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -323,36 +341,39 @@ func (sample *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInsta
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["input-packets"] = types.YLeaf{"InputPackets", sample.InputPackets}
-    sample.EntityData.Leafs["output-packets"] = types.YLeaf{"OutputPackets", sample.OutputPackets}
-    sample.EntityData.Leafs["input-hello-packets"] = types.YLeaf{"InputHelloPackets", sample.InputHelloPackets}
-    sample.EntityData.Leafs["output-hello-packets"] = types.YLeaf{"OutputHelloPackets", sample.OutputHelloPackets}
-    sample.EntityData.Leafs["input-db-ds"] = types.YLeaf{"InputDbDs", sample.InputDbDs}
-    sample.EntityData.Leafs["input-db-ds-lsa"] = types.YLeaf{"InputDbDsLsa", sample.InputDbDsLsa}
-    sample.EntityData.Leafs["output-db-ds"] = types.YLeaf{"OutputDbDs", sample.OutputDbDs}
-    sample.EntityData.Leafs["output-db-ds-lsa"] = types.YLeaf{"OutputDbDsLsa", sample.OutputDbDsLsa}
-    sample.EntityData.Leafs["input-ls-requests"] = types.YLeaf{"InputLsRequests", sample.InputLsRequests}
-    sample.EntityData.Leafs["input-ls-requests-lsa"] = types.YLeaf{"InputLsRequestsLsa", sample.InputLsRequestsLsa}
-    sample.EntityData.Leafs["output-ls-requests"] = types.YLeaf{"OutputLsRequests", sample.OutputLsRequests}
-    sample.EntityData.Leafs["output-ls-requests-lsa"] = types.YLeaf{"OutputLsRequestsLsa", sample.OutputLsRequestsLsa}
-    sample.EntityData.Leafs["input-lsa-updates"] = types.YLeaf{"InputLsaUpdates", sample.InputLsaUpdates}
-    sample.EntityData.Leafs["input-lsa-updates-lsa"] = types.YLeaf{"InputLsaUpdatesLsa", sample.InputLsaUpdatesLsa}
-    sample.EntityData.Leafs["output-lsa-updates"] = types.YLeaf{"OutputLsaUpdates", sample.OutputLsaUpdates}
-    sample.EntityData.Leafs["output-lsa-updates-lsa"] = types.YLeaf{"OutputLsaUpdatesLsa", sample.OutputLsaUpdatesLsa}
-    sample.EntityData.Leafs["input-lsa-acks"] = types.YLeaf{"InputLsaAcks", sample.InputLsaAcks}
-    sample.EntityData.Leafs["input-lsa-acks-lsa"] = types.YLeaf{"InputLsaAcksLsa", sample.InputLsaAcksLsa}
-    sample.EntityData.Leafs["output-lsa-acks"] = types.YLeaf{"OutputLsaAcks", sample.OutputLsaAcks}
-    sample.EntityData.Leafs["output-lsa-acks-lsa"] = types.YLeaf{"OutputLsaAcksLsa", sample.OutputLsaAcksLsa}
-    sample.EntityData.Leafs["checksum-errors"] = types.YLeaf{"ChecksumErrors", sample.ChecksumErrors}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("input-packets", types.YLeaf{"InputPackets", sample.InputPackets})
+    sample.EntityData.Leafs.Append("output-packets", types.YLeaf{"OutputPackets", sample.OutputPackets})
+    sample.EntityData.Leafs.Append("input-hello-packets", types.YLeaf{"InputHelloPackets", sample.InputHelloPackets})
+    sample.EntityData.Leafs.Append("output-hello-packets", types.YLeaf{"OutputHelloPackets", sample.OutputHelloPackets})
+    sample.EntityData.Leafs.Append("input-db-ds", types.YLeaf{"InputDbDs", sample.InputDbDs})
+    sample.EntityData.Leafs.Append("input-db-ds-lsa", types.YLeaf{"InputDbDsLsa", sample.InputDbDsLsa})
+    sample.EntityData.Leafs.Append("output-db-ds", types.YLeaf{"OutputDbDs", sample.OutputDbDs})
+    sample.EntityData.Leafs.Append("output-db-ds-lsa", types.YLeaf{"OutputDbDsLsa", sample.OutputDbDsLsa})
+    sample.EntityData.Leafs.Append("input-ls-requests", types.YLeaf{"InputLsRequests", sample.InputLsRequests})
+    sample.EntityData.Leafs.Append("input-ls-requests-lsa", types.YLeaf{"InputLsRequestsLsa", sample.InputLsRequestsLsa})
+    sample.EntityData.Leafs.Append("output-ls-requests", types.YLeaf{"OutputLsRequests", sample.OutputLsRequests})
+    sample.EntityData.Leafs.Append("output-ls-requests-lsa", types.YLeaf{"OutputLsRequestsLsa", sample.OutputLsRequestsLsa})
+    sample.EntityData.Leafs.Append("input-lsa-updates", types.YLeaf{"InputLsaUpdates", sample.InputLsaUpdates})
+    sample.EntityData.Leafs.Append("input-lsa-updates-lsa", types.YLeaf{"InputLsaUpdatesLsa", sample.InputLsaUpdatesLsa})
+    sample.EntityData.Leafs.Append("output-lsa-updates", types.YLeaf{"OutputLsaUpdates", sample.OutputLsaUpdates})
+    sample.EntityData.Leafs.Append("output-lsa-updates-lsa", types.YLeaf{"OutputLsaUpdatesLsa", sample.OutputLsaUpdatesLsa})
+    sample.EntityData.Leafs.Append("input-lsa-acks", types.YLeaf{"InputLsaAcks", sample.InputLsaAcks})
+    sample.EntityData.Leafs.Append("input-lsa-acks-lsa", types.YLeaf{"InputLsaAcksLsa", sample.InputLsaAcksLsa})
+    sample.EntityData.Leafs.Append("output-lsa-acks", types.YLeaf{"OutputLsaAcks", sample.OutputLsaAcks})
+    sample.EntityData.Leafs.Append("output-lsa-acks-lsa", types.YLeaf{"OutputLsaAcksLsa", sample.OutputLsaAcksLsa})
+    sample.EntityData.Leafs.Append("checksum-errors", types.YLeaf{"ChecksumErrors", sample.ChecksumErrors})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -365,7 +386,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances struct {
 
     // Protocol samples for a particular OSPF v3 instance. The type is slice of
     // PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance.
-    Ospfv3ProtocolInstance []PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance
+    Ospfv3ProtocolInstance []*PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance
 }
 
 func (ospfv3ProtocolInstances *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances) GetEntityData() *types.CommonEntityData {
@@ -378,12 +399,15 @@ func (ospfv3ProtocolInstances *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances) G
     ospfv3ProtocolInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3ProtocolInstances.EntityData.Children = make(map[string]types.YChild)
-    ospfv3ProtocolInstances.EntityData.Children["ospfv3-protocol-instance"] = types.YChild{"Ospfv3ProtocolInstance", nil}
+    ospfv3ProtocolInstances.EntityData.Children = types.NewOrderedMap()
+    ospfv3ProtocolInstances.EntityData.Children.Append("ospfv3-protocol-instance", types.YChild{"Ospfv3ProtocolInstance", nil})
     for i := range ospfv3ProtocolInstances.Ospfv3ProtocolInstance {
-        ospfv3ProtocolInstances.EntityData.Children[types.GetSegmentPath(&ospfv3ProtocolInstances.Ospfv3ProtocolInstance[i])] = types.YChild{"Ospfv3ProtocolInstance", &ospfv3ProtocolInstances.Ospfv3ProtocolInstance[i]}
+        ospfv3ProtocolInstances.EntityData.Children.Append(types.GetSegmentPath(ospfv3ProtocolInstances.Ospfv3ProtocolInstance[i]), types.YChild{"Ospfv3ProtocolInstance", ospfv3ProtocolInstances.Ospfv3ProtocolInstance[i]})
     }
-    ospfv3ProtocolInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3ProtocolInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3ProtocolInstances.EntityData.YListKeys = []string {}
+
     return &(ospfv3ProtocolInstances.EntityData)
 }
 
@@ -395,7 +419,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Sample Table for an OSPV v3 instance.
@@ -407,15 +431,18 @@ func (ospfv3ProtocolInstance *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Osp
     ospfv3ProtocolInstance.EntityData.YangName = "ospfv3-protocol-instance"
     ospfv3ProtocolInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolInstance.EntityData.ParentYangName = "ospfv3-protocol-instances"
-    ospfv3ProtocolInstance.EntityData.SegmentPath = "ospfv3-protocol-instance" + "[instance-name='" + fmt.Sprintf("%v", ospfv3ProtocolInstance.InstanceName) + "']"
+    ospfv3ProtocolInstance.EntityData.SegmentPath = "ospfv3-protocol-instance" + types.AddKeyToken(ospfv3ProtocolInstance.InstanceName, "instance-name")
     ospfv3ProtocolInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3ProtocolInstance.EntityData.Children = make(map[string]types.YChild)
-    ospfv3ProtocolInstance.EntityData.Children["samples"] = types.YChild{"Samples", &ospfv3ProtocolInstance.Samples}
-    ospfv3ProtocolInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv3ProtocolInstance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", ospfv3ProtocolInstance.InstanceName}
+    ospfv3ProtocolInstance.EntityData.Children = types.NewOrderedMap()
+    ospfv3ProtocolInstance.EntityData.Children.Append("samples", types.YChild{"Samples", &ospfv3ProtocolInstance.Samples})
+    ospfv3ProtocolInstance.EntityData.Leafs = types.NewOrderedMap()
+    ospfv3ProtocolInstance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", ospfv3ProtocolInstance.InstanceName})
+
+    ospfv3ProtocolInstance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(ospfv3ProtocolInstance.EntityData)
 }
 
@@ -427,7 +454,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Sampl
 
     // Generic Counters sample. The type is slice of
     // PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples) GetEntityData() *types.CommonEntityData {
@@ -440,12 +467,15 @@ func (samples *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInst
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -549,35 +579,38 @@ func (sample *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInsta
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["input-packets"] = types.YLeaf{"InputPackets", sample.InputPackets}
-    sample.EntityData.Leafs["output-packets"] = types.YLeaf{"OutputPackets", sample.OutputPackets}
-    sample.EntityData.Leafs["input-hello-packets"] = types.YLeaf{"InputHelloPackets", sample.InputHelloPackets}
-    sample.EntityData.Leafs["output-hello-packets"] = types.YLeaf{"OutputHelloPackets", sample.OutputHelloPackets}
-    sample.EntityData.Leafs["input-db-ds"] = types.YLeaf{"InputDbDs", sample.InputDbDs}
-    sample.EntityData.Leafs["input-db-ds-lsa"] = types.YLeaf{"InputDbDsLsa", sample.InputDbDsLsa}
-    sample.EntityData.Leafs["output-db-ds"] = types.YLeaf{"OutputDbDs", sample.OutputDbDs}
-    sample.EntityData.Leafs["output-db-ds-lsa"] = types.YLeaf{"OutputDbDsLsa", sample.OutputDbDsLsa}
-    sample.EntityData.Leafs["input-ls-requests"] = types.YLeaf{"InputLsRequests", sample.InputLsRequests}
-    sample.EntityData.Leafs["input-ls-requests-lsa"] = types.YLeaf{"InputLsRequestsLsa", sample.InputLsRequestsLsa}
-    sample.EntityData.Leafs["output-ls-requests"] = types.YLeaf{"OutputLsRequests", sample.OutputLsRequests}
-    sample.EntityData.Leafs["output-ls-requests-lsa"] = types.YLeaf{"OutputLsRequestsLsa", sample.OutputLsRequestsLsa}
-    sample.EntityData.Leafs["input-lsa-updates"] = types.YLeaf{"InputLsaUpdates", sample.InputLsaUpdates}
-    sample.EntityData.Leafs["input-lsa-updates-lsa"] = types.YLeaf{"InputLsaUpdatesLsa", sample.InputLsaUpdatesLsa}
-    sample.EntityData.Leafs["output-lsa-updates"] = types.YLeaf{"OutputLsaUpdates", sample.OutputLsaUpdates}
-    sample.EntityData.Leafs["output-lsa-updates-lsa"] = types.YLeaf{"OutputLsaUpdatesLsa", sample.OutputLsaUpdatesLsa}
-    sample.EntityData.Leafs["input-lsa-acks"] = types.YLeaf{"InputLsaAcks", sample.InputLsaAcks}
-    sample.EntityData.Leafs["input-lsa-acks-lsa"] = types.YLeaf{"InputLsaAcksLsa", sample.InputLsaAcksLsa}
-    sample.EntityData.Leafs["output-lsa-acks"] = types.YLeaf{"OutputLsaAcks", sample.OutputLsaAcks}
-    sample.EntityData.Leafs["output-lsa-acks-lsa"] = types.YLeaf{"OutputLsaAcksLsa", sample.OutputLsaAcksLsa}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("input-packets", types.YLeaf{"InputPackets", sample.InputPackets})
+    sample.EntityData.Leafs.Append("output-packets", types.YLeaf{"OutputPackets", sample.OutputPackets})
+    sample.EntityData.Leafs.Append("input-hello-packets", types.YLeaf{"InputHelloPackets", sample.InputHelloPackets})
+    sample.EntityData.Leafs.Append("output-hello-packets", types.YLeaf{"OutputHelloPackets", sample.OutputHelloPackets})
+    sample.EntityData.Leafs.Append("input-db-ds", types.YLeaf{"InputDbDs", sample.InputDbDs})
+    sample.EntityData.Leafs.Append("input-db-ds-lsa", types.YLeaf{"InputDbDsLsa", sample.InputDbDsLsa})
+    sample.EntityData.Leafs.Append("output-db-ds", types.YLeaf{"OutputDbDs", sample.OutputDbDs})
+    sample.EntityData.Leafs.Append("output-db-ds-lsa", types.YLeaf{"OutputDbDsLsa", sample.OutputDbDsLsa})
+    sample.EntityData.Leafs.Append("input-ls-requests", types.YLeaf{"InputLsRequests", sample.InputLsRequests})
+    sample.EntityData.Leafs.Append("input-ls-requests-lsa", types.YLeaf{"InputLsRequestsLsa", sample.InputLsRequestsLsa})
+    sample.EntityData.Leafs.Append("output-ls-requests", types.YLeaf{"OutputLsRequests", sample.OutputLsRequests})
+    sample.EntityData.Leafs.Append("output-ls-requests-lsa", types.YLeaf{"OutputLsRequestsLsa", sample.OutputLsRequestsLsa})
+    sample.EntityData.Leafs.Append("input-lsa-updates", types.YLeaf{"InputLsaUpdates", sample.InputLsaUpdates})
+    sample.EntityData.Leafs.Append("input-lsa-updates-lsa", types.YLeaf{"InputLsaUpdatesLsa", sample.InputLsaUpdatesLsa})
+    sample.EntityData.Leafs.Append("output-lsa-updates", types.YLeaf{"OutputLsaUpdates", sample.OutputLsaUpdates})
+    sample.EntityData.Leafs.Append("output-lsa-updates-lsa", types.YLeaf{"OutputLsaUpdatesLsa", sample.OutputLsaUpdatesLsa})
+    sample.EntityData.Leafs.Append("input-lsa-acks", types.YLeaf{"InputLsaAcks", sample.InputLsaAcks})
+    sample.EntityData.Leafs.Append("input-lsa-acks-lsa", types.YLeaf{"InputLsaAcksLsa", sample.InputLsaAcksLsa})
+    sample.EntityData.Leafs.Append("output-lsa-acks", types.YLeaf{"OutputLsaAcks", sample.OutputLsaAcks})
+    sample.EntityData.Leafs.Append("output-lsa-acks-lsa", types.YLeaf{"OutputLsaAcksLsa", sample.OutputLsaAcksLsa})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -601,9 +634,12 @@ func (mpls *PerfMgmt_Periodic_Mpls) GetEntityData() *types.CommonEntityData {
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpls.EntityData.Children = make(map[string]types.YChild)
-    mpls.EntityData.Children["ldp-neighbors"] = types.YChild{"LdpNeighbors", &mpls.LdpNeighbors}
-    mpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpls.EntityData.Children = types.NewOrderedMap()
+    mpls.EntityData.Children.Append("ldp-neighbors", types.YChild{"LdpNeighbors", &mpls.LdpNeighbors})
+    mpls.EntityData.Leafs = types.NewOrderedMap()
+
+    mpls.EntityData.YListKeys = []string {}
+
     return &(mpls.EntityData)
 }
 
@@ -616,7 +652,7 @@ type PerfMgmt_Periodic_Mpls_LdpNeighbors struct {
 
     // Samples for a particular LDP neighbor. The type is slice of
     // PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor.
-    LdpNeighbor []PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor
+    LdpNeighbor []*PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor
 }
 
 func (ldpNeighbors *PerfMgmt_Periodic_Mpls_LdpNeighbors) GetEntityData() *types.CommonEntityData {
@@ -629,12 +665,15 @@ func (ldpNeighbors *PerfMgmt_Periodic_Mpls_LdpNeighbors) GetEntityData() *types.
     ldpNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpNeighbors.EntityData.Children = make(map[string]types.YChild)
-    ldpNeighbors.EntityData.Children["ldp-neighbor"] = types.YChild{"LdpNeighbor", nil}
+    ldpNeighbors.EntityData.Children = types.NewOrderedMap()
+    ldpNeighbors.EntityData.Children.Append("ldp-neighbor", types.YChild{"LdpNeighbor", nil})
     for i := range ldpNeighbors.LdpNeighbor {
-        ldpNeighbors.EntityData.Children[types.GetSegmentPath(&ldpNeighbors.LdpNeighbor[i])] = types.YChild{"LdpNeighbor", &ldpNeighbors.LdpNeighbor[i]}
+        ldpNeighbors.EntityData.Children.Append(types.GetSegmentPath(ldpNeighbors.LdpNeighbor[i]), types.YChild{"LdpNeighbor", ldpNeighbors.LdpNeighbor[i]})
     }
-    ldpNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    ldpNeighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    ldpNeighbors.EntityData.YListKeys = []string {}
+
     return &(ldpNeighbors.EntityData)
 }
 
@@ -645,7 +684,7 @@ type PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Nbr interface{}
 
     // Samples for a particular LDP neighbor.
@@ -657,15 +696,18 @@ func (ldpNeighbor *PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor) GetEntityDat
     ldpNeighbor.EntityData.YangName = "ldp-neighbor"
     ldpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     ldpNeighbor.EntityData.ParentYangName = "ldp-neighbors"
-    ldpNeighbor.EntityData.SegmentPath = "ldp-neighbor" + "[nbr='" + fmt.Sprintf("%v", ldpNeighbor.Nbr) + "']"
+    ldpNeighbor.EntityData.SegmentPath = "ldp-neighbor" + types.AddKeyToken(ldpNeighbor.Nbr, "nbr")
     ldpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpNeighbor.EntityData.Children = make(map[string]types.YChild)
-    ldpNeighbor.EntityData.Children["samples"] = types.YChild{"Samples", &ldpNeighbor.Samples}
-    ldpNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    ldpNeighbor.EntityData.Leafs["nbr"] = types.YLeaf{"Nbr", ldpNeighbor.Nbr}
+    ldpNeighbor.EntityData.Children = types.NewOrderedMap()
+    ldpNeighbor.EntityData.Children.Append("samples", types.YChild{"Samples", &ldpNeighbor.Samples})
+    ldpNeighbor.EntityData.Leafs = types.NewOrderedMap()
+    ldpNeighbor.EntityData.Leafs.Append("nbr", types.YLeaf{"Nbr", ldpNeighbor.Nbr})
+
+    ldpNeighbor.EntityData.YListKeys = []string {"Nbr"}
+
     return &(ldpNeighbor.EntityData)
 }
 
@@ -677,7 +719,7 @@ type PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples struct {
 
     // LDP neighbor statistics sample. The type is slice of
     // PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples) GetEntityData() *types.CommonEntityData {
@@ -690,12 +732,15 @@ func (samples *PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples) GetEntit
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -779,33 +824,36 @@ func (sample *PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample) Ge
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["total-msgs-sent"] = types.YLeaf{"TotalMsgsSent", sample.TotalMsgsSent}
-    sample.EntityData.Leafs["total-msgs-rcvd"] = types.YLeaf{"TotalMsgsRcvd", sample.TotalMsgsRcvd}
-    sample.EntityData.Leafs["init-msgs-sent"] = types.YLeaf{"InitMsgsSent", sample.InitMsgsSent}
-    sample.EntityData.Leafs["init-msgs-rcvd"] = types.YLeaf{"InitMsgsRcvd", sample.InitMsgsRcvd}
-    sample.EntityData.Leafs["address-msgs-sent"] = types.YLeaf{"AddressMsgsSent", sample.AddressMsgsSent}
-    sample.EntityData.Leafs["address-msgs-rcvd"] = types.YLeaf{"AddressMsgsRcvd", sample.AddressMsgsRcvd}
-    sample.EntityData.Leafs["address-withdraw-msgs-sent"] = types.YLeaf{"AddressWithdrawMsgsSent", sample.AddressWithdrawMsgsSent}
-    sample.EntityData.Leafs["address-withdraw-msgs-rcvd"] = types.YLeaf{"AddressWithdrawMsgsRcvd", sample.AddressWithdrawMsgsRcvd}
-    sample.EntityData.Leafs["label-mapping-msgs-sent"] = types.YLeaf{"LabelMappingMsgsSent", sample.LabelMappingMsgsSent}
-    sample.EntityData.Leafs["label-mapping-msgs-rcvd"] = types.YLeaf{"LabelMappingMsgsRcvd", sample.LabelMappingMsgsRcvd}
-    sample.EntityData.Leafs["label-withdraw-msgs-sent"] = types.YLeaf{"LabelWithdrawMsgsSent", sample.LabelWithdrawMsgsSent}
-    sample.EntityData.Leafs["label-withdraw-msgs-rcvd"] = types.YLeaf{"LabelWithdrawMsgsRcvd", sample.LabelWithdrawMsgsRcvd}
-    sample.EntityData.Leafs["label-release-msgs-sent"] = types.YLeaf{"LabelReleaseMsgsSent", sample.LabelReleaseMsgsSent}
-    sample.EntityData.Leafs["label-release-msgs-rcvd"] = types.YLeaf{"LabelReleaseMsgsRcvd", sample.LabelReleaseMsgsRcvd}
-    sample.EntityData.Leafs["notification-msgs-sent"] = types.YLeaf{"NotificationMsgsSent", sample.NotificationMsgsSent}
-    sample.EntityData.Leafs["notification-msgs-rcvd"] = types.YLeaf{"NotificationMsgsRcvd", sample.NotificationMsgsRcvd}
-    sample.EntityData.Leafs["keepalive-msgs-sent"] = types.YLeaf{"KeepaliveMsgsSent", sample.KeepaliveMsgsSent}
-    sample.EntityData.Leafs["keepalive-msgs-rcvd"] = types.YLeaf{"KeepaliveMsgsRcvd", sample.KeepaliveMsgsRcvd}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("total-msgs-sent", types.YLeaf{"TotalMsgsSent", sample.TotalMsgsSent})
+    sample.EntityData.Leafs.Append("total-msgs-rcvd", types.YLeaf{"TotalMsgsRcvd", sample.TotalMsgsRcvd})
+    sample.EntityData.Leafs.Append("init-msgs-sent", types.YLeaf{"InitMsgsSent", sample.InitMsgsSent})
+    sample.EntityData.Leafs.Append("init-msgs-rcvd", types.YLeaf{"InitMsgsRcvd", sample.InitMsgsRcvd})
+    sample.EntityData.Leafs.Append("address-msgs-sent", types.YLeaf{"AddressMsgsSent", sample.AddressMsgsSent})
+    sample.EntityData.Leafs.Append("address-msgs-rcvd", types.YLeaf{"AddressMsgsRcvd", sample.AddressMsgsRcvd})
+    sample.EntityData.Leafs.Append("address-withdraw-msgs-sent", types.YLeaf{"AddressWithdrawMsgsSent", sample.AddressWithdrawMsgsSent})
+    sample.EntityData.Leafs.Append("address-withdraw-msgs-rcvd", types.YLeaf{"AddressWithdrawMsgsRcvd", sample.AddressWithdrawMsgsRcvd})
+    sample.EntityData.Leafs.Append("label-mapping-msgs-sent", types.YLeaf{"LabelMappingMsgsSent", sample.LabelMappingMsgsSent})
+    sample.EntityData.Leafs.Append("label-mapping-msgs-rcvd", types.YLeaf{"LabelMappingMsgsRcvd", sample.LabelMappingMsgsRcvd})
+    sample.EntityData.Leafs.Append("label-withdraw-msgs-sent", types.YLeaf{"LabelWithdrawMsgsSent", sample.LabelWithdrawMsgsSent})
+    sample.EntityData.Leafs.Append("label-withdraw-msgs-rcvd", types.YLeaf{"LabelWithdrawMsgsRcvd", sample.LabelWithdrawMsgsRcvd})
+    sample.EntityData.Leafs.Append("label-release-msgs-sent", types.YLeaf{"LabelReleaseMsgsSent", sample.LabelReleaseMsgsSent})
+    sample.EntityData.Leafs.Append("label-release-msgs-rcvd", types.YLeaf{"LabelReleaseMsgsRcvd", sample.LabelReleaseMsgsRcvd})
+    sample.EntityData.Leafs.Append("notification-msgs-sent", types.YLeaf{"NotificationMsgsSent", sample.NotificationMsgsSent})
+    sample.EntityData.Leafs.Append("notification-msgs-rcvd", types.YLeaf{"NotificationMsgsRcvd", sample.NotificationMsgsRcvd})
+    sample.EntityData.Leafs.Append("keepalive-msgs-sent", types.YLeaf{"KeepaliveMsgsSent", sample.KeepaliveMsgsSent})
+    sample.EntityData.Leafs.Append("keepalive-msgs-rcvd", types.YLeaf{"KeepaliveMsgsRcvd", sample.KeepaliveMsgsRcvd})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -816,7 +864,7 @@ type PerfMgmt_Periodic_Nodes struct {
     YFilter yfilter.YFilter
 
     // Node Instance. The type is slice of PerfMgmt_Periodic_Nodes_Node.
-    Node []PerfMgmt_Periodic_Nodes_Node
+    Node []*PerfMgmt_Periodic_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Periodic_Nodes) GetEntityData() *types.CommonEntityData {
@@ -829,12 +877,15 @@ func (nodes *PerfMgmt_Periodic_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -845,7 +896,7 @@ type PerfMgmt_Periodic_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Node CPU data.
@@ -863,17 +914,20 @@ func (node *PerfMgmt_Periodic_Nodes_Node) GetEntityData() *types.CommonEntityDat
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["sample-xr"] = types.YChild{"SampleXr", &node.SampleXr}
-    node.EntityData.Children["processes"] = types.YChild{"Processes", &node.Processes}
-    node.EntityData.Children["samples"] = types.YChild{"Samples", &node.Samples}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("sample-xr", types.YChild{"SampleXr", &node.SampleXr})
+    node.EntityData.Children.Append("processes", types.YChild{"Processes", &node.Processes})
+    node.EntityData.Children.Append("samples", types.YChild{"Samples", &node.Samples})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -885,7 +939,7 @@ type PerfMgmt_Periodic_Nodes_Node_SampleXr struct {
 
     // Node CPU data sample. The type is slice of
     // PerfMgmt_Periodic_Nodes_Node_SampleXr_Sample.
-    Sample []PerfMgmt_Periodic_Nodes_Node_SampleXr_Sample
+    Sample []*PerfMgmt_Periodic_Nodes_Node_SampleXr_Sample
 }
 
 func (sampleXr *PerfMgmt_Periodic_Nodes_Node_SampleXr) GetEntityData() *types.CommonEntityData {
@@ -898,12 +952,15 @@ func (sampleXr *PerfMgmt_Periodic_Nodes_Node_SampleXr) GetEntityData() *types.Co
     sampleXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sampleXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sampleXr.EntityData.Children = make(map[string]types.YChild)
-    sampleXr.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    sampleXr.EntityData.Children = types.NewOrderedMap()
+    sampleXr.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range sampleXr.Sample {
-        sampleXr.EntityData.Children[types.GetSegmentPath(&sampleXr.Sample[i])] = types.YChild{"Sample", &sampleXr.Sample[i]}
+        sampleXr.EntityData.Children.Append(types.GetSegmentPath(sampleXr.Sample[i]), types.YChild{"Sample", sampleXr.Sample[i]})
     }
-    sampleXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    sampleXr.EntityData.Leafs = types.NewOrderedMap()
+
+    sampleXr.EntityData.YListKeys = []string {}
+
     return &(sampleXr.EntityData)
 }
 
@@ -935,17 +992,20 @@ func (sample *PerfMgmt_Periodic_Nodes_Node_SampleXr_Sample) GetEntityData() *typ
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "sample-xr"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["no-processes"] = types.YLeaf{"NoProcesses", sample.NoProcesses}
-    sample.EntityData.Leafs["average-cpu-used"] = types.YLeaf{"AverageCpuUsed", sample.AverageCpuUsed}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("no-processes", types.YLeaf{"NoProcesses", sample.NoProcesses})
+    sample.EntityData.Leafs.Append("average-cpu-used", types.YLeaf{"AverageCpuUsed", sample.AverageCpuUsed})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -957,7 +1017,7 @@ type PerfMgmt_Periodic_Nodes_Node_Processes struct {
 
     // Process data. The type is slice of
     // PerfMgmt_Periodic_Nodes_Node_Processes_Process.
-    Process []PerfMgmt_Periodic_Nodes_Node_Processes_Process
+    Process []*PerfMgmt_Periodic_Nodes_Node_Processes_Process
 }
 
 func (processes *PerfMgmt_Periodic_Nodes_Node_Processes) GetEntityData() *types.CommonEntityData {
@@ -970,12 +1030,15 @@ func (processes *PerfMgmt_Periodic_Nodes_Node_Processes) GetEntityData() *types.
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processes.EntityData.Children = make(map[string]types.YChild)
-    processes.EntityData.Children["process"] = types.YChild{"Process", nil}
+    processes.EntityData.Children = types.NewOrderedMap()
+    processes.EntityData.Children.Append("process", types.YChild{"Process", nil})
     for i := range processes.Process {
-        processes.EntityData.Children[types.GetSegmentPath(&processes.Process[i])] = types.YChild{"Process", &processes.Process[i]}
+        processes.EntityData.Children.Append(types.GetSegmentPath(processes.Process[i]), types.YChild{"Process", processes.Process[i]})
     }
-    processes.EntityData.Leafs = make(map[string]types.YLeaf)
+    processes.EntityData.Leafs = types.NewOrderedMap()
+
+    processes.EntityData.YListKeys = []string {}
+
     return &(processes.EntityData)
 }
 
@@ -998,15 +1061,18 @@ func (process *PerfMgmt_Periodic_Nodes_Node_Processes_Process) GetEntityData() *
     process.EntityData.YangName = "process"
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
-    process.EntityData.SegmentPath = "process" + "[process-id='" + fmt.Sprintf("%v", process.ProcessId) + "']"
+    process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessId, "process-id")
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    process.EntityData.Children = make(map[string]types.YChild)
-    process.EntityData.Children["samples"] = types.YChild{"Samples", &process.Samples}
-    process.EntityData.Leafs = make(map[string]types.YLeaf)
-    process.EntityData.Leafs["process-id"] = types.YLeaf{"ProcessId", process.ProcessId}
+    process.EntityData.Children = types.NewOrderedMap()
+    process.EntityData.Children.Append("samples", types.YChild{"Samples", &process.Samples})
+    process.EntityData.Leafs = types.NewOrderedMap()
+    process.EntityData.Leafs.Append("process-id", types.YLeaf{"ProcessId", process.ProcessId})
+
+    process.EntityData.YListKeys = []string {"ProcessId"}
+
     return &(process.EntityData)
 }
 
@@ -1018,7 +1084,7 @@ type PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples struct {
 
     // Process data sample. The type is slice of
     // PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples) GetEntityData() *types.CommonEntityData {
@@ -1031,12 +1097,15 @@ func (samples *PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples) GetEntity
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -1071,18 +1140,21 @@ func (sample *PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples_Sample) Get
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["peak-memory"] = types.YLeaf{"PeakMemory", sample.PeakMemory}
-    sample.EntityData.Leafs["average-cpu-used"] = types.YLeaf{"AverageCpuUsed", sample.AverageCpuUsed}
-    sample.EntityData.Leafs["no-threads"] = types.YLeaf{"NoThreads", sample.NoThreads}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("peak-memory", types.YLeaf{"PeakMemory", sample.PeakMemory})
+    sample.EntityData.Leafs.Append("average-cpu-used", types.YLeaf{"AverageCpuUsed", sample.AverageCpuUsed})
+    sample.EntityData.Leafs.Append("no-threads", types.YLeaf{"NoThreads", sample.NoThreads})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -1094,7 +1166,7 @@ type PerfMgmt_Periodic_Nodes_Node_Samples struct {
 
     // Node Memory data sample. The type is slice of
     // PerfMgmt_Periodic_Nodes_Node_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Nodes_Node_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Nodes_Node_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Nodes_Node_Samples) GetEntityData() *types.CommonEntityData {
@@ -1107,12 +1179,15 @@ func (samples *PerfMgmt_Periodic_Nodes_Node_Samples) GetEntityData() *types.Comm
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -1144,17 +1219,20 @@ func (sample *PerfMgmt_Periodic_Nodes_Node_Samples_Sample) GetEntityData() *type
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["curr-memory"] = types.YLeaf{"CurrMemory", sample.CurrMemory}
-    sample.EntityData.Leafs["peak-memory"] = types.YLeaf{"PeakMemory", sample.PeakMemory}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("curr-memory", types.YLeaf{"CurrMemory", sample.CurrMemory})
+    sample.EntityData.Leafs.Append("peak-memory", types.YLeaf{"PeakMemory", sample.PeakMemory})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -1178,9 +1256,12 @@ func (bgp *PerfMgmt_Periodic_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Children["bgp-neighbors"] = types.YChild{"BgpNeighbors", &bgp.BgpNeighbors}
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Children.Append("bgp-neighbors", types.YChild{"BgpNeighbors", &bgp.BgpNeighbors})
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -1192,7 +1273,7 @@ type PerfMgmt_Periodic_Bgp_BgpNeighbors struct {
 
     // Samples for particular neighbor. The type is slice of
     // PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor.
-    BgpNeighbor []PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor
+    BgpNeighbor []*PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor
 }
 
 func (bgpNeighbors *PerfMgmt_Periodic_Bgp_BgpNeighbors) GetEntityData() *types.CommonEntityData {
@@ -1205,12 +1286,15 @@ func (bgpNeighbors *PerfMgmt_Periodic_Bgp_BgpNeighbors) GetEntityData() *types.C
     bgpNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgpNeighbors.EntityData.Children = make(map[string]types.YChild)
-    bgpNeighbors.EntityData.Children["bgp-neighbor"] = types.YChild{"BgpNeighbor", nil}
+    bgpNeighbors.EntityData.Children = types.NewOrderedMap()
+    bgpNeighbors.EntityData.Children.Append("bgp-neighbor", types.YChild{"BgpNeighbor", nil})
     for i := range bgpNeighbors.BgpNeighbor {
-        bgpNeighbors.EntityData.Children[types.GetSegmentPath(&bgpNeighbors.BgpNeighbor[i])] = types.YChild{"BgpNeighbor", &bgpNeighbors.BgpNeighbor[i]}
+        bgpNeighbors.EntityData.Children.Append(types.GetSegmentPath(bgpNeighbors.BgpNeighbor[i]), types.YChild{"BgpNeighbor", bgpNeighbors.BgpNeighbor[i]})
     }
-    bgpNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpNeighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    bgpNeighbors.EntityData.YListKeys = []string {}
+
     return &(bgpNeighbors.EntityData)
 }
 
@@ -1222,7 +1306,7 @@ type PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor struct {
 
     // This attribute is a key. BGP Neighbor Identifier. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Sample Table for a BGP neighbor.
@@ -1234,15 +1318,18 @@ func (bgpNeighbor *PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor) GetEntityData
     bgpNeighbor.EntityData.YangName = "bgp-neighbor"
     bgpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     bgpNeighbor.EntityData.ParentYangName = "bgp-neighbors"
-    bgpNeighbor.EntityData.SegmentPath = "bgp-neighbor" + "[ip-address='" + fmt.Sprintf("%v", bgpNeighbor.IpAddress) + "']"
+    bgpNeighbor.EntityData.SegmentPath = "bgp-neighbor" + types.AddKeyToken(bgpNeighbor.IpAddress, "ip-address")
     bgpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgpNeighbor.EntityData.Children = make(map[string]types.YChild)
-    bgpNeighbor.EntityData.Children["samples"] = types.YChild{"Samples", &bgpNeighbor.Samples}
-    bgpNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    bgpNeighbor.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", bgpNeighbor.IpAddress}
+    bgpNeighbor.EntityData.Children = types.NewOrderedMap()
+    bgpNeighbor.EntityData.Children.Append("samples", types.YChild{"Samples", &bgpNeighbor.Samples})
+    bgpNeighbor.EntityData.Leafs = types.NewOrderedMap()
+    bgpNeighbor.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", bgpNeighbor.IpAddress})
+
+    bgpNeighbor.EntityData.YListKeys = []string {"IpAddress"}
+
     return &(bgpNeighbor.EntityData)
 }
 
@@ -1254,7 +1341,7 @@ type PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples struct {
 
     // Neighbor statistics sample. The type is slice of
     // PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples) GetEntityData() *types.CommonEntityData {
@@ -1267,12 +1354,15 @@ func (samples *PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples) GetEntity
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -1327,23 +1417,26 @@ func (sample *PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample) Get
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["input-messages"] = types.YLeaf{"InputMessages", sample.InputMessages}
-    sample.EntityData.Leafs["output-messages"] = types.YLeaf{"OutputMessages", sample.OutputMessages}
-    sample.EntityData.Leafs["input-update-messages"] = types.YLeaf{"InputUpdateMessages", sample.InputUpdateMessages}
-    sample.EntityData.Leafs["output-update-messages"] = types.YLeaf{"OutputUpdateMessages", sample.OutputUpdateMessages}
-    sample.EntityData.Leafs["conn-established"] = types.YLeaf{"ConnEstablished", sample.ConnEstablished}
-    sample.EntityData.Leafs["conn-dropped"] = types.YLeaf{"ConnDropped", sample.ConnDropped}
-    sample.EntityData.Leafs["errors-received"] = types.YLeaf{"ErrorsReceived", sample.ErrorsReceived}
-    sample.EntityData.Leafs["errors-sent"] = types.YLeaf{"ErrorsSent", sample.ErrorsSent}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("input-messages", types.YLeaf{"InputMessages", sample.InputMessages})
+    sample.EntityData.Leafs.Append("output-messages", types.YLeaf{"OutputMessages", sample.OutputMessages})
+    sample.EntityData.Leafs.Append("input-update-messages", types.YLeaf{"InputUpdateMessages", sample.InputUpdateMessages})
+    sample.EntityData.Leafs.Append("output-update-messages", types.YLeaf{"OutputUpdateMessages", sample.OutputUpdateMessages})
+    sample.EntityData.Leafs.Append("conn-established", types.YLeaf{"ConnEstablished", sample.ConnEstablished})
+    sample.EntityData.Leafs.Append("conn-dropped", types.YLeaf{"ConnDropped", sample.ConnDropped})
+    sample.EntityData.Leafs.Append("errors-received", types.YLeaf{"ErrorsReceived", sample.ErrorsReceived})
+    sample.EntityData.Leafs.Append("errors-sent", types.YLeaf{"ErrorsSent", sample.ErrorsSent})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -1373,11 +1466,14 @@ func (self *PerfMgmt_Periodic_Interface) GetEntityData() *types.CommonEntityData
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["generic-counter-interfaces"] = types.YChild{"GenericCounterInterfaces", &self.GenericCounterInterfaces}
-    self.EntityData.Children["basic-counter-interfaces"] = types.YChild{"BasicCounterInterfaces", &self.BasicCounterInterfaces}
-    self.EntityData.Children["data-rate-interfaces"] = types.YChild{"DataRateInterfaces", &self.DataRateInterfaces}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("generic-counter-interfaces", types.YChild{"GenericCounterInterfaces", &self.GenericCounterInterfaces})
+    self.EntityData.Children.Append("basic-counter-interfaces", types.YChild{"BasicCounterInterfaces", &self.BasicCounterInterfaces})
+    self.EntityData.Children.Append("data-rate-interfaces", types.YChild{"DataRateInterfaces", &self.DataRateInterfaces})
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -1390,7 +1486,7 @@ type PerfMgmt_Periodic_Interface_GenericCounterInterfaces struct {
 
     // Samples for a particular interface. The type is slice of
     // PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface.
-    GenericCounterInterface []PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface
+    GenericCounterInterface []*PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface
 }
 
 func (genericCounterInterfaces *PerfMgmt_Periodic_Interface_GenericCounterInterfaces) GetEntityData() *types.CommonEntityData {
@@ -1403,12 +1499,15 @@ func (genericCounterInterfaces *PerfMgmt_Periodic_Interface_GenericCounterInterf
     genericCounterInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterfaces.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterfaces.EntityData.Children["generic-counter-interface"] = types.YChild{"GenericCounterInterface", nil}
+    genericCounterInterfaces.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterfaces.EntityData.Children.Append("generic-counter-interface", types.YChild{"GenericCounterInterface", nil})
     for i := range genericCounterInterfaces.GenericCounterInterface {
-        genericCounterInterfaces.EntityData.Children[types.GetSegmentPath(&genericCounterInterfaces.GenericCounterInterface[i])] = types.YChild{"GenericCounterInterface", &genericCounterInterfaces.GenericCounterInterface[i]}
+        genericCounterInterfaces.EntityData.Children.Append(types.GetSegmentPath(genericCounterInterfaces.GenericCounterInterface[i]), types.YChild{"GenericCounterInterface", genericCounterInterfaces.GenericCounterInterface[i]})
     }
-    genericCounterInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericCounterInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    genericCounterInterfaces.EntityData.YListKeys = []string {}
+
     return &(genericCounterInterfaces.EntityData)
 }
 
@@ -1419,7 +1518,7 @@ type PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Generic Counter samples for an interface.
@@ -1431,15 +1530,18 @@ func (genericCounterInterface *PerfMgmt_Periodic_Interface_GenericCounterInterfa
     genericCounterInterface.EntityData.YangName = "generic-counter-interface"
     genericCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterface.EntityData.ParentYangName = "generic-counter-interfaces"
-    genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface" + "[interface-name='" + fmt.Sprintf("%v", genericCounterInterface.InterfaceName) + "']"
+    genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface" + types.AddKeyToken(genericCounterInterface.InterfaceName, "interface-name")
     genericCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterface.EntityData.Children["samples"] = types.YChild{"Samples", &genericCounterInterface.Samples}
-    genericCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounterInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", genericCounterInterface.InterfaceName}
+    genericCounterInterface.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Children.Append("samples", types.YChild{"Samples", &genericCounterInterface.Samples})
+    genericCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", genericCounterInterface.InterfaceName})
+
+    genericCounterInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(genericCounterInterface.EntityData)
 }
 
@@ -1451,7 +1553,7 @@ type PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterfac
 
     // Generic Counters sample. The type is slice of
     // PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples) GetEntityData() *types.CommonEntityData {
@@ -1464,12 +1566,15 @@ func (samples *PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCount
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -1568,35 +1673,38 @@ func (sample *PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounte
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["in-packets"] = types.YLeaf{"InPackets", sample.InPackets}
-    sample.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", sample.InOctets}
-    sample.EntityData.Leafs["out-packets"] = types.YLeaf{"OutPackets", sample.OutPackets}
-    sample.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", sample.OutOctets}
-    sample.EntityData.Leafs["in-ucast-pkts"] = types.YLeaf{"InUcastPkts", sample.InUcastPkts}
-    sample.EntityData.Leafs["in-multicast-pkts"] = types.YLeaf{"InMulticastPkts", sample.InMulticastPkts}
-    sample.EntityData.Leafs["in-broadcast-pkts"] = types.YLeaf{"InBroadcastPkts", sample.InBroadcastPkts}
-    sample.EntityData.Leafs["out-ucast-pkts"] = types.YLeaf{"OutUcastPkts", sample.OutUcastPkts}
-    sample.EntityData.Leafs["out-multicast-pkts"] = types.YLeaf{"OutMulticastPkts", sample.OutMulticastPkts}
-    sample.EntityData.Leafs["out-broadcast-pkts"] = types.YLeaf{"OutBroadcastPkts", sample.OutBroadcastPkts}
-    sample.EntityData.Leafs["output-total-drops"] = types.YLeaf{"OutputTotalDrops", sample.OutputTotalDrops}
-    sample.EntityData.Leafs["input-total-drops"] = types.YLeaf{"InputTotalDrops", sample.InputTotalDrops}
-    sample.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", sample.InputQueueDrops}
-    sample.EntityData.Leafs["input-unknown-proto"] = types.YLeaf{"InputUnknownProto", sample.InputUnknownProto}
-    sample.EntityData.Leafs["output-total-errors"] = types.YLeaf{"OutputTotalErrors", sample.OutputTotalErrors}
-    sample.EntityData.Leafs["output-underrun"] = types.YLeaf{"OutputUnderrun", sample.OutputUnderrun}
-    sample.EntityData.Leafs["input-total-errors"] = types.YLeaf{"InputTotalErrors", sample.InputTotalErrors}
-    sample.EntityData.Leafs["input-crc"] = types.YLeaf{"InputCrc", sample.InputCrc}
-    sample.EntityData.Leafs["input-overrun"] = types.YLeaf{"InputOverrun", sample.InputOverrun}
-    sample.EntityData.Leafs["input-frame"] = types.YLeaf{"InputFrame", sample.InputFrame}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("in-packets", types.YLeaf{"InPackets", sample.InPackets})
+    sample.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", sample.InOctets})
+    sample.EntityData.Leafs.Append("out-packets", types.YLeaf{"OutPackets", sample.OutPackets})
+    sample.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", sample.OutOctets})
+    sample.EntityData.Leafs.Append("in-ucast-pkts", types.YLeaf{"InUcastPkts", sample.InUcastPkts})
+    sample.EntityData.Leafs.Append("in-multicast-pkts", types.YLeaf{"InMulticastPkts", sample.InMulticastPkts})
+    sample.EntityData.Leafs.Append("in-broadcast-pkts", types.YLeaf{"InBroadcastPkts", sample.InBroadcastPkts})
+    sample.EntityData.Leafs.Append("out-ucast-pkts", types.YLeaf{"OutUcastPkts", sample.OutUcastPkts})
+    sample.EntityData.Leafs.Append("out-multicast-pkts", types.YLeaf{"OutMulticastPkts", sample.OutMulticastPkts})
+    sample.EntityData.Leafs.Append("out-broadcast-pkts", types.YLeaf{"OutBroadcastPkts", sample.OutBroadcastPkts})
+    sample.EntityData.Leafs.Append("output-total-drops", types.YLeaf{"OutputTotalDrops", sample.OutputTotalDrops})
+    sample.EntityData.Leafs.Append("input-total-drops", types.YLeaf{"InputTotalDrops", sample.InputTotalDrops})
+    sample.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", sample.InputQueueDrops})
+    sample.EntityData.Leafs.Append("input-unknown-proto", types.YLeaf{"InputUnknownProto", sample.InputUnknownProto})
+    sample.EntityData.Leafs.Append("output-total-errors", types.YLeaf{"OutputTotalErrors", sample.OutputTotalErrors})
+    sample.EntityData.Leafs.Append("output-underrun", types.YLeaf{"OutputUnderrun", sample.OutputUnderrun})
+    sample.EntityData.Leafs.Append("input-total-errors", types.YLeaf{"InputTotalErrors", sample.InputTotalErrors})
+    sample.EntityData.Leafs.Append("input-crc", types.YLeaf{"InputCrc", sample.InputCrc})
+    sample.EntityData.Leafs.Append("input-overrun", types.YLeaf{"InputOverrun", sample.InputOverrun})
+    sample.EntityData.Leafs.Append("input-frame", types.YLeaf{"InputFrame", sample.InputFrame})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -1609,7 +1717,7 @@ type PerfMgmt_Periodic_Interface_BasicCounterInterfaces struct {
 
     // Samples for a particular interface. The type is slice of
     // PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface.
-    BasicCounterInterface []PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface
+    BasicCounterInterface []*PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface
 }
 
 func (basicCounterInterfaces *PerfMgmt_Periodic_Interface_BasicCounterInterfaces) GetEntityData() *types.CommonEntityData {
@@ -1622,12 +1730,15 @@ func (basicCounterInterfaces *PerfMgmt_Periodic_Interface_BasicCounterInterfaces
     basicCounterInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterfaces.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterfaces.EntityData.Children["basic-counter-interface"] = types.YChild{"BasicCounterInterface", nil}
+    basicCounterInterfaces.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterfaces.EntityData.Children.Append("basic-counter-interface", types.YChild{"BasicCounterInterface", nil})
     for i := range basicCounterInterfaces.BasicCounterInterface {
-        basicCounterInterfaces.EntityData.Children[types.GetSegmentPath(&basicCounterInterfaces.BasicCounterInterface[i])] = types.YChild{"BasicCounterInterface", &basicCounterInterfaces.BasicCounterInterface[i]}
+        basicCounterInterfaces.EntityData.Children.Append(types.GetSegmentPath(basicCounterInterfaces.BasicCounterInterface[i]), types.YChild{"BasicCounterInterface", basicCounterInterfaces.BasicCounterInterface[i]})
     }
-    basicCounterInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicCounterInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    basicCounterInterfaces.EntityData.YListKeys = []string {}
+
     return &(basicCounterInterfaces.EntityData)
 }
 
@@ -1638,7 +1749,7 @@ type PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface st
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Basic Counter samples for an interface.
@@ -1650,15 +1761,18 @@ func (basicCounterInterface *PerfMgmt_Periodic_Interface_BasicCounterInterfaces_
     basicCounterInterface.EntityData.YangName = "basic-counter-interface"
     basicCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterface.EntityData.ParentYangName = "basic-counter-interfaces"
-    basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface" + "[interface-name='" + fmt.Sprintf("%v", basicCounterInterface.InterfaceName) + "']"
+    basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface" + types.AddKeyToken(basicCounterInterface.InterfaceName, "interface-name")
     basicCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterface.EntityData.Children["samples"] = types.YChild{"Samples", &basicCounterInterface.Samples}
-    basicCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicCounterInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", basicCounterInterface.InterfaceName}
+    basicCounterInterface.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Children.Append("samples", types.YChild{"Samples", &basicCounterInterface.Samples})
+    basicCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", basicCounterInterface.InterfaceName})
+
+    basicCounterInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(basicCounterInterface.EntityData)
 }
 
@@ -1670,7 +1784,7 @@ type PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface_Sa
 
     // Basic Counters sample. The type is slice of
     // PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples) GetEntityData() *types.CommonEntityData {
@@ -1683,12 +1797,15 @@ func (samples *PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterIn
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -1751,25 +1868,28 @@ func (sample *PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInt
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["in-packets"] = types.YLeaf{"InPackets", sample.InPackets}
-    sample.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", sample.InOctets}
-    sample.EntityData.Leafs["out-packets"] = types.YLeaf{"OutPackets", sample.OutPackets}
-    sample.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", sample.OutOctets}
-    sample.EntityData.Leafs["input-total-drops"] = types.YLeaf{"InputTotalDrops", sample.InputTotalDrops}
-    sample.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", sample.InputQueueDrops}
-    sample.EntityData.Leafs["input-total-errors"] = types.YLeaf{"InputTotalErrors", sample.InputTotalErrors}
-    sample.EntityData.Leafs["output-total-drops"] = types.YLeaf{"OutputTotalDrops", sample.OutputTotalDrops}
-    sample.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", sample.OutputQueueDrops}
-    sample.EntityData.Leafs["output-total-errors"] = types.YLeaf{"OutputTotalErrors", sample.OutputTotalErrors}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("in-packets", types.YLeaf{"InPackets", sample.InPackets})
+    sample.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", sample.InOctets})
+    sample.EntityData.Leafs.Append("out-packets", types.YLeaf{"OutPackets", sample.OutPackets})
+    sample.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", sample.OutOctets})
+    sample.EntityData.Leafs.Append("input-total-drops", types.YLeaf{"InputTotalDrops", sample.InputTotalDrops})
+    sample.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", sample.InputQueueDrops})
+    sample.EntityData.Leafs.Append("input-total-errors", types.YLeaf{"InputTotalErrors", sample.InputTotalErrors})
+    sample.EntityData.Leafs.Append("output-total-drops", types.YLeaf{"OutputTotalDrops", sample.OutputTotalDrops})
+    sample.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", sample.OutputQueueDrops})
+    sample.EntityData.Leafs.Append("output-total-errors", types.YLeaf{"OutputTotalErrors", sample.OutputTotalErrors})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -1781,7 +1901,7 @@ type PerfMgmt_Periodic_Interface_DataRateInterfaces struct {
 
     // Samples for a particular interface. The type is slice of
     // PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface.
-    DataRateInterface []PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface
+    DataRateInterface []*PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface
 }
 
 func (dataRateInterfaces *PerfMgmt_Periodic_Interface_DataRateInterfaces) GetEntityData() *types.CommonEntityData {
@@ -1794,12 +1914,15 @@ func (dataRateInterfaces *PerfMgmt_Periodic_Interface_DataRateInterfaces) GetEnt
     dataRateInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterfaces.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterfaces.EntityData.Children["data-rate-interface"] = types.YChild{"DataRateInterface", nil}
+    dataRateInterfaces.EntityData.Children = types.NewOrderedMap()
+    dataRateInterfaces.EntityData.Children.Append("data-rate-interface", types.YChild{"DataRateInterface", nil})
     for i := range dataRateInterfaces.DataRateInterface {
-        dataRateInterfaces.EntityData.Children[types.GetSegmentPath(&dataRateInterfaces.DataRateInterface[i])] = types.YChild{"DataRateInterface", &dataRateInterfaces.DataRateInterface[i]}
+        dataRateInterfaces.EntityData.Children.Append(types.GetSegmentPath(dataRateInterfaces.DataRateInterface[i]), types.YChild{"DataRateInterface", dataRateInterfaces.DataRateInterface[i]})
     }
-    dataRateInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataRateInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    dataRateInterfaces.EntityData.YListKeys = []string {}
+
     return &(dataRateInterfaces.EntityData)
 }
 
@@ -1810,7 +1933,7 @@ type PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Data Rate samples for an interface.
@@ -1822,15 +1945,18 @@ func (dataRateInterface *PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRate
     dataRateInterface.EntityData.YangName = "data-rate-interface"
     dataRateInterface.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterface.EntityData.ParentYangName = "data-rate-interfaces"
-    dataRateInterface.EntityData.SegmentPath = "data-rate-interface" + "[interface-name='" + fmt.Sprintf("%v", dataRateInterface.InterfaceName) + "']"
+    dataRateInterface.EntityData.SegmentPath = "data-rate-interface" + types.AddKeyToken(dataRateInterface.InterfaceName, "interface-name")
     dataRateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterface.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterface.EntityData.Children["samples"] = types.YChild{"Samples", &dataRateInterface.Samples}
-    dataRateInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRateInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", dataRateInterface.InterfaceName}
+    dataRateInterface.EntityData.Children = types.NewOrderedMap()
+    dataRateInterface.EntityData.Children.Append("samples", types.YChild{"Samples", &dataRateInterface.Samples})
+    dataRateInterface.EntityData.Leafs = types.NewOrderedMap()
+    dataRateInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", dataRateInterface.InterfaceName})
+
+    dataRateInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(dataRateInterface.EntityData)
 }
 
@@ -1842,7 +1968,7 @@ type PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_Samples st
 
     // Data Rates sample. The type is slice of
     // PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_Samples_Sample.
-    Sample []PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_Samples_Sample
+    Sample []*PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_Samples_Sample
 }
 
 func (samples *PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_Samples) GetEntityData() *types.CommonEntityData {
@@ -1855,12 +1981,15 @@ func (samples *PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -1916,24 +2045,27 @@ func (sample *PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_S
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", sample.InputDataRate}
-    sample.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", sample.InputPacketRate}
-    sample.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", sample.OutputDataRate}
-    sample.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", sample.OutputPacketRate}
-    sample.EntityData.Leafs["input-peak-rate"] = types.YLeaf{"InputPeakRate", sample.InputPeakRate}
-    sample.EntityData.Leafs["input-peak-pkts"] = types.YLeaf{"InputPeakPkts", sample.InputPeakPkts}
-    sample.EntityData.Leafs["output-peak-rate"] = types.YLeaf{"OutputPeakRate", sample.OutputPeakRate}
-    sample.EntityData.Leafs["output-peak-pkts"] = types.YLeaf{"OutputPeakPkts", sample.OutputPeakPkts}
-    sample.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", sample.Bandwidth}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", sample.InputDataRate})
+    sample.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", sample.InputPacketRate})
+    sample.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", sample.OutputDataRate})
+    sample.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", sample.OutputPacketRate})
+    sample.EntityData.Leafs.Append("input-peak-rate", types.YLeaf{"InputPeakRate", sample.InputPeakRate})
+    sample.EntityData.Leafs.Append("input-peak-pkts", types.YLeaf{"InputPeakPkts", sample.InputPeakPkts})
+    sample.EntityData.Leafs.Append("output-peak-rate", types.YLeaf{"OutputPeakRate", sample.OutputPeakRate})
+    sample.EntityData.Leafs.Append("output-peak-pkts", types.YLeaf{"OutputPeakPkts", sample.OutputPeakPkts})
+    sample.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", sample.Bandwidth})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -1956,7 +2088,7 @@ type PerfMgmt_Monitor struct {
     Bgp PerfMgmt_Monitor_Bgp
 
     // Collected Interface data.
-    Interface_ PerfMgmt_Monitor_Interface
+    Interface PerfMgmt_Monitor_Interface
 }
 
 func (monitor *PerfMgmt_Monitor) GetEntityData() *types.CommonEntityData {
@@ -1969,13 +2101,16 @@ func (monitor *PerfMgmt_Monitor) GetEntityData() *types.CommonEntityData {
     monitor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    monitor.EntityData.Children = make(map[string]types.YChild)
-    monitor.EntityData.Children["ospf"] = types.YChild{"Ospf", &monitor.Ospf}
-    monitor.EntityData.Children["mpls"] = types.YChild{"Mpls", &monitor.Mpls}
-    monitor.EntityData.Children["nodes"] = types.YChild{"Nodes", &monitor.Nodes}
-    monitor.EntityData.Children["bgp"] = types.YChild{"Bgp", &monitor.Bgp}
-    monitor.EntityData.Children["interface"] = types.YChild{"Interface_", &monitor.Interface_}
-    monitor.EntityData.Leafs = make(map[string]types.YLeaf)
+    monitor.EntityData.Children = types.NewOrderedMap()
+    monitor.EntityData.Children.Append("ospf", types.YChild{"Ospf", &monitor.Ospf})
+    monitor.EntityData.Children.Append("mpls", types.YChild{"Mpls", &monitor.Mpls})
+    monitor.EntityData.Children.Append("nodes", types.YChild{"Nodes", &monitor.Nodes})
+    monitor.EntityData.Children.Append("bgp", types.YChild{"Bgp", &monitor.Bgp})
+    monitor.EntityData.Children.Append("interface", types.YChild{"Interface", &monitor.Interface})
+    monitor.EntityData.Leafs = types.NewOrderedMap()
+
+    monitor.EntityData.YListKeys = []string {}
+
     return &(monitor.EntityData)
 }
 
@@ -2002,10 +2137,13 @@ func (ospf *PerfMgmt_Monitor_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospf.EntityData.Children = make(map[string]types.YChild)
-    ospf.EntityData.Children["ospfv2-protocol-instances"] = types.YChild{"Ospfv2ProtocolInstances", &ospf.Ospfv2ProtocolInstances}
-    ospf.EntityData.Children["ospfv3-protocol-instances"] = types.YChild{"Ospfv3ProtocolInstances", &ospf.Ospfv3ProtocolInstances}
-    ospf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospf.EntityData.Children = types.NewOrderedMap()
+    ospf.EntityData.Children.Append("ospfv2-protocol-instances", types.YChild{"Ospfv2ProtocolInstances", &ospf.Ospfv2ProtocolInstances})
+    ospf.EntityData.Children.Append("ospfv3-protocol-instances", types.YChild{"Ospfv3ProtocolInstances", &ospf.Ospfv3ProtocolInstances})
+    ospf.EntityData.Leafs = types.NewOrderedMap()
+
+    ospf.EntityData.YListKeys = []string {}
+
     return &(ospf.EntityData)
 }
 
@@ -2018,7 +2156,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances struct {
 
     // Protocol samples for a particular OSPF v2 instance. The type is slice of
     // PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance.
-    Ospfv2ProtocolInstance []PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance
+    Ospfv2ProtocolInstance []*PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance
 }
 
 func (ospfv2ProtocolInstances *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances) GetEntityData() *types.CommonEntityData {
@@ -2031,12 +2169,15 @@ func (ospfv2ProtocolInstances *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances) Ge
     ospfv2ProtocolInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2ProtocolInstances.EntityData.Children = make(map[string]types.YChild)
-    ospfv2ProtocolInstances.EntityData.Children["ospfv2-protocol-instance"] = types.YChild{"Ospfv2ProtocolInstance", nil}
+    ospfv2ProtocolInstances.EntityData.Children = types.NewOrderedMap()
+    ospfv2ProtocolInstances.EntityData.Children.Append("ospfv2-protocol-instance", types.YChild{"Ospfv2ProtocolInstance", nil})
     for i := range ospfv2ProtocolInstances.Ospfv2ProtocolInstance {
-        ospfv2ProtocolInstances.EntityData.Children[types.GetSegmentPath(&ospfv2ProtocolInstances.Ospfv2ProtocolInstance[i])] = types.YChild{"Ospfv2ProtocolInstance", &ospfv2ProtocolInstances.Ospfv2ProtocolInstance[i]}
+        ospfv2ProtocolInstances.EntityData.Children.Append(types.GetSegmentPath(ospfv2ProtocolInstances.Ospfv2ProtocolInstance[i]), types.YChild{"Ospfv2ProtocolInstance", ospfv2ProtocolInstances.Ospfv2ProtocolInstance[i]})
     }
-    ospfv2ProtocolInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv2ProtocolInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv2ProtocolInstances.EntityData.YListKeys = []string {}
+
     return &(ospfv2ProtocolInstances.EntityData)
 }
 
@@ -2048,7 +2189,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance struct
     YFilter yfilter.YFilter
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Sample Table for an OSPV v2 instance.
@@ -2060,15 +2201,18 @@ func (ospfv2ProtocolInstance *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospf
     ospfv2ProtocolInstance.EntityData.YangName = "ospfv2-protocol-instance"
     ospfv2ProtocolInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolInstance.EntityData.ParentYangName = "ospfv2-protocol-instances"
-    ospfv2ProtocolInstance.EntityData.SegmentPath = "ospfv2-protocol-instance" + "[instance-name='" + fmt.Sprintf("%v", ospfv2ProtocolInstance.InstanceName) + "']"
+    ospfv2ProtocolInstance.EntityData.SegmentPath = "ospfv2-protocol-instance" + types.AddKeyToken(ospfv2ProtocolInstance.InstanceName, "instance-name")
     ospfv2ProtocolInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv2ProtocolInstance.EntityData.Children = make(map[string]types.YChild)
-    ospfv2ProtocolInstance.EntityData.Children["samples"] = types.YChild{"Samples", &ospfv2ProtocolInstance.Samples}
-    ospfv2ProtocolInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv2ProtocolInstance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", ospfv2ProtocolInstance.InstanceName}
+    ospfv2ProtocolInstance.EntityData.Children = types.NewOrderedMap()
+    ospfv2ProtocolInstance.EntityData.Children.Append("samples", types.YChild{"Samples", &ospfv2ProtocolInstance.Samples})
+    ospfv2ProtocolInstance.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2ProtocolInstance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", ospfv2ProtocolInstance.InstanceName})
+
+    ospfv2ProtocolInstance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(ospfv2ProtocolInstance.EntityData)
 }
 
@@ -2080,7 +2224,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Sample
 
     // Generic Counters sample. The type is slice of
     // PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples) GetEntityData() *types.CommonEntityData {
@@ -2093,12 +2237,15 @@ func (samples *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInsta
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -2206,36 +2353,39 @@ func (sample *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstan
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["input-packets"] = types.YLeaf{"InputPackets", sample.InputPackets}
-    sample.EntityData.Leafs["output-packets"] = types.YLeaf{"OutputPackets", sample.OutputPackets}
-    sample.EntityData.Leafs["input-hello-packets"] = types.YLeaf{"InputHelloPackets", sample.InputHelloPackets}
-    sample.EntityData.Leafs["output-hello-packets"] = types.YLeaf{"OutputHelloPackets", sample.OutputHelloPackets}
-    sample.EntityData.Leafs["input-db-ds"] = types.YLeaf{"InputDbDs", sample.InputDbDs}
-    sample.EntityData.Leafs["input-db-ds-lsa"] = types.YLeaf{"InputDbDsLsa", sample.InputDbDsLsa}
-    sample.EntityData.Leafs["output-db-ds"] = types.YLeaf{"OutputDbDs", sample.OutputDbDs}
-    sample.EntityData.Leafs["output-db-ds-lsa"] = types.YLeaf{"OutputDbDsLsa", sample.OutputDbDsLsa}
-    sample.EntityData.Leafs["input-ls-requests"] = types.YLeaf{"InputLsRequests", sample.InputLsRequests}
-    sample.EntityData.Leafs["input-ls-requests-lsa"] = types.YLeaf{"InputLsRequestsLsa", sample.InputLsRequestsLsa}
-    sample.EntityData.Leafs["output-ls-requests"] = types.YLeaf{"OutputLsRequests", sample.OutputLsRequests}
-    sample.EntityData.Leafs["output-ls-requests-lsa"] = types.YLeaf{"OutputLsRequestsLsa", sample.OutputLsRequestsLsa}
-    sample.EntityData.Leafs["input-lsa-updates"] = types.YLeaf{"InputLsaUpdates", sample.InputLsaUpdates}
-    sample.EntityData.Leafs["input-lsa-updates-lsa"] = types.YLeaf{"InputLsaUpdatesLsa", sample.InputLsaUpdatesLsa}
-    sample.EntityData.Leafs["output-lsa-updates"] = types.YLeaf{"OutputLsaUpdates", sample.OutputLsaUpdates}
-    sample.EntityData.Leafs["output-lsa-updates-lsa"] = types.YLeaf{"OutputLsaUpdatesLsa", sample.OutputLsaUpdatesLsa}
-    sample.EntityData.Leafs["input-lsa-acks"] = types.YLeaf{"InputLsaAcks", sample.InputLsaAcks}
-    sample.EntityData.Leafs["input-lsa-acks-lsa"] = types.YLeaf{"InputLsaAcksLsa", sample.InputLsaAcksLsa}
-    sample.EntityData.Leafs["output-lsa-acks"] = types.YLeaf{"OutputLsaAcks", sample.OutputLsaAcks}
-    sample.EntityData.Leafs["output-lsa-acks-lsa"] = types.YLeaf{"OutputLsaAcksLsa", sample.OutputLsaAcksLsa}
-    sample.EntityData.Leafs["checksum-errors"] = types.YLeaf{"ChecksumErrors", sample.ChecksumErrors}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("input-packets", types.YLeaf{"InputPackets", sample.InputPackets})
+    sample.EntityData.Leafs.Append("output-packets", types.YLeaf{"OutputPackets", sample.OutputPackets})
+    sample.EntityData.Leafs.Append("input-hello-packets", types.YLeaf{"InputHelloPackets", sample.InputHelloPackets})
+    sample.EntityData.Leafs.Append("output-hello-packets", types.YLeaf{"OutputHelloPackets", sample.OutputHelloPackets})
+    sample.EntityData.Leafs.Append("input-db-ds", types.YLeaf{"InputDbDs", sample.InputDbDs})
+    sample.EntityData.Leafs.Append("input-db-ds-lsa", types.YLeaf{"InputDbDsLsa", sample.InputDbDsLsa})
+    sample.EntityData.Leafs.Append("output-db-ds", types.YLeaf{"OutputDbDs", sample.OutputDbDs})
+    sample.EntityData.Leafs.Append("output-db-ds-lsa", types.YLeaf{"OutputDbDsLsa", sample.OutputDbDsLsa})
+    sample.EntityData.Leafs.Append("input-ls-requests", types.YLeaf{"InputLsRequests", sample.InputLsRequests})
+    sample.EntityData.Leafs.Append("input-ls-requests-lsa", types.YLeaf{"InputLsRequestsLsa", sample.InputLsRequestsLsa})
+    sample.EntityData.Leafs.Append("output-ls-requests", types.YLeaf{"OutputLsRequests", sample.OutputLsRequests})
+    sample.EntityData.Leafs.Append("output-ls-requests-lsa", types.YLeaf{"OutputLsRequestsLsa", sample.OutputLsRequestsLsa})
+    sample.EntityData.Leafs.Append("input-lsa-updates", types.YLeaf{"InputLsaUpdates", sample.InputLsaUpdates})
+    sample.EntityData.Leafs.Append("input-lsa-updates-lsa", types.YLeaf{"InputLsaUpdatesLsa", sample.InputLsaUpdatesLsa})
+    sample.EntityData.Leafs.Append("output-lsa-updates", types.YLeaf{"OutputLsaUpdates", sample.OutputLsaUpdates})
+    sample.EntityData.Leafs.Append("output-lsa-updates-lsa", types.YLeaf{"OutputLsaUpdatesLsa", sample.OutputLsaUpdatesLsa})
+    sample.EntityData.Leafs.Append("input-lsa-acks", types.YLeaf{"InputLsaAcks", sample.InputLsaAcks})
+    sample.EntityData.Leafs.Append("input-lsa-acks-lsa", types.YLeaf{"InputLsaAcksLsa", sample.InputLsaAcksLsa})
+    sample.EntityData.Leafs.Append("output-lsa-acks", types.YLeaf{"OutputLsaAcks", sample.OutputLsaAcks})
+    sample.EntityData.Leafs.Append("output-lsa-acks-lsa", types.YLeaf{"OutputLsaAcksLsa", sample.OutputLsaAcksLsa})
+    sample.EntityData.Leafs.Append("checksum-errors", types.YLeaf{"ChecksumErrors", sample.ChecksumErrors})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -2248,7 +2398,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances struct {
 
     // Protocol samples for a particular OSPF v3 instance. The type is slice of
     // PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance.
-    Ospfv3ProtocolInstance []PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance
+    Ospfv3ProtocolInstance []*PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance
 }
 
 func (ospfv3ProtocolInstances *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances) GetEntityData() *types.CommonEntityData {
@@ -2261,12 +2411,15 @@ func (ospfv3ProtocolInstances *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances) Ge
     ospfv3ProtocolInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3ProtocolInstances.EntityData.Children = make(map[string]types.YChild)
-    ospfv3ProtocolInstances.EntityData.Children["ospfv3-protocol-instance"] = types.YChild{"Ospfv3ProtocolInstance", nil}
+    ospfv3ProtocolInstances.EntityData.Children = types.NewOrderedMap()
+    ospfv3ProtocolInstances.EntityData.Children.Append("ospfv3-protocol-instance", types.YChild{"Ospfv3ProtocolInstance", nil})
     for i := range ospfv3ProtocolInstances.Ospfv3ProtocolInstance {
-        ospfv3ProtocolInstances.EntityData.Children[types.GetSegmentPath(&ospfv3ProtocolInstances.Ospfv3ProtocolInstance[i])] = types.YChild{"Ospfv3ProtocolInstance", &ospfv3ProtocolInstances.Ospfv3ProtocolInstance[i]}
+        ospfv3ProtocolInstances.EntityData.Children.Append(types.GetSegmentPath(ospfv3ProtocolInstances.Ospfv3ProtocolInstance[i]), types.YChild{"Ospfv3ProtocolInstance", ospfv3ProtocolInstances.Ospfv3ProtocolInstance[i]})
     }
-    ospfv3ProtocolInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfv3ProtocolInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfv3ProtocolInstances.EntityData.YListKeys = []string {}
+
     return &(ospfv3ProtocolInstances.EntityData)
 }
 
@@ -2278,7 +2431,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance struct
     YFilter yfilter.YFilter
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Sample Table for an OSPV v3 instance.
@@ -2290,15 +2443,18 @@ func (ospfv3ProtocolInstance *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospf
     ospfv3ProtocolInstance.EntityData.YangName = "ospfv3-protocol-instance"
     ospfv3ProtocolInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolInstance.EntityData.ParentYangName = "ospfv3-protocol-instances"
-    ospfv3ProtocolInstance.EntityData.SegmentPath = "ospfv3-protocol-instance" + "[instance-name='" + fmt.Sprintf("%v", ospfv3ProtocolInstance.InstanceName) + "']"
+    ospfv3ProtocolInstance.EntityData.SegmentPath = "ospfv3-protocol-instance" + types.AddKeyToken(ospfv3ProtocolInstance.InstanceName, "instance-name")
     ospfv3ProtocolInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfv3ProtocolInstance.EntityData.Children = make(map[string]types.YChild)
-    ospfv3ProtocolInstance.EntityData.Children["samples"] = types.YChild{"Samples", &ospfv3ProtocolInstance.Samples}
-    ospfv3ProtocolInstance.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfv3ProtocolInstance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", ospfv3ProtocolInstance.InstanceName}
+    ospfv3ProtocolInstance.EntityData.Children = types.NewOrderedMap()
+    ospfv3ProtocolInstance.EntityData.Children.Append("samples", types.YChild{"Samples", &ospfv3ProtocolInstance.Samples})
+    ospfv3ProtocolInstance.EntityData.Leafs = types.NewOrderedMap()
+    ospfv3ProtocolInstance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", ospfv3ProtocolInstance.InstanceName})
+
+    ospfv3ProtocolInstance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(ospfv3ProtocolInstance.EntityData)
 }
 
@@ -2310,7 +2466,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Sample
 
     // Generic Counters sample. The type is slice of
     // PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples) GetEntityData() *types.CommonEntityData {
@@ -2323,12 +2479,15 @@ func (samples *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInsta
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -2432,35 +2591,38 @@ func (sample *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstan
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["input-packets"] = types.YLeaf{"InputPackets", sample.InputPackets}
-    sample.EntityData.Leafs["output-packets"] = types.YLeaf{"OutputPackets", sample.OutputPackets}
-    sample.EntityData.Leafs["input-hello-packets"] = types.YLeaf{"InputHelloPackets", sample.InputHelloPackets}
-    sample.EntityData.Leafs["output-hello-packets"] = types.YLeaf{"OutputHelloPackets", sample.OutputHelloPackets}
-    sample.EntityData.Leafs["input-db-ds"] = types.YLeaf{"InputDbDs", sample.InputDbDs}
-    sample.EntityData.Leafs["input-db-ds-lsa"] = types.YLeaf{"InputDbDsLsa", sample.InputDbDsLsa}
-    sample.EntityData.Leafs["output-db-ds"] = types.YLeaf{"OutputDbDs", sample.OutputDbDs}
-    sample.EntityData.Leafs["output-db-ds-lsa"] = types.YLeaf{"OutputDbDsLsa", sample.OutputDbDsLsa}
-    sample.EntityData.Leafs["input-ls-requests"] = types.YLeaf{"InputLsRequests", sample.InputLsRequests}
-    sample.EntityData.Leafs["input-ls-requests-lsa"] = types.YLeaf{"InputLsRequestsLsa", sample.InputLsRequestsLsa}
-    sample.EntityData.Leafs["output-ls-requests"] = types.YLeaf{"OutputLsRequests", sample.OutputLsRequests}
-    sample.EntityData.Leafs["output-ls-requests-lsa"] = types.YLeaf{"OutputLsRequestsLsa", sample.OutputLsRequestsLsa}
-    sample.EntityData.Leafs["input-lsa-updates"] = types.YLeaf{"InputLsaUpdates", sample.InputLsaUpdates}
-    sample.EntityData.Leafs["input-lsa-updates-lsa"] = types.YLeaf{"InputLsaUpdatesLsa", sample.InputLsaUpdatesLsa}
-    sample.EntityData.Leafs["output-lsa-updates"] = types.YLeaf{"OutputLsaUpdates", sample.OutputLsaUpdates}
-    sample.EntityData.Leafs["output-lsa-updates-lsa"] = types.YLeaf{"OutputLsaUpdatesLsa", sample.OutputLsaUpdatesLsa}
-    sample.EntityData.Leafs["input-lsa-acks"] = types.YLeaf{"InputLsaAcks", sample.InputLsaAcks}
-    sample.EntityData.Leafs["input-lsa-acks-lsa"] = types.YLeaf{"InputLsaAcksLsa", sample.InputLsaAcksLsa}
-    sample.EntityData.Leafs["output-lsa-acks"] = types.YLeaf{"OutputLsaAcks", sample.OutputLsaAcks}
-    sample.EntityData.Leafs["output-lsa-acks-lsa"] = types.YLeaf{"OutputLsaAcksLsa", sample.OutputLsaAcksLsa}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("input-packets", types.YLeaf{"InputPackets", sample.InputPackets})
+    sample.EntityData.Leafs.Append("output-packets", types.YLeaf{"OutputPackets", sample.OutputPackets})
+    sample.EntityData.Leafs.Append("input-hello-packets", types.YLeaf{"InputHelloPackets", sample.InputHelloPackets})
+    sample.EntityData.Leafs.Append("output-hello-packets", types.YLeaf{"OutputHelloPackets", sample.OutputHelloPackets})
+    sample.EntityData.Leafs.Append("input-db-ds", types.YLeaf{"InputDbDs", sample.InputDbDs})
+    sample.EntityData.Leafs.Append("input-db-ds-lsa", types.YLeaf{"InputDbDsLsa", sample.InputDbDsLsa})
+    sample.EntityData.Leafs.Append("output-db-ds", types.YLeaf{"OutputDbDs", sample.OutputDbDs})
+    sample.EntityData.Leafs.Append("output-db-ds-lsa", types.YLeaf{"OutputDbDsLsa", sample.OutputDbDsLsa})
+    sample.EntityData.Leafs.Append("input-ls-requests", types.YLeaf{"InputLsRequests", sample.InputLsRequests})
+    sample.EntityData.Leafs.Append("input-ls-requests-lsa", types.YLeaf{"InputLsRequestsLsa", sample.InputLsRequestsLsa})
+    sample.EntityData.Leafs.Append("output-ls-requests", types.YLeaf{"OutputLsRequests", sample.OutputLsRequests})
+    sample.EntityData.Leafs.Append("output-ls-requests-lsa", types.YLeaf{"OutputLsRequestsLsa", sample.OutputLsRequestsLsa})
+    sample.EntityData.Leafs.Append("input-lsa-updates", types.YLeaf{"InputLsaUpdates", sample.InputLsaUpdates})
+    sample.EntityData.Leafs.Append("input-lsa-updates-lsa", types.YLeaf{"InputLsaUpdatesLsa", sample.InputLsaUpdatesLsa})
+    sample.EntityData.Leafs.Append("output-lsa-updates", types.YLeaf{"OutputLsaUpdates", sample.OutputLsaUpdates})
+    sample.EntityData.Leafs.Append("output-lsa-updates-lsa", types.YLeaf{"OutputLsaUpdatesLsa", sample.OutputLsaUpdatesLsa})
+    sample.EntityData.Leafs.Append("input-lsa-acks", types.YLeaf{"InputLsaAcks", sample.InputLsaAcks})
+    sample.EntityData.Leafs.Append("input-lsa-acks-lsa", types.YLeaf{"InputLsaAcksLsa", sample.InputLsaAcksLsa})
+    sample.EntityData.Leafs.Append("output-lsa-acks", types.YLeaf{"OutputLsaAcks", sample.OutputLsaAcks})
+    sample.EntityData.Leafs.Append("output-lsa-acks-lsa", types.YLeaf{"OutputLsaAcksLsa", sample.OutputLsaAcksLsa})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -2484,9 +2646,12 @@ func (mpls *PerfMgmt_Monitor_Mpls) GetEntityData() *types.CommonEntityData {
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpls.EntityData.Children = make(map[string]types.YChild)
-    mpls.EntityData.Children["ldp-neighbors"] = types.YChild{"LdpNeighbors", &mpls.LdpNeighbors}
-    mpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpls.EntityData.Children = types.NewOrderedMap()
+    mpls.EntityData.Children.Append("ldp-neighbors", types.YChild{"LdpNeighbors", &mpls.LdpNeighbors})
+    mpls.EntityData.Leafs = types.NewOrderedMap()
+
+    mpls.EntityData.YListKeys = []string {}
+
     return &(mpls.EntityData)
 }
 
@@ -2499,7 +2664,7 @@ type PerfMgmt_Monitor_Mpls_LdpNeighbors struct {
 
     // Samples for a particular LDP neighbor. The type is slice of
     // PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor.
-    LdpNeighbor []PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor
+    LdpNeighbor []*PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor
 }
 
 func (ldpNeighbors *PerfMgmt_Monitor_Mpls_LdpNeighbors) GetEntityData() *types.CommonEntityData {
@@ -2512,12 +2677,15 @@ func (ldpNeighbors *PerfMgmt_Monitor_Mpls_LdpNeighbors) GetEntityData() *types.C
     ldpNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpNeighbors.EntityData.Children = make(map[string]types.YChild)
-    ldpNeighbors.EntityData.Children["ldp-neighbor"] = types.YChild{"LdpNeighbor", nil}
+    ldpNeighbors.EntityData.Children = types.NewOrderedMap()
+    ldpNeighbors.EntityData.Children.Append("ldp-neighbor", types.YChild{"LdpNeighbor", nil})
     for i := range ldpNeighbors.LdpNeighbor {
-        ldpNeighbors.EntityData.Children[types.GetSegmentPath(&ldpNeighbors.LdpNeighbor[i])] = types.YChild{"LdpNeighbor", &ldpNeighbors.LdpNeighbor[i]}
+        ldpNeighbors.EntityData.Children.Append(types.GetSegmentPath(ldpNeighbors.LdpNeighbor[i]), types.YChild{"LdpNeighbor", ldpNeighbors.LdpNeighbor[i]})
     }
-    ldpNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    ldpNeighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    ldpNeighbors.EntityData.YListKeys = []string {}
+
     return &(ldpNeighbors.EntityData)
 }
 
@@ -2528,7 +2696,7 @@ type PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Nbr interface{}
 
     // Samples for a particular LDP neighbor.
@@ -2540,15 +2708,18 @@ func (ldpNeighbor *PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor) GetEntityData
     ldpNeighbor.EntityData.YangName = "ldp-neighbor"
     ldpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     ldpNeighbor.EntityData.ParentYangName = "ldp-neighbors"
-    ldpNeighbor.EntityData.SegmentPath = "ldp-neighbor" + "[nbr='" + fmt.Sprintf("%v", ldpNeighbor.Nbr) + "']"
+    ldpNeighbor.EntityData.SegmentPath = "ldp-neighbor" + types.AddKeyToken(ldpNeighbor.Nbr, "nbr")
     ldpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ldpNeighbor.EntityData.Children = make(map[string]types.YChild)
-    ldpNeighbor.EntityData.Children["samples"] = types.YChild{"Samples", &ldpNeighbor.Samples}
-    ldpNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    ldpNeighbor.EntityData.Leafs["nbr"] = types.YLeaf{"Nbr", ldpNeighbor.Nbr}
+    ldpNeighbor.EntityData.Children = types.NewOrderedMap()
+    ldpNeighbor.EntityData.Children.Append("samples", types.YChild{"Samples", &ldpNeighbor.Samples})
+    ldpNeighbor.EntityData.Leafs = types.NewOrderedMap()
+    ldpNeighbor.EntityData.Leafs.Append("nbr", types.YLeaf{"Nbr", ldpNeighbor.Nbr})
+
+    ldpNeighbor.EntityData.YListKeys = []string {"Nbr"}
+
     return &(ldpNeighbor.EntityData)
 }
 
@@ -2560,7 +2731,7 @@ type PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples struct {
 
     // LDP neighbor statistics sample. The type is slice of
     // PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples) GetEntityData() *types.CommonEntityData {
@@ -2573,12 +2744,15 @@ func (samples *PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples) GetEntity
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -2662,33 +2836,36 @@ func (sample *PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample) Get
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["total-msgs-sent"] = types.YLeaf{"TotalMsgsSent", sample.TotalMsgsSent}
-    sample.EntityData.Leafs["total-msgs-rcvd"] = types.YLeaf{"TotalMsgsRcvd", sample.TotalMsgsRcvd}
-    sample.EntityData.Leafs["init-msgs-sent"] = types.YLeaf{"InitMsgsSent", sample.InitMsgsSent}
-    sample.EntityData.Leafs["init-msgs-rcvd"] = types.YLeaf{"InitMsgsRcvd", sample.InitMsgsRcvd}
-    sample.EntityData.Leafs["address-msgs-sent"] = types.YLeaf{"AddressMsgsSent", sample.AddressMsgsSent}
-    sample.EntityData.Leafs["address-msgs-rcvd"] = types.YLeaf{"AddressMsgsRcvd", sample.AddressMsgsRcvd}
-    sample.EntityData.Leafs["address-withdraw-msgs-sent"] = types.YLeaf{"AddressWithdrawMsgsSent", sample.AddressWithdrawMsgsSent}
-    sample.EntityData.Leafs["address-withdraw-msgs-rcvd"] = types.YLeaf{"AddressWithdrawMsgsRcvd", sample.AddressWithdrawMsgsRcvd}
-    sample.EntityData.Leafs["label-mapping-msgs-sent"] = types.YLeaf{"LabelMappingMsgsSent", sample.LabelMappingMsgsSent}
-    sample.EntityData.Leafs["label-mapping-msgs-rcvd"] = types.YLeaf{"LabelMappingMsgsRcvd", sample.LabelMappingMsgsRcvd}
-    sample.EntityData.Leafs["label-withdraw-msgs-sent"] = types.YLeaf{"LabelWithdrawMsgsSent", sample.LabelWithdrawMsgsSent}
-    sample.EntityData.Leafs["label-withdraw-msgs-rcvd"] = types.YLeaf{"LabelWithdrawMsgsRcvd", sample.LabelWithdrawMsgsRcvd}
-    sample.EntityData.Leafs["label-release-msgs-sent"] = types.YLeaf{"LabelReleaseMsgsSent", sample.LabelReleaseMsgsSent}
-    sample.EntityData.Leafs["label-release-msgs-rcvd"] = types.YLeaf{"LabelReleaseMsgsRcvd", sample.LabelReleaseMsgsRcvd}
-    sample.EntityData.Leafs["notification-msgs-sent"] = types.YLeaf{"NotificationMsgsSent", sample.NotificationMsgsSent}
-    sample.EntityData.Leafs["notification-msgs-rcvd"] = types.YLeaf{"NotificationMsgsRcvd", sample.NotificationMsgsRcvd}
-    sample.EntityData.Leafs["keepalive-msgs-sent"] = types.YLeaf{"KeepaliveMsgsSent", sample.KeepaliveMsgsSent}
-    sample.EntityData.Leafs["keepalive-msgs-rcvd"] = types.YLeaf{"KeepaliveMsgsRcvd", sample.KeepaliveMsgsRcvd}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("total-msgs-sent", types.YLeaf{"TotalMsgsSent", sample.TotalMsgsSent})
+    sample.EntityData.Leafs.Append("total-msgs-rcvd", types.YLeaf{"TotalMsgsRcvd", sample.TotalMsgsRcvd})
+    sample.EntityData.Leafs.Append("init-msgs-sent", types.YLeaf{"InitMsgsSent", sample.InitMsgsSent})
+    sample.EntityData.Leafs.Append("init-msgs-rcvd", types.YLeaf{"InitMsgsRcvd", sample.InitMsgsRcvd})
+    sample.EntityData.Leafs.Append("address-msgs-sent", types.YLeaf{"AddressMsgsSent", sample.AddressMsgsSent})
+    sample.EntityData.Leafs.Append("address-msgs-rcvd", types.YLeaf{"AddressMsgsRcvd", sample.AddressMsgsRcvd})
+    sample.EntityData.Leafs.Append("address-withdraw-msgs-sent", types.YLeaf{"AddressWithdrawMsgsSent", sample.AddressWithdrawMsgsSent})
+    sample.EntityData.Leafs.Append("address-withdraw-msgs-rcvd", types.YLeaf{"AddressWithdrawMsgsRcvd", sample.AddressWithdrawMsgsRcvd})
+    sample.EntityData.Leafs.Append("label-mapping-msgs-sent", types.YLeaf{"LabelMappingMsgsSent", sample.LabelMappingMsgsSent})
+    sample.EntityData.Leafs.Append("label-mapping-msgs-rcvd", types.YLeaf{"LabelMappingMsgsRcvd", sample.LabelMappingMsgsRcvd})
+    sample.EntityData.Leafs.Append("label-withdraw-msgs-sent", types.YLeaf{"LabelWithdrawMsgsSent", sample.LabelWithdrawMsgsSent})
+    sample.EntityData.Leafs.Append("label-withdraw-msgs-rcvd", types.YLeaf{"LabelWithdrawMsgsRcvd", sample.LabelWithdrawMsgsRcvd})
+    sample.EntityData.Leafs.Append("label-release-msgs-sent", types.YLeaf{"LabelReleaseMsgsSent", sample.LabelReleaseMsgsSent})
+    sample.EntityData.Leafs.Append("label-release-msgs-rcvd", types.YLeaf{"LabelReleaseMsgsRcvd", sample.LabelReleaseMsgsRcvd})
+    sample.EntityData.Leafs.Append("notification-msgs-sent", types.YLeaf{"NotificationMsgsSent", sample.NotificationMsgsSent})
+    sample.EntityData.Leafs.Append("notification-msgs-rcvd", types.YLeaf{"NotificationMsgsRcvd", sample.NotificationMsgsRcvd})
+    sample.EntityData.Leafs.Append("keepalive-msgs-sent", types.YLeaf{"KeepaliveMsgsSent", sample.KeepaliveMsgsSent})
+    sample.EntityData.Leafs.Append("keepalive-msgs-rcvd", types.YLeaf{"KeepaliveMsgsRcvd", sample.KeepaliveMsgsRcvd})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -2699,7 +2876,7 @@ type PerfMgmt_Monitor_Nodes struct {
     YFilter yfilter.YFilter
 
     // Node Instance. The type is slice of PerfMgmt_Monitor_Nodes_Node.
-    Node []PerfMgmt_Monitor_Nodes_Node
+    Node []*PerfMgmt_Monitor_Nodes_Node
 }
 
 func (nodes *PerfMgmt_Monitor_Nodes) GetEntityData() *types.CommonEntityData {
@@ -2712,12 +2889,15 @@ func (nodes *PerfMgmt_Monitor_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -2728,7 +2908,7 @@ type PerfMgmt_Monitor_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Node CPU data.
@@ -2746,17 +2926,20 @@ func (node *PerfMgmt_Monitor_Nodes_Node) GetEntityData() *types.CommonEntityData
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["sample-xr"] = types.YChild{"SampleXr", &node.SampleXr}
-    node.EntityData.Children["processes"] = types.YChild{"Processes", &node.Processes}
-    node.EntityData.Children["samples"] = types.YChild{"Samples", &node.Samples}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("sample-xr", types.YChild{"SampleXr", &node.SampleXr})
+    node.EntityData.Children.Append("processes", types.YChild{"Processes", &node.Processes})
+    node.EntityData.Children.Append("samples", types.YChild{"Samples", &node.Samples})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -2768,7 +2951,7 @@ type PerfMgmt_Monitor_Nodes_Node_SampleXr struct {
 
     // Node CPU data sample. The type is slice of
     // PerfMgmt_Monitor_Nodes_Node_SampleXr_Sample.
-    Sample []PerfMgmt_Monitor_Nodes_Node_SampleXr_Sample
+    Sample []*PerfMgmt_Monitor_Nodes_Node_SampleXr_Sample
 }
 
 func (sampleXr *PerfMgmt_Monitor_Nodes_Node_SampleXr) GetEntityData() *types.CommonEntityData {
@@ -2781,12 +2964,15 @@ func (sampleXr *PerfMgmt_Monitor_Nodes_Node_SampleXr) GetEntityData() *types.Com
     sampleXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sampleXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sampleXr.EntityData.Children = make(map[string]types.YChild)
-    sampleXr.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    sampleXr.EntityData.Children = types.NewOrderedMap()
+    sampleXr.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range sampleXr.Sample {
-        sampleXr.EntityData.Children[types.GetSegmentPath(&sampleXr.Sample[i])] = types.YChild{"Sample", &sampleXr.Sample[i]}
+        sampleXr.EntityData.Children.Append(types.GetSegmentPath(sampleXr.Sample[i]), types.YChild{"Sample", sampleXr.Sample[i]})
     }
-    sampleXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    sampleXr.EntityData.Leafs = types.NewOrderedMap()
+
+    sampleXr.EntityData.YListKeys = []string {}
+
     return &(sampleXr.EntityData)
 }
 
@@ -2818,17 +3004,20 @@ func (sample *PerfMgmt_Monitor_Nodes_Node_SampleXr_Sample) GetEntityData() *type
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "sample-xr"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["no-processes"] = types.YLeaf{"NoProcesses", sample.NoProcesses}
-    sample.EntityData.Leafs["average-cpu-used"] = types.YLeaf{"AverageCpuUsed", sample.AverageCpuUsed}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("no-processes", types.YLeaf{"NoProcesses", sample.NoProcesses})
+    sample.EntityData.Leafs.Append("average-cpu-used", types.YLeaf{"AverageCpuUsed", sample.AverageCpuUsed})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -2840,7 +3029,7 @@ type PerfMgmt_Monitor_Nodes_Node_Processes struct {
 
     // Process data. The type is slice of
     // PerfMgmt_Monitor_Nodes_Node_Processes_Process.
-    Process []PerfMgmt_Monitor_Nodes_Node_Processes_Process
+    Process []*PerfMgmt_Monitor_Nodes_Node_Processes_Process
 }
 
 func (processes *PerfMgmt_Monitor_Nodes_Node_Processes) GetEntityData() *types.CommonEntityData {
@@ -2853,12 +3042,15 @@ func (processes *PerfMgmt_Monitor_Nodes_Node_Processes) GetEntityData() *types.C
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processes.EntityData.Children = make(map[string]types.YChild)
-    processes.EntityData.Children["process"] = types.YChild{"Process", nil}
+    processes.EntityData.Children = types.NewOrderedMap()
+    processes.EntityData.Children.Append("process", types.YChild{"Process", nil})
     for i := range processes.Process {
-        processes.EntityData.Children[types.GetSegmentPath(&processes.Process[i])] = types.YChild{"Process", &processes.Process[i]}
+        processes.EntityData.Children.Append(types.GetSegmentPath(processes.Process[i]), types.YChild{"Process", processes.Process[i]})
     }
-    processes.EntityData.Leafs = make(map[string]types.YLeaf)
+    processes.EntityData.Leafs = types.NewOrderedMap()
+
+    processes.EntityData.YListKeys = []string {}
+
     return &(processes.EntityData)
 }
 
@@ -2881,15 +3073,18 @@ func (process *PerfMgmt_Monitor_Nodes_Node_Processes_Process) GetEntityData() *t
     process.EntityData.YangName = "process"
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
-    process.EntityData.SegmentPath = "process" + "[process-id='" + fmt.Sprintf("%v", process.ProcessId) + "']"
+    process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessId, "process-id")
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    process.EntityData.Children = make(map[string]types.YChild)
-    process.EntityData.Children["samples"] = types.YChild{"Samples", &process.Samples}
-    process.EntityData.Leafs = make(map[string]types.YLeaf)
-    process.EntityData.Leafs["process-id"] = types.YLeaf{"ProcessId", process.ProcessId}
+    process.EntityData.Children = types.NewOrderedMap()
+    process.EntityData.Children.Append("samples", types.YChild{"Samples", &process.Samples})
+    process.EntityData.Leafs = types.NewOrderedMap()
+    process.EntityData.Leafs.Append("process-id", types.YLeaf{"ProcessId", process.ProcessId})
+
+    process.EntityData.YListKeys = []string {"ProcessId"}
+
     return &(process.EntityData)
 }
 
@@ -2901,7 +3096,7 @@ type PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples struct {
 
     // Process data sample. The type is slice of
     // PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples) GetEntityData() *types.CommonEntityData {
@@ -2914,12 +3109,15 @@ func (samples *PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples) GetEntityD
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -2954,18 +3152,21 @@ func (sample *PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples_Sample) GetE
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["peak-memory"] = types.YLeaf{"PeakMemory", sample.PeakMemory}
-    sample.EntityData.Leafs["average-cpu-used"] = types.YLeaf{"AverageCpuUsed", sample.AverageCpuUsed}
-    sample.EntityData.Leafs["no-threads"] = types.YLeaf{"NoThreads", sample.NoThreads}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("peak-memory", types.YLeaf{"PeakMemory", sample.PeakMemory})
+    sample.EntityData.Leafs.Append("average-cpu-used", types.YLeaf{"AverageCpuUsed", sample.AverageCpuUsed})
+    sample.EntityData.Leafs.Append("no-threads", types.YLeaf{"NoThreads", sample.NoThreads})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -2977,7 +3178,7 @@ type PerfMgmt_Monitor_Nodes_Node_Samples struct {
 
     // Node Memory data sample. The type is slice of
     // PerfMgmt_Monitor_Nodes_Node_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Nodes_Node_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Nodes_Node_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Nodes_Node_Samples) GetEntityData() *types.CommonEntityData {
@@ -2990,12 +3191,15 @@ func (samples *PerfMgmt_Monitor_Nodes_Node_Samples) GetEntityData() *types.Commo
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -3027,17 +3231,20 @@ func (sample *PerfMgmt_Monitor_Nodes_Node_Samples_Sample) GetEntityData() *types
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["curr-memory"] = types.YLeaf{"CurrMemory", sample.CurrMemory}
-    sample.EntityData.Leafs["peak-memory"] = types.YLeaf{"PeakMemory", sample.PeakMemory}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("curr-memory", types.YLeaf{"CurrMemory", sample.CurrMemory})
+    sample.EntityData.Leafs.Append("peak-memory", types.YLeaf{"PeakMemory", sample.PeakMemory})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -3061,9 +3268,12 @@ func (bgp *PerfMgmt_Monitor_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Children["bgp-neighbors"] = types.YChild{"BgpNeighbors", &bgp.BgpNeighbors}
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Children.Append("bgp-neighbors", types.YChild{"BgpNeighbors", &bgp.BgpNeighbors})
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -3075,7 +3285,7 @@ type PerfMgmt_Monitor_Bgp_BgpNeighbors struct {
 
     // Samples for particular neighbor. The type is slice of
     // PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor.
-    BgpNeighbor []PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor
+    BgpNeighbor []*PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor
 }
 
 func (bgpNeighbors *PerfMgmt_Monitor_Bgp_BgpNeighbors) GetEntityData() *types.CommonEntityData {
@@ -3088,12 +3298,15 @@ func (bgpNeighbors *PerfMgmt_Monitor_Bgp_BgpNeighbors) GetEntityData() *types.Co
     bgpNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgpNeighbors.EntityData.Children = make(map[string]types.YChild)
-    bgpNeighbors.EntityData.Children["bgp-neighbor"] = types.YChild{"BgpNeighbor", nil}
+    bgpNeighbors.EntityData.Children = types.NewOrderedMap()
+    bgpNeighbors.EntityData.Children.Append("bgp-neighbor", types.YChild{"BgpNeighbor", nil})
     for i := range bgpNeighbors.BgpNeighbor {
-        bgpNeighbors.EntityData.Children[types.GetSegmentPath(&bgpNeighbors.BgpNeighbor[i])] = types.YChild{"BgpNeighbor", &bgpNeighbors.BgpNeighbor[i]}
+        bgpNeighbors.EntityData.Children.Append(types.GetSegmentPath(bgpNeighbors.BgpNeighbor[i]), types.YChild{"BgpNeighbor", bgpNeighbors.BgpNeighbor[i]})
     }
-    bgpNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpNeighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    bgpNeighbors.EntityData.YListKeys = []string {}
+
     return &(bgpNeighbors.EntityData)
 }
 
@@ -3105,7 +3318,7 @@ type PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor struct {
 
     // This attribute is a key. BGP Neighbor Identifier. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Sample Table for a BGP neighbor.
@@ -3117,15 +3330,18 @@ func (bgpNeighbor *PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor) GetEntityData(
     bgpNeighbor.EntityData.YangName = "bgp-neighbor"
     bgpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     bgpNeighbor.EntityData.ParentYangName = "bgp-neighbors"
-    bgpNeighbor.EntityData.SegmentPath = "bgp-neighbor" + "[ip-address='" + fmt.Sprintf("%v", bgpNeighbor.IpAddress) + "']"
+    bgpNeighbor.EntityData.SegmentPath = "bgp-neighbor" + types.AddKeyToken(bgpNeighbor.IpAddress, "ip-address")
     bgpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgpNeighbor.EntityData.Children = make(map[string]types.YChild)
-    bgpNeighbor.EntityData.Children["samples"] = types.YChild{"Samples", &bgpNeighbor.Samples}
-    bgpNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    bgpNeighbor.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", bgpNeighbor.IpAddress}
+    bgpNeighbor.EntityData.Children = types.NewOrderedMap()
+    bgpNeighbor.EntityData.Children.Append("samples", types.YChild{"Samples", &bgpNeighbor.Samples})
+    bgpNeighbor.EntityData.Leafs = types.NewOrderedMap()
+    bgpNeighbor.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", bgpNeighbor.IpAddress})
+
+    bgpNeighbor.EntityData.YListKeys = []string {"IpAddress"}
+
     return &(bgpNeighbor.EntityData)
 }
 
@@ -3137,7 +3353,7 @@ type PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples struct {
 
     // Neighbor statistics sample. The type is slice of
     // PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples) GetEntityData() *types.CommonEntityData {
@@ -3150,12 +3366,15 @@ func (samples *PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples) GetEntityD
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -3210,23 +3429,26 @@ func (sample *PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample) GetE
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["input-messages"] = types.YLeaf{"InputMessages", sample.InputMessages}
-    sample.EntityData.Leafs["output-messages"] = types.YLeaf{"OutputMessages", sample.OutputMessages}
-    sample.EntityData.Leafs["input-update-messages"] = types.YLeaf{"InputUpdateMessages", sample.InputUpdateMessages}
-    sample.EntityData.Leafs["output-update-messages"] = types.YLeaf{"OutputUpdateMessages", sample.OutputUpdateMessages}
-    sample.EntityData.Leafs["conn-established"] = types.YLeaf{"ConnEstablished", sample.ConnEstablished}
-    sample.EntityData.Leafs["conn-dropped"] = types.YLeaf{"ConnDropped", sample.ConnDropped}
-    sample.EntityData.Leafs["errors-received"] = types.YLeaf{"ErrorsReceived", sample.ErrorsReceived}
-    sample.EntityData.Leafs["errors-sent"] = types.YLeaf{"ErrorsSent", sample.ErrorsSent}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("input-messages", types.YLeaf{"InputMessages", sample.InputMessages})
+    sample.EntityData.Leafs.Append("output-messages", types.YLeaf{"OutputMessages", sample.OutputMessages})
+    sample.EntityData.Leafs.Append("input-update-messages", types.YLeaf{"InputUpdateMessages", sample.InputUpdateMessages})
+    sample.EntityData.Leafs.Append("output-update-messages", types.YLeaf{"OutputUpdateMessages", sample.OutputUpdateMessages})
+    sample.EntityData.Leafs.Append("conn-established", types.YLeaf{"ConnEstablished", sample.ConnEstablished})
+    sample.EntityData.Leafs.Append("conn-dropped", types.YLeaf{"ConnDropped", sample.ConnDropped})
+    sample.EntityData.Leafs.Append("errors-received", types.YLeaf{"ErrorsReceived", sample.ErrorsReceived})
+    sample.EntityData.Leafs.Append("errors-sent", types.YLeaf{"ErrorsSent", sample.ErrorsSent})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -3256,11 +3478,14 @@ func (self *PerfMgmt_Monitor_Interface) GetEntityData() *types.CommonEntityData 
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["generic-counter-interfaces"] = types.YChild{"GenericCounterInterfaces", &self.GenericCounterInterfaces}
-    self.EntityData.Children["basic-counter-interfaces"] = types.YChild{"BasicCounterInterfaces", &self.BasicCounterInterfaces}
-    self.EntityData.Children["data-rate-interfaces"] = types.YChild{"DataRateInterfaces", &self.DataRateInterfaces}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("generic-counter-interfaces", types.YChild{"GenericCounterInterfaces", &self.GenericCounterInterfaces})
+    self.EntityData.Children.Append("basic-counter-interfaces", types.YChild{"BasicCounterInterfaces", &self.BasicCounterInterfaces})
+    self.EntityData.Children.Append("data-rate-interfaces", types.YChild{"DataRateInterfaces", &self.DataRateInterfaces})
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3273,7 +3498,7 @@ type PerfMgmt_Monitor_Interface_GenericCounterInterfaces struct {
 
     // Samples for a particular interface. The type is slice of
     // PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface.
-    GenericCounterInterface []PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface
+    GenericCounterInterface []*PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface
 }
 
 func (genericCounterInterfaces *PerfMgmt_Monitor_Interface_GenericCounterInterfaces) GetEntityData() *types.CommonEntityData {
@@ -3286,12 +3511,15 @@ func (genericCounterInterfaces *PerfMgmt_Monitor_Interface_GenericCounterInterfa
     genericCounterInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterfaces.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterfaces.EntityData.Children["generic-counter-interface"] = types.YChild{"GenericCounterInterface", nil}
+    genericCounterInterfaces.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterfaces.EntityData.Children.Append("generic-counter-interface", types.YChild{"GenericCounterInterface", nil})
     for i := range genericCounterInterfaces.GenericCounterInterface {
-        genericCounterInterfaces.EntityData.Children[types.GetSegmentPath(&genericCounterInterfaces.GenericCounterInterface[i])] = types.YChild{"GenericCounterInterface", &genericCounterInterfaces.GenericCounterInterface[i]}
+        genericCounterInterfaces.EntityData.Children.Append(types.GetSegmentPath(genericCounterInterfaces.GenericCounterInterface[i]), types.YChild{"GenericCounterInterface", genericCounterInterfaces.GenericCounterInterface[i]})
     }
-    genericCounterInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericCounterInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    genericCounterInterfaces.EntityData.YListKeys = []string {}
+
     return &(genericCounterInterfaces.EntityData)
 }
 
@@ -3302,7 +3530,7 @@ type PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Generic Counter samples for an interface.
@@ -3314,15 +3542,18 @@ func (genericCounterInterface *PerfMgmt_Monitor_Interface_GenericCounterInterfac
     genericCounterInterface.EntityData.YangName = "generic-counter-interface"
     genericCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterface.EntityData.ParentYangName = "generic-counter-interfaces"
-    genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface" + "[interface-name='" + fmt.Sprintf("%v", genericCounterInterface.InterfaceName) + "']"
+    genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface" + types.AddKeyToken(genericCounterInterface.InterfaceName, "interface-name")
     genericCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    genericCounterInterface.EntityData.Children["samples"] = types.YChild{"Samples", &genericCounterInterface.Samples}
-    genericCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericCounterInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", genericCounterInterface.InterfaceName}
+    genericCounterInterface.EntityData.Children = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Children.Append("samples", types.YChild{"Samples", &genericCounterInterface.Samples})
+    genericCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+    genericCounterInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", genericCounterInterface.InterfaceName})
+
+    genericCounterInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(genericCounterInterface.EntityData)
 }
 
@@ -3334,7 +3565,7 @@ type PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface
 
     // Generic Counters sample. The type is slice of
     // PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples) GetEntityData() *types.CommonEntityData {
@@ -3347,12 +3578,15 @@ func (samples *PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounte
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -3451,35 +3685,38 @@ func (sample *PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounter
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["in-packets"] = types.YLeaf{"InPackets", sample.InPackets}
-    sample.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", sample.InOctets}
-    sample.EntityData.Leafs["out-packets"] = types.YLeaf{"OutPackets", sample.OutPackets}
-    sample.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", sample.OutOctets}
-    sample.EntityData.Leafs["in-ucast-pkts"] = types.YLeaf{"InUcastPkts", sample.InUcastPkts}
-    sample.EntityData.Leafs["in-multicast-pkts"] = types.YLeaf{"InMulticastPkts", sample.InMulticastPkts}
-    sample.EntityData.Leafs["in-broadcast-pkts"] = types.YLeaf{"InBroadcastPkts", sample.InBroadcastPkts}
-    sample.EntityData.Leafs["out-ucast-pkts"] = types.YLeaf{"OutUcastPkts", sample.OutUcastPkts}
-    sample.EntityData.Leafs["out-multicast-pkts"] = types.YLeaf{"OutMulticastPkts", sample.OutMulticastPkts}
-    sample.EntityData.Leafs["out-broadcast-pkts"] = types.YLeaf{"OutBroadcastPkts", sample.OutBroadcastPkts}
-    sample.EntityData.Leafs["output-total-drops"] = types.YLeaf{"OutputTotalDrops", sample.OutputTotalDrops}
-    sample.EntityData.Leafs["input-total-drops"] = types.YLeaf{"InputTotalDrops", sample.InputTotalDrops}
-    sample.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", sample.InputQueueDrops}
-    sample.EntityData.Leafs["input-unknown-proto"] = types.YLeaf{"InputUnknownProto", sample.InputUnknownProto}
-    sample.EntityData.Leafs["output-total-errors"] = types.YLeaf{"OutputTotalErrors", sample.OutputTotalErrors}
-    sample.EntityData.Leafs["output-underrun"] = types.YLeaf{"OutputUnderrun", sample.OutputUnderrun}
-    sample.EntityData.Leafs["input-total-errors"] = types.YLeaf{"InputTotalErrors", sample.InputTotalErrors}
-    sample.EntityData.Leafs["input-crc"] = types.YLeaf{"InputCrc", sample.InputCrc}
-    sample.EntityData.Leafs["input-overrun"] = types.YLeaf{"InputOverrun", sample.InputOverrun}
-    sample.EntityData.Leafs["input-frame"] = types.YLeaf{"InputFrame", sample.InputFrame}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("in-packets", types.YLeaf{"InPackets", sample.InPackets})
+    sample.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", sample.InOctets})
+    sample.EntityData.Leafs.Append("out-packets", types.YLeaf{"OutPackets", sample.OutPackets})
+    sample.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", sample.OutOctets})
+    sample.EntityData.Leafs.Append("in-ucast-pkts", types.YLeaf{"InUcastPkts", sample.InUcastPkts})
+    sample.EntityData.Leafs.Append("in-multicast-pkts", types.YLeaf{"InMulticastPkts", sample.InMulticastPkts})
+    sample.EntityData.Leafs.Append("in-broadcast-pkts", types.YLeaf{"InBroadcastPkts", sample.InBroadcastPkts})
+    sample.EntityData.Leafs.Append("out-ucast-pkts", types.YLeaf{"OutUcastPkts", sample.OutUcastPkts})
+    sample.EntityData.Leafs.Append("out-multicast-pkts", types.YLeaf{"OutMulticastPkts", sample.OutMulticastPkts})
+    sample.EntityData.Leafs.Append("out-broadcast-pkts", types.YLeaf{"OutBroadcastPkts", sample.OutBroadcastPkts})
+    sample.EntityData.Leafs.Append("output-total-drops", types.YLeaf{"OutputTotalDrops", sample.OutputTotalDrops})
+    sample.EntityData.Leafs.Append("input-total-drops", types.YLeaf{"InputTotalDrops", sample.InputTotalDrops})
+    sample.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", sample.InputQueueDrops})
+    sample.EntityData.Leafs.Append("input-unknown-proto", types.YLeaf{"InputUnknownProto", sample.InputUnknownProto})
+    sample.EntityData.Leafs.Append("output-total-errors", types.YLeaf{"OutputTotalErrors", sample.OutputTotalErrors})
+    sample.EntityData.Leafs.Append("output-underrun", types.YLeaf{"OutputUnderrun", sample.OutputUnderrun})
+    sample.EntityData.Leafs.Append("input-total-errors", types.YLeaf{"InputTotalErrors", sample.InputTotalErrors})
+    sample.EntityData.Leafs.Append("input-crc", types.YLeaf{"InputCrc", sample.InputCrc})
+    sample.EntityData.Leafs.Append("input-overrun", types.YLeaf{"InputOverrun", sample.InputOverrun})
+    sample.EntityData.Leafs.Append("input-frame", types.YLeaf{"InputFrame", sample.InputFrame})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -3492,7 +3729,7 @@ type PerfMgmt_Monitor_Interface_BasicCounterInterfaces struct {
 
     // Samples for a particular interface. The type is slice of
     // PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface.
-    BasicCounterInterface []PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface
+    BasicCounterInterface []*PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface
 }
 
 func (basicCounterInterfaces *PerfMgmt_Monitor_Interface_BasicCounterInterfaces) GetEntityData() *types.CommonEntityData {
@@ -3505,12 +3742,15 @@ func (basicCounterInterfaces *PerfMgmt_Monitor_Interface_BasicCounterInterfaces)
     basicCounterInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterfaces.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterfaces.EntityData.Children["basic-counter-interface"] = types.YChild{"BasicCounterInterface", nil}
+    basicCounterInterfaces.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterfaces.EntityData.Children.Append("basic-counter-interface", types.YChild{"BasicCounterInterface", nil})
     for i := range basicCounterInterfaces.BasicCounterInterface {
-        basicCounterInterfaces.EntityData.Children[types.GetSegmentPath(&basicCounterInterfaces.BasicCounterInterface[i])] = types.YChild{"BasicCounterInterface", &basicCounterInterfaces.BasicCounterInterface[i]}
+        basicCounterInterfaces.EntityData.Children.Append(types.GetSegmentPath(basicCounterInterfaces.BasicCounterInterface[i]), types.YChild{"BasicCounterInterface", basicCounterInterfaces.BasicCounterInterface[i]})
     }
-    basicCounterInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicCounterInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    basicCounterInterfaces.EntityData.YListKeys = []string {}
+
     return &(basicCounterInterfaces.EntityData)
 }
 
@@ -3521,7 +3761,7 @@ type PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Basic Counter samples for an interface.
@@ -3533,15 +3773,18 @@ func (basicCounterInterface *PerfMgmt_Monitor_Interface_BasicCounterInterfaces_B
     basicCounterInterface.EntityData.YangName = "basic-counter-interface"
     basicCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterface.EntityData.ParentYangName = "basic-counter-interfaces"
-    basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface" + "[interface-name='" + fmt.Sprintf("%v", basicCounterInterface.InterfaceName) + "']"
+    basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface" + types.AddKeyToken(basicCounterInterface.InterfaceName, "interface-name")
     basicCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicCounterInterface.EntityData.Children = make(map[string]types.YChild)
-    basicCounterInterface.EntityData.Children["samples"] = types.YChild{"Samples", &basicCounterInterface.Samples}
-    basicCounterInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicCounterInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", basicCounterInterface.InterfaceName}
+    basicCounterInterface.EntityData.Children = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Children.Append("samples", types.YChild{"Samples", &basicCounterInterface.Samples})
+    basicCounterInterface.EntityData.Leafs = types.NewOrderedMap()
+    basicCounterInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", basicCounterInterface.InterfaceName})
+
+    basicCounterInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(basicCounterInterface.EntityData)
 }
 
@@ -3553,7 +3796,7 @@ type PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface_Sam
 
     // Basic Counters sample. The type is slice of
     // PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples) GetEntityData() *types.CommonEntityData {
@@ -3566,12 +3809,15 @@ func (samples *PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInt
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -3634,25 +3880,28 @@ func (sample *PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInte
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["in-packets"] = types.YLeaf{"InPackets", sample.InPackets}
-    sample.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", sample.InOctets}
-    sample.EntityData.Leafs["out-packets"] = types.YLeaf{"OutPackets", sample.OutPackets}
-    sample.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", sample.OutOctets}
-    sample.EntityData.Leafs["input-total-drops"] = types.YLeaf{"InputTotalDrops", sample.InputTotalDrops}
-    sample.EntityData.Leafs["input-queue-drops"] = types.YLeaf{"InputQueueDrops", sample.InputQueueDrops}
-    sample.EntityData.Leafs["input-total-errors"] = types.YLeaf{"InputTotalErrors", sample.InputTotalErrors}
-    sample.EntityData.Leafs["output-total-drops"] = types.YLeaf{"OutputTotalDrops", sample.OutputTotalDrops}
-    sample.EntityData.Leafs["output-queue-drops"] = types.YLeaf{"OutputQueueDrops", sample.OutputQueueDrops}
-    sample.EntityData.Leafs["output-total-errors"] = types.YLeaf{"OutputTotalErrors", sample.OutputTotalErrors}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("in-packets", types.YLeaf{"InPackets", sample.InPackets})
+    sample.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", sample.InOctets})
+    sample.EntityData.Leafs.Append("out-packets", types.YLeaf{"OutPackets", sample.OutPackets})
+    sample.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", sample.OutOctets})
+    sample.EntityData.Leafs.Append("input-total-drops", types.YLeaf{"InputTotalDrops", sample.InputTotalDrops})
+    sample.EntityData.Leafs.Append("input-queue-drops", types.YLeaf{"InputQueueDrops", sample.InputQueueDrops})
+    sample.EntityData.Leafs.Append("input-total-errors", types.YLeaf{"InputTotalErrors", sample.InputTotalErrors})
+    sample.EntityData.Leafs.Append("output-total-drops", types.YLeaf{"OutputTotalDrops", sample.OutputTotalDrops})
+    sample.EntityData.Leafs.Append("output-queue-drops", types.YLeaf{"OutputQueueDrops", sample.OutputQueueDrops})
+    sample.EntityData.Leafs.Append("output-total-errors", types.YLeaf{"OutputTotalErrors", sample.OutputTotalErrors})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 
@@ -3664,7 +3913,7 @@ type PerfMgmt_Monitor_Interface_DataRateInterfaces struct {
 
     // Samples for a particular interface. The type is slice of
     // PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface.
-    DataRateInterface []PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface
+    DataRateInterface []*PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface
 }
 
 func (dataRateInterfaces *PerfMgmt_Monitor_Interface_DataRateInterfaces) GetEntityData() *types.CommonEntityData {
@@ -3677,12 +3926,15 @@ func (dataRateInterfaces *PerfMgmt_Monitor_Interface_DataRateInterfaces) GetEnti
     dataRateInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterfaces.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterfaces.EntityData.Children["data-rate-interface"] = types.YChild{"DataRateInterface", nil}
+    dataRateInterfaces.EntityData.Children = types.NewOrderedMap()
+    dataRateInterfaces.EntityData.Children.Append("data-rate-interface", types.YChild{"DataRateInterface", nil})
     for i := range dataRateInterfaces.DataRateInterface {
-        dataRateInterfaces.EntityData.Children[types.GetSegmentPath(&dataRateInterfaces.DataRateInterface[i])] = types.YChild{"DataRateInterface", &dataRateInterfaces.DataRateInterface[i]}
+        dataRateInterfaces.EntityData.Children.Append(types.GetSegmentPath(dataRateInterfaces.DataRateInterface[i]), types.YChild{"DataRateInterface", dataRateInterfaces.DataRateInterface[i]})
     }
-    dataRateInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataRateInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    dataRateInterfaces.EntityData.YListKeys = []string {}
+
     return &(dataRateInterfaces.EntityData)
 }
 
@@ -3693,7 +3945,7 @@ type PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Data Rate samples for an interface.
@@ -3705,15 +3957,18 @@ func (dataRateInterface *PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateI
     dataRateInterface.EntityData.YangName = "data-rate-interface"
     dataRateInterface.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterface.EntityData.ParentYangName = "data-rate-interfaces"
-    dataRateInterface.EntityData.SegmentPath = "data-rate-interface" + "[interface-name='" + fmt.Sprintf("%v", dataRateInterface.InterfaceName) + "']"
+    dataRateInterface.EntityData.SegmentPath = "data-rate-interface" + types.AddKeyToken(dataRateInterface.InterfaceName, "interface-name")
     dataRateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataRateInterface.EntityData.Children = make(map[string]types.YChild)
-    dataRateInterface.EntityData.Children["samples"] = types.YChild{"Samples", &dataRateInterface.Samples}
-    dataRateInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataRateInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", dataRateInterface.InterfaceName}
+    dataRateInterface.EntityData.Children = types.NewOrderedMap()
+    dataRateInterface.EntityData.Children.Append("samples", types.YChild{"Samples", &dataRateInterface.Samples})
+    dataRateInterface.EntityData.Leafs = types.NewOrderedMap()
+    dataRateInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", dataRateInterface.InterfaceName})
+
+    dataRateInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(dataRateInterface.EntityData)
 }
 
@@ -3725,7 +3980,7 @@ type PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Samples str
 
     // Data Rates sample. The type is slice of
     // PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Samples_Sample.
-    Sample []PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Samples_Sample
+    Sample []*PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Samples_Sample
 }
 
 func (samples *PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Samples) GetEntityData() *types.CommonEntityData {
@@ -3738,12 +3993,15 @@ func (samples *PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_S
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    samples.EntityData.Children = make(map[string]types.YChild)
-    samples.EntityData.Children["sample"] = types.YChild{"Sample", nil}
+    samples.EntityData.Children = types.NewOrderedMap()
+    samples.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range samples.Sample {
-        samples.EntityData.Children[types.GetSegmentPath(&samples.Sample[i])] = types.YChild{"Sample", &samples.Sample[i]}
+        samples.EntityData.Children.Append(types.GetSegmentPath(samples.Sample[i]), types.YChild{"Sample", samples.Sample[i]})
     }
-    samples.EntityData.Leafs = make(map[string]types.YLeaf)
+    samples.EntityData.Leafs = types.NewOrderedMap()
+
+    samples.EntityData.YListKeys = []string {}
+
     return &(samples.EntityData)
 }
 
@@ -3799,24 +4057,27 @@ func (sample *PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Sa
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
-    sample.EntityData.SegmentPath = "sample" + "[sample-id='" + fmt.Sprintf("%v", sample.SampleId) + "']"
+    sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sample.EntityData.Children = make(map[string]types.YChild)
-    sample.EntityData.Leafs = make(map[string]types.YLeaf)
-    sample.EntityData.Leafs["sample-id"] = types.YLeaf{"SampleId", sample.SampleId}
-    sample.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", sample.TimeStamp}
-    sample.EntityData.Leafs["input-data-rate"] = types.YLeaf{"InputDataRate", sample.InputDataRate}
-    sample.EntityData.Leafs["input-packet-rate"] = types.YLeaf{"InputPacketRate", sample.InputPacketRate}
-    sample.EntityData.Leafs["output-data-rate"] = types.YLeaf{"OutputDataRate", sample.OutputDataRate}
-    sample.EntityData.Leafs["output-packet-rate"] = types.YLeaf{"OutputPacketRate", sample.OutputPacketRate}
-    sample.EntityData.Leafs["input-peak-rate"] = types.YLeaf{"InputPeakRate", sample.InputPeakRate}
-    sample.EntityData.Leafs["input-peak-pkts"] = types.YLeaf{"InputPeakPkts", sample.InputPeakPkts}
-    sample.EntityData.Leafs["output-peak-rate"] = types.YLeaf{"OutputPeakRate", sample.OutputPeakRate}
-    sample.EntityData.Leafs["output-peak-pkts"] = types.YLeaf{"OutputPeakPkts", sample.OutputPeakPkts}
-    sample.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", sample.Bandwidth}
+    sample.EntityData.Children = types.NewOrderedMap()
+    sample.EntityData.Leafs = types.NewOrderedMap()
+    sample.EntityData.Leafs.Append("sample-id", types.YLeaf{"SampleId", sample.SampleId})
+    sample.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", sample.TimeStamp})
+    sample.EntityData.Leafs.Append("input-data-rate", types.YLeaf{"InputDataRate", sample.InputDataRate})
+    sample.EntityData.Leafs.Append("input-packet-rate", types.YLeaf{"InputPacketRate", sample.InputPacketRate})
+    sample.EntityData.Leafs.Append("output-data-rate", types.YLeaf{"OutputDataRate", sample.OutputDataRate})
+    sample.EntityData.Leafs.Append("output-packet-rate", types.YLeaf{"OutputPacketRate", sample.OutputPacketRate})
+    sample.EntityData.Leafs.Append("input-peak-rate", types.YLeaf{"InputPeakRate", sample.InputPeakRate})
+    sample.EntityData.Leafs.Append("input-peak-pkts", types.YLeaf{"InputPeakPkts", sample.InputPeakPkts})
+    sample.EntityData.Leafs.Append("output-peak-rate", types.YLeaf{"OutputPeakRate", sample.OutputPeakRate})
+    sample.EntityData.Leafs.Append("output-peak-pkts", types.YLeaf{"OutputPeakPkts", sample.OutputPeakPkts})
+    sample.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", sample.Bandwidth})
+
+    sample.EntityData.YListKeys = []string {"SampleId"}
+
     return &(sample.EntityData)
 }
 

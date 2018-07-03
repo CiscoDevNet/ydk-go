@@ -27,7 +27,7 @@ type VM struct {
     YFilter yfilter.YFilter
 
     // The type is slice of VM_AllLocations.
-    AllLocations []VM_AllLocations
+    AllLocations []*VM_AllLocations
 }
 
 func (vM *VM) GetEntityData() *types.CommonEntityData {
@@ -40,12 +40,15 @@ func (vM *VM) GetEntityData() *types.CommonEntityData {
     vM.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vM.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vM.EntityData.Children = make(map[string]types.YChild)
-    vM.EntityData.Children["all-locations"] = types.YChild{"AllLocations", nil}
+    vM.EntityData.Children = types.NewOrderedMap()
+    vM.EntityData.Children.Append("all-locations", types.YChild{"AllLocations", nil})
     for i := range vM.AllLocations {
-        vM.EntityData.Children[types.GetSegmentPath(&vM.AllLocations[i])] = types.YChild{"AllLocations", &vM.AllLocations[i]}
+        vM.EntityData.Children.Append(types.GetSegmentPath(vM.AllLocations[i]), types.YChild{"AllLocations", vM.AllLocations[i]})
     }
-    vM.EntityData.Leafs = make(map[string]types.YLeaf)
+    vM.EntityData.Leafs = types.NewOrderedMap()
+
+    vM.EntityData.YListKeys = []string {}
+
     return &(vM.EntityData)
 }
 
@@ -58,7 +61,7 @@ type VM_AllLocations struct {
     Location interface{}
 
     // The type is slice of VM_AllLocations_AllUiids.
-    AllUiids []VM_AllLocations_AllUiids
+    AllUiids []*VM_AllLocations_AllUiids
 }
 
 func (allLocations *VM_AllLocations) GetEntityData() *types.CommonEntityData {
@@ -66,18 +69,21 @@ func (allLocations *VM_AllLocations) GetEntityData() *types.CommonEntityData {
     allLocations.EntityData.YangName = "all-locations"
     allLocations.EntityData.BundleName = "cisco_ios_xr"
     allLocations.EntityData.ParentYangName = "VM"
-    allLocations.EntityData.SegmentPath = "all-locations" + "[location='" + fmt.Sprintf("%v", allLocations.Location) + "']"
+    allLocations.EntityData.SegmentPath = "all-locations" + types.AddKeyToken(allLocations.Location, "location")
     allLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allLocations.EntityData.Children = make(map[string]types.YChild)
-    allLocations.EntityData.Children["all-uiids"] = types.YChild{"AllUiids", nil}
+    allLocations.EntityData.Children = types.NewOrderedMap()
+    allLocations.EntityData.Children.Append("all-uiids", types.YChild{"AllUiids", nil})
     for i := range allLocations.AllUiids {
-        allLocations.EntityData.Children[types.GetSegmentPath(&allLocations.AllUiids[i])] = types.YChild{"AllUiids", &allLocations.AllUiids[i]}
+        allLocations.EntityData.Children.Append(types.GetSegmentPath(allLocations.AllUiids[i]), types.YChild{"AllUiids", allLocations.AllUiids[i]})
     }
-    allLocations.EntityData.Leafs = make(map[string]types.YLeaf)
-    allLocations.EntityData.Leafs["location"] = types.YLeaf{"Location", allLocations.Location}
+    allLocations.EntityData.Leafs = types.NewOrderedMap()
+    allLocations.EntityData.Leafs.Append("location", types.YLeaf{"Location", allLocations.Location})
+
+    allLocations.EntityData.YListKeys = []string {"Location"}
+
     return &(allLocations.EntityData)
 }
 
@@ -119,22 +125,25 @@ func (allUiids *VM_AllLocations_AllUiids) GetEntityData() *types.CommonEntityDat
     allUiids.EntityData.YangName = "all-uiids"
     allUiids.EntityData.BundleName = "cisco_ios_xr"
     allUiids.EntityData.ParentYangName = "all-locations"
-    allUiids.EntityData.SegmentPath = "all-uiids" + "[uiid='" + fmt.Sprintf("%v", allUiids.Uiid) + "']"
+    allUiids.EntityData.SegmentPath = "all-uiids" + types.AddKeyToken(allUiids.Uiid, "uiid")
     allUiids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allUiids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allUiids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allUiids.EntityData.Children = make(map[string]types.YChild)
-    allUiids.EntityData.Leafs = make(map[string]types.YLeaf)
-    allUiids.EntityData.Leafs["uiid"] = types.YLeaf{"Uiid", allUiids.Uiid}
-    allUiids.EntityData.Leafs["id"] = types.YLeaf{"Id", allUiids.Id}
-    allUiids.EntityData.Leafs["status"] = types.YLeaf{"Status", allUiids.Status}
-    allUiids.EntityData.Leafs["ipaddr"] = types.YLeaf{"Ipaddr", allUiids.Ipaddr}
-    allUiids.EntityData.Leafs["hb_interval_s"] = types.YLeaf{"HbIntervalS", allUiids.HbIntervalS}
-    allUiids.EntityData.Leafs["hb_interval_ns"] = types.YLeaf{"HbIntervalNs", allUiids.HbIntervalNs}
-    allUiids.EntityData.Leafs["last_hb_sent"] = types.YLeaf{"LastHbSent", allUiids.LastHbSent}
-    allUiids.EntityData.Leafs["last_hb_rec"] = types.YLeaf{"LastHbRec", allUiids.LastHbRec}
-    allUiids.EntityData.Leafs["role"] = types.YLeaf{"Role", allUiids.Role}
+    allUiids.EntityData.Children = types.NewOrderedMap()
+    allUiids.EntityData.Leafs = types.NewOrderedMap()
+    allUiids.EntityData.Leafs.Append("uiid", types.YLeaf{"Uiid", allUiids.Uiid})
+    allUiids.EntityData.Leafs.Append("id", types.YLeaf{"Id", allUiids.Id})
+    allUiids.EntityData.Leafs.Append("status", types.YLeaf{"Status", allUiids.Status})
+    allUiids.EntityData.Leafs.Append("ipaddr", types.YLeaf{"Ipaddr", allUiids.Ipaddr})
+    allUiids.EntityData.Leafs.Append("hb_interval_s", types.YLeaf{"HbIntervalS", allUiids.HbIntervalS})
+    allUiids.EntityData.Leafs.Append("hb_interval_ns", types.YLeaf{"HbIntervalNs", allUiids.HbIntervalNs})
+    allUiids.EntityData.Leafs.Append("last_hb_sent", types.YLeaf{"LastHbSent", allUiids.LastHbSent})
+    allUiids.EntityData.Leafs.Append("last_hb_rec", types.YLeaf{"LastHbRec", allUiids.LastHbRec})
+    allUiids.EntityData.Leafs.Append("role", types.YLeaf{"Role", allUiids.Role})
+
+    allUiids.EntityData.YListKeys = []string {"Uiid"}
+
     return &(allUiids.EntityData)
 }
 

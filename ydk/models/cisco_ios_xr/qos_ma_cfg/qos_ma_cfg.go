@@ -74,9 +74,12 @@ func (qos *Qos) GetEntityData() *types.CommonEntityData {
     qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qos.EntityData.Children = make(map[string]types.YChild)
-    qos.EntityData.Leafs = make(map[string]types.YLeaf)
-    qos.EntityData.Leafs["fabric-service-policy"] = types.YLeaf{"FabricServicePolicy", qos.FabricServicePolicy}
+    qos.EntityData.Children = types.NewOrderedMap()
+    qos.EntityData.Leafs = types.NewOrderedMap()
+    qos.EntityData.Leafs.Append("fabric-service-policy", types.YLeaf{"FabricServicePolicy", qos.FabricServicePolicy})
+
+    qos.EntityData.YListKeys = []string {}
+
     return &(qos.EntityData)
 }
 

@@ -37,7 +37,6 @@ const (
 
 // Mfwd
 // Multicast routing configuration
-// This type is a presence type.
 type Mfwd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -59,16 +58,18 @@ func (mfwd *Mfwd) GetEntityData() *types.CommonEntityData {
     mfwd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mfwd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mfwd.EntityData.Children = make(map[string]types.YChild)
-    mfwd.EntityData.Children["default-context"] = types.YChild{"DefaultContext", &mfwd.DefaultContext}
-    mfwd.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &mfwd.Vrfs}
-    mfwd.EntityData.Leafs = make(map[string]types.YLeaf)
+    mfwd.EntityData.Children = types.NewOrderedMap()
+    mfwd.EntityData.Children.Append("default-context", types.YChild{"DefaultContext", &mfwd.DefaultContext})
+    mfwd.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &mfwd.Vrfs})
+    mfwd.EntityData.Leafs = types.NewOrderedMap()
+
+    mfwd.EntityData.YListKeys = []string {}
+
     return &(mfwd.EntityData)
 }
 
 // Mfwd_DefaultContext
 // Default Context
-// This type is a presence type.
 type Mfwd_DefaultContext struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -90,10 +91,13 @@ func (defaultContext *Mfwd_DefaultContext) GetEntityData() *types.CommonEntityDa
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultContext.EntityData.Children = make(map[string]types.YChild)
-    defaultContext.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &defaultContext.Ipv6}
-    defaultContext.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &defaultContext.Ipv4}
-    defaultContext.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultContext.EntityData.Children = types.NewOrderedMap()
+    defaultContext.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &defaultContext.Ipv6})
+    defaultContext.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &defaultContext.Ipv4})
+    defaultContext.EntityData.Leafs = types.NewOrderedMap()
+
+    defaultContext.EntityData.YListKeys = []string {}
+
     return &(defaultContext.EntityData)
 }
 
@@ -153,20 +157,23 @@ func (ipv6 *Mfwd_DefaultContext_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["static-rpf-rules"] = types.YChild{"StaticRpfRules", &ipv6.StaticRpfRules}
-    ipv6.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv6.Interfaces}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["enable-on-all-interfaces"] = types.YLeaf{"EnableOnAllInterfaces", ipv6.EnableOnAllInterfaces}
-    ipv6.EntityData.Leafs["maximum-checking-disable"] = types.YLeaf{"MaximumCheckingDisable", ipv6.MaximumCheckingDisable}
-    ipv6.EntityData.Leafs["rate-per-route"] = types.YLeaf{"RatePerRoute", ipv6.RatePerRoute}
-    ipv6.EntityData.Leafs["interface-inheritance-disable"] = types.YLeaf{"InterfaceInheritanceDisable", ipv6.InterfaceInheritanceDisable}
-    ipv6.EntityData.Leafs["mofrr-lockout-timer-config"] = types.YLeaf{"MofrrLockoutTimerConfig", ipv6.MofrrLockoutTimerConfig}
-    ipv6.EntityData.Leafs["forwarding-latency"] = types.YLeaf{"ForwardingLatency", ipv6.ForwardingLatency}
-    ipv6.EntityData.Leafs["mofrr-loss-detection-timer-config"] = types.YLeaf{"MofrrLossDetectionTimerConfig", ipv6.MofrrLossDetectionTimerConfig}
-    ipv6.EntityData.Leafs["multicast-forwarding"] = types.YLeaf{"MulticastForwarding", ipv6.MulticastForwarding}
-    ipv6.EntityData.Leafs["log-traps"] = types.YLeaf{"LogTraps", ipv6.LogTraps}
-    ipv6.EntityData.Leafs["accounting"] = types.YLeaf{"Accounting", ipv6.Accounting}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("static-rpf-rules", types.YChild{"StaticRpfRules", &ipv6.StaticRpfRules})
+    ipv6.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv6.Interfaces})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("enable-on-all-interfaces", types.YLeaf{"EnableOnAllInterfaces", ipv6.EnableOnAllInterfaces})
+    ipv6.EntityData.Leafs.Append("maximum-checking-disable", types.YLeaf{"MaximumCheckingDisable", ipv6.MaximumCheckingDisable})
+    ipv6.EntityData.Leafs.Append("rate-per-route", types.YLeaf{"RatePerRoute", ipv6.RatePerRoute})
+    ipv6.EntityData.Leafs.Append("interface-inheritance-disable", types.YLeaf{"InterfaceInheritanceDisable", ipv6.InterfaceInheritanceDisable})
+    ipv6.EntityData.Leafs.Append("mofrr-lockout-timer-config", types.YLeaf{"MofrrLockoutTimerConfig", ipv6.MofrrLockoutTimerConfig})
+    ipv6.EntityData.Leafs.Append("forwarding-latency", types.YLeaf{"ForwardingLatency", ipv6.ForwardingLatency})
+    ipv6.EntityData.Leafs.Append("mofrr-loss-detection-timer-config", types.YLeaf{"MofrrLossDetectionTimerConfig", ipv6.MofrrLossDetectionTimerConfig})
+    ipv6.EntityData.Leafs.Append("multicast-forwarding", types.YLeaf{"MulticastForwarding", ipv6.MulticastForwarding})
+    ipv6.EntityData.Leafs.Append("log-traps", types.YLeaf{"LogTraps", ipv6.LogTraps})
+    ipv6.EntityData.Leafs.Append("accounting", types.YLeaf{"Accounting", ipv6.Accounting})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -178,7 +185,7 @@ type Mfwd_DefaultContext_Ipv6_StaticRpfRules struct {
 
     // RPF prefix address and mask. The type is slice of
     // Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule.
-    StaticRpfRule []Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule
+    StaticRpfRule []*Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule
 }
 
 func (staticRpfRules *Mfwd_DefaultContext_Ipv6_StaticRpfRules) GetEntityData() *types.CommonEntityData {
@@ -191,12 +198,15 @@ func (staticRpfRules *Mfwd_DefaultContext_Ipv6_StaticRpfRules) GetEntityData() *
     staticRpfRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRpfRules.EntityData.Children = make(map[string]types.YChild)
-    staticRpfRules.EntityData.Children["static-rpf-rule"] = types.YChild{"StaticRpfRule", nil}
+    staticRpfRules.EntityData.Children = types.NewOrderedMap()
+    staticRpfRules.EntityData.Children.Append("static-rpf-rule", types.YChild{"StaticRpfRule", nil})
     for i := range staticRpfRules.StaticRpfRule {
-        staticRpfRules.EntityData.Children[types.GetSegmentPath(&staticRpfRules.StaticRpfRule[i])] = types.YChild{"StaticRpfRule", &staticRpfRules.StaticRpfRule[i]}
+        staticRpfRules.EntityData.Children.Append(types.GetSegmentPath(staticRpfRules.StaticRpfRule[i]), types.YChild{"StaticRpfRule", staticRpfRules.StaticRpfRule[i]})
     }
-    staticRpfRules.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticRpfRules.EntityData.Leafs = types.NewOrderedMap()
+
+    staticRpfRules.EntityData.YListKeys = []string {}
+
     return &(staticRpfRules.EntityData)
 }
 
@@ -208,9 +218,9 @@ type Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule struct {
 
     // This attribute is a key. IP address of the RPF prefix. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Prefix mask of the RPF Prefix. The type is
@@ -219,14 +229,14 @@ type Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule struct {
 
     // Neighbor address of the RPF Prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     NeighborAddress interface{}
 
     // The name of the RPF interface. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'. This attribute is mandatory.
+    // [a-zA-Z0-9./-]+. This attribute is mandatory.
     InterfaceName interface{}
 }
 
@@ -235,17 +245,20 @@ func (staticRpfRule *Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule) GetE
     staticRpfRule.EntityData.YangName = "static-rpf-rule"
     staticRpfRule.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRule.EntityData.ParentYangName = "static-rpf-rules"
-    staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + "[address='" + fmt.Sprintf("%v", staticRpfRule.Address) + "']" + "[prefix-mask='" + fmt.Sprintf("%v", staticRpfRule.PrefixMask) + "']"
+    staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + types.AddKeyToken(staticRpfRule.Address, "address") + types.AddKeyToken(staticRpfRule.PrefixMask, "prefix-mask")
     staticRpfRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRpfRule.EntityData.Children = make(map[string]types.YChild)
-    staticRpfRule.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticRpfRule.EntityData.Leafs["address"] = types.YLeaf{"Address", staticRpfRule.Address}
-    staticRpfRule.EntityData.Leafs["prefix-mask"] = types.YLeaf{"PrefixMask", staticRpfRule.PrefixMask}
-    staticRpfRule.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", staticRpfRule.NeighborAddress}
-    staticRpfRule.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", staticRpfRule.InterfaceName}
+    staticRpfRule.EntityData.Children = types.NewOrderedMap()
+    staticRpfRule.EntityData.Leafs = types.NewOrderedMap()
+    staticRpfRule.EntityData.Leafs.Append("address", types.YLeaf{"Address", staticRpfRule.Address})
+    staticRpfRule.EntityData.Leafs.Append("prefix-mask", types.YLeaf{"PrefixMask", staticRpfRule.PrefixMask})
+    staticRpfRule.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", staticRpfRule.NeighborAddress})
+    staticRpfRule.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", staticRpfRule.InterfaceName})
+
+    staticRpfRule.EntityData.YListKeys = []string {"Address", "PrefixMask"}
+
     return &(staticRpfRule.EntityData)
 }
 
@@ -256,8 +269,8 @@ type Mfwd_DefaultContext_Ipv6_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Mfwd_DefaultContext_Ipv6_Interfaces_Interface_.
-    Interface_ []Mfwd_DefaultContext_Ipv6_Interfaces_Interface
+    // Mfwd_DefaultContext_Ipv6_Interfaces_Interface.
+    Interface []*Mfwd_DefaultContext_Ipv6_Interfaces_Interface
 }
 
 func (interfaces *Mfwd_DefaultContext_Ipv6_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -270,12 +283,15 @@ func (interfaces *Mfwd_DefaultContext_Ipv6_Interfaces) GetEntityData() *types.Co
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -286,7 +302,7 @@ type Mfwd_DefaultContext_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // TTL threshold for multicast packets. The type is interface{} with range:
@@ -306,17 +322,20 @@ func (self *Mfwd_DefaultContext_Ipv6_Interfaces_Interface) GetEntityData() *type
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["ttl-threshold"] = types.YLeaf{"TtlThreshold", self.TtlThreshold}
-    self.EntityData.Leafs["enable-on-interface"] = types.YLeaf{"EnableOnInterface", self.EnableOnInterface}
-    self.EntityData.Leafs["boundary"] = types.YLeaf{"Boundary", self.Boundary}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("ttl-threshold", types.YLeaf{"TtlThreshold", self.TtlThreshold})
+    self.EntityData.Leafs.Append("enable-on-interface", types.YLeaf{"EnableOnInterface", self.EnableOnInterface})
+    self.EntityData.Leafs.Append("boundary", types.YLeaf{"Boundary", self.Boundary})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -379,21 +398,24 @@ func (ipv4 *Mfwd_DefaultContext_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["static-rpf-rules"] = types.YChild{"StaticRpfRules", &ipv4.StaticRpfRules}
-    ipv4.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv4.Interfaces}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["out-of-memory-handling"] = types.YLeaf{"OutOfMemoryHandling", ipv4.OutOfMemoryHandling}
-    ipv4.EntityData.Leafs["enable-on-all-interfaces"] = types.YLeaf{"EnableOnAllInterfaces", ipv4.EnableOnAllInterfaces}
-    ipv4.EntityData.Leafs["maximum-checking-disable"] = types.YLeaf{"MaximumCheckingDisable", ipv4.MaximumCheckingDisable}
-    ipv4.EntityData.Leafs["rate-per-route"] = types.YLeaf{"RatePerRoute", ipv4.RatePerRoute}
-    ipv4.EntityData.Leafs["interface-inheritance-disable"] = types.YLeaf{"InterfaceInheritanceDisable", ipv4.InterfaceInheritanceDisable}
-    ipv4.EntityData.Leafs["mofrr-lockout-timer-config"] = types.YLeaf{"MofrrLockoutTimerConfig", ipv4.MofrrLockoutTimerConfig}
-    ipv4.EntityData.Leafs["forwarding-latency"] = types.YLeaf{"ForwardingLatency", ipv4.ForwardingLatency}
-    ipv4.EntityData.Leafs["mofrr-loss-detection-timer-config"] = types.YLeaf{"MofrrLossDetectionTimerConfig", ipv4.MofrrLossDetectionTimerConfig}
-    ipv4.EntityData.Leafs["multicast-forwarding"] = types.YLeaf{"MulticastForwarding", ipv4.MulticastForwarding}
-    ipv4.EntityData.Leafs["log-traps"] = types.YLeaf{"LogTraps", ipv4.LogTraps}
-    ipv4.EntityData.Leafs["accounting"] = types.YLeaf{"Accounting", ipv4.Accounting}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("static-rpf-rules", types.YChild{"StaticRpfRules", &ipv4.StaticRpfRules})
+    ipv4.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv4.Interfaces})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("out-of-memory-handling", types.YLeaf{"OutOfMemoryHandling", ipv4.OutOfMemoryHandling})
+    ipv4.EntityData.Leafs.Append("enable-on-all-interfaces", types.YLeaf{"EnableOnAllInterfaces", ipv4.EnableOnAllInterfaces})
+    ipv4.EntityData.Leafs.Append("maximum-checking-disable", types.YLeaf{"MaximumCheckingDisable", ipv4.MaximumCheckingDisable})
+    ipv4.EntityData.Leafs.Append("rate-per-route", types.YLeaf{"RatePerRoute", ipv4.RatePerRoute})
+    ipv4.EntityData.Leafs.Append("interface-inheritance-disable", types.YLeaf{"InterfaceInheritanceDisable", ipv4.InterfaceInheritanceDisable})
+    ipv4.EntityData.Leafs.Append("mofrr-lockout-timer-config", types.YLeaf{"MofrrLockoutTimerConfig", ipv4.MofrrLockoutTimerConfig})
+    ipv4.EntityData.Leafs.Append("forwarding-latency", types.YLeaf{"ForwardingLatency", ipv4.ForwardingLatency})
+    ipv4.EntityData.Leafs.Append("mofrr-loss-detection-timer-config", types.YLeaf{"MofrrLossDetectionTimerConfig", ipv4.MofrrLossDetectionTimerConfig})
+    ipv4.EntityData.Leafs.Append("multicast-forwarding", types.YLeaf{"MulticastForwarding", ipv4.MulticastForwarding})
+    ipv4.EntityData.Leafs.Append("log-traps", types.YLeaf{"LogTraps", ipv4.LogTraps})
+    ipv4.EntityData.Leafs.Append("accounting", types.YLeaf{"Accounting", ipv4.Accounting})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -405,7 +427,7 @@ type Mfwd_DefaultContext_Ipv4_StaticRpfRules struct {
 
     // RPF prefix address and mask. The type is slice of
     // Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule.
-    StaticRpfRule []Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule
+    StaticRpfRule []*Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule
 }
 
 func (staticRpfRules *Mfwd_DefaultContext_Ipv4_StaticRpfRules) GetEntityData() *types.CommonEntityData {
@@ -418,12 +440,15 @@ func (staticRpfRules *Mfwd_DefaultContext_Ipv4_StaticRpfRules) GetEntityData() *
     staticRpfRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRpfRules.EntityData.Children = make(map[string]types.YChild)
-    staticRpfRules.EntityData.Children["static-rpf-rule"] = types.YChild{"StaticRpfRule", nil}
+    staticRpfRules.EntityData.Children = types.NewOrderedMap()
+    staticRpfRules.EntityData.Children.Append("static-rpf-rule", types.YChild{"StaticRpfRule", nil})
     for i := range staticRpfRules.StaticRpfRule {
-        staticRpfRules.EntityData.Children[types.GetSegmentPath(&staticRpfRules.StaticRpfRule[i])] = types.YChild{"StaticRpfRule", &staticRpfRules.StaticRpfRule[i]}
+        staticRpfRules.EntityData.Children.Append(types.GetSegmentPath(staticRpfRules.StaticRpfRule[i]), types.YChild{"StaticRpfRule", staticRpfRules.StaticRpfRule[i]})
     }
-    staticRpfRules.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticRpfRules.EntityData.Leafs = types.NewOrderedMap()
+
+    staticRpfRules.EntityData.YListKeys = []string {}
+
     return &(staticRpfRules.EntityData)
 }
 
@@ -435,9 +460,9 @@ type Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule struct {
 
     // This attribute is a key. IP address of the RPF prefix. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Prefix mask of the RPF Prefix. The type is
@@ -446,14 +471,14 @@ type Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule struct {
 
     // Neighbor address of the RPF Prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     NeighborAddress interface{}
 
     // The name of the RPF interface. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'. This attribute is mandatory.
+    // [a-zA-Z0-9./-]+. This attribute is mandatory.
     InterfaceName interface{}
 }
 
@@ -462,17 +487,20 @@ func (staticRpfRule *Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule) GetE
     staticRpfRule.EntityData.YangName = "static-rpf-rule"
     staticRpfRule.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRule.EntityData.ParentYangName = "static-rpf-rules"
-    staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + "[address='" + fmt.Sprintf("%v", staticRpfRule.Address) + "']" + "[prefix-mask='" + fmt.Sprintf("%v", staticRpfRule.PrefixMask) + "']"
+    staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + types.AddKeyToken(staticRpfRule.Address, "address") + types.AddKeyToken(staticRpfRule.PrefixMask, "prefix-mask")
     staticRpfRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRpfRule.EntityData.Children = make(map[string]types.YChild)
-    staticRpfRule.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticRpfRule.EntityData.Leafs["address"] = types.YLeaf{"Address", staticRpfRule.Address}
-    staticRpfRule.EntityData.Leafs["prefix-mask"] = types.YLeaf{"PrefixMask", staticRpfRule.PrefixMask}
-    staticRpfRule.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", staticRpfRule.NeighborAddress}
-    staticRpfRule.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", staticRpfRule.InterfaceName}
+    staticRpfRule.EntityData.Children = types.NewOrderedMap()
+    staticRpfRule.EntityData.Leafs = types.NewOrderedMap()
+    staticRpfRule.EntityData.Leafs.Append("address", types.YLeaf{"Address", staticRpfRule.Address})
+    staticRpfRule.EntityData.Leafs.Append("prefix-mask", types.YLeaf{"PrefixMask", staticRpfRule.PrefixMask})
+    staticRpfRule.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", staticRpfRule.NeighborAddress})
+    staticRpfRule.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", staticRpfRule.InterfaceName})
+
+    staticRpfRule.EntityData.YListKeys = []string {"Address", "PrefixMask"}
+
     return &(staticRpfRule.EntityData)
 }
 
@@ -483,8 +511,8 @@ type Mfwd_DefaultContext_Ipv4_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Mfwd_DefaultContext_Ipv4_Interfaces_Interface_.
-    Interface_ []Mfwd_DefaultContext_Ipv4_Interfaces_Interface
+    // Mfwd_DefaultContext_Ipv4_Interfaces_Interface.
+    Interface []*Mfwd_DefaultContext_Ipv4_Interfaces_Interface
 }
 
 func (interfaces *Mfwd_DefaultContext_Ipv4_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -497,12 +525,15 @@ func (interfaces *Mfwd_DefaultContext_Ipv4_Interfaces) GetEntityData() *types.Co
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -513,7 +544,7 @@ type Mfwd_DefaultContext_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // TTL threshold for multicast packets. The type is interface{} with range:
@@ -533,17 +564,20 @@ func (self *Mfwd_DefaultContext_Ipv4_Interfaces_Interface) GetEntityData() *type
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["ttl-threshold"] = types.YLeaf{"TtlThreshold", self.TtlThreshold}
-    self.EntityData.Leafs["enable-on-interface"] = types.YLeaf{"EnableOnInterface", self.EnableOnInterface}
-    self.EntityData.Leafs["boundary"] = types.YLeaf{"Boundary", self.Boundary}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("ttl-threshold", types.YLeaf{"TtlThreshold", self.TtlThreshold})
+    self.EntityData.Leafs.Append("enable-on-interface", types.YLeaf{"EnableOnInterface", self.EnableOnInterface})
+    self.EntityData.Leafs.Append("boundary", types.YLeaf{"Boundary", self.Boundary})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -554,7 +588,7 @@ type Mfwd_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF table names. The type is slice of Mfwd_Vrfs_Vrf.
-    Vrf []Mfwd_Vrfs_Vrf
+    Vrf []*Mfwd_Vrfs_Vrf
 }
 
 func (vrfs *Mfwd_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -567,12 +601,15 @@ func (vrfs *Mfwd_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -597,16 +634,19 @@ func (vrf *Mfwd_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &vrf.Ipv6}
-    vrf.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &vrf.Ipv4}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &vrf.Ipv6})
+    vrf.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &vrf.Ipv4})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -649,15 +689,18 @@ func (ipv6 *Mfwd_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["static-rpf-rules"] = types.YChild{"StaticRpfRules", &ipv6.StaticRpfRules}
-    ipv6.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv6.Interfaces}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["enable-on-all-interfaces"] = types.YLeaf{"EnableOnAllInterfaces", ipv6.EnableOnAllInterfaces}
-    ipv6.EntityData.Leafs["rate-per-route"] = types.YLeaf{"RatePerRoute", ipv6.RatePerRoute}
-    ipv6.EntityData.Leafs["multicast-forwarding"] = types.YLeaf{"MulticastForwarding", ipv6.MulticastForwarding}
-    ipv6.EntityData.Leafs["log-traps"] = types.YLeaf{"LogTraps", ipv6.LogTraps}
-    ipv6.EntityData.Leafs["accounting"] = types.YLeaf{"Accounting", ipv6.Accounting}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("static-rpf-rules", types.YChild{"StaticRpfRules", &ipv6.StaticRpfRules})
+    ipv6.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv6.Interfaces})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("enable-on-all-interfaces", types.YLeaf{"EnableOnAllInterfaces", ipv6.EnableOnAllInterfaces})
+    ipv6.EntityData.Leafs.Append("rate-per-route", types.YLeaf{"RatePerRoute", ipv6.RatePerRoute})
+    ipv6.EntityData.Leafs.Append("multicast-forwarding", types.YLeaf{"MulticastForwarding", ipv6.MulticastForwarding})
+    ipv6.EntityData.Leafs.Append("log-traps", types.YLeaf{"LogTraps", ipv6.LogTraps})
+    ipv6.EntityData.Leafs.Append("accounting", types.YLeaf{"Accounting", ipv6.Accounting})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -669,7 +712,7 @@ type Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules struct {
 
     // RPF prefix address and mask. The type is slice of
     // Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule.
-    StaticRpfRule []Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule
+    StaticRpfRule []*Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule
 }
 
 func (staticRpfRules *Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules) GetEntityData() *types.CommonEntityData {
@@ -682,12 +725,15 @@ func (staticRpfRules *Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules) GetEntityData() *types.
     staticRpfRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRpfRules.EntityData.Children = make(map[string]types.YChild)
-    staticRpfRules.EntityData.Children["static-rpf-rule"] = types.YChild{"StaticRpfRule", nil}
+    staticRpfRules.EntityData.Children = types.NewOrderedMap()
+    staticRpfRules.EntityData.Children.Append("static-rpf-rule", types.YChild{"StaticRpfRule", nil})
     for i := range staticRpfRules.StaticRpfRule {
-        staticRpfRules.EntityData.Children[types.GetSegmentPath(&staticRpfRules.StaticRpfRule[i])] = types.YChild{"StaticRpfRule", &staticRpfRules.StaticRpfRule[i]}
+        staticRpfRules.EntityData.Children.Append(types.GetSegmentPath(staticRpfRules.StaticRpfRule[i]), types.YChild{"StaticRpfRule", staticRpfRules.StaticRpfRule[i]})
     }
-    staticRpfRules.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticRpfRules.EntityData.Leafs = types.NewOrderedMap()
+
+    staticRpfRules.EntityData.YListKeys = []string {}
+
     return &(staticRpfRules.EntityData)
 }
 
@@ -699,9 +745,9 @@ type Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule struct {
 
     // This attribute is a key. IP address of the RPF prefix. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Prefix mask of the RPF Prefix. The type is
@@ -710,14 +756,14 @@ type Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule struct {
 
     // Neighbor address of the RPF Prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     NeighborAddress interface{}
 
     // The name of the RPF interface. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'. This attribute is mandatory.
+    // [a-zA-Z0-9./-]+. This attribute is mandatory.
     InterfaceName interface{}
 }
 
@@ -726,17 +772,20 @@ func (staticRpfRule *Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule) GetEntityD
     staticRpfRule.EntityData.YangName = "static-rpf-rule"
     staticRpfRule.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRule.EntityData.ParentYangName = "static-rpf-rules"
-    staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + "[address='" + fmt.Sprintf("%v", staticRpfRule.Address) + "']" + "[prefix-mask='" + fmt.Sprintf("%v", staticRpfRule.PrefixMask) + "']"
+    staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + types.AddKeyToken(staticRpfRule.Address, "address") + types.AddKeyToken(staticRpfRule.PrefixMask, "prefix-mask")
     staticRpfRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRpfRule.EntityData.Children = make(map[string]types.YChild)
-    staticRpfRule.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticRpfRule.EntityData.Leafs["address"] = types.YLeaf{"Address", staticRpfRule.Address}
-    staticRpfRule.EntityData.Leafs["prefix-mask"] = types.YLeaf{"PrefixMask", staticRpfRule.PrefixMask}
-    staticRpfRule.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", staticRpfRule.NeighborAddress}
-    staticRpfRule.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", staticRpfRule.InterfaceName}
+    staticRpfRule.EntityData.Children = types.NewOrderedMap()
+    staticRpfRule.EntityData.Leafs = types.NewOrderedMap()
+    staticRpfRule.EntityData.Leafs.Append("address", types.YLeaf{"Address", staticRpfRule.Address})
+    staticRpfRule.EntityData.Leafs.Append("prefix-mask", types.YLeaf{"PrefixMask", staticRpfRule.PrefixMask})
+    staticRpfRule.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", staticRpfRule.NeighborAddress})
+    staticRpfRule.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", staticRpfRule.InterfaceName})
+
+    staticRpfRule.EntityData.YListKeys = []string {"Address", "PrefixMask"}
+
     return &(staticRpfRule.EntityData)
 }
 
@@ -747,8 +796,8 @@ type Mfwd_Vrfs_Vrf_Ipv6_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface_.
-    Interface_ []Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface
+    // Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface.
+    Interface []*Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface
 }
 
 func (interfaces *Mfwd_Vrfs_Vrf_Ipv6_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -761,12 +810,15 @@ func (interfaces *Mfwd_Vrfs_Vrf_Ipv6_Interfaces) GetEntityData() *types.CommonEn
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -777,7 +829,7 @@ type Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // TTL threshold for multicast packets. The type is interface{} with range:
@@ -797,17 +849,20 @@ func (self *Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface) GetEntityData() *types.Comm
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["ttl-threshold"] = types.YLeaf{"TtlThreshold", self.TtlThreshold}
-    self.EntityData.Leafs["enable-on-interface"] = types.YLeaf{"EnableOnInterface", self.EnableOnInterface}
-    self.EntityData.Leafs["boundary"] = types.YLeaf{"Boundary", self.Boundary}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("ttl-threshold", types.YLeaf{"TtlThreshold", self.TtlThreshold})
+    self.EntityData.Leafs.Append("enable-on-interface", types.YLeaf{"EnableOnInterface", self.EnableOnInterface})
+    self.EntityData.Leafs.Append("boundary", types.YLeaf{"Boundary", self.Boundary})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -850,15 +905,18 @@ func (ipv4 *Mfwd_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["static-rpf-rules"] = types.YChild{"StaticRpfRules", &ipv4.StaticRpfRules}
-    ipv4.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv4.Interfaces}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["enable-on-all-interfaces"] = types.YLeaf{"EnableOnAllInterfaces", ipv4.EnableOnAllInterfaces}
-    ipv4.EntityData.Leafs["rate-per-route"] = types.YLeaf{"RatePerRoute", ipv4.RatePerRoute}
-    ipv4.EntityData.Leafs["multicast-forwarding"] = types.YLeaf{"MulticastForwarding", ipv4.MulticastForwarding}
-    ipv4.EntityData.Leafs["log-traps"] = types.YLeaf{"LogTraps", ipv4.LogTraps}
-    ipv4.EntityData.Leafs["accounting"] = types.YLeaf{"Accounting", ipv4.Accounting}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("static-rpf-rules", types.YChild{"StaticRpfRules", &ipv4.StaticRpfRules})
+    ipv4.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv4.Interfaces})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("enable-on-all-interfaces", types.YLeaf{"EnableOnAllInterfaces", ipv4.EnableOnAllInterfaces})
+    ipv4.EntityData.Leafs.Append("rate-per-route", types.YLeaf{"RatePerRoute", ipv4.RatePerRoute})
+    ipv4.EntityData.Leafs.Append("multicast-forwarding", types.YLeaf{"MulticastForwarding", ipv4.MulticastForwarding})
+    ipv4.EntityData.Leafs.Append("log-traps", types.YLeaf{"LogTraps", ipv4.LogTraps})
+    ipv4.EntityData.Leafs.Append("accounting", types.YLeaf{"Accounting", ipv4.Accounting})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -870,7 +928,7 @@ type Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules struct {
 
     // RPF prefix address and mask. The type is slice of
     // Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule.
-    StaticRpfRule []Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule
+    StaticRpfRule []*Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule
 }
 
 func (staticRpfRules *Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules) GetEntityData() *types.CommonEntityData {
@@ -883,12 +941,15 @@ func (staticRpfRules *Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules) GetEntityData() *types.
     staticRpfRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRpfRules.EntityData.Children = make(map[string]types.YChild)
-    staticRpfRules.EntityData.Children["static-rpf-rule"] = types.YChild{"StaticRpfRule", nil}
+    staticRpfRules.EntityData.Children = types.NewOrderedMap()
+    staticRpfRules.EntityData.Children.Append("static-rpf-rule", types.YChild{"StaticRpfRule", nil})
     for i := range staticRpfRules.StaticRpfRule {
-        staticRpfRules.EntityData.Children[types.GetSegmentPath(&staticRpfRules.StaticRpfRule[i])] = types.YChild{"StaticRpfRule", &staticRpfRules.StaticRpfRule[i]}
+        staticRpfRules.EntityData.Children.Append(types.GetSegmentPath(staticRpfRules.StaticRpfRule[i]), types.YChild{"StaticRpfRule", staticRpfRules.StaticRpfRule[i]})
     }
-    staticRpfRules.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticRpfRules.EntityData.Leafs = types.NewOrderedMap()
+
+    staticRpfRules.EntityData.YListKeys = []string {}
+
     return &(staticRpfRules.EntityData)
 }
 
@@ -900,9 +961,9 @@ type Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule struct {
 
     // This attribute is a key. IP address of the RPF prefix. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Prefix mask of the RPF Prefix. The type is
@@ -911,14 +972,14 @@ type Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule struct {
 
     // Neighbor address of the RPF Prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     NeighborAddress interface{}
 
     // The name of the RPF interface. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'. This attribute is mandatory.
+    // [a-zA-Z0-9./-]+. This attribute is mandatory.
     InterfaceName interface{}
 }
 
@@ -927,17 +988,20 @@ func (staticRpfRule *Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule) GetEntityD
     staticRpfRule.EntityData.YangName = "static-rpf-rule"
     staticRpfRule.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRule.EntityData.ParentYangName = "static-rpf-rules"
-    staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + "[address='" + fmt.Sprintf("%v", staticRpfRule.Address) + "']" + "[prefix-mask='" + fmt.Sprintf("%v", staticRpfRule.PrefixMask) + "']"
+    staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + types.AddKeyToken(staticRpfRule.Address, "address") + types.AddKeyToken(staticRpfRule.PrefixMask, "prefix-mask")
     staticRpfRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticRpfRule.EntityData.Children = make(map[string]types.YChild)
-    staticRpfRule.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticRpfRule.EntityData.Leafs["address"] = types.YLeaf{"Address", staticRpfRule.Address}
-    staticRpfRule.EntityData.Leafs["prefix-mask"] = types.YLeaf{"PrefixMask", staticRpfRule.PrefixMask}
-    staticRpfRule.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", staticRpfRule.NeighborAddress}
-    staticRpfRule.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", staticRpfRule.InterfaceName}
+    staticRpfRule.EntityData.Children = types.NewOrderedMap()
+    staticRpfRule.EntityData.Leafs = types.NewOrderedMap()
+    staticRpfRule.EntityData.Leafs.Append("address", types.YLeaf{"Address", staticRpfRule.Address})
+    staticRpfRule.EntityData.Leafs.Append("prefix-mask", types.YLeaf{"PrefixMask", staticRpfRule.PrefixMask})
+    staticRpfRule.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", staticRpfRule.NeighborAddress})
+    staticRpfRule.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", staticRpfRule.InterfaceName})
+
+    staticRpfRule.EntityData.YListKeys = []string {"Address", "PrefixMask"}
+
     return &(staticRpfRule.EntityData)
 }
 
@@ -948,8 +1012,8 @@ type Mfwd_Vrfs_Vrf_Ipv4_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface_.
-    Interface_ []Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface
+    // Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface.
+    Interface []*Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface
 }
 
 func (interfaces *Mfwd_Vrfs_Vrf_Ipv4_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -962,12 +1026,15 @@ func (interfaces *Mfwd_Vrfs_Vrf_Ipv4_Interfaces) GetEntityData() *types.CommonEn
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -978,7 +1045,7 @@ type Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // TTL threshold for multicast packets. The type is interface{} with range:
@@ -998,17 +1065,20 @@ func (self *Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface) GetEntityData() *types.Comm
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["ttl-threshold"] = types.YLeaf{"TtlThreshold", self.TtlThreshold}
-    self.EntityData.Leafs["enable-on-interface"] = types.YLeaf{"EnableOnInterface", self.EnableOnInterface}
-    self.EntityData.Leafs["boundary"] = types.YLeaf{"Boundary", self.Boundary}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("ttl-threshold", types.YLeaf{"TtlThreshold", self.TtlThreshold})
+    self.EntityData.Leafs.Append("enable-on-interface", types.YLeaf{"EnableOnInterface", self.EnableOnInterface})
+    self.EntityData.Leafs.Append("boundary", types.YLeaf{"Boundary", self.Boundary})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 

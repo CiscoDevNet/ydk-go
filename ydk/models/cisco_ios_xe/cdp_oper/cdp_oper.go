@@ -19,6 +19,24 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-cdp-oper:cdp-neighbor-details", reflect.TypeOf(CdpNeighborDetails{}))
 }
 
+// CdpEnableDisable represents CDP type enable or disable
+type CdpEnableDisable string
+
+const (
+    CdpEnableDisable_cdp_disable CdpEnableDisable = "cdp-disable"
+
+    CdpEnableDisable_cdp_enable CdpEnableDisable = "cdp-enable"
+)
+
+// CdpYesNo represents CDP type yes or no
+type CdpYesNo string
+
+const (
+    CdpYesNo_cdp_no CdpYesNo = "cdp-no"
+
+    CdpYesNo_cdp_yes CdpYesNo = "cdp-yes"
+)
+
 // CdpDuplex represents CDP duplex modes
 type CdpDuplex string
 
@@ -34,17 +52,6 @@ const (
     CdpDuplex_cdp_full_duplex_mismatch CdpDuplex = "cdp-full-duplex-mismatch"
 )
 
-// CdpAdvVersion represents CDP advertized version information
-type CdpAdvVersion string
-
-const (
-    CdpAdvVersion_cdp_advertised_none CdpAdvVersion = "cdp-advertised-none"
-
-    CdpAdvVersion_cdp_advertised_v1 CdpAdvVersion = "cdp-advertised-v1"
-
-    CdpAdvVersion_cdp_advertised_v2 CdpAdvVersion = "cdp-advertised-v2"
-)
-
 // CdpUnidirectionalMode represents CDP unidirectional modes
 type CdpUnidirectionalMode string
 
@@ -58,22 +65,15 @@ const (
     CdpUnidirectionalMode_cdp_uni_mode_unknown CdpUnidirectionalMode = "cdp-uni-mode-unknown"
 )
 
-// CdpYesNo represents CDP type yes or no
-type CdpYesNo string
+// CdpAdvVersion represents CDP advertized version information
+type CdpAdvVersion string
 
 const (
-    CdpYesNo_cdp_no CdpYesNo = "cdp-no"
+    CdpAdvVersion_cdp_advertised_none CdpAdvVersion = "cdp-advertised-none"
 
-    CdpYesNo_cdp_yes CdpYesNo = "cdp-yes"
-)
+    CdpAdvVersion_cdp_advertised_v1 CdpAdvVersion = "cdp-advertised-v1"
 
-// CdpEnableDisable represents CDP type enable or disable
-type CdpEnableDisable string
-
-const (
-    CdpEnableDisable_cdp_disable CdpEnableDisable = "cdp-disable"
-
-    CdpEnableDisable_cdp_enable CdpEnableDisable = "cdp-enable"
+    CdpAdvVersion_cdp_advertised_v2 CdpAdvVersion = "cdp-advertised-v2"
 )
 
 // CdpNeighborDetails
@@ -84,7 +84,7 @@ type CdpNeighborDetails struct {
 
     // List of CDP neighbor details. The type is slice of
     // CdpNeighborDetails_CdpNeighborDetail.
-    CdpNeighborDetail []CdpNeighborDetails_CdpNeighborDetail
+    CdpNeighborDetail []*CdpNeighborDetails_CdpNeighborDetail
 }
 
 func (cdpNeighborDetails *CdpNeighborDetails) GetEntityData() *types.CommonEntityData {
@@ -97,12 +97,15 @@ func (cdpNeighborDetails *CdpNeighborDetails) GetEntityData() *types.CommonEntit
     cdpNeighborDetails.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpNeighborDetails.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpNeighborDetails.EntityData.Children = make(map[string]types.YChild)
-    cdpNeighborDetails.EntityData.Children["cdp-neighbor-detail"] = types.YChild{"CdpNeighborDetail", nil}
+    cdpNeighborDetails.EntityData.Children = types.NewOrderedMap()
+    cdpNeighborDetails.EntityData.Children.Append("cdp-neighbor-detail", types.YChild{"CdpNeighborDetail", nil})
     for i := range cdpNeighborDetails.CdpNeighborDetail {
-        cdpNeighborDetails.EntityData.Children[types.GetSegmentPath(&cdpNeighborDetails.CdpNeighborDetail[i])] = types.YChild{"CdpNeighborDetail", &cdpNeighborDetails.CdpNeighborDetail[i]}
+        cdpNeighborDetails.EntityData.Children.Append(types.GetSegmentPath(cdpNeighborDetails.CdpNeighborDetail[i]), types.YChild{"CdpNeighborDetail", cdpNeighborDetails.CdpNeighborDetail[i]})
     }
-    cdpNeighborDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdpNeighborDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    cdpNeighborDetails.EntityData.YListKeys = []string {}
+
     return &(cdpNeighborDetails.EntityData)
 }
 
@@ -187,23 +190,23 @@ type CdpNeighborDetails_CdpNeighborDetail struct {
 
     // Device's management addresses. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     MgmtAddress interface{}
 
     // IPv4 address of the device. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // IPv6 address of the device. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // CLNS address of the device. The type is string.
@@ -245,40 +248,43 @@ func (cdpNeighborDetail *CdpNeighborDetails_CdpNeighborDetail) GetEntityData() *
     cdpNeighborDetail.EntityData.YangName = "cdp-neighbor-detail"
     cdpNeighborDetail.EntityData.BundleName = "cisco_ios_xe"
     cdpNeighborDetail.EntityData.ParentYangName = "cdp-neighbor-details"
-    cdpNeighborDetail.EntityData.SegmentPath = "cdp-neighbor-detail" + "[device-id='" + fmt.Sprintf("%v", cdpNeighborDetail.DeviceId) + "']"
+    cdpNeighborDetail.EntityData.SegmentPath = "cdp-neighbor-detail" + types.AddKeyToken(cdpNeighborDetail.DeviceId, "device-id")
     cdpNeighborDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpNeighborDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpNeighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdpNeighborDetail.EntityData.Children = make(map[string]types.YChild)
-    cdpNeighborDetail.EntityData.Children["hello-message"] = types.YChild{"HelloMessage", &cdpNeighborDetail.HelloMessage}
-    cdpNeighborDetail.EntityData.Children["power-request"] = types.YChild{"PowerRequest", &cdpNeighborDetail.PowerRequest}
-    cdpNeighborDetail.EntityData.Children["power-available"] = types.YChild{"PowerAvailable", &cdpNeighborDetail.PowerAvailable}
-    cdpNeighborDetail.EntityData.Children["spare-pair"] = types.YChild{"SparePair", &cdpNeighborDetail.SparePair}
-    cdpNeighborDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdpNeighborDetail.EntityData.Leafs["device-id"] = types.YLeaf{"DeviceId", cdpNeighborDetail.DeviceId}
-    cdpNeighborDetail.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", cdpNeighborDetail.DeviceName}
-    cdpNeighborDetail.EntityData.Leafs["local-intf-name"] = types.YLeaf{"LocalIntfName", cdpNeighborDetail.LocalIntfName}
-    cdpNeighborDetail.EntityData.Leafs["port-id"] = types.YLeaf{"PortId", cdpNeighborDetail.PortId}
-    cdpNeighborDetail.EntityData.Leafs["capability"] = types.YLeaf{"Capability", cdpNeighborDetail.Capability}
-    cdpNeighborDetail.EntityData.Leafs["platform-name"] = types.YLeaf{"PlatformName", cdpNeighborDetail.PlatformName}
-    cdpNeighborDetail.EntityData.Leafs["version"] = types.YLeaf{"Version", cdpNeighborDetail.Version}
-    cdpNeighborDetail.EntityData.Leafs["duplex"] = types.YLeaf{"Duplex", cdpNeighborDetail.Duplex}
-    cdpNeighborDetail.EntityData.Leafs["adv-version"] = types.YLeaf{"AdvVersion", cdpNeighborDetail.AdvVersion}
-    cdpNeighborDetail.EntityData.Leafs["vty-mgmt-domain"] = types.YLeaf{"VtyMgmtDomain", cdpNeighborDetail.VtyMgmtDomain}
-    cdpNeighborDetail.EntityData.Leafs["native-vlan"] = types.YLeaf{"NativeVlan", cdpNeighborDetail.NativeVlan}
-    cdpNeighborDetail.EntityData.Leafs["vvid-tag"] = types.YLeaf{"VvidTag", cdpNeighborDetail.VvidTag}
-    cdpNeighborDetail.EntityData.Leafs["vvid"] = types.YLeaf{"Vvid", cdpNeighborDetail.Vvid}
-    cdpNeighborDetail.EntityData.Leafs["power"] = types.YLeaf{"Power", cdpNeighborDetail.Power}
-    cdpNeighborDetail.EntityData.Leafs["unidirectional-mode"] = types.YLeaf{"UnidirectionalMode", cdpNeighborDetail.UnidirectionalMode}
-    cdpNeighborDetail.EntityData.Leafs["mgmt-address"] = types.YLeaf{"MgmtAddress", cdpNeighborDetail.MgmtAddress}
-    cdpNeighborDetail.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", cdpNeighborDetail.IpAddress}
-    cdpNeighborDetail.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", cdpNeighborDetail.Ipv6Address}
-    cdpNeighborDetail.EntityData.Leafs["clns-address"] = types.YLeaf{"ClnsAddress", cdpNeighborDetail.ClnsAddress}
-    cdpNeighborDetail.EntityData.Leafs["decnet-addr"] = types.YLeaf{"DecnetAddr", cdpNeighborDetail.DecnetAddr}
-    cdpNeighborDetail.EntityData.Leafs["novell-addr"] = types.YLeaf{"NovellAddr", cdpNeighborDetail.NovellAddr}
-    cdpNeighborDetail.EntityData.Leafs["second-port-status"] = types.YLeaf{"SecondPortStatus", cdpNeighborDetail.SecondPortStatus}
-    cdpNeighborDetail.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", cdpNeighborDetail.TableId}
+    cdpNeighborDetail.EntityData.Children = types.NewOrderedMap()
+    cdpNeighborDetail.EntityData.Children.Append("hello-message", types.YChild{"HelloMessage", &cdpNeighborDetail.HelloMessage})
+    cdpNeighborDetail.EntityData.Children.Append("power-request", types.YChild{"PowerRequest", &cdpNeighborDetail.PowerRequest})
+    cdpNeighborDetail.EntityData.Children.Append("power-available", types.YChild{"PowerAvailable", &cdpNeighborDetail.PowerAvailable})
+    cdpNeighborDetail.EntityData.Children.Append("spare-pair", types.YChild{"SparePair", &cdpNeighborDetail.SparePair})
+    cdpNeighborDetail.EntityData.Leafs = types.NewOrderedMap()
+    cdpNeighborDetail.EntityData.Leafs.Append("device-id", types.YLeaf{"DeviceId", cdpNeighborDetail.DeviceId})
+    cdpNeighborDetail.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", cdpNeighborDetail.DeviceName})
+    cdpNeighborDetail.EntityData.Leafs.Append("local-intf-name", types.YLeaf{"LocalIntfName", cdpNeighborDetail.LocalIntfName})
+    cdpNeighborDetail.EntityData.Leafs.Append("port-id", types.YLeaf{"PortId", cdpNeighborDetail.PortId})
+    cdpNeighborDetail.EntityData.Leafs.Append("capability", types.YLeaf{"Capability", cdpNeighborDetail.Capability})
+    cdpNeighborDetail.EntityData.Leafs.Append("platform-name", types.YLeaf{"PlatformName", cdpNeighborDetail.PlatformName})
+    cdpNeighborDetail.EntityData.Leafs.Append("version", types.YLeaf{"Version", cdpNeighborDetail.Version})
+    cdpNeighborDetail.EntityData.Leafs.Append("duplex", types.YLeaf{"Duplex", cdpNeighborDetail.Duplex})
+    cdpNeighborDetail.EntityData.Leafs.Append("adv-version", types.YLeaf{"AdvVersion", cdpNeighborDetail.AdvVersion})
+    cdpNeighborDetail.EntityData.Leafs.Append("vty-mgmt-domain", types.YLeaf{"VtyMgmtDomain", cdpNeighborDetail.VtyMgmtDomain})
+    cdpNeighborDetail.EntityData.Leafs.Append("native-vlan", types.YLeaf{"NativeVlan", cdpNeighborDetail.NativeVlan})
+    cdpNeighborDetail.EntityData.Leafs.Append("vvid-tag", types.YLeaf{"VvidTag", cdpNeighborDetail.VvidTag})
+    cdpNeighborDetail.EntityData.Leafs.Append("vvid", types.YLeaf{"Vvid", cdpNeighborDetail.Vvid})
+    cdpNeighborDetail.EntityData.Leafs.Append("power", types.YLeaf{"Power", cdpNeighborDetail.Power})
+    cdpNeighborDetail.EntityData.Leafs.Append("unidirectional-mode", types.YLeaf{"UnidirectionalMode", cdpNeighborDetail.UnidirectionalMode})
+    cdpNeighborDetail.EntityData.Leafs.Append("mgmt-address", types.YLeaf{"MgmtAddress", cdpNeighborDetail.MgmtAddress})
+    cdpNeighborDetail.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", cdpNeighborDetail.IpAddress})
+    cdpNeighborDetail.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", cdpNeighborDetail.Ipv6Address})
+    cdpNeighborDetail.EntityData.Leafs.Append("clns-address", types.YLeaf{"ClnsAddress", cdpNeighborDetail.ClnsAddress})
+    cdpNeighborDetail.EntityData.Leafs.Append("decnet-addr", types.YLeaf{"DecnetAddr", cdpNeighborDetail.DecnetAddr})
+    cdpNeighborDetail.EntityData.Leafs.Append("novell-addr", types.YLeaf{"NovellAddr", cdpNeighborDetail.NovellAddr})
+    cdpNeighborDetail.EntityData.Leafs.Append("second-port-status", types.YLeaf{"SecondPortStatus", cdpNeighborDetail.SecondPortStatus})
+    cdpNeighborDetail.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", cdpNeighborDetail.TableId})
+
+    cdpNeighborDetail.EntityData.YListKeys = []string {"DeviceId"}
+
     return &(cdpNeighborDetail.EntityData)
 }
 
@@ -313,12 +319,15 @@ func (helloMessage *CdpNeighborDetails_CdpNeighborDetail_HelloMessage) GetEntity
     helloMessage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     helloMessage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    helloMessage.EntityData.Children = make(map[string]types.YChild)
-    helloMessage.EntityData.Leafs = make(map[string]types.YLeaf)
-    helloMessage.EntityData.Leafs["oui"] = types.YLeaf{"Oui", helloMessage.Oui}
-    helloMessage.EntityData.Leafs["protocol-id"] = types.YLeaf{"ProtocolId", helloMessage.ProtocolId}
-    helloMessage.EntityData.Leafs["payload-value"] = types.YLeaf{"PayloadValue", helloMessage.PayloadValue}
-    helloMessage.EntityData.Leafs["payload-len"] = types.YLeaf{"PayloadLen", helloMessage.PayloadLen}
+    helloMessage.EntityData.Children = types.NewOrderedMap()
+    helloMessage.EntityData.Leafs = types.NewOrderedMap()
+    helloMessage.EntityData.Leafs.Append("oui", types.YLeaf{"Oui", helloMessage.Oui})
+    helloMessage.EntityData.Leafs.Append("protocol-id", types.YLeaf{"ProtocolId", helloMessage.ProtocolId})
+    helloMessage.EntityData.Leafs.Append("payload-value", types.YLeaf{"PayloadValue", helloMessage.PayloadValue})
+    helloMessage.EntityData.Leafs.Append("payload-len", types.YLeaf{"PayloadLen", helloMessage.PayloadLen})
+
+    helloMessage.EntityData.YListKeys = []string {}
+
     return &(helloMessage.EntityData)
 }
 
@@ -356,11 +365,14 @@ func (powerRequest *CdpNeighborDetails_CdpNeighborDetail_PowerRequest) GetEntity
     powerRequest.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     powerRequest.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    powerRequest.EntityData.Children = make(map[string]types.YChild)
-    powerRequest.EntityData.Leafs = make(map[string]types.YLeaf)
-    powerRequest.EntityData.Leafs["power-request-id"] = types.YLeaf{"PowerRequestId", powerRequest.PowerRequestId}
-    powerRequest.EntityData.Leafs["power-man-id"] = types.YLeaf{"PowerManId", powerRequest.PowerManId}
-    powerRequest.EntityData.Leafs["power-request-level"] = types.YLeaf{"PowerRequestLevel", powerRequest.PowerRequestLevel}
+    powerRequest.EntityData.Children = types.NewOrderedMap()
+    powerRequest.EntityData.Leafs = types.NewOrderedMap()
+    powerRequest.EntityData.Leafs.Append("power-request-id", types.YLeaf{"PowerRequestId", powerRequest.PowerRequestId})
+    powerRequest.EntityData.Leafs.Append("power-man-id", types.YLeaf{"PowerManId", powerRequest.PowerManId})
+    powerRequest.EntityData.Leafs.Append("power-request-level", types.YLeaf{"PowerRequestLevel", powerRequest.PowerRequestLevel})
+
+    powerRequest.EntityData.YListKeys = []string {}
+
     return &(powerRequest.EntityData)
 }
 
@@ -403,12 +415,15 @@ func (powerAvailable *CdpNeighborDetails_CdpNeighborDetail_PowerAvailable) GetEn
     powerAvailable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     powerAvailable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    powerAvailable.EntityData.Children = make(map[string]types.YChild)
-    powerAvailable.EntityData.Leafs = make(map[string]types.YLeaf)
-    powerAvailable.EntityData.Leafs["power-request-id"] = types.YLeaf{"PowerRequestId", powerAvailable.PowerRequestId}
-    powerAvailable.EntityData.Leafs["power-man-id"] = types.YLeaf{"PowerManId", powerAvailable.PowerManId}
-    powerAvailable.EntityData.Leafs["power-available"] = types.YLeaf{"PowerAvailable", powerAvailable.PowerAvailable}
-    powerAvailable.EntityData.Leafs["power-man-level"] = types.YLeaf{"PowerManLevel", powerAvailable.PowerManLevel}
+    powerAvailable.EntityData.Children = types.NewOrderedMap()
+    powerAvailable.EntityData.Leafs = types.NewOrderedMap()
+    powerAvailable.EntityData.Leafs.Append("power-request-id", types.YLeaf{"PowerRequestId", powerAvailable.PowerRequestId})
+    powerAvailable.EntityData.Leafs.Append("power-man-id", types.YLeaf{"PowerManId", powerAvailable.PowerManId})
+    powerAvailable.EntityData.Leafs.Append("power-available", types.YLeaf{"PowerAvailable", powerAvailable.PowerAvailable})
+    powerAvailable.EntityData.Leafs.Append("power-man-level", types.YLeaf{"PowerManLevel", powerAvailable.PowerManLevel})
+
+    powerAvailable.EntityData.YListKeys = []string {}
+
     return &(powerAvailable.EntityData)
 }
 
@@ -453,12 +468,15 @@ func (sparePair *CdpNeighborDetails_CdpNeighborDetail_SparePair) GetEntityData()
     sparePair.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sparePair.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sparePair.EntityData.Children = make(map[string]types.YChild)
-    sparePair.EntityData.Leafs = make(map[string]types.YLeaf)
-    sparePair.EntityData.Leafs["spare-pair-poe"] = types.YLeaf{"SparePairPoe", sparePair.SparePairPoe}
-    sparePair.EntityData.Leafs["spare-pair-detection-required"] = types.YLeaf{"SparePairDetectionRequired", sparePair.SparePairDetectionRequired}
-    sparePair.EntityData.Leafs["spare-pair-pd-config"] = types.YLeaf{"SparePairPdConfig", sparePair.SparePairPdConfig}
-    sparePair.EntityData.Leafs["spare-pair-pse-operational"] = types.YLeaf{"SparePairPseOperational", sparePair.SparePairPseOperational}
+    sparePair.EntityData.Children = types.NewOrderedMap()
+    sparePair.EntityData.Leafs = types.NewOrderedMap()
+    sparePair.EntityData.Leafs.Append("spare-pair-poe", types.YLeaf{"SparePairPoe", sparePair.SparePairPoe})
+    sparePair.EntityData.Leafs.Append("spare-pair-detection-required", types.YLeaf{"SparePairDetectionRequired", sparePair.SparePairDetectionRequired})
+    sparePair.EntityData.Leafs.Append("spare-pair-pd-config", types.YLeaf{"SparePairPdConfig", sparePair.SparePairPdConfig})
+    sparePair.EntityData.Leafs.Append("spare-pair-pse-operational", types.YLeaf{"SparePairPseOperational", sparePair.SparePairPseOperational})
+
+    sparePair.EntityData.YListKeys = []string {}
+
     return &(sparePair.EntityData)
 }
 

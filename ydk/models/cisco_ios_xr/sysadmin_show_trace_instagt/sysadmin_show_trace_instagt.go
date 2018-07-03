@@ -32,7 +32,7 @@ type Instagt struct {
     YFilter yfilter.YFilter
 
     // show traceable processes. The type is slice of Instagt_Trace.
-    Trace []Instagt_Trace
+    Trace []*Instagt_Trace
 }
 
 func (instagt *Instagt) GetEntityData() *types.CommonEntityData {
@@ -45,12 +45,15 @@ func (instagt *Instagt) GetEntityData() *types.CommonEntityData {
     instagt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instagt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instagt.EntityData.Children = make(map[string]types.YChild)
-    instagt.EntityData.Children["trace"] = types.YChild{"Trace", nil}
+    instagt.EntityData.Children = types.NewOrderedMap()
+    instagt.EntityData.Children.Append("trace", types.YChild{"Trace", nil})
     for i := range instagt.Trace {
-        instagt.EntityData.Children[types.GetSegmentPath(&instagt.Trace[i])] = types.YChild{"Trace", &instagt.Trace[i]}
+        instagt.EntityData.Children.Append(types.GetSegmentPath(instagt.Trace[i]), types.YChild{"Trace", instagt.Trace[i]})
     }
-    instagt.EntityData.Leafs = make(map[string]types.YLeaf)
+    instagt.EntityData.Leafs = types.NewOrderedMap()
+
+    instagt.EntityData.YListKeys = []string {}
+
     return &(instagt.EntityData)
 }
 
@@ -64,7 +67,7 @@ type Instagt_Trace struct {
     Buffer interface{}
 
     // The type is slice of Instagt_Trace_Location.
-    Location []Instagt_Trace_Location
+    Location []*Instagt_Trace_Location
 }
 
 func (trace *Instagt_Trace) GetEntityData() *types.CommonEntityData {
@@ -72,18 +75,21 @@ func (trace *Instagt_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.YangName = "trace"
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "instagt"
-    trace.EntityData.SegmentPath = "trace" + "[buffer='" + fmt.Sprintf("%v", trace.Buffer) + "']"
+    trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace.EntityData.Children = make(map[string]types.YChild)
-    trace.EntityData.Children["location"] = types.YChild{"Location", nil}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range trace.Location {
-        trace.EntityData.Children[types.GetSegmentPath(&trace.Location[i])] = types.YChild{"Location", &trace.Location[i]}
+        trace.EntityData.Children.Append(types.GetSegmentPath(trace.Location[i]), types.YChild{"Location", trace.Location[i]})
     }
-    trace.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace.EntityData.Leafs["buffer"] = types.YLeaf{"Buffer", trace.Buffer}
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("buffer", types.YLeaf{"Buffer", trace.Buffer})
+
+    trace.EntityData.YListKeys = []string {"Buffer"}
+
     return &(trace.EntityData)
 }
 
@@ -96,7 +102,7 @@ type Instagt_Trace_Location struct {
     LocationName interface{}
 
     // The type is slice of Instagt_Trace_Location_AllOptions.
-    AllOptions []Instagt_Trace_Location_AllOptions
+    AllOptions []*Instagt_Trace_Location_AllOptions
 }
 
 func (location *Instagt_Trace_Location) GetEntityData() *types.CommonEntityData {
@@ -104,18 +110,21 @@ func (location *Instagt_Trace_Location) GetEntityData() *types.CommonEntityData 
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
-    location.EntityData.SegmentPath = "location" + "[location_name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["all-options"] = types.YChild{"AllOptions", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("all-options", types.YChild{"AllOptions", nil})
     for i := range location.AllOptions {
-        location.EntityData.Children[types.GetSegmentPath(&location.AllOptions[i])] = types.YChild{"AllOptions", &location.AllOptions[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.AllOptions[i]), types.YChild{"AllOptions", location.AllOptions[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location_name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location_name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -128,7 +137,7 @@ type Instagt_Trace_Location_AllOptions struct {
     Option interface{}
 
     // The type is slice of Instagt_Trace_Location_AllOptions_TraceBlocks.
-    TraceBlocks []Instagt_Trace_Location_AllOptions_TraceBlocks
+    TraceBlocks []*Instagt_Trace_Location_AllOptions_TraceBlocks
 }
 
 func (allOptions *Instagt_Trace_Location_AllOptions) GetEntityData() *types.CommonEntityData {
@@ -136,18 +145,21 @@ func (allOptions *Instagt_Trace_Location_AllOptions) GetEntityData() *types.Comm
     allOptions.EntityData.YangName = "all-options"
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
-    allOptions.EntityData.SegmentPath = "all-options" + "[option='" + fmt.Sprintf("%v", allOptions.Option) + "']"
+    allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allOptions.EntityData.Children = make(map[string]types.YChild)
-    allOptions.EntityData.Children["trace-blocks"] = types.YChild{"TraceBlocks", nil}
+    allOptions.EntityData.Children = types.NewOrderedMap()
+    allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
-        allOptions.EntityData.Children[types.GetSegmentPath(&allOptions.TraceBlocks[i])] = types.YChild{"TraceBlocks", &allOptions.TraceBlocks[i]}
+        allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
-    allOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    allOptions.EntityData.Leafs["option"] = types.YLeaf{"Option", allOptions.Option}
+    allOptions.EntityData.Leafs = types.NewOrderedMap()
+    allOptions.EntityData.Leafs.Append("option", types.YLeaf{"Option", allOptions.Option})
+
+    allOptions.EntityData.YListKeys = []string {"Option"}
+
     return &(allOptions.EntityData)
 }
 
@@ -170,9 +182,12 @@ func (traceBlocks *Instagt_Trace_Location_AllOptions_TraceBlocks) GetEntityData(
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traceBlocks.EntityData.Children = make(map[string]types.YChild)
-    traceBlocks.EntityData.Leafs = make(map[string]types.YLeaf)
-    traceBlocks.EntityData.Leafs["data"] = types.YLeaf{"Data", traceBlocks.Data}
+    traceBlocks.EntityData.Children = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs.Append("data", types.YLeaf{"Data", traceBlocks.Data})
+
+    traceBlocks.EntityData.YListKeys = []string {}
+
     return &(traceBlocks.EntityData)
 }
 

@@ -42,6 +42,10 @@ module Cisco-IOS-XR-manageability-object-tracking-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -60,7 +64,7 @@ module Cisco-IOS-XR-manageability-object-tracking-cfg {
       description
         "Track name object";
       leaf object-weight {
-        type int32;
+        type uint32;
         default "1";
         description
           "Weight of object";
@@ -90,14 +94,14 @@ module Cisco-IOS-XR-manageability-object-tracking-cfg {
             "Threshold limit at which track is set to UP
              state";
           leaf threshold-down {
-            type int32;
+            type uint32;
             default "0";
             description
               "Threshold limit at which track is set to Down
                state";
           }
           leaf up {
-            type int32;
+            type uint32;
             description
               "Up value";
           }

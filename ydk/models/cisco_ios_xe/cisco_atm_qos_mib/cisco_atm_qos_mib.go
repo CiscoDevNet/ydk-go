@@ -71,19 +71,19 @@ type CISCOATMQOSMIB struct {
 
     // This table is defined to provide QoS information for each active ATM VC
     // existing on the interface.
-    Caqvccparamstable CISCOATMQOSMIB_Caqvccparamstable
+    CaqVccParamsTable CISCOATMQOSMIB_CaqVccParamsTable
 
     // This table is defined to provide QoS information for each active ATM VP
     // existing on the interface.
-    Caqvpcparamstable CISCOATMQOSMIB_Caqvpcparamstable
+    CaqVpcParamsTable CISCOATMQOSMIB_CaqVpcParamsTable
 
     // This table provides queuing related information for a VC existing on an ATM
     // interface.
-    Caqqueuingparamstable CISCOATMQOSMIB_Caqqueuingparamstable
+    CaqQueuingParamsTable CISCOATMQOSMIB_CaqQueuingParamsTable
 
     // This table provides queuing information for all  queuing classes
     // associating with a VC.
-    Caqqueuingparamsclasstable CISCOATMQOSMIB_Caqqueuingparamsclasstable
+    CaqQueuingParamsClassTable CISCOATMQOSMIB_CaqQueuingParamsClassTable
 }
 
 func (cISCOATMQOSMIB *CISCOATMQOSMIB) GetEntityData() *types.CommonEntityData {
@@ -96,517 +96,544 @@ func (cISCOATMQOSMIB *CISCOATMQOSMIB) GetEntityData() *types.CommonEntityData {
     cISCOATMQOSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOATMQOSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOATMQOSMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOATMQOSMIB.EntityData.Children["caqVccParamsTable"] = types.YChild{"Caqvccparamstable", &cISCOATMQOSMIB.Caqvccparamstable}
-    cISCOATMQOSMIB.EntityData.Children["caqVpcParamsTable"] = types.YChild{"Caqvpcparamstable", &cISCOATMQOSMIB.Caqvpcparamstable}
-    cISCOATMQOSMIB.EntityData.Children["caqQueuingParamsTable"] = types.YChild{"Caqqueuingparamstable", &cISCOATMQOSMIB.Caqqueuingparamstable}
-    cISCOATMQOSMIB.EntityData.Children["caqQueuingParamsClassTable"] = types.YChild{"Caqqueuingparamsclasstable", &cISCOATMQOSMIB.Caqqueuingparamsclasstable}
-    cISCOATMQOSMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOATMQOSMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOATMQOSMIB.EntityData.Children.Append("caqVccParamsTable", types.YChild{"CaqVccParamsTable", &cISCOATMQOSMIB.CaqVccParamsTable})
+    cISCOATMQOSMIB.EntityData.Children.Append("caqVpcParamsTable", types.YChild{"CaqVpcParamsTable", &cISCOATMQOSMIB.CaqVpcParamsTable})
+    cISCOATMQOSMIB.EntityData.Children.Append("caqQueuingParamsTable", types.YChild{"CaqQueuingParamsTable", &cISCOATMQOSMIB.CaqQueuingParamsTable})
+    cISCOATMQOSMIB.EntityData.Children.Append("caqQueuingParamsClassTable", types.YChild{"CaqQueuingParamsClassTable", &cISCOATMQOSMIB.CaqQueuingParamsClassTable})
+    cISCOATMQOSMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOATMQOSMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOATMQOSMIB.EntityData)
 }
 
-// CISCOATMQOSMIB_Caqvccparamstable
+// CISCOATMQOSMIB_CaqVccParamsTable
 // This table is defined to provide QoS information for
 // each active ATM VC existing on the interface.
-type CISCOATMQOSMIB_Caqvccparamstable struct {
+type CISCOATMQOSMIB_CaqVccParamsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains the ATM QoS parameters provided by ciscoAtmQosVccEntry.
-    // The type is slice of CISCOATMQOSMIB_Caqvccparamstable_Caqvccparamsentry.
-    Caqvccparamsentry []CISCOATMQOSMIB_Caqvccparamstable_Caqvccparamsentry
+    // The type is slice of CISCOATMQOSMIB_CaqVccParamsTable_CaqVccParamsEntry.
+    CaqVccParamsEntry []*CISCOATMQOSMIB_CaqVccParamsTable_CaqVccParamsEntry
 }
 
-func (caqvccparamstable *CISCOATMQOSMIB_Caqvccparamstable) GetEntityData() *types.CommonEntityData {
-    caqvccparamstable.EntityData.YFilter = caqvccparamstable.YFilter
-    caqvccparamstable.EntityData.YangName = "caqVccParamsTable"
-    caqvccparamstable.EntityData.BundleName = "cisco_ios_xe"
-    caqvccparamstable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
-    caqvccparamstable.EntityData.SegmentPath = "caqVccParamsTable"
-    caqvccparamstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    caqvccparamstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    caqvccparamstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (caqVccParamsTable *CISCOATMQOSMIB_CaqVccParamsTable) GetEntityData() *types.CommonEntityData {
+    caqVccParamsTable.EntityData.YFilter = caqVccParamsTable.YFilter
+    caqVccParamsTable.EntityData.YangName = "caqVccParamsTable"
+    caqVccParamsTable.EntityData.BundleName = "cisco_ios_xe"
+    caqVccParamsTable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
+    caqVccParamsTable.EntityData.SegmentPath = "caqVccParamsTable"
+    caqVccParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    caqVccParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    caqVccParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    caqvccparamstable.EntityData.Children = make(map[string]types.YChild)
-    caqvccparamstable.EntityData.Children["caqVccParamsEntry"] = types.YChild{"Caqvccparamsentry", nil}
-    for i := range caqvccparamstable.Caqvccparamsentry {
-        caqvccparamstable.EntityData.Children[types.GetSegmentPath(&caqvccparamstable.Caqvccparamsentry[i])] = types.YChild{"Caqvccparamsentry", &caqvccparamstable.Caqvccparamsentry[i]}
+    caqVccParamsTable.EntityData.Children = types.NewOrderedMap()
+    caqVccParamsTable.EntityData.Children.Append("caqVccParamsEntry", types.YChild{"CaqVccParamsEntry", nil})
+    for i := range caqVccParamsTable.CaqVccParamsEntry {
+        caqVccParamsTable.EntityData.Children.Append(types.GetSegmentPath(caqVccParamsTable.CaqVccParamsEntry[i]), types.YChild{"CaqVccParamsEntry", caqVccParamsTable.CaqVccParamsEntry[i]})
     }
-    caqvccparamstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(caqvccparamstable.EntityData)
+    caqVccParamsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    caqVccParamsTable.EntityData.YListKeys = []string {}
+
+    return &(caqVccParamsTable.EntityData)
 }
 
-// CISCOATMQOSMIB_Caqvccparamstable_Caqvccparamsentry
+// CISCOATMQOSMIB_CaqVccParamsTable_CaqVccParamsEntry
 // This list contains the ATM QoS parameters provided by
 // ciscoAtmQosVccEntry.
-type CISCOATMQOSMIB_Caqvccparamstable_Caqvccparamsentry struct {
+type CISCOATMQOSMIB_CaqVccParamsTable_CaqVccParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvci
-    Atmvclvci interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVci
+    AtmVclVci interface{}
 
     // The service category of this virtual circuit connection. The type is
     // AtmServiceCategory.
-    Caqvccparamstype interface{}
+    CaqVccParamsType interface{}
 
     // Input Peak Cell Rate (PCR) in kbps with  Cell Loss Priority bit set to 0
     // (clp0). The type is interface{} with range: 0..4294967295.
-    Caqvccparamspcrin0 interface{}
+    CaqVccParamsPcrIn0 interface{}
 
     // Number of OAM F5 end to end loopback cells sent through the VCC. The type
     // is interface{} with range: 0..4294967295.
-    Caqvccparamspcrin01 interface{}
+    CaqVccParamsPcrIn01 interface{}
 
     // Output Peak Cell Rate (PCR) in kbps with Cell Loss Priority bit set to 0
     // (clp0). The type is interface{} with range: 0..4294967295.
-    Caqvccparamspcrout0 interface{}
+    CaqVccParamsPcrOut0 interface{}
 
     // Output Peak Cell Rate (PCR) in kbps with Cell Loss Priority bit set to 1
     // (clp01). The type is interface{} with range: 0..4294967295.
-    Caqvccparamspcrout01 interface{}
+    CaqVccParamsPcrOut01 interface{}
 
     // Input Sustained Cell Rate (SCR) in kbps for connection with VBR type of QoS
     // and Cell Loss Priority bit set to 0 (clp0). The type is interface{} with
     // range: 0..4294967295.
-    Caqvccparamsscrin0 interface{}
+    CaqVccParamsScrIn0 interface{}
 
     // Input Sustained Cell Rate (SCR) in kbps for connection with VBR type of QoS
     // and Cell Loss Priority bit set to 1 (clp01). The type is interface{} with
     // range: 0..4294967295.
-    Caqvccparamsscrin01 interface{}
+    CaqVccParamsScrIn01 interface{}
 
     // Output Sustained Cell Rate (SCR) in kbps for connection with VBR type of
     // QoS and Cell Loss Priority bit set to 0 (clp0). The type is interface{}
     // with range: 0..4294967295.
-    Caqvccparamsscrout0 interface{}
+    CaqVccParamsScrOut0 interface{}
 
     // Output Sustained Cell Rate (SCR) in kbps for connection with VBR type of
     // QoS and Cell Loss Priority bit set to 1 (clp01). The type is interface{}
     // with range: 0..4294967295.
-    Caqvccparamsscrout01 interface{}
+    CaqVccParamsScrOut01 interface{}
 
     // Input Burst Cell Size (BCS) for connection with VBR type of QoS and Cell
     // Loss Priority bit set to 0 (clp0). The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsbcsin0 interface{}
+    CaqVccParamsBcsIn0 interface{}
 
     // Input Burst Cell Size (BCS) for connection with VBR type of QoS and Cell
     // Loss Priority bit set to 1 (clp01). The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsbcsin01 interface{}
+    CaqVccParamsBcsIn01 interface{}
 
     // Output Burst Cell Size (BCS) for connection with VBR type of QoS and  Cell
     // Loss Priority bit set to 0 (clp0). The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsbcsout0 interface{}
+    CaqVccParamsBcsOut0 interface{}
 
     // Output Burst Cell Size (BCS) for connection with VBR type of QoS and Cell
     // Loss Priority bit set to 1 (clp01). The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsbcsout01 interface{}
+    CaqVccParamsBcsOut01 interface{}
 
     // The source of configuration for peak cell rate. The type is
     // VcParamConfigLocation.
-    Caqvccparamsinheritlevel interface{}
+    CaqVccParamsInheritLevel interface{}
 
     // Input Minimum Cell Rate (MCR) in kbps for connection with VBR-nrt or ABR
     // type of QoS. The type is interface{} with range: 0..4294967295.
-    Caqvccparamsmcrin interface{}
+    CaqVccParamsMcrIn interface{}
 
     // Output Minimum Cell Rate (MCR) in kbps for connection with VBR-nrt or ABR
     // type of QoS. The type is interface{} with range: 0..4294967295.
-    Caqvccparamsmcrout interface{}
+    CaqVccParamsMcrOut interface{}
 
     // Inverse of rate decrease factor. The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsinvrdf interface{}
+    CaqVccParamsInvRdf interface{}
 
     // Inverse of rate increase factor. The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsinvrif interface{}
+    CaqVccParamsInvRif interface{}
 
     // The source of configuration for rate factor. The type is
     // VcParamConfigLocation.
-    Caqvccparamsrfl interface{}
+    CaqVccParamsRfl interface{}
 
     // Cell delay variation. The type is interface{} with range: 0..4294967295.
-    Caqvccparamscdv interface{}
+    CaqVccParamsCdv interface{}
 
     // Cell delay variation tolerance. The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamscdvt interface{}
+    CaqVccParamsCdvt interface{}
 
     // Initial cell rate. The type is interface{} with range: 0..4294967295.
-    Caqvccparamsicr interface{}
+    CaqVccParamsIcr interface{}
 
     // Transient buffer exposure. The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamstbe interface{}
+    CaqVccParamsTbe interface{}
 
     // Fixed round-trip time. The type is interface{} with range: 0..4294967295.
-    Caqvccparamsfrtt interface{}
+    CaqVccParamsFrtt interface{}
 
     // Maximum number of tx cells for each forward rm cell. The type is
     // interface{} with range: 0..4294967295.
-    Caqvccparamsnrm interface{}
+    CaqVccParamsNrm interface{}
 
     // Maximum time between forward rm cells. The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsinvtrm interface{}
+    CaqVccParamsInvTrm interface{}
 
     // Inverse of cutoff decrease factor. The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsinvcdf interface{}
+    CaqVccParamsInvCdf interface{}
 
     // Allowed cell rate decrease time factor. The type is interface{} with range:
     // 0..4294967295.
-    Caqvccparamsadtf interface{}
+    CaqVccParamsAdtf interface{}
 }
 
-func (caqvccparamsentry *CISCOATMQOSMIB_Caqvccparamstable_Caqvccparamsentry) GetEntityData() *types.CommonEntityData {
-    caqvccparamsentry.EntityData.YFilter = caqvccparamsentry.YFilter
-    caqvccparamsentry.EntityData.YangName = "caqVccParamsEntry"
-    caqvccparamsentry.EntityData.BundleName = "cisco_ios_xe"
-    caqvccparamsentry.EntityData.ParentYangName = "caqVccParamsTable"
-    caqvccparamsentry.EntityData.SegmentPath = "caqVccParamsEntry" + "[ifIndex='" + fmt.Sprintf("%v", caqvccparamsentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", caqvccparamsentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", caqvccparamsentry.Atmvclvci) + "']"
-    caqvccparamsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    caqvccparamsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    caqvccparamsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (caqVccParamsEntry *CISCOATMQOSMIB_CaqVccParamsTable_CaqVccParamsEntry) GetEntityData() *types.CommonEntityData {
+    caqVccParamsEntry.EntityData.YFilter = caqVccParamsEntry.YFilter
+    caqVccParamsEntry.EntityData.YangName = "caqVccParamsEntry"
+    caqVccParamsEntry.EntityData.BundleName = "cisco_ios_xe"
+    caqVccParamsEntry.EntityData.ParentYangName = "caqVccParamsTable"
+    caqVccParamsEntry.EntityData.SegmentPath = "caqVccParamsEntry" + types.AddKeyToken(caqVccParamsEntry.IfIndex, "ifIndex") + types.AddKeyToken(caqVccParamsEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(caqVccParamsEntry.AtmVclVci, "atmVclVci")
+    caqVccParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    caqVccParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    caqVccParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    caqvccparamsentry.EntityData.Children = make(map[string]types.YChild)
-    caqvccparamsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    caqvccparamsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", caqvccparamsentry.Ifindex}
-    caqvccparamsentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", caqvccparamsentry.Atmvclvpi}
-    caqvccparamsentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", caqvccparamsentry.Atmvclvci}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsType"] = types.YLeaf{"Caqvccparamstype", caqvccparamsentry.Caqvccparamstype}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsPcrIn0"] = types.YLeaf{"Caqvccparamspcrin0", caqvccparamsentry.Caqvccparamspcrin0}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsPcrIn01"] = types.YLeaf{"Caqvccparamspcrin01", caqvccparamsentry.Caqvccparamspcrin01}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsPcrOut0"] = types.YLeaf{"Caqvccparamspcrout0", caqvccparamsentry.Caqvccparamspcrout0}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsPcrOut01"] = types.YLeaf{"Caqvccparamspcrout01", caqvccparamsentry.Caqvccparamspcrout01}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsScrIn0"] = types.YLeaf{"Caqvccparamsscrin0", caqvccparamsentry.Caqvccparamsscrin0}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsScrIn01"] = types.YLeaf{"Caqvccparamsscrin01", caqvccparamsentry.Caqvccparamsscrin01}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsScrOut0"] = types.YLeaf{"Caqvccparamsscrout0", caqvccparamsentry.Caqvccparamsscrout0}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsScrOut01"] = types.YLeaf{"Caqvccparamsscrout01", caqvccparamsentry.Caqvccparamsscrout01}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsBcsIn0"] = types.YLeaf{"Caqvccparamsbcsin0", caqvccparamsentry.Caqvccparamsbcsin0}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsBcsIn01"] = types.YLeaf{"Caqvccparamsbcsin01", caqvccparamsentry.Caqvccparamsbcsin01}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsBcsOut0"] = types.YLeaf{"Caqvccparamsbcsout0", caqvccparamsentry.Caqvccparamsbcsout0}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsBcsOut01"] = types.YLeaf{"Caqvccparamsbcsout01", caqvccparamsentry.Caqvccparamsbcsout01}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsInheritLevel"] = types.YLeaf{"Caqvccparamsinheritlevel", caqvccparamsentry.Caqvccparamsinheritlevel}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsMcrIn"] = types.YLeaf{"Caqvccparamsmcrin", caqvccparamsentry.Caqvccparamsmcrin}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsMcrOut"] = types.YLeaf{"Caqvccparamsmcrout", caqvccparamsentry.Caqvccparamsmcrout}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsInvRdf"] = types.YLeaf{"Caqvccparamsinvrdf", caqvccparamsentry.Caqvccparamsinvrdf}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsInvRif"] = types.YLeaf{"Caqvccparamsinvrif", caqvccparamsentry.Caqvccparamsinvrif}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsRfl"] = types.YLeaf{"Caqvccparamsrfl", caqvccparamsentry.Caqvccparamsrfl}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsCdv"] = types.YLeaf{"Caqvccparamscdv", caqvccparamsentry.Caqvccparamscdv}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsCdvt"] = types.YLeaf{"Caqvccparamscdvt", caqvccparamsentry.Caqvccparamscdvt}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsIcr"] = types.YLeaf{"Caqvccparamsicr", caqvccparamsentry.Caqvccparamsicr}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsTbe"] = types.YLeaf{"Caqvccparamstbe", caqvccparamsentry.Caqvccparamstbe}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsFrtt"] = types.YLeaf{"Caqvccparamsfrtt", caqvccparamsentry.Caqvccparamsfrtt}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsNrm"] = types.YLeaf{"Caqvccparamsnrm", caqvccparamsentry.Caqvccparamsnrm}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsInvTrm"] = types.YLeaf{"Caqvccparamsinvtrm", caqvccparamsentry.Caqvccparamsinvtrm}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsInvCdf"] = types.YLeaf{"Caqvccparamsinvcdf", caqvccparamsentry.Caqvccparamsinvcdf}
-    caqvccparamsentry.EntityData.Leafs["caqVccParamsAdtf"] = types.YLeaf{"Caqvccparamsadtf", caqvccparamsentry.Caqvccparamsadtf}
-    return &(caqvccparamsentry.EntityData)
+    caqVccParamsEntry.EntityData.Children = types.NewOrderedMap()
+    caqVccParamsEntry.EntityData.Leafs = types.NewOrderedMap()
+    caqVccParamsEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", caqVccParamsEntry.IfIndex})
+    caqVccParamsEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", caqVccParamsEntry.AtmVclVpi})
+    caqVccParamsEntry.EntityData.Leafs.Append("atmVclVci", types.YLeaf{"AtmVclVci", caqVccParamsEntry.AtmVclVci})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsType", types.YLeaf{"CaqVccParamsType", caqVccParamsEntry.CaqVccParamsType})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsPcrIn0", types.YLeaf{"CaqVccParamsPcrIn0", caqVccParamsEntry.CaqVccParamsPcrIn0})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsPcrIn01", types.YLeaf{"CaqVccParamsPcrIn01", caqVccParamsEntry.CaqVccParamsPcrIn01})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsPcrOut0", types.YLeaf{"CaqVccParamsPcrOut0", caqVccParamsEntry.CaqVccParamsPcrOut0})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsPcrOut01", types.YLeaf{"CaqVccParamsPcrOut01", caqVccParamsEntry.CaqVccParamsPcrOut01})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsScrIn0", types.YLeaf{"CaqVccParamsScrIn0", caqVccParamsEntry.CaqVccParamsScrIn0})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsScrIn01", types.YLeaf{"CaqVccParamsScrIn01", caqVccParamsEntry.CaqVccParamsScrIn01})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsScrOut0", types.YLeaf{"CaqVccParamsScrOut0", caqVccParamsEntry.CaqVccParamsScrOut0})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsScrOut01", types.YLeaf{"CaqVccParamsScrOut01", caqVccParamsEntry.CaqVccParamsScrOut01})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsBcsIn0", types.YLeaf{"CaqVccParamsBcsIn0", caqVccParamsEntry.CaqVccParamsBcsIn0})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsBcsIn01", types.YLeaf{"CaqVccParamsBcsIn01", caqVccParamsEntry.CaqVccParamsBcsIn01})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsBcsOut0", types.YLeaf{"CaqVccParamsBcsOut0", caqVccParamsEntry.CaqVccParamsBcsOut0})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsBcsOut01", types.YLeaf{"CaqVccParamsBcsOut01", caqVccParamsEntry.CaqVccParamsBcsOut01})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsInheritLevel", types.YLeaf{"CaqVccParamsInheritLevel", caqVccParamsEntry.CaqVccParamsInheritLevel})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsMcrIn", types.YLeaf{"CaqVccParamsMcrIn", caqVccParamsEntry.CaqVccParamsMcrIn})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsMcrOut", types.YLeaf{"CaqVccParamsMcrOut", caqVccParamsEntry.CaqVccParamsMcrOut})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsInvRdf", types.YLeaf{"CaqVccParamsInvRdf", caqVccParamsEntry.CaqVccParamsInvRdf})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsInvRif", types.YLeaf{"CaqVccParamsInvRif", caqVccParamsEntry.CaqVccParamsInvRif})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsRfl", types.YLeaf{"CaqVccParamsRfl", caqVccParamsEntry.CaqVccParamsRfl})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsCdv", types.YLeaf{"CaqVccParamsCdv", caqVccParamsEntry.CaqVccParamsCdv})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsCdvt", types.YLeaf{"CaqVccParamsCdvt", caqVccParamsEntry.CaqVccParamsCdvt})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsIcr", types.YLeaf{"CaqVccParamsIcr", caqVccParamsEntry.CaqVccParamsIcr})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsTbe", types.YLeaf{"CaqVccParamsTbe", caqVccParamsEntry.CaqVccParamsTbe})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsFrtt", types.YLeaf{"CaqVccParamsFrtt", caqVccParamsEntry.CaqVccParamsFrtt})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsNrm", types.YLeaf{"CaqVccParamsNrm", caqVccParamsEntry.CaqVccParamsNrm})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsInvTrm", types.YLeaf{"CaqVccParamsInvTrm", caqVccParamsEntry.CaqVccParamsInvTrm})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsInvCdf", types.YLeaf{"CaqVccParamsInvCdf", caqVccParamsEntry.CaqVccParamsInvCdf})
+    caqVccParamsEntry.EntityData.Leafs.Append("caqVccParamsAdtf", types.YLeaf{"CaqVccParamsAdtf", caqVccParamsEntry.CaqVccParamsAdtf})
+
+    caqVccParamsEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "AtmVclVci"}
+
+    return &(caqVccParamsEntry.EntityData)
 }
 
-// CISCOATMQOSMIB_Caqvpcparamstable
+// CISCOATMQOSMIB_CaqVpcParamsTable
 // This table is defined to provide QoS information for
 // each active ATM VP existing on the interface.
-type CISCOATMQOSMIB_Caqvpcparamstable struct {
+type CISCOATMQOSMIB_CaqVpcParamsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains the ATM QoS parameters provided by ciscoAtmQosVpcEntry.
-    // The type is slice of CISCOATMQOSMIB_Caqvpcparamstable_Caqvpcparamsentry.
-    Caqvpcparamsentry []CISCOATMQOSMIB_Caqvpcparamstable_Caqvpcparamsentry
+    // The type is slice of CISCOATMQOSMIB_CaqVpcParamsTable_CaqVpcParamsEntry.
+    CaqVpcParamsEntry []*CISCOATMQOSMIB_CaqVpcParamsTable_CaqVpcParamsEntry
 }
 
-func (caqvpcparamstable *CISCOATMQOSMIB_Caqvpcparamstable) GetEntityData() *types.CommonEntityData {
-    caqvpcparamstable.EntityData.YFilter = caqvpcparamstable.YFilter
-    caqvpcparamstable.EntityData.YangName = "caqVpcParamsTable"
-    caqvpcparamstable.EntityData.BundleName = "cisco_ios_xe"
-    caqvpcparamstable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
-    caqvpcparamstable.EntityData.SegmentPath = "caqVpcParamsTable"
-    caqvpcparamstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    caqvpcparamstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    caqvpcparamstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (caqVpcParamsTable *CISCOATMQOSMIB_CaqVpcParamsTable) GetEntityData() *types.CommonEntityData {
+    caqVpcParamsTable.EntityData.YFilter = caqVpcParamsTable.YFilter
+    caqVpcParamsTable.EntityData.YangName = "caqVpcParamsTable"
+    caqVpcParamsTable.EntityData.BundleName = "cisco_ios_xe"
+    caqVpcParamsTable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
+    caqVpcParamsTable.EntityData.SegmentPath = "caqVpcParamsTable"
+    caqVpcParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    caqVpcParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    caqVpcParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    caqvpcparamstable.EntityData.Children = make(map[string]types.YChild)
-    caqvpcparamstable.EntityData.Children["caqVpcParamsEntry"] = types.YChild{"Caqvpcparamsentry", nil}
-    for i := range caqvpcparamstable.Caqvpcparamsentry {
-        caqvpcparamstable.EntityData.Children[types.GetSegmentPath(&caqvpcparamstable.Caqvpcparamsentry[i])] = types.YChild{"Caqvpcparamsentry", &caqvpcparamstable.Caqvpcparamsentry[i]}
+    caqVpcParamsTable.EntityData.Children = types.NewOrderedMap()
+    caqVpcParamsTable.EntityData.Children.Append("caqVpcParamsEntry", types.YChild{"CaqVpcParamsEntry", nil})
+    for i := range caqVpcParamsTable.CaqVpcParamsEntry {
+        caqVpcParamsTable.EntityData.Children.Append(types.GetSegmentPath(caqVpcParamsTable.CaqVpcParamsEntry[i]), types.YChild{"CaqVpcParamsEntry", caqVpcParamsTable.CaqVpcParamsEntry[i]})
     }
-    caqvpcparamstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(caqvpcparamstable.EntityData)
+    caqVpcParamsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    caqVpcParamsTable.EntityData.YListKeys = []string {}
+
+    return &(caqVpcParamsTable.EntityData)
 }
 
-// CISCOATMQOSMIB_Caqvpcparamstable_Caqvpcparamsentry
+// CISCOATMQOSMIB_CaqVpcParamsTable_CaqVpcParamsEntry
 // This list contains the ATM QoS parameters provided by
 // ciscoAtmQosVpcEntry.
-type CISCOATMQOSMIB_Caqvpcparamstable_Caqvpcparamsentry struct {
+type CISCOATMQOSMIB_CaqVpcParamsTable_CaqVpcParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvpltable_Atmvplentry_Atmvplvpi
-    Atmvplvpi interface{}
+    // atm_mib.ATMMIB_AtmVplTable_AtmVplEntry_AtmVplVpi
+    AtmVplVpi interface{}
 
     // VP state of the current permanent virtual path. The type is VpState.
-    Caqvpcparamsvpstate interface{}
+    CaqVpcParamsVpState interface{}
 
     // Maximum rate in kbps at which the associated permanent virtual path can
     // transmit data. The type is interface{} with range: 0..4294967295.
-    Caqvpcparamspeakrate interface{}
+    CaqVpcParamsPeakRate interface{}
 
     // Maximum rate in kbps at which CES VCs can transmit data with the associated
     // permanent virtual path. The type is interface{} with range: 0..4294967295.
-    Caqvpcparamscesrate interface{}
+    CaqVpcParamsCesRate interface{}
 
     // Number of data VCs currently associated with the permanent virtual path.
     // The type is interface{} with range: 0..65535.
-    Caqvpcparamsdatavccount interface{}
+    CaqVpcParamsDataVcCount interface{}
 
     // Number of CES VCs currently associated with the permanent virtual path. The
     // type is interface{} with range: 0..65535.
-    Caqvpcparamscesvccount interface{}
+    CaqVpcParamsCesVcCount interface{}
 
     // Vcd for F4 OAM segment processing. The type is interface{} with range:
     // 0..65535.
-    Caqvpcparamsvcdf4Seg interface{}
+    CaqVpcParamsVcdF4Seg interface{}
 
     // Vcd for F4 OAM end to end processing. The type is interface{} with range:
     // 0..65535.
-    Caqvpcparamsvcdf4Ete interface{}
+    CaqVpcParamsVcdF4Ete interface{}
 
     // Sustained cell rate associated with the PVP. The type is interface{} with
     // range: 0..4294967295.
-    Caqvpcparamsscr interface{}
+    CaqVpcParamsScr interface{}
 
     // Maximum burst size associated with the PVP. The type is interface{} with
     // range: 0..4294967295.
-    Caqvpcparamsmbs interface{}
+    CaqVpcParamsMbs interface{}
 
     // Bandwidth in Kbps currently currently available on this PVP. The type is
     // interface{} with range: 0..4294967295.
-    Caqvpcparamsavailbw interface{}
+    CaqVpcParamsAvailBw interface{}
 }
 
-func (caqvpcparamsentry *CISCOATMQOSMIB_Caqvpcparamstable_Caqvpcparamsentry) GetEntityData() *types.CommonEntityData {
-    caqvpcparamsentry.EntityData.YFilter = caqvpcparamsentry.YFilter
-    caqvpcparamsentry.EntityData.YangName = "caqVpcParamsEntry"
-    caqvpcparamsentry.EntityData.BundleName = "cisco_ios_xe"
-    caqvpcparamsentry.EntityData.ParentYangName = "caqVpcParamsTable"
-    caqvpcparamsentry.EntityData.SegmentPath = "caqVpcParamsEntry" + "[ifIndex='" + fmt.Sprintf("%v", caqvpcparamsentry.Ifindex) + "']" + "[atmVplVpi='" + fmt.Sprintf("%v", caqvpcparamsentry.Atmvplvpi) + "']"
-    caqvpcparamsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    caqvpcparamsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    caqvpcparamsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (caqVpcParamsEntry *CISCOATMQOSMIB_CaqVpcParamsTable_CaqVpcParamsEntry) GetEntityData() *types.CommonEntityData {
+    caqVpcParamsEntry.EntityData.YFilter = caqVpcParamsEntry.YFilter
+    caqVpcParamsEntry.EntityData.YangName = "caqVpcParamsEntry"
+    caqVpcParamsEntry.EntityData.BundleName = "cisco_ios_xe"
+    caqVpcParamsEntry.EntityData.ParentYangName = "caqVpcParamsTable"
+    caqVpcParamsEntry.EntityData.SegmentPath = "caqVpcParamsEntry" + types.AddKeyToken(caqVpcParamsEntry.IfIndex, "ifIndex") + types.AddKeyToken(caqVpcParamsEntry.AtmVplVpi, "atmVplVpi")
+    caqVpcParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    caqVpcParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    caqVpcParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    caqvpcparamsentry.EntityData.Children = make(map[string]types.YChild)
-    caqvpcparamsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    caqvpcparamsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", caqvpcparamsentry.Ifindex}
-    caqvpcparamsentry.EntityData.Leafs["atmVplVpi"] = types.YLeaf{"Atmvplvpi", caqvpcparamsentry.Atmvplvpi}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsVpState"] = types.YLeaf{"Caqvpcparamsvpstate", caqvpcparamsentry.Caqvpcparamsvpstate}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsPeakRate"] = types.YLeaf{"Caqvpcparamspeakrate", caqvpcparamsentry.Caqvpcparamspeakrate}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsCesRate"] = types.YLeaf{"Caqvpcparamscesrate", caqvpcparamsentry.Caqvpcparamscesrate}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsDataVcCount"] = types.YLeaf{"Caqvpcparamsdatavccount", caqvpcparamsentry.Caqvpcparamsdatavccount}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsCesVcCount"] = types.YLeaf{"Caqvpcparamscesvccount", caqvpcparamsentry.Caqvpcparamscesvccount}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsVcdF4Seg"] = types.YLeaf{"Caqvpcparamsvcdf4Seg", caqvpcparamsentry.Caqvpcparamsvcdf4Seg}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsVcdF4Ete"] = types.YLeaf{"Caqvpcparamsvcdf4Ete", caqvpcparamsentry.Caqvpcparamsvcdf4Ete}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsScr"] = types.YLeaf{"Caqvpcparamsscr", caqvpcparamsentry.Caqvpcparamsscr}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsMbs"] = types.YLeaf{"Caqvpcparamsmbs", caqvpcparamsentry.Caqvpcparamsmbs}
-    caqvpcparamsentry.EntityData.Leafs["caqVpcParamsAvailBw"] = types.YLeaf{"Caqvpcparamsavailbw", caqvpcparamsentry.Caqvpcparamsavailbw}
-    return &(caqvpcparamsentry.EntityData)
+    caqVpcParamsEntry.EntityData.Children = types.NewOrderedMap()
+    caqVpcParamsEntry.EntityData.Leafs = types.NewOrderedMap()
+    caqVpcParamsEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", caqVpcParamsEntry.IfIndex})
+    caqVpcParamsEntry.EntityData.Leafs.Append("atmVplVpi", types.YLeaf{"AtmVplVpi", caqVpcParamsEntry.AtmVplVpi})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsVpState", types.YLeaf{"CaqVpcParamsVpState", caqVpcParamsEntry.CaqVpcParamsVpState})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsPeakRate", types.YLeaf{"CaqVpcParamsPeakRate", caqVpcParamsEntry.CaqVpcParamsPeakRate})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsCesRate", types.YLeaf{"CaqVpcParamsCesRate", caqVpcParamsEntry.CaqVpcParamsCesRate})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsDataVcCount", types.YLeaf{"CaqVpcParamsDataVcCount", caqVpcParamsEntry.CaqVpcParamsDataVcCount})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsCesVcCount", types.YLeaf{"CaqVpcParamsCesVcCount", caqVpcParamsEntry.CaqVpcParamsCesVcCount})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsVcdF4Seg", types.YLeaf{"CaqVpcParamsVcdF4Seg", caqVpcParamsEntry.CaqVpcParamsVcdF4Seg})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsVcdF4Ete", types.YLeaf{"CaqVpcParamsVcdF4Ete", caqVpcParamsEntry.CaqVpcParamsVcdF4Ete})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsScr", types.YLeaf{"CaqVpcParamsScr", caqVpcParamsEntry.CaqVpcParamsScr})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsMbs", types.YLeaf{"CaqVpcParamsMbs", caqVpcParamsEntry.CaqVpcParamsMbs})
+    caqVpcParamsEntry.EntityData.Leafs.Append("caqVpcParamsAvailBw", types.YLeaf{"CaqVpcParamsAvailBw", caqVpcParamsEntry.CaqVpcParamsAvailBw})
+
+    caqVpcParamsEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVplVpi"}
+
+    return &(caqVpcParamsEntry.EntityData)
 }
 
-// CISCOATMQOSMIB_Caqqueuingparamstable
+// CISCOATMQOSMIB_CaqQueuingParamsTable
 // This table provides queuing related information
 // for a VC existing on an ATM interface.
-type CISCOATMQOSMIB_Caqqueuingparamstable struct {
+type CISCOATMQOSMIB_CaqQueuingParamsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is defined as an entry in caqQueuingParamsTable. The type is slice of
-    // CISCOATMQOSMIB_Caqqueuingparamstable_Caqqueuingparamsentry.
-    Caqqueuingparamsentry []CISCOATMQOSMIB_Caqqueuingparamstable_Caqqueuingparamsentry
+    // CISCOATMQOSMIB_CaqQueuingParamsTable_CaqQueuingParamsEntry.
+    CaqQueuingParamsEntry []*CISCOATMQOSMIB_CaqQueuingParamsTable_CaqQueuingParamsEntry
 }
 
-func (caqqueuingparamstable *CISCOATMQOSMIB_Caqqueuingparamstable) GetEntityData() *types.CommonEntityData {
-    caqqueuingparamstable.EntityData.YFilter = caqqueuingparamstable.YFilter
-    caqqueuingparamstable.EntityData.YangName = "caqQueuingParamsTable"
-    caqqueuingparamstable.EntityData.BundleName = "cisco_ios_xe"
-    caqqueuingparamstable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
-    caqqueuingparamstable.EntityData.SegmentPath = "caqQueuingParamsTable"
-    caqqueuingparamstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    caqqueuingparamstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    caqqueuingparamstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (caqQueuingParamsTable *CISCOATMQOSMIB_CaqQueuingParamsTable) GetEntityData() *types.CommonEntityData {
+    caqQueuingParamsTable.EntityData.YFilter = caqQueuingParamsTable.YFilter
+    caqQueuingParamsTable.EntityData.YangName = "caqQueuingParamsTable"
+    caqQueuingParamsTable.EntityData.BundleName = "cisco_ios_xe"
+    caqQueuingParamsTable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
+    caqQueuingParamsTable.EntityData.SegmentPath = "caqQueuingParamsTable"
+    caqQueuingParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    caqQueuingParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    caqQueuingParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    caqqueuingparamstable.EntityData.Children = make(map[string]types.YChild)
-    caqqueuingparamstable.EntityData.Children["caqQueuingParamsEntry"] = types.YChild{"Caqqueuingparamsentry", nil}
-    for i := range caqqueuingparamstable.Caqqueuingparamsentry {
-        caqqueuingparamstable.EntityData.Children[types.GetSegmentPath(&caqqueuingparamstable.Caqqueuingparamsentry[i])] = types.YChild{"Caqqueuingparamsentry", &caqqueuingparamstable.Caqqueuingparamsentry[i]}
+    caqQueuingParamsTable.EntityData.Children = types.NewOrderedMap()
+    caqQueuingParamsTable.EntityData.Children.Append("caqQueuingParamsEntry", types.YChild{"CaqQueuingParamsEntry", nil})
+    for i := range caqQueuingParamsTable.CaqQueuingParamsEntry {
+        caqQueuingParamsTable.EntityData.Children.Append(types.GetSegmentPath(caqQueuingParamsTable.CaqQueuingParamsEntry[i]), types.YChild{"CaqQueuingParamsEntry", caqQueuingParamsTable.CaqQueuingParamsEntry[i]})
     }
-    caqqueuingparamstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(caqqueuingparamstable.EntityData)
+    caqQueuingParamsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    caqQueuingParamsTable.EntityData.YListKeys = []string {}
+
+    return &(caqQueuingParamsTable.EntityData)
 }
 
-// CISCOATMQOSMIB_Caqqueuingparamstable_Caqqueuingparamsentry
+// CISCOATMQOSMIB_CaqQueuingParamsTable_CaqQueuingParamsEntry
 // This is defined as an entry in caqQueuingParamsTable.
-type CISCOATMQOSMIB_Caqqueuingparamstable_Caqqueuingparamsentry struct {
+type CISCOATMQOSMIB_CaqQueuingParamsTable_CaqQueuingParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvci
-    Atmvclvci interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVci
+    AtmVclVci interface{}
 
     // Mean Queue Depth associated with the vc.  This value is calculated based on
     // the actual queue depth on the interface and the exponential weighting
     // constant. The type is interface{} with range: 0..4294967295.
-    Caqqueuingparamsmeanqdepth interface{}
+    CaqQueuingParamsMeanQDepth interface{}
 }
 
-func (caqqueuingparamsentry *CISCOATMQOSMIB_Caqqueuingparamstable_Caqqueuingparamsentry) GetEntityData() *types.CommonEntityData {
-    caqqueuingparamsentry.EntityData.YFilter = caqqueuingparamsentry.YFilter
-    caqqueuingparamsentry.EntityData.YangName = "caqQueuingParamsEntry"
-    caqqueuingparamsentry.EntityData.BundleName = "cisco_ios_xe"
-    caqqueuingparamsentry.EntityData.ParentYangName = "caqQueuingParamsTable"
-    caqqueuingparamsentry.EntityData.SegmentPath = "caqQueuingParamsEntry" + "[ifIndex='" + fmt.Sprintf("%v", caqqueuingparamsentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", caqqueuingparamsentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", caqqueuingparamsentry.Atmvclvci) + "']"
-    caqqueuingparamsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    caqqueuingparamsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    caqqueuingparamsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (caqQueuingParamsEntry *CISCOATMQOSMIB_CaqQueuingParamsTable_CaqQueuingParamsEntry) GetEntityData() *types.CommonEntityData {
+    caqQueuingParamsEntry.EntityData.YFilter = caqQueuingParamsEntry.YFilter
+    caqQueuingParamsEntry.EntityData.YangName = "caqQueuingParamsEntry"
+    caqQueuingParamsEntry.EntityData.BundleName = "cisco_ios_xe"
+    caqQueuingParamsEntry.EntityData.ParentYangName = "caqQueuingParamsTable"
+    caqQueuingParamsEntry.EntityData.SegmentPath = "caqQueuingParamsEntry" + types.AddKeyToken(caqQueuingParamsEntry.IfIndex, "ifIndex") + types.AddKeyToken(caqQueuingParamsEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(caqQueuingParamsEntry.AtmVclVci, "atmVclVci")
+    caqQueuingParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    caqQueuingParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    caqQueuingParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    caqqueuingparamsentry.EntityData.Children = make(map[string]types.YChild)
-    caqqueuingparamsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    caqqueuingparamsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", caqqueuingparamsentry.Ifindex}
-    caqqueuingparamsentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", caqqueuingparamsentry.Atmvclvpi}
-    caqqueuingparamsentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", caqqueuingparamsentry.Atmvclvci}
-    caqqueuingparamsentry.EntityData.Leafs["caqQueuingParamsMeanQDepth"] = types.YLeaf{"Caqqueuingparamsmeanqdepth", caqqueuingparamsentry.Caqqueuingparamsmeanqdepth}
-    return &(caqqueuingparamsentry.EntityData)
+    caqQueuingParamsEntry.EntityData.Children = types.NewOrderedMap()
+    caqQueuingParamsEntry.EntityData.Leafs = types.NewOrderedMap()
+    caqQueuingParamsEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", caqQueuingParamsEntry.IfIndex})
+    caqQueuingParamsEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", caqQueuingParamsEntry.AtmVclVpi})
+    caqQueuingParamsEntry.EntityData.Leafs.Append("atmVclVci", types.YLeaf{"AtmVclVci", caqQueuingParamsEntry.AtmVclVci})
+    caqQueuingParamsEntry.EntityData.Leafs.Append("caqQueuingParamsMeanQDepth", types.YLeaf{"CaqQueuingParamsMeanQDepth", caqQueuingParamsEntry.CaqQueuingParamsMeanQDepth})
+
+    caqQueuingParamsEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "AtmVclVci"}
+
+    return &(caqQueuingParamsEntry.EntityData)
 }
 
-// CISCOATMQOSMIB_Caqqueuingparamsclasstable
+// CISCOATMQOSMIB_CaqQueuingParamsClassTable
 // This table provides queuing information for all 
 // queuing classes associating with a VC.
-type CISCOATMQOSMIB_Caqqueuingparamsclasstable struct {
+type CISCOATMQOSMIB_CaqQueuingParamsClassTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is defined as an entry in ciscoAtmQosVcQueuingClassTable to provide
     // queuing information of a specific class. The type is slice of
-    // CISCOATMQOSMIB_Caqqueuingparamsclasstable_Caqqueuingparamsclassentry.
-    Caqqueuingparamsclassentry []CISCOATMQOSMIB_Caqqueuingparamsclasstable_Caqqueuingparamsclassentry
+    // CISCOATMQOSMIB_CaqQueuingParamsClassTable_CaqQueuingParamsClassEntry.
+    CaqQueuingParamsClassEntry []*CISCOATMQOSMIB_CaqQueuingParamsClassTable_CaqQueuingParamsClassEntry
 }
 
-func (caqqueuingparamsclasstable *CISCOATMQOSMIB_Caqqueuingparamsclasstable) GetEntityData() *types.CommonEntityData {
-    caqqueuingparamsclasstable.EntityData.YFilter = caqqueuingparamsclasstable.YFilter
-    caqqueuingparamsclasstable.EntityData.YangName = "caqQueuingParamsClassTable"
-    caqqueuingparamsclasstable.EntityData.BundleName = "cisco_ios_xe"
-    caqqueuingparamsclasstable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
-    caqqueuingparamsclasstable.EntityData.SegmentPath = "caqQueuingParamsClassTable"
-    caqqueuingparamsclasstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    caqqueuingparamsclasstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    caqqueuingparamsclasstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (caqQueuingParamsClassTable *CISCOATMQOSMIB_CaqQueuingParamsClassTable) GetEntityData() *types.CommonEntityData {
+    caqQueuingParamsClassTable.EntityData.YFilter = caqQueuingParamsClassTable.YFilter
+    caqQueuingParamsClassTable.EntityData.YangName = "caqQueuingParamsClassTable"
+    caqQueuingParamsClassTable.EntityData.BundleName = "cisco_ios_xe"
+    caqQueuingParamsClassTable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
+    caqQueuingParamsClassTable.EntityData.SegmentPath = "caqQueuingParamsClassTable"
+    caqQueuingParamsClassTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    caqQueuingParamsClassTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    caqQueuingParamsClassTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    caqqueuingparamsclasstable.EntityData.Children = make(map[string]types.YChild)
-    caqqueuingparamsclasstable.EntityData.Children["caqQueuingParamsClassEntry"] = types.YChild{"Caqqueuingparamsclassentry", nil}
-    for i := range caqqueuingparamsclasstable.Caqqueuingparamsclassentry {
-        caqqueuingparamsclasstable.EntityData.Children[types.GetSegmentPath(&caqqueuingparamsclasstable.Caqqueuingparamsclassentry[i])] = types.YChild{"Caqqueuingparamsclassentry", &caqqueuingparamsclasstable.Caqqueuingparamsclassentry[i]}
+    caqQueuingParamsClassTable.EntityData.Children = types.NewOrderedMap()
+    caqQueuingParamsClassTable.EntityData.Children.Append("caqQueuingParamsClassEntry", types.YChild{"CaqQueuingParamsClassEntry", nil})
+    for i := range caqQueuingParamsClassTable.CaqQueuingParamsClassEntry {
+        caqQueuingParamsClassTable.EntityData.Children.Append(types.GetSegmentPath(caqQueuingParamsClassTable.CaqQueuingParamsClassEntry[i]), types.YChild{"CaqQueuingParamsClassEntry", caqQueuingParamsClassTable.CaqQueuingParamsClassEntry[i]})
     }
-    caqqueuingparamsclasstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(caqqueuingparamsclasstable.EntityData)
+    caqQueuingParamsClassTable.EntityData.Leafs = types.NewOrderedMap()
+
+    caqQueuingParamsClassTable.EntityData.YListKeys = []string {}
+
+    return &(caqQueuingParamsClassTable.EntityData)
 }
 
-// CISCOATMQOSMIB_Caqqueuingparamsclasstable_Caqqueuingparamsclassentry
+// CISCOATMQOSMIB_CaqQueuingParamsClassTable_CaqQueuingParamsClassEntry
 // This is defined as an entry in ciscoAtmQosVcQueuingClassTable
 // to provide queuing information of a specific class.
-type CISCOATMQOSMIB_Caqqueuingparamsclasstable_Caqqueuingparamsclassentry struct {
+type CISCOATMQOSMIB_CaqQueuingParamsClassTable_CaqQueuingParamsClassEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvci
-    Atmvclvci interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVci
+    AtmVclVci interface{}
 
     // This attribute is a key. A class index, which associates with an IP
     // precedence (0 to 8), is defined to reference individual
     // caqQueuingParamsClassEntry. The type is interface{} with range: 0..8.
-    Caqqueuingparamsclassindex interface{}
+    CaqQueuingParamsClassIndex interface{}
 
     // Number of packets dropped when Mean Queue Length is between Minimum
     // Threshold and Maximum Threshold range. The type is interface{} with range:
     // 0..4294967295.
-    Caqqueuingparamsclassranddrp interface{}
+    CaqQueuingParamsClassRandDrp interface{}
 
     // Number of packets dropped because the Mean Queue Depth exceeds the Maximum
     // Threshold value. The type is interface{} with range: 0..4294967295.
-    Caqqueuingparamsclasstaildrp interface{}
+    CaqQueuingParamsClassTailDrp interface{}
 
     // Minimum Threshold value in kbps. The type is interface{} with range:
     // 0..4294967295.
-    Caqqueuingparamsclassminthre interface{}
+    CaqQueuingParamsClassMinThre interface{}
 
     // Maximum Threshold value in kbps. The type is interface{} with range:
     // 0..4294967295.
-    Caqqueuingparamsclassmaxthre interface{}
+    CaqQueuingParamsClassMaxThre interface{}
 
     // Mark probability denominator.  This is the value used in the calculation of
     // a packet being dropped when the average queue size is between the minimum
     // threshold and the maximum threshold. The type is interface{} with range:
     // 0..4294967295.
-    Caqqueuingparamsclassmrkprob interface{}
+    CaqQueuingParamsClassMrkProb interface{}
 }
 
-func (caqqueuingparamsclassentry *CISCOATMQOSMIB_Caqqueuingparamsclasstable_Caqqueuingparamsclassentry) GetEntityData() *types.CommonEntityData {
-    caqqueuingparamsclassentry.EntityData.YFilter = caqqueuingparamsclassentry.YFilter
-    caqqueuingparamsclassentry.EntityData.YangName = "caqQueuingParamsClassEntry"
-    caqqueuingparamsclassentry.EntityData.BundleName = "cisco_ios_xe"
-    caqqueuingparamsclassentry.EntityData.ParentYangName = "caqQueuingParamsClassTable"
-    caqqueuingparamsclassentry.EntityData.SegmentPath = "caqQueuingParamsClassEntry" + "[ifIndex='" + fmt.Sprintf("%v", caqqueuingparamsclassentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", caqqueuingparamsclassentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", caqqueuingparamsclassentry.Atmvclvci) + "']" + "[caqQueuingParamsClassIndex='" + fmt.Sprintf("%v", caqqueuingparamsclassentry.Caqqueuingparamsclassindex) + "']"
-    caqqueuingparamsclassentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    caqqueuingparamsclassentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    caqqueuingparamsclassentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (caqQueuingParamsClassEntry *CISCOATMQOSMIB_CaqQueuingParamsClassTable_CaqQueuingParamsClassEntry) GetEntityData() *types.CommonEntityData {
+    caqQueuingParamsClassEntry.EntityData.YFilter = caqQueuingParamsClassEntry.YFilter
+    caqQueuingParamsClassEntry.EntityData.YangName = "caqQueuingParamsClassEntry"
+    caqQueuingParamsClassEntry.EntityData.BundleName = "cisco_ios_xe"
+    caqQueuingParamsClassEntry.EntityData.ParentYangName = "caqQueuingParamsClassTable"
+    caqQueuingParamsClassEntry.EntityData.SegmentPath = "caqQueuingParamsClassEntry" + types.AddKeyToken(caqQueuingParamsClassEntry.IfIndex, "ifIndex") + types.AddKeyToken(caqQueuingParamsClassEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(caqQueuingParamsClassEntry.AtmVclVci, "atmVclVci") + types.AddKeyToken(caqQueuingParamsClassEntry.CaqQueuingParamsClassIndex, "caqQueuingParamsClassIndex")
+    caqQueuingParamsClassEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    caqQueuingParamsClassEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    caqQueuingParamsClassEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    caqqueuingparamsclassentry.EntityData.Children = make(map[string]types.YChild)
-    caqqueuingparamsclassentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    caqqueuingparamsclassentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", caqqueuingparamsclassentry.Ifindex}
-    caqqueuingparamsclassentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", caqqueuingparamsclassentry.Atmvclvpi}
-    caqqueuingparamsclassentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", caqqueuingparamsclassentry.Atmvclvci}
-    caqqueuingparamsclassentry.EntityData.Leafs["caqQueuingParamsClassIndex"] = types.YLeaf{"Caqqueuingparamsclassindex", caqqueuingparamsclassentry.Caqqueuingparamsclassindex}
-    caqqueuingparamsclassentry.EntityData.Leafs["caqQueuingParamsClassRandDrp"] = types.YLeaf{"Caqqueuingparamsclassranddrp", caqqueuingparamsclassentry.Caqqueuingparamsclassranddrp}
-    caqqueuingparamsclassentry.EntityData.Leafs["caqQueuingParamsClassTailDrp"] = types.YLeaf{"Caqqueuingparamsclasstaildrp", caqqueuingparamsclassentry.Caqqueuingparamsclasstaildrp}
-    caqqueuingparamsclassentry.EntityData.Leafs["caqQueuingParamsClassMinThre"] = types.YLeaf{"Caqqueuingparamsclassminthre", caqqueuingparamsclassentry.Caqqueuingparamsclassminthre}
-    caqqueuingparamsclassentry.EntityData.Leafs["caqQueuingParamsClassMaxThre"] = types.YLeaf{"Caqqueuingparamsclassmaxthre", caqqueuingparamsclassentry.Caqqueuingparamsclassmaxthre}
-    caqqueuingparamsclassentry.EntityData.Leafs["caqQueuingParamsClassMrkProb"] = types.YLeaf{"Caqqueuingparamsclassmrkprob", caqqueuingparamsclassentry.Caqqueuingparamsclassmrkprob}
-    return &(caqqueuingparamsclassentry.EntityData)
+    caqQueuingParamsClassEntry.EntityData.Children = types.NewOrderedMap()
+    caqQueuingParamsClassEntry.EntityData.Leafs = types.NewOrderedMap()
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", caqQueuingParamsClassEntry.IfIndex})
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", caqQueuingParamsClassEntry.AtmVclVpi})
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("atmVclVci", types.YLeaf{"AtmVclVci", caqQueuingParamsClassEntry.AtmVclVci})
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("caqQueuingParamsClassIndex", types.YLeaf{"CaqQueuingParamsClassIndex", caqQueuingParamsClassEntry.CaqQueuingParamsClassIndex})
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("caqQueuingParamsClassRandDrp", types.YLeaf{"CaqQueuingParamsClassRandDrp", caqQueuingParamsClassEntry.CaqQueuingParamsClassRandDrp})
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("caqQueuingParamsClassTailDrp", types.YLeaf{"CaqQueuingParamsClassTailDrp", caqQueuingParamsClassEntry.CaqQueuingParamsClassTailDrp})
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("caqQueuingParamsClassMinThre", types.YLeaf{"CaqQueuingParamsClassMinThre", caqQueuingParamsClassEntry.CaqQueuingParamsClassMinThre})
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("caqQueuingParamsClassMaxThre", types.YLeaf{"CaqQueuingParamsClassMaxThre", caqQueuingParamsClassEntry.CaqQueuingParamsClassMaxThre})
+    caqQueuingParamsClassEntry.EntityData.Leafs.Append("caqQueuingParamsClassMrkProb", types.YLeaf{"CaqQueuingParamsClassMrkProb", caqQueuingParamsClassEntry.CaqQueuingParamsClassMrkProb})
+
+    caqQueuingParamsClassEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "AtmVclVci", "CaqQueuingParamsClassIndex"}
+
+    return &(caqQueuingParamsClassEntry.EntityData)
 }
 

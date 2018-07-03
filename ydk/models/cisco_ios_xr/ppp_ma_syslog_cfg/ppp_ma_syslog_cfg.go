@@ -44,9 +44,12 @@ func (ppp *Ppp) GetEntityData() *types.CommonEntityData {
     ppp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ppp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ppp.EntityData.Children = make(map[string]types.YChild)
-    ppp.EntityData.Children["syslog"] = types.YChild{"Syslog", &ppp.Syslog}
-    ppp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ppp.EntityData.Children = types.NewOrderedMap()
+    ppp.EntityData.Children.Append("syslog", types.YChild{"Syslog", &ppp.Syslog})
+    ppp.EntityData.Leafs = types.NewOrderedMap()
+
+    ppp.EntityData.YListKeys = []string {}
+
     return &(ppp.EntityData)
 }
 
@@ -70,9 +73,12 @@ func (syslog *Ppp_Syslog) GetEntityData() *types.CommonEntityData {
     syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    syslog.EntityData.Children = make(map[string]types.YChild)
-    syslog.EntityData.Leafs = make(map[string]types.YLeaf)
-    syslog.EntityData.Leafs["enable-session-status"] = types.YLeaf{"EnableSessionStatus", syslog.EnableSessionStatus}
+    syslog.EntityData.Children = types.NewOrderedMap()
+    syslog.EntityData.Leafs = types.NewOrderedMap()
+    syslog.EntityData.Leafs.Append("enable-session-status", types.YLeaf{"EnableSessionStatus", syslog.EnableSessionStatus})
+
+    syslog.EntityData.YListKeys = []string {}
+
     return &(syslog.EntityData)
 }
 

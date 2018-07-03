@@ -44,9 +44,12 @@ func (controlPlane *ControlPlane) GetEntityData() *types.CommonEntityData {
     controlPlane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controlPlane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controlPlane.EntityData.Children = make(map[string]types.YChild)
-    controlPlane.EntityData.Children["management-plane-protection"] = types.YChild{"ManagementPlaneProtection", &controlPlane.ManagementPlaneProtection}
-    controlPlane.EntityData.Leafs = make(map[string]types.YLeaf)
+    controlPlane.EntityData.Children = types.NewOrderedMap()
+    controlPlane.EntityData.Children.Append("management-plane-protection", types.YChild{"ManagementPlaneProtection", &controlPlane.ManagementPlaneProtection})
+    controlPlane.EntityData.Leafs = types.NewOrderedMap()
+
+    controlPlane.EntityData.YListKeys = []string {}
+
     return &(controlPlane.EntityData)
 }
 
@@ -76,11 +79,14 @@ func (managementPlaneProtection *ControlPlane_ManagementPlaneProtection) GetEnti
     managementPlaneProtection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     managementPlaneProtection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    managementPlaneProtection.EntityData.Children = make(map[string]types.YChild)
-    managementPlaneProtection.EntityData.Children["outband"] = types.YChild{"Outband", &managementPlaneProtection.Outband}
-    managementPlaneProtection.EntityData.Children["inband"] = types.YChild{"Inband", &managementPlaneProtection.Inband}
-    managementPlaneProtection.EntityData.Children["tpa"] = types.YChild{"Tpa", &managementPlaneProtection.Tpa}
-    managementPlaneProtection.EntityData.Leafs = make(map[string]types.YLeaf)
+    managementPlaneProtection.EntityData.Children = types.NewOrderedMap()
+    managementPlaneProtection.EntityData.Children.Append("outband", types.YChild{"Outband", &managementPlaneProtection.Outband})
+    managementPlaneProtection.EntityData.Children.Append("inband", types.YChild{"Inband", &managementPlaneProtection.Inband})
+    managementPlaneProtection.EntityData.Children.Append("tpa", types.YChild{"Tpa", &managementPlaneProtection.Tpa})
+    managementPlaneProtection.EntityData.Leafs = types.NewOrderedMap()
+
+    managementPlaneProtection.EntityData.YListKeys = []string {}
+
     return &(managementPlaneProtection.EntityData)
 }
 
@@ -107,10 +113,13 @@ func (outband *ControlPlane_ManagementPlaneProtection_Outband) GetEntityData() *
     outband.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outband.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    outband.EntityData.Children = make(map[string]types.YChild)
-    outband.EntityData.Children["interface-selection"] = types.YChild{"InterfaceSelection", &outband.InterfaceSelection}
-    outband.EntityData.Leafs = make(map[string]types.YLeaf)
-    outband.EntityData.Leafs["outband-vrf"] = types.YLeaf{"OutbandVrf", outband.OutbandVrf}
+    outband.EntityData.Children = types.NewOrderedMap()
+    outband.EntityData.Children.Append("interface-selection", types.YChild{"InterfaceSelection", &outband.InterfaceSelection})
+    outband.EntityData.Leafs = types.NewOrderedMap()
+    outband.EntityData.Leafs.Append("outband-vrf", types.YLeaf{"OutbandVrf", outband.OutbandVrf})
+
+    outband.EntityData.YListKeys = []string {}
+
     return &(outband.EntityData)
 }
 
@@ -137,10 +146,13 @@ func (interfaceSelection *ControlPlane_ManagementPlaneProtection_Outband_Interfa
     interfaceSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceSelection.EntityData.Children = make(map[string]types.YChild)
-    interfaceSelection.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &interfaceSelection.Interfaces}
-    interfaceSelection.EntityData.Children["all-interfaces"] = types.YChild{"AllInterfaces", &interfaceSelection.AllInterfaces}
-    interfaceSelection.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceSelection.EntityData.Children = types.NewOrderedMap()
+    interfaceSelection.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &interfaceSelection.Interfaces})
+    interfaceSelection.EntityData.Children.Append("all-interfaces", types.YChild{"AllInterfaces", &interfaceSelection.AllInterfaces})
+    interfaceSelection.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceSelection.EntityData.YListKeys = []string {}
+
     return &(interfaceSelection.EntityData)
 }
 
@@ -151,8 +163,8 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
     YFilter yfilter.YFilter
 
     // Specific interface. The type is slice of
-    // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_.
-    Interface_ []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface
+    // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface.
+    Interface []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface
 }
 
 func (interfaces *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -165,12 +177,15 @@ func (interfaces *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -181,7 +196,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the Interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Configure HTTP on this interface.
@@ -214,22 +229,25 @@ func (self *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["http-protocol"] = types.YChild{"HttpProtocol", &self.HttpProtocol}
-    self.EntityData.Children["tftp-protocol"] = types.YChild{"TftpProtocol", &self.TftpProtocol}
-    self.EntityData.Children["netconf-protocol"] = types.YChild{"NetconfProtocol", &self.NetconfProtocol}
-    self.EntityData.Children["xr-xml"] = types.YChild{"XrXml", &self.XrXml}
-    self.EntityData.Children["ssh-protocol"] = types.YChild{"SshProtocol", &self.SshProtocol}
-    self.EntityData.Children["snmp-protocol"] = types.YChild{"SnmpProtocol", &self.SnmpProtocol}
-    self.EntityData.Children["telnet-protocol"] = types.YChild{"TelnetProtocol", &self.TelnetProtocol}
-    self.EntityData.Children["all-protocols"] = types.YChild{"AllProtocols", &self.AllProtocols}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("http-protocol", types.YChild{"HttpProtocol", &self.HttpProtocol})
+    self.EntityData.Children.Append("tftp-protocol", types.YChild{"TftpProtocol", &self.TftpProtocol})
+    self.EntityData.Children.Append("netconf-protocol", types.YChild{"NetconfProtocol", &self.NetconfProtocol})
+    self.EntityData.Children.Append("xr-xml", types.YChild{"XrXml", &self.XrXml})
+    self.EntityData.Children.Append("ssh-protocol", types.YChild{"SshProtocol", &self.SshProtocol})
+    self.EntityData.Children.Append("snmp-protocol", types.YChild{"SnmpProtocol", &self.SnmpProtocol})
+    self.EntityData.Children.Append("telnet-protocol", types.YChild{"TelnetProtocol", &self.TelnetProtocol})
+    self.EntityData.Children.Append("all-protocols", types.YChild{"AllProtocols", &self.AllProtocols})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -253,9 +271,12 @@ func (httpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     httpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    httpProtocol.EntityData.Children = make(map[string]types.YChild)
-    httpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &httpProtocol.PeerClass}
-    httpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    httpProtocol.EntityData.Children = types.NewOrderedMap()
+    httpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &httpProtocol.PeerClass})
+    httpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    httpProtocol.EntityData.YListKeys = []string {}
+
     return &(httpProtocol.EntityData)
 }
 
@@ -285,11 +306,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -316,10 +340,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -331,7 +358,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -344,12 +371,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -361,9 +391,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -372,14 +402,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -391,7 +424,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -404,12 +437,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -421,9 +457,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -432,14 +468,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -466,10 +505,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -481,7 +523,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -494,12 +536,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -511,9 +556,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -522,14 +567,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -541,7 +589,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -554,12 +602,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -571,9 +622,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -582,14 +633,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -613,9 +667,12 @@ func (tftpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     tftpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftpProtocol.EntityData.Children = make(map[string]types.YChild)
-    tftpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &tftpProtocol.PeerClass}
-    tftpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    tftpProtocol.EntityData.Children = types.NewOrderedMap()
+    tftpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &tftpProtocol.PeerClass})
+    tftpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    tftpProtocol.EntityData.YListKeys = []string {}
+
     return &(tftpProtocol.EntityData)
 }
 
@@ -645,11 +702,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -676,10 +736,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -691,7 +754,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -704,12 +767,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -721,9 +787,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -732,14 +798,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -751,7 +820,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -764,12 +833,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -781,9 +853,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -792,14 +864,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -826,10 +901,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -841,7 +919,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -854,12 +932,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -871,9 +952,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -882,14 +963,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -901,7 +985,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -914,12 +998,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -931,9 +1018,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -942,14 +1029,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -973,9 +1063,12 @@ func (netconfProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceS
     netconfProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconfProtocol.EntityData.Children = make(map[string]types.YChild)
-    netconfProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &netconfProtocol.PeerClass}
-    netconfProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconfProtocol.EntityData.Children = types.NewOrderedMap()
+    netconfProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &netconfProtocol.PeerClass})
+    netconfProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    netconfProtocol.EntityData.YListKeys = []string {}
+
     return &(netconfProtocol.EntityData)
 }
 
@@ -1005,11 +1098,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -1036,10 +1132,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -1051,7 +1150,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -1064,12 +1163,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -1081,9 +1183,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1092,14 +1194,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -1111,7 +1216,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -1124,12 +1229,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -1141,9 +1249,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -1152,14 +1260,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -1186,10 +1297,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -1201,7 +1315,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -1214,12 +1328,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -1231,9 +1348,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1242,14 +1359,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -1261,7 +1381,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -1274,12 +1394,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -1291,9 +1414,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -1302,14 +1425,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -1333,9 +1459,12 @@ func (xrXml *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    xrXml.EntityData.Children = make(map[string]types.YChild)
-    xrXml.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &xrXml.PeerClass}
-    xrXml.EntityData.Leafs = make(map[string]types.YLeaf)
+    xrXml.EntityData.Children = types.NewOrderedMap()
+    xrXml.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &xrXml.PeerClass})
+    xrXml.EntityData.Leafs = types.NewOrderedMap()
+
+    xrXml.EntityData.YListKeys = []string {}
+
     return &(xrXml.EntityData)
 }
 
@@ -1365,11 +1494,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -1396,10 +1528,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -1411,7 +1546,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -1424,12 +1559,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -1441,9 +1579,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1452,14 +1590,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -1471,7 +1612,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -1484,12 +1625,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -1501,9 +1645,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -1512,14 +1656,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -1546,10 +1693,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -1561,7 +1711,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -1574,12 +1724,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -1591,9 +1744,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1602,14 +1755,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -1621,7 +1777,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -1634,12 +1790,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -1651,9 +1810,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -1662,14 +1821,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -1693,9 +1855,12 @@ func (sshProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelec
     sshProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sshProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sshProtocol.EntityData.Children = make(map[string]types.YChild)
-    sshProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &sshProtocol.PeerClass}
-    sshProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    sshProtocol.EntityData.Children = types.NewOrderedMap()
+    sshProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &sshProtocol.PeerClass})
+    sshProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    sshProtocol.EntityData.YListKeys = []string {}
+
     return &(sshProtocol.EntityData)
 }
 
@@ -1725,11 +1890,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -1756,10 +1924,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -1771,7 +1942,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -1784,12 +1955,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -1801,9 +1975,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1812,14 +1986,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -1831,7 +2008,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -1844,12 +2021,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -1861,9 +2041,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -1872,14 +2052,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -1906,10 +2089,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -1921,7 +2107,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -1934,12 +2120,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -1951,9 +2140,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1962,14 +2151,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -1981,7 +2173,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -1994,12 +2186,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -2011,9 +2206,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -2022,14 +2217,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -2053,9 +2251,12 @@ func (snmpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     snmpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snmpProtocol.EntityData.Children = make(map[string]types.YChild)
-    snmpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &snmpProtocol.PeerClass}
-    snmpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpProtocol.EntityData.Children = types.NewOrderedMap()
+    snmpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &snmpProtocol.PeerClass})
+    snmpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    snmpProtocol.EntityData.YListKeys = []string {}
+
     return &(snmpProtocol.EntityData)
 }
 
@@ -2085,11 +2286,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -2116,10 +2320,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -2131,7 +2338,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -2144,12 +2351,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -2161,9 +2371,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -2172,14 +2382,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -2191,7 +2404,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -2204,12 +2417,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -2221,9 +2437,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -2232,14 +2448,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -2266,10 +2485,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -2281,7 +2503,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -2294,12 +2516,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -2311,9 +2536,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -2322,14 +2547,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -2341,7 +2569,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -2354,12 +2582,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -2371,9 +2602,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -2382,14 +2613,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -2413,9 +2647,12 @@ func (telnetProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSe
     telnetProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnetProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telnetProtocol.EntityData.Children = make(map[string]types.YChild)
-    telnetProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &telnetProtocol.PeerClass}
-    telnetProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    telnetProtocol.EntityData.Children = types.NewOrderedMap()
+    telnetProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &telnetProtocol.PeerClass})
+    telnetProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    telnetProtocol.EntityData.YListKeys = []string {}
+
     return &(telnetProtocol.EntityData)
 }
 
@@ -2445,11 +2682,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -2476,10 +2716,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -2491,7 +2734,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -2504,12 +2747,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -2521,9 +2767,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -2532,14 +2778,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -2551,7 +2800,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -2564,12 +2813,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -2581,9 +2833,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -2592,14 +2844,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -2626,10 +2881,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -2641,7 +2899,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -2654,12 +2912,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -2671,9 +2932,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -2682,14 +2943,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -2701,7 +2965,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -2714,12 +2978,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -2731,9 +2998,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -2742,14 +3009,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -2773,9 +3043,12 @@ func (allProtocols *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     allProtocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allProtocols.EntityData.Children = make(map[string]types.YChild)
-    allProtocols.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &allProtocols.PeerClass}
-    allProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    allProtocols.EntityData.Children = types.NewOrderedMap()
+    allProtocols.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &allProtocols.PeerClass})
+    allProtocols.EntityData.Leafs = types.NewOrderedMap()
+
+    allProtocols.EntityData.YListKeys = []string {}
+
     return &(allProtocols.EntityData)
 }
 
@@ -2805,11 +3078,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -2836,10 +3112,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -2851,7 +3130,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -2864,12 +3143,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -2881,9 +3163,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -2892,14 +3174,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -2911,7 +3196,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -2924,12 +3209,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -2941,9 +3229,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -2952,14 +3240,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -2986,10 +3277,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -3001,7 +3295,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -3014,12 +3308,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -3031,9 +3328,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -3042,14 +3339,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -3061,7 +3361,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -3074,12 +3374,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -3091,9 +3394,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -3102,14 +3405,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -3154,16 +3460,19 @@ func (allInterfaces *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSel
     allInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allInterfaces.EntityData.Children = make(map[string]types.YChild)
-    allInterfaces.EntityData.Children["http-protocol"] = types.YChild{"HttpProtocol", &allInterfaces.HttpProtocol}
-    allInterfaces.EntityData.Children["tftp-protocol"] = types.YChild{"TftpProtocol", &allInterfaces.TftpProtocol}
-    allInterfaces.EntityData.Children["netconf-protocol"] = types.YChild{"NetconfProtocol", &allInterfaces.NetconfProtocol}
-    allInterfaces.EntityData.Children["xr-xml"] = types.YChild{"XrXml", &allInterfaces.XrXml}
-    allInterfaces.EntityData.Children["ssh-protocol"] = types.YChild{"SshProtocol", &allInterfaces.SshProtocol}
-    allInterfaces.EntityData.Children["snmp-protocol"] = types.YChild{"SnmpProtocol", &allInterfaces.SnmpProtocol}
-    allInterfaces.EntityData.Children["telnet-protocol"] = types.YChild{"TelnetProtocol", &allInterfaces.TelnetProtocol}
-    allInterfaces.EntityData.Children["all-protocols"] = types.YChild{"AllProtocols", &allInterfaces.AllProtocols}
-    allInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    allInterfaces.EntityData.Children = types.NewOrderedMap()
+    allInterfaces.EntityData.Children.Append("http-protocol", types.YChild{"HttpProtocol", &allInterfaces.HttpProtocol})
+    allInterfaces.EntityData.Children.Append("tftp-protocol", types.YChild{"TftpProtocol", &allInterfaces.TftpProtocol})
+    allInterfaces.EntityData.Children.Append("netconf-protocol", types.YChild{"NetconfProtocol", &allInterfaces.NetconfProtocol})
+    allInterfaces.EntityData.Children.Append("xr-xml", types.YChild{"XrXml", &allInterfaces.XrXml})
+    allInterfaces.EntityData.Children.Append("ssh-protocol", types.YChild{"SshProtocol", &allInterfaces.SshProtocol})
+    allInterfaces.EntityData.Children.Append("snmp-protocol", types.YChild{"SnmpProtocol", &allInterfaces.SnmpProtocol})
+    allInterfaces.EntityData.Children.Append("telnet-protocol", types.YChild{"TelnetProtocol", &allInterfaces.TelnetProtocol})
+    allInterfaces.EntityData.Children.Append("all-protocols", types.YChild{"AllProtocols", &allInterfaces.AllProtocols})
+    allInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    allInterfaces.EntityData.YListKeys = []string {}
+
     return &(allInterfaces.EntityData)
 }
 
@@ -3187,9 +3496,12 @@ func (httpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     httpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    httpProtocol.EntityData.Children = make(map[string]types.YChild)
-    httpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &httpProtocol.PeerClass}
-    httpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    httpProtocol.EntityData.Children = types.NewOrderedMap()
+    httpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &httpProtocol.PeerClass})
+    httpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    httpProtocol.EntityData.YListKeys = []string {}
+
     return &(httpProtocol.EntityData)
 }
 
@@ -3219,11 +3531,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -3250,10 +3565,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -3265,7 +3583,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -3278,12 +3596,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -3295,9 +3616,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -3306,14 +3627,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -3325,7 +3649,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -3338,12 +3662,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -3355,9 +3682,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -3366,14 +3693,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -3400,10 +3730,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -3415,7 +3748,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -3428,12 +3761,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -3445,9 +3781,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -3456,14 +3792,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -3475,7 +3814,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -3488,12 +3827,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -3505,9 +3847,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -3516,14 +3858,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -3547,9 +3892,12 @@ func (tftpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     tftpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftpProtocol.EntityData.Children = make(map[string]types.YChild)
-    tftpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &tftpProtocol.PeerClass}
-    tftpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    tftpProtocol.EntityData.Children = types.NewOrderedMap()
+    tftpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &tftpProtocol.PeerClass})
+    tftpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    tftpProtocol.EntityData.YListKeys = []string {}
+
     return &(tftpProtocol.EntityData)
 }
 
@@ -3579,11 +3927,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -3610,10 +3961,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -3625,7 +3979,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -3638,12 +3992,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -3655,9 +4012,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -3666,14 +4023,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -3685,7 +4045,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -3698,12 +4058,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -3715,9 +4078,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -3726,14 +4089,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -3760,10 +4126,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -3775,7 +4144,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -3788,12 +4157,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -3805,9 +4177,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -3816,14 +4188,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -3835,7 +4210,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -3848,12 +4223,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -3865,9 +4243,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -3876,14 +4254,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -3907,9 +4288,12 @@ func (netconfProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceS
     netconfProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconfProtocol.EntityData.Children = make(map[string]types.YChild)
-    netconfProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &netconfProtocol.PeerClass}
-    netconfProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconfProtocol.EntityData.Children = types.NewOrderedMap()
+    netconfProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &netconfProtocol.PeerClass})
+    netconfProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    netconfProtocol.EntityData.YListKeys = []string {}
+
     return &(netconfProtocol.EntityData)
 }
 
@@ -3939,11 +4323,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -3970,10 +4357,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -3985,7 +4375,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -3998,12 +4388,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -4015,9 +4408,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -4026,14 +4419,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -4045,7 +4441,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -4058,12 +4454,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -4075,9 +4474,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -4086,14 +4485,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -4120,10 +4522,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -4135,7 +4540,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -4148,12 +4553,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -4165,9 +4573,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -4176,14 +4584,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -4195,7 +4606,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -4208,12 +4619,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -4225,9 +4639,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -4236,14 +4650,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -4267,9 +4684,12 @@ func (xrXml *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    xrXml.EntityData.Children = make(map[string]types.YChild)
-    xrXml.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &xrXml.PeerClass}
-    xrXml.EntityData.Leafs = make(map[string]types.YLeaf)
+    xrXml.EntityData.Children = types.NewOrderedMap()
+    xrXml.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &xrXml.PeerClass})
+    xrXml.EntityData.Leafs = types.NewOrderedMap()
+
+    xrXml.EntityData.YListKeys = []string {}
+
     return &(xrXml.EntityData)
 }
 
@@ -4299,11 +4719,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -4330,10 +4753,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -4345,7 +4771,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -4358,12 +4784,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -4375,9 +4804,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -4386,14 +4815,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -4405,7 +4837,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -4418,12 +4850,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -4435,9 +4870,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -4446,14 +4881,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -4480,10 +4918,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -4495,7 +4936,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -4508,12 +4949,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -4525,9 +4969,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -4536,14 +4980,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -4555,7 +5002,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -4568,12 +5015,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -4585,9 +5035,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -4596,14 +5046,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -4627,9 +5080,12 @@ func (sshProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelec
     sshProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sshProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sshProtocol.EntityData.Children = make(map[string]types.YChild)
-    sshProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &sshProtocol.PeerClass}
-    sshProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    sshProtocol.EntityData.Children = types.NewOrderedMap()
+    sshProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &sshProtocol.PeerClass})
+    sshProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    sshProtocol.EntityData.YListKeys = []string {}
+
     return &(sshProtocol.EntityData)
 }
 
@@ -4659,11 +5115,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -4690,10 +5149,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -4705,7 +5167,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -4718,12 +5180,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -4735,9 +5200,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -4746,14 +5211,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -4765,7 +5233,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -4778,12 +5246,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -4795,9 +5266,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -4806,14 +5277,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -4840,10 +5314,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -4855,7 +5332,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -4868,12 +5345,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -4885,9 +5365,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -4896,14 +5376,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -4915,7 +5398,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -4928,12 +5411,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -4945,9 +5431,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -4956,14 +5442,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -4987,9 +5476,12 @@ func (snmpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     snmpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snmpProtocol.EntityData.Children = make(map[string]types.YChild)
-    snmpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &snmpProtocol.PeerClass}
-    snmpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpProtocol.EntityData.Children = types.NewOrderedMap()
+    snmpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &snmpProtocol.PeerClass})
+    snmpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    snmpProtocol.EntityData.YListKeys = []string {}
+
     return &(snmpProtocol.EntityData)
 }
 
@@ -5019,11 +5511,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -5050,10 +5545,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -5065,7 +5563,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -5078,12 +5576,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -5095,9 +5596,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -5106,14 +5607,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -5125,7 +5629,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -5138,12 +5642,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -5155,9 +5662,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -5166,14 +5673,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -5200,10 +5710,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -5215,7 +5728,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -5228,12 +5741,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -5245,9 +5761,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -5256,14 +5772,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -5275,7 +5794,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -5288,12 +5807,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -5305,9 +5827,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -5316,14 +5838,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -5347,9 +5872,12 @@ func (telnetProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSe
     telnetProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnetProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telnetProtocol.EntityData.Children = make(map[string]types.YChild)
-    telnetProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &telnetProtocol.PeerClass}
-    telnetProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    telnetProtocol.EntityData.Children = types.NewOrderedMap()
+    telnetProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &telnetProtocol.PeerClass})
+    telnetProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    telnetProtocol.EntityData.YListKeys = []string {}
+
     return &(telnetProtocol.EntityData)
 }
 
@@ -5379,11 +5907,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -5410,10 +5941,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -5425,7 +5959,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -5438,12 +5972,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -5455,9 +5992,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -5466,14 +6003,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -5485,7 +6025,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -5498,12 +6038,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -5515,9 +6058,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -5526,14 +6069,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -5560,10 +6106,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -5575,7 +6124,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -5588,12 +6137,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -5605,9 +6157,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -5616,14 +6168,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -5635,7 +6190,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -5648,12 +6203,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -5665,9 +6223,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -5676,14 +6234,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -5707,9 +6268,12 @@ func (allProtocols *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     allProtocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allProtocols.EntityData.Children = make(map[string]types.YChild)
-    allProtocols.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &allProtocols.PeerClass}
-    allProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    allProtocols.EntityData.Children = types.NewOrderedMap()
+    allProtocols.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &allProtocols.PeerClass})
+    allProtocols.EntityData.Leafs = types.NewOrderedMap()
+
+    allProtocols.EntityData.YListKeys = []string {}
+
     return &(allProtocols.EntityData)
 }
 
@@ -5739,11 +6303,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -5770,10 +6337,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -5785,7 +6355,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -5798,12 +6368,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -5815,9 +6388,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -5826,14 +6399,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -5845,7 +6421,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -5858,12 +6434,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -5875,9 +6454,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -5886,14 +6465,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -5920,10 +6502,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -5935,7 +6520,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -5948,12 +6533,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -5965,9 +6553,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -5976,14 +6564,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -5995,7 +6586,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -6008,12 +6599,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -6025,9 +6619,9 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterf
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -6036,14 +6630,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -6067,9 +6664,12 @@ func (inband *ControlPlane_ManagementPlaneProtection_Inband) GetEntityData() *ty
     inband.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inband.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inband.EntityData.Children = make(map[string]types.YChild)
-    inband.EntityData.Children["interface-selection"] = types.YChild{"InterfaceSelection", &inband.InterfaceSelection}
-    inband.EntityData.Leafs = make(map[string]types.YLeaf)
+    inband.EntityData.Children = types.NewOrderedMap()
+    inband.EntityData.Children.Append("interface-selection", types.YChild{"InterfaceSelection", &inband.InterfaceSelection})
+    inband.EntityData.Leafs = types.NewOrderedMap()
+
+    inband.EntityData.YListKeys = []string {}
+
     return &(inband.EntityData)
 }
 
@@ -6096,10 +6696,13 @@ func (interfaceSelection *ControlPlane_ManagementPlaneProtection_Inband_Interfac
     interfaceSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceSelection.EntityData.Children = make(map[string]types.YChild)
-    interfaceSelection.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &interfaceSelection.Interfaces}
-    interfaceSelection.EntityData.Children["all-interfaces"] = types.YChild{"AllInterfaces", &interfaceSelection.AllInterfaces}
-    interfaceSelection.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceSelection.EntityData.Children = types.NewOrderedMap()
+    interfaceSelection.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &interfaceSelection.Interfaces})
+    interfaceSelection.EntityData.Children.Append("all-interfaces", types.YChild{"AllInterfaces", &interfaceSelection.AllInterfaces})
+    interfaceSelection.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceSelection.EntityData.YListKeys = []string {}
+
     return &(interfaceSelection.EntityData)
 }
 
@@ -6110,8 +6713,8 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
     YFilter yfilter.YFilter
 
     // Specific interface. The type is slice of
-    // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_.
-    Interface_ []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface
+    // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface.
+    Interface []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface
 }
 
 func (interfaces *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -6124,12 +6727,15 @@ func (interfaces *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -6140,7 +6746,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the Interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Configure HTTP on this interface.
@@ -6173,22 +6779,25 @@ func (self *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["http-protocol"] = types.YChild{"HttpProtocol", &self.HttpProtocol}
-    self.EntityData.Children["tftp-protocol"] = types.YChild{"TftpProtocol", &self.TftpProtocol}
-    self.EntityData.Children["netconf-protocol"] = types.YChild{"NetconfProtocol", &self.NetconfProtocol}
-    self.EntityData.Children["xr-xml"] = types.YChild{"XrXml", &self.XrXml}
-    self.EntityData.Children["ssh-protocol"] = types.YChild{"SshProtocol", &self.SshProtocol}
-    self.EntityData.Children["snmp-protocol"] = types.YChild{"SnmpProtocol", &self.SnmpProtocol}
-    self.EntityData.Children["telnet-protocol"] = types.YChild{"TelnetProtocol", &self.TelnetProtocol}
-    self.EntityData.Children["all-protocols"] = types.YChild{"AllProtocols", &self.AllProtocols}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("http-protocol", types.YChild{"HttpProtocol", &self.HttpProtocol})
+    self.EntityData.Children.Append("tftp-protocol", types.YChild{"TftpProtocol", &self.TftpProtocol})
+    self.EntityData.Children.Append("netconf-protocol", types.YChild{"NetconfProtocol", &self.NetconfProtocol})
+    self.EntityData.Children.Append("xr-xml", types.YChild{"XrXml", &self.XrXml})
+    self.EntityData.Children.Append("ssh-protocol", types.YChild{"SshProtocol", &self.SshProtocol})
+    self.EntityData.Children.Append("snmp-protocol", types.YChild{"SnmpProtocol", &self.SnmpProtocol})
+    self.EntityData.Children.Append("telnet-protocol", types.YChild{"TelnetProtocol", &self.TelnetProtocol})
+    self.EntityData.Children.Append("all-protocols", types.YChild{"AllProtocols", &self.AllProtocols})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -6212,9 +6821,12 @@ func (httpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     httpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    httpProtocol.EntityData.Children = make(map[string]types.YChild)
-    httpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &httpProtocol.PeerClass}
-    httpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    httpProtocol.EntityData.Children = types.NewOrderedMap()
+    httpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &httpProtocol.PeerClass})
+    httpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    httpProtocol.EntityData.YListKeys = []string {}
+
     return &(httpProtocol.EntityData)
 }
 
@@ -6244,11 +6856,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -6275,10 +6890,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -6290,7 +6908,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -6303,12 +6921,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -6320,9 +6941,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -6331,14 +6952,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -6350,7 +6974,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -6363,12 +6987,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -6380,9 +7007,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -6391,14 +7018,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -6425,10 +7055,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -6440,7 +7073,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -6453,12 +7086,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -6470,9 +7106,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -6481,14 +7117,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -6500,7 +7139,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -6513,12 +7152,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -6530,9 +7172,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -6541,14 +7183,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -6572,9 +7217,12 @@ func (tftpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     tftpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftpProtocol.EntityData.Children = make(map[string]types.YChild)
-    tftpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &tftpProtocol.PeerClass}
-    tftpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    tftpProtocol.EntityData.Children = types.NewOrderedMap()
+    tftpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &tftpProtocol.PeerClass})
+    tftpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    tftpProtocol.EntityData.YListKeys = []string {}
+
     return &(tftpProtocol.EntityData)
 }
 
@@ -6604,11 +7252,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -6635,10 +7286,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -6650,7 +7304,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -6663,12 +7317,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -6680,9 +7337,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -6691,14 +7348,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -6710,7 +7370,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -6723,12 +7383,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -6740,9 +7403,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -6751,14 +7414,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -6785,10 +7451,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -6800,7 +7469,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -6813,12 +7482,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -6830,9 +7502,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -6841,14 +7513,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -6860,7 +7535,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -6873,12 +7548,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -6890,9 +7568,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -6901,14 +7579,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -6932,9 +7613,12 @@ func (netconfProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSe
     netconfProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconfProtocol.EntityData.Children = make(map[string]types.YChild)
-    netconfProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &netconfProtocol.PeerClass}
-    netconfProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconfProtocol.EntityData.Children = types.NewOrderedMap()
+    netconfProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &netconfProtocol.PeerClass})
+    netconfProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    netconfProtocol.EntityData.YListKeys = []string {}
+
     return &(netconfProtocol.EntityData)
 }
 
@@ -6964,11 +7648,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -6995,10 +7682,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -7010,7 +7700,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -7023,12 +7713,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -7040,9 +7733,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -7051,14 +7744,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -7070,7 +7766,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -7083,12 +7779,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -7100,9 +7799,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -7111,14 +7810,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -7145,10 +7847,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -7160,7 +7865,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -7173,12 +7878,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -7190,9 +7898,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -7201,14 +7909,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -7220,7 +7931,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -7233,12 +7944,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -7250,9 +7964,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -7261,14 +7975,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -7292,9 +8009,12 @@ func (xrXml *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    xrXml.EntityData.Children = make(map[string]types.YChild)
-    xrXml.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &xrXml.PeerClass}
-    xrXml.EntityData.Leafs = make(map[string]types.YLeaf)
+    xrXml.EntityData.Children = types.NewOrderedMap()
+    xrXml.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &xrXml.PeerClass})
+    xrXml.EntityData.Leafs = types.NewOrderedMap()
+
+    xrXml.EntityData.YListKeys = []string {}
+
     return &(xrXml.EntityData)
 }
 
@@ -7324,11 +8044,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -7355,10 +8078,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -7370,7 +8096,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -7383,12 +8109,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -7400,9 +8129,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -7411,14 +8140,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -7430,7 +8162,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -7443,12 +8175,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -7460,9 +8195,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -7471,14 +8206,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -7505,10 +8243,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -7520,7 +8261,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -7533,12 +8274,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -7550,9 +8294,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -7561,14 +8305,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -7580,7 +8327,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -7593,12 +8340,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -7610,9 +8360,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -7621,14 +8371,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -7652,9 +8405,12 @@ func (sshProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelect
     sshProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sshProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sshProtocol.EntityData.Children = make(map[string]types.YChild)
-    sshProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &sshProtocol.PeerClass}
-    sshProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    sshProtocol.EntityData.Children = types.NewOrderedMap()
+    sshProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &sshProtocol.PeerClass})
+    sshProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    sshProtocol.EntityData.YListKeys = []string {}
+
     return &(sshProtocol.EntityData)
 }
 
@@ -7684,11 +8440,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -7715,10 +8474,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -7730,7 +8492,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -7743,12 +8505,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -7760,9 +8525,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -7771,14 +8536,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -7790,7 +8558,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -7803,12 +8571,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -7820,9 +8591,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -7831,14 +8602,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -7865,10 +8639,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -7880,7 +8657,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -7893,12 +8670,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -7910,9 +8690,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -7921,14 +8701,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -7940,7 +8723,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -7953,12 +8736,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -7970,9 +8756,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -7981,14 +8767,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -8012,9 +8801,12 @@ func (snmpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     snmpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snmpProtocol.EntityData.Children = make(map[string]types.YChild)
-    snmpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &snmpProtocol.PeerClass}
-    snmpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpProtocol.EntityData.Children = types.NewOrderedMap()
+    snmpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &snmpProtocol.PeerClass})
+    snmpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    snmpProtocol.EntityData.YListKeys = []string {}
+
     return &(snmpProtocol.EntityData)
 }
 
@@ -8044,11 +8836,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -8075,10 +8870,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -8090,7 +8888,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -8103,12 +8901,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -8120,9 +8921,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -8131,14 +8932,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -8150,7 +8954,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -8163,12 +8967,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -8180,9 +8987,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -8191,14 +8998,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -8225,10 +9035,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -8240,7 +9053,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -8253,12 +9066,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -8270,9 +9086,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -8281,14 +9097,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -8300,7 +9119,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -8313,12 +9132,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -8330,9 +9152,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -8341,14 +9163,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -8372,9 +9197,12 @@ func (telnetProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSel
     telnetProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnetProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telnetProtocol.EntityData.Children = make(map[string]types.YChild)
-    telnetProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &telnetProtocol.PeerClass}
-    telnetProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    telnetProtocol.EntityData.Children = types.NewOrderedMap()
+    telnetProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &telnetProtocol.PeerClass})
+    telnetProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    telnetProtocol.EntityData.YListKeys = []string {}
+
     return &(telnetProtocol.EntityData)
 }
 
@@ -8404,11 +9232,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -8435,10 +9266,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -8450,7 +9284,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -8463,12 +9297,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -8480,9 +9317,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -8491,14 +9328,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -8510,7 +9350,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -8523,12 +9363,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -8540,9 +9383,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -8551,14 +9394,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -8585,10 +9431,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -8600,7 +9449,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -8613,12 +9462,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -8630,9 +9482,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -8641,14 +9493,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -8660,7 +9515,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -8673,12 +9528,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -8690,9 +9548,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -8701,14 +9559,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -8732,9 +9593,12 @@ func (allProtocols *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     allProtocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allProtocols.EntityData.Children = make(map[string]types.YChild)
-    allProtocols.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &allProtocols.PeerClass}
-    allProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    allProtocols.EntityData.Children = types.NewOrderedMap()
+    allProtocols.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &allProtocols.PeerClass})
+    allProtocols.EntityData.Leafs = types.NewOrderedMap()
+
+    allProtocols.EntityData.YListKeys = []string {}
+
     return &(allProtocols.EntityData)
 }
 
@@ -8764,11 +9628,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -8795,10 +9662,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -8810,7 +9680,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -8823,12 +9693,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -8840,9 +9713,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -8851,14 +9724,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -8870,7 +9746,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -8883,12 +9759,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -8900,9 +9779,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -8911,14 +9790,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -8945,10 +9827,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -8960,7 +9845,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -8973,12 +9858,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -8990,9 +9878,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -9001,14 +9889,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -9020,7 +9911,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -9033,12 +9924,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -9050,9 +9944,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -9061,14 +9955,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -9113,16 +10010,19 @@ func (allInterfaces *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSele
     allInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allInterfaces.EntityData.Children = make(map[string]types.YChild)
-    allInterfaces.EntityData.Children["http-protocol"] = types.YChild{"HttpProtocol", &allInterfaces.HttpProtocol}
-    allInterfaces.EntityData.Children["tftp-protocol"] = types.YChild{"TftpProtocol", &allInterfaces.TftpProtocol}
-    allInterfaces.EntityData.Children["netconf-protocol"] = types.YChild{"NetconfProtocol", &allInterfaces.NetconfProtocol}
-    allInterfaces.EntityData.Children["xr-xml"] = types.YChild{"XrXml", &allInterfaces.XrXml}
-    allInterfaces.EntityData.Children["ssh-protocol"] = types.YChild{"SshProtocol", &allInterfaces.SshProtocol}
-    allInterfaces.EntityData.Children["snmp-protocol"] = types.YChild{"SnmpProtocol", &allInterfaces.SnmpProtocol}
-    allInterfaces.EntityData.Children["telnet-protocol"] = types.YChild{"TelnetProtocol", &allInterfaces.TelnetProtocol}
-    allInterfaces.EntityData.Children["all-protocols"] = types.YChild{"AllProtocols", &allInterfaces.AllProtocols}
-    allInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    allInterfaces.EntityData.Children = types.NewOrderedMap()
+    allInterfaces.EntityData.Children.Append("http-protocol", types.YChild{"HttpProtocol", &allInterfaces.HttpProtocol})
+    allInterfaces.EntityData.Children.Append("tftp-protocol", types.YChild{"TftpProtocol", &allInterfaces.TftpProtocol})
+    allInterfaces.EntityData.Children.Append("netconf-protocol", types.YChild{"NetconfProtocol", &allInterfaces.NetconfProtocol})
+    allInterfaces.EntityData.Children.Append("xr-xml", types.YChild{"XrXml", &allInterfaces.XrXml})
+    allInterfaces.EntityData.Children.Append("ssh-protocol", types.YChild{"SshProtocol", &allInterfaces.SshProtocol})
+    allInterfaces.EntityData.Children.Append("snmp-protocol", types.YChild{"SnmpProtocol", &allInterfaces.SnmpProtocol})
+    allInterfaces.EntityData.Children.Append("telnet-protocol", types.YChild{"TelnetProtocol", &allInterfaces.TelnetProtocol})
+    allInterfaces.EntityData.Children.Append("all-protocols", types.YChild{"AllProtocols", &allInterfaces.AllProtocols})
+    allInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    allInterfaces.EntityData.YListKeys = []string {}
+
     return &(allInterfaces.EntityData)
 }
 
@@ -9146,9 +10046,12 @@ func (httpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     httpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    httpProtocol.EntityData.Children = make(map[string]types.YChild)
-    httpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &httpProtocol.PeerClass}
-    httpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    httpProtocol.EntityData.Children = types.NewOrderedMap()
+    httpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &httpProtocol.PeerClass})
+    httpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    httpProtocol.EntityData.YListKeys = []string {}
+
     return &(httpProtocol.EntityData)
 }
 
@@ -9178,11 +10081,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -9209,10 +10115,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -9224,7 +10133,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -9237,12 +10146,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -9254,9 +10166,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -9265,14 +10177,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -9284,7 +10199,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -9297,12 +10212,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -9314,9 +10232,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -9325,14 +10243,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -9359,10 +10280,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -9374,7 +10298,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -9387,12 +10311,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -9404,9 +10331,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -9415,14 +10342,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -9434,7 +10364,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -9447,12 +10377,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -9464,9 +10397,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -9475,14 +10408,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -9506,9 +10442,12 @@ func (tftpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     tftpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftpProtocol.EntityData.Children = make(map[string]types.YChild)
-    tftpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &tftpProtocol.PeerClass}
-    tftpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    tftpProtocol.EntityData.Children = types.NewOrderedMap()
+    tftpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &tftpProtocol.PeerClass})
+    tftpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    tftpProtocol.EntityData.YListKeys = []string {}
+
     return &(tftpProtocol.EntityData)
 }
 
@@ -9538,11 +10477,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -9569,10 +10511,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -9584,7 +10529,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -9597,12 +10542,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -9614,9 +10562,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -9625,14 +10573,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -9644,7 +10595,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -9657,12 +10608,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -9674,9 +10628,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -9685,14 +10639,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -9719,10 +10676,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -9734,7 +10694,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -9747,12 +10707,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -9764,9 +10727,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -9775,14 +10738,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -9794,7 +10760,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -9807,12 +10773,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -9824,9 +10793,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -9835,14 +10804,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -9866,9 +10838,12 @@ func (netconfProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSe
     netconfProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconfProtocol.EntityData.Children = make(map[string]types.YChild)
-    netconfProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &netconfProtocol.PeerClass}
-    netconfProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconfProtocol.EntityData.Children = types.NewOrderedMap()
+    netconfProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &netconfProtocol.PeerClass})
+    netconfProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    netconfProtocol.EntityData.YListKeys = []string {}
+
     return &(netconfProtocol.EntityData)
 }
 
@@ -9898,11 +10873,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -9929,10 +10907,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -9944,7 +10925,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -9957,12 +10938,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -9974,9 +10958,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -9985,14 +10969,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -10004,7 +10991,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -10017,12 +11004,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -10034,9 +11024,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -10045,14 +11035,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -10079,10 +11072,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -10094,7 +11090,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -10107,12 +11103,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -10124,9 +11123,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -10135,14 +11134,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -10154,7 +11156,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -10167,12 +11169,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -10184,9 +11189,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -10195,14 +11200,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -10226,9 +11234,12 @@ func (xrXml *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    xrXml.EntityData.Children = make(map[string]types.YChild)
-    xrXml.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &xrXml.PeerClass}
-    xrXml.EntityData.Leafs = make(map[string]types.YLeaf)
+    xrXml.EntityData.Children = types.NewOrderedMap()
+    xrXml.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &xrXml.PeerClass})
+    xrXml.EntityData.Leafs = types.NewOrderedMap()
+
+    xrXml.EntityData.YListKeys = []string {}
+
     return &(xrXml.EntityData)
 }
 
@@ -10258,11 +11269,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -10289,10 +11303,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -10304,7 +11321,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -10317,12 +11334,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -10334,9 +11354,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -10345,14 +11365,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -10364,7 +11387,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -10377,12 +11400,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -10394,9 +11420,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -10405,14 +11431,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -10439,10 +11468,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -10454,7 +11486,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -10467,12 +11499,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -10484,9 +11519,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -10495,14 +11530,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -10514,7 +11552,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -10527,12 +11565,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -10544,9 +11585,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -10555,14 +11596,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -10586,9 +11630,12 @@ func (sshProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelect
     sshProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sshProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sshProtocol.EntityData.Children = make(map[string]types.YChild)
-    sshProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &sshProtocol.PeerClass}
-    sshProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    sshProtocol.EntityData.Children = types.NewOrderedMap()
+    sshProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &sshProtocol.PeerClass})
+    sshProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    sshProtocol.EntityData.YListKeys = []string {}
+
     return &(sshProtocol.EntityData)
 }
 
@@ -10618,11 +11665,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -10649,10 +11699,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -10664,7 +11717,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -10677,12 +11730,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -10694,9 +11750,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -10705,14 +11761,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -10724,7 +11783,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -10737,12 +11796,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -10754,9 +11816,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -10765,14 +11827,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -10799,10 +11864,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -10814,7 +11882,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -10827,12 +11895,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -10844,9 +11915,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -10855,14 +11926,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -10874,7 +11948,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -10887,12 +11961,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -10904,9 +11981,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -10915,14 +11992,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -10946,9 +12026,12 @@ func (snmpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     snmpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snmpProtocol.EntityData.Children = make(map[string]types.YChild)
-    snmpProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &snmpProtocol.PeerClass}
-    snmpProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpProtocol.EntityData.Children = types.NewOrderedMap()
+    snmpProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &snmpProtocol.PeerClass})
+    snmpProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    snmpProtocol.EntityData.YListKeys = []string {}
+
     return &(snmpProtocol.EntityData)
 }
 
@@ -10978,11 +12061,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -11009,10 +12095,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -11024,7 +12113,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -11037,12 +12126,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -11054,9 +12146,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -11065,14 +12157,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -11084,7 +12179,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -11097,12 +12192,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -11114,9 +12212,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -11125,14 +12223,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -11159,10 +12260,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -11174,7 +12278,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -11187,12 +12291,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -11204,9 +12311,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -11215,14 +12322,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -11234,7 +12344,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -11247,12 +12357,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -11264,9 +12377,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -11275,14 +12388,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -11306,9 +12422,12 @@ func (telnetProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSel
     telnetProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnetProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telnetProtocol.EntityData.Children = make(map[string]types.YChild)
-    telnetProtocol.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &telnetProtocol.PeerClass}
-    telnetProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    telnetProtocol.EntityData.Children = types.NewOrderedMap()
+    telnetProtocol.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &telnetProtocol.PeerClass})
+    telnetProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    telnetProtocol.EntityData.YListKeys = []string {}
+
     return &(telnetProtocol.EntityData)
 }
 
@@ -11338,11 +12457,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -11369,10 +12491,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -11384,7 +12509,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -11397,12 +12522,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -11414,9 +12542,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -11425,14 +12553,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -11444,7 +12575,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -11457,12 +12588,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -11474,9 +12608,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -11485,14 +12619,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -11519,10 +12656,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -11534,7 +12674,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -11547,12 +12687,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -11564,9 +12707,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -11575,14 +12718,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -11594,7 +12740,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -11607,12 +12753,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -11624,9 +12773,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -11635,14 +12784,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -11666,9 +12818,12 @@ func (allProtocols *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     allProtocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allProtocols.EntityData.Children = make(map[string]types.YChild)
-    allProtocols.EntityData.Children["peer-class"] = types.YChild{"PeerClass", &allProtocols.PeerClass}
-    allProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    allProtocols.EntityData.Children = types.NewOrderedMap()
+    allProtocols.EntityData.Children.Append("peer-class", types.YChild{"PeerClass", &allProtocols.PeerClass})
+    allProtocols.EntityData.Leafs = types.NewOrderedMap()
+
+    allProtocols.EntityData.YListKeys = []string {}
+
     return &(allProtocols.EntityData)
 }
 
@@ -11698,11 +12853,14 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerClass.EntityData.Children = make(map[string]types.YChild)
-    peerClass.EntityData.Children["peer-v4"] = types.YChild{"PeerV4", &peerClass.PeerV4}
-    peerClass.EntityData.Children["peer-v6"] = types.YChild{"PeerV6", &peerClass.PeerV6}
-    peerClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerClass.EntityData.Leafs["peer-all"] = types.YLeaf{"PeerAll", peerClass.PeerAll}
+    peerClass.EntityData.Children = types.NewOrderedMap()
+    peerClass.EntityData.Children.Append("peer-v4", types.YChild{"PeerV4", &peerClass.PeerV4})
+    peerClass.EntityData.Children.Append("peer-v6", types.YChild{"PeerV6", &peerClass.PeerV6})
+    peerClass.EntityData.Leafs = types.NewOrderedMap()
+    peerClass.EntityData.Leafs.Append("peer-all", types.YLeaf{"PeerAll", peerClass.PeerAll})
+
+    peerClass.EntityData.YListKeys = []string {}
+
     return &(peerClass.EntityData)
 }
 
@@ -11729,10 +12887,13 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV4.EntityData.Children = make(map[string]types.YChild)
-    peerV4.EntityData.Children["peers"] = types.YChild{"Peers", &peerV4.Peers}
-    peerV4.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes}
-    peerV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV4.EntityData.Children = types.NewOrderedMap()
+    peerV4.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV4.Peers})
+    peerV4.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV4.PeerPrefixes})
+    peerV4.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV4.EntityData.YListKeys = []string {}
+
     return &(peerV4.EntityData)
 }
 
@@ -11744,7 +12905,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers) GetEntityData() *types.CommonEntityData {
@@ -11757,12 +12918,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -11774,9 +12938,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -11785,14 +12949,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -11804,7 +12971,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -11817,12 +12984,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -11834,9 +13004,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -11845,14 +13015,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -11879,10 +13052,13 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerV6.EntityData.Children = make(map[string]types.YChild)
-    peerV6.EntityData.Children["peers"] = types.YChild{"Peers", &peerV6.Peers}
-    peerV6.EntityData.Children["peer-prefixes"] = types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes}
-    peerV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerV6.EntityData.Children = types.NewOrderedMap()
+    peerV6.EntityData.Children.Append("peers", types.YChild{"Peers", &peerV6.Peers})
+    peerV6.EntityData.Children.Append("peer-prefixes", types.YChild{"PeerPrefixes", &peerV6.PeerPrefixes})
+    peerV6.EntityData.Leafs = types.NewOrderedMap()
+
+    peerV6.EntityData.YListKeys = []string {}
+
     return &(peerV6.EntityData)
 }
 
@@ -11894,7 +13070,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Configure peer on the interface. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers_Peer.
-    Peer []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers_Peer
+    Peer []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers_Peer
 }
 
 func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers) GetEntityData() *types.CommonEntityData {
@@ -11907,12 +13083,15 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -11924,9 +13103,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -11935,14 +13114,17 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[address='" + fmt.Sprintf("%v", peer.Address) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["address"] = types.YLeaf{"Address", peer.Address}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("address", types.YLeaf{"Address", peer.Address})
+
+    peer.EntityData.YListKeys = []string {"Address"}
+
     return &(peer.EntityData)
 }
 
@@ -11954,7 +13136,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // Peer address (with prefix). The type is slice of
     // ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix.
-    PeerPrefix []ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
+    PeerPrefix []*ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix
 }
 
 func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes) GetEntityData() *types.CommonEntityData {
@@ -11967,12 +13149,15 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefixes.EntityData.Children = make(map[string]types.YChild)
-    peerPrefixes.EntityData.Children["peer-prefix"] = types.YChild{"PeerPrefix", nil}
+    peerPrefixes.EntityData.Children = types.NewOrderedMap()
+    peerPrefixes.EntityData.Children.Append("peer-prefix", types.YChild{"PeerPrefix", nil})
     for i := range peerPrefixes.PeerPrefix {
-        peerPrefixes.EntityData.Children[types.GetSegmentPath(&peerPrefixes.PeerPrefix[i])] = types.YChild{"PeerPrefix", &peerPrefixes.PeerPrefix[i]}
+        peerPrefixes.EntityData.Children.Append(types.GetSegmentPath(peerPrefixes.PeerPrefix[i]), types.YChild{"PeerPrefix", peerPrefixes.PeerPrefix[i]})
     }
-    peerPrefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    peerPrefixes.EntityData.YListKeys = []string {}
+
     return &(peerPrefixes.EntityData)
 }
 
@@ -11984,9 +13169,9 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfa
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 }
 
@@ -11995,14 +13180,17 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.YangName = "peer-prefix"
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
-    peerPrefix.EntityData.SegmentPath = "peer-prefix" + "[address-prefix='" + fmt.Sprintf("%v", peerPrefix.AddressPrefix) + "']"
+    peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerPrefix.EntityData.Children = make(map[string]types.YChild)
-    peerPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerPrefix.EntityData.Leafs["address-prefix"] = types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix}
+    peerPrefix.EntityData.Children = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs = types.NewOrderedMap()
+    peerPrefix.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", peerPrefix.AddressPrefix})
+
+    peerPrefix.EntityData.YListKeys = []string {"AddressPrefix"}
+
     return &(peerPrefix.EntityData)
 }
 
@@ -12027,9 +13215,12 @@ func (tpa *ControlPlane_ManagementPlaneProtection_Tpa) GetEntityData() *types.Co
     tpa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tpa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tpa.EntityData.Children = make(map[string]types.YChild)
-    tpa.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &tpa.Vrfs}
-    tpa.EntityData.Leafs = make(map[string]types.YLeaf)
+    tpa.EntityData.Children = types.NewOrderedMap()
+    tpa.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &tpa.Vrfs})
+    tpa.EntityData.Leafs = types.NewOrderedMap()
+
+    tpa.EntityData.YListKeys = []string {}
+
     return &(tpa.EntityData)
 }
 
@@ -12041,7 +13232,7 @@ type ControlPlane_ManagementPlaneProtection_Tpa_Vrfs struct {
 
     // VRF configuration. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf.
-    Vrf []ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf
+    Vrf []*ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf
 }
 
 func (vrfs *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -12054,12 +13245,15 @@ func (vrfs *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs) GetEntityData() *ty
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -12081,15 +13275,18 @@ func (vrf *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf) GetEntityData() 
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["address-family"] = types.YChild{"AddressFamily", &vrf.AddressFamily}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("address-family", types.YChild{"AddressFamily", &vrf.AddressFamily})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -12116,10 +13313,13 @@ func (addressFamily *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_Address
     addressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamily.EntityData.Children = make(map[string]types.YChild)
-    addressFamily.EntityData.Children["ipv4-table"] = types.YChild{"Ipv4Table", &addressFamily.Ipv4Table}
-    addressFamily.EntityData.Children["ipv6-table"] = types.YChild{"Ipv6Table", &addressFamily.Ipv6Table}
-    addressFamily.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamily.EntityData.Children = types.NewOrderedMap()
+    addressFamily.EntityData.Children.Append("ipv4-table", types.YChild{"Ipv4Table", &addressFamily.Ipv4Table})
+    addressFamily.EntityData.Children.Append("ipv6-table", types.YChild{"Ipv6Table", &addressFamily.Ipv6Table})
+    addressFamily.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamily.EntityData.YListKeys = []string {}
+
     return &(addressFamily.EntityData)
 }
 
@@ -12131,7 +13331,7 @@ type ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv4Table
 
     // MPP TPA control entries. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv4Table_TpaAllow.
-    TpaAllow []ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv4Table_TpaAllow
+    TpaAllow []*ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv4Table_TpaAllow
 }
 
 func (ipv4Table *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv4Table) GetEntityData() *types.CommonEntityData {
@@ -12144,12 +13344,15 @@ func (ipv4Table *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFami
     ipv4Table.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Table.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4Table.EntityData.Children = make(map[string]types.YChild)
-    ipv4Table.EntityData.Children["tpa-allow"] = types.YChild{"TpaAllow", nil}
+    ipv4Table.EntityData.Children = types.NewOrderedMap()
+    ipv4Table.EntityData.Children.Append("tpa-allow", types.YChild{"TpaAllow", nil})
     for i := range ipv4Table.TpaAllow {
-        ipv4Table.EntityData.Children[types.GetSegmentPath(&ipv4Table.TpaAllow[i])] = types.YChild{"TpaAllow", &ipv4Table.TpaAllow[i]}
+        ipv4Table.EntityData.Children.Append(types.GetSegmentPath(ipv4Table.TpaAllow[i]), types.YChild{"TpaAllow", ipv4Table.TpaAllow[i]})
     }
-    ipv4Table.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Table.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4Table.EntityData.YListKeys = []string {}
+
     return &(ipv4Table.EntityData)
 }
 
@@ -12193,20 +13396,23 @@ func (tpaAllow *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamil
     tpaAllow.EntityData.YangName = "tpa-allow"
     tpaAllow.EntityData.BundleName = "cisco_ios_xr"
     tpaAllow.EntityData.ParentYangName = "ipv4-table"
-    tpaAllow.EntityData.SegmentPath = "tpa-allow" + "[local-port='" + fmt.Sprintf("%v", tpaAllow.LocalPort) + "']" + "[protocol='" + fmt.Sprintf("%v", tpaAllow.Protocol) + "']"
+    tpaAllow.EntityData.SegmentPath = "tpa-allow" + types.AddKeyToken(tpaAllow.LocalPort, "local-port") + types.AddKeyToken(tpaAllow.Protocol, "protocol")
     tpaAllow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tpaAllow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tpaAllow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tpaAllow.EntityData.Children = make(map[string]types.YChild)
-    tpaAllow.EntityData.Leafs = make(map[string]types.YLeaf)
-    tpaAllow.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", tpaAllow.LocalPort}
-    tpaAllow.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", tpaAllow.Protocol}
-    tpaAllow.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", tpaAllow.InterfaceName}
-    tpaAllow.EntityData.Leafs["remote-address"] = types.YLeaf{"RemoteAddress", tpaAllow.RemoteAddress}
-    tpaAllow.EntityData.Leafs["remote-address-prefix"] = types.YLeaf{"RemoteAddressPrefix", tpaAllow.RemoteAddressPrefix}
-    tpaAllow.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", tpaAllow.LocalAddress}
-    tpaAllow.EntityData.Leafs["local-address-prefix"] = types.YLeaf{"LocalAddressPrefix", tpaAllow.LocalAddressPrefix}
+    tpaAllow.EntityData.Children = types.NewOrderedMap()
+    tpaAllow.EntityData.Leafs = types.NewOrderedMap()
+    tpaAllow.EntityData.Leafs.Append("local-port", types.YLeaf{"LocalPort", tpaAllow.LocalPort})
+    tpaAllow.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", tpaAllow.Protocol})
+    tpaAllow.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", tpaAllow.InterfaceName})
+    tpaAllow.EntityData.Leafs.Append("remote-address", types.YLeaf{"RemoteAddress", tpaAllow.RemoteAddress})
+    tpaAllow.EntityData.Leafs.Append("remote-address-prefix", types.YLeaf{"RemoteAddressPrefix", tpaAllow.RemoteAddressPrefix})
+    tpaAllow.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", tpaAllow.LocalAddress})
+    tpaAllow.EntityData.Leafs.Append("local-address-prefix", types.YLeaf{"LocalAddressPrefix", tpaAllow.LocalAddressPrefix})
+
+    tpaAllow.EntityData.YListKeys = []string {"LocalPort", "Protocol"}
+
     return &(tpaAllow.EntityData)
 }
 
@@ -12218,7 +13424,7 @@ type ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv6Table
 
     // MPP TPA control entries. The type is slice of
     // ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv6Table_TpaAllow.
-    TpaAllow []ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv6Table_TpaAllow
+    TpaAllow []*ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv6Table_TpaAllow
 }
 
 func (ipv6Table *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv6Table) GetEntityData() *types.CommonEntityData {
@@ -12231,12 +13437,15 @@ func (ipv6Table *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFami
     ipv6Table.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Table.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Table.EntityData.Children = make(map[string]types.YChild)
-    ipv6Table.EntityData.Children["tpa-allow"] = types.YChild{"TpaAllow", nil}
+    ipv6Table.EntityData.Children = types.NewOrderedMap()
+    ipv6Table.EntityData.Children.Append("tpa-allow", types.YChild{"TpaAllow", nil})
     for i := range ipv6Table.TpaAllow {
-        ipv6Table.EntityData.Children[types.GetSegmentPath(&ipv6Table.TpaAllow[i])] = types.YChild{"TpaAllow", &ipv6Table.TpaAllow[i]}
+        ipv6Table.EntityData.Children.Append(types.GetSegmentPath(ipv6Table.TpaAllow[i]), types.YChild{"TpaAllow", ipv6Table.TpaAllow[i]})
     }
-    ipv6Table.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Table.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Table.EntityData.YListKeys = []string {}
+
     return &(ipv6Table.EntityData)
 }
 
@@ -12280,20 +13489,23 @@ func (tpaAllow *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamil
     tpaAllow.EntityData.YangName = "tpa-allow"
     tpaAllow.EntityData.BundleName = "cisco_ios_xr"
     tpaAllow.EntityData.ParentYangName = "ipv6-table"
-    tpaAllow.EntityData.SegmentPath = "tpa-allow" + "[local-port='" + fmt.Sprintf("%v", tpaAllow.LocalPort) + "']" + "[protocol='" + fmt.Sprintf("%v", tpaAllow.Protocol) + "']"
+    tpaAllow.EntityData.SegmentPath = "tpa-allow" + types.AddKeyToken(tpaAllow.LocalPort, "local-port") + types.AddKeyToken(tpaAllow.Protocol, "protocol")
     tpaAllow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tpaAllow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tpaAllow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tpaAllow.EntityData.Children = make(map[string]types.YChild)
-    tpaAllow.EntityData.Leafs = make(map[string]types.YLeaf)
-    tpaAllow.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", tpaAllow.LocalPort}
-    tpaAllow.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", tpaAllow.Protocol}
-    tpaAllow.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", tpaAllow.InterfaceName}
-    tpaAllow.EntityData.Leafs["remote-address"] = types.YLeaf{"RemoteAddress", tpaAllow.RemoteAddress}
-    tpaAllow.EntityData.Leafs["remote-address-prefix"] = types.YLeaf{"RemoteAddressPrefix", tpaAllow.RemoteAddressPrefix}
-    tpaAllow.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", tpaAllow.LocalAddress}
-    tpaAllow.EntityData.Leafs["local-address-prefix"] = types.YLeaf{"LocalAddressPrefix", tpaAllow.LocalAddressPrefix}
+    tpaAllow.EntityData.Children = types.NewOrderedMap()
+    tpaAllow.EntityData.Leafs = types.NewOrderedMap()
+    tpaAllow.EntityData.Leafs.Append("local-port", types.YLeaf{"LocalPort", tpaAllow.LocalPort})
+    tpaAllow.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", tpaAllow.Protocol})
+    tpaAllow.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", tpaAllow.InterfaceName})
+    tpaAllow.EntityData.Leafs.Append("remote-address", types.YLeaf{"RemoteAddress", tpaAllow.RemoteAddress})
+    tpaAllow.EntityData.Leafs.Append("remote-address-prefix", types.YLeaf{"RemoteAddressPrefix", tpaAllow.RemoteAddressPrefix})
+    tpaAllow.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", tpaAllow.LocalAddress})
+    tpaAllow.EntityData.Leafs.Append("local-address-prefix", types.YLeaf{"LocalAddressPrefix", tpaAllow.LocalAddressPrefix})
+
+    tpaAllow.EntityData.YListKeys = []string {"LocalPort", "Protocol"}
+
     return &(tpaAllow.EntityData)
 }
 

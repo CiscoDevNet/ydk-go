@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-snmp-agent-oper:snmp", reflect.TypeOf(Snmp{}))
 }
 
-// DupReqDropStatus represents Dup req drop status
-type DupReqDropStatus string
-
-const (
-    // Disabled
-    DupReqDropStatus_disabled DupReqDropStatus = "disabled"
-
-    // Enabled
-    DupReqDropStatus_enabled DupReqDropStatus = "enabled"
-)
-
 // SnmpCorrVbindMatch represents Snmp corr vbind match
 type SnmpCorrVbindMatch string
 
@@ -58,6 +47,17 @@ const (
 
     // Rule is Applied to all of router
     SnmpCorrRuleState_rule_applied_all SnmpCorrRuleState = "rule-applied-all"
+)
+
+// DupReqDropStatus represents Dup req drop status
+type DupReqDropStatus string
+
+const (
+    // Disabled
+    DupReqDropStatus_disabled DupReqDropStatus = "disabled"
+
+    // Enabled
+    DupReqDropStatus_enabled DupReqDropStatus = "enabled"
 )
 
 // Snmp
@@ -104,17 +104,20 @@ func (snmp *Snmp) GetEntityData() *types.CommonEntityData {
     snmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snmp.EntityData.Children = make(map[string]types.YChild)
-    snmp.EntityData.Children["trap-servers"] = types.YChild{"TrapServers", &snmp.TrapServers}
-    snmp.EntityData.Children["information"] = types.YChild{"Information", &snmp.Information}
-    snmp.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &snmp.Interfaces}
-    snmp.EntityData.Children["correlator"] = types.YChild{"Correlator", &snmp.Correlator}
-    snmp.EntityData.Children["interface-indexes"] = types.YChild{"InterfaceIndexes", &snmp.InterfaceIndexes}
-    snmp.EntityData.Children["if-indexes"] = types.YChild{"IfIndexes", &snmp.IfIndexes}
-    snmp.EntityData.Children["Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"] = types.YChild{"EntityMib", &snmp.EntityMib}
-    snmp.EntityData.Children["Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"] = types.YChild{"InterfaceMib", &snmp.InterfaceMib}
-    snmp.EntityData.Children["Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"] = types.YChild{"SensorMib", &snmp.SensorMib}
-    snmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmp.EntityData.Children = types.NewOrderedMap()
+    snmp.EntityData.Children.Append("trap-servers", types.YChild{"TrapServers", &snmp.TrapServers})
+    snmp.EntityData.Children.Append("information", types.YChild{"Information", &snmp.Information})
+    snmp.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &snmp.Interfaces})
+    snmp.EntityData.Children.Append("correlator", types.YChild{"Correlator", &snmp.Correlator})
+    snmp.EntityData.Children.Append("interface-indexes", types.YChild{"InterfaceIndexes", &snmp.InterfaceIndexes})
+    snmp.EntityData.Children.Append("if-indexes", types.YChild{"IfIndexes", &snmp.IfIndexes})
+    snmp.EntityData.Children.Append("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib", types.YChild{"EntityMib", &snmp.EntityMib})
+    snmp.EntityData.Children.Append("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib", types.YChild{"InterfaceMib", &snmp.InterfaceMib})
+    snmp.EntityData.Children.Append("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib", types.YChild{"SensorMib", &snmp.SensorMib})
+    snmp.EntityData.Leafs = types.NewOrderedMap()
+
+    snmp.EntityData.YListKeys = []string {}
+
     return &(snmp.EntityData)
 }
 
@@ -126,7 +129,7 @@ type Snmp_TrapServers struct {
 
     // Trap server and port to which the trap is to be sent and statistics. The
     // type is slice of Snmp_TrapServers_TrapServer.
-    TrapServer []Snmp_TrapServers_TrapServer
+    TrapServer []*Snmp_TrapServers_TrapServer
 }
 
 func (trapServers *Snmp_TrapServers) GetEntityData() *types.CommonEntityData {
@@ -139,12 +142,15 @@ func (trapServers *Snmp_TrapServers) GetEntityData() *types.CommonEntityData {
     trapServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapServers.EntityData.Children = make(map[string]types.YChild)
-    trapServers.EntityData.Children["trap-server"] = types.YChild{"TrapServer", nil}
+    trapServers.EntityData.Children = types.NewOrderedMap()
+    trapServers.EntityData.Children.Append("trap-server", types.YChild{"TrapServer", nil})
     for i := range trapServers.TrapServer {
-        trapServers.EntityData.Children[types.GetSegmentPath(&trapServers.TrapServer[i])] = types.YChild{"TrapServer", &trapServers.TrapServer[i]}
+        trapServers.EntityData.Children.Append(types.GetSegmentPath(trapServers.TrapServer[i]), types.YChild{"TrapServer", trapServers.TrapServer[i]})
     }
-    trapServers.EntityData.Leafs = make(map[string]types.YLeaf)
+    trapServers.EntityData.Leafs = types.NewOrderedMap()
+
+    trapServers.EntityData.YListKeys = []string {}
+
     return &(trapServers.EntityData)
 }
 
@@ -188,14 +194,17 @@ func (trapServer *Snmp_TrapServers_TrapServer) GetEntityData() *types.CommonEnti
     trapServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapServer.EntityData.Children = make(map[string]types.YChild)
-    trapServer.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapServer.EntityData.Leafs["trap-host"] = types.YLeaf{"TrapHost", trapServer.TrapHost}
-    trapServer.EntityData.Leafs["port"] = types.YLeaf{"Port", trapServer.Port}
-    trapServer.EntityData.Leafs["number-of-pkts-in-trap-q"] = types.YLeaf{"NumberOfPktsInTrapQ", trapServer.NumberOfPktsInTrapQ}
-    trapServer.EntityData.Leafs["max-q-length-of-trap-q"] = types.YLeaf{"MaxQLengthOfTrapQ", trapServer.MaxQLengthOfTrapQ}
-    trapServer.EntityData.Leafs["number-of-pkts-sent"] = types.YLeaf{"NumberOfPktsSent", trapServer.NumberOfPktsSent}
-    trapServer.EntityData.Leafs["number-of-pkts-dropped"] = types.YLeaf{"NumberOfPktsDropped", trapServer.NumberOfPktsDropped}
+    trapServer.EntityData.Children = types.NewOrderedMap()
+    trapServer.EntityData.Leafs = types.NewOrderedMap()
+    trapServer.EntityData.Leafs.Append("trap-host", types.YLeaf{"TrapHost", trapServer.TrapHost})
+    trapServer.EntityData.Leafs.Append("port", types.YLeaf{"Port", trapServer.Port})
+    trapServer.EntityData.Leafs.Append("number-of-pkts-in-trap-q", types.YLeaf{"NumberOfPktsInTrapQ", trapServer.NumberOfPktsInTrapQ})
+    trapServer.EntityData.Leafs.Append("max-q-length-of-trap-q", types.YLeaf{"MaxQLengthOfTrapQ", trapServer.MaxQLengthOfTrapQ})
+    trapServer.EntityData.Leafs.Append("number-of-pkts-sent", types.YLeaf{"NumberOfPktsSent", trapServer.NumberOfPktsSent})
+    trapServer.EntityData.Leafs.Append("number-of-pkts-dropped", types.YLeaf{"NumberOfPktsDropped", trapServer.NumberOfPktsDropped})
+
+    trapServer.EntityData.YListKeys = []string {}
+
     return &(trapServer.EntityData)
 }
 
@@ -291,33 +300,36 @@ func (information *Snmp_Information) GetEntityData() *types.CommonEntityData {
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    information.EntityData.Children = make(map[string]types.YChild)
-    information.EntityData.Children["hosts"] = types.YChild{"Hosts", &information.Hosts}
-    information.EntityData.Children["system-up-time"] = types.YChild{"SystemUpTime", &information.SystemUpTime}
-    information.EntityData.Children["nms-addresses"] = types.YChild{"NmsAddresses", &information.NmsAddresses}
-    information.EntityData.Children["engine-id"] = types.YChild{"EngineId", &information.EngineId}
-    information.EntityData.Children["rx-queue"] = types.YChild{"RxQueue", &information.RxQueue}
-    information.EntityData.Children["system-name"] = types.YChild{"SystemName", &information.SystemName}
-    information.EntityData.Children["request-type-detail"] = types.YChild{"RequestTypeDetail", &information.RequestTypeDetail}
-    information.EntityData.Children["duplicate-drop"] = types.YChild{"DuplicateDrop", &information.DuplicateDrop}
-    information.EntityData.Children["bulk-stats-transfers"] = types.YChild{"BulkStatsTransfers", &information.BulkStatsTransfers}
-    information.EntityData.Children["trap-infos"] = types.YChild{"TrapInfos", &information.TrapInfos}
-    information.EntityData.Children["poll-oids"] = types.YChild{"PollOids", &information.PollOids}
-    information.EntityData.Children["infom-details"] = types.YChild{"InfomDetails", &information.InfomDetails}
-    information.EntityData.Children["statistics"] = types.YChild{"Statistics", &information.Statistics}
-    information.EntityData.Children["incoming-queue"] = types.YChild{"IncomingQueue", &information.IncomingQueue}
-    information.EntityData.Children["context-mapping"] = types.YChild{"ContextMapping", &information.ContextMapping}
-    information.EntityData.Children["trap-oids"] = types.YChild{"TrapOids", &information.TrapOids}
-    information.EntityData.Children["nm-spackets"] = types.YChild{"NmSpackets", &information.NmSpackets}
-    information.EntityData.Children["mibs"] = types.YChild{"Mibs", &information.Mibs}
-    information.EntityData.Children["serial-numbers"] = types.YChild{"SerialNumbers", &information.SerialNumbers}
-    information.EntityData.Children["drop-nms-addresses"] = types.YChild{"DropNmsAddresses", &information.DropNmsAddresses}
-    information.EntityData.Children["views"] = types.YChild{"Views", &information.Views}
-    information.EntityData.Children["system-descr"] = types.YChild{"SystemDescr", &information.SystemDescr}
-    information.EntityData.Children["tables"] = types.YChild{"Tables", &information.Tables}
-    information.EntityData.Children["system-oid"] = types.YChild{"SystemOid", &information.SystemOid}
-    information.EntityData.Children["trap-queue"] = types.YChild{"TrapQueue", &information.TrapQueue}
-    information.EntityData.Leafs = make(map[string]types.YLeaf)
+    information.EntityData.Children = types.NewOrderedMap()
+    information.EntityData.Children.Append("hosts", types.YChild{"Hosts", &information.Hosts})
+    information.EntityData.Children.Append("system-up-time", types.YChild{"SystemUpTime", &information.SystemUpTime})
+    information.EntityData.Children.Append("nms-addresses", types.YChild{"NmsAddresses", &information.NmsAddresses})
+    information.EntityData.Children.Append("engine-id", types.YChild{"EngineId", &information.EngineId})
+    information.EntityData.Children.Append("rx-queue", types.YChild{"RxQueue", &information.RxQueue})
+    information.EntityData.Children.Append("system-name", types.YChild{"SystemName", &information.SystemName})
+    information.EntityData.Children.Append("request-type-detail", types.YChild{"RequestTypeDetail", &information.RequestTypeDetail})
+    information.EntityData.Children.Append("duplicate-drop", types.YChild{"DuplicateDrop", &information.DuplicateDrop})
+    information.EntityData.Children.Append("bulk-stats-transfers", types.YChild{"BulkStatsTransfers", &information.BulkStatsTransfers})
+    information.EntityData.Children.Append("trap-infos", types.YChild{"TrapInfos", &information.TrapInfos})
+    information.EntityData.Children.Append("poll-oids", types.YChild{"PollOids", &information.PollOids})
+    information.EntityData.Children.Append("infom-details", types.YChild{"InfomDetails", &information.InfomDetails})
+    information.EntityData.Children.Append("statistics", types.YChild{"Statistics", &information.Statistics})
+    information.EntityData.Children.Append("incoming-queue", types.YChild{"IncomingQueue", &information.IncomingQueue})
+    information.EntityData.Children.Append("context-mapping", types.YChild{"ContextMapping", &information.ContextMapping})
+    information.EntityData.Children.Append("trap-oids", types.YChild{"TrapOids", &information.TrapOids})
+    information.EntityData.Children.Append("nm-spackets", types.YChild{"NmSpackets", &information.NmSpackets})
+    information.EntityData.Children.Append("mibs", types.YChild{"Mibs", &information.Mibs})
+    information.EntityData.Children.Append("serial-numbers", types.YChild{"SerialNumbers", &information.SerialNumbers})
+    information.EntityData.Children.Append("drop-nms-addresses", types.YChild{"DropNmsAddresses", &information.DropNmsAddresses})
+    information.EntityData.Children.Append("views", types.YChild{"Views", &information.Views})
+    information.EntityData.Children.Append("system-descr", types.YChild{"SystemDescr", &information.SystemDescr})
+    information.EntityData.Children.Append("tables", types.YChild{"Tables", &information.Tables})
+    information.EntityData.Children.Append("system-oid", types.YChild{"SystemOid", &information.SystemOid})
+    information.EntityData.Children.Append("trap-queue", types.YChild{"TrapQueue", &information.TrapQueue})
+    information.EntityData.Leafs = types.NewOrderedMap()
+
+    information.EntityData.YListKeys = []string {}
+
     return &(information.EntityData)
 }
 
@@ -328,7 +340,7 @@ type Snmp_Information_Hosts struct {
     YFilter yfilter.YFilter
 
     // SNMP target host name. The type is slice of Snmp_Information_Hosts_Host.
-    Host []Snmp_Information_Hosts_Host
+    Host []*Snmp_Information_Hosts_Host
 }
 
 func (hosts *Snmp_Information_Hosts) GetEntityData() *types.CommonEntityData {
@@ -341,12 +353,15 @@ func (hosts *Snmp_Information_Hosts) GetEntityData() *types.CommonEntityData {
     hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hosts.EntityData.Children = make(map[string]types.YChild)
-    hosts.EntityData.Children["host"] = types.YChild{"Host", nil}
+    hosts.EntityData.Children = types.NewOrderedMap()
+    hosts.EntityData.Children.Append("host", types.YChild{"Host", nil})
     for i := range hosts.Host {
-        hosts.EntityData.Children[types.GetSegmentPath(&hosts.Host[i])] = types.YChild{"Host", &hosts.Host[i]}
+        hosts.EntityData.Children.Append(types.GetSegmentPath(hosts.Host[i]), types.YChild{"Host", hosts.Host[i]})
     }
-    hosts.EntityData.Leafs = make(map[string]types.YLeaf)
+    hosts.EntityData.Leafs = types.NewOrderedMap()
+
+    hosts.EntityData.YListKeys = []string {}
+
     return &(hosts.EntityData)
 }
 
@@ -357,12 +372,12 @@ type Snmp_Information_Hosts_Host struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Host name ,udp-port , user, security model and level. The type is slice of
     // Snmp_Information_Hosts_Host_HostInformation.
-    HostInformation []Snmp_Information_Hosts_Host_HostInformation
+    HostInformation []*Snmp_Information_Hosts_Host_HostInformation
 }
 
 func (host *Snmp_Information_Hosts_Host) GetEntityData() *types.CommonEntityData {
@@ -370,18 +385,21 @@ func (host *Snmp_Information_Hosts_Host) GetEntityData() *types.CommonEntityData
     host.EntityData.YangName = "host"
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "hosts"
-    host.EntityData.SegmentPath = "host" + "[name='" + fmt.Sprintf("%v", host.Name) + "']"
+    host.EntityData.SegmentPath = "host" + types.AddKeyToken(host.Name, "name")
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    host.EntityData.Children = make(map[string]types.YChild)
-    host.EntityData.Children["host-information"] = types.YChild{"HostInformation", nil}
+    host.EntityData.Children = types.NewOrderedMap()
+    host.EntityData.Children.Append("host-information", types.YChild{"HostInformation", nil})
     for i := range host.HostInformation {
-        host.EntityData.Children[types.GetSegmentPath(&host.HostInformation[i])] = types.YChild{"HostInformation", &host.HostInformation[i]}
+        host.EntityData.Children.Append(types.GetSegmentPath(host.HostInformation[i]), types.YChild{"HostInformation", host.HostInformation[i]})
     }
-    host.EntityData.Leafs = make(map[string]types.YLeaf)
-    host.EntityData.Leafs["name"] = types.YLeaf{"Name", host.Name}
+    host.EntityData.Leafs = types.NewOrderedMap()
+    host.EntityData.Leafs.Append("name", types.YLeaf{"Name", host.Name})
+
+    host.EntityData.YListKeys = []string {"Name"}
+
     return &(host.EntityData)
 }
 
@@ -393,7 +411,7 @@ type Snmp_Information_Hosts_Host_HostInformation struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. SNMP host user. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     User interface{}
 
     // Transport type of address. The type is string.
@@ -420,20 +438,23 @@ func (hostInformation *Snmp_Information_Hosts_Host_HostInformation) GetEntityDat
     hostInformation.EntityData.YangName = "host-information"
     hostInformation.EntityData.BundleName = "cisco_ios_xr"
     hostInformation.EntityData.ParentYangName = "host"
-    hostInformation.EntityData.SegmentPath = "host-information" + "[user='" + fmt.Sprintf("%v", hostInformation.User) + "']"
+    hostInformation.EntityData.SegmentPath = "host-information" + types.AddKeyToken(hostInformation.User, "user")
     hostInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hostInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostInformation.EntityData.Children = make(map[string]types.YChild)
-    hostInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostInformation.EntityData.Leafs["user"] = types.YLeaf{"User", hostInformation.User}
-    hostInformation.EntityData.Leafs["snmp-target-address-t-host"] = types.YLeaf{"SnmpTargetAddressTHost", hostInformation.SnmpTargetAddressTHost}
-    hostInformation.EntityData.Leafs["snmp-target-address-port"] = types.YLeaf{"SnmpTargetAddressPort", hostInformation.SnmpTargetAddressPort}
-    hostInformation.EntityData.Leafs["snmp-target-addresstype"] = types.YLeaf{"SnmpTargetAddresstype", hostInformation.SnmpTargetAddresstype}
-    hostInformation.EntityData.Leafs["snmp-target-params-security-model"] = types.YLeaf{"SnmpTargetParamsSecurityModel", hostInformation.SnmpTargetParamsSecurityModel}
-    hostInformation.EntityData.Leafs["snmp-target-params-security-name"] = types.YLeaf{"SnmpTargetParamsSecurityName", hostInformation.SnmpTargetParamsSecurityName}
-    hostInformation.EntityData.Leafs["snmp-target-params-security-level"] = types.YLeaf{"SnmpTargetParamsSecurityLevel", hostInformation.SnmpTargetParamsSecurityLevel}
+    hostInformation.EntityData.Children = types.NewOrderedMap()
+    hostInformation.EntityData.Leafs = types.NewOrderedMap()
+    hostInformation.EntityData.Leafs.Append("user", types.YLeaf{"User", hostInformation.User})
+    hostInformation.EntityData.Leafs.Append("snmp-target-address-t-host", types.YLeaf{"SnmpTargetAddressTHost", hostInformation.SnmpTargetAddressTHost})
+    hostInformation.EntityData.Leafs.Append("snmp-target-address-port", types.YLeaf{"SnmpTargetAddressPort", hostInformation.SnmpTargetAddressPort})
+    hostInformation.EntityData.Leafs.Append("snmp-target-addresstype", types.YLeaf{"SnmpTargetAddresstype", hostInformation.SnmpTargetAddresstype})
+    hostInformation.EntityData.Leafs.Append("snmp-target-params-security-model", types.YLeaf{"SnmpTargetParamsSecurityModel", hostInformation.SnmpTargetParamsSecurityModel})
+    hostInformation.EntityData.Leafs.Append("snmp-target-params-security-name", types.YLeaf{"SnmpTargetParamsSecurityName", hostInformation.SnmpTargetParamsSecurityName})
+    hostInformation.EntityData.Leafs.Append("snmp-target-params-security-level", types.YLeaf{"SnmpTargetParamsSecurityLevel", hostInformation.SnmpTargetParamsSecurityLevel})
+
+    hostInformation.EntityData.YListKeys = []string {"User"}
+
     return &(hostInformation.EntityData)
 }
 
@@ -457,9 +478,12 @@ func (systemUpTime *Snmp_Information_SystemUpTime) GetEntityData() *types.Common
     systemUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemUpTime.EntityData.Children = make(map[string]types.YChild)
-    systemUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemUpTime.EntityData.Leafs["system-up-time-edm"] = types.YLeaf{"SystemUpTimeEdm", systemUpTime.SystemUpTimeEdm}
+    systemUpTime.EntityData.Children = types.NewOrderedMap()
+    systemUpTime.EntityData.Leafs = types.NewOrderedMap()
+    systemUpTime.EntityData.Leafs.Append("system-up-time-edm", types.YLeaf{"SystemUpTimeEdm", systemUpTime.SystemUpTimeEdm})
+
+    systemUpTime.EntityData.YListKeys = []string {}
+
     return &(systemUpTime.EntityData)
 }
 
@@ -470,7 +494,7 @@ type Snmp_Information_NmsAddresses struct {
     YFilter yfilter.YFilter
 
     // NMS address. The type is slice of Snmp_Information_NmsAddresses_NmsAddress.
-    NmsAddress []Snmp_Information_NmsAddresses_NmsAddress
+    NmsAddress []*Snmp_Information_NmsAddresses_NmsAddress
 }
 
 func (nmsAddresses *Snmp_Information_NmsAddresses) GetEntityData() *types.CommonEntityData {
@@ -483,12 +507,15 @@ func (nmsAddresses *Snmp_Information_NmsAddresses) GetEntityData() *types.Common
     nmsAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nmsAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nmsAddresses.EntityData.Children = make(map[string]types.YChild)
-    nmsAddresses.EntityData.Children["nms-address"] = types.YChild{"NmsAddress", nil}
+    nmsAddresses.EntityData.Children = types.NewOrderedMap()
+    nmsAddresses.EntityData.Children.Append("nms-address", types.YChild{"NmsAddress", nil})
     for i := range nmsAddresses.NmsAddress {
-        nmsAddresses.EntityData.Children[types.GetSegmentPath(&nmsAddresses.NmsAddress[i])] = types.YChild{"NmsAddress", &nmsAddresses.NmsAddress[i]}
+        nmsAddresses.EntityData.Children.Append(types.GetSegmentPath(nmsAddresses.NmsAddress[i]), types.YChild{"NmsAddress", nmsAddresses.NmsAddress[i]})
     }
-    nmsAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    nmsAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    nmsAddresses.EntityData.YListKeys = []string {}
+
     return &(nmsAddresses.EntityData)
 }
 
@@ -499,7 +526,7 @@ type Snmp_Information_NmsAddresses_NmsAddress struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. NMS address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     NmsAddr interface{}
 
     // NMS address of server. The type is string.
@@ -526,20 +553,23 @@ func (nmsAddress *Snmp_Information_NmsAddresses_NmsAddress) GetEntityData() *typ
     nmsAddress.EntityData.YangName = "nms-address"
     nmsAddress.EntityData.BundleName = "cisco_ios_xr"
     nmsAddress.EntityData.ParentYangName = "nms-addresses"
-    nmsAddress.EntityData.SegmentPath = "nms-address" + "[nms-addr='" + fmt.Sprintf("%v", nmsAddress.NmsAddr) + "']"
+    nmsAddress.EntityData.SegmentPath = "nms-address" + types.AddKeyToken(nmsAddress.NmsAddr, "nms-addr")
     nmsAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nmsAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nmsAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nmsAddress.EntityData.Children = make(map[string]types.YChild)
-    nmsAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    nmsAddress.EntityData.Leafs["nms-addr"] = types.YLeaf{"NmsAddr", nmsAddress.NmsAddr}
-    nmsAddress.EntityData.Leafs["nms-address"] = types.YLeaf{"NmsAddress", nmsAddress.NmsAddress}
-    nmsAddress.EntityData.Leafs["get-request-count"] = types.YLeaf{"GetRequestCount", nmsAddress.GetRequestCount}
-    nmsAddress.EntityData.Leafs["getnext-request-count"] = types.YLeaf{"GetnextRequestCount", nmsAddress.GetnextRequestCount}
-    nmsAddress.EntityData.Leafs["getbulk-request-count"] = types.YLeaf{"GetbulkRequestCount", nmsAddress.GetbulkRequestCount}
-    nmsAddress.EntityData.Leafs["set-request-count"] = types.YLeaf{"SetRequestCount", nmsAddress.SetRequestCount}
-    nmsAddress.EntityData.Leafs["test-request-count"] = types.YLeaf{"TestRequestCount", nmsAddress.TestRequestCount}
+    nmsAddress.EntityData.Children = types.NewOrderedMap()
+    nmsAddress.EntityData.Leafs = types.NewOrderedMap()
+    nmsAddress.EntityData.Leafs.Append("nms-addr", types.YLeaf{"NmsAddr", nmsAddress.NmsAddr})
+    nmsAddress.EntityData.Leafs.Append("nms-address", types.YLeaf{"NmsAddress", nmsAddress.NmsAddress})
+    nmsAddress.EntityData.Leafs.Append("get-request-count", types.YLeaf{"GetRequestCount", nmsAddress.GetRequestCount})
+    nmsAddress.EntityData.Leafs.Append("getnext-request-count", types.YLeaf{"GetnextRequestCount", nmsAddress.GetnextRequestCount})
+    nmsAddress.EntityData.Leafs.Append("getbulk-request-count", types.YLeaf{"GetbulkRequestCount", nmsAddress.GetbulkRequestCount})
+    nmsAddress.EntityData.Leafs.Append("set-request-count", types.YLeaf{"SetRequestCount", nmsAddress.SetRequestCount})
+    nmsAddress.EntityData.Leafs.Append("test-request-count", types.YLeaf{"TestRequestCount", nmsAddress.TestRequestCount})
+
+    nmsAddress.EntityData.YListKeys = []string {"NmsAddr"}
+
     return &(nmsAddress.EntityData)
 }
 
@@ -563,9 +593,12 @@ func (engineId *Snmp_Information_EngineId) GetEntityData() *types.CommonEntityDa
     engineId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     engineId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    engineId.EntityData.Children = make(map[string]types.YChild)
-    engineId.EntityData.Leafs = make(map[string]types.YLeaf)
-    engineId.EntityData.Leafs["engine-id"] = types.YLeaf{"EngineId", engineId.EngineId}
+    engineId.EntityData.Children = types.NewOrderedMap()
+    engineId.EntityData.Leafs = types.NewOrderedMap()
+    engineId.EntityData.Leafs.Append("engine-id", types.YLeaf{"EngineId", engineId.EngineId})
+
+    engineId.EntityData.YListKeys = []string {}
+
     return &(engineId.EntityData)
 }
 
@@ -597,10 +630,10 @@ type Snmp_Information_RxQueue struct {
     PendMax interface{}
 
     // incoming q. The type is slice of Snmp_Information_RxQueue_IncomingQ.
-    IncomingQ []Snmp_Information_RxQueue_IncomingQ
+    IncomingQ []*Snmp_Information_RxQueue_IncomingQ
 
     // pending q. The type is slice of Snmp_Information_RxQueue_PendingQ.
-    PendingQ []Snmp_Information_RxQueue_PendingQ
+    PendingQ []*Snmp_Information_RxQueue_PendingQ
 }
 
 func (rxQueue *Snmp_Information_RxQueue) GetEntityData() *types.CommonEntityData {
@@ -613,23 +646,26 @@ func (rxQueue *Snmp_Information_RxQueue) GetEntityData() *types.CommonEntityData
     rxQueue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxQueue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxQueue.EntityData.Children = make(map[string]types.YChild)
-    rxQueue.EntityData.Children["incoming-q"] = types.YChild{"IncomingQ", nil}
+    rxQueue.EntityData.Children = types.NewOrderedMap()
+    rxQueue.EntityData.Children.Append("incoming-q", types.YChild{"IncomingQ", nil})
     for i := range rxQueue.IncomingQ {
-        rxQueue.EntityData.Children[types.GetSegmentPath(&rxQueue.IncomingQ[i])] = types.YChild{"IncomingQ", &rxQueue.IncomingQ[i]}
+        rxQueue.EntityData.Children.Append(types.GetSegmentPath(rxQueue.IncomingQ[i]), types.YChild{"IncomingQ", rxQueue.IncomingQ[i]})
     }
-    rxQueue.EntityData.Children["pending-q"] = types.YChild{"PendingQ", nil}
+    rxQueue.EntityData.Children.Append("pending-q", types.YChild{"PendingQ", nil})
     for i := range rxQueue.PendingQ {
-        rxQueue.EntityData.Children[types.GetSegmentPath(&rxQueue.PendingQ[i])] = types.YChild{"PendingQ", &rxQueue.PendingQ[i]}
+        rxQueue.EntityData.Children.Append(types.GetSegmentPath(rxQueue.PendingQ[i]), types.YChild{"PendingQ", rxQueue.PendingQ[i]})
     }
-    rxQueue.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxQueue.EntityData.Leafs["qlen"] = types.YLeaf{"Qlen", rxQueue.Qlen}
-    rxQueue.EntityData.Leafs["in-min"] = types.YLeaf{"InMin", rxQueue.InMin}
-    rxQueue.EntityData.Leafs["in-avg"] = types.YLeaf{"InAvg", rxQueue.InAvg}
-    rxQueue.EntityData.Leafs["in-max"] = types.YLeaf{"InMax", rxQueue.InMax}
-    rxQueue.EntityData.Leafs["pend-min"] = types.YLeaf{"PendMin", rxQueue.PendMin}
-    rxQueue.EntityData.Leafs["pend-avg"] = types.YLeaf{"PendAvg", rxQueue.PendAvg}
-    rxQueue.EntityData.Leafs["pend-max"] = types.YLeaf{"PendMax", rxQueue.PendMax}
+    rxQueue.EntityData.Leafs = types.NewOrderedMap()
+    rxQueue.EntityData.Leafs.Append("qlen", types.YLeaf{"Qlen", rxQueue.Qlen})
+    rxQueue.EntityData.Leafs.Append("in-min", types.YLeaf{"InMin", rxQueue.InMin})
+    rxQueue.EntityData.Leafs.Append("in-avg", types.YLeaf{"InAvg", rxQueue.InAvg})
+    rxQueue.EntityData.Leafs.Append("in-max", types.YLeaf{"InMax", rxQueue.InMax})
+    rxQueue.EntityData.Leafs.Append("pend-min", types.YLeaf{"PendMin", rxQueue.PendMin})
+    rxQueue.EntityData.Leafs.Append("pend-avg", types.YLeaf{"PendAvg", rxQueue.PendAvg})
+    rxQueue.EntityData.Leafs.Append("pend-max", types.YLeaf{"PendMax", rxQueue.PendMax})
+
+    rxQueue.EntityData.YListKeys = []string {}
+
     return &(rxQueue.EntityData)
 }
 
@@ -659,11 +695,14 @@ func (incomingQ *Snmp_Information_RxQueue_IncomingQ) GetEntityData() *types.Comm
     incomingQ.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incomingQ.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    incomingQ.EntityData.Children = make(map[string]types.YChild)
-    incomingQ.EntityData.Leafs = make(map[string]types.YLeaf)
-    incomingQ.EntityData.Leafs["min"] = types.YLeaf{"Min", incomingQ.Min}
-    incomingQ.EntityData.Leafs["avg"] = types.YLeaf{"Avg", incomingQ.Avg}
-    incomingQ.EntityData.Leafs["max"] = types.YLeaf{"Max", incomingQ.Max}
+    incomingQ.EntityData.Children = types.NewOrderedMap()
+    incomingQ.EntityData.Leafs = types.NewOrderedMap()
+    incomingQ.EntityData.Leafs.Append("min", types.YLeaf{"Min", incomingQ.Min})
+    incomingQ.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", incomingQ.Avg})
+    incomingQ.EntityData.Leafs.Append("max", types.YLeaf{"Max", incomingQ.Max})
+
+    incomingQ.EntityData.YListKeys = []string {}
+
     return &(incomingQ.EntityData)
 }
 
@@ -693,11 +732,14 @@ func (pendingQ *Snmp_Information_RxQueue_PendingQ) GetEntityData() *types.Common
     pendingQ.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pendingQ.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pendingQ.EntityData.Children = make(map[string]types.YChild)
-    pendingQ.EntityData.Leafs = make(map[string]types.YLeaf)
-    pendingQ.EntityData.Leafs["min"] = types.YLeaf{"Min", pendingQ.Min}
-    pendingQ.EntityData.Leafs["avg"] = types.YLeaf{"Avg", pendingQ.Avg}
-    pendingQ.EntityData.Leafs["max"] = types.YLeaf{"Max", pendingQ.Max}
+    pendingQ.EntityData.Children = types.NewOrderedMap()
+    pendingQ.EntityData.Leafs = types.NewOrderedMap()
+    pendingQ.EntityData.Leafs.Append("min", types.YLeaf{"Min", pendingQ.Min})
+    pendingQ.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", pendingQ.Avg})
+    pendingQ.EntityData.Leafs.Append("max", types.YLeaf{"Max", pendingQ.Max})
+
+    pendingQ.EntityData.YListKeys = []string {}
+
     return &(pendingQ.EntityData)
 }
 
@@ -721,9 +763,12 @@ func (systemName *Snmp_Information_SystemName) GetEntityData() *types.CommonEnti
     systemName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemName.EntityData.Children = make(map[string]types.YChild)
-    systemName.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemName.EntityData.Leafs["system-name"] = types.YLeaf{"SystemName", systemName.SystemName}
+    systemName.EntityData.Children = types.NewOrderedMap()
+    systemName.EntityData.Leafs = types.NewOrderedMap()
+    systemName.EntityData.Leafs.Append("system-name", types.YLeaf{"SystemName", systemName.SystemName})
+
+    systemName.EntityData.YListKeys = []string {}
+
     return &(systemName.EntityData)
 }
 
@@ -747,9 +792,12 @@ func (requestTypeDetail *Snmp_Information_RequestTypeDetail) GetEntityData() *ty
     requestTypeDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestTypeDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    requestTypeDetail.EntityData.Children = make(map[string]types.YChild)
-    requestTypeDetail.EntityData.Children["nms-addresses"] = types.YChild{"NmsAddresses", &requestTypeDetail.NmsAddresses}
-    requestTypeDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    requestTypeDetail.EntityData.Children = types.NewOrderedMap()
+    requestTypeDetail.EntityData.Children.Append("nms-addresses", types.YChild{"NmsAddresses", &requestTypeDetail.NmsAddresses})
+    requestTypeDetail.EntityData.Leafs = types.NewOrderedMap()
+
+    requestTypeDetail.EntityData.YListKeys = []string {}
+
     return &(requestTypeDetail.EntityData)
 }
 
@@ -761,7 +809,7 @@ type Snmp_Information_RequestTypeDetail_NmsAddresses struct {
 
     // NMS address. The type is slice of
     // Snmp_Information_RequestTypeDetail_NmsAddresses_NmsAddress.
-    NmsAddress []Snmp_Information_RequestTypeDetail_NmsAddresses_NmsAddress
+    NmsAddress []*Snmp_Information_RequestTypeDetail_NmsAddresses_NmsAddress
 }
 
 func (nmsAddresses *Snmp_Information_RequestTypeDetail_NmsAddresses) GetEntityData() *types.CommonEntityData {
@@ -774,12 +822,15 @@ func (nmsAddresses *Snmp_Information_RequestTypeDetail_NmsAddresses) GetEntityDa
     nmsAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nmsAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nmsAddresses.EntityData.Children = make(map[string]types.YChild)
-    nmsAddresses.EntityData.Children["nms-address"] = types.YChild{"NmsAddress", nil}
+    nmsAddresses.EntityData.Children = types.NewOrderedMap()
+    nmsAddresses.EntityData.Children.Append("nms-address", types.YChild{"NmsAddress", nil})
     for i := range nmsAddresses.NmsAddress {
-        nmsAddresses.EntityData.Children[types.GetSegmentPath(&nmsAddresses.NmsAddress[i])] = types.YChild{"NmsAddress", &nmsAddresses.NmsAddress[i]}
+        nmsAddresses.EntityData.Children.Append(types.GetSegmentPath(nmsAddresses.NmsAddress[i]), types.YChild{"NmsAddress", nmsAddresses.NmsAddress[i]})
     }
-    nmsAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    nmsAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    nmsAddresses.EntityData.YListKeys = []string {}
+
     return &(nmsAddresses.EntityData)
 }
 
@@ -790,7 +841,7 @@ type Snmp_Information_RequestTypeDetail_NmsAddresses_NmsAddress struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. NMS address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     NmsAddr interface{}
 
     // Total request count for each managment station or client. The type is
@@ -823,20 +874,23 @@ func (nmsAddress *Snmp_Information_RequestTypeDetail_NmsAddresses_NmsAddress) Ge
     nmsAddress.EntityData.YangName = "nms-address"
     nmsAddress.EntityData.BundleName = "cisco_ios_xr"
     nmsAddress.EntityData.ParentYangName = "nms-addresses"
-    nmsAddress.EntityData.SegmentPath = "nms-address" + "[nms-addr='" + fmt.Sprintf("%v", nmsAddress.NmsAddr) + "']"
+    nmsAddress.EntityData.SegmentPath = "nms-address" + types.AddKeyToken(nmsAddress.NmsAddr, "nms-addr")
     nmsAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nmsAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nmsAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nmsAddress.EntityData.Children = make(map[string]types.YChild)
-    nmsAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    nmsAddress.EntityData.Leafs["nms-addr"] = types.YLeaf{"NmsAddr", nmsAddress.NmsAddr}
-    nmsAddress.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", nmsAddress.TotalCount}
-    nmsAddress.EntityData.Leafs["agent-request-count"] = types.YLeaf{"AgentRequestCount", nmsAddress.AgentRequestCount}
-    nmsAddress.EntityData.Leafs["interface-request-count"] = types.YLeaf{"InterfaceRequestCount", nmsAddress.InterfaceRequestCount}
-    nmsAddress.EntityData.Leafs["entity-request-count"] = types.YLeaf{"EntityRequestCount", nmsAddress.EntityRequestCount}
-    nmsAddress.EntityData.Leafs["route-request-count"] = types.YLeaf{"RouteRequestCount", nmsAddress.RouteRequestCount}
-    nmsAddress.EntityData.Leafs["infra-request-count"] = types.YLeaf{"InfraRequestCount", nmsAddress.InfraRequestCount}
+    nmsAddress.EntityData.Children = types.NewOrderedMap()
+    nmsAddress.EntityData.Leafs = types.NewOrderedMap()
+    nmsAddress.EntityData.Leafs.Append("nms-addr", types.YLeaf{"NmsAddr", nmsAddress.NmsAddr})
+    nmsAddress.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", nmsAddress.TotalCount})
+    nmsAddress.EntityData.Leafs.Append("agent-request-count", types.YLeaf{"AgentRequestCount", nmsAddress.AgentRequestCount})
+    nmsAddress.EntityData.Leafs.Append("interface-request-count", types.YLeaf{"InterfaceRequestCount", nmsAddress.InterfaceRequestCount})
+    nmsAddress.EntityData.Leafs.Append("entity-request-count", types.YLeaf{"EntityRequestCount", nmsAddress.EntityRequestCount})
+    nmsAddress.EntityData.Leafs.Append("route-request-count", types.YLeaf{"RouteRequestCount", nmsAddress.RouteRequestCount})
+    nmsAddress.EntityData.Leafs.Append("infra-request-count", types.YLeaf{"InfraRequestCount", nmsAddress.InfraRequestCount})
+
+    nmsAddress.EntityData.YListKeys = []string {"NmsAddr"}
+
     return &(nmsAddress.EntityData)
 }
 
@@ -900,19 +954,22 @@ func (duplicateDrop *Snmp_Information_DuplicateDrop) GetEntityData() *types.Comm
     duplicateDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duplicateDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    duplicateDrop.EntityData.Children = make(map[string]types.YChild)
-    duplicateDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    duplicateDrop.EntityData.Leafs["duplicate-request-status"] = types.YLeaf{"DuplicateRequestStatus", duplicateDrop.DuplicateRequestStatus}
-    duplicateDrop.EntityData.Leafs["last-status-change-time"] = types.YLeaf{"LastStatusChangeTime", duplicateDrop.LastStatusChangeTime}
-    duplicateDrop.EntityData.Leafs["duplicate-drop-configured-timeout"] = types.YLeaf{"DuplicateDropConfiguredTimeout", duplicateDrop.DuplicateDropConfiguredTimeout}
-    duplicateDrop.EntityData.Leafs["duplicate-dropped-requests"] = types.YLeaf{"DuplicateDroppedRequests", duplicateDrop.DuplicateDroppedRequests}
-    duplicateDrop.EntityData.Leafs["retry-processed-requests"] = types.YLeaf{"RetryProcessedRequests", duplicateDrop.RetryProcessedRequests}
-    duplicateDrop.EntityData.Leafs["first-enable-time"] = types.YLeaf{"FirstEnableTime", duplicateDrop.FirstEnableTime}
-    duplicateDrop.EntityData.Leafs["latest-duplicate-dropped-requests"] = types.YLeaf{"LatestDuplicateDroppedRequests", duplicateDrop.LatestDuplicateDroppedRequests}
-    duplicateDrop.EntityData.Leafs["latest-retry-processed-requests"] = types.YLeaf{"LatestRetryProcessedRequests", duplicateDrop.LatestRetryProcessedRequests}
-    duplicateDrop.EntityData.Leafs["duplicate-request-latest-enable-time"] = types.YLeaf{"DuplicateRequestLatestEnableTime", duplicateDrop.DuplicateRequestLatestEnableTime}
-    duplicateDrop.EntityData.Leafs["duplicate-drop-enable-count"] = types.YLeaf{"DuplicateDropEnableCount", duplicateDrop.DuplicateDropEnableCount}
-    duplicateDrop.EntityData.Leafs["duplicate-drop-disable-count"] = types.YLeaf{"DuplicateDropDisableCount", duplicateDrop.DuplicateDropDisableCount}
+    duplicateDrop.EntityData.Children = types.NewOrderedMap()
+    duplicateDrop.EntityData.Leafs = types.NewOrderedMap()
+    duplicateDrop.EntityData.Leafs.Append("duplicate-request-status", types.YLeaf{"DuplicateRequestStatus", duplicateDrop.DuplicateRequestStatus})
+    duplicateDrop.EntityData.Leafs.Append("last-status-change-time", types.YLeaf{"LastStatusChangeTime", duplicateDrop.LastStatusChangeTime})
+    duplicateDrop.EntityData.Leafs.Append("duplicate-drop-configured-timeout", types.YLeaf{"DuplicateDropConfiguredTimeout", duplicateDrop.DuplicateDropConfiguredTimeout})
+    duplicateDrop.EntityData.Leafs.Append("duplicate-dropped-requests", types.YLeaf{"DuplicateDroppedRequests", duplicateDrop.DuplicateDroppedRequests})
+    duplicateDrop.EntityData.Leafs.Append("retry-processed-requests", types.YLeaf{"RetryProcessedRequests", duplicateDrop.RetryProcessedRequests})
+    duplicateDrop.EntityData.Leafs.Append("first-enable-time", types.YLeaf{"FirstEnableTime", duplicateDrop.FirstEnableTime})
+    duplicateDrop.EntityData.Leafs.Append("latest-duplicate-dropped-requests", types.YLeaf{"LatestDuplicateDroppedRequests", duplicateDrop.LatestDuplicateDroppedRequests})
+    duplicateDrop.EntityData.Leafs.Append("latest-retry-processed-requests", types.YLeaf{"LatestRetryProcessedRequests", duplicateDrop.LatestRetryProcessedRequests})
+    duplicateDrop.EntityData.Leafs.Append("duplicate-request-latest-enable-time", types.YLeaf{"DuplicateRequestLatestEnableTime", duplicateDrop.DuplicateRequestLatestEnableTime})
+    duplicateDrop.EntityData.Leafs.Append("duplicate-drop-enable-count", types.YLeaf{"DuplicateDropEnableCount", duplicateDrop.DuplicateDropEnableCount})
+    duplicateDrop.EntityData.Leafs.Append("duplicate-drop-disable-count", types.YLeaf{"DuplicateDropDisableCount", duplicateDrop.DuplicateDropDisableCount})
+
+    duplicateDrop.EntityData.YListKeys = []string {}
+
     return &(duplicateDrop.EntityData)
 }
 
@@ -924,7 +981,7 @@ type Snmp_Information_BulkStatsTransfers struct {
 
     // SNMP bulkstats transfer name. The type is slice of
     // Snmp_Information_BulkStatsTransfers_BulkStatsTransfer.
-    BulkStatsTransfer []Snmp_Information_BulkStatsTransfers_BulkStatsTransfer
+    BulkStatsTransfer []*Snmp_Information_BulkStatsTransfers_BulkStatsTransfer
 }
 
 func (bulkStatsTransfers *Snmp_Information_BulkStatsTransfers) GetEntityData() *types.CommonEntityData {
@@ -937,12 +994,15 @@ func (bulkStatsTransfers *Snmp_Information_BulkStatsTransfers) GetEntityData() *
     bulkStatsTransfers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bulkStatsTransfers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bulkStatsTransfers.EntityData.Children = make(map[string]types.YChild)
-    bulkStatsTransfers.EntityData.Children["bulk-stats-transfer"] = types.YChild{"BulkStatsTransfer", nil}
+    bulkStatsTransfers.EntityData.Children = types.NewOrderedMap()
+    bulkStatsTransfers.EntityData.Children.Append("bulk-stats-transfer", types.YChild{"BulkStatsTransfer", nil})
     for i := range bulkStatsTransfers.BulkStatsTransfer {
-        bulkStatsTransfers.EntityData.Children[types.GetSegmentPath(&bulkStatsTransfers.BulkStatsTransfer[i])] = types.YChild{"BulkStatsTransfer", &bulkStatsTransfers.BulkStatsTransfer[i]}
+        bulkStatsTransfers.EntityData.Children.Append(types.GetSegmentPath(bulkStatsTransfers.BulkStatsTransfer[i]), types.YChild{"BulkStatsTransfer", bulkStatsTransfers.BulkStatsTransfer[i]})
     }
-    bulkStatsTransfers.EntityData.Leafs = make(map[string]types.YLeaf)
+    bulkStatsTransfers.EntityData.Leafs = types.NewOrderedMap()
+
+    bulkStatsTransfers.EntityData.YListKeys = []string {}
+
     return &(bulkStatsTransfers.EntityData)
 }
 
@@ -953,7 +1013,7 @@ type Snmp_Information_BulkStatsTransfers_BulkStatsTransfer struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Transfer name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TransferName interface{}
 
     // Name of the bulkstats transfer session. The type is string.
@@ -982,20 +1042,23 @@ func (bulkStatsTransfer *Snmp_Information_BulkStatsTransfers_BulkStatsTransfer) 
     bulkStatsTransfer.EntityData.YangName = "bulk-stats-transfer"
     bulkStatsTransfer.EntityData.BundleName = "cisco_ios_xr"
     bulkStatsTransfer.EntityData.ParentYangName = "bulk-stats-transfers"
-    bulkStatsTransfer.EntityData.SegmentPath = "bulk-stats-transfer" + "[transfer-name='" + fmt.Sprintf("%v", bulkStatsTransfer.TransferName) + "']"
+    bulkStatsTransfer.EntityData.SegmentPath = "bulk-stats-transfer" + types.AddKeyToken(bulkStatsTransfer.TransferName, "transfer-name")
     bulkStatsTransfer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bulkStatsTransfer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bulkStatsTransfer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bulkStatsTransfer.EntityData.Children = make(map[string]types.YChild)
-    bulkStatsTransfer.EntityData.Leafs = make(map[string]types.YLeaf)
-    bulkStatsTransfer.EntityData.Leafs["transfer-name"] = types.YLeaf{"TransferName", bulkStatsTransfer.TransferName}
-    bulkStatsTransfer.EntityData.Leafs["transfer-name-xr"] = types.YLeaf{"TransferNameXr", bulkStatsTransfer.TransferNameXr}
-    bulkStatsTransfer.EntityData.Leafs["url-primary"] = types.YLeaf{"UrlPrimary", bulkStatsTransfer.UrlPrimary}
-    bulkStatsTransfer.EntityData.Leafs["url-secondary"] = types.YLeaf{"UrlSecondary", bulkStatsTransfer.UrlSecondary}
-    bulkStatsTransfer.EntityData.Leafs["retained-file"] = types.YLeaf{"RetainedFile", bulkStatsTransfer.RetainedFile}
-    bulkStatsTransfer.EntityData.Leafs["time-left"] = types.YLeaf{"TimeLeft", bulkStatsTransfer.TimeLeft}
-    bulkStatsTransfer.EntityData.Leafs["retry-left"] = types.YLeaf{"RetryLeft", bulkStatsTransfer.RetryLeft}
+    bulkStatsTransfer.EntityData.Children = types.NewOrderedMap()
+    bulkStatsTransfer.EntityData.Leafs = types.NewOrderedMap()
+    bulkStatsTransfer.EntityData.Leafs.Append("transfer-name", types.YLeaf{"TransferName", bulkStatsTransfer.TransferName})
+    bulkStatsTransfer.EntityData.Leafs.Append("transfer-name-xr", types.YLeaf{"TransferNameXr", bulkStatsTransfer.TransferNameXr})
+    bulkStatsTransfer.EntityData.Leafs.Append("url-primary", types.YLeaf{"UrlPrimary", bulkStatsTransfer.UrlPrimary})
+    bulkStatsTransfer.EntityData.Leafs.Append("url-secondary", types.YLeaf{"UrlSecondary", bulkStatsTransfer.UrlSecondary})
+    bulkStatsTransfer.EntityData.Leafs.Append("retained-file", types.YLeaf{"RetainedFile", bulkStatsTransfer.RetainedFile})
+    bulkStatsTransfer.EntityData.Leafs.Append("time-left", types.YLeaf{"TimeLeft", bulkStatsTransfer.TimeLeft})
+    bulkStatsTransfer.EntityData.Leafs.Append("retry-left", types.YLeaf{"RetryLeft", bulkStatsTransfer.RetryLeft})
+
+    bulkStatsTransfer.EntityData.YListKeys = []string {"TransferName"}
+
     return &(bulkStatsTransfer.EntityData)
 }
 
@@ -1007,7 +1070,7 @@ type Snmp_Information_TrapInfos struct {
 
     // SNMP Trap infomation like server , port and trapOID. The type is slice of
     // Snmp_Information_TrapInfos_TrapInfo.
-    TrapInfo []Snmp_Information_TrapInfos_TrapInfo
+    TrapInfo []*Snmp_Information_TrapInfos_TrapInfo
 }
 
 func (trapInfos *Snmp_Information_TrapInfos) GetEntityData() *types.CommonEntityData {
@@ -1020,12 +1083,15 @@ func (trapInfos *Snmp_Information_TrapInfos) GetEntityData() *types.CommonEntity
     trapInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapInfos.EntityData.Children = make(map[string]types.YChild)
-    trapInfos.EntityData.Children["trap-info"] = types.YChild{"TrapInfo", nil}
+    trapInfos.EntityData.Children = types.NewOrderedMap()
+    trapInfos.EntityData.Children.Append("trap-info", types.YChild{"TrapInfo", nil})
     for i := range trapInfos.TrapInfo {
-        trapInfos.EntityData.Children[types.GetSegmentPath(&trapInfos.TrapInfo[i])] = types.YChild{"TrapInfo", &trapInfos.TrapInfo[i]}
+        trapInfos.EntityData.Children.Append(types.GetSegmentPath(trapInfos.TrapInfo[i]), types.YChild{"TrapInfo", trapInfos.TrapInfo[i]})
     }
-    trapInfos.EntityData.Leafs = make(map[string]types.YLeaf)
+    trapInfos.EntityData.Leafs = types.NewOrderedMap()
+
+    trapInfos.EntityData.YListKeys = []string {}
+
     return &(trapInfos.EntityData)
 }
 
@@ -1054,7 +1120,7 @@ type Snmp_Information_TrapInfos_TrapInfo struct {
 
     // Per trap OID statistics. The type is slice of
     // Snmp_Information_TrapInfos_TrapInfo_TrapOiDinfo.
-    TrapOiDinfo []Snmp_Information_TrapInfos_TrapInfo_TrapOiDinfo
+    TrapOiDinfo []*Snmp_Information_TrapInfos_TrapInfo_TrapOiDinfo
 }
 
 func (trapInfo *Snmp_Information_TrapInfos_TrapInfo) GetEntityData() *types.CommonEntityData {
@@ -1067,17 +1133,20 @@ func (trapInfo *Snmp_Information_TrapInfos_TrapInfo) GetEntityData() *types.Comm
     trapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapInfo.EntityData.Children = make(map[string]types.YChild)
-    trapInfo.EntityData.Children["trap-oi-dinfo"] = types.YChild{"TrapOiDinfo", nil}
+    trapInfo.EntityData.Children = types.NewOrderedMap()
+    trapInfo.EntityData.Children.Append("trap-oi-dinfo", types.YChild{"TrapOiDinfo", nil})
     for i := range trapInfo.TrapOiDinfo {
-        trapInfo.EntityData.Children[types.GetSegmentPath(&trapInfo.TrapOiDinfo[i])] = types.YChild{"TrapOiDinfo", &trapInfo.TrapOiDinfo[i]}
+        trapInfo.EntityData.Children.Append(types.GetSegmentPath(trapInfo.TrapOiDinfo[i]), types.YChild{"TrapOiDinfo", trapInfo.TrapOiDinfo[i]})
     }
-    trapInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapInfo.EntityData.Leafs["trap-host"] = types.YLeaf{"TrapHost", trapInfo.TrapHost}
-    trapInfo.EntityData.Leafs["port"] = types.YLeaf{"Port", trapInfo.Port}
-    trapInfo.EntityData.Leafs["host"] = types.YLeaf{"Host", trapInfo.Host}
-    trapInfo.EntityData.Leafs["port-xr"] = types.YLeaf{"PortXr", trapInfo.PortXr}
-    trapInfo.EntityData.Leafs["trap-oid-count"] = types.YLeaf{"TrapOidCount", trapInfo.TrapOidCount}
+    trapInfo.EntityData.Leafs = types.NewOrderedMap()
+    trapInfo.EntityData.Leafs.Append("trap-host", types.YLeaf{"TrapHost", trapInfo.TrapHost})
+    trapInfo.EntityData.Leafs.Append("port", types.YLeaf{"Port", trapInfo.Port})
+    trapInfo.EntityData.Leafs.Append("host", types.YLeaf{"Host", trapInfo.Host})
+    trapInfo.EntityData.Leafs.Append("port-xr", types.YLeaf{"PortXr", trapInfo.PortXr})
+    trapInfo.EntityData.Leafs.Append("trap-oid-count", types.YLeaf{"TrapOidCount", trapInfo.TrapOidCount})
+
+    trapInfo.EntityData.YListKeys = []string {}
+
     return &(trapInfo.EntityData)
 }
 
@@ -1116,14 +1185,17 @@ func (trapOiDinfo *Snmp_Information_TrapInfos_TrapInfo_TrapOiDinfo) GetEntityDat
     trapOiDinfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapOiDinfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapOiDinfo.EntityData.Children = make(map[string]types.YChild)
-    trapOiDinfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapOiDinfo.EntityData.Leafs["trap-oid"] = types.YLeaf{"TrapOid", trapOiDinfo.TrapOid}
-    trapOiDinfo.EntityData.Leafs["count"] = types.YLeaf{"Count", trapOiDinfo.Count}
-    trapOiDinfo.EntityData.Leafs["drop-count"] = types.YLeaf{"DropCount", trapOiDinfo.DropCount}
-    trapOiDinfo.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", trapOiDinfo.RetryCount}
-    trapOiDinfo.EntityData.Leafs["lastsent-time"] = types.YLeaf{"LastsentTime", trapOiDinfo.LastsentTime}
-    trapOiDinfo.EntityData.Leafs["lasrdrop-time"] = types.YLeaf{"LasrdropTime", trapOiDinfo.LasrdropTime}
+    trapOiDinfo.EntityData.Children = types.NewOrderedMap()
+    trapOiDinfo.EntityData.Leafs = types.NewOrderedMap()
+    trapOiDinfo.EntityData.Leafs.Append("trap-oid", types.YLeaf{"TrapOid", trapOiDinfo.TrapOid})
+    trapOiDinfo.EntityData.Leafs.Append("count", types.YLeaf{"Count", trapOiDinfo.Count})
+    trapOiDinfo.EntityData.Leafs.Append("drop-count", types.YLeaf{"DropCount", trapOiDinfo.DropCount})
+    trapOiDinfo.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", trapOiDinfo.RetryCount})
+    trapOiDinfo.EntityData.Leafs.Append("lastsent-time", types.YLeaf{"LastsentTime", trapOiDinfo.LastsentTime})
+    trapOiDinfo.EntityData.Leafs.Append("lasrdrop-time", types.YLeaf{"LasrdropTime", trapOiDinfo.LasrdropTime})
+
+    trapOiDinfo.EntityData.YListKeys = []string {}
+
     return &(trapOiDinfo.EntityData)
 }
 
@@ -1135,7 +1207,7 @@ type Snmp_Information_PollOids struct {
 
     // PDU drop info for OID. The type is slice of
     // Snmp_Information_PollOids_PollOid.
-    PollOid []Snmp_Information_PollOids_PollOid
+    PollOid []*Snmp_Information_PollOids_PollOid
 }
 
 func (pollOids *Snmp_Information_PollOids) GetEntityData() *types.CommonEntityData {
@@ -1148,12 +1220,15 @@ func (pollOids *Snmp_Information_PollOids) GetEntityData() *types.CommonEntityDa
     pollOids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pollOids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pollOids.EntityData.Children = make(map[string]types.YChild)
-    pollOids.EntityData.Children["poll-oid"] = types.YChild{"PollOid", nil}
+    pollOids.EntityData.Children = types.NewOrderedMap()
+    pollOids.EntityData.Children.Append("poll-oid", types.YChild{"PollOid", nil})
     for i := range pollOids.PollOid {
-        pollOids.EntityData.Children[types.GetSegmentPath(&pollOids.PollOid[i])] = types.YChild{"PollOid", &pollOids.PollOid[i]}
+        pollOids.EntityData.Children.Append(types.GetSegmentPath(pollOids.PollOid[i]), types.YChild{"PollOid", pollOids.PollOid[i]})
     }
-    pollOids.EntityData.Leafs = make(map[string]types.YLeaf)
+    pollOids.EntityData.Leafs = types.NewOrderedMap()
+
+    pollOids.EntityData.YListKeys = []string {}
+
     return &(pollOids.EntityData)
 }
 
@@ -1164,7 +1239,7 @@ type Snmp_Information_PollOids_PollOid struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Object ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ObjectId interface{}
 
     // Managment station count. The type is interface{} with range: 0..4294967295.
@@ -1183,17 +1258,20 @@ func (pollOid *Snmp_Information_PollOids_PollOid) GetEntityData() *types.CommonE
     pollOid.EntityData.YangName = "poll-oid"
     pollOid.EntityData.BundleName = "cisco_ios_xr"
     pollOid.EntityData.ParentYangName = "poll-oids"
-    pollOid.EntityData.SegmentPath = "poll-oid" + "[object-id='" + fmt.Sprintf("%v", pollOid.ObjectId) + "']"
+    pollOid.EntityData.SegmentPath = "poll-oid" + types.AddKeyToken(pollOid.ObjectId, "object-id")
     pollOid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pollOid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pollOid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pollOid.EntityData.Children = make(map[string]types.YChild)
-    pollOid.EntityData.Leafs = make(map[string]types.YLeaf)
-    pollOid.EntityData.Leafs["object-id"] = types.YLeaf{"ObjectId", pollOid.ObjectId}
-    pollOid.EntityData.Leafs["nms-count"] = types.YLeaf{"NmsCount", pollOid.NmsCount}
-    pollOid.EntityData.Leafs["nms"] = types.YLeaf{"Nms", pollOid.Nms}
-    pollOid.EntityData.Leafs["request-count"] = types.YLeaf{"RequestCount", pollOid.RequestCount}
+    pollOid.EntityData.Children = types.NewOrderedMap()
+    pollOid.EntityData.Leafs = types.NewOrderedMap()
+    pollOid.EntityData.Leafs.Append("object-id", types.YLeaf{"ObjectId", pollOid.ObjectId})
+    pollOid.EntityData.Leafs.Append("nms-count", types.YLeaf{"NmsCount", pollOid.NmsCount})
+    pollOid.EntityData.Leafs.Append("nms", types.YLeaf{"Nms", pollOid.Nms})
+    pollOid.EntityData.Leafs.Append("request-count", types.YLeaf{"RequestCount", pollOid.RequestCount})
+
+    pollOid.EntityData.YListKeys = []string {"ObjectId"}
+
     return &(pollOid.EntityData)
 }
 
@@ -1205,7 +1283,7 @@ type Snmp_Information_InfomDetails struct {
 
     // SNMP Trap infomation like server , port and trapOID. The type is slice of
     // Snmp_Information_InfomDetails_InfomDetail.
-    InfomDetail []Snmp_Information_InfomDetails_InfomDetail
+    InfomDetail []*Snmp_Information_InfomDetails_InfomDetail
 }
 
 func (infomDetails *Snmp_Information_InfomDetails) GetEntityData() *types.CommonEntityData {
@@ -1218,12 +1296,15 @@ func (infomDetails *Snmp_Information_InfomDetails) GetEntityData() *types.Common
     infomDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infomDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infomDetails.EntityData.Children = make(map[string]types.YChild)
-    infomDetails.EntityData.Children["infom-detail"] = types.YChild{"InfomDetail", nil}
+    infomDetails.EntityData.Children = types.NewOrderedMap()
+    infomDetails.EntityData.Children.Append("infom-detail", types.YChild{"InfomDetail", nil})
     for i := range infomDetails.InfomDetail {
-        infomDetails.EntityData.Children[types.GetSegmentPath(&infomDetails.InfomDetail[i])] = types.YChild{"InfomDetail", &infomDetails.InfomDetail[i]}
+        infomDetails.EntityData.Children.Append(types.GetSegmentPath(infomDetails.InfomDetail[i]), types.YChild{"InfomDetail", infomDetails.InfomDetail[i]})
     }
-    infomDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    infomDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    infomDetails.EntityData.YListKeys = []string {}
+
     return &(infomDetails.EntityData)
 }
 
@@ -1252,7 +1333,7 @@ type Snmp_Information_InfomDetails_InfomDetail struct {
 
     // Per trap OID statistics. The type is slice of
     // Snmp_Information_InfomDetails_InfomDetail_TrapOiDinfo.
-    TrapOiDinfo []Snmp_Information_InfomDetails_InfomDetail_TrapOiDinfo
+    TrapOiDinfo []*Snmp_Information_InfomDetails_InfomDetail_TrapOiDinfo
 }
 
 func (infomDetail *Snmp_Information_InfomDetails_InfomDetail) GetEntityData() *types.CommonEntityData {
@@ -1265,17 +1346,20 @@ func (infomDetail *Snmp_Information_InfomDetails_InfomDetail) GetEntityData() *t
     infomDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infomDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infomDetail.EntityData.Children = make(map[string]types.YChild)
-    infomDetail.EntityData.Children["trap-oi-dinfo"] = types.YChild{"TrapOiDinfo", nil}
+    infomDetail.EntityData.Children = types.NewOrderedMap()
+    infomDetail.EntityData.Children.Append("trap-oi-dinfo", types.YChild{"TrapOiDinfo", nil})
     for i := range infomDetail.TrapOiDinfo {
-        infomDetail.EntityData.Children[types.GetSegmentPath(&infomDetail.TrapOiDinfo[i])] = types.YChild{"TrapOiDinfo", &infomDetail.TrapOiDinfo[i]}
+        infomDetail.EntityData.Children.Append(types.GetSegmentPath(infomDetail.TrapOiDinfo[i]), types.YChild{"TrapOiDinfo", infomDetail.TrapOiDinfo[i]})
     }
-    infomDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    infomDetail.EntityData.Leafs["trap-host"] = types.YLeaf{"TrapHost", infomDetail.TrapHost}
-    infomDetail.EntityData.Leafs["port"] = types.YLeaf{"Port", infomDetail.Port}
-    infomDetail.EntityData.Leafs["host"] = types.YLeaf{"Host", infomDetail.Host}
-    infomDetail.EntityData.Leafs["port-xr"] = types.YLeaf{"PortXr", infomDetail.PortXr}
-    infomDetail.EntityData.Leafs["trap-oid-count"] = types.YLeaf{"TrapOidCount", infomDetail.TrapOidCount}
+    infomDetail.EntityData.Leafs = types.NewOrderedMap()
+    infomDetail.EntityData.Leafs.Append("trap-host", types.YLeaf{"TrapHost", infomDetail.TrapHost})
+    infomDetail.EntityData.Leafs.Append("port", types.YLeaf{"Port", infomDetail.Port})
+    infomDetail.EntityData.Leafs.Append("host", types.YLeaf{"Host", infomDetail.Host})
+    infomDetail.EntityData.Leafs.Append("port-xr", types.YLeaf{"PortXr", infomDetail.PortXr})
+    infomDetail.EntityData.Leafs.Append("trap-oid-count", types.YLeaf{"TrapOidCount", infomDetail.TrapOidCount})
+
+    infomDetail.EntityData.YListKeys = []string {}
+
     return &(infomDetail.EntityData)
 }
 
@@ -1314,14 +1398,17 @@ func (trapOiDinfo *Snmp_Information_InfomDetails_InfomDetail_TrapOiDinfo) GetEnt
     trapOiDinfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapOiDinfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapOiDinfo.EntityData.Children = make(map[string]types.YChild)
-    trapOiDinfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapOiDinfo.EntityData.Leafs["trap-oid"] = types.YLeaf{"TrapOid", trapOiDinfo.TrapOid}
-    trapOiDinfo.EntityData.Leafs["count"] = types.YLeaf{"Count", trapOiDinfo.Count}
-    trapOiDinfo.EntityData.Leafs["drop-count"] = types.YLeaf{"DropCount", trapOiDinfo.DropCount}
-    trapOiDinfo.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", trapOiDinfo.RetryCount}
-    trapOiDinfo.EntityData.Leafs["lastsent-time"] = types.YLeaf{"LastsentTime", trapOiDinfo.LastsentTime}
-    trapOiDinfo.EntityData.Leafs["lasrdrop-time"] = types.YLeaf{"LasrdropTime", trapOiDinfo.LasrdropTime}
+    trapOiDinfo.EntityData.Children = types.NewOrderedMap()
+    trapOiDinfo.EntityData.Leafs = types.NewOrderedMap()
+    trapOiDinfo.EntityData.Leafs.Append("trap-oid", types.YLeaf{"TrapOid", trapOiDinfo.TrapOid})
+    trapOiDinfo.EntityData.Leafs.Append("count", types.YLeaf{"Count", trapOiDinfo.Count})
+    trapOiDinfo.EntityData.Leafs.Append("drop-count", types.YLeaf{"DropCount", trapOiDinfo.DropCount})
+    trapOiDinfo.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", trapOiDinfo.RetryCount})
+    trapOiDinfo.EntityData.Leafs.Append("lastsent-time", types.YLeaf{"LastsentTime", trapOiDinfo.LastsentTime})
+    trapOiDinfo.EntityData.Leafs.Append("lasrdrop-time", types.YLeaf{"LasrdropTime", trapOiDinfo.LasrdropTime})
+
+    trapOiDinfo.EntityData.YListKeys = []string {}
+
     return &(trapOiDinfo.EntityData)
 }
 
@@ -1433,38 +1520,41 @@ func (statistics *Snmp_Information_Statistics) GetEntityData() *types.CommonEnti
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistics.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", statistics.PacketsReceived}
-    statistics.EntityData.Leafs["bad-versions-received"] = types.YLeaf{"BadVersionsReceived", statistics.BadVersionsReceived}
-    statistics.EntityData.Leafs["bad-community-names-received"] = types.YLeaf{"BadCommunityNamesReceived", statistics.BadCommunityNamesReceived}
-    statistics.EntityData.Leafs["bad-community-uses-received"] = types.YLeaf{"BadCommunityUsesReceived", statistics.BadCommunityUsesReceived}
-    statistics.EntityData.Leafs["asn-parse-errors-received"] = types.YLeaf{"AsnParseErrorsReceived", statistics.AsnParseErrorsReceived}
-    statistics.EntityData.Leafs["silent-drop-count"] = types.YLeaf{"SilentDropCount", statistics.SilentDropCount}
-    statistics.EntityData.Leafs["proxy-drop-count"] = types.YLeaf{"ProxyDropCount", statistics.ProxyDropCount}
-    statistics.EntityData.Leafs["too-big-packet-received"] = types.YLeaf{"TooBigPacketReceived", statistics.TooBigPacketReceived}
-    statistics.EntityData.Leafs["max-packet-size"] = types.YLeaf{"MaxPacketSize", statistics.MaxPacketSize}
-    statistics.EntityData.Leafs["no-such-names-received"] = types.YLeaf{"NoSuchNamesReceived", statistics.NoSuchNamesReceived}
-    statistics.EntityData.Leafs["bad-values-received"] = types.YLeaf{"BadValuesReceived", statistics.BadValuesReceived}
-    statistics.EntityData.Leafs["read-only-received"] = types.YLeaf{"ReadOnlyReceived", statistics.ReadOnlyReceived}
-    statistics.EntityData.Leafs["total-general-errors"] = types.YLeaf{"TotalGeneralErrors", statistics.TotalGeneralErrors}
-    statistics.EntityData.Leafs["total-requested-variables"] = types.YLeaf{"TotalRequestedVariables", statistics.TotalRequestedVariables}
-    statistics.EntityData.Leafs["total-set-variables-received"] = types.YLeaf{"TotalSetVariablesReceived", statistics.TotalSetVariablesReceived}
-    statistics.EntityData.Leafs["get-requests-received"] = types.YLeaf{"GetRequestsReceived", statistics.GetRequestsReceived}
-    statistics.EntityData.Leafs["get-next-requests-received"] = types.YLeaf{"GetNextRequestsReceived", statistics.GetNextRequestsReceived}
-    statistics.EntityData.Leafs["set-requests-received"] = types.YLeaf{"SetRequestsReceived", statistics.SetRequestsReceived}
-    statistics.EntityData.Leafs["get-responses-received"] = types.YLeaf{"GetResponsesReceived", statistics.GetResponsesReceived}
-    statistics.EntityData.Leafs["traps-received"] = types.YLeaf{"TrapsReceived", statistics.TrapsReceived}
-    statistics.EntityData.Leafs["total-packets-sent"] = types.YLeaf{"TotalPacketsSent", statistics.TotalPacketsSent}
-    statistics.EntityData.Leafs["too-big-packets-sent"] = types.YLeaf{"TooBigPacketsSent", statistics.TooBigPacketsSent}
-    statistics.EntityData.Leafs["no-such-names-sent"] = types.YLeaf{"NoSuchNamesSent", statistics.NoSuchNamesSent}
-    statistics.EntityData.Leafs["bad-values-sent"] = types.YLeaf{"BadValuesSent", statistics.BadValuesSent}
-    statistics.EntityData.Leafs["general-errors-sent"] = types.YLeaf{"GeneralErrorsSent", statistics.GeneralErrorsSent}
-    statistics.EntityData.Leafs["get-requests-sent"] = types.YLeaf{"GetRequestsSent", statistics.GetRequestsSent}
-    statistics.EntityData.Leafs["get-next-request-sent"] = types.YLeaf{"GetNextRequestSent", statistics.GetNextRequestSent}
-    statistics.EntityData.Leafs["set-requests-sent"] = types.YLeaf{"SetRequestsSent", statistics.SetRequestsSent}
-    statistics.EntityData.Leafs["get-responses-sent"] = types.YLeaf{"GetResponsesSent", statistics.GetResponsesSent}
-    statistics.EntityData.Leafs["traps-sent"] = types.YLeaf{"TrapsSent", statistics.TrapsSent}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+    statistics.EntityData.Leafs.Append("packets-received", types.YLeaf{"PacketsReceived", statistics.PacketsReceived})
+    statistics.EntityData.Leafs.Append("bad-versions-received", types.YLeaf{"BadVersionsReceived", statistics.BadVersionsReceived})
+    statistics.EntityData.Leafs.Append("bad-community-names-received", types.YLeaf{"BadCommunityNamesReceived", statistics.BadCommunityNamesReceived})
+    statistics.EntityData.Leafs.Append("bad-community-uses-received", types.YLeaf{"BadCommunityUsesReceived", statistics.BadCommunityUsesReceived})
+    statistics.EntityData.Leafs.Append("asn-parse-errors-received", types.YLeaf{"AsnParseErrorsReceived", statistics.AsnParseErrorsReceived})
+    statistics.EntityData.Leafs.Append("silent-drop-count", types.YLeaf{"SilentDropCount", statistics.SilentDropCount})
+    statistics.EntityData.Leafs.Append("proxy-drop-count", types.YLeaf{"ProxyDropCount", statistics.ProxyDropCount})
+    statistics.EntityData.Leafs.Append("too-big-packet-received", types.YLeaf{"TooBigPacketReceived", statistics.TooBigPacketReceived})
+    statistics.EntityData.Leafs.Append("max-packet-size", types.YLeaf{"MaxPacketSize", statistics.MaxPacketSize})
+    statistics.EntityData.Leafs.Append("no-such-names-received", types.YLeaf{"NoSuchNamesReceived", statistics.NoSuchNamesReceived})
+    statistics.EntityData.Leafs.Append("bad-values-received", types.YLeaf{"BadValuesReceived", statistics.BadValuesReceived})
+    statistics.EntityData.Leafs.Append("read-only-received", types.YLeaf{"ReadOnlyReceived", statistics.ReadOnlyReceived})
+    statistics.EntityData.Leafs.Append("total-general-errors", types.YLeaf{"TotalGeneralErrors", statistics.TotalGeneralErrors})
+    statistics.EntityData.Leafs.Append("total-requested-variables", types.YLeaf{"TotalRequestedVariables", statistics.TotalRequestedVariables})
+    statistics.EntityData.Leafs.Append("total-set-variables-received", types.YLeaf{"TotalSetVariablesReceived", statistics.TotalSetVariablesReceived})
+    statistics.EntityData.Leafs.Append("get-requests-received", types.YLeaf{"GetRequestsReceived", statistics.GetRequestsReceived})
+    statistics.EntityData.Leafs.Append("get-next-requests-received", types.YLeaf{"GetNextRequestsReceived", statistics.GetNextRequestsReceived})
+    statistics.EntityData.Leafs.Append("set-requests-received", types.YLeaf{"SetRequestsReceived", statistics.SetRequestsReceived})
+    statistics.EntityData.Leafs.Append("get-responses-received", types.YLeaf{"GetResponsesReceived", statistics.GetResponsesReceived})
+    statistics.EntityData.Leafs.Append("traps-received", types.YLeaf{"TrapsReceived", statistics.TrapsReceived})
+    statistics.EntityData.Leafs.Append("total-packets-sent", types.YLeaf{"TotalPacketsSent", statistics.TotalPacketsSent})
+    statistics.EntityData.Leafs.Append("too-big-packets-sent", types.YLeaf{"TooBigPacketsSent", statistics.TooBigPacketsSent})
+    statistics.EntityData.Leafs.Append("no-such-names-sent", types.YLeaf{"NoSuchNamesSent", statistics.NoSuchNamesSent})
+    statistics.EntityData.Leafs.Append("bad-values-sent", types.YLeaf{"BadValuesSent", statistics.BadValuesSent})
+    statistics.EntityData.Leafs.Append("general-errors-sent", types.YLeaf{"GeneralErrorsSent", statistics.GeneralErrorsSent})
+    statistics.EntityData.Leafs.Append("get-requests-sent", types.YLeaf{"GetRequestsSent", statistics.GetRequestsSent})
+    statistics.EntityData.Leafs.Append("get-next-request-sent", types.YLeaf{"GetNextRequestSent", statistics.GetNextRequestSent})
+    statistics.EntityData.Leafs.Append("set-requests-sent", types.YLeaf{"SetRequestsSent", statistics.SetRequestsSent})
+    statistics.EntityData.Leafs.Append("get-responses-sent", types.YLeaf{"GetResponsesSent", statistics.GetResponsesSent})
+    statistics.EntityData.Leafs.Append("traps-sent", types.YLeaf{"TrapsSent", statistics.TrapsSent})
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -1480,7 +1570,7 @@ type Snmp_Information_IncomingQueue struct {
 
     // Each Entry Details. The type is slice of
     // Snmp_Information_IncomingQueue_InqEntry.
-    InqEntry []Snmp_Information_IncomingQueue_InqEntry
+    InqEntry []*Snmp_Information_IncomingQueue_InqEntry
 }
 
 func (incomingQueue *Snmp_Information_IncomingQueue) GetEntityData() *types.CommonEntityData {
@@ -1493,13 +1583,16 @@ func (incomingQueue *Snmp_Information_IncomingQueue) GetEntityData() *types.Comm
     incomingQueue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incomingQueue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    incomingQueue.EntityData.Children = make(map[string]types.YChild)
-    incomingQueue.EntityData.Children["inq-entry"] = types.YChild{"InqEntry", nil}
+    incomingQueue.EntityData.Children = types.NewOrderedMap()
+    incomingQueue.EntityData.Children.Append("inq-entry", types.YChild{"InqEntry", nil})
     for i := range incomingQueue.InqEntry {
-        incomingQueue.EntityData.Children[types.GetSegmentPath(&incomingQueue.InqEntry[i])] = types.YChild{"InqEntry", &incomingQueue.InqEntry[i]}
+        incomingQueue.EntityData.Children.Append(types.GetSegmentPath(incomingQueue.InqEntry[i]), types.YChild{"InqEntry", incomingQueue.InqEntry[i]})
     }
-    incomingQueue.EntityData.Leafs = make(map[string]types.YLeaf)
-    incomingQueue.EntityData.Leafs["queue-count"] = types.YLeaf{"QueueCount", incomingQueue.QueueCount}
+    incomingQueue.EntityData.Leafs = types.NewOrderedMap()
+    incomingQueue.EntityData.Leafs.Append("queue-count", types.YLeaf{"QueueCount", incomingQueue.QueueCount})
+
+    incomingQueue.EntityData.YListKeys = []string {}
+
     return &(incomingQueue.EntityData)
 }
 
@@ -1536,13 +1629,16 @@ func (inqEntry *Snmp_Information_IncomingQueue_InqEntry) GetEntityData() *types.
     inqEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inqEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inqEntry.EntityData.Children = make(map[string]types.YChild)
-    inqEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    inqEntry.EntityData.Leafs["address-of-queue"] = types.YLeaf{"AddressOfQueue", inqEntry.AddressOfQueue}
-    inqEntry.EntityData.Leafs["request-count"] = types.YLeaf{"RequestCount", inqEntry.RequestCount}
-    inqEntry.EntityData.Leafs["processed-request-count"] = types.YLeaf{"ProcessedRequestCount", inqEntry.ProcessedRequestCount}
-    inqEntry.EntityData.Leafs["last-access-time"] = types.YLeaf{"LastAccessTime", inqEntry.LastAccessTime}
-    inqEntry.EntityData.Leafs["priority"] = types.YLeaf{"Priority", inqEntry.Priority}
+    inqEntry.EntityData.Children = types.NewOrderedMap()
+    inqEntry.EntityData.Leafs = types.NewOrderedMap()
+    inqEntry.EntityData.Leafs.Append("address-of-queue", types.YLeaf{"AddressOfQueue", inqEntry.AddressOfQueue})
+    inqEntry.EntityData.Leafs.Append("request-count", types.YLeaf{"RequestCount", inqEntry.RequestCount})
+    inqEntry.EntityData.Leafs.Append("processed-request-count", types.YLeaf{"ProcessedRequestCount", inqEntry.ProcessedRequestCount})
+    inqEntry.EntityData.Leafs.Append("last-access-time", types.YLeaf{"LastAccessTime", inqEntry.LastAccessTime})
+    inqEntry.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", inqEntry.Priority})
+
+    inqEntry.EntityData.YListKeys = []string {}
+
     return &(inqEntry.EntityData)
 }
 
@@ -1555,7 +1651,7 @@ type Snmp_Information_ContextMapping struct {
 
     // Context Mapping. The type is slice of
     // Snmp_Information_ContextMapping_ContexMapping.
-    ContexMapping []Snmp_Information_ContextMapping_ContexMapping
+    ContexMapping []*Snmp_Information_ContextMapping_ContexMapping
 }
 
 func (contextMapping *Snmp_Information_ContextMapping) GetEntityData() *types.CommonEntityData {
@@ -1568,12 +1664,15 @@ func (contextMapping *Snmp_Information_ContextMapping) GetEntityData() *types.Co
     contextMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contextMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contextMapping.EntityData.Children = make(map[string]types.YChild)
-    contextMapping.EntityData.Children["contex-mapping"] = types.YChild{"ContexMapping", nil}
+    contextMapping.EntityData.Children = types.NewOrderedMap()
+    contextMapping.EntityData.Children.Append("contex-mapping", types.YChild{"ContexMapping", nil})
     for i := range contextMapping.ContexMapping {
-        contextMapping.EntityData.Children[types.GetSegmentPath(&contextMapping.ContexMapping[i])] = types.YChild{"ContexMapping", &contextMapping.ContexMapping[i]}
+        contextMapping.EntityData.Children.Append(types.GetSegmentPath(contextMapping.ContexMapping[i]), types.YChild{"ContexMapping", contextMapping.ContexMapping[i]})
     }
-    contextMapping.EntityData.Leafs = make(map[string]types.YLeaf)
+    contextMapping.EntityData.Leafs = types.NewOrderedMap()
+
+    contextMapping.EntityData.YListKeys = []string {}
+
     return &(contextMapping.EntityData)
 }
 
@@ -1609,13 +1708,16 @@ func (contexMapping *Snmp_Information_ContextMapping_ContexMapping) GetEntityDat
     contexMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contexMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contexMapping.EntityData.Children = make(map[string]types.YChild)
-    contexMapping.EntityData.Leafs = make(map[string]types.YLeaf)
-    contexMapping.EntityData.Leafs["context"] = types.YLeaf{"Context", contexMapping.Context}
-    contexMapping.EntityData.Leafs["feature-name"] = types.YLeaf{"FeatureName", contexMapping.FeatureName}
-    contexMapping.EntityData.Leafs["instance"] = types.YLeaf{"Instance", contexMapping.Instance}
-    contexMapping.EntityData.Leafs["topology"] = types.YLeaf{"Topology", contexMapping.Topology}
-    contexMapping.EntityData.Leafs["feature"] = types.YLeaf{"Feature", contexMapping.Feature}
+    contexMapping.EntityData.Children = types.NewOrderedMap()
+    contexMapping.EntityData.Leafs = types.NewOrderedMap()
+    contexMapping.EntityData.Leafs.Append("context", types.YLeaf{"Context", contexMapping.Context})
+    contexMapping.EntityData.Leafs.Append("feature-name", types.YLeaf{"FeatureName", contexMapping.FeatureName})
+    contexMapping.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", contexMapping.Instance})
+    contexMapping.EntityData.Leafs.Append("topology", types.YLeaf{"Topology", contexMapping.Topology})
+    contexMapping.EntityData.Leafs.Append("feature", types.YLeaf{"Feature", contexMapping.Feature})
+
+    contexMapping.EntityData.YListKeys = []string {}
+
     return &(contexMapping.EntityData)
 }
 
@@ -1626,7 +1728,7 @@ type Snmp_Information_TrapOids struct {
     YFilter yfilter.YFilter
 
     // SNMP trap . The type is slice of Snmp_Information_TrapOids_TrapOid.
-    TrapOid []Snmp_Information_TrapOids_TrapOid
+    TrapOid []*Snmp_Information_TrapOids_TrapOid
 }
 
 func (trapOids *Snmp_Information_TrapOids) GetEntityData() *types.CommonEntityData {
@@ -1639,12 +1741,15 @@ func (trapOids *Snmp_Information_TrapOids) GetEntityData() *types.CommonEntityDa
     trapOids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapOids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapOids.EntityData.Children = make(map[string]types.YChild)
-    trapOids.EntityData.Children["trap-oid"] = types.YChild{"TrapOid", nil}
+    trapOids.EntityData.Children = types.NewOrderedMap()
+    trapOids.EntityData.Children.Append("trap-oid", types.YChild{"TrapOid", nil})
     for i := range trapOids.TrapOid {
-        trapOids.EntityData.Children[types.GetSegmentPath(&trapOids.TrapOid[i])] = types.YChild{"TrapOid", &trapOids.TrapOid[i]}
+        trapOids.EntityData.Children.Append(types.GetSegmentPath(trapOids.TrapOid[i]), types.YChild{"TrapOid", trapOids.TrapOid[i]})
     }
-    trapOids.EntityData.Leafs = make(map[string]types.YLeaf)
+    trapOids.EntityData.Leafs = types.NewOrderedMap()
+
+    trapOids.EntityData.YListKeys = []string {}
+
     return &(trapOids.EntityData)
 }
 
@@ -1655,7 +1760,7 @@ type Snmp_Information_TrapOids_TrapOid struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Trap object ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TrapOid interface{}
 
     // Total number of OID's sent. The type is interface{} with range:
@@ -1671,16 +1776,19 @@ func (trapOid *Snmp_Information_TrapOids_TrapOid) GetEntityData() *types.CommonE
     trapOid.EntityData.YangName = "trap-oid"
     trapOid.EntityData.BundleName = "cisco_ios_xr"
     trapOid.EntityData.ParentYangName = "trap-oids"
-    trapOid.EntityData.SegmentPath = "trap-oid" + "[trap-oid='" + fmt.Sprintf("%v", trapOid.TrapOid) + "']"
+    trapOid.EntityData.SegmentPath = "trap-oid" + types.AddKeyToken(trapOid.TrapOid, "trap-oid")
     trapOid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trapOid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapOid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapOid.EntityData.Children = make(map[string]types.YChild)
-    trapOid.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapOid.EntityData.Leafs["trap-oid"] = types.YLeaf{"TrapOid", trapOid.TrapOid}
-    trapOid.EntityData.Leafs["trap-oid-count"] = types.YLeaf{"TrapOidCount", trapOid.TrapOidCount}
-    trapOid.EntityData.Leafs["trap-oid-xr"] = types.YLeaf{"TrapOidXr", trapOid.TrapOidXr}
+    trapOid.EntityData.Children = types.NewOrderedMap()
+    trapOid.EntityData.Leafs = types.NewOrderedMap()
+    trapOid.EntityData.Leafs.Append("trap-oid", types.YLeaf{"TrapOid", trapOid.TrapOid})
+    trapOid.EntityData.Leafs.Append("trap-oid-count", types.YLeaf{"TrapOidCount", trapOid.TrapOidCount})
+    trapOid.EntityData.Leafs.Append("trap-oid-xr", types.YLeaf{"TrapOidXr", trapOid.TrapOidXr})
+
+    trapOid.EntityData.YListKeys = []string {"TrapOid"}
+
     return &(trapOid.EntityData)
 }
 
@@ -1692,7 +1800,7 @@ type Snmp_Information_NmSpackets struct {
 
     // NMS packet drop count. The type is slice of
     // Snmp_Information_NmSpackets_NmSpacket.
-    NmSpacket []Snmp_Information_NmSpackets_NmSpacket
+    NmSpacket []*Snmp_Information_NmSpackets_NmSpacket
 }
 
 func (nmSpackets *Snmp_Information_NmSpackets) GetEntityData() *types.CommonEntityData {
@@ -1705,12 +1813,15 @@ func (nmSpackets *Snmp_Information_NmSpackets) GetEntityData() *types.CommonEnti
     nmSpackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nmSpackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nmSpackets.EntityData.Children = make(map[string]types.YChild)
-    nmSpackets.EntityData.Children["nm-spacket"] = types.YChild{"NmSpacket", nil}
+    nmSpackets.EntityData.Children = types.NewOrderedMap()
+    nmSpackets.EntityData.Children.Append("nm-spacket", types.YChild{"NmSpacket", nil})
     for i := range nmSpackets.NmSpacket {
-        nmSpackets.EntityData.Children[types.GetSegmentPath(&nmSpackets.NmSpacket[i])] = types.YChild{"NmSpacket", &nmSpackets.NmSpacket[i]}
+        nmSpackets.EntityData.Children.Append(types.GetSegmentPath(nmSpackets.NmSpacket[i]), types.YChild{"NmSpacket", nmSpackets.NmSpacket[i]})
     }
-    nmSpackets.EntityData.Leafs = make(map[string]types.YLeaf)
+    nmSpackets.EntityData.Leafs = types.NewOrderedMap()
+
+    nmSpackets.EntityData.YListKeys = []string {}
+
     return &(nmSpackets.EntityData)
 }
 
@@ -1721,7 +1832,7 @@ type Snmp_Information_NmSpackets_NmSpacket struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. NMS packet drop count. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Packetcount interface{}
 
     // Number of packets which are currently enqueued within the NMS queues. The
@@ -1744,18 +1855,21 @@ func (nmSpacket *Snmp_Information_NmSpackets_NmSpacket) GetEntityData() *types.C
     nmSpacket.EntityData.YangName = "nm-spacket"
     nmSpacket.EntityData.BundleName = "cisco_ios_xr"
     nmSpacket.EntityData.ParentYangName = "nm-spackets"
-    nmSpacket.EntityData.SegmentPath = "nm-spacket" + "[packetcount='" + fmt.Sprintf("%v", nmSpacket.Packetcount) + "']"
+    nmSpacket.EntityData.SegmentPath = "nm-spacket" + types.AddKeyToken(nmSpacket.Packetcount, "packetcount")
     nmSpacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nmSpacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nmSpacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nmSpacket.EntityData.Children = make(map[string]types.YChild)
-    nmSpacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    nmSpacket.EntityData.Leafs["packetcount"] = types.YLeaf{"Packetcount", nmSpacket.Packetcount}
-    nmSpacket.EntityData.Leafs["number-of-nmsq-pkts-dropped"] = types.YLeaf{"NumberOfNmsqPktsDropped", nmSpacket.NumberOfNmsqPktsDropped}
-    nmSpacket.EntityData.Leafs["number-of-pkts-dropped"] = types.YLeaf{"NumberOfPktsDropped", nmSpacket.NumberOfPktsDropped}
-    nmSpacket.EntityData.Leafs["overload-start-time"] = types.YLeaf{"OverloadStartTime", nmSpacket.OverloadStartTime}
-    nmSpacket.EntityData.Leafs["overload-end-time"] = types.YLeaf{"OverloadEndTime", nmSpacket.OverloadEndTime}
+    nmSpacket.EntityData.Children = types.NewOrderedMap()
+    nmSpacket.EntityData.Leafs = types.NewOrderedMap()
+    nmSpacket.EntityData.Leafs.Append("packetcount", types.YLeaf{"Packetcount", nmSpacket.Packetcount})
+    nmSpacket.EntityData.Leafs.Append("number-of-nmsq-pkts-dropped", types.YLeaf{"NumberOfNmsqPktsDropped", nmSpacket.NumberOfNmsqPktsDropped})
+    nmSpacket.EntityData.Leafs.Append("number-of-pkts-dropped", types.YLeaf{"NumberOfPktsDropped", nmSpacket.NumberOfPktsDropped})
+    nmSpacket.EntityData.Leafs.Append("overload-start-time", types.YLeaf{"OverloadStartTime", nmSpacket.OverloadStartTime})
+    nmSpacket.EntityData.Leafs.Append("overload-end-time", types.YLeaf{"OverloadEndTime", nmSpacket.OverloadEndTime})
+
+    nmSpacket.EntityData.YListKeys = []string {"Packetcount"}
+
     return &(nmSpacket.EntityData)
 }
 
@@ -1766,7 +1880,7 @@ type Snmp_Information_Mibs struct {
     YFilter yfilter.YFilter
 
     // SNMP MIB Name. The type is slice of Snmp_Information_Mibs_Mib.
-    Mib []Snmp_Information_Mibs_Mib
+    Mib []*Snmp_Information_Mibs_Mib
 }
 
 func (mibs *Snmp_Information_Mibs) GetEntityData() *types.CommonEntityData {
@@ -1779,12 +1893,15 @@ func (mibs *Snmp_Information_Mibs) GetEntityData() *types.CommonEntityData {
     mibs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mibs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mibs.EntityData.Children = make(map[string]types.YChild)
-    mibs.EntityData.Children["mib"] = types.YChild{"Mib", nil}
+    mibs.EntityData.Children = types.NewOrderedMap()
+    mibs.EntityData.Children.Append("mib", types.YChild{"Mib", nil})
     for i := range mibs.Mib {
-        mibs.EntityData.Children[types.GetSegmentPath(&mibs.Mib[i])] = types.YChild{"Mib", &mibs.Mib[i]}
+        mibs.EntityData.Children.Append(types.GetSegmentPath(mibs.Mib[i]), types.YChild{"Mib", mibs.Mib[i]})
     }
-    mibs.EntityData.Leafs = make(map[string]types.YLeaf)
+    mibs.EntityData.Leafs = types.NewOrderedMap()
+
+    mibs.EntityData.YListKeys = []string {}
+
     return &(mibs.EntityData)
 }
 
@@ -1795,7 +1912,7 @@ type Snmp_Information_Mibs_Mib struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. MIB Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // List of OIDs per MIB.
@@ -1810,16 +1927,19 @@ func (mib *Snmp_Information_Mibs_Mib) GetEntityData() *types.CommonEntityData {
     mib.EntityData.YangName = "mib"
     mib.EntityData.BundleName = "cisco_ios_xr"
     mib.EntityData.ParentYangName = "mibs"
-    mib.EntityData.SegmentPath = "mib" + "[name='" + fmt.Sprintf("%v", mib.Name) + "']"
+    mib.EntityData.SegmentPath = "mib" + types.AddKeyToken(mib.Name, "name")
     mib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mib.EntityData.Children = make(map[string]types.YChild)
-    mib.EntityData.Children["oids"] = types.YChild{"Oids", &mib.Oids}
-    mib.EntityData.Children["mib-information"] = types.YChild{"MibInformation", &mib.MibInformation}
-    mib.EntityData.Leafs = make(map[string]types.YLeaf)
-    mib.EntityData.Leafs["name"] = types.YLeaf{"Name", mib.Name}
+    mib.EntityData.Children = types.NewOrderedMap()
+    mib.EntityData.Children.Append("oids", types.YChild{"Oids", &mib.Oids})
+    mib.EntityData.Children.Append("mib-information", types.YChild{"MibInformation", &mib.MibInformation})
+    mib.EntityData.Leafs = types.NewOrderedMap()
+    mib.EntityData.Leafs.Append("name", types.YLeaf{"Name", mib.Name})
+
+    mib.EntityData.YListKeys = []string {"Name"}
+
     return &(mib.EntityData)
 }
 
@@ -1831,7 +1951,7 @@ type Snmp_Information_Mibs_Mib_Oids struct {
 
     // Object identifiers of a mib. The type is slice of
     // Snmp_Information_Mibs_Mib_Oids_Oid.
-    Oid []Snmp_Information_Mibs_Mib_Oids_Oid
+    Oid []*Snmp_Information_Mibs_Mib_Oids_Oid
 }
 
 func (oids *Snmp_Information_Mibs_Mib_Oids) GetEntityData() *types.CommonEntityData {
@@ -1844,12 +1964,15 @@ func (oids *Snmp_Information_Mibs_Mib_Oids) GetEntityData() *types.CommonEntityD
     oids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oids.EntityData.Children = make(map[string]types.YChild)
-    oids.EntityData.Children["oid"] = types.YChild{"Oid", nil}
+    oids.EntityData.Children = types.NewOrderedMap()
+    oids.EntityData.Children.Append("oid", types.YChild{"Oid", nil})
     for i := range oids.Oid {
-        oids.EntityData.Children[types.GetSegmentPath(&oids.Oid[i])] = types.YChild{"Oid", &oids.Oid[i]}
+        oids.EntityData.Children.Append(types.GetSegmentPath(oids.Oid[i]), types.YChild{"Oid", oids.Oid[i]})
     }
-    oids.EntityData.Leafs = make(map[string]types.YLeaf)
+    oids.EntityData.Leafs = types.NewOrderedMap()
+
+    oids.EntityData.YListKeys = []string {}
+
     return &(oids.EntityData)
 }
 
@@ -1871,15 +1994,18 @@ func (oid *Snmp_Information_Mibs_Mib_Oids_Oid) GetEntityData() *types.CommonEnti
     oid.EntityData.YangName = "oid"
     oid.EntityData.BundleName = "cisco_ios_xr"
     oid.EntityData.ParentYangName = "oids"
-    oid.EntityData.SegmentPath = "oid" + "[oid='" + fmt.Sprintf("%v", oid.Oid) + "']"
+    oid.EntityData.SegmentPath = "oid" + types.AddKeyToken(oid.Oid, "oid")
     oid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oid.EntityData.Children = make(map[string]types.YChild)
-    oid.EntityData.Leafs = make(map[string]types.YLeaf)
-    oid.EntityData.Leafs["oid"] = types.YLeaf{"Oid", oid.Oid}
-    oid.EntityData.Leafs["oid-name"] = types.YLeaf{"OidName", oid.OidName}
+    oid.EntityData.Children = types.NewOrderedMap()
+    oid.EntityData.Leafs = types.NewOrderedMap()
+    oid.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", oid.Oid})
+    oid.EntityData.Leafs.Append("oid-name", types.YLeaf{"OidName", oid.OidName})
+
+    oid.EntityData.YListKeys = []string {"Oid"}
+
     return &(oid.EntityData)
 }
 
@@ -1925,16 +2051,19 @@ func (mibInformation *Snmp_Information_Mibs_Mib_MibInformation) GetEntityData() 
     mibInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mibInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mibInformation.EntityData.Children = make(map[string]types.YChild)
-    mibInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    mibInformation.EntityData.Leafs["mib-name"] = types.YLeaf{"MibName", mibInformation.MibName}
-    mibInformation.EntityData.Leafs["dll-name"] = types.YLeaf{"DllName", mibInformation.DllName}
-    mibInformation.EntityData.Leafs["mib-config-filename"] = types.YLeaf{"MibConfigFilename", mibInformation.MibConfigFilename}
-    mibInformation.EntityData.Leafs["is-mib-loaded"] = types.YLeaf{"IsMibLoaded", mibInformation.IsMibLoaded}
-    mibInformation.EntityData.Leafs["dll-capabilities"] = types.YLeaf{"DllCapabilities", mibInformation.DllCapabilities}
-    mibInformation.EntityData.Leafs["trap-strings"] = types.YLeaf{"TrapStrings", mibInformation.TrapStrings}
-    mibInformation.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", mibInformation.Timeout}
-    mibInformation.EntityData.Leafs["load-time"] = types.YLeaf{"LoadTime", mibInformation.LoadTime}
+    mibInformation.EntityData.Children = types.NewOrderedMap()
+    mibInformation.EntityData.Leafs = types.NewOrderedMap()
+    mibInformation.EntityData.Leafs.Append("mib-name", types.YLeaf{"MibName", mibInformation.MibName})
+    mibInformation.EntityData.Leafs.Append("dll-name", types.YLeaf{"DllName", mibInformation.DllName})
+    mibInformation.EntityData.Leafs.Append("mib-config-filename", types.YLeaf{"MibConfigFilename", mibInformation.MibConfigFilename})
+    mibInformation.EntityData.Leafs.Append("is-mib-loaded", types.YLeaf{"IsMibLoaded", mibInformation.IsMibLoaded})
+    mibInformation.EntityData.Leafs.Append("dll-capabilities", types.YLeaf{"DllCapabilities", mibInformation.DllCapabilities})
+    mibInformation.EntityData.Leafs.Append("trap-strings", types.YLeaf{"TrapStrings", mibInformation.TrapStrings})
+    mibInformation.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", mibInformation.Timeout})
+    mibInformation.EntityData.Leafs.Append("load-time", types.YLeaf{"LoadTime", mibInformation.LoadTime})
+
+    mibInformation.EntityData.YListKeys = []string {}
+
     return &(mibInformation.EntityData)
 }
 
@@ -1946,7 +2075,7 @@ type Snmp_Information_SerialNumbers struct {
 
     // Serial number. The type is slice of
     // Snmp_Information_SerialNumbers_SerialNumber.
-    SerialNumber []Snmp_Information_SerialNumbers_SerialNumber
+    SerialNumber []*Snmp_Information_SerialNumbers_SerialNumber
 }
 
 func (serialNumbers *Snmp_Information_SerialNumbers) GetEntityData() *types.CommonEntityData {
@@ -1959,12 +2088,15 @@ func (serialNumbers *Snmp_Information_SerialNumbers) GetEntityData() *types.Comm
     serialNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serialNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serialNumbers.EntityData.Children = make(map[string]types.YChild)
-    serialNumbers.EntityData.Children["serial-number"] = types.YChild{"SerialNumber", nil}
+    serialNumbers.EntityData.Children = types.NewOrderedMap()
+    serialNumbers.EntityData.Children.Append("serial-number", types.YChild{"SerialNumber", nil})
     for i := range serialNumbers.SerialNumber {
-        serialNumbers.EntityData.Children[types.GetSegmentPath(&serialNumbers.SerialNumber[i])] = types.YChild{"SerialNumber", &serialNumbers.SerialNumber[i]}
+        serialNumbers.EntityData.Children.Append(types.GetSegmentPath(serialNumbers.SerialNumber[i]), types.YChild{"SerialNumber", serialNumbers.SerialNumber[i]})
     }
-    serialNumbers.EntityData.Leafs = make(map[string]types.YLeaf)
+    serialNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    serialNumbers.EntityData.YListKeys = []string {}
+
     return &(serialNumbers.EntityData)
 }
 
@@ -1974,11 +2106,10 @@ type Snmp_Information_SerialNumbers_SerialNumber struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Serial number. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Serial number. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Number interface{}
 
-    // Request ID. The type is interface{} with range: -2147483648..2147483647.
+    // Request ID. The type is interface{} with range: 0..4294967295.
     ReqId interface{}
 
     // Port. The type is interface{} with range: 0..65535.
@@ -2029,21 +2160,24 @@ func (serialNumber *Snmp_Information_SerialNumbers_SerialNumber) GetEntityData()
     serialNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serialNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serialNumber.EntityData.Children = make(map[string]types.YChild)
-    serialNumber.EntityData.Leafs = make(map[string]types.YLeaf)
-    serialNumber.EntityData.Leafs["number"] = types.YLeaf{"Number", serialNumber.Number}
-    serialNumber.EntityData.Leafs["req-id"] = types.YLeaf{"ReqId", serialNumber.ReqId}
-    serialNumber.EntityData.Leafs["port"] = types.YLeaf{"Port", serialNumber.Port}
-    serialNumber.EntityData.Leafs["nms"] = types.YLeaf{"Nms", serialNumber.Nms}
-    serialNumber.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", serialNumber.RequestId}
-    serialNumber.EntityData.Leafs["port-xr"] = types.YLeaf{"PortXr", serialNumber.PortXr}
-    serialNumber.EntityData.Leafs["pdu-type"] = types.YLeaf{"PduType", serialNumber.PduType}
-    serialNumber.EntityData.Leafs["error-status"] = types.YLeaf{"ErrorStatus", serialNumber.ErrorStatus}
-    serialNumber.EntityData.Leafs["serial-num"] = types.YLeaf{"SerialNum", serialNumber.SerialNum}
-    serialNumber.EntityData.Leafs["input-q"] = types.YLeaf{"InputQ", serialNumber.InputQ}
-    serialNumber.EntityData.Leafs["output-q"] = types.YLeaf{"OutputQ", serialNumber.OutputQ}
-    serialNumber.EntityData.Leafs["pending-q"] = types.YLeaf{"PendingQ", serialNumber.PendingQ}
-    serialNumber.EntityData.Leafs["response-out"] = types.YLeaf{"ResponseOut", serialNumber.ResponseOut}
+    serialNumber.EntityData.Children = types.NewOrderedMap()
+    serialNumber.EntityData.Leafs = types.NewOrderedMap()
+    serialNumber.EntityData.Leafs.Append("number", types.YLeaf{"Number", serialNumber.Number})
+    serialNumber.EntityData.Leafs.Append("req-id", types.YLeaf{"ReqId", serialNumber.ReqId})
+    serialNumber.EntityData.Leafs.Append("port", types.YLeaf{"Port", serialNumber.Port})
+    serialNumber.EntityData.Leafs.Append("nms", types.YLeaf{"Nms", serialNumber.Nms})
+    serialNumber.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", serialNumber.RequestId})
+    serialNumber.EntityData.Leafs.Append("port-xr", types.YLeaf{"PortXr", serialNumber.PortXr})
+    serialNumber.EntityData.Leafs.Append("pdu-type", types.YLeaf{"PduType", serialNumber.PduType})
+    serialNumber.EntityData.Leafs.Append("error-status", types.YLeaf{"ErrorStatus", serialNumber.ErrorStatus})
+    serialNumber.EntityData.Leafs.Append("serial-num", types.YLeaf{"SerialNum", serialNumber.SerialNum})
+    serialNumber.EntityData.Leafs.Append("input-q", types.YLeaf{"InputQ", serialNumber.InputQ})
+    serialNumber.EntityData.Leafs.Append("output-q", types.YLeaf{"OutputQ", serialNumber.OutputQ})
+    serialNumber.EntityData.Leafs.Append("pending-q", types.YLeaf{"PendingQ", serialNumber.PendingQ})
+    serialNumber.EntityData.Leafs.Append("response-out", types.YLeaf{"ResponseOut", serialNumber.ResponseOut})
+
+    serialNumber.EntityData.YListKeys = []string {}
+
     return &(serialNumber.EntityData)
 }
 
@@ -2055,7 +2189,7 @@ type Snmp_Information_DropNmsAddresses struct {
 
     // PDU drop info for NMS. The type is slice of
     // Snmp_Information_DropNmsAddresses_DropNmsAddress.
-    DropNmsAddress []Snmp_Information_DropNmsAddresses_DropNmsAddress
+    DropNmsAddress []*Snmp_Information_DropNmsAddresses_DropNmsAddress
 }
 
 func (dropNmsAddresses *Snmp_Information_DropNmsAddresses) GetEntityData() *types.CommonEntityData {
@@ -2068,12 +2202,15 @@ func (dropNmsAddresses *Snmp_Information_DropNmsAddresses) GetEntityData() *type
     dropNmsAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropNmsAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dropNmsAddresses.EntityData.Children = make(map[string]types.YChild)
-    dropNmsAddresses.EntityData.Children["drop-nms-address"] = types.YChild{"DropNmsAddress", nil}
+    dropNmsAddresses.EntityData.Children = types.NewOrderedMap()
+    dropNmsAddresses.EntityData.Children.Append("drop-nms-address", types.YChild{"DropNmsAddress", nil})
     for i := range dropNmsAddresses.DropNmsAddress {
-        dropNmsAddresses.EntityData.Children[types.GetSegmentPath(&dropNmsAddresses.DropNmsAddress[i])] = types.YChild{"DropNmsAddress", &dropNmsAddresses.DropNmsAddress[i]}
+        dropNmsAddresses.EntityData.Children.Append(types.GetSegmentPath(dropNmsAddresses.DropNmsAddress[i]), types.YChild{"DropNmsAddress", dropNmsAddresses.DropNmsAddress[i]})
     }
-    dropNmsAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    dropNmsAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    dropNmsAddresses.EntityData.YListKeys = []string {}
+
     return &(dropNmsAddresses.EntityData)
 }
 
@@ -2084,7 +2221,7 @@ type Snmp_Information_DropNmsAddresses_DropNmsAddress struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. NMS address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     NmsAddr interface{}
 
     // NMS address of server. The type is string.
@@ -2131,24 +2268,27 @@ func (dropNmsAddress *Snmp_Information_DropNmsAddresses_DropNmsAddress) GetEntit
     dropNmsAddress.EntityData.YangName = "drop-nms-address"
     dropNmsAddress.EntityData.BundleName = "cisco_ios_xr"
     dropNmsAddress.EntityData.ParentYangName = "drop-nms-addresses"
-    dropNmsAddress.EntityData.SegmentPath = "drop-nms-address" + "[nms-addr='" + fmt.Sprintf("%v", dropNmsAddress.NmsAddr) + "']"
+    dropNmsAddress.EntityData.SegmentPath = "drop-nms-address" + types.AddKeyToken(dropNmsAddress.NmsAddr, "nms-addr")
     dropNmsAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropNmsAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropNmsAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dropNmsAddress.EntityData.Children = make(map[string]types.YChild)
-    dropNmsAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    dropNmsAddress.EntityData.Leafs["nms-addr"] = types.YLeaf{"NmsAddr", dropNmsAddress.NmsAddr}
-    dropNmsAddress.EntityData.Leafs["nms-address"] = types.YLeaf{"NmsAddress", dropNmsAddress.NmsAddress}
-    dropNmsAddress.EntityData.Leafs["incoming-q-count"] = types.YLeaf{"IncomingQCount", dropNmsAddress.IncomingQCount}
-    dropNmsAddress.EntityData.Leafs["threshold-incoming-q-count"] = types.YLeaf{"ThresholdIncomingQCount", dropNmsAddress.ThresholdIncomingQCount}
-    dropNmsAddress.EntityData.Leafs["encode-count"] = types.YLeaf{"EncodeCount", dropNmsAddress.EncodeCount}
-    dropNmsAddress.EntityData.Leafs["duplicate-count"] = types.YLeaf{"DuplicateCount", dropNmsAddress.DuplicateCount}
-    dropNmsAddress.EntityData.Leafs["stack-count"] = types.YLeaf{"StackCount", dropNmsAddress.StackCount}
-    dropNmsAddress.EntityData.Leafs["aipc-count"] = types.YLeaf{"AipcCount", dropNmsAddress.AipcCount}
-    dropNmsAddress.EntityData.Leafs["overload-count"] = types.YLeaf{"OverloadCount", dropNmsAddress.OverloadCount}
-    dropNmsAddress.EntityData.Leafs["timeout-count"] = types.YLeaf{"TimeoutCount", dropNmsAddress.TimeoutCount}
-    dropNmsAddress.EntityData.Leafs["internal-count"] = types.YLeaf{"InternalCount", dropNmsAddress.InternalCount}
+    dropNmsAddress.EntityData.Children = types.NewOrderedMap()
+    dropNmsAddress.EntityData.Leafs = types.NewOrderedMap()
+    dropNmsAddress.EntityData.Leafs.Append("nms-addr", types.YLeaf{"NmsAddr", dropNmsAddress.NmsAddr})
+    dropNmsAddress.EntityData.Leafs.Append("nms-address", types.YLeaf{"NmsAddress", dropNmsAddress.NmsAddress})
+    dropNmsAddress.EntityData.Leafs.Append("incoming-q-count", types.YLeaf{"IncomingQCount", dropNmsAddress.IncomingQCount})
+    dropNmsAddress.EntityData.Leafs.Append("threshold-incoming-q-count", types.YLeaf{"ThresholdIncomingQCount", dropNmsAddress.ThresholdIncomingQCount})
+    dropNmsAddress.EntityData.Leafs.Append("encode-count", types.YLeaf{"EncodeCount", dropNmsAddress.EncodeCount})
+    dropNmsAddress.EntityData.Leafs.Append("duplicate-count", types.YLeaf{"DuplicateCount", dropNmsAddress.DuplicateCount})
+    dropNmsAddress.EntityData.Leafs.Append("stack-count", types.YLeaf{"StackCount", dropNmsAddress.StackCount})
+    dropNmsAddress.EntityData.Leafs.Append("aipc-count", types.YLeaf{"AipcCount", dropNmsAddress.AipcCount})
+    dropNmsAddress.EntityData.Leafs.Append("overload-count", types.YLeaf{"OverloadCount", dropNmsAddress.OverloadCount})
+    dropNmsAddress.EntityData.Leafs.Append("timeout-count", types.YLeaf{"TimeoutCount", dropNmsAddress.TimeoutCount})
+    dropNmsAddress.EntityData.Leafs.Append("internal-count", types.YLeaf{"InternalCount", dropNmsAddress.InternalCount})
+
+    dropNmsAddress.EntityData.YListKeys = []string {"NmsAddr"}
+
     return &(dropNmsAddress.EntityData)
 }
 
@@ -2159,7 +2299,7 @@ type Snmp_Information_Views struct {
     YFilter yfilter.YFilter
 
     // SNMP target view name. The type is slice of Snmp_Information_Views_View.
-    View []Snmp_Information_Views_View
+    View []*Snmp_Information_Views_View
 }
 
 func (views *Snmp_Information_Views) GetEntityData() *types.CommonEntityData {
@@ -2172,12 +2312,15 @@ func (views *Snmp_Information_Views) GetEntityData() *types.CommonEntityData {
     views.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     views.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    views.EntityData.Children = make(map[string]types.YChild)
-    views.EntityData.Children["view"] = types.YChild{"View", nil}
+    views.EntityData.Children = types.NewOrderedMap()
+    views.EntityData.Children.Append("view", types.YChild{"View", nil})
     for i := range views.View {
-        views.EntityData.Children[types.GetSegmentPath(&views.View[i])] = types.YChild{"View", &views.View[i]}
+        views.EntityData.Children.Append(types.GetSegmentPath(views.View[i]), types.YChild{"View", views.View[i]})
     }
-    views.EntityData.Leafs = make(map[string]types.YLeaf)
+    views.EntityData.Leafs = types.NewOrderedMap()
+
+    views.EntityData.YListKeys = []string {}
+
     return &(views.EntityData)
 }
 
@@ -2188,12 +2331,12 @@ type Snmp_Information_Views_View struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. View name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // View name ,familytype, storagetype and status. The type is slice of
     // Snmp_Information_Views_View_ViewInformation.
-    ViewInformation []Snmp_Information_Views_View_ViewInformation
+    ViewInformation []*Snmp_Information_Views_View_ViewInformation
 }
 
 func (view *Snmp_Information_Views_View) GetEntityData() *types.CommonEntityData {
@@ -2201,18 +2344,21 @@ func (view *Snmp_Information_Views_View) GetEntityData() *types.CommonEntityData
     view.EntityData.YangName = "view"
     view.EntityData.BundleName = "cisco_ios_xr"
     view.EntityData.ParentYangName = "views"
-    view.EntityData.SegmentPath = "view" + "[name='" + fmt.Sprintf("%v", view.Name) + "']"
+    view.EntityData.SegmentPath = "view" + types.AddKeyToken(view.Name, "name")
     view.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     view.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     view.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    view.EntityData.Children = make(map[string]types.YChild)
-    view.EntityData.Children["view-information"] = types.YChild{"ViewInformation", nil}
+    view.EntityData.Children = types.NewOrderedMap()
+    view.EntityData.Children.Append("view-information", types.YChild{"ViewInformation", nil})
     for i := range view.ViewInformation {
-        view.EntityData.Children[types.GetSegmentPath(&view.ViewInformation[i])] = types.YChild{"ViewInformation", &view.ViewInformation[i]}
+        view.EntityData.Children.Append(types.GetSegmentPath(view.ViewInformation[i]), types.YChild{"ViewInformation", view.ViewInformation[i]})
     }
-    view.EntityData.Leafs = make(map[string]types.YLeaf)
-    view.EntityData.Leafs["name"] = types.YLeaf{"Name", view.Name}
+    view.EntityData.Leafs = types.NewOrderedMap()
+    view.EntityData.Leafs.Append("name", types.YLeaf{"Name", view.Name})
+
+    view.EntityData.YListKeys = []string {"Name"}
+
     return &(view.EntityData)
 }
 
@@ -2223,7 +2369,7 @@ type Snmp_Information_Views_View_ViewInformation struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. SNMP view OID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ObjectId interface{}
 
     // Include or exclude. The type is string.
@@ -2241,17 +2387,20 @@ func (viewInformation *Snmp_Information_Views_View_ViewInformation) GetEntityDat
     viewInformation.EntityData.YangName = "view-information"
     viewInformation.EntityData.BundleName = "cisco_ios_xr"
     viewInformation.EntityData.ParentYangName = "view"
-    viewInformation.EntityData.SegmentPath = "view-information" + "[object-id='" + fmt.Sprintf("%v", viewInformation.ObjectId) + "']"
+    viewInformation.EntityData.SegmentPath = "view-information" + types.AddKeyToken(viewInformation.ObjectId, "object-id")
     viewInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     viewInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     viewInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    viewInformation.EntityData.Children = make(map[string]types.YChild)
-    viewInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    viewInformation.EntityData.Leafs["object-id"] = types.YLeaf{"ObjectId", viewInformation.ObjectId}
-    viewInformation.EntityData.Leafs["snmp-view-family-type"] = types.YLeaf{"SnmpViewFamilyType", viewInformation.SnmpViewFamilyType}
-    viewInformation.EntityData.Leafs["snmp-view-family-storage-type"] = types.YLeaf{"SnmpViewFamilyStorageType", viewInformation.SnmpViewFamilyStorageType}
-    viewInformation.EntityData.Leafs["snmp-view-family-status"] = types.YLeaf{"SnmpViewFamilyStatus", viewInformation.SnmpViewFamilyStatus}
+    viewInformation.EntityData.Children = types.NewOrderedMap()
+    viewInformation.EntityData.Leafs = types.NewOrderedMap()
+    viewInformation.EntityData.Leafs.Append("object-id", types.YLeaf{"ObjectId", viewInformation.ObjectId})
+    viewInformation.EntityData.Leafs.Append("snmp-view-family-type", types.YLeaf{"SnmpViewFamilyType", viewInformation.SnmpViewFamilyType})
+    viewInformation.EntityData.Leafs.Append("snmp-view-family-storage-type", types.YLeaf{"SnmpViewFamilyStorageType", viewInformation.SnmpViewFamilyStorageType})
+    viewInformation.EntityData.Leafs.Append("snmp-view-family-status", types.YLeaf{"SnmpViewFamilyStatus", viewInformation.SnmpViewFamilyStatus})
+
+    viewInformation.EntityData.YListKeys = []string {"ObjectId"}
+
     return &(viewInformation.EntityData)
 }
 
@@ -2275,9 +2424,12 @@ func (systemDescr *Snmp_Information_SystemDescr) GetEntityData() *types.CommonEn
     systemDescr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemDescr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemDescr.EntityData.Children = make(map[string]types.YChild)
-    systemDescr.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemDescr.EntityData.Leafs["sys-descr"] = types.YLeaf{"SysDescr", systemDescr.SysDescr}
+    systemDescr.EntityData.Children = types.NewOrderedMap()
+    systemDescr.EntityData.Leafs = types.NewOrderedMap()
+    systemDescr.EntityData.Leafs.Append("sys-descr", types.YLeaf{"SysDescr", systemDescr.SysDescr})
+
+    systemDescr.EntityData.YListKeys = []string {}
+
     return &(systemDescr.EntityData)
 }
 
@@ -2304,10 +2456,13 @@ func (tables *Snmp_Information_Tables) GetEntityData() *types.CommonEntityData {
     tables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tables.EntityData.Children = make(map[string]types.YChild)
-    tables.EntityData.Children["groups"] = types.YChild{"Groups", &tables.Groups}
-    tables.EntityData.Children["user-engine-ids"] = types.YChild{"UserEngineIds", &tables.UserEngineIds}
-    tables.EntityData.Leafs = make(map[string]types.YLeaf)
+    tables.EntityData.Children = types.NewOrderedMap()
+    tables.EntityData.Children.Append("groups", types.YChild{"Groups", &tables.Groups})
+    tables.EntityData.Children.Append("user-engine-ids", types.YChild{"UserEngineIds", &tables.UserEngineIds})
+    tables.EntityData.Leafs = types.NewOrderedMap()
+
+    tables.EntityData.YListKeys = []string {}
+
     return &(tables.EntityData)
 }
 
@@ -2318,7 +2473,7 @@ type Snmp_Information_Tables_Groups struct {
     YFilter yfilter.YFilter
 
     // SNMP group name. The type is slice of Snmp_Information_Tables_Groups_Group.
-    Group []Snmp_Information_Tables_Groups_Group
+    Group []*Snmp_Information_Tables_Groups_Group
 }
 
 func (groups *Snmp_Information_Tables_Groups) GetEntityData() *types.CommonEntityData {
@@ -2331,12 +2486,15 @@ func (groups *Snmp_Information_Tables_Groups) GetEntityData() *types.CommonEntit
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -2347,7 +2505,7 @@ type Snmp_Information_Tables_Groups_Group struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Group Model.
@@ -2359,15 +2517,18 @@ func (group *Snmp_Information_Tables_Groups_Group) GetEntityData() *types.Common
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[name='" + fmt.Sprintf("%v", group.Name) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Name, "name")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Children["group-informations"] = types.YChild{"GroupInformations", &group.GroupInformations}
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["name"] = types.YLeaf{"Name", group.Name}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Children.Append("group-informations", types.YChild{"GroupInformations", &group.GroupInformations})
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("name", types.YLeaf{"Name", group.Name})
+
+    group.EntityData.YListKeys = []string {"Name"}
+
     return &(group.EntityData)
 }
 
@@ -2379,7 +2540,7 @@ type Snmp_Information_Tables_Groups_Group_GroupInformations struct {
 
     // Group name ,status  and information. The type is slice of
     // Snmp_Information_Tables_Groups_Group_GroupInformations_GroupInformation.
-    GroupInformation []Snmp_Information_Tables_Groups_Group_GroupInformations_GroupInformation
+    GroupInformation []*Snmp_Information_Tables_Groups_Group_GroupInformations_GroupInformation
 }
 
 func (groupInformations *Snmp_Information_Tables_Groups_Group_GroupInformations) GetEntityData() *types.CommonEntityData {
@@ -2392,12 +2553,15 @@ func (groupInformations *Snmp_Information_Tables_Groups_Group_GroupInformations)
     groupInformations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupInformations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupInformations.EntityData.Children = make(map[string]types.YChild)
-    groupInformations.EntityData.Children["group-information"] = types.YChild{"GroupInformation", nil}
+    groupInformations.EntityData.Children = types.NewOrderedMap()
+    groupInformations.EntityData.Children.Append("group-information", types.YChild{"GroupInformation", nil})
     for i := range groupInformations.GroupInformation {
-        groupInformations.EntityData.Children[types.GetSegmentPath(&groupInformations.GroupInformation[i])] = types.YChild{"GroupInformation", &groupInformations.GroupInformation[i]}
+        groupInformations.EntityData.Children.Append(types.GetSegmentPath(groupInformations.GroupInformation[i]), types.YChild{"GroupInformation", groupInformations.GroupInformation[i]})
     }
-    groupInformations.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupInformations.EntityData.Leafs = types.NewOrderedMap()
+
+    groupInformations.EntityData.YListKeys = []string {}
+
     return &(groupInformations.EntityData)
 }
 
@@ -2407,11 +2571,10 @@ type Snmp_Information_Tables_Groups_Group_GroupInformations_GroupInformation str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Model number. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Model number. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Modelnumber interface{}
 
-    // Level. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Level. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Level interface{}
 
     // Read view name. The type is string.
@@ -2438,14 +2601,17 @@ func (groupInformation *Snmp_Information_Tables_Groups_Group_GroupInformations_G
     groupInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupInformation.EntityData.Children = make(map[string]types.YChild)
-    groupInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupInformation.EntityData.Leafs["modelnumber"] = types.YLeaf{"Modelnumber", groupInformation.Modelnumber}
-    groupInformation.EntityData.Leafs["level"] = types.YLeaf{"Level", groupInformation.Level}
-    groupInformation.EntityData.Leafs["vacm-access-read-view-name"] = types.YLeaf{"VacmAccessReadViewName", groupInformation.VacmAccessReadViewName}
-    groupInformation.EntityData.Leafs["vacm-access-write-view-name"] = types.YLeaf{"VacmAccessWriteViewName", groupInformation.VacmAccessWriteViewName}
-    groupInformation.EntityData.Leafs["vacm-access-notify-view-name"] = types.YLeaf{"VacmAccessNotifyViewName", groupInformation.VacmAccessNotifyViewName}
-    groupInformation.EntityData.Leafs["vacm-access-status"] = types.YLeaf{"VacmAccessStatus", groupInformation.VacmAccessStatus}
+    groupInformation.EntityData.Children = types.NewOrderedMap()
+    groupInformation.EntityData.Leafs = types.NewOrderedMap()
+    groupInformation.EntityData.Leafs.Append("modelnumber", types.YLeaf{"Modelnumber", groupInformation.Modelnumber})
+    groupInformation.EntityData.Leafs.Append("level", types.YLeaf{"Level", groupInformation.Level})
+    groupInformation.EntityData.Leafs.Append("vacm-access-read-view-name", types.YLeaf{"VacmAccessReadViewName", groupInformation.VacmAccessReadViewName})
+    groupInformation.EntityData.Leafs.Append("vacm-access-write-view-name", types.YLeaf{"VacmAccessWriteViewName", groupInformation.VacmAccessWriteViewName})
+    groupInformation.EntityData.Leafs.Append("vacm-access-notify-view-name", types.YLeaf{"VacmAccessNotifyViewName", groupInformation.VacmAccessNotifyViewName})
+    groupInformation.EntityData.Leafs.Append("vacm-access-status", types.YLeaf{"VacmAccessStatus", groupInformation.VacmAccessStatus})
+
+    groupInformation.EntityData.YListKeys = []string {}
+
     return &(groupInformation.EntityData)
 }
 
@@ -2457,7 +2623,7 @@ type Snmp_Information_Tables_UserEngineIds struct {
 
     // SNMP engineId. The type is slice of
     // Snmp_Information_Tables_UserEngineIds_UserEngineId.
-    UserEngineId []Snmp_Information_Tables_UserEngineIds_UserEngineId
+    UserEngineId []*Snmp_Information_Tables_UserEngineIds_UserEngineId
 }
 
 func (userEngineIds *Snmp_Information_Tables_UserEngineIds) GetEntityData() *types.CommonEntityData {
@@ -2470,12 +2636,15 @@ func (userEngineIds *Snmp_Information_Tables_UserEngineIds) GetEntityData() *typ
     userEngineIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userEngineIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    userEngineIds.EntityData.Children = make(map[string]types.YChild)
-    userEngineIds.EntityData.Children["user-engine-id"] = types.YChild{"UserEngineId", nil}
+    userEngineIds.EntityData.Children = types.NewOrderedMap()
+    userEngineIds.EntityData.Children.Append("user-engine-id", types.YChild{"UserEngineId", nil})
     for i := range userEngineIds.UserEngineId {
-        userEngineIds.EntityData.Children[types.GetSegmentPath(&userEngineIds.UserEngineId[i])] = types.YChild{"UserEngineId", &userEngineIds.UserEngineId[i]}
+        userEngineIds.EntityData.Children.Append(types.GetSegmentPath(userEngineIds.UserEngineId[i]), types.YChild{"UserEngineId", userEngineIds.UserEngineId[i]})
     }
-    userEngineIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    userEngineIds.EntityData.Leafs = types.NewOrderedMap()
+
+    userEngineIds.EntityData.YListKeys = []string {}
+
     return &(userEngineIds.EntityData)
 }
 
@@ -2486,12 +2655,12 @@ type Snmp_Information_Tables_UserEngineIds_UserEngineId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. SNMP Engine ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     EngineId interface{}
 
     // User name ,storage type ,status . The type is slice of
     // Snmp_Information_Tables_UserEngineIds_UserEngineId_UserName.
-    UserName []Snmp_Information_Tables_UserEngineIds_UserEngineId_UserName
+    UserName []*Snmp_Information_Tables_UserEngineIds_UserEngineId_UserName
 }
 
 func (userEngineId *Snmp_Information_Tables_UserEngineIds_UserEngineId) GetEntityData() *types.CommonEntityData {
@@ -2499,18 +2668,21 @@ func (userEngineId *Snmp_Information_Tables_UserEngineIds_UserEngineId) GetEntit
     userEngineId.EntityData.YangName = "user-engine-id"
     userEngineId.EntityData.BundleName = "cisco_ios_xr"
     userEngineId.EntityData.ParentYangName = "user-engine-ids"
-    userEngineId.EntityData.SegmentPath = "user-engine-id" + "[engine-id='" + fmt.Sprintf("%v", userEngineId.EngineId) + "']"
+    userEngineId.EntityData.SegmentPath = "user-engine-id" + types.AddKeyToken(userEngineId.EngineId, "engine-id")
     userEngineId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     userEngineId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userEngineId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    userEngineId.EntityData.Children = make(map[string]types.YChild)
-    userEngineId.EntityData.Children["user-name"] = types.YChild{"UserName", nil}
+    userEngineId.EntityData.Children = types.NewOrderedMap()
+    userEngineId.EntityData.Children.Append("user-name", types.YChild{"UserName", nil})
     for i := range userEngineId.UserName {
-        userEngineId.EntityData.Children[types.GetSegmentPath(&userEngineId.UserName[i])] = types.YChild{"UserName", &userEngineId.UserName[i]}
+        userEngineId.EntityData.Children.Append(types.GetSegmentPath(userEngineId.UserName[i]), types.YChild{"UserName", userEngineId.UserName[i]})
     }
-    userEngineId.EntityData.Leafs = make(map[string]types.YLeaf)
-    userEngineId.EntityData.Leafs["engine-id"] = types.YLeaf{"EngineId", userEngineId.EngineId}
+    userEngineId.EntityData.Leafs = types.NewOrderedMap()
+    userEngineId.EntityData.Leafs.Append("engine-id", types.YLeaf{"EngineId", userEngineId.EngineId})
+
+    userEngineId.EntityData.YListKeys = []string {"EngineId"}
+
     return &(userEngineId.EntityData)
 }
 
@@ -2521,7 +2693,7 @@ type Snmp_Information_Tables_UserEngineIds_UserEngineId_UserName struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. User name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     UserName interface{}
 
     // Storage type. The type is interface{} with range: 0..4294967295.
@@ -2536,16 +2708,19 @@ func (userName *Snmp_Information_Tables_UserEngineIds_UserEngineId_UserName) Get
     userName.EntityData.YangName = "user-name"
     userName.EntityData.BundleName = "cisco_ios_xr"
     userName.EntityData.ParentYangName = "user-engine-id"
-    userName.EntityData.SegmentPath = "user-name" + "[user-name='" + fmt.Sprintf("%v", userName.UserName) + "']"
+    userName.EntityData.SegmentPath = "user-name" + types.AddKeyToken(userName.UserName, "user-name")
     userName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     userName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    userName.EntityData.Children = make(map[string]types.YChild)
-    userName.EntityData.Leafs = make(map[string]types.YLeaf)
-    userName.EntityData.Leafs["user-name"] = types.YLeaf{"UserName", userName.UserName}
-    userName.EntityData.Leafs["usm-user-storage-type"] = types.YLeaf{"UsmUserStorageType", userName.UsmUserStorageType}
-    userName.EntityData.Leafs["usm-user-status"] = types.YLeaf{"UsmUserStatus", userName.UsmUserStatus}
+    userName.EntityData.Children = types.NewOrderedMap()
+    userName.EntityData.Leafs = types.NewOrderedMap()
+    userName.EntityData.Leafs.Append("user-name", types.YLeaf{"UserName", userName.UserName})
+    userName.EntityData.Leafs.Append("usm-user-storage-type", types.YLeaf{"UsmUserStorageType", userName.UsmUserStorageType})
+    userName.EntityData.Leafs.Append("usm-user-status", types.YLeaf{"UsmUserStatus", userName.UsmUserStatus})
+
+    userName.EntityData.YListKeys = []string {"UserName"}
+
     return &(userName.EntityData)
 }
 
@@ -2569,9 +2744,12 @@ func (systemOid *Snmp_Information_SystemOid) GetEntityData() *types.CommonEntity
     systemOid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemOid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemOid.EntityData.Children = make(map[string]types.YChild)
-    systemOid.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemOid.EntityData.Leafs["sys-obj-id"] = types.YLeaf{"SysObjId", systemOid.SysObjId}
+    systemOid.EntityData.Children = types.NewOrderedMap()
+    systemOid.EntityData.Leafs = types.NewOrderedMap()
+    systemOid.EntityData.Leafs.Append("sys-obj-id", types.YLeaf{"SysObjId", systemOid.SysObjId})
+
+    systemOid.EntityData.YListKeys = []string {}
+
     return &(systemOid.EntityData)
 }
 
@@ -2591,7 +2769,7 @@ type Snmp_Information_TrapQueue struct {
     TrapMax interface{}
 
     // trap q. The type is slice of Snmp_Information_TrapQueue_TrapQ.
-    TrapQ []Snmp_Information_TrapQueue_TrapQ
+    TrapQ []*Snmp_Information_TrapQueue_TrapQ
 }
 
 func (trapQueue *Snmp_Information_TrapQueue) GetEntityData() *types.CommonEntityData {
@@ -2604,15 +2782,18 @@ func (trapQueue *Snmp_Information_TrapQueue) GetEntityData() *types.CommonEntity
     trapQueue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapQueue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapQueue.EntityData.Children = make(map[string]types.YChild)
-    trapQueue.EntityData.Children["trap-q"] = types.YChild{"TrapQ", nil}
+    trapQueue.EntityData.Children = types.NewOrderedMap()
+    trapQueue.EntityData.Children.Append("trap-q", types.YChild{"TrapQ", nil})
     for i := range trapQueue.TrapQ {
-        trapQueue.EntityData.Children[types.GetSegmentPath(&trapQueue.TrapQ[i])] = types.YChild{"TrapQ", &trapQueue.TrapQ[i]}
+        trapQueue.EntityData.Children.Append(types.GetSegmentPath(trapQueue.TrapQ[i]), types.YChild{"TrapQ", trapQueue.TrapQ[i]})
     }
-    trapQueue.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapQueue.EntityData.Leafs["trap-min"] = types.YLeaf{"TrapMin", trapQueue.TrapMin}
-    trapQueue.EntityData.Leafs["trap-avg"] = types.YLeaf{"TrapAvg", trapQueue.TrapAvg}
-    trapQueue.EntityData.Leafs["trap-max"] = types.YLeaf{"TrapMax", trapQueue.TrapMax}
+    trapQueue.EntityData.Leafs = types.NewOrderedMap()
+    trapQueue.EntityData.Leafs.Append("trap-min", types.YLeaf{"TrapMin", trapQueue.TrapMin})
+    trapQueue.EntityData.Leafs.Append("trap-avg", types.YLeaf{"TrapAvg", trapQueue.TrapAvg})
+    trapQueue.EntityData.Leafs.Append("trap-max", types.YLeaf{"TrapMax", trapQueue.TrapMax})
+
+    trapQueue.EntityData.YListKeys = []string {}
+
     return &(trapQueue.EntityData)
 }
 
@@ -2642,11 +2823,14 @@ func (trapQ *Snmp_Information_TrapQueue_TrapQ) GetEntityData() *types.CommonEnti
     trapQ.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapQ.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapQ.EntityData.Children = make(map[string]types.YChild)
-    trapQ.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapQ.EntityData.Leafs["min"] = types.YLeaf{"Min", trapQ.Min}
-    trapQ.EntityData.Leafs["avg"] = types.YLeaf{"Avg", trapQ.Avg}
-    trapQ.EntityData.Leafs["max"] = types.YLeaf{"Max", trapQ.Max}
+    trapQ.EntityData.Children = types.NewOrderedMap()
+    trapQ.EntityData.Leafs = types.NewOrderedMap()
+    trapQ.EntityData.Leafs.Append("min", types.YLeaf{"Min", trapQ.Min})
+    trapQ.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", trapQ.Avg})
+    trapQ.EntityData.Leafs.Append("max", types.YLeaf{"Max", trapQ.Max})
+
+    trapQ.EntityData.YListKeys = []string {}
+
     return &(trapQ.EntityData)
 }
 
@@ -2656,8 +2840,8 @@ type Snmp_Interfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is slice of Snmp_Interfaces_Interface_.
-    Interface_ []Snmp_Interfaces_Interface
+    // Interface Name. The type is slice of Snmp_Interfaces_Interface.
+    Interface []*Snmp_Interfaces_Interface
 }
 
 func (interfaces *Snmp_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -2670,12 +2854,15 @@ func (interfaces *Snmp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -2686,11 +2873,11 @@ type Snmp_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Name interface{}
 
     // Interface Index as used by MIB tables. The type is interface{} with range:
-    // -2147483648..2147483647. This attribute is mandatory.
+    // 0..4294967295. This attribute is mandatory.
     InterfaceIndex interface{}
 }
 
@@ -2699,15 +2886,18 @@ func (self *Snmp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
-    self.EntityData.Leafs["interface-index"] = types.YLeaf{"InterfaceIndex", self.InterfaceIndex}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", self.InterfaceIndex})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
 }
 
@@ -2740,12 +2930,15 @@ func (correlator *Snmp_Correlator) GetEntityData() *types.CommonEntityData {
     correlator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     correlator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    correlator.EntityData.Children = make(map[string]types.YChild)
-    correlator.EntityData.Children["rule-details"] = types.YChild{"RuleDetails", &correlator.RuleDetails}
-    correlator.EntityData.Children["buffer-status"] = types.YChild{"BufferStatus", &correlator.BufferStatus}
-    correlator.EntityData.Children["rule-set-details"] = types.YChild{"RuleSetDetails", &correlator.RuleSetDetails}
-    correlator.EntityData.Children["traps"] = types.YChild{"Traps", &correlator.Traps}
-    correlator.EntityData.Leafs = make(map[string]types.YLeaf)
+    correlator.EntityData.Children = types.NewOrderedMap()
+    correlator.EntityData.Children.Append("rule-details", types.YChild{"RuleDetails", &correlator.RuleDetails})
+    correlator.EntityData.Children.Append("buffer-status", types.YChild{"BufferStatus", &correlator.BufferStatus})
+    correlator.EntityData.Children.Append("rule-set-details", types.YChild{"RuleSetDetails", &correlator.RuleSetDetails})
+    correlator.EntityData.Children.Append("traps", types.YChild{"Traps", &correlator.Traps})
+    correlator.EntityData.Leafs = types.NewOrderedMap()
+
+    correlator.EntityData.YListKeys = []string {}
+
     return &(correlator.EntityData)
 }
 
@@ -2758,7 +2951,7 @@ type Snmp_Correlator_RuleDetails struct {
 
     // Details of one of the correlation rules. The type is slice of
     // Snmp_Correlator_RuleDetails_RuleDetail.
-    RuleDetail []Snmp_Correlator_RuleDetails_RuleDetail
+    RuleDetail []*Snmp_Correlator_RuleDetails_RuleDetail
 }
 
 func (ruleDetails *Snmp_Correlator_RuleDetails) GetEntityData() *types.CommonEntityData {
@@ -2771,12 +2964,15 @@ func (ruleDetails *Snmp_Correlator_RuleDetails) GetEntityData() *types.CommonEnt
     ruleDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleDetails.EntityData.Children = make(map[string]types.YChild)
-    ruleDetails.EntityData.Children["rule-detail"] = types.YChild{"RuleDetail", nil}
+    ruleDetails.EntityData.Children = types.NewOrderedMap()
+    ruleDetails.EntityData.Children.Append("rule-detail", types.YChild{"RuleDetail", nil})
     for i := range ruleDetails.RuleDetail {
-        ruleDetails.EntityData.Children[types.GetSegmentPath(&ruleDetails.RuleDetail[i])] = types.YChild{"RuleDetail", &ruleDetails.RuleDetail[i]}
+        ruleDetails.EntityData.Children.Append(types.GetSegmentPath(ruleDetails.RuleDetail[i]), types.YChild{"RuleDetail", ruleDetails.RuleDetail[i]})
     }
-    ruleDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleDetails.EntityData.YListKeys = []string {}
+
     return &(ruleDetails.EntityData)
 }
 
@@ -2803,11 +2999,11 @@ type Snmp_Correlator_RuleDetails_RuleDetail struct {
 
     // OIDs/VarBinds defining the nonrootcause match conditions. The type is slice
     // of Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus.
-    NonRootcaus []Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus
+    NonRootcaus []*Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus
 
     // Hosts (IP/port) to which the rule is applied. The type is slice of
     // Snmp_Correlator_RuleDetails_RuleDetail_ApplyHost.
-    ApplyHost []Snmp_Correlator_RuleDetails_RuleDetail_ApplyHost
+    ApplyHost []*Snmp_Correlator_RuleDetails_RuleDetail_ApplyHost
 }
 
 func (ruleDetail *Snmp_Correlator_RuleDetails_RuleDetail) GetEntityData() *types.CommonEntityData {
@@ -2815,25 +3011,28 @@ func (ruleDetail *Snmp_Correlator_RuleDetails_RuleDetail) GetEntityData() *types
     ruleDetail.EntityData.YangName = "rule-detail"
     ruleDetail.EntityData.BundleName = "cisco_ios_xr"
     ruleDetail.EntityData.ParentYangName = "rule-details"
-    ruleDetail.EntityData.SegmentPath = "rule-detail" + "[rule-name='" + fmt.Sprintf("%v", ruleDetail.RuleName) + "']"
+    ruleDetail.EntityData.SegmentPath = "rule-detail" + types.AddKeyToken(ruleDetail.RuleName, "rule-name")
     ruleDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleDetail.EntityData.Children = make(map[string]types.YChild)
-    ruleDetail.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", &ruleDetail.RuleSummary}
-    ruleDetail.EntityData.Children["root-cause"] = types.YChild{"RootCause", &ruleDetail.RootCause}
-    ruleDetail.EntityData.Children["non-rootcaus"] = types.YChild{"NonRootcaus", nil}
+    ruleDetail.EntityData.Children = types.NewOrderedMap()
+    ruleDetail.EntityData.Children.Append("rule-summary", types.YChild{"RuleSummary", &ruleDetail.RuleSummary})
+    ruleDetail.EntityData.Children.Append("root-cause", types.YChild{"RootCause", &ruleDetail.RootCause})
+    ruleDetail.EntityData.Children.Append("non-rootcaus", types.YChild{"NonRootcaus", nil})
     for i := range ruleDetail.NonRootcaus {
-        ruleDetail.EntityData.Children[types.GetSegmentPath(&ruleDetail.NonRootcaus[i])] = types.YChild{"NonRootcaus", &ruleDetail.NonRootcaus[i]}
+        ruleDetail.EntityData.Children.Append(types.GetSegmentPath(ruleDetail.NonRootcaus[i]), types.YChild{"NonRootcaus", ruleDetail.NonRootcaus[i]})
     }
-    ruleDetail.EntityData.Children["apply-host"] = types.YChild{"ApplyHost", nil}
+    ruleDetail.EntityData.Children.Append("apply-host", types.YChild{"ApplyHost", nil})
     for i := range ruleDetail.ApplyHost {
-        ruleDetail.EntityData.Children[types.GetSegmentPath(&ruleDetail.ApplyHost[i])] = types.YChild{"ApplyHost", &ruleDetail.ApplyHost[i]}
+        ruleDetail.EntityData.Children.Append(types.GetSegmentPath(ruleDetail.ApplyHost[i]), types.YChild{"ApplyHost", ruleDetail.ApplyHost[i]})
     }
-    ruleDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleDetail.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleDetail.RuleName}
-    ruleDetail.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ruleDetail.Timeout}
+    ruleDetail.EntityData.Leafs = types.NewOrderedMap()
+    ruleDetail.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", ruleDetail.RuleName})
+    ruleDetail.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", ruleDetail.Timeout})
+
+    ruleDetail.EntityData.YListKeys = []string {"RuleName"}
+
     return &(ruleDetail.EntityData)
 }
 
@@ -2865,11 +3064,14 @@ func (ruleSummary *Snmp_Correlator_RuleDetails_RuleDetail_RuleSummary) GetEntity
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSummary.EntityData.Children = make(map[string]types.YChild)
-    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSummary.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleSummary.RuleName}
-    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
-    ruleSummary.EntityData.Leafs["buffered-traps-count"] = types.YLeaf{"BufferedTrapsCount", ruleSummary.BufferedTrapsCount}
+    ruleSummary.EntityData.Children = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs = types.NewOrderedMap()
+    ruleSummary.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", ruleSummary.RuleName})
+    ruleSummary.EntityData.Leafs.Append("rule-state", types.YLeaf{"RuleState", ruleSummary.RuleState})
+    ruleSummary.EntityData.Leafs.Append("buffered-traps-count", types.YLeaf{"BufferedTrapsCount", ruleSummary.BufferedTrapsCount})
+
+    ruleSummary.EntityData.YListKeys = []string {}
+
     return &(ruleSummary.EntityData)
 }
 
@@ -2885,7 +3087,7 @@ type Snmp_Correlator_RuleDetails_RuleDetail_RootCause struct {
 
     // VarBinds of the trap. The type is slice of
     // Snmp_Correlator_RuleDetails_RuleDetail_RootCause_VarBind.
-    VarBind []Snmp_Correlator_RuleDetails_RuleDetail_RootCause_VarBind
+    VarBind []*Snmp_Correlator_RuleDetails_RuleDetail_RootCause_VarBind
 }
 
 func (rootCause *Snmp_Correlator_RuleDetails_RuleDetail_RootCause) GetEntityData() *types.CommonEntityData {
@@ -2898,13 +3100,16 @@ func (rootCause *Snmp_Correlator_RuleDetails_RuleDetail_RootCause) GetEntityData
     rootCause.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rootCause.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rootCause.EntityData.Children = make(map[string]types.YChild)
-    rootCause.EntityData.Children["var-bind"] = types.YChild{"VarBind", nil}
+    rootCause.EntityData.Children = types.NewOrderedMap()
+    rootCause.EntityData.Children.Append("var-bind", types.YChild{"VarBind", nil})
     for i := range rootCause.VarBind {
-        rootCause.EntityData.Children[types.GetSegmentPath(&rootCause.VarBind[i])] = types.YChild{"VarBind", &rootCause.VarBind[i]}
+        rootCause.EntityData.Children.Append(types.GetSegmentPath(rootCause.VarBind[i]), types.YChild{"VarBind", rootCause.VarBind[i]})
     }
-    rootCause.EntityData.Leafs = make(map[string]types.YLeaf)
-    rootCause.EntityData.Leafs["oid"] = types.YLeaf{"Oid", rootCause.Oid}
+    rootCause.EntityData.Leafs = types.NewOrderedMap()
+    rootCause.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", rootCause.Oid})
+
+    rootCause.EntityData.YListKeys = []string {}
+
     return &(rootCause.EntityData)
 }
 
@@ -2934,11 +3139,14 @@ func (varBind *Snmp_Correlator_RuleDetails_RuleDetail_RootCause_VarBind) GetEnti
     varBind.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     varBind.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    varBind.EntityData.Children = make(map[string]types.YChild)
-    varBind.EntityData.Leafs = make(map[string]types.YLeaf)
-    varBind.EntityData.Leafs["oid"] = types.YLeaf{"Oid", varBind.Oid}
-    varBind.EntityData.Leafs["match-type"] = types.YLeaf{"MatchType", varBind.MatchType}
-    varBind.EntityData.Leafs["reg-exp"] = types.YLeaf{"RegExp", varBind.RegExp}
+    varBind.EntityData.Children = types.NewOrderedMap()
+    varBind.EntityData.Leafs = types.NewOrderedMap()
+    varBind.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", varBind.Oid})
+    varBind.EntityData.Leafs.Append("match-type", types.YLeaf{"MatchType", varBind.MatchType})
+    varBind.EntityData.Leafs.Append("reg-exp", types.YLeaf{"RegExp", varBind.RegExp})
+
+    varBind.EntityData.YListKeys = []string {}
+
     return &(varBind.EntityData)
 }
 
@@ -2954,7 +3162,7 @@ type Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus struct {
 
     // VarBinds of the trap. The type is slice of
     // Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind.
-    VarBind []Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind
+    VarBind []*Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind
 }
 
 func (nonRootcaus *Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus) GetEntityData() *types.CommonEntityData {
@@ -2967,13 +3175,16 @@ func (nonRootcaus *Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus) GetEntity
     nonRootcaus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonRootcaus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonRootcaus.EntityData.Children = make(map[string]types.YChild)
-    nonRootcaus.EntityData.Children["var-bind"] = types.YChild{"VarBind", nil}
+    nonRootcaus.EntityData.Children = types.NewOrderedMap()
+    nonRootcaus.EntityData.Children.Append("var-bind", types.YChild{"VarBind", nil})
     for i := range nonRootcaus.VarBind {
-        nonRootcaus.EntityData.Children[types.GetSegmentPath(&nonRootcaus.VarBind[i])] = types.YChild{"VarBind", &nonRootcaus.VarBind[i]}
+        nonRootcaus.EntityData.Children.Append(types.GetSegmentPath(nonRootcaus.VarBind[i]), types.YChild{"VarBind", nonRootcaus.VarBind[i]})
     }
-    nonRootcaus.EntityData.Leafs = make(map[string]types.YLeaf)
-    nonRootcaus.EntityData.Leafs["oid"] = types.YLeaf{"Oid", nonRootcaus.Oid}
+    nonRootcaus.EntityData.Leafs = types.NewOrderedMap()
+    nonRootcaus.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", nonRootcaus.Oid})
+
+    nonRootcaus.EntityData.YListKeys = []string {}
+
     return &(nonRootcaus.EntityData)
 }
 
@@ -3003,11 +3214,14 @@ func (varBind *Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind) GetEn
     varBind.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     varBind.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    varBind.EntityData.Children = make(map[string]types.YChild)
-    varBind.EntityData.Leafs = make(map[string]types.YLeaf)
-    varBind.EntityData.Leafs["oid"] = types.YLeaf{"Oid", varBind.Oid}
-    varBind.EntityData.Leafs["match-type"] = types.YLeaf{"MatchType", varBind.MatchType}
-    varBind.EntityData.Leafs["reg-exp"] = types.YLeaf{"RegExp", varBind.RegExp}
+    varBind.EntityData.Children = types.NewOrderedMap()
+    varBind.EntityData.Leafs = types.NewOrderedMap()
+    varBind.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", varBind.Oid})
+    varBind.EntityData.Leafs.Append("match-type", types.YLeaf{"MatchType", varBind.MatchType})
+    varBind.EntityData.Leafs.Append("reg-exp", types.YLeaf{"RegExp", varBind.RegExp})
+
+    varBind.EntityData.YListKeys = []string {}
+
     return &(varBind.EntityData)
 }
 
@@ -3034,10 +3248,13 @@ func (applyHost *Snmp_Correlator_RuleDetails_RuleDetail_ApplyHost) GetEntityData
     applyHost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applyHost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applyHost.EntityData.Children = make(map[string]types.YChild)
-    applyHost.EntityData.Leafs = make(map[string]types.YLeaf)
-    applyHost.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", applyHost.IpAddress}
-    applyHost.EntityData.Leafs["port"] = types.YLeaf{"Port", applyHost.Port}
+    applyHost.EntityData.Children = types.NewOrderedMap()
+    applyHost.EntityData.Leafs = types.NewOrderedMap()
+    applyHost.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", applyHost.IpAddress})
+    applyHost.EntityData.Leafs.Append("port", types.YLeaf{"Port", applyHost.Port})
+
+    applyHost.EntityData.YListKeys = []string {}
+
     return &(applyHost.EntityData)
 }
 
@@ -3065,10 +3282,13 @@ func (bufferStatus *Snmp_Correlator_BufferStatus) GetEntityData() *types.CommonE
     bufferStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bufferStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bufferStatus.EntityData.Children = make(map[string]types.YChild)
-    bufferStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    bufferStatus.EntityData.Leafs["current-size"] = types.YLeaf{"CurrentSize", bufferStatus.CurrentSize}
-    bufferStatus.EntityData.Leafs["configured-size"] = types.YLeaf{"ConfiguredSize", bufferStatus.ConfiguredSize}
+    bufferStatus.EntityData.Children = types.NewOrderedMap()
+    bufferStatus.EntityData.Leafs = types.NewOrderedMap()
+    bufferStatus.EntityData.Leafs.Append("current-size", types.YLeaf{"CurrentSize", bufferStatus.CurrentSize})
+    bufferStatus.EntityData.Leafs.Append("configured-size", types.YLeaf{"ConfiguredSize", bufferStatus.ConfiguredSize})
+
+    bufferStatus.EntityData.YListKeys = []string {}
+
     return &(bufferStatus.EntityData)
 }
 
@@ -3080,7 +3300,7 @@ type Snmp_Correlator_RuleSetDetails struct {
 
     // Detail of one of the correlation rulesets. The type is slice of
     // Snmp_Correlator_RuleSetDetails_RuleSetDetail.
-    RuleSetDetail []Snmp_Correlator_RuleSetDetails_RuleSetDetail
+    RuleSetDetail []*Snmp_Correlator_RuleSetDetails_RuleSetDetail
 }
 
 func (ruleSetDetails *Snmp_Correlator_RuleSetDetails) GetEntityData() *types.CommonEntityData {
@@ -3093,12 +3313,15 @@ func (ruleSetDetails *Snmp_Correlator_RuleSetDetails) GetEntityData() *types.Com
     ruleSetDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSetDetails.EntityData.Children = make(map[string]types.YChild)
-    ruleSetDetails.EntityData.Children["rule-set-detail"] = types.YChild{"RuleSetDetail", nil}
+    ruleSetDetails.EntityData.Children = types.NewOrderedMap()
+    ruleSetDetails.EntityData.Children.Append("rule-set-detail", types.YChild{"RuleSetDetail", nil})
     for i := range ruleSetDetails.RuleSetDetail {
-        ruleSetDetails.EntityData.Children[types.GetSegmentPath(&ruleSetDetails.RuleSetDetail[i])] = types.YChild{"RuleSetDetail", &ruleSetDetails.RuleSetDetail[i]}
+        ruleSetDetails.EntityData.Children.Append(types.GetSegmentPath(ruleSetDetails.RuleSetDetail[i]), types.YChild{"RuleSetDetail", ruleSetDetails.RuleSetDetail[i]})
     }
-    ruleSetDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSetDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleSetDetails.EntityData.YListKeys = []string {}
+
     return &(ruleSetDetails.EntityData)
 }
 
@@ -3117,7 +3340,7 @@ type Snmp_Correlator_RuleSetDetails_RuleSetDetail struct {
 
     // Rules contained in a ruleset. The type is slice of
     // Snmp_Correlator_RuleSetDetails_RuleSetDetail_Rules.
-    Rules []Snmp_Correlator_RuleSetDetails_RuleSetDetail_Rules
+    Rules []*Snmp_Correlator_RuleSetDetails_RuleSetDetail_Rules
 }
 
 func (ruleSetDetail *Snmp_Correlator_RuleSetDetails_RuleSetDetail) GetEntityData() *types.CommonEntityData {
@@ -3125,19 +3348,22 @@ func (ruleSetDetail *Snmp_Correlator_RuleSetDetails_RuleSetDetail) GetEntityData
     ruleSetDetail.EntityData.YangName = "rule-set-detail"
     ruleSetDetail.EntityData.BundleName = "cisco_ios_xr"
     ruleSetDetail.EntityData.ParentYangName = "rule-set-details"
-    ruleSetDetail.EntityData.SegmentPath = "rule-set-detail" + "[rule-set-name='" + fmt.Sprintf("%v", ruleSetDetail.RuleSetName) + "']"
+    ruleSetDetail.EntityData.SegmentPath = "rule-set-detail" + types.AddKeyToken(ruleSetDetail.RuleSetName, "rule-set-name")
     ruleSetDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSetDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSetDetail.EntityData.Children = make(map[string]types.YChild)
-    ruleSetDetail.EntityData.Children["rules"] = types.YChild{"Rules", nil}
+    ruleSetDetail.EntityData.Children = types.NewOrderedMap()
+    ruleSetDetail.EntityData.Children.Append("rules", types.YChild{"Rules", nil})
     for i := range ruleSetDetail.Rules {
-        ruleSetDetail.EntityData.Children[types.GetSegmentPath(&ruleSetDetail.Rules[i])] = types.YChild{"Rules", &ruleSetDetail.Rules[i]}
+        ruleSetDetail.EntityData.Children.Append(types.GetSegmentPath(ruleSetDetail.Rules[i]), types.YChild{"Rules", ruleSetDetail.Rules[i]})
     }
-    ruleSetDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSetDetail.EntityData.Leafs["rule-set-name"] = types.YLeaf{"RuleSetName", ruleSetDetail.RuleSetName}
-    ruleSetDetail.EntityData.Leafs["rule-set-name-xr"] = types.YLeaf{"RuleSetNameXr", ruleSetDetail.RuleSetNameXr}
+    ruleSetDetail.EntityData.Leafs = types.NewOrderedMap()
+    ruleSetDetail.EntityData.Leafs.Append("rule-set-name", types.YLeaf{"RuleSetName", ruleSetDetail.RuleSetName})
+    ruleSetDetail.EntityData.Leafs.Append("rule-set-name-xr", types.YLeaf{"RuleSetNameXr", ruleSetDetail.RuleSetNameXr})
+
+    ruleSetDetail.EntityData.YListKeys = []string {"RuleSetName"}
+
     return &(ruleSetDetail.EntityData)
 }
 
@@ -3169,11 +3395,14 @@ func (rules *Snmp_Correlator_RuleSetDetails_RuleSetDetail_Rules) GetEntityData()
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rules.EntityData.Children = make(map[string]types.YChild)
-    rules.EntityData.Leafs = make(map[string]types.YLeaf)
-    rules.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", rules.RuleName}
-    rules.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", rules.RuleState}
-    rules.EntityData.Leafs["buffered-traps-count"] = types.YLeaf{"BufferedTrapsCount", rules.BufferedTrapsCount}
+    rules.EntityData.Children = types.NewOrderedMap()
+    rules.EntityData.Leafs = types.NewOrderedMap()
+    rules.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", rules.RuleName})
+    rules.EntityData.Leafs.Append("rule-state", types.YLeaf{"RuleState", rules.RuleState})
+    rules.EntityData.Leafs.Append("buffered-traps-count", types.YLeaf{"BufferedTrapsCount", rules.BufferedTrapsCount})
+
+    rules.EntityData.YListKeys = []string {}
+
     return &(rules.EntityData)
 }
 
@@ -3185,7 +3414,7 @@ type Snmp_Correlator_Traps struct {
 
     // One of the correlated traps. The type is slice of
     // Snmp_Correlator_Traps_Trap.
-    Trap []Snmp_Correlator_Traps_Trap
+    Trap []*Snmp_Correlator_Traps_Trap
 }
 
 func (traps *Snmp_Correlator_Traps) GetEntityData() *types.CommonEntityData {
@@ -3198,12 +3427,15 @@ func (traps *Snmp_Correlator_Traps) GetEntityData() *types.CommonEntityData {
     traps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traps.EntityData.Children = make(map[string]types.YChild)
-    traps.EntityData.Children["trap"] = types.YChild{"Trap", nil}
+    traps.EntityData.Children = types.NewOrderedMap()
+    traps.EntityData.Children.Append("trap", types.YChild{"Trap", nil})
     for i := range traps.Trap {
-        traps.EntityData.Children[types.GetSegmentPath(&traps.Trap[i])] = types.YChild{"Trap", &traps.Trap[i]}
+        traps.EntityData.Children.Append(types.GetSegmentPath(traps.Trap[i]), types.YChild{"Trap", traps.Trap[i]})
     }
-    traps.EntityData.Leafs = make(map[string]types.YLeaf)
+    traps.EntityData.Leafs = types.NewOrderedMap()
+
+    traps.EntityData.YListKeys = []string {}
+
     return &(traps.EntityData)
 }
 
@@ -3214,7 +3446,7 @@ type Snmp_Correlator_Traps_Trap struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Entry ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     EntryId interface{}
 
     // Correlation ID. The type is interface{} with range: 0..4294967295.
@@ -3235,18 +3467,21 @@ func (trap *Snmp_Correlator_Traps_Trap) GetEntityData() *types.CommonEntityData 
     trap.EntityData.YangName = "trap"
     trap.EntityData.BundleName = "cisco_ios_xr"
     trap.EntityData.ParentYangName = "traps"
-    trap.EntityData.SegmentPath = "trap" + "[entry-id='" + fmt.Sprintf("%v", trap.EntryId) + "']"
+    trap.EntityData.SegmentPath = "trap" + types.AddKeyToken(trap.EntryId, "entry-id")
     trap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trap.EntityData.Children = make(map[string]types.YChild)
-    trap.EntityData.Children["trap-info"] = types.YChild{"TrapInfo", &trap.TrapInfo}
-    trap.EntityData.Leafs = make(map[string]types.YLeaf)
-    trap.EntityData.Leafs["entry-id"] = types.YLeaf{"EntryId", trap.EntryId}
-    trap.EntityData.Leafs["correlation-id"] = types.YLeaf{"CorrelationId", trap.CorrelationId}
-    trap.EntityData.Leafs["is-root-cause"] = types.YLeaf{"IsRootCause", trap.IsRootCause}
-    trap.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", trap.RuleName}
+    trap.EntityData.Children = types.NewOrderedMap()
+    trap.EntityData.Children.Append("trap-info", types.YChild{"TrapInfo", &trap.TrapInfo})
+    trap.EntityData.Leafs = types.NewOrderedMap()
+    trap.EntityData.Leafs.Append("entry-id", types.YLeaf{"EntryId", trap.EntryId})
+    trap.EntityData.Leafs.Append("correlation-id", types.YLeaf{"CorrelationId", trap.CorrelationId})
+    trap.EntityData.Leafs.Append("is-root-cause", types.YLeaf{"IsRootCause", trap.IsRootCause})
+    trap.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", trap.RuleName})
+
+    trap.EntityData.YListKeys = []string {"EntryId"}
+
     return &(trap.EntityData)
 }
 
@@ -3270,7 +3505,7 @@ type Snmp_Correlator_Traps_Trap_TrapInfo struct {
 
     // VarBinds on the trap. The type is slice of
     // Snmp_Correlator_Traps_Trap_TrapInfo_VarBind.
-    VarBind []Snmp_Correlator_Traps_Trap_TrapInfo_VarBind
+    VarBind []*Snmp_Correlator_Traps_Trap_TrapInfo_VarBind
 }
 
 func (trapInfo *Snmp_Correlator_Traps_Trap_TrapInfo) GetEntityData() *types.CommonEntityData {
@@ -3283,15 +3518,18 @@ func (trapInfo *Snmp_Correlator_Traps_Trap_TrapInfo) GetEntityData() *types.Comm
     trapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapInfo.EntityData.Children = make(map[string]types.YChild)
-    trapInfo.EntityData.Children["var-bind"] = types.YChild{"VarBind", nil}
+    trapInfo.EntityData.Children = types.NewOrderedMap()
+    trapInfo.EntityData.Children.Append("var-bind", types.YChild{"VarBind", nil})
     for i := range trapInfo.VarBind {
-        trapInfo.EntityData.Children[types.GetSegmentPath(&trapInfo.VarBind[i])] = types.YChild{"VarBind", &trapInfo.VarBind[i]}
+        trapInfo.EntityData.Children.Append(types.GetSegmentPath(trapInfo.VarBind[i]), types.YChild{"VarBind", trapInfo.VarBind[i]})
     }
-    trapInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapInfo.EntityData.Leafs["oid"] = types.YLeaf{"Oid", trapInfo.Oid}
-    trapInfo.EntityData.Leafs["relative-timestamp"] = types.YLeaf{"RelativeTimestamp", trapInfo.RelativeTimestamp}
-    trapInfo.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", trapInfo.Timestamp}
+    trapInfo.EntityData.Leafs = types.NewOrderedMap()
+    trapInfo.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", trapInfo.Oid})
+    trapInfo.EntityData.Leafs.Append("relative-timestamp", types.YLeaf{"RelativeTimestamp", trapInfo.RelativeTimestamp})
+    trapInfo.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", trapInfo.Timestamp})
+
+    trapInfo.EntityData.YListKeys = []string {}
+
     return &(trapInfo.EntityData)
 }
 
@@ -3318,10 +3556,13 @@ func (varBind *Snmp_Correlator_Traps_Trap_TrapInfo_VarBind) GetEntityData() *typ
     varBind.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     varBind.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    varBind.EntityData.Children = make(map[string]types.YChild)
-    varBind.EntityData.Leafs = make(map[string]types.YLeaf)
-    varBind.EntityData.Leafs["oid"] = types.YLeaf{"Oid", varBind.Oid}
-    varBind.EntityData.Leafs["value"] = types.YLeaf{"Value", varBind.Value}
+    varBind.EntityData.Children = types.NewOrderedMap()
+    varBind.EntityData.Leafs = types.NewOrderedMap()
+    varBind.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", varBind.Oid})
+    varBind.EntityData.Leafs.Append("value", types.YLeaf{"Value", varBind.Value})
+
+    varBind.EntityData.YListKeys = []string {}
+
     return &(varBind.EntityData)
 }
 
@@ -3332,7 +3573,7 @@ type Snmp_InterfaceIndexes struct {
     YFilter yfilter.YFilter
 
     // Interface Index. The type is slice of Snmp_InterfaceIndexes_InterfaceIndex.
-    InterfaceIndex []Snmp_InterfaceIndexes_InterfaceIndex
+    InterfaceIndex []*Snmp_InterfaceIndexes_InterfaceIndex
 }
 
 func (interfaceIndexes *Snmp_InterfaceIndexes) GetEntityData() *types.CommonEntityData {
@@ -3345,12 +3586,15 @@ func (interfaceIndexes *Snmp_InterfaceIndexes) GetEntityData() *types.CommonEnti
     interfaceIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceIndexes.EntityData.Children = make(map[string]types.YChild)
-    interfaceIndexes.EntityData.Children["interface-index"] = types.YChild{"InterfaceIndex", nil}
+    interfaceIndexes.EntityData.Children = types.NewOrderedMap()
+    interfaceIndexes.EntityData.Children.Append("interface-index", types.YChild{"InterfaceIndex", nil})
     for i := range interfaceIndexes.InterfaceIndex {
-        interfaceIndexes.EntityData.Children[types.GetSegmentPath(&interfaceIndexes.InterfaceIndex[i])] = types.YChild{"InterfaceIndex", &interfaceIndexes.InterfaceIndex[i]}
+        interfaceIndexes.EntityData.Children.Append(types.GetSegmentPath(interfaceIndexes.InterfaceIndex[i]), types.YChild{"InterfaceIndex", interfaceIndexes.InterfaceIndex[i]})
     }
-    interfaceIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceIndexes.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceIndexes.EntityData.YListKeys = []string {}
+
     return &(interfaceIndexes.EntityData)
 }
 
@@ -3361,7 +3605,7 @@ type Snmp_InterfaceIndexes_InterfaceIndex struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Index as used by MIB tables. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     InterfaceIndex interface{}
 
     // Interface Name. The type is string. This attribute is mandatory.
@@ -3373,15 +3617,18 @@ func (interfaceIndex *Snmp_InterfaceIndexes_InterfaceIndex) GetEntityData() *typ
     interfaceIndex.EntityData.YangName = "interface-index"
     interfaceIndex.EntityData.BundleName = "cisco_ios_xr"
     interfaceIndex.EntityData.ParentYangName = "interface-indexes"
-    interfaceIndex.EntityData.SegmentPath = "interface-index" + "[interface-index='" + fmt.Sprintf("%v", interfaceIndex.InterfaceIndex) + "']"
+    interfaceIndex.EntityData.SegmentPath = "interface-index" + types.AddKeyToken(interfaceIndex.InterfaceIndex, "interface-index")
     interfaceIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceIndex.EntityData.Children = make(map[string]types.YChild)
-    interfaceIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceIndex.EntityData.Leafs["interface-index"] = types.YLeaf{"InterfaceIndex", interfaceIndex.InterfaceIndex}
-    interfaceIndex.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceIndex.InterfaceName}
+    interfaceIndex.EntityData.Children = types.NewOrderedMap()
+    interfaceIndex.EntityData.Leafs = types.NewOrderedMap()
+    interfaceIndex.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", interfaceIndex.InterfaceIndex})
+    interfaceIndex.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceIndex.InterfaceName})
+
+    interfaceIndex.EntityData.YListKeys = []string {"InterfaceIndex"}
+
     return &(interfaceIndex.EntityData)
 }
 
@@ -3392,7 +3639,7 @@ type Snmp_IfIndexes struct {
     YFilter yfilter.YFilter
 
     // Interface Index. The type is slice of Snmp_IfIndexes_IfIndex.
-    IfIndex []Snmp_IfIndexes_IfIndex
+    IfIndex []*Snmp_IfIndexes_IfIndex
 }
 
 func (ifIndexes *Snmp_IfIndexes) GetEntityData() *types.CommonEntityData {
@@ -3405,12 +3652,15 @@ func (ifIndexes *Snmp_IfIndexes) GetEntityData() *types.CommonEntityData {
     ifIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ifIndexes.EntityData.Children = make(map[string]types.YChild)
-    ifIndexes.EntityData.Children["if-index"] = types.YChild{"IfIndex", nil}
+    ifIndexes.EntityData.Children = types.NewOrderedMap()
+    ifIndexes.EntityData.Children.Append("if-index", types.YChild{"IfIndex", nil})
     for i := range ifIndexes.IfIndex {
-        ifIndexes.EntityData.Children[types.GetSegmentPath(&ifIndexes.IfIndex[i])] = types.YChild{"IfIndex", &ifIndexes.IfIndex[i]}
+        ifIndexes.EntityData.Children.Append(types.GetSegmentPath(ifIndexes.IfIndex[i]), types.YChild{"IfIndex", ifIndexes.IfIndex[i]})
     }
-    ifIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifIndexes.EntityData.Leafs = types.NewOrderedMap()
+
+    ifIndexes.EntityData.YListKeys = []string {}
+
     return &(ifIndexes.EntityData)
 }
 
@@ -3421,7 +3671,7 @@ type Snmp_IfIndexes_IfIndex struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Index as used by MIB tables. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     InterfaceIndex interface{}
 
     // Interface Name. The type is string.
@@ -3433,15 +3683,18 @@ func (ifIndex *Snmp_IfIndexes_IfIndex) GetEntityData() *types.CommonEntityData {
     ifIndex.EntityData.YangName = "if-index"
     ifIndex.EntityData.BundleName = "cisco_ios_xr"
     ifIndex.EntityData.ParentYangName = "if-indexes"
-    ifIndex.EntityData.SegmentPath = "if-index" + "[interface-index='" + fmt.Sprintf("%v", ifIndex.InterfaceIndex) + "']"
+    ifIndex.EntityData.SegmentPath = "if-index" + types.AddKeyToken(ifIndex.InterfaceIndex, "interface-index")
     ifIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ifIndex.EntityData.Children = make(map[string]types.YChild)
-    ifIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    ifIndex.EntityData.Leafs["interface-index"] = types.YLeaf{"InterfaceIndex", ifIndex.InterfaceIndex}
-    ifIndex.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ifIndex.InterfaceName}
+    ifIndex.EntityData.Children = types.NewOrderedMap()
+    ifIndex.EntityData.Leafs = types.NewOrderedMap()
+    ifIndex.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", ifIndex.InterfaceIndex})
+    ifIndex.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ifIndex.InterfaceName})
+
+    ifIndex.EntityData.YListKeys = []string {"InterfaceIndex"}
+
     return &(ifIndex.EntityData)
 }
 
@@ -3465,9 +3718,12 @@ func (entityMib *Snmp_EntityMib) GetEntityData() *types.CommonEntityData {
     entityMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityMib.EntityData.Children = make(map[string]types.YChild)
-    entityMib.EntityData.Children["entity-physical-indexes"] = types.YChild{"EntityPhysicalIndexes", &entityMib.EntityPhysicalIndexes}
-    entityMib.EntityData.Leafs = make(map[string]types.YLeaf)
+    entityMib.EntityData.Children = types.NewOrderedMap()
+    entityMib.EntityData.Children.Append("entity-physical-indexes", types.YChild{"EntityPhysicalIndexes", &entityMib.EntityPhysicalIndexes})
+    entityMib.EntityData.Leafs = types.NewOrderedMap()
+
+    entityMib.EntityData.YListKeys = []string {}
+
     return &(entityMib.EntityData)
 }
 
@@ -3479,7 +3735,7 @@ type Snmp_EntityMib_EntityPhysicalIndexes struct {
 
     // SNMP entPhysical index number. The type is slice of
     // Snmp_EntityMib_EntityPhysicalIndexes_EntityPhysicalIndex.
-    EntityPhysicalIndex []Snmp_EntityMib_EntityPhysicalIndexes_EntityPhysicalIndex
+    EntityPhysicalIndex []*Snmp_EntityMib_EntityPhysicalIndexes_EntityPhysicalIndex
 }
 
 func (entityPhysicalIndexes *Snmp_EntityMib_EntityPhysicalIndexes) GetEntityData() *types.CommonEntityData {
@@ -3492,12 +3748,15 @@ func (entityPhysicalIndexes *Snmp_EntityMib_EntityPhysicalIndexes) GetEntityData
     entityPhysicalIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityPhysicalIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityPhysicalIndexes.EntityData.Children = make(map[string]types.YChild)
-    entityPhysicalIndexes.EntityData.Children["entity-physical-index"] = types.YChild{"EntityPhysicalIndex", nil}
+    entityPhysicalIndexes.EntityData.Children = types.NewOrderedMap()
+    entityPhysicalIndexes.EntityData.Children.Append("entity-physical-index", types.YChild{"EntityPhysicalIndex", nil})
     for i := range entityPhysicalIndexes.EntityPhysicalIndex {
-        entityPhysicalIndexes.EntityData.Children[types.GetSegmentPath(&entityPhysicalIndexes.EntityPhysicalIndex[i])] = types.YChild{"EntityPhysicalIndex", &entityPhysicalIndexes.EntityPhysicalIndex[i]}
+        entityPhysicalIndexes.EntityData.Children.Append(types.GetSegmentPath(entityPhysicalIndexes.EntityPhysicalIndex[i]), types.YChild{"EntityPhysicalIndex", entityPhysicalIndexes.EntityPhysicalIndex[i]})
     }
-    entityPhysicalIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    entityPhysicalIndexes.EntityData.Leafs = types.NewOrderedMap()
+
+    entityPhysicalIndexes.EntityData.YListKeys = []string {}
+
     return &(entityPhysicalIndexes.EntityData)
 }
 
@@ -3508,7 +3767,7 @@ type Snmp_EntityMib_EntityPhysicalIndexes_EntityPhysicalIndex struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Entity physical index. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     EntityPhynum interface{}
 
     // entPhysicalIndex. The type is interface{} with range: 0..4294967295.
@@ -3547,24 +3806,27 @@ func (entityPhysicalIndex *Snmp_EntityMib_EntityPhysicalIndexes_EntityPhysicalIn
     entityPhysicalIndex.EntityData.YangName = "entity-physical-index"
     entityPhysicalIndex.EntityData.BundleName = "cisco_ios_xr"
     entityPhysicalIndex.EntityData.ParentYangName = "entity-physical-indexes"
-    entityPhysicalIndex.EntityData.SegmentPath = "entity-physical-index" + "[entity-phynum='" + fmt.Sprintf("%v", entityPhysicalIndex.EntityPhynum) + "']"
+    entityPhysicalIndex.EntityData.SegmentPath = "entity-physical-index" + types.AddKeyToken(entityPhysicalIndex.EntityPhynum, "entity-phynum")
     entityPhysicalIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entityPhysicalIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityPhysicalIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityPhysicalIndex.EntityData.Children = make(map[string]types.YChild)
-    entityPhysicalIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    entityPhysicalIndex.EntityData.Leafs["entity-phynum"] = types.YLeaf{"EntityPhynum", entityPhysicalIndex.EntityPhynum}
-    entityPhysicalIndex.EntityData.Leafs["physical-index"] = types.YLeaf{"PhysicalIndex", entityPhysicalIndex.PhysicalIndex}
-    entityPhysicalIndex.EntityData.Leafs["ent-physical-name"] = types.YLeaf{"EntPhysicalName", entityPhysicalIndex.EntPhysicalName}
-    entityPhysicalIndex.EntityData.Leafs["location"] = types.YLeaf{"Location", entityPhysicalIndex.Location}
-    entityPhysicalIndex.EntityData.Leafs["ent-physical-descr"] = types.YLeaf{"EntPhysicalDescr", entityPhysicalIndex.EntPhysicalDescr}
-    entityPhysicalIndex.EntityData.Leafs["ent-physical-firmware-rev"] = types.YLeaf{"EntPhysicalFirmwareRev", entityPhysicalIndex.EntPhysicalFirmwareRev}
-    entityPhysicalIndex.EntityData.Leafs["ent-physical-hardware-rev"] = types.YLeaf{"EntPhysicalHardwareRev", entityPhysicalIndex.EntPhysicalHardwareRev}
-    entityPhysicalIndex.EntityData.Leafs["ent-physical-modelname"] = types.YLeaf{"EntPhysicalModelname", entityPhysicalIndex.EntPhysicalModelname}
-    entityPhysicalIndex.EntityData.Leafs["ent-physical-serial-num"] = types.YLeaf{"EntPhysicalSerialNum", entityPhysicalIndex.EntPhysicalSerialNum}
-    entityPhysicalIndex.EntityData.Leafs["ent-physical-software-rev"] = types.YLeaf{"EntPhysicalSoftwareRev", entityPhysicalIndex.EntPhysicalSoftwareRev}
-    entityPhysicalIndex.EntityData.Leafs["ent-physical-mfg-name"] = types.YLeaf{"EntPhysicalMfgName", entityPhysicalIndex.EntPhysicalMfgName}
+    entityPhysicalIndex.EntityData.Children = types.NewOrderedMap()
+    entityPhysicalIndex.EntityData.Leafs = types.NewOrderedMap()
+    entityPhysicalIndex.EntityData.Leafs.Append("entity-phynum", types.YLeaf{"EntityPhynum", entityPhysicalIndex.EntityPhynum})
+    entityPhysicalIndex.EntityData.Leafs.Append("physical-index", types.YLeaf{"PhysicalIndex", entityPhysicalIndex.PhysicalIndex})
+    entityPhysicalIndex.EntityData.Leafs.Append("ent-physical-name", types.YLeaf{"EntPhysicalName", entityPhysicalIndex.EntPhysicalName})
+    entityPhysicalIndex.EntityData.Leafs.Append("location", types.YLeaf{"Location", entityPhysicalIndex.Location})
+    entityPhysicalIndex.EntityData.Leafs.Append("ent-physical-descr", types.YLeaf{"EntPhysicalDescr", entityPhysicalIndex.EntPhysicalDescr})
+    entityPhysicalIndex.EntityData.Leafs.Append("ent-physical-firmware-rev", types.YLeaf{"EntPhysicalFirmwareRev", entityPhysicalIndex.EntPhysicalFirmwareRev})
+    entityPhysicalIndex.EntityData.Leafs.Append("ent-physical-hardware-rev", types.YLeaf{"EntPhysicalHardwareRev", entityPhysicalIndex.EntPhysicalHardwareRev})
+    entityPhysicalIndex.EntityData.Leafs.Append("ent-physical-modelname", types.YLeaf{"EntPhysicalModelname", entityPhysicalIndex.EntPhysicalModelname})
+    entityPhysicalIndex.EntityData.Leafs.Append("ent-physical-serial-num", types.YLeaf{"EntPhysicalSerialNum", entityPhysicalIndex.EntPhysicalSerialNum})
+    entityPhysicalIndex.EntityData.Leafs.Append("ent-physical-software-rev", types.YLeaf{"EntPhysicalSoftwareRev", entityPhysicalIndex.EntPhysicalSoftwareRev})
+    entityPhysicalIndex.EntityData.Leafs.Append("ent-physical-mfg-name", types.YLeaf{"EntPhysicalMfgName", entityPhysicalIndex.EntPhysicalMfgName})
+
+    entityPhysicalIndex.EntityData.YListKeys = []string {"EntityPhynum"}
+
     return &(entityPhysicalIndex.EntityData)
 }
 
@@ -3600,13 +3862,16 @@ func (interfaceMib *Snmp_InterfaceMib) GetEntityData() *types.CommonEntityData {
     interfaceMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceMib.EntityData.Children = make(map[string]types.YChild)
-    interfaceMib.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &interfaceMib.Interfaces}
-    interfaceMib.EntityData.Children["interface-connectors"] = types.YChild{"InterfaceConnectors", &interfaceMib.InterfaceConnectors}
-    interfaceMib.EntityData.Children["interface-aliases"] = types.YChild{"InterfaceAliases", &interfaceMib.InterfaceAliases}
-    interfaceMib.EntityData.Children["notification-interfaces"] = types.YChild{"NotificationInterfaces", &interfaceMib.NotificationInterfaces}
-    interfaceMib.EntityData.Children["interface-stack-statuses"] = types.YChild{"InterfaceStackStatuses", &interfaceMib.InterfaceStackStatuses}
-    interfaceMib.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceMib.EntityData.Children = types.NewOrderedMap()
+    interfaceMib.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &interfaceMib.Interfaces})
+    interfaceMib.EntityData.Children.Append("interface-connectors", types.YChild{"InterfaceConnectors", &interfaceMib.InterfaceConnectors})
+    interfaceMib.EntityData.Children.Append("interface-aliases", types.YChild{"InterfaceAliases", &interfaceMib.InterfaceAliases})
+    interfaceMib.EntityData.Children.Append("notification-interfaces", types.YChild{"NotificationInterfaces", &interfaceMib.NotificationInterfaces})
+    interfaceMib.EntityData.Children.Append("interface-stack-statuses", types.YChild{"InterfaceStackStatuses", &interfaceMib.InterfaceStackStatuses})
+    interfaceMib.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceMib.EntityData.YListKeys = []string {}
+
     return &(interfaceMib.EntityData)
 }
 
@@ -3617,8 +3882,8 @@ type Snmp_InterfaceMib_Interfaces struct {
     YFilter yfilter.YFilter
 
     // ifIndex for a specific Interface Name. The type is slice of
-    // Snmp_InterfaceMib_Interfaces_Interface_.
-    Interface_ []Snmp_InterfaceMib_Interfaces_Interface
+    // Snmp_InterfaceMib_Interfaces_Interface.
+    Interface []*Snmp_InterfaceMib_Interfaces_Interface
 }
 
 func (interfaces *Snmp_InterfaceMib_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -3631,12 +3896,15 @@ func (interfaces *Snmp_InterfaceMib_Interfaces) GetEntityData() *types.CommonEnt
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -3647,7 +3915,7 @@ type Snmp_InterfaceMib_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -3659,15 +3927,18 @@ func (self *Snmp_InterfaceMib_Interfaces_Interface) GetEntityData() *types.Commo
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", self.IfIndex}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", self.IfIndex})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -3679,7 +3950,7 @@ type Snmp_InterfaceMib_InterfaceConnectors struct {
 
     // ifConnectorPresent for a specific Interface Name. The type is slice of
     // Snmp_InterfaceMib_InterfaceConnectors_InterfaceConnector.
-    InterfaceConnector []Snmp_InterfaceMib_InterfaceConnectors_InterfaceConnector
+    InterfaceConnector []*Snmp_InterfaceMib_InterfaceConnectors_InterfaceConnector
 }
 
 func (interfaceConnectors *Snmp_InterfaceMib_InterfaceConnectors) GetEntityData() *types.CommonEntityData {
@@ -3692,12 +3963,15 @@ func (interfaceConnectors *Snmp_InterfaceMib_InterfaceConnectors) GetEntityData(
     interfaceConnectors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConnectors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceConnectors.EntityData.Children = make(map[string]types.YChild)
-    interfaceConnectors.EntityData.Children["interface-connector"] = types.YChild{"InterfaceConnector", nil}
+    interfaceConnectors.EntityData.Children = types.NewOrderedMap()
+    interfaceConnectors.EntityData.Children.Append("interface-connector", types.YChild{"InterfaceConnector", nil})
     for i := range interfaceConnectors.InterfaceConnector {
-        interfaceConnectors.EntityData.Children[types.GetSegmentPath(&interfaceConnectors.InterfaceConnector[i])] = types.YChild{"InterfaceConnector", &interfaceConnectors.InterfaceConnector[i]}
+        interfaceConnectors.EntityData.Children.Append(types.GetSegmentPath(interfaceConnectors.InterfaceConnector[i]), types.YChild{"InterfaceConnector", interfaceConnectors.InterfaceConnector[i]})
     }
-    interfaceConnectors.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceConnectors.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceConnectors.EntityData.YListKeys = []string {}
+
     return &(interfaceConnectors.EntityData)
 }
 
@@ -3709,7 +3983,7 @@ type Snmp_InterfaceMib_InterfaceConnectors_InterfaceConnector struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface ifConnector. The type is string.
@@ -3721,15 +3995,18 @@ func (interfaceConnector *Snmp_InterfaceMib_InterfaceConnectors_InterfaceConnect
     interfaceConnector.EntityData.YangName = "interface-connector"
     interfaceConnector.EntityData.BundleName = "cisco_ios_xr"
     interfaceConnector.EntityData.ParentYangName = "interface-connectors"
-    interfaceConnector.EntityData.SegmentPath = "interface-connector" + "[interface-name='" + fmt.Sprintf("%v", interfaceConnector.InterfaceName) + "']"
+    interfaceConnector.EntityData.SegmentPath = "interface-connector" + types.AddKeyToken(interfaceConnector.InterfaceName, "interface-name")
     interfaceConnector.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConnector.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConnector.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceConnector.EntityData.Children = make(map[string]types.YChild)
-    interfaceConnector.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceConnector.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceConnector.InterfaceName}
-    interfaceConnector.EntityData.Leafs["if-connector-present"] = types.YLeaf{"IfConnectorPresent", interfaceConnector.IfConnectorPresent}
+    interfaceConnector.EntityData.Children = types.NewOrderedMap()
+    interfaceConnector.EntityData.Leafs = types.NewOrderedMap()
+    interfaceConnector.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceConnector.InterfaceName})
+    interfaceConnector.EntityData.Leafs.Append("if-connector-present", types.YLeaf{"IfConnectorPresent", interfaceConnector.IfConnectorPresent})
+
+    interfaceConnector.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(interfaceConnector.EntityData)
 }
 
@@ -3741,7 +4018,7 @@ type Snmp_InterfaceMib_InterfaceAliases struct {
 
     // ifAlias for a specific Interface Name. The type is slice of
     // Snmp_InterfaceMib_InterfaceAliases_InterfaceAlias.
-    InterfaceAlias []Snmp_InterfaceMib_InterfaceAliases_InterfaceAlias
+    InterfaceAlias []*Snmp_InterfaceMib_InterfaceAliases_InterfaceAlias
 }
 
 func (interfaceAliases *Snmp_InterfaceMib_InterfaceAliases) GetEntityData() *types.CommonEntityData {
@@ -3754,12 +4031,15 @@ func (interfaceAliases *Snmp_InterfaceMib_InterfaceAliases) GetEntityData() *typ
     interfaceAliases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAliases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceAliases.EntityData.Children = make(map[string]types.YChild)
-    interfaceAliases.EntityData.Children["interface-alias"] = types.YChild{"InterfaceAlias", nil}
+    interfaceAliases.EntityData.Children = types.NewOrderedMap()
+    interfaceAliases.EntityData.Children.Append("interface-alias", types.YChild{"InterfaceAlias", nil})
     for i := range interfaceAliases.InterfaceAlias {
-        interfaceAliases.EntityData.Children[types.GetSegmentPath(&interfaceAliases.InterfaceAlias[i])] = types.YChild{"InterfaceAlias", &interfaceAliases.InterfaceAlias[i]}
+        interfaceAliases.EntityData.Children.Append(types.GetSegmentPath(interfaceAliases.InterfaceAlias[i]), types.YChild{"InterfaceAlias", interfaceAliases.InterfaceAlias[i]})
     }
-    interfaceAliases.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceAliases.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceAliases.EntityData.YListKeys = []string {}
+
     return &(interfaceAliases.EntityData)
 }
 
@@ -3770,7 +4050,7 @@ type Snmp_InterfaceMib_InterfaceAliases_InterfaceAlias struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface ifAlias. The type is string.
@@ -3782,15 +4062,18 @@ func (interfaceAlias *Snmp_InterfaceMib_InterfaceAliases_InterfaceAlias) GetEnti
     interfaceAlias.EntityData.YangName = "interface-alias"
     interfaceAlias.EntityData.BundleName = "cisco_ios_xr"
     interfaceAlias.EntityData.ParentYangName = "interface-aliases"
-    interfaceAlias.EntityData.SegmentPath = "interface-alias" + "[interface-name='" + fmt.Sprintf("%v", interfaceAlias.InterfaceName) + "']"
+    interfaceAlias.EntityData.SegmentPath = "interface-alias" + types.AddKeyToken(interfaceAlias.InterfaceName, "interface-name")
     interfaceAlias.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAlias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAlias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceAlias.EntityData.Children = make(map[string]types.YChild)
-    interfaceAlias.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceAlias.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceAlias.InterfaceName}
-    interfaceAlias.EntityData.Leafs["if-alias"] = types.YLeaf{"IfAlias", interfaceAlias.IfAlias}
+    interfaceAlias.EntityData.Children = types.NewOrderedMap()
+    interfaceAlias.EntityData.Leafs = types.NewOrderedMap()
+    interfaceAlias.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceAlias.InterfaceName})
+    interfaceAlias.EntityData.Leafs.Append("if-alias", types.YLeaf{"IfAlias", interfaceAlias.IfAlias})
+
+    interfaceAlias.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(interfaceAlias.EntityData)
 }
 
@@ -3802,7 +4085,7 @@ type Snmp_InterfaceMib_NotificationInterfaces struct {
 
     // Notification for specific Interface Name. The type is slice of
     // Snmp_InterfaceMib_NotificationInterfaces_NotificationInterface.
-    NotificationInterface []Snmp_InterfaceMib_NotificationInterfaces_NotificationInterface
+    NotificationInterface []*Snmp_InterfaceMib_NotificationInterfaces_NotificationInterface
 }
 
 func (notificationInterfaces *Snmp_InterfaceMib_NotificationInterfaces) GetEntityData() *types.CommonEntityData {
@@ -3815,12 +4098,15 @@ func (notificationInterfaces *Snmp_InterfaceMib_NotificationInterfaces) GetEntit
     notificationInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     notificationInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    notificationInterfaces.EntityData.Children = make(map[string]types.YChild)
-    notificationInterfaces.EntityData.Children["notification-interface"] = types.YChild{"NotificationInterface", nil}
+    notificationInterfaces.EntityData.Children = types.NewOrderedMap()
+    notificationInterfaces.EntityData.Children.Append("notification-interface", types.YChild{"NotificationInterface", nil})
     for i := range notificationInterfaces.NotificationInterface {
-        notificationInterfaces.EntityData.Children[types.GetSegmentPath(&notificationInterfaces.NotificationInterface[i])] = types.YChild{"NotificationInterface", &notificationInterfaces.NotificationInterface[i]}
+        notificationInterfaces.EntityData.Children.Append(types.GetSegmentPath(notificationInterfaces.NotificationInterface[i]), types.YChild{"NotificationInterface", notificationInterfaces.NotificationInterface[i]})
     }
-    notificationInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    notificationInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    notificationInterfaces.EntityData.YListKeys = []string {}
+
     return &(notificationInterfaces.EntityData)
 }
 
@@ -3831,7 +4117,7 @@ type Snmp_InterfaceMib_NotificationInterfaces_NotificationInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // LinkUpDown notification status. The type is LinkUpDownStatus.
@@ -3843,15 +4129,18 @@ func (notificationInterface *Snmp_InterfaceMib_NotificationInterfaces_Notificati
     notificationInterface.EntityData.YangName = "notification-interface"
     notificationInterface.EntityData.BundleName = "cisco_ios_xr"
     notificationInterface.EntityData.ParentYangName = "notification-interfaces"
-    notificationInterface.EntityData.SegmentPath = "notification-interface" + "[interface-name='" + fmt.Sprintf("%v", notificationInterface.InterfaceName) + "']"
+    notificationInterface.EntityData.SegmentPath = "notification-interface" + types.AddKeyToken(notificationInterface.InterfaceName, "interface-name")
     notificationInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     notificationInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     notificationInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    notificationInterface.EntityData.Children = make(map[string]types.YChild)
-    notificationInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    notificationInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", notificationInterface.InterfaceName}
-    notificationInterface.EntityData.Leafs["link-up-down-notif-status"] = types.YLeaf{"LinkUpDownNotifStatus", notificationInterface.LinkUpDownNotifStatus}
+    notificationInterface.EntityData.Children = types.NewOrderedMap()
+    notificationInterface.EntityData.Leafs = types.NewOrderedMap()
+    notificationInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", notificationInterface.InterfaceName})
+    notificationInterface.EntityData.Leafs.Append("link-up-down-notif-status", types.YLeaf{"LinkUpDownNotifStatus", notificationInterface.LinkUpDownNotifStatus})
+
+    notificationInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(notificationInterface.EntityData)
 }
 
@@ -3863,7 +4152,7 @@ type Snmp_InterfaceMib_InterfaceStackStatuses struct {
 
     // ifstatus for a pair of Interface. The type is slice of
     // Snmp_InterfaceMib_InterfaceStackStatuses_InterfaceStackStatus.
-    InterfaceStackStatus []Snmp_InterfaceMib_InterfaceStackStatuses_InterfaceStackStatus
+    InterfaceStackStatus []*Snmp_InterfaceMib_InterfaceStackStatuses_InterfaceStackStatus
 }
 
 func (interfaceStackStatuses *Snmp_InterfaceMib_InterfaceStackStatuses) GetEntityData() *types.CommonEntityData {
@@ -3876,12 +4165,15 @@ func (interfaceStackStatuses *Snmp_InterfaceMib_InterfaceStackStatuses) GetEntit
     interfaceStackStatuses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStackStatuses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceStackStatuses.EntityData.Children = make(map[string]types.YChild)
-    interfaceStackStatuses.EntityData.Children["interface-stack-status"] = types.YChild{"InterfaceStackStatus", nil}
+    interfaceStackStatuses.EntityData.Children = types.NewOrderedMap()
+    interfaceStackStatuses.EntityData.Children.Append("interface-stack-status", types.YChild{"InterfaceStackStatus", nil})
     for i := range interfaceStackStatuses.InterfaceStackStatus {
-        interfaceStackStatuses.EntityData.Children[types.GetSegmentPath(&interfaceStackStatuses.InterfaceStackStatus[i])] = types.YChild{"InterfaceStackStatus", &interfaceStackStatuses.InterfaceStackStatus[i]}
+        interfaceStackStatuses.EntityData.Children.Append(types.GetSegmentPath(interfaceStackStatuses.InterfaceStackStatus[i]), types.YChild{"InterfaceStackStatus", interfaceStackStatuses.InterfaceStackStatus[i]})
     }
-    interfaceStackStatuses.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceStackStatuses.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceStackStatuses.EntityData.YListKeys = []string {}
+
     return &(interfaceStackStatuses.EntityData)
 }
 
@@ -3892,7 +4184,7 @@ type Snmp_InterfaceMib_InterfaceStackStatuses_InterfaceStackStatus struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. StackHigherLayer.StackLowerLayer. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InterfaceStackStatus interface{}
 
     // Higher Layer Index. The type is string.
@@ -3910,17 +4202,20 @@ func (interfaceStackStatus *Snmp_InterfaceMib_InterfaceStackStatuses_InterfaceSt
     interfaceStackStatus.EntityData.YangName = "interface-stack-status"
     interfaceStackStatus.EntityData.BundleName = "cisco_ios_xr"
     interfaceStackStatus.EntityData.ParentYangName = "interface-stack-statuses"
-    interfaceStackStatus.EntityData.SegmentPath = "interface-stack-status" + "[interface-stack-status='" + fmt.Sprintf("%v", interfaceStackStatus.InterfaceStackStatus) + "']"
+    interfaceStackStatus.EntityData.SegmentPath = "interface-stack-status" + types.AddKeyToken(interfaceStackStatus.InterfaceStackStatus, "interface-stack-status")
     interfaceStackStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStackStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStackStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceStackStatus.EntityData.Children = make(map[string]types.YChild)
-    interfaceStackStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceStackStatus.EntityData.Leafs["interface-stack-status"] = types.YLeaf{"InterfaceStackStatus", interfaceStackStatus.InterfaceStackStatus}
-    interfaceStackStatus.EntityData.Leafs["if-stack-higher-layer"] = types.YLeaf{"IfStackHigherLayer", interfaceStackStatus.IfStackHigherLayer}
-    interfaceStackStatus.EntityData.Leafs["if-stack-lower-layer"] = types.YLeaf{"IfStackLowerLayer", interfaceStackStatus.IfStackLowerLayer}
-    interfaceStackStatus.EntityData.Leafs["if-stack-status"] = types.YLeaf{"IfStackStatus", interfaceStackStatus.IfStackStatus}
+    interfaceStackStatus.EntityData.Children = types.NewOrderedMap()
+    interfaceStackStatus.EntityData.Leafs = types.NewOrderedMap()
+    interfaceStackStatus.EntityData.Leafs.Append("interface-stack-status", types.YLeaf{"InterfaceStackStatus", interfaceStackStatus.InterfaceStackStatus})
+    interfaceStackStatus.EntityData.Leafs.Append("if-stack-higher-layer", types.YLeaf{"IfStackHigherLayer", interfaceStackStatus.IfStackHigherLayer})
+    interfaceStackStatus.EntityData.Leafs.Append("if-stack-lower-layer", types.YLeaf{"IfStackLowerLayer", interfaceStackStatus.IfStackLowerLayer})
+    interfaceStackStatus.EntityData.Leafs.Append("if-stack-status", types.YLeaf{"IfStackStatus", interfaceStackStatus.IfStackStatus})
+
+    interfaceStackStatus.EntityData.YListKeys = []string {"InterfaceStackStatus"}
+
     return &(interfaceStackStatus.EntityData)
 }
 
@@ -3947,10 +4242,13 @@ func (sensorMib *Snmp_SensorMib) GetEntityData() *types.CommonEntityData {
     sensorMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensorMib.EntityData.Children = make(map[string]types.YChild)
-    sensorMib.EntityData.Children["physical-indexes"] = types.YChild{"PhysicalIndexes", &sensorMib.PhysicalIndexes}
-    sensorMib.EntityData.Children["ent-phy-indexes"] = types.YChild{"EntPhyIndexes", &sensorMib.EntPhyIndexes}
-    sensorMib.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorMib.EntityData.Children = types.NewOrderedMap()
+    sensorMib.EntityData.Children.Append("physical-indexes", types.YChild{"PhysicalIndexes", &sensorMib.PhysicalIndexes})
+    sensorMib.EntityData.Children.Append("ent-phy-indexes", types.YChild{"EntPhyIndexes", &sensorMib.EntPhyIndexes})
+    sensorMib.EntityData.Leafs = types.NewOrderedMap()
+
+    sensorMib.EntityData.YListKeys = []string {}
+
     return &(sensorMib.EntityData)
 }
 
@@ -3963,7 +4261,7 @@ type Snmp_SensorMib_PhysicalIndexes struct {
 
     // Threshold value for physical index. The type is slice of
     // Snmp_SensorMib_PhysicalIndexes_PhysicalIndex.
-    PhysicalIndex []Snmp_SensorMib_PhysicalIndexes_PhysicalIndex
+    PhysicalIndex []*Snmp_SensorMib_PhysicalIndexes_PhysicalIndex
 }
 
 func (physicalIndexes *Snmp_SensorMib_PhysicalIndexes) GetEntityData() *types.CommonEntityData {
@@ -3976,12 +4274,15 @@ func (physicalIndexes *Snmp_SensorMib_PhysicalIndexes) GetEntityData() *types.Co
     physicalIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     physicalIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    physicalIndexes.EntityData.Children = make(map[string]types.YChild)
-    physicalIndexes.EntityData.Children["physical-index"] = types.YChild{"PhysicalIndex", nil}
+    physicalIndexes.EntityData.Children = types.NewOrderedMap()
+    physicalIndexes.EntityData.Children.Append("physical-index", types.YChild{"PhysicalIndex", nil})
     for i := range physicalIndexes.PhysicalIndex {
-        physicalIndexes.EntityData.Children[types.GetSegmentPath(&physicalIndexes.PhysicalIndex[i])] = types.YChild{"PhysicalIndex", &physicalIndexes.PhysicalIndex[i]}
+        physicalIndexes.EntityData.Children.Append(types.GetSegmentPath(physicalIndexes.PhysicalIndex[i]), types.YChild{"PhysicalIndex", physicalIndexes.PhysicalIndex[i]})
     }
-    physicalIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    physicalIndexes.EntityData.Leafs = types.NewOrderedMap()
+
+    physicalIndexes.EntityData.YListKeys = []string {}
+
     return &(physicalIndexes.EntityData)
 }
 
@@ -3992,7 +4293,7 @@ type Snmp_SensorMib_PhysicalIndexes_PhysicalIndex struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Physical index. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Index interface{}
 
     // List of threshold index.
@@ -4004,15 +4305,18 @@ func (physicalIndex *Snmp_SensorMib_PhysicalIndexes_PhysicalIndex) GetEntityData
     physicalIndex.EntityData.YangName = "physical-index"
     physicalIndex.EntityData.BundleName = "cisco_ios_xr"
     physicalIndex.EntityData.ParentYangName = "physical-indexes"
-    physicalIndex.EntityData.SegmentPath = "physical-index" + "[index='" + fmt.Sprintf("%v", physicalIndex.Index) + "']"
+    physicalIndex.EntityData.SegmentPath = "physical-index" + types.AddKeyToken(physicalIndex.Index, "index")
     physicalIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     physicalIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     physicalIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    physicalIndex.EntityData.Children = make(map[string]types.YChild)
-    physicalIndex.EntityData.Children["threshold-indexes"] = types.YChild{"ThresholdIndexes", &physicalIndex.ThresholdIndexes}
-    physicalIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    physicalIndex.EntityData.Leafs["index"] = types.YLeaf{"Index", physicalIndex.Index}
+    physicalIndex.EntityData.Children = types.NewOrderedMap()
+    physicalIndex.EntityData.Children.Append("threshold-indexes", types.YChild{"ThresholdIndexes", &physicalIndex.ThresholdIndexes})
+    physicalIndex.EntityData.Leafs = types.NewOrderedMap()
+    physicalIndex.EntityData.Leafs.Append("index", types.YLeaf{"Index", physicalIndex.Index})
+
+    physicalIndex.EntityData.YListKeys = []string {"Index"}
+
     return &(physicalIndex.EntityData)
 }
 
@@ -4024,7 +4328,7 @@ type Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdIndexes struct {
 
     // Threshold value for threshold index. The type is slice of
     // Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdIndexes_ThresholdIndex.
-    ThresholdIndex []Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdIndexes_ThresholdIndex
+    ThresholdIndex []*Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdIndexes_ThresholdIndex
 }
 
 func (thresholdIndexes *Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdIndexes) GetEntityData() *types.CommonEntityData {
@@ -4037,12 +4341,15 @@ func (thresholdIndexes *Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdIn
     thresholdIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdIndexes.EntityData.Children = make(map[string]types.YChild)
-    thresholdIndexes.EntityData.Children["threshold-index"] = types.YChild{"ThresholdIndex", nil}
+    thresholdIndexes.EntityData.Children = types.NewOrderedMap()
+    thresholdIndexes.EntityData.Children.Append("threshold-index", types.YChild{"ThresholdIndex", nil})
     for i := range thresholdIndexes.ThresholdIndex {
-        thresholdIndexes.EntityData.Children[types.GetSegmentPath(&thresholdIndexes.ThresholdIndex[i])] = types.YChild{"ThresholdIndex", &thresholdIndexes.ThresholdIndex[i]}
+        thresholdIndexes.EntityData.Children.Append(types.GetSegmentPath(thresholdIndexes.ThresholdIndex[i]), types.YChild{"ThresholdIndex", thresholdIndexes.ThresholdIndex[i]})
     }
-    thresholdIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdIndexes.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdIndexes.EntityData.YListKeys = []string {}
+
     return &(thresholdIndexes.EntityData)
 }
 
@@ -4052,12 +4359,10 @@ type Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdIndexes_ThresholdInde
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Physical Index. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Physical Index. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PhyIndex interface{}
 
-    // Threshold index. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Threshold index. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ThreIndex interface{}
 
     // Indicates minor, major, critical severities. The type is interface{} with
@@ -4091,15 +4396,18 @@ func (thresholdIndex *Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdInde
     thresholdIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdIndex.EntityData.Children = make(map[string]types.YChild)
-    thresholdIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdIndex.EntityData.Leafs["phy-index"] = types.YLeaf{"PhyIndex", thresholdIndex.PhyIndex}
-    thresholdIndex.EntityData.Leafs["thre-index"] = types.YLeaf{"ThreIndex", thresholdIndex.ThreIndex}
-    thresholdIndex.EntityData.Leafs["threshold-severity"] = types.YLeaf{"ThresholdSeverity", thresholdIndex.ThresholdSeverity}
-    thresholdIndex.EntityData.Leafs["threshold-relation"] = types.YLeaf{"ThresholdRelation", thresholdIndex.ThresholdRelation}
-    thresholdIndex.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", thresholdIndex.ThresholdValue}
-    thresholdIndex.EntityData.Leafs["threshold-evaluation"] = types.YLeaf{"ThresholdEvaluation", thresholdIndex.ThresholdEvaluation}
-    thresholdIndex.EntityData.Leafs["threshold-notification-enabled"] = types.YLeaf{"ThresholdNotificationEnabled", thresholdIndex.ThresholdNotificationEnabled}
+    thresholdIndex.EntityData.Children = types.NewOrderedMap()
+    thresholdIndex.EntityData.Leafs = types.NewOrderedMap()
+    thresholdIndex.EntityData.Leafs.Append("phy-index", types.YLeaf{"PhyIndex", thresholdIndex.PhyIndex})
+    thresholdIndex.EntityData.Leafs.Append("thre-index", types.YLeaf{"ThreIndex", thresholdIndex.ThreIndex})
+    thresholdIndex.EntityData.Leafs.Append("threshold-severity", types.YLeaf{"ThresholdSeverity", thresholdIndex.ThresholdSeverity})
+    thresholdIndex.EntityData.Leafs.Append("threshold-relation", types.YLeaf{"ThresholdRelation", thresholdIndex.ThresholdRelation})
+    thresholdIndex.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", thresholdIndex.ThresholdValue})
+    thresholdIndex.EntityData.Leafs.Append("threshold-evaluation", types.YLeaf{"ThresholdEvaluation", thresholdIndex.ThresholdEvaluation})
+    thresholdIndex.EntityData.Leafs.Append("threshold-notification-enabled", types.YLeaf{"ThresholdNotificationEnabled", thresholdIndex.ThresholdNotificationEnabled})
+
+    thresholdIndex.EntityData.YListKeys = []string {}
+
     return &(thresholdIndex.EntityData)
 }
 
@@ -4111,7 +4419,7 @@ type Snmp_SensorMib_EntPhyIndexes struct {
 
     // Sensor value for physical index. The type is slice of
     // Snmp_SensorMib_EntPhyIndexes_EntPhyIndex.
-    EntPhyIndex []Snmp_SensorMib_EntPhyIndexes_EntPhyIndex
+    EntPhyIndex []*Snmp_SensorMib_EntPhyIndexes_EntPhyIndex
 }
 
 func (entPhyIndexes *Snmp_SensorMib_EntPhyIndexes) GetEntityData() *types.CommonEntityData {
@@ -4124,12 +4432,15 @@ func (entPhyIndexes *Snmp_SensorMib_EntPhyIndexes) GetEntityData() *types.Common
     entPhyIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entPhyIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entPhyIndexes.EntityData.Children = make(map[string]types.YChild)
-    entPhyIndexes.EntityData.Children["ent-phy-index"] = types.YChild{"EntPhyIndex", nil}
+    entPhyIndexes.EntityData.Children = types.NewOrderedMap()
+    entPhyIndexes.EntityData.Children.Append("ent-phy-index", types.YChild{"EntPhyIndex", nil})
     for i := range entPhyIndexes.EntPhyIndex {
-        entPhyIndexes.EntityData.Children[types.GetSegmentPath(&entPhyIndexes.EntPhyIndex[i])] = types.YChild{"EntPhyIndex", &entPhyIndexes.EntPhyIndex[i]}
+        entPhyIndexes.EntityData.Children.Append(types.GetSegmentPath(entPhyIndexes.EntPhyIndex[i]), types.YChild{"EntPhyIndex", entPhyIndexes.EntPhyIndex[i]})
     }
-    entPhyIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    entPhyIndexes.EntityData.Leafs = types.NewOrderedMap()
+
+    entPhyIndexes.EntityData.YListKeys = []string {}
+
     return &(entPhyIndexes.EntityData)
 }
 
@@ -4140,7 +4451,7 @@ type Snmp_SensorMib_EntPhyIndexes_EntPhyIndex struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Physical index. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Index interface{}
 
     // Sensor valid bitmap. The type is interface{} with range: 0..4294967295.
@@ -4195,27 +4506,30 @@ func (entPhyIndex *Snmp_SensorMib_EntPhyIndexes_EntPhyIndex) GetEntityData() *ty
     entPhyIndex.EntityData.YangName = "ent-phy-index"
     entPhyIndex.EntityData.BundleName = "cisco_ios_xr"
     entPhyIndex.EntityData.ParentYangName = "ent-phy-indexes"
-    entPhyIndex.EntityData.SegmentPath = "ent-phy-index" + "[index='" + fmt.Sprintf("%v", entPhyIndex.Index) + "']"
+    entPhyIndex.EntityData.SegmentPath = "ent-phy-index" + types.AddKeyToken(entPhyIndex.Index, "index")
     entPhyIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entPhyIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entPhyIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entPhyIndex.EntityData.Children = make(map[string]types.YChild)
-    entPhyIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    entPhyIndex.EntityData.Leafs["index"] = types.YLeaf{"Index", entPhyIndex.Index}
-    entPhyIndex.EntityData.Leafs["field-validity-bitmap"] = types.YLeaf{"FieldValidityBitmap", entPhyIndex.FieldValidityBitmap}
-    entPhyIndex.EntityData.Leafs["device-description"] = types.YLeaf{"DeviceDescription", entPhyIndex.DeviceDescription}
-    entPhyIndex.EntityData.Leafs["units"] = types.YLeaf{"Units", entPhyIndex.Units}
-    entPhyIndex.EntityData.Leafs["device-id"] = types.YLeaf{"DeviceId", entPhyIndex.DeviceId}
-    entPhyIndex.EntityData.Leafs["value"] = types.YLeaf{"Value", entPhyIndex.Value}
-    entPhyIndex.EntityData.Leafs["alarm-type"] = types.YLeaf{"AlarmType", entPhyIndex.AlarmType}
-    entPhyIndex.EntityData.Leafs["data-type"] = types.YLeaf{"DataType", entPhyIndex.DataType}
-    entPhyIndex.EntityData.Leafs["scale"] = types.YLeaf{"Scale", entPhyIndex.Scale}
-    entPhyIndex.EntityData.Leafs["precision"] = types.YLeaf{"Precision", entPhyIndex.Precision}
-    entPhyIndex.EntityData.Leafs["status"] = types.YLeaf{"Status", entPhyIndex.Status}
-    entPhyIndex.EntityData.Leafs["age-time-stamp"] = types.YLeaf{"AgeTimeStamp", entPhyIndex.AgeTimeStamp}
-    entPhyIndex.EntityData.Leafs["update-rate"] = types.YLeaf{"UpdateRate", entPhyIndex.UpdateRate}
-    entPhyIndex.EntityData.Leafs["measured-entity"] = types.YLeaf{"MeasuredEntity", entPhyIndex.MeasuredEntity}
+    entPhyIndex.EntityData.Children = types.NewOrderedMap()
+    entPhyIndex.EntityData.Leafs = types.NewOrderedMap()
+    entPhyIndex.EntityData.Leafs.Append("index", types.YLeaf{"Index", entPhyIndex.Index})
+    entPhyIndex.EntityData.Leafs.Append("field-validity-bitmap", types.YLeaf{"FieldValidityBitmap", entPhyIndex.FieldValidityBitmap})
+    entPhyIndex.EntityData.Leafs.Append("device-description", types.YLeaf{"DeviceDescription", entPhyIndex.DeviceDescription})
+    entPhyIndex.EntityData.Leafs.Append("units", types.YLeaf{"Units", entPhyIndex.Units})
+    entPhyIndex.EntityData.Leafs.Append("device-id", types.YLeaf{"DeviceId", entPhyIndex.DeviceId})
+    entPhyIndex.EntityData.Leafs.Append("value", types.YLeaf{"Value", entPhyIndex.Value})
+    entPhyIndex.EntityData.Leafs.Append("alarm-type", types.YLeaf{"AlarmType", entPhyIndex.AlarmType})
+    entPhyIndex.EntityData.Leafs.Append("data-type", types.YLeaf{"DataType", entPhyIndex.DataType})
+    entPhyIndex.EntityData.Leafs.Append("scale", types.YLeaf{"Scale", entPhyIndex.Scale})
+    entPhyIndex.EntityData.Leafs.Append("precision", types.YLeaf{"Precision", entPhyIndex.Precision})
+    entPhyIndex.EntityData.Leafs.Append("status", types.YLeaf{"Status", entPhyIndex.Status})
+    entPhyIndex.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", entPhyIndex.AgeTimeStamp})
+    entPhyIndex.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", entPhyIndex.UpdateRate})
+    entPhyIndex.EntityData.Leafs.Append("measured-entity", types.YLeaf{"MeasuredEntity", entPhyIndex.MeasuredEntity})
+
+    entPhyIndex.EntityData.YListKeys = []string {"Index"}
+
     return &(entPhyIndex.EntityData)
 }
 

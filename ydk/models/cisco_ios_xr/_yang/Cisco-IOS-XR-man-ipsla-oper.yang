@@ -47,67 +47,67 @@ module Cisco-IOS-XR-man-ipsla-oper {
   }
 
   typedef Ipsla-hour-index {
-    type int32;
+    type uint32;
     description
       "Ipsla hour index";
   }
 
   typedef Ipsla-operation-id {
-    type int32;
+    type uint32;
     description
       "Ipsla operation id";
   }
 
   typedef Ipsla-distribution-index {
-    type int32;
+    type uint32;
     description
       "Ipsla distribution index";
   }
 
   typedef Ipsla-bucket-index {
-    type int32;
+    type uint32;
     description
       "Ipsla bucket index";
   }
 
   typedef Ipsla-lsp-monitor-id {
-    type int32;
+    type uint32;
     description
       "Ipsla lsp monitor id";
   }
 
   typedef Ipsla-lpd-path-index {
-    type int32;
+    type uint32;
     description
       "Ipsla lpd path index";
   }
 
   typedef Ipsla-hop-index {
-    type int32;
+    type uint32;
     description
       "Ipsla hop index";
   }
 
   typedef Ipsla-life-index {
-    type int32;
+    type uint32;
     description
       "Ipsla life index";
   }
 
   typedef Ipsla-path-index {
-    type int32;
+    type uint32;
     description
       "Ipsla path index";
   }
 
   typedef Ipsla-sample-index {
-    type int32;
+    type uint32;
     description
       "Ipsla sample index";
   }
 
   typedef Ipsla-enhanced-interval {
-    type int32;
+    type uint32;
     description
       "Ipsla enhanced interval";
   }

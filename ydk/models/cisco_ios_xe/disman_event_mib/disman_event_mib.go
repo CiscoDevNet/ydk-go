@@ -78,42 +78,42 @@ type DISMANEVENTMIB struct {
     YFilter yfilter.YFilter
 
     
-    Mteresource DISMANEVENTMIB_Mteresource
+    MteResource DISMANEVENTMIB_MteResource
 
     
-    Mtetrigger DISMANEVENTMIB_Mtetrigger
+    MteTrigger DISMANEVENTMIB_MteTrigger
 
     
-    Mteevent DISMANEVENTMIB_Mteevent
+    MteEvent DISMANEVENTMIB_MteEvent
 
     // A table of management event trigger information.
-    Mtetriggertable DISMANEVENTMIB_Mtetriggertable
+    MteTriggerTable DISMANEVENTMIB_MteTriggerTable
 
     // A table of management event trigger information for delta sampling.
-    Mtetriggerdeltatable DISMANEVENTMIB_Mtetriggerdeltatable
+    MteTriggerDeltaTable DISMANEVENTMIB_MteTriggerDeltaTable
 
     // A table of management event trigger information for existence triggers.
-    Mtetriggerexistencetable DISMANEVENTMIB_Mtetriggerexistencetable
+    MteTriggerExistenceTable DISMANEVENTMIB_MteTriggerExistenceTable
 
     // A table of management event trigger information for boolean triggers.
-    Mtetriggerbooleantable DISMANEVENTMIB_Mtetriggerbooleantable
+    MteTriggerBooleanTable DISMANEVENTMIB_MteTriggerBooleanTable
 
     // A table of management event trigger information for threshold triggers.
-    Mtetriggerthresholdtable DISMANEVENTMIB_Mtetriggerthresholdtable
+    MteTriggerThresholdTable DISMANEVENTMIB_MteTriggerThresholdTable
 
     // A table of objects that can be added to notifications based on the trigger,
     // trigger test, or event, as pointed to by entries in those tables.
-    Mteobjectstable DISMANEVENTMIB_Mteobjectstable
+    MteObjectsTable DISMANEVENTMIB_MteObjectsTable
 
     // A table of management event action information.
-    Mteeventtable DISMANEVENTMIB_Mteeventtable
+    MteEventTable DISMANEVENTMIB_MteEventTable
 
     // A table of information about notifications to be sent as a consequence of
     // management events.
-    Mteeventnotificationtable DISMANEVENTMIB_Mteeventnotificationtable
+    MteEventNotificationTable DISMANEVENTMIB_MteEventNotificationTable
 
     // A table of management event action information.
-    Mteeventsettable DISMANEVENTMIB_Mteeventsettable
+    MteEventSetTable DISMANEVENTMIB_MteEventSetTable
 }
 
 func (dISMANEVENTMIB *DISMANEVENTMIB) GetEntityData() *types.CommonEntityData {
@@ -126,25 +126,28 @@ func (dISMANEVENTMIB *DISMANEVENTMIB) GetEntityData() *types.CommonEntityData {
     dISMANEVENTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dISMANEVENTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dISMANEVENTMIB.EntityData.Children = make(map[string]types.YChild)
-    dISMANEVENTMIB.EntityData.Children["mteResource"] = types.YChild{"Mteresource", &dISMANEVENTMIB.Mteresource}
-    dISMANEVENTMIB.EntityData.Children["mteTrigger"] = types.YChild{"Mtetrigger", &dISMANEVENTMIB.Mtetrigger}
-    dISMANEVENTMIB.EntityData.Children["mteEvent"] = types.YChild{"Mteevent", &dISMANEVENTMIB.Mteevent}
-    dISMANEVENTMIB.EntityData.Children["mteTriggerTable"] = types.YChild{"Mtetriggertable", &dISMANEVENTMIB.Mtetriggertable}
-    dISMANEVENTMIB.EntityData.Children["mteTriggerDeltaTable"] = types.YChild{"Mtetriggerdeltatable", &dISMANEVENTMIB.Mtetriggerdeltatable}
-    dISMANEVENTMIB.EntityData.Children["mteTriggerExistenceTable"] = types.YChild{"Mtetriggerexistencetable", &dISMANEVENTMIB.Mtetriggerexistencetable}
-    dISMANEVENTMIB.EntityData.Children["mteTriggerBooleanTable"] = types.YChild{"Mtetriggerbooleantable", &dISMANEVENTMIB.Mtetriggerbooleantable}
-    dISMANEVENTMIB.EntityData.Children["mteTriggerThresholdTable"] = types.YChild{"Mtetriggerthresholdtable", &dISMANEVENTMIB.Mtetriggerthresholdtable}
-    dISMANEVENTMIB.EntityData.Children["mteObjectsTable"] = types.YChild{"Mteobjectstable", &dISMANEVENTMIB.Mteobjectstable}
-    dISMANEVENTMIB.EntityData.Children["mteEventTable"] = types.YChild{"Mteeventtable", &dISMANEVENTMIB.Mteeventtable}
-    dISMANEVENTMIB.EntityData.Children["mteEventNotificationTable"] = types.YChild{"Mteeventnotificationtable", &dISMANEVENTMIB.Mteeventnotificationtable}
-    dISMANEVENTMIB.EntityData.Children["mteEventSetTable"] = types.YChild{"Mteeventsettable", &dISMANEVENTMIB.Mteeventsettable}
-    dISMANEVENTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    dISMANEVENTMIB.EntityData.Children = types.NewOrderedMap()
+    dISMANEVENTMIB.EntityData.Children.Append("mteResource", types.YChild{"MteResource", &dISMANEVENTMIB.MteResource})
+    dISMANEVENTMIB.EntityData.Children.Append("mteTrigger", types.YChild{"MteTrigger", &dISMANEVENTMIB.MteTrigger})
+    dISMANEVENTMIB.EntityData.Children.Append("mteEvent", types.YChild{"MteEvent", &dISMANEVENTMIB.MteEvent})
+    dISMANEVENTMIB.EntityData.Children.Append("mteTriggerTable", types.YChild{"MteTriggerTable", &dISMANEVENTMIB.MteTriggerTable})
+    dISMANEVENTMIB.EntityData.Children.Append("mteTriggerDeltaTable", types.YChild{"MteTriggerDeltaTable", &dISMANEVENTMIB.MteTriggerDeltaTable})
+    dISMANEVENTMIB.EntityData.Children.Append("mteTriggerExistenceTable", types.YChild{"MteTriggerExistenceTable", &dISMANEVENTMIB.MteTriggerExistenceTable})
+    dISMANEVENTMIB.EntityData.Children.Append("mteTriggerBooleanTable", types.YChild{"MteTriggerBooleanTable", &dISMANEVENTMIB.MteTriggerBooleanTable})
+    dISMANEVENTMIB.EntityData.Children.Append("mteTriggerThresholdTable", types.YChild{"MteTriggerThresholdTable", &dISMANEVENTMIB.MteTriggerThresholdTable})
+    dISMANEVENTMIB.EntityData.Children.Append("mteObjectsTable", types.YChild{"MteObjectsTable", &dISMANEVENTMIB.MteObjectsTable})
+    dISMANEVENTMIB.EntityData.Children.Append("mteEventTable", types.YChild{"MteEventTable", &dISMANEVENTMIB.MteEventTable})
+    dISMANEVENTMIB.EntityData.Children.Append("mteEventNotificationTable", types.YChild{"MteEventNotificationTable", &dISMANEVENTMIB.MteEventNotificationTable})
+    dISMANEVENTMIB.EntityData.Children.Append("mteEventSetTable", types.YChild{"MteEventSetTable", &dISMANEVENTMIB.MteEventSetTable})
+    dISMANEVENTMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    dISMANEVENTMIB.EntityData.YListKeys = []string {}
+
     return &(dISMANEVENTMIB.EntityData)
 }
 
-// DISMANEVENTMIB_Mteresource
-type DISMANEVENTMIB_Mteresource struct {
+// DISMANEVENTMIB_MteResource
+type DISMANEVENTMIB_MteResource struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -157,7 +160,7 @@ type DISMANEVENTMIB_Mteresource struct {
     // small as a 1 second interval for ongoing trigger sampling.  Changing this
     // value will not invalidate an existing setting of mteTriggerFrequency. The
     // type is interface{} with range: 1..2147483647. Units are seconds.
-    Mteresourcesampleminimum interface{}
+    MteResourceSampleMinimum interface{}
 
     // The maximum number of instance entries this system will support for
     // sampling.  These are the entries that maintain state, one for each instance
@@ -169,47 +172,50 @@ type DISMANEVENTMIB_Mteresource struct {
     // or inhibit existing sample state but could prevent allocation of additional
     // state information. The type is interface{} with range: 0..4294967295. Units
     // are instances.
-    Mteresourcesampleinstancemaximum interface{}
+    MteResourceSampleInstanceMaximum interface{}
 
     // The number of currently active instance entries as defined for
     // mteResourceSampleInstanceMaximum. The type is interface{} with range:
     // 0..4294967295. Units are instances.
-    Mteresourcesampleinstances interface{}
+    MteResourceSampleInstances interface{}
 
     // The highest value of mteResourceSampleInstances that has occurred since
     // initialization of the management system. The type is interface{} with
     // range: 0..4294967295. Units are instances.
-    Mteresourcesampleinstanceshigh interface{}
+    MteResourceSampleInstancesHigh interface{}
 
     // The number of times this system could not take a new sample because that
     // allocation would have exceeded the limit set by
     // mteResourceSampleInstanceMaximum. The type is interface{} with range:
     // 0..4294967295. Units are instances.
-    Mteresourcesampleinstancelacks interface{}
+    MteResourceSampleInstanceLacks interface{}
 }
 
-func (mteresource *DISMANEVENTMIB_Mteresource) GetEntityData() *types.CommonEntityData {
-    mteresource.EntityData.YFilter = mteresource.YFilter
-    mteresource.EntityData.YangName = "mteResource"
-    mteresource.EntityData.BundleName = "cisco_ios_xe"
-    mteresource.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mteresource.EntityData.SegmentPath = "mteResource"
-    mteresource.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteresource.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteresource.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteResource *DISMANEVENTMIB_MteResource) GetEntityData() *types.CommonEntityData {
+    mteResource.EntityData.YFilter = mteResource.YFilter
+    mteResource.EntityData.YangName = "mteResource"
+    mteResource.EntityData.BundleName = "cisco_ios_xe"
+    mteResource.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteResource.EntityData.SegmentPath = "mteResource"
+    mteResource.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteResource.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteResource.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteresource.EntityData.Children = make(map[string]types.YChild)
-    mteresource.EntityData.Leafs = make(map[string]types.YLeaf)
-    mteresource.EntityData.Leafs["mteResourceSampleMinimum"] = types.YLeaf{"Mteresourcesampleminimum", mteresource.Mteresourcesampleminimum}
-    mteresource.EntityData.Leafs["mteResourceSampleInstanceMaximum"] = types.YLeaf{"Mteresourcesampleinstancemaximum", mteresource.Mteresourcesampleinstancemaximum}
-    mteresource.EntityData.Leafs["mteResourceSampleInstances"] = types.YLeaf{"Mteresourcesampleinstances", mteresource.Mteresourcesampleinstances}
-    mteresource.EntityData.Leafs["mteResourceSampleInstancesHigh"] = types.YLeaf{"Mteresourcesampleinstanceshigh", mteresource.Mteresourcesampleinstanceshigh}
-    mteresource.EntityData.Leafs["mteResourceSampleInstanceLacks"] = types.YLeaf{"Mteresourcesampleinstancelacks", mteresource.Mteresourcesampleinstancelacks}
-    return &(mteresource.EntityData)
+    mteResource.EntityData.Children = types.NewOrderedMap()
+    mteResource.EntityData.Leafs = types.NewOrderedMap()
+    mteResource.EntityData.Leafs.Append("mteResourceSampleMinimum", types.YLeaf{"MteResourceSampleMinimum", mteResource.MteResourceSampleMinimum})
+    mteResource.EntityData.Leafs.Append("mteResourceSampleInstanceMaximum", types.YLeaf{"MteResourceSampleInstanceMaximum", mteResource.MteResourceSampleInstanceMaximum})
+    mteResource.EntityData.Leafs.Append("mteResourceSampleInstances", types.YLeaf{"MteResourceSampleInstances", mteResource.MteResourceSampleInstances})
+    mteResource.EntityData.Leafs.Append("mteResourceSampleInstancesHigh", types.YLeaf{"MteResourceSampleInstancesHigh", mteResource.MteResourceSampleInstancesHigh})
+    mteResource.EntityData.Leafs.Append("mteResourceSampleInstanceLacks", types.YLeaf{"MteResourceSampleInstanceLacks", mteResource.MteResourceSampleInstanceLacks})
+
+    mteResource.EntityData.YListKeys = []string {}
+
+    return &(mteResource.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetrigger
-type DISMANEVENTMIB_Mtetrigger struct {
+// DISMANEVENTMIB_MteTrigger
+type DISMANEVENTMIB_MteTrigger struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -217,27 +223,30 @@ type DISMANEVENTMIB_Mtetrigger struct {
     // This counts individually for each attempt in a group of targets or each
     // attempt for a  wildcarded object. The type is interface{} with range:
     // 0..4294967295. Units are failures.
-    Mtetriggerfailures interface{}
+    MteTriggerFailures interface{}
 }
 
-func (mtetrigger *DISMANEVENTMIB_Mtetrigger) GetEntityData() *types.CommonEntityData {
-    mtetrigger.EntityData.YFilter = mtetrigger.YFilter
-    mtetrigger.EntityData.YangName = "mteTrigger"
-    mtetrigger.EntityData.BundleName = "cisco_ios_xe"
-    mtetrigger.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mtetrigger.EntityData.SegmentPath = "mteTrigger"
-    mtetrigger.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetrigger.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetrigger.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTrigger *DISMANEVENTMIB_MteTrigger) GetEntityData() *types.CommonEntityData {
+    mteTrigger.EntityData.YFilter = mteTrigger.YFilter
+    mteTrigger.EntityData.YangName = "mteTrigger"
+    mteTrigger.EntityData.BundleName = "cisco_ios_xe"
+    mteTrigger.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteTrigger.EntityData.SegmentPath = "mteTrigger"
+    mteTrigger.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTrigger.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetrigger.EntityData.Children = make(map[string]types.YChild)
-    mtetrigger.EntityData.Leafs = make(map[string]types.YLeaf)
-    mtetrigger.EntityData.Leafs["mteTriggerFailures"] = types.YLeaf{"Mtetriggerfailures", mtetrigger.Mtetriggerfailures}
-    return &(mtetrigger.EntityData)
+    mteTrigger.EntityData.Children = types.NewOrderedMap()
+    mteTrigger.EntityData.Leafs = types.NewOrderedMap()
+    mteTrigger.EntityData.Leafs.Append("mteTriggerFailures", types.YLeaf{"MteTriggerFailures", mteTrigger.MteTriggerFailures})
+
+    mteTrigger.EntityData.YListKeys = []string {}
+
+    return &(mteTrigger.EntityData)
 }
 
-// DISMANEVENTMIB_Mteevent
-type DISMANEVENTMIB_Mteevent struct {
+// DISMANEVENTMIB_MteEvent
+type DISMANEVENTMIB_MteEvent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -245,75 +254,81 @@ type DISMANEVENTMIB_Mteevent struct {
     // individually for each attempt in a group of targets or each attempt for a
     // wildcarded trigger object. The type is interface{} with range:
     // 0..4294967295.
-    Mteeventfailures interface{}
+    MteEventFailures interface{}
 }
 
-func (mteevent *DISMANEVENTMIB_Mteevent) GetEntityData() *types.CommonEntityData {
-    mteevent.EntityData.YFilter = mteevent.YFilter
-    mteevent.EntityData.YangName = "mteEvent"
-    mteevent.EntityData.BundleName = "cisco_ios_xe"
-    mteevent.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mteevent.EntityData.SegmentPath = "mteEvent"
-    mteevent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteevent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteevent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteEvent *DISMANEVENTMIB_MteEvent) GetEntityData() *types.CommonEntityData {
+    mteEvent.EntityData.YFilter = mteEvent.YFilter
+    mteEvent.EntityData.YangName = "mteEvent"
+    mteEvent.EntityData.BundleName = "cisco_ios_xe"
+    mteEvent.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteEvent.EntityData.SegmentPath = "mteEvent"
+    mteEvent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteEvent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteEvent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteevent.EntityData.Children = make(map[string]types.YChild)
-    mteevent.EntityData.Leafs = make(map[string]types.YLeaf)
-    mteevent.EntityData.Leafs["mteEventFailures"] = types.YLeaf{"Mteeventfailures", mteevent.Mteeventfailures}
-    return &(mteevent.EntityData)
+    mteEvent.EntityData.Children = types.NewOrderedMap()
+    mteEvent.EntityData.Leafs = types.NewOrderedMap()
+    mteEvent.EntityData.Leafs.Append("mteEventFailures", types.YLeaf{"MteEventFailures", mteEvent.MteEventFailures})
+
+    mteEvent.EntityData.YListKeys = []string {}
+
+    return &(mteEvent.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggertable
+// DISMANEVENTMIB_MteTriggerTable
 // A table of management event trigger information.
-type DISMANEVENTMIB_Mtetriggertable struct {
+type DISMANEVENTMIB_MteTriggerTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single trigger.  Applications create and delete entries
     // using mteTriggerEntryStatus. The type is slice of
-    // DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry.
-    Mtetriggerentry []DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry
+    // DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry.
+    MteTriggerEntry []*DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry
 }
 
-func (mtetriggertable *DISMANEVENTMIB_Mtetriggertable) GetEntityData() *types.CommonEntityData {
-    mtetriggertable.EntityData.YFilter = mtetriggertable.YFilter
-    mtetriggertable.EntityData.YangName = "mteTriggerTable"
-    mtetriggertable.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggertable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mtetriggertable.EntityData.SegmentPath = "mteTriggerTable"
-    mtetriggertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerTable *DISMANEVENTMIB_MteTriggerTable) GetEntityData() *types.CommonEntityData {
+    mteTriggerTable.EntityData.YFilter = mteTriggerTable.YFilter
+    mteTriggerTable.EntityData.YangName = "mteTriggerTable"
+    mteTriggerTable.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteTriggerTable.EntityData.SegmentPath = "mteTriggerTable"
+    mteTriggerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggertable.EntityData.Children = make(map[string]types.YChild)
-    mtetriggertable.EntityData.Children["mteTriggerEntry"] = types.YChild{"Mtetriggerentry", nil}
-    for i := range mtetriggertable.Mtetriggerentry {
-        mtetriggertable.EntityData.Children[types.GetSegmentPath(&mtetriggertable.Mtetriggerentry[i])] = types.YChild{"Mtetriggerentry", &mtetriggertable.Mtetriggerentry[i]}
+    mteTriggerTable.EntityData.Children = types.NewOrderedMap()
+    mteTriggerTable.EntityData.Children.Append("mteTriggerEntry", types.YChild{"MteTriggerEntry", nil})
+    for i := range mteTriggerTable.MteTriggerEntry {
+        mteTriggerTable.EntityData.Children.Append(types.GetSegmentPath(mteTriggerTable.MteTriggerEntry[i]), types.YChild{"MteTriggerEntry", mteTriggerTable.MteTriggerEntry[i]})
     }
-    mtetriggertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mtetriggertable.EntityData)
+    mteTriggerTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteTriggerTable.EntityData.YListKeys = []string {}
+
+    return &(mteTriggerTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry
+// DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry
 // Information about a single trigger.  Applications create and
 // delete entries using mteTriggerEntryStatus.
-type DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry struct {
+type DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The owner of this entry. The exact semantics of
     // this string are subject to the security policy defined by the security
     // administrator. The type is string with length: 0..32.
-    Mteowner interface{}
+    MteOwner interface{}
 
     // This attribute is a key. A locally-unique, administratively assigned name
     // for the trigger within the scope of mteOwner. The type is string with
     // length: 1..32.
-    Mtetriggername interface{}
+    MteTriggerName interface{}
 
     // A description of the trigger's function and use. The type is string.
-    Mtetriggercomment interface{}
+    MteTriggerComment interface{}
 
     // The type of trigger test to perform.  For 'boolean' and 'threshold'  tests,
     // the object at mteTriggerValueID MUST evaluate to an integer, that is,
@@ -332,7 +347,7 @@ type DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry struct {
     // mteTriggerThresholdFalling.  Note that combining 'boolean' and 'threshold'
     // tests on the same object may be somewhat redundant. The type is
     // map[string]bool.
-    Mtetriggertest interface{}
+    MteTriggerTest interface{}
 
     // The type of sampling to perform.  An 'absoluteValue' sample requires only a
     // single sample to be meaningful, and is exactly the value of the object at
@@ -344,8 +359,8 @@ type DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry struct {
     // can be positive or negative.  For SNMP counters to be meaningful they
     // should be sampled as a 'deltaValue'.  For 'deltaValue' mteTriggerDeltaTable
     // contains further parameters.  If only 'existence' is set in mteTriggerTest
-    // this object has no meaning. The type is Mtetriggersampletype.
-    Mtetriggersampletype interface{}
+    // this object has no meaning. The type is MteTriggerSampleType.
+    MteTriggerSampleType interface{}
 
     // The object identifier of the MIB object to sample to see if the trigger
     // should fire.  This may be wildcarded by truncating all or part of the
@@ -364,12 +379,12 @@ type DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry struct {
     // wildcarded objects operate as if there were a separate table entry for each
     // instance that fills the wildcard without having to actually predict all
     // possible instances ahead of time. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Mtetriggervalueid interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    MteTriggerValueID interface{}
 
     // Control for whether mteTriggerValueID is to be treated as fully-specified
     // or wildcarded, with 'true' indicating wildcard. The type is bool.
-    Mtetriggervalueidwildcard interface{}
+    MteTriggerValueIDWildcard interface{}
 
     // The tag for the target(s) from which to obtain the condition for a trigger
     // check.  A length of 0 indicates the local system.  In this case, access to
@@ -379,7 +394,7 @@ type DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry struct {
     // Architecture for Describing SNMP Management Frameworks.  Otherwise access
     // rights are checked according to the security  parameters resulting from the
     // tag. The type is string.
-    Mtetriggertargettag interface{}
+    MteTriggerTargetTag interface{}
 
     // The management context from which to obtain mteTriggerValueID.  This may be
     // wildcarded by leaving characters off the end.  For example use 'Repeater'
@@ -395,12 +410,12 @@ type DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry struct {
     // contexts. For a remote system a local version of such a list is not defined
     // by any current standard and may not be available, so this function MAY not
     // be supported. The type is string.
-    Mtetriggercontextname interface{}
+    MteTriggerContextName interface{}
 
     // Control for whether mteTriggerContextName is to be treated as
     // fully-specified or wildcarded, with 'true' indicating wildcard. The type is
     // bool.
-    Mtetriggercontextnamewildcard interface{}
+    MteTriggerContextNameWildcard interface{}
 
     // The number of seconds to wait between trigger samples.  To encourage
     // consistency in sampling, the interval is measured from the beginning of one
@@ -418,115 +433,121 @@ type DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry struct {
     // can be used.  In cases where it can not, setting this object to 0 should be
     // disallowed. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Mtetriggerfrequency interface{}
+    MteTriggerFrequency interface{}
 
     // To go with mteTriggerObjects, the mteOwner of a group of objects from
     // mteObjectsTable. The type is string with length: 0..32.
-    Mtetriggerobjectsowner interface{}
+    MteTriggerObjectsOwner interface{}
 
     // The mteObjectsName of a group of objects from mteObjectsTable.  These
     // objects are to be added to any Notification resulting from the firing of
     // this trigger.  A list of objects may also be added based on the event or on
     // the value of mteTriggerTest.  A length of 0 indicates no additional
     // objects. The type is string with length: 0..32.
-    Mtetriggerobjects interface{}
+    MteTriggerObjects interface{}
 
     // A control to allow a trigger to be configured but not used. When the value
     // is 'false' the trigger is not sampled. The type is bool.
-    Mtetriggerenabled interface{}
+    MteTriggerEnabled interface{}
 
     // The control that allows creation and deletion of entries. Once made active
     // an entry may not be modified except to delete it. The type is RowStatus.
-    Mtetriggerentrystatus interface{}
+    MteTriggerEntryStatus interface{}
 }
 
-func (mtetriggerentry *DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry) GetEntityData() *types.CommonEntityData {
-    mtetriggerentry.EntityData.YFilter = mtetriggerentry.YFilter
-    mtetriggerentry.EntityData.YangName = "mteTriggerEntry"
-    mtetriggerentry.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerentry.EntityData.ParentYangName = "mteTriggerTable"
-    mtetriggerentry.EntityData.SegmentPath = "mteTriggerEntry" + "[mteOwner='" + fmt.Sprintf("%v", mtetriggerentry.Mteowner) + "']" + "[mteTriggerName='" + fmt.Sprintf("%v", mtetriggerentry.Mtetriggername) + "']"
-    mtetriggerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerEntry *DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry) GetEntityData() *types.CommonEntityData {
+    mteTriggerEntry.EntityData.YFilter = mteTriggerEntry.YFilter
+    mteTriggerEntry.EntityData.YangName = "mteTriggerEntry"
+    mteTriggerEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerEntry.EntityData.ParentYangName = "mteTriggerTable"
+    mteTriggerEntry.EntityData.SegmentPath = "mteTriggerEntry" + types.AddKeyToken(mteTriggerEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerentry.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mtetriggerentry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mtetriggerentry.Mteowner}
-    mtetriggerentry.EntityData.Leafs["mteTriggerName"] = types.YLeaf{"Mtetriggername", mtetriggerentry.Mtetriggername}
-    mtetriggerentry.EntityData.Leafs["mteTriggerComment"] = types.YLeaf{"Mtetriggercomment", mtetriggerentry.Mtetriggercomment}
-    mtetriggerentry.EntityData.Leafs["mteTriggerTest"] = types.YLeaf{"Mtetriggertest", mtetriggerentry.Mtetriggertest}
-    mtetriggerentry.EntityData.Leafs["mteTriggerSampleType"] = types.YLeaf{"Mtetriggersampletype", mtetriggerentry.Mtetriggersampletype}
-    mtetriggerentry.EntityData.Leafs["mteTriggerValueID"] = types.YLeaf{"Mtetriggervalueid", mtetriggerentry.Mtetriggervalueid}
-    mtetriggerentry.EntityData.Leafs["mteTriggerValueIDWildcard"] = types.YLeaf{"Mtetriggervalueidwildcard", mtetriggerentry.Mtetriggervalueidwildcard}
-    mtetriggerentry.EntityData.Leafs["mteTriggerTargetTag"] = types.YLeaf{"Mtetriggertargettag", mtetriggerentry.Mtetriggertargettag}
-    mtetriggerentry.EntityData.Leafs["mteTriggerContextName"] = types.YLeaf{"Mtetriggercontextname", mtetriggerentry.Mtetriggercontextname}
-    mtetriggerentry.EntityData.Leafs["mteTriggerContextNameWildcard"] = types.YLeaf{"Mtetriggercontextnamewildcard", mtetriggerentry.Mtetriggercontextnamewildcard}
-    mtetriggerentry.EntityData.Leafs["mteTriggerFrequency"] = types.YLeaf{"Mtetriggerfrequency", mtetriggerentry.Mtetriggerfrequency}
-    mtetriggerentry.EntityData.Leafs["mteTriggerObjectsOwner"] = types.YLeaf{"Mtetriggerobjectsowner", mtetriggerentry.Mtetriggerobjectsowner}
-    mtetriggerentry.EntityData.Leafs["mteTriggerObjects"] = types.YLeaf{"Mtetriggerobjects", mtetriggerentry.Mtetriggerobjects}
-    mtetriggerentry.EntityData.Leafs["mteTriggerEnabled"] = types.YLeaf{"Mtetriggerenabled", mtetriggerentry.Mtetriggerenabled}
-    mtetriggerentry.EntityData.Leafs["mteTriggerEntryStatus"] = types.YLeaf{"Mtetriggerentrystatus", mtetriggerentry.Mtetriggerentrystatus}
-    return &(mtetriggerentry.EntityData)
+    mteTriggerEntry.EntityData.Children = types.NewOrderedMap()
+    mteTriggerEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteTriggerEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteTriggerEntry.MteOwner})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerName", types.YLeaf{"MteTriggerName", mteTriggerEntry.MteTriggerName})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerComment", types.YLeaf{"MteTriggerComment", mteTriggerEntry.MteTriggerComment})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerTest", types.YLeaf{"MteTriggerTest", mteTriggerEntry.MteTriggerTest})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerSampleType", types.YLeaf{"MteTriggerSampleType", mteTriggerEntry.MteTriggerSampleType})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerValueID", types.YLeaf{"MteTriggerValueID", mteTriggerEntry.MteTriggerValueID})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerValueIDWildcard", types.YLeaf{"MteTriggerValueIDWildcard", mteTriggerEntry.MteTriggerValueIDWildcard})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerTargetTag", types.YLeaf{"MteTriggerTargetTag", mteTriggerEntry.MteTriggerTargetTag})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerContextName", types.YLeaf{"MteTriggerContextName", mteTriggerEntry.MteTriggerContextName})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerContextNameWildcard", types.YLeaf{"MteTriggerContextNameWildcard", mteTriggerEntry.MteTriggerContextNameWildcard})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerFrequency", types.YLeaf{"MteTriggerFrequency", mteTriggerEntry.MteTriggerFrequency})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerObjectsOwner", types.YLeaf{"MteTriggerObjectsOwner", mteTriggerEntry.MteTriggerObjectsOwner})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerObjects", types.YLeaf{"MteTriggerObjects", mteTriggerEntry.MteTriggerObjects})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerEnabled", types.YLeaf{"MteTriggerEnabled", mteTriggerEntry.MteTriggerEnabled})
+    mteTriggerEntry.EntityData.Leafs.Append("mteTriggerEntryStatus", types.YLeaf{"MteTriggerEntryStatus", mteTriggerEntry.MteTriggerEntryStatus})
+
+    mteTriggerEntry.EntityData.YListKeys = []string {"MteOwner", "MteTriggerName"}
+
+    return &(mteTriggerEntry.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggersampletype represents no meaning.
-type DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggersampletype string
+// DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerSampleType represents no meaning.
+type DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerSampleType string
 
 const (
-    DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggersampletype_absoluteValue DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggersampletype = "absoluteValue"
+    DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerSampleType_absoluteValue DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerSampleType = "absoluteValue"
 
-    DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggersampletype_deltaValue DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggersampletype = "deltaValue"
+    DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerSampleType_deltaValue DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerSampleType = "deltaValue"
 )
 
-// DISMANEVENTMIB_Mtetriggerdeltatable
+// DISMANEVENTMIB_MteTriggerDeltaTable
 // A table of management event trigger information for delta
 // sampling.
-type DISMANEVENTMIB_Mtetriggerdeltatable struct {
+type DISMANEVENTMIB_MteTriggerDeltaTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single trigger's delta sampling.  Entries automatically
     // exist in this this table for each mteTriggerEntry that has
     // mteTriggerSampleType set to 'deltaValue'. The type is slice of
-    // DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry.
-    Mtetriggerdeltaentry []DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry
+    // DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry.
+    MteTriggerDeltaEntry []*DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry
 }
 
-func (mtetriggerdeltatable *DISMANEVENTMIB_Mtetriggerdeltatable) GetEntityData() *types.CommonEntityData {
-    mtetriggerdeltatable.EntityData.YFilter = mtetriggerdeltatable.YFilter
-    mtetriggerdeltatable.EntityData.YangName = "mteTriggerDeltaTable"
-    mtetriggerdeltatable.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerdeltatable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mtetriggerdeltatable.EntityData.SegmentPath = "mteTriggerDeltaTable"
-    mtetriggerdeltatable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerdeltatable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerdeltatable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerDeltaTable *DISMANEVENTMIB_MteTriggerDeltaTable) GetEntityData() *types.CommonEntityData {
+    mteTriggerDeltaTable.EntityData.YFilter = mteTriggerDeltaTable.YFilter
+    mteTriggerDeltaTable.EntityData.YangName = "mteTriggerDeltaTable"
+    mteTriggerDeltaTable.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerDeltaTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteTriggerDeltaTable.EntityData.SegmentPath = "mteTriggerDeltaTable"
+    mteTriggerDeltaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerDeltaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerDeltaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerdeltatable.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerdeltatable.EntityData.Children["mteTriggerDeltaEntry"] = types.YChild{"Mtetriggerdeltaentry", nil}
-    for i := range mtetriggerdeltatable.Mtetriggerdeltaentry {
-        mtetriggerdeltatable.EntityData.Children[types.GetSegmentPath(&mtetriggerdeltatable.Mtetriggerdeltaentry[i])] = types.YChild{"Mtetriggerdeltaentry", &mtetriggerdeltatable.Mtetriggerdeltaentry[i]}
+    mteTriggerDeltaTable.EntityData.Children = types.NewOrderedMap()
+    mteTriggerDeltaTable.EntityData.Children.Append("mteTriggerDeltaEntry", types.YChild{"MteTriggerDeltaEntry", nil})
+    for i := range mteTriggerDeltaTable.MteTriggerDeltaEntry {
+        mteTriggerDeltaTable.EntityData.Children.Append(types.GetSegmentPath(mteTriggerDeltaTable.MteTriggerDeltaEntry[i]), types.YChild{"MteTriggerDeltaEntry", mteTriggerDeltaTable.MteTriggerDeltaEntry[i]})
     }
-    mtetriggerdeltatable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mtetriggerdeltatable.EntityData)
+    mteTriggerDeltaTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteTriggerDeltaTable.EntityData.YListKeys = []string {}
+
+    return &(mteTriggerDeltaTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry
+// DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry
 // Information about a single trigger's delta sampling.  Entries
 // automatically exist in this this table for each mteTriggerEntry
 // that has mteTriggerSampleType set to 'deltaValue'.
-type DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry struct {
+type DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mteowner
-    Mteowner interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
+    MteOwner interface{}
 
     // This attribute is a key. The type is string with length: 1..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggername
-    Mtetriggername interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerName
+    MteTriggerName interface{}
 
     // The OBJECT IDENTIFIER (OID) of a TimeTicks, TimeStamp, or DateAndTime
     // object that indicates a discontinuity in the value at mteTriggerValueID. 
@@ -542,102 +563,108 @@ type DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry struct {
     // will fail or get the wrong object.  If the value syntax of those objects is
     // not usable, that results in an error that terminates the sample with a
     // 'badType' error code. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Mtetriggerdeltadiscontinuityid interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    MteTriggerDeltaDiscontinuityID interface{}
 
     // Control for whether mteTriggerDeltaDiscontinuityID is to be treated as
     // fully-specified or wildcarded, with 'true' indicating wildcard. Note that
     // the value of this object will be the same as that of the corresponding
     // instance of mteTriggerValueIDWildcard when the corresponding 
     // mteTriggerSampleType is 'deltaValue'. The type is bool.
-    Mtetriggerdeltadiscontinuityidwildcard interface{}
+    MteTriggerDeltaDiscontinuityIDWildcard interface{}
 
     // The value 'timeTicks' indicates the mteTriggerDeltaDiscontinuityID of this
     // row is of syntax TimeTicks.  The value 'timeStamp' indicates syntax
     // TimeStamp. The value 'dateAndTime' indicates syntax DateAndTime. The type
-    // is Mtetriggerdeltadiscontinuityidtype.
-    Mtetriggerdeltadiscontinuityidtype interface{}
+    // is MteTriggerDeltaDiscontinuityIDType.
+    MteTriggerDeltaDiscontinuityIDType interface{}
 }
 
-func (mtetriggerdeltaentry *DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry) GetEntityData() *types.CommonEntityData {
-    mtetriggerdeltaentry.EntityData.YFilter = mtetriggerdeltaentry.YFilter
-    mtetriggerdeltaentry.EntityData.YangName = "mteTriggerDeltaEntry"
-    mtetriggerdeltaentry.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerdeltaentry.EntityData.ParentYangName = "mteTriggerDeltaTable"
-    mtetriggerdeltaentry.EntityData.SegmentPath = "mteTriggerDeltaEntry" + "[mteOwner='" + fmt.Sprintf("%v", mtetriggerdeltaentry.Mteowner) + "']" + "[mteTriggerName='" + fmt.Sprintf("%v", mtetriggerdeltaentry.Mtetriggername) + "']"
-    mtetriggerdeltaentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerdeltaentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerdeltaentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerDeltaEntry *DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry) GetEntityData() *types.CommonEntityData {
+    mteTriggerDeltaEntry.EntityData.YFilter = mteTriggerDeltaEntry.YFilter
+    mteTriggerDeltaEntry.EntityData.YangName = "mteTriggerDeltaEntry"
+    mteTriggerDeltaEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerDeltaEntry.EntityData.ParentYangName = "mteTriggerDeltaTable"
+    mteTriggerDeltaEntry.EntityData.SegmentPath = "mteTriggerDeltaEntry" + types.AddKeyToken(mteTriggerDeltaEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerDeltaEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerDeltaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerDeltaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerDeltaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerdeltaentry.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerdeltaentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mtetriggerdeltaentry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mtetriggerdeltaentry.Mteowner}
-    mtetriggerdeltaentry.EntityData.Leafs["mteTriggerName"] = types.YLeaf{"Mtetriggername", mtetriggerdeltaentry.Mtetriggername}
-    mtetriggerdeltaentry.EntityData.Leafs["mteTriggerDeltaDiscontinuityID"] = types.YLeaf{"Mtetriggerdeltadiscontinuityid", mtetriggerdeltaentry.Mtetriggerdeltadiscontinuityid}
-    mtetriggerdeltaentry.EntityData.Leafs["mteTriggerDeltaDiscontinuityIDWildcard"] = types.YLeaf{"Mtetriggerdeltadiscontinuityidwildcard", mtetriggerdeltaentry.Mtetriggerdeltadiscontinuityidwildcard}
-    mtetriggerdeltaentry.EntityData.Leafs["mteTriggerDeltaDiscontinuityIDType"] = types.YLeaf{"Mtetriggerdeltadiscontinuityidtype", mtetriggerdeltaentry.Mtetriggerdeltadiscontinuityidtype}
-    return &(mtetriggerdeltaentry.EntityData)
+    mteTriggerDeltaEntry.EntityData.Children = types.NewOrderedMap()
+    mteTriggerDeltaEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteTriggerDeltaEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteTriggerDeltaEntry.MteOwner})
+    mteTriggerDeltaEntry.EntityData.Leafs.Append("mteTriggerName", types.YLeaf{"MteTriggerName", mteTriggerDeltaEntry.MteTriggerName})
+    mteTriggerDeltaEntry.EntityData.Leafs.Append("mteTriggerDeltaDiscontinuityID", types.YLeaf{"MteTriggerDeltaDiscontinuityID", mteTriggerDeltaEntry.MteTriggerDeltaDiscontinuityID})
+    mteTriggerDeltaEntry.EntityData.Leafs.Append("mteTriggerDeltaDiscontinuityIDWildcard", types.YLeaf{"MteTriggerDeltaDiscontinuityIDWildcard", mteTriggerDeltaEntry.MteTriggerDeltaDiscontinuityIDWildcard})
+    mteTriggerDeltaEntry.EntityData.Leafs.Append("mteTriggerDeltaDiscontinuityIDType", types.YLeaf{"MteTriggerDeltaDiscontinuityIDType", mteTriggerDeltaEntry.MteTriggerDeltaDiscontinuityIDType})
+
+    mteTriggerDeltaEntry.EntityData.YListKeys = []string {"MteOwner", "MteTriggerName"}
+
+    return &(mteTriggerDeltaEntry.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry_Mtetriggerdeltadiscontinuityidtype represents The value 'dateAndTime' indicates syntax DateAndTime.
-type DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry_Mtetriggerdeltadiscontinuityidtype string
+// DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry_MteTriggerDeltaDiscontinuityIDType represents The value 'dateAndTime' indicates syntax DateAndTime.
+type DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry_MteTriggerDeltaDiscontinuityIDType string
 
 const (
-    DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry_Mtetriggerdeltadiscontinuityidtype_timeTicks DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry_Mtetriggerdeltadiscontinuityidtype = "timeTicks"
+    DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry_MteTriggerDeltaDiscontinuityIDType_timeTicks DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry_MteTriggerDeltaDiscontinuityIDType = "timeTicks"
 
-    DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry_Mtetriggerdeltadiscontinuityidtype_timeStamp DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry_Mtetriggerdeltadiscontinuityidtype = "timeStamp"
+    DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry_MteTriggerDeltaDiscontinuityIDType_timeStamp DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry_MteTriggerDeltaDiscontinuityIDType = "timeStamp"
 
-    DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry_Mtetriggerdeltadiscontinuityidtype_dateAndTime DISMANEVENTMIB_Mtetriggerdeltatable_Mtetriggerdeltaentry_Mtetriggerdeltadiscontinuityidtype = "dateAndTime"
+    DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry_MteTriggerDeltaDiscontinuityIDType_dateAndTime DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry_MteTriggerDeltaDiscontinuityIDType = "dateAndTime"
 )
 
-// DISMANEVENTMIB_Mtetriggerexistencetable
+// DISMANEVENTMIB_MteTriggerExistenceTable
 // A table of management event trigger information for existence
 // triggers.
-type DISMANEVENTMIB_Mtetriggerexistencetable struct {
+type DISMANEVENTMIB_MteTriggerExistenceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single existence trigger.  Entries automatically exist
     // in this this table for each mteTriggerEntry that has 'existence' set in
     // mteTriggerTest. The type is slice of
-    // DISMANEVENTMIB_Mtetriggerexistencetable_Mtetriggerexistenceentry.
-    Mtetriggerexistenceentry []DISMANEVENTMIB_Mtetriggerexistencetable_Mtetriggerexistenceentry
+    // DISMANEVENTMIB_MteTriggerExistenceTable_MteTriggerExistenceEntry.
+    MteTriggerExistenceEntry []*DISMANEVENTMIB_MteTriggerExistenceTable_MteTriggerExistenceEntry
 }
 
-func (mtetriggerexistencetable *DISMANEVENTMIB_Mtetriggerexistencetable) GetEntityData() *types.CommonEntityData {
-    mtetriggerexistencetable.EntityData.YFilter = mtetriggerexistencetable.YFilter
-    mtetriggerexistencetable.EntityData.YangName = "mteTriggerExistenceTable"
-    mtetriggerexistencetable.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerexistencetable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mtetriggerexistencetable.EntityData.SegmentPath = "mteTriggerExistenceTable"
-    mtetriggerexistencetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerexistencetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerexistencetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerExistenceTable *DISMANEVENTMIB_MteTriggerExistenceTable) GetEntityData() *types.CommonEntityData {
+    mteTriggerExistenceTable.EntityData.YFilter = mteTriggerExistenceTable.YFilter
+    mteTriggerExistenceTable.EntityData.YangName = "mteTriggerExistenceTable"
+    mteTriggerExistenceTable.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerExistenceTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteTriggerExistenceTable.EntityData.SegmentPath = "mteTriggerExistenceTable"
+    mteTriggerExistenceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerExistenceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerExistenceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerexistencetable.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerexistencetable.EntityData.Children["mteTriggerExistenceEntry"] = types.YChild{"Mtetriggerexistenceentry", nil}
-    for i := range mtetriggerexistencetable.Mtetriggerexistenceentry {
-        mtetriggerexistencetable.EntityData.Children[types.GetSegmentPath(&mtetriggerexistencetable.Mtetriggerexistenceentry[i])] = types.YChild{"Mtetriggerexistenceentry", &mtetriggerexistencetable.Mtetriggerexistenceentry[i]}
+    mteTriggerExistenceTable.EntityData.Children = types.NewOrderedMap()
+    mteTriggerExistenceTable.EntityData.Children.Append("mteTriggerExistenceEntry", types.YChild{"MteTriggerExistenceEntry", nil})
+    for i := range mteTriggerExistenceTable.MteTriggerExistenceEntry {
+        mteTriggerExistenceTable.EntityData.Children.Append(types.GetSegmentPath(mteTriggerExistenceTable.MteTriggerExistenceEntry[i]), types.YChild{"MteTriggerExistenceEntry", mteTriggerExistenceTable.MteTriggerExistenceEntry[i]})
     }
-    mtetriggerexistencetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mtetriggerexistencetable.EntityData)
+    mteTriggerExistenceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteTriggerExistenceTable.EntityData.YListKeys = []string {}
+
+    return &(mteTriggerExistenceTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggerexistencetable_Mtetriggerexistenceentry
+// DISMANEVENTMIB_MteTriggerExistenceTable_MteTriggerExistenceEntry
 // Information about a single existence trigger.  Entries
 // automatically exist in this this table for each mteTriggerEntry
 // that has 'existence' set in mteTriggerTest.
-type DISMANEVENTMIB_Mtetriggerexistencetable_Mtetriggerexistenceentry struct {
+type DISMANEVENTMIB_MteTriggerExistenceTable_MteTriggerExistenceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mteowner
-    Mteowner interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
+    MteOwner interface{}
 
     // This attribute is a key. The type is string with length: 1..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggername
-    Mtetriggername interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerName
+    MteTriggerName interface{}
 
     // The type of existence test to perform.  The trigger fires when the object
     // at mteTriggerValueID is seen to go from present to absent, from absent to
@@ -650,17 +677,17 @@ type DISMANEVENTMIB_Mtetriggerexistencetable_Mtetriggerexistenceentry struct {
     // Once the trigger has fired for either presence or absence it will not fire
     // again for that state until the object has been to the other state. . The
     // type is map[string]bool.
-    Mtetriggerexistencetest interface{}
+    MteTriggerExistenceTest interface{}
 
     // Control for whether an event may be triggered when this entry is first set
     // to 'active' and the test specified by mteTriggerExistenceTest is true. 
     // Setting an option causes that trigger to fire when its test is true. The
     // type is map[string]bool.
-    Mtetriggerexistencestartup interface{}
+    MteTriggerExistenceStartup interface{}
 
     // To go with mteTriggerExistenceObjects, the mteOwner of a group of objects
     // from mteObjectsTable. The type is string with length: 0..32.
-    Mtetriggerexistenceobjectsowner interface{}
+    MteTriggerExistenceObjectsOwner interface{}
 
     // The mteObjectsName of a group of objects from mteObjectsTable.  These
     // objects are to be added to any Notification resulting from the firing of
@@ -668,111 +695,117 @@ type DISMANEVENTMIB_Mtetriggerexistencetable_Mtetriggerexistenceentry struct {
     // the overall trigger, the event or other settings in mteTriggerTest.  A
     // length of 0 indicates no additional objects. The type is string with
     // length: 0..32.
-    Mtetriggerexistenceobjects interface{}
+    MteTriggerExistenceObjects interface{}
 
     // To go with mteTriggerExistenceEvent, the mteOwner of an event entry from
     // the mteEventTable. The type is string with length: 0..32.
-    Mtetriggerexistenceeventowner interface{}
+    MteTriggerExistenceEventOwner interface{}
 
     // The mteEventName of the event to invoke when mteTriggerType is 'existence'
     // and this trigger fires.  A length of 0 indicates no event. The type is
     // string with length: 0..32.
-    Mtetriggerexistenceevent interface{}
+    MteTriggerExistenceEvent interface{}
 }
 
-func (mtetriggerexistenceentry *DISMANEVENTMIB_Mtetriggerexistencetable_Mtetriggerexistenceentry) GetEntityData() *types.CommonEntityData {
-    mtetriggerexistenceentry.EntityData.YFilter = mtetriggerexistenceentry.YFilter
-    mtetriggerexistenceentry.EntityData.YangName = "mteTriggerExistenceEntry"
-    mtetriggerexistenceentry.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerexistenceentry.EntityData.ParentYangName = "mteTriggerExistenceTable"
-    mtetriggerexistenceentry.EntityData.SegmentPath = "mteTriggerExistenceEntry" + "[mteOwner='" + fmt.Sprintf("%v", mtetriggerexistenceentry.Mteowner) + "']" + "[mteTriggerName='" + fmt.Sprintf("%v", mtetriggerexistenceentry.Mtetriggername) + "']"
-    mtetriggerexistenceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerexistenceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerexistenceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerExistenceEntry *DISMANEVENTMIB_MteTriggerExistenceTable_MteTriggerExistenceEntry) GetEntityData() *types.CommonEntityData {
+    mteTriggerExistenceEntry.EntityData.YFilter = mteTriggerExistenceEntry.YFilter
+    mteTriggerExistenceEntry.EntityData.YangName = "mteTriggerExistenceEntry"
+    mteTriggerExistenceEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerExistenceEntry.EntityData.ParentYangName = "mteTriggerExistenceTable"
+    mteTriggerExistenceEntry.EntityData.SegmentPath = "mteTriggerExistenceEntry" + types.AddKeyToken(mteTriggerExistenceEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerExistenceEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerExistenceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerExistenceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerExistenceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerexistenceentry.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerexistenceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mtetriggerexistenceentry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mtetriggerexistenceentry.Mteowner}
-    mtetriggerexistenceentry.EntityData.Leafs["mteTriggerName"] = types.YLeaf{"Mtetriggername", mtetriggerexistenceentry.Mtetriggername}
-    mtetriggerexistenceentry.EntityData.Leafs["mteTriggerExistenceTest"] = types.YLeaf{"Mtetriggerexistencetest", mtetriggerexistenceentry.Mtetriggerexistencetest}
-    mtetriggerexistenceentry.EntityData.Leafs["mteTriggerExistenceStartup"] = types.YLeaf{"Mtetriggerexistencestartup", mtetriggerexistenceentry.Mtetriggerexistencestartup}
-    mtetriggerexistenceentry.EntityData.Leafs["mteTriggerExistenceObjectsOwner"] = types.YLeaf{"Mtetriggerexistenceobjectsowner", mtetriggerexistenceentry.Mtetriggerexistenceobjectsowner}
-    mtetriggerexistenceentry.EntityData.Leafs["mteTriggerExistenceObjects"] = types.YLeaf{"Mtetriggerexistenceobjects", mtetriggerexistenceentry.Mtetriggerexistenceobjects}
-    mtetriggerexistenceentry.EntityData.Leafs["mteTriggerExistenceEventOwner"] = types.YLeaf{"Mtetriggerexistenceeventowner", mtetriggerexistenceentry.Mtetriggerexistenceeventowner}
-    mtetriggerexistenceentry.EntityData.Leafs["mteTriggerExistenceEvent"] = types.YLeaf{"Mtetriggerexistenceevent", mtetriggerexistenceentry.Mtetriggerexistenceevent}
-    return &(mtetriggerexistenceentry.EntityData)
+    mteTriggerExistenceEntry.EntityData.Children = types.NewOrderedMap()
+    mteTriggerExistenceEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteTriggerExistenceEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteTriggerExistenceEntry.MteOwner})
+    mteTriggerExistenceEntry.EntityData.Leafs.Append("mteTriggerName", types.YLeaf{"MteTriggerName", mteTriggerExistenceEntry.MteTriggerName})
+    mteTriggerExistenceEntry.EntityData.Leafs.Append("mteTriggerExistenceTest", types.YLeaf{"MteTriggerExistenceTest", mteTriggerExistenceEntry.MteTriggerExistenceTest})
+    mteTriggerExistenceEntry.EntityData.Leafs.Append("mteTriggerExistenceStartup", types.YLeaf{"MteTriggerExistenceStartup", mteTriggerExistenceEntry.MteTriggerExistenceStartup})
+    mteTriggerExistenceEntry.EntityData.Leafs.Append("mteTriggerExistenceObjectsOwner", types.YLeaf{"MteTriggerExistenceObjectsOwner", mteTriggerExistenceEntry.MteTriggerExistenceObjectsOwner})
+    mteTriggerExistenceEntry.EntityData.Leafs.Append("mteTriggerExistenceObjects", types.YLeaf{"MteTriggerExistenceObjects", mteTriggerExistenceEntry.MteTriggerExistenceObjects})
+    mteTriggerExistenceEntry.EntityData.Leafs.Append("mteTriggerExistenceEventOwner", types.YLeaf{"MteTriggerExistenceEventOwner", mteTriggerExistenceEntry.MteTriggerExistenceEventOwner})
+    mteTriggerExistenceEntry.EntityData.Leafs.Append("mteTriggerExistenceEvent", types.YLeaf{"MteTriggerExistenceEvent", mteTriggerExistenceEntry.MteTriggerExistenceEvent})
+
+    mteTriggerExistenceEntry.EntityData.YListKeys = []string {"MteOwner", "MteTriggerName"}
+
+    return &(mteTriggerExistenceEntry.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggerbooleantable
+// DISMANEVENTMIB_MteTriggerBooleanTable
 // A table of management event trigger information for boolean
 // triggers.
-type DISMANEVENTMIB_Mtetriggerbooleantable struct {
+type DISMANEVENTMIB_MteTriggerBooleanTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single boolean trigger.  Entries automatically exist in
     // this this table for each mteTriggerEntry that has 'boolean' set in
     // mteTriggerTest. The type is slice of
-    // DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry.
-    Mtetriggerbooleanentry []DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry
+    // DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry.
+    MteTriggerBooleanEntry []*DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry
 }
 
-func (mtetriggerbooleantable *DISMANEVENTMIB_Mtetriggerbooleantable) GetEntityData() *types.CommonEntityData {
-    mtetriggerbooleantable.EntityData.YFilter = mtetriggerbooleantable.YFilter
-    mtetriggerbooleantable.EntityData.YangName = "mteTriggerBooleanTable"
-    mtetriggerbooleantable.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerbooleantable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mtetriggerbooleantable.EntityData.SegmentPath = "mteTriggerBooleanTable"
-    mtetriggerbooleantable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerbooleantable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerbooleantable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerBooleanTable *DISMANEVENTMIB_MteTriggerBooleanTable) GetEntityData() *types.CommonEntityData {
+    mteTriggerBooleanTable.EntityData.YFilter = mteTriggerBooleanTable.YFilter
+    mteTriggerBooleanTable.EntityData.YangName = "mteTriggerBooleanTable"
+    mteTriggerBooleanTable.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerBooleanTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteTriggerBooleanTable.EntityData.SegmentPath = "mteTriggerBooleanTable"
+    mteTriggerBooleanTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerBooleanTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerBooleanTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerbooleantable.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerbooleantable.EntityData.Children["mteTriggerBooleanEntry"] = types.YChild{"Mtetriggerbooleanentry", nil}
-    for i := range mtetriggerbooleantable.Mtetriggerbooleanentry {
-        mtetriggerbooleantable.EntityData.Children[types.GetSegmentPath(&mtetriggerbooleantable.Mtetriggerbooleanentry[i])] = types.YChild{"Mtetriggerbooleanentry", &mtetriggerbooleantable.Mtetriggerbooleanentry[i]}
+    mteTriggerBooleanTable.EntityData.Children = types.NewOrderedMap()
+    mteTriggerBooleanTable.EntityData.Children.Append("mteTriggerBooleanEntry", types.YChild{"MteTriggerBooleanEntry", nil})
+    for i := range mteTriggerBooleanTable.MteTriggerBooleanEntry {
+        mteTriggerBooleanTable.EntityData.Children.Append(types.GetSegmentPath(mteTriggerBooleanTable.MteTriggerBooleanEntry[i]), types.YChild{"MteTriggerBooleanEntry", mteTriggerBooleanTable.MteTriggerBooleanEntry[i]})
     }
-    mtetriggerbooleantable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mtetriggerbooleantable.EntityData)
+    mteTriggerBooleanTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteTriggerBooleanTable.EntityData.YListKeys = []string {}
+
+    return &(mteTriggerBooleanTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry
+// DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry
 // Information about a single boolean trigger.  Entries
 // automatically exist in this this table for each mteTriggerEntry
 // that has 'boolean' set in mteTriggerTest.
-type DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry struct {
+type DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mteowner
-    Mteowner interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
+    MteOwner interface{}
 
     // This attribute is a key. The type is string with length: 1..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggername
-    Mtetriggername interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerName
+    MteTriggerName interface{}
 
     // The type of boolean comparison to perform.  The value at mteTriggerValueID
     // is compared to mteTriggerBooleanValue, so for example if
     // mteTriggerBooleanComparison is 'less' the result would be true if the value
     // at mteTriggerValueID is less than the value of mteTriggerBooleanValue. The
-    // type is Mtetriggerbooleancomparison.
-    Mtetriggerbooleancomparison interface{}
+    // type is MteTriggerBooleanComparison.
+    MteTriggerBooleanComparison interface{}
 
     // The value to use for the test specified by mteTriggerBooleanTest. The type
     // is interface{} with range: -2147483648..2147483647.
-    Mtetriggerbooleanvalue interface{}
+    MteTriggerBooleanValue interface{}
 
     // Control for whether an event may be triggered when this entry is first set
     // to 'active' or a new instance of the object at mteTriggerValueID is found
     // and the test specified by mteTriggerBooleanComparison is true.  In that
     // case an event is triggered if mteTriggerBooleanStartup is 'true'. The type
     // is bool.
-    Mtetriggerbooleanstartup interface{}
+    MteTriggerBooleanStartup interface{}
 
     // To go with mteTriggerBooleanObjects, the mteOwner of a group of objects
     // from mteObjectsTable. The type is string with length: 0..32.
-    Mtetriggerbooleanobjectsowner interface{}
+    MteTriggerBooleanObjectsOwner interface{}
 
     // The mteObjectsName of a group of objects from mteObjectsTable.  These
     // objects are to be added to any Notification resulting from the firing of
@@ -780,107 +813,113 @@ type DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry struct {
     // the overall trigger, the event or other settings in mteTriggerTest.  A
     // length of 0 indicates no additional objects. The type is string with
     // length: 0..32.
-    Mtetriggerbooleanobjects interface{}
+    MteTriggerBooleanObjects interface{}
 
     // To go with mteTriggerBooleanEvent, the mteOwner of an event entry from
     // mteEventTable. The type is string with length: 0..32.
-    Mtetriggerbooleaneventowner interface{}
+    MteTriggerBooleanEventOwner interface{}
 
     // The mteEventName of the event to invoke when mteTriggerType is 'boolean'
     // and this trigger fires.  A length of 0 indicates no event. The type is
     // string with length: 0..32.
-    Mtetriggerbooleanevent interface{}
+    MteTriggerBooleanEvent interface{}
 }
 
-func (mtetriggerbooleanentry *DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry) GetEntityData() *types.CommonEntityData {
-    mtetriggerbooleanentry.EntityData.YFilter = mtetriggerbooleanentry.YFilter
-    mtetriggerbooleanentry.EntityData.YangName = "mteTriggerBooleanEntry"
-    mtetriggerbooleanentry.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerbooleanentry.EntityData.ParentYangName = "mteTriggerBooleanTable"
-    mtetriggerbooleanentry.EntityData.SegmentPath = "mteTriggerBooleanEntry" + "[mteOwner='" + fmt.Sprintf("%v", mtetriggerbooleanentry.Mteowner) + "']" + "[mteTriggerName='" + fmt.Sprintf("%v", mtetriggerbooleanentry.Mtetriggername) + "']"
-    mtetriggerbooleanentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerbooleanentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerbooleanentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerBooleanEntry *DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry) GetEntityData() *types.CommonEntityData {
+    mteTriggerBooleanEntry.EntityData.YFilter = mteTriggerBooleanEntry.YFilter
+    mteTriggerBooleanEntry.EntityData.YangName = "mteTriggerBooleanEntry"
+    mteTriggerBooleanEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerBooleanEntry.EntityData.ParentYangName = "mteTriggerBooleanTable"
+    mteTriggerBooleanEntry.EntityData.SegmentPath = "mteTriggerBooleanEntry" + types.AddKeyToken(mteTriggerBooleanEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerBooleanEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerBooleanEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerBooleanEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerBooleanEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerbooleanentry.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerbooleanentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mtetriggerbooleanentry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mtetriggerbooleanentry.Mteowner}
-    mtetriggerbooleanentry.EntityData.Leafs["mteTriggerName"] = types.YLeaf{"Mtetriggername", mtetriggerbooleanentry.Mtetriggername}
-    mtetriggerbooleanentry.EntityData.Leafs["mteTriggerBooleanComparison"] = types.YLeaf{"Mtetriggerbooleancomparison", mtetriggerbooleanentry.Mtetriggerbooleancomparison}
-    mtetriggerbooleanentry.EntityData.Leafs["mteTriggerBooleanValue"] = types.YLeaf{"Mtetriggerbooleanvalue", mtetriggerbooleanentry.Mtetriggerbooleanvalue}
-    mtetriggerbooleanentry.EntityData.Leafs["mteTriggerBooleanStartup"] = types.YLeaf{"Mtetriggerbooleanstartup", mtetriggerbooleanentry.Mtetriggerbooleanstartup}
-    mtetriggerbooleanentry.EntityData.Leafs["mteTriggerBooleanObjectsOwner"] = types.YLeaf{"Mtetriggerbooleanobjectsowner", mtetriggerbooleanentry.Mtetriggerbooleanobjectsowner}
-    mtetriggerbooleanentry.EntityData.Leafs["mteTriggerBooleanObjects"] = types.YLeaf{"Mtetriggerbooleanobjects", mtetriggerbooleanentry.Mtetriggerbooleanobjects}
-    mtetriggerbooleanentry.EntityData.Leafs["mteTriggerBooleanEventOwner"] = types.YLeaf{"Mtetriggerbooleaneventowner", mtetriggerbooleanentry.Mtetriggerbooleaneventowner}
-    mtetriggerbooleanentry.EntityData.Leafs["mteTriggerBooleanEvent"] = types.YLeaf{"Mtetriggerbooleanevent", mtetriggerbooleanentry.Mtetriggerbooleanevent}
-    return &(mtetriggerbooleanentry.EntityData)
+    mteTriggerBooleanEntry.EntityData.Children = types.NewOrderedMap()
+    mteTriggerBooleanEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteTriggerBooleanEntry.MteOwner})
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteTriggerName", types.YLeaf{"MteTriggerName", mteTriggerBooleanEntry.MteTriggerName})
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteTriggerBooleanComparison", types.YLeaf{"MteTriggerBooleanComparison", mteTriggerBooleanEntry.MteTriggerBooleanComparison})
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteTriggerBooleanValue", types.YLeaf{"MteTriggerBooleanValue", mteTriggerBooleanEntry.MteTriggerBooleanValue})
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteTriggerBooleanStartup", types.YLeaf{"MteTriggerBooleanStartup", mteTriggerBooleanEntry.MteTriggerBooleanStartup})
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteTriggerBooleanObjectsOwner", types.YLeaf{"MteTriggerBooleanObjectsOwner", mteTriggerBooleanEntry.MteTriggerBooleanObjectsOwner})
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteTriggerBooleanObjects", types.YLeaf{"MteTriggerBooleanObjects", mteTriggerBooleanEntry.MteTriggerBooleanObjects})
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteTriggerBooleanEventOwner", types.YLeaf{"MteTriggerBooleanEventOwner", mteTriggerBooleanEntry.MteTriggerBooleanEventOwner})
+    mteTriggerBooleanEntry.EntityData.Leafs.Append("mteTriggerBooleanEvent", types.YLeaf{"MteTriggerBooleanEvent", mteTriggerBooleanEntry.MteTriggerBooleanEvent})
+
+    mteTriggerBooleanEntry.EntityData.YListKeys = []string {"MteOwner", "MteTriggerName"}
+
+    return &(mteTriggerBooleanEntry.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison represents mteTriggerBooleanValue.
-type DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison string
+// DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison represents mteTriggerBooleanValue.
+type DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison string
 
 const (
-    DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison_unequal DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison = "unequal"
+    DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison_unequal DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison = "unequal"
 
-    DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison_equal DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison = "equal"
+    DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison_equal DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison = "equal"
 
-    DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison_less DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison = "less"
+    DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison_less DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison = "less"
 
-    DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison_lessOrEqual DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison = "lessOrEqual"
+    DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison_lessOrEqual DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison = "lessOrEqual"
 
-    DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison_greater DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison = "greater"
+    DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison_greater DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison = "greater"
 
-    DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison_greaterOrEqual DISMANEVENTMIB_Mtetriggerbooleantable_Mtetriggerbooleanentry_Mtetriggerbooleancomparison = "greaterOrEqual"
+    DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison_greaterOrEqual DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry_MteTriggerBooleanComparison = "greaterOrEqual"
 )
 
-// DISMANEVENTMIB_Mtetriggerthresholdtable
+// DISMANEVENTMIB_MteTriggerThresholdTable
 // A table of management event trigger information for threshold
 // triggers.
-type DISMANEVENTMIB_Mtetriggerthresholdtable struct {
+type DISMANEVENTMIB_MteTriggerThresholdTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single threshold trigger.  Entries automatically exist
     // in this table for each mteTriggerEntry that has 'threshold' set in
     // mteTriggerTest. The type is slice of
-    // DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry.
-    Mtetriggerthresholdentry []DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry
+    // DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry.
+    MteTriggerThresholdEntry []*DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry
 }
 
-func (mtetriggerthresholdtable *DISMANEVENTMIB_Mtetriggerthresholdtable) GetEntityData() *types.CommonEntityData {
-    mtetriggerthresholdtable.EntityData.YFilter = mtetriggerthresholdtable.YFilter
-    mtetriggerthresholdtable.EntityData.YangName = "mteTriggerThresholdTable"
-    mtetriggerthresholdtable.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerthresholdtable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mtetriggerthresholdtable.EntityData.SegmentPath = "mteTriggerThresholdTable"
-    mtetriggerthresholdtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerthresholdtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerthresholdtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerThresholdTable *DISMANEVENTMIB_MteTriggerThresholdTable) GetEntityData() *types.CommonEntityData {
+    mteTriggerThresholdTable.EntityData.YFilter = mteTriggerThresholdTable.YFilter
+    mteTriggerThresholdTable.EntityData.YangName = "mteTriggerThresholdTable"
+    mteTriggerThresholdTable.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerThresholdTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteTriggerThresholdTable.EntityData.SegmentPath = "mteTriggerThresholdTable"
+    mteTriggerThresholdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerThresholdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerThresholdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerthresholdtable.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerthresholdtable.EntityData.Children["mteTriggerThresholdEntry"] = types.YChild{"Mtetriggerthresholdentry", nil}
-    for i := range mtetriggerthresholdtable.Mtetriggerthresholdentry {
-        mtetriggerthresholdtable.EntityData.Children[types.GetSegmentPath(&mtetriggerthresholdtable.Mtetriggerthresholdentry[i])] = types.YChild{"Mtetriggerthresholdentry", &mtetriggerthresholdtable.Mtetriggerthresholdentry[i]}
+    mteTriggerThresholdTable.EntityData.Children = types.NewOrderedMap()
+    mteTriggerThresholdTable.EntityData.Children.Append("mteTriggerThresholdEntry", types.YChild{"MteTriggerThresholdEntry", nil})
+    for i := range mteTriggerThresholdTable.MteTriggerThresholdEntry {
+        mteTriggerThresholdTable.EntityData.Children.Append(types.GetSegmentPath(mteTriggerThresholdTable.MteTriggerThresholdEntry[i]), types.YChild{"MteTriggerThresholdEntry", mteTriggerThresholdTable.MteTriggerThresholdEntry[i]})
     }
-    mtetriggerthresholdtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mtetriggerthresholdtable.EntityData)
+    mteTriggerThresholdTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteTriggerThresholdTable.EntityData.YListKeys = []string {}
+
+    return &(mteTriggerThresholdTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry
+// DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry
 // Information about a single threshold trigger.  Entries
 // automatically exist in this table for each mteTriggerEntry
 // that has 'threshold' set in mteTriggerTest.
-type DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry struct {
+type DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mteowner
-    Mteowner interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
+    MteOwner interface{}
 
     // This attribute is a key. The type is string with length: 1..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mtetriggername
-    Mtetriggername interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteTriggerName
+    MteTriggerName interface{}
 
     // The event that may be triggered when this entry is first set to 'active'
     // and a new instance of the object at mteTriggerValueID is found.  If the
@@ -891,8 +930,8 @@ type DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry struct {
     // active is less than or equal to mteTriggerThresholdFalling and
     // mteTriggerThresholdStartup is equal to 'falling' or 'risingOrFalling', then
     // one mteTriggerThresholdRisingEvent is triggered for that instance. The type
-    // is Mtetriggerthresholdstartup.
-    Mtetriggerthresholdstartup interface{}
+    // is MteTriggerThresholdStartup.
+    MteTriggerThresholdStartup interface{}
 
     // A threshold value to check against if mteTriggerType is 'threshold'.  When
     // the current sampled value is greater than or equal to this threshold, and
@@ -904,7 +943,7 @@ type DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry struct {
     // event is not triggered until the sampled value falls below this threshold
     // and reaches mteTriggerThresholdFalling. The type is interface{} with range:
     // -2147483648..2147483647.
-    Mtetriggerthresholdrising interface{}
+    MteTriggerThresholdRising interface{}
 
     // A threshold value to check against if mteTriggerType is 'threshold'.  When
     // the current sampled value is less than or equal to this threshold, and the
@@ -916,7 +955,7 @@ type DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry struct {
     // is not triggered until the sampled value rises above this threshold and
     // reaches mteTriggerThresholdRising. The type is interface{} with range:
     // -2147483648..2147483647.
-    Mtetriggerthresholdfalling interface{}
+    MteTriggerThresholdFalling interface{}
 
     // A threshold value to check against if mteTriggerType is 'threshold'.  When
     // the delta value (difference) between the current sampled value (value(n))
@@ -931,7 +970,7 @@ type DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry struct {
     // delta value falls below this threshold and reaches
     // mteTriggerThresholdDeltaFalling. The type is interface{} with range:
     // -2147483648..2147483647.
-    Mtetriggerthresholddeltarising interface{}
+    MteTriggerThresholdDeltaRising interface{}
 
     // A threshold value to check against if mteTriggerType is 'threshold'.  When
     // the delta value (difference) between the current sampled value (value(n))
@@ -946,11 +985,11 @@ type DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry struct {
     // value falls below this threshold and reaches
     // mteTriggerThresholdDeltaRising. The type is interface{} with range:
     // -2147483648..2147483647.
-    Mtetriggerthresholddeltafalling interface{}
+    MteTriggerThresholdDeltaFalling interface{}
 
     // To go with mteTriggerThresholdObjects, the mteOwner of a group of objects
     // from mteObjectsTable. The type is string with length: 0..32.
-    Mtetriggerthresholdobjectsowner interface{}
+    MteTriggerThresholdObjectsOwner interface{}
 
     // The mteObjectsName of a group of objects from mteObjectsTable.  These
     // objects are to be added to any Notification resulting from the firing of
@@ -958,93 +997,96 @@ type DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry struct {
     // the overall  trigger, the event or other settings in mteTriggerTest.  A
     // length of 0 indicates no additional objects. The type is string with
     // length: 0..32.
-    Mtetriggerthresholdobjects interface{}
+    MteTriggerThresholdObjects interface{}
 
     // To go with mteTriggerThresholdRisingEvent, the mteOwner of an event entry
     // from mteEventTable. The type is string with length: 0..32.
-    Mtetriggerthresholdrisingeventowner interface{}
+    MteTriggerThresholdRisingEventOwner interface{}
 
     // The mteEventName of the event to invoke when mteTriggerType is 'threshold'
     // and this trigger fires based on mteTriggerThresholdRising.  A length of 0
     // indicates no event. The type is string with length: 0..32.
-    Mtetriggerthresholdrisingevent interface{}
+    MteTriggerThresholdRisingEvent interface{}
 
     // To go with mteTriggerThresholdFallingEvent, the mteOwner of an event entry
     // from mteEventTable. The type is string with length: 0..32.
-    Mtetriggerthresholdfallingeventowner interface{}
+    MteTriggerThresholdFallingEventOwner interface{}
 
     // The mteEventName of the event to invoke when mteTriggerType is 'threshold'
     // and this trigger fires based on mteTriggerThresholdFalling.  A length of 0
     // indicates no event. The type is string with length: 0..32.
-    Mtetriggerthresholdfallingevent interface{}
+    MteTriggerThresholdFallingEvent interface{}
 
     // To go with mteTriggerThresholdDeltaRisingEvent, the mteOwner of an event
     // entry from mteEventTable. The type is string with length: 0..32.
-    Mtetriggerthresholddeltarisingeventowner interface{}
+    MteTriggerThresholdDeltaRisingEventOwner interface{}
 
     // The mteEventName of the event to invoke when mteTriggerType is 'threshold'
     // and this trigger fires based on mteTriggerThresholdDeltaRising. A length of
     // 0 indicates no event. The type is string with length: 0..32.
-    Mtetriggerthresholddeltarisingevent interface{}
+    MteTriggerThresholdDeltaRisingEvent interface{}
 
     // To go with mteTriggerThresholdDeltaFallingEvent, the mteOwner of an event
     // entry from mteEventTable. The type is string with length: 0..32.
-    Mtetriggerthresholddeltafallingeventowner interface{}
+    MteTriggerThresholdDeltaFallingEventOwner interface{}
 
     // The mteEventName of the event to invoke when mteTriggerType is 'threshold'
     // and this trigger fires based on mteTriggerThresholdDeltaFalling.  A length
     // of 0 indicates no event. The type is string with length: 0..32.
-    Mtetriggerthresholddeltafallingevent interface{}
+    MteTriggerThresholdDeltaFallingEvent interface{}
 }
 
-func (mtetriggerthresholdentry *DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry) GetEntityData() *types.CommonEntityData {
-    mtetriggerthresholdentry.EntityData.YFilter = mtetriggerthresholdentry.YFilter
-    mtetriggerthresholdentry.EntityData.YangName = "mteTriggerThresholdEntry"
-    mtetriggerthresholdentry.EntityData.BundleName = "cisco_ios_xe"
-    mtetriggerthresholdentry.EntityData.ParentYangName = "mteTriggerThresholdTable"
-    mtetriggerthresholdentry.EntityData.SegmentPath = "mteTriggerThresholdEntry" + "[mteOwner='" + fmt.Sprintf("%v", mtetriggerthresholdentry.Mteowner) + "']" + "[mteTriggerName='" + fmt.Sprintf("%v", mtetriggerthresholdentry.Mtetriggername) + "']"
-    mtetriggerthresholdentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mtetriggerthresholdentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mtetriggerthresholdentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteTriggerThresholdEntry *DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry) GetEntityData() *types.CommonEntityData {
+    mteTriggerThresholdEntry.EntityData.YFilter = mteTriggerThresholdEntry.YFilter
+    mteTriggerThresholdEntry.EntityData.YangName = "mteTriggerThresholdEntry"
+    mteTriggerThresholdEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteTriggerThresholdEntry.EntityData.ParentYangName = "mteTriggerThresholdTable"
+    mteTriggerThresholdEntry.EntityData.SegmentPath = "mteTriggerThresholdEntry" + types.AddKeyToken(mteTriggerThresholdEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerThresholdEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerThresholdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteTriggerThresholdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteTriggerThresholdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mtetriggerthresholdentry.EntityData.Children = make(map[string]types.YChild)
-    mtetriggerthresholdentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mtetriggerthresholdentry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mtetriggerthresholdentry.Mteowner}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerName"] = types.YLeaf{"Mtetriggername", mtetriggerthresholdentry.Mtetriggername}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdStartup"] = types.YLeaf{"Mtetriggerthresholdstartup", mtetriggerthresholdentry.Mtetriggerthresholdstartup}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdRising"] = types.YLeaf{"Mtetriggerthresholdrising", mtetriggerthresholdentry.Mtetriggerthresholdrising}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdFalling"] = types.YLeaf{"Mtetriggerthresholdfalling", mtetriggerthresholdentry.Mtetriggerthresholdfalling}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdDeltaRising"] = types.YLeaf{"Mtetriggerthresholddeltarising", mtetriggerthresholdentry.Mtetriggerthresholddeltarising}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdDeltaFalling"] = types.YLeaf{"Mtetriggerthresholddeltafalling", mtetriggerthresholdentry.Mtetriggerthresholddeltafalling}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdObjectsOwner"] = types.YLeaf{"Mtetriggerthresholdobjectsowner", mtetriggerthresholdentry.Mtetriggerthresholdobjectsowner}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdObjects"] = types.YLeaf{"Mtetriggerthresholdobjects", mtetriggerthresholdentry.Mtetriggerthresholdobjects}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdRisingEventOwner"] = types.YLeaf{"Mtetriggerthresholdrisingeventowner", mtetriggerthresholdentry.Mtetriggerthresholdrisingeventowner}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdRisingEvent"] = types.YLeaf{"Mtetriggerthresholdrisingevent", mtetriggerthresholdentry.Mtetriggerthresholdrisingevent}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdFallingEventOwner"] = types.YLeaf{"Mtetriggerthresholdfallingeventowner", mtetriggerthresholdentry.Mtetriggerthresholdfallingeventowner}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdFallingEvent"] = types.YLeaf{"Mtetriggerthresholdfallingevent", mtetriggerthresholdentry.Mtetriggerthresholdfallingevent}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdDeltaRisingEventOwner"] = types.YLeaf{"Mtetriggerthresholddeltarisingeventowner", mtetriggerthresholdentry.Mtetriggerthresholddeltarisingeventowner}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdDeltaRisingEvent"] = types.YLeaf{"Mtetriggerthresholddeltarisingevent", mtetriggerthresholdentry.Mtetriggerthresholddeltarisingevent}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdDeltaFallingEventOwner"] = types.YLeaf{"Mtetriggerthresholddeltafallingeventowner", mtetriggerthresholdentry.Mtetriggerthresholddeltafallingeventowner}
-    mtetriggerthresholdentry.EntityData.Leafs["mteTriggerThresholdDeltaFallingEvent"] = types.YLeaf{"Mtetriggerthresholddeltafallingevent", mtetriggerthresholdentry.Mtetriggerthresholddeltafallingevent}
-    return &(mtetriggerthresholdentry.EntityData)
+    mteTriggerThresholdEntry.EntityData.Children = types.NewOrderedMap()
+    mteTriggerThresholdEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteTriggerThresholdEntry.MteOwner})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerName", types.YLeaf{"MteTriggerName", mteTriggerThresholdEntry.MteTriggerName})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdStartup", types.YLeaf{"MteTriggerThresholdStartup", mteTriggerThresholdEntry.MteTriggerThresholdStartup})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdRising", types.YLeaf{"MteTriggerThresholdRising", mteTriggerThresholdEntry.MteTriggerThresholdRising})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdFalling", types.YLeaf{"MteTriggerThresholdFalling", mteTriggerThresholdEntry.MteTriggerThresholdFalling})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdDeltaRising", types.YLeaf{"MteTriggerThresholdDeltaRising", mteTriggerThresholdEntry.MteTriggerThresholdDeltaRising})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdDeltaFalling", types.YLeaf{"MteTriggerThresholdDeltaFalling", mteTriggerThresholdEntry.MteTriggerThresholdDeltaFalling})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdObjectsOwner", types.YLeaf{"MteTriggerThresholdObjectsOwner", mteTriggerThresholdEntry.MteTriggerThresholdObjectsOwner})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdObjects", types.YLeaf{"MteTriggerThresholdObjects", mteTriggerThresholdEntry.MteTriggerThresholdObjects})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdRisingEventOwner", types.YLeaf{"MteTriggerThresholdRisingEventOwner", mteTriggerThresholdEntry.MteTriggerThresholdRisingEventOwner})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdRisingEvent", types.YLeaf{"MteTriggerThresholdRisingEvent", mteTriggerThresholdEntry.MteTriggerThresholdRisingEvent})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdFallingEventOwner", types.YLeaf{"MteTriggerThresholdFallingEventOwner", mteTriggerThresholdEntry.MteTriggerThresholdFallingEventOwner})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdFallingEvent", types.YLeaf{"MteTriggerThresholdFallingEvent", mteTriggerThresholdEntry.MteTriggerThresholdFallingEvent})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdDeltaRisingEventOwner", types.YLeaf{"MteTriggerThresholdDeltaRisingEventOwner", mteTriggerThresholdEntry.MteTriggerThresholdDeltaRisingEventOwner})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdDeltaRisingEvent", types.YLeaf{"MteTriggerThresholdDeltaRisingEvent", mteTriggerThresholdEntry.MteTriggerThresholdDeltaRisingEvent})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdDeltaFallingEventOwner", types.YLeaf{"MteTriggerThresholdDeltaFallingEventOwner", mteTriggerThresholdEntry.MteTriggerThresholdDeltaFallingEventOwner})
+    mteTriggerThresholdEntry.EntityData.Leafs.Append("mteTriggerThresholdDeltaFallingEvent", types.YLeaf{"MteTriggerThresholdDeltaFallingEvent", mteTriggerThresholdEntry.MteTriggerThresholdDeltaFallingEvent})
+
+    mteTriggerThresholdEntry.EntityData.YListKeys = []string {"MteOwner", "MteTriggerName"}
+
+    return &(mteTriggerThresholdEntry.EntityData)
 }
 
-// DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry_Mtetriggerthresholdstartup represents triggered for that instance.
-type DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry_Mtetriggerthresholdstartup string
+// DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry_MteTriggerThresholdStartup represents triggered for that instance.
+type DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry_MteTriggerThresholdStartup string
 
 const (
-    DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry_Mtetriggerthresholdstartup_rising DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry_Mtetriggerthresholdstartup = "rising"
+    DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry_MteTriggerThresholdStartup_rising DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry_MteTriggerThresholdStartup = "rising"
 
-    DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry_Mtetriggerthresholdstartup_falling DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry_Mtetriggerthresholdstartup = "falling"
+    DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry_MteTriggerThresholdStartup_falling DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry_MteTriggerThresholdStartup = "falling"
 
-    DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry_Mtetriggerthresholdstartup_risingOrFalling DISMANEVENTMIB_Mtetriggerthresholdtable_Mtetriggerthresholdentry_Mtetriggerthresholdstartup = "risingOrFalling"
+    DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry_MteTriggerThresholdStartup_risingOrFalling DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry_MteTriggerThresholdStartup = "risingOrFalling"
 )
 
-// DISMANEVENTMIB_Mteobjectstable
+// DISMANEVENTMIB_MteObjectsTable
 // A table of objects that can be added to notifications based
 // on the trigger, trigger test, or event, as pointed to by
 // entries in those tables.
-type DISMANEVENTMIB_Mteobjectstable struct {
+type DISMANEVENTMIB_MteObjectsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1052,47 +1094,50 @@ type DISMANEVENTMIB_Mteobjectstable struct {
     // mteObjectsEntryStatus.  When adding objects to a notification they are
     // added in the lexical order of their index in this table.  Those associated
     // with a trigger come first, then trigger test, then event. The type is slice
-    // of DISMANEVENTMIB_Mteobjectstable_Mteobjectsentry.
-    Mteobjectsentry []DISMANEVENTMIB_Mteobjectstable_Mteobjectsentry
+    // of DISMANEVENTMIB_MteObjectsTable_MteObjectsEntry.
+    MteObjectsEntry []*DISMANEVENTMIB_MteObjectsTable_MteObjectsEntry
 }
 
-func (mteobjectstable *DISMANEVENTMIB_Mteobjectstable) GetEntityData() *types.CommonEntityData {
-    mteobjectstable.EntityData.YFilter = mteobjectstable.YFilter
-    mteobjectstable.EntityData.YangName = "mteObjectsTable"
-    mteobjectstable.EntityData.BundleName = "cisco_ios_xe"
-    mteobjectstable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mteobjectstable.EntityData.SegmentPath = "mteObjectsTable"
-    mteobjectstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteobjectstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteobjectstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteObjectsTable *DISMANEVENTMIB_MteObjectsTable) GetEntityData() *types.CommonEntityData {
+    mteObjectsTable.EntityData.YFilter = mteObjectsTable.YFilter
+    mteObjectsTable.EntityData.YangName = "mteObjectsTable"
+    mteObjectsTable.EntityData.BundleName = "cisco_ios_xe"
+    mteObjectsTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteObjectsTable.EntityData.SegmentPath = "mteObjectsTable"
+    mteObjectsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteObjectsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteObjectsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteobjectstable.EntityData.Children = make(map[string]types.YChild)
-    mteobjectstable.EntityData.Children["mteObjectsEntry"] = types.YChild{"Mteobjectsentry", nil}
-    for i := range mteobjectstable.Mteobjectsentry {
-        mteobjectstable.EntityData.Children[types.GetSegmentPath(&mteobjectstable.Mteobjectsentry[i])] = types.YChild{"Mteobjectsentry", &mteobjectstable.Mteobjectsentry[i]}
+    mteObjectsTable.EntityData.Children = types.NewOrderedMap()
+    mteObjectsTable.EntityData.Children.Append("mteObjectsEntry", types.YChild{"MteObjectsEntry", nil})
+    for i := range mteObjectsTable.MteObjectsEntry {
+        mteObjectsTable.EntityData.Children.Append(types.GetSegmentPath(mteObjectsTable.MteObjectsEntry[i]), types.YChild{"MteObjectsEntry", mteObjectsTable.MteObjectsEntry[i]})
     }
-    mteobjectstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mteobjectstable.EntityData)
+    mteObjectsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteObjectsTable.EntityData.YListKeys = []string {}
+
+    return &(mteObjectsTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mteobjectstable_Mteobjectsentry
+// DISMANEVENTMIB_MteObjectsTable_MteObjectsEntry
 // A group of objects.  Applications create and delete entries
 // using mteObjectsEntryStatus.
 // 
 // When adding objects to a notification they are added in the
 // lexical order of their index in this table.  Those associated
 // with a trigger come first, then trigger test, then event.
-type DISMANEVENTMIB_Mteobjectstable_Mteobjectsentry struct {
+type DISMANEVENTMIB_MteObjectsTable_MteObjectsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mteowner
-    Mteowner interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
+    MteOwner interface{}
 
     // This attribute is a key. A locally-unique, administratively assigned name
     // for a group of objects. The type is string with length: 1..32.
-    Mteobjectsname interface{}
+    MteObjectsName interface{}
 
     // This attribute is a key. An arbitrary integer for the purpose of
     // identifying individual objects within a mteObjectsName group.  Objects
@@ -1106,7 +1151,7 @@ type DISMANEVENTMIB_Mteobjectstable_Mteobjectsentry struct {
     // to a Get operation.  The Get will fail or get the wrong object.  If the
     // object is not available it is omitted from the notification. The type is
     // interface{} with range: 1..4294967295.
-    Mteobjectsindex interface{}
+    MteObjectsIndex interface{}
 
     // The object identifier of a MIB object to add to a Notification that results
     // from the firing of a trigger.  This may be wildcarded by truncating all or
@@ -1119,258 +1164,275 @@ type DISMANEVENTMIB_Mteobjectstable_Mteobjectsentry struct {
     // table entry for each instance that fills the wildcard without having to
     // actually predict all possible instances ahead of time. The type is string
     // with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Mteobjectsid interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    MteObjectsID interface{}
 
     // Control for whether mteObjectsID is to be treated as fully-specified or
     // wildcarded, with 'true' indicating wildcard. The type is bool.
-    Mteobjectsidwildcard interface{}
+    MteObjectsIDWildcard interface{}
 
     // The control that allows creation and deletion of entries. Once made active
     // an entry MAY not be modified except to delete it. The type is RowStatus.
-    Mteobjectsentrystatus interface{}
+    MteObjectsEntryStatus interface{}
 }
 
-func (mteobjectsentry *DISMANEVENTMIB_Mteobjectstable_Mteobjectsentry) GetEntityData() *types.CommonEntityData {
-    mteobjectsentry.EntityData.YFilter = mteobjectsentry.YFilter
-    mteobjectsentry.EntityData.YangName = "mteObjectsEntry"
-    mteobjectsentry.EntityData.BundleName = "cisco_ios_xe"
-    mteobjectsentry.EntityData.ParentYangName = "mteObjectsTable"
-    mteobjectsentry.EntityData.SegmentPath = "mteObjectsEntry" + "[mteOwner='" + fmt.Sprintf("%v", mteobjectsentry.Mteowner) + "']" + "[mteObjectsName='" + fmt.Sprintf("%v", mteobjectsentry.Mteobjectsname) + "']" + "[mteObjectsIndex='" + fmt.Sprintf("%v", mteobjectsentry.Mteobjectsindex) + "']"
-    mteobjectsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteobjectsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteobjectsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteObjectsEntry *DISMANEVENTMIB_MteObjectsTable_MteObjectsEntry) GetEntityData() *types.CommonEntityData {
+    mteObjectsEntry.EntityData.YFilter = mteObjectsEntry.YFilter
+    mteObjectsEntry.EntityData.YangName = "mteObjectsEntry"
+    mteObjectsEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteObjectsEntry.EntityData.ParentYangName = "mteObjectsTable"
+    mteObjectsEntry.EntityData.SegmentPath = "mteObjectsEntry" + types.AddKeyToken(mteObjectsEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteObjectsEntry.MteObjectsName, "mteObjectsName") + types.AddKeyToken(mteObjectsEntry.MteObjectsIndex, "mteObjectsIndex")
+    mteObjectsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteObjectsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteObjectsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteobjectsentry.EntityData.Children = make(map[string]types.YChild)
-    mteobjectsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mteobjectsentry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mteobjectsentry.Mteowner}
-    mteobjectsentry.EntityData.Leafs["mteObjectsName"] = types.YLeaf{"Mteobjectsname", mteobjectsentry.Mteobjectsname}
-    mteobjectsentry.EntityData.Leafs["mteObjectsIndex"] = types.YLeaf{"Mteobjectsindex", mteobjectsentry.Mteobjectsindex}
-    mteobjectsentry.EntityData.Leafs["mteObjectsID"] = types.YLeaf{"Mteobjectsid", mteobjectsentry.Mteobjectsid}
-    mteobjectsentry.EntityData.Leafs["mteObjectsIDWildcard"] = types.YLeaf{"Mteobjectsidwildcard", mteobjectsentry.Mteobjectsidwildcard}
-    mteobjectsentry.EntityData.Leafs["mteObjectsEntryStatus"] = types.YLeaf{"Mteobjectsentrystatus", mteobjectsentry.Mteobjectsentrystatus}
-    return &(mteobjectsentry.EntityData)
+    mteObjectsEntry.EntityData.Children = types.NewOrderedMap()
+    mteObjectsEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteObjectsEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteObjectsEntry.MteOwner})
+    mteObjectsEntry.EntityData.Leafs.Append("mteObjectsName", types.YLeaf{"MteObjectsName", mteObjectsEntry.MteObjectsName})
+    mteObjectsEntry.EntityData.Leafs.Append("mteObjectsIndex", types.YLeaf{"MteObjectsIndex", mteObjectsEntry.MteObjectsIndex})
+    mteObjectsEntry.EntityData.Leafs.Append("mteObjectsID", types.YLeaf{"MteObjectsID", mteObjectsEntry.MteObjectsID})
+    mteObjectsEntry.EntityData.Leafs.Append("mteObjectsIDWildcard", types.YLeaf{"MteObjectsIDWildcard", mteObjectsEntry.MteObjectsIDWildcard})
+    mteObjectsEntry.EntityData.Leafs.Append("mteObjectsEntryStatus", types.YLeaf{"MteObjectsEntryStatus", mteObjectsEntry.MteObjectsEntryStatus})
+
+    mteObjectsEntry.EntityData.YListKeys = []string {"MteOwner", "MteObjectsName", "MteObjectsIndex"}
+
+    return &(mteObjectsEntry.EntityData)
 }
 
-// DISMANEVENTMIB_Mteeventtable
+// DISMANEVENTMIB_MteEventTable
 // A table of management event action information.
-type DISMANEVENTMIB_Mteeventtable struct {
+type DISMANEVENTMIB_MteEventTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single event.  Applications create and delete entries
     // using mteEventEntryStatus. The type is slice of
-    // DISMANEVENTMIB_Mteeventtable_Mteevententry.
-    Mteevententry []DISMANEVENTMIB_Mteeventtable_Mteevententry
+    // DISMANEVENTMIB_MteEventTable_MteEventEntry.
+    MteEventEntry []*DISMANEVENTMIB_MteEventTable_MteEventEntry
 }
 
-func (mteeventtable *DISMANEVENTMIB_Mteeventtable) GetEntityData() *types.CommonEntityData {
-    mteeventtable.EntityData.YFilter = mteeventtable.YFilter
-    mteeventtable.EntityData.YangName = "mteEventTable"
-    mteeventtable.EntityData.BundleName = "cisco_ios_xe"
-    mteeventtable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mteeventtable.EntityData.SegmentPath = "mteEventTable"
-    mteeventtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteeventtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteeventtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteEventTable *DISMANEVENTMIB_MteEventTable) GetEntityData() *types.CommonEntityData {
+    mteEventTable.EntityData.YFilter = mteEventTable.YFilter
+    mteEventTable.EntityData.YangName = "mteEventTable"
+    mteEventTable.EntityData.BundleName = "cisco_ios_xe"
+    mteEventTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteEventTable.EntityData.SegmentPath = "mteEventTable"
+    mteEventTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteEventTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteEventTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteeventtable.EntityData.Children = make(map[string]types.YChild)
-    mteeventtable.EntityData.Children["mteEventEntry"] = types.YChild{"Mteevententry", nil}
-    for i := range mteeventtable.Mteevententry {
-        mteeventtable.EntityData.Children[types.GetSegmentPath(&mteeventtable.Mteevententry[i])] = types.YChild{"Mteevententry", &mteeventtable.Mteevententry[i]}
+    mteEventTable.EntityData.Children = types.NewOrderedMap()
+    mteEventTable.EntityData.Children.Append("mteEventEntry", types.YChild{"MteEventEntry", nil})
+    for i := range mteEventTable.MteEventEntry {
+        mteEventTable.EntityData.Children.Append(types.GetSegmentPath(mteEventTable.MteEventEntry[i]), types.YChild{"MteEventEntry", mteEventTable.MteEventEntry[i]})
     }
-    mteeventtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mteeventtable.EntityData)
+    mteEventTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteEventTable.EntityData.YListKeys = []string {}
+
+    return &(mteEventTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mteeventtable_Mteevententry
+// DISMANEVENTMIB_MteEventTable_MteEventEntry
 // Information about a single event.  Applications create and
 // delete entries using mteEventEntryStatus.
-type DISMANEVENTMIB_Mteeventtable_Mteevententry struct {
+type DISMANEVENTMIB_MteEventTable_MteEventEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mteowner
-    Mteowner interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
+    MteOwner interface{}
 
     // This attribute is a key. A locally-unique, administratively assigned name
     // for the event. The type is string with length: 1..32.
-    Mteeventname interface{}
+    MteEventName interface{}
 
     // A description of the event's function and use. The type is string.
-    Mteeventcomment interface{}
+    MteEventComment interface{}
 
     // The actions to perform when this event occurs.  For 'notification', Traps
     // and/or Informs are sent according to the configuration in the SNMP
     // Notification MIB.  For 'set', an SNMP Set operation is performed according
     // to control values in this entry. The type is map[string]bool.
-    Mteeventactions interface{}
+    MteEventActions interface{}
 
     // A control to allow an event to be configured but not used. When the value
     // is 'false' the event does not execute even if  triggered. The type is bool.
-    Mteeventenabled interface{}
+    MteEventEnabled interface{}
 
     // The control that allows creation and deletion of entries. Once made active
     // an entry MAY not be modified except to delete it. The type is RowStatus.
-    Mteevententrystatus interface{}
+    MteEventEntryStatus interface{}
 }
 
-func (mteevententry *DISMANEVENTMIB_Mteeventtable_Mteevententry) GetEntityData() *types.CommonEntityData {
-    mteevententry.EntityData.YFilter = mteevententry.YFilter
-    mteevententry.EntityData.YangName = "mteEventEntry"
-    mteevententry.EntityData.BundleName = "cisco_ios_xe"
-    mteevententry.EntityData.ParentYangName = "mteEventTable"
-    mteevententry.EntityData.SegmentPath = "mteEventEntry" + "[mteOwner='" + fmt.Sprintf("%v", mteevententry.Mteowner) + "']" + "[mteEventName='" + fmt.Sprintf("%v", mteevententry.Mteeventname) + "']"
-    mteevententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteevententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteevententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteEventEntry *DISMANEVENTMIB_MteEventTable_MteEventEntry) GetEntityData() *types.CommonEntityData {
+    mteEventEntry.EntityData.YFilter = mteEventEntry.YFilter
+    mteEventEntry.EntityData.YangName = "mteEventEntry"
+    mteEventEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteEventEntry.EntityData.ParentYangName = "mteEventTable"
+    mteEventEntry.EntityData.SegmentPath = "mteEventEntry" + types.AddKeyToken(mteEventEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteEventEntry.MteEventName, "mteEventName")
+    mteEventEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteEventEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteEventEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteevententry.EntityData.Children = make(map[string]types.YChild)
-    mteevententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mteevententry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mteevententry.Mteowner}
-    mteevententry.EntityData.Leafs["mteEventName"] = types.YLeaf{"Mteeventname", mteevententry.Mteeventname}
-    mteevententry.EntityData.Leafs["mteEventComment"] = types.YLeaf{"Mteeventcomment", mteevententry.Mteeventcomment}
-    mteevententry.EntityData.Leafs["mteEventActions"] = types.YLeaf{"Mteeventactions", mteevententry.Mteeventactions}
-    mteevententry.EntityData.Leafs["mteEventEnabled"] = types.YLeaf{"Mteeventenabled", mteevententry.Mteeventenabled}
-    mteevententry.EntityData.Leafs["mteEventEntryStatus"] = types.YLeaf{"Mteevententrystatus", mteevententry.Mteevententrystatus}
-    return &(mteevententry.EntityData)
+    mteEventEntry.EntityData.Children = types.NewOrderedMap()
+    mteEventEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteEventEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteEventEntry.MteOwner})
+    mteEventEntry.EntityData.Leafs.Append("mteEventName", types.YLeaf{"MteEventName", mteEventEntry.MteEventName})
+    mteEventEntry.EntityData.Leafs.Append("mteEventComment", types.YLeaf{"MteEventComment", mteEventEntry.MteEventComment})
+    mteEventEntry.EntityData.Leafs.Append("mteEventActions", types.YLeaf{"MteEventActions", mteEventEntry.MteEventActions})
+    mteEventEntry.EntityData.Leafs.Append("mteEventEnabled", types.YLeaf{"MteEventEnabled", mteEventEntry.MteEventEnabled})
+    mteEventEntry.EntityData.Leafs.Append("mteEventEntryStatus", types.YLeaf{"MteEventEntryStatus", mteEventEntry.MteEventEntryStatus})
+
+    mteEventEntry.EntityData.YListKeys = []string {"MteOwner", "MteEventName"}
+
+    return &(mteEventEntry.EntityData)
 }
 
-// DISMANEVENTMIB_Mteeventnotificationtable
+// DISMANEVENTMIB_MteEventNotificationTable
 // A table of information about notifications to be sent as a
 // consequence of management events.
-type DISMANEVENTMIB_Mteeventnotificationtable struct {
+type DISMANEVENTMIB_MteEventNotificationTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single event's notification.  Entries automatically
     // exist in this this table for each mteEventEntry that has 'notification' set
     // in mteEventActions. The type is slice of
-    // DISMANEVENTMIB_Mteeventnotificationtable_Mteeventnotificationentry.
-    Mteeventnotificationentry []DISMANEVENTMIB_Mteeventnotificationtable_Mteeventnotificationentry
+    // DISMANEVENTMIB_MteEventNotificationTable_MteEventNotificationEntry.
+    MteEventNotificationEntry []*DISMANEVENTMIB_MteEventNotificationTable_MteEventNotificationEntry
 }
 
-func (mteeventnotificationtable *DISMANEVENTMIB_Mteeventnotificationtable) GetEntityData() *types.CommonEntityData {
-    mteeventnotificationtable.EntityData.YFilter = mteeventnotificationtable.YFilter
-    mteeventnotificationtable.EntityData.YangName = "mteEventNotificationTable"
-    mteeventnotificationtable.EntityData.BundleName = "cisco_ios_xe"
-    mteeventnotificationtable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mteeventnotificationtable.EntityData.SegmentPath = "mteEventNotificationTable"
-    mteeventnotificationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteeventnotificationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteeventnotificationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteEventNotificationTable *DISMANEVENTMIB_MteEventNotificationTable) GetEntityData() *types.CommonEntityData {
+    mteEventNotificationTable.EntityData.YFilter = mteEventNotificationTable.YFilter
+    mteEventNotificationTable.EntityData.YangName = "mteEventNotificationTable"
+    mteEventNotificationTable.EntityData.BundleName = "cisco_ios_xe"
+    mteEventNotificationTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteEventNotificationTable.EntityData.SegmentPath = "mteEventNotificationTable"
+    mteEventNotificationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteEventNotificationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteEventNotificationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteeventnotificationtable.EntityData.Children = make(map[string]types.YChild)
-    mteeventnotificationtable.EntityData.Children["mteEventNotificationEntry"] = types.YChild{"Mteeventnotificationentry", nil}
-    for i := range mteeventnotificationtable.Mteeventnotificationentry {
-        mteeventnotificationtable.EntityData.Children[types.GetSegmentPath(&mteeventnotificationtable.Mteeventnotificationentry[i])] = types.YChild{"Mteeventnotificationentry", &mteeventnotificationtable.Mteeventnotificationentry[i]}
+    mteEventNotificationTable.EntityData.Children = types.NewOrderedMap()
+    mteEventNotificationTable.EntityData.Children.Append("mteEventNotificationEntry", types.YChild{"MteEventNotificationEntry", nil})
+    for i := range mteEventNotificationTable.MteEventNotificationEntry {
+        mteEventNotificationTable.EntityData.Children.Append(types.GetSegmentPath(mteEventNotificationTable.MteEventNotificationEntry[i]), types.YChild{"MteEventNotificationEntry", mteEventNotificationTable.MteEventNotificationEntry[i]})
     }
-    mteeventnotificationtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mteeventnotificationtable.EntityData)
+    mteEventNotificationTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteEventNotificationTable.EntityData.YListKeys = []string {}
+
+    return &(mteEventNotificationTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mteeventnotificationtable_Mteeventnotificationentry
+// DISMANEVENTMIB_MteEventNotificationTable_MteEventNotificationEntry
 // Information about a single event's notification.  Entries
 // automatically exist in this this table for each mteEventEntry
 // that has 'notification' set in mteEventActions.
-type DISMANEVENTMIB_Mteeventnotificationtable_Mteeventnotificationentry struct {
+type DISMANEVENTMIB_MteEventNotificationTable_MteEventNotificationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mteowner
-    Mteowner interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
+    MteOwner interface{}
 
     // This attribute is a key. The type is string with length: 1..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mteeventtable_Mteevententry_Mteeventname
-    Mteeventname interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteEventTable_MteEventEntry_MteEventName
+    MteEventName interface{}
 
     // The object identifier from the NOTIFICATION-TYPE for the notification to
     // use if metEventActions has 'notification' set. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Mteeventnotification interface{}
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    MteEventNotification interface{}
 
     // To go with mteEventNotificationObjects, the mteOwner of a group of objects
     // from mteObjectsTable. The type is string with length: 0..32.
-    Mteeventnotificationobjectsowner interface{}
+    MteEventNotificationObjectsOwner interface{}
 
     // The mteObjectsName of a group of objects from mteObjectsTable if
     // mteEventActions has 'notification' set. These objects are to be added to
     // any Notification generated by this event.  Objects may also be added based
     // on the trigger that stimulated the event.  A length of 0 indicates no
     // additional objects. The type is string with length: 0..32.
-    Mteeventnotificationobjects interface{}
+    MteEventNotificationObjects interface{}
 }
 
-func (mteeventnotificationentry *DISMANEVENTMIB_Mteeventnotificationtable_Mteeventnotificationentry) GetEntityData() *types.CommonEntityData {
-    mteeventnotificationentry.EntityData.YFilter = mteeventnotificationentry.YFilter
-    mteeventnotificationentry.EntityData.YangName = "mteEventNotificationEntry"
-    mteeventnotificationentry.EntityData.BundleName = "cisco_ios_xe"
-    mteeventnotificationentry.EntityData.ParentYangName = "mteEventNotificationTable"
-    mteeventnotificationentry.EntityData.SegmentPath = "mteEventNotificationEntry" + "[mteOwner='" + fmt.Sprintf("%v", mteeventnotificationentry.Mteowner) + "']" + "[mteEventName='" + fmt.Sprintf("%v", mteeventnotificationentry.Mteeventname) + "']"
-    mteeventnotificationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteeventnotificationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteeventnotificationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteEventNotificationEntry *DISMANEVENTMIB_MteEventNotificationTable_MteEventNotificationEntry) GetEntityData() *types.CommonEntityData {
+    mteEventNotificationEntry.EntityData.YFilter = mteEventNotificationEntry.YFilter
+    mteEventNotificationEntry.EntityData.YangName = "mteEventNotificationEntry"
+    mteEventNotificationEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteEventNotificationEntry.EntityData.ParentYangName = "mteEventNotificationTable"
+    mteEventNotificationEntry.EntityData.SegmentPath = "mteEventNotificationEntry" + types.AddKeyToken(mteEventNotificationEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteEventNotificationEntry.MteEventName, "mteEventName")
+    mteEventNotificationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteEventNotificationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteEventNotificationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteeventnotificationentry.EntityData.Children = make(map[string]types.YChild)
-    mteeventnotificationentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mteeventnotificationentry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mteeventnotificationentry.Mteowner}
-    mteeventnotificationentry.EntityData.Leafs["mteEventName"] = types.YLeaf{"Mteeventname", mteeventnotificationentry.Mteeventname}
-    mteeventnotificationentry.EntityData.Leafs["mteEventNotification"] = types.YLeaf{"Mteeventnotification", mteeventnotificationentry.Mteeventnotification}
-    mteeventnotificationentry.EntityData.Leafs["mteEventNotificationObjectsOwner"] = types.YLeaf{"Mteeventnotificationobjectsowner", mteeventnotificationentry.Mteeventnotificationobjectsowner}
-    mteeventnotificationentry.EntityData.Leafs["mteEventNotificationObjects"] = types.YLeaf{"Mteeventnotificationobjects", mteeventnotificationentry.Mteeventnotificationobjects}
-    return &(mteeventnotificationentry.EntityData)
+    mteEventNotificationEntry.EntityData.Children = types.NewOrderedMap()
+    mteEventNotificationEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteEventNotificationEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteEventNotificationEntry.MteOwner})
+    mteEventNotificationEntry.EntityData.Leafs.Append("mteEventName", types.YLeaf{"MteEventName", mteEventNotificationEntry.MteEventName})
+    mteEventNotificationEntry.EntityData.Leafs.Append("mteEventNotification", types.YLeaf{"MteEventNotification", mteEventNotificationEntry.MteEventNotification})
+    mteEventNotificationEntry.EntityData.Leafs.Append("mteEventNotificationObjectsOwner", types.YLeaf{"MteEventNotificationObjectsOwner", mteEventNotificationEntry.MteEventNotificationObjectsOwner})
+    mteEventNotificationEntry.EntityData.Leafs.Append("mteEventNotificationObjects", types.YLeaf{"MteEventNotificationObjects", mteEventNotificationEntry.MteEventNotificationObjects})
+
+    mteEventNotificationEntry.EntityData.YListKeys = []string {"MteOwner", "MteEventName"}
+
+    return &(mteEventNotificationEntry.EntityData)
 }
 
-// DISMANEVENTMIB_Mteeventsettable
+// DISMANEVENTMIB_MteEventSetTable
 // A table of management event action information.
-type DISMANEVENTMIB_Mteeventsettable struct {
+type DISMANEVENTMIB_MteEventSetTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single event's set option.  Entries automatically exist
     // in this this table for each mteEventEntry that has 'set' set in
     // mteEventActions. The type is slice of
-    // DISMANEVENTMIB_Mteeventsettable_Mteeventsetentry.
-    Mteeventsetentry []DISMANEVENTMIB_Mteeventsettable_Mteeventsetentry
+    // DISMANEVENTMIB_MteEventSetTable_MteEventSetEntry.
+    MteEventSetEntry []*DISMANEVENTMIB_MteEventSetTable_MteEventSetEntry
 }
 
-func (mteeventsettable *DISMANEVENTMIB_Mteeventsettable) GetEntityData() *types.CommonEntityData {
-    mteeventsettable.EntityData.YFilter = mteeventsettable.YFilter
-    mteeventsettable.EntityData.YangName = "mteEventSetTable"
-    mteeventsettable.EntityData.BundleName = "cisco_ios_xe"
-    mteeventsettable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
-    mteeventsettable.EntityData.SegmentPath = "mteEventSetTable"
-    mteeventsettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteeventsettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteeventsettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteEventSetTable *DISMANEVENTMIB_MteEventSetTable) GetEntityData() *types.CommonEntityData {
+    mteEventSetTable.EntityData.YFilter = mteEventSetTable.YFilter
+    mteEventSetTable.EntityData.YangName = "mteEventSetTable"
+    mteEventSetTable.EntityData.BundleName = "cisco_ios_xe"
+    mteEventSetTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
+    mteEventSetTable.EntityData.SegmentPath = "mteEventSetTable"
+    mteEventSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteEventSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteEventSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteeventsettable.EntityData.Children = make(map[string]types.YChild)
-    mteeventsettable.EntityData.Children["mteEventSetEntry"] = types.YChild{"Mteeventsetentry", nil}
-    for i := range mteeventsettable.Mteeventsetentry {
-        mteeventsettable.EntityData.Children[types.GetSegmentPath(&mteeventsettable.Mteeventsetentry[i])] = types.YChild{"Mteeventsetentry", &mteeventsettable.Mteeventsetentry[i]}
+    mteEventSetTable.EntityData.Children = types.NewOrderedMap()
+    mteEventSetTable.EntityData.Children.Append("mteEventSetEntry", types.YChild{"MteEventSetEntry", nil})
+    for i := range mteEventSetTable.MteEventSetEntry {
+        mteEventSetTable.EntityData.Children.Append(types.GetSegmentPath(mteEventSetTable.MteEventSetEntry[i]), types.YChild{"MteEventSetEntry", mteEventSetTable.MteEventSetEntry[i]})
     }
-    mteeventsettable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mteeventsettable.EntityData)
+    mteEventSetTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mteEventSetTable.EntityData.YListKeys = []string {}
+
+    return &(mteEventSetTable.EntityData)
 }
 
-// DISMANEVENTMIB_Mteeventsettable_Mteeventsetentry
+// DISMANEVENTMIB_MteEventSetTable_MteEventSetEntry
 // Information about a single event's set option.  Entries
 // automatically exist in this this table for each mteEventEntry
 // that has 'set' set in mteEventActions.
-type DISMANEVENTMIB_Mteeventsettable_Mteeventsetentry struct {
+type DISMANEVENTMIB_MteEventSetTable_MteEventSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mtetriggertable_Mtetriggerentry_Mteowner
-    Mteowner interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
+    MteOwner interface{}
 
     // This attribute is a key. The type is string with length: 1..32. Refers to
-    // disman_event_mib.DISMANEVENTMIB_Mteeventtable_Mteevententry_Mteeventname
-    Mteeventname interface{}
+    // disman_event_mib.DISMANEVENTMIB_MteEventTable_MteEventEntry_MteEventName
+    MteEventName interface{}
 
     // The object identifier from the MIB object to set if mteEventActions has
     // 'set' set.  This object identifier may be wildcarded by leaving
@@ -1387,18 +1449,18 @@ type DISMANEVENTMIB_Mteeventsettable_Mteeventsetentry struct {
     // operation.  The Set will fail or set the wrong object.  If the value syntax
     // of the destination object is not correct, the Set fails with the normal
     // SNMP error code. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Mteeventsetobject interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    MteEventSetObject interface{}
 
     // Control over whether mteEventSetObject is to be treated as fully-specified
     // or wildcarded, with 'true' indicating wildcard if mteEventActions has 'set'
     // set. The type is bool.
-    Mteeventsetobjectwildcard interface{}
+    MteEventSetObjectWildcard interface{}
 
     // The value to which to set the object at mteEventSetObject if
     // mteEventActions has 'set' set. The type is interface{} with range:
     // -2147483648..2147483647.
-    Mteeventsetvalue interface{}
+    MteEventSetValue interface{}
 
     // The tag for the target(s) at which to set the object at mteEventSetObject
     // to mteEventSetValue if mteEventActions has 'set' set.  Systems limited to
@@ -1410,41 +1472,44 @@ type DISMANEVENTMIB_Mteeventsettable_Mteeventsetentry struct {
     // Architecture for Describing SNMP Management Frameworks.  Otherwise access
     // rights are checked according to the security parameters resulting from the
     // tag. The type is string.
-    Mteeventsettargettag interface{}
+    MteEventSetTargetTag interface{}
 
     // The management context in which to set mteEventObjectID. if mteEventActions
     // has 'set' set.  This may be wildcarded by leaving characters off the end. 
     // To indicate such wildcarding mteEventSetContextNameWildcard must be 'true'.
     // If this context name is wildcarded the value used to complete the
     // wildcarding of mteTriggerContextName will be appended. The type is string.
-    Mteeventsetcontextname interface{}
+    MteEventSetContextName interface{}
 
     // Control for whether mteEventSetContextName is to be treated as
     // fully-specified or wildcarded, with 'true' indicating wildcard if
     // mteEventActions has 'set' set. The type is bool.
-    Mteeventsetcontextnamewildcard interface{}
+    MteEventSetContextNameWildcard interface{}
 }
 
-func (mteeventsetentry *DISMANEVENTMIB_Mteeventsettable_Mteeventsetentry) GetEntityData() *types.CommonEntityData {
-    mteeventsetentry.EntityData.YFilter = mteeventsetentry.YFilter
-    mteeventsetentry.EntityData.YangName = "mteEventSetEntry"
-    mteeventsetentry.EntityData.BundleName = "cisco_ios_xe"
-    mteeventsetentry.EntityData.ParentYangName = "mteEventSetTable"
-    mteeventsetentry.EntityData.SegmentPath = "mteEventSetEntry" + "[mteOwner='" + fmt.Sprintf("%v", mteeventsetentry.Mteowner) + "']" + "[mteEventName='" + fmt.Sprintf("%v", mteeventsetentry.Mteeventname) + "']"
-    mteeventsetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mteeventsetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mteeventsetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mteEventSetEntry *DISMANEVENTMIB_MteEventSetTable_MteEventSetEntry) GetEntityData() *types.CommonEntityData {
+    mteEventSetEntry.EntityData.YFilter = mteEventSetEntry.YFilter
+    mteEventSetEntry.EntityData.YangName = "mteEventSetEntry"
+    mteEventSetEntry.EntityData.BundleName = "cisco_ios_xe"
+    mteEventSetEntry.EntityData.ParentYangName = "mteEventSetTable"
+    mteEventSetEntry.EntityData.SegmentPath = "mteEventSetEntry" + types.AddKeyToken(mteEventSetEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteEventSetEntry.MteEventName, "mteEventName")
+    mteEventSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mteEventSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mteEventSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mteeventsetentry.EntityData.Children = make(map[string]types.YChild)
-    mteeventsetentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mteeventsetentry.EntityData.Leafs["mteOwner"] = types.YLeaf{"Mteowner", mteeventsetentry.Mteowner}
-    mteeventsetentry.EntityData.Leafs["mteEventName"] = types.YLeaf{"Mteeventname", mteeventsetentry.Mteeventname}
-    mteeventsetentry.EntityData.Leafs["mteEventSetObject"] = types.YLeaf{"Mteeventsetobject", mteeventsetentry.Mteeventsetobject}
-    mteeventsetentry.EntityData.Leafs["mteEventSetObjectWildcard"] = types.YLeaf{"Mteeventsetobjectwildcard", mteeventsetentry.Mteeventsetobjectwildcard}
-    mteeventsetentry.EntityData.Leafs["mteEventSetValue"] = types.YLeaf{"Mteeventsetvalue", mteeventsetentry.Mteeventsetvalue}
-    mteeventsetentry.EntityData.Leafs["mteEventSetTargetTag"] = types.YLeaf{"Mteeventsettargettag", mteeventsetentry.Mteeventsettargettag}
-    mteeventsetentry.EntityData.Leafs["mteEventSetContextName"] = types.YLeaf{"Mteeventsetcontextname", mteeventsetentry.Mteeventsetcontextname}
-    mteeventsetentry.EntityData.Leafs["mteEventSetContextNameWildcard"] = types.YLeaf{"Mteeventsetcontextnamewildcard", mteeventsetentry.Mteeventsetcontextnamewildcard}
-    return &(mteeventsetentry.EntityData)
+    mteEventSetEntry.EntityData.Children = types.NewOrderedMap()
+    mteEventSetEntry.EntityData.Leafs = types.NewOrderedMap()
+    mteEventSetEntry.EntityData.Leafs.Append("mteOwner", types.YLeaf{"MteOwner", mteEventSetEntry.MteOwner})
+    mteEventSetEntry.EntityData.Leafs.Append("mteEventName", types.YLeaf{"MteEventName", mteEventSetEntry.MteEventName})
+    mteEventSetEntry.EntityData.Leafs.Append("mteEventSetObject", types.YLeaf{"MteEventSetObject", mteEventSetEntry.MteEventSetObject})
+    mteEventSetEntry.EntityData.Leafs.Append("mteEventSetObjectWildcard", types.YLeaf{"MteEventSetObjectWildcard", mteEventSetEntry.MteEventSetObjectWildcard})
+    mteEventSetEntry.EntityData.Leafs.Append("mteEventSetValue", types.YLeaf{"MteEventSetValue", mteEventSetEntry.MteEventSetValue})
+    mteEventSetEntry.EntityData.Leafs.Append("mteEventSetTargetTag", types.YLeaf{"MteEventSetTargetTag", mteEventSetEntry.MteEventSetTargetTag})
+    mteEventSetEntry.EntityData.Leafs.Append("mteEventSetContextName", types.YLeaf{"MteEventSetContextName", mteEventSetEntry.MteEventSetContextName})
+    mteEventSetEntry.EntityData.Leafs.Append("mteEventSetContextNameWildcard", types.YLeaf{"MteEventSetContextNameWildcard", mteEventSetEntry.MteEventSetContextNameWildcard})
+
+    mteEventSetEntry.EntityData.YListKeys = []string {"MteOwner", "MteEventName"}
+
+    return &(mteEventSetEntry.EntityData)
 }
 

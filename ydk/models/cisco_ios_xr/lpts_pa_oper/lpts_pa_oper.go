@@ -47,10 +47,13 @@ func (lptsPa *LptsPa) GetEntityData() *types.CommonEntityData {
     lptsPa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsPa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lptsPa.EntityData.Children = make(map[string]types.YChild)
-    lptsPa.EntityData.Children["entry-xr"] = types.YChild{"EntryXr", &lptsPa.EntryXr}
-    lptsPa.EntityData.Children["entries"] = types.YChild{"Entries", &lptsPa.Entries}
-    lptsPa.EntityData.Leafs = make(map[string]types.YLeaf)
+    lptsPa.EntityData.Children = types.NewOrderedMap()
+    lptsPa.EntityData.Children.Append("entry-xr", types.YChild{"EntryXr", &lptsPa.EntryXr})
+    lptsPa.EntityData.Children.Append("entries", types.YChild{"Entries", &lptsPa.Entries})
+    lptsPa.EntityData.Leafs = types.NewOrderedMap()
+
+    lptsPa.EntityData.YListKeys = []string {}
+
     return &(lptsPa.EntityData)
 }
 
@@ -61,7 +64,7 @@ type LptsPa_EntryXr struct {
     YFilter yfilter.YFilter
 
     // Data for single PA Binding. The type is slice of LptsPa_EntryXr_Entry.
-    Entry []LptsPa_EntryXr_Entry
+    Entry []*LptsPa_EntryXr_Entry
 }
 
 func (entryXr *LptsPa_EntryXr) GetEntityData() *types.CommonEntityData {
@@ -74,12 +77,15 @@ func (entryXr *LptsPa_EntryXr) GetEntityData() *types.CommonEntityData {
     entryXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entryXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entryXr.EntityData.Children = make(map[string]types.YChild)
-    entryXr.EntityData.Children["entry"] = types.YChild{"Entry", nil}
+    entryXr.EntityData.Children = types.NewOrderedMap()
+    entryXr.EntityData.Children.Append("entry", types.YChild{"Entry", nil})
     for i := range entryXr.Entry {
-        entryXr.EntityData.Children[types.GetSegmentPath(&entryXr.Entry[i])] = types.YChild{"Entry", &entryXr.Entry[i]}
+        entryXr.EntityData.Children.Append(types.GetSegmentPath(entryXr.Entry[i]), types.YChild{"Entry", entryXr.Entry[i]})
     }
-    entryXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    entryXr.EntityData.Leafs = types.NewOrderedMap()
+
+    entryXr.EntityData.YListKeys = []string {}
+
     return &(entryXr.EntityData)
 }
 
@@ -90,7 +96,7 @@ type LptsPa_EntryXr_Entry struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single Binding entry. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Entry interface{}
 
     // Rack/slot/instance. The type is interface{} with range: 0..4294967295.
@@ -106,10 +112,10 @@ type LptsPa_EntryXr_Entry struct {
     Cookie interface{}
 
     // Layer 3 protocol. The type is interface{} with range: 0..4294967295.
-    L3Protocol interface{}
+    L3protocol interface{}
 
     // Layer 4 protocol. The type is interface{} with range: 0..4294967295.
-    L4Protocol interface{}
+    L4protocol interface{}
 
     // Filter operation. The type is interface{} with range: 0..4294967295.
     Smask interface{}
@@ -121,11 +127,11 @@ type LptsPa_EntryXr_Entry struct {
     Ptype interface{}
 
     // Local address. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     LocalIp interface{}
 
     // Remote address. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RemoteIp interface{}
 
     // Local address length. The type is interface{} with range: 0..255.
@@ -172,37 +178,40 @@ func (entry *LptsPa_EntryXr_Entry) GetEntityData() *types.CommonEntityData {
     entry.EntityData.YangName = "entry"
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "entry-xr"
-    entry.EntityData.SegmentPath = "entry" + "[entry='" + fmt.Sprintf("%v", entry.Entry) + "']"
+    entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Entry, "entry")
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entry.EntityData.Children = make(map[string]types.YChild)
-    entry.EntityData.Children["ctime"] = types.YChild{"Ctime", &entry.Ctime}
-    entry.EntityData.Children["utime"] = types.YChild{"Utime", &entry.Utime}
-    entry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entry.EntityData.Leafs["entry"] = types.YLeaf{"Entry", entry.Entry}
-    entry.EntityData.Leafs["location"] = types.YLeaf{"Location", entry.Location}
-    entry.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", entry.ClientId}
-    entry.EntityData.Leafs["vid"] = types.YLeaf{"Vid", entry.Vid}
-    entry.EntityData.Leafs["cookie"] = types.YLeaf{"Cookie", entry.Cookie}
-    entry.EntityData.Leafs["l3protocol"] = types.YLeaf{"L3Protocol", entry.L3Protocol}
-    entry.EntityData.Leafs["l4protocol"] = types.YLeaf{"L4Protocol", entry.L4Protocol}
-    entry.EntityData.Leafs["smask"] = types.YLeaf{"Smask", entry.Smask}
-    entry.EntityData.Leafs["ifs"] = types.YLeaf{"Ifs", entry.Ifs}
-    entry.EntityData.Leafs["ptype"] = types.YLeaf{"Ptype", entry.Ptype}
-    entry.EntityData.Leafs["local-ip"] = types.YLeaf{"LocalIp", entry.LocalIp}
-    entry.EntityData.Leafs["remote-ip"] = types.YLeaf{"RemoteIp", entry.RemoteIp}
-    entry.EntityData.Leafs["local-len"] = types.YLeaf{"LocalLen", entry.LocalLen}
-    entry.EntityData.Leafs["remote-len"] = types.YLeaf{"RemoteLen", entry.RemoteLen}
-    entry.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", entry.LocalPort}
-    entry.EntityData.Leafs["remote-port"] = types.YLeaf{"RemotePort", entry.RemotePort}
-    entry.EntityData.Leafs["packet-misc"] = types.YLeaf{"PacketMisc", entry.PacketMisc}
-    entry.EntityData.Leafs["scope"] = types.YLeaf{"Scope", entry.Scope}
-    entry.EntityData.Leafs["client-flags"] = types.YLeaf{"ClientFlags", entry.ClientFlags}
-    entry.EntityData.Leafs["min-ttl"] = types.YLeaf{"MinTtl", entry.MinTtl}
-    entry.EntityData.Leafs["lazy-bindq-delay"] = types.YLeaf{"LazyBindqDelay", entry.LazyBindqDelay}
-    entry.EntityData.Leafs["ptq-delay"] = types.YLeaf{"PtqDelay", entry.PtqDelay}
+    entry.EntityData.Children = types.NewOrderedMap()
+    entry.EntityData.Children.Append("ctime", types.YChild{"Ctime", &entry.Ctime})
+    entry.EntityData.Children.Append("utime", types.YChild{"Utime", &entry.Utime})
+    entry.EntityData.Leafs = types.NewOrderedMap()
+    entry.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", entry.Entry})
+    entry.EntityData.Leafs.Append("location", types.YLeaf{"Location", entry.Location})
+    entry.EntityData.Leafs.Append("client-id", types.YLeaf{"ClientId", entry.ClientId})
+    entry.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", entry.Vid})
+    entry.EntityData.Leafs.Append("cookie", types.YLeaf{"Cookie", entry.Cookie})
+    entry.EntityData.Leafs.Append("l3protocol", types.YLeaf{"L3protocol", entry.L3protocol})
+    entry.EntityData.Leafs.Append("l4protocol", types.YLeaf{"L4protocol", entry.L4protocol})
+    entry.EntityData.Leafs.Append("smask", types.YLeaf{"Smask", entry.Smask})
+    entry.EntityData.Leafs.Append("ifs", types.YLeaf{"Ifs", entry.Ifs})
+    entry.EntityData.Leafs.Append("ptype", types.YLeaf{"Ptype", entry.Ptype})
+    entry.EntityData.Leafs.Append("local-ip", types.YLeaf{"LocalIp", entry.LocalIp})
+    entry.EntityData.Leafs.Append("remote-ip", types.YLeaf{"RemoteIp", entry.RemoteIp})
+    entry.EntityData.Leafs.Append("local-len", types.YLeaf{"LocalLen", entry.LocalLen})
+    entry.EntityData.Leafs.Append("remote-len", types.YLeaf{"RemoteLen", entry.RemoteLen})
+    entry.EntityData.Leafs.Append("local-port", types.YLeaf{"LocalPort", entry.LocalPort})
+    entry.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", entry.RemotePort})
+    entry.EntityData.Leafs.Append("packet-misc", types.YLeaf{"PacketMisc", entry.PacketMisc})
+    entry.EntityData.Leafs.Append("scope", types.YLeaf{"Scope", entry.Scope})
+    entry.EntityData.Leafs.Append("client-flags", types.YLeaf{"ClientFlags", entry.ClientFlags})
+    entry.EntityData.Leafs.Append("min-ttl", types.YLeaf{"MinTtl", entry.MinTtl})
+    entry.EntityData.Leafs.Append("lazy-bindq-delay", types.YLeaf{"LazyBindqDelay", entry.LazyBindqDelay})
+    entry.EntityData.Leafs.Append("ptq-delay", types.YLeaf{"PtqDelay", entry.PtqDelay})
+
+    entry.EntityData.YListKeys = []string {"Entry"}
+
     return &(entry.EntityData)
 }
 
@@ -229,10 +238,13 @@ func (ctime *LptsPa_EntryXr_Entry_Ctime) GetEntityData() *types.CommonEntityData
     ctime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ctime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ctime.EntityData.Children = make(map[string]types.YChild)
-    ctime.EntityData.Leafs = make(map[string]types.YLeaf)
-    ctime.EntityData.Leafs["tv-sec"] = types.YLeaf{"TvSec", ctime.TvSec}
-    ctime.EntityData.Leafs["tv-nsec"] = types.YLeaf{"TvNsec", ctime.TvNsec}
+    ctime.EntityData.Children = types.NewOrderedMap()
+    ctime.EntityData.Leafs = types.NewOrderedMap()
+    ctime.EntityData.Leafs.Append("tv-sec", types.YLeaf{"TvSec", ctime.TvSec})
+    ctime.EntityData.Leafs.Append("tv-nsec", types.YLeaf{"TvNsec", ctime.TvNsec})
+
+    ctime.EntityData.YListKeys = []string {}
+
     return &(ctime.EntityData)
 }
 
@@ -259,10 +271,13 @@ func (utime *LptsPa_EntryXr_Entry_Utime) GetEntityData() *types.CommonEntityData
     utime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    utime.EntityData.Children = make(map[string]types.YChild)
-    utime.EntityData.Leafs = make(map[string]types.YLeaf)
-    utime.EntityData.Leafs["tv-sec"] = types.YLeaf{"TvSec", utime.TvSec}
-    utime.EntityData.Leafs["tv-nsec"] = types.YLeaf{"TvNsec", utime.TvNsec}
+    utime.EntityData.Children = types.NewOrderedMap()
+    utime.EntityData.Leafs = types.NewOrderedMap()
+    utime.EntityData.Leafs.Append("tv-sec", types.YLeaf{"TvSec", utime.TvSec})
+    utime.EntityData.Leafs.Append("tv-nsec", types.YLeaf{"TvNsec", utime.TvNsec})
+
+    utime.EntityData.YListKeys = []string {}
+
     return &(utime.EntityData)
 }
 
@@ -273,7 +288,7 @@ type LptsPa_Entries struct {
     YFilter yfilter.YFilter
 
     // Data for single PA Client. The type is slice of LptsPa_Entries_Entry.
-    Entry []LptsPa_Entries_Entry
+    Entry []*LptsPa_Entries_Entry
 }
 
 func (entries *LptsPa_Entries) GetEntityData() *types.CommonEntityData {
@@ -286,12 +301,15 @@ func (entries *LptsPa_Entries) GetEntityData() *types.CommonEntityData {
     entries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entries.EntityData.Children = make(map[string]types.YChild)
-    entries.EntityData.Children["entry"] = types.YChild{"Entry", nil}
+    entries.EntityData.Children = types.NewOrderedMap()
+    entries.EntityData.Children.Append("entry", types.YChild{"Entry", nil})
     for i := range entries.Entry {
-        entries.EntityData.Children[types.GetSegmentPath(&entries.Entry[i])] = types.YChild{"Entry", &entries.Entry[i]}
+        entries.EntityData.Children.Append(types.GetSegmentPath(entries.Entry[i]), types.YChild{"Entry", entries.Entry[i]})
     }
-    entries.EntityData.Leafs = make(map[string]types.YLeaf)
+    entries.EntityData.Leafs = types.NewOrderedMap()
+
+    entries.EntityData.YListKeys = []string {}
+
     return &(entries.EntityData)
 }
 
@@ -302,7 +320,7 @@ type LptsPa_Entries_Entry struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single Client entry. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Entry interface{}
 
     // Client flags. The type is interface{} with range: 0..4294967295.
@@ -318,7 +336,7 @@ type LptsPa_Entries_Entry struct {
     ClientId interface{}
 
     // Transaction statisitics. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Times interface{}
 }
 
@@ -327,19 +345,22 @@ func (entry *LptsPa_Entries_Entry) GetEntityData() *types.CommonEntityData {
     entry.EntityData.YangName = "entry"
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "entries"
-    entry.EntityData.SegmentPath = "entry" + "[entry='" + fmt.Sprintf("%v", entry.Entry) + "']"
+    entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Entry, "entry")
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entry.EntityData.Children = make(map[string]types.YChild)
-    entry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entry.EntityData.Leafs["entry"] = types.YLeaf{"Entry", entry.Entry}
-    entry.EntityData.Leafs["flags"] = types.YLeaf{"Flags", entry.Flags}
-    entry.EntityData.Leafs["open-flags"] = types.YLeaf{"OpenFlags", entry.OpenFlags}
-    entry.EntityData.Leafs["location"] = types.YLeaf{"Location", entry.Location}
-    entry.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", entry.ClientId}
-    entry.EntityData.Leafs["times"] = types.YLeaf{"Times", entry.Times}
+    entry.EntityData.Children = types.NewOrderedMap()
+    entry.EntityData.Leafs = types.NewOrderedMap()
+    entry.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", entry.Entry})
+    entry.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", entry.Flags})
+    entry.EntityData.Leafs.Append("open-flags", types.YLeaf{"OpenFlags", entry.OpenFlags})
+    entry.EntityData.Leafs.Append("location", types.YLeaf{"Location", entry.Location})
+    entry.EntityData.Leafs.Append("client-id", types.YLeaf{"ClientId", entry.ClientId})
+    entry.EntityData.Leafs.Append("times", types.YLeaf{"Times", entry.Times})
+
+    entry.EntityData.YListKeys = []string {"Entry"}
+
     return &(entry.EntityData)
 }
 

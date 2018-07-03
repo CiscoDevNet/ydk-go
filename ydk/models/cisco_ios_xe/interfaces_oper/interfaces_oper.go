@@ -36,6 +36,72 @@ const (
     QosMatchType_qos_match_proto QosMatchType = "qos-match-proto"
 )
 
+// EtherDuplex represents The duplex setting of the interface
+type EtherDuplex string
+
+const (
+    EtherDuplex_full_duplex EtherDuplex = "full-duplex"
+
+    EtherDuplex_half_duplex EtherDuplex = "half-duplex"
+
+    EtherDuplex_auto_duplex EtherDuplex = "auto-duplex"
+
+    EtherDuplex_unknown_duplex EtherDuplex = "unknown-duplex"
+)
+
+// T1e1LoopbackMode represents Loopback mode type
+type T1e1LoopbackMode string
+
+const (
+    // No loopback mode
+    T1e1LoopbackMode_t1e1_no_loopback T1e1LoopbackMode = "t1e1-no-loopback"
+
+    // Command line interface enforced local loopback
+    T1e1LoopbackMode_t1e1_cli_local_loopback T1e1LoopbackMode = "t1e1-cli-local-loopback"
+
+    // Command line interface enforced line local loopback
+    T1e1LoopbackMode_t1e1_line_cli_local_loopback T1e1LoopbackMode = "t1e1-line-cli-local-loopback"
+
+    // Command line interface enforced payload local loopback
+    T1e1LoopbackMode_t1e1_payload_cli_local_loopback T1e1LoopbackMode = "t1e1-payload-cli-local-loopback"
+
+    // Local line loopback
+    T1e1LoopbackMode_t1e1_local_line_loopback T1e1LoopbackMode = "t1e1-local-line-loopback"
+
+    // Local payload loopback
+    T1e1LoopbackMode_t1e1_local_payload_loopback T1e1LoopbackMode = "t1e1-local-payload-loopback"
+
+    // Line ANSI FDL remote loopback
+    T1e1LoopbackMode_t1e1_local_ansi_fdl_remote_loopback T1e1LoopbackMode = "t1e1-local-ansi-fdl-remote-loopback"
+
+    // Line ATT FDL remote loopback
+    T1e1LoopbackMode_t1e1_line_att_fdl_remote_loopback T1e1LoopbackMode = "t1e1-line-att-fdl-remote-loopback"
+
+    // Payload ANSI FDL remote loopback
+    T1e1LoopbackMode_t1e1_payload_ansi_fdl_remote_loopback T1e1LoopbackMode = "t1e1-payload-ansi-fdl-remote-loopback"
+
+    // Payload ATT FDL remote loopback
+    T1e1LoopbackMode_t1e1_payload_att_fdl_remote_loopback T1e1LoopbackMode = "t1e1-payload-att-fdl-remote-loopback"
+
+    // Line IBOC remote loopback
+    T1e1LoopbackMode_t1e1_line_iboc_remote_loopback T1e1LoopbackMode = "t1e1-line-iboc-remote-loopback"
+
+    // Line ANSI FDL local loopback
+    T1e1LoopbackMode_t1e1_line_ansi_fdl_local_loopback T1e1LoopbackMode = "t1e1-line-ansi-fdl-local-loopback"
+
+    // Line ATT FDL local loopback
+    T1e1LoopbackMode_t1e1_line_att_fdl_local_loopback T1e1LoopbackMode = "t1e1-line-att-fdl-local-loopback"
+
+    // Payload ANSI FDL local loopback
+    T1e1LoopbackMode_t1e1_payload_ansi_fdl_local_loopback T1e1LoopbackMode = "t1e1-payload-ansi-fdl-local-loopback"
+
+    // Payload ATT FDL local loopback
+    T1e1LoopbackMode_t1e1_payload_att_fdl_local_loopback T1e1LoopbackMode = "t1e1-payload-att-fdl-local-loopback"
+
+    // Line IBOC local loopback
+    T1e1LoopbackMode_t1e1_line_iboc_local_loopback T1e1LoopbackMode = "t1e1-line-iboc-local-loopback"
+)
+
 // ThreshUnit represents Units of threshold
 type ThreshUnit string
 
@@ -51,43 +117,6 @@ const (
     ThreshUnit_thresh_units_cells ThreshUnit = "thresh-units-cells"
 
     ThreshUnit_thresh_units_percent ThreshUnit = "thresh-units-percent"
-)
-
-// QosDirection represents QoS direction indication
-type QosDirection string
-
-const (
-    // Direction of traffic coming into the network entry
-    QosDirection_qos_inbound QosDirection = "qos-inbound"
-
-    // Direction of traffic going out of the network entry
-    QosDirection_qos_outbound QosDirection = "qos-outbound"
-)
-
-// IntfState represents RFC 2863: The Interfaces Group MIB - ifAdminStatus
-type IntfState string
-
-const (
-    IntfState_if_state_unknown IntfState = "if-state-unknown"
-
-    IntfState_if_state_up IntfState = "if-state-up"
-
-    IntfState_if_state_down IntfState = "if-state-down"
-
-    IntfState_if_state_test IntfState = "if-state-test"
-)
-
-// EtherDuplex represents The duplex setting of the interface
-type EtherDuplex string
-
-const (
-    EtherDuplex_full_duplex EtherDuplex = "full-duplex"
-
-    EtherDuplex_half_duplex EtherDuplex = "half-duplex"
-
-    EtherDuplex_auto_duplex EtherDuplex = "auto-duplex"
-
-    EtherDuplex_unknown_duplex EtherDuplex = "unknown-duplex"
 )
 
 // EtherSpeed represents The speed setting of the interface
@@ -132,6 +161,28 @@ const (
     OperState_if_oper_state_not_present OperState = "if-oper-state-not-present"
 
     OperState_if_oper_state_lower_layer_down OperState = "if-oper-state-lower-layer-down"
+)
+
+// SerialCrc represents The Cyclic Redundancy Code type
+type SerialCrc string
+
+const (
+    // 32-bit Cyclic Redundancy Code
+    SerialCrc_serial_crc32 SerialCrc = "serial-crc32"
+
+    // 16 bit Cyclic Redundancy Code
+    SerialCrc_serial_crc16 SerialCrc = "serial-crc16"
+)
+
+// SubrateSpeed represents The subrate on a serial interface
+type SubrateSpeed string
+
+const (
+    // 56 kilobits per second subrate
+    SubrateSpeed_dsx1_subrate_56kbps SubrateSpeed = "dsx1-subrate-56kbps"
+
+    // 64 kilobits per second subrate
+    SubrateSpeed_dsx1_subrate_64kbps SubrateSpeed = "dsx1-subrate-64kbps"
 )
 
 // IetfIntfType represents object in the (updated) definition of MIB-II's ifTable
@@ -695,79 +746,28 @@ const (
     IetfIntfType_iana_iftype_fastdsl IetfIntfType = "iana-iftype-fastdsl"
 )
 
-// SerialCrc represents The Cyclic Redundancy Code type
-type SerialCrc string
+// QosDirection represents QoS direction indication
+type QosDirection string
 
 const (
-    // 32-bit Cyclic Redundancy Code
-    SerialCrc_serial_crc32 SerialCrc = "serial-crc32"
+    // Direction of traffic coming into the network entry
+    QosDirection_qos_inbound QosDirection = "qos-inbound"
 
-    // 16 bit Cyclic Redundancy Code
-    SerialCrc_serial_crc16 SerialCrc = "serial-crc16"
+    // Direction of traffic going out of the network entry
+    QosDirection_qos_outbound QosDirection = "qos-outbound"
 )
 
-// SubrateSpeed represents The subrate on a serial interface
-type SubrateSpeed string
+// IntfState represents RFC 2863: The Interfaces Group MIB - ifAdminStatus
+type IntfState string
 
 const (
-    // 56 kilobits per second subrate
-    SubrateSpeed_dsx1_subrate_56kbps SubrateSpeed = "dsx1-subrate-56kbps"
+    IntfState_if_state_unknown IntfState = "if-state-unknown"
 
-    // 64 kilobits per second subrate
-    SubrateSpeed_dsx1_subrate_64kbps SubrateSpeed = "dsx1-subrate-64kbps"
-)
+    IntfState_if_state_up IntfState = "if-state-up"
 
-// T1E1LoopbackMode represents Loopback mode type
-type T1E1LoopbackMode string
+    IntfState_if_state_down IntfState = "if-state-down"
 
-const (
-    // No loopback mode
-    T1E1LoopbackMode_t1e1_no_loopback T1E1LoopbackMode = "t1e1-no-loopback"
-
-    // Command line interface enforced local loopback
-    T1E1LoopbackMode_t1e1_cli_local_loopback T1E1LoopbackMode = "t1e1-cli-local-loopback"
-
-    // Command line interface enforced line local loopback
-    T1E1LoopbackMode_t1e1_line_cli_local_loopback T1E1LoopbackMode = "t1e1-line-cli-local-loopback"
-
-    // Command line interface enforced payload local loopback
-    T1E1LoopbackMode_t1e1_payload_cli_local_loopback T1E1LoopbackMode = "t1e1-payload-cli-local-loopback"
-
-    // Local line loopback
-    T1E1LoopbackMode_t1e1_local_line_loopback T1E1LoopbackMode = "t1e1-local-line-loopback"
-
-    // Local payload loopback
-    T1E1LoopbackMode_t1e1_local_payload_loopback T1E1LoopbackMode = "t1e1-local-payload-loopback"
-
-    // Line ANSI FDL remote loopback
-    T1E1LoopbackMode_t1e1_local_ansi_fdl_remote_loopback T1E1LoopbackMode = "t1e1-local-ansi-fdl-remote-loopback"
-
-    // Line ATT FDL remote loopback
-    T1E1LoopbackMode_t1e1_line_att_fdl_remote_loopback T1E1LoopbackMode = "t1e1-line-att-fdl-remote-loopback"
-
-    // Payload ANSI FDL remote loopback
-    T1E1LoopbackMode_t1e1_payload_ansi_fdl_remote_loopback T1E1LoopbackMode = "t1e1-payload-ansi-fdl-remote-loopback"
-
-    // Payload ATT FDL remote loopback
-    T1E1LoopbackMode_t1e1_payload_att_fdl_remote_loopback T1E1LoopbackMode = "t1e1-payload-att-fdl-remote-loopback"
-
-    // Line IBOC remote loopback
-    T1E1LoopbackMode_t1e1_line_iboc_remote_loopback T1E1LoopbackMode = "t1e1-line-iboc-remote-loopback"
-
-    // Line ANSI FDL local loopback
-    T1E1LoopbackMode_t1e1_line_ansi_fdl_local_loopback T1E1LoopbackMode = "t1e1-line-ansi-fdl-local-loopback"
-
-    // Line ATT FDL local loopback
-    T1E1LoopbackMode_t1e1_line_att_fdl_local_loopback T1E1LoopbackMode = "t1e1-line-att-fdl-local-loopback"
-
-    // Payload ANSI FDL local loopback
-    T1E1LoopbackMode_t1e1_payload_ansi_fdl_local_loopback T1E1LoopbackMode = "t1e1-payload-ansi-fdl-local-loopback"
-
-    // Payload ATT FDL local loopback
-    T1E1LoopbackMode_t1e1_payload_att_fdl_local_loopback T1E1LoopbackMode = "t1e1-payload-att-fdl-local-loopback"
-
-    // Line IBOC local loopback
-    T1E1LoopbackMode_t1e1_line_iboc_local_loopback T1E1LoopbackMode = "t1e1-line-iboc-local-loopback"
+    IntfState_if_state_test IntfState = "if-state-test"
 )
 
 // Interfaces
@@ -776,8 +776,8 @@ type Interfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of interfaces. The type is slice of Interfaces_Interface_.
-    Interface_ []Interfaces_Interface
+    // List of interfaces. The type is slice of Interfaces_Interface.
+    Interface []*Interfaces_Interface
 }
 
 func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
@@ -790,12 +790,15 @@ func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -834,7 +837,7 @@ type Interfaces_Interface struct {
     // current state was entered prior to the last re-initialization of the local
     // network management subsystem, then this node is not present. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastChange interface{}
 
     // The ifIndex value for the ifEntry represented by this interface. The type
@@ -847,7 +850,7 @@ type Interfaces_Interface struct {
     // byte ordering and the format of the value of this object.  For interfaces
     // that do not have such an address (e.g., a serial line), this node is not
     // present. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PhysAddress interface{}
 
     // A list of references to interfaces layered on top of this interface. The
@@ -871,16 +874,16 @@ type Interfaces_Interface struct {
 
     // IPv4 address configured on interface. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv4 Subnet Mask. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv4SubnetMask interface{}
 
     // Interface description. The type is string.
@@ -899,7 +902,7 @@ type Interfaces_Interface struct {
     // The burnt-in mac address that was associated with this interface from
     // manufacturing. This is only relevant for interfaces that have the concept
     // of burnt in ethernet  addresses, otherwise it is zero. The type is string
-    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BiaAddress interface{}
 
     // No specific interface class information. The type is bool.
@@ -910,7 +913,7 @@ type Interfaces_Interface struct {
 
     // diffserv related details. The type is slice of
     // Interfaces_Interface_DiffservInfo.
-    DiffservInfo []Interfaces_Interface_DiffservInfo
+    DiffservInfo []*Interfaces_Interface_DiffservInfo
 
     // IPv4 traffic statistics for this interface.
     V4ProtocolStats Interfaces_Interface_V4ProtocolStats
@@ -936,43 +939,46 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["statistics"] = types.YChild{"Statistics", &self.Statistics}
-    self.EntityData.Children["diffserv-info"] = types.YChild{"DiffservInfo", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("statistics", types.YChild{"Statistics", &self.Statistics})
+    self.EntityData.Children.Append("diffserv-info", types.YChild{"DiffservInfo", nil})
     for i := range self.DiffservInfo {
-        self.EntityData.Children[types.GetSegmentPath(&self.DiffservInfo[i])] = types.YChild{"DiffservInfo", &self.DiffservInfo[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.DiffservInfo[i]), types.YChild{"DiffservInfo", self.DiffservInfo[i]})
     }
-    self.EntityData.Children["v4-protocol-stats"] = types.YChild{"V4ProtocolStats", &self.V4ProtocolStats}
-    self.EntityData.Children["v6-protocol-stats"] = types.YChild{"V6ProtocolStats", &self.V6ProtocolStats}
-    self.EntityData.Children["ether-state"] = types.YChild{"EtherState", &self.EtherState}
-    self.EntityData.Children["ether-stats"] = types.YChild{"EtherStats", &self.EtherStats}
-    self.EntityData.Children["serial-state"] = types.YChild{"SerialState", &self.SerialState}
-    self.EntityData.Children["serial-stats"] = types.YChild{"SerialStats", &self.SerialStats}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
-    self.EntityData.Leafs["interface-type"] = types.YLeaf{"InterfaceType", self.InterfaceType}
-    self.EntityData.Leafs["admin-status"] = types.YLeaf{"AdminStatus", self.AdminStatus}
-    self.EntityData.Leafs["oper-status"] = types.YLeaf{"OperStatus", self.OperStatus}
-    self.EntityData.Leafs["last-change"] = types.YLeaf{"LastChange", self.LastChange}
-    self.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", self.IfIndex}
-    self.EntityData.Leafs["phys-address"] = types.YLeaf{"PhysAddress", self.PhysAddress}
-    self.EntityData.Leafs["higher-layer-if"] = types.YLeaf{"HigherLayerIf", self.HigherLayerIf}
-    self.EntityData.Leafs["lower-layer-if"] = types.YLeaf{"LowerLayerIf", self.LowerLayerIf}
-    self.EntityData.Leafs["speed"] = types.YLeaf{"Speed", self.Speed}
-    self.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", self.Vrf}
-    self.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", self.Ipv4}
-    self.EntityData.Leafs["ipv4-subnet-mask"] = types.YLeaf{"Ipv4SubnetMask", self.Ipv4SubnetMask}
-    self.EntityData.Leafs["description"] = types.YLeaf{"Description", self.Description}
-    self.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", self.Mtu}
-    self.EntityData.Leafs["input-security-acl"] = types.YLeaf{"InputSecurityAcl", self.InputSecurityAcl}
-    self.EntityData.Leafs["output-security-acl"] = types.YLeaf{"OutputSecurityAcl", self.OutputSecurityAcl}
-    self.EntityData.Leafs["bia-address"] = types.YLeaf{"BiaAddress", self.BiaAddress}
-    self.EntityData.Leafs["intf-class-unspecified"] = types.YLeaf{"IntfClassUnspecified", self.IntfClassUnspecified}
+    self.EntityData.Children.Append("v4-protocol-stats", types.YChild{"V4ProtocolStats", &self.V4ProtocolStats})
+    self.EntityData.Children.Append("v6-protocol-stats", types.YChild{"V6ProtocolStats", &self.V6ProtocolStats})
+    self.EntityData.Children.Append("ether-state", types.YChild{"EtherState", &self.EtherState})
+    self.EntityData.Children.Append("ether-stats", types.YChild{"EtherStats", &self.EtherStats})
+    self.EntityData.Children.Append("serial-state", types.YChild{"SerialState", &self.SerialState})
+    self.EntityData.Children.Append("serial-stats", types.YChild{"SerialStats", &self.SerialStats})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("interface-type", types.YLeaf{"InterfaceType", self.InterfaceType})
+    self.EntityData.Leafs.Append("admin-status", types.YLeaf{"AdminStatus", self.AdminStatus})
+    self.EntityData.Leafs.Append("oper-status", types.YLeaf{"OperStatus", self.OperStatus})
+    self.EntityData.Leafs.Append("last-change", types.YLeaf{"LastChange", self.LastChange})
+    self.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", self.IfIndex})
+    self.EntityData.Leafs.Append("phys-address", types.YLeaf{"PhysAddress", self.PhysAddress})
+    self.EntityData.Leafs.Append("higher-layer-if", types.YLeaf{"HigherLayerIf", self.HigherLayerIf})
+    self.EntityData.Leafs.Append("lower-layer-if", types.YLeaf{"LowerLayerIf", self.LowerLayerIf})
+    self.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", self.Speed})
+    self.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", self.Vrf})
+    self.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", self.Ipv4})
+    self.EntityData.Leafs.Append("ipv4-subnet-mask", types.YLeaf{"Ipv4SubnetMask", self.Ipv4SubnetMask})
+    self.EntityData.Leafs.Append("description", types.YLeaf{"Description", self.Description})
+    self.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", self.Mtu})
+    self.EntityData.Leafs.Append("input-security-acl", types.YLeaf{"InputSecurityAcl", self.InputSecurityAcl})
+    self.EntityData.Leafs.Append("output-security-acl", types.YLeaf{"OutputSecurityAcl", self.OutputSecurityAcl})
+    self.EntityData.Leafs.Append("bia-address", types.YLeaf{"BiaAddress", self.BiaAddress})
+    self.EntityData.Leafs.Append("intf-class-unspecified", types.YLeaf{"IntfClassUnspecified", self.IntfClassUnspecified})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
 }
 
@@ -987,7 +993,7 @@ type Interfaces_Interface_Statistics struct {
     // have occurred since the last re-initialization of the local management
     // subsystem, then this node contains the time the local management subsystem
     // re-initialized itself. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     DiscontinuityTime interface{}
 
     // The total number of octets received on the interface, including framing
@@ -1141,28 +1147,31 @@ func (statistics *Interfaces_Interface_Statistics) GetEntityData() *types.Common
     statistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistics.EntityData.Leafs["discontinuity-time"] = types.YLeaf{"DiscontinuityTime", statistics.DiscontinuityTime}
-    statistics.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", statistics.InOctets}
-    statistics.EntityData.Leafs["in-unicast-pkts"] = types.YLeaf{"InUnicastPkts", statistics.InUnicastPkts}
-    statistics.EntityData.Leafs["new-name"] = types.YLeaf{"NewName", statistics.NewName}
-    statistics.EntityData.Leafs["in-multicast-pkts"] = types.YLeaf{"InMulticastPkts", statistics.InMulticastPkts}
-    statistics.EntityData.Leafs["in-discards"] = types.YLeaf{"InDiscards", statistics.InDiscards}
-    statistics.EntityData.Leafs["in-errors"] = types.YLeaf{"InErrors", statistics.InErrors}
-    statistics.EntityData.Leafs["in-unknown-protos"] = types.YLeaf{"InUnknownProtos", statistics.InUnknownProtos}
-    statistics.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", statistics.OutOctets}
-    statistics.EntityData.Leafs["out-unicast-pkts"] = types.YLeaf{"OutUnicastPkts", statistics.OutUnicastPkts}
-    statistics.EntityData.Leafs["out-broadcast-pkts"] = types.YLeaf{"OutBroadcastPkts", statistics.OutBroadcastPkts}
-    statistics.EntityData.Leafs["out-multicast-pkts"] = types.YLeaf{"OutMulticastPkts", statistics.OutMulticastPkts}
-    statistics.EntityData.Leafs["out-discards"] = types.YLeaf{"OutDiscards", statistics.OutDiscards}
-    statistics.EntityData.Leafs["out-errors"] = types.YLeaf{"OutErrors", statistics.OutErrors}
-    statistics.EntityData.Leafs["rx-pps"] = types.YLeaf{"RxPps", statistics.RxPps}
-    statistics.EntityData.Leafs["rx-kbps"] = types.YLeaf{"RxKbps", statistics.RxKbps}
-    statistics.EntityData.Leafs["tx-pps"] = types.YLeaf{"TxPps", statistics.TxPps}
-    statistics.EntityData.Leafs["tx-kbps"] = types.YLeaf{"TxKbps", statistics.TxKbps}
-    statistics.EntityData.Leafs["num-flaps"] = types.YLeaf{"NumFlaps", statistics.NumFlaps}
-    statistics.EntityData.Leafs["in-crc-errors"] = types.YLeaf{"InCrcErrors", statistics.InCrcErrors}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+    statistics.EntityData.Leafs.Append("discontinuity-time", types.YLeaf{"DiscontinuityTime", statistics.DiscontinuityTime})
+    statistics.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", statistics.InOctets})
+    statistics.EntityData.Leafs.Append("in-unicast-pkts", types.YLeaf{"InUnicastPkts", statistics.InUnicastPkts})
+    statistics.EntityData.Leafs.Append("new-name", types.YLeaf{"NewName", statistics.NewName})
+    statistics.EntityData.Leafs.Append("in-multicast-pkts", types.YLeaf{"InMulticastPkts", statistics.InMulticastPkts})
+    statistics.EntityData.Leafs.Append("in-discards", types.YLeaf{"InDiscards", statistics.InDiscards})
+    statistics.EntityData.Leafs.Append("in-errors", types.YLeaf{"InErrors", statistics.InErrors})
+    statistics.EntityData.Leafs.Append("in-unknown-protos", types.YLeaf{"InUnknownProtos", statistics.InUnknownProtos})
+    statistics.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", statistics.OutOctets})
+    statistics.EntityData.Leafs.Append("out-unicast-pkts", types.YLeaf{"OutUnicastPkts", statistics.OutUnicastPkts})
+    statistics.EntityData.Leafs.Append("out-broadcast-pkts", types.YLeaf{"OutBroadcastPkts", statistics.OutBroadcastPkts})
+    statistics.EntityData.Leafs.Append("out-multicast-pkts", types.YLeaf{"OutMulticastPkts", statistics.OutMulticastPkts})
+    statistics.EntityData.Leafs.Append("out-discards", types.YLeaf{"OutDiscards", statistics.OutDiscards})
+    statistics.EntityData.Leafs.Append("out-errors", types.YLeaf{"OutErrors", statistics.OutErrors})
+    statistics.EntityData.Leafs.Append("rx-pps", types.YLeaf{"RxPps", statistics.RxPps})
+    statistics.EntityData.Leafs.Append("rx-kbps", types.YLeaf{"RxKbps", statistics.RxKbps})
+    statistics.EntityData.Leafs.Append("tx-pps", types.YLeaf{"TxPps", statistics.TxPps})
+    statistics.EntityData.Leafs.Append("tx-kbps", types.YLeaf{"TxKbps", statistics.TxKbps})
+    statistics.EntityData.Leafs.Append("num-flaps", types.YLeaf{"NumFlaps", statistics.NumFlaps})
+    statistics.EntityData.Leafs.Append("in-crc-errors", types.YLeaf{"InCrcErrors", statistics.InCrcErrors})
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -1181,11 +1190,11 @@ type Interfaces_Interface_DiffservInfo struct {
 
     // Statistics for each Classifier Entry in a Policy. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats.
-    DiffservTargetClassifierStats []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats
+    DiffservTargetClassifierStats []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats
 
     // Statistics for aggregrate priority per policy instance. The type is slice
     // of Interfaces_Interface_DiffservInfo_PriorityOperList.
-    PriorityOperList []Interfaces_Interface_DiffservInfo_PriorityOperList
+    PriorityOperList []*Interfaces_Interface_DiffservInfo_PriorityOperList
 }
 
 func (diffservInfo *Interfaces_Interface_DiffservInfo) GetEntityData() *types.CommonEntityData {
@@ -1193,23 +1202,26 @@ func (diffservInfo *Interfaces_Interface_DiffservInfo) GetEntityData() *types.Co
     diffservInfo.EntityData.YangName = "diffserv-info"
     diffservInfo.EntityData.BundleName = "cisco_ios_xe"
     diffservInfo.EntityData.ParentYangName = "interface"
-    diffservInfo.EntityData.SegmentPath = "diffserv-info" + "[direction='" + fmt.Sprintf("%v", diffservInfo.Direction) + "']" + "[policy-name='" + fmt.Sprintf("%v", diffservInfo.PolicyName) + "']"
+    diffservInfo.EntityData.SegmentPath = "diffserv-info" + types.AddKeyToken(diffservInfo.Direction, "direction") + types.AddKeyToken(diffservInfo.PolicyName, "policy-name")
     diffservInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffservInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffservInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    diffservInfo.EntityData.Children = make(map[string]types.YChild)
-    diffservInfo.EntityData.Children["diffserv-target-classifier-stats"] = types.YChild{"DiffservTargetClassifierStats", nil}
+    diffservInfo.EntityData.Children = types.NewOrderedMap()
+    diffservInfo.EntityData.Children.Append("diffserv-target-classifier-stats", types.YChild{"DiffservTargetClassifierStats", nil})
     for i := range diffservInfo.DiffservTargetClassifierStats {
-        diffservInfo.EntityData.Children[types.GetSegmentPath(&diffservInfo.DiffservTargetClassifierStats[i])] = types.YChild{"DiffservTargetClassifierStats", &diffservInfo.DiffservTargetClassifierStats[i]}
+        diffservInfo.EntityData.Children.Append(types.GetSegmentPath(diffservInfo.DiffservTargetClassifierStats[i]), types.YChild{"DiffservTargetClassifierStats", diffservInfo.DiffservTargetClassifierStats[i]})
     }
-    diffservInfo.EntityData.Children["priority-oper-list"] = types.YChild{"PriorityOperList", nil}
+    diffservInfo.EntityData.Children.Append("priority-oper-list", types.YChild{"PriorityOperList", nil})
     for i := range diffservInfo.PriorityOperList {
-        diffservInfo.EntityData.Children[types.GetSegmentPath(&diffservInfo.PriorityOperList[i])] = types.YChild{"PriorityOperList", &diffservInfo.PriorityOperList[i]}
+        diffservInfo.EntityData.Children.Append(types.GetSegmentPath(diffservInfo.PriorityOperList[i]), types.YChild{"PriorityOperList", diffservInfo.PriorityOperList[i]})
     }
-    diffservInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    diffservInfo.EntityData.Leafs["direction"] = types.YLeaf{"Direction", diffservInfo.Direction}
-    diffservInfo.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", diffservInfo.PolicyName}
+    diffservInfo.EntityData.Leafs = types.NewOrderedMap()
+    diffservInfo.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", diffservInfo.Direction})
+    diffservInfo.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", diffservInfo.PolicyName})
+
+    diffservInfo.EntityData.YListKeys = []string {"Direction", "PolicyName"}
+
     return &(diffservInfo.EntityData)
 }
 
@@ -1231,7 +1243,7 @@ type Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats struct {
 
     // Meter statistics. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_MeterStats.
-    MeterStats []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_MeterStats
+    MeterStats []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_MeterStats
 
     // Queuing Counters.
     QueuingStats Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_QueuingStats
@@ -1240,7 +1252,7 @@ type Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats struct {
     // Technically these are a field in the queuing statistics -> wred statisitcs,
     // but GREEN EI does not allow that nesting structure. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList.
-    SubclassList []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList
+    SubclassList []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList
 
     // Statistics for marking actions.
     MarkingStats Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_MarkingStats
@@ -1251,26 +1263,29 @@ func (diffservTargetClassifierStats *Interfaces_Interface_DiffservInfo_DiffservT
     diffservTargetClassifierStats.EntityData.YangName = "diffserv-target-classifier-stats"
     diffservTargetClassifierStats.EntityData.BundleName = "cisco_ios_xe"
     diffservTargetClassifierStats.EntityData.ParentYangName = "diffserv-info"
-    diffservTargetClassifierStats.EntityData.SegmentPath = "diffserv-target-classifier-stats" + "[classifier-entry-name='" + fmt.Sprintf("%v", diffservTargetClassifierStats.ClassifierEntryName) + "']" + "[parent-path='" + fmt.Sprintf("%v", diffservTargetClassifierStats.ParentPath) + "']"
+    diffservTargetClassifierStats.EntityData.SegmentPath = "diffserv-target-classifier-stats" + types.AddKeyToken(diffservTargetClassifierStats.ClassifierEntryName, "classifier-entry-name") + types.AddKeyToken(diffservTargetClassifierStats.ParentPath, "parent-path")
     diffservTargetClassifierStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffservTargetClassifierStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffservTargetClassifierStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    diffservTargetClassifierStats.EntityData.Children = make(map[string]types.YChild)
-    diffservTargetClassifierStats.EntityData.Children["classifier-entry-stats"] = types.YChild{"ClassifierEntryStats", &diffservTargetClassifierStats.ClassifierEntryStats}
-    diffservTargetClassifierStats.EntityData.Children["meter-stats"] = types.YChild{"MeterStats", nil}
+    diffservTargetClassifierStats.EntityData.Children = types.NewOrderedMap()
+    diffservTargetClassifierStats.EntityData.Children.Append("classifier-entry-stats", types.YChild{"ClassifierEntryStats", &diffservTargetClassifierStats.ClassifierEntryStats})
+    diffservTargetClassifierStats.EntityData.Children.Append("meter-stats", types.YChild{"MeterStats", nil})
     for i := range diffservTargetClassifierStats.MeterStats {
-        diffservTargetClassifierStats.EntityData.Children[types.GetSegmentPath(&diffservTargetClassifierStats.MeterStats[i])] = types.YChild{"MeterStats", &diffservTargetClassifierStats.MeterStats[i]}
+        diffservTargetClassifierStats.EntityData.Children.Append(types.GetSegmentPath(diffservTargetClassifierStats.MeterStats[i]), types.YChild{"MeterStats", diffservTargetClassifierStats.MeterStats[i]})
     }
-    diffservTargetClassifierStats.EntityData.Children["queuing-stats"] = types.YChild{"QueuingStats", &diffservTargetClassifierStats.QueuingStats}
-    diffservTargetClassifierStats.EntityData.Children["subclass-list"] = types.YChild{"SubclassList", nil}
+    diffservTargetClassifierStats.EntityData.Children.Append("queuing-stats", types.YChild{"QueuingStats", &diffservTargetClassifierStats.QueuingStats})
+    diffservTargetClassifierStats.EntityData.Children.Append("subclass-list", types.YChild{"SubclassList", nil})
     for i := range diffservTargetClassifierStats.SubclassList {
-        diffservTargetClassifierStats.EntityData.Children[types.GetSegmentPath(&diffservTargetClassifierStats.SubclassList[i])] = types.YChild{"SubclassList", &diffservTargetClassifierStats.SubclassList[i]}
+        diffservTargetClassifierStats.EntityData.Children.Append(types.GetSegmentPath(diffservTargetClassifierStats.SubclassList[i]), types.YChild{"SubclassList", diffservTargetClassifierStats.SubclassList[i]})
     }
-    diffservTargetClassifierStats.EntityData.Children["marking-stats"] = types.YChild{"MarkingStats", &diffservTargetClassifierStats.MarkingStats}
-    diffservTargetClassifierStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    diffservTargetClassifierStats.EntityData.Leafs["classifier-entry-name"] = types.YLeaf{"ClassifierEntryName", diffservTargetClassifierStats.ClassifierEntryName}
-    diffservTargetClassifierStats.EntityData.Leafs["parent-path"] = types.YLeaf{"ParentPath", diffservTargetClassifierStats.ParentPath}
+    diffservTargetClassifierStats.EntityData.Children.Append("marking-stats", types.YChild{"MarkingStats", &diffservTargetClassifierStats.MarkingStats})
+    diffservTargetClassifierStats.EntityData.Leafs = types.NewOrderedMap()
+    diffservTargetClassifierStats.EntityData.Leafs.Append("classifier-entry-name", types.YLeaf{"ClassifierEntryName", diffservTargetClassifierStats.ClassifierEntryName})
+    diffservTargetClassifierStats.EntityData.Leafs.Append("parent-path", types.YLeaf{"ParentPath", diffservTargetClassifierStats.ParentPath})
+
+    diffservTargetClassifierStats.EntityData.YListKeys = []string {"ClassifierEntryName", "ParentPath"}
+
     return &(diffservTargetClassifierStats.EntityData)
 }
 
@@ -1303,11 +1318,14 @@ func (classifierEntryStats *Interfaces_Interface_DiffservInfo_DiffservTargetClas
     classifierEntryStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     classifierEntryStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    classifierEntryStats.EntityData.Children = make(map[string]types.YChild)
-    classifierEntryStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    classifierEntryStats.EntityData.Leafs["classified-pkts"] = types.YLeaf{"ClassifiedPkts", classifierEntryStats.ClassifiedPkts}
-    classifierEntryStats.EntityData.Leafs["classified-bytes"] = types.YLeaf{"ClassifiedBytes", classifierEntryStats.ClassifiedBytes}
-    classifierEntryStats.EntityData.Leafs["classified-rate"] = types.YLeaf{"ClassifiedRate", classifierEntryStats.ClassifiedRate}
+    classifierEntryStats.EntityData.Children = types.NewOrderedMap()
+    classifierEntryStats.EntityData.Leafs = types.NewOrderedMap()
+    classifierEntryStats.EntityData.Leafs.Append("classified-pkts", types.YLeaf{"ClassifiedPkts", classifierEntryStats.ClassifiedPkts})
+    classifierEntryStats.EntityData.Leafs.Append("classified-bytes", types.YLeaf{"ClassifiedBytes", classifierEntryStats.ClassifiedBytes})
+    classifierEntryStats.EntityData.Leafs.Append("classified-rate", types.YLeaf{"ClassifiedRate", classifierEntryStats.ClassifiedRate})
+
+    classifierEntryStats.EntityData.YListKeys = []string {}
+
     return &(classifierEntryStats.EntityData)
 }
 
@@ -1343,18 +1361,21 @@ func (meterStats *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStat
     meterStats.EntityData.YangName = "meter-stats"
     meterStats.EntityData.BundleName = "cisco_ios_xe"
     meterStats.EntityData.ParentYangName = "diffserv-target-classifier-stats"
-    meterStats.EntityData.SegmentPath = "meter-stats" + "[meter-id='" + fmt.Sprintf("%v", meterStats.MeterId) + "']"
+    meterStats.EntityData.SegmentPath = "meter-stats" + types.AddKeyToken(meterStats.MeterId, "meter-id")
     meterStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     meterStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     meterStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    meterStats.EntityData.Children = make(map[string]types.YChild)
-    meterStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    meterStats.EntityData.Leafs["meter-id"] = types.YLeaf{"MeterId", meterStats.MeterId}
-    meterStats.EntityData.Leafs["meter-succeed-pkts"] = types.YLeaf{"MeterSucceedPkts", meterStats.MeterSucceedPkts}
-    meterStats.EntityData.Leafs["meter-succeed-bytes"] = types.YLeaf{"MeterSucceedBytes", meterStats.MeterSucceedBytes}
-    meterStats.EntityData.Leafs["meter-failed-pkts"] = types.YLeaf{"MeterFailedPkts", meterStats.MeterFailedPkts}
-    meterStats.EntityData.Leafs["meter-failed-bytes"] = types.YLeaf{"MeterFailedBytes", meterStats.MeterFailedBytes}
+    meterStats.EntityData.Children = types.NewOrderedMap()
+    meterStats.EntityData.Leafs = types.NewOrderedMap()
+    meterStats.EntityData.Leafs.Append("meter-id", types.YLeaf{"MeterId", meterStats.MeterId})
+    meterStats.EntityData.Leafs.Append("meter-succeed-pkts", types.YLeaf{"MeterSucceedPkts", meterStats.MeterSucceedPkts})
+    meterStats.EntityData.Leafs.Append("meter-succeed-bytes", types.YLeaf{"MeterSucceedBytes", meterStats.MeterSucceedBytes})
+    meterStats.EntityData.Leafs.Append("meter-failed-pkts", types.YLeaf{"MeterFailedPkts", meterStats.MeterFailedPkts})
+    meterStats.EntityData.Leafs.Append("meter-failed-bytes", types.YLeaf{"MeterFailedBytes", meterStats.MeterFailedBytes})
+
+    meterStats.EntityData.YListKeys = []string {"MeterId"}
+
     return &(meterStats.EntityData)
 }
 
@@ -1405,16 +1426,19 @@ func (queuingStats *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSt
     queuingStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     queuingStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    queuingStats.EntityData.Children = make(map[string]types.YChild)
-    queuingStats.EntityData.Children["wred-stats"] = types.YChild{"WredStats", &queuingStats.WredStats}
-    queuingStats.EntityData.Children["cac-stats"] = types.YChild{"CacStats", &queuingStats.CacStats}
-    queuingStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    queuingStats.EntityData.Leafs["output-pkts"] = types.YLeaf{"OutputPkts", queuingStats.OutputPkts}
-    queuingStats.EntityData.Leafs["output-bytes"] = types.YLeaf{"OutputBytes", queuingStats.OutputBytes}
-    queuingStats.EntityData.Leafs["queue-size-pkts"] = types.YLeaf{"QueueSizePkts", queuingStats.QueueSizePkts}
-    queuingStats.EntityData.Leafs["queue-size-bytes"] = types.YLeaf{"QueueSizeBytes", queuingStats.QueueSizeBytes}
-    queuingStats.EntityData.Leafs["drop-pkts"] = types.YLeaf{"DropPkts", queuingStats.DropPkts}
-    queuingStats.EntityData.Leafs["drop-bytes"] = types.YLeaf{"DropBytes", queuingStats.DropBytes}
+    queuingStats.EntityData.Children = types.NewOrderedMap()
+    queuingStats.EntityData.Children.Append("wred-stats", types.YChild{"WredStats", &queuingStats.WredStats})
+    queuingStats.EntityData.Children.Append("cac-stats", types.YChild{"CacStats", &queuingStats.CacStats})
+    queuingStats.EntityData.Leafs = types.NewOrderedMap()
+    queuingStats.EntityData.Leafs.Append("output-pkts", types.YLeaf{"OutputPkts", queuingStats.OutputPkts})
+    queuingStats.EntityData.Leafs.Append("output-bytes", types.YLeaf{"OutputBytes", queuingStats.OutputBytes})
+    queuingStats.EntityData.Leafs.Append("queue-size-pkts", types.YLeaf{"QueueSizePkts", queuingStats.QueueSizePkts})
+    queuingStats.EntityData.Leafs.Append("queue-size-bytes", types.YLeaf{"QueueSizeBytes", queuingStats.QueueSizeBytes})
+    queuingStats.EntityData.Leafs.Append("drop-pkts", types.YLeaf{"DropPkts", queuingStats.DropPkts})
+    queuingStats.EntityData.Leafs.Append("drop-bytes", types.YLeaf{"DropBytes", queuingStats.DropBytes})
+
+    queuingStats.EntityData.YListKeys = []string {}
+
     return &(queuingStats.EntityData)
 }
 
@@ -1483,20 +1507,23 @@ func (wredStats *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats
     wredStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     wredStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    wredStats.EntityData.Children = make(map[string]types.YChild)
-    wredStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    wredStats.EntityData.Leafs["early-drop-pkts"] = types.YLeaf{"EarlyDropPkts", wredStats.EarlyDropPkts}
-    wredStats.EntityData.Leafs["early-drop-bytes"] = types.YLeaf{"EarlyDropBytes", wredStats.EarlyDropBytes}
-    wredStats.EntityData.Leafs["mean-queue-depth"] = types.YLeaf{"MeanQueueDepth", wredStats.MeanQueueDepth}
-    wredStats.EntityData.Leafs["transmitted-pkts"] = types.YLeaf{"TransmittedPkts", wredStats.TransmittedPkts}
-    wredStats.EntityData.Leafs["transmitted-bytes"] = types.YLeaf{"TransmittedBytes", wredStats.TransmittedBytes}
-    wredStats.EntityData.Leafs["tail-drop-pkts"] = types.YLeaf{"TailDropPkts", wredStats.TailDropPkts}
-    wredStats.EntityData.Leafs["tail-drop-bytes"] = types.YLeaf{"TailDropBytes", wredStats.TailDropBytes}
-    wredStats.EntityData.Leafs["drop-pkts-flow"] = types.YLeaf{"DropPktsFlow", wredStats.DropPktsFlow}
-    wredStats.EntityData.Leafs["drop-pkts-no-buffer"] = types.YLeaf{"DropPktsNoBuffer", wredStats.DropPktsNoBuffer}
-    wredStats.EntityData.Leafs["queue-peak-size-pkts"] = types.YLeaf{"QueuePeakSizePkts", wredStats.QueuePeakSizePkts}
-    wredStats.EntityData.Leafs["queue-peak-size-bytes"] = types.YLeaf{"QueuePeakSizeBytes", wredStats.QueuePeakSizeBytes}
-    wredStats.EntityData.Leafs["bandwidth-exceed-drops"] = types.YLeaf{"BandwidthExceedDrops", wredStats.BandwidthExceedDrops}
+    wredStats.EntityData.Children = types.NewOrderedMap()
+    wredStats.EntityData.Leafs = types.NewOrderedMap()
+    wredStats.EntityData.Leafs.Append("early-drop-pkts", types.YLeaf{"EarlyDropPkts", wredStats.EarlyDropPkts})
+    wredStats.EntityData.Leafs.Append("early-drop-bytes", types.YLeaf{"EarlyDropBytes", wredStats.EarlyDropBytes})
+    wredStats.EntityData.Leafs.Append("mean-queue-depth", types.YLeaf{"MeanQueueDepth", wredStats.MeanQueueDepth})
+    wredStats.EntityData.Leafs.Append("transmitted-pkts", types.YLeaf{"TransmittedPkts", wredStats.TransmittedPkts})
+    wredStats.EntityData.Leafs.Append("transmitted-bytes", types.YLeaf{"TransmittedBytes", wredStats.TransmittedBytes})
+    wredStats.EntityData.Leafs.Append("tail-drop-pkts", types.YLeaf{"TailDropPkts", wredStats.TailDropPkts})
+    wredStats.EntityData.Leafs.Append("tail-drop-bytes", types.YLeaf{"TailDropBytes", wredStats.TailDropBytes})
+    wredStats.EntityData.Leafs.Append("drop-pkts-flow", types.YLeaf{"DropPktsFlow", wredStats.DropPktsFlow})
+    wredStats.EntityData.Leafs.Append("drop-pkts-no-buffer", types.YLeaf{"DropPktsNoBuffer", wredStats.DropPktsNoBuffer})
+    wredStats.EntityData.Leafs.Append("queue-peak-size-pkts", types.YLeaf{"QueuePeakSizePkts", wredStats.QueuePeakSizePkts})
+    wredStats.EntityData.Leafs.Append("queue-peak-size-bytes", types.YLeaf{"QueuePeakSizeBytes", wredStats.QueuePeakSizeBytes})
+    wredStats.EntityData.Leafs.Append("bandwidth-exceed-drops", types.YLeaf{"BandwidthExceedDrops", wredStats.BandwidthExceedDrops})
+
+    wredStats.EntityData.YListKeys = []string {}
+
     return &(wredStats.EntityData)
 }
 
@@ -1525,10 +1552,13 @@ func (cacStats *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_
     cacStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cacStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cacStats.EntityData.Children = make(map[string]types.YChild)
-    cacStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    cacStats.EntityData.Leafs["num-admitted-flows"] = types.YLeaf{"NumAdmittedFlows", cacStats.NumAdmittedFlows}
-    cacStats.EntityData.Leafs["num-non-admitted-flows"] = types.YLeaf{"NumNonAdmittedFlows", cacStats.NumNonAdmittedFlows}
+    cacStats.EntityData.Children = types.NewOrderedMap()
+    cacStats.EntityData.Leafs = types.NewOrderedMap()
+    cacStats.EntityData.Leafs.Append("num-admitted-flows", types.YLeaf{"NumAdmittedFlows", cacStats.NumAdmittedFlows})
+    cacStats.EntityData.Leafs.Append("num-non-admitted-flows", types.YLeaf{"NumNonAdmittedFlows", cacStats.NumNonAdmittedFlows})
+
+    cacStats.EntityData.YListKeys = []string {}
+
     return &(cacStats.EntityData)
 }
 
@@ -1548,42 +1578,42 @@ type Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassLis
     // Counters for sub-class matching a range of Class-of-Service (COS) value
     // (and, optionally, additional COS range. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_CosCounters.
-    CosCounters []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_CosCounters
+    CosCounters []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_CosCounters
 
     // statistics for cos default.
     CosDefault Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_CosDefault
 
     // List for statistics based on dscp value range. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DscpCounters.
-    DscpCounters []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DscpCounters
+    DscpCounters []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DscpCounters
 
     // Statistics for dscp default.
     DscpDefault Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DscpDefault
 
     // Composed multiple discard class ranges. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DiscardClassCounters.
-    DiscardClassCounters []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DiscardClassCounters
+    DiscardClassCounters []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DiscardClassCounters
 
     // Statistics for discard class default.
     DiscClassDefault Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DiscClassDefault
 
     // List for statistics based on precedence value range. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_PrecedenceCounters.
-    PrecedenceCounters []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_PrecedenceCounters
+    PrecedenceCounters []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_PrecedenceCounters
 
     // Precedence default.
     PrecDefault Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_PrecDefault
 
     // List for statistics based on mpls exp value range. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_MplsExpCounters.
-    MplsExpCounters []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_MplsExpCounters
+    MplsExpCounters []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_MplsExpCounters
 
     // Statistics for mpls-exp default.
     MplsExpDefault Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_MplsExpDefault
 
     // Composed by multiple dei ranges. The type is slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DeiCounters.
-    DeiCounters []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DeiCounters
+    DeiCounters []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DeiCounters
 
     // Statistics for dei default.
     DeiCountsDefault Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_DeiCountsDefault
@@ -1591,7 +1621,7 @@ type Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassLis
     // Statistics for each value range for a specifc subclass type. The type is
     // slice of
     // Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_ClpCounters.
-    ClpCounters []Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_ClpCounters
+    ClpCounters []*Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_ClpCounters
 
     // Statistic for atm clp default.
     ClpDefault Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStats_SubclassList_ClpDefault
@@ -1602,49 +1632,52 @@ func (subclassList *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSt
     subclassList.EntityData.YangName = "subclass-list"
     subclassList.EntityData.BundleName = "cisco_ios_xe"
     subclassList.EntityData.ParentYangName = "diffserv-target-classifier-stats"
-    subclassList.EntityData.SegmentPath = "subclass-list" + "[match-type='" + fmt.Sprintf("%v", subclassList.MatchType) + "']"
+    subclassList.EntityData.SegmentPath = "subclass-list" + types.AddKeyToken(subclassList.MatchType, "match-type")
     subclassList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     subclassList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     subclassList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    subclassList.EntityData.Children = make(map[string]types.YChild)
-    subclassList.EntityData.Children["cos-counters"] = types.YChild{"CosCounters", nil}
+    subclassList.EntityData.Children = types.NewOrderedMap()
+    subclassList.EntityData.Children.Append("cos-counters", types.YChild{"CosCounters", nil})
     for i := range subclassList.CosCounters {
-        subclassList.EntityData.Children[types.GetSegmentPath(&subclassList.CosCounters[i])] = types.YChild{"CosCounters", &subclassList.CosCounters[i]}
+        subclassList.EntityData.Children.Append(types.GetSegmentPath(subclassList.CosCounters[i]), types.YChild{"CosCounters", subclassList.CosCounters[i]})
     }
-    subclassList.EntityData.Children["cos-default"] = types.YChild{"CosDefault", &subclassList.CosDefault}
-    subclassList.EntityData.Children["dscp-counters"] = types.YChild{"DscpCounters", nil}
+    subclassList.EntityData.Children.Append("cos-default", types.YChild{"CosDefault", &subclassList.CosDefault})
+    subclassList.EntityData.Children.Append("dscp-counters", types.YChild{"DscpCounters", nil})
     for i := range subclassList.DscpCounters {
-        subclassList.EntityData.Children[types.GetSegmentPath(&subclassList.DscpCounters[i])] = types.YChild{"DscpCounters", &subclassList.DscpCounters[i]}
+        subclassList.EntityData.Children.Append(types.GetSegmentPath(subclassList.DscpCounters[i]), types.YChild{"DscpCounters", subclassList.DscpCounters[i]})
     }
-    subclassList.EntityData.Children["dscp-default"] = types.YChild{"DscpDefault", &subclassList.DscpDefault}
-    subclassList.EntityData.Children["discard-class-counters"] = types.YChild{"DiscardClassCounters", nil}
+    subclassList.EntityData.Children.Append("dscp-default", types.YChild{"DscpDefault", &subclassList.DscpDefault})
+    subclassList.EntityData.Children.Append("discard-class-counters", types.YChild{"DiscardClassCounters", nil})
     for i := range subclassList.DiscardClassCounters {
-        subclassList.EntityData.Children[types.GetSegmentPath(&subclassList.DiscardClassCounters[i])] = types.YChild{"DiscardClassCounters", &subclassList.DiscardClassCounters[i]}
+        subclassList.EntityData.Children.Append(types.GetSegmentPath(subclassList.DiscardClassCounters[i]), types.YChild{"DiscardClassCounters", subclassList.DiscardClassCounters[i]})
     }
-    subclassList.EntityData.Children["disc-class-default"] = types.YChild{"DiscClassDefault", &subclassList.DiscClassDefault}
-    subclassList.EntityData.Children["precedence-counters"] = types.YChild{"PrecedenceCounters", nil}
+    subclassList.EntityData.Children.Append("disc-class-default", types.YChild{"DiscClassDefault", &subclassList.DiscClassDefault})
+    subclassList.EntityData.Children.Append("precedence-counters", types.YChild{"PrecedenceCounters", nil})
     for i := range subclassList.PrecedenceCounters {
-        subclassList.EntityData.Children[types.GetSegmentPath(&subclassList.PrecedenceCounters[i])] = types.YChild{"PrecedenceCounters", &subclassList.PrecedenceCounters[i]}
+        subclassList.EntityData.Children.Append(types.GetSegmentPath(subclassList.PrecedenceCounters[i]), types.YChild{"PrecedenceCounters", subclassList.PrecedenceCounters[i]})
     }
-    subclassList.EntityData.Children["prec-default"] = types.YChild{"PrecDefault", &subclassList.PrecDefault}
-    subclassList.EntityData.Children["mpls-exp-counters"] = types.YChild{"MplsExpCounters", nil}
+    subclassList.EntityData.Children.Append("prec-default", types.YChild{"PrecDefault", &subclassList.PrecDefault})
+    subclassList.EntityData.Children.Append("mpls-exp-counters", types.YChild{"MplsExpCounters", nil})
     for i := range subclassList.MplsExpCounters {
-        subclassList.EntityData.Children[types.GetSegmentPath(&subclassList.MplsExpCounters[i])] = types.YChild{"MplsExpCounters", &subclassList.MplsExpCounters[i]}
+        subclassList.EntityData.Children.Append(types.GetSegmentPath(subclassList.MplsExpCounters[i]), types.YChild{"MplsExpCounters", subclassList.MplsExpCounters[i]})
     }
-    subclassList.EntityData.Children["mpls-exp-default"] = types.YChild{"MplsExpDefault", &subclassList.MplsExpDefault}
-    subclassList.EntityData.Children["dei-counters"] = types.YChild{"DeiCounters", nil}
+    subclassList.EntityData.Children.Append("mpls-exp-default", types.YChild{"MplsExpDefault", &subclassList.MplsExpDefault})
+    subclassList.EntityData.Children.Append("dei-counters", types.YChild{"DeiCounters", nil})
     for i := range subclassList.DeiCounters {
-        subclassList.EntityData.Children[types.GetSegmentPath(&subclassList.DeiCounters[i])] = types.YChild{"DeiCounters", &subclassList.DeiCounters[i]}
+        subclassList.EntityData.Children.Append(types.GetSegmentPath(subclassList.DeiCounters[i]), types.YChild{"DeiCounters", subclassList.DeiCounters[i]})
     }
-    subclassList.EntityData.Children["dei-counts-default"] = types.YChild{"DeiCountsDefault", &subclassList.DeiCountsDefault}
-    subclassList.EntityData.Children["clp-counters"] = types.YChild{"ClpCounters", nil}
+    subclassList.EntityData.Children.Append("dei-counts-default", types.YChild{"DeiCountsDefault", &subclassList.DeiCountsDefault})
+    subclassList.EntityData.Children.Append("clp-counters", types.YChild{"ClpCounters", nil})
     for i := range subclassList.ClpCounters {
-        subclassList.EntityData.Children[types.GetSegmentPath(&subclassList.ClpCounters[i])] = types.YChild{"ClpCounters", &subclassList.ClpCounters[i]}
+        subclassList.EntityData.Children.Append(types.GetSegmentPath(subclassList.ClpCounters[i]), types.YChild{"ClpCounters", subclassList.ClpCounters[i]})
     }
-    subclassList.EntityData.Children["clp-default"] = types.YChild{"ClpDefault", &subclassList.ClpDefault}
-    subclassList.EntityData.Leafs = make(map[string]types.YLeaf)
-    subclassList.EntityData.Leafs["match-type"] = types.YLeaf{"MatchType", subclassList.MatchType}
+    subclassList.EntityData.Children.Append("clp-default", types.YChild{"ClpDefault", &subclassList.ClpDefault})
+    subclassList.EntityData.Leafs = types.NewOrderedMap()
+    subclassList.EntityData.Leafs.Append("match-type", types.YLeaf{"MatchType", subclassList.MatchType})
+
+    subclassList.EntityData.YListKeys = []string {"MatchType"}
+
     return &(subclassList.EntityData)
 }
 
@@ -1693,21 +1726,24 @@ func (cosCounters *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSta
     cosCounters.EntityData.YangName = "cos-counters"
     cosCounters.EntityData.BundleName = "cisco_ios_xe"
     cosCounters.EntityData.ParentYangName = "subclass-list"
-    cosCounters.EntityData.SegmentPath = "cos-counters" + "[cos-min='" + fmt.Sprintf("%v", cosCounters.CosMin) + "']" + "[cos-max='" + fmt.Sprintf("%v", cosCounters.CosMax) + "']"
+    cosCounters.EntityData.SegmentPath = "cos-counters" + types.AddKeyToken(cosCounters.CosMin, "cos-min") + types.AddKeyToken(cosCounters.CosMax, "cos-max")
     cosCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cosCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cosCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cosCounters.EntityData.Children = make(map[string]types.YChild)
-    cosCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    cosCounters.EntityData.Leafs["cos-min"] = types.YLeaf{"CosMin", cosCounters.CosMin}
-    cosCounters.EntityData.Leafs["cos-max"] = types.YLeaf{"CosMax", cosCounters.CosMax}
-    cosCounters.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", cosCounters.WredTxPkts}
-    cosCounters.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", cosCounters.WredTxBytes}
-    cosCounters.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", cosCounters.WredTailDropPkts}
-    cosCounters.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", cosCounters.WredTailDropBytes}
-    cosCounters.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", cosCounters.WredEarlyDropPkts}
-    cosCounters.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", cosCounters.WredEarlyDropBytes}
+    cosCounters.EntityData.Children = types.NewOrderedMap()
+    cosCounters.EntityData.Leafs = types.NewOrderedMap()
+    cosCounters.EntityData.Leafs.Append("cos-min", types.YLeaf{"CosMin", cosCounters.CosMin})
+    cosCounters.EntityData.Leafs.Append("cos-max", types.YLeaf{"CosMax", cosCounters.CosMax})
+    cosCounters.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", cosCounters.WredTxPkts})
+    cosCounters.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", cosCounters.WredTxBytes})
+    cosCounters.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", cosCounters.WredTailDropPkts})
+    cosCounters.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", cosCounters.WredTailDropBytes})
+    cosCounters.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", cosCounters.WredEarlyDropPkts})
+    cosCounters.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", cosCounters.WredEarlyDropBytes})
+
+    cosCounters.EntityData.YListKeys = []string {"CosMin", "CosMax"}
+
     return &(cosCounters.EntityData)
 }
 
@@ -1752,14 +1788,17 @@ func (cosDefault *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStat
     cosDefault.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cosDefault.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cosDefault.EntityData.Children = make(map[string]types.YChild)
-    cosDefault.EntityData.Leafs = make(map[string]types.YLeaf)
-    cosDefault.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", cosDefault.WredTxPkts}
-    cosDefault.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", cosDefault.WredTxBytes}
-    cosDefault.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", cosDefault.WredTailDropPkts}
-    cosDefault.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", cosDefault.WredTailDropBytes}
-    cosDefault.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", cosDefault.WredEarlyDropPkts}
-    cosDefault.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", cosDefault.WredEarlyDropBytes}
+    cosDefault.EntityData.Children = types.NewOrderedMap()
+    cosDefault.EntityData.Leafs = types.NewOrderedMap()
+    cosDefault.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", cosDefault.WredTxPkts})
+    cosDefault.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", cosDefault.WredTxBytes})
+    cosDefault.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", cosDefault.WredTailDropPkts})
+    cosDefault.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", cosDefault.WredTailDropBytes})
+    cosDefault.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", cosDefault.WredEarlyDropPkts})
+    cosDefault.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", cosDefault.WredEarlyDropBytes})
+
+    cosDefault.EntityData.YListKeys = []string {}
+
     return &(cosDefault.EntityData)
 }
 
@@ -1807,21 +1846,24 @@ func (dscpCounters *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSt
     dscpCounters.EntityData.YangName = "dscp-counters"
     dscpCounters.EntityData.BundleName = "cisco_ios_xe"
     dscpCounters.EntityData.ParentYangName = "subclass-list"
-    dscpCounters.EntityData.SegmentPath = "dscp-counters" + "[dscp-min='" + fmt.Sprintf("%v", dscpCounters.DscpMin) + "']" + "[dscp-max='" + fmt.Sprintf("%v", dscpCounters.DscpMax) + "']"
+    dscpCounters.EntityData.SegmentPath = "dscp-counters" + types.AddKeyToken(dscpCounters.DscpMin, "dscp-min") + types.AddKeyToken(dscpCounters.DscpMax, "dscp-max")
     dscpCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dscpCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dscpCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dscpCounters.EntityData.Children = make(map[string]types.YChild)
-    dscpCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    dscpCounters.EntityData.Leafs["dscp-min"] = types.YLeaf{"DscpMin", dscpCounters.DscpMin}
-    dscpCounters.EntityData.Leafs["dscp-max"] = types.YLeaf{"DscpMax", dscpCounters.DscpMax}
-    dscpCounters.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", dscpCounters.WredTxPkts}
-    dscpCounters.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", dscpCounters.WredTxBytes}
-    dscpCounters.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", dscpCounters.WredTailDropPkts}
-    dscpCounters.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", dscpCounters.WredTailDropBytes}
-    dscpCounters.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", dscpCounters.WredEarlyDropPkts}
-    dscpCounters.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", dscpCounters.WredEarlyDropBytes}
+    dscpCounters.EntityData.Children = types.NewOrderedMap()
+    dscpCounters.EntityData.Leafs = types.NewOrderedMap()
+    dscpCounters.EntityData.Leafs.Append("dscp-min", types.YLeaf{"DscpMin", dscpCounters.DscpMin})
+    dscpCounters.EntityData.Leafs.Append("dscp-max", types.YLeaf{"DscpMax", dscpCounters.DscpMax})
+    dscpCounters.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", dscpCounters.WredTxPkts})
+    dscpCounters.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", dscpCounters.WredTxBytes})
+    dscpCounters.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", dscpCounters.WredTailDropPkts})
+    dscpCounters.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", dscpCounters.WredTailDropBytes})
+    dscpCounters.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", dscpCounters.WredEarlyDropPkts})
+    dscpCounters.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", dscpCounters.WredEarlyDropBytes})
+
+    dscpCounters.EntityData.YListKeys = []string {"DscpMin", "DscpMax"}
+
     return &(dscpCounters.EntityData)
 }
 
@@ -1866,14 +1908,17 @@ func (dscpDefault *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSta
     dscpDefault.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dscpDefault.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dscpDefault.EntityData.Children = make(map[string]types.YChild)
-    dscpDefault.EntityData.Leafs = make(map[string]types.YLeaf)
-    dscpDefault.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", dscpDefault.WredTxPkts}
-    dscpDefault.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", dscpDefault.WredTxBytes}
-    dscpDefault.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", dscpDefault.WredTailDropPkts}
-    dscpDefault.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", dscpDefault.WredTailDropBytes}
-    dscpDefault.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", dscpDefault.WredEarlyDropPkts}
-    dscpDefault.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", dscpDefault.WredEarlyDropBytes}
+    dscpDefault.EntityData.Children = types.NewOrderedMap()
+    dscpDefault.EntityData.Leafs = types.NewOrderedMap()
+    dscpDefault.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", dscpDefault.WredTxPkts})
+    dscpDefault.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", dscpDefault.WredTxBytes})
+    dscpDefault.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", dscpDefault.WredTailDropPkts})
+    dscpDefault.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", dscpDefault.WredTailDropBytes})
+    dscpDefault.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", dscpDefault.WredEarlyDropPkts})
+    dscpDefault.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", dscpDefault.WredEarlyDropBytes})
+
+    dscpDefault.EntityData.YListKeys = []string {}
+
     return &(dscpDefault.EntityData)
 }
 
@@ -1921,21 +1966,24 @@ func (discardClassCounters *Interfaces_Interface_DiffservInfo_DiffservTargetClas
     discardClassCounters.EntityData.YangName = "discard-class-counters"
     discardClassCounters.EntityData.BundleName = "cisco_ios_xe"
     discardClassCounters.EntityData.ParentYangName = "subclass-list"
-    discardClassCounters.EntityData.SegmentPath = "discard-class-counters" + "[disc-class-min='" + fmt.Sprintf("%v", discardClassCounters.DiscClassMin) + "']" + "[disc-class-max='" + fmt.Sprintf("%v", discardClassCounters.DiscClassMax) + "']"
+    discardClassCounters.EntityData.SegmentPath = "discard-class-counters" + types.AddKeyToken(discardClassCounters.DiscClassMin, "disc-class-min") + types.AddKeyToken(discardClassCounters.DiscClassMax, "disc-class-max")
     discardClassCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     discardClassCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     discardClassCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    discardClassCounters.EntityData.Children = make(map[string]types.YChild)
-    discardClassCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    discardClassCounters.EntityData.Leafs["disc-class-min"] = types.YLeaf{"DiscClassMin", discardClassCounters.DiscClassMin}
-    discardClassCounters.EntityData.Leafs["disc-class-max"] = types.YLeaf{"DiscClassMax", discardClassCounters.DiscClassMax}
-    discardClassCounters.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", discardClassCounters.WredTxPkts}
-    discardClassCounters.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", discardClassCounters.WredTxBytes}
-    discardClassCounters.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", discardClassCounters.WredTailDropPkts}
-    discardClassCounters.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", discardClassCounters.WredTailDropBytes}
-    discardClassCounters.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", discardClassCounters.WredEarlyDropPkts}
-    discardClassCounters.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", discardClassCounters.WredEarlyDropBytes}
+    discardClassCounters.EntityData.Children = types.NewOrderedMap()
+    discardClassCounters.EntityData.Leafs = types.NewOrderedMap()
+    discardClassCounters.EntityData.Leafs.Append("disc-class-min", types.YLeaf{"DiscClassMin", discardClassCounters.DiscClassMin})
+    discardClassCounters.EntityData.Leafs.Append("disc-class-max", types.YLeaf{"DiscClassMax", discardClassCounters.DiscClassMax})
+    discardClassCounters.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", discardClassCounters.WredTxPkts})
+    discardClassCounters.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", discardClassCounters.WredTxBytes})
+    discardClassCounters.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", discardClassCounters.WredTailDropPkts})
+    discardClassCounters.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", discardClassCounters.WredTailDropBytes})
+    discardClassCounters.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", discardClassCounters.WredEarlyDropPkts})
+    discardClassCounters.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", discardClassCounters.WredEarlyDropBytes})
+
+    discardClassCounters.EntityData.YListKeys = []string {"DiscClassMin", "DiscClassMax"}
+
     return &(discardClassCounters.EntityData)
 }
 
@@ -1980,14 +2028,17 @@ func (discClassDefault *Interfaces_Interface_DiffservInfo_DiffservTargetClassifi
     discClassDefault.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     discClassDefault.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    discClassDefault.EntityData.Children = make(map[string]types.YChild)
-    discClassDefault.EntityData.Leafs = make(map[string]types.YLeaf)
-    discClassDefault.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", discClassDefault.WredTxPkts}
-    discClassDefault.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", discClassDefault.WredTxBytes}
-    discClassDefault.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", discClassDefault.WredTailDropPkts}
-    discClassDefault.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", discClassDefault.WredTailDropBytes}
-    discClassDefault.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", discClassDefault.WredEarlyDropPkts}
-    discClassDefault.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", discClassDefault.WredEarlyDropBytes}
+    discClassDefault.EntityData.Children = types.NewOrderedMap()
+    discClassDefault.EntityData.Leafs = types.NewOrderedMap()
+    discClassDefault.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", discClassDefault.WredTxPkts})
+    discClassDefault.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", discClassDefault.WredTxBytes})
+    discClassDefault.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", discClassDefault.WredTailDropPkts})
+    discClassDefault.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", discClassDefault.WredTailDropBytes})
+    discClassDefault.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", discClassDefault.WredEarlyDropPkts})
+    discClassDefault.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", discClassDefault.WredEarlyDropBytes})
+
+    discClassDefault.EntityData.YListKeys = []string {}
+
     return &(discClassDefault.EntityData)
 }
 
@@ -2035,21 +2086,24 @@ func (precedenceCounters *Interfaces_Interface_DiffservInfo_DiffservTargetClassi
     precedenceCounters.EntityData.YangName = "precedence-counters"
     precedenceCounters.EntityData.BundleName = "cisco_ios_xe"
     precedenceCounters.EntityData.ParentYangName = "subclass-list"
-    precedenceCounters.EntityData.SegmentPath = "precedence-counters" + "[prec-min='" + fmt.Sprintf("%v", precedenceCounters.PrecMin) + "']" + "[prec-max='" + fmt.Sprintf("%v", precedenceCounters.PrecMax) + "']"
+    precedenceCounters.EntityData.SegmentPath = "precedence-counters" + types.AddKeyToken(precedenceCounters.PrecMin, "prec-min") + types.AddKeyToken(precedenceCounters.PrecMax, "prec-max")
     precedenceCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     precedenceCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     precedenceCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    precedenceCounters.EntityData.Children = make(map[string]types.YChild)
-    precedenceCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    precedenceCounters.EntityData.Leafs["prec-min"] = types.YLeaf{"PrecMin", precedenceCounters.PrecMin}
-    precedenceCounters.EntityData.Leafs["prec-max"] = types.YLeaf{"PrecMax", precedenceCounters.PrecMax}
-    precedenceCounters.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", precedenceCounters.WredTxPkts}
-    precedenceCounters.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", precedenceCounters.WredTxBytes}
-    precedenceCounters.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", precedenceCounters.WredTailDropPkts}
-    precedenceCounters.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", precedenceCounters.WredTailDropBytes}
-    precedenceCounters.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", precedenceCounters.WredEarlyDropPkts}
-    precedenceCounters.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", precedenceCounters.WredEarlyDropBytes}
+    precedenceCounters.EntityData.Children = types.NewOrderedMap()
+    precedenceCounters.EntityData.Leafs = types.NewOrderedMap()
+    precedenceCounters.EntityData.Leafs.Append("prec-min", types.YLeaf{"PrecMin", precedenceCounters.PrecMin})
+    precedenceCounters.EntityData.Leafs.Append("prec-max", types.YLeaf{"PrecMax", precedenceCounters.PrecMax})
+    precedenceCounters.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", precedenceCounters.WredTxPkts})
+    precedenceCounters.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", precedenceCounters.WredTxBytes})
+    precedenceCounters.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", precedenceCounters.WredTailDropPkts})
+    precedenceCounters.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", precedenceCounters.WredTailDropBytes})
+    precedenceCounters.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", precedenceCounters.WredEarlyDropPkts})
+    precedenceCounters.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", precedenceCounters.WredEarlyDropBytes})
+
+    precedenceCounters.EntityData.YListKeys = []string {"PrecMin", "PrecMax"}
+
     return &(precedenceCounters.EntityData)
 }
 
@@ -2094,14 +2148,17 @@ func (precDefault *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSta
     precDefault.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     precDefault.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    precDefault.EntityData.Children = make(map[string]types.YChild)
-    precDefault.EntityData.Leafs = make(map[string]types.YLeaf)
-    precDefault.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", precDefault.WredTxPkts}
-    precDefault.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", precDefault.WredTxBytes}
-    precDefault.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", precDefault.WredTailDropPkts}
-    precDefault.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", precDefault.WredTailDropBytes}
-    precDefault.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", precDefault.WredEarlyDropPkts}
-    precDefault.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", precDefault.WredEarlyDropBytes}
+    precDefault.EntityData.Children = types.NewOrderedMap()
+    precDefault.EntityData.Leafs = types.NewOrderedMap()
+    precDefault.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", precDefault.WredTxPkts})
+    precDefault.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", precDefault.WredTxBytes})
+    precDefault.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", precDefault.WredTailDropPkts})
+    precDefault.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", precDefault.WredTailDropBytes})
+    precDefault.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", precDefault.WredEarlyDropPkts})
+    precDefault.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", precDefault.WredEarlyDropBytes})
+
+    precDefault.EntityData.YListKeys = []string {}
+
     return &(precDefault.EntityData)
 }
 
@@ -2151,21 +2208,24 @@ func (mplsExpCounters *Interfaces_Interface_DiffservInfo_DiffservTargetClassifie
     mplsExpCounters.EntityData.YangName = "mpls-exp-counters"
     mplsExpCounters.EntityData.BundleName = "cisco_ios_xe"
     mplsExpCounters.EntityData.ParentYangName = "subclass-list"
-    mplsExpCounters.EntityData.SegmentPath = "mpls-exp-counters" + "[exp-min='" + fmt.Sprintf("%v", mplsExpCounters.ExpMin) + "']" + "[exp-max='" + fmt.Sprintf("%v", mplsExpCounters.ExpMax) + "']"
+    mplsExpCounters.EntityData.SegmentPath = "mpls-exp-counters" + types.AddKeyToken(mplsExpCounters.ExpMin, "exp-min") + types.AddKeyToken(mplsExpCounters.ExpMax, "exp-max")
     mplsExpCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsExpCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsExpCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsExpCounters.EntityData.Children = make(map[string]types.YChild)
-    mplsExpCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsExpCounters.EntityData.Leafs["exp-min"] = types.YLeaf{"ExpMin", mplsExpCounters.ExpMin}
-    mplsExpCounters.EntityData.Leafs["exp-max"] = types.YLeaf{"ExpMax", mplsExpCounters.ExpMax}
-    mplsExpCounters.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", mplsExpCounters.WredTxPkts}
-    mplsExpCounters.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", mplsExpCounters.WredTxBytes}
-    mplsExpCounters.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", mplsExpCounters.WredTailDropPkts}
-    mplsExpCounters.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", mplsExpCounters.WredTailDropBytes}
-    mplsExpCounters.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", mplsExpCounters.WredEarlyDropPkts}
-    mplsExpCounters.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", mplsExpCounters.WredEarlyDropBytes}
+    mplsExpCounters.EntityData.Children = types.NewOrderedMap()
+    mplsExpCounters.EntityData.Leafs = types.NewOrderedMap()
+    mplsExpCounters.EntityData.Leafs.Append("exp-min", types.YLeaf{"ExpMin", mplsExpCounters.ExpMin})
+    mplsExpCounters.EntityData.Leafs.Append("exp-max", types.YLeaf{"ExpMax", mplsExpCounters.ExpMax})
+    mplsExpCounters.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", mplsExpCounters.WredTxPkts})
+    mplsExpCounters.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", mplsExpCounters.WredTxBytes})
+    mplsExpCounters.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", mplsExpCounters.WredTailDropPkts})
+    mplsExpCounters.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", mplsExpCounters.WredTailDropBytes})
+    mplsExpCounters.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", mplsExpCounters.WredEarlyDropPkts})
+    mplsExpCounters.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", mplsExpCounters.WredEarlyDropBytes})
+
+    mplsExpCounters.EntityData.YListKeys = []string {"ExpMin", "ExpMax"}
+
     return &(mplsExpCounters.EntityData)
 }
 
@@ -2210,14 +2270,17 @@ func (mplsExpDefault *Interfaces_Interface_DiffservInfo_DiffservTargetClassifier
     mplsExpDefault.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsExpDefault.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsExpDefault.EntityData.Children = make(map[string]types.YChild)
-    mplsExpDefault.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsExpDefault.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", mplsExpDefault.WredTxPkts}
-    mplsExpDefault.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", mplsExpDefault.WredTxBytes}
-    mplsExpDefault.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", mplsExpDefault.WredTailDropPkts}
-    mplsExpDefault.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", mplsExpDefault.WredTailDropBytes}
-    mplsExpDefault.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", mplsExpDefault.WredEarlyDropPkts}
-    mplsExpDefault.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", mplsExpDefault.WredEarlyDropBytes}
+    mplsExpDefault.EntityData.Children = types.NewOrderedMap()
+    mplsExpDefault.EntityData.Leafs = types.NewOrderedMap()
+    mplsExpDefault.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", mplsExpDefault.WredTxPkts})
+    mplsExpDefault.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", mplsExpDefault.WredTxBytes})
+    mplsExpDefault.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", mplsExpDefault.WredTailDropPkts})
+    mplsExpDefault.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", mplsExpDefault.WredTailDropBytes})
+    mplsExpDefault.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", mplsExpDefault.WredEarlyDropPkts})
+    mplsExpDefault.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", mplsExpDefault.WredEarlyDropBytes})
+
+    mplsExpDefault.EntityData.YListKeys = []string {}
+
     return &(mplsExpDefault.EntityData)
 }
 
@@ -2265,21 +2328,24 @@ func (deiCounters *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSta
     deiCounters.EntityData.YangName = "dei-counters"
     deiCounters.EntityData.BundleName = "cisco_ios_xe"
     deiCounters.EntityData.ParentYangName = "subclass-list"
-    deiCounters.EntityData.SegmentPath = "dei-counters" + "[dei-min='" + fmt.Sprintf("%v", deiCounters.DeiMin) + "']" + "[dei-max='" + fmt.Sprintf("%v", deiCounters.DeiMax) + "']"
+    deiCounters.EntityData.SegmentPath = "dei-counters" + types.AddKeyToken(deiCounters.DeiMin, "dei-min") + types.AddKeyToken(deiCounters.DeiMax, "dei-max")
     deiCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deiCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deiCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    deiCounters.EntityData.Children = make(map[string]types.YChild)
-    deiCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    deiCounters.EntityData.Leafs["dei-min"] = types.YLeaf{"DeiMin", deiCounters.DeiMin}
-    deiCounters.EntityData.Leafs["dei-max"] = types.YLeaf{"DeiMax", deiCounters.DeiMax}
-    deiCounters.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", deiCounters.WredTxPkts}
-    deiCounters.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", deiCounters.WredTxBytes}
-    deiCounters.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", deiCounters.WredTailDropPkts}
-    deiCounters.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", deiCounters.WredTailDropBytes}
-    deiCounters.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", deiCounters.WredEarlyDropPkts}
-    deiCounters.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", deiCounters.WredEarlyDropBytes}
+    deiCounters.EntityData.Children = types.NewOrderedMap()
+    deiCounters.EntityData.Leafs = types.NewOrderedMap()
+    deiCounters.EntityData.Leafs.Append("dei-min", types.YLeaf{"DeiMin", deiCounters.DeiMin})
+    deiCounters.EntityData.Leafs.Append("dei-max", types.YLeaf{"DeiMax", deiCounters.DeiMax})
+    deiCounters.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", deiCounters.WredTxPkts})
+    deiCounters.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", deiCounters.WredTxBytes})
+    deiCounters.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", deiCounters.WredTailDropPkts})
+    deiCounters.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", deiCounters.WredTailDropBytes})
+    deiCounters.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", deiCounters.WredEarlyDropPkts})
+    deiCounters.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", deiCounters.WredEarlyDropBytes})
+
+    deiCounters.EntityData.YListKeys = []string {"DeiMin", "DeiMax"}
+
     return &(deiCounters.EntityData)
 }
 
@@ -2324,14 +2390,17 @@ func (deiCountsDefault *Interfaces_Interface_DiffservInfo_DiffservTargetClassifi
     deiCountsDefault.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deiCountsDefault.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    deiCountsDefault.EntityData.Children = make(map[string]types.YChild)
-    deiCountsDefault.EntityData.Leafs = make(map[string]types.YLeaf)
-    deiCountsDefault.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", deiCountsDefault.WredTxPkts}
-    deiCountsDefault.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", deiCountsDefault.WredTxBytes}
-    deiCountsDefault.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", deiCountsDefault.WredTailDropPkts}
-    deiCountsDefault.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", deiCountsDefault.WredTailDropBytes}
-    deiCountsDefault.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", deiCountsDefault.WredEarlyDropPkts}
-    deiCountsDefault.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", deiCountsDefault.WredEarlyDropBytes}
+    deiCountsDefault.EntityData.Children = types.NewOrderedMap()
+    deiCountsDefault.EntityData.Leafs = types.NewOrderedMap()
+    deiCountsDefault.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", deiCountsDefault.WredTxPkts})
+    deiCountsDefault.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", deiCountsDefault.WredTxBytes})
+    deiCountsDefault.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", deiCountsDefault.WredTailDropPkts})
+    deiCountsDefault.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", deiCountsDefault.WredTailDropBytes})
+    deiCountsDefault.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", deiCountsDefault.WredEarlyDropPkts})
+    deiCountsDefault.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", deiCountsDefault.WredEarlyDropBytes})
+
+    deiCountsDefault.EntityData.YListKeys = []string {}
+
     return &(deiCountsDefault.EntityData)
 }
 
@@ -2375,20 +2444,23 @@ func (clpCounters *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSta
     clpCounters.EntityData.YangName = "clp-counters"
     clpCounters.EntityData.BundleName = "cisco_ios_xe"
     clpCounters.EntityData.ParentYangName = "subclass-list"
-    clpCounters.EntityData.SegmentPath = "clp-counters" + "[clp-val='" + fmt.Sprintf("%v", clpCounters.ClpVal) + "']"
+    clpCounters.EntityData.SegmentPath = "clp-counters" + types.AddKeyToken(clpCounters.ClpVal, "clp-val")
     clpCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clpCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clpCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clpCounters.EntityData.Children = make(map[string]types.YChild)
-    clpCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    clpCounters.EntityData.Leafs["clp-val"] = types.YLeaf{"ClpVal", clpCounters.ClpVal}
-    clpCounters.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", clpCounters.WredTxPkts}
-    clpCounters.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", clpCounters.WredTxBytes}
-    clpCounters.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", clpCounters.WredTailDropPkts}
-    clpCounters.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", clpCounters.WredTailDropBytes}
-    clpCounters.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", clpCounters.WredEarlyDropPkts}
-    clpCounters.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", clpCounters.WredEarlyDropBytes}
+    clpCounters.EntityData.Children = types.NewOrderedMap()
+    clpCounters.EntityData.Leafs = types.NewOrderedMap()
+    clpCounters.EntityData.Leafs.Append("clp-val", types.YLeaf{"ClpVal", clpCounters.ClpVal})
+    clpCounters.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", clpCounters.WredTxPkts})
+    clpCounters.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", clpCounters.WredTxBytes})
+    clpCounters.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", clpCounters.WredTailDropPkts})
+    clpCounters.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", clpCounters.WredTailDropBytes})
+    clpCounters.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", clpCounters.WredEarlyDropPkts})
+    clpCounters.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", clpCounters.WredEarlyDropBytes})
+
+    clpCounters.EntityData.YListKeys = []string {"ClpVal"}
+
     return &(clpCounters.EntityData)
 }
 
@@ -2433,14 +2505,17 @@ func (clpDefault *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierStat
     clpDefault.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clpDefault.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clpDefault.EntityData.Children = make(map[string]types.YChild)
-    clpDefault.EntityData.Leafs = make(map[string]types.YLeaf)
-    clpDefault.EntityData.Leafs["wred-tx-pkts"] = types.YLeaf{"WredTxPkts", clpDefault.WredTxPkts}
-    clpDefault.EntityData.Leafs["wred-tx-bytes"] = types.YLeaf{"WredTxBytes", clpDefault.WredTxBytes}
-    clpDefault.EntityData.Leafs["wred-tail-drop-pkts"] = types.YLeaf{"WredTailDropPkts", clpDefault.WredTailDropPkts}
-    clpDefault.EntityData.Leafs["wred-tail-drop-bytes"] = types.YLeaf{"WredTailDropBytes", clpDefault.WredTailDropBytes}
-    clpDefault.EntityData.Leafs["wred-early-drop-pkts"] = types.YLeaf{"WredEarlyDropPkts", clpDefault.WredEarlyDropPkts}
-    clpDefault.EntityData.Leafs["wred-early-drop-bytes"] = types.YLeaf{"WredEarlyDropBytes", clpDefault.WredEarlyDropBytes}
+    clpDefault.EntityData.Children = types.NewOrderedMap()
+    clpDefault.EntityData.Leafs = types.NewOrderedMap()
+    clpDefault.EntityData.Leafs.Append("wred-tx-pkts", types.YLeaf{"WredTxPkts", clpDefault.WredTxPkts})
+    clpDefault.EntityData.Leafs.Append("wred-tx-bytes", types.YLeaf{"WredTxBytes", clpDefault.WredTxBytes})
+    clpDefault.EntityData.Leafs.Append("wred-tail-drop-pkts", types.YLeaf{"WredTailDropPkts", clpDefault.WredTailDropPkts})
+    clpDefault.EntityData.Leafs.Append("wred-tail-drop-bytes", types.YLeaf{"WredTailDropBytes", clpDefault.WredTailDropBytes})
+    clpDefault.EntityData.Leafs.Append("wred-early-drop-pkts", types.YLeaf{"WredEarlyDropPkts", clpDefault.WredEarlyDropPkts})
+    clpDefault.EntityData.Leafs.Append("wred-early-drop-bytes", types.YLeaf{"WredEarlyDropBytes", clpDefault.WredEarlyDropBytes})
+
+    clpDefault.EntityData.YListKeys = []string {}
+
     return &(clpDefault.EntityData)
 }
 
@@ -2515,26 +2590,29 @@ func (markingStats *Interfaces_Interface_DiffservInfo_DiffservTargetClassifierSt
     markingStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingStats.EntityData.Children = make(map[string]types.YChild)
-    markingStats.EntityData.Children["marking-dscp-stats-val"] = types.YChild{"MarkingDscpStatsVal", &markingStats.MarkingDscpStatsVal}
-    markingStats.EntityData.Children["marking-dscp-tunnel-stats-val"] = types.YChild{"MarkingDscpTunnelStatsVal", &markingStats.MarkingDscpTunnelStatsVal}
-    markingStats.EntityData.Children["marking-cos-stats-val"] = types.YChild{"MarkingCosStatsVal", &markingStats.MarkingCosStatsVal}
-    markingStats.EntityData.Children["marking-cos-inner-stats-val"] = types.YChild{"MarkingCosInnerStatsVal", &markingStats.MarkingCosInnerStatsVal}
-    markingStats.EntityData.Children["marking-discard-class-stats-val"] = types.YChild{"MarkingDiscardClassStatsVal", &markingStats.MarkingDiscardClassStatsVal}
-    markingStats.EntityData.Children["marking-qos-grp-stats-val"] = types.YChild{"MarkingQosGrpStatsVal", &markingStats.MarkingQosGrpStatsVal}
-    markingStats.EntityData.Children["marking-prec-stats-val"] = types.YChild{"MarkingPrecStatsVal", &markingStats.MarkingPrecStatsVal}
-    markingStats.EntityData.Children["marking-prec-tunnel-stats-val"] = types.YChild{"MarkingPrecTunnelStatsVal", &markingStats.MarkingPrecTunnelStatsVal}
-    markingStats.EntityData.Children["marking-mpls-exp-imp-stats-val"] = types.YChild{"MarkingMplsExpImpStatsVal", &markingStats.MarkingMplsExpImpStatsVal}
-    markingStats.EntityData.Children["marking-mpls-exp-top-stats-val"] = types.YChild{"MarkingMplsExpTopStatsVal", &markingStats.MarkingMplsExpTopStatsVal}
-    markingStats.EntityData.Children["marking-fr-de-stats-val"] = types.YChild{"MarkingFrDeStatsVal", &markingStats.MarkingFrDeStatsVal}
-    markingStats.EntityData.Children["marking-fr-fecn-becn-stats-val"] = types.YChild{"MarkingFrFecnBecnStatsVal", &markingStats.MarkingFrFecnBecnStatsVal}
-    markingStats.EntityData.Children["marking-atm-clp-stats-val"] = types.YChild{"MarkingAtmClpStatsVal", &markingStats.MarkingAtmClpStatsVal}
-    markingStats.EntityData.Children["marking-vlan-inner-stats-val"] = types.YChild{"MarkingVlanInnerStatsVal", &markingStats.MarkingVlanInnerStatsVal}
-    markingStats.EntityData.Children["marking-dei-stats-val"] = types.YChild{"MarkingDeiStatsVal", &markingStats.MarkingDeiStatsVal}
-    markingStats.EntityData.Children["marking-dei-imp-stats-val"] = types.YChild{"MarkingDeiImpStatsVal", &markingStats.MarkingDeiImpStatsVal}
-    markingStats.EntityData.Children["marking-srp-priority-stats-val"] = types.YChild{"MarkingSrpPriorityStatsVal", &markingStats.MarkingSrpPriorityStatsVal}
-    markingStats.EntityData.Children["marking-wlan-user-priority-stats-val"] = types.YChild{"MarkingWlanUserPriorityStatsVal", &markingStats.MarkingWlanUserPriorityStatsVal}
-    markingStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    markingStats.EntityData.Children = types.NewOrderedMap()
+    markingStats.EntityData.Children.Append("marking-dscp-stats-val", types.YChild{"MarkingDscpStatsVal", &markingStats.MarkingDscpStatsVal})
+    markingStats.EntityData.Children.Append("marking-dscp-tunnel-stats-val", types.YChild{"MarkingDscpTunnelStatsVal", &markingStats.MarkingDscpTunnelStatsVal})
+    markingStats.EntityData.Children.Append("marking-cos-stats-val", types.YChild{"MarkingCosStatsVal", &markingStats.MarkingCosStatsVal})
+    markingStats.EntityData.Children.Append("marking-cos-inner-stats-val", types.YChild{"MarkingCosInnerStatsVal", &markingStats.MarkingCosInnerStatsVal})
+    markingStats.EntityData.Children.Append("marking-discard-class-stats-val", types.YChild{"MarkingDiscardClassStatsVal", &markingStats.MarkingDiscardClassStatsVal})
+    markingStats.EntityData.Children.Append("marking-qos-grp-stats-val", types.YChild{"MarkingQosGrpStatsVal", &markingStats.MarkingQosGrpStatsVal})
+    markingStats.EntityData.Children.Append("marking-prec-stats-val", types.YChild{"MarkingPrecStatsVal", &markingStats.MarkingPrecStatsVal})
+    markingStats.EntityData.Children.Append("marking-prec-tunnel-stats-val", types.YChild{"MarkingPrecTunnelStatsVal", &markingStats.MarkingPrecTunnelStatsVal})
+    markingStats.EntityData.Children.Append("marking-mpls-exp-imp-stats-val", types.YChild{"MarkingMplsExpImpStatsVal", &markingStats.MarkingMplsExpImpStatsVal})
+    markingStats.EntityData.Children.Append("marking-mpls-exp-top-stats-val", types.YChild{"MarkingMplsExpTopStatsVal", &markingStats.MarkingMplsExpTopStatsVal})
+    markingStats.EntityData.Children.Append("marking-fr-de-stats-val", types.YChild{"MarkingFrDeStatsVal", &markingStats.MarkingFrDeStatsVal})
+    markingStats.EntityData.Children.Append("marking-fr-fecn-becn-stats-val", types.YChild{"MarkingFrFecnBecnStatsVal", &markingStats.MarkingFrFecnBecnStatsVal})
+    markingStats.EntityData.Children.Append("marking-atm-clp-stats-val", types.YChild{"MarkingAtmClpStatsVal", &markingStats.MarkingAtmClpStatsVal})
+    markingStats.EntityData.Children.Append("marking-vlan-inner-stats-val", types.YChild{"MarkingVlanInnerStatsVal", &markingStats.MarkingVlanInnerStatsVal})
+    markingStats.EntityData.Children.Append("marking-dei-stats-val", types.YChild{"MarkingDeiStatsVal", &markingStats.MarkingDeiStatsVal})
+    markingStats.EntityData.Children.Append("marking-dei-imp-stats-val", types.YChild{"MarkingDeiImpStatsVal", &markingStats.MarkingDeiImpStatsVal})
+    markingStats.EntityData.Children.Append("marking-srp-priority-stats-val", types.YChild{"MarkingSrpPriorityStatsVal", &markingStats.MarkingSrpPriorityStatsVal})
+    markingStats.EntityData.Children.Append("marking-wlan-user-priority-stats-val", types.YChild{"MarkingWlanUserPriorityStatsVal", &markingStats.MarkingWlanUserPriorityStatsVal})
+    markingStats.EntityData.Leafs = types.NewOrderedMap()
+
+    markingStats.EntityData.YListKeys = []string {}
+
     return &(markingStats.EntityData)
 }
 
@@ -2562,10 +2640,13 @@ func (markingDscpStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetClass
     markingDscpStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingDscpStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingDscpStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingDscpStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingDscpStatsVal.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", markingDscpStatsVal.Dscp}
-    markingDscpStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingDscpStatsVal.MarkedPkts}
+    markingDscpStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingDscpStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingDscpStatsVal.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", markingDscpStatsVal.Dscp})
+    markingDscpStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingDscpStatsVal.MarkedPkts})
+
+    markingDscpStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingDscpStatsVal.EntityData)
 }
 
@@ -2593,10 +2674,13 @@ func (markingDscpTunnelStatsVal *Interfaces_Interface_DiffservInfo_DiffservTarge
     markingDscpTunnelStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingDscpTunnelStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingDscpTunnelStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingDscpTunnelStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingDscpTunnelStatsVal.EntityData.Leafs["dscp-val"] = types.YLeaf{"DscpVal", markingDscpTunnelStatsVal.DscpVal}
-    markingDscpTunnelStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingDscpTunnelStatsVal.MarkedPkts}
+    markingDscpTunnelStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingDscpTunnelStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingDscpTunnelStatsVal.EntityData.Leafs.Append("dscp-val", types.YLeaf{"DscpVal", markingDscpTunnelStatsVal.DscpVal})
+    markingDscpTunnelStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingDscpTunnelStatsVal.MarkedPkts})
+
+    markingDscpTunnelStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingDscpTunnelStatsVal.EntityData)
 }
 
@@ -2624,10 +2708,13 @@ func (markingCosStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetClassi
     markingCosStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingCosStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingCosStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingCosStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingCosStatsVal.EntityData.Leafs["cos-val"] = types.YLeaf{"CosVal", markingCosStatsVal.CosVal}
-    markingCosStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingCosStatsVal.MarkedPkts}
+    markingCosStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingCosStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingCosStatsVal.EntityData.Leafs.Append("cos-val", types.YLeaf{"CosVal", markingCosStatsVal.CosVal})
+    markingCosStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingCosStatsVal.MarkedPkts})
+
+    markingCosStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingCosStatsVal.EntityData)
 }
 
@@ -2655,10 +2742,13 @@ func (markingCosInnerStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetC
     markingCosInnerStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingCosInnerStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingCosInnerStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingCosInnerStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingCosInnerStatsVal.EntityData.Leafs["cos-inner-val"] = types.YLeaf{"CosInnerVal", markingCosInnerStatsVal.CosInnerVal}
-    markingCosInnerStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingCosInnerStatsVal.MarkedPkts}
+    markingCosInnerStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingCosInnerStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingCosInnerStatsVal.EntityData.Leafs.Append("cos-inner-val", types.YLeaf{"CosInnerVal", markingCosInnerStatsVal.CosInnerVal})
+    markingCosInnerStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingCosInnerStatsVal.MarkedPkts})
+
+    markingCosInnerStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingCosInnerStatsVal.EntityData)
 }
 
@@ -2686,10 +2776,13 @@ func (markingDiscardClassStatsVal *Interfaces_Interface_DiffservInfo_DiffservTar
     markingDiscardClassStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingDiscardClassStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingDiscardClassStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingDiscardClassStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingDiscardClassStatsVal.EntityData.Leafs["disc-class-val"] = types.YLeaf{"DiscClassVal", markingDiscardClassStatsVal.DiscClassVal}
-    markingDiscardClassStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingDiscardClassStatsVal.MarkedPkts}
+    markingDiscardClassStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingDiscardClassStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingDiscardClassStatsVal.EntityData.Leafs.Append("disc-class-val", types.YLeaf{"DiscClassVal", markingDiscardClassStatsVal.DiscClassVal})
+    markingDiscardClassStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingDiscardClassStatsVal.MarkedPkts})
+
+    markingDiscardClassStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingDiscardClassStatsVal.EntityData)
 }
 
@@ -2717,10 +2810,13 @@ func (markingQosGrpStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetCla
     markingQosGrpStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingQosGrpStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingQosGrpStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingQosGrpStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingQosGrpStatsVal.EntityData.Leafs["qos-grp-val"] = types.YLeaf{"QosGrpVal", markingQosGrpStatsVal.QosGrpVal}
-    markingQosGrpStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingQosGrpStatsVal.MarkedPkts}
+    markingQosGrpStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingQosGrpStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingQosGrpStatsVal.EntityData.Leafs.Append("qos-grp-val", types.YLeaf{"QosGrpVal", markingQosGrpStatsVal.QosGrpVal})
+    markingQosGrpStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingQosGrpStatsVal.MarkedPkts})
+
+    markingQosGrpStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingQosGrpStatsVal.EntityData)
 }
 
@@ -2748,10 +2844,13 @@ func (markingPrecStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetClass
     markingPrecStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingPrecStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingPrecStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingPrecStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingPrecStatsVal.EntityData.Leafs["prec-val"] = types.YLeaf{"PrecVal", markingPrecStatsVal.PrecVal}
-    markingPrecStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingPrecStatsVal.MarkedPkts}
+    markingPrecStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingPrecStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingPrecStatsVal.EntityData.Leafs.Append("prec-val", types.YLeaf{"PrecVal", markingPrecStatsVal.PrecVal})
+    markingPrecStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingPrecStatsVal.MarkedPkts})
+
+    markingPrecStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingPrecStatsVal.EntityData)
 }
 
@@ -2779,10 +2878,13 @@ func (markingPrecTunnelStatsVal *Interfaces_Interface_DiffservInfo_DiffservTarge
     markingPrecTunnelStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingPrecTunnelStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingPrecTunnelStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingPrecTunnelStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingPrecTunnelStatsVal.EntityData.Leafs["prec-val"] = types.YLeaf{"PrecVal", markingPrecTunnelStatsVal.PrecVal}
-    markingPrecTunnelStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingPrecTunnelStatsVal.MarkedPkts}
+    markingPrecTunnelStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingPrecTunnelStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingPrecTunnelStatsVal.EntityData.Leafs.Append("prec-val", types.YLeaf{"PrecVal", markingPrecTunnelStatsVal.PrecVal})
+    markingPrecTunnelStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingPrecTunnelStatsVal.MarkedPkts})
+
+    markingPrecTunnelStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingPrecTunnelStatsVal.EntityData)
 }
 
@@ -2810,10 +2912,13 @@ func (markingMplsExpImpStatsVal *Interfaces_Interface_DiffservInfo_DiffservTarge
     markingMplsExpImpStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingMplsExpImpStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingMplsExpImpStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingMplsExpImpStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingMplsExpImpStatsVal.EntityData.Leafs["mpls-exp-imp-val"] = types.YLeaf{"MplsExpImpVal", markingMplsExpImpStatsVal.MplsExpImpVal}
-    markingMplsExpImpStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingMplsExpImpStatsVal.MarkedPkts}
+    markingMplsExpImpStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingMplsExpImpStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingMplsExpImpStatsVal.EntityData.Leafs.Append("mpls-exp-imp-val", types.YLeaf{"MplsExpImpVal", markingMplsExpImpStatsVal.MplsExpImpVal})
+    markingMplsExpImpStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingMplsExpImpStatsVal.MarkedPkts})
+
+    markingMplsExpImpStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingMplsExpImpStatsVal.EntityData)
 }
 
@@ -2841,10 +2946,13 @@ func (markingMplsExpTopStatsVal *Interfaces_Interface_DiffservInfo_DiffservTarge
     markingMplsExpTopStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingMplsExpTopStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingMplsExpTopStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingMplsExpTopStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingMplsExpTopStatsVal.EntityData.Leafs["mpls-exp-top-val"] = types.YLeaf{"MplsExpTopVal", markingMplsExpTopStatsVal.MplsExpTopVal}
-    markingMplsExpTopStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingMplsExpTopStatsVal.MarkedPkts}
+    markingMplsExpTopStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingMplsExpTopStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingMplsExpTopStatsVal.EntityData.Leafs.Append("mpls-exp-top-val", types.YLeaf{"MplsExpTopVal", markingMplsExpTopStatsVal.MplsExpTopVal})
+    markingMplsExpTopStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingMplsExpTopStatsVal.MarkedPkts})
+
+    markingMplsExpTopStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingMplsExpTopStatsVal.EntityData)
 }
 
@@ -2872,10 +2980,13 @@ func (markingFrDeStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetClass
     markingFrDeStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingFrDeStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingFrDeStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingFrDeStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingFrDeStatsVal.EntityData.Leafs["fr-de"] = types.YLeaf{"FrDe", markingFrDeStatsVal.FrDe}
-    markingFrDeStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingFrDeStatsVal.MarkedPkts}
+    markingFrDeStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingFrDeStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingFrDeStatsVal.EntityData.Leafs.Append("fr-de", types.YLeaf{"FrDe", markingFrDeStatsVal.FrDe})
+    markingFrDeStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingFrDeStatsVal.MarkedPkts})
+
+    markingFrDeStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingFrDeStatsVal.EntityData)
 }
 
@@ -2904,10 +3015,13 @@ func (markingFrFecnBecnStatsVal *Interfaces_Interface_DiffservInfo_DiffservTarge
     markingFrFecnBecnStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingFrFecnBecnStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingFrFecnBecnStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingFrFecnBecnStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingFrFecnBecnStatsVal.EntityData.Leafs["fecn-becn-val"] = types.YLeaf{"FecnBecnVal", markingFrFecnBecnStatsVal.FecnBecnVal}
-    markingFrFecnBecnStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingFrFecnBecnStatsVal.MarkedPkts}
+    markingFrFecnBecnStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingFrFecnBecnStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingFrFecnBecnStatsVal.EntityData.Leafs.Append("fecn-becn-val", types.YLeaf{"FecnBecnVal", markingFrFecnBecnStatsVal.FecnBecnVal})
+    markingFrFecnBecnStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingFrFecnBecnStatsVal.MarkedPkts})
+
+    markingFrFecnBecnStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingFrFecnBecnStatsVal.EntityData)
 }
 
@@ -2935,10 +3049,13 @@ func (markingAtmClpStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetCla
     markingAtmClpStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingAtmClpStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingAtmClpStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingAtmClpStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingAtmClpStatsVal.EntityData.Leafs["atm-clp-val"] = types.YLeaf{"AtmClpVal", markingAtmClpStatsVal.AtmClpVal}
-    markingAtmClpStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingAtmClpStatsVal.MarkedPkts}
+    markingAtmClpStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingAtmClpStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingAtmClpStatsVal.EntityData.Leafs.Append("atm-clp-val", types.YLeaf{"AtmClpVal", markingAtmClpStatsVal.AtmClpVal})
+    markingAtmClpStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingAtmClpStatsVal.MarkedPkts})
+
+    markingAtmClpStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingAtmClpStatsVal.EntityData)
 }
 
@@ -2966,10 +3083,13 @@ func (markingVlanInnerStatsVal *Interfaces_Interface_DiffservInfo_DiffservTarget
     markingVlanInnerStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingVlanInnerStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingVlanInnerStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingVlanInnerStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingVlanInnerStatsVal.EntityData.Leafs["vlan-inner-val"] = types.YLeaf{"VlanInnerVal", markingVlanInnerStatsVal.VlanInnerVal}
-    markingVlanInnerStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingVlanInnerStatsVal.MarkedPkts}
+    markingVlanInnerStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingVlanInnerStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingVlanInnerStatsVal.EntityData.Leafs.Append("vlan-inner-val", types.YLeaf{"VlanInnerVal", markingVlanInnerStatsVal.VlanInnerVal})
+    markingVlanInnerStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingVlanInnerStatsVal.MarkedPkts})
+
+    markingVlanInnerStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingVlanInnerStatsVal.EntityData)
 }
 
@@ -2997,10 +3117,13 @@ func (markingDeiStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetClassi
     markingDeiStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingDeiStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingDeiStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingDeiStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingDeiStatsVal.EntityData.Leafs["dei-imp-value"] = types.YLeaf{"DeiImpValue", markingDeiStatsVal.DeiImpValue}
-    markingDeiStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingDeiStatsVal.MarkedPkts}
+    markingDeiStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingDeiStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingDeiStatsVal.EntityData.Leafs.Append("dei-imp-value", types.YLeaf{"DeiImpValue", markingDeiStatsVal.DeiImpValue})
+    markingDeiStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingDeiStatsVal.MarkedPkts})
+
+    markingDeiStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingDeiStatsVal.EntityData)
 }
 
@@ -3028,10 +3151,13 @@ func (markingDeiImpStatsVal *Interfaces_Interface_DiffservInfo_DiffservTargetCla
     markingDeiImpStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingDeiImpStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingDeiImpStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingDeiImpStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingDeiImpStatsVal.EntityData.Leafs["dei-imp-value"] = types.YLeaf{"DeiImpValue", markingDeiImpStatsVal.DeiImpValue}
-    markingDeiImpStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingDeiImpStatsVal.MarkedPkts}
+    markingDeiImpStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingDeiImpStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingDeiImpStatsVal.EntityData.Leafs.Append("dei-imp-value", types.YLeaf{"DeiImpValue", markingDeiImpStatsVal.DeiImpValue})
+    markingDeiImpStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingDeiImpStatsVal.MarkedPkts})
+
+    markingDeiImpStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingDeiImpStatsVal.EntityData)
 }
 
@@ -3059,10 +3185,13 @@ func (markingSrpPriorityStatsVal *Interfaces_Interface_DiffservInfo_DiffservTarg
     markingSrpPriorityStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingSrpPriorityStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingSrpPriorityStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingSrpPriorityStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingSrpPriorityStatsVal.EntityData.Leafs["srp-priority-value"] = types.YLeaf{"SrpPriorityValue", markingSrpPriorityStatsVal.SrpPriorityValue}
-    markingSrpPriorityStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingSrpPriorityStatsVal.MarkedPkts}
+    markingSrpPriorityStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingSrpPriorityStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingSrpPriorityStatsVal.EntityData.Leafs.Append("srp-priority-value", types.YLeaf{"SrpPriorityValue", markingSrpPriorityStatsVal.SrpPriorityValue})
+    markingSrpPriorityStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingSrpPriorityStatsVal.MarkedPkts})
+
+    markingSrpPriorityStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingSrpPriorityStatsVal.EntityData)
 }
 
@@ -3090,10 +3219,13 @@ func (markingWlanUserPriorityStatsVal *Interfaces_Interface_DiffservInfo_Diffser
     markingWlanUserPriorityStatsVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     markingWlanUserPriorityStatsVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    markingWlanUserPriorityStatsVal.EntityData.Children = make(map[string]types.YChild)
-    markingWlanUserPriorityStatsVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    markingWlanUserPriorityStatsVal.EntityData.Leafs["wlan-user-priority-value"] = types.YLeaf{"WlanUserPriorityValue", markingWlanUserPriorityStatsVal.WlanUserPriorityValue}
-    markingWlanUserPriorityStatsVal.EntityData.Leafs["marked-pkts"] = types.YLeaf{"MarkedPkts", markingWlanUserPriorityStatsVal.MarkedPkts}
+    markingWlanUserPriorityStatsVal.EntityData.Children = types.NewOrderedMap()
+    markingWlanUserPriorityStatsVal.EntityData.Leafs = types.NewOrderedMap()
+    markingWlanUserPriorityStatsVal.EntityData.Leafs.Append("wlan-user-priority-value", types.YLeaf{"WlanUserPriorityValue", markingWlanUserPriorityStatsVal.WlanUserPriorityValue})
+    markingWlanUserPriorityStatsVal.EntityData.Leafs.Append("marked-pkts", types.YLeaf{"MarkedPkts", markingWlanUserPriorityStatsVal.MarkedPkts})
+
+    markingWlanUserPriorityStatsVal.EntityData.YListKeys = []string {}
+
     return &(markingWlanUserPriorityStatsVal.EntityData)
 }
 
@@ -3115,23 +3247,23 @@ type Interfaces_Interface_DiffservInfo_PriorityOperList struct {
 
     // cos-based queue limit data. The type is slice of
     // Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitCosThreshList.
-    QlimitCosThreshList []Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitCosThreshList
+    QlimitCosThreshList []*Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitCosThreshList
 
     // discard-class-based queue limit data. The type is slice of
     // Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitDiscClassThreshList.
-    QlimitDiscClassThreshList []Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitDiscClassThreshList
+    QlimitDiscClassThreshList []*Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitDiscClassThreshList
 
     // qos-group-based queue limit data. The type is slice of
     // Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitQosGrpThreshList.
-    QlimitQosGrpThreshList []Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitQosGrpThreshList
+    QlimitQosGrpThreshList []*Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitQosGrpThreshList
 
     // mpls-exp-based queue limit data. The type is slice of
     // Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitMplsExpThreshList.
-    QlimitMplsExpThreshList []Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitMplsExpThreshList
+    QlimitMplsExpThreshList []*Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitMplsExpThreshList
 
     // queue limit per dscp range. The type is slice of
     // Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitDscpThreshList.
-    QlimitDscpThreshList []Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitDscpThreshList
+    QlimitDscpThreshList []*Interfaces_Interface_DiffservInfo_PriorityOperList_QlimitDscpThreshList
 }
 
 func (priorityOperList *Interfaces_Interface_DiffservInfo_PriorityOperList) GetEntityData() *types.CommonEntityData {
@@ -3139,36 +3271,39 @@ func (priorityOperList *Interfaces_Interface_DiffservInfo_PriorityOperList) GetE
     priorityOperList.EntityData.YangName = "priority-oper-list"
     priorityOperList.EntityData.BundleName = "cisco_ios_xe"
     priorityOperList.EntityData.ParentYangName = "diffserv-info"
-    priorityOperList.EntityData.SegmentPath = "priority-oper-list" + "[priority-level='" + fmt.Sprintf("%v", priorityOperList.PriorityLevel) + "']"
+    priorityOperList.EntityData.SegmentPath = "priority-oper-list" + types.AddKeyToken(priorityOperList.PriorityLevel, "priority-level")
     priorityOperList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     priorityOperList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     priorityOperList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    priorityOperList.EntityData.Children = make(map[string]types.YChild)
-    priorityOperList.EntityData.Children["agg-priority-stats"] = types.YChild{"AggPriorityStats", &priorityOperList.AggPriorityStats}
-    priorityOperList.EntityData.Children["qlimit-default-thresh"] = types.YChild{"QlimitDefaultThresh", &priorityOperList.QlimitDefaultThresh}
-    priorityOperList.EntityData.Children["qlimit-cos-thresh-list"] = types.YChild{"QlimitCosThreshList", nil}
+    priorityOperList.EntityData.Children = types.NewOrderedMap()
+    priorityOperList.EntityData.Children.Append("agg-priority-stats", types.YChild{"AggPriorityStats", &priorityOperList.AggPriorityStats})
+    priorityOperList.EntityData.Children.Append("qlimit-default-thresh", types.YChild{"QlimitDefaultThresh", &priorityOperList.QlimitDefaultThresh})
+    priorityOperList.EntityData.Children.Append("qlimit-cos-thresh-list", types.YChild{"QlimitCosThreshList", nil})
     for i := range priorityOperList.QlimitCosThreshList {
-        priorityOperList.EntityData.Children[types.GetSegmentPath(&priorityOperList.QlimitCosThreshList[i])] = types.YChild{"QlimitCosThreshList", &priorityOperList.QlimitCosThreshList[i]}
+        priorityOperList.EntityData.Children.Append(types.GetSegmentPath(priorityOperList.QlimitCosThreshList[i]), types.YChild{"QlimitCosThreshList", priorityOperList.QlimitCosThreshList[i]})
     }
-    priorityOperList.EntityData.Children["qlimit-disc-class-thresh-list"] = types.YChild{"QlimitDiscClassThreshList", nil}
+    priorityOperList.EntityData.Children.Append("qlimit-disc-class-thresh-list", types.YChild{"QlimitDiscClassThreshList", nil})
     for i := range priorityOperList.QlimitDiscClassThreshList {
-        priorityOperList.EntityData.Children[types.GetSegmentPath(&priorityOperList.QlimitDiscClassThreshList[i])] = types.YChild{"QlimitDiscClassThreshList", &priorityOperList.QlimitDiscClassThreshList[i]}
+        priorityOperList.EntityData.Children.Append(types.GetSegmentPath(priorityOperList.QlimitDiscClassThreshList[i]), types.YChild{"QlimitDiscClassThreshList", priorityOperList.QlimitDiscClassThreshList[i]})
     }
-    priorityOperList.EntityData.Children["qlimit-qos-grp-thresh-list"] = types.YChild{"QlimitQosGrpThreshList", nil}
+    priorityOperList.EntityData.Children.Append("qlimit-qos-grp-thresh-list", types.YChild{"QlimitQosGrpThreshList", nil})
     for i := range priorityOperList.QlimitQosGrpThreshList {
-        priorityOperList.EntityData.Children[types.GetSegmentPath(&priorityOperList.QlimitQosGrpThreshList[i])] = types.YChild{"QlimitQosGrpThreshList", &priorityOperList.QlimitQosGrpThreshList[i]}
+        priorityOperList.EntityData.Children.Append(types.GetSegmentPath(priorityOperList.QlimitQosGrpThreshList[i]), types.YChild{"QlimitQosGrpThreshList", priorityOperList.QlimitQosGrpThreshList[i]})
     }
-    priorityOperList.EntityData.Children["qlimit-mpls-exp-thresh-list"] = types.YChild{"QlimitMplsExpThreshList", nil}
+    priorityOperList.EntityData.Children.Append("qlimit-mpls-exp-thresh-list", types.YChild{"QlimitMplsExpThreshList", nil})
     for i := range priorityOperList.QlimitMplsExpThreshList {
-        priorityOperList.EntityData.Children[types.GetSegmentPath(&priorityOperList.QlimitMplsExpThreshList[i])] = types.YChild{"QlimitMplsExpThreshList", &priorityOperList.QlimitMplsExpThreshList[i]}
+        priorityOperList.EntityData.Children.Append(types.GetSegmentPath(priorityOperList.QlimitMplsExpThreshList[i]), types.YChild{"QlimitMplsExpThreshList", priorityOperList.QlimitMplsExpThreshList[i]})
     }
-    priorityOperList.EntityData.Children["qlimit-dscp-thresh-list"] = types.YChild{"QlimitDscpThreshList", nil}
+    priorityOperList.EntityData.Children.Append("qlimit-dscp-thresh-list", types.YChild{"QlimitDscpThreshList", nil})
     for i := range priorityOperList.QlimitDscpThreshList {
-        priorityOperList.EntityData.Children[types.GetSegmentPath(&priorityOperList.QlimitDscpThreshList[i])] = types.YChild{"QlimitDscpThreshList", &priorityOperList.QlimitDscpThreshList[i]}
+        priorityOperList.EntityData.Children.Append(types.GetSegmentPath(priorityOperList.QlimitDscpThreshList[i]), types.YChild{"QlimitDscpThreshList", priorityOperList.QlimitDscpThreshList[i]})
     }
-    priorityOperList.EntityData.Leafs = make(map[string]types.YLeaf)
-    priorityOperList.EntityData.Leafs["priority-level"] = types.YLeaf{"PriorityLevel", priorityOperList.PriorityLevel}
+    priorityOperList.EntityData.Leafs = types.NewOrderedMap()
+    priorityOperList.EntityData.Leafs.Append("priority-level", types.YLeaf{"PriorityLevel", priorityOperList.PriorityLevel})
+
+    priorityOperList.EntityData.YListKeys = []string {"PriorityLevel"}
+
     return &(priorityOperList.EntityData)
 }
 
@@ -3223,16 +3358,19 @@ func (aggPriorityStats *Interfaces_Interface_DiffservInfo_PriorityOperList_AggPr
     aggPriorityStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aggPriorityStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aggPriorityStats.EntityData.Children = make(map[string]types.YChild)
-    aggPriorityStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggPriorityStats.EntityData.Leafs["output-pkts"] = types.YLeaf{"OutputPkts", aggPriorityStats.OutputPkts}
-    aggPriorityStats.EntityData.Leafs["output-bytes"] = types.YLeaf{"OutputBytes", aggPriorityStats.OutputBytes}
-    aggPriorityStats.EntityData.Leafs["queue-size-pkts"] = types.YLeaf{"QueueSizePkts", aggPriorityStats.QueueSizePkts}
-    aggPriorityStats.EntityData.Leafs["queue-size-bytes"] = types.YLeaf{"QueueSizeBytes", aggPriorityStats.QueueSizeBytes}
-    aggPriorityStats.EntityData.Leafs["drop-pkts"] = types.YLeaf{"DropPkts", aggPriorityStats.DropPkts}
-    aggPriorityStats.EntityData.Leafs["drop-bytes"] = types.YLeaf{"DropBytes", aggPriorityStats.DropBytes}
-    aggPriorityStats.EntityData.Leafs["drop-pkts-flow"] = types.YLeaf{"DropPktsFlow", aggPriorityStats.DropPktsFlow}
-    aggPriorityStats.EntityData.Leafs["drop-pkts-no-buffer"] = types.YLeaf{"DropPktsNoBuffer", aggPriorityStats.DropPktsNoBuffer}
+    aggPriorityStats.EntityData.Children = types.NewOrderedMap()
+    aggPriorityStats.EntityData.Leafs = types.NewOrderedMap()
+    aggPriorityStats.EntityData.Leafs.Append("output-pkts", types.YLeaf{"OutputPkts", aggPriorityStats.OutputPkts})
+    aggPriorityStats.EntityData.Leafs.Append("output-bytes", types.YLeaf{"OutputBytes", aggPriorityStats.OutputBytes})
+    aggPriorityStats.EntityData.Leafs.Append("queue-size-pkts", types.YLeaf{"QueueSizePkts", aggPriorityStats.QueueSizePkts})
+    aggPriorityStats.EntityData.Leafs.Append("queue-size-bytes", types.YLeaf{"QueueSizeBytes", aggPriorityStats.QueueSizeBytes})
+    aggPriorityStats.EntityData.Leafs.Append("drop-pkts", types.YLeaf{"DropPkts", aggPriorityStats.DropPkts})
+    aggPriorityStats.EntityData.Leafs.Append("drop-bytes", types.YLeaf{"DropBytes", aggPriorityStats.DropBytes})
+    aggPriorityStats.EntityData.Leafs.Append("drop-pkts-flow", types.YLeaf{"DropPktsFlow", aggPriorityStats.DropPktsFlow})
+    aggPriorityStats.EntityData.Leafs.Append("drop-pkts-no-buffer", types.YLeaf{"DropPktsNoBuffer", aggPriorityStats.DropPktsNoBuffer})
+
+    aggPriorityStats.EntityData.YListKeys = []string {}
+
     return &(aggPriorityStats.EntityData)
 }
 
@@ -3273,14 +3411,17 @@ func (qlimitDefaultThresh *Interfaces_Interface_DiffservInfo_PriorityOperList_Ql
     qlimitDefaultThresh.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qlimitDefaultThresh.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    qlimitDefaultThresh.EntityData.Children = make(map[string]types.YChild)
-    qlimitDefaultThresh.EntityData.Leafs = make(map[string]types.YLeaf)
-    qlimitDefaultThresh.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", qlimitDefaultThresh.Bytes}
-    qlimitDefaultThresh.EntityData.Leafs["thresh-size-metric"] = types.YLeaf{"ThreshSizeMetric", qlimitDefaultThresh.ThreshSizeMetric}
-    qlimitDefaultThresh.EntityData.Leafs["unit-val"] = types.YLeaf{"UnitVal", qlimitDefaultThresh.UnitVal}
-    qlimitDefaultThresh.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", qlimitDefaultThresh.ThresholdInterval}
-    qlimitDefaultThresh.EntityData.Leafs["thresh-interval-metric"] = types.YLeaf{"ThreshIntervalMetric", qlimitDefaultThresh.ThreshIntervalMetric}
-    qlimitDefaultThresh.EntityData.Leafs["interval-unit-val"] = types.YLeaf{"IntervalUnitVal", qlimitDefaultThresh.IntervalUnitVal}
+    qlimitDefaultThresh.EntityData.Children = types.NewOrderedMap()
+    qlimitDefaultThresh.EntityData.Leafs = types.NewOrderedMap()
+    qlimitDefaultThresh.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", qlimitDefaultThresh.Bytes})
+    qlimitDefaultThresh.EntityData.Leafs.Append("thresh-size-metric", types.YLeaf{"ThreshSizeMetric", qlimitDefaultThresh.ThreshSizeMetric})
+    qlimitDefaultThresh.EntityData.Leafs.Append("unit-val", types.YLeaf{"UnitVal", qlimitDefaultThresh.UnitVal})
+    qlimitDefaultThresh.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", qlimitDefaultThresh.ThresholdInterval})
+    qlimitDefaultThresh.EntityData.Leafs.Append("thresh-interval-metric", types.YLeaf{"ThreshIntervalMetric", qlimitDefaultThresh.ThreshIntervalMetric})
+    qlimitDefaultThresh.EntityData.Leafs.Append("interval-unit-val", types.YLeaf{"IntervalUnitVal", qlimitDefaultThresh.IntervalUnitVal})
+
+    qlimitDefaultThresh.EntityData.YListKeys = []string {}
+
     return &(qlimitDefaultThresh.EntityData)
 }
 
@@ -3324,21 +3465,24 @@ func (qlimitCosThreshList *Interfaces_Interface_DiffservInfo_PriorityOperList_Ql
     qlimitCosThreshList.EntityData.YangName = "qlimit-cos-thresh-list"
     qlimitCosThreshList.EntityData.BundleName = "cisco_ios_xe"
     qlimitCosThreshList.EntityData.ParentYangName = "priority-oper-list"
-    qlimitCosThreshList.EntityData.SegmentPath = "qlimit-cos-thresh-list" + "[cos-min='" + fmt.Sprintf("%v", qlimitCosThreshList.CosMin) + "']" + "[cos-max='" + fmt.Sprintf("%v", qlimitCosThreshList.CosMax) + "']"
+    qlimitCosThreshList.EntityData.SegmentPath = "qlimit-cos-thresh-list" + types.AddKeyToken(qlimitCosThreshList.CosMin, "cos-min") + types.AddKeyToken(qlimitCosThreshList.CosMax, "cos-max")
     qlimitCosThreshList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qlimitCosThreshList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qlimitCosThreshList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    qlimitCosThreshList.EntityData.Children = make(map[string]types.YChild)
-    qlimitCosThreshList.EntityData.Leafs = make(map[string]types.YLeaf)
-    qlimitCosThreshList.EntityData.Leafs["cos-min"] = types.YLeaf{"CosMin", qlimitCosThreshList.CosMin}
-    qlimitCosThreshList.EntityData.Leafs["cos-max"] = types.YLeaf{"CosMax", qlimitCosThreshList.CosMax}
-    qlimitCosThreshList.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", qlimitCosThreshList.Bytes}
-    qlimitCosThreshList.EntityData.Leafs["thresh-size-metric"] = types.YLeaf{"ThreshSizeMetric", qlimitCosThreshList.ThreshSizeMetric}
-    qlimitCosThreshList.EntityData.Leafs["unit-val"] = types.YLeaf{"UnitVal", qlimitCosThreshList.UnitVal}
-    qlimitCosThreshList.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", qlimitCosThreshList.ThresholdInterval}
-    qlimitCosThreshList.EntityData.Leafs["thresh-interval-metric"] = types.YLeaf{"ThreshIntervalMetric", qlimitCosThreshList.ThreshIntervalMetric}
-    qlimitCosThreshList.EntityData.Leafs["interval-unit-val"] = types.YLeaf{"IntervalUnitVal", qlimitCosThreshList.IntervalUnitVal}
+    qlimitCosThreshList.EntityData.Children = types.NewOrderedMap()
+    qlimitCosThreshList.EntityData.Leafs = types.NewOrderedMap()
+    qlimitCosThreshList.EntityData.Leafs.Append("cos-min", types.YLeaf{"CosMin", qlimitCosThreshList.CosMin})
+    qlimitCosThreshList.EntityData.Leafs.Append("cos-max", types.YLeaf{"CosMax", qlimitCosThreshList.CosMax})
+    qlimitCosThreshList.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", qlimitCosThreshList.Bytes})
+    qlimitCosThreshList.EntityData.Leafs.Append("thresh-size-metric", types.YLeaf{"ThreshSizeMetric", qlimitCosThreshList.ThreshSizeMetric})
+    qlimitCosThreshList.EntityData.Leafs.Append("unit-val", types.YLeaf{"UnitVal", qlimitCosThreshList.UnitVal})
+    qlimitCosThreshList.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", qlimitCosThreshList.ThresholdInterval})
+    qlimitCosThreshList.EntityData.Leafs.Append("thresh-interval-metric", types.YLeaf{"ThreshIntervalMetric", qlimitCosThreshList.ThreshIntervalMetric})
+    qlimitCosThreshList.EntityData.Leafs.Append("interval-unit-val", types.YLeaf{"IntervalUnitVal", qlimitCosThreshList.IntervalUnitVal})
+
+    qlimitCosThreshList.EntityData.YListKeys = []string {"CosMin", "CosMax"}
+
     return &(qlimitCosThreshList.EntityData)
 }
 
@@ -3382,21 +3526,24 @@ func (qlimitDiscClassThreshList *Interfaces_Interface_DiffservInfo_PriorityOperL
     qlimitDiscClassThreshList.EntityData.YangName = "qlimit-disc-class-thresh-list"
     qlimitDiscClassThreshList.EntityData.BundleName = "cisco_ios_xe"
     qlimitDiscClassThreshList.EntityData.ParentYangName = "priority-oper-list"
-    qlimitDiscClassThreshList.EntityData.SegmentPath = "qlimit-disc-class-thresh-list" + "[disc-class-min='" + fmt.Sprintf("%v", qlimitDiscClassThreshList.DiscClassMin) + "']" + "[disc-class-max='" + fmt.Sprintf("%v", qlimitDiscClassThreshList.DiscClassMax) + "']"
+    qlimitDiscClassThreshList.EntityData.SegmentPath = "qlimit-disc-class-thresh-list" + types.AddKeyToken(qlimitDiscClassThreshList.DiscClassMin, "disc-class-min") + types.AddKeyToken(qlimitDiscClassThreshList.DiscClassMax, "disc-class-max")
     qlimitDiscClassThreshList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qlimitDiscClassThreshList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qlimitDiscClassThreshList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    qlimitDiscClassThreshList.EntityData.Children = make(map[string]types.YChild)
-    qlimitDiscClassThreshList.EntityData.Leafs = make(map[string]types.YLeaf)
-    qlimitDiscClassThreshList.EntityData.Leafs["disc-class-min"] = types.YLeaf{"DiscClassMin", qlimitDiscClassThreshList.DiscClassMin}
-    qlimitDiscClassThreshList.EntityData.Leafs["disc-class-max"] = types.YLeaf{"DiscClassMax", qlimitDiscClassThreshList.DiscClassMax}
-    qlimitDiscClassThreshList.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", qlimitDiscClassThreshList.Bytes}
-    qlimitDiscClassThreshList.EntityData.Leafs["thresh-size-metric"] = types.YLeaf{"ThreshSizeMetric", qlimitDiscClassThreshList.ThreshSizeMetric}
-    qlimitDiscClassThreshList.EntityData.Leafs["unit-val"] = types.YLeaf{"UnitVal", qlimitDiscClassThreshList.UnitVal}
-    qlimitDiscClassThreshList.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", qlimitDiscClassThreshList.ThresholdInterval}
-    qlimitDiscClassThreshList.EntityData.Leafs["thresh-interval-metric"] = types.YLeaf{"ThreshIntervalMetric", qlimitDiscClassThreshList.ThreshIntervalMetric}
-    qlimitDiscClassThreshList.EntityData.Leafs["interval-unit-val"] = types.YLeaf{"IntervalUnitVal", qlimitDiscClassThreshList.IntervalUnitVal}
+    qlimitDiscClassThreshList.EntityData.Children = types.NewOrderedMap()
+    qlimitDiscClassThreshList.EntityData.Leafs = types.NewOrderedMap()
+    qlimitDiscClassThreshList.EntityData.Leafs.Append("disc-class-min", types.YLeaf{"DiscClassMin", qlimitDiscClassThreshList.DiscClassMin})
+    qlimitDiscClassThreshList.EntityData.Leafs.Append("disc-class-max", types.YLeaf{"DiscClassMax", qlimitDiscClassThreshList.DiscClassMax})
+    qlimitDiscClassThreshList.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", qlimitDiscClassThreshList.Bytes})
+    qlimitDiscClassThreshList.EntityData.Leafs.Append("thresh-size-metric", types.YLeaf{"ThreshSizeMetric", qlimitDiscClassThreshList.ThreshSizeMetric})
+    qlimitDiscClassThreshList.EntityData.Leafs.Append("unit-val", types.YLeaf{"UnitVal", qlimitDiscClassThreshList.UnitVal})
+    qlimitDiscClassThreshList.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", qlimitDiscClassThreshList.ThresholdInterval})
+    qlimitDiscClassThreshList.EntityData.Leafs.Append("thresh-interval-metric", types.YLeaf{"ThreshIntervalMetric", qlimitDiscClassThreshList.ThreshIntervalMetric})
+    qlimitDiscClassThreshList.EntityData.Leafs.Append("interval-unit-val", types.YLeaf{"IntervalUnitVal", qlimitDiscClassThreshList.IntervalUnitVal})
+
+    qlimitDiscClassThreshList.EntityData.YListKeys = []string {"DiscClassMin", "DiscClassMax"}
+
     return &(qlimitDiscClassThreshList.EntityData)
 }
 
@@ -3442,21 +3589,24 @@ func (qlimitQosGrpThreshList *Interfaces_Interface_DiffservInfo_PriorityOperList
     qlimitQosGrpThreshList.EntityData.YangName = "qlimit-qos-grp-thresh-list"
     qlimitQosGrpThreshList.EntityData.BundleName = "cisco_ios_xe"
     qlimitQosGrpThreshList.EntityData.ParentYangName = "priority-oper-list"
-    qlimitQosGrpThreshList.EntityData.SegmentPath = "qlimit-qos-grp-thresh-list" + "[qos-group-min='" + fmt.Sprintf("%v", qlimitQosGrpThreshList.QosGroupMin) + "']" + "[qos-group-max='" + fmt.Sprintf("%v", qlimitQosGrpThreshList.QosGroupMax) + "']"
+    qlimitQosGrpThreshList.EntityData.SegmentPath = "qlimit-qos-grp-thresh-list" + types.AddKeyToken(qlimitQosGrpThreshList.QosGroupMin, "qos-group-min") + types.AddKeyToken(qlimitQosGrpThreshList.QosGroupMax, "qos-group-max")
     qlimitQosGrpThreshList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qlimitQosGrpThreshList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qlimitQosGrpThreshList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    qlimitQosGrpThreshList.EntityData.Children = make(map[string]types.YChild)
-    qlimitQosGrpThreshList.EntityData.Leafs = make(map[string]types.YLeaf)
-    qlimitQosGrpThreshList.EntityData.Leafs["qos-group-min"] = types.YLeaf{"QosGroupMin", qlimitQosGrpThreshList.QosGroupMin}
-    qlimitQosGrpThreshList.EntityData.Leafs["qos-group-max"] = types.YLeaf{"QosGroupMax", qlimitQosGrpThreshList.QosGroupMax}
-    qlimitQosGrpThreshList.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", qlimitQosGrpThreshList.Bytes}
-    qlimitQosGrpThreshList.EntityData.Leafs["thresh-size-metric"] = types.YLeaf{"ThreshSizeMetric", qlimitQosGrpThreshList.ThreshSizeMetric}
-    qlimitQosGrpThreshList.EntityData.Leafs["unit-val"] = types.YLeaf{"UnitVal", qlimitQosGrpThreshList.UnitVal}
-    qlimitQosGrpThreshList.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", qlimitQosGrpThreshList.ThresholdInterval}
-    qlimitQosGrpThreshList.EntityData.Leafs["thresh-interval-metric"] = types.YLeaf{"ThreshIntervalMetric", qlimitQosGrpThreshList.ThreshIntervalMetric}
-    qlimitQosGrpThreshList.EntityData.Leafs["interval-unit-val"] = types.YLeaf{"IntervalUnitVal", qlimitQosGrpThreshList.IntervalUnitVal}
+    qlimitQosGrpThreshList.EntityData.Children = types.NewOrderedMap()
+    qlimitQosGrpThreshList.EntityData.Leafs = types.NewOrderedMap()
+    qlimitQosGrpThreshList.EntityData.Leafs.Append("qos-group-min", types.YLeaf{"QosGroupMin", qlimitQosGrpThreshList.QosGroupMin})
+    qlimitQosGrpThreshList.EntityData.Leafs.Append("qos-group-max", types.YLeaf{"QosGroupMax", qlimitQosGrpThreshList.QosGroupMax})
+    qlimitQosGrpThreshList.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", qlimitQosGrpThreshList.Bytes})
+    qlimitQosGrpThreshList.EntityData.Leafs.Append("thresh-size-metric", types.YLeaf{"ThreshSizeMetric", qlimitQosGrpThreshList.ThreshSizeMetric})
+    qlimitQosGrpThreshList.EntityData.Leafs.Append("unit-val", types.YLeaf{"UnitVal", qlimitQosGrpThreshList.UnitVal})
+    qlimitQosGrpThreshList.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", qlimitQosGrpThreshList.ThresholdInterval})
+    qlimitQosGrpThreshList.EntityData.Leafs.Append("thresh-interval-metric", types.YLeaf{"ThreshIntervalMetric", qlimitQosGrpThreshList.ThreshIntervalMetric})
+    qlimitQosGrpThreshList.EntityData.Leafs.Append("interval-unit-val", types.YLeaf{"IntervalUnitVal", qlimitQosGrpThreshList.IntervalUnitVal})
+
+    qlimitQosGrpThreshList.EntityData.YListKeys = []string {"QosGroupMin", "QosGroupMax"}
+
     return &(qlimitQosGrpThreshList.EntityData)
 }
 
@@ -3502,21 +3652,24 @@ func (qlimitMplsExpThreshList *Interfaces_Interface_DiffservInfo_PriorityOperLis
     qlimitMplsExpThreshList.EntityData.YangName = "qlimit-mpls-exp-thresh-list"
     qlimitMplsExpThreshList.EntityData.BundleName = "cisco_ios_xe"
     qlimitMplsExpThreshList.EntityData.ParentYangName = "priority-oper-list"
-    qlimitMplsExpThreshList.EntityData.SegmentPath = "qlimit-mpls-exp-thresh-list" + "[exp-min='" + fmt.Sprintf("%v", qlimitMplsExpThreshList.ExpMin) + "']" + "[exp-max='" + fmt.Sprintf("%v", qlimitMplsExpThreshList.ExpMax) + "']"
+    qlimitMplsExpThreshList.EntityData.SegmentPath = "qlimit-mpls-exp-thresh-list" + types.AddKeyToken(qlimitMplsExpThreshList.ExpMin, "exp-min") + types.AddKeyToken(qlimitMplsExpThreshList.ExpMax, "exp-max")
     qlimitMplsExpThreshList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qlimitMplsExpThreshList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qlimitMplsExpThreshList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    qlimitMplsExpThreshList.EntityData.Children = make(map[string]types.YChild)
-    qlimitMplsExpThreshList.EntityData.Leafs = make(map[string]types.YLeaf)
-    qlimitMplsExpThreshList.EntityData.Leafs["exp-min"] = types.YLeaf{"ExpMin", qlimitMplsExpThreshList.ExpMin}
-    qlimitMplsExpThreshList.EntityData.Leafs["exp-max"] = types.YLeaf{"ExpMax", qlimitMplsExpThreshList.ExpMax}
-    qlimitMplsExpThreshList.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", qlimitMplsExpThreshList.Bytes}
-    qlimitMplsExpThreshList.EntityData.Leafs["thresh-size-metric"] = types.YLeaf{"ThreshSizeMetric", qlimitMplsExpThreshList.ThreshSizeMetric}
-    qlimitMplsExpThreshList.EntityData.Leafs["unit-val"] = types.YLeaf{"UnitVal", qlimitMplsExpThreshList.UnitVal}
-    qlimitMplsExpThreshList.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", qlimitMplsExpThreshList.ThresholdInterval}
-    qlimitMplsExpThreshList.EntityData.Leafs["thresh-interval-metric"] = types.YLeaf{"ThreshIntervalMetric", qlimitMplsExpThreshList.ThreshIntervalMetric}
-    qlimitMplsExpThreshList.EntityData.Leafs["interval-unit-val"] = types.YLeaf{"IntervalUnitVal", qlimitMplsExpThreshList.IntervalUnitVal}
+    qlimitMplsExpThreshList.EntityData.Children = types.NewOrderedMap()
+    qlimitMplsExpThreshList.EntityData.Leafs = types.NewOrderedMap()
+    qlimitMplsExpThreshList.EntityData.Leafs.Append("exp-min", types.YLeaf{"ExpMin", qlimitMplsExpThreshList.ExpMin})
+    qlimitMplsExpThreshList.EntityData.Leafs.Append("exp-max", types.YLeaf{"ExpMax", qlimitMplsExpThreshList.ExpMax})
+    qlimitMplsExpThreshList.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", qlimitMplsExpThreshList.Bytes})
+    qlimitMplsExpThreshList.EntityData.Leafs.Append("thresh-size-metric", types.YLeaf{"ThreshSizeMetric", qlimitMplsExpThreshList.ThreshSizeMetric})
+    qlimitMplsExpThreshList.EntityData.Leafs.Append("unit-val", types.YLeaf{"UnitVal", qlimitMplsExpThreshList.UnitVal})
+    qlimitMplsExpThreshList.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", qlimitMplsExpThreshList.ThresholdInterval})
+    qlimitMplsExpThreshList.EntityData.Leafs.Append("thresh-interval-metric", types.YLeaf{"ThreshIntervalMetric", qlimitMplsExpThreshList.ThreshIntervalMetric})
+    qlimitMplsExpThreshList.EntityData.Leafs.Append("interval-unit-val", types.YLeaf{"IntervalUnitVal", qlimitMplsExpThreshList.IntervalUnitVal})
+
+    qlimitMplsExpThreshList.EntityData.YListKeys = []string {"ExpMin", "ExpMax"}
+
     return &(qlimitMplsExpThreshList.EntityData)
 }
 
@@ -3560,21 +3713,24 @@ func (qlimitDscpThreshList *Interfaces_Interface_DiffservInfo_PriorityOperList_Q
     qlimitDscpThreshList.EntityData.YangName = "qlimit-dscp-thresh-list"
     qlimitDscpThreshList.EntityData.BundleName = "cisco_ios_xe"
     qlimitDscpThreshList.EntityData.ParentYangName = "priority-oper-list"
-    qlimitDscpThreshList.EntityData.SegmentPath = "qlimit-dscp-thresh-list" + "[dscp-min='" + fmt.Sprintf("%v", qlimitDscpThreshList.DscpMin) + "']" + "[dscp-max='" + fmt.Sprintf("%v", qlimitDscpThreshList.DscpMax) + "']"
+    qlimitDscpThreshList.EntityData.SegmentPath = "qlimit-dscp-thresh-list" + types.AddKeyToken(qlimitDscpThreshList.DscpMin, "dscp-min") + types.AddKeyToken(qlimitDscpThreshList.DscpMax, "dscp-max")
     qlimitDscpThreshList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qlimitDscpThreshList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qlimitDscpThreshList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    qlimitDscpThreshList.EntityData.Children = make(map[string]types.YChild)
-    qlimitDscpThreshList.EntityData.Leafs = make(map[string]types.YLeaf)
-    qlimitDscpThreshList.EntityData.Leafs["dscp-min"] = types.YLeaf{"DscpMin", qlimitDscpThreshList.DscpMin}
-    qlimitDscpThreshList.EntityData.Leafs["dscp-max"] = types.YLeaf{"DscpMax", qlimitDscpThreshList.DscpMax}
-    qlimitDscpThreshList.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", qlimitDscpThreshList.Bytes}
-    qlimitDscpThreshList.EntityData.Leafs["thresh-size-metric"] = types.YLeaf{"ThreshSizeMetric", qlimitDscpThreshList.ThreshSizeMetric}
-    qlimitDscpThreshList.EntityData.Leafs["unit-val"] = types.YLeaf{"UnitVal", qlimitDscpThreshList.UnitVal}
-    qlimitDscpThreshList.EntityData.Leafs["threshold-interval"] = types.YLeaf{"ThresholdInterval", qlimitDscpThreshList.ThresholdInterval}
-    qlimitDscpThreshList.EntityData.Leafs["thresh-interval-metric"] = types.YLeaf{"ThreshIntervalMetric", qlimitDscpThreshList.ThreshIntervalMetric}
-    qlimitDscpThreshList.EntityData.Leafs["interval-unit-val"] = types.YLeaf{"IntervalUnitVal", qlimitDscpThreshList.IntervalUnitVal}
+    qlimitDscpThreshList.EntityData.Children = types.NewOrderedMap()
+    qlimitDscpThreshList.EntityData.Leafs = types.NewOrderedMap()
+    qlimitDscpThreshList.EntityData.Leafs.Append("dscp-min", types.YLeaf{"DscpMin", qlimitDscpThreshList.DscpMin})
+    qlimitDscpThreshList.EntityData.Leafs.Append("dscp-max", types.YLeaf{"DscpMax", qlimitDscpThreshList.DscpMax})
+    qlimitDscpThreshList.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", qlimitDscpThreshList.Bytes})
+    qlimitDscpThreshList.EntityData.Leafs.Append("thresh-size-metric", types.YLeaf{"ThreshSizeMetric", qlimitDscpThreshList.ThreshSizeMetric})
+    qlimitDscpThreshList.EntityData.Leafs.Append("unit-val", types.YLeaf{"UnitVal", qlimitDscpThreshList.UnitVal})
+    qlimitDscpThreshList.EntityData.Leafs.Append("threshold-interval", types.YLeaf{"ThresholdInterval", qlimitDscpThreshList.ThresholdInterval})
+    qlimitDscpThreshList.EntityData.Leafs.Append("thresh-interval-metric", types.YLeaf{"ThreshIntervalMetric", qlimitDscpThreshList.ThreshIntervalMetric})
+    qlimitDscpThreshList.EntityData.Leafs.Append("interval-unit-val", types.YLeaf{"IntervalUnitVal", qlimitDscpThreshList.IntervalUnitVal})
+
+    qlimitDscpThreshList.EntityData.YListKeys = []string {"DscpMin", "DscpMax"}
+
     return &(qlimitDscpThreshList.EntityData)
 }
 
@@ -3664,20 +3820,23 @@ func (v4ProtocolStats *Interfaces_Interface_V4ProtocolStats) GetEntityData() *ty
     v4ProtocolStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     v4ProtocolStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    v4ProtocolStats.EntityData.Children = make(map[string]types.YChild)
-    v4ProtocolStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    v4ProtocolStats.EntityData.Leafs["in-pkts"] = types.YLeaf{"InPkts", v4ProtocolStats.InPkts}
-    v4ProtocolStats.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", v4ProtocolStats.InOctets}
-    v4ProtocolStats.EntityData.Leafs["in-error-pkts"] = types.YLeaf{"InErrorPkts", v4ProtocolStats.InErrorPkts}
-    v4ProtocolStats.EntityData.Leafs["in-forwarded-pkts"] = types.YLeaf{"InForwardedPkts", v4ProtocolStats.InForwardedPkts}
-    v4ProtocolStats.EntityData.Leafs["in-forwarded-octets"] = types.YLeaf{"InForwardedOctets", v4ProtocolStats.InForwardedOctets}
-    v4ProtocolStats.EntityData.Leafs["in-discarded-pkts"] = types.YLeaf{"InDiscardedPkts", v4ProtocolStats.InDiscardedPkts}
-    v4ProtocolStats.EntityData.Leafs["out-pkts"] = types.YLeaf{"OutPkts", v4ProtocolStats.OutPkts}
-    v4ProtocolStats.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", v4ProtocolStats.OutOctets}
-    v4ProtocolStats.EntityData.Leafs["out-error-pkts"] = types.YLeaf{"OutErrorPkts", v4ProtocolStats.OutErrorPkts}
-    v4ProtocolStats.EntityData.Leafs["out-forwarded-pkts"] = types.YLeaf{"OutForwardedPkts", v4ProtocolStats.OutForwardedPkts}
-    v4ProtocolStats.EntityData.Leafs["out-forwarded-octets"] = types.YLeaf{"OutForwardedOctets", v4ProtocolStats.OutForwardedOctets}
-    v4ProtocolStats.EntityData.Leafs["out-discarded-pkts"] = types.YLeaf{"OutDiscardedPkts", v4ProtocolStats.OutDiscardedPkts}
+    v4ProtocolStats.EntityData.Children = types.NewOrderedMap()
+    v4ProtocolStats.EntityData.Leafs = types.NewOrderedMap()
+    v4ProtocolStats.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", v4ProtocolStats.InPkts})
+    v4ProtocolStats.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", v4ProtocolStats.InOctets})
+    v4ProtocolStats.EntityData.Leafs.Append("in-error-pkts", types.YLeaf{"InErrorPkts", v4ProtocolStats.InErrorPkts})
+    v4ProtocolStats.EntityData.Leafs.Append("in-forwarded-pkts", types.YLeaf{"InForwardedPkts", v4ProtocolStats.InForwardedPkts})
+    v4ProtocolStats.EntityData.Leafs.Append("in-forwarded-octets", types.YLeaf{"InForwardedOctets", v4ProtocolStats.InForwardedOctets})
+    v4ProtocolStats.EntityData.Leafs.Append("in-discarded-pkts", types.YLeaf{"InDiscardedPkts", v4ProtocolStats.InDiscardedPkts})
+    v4ProtocolStats.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", v4ProtocolStats.OutPkts})
+    v4ProtocolStats.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", v4ProtocolStats.OutOctets})
+    v4ProtocolStats.EntityData.Leafs.Append("out-error-pkts", types.YLeaf{"OutErrorPkts", v4ProtocolStats.OutErrorPkts})
+    v4ProtocolStats.EntityData.Leafs.Append("out-forwarded-pkts", types.YLeaf{"OutForwardedPkts", v4ProtocolStats.OutForwardedPkts})
+    v4ProtocolStats.EntityData.Leafs.Append("out-forwarded-octets", types.YLeaf{"OutForwardedOctets", v4ProtocolStats.OutForwardedOctets})
+    v4ProtocolStats.EntityData.Leafs.Append("out-discarded-pkts", types.YLeaf{"OutDiscardedPkts", v4ProtocolStats.OutDiscardedPkts})
+
+    v4ProtocolStats.EntityData.YListKeys = []string {}
+
     return &(v4ProtocolStats.EntityData)
 }
 
@@ -3767,20 +3926,23 @@ func (v6ProtocolStats *Interfaces_Interface_V6ProtocolStats) GetEntityData() *ty
     v6ProtocolStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     v6ProtocolStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    v6ProtocolStats.EntityData.Children = make(map[string]types.YChild)
-    v6ProtocolStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    v6ProtocolStats.EntityData.Leafs["in-pkts"] = types.YLeaf{"InPkts", v6ProtocolStats.InPkts}
-    v6ProtocolStats.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", v6ProtocolStats.InOctets}
-    v6ProtocolStats.EntityData.Leafs["in-error-pkts"] = types.YLeaf{"InErrorPkts", v6ProtocolStats.InErrorPkts}
-    v6ProtocolStats.EntityData.Leafs["in-forwarded-pkts"] = types.YLeaf{"InForwardedPkts", v6ProtocolStats.InForwardedPkts}
-    v6ProtocolStats.EntityData.Leafs["in-forwarded-octets"] = types.YLeaf{"InForwardedOctets", v6ProtocolStats.InForwardedOctets}
-    v6ProtocolStats.EntityData.Leafs["in-discarded-pkts"] = types.YLeaf{"InDiscardedPkts", v6ProtocolStats.InDiscardedPkts}
-    v6ProtocolStats.EntityData.Leafs["out-pkts"] = types.YLeaf{"OutPkts", v6ProtocolStats.OutPkts}
-    v6ProtocolStats.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", v6ProtocolStats.OutOctets}
-    v6ProtocolStats.EntityData.Leafs["out-error-pkts"] = types.YLeaf{"OutErrorPkts", v6ProtocolStats.OutErrorPkts}
-    v6ProtocolStats.EntityData.Leafs["out-forwarded-pkts"] = types.YLeaf{"OutForwardedPkts", v6ProtocolStats.OutForwardedPkts}
-    v6ProtocolStats.EntityData.Leafs["out-forwarded-octets"] = types.YLeaf{"OutForwardedOctets", v6ProtocolStats.OutForwardedOctets}
-    v6ProtocolStats.EntityData.Leafs["out-discarded-pkts"] = types.YLeaf{"OutDiscardedPkts", v6ProtocolStats.OutDiscardedPkts}
+    v6ProtocolStats.EntityData.Children = types.NewOrderedMap()
+    v6ProtocolStats.EntityData.Leafs = types.NewOrderedMap()
+    v6ProtocolStats.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", v6ProtocolStats.InPkts})
+    v6ProtocolStats.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", v6ProtocolStats.InOctets})
+    v6ProtocolStats.EntityData.Leafs.Append("in-error-pkts", types.YLeaf{"InErrorPkts", v6ProtocolStats.InErrorPkts})
+    v6ProtocolStats.EntityData.Leafs.Append("in-forwarded-pkts", types.YLeaf{"InForwardedPkts", v6ProtocolStats.InForwardedPkts})
+    v6ProtocolStats.EntityData.Leafs.Append("in-forwarded-octets", types.YLeaf{"InForwardedOctets", v6ProtocolStats.InForwardedOctets})
+    v6ProtocolStats.EntityData.Leafs.Append("in-discarded-pkts", types.YLeaf{"InDiscardedPkts", v6ProtocolStats.InDiscardedPkts})
+    v6ProtocolStats.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", v6ProtocolStats.OutPkts})
+    v6ProtocolStats.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", v6ProtocolStats.OutOctets})
+    v6ProtocolStats.EntityData.Leafs.Append("out-error-pkts", types.YLeaf{"OutErrorPkts", v6ProtocolStats.OutErrorPkts})
+    v6ProtocolStats.EntityData.Leafs.Append("out-forwarded-pkts", types.YLeaf{"OutForwardedPkts", v6ProtocolStats.OutForwardedPkts})
+    v6ProtocolStats.EntityData.Leafs.Append("out-forwarded-octets", types.YLeaf{"OutForwardedOctets", v6ProtocolStats.OutForwardedOctets})
+    v6ProtocolStats.EntityData.Leafs.Append("out-discarded-pkts", types.YLeaf{"OutDiscardedPkts", v6ProtocolStats.OutDiscardedPkts})
+
+    v6ProtocolStats.EntityData.YListKeys = []string {}
+
     return &(v6ProtocolStats.EntityData)
 }
 
@@ -3824,12 +3986,15 @@ func (etherState *Interfaces_Interface_EtherState) GetEntityData() *types.Common
     etherState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherState.EntityData.Children = make(map[string]types.YChild)
-    etherState.EntityData.Leafs = make(map[string]types.YLeaf)
-    etherState.EntityData.Leafs["negotiated-duplex-mode"] = types.YLeaf{"NegotiatedDuplexMode", etherState.NegotiatedDuplexMode}
-    etherState.EntityData.Leafs["negotiated-port-speed"] = types.YLeaf{"NegotiatedPortSpeed", etherState.NegotiatedPortSpeed}
-    etherState.EntityData.Leafs["auto-negotiate"] = types.YLeaf{"AutoNegotiate", etherState.AutoNegotiate}
-    etherState.EntityData.Leafs["enable-flow-control"] = types.YLeaf{"EnableFlowControl", etherState.EnableFlowControl}
+    etherState.EntityData.Children = types.NewOrderedMap()
+    etherState.EntityData.Leafs = types.NewOrderedMap()
+    etherState.EntityData.Leafs.Append("negotiated-duplex-mode", types.YLeaf{"NegotiatedDuplexMode", etherState.NegotiatedDuplexMode})
+    etherState.EntityData.Leafs.Append("negotiated-port-speed", types.YLeaf{"NegotiatedPortSpeed", etherState.NegotiatedPortSpeed})
+    etherState.EntityData.Leafs.Append("auto-negotiate", types.YLeaf{"AutoNegotiate", etherState.AutoNegotiate})
+    etherState.EntityData.Leafs.Append("enable-flow-control", types.YLeaf{"EnableFlowControl", etherState.EnableFlowControl})
+
+    etherState.EntityData.YListKeys = []string {}
+
     return &(etherState.EntityData)
 }
 
@@ -3864,7 +4029,7 @@ type Interfaces_Interface_EtherStats struct {
 
     // Number of 802.1q tagged frames received on the interface. The type is
     // interface{} with range: 0..18446744073709551615.
-    In8021QFrames interface{}
+    In8021qFrames interface{}
 
     // MAC layer control frames sent on the interface. The type is interface{}
     // with range: 0..18446744073709551615.
@@ -3876,7 +4041,7 @@ type Interfaces_Interface_EtherStats struct {
 
     // Number of 802.1q tagged frames sent on the interface. The type is
     // interface{} with range: 0..18446744073709551615.
-    Out8021QFrames interface{}
+    Out8021qFrames interface{}
 }
 
 func (etherStats *Interfaces_Interface_EtherStats) GetEntityData() *types.CommonEntityData {
@@ -3889,17 +4054,20 @@ func (etherStats *Interfaces_Interface_EtherStats) GetEntityData() *types.Common
     etherStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    etherStats.EntityData.Children = make(map[string]types.YChild)
-    etherStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    etherStats.EntityData.Leafs["in-mac-control-frames"] = types.YLeaf{"InMacControlFrames", etherStats.InMacControlFrames}
-    etherStats.EntityData.Leafs["in-mac-pause-frames"] = types.YLeaf{"InMacPauseFrames", etherStats.InMacPauseFrames}
-    etherStats.EntityData.Leafs["in-oversize-frames"] = types.YLeaf{"InOversizeFrames", etherStats.InOversizeFrames}
-    etherStats.EntityData.Leafs["in-jabber-frames"] = types.YLeaf{"InJabberFrames", etherStats.InJabberFrames}
-    etherStats.EntityData.Leafs["in-fragment-frames"] = types.YLeaf{"InFragmentFrames", etherStats.InFragmentFrames}
-    etherStats.EntityData.Leafs["in-8021q-frames"] = types.YLeaf{"In8021QFrames", etherStats.In8021QFrames}
-    etherStats.EntityData.Leafs["out-mac-control-frames"] = types.YLeaf{"OutMacControlFrames", etherStats.OutMacControlFrames}
-    etherStats.EntityData.Leafs["out-mac-pause-frames"] = types.YLeaf{"OutMacPauseFrames", etherStats.OutMacPauseFrames}
-    etherStats.EntityData.Leafs["out-8021q-frames"] = types.YLeaf{"Out8021QFrames", etherStats.Out8021QFrames}
+    etherStats.EntityData.Children = types.NewOrderedMap()
+    etherStats.EntityData.Leafs = types.NewOrderedMap()
+    etherStats.EntityData.Leafs.Append("in-mac-control-frames", types.YLeaf{"InMacControlFrames", etherStats.InMacControlFrames})
+    etherStats.EntityData.Leafs.Append("in-mac-pause-frames", types.YLeaf{"InMacPauseFrames", etherStats.InMacPauseFrames})
+    etherStats.EntityData.Leafs.Append("in-oversize-frames", types.YLeaf{"InOversizeFrames", etherStats.InOversizeFrames})
+    etherStats.EntityData.Leafs.Append("in-jabber-frames", types.YLeaf{"InJabberFrames", etherStats.InJabberFrames})
+    etherStats.EntityData.Leafs.Append("in-fragment-frames", types.YLeaf{"InFragmentFrames", etherStats.InFragmentFrames})
+    etherStats.EntityData.Leafs.Append("in-8021q-frames", types.YLeaf{"In8021qFrames", etherStats.In8021qFrames})
+    etherStats.EntityData.Leafs.Append("out-mac-control-frames", types.YLeaf{"OutMacControlFrames", etherStats.OutMacControlFrames})
+    etherStats.EntityData.Leafs.Append("out-mac-pause-frames", types.YLeaf{"OutMacPauseFrames", etherStats.OutMacPauseFrames})
+    etherStats.EntityData.Leafs.Append("out-8021q-frames", types.YLeaf{"Out8021qFrames", etherStats.Out8021qFrames})
+
+    etherStats.EntityData.YListKeys = []string {}
+
     return &(etherStats.EntityData)
 }
 
@@ -3913,7 +4081,7 @@ type Interfaces_Interface_SerialState struct {
     // SerialCrc.
     CrcType interface{}
 
-    // Loopback mode the interface is operating in. The type is T1E1LoopbackMode.
+    // Loopback mode the interface is operating in. The type is T1e1LoopbackMode.
     Loopback interface{}
 
     // Keeplive interval in seconds. The type is interface{} with range:
@@ -3938,13 +4106,16 @@ func (serialState *Interfaces_Interface_SerialState) GetEntityData() *types.Comm
     serialState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     serialState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    serialState.EntityData.Children = make(map[string]types.YChild)
-    serialState.EntityData.Leafs = make(map[string]types.YLeaf)
-    serialState.EntityData.Leafs["crc-type"] = types.YLeaf{"CrcType", serialState.CrcType}
-    serialState.EntityData.Leafs["loopback"] = types.YLeaf{"Loopback", serialState.Loopback}
-    serialState.EntityData.Leafs["keeplive"] = types.YLeaf{"Keeplive", serialState.Keeplive}
-    serialState.EntityData.Leafs["timeslot"] = types.YLeaf{"Timeslot", serialState.Timeslot}
-    serialState.EntityData.Leafs["subrate"] = types.YLeaf{"Subrate", serialState.Subrate}
+    serialState.EntityData.Children = types.NewOrderedMap()
+    serialState.EntityData.Leafs = types.NewOrderedMap()
+    serialState.EntityData.Leafs.Append("crc-type", types.YLeaf{"CrcType", serialState.CrcType})
+    serialState.EntityData.Leafs.Append("loopback", types.YLeaf{"Loopback", serialState.Loopback})
+    serialState.EntityData.Leafs.Append("keeplive", types.YLeaf{"Keeplive", serialState.Keeplive})
+    serialState.EntityData.Leafs.Append("timeslot", types.YLeaf{"Timeslot", serialState.Timeslot})
+    serialState.EntityData.Leafs.Append("subrate", types.YLeaf{"Subrate", serialState.Subrate})
+
+    serialState.EntityData.YListKeys = []string {}
+
     return &(serialState.EntityData)
 }
 
@@ -3969,9 +4140,12 @@ func (serialStats *Interfaces_Interface_SerialStats) GetEntityData() *types.Comm
     serialStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     serialStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    serialStats.EntityData.Children = make(map[string]types.YChild)
-    serialStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    serialStats.EntityData.Leafs["in-abort-clock-error"] = types.YLeaf{"InAbortClockError", serialStats.InAbortClockError}
+    serialStats.EntityData.Children = types.NewOrderedMap()
+    serialStats.EntityData.Leafs = types.NewOrderedMap()
+    serialStats.EntityData.Leafs.Append("in-abort-clock-error", types.YLeaf{"InAbortClockError", serialStats.InAbortClockError})
+
+    serialStats.EntityData.YListKeys = []string {}
+
     return &(serialStats.EntityData)
 }
 

@@ -1,4 +1,10 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // FPD CLI support for both oper and config
+// 
+// Copyright (c) 2012-2017 by Cisco Systems, Inc.
+// All rights reserved.
 package sysadmin_fpd_infra_cli_fpd
 
 import (
@@ -35,9 +41,12 @@ func (fpd *Fpd) GetEntityData() *types.CommonEntityData {
     fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpd.EntityData.Children = make(map[string]types.YChild)
-    fpd.EntityData.Children["config"] = types.YChild{"Config", &fpd.Config}
-    fpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    fpd.EntityData.Children = types.NewOrderedMap()
+    fpd.EntityData.Children.Append("config", types.YChild{"Config", &fpd.Config})
+    fpd.EntityData.Leafs = types.NewOrderedMap()
+
+    fpd.EntityData.YListKeys = []string {}
+
     return &(fpd.EntityData)
 }
 
@@ -61,9 +70,12 @@ func (config *Fpd_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["auto-upgrade"] = types.YLeaf{"AutoUpgrade", config.AutoUpgrade}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("auto-upgrade", types.YLeaf{"AutoUpgrade", config.AutoUpgrade})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 

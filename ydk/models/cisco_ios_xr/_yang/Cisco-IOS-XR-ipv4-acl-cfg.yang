@@ -5,11 +5,14 @@ module Cisco-IOS-XR-ipv4-acl-cfg {
   import ietf-inet-types {
     prefix inet;
   }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   import Cisco-IOS-XR-ipv4-acl-datatypes {
     prefix dt1;
   }
   include Cisco-IOS-XR-ipv4-ace-cfg {
-    revision-date 2017-06-08;
+    revision-date 2018-02-01;
   }
 
   organization
@@ -35,9 +38,17 @@ module Cisco-IOS-XR-ipv4-acl-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-06-08 {
+  revision 2018-02-01 {
     description
-      "6.3.1 fragment-type revision.";
+      "Using YANG bit types for tcp flags.";
+  }
+  revision 2018-01-03 {
+    description
+      "6.4.1 revision. Fixed a few typos in the description.";
+  }
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
   }
   revision 2015-11-09 {
     description
@@ -73,7 +84,9 @@ module Cisco-IOS-XR-ipv4-acl-cfg {
           }
         }
         leaf access-list-name {
-          type string;
+          type xr:Cisco-ios-xr-string {
+            length "1..64";
+          }
           description
             "Access list name - 64 characters max";
         }
@@ -89,7 +102,6 @@ module Cisco-IOS-XR-ipv4-acl-cfg {
         description
           "Name of a prefix list";
         container prefix-list-entries {
-          presence "Indicates a prefix-list-entries node is configured.";
           description
             "Sequence of entries forming a prefix list";
           list prefix-list-entry {

@@ -19,6 +19,54 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-ntp-oper:ntp-oper-data", reflect.TypeOf(NtpOperData{}))
 }
 
+// KissCodeType represents Kiss code is used for debug or maintenance purposes in devices in stratum 0 or 16
+type KissCodeType string
+
+const (
+    // The association belongs to a unicast server
+    KissCodeType_ntp_ref_acst KissCodeType = "ntp-ref-acst"
+
+    // Server authentication failed
+    KissCodeType_ntp_ref_auth KissCodeType = "ntp-ref-auth"
+
+    // Autokey sequence failed
+    KissCodeType_ntp_ref_auto KissCodeType = "ntp-ref-auto"
+
+    // The association belongs to a broadcast server
+    KissCodeType_ntp_ref_bcst KissCodeType = "ntp-ref-bcst"
+
+    // Cryptographic authentication or identification failed
+    KissCodeType_ntp_ref_cryp KissCodeType = "ntp-ref-cryp"
+
+    // Access denied by remote server
+    KissCodeType_ntp_ref_deny KissCodeType = "ntp-ref-deny"
+
+    // Lost peer in symmetric mode
+    KissCodeType_ntp_ref_drop KissCodeType = "ntp-ref-drop"
+
+    // Access denied due to local policy
+    KissCodeType_ntp_ref_rstr KissCodeType = "ntp-ref-rstr"
+
+    // The association has not synchronized for the first time
+    KissCodeType_ntp_ref_init KissCodeType = "ntp-ref-init"
+
+    // The association belongs to a dynamically discovered server
+    KissCodeType_ntp_ref_mcst KissCodeType = "ntp-ref-mcst"
+
+    // No key found. Either the key was never installed or not trusted
+    KissCodeType_ntp_ref_nkey KissCodeType = "ntp-ref-nkey"
+
+    // The server has temporarily denied access because
+    // the client exceeded the rate threshold
+    KissCodeType_ntp_ref_rate KissCodeType = "ntp-ref-rate"
+
+    // Alteration of association from a remote host running ntpdc
+    KissCodeType_ntp_ref_rmot KissCodeType = "ntp-ref-rmot"
+
+    // STEP means the offset is less than the panic threshold but greater than the step threshold of 125 ms
+    KissCodeType_ntp_ref_step KissCodeType = "ntp-ref-step"
+)
+
 // RefClockSourceType represents Clock source type for NTP
 type RefClockSourceType string
 
@@ -81,54 +129,6 @@ const (
     RefClockSourceType_ntp_ref_ptb RefClockSourceType = "ntp-ref-ptb"
 )
 
-// KissCodeType represents Kiss code is used for debug or maintenance purposes in devices in stratum 0 or 16
-type KissCodeType string
-
-const (
-    // The association belongs to a unicast server
-    KissCodeType_ntp_ref_acst KissCodeType = "ntp-ref-acst"
-
-    // Server authentication failed
-    KissCodeType_ntp_ref_auth KissCodeType = "ntp-ref-auth"
-
-    // Autokey sequence failed
-    KissCodeType_ntp_ref_auto KissCodeType = "ntp-ref-auto"
-
-    // The association belongs to a broadcast server
-    KissCodeType_ntp_ref_bcst KissCodeType = "ntp-ref-bcst"
-
-    // Cryptographic authentication or identification failed
-    KissCodeType_ntp_ref_cryp KissCodeType = "ntp-ref-cryp"
-
-    // Access denied by remote server
-    KissCodeType_ntp_ref_deny KissCodeType = "ntp-ref-deny"
-
-    // Lost peer in symmetric mode
-    KissCodeType_ntp_ref_drop KissCodeType = "ntp-ref-drop"
-
-    // Access denied due to local policy
-    KissCodeType_ntp_ref_rstr KissCodeType = "ntp-ref-rstr"
-
-    // The association has not synchronized for the first time
-    KissCodeType_ntp_ref_init KissCodeType = "ntp-ref-init"
-
-    // The association belongs to a dynamically discovered server
-    KissCodeType_ntp_ref_mcst KissCodeType = "ntp-ref-mcst"
-
-    // No key found. Either the key was never installed or not trusted
-    KissCodeType_ntp_ref_nkey KissCodeType = "ntp-ref-nkey"
-
-    // The server has temporarily denied access because
-    // the client exceeded the rate threshold
-    KissCodeType_ntp_ref_rate KissCodeType = "ntp-ref-rate"
-
-    // Alteration of association from a remote host running ntpdc
-    KissCodeType_ntp_ref_rmot KissCodeType = "ntp-ref-rmot"
-
-    // STEP means the offset is less than the panic threshold but greater than the step threshold of 125 ms
-    KissCodeType_ntp_ref_step KissCodeType = "ntp-ref-step"
-)
-
 // RefidPktTypeInfo represents The type of information stored in the refid
 type RefidPktTypeInfo string
 
@@ -167,9 +167,12 @@ func (ntpOperData *NtpOperData) GetEntityData() *types.CommonEntityData {
     ntpOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ntpOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ntpOperData.EntityData.Children = make(map[string]types.YChild)
-    ntpOperData.EntityData.Children["ntp-status-info"] = types.YChild{"NtpStatusInfo", &ntpOperData.NtpStatusInfo}
-    ntpOperData.EntityData.Leafs = make(map[string]types.YLeaf)
+    ntpOperData.EntityData.Children = types.NewOrderedMap()
+    ntpOperData.EntityData.Children.Append("ntp-status-info", types.YChild{"NtpStatusInfo", &ntpOperData.NtpStatusInfo})
+    ntpOperData.EntityData.Leafs = types.NewOrderedMap()
+
+    ntpOperData.EntityData.YListKeys = []string {}
+
     return &(ntpOperData.EntityData)
 }
 
@@ -181,9 +184,10 @@ func (ntpOperData *NtpOperData) GetEntityData() *types.CommonEntityData {
 type NtpOperData_NtpStatusInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Unix calendar time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     Reftime interface{}
 
     // Frequency or periodicity of NTP polling in seconds. The type is interface{}
@@ -218,7 +222,7 @@ type NtpOperData_NtpStatusInfo struct {
 
     // Table of NTP associations with servers and peers. The type is slice of
     // NtpOperData_NtpStatusInfo_NtpAssociations.
-    NtpAssociations []NtpOperData_NtpStatusInfo_NtpAssociations
+    NtpAssociations []*NtpOperData_NtpStatusInfo_NtpAssociations
 }
 
 func (ntpStatusInfo *NtpOperData_NtpStatusInfo) GetEntityData() *types.CommonEntityData {
@@ -231,20 +235,23 @@ func (ntpStatusInfo *NtpOperData_NtpStatusInfo) GetEntityData() *types.CommonEnt
     ntpStatusInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ntpStatusInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ntpStatusInfo.EntityData.Children = make(map[string]types.YChild)
-    ntpStatusInfo.EntityData.Children["refid"] = types.YChild{"Refid", &ntpStatusInfo.Refid}
-    ntpStatusInfo.EntityData.Children["ntp-associations"] = types.YChild{"NtpAssociations", nil}
+    ntpStatusInfo.EntityData.Children = types.NewOrderedMap()
+    ntpStatusInfo.EntityData.Children.Append("refid", types.YChild{"Refid", &ntpStatusInfo.Refid})
+    ntpStatusInfo.EntityData.Children.Append("ntp-associations", types.YChild{"NtpAssociations", nil})
     for i := range ntpStatusInfo.NtpAssociations {
-        ntpStatusInfo.EntityData.Children[types.GetSegmentPath(&ntpStatusInfo.NtpAssociations[i])] = types.YChild{"NtpAssociations", &ntpStatusInfo.NtpAssociations[i]}
+        ntpStatusInfo.EntityData.Children.Append(types.GetSegmentPath(ntpStatusInfo.NtpAssociations[i]), types.YChild{"NtpAssociations", ntpStatusInfo.NtpAssociations[i]})
     }
-    ntpStatusInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    ntpStatusInfo.EntityData.Leafs["reftime"] = types.YLeaf{"Reftime", ntpStatusInfo.Reftime}
-    ntpStatusInfo.EntityData.Leafs["sys-poll"] = types.YLeaf{"SysPoll", ntpStatusInfo.SysPoll}
-    ntpStatusInfo.EntityData.Leafs["stratum"] = types.YLeaf{"Stratum", ntpStatusInfo.Stratum}
-    ntpStatusInfo.EntityData.Leafs["root-delay"] = types.YLeaf{"RootDelay", ntpStatusInfo.RootDelay}
-    ntpStatusInfo.EntityData.Leafs["root-disp"] = types.YLeaf{"RootDisp", ntpStatusInfo.RootDisp}
-    ntpStatusInfo.EntityData.Leafs["offset"] = types.YLeaf{"Offset", ntpStatusInfo.Offset}
-    ntpStatusInfo.EntityData.Leafs["freq-drift-ppm"] = types.YLeaf{"FreqDriftPpm", ntpStatusInfo.FreqDriftPpm}
+    ntpStatusInfo.EntityData.Leafs = types.NewOrderedMap()
+    ntpStatusInfo.EntityData.Leafs.Append("reftime", types.YLeaf{"Reftime", ntpStatusInfo.Reftime})
+    ntpStatusInfo.EntityData.Leafs.Append("sys-poll", types.YLeaf{"SysPoll", ntpStatusInfo.SysPoll})
+    ntpStatusInfo.EntityData.Leafs.Append("stratum", types.YLeaf{"Stratum", ntpStatusInfo.Stratum})
+    ntpStatusInfo.EntityData.Leafs.Append("root-delay", types.YLeaf{"RootDelay", ntpStatusInfo.RootDelay})
+    ntpStatusInfo.EntityData.Leafs.Append("root-disp", types.YLeaf{"RootDisp", ntpStatusInfo.RootDisp})
+    ntpStatusInfo.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", ntpStatusInfo.Offset})
+    ntpStatusInfo.EntityData.Leafs.Append("freq-drift-ppm", types.YLeaf{"FreqDriftPpm", ntpStatusInfo.FreqDriftPpm})
+
+    ntpStatusInfo.EntityData.YListKeys = []string {}
+
     return &(ntpStatusInfo.EntityData)
 }
 
@@ -256,9 +263,9 @@ type NtpOperData_NtpStatusInfo_Refid struct {
 
     // IPV4 or IPV6 ip address. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // Bad stat or exception code in case the 3 criteria of ip, clock and kod
@@ -283,12 +290,15 @@ func (refid *NtpOperData_NtpStatusInfo_Refid) GetEntityData() *types.CommonEntit
     refid.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     refid.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    refid.EntityData.Children = make(map[string]types.YChild)
-    refid.EntityData.Children["kod-data"] = types.YChild{"KodData", &refid.KodData}
-    refid.EntityData.Children["ref-clk-src-data"] = types.YChild{"RefClkSrcData", &refid.RefClkSrcData}
-    refid.EntityData.Leafs = make(map[string]types.YLeaf)
-    refid.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", refid.IpAddr}
-    refid.EntityData.Leafs["exception-code"] = types.YLeaf{"ExceptionCode", refid.ExceptionCode}
+    refid.EntityData.Children = types.NewOrderedMap()
+    refid.EntityData.Children.Append("kod-data", types.YChild{"KodData", &refid.KodData})
+    refid.EntityData.Children.Append("ref-clk-src-data", types.YChild{"RefClkSrcData", &refid.RefClkSrcData})
+    refid.EntityData.Leafs = types.NewOrderedMap()
+    refid.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", refid.IpAddr})
+    refid.EntityData.Leafs.Append("exception-code", types.YLeaf{"ExceptionCode", refid.ExceptionCode})
+
+    refid.EntityData.YListKeys = []string {}
+
     return &(refid.EntityData)
 }
 
@@ -313,9 +323,12 @@ func (kodData *NtpOperData_NtpStatusInfo_Refid_KodData) GetEntityData() *types.C
     kodData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     kodData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    kodData.EntityData.Children = make(map[string]types.YChild)
-    kodData.EntityData.Leafs = make(map[string]types.YLeaf)
-    kodData.EntityData.Leafs["kod-type"] = types.YLeaf{"KodType", kodData.KodType}
+    kodData.EntityData.Children = types.NewOrderedMap()
+    kodData.EntityData.Leafs = types.NewOrderedMap()
+    kodData.EntityData.Leafs.Append("kod-type", types.YLeaf{"KodType", kodData.KodType})
+
+    kodData.EntityData.YListKeys = []string {}
+
     return &(kodData.EntityData)
 }
 
@@ -340,9 +353,12 @@ func (refClkSrcData *NtpOperData_NtpStatusInfo_Refid_RefClkSrcData) GetEntityDat
     refClkSrcData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     refClkSrcData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    refClkSrcData.EntityData.Children = make(map[string]types.YChild)
-    refClkSrcData.EntityData.Leafs = make(map[string]types.YLeaf)
-    refClkSrcData.EntityData.Leafs["ref-clk-src-type"] = types.YLeaf{"RefClkSrcType", refClkSrcData.RefClkSrcType}
+    refClkSrcData.EntityData.Children = types.NewOrderedMap()
+    refClkSrcData.EntityData.Leafs = types.NewOrderedMap()
+    refClkSrcData.EntityData.Leafs.Append("ref-clk-src-type", types.YLeaf{"RefClkSrcType", refClkSrcData.RefClkSrcType})
+
+    refClkSrcData.EntityData.YListKeys = []string {}
+
     return &(refClkSrcData.EntityData)
 }
 
@@ -368,7 +384,7 @@ type NtpOperData_NtpStatusInfo_NtpAssociations struct {
     PeerStratum interface{}
 
     // Reference UNIX calendar time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     Reftime interface{}
 
     // The time of  the last NTP poll or update that happened in seconds. How many
@@ -403,23 +419,26 @@ func (ntpAssociations *NtpOperData_NtpStatusInfo_NtpAssociations) GetEntityData(
     ntpAssociations.EntityData.YangName = "ntp-associations"
     ntpAssociations.EntityData.BundleName = "cisco_ios_xe"
     ntpAssociations.EntityData.ParentYangName = "ntp-status-info"
-    ntpAssociations.EntityData.SegmentPath = "ntp-associations" + "[assoc-id='" + fmt.Sprintf("%v", ntpAssociations.AssocId) + "']"
+    ntpAssociations.EntityData.SegmentPath = "ntp-associations" + types.AddKeyToken(ntpAssociations.AssocId, "assoc-id")
     ntpAssociations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ntpAssociations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ntpAssociations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ntpAssociations.EntityData.Children = make(map[string]types.YChild)
-    ntpAssociations.EntityData.Children["refid"] = types.YChild{"Refid", &ntpAssociations.Refid}
-    ntpAssociations.EntityData.Leafs = make(map[string]types.YLeaf)
-    ntpAssociations.EntityData.Leafs["assoc-id"] = types.YLeaf{"AssocId", ntpAssociations.AssocId}
-    ntpAssociations.EntityData.Leafs["peer-reach"] = types.YLeaf{"PeerReach", ntpAssociations.PeerReach}
-    ntpAssociations.EntityData.Leafs["peer-stratum"] = types.YLeaf{"PeerStratum", ntpAssociations.PeerStratum}
-    ntpAssociations.EntityData.Leafs["reftime"] = types.YLeaf{"Reftime", ntpAssociations.Reftime}
-    ntpAssociations.EntityData.Leafs["last-poll-time"] = types.YLeaf{"LastPollTime", ntpAssociations.LastPollTime}
-    ntpAssociations.EntityData.Leafs["poll"] = types.YLeaf{"Poll", ntpAssociations.Poll}
-    ntpAssociations.EntityData.Leafs["delay"] = types.YLeaf{"Delay", ntpAssociations.Delay}
-    ntpAssociations.EntityData.Leafs["offset"] = types.YLeaf{"Offset", ntpAssociations.Offset}
-    ntpAssociations.EntityData.Leafs["jitter"] = types.YLeaf{"Jitter", ntpAssociations.Jitter}
+    ntpAssociations.EntityData.Children = types.NewOrderedMap()
+    ntpAssociations.EntityData.Children.Append("refid", types.YChild{"Refid", &ntpAssociations.Refid})
+    ntpAssociations.EntityData.Leafs = types.NewOrderedMap()
+    ntpAssociations.EntityData.Leafs.Append("assoc-id", types.YLeaf{"AssocId", ntpAssociations.AssocId})
+    ntpAssociations.EntityData.Leafs.Append("peer-reach", types.YLeaf{"PeerReach", ntpAssociations.PeerReach})
+    ntpAssociations.EntityData.Leafs.Append("peer-stratum", types.YLeaf{"PeerStratum", ntpAssociations.PeerStratum})
+    ntpAssociations.EntityData.Leafs.Append("reftime", types.YLeaf{"Reftime", ntpAssociations.Reftime})
+    ntpAssociations.EntityData.Leafs.Append("last-poll-time", types.YLeaf{"LastPollTime", ntpAssociations.LastPollTime})
+    ntpAssociations.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", ntpAssociations.Poll})
+    ntpAssociations.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", ntpAssociations.Delay})
+    ntpAssociations.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", ntpAssociations.Offset})
+    ntpAssociations.EntityData.Leafs.Append("jitter", types.YLeaf{"Jitter", ntpAssociations.Jitter})
+
+    ntpAssociations.EntityData.YListKeys = []string {"AssocId"}
+
     return &(ntpAssociations.EntityData)
 }
 
@@ -431,9 +450,9 @@ type NtpOperData_NtpStatusInfo_NtpAssociations_Refid struct {
 
     // IPV4 or IPV6 ip address. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // Bad stat or exception code in case the 3 criteria of ip, clock and kod
@@ -458,12 +477,15 @@ func (refid *NtpOperData_NtpStatusInfo_NtpAssociations_Refid) GetEntityData() *t
     refid.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     refid.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    refid.EntityData.Children = make(map[string]types.YChild)
-    refid.EntityData.Children["kod-data"] = types.YChild{"KodData", &refid.KodData}
-    refid.EntityData.Children["ref-clk-src-data"] = types.YChild{"RefClkSrcData", &refid.RefClkSrcData}
-    refid.EntityData.Leafs = make(map[string]types.YLeaf)
-    refid.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", refid.IpAddr}
-    refid.EntityData.Leafs["exception-code"] = types.YLeaf{"ExceptionCode", refid.ExceptionCode}
+    refid.EntityData.Children = types.NewOrderedMap()
+    refid.EntityData.Children.Append("kod-data", types.YChild{"KodData", &refid.KodData})
+    refid.EntityData.Children.Append("ref-clk-src-data", types.YChild{"RefClkSrcData", &refid.RefClkSrcData})
+    refid.EntityData.Leafs = types.NewOrderedMap()
+    refid.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", refid.IpAddr})
+    refid.EntityData.Leafs.Append("exception-code", types.YLeaf{"ExceptionCode", refid.ExceptionCode})
+
+    refid.EntityData.YListKeys = []string {}
+
     return &(refid.EntityData)
 }
 
@@ -488,9 +510,12 @@ func (kodData *NtpOperData_NtpStatusInfo_NtpAssociations_Refid_KodData) GetEntit
     kodData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     kodData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    kodData.EntityData.Children = make(map[string]types.YChild)
-    kodData.EntityData.Leafs = make(map[string]types.YLeaf)
-    kodData.EntityData.Leafs["kod-type"] = types.YLeaf{"KodType", kodData.KodType}
+    kodData.EntityData.Children = types.NewOrderedMap()
+    kodData.EntityData.Leafs = types.NewOrderedMap()
+    kodData.EntityData.Leafs.Append("kod-type", types.YLeaf{"KodType", kodData.KodType})
+
+    kodData.EntityData.YListKeys = []string {}
+
     return &(kodData.EntityData)
 }
 
@@ -515,9 +540,12 @@ func (refClkSrcData *NtpOperData_NtpStatusInfo_NtpAssociations_Refid_RefClkSrcDa
     refClkSrcData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     refClkSrcData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    refClkSrcData.EntityData.Children = make(map[string]types.YChild)
-    refClkSrcData.EntityData.Leafs = make(map[string]types.YLeaf)
-    refClkSrcData.EntityData.Leafs["ref-clk-src-type"] = types.YLeaf{"RefClkSrcType", refClkSrcData.RefClkSrcType}
+    refClkSrcData.EntityData.Children = types.NewOrderedMap()
+    refClkSrcData.EntityData.Leafs = types.NewOrderedMap()
+    refClkSrcData.EntityData.Leafs.Append("ref-clk-src-type", types.YLeaf{"RefClkSrcType", refClkSrcData.RefClkSrcType})
+
+    refClkSrcData.EntityData.YListKeys = []string {}
+
     return &(refClkSrcData.EntityData)
 }
 

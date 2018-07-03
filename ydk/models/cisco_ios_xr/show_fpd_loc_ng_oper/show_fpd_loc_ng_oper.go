@@ -43,7 +43,7 @@ type ShowFpd struct {
     HwModuleFpdHelpFpd ShowFpd_HwModuleFpdHelpFpd
 
     // gets fpd package info.
-    Package_ ShowFpd_Package
+    Package ShowFpd_Package
 
     // fpd upgradable locations.
     LocationHelp ShowFpd_LocationHelp
@@ -59,14 +59,17 @@ func (showFpd *ShowFpd) GetEntityData() *types.CommonEntityData {
     showFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     showFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    showFpd.EntityData.Children = make(map[string]types.YChild)
-    showFpd.EntityData.Children["locations"] = types.YChild{"Locations", &showFpd.Locations}
-    showFpd.EntityData.Children["hw-module-fpd"] = types.YChild{"HwModuleFpd", &showFpd.HwModuleFpd}
-    showFpd.EntityData.Children["help-locations"] = types.YChild{"HelpLocations", &showFpd.HelpLocations}
-    showFpd.EntityData.Children["hw-module-fpd-help-fpd"] = types.YChild{"HwModuleFpdHelpFpd", &showFpd.HwModuleFpdHelpFpd}
-    showFpd.EntityData.Children["package"] = types.YChild{"Package_", &showFpd.Package_}
-    showFpd.EntityData.Children["location-help"] = types.YChild{"LocationHelp", &showFpd.LocationHelp}
-    showFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    showFpd.EntityData.Children = types.NewOrderedMap()
+    showFpd.EntityData.Children.Append("locations", types.YChild{"Locations", &showFpd.Locations})
+    showFpd.EntityData.Children.Append("hw-module-fpd", types.YChild{"HwModuleFpd", &showFpd.HwModuleFpd})
+    showFpd.EntityData.Children.Append("help-locations", types.YChild{"HelpLocations", &showFpd.HelpLocations})
+    showFpd.EntityData.Children.Append("hw-module-fpd-help-fpd", types.YChild{"HwModuleFpdHelpFpd", &showFpd.HwModuleFpdHelpFpd})
+    showFpd.EntityData.Children.Append("package", types.YChild{"Package", &showFpd.Package})
+    showFpd.EntityData.Children.Append("location-help", types.YChild{"LocationHelp", &showFpd.LocationHelp})
+    showFpd.EntityData.Leafs = types.NewOrderedMap()
+
+    showFpd.EntityData.YListKeys = []string {}
+
     return &(showFpd.EntityData)
 }
 
@@ -77,7 +80,7 @@ type ShowFpd_Locations struct {
     YFilter yfilter.YFilter
 
     // location. The type is slice of ShowFpd_Locations_Location.
-    Location []ShowFpd_Locations_Location
+    Location []*ShowFpd_Locations_Location
 }
 
 func (locations *ShowFpd_Locations) GetEntityData() *types.CommonEntityData {
@@ -90,12 +93,15 @@ func (locations *ShowFpd_Locations) GetEntityData() *types.CommonEntityData {
     locations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locations.EntityData.Children = make(map[string]types.YChild)
-    locations.EntityData.Children["location"] = types.YChild{"Location", nil}
+    locations.EntityData.Children = types.NewOrderedMap()
+    locations.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range locations.Location {
-        locations.EntityData.Children[types.GetSegmentPath(&locations.Location[i])] = types.YChild{"Location", &locations.Location[i]}
+        locations.EntityData.Children.Append(types.GetSegmentPath(locations.Location[i]), types.YChild{"Location", locations.Location[i]})
     }
-    locations.EntityData.Leafs = make(map[string]types.YLeaf)
+    locations.EntityData.Leafs = types.NewOrderedMap()
+
+    locations.EntityData.YListKeys = []string {}
+
     return &(locations.EntityData)
 }
 
@@ -111,7 +117,7 @@ type ShowFpd_Locations_Location struct {
 
     // Display fpds on given locations. The type is slice of
     // ShowFpd_Locations_Location_Fpd.
-    Fpd []ShowFpd_Locations_Location_Fpd
+    Fpd []*ShowFpd_Locations_Location_Fpd
 }
 
 func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityData {
@@ -119,18 +125,21 @@ func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityD
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "locations"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["fpd"] = types.YChild{"Fpd", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("fpd", types.YChild{"Fpd", nil})
     for i := range location.Fpd {
-        location.EntityData.Children[types.GetSegmentPath(&location.Fpd[i])] = types.YChild{"Fpd", &location.Fpd[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Fpd[i]), types.YChild{"Fpd", location.Fpd[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -145,7 +154,7 @@ type ShowFpd_Locations_Location_Fpd struct {
 
     // fpd list with all detailes. The type is slice of
     // ShowFpd_Locations_Location_Fpd_FpdInfoDetaile.
-    FpdInfoDetaile []ShowFpd_Locations_Location_Fpd_FpdInfoDetaile
+    FpdInfoDetaile []*ShowFpd_Locations_Location_Fpd_FpdInfoDetaile
 }
 
 func (fpd *ShowFpd_Locations_Location_Fpd) GetEntityData() *types.CommonEntityData {
@@ -153,18 +162,21 @@ func (fpd *ShowFpd_Locations_Location_Fpd) GetEntityData() *types.CommonEntityDa
     fpd.EntityData.YangName = "fpd"
     fpd.EntityData.BundleName = "cisco_ios_xr"
     fpd.EntityData.ParentYangName = "location"
-    fpd.EntityData.SegmentPath = "fpd" + "[fpd-name='" + fmt.Sprintf("%v", fpd.FpdName) + "']"
+    fpd.EntityData.SegmentPath = "fpd" + types.AddKeyToken(fpd.FpdName, "fpd-name")
     fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpd.EntityData.Children = make(map[string]types.YChild)
-    fpd.EntityData.Children["fpd-info-detaile"] = types.YChild{"FpdInfoDetaile", nil}
+    fpd.EntityData.Children = types.NewOrderedMap()
+    fpd.EntityData.Children.Append("fpd-info-detaile", types.YChild{"FpdInfoDetaile", nil})
     for i := range fpd.FpdInfoDetaile {
-        fpd.EntityData.Children[types.GetSegmentPath(&fpd.FpdInfoDetaile[i])] = types.YChild{"FpdInfoDetaile", &fpd.FpdInfoDetaile[i]}
+        fpd.EntityData.Children.Append(types.GetSegmentPath(fpd.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", fpd.FpdInfoDetaile[i]})
     }
-    fpd.EntityData.Leafs = make(map[string]types.YLeaf)
-    fpd.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpd.FpdName}
+    fpd.EntityData.Leafs = types.NewOrderedMap()
+    fpd.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", fpd.FpdName})
+
+    fpd.EntityData.YListKeys = []string {"FpdName"}
+
     return &(fpd.EntityData)
 }
 
@@ -209,16 +221,19 @@ func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetEntityDa
     fpdInfoDetaile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdInfoDetaile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpdInfoDetaile.EntityData.Children = make(map[string]types.YChild)
-    fpdInfoDetaile.EntityData.Leafs = make(map[string]types.YLeaf)
-    fpdInfoDetaile.EntityData.Leafs["location"] = types.YLeaf{"Location", fpdInfoDetaile.Location}
-    fpdInfoDetaile.EntityData.Leafs["card-name"] = types.YLeaf{"CardName", fpdInfoDetaile.CardName}
-    fpdInfoDetaile.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpdInfoDetaile.FpdName}
-    fpdInfoDetaile.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", fpdInfoDetaile.HwVersion}
-    fpdInfoDetaile.EntityData.Leafs["secure-boot-attr"] = types.YLeaf{"SecureBootAttr", fpdInfoDetaile.SecureBootAttr}
-    fpdInfoDetaile.EntityData.Leafs["status"] = types.YLeaf{"Status", fpdInfoDetaile.Status}
-    fpdInfoDetaile.EntityData.Leafs["running-version"] = types.YLeaf{"RunningVersion", fpdInfoDetaile.RunningVersion}
-    fpdInfoDetaile.EntityData.Leafs["programd-version"] = types.YLeaf{"ProgramdVersion", fpdInfoDetaile.ProgramdVersion}
+    fpdInfoDetaile.EntityData.Children = types.NewOrderedMap()
+    fpdInfoDetaile.EntityData.Leafs = types.NewOrderedMap()
+    fpdInfoDetaile.EntityData.Leafs.Append("location", types.YLeaf{"Location", fpdInfoDetaile.Location})
+    fpdInfoDetaile.EntityData.Leafs.Append("card-name", types.YLeaf{"CardName", fpdInfoDetaile.CardName})
+    fpdInfoDetaile.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", fpdInfoDetaile.FpdName})
+    fpdInfoDetaile.EntityData.Leafs.Append("hw-version", types.YLeaf{"HwVersion", fpdInfoDetaile.HwVersion})
+    fpdInfoDetaile.EntityData.Leafs.Append("secure-boot-attr", types.YLeaf{"SecureBootAttr", fpdInfoDetaile.SecureBootAttr})
+    fpdInfoDetaile.EntityData.Leafs.Append("status", types.YLeaf{"Status", fpdInfoDetaile.Status})
+    fpdInfoDetaile.EntityData.Leafs.Append("running-version", types.YLeaf{"RunningVersion", fpdInfoDetaile.RunningVersion})
+    fpdInfoDetaile.EntityData.Leafs.Append("programd-version", types.YLeaf{"ProgramdVersion", fpdInfoDetaile.ProgramdVersion})
+
+    fpdInfoDetaile.EntityData.YListKeys = []string {}
+
     return &(fpdInfoDetaile.EntityData)
 }
 
@@ -231,7 +246,7 @@ type ShowFpd_HwModuleFpd struct {
 
     // fpd list with all detailes. The type is slice of
     // ShowFpd_HwModuleFpd_FpdInfoDetaile.
-    FpdInfoDetaile []ShowFpd_HwModuleFpd_FpdInfoDetaile
+    FpdInfoDetaile []*ShowFpd_HwModuleFpd_FpdInfoDetaile
 }
 
 func (hwModuleFpd *ShowFpd_HwModuleFpd) GetEntityData() *types.CommonEntityData {
@@ -244,12 +259,15 @@ func (hwModuleFpd *ShowFpd_HwModuleFpd) GetEntityData() *types.CommonEntityData 
     hwModuleFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModuleFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwModuleFpd.EntityData.Children = make(map[string]types.YChild)
-    hwModuleFpd.EntityData.Children["fpd-info-detaile"] = types.YChild{"FpdInfoDetaile", nil}
+    hwModuleFpd.EntityData.Children = types.NewOrderedMap()
+    hwModuleFpd.EntityData.Children.Append("fpd-info-detaile", types.YChild{"FpdInfoDetaile", nil})
     for i := range hwModuleFpd.FpdInfoDetaile {
-        hwModuleFpd.EntityData.Children[types.GetSegmentPath(&hwModuleFpd.FpdInfoDetaile[i])] = types.YChild{"FpdInfoDetaile", &hwModuleFpd.FpdInfoDetaile[i]}
+        hwModuleFpd.EntityData.Children.Append(types.GetSegmentPath(hwModuleFpd.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", hwModuleFpd.FpdInfoDetaile[i]})
     }
-    hwModuleFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    hwModuleFpd.EntityData.Leafs = types.NewOrderedMap()
+
+    hwModuleFpd.EntityData.YListKeys = []string {}
+
     return &(hwModuleFpd.EntityData)
 }
 
@@ -294,16 +312,19 @@ func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetEntityData() *types
     fpdInfoDetaile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdInfoDetaile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpdInfoDetaile.EntityData.Children = make(map[string]types.YChild)
-    fpdInfoDetaile.EntityData.Leafs = make(map[string]types.YLeaf)
-    fpdInfoDetaile.EntityData.Leafs["location"] = types.YLeaf{"Location", fpdInfoDetaile.Location}
-    fpdInfoDetaile.EntityData.Leafs["card-name"] = types.YLeaf{"CardName", fpdInfoDetaile.CardName}
-    fpdInfoDetaile.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpdInfoDetaile.FpdName}
-    fpdInfoDetaile.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", fpdInfoDetaile.HwVersion}
-    fpdInfoDetaile.EntityData.Leafs["secure-boot-attr"] = types.YLeaf{"SecureBootAttr", fpdInfoDetaile.SecureBootAttr}
-    fpdInfoDetaile.EntityData.Leafs["status"] = types.YLeaf{"Status", fpdInfoDetaile.Status}
-    fpdInfoDetaile.EntityData.Leafs["running-version"] = types.YLeaf{"RunningVersion", fpdInfoDetaile.RunningVersion}
-    fpdInfoDetaile.EntityData.Leafs["programd-version"] = types.YLeaf{"ProgramdVersion", fpdInfoDetaile.ProgramdVersion}
+    fpdInfoDetaile.EntityData.Children = types.NewOrderedMap()
+    fpdInfoDetaile.EntityData.Leafs = types.NewOrderedMap()
+    fpdInfoDetaile.EntityData.Leafs.Append("location", types.YLeaf{"Location", fpdInfoDetaile.Location})
+    fpdInfoDetaile.EntityData.Leafs.Append("card-name", types.YLeaf{"CardName", fpdInfoDetaile.CardName})
+    fpdInfoDetaile.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", fpdInfoDetaile.FpdName})
+    fpdInfoDetaile.EntityData.Leafs.Append("hw-version", types.YLeaf{"HwVersion", fpdInfoDetaile.HwVersion})
+    fpdInfoDetaile.EntityData.Leafs.Append("secure-boot-attr", types.YLeaf{"SecureBootAttr", fpdInfoDetaile.SecureBootAttr})
+    fpdInfoDetaile.EntityData.Leafs.Append("status", types.YLeaf{"Status", fpdInfoDetaile.Status})
+    fpdInfoDetaile.EntityData.Leafs.Append("running-version", types.YLeaf{"RunningVersion", fpdInfoDetaile.RunningVersion})
+    fpdInfoDetaile.EntityData.Leafs.Append("programd-version", types.YLeaf{"ProgramdVersion", fpdInfoDetaile.ProgramdVersion})
+
+    fpdInfoDetaile.EntityData.YListKeys = []string {}
+
     return &(fpdInfoDetaile.EntityData)
 }
 
@@ -314,7 +335,7 @@ type ShowFpd_HelpLocations struct {
     YFilter yfilter.YFilter
 
     // location. The type is slice of ShowFpd_HelpLocations_HelpLocation.
-    HelpLocation []ShowFpd_HelpLocations_HelpLocation
+    HelpLocation []*ShowFpd_HelpLocations_HelpLocation
 }
 
 func (helpLocations *ShowFpd_HelpLocations) GetEntityData() *types.CommonEntityData {
@@ -327,12 +348,15 @@ func (helpLocations *ShowFpd_HelpLocations) GetEntityData() *types.CommonEntityD
     helpLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helpLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helpLocations.EntityData.Children = make(map[string]types.YChild)
-    helpLocations.EntityData.Children["help-location"] = types.YChild{"HelpLocation", nil}
+    helpLocations.EntityData.Children = types.NewOrderedMap()
+    helpLocations.EntityData.Children.Append("help-location", types.YChild{"HelpLocation", nil})
     for i := range helpLocations.HelpLocation {
-        helpLocations.EntityData.Children[types.GetSegmentPath(&helpLocations.HelpLocation[i])] = types.YChild{"HelpLocation", &helpLocations.HelpLocation[i]}
+        helpLocations.EntityData.Children.Append(types.GetSegmentPath(helpLocations.HelpLocation[i]), types.YChild{"HelpLocation", helpLocations.HelpLocation[i]})
     }
-    helpLocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    helpLocations.EntityData.Leafs = types.NewOrderedMap()
+
+    helpLocations.EntityData.YListKeys = []string {}
+
     return &(helpLocations.EntityData)
 }
 
@@ -355,15 +379,18 @@ func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetEntityData() *types.C
     helpLocation.EntityData.YangName = "help-location"
     helpLocation.EntityData.BundleName = "cisco_ios_xr"
     helpLocation.EntityData.ParentYangName = "help-locations"
-    helpLocation.EntityData.SegmentPath = "help-location" + "[location-name='" + fmt.Sprintf("%v", helpLocation.LocationName) + "']"
+    helpLocation.EntityData.SegmentPath = "help-location" + types.AddKeyToken(helpLocation.LocationName, "location-name")
     helpLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helpLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helpLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helpLocation.EntityData.Children = make(map[string]types.YChild)
-    helpLocation.EntityData.Children["help-fpd"] = types.YChild{"HelpFpd", &helpLocation.HelpFpd}
-    helpLocation.EntityData.Leafs = make(map[string]types.YLeaf)
-    helpLocation.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", helpLocation.LocationName}
+    helpLocation.EntityData.Children = types.NewOrderedMap()
+    helpLocation.EntityData.Children.Append("help-fpd", types.YChild{"HelpFpd", &helpLocation.HelpFpd})
+    helpLocation.EntityData.Leafs = types.NewOrderedMap()
+    helpLocation.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", helpLocation.LocationName})
+
+    helpLocation.EntityData.YListKeys = []string {"LocationName"}
+
     return &(helpLocation.EntityData)
 }
 
@@ -375,7 +402,7 @@ type ShowFpd_HelpLocations_HelpLocation_HelpFpd struct {
 
     // Fpd name list. The type is slice of
     // ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName.
-    FpdName []ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName
+    FpdName []*ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName
 }
 
 func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetEntityData() *types.CommonEntityData {
@@ -388,12 +415,15 @@ func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetEntityData() *type
     helpFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helpFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helpFpd.EntityData.Children = make(map[string]types.YChild)
-    helpFpd.EntityData.Children["fpd-name"] = types.YChild{"FpdName", nil}
+    helpFpd.EntityData.Children = types.NewOrderedMap()
+    helpFpd.EntityData.Children.Append("fpd-name", types.YChild{"FpdName", nil})
     for i := range helpFpd.FpdName {
-        helpFpd.EntityData.Children[types.GetSegmentPath(&helpFpd.FpdName[i])] = types.YChild{"FpdName", &helpFpd.FpdName[i]}
+        helpFpd.EntityData.Children.Append(types.GetSegmentPath(helpFpd.FpdName[i]), types.YChild{"FpdName", helpFpd.FpdName[i]})
     }
-    helpFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    helpFpd.EntityData.Leafs = types.NewOrderedMap()
+
+    helpFpd.EntityData.YListKeys = []string {}
+
     return &(helpFpd.EntityData)
 }
 
@@ -420,10 +450,13 @@ func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetEntityData
     fpdName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpdName.EntityData.Children = make(map[string]types.YChild)
-    fpdName.EntityData.Leafs = make(map[string]types.YLeaf)
-    fpdName.EntityData.Leafs["location"] = types.YLeaf{"Location", fpdName.Location}
-    fpdName.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpdName.FpdName}
+    fpdName.EntityData.Children = types.NewOrderedMap()
+    fpdName.EntityData.Leafs = types.NewOrderedMap()
+    fpdName.EntityData.Leafs.Append("location", types.YLeaf{"Location", fpdName.Location})
+    fpdName.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", fpdName.FpdName})
+
+    fpdName.EntityData.YListKeys = []string {}
+
     return &(fpdName.EntityData)
 }
 
@@ -434,7 +467,7 @@ type ShowFpd_HwModuleFpdHelpFpd struct {
     YFilter yfilter.YFilter
 
     // Fpd name list. The type is slice of ShowFpd_HwModuleFpdHelpFpd_FpdName.
-    FpdName []ShowFpd_HwModuleFpdHelpFpd_FpdName
+    FpdName []*ShowFpd_HwModuleFpdHelpFpd_FpdName
 }
 
 func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetEntityData() *types.CommonEntityData {
@@ -447,12 +480,15 @@ func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetEntityData() *types.Com
     hwModuleFpdHelpFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModuleFpdHelpFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwModuleFpdHelpFpd.EntityData.Children = make(map[string]types.YChild)
-    hwModuleFpdHelpFpd.EntityData.Children["fpd-name"] = types.YChild{"FpdName", nil}
+    hwModuleFpdHelpFpd.EntityData.Children = types.NewOrderedMap()
+    hwModuleFpdHelpFpd.EntityData.Children.Append("fpd-name", types.YChild{"FpdName", nil})
     for i := range hwModuleFpdHelpFpd.FpdName {
-        hwModuleFpdHelpFpd.EntityData.Children[types.GetSegmentPath(&hwModuleFpdHelpFpd.FpdName[i])] = types.YChild{"FpdName", &hwModuleFpdHelpFpd.FpdName[i]}
+        hwModuleFpdHelpFpd.EntityData.Children.Append(types.GetSegmentPath(hwModuleFpdHelpFpd.FpdName[i]), types.YChild{"FpdName", hwModuleFpdHelpFpd.FpdName[i]})
     }
-    hwModuleFpdHelpFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    hwModuleFpdHelpFpd.EntityData.Leafs = types.NewOrderedMap()
+
+    hwModuleFpdHelpFpd.EntityData.YListKeys = []string {}
+
     return &(hwModuleFpdHelpFpd.EntityData)
 }
 
@@ -479,10 +515,13 @@ func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetEntityData() *types.Common
     fpdName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpdName.EntityData.Children = make(map[string]types.YChild)
-    fpdName.EntityData.Leafs = make(map[string]types.YLeaf)
-    fpdName.EntityData.Leafs["location"] = types.YLeaf{"Location", fpdName.Location}
-    fpdName.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpdName.FpdName}
+    fpdName.EntityData.Children = types.NewOrderedMap()
+    fpdName.EntityData.Leafs = types.NewOrderedMap()
+    fpdName.EntityData.Leafs.Append("location", types.YLeaf{"Location", fpdName.Location})
+    fpdName.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", fpdName.FpdName})
+
+    fpdName.EntityData.YListKeys = []string {}
+
     return &(fpdName.EntityData)
 }
 
@@ -493,7 +532,7 @@ type ShowFpd_Package struct {
     YFilter yfilter.YFilter
 
     // fpd pkg list . The type is slice of ShowFpd_Package_FpdPkgData.
-    FpdPkgData []ShowFpd_Package_FpdPkgData
+    FpdPkgData []*ShowFpd_Package_FpdPkgData
 }
 
 func (self *ShowFpd_Package) GetEntityData() *types.CommonEntityData {
@@ -506,12 +545,15 @@ func (self *ShowFpd_Package) GetEntityData() *types.CommonEntityData {
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["fpd-pkg-data"] = types.YChild{"FpdPkgData", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("fpd-pkg-data", types.YChild{"FpdPkgData", nil})
     for i := range self.FpdPkgData {
-        self.EntityData.Children[types.GetSegmentPath(&self.FpdPkgData[i])] = types.YChild{"FpdPkgData", &self.FpdPkgData[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.FpdPkgData[i]), types.YChild{"FpdPkgData", self.FpdPkgData[i]})
     }
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -550,14 +592,17 @@ func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetEntityData() *types.CommonEntit
     fpdPkgData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdPkgData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpdPkgData.EntityData.Children = make(map[string]types.YChild)
-    fpdPkgData.EntityData.Leafs = make(map[string]types.YLeaf)
-    fpdPkgData.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", fpdPkgData.CardType}
-    fpdPkgData.EntityData.Leafs["fpd-desc"] = types.YLeaf{"FpdDesc", fpdPkgData.FpdDesc}
-    fpdPkgData.EntityData.Leafs["upgrade-method"] = types.YLeaf{"UpgradeMethod", fpdPkgData.UpgradeMethod}
-    fpdPkgData.EntityData.Leafs["fpd-ver"] = types.YLeaf{"FpdVer", fpdPkgData.FpdVer}
-    fpdPkgData.EntityData.Leafs["min-sw-ver"] = types.YLeaf{"MinSwVer", fpdPkgData.MinSwVer}
-    fpdPkgData.EntityData.Leafs["min-hw-ver"] = types.YLeaf{"MinHwVer", fpdPkgData.MinHwVer}
+    fpdPkgData.EntityData.Children = types.NewOrderedMap()
+    fpdPkgData.EntityData.Leafs = types.NewOrderedMap()
+    fpdPkgData.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", fpdPkgData.CardType})
+    fpdPkgData.EntityData.Leafs.Append("fpd-desc", types.YLeaf{"FpdDesc", fpdPkgData.FpdDesc})
+    fpdPkgData.EntityData.Leafs.Append("upgrade-method", types.YLeaf{"UpgradeMethod", fpdPkgData.UpgradeMethod})
+    fpdPkgData.EntityData.Leafs.Append("fpd-ver", types.YLeaf{"FpdVer", fpdPkgData.FpdVer})
+    fpdPkgData.EntityData.Leafs.Append("min-sw-ver", types.YLeaf{"MinSwVer", fpdPkgData.MinSwVer})
+    fpdPkgData.EntityData.Leafs.Append("min-hw-ver", types.YLeaf{"MinHwVer", fpdPkgData.MinHwVer})
+
+    fpdPkgData.EntityData.YListKeys = []string {}
+
     return &(fpdPkgData.EntityData)
 }
 
@@ -568,7 +613,7 @@ type ShowFpd_LocationHelp struct {
     YFilter yfilter.YFilter
 
     // card location list. The type is slice of ShowFpd_LocationHelp_LocationName.
-    LocationName []ShowFpd_LocationHelp_LocationName
+    LocationName []*ShowFpd_LocationHelp_LocationName
 }
 
 func (locationHelp *ShowFpd_LocationHelp) GetEntityData() *types.CommonEntityData {
@@ -581,12 +626,15 @@ func (locationHelp *ShowFpd_LocationHelp) GetEntityData() *types.CommonEntityDat
     locationHelp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationHelp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locationHelp.EntityData.Children = make(map[string]types.YChild)
-    locationHelp.EntityData.Children["location-name"] = types.YChild{"LocationName", nil}
+    locationHelp.EntityData.Children = types.NewOrderedMap()
+    locationHelp.EntityData.Children.Append("location-name", types.YChild{"LocationName", nil})
     for i := range locationHelp.LocationName {
-        locationHelp.EntityData.Children[types.GetSegmentPath(&locationHelp.LocationName[i])] = types.YChild{"LocationName", &locationHelp.LocationName[i]}
+        locationHelp.EntityData.Children.Append(types.GetSegmentPath(locationHelp.LocationName[i]), types.YChild{"LocationName", locationHelp.LocationName[i]})
     }
-    locationHelp.EntityData.Leafs = make(map[string]types.YLeaf)
+    locationHelp.EntityData.Leafs = types.NewOrderedMap()
+
+    locationHelp.EntityData.YListKeys = []string {}
+
     return &(locationHelp.EntityData)
 }
 
@@ -610,9 +658,12 @@ func (locationName *ShowFpd_LocationHelp_LocationName) GetEntityData() *types.Co
     locationName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locationName.EntityData.Children = make(map[string]types.YChild)
-    locationName.EntityData.Leafs = make(map[string]types.YLeaf)
-    locationName.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", locationName.LocationName}
+    locationName.EntityData.Children = types.NewOrderedMap()
+    locationName.EntityData.Leafs = types.NewOrderedMap()
+    locationName.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", locationName.LocationName})
+
+    locationName.EntityData.YListKeys = []string {}
+
     return &(locationName.EntityData)
 }
 

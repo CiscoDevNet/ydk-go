@@ -6,7 +6,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -33,6 +33,10 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -66,7 +70,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
           description
             "L2TP tunnel control message counters";
           leaf tunnel-id {
-            type int32;
+            type uint32;
             description
               "L2TP tunnel ID";
           }
@@ -87,12 +91,12 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
         description
           "L2TP information for a particular session";
         leaf local-tunnel-id {
-          type int32;
+          type uint32;
           description
             "Local tunnel ID";
         }
         leaf local-session-id {
-          type int32;
+          type uint32;
           description
             "Local session ID";
         }
@@ -126,7 +130,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
         description
           "L2TP tunnel information";
         leaf local-tunnel-id {
-          type int32;
+          type uint32;
           description
             "Local tunnel ID";
         }
@@ -146,7 +150,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
         description
           "L2TP tunnel  information";
         leaf local-tunnel-id {
-          type int32;
+          type uint32;
           description
             "Local tunnel ID";
         }
@@ -221,12 +225,12 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
             description
               "L2TP information for a particular session";
             leaf tunnel-id {
-              type int32;
+              type uint32;
               description
                 "Local tunnel ID";
             }
             leaf session-id {
-              type int32;
+              type uint32;
               description
                 "Local session ID";
             }

@@ -28,11 +28,11 @@ type IFMIB struct {
     Interfaces IFMIB_Interfaces
 
     
-    Ifmibobjects IFMIB_Ifmibobjects
+    IfMIBObjects IFMIB_IfMIBObjects
 
     // A list of interface entries.  The number of entries is given by the value
     // of ifNumber.
-    Iftable IFMIB_Iftable
+    IfTable IFMIB_IfTable
 
     // The table containing information on the relationships between the multiple
     // sub-layers of network interfaces.  In particular, it contains information
@@ -47,7 +47,7 @@ type IFMIB struct {
     // then these are the only two rows associated with I.)  For example, two rows
     // exist even for an interface which has no others stacked on top or below it:
     // ifStackStatus.0.x=active   ifStackStatus.x.0=active .
-    Ifstacktable IFMIB_Ifstacktable
+    IfStackTable IFMIB_IfStackTable
 
     // This table contains an entry for each address (broadcast, multicast, or
     // uni-cast) for which the system will receive packets/frames on a particular
@@ -59,7 +59,7 @@ type IFMIB struct {
     // functional addresses for which the interface will accept frames.  A system
     // is normally able to use any unicast address which corresponds to an entry
     // in this table as a source address.
-    Ifrcvaddresstable IFMIB_Ifrcvaddresstable
+    IfRcvAddressTable IFMIB_IfRcvAddressTable
 }
 
 func (iFMIB *IFMIB) GetEntityData() *types.CommonEntityData {
@@ -72,13 +72,16 @@ func (iFMIB *IFMIB) GetEntityData() *types.CommonEntityData {
     iFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    iFMIB.EntityData.Children = make(map[string]types.YChild)
-    iFMIB.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &iFMIB.Interfaces}
-    iFMIB.EntityData.Children["ifMIBObjects"] = types.YChild{"Ifmibobjects", &iFMIB.Ifmibobjects}
-    iFMIB.EntityData.Children["ifTable"] = types.YChild{"Iftable", &iFMIB.Iftable}
-    iFMIB.EntityData.Children["ifStackTable"] = types.YChild{"Ifstacktable", &iFMIB.Ifstacktable}
-    iFMIB.EntityData.Children["ifRcvAddressTable"] = types.YChild{"Ifrcvaddresstable", &iFMIB.Ifrcvaddresstable}
-    iFMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    iFMIB.EntityData.Children = types.NewOrderedMap()
+    iFMIB.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &iFMIB.Interfaces})
+    iFMIB.EntityData.Children.Append("ifMIBObjects", types.YChild{"IfMIBObjects", &iFMIB.IfMIBObjects})
+    iFMIB.EntityData.Children.Append("ifTable", types.YChild{"IfTable", &iFMIB.IfTable})
+    iFMIB.EntityData.Children.Append("ifStackTable", types.YChild{"IfStackTable", &iFMIB.IfStackTable})
+    iFMIB.EntityData.Children.Append("ifRcvAddressTable", types.YChild{"IfRcvAddressTable", &iFMIB.IfRcvAddressTable})
+    iFMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    iFMIB.EntityData.YListKeys = []string {}
+
     return &(iFMIB.EntityData)
 }
 
@@ -90,7 +93,7 @@ type IFMIB_Interfaces struct {
     // The number of network interfaces (regardless of their current state)
     // present on this system. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ifnumber interface{}
+    IfNumber interface{}
 }
 
 func (interfaces *IFMIB_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -103,14 +106,17 @@ func (interfaces *IFMIB_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaces.EntityData.Leafs["ifNumber"] = types.YLeaf{"Ifnumber", interfaces.Ifnumber}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+    interfaces.EntityData.Leafs.Append("ifNumber", types.YLeaf{"IfNumber", interfaces.IfNumber})
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
-// IFMIB_Ifmibobjects
-type IFMIB_Ifmibobjects struct {
+// IFMIB_IfMIBObjects
+type IFMIB_IfMIBObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -119,7 +125,7 @@ type IFMIB_Ifmibobjects struct {
     // the last re-initialization of the local network management subsystem, then
     // this object contains a zero value. The type is interface{} with range:
     // 0..4294967295.
-    Iftablelastchange interface{}
+    IfTableLastChange interface{}
 
     // The value of sysUpTime at the time of the last change of the (whole)
     // interface stack.  A change of the interface stack is defined to be any
@@ -127,61 +133,67 @@ type IFMIB_Ifmibobjects struct {
     // If the interface stack has been unchanged since the last re-initialization
     // of the local network management subsystem, then this object contains a zero
     // value. The type is interface{} with range: 0..4294967295.
-    Ifstacklastchange interface{}
+    IfStackLastChange interface{}
 }
 
-func (ifmibobjects *IFMIB_Ifmibobjects) GetEntityData() *types.CommonEntityData {
-    ifmibobjects.EntityData.YFilter = ifmibobjects.YFilter
-    ifmibobjects.EntityData.YangName = "ifMIBObjects"
-    ifmibobjects.EntityData.BundleName = "cisco_ios_xe"
-    ifmibobjects.EntityData.ParentYangName = "IF-MIB"
-    ifmibobjects.EntityData.SegmentPath = "ifMIBObjects"
-    ifmibobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ifmibobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ifmibobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifMIBObjects *IFMIB_IfMIBObjects) GetEntityData() *types.CommonEntityData {
+    ifMIBObjects.EntityData.YFilter = ifMIBObjects.YFilter
+    ifMIBObjects.EntityData.YangName = "ifMIBObjects"
+    ifMIBObjects.EntityData.BundleName = "cisco_ios_xe"
+    ifMIBObjects.EntityData.ParentYangName = "IF-MIB"
+    ifMIBObjects.EntityData.SegmentPath = "ifMIBObjects"
+    ifMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ifmibobjects.EntityData.Children = make(map[string]types.YChild)
-    ifmibobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    ifmibobjects.EntityData.Leafs["ifTableLastChange"] = types.YLeaf{"Iftablelastchange", ifmibobjects.Iftablelastchange}
-    ifmibobjects.EntityData.Leafs["ifStackLastChange"] = types.YLeaf{"Ifstacklastchange", ifmibobjects.Ifstacklastchange}
-    return &(ifmibobjects.EntityData)
+    ifMIBObjects.EntityData.Children = types.NewOrderedMap()
+    ifMIBObjects.EntityData.Leafs = types.NewOrderedMap()
+    ifMIBObjects.EntityData.Leafs.Append("ifTableLastChange", types.YLeaf{"IfTableLastChange", ifMIBObjects.IfTableLastChange})
+    ifMIBObjects.EntityData.Leafs.Append("ifStackLastChange", types.YLeaf{"IfStackLastChange", ifMIBObjects.IfStackLastChange})
+
+    ifMIBObjects.EntityData.YListKeys = []string {}
+
+    return &(ifMIBObjects.EntityData)
 }
 
-// IFMIB_Iftable
+// IFMIB_IfTable
 // A list of interface entries.  The number of entries is
 // given by the value of ifNumber.
-type IFMIB_Iftable struct {
+type IFMIB_IfTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing management information applicable to a particular
-    // interface. The type is slice of IFMIB_Iftable_Ifentry.
-    Ifentry []IFMIB_Iftable_Ifentry
+    // interface. The type is slice of IFMIB_IfTable_IfEntry.
+    IfEntry []*IFMIB_IfTable_IfEntry
 }
 
-func (iftable *IFMIB_Iftable) GetEntityData() *types.CommonEntityData {
-    iftable.EntityData.YFilter = iftable.YFilter
-    iftable.EntityData.YangName = "ifTable"
-    iftable.EntityData.BundleName = "cisco_ios_xe"
-    iftable.EntityData.ParentYangName = "IF-MIB"
-    iftable.EntityData.SegmentPath = "ifTable"
-    iftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    iftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    iftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifTable *IFMIB_IfTable) GetEntityData() *types.CommonEntityData {
+    ifTable.EntityData.YFilter = ifTable.YFilter
+    ifTable.EntityData.YangName = "ifTable"
+    ifTable.EntityData.BundleName = "cisco_ios_xe"
+    ifTable.EntityData.ParentYangName = "IF-MIB"
+    ifTable.EntityData.SegmentPath = "ifTable"
+    ifTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    iftable.EntityData.Children = make(map[string]types.YChild)
-    iftable.EntityData.Children["ifEntry"] = types.YChild{"Ifentry", nil}
-    for i := range iftable.Ifentry {
-        iftable.EntityData.Children[types.GetSegmentPath(&iftable.Ifentry[i])] = types.YChild{"Ifentry", &iftable.Ifentry[i]}
+    ifTable.EntityData.Children = types.NewOrderedMap()
+    ifTable.EntityData.Children.Append("ifEntry", types.YChild{"IfEntry", nil})
+    for i := range ifTable.IfEntry {
+        ifTable.EntityData.Children.Append(types.GetSegmentPath(ifTable.IfEntry[i]), types.YChild{"IfEntry", ifTable.IfEntry[i]})
     }
-    iftable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(iftable.EntityData)
+    ifTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ifTable.EntityData.YListKeys = []string {}
+
+    return &(ifTable.EntityData)
 }
 
-// IFMIB_Iftable_Ifentry
+// IFMIB_IfTable_IfEntry
 // An entry containing management information applicable to a
 // particular interface.
-type IFMIB_Iftable_Ifentry struct {
+type IFMIB_IfTable_IfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -191,25 +203,25 @@ type IFMIB_Iftable_Ifentry struct {
     // constant at least from one re-initialization of the entity's network
     // management system to the next re- initialization. The type is interface{}
     // with range: 1..2147483647.
-    Ifindex interface{}
+    IfIndex interface{}
 
     // A textual string containing information about the interface.  This string
     // should include the name of the manufacturer, the product name and the
     // version of the interface hardware/software. The type is string with length:
     // 0..255.
-    Ifdescr interface{}
+    IfDescr interface{}
 
     // The type of interface.  Additional values for ifType are assigned by the
     // Internet Assigned Numbers Authority (IANA), through updating the syntax of
     // the IANAifType textual convention. The type is IANAifType.
-    Iftype interface{}
+    IfType interface{}
 
     // The size of the largest packet which can be sent/received on the interface,
     // specified in octets.  For interfaces that are used for transmitting network
     // datagrams, this is the size of the largest network datagram that can be
     // sent on the interface. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ifmtu interface{}
+    IfMtu interface{}
 
     // An estimate of the interface's current bandwidth in bits per second.  For
     // interfaces which do not vary in bandwidth or for those where no accurate
@@ -219,7 +231,7 @@ type IFMIB_Iftable_Ifentry struct {
     // (4,294,967,295) and ifHighSpeed must be used to report the interace's
     // speed.  For a sub-layer which has no concept of bandwidth, this object
     // should be zero. The type is interface{} with range: 0..4294967295.
-    Ifspeed interface{}
+    IfSpeed interface{}
 
     // The interface's address at its protocol sub-layer.  For example, for an
     // 802.x interface, this object normally contains a MAC address.  The
@@ -227,8 +239,8 @@ type IFMIB_Iftable_Ifentry struct {
     // the format of the value of this object.  For interfaces which do not have
     // such an address (e.g., a serial line), this object should contain an octet
     // string of zero length. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
-    Ifphysaddress interface{}
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    IfPhysAddress interface{}
 
     // The desired state of the interface.  The testing(3) state indicates that no
     // operational packets can be passed.  When a managed system initializes, all
@@ -236,8 +248,8 @@ type IFMIB_Iftable_Ifentry struct {
     // either explicit management action or per configuration information retained
     // by the managed system, ifAdminStatus is then changed to either the up(1) or
     // testing(3) states (or remains in the down(2) state). The type is
-    // Ifadminstatus.
-    Ifadminstatus interface{}
+    // IfAdminStatus.
+    IfAdminStatus interface{}
 
     // The current operational state of the interface.  The testing(3) state
     // indicates that no operational packets can be passed.  If ifAdminStatus is
@@ -248,22 +260,22 @@ type IFMIB_Iftable_Ifentry struct {
     // waiting for an incoming connection); it should remain in the down(2) state
     // if and only if there is a fault that prevents it from going to the up(1)
     // state; it should remain in the notPresent(6) state if the interface has
-    // missing (typically, hardware) components. The type is Ifoperstatus.
-    Ifoperstatus interface{}
+    // missing (typically, hardware) components. The type is IfOperStatus.
+    IfOperStatus interface{}
 
     // The value of sysUpTime at the time the interface entered its current
     // operational state.  If the current state was entered prior to the last
     // re-initialization of the local network management subsystem, then this
     // object contains a zero value. The type is interface{} with range:
     // 0..4294967295.
-    Iflastchange interface{}
+    IfLastChange interface{}
 
     // The total number of octets received on the interface, including framing
     // characters.  Discontinuities in the value of this counter can occur at
     // re-initialization of the management system, and at other times as indicated
     // by the value of ifCounterDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Ifinoctets interface{}
+    IfInOctets interface{}
 
     // The number of packets, delivered by this sub-layer to a higher (sub-)layer,
     // which were not addressed to a multicast or broadcast address at this
@@ -271,7 +283,7 @@ type IFMIB_Iftable_Ifentry struct {
     // re-initialization of the management system, and at other times as indicated
     // by the value of ifCounterDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Ifinucastpkts interface{}
+    IfInUcastPkts interface{}
 
     // The number of packets, delivered by this sub-layer to a higher (sub-)layer,
     // which were addressed to a multicast or broadcast address at this sub-layer.
@@ -280,7 +292,7 @@ type IFMIB_Iftable_Ifentry struct {
     // ifCounterDiscontinuityTime.  This object is deprecated in favour of
     // ifInMulticastPkts and ifInBroadcastPkts. The type is interface{} with
     // range: 0..4294967295.
-    Ifinnucastpkts interface{}
+    IfInNUcastPkts interface{}
 
     // The number of inbound packets which were chosen to be discarded even though
     // no errors had been detected to prevent their being deliverable to a
@@ -289,7 +301,7 @@ type IFMIB_Iftable_Ifentry struct {
     // counter can occur at re-initialization of the management system, and at
     // other times as indicated by the value of ifCounterDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Ifindiscards interface{}
+    IfInDiscards interface{}
 
     // For packet-oriented interfaces, the number of inbound packets that
     // contained errors preventing them from being deliverable to a higher-layer
@@ -299,7 +311,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of this counter can occur at re-initialization of the management system,
     // and at other times as indicated by the value of ifCounterDiscontinuityTime.
     // The type is interface{} with range: 0..4294967295.
-    Ifinerrors interface{}
+    IfInErrors interface{}
 
     // For packet-oriented interfaces, the number of packets received via the
     // interface which were discarded because of an unknown or unsupported
@@ -311,14 +323,14 @@ type IFMIB_Iftable_Ifentry struct {
     // counter can occur at re-initialization of the management system, and at
     // other times as indicated by the value of ifCounterDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Ifinunknownprotos interface{}
+    IfInUnknownProtos interface{}
 
     // The total number of octets transmitted out of the interface, including
     // framing characters.  Discontinuities in the value of this counter can occur
     // at re-initialization of the management system, and at other times as
     // indicated by the value of ifCounterDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Ifoutoctets interface{}
+    IfOutOctets interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted, and which were not addressed to a multicast or broadcast
@@ -327,7 +339,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of the management system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Ifoutucastpkts interface{}
+    IfOutUcastPkts interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted, and which were addressed to a multicast or broadcast address
@@ -337,7 +349,7 @@ type IFMIB_Iftable_Ifentry struct {
     // ifCounterDiscontinuityTime.  This object is deprecated in favour of
     // ifOutMulticastPkts and ifOutBroadcastPkts. The type is interface{} with
     // range: 0..4294967295.
-    Ifoutnucastpkts interface{}
+    IfOutNUcastPkts interface{}
 
     // The number of outbound packets which were chosen to be discarded even
     // though no errors had been detected to prevent their being transmitted.  One
@@ -346,7 +358,7 @@ type IFMIB_Iftable_Ifentry struct {
     // re-initialization of the management system, and at other times as indicated
     // by the value of ifCounterDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Ifoutdiscards interface{}
+    IfOutDiscards interface{}
 
     // For packet-oriented interfaces, the number of outbound packets that could
     // not be transmitted because of errors. For character-oriented or
@@ -355,11 +367,11 @@ type IFMIB_Iftable_Ifentry struct {
     // of this counter can occur at re-initialization of the management system,
     // and at other times as indicated by the value of ifCounterDiscontinuityTime.
     // The type is interface{} with range: 0..4294967295.
-    Ifouterrors interface{}
+    IfOutErrors interface{}
 
     // The length of the output packet queue (in packets). The type is interface{}
     // with range: 0..4294967295.
-    Ifoutqlen interface{}
+    IfOutQLen interface{}
 
     // A reference to MIB definitions specific to the particular media being used
     // to realize the interface.  It is recommended that this value point to an
@@ -370,8 +382,8 @@ type IFMIB_Iftable_Ifentry struct {
     // no MIB definitions specific to the particular media are available, the
     // value should be set to the OBJECT IDENTIFIER { 0 0 }. The type is string
     // with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Ifspecific interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    IfSpecific interface{}
 
     // The textual name of the interface.  The value of this object should be the
     // name of the interface as assigned by the local device and should be
@@ -385,7 +397,7 @@ type IFMIB_Iftable_Ifentry struct {
     // proxied device's local name for it.  If there is no local name, or this
     // object is otherwise not applicable, then this object contains a zero-length
     // string. The type is string.
-    Ifname interface{}
+    IfName interface{}
 
     // The number of packets, delivered by this sub-layer to a higher (sub-)layer,
     // which were addressed to a multicast address at this sub-layer.  For a MAC
@@ -394,7 +406,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of the management system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Ifinmulticastpkts interface{}
+    IfInMulticastPkts interface{}
 
     // The number of packets, delivered by this sub-layer to a higher (sub-)layer,
     // which were addressed to a broadcast address at this sub-layer. 
@@ -402,7 +414,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of the management system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Ifinbroadcastpkts interface{}
+    IfInBroadcastPkts interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted, and which were addressed to a multicast address at this
@@ -412,7 +424,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of the management system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Ifoutmulticastpkts interface{}
+    IfOutMulticastPkts interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted, and which were addressed to a broadcast address at this
@@ -421,7 +433,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of the management system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Ifoutbroadcastpkts interface{}
+    IfOutBroadcastPkts interface{}
 
     // The total number of octets received on the interface, including framing
     // characters.  This object is a 64-bit version of ifInOctets. 
@@ -429,7 +441,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of the management system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..18446744073709551615.
-    Ifhcinoctets interface{}
+    IfHCInOctets interface{}
 
     // The number of packets, delivered by this sub-layer to a higher (sub-)layer,
     // which were not addressed to a multicast or broadcast address at this
@@ -438,7 +450,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of the management system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..18446744073709551615.
-    Ifhcinucastpkts interface{}
+    IfHCInUcastPkts interface{}
 
     // The number of packets, delivered by this sub-layer to a higher (sub-)layer,
     // which were addressed to a multicast address at this sub-layer.  For a MAC
@@ -448,7 +460,7 @@ type IFMIB_Iftable_Ifentry struct {
     // system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..18446744073709551615.
-    Ifhcinmulticastpkts interface{}
+    IfHCInMulticastPkts interface{}
 
     // The number of packets, delivered by this sub-layer to a higher (sub-)layer,
     // which were addressed to a broadcast address at this sub-layer.  This object
@@ -456,7 +468,7 @@ type IFMIB_Iftable_Ifentry struct {
     // this counter can occur at re-initialization of the management system, and
     // at other times as indicated by the value of ifCounterDiscontinuityTime. The
     // type is interface{} with range: 0..18446744073709551615.
-    Ifhcinbroadcastpkts interface{}
+    IfHCInBroadcastPkts interface{}
 
     // The total number of octets transmitted out of the interface, including
     // framing characters.  This object is a 64-bit version of ifOutOctets. 
@@ -464,7 +476,7 @@ type IFMIB_Iftable_Ifentry struct {
     // of the management system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..18446744073709551615.
-    Ifhcoutoctets interface{}
+    IfHCOutOctets interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted, and which were not addressed to a multicast or broadcast
@@ -474,7 +486,7 @@ type IFMIB_Iftable_Ifentry struct {
     // system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..18446744073709551615.
-    Ifhcoutucastpkts interface{}
+    IfHCOutUcastPkts interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted, and which were addressed to a multicast address at this
@@ -485,7 +497,7 @@ type IFMIB_Iftable_Ifentry struct {
     // system, and at other times as indicated by the value of
     // ifCounterDiscontinuityTime. The type is interface{} with range:
     // 0..18446744073709551615.
-    Ifhcoutmulticastpkts interface{}
+    IfHCOutMulticastPkts interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted, and which were addressed to a broadcast address at this
@@ -494,14 +506,14 @@ type IFMIB_Iftable_Ifentry struct {
     // this counter can occur at re-initialization of the management system, and
     // at other times as indicated by the value of ifCounterDiscontinuityTime. The
     // type is interface{} with range: 0..18446744073709551615.
-    Ifhcoutbroadcastpkts interface{}
+    IfHCOutBroadcastPkts interface{}
 
     // Indicates whether linkUp/linkDown traps should be generated for this
     // interface.  By default, this object should have the value enabled(1) for
     // interfaces which do not operate on 'top' of any other interface (as defined
     // in the ifStackTable), and disabled(2) otherwise. The type is
-    // Iflinkupdowntrapenable.
-    Iflinkupdowntrapenable interface{}
+    // IfLinkUpDownTrapEnable.
+    IfLinkUpDownTrapEnable interface{}
 
     // An estimate of the interface's current bandwidth in units of 1,000,000 bits
     // per second.  If this object reports a value of `n' then the speed of the
@@ -510,7 +522,7 @@ type IFMIB_Iftable_Ifentry struct {
     // estimation can be made, this object should contain the nominal bandwidth. 
     // For a sub-layer which has no concept of bandwidth, this object should be
     // zero. The type is interface{} with range: 0..4294967295.
-    Ifhighspeed interface{}
+    IfHighSpeed interface{}
 
     // This object has a value of false(2) if this interface only accepts
     // packets/frames that are addressed to this station. This object has a value
@@ -520,11 +532,11 @@ type IFMIB_Iftable_Ifentry struct {
     // to be reset before becoming effective.  The value of ifPromiscuousMode does
     // not affect the reception of broadcast and multicast packets/frames by the
     // interface. The type is bool.
-    Ifpromiscuousmode interface{}
+    IfPromiscuousMode interface{}
 
     // This object has the value 'true(1)' if the interface sublayer has a
     // physical connector and the value 'false(2)' otherwise. The type is bool.
-    Ifconnectorpresent interface{}
+    IfConnectorPresent interface{}
 
     // This object is an 'alias' name for the interface as specified by a network
     // manager, and provides a non-volatile 'handle' for the interface.  On the
@@ -543,7 +555,7 @@ type IFMIB_Iftable_Ifentry struct {
     // non-volatile storage, but it may limit the length of new values depending
     // on how much storage is already occupied by the current values for other
     // interfaces. The type is string with length: 0..64.
-    Ifalias interface{}
+    IfAlias interface{}
 
     // The value of sysUpTime on the most recent occasion at which any one or more
     // of this interface's counters suffered a discontinuity.  The relevant
@@ -552,18 +564,18 @@ type IFMIB_Iftable_Ifentry struct {
     // such discontinuities have occurred since the last re- initialization of the
     // local management subsystem, then this object contains a zero value. The
     // type is interface{} with range: 0..4294967295.
-    Ifcounterdiscontinuitytime interface{}
+    IfCounterDiscontinuityTime interface{}
 
     // This object identifies the current invocation of the interface's test. The
     // type is interface{} with range: 0..2147483647.
-    Iftestid interface{}
+    IfTestId interface{}
 
     // This object indicates whether or not some manager currently has the
     // necessary 'ownership' required to invoke a test on this interface.  A write
     // to this object is only successful when it changes its value from
     // 'notInUse(1)' to 'inUse(2)'. After completion of a test, the agent resets
-    // the value back to 'notInUse(1)'. The type is Ifteststatus.
-    Ifteststatus interface{}
+    // the value back to 'notInUse(1)'. The type is IfTestStatus.
+    IfTestStatus interface{}
 
     // A control variable used to start and stop operator- initiated interface
     // tests.  Most OBJECT IDENTIFIER values assigned to tests are defined
@@ -578,15 +590,15 @@ type IFMIB_Iftable_Ifentry struct {
     // set to.  If it has not been set since the last initialization of the
     // network management subsystem on the agent, a value of noTest is returned.
     // The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Iftesttype interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    IfTestType interface{}
 
     // This object contains the result of the most recently requested test, or the
     // value none(1) if no tests have been requested since the last reset.  Note
     // that this facility provides no provision for saving the results of one test
     // when starting another, as could be required if used by multiple managers
-    // concurrently. The type is Iftestresult.
-    Iftestresult interface{}
+    // concurrently. The type is IfTestResult.
+    IfTestResult interface{}
 
     // This object contains a code which contains more specific information on the
     // test result, for example an error-code after a failed test.  Error codes
@@ -595,145 +607,147 @@ type IFMIB_Iftable_Ifentry struct {
     // or InstancePointer textual conventions as defined in RFC 2579.  The
     // identifier:      testCodeUnknown  OBJECT IDENTIFIER ::= { 0 0 }  is defined
     // for use if no additional result code is available. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Iftestcode interface{}
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    IfTestCode interface{}
 
     // The entity which currently has the 'ownership' required to invoke a test on
     // this interface. The type is string.
-    Iftestowner interface{}
+    IfTestOwner interface{}
 }
 
-func (ifentry *IFMIB_Iftable_Ifentry) GetEntityData() *types.CommonEntityData {
-    ifentry.EntityData.YFilter = ifentry.YFilter
-    ifentry.EntityData.YangName = "ifEntry"
-    ifentry.EntityData.BundleName = "cisco_ios_xe"
-    ifentry.EntityData.ParentYangName = "ifTable"
-    ifentry.EntityData.SegmentPath = "ifEntry" + "[ifIndex='" + fmt.Sprintf("%v", ifentry.Ifindex) + "']"
-    ifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifEntry *IFMIB_IfTable_IfEntry) GetEntityData() *types.CommonEntityData {
+    ifEntry.EntityData.YFilter = ifEntry.YFilter
+    ifEntry.EntityData.YangName = "ifEntry"
+    ifEntry.EntityData.BundleName = "cisco_ios_xe"
+    ifEntry.EntityData.ParentYangName = "ifTable"
+    ifEntry.EntityData.SegmentPath = "ifEntry" + types.AddKeyToken(ifEntry.IfIndex, "ifIndex")
+    ifEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ifentry.EntityData.Children = make(map[string]types.YChild)
-    ifentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", ifentry.Ifindex}
-    ifentry.EntityData.Leafs["ifDescr"] = types.YLeaf{"Ifdescr", ifentry.Ifdescr}
-    ifentry.EntityData.Leafs["ifType"] = types.YLeaf{"Iftype", ifentry.Iftype}
-    ifentry.EntityData.Leafs["ifMtu"] = types.YLeaf{"Ifmtu", ifentry.Ifmtu}
-    ifentry.EntityData.Leafs["ifSpeed"] = types.YLeaf{"Ifspeed", ifentry.Ifspeed}
-    ifentry.EntityData.Leafs["ifPhysAddress"] = types.YLeaf{"Ifphysaddress", ifentry.Ifphysaddress}
-    ifentry.EntityData.Leafs["ifAdminStatus"] = types.YLeaf{"Ifadminstatus", ifentry.Ifadminstatus}
-    ifentry.EntityData.Leafs["ifOperStatus"] = types.YLeaf{"Ifoperstatus", ifentry.Ifoperstatus}
-    ifentry.EntityData.Leafs["ifLastChange"] = types.YLeaf{"Iflastchange", ifentry.Iflastchange}
-    ifentry.EntityData.Leafs["ifInOctets"] = types.YLeaf{"Ifinoctets", ifentry.Ifinoctets}
-    ifentry.EntityData.Leafs["ifInUcastPkts"] = types.YLeaf{"Ifinucastpkts", ifentry.Ifinucastpkts}
-    ifentry.EntityData.Leafs["ifInNUcastPkts"] = types.YLeaf{"Ifinnucastpkts", ifentry.Ifinnucastpkts}
-    ifentry.EntityData.Leafs["ifInDiscards"] = types.YLeaf{"Ifindiscards", ifentry.Ifindiscards}
-    ifentry.EntityData.Leafs["ifInErrors"] = types.YLeaf{"Ifinerrors", ifentry.Ifinerrors}
-    ifentry.EntityData.Leafs["ifInUnknownProtos"] = types.YLeaf{"Ifinunknownprotos", ifentry.Ifinunknownprotos}
-    ifentry.EntityData.Leafs["ifOutOctets"] = types.YLeaf{"Ifoutoctets", ifentry.Ifoutoctets}
-    ifentry.EntityData.Leafs["ifOutUcastPkts"] = types.YLeaf{"Ifoutucastpkts", ifentry.Ifoutucastpkts}
-    ifentry.EntityData.Leafs["ifOutNUcastPkts"] = types.YLeaf{"Ifoutnucastpkts", ifentry.Ifoutnucastpkts}
-    ifentry.EntityData.Leafs["ifOutDiscards"] = types.YLeaf{"Ifoutdiscards", ifentry.Ifoutdiscards}
-    ifentry.EntityData.Leafs["ifOutErrors"] = types.YLeaf{"Ifouterrors", ifentry.Ifouterrors}
-    ifentry.EntityData.Leafs["ifOutQLen"] = types.YLeaf{"Ifoutqlen", ifentry.Ifoutqlen}
-    ifentry.EntityData.Leafs["ifSpecific"] = types.YLeaf{"Ifspecific", ifentry.Ifspecific}
-    ifentry.EntityData.Leafs["ifName"] = types.YLeaf{"Ifname", ifentry.Ifname}
-    ifentry.EntityData.Leafs["ifInMulticastPkts"] = types.YLeaf{"Ifinmulticastpkts", ifentry.Ifinmulticastpkts}
-    ifentry.EntityData.Leafs["ifInBroadcastPkts"] = types.YLeaf{"Ifinbroadcastpkts", ifentry.Ifinbroadcastpkts}
-    ifentry.EntityData.Leafs["ifOutMulticastPkts"] = types.YLeaf{"Ifoutmulticastpkts", ifentry.Ifoutmulticastpkts}
-    ifentry.EntityData.Leafs["ifOutBroadcastPkts"] = types.YLeaf{"Ifoutbroadcastpkts", ifentry.Ifoutbroadcastpkts}
-    ifentry.EntityData.Leafs["ifHCInOctets"] = types.YLeaf{"Ifhcinoctets", ifentry.Ifhcinoctets}
-    ifentry.EntityData.Leafs["ifHCInUcastPkts"] = types.YLeaf{"Ifhcinucastpkts", ifentry.Ifhcinucastpkts}
-    ifentry.EntityData.Leafs["ifHCInMulticastPkts"] = types.YLeaf{"Ifhcinmulticastpkts", ifentry.Ifhcinmulticastpkts}
-    ifentry.EntityData.Leafs["ifHCInBroadcastPkts"] = types.YLeaf{"Ifhcinbroadcastpkts", ifentry.Ifhcinbroadcastpkts}
-    ifentry.EntityData.Leafs["ifHCOutOctets"] = types.YLeaf{"Ifhcoutoctets", ifentry.Ifhcoutoctets}
-    ifentry.EntityData.Leafs["ifHCOutUcastPkts"] = types.YLeaf{"Ifhcoutucastpkts", ifentry.Ifhcoutucastpkts}
-    ifentry.EntityData.Leafs["ifHCOutMulticastPkts"] = types.YLeaf{"Ifhcoutmulticastpkts", ifentry.Ifhcoutmulticastpkts}
-    ifentry.EntityData.Leafs["ifHCOutBroadcastPkts"] = types.YLeaf{"Ifhcoutbroadcastpkts", ifentry.Ifhcoutbroadcastpkts}
-    ifentry.EntityData.Leafs["ifLinkUpDownTrapEnable"] = types.YLeaf{"Iflinkupdowntrapenable", ifentry.Iflinkupdowntrapenable}
-    ifentry.EntityData.Leafs["ifHighSpeed"] = types.YLeaf{"Ifhighspeed", ifentry.Ifhighspeed}
-    ifentry.EntityData.Leafs["ifPromiscuousMode"] = types.YLeaf{"Ifpromiscuousmode", ifentry.Ifpromiscuousmode}
-    ifentry.EntityData.Leafs["ifConnectorPresent"] = types.YLeaf{"Ifconnectorpresent", ifentry.Ifconnectorpresent}
-    ifentry.EntityData.Leafs["ifAlias"] = types.YLeaf{"Ifalias", ifentry.Ifalias}
-    ifentry.EntityData.Leafs["ifCounterDiscontinuityTime"] = types.YLeaf{"Ifcounterdiscontinuitytime", ifentry.Ifcounterdiscontinuitytime}
-    ifentry.EntityData.Leafs["ifTestId"] = types.YLeaf{"Iftestid", ifentry.Iftestid}
-    ifentry.EntityData.Leafs["ifTestStatus"] = types.YLeaf{"Ifteststatus", ifentry.Ifteststatus}
-    ifentry.EntityData.Leafs["ifTestType"] = types.YLeaf{"Iftesttype", ifentry.Iftesttype}
-    ifentry.EntityData.Leafs["ifTestResult"] = types.YLeaf{"Iftestresult", ifentry.Iftestresult}
-    ifentry.EntityData.Leafs["ifTestCode"] = types.YLeaf{"Iftestcode", ifentry.Iftestcode}
-    ifentry.EntityData.Leafs["ifTestOwner"] = types.YLeaf{"Iftestowner", ifentry.Iftestowner}
-    return &(ifentry.EntityData)
+    ifEntry.EntityData.Children = types.NewOrderedMap()
+    ifEntry.EntityData.Leafs = types.NewOrderedMap()
+    ifEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", ifEntry.IfIndex})
+    ifEntry.EntityData.Leafs.Append("ifDescr", types.YLeaf{"IfDescr", ifEntry.IfDescr})
+    ifEntry.EntityData.Leafs.Append("ifType", types.YLeaf{"IfType", ifEntry.IfType})
+    ifEntry.EntityData.Leafs.Append("ifMtu", types.YLeaf{"IfMtu", ifEntry.IfMtu})
+    ifEntry.EntityData.Leafs.Append("ifSpeed", types.YLeaf{"IfSpeed", ifEntry.IfSpeed})
+    ifEntry.EntityData.Leafs.Append("ifPhysAddress", types.YLeaf{"IfPhysAddress", ifEntry.IfPhysAddress})
+    ifEntry.EntityData.Leafs.Append("ifAdminStatus", types.YLeaf{"IfAdminStatus", ifEntry.IfAdminStatus})
+    ifEntry.EntityData.Leafs.Append("ifOperStatus", types.YLeaf{"IfOperStatus", ifEntry.IfOperStatus})
+    ifEntry.EntityData.Leafs.Append("ifLastChange", types.YLeaf{"IfLastChange", ifEntry.IfLastChange})
+    ifEntry.EntityData.Leafs.Append("ifInOctets", types.YLeaf{"IfInOctets", ifEntry.IfInOctets})
+    ifEntry.EntityData.Leafs.Append("ifInUcastPkts", types.YLeaf{"IfInUcastPkts", ifEntry.IfInUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifInNUcastPkts", types.YLeaf{"IfInNUcastPkts", ifEntry.IfInNUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifInDiscards", types.YLeaf{"IfInDiscards", ifEntry.IfInDiscards})
+    ifEntry.EntityData.Leafs.Append("ifInErrors", types.YLeaf{"IfInErrors", ifEntry.IfInErrors})
+    ifEntry.EntityData.Leafs.Append("ifInUnknownProtos", types.YLeaf{"IfInUnknownProtos", ifEntry.IfInUnknownProtos})
+    ifEntry.EntityData.Leafs.Append("ifOutOctets", types.YLeaf{"IfOutOctets", ifEntry.IfOutOctets})
+    ifEntry.EntityData.Leafs.Append("ifOutUcastPkts", types.YLeaf{"IfOutUcastPkts", ifEntry.IfOutUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifOutNUcastPkts", types.YLeaf{"IfOutNUcastPkts", ifEntry.IfOutNUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifOutDiscards", types.YLeaf{"IfOutDiscards", ifEntry.IfOutDiscards})
+    ifEntry.EntityData.Leafs.Append("ifOutErrors", types.YLeaf{"IfOutErrors", ifEntry.IfOutErrors})
+    ifEntry.EntityData.Leafs.Append("ifOutQLen", types.YLeaf{"IfOutQLen", ifEntry.IfOutQLen})
+    ifEntry.EntityData.Leafs.Append("ifSpecific", types.YLeaf{"IfSpecific", ifEntry.IfSpecific})
+    ifEntry.EntityData.Leafs.Append("ifName", types.YLeaf{"IfName", ifEntry.IfName})
+    ifEntry.EntityData.Leafs.Append("ifInMulticastPkts", types.YLeaf{"IfInMulticastPkts", ifEntry.IfInMulticastPkts})
+    ifEntry.EntityData.Leafs.Append("ifInBroadcastPkts", types.YLeaf{"IfInBroadcastPkts", ifEntry.IfInBroadcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifOutMulticastPkts", types.YLeaf{"IfOutMulticastPkts", ifEntry.IfOutMulticastPkts})
+    ifEntry.EntityData.Leafs.Append("ifOutBroadcastPkts", types.YLeaf{"IfOutBroadcastPkts", ifEntry.IfOutBroadcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifHCInOctets", types.YLeaf{"IfHCInOctets", ifEntry.IfHCInOctets})
+    ifEntry.EntityData.Leafs.Append("ifHCInUcastPkts", types.YLeaf{"IfHCInUcastPkts", ifEntry.IfHCInUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifHCInMulticastPkts", types.YLeaf{"IfHCInMulticastPkts", ifEntry.IfHCInMulticastPkts})
+    ifEntry.EntityData.Leafs.Append("ifHCInBroadcastPkts", types.YLeaf{"IfHCInBroadcastPkts", ifEntry.IfHCInBroadcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifHCOutOctets", types.YLeaf{"IfHCOutOctets", ifEntry.IfHCOutOctets})
+    ifEntry.EntityData.Leafs.Append("ifHCOutUcastPkts", types.YLeaf{"IfHCOutUcastPkts", ifEntry.IfHCOutUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifHCOutMulticastPkts", types.YLeaf{"IfHCOutMulticastPkts", ifEntry.IfHCOutMulticastPkts})
+    ifEntry.EntityData.Leafs.Append("ifHCOutBroadcastPkts", types.YLeaf{"IfHCOutBroadcastPkts", ifEntry.IfHCOutBroadcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifLinkUpDownTrapEnable", types.YLeaf{"IfLinkUpDownTrapEnable", ifEntry.IfLinkUpDownTrapEnable})
+    ifEntry.EntityData.Leafs.Append("ifHighSpeed", types.YLeaf{"IfHighSpeed", ifEntry.IfHighSpeed})
+    ifEntry.EntityData.Leafs.Append("ifPromiscuousMode", types.YLeaf{"IfPromiscuousMode", ifEntry.IfPromiscuousMode})
+    ifEntry.EntityData.Leafs.Append("ifConnectorPresent", types.YLeaf{"IfConnectorPresent", ifEntry.IfConnectorPresent})
+    ifEntry.EntityData.Leafs.Append("ifAlias", types.YLeaf{"IfAlias", ifEntry.IfAlias})
+    ifEntry.EntityData.Leafs.Append("ifCounterDiscontinuityTime", types.YLeaf{"IfCounterDiscontinuityTime", ifEntry.IfCounterDiscontinuityTime})
+    ifEntry.EntityData.Leafs.Append("ifTestId", types.YLeaf{"IfTestId", ifEntry.IfTestId})
+    ifEntry.EntityData.Leafs.Append("ifTestStatus", types.YLeaf{"IfTestStatus", ifEntry.IfTestStatus})
+    ifEntry.EntityData.Leafs.Append("ifTestType", types.YLeaf{"IfTestType", ifEntry.IfTestType})
+    ifEntry.EntityData.Leafs.Append("ifTestResult", types.YLeaf{"IfTestResult", ifEntry.IfTestResult})
+    ifEntry.EntityData.Leafs.Append("ifTestCode", types.YLeaf{"IfTestCode", ifEntry.IfTestCode})
+    ifEntry.EntityData.Leafs.Append("ifTestOwner", types.YLeaf{"IfTestOwner", ifEntry.IfTestOwner})
+
+    ifEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(ifEntry.EntityData)
 }
 
-// IFMIB_Iftable_Ifentry_Ifadminstatus represents in the down(2) state).
-type IFMIB_Iftable_Ifentry_Ifadminstatus string
+// IFMIB_IfTable_IfEntry_IfAdminStatus represents in the down(2) state).
+type IFMIB_IfTable_IfEntry_IfAdminStatus string
 
 const (
-    IFMIB_Iftable_Ifentry_Ifadminstatus_up IFMIB_Iftable_Ifentry_Ifadminstatus = "up"
+    IFMIB_IfTable_IfEntry_IfAdminStatus_up IFMIB_IfTable_IfEntry_IfAdminStatus = "up"
 
-    IFMIB_Iftable_Ifentry_Ifadminstatus_down IFMIB_Iftable_Ifentry_Ifadminstatus = "down"
+    IFMIB_IfTable_IfEntry_IfAdminStatus_down IFMIB_IfTable_IfEntry_IfAdminStatus = "down"
 
-    IFMIB_Iftable_Ifentry_Ifadminstatus_testing IFMIB_Iftable_Ifentry_Ifadminstatus = "testing"
+    IFMIB_IfTable_IfEntry_IfAdminStatus_testing IFMIB_IfTable_IfEntry_IfAdminStatus = "testing"
 )
 
-// IFMIB_Iftable_Ifentry_Iflinkupdowntrapenable represents otherwise.
-type IFMIB_Iftable_Ifentry_Iflinkupdowntrapenable string
+// IFMIB_IfTable_IfEntry_IfLinkUpDownTrapEnable represents otherwise.
+type IFMIB_IfTable_IfEntry_IfLinkUpDownTrapEnable string
 
 const (
-    IFMIB_Iftable_Ifentry_Iflinkupdowntrapenable_enabled IFMIB_Iftable_Ifentry_Iflinkupdowntrapenable = "enabled"
+    IFMIB_IfTable_IfEntry_IfLinkUpDownTrapEnable_enabled IFMIB_IfTable_IfEntry_IfLinkUpDownTrapEnable = "enabled"
 
-    IFMIB_Iftable_Ifentry_Iflinkupdowntrapenable_disabled IFMIB_Iftable_Ifentry_Iflinkupdowntrapenable = "disabled"
+    IFMIB_IfTable_IfEntry_IfLinkUpDownTrapEnable_disabled IFMIB_IfTable_IfEntry_IfLinkUpDownTrapEnable = "disabled"
 )
 
-// IFMIB_Iftable_Ifentry_Ifoperstatus represents components.
-type IFMIB_Iftable_Ifentry_Ifoperstatus string
+// IFMIB_IfTable_IfEntry_IfOperStatus represents components.
+type IFMIB_IfTable_IfEntry_IfOperStatus string
 
 const (
-    IFMIB_Iftable_Ifentry_Ifoperstatus_up IFMIB_Iftable_Ifentry_Ifoperstatus = "up"
+    IFMIB_IfTable_IfEntry_IfOperStatus_up IFMIB_IfTable_IfEntry_IfOperStatus = "up"
 
-    IFMIB_Iftable_Ifentry_Ifoperstatus_down IFMIB_Iftable_Ifentry_Ifoperstatus = "down"
+    IFMIB_IfTable_IfEntry_IfOperStatus_down IFMIB_IfTable_IfEntry_IfOperStatus = "down"
 
-    IFMIB_Iftable_Ifentry_Ifoperstatus_testing IFMIB_Iftable_Ifentry_Ifoperstatus = "testing"
+    IFMIB_IfTable_IfEntry_IfOperStatus_testing IFMIB_IfTable_IfEntry_IfOperStatus = "testing"
 
-    IFMIB_Iftable_Ifentry_Ifoperstatus_unknown IFMIB_Iftable_Ifentry_Ifoperstatus = "unknown"
+    IFMIB_IfTable_IfEntry_IfOperStatus_unknown IFMIB_IfTable_IfEntry_IfOperStatus = "unknown"
 
-    IFMIB_Iftable_Ifentry_Ifoperstatus_dormant IFMIB_Iftable_Ifentry_Ifoperstatus = "dormant"
+    IFMIB_IfTable_IfEntry_IfOperStatus_dormant IFMIB_IfTable_IfEntry_IfOperStatus = "dormant"
 
-    IFMIB_Iftable_Ifentry_Ifoperstatus_notPresent IFMIB_Iftable_Ifentry_Ifoperstatus = "notPresent"
+    IFMIB_IfTable_IfEntry_IfOperStatus_notPresent IFMIB_IfTable_IfEntry_IfOperStatus = "notPresent"
 
-    IFMIB_Iftable_Ifentry_Ifoperstatus_lowerLayerDown IFMIB_Iftable_Ifentry_Ifoperstatus = "lowerLayerDown"
+    IFMIB_IfTable_IfEntry_IfOperStatus_lowerLayerDown IFMIB_IfTable_IfEntry_IfOperStatus = "lowerLayerDown"
 )
 
-// IFMIB_Iftable_Ifentry_Iftestresult represents multiple managers concurrently.
-type IFMIB_Iftable_Ifentry_Iftestresult string
+// IFMIB_IfTable_IfEntry_IfTestResult represents multiple managers concurrently.
+type IFMIB_IfTable_IfEntry_IfTestResult string
 
 const (
-    IFMIB_Iftable_Ifentry_Iftestresult_none IFMIB_Iftable_Ifentry_Iftestresult = "none"
+    IFMIB_IfTable_IfEntry_IfTestResult_none IFMIB_IfTable_IfEntry_IfTestResult = "none"
 
-    IFMIB_Iftable_Ifentry_Iftestresult_success IFMIB_Iftable_Ifentry_Iftestresult = "success"
+    IFMIB_IfTable_IfEntry_IfTestResult_success IFMIB_IfTable_IfEntry_IfTestResult = "success"
 
-    IFMIB_Iftable_Ifentry_Iftestresult_inProgress IFMIB_Iftable_Ifentry_Iftestresult = "inProgress"
+    IFMIB_IfTable_IfEntry_IfTestResult_inProgress IFMIB_IfTable_IfEntry_IfTestResult = "inProgress"
 
-    IFMIB_Iftable_Ifentry_Iftestresult_notSupported IFMIB_Iftable_Ifentry_Iftestresult = "notSupported"
+    IFMIB_IfTable_IfEntry_IfTestResult_notSupported IFMIB_IfTable_IfEntry_IfTestResult = "notSupported"
 
-    IFMIB_Iftable_Ifentry_Iftestresult_unAbleToRun IFMIB_Iftable_Ifentry_Iftestresult = "unAbleToRun"
+    IFMIB_IfTable_IfEntry_IfTestResult_unAbleToRun IFMIB_IfTable_IfEntry_IfTestResult = "unAbleToRun"
 
-    IFMIB_Iftable_Ifentry_Iftestresult_aborted IFMIB_Iftable_Ifentry_Iftestresult = "aborted"
+    IFMIB_IfTable_IfEntry_IfTestResult_aborted IFMIB_IfTable_IfEntry_IfTestResult = "aborted"
 
-    IFMIB_Iftable_Ifentry_Iftestresult_failed IFMIB_Iftable_Ifentry_Iftestresult = "failed"
+    IFMIB_IfTable_IfEntry_IfTestResult_failed IFMIB_IfTable_IfEntry_IfTestResult = "failed"
 )
 
-// IFMIB_Iftable_Ifentry_Ifteststatus represents to 'notInUse(1)'.
-type IFMIB_Iftable_Ifentry_Ifteststatus string
+// IFMIB_IfTable_IfEntry_IfTestStatus represents to 'notInUse(1)'.
+type IFMIB_IfTable_IfEntry_IfTestStatus string
 
 const (
-    IFMIB_Iftable_Ifentry_Ifteststatus_notInUse IFMIB_Iftable_Ifentry_Ifteststatus = "notInUse"
+    IFMIB_IfTable_IfEntry_IfTestStatus_notInUse IFMIB_IfTable_IfEntry_IfTestStatus = "notInUse"
 
-    IFMIB_Iftable_Ifentry_Ifteststatus_inUse IFMIB_Iftable_Ifentry_Ifteststatus = "inUse"
+    IFMIB_IfTable_IfEntry_IfTestStatus_inUse IFMIB_IfTable_IfEntry_IfTestStatus = "inUse"
 )
 
-// IFMIB_Ifstacktable
+// IFMIB_IfStackTable
 // The table containing information on the relationships
 // between the multiple sub-layers of network interfaces.  In
 // particular, it contains information on which sub-layers run
@@ -758,42 +772,45 @@ const (
 // 
 //   ifStackStatus.0.x=active
 //   ifStackStatus.x.0=active 
-type IFMIB_Ifstacktable struct {
+type IFMIB_IfStackTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information on a particular relationship between two sub- layers,
     // specifying that one sub-layer runs on 'top' of the other sub-layer.  Each
     // sub-layer corresponds to a conceptual row in the ifTable. The type is slice
-    // of IFMIB_Ifstacktable_Ifstackentry.
-    Ifstackentry []IFMIB_Ifstacktable_Ifstackentry
+    // of IFMIB_IfStackTable_IfStackEntry.
+    IfStackEntry []*IFMIB_IfStackTable_IfStackEntry
 }
 
-func (ifstacktable *IFMIB_Ifstacktable) GetEntityData() *types.CommonEntityData {
-    ifstacktable.EntityData.YFilter = ifstacktable.YFilter
-    ifstacktable.EntityData.YangName = "ifStackTable"
-    ifstacktable.EntityData.BundleName = "cisco_ios_xe"
-    ifstacktable.EntityData.ParentYangName = "IF-MIB"
-    ifstacktable.EntityData.SegmentPath = "ifStackTable"
-    ifstacktable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ifstacktable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ifstacktable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifStackTable *IFMIB_IfStackTable) GetEntityData() *types.CommonEntityData {
+    ifStackTable.EntityData.YFilter = ifStackTable.YFilter
+    ifStackTable.EntityData.YangName = "ifStackTable"
+    ifStackTable.EntityData.BundleName = "cisco_ios_xe"
+    ifStackTable.EntityData.ParentYangName = "IF-MIB"
+    ifStackTable.EntityData.SegmentPath = "ifStackTable"
+    ifStackTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifStackTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifStackTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ifstacktable.EntityData.Children = make(map[string]types.YChild)
-    ifstacktable.EntityData.Children["ifStackEntry"] = types.YChild{"Ifstackentry", nil}
-    for i := range ifstacktable.Ifstackentry {
-        ifstacktable.EntityData.Children[types.GetSegmentPath(&ifstacktable.Ifstackentry[i])] = types.YChild{"Ifstackentry", &ifstacktable.Ifstackentry[i]}
+    ifStackTable.EntityData.Children = types.NewOrderedMap()
+    ifStackTable.EntityData.Children.Append("ifStackEntry", types.YChild{"IfStackEntry", nil})
+    for i := range ifStackTable.IfStackEntry {
+        ifStackTable.EntityData.Children.Append(types.GetSegmentPath(ifStackTable.IfStackEntry[i]), types.YChild{"IfStackEntry", ifStackTable.IfStackEntry[i]})
     }
-    ifstacktable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ifstacktable.EntityData)
+    ifStackTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ifStackTable.EntityData.YListKeys = []string {}
+
+    return &(ifStackTable.EntityData)
 }
 
-// IFMIB_Ifstacktable_Ifstackentry
+// IFMIB_IfStackTable_IfStackEntry
 // Information on a particular relationship between two sub-
 // layers, specifying that one sub-layer runs on 'top' of the
 // other sub-layer.  Each sub-layer corresponds to a conceptual
 // row in the ifTable.
-type IFMIB_Ifstacktable_Ifstackentry struct {
+type IFMIB_IfStackTable_IfStackEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -803,14 +820,14 @@ type IFMIB_Ifstacktable_Ifstackentry struct {
     // ifStackLowerLayer.  If there is no higher sub-layer (below the internetwork
     // layer), then this object has the value 0. The type is interface{} with
     // range: 0..2147483647.
-    Ifstackhigherlayer interface{}
+    IfStackHigherLayer interface{}
 
     // This attribute is a key. The value of ifIndex corresponding to the lower
     // sub-layer of the relationship, i.e., the sub-layer which runs 'below' the
     // sub-layer identified by the corresponding instance of ifStackHigherLayer. 
     // If there is no lower sub-layer, then this object has the value 0. The type
     // is interface{} with range: 0..2147483647.
-    Ifstacklowerlayer interface{}
+    IfStackLowerLayer interface{}
 
     // The status of the relationship between two sub-layers.  Changing the value
     // of this object from 'active' to 'notInService' or 'destroy' will likely
@@ -818,28 +835,31 @@ type IFMIB_Ifstacktable_Ifstackentry struct {
     // this object is likely to be inappropriate for some types of interfaces, and
     // many implementations will choose not to support write-access for any type
     // of interface. The type is RowStatus.
-    Ifstackstatus interface{}
+    IfStackStatus interface{}
 }
 
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetEntityData() *types.CommonEntityData {
-    ifstackentry.EntityData.YFilter = ifstackentry.YFilter
-    ifstackentry.EntityData.YangName = "ifStackEntry"
-    ifstackentry.EntityData.BundleName = "cisco_ios_xe"
-    ifstackentry.EntityData.ParentYangName = "ifStackTable"
-    ifstackentry.EntityData.SegmentPath = "ifStackEntry" + "[ifStackHigherLayer='" + fmt.Sprintf("%v", ifstackentry.Ifstackhigherlayer) + "']" + "[ifStackLowerLayer='" + fmt.Sprintf("%v", ifstackentry.Ifstacklowerlayer) + "']"
-    ifstackentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ifstackentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ifstackentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifStackEntry *IFMIB_IfStackTable_IfStackEntry) GetEntityData() *types.CommonEntityData {
+    ifStackEntry.EntityData.YFilter = ifStackEntry.YFilter
+    ifStackEntry.EntityData.YangName = "ifStackEntry"
+    ifStackEntry.EntityData.BundleName = "cisco_ios_xe"
+    ifStackEntry.EntityData.ParentYangName = "ifStackTable"
+    ifStackEntry.EntityData.SegmentPath = "ifStackEntry" + types.AddKeyToken(ifStackEntry.IfStackHigherLayer, "ifStackHigherLayer") + types.AddKeyToken(ifStackEntry.IfStackLowerLayer, "ifStackLowerLayer")
+    ifStackEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifStackEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifStackEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ifstackentry.EntityData.Children = make(map[string]types.YChild)
-    ifstackentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ifstackentry.EntityData.Leafs["ifStackHigherLayer"] = types.YLeaf{"Ifstackhigherlayer", ifstackentry.Ifstackhigherlayer}
-    ifstackentry.EntityData.Leafs["ifStackLowerLayer"] = types.YLeaf{"Ifstacklowerlayer", ifstackentry.Ifstacklowerlayer}
-    ifstackentry.EntityData.Leafs["ifStackStatus"] = types.YLeaf{"Ifstackstatus", ifstackentry.Ifstackstatus}
-    return &(ifstackentry.EntityData)
+    ifStackEntry.EntityData.Children = types.NewOrderedMap()
+    ifStackEntry.EntityData.Leafs = types.NewOrderedMap()
+    ifStackEntry.EntityData.Leafs.Append("ifStackHigherLayer", types.YLeaf{"IfStackHigherLayer", ifStackEntry.IfStackHigherLayer})
+    ifStackEntry.EntityData.Leafs.Append("ifStackLowerLayer", types.YLeaf{"IfStackLowerLayer", ifStackEntry.IfStackLowerLayer})
+    ifStackEntry.EntityData.Leafs.Append("ifStackStatus", types.YLeaf{"IfStackStatus", ifStackEntry.IfStackStatus})
+
+    ifStackEntry.EntityData.YListKeys = []string {"IfStackHigherLayer", "IfStackLowerLayer"}
+
+    return &(ifStackEntry.EntityData)
 }
 
-// IFMIB_Ifrcvaddresstable
+// IFMIB_IfRcvAddressTable
 // This table contains an entry for each address (broadcast,
 // multicast, or uni-cast) for which the system will receive
 // packets/frames on a particular interface, except as follows:
@@ -856,55 +876,58 @@ func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetEntityData() *types.Comm
 // 
 // A system is normally able to use any unicast address which
 // corresponds to an entry in this table as a source address.
-type IFMIB_Ifrcvaddresstable struct {
+type IFMIB_IfRcvAddressTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects identifying an address for which the system will accept
     // packets/frames on the particular interface identified by the index value
-    // ifIndex. The type is slice of IFMIB_Ifrcvaddresstable_Ifrcvaddressentry.
-    Ifrcvaddressentry []IFMIB_Ifrcvaddresstable_Ifrcvaddressentry
+    // ifIndex. The type is slice of IFMIB_IfRcvAddressTable_IfRcvAddressEntry.
+    IfRcvAddressEntry []*IFMIB_IfRcvAddressTable_IfRcvAddressEntry
 }
 
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetEntityData() *types.CommonEntityData {
-    ifrcvaddresstable.EntityData.YFilter = ifrcvaddresstable.YFilter
-    ifrcvaddresstable.EntityData.YangName = "ifRcvAddressTable"
-    ifrcvaddresstable.EntityData.BundleName = "cisco_ios_xe"
-    ifrcvaddresstable.EntityData.ParentYangName = "IF-MIB"
-    ifrcvaddresstable.EntityData.SegmentPath = "ifRcvAddressTable"
-    ifrcvaddresstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ifrcvaddresstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ifrcvaddresstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifRcvAddressTable *IFMIB_IfRcvAddressTable) GetEntityData() *types.CommonEntityData {
+    ifRcvAddressTable.EntityData.YFilter = ifRcvAddressTable.YFilter
+    ifRcvAddressTable.EntityData.YangName = "ifRcvAddressTable"
+    ifRcvAddressTable.EntityData.BundleName = "cisco_ios_xe"
+    ifRcvAddressTable.EntityData.ParentYangName = "IF-MIB"
+    ifRcvAddressTable.EntityData.SegmentPath = "ifRcvAddressTable"
+    ifRcvAddressTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifRcvAddressTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifRcvAddressTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ifrcvaddresstable.EntityData.Children = make(map[string]types.YChild)
-    ifrcvaddresstable.EntityData.Children["ifRcvAddressEntry"] = types.YChild{"Ifrcvaddressentry", nil}
-    for i := range ifrcvaddresstable.Ifrcvaddressentry {
-        ifrcvaddresstable.EntityData.Children[types.GetSegmentPath(&ifrcvaddresstable.Ifrcvaddressentry[i])] = types.YChild{"Ifrcvaddressentry", &ifrcvaddresstable.Ifrcvaddressentry[i]}
+    ifRcvAddressTable.EntityData.Children = types.NewOrderedMap()
+    ifRcvAddressTable.EntityData.Children.Append("ifRcvAddressEntry", types.YChild{"IfRcvAddressEntry", nil})
+    for i := range ifRcvAddressTable.IfRcvAddressEntry {
+        ifRcvAddressTable.EntityData.Children.Append(types.GetSegmentPath(ifRcvAddressTable.IfRcvAddressEntry[i]), types.YChild{"IfRcvAddressEntry", ifRcvAddressTable.IfRcvAddressEntry[i]})
     }
-    ifrcvaddresstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ifrcvaddresstable.EntityData)
+    ifRcvAddressTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ifRcvAddressTable.EntityData.YListKeys = []string {}
+
+    return &(ifRcvAddressTable.EntityData)
 }
 
-// IFMIB_Ifrcvaddresstable_Ifrcvaddressentry
+// IFMIB_IfRcvAddressTable_IfRcvAddressEntry
 // A list of objects identifying an address for which the
 // system will accept packets/frames on the particular
 // interface identified by the index value ifIndex.
-type IFMIB_Ifrcvaddresstable_Ifrcvaddressentry struct {
+type IFMIB_IfRcvAddressTable_IfRcvAddressEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. An address for which the system will accept
     // packets/frames on this entry's interface. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
-    Ifrcvaddressaddress interface{}
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    IfRcvAddressAddress interface{}
 
     // This object is used to create and delete rows in the ifRcvAddressTable. The
     // type is RowStatus.
-    Ifrcvaddressstatus interface{}
+    IfRcvAddressStatus interface{}
 
     // This object has the value nonVolatile(3) for those entries in the table
     // which are valid and will not be deleted by the next restart of the managed
@@ -912,37 +935,40 @@ type IFMIB_Ifrcvaddresstable_Ifrcvaddressentry struct {
     // not been saved, so that will not exist after the next restart of the
     // managed system.  Entries having the value other(1) are valid and exist but
     // are not classified as to whether they will continue to exist after the next
-    // restart. The type is Ifrcvaddresstype.
-    Ifrcvaddresstype interface{}
+    // restart. The type is IfRcvAddressType.
+    IfRcvAddressType interface{}
 }
 
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetEntityData() *types.CommonEntityData {
-    ifrcvaddressentry.EntityData.YFilter = ifrcvaddressentry.YFilter
-    ifrcvaddressentry.EntityData.YangName = "ifRcvAddressEntry"
-    ifrcvaddressentry.EntityData.BundleName = "cisco_ios_xe"
-    ifrcvaddressentry.EntityData.ParentYangName = "ifRcvAddressTable"
-    ifrcvaddressentry.EntityData.SegmentPath = "ifRcvAddressEntry" + "[ifIndex='" + fmt.Sprintf("%v", ifrcvaddressentry.Ifindex) + "']" + "[ifRcvAddressAddress='" + fmt.Sprintf("%v", ifrcvaddressentry.Ifrcvaddressaddress) + "']"
-    ifrcvaddressentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ifrcvaddressentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ifrcvaddressentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifRcvAddressEntry *IFMIB_IfRcvAddressTable_IfRcvAddressEntry) GetEntityData() *types.CommonEntityData {
+    ifRcvAddressEntry.EntityData.YFilter = ifRcvAddressEntry.YFilter
+    ifRcvAddressEntry.EntityData.YangName = "ifRcvAddressEntry"
+    ifRcvAddressEntry.EntityData.BundleName = "cisco_ios_xe"
+    ifRcvAddressEntry.EntityData.ParentYangName = "ifRcvAddressTable"
+    ifRcvAddressEntry.EntityData.SegmentPath = "ifRcvAddressEntry" + types.AddKeyToken(ifRcvAddressEntry.IfIndex, "ifIndex") + types.AddKeyToken(ifRcvAddressEntry.IfRcvAddressAddress, "ifRcvAddressAddress")
+    ifRcvAddressEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifRcvAddressEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifRcvAddressEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ifrcvaddressentry.EntityData.Children = make(map[string]types.YChild)
-    ifrcvaddressentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ifrcvaddressentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", ifrcvaddressentry.Ifindex}
-    ifrcvaddressentry.EntityData.Leafs["ifRcvAddressAddress"] = types.YLeaf{"Ifrcvaddressaddress", ifrcvaddressentry.Ifrcvaddressaddress}
-    ifrcvaddressentry.EntityData.Leafs["ifRcvAddressStatus"] = types.YLeaf{"Ifrcvaddressstatus", ifrcvaddressentry.Ifrcvaddressstatus}
-    ifrcvaddressentry.EntityData.Leafs["ifRcvAddressType"] = types.YLeaf{"Ifrcvaddresstype", ifrcvaddressentry.Ifrcvaddresstype}
-    return &(ifrcvaddressentry.EntityData)
+    ifRcvAddressEntry.EntityData.Children = types.NewOrderedMap()
+    ifRcvAddressEntry.EntityData.Leafs = types.NewOrderedMap()
+    ifRcvAddressEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", ifRcvAddressEntry.IfIndex})
+    ifRcvAddressEntry.EntityData.Leafs.Append("ifRcvAddressAddress", types.YLeaf{"IfRcvAddressAddress", ifRcvAddressEntry.IfRcvAddressAddress})
+    ifRcvAddressEntry.EntityData.Leafs.Append("ifRcvAddressStatus", types.YLeaf{"IfRcvAddressStatus", ifRcvAddressEntry.IfRcvAddressStatus})
+    ifRcvAddressEntry.EntityData.Leafs.Append("ifRcvAddressType", types.YLeaf{"IfRcvAddressType", ifRcvAddressEntry.IfRcvAddressType})
+
+    ifRcvAddressEntry.EntityData.YListKeys = []string {"IfIndex", "IfRcvAddressAddress"}
+
+    return &(ifRcvAddressEntry.EntityData)
 }
 
-// IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype represents continue to exist after the next restart.
-type IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype string
+// IFMIB_IfRcvAddressTable_IfRcvAddressEntry_IfRcvAddressType represents continue to exist after the next restart.
+type IFMIB_IfRcvAddressTable_IfRcvAddressEntry_IfRcvAddressType string
 
 const (
-    IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype_other IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype = "other"
+    IFMIB_IfRcvAddressTable_IfRcvAddressEntry_IfRcvAddressType_other IFMIB_IfRcvAddressTable_IfRcvAddressEntry_IfRcvAddressType = "other"
 
-    IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype_volatile IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype = "volatile"
+    IFMIB_IfRcvAddressTable_IfRcvAddressEntry_IfRcvAddressType_volatile IFMIB_IfRcvAddressTable_IfRcvAddressEntry_IfRcvAddressType = "volatile"
 
-    IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype_nonVolatile IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype = "nonVolatile"
+    IFMIB_IfRcvAddressTable_IfRcvAddressEntry_IfRcvAddressType_nonVolatile IFMIB_IfRcvAddressTable_IfRcvAddressEntry_IfRcvAddressType = "nonVolatile"
 )
 

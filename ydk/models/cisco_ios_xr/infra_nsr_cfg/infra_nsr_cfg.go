@@ -44,9 +44,12 @@ func (nsr *Nsr) GetEntityData() *types.CommonEntityData {
     nsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nsr.EntityData.Children = make(map[string]types.YChild)
-    nsr.EntityData.Children["process-failure"] = types.YChild{"ProcessFailure", &nsr.ProcessFailure}
-    nsr.EntityData.Leafs = make(map[string]types.YLeaf)
+    nsr.EntityData.Children = types.NewOrderedMap()
+    nsr.EntityData.Children.Append("process-failure", types.YChild{"ProcessFailure", &nsr.ProcessFailure})
+    nsr.EntityData.Leafs = types.NewOrderedMap()
+
+    nsr.EntityData.YListKeys = []string {}
+
     return &(nsr.EntityData)
 }
 
@@ -71,9 +74,12 @@ func (processFailure *Nsr_ProcessFailure) GetEntityData() *types.CommonEntityDat
     processFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processFailure.EntityData.Children = make(map[string]types.YChild)
-    processFailure.EntityData.Leafs = make(map[string]types.YLeaf)
-    processFailure.EntityData.Leafs["switchover"] = types.YLeaf{"Switchover", processFailure.Switchover}
+    processFailure.EntityData.Children = types.NewOrderedMap()
+    processFailure.EntityData.Leafs = types.NewOrderedMap()
+    processFailure.EntityData.Leafs.Append("switchover", types.YLeaf{"Switchover", processFailure.Switchover})
+
+    processFailure.EntityData.YListKeys = []string {}
+
     return &(processFailure.EntityData)
 }
 

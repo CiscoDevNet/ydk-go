@@ -69,37 +69,37 @@ type CISCONBARPROTOCOLDISCOVERYMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cnpdnotificationsconfig CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig
+    CnpdNotificationsConfig CISCONBARPROTOCOLDISCOVERYMIB_CnpdNotificationsConfig
 
     // The cnpdStatusTable is used to enable and disable Protocol Discovery on an
     // interface.
-    Cnpdstatustable CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable
+    CnpdStatusTable CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable
 
     // The cnpdAllStatsTable contains all the statistics available for all the
     // protocols/applications currently recognized by NBAR Protocol Discovery for
     // a particular  interface.  In the event of an overflow, the 32 bit counters
     // are not  valid. There is no overflow support.
-    Cnpdallstatstable CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable
+    CnpdAllStatsTable CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable
 
     // The cnpdTopNConfigTable is used to configure cnpdTopNStatsTable's.
-    Cnpdtopnconfigtable CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable
+    CnpdTopNConfigTable CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable
 
     // A cnpdTopNStatsTable describes an ordered list of protocols.
-    Cnpdtopnstatstable CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable
+    CnpdTopNStatsTable CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable
 
     // The cnpdThresholdConfigTable allows the management station to create
     // thresholds for the purpose of sending notifications if breached, and
     // creating a history of breached thresholds.
-    Cnpdthresholdconfigtable CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable
+    CnpdThresholdConfigTable CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable
 
     // The Threshold History table. Notifications are unreliable so this table
     // provides a history of the last 5000 threshold breached events. A
     // notification can be traced back to its cnpdThresholdHistoryEntry.
-    Cnpdthresholdhistorytable CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable
+    CnpdThresholdHistoryTable CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable
 
     // The Supported Protocols table lists all the  protocols and applications
     // which NBAR is currently capable of recognizing.
-    Cnpdsupportedprotocolstable CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable
+    CnpdSupportedProtocolsTable CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable
 }
 
 func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetEntityData() *types.CommonEntityData {
@@ -112,121 +112,133 @@ func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetEntityDat
     cISCONBARPROTOCOLDISCOVERYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCONBARPROTOCOLDISCOVERYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdNotificationsConfig"] = types.YChild{"Cnpdnotificationsconfig", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig}
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdStatusTable"] = types.YChild{"Cnpdstatustable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable}
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdAllStatsTable"] = types.YChild{"Cnpdallstatstable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable}
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdTopNConfigTable"] = types.YChild{"Cnpdtopnconfigtable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable}
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdTopNStatsTable"] = types.YChild{"Cnpdtopnstatstable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable}
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdThresholdConfigTable"] = types.YChild{"Cnpdthresholdconfigtable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable}
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdThresholdHistoryTable"] = types.YChild{"Cnpdthresholdhistorytable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable}
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdSupportedProtocolsTable"] = types.YChild{"Cnpdsupportedprotocolstable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable}
-    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children = types.NewOrderedMap()
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children.Append("cnpdNotificationsConfig", types.YChild{"CnpdNotificationsConfig", &cISCONBARPROTOCOLDISCOVERYMIB.CnpdNotificationsConfig})
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children.Append("cnpdStatusTable", types.YChild{"CnpdStatusTable", &cISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable})
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children.Append("cnpdAllStatsTable", types.YChild{"CnpdAllStatsTable", &cISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable})
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children.Append("cnpdTopNConfigTable", types.YChild{"CnpdTopNConfigTable", &cISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable})
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children.Append("cnpdTopNStatsTable", types.YChild{"CnpdTopNStatsTable", &cISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable})
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children.Append("cnpdThresholdConfigTable", types.YChild{"CnpdThresholdConfigTable", &cISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable})
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children.Append("cnpdThresholdHistoryTable", types.YChild{"CnpdThresholdHistoryTable", &cISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable})
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children.Append("cnpdSupportedProtocolsTable", types.YChild{"CnpdSupportedProtocolsTable", &cISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable})
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.YListKeys = []string {}
+
     return &(cISCONBARPROTOCOLDISCOVERYMIB.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig struct {
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdNotificationsConfig
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdNotificationsConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object is used to enable or disable  Notifications on a global basis. 
     // If set to 'true' - Notifications are enabled. If set to 'false' -
     // Notifications are disabled. The type is bool.
-    Cnpdnotificationsenable interface{}
+    CnpdNotificationsEnable interface{}
 }
 
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetEntityData() *types.CommonEntityData {
-    cnpdnotificationsconfig.EntityData.YFilter = cnpdnotificationsconfig.YFilter
-    cnpdnotificationsconfig.EntityData.YangName = "cnpdNotificationsConfig"
-    cnpdnotificationsconfig.EntityData.BundleName = "cisco_ios_xe"
-    cnpdnotificationsconfig.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-    cnpdnotificationsconfig.EntityData.SegmentPath = "cnpdNotificationsConfig"
-    cnpdnotificationsconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdnotificationsconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdnotificationsconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdNotificationsConfig *CISCONBARPROTOCOLDISCOVERYMIB_CnpdNotificationsConfig) GetEntityData() *types.CommonEntityData {
+    cnpdNotificationsConfig.EntityData.YFilter = cnpdNotificationsConfig.YFilter
+    cnpdNotificationsConfig.EntityData.YangName = "cnpdNotificationsConfig"
+    cnpdNotificationsConfig.EntityData.BundleName = "cisco_ios_xe"
+    cnpdNotificationsConfig.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdNotificationsConfig.EntityData.SegmentPath = "cnpdNotificationsConfig"
+    cnpdNotificationsConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdNotificationsConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdNotificationsConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdnotificationsconfig.EntityData.Children = make(map[string]types.YChild)
-    cnpdnotificationsconfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnpdnotificationsconfig.EntityData.Leafs["cnpdNotificationsEnable"] = types.YLeaf{"Cnpdnotificationsenable", cnpdnotificationsconfig.Cnpdnotificationsenable}
-    return &(cnpdnotificationsconfig.EntityData)
+    cnpdNotificationsConfig.EntityData.Children = types.NewOrderedMap()
+    cnpdNotificationsConfig.EntityData.Leafs = types.NewOrderedMap()
+    cnpdNotificationsConfig.EntityData.Leafs.Append("cnpdNotificationsEnable", types.YLeaf{"CnpdNotificationsEnable", cnpdNotificationsConfig.CnpdNotificationsEnable})
+
+    cnpdNotificationsConfig.EntityData.YListKeys = []string {}
+
+    return &(cnpdNotificationsConfig.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable
 // The cnpdStatusTable is used to enable and
 // disable Protocol Discovery on an interface.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the cnpdStatusTable contains objects for enabling or disabling
     // Protocol Discovery on a per interface basis. The type is slice of
-    // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry.
-    Cnpdstatusentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry
+    // CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable_CnpdStatusEntry.
+    CnpdStatusEntry []*CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable_CnpdStatusEntry
 }
 
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetEntityData() *types.CommonEntityData {
-    cnpdstatustable.EntityData.YFilter = cnpdstatustable.YFilter
-    cnpdstatustable.EntityData.YangName = "cnpdStatusTable"
-    cnpdstatustable.EntityData.BundleName = "cisco_ios_xe"
-    cnpdstatustable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-    cnpdstatustable.EntityData.SegmentPath = "cnpdStatusTable"
-    cnpdstatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdstatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdstatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdStatusTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable) GetEntityData() *types.CommonEntityData {
+    cnpdStatusTable.EntityData.YFilter = cnpdStatusTable.YFilter
+    cnpdStatusTable.EntityData.YangName = "cnpdStatusTable"
+    cnpdStatusTable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdStatusTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdStatusTable.EntityData.SegmentPath = "cnpdStatusTable"
+    cnpdStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdstatustable.EntityData.Children = make(map[string]types.YChild)
-    cnpdstatustable.EntityData.Children["cnpdStatusEntry"] = types.YChild{"Cnpdstatusentry", nil}
-    for i := range cnpdstatustable.Cnpdstatusentry {
-        cnpdstatustable.EntityData.Children[types.GetSegmentPath(&cnpdstatustable.Cnpdstatusentry[i])] = types.YChild{"Cnpdstatusentry", &cnpdstatustable.Cnpdstatusentry[i]}
+    cnpdStatusTable.EntityData.Children = types.NewOrderedMap()
+    cnpdStatusTable.EntityData.Children.Append("cnpdStatusEntry", types.YChild{"CnpdStatusEntry", nil})
+    for i := range cnpdStatusTable.CnpdStatusEntry {
+        cnpdStatusTable.EntityData.Children.Append(types.GetSegmentPath(cnpdStatusTable.CnpdStatusEntry[i]), types.YChild{"CnpdStatusEntry", cnpdStatusTable.CnpdStatusEntry[i]})
     }
-    cnpdstatustable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnpdstatustable.EntityData)
+    cnpdStatusTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnpdStatusTable.EntityData.YListKeys = []string {}
+
+    return &(cnpdStatusTable.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable_CnpdStatusEntry
 // An entry in the cnpdStatusTable contains objects
 // for enabling or disabling Protocol Discovery on a
 // per interface basis.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable_CnpdStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This object is used to enable or disable  Protocol Discovery on an
     // interface.   If set to 'true' - Protocol Discovery is  enabled on this
     // Interface.  If set to 'false' - Protocol Discovery is  disabled on this
     // Interface. The type is bool.
-    Cnpdstatuspdenable interface{}
+    CnpdStatusPdEnable interface{}
 
     // The value of sysUpTime at the time Protocol  Discovery was last enabled  on
     // an interface. If the interface does not have Protocol Discovery enabled
     // this value is zero. The type is interface{} with range: 0..4294967295.
-    Cnpdstatuslastupdatetime interface{}
+    CnpdStatusLastUpdateTime interface{}
 }
 
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetEntityData() *types.CommonEntityData {
-    cnpdstatusentry.EntityData.YFilter = cnpdstatusentry.YFilter
-    cnpdstatusentry.EntityData.YangName = "cnpdStatusEntry"
-    cnpdstatusentry.EntityData.BundleName = "cisco_ios_xe"
-    cnpdstatusentry.EntityData.ParentYangName = "cnpdStatusTable"
-    cnpdstatusentry.EntityData.SegmentPath = "cnpdStatusEntry" + "[ifIndex='" + fmt.Sprintf("%v", cnpdstatusentry.Ifindex) + "']"
-    cnpdstatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdstatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdstatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdStatusEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable_CnpdStatusEntry) GetEntityData() *types.CommonEntityData {
+    cnpdStatusEntry.EntityData.YFilter = cnpdStatusEntry.YFilter
+    cnpdStatusEntry.EntityData.YangName = "cnpdStatusEntry"
+    cnpdStatusEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdStatusEntry.EntityData.ParentYangName = "cnpdStatusTable"
+    cnpdStatusEntry.EntityData.SegmentPath = "cnpdStatusEntry" + types.AddKeyToken(cnpdStatusEntry.IfIndex, "ifIndex")
+    cnpdStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdstatusentry.EntityData.Children = make(map[string]types.YChild)
-    cnpdstatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnpdstatusentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cnpdstatusentry.Ifindex}
-    cnpdstatusentry.EntityData.Leafs["cnpdStatusPdEnable"] = types.YLeaf{"Cnpdstatuspdenable", cnpdstatusentry.Cnpdstatuspdenable}
-    cnpdstatusentry.EntityData.Leafs["cnpdStatusLastUpdateTime"] = types.YLeaf{"Cnpdstatuslastupdatetime", cnpdstatusentry.Cnpdstatuslastupdatetime}
-    return &(cnpdstatusentry.EntityData)
+    cnpdStatusEntry.EntityData.Children = types.NewOrderedMap()
+    cnpdStatusEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnpdStatusEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cnpdStatusEntry.IfIndex})
+    cnpdStatusEntry.EntityData.Leafs.Append("cnpdStatusPdEnable", types.YLeaf{"CnpdStatusPdEnable", cnpdStatusEntry.CnpdStatusPdEnable})
+    cnpdStatusEntry.EntityData.Leafs.Append("cnpdStatusLastUpdateTime", types.YLeaf{"CnpdStatusLastUpdateTime", cnpdStatusEntry.CnpdStatusLastUpdateTime})
+
+    cnpdStatusEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cnpdStatusEntry.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable
 // The cnpdAllStatsTable contains all the statistics
 // available for all the protocols/applications currently
 // recognized by NBAR Protocol Discovery for a particular 
@@ -234,186 +246,195 @@ func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatuse
 // 
 // In the event of an overflow, the 32 bit counters are not 
 // valid. There is no overflow support.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the cnpdAllStatsTable table. This entry  contains the
     // statistics collected on all the protocols  which NBAR classifies for a
     // particular interface. The type is slice of
-    // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry.
-    Cnpdallstatsentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry
+    // CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable_CnpdAllStatsEntry.
+    CnpdAllStatsEntry []*CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable_CnpdAllStatsEntry
 }
 
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetEntityData() *types.CommonEntityData {
-    cnpdallstatstable.EntityData.YFilter = cnpdallstatstable.YFilter
-    cnpdallstatstable.EntityData.YangName = "cnpdAllStatsTable"
-    cnpdallstatstable.EntityData.BundleName = "cisco_ios_xe"
-    cnpdallstatstable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-    cnpdallstatstable.EntityData.SegmentPath = "cnpdAllStatsTable"
-    cnpdallstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdallstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdallstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdAllStatsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable) GetEntityData() *types.CommonEntityData {
+    cnpdAllStatsTable.EntityData.YFilter = cnpdAllStatsTable.YFilter
+    cnpdAllStatsTable.EntityData.YangName = "cnpdAllStatsTable"
+    cnpdAllStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdAllStatsTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdAllStatsTable.EntityData.SegmentPath = "cnpdAllStatsTable"
+    cnpdAllStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdAllStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdAllStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdallstatstable.EntityData.Children = make(map[string]types.YChild)
-    cnpdallstatstable.EntityData.Children["cnpdAllStatsEntry"] = types.YChild{"Cnpdallstatsentry", nil}
-    for i := range cnpdallstatstable.Cnpdallstatsentry {
-        cnpdallstatstable.EntityData.Children[types.GetSegmentPath(&cnpdallstatstable.Cnpdallstatsentry[i])] = types.YChild{"Cnpdallstatsentry", &cnpdallstatstable.Cnpdallstatsentry[i]}
+    cnpdAllStatsTable.EntityData.Children = types.NewOrderedMap()
+    cnpdAllStatsTable.EntityData.Children.Append("cnpdAllStatsEntry", types.YChild{"CnpdAllStatsEntry", nil})
+    for i := range cnpdAllStatsTable.CnpdAllStatsEntry {
+        cnpdAllStatsTable.EntityData.Children.Append(types.GetSegmentPath(cnpdAllStatsTable.CnpdAllStatsEntry[i]), types.YChild{"CnpdAllStatsEntry", cnpdAllStatsTable.CnpdAllStatsEntry[i]})
     }
-    cnpdallstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnpdallstatstable.EntityData)
+    cnpdAllStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnpdAllStatsTable.EntityData.YListKeys = []string {}
+
+    return &(cnpdAllStatsTable.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable_CnpdAllStatsEntry
 // An entry in the cnpdAllStatsTable table. This entry 
 // contains the statistics collected on all the protocols 
 // which NBAR classifies for a particular interface.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable_CnpdAllStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. An object which represents a unique  identifier
     // for a protocol or application  which NBAR currently recognizes.  This
     // object is an index into the  SupportedProtocolsTable where details of the
     // protocol can be found. The type is interface{} with range: 1..1024.
-    Cnpdallstatsprotocolsindex interface{}
+    CnpdAllStatsProtocolsIndex interface{}
 
     // Name of the application or protocol, a  unique textual string, assigned in
     // the cnpdSupportedProtocolsTable. The type is string with length: 1..255.
-    Cnpdallstatsprotocolname interface{}
+    CnpdAllStatsProtocolName interface{}
 
     // The packet count of inbound packets as  determined by Protocol Discovery.
     // The type is interface{} with range: 0..4294967295. Units are packets.
-    Cnpdallstatsinpkts interface{}
+    CnpdAllStatsInPkts interface{}
 
     // The packet count of outbound packets as  determined by Protocol Discovery.
     // The type is interface{} with range: 0..4294967295. Units are packets.
-    Cnpdallstatsoutpkts interface{}
+    CnpdAllStatsOutPkts interface{}
 
     // The byte count of inbound octets as  determined by Protocol Discovery. The
     // type is interface{} with range: 0..4294967295. Units are bytes.
-    Cnpdallstatsinbytes interface{}
+    CnpdAllStatsInBytes interface{}
 
     // The byte count of outbound octets as determined by Protocol Discovery. The
     // type is interface{} with range: 0..4294967295. Units are bytes.
-    Cnpdallstatsoutbytes interface{}
+    CnpdAllStatsOutBytes interface{}
 
     // The packet count of inbound packets as  determined by Protocol Discovery.
     // This is the 64-bit (High Capacity) version of cnpdAllStatsInPkts. The type
     // is interface{} with range: 0..18446744073709551615. Units are packets.
-    Cnpdallstatshcinpkts interface{}
+    CnpdAllStatsHCInPkts interface{}
 
     // The packet count of outbound packets as  determined by Protocol Discovery.
     // This is the 64-bit (High Capacity) version of cnpdAllStatsOutPkts. The type
     // is interface{} with range: 0..18446744073709551615. Units are packets.
-    Cnpdallstatshcoutpkts interface{}
+    CnpdAllStatsHCOutPkts interface{}
 
     // The byte count of inbound octets as  determined by Protocol Discovery. This
     // is the 64-bit (High Capacity) version of cnpdAllStatsInBytes. The type is
     // interface{} with range: 0..18446744073709551615. Units are bytes.
-    Cnpdallstatshcinbytes interface{}
+    CnpdAllStatsHCInBytes interface{}
 
     // The byte count of outbound octets as  determined by Protocol Discovery.
     // This is the 64-bit (High Capacity) version of cnpdAllStatsOutBytes. The
     // type is interface{} with range: 0..18446744073709551615. Units are bytes.
-    Cnpdallstatshcoutbytes interface{}
+    CnpdAllStatsHCOutBytes interface{}
 
     // The inbound bit rate as determined  by Protocol Discovery. The type is
     // interface{} with range: 1..4294967295. Units are kilo bits per second.
-    Cnpdallstatsinbitrate interface{}
+    CnpdAllStatsInBitRate interface{}
 
     // The outbound bit rate as determined  by Protocol Discovery. The type is
     // interface{} with range: 1..4294967295. Units are kilo bits per second.
-    Cnpdallstatsoutbitrate interface{}
+    CnpdAllStatsOutBitRate interface{}
 }
 
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetEntityData() *types.CommonEntityData {
-    cnpdallstatsentry.EntityData.YFilter = cnpdallstatsentry.YFilter
-    cnpdallstatsentry.EntityData.YangName = "cnpdAllStatsEntry"
-    cnpdallstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    cnpdallstatsentry.EntityData.ParentYangName = "cnpdAllStatsTable"
-    cnpdallstatsentry.EntityData.SegmentPath = "cnpdAllStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", cnpdallstatsentry.Ifindex) + "']" + "[cnpdAllStatsProtocolsIndex='" + fmt.Sprintf("%v", cnpdallstatsentry.Cnpdallstatsprotocolsindex) + "']"
-    cnpdallstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdallstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdallstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdAllStatsEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable_CnpdAllStatsEntry) GetEntityData() *types.CommonEntityData {
+    cnpdAllStatsEntry.EntityData.YFilter = cnpdAllStatsEntry.YFilter
+    cnpdAllStatsEntry.EntityData.YangName = "cnpdAllStatsEntry"
+    cnpdAllStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdAllStatsEntry.EntityData.ParentYangName = "cnpdAllStatsTable"
+    cnpdAllStatsEntry.EntityData.SegmentPath = "cnpdAllStatsEntry" + types.AddKeyToken(cnpdAllStatsEntry.IfIndex, "ifIndex") + types.AddKeyToken(cnpdAllStatsEntry.CnpdAllStatsProtocolsIndex, "cnpdAllStatsProtocolsIndex")
+    cnpdAllStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdAllStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdAllStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdallstatsentry.EntityData.Children = make(map[string]types.YChild)
-    cnpdallstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnpdallstatsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cnpdallstatsentry.Ifindex}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsProtocolsIndex"] = types.YLeaf{"Cnpdallstatsprotocolsindex", cnpdallstatsentry.Cnpdallstatsprotocolsindex}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsProtocolName"] = types.YLeaf{"Cnpdallstatsprotocolname", cnpdallstatsentry.Cnpdallstatsprotocolname}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsInPkts"] = types.YLeaf{"Cnpdallstatsinpkts", cnpdallstatsentry.Cnpdallstatsinpkts}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsOutPkts"] = types.YLeaf{"Cnpdallstatsoutpkts", cnpdallstatsentry.Cnpdallstatsoutpkts}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsInBytes"] = types.YLeaf{"Cnpdallstatsinbytes", cnpdallstatsentry.Cnpdallstatsinbytes}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsOutBytes"] = types.YLeaf{"Cnpdallstatsoutbytes", cnpdallstatsentry.Cnpdallstatsoutbytes}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsHCInPkts"] = types.YLeaf{"Cnpdallstatshcinpkts", cnpdallstatsentry.Cnpdallstatshcinpkts}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsHCOutPkts"] = types.YLeaf{"Cnpdallstatshcoutpkts", cnpdallstatsentry.Cnpdallstatshcoutpkts}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsHCInBytes"] = types.YLeaf{"Cnpdallstatshcinbytes", cnpdallstatsentry.Cnpdallstatshcinbytes}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsHCOutBytes"] = types.YLeaf{"Cnpdallstatshcoutbytes", cnpdallstatsentry.Cnpdallstatshcoutbytes}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsInBitRate"] = types.YLeaf{"Cnpdallstatsinbitrate", cnpdallstatsentry.Cnpdallstatsinbitrate}
-    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsOutBitRate"] = types.YLeaf{"Cnpdallstatsoutbitrate", cnpdallstatsentry.Cnpdallstatsoutbitrate}
-    return &(cnpdallstatsentry.EntityData)
+    cnpdAllStatsEntry.EntityData.Children = types.NewOrderedMap()
+    cnpdAllStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnpdAllStatsEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cnpdAllStatsEntry.IfIndex})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsProtocolsIndex", types.YLeaf{"CnpdAllStatsProtocolsIndex", cnpdAllStatsEntry.CnpdAllStatsProtocolsIndex})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsProtocolName", types.YLeaf{"CnpdAllStatsProtocolName", cnpdAllStatsEntry.CnpdAllStatsProtocolName})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsInPkts", types.YLeaf{"CnpdAllStatsInPkts", cnpdAllStatsEntry.CnpdAllStatsInPkts})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsOutPkts", types.YLeaf{"CnpdAllStatsOutPkts", cnpdAllStatsEntry.CnpdAllStatsOutPkts})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsInBytes", types.YLeaf{"CnpdAllStatsInBytes", cnpdAllStatsEntry.CnpdAllStatsInBytes})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsOutBytes", types.YLeaf{"CnpdAllStatsOutBytes", cnpdAllStatsEntry.CnpdAllStatsOutBytes})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsHCInPkts", types.YLeaf{"CnpdAllStatsHCInPkts", cnpdAllStatsEntry.CnpdAllStatsHCInPkts})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsHCOutPkts", types.YLeaf{"CnpdAllStatsHCOutPkts", cnpdAllStatsEntry.CnpdAllStatsHCOutPkts})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsHCInBytes", types.YLeaf{"CnpdAllStatsHCInBytes", cnpdAllStatsEntry.CnpdAllStatsHCInBytes})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsHCOutBytes", types.YLeaf{"CnpdAllStatsHCOutBytes", cnpdAllStatsEntry.CnpdAllStatsHCOutBytes})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsInBitRate", types.YLeaf{"CnpdAllStatsInBitRate", cnpdAllStatsEntry.CnpdAllStatsInBitRate})
+    cnpdAllStatsEntry.EntityData.Leafs.Append("cnpdAllStatsOutBitRate", types.YLeaf{"CnpdAllStatsOutBitRate", cnpdAllStatsEntry.CnpdAllStatsOutBitRate})
+
+    cnpdAllStatsEntry.EntityData.YListKeys = []string {"IfIndex", "CnpdAllStatsProtocolsIndex"}
+
+    return &(cnpdAllStatsEntry.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable
 // The cnpdTopNConfigTable is used to configure
 // cnpdTopNStatsTable's.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry provides the objects to configure and thus initiate the
     // generation of a cnpdTopNStatsTable.. The type is slice of
-    // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry.
-    Cnpdtopnconfigentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry
+    // CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_CnpdTopNConfigEntry.
+    CnpdTopNConfigEntry []*CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_CnpdTopNConfigEntry
 }
 
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetEntityData() *types.CommonEntityData {
-    cnpdtopnconfigtable.EntityData.YFilter = cnpdtopnconfigtable.YFilter
-    cnpdtopnconfigtable.EntityData.YangName = "cnpdTopNConfigTable"
-    cnpdtopnconfigtable.EntityData.BundleName = "cisco_ios_xe"
-    cnpdtopnconfigtable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-    cnpdtopnconfigtable.EntityData.SegmentPath = "cnpdTopNConfigTable"
-    cnpdtopnconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdtopnconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdtopnconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdTopNConfigTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable) GetEntityData() *types.CommonEntityData {
+    cnpdTopNConfigTable.EntityData.YFilter = cnpdTopNConfigTable.YFilter
+    cnpdTopNConfigTable.EntityData.YangName = "cnpdTopNConfigTable"
+    cnpdTopNConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdTopNConfigTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdTopNConfigTable.EntityData.SegmentPath = "cnpdTopNConfigTable"
+    cnpdTopNConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdTopNConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdTopNConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdtopnconfigtable.EntityData.Children = make(map[string]types.YChild)
-    cnpdtopnconfigtable.EntityData.Children["cnpdTopNConfigEntry"] = types.YChild{"Cnpdtopnconfigentry", nil}
-    for i := range cnpdtopnconfigtable.Cnpdtopnconfigentry {
-        cnpdtopnconfigtable.EntityData.Children[types.GetSegmentPath(&cnpdtopnconfigtable.Cnpdtopnconfigentry[i])] = types.YChild{"Cnpdtopnconfigentry", &cnpdtopnconfigtable.Cnpdtopnconfigentry[i]}
+    cnpdTopNConfigTable.EntityData.Children = types.NewOrderedMap()
+    cnpdTopNConfigTable.EntityData.Children.Append("cnpdTopNConfigEntry", types.YChild{"CnpdTopNConfigEntry", nil})
+    for i := range cnpdTopNConfigTable.CnpdTopNConfigEntry {
+        cnpdTopNConfigTable.EntityData.Children.Append(types.GetSegmentPath(cnpdTopNConfigTable.CnpdTopNConfigEntry[i]), types.YChild{"CnpdTopNConfigEntry", cnpdTopNConfigTable.CnpdTopNConfigEntry[i]})
     }
-    cnpdtopnconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnpdtopnconfigtable.EntityData)
+    cnpdTopNConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnpdTopNConfigTable.EntityData.YListKeys = []string {}
+
+    return &(cnpdTopNConfigTable.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_CnpdTopNConfigEntry
 // This entry provides the objects to configure and thus
 // initiate the generation of a cnpdTopNStatsTable..
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_CnpdTopNConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer which uniquely
     // identifies a cnpdTopNConfigEntry  in the cnpdTopNConfigTable. The type is
     // interface{} with range: 1..50.
-    Cnpdtopnconfigindex interface{}
+    CnpdTopNConfigIndex interface{}
 
     // This object allows the management station to select the interface, which
     // Protocol Discovery is running on, to be used to create this 
     // cnpdTopNConfigEntry. The type is interface{} with range: 1..2147483647.
-    Cnpdtopnconfigifindex interface{}
+    CnpdTopNConfigIfIndex interface{}
 
     // This object allows the management station to select the statistic used to
     // base the order of the top-n table on.  For example: a
     // cnpdTopNConfigStatsSelect of bitRateSum means order this table based on
     // each applications/protocols combined in and out bitrate. The type is
     // CiscoPdDataType.
-    Cnpdtopnconfigstatsselect interface{}
+    CnpdTopNConfigStatsSelect interface{}
 
     // If the cnpdTopNConfigStatsSelect is bitRateIn, bitRateOut or bitRateSum,
     // then this value is the interval in seconds that  the bitrate is sampled. 
@@ -422,24 +443,24 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry struc
     // sample period is started regardless of whether the original
     // cnpdTopNConfigSampleTime was finished. The type is interface{} with range:
     // 1..2048. Units are seconds.
-    Cnpdtopnconfigsampletime interface{}
+    CnpdTopNConfigSampleTime interface{}
 
     // The requested size of the associated  cnpdTopNStatsTable entry.  For
     // example a cnpdTopNConfigRequestedSize of 20 indicates the management
     // station wants to create an associated  cnpdTopNStatsTable  entry of 20
     // protocol/application's. The type is interface{} with range: 1..500.
-    Cnpdtopnconfigrequestedsize interface{}
+    CnpdTopNConfigRequestedSize interface{}
 
     // The actual size of the associated 	 cnpdTopNStatsTable entry.  The reason
     // this may differ from  cnpdTopNConfigRequestedSize is because a  management
     // station may request a number of  protocols that is greater than the number
     // of  protocols actually found by Protocol Discovery. The type is interface{}
     // with range: 1..500.
-    Cnpdtopnconfiggrantedsize interface{}
+    CnpdTopNConfigGrantedSize interface{}
 
     // The value of sysUpTime when the associated cnpdTopNStatsTable entry was
     // created. The type is interface{} with range: 0..4294967295.
-    Cnpdtopnconfigtime interface{}
+    CnpdTopNConfigTime interface{}
 
     // This object is used to create or delete  the row entry in
     // cnpdTopNConfigTable.  When creating a row entry the management station is
@@ -459,36 +480,39 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry struc
     // changing the necessary objects. Setting it to 'createAndGo' or 'active'
     // will cause the corresponding TopNStats entry to be regenerated. The type is
     // RowStatus.
-    Cnpdtopnconfigstatus interface{}
+    CnpdTopNConfigStatus interface{}
 }
 
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetEntityData() *types.CommonEntityData {
-    cnpdtopnconfigentry.EntityData.YFilter = cnpdtopnconfigentry.YFilter
-    cnpdtopnconfigentry.EntityData.YangName = "cnpdTopNConfigEntry"
-    cnpdtopnconfigentry.EntityData.BundleName = "cisco_ios_xe"
-    cnpdtopnconfigentry.EntityData.ParentYangName = "cnpdTopNConfigTable"
-    cnpdtopnconfigentry.EntityData.SegmentPath = "cnpdTopNConfigEntry" + "[cnpdTopNConfigIndex='" + fmt.Sprintf("%v", cnpdtopnconfigentry.Cnpdtopnconfigindex) + "']"
-    cnpdtopnconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdtopnconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdtopnconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdTopNConfigEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_CnpdTopNConfigEntry) GetEntityData() *types.CommonEntityData {
+    cnpdTopNConfigEntry.EntityData.YFilter = cnpdTopNConfigEntry.YFilter
+    cnpdTopNConfigEntry.EntityData.YangName = "cnpdTopNConfigEntry"
+    cnpdTopNConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdTopNConfigEntry.EntityData.ParentYangName = "cnpdTopNConfigTable"
+    cnpdTopNConfigEntry.EntityData.SegmentPath = "cnpdTopNConfigEntry" + types.AddKeyToken(cnpdTopNConfigEntry.CnpdTopNConfigIndex, "cnpdTopNConfigIndex")
+    cnpdTopNConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdTopNConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdTopNConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdtopnconfigentry.EntityData.Children = make(map[string]types.YChild)
-    cnpdtopnconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigIndex"] = types.YLeaf{"Cnpdtopnconfigindex", cnpdtopnconfigentry.Cnpdtopnconfigindex}
-    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigIfIndex"] = types.YLeaf{"Cnpdtopnconfigifindex", cnpdtopnconfigentry.Cnpdtopnconfigifindex}
-    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigStatsSelect"] = types.YLeaf{"Cnpdtopnconfigstatsselect", cnpdtopnconfigentry.Cnpdtopnconfigstatsselect}
-    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigSampleTime"] = types.YLeaf{"Cnpdtopnconfigsampletime", cnpdtopnconfigentry.Cnpdtopnconfigsampletime}
-    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigRequestedSize"] = types.YLeaf{"Cnpdtopnconfigrequestedsize", cnpdtopnconfigentry.Cnpdtopnconfigrequestedsize}
-    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigGrantedSize"] = types.YLeaf{"Cnpdtopnconfiggrantedsize", cnpdtopnconfigentry.Cnpdtopnconfiggrantedsize}
-    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigTime"] = types.YLeaf{"Cnpdtopnconfigtime", cnpdtopnconfigentry.Cnpdtopnconfigtime}
-    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigStatus"] = types.YLeaf{"Cnpdtopnconfigstatus", cnpdtopnconfigentry.Cnpdtopnconfigstatus}
-    return &(cnpdtopnconfigentry.EntityData)
+    cnpdTopNConfigEntry.EntityData.Children = types.NewOrderedMap()
+    cnpdTopNConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnpdTopNConfigEntry.EntityData.Leafs.Append("cnpdTopNConfigIndex", types.YLeaf{"CnpdTopNConfigIndex", cnpdTopNConfigEntry.CnpdTopNConfigIndex})
+    cnpdTopNConfigEntry.EntityData.Leafs.Append("cnpdTopNConfigIfIndex", types.YLeaf{"CnpdTopNConfigIfIndex", cnpdTopNConfigEntry.CnpdTopNConfigIfIndex})
+    cnpdTopNConfigEntry.EntityData.Leafs.Append("cnpdTopNConfigStatsSelect", types.YLeaf{"CnpdTopNConfigStatsSelect", cnpdTopNConfigEntry.CnpdTopNConfigStatsSelect})
+    cnpdTopNConfigEntry.EntityData.Leafs.Append("cnpdTopNConfigSampleTime", types.YLeaf{"CnpdTopNConfigSampleTime", cnpdTopNConfigEntry.CnpdTopNConfigSampleTime})
+    cnpdTopNConfigEntry.EntityData.Leafs.Append("cnpdTopNConfigRequestedSize", types.YLeaf{"CnpdTopNConfigRequestedSize", cnpdTopNConfigEntry.CnpdTopNConfigRequestedSize})
+    cnpdTopNConfigEntry.EntityData.Leafs.Append("cnpdTopNConfigGrantedSize", types.YLeaf{"CnpdTopNConfigGrantedSize", cnpdTopNConfigEntry.CnpdTopNConfigGrantedSize})
+    cnpdTopNConfigEntry.EntityData.Leafs.Append("cnpdTopNConfigTime", types.YLeaf{"CnpdTopNConfigTime", cnpdTopNConfigEntry.CnpdTopNConfigTime})
+    cnpdTopNConfigEntry.EntityData.Leafs.Append("cnpdTopNConfigStatus", types.YLeaf{"CnpdTopNConfigStatus", cnpdTopNConfigEntry.CnpdTopNConfigStatus})
+
+    cnpdTopNConfigEntry.EntityData.YListKeys = []string {"CnpdTopNConfigIndex"}
+
+    return &(cnpdTopNConfigEntry.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable
 // A cnpdTopNStatsTable describes an ordered
 // list of protocols.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -498,30 +522,33 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable struct {
     // cnpdTopNConfigEntry.  Therefore a cnpdTopNStatsTable can differ in content 
     // and size according to what was configured in the associated
     // cnpdTopNConfigTableEntry. The type is slice of
-    // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry.
-    Cnpdtopnstatsentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry
+    // CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable_CnpdTopNStatsEntry.
+    CnpdTopNStatsEntry []*CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable_CnpdTopNStatsEntry
 }
 
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetEntityData() *types.CommonEntityData {
-    cnpdtopnstatstable.EntityData.YFilter = cnpdtopnstatstable.YFilter
-    cnpdtopnstatstable.EntityData.YangName = "cnpdTopNStatsTable"
-    cnpdtopnstatstable.EntityData.BundleName = "cisco_ios_xe"
-    cnpdtopnstatstable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-    cnpdtopnstatstable.EntityData.SegmentPath = "cnpdTopNStatsTable"
-    cnpdtopnstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdtopnstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdtopnstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdTopNStatsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable) GetEntityData() *types.CommonEntityData {
+    cnpdTopNStatsTable.EntityData.YFilter = cnpdTopNStatsTable.YFilter
+    cnpdTopNStatsTable.EntityData.YangName = "cnpdTopNStatsTable"
+    cnpdTopNStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdTopNStatsTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdTopNStatsTable.EntityData.SegmentPath = "cnpdTopNStatsTable"
+    cnpdTopNStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdTopNStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdTopNStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdtopnstatstable.EntityData.Children = make(map[string]types.YChild)
-    cnpdtopnstatstable.EntityData.Children["cnpdTopNStatsEntry"] = types.YChild{"Cnpdtopnstatsentry", nil}
-    for i := range cnpdtopnstatstable.Cnpdtopnstatsentry {
-        cnpdtopnstatstable.EntityData.Children[types.GetSegmentPath(&cnpdtopnstatstable.Cnpdtopnstatsentry[i])] = types.YChild{"Cnpdtopnstatsentry", &cnpdtopnstatstable.Cnpdtopnstatsentry[i]}
+    cnpdTopNStatsTable.EntityData.Children = types.NewOrderedMap()
+    cnpdTopNStatsTable.EntityData.Children.Append("cnpdTopNStatsEntry", types.YChild{"CnpdTopNStatsEntry", nil})
+    for i := range cnpdTopNStatsTable.CnpdTopNStatsEntry {
+        cnpdTopNStatsTable.EntityData.Children.Append(types.GetSegmentPath(cnpdTopNStatsTable.CnpdTopNStatsEntry[i]), types.YChild{"CnpdTopNStatsEntry", cnpdTopNStatsTable.CnpdTopNStatsEntry[i]})
     }
-    cnpdtopnstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnpdtopnstatstable.EntityData)
+    cnpdTopNStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnpdTopNStatsTable.EntityData.YListKeys = []string {}
+
+    return &(cnpdTopNStatsTable.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable_CnpdTopNStatsEntry
 // This entry is used to store a set of objects which 
 // describe a cnpdTopNStatsTable. A cnpdTopNStatsTable 
 // is a number of protocols and statistics sorted 
@@ -531,63 +558,66 @@ func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetE
 // Therefore a cnpdTopNStatsTable can differ in content 
 // and size according to what was configured in the associated
 // cnpdTopNConfigTableEntry.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable_CnpdTopNStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..50. Refers to
-    // cisco_nbar_protocol_discovery_mib.CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry_Cnpdtopnconfigindex
-    Cnpdtopnconfigindex interface{}
+    // cisco_nbar_protocol_discovery_mib.CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_CnpdTopNConfigEntry_CnpdTopNConfigIndex
+    CnpdTopNConfigIndex interface{}
 
     // This attribute is a key. A monotonically increasing integer which  uniquely
     // identifies a cnpdTopNStatsEntry  in the cnpdTopNStatsTable. The type is
     // interface{} with range: 1..500.
-    Cnpdtopnstatsindex interface{}
+    CnpdTopNStatsIndex interface{}
 
     // Name of the application or protocol,  a unique textual string, assigned in
     // the cnpdSupportedProtocolsTable. The type is string with length: 1..255.
-    Cnpdtopnstatsprotocolname interface{}
+    CnpdTopNStatsProtocolName interface{}
 
     // The amount of change in the selected statistic during this sampling
     // interval. The selected statistic is the cnpdTopNConfigStatsSelect from the
     // associated cnpdTopNConfigStatsEntry. The type is interface{} with range:
     // 0..4294967295.
-    Cnpdtopnstatsrate interface{}
+    CnpdTopNStatsRate interface{}
 
     // The amount of change in the selected statistic during this sampling
     // interval. The selected statistic is the cnpdTopNConfigStatsSelect from the
     // associated cnpdTopNConfigStatsEntry.	  This is the 64-bit (High Capacity)
     // version of  cnpdTopNStatsRate. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cnpdtopnstatshcrate interface{}
+    CnpdTopNStatsHCRate interface{}
 }
 
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetEntityData() *types.CommonEntityData {
-    cnpdtopnstatsentry.EntityData.YFilter = cnpdtopnstatsentry.YFilter
-    cnpdtopnstatsentry.EntityData.YangName = "cnpdTopNStatsEntry"
-    cnpdtopnstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    cnpdtopnstatsentry.EntityData.ParentYangName = "cnpdTopNStatsTable"
-    cnpdtopnstatsentry.EntityData.SegmentPath = "cnpdTopNStatsEntry" + "[cnpdTopNConfigIndex='" + fmt.Sprintf("%v", cnpdtopnstatsentry.Cnpdtopnconfigindex) + "']" + "[cnpdTopNStatsIndex='" + fmt.Sprintf("%v", cnpdtopnstatsentry.Cnpdtopnstatsindex) + "']"
-    cnpdtopnstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdtopnstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdtopnstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdTopNStatsEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable_CnpdTopNStatsEntry) GetEntityData() *types.CommonEntityData {
+    cnpdTopNStatsEntry.EntityData.YFilter = cnpdTopNStatsEntry.YFilter
+    cnpdTopNStatsEntry.EntityData.YangName = "cnpdTopNStatsEntry"
+    cnpdTopNStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdTopNStatsEntry.EntityData.ParentYangName = "cnpdTopNStatsTable"
+    cnpdTopNStatsEntry.EntityData.SegmentPath = "cnpdTopNStatsEntry" + types.AddKeyToken(cnpdTopNStatsEntry.CnpdTopNConfigIndex, "cnpdTopNConfigIndex") + types.AddKeyToken(cnpdTopNStatsEntry.CnpdTopNStatsIndex, "cnpdTopNStatsIndex")
+    cnpdTopNStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdTopNStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdTopNStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdtopnstatsentry.EntityData.Children = make(map[string]types.YChild)
-    cnpdtopnstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNConfigIndex"] = types.YLeaf{"Cnpdtopnconfigindex", cnpdtopnstatsentry.Cnpdtopnconfigindex}
-    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNStatsIndex"] = types.YLeaf{"Cnpdtopnstatsindex", cnpdtopnstatsentry.Cnpdtopnstatsindex}
-    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNStatsProtocolName"] = types.YLeaf{"Cnpdtopnstatsprotocolname", cnpdtopnstatsentry.Cnpdtopnstatsprotocolname}
-    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNStatsRate"] = types.YLeaf{"Cnpdtopnstatsrate", cnpdtopnstatsentry.Cnpdtopnstatsrate}
-    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNStatsHCRate"] = types.YLeaf{"Cnpdtopnstatshcrate", cnpdtopnstatsentry.Cnpdtopnstatshcrate}
-    return &(cnpdtopnstatsentry.EntityData)
+    cnpdTopNStatsEntry.EntityData.Children = types.NewOrderedMap()
+    cnpdTopNStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnpdTopNStatsEntry.EntityData.Leafs.Append("cnpdTopNConfigIndex", types.YLeaf{"CnpdTopNConfigIndex", cnpdTopNStatsEntry.CnpdTopNConfigIndex})
+    cnpdTopNStatsEntry.EntityData.Leafs.Append("cnpdTopNStatsIndex", types.YLeaf{"CnpdTopNStatsIndex", cnpdTopNStatsEntry.CnpdTopNStatsIndex})
+    cnpdTopNStatsEntry.EntityData.Leafs.Append("cnpdTopNStatsProtocolName", types.YLeaf{"CnpdTopNStatsProtocolName", cnpdTopNStatsEntry.CnpdTopNStatsProtocolName})
+    cnpdTopNStatsEntry.EntityData.Leafs.Append("cnpdTopNStatsRate", types.YLeaf{"CnpdTopNStatsRate", cnpdTopNStatsEntry.CnpdTopNStatsRate})
+    cnpdTopNStatsEntry.EntityData.Leafs.Append("cnpdTopNStatsHCRate", types.YLeaf{"CnpdTopNStatsHCRate", cnpdTopNStatsEntry.CnpdTopNStatsHCRate})
+
+    cnpdTopNStatsEntry.EntityData.YListKeys = []string {"CnpdTopNConfigIndex", "CnpdTopNStatsIndex"}
+
+    return &(cnpdTopNStatsEntry.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable
 // The cnpdThresholdConfigTable allows the management
 // station to create thresholds for the purpose of
 // sending notifications if breached, and creating a
 // history of breached thresholds.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -604,30 +634,33 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable struct {
     // sampled, when the value is above the threshold. Instead one notification is
     // sent when the threshold is breached and one notification when the statistic
     // drops below the threshold value again. The type is slice of
-    // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry.
-    Cnpdthresholdconfigentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry
+    // CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry.
+    CnpdThresholdConfigEntry []*CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry
 }
 
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetEntityData() *types.CommonEntityData {
-    cnpdthresholdconfigtable.EntityData.YFilter = cnpdthresholdconfigtable.YFilter
-    cnpdthresholdconfigtable.EntityData.YangName = "cnpdThresholdConfigTable"
-    cnpdthresholdconfigtable.EntityData.BundleName = "cisco_ios_xe"
-    cnpdthresholdconfigtable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-    cnpdthresholdconfigtable.EntityData.SegmentPath = "cnpdThresholdConfigTable"
-    cnpdthresholdconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdthresholdconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdthresholdconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdThresholdConfigTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable) GetEntityData() *types.CommonEntityData {
+    cnpdThresholdConfigTable.EntityData.YFilter = cnpdThresholdConfigTable.YFilter
+    cnpdThresholdConfigTable.EntityData.YangName = "cnpdThresholdConfigTable"
+    cnpdThresholdConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdThresholdConfigTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdThresholdConfigTable.EntityData.SegmentPath = "cnpdThresholdConfigTable"
+    cnpdThresholdConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdThresholdConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdThresholdConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdthresholdconfigtable.EntityData.Children = make(map[string]types.YChild)
-    cnpdthresholdconfigtable.EntityData.Children["cnpdThresholdConfigEntry"] = types.YChild{"Cnpdthresholdconfigentry", nil}
-    for i := range cnpdthresholdconfigtable.Cnpdthresholdconfigentry {
-        cnpdthresholdconfigtable.EntityData.Children[types.GetSegmentPath(&cnpdthresholdconfigtable.Cnpdthresholdconfigentry[i])] = types.YChild{"Cnpdthresholdconfigentry", &cnpdthresholdconfigtable.Cnpdthresholdconfigentry[i]}
+    cnpdThresholdConfigTable.EntityData.Children = types.NewOrderedMap()
+    cnpdThresholdConfigTable.EntityData.Children.Append("cnpdThresholdConfigEntry", types.YChild{"CnpdThresholdConfigEntry", nil})
+    for i := range cnpdThresholdConfigTable.CnpdThresholdConfigEntry {
+        cnpdThresholdConfigTable.EntityData.Children.Append(types.GetSegmentPath(cnpdThresholdConfigTable.CnpdThresholdConfigEntry[i]), types.YChild{"CnpdThresholdConfigEntry", cnpdThresholdConfigTable.CnpdThresholdConfigEntry[i]})
     }
-    cnpdthresholdconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnpdthresholdconfigtable.EntityData)
+    cnpdThresholdConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnpdThresholdConfigTable.EntityData.YListKeys = []string {}
+
+    return &(cnpdThresholdConfigTable.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry
 // This entry contains configuration information to 
 // set thresholds for the purpose of notifications.
 // 
@@ -649,25 +682,25 @@ func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfi
 // notification is sent when the threshold is breached
 // and one notification when the statistic drops below
 // the threshold value again.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer which  uniquely
     // identifies an entry in the  cnpdThresholdConfigTable. The type is
     // interface{} with range: 1..100.
-    Cnpdthresholdconfigindex interface{}
+    CnpdThresholdConfigIndex interface{}
 
     // This object allows the management station to  select the interface, which
     // Protocol Discovery is  running on, to be used to create this 
     // cnpdThresholdConfigTable entry. The type is interface{} with range:
     // 1..2147483647.
-    Cnpdthresholdconfigifindex interface{}
+    CnpdThresholdConfigIfIndex interface{}
 
     // The interval in seconds over which the data is sampled and compared with
     // cnpdThresholdConfigRising and cnpdThresholdConfigFalling thresholds. The
     // type is interface{} with range: 1..2048. Units are seconds.
-    Cnpdthresholdconfiginterval interface{}
+    CnpdThresholdConfigInterval interface{}
 
     // The method of sampling the selected statistic and calculating the value to
     // be compared against  cnpdThresholdConfigRising or 
@@ -690,8 +723,8 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfige
     // packet counts,  cnpdThresholdConfigSampleType set to deltaValue, can 
     // generate falling cnpdThresholdHistory entries, because the gradient can be
     // lower than the  cnpdThresholdConfigFalling value. The type is
-    // Cnpdthresholdconfigsampletype.
-    Cnpdthresholdconfigsampletype interface{}
+    // CnpdThresholdConfigSampleType.
+    CnpdThresholdConfigSampleType interface{}
 
     // The application or protocol which the management station wishes to
     // configure a threshold on.  This object is an index into the 
@@ -700,7 +733,7 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfige
     // If it is set to FALSE, then cnpdThresholdConfigProtocol will be the only
     // protocol that is checked to see if it has breached the threshold. The type
     // is interface{} with range: 1..1024.
-    Cnpdthresholdconfigprotocol interface{}
+    CnpdThresholdConfigProtocol interface{}
 
     // If set to 'true' - this threshold is configured to check for any protocol
     // which meets the threshold criteria. This means that multiple protocols can
@@ -708,14 +741,14 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfige
     // hysterisis mechanism.  If set to 'false' - this threshold is configured to
     // check for the protocol which meets the threshold criteria referred to by
     // cnpdThresholdConfigProtocol. The type is bool.
-    Cnpdthresholdconfigprotocolany interface{}
+    CnpdThresholdConfigProtocolAny interface{}
 
     // This object allows the management station to select the statistic used to
     // base the threshold on.  For example a cnpdThresholdConfigStatsSelect of
     // bitRateSum means cnpdThresholdConfigRising and cnpdThresholdConfigFalling
     // are values based on the combined value of in and out bitrates. The type is
     // CiscoPdDataType.
-    Cnpdthresholdconfigstatsselect interface{}
+    CnpdThresholdConfigStatsSelect interface{}
 
     // This controls the type of notification that is  sent when this threshold
     // entry is first enabled.   Because there is no previous sampling history,
@@ -726,8 +759,8 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfige
     // be generated.   If the first sample after this entry is enabled is less
     // than or equal to cnpdThresholdConfigFalling and this object is equal to
     // falling(2) or  risingOrFalling(3), then a single falling notification  will
-    // be generated. The type is Cnpdthresholdconfigstartup.
-    Cnpdthresholdconfigstartup interface{}
+    // be generated. The type is CnpdThresholdConfigStartup.
+    CnpdThresholdConfigStartup interface{}
 
     // This is the threshold object which the managment station sets to determine
     // if it gets breached. It  indicates the statistic being sampled was rising. 
@@ -743,7 +776,7 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfige
     // short cnpdThresholdConfigInterval can be chosen without risk of multiple
     // notifications for the same threshold breach condition. The type is
     // interface{} with range: 1..4294967295.
-    Cnpdthresholdconfigrising interface{}
+    CnpdThresholdConfigRising interface{}
 
     // This is the threshold object which the management  station sets to
     // determine if it gets breached. It  indicates the statistic being sampled
@@ -754,7 +787,7 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfige
     // generated, another  such event will not be generated until the sampled 
     // value rises above this object and reaches the cnpdThresholdConfigRising
     // value. The type is interface{} with range: 1..4294967295.
-    Cnpdthresholdconfigfalling interface{}
+    CnpdThresholdConfigFalling interface{}
 
     // This object is used to create or delete  the row entry in
     // cnpdThresholdConfigTable.   When creating a row entry the management
@@ -766,92 +799,98 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfige
     // to 'createAndWait' - it will  in fact get the status 'notReady'.   Likewise
     // if you set any row to 'notInService' or 'notReady'  it will go to the
     // 'notReady' state. The type is RowStatus.
-    Cnpdthresholdconfigstatus interface{}
+    CnpdThresholdConfigStatus interface{}
 }
 
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetEntityData() *types.CommonEntityData {
-    cnpdthresholdconfigentry.EntityData.YFilter = cnpdthresholdconfigentry.YFilter
-    cnpdthresholdconfigentry.EntityData.YangName = "cnpdThresholdConfigEntry"
-    cnpdthresholdconfigentry.EntityData.BundleName = "cisco_ios_xe"
-    cnpdthresholdconfigentry.EntityData.ParentYangName = "cnpdThresholdConfigTable"
-    cnpdthresholdconfigentry.EntityData.SegmentPath = "cnpdThresholdConfigEntry" + "[cnpdThresholdConfigIndex='" + fmt.Sprintf("%v", cnpdthresholdconfigentry.Cnpdthresholdconfigindex) + "']"
-    cnpdthresholdconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdthresholdconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdthresholdconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdThresholdConfigEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry) GetEntityData() *types.CommonEntityData {
+    cnpdThresholdConfigEntry.EntityData.YFilter = cnpdThresholdConfigEntry.YFilter
+    cnpdThresholdConfigEntry.EntityData.YangName = "cnpdThresholdConfigEntry"
+    cnpdThresholdConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdThresholdConfigEntry.EntityData.ParentYangName = "cnpdThresholdConfigTable"
+    cnpdThresholdConfigEntry.EntityData.SegmentPath = "cnpdThresholdConfigEntry" + types.AddKeyToken(cnpdThresholdConfigEntry.CnpdThresholdConfigIndex, "cnpdThresholdConfigIndex")
+    cnpdThresholdConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdThresholdConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdThresholdConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdthresholdconfigentry.EntityData.Children = make(map[string]types.YChild)
-    cnpdthresholdconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigIndex"] = types.YLeaf{"Cnpdthresholdconfigindex", cnpdthresholdconfigentry.Cnpdthresholdconfigindex}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigIfIndex"] = types.YLeaf{"Cnpdthresholdconfigifindex", cnpdthresholdconfigentry.Cnpdthresholdconfigifindex}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigInterval"] = types.YLeaf{"Cnpdthresholdconfiginterval", cnpdthresholdconfigentry.Cnpdthresholdconfiginterval}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigSampleType"] = types.YLeaf{"Cnpdthresholdconfigsampletype", cnpdthresholdconfigentry.Cnpdthresholdconfigsampletype}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigProtocol"] = types.YLeaf{"Cnpdthresholdconfigprotocol", cnpdthresholdconfigentry.Cnpdthresholdconfigprotocol}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigProtocolAny"] = types.YLeaf{"Cnpdthresholdconfigprotocolany", cnpdthresholdconfigentry.Cnpdthresholdconfigprotocolany}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigStatsSelect"] = types.YLeaf{"Cnpdthresholdconfigstatsselect", cnpdthresholdconfigentry.Cnpdthresholdconfigstatsselect}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigStartup"] = types.YLeaf{"Cnpdthresholdconfigstartup", cnpdthresholdconfigentry.Cnpdthresholdconfigstartup}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigRising"] = types.YLeaf{"Cnpdthresholdconfigrising", cnpdthresholdconfigentry.Cnpdthresholdconfigrising}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigFalling"] = types.YLeaf{"Cnpdthresholdconfigfalling", cnpdthresholdconfigentry.Cnpdthresholdconfigfalling}
-    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigStatus"] = types.YLeaf{"Cnpdthresholdconfigstatus", cnpdthresholdconfigentry.Cnpdthresholdconfigstatus}
-    return &(cnpdthresholdconfigentry.EntityData)
+    cnpdThresholdConfigEntry.EntityData.Children = types.NewOrderedMap()
+    cnpdThresholdConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigIndex", types.YLeaf{"CnpdThresholdConfigIndex", cnpdThresholdConfigEntry.CnpdThresholdConfigIndex})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigIfIndex", types.YLeaf{"CnpdThresholdConfigIfIndex", cnpdThresholdConfigEntry.CnpdThresholdConfigIfIndex})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigInterval", types.YLeaf{"CnpdThresholdConfigInterval", cnpdThresholdConfigEntry.CnpdThresholdConfigInterval})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigSampleType", types.YLeaf{"CnpdThresholdConfigSampleType", cnpdThresholdConfigEntry.CnpdThresholdConfigSampleType})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigProtocol", types.YLeaf{"CnpdThresholdConfigProtocol", cnpdThresholdConfigEntry.CnpdThresholdConfigProtocol})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigProtocolAny", types.YLeaf{"CnpdThresholdConfigProtocolAny", cnpdThresholdConfigEntry.CnpdThresholdConfigProtocolAny})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigStatsSelect", types.YLeaf{"CnpdThresholdConfigStatsSelect", cnpdThresholdConfigEntry.CnpdThresholdConfigStatsSelect})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigStartup", types.YLeaf{"CnpdThresholdConfigStartup", cnpdThresholdConfigEntry.CnpdThresholdConfigStartup})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigRising", types.YLeaf{"CnpdThresholdConfigRising", cnpdThresholdConfigEntry.CnpdThresholdConfigRising})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigFalling", types.YLeaf{"CnpdThresholdConfigFalling", cnpdThresholdConfigEntry.CnpdThresholdConfigFalling})
+    cnpdThresholdConfigEntry.EntityData.Leafs.Append("cnpdThresholdConfigStatus", types.YLeaf{"CnpdThresholdConfigStatus", cnpdThresholdConfigEntry.CnpdThresholdConfigStatus})
+
+    cnpdThresholdConfigEntry.EntityData.YListKeys = []string {"CnpdThresholdConfigIndex"}
+
+    return &(cnpdThresholdConfigEntry.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigsampletype represents cnpdThresholdConfigFalling value.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigsampletype string
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigSampleType represents cnpdThresholdConfigFalling value.
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigSampleType string
 
 const (
-    CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigsampletype_absoluteValue CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigsampletype = "absoluteValue"
+    CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigSampleType_absoluteValue CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigSampleType = "absoluteValue"
 
-    CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigsampletype_deltaValue CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigsampletype = "deltaValue"
+    CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigSampleType_deltaValue CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigSampleType = "deltaValue"
 )
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigstartup represents will be generated.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigstartup string
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigStartup represents will be generated.
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigStartup string
 
 const (
-    CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigstartup_rising CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigstartup = "rising"
+    CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigStartup_rising CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigStartup = "rising"
 
-    CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigstartup_falling CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigstartup = "falling"
+    CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigStartup_falling CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigStartup = "falling"
 
-    CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigstartup_risingOrFalling CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigstartup = "risingOrFalling"
+    CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigStartup_risingOrFalling CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry_CnpdThresholdConfigStartup = "risingOrFalling"
 )
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable
 // The Threshold History table. Notifications
 // are unreliable so this table provides a
 // history of the last 5000 threshold breached
 // events. A notification can be traced back to
 // its cnpdThresholdHistoryEntry.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry is created each time a threshold  is breached.   Thus there is
     // not necessarily a one to one  relationship to cnpdThresholdConfigTable  as
     // not every Threshold configured will  be breached. The type is slice of
-    // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry.
-    Cnpdthresholdhistoryentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry
+    // CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry.
+    CnpdThresholdHistoryEntry []*CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry
 }
 
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetEntityData() *types.CommonEntityData {
-    cnpdthresholdhistorytable.EntityData.YFilter = cnpdthresholdhistorytable.YFilter
-    cnpdthresholdhistorytable.EntityData.YangName = "cnpdThresholdHistoryTable"
-    cnpdthresholdhistorytable.EntityData.BundleName = "cisco_ios_xe"
-    cnpdthresholdhistorytable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-    cnpdthresholdhistorytable.EntityData.SegmentPath = "cnpdThresholdHistoryTable"
-    cnpdthresholdhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdthresholdhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdthresholdhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdThresholdHistoryTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable) GetEntityData() *types.CommonEntityData {
+    cnpdThresholdHistoryTable.EntityData.YFilter = cnpdThresholdHistoryTable.YFilter
+    cnpdThresholdHistoryTable.EntityData.YangName = "cnpdThresholdHistoryTable"
+    cnpdThresholdHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdThresholdHistoryTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdThresholdHistoryTable.EntityData.SegmentPath = "cnpdThresholdHistoryTable"
+    cnpdThresholdHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdThresholdHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdThresholdHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdthresholdhistorytable.EntityData.Children = make(map[string]types.YChild)
-    cnpdthresholdhistorytable.EntityData.Children["cnpdThresholdHistoryEntry"] = types.YChild{"Cnpdthresholdhistoryentry", nil}
-    for i := range cnpdthresholdhistorytable.Cnpdthresholdhistoryentry {
-        cnpdthresholdhistorytable.EntityData.Children[types.GetSegmentPath(&cnpdthresholdhistorytable.Cnpdthresholdhistoryentry[i])] = types.YChild{"Cnpdthresholdhistoryentry", &cnpdthresholdhistorytable.Cnpdthresholdhistoryentry[i]}
+    cnpdThresholdHistoryTable.EntityData.Children = types.NewOrderedMap()
+    cnpdThresholdHistoryTable.EntityData.Children.Append("cnpdThresholdHistoryEntry", types.YChild{"CnpdThresholdHistoryEntry", nil})
+    for i := range cnpdThresholdHistoryTable.CnpdThresholdHistoryEntry {
+        cnpdThresholdHistoryTable.EntityData.Children.Append(types.GetSegmentPath(cnpdThresholdHistoryTable.CnpdThresholdHistoryEntry[i]), types.YChild{"CnpdThresholdHistoryEntry", cnpdThresholdHistoryTable.CnpdThresholdHistoryEntry[i]})
     }
-    cnpdthresholdhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnpdthresholdhistorytable.EntityData)
+    cnpdThresholdHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnpdThresholdHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(cnpdThresholdHistoryTable.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry
 // This entry is created each time a threshold 
 // is breached. 
 // 
@@ -859,138 +898,147 @@ func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhist
 // relationship to cnpdThresholdConfigTable 
 // as not every Threshold configured will 
 // be breached.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer which uniquely
     // identifies this  cnpdThresholdHistoryEntry in the  cnpdThresholdHistory
     // table. The type is interface{} with range: 1..1000.
-    Cnpdthresholdhistoryindex interface{}
+    CnpdThresholdHistoryIndex interface{}
 
     // The cnpdThresholdConfigTable entry  which generated this entry. Using this 
     // object the management station can backtrack  to the appropriate
     // cnpdThresholdConfigEntry. The type is interface{} with range: 1..1000.
-    Cnpdthresholdhistoryconfigindex interface{}
+    CnpdThresholdHistoryConfigIndex interface{}
 
     // The actual value of the statistic when  the sampling was made. The type is
     // interface{} with range: 1..4294967295.
-    Cnpdthresholdhistoryvalue interface{}
+    CnpdThresholdHistoryValue interface{}
 
     // Describes whether this is an event caused by a rising or falling threshold
-    // breach. The type is Cnpdthresholdhistorytype.
-    Cnpdthresholdhistorytype interface{}
+    // breach. The type is CnpdThresholdHistoryType.
+    CnpdThresholdHistoryType interface{}
 
     // The value of sysUpTime of the running  configuration when the event
     // occurred. The type is interface{} with range: 0..4294967295.
-    Cnpdthresholdhistorytime interface{}
+    CnpdThresholdHistoryTime interface{}
 
     // The application or protocol which the management station configured a
     // threshold on.  This object is an index into the  SupportedProtocolsTable
     // where details of the protocol can be found. The type is interface{} with
     // range: 1..1024.
-    Cnpdthresholdhistoryprotocol interface{}
+    CnpdThresholdHistoryProtocol interface{}
 
     // This is the statistic used to base the threshold on. The type is
     // CiscoPdDataType.
-    Cnpdthresholdhistorystatsselect interface{}
+    CnpdThresholdHistoryStatsSelect interface{}
 }
 
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetEntityData() *types.CommonEntityData {
-    cnpdthresholdhistoryentry.EntityData.YFilter = cnpdthresholdhistoryentry.YFilter
-    cnpdthresholdhistoryentry.EntityData.YangName = "cnpdThresholdHistoryEntry"
-    cnpdthresholdhistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    cnpdthresholdhistoryentry.EntityData.ParentYangName = "cnpdThresholdHistoryTable"
-    cnpdthresholdhistoryentry.EntityData.SegmentPath = "cnpdThresholdHistoryEntry" + "[cnpdThresholdHistoryIndex='" + fmt.Sprintf("%v", cnpdthresholdhistoryentry.Cnpdthresholdhistoryindex) + "']"
-    cnpdthresholdhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdthresholdhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdthresholdhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdThresholdHistoryEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry) GetEntityData() *types.CommonEntityData {
+    cnpdThresholdHistoryEntry.EntityData.YFilter = cnpdThresholdHistoryEntry.YFilter
+    cnpdThresholdHistoryEntry.EntityData.YangName = "cnpdThresholdHistoryEntry"
+    cnpdThresholdHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdThresholdHistoryEntry.EntityData.ParentYangName = "cnpdThresholdHistoryTable"
+    cnpdThresholdHistoryEntry.EntityData.SegmentPath = "cnpdThresholdHistoryEntry" + types.AddKeyToken(cnpdThresholdHistoryEntry.CnpdThresholdHistoryIndex, "cnpdThresholdHistoryIndex")
+    cnpdThresholdHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdThresholdHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdThresholdHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdthresholdhistoryentry.EntityData.Children = make(map[string]types.YChild)
-    cnpdthresholdhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryIndex"] = types.YLeaf{"Cnpdthresholdhistoryindex", cnpdthresholdhistoryentry.Cnpdthresholdhistoryindex}
-    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryConfigIndex"] = types.YLeaf{"Cnpdthresholdhistoryconfigindex", cnpdthresholdhistoryentry.Cnpdthresholdhistoryconfigindex}
-    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryValue"] = types.YLeaf{"Cnpdthresholdhistoryvalue", cnpdthresholdhistoryentry.Cnpdthresholdhistoryvalue}
-    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryType"] = types.YLeaf{"Cnpdthresholdhistorytype", cnpdthresholdhistoryentry.Cnpdthresholdhistorytype}
-    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryTime"] = types.YLeaf{"Cnpdthresholdhistorytime", cnpdthresholdhistoryentry.Cnpdthresholdhistorytime}
-    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryProtocol"] = types.YLeaf{"Cnpdthresholdhistoryprotocol", cnpdthresholdhistoryentry.Cnpdthresholdhistoryprotocol}
-    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryStatsSelect"] = types.YLeaf{"Cnpdthresholdhistorystatsselect", cnpdthresholdhistoryentry.Cnpdthresholdhistorystatsselect}
-    return &(cnpdthresholdhistoryentry.EntityData)
+    cnpdThresholdHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    cnpdThresholdHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnpdThresholdHistoryEntry.EntityData.Leafs.Append("cnpdThresholdHistoryIndex", types.YLeaf{"CnpdThresholdHistoryIndex", cnpdThresholdHistoryEntry.CnpdThresholdHistoryIndex})
+    cnpdThresholdHistoryEntry.EntityData.Leafs.Append("cnpdThresholdHistoryConfigIndex", types.YLeaf{"CnpdThresholdHistoryConfigIndex", cnpdThresholdHistoryEntry.CnpdThresholdHistoryConfigIndex})
+    cnpdThresholdHistoryEntry.EntityData.Leafs.Append("cnpdThresholdHistoryValue", types.YLeaf{"CnpdThresholdHistoryValue", cnpdThresholdHistoryEntry.CnpdThresholdHistoryValue})
+    cnpdThresholdHistoryEntry.EntityData.Leafs.Append("cnpdThresholdHistoryType", types.YLeaf{"CnpdThresholdHistoryType", cnpdThresholdHistoryEntry.CnpdThresholdHistoryType})
+    cnpdThresholdHistoryEntry.EntityData.Leafs.Append("cnpdThresholdHistoryTime", types.YLeaf{"CnpdThresholdHistoryTime", cnpdThresholdHistoryEntry.CnpdThresholdHistoryTime})
+    cnpdThresholdHistoryEntry.EntityData.Leafs.Append("cnpdThresholdHistoryProtocol", types.YLeaf{"CnpdThresholdHistoryProtocol", cnpdThresholdHistoryEntry.CnpdThresholdHistoryProtocol})
+    cnpdThresholdHistoryEntry.EntityData.Leafs.Append("cnpdThresholdHistoryStatsSelect", types.YLeaf{"CnpdThresholdHistoryStatsSelect", cnpdThresholdHistoryEntry.CnpdThresholdHistoryStatsSelect})
+
+    cnpdThresholdHistoryEntry.EntityData.YListKeys = []string {"CnpdThresholdHistoryIndex"}
+
+    return &(cnpdThresholdHistoryEntry.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry_Cnpdthresholdhistorytype represents or falling threshold breach.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry_Cnpdthresholdhistorytype string
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry_CnpdThresholdHistoryType represents or falling threshold breach.
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry_CnpdThresholdHistoryType string
 
 const (
-    CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry_Cnpdthresholdhistorytype_risingBreach CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry_Cnpdthresholdhistorytype = "risingBreach"
+    CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry_CnpdThresholdHistoryType_risingBreach CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry_CnpdThresholdHistoryType = "risingBreach"
 
-    CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry_Cnpdthresholdhistorytype_fallingBreach CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry_Cnpdthresholdhistorytype = "fallingBreach"
+    CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry_CnpdThresholdHistoryType_fallingBreach CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry_CnpdThresholdHistoryType = "fallingBreach"
 )
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable
 // The Supported Protocols table lists all the 
 // protocols and applications which NBAR is currently
 // capable of recognizing.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A entry in the Supported Protocols table reflecting key information about a
     // protocol. The type is slice of
-    // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry.
-    Cnpdsupportedprotocolsentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry
+    // CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable_CnpdSupportedProtocolsEntry.
+    CnpdSupportedProtocolsEntry []*CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable_CnpdSupportedProtocolsEntry
 }
 
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetEntityData() *types.CommonEntityData {
-    cnpdsupportedprotocolstable.EntityData.YFilter = cnpdsupportedprotocolstable.YFilter
-    cnpdsupportedprotocolstable.EntityData.YangName = "cnpdSupportedProtocolsTable"
-    cnpdsupportedprotocolstable.EntityData.BundleName = "cisco_ios_xe"
-    cnpdsupportedprotocolstable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-    cnpdsupportedprotocolstable.EntityData.SegmentPath = "cnpdSupportedProtocolsTable"
-    cnpdsupportedprotocolstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdsupportedprotocolstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdsupportedprotocolstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdSupportedProtocolsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable) GetEntityData() *types.CommonEntityData {
+    cnpdSupportedProtocolsTable.EntityData.YFilter = cnpdSupportedProtocolsTable.YFilter
+    cnpdSupportedProtocolsTable.EntityData.YangName = "cnpdSupportedProtocolsTable"
+    cnpdSupportedProtocolsTable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdSupportedProtocolsTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdSupportedProtocolsTable.EntityData.SegmentPath = "cnpdSupportedProtocolsTable"
+    cnpdSupportedProtocolsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdSupportedProtocolsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdSupportedProtocolsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdsupportedprotocolstable.EntityData.Children = make(map[string]types.YChild)
-    cnpdsupportedprotocolstable.EntityData.Children["cnpdSupportedProtocolsEntry"] = types.YChild{"Cnpdsupportedprotocolsentry", nil}
-    for i := range cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry {
-        cnpdsupportedprotocolstable.EntityData.Children[types.GetSegmentPath(&cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry[i])] = types.YChild{"Cnpdsupportedprotocolsentry", &cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry[i]}
+    cnpdSupportedProtocolsTable.EntityData.Children = types.NewOrderedMap()
+    cnpdSupportedProtocolsTable.EntityData.Children.Append("cnpdSupportedProtocolsEntry", types.YChild{"CnpdSupportedProtocolsEntry", nil})
+    for i := range cnpdSupportedProtocolsTable.CnpdSupportedProtocolsEntry {
+        cnpdSupportedProtocolsTable.EntityData.Children.Append(types.GetSegmentPath(cnpdSupportedProtocolsTable.CnpdSupportedProtocolsEntry[i]), types.YChild{"CnpdSupportedProtocolsEntry", cnpdSupportedProtocolsTable.CnpdSupportedProtocolsEntry[i]})
     }
-    cnpdsupportedprotocolstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnpdsupportedprotocolstable.EntityData)
+    cnpdSupportedProtocolsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnpdSupportedProtocolsTable.EntityData.YListKeys = []string {}
+
+    return &(cnpdSupportedProtocolsTable.EntityData)
 }
 
-// CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry
+// CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable_CnpdSupportedProtocolsEntry
 // A entry in the Supported Protocols table reflecting
 // key information about a protocol.
-type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry struct {
+type CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable_CnpdSupportedProtocolsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table.  Thus
     // it also represents a unique identifier for a protocol or application which
     // NBAR currently recognizes. The type is interface{} with range: 1..1024.
-    Cnpdsupportedprotocolsindex interface{}
+    CnpdSupportedProtocolsIndex interface{}
 
     // This object reflects the valid string of a protocol or application which
     // NBAR currently recognizes. The type is string with length: 1..255.
-    Cnpdsupportedprotocolsname interface{}
+    CnpdSupportedProtocolsName interface{}
 }
 
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetEntityData() *types.CommonEntityData {
-    cnpdsupportedprotocolsentry.EntityData.YFilter = cnpdsupportedprotocolsentry.YFilter
-    cnpdsupportedprotocolsentry.EntityData.YangName = "cnpdSupportedProtocolsEntry"
-    cnpdsupportedprotocolsentry.EntityData.BundleName = "cisco_ios_xe"
-    cnpdsupportedprotocolsentry.EntityData.ParentYangName = "cnpdSupportedProtocolsTable"
-    cnpdsupportedprotocolsentry.EntityData.SegmentPath = "cnpdSupportedProtocolsEntry" + "[cnpdSupportedProtocolsIndex='" + fmt.Sprintf("%v", cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsindex) + "']"
-    cnpdsupportedprotocolsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnpdsupportedprotocolsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnpdsupportedprotocolsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnpdSupportedProtocolsEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable_CnpdSupportedProtocolsEntry) GetEntityData() *types.CommonEntityData {
+    cnpdSupportedProtocolsEntry.EntityData.YFilter = cnpdSupportedProtocolsEntry.YFilter
+    cnpdSupportedProtocolsEntry.EntityData.YangName = "cnpdSupportedProtocolsEntry"
+    cnpdSupportedProtocolsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdSupportedProtocolsEntry.EntityData.ParentYangName = "cnpdSupportedProtocolsTable"
+    cnpdSupportedProtocolsEntry.EntityData.SegmentPath = "cnpdSupportedProtocolsEntry" + types.AddKeyToken(cnpdSupportedProtocolsEntry.CnpdSupportedProtocolsIndex, "cnpdSupportedProtocolsIndex")
+    cnpdSupportedProtocolsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdSupportedProtocolsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdSupportedProtocolsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnpdsupportedprotocolsentry.EntityData.Children = make(map[string]types.YChild)
-    cnpdsupportedprotocolsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnpdsupportedprotocolsentry.EntityData.Leafs["cnpdSupportedProtocolsIndex"] = types.YLeaf{"Cnpdsupportedprotocolsindex", cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsindex}
-    cnpdsupportedprotocolsentry.EntityData.Leafs["cnpdSupportedProtocolsName"] = types.YLeaf{"Cnpdsupportedprotocolsname", cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsname}
-    return &(cnpdsupportedprotocolsentry.EntityData)
+    cnpdSupportedProtocolsEntry.EntityData.Children = types.NewOrderedMap()
+    cnpdSupportedProtocolsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnpdSupportedProtocolsEntry.EntityData.Leafs.Append("cnpdSupportedProtocolsIndex", types.YLeaf{"CnpdSupportedProtocolsIndex", cnpdSupportedProtocolsEntry.CnpdSupportedProtocolsIndex})
+    cnpdSupportedProtocolsEntry.EntityData.Leafs.Append("cnpdSupportedProtocolsName", types.YLeaf{"CnpdSupportedProtocolsName", cnpdSupportedProtocolsEntry.CnpdSupportedProtocolsName})
+
+    cnpdSupportedProtocolsEntry.EntityData.YListKeys = []string {"CnpdSupportedProtocolsIndex"}
+
+    return &(cnpdSupportedProtocolsEntry.EntityData)
 }
 

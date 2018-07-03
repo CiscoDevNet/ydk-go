@@ -71,10 +71,10 @@ type CISCOHSRPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Chsrpglobalconfig CISCOHSRPMIB_Chsrpglobalconfig
+    CHsrpGlobalConfig CISCOHSRPMIB_CHsrpGlobalConfig
 
     // A table containing information on each HSRP group for each interface.
-    Chsrpgrptable CISCOHSRPMIB_Chsrpgrptable
+    CHsrpGrpTable CISCOHSRPMIB_CHsrpGrpTable
 }
 
 func (cISCOHSRPMIB *CISCOHSRPMIB) GetEntityData() *types.CommonEntityData {
@@ -87,44 +87,50 @@ func (cISCOHSRPMIB *CISCOHSRPMIB) GetEntityData() *types.CommonEntityData {
     cISCOHSRPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOHSRPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOHSRPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOHSRPMIB.EntityData.Children["cHsrpGlobalConfig"] = types.YChild{"Chsrpglobalconfig", &cISCOHSRPMIB.Chsrpglobalconfig}
-    cISCOHSRPMIB.EntityData.Children["cHsrpGrpTable"] = types.YChild{"Chsrpgrptable", &cISCOHSRPMIB.Chsrpgrptable}
-    cISCOHSRPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOHSRPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOHSRPMIB.EntityData.Children.Append("cHsrpGlobalConfig", types.YChild{"CHsrpGlobalConfig", &cISCOHSRPMIB.CHsrpGlobalConfig})
+    cISCOHSRPMIB.EntityData.Children.Append("cHsrpGrpTable", types.YChild{"CHsrpGrpTable", &cISCOHSRPMIB.CHsrpGrpTable})
+    cISCOHSRPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOHSRPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOHSRPMIB.EntityData)
 }
 
-// CISCOHSRPMIB_Chsrpglobalconfig
-type CISCOHSRPMIB_Chsrpglobalconfig struct {
+// CISCOHSRPMIB_CHsrpGlobalConfig
+type CISCOHSRPMIB_CHsrpGlobalConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The amount of time in minutes a row in cHsrpGrpTable can remain in a state
     // other than active before being timed out. The type is interface{} with
     // range: 1..60. Units are minutes.
-    Chsrpconfigtimeout interface{}
+    CHsrpConfigTimeout interface{}
 }
 
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetEntityData() *types.CommonEntityData {
-    chsrpglobalconfig.EntityData.YFilter = chsrpglobalconfig.YFilter
-    chsrpglobalconfig.EntityData.YangName = "cHsrpGlobalConfig"
-    chsrpglobalconfig.EntityData.BundleName = "cisco_ios_xe"
-    chsrpglobalconfig.EntityData.ParentYangName = "CISCO-HSRP-MIB"
-    chsrpglobalconfig.EntityData.SegmentPath = "cHsrpGlobalConfig"
-    chsrpglobalconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    chsrpglobalconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    chsrpglobalconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cHsrpGlobalConfig *CISCOHSRPMIB_CHsrpGlobalConfig) GetEntityData() *types.CommonEntityData {
+    cHsrpGlobalConfig.EntityData.YFilter = cHsrpGlobalConfig.YFilter
+    cHsrpGlobalConfig.EntityData.YangName = "cHsrpGlobalConfig"
+    cHsrpGlobalConfig.EntityData.BundleName = "cisco_ios_xe"
+    cHsrpGlobalConfig.EntityData.ParentYangName = "CISCO-HSRP-MIB"
+    cHsrpGlobalConfig.EntityData.SegmentPath = "cHsrpGlobalConfig"
+    cHsrpGlobalConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cHsrpGlobalConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cHsrpGlobalConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    chsrpglobalconfig.EntityData.Children = make(map[string]types.YChild)
-    chsrpglobalconfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    chsrpglobalconfig.EntityData.Leafs["cHsrpConfigTimeout"] = types.YLeaf{"Chsrpconfigtimeout", chsrpglobalconfig.Chsrpconfigtimeout}
-    return &(chsrpglobalconfig.EntityData)
+    cHsrpGlobalConfig.EntityData.Children = types.NewOrderedMap()
+    cHsrpGlobalConfig.EntityData.Leafs = types.NewOrderedMap()
+    cHsrpGlobalConfig.EntityData.Leafs.Append("cHsrpConfigTimeout", types.YLeaf{"CHsrpConfigTimeout", cHsrpGlobalConfig.CHsrpConfigTimeout})
+
+    cHsrpGlobalConfig.EntityData.YListKeys = []string {}
+
+    return &(cHsrpGlobalConfig.EntityData)
 }
 
-// CISCOHSRPMIB_Chsrpgrptable
+// CISCOHSRPMIB_CHsrpGrpTable
 // A table containing information on each HSRP group
 // for each interface.
-type CISCOHSRPMIB_Chsrpgrptable struct {
+type CISCOHSRPMIB_CHsrpGrpTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -147,30 +153,33 @@ type CISCOHSRPMIB_Chsrpgrptable struct {
     // state.  A row which is not in active state will timeout after a
     // configurable period (five minutes by default). This timeout  period can be
     // changed by setting cHsrpConfigTimeout. The type is slice of
-    // CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry.
-    Chsrpgrpentry []CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry
+    // CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry.
+    CHsrpGrpEntry []*CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry
 }
 
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetEntityData() *types.CommonEntityData {
-    chsrpgrptable.EntityData.YFilter = chsrpgrptable.YFilter
-    chsrpgrptable.EntityData.YangName = "cHsrpGrpTable"
-    chsrpgrptable.EntityData.BundleName = "cisco_ios_xe"
-    chsrpgrptable.EntityData.ParentYangName = "CISCO-HSRP-MIB"
-    chsrpgrptable.EntityData.SegmentPath = "cHsrpGrpTable"
-    chsrpgrptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    chsrpgrptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    chsrpgrptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cHsrpGrpTable *CISCOHSRPMIB_CHsrpGrpTable) GetEntityData() *types.CommonEntityData {
+    cHsrpGrpTable.EntityData.YFilter = cHsrpGrpTable.YFilter
+    cHsrpGrpTable.EntityData.YangName = "cHsrpGrpTable"
+    cHsrpGrpTable.EntityData.BundleName = "cisco_ios_xe"
+    cHsrpGrpTable.EntityData.ParentYangName = "CISCO-HSRP-MIB"
+    cHsrpGrpTable.EntityData.SegmentPath = "cHsrpGrpTable"
+    cHsrpGrpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cHsrpGrpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cHsrpGrpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    chsrpgrptable.EntityData.Children = make(map[string]types.YChild)
-    chsrpgrptable.EntityData.Children["cHsrpGrpEntry"] = types.YChild{"Chsrpgrpentry", nil}
-    for i := range chsrpgrptable.Chsrpgrpentry {
-        chsrpgrptable.EntityData.Children[types.GetSegmentPath(&chsrpgrptable.Chsrpgrpentry[i])] = types.YChild{"Chsrpgrpentry", &chsrpgrptable.Chsrpgrpentry[i]}
+    cHsrpGrpTable.EntityData.Children = types.NewOrderedMap()
+    cHsrpGrpTable.EntityData.Children.Append("cHsrpGrpEntry", types.YChild{"CHsrpGrpEntry", nil})
+    for i := range cHsrpGrpTable.CHsrpGrpEntry {
+        cHsrpGrpTable.EntityData.Children.Append(types.GetSegmentPath(cHsrpGrpTable.CHsrpGrpEntry[i]), types.YChild{"CHsrpGrpEntry", cHsrpGrpTable.CHsrpGrpEntry[i]})
     }
-    chsrpgrptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(chsrpgrptable.EntityData)
+    cHsrpGrpTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cHsrpGrpTable.EntityData.YListKeys = []string {}
+
+    return &(cHsrpGrpTable.EntityData)
 }
 
-// CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry
+// CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry
 // Information about an HSRP group. Management applications
 // use cHsrpGrpRowStatus to control entry modification,
 // creation and deletion.
@@ -205,13 +214,13 @@ func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetEntityData() *types.CommonEn
 // A row which is not in active state will timeout after a
 // configurable period (five minutes by default). This timeout 
 // period can be changed by setting cHsrpConfigTimeout.
-type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
+type CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. This object along with the ifIndex of a particular
     // interface uniquely identifies an HSRP group.  Group numbers 0,1 and 2 are
@@ -222,7 +231,7 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // the same group number on a different interface. For example, there can be a
     // group 1 on an Ethernet and a group 1 on Token Ring. More details can be
     // found from RFC 2281. The type is interface{} with range: 0..255.
-    Chsrpgrpnumber interface{}
+    CHsrpGrpNumber interface{}
 
     // This is an unencrypted authentication string which is carried in all HSRP
     // messages. An authentication string mismatch prevents a router interface
@@ -231,7 +240,7 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // object is not to supply any sort of security-like authentication but rather
     // to confirm that what's happening is what's intended. In other words, this
     // is meant for sanity checking only. The type is string with length: 0..8.
-    Chsrpgrpauth interface{}
+    CHsrpGrpAuth interface{}
 
     // The cHsrpGrpPriority helps to select the active and the standby routers.
     // The router with the highest priority is selected as the active router. In
@@ -245,14 +254,14 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // preempt.  But, if there is more than one router which is not active, the
     // highest priority non-active router becomes the standby router. The type is
     // interface{} with range: 0..255.
-    Chsrpgrppriority interface{}
+    CHsrpGrpPriority interface{}
 
     // This object, if TRUE, indicates that the current router should attempt to
     // overthrow a lower priority active router and attempt to become the active
     // router. If this object is FALSE, the router will become the active router
     // only if there is no such router (or if an active router fails). The type is
     // bool.
-    Chsrpgrppreempt interface{}
+    CHsrpGrpPreempt interface{}
 
     // This delay is the time difference between a router power up and the time it
     // can actually start preempting the currently active router.  When a router
@@ -262,7 +271,7 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // to allow for a configurable delay before the router actually preempts the
     // currently active router. The type is interface{} with range: 0..3600. Units
     // are seconds.
-    Chsrpgrppreemptdelay interface{}
+    CHsrpGrpPreemptDelay interface{}
 
     // HSRP routers learn a group's Hellotime or Holdtime from hello messages. 
     // The Hellotime is used to determine the frequency of generating hello
@@ -272,14 +281,14 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // the cHsrpGrpConfiguredHelloTime and cHsrpGrpConfiguredHoldTime will be
     // used. If it is FALSE, the Hellotime and Holdtime values are learned. The
     // type is bool.
-    Chsrpgrpuseconfiguredtimers interface{}
+    CHsrpGrpUseConfiguredTimers interface{}
 
     // If cHsrpGrpUseConfiguredTimers is true, cHsrpGrpConfiguredHelloTime is used
     // when this router is an active router. Otherwise, the Hellotime learned from
     // the current active router is used. All routers on a particular LAN segment
     // must use the same Hellotime. The type is interface{} with range:
     // 0..4294967295. Units are milliseconds.
-    Chsrpgrpconfiguredhellotime interface{}
+    CHsrpGrpConfiguredHelloTime interface{}
 
     // If cHsrpGrpUseConfiguredTimers is true, cHsrpGrpConfiguredHoldTime is used
     // when this router is an active router. Otherwise, the Holdtime learned from
@@ -287,7 +296,7 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // should use the same Holdtime. Also, the Holdtime should be at least three
     // times the value of the Hellotime and must be greater than the Hellotime.
     // The type is interface{} with range: 0..4294967295. Units are milliseconds.
-    Chsrpgrpconfiguredholdtime interface{}
+    CHsrpGrpConfiguredHoldTime interface{}
 
     // If the Hellotime is not configured on a router, it can be learned from the
     // Hello messages from active router, provided the Hello message is
@@ -295,40 +304,40 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // the active router and it is not manually configured, a default value of 3
     // seconds is recommended. The type is interface{} with range: 0..4294967295.
     // Units are milliseconds.
-    Chsrpgrplearnedhellotime interface{}
+    CHsrpGrpLearnedHelloTime interface{}
 
     // If the Holdtime is not configured on a router, it can be learned from the
     // Hello message from the active router. Holdtime should be learned only if
     // the Hello message is authenticated. If the Holdtime is not learned and it
     // is not manually configured, a default value of 10 seconds is  recommended.
     // The type is interface{} with range: 0..4294967295. Units are milliseconds.
-    Chsrpgrplearnedholdtime interface{}
+    CHsrpGrpLearnedHoldTime interface{}
 
     // This is the primary virtual IP address used by this group.  If this address
     // is configured (i.e a non zero ip address), this value is used. Otherwise,
     // the agent will attempt to discover the virtual address through a discovery
     // process (which scans the hello messages). The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Chsrpgrpvirtualipaddr interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CHsrpGrpVirtualIpAddr interface{}
 
     // If this object is TRUE, cHsrpGrpVirtualIpAddr was a configured one.
     // Otherwise, it indicates that  cHsrpGrpVirtualIpAddr was a learned one. The
     // type is bool.
-    Chsrpgrpuseconfigvirtualipaddr interface{}
+    CHsrpGrpUseConfigVirtualIpAddr interface{}
 
     // Ip Address of the currently active router for this group. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Chsrpgrpactiverouter interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CHsrpGrpActiveRouter interface{}
 
     // Ip Address of the currently standby router for this group. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Chsrpgrpstandbyrouter interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CHsrpGrpStandbyRouter interface{}
 
     // The current HSRP state of this group on this interface. The type is
     // HsrpState.
-    Chsrpgrpstandbystate interface{}
+    CHsrpGrpStandbyState interface{}
 
     // Mac Addresses used are as specified in RFC 2281. For ethernet and fddi
     // interfaces, a MAC address will be in the range 00:00:0c:07:ac:00 through
@@ -340,50 +349,53 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // following three MAC  addresses are permitted (functional addresses):       
     // C0:00:00:01:00:00              C0:00:00:02:00:00             
     // C0:00:00:04:00:00. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    Chsrpgrpvirtualmacaddr interface{}
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    CHsrpGrpVirtualMacAddr interface{}
 
     // The control that allows modification, creation, and deletion of entries. 
     // For detailed rules see the DESCRIPTION for cHsrpGrpEntry. The type is
     // RowStatus.
-    Chsrpgrpentryrowstatus interface{}
+    CHsrpGrpEntryRowStatus interface{}
 
     // This object specifies the disable HSRP IPv4 virtual IP address. The type is
     // bool.
-    Chsrpgrpipnone interface{}
+    CHsrpGrpIpNone interface{}
 }
 
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetEntityData() *types.CommonEntityData {
-    chsrpgrpentry.EntityData.YFilter = chsrpgrpentry.YFilter
-    chsrpgrpentry.EntityData.YangName = "cHsrpGrpEntry"
-    chsrpgrpentry.EntityData.BundleName = "cisco_ios_xe"
-    chsrpgrpentry.EntityData.ParentYangName = "cHsrpGrpTable"
-    chsrpgrpentry.EntityData.SegmentPath = "cHsrpGrpEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpgrpentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpgrpentry.Chsrpgrpnumber) + "']"
-    chsrpgrpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    chsrpgrpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    chsrpgrpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cHsrpGrpEntry *CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry) GetEntityData() *types.CommonEntityData {
+    cHsrpGrpEntry.EntityData.YFilter = cHsrpGrpEntry.YFilter
+    cHsrpGrpEntry.EntityData.YangName = "cHsrpGrpEntry"
+    cHsrpGrpEntry.EntityData.BundleName = "cisco_ios_xe"
+    cHsrpGrpEntry.EntityData.ParentYangName = "cHsrpGrpTable"
+    cHsrpGrpEntry.EntityData.SegmentPath = "cHsrpGrpEntry" + types.AddKeyToken(cHsrpGrpEntry.IfIndex, "ifIndex") + types.AddKeyToken(cHsrpGrpEntry.CHsrpGrpNumber, "cHsrpGrpNumber")
+    cHsrpGrpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cHsrpGrpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cHsrpGrpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    chsrpgrpentry.EntityData.Children = make(map[string]types.YChild)
-    chsrpgrpentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    chsrpgrpentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", chsrpgrpentry.Ifindex}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpNumber"] = types.YLeaf{"Chsrpgrpnumber", chsrpgrpentry.Chsrpgrpnumber}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpAuth"] = types.YLeaf{"Chsrpgrpauth", chsrpgrpentry.Chsrpgrpauth}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpPriority"] = types.YLeaf{"Chsrpgrppriority", chsrpgrpentry.Chsrpgrppriority}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpPreempt"] = types.YLeaf{"Chsrpgrppreempt", chsrpgrpentry.Chsrpgrppreempt}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpPreemptDelay"] = types.YLeaf{"Chsrpgrppreemptdelay", chsrpgrpentry.Chsrpgrppreemptdelay}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpUseConfiguredTimers"] = types.YLeaf{"Chsrpgrpuseconfiguredtimers", chsrpgrpentry.Chsrpgrpuseconfiguredtimers}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpConfiguredHelloTime"] = types.YLeaf{"Chsrpgrpconfiguredhellotime", chsrpgrpentry.Chsrpgrpconfiguredhellotime}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpConfiguredHoldTime"] = types.YLeaf{"Chsrpgrpconfiguredholdtime", chsrpgrpentry.Chsrpgrpconfiguredholdtime}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpLearnedHelloTime"] = types.YLeaf{"Chsrpgrplearnedhellotime", chsrpgrpentry.Chsrpgrplearnedhellotime}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpLearnedHoldTime"] = types.YLeaf{"Chsrpgrplearnedholdtime", chsrpgrpentry.Chsrpgrplearnedholdtime}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpVirtualIpAddr"] = types.YLeaf{"Chsrpgrpvirtualipaddr", chsrpgrpentry.Chsrpgrpvirtualipaddr}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpUseConfigVirtualIpAddr"] = types.YLeaf{"Chsrpgrpuseconfigvirtualipaddr", chsrpgrpentry.Chsrpgrpuseconfigvirtualipaddr}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpActiveRouter"] = types.YLeaf{"Chsrpgrpactiverouter", chsrpgrpentry.Chsrpgrpactiverouter}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpStandbyRouter"] = types.YLeaf{"Chsrpgrpstandbyrouter", chsrpgrpentry.Chsrpgrpstandbyrouter}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpStandbyState"] = types.YLeaf{"Chsrpgrpstandbystate", chsrpgrpentry.Chsrpgrpstandbystate}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpVirtualMacAddr"] = types.YLeaf{"Chsrpgrpvirtualmacaddr", chsrpgrpentry.Chsrpgrpvirtualmacaddr}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpEntryRowStatus"] = types.YLeaf{"Chsrpgrpentryrowstatus", chsrpgrpentry.Chsrpgrpentryrowstatus}
-    chsrpgrpentry.EntityData.Leafs["cHsrpGrpIpNone"] = types.YLeaf{"Chsrpgrpipnone", chsrpgrpentry.Chsrpgrpipnone}
-    return &(chsrpgrpentry.EntityData)
+    cHsrpGrpEntry.EntityData.Children = types.NewOrderedMap()
+    cHsrpGrpEntry.EntityData.Leafs = types.NewOrderedMap()
+    cHsrpGrpEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cHsrpGrpEntry.IfIndex})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpNumber", types.YLeaf{"CHsrpGrpNumber", cHsrpGrpEntry.CHsrpGrpNumber})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpAuth", types.YLeaf{"CHsrpGrpAuth", cHsrpGrpEntry.CHsrpGrpAuth})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpPriority", types.YLeaf{"CHsrpGrpPriority", cHsrpGrpEntry.CHsrpGrpPriority})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpPreempt", types.YLeaf{"CHsrpGrpPreempt", cHsrpGrpEntry.CHsrpGrpPreempt})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpPreemptDelay", types.YLeaf{"CHsrpGrpPreemptDelay", cHsrpGrpEntry.CHsrpGrpPreemptDelay})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpUseConfiguredTimers", types.YLeaf{"CHsrpGrpUseConfiguredTimers", cHsrpGrpEntry.CHsrpGrpUseConfiguredTimers})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpConfiguredHelloTime", types.YLeaf{"CHsrpGrpConfiguredHelloTime", cHsrpGrpEntry.CHsrpGrpConfiguredHelloTime})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpConfiguredHoldTime", types.YLeaf{"CHsrpGrpConfiguredHoldTime", cHsrpGrpEntry.CHsrpGrpConfiguredHoldTime})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpLearnedHelloTime", types.YLeaf{"CHsrpGrpLearnedHelloTime", cHsrpGrpEntry.CHsrpGrpLearnedHelloTime})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpLearnedHoldTime", types.YLeaf{"CHsrpGrpLearnedHoldTime", cHsrpGrpEntry.CHsrpGrpLearnedHoldTime})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpVirtualIpAddr", types.YLeaf{"CHsrpGrpVirtualIpAddr", cHsrpGrpEntry.CHsrpGrpVirtualIpAddr})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpUseConfigVirtualIpAddr", types.YLeaf{"CHsrpGrpUseConfigVirtualIpAddr", cHsrpGrpEntry.CHsrpGrpUseConfigVirtualIpAddr})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpActiveRouter", types.YLeaf{"CHsrpGrpActiveRouter", cHsrpGrpEntry.CHsrpGrpActiveRouter})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpStandbyRouter", types.YLeaf{"CHsrpGrpStandbyRouter", cHsrpGrpEntry.CHsrpGrpStandbyRouter})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpStandbyState", types.YLeaf{"CHsrpGrpStandbyState", cHsrpGrpEntry.CHsrpGrpStandbyState})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpVirtualMacAddr", types.YLeaf{"CHsrpGrpVirtualMacAddr", cHsrpGrpEntry.CHsrpGrpVirtualMacAddr})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpEntryRowStatus", types.YLeaf{"CHsrpGrpEntryRowStatus", cHsrpGrpEntry.CHsrpGrpEntryRowStatus})
+    cHsrpGrpEntry.EntityData.Leafs.Append("cHsrpGrpIpNone", types.YLeaf{"CHsrpGrpIpNone", cHsrpGrpEntry.CHsrpGrpIpNone})
+
+    cHsrpGrpEntry.EntityData.YListKeys = []string {"IfIndex", "CHsrpGrpNumber"}
+
+    return &(cHsrpGrpEntry.EntityData)
 }
 

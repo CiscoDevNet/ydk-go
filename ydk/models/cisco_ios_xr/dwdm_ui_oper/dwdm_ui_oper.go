@@ -27,29 +27,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-dwdm-ui-oper:vtxp", reflect.TypeOf(Vtxp{}))
 }
 
-// G709apsByte represents G709aps byte
-type G709apsByte string
-
-const (
-    // No Protection
-    G709apsByte_pp_no_protect G709apsByte = "pp-no-protect"
-
-    // No Request
-    G709apsByte_pp_no_request G709apsByte = "pp-no-request"
-
-    // Regenerator Degrade
-    G709apsByte_pp_regen_degrade G709apsByte = "pp-regen-degrade"
-
-    // Signal Degrade
-    G709apsByte_pp_sig_degrade G709apsByte = "pp-sig-degrade"
-
-    // Maintenance Request
-    G709apsByte_pp_remote_main G709apsByte = "pp-remote-main"
-
-    // Unknown
-    G709apsByte_pp_aps_unknown G709apsByte = "pp-aps-unknown"
-)
-
 // G709ppintfState represents G709ppintf state
 type G709ppintfState string
 
@@ -62,6 +39,68 @@ const (
 
     // Interface Down
     G709ppintfState_pp_intf_down G709ppintfState = "pp-intf-down"
+)
+
+// G709ppfsmMode represents G709ppfsm mode
+type G709ppfsmMode string
+
+const (
+    // OFF
+    G709ppfsmMode_pp_disable G709ppfsmMode = "pp-disable"
+
+    // ON (Default Mode)
+    G709ppfsmMode_pp_default_mode G709ppfsmMode = "pp-default-mode"
+
+    // ON (Graceful Mode)
+    G709ppfsmMode_pp_graceful_mode G709ppfsmMode = "pp-graceful-mode"
+)
+
+// DwdmControllerState represents Dwdm controller state
+type DwdmControllerState string
+
+const (
+    // Up
+    DwdmControllerState_dwdm_ui_state_up DwdmControllerState = "dwdm-ui-state-up"
+
+    // Down
+    DwdmControllerState_dwdm_ui_state_down DwdmControllerState = "dwdm-ui-state-down"
+
+    // Administratively Down
+    DwdmControllerState_dwdm_ui_state_admin_down DwdmControllerState = "dwdm-ui-state-admin-down"
+)
+
+// DwdmtasState represents Dwdmtas state
+type DwdmtasState string
+
+const (
+    // Out of Service
+    DwdmtasState_tas_oos DwdmtasState = "tas-oos"
+
+    // In Service
+    DwdmtasState_tas_is DwdmtasState = "tas-is"
+
+    // Out of Service Maintenance
+    DwdmtasState_tas_oos_mt DwdmtasState = "tas-oos-mt"
+
+    // In Service Config allowed
+    DwdmtasState_tas_is_cfg DwdmtasState = "tas-is-cfg"
+)
+
+// G709prbsMode represents G709prbs mode
+type G709prbsMode string
+
+const (
+    // mode source
+    G709prbsMode_mode_source G709prbsMode = "mode-source"
+
+    // mode sink
+    G709prbsMode_mode_sink G709prbsMode = "mode-sink"
+
+    // mode source sink
+    G709prbsMode_mode_source_sink G709prbsMode = "mode-source-sink"
+
+    // mode invalid
+    G709prbsMode_mode_invalid G709prbsMode = "mode-invalid"
 )
 
 // G709ppfsmState represents G709ppfsm state
@@ -100,116 +139,6 @@ const (
 
     // Regenerator Failed
     G709ppfsmState_regen_failed G709ppfsmState = "regen-failed"
-)
-
-// G709ppfsmMode represents G709ppfsm mode
-type G709ppfsmMode string
-
-const (
-    // OFF
-    G709ppfsmMode_pp_disable G709ppfsmMode = "pp-disable"
-
-    // ON (Default Mode)
-    G709ppfsmMode_pp_default_mode G709ppfsmMode = "pp-default-mode"
-
-    // ON (Graceful Mode)
-    G709ppfsmMode_pp_graceful_mode G709ppfsmMode = "pp-graceful-mode"
-)
-
-// DwdmWaveChannelOwner represents Dwdm wave channel owner
-type DwdmWaveChannelOwner string
-
-const (
-    // Hardware Default
-    DwdmWaveChannelOwner_default_ DwdmWaveChannelOwner = "default"
-
-    // Configuration
-    DwdmWaveChannelOwner_configuration DwdmWaveChannelOwner = "configuration"
-
-    // GMPLS Signaled
-    DwdmWaveChannelOwner_gmpls DwdmWaveChannelOwner = "gmpls"
-)
-
-// G709efecMode represents G709efec mode
-type G709efecMode string
-
-const (
-    // 
-    G709efecMode_g975_none G709efecMode = "g975-none"
-
-    // G975.1 I.4
-    G709efecMode_g975_1_i4 G709efecMode = "g975-1-i4"
-
-    // G975.1 I.7
-    G709efecMode_g975_1_i7 G709efecMode = "g975-1-i7"
-)
-
-// DwdmtasState represents Dwdmtas state
-type DwdmtasState string
-
-const (
-    // Out of Service
-    DwdmtasState_tas_oos DwdmtasState = "tas-oos"
-
-    // In Service
-    DwdmtasState_tas_is DwdmtasState = "tas-is"
-
-    // Out of Service Maintenance
-    DwdmtasState_tas_oos_mt DwdmtasState = "tas-oos-mt"
-
-    // In Service Config allowed
-    DwdmtasState_tas_is_cfg DwdmtasState = "tas-is-cfg"
-)
-
-// DwdmControllerState represents Dwdm controller state
-type DwdmControllerState string
-
-const (
-    // Up
-    DwdmControllerState_dwdm_ui_state_up DwdmControllerState = "dwdm-ui-state-up"
-
-    // Down
-    DwdmControllerState_dwdm_ui_state_down DwdmControllerState = "dwdm-ui-state-down"
-
-    // Administratively Down
-    DwdmControllerState_dwdm_ui_state_admin_down DwdmControllerState = "dwdm-ui-state-admin-down"
-)
-
-// G709prbsMode represents G709prbs mode
-type G709prbsMode string
-
-const (
-    // mode source
-    G709prbsMode_mode_source G709prbsMode = "mode-source"
-
-    // mode sink
-    G709prbsMode_mode_sink G709prbsMode = "mode-sink"
-
-    // mode source sink
-    G709prbsMode_mode_source_sink G709prbsMode = "mode-source-sink"
-
-    // mode invalid
-    G709prbsMode_mode_invalid G709prbsMode = "mode-invalid"
-)
-
-// G709prbsPattern represents G709prbs pattern
-type G709prbsPattern string
-
-const (
-    // pattern none
-    G709prbsPattern_pattern_none G709prbsPattern = "pattern-none"
-
-    // pattern null
-    G709prbsPattern_pattern_null G709prbsPattern = "pattern-null"
-
-    // pattern pn11
-    G709prbsPattern_pattern_pn11 G709prbsPattern = "pattern-pn11"
-
-    // pattern pn23
-    G709prbsPattern_pattern_pn23 G709prbsPattern = "pattern-pn23"
-
-    // pattern pn31
-    G709prbsPattern_pattern_pn31 G709prbsPattern = "pattern-pn31"
 )
 
 // G709prbsInterval represents PRBS test interval information
@@ -316,6 +245,77 @@ const (
     G709prbsInterval_previous_interval32 G709prbsInterval = "previous-interval32"
 )
 
+// DwdmWaveChannelOwner represents Dwdm wave channel owner
+type DwdmWaveChannelOwner string
+
+const (
+    // Hardware Default
+    DwdmWaveChannelOwner_default_ DwdmWaveChannelOwner = "default"
+
+    // Configuration
+    DwdmWaveChannelOwner_configuration DwdmWaveChannelOwner = "configuration"
+
+    // GMPLS Signaled
+    DwdmWaveChannelOwner_gmpls DwdmWaveChannelOwner = "gmpls"
+)
+
+// G709efecMode represents G709efec mode
+type G709efecMode string
+
+const (
+    // 
+    G709efecMode_g975_none G709efecMode = "g975-none"
+
+    // G975.1 I.4
+    G709efecMode_g975_1_i4 G709efecMode = "g975-1-i4"
+
+    // G975.1 I.7
+    G709efecMode_g975_1_i7 G709efecMode = "g975-1-i7"
+)
+
+// G709prbsPattern represents G709prbs pattern
+type G709prbsPattern string
+
+const (
+    // pattern none
+    G709prbsPattern_pattern_none G709prbsPattern = "pattern-none"
+
+    // pattern null
+    G709prbsPattern_pattern_null G709prbsPattern = "pattern-null"
+
+    // pattern pn11
+    G709prbsPattern_pattern_pn11 G709prbsPattern = "pattern-pn11"
+
+    // pattern pn23
+    G709prbsPattern_pattern_pn23 G709prbsPattern = "pattern-pn23"
+
+    // pattern pn31
+    G709prbsPattern_pattern_pn31 G709prbsPattern = "pattern-pn31"
+)
+
+// G709apsByte represents G709aps byte
+type G709apsByte string
+
+const (
+    // No Protection
+    G709apsByte_pp_no_protect G709apsByte = "pp-no-protect"
+
+    // No Request
+    G709apsByte_pp_no_request G709apsByte = "pp-no-request"
+
+    // Regenerator Degrade
+    G709apsByte_pp_regen_degrade G709apsByte = "pp-regen-degrade"
+
+    // Signal Degrade
+    G709apsByte_pp_sig_degrade G709apsByte = "pp-sig-degrade"
+
+    // Maintenance Request
+    G709apsByte_pp_remote_main G709apsByte = "pp-remote-main"
+
+    // Unknown
+    G709apsByte_pp_aps_unknown G709apsByte = "pp-aps-unknown"
+)
+
 // Dwdm
 // DWDM operational data
 type Dwdm struct {
@@ -336,9 +336,12 @@ func (dwdm *Dwdm) GetEntityData() *types.CommonEntityData {
     dwdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dwdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dwdm.EntityData.Children = make(map[string]types.YChild)
-    dwdm.EntityData.Children["ports"] = types.YChild{"Ports", &dwdm.Ports}
-    dwdm.EntityData.Leafs = make(map[string]types.YLeaf)
+    dwdm.EntityData.Children = types.NewOrderedMap()
+    dwdm.EntityData.Children.Append("ports", types.YChild{"Ports", &dwdm.Ports})
+    dwdm.EntityData.Leafs = types.NewOrderedMap()
+
+    dwdm.EntityData.YListKeys = []string {}
+
     return &(dwdm.EntityData)
 }
 
@@ -349,7 +352,7 @@ type Dwdm_Ports struct {
     YFilter yfilter.YFilter
 
     // DWDM Port operational data. The type is slice of Dwdm_Ports_Port.
-    Port []Dwdm_Ports_Port
+    Port []*Dwdm_Ports_Port
 }
 
 func (ports *Dwdm_Ports) GetEntityData() *types.CommonEntityData {
@@ -362,12 +365,15 @@ func (ports *Dwdm_Ports) GetEntityData() *types.CommonEntityData {
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ports.EntityData.Children = make(map[string]types.YChild)
-    ports.EntityData.Children["port"] = types.YChild{"Port", nil}
+    ports.EntityData.Children = types.NewOrderedMap()
+    ports.EntityData.Children.Append("port", types.YChild{"Port", nil})
     for i := range ports.Port {
-        ports.EntityData.Children[types.GetSegmentPath(&ports.Port[i])] = types.YChild{"Port", &ports.Port[i]}
+        ports.EntityData.Children.Append(types.GetSegmentPath(ports.Port[i]), types.YChild{"Port", ports.Port[i]})
     }
-    ports.EntityData.Leafs = make(map[string]types.YLeaf)
+    ports.EntityData.Leafs = types.NewOrderedMap()
+
+    ports.EntityData.YListKeys = []string {}
+
     return &(ports.EntityData)
 }
 
@@ -378,7 +384,7 @@ type Dwdm_Ports_Port struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Name interface{}
 
     // DWDM Port PRBS related data.
@@ -396,17 +402,20 @@ func (port *Dwdm_Ports_Port) GetEntityData() *types.CommonEntityData {
     port.EntityData.YangName = "port"
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "ports"
-    port.EntityData.SegmentPath = "port" + "[name='" + fmt.Sprintf("%v", port.Name) + "']"
+    port.EntityData.SegmentPath = "port" + types.AddKeyToken(port.Name, "name")
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    port.EntityData.Children = make(map[string]types.YChild)
-    port.EntityData.Children["prbs"] = types.YChild{"Prbs", &port.Prbs}
-    port.EntityData.Children["optics"] = types.YChild{"Optics", &port.Optics}
-    port.EntityData.Children["info"] = types.YChild{"Info", &port.Info}
-    port.EntityData.Leafs = make(map[string]types.YLeaf)
-    port.EntityData.Leafs["name"] = types.YLeaf{"Name", port.Name}
+    port.EntityData.Children = types.NewOrderedMap()
+    port.EntityData.Children.Append("prbs", types.YChild{"Prbs", &port.Prbs})
+    port.EntityData.Children.Append("optics", types.YChild{"Optics", &port.Optics})
+    port.EntityData.Children.Append("info", types.YChild{"Info", &port.Info})
+    port.EntityData.Leafs = types.NewOrderedMap()
+    port.EntityData.Leafs.Append("name", types.YLeaf{"Name", port.Name})
+
+    port.EntityData.YListKeys = []string {"Name"}
+
     return &(port.EntityData)
 }
 
@@ -433,10 +442,13 @@ func (prbs *Dwdm_Ports_Port_Prbs) GetEntityData() *types.CommonEntityData {
     prbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prbs.EntityData.Children = make(map[string]types.YChild)
-    prbs.EntityData.Children["twenty-four-hours-bucket"] = types.YChild{"TwentyFourHoursBucket", &prbs.TwentyFourHoursBucket}
-    prbs.EntityData.Children["fifteen-minutes-bucket"] = types.YChild{"FifteenMinutesBucket", &prbs.FifteenMinutesBucket}
-    prbs.EntityData.Leafs = make(map[string]types.YLeaf)
+    prbs.EntityData.Children = types.NewOrderedMap()
+    prbs.EntityData.Children.Append("twenty-four-hours-bucket", types.YChild{"TwentyFourHoursBucket", &prbs.TwentyFourHoursBucket})
+    prbs.EntityData.Children.Append("fifteen-minutes-bucket", types.YChild{"FifteenMinutesBucket", &prbs.FifteenMinutesBucket})
+    prbs.EntityData.Leafs = types.NewOrderedMap()
+
+    prbs.EntityData.YListKeys = []string {}
+
     return &(prbs.EntityData)
 }
 
@@ -460,9 +472,12 @@ func (twentyFourHoursBucket *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket) GetEnti
     twentyFourHoursBucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twentyFourHoursBucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    twentyFourHoursBucket.EntityData.Children = make(map[string]types.YChild)
-    twentyFourHoursBucket.EntityData.Children["twenty-four-hours-statistics"] = types.YChild{"TwentyFourHoursStatistics", &twentyFourHoursBucket.TwentyFourHoursStatistics}
-    twentyFourHoursBucket.EntityData.Leafs = make(map[string]types.YLeaf)
+    twentyFourHoursBucket.EntityData.Children = types.NewOrderedMap()
+    twentyFourHoursBucket.EntityData.Children.Append("twenty-four-hours-statistics", types.YChild{"TwentyFourHoursStatistics", &twentyFourHoursBucket.TwentyFourHoursStatistics})
+    twentyFourHoursBucket.EntityData.Leafs = types.NewOrderedMap()
+
+    twentyFourHoursBucket.EntityData.YListKeys = []string {}
+
     return &(twentyFourHoursBucket.EntityData)
 }
 
@@ -480,7 +495,7 @@ type Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_TwentyFourHoursStatistics struct
 
     // History consists of 15-minute/24-hour intervals. The type is slice of
     // Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_TwentyFourHoursStatistics_PrbsEntry.
-    PrbsEntry []Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_TwentyFourHoursStatistics_PrbsEntry
+    PrbsEntry []*Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_TwentyFourHoursStatistics_PrbsEntry
 }
 
 func (twentyFourHoursStatistics *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_TwentyFourHoursStatistics) GetEntityData() *types.CommonEntityData {
@@ -493,14 +508,17 @@ func (twentyFourHoursStatistics *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_Twen
     twentyFourHoursStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twentyFourHoursStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    twentyFourHoursStatistics.EntityData.Children = make(map[string]types.YChild)
-    twentyFourHoursStatistics.EntityData.Children["prbs-entry"] = types.YChild{"PrbsEntry", nil}
+    twentyFourHoursStatistics.EntityData.Children = types.NewOrderedMap()
+    twentyFourHoursStatistics.EntityData.Children.Append("prbs-entry", types.YChild{"PrbsEntry", nil})
     for i := range twentyFourHoursStatistics.PrbsEntry {
-        twentyFourHoursStatistics.EntityData.Children[types.GetSegmentPath(&twentyFourHoursStatistics.PrbsEntry[i])] = types.YChild{"PrbsEntry", &twentyFourHoursStatistics.PrbsEntry[i]}
+        twentyFourHoursStatistics.EntityData.Children.Append(types.GetSegmentPath(twentyFourHoursStatistics.PrbsEntry[i]), types.YChild{"PrbsEntry", twentyFourHoursStatistics.PrbsEntry[i]})
     }
-    twentyFourHoursStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    twentyFourHoursStatistics.EntityData.Leafs["is-prbs-enabled"] = types.YLeaf{"IsPrbsEnabled", twentyFourHoursStatistics.IsPrbsEnabled}
-    twentyFourHoursStatistics.EntityData.Leafs["prbs-config-mode"] = types.YLeaf{"PrbsConfigMode", twentyFourHoursStatistics.PrbsConfigMode}
+    twentyFourHoursStatistics.EntityData.Leafs = types.NewOrderedMap()
+    twentyFourHoursStatistics.EntityData.Leafs.Append("is-prbs-enabled", types.YLeaf{"IsPrbsEnabled", twentyFourHoursStatistics.IsPrbsEnabled})
+    twentyFourHoursStatistics.EntityData.Leafs.Append("prbs-config-mode", types.YLeaf{"PrbsConfigMode", twentyFourHoursStatistics.PrbsConfigMode})
+
+    twentyFourHoursStatistics.EntityData.YListKeys = []string {}
+
     return &(twentyFourHoursStatistics.EntityData)
 }
 
@@ -554,18 +572,21 @@ func (prbsEntry *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_TwentyFourHoursStati
     prbsEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prbsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prbsEntry.EntityData.Children = make(map[string]types.YChild)
-    prbsEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    prbsEntry.EntityData.Leafs["interval-index"] = types.YLeaf{"IntervalIndex", prbsEntry.IntervalIndex}
-    prbsEntry.EntityData.Leafs["configured-pattern"] = types.YLeaf{"ConfiguredPattern", prbsEntry.ConfiguredPattern}
-    prbsEntry.EntityData.Leafs["start-at"] = types.YLeaf{"StartAt", prbsEntry.StartAt}
-    prbsEntry.EntityData.Leafs["stop-at"] = types.YLeaf{"StopAt", prbsEntry.StopAt}
-    prbsEntry.EntityData.Leafs["received-pattern"] = types.YLeaf{"ReceivedPattern", prbsEntry.ReceivedPattern}
-    prbsEntry.EntityData.Leafs["bit-error-count"] = types.YLeaf{"BitErrorCount", prbsEntry.BitErrorCount}
-    prbsEntry.EntityData.Leafs["found-count"] = types.YLeaf{"FoundCount", prbsEntry.FoundCount}
-    prbsEntry.EntityData.Leafs["lost-count"] = types.YLeaf{"LostCount", prbsEntry.LostCount}
-    prbsEntry.EntityData.Leafs["found-at"] = types.YLeaf{"FoundAt", prbsEntry.FoundAt}
-    prbsEntry.EntityData.Leafs["lost-at"] = types.YLeaf{"LostAt", prbsEntry.LostAt}
+    prbsEntry.EntityData.Children = types.NewOrderedMap()
+    prbsEntry.EntityData.Leafs = types.NewOrderedMap()
+    prbsEntry.EntityData.Leafs.Append("interval-index", types.YLeaf{"IntervalIndex", prbsEntry.IntervalIndex})
+    prbsEntry.EntityData.Leafs.Append("configured-pattern", types.YLeaf{"ConfiguredPattern", prbsEntry.ConfiguredPattern})
+    prbsEntry.EntityData.Leafs.Append("start-at", types.YLeaf{"StartAt", prbsEntry.StartAt})
+    prbsEntry.EntityData.Leafs.Append("stop-at", types.YLeaf{"StopAt", prbsEntry.StopAt})
+    prbsEntry.EntityData.Leafs.Append("received-pattern", types.YLeaf{"ReceivedPattern", prbsEntry.ReceivedPattern})
+    prbsEntry.EntityData.Leafs.Append("bit-error-count", types.YLeaf{"BitErrorCount", prbsEntry.BitErrorCount})
+    prbsEntry.EntityData.Leafs.Append("found-count", types.YLeaf{"FoundCount", prbsEntry.FoundCount})
+    prbsEntry.EntityData.Leafs.Append("lost-count", types.YLeaf{"LostCount", prbsEntry.LostCount})
+    prbsEntry.EntityData.Leafs.Append("found-at", types.YLeaf{"FoundAt", prbsEntry.FoundAt})
+    prbsEntry.EntityData.Leafs.Append("lost-at", types.YLeaf{"LostAt", prbsEntry.LostAt})
+
+    prbsEntry.EntityData.YListKeys = []string {}
+
     return &(prbsEntry.EntityData)
 }
 
@@ -589,9 +610,12 @@ func (fifteenMinutesBucket *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket) GetEntity
     fifteenMinutesBucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fifteenMinutesBucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fifteenMinutesBucket.EntityData.Children = make(map[string]types.YChild)
-    fifteenMinutesBucket.EntityData.Children["fifteen-minutes-statistics"] = types.YChild{"FifteenMinutesStatistics", &fifteenMinutesBucket.FifteenMinutesStatistics}
-    fifteenMinutesBucket.EntityData.Leafs = make(map[string]types.YLeaf)
+    fifteenMinutesBucket.EntityData.Children = types.NewOrderedMap()
+    fifteenMinutesBucket.EntityData.Children.Append("fifteen-minutes-statistics", types.YChild{"FifteenMinutesStatistics", &fifteenMinutesBucket.FifteenMinutesStatistics})
+    fifteenMinutesBucket.EntityData.Leafs = types.NewOrderedMap()
+
+    fifteenMinutesBucket.EntityData.YListKeys = []string {}
+
     return &(fifteenMinutesBucket.EntityData)
 }
 
@@ -609,7 +633,7 @@ type Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_FifteenMinutesStatistics struct {
 
     // History consists of 15-minute/24-hour intervals. The type is slice of
     // Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_FifteenMinutesStatistics_PrbsEntry.
-    PrbsEntry []Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_FifteenMinutesStatistics_PrbsEntry
+    PrbsEntry []*Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_FifteenMinutesStatistics_PrbsEntry
 }
 
 func (fifteenMinutesStatistics *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_FifteenMinutesStatistics) GetEntityData() *types.CommonEntityData {
@@ -622,14 +646,17 @@ func (fifteenMinutesStatistics *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_Fiftee
     fifteenMinutesStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fifteenMinutesStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fifteenMinutesStatistics.EntityData.Children = make(map[string]types.YChild)
-    fifteenMinutesStatistics.EntityData.Children["prbs-entry"] = types.YChild{"PrbsEntry", nil}
+    fifteenMinutesStatistics.EntityData.Children = types.NewOrderedMap()
+    fifteenMinutesStatistics.EntityData.Children.Append("prbs-entry", types.YChild{"PrbsEntry", nil})
     for i := range fifteenMinutesStatistics.PrbsEntry {
-        fifteenMinutesStatistics.EntityData.Children[types.GetSegmentPath(&fifteenMinutesStatistics.PrbsEntry[i])] = types.YChild{"PrbsEntry", &fifteenMinutesStatistics.PrbsEntry[i]}
+        fifteenMinutesStatistics.EntityData.Children.Append(types.GetSegmentPath(fifteenMinutesStatistics.PrbsEntry[i]), types.YChild{"PrbsEntry", fifteenMinutesStatistics.PrbsEntry[i]})
     }
-    fifteenMinutesStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    fifteenMinutesStatistics.EntityData.Leafs["is-prbs-enabled"] = types.YLeaf{"IsPrbsEnabled", fifteenMinutesStatistics.IsPrbsEnabled}
-    fifteenMinutesStatistics.EntityData.Leafs["prbs-config-mode"] = types.YLeaf{"PrbsConfigMode", fifteenMinutesStatistics.PrbsConfigMode}
+    fifteenMinutesStatistics.EntityData.Leafs = types.NewOrderedMap()
+    fifteenMinutesStatistics.EntityData.Leafs.Append("is-prbs-enabled", types.YLeaf{"IsPrbsEnabled", fifteenMinutesStatistics.IsPrbsEnabled})
+    fifteenMinutesStatistics.EntityData.Leafs.Append("prbs-config-mode", types.YLeaf{"PrbsConfigMode", fifteenMinutesStatistics.PrbsConfigMode})
+
+    fifteenMinutesStatistics.EntityData.YListKeys = []string {}
+
     return &(fifteenMinutesStatistics.EntityData)
 }
 
@@ -683,18 +710,21 @@ func (prbsEntry *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_FifteenMinutesStatist
     prbsEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prbsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prbsEntry.EntityData.Children = make(map[string]types.YChild)
-    prbsEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    prbsEntry.EntityData.Leafs["interval-index"] = types.YLeaf{"IntervalIndex", prbsEntry.IntervalIndex}
-    prbsEntry.EntityData.Leafs["configured-pattern"] = types.YLeaf{"ConfiguredPattern", prbsEntry.ConfiguredPattern}
-    prbsEntry.EntityData.Leafs["start-at"] = types.YLeaf{"StartAt", prbsEntry.StartAt}
-    prbsEntry.EntityData.Leafs["stop-at"] = types.YLeaf{"StopAt", prbsEntry.StopAt}
-    prbsEntry.EntityData.Leafs["received-pattern"] = types.YLeaf{"ReceivedPattern", prbsEntry.ReceivedPattern}
-    prbsEntry.EntityData.Leafs["bit-error-count"] = types.YLeaf{"BitErrorCount", prbsEntry.BitErrorCount}
-    prbsEntry.EntityData.Leafs["found-count"] = types.YLeaf{"FoundCount", prbsEntry.FoundCount}
-    prbsEntry.EntityData.Leafs["lost-count"] = types.YLeaf{"LostCount", prbsEntry.LostCount}
-    prbsEntry.EntityData.Leafs["found-at"] = types.YLeaf{"FoundAt", prbsEntry.FoundAt}
-    prbsEntry.EntityData.Leafs["lost-at"] = types.YLeaf{"LostAt", prbsEntry.LostAt}
+    prbsEntry.EntityData.Children = types.NewOrderedMap()
+    prbsEntry.EntityData.Leafs = types.NewOrderedMap()
+    prbsEntry.EntityData.Leafs.Append("interval-index", types.YLeaf{"IntervalIndex", prbsEntry.IntervalIndex})
+    prbsEntry.EntityData.Leafs.Append("configured-pattern", types.YLeaf{"ConfiguredPattern", prbsEntry.ConfiguredPattern})
+    prbsEntry.EntityData.Leafs.Append("start-at", types.YLeaf{"StartAt", prbsEntry.StartAt})
+    prbsEntry.EntityData.Leafs.Append("stop-at", types.YLeaf{"StopAt", prbsEntry.StopAt})
+    prbsEntry.EntityData.Leafs.Append("received-pattern", types.YLeaf{"ReceivedPattern", prbsEntry.ReceivedPattern})
+    prbsEntry.EntityData.Leafs.Append("bit-error-count", types.YLeaf{"BitErrorCount", prbsEntry.BitErrorCount})
+    prbsEntry.EntityData.Leafs.Append("found-count", types.YLeaf{"FoundCount", prbsEntry.FoundCount})
+    prbsEntry.EntityData.Leafs.Append("lost-count", types.YLeaf{"LostCount", prbsEntry.LostCount})
+    prbsEntry.EntityData.Leafs.Append("found-at", types.YLeaf{"FoundAt", prbsEntry.FoundAt})
+    prbsEntry.EntityData.Leafs.Append("lost-at", types.YLeaf{"LostAt", prbsEntry.LostAt})
+
+    prbsEntry.EntityData.YListKeys = []string {}
+
     return &(prbsEntry.EntityData)
 }
 
@@ -718,9 +748,12 @@ func (optics *Dwdm_Ports_Port_Optics) GetEntityData() *types.CommonEntityData {
     optics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    optics.EntityData.Children = make(map[string]types.YChild)
-    optics.EntityData.Children["wave-info"] = types.YChild{"WaveInfo", &optics.WaveInfo}
-    optics.EntityData.Leafs = make(map[string]types.YLeaf)
+    optics.EntityData.Children = types.NewOrderedMap()
+    optics.EntityData.Children.Append("wave-info", types.YChild{"WaveInfo", &optics.WaveInfo})
+    optics.EntityData.Leafs = types.NewOrderedMap()
+
+    optics.EntityData.YListKeys = []string {}
+
     return &(optics.EntityData)
 }
 
@@ -752,11 +785,14 @@ func (waveInfo *Dwdm_Ports_Port_Optics_WaveInfo) GetEntityData() *types.CommonEn
     waveInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     waveInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    waveInfo.EntityData.Children = make(map[string]types.YChild)
-    waveInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    waveInfo.EntityData.Leafs["wave-band"] = types.YLeaf{"WaveBand", waveInfo.WaveBand}
-    waveInfo.EntityData.Leafs["wave-channel-min"] = types.YLeaf{"WaveChannelMin", waveInfo.WaveChannelMin}
-    waveInfo.EntityData.Leafs["wave-channel-max"] = types.YLeaf{"WaveChannelMax", waveInfo.WaveChannelMax}
+    waveInfo.EntityData.Children = types.NewOrderedMap()
+    waveInfo.EntityData.Leafs = types.NewOrderedMap()
+    waveInfo.EntityData.Leafs.Append("wave-band", types.YLeaf{"WaveBand", waveInfo.WaveBand})
+    waveInfo.EntityData.Leafs.Append("wave-channel-min", types.YLeaf{"WaveChannelMin", waveInfo.WaveChannelMin})
+    waveInfo.EntityData.Leafs.Append("wave-channel-max", types.YLeaf{"WaveChannelMax", waveInfo.WaveChannelMax})
+
+    waveInfo.EntityData.YListKeys = []string {}
+
     return &(waveInfo.EntityData)
 }
 
@@ -806,17 +842,20 @@ func (info *Dwdm_Ports_Port_Info) GetEntityData() *types.CommonEntityData {
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    info.EntityData.Children = make(map[string]types.YChild)
-    info.EntityData.Children["g709-info"] = types.YChild{"G709Info", &info.G709Info}
-    info.EntityData.Children["optics-info"] = types.YChild{"OpticsInfo", &info.OpticsInfo}
-    info.EntityData.Children["tdc-info"] = types.YChild{"TdcInfo", &info.TdcInfo}
-    info.EntityData.Children["network-srlg-info"] = types.YChild{"NetworkSrlgInfo", &info.NetworkSrlgInfo}
-    info.EntityData.Children["proactive"] = types.YChild{"Proactive", &info.Proactive}
-    info.EntityData.Children["signal-log"] = types.YChild{"SignalLog", &info.SignalLog}
-    info.EntityData.Leafs = make(map[string]types.YLeaf)
-    info.EntityData.Leafs["controller-state"] = types.YLeaf{"ControllerState", info.ControllerState}
-    info.EntityData.Leafs["transport-admin-state"] = types.YLeaf{"TransportAdminState", info.TransportAdminState}
-    info.EntityData.Leafs["slice-state"] = types.YLeaf{"SliceState", info.SliceState}
+    info.EntityData.Children = types.NewOrderedMap()
+    info.EntityData.Children.Append("g709-info", types.YChild{"G709Info", &info.G709Info})
+    info.EntityData.Children.Append("optics-info", types.YChild{"OpticsInfo", &info.OpticsInfo})
+    info.EntityData.Children.Append("tdc-info", types.YChild{"TdcInfo", &info.TdcInfo})
+    info.EntityData.Children.Append("network-srlg-info", types.YChild{"NetworkSrlgInfo", &info.NetworkSrlgInfo})
+    info.EntityData.Children.Append("proactive", types.YChild{"Proactive", &info.Proactive})
+    info.EntityData.Children.Append("signal-log", types.YChild{"SignalLog", &info.SignalLog})
+    info.EntityData.Leafs = types.NewOrderedMap()
+    info.EntityData.Leafs.Append("controller-state", types.YLeaf{"ControllerState", info.ControllerState})
+    info.EntityData.Leafs.Append("transport-admin-state", types.YLeaf{"TransportAdminState", info.TransportAdminState})
+    info.EntityData.Leafs.Append("slice-state", types.YLeaf{"SliceState", info.SliceState})
+
+    info.EntityData.YListKeys = []string {}
+
     return &(info.EntityData)
 }
 
@@ -929,35 +968,38 @@ func (g709Info *Dwdm_Ports_Port_Info_G709Info) GetEntityData() *types.CommonEnti
     g709Info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709Info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    g709Info.EntityData.Children = make(map[string]types.YChild)
-    g709Info.EntityData.Children["fec-mismatch"] = types.YChild{"FecMismatch", &g709Info.FecMismatch}
-    g709Info.EntityData.Children["ec-tca"] = types.YChild{"EcTca", &g709Info.EcTca}
-    g709Info.EntityData.Children["uc-tca"] = types.YChild{"UcTca", &g709Info.UcTca}
-    g709Info.EntityData.Children["otu-info"] = types.YChild{"OtuInfo", &g709Info.OtuInfo}
-    g709Info.EntityData.Children["odu-info"] = types.YChild{"OduInfo", &g709Info.OduInfo}
-    g709Info.EntityData.Leafs = make(map[string]types.YLeaf)
-    g709Info.EntityData.Leafs["is-g709-enabled"] = types.YLeaf{"IsG709Enabled", g709Info.IsG709Enabled}
-    g709Info.EntityData.Leafs["is-fec-mode-default"] = types.YLeaf{"IsFecModeDefault", g709Info.IsFecModeDefault}
-    g709Info.EntityData.Leafs["fec-mode"] = types.YLeaf{"FecMode", g709Info.FecMode}
-    g709Info.EntityData.Leafs["remote-fec-mode"] = types.YLeaf{"RemoteFecMode", g709Info.RemoteFecMode}
-    g709Info.EntityData.Leafs["efec-mode"] = types.YLeaf{"EfecMode", g709Info.EfecMode}
-    g709Info.EntityData.Leafs["loopback-mode"] = types.YLeaf{"LoopbackMode", g709Info.LoopbackMode}
-    g709Info.EntityData.Leafs["ec"] = types.YLeaf{"Ec", g709Info.Ec}
-    g709Info.EntityData.Leafs["ec-accum"] = types.YLeaf{"EcAccum", g709Info.EcAccum}
-    g709Info.EntityData.Leafs["uc"] = types.YLeaf{"Uc", g709Info.Uc}
-    g709Info.EntityData.Leafs["fec-ber"] = types.YLeaf{"FecBer", g709Info.FecBer}
-    g709Info.EntityData.Leafs["fec-ber-man"] = types.YLeaf{"FecBerMan", g709Info.FecBerMan}
-    g709Info.EntityData.Leafs["q"] = types.YLeaf{"Q", g709Info.Q}
-    g709Info.EntityData.Leafs["q-margin"] = types.YLeaf{"QMargin", g709Info.QMargin}
-    g709Info.EntityData.Leafs["fe-cstr"] = types.YLeaf{"FeCstr", g709Info.FeCstr}
-    g709Info.EntityData.Leafs["qstr"] = types.YLeaf{"Qstr", g709Info.Qstr}
-    g709Info.EntityData.Leafs["qmargin-str"] = types.YLeaf{"QmarginStr", g709Info.QmarginStr}
-    g709Info.EntityData.Leafs["network-port-id"] = types.YLeaf{"NetworkPortId", g709Info.NetworkPortId}
-    g709Info.EntityData.Leafs["network-conn-id"] = types.YLeaf{"NetworkConnId", g709Info.NetworkConnId}
-    g709Info.EntityData.Leafs["is-prbs-enabled"] = types.YLeaf{"IsPrbsEnabled", g709Info.IsPrbsEnabled}
-    g709Info.EntityData.Leafs["g709-prbs-mode"] = types.YLeaf{"G709PrbsMode", g709Info.G709PrbsMode}
-    g709Info.EntityData.Leafs["g709-prbs-pattern"] = types.YLeaf{"G709PrbsPattern", g709Info.G709PrbsPattern}
-    g709Info.EntityData.Leafs["prbs-time-stamp"] = types.YLeaf{"PrbsTimeStamp", g709Info.PrbsTimeStamp}
+    g709Info.EntityData.Children = types.NewOrderedMap()
+    g709Info.EntityData.Children.Append("fec-mismatch", types.YChild{"FecMismatch", &g709Info.FecMismatch})
+    g709Info.EntityData.Children.Append("ec-tca", types.YChild{"EcTca", &g709Info.EcTca})
+    g709Info.EntityData.Children.Append("uc-tca", types.YChild{"UcTca", &g709Info.UcTca})
+    g709Info.EntityData.Children.Append("otu-info", types.YChild{"OtuInfo", &g709Info.OtuInfo})
+    g709Info.EntityData.Children.Append("odu-info", types.YChild{"OduInfo", &g709Info.OduInfo})
+    g709Info.EntityData.Leafs = types.NewOrderedMap()
+    g709Info.EntityData.Leafs.Append("is-g709-enabled", types.YLeaf{"IsG709Enabled", g709Info.IsG709Enabled})
+    g709Info.EntityData.Leafs.Append("is-fec-mode-default", types.YLeaf{"IsFecModeDefault", g709Info.IsFecModeDefault})
+    g709Info.EntityData.Leafs.Append("fec-mode", types.YLeaf{"FecMode", g709Info.FecMode})
+    g709Info.EntityData.Leafs.Append("remote-fec-mode", types.YLeaf{"RemoteFecMode", g709Info.RemoteFecMode})
+    g709Info.EntityData.Leafs.Append("efec-mode", types.YLeaf{"EfecMode", g709Info.EfecMode})
+    g709Info.EntityData.Leafs.Append("loopback-mode", types.YLeaf{"LoopbackMode", g709Info.LoopbackMode})
+    g709Info.EntityData.Leafs.Append("ec", types.YLeaf{"Ec", g709Info.Ec})
+    g709Info.EntityData.Leafs.Append("ec-accum", types.YLeaf{"EcAccum", g709Info.EcAccum})
+    g709Info.EntityData.Leafs.Append("uc", types.YLeaf{"Uc", g709Info.Uc})
+    g709Info.EntityData.Leafs.Append("fec-ber", types.YLeaf{"FecBer", g709Info.FecBer})
+    g709Info.EntityData.Leafs.Append("fec-ber-man", types.YLeaf{"FecBerMan", g709Info.FecBerMan})
+    g709Info.EntityData.Leafs.Append("q", types.YLeaf{"Q", g709Info.Q})
+    g709Info.EntityData.Leafs.Append("q-margin", types.YLeaf{"QMargin", g709Info.QMargin})
+    g709Info.EntityData.Leafs.Append("fe-cstr", types.YLeaf{"FeCstr", g709Info.FeCstr})
+    g709Info.EntityData.Leafs.Append("qstr", types.YLeaf{"Qstr", g709Info.Qstr})
+    g709Info.EntityData.Leafs.Append("qmargin-str", types.YLeaf{"QmarginStr", g709Info.QmarginStr})
+    g709Info.EntityData.Leafs.Append("network-port-id", types.YLeaf{"NetworkPortId", g709Info.NetworkPortId})
+    g709Info.EntityData.Leafs.Append("network-conn-id", types.YLeaf{"NetworkConnId", g709Info.NetworkConnId})
+    g709Info.EntityData.Leafs.Append("is-prbs-enabled", types.YLeaf{"IsPrbsEnabled", g709Info.IsPrbsEnabled})
+    g709Info.EntityData.Leafs.Append("g709-prbs-mode", types.YLeaf{"G709PrbsMode", g709Info.G709PrbsMode})
+    g709Info.EntityData.Leafs.Append("g709-prbs-pattern", types.YLeaf{"G709PrbsPattern", g709Info.G709PrbsPattern})
+    g709Info.EntityData.Leafs.Append("prbs-time-stamp", types.YLeaf{"PrbsTimeStamp", g709Info.PrbsTimeStamp})
+
+    g709Info.EntityData.YListKeys = []string {}
+
     return &(g709Info.EntityData)
 }
 
@@ -990,12 +1032,15 @@ func (fecMismatch *Dwdm_Ports_Port_Info_G709Info_FecMismatch) GetEntityData() *t
     fecMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fecMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fecMismatch.EntityData.Children = make(map[string]types.YChild)
-    fecMismatch.EntityData.Leafs = make(map[string]types.YLeaf)
-    fecMismatch.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", fecMismatch.ReportingEnabled}
-    fecMismatch.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", fecMismatch.IsDetected}
-    fecMismatch.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", fecMismatch.IsAsserted}
-    fecMismatch.EntityData.Leafs["counter"] = types.YLeaf{"Counter", fecMismatch.Counter}
+    fecMismatch.EntityData.Children = types.NewOrderedMap()
+    fecMismatch.EntityData.Leafs = types.NewOrderedMap()
+    fecMismatch.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", fecMismatch.ReportingEnabled})
+    fecMismatch.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", fecMismatch.IsDetected})
+    fecMismatch.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", fecMismatch.IsAsserted})
+    fecMismatch.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", fecMismatch.Counter})
+
+    fecMismatch.EntityData.YListKeys = []string {}
+
     return &(fecMismatch.EntityData)
 }
 
@@ -1032,13 +1077,16 @@ func (ecTca *Dwdm_Ports_Port_Info_G709Info_EcTca) GetEntityData() *types.CommonE
     ecTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ecTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ecTca.EntityData.Children = make(map[string]types.YChild)
-    ecTca.EntityData.Leafs = make(map[string]types.YLeaf)
-    ecTca.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", ecTca.ReportingEnabled}
-    ecTca.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ecTca.IsDetected}
-    ecTca.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", ecTca.IsAsserted}
-    ecTca.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", ecTca.Threshold}
-    ecTca.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ecTca.Counter}
+    ecTca.EntityData.Children = types.NewOrderedMap()
+    ecTca.EntityData.Leafs = types.NewOrderedMap()
+    ecTca.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", ecTca.ReportingEnabled})
+    ecTca.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ecTca.IsDetected})
+    ecTca.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", ecTca.IsAsserted})
+    ecTca.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", ecTca.Threshold})
+    ecTca.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ecTca.Counter})
+
+    ecTca.EntityData.YListKeys = []string {}
+
     return &(ecTca.EntityData)
 }
 
@@ -1075,13 +1123,16 @@ func (ucTca *Dwdm_Ports_Port_Info_G709Info_UcTca) GetEntityData() *types.CommonE
     ucTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ucTca.EntityData.Children = make(map[string]types.YChild)
-    ucTca.EntityData.Leafs = make(map[string]types.YLeaf)
-    ucTca.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", ucTca.ReportingEnabled}
-    ucTca.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ucTca.IsDetected}
-    ucTca.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", ucTca.IsAsserted}
-    ucTca.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", ucTca.Threshold}
-    ucTca.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ucTca.Counter}
+    ucTca.EntityData.Children = types.NewOrderedMap()
+    ucTca.EntityData.Leafs = types.NewOrderedMap()
+    ucTca.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", ucTca.ReportingEnabled})
+    ucTca.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ucTca.IsDetected})
+    ucTca.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", ucTca.IsAsserted})
+    ucTca.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", ucTca.Threshold})
+    ucTca.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ucTca.Counter})
+
+    ucTca.EntityData.YListKeys = []string {}
+
     return &(ucTca.EntityData)
 }
 
@@ -1185,35 +1236,38 @@ func (otuInfo *Dwdm_Ports_Port_Info_G709Info_OtuInfo) GetEntityData() *types.Com
     otuInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otuInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otuInfo.EntityData.Children = make(map[string]types.YChild)
-    otuInfo.EntityData.Children["los"] = types.YChild{"Los", &otuInfo.Los}
-    otuInfo.EntityData.Children["lof"] = types.YChild{"Lof", &otuInfo.Lof}
-    otuInfo.EntityData.Children["lom"] = types.YChild{"Lom", &otuInfo.Lom}
-    otuInfo.EntityData.Children["oof"] = types.YChild{"Oof", &otuInfo.Oof}
-    otuInfo.EntityData.Children["oom"] = types.YChild{"Oom", &otuInfo.Oom}
-    otuInfo.EntityData.Children["ais"] = types.YChild{"Ais", &otuInfo.Ais}
-    otuInfo.EntityData.Children["iae"] = types.YChild{"Iae", &otuInfo.Iae}
-    otuInfo.EntityData.Children["bdi"] = types.YChild{"Bdi", &otuInfo.Bdi}
-    otuInfo.EntityData.Children["tim"] = types.YChild{"Tim", &otuInfo.Tim}
-    otuInfo.EntityData.Children["eoc"] = types.YChild{"Eoc", &otuInfo.Eoc}
-    otuInfo.EntityData.Children["sf-ber"] = types.YChild{"SfBer", &otuInfo.SfBer}
-    otuInfo.EntityData.Children["sd-ber"] = types.YChild{"SdBer", &otuInfo.SdBer}
-    otuInfo.EntityData.Children["prefec-sf-ber"] = types.YChild{"PrefecSfBer", &otuInfo.PrefecSfBer}
-    otuInfo.EntityData.Children["prefec-sd-ber"] = types.YChild{"PrefecSdBer", &otuInfo.PrefecSdBer}
-    otuInfo.EntityData.Children["bbe-tca"] = types.YChild{"BbeTca", &otuInfo.BbeTca}
-    otuInfo.EntityData.Children["es-tca"] = types.YChild{"EsTca", &otuInfo.EsTca}
-    otuInfo.EntityData.Children["bbe"] = types.YChild{"Bbe", &otuInfo.Bbe}
-    otuInfo.EntityData.Children["es"] = types.YChild{"Es", &otuInfo.Es}
-    otuInfo.EntityData.Children["ses"] = types.YChild{"Ses", &otuInfo.Ses}
-    otuInfo.EntityData.Children["uas"] = types.YChild{"Uas", &otuInfo.Uas}
-    otuInfo.EntityData.Children["fc"] = types.YChild{"Fc", &otuInfo.Fc}
-    otuInfo.EntityData.Children["bber"] = types.YChild{"Bber", &otuInfo.Bber}
-    otuInfo.EntityData.Children["esr"] = types.YChild{"Esr", &otuInfo.Esr}
-    otuInfo.EntityData.Children["sesr"] = types.YChild{"Sesr", &otuInfo.Sesr}
-    otuInfo.EntityData.Children["tti"] = types.YChild{"Tti", &otuInfo.Tti}
-    otuInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    otuInfo.EntityData.Leafs["bei"] = types.YLeaf{"Bei", otuInfo.Bei}
-    otuInfo.EntityData.Leafs["bip"] = types.YLeaf{"Bip", otuInfo.Bip}
+    otuInfo.EntityData.Children = types.NewOrderedMap()
+    otuInfo.EntityData.Children.Append("los", types.YChild{"Los", &otuInfo.Los})
+    otuInfo.EntityData.Children.Append("lof", types.YChild{"Lof", &otuInfo.Lof})
+    otuInfo.EntityData.Children.Append("lom", types.YChild{"Lom", &otuInfo.Lom})
+    otuInfo.EntityData.Children.Append("oof", types.YChild{"Oof", &otuInfo.Oof})
+    otuInfo.EntityData.Children.Append("oom", types.YChild{"Oom", &otuInfo.Oom})
+    otuInfo.EntityData.Children.Append("ais", types.YChild{"Ais", &otuInfo.Ais})
+    otuInfo.EntityData.Children.Append("iae", types.YChild{"Iae", &otuInfo.Iae})
+    otuInfo.EntityData.Children.Append("bdi", types.YChild{"Bdi", &otuInfo.Bdi})
+    otuInfo.EntityData.Children.Append("tim", types.YChild{"Tim", &otuInfo.Tim})
+    otuInfo.EntityData.Children.Append("eoc", types.YChild{"Eoc", &otuInfo.Eoc})
+    otuInfo.EntityData.Children.Append("sf-ber", types.YChild{"SfBer", &otuInfo.SfBer})
+    otuInfo.EntityData.Children.Append("sd-ber", types.YChild{"SdBer", &otuInfo.SdBer})
+    otuInfo.EntityData.Children.Append("prefec-sf-ber", types.YChild{"PrefecSfBer", &otuInfo.PrefecSfBer})
+    otuInfo.EntityData.Children.Append("prefec-sd-ber", types.YChild{"PrefecSdBer", &otuInfo.PrefecSdBer})
+    otuInfo.EntityData.Children.Append("bbe-tca", types.YChild{"BbeTca", &otuInfo.BbeTca})
+    otuInfo.EntityData.Children.Append("es-tca", types.YChild{"EsTca", &otuInfo.EsTca})
+    otuInfo.EntityData.Children.Append("bbe", types.YChild{"Bbe", &otuInfo.Bbe})
+    otuInfo.EntityData.Children.Append("es", types.YChild{"Es", &otuInfo.Es})
+    otuInfo.EntityData.Children.Append("ses", types.YChild{"Ses", &otuInfo.Ses})
+    otuInfo.EntityData.Children.Append("uas", types.YChild{"Uas", &otuInfo.Uas})
+    otuInfo.EntityData.Children.Append("fc", types.YChild{"Fc", &otuInfo.Fc})
+    otuInfo.EntityData.Children.Append("bber", types.YChild{"Bber", &otuInfo.Bber})
+    otuInfo.EntityData.Children.Append("esr", types.YChild{"Esr", &otuInfo.Esr})
+    otuInfo.EntityData.Children.Append("sesr", types.YChild{"Sesr", &otuInfo.Sesr})
+    otuInfo.EntityData.Children.Append("tti", types.YChild{"Tti", &otuInfo.Tti})
+    otuInfo.EntityData.Leafs = types.NewOrderedMap()
+    otuInfo.EntityData.Leafs.Append("bei", types.YLeaf{"Bei", otuInfo.Bei})
+    otuInfo.EntityData.Leafs.Append("bip", types.YLeaf{"Bip", otuInfo.Bip})
+
+    otuInfo.EntityData.YListKeys = []string {}
+
     return &(otuInfo.EntityData)
 }
 
@@ -1246,12 +1300,15 @@ func (los *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Los) GetEntityData() *types.Com
     los.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     los.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    los.EntityData.Children = make(map[string]types.YChild)
-    los.EntityData.Leafs = make(map[string]types.YLeaf)
-    los.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", los.ReportingEnabled}
-    los.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", los.IsDetected}
-    los.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", los.IsAsserted}
-    los.EntityData.Leafs["counter"] = types.YLeaf{"Counter", los.Counter}
+    los.EntityData.Children = types.NewOrderedMap()
+    los.EntityData.Leafs = types.NewOrderedMap()
+    los.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", los.ReportingEnabled})
+    los.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", los.IsDetected})
+    los.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", los.IsAsserted})
+    los.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", los.Counter})
+
+    los.EntityData.YListKeys = []string {}
+
     return &(los.EntityData)
 }
 
@@ -1284,12 +1341,15 @@ func (lof *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Lof) GetEntityData() *types.Com
     lof.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lof.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lof.EntityData.Children = make(map[string]types.YChild)
-    lof.EntityData.Leafs = make(map[string]types.YLeaf)
-    lof.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", lof.ReportingEnabled}
-    lof.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lof.IsDetected}
-    lof.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", lof.IsAsserted}
-    lof.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lof.Counter}
+    lof.EntityData.Children = types.NewOrderedMap()
+    lof.EntityData.Leafs = types.NewOrderedMap()
+    lof.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", lof.ReportingEnabled})
+    lof.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lof.IsDetected})
+    lof.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", lof.IsAsserted})
+    lof.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lof.Counter})
+
+    lof.EntityData.YListKeys = []string {}
+
     return &(lof.EntityData)
 }
 
@@ -1322,12 +1382,15 @@ func (lom *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Lom) GetEntityData() *types.Com
     lom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lom.EntityData.Children = make(map[string]types.YChild)
-    lom.EntityData.Leafs = make(map[string]types.YLeaf)
-    lom.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", lom.ReportingEnabled}
-    lom.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lom.IsDetected}
-    lom.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", lom.IsAsserted}
-    lom.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lom.Counter}
+    lom.EntityData.Children = types.NewOrderedMap()
+    lom.EntityData.Leafs = types.NewOrderedMap()
+    lom.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", lom.ReportingEnabled})
+    lom.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lom.IsDetected})
+    lom.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", lom.IsAsserted})
+    lom.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lom.Counter})
+
+    lom.EntityData.YListKeys = []string {}
+
     return &(lom.EntityData)
 }
 
@@ -1360,12 +1423,15 @@ func (oof *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Oof) GetEntityData() *types.Com
     oof.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oof.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oof.EntityData.Children = make(map[string]types.YChild)
-    oof.EntityData.Leafs = make(map[string]types.YLeaf)
-    oof.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", oof.ReportingEnabled}
-    oof.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", oof.IsDetected}
-    oof.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", oof.IsAsserted}
-    oof.EntityData.Leafs["counter"] = types.YLeaf{"Counter", oof.Counter}
+    oof.EntityData.Children = types.NewOrderedMap()
+    oof.EntityData.Leafs = types.NewOrderedMap()
+    oof.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", oof.ReportingEnabled})
+    oof.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", oof.IsDetected})
+    oof.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", oof.IsAsserted})
+    oof.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", oof.Counter})
+
+    oof.EntityData.YListKeys = []string {}
+
     return &(oof.EntityData)
 }
 
@@ -1398,12 +1464,15 @@ func (oom *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Oom) GetEntityData() *types.Com
     oom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oom.EntityData.Children = make(map[string]types.YChild)
-    oom.EntityData.Leafs = make(map[string]types.YLeaf)
-    oom.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", oom.ReportingEnabled}
-    oom.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", oom.IsDetected}
-    oom.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", oom.IsAsserted}
-    oom.EntityData.Leafs["counter"] = types.YLeaf{"Counter", oom.Counter}
+    oom.EntityData.Children = types.NewOrderedMap()
+    oom.EntityData.Leafs = types.NewOrderedMap()
+    oom.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", oom.ReportingEnabled})
+    oom.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", oom.IsDetected})
+    oom.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", oom.IsAsserted})
+    oom.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", oom.Counter})
+
+    oom.EntityData.YListKeys = []string {}
+
     return &(oom.EntityData)
 }
 
@@ -1436,12 +1505,15 @@ func (ais *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Ais) GetEntityData() *types.Com
     ais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ais.EntityData.Children = make(map[string]types.YChild)
-    ais.EntityData.Leafs = make(map[string]types.YLeaf)
-    ais.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", ais.ReportingEnabled}
-    ais.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ais.IsDetected}
-    ais.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", ais.IsAsserted}
-    ais.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ais.Counter}
+    ais.EntityData.Children = types.NewOrderedMap()
+    ais.EntityData.Leafs = types.NewOrderedMap()
+    ais.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", ais.ReportingEnabled})
+    ais.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ais.IsDetected})
+    ais.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", ais.IsAsserted})
+    ais.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ais.Counter})
+
+    ais.EntityData.YListKeys = []string {}
+
     return &(ais.EntityData)
 }
 
@@ -1474,12 +1546,15 @@ func (iae *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Iae) GetEntityData() *types.Com
     iae.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iae.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    iae.EntityData.Children = make(map[string]types.YChild)
-    iae.EntityData.Leafs = make(map[string]types.YLeaf)
-    iae.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", iae.ReportingEnabled}
-    iae.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", iae.IsDetected}
-    iae.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", iae.IsAsserted}
-    iae.EntityData.Leafs["counter"] = types.YLeaf{"Counter", iae.Counter}
+    iae.EntityData.Children = types.NewOrderedMap()
+    iae.EntityData.Leafs = types.NewOrderedMap()
+    iae.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", iae.ReportingEnabled})
+    iae.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", iae.IsDetected})
+    iae.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", iae.IsAsserted})
+    iae.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", iae.Counter})
+
+    iae.EntityData.YListKeys = []string {}
+
     return &(iae.EntityData)
 }
 
@@ -1512,12 +1587,15 @@ func (bdi *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Bdi) GetEntityData() *types.Com
     bdi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bdi.EntityData.Children = make(map[string]types.YChild)
-    bdi.EntityData.Leafs = make(map[string]types.YLeaf)
-    bdi.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", bdi.ReportingEnabled}
-    bdi.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", bdi.IsDetected}
-    bdi.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", bdi.IsAsserted}
-    bdi.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bdi.Counter}
+    bdi.EntityData.Children = types.NewOrderedMap()
+    bdi.EntityData.Leafs = types.NewOrderedMap()
+    bdi.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", bdi.ReportingEnabled})
+    bdi.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", bdi.IsDetected})
+    bdi.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", bdi.IsAsserted})
+    bdi.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", bdi.Counter})
+
+    bdi.EntityData.YListKeys = []string {}
+
     return &(bdi.EntityData)
 }
 
@@ -1550,12 +1628,15 @@ func (tim *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Tim) GetEntityData() *types.Com
     tim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tim.EntityData.Children = make(map[string]types.YChild)
-    tim.EntityData.Leafs = make(map[string]types.YLeaf)
-    tim.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", tim.ReportingEnabled}
-    tim.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", tim.IsDetected}
-    tim.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", tim.IsAsserted}
-    tim.EntityData.Leafs["counter"] = types.YLeaf{"Counter", tim.Counter}
+    tim.EntityData.Children = types.NewOrderedMap()
+    tim.EntityData.Leafs = types.NewOrderedMap()
+    tim.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", tim.ReportingEnabled})
+    tim.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", tim.IsDetected})
+    tim.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", tim.IsAsserted})
+    tim.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", tim.Counter})
+
+    tim.EntityData.YListKeys = []string {}
+
     return &(tim.EntityData)
 }
 
@@ -1588,12 +1669,15 @@ func (eoc *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Eoc) GetEntityData() *types.Com
     eoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eoc.EntityData.Children = make(map[string]types.YChild)
-    eoc.EntityData.Leafs = make(map[string]types.YLeaf)
-    eoc.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", eoc.ReportingEnabled}
-    eoc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", eoc.IsDetected}
-    eoc.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", eoc.IsAsserted}
-    eoc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", eoc.Counter}
+    eoc.EntityData.Children = types.NewOrderedMap()
+    eoc.EntityData.Leafs = types.NewOrderedMap()
+    eoc.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", eoc.ReportingEnabled})
+    eoc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", eoc.IsDetected})
+    eoc.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", eoc.IsAsserted})
+    eoc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", eoc.Counter})
+
+    eoc.EntityData.YListKeys = []string {}
+
     return &(eoc.EntityData)
 }
 
@@ -1630,13 +1714,16 @@ func (sfBer *Dwdm_Ports_Port_Info_G709Info_OtuInfo_SfBer) GetEntityData() *types
     sfBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfBer.EntityData.Children = make(map[string]types.YChild)
-    sfBer.EntityData.Leafs = make(map[string]types.YLeaf)
-    sfBer.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", sfBer.ReportingEnabled}
-    sfBer.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", sfBer.IsDetected}
-    sfBer.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", sfBer.IsAsserted}
-    sfBer.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", sfBer.Threshold}
-    sfBer.EntityData.Leafs["counter"] = types.YLeaf{"Counter", sfBer.Counter}
+    sfBer.EntityData.Children = types.NewOrderedMap()
+    sfBer.EntityData.Leafs = types.NewOrderedMap()
+    sfBer.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", sfBer.ReportingEnabled})
+    sfBer.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", sfBer.IsDetected})
+    sfBer.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", sfBer.IsAsserted})
+    sfBer.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", sfBer.Threshold})
+    sfBer.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", sfBer.Counter})
+
+    sfBer.EntityData.YListKeys = []string {}
+
     return &(sfBer.EntityData)
 }
 
@@ -1673,13 +1760,16 @@ func (sdBer *Dwdm_Ports_Port_Info_G709Info_OtuInfo_SdBer) GetEntityData() *types
     sdBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdBer.EntityData.Children = make(map[string]types.YChild)
-    sdBer.EntityData.Leafs = make(map[string]types.YLeaf)
-    sdBer.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", sdBer.ReportingEnabled}
-    sdBer.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", sdBer.IsDetected}
-    sdBer.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", sdBer.IsAsserted}
-    sdBer.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", sdBer.Threshold}
-    sdBer.EntityData.Leafs["counter"] = types.YLeaf{"Counter", sdBer.Counter}
+    sdBer.EntityData.Children = types.NewOrderedMap()
+    sdBer.EntityData.Leafs = types.NewOrderedMap()
+    sdBer.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", sdBer.ReportingEnabled})
+    sdBer.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", sdBer.IsDetected})
+    sdBer.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", sdBer.IsAsserted})
+    sdBer.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", sdBer.Threshold})
+    sdBer.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", sdBer.Counter})
+
+    sdBer.EntityData.YListKeys = []string {}
+
     return &(sdBer.EntityData)
 }
 
@@ -1716,13 +1806,16 @@ func (prefecSfBer *Dwdm_Ports_Port_Info_G709Info_OtuInfo_PrefecSfBer) GetEntityD
     prefecSfBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefecSfBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefecSfBer.EntityData.Children = make(map[string]types.YChild)
-    prefecSfBer.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefecSfBer.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", prefecSfBer.ReportingEnabled}
-    prefecSfBer.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", prefecSfBer.IsDetected}
-    prefecSfBer.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", prefecSfBer.IsAsserted}
-    prefecSfBer.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", prefecSfBer.Threshold}
-    prefecSfBer.EntityData.Leafs["counter"] = types.YLeaf{"Counter", prefecSfBer.Counter}
+    prefecSfBer.EntityData.Children = types.NewOrderedMap()
+    prefecSfBer.EntityData.Leafs = types.NewOrderedMap()
+    prefecSfBer.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", prefecSfBer.ReportingEnabled})
+    prefecSfBer.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", prefecSfBer.IsDetected})
+    prefecSfBer.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", prefecSfBer.IsAsserted})
+    prefecSfBer.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", prefecSfBer.Threshold})
+    prefecSfBer.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", prefecSfBer.Counter})
+
+    prefecSfBer.EntityData.YListKeys = []string {}
+
     return &(prefecSfBer.EntityData)
 }
 
@@ -1759,13 +1852,16 @@ func (prefecSdBer *Dwdm_Ports_Port_Info_G709Info_OtuInfo_PrefecSdBer) GetEntityD
     prefecSdBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefecSdBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefecSdBer.EntityData.Children = make(map[string]types.YChild)
-    prefecSdBer.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefecSdBer.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", prefecSdBer.ReportingEnabled}
-    prefecSdBer.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", prefecSdBer.IsDetected}
-    prefecSdBer.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", prefecSdBer.IsAsserted}
-    prefecSdBer.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", prefecSdBer.Threshold}
-    prefecSdBer.EntityData.Leafs["counter"] = types.YLeaf{"Counter", prefecSdBer.Counter}
+    prefecSdBer.EntityData.Children = types.NewOrderedMap()
+    prefecSdBer.EntityData.Leafs = types.NewOrderedMap()
+    prefecSdBer.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", prefecSdBer.ReportingEnabled})
+    prefecSdBer.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", prefecSdBer.IsDetected})
+    prefecSdBer.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", prefecSdBer.IsAsserted})
+    prefecSdBer.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", prefecSdBer.Threshold})
+    prefecSdBer.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", prefecSdBer.Counter})
+
+    prefecSdBer.EntityData.YListKeys = []string {}
+
     return &(prefecSdBer.EntityData)
 }
 
@@ -1802,13 +1898,16 @@ func (bbeTca *Dwdm_Ports_Port_Info_G709Info_OtuInfo_BbeTca) GetEntityData() *typ
     bbeTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bbeTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bbeTca.EntityData.Children = make(map[string]types.YChild)
-    bbeTca.EntityData.Leafs = make(map[string]types.YLeaf)
-    bbeTca.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", bbeTca.ReportingEnabled}
-    bbeTca.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", bbeTca.IsDetected}
-    bbeTca.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", bbeTca.IsAsserted}
-    bbeTca.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", bbeTca.Threshold}
-    bbeTca.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bbeTca.Counter}
+    bbeTca.EntityData.Children = types.NewOrderedMap()
+    bbeTca.EntityData.Leafs = types.NewOrderedMap()
+    bbeTca.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", bbeTca.ReportingEnabled})
+    bbeTca.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", bbeTca.IsDetected})
+    bbeTca.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", bbeTca.IsAsserted})
+    bbeTca.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", bbeTca.Threshold})
+    bbeTca.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", bbeTca.Counter})
+
+    bbeTca.EntityData.YListKeys = []string {}
+
     return &(bbeTca.EntityData)
 }
 
@@ -1845,13 +1944,16 @@ func (esTca *Dwdm_Ports_Port_Info_G709Info_OtuInfo_EsTca) GetEntityData() *types
     esTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    esTca.EntityData.Children = make(map[string]types.YChild)
-    esTca.EntityData.Leafs = make(map[string]types.YLeaf)
-    esTca.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", esTca.ReportingEnabled}
-    esTca.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", esTca.IsDetected}
-    esTca.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", esTca.IsAsserted}
-    esTca.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", esTca.Threshold}
-    esTca.EntityData.Leafs["counter"] = types.YLeaf{"Counter", esTca.Counter}
+    esTca.EntityData.Children = types.NewOrderedMap()
+    esTca.EntityData.Leafs = types.NewOrderedMap()
+    esTca.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", esTca.ReportingEnabled})
+    esTca.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", esTca.IsDetected})
+    esTca.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", esTca.IsAsserted})
+    esTca.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", esTca.Threshold})
+    esTca.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", esTca.Counter})
+
+    esTca.EntityData.YListKeys = []string {}
+
     return &(esTca.EntityData)
 }
 
@@ -1876,9 +1978,12 @@ func (bbe *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Bbe) GetEntityData() *types.Com
     bbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bbe.EntityData.Children = make(map[string]types.YChild)
-    bbe.EntityData.Leafs = make(map[string]types.YLeaf)
-    bbe.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bbe.Counter}
+    bbe.EntityData.Children = types.NewOrderedMap()
+    bbe.EntityData.Leafs = types.NewOrderedMap()
+    bbe.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", bbe.Counter})
+
+    bbe.EntityData.YListKeys = []string {}
+
     return &(bbe.EntityData)
 }
 
@@ -1903,9 +2008,12 @@ func (es *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Es) GetEntityData() *types.Commo
     es.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     es.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    es.EntityData.Children = make(map[string]types.YChild)
-    es.EntityData.Leafs = make(map[string]types.YLeaf)
-    es.EntityData.Leafs["counter"] = types.YLeaf{"Counter", es.Counter}
+    es.EntityData.Children = types.NewOrderedMap()
+    es.EntityData.Leafs = types.NewOrderedMap()
+    es.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", es.Counter})
+
+    es.EntityData.YListKeys = []string {}
+
     return &(es.EntityData)
 }
 
@@ -1930,9 +2038,12 @@ func (ses *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Ses) GetEntityData() *types.Com
     ses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ses.EntityData.Children = make(map[string]types.YChild)
-    ses.EntityData.Leafs = make(map[string]types.YLeaf)
-    ses.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ses.Counter}
+    ses.EntityData.Children = types.NewOrderedMap()
+    ses.EntityData.Leafs = types.NewOrderedMap()
+    ses.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ses.Counter})
+
+    ses.EntityData.YListKeys = []string {}
+
     return &(ses.EntityData)
 }
 
@@ -1957,9 +2068,12 @@ func (uas *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Uas) GetEntityData() *types.Com
     uas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     uas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    uas.EntityData.Children = make(map[string]types.YChild)
-    uas.EntityData.Leafs = make(map[string]types.YLeaf)
-    uas.EntityData.Leafs["counter"] = types.YLeaf{"Counter", uas.Counter}
+    uas.EntityData.Children = types.NewOrderedMap()
+    uas.EntityData.Leafs = types.NewOrderedMap()
+    uas.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", uas.Counter})
+
+    uas.EntityData.YListKeys = []string {}
+
     return &(uas.EntityData)
 }
 
@@ -1984,9 +2098,12 @@ func (fc *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Fc) GetEntityData() *types.Commo
     fc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fc.EntityData.Children = make(map[string]types.YChild)
-    fc.EntityData.Leafs = make(map[string]types.YLeaf)
-    fc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", fc.Counter}
+    fc.EntityData.Children = types.NewOrderedMap()
+    fc.EntityData.Leafs = types.NewOrderedMap()
+    fc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", fc.Counter})
+
+    fc.EntityData.YListKeys = []string {}
+
     return &(fc.EntityData)
 }
 
@@ -2011,9 +2128,12 @@ func (bber *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Bber) GetEntityData() *types.C
     bber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bber.EntityData.Children = make(map[string]types.YChild)
-    bber.EntityData.Leafs = make(map[string]types.YLeaf)
-    bber.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bber.Counter}
+    bber.EntityData.Children = types.NewOrderedMap()
+    bber.EntityData.Leafs = types.NewOrderedMap()
+    bber.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", bber.Counter})
+
+    bber.EntityData.YListKeys = []string {}
+
     return &(bber.EntityData)
 }
 
@@ -2038,9 +2158,12 @@ func (esr *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Esr) GetEntityData() *types.Com
     esr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    esr.EntityData.Children = make(map[string]types.YChild)
-    esr.EntityData.Leafs = make(map[string]types.YLeaf)
-    esr.EntityData.Leafs["counter"] = types.YLeaf{"Counter", esr.Counter}
+    esr.EntityData.Children = types.NewOrderedMap()
+    esr.EntityData.Leafs = types.NewOrderedMap()
+    esr.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", esr.Counter})
+
+    esr.EntityData.YListKeys = []string {}
+
     return &(esr.EntityData)
 }
 
@@ -2065,9 +2188,12 @@ func (sesr *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Sesr) GetEntityData() *types.C
     sesr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sesr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sesr.EntityData.Children = make(map[string]types.YChild)
-    sesr.EntityData.Leafs = make(map[string]types.YLeaf)
-    sesr.EntityData.Leafs["counter"] = types.YLeaf{"Counter", sesr.Counter}
+    sesr.EntityData.Children = types.NewOrderedMap()
+    sesr.EntityData.Leafs = types.NewOrderedMap()
+    sesr.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", sesr.Counter})
+
+    sesr.EntityData.YListKeys = []string {}
+
     return &(sesr.EntityData)
 }
 
@@ -2181,38 +2307,41 @@ func (tti *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Tti) GetEntityData() *types.Com
     tti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tti.EntityData.Children = make(map[string]types.YChild)
-    tti.EntityData.Leafs = make(map[string]types.YLeaf)
-    tti.EntityData.Leafs["tx-string-type"] = types.YLeaf{"TxStringType", tti.TxStringType}
-    tti.EntityData.Leafs["expected-string-type"] = types.YLeaf{"ExpectedStringType", tti.ExpectedStringType}
-    tti.EntityData.Leafs["rx-string-type"] = types.YLeaf{"RxStringType", tti.RxStringType}
-    tti.EntityData.Leafs["tx-tti"] = types.YLeaf{"TxTti", tti.TxTti}
-    tti.EntityData.Leafs["tx-sapi0"] = types.YLeaf{"TxSapi0", tti.TxSapi0}
-    tti.EntityData.Leafs["tx-sapi"] = types.YLeaf{"TxSapi", tti.TxSapi}
-    tti.EntityData.Leafs["tx-sapi-range"] = types.YLeaf{"TxSapiRange", tti.TxSapiRange}
-    tti.EntityData.Leafs["tx-dapi0"] = types.YLeaf{"TxDapi0", tti.TxDapi0}
-    tti.EntityData.Leafs["tx-dapi"] = types.YLeaf{"TxDapi", tti.TxDapi}
-    tti.EntityData.Leafs["tx-dapi-range"] = types.YLeaf{"TxDapiRange", tti.TxDapiRange}
-    tti.EntityData.Leafs["tx-oper-spec"] = types.YLeaf{"TxOperSpec", tti.TxOperSpec}
-    tti.EntityData.Leafs["tx-oper-spec-range"] = types.YLeaf{"TxOperSpecRange", tti.TxOperSpecRange}
-    tti.EntityData.Leafs["rx-tti"] = types.YLeaf{"RxTti", tti.RxTti}
-    tti.EntityData.Leafs["rx-sapi0"] = types.YLeaf{"RxSapi0", tti.RxSapi0}
-    tti.EntityData.Leafs["rx-sapi"] = types.YLeaf{"RxSapi", tti.RxSapi}
-    tti.EntityData.Leafs["rx-sapi-range"] = types.YLeaf{"RxSapiRange", tti.RxSapiRange}
-    tti.EntityData.Leafs["rx-dapi0"] = types.YLeaf{"RxDapi0", tti.RxDapi0}
-    tti.EntityData.Leafs["rx-dapi"] = types.YLeaf{"RxDapi", tti.RxDapi}
-    tti.EntityData.Leafs["rx-dapi-range"] = types.YLeaf{"RxDapiRange", tti.RxDapiRange}
-    tti.EntityData.Leafs["rx-oper-spec-range"] = types.YLeaf{"RxOperSpecRange", tti.RxOperSpecRange}
-    tti.EntityData.Leafs["rx-oper-spec"] = types.YLeaf{"RxOperSpec", tti.RxOperSpec}
-    tti.EntityData.Leafs["expected-tti"] = types.YLeaf{"ExpectedTti", tti.ExpectedTti}
-    tti.EntityData.Leafs["expected-sapi0"] = types.YLeaf{"ExpectedSapi0", tti.ExpectedSapi0}
-    tti.EntityData.Leafs["expected-sapi"] = types.YLeaf{"ExpectedSapi", tti.ExpectedSapi}
-    tti.EntityData.Leafs["exp-sapi-range"] = types.YLeaf{"ExpSapiRange", tti.ExpSapiRange}
-    tti.EntityData.Leafs["expected-dapi0"] = types.YLeaf{"ExpectedDapi0", tti.ExpectedDapi0}
-    tti.EntityData.Leafs["expected-dapi"] = types.YLeaf{"ExpectedDapi", tti.ExpectedDapi}
-    tti.EntityData.Leafs["exp-dapi-range"] = types.YLeaf{"ExpDapiRange", tti.ExpDapiRange}
-    tti.EntityData.Leafs["expected-oper-spec"] = types.YLeaf{"ExpectedOperSpec", tti.ExpectedOperSpec}
-    tti.EntityData.Leafs["exp-oper-spec-range"] = types.YLeaf{"ExpOperSpecRange", tti.ExpOperSpecRange}
+    tti.EntityData.Children = types.NewOrderedMap()
+    tti.EntityData.Leafs = types.NewOrderedMap()
+    tti.EntityData.Leafs.Append("tx-string-type", types.YLeaf{"TxStringType", tti.TxStringType})
+    tti.EntityData.Leafs.Append("expected-string-type", types.YLeaf{"ExpectedStringType", tti.ExpectedStringType})
+    tti.EntityData.Leafs.Append("rx-string-type", types.YLeaf{"RxStringType", tti.RxStringType})
+    tti.EntityData.Leafs.Append("tx-tti", types.YLeaf{"TxTti", tti.TxTti})
+    tti.EntityData.Leafs.Append("tx-sapi0", types.YLeaf{"TxSapi0", tti.TxSapi0})
+    tti.EntityData.Leafs.Append("tx-sapi", types.YLeaf{"TxSapi", tti.TxSapi})
+    tti.EntityData.Leafs.Append("tx-sapi-range", types.YLeaf{"TxSapiRange", tti.TxSapiRange})
+    tti.EntityData.Leafs.Append("tx-dapi0", types.YLeaf{"TxDapi0", tti.TxDapi0})
+    tti.EntityData.Leafs.Append("tx-dapi", types.YLeaf{"TxDapi", tti.TxDapi})
+    tti.EntityData.Leafs.Append("tx-dapi-range", types.YLeaf{"TxDapiRange", tti.TxDapiRange})
+    tti.EntityData.Leafs.Append("tx-oper-spec", types.YLeaf{"TxOperSpec", tti.TxOperSpec})
+    tti.EntityData.Leafs.Append("tx-oper-spec-range", types.YLeaf{"TxOperSpecRange", tti.TxOperSpecRange})
+    tti.EntityData.Leafs.Append("rx-tti", types.YLeaf{"RxTti", tti.RxTti})
+    tti.EntityData.Leafs.Append("rx-sapi0", types.YLeaf{"RxSapi0", tti.RxSapi0})
+    tti.EntityData.Leafs.Append("rx-sapi", types.YLeaf{"RxSapi", tti.RxSapi})
+    tti.EntityData.Leafs.Append("rx-sapi-range", types.YLeaf{"RxSapiRange", tti.RxSapiRange})
+    tti.EntityData.Leafs.Append("rx-dapi0", types.YLeaf{"RxDapi0", tti.RxDapi0})
+    tti.EntityData.Leafs.Append("rx-dapi", types.YLeaf{"RxDapi", tti.RxDapi})
+    tti.EntityData.Leafs.Append("rx-dapi-range", types.YLeaf{"RxDapiRange", tti.RxDapiRange})
+    tti.EntityData.Leafs.Append("rx-oper-spec-range", types.YLeaf{"RxOperSpecRange", tti.RxOperSpecRange})
+    tti.EntityData.Leafs.Append("rx-oper-spec", types.YLeaf{"RxOperSpec", tti.RxOperSpec})
+    tti.EntityData.Leafs.Append("expected-tti", types.YLeaf{"ExpectedTti", tti.ExpectedTti})
+    tti.EntityData.Leafs.Append("expected-sapi0", types.YLeaf{"ExpectedSapi0", tti.ExpectedSapi0})
+    tti.EntityData.Leafs.Append("expected-sapi", types.YLeaf{"ExpectedSapi", tti.ExpectedSapi})
+    tti.EntityData.Leafs.Append("exp-sapi-range", types.YLeaf{"ExpSapiRange", tti.ExpSapiRange})
+    tti.EntityData.Leafs.Append("expected-dapi0", types.YLeaf{"ExpectedDapi0", tti.ExpectedDapi0})
+    tti.EntityData.Leafs.Append("expected-dapi", types.YLeaf{"ExpectedDapi", tti.ExpectedDapi})
+    tti.EntityData.Leafs.Append("exp-dapi-range", types.YLeaf{"ExpDapiRange", tti.ExpDapiRange})
+    tti.EntityData.Leafs.Append("expected-oper-spec", types.YLeaf{"ExpectedOperSpec", tti.ExpectedOperSpec})
+    tti.EntityData.Leafs.Append("exp-oper-spec-range", types.YLeaf{"ExpOperSpecRange", tti.ExpOperSpecRange})
+
+    tti.EntityData.YListKeys = []string {}
+
     return &(tti.EntityData)
 }
 
@@ -2301,30 +2430,33 @@ func (oduInfo *Dwdm_Ports_Port_Info_G709Info_OduInfo) GetEntityData() *types.Com
     oduInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oduInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oduInfo.EntityData.Children = make(map[string]types.YChild)
-    oduInfo.EntityData.Children["oci"] = types.YChild{"Oci", &oduInfo.Oci}
-    oduInfo.EntityData.Children["ais"] = types.YChild{"Ais", &oduInfo.Ais}
-    oduInfo.EntityData.Children["lck"] = types.YChild{"Lck", &oduInfo.Lck}
-    oduInfo.EntityData.Children["bdi"] = types.YChild{"Bdi", &oduInfo.Bdi}
-    oduInfo.EntityData.Children["eoc"] = types.YChild{"Eoc", &oduInfo.Eoc}
-    oduInfo.EntityData.Children["ptim"] = types.YChild{"Ptim", &oduInfo.Ptim}
-    oduInfo.EntityData.Children["tim"] = types.YChild{"Tim", &oduInfo.Tim}
-    oduInfo.EntityData.Children["sf-ber"] = types.YChild{"SfBer", &oduInfo.SfBer}
-    oduInfo.EntityData.Children["sd-ber"] = types.YChild{"SdBer", &oduInfo.SdBer}
-    oduInfo.EntityData.Children["bbe-tca"] = types.YChild{"BbeTca", &oduInfo.BbeTca}
-    oduInfo.EntityData.Children["es-tca"] = types.YChild{"EsTca", &oduInfo.EsTca}
-    oduInfo.EntityData.Children["bbe"] = types.YChild{"Bbe", &oduInfo.Bbe}
-    oduInfo.EntityData.Children["es"] = types.YChild{"Es", &oduInfo.Es}
-    oduInfo.EntityData.Children["ses"] = types.YChild{"Ses", &oduInfo.Ses}
-    oduInfo.EntityData.Children["uas"] = types.YChild{"Uas", &oduInfo.Uas}
-    oduInfo.EntityData.Children["fc"] = types.YChild{"Fc", &oduInfo.Fc}
-    oduInfo.EntityData.Children["bber"] = types.YChild{"Bber", &oduInfo.Bber}
-    oduInfo.EntityData.Children["esr"] = types.YChild{"Esr", &oduInfo.Esr}
-    oduInfo.EntityData.Children["sesr"] = types.YChild{"Sesr", &oduInfo.Sesr}
-    oduInfo.EntityData.Children["tti"] = types.YChild{"Tti", &oduInfo.Tti}
-    oduInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    oduInfo.EntityData.Leafs["bip"] = types.YLeaf{"Bip", oduInfo.Bip}
-    oduInfo.EntityData.Leafs["bei"] = types.YLeaf{"Bei", oduInfo.Bei}
+    oduInfo.EntityData.Children = types.NewOrderedMap()
+    oduInfo.EntityData.Children.Append("oci", types.YChild{"Oci", &oduInfo.Oci})
+    oduInfo.EntityData.Children.Append("ais", types.YChild{"Ais", &oduInfo.Ais})
+    oduInfo.EntityData.Children.Append("lck", types.YChild{"Lck", &oduInfo.Lck})
+    oduInfo.EntityData.Children.Append("bdi", types.YChild{"Bdi", &oduInfo.Bdi})
+    oduInfo.EntityData.Children.Append("eoc", types.YChild{"Eoc", &oduInfo.Eoc})
+    oduInfo.EntityData.Children.Append("ptim", types.YChild{"Ptim", &oduInfo.Ptim})
+    oduInfo.EntityData.Children.Append("tim", types.YChild{"Tim", &oduInfo.Tim})
+    oduInfo.EntityData.Children.Append("sf-ber", types.YChild{"SfBer", &oduInfo.SfBer})
+    oduInfo.EntityData.Children.Append("sd-ber", types.YChild{"SdBer", &oduInfo.SdBer})
+    oduInfo.EntityData.Children.Append("bbe-tca", types.YChild{"BbeTca", &oduInfo.BbeTca})
+    oduInfo.EntityData.Children.Append("es-tca", types.YChild{"EsTca", &oduInfo.EsTca})
+    oduInfo.EntityData.Children.Append("bbe", types.YChild{"Bbe", &oduInfo.Bbe})
+    oduInfo.EntityData.Children.Append("es", types.YChild{"Es", &oduInfo.Es})
+    oduInfo.EntityData.Children.Append("ses", types.YChild{"Ses", &oduInfo.Ses})
+    oduInfo.EntityData.Children.Append("uas", types.YChild{"Uas", &oduInfo.Uas})
+    oduInfo.EntityData.Children.Append("fc", types.YChild{"Fc", &oduInfo.Fc})
+    oduInfo.EntityData.Children.Append("bber", types.YChild{"Bber", &oduInfo.Bber})
+    oduInfo.EntityData.Children.Append("esr", types.YChild{"Esr", &oduInfo.Esr})
+    oduInfo.EntityData.Children.Append("sesr", types.YChild{"Sesr", &oduInfo.Sesr})
+    oduInfo.EntityData.Children.Append("tti", types.YChild{"Tti", &oduInfo.Tti})
+    oduInfo.EntityData.Leafs = types.NewOrderedMap()
+    oduInfo.EntityData.Leafs.Append("bip", types.YLeaf{"Bip", oduInfo.Bip})
+    oduInfo.EntityData.Leafs.Append("bei", types.YLeaf{"Bei", oduInfo.Bei})
+
+    oduInfo.EntityData.YListKeys = []string {}
+
     return &(oduInfo.EntityData)
 }
 
@@ -2357,12 +2489,15 @@ func (oci *Dwdm_Ports_Port_Info_G709Info_OduInfo_Oci) GetEntityData() *types.Com
     oci.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oci.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oci.EntityData.Children = make(map[string]types.YChild)
-    oci.EntityData.Leafs = make(map[string]types.YLeaf)
-    oci.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", oci.ReportingEnabled}
-    oci.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", oci.IsDetected}
-    oci.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", oci.IsAsserted}
-    oci.EntityData.Leafs["counter"] = types.YLeaf{"Counter", oci.Counter}
+    oci.EntityData.Children = types.NewOrderedMap()
+    oci.EntityData.Leafs = types.NewOrderedMap()
+    oci.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", oci.ReportingEnabled})
+    oci.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", oci.IsDetected})
+    oci.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", oci.IsAsserted})
+    oci.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", oci.Counter})
+
+    oci.EntityData.YListKeys = []string {}
+
     return &(oci.EntityData)
 }
 
@@ -2395,12 +2530,15 @@ func (ais *Dwdm_Ports_Port_Info_G709Info_OduInfo_Ais) GetEntityData() *types.Com
     ais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ais.EntityData.Children = make(map[string]types.YChild)
-    ais.EntityData.Leafs = make(map[string]types.YLeaf)
-    ais.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", ais.ReportingEnabled}
-    ais.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ais.IsDetected}
-    ais.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", ais.IsAsserted}
-    ais.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ais.Counter}
+    ais.EntityData.Children = types.NewOrderedMap()
+    ais.EntityData.Leafs = types.NewOrderedMap()
+    ais.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", ais.ReportingEnabled})
+    ais.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ais.IsDetected})
+    ais.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", ais.IsAsserted})
+    ais.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ais.Counter})
+
+    ais.EntityData.YListKeys = []string {}
+
     return &(ais.EntityData)
 }
 
@@ -2433,12 +2571,15 @@ func (lck *Dwdm_Ports_Port_Info_G709Info_OduInfo_Lck) GetEntityData() *types.Com
     lck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lck.EntityData.Children = make(map[string]types.YChild)
-    lck.EntityData.Leafs = make(map[string]types.YLeaf)
-    lck.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", lck.ReportingEnabled}
-    lck.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lck.IsDetected}
-    lck.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", lck.IsAsserted}
-    lck.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lck.Counter}
+    lck.EntityData.Children = types.NewOrderedMap()
+    lck.EntityData.Leafs = types.NewOrderedMap()
+    lck.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", lck.ReportingEnabled})
+    lck.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lck.IsDetected})
+    lck.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", lck.IsAsserted})
+    lck.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lck.Counter})
+
+    lck.EntityData.YListKeys = []string {}
+
     return &(lck.EntityData)
 }
 
@@ -2471,12 +2612,15 @@ func (bdi *Dwdm_Ports_Port_Info_G709Info_OduInfo_Bdi) GetEntityData() *types.Com
     bdi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bdi.EntityData.Children = make(map[string]types.YChild)
-    bdi.EntityData.Leafs = make(map[string]types.YLeaf)
-    bdi.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", bdi.ReportingEnabled}
-    bdi.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", bdi.IsDetected}
-    bdi.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", bdi.IsAsserted}
-    bdi.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bdi.Counter}
+    bdi.EntityData.Children = types.NewOrderedMap()
+    bdi.EntityData.Leafs = types.NewOrderedMap()
+    bdi.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", bdi.ReportingEnabled})
+    bdi.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", bdi.IsDetected})
+    bdi.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", bdi.IsAsserted})
+    bdi.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", bdi.Counter})
+
+    bdi.EntityData.YListKeys = []string {}
+
     return &(bdi.EntityData)
 }
 
@@ -2509,12 +2653,15 @@ func (eoc *Dwdm_Ports_Port_Info_G709Info_OduInfo_Eoc) GetEntityData() *types.Com
     eoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eoc.EntityData.Children = make(map[string]types.YChild)
-    eoc.EntityData.Leafs = make(map[string]types.YLeaf)
-    eoc.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", eoc.ReportingEnabled}
-    eoc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", eoc.IsDetected}
-    eoc.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", eoc.IsAsserted}
-    eoc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", eoc.Counter}
+    eoc.EntityData.Children = types.NewOrderedMap()
+    eoc.EntityData.Leafs = types.NewOrderedMap()
+    eoc.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", eoc.ReportingEnabled})
+    eoc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", eoc.IsDetected})
+    eoc.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", eoc.IsAsserted})
+    eoc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", eoc.Counter})
+
+    eoc.EntityData.YListKeys = []string {}
+
     return &(eoc.EntityData)
 }
 
@@ -2547,12 +2694,15 @@ func (ptim *Dwdm_Ports_Port_Info_G709Info_OduInfo_Ptim) GetEntityData() *types.C
     ptim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ptim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ptim.EntityData.Children = make(map[string]types.YChild)
-    ptim.EntityData.Leafs = make(map[string]types.YLeaf)
-    ptim.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", ptim.ReportingEnabled}
-    ptim.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ptim.IsDetected}
-    ptim.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", ptim.IsAsserted}
-    ptim.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ptim.Counter}
+    ptim.EntityData.Children = types.NewOrderedMap()
+    ptim.EntityData.Leafs = types.NewOrderedMap()
+    ptim.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", ptim.ReportingEnabled})
+    ptim.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ptim.IsDetected})
+    ptim.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", ptim.IsAsserted})
+    ptim.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ptim.Counter})
+
+    ptim.EntityData.YListKeys = []string {}
+
     return &(ptim.EntityData)
 }
 
@@ -2585,12 +2735,15 @@ func (tim *Dwdm_Ports_Port_Info_G709Info_OduInfo_Tim) GetEntityData() *types.Com
     tim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tim.EntityData.Children = make(map[string]types.YChild)
-    tim.EntityData.Leafs = make(map[string]types.YLeaf)
-    tim.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", tim.ReportingEnabled}
-    tim.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", tim.IsDetected}
-    tim.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", tim.IsAsserted}
-    tim.EntityData.Leafs["counter"] = types.YLeaf{"Counter", tim.Counter}
+    tim.EntityData.Children = types.NewOrderedMap()
+    tim.EntityData.Leafs = types.NewOrderedMap()
+    tim.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", tim.ReportingEnabled})
+    tim.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", tim.IsDetected})
+    tim.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", tim.IsAsserted})
+    tim.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", tim.Counter})
+
+    tim.EntityData.YListKeys = []string {}
+
     return &(tim.EntityData)
 }
 
@@ -2627,13 +2780,16 @@ func (sfBer *Dwdm_Ports_Port_Info_G709Info_OduInfo_SfBer) GetEntityData() *types
     sfBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfBer.EntityData.Children = make(map[string]types.YChild)
-    sfBer.EntityData.Leafs = make(map[string]types.YLeaf)
-    sfBer.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", sfBer.ReportingEnabled}
-    sfBer.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", sfBer.IsDetected}
-    sfBer.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", sfBer.IsAsserted}
-    sfBer.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", sfBer.Threshold}
-    sfBer.EntityData.Leafs["counter"] = types.YLeaf{"Counter", sfBer.Counter}
+    sfBer.EntityData.Children = types.NewOrderedMap()
+    sfBer.EntityData.Leafs = types.NewOrderedMap()
+    sfBer.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", sfBer.ReportingEnabled})
+    sfBer.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", sfBer.IsDetected})
+    sfBer.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", sfBer.IsAsserted})
+    sfBer.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", sfBer.Threshold})
+    sfBer.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", sfBer.Counter})
+
+    sfBer.EntityData.YListKeys = []string {}
+
     return &(sfBer.EntityData)
 }
 
@@ -2670,13 +2826,16 @@ func (sdBer *Dwdm_Ports_Port_Info_G709Info_OduInfo_SdBer) GetEntityData() *types
     sdBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdBer.EntityData.Children = make(map[string]types.YChild)
-    sdBer.EntityData.Leafs = make(map[string]types.YLeaf)
-    sdBer.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", sdBer.ReportingEnabled}
-    sdBer.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", sdBer.IsDetected}
-    sdBer.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", sdBer.IsAsserted}
-    sdBer.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", sdBer.Threshold}
-    sdBer.EntityData.Leafs["counter"] = types.YLeaf{"Counter", sdBer.Counter}
+    sdBer.EntityData.Children = types.NewOrderedMap()
+    sdBer.EntityData.Leafs = types.NewOrderedMap()
+    sdBer.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", sdBer.ReportingEnabled})
+    sdBer.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", sdBer.IsDetected})
+    sdBer.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", sdBer.IsAsserted})
+    sdBer.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", sdBer.Threshold})
+    sdBer.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", sdBer.Counter})
+
+    sdBer.EntityData.YListKeys = []string {}
+
     return &(sdBer.EntityData)
 }
 
@@ -2713,13 +2872,16 @@ func (bbeTca *Dwdm_Ports_Port_Info_G709Info_OduInfo_BbeTca) GetEntityData() *typ
     bbeTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bbeTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bbeTca.EntityData.Children = make(map[string]types.YChild)
-    bbeTca.EntityData.Leafs = make(map[string]types.YLeaf)
-    bbeTca.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", bbeTca.ReportingEnabled}
-    bbeTca.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", bbeTca.IsDetected}
-    bbeTca.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", bbeTca.IsAsserted}
-    bbeTca.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", bbeTca.Threshold}
-    bbeTca.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bbeTca.Counter}
+    bbeTca.EntityData.Children = types.NewOrderedMap()
+    bbeTca.EntityData.Leafs = types.NewOrderedMap()
+    bbeTca.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", bbeTca.ReportingEnabled})
+    bbeTca.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", bbeTca.IsDetected})
+    bbeTca.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", bbeTca.IsAsserted})
+    bbeTca.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", bbeTca.Threshold})
+    bbeTca.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", bbeTca.Counter})
+
+    bbeTca.EntityData.YListKeys = []string {}
+
     return &(bbeTca.EntityData)
 }
 
@@ -2756,13 +2918,16 @@ func (esTca *Dwdm_Ports_Port_Info_G709Info_OduInfo_EsTca) GetEntityData() *types
     esTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    esTca.EntityData.Children = make(map[string]types.YChild)
-    esTca.EntityData.Leafs = make(map[string]types.YLeaf)
-    esTca.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", esTca.ReportingEnabled}
-    esTca.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", esTca.IsDetected}
-    esTca.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", esTca.IsAsserted}
-    esTca.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", esTca.Threshold}
-    esTca.EntityData.Leafs["counter"] = types.YLeaf{"Counter", esTca.Counter}
+    esTca.EntityData.Children = types.NewOrderedMap()
+    esTca.EntityData.Leafs = types.NewOrderedMap()
+    esTca.EntityData.Leafs.Append("reporting-enabled", types.YLeaf{"ReportingEnabled", esTca.ReportingEnabled})
+    esTca.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", esTca.IsDetected})
+    esTca.EntityData.Leafs.Append("is-asserted", types.YLeaf{"IsAsserted", esTca.IsAsserted})
+    esTca.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", esTca.Threshold})
+    esTca.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", esTca.Counter})
+
+    esTca.EntityData.YListKeys = []string {}
+
     return &(esTca.EntityData)
 }
 
@@ -2787,9 +2952,12 @@ func (bbe *Dwdm_Ports_Port_Info_G709Info_OduInfo_Bbe) GetEntityData() *types.Com
     bbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bbe.EntityData.Children = make(map[string]types.YChild)
-    bbe.EntityData.Leafs = make(map[string]types.YLeaf)
-    bbe.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bbe.Counter}
+    bbe.EntityData.Children = types.NewOrderedMap()
+    bbe.EntityData.Leafs = types.NewOrderedMap()
+    bbe.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", bbe.Counter})
+
+    bbe.EntityData.YListKeys = []string {}
+
     return &(bbe.EntityData)
 }
 
@@ -2814,9 +2982,12 @@ func (es *Dwdm_Ports_Port_Info_G709Info_OduInfo_Es) GetEntityData() *types.Commo
     es.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     es.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    es.EntityData.Children = make(map[string]types.YChild)
-    es.EntityData.Leafs = make(map[string]types.YLeaf)
-    es.EntityData.Leafs["counter"] = types.YLeaf{"Counter", es.Counter}
+    es.EntityData.Children = types.NewOrderedMap()
+    es.EntityData.Leafs = types.NewOrderedMap()
+    es.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", es.Counter})
+
+    es.EntityData.YListKeys = []string {}
+
     return &(es.EntityData)
 }
 
@@ -2841,9 +3012,12 @@ func (ses *Dwdm_Ports_Port_Info_G709Info_OduInfo_Ses) GetEntityData() *types.Com
     ses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ses.EntityData.Children = make(map[string]types.YChild)
-    ses.EntityData.Leafs = make(map[string]types.YLeaf)
-    ses.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ses.Counter}
+    ses.EntityData.Children = types.NewOrderedMap()
+    ses.EntityData.Leafs = types.NewOrderedMap()
+    ses.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ses.Counter})
+
+    ses.EntityData.YListKeys = []string {}
+
     return &(ses.EntityData)
 }
 
@@ -2868,9 +3042,12 @@ func (uas *Dwdm_Ports_Port_Info_G709Info_OduInfo_Uas) GetEntityData() *types.Com
     uas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     uas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    uas.EntityData.Children = make(map[string]types.YChild)
-    uas.EntityData.Leafs = make(map[string]types.YLeaf)
-    uas.EntityData.Leafs["counter"] = types.YLeaf{"Counter", uas.Counter}
+    uas.EntityData.Children = types.NewOrderedMap()
+    uas.EntityData.Leafs = types.NewOrderedMap()
+    uas.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", uas.Counter})
+
+    uas.EntityData.YListKeys = []string {}
+
     return &(uas.EntityData)
 }
 
@@ -2895,9 +3072,12 @@ func (fc *Dwdm_Ports_Port_Info_G709Info_OduInfo_Fc) GetEntityData() *types.Commo
     fc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fc.EntityData.Children = make(map[string]types.YChild)
-    fc.EntityData.Leafs = make(map[string]types.YLeaf)
-    fc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", fc.Counter}
+    fc.EntityData.Children = types.NewOrderedMap()
+    fc.EntityData.Leafs = types.NewOrderedMap()
+    fc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", fc.Counter})
+
+    fc.EntityData.YListKeys = []string {}
+
     return &(fc.EntityData)
 }
 
@@ -2922,9 +3102,12 @@ func (bber *Dwdm_Ports_Port_Info_G709Info_OduInfo_Bber) GetEntityData() *types.C
     bber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bber.EntityData.Children = make(map[string]types.YChild)
-    bber.EntityData.Leafs = make(map[string]types.YLeaf)
-    bber.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bber.Counter}
+    bber.EntityData.Children = types.NewOrderedMap()
+    bber.EntityData.Leafs = types.NewOrderedMap()
+    bber.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", bber.Counter})
+
+    bber.EntityData.YListKeys = []string {}
+
     return &(bber.EntityData)
 }
 
@@ -2949,9 +3132,12 @@ func (esr *Dwdm_Ports_Port_Info_G709Info_OduInfo_Esr) GetEntityData() *types.Com
     esr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    esr.EntityData.Children = make(map[string]types.YChild)
-    esr.EntityData.Leafs = make(map[string]types.YLeaf)
-    esr.EntityData.Leafs["counter"] = types.YLeaf{"Counter", esr.Counter}
+    esr.EntityData.Children = types.NewOrderedMap()
+    esr.EntityData.Leafs = types.NewOrderedMap()
+    esr.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", esr.Counter})
+
+    esr.EntityData.YListKeys = []string {}
+
     return &(esr.EntityData)
 }
 
@@ -2976,9 +3162,12 @@ func (sesr *Dwdm_Ports_Port_Info_G709Info_OduInfo_Sesr) GetEntityData() *types.C
     sesr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sesr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sesr.EntityData.Children = make(map[string]types.YChild)
-    sesr.EntityData.Leafs = make(map[string]types.YLeaf)
-    sesr.EntityData.Leafs["counter"] = types.YLeaf{"Counter", sesr.Counter}
+    sesr.EntityData.Children = types.NewOrderedMap()
+    sesr.EntityData.Leafs = types.NewOrderedMap()
+    sesr.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", sesr.Counter})
+
+    sesr.EntityData.YListKeys = []string {}
+
     return &(sesr.EntityData)
 }
 
@@ -3092,38 +3281,41 @@ func (tti *Dwdm_Ports_Port_Info_G709Info_OduInfo_Tti) GetEntityData() *types.Com
     tti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tti.EntityData.Children = make(map[string]types.YChild)
-    tti.EntityData.Leafs = make(map[string]types.YLeaf)
-    tti.EntityData.Leafs["tx-string-type"] = types.YLeaf{"TxStringType", tti.TxStringType}
-    tti.EntityData.Leafs["expected-string-type"] = types.YLeaf{"ExpectedStringType", tti.ExpectedStringType}
-    tti.EntityData.Leafs["rx-string-type"] = types.YLeaf{"RxStringType", tti.RxStringType}
-    tti.EntityData.Leafs["tx-tti"] = types.YLeaf{"TxTti", tti.TxTti}
-    tti.EntityData.Leafs["tx-sapi0"] = types.YLeaf{"TxSapi0", tti.TxSapi0}
-    tti.EntityData.Leafs["tx-sapi"] = types.YLeaf{"TxSapi", tti.TxSapi}
-    tti.EntityData.Leafs["tx-sapi-range"] = types.YLeaf{"TxSapiRange", tti.TxSapiRange}
-    tti.EntityData.Leafs["tx-dapi0"] = types.YLeaf{"TxDapi0", tti.TxDapi0}
-    tti.EntityData.Leafs["tx-dapi"] = types.YLeaf{"TxDapi", tti.TxDapi}
-    tti.EntityData.Leafs["tx-dapi-range"] = types.YLeaf{"TxDapiRange", tti.TxDapiRange}
-    tti.EntityData.Leafs["tx-oper-spec"] = types.YLeaf{"TxOperSpec", tti.TxOperSpec}
-    tti.EntityData.Leafs["tx-oper-spec-range"] = types.YLeaf{"TxOperSpecRange", tti.TxOperSpecRange}
-    tti.EntityData.Leafs["rx-tti"] = types.YLeaf{"RxTti", tti.RxTti}
-    tti.EntityData.Leafs["rx-sapi0"] = types.YLeaf{"RxSapi0", tti.RxSapi0}
-    tti.EntityData.Leafs["rx-sapi"] = types.YLeaf{"RxSapi", tti.RxSapi}
-    tti.EntityData.Leafs["rx-sapi-range"] = types.YLeaf{"RxSapiRange", tti.RxSapiRange}
-    tti.EntityData.Leafs["rx-dapi0"] = types.YLeaf{"RxDapi0", tti.RxDapi0}
-    tti.EntityData.Leafs["rx-dapi"] = types.YLeaf{"RxDapi", tti.RxDapi}
-    tti.EntityData.Leafs["rx-dapi-range"] = types.YLeaf{"RxDapiRange", tti.RxDapiRange}
-    tti.EntityData.Leafs["rx-oper-spec-range"] = types.YLeaf{"RxOperSpecRange", tti.RxOperSpecRange}
-    tti.EntityData.Leafs["rx-oper-spec"] = types.YLeaf{"RxOperSpec", tti.RxOperSpec}
-    tti.EntityData.Leafs["expected-tti"] = types.YLeaf{"ExpectedTti", tti.ExpectedTti}
-    tti.EntityData.Leafs["expected-sapi0"] = types.YLeaf{"ExpectedSapi0", tti.ExpectedSapi0}
-    tti.EntityData.Leafs["expected-sapi"] = types.YLeaf{"ExpectedSapi", tti.ExpectedSapi}
-    tti.EntityData.Leafs["exp-sapi-range"] = types.YLeaf{"ExpSapiRange", tti.ExpSapiRange}
-    tti.EntityData.Leafs["expected-dapi0"] = types.YLeaf{"ExpectedDapi0", tti.ExpectedDapi0}
-    tti.EntityData.Leafs["expected-dapi"] = types.YLeaf{"ExpectedDapi", tti.ExpectedDapi}
-    tti.EntityData.Leafs["exp-dapi-range"] = types.YLeaf{"ExpDapiRange", tti.ExpDapiRange}
-    tti.EntityData.Leafs["expected-oper-spec"] = types.YLeaf{"ExpectedOperSpec", tti.ExpectedOperSpec}
-    tti.EntityData.Leafs["exp-oper-spec-range"] = types.YLeaf{"ExpOperSpecRange", tti.ExpOperSpecRange}
+    tti.EntityData.Children = types.NewOrderedMap()
+    tti.EntityData.Leafs = types.NewOrderedMap()
+    tti.EntityData.Leafs.Append("tx-string-type", types.YLeaf{"TxStringType", tti.TxStringType})
+    tti.EntityData.Leafs.Append("expected-string-type", types.YLeaf{"ExpectedStringType", tti.ExpectedStringType})
+    tti.EntityData.Leafs.Append("rx-string-type", types.YLeaf{"RxStringType", tti.RxStringType})
+    tti.EntityData.Leafs.Append("tx-tti", types.YLeaf{"TxTti", tti.TxTti})
+    tti.EntityData.Leafs.Append("tx-sapi0", types.YLeaf{"TxSapi0", tti.TxSapi0})
+    tti.EntityData.Leafs.Append("tx-sapi", types.YLeaf{"TxSapi", tti.TxSapi})
+    tti.EntityData.Leafs.Append("tx-sapi-range", types.YLeaf{"TxSapiRange", tti.TxSapiRange})
+    tti.EntityData.Leafs.Append("tx-dapi0", types.YLeaf{"TxDapi0", tti.TxDapi0})
+    tti.EntityData.Leafs.Append("tx-dapi", types.YLeaf{"TxDapi", tti.TxDapi})
+    tti.EntityData.Leafs.Append("tx-dapi-range", types.YLeaf{"TxDapiRange", tti.TxDapiRange})
+    tti.EntityData.Leafs.Append("tx-oper-spec", types.YLeaf{"TxOperSpec", tti.TxOperSpec})
+    tti.EntityData.Leafs.Append("tx-oper-spec-range", types.YLeaf{"TxOperSpecRange", tti.TxOperSpecRange})
+    tti.EntityData.Leafs.Append("rx-tti", types.YLeaf{"RxTti", tti.RxTti})
+    tti.EntityData.Leafs.Append("rx-sapi0", types.YLeaf{"RxSapi0", tti.RxSapi0})
+    tti.EntityData.Leafs.Append("rx-sapi", types.YLeaf{"RxSapi", tti.RxSapi})
+    tti.EntityData.Leafs.Append("rx-sapi-range", types.YLeaf{"RxSapiRange", tti.RxSapiRange})
+    tti.EntityData.Leafs.Append("rx-dapi0", types.YLeaf{"RxDapi0", tti.RxDapi0})
+    tti.EntityData.Leafs.Append("rx-dapi", types.YLeaf{"RxDapi", tti.RxDapi})
+    tti.EntityData.Leafs.Append("rx-dapi-range", types.YLeaf{"RxDapiRange", tti.RxDapiRange})
+    tti.EntityData.Leafs.Append("rx-oper-spec-range", types.YLeaf{"RxOperSpecRange", tti.RxOperSpecRange})
+    tti.EntityData.Leafs.Append("rx-oper-spec", types.YLeaf{"RxOperSpec", tti.RxOperSpec})
+    tti.EntityData.Leafs.Append("expected-tti", types.YLeaf{"ExpectedTti", tti.ExpectedTti})
+    tti.EntityData.Leafs.Append("expected-sapi0", types.YLeaf{"ExpectedSapi0", tti.ExpectedSapi0})
+    tti.EntityData.Leafs.Append("expected-sapi", types.YLeaf{"ExpectedSapi", tti.ExpectedSapi})
+    tti.EntityData.Leafs.Append("exp-sapi-range", types.YLeaf{"ExpSapiRange", tti.ExpSapiRange})
+    tti.EntityData.Leafs.Append("expected-dapi0", types.YLeaf{"ExpectedDapi0", tti.ExpectedDapi0})
+    tti.EntityData.Leafs.Append("expected-dapi", types.YLeaf{"ExpectedDapi", tti.ExpectedDapi})
+    tti.EntityData.Leafs.Append("exp-dapi-range", types.YLeaf{"ExpDapiRange", tti.ExpDapiRange})
+    tti.EntityData.Leafs.Append("expected-oper-spec", types.YLeaf{"ExpectedOperSpec", tti.ExpectedOperSpec})
+    tti.EntityData.Leafs.Append("exp-oper-spec-range", types.YLeaf{"ExpOperSpecRange", tti.ExpOperSpecRange})
+
+    tti.EntityData.YListKeys = []string {}
+
     return &(tti.EntityData)
 }
 
@@ -3293,47 +3485,50 @@ func (opticsInfo *Dwdm_Ports_Port_Info_OpticsInfo) GetEntityData() *types.Common
     opticsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsInfo.EntityData.Children = make(map[string]types.YChild)
-    opticsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    opticsInfo.EntityData.Leafs["optics-type"] = types.YLeaf{"OpticsType", opticsInfo.OpticsType}
-    opticsInfo.EntityData.Leafs["clock-source"] = types.YLeaf{"ClockSource", opticsInfo.ClockSource}
-    opticsInfo.EntityData.Leafs["wave-frequency-progressive-string"] = types.YLeaf{"WaveFrequencyProgressiveString", opticsInfo.WaveFrequencyProgressiveString}
-    opticsInfo.EntityData.Leafs["wavelength-progressive-string"] = types.YLeaf{"WavelengthProgressiveString", opticsInfo.WavelengthProgressiveString}
-    opticsInfo.EntityData.Leafs["is-wave-frequency-progressive-valid"] = types.YLeaf{"IsWaveFrequencyProgressiveValid", opticsInfo.IsWaveFrequencyProgressiveValid}
-    opticsInfo.EntityData.Leafs["wavelength-progressive"] = types.YLeaf{"WavelengthProgressive", opticsInfo.WavelengthProgressive}
-    opticsInfo.EntityData.Leafs["wave-band"] = types.YLeaf{"WaveBand", opticsInfo.WaveBand}
-    opticsInfo.EntityData.Leafs["wave-channel"] = types.YLeaf{"WaveChannel", opticsInfo.WaveChannel}
-    opticsInfo.EntityData.Leafs["wave-frequency"] = types.YLeaf{"WaveFrequency", opticsInfo.WaveFrequency}
-    opticsInfo.EntityData.Leafs["is-wave-frequency-valid"] = types.YLeaf{"IsWaveFrequencyValid", opticsInfo.IsWaveFrequencyValid}
-    opticsInfo.EntityData.Leafs["wave-channel-owner"] = types.YLeaf{"WaveChannelOwner", opticsInfo.WaveChannelOwner}
-    opticsInfo.EntityData.Leafs["gmpls-set-wave-channel"] = types.YLeaf{"GmplsSetWaveChannel", opticsInfo.GmplsSetWaveChannel}
-    opticsInfo.EntityData.Leafs["configured-wave-channel"] = types.YLeaf{"ConfiguredWaveChannel", opticsInfo.ConfiguredWaveChannel}
-    opticsInfo.EntityData.Leafs["default-wave-channel"] = types.YLeaf{"DefaultWaveChannel", opticsInfo.DefaultWaveChannel}
-    opticsInfo.EntityData.Leafs["transmit-power"] = types.YLeaf{"TransmitPower", opticsInfo.TransmitPower}
-    opticsInfo.EntityData.Leafs["transmit-power-threshold"] = types.YLeaf{"TransmitPowerThreshold", opticsInfo.TransmitPowerThreshold}
-    opticsInfo.EntityData.Leafs["laser-current-bias"] = types.YLeaf{"LaserCurrentBias", opticsInfo.LaserCurrentBias}
-    opticsInfo.EntityData.Leafs["laser-current-bias-threshold"] = types.YLeaf{"LaserCurrentBiasThreshold", opticsInfo.LaserCurrentBiasThreshold}
-    opticsInfo.EntityData.Leafs["receive-power"] = types.YLeaf{"ReceivePower", opticsInfo.ReceivePower}
-    opticsInfo.EntityData.Leafs["is-rx-los-threshold-supported"] = types.YLeaf{"IsRxLosThresholdSupported", opticsInfo.IsRxLosThresholdSupported}
-    opticsInfo.EntityData.Leafs["rx-los-threshold"] = types.YLeaf{"RxLosThreshold", opticsInfo.RxLosThreshold}
-    opticsInfo.EntityData.Leafs["transmit-power-min"] = types.YLeaf{"TransmitPowerMin", opticsInfo.TransmitPowerMin}
-    opticsInfo.EntityData.Leafs["transmit-power-max"] = types.YLeaf{"TransmitPowerMax", opticsInfo.TransmitPowerMax}
-    opticsInfo.EntityData.Leafs["transmit-power-avg"] = types.YLeaf{"TransmitPowerAvg", opticsInfo.TransmitPowerAvg}
-    opticsInfo.EntityData.Leafs["receive-power-min"] = types.YLeaf{"ReceivePowerMin", opticsInfo.ReceivePowerMin}
-    opticsInfo.EntityData.Leafs["receive-power-max"] = types.YLeaf{"ReceivePowerMax", opticsInfo.ReceivePowerMax}
-    opticsInfo.EntityData.Leafs["receive-power-avg"] = types.YLeaf{"ReceivePowerAvg", opticsInfo.ReceivePowerAvg}
-    opticsInfo.EntityData.Leafs["laser-bias-current-min"] = types.YLeaf{"LaserBiasCurrentMin", opticsInfo.LaserBiasCurrentMin}
-    opticsInfo.EntityData.Leafs["laser-bias-current-max"] = types.YLeaf{"LaserBiasCurrentMax", opticsInfo.LaserBiasCurrentMax}
-    opticsInfo.EntityData.Leafs["laser-bias-current-avg"] = types.YLeaf{"LaserBiasCurrentAvg", opticsInfo.LaserBiasCurrentAvg}
-    opticsInfo.EntityData.Leafs["chromatic-dispersion"] = types.YLeaf{"ChromaticDispersion", opticsInfo.ChromaticDispersion}
-    opticsInfo.EntityData.Leafs["differential-group-delay"] = types.YLeaf{"DifferentialGroupDelay", opticsInfo.DifferentialGroupDelay}
-    opticsInfo.EntityData.Leafs["polarization-mode-dispersion"] = types.YLeaf{"PolarizationModeDispersion", opticsInfo.PolarizationModeDispersion}
-    opticsInfo.EntityData.Leafs["signal-to-noise-ratio"] = types.YLeaf{"SignalToNoiseRatio", opticsInfo.SignalToNoiseRatio}
-    opticsInfo.EntityData.Leafs["polarization-dependent-loss"] = types.YLeaf{"PolarizationDependentLoss", opticsInfo.PolarizationDependentLoss}
-    opticsInfo.EntityData.Leafs["polarization-change-rate"] = types.YLeaf{"PolarizationChangeRate", opticsInfo.PolarizationChangeRate}
-    opticsInfo.EntityData.Leafs["phase-noise"] = types.YLeaf{"PhaseNoise", opticsInfo.PhaseNoise}
-    opticsInfo.EntityData.Leafs["output-power-fail"] = types.YLeaf{"OutputPowerFail", opticsInfo.OutputPowerFail}
-    opticsInfo.EntityData.Leafs["input-power-fail"] = types.YLeaf{"InputPowerFail", opticsInfo.InputPowerFail}
+    opticsInfo.EntityData.Children = types.NewOrderedMap()
+    opticsInfo.EntityData.Leafs = types.NewOrderedMap()
+    opticsInfo.EntityData.Leafs.Append("optics-type", types.YLeaf{"OpticsType", opticsInfo.OpticsType})
+    opticsInfo.EntityData.Leafs.Append("clock-source", types.YLeaf{"ClockSource", opticsInfo.ClockSource})
+    opticsInfo.EntityData.Leafs.Append("wave-frequency-progressive-string", types.YLeaf{"WaveFrequencyProgressiveString", opticsInfo.WaveFrequencyProgressiveString})
+    opticsInfo.EntityData.Leafs.Append("wavelength-progressive-string", types.YLeaf{"WavelengthProgressiveString", opticsInfo.WavelengthProgressiveString})
+    opticsInfo.EntityData.Leafs.Append("is-wave-frequency-progressive-valid", types.YLeaf{"IsWaveFrequencyProgressiveValid", opticsInfo.IsWaveFrequencyProgressiveValid})
+    opticsInfo.EntityData.Leafs.Append("wavelength-progressive", types.YLeaf{"WavelengthProgressive", opticsInfo.WavelengthProgressive})
+    opticsInfo.EntityData.Leafs.Append("wave-band", types.YLeaf{"WaveBand", opticsInfo.WaveBand})
+    opticsInfo.EntityData.Leafs.Append("wave-channel", types.YLeaf{"WaveChannel", opticsInfo.WaveChannel})
+    opticsInfo.EntityData.Leafs.Append("wave-frequency", types.YLeaf{"WaveFrequency", opticsInfo.WaveFrequency})
+    opticsInfo.EntityData.Leafs.Append("is-wave-frequency-valid", types.YLeaf{"IsWaveFrequencyValid", opticsInfo.IsWaveFrequencyValid})
+    opticsInfo.EntityData.Leafs.Append("wave-channel-owner", types.YLeaf{"WaveChannelOwner", opticsInfo.WaveChannelOwner})
+    opticsInfo.EntityData.Leafs.Append("gmpls-set-wave-channel", types.YLeaf{"GmplsSetWaveChannel", opticsInfo.GmplsSetWaveChannel})
+    opticsInfo.EntityData.Leafs.Append("configured-wave-channel", types.YLeaf{"ConfiguredWaveChannel", opticsInfo.ConfiguredWaveChannel})
+    opticsInfo.EntityData.Leafs.Append("default-wave-channel", types.YLeaf{"DefaultWaveChannel", opticsInfo.DefaultWaveChannel})
+    opticsInfo.EntityData.Leafs.Append("transmit-power", types.YLeaf{"TransmitPower", opticsInfo.TransmitPower})
+    opticsInfo.EntityData.Leafs.Append("transmit-power-threshold", types.YLeaf{"TransmitPowerThreshold", opticsInfo.TransmitPowerThreshold})
+    opticsInfo.EntityData.Leafs.Append("laser-current-bias", types.YLeaf{"LaserCurrentBias", opticsInfo.LaserCurrentBias})
+    opticsInfo.EntityData.Leafs.Append("laser-current-bias-threshold", types.YLeaf{"LaserCurrentBiasThreshold", opticsInfo.LaserCurrentBiasThreshold})
+    opticsInfo.EntityData.Leafs.Append("receive-power", types.YLeaf{"ReceivePower", opticsInfo.ReceivePower})
+    opticsInfo.EntityData.Leafs.Append("is-rx-los-threshold-supported", types.YLeaf{"IsRxLosThresholdSupported", opticsInfo.IsRxLosThresholdSupported})
+    opticsInfo.EntityData.Leafs.Append("rx-los-threshold", types.YLeaf{"RxLosThreshold", opticsInfo.RxLosThreshold})
+    opticsInfo.EntityData.Leafs.Append("transmit-power-min", types.YLeaf{"TransmitPowerMin", opticsInfo.TransmitPowerMin})
+    opticsInfo.EntityData.Leafs.Append("transmit-power-max", types.YLeaf{"TransmitPowerMax", opticsInfo.TransmitPowerMax})
+    opticsInfo.EntityData.Leafs.Append("transmit-power-avg", types.YLeaf{"TransmitPowerAvg", opticsInfo.TransmitPowerAvg})
+    opticsInfo.EntityData.Leafs.Append("receive-power-min", types.YLeaf{"ReceivePowerMin", opticsInfo.ReceivePowerMin})
+    opticsInfo.EntityData.Leafs.Append("receive-power-max", types.YLeaf{"ReceivePowerMax", opticsInfo.ReceivePowerMax})
+    opticsInfo.EntityData.Leafs.Append("receive-power-avg", types.YLeaf{"ReceivePowerAvg", opticsInfo.ReceivePowerAvg})
+    opticsInfo.EntityData.Leafs.Append("laser-bias-current-min", types.YLeaf{"LaserBiasCurrentMin", opticsInfo.LaserBiasCurrentMin})
+    opticsInfo.EntityData.Leafs.Append("laser-bias-current-max", types.YLeaf{"LaserBiasCurrentMax", opticsInfo.LaserBiasCurrentMax})
+    opticsInfo.EntityData.Leafs.Append("laser-bias-current-avg", types.YLeaf{"LaserBiasCurrentAvg", opticsInfo.LaserBiasCurrentAvg})
+    opticsInfo.EntityData.Leafs.Append("chromatic-dispersion", types.YLeaf{"ChromaticDispersion", opticsInfo.ChromaticDispersion})
+    opticsInfo.EntityData.Leafs.Append("differential-group-delay", types.YLeaf{"DifferentialGroupDelay", opticsInfo.DifferentialGroupDelay})
+    opticsInfo.EntityData.Leafs.Append("polarization-mode-dispersion", types.YLeaf{"PolarizationModeDispersion", opticsInfo.PolarizationModeDispersion})
+    opticsInfo.EntityData.Leafs.Append("signal-to-noise-ratio", types.YLeaf{"SignalToNoiseRatio", opticsInfo.SignalToNoiseRatio})
+    opticsInfo.EntityData.Leafs.Append("polarization-dependent-loss", types.YLeaf{"PolarizationDependentLoss", opticsInfo.PolarizationDependentLoss})
+    opticsInfo.EntityData.Leafs.Append("polarization-change-rate", types.YLeaf{"PolarizationChangeRate", opticsInfo.PolarizationChangeRate})
+    opticsInfo.EntityData.Leafs.Append("phase-noise", types.YLeaf{"PhaseNoise", opticsInfo.PhaseNoise})
+    opticsInfo.EntityData.Leafs.Append("output-power-fail", types.YLeaf{"OutputPowerFail", opticsInfo.OutputPowerFail})
+    opticsInfo.EntityData.Leafs.Append("input-power-fail", types.YLeaf{"InputPowerFail", opticsInfo.InputPowerFail})
+
+    opticsInfo.EntityData.YListKeys = []string {}
+
     return &(opticsInfo.EntityData)
 }
 
@@ -3376,15 +3571,18 @@ func (tdcInfo *Dwdm_Ports_Port_Info_TdcInfo) GetEntityData() *types.CommonEntity
     tdcInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tdcInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tdcInfo.EntityData.Children = make(map[string]types.YChild)
-    tdcInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    tdcInfo.EntityData.Leafs["tdc-valid"] = types.YLeaf{"TdcValid", tdcInfo.TdcValid}
-    tdcInfo.EntityData.Leafs["major-alarm"] = types.YLeaf{"MajorAlarm", tdcInfo.MajorAlarm}
-    tdcInfo.EntityData.Leafs["operation-mode"] = types.YLeaf{"OperationMode", tdcInfo.OperationMode}
-    tdcInfo.EntityData.Leafs["tdc-status"] = types.YLeaf{"TdcStatus", tdcInfo.TdcStatus}
-    tdcInfo.EntityData.Leafs["dispersion-offset"] = types.YLeaf{"DispersionOffset", tdcInfo.DispersionOffset}
-    tdcInfo.EntityData.Leafs["reroute-ber"] = types.YLeaf{"RerouteBer", tdcInfo.RerouteBer}
-    tdcInfo.EntityData.Leafs["is-reroute-control-enabled"] = types.YLeaf{"IsRerouteControlEnabled", tdcInfo.IsRerouteControlEnabled}
+    tdcInfo.EntityData.Children = types.NewOrderedMap()
+    tdcInfo.EntityData.Leafs = types.NewOrderedMap()
+    tdcInfo.EntityData.Leafs.Append("tdc-valid", types.YLeaf{"TdcValid", tdcInfo.TdcValid})
+    tdcInfo.EntityData.Leafs.Append("major-alarm", types.YLeaf{"MajorAlarm", tdcInfo.MajorAlarm})
+    tdcInfo.EntityData.Leafs.Append("operation-mode", types.YLeaf{"OperationMode", tdcInfo.OperationMode})
+    tdcInfo.EntityData.Leafs.Append("tdc-status", types.YLeaf{"TdcStatus", tdcInfo.TdcStatus})
+    tdcInfo.EntityData.Leafs.Append("dispersion-offset", types.YLeaf{"DispersionOffset", tdcInfo.DispersionOffset})
+    tdcInfo.EntityData.Leafs.Append("reroute-ber", types.YLeaf{"RerouteBer", tdcInfo.RerouteBer})
+    tdcInfo.EntityData.Leafs.Append("is-reroute-control-enabled", types.YLeaf{"IsRerouteControlEnabled", tdcInfo.IsRerouteControlEnabled})
+
+    tdcInfo.EntityData.YListKeys = []string {}
+
     return &(tdcInfo.EntityData)
 }
 
@@ -3408,9 +3606,12 @@ func (networkSrlgInfo *Dwdm_Ports_Port_Info_NetworkSrlgInfo) GetEntityData() *ty
     networkSrlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networkSrlgInfo.EntityData.Children = make(map[string]types.YChild)
-    networkSrlgInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    networkSrlgInfo.EntityData.Leafs["network-srlg"] = types.YLeaf{"NetworkSrlg", networkSrlgInfo.NetworkSrlg}
+    networkSrlgInfo.EntityData.Children = types.NewOrderedMap()
+    networkSrlgInfo.EntityData.Leafs = types.NewOrderedMap()
+    networkSrlgInfo.EntityData.Leafs.Append("network-srlg", types.YLeaf{"NetworkSrlg", networkSrlgInfo.NetworkSrlg})
+
+    networkSrlgInfo.EntityData.YListKeys = []string {}
+
     return &(networkSrlgInfo.EntityData)
 }
 
@@ -3517,35 +3718,38 @@ func (proactive *Dwdm_Ports_Port_Info_Proactive) GetEntityData() *types.CommonEn
     proactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    proactive.EntityData.Children = make(map[string]types.YChild)
-    proactive.EntityData.Leafs = make(map[string]types.YLeaf)
-    proactive.EntityData.Leafs["proactive-feature"] = types.YLeaf{"ProactiveFeature", proactive.ProactiveFeature}
-    proactive.EntityData.Leafs["proactive-mode"] = types.YLeaf{"ProactiveMode", proactive.ProactiveMode}
-    proactive.EntityData.Leafs["proactive-fsm-state"] = types.YLeaf{"ProactiveFsmState", proactive.ProactiveFsmState}
-    proactive.EntityData.Leafs["proactive-fsm-if-state"] = types.YLeaf{"ProactiveFsmIfState", proactive.ProactiveFsmIfState}
-    proactive.EntityData.Leafs["tas-state"] = types.YLeaf{"TasState", proactive.TasState}
-    proactive.EntityData.Leafs["trig-thresh-coeff"] = types.YLeaf{"TrigThreshCoeff", proactive.TrigThreshCoeff}
-    proactive.EntityData.Leafs["trig-thresh-power"] = types.YLeaf{"TrigThreshPower", proactive.TrigThreshPower}
-    proactive.EntityData.Leafs["rvrt-thresh-coeff"] = types.YLeaf{"RvrtThreshCoeff", proactive.RvrtThreshCoeff}
-    proactive.EntityData.Leafs["rvrt-thresh-power"] = types.YLeaf{"RvrtThreshPower", proactive.RvrtThreshPower}
-    proactive.EntityData.Leafs["default-trig-thresh-coeff"] = types.YLeaf{"DefaultTrigThreshCoeff", proactive.DefaultTrigThreshCoeff}
-    proactive.EntityData.Leafs["default-trig-thresh-power"] = types.YLeaf{"DefaultTrigThreshPower", proactive.DefaultTrigThreshPower}
-    proactive.EntityData.Leafs["default-rvrt-thresh-coeff"] = types.YLeaf{"DefaultRvrtThreshCoeff", proactive.DefaultRvrtThreshCoeff}
-    proactive.EntityData.Leafs["default-rvrt-thresh-power"] = types.YLeaf{"DefaultRvrtThreshPower", proactive.DefaultRvrtThreshPower}
-    proactive.EntityData.Leafs["trig-samples"] = types.YLeaf{"TrigSamples", proactive.TrigSamples}
-    proactive.EntityData.Leafs["rvrt-samples"] = types.YLeaf{"RvrtSamples", proactive.RvrtSamples}
-    proactive.EntityData.Leafs["trigger-window"] = types.YLeaf{"TriggerWindow", proactive.TriggerWindow}
-    proactive.EntityData.Leafs["revert-window"] = types.YLeaf{"RevertWindow", proactive.RevertWindow}
-    proactive.EntityData.Leafs["protection-trigger"] = types.YLeaf{"ProtectionTrigger", proactive.ProtectionTrigger}
-    proactive.EntityData.Leafs["interface-trigger"] = types.YLeaf{"InterfaceTrigger", proactive.InterfaceTrigger}
-    proactive.EntityData.Leafs["tx-aps"] = types.YLeaf{"TxAps", proactive.TxAps}
-    proactive.EntityData.Leafs["tx-aps-descr"] = types.YLeaf{"TxApsDescr", proactive.TxApsDescr}
-    proactive.EntityData.Leafs["rx-aps"] = types.YLeaf{"RxAps", proactive.RxAps}
-    proactive.EntityData.Leafs["rx-aps-descr"] = types.YLeaf{"RxApsDescr", proactive.RxApsDescr}
-    proactive.EntityData.Leafs["alarm-state"] = types.YLeaf{"AlarmState", proactive.AlarmState}
-    proactive.EntityData.Leafs["trig-ec-cnt"] = types.YLeaf{"TrigEcCnt", proactive.TrigEcCnt}
-    proactive.EntityData.Leafs["rvrt-ec-cnt"] = types.YLeaf{"RvrtEcCnt", proactive.RvrtEcCnt}
-    proactive.EntityData.Leafs["prefec-thresh-crossed"] = types.YLeaf{"PrefecThreshCrossed", proactive.PrefecThreshCrossed}
+    proactive.EntityData.Children = types.NewOrderedMap()
+    proactive.EntityData.Leafs = types.NewOrderedMap()
+    proactive.EntityData.Leafs.Append("proactive-feature", types.YLeaf{"ProactiveFeature", proactive.ProactiveFeature})
+    proactive.EntityData.Leafs.Append("proactive-mode", types.YLeaf{"ProactiveMode", proactive.ProactiveMode})
+    proactive.EntityData.Leafs.Append("proactive-fsm-state", types.YLeaf{"ProactiveFsmState", proactive.ProactiveFsmState})
+    proactive.EntityData.Leafs.Append("proactive-fsm-if-state", types.YLeaf{"ProactiveFsmIfState", proactive.ProactiveFsmIfState})
+    proactive.EntityData.Leafs.Append("tas-state", types.YLeaf{"TasState", proactive.TasState})
+    proactive.EntityData.Leafs.Append("trig-thresh-coeff", types.YLeaf{"TrigThreshCoeff", proactive.TrigThreshCoeff})
+    proactive.EntityData.Leafs.Append("trig-thresh-power", types.YLeaf{"TrigThreshPower", proactive.TrigThreshPower})
+    proactive.EntityData.Leafs.Append("rvrt-thresh-coeff", types.YLeaf{"RvrtThreshCoeff", proactive.RvrtThreshCoeff})
+    proactive.EntityData.Leafs.Append("rvrt-thresh-power", types.YLeaf{"RvrtThreshPower", proactive.RvrtThreshPower})
+    proactive.EntityData.Leafs.Append("default-trig-thresh-coeff", types.YLeaf{"DefaultTrigThreshCoeff", proactive.DefaultTrigThreshCoeff})
+    proactive.EntityData.Leafs.Append("default-trig-thresh-power", types.YLeaf{"DefaultTrigThreshPower", proactive.DefaultTrigThreshPower})
+    proactive.EntityData.Leafs.Append("default-rvrt-thresh-coeff", types.YLeaf{"DefaultRvrtThreshCoeff", proactive.DefaultRvrtThreshCoeff})
+    proactive.EntityData.Leafs.Append("default-rvrt-thresh-power", types.YLeaf{"DefaultRvrtThreshPower", proactive.DefaultRvrtThreshPower})
+    proactive.EntityData.Leafs.Append("trig-samples", types.YLeaf{"TrigSamples", proactive.TrigSamples})
+    proactive.EntityData.Leafs.Append("rvrt-samples", types.YLeaf{"RvrtSamples", proactive.RvrtSamples})
+    proactive.EntityData.Leafs.Append("trigger-window", types.YLeaf{"TriggerWindow", proactive.TriggerWindow})
+    proactive.EntityData.Leafs.Append("revert-window", types.YLeaf{"RevertWindow", proactive.RevertWindow})
+    proactive.EntityData.Leafs.Append("protection-trigger", types.YLeaf{"ProtectionTrigger", proactive.ProtectionTrigger})
+    proactive.EntityData.Leafs.Append("interface-trigger", types.YLeaf{"InterfaceTrigger", proactive.InterfaceTrigger})
+    proactive.EntityData.Leafs.Append("tx-aps", types.YLeaf{"TxAps", proactive.TxAps})
+    proactive.EntityData.Leafs.Append("tx-aps-descr", types.YLeaf{"TxApsDescr", proactive.TxApsDescr})
+    proactive.EntityData.Leafs.Append("rx-aps", types.YLeaf{"RxAps", proactive.RxAps})
+    proactive.EntityData.Leafs.Append("rx-aps-descr", types.YLeaf{"RxApsDescr", proactive.RxApsDescr})
+    proactive.EntityData.Leafs.Append("alarm-state", types.YLeaf{"AlarmState", proactive.AlarmState})
+    proactive.EntityData.Leafs.Append("trig-ec-cnt", types.YLeaf{"TrigEcCnt", proactive.TrigEcCnt})
+    proactive.EntityData.Leafs.Append("rvrt-ec-cnt", types.YLeaf{"RvrtEcCnt", proactive.RvrtEcCnt})
+    proactive.EntityData.Leafs.Append("prefec-thresh-crossed", types.YLeaf{"PrefecThreshCrossed", proactive.PrefecThreshCrossed})
+
+    proactive.EntityData.YListKeys = []string {}
+
     return &(proactive.EntityData)
 }
 
@@ -3572,10 +3776,13 @@ func (signalLog *Dwdm_Ports_Port_Info_SignalLog) GetEntityData() *types.CommonEn
     signalLog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalLog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    signalLog.EntityData.Children = make(map[string]types.YChild)
-    signalLog.EntityData.Leafs = make(map[string]types.YLeaf)
-    signalLog.EntityData.Leafs["is-log-enabled"] = types.YLeaf{"IsLogEnabled", signalLog.IsLogEnabled}
-    signalLog.EntityData.Leafs["log-filename"] = types.YLeaf{"LogFilename", signalLog.LogFilename}
+    signalLog.EntityData.Children = types.NewOrderedMap()
+    signalLog.EntityData.Leafs = types.NewOrderedMap()
+    signalLog.EntityData.Leafs.Append("is-log-enabled", types.YLeaf{"IsLogEnabled", signalLog.IsLogEnabled})
+    signalLog.EntityData.Leafs.Append("log-filename", types.YLeaf{"LogFilename", signalLog.LogFilename})
+
+    signalLog.EntityData.YListKeys = []string {}
+
     return &(signalLog.EntityData)
 }
 
@@ -3599,9 +3806,12 @@ func (vtxp *Vtxp) GetEntityData() *types.CommonEntityData {
     vtxp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vtxp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vtxp.EntityData.Children = make(map[string]types.YChild)
-    vtxp.EntityData.Children["dwdm-vtxp"] = types.YChild{"DwdmVtxp", &vtxp.DwdmVtxp}
-    vtxp.EntityData.Leafs = make(map[string]types.YLeaf)
+    vtxp.EntityData.Children = types.NewOrderedMap()
+    vtxp.EntityData.Children.Append("dwdm-vtxp", types.YChild{"DwdmVtxp", &vtxp.DwdmVtxp})
+    vtxp.EntityData.Leafs = types.NewOrderedMap()
+
+    vtxp.EntityData.YListKeys = []string {}
+
     return &(vtxp.EntityData)
 }
 
@@ -3625,9 +3835,12 @@ func (dwdmVtxp *Vtxp_DwdmVtxp) GetEntityData() *types.CommonEntityData {
     dwdmVtxp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dwdmVtxp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dwdmVtxp.EntityData.Children = make(map[string]types.YChild)
-    dwdmVtxp.EntityData.Children["port-vtxps"] = types.YChild{"PortVtxps", &dwdmVtxp.PortVtxps}
-    dwdmVtxp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dwdmVtxp.EntityData.Children = types.NewOrderedMap()
+    dwdmVtxp.EntityData.Children.Append("port-vtxps", types.YChild{"PortVtxps", &dwdmVtxp.PortVtxps})
+    dwdmVtxp.EntityData.Leafs = types.NewOrderedMap()
+
+    dwdmVtxp.EntityData.YListKeys = []string {}
+
     return &(dwdmVtxp.EntityData)
 }
 
@@ -3639,7 +3852,7 @@ type Vtxp_DwdmVtxp_PortVtxps struct {
 
     // DWDM Port operational data. The type is slice of
     // Vtxp_DwdmVtxp_PortVtxps_PortVtxp.
-    PortVtxp []Vtxp_DwdmVtxp_PortVtxps_PortVtxp
+    PortVtxp []*Vtxp_DwdmVtxp_PortVtxps_PortVtxp
 }
 
 func (portVtxps *Vtxp_DwdmVtxp_PortVtxps) GetEntityData() *types.CommonEntityData {
@@ -3652,12 +3865,15 @@ func (portVtxps *Vtxp_DwdmVtxp_PortVtxps) GetEntityData() *types.CommonEntityDat
     portVtxps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portVtxps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portVtxps.EntityData.Children = make(map[string]types.YChild)
-    portVtxps.EntityData.Children["port-vtxp"] = types.YChild{"PortVtxp", nil}
+    portVtxps.EntityData.Children = types.NewOrderedMap()
+    portVtxps.EntityData.Children.Append("port-vtxp", types.YChild{"PortVtxp", nil})
     for i := range portVtxps.PortVtxp {
-        portVtxps.EntityData.Children[types.GetSegmentPath(&portVtxps.PortVtxp[i])] = types.YChild{"PortVtxp", &portVtxps.PortVtxp[i]}
+        portVtxps.EntityData.Children.Append(types.GetSegmentPath(portVtxps.PortVtxp[i]), types.YChild{"PortVtxp", portVtxps.PortVtxp[i]})
     }
-    portVtxps.EntityData.Leafs = make(map[string]types.YLeaf)
+    portVtxps.EntityData.Leafs = types.NewOrderedMap()
+
+    portVtxps.EntityData.YListKeys = []string {}
+
     return &(portVtxps.EntityData)
 }
 
@@ -3668,7 +3884,7 @@ type Vtxp_DwdmVtxp_PortVtxps_PortVtxp struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Name interface{}
 
     // DWDM port operational data.
@@ -3680,15 +3896,18 @@ func (portVtxp *Vtxp_DwdmVtxp_PortVtxps_PortVtxp) GetEntityData() *types.CommonE
     portVtxp.EntityData.YangName = "port-vtxp"
     portVtxp.EntityData.BundleName = "cisco_ios_xr"
     portVtxp.EntityData.ParentYangName = "port-vtxps"
-    portVtxp.EntityData.SegmentPath = "port-vtxp" + "[name='" + fmt.Sprintf("%v", portVtxp.Name) + "']"
+    portVtxp.EntityData.SegmentPath = "port-vtxp" + types.AddKeyToken(portVtxp.Name, "name")
     portVtxp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portVtxp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portVtxp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portVtxp.EntityData.Children = make(map[string]types.YChild)
-    portVtxp.EntityData.Children["info"] = types.YChild{"Info", &portVtxp.Info}
-    portVtxp.EntityData.Leafs = make(map[string]types.YLeaf)
-    portVtxp.EntityData.Leafs["name"] = types.YLeaf{"Name", portVtxp.Name}
+    portVtxp.EntityData.Children = types.NewOrderedMap()
+    portVtxp.EntityData.Children.Append("info", types.YChild{"Info", &portVtxp.Info})
+    portVtxp.EntityData.Leafs = types.NewOrderedMap()
+    portVtxp.EntityData.Leafs.Append("name", types.YLeaf{"Name", portVtxp.Name})
+
+    portVtxp.EntityData.YListKeys = []string {"Name"}
+
     return &(portVtxp.EntityData)
 }
 
@@ -3712,9 +3931,12 @@ func (info *Vtxp_DwdmVtxp_PortVtxps_PortVtxp_Info) GetEntityData() *types.Common
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    info.EntityData.Children = make(map[string]types.YChild)
-    info.EntityData.Leafs = make(map[string]types.YLeaf)
-    info.EntityData.Leafs["vtxp-enable"] = types.YLeaf{"VtxpEnable", info.VtxpEnable}
+    info.EntityData.Children = types.NewOrderedMap()
+    info.EntityData.Leafs = types.NewOrderedMap()
+    info.EntityData.Leafs.Append("vtxp-enable", types.YLeaf{"VtxpEnable", info.VtxpEnable})
+
+    info.EntityData.YListKeys = []string {}
+
     return &(info.EntityData)
 }
 

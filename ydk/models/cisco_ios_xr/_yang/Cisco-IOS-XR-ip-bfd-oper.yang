@@ -9,7 +9,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ip-bfd-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -35,6 +35,10 @@ module Cisco-IOS-XR-ip-bfd-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -59,7 +63,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "Interface Name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
@@ -154,7 +158,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "Interface Name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
@@ -335,27 +339,27 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "VRF name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
         leaf fe-ctype {
-          type int32;
+          type uint32;
           description
             "FEC Type";
         }
         leaf fec-subgroup-id {
-          type int32;
+          type uint32;
           description
             "FEC Subgroup ID";
         }
         leaf feclspid {
-          type int32;
+          type uint32;
           description
             "FEC LSP ID";
         }
         leaf fec-tunnel-id {
-          type int32;
+          type uint32;
           description
             "FEC Tunnel ID";
         }
@@ -375,7 +379,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Destination";
         }
         leaf fecp2mpid {
-          type int32;
+          type uint32;
           description
             "FEC P2MP ID";
         }
@@ -385,7 +389,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Subgroup originator";
         }
         leaf fec-ctype {
-          type int32;
+          type uint32;
           description
             "FEC C Type";
         }
@@ -411,27 +415,27 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "VRF name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
         leaf fe-ctype {
-          type int32;
+          type uint32;
           description
             "FEC Type";
         }
         leaf fec-subgroup-id {
-          type int32;
+          type uint32;
           description
             "FEC Subgroup ID";
         }
         leaf feclspid {
-          type int32;
+          type uint32;
           description
             "FEC LSP ID";
         }
         leaf fec-tunnel-id {
-          type int32;
+          type uint32;
           description
             "FEC Tunnel ID";
         }
@@ -451,7 +455,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Destination";
         }
         leaf fecp2mpid {
-          type int32;
+          type uint32;
           description
             "FEC P2MP ID";
         }
@@ -461,7 +465,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Subgroup originator";
         }
         leaf fec-ctype {
-          type int32;
+          type uint32;
           description
             "FEC C Type";
         }
@@ -504,27 +508,27 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "VRF name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
         leaf fe-ctype {
-          type int32;
+          type uint32;
           description
             "FEC Type";
         }
         leaf fec-subgroup-id {
-          type int32;
+          type uint32;
           description
             "FEC Subgroup ID";
         }
         leaf feclspid {
-          type int32;
+          type uint32;
           description
             "FEC LSP ID";
         }
         leaf fec-tunnel-id {
-          type int32;
+          type uint32;
           description
             "FEC Tunnel ID";
         }
@@ -544,7 +548,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Destination";
         }
         leaf fecp2mpid {
-          type int32;
+          type uint32;
           description
             "FEC P2MP ID";
         }
@@ -554,7 +558,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Subgroup originator";
         }
         leaf fec-ctype {
-          type int32;
+          type uint32;
           description
             "FEC C Type";
         }
@@ -873,7 +877,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "Interface Name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
@@ -1112,27 +1116,27 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "VRF name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
         leaf fe-ctype {
-          type int32;
+          type uint32;
           description
             "FEC Type";
         }
         leaf fec-subgroup-id {
-          type int32;
+          type uint32;
           description
             "FEC Subgroup ID";
         }
         leaf feclspid {
-          type int32;
+          type uint32;
           description
             "FEC LSP ID";
         }
         leaf fec-tunnel-id {
-          type int32;
+          type uint32;
           description
             "FEC Tunnel ID";
         }
@@ -1152,7 +1156,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Destination";
         }
         leaf fecp2mpid {
-          type int32;
+          type uint32;
           description
             "FEC P2MP ID";
         }
@@ -1162,7 +1166,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Subgroup originator";
         }
         leaf fec-ctype {
-          type int32;
+          type uint32;
           description
             "FEC C Type";
         }
@@ -1227,27 +1231,27 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "VRF name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
         leaf fe-ctype {
-          type int32;
+          type uint32;
           description
             "FEC Type";
         }
         leaf fec-subgroup-id {
-          type int32;
+          type uint32;
           description
             "FEC Subgroup ID";
         }
         leaf feclspid {
-          type int32;
+          type uint32;
           description
             "FEC LSP ID";
         }
         leaf fec-tunnel-id {
-          type int32;
+          type uint32;
           description
             "FEC Tunnel ID";
         }
@@ -1267,7 +1271,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Destination";
         }
         leaf fecp2mpid {
-          type int32;
+          type uint32;
           description
             "FEC P2MP ID";
         }
@@ -1277,7 +1281,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Subgroup originator";
         }
         leaf fec-ctype {
-          type int32;
+          type uint32;
           description
             "FEC C Type";
         }
@@ -1326,27 +1330,27 @@ module Cisco-IOS-XR-ip-bfd-oper {
               "VRF name";
           }
           leaf incoming-label {
-            type int32;
+            type uint32;
             description
               "Incoming Label";
           }
           leaf fe-ctype {
-            type int32;
+            type uint32;
             description
               "FEC Type";
           }
           leaf fec-subgroup-id {
-            type int32;
+            type uint32;
             description
               "FEC Subgroup ID";
           }
           leaf feclspid {
-            type int32;
+            type uint32;
             description
               "FEC LSP ID";
           }
           leaf fec-tunnel-id {
-            type int32;
+            type uint32;
             description
               "FEC Tunnel ID";
           }
@@ -1366,7 +1370,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
               "FEC Destination";
           }
           leaf fecp2mpid {
-            type int32;
+            type uint32;
             description
               "FEC P2MP ID";
           }
@@ -1376,7 +1380,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
               "FEC Subgroup originator";
           }
           leaf fec-ctype {
-            type int32;
+            type uint32;
             description
               "FEC C Type";
           }
@@ -1427,27 +1431,27 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "VRF name";
         }
         leaf incoming-label {
-          type int32;
+          type uint32;
           description
             "Incoming Label";
         }
         leaf fe-ctype {
-          type int32;
+          type uint32;
           description
             "FEC Type";
         }
         leaf fec-subgroup-id {
-          type int32;
+          type uint32;
           description
             "FEC Subgroup ID";
         }
         leaf feclspid {
-          type int32;
+          type uint32;
           description
             "FEC LSP ID";
         }
         leaf fec-tunnel-id {
-          type int32;
+          type uint32;
           description
             "FEC Tunnel ID";
         }
@@ -1467,7 +1471,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Destination";
         }
         leaf fecp2mpid {
-          type int32;
+          type uint32;
           description
             "FEC P2MP ID";
         }
@@ -1477,7 +1481,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
             "FEC Subgroup originator";
         }
         leaf fec-ctype {
-          type int32;
+          type uint32;
           description
             "FEC C Type";
         }

@@ -47,10 +47,13 @@ func (accounting *Accounting) GetEntityData() *types.CommonEntityData {
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &accounting.Interfaces}
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    accounting.EntityData.Leafs["enable"] = types.YLeaf{"Enable", accounting.Enable}
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &accounting.Interfaces})
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", accounting.Enable})
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
@@ -80,11 +83,14 @@ func (interfaces *Accounting_Interfaces) GetEntityData() *types.CommonEntityData
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["mpls"] = types.YChild{"Mpls", &interfaces.Mpls}
-    interfaces.EntityData.Children["segment-routing"] = types.YChild{"SegmentRouting", &interfaces.SegmentRouting}
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaces.EntityData.Leafs["enable"] = types.YLeaf{"Enable", interfaces.Enable}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("mpls", types.YChild{"Mpls", &interfaces.Mpls})
+    interfaces.EntityData.Children.Append("segment-routing", types.YChild{"SegmentRouting", &interfaces.SegmentRouting})
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+    interfaces.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaces.Enable})
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -98,7 +104,7 @@ type Accounting_Interfaces_Mpls struct {
     Enable interface{}
 
     // Enable accounting on MPLS IPv4 RSVP TE. The type is interface{}.
-    EnableV4Rsvpte interface{}
+    EnableV4rsvpte interface{}
 }
 
 func (mpls *Accounting_Interfaces_Mpls) GetEntityData() *types.CommonEntityData {
@@ -111,10 +117,13 @@ func (mpls *Accounting_Interfaces_Mpls) GetEntityData() *types.CommonEntityData 
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpls.EntityData.Children = make(map[string]types.YChild)
-    mpls.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpls.EntityData.Leafs["enable"] = types.YLeaf{"Enable", mpls.Enable}
-    mpls.EntityData.Leafs["enable-v4rsvpte"] = types.YLeaf{"EnableV4Rsvpte", mpls.EnableV4Rsvpte}
+    mpls.EntityData.Children = types.NewOrderedMap()
+    mpls.EntityData.Leafs = types.NewOrderedMap()
+    mpls.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", mpls.Enable})
+    mpls.EntityData.Leafs.Append("enable-v4rsvpte", types.YLeaf{"EnableV4rsvpte", mpls.EnableV4rsvpte})
+
+    mpls.EntityData.YListKeys = []string {}
+
     return &(mpls.EntityData)
 }
 
@@ -144,11 +153,14 @@ func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetEntityData() *typ
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    segmentRouting.EntityData.Children = make(map[string]types.YChild)
-    segmentRouting.EntityData.Leafs = make(map[string]types.YLeaf)
-    segmentRouting.EntityData.Leafs["enable"] = types.YLeaf{"Enable", segmentRouting.Enable}
-    segmentRouting.EntityData.Leafs["enable-mplsv4"] = types.YLeaf{"EnableMplsv4", segmentRouting.EnableMplsv4}
-    segmentRouting.EntityData.Leafs["enable-mplsv6"] = types.YLeaf{"EnableMplsv6", segmentRouting.EnableMplsv6}
+    segmentRouting.EntityData.Children = types.NewOrderedMap()
+    segmentRouting.EntityData.Leafs = types.NewOrderedMap()
+    segmentRouting.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", segmentRouting.Enable})
+    segmentRouting.EntityData.Leafs.Append("enable-mplsv4", types.YLeaf{"EnableMplsv4", segmentRouting.EnableMplsv4})
+    segmentRouting.EntityData.Leafs.Append("enable-mplsv6", types.YLeaf{"EnableMplsv6", segmentRouting.EnableMplsv6})
+
+    segmentRouting.EntityData.YListKeys = []string {}
+
     return &(segmentRouting.EntityData)
 }
 

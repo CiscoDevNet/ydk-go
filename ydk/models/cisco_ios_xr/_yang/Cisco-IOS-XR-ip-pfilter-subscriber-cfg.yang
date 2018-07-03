@@ -50,13 +50,15 @@ module Cisco-IOS-XR-ip-pfilter-subscriber-cfg {
           "IPv6 Packet filter to be applied to inbound
            packets";
         leaf common-acl-name {
-          type string;
+          type xr:Cisco-ios-xr-string {
+            length "1..64";
+          }
           description
             "Not supported (Leave unspecified).";
         }
         leaf name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "IPv6 Packet Filter Name to be applied to
@@ -74,13 +76,15 @@ module Cisco-IOS-XR-ip-pfilter-subscriber-cfg {
           "IPv6 Packet filter to be applied to outbound
            packets";
         leaf common-acl-name {
-          type string;
+          type xr:Cisco-ios-xr-string {
+            length "1..64";
+          }
           description
             "Not supported (Leave unspecified).";
         }
         leaf name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "IPv6 Packet Filter Name to be applied to
@@ -108,13 +112,15 @@ module Cisco-IOS-XR-ip-pfilter-subscriber-cfg {
           "IPv4 Packet filter to be applied to outbound
            packets";
         leaf common-acl-name {
-          type string;
+          type xr:Cisco-ios-xr-string {
+            length "1..64";
+          }
           description
             "Not supported (Leave unspecified).";
         }
         leaf name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "IPv4 Packet Filter Name to be applied to
@@ -136,13 +142,15 @@ module Cisco-IOS-XR-ip-pfilter-subscriber-cfg {
           "IPv4 Packet filter to be applied to inbound
            packets";
         leaf common-acl-name {
-          type string;
+          type xr:Cisco-ios-xr-string {
+            length "1..64";
+          }
           description
             "Not supported (Leave unspecified).";
         }
         leaf name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "IPv4 Packet Filter Name to be applied to

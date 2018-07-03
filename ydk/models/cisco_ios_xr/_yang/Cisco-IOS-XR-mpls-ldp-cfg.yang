@@ -39,6 +39,10 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
@@ -487,6 +491,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
     }
   }
   container mpls-ldp {
+    presence "Indicates a mpls-ldp node is configured.";
     description
       "MPLS LDP configuration";
     container default-vrf {
@@ -1821,6 +1826,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
     }
     leaf enable {
       type empty;
+      mandatory true;
       description
         "Enable Label Distribution Protocol (LDP)
          globally.Without creating this object the LDP

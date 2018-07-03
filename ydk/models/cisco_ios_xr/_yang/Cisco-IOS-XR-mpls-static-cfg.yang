@@ -32,6 +32,10 @@ module Cisco-IOS-XR-mpls-static-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -286,7 +290,7 @@ module Cisco-IOS-XR-mpls-static-cfg {
               "Address (IPv4/6 depending on AFI)";
           }
           leaf prefix-length {
-            type int32;
+            type uint32;
             description
               "Prefix length";
           }
@@ -339,7 +343,7 @@ module Cisco-IOS-XR-mpls-static-cfg {
               "Address (IPv4/6 depending on AFI)";
           }
           leaf prefix-length {
-            type int32;
+            type uint32;
             description
               "Prefix length";
           }

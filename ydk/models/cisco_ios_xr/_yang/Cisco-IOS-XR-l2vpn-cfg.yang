@@ -141,6 +141,14 @@ module Cisco-IOS-XR-l2vpn-cfg {
       "Vpls id addr index";
   }
 
+  typedef Evpn-core-group-id-range {
+    type uint32 {
+      range "1..4294967295";
+    }
+    description
+      "Evpn core group id range";
+  }
+
   typedef Tag-rewrite-range {
     type uint32 {
       range "1..4094";
@@ -331,6 +339,23 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
     description
       "Cedge range";
+  }
+
+  typedef Ethernet-segment-load-balance {
+    type enumeration {
+      enum "single-active" {
+        value 1;
+        description
+          "Single Active";
+      }
+      enum "port-active" {
+        value 2;
+        description
+          "Port Active";
+      }
+    }
+    description
+      "Ethernet segment load balance";
   }
 
   typedef Mpls-signaling-protocol {
@@ -1180,6 +1205,14 @@ module Cisco-IOS-XR-l2vpn-cfg {
       "Bgp route target format";
   }
 
+  typedef Evpn-group-id-range {
+    type uint32 {
+      range "1..4294967295";
+    }
+    description
+      "Evpn group id range";
+  }
+
   typedef Mac-limit-threshold-range {
     type uint32 {
       range "1..100";
@@ -1308,7 +1341,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   grouping EVI-ADVERTISE-MAC-DEPRECATED {
     description
-      "Common node of evpnevi, evpn-instance";
+      "Common node of evpn-evi, evpn-instance";
     leaf evi-advertise-mac-deprecated {
       type empty;
       description
@@ -1319,7 +1352,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   grouping TABLE-POLICY {
     description
-      "Common node of evpnev-ibgp-auto-discovery,
+      "Common node of evpn-evi-bgp-auto-discovery,
        evpn-instance-bgp-auto-discovery";
     leaf table-policy {
       type string;
@@ -1356,7 +1389,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   grouping EVI-ECMP-DISABLE {
     description
-      "Common node of evpnevi, evpn-instance";
+      "Common node of evpn-evi, evpn-instance";
     leaf evi-ecmp-disable {
       type empty;
       description
@@ -1401,7 +1434,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
   grouping EVPN-ROUTE-DISTINGUISHER {
     description
       "Common node of evpn-bgp-auto-discovery,
-       evpnev-ibgp-auto-discovery,
+       evpn-evi-bgp-auto-discovery,
        evpn-instance-bgp-auto-discovery, pw-routing-bgp";
     container evpn-route-distinguisher {
       description
@@ -1532,7 +1565,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   grouping EVPN-ROUTE-TARGET-TABLE {
     description
-      "Common node of evpnevibgp-auto-discovery,
+      "Common node of evpn-evi-bgp-auto-discovery,
        evpn-instance-bgp-auto-discovery";
     container evpn-route-targets {
       description
@@ -1650,7 +1683,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   grouping EVI-REORIG-DISABLE {
     description
-      "Common node of evpnevi, evpn-instance";
+      "Common node of evpn-evi, evpn-instance";
     leaf evi-reorig-disable {
       type empty;
       description
@@ -1680,10 +1713,10 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
   }
 
-  grouping EVPNEVI-DESCRIPTION {
+  grouping EVPN-EVI-DESCRIPTION {
     description
-      "Common node of evpnevi, evpn-instance";
-    leaf evpnevi-description {
+      "Common node of evpn-evi, evpn-instance";
+    leaf evpn-evi-description {
       type string {
         length "1..64";
       }
@@ -1694,7 +1727,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   grouping EVI-UNKNOWN-UNICAST-FLOODING-DISABLE {
     description
-      "Common node of evpnevi, evpn-instance";
+      "Common node of evpn-evi, evpn-instance";
     leaf evi-unknown-unicast-flooding-disable {
       type empty;
       description
@@ -1704,7 +1737,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   grouping EVPN-EVI-CW-DISABLE {
     description
-      "Common node of evpnevi, evpn-instance";
+      "Common node of evpn-evi, evpn-instance";
     leaf evpn-evi-cw-disable {
       type empty;
       description
@@ -5050,10 +5083,10 @@ module Cisco-IOS-XR-l2vpn-cfg {
             "Enable EVPN MAC Configuration";
         }
       }
-      container evpnevis {
+      container evpn-evis {
         description
           "Enter EVPN Instance configuration submode";
-        list evpnevi {
+        list evpn-evi {
           key "eviid";
           description
             "Enter EVPN Instance configuration submode";
@@ -5067,7 +5100,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             uses EVI-STATIC-FLOW-LABEL;
           }
-          container evpnev-ibgp-auto-discovery {
+          container evpn-evi-bgp-auto-discovery {
             description
               "Enable Autodiscovery BGP in EVPN Instance";
             leaf enable {
@@ -5097,7 +5130,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
           }
           uses EVI-REORIG-DISABLE;
           uses EVI-ADVERTISE-MAC-DEPRECATED;
-          uses EVPNEVI-DESCRIPTION;
+          uses EVPN-EVI-DESCRIPTION;
           uses EVI-ECMP-DISABLE;
           uses EVI-UNKNOWN-UNICAST-FLOODING-DISABLE;
           uses EVPN-EVI-CW-DISABLE;
@@ -5181,6 +5214,34 @@ module Cisco-IOS-XR-l2vpn-cfg {
         }
         uses EVPN-ROUTE-DISTINGUISHER;
       }
+      container evpn-groups {
+        description
+          "Enter EVPN Group Table submode";
+        list evpn-group {
+          key "group-id";
+          description
+            "Enter EVPN Group submode";
+          container evpn-group-core-interfaces {
+            description
+              "EVPN Group core interfaces";
+            list evpn-group-core-interface {
+              key "interface-name";
+              description
+                "EVPN Group Core interface";
+              leaf interface-name {
+                type xr:Interface-name;
+                description
+                  "Name of the EVPN Group core interface";
+              }
+            }
+          }
+          leaf group-id {
+            type Evpn-group-id-range;
+            description
+              "Group ID";
+          }
+        }
+      }
       container evpn-instances {
         description
           "Enter EVPN Instance configuration submode";
@@ -5238,7 +5299,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
           }
           uses EVI-REORIG-DISABLE;
           uses EVI-ADVERTISE-MAC-DEPRECATED;
-          uses EVPNEVI-DESCRIPTION;
+          uses EVPN-EVI-DESCRIPTION;
           uses EVI-ECMP-DISABLE;
           uses EVI-UNKNOWN-UNICAST-FLOODING-DISABLE;
           uses EVPN-EVI-CW-DISABLE;
@@ -5308,10 +5369,10 @@ module Cisco-IOS-XR-l2vpn-cfg {
                 "Force ethernet segment to remain
                  single-homed";
             }
-            leaf load-balancing-single-active {
-              type empty;
+            leaf load-balancing-mode {
+              type Ethernet-segment-load-balance;
               description
-                "Enable single-active load balancing mode";
+                "Ethernet-Segment Load Balancing mode";
             }
             leaf enable {
               type empty;
@@ -5326,6 +5387,11 @@ module Cisco-IOS-XR-l2vpn-cfg {
             uses ES-IMPORT-ROUTE-TARGET;
             uses IDENTIFIER;
             uses MANUAL-SERVICE-CARVING;
+          }
+          leaf evpn-core-isolation-group {
+            type Evpn-core-group-id-range;
+            description
+              "Enter EVPN Core Isolation Group ID";
           }
           leaf mac-flush {
             type Mac-flush-mode;

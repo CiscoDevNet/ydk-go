@@ -44,9 +44,12 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareModule.EntityData.Children = make(map[string]types.YChild)
-    hardwareModule.EntityData.Children["loadbalancing"] = types.YChild{"Loadbalancing", &hardwareModule.Loadbalancing}
-    hardwareModule.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareModule.EntityData.Children = types.NewOrderedMap()
+    hardwareModule.EntityData.Children.Append("loadbalancing", types.YChild{"Loadbalancing", &hardwareModule.Loadbalancing})
+    hardwareModule.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareModule.EntityData.YListKeys = []string {}
+
     return &(hardwareModule.EntityData)
 }
 
@@ -70,9 +73,12 @@ func (loadbalancing *HardwareModule_Loadbalancing) GetEntityData() *types.Common
     loadbalancing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadbalancing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadbalancing.EntityData.Children = make(map[string]types.YChild)
-    loadbalancing.EntityData.Children["bgp3107"] = types.YChild{"Bgp3107", &loadbalancing.Bgp3107}
-    loadbalancing.EntityData.Leafs = make(map[string]types.YLeaf)
+    loadbalancing.EntityData.Children = types.NewOrderedMap()
+    loadbalancing.EntityData.Children.Append("bgp3107", types.YChild{"Bgp3107", &loadbalancing.Bgp3107})
+    loadbalancing.EntityData.Leafs = types.NewOrderedMap()
+
+    loadbalancing.EntityData.YListKeys = []string {}
+
     return &(loadbalancing.EntityData)
 }
 
@@ -96,9 +102,12 @@ func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetEntityData() *types.Comm
     bgp3107.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp3107.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bgp3107.EntityData.Children = make(map[string]types.YChild)
-    bgp3107.EntityData.Children["ecmp"] = types.YChild{"Ecmp", &bgp3107.Ecmp}
-    bgp3107.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgp3107.EntityData.Children = types.NewOrderedMap()
+    bgp3107.EntityData.Children.Append("ecmp", types.YChild{"Ecmp", &bgp3107.Ecmp})
+    bgp3107.EntityData.Leafs = types.NewOrderedMap()
+
+    bgp3107.EntityData.YListKeys = []string {}
+
     return &(bgp3107.EntityData)
 }
 
@@ -122,9 +131,12 @@ func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetEntityData() *types.Co
     ecmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ecmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ecmp.EntityData.Children = make(map[string]types.YChild)
-    ecmp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ecmp.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ecmp.Enable}
+    ecmp.EntityData.Children = types.NewOrderedMap()
+    ecmp.EntityData.Leafs = types.NewOrderedMap()
+    ecmp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ecmp.Enable})
+
+    ecmp.EntityData.YListKeys = []string {}
+
     return &(ecmp.EntityData)
 }
 

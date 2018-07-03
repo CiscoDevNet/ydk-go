@@ -24,6 +24,31 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-controller-optics-oper:optics-oper", reflect.TypeOf(OpticsOper{}))
 }
 
+// OpticsAmplifierGainRange represents Optics amplifier gain range
+type OpticsAmplifierGainRange string
+
+const (
+    // Invalid
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_invalid OpticsAmplifierGainRange = "optics-amplifier-gain-range-invalid"
+
+    // Normal
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_normal OpticsAmplifierGainRange = "optics-amplifier-gain-range-normal"
+
+    // Extended
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_ext_end_ed OpticsAmplifierGainRange = "optics-amplifier-gain-range-ext-end-ed"
+)
+
+// OpticsAmplifierControlMode represents Optics amplifier control mode
+type OpticsAmplifierControlMode string
+
+const (
+    // Automatic
+    OpticsAmplifierControlMode_automatic OpticsAmplifierControlMode = "automatic"
+
+    // Manual
+    OpticsAmplifierControlMode_manual OpticsAmplifierControlMode = "manual"
+)
+
 // EthernetPmd represents Ethernet Pmd Type
 type EthernetPmd string
 
@@ -119,44 +144,24 @@ const (
     EthernetPmd_optics_eth_undefined EthernetPmd = "optics-eth-undefined"
 )
 
-// SonetApplicationCode represents Sonet application code
-type SonetApplicationCode string
+// OpticsWaveBand represents Optics wave band
+type OpticsWaveBand string
 
 const (
-    // Not Set
-    SonetApplicationCode_optics_sonet_not_set SonetApplicationCode = "optics-sonet-not-set"
+    // C BAND
+    OpticsWaveBand_c_band OpticsWaveBand = "c-band"
 
-    // VSR2000 3R2
-    SonetApplicationCode_optics_vsr2000_3r2 SonetApplicationCode = "optics-vsr2000-3r2"
+    // L BAND
+    OpticsWaveBand_l_band OpticsWaveBand = "l-band"
 
-    // VSR2000 3R3
-    SonetApplicationCode_optics_vsr2000_3r3 SonetApplicationCode = "optics-vsr2000-3r3"
+    // C ODD
+    OpticsWaveBand_c_band_odd OpticsWaveBand = "c-band-odd"
 
-    // VSR2000 3R5
-    SonetApplicationCode_optics_vsr2000_3r5 SonetApplicationCode = "optics-vsr2000-3r5"
+    // C EVEN
+    OpticsWaveBand_c_band_even OpticsWaveBand = "c-band-even"
 
-    // Undefined
-    SonetApplicationCode_optics_sonet_undefined SonetApplicationCode = "optics-sonet-undefined"
-)
-
-// OtnApplicationCode represents Otn application code
-type OtnApplicationCode string
-
-const (
-    // Not Set
-    OtnApplicationCode_optics_not_set OtnApplicationCode = "optics-not-set"
-
-    // P1L1 2D1
-    OtnApplicationCode_optics_p1l1_2d1 OtnApplicationCode = "optics-p1l1-2d1"
-
-    // P1S1 2D2
-    OtnApplicationCode_optics_p1s1_2d2 OtnApplicationCode = "optics-p1s1-2d2"
-
-    // P1L1 2D2
-    OtnApplicationCode_optics_p1l1_2d2 OtnApplicationCode = "optics-p1l1-2d2"
-
-    // Undefined
-    OtnApplicationCode_optics_undefined OtnApplicationCode = "optics-undefined"
+    // Invalid
+    OpticsWaveBand_invalid_band OpticsWaveBand = "invalid-band"
 )
 
 // FiberConnector represents Fiber connector
@@ -179,6 +184,93 @@ const (
     FiberConnector_optics_undefined_connect_or FiberConnector = "optics-undefined-connect-or"
 )
 
+// OpticsFormFactor represents Optics form factor
+type OpticsFormFactor string
+
+const (
+    // Not set
+    OpticsFormFactor_not_set OpticsFormFactor = "not-set"
+
+    // Invalid
+    OpticsFormFactor_invalid OpticsFormFactor = "invalid"
+
+    // CPAK
+    OpticsFormFactor_cpak OpticsFormFactor = "cpak"
+
+    // CXP
+    OpticsFormFactor_cxp OpticsFormFactor = "cxp"
+
+    // SFP+
+    OpticsFormFactor_sfp_plus OpticsFormFactor = "sfp-plus"
+
+    // QSFP
+    OpticsFormFactor_qsfp OpticsFormFactor = "qsfp"
+
+    // QSFP+
+    OpticsFormFactor_qsfp_plus OpticsFormFactor = "qsfp-plus"
+
+    // QSFP28
+    OpticsFormFactor_qsfp28 OpticsFormFactor = "qsfp28"
+
+    // SFP
+    OpticsFormFactor_sfp OpticsFormFactor = "sfp"
+
+    // CFP
+    OpticsFormFactor_cfp OpticsFormFactor = "cfp"
+
+    // CFP2
+    OpticsFormFactor_cfp2 OpticsFormFactor = "cfp2"
+
+    // CFP4
+    OpticsFormFactor_cfp4 OpticsFormFactor = "cfp4"
+
+    // XFP
+    OpticsFormFactor_xfp OpticsFormFactor = "xfp"
+
+    // X2
+    OpticsFormFactor_x2 OpticsFormFactor = "x2"
+
+    // Non pluggable
+    OpticsFormFactor_non_pluggable OpticsFormFactor = "non-pluggable"
+
+    // Other
+    OpticsFormFactor_other OpticsFormFactor = "other"
+)
+
+// SonetApplicationCode represents Sonet application code
+type SonetApplicationCode string
+
+const (
+    // Not Set
+    SonetApplicationCode_optics_sonet_not_set SonetApplicationCode = "optics-sonet-not-set"
+
+    // VSR2000 3R2
+    SonetApplicationCode_optics_vsr2000_3r2 SonetApplicationCode = "optics-vsr2000-3r2"
+
+    // VSR2000 3R3
+    SonetApplicationCode_optics_vsr2000_3r3 SonetApplicationCode = "optics-vsr2000-3r3"
+
+    // VSR2000 3R5
+    SonetApplicationCode_optics_vsr2000_3r5 SonetApplicationCode = "optics-vsr2000-3r5"
+
+    // Undefined
+    SonetApplicationCode_optics_sonet_undefined SonetApplicationCode = "optics-sonet-undefined"
+)
+
+// OpticsControllerState represents Optics controller state
+type OpticsControllerState string
+
+const (
+    // Up
+    OpticsControllerState_optics_state_up OpticsControllerState = "optics-state-up"
+
+    // Down
+    OpticsControllerState_optics_state_down OpticsControllerState = "optics-state-down"
+
+    // Administratively Down
+    OpticsControllerState_optics_state_admin_down OpticsControllerState = "optics-state-admin-down"
+)
+
 // OpticsAmplifierSafetyControlMode represents Optics amplifier safety control mode
 type OpticsAmplifierSafetyControlMode string
 
@@ -193,63 +285,21 @@ const (
     OpticsAmplifierSafetyControlMode_optics_amplifier_safety_mode_disabled OpticsAmplifierSafetyControlMode = "optics-amplifier-safety-mode-disabled"
 )
 
-// OpticsAmplifierGainRange represents Optics amplifier gain range
-type OpticsAmplifierGainRange string
+// OpticsLaserState represents Optics laser state
+type OpticsLaserState string
 
 const (
-    // Invalid
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_invalid OpticsAmplifierGainRange = "optics-amplifier-gain-range-invalid"
+    // On
+    OpticsLaserState_on OpticsLaserState = "on"
 
-    // Normal
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_normal OpticsAmplifierGainRange = "optics-amplifier-gain-range-normal"
+    // Off
+    OpticsLaserState_off OpticsLaserState = "off"
 
-    // Extended
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_ext_end_ed OpticsAmplifierGainRange = "optics-amplifier-gain-range-ext-end-ed"
-)
+    // Unknown
+    OpticsLaserState_unknown OpticsLaserState = "unknown"
 
-// OpticsAmplifierControlMode represents Optics amplifier control mode
-type OpticsAmplifierControlMode string
-
-const (
-    // Automatic
-    OpticsAmplifierControlMode_automatic OpticsAmplifierControlMode = "automatic"
-
-    // Manual
-    OpticsAmplifierControlMode_manual OpticsAmplifierControlMode = "manual"
-)
-
-// OpticsPortStatus represents Optics port status
-type OpticsPortStatus string
-
-const (
-    // Active
-    OpticsPortStatus_active OpticsPortStatus = "active"
-
-    // Standby
-    OpticsPortStatus_standby OpticsPortStatus = "standby"
-)
-
-// OpticsPort represents Optics port
-type OpticsPort string
-
-const (
-    // Com
-    OpticsPort_com OpticsPort = "com"
-
-    // Line
-    OpticsPort_line OpticsPort = "line"
-
-    // Osc
-    OpticsPort_osc OpticsPort = "osc"
-
-    // Com Check
-    OpticsPort_com_check OpticsPort = "com-check"
-
-    // Working
-    OpticsPort_work OpticsPort = "work"
-
-    // Protected
-    OpticsPort_prot OpticsPort = "prot"
+    // Apr
+    OpticsLaserState_apr OpticsLaserState = "apr"
 )
 
 // OpticsFec represents Optics fec
@@ -276,6 +326,20 @@ const (
 
     // FEC DISABLED
     OpticsFec_fec_not_set OpticsFec = "fec-not-set"
+
+    // FEC CL91 
+    OpticsFec_fec_cl91 OpticsFec = "fec-cl91"
+)
+
+// OpticsPortStatus represents Optics port status
+type OpticsPortStatus string
+
+const (
+    // Active
+    OpticsPortStatus_active OpticsPortStatus = "active"
+
+    // Standby
+    OpticsPortStatus_standby OpticsPortStatus = "standby"
 )
 
 // OpticsPhy represents Optics phy type
@@ -452,73 +516,87 @@ const (
 
     // 1G BX optics
     OpticsPhy_one_geige OpticsPhy = "one-geige"
+
+    // Long Reach 1 Lane
+    OpticsPhy_ten_x_ten_gig_e_long_reach_one_lane OpticsPhy = "ten-x-ten-gig-e-long-reach-one-lane"
+
+    // Extended Reach 1 Lane
+    OpticsPhy_ten_x_ten_gig_e_extended_reach_one_lane OpticsPhy = "ten-x-ten-gig-e-extended-reach-one-lane"
+
+    // Passive Copper One Lane
+    OpticsPhy_passive_copper_one_lane OpticsPhy = "passive-copper-one-lane"
+
+    // TenGigE CWDM One Lane
+    OpticsPhy_ten_gig_ecwdm OpticsPhy = "ten-gig-ecwdm"
+
+    // One GigE CWDM One Lane
+    OpticsPhy_one_gig_ecwdm OpticsPhy = "one-gig-ecwdm"
+
+    // One GigE DWDM One Lane
+    OpticsPhy_one_gig_edwdm OpticsPhy = "one-gig-edwdm"
+
+    // FX One Lane
+    OpticsPhy_fx_one_lane OpticsPhy = "fx-one-lane"
+
+    // TenGigE Multi Rate DWDM 1 Lane
+    OpticsPhy_ten_gig_emrdwdm OpticsPhy = "ten-gig-emrdwdm"
+
+    // TenGigE Edge Performance 1 Lane
+    OpticsPhy_ten_gig_e_edge_performance OpticsPhy = "ten-gig-e-edge-performance"
 )
 
-// OpticsFormFactor represents Optics form factor
-type OpticsFormFactor string
+// OpticsTas represents Optics tas
+type OpticsTas string
 
 const (
-    // Not set
-    OpticsFormFactor_not_set OpticsFormFactor = "not-set"
+    // Out Of Service
+    OpticsTas_tas_ui_oos OpticsTas = "tas-ui-oos"
 
-    // Invalid
-    OpticsFormFactor_invalid OpticsFormFactor = "invalid"
+    // Maintenance
+    OpticsTas_tas_ui_main OpticsTas = "tas-ui-main"
 
-    // CPAK
-    OpticsFormFactor_cpak OpticsFormFactor = "cpak"
+    // In Service
+    OpticsTas_tas_ui_is OpticsTas = "tas-ui-is"
 
-    // CXP
-    OpticsFormFactor_cxp OpticsFormFactor = "cxp"
-
-    // SFP+
-    OpticsFormFactor_sfp_plus OpticsFormFactor = "sfp-plus"
-
-    // QSFP
-    OpticsFormFactor_qsfp OpticsFormFactor = "qsfp"
-
-    // QSFP+
-    OpticsFormFactor_qsfp_plus OpticsFormFactor = "qsfp-plus"
-
-    // QSFP28
-    OpticsFormFactor_qsfp28 OpticsFormFactor = "qsfp28"
-
-    // SFP
-    OpticsFormFactor_sfp OpticsFormFactor = "sfp"
-
-    // CFP
-    OpticsFormFactor_cfp OpticsFormFactor = "cfp"
-
-    // CFP2
-    OpticsFormFactor_cfp2 OpticsFormFactor = "cfp2"
-
-    // CFP4
-    OpticsFormFactor_cfp4 OpticsFormFactor = "cfp4"
-
-    // XFP
-    OpticsFormFactor_xfp OpticsFormFactor = "xfp"
-
-    // X2
-    OpticsFormFactor_x2 OpticsFormFactor = "x2"
-
-    // Non pluggable
-    OpticsFormFactor_non_pluggable OpticsFormFactor = "non-pluggable"
-
-    // Other
-    OpticsFormFactor_other OpticsFormFactor = "other"
+    // Automatic In Service
+    OpticsTas_tas_ui_ains OpticsTas = "tas-ui-ains"
 )
 
-// OpticsControllerState represents Optics controller state
-type OpticsControllerState string
+// Optics represents Optics
+type Optics string
 
 const (
-    // Up
-    OpticsControllerState_optics_state_up OpticsControllerState = "optics-state-up"
+    // Unknow Optics Type
+    Optics_optics_unknown Optics = "optics-unknown"
 
-    // Down
-    OpticsControllerState_optics_state_down OpticsControllerState = "optics-state-down"
+    // Grey Optics
+    Optics_optics_grey Optics = "optics-grey"
 
-    // Administratively Down
-    OpticsControllerState_optics_state_admin_down OpticsControllerState = "optics-state-admin-down"
+    // DWDM Optics
+    Optics_optics_dwdm Optics = "optics-dwdm"
+
+    // CWDM Optics
+    Optics_optics_cwdm Optics = "optics-cwdm"
+)
+
+// OtnApplicationCode represents Otn application code
+type OtnApplicationCode string
+
+const (
+    // Not Set
+    OtnApplicationCode_optics_not_set OtnApplicationCode = "optics-not-set"
+
+    // P1L1 2D1
+    OtnApplicationCode_optics_p1l1_2d1 OtnApplicationCode = "optics-p1l1-2d1"
+
+    // P1S1 2D2
+    OtnApplicationCode_optics_p1s1_2d2 OtnApplicationCode = "optics-p1s1-2d2"
+
+    // P1L1 2D2
+    OtnApplicationCode_optics_p1l1_2d2 OtnApplicationCode = "optics-p1l1-2d2"
+
+    // Undefined
+    OtnApplicationCode_optics_undefined OtnApplicationCode = "optics-undefined"
 )
 
 // OpticsLedState represents Optics led state
@@ -547,75 +625,27 @@ const (
     OpticsLedState_red_flashing OpticsLedState = "red-flashing"
 )
 
-// OpticsLaserState represents Optics laser state
-type OpticsLaserState string
+// OpticsPort represents Optics port
+type OpticsPort string
 
 const (
-    // On
-    OpticsLaserState_on OpticsLaserState = "on"
+    // Com
+    OpticsPort_com OpticsPort = "com"
 
-    // Off
-    OpticsLaserState_off OpticsLaserState = "off"
+    // Line
+    OpticsPort_line OpticsPort = "line"
 
-    // Unknown
-    OpticsLaserState_unknown OpticsLaserState = "unknown"
+    // Osc
+    OpticsPort_osc OpticsPort = "osc"
 
-    // Apr
-    OpticsLaserState_apr OpticsLaserState = "apr"
-)
+    // Com Check
+    OpticsPort_com_check OpticsPort = "com-check"
 
-// Optics represents Optics
-type Optics string
+    // Working
+    OpticsPort_work OpticsPort = "work"
 
-const (
-    // Unknow Optics Type
-    Optics_optics_unknown Optics = "optics-unknown"
-
-    // Grey Optics
-    Optics_optics_grey Optics = "optics-grey"
-
-    // DWDM Optics
-    Optics_optics_dwdm Optics = "optics-dwdm"
-
-    // CWDM Optics
-    Optics_optics_cwdm Optics = "optics-cwdm"
-)
-
-// OpticsTas represents Optics tas
-type OpticsTas string
-
-const (
-    // Out Of Service
-    OpticsTas_tas_ui_oos OpticsTas = "tas-ui-oos"
-
-    // Maintenance
-    OpticsTas_tas_ui_main OpticsTas = "tas-ui-main"
-
-    // In Service
-    OpticsTas_tas_ui_is OpticsTas = "tas-ui-is"
-
-    // Automatic In Service
-    OpticsTas_tas_ui_ains OpticsTas = "tas-ui-ains"
-)
-
-// OpticsWaveBand represents Optics wave band
-type OpticsWaveBand string
-
-const (
-    // C BAND
-    OpticsWaveBand_c_band OpticsWaveBand = "c-band"
-
-    // L BAND
-    OpticsWaveBand_l_band OpticsWaveBand = "l-band"
-
-    // C ODD
-    OpticsWaveBand_c_band_odd OpticsWaveBand = "c-band-odd"
-
-    // C EVEN
-    OpticsWaveBand_c_band_even OpticsWaveBand = "c-band-even"
-
-    // Invalid
-    OpticsWaveBand_invalid_band OpticsWaveBand = "invalid-band"
+    // Protected
+    OpticsPort_prot OpticsPort = "prot"
 )
 
 // OpticsOper
@@ -638,9 +668,12 @@ func (opticsOper *OpticsOper) GetEntityData() *types.CommonEntityData {
     opticsOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsOper.EntityData.Children = make(map[string]types.YChild)
-    opticsOper.EntityData.Children["optics-ports"] = types.YChild{"OpticsPorts", &opticsOper.OpticsPorts}
-    opticsOper.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsOper.EntityData.Children = types.NewOrderedMap()
+    opticsOper.EntityData.Children.Append("optics-ports", types.YChild{"OpticsPorts", &opticsOper.OpticsPorts})
+    opticsOper.EntityData.Leafs = types.NewOrderedMap()
+
+    opticsOper.EntityData.YListKeys = []string {}
+
     return &(opticsOper.EntityData)
 }
 
@@ -652,7 +685,7 @@ type OpticsOper_OpticsPorts struct {
 
     // Optics operational data. The type is slice of
     // OpticsOper_OpticsPorts_OpticsPort.
-    OpticsPort []OpticsOper_OpticsPorts_OpticsPort
+    OpticsPort []*OpticsOper_OpticsPorts_OpticsPort
 }
 
 func (opticsPorts *OpticsOper_OpticsPorts) GetEntityData() *types.CommonEntityData {
@@ -665,12 +698,15 @@ func (opticsPorts *OpticsOper_OpticsPorts) GetEntityData() *types.CommonEntityDa
     opticsPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsPorts.EntityData.Children = make(map[string]types.YChild)
-    opticsPorts.EntityData.Children["optics-port"] = types.YChild{"OpticsPort", nil}
+    opticsPorts.EntityData.Children = types.NewOrderedMap()
+    opticsPorts.EntityData.Children.Append("optics-port", types.YChild{"OpticsPort", nil})
     for i := range opticsPorts.OpticsPort {
-        opticsPorts.EntityData.Children[types.GetSegmentPath(&opticsPorts.OpticsPort[i])] = types.YChild{"OpticsPort", &opticsPorts.OpticsPort[i]}
+        opticsPorts.EntityData.Children.Append(types.GetSegmentPath(opticsPorts.OpticsPort[i]), types.YChild{"OpticsPort", opticsPorts.OpticsPort[i]})
     }
-    opticsPorts.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsPorts.EntityData.Leafs = types.NewOrderedMap()
+
+    opticsPorts.EntityData.YListKeys = []string {}
+
     return &(opticsPorts.EntityData)
 }
 
@@ -681,23 +717,23 @@ type OpticsOper_OpticsPorts_OpticsPort struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Name interface{}
 
     // Optics operational data.
-    OpticsDwdmCarrierChannelMap OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap
+    OpticsDwdmCarrrierChannelMap OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap
 
     // Ots Spectrum Operational data.
     OtsSpectrumInfo OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo
-
-    // Optics operational data.
-    OpticsDwdmCarrierChannelMapFlexi OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi
 
     // Optics operational data.
     OpticsInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo
 
     // All Optics Port operational data.
     OpticsLanes OpticsOper_OpticsPorts_OpticsPort_OpticsLanes
+
+    // Optics operational data.
+    OpticsDwdmCarrrierChannelMapFlexi OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi
 
     // Optics operational data.
     OpticsDbInfo OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo
@@ -708,26 +744,29 @@ func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetEntityData() *types.Comm
     opticsPort.EntityData.YangName = "optics-port"
     opticsPort.EntityData.BundleName = "cisco_ios_xr"
     opticsPort.EntityData.ParentYangName = "optics-ports"
-    opticsPort.EntityData.SegmentPath = "optics-port" + "[name='" + fmt.Sprintf("%v", opticsPort.Name) + "']"
+    opticsPort.EntityData.SegmentPath = "optics-port" + types.AddKeyToken(opticsPort.Name, "name")
     opticsPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsPort.EntityData.Children = make(map[string]types.YChild)
-    opticsPort.EntityData.Children["optics-dwdm-carrier-channel-map"] = types.YChild{"OpticsDwdmCarrierChannelMap", &opticsPort.OpticsDwdmCarrierChannelMap}
-    opticsPort.EntityData.Children["ots-spectrum-info"] = types.YChild{"OtsSpectrumInfo", &opticsPort.OtsSpectrumInfo}
-    opticsPort.EntityData.Children["optics-dwdm-carrier-channel-map-flexi"] = types.YChild{"OpticsDwdmCarrierChannelMapFlexi", &opticsPort.OpticsDwdmCarrierChannelMapFlexi}
-    opticsPort.EntityData.Children["optics-info"] = types.YChild{"OpticsInfo", &opticsPort.OpticsInfo}
-    opticsPort.EntityData.Children["optics-lanes"] = types.YChild{"OpticsLanes", &opticsPort.OpticsLanes}
-    opticsPort.EntityData.Children["optics-db-info"] = types.YChild{"OpticsDbInfo", &opticsPort.OpticsDbInfo}
-    opticsPort.EntityData.Leafs = make(map[string]types.YLeaf)
-    opticsPort.EntityData.Leafs["name"] = types.YLeaf{"Name", opticsPort.Name}
+    opticsPort.EntityData.Children = types.NewOrderedMap()
+    opticsPort.EntityData.Children.Append("optics-dwdm-carrrier-channel-map", types.YChild{"OpticsDwdmCarrrierChannelMap", &opticsPort.OpticsDwdmCarrrierChannelMap})
+    opticsPort.EntityData.Children.Append("ots-spectrum-info", types.YChild{"OtsSpectrumInfo", &opticsPort.OtsSpectrumInfo})
+    opticsPort.EntityData.Children.Append("optics-info", types.YChild{"OpticsInfo", &opticsPort.OpticsInfo})
+    opticsPort.EntityData.Children.Append("optics-lanes", types.YChild{"OpticsLanes", &opticsPort.OpticsLanes})
+    opticsPort.EntityData.Children.Append("optics-dwdm-carrrier-channel-map-flexi", types.YChild{"OpticsDwdmCarrrierChannelMapFlexi", &opticsPort.OpticsDwdmCarrrierChannelMapFlexi})
+    opticsPort.EntityData.Children.Append("optics-db-info", types.YChild{"OpticsDbInfo", &opticsPort.OpticsDbInfo})
+    opticsPort.EntityData.Leafs = types.NewOrderedMap()
+    opticsPort.EntityData.Leafs.Append("name", types.YLeaf{"Name", opticsPort.Name})
+
+    opticsPort.EntityData.YListKeys = []string {"Name"}
+
     return &(opticsPort.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap
 // Optics operational data
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -743,35 +782,38 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap struct {
     DwdmCarrierMax interface{}
 
     // DWDM carrier mapping info. The type is slice of
-    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo.
-    DwdmCarrierMapInfo []OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo
+    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo.
+    DwdmCarrierMapInfo []*OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo
 }
 
-func (opticsDwdmCarrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap) GetEntityData() *types.CommonEntityData {
-    opticsDwdmCarrierChannelMap.EntityData.YFilter = opticsDwdmCarrierChannelMap.YFilter
-    opticsDwdmCarrierChannelMap.EntityData.YangName = "optics-dwdm-carrier-channel-map"
-    opticsDwdmCarrierChannelMap.EntityData.BundleName = "cisco_ios_xr"
-    opticsDwdmCarrierChannelMap.EntityData.ParentYangName = "optics-port"
-    opticsDwdmCarrierChannelMap.EntityData.SegmentPath = "optics-dwdm-carrier-channel-map"
-    opticsDwdmCarrierChannelMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsDwdmCarrierChannelMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsDwdmCarrierChannelMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetEntityData() *types.CommonEntityData {
+    opticsDwdmCarrrierChannelMap.EntityData.YFilter = opticsDwdmCarrrierChannelMap.YFilter
+    opticsDwdmCarrrierChannelMap.EntityData.YangName = "optics-dwdm-carrrier-channel-map"
+    opticsDwdmCarrrierChannelMap.EntityData.BundleName = "cisco_ios_xr"
+    opticsDwdmCarrrierChannelMap.EntityData.ParentYangName = "optics-port"
+    opticsDwdmCarrrierChannelMap.EntityData.SegmentPath = "optics-dwdm-carrrier-channel-map"
+    opticsDwdmCarrrierChannelMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsDwdmCarrrierChannelMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsDwdmCarrrierChannelMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsDwdmCarrierChannelMap.EntityData.Children = make(map[string]types.YChild)
-    opticsDwdmCarrierChannelMap.EntityData.Children["dwdm-carrier-map-info"] = types.YChild{"DwdmCarrierMapInfo", nil}
-    for i := range opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo {
-        opticsDwdmCarrierChannelMap.EntityData.Children[types.GetSegmentPath(&opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i])] = types.YChild{"DwdmCarrierMapInfo", &opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i]}
+    opticsDwdmCarrrierChannelMap.EntityData.Children = types.NewOrderedMap()
+    opticsDwdmCarrrierChannelMap.EntityData.Children.Append("dwdm-carrier-map-info", types.YChild{"DwdmCarrierMapInfo", nil})
+    for i := range opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo {
+        opticsDwdmCarrrierChannelMap.EntityData.Children.Append(types.GetSegmentPath(opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo[i]), types.YChild{"DwdmCarrierMapInfo", opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo[i]})
     }
-    opticsDwdmCarrierChannelMap.EntityData.Leafs = make(map[string]types.YLeaf)
-    opticsDwdmCarrierChannelMap.EntityData.Leafs["dwdm-carrier-band"] = types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrierChannelMap.DwdmCarrierBand}
-    opticsDwdmCarrierChannelMap.EntityData.Leafs["dwdm-carrier-min"] = types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrierChannelMap.DwdmCarrierMin}
-    opticsDwdmCarrierChannelMap.EntityData.Leafs["dwdm-carrier-max"] = types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrierChannelMap.DwdmCarrierMax}
-    return &(opticsDwdmCarrierChannelMap.EntityData)
+    opticsDwdmCarrrierChannelMap.EntityData.Leafs = types.NewOrderedMap()
+    opticsDwdmCarrrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-band", types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrrierChannelMap.DwdmCarrierBand})
+    opticsDwdmCarrrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-min", types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrrierChannelMap.DwdmCarrierMin})
+    opticsDwdmCarrrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-max", types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrrierChannelMap.DwdmCarrierMax})
+
+    opticsDwdmCarrrierChannelMap.EntityData.YListKeys = []string {}
+
+    return &(opticsDwdmCarrrierChannelMap.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo
 // DWDM carrier mapping info
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -789,22 +831,25 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMa
     Wavelength interface{}
 }
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
+func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
     dwdmCarrierMapInfo.EntityData.YFilter = dwdmCarrierMapInfo.YFilter
     dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
     dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
-    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrier-channel-map"
+    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrrier-channel-map"
     dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
     dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dwdmCarrierMapInfo.EntityData.Children = make(map[string]types.YChild)
-    dwdmCarrierMapInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    dwdmCarrierMapInfo.EntityData.Leafs["itu-chan-num"] = types.YLeaf{"ItuChanNum", dwdmCarrierMapInfo.ItuChanNum}
-    dwdmCarrierMapInfo.EntityData.Leafs["g694-chan-num"] = types.YLeaf{"G694ChanNum", dwdmCarrierMapInfo.G694ChanNum}
-    dwdmCarrierMapInfo.EntityData.Leafs["frequency"] = types.YLeaf{"Frequency", dwdmCarrierMapInfo.Frequency}
-    dwdmCarrierMapInfo.EntityData.Leafs["wavelength"] = types.YLeaf{"Wavelength", dwdmCarrierMapInfo.Wavelength}
+    dwdmCarrierMapInfo.EntityData.Children = types.NewOrderedMap()
+    dwdmCarrierMapInfo.EntityData.Leafs = types.NewOrderedMap()
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("itu-chan-num", types.YLeaf{"ItuChanNum", dwdmCarrierMapInfo.ItuChanNum})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("g694-chan-num", types.YLeaf{"G694ChanNum", dwdmCarrierMapInfo.G694ChanNum})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", dwdmCarrierMapInfo.Frequency})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("wavelength", types.YLeaf{"Wavelength", dwdmCarrierMapInfo.Wavelength})
+
+    dwdmCarrierMapInfo.EntityData.YListKeys = []string {}
+
     return &(dwdmCarrierMapInfo.EntityData)
 }
 
@@ -828,9 +873,12 @@ func (otsSpectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo) GetEnt
     otsSpectrumInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otsSpectrumInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otsSpectrumInfo.EntityData.Children = make(map[string]types.YChild)
-    otsSpectrumInfo.EntityData.Children["spectrum-info"] = types.YChild{"SpectrumInfo", &otsSpectrumInfo.SpectrumInfo}
-    otsSpectrumInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    otsSpectrumInfo.EntityData.Children = types.NewOrderedMap()
+    otsSpectrumInfo.EntityData.Children.Append("spectrum-info", types.YChild{"SpectrumInfo", &otsSpectrumInfo.SpectrumInfo})
+    otsSpectrumInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    otsSpectrumInfo.EntityData.YListKeys = []string {}
+
     return &(otsSpectrumInfo.EntityData)
 }
 
@@ -853,7 +901,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo struct {
 
     // Power information of spectrum slice info. The type is slice of
     // OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo.
-    SpectrumSlicePowerInfo []OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo
+    SpectrumSlicePowerInfo []*OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo
 }
 
 func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo) GetEntityData() *types.CommonEntityData {
@@ -866,15 +914,18 @@ func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumIn
     spectrumInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spectrumInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spectrumInfo.EntityData.Children = make(map[string]types.YChild)
-    spectrumInfo.EntityData.Children["spectrum-slice-power-info"] = types.YChild{"SpectrumSlicePowerInfo", nil}
+    spectrumInfo.EntityData.Children = types.NewOrderedMap()
+    spectrumInfo.EntityData.Children.Append("spectrum-slice-power-info", types.YChild{"SpectrumSlicePowerInfo", nil})
     for i := range spectrumInfo.SpectrumSlicePowerInfo {
-        spectrumInfo.EntityData.Children[types.GetSegmentPath(&spectrumInfo.SpectrumSlicePowerInfo[i])] = types.YChild{"SpectrumSlicePowerInfo", &spectrumInfo.SpectrumSlicePowerInfo[i]}
+        spectrumInfo.EntityData.Children.Append(types.GetSegmentPath(spectrumInfo.SpectrumSlicePowerInfo[i]), types.YChild{"SpectrumSlicePowerInfo", spectrumInfo.SpectrumSlicePowerInfo[i]})
     }
-    spectrumInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    spectrumInfo.EntityData.Leafs["total-spectrum-slice-count"] = types.YLeaf{"TotalSpectrumSliceCount", spectrumInfo.TotalSpectrumSliceCount}
-    spectrumInfo.EntityData.Leafs["spectrum-slice-spacing"] = types.YLeaf{"SpectrumSliceSpacing", spectrumInfo.SpectrumSliceSpacing}
-    spectrumInfo.EntityData.Leafs["first-slice-wavelength"] = types.YLeaf{"FirstSliceWavelength", spectrumInfo.FirstSliceWavelength}
+    spectrumInfo.EntityData.Leafs = types.NewOrderedMap()
+    spectrumInfo.EntityData.Leafs.Append("total-spectrum-slice-count", types.YLeaf{"TotalSpectrumSliceCount", spectrumInfo.TotalSpectrumSliceCount})
+    spectrumInfo.EntityData.Leafs.Append("spectrum-slice-spacing", types.YLeaf{"SpectrumSliceSpacing", spectrumInfo.SpectrumSliceSpacing})
+    spectrumInfo.EntityData.Leafs.Append("first-slice-wavelength", types.YLeaf{"FirstSliceWavelength", spectrumInfo.FirstSliceWavelength})
+
+    spectrumInfo.EntityData.YListKeys = []string {}
+
     return &(spectrumInfo.EntityData)
 }
 
@@ -922,99 +973,19 @@ func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_
     spectrumSlicePowerInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spectrumSlicePowerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spectrumSlicePowerInfo.EntityData.Children = make(map[string]types.YChild)
-    spectrumSlicePowerInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    spectrumSlicePowerInfo.EntityData.Leafs["slice-num"] = types.YLeaf{"SliceNum", spectrumSlicePowerInfo.SliceNum}
-    spectrumSlicePowerInfo.EntityData.Leafs["lower-frequency"] = types.YLeaf{"LowerFrequency", spectrumSlicePowerInfo.LowerFrequency}
-    spectrumSlicePowerInfo.EntityData.Leafs["upper-frequency"] = types.YLeaf{"UpperFrequency", spectrumSlicePowerInfo.UpperFrequency}
-    spectrumSlicePowerInfo.EntityData.Leafs["rx-power"] = types.YLeaf{"RxPower", spectrumSlicePowerInfo.RxPower}
-    spectrumSlicePowerInfo.EntityData.Leafs["tx-power"] = types.YLeaf{"TxPower", spectrumSlicePowerInfo.TxPower}
-    spectrumSlicePowerInfo.EntityData.Leafs["rx-psd"] = types.YLeaf{"RxPsd", spectrumSlicePowerInfo.RxPsd}
-    spectrumSlicePowerInfo.EntityData.Leafs["tx-psd"] = types.YLeaf{"TxPsd", spectrumSlicePowerInfo.TxPsd}
+    spectrumSlicePowerInfo.EntityData.Children = types.NewOrderedMap()
+    spectrumSlicePowerInfo.EntityData.Leafs = types.NewOrderedMap()
+    spectrumSlicePowerInfo.EntityData.Leafs.Append("slice-num", types.YLeaf{"SliceNum", spectrumSlicePowerInfo.SliceNum})
+    spectrumSlicePowerInfo.EntityData.Leafs.Append("lower-frequency", types.YLeaf{"LowerFrequency", spectrumSlicePowerInfo.LowerFrequency})
+    spectrumSlicePowerInfo.EntityData.Leafs.Append("upper-frequency", types.YLeaf{"UpperFrequency", spectrumSlicePowerInfo.UpperFrequency})
+    spectrumSlicePowerInfo.EntityData.Leafs.Append("rx-power", types.YLeaf{"RxPower", spectrumSlicePowerInfo.RxPower})
+    spectrumSlicePowerInfo.EntityData.Leafs.Append("tx-power", types.YLeaf{"TxPower", spectrumSlicePowerInfo.TxPower})
+    spectrumSlicePowerInfo.EntityData.Leafs.Append("rx-psd", types.YLeaf{"RxPsd", spectrumSlicePowerInfo.RxPsd})
+    spectrumSlicePowerInfo.EntityData.Leafs.Append("tx-psd", types.YLeaf{"TxPsd", spectrumSlicePowerInfo.TxPsd})
+
+    spectrumSlicePowerInfo.EntityData.YListKeys = []string {}
+
     return &(spectrumSlicePowerInfo.EntityData)
-}
-
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi
-// Optics operational data
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // DWDM carrier band. The type is OpticsWaveBand.
-    DwdmCarrierBand interface{}
-
-    // Lowest DWDM carrier supported. The type is interface{} with range:
-    // 0..4294967295.
-    DwdmCarrierMin interface{}
-
-    // Highest DWDM carrier supported. The type is interface{} with range:
-    // 0..4294967295.
-    DwdmCarrierMax interface{}
-
-    // DWDM carrier mapping info. The type is slice of
-    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo.
-    DwdmCarrierMapInfo []OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo
-}
-
-func (opticsDwdmCarrierChannelMapFlexi *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi) GetEntityData() *types.CommonEntityData {
-    opticsDwdmCarrierChannelMapFlexi.EntityData.YFilter = opticsDwdmCarrierChannelMapFlexi.YFilter
-    opticsDwdmCarrierChannelMapFlexi.EntityData.YangName = "optics-dwdm-carrier-channel-map-flexi"
-    opticsDwdmCarrierChannelMapFlexi.EntityData.BundleName = "cisco_ios_xr"
-    opticsDwdmCarrierChannelMapFlexi.EntityData.ParentYangName = "optics-port"
-    opticsDwdmCarrierChannelMapFlexi.EntityData.SegmentPath = "optics-dwdm-carrier-channel-map-flexi"
-    opticsDwdmCarrierChannelMapFlexi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsDwdmCarrierChannelMapFlexi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsDwdmCarrierChannelMapFlexi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    opticsDwdmCarrierChannelMapFlexi.EntityData.Children = make(map[string]types.YChild)
-    opticsDwdmCarrierChannelMapFlexi.EntityData.Children["dwdm-carrier-map-info"] = types.YChild{"DwdmCarrierMapInfo", nil}
-    for i := range opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo {
-        opticsDwdmCarrierChannelMapFlexi.EntityData.Children[types.GetSegmentPath(&opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i])] = types.YChild{"DwdmCarrierMapInfo", &opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i]}
-    }
-    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs = make(map[string]types.YLeaf)
-    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs["dwdm-carrier-band"] = types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierBand}
-    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs["dwdm-carrier-min"] = types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMin}
-    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs["dwdm-carrier-max"] = types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMax}
-    return &(opticsDwdmCarrierChannelMapFlexi.EntityData)
-}
-
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo
-// DWDM carrier mapping info
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // ITU channel number. The type is interface{} with range: 0..4294967295.
-    ItuChanNum interface{}
-
-    // G694 channel number. The type is interface{} with range:
-    // -2147483648..2147483647.
-    G694ChanNum interface{}
-
-    // Frequency. The type is string with length: 0..32.
-    Frequency interface{}
-
-    // Wavelength. The type is string with length: 0..32.
-    Wavelength interface{}
-}
-
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
-    dwdmCarrierMapInfo.EntityData.YFilter = dwdmCarrierMapInfo.YFilter
-    dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
-    dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
-    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrier-channel-map-flexi"
-    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
-    dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    dwdmCarrierMapInfo.EntityData.Children = make(map[string]types.YChild)
-    dwdmCarrierMapInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    dwdmCarrierMapInfo.EntityData.Leafs["itu-chan-num"] = types.YLeaf{"ItuChanNum", dwdmCarrierMapInfo.ItuChanNum}
-    dwdmCarrierMapInfo.EntityData.Leafs["g694-chan-num"] = types.YLeaf{"G694ChanNum", dwdmCarrierMapInfo.G694ChanNum}
-    dwdmCarrierMapInfo.EntityData.Leafs["frequency"] = types.YLeaf{"Frequency", dwdmCarrierMapInfo.Frequency}
-    dwdmCarrierMapInfo.EntityData.Leafs["wavelength"] = types.YLeaf{"Wavelength", dwdmCarrierMapInfo.Wavelength}
-    return &(dwdmCarrierMapInfo.EntityData)
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo
@@ -1188,10 +1159,6 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // Optics FEC. The type is OpticsFec.
     OpticsFec interface{}
 
-    // PM enabled or not. The type is interface{} with range:
-    // -2147483648..2147483647.
-    SkipSnmpPmTable interface{}
-
     // Showing port type. The type is OpticsPort.
     PortType interface{}
 
@@ -1328,6 +1295,9 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // -2147483648..2147483647.
     VoltHighWarningThreshold interface{}
 
+    // Controller description string. The type is string.
+    Description interface{}
+
     // Ampli gain range. The type is OpticsAmplifierGainRange.
     AmpliGainRange interface{}
 
@@ -1337,20 +1307,17 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // OSRI. The type is bool.
     Osri interface{}
 
-    // Controller description string. The type is string.
-    Description interface{}
+    // TX Enable. The type is bool.
+    TxEnable interface{}
+
+    // RX Enable. The type is bool.
+    RxEnable interface{}
 
     // Is the Optics type string valid ?. The type is bool.
     IsOpticsTypeStringValid interface{}
 
     // optics type String. The type is string.
     OpticsTypeStr interface{}
-
-    // TX Enable. The type is bool.
-    TxEnable interface{}
-
-    // RX Enable. The type is bool.
-    RxEnable interface{}
 
     // Rx Low threshold actual value in units of 0.1dBm. The type is interface{}
     // with range: -2147483648..2147483647.
@@ -1379,7 +1346,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
 
     // Lane information. The type is slice of
     // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData.
-    LaneData []OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData
+    LaneData []*OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData
 }
 
 func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() *types.CommonEntityData {
@@ -1392,114 +1359,116 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsInfo.EntityData.Children = make(map[string]types.YChild)
-    opticsInfo.EntityData.Children["network-srlg-info"] = types.YChild{"NetworkSrlgInfo", &opticsInfo.NetworkSrlgInfo}
-    opticsInfo.EntityData.Children["optics-alarm-info"] = types.YChild{"OpticsAlarmInfo", &opticsInfo.OpticsAlarmInfo}
-    opticsInfo.EntityData.Children["ots-alarm-info"] = types.YChild{"OtsAlarmInfo", &opticsInfo.OtsAlarmInfo}
-    opticsInfo.EntityData.Children["transceiver-info"] = types.YChild{"TransceiverInfo", &opticsInfo.TransceiverInfo}
-    opticsInfo.EntityData.Children["ext-param-val"] = types.YChild{"ExtParamVal", &opticsInfo.ExtParamVal}
-    opticsInfo.EntityData.Children["ext-param-threshold-val"] = types.YChild{"ExtParamThresholdVal", &opticsInfo.ExtParamThresholdVal}
-    opticsInfo.EntityData.Children["extended-alarm-alarm-info"] = types.YChild{"ExtendedAlarmAlarmInfo", &opticsInfo.ExtendedAlarmAlarmInfo}
-    opticsInfo.EntityData.Children["lane-data"] = types.YChild{"LaneData", nil}
+    opticsInfo.EntityData.Children = types.NewOrderedMap()
+    opticsInfo.EntityData.Children.Append("network-srlg-info", types.YChild{"NetworkSrlgInfo", &opticsInfo.NetworkSrlgInfo})
+    opticsInfo.EntityData.Children.Append("optics-alarm-info", types.YChild{"OpticsAlarmInfo", &opticsInfo.OpticsAlarmInfo})
+    opticsInfo.EntityData.Children.Append("ots-alarm-info", types.YChild{"OtsAlarmInfo", &opticsInfo.OtsAlarmInfo})
+    opticsInfo.EntityData.Children.Append("transceiver-info", types.YChild{"TransceiverInfo", &opticsInfo.TransceiverInfo})
+    opticsInfo.EntityData.Children.Append("ext-param-val", types.YChild{"ExtParamVal", &opticsInfo.ExtParamVal})
+    opticsInfo.EntityData.Children.Append("ext-param-threshold-val", types.YChild{"ExtParamThresholdVal", &opticsInfo.ExtParamThresholdVal})
+    opticsInfo.EntityData.Children.Append("extended-alarm-alarm-info", types.YChild{"ExtendedAlarmAlarmInfo", &opticsInfo.ExtendedAlarmAlarmInfo})
+    opticsInfo.EntityData.Children.Append("lane-data", types.YChild{"LaneData", nil})
     for i := range opticsInfo.LaneData {
-        opticsInfo.EntityData.Children[types.GetSegmentPath(&opticsInfo.LaneData[i])] = types.YChild{"LaneData", &opticsInfo.LaneData[i]}
+        opticsInfo.EntityData.Children.Append(types.GetSegmentPath(opticsInfo.LaneData[i]), types.YChild{"LaneData", opticsInfo.LaneData[i]})
     }
-    opticsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    opticsInfo.EntityData.Leafs["transport-admin-state"] = types.YLeaf{"TransportAdminState", opticsInfo.TransportAdminState}
-    opticsInfo.EntityData.Leafs["optics-present"] = types.YLeaf{"OpticsPresent", opticsInfo.OpticsPresent}
-    opticsInfo.EntityData.Leafs["optics-type"] = types.YLeaf{"OpticsType", opticsInfo.OpticsType}
-    opticsInfo.EntityData.Leafs["derived-optics-type"] = types.YLeaf{"DerivedOpticsType", opticsInfo.DerivedOpticsType}
-    opticsInfo.EntityData.Leafs["optics-module"] = types.YLeaf{"OpticsModule", opticsInfo.OpticsModule}
-    opticsInfo.EntityData.Leafs["dwdm-carrier-band"] = types.YLeaf{"DwdmCarrierBand", opticsInfo.DwdmCarrierBand}
-    opticsInfo.EntityData.Leafs["dwdm-carrier-channel"] = types.YLeaf{"DwdmCarrierChannel", opticsInfo.DwdmCarrierChannel}
-    opticsInfo.EntityData.Leafs["dwdm-carrier-frequency"] = types.YLeaf{"DwdmCarrierFrequency", opticsInfo.DwdmCarrierFrequency}
-    opticsInfo.EntityData.Leafs["dwdm-carrier-wavelength"] = types.YLeaf{"DwdmCarrierWavelength", opticsInfo.DwdmCarrierWavelength}
-    opticsInfo.EntityData.Leafs["grey-wavelength"] = types.YLeaf{"GreyWavelength", opticsInfo.GreyWavelength}
-    opticsInfo.EntityData.Leafs["rx-low-threshold"] = types.YLeaf{"RxLowThreshold", opticsInfo.RxLowThreshold}
-    opticsInfo.EntityData.Leafs["rx-high-threshold"] = types.YLeaf{"RxHighThreshold", opticsInfo.RxHighThreshold}
-    opticsInfo.EntityData.Leafs["lbc-high-threshold"] = types.YLeaf{"LbcHighThreshold", opticsInfo.LbcHighThreshold}
-    opticsInfo.EntityData.Leafs["tx-low-threshold"] = types.YLeaf{"TxLowThreshold", opticsInfo.TxLowThreshold}
-    opticsInfo.EntityData.Leafs["tx-high-threshold"] = types.YLeaf{"TxHighThreshold", opticsInfo.TxHighThreshold}
-    opticsInfo.EntityData.Leafs["lbc-th-high-default"] = types.YLeaf{"LbcThHighDefault", opticsInfo.LbcThHighDefault}
-    opticsInfo.EntityData.Leafs["lbc-th-low-default"] = types.YLeaf{"LbcThLowDefault", opticsInfo.LbcThLowDefault}
-    opticsInfo.EntityData.Leafs["temp-low-threshold"] = types.YLeaf{"TempLowThreshold", opticsInfo.TempLowThreshold}
-    opticsInfo.EntityData.Leafs["temp-high-threshold"] = types.YLeaf{"TempHighThreshold", opticsInfo.TempHighThreshold}
-    opticsInfo.EntityData.Leafs["volt-low-threshold"] = types.YLeaf{"VoltLowThreshold", opticsInfo.VoltLowThreshold}
-    opticsInfo.EntityData.Leafs["volt-high-threshold"] = types.YLeaf{"VoltHighThreshold", opticsInfo.VoltHighThreshold}
-    opticsInfo.EntityData.Leafs["cd"] = types.YLeaf{"Cd", opticsInfo.Cd}
-    opticsInfo.EntityData.Leafs["cd-min"] = types.YLeaf{"CdMin", opticsInfo.CdMin}
-    opticsInfo.EntityData.Leafs["cd-max"] = types.YLeaf{"CdMax", opticsInfo.CdMax}
-    opticsInfo.EntityData.Leafs["cd-low-threshold"] = types.YLeaf{"CdLowThreshold", opticsInfo.CdLowThreshold}
-    opticsInfo.EntityData.Leafs["cd-high-threshold"] = types.YLeaf{"CdHighThreshold", opticsInfo.CdHighThreshold}
-    opticsInfo.EntityData.Leafs["osnr-low-threshold"] = types.YLeaf{"OsnrLowThreshold", opticsInfo.OsnrLowThreshold}
-    opticsInfo.EntityData.Leafs["dgd-high-threshold"] = types.YLeaf{"DgdHighThreshold", opticsInfo.DgdHighThreshold}
-    opticsInfo.EntityData.Leafs["polarization-mode-dispersion"] = types.YLeaf{"PolarizationModeDispersion", opticsInfo.PolarizationModeDispersion}
-    opticsInfo.EntityData.Leafs["second-order-polarization-mode-dispersion"] = types.YLeaf{"SecondOrderPolarizationModeDispersion", opticsInfo.SecondOrderPolarizationModeDispersion}
-    opticsInfo.EntityData.Leafs["optical-signal-to-noise-ratio"] = types.YLeaf{"OpticalSignalToNoiseRatio", opticsInfo.OpticalSignalToNoiseRatio}
-    opticsInfo.EntityData.Leafs["polarization-dependent-loss"] = types.YLeaf{"PolarizationDependentLoss", opticsInfo.PolarizationDependentLoss}
-    opticsInfo.EntityData.Leafs["polarization-change-rate"] = types.YLeaf{"PolarizationChangeRate", opticsInfo.PolarizationChangeRate}
-    opticsInfo.EntityData.Leafs["differential-group-delay"] = types.YLeaf{"DifferentialGroupDelay", opticsInfo.DifferentialGroupDelay}
-    opticsInfo.EntityData.Leafs["phase-noise"] = types.YLeaf{"PhaseNoise", opticsInfo.PhaseNoise}
-    opticsInfo.EntityData.Leafs["pm-enable"] = types.YLeaf{"PmEnable", opticsInfo.PmEnable}
-    opticsInfo.EntityData.Leafs["laser-state"] = types.YLeaf{"LaserState", opticsInfo.LaserState}
-    opticsInfo.EntityData.Leafs["led-state"] = types.YLeaf{"LedState", opticsInfo.LedState}
-    opticsInfo.EntityData.Leafs["controller-state"] = types.YLeaf{"ControllerState", opticsInfo.ControllerState}
-    opticsInfo.EntityData.Leafs["form-factor"] = types.YLeaf{"FormFactor", opticsInfo.FormFactor}
-    opticsInfo.EntityData.Leafs["phy-type"] = types.YLeaf{"PhyType", opticsInfo.PhyType}
-    opticsInfo.EntityData.Leafs["cfg-tx-power"] = types.YLeaf{"CfgTxPower", opticsInfo.CfgTxPower}
-    opticsInfo.EntityData.Leafs["cfg-tx-power-configurable"] = types.YLeaf{"CfgTxPowerConfigurable", opticsInfo.CfgTxPowerConfigurable}
-    opticsInfo.EntityData.Leafs["temperature"] = types.YLeaf{"Temperature", opticsInfo.Temperature}
-    opticsInfo.EntityData.Leafs["voltage"] = types.YLeaf{"Voltage", opticsInfo.Voltage}
-    opticsInfo.EntityData.Leafs["display-volt-temp"] = types.YLeaf{"DisplayVoltTemp", opticsInfo.DisplayVoltTemp}
-    opticsInfo.EntityData.Leafs["cd-configurable"] = types.YLeaf{"CdConfigurable", opticsInfo.CdConfigurable}
-    opticsInfo.EntityData.Leafs["optics-fec"] = types.YLeaf{"OpticsFec", opticsInfo.OpticsFec}
-    opticsInfo.EntityData.Leafs["skip-snmp-pm-table"] = types.YLeaf{"SkipSnmpPmTable", opticsInfo.SkipSnmpPmTable}
-    opticsInfo.EntityData.Leafs["port-type"] = types.YLeaf{"PortType", opticsInfo.PortType}
-    opticsInfo.EntityData.Leafs["port-status"] = types.YLeaf{"PortStatus", opticsInfo.PortStatus}
-    opticsInfo.EntityData.Leafs["rx-voa-attenuation"] = types.YLeaf{"RxVoaAttenuation", opticsInfo.RxVoaAttenuation}
-    opticsInfo.EntityData.Leafs["tx-voa-attenuation"] = types.YLeaf{"TxVoaAttenuation", opticsInfo.TxVoaAttenuation}
-    opticsInfo.EntityData.Leafs["ampli-gain"] = types.YLeaf{"AmpliGain", opticsInfo.AmpliGain}
-    opticsInfo.EntityData.Leafs["ampli-tilt"] = types.YLeaf{"AmpliTilt", opticsInfo.AmpliTilt}
-    opticsInfo.EntityData.Leafs["rx-power-th-configurable"] = types.YLeaf{"RxPowerThConfigurable", opticsInfo.RxPowerThConfigurable}
-    opticsInfo.EntityData.Leafs["tx-power-th-configurable"] = types.YLeaf{"TxPowerThConfigurable", opticsInfo.TxPowerThConfigurable}
-    opticsInfo.EntityData.Leafs["rx-voa-attenuation-config-val"] = types.YLeaf{"RxVoaAttenuationConfigVal", opticsInfo.RxVoaAttenuationConfigVal}
-    opticsInfo.EntityData.Leafs["tx-voa-attenuation-config-val"] = types.YLeaf{"TxVoaAttenuationConfigVal", opticsInfo.TxVoaAttenuationConfigVal}
-    opticsInfo.EntityData.Leafs["ampli-control-mode-config-val"] = types.YLeaf{"AmpliControlModeConfigVal", opticsInfo.AmpliControlModeConfigVal}
-    opticsInfo.EntityData.Leafs["ampli-gain-range-config-val"] = types.YLeaf{"AmpliGainRangeConfigVal", opticsInfo.AmpliGainRangeConfigVal}
-    opticsInfo.EntityData.Leafs["ampli-gain-config-val"] = types.YLeaf{"AmpliGainConfigVal", opticsInfo.AmpliGainConfigVal}
-    opticsInfo.EntityData.Leafs["ampli-tilt-config-val"] = types.YLeaf{"AmpliTiltConfigVal", opticsInfo.AmpliTiltConfigVal}
-    opticsInfo.EntityData.Leafs["ampli-channel-power-config-val"] = types.YLeaf{"AmpliChannelPowerConfigVal", opticsInfo.AmpliChannelPowerConfigVal}
-    opticsInfo.EntityData.Leafs["channel-power-max-delta-config-val"] = types.YLeaf{"ChannelPowerMaxDeltaConfigVal", opticsInfo.ChannelPowerMaxDeltaConfigVal}
-    opticsInfo.EntityData.Leafs["ampli-gain-thr-deg-low-config-val"] = types.YLeaf{"AmpliGainThrDegLowConfigVal", opticsInfo.AmpliGainThrDegLowConfigVal}
-    opticsInfo.EntityData.Leafs["ampli-gain-thr-deg-high-config-val"] = types.YLeaf{"AmpliGainThrDegHighConfigVal", opticsInfo.AmpliGainThrDegHighConfigVal}
-    opticsInfo.EntityData.Leafs["osri-config-val"] = types.YLeaf{"OsriConfigVal", opticsInfo.OsriConfigVal}
-    opticsInfo.EntityData.Leafs["tx-config-val"] = types.YLeaf{"TxConfigVal", opticsInfo.TxConfigVal}
-    opticsInfo.EntityData.Leafs["rx-config-val"] = types.YLeaf{"RxConfigVal", opticsInfo.RxConfigVal}
-    opticsInfo.EntityData.Leafs["safety-control-mode-config-val"] = types.YLeaf{"SafetyControlModeConfigVal", opticsInfo.SafetyControlModeConfigVal}
-    opticsInfo.EntityData.Leafs["total-rx-power"] = types.YLeaf{"TotalRxPower", opticsInfo.TotalRxPower}
-    opticsInfo.EntityData.Leafs["total-tx-power"] = types.YLeaf{"TotalTxPower", opticsInfo.TotalTxPower}
-    opticsInfo.EntityData.Leafs["is-bo-configured"] = types.YLeaf{"IsBoConfigured", opticsInfo.IsBoConfigured}
-    opticsInfo.EntityData.Leafs["is-ext-param-valid"] = types.YLeaf{"IsExtParamValid", opticsInfo.IsExtParamValid}
-    opticsInfo.EntityData.Leafs["alarm-detected"] = types.YLeaf{"AlarmDetected", opticsInfo.AlarmDetected}
-    opticsInfo.EntityData.Leafs["rx-low-warning-threshold"] = types.YLeaf{"RxLowWarningThreshold", opticsInfo.RxLowWarningThreshold}
-    opticsInfo.EntityData.Leafs["rx-high-warning-threshold"] = types.YLeaf{"RxHighWarningThreshold", opticsInfo.RxHighWarningThreshold}
-    opticsInfo.EntityData.Leafs["tx-low-warning-threshold"] = types.YLeaf{"TxLowWarningThreshold", opticsInfo.TxLowWarningThreshold}
-    opticsInfo.EntityData.Leafs["tx-high-warning-threshold"] = types.YLeaf{"TxHighWarningThreshold", opticsInfo.TxHighWarningThreshold}
-    opticsInfo.EntityData.Leafs["lbc-th-high-warning-default"] = types.YLeaf{"LbcThHighWarningDefault", opticsInfo.LbcThHighWarningDefault}
-    opticsInfo.EntityData.Leafs["lbc-th-low-warning-default"] = types.YLeaf{"LbcThLowWarningDefault", opticsInfo.LbcThLowWarningDefault}
-    opticsInfo.EntityData.Leafs["temp-low-warning-threshold"] = types.YLeaf{"TempLowWarningThreshold", opticsInfo.TempLowWarningThreshold}
-    opticsInfo.EntityData.Leafs["temp-high-warning-threshold"] = types.YLeaf{"TempHighWarningThreshold", opticsInfo.TempHighWarningThreshold}
-    opticsInfo.EntityData.Leafs["volt-low-warning-threshold"] = types.YLeaf{"VoltLowWarningThreshold", opticsInfo.VoltLowWarningThreshold}
-    opticsInfo.EntityData.Leafs["volt-high-warning-threshold"] = types.YLeaf{"VoltHighWarningThreshold", opticsInfo.VoltHighWarningThreshold}
-    opticsInfo.EntityData.Leafs["ampli-gain-range"] = types.YLeaf{"AmpliGainRange", opticsInfo.AmpliGainRange}
-    opticsInfo.EntityData.Leafs["safety-control-mode"] = types.YLeaf{"SafetyControlMode", opticsInfo.SafetyControlMode}
-    opticsInfo.EntityData.Leafs["osri"] = types.YLeaf{"Osri", opticsInfo.Osri}
-    opticsInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", opticsInfo.Description}
-    opticsInfo.EntityData.Leafs["is-optics-type-string-valid"] = types.YLeaf{"IsOpticsTypeStringValid", opticsInfo.IsOpticsTypeStringValid}
-    opticsInfo.EntityData.Leafs["optics-type-str"] = types.YLeaf{"OpticsTypeStr", opticsInfo.OpticsTypeStr}
-    opticsInfo.EntityData.Leafs["tx-enable"] = types.YLeaf{"TxEnable", opticsInfo.TxEnable}
-    opticsInfo.EntityData.Leafs["rx-enable"] = types.YLeaf{"RxEnable", opticsInfo.RxEnable}
-    opticsInfo.EntityData.Leafs["rx-low-threshold-current"] = types.YLeaf{"RxLowThresholdCurrent", opticsInfo.RxLowThresholdCurrent}
+    opticsInfo.EntityData.Leafs = types.NewOrderedMap()
+    opticsInfo.EntityData.Leafs.Append("transport-admin-state", types.YLeaf{"TransportAdminState", opticsInfo.TransportAdminState})
+    opticsInfo.EntityData.Leafs.Append("optics-present", types.YLeaf{"OpticsPresent", opticsInfo.OpticsPresent})
+    opticsInfo.EntityData.Leafs.Append("optics-type", types.YLeaf{"OpticsType", opticsInfo.OpticsType})
+    opticsInfo.EntityData.Leafs.Append("derived-optics-type", types.YLeaf{"DerivedOpticsType", opticsInfo.DerivedOpticsType})
+    opticsInfo.EntityData.Leafs.Append("optics-module", types.YLeaf{"OpticsModule", opticsInfo.OpticsModule})
+    opticsInfo.EntityData.Leafs.Append("dwdm-carrier-band", types.YLeaf{"DwdmCarrierBand", opticsInfo.DwdmCarrierBand})
+    opticsInfo.EntityData.Leafs.Append("dwdm-carrier-channel", types.YLeaf{"DwdmCarrierChannel", opticsInfo.DwdmCarrierChannel})
+    opticsInfo.EntityData.Leafs.Append("dwdm-carrier-frequency", types.YLeaf{"DwdmCarrierFrequency", opticsInfo.DwdmCarrierFrequency})
+    opticsInfo.EntityData.Leafs.Append("dwdm-carrier-wavelength", types.YLeaf{"DwdmCarrierWavelength", opticsInfo.DwdmCarrierWavelength})
+    opticsInfo.EntityData.Leafs.Append("grey-wavelength", types.YLeaf{"GreyWavelength", opticsInfo.GreyWavelength})
+    opticsInfo.EntityData.Leafs.Append("rx-low-threshold", types.YLeaf{"RxLowThreshold", opticsInfo.RxLowThreshold})
+    opticsInfo.EntityData.Leafs.Append("rx-high-threshold", types.YLeaf{"RxHighThreshold", opticsInfo.RxHighThreshold})
+    opticsInfo.EntityData.Leafs.Append("lbc-high-threshold", types.YLeaf{"LbcHighThreshold", opticsInfo.LbcHighThreshold})
+    opticsInfo.EntityData.Leafs.Append("tx-low-threshold", types.YLeaf{"TxLowThreshold", opticsInfo.TxLowThreshold})
+    opticsInfo.EntityData.Leafs.Append("tx-high-threshold", types.YLeaf{"TxHighThreshold", opticsInfo.TxHighThreshold})
+    opticsInfo.EntityData.Leafs.Append("lbc-th-high-default", types.YLeaf{"LbcThHighDefault", opticsInfo.LbcThHighDefault})
+    opticsInfo.EntityData.Leafs.Append("lbc-th-low-default", types.YLeaf{"LbcThLowDefault", opticsInfo.LbcThLowDefault})
+    opticsInfo.EntityData.Leafs.Append("temp-low-threshold", types.YLeaf{"TempLowThreshold", opticsInfo.TempLowThreshold})
+    opticsInfo.EntityData.Leafs.Append("temp-high-threshold", types.YLeaf{"TempHighThreshold", opticsInfo.TempHighThreshold})
+    opticsInfo.EntityData.Leafs.Append("volt-low-threshold", types.YLeaf{"VoltLowThreshold", opticsInfo.VoltLowThreshold})
+    opticsInfo.EntityData.Leafs.Append("volt-high-threshold", types.YLeaf{"VoltHighThreshold", opticsInfo.VoltHighThreshold})
+    opticsInfo.EntityData.Leafs.Append("cd", types.YLeaf{"Cd", opticsInfo.Cd})
+    opticsInfo.EntityData.Leafs.Append("cd-min", types.YLeaf{"CdMin", opticsInfo.CdMin})
+    opticsInfo.EntityData.Leafs.Append("cd-max", types.YLeaf{"CdMax", opticsInfo.CdMax})
+    opticsInfo.EntityData.Leafs.Append("cd-low-threshold", types.YLeaf{"CdLowThreshold", opticsInfo.CdLowThreshold})
+    opticsInfo.EntityData.Leafs.Append("cd-high-threshold", types.YLeaf{"CdHighThreshold", opticsInfo.CdHighThreshold})
+    opticsInfo.EntityData.Leafs.Append("osnr-low-threshold", types.YLeaf{"OsnrLowThreshold", opticsInfo.OsnrLowThreshold})
+    opticsInfo.EntityData.Leafs.Append("dgd-high-threshold", types.YLeaf{"DgdHighThreshold", opticsInfo.DgdHighThreshold})
+    opticsInfo.EntityData.Leafs.Append("polarization-mode-dispersion", types.YLeaf{"PolarizationModeDispersion", opticsInfo.PolarizationModeDispersion})
+    opticsInfo.EntityData.Leafs.Append("second-order-polarization-mode-dispersion", types.YLeaf{"SecondOrderPolarizationModeDispersion", opticsInfo.SecondOrderPolarizationModeDispersion})
+    opticsInfo.EntityData.Leafs.Append("optical-signal-to-noise-ratio", types.YLeaf{"OpticalSignalToNoiseRatio", opticsInfo.OpticalSignalToNoiseRatio})
+    opticsInfo.EntityData.Leafs.Append("polarization-dependent-loss", types.YLeaf{"PolarizationDependentLoss", opticsInfo.PolarizationDependentLoss})
+    opticsInfo.EntityData.Leafs.Append("polarization-change-rate", types.YLeaf{"PolarizationChangeRate", opticsInfo.PolarizationChangeRate})
+    opticsInfo.EntityData.Leafs.Append("differential-group-delay", types.YLeaf{"DifferentialGroupDelay", opticsInfo.DifferentialGroupDelay})
+    opticsInfo.EntityData.Leafs.Append("phase-noise", types.YLeaf{"PhaseNoise", opticsInfo.PhaseNoise})
+    opticsInfo.EntityData.Leafs.Append("pm-enable", types.YLeaf{"PmEnable", opticsInfo.PmEnable})
+    opticsInfo.EntityData.Leafs.Append("laser-state", types.YLeaf{"LaserState", opticsInfo.LaserState})
+    opticsInfo.EntityData.Leafs.Append("led-state", types.YLeaf{"LedState", opticsInfo.LedState})
+    opticsInfo.EntityData.Leafs.Append("controller-state", types.YLeaf{"ControllerState", opticsInfo.ControllerState})
+    opticsInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", opticsInfo.FormFactor})
+    opticsInfo.EntityData.Leafs.Append("phy-type", types.YLeaf{"PhyType", opticsInfo.PhyType})
+    opticsInfo.EntityData.Leafs.Append("cfg-tx-power", types.YLeaf{"CfgTxPower", opticsInfo.CfgTxPower})
+    opticsInfo.EntityData.Leafs.Append("cfg-tx-power-configurable", types.YLeaf{"CfgTxPowerConfigurable", opticsInfo.CfgTxPowerConfigurable})
+    opticsInfo.EntityData.Leafs.Append("temperature", types.YLeaf{"Temperature", opticsInfo.Temperature})
+    opticsInfo.EntityData.Leafs.Append("voltage", types.YLeaf{"Voltage", opticsInfo.Voltage})
+    opticsInfo.EntityData.Leafs.Append("display-volt-temp", types.YLeaf{"DisplayVoltTemp", opticsInfo.DisplayVoltTemp})
+    opticsInfo.EntityData.Leafs.Append("cd-configurable", types.YLeaf{"CdConfigurable", opticsInfo.CdConfigurable})
+    opticsInfo.EntityData.Leafs.Append("optics-fec", types.YLeaf{"OpticsFec", opticsInfo.OpticsFec})
+    opticsInfo.EntityData.Leafs.Append("port-type", types.YLeaf{"PortType", opticsInfo.PortType})
+    opticsInfo.EntityData.Leafs.Append("port-status", types.YLeaf{"PortStatus", opticsInfo.PortStatus})
+    opticsInfo.EntityData.Leafs.Append("rx-voa-attenuation", types.YLeaf{"RxVoaAttenuation", opticsInfo.RxVoaAttenuation})
+    opticsInfo.EntityData.Leafs.Append("tx-voa-attenuation", types.YLeaf{"TxVoaAttenuation", opticsInfo.TxVoaAttenuation})
+    opticsInfo.EntityData.Leafs.Append("ampli-gain", types.YLeaf{"AmpliGain", opticsInfo.AmpliGain})
+    opticsInfo.EntityData.Leafs.Append("ampli-tilt", types.YLeaf{"AmpliTilt", opticsInfo.AmpliTilt})
+    opticsInfo.EntityData.Leafs.Append("rx-power-th-configurable", types.YLeaf{"RxPowerThConfigurable", opticsInfo.RxPowerThConfigurable})
+    opticsInfo.EntityData.Leafs.Append("tx-power-th-configurable", types.YLeaf{"TxPowerThConfigurable", opticsInfo.TxPowerThConfigurable})
+    opticsInfo.EntityData.Leafs.Append("rx-voa-attenuation-config-val", types.YLeaf{"RxVoaAttenuationConfigVal", opticsInfo.RxVoaAttenuationConfigVal})
+    opticsInfo.EntityData.Leafs.Append("tx-voa-attenuation-config-val", types.YLeaf{"TxVoaAttenuationConfigVal", opticsInfo.TxVoaAttenuationConfigVal})
+    opticsInfo.EntityData.Leafs.Append("ampli-control-mode-config-val", types.YLeaf{"AmpliControlModeConfigVal", opticsInfo.AmpliControlModeConfigVal})
+    opticsInfo.EntityData.Leafs.Append("ampli-gain-range-config-val", types.YLeaf{"AmpliGainRangeConfigVal", opticsInfo.AmpliGainRangeConfigVal})
+    opticsInfo.EntityData.Leafs.Append("ampli-gain-config-val", types.YLeaf{"AmpliGainConfigVal", opticsInfo.AmpliGainConfigVal})
+    opticsInfo.EntityData.Leafs.Append("ampli-tilt-config-val", types.YLeaf{"AmpliTiltConfigVal", opticsInfo.AmpliTiltConfigVal})
+    opticsInfo.EntityData.Leafs.Append("ampli-channel-power-config-val", types.YLeaf{"AmpliChannelPowerConfigVal", opticsInfo.AmpliChannelPowerConfigVal})
+    opticsInfo.EntityData.Leafs.Append("channel-power-max-delta-config-val", types.YLeaf{"ChannelPowerMaxDeltaConfigVal", opticsInfo.ChannelPowerMaxDeltaConfigVal})
+    opticsInfo.EntityData.Leafs.Append("ampli-gain-thr-deg-low-config-val", types.YLeaf{"AmpliGainThrDegLowConfigVal", opticsInfo.AmpliGainThrDegLowConfigVal})
+    opticsInfo.EntityData.Leafs.Append("ampli-gain-thr-deg-high-config-val", types.YLeaf{"AmpliGainThrDegHighConfigVal", opticsInfo.AmpliGainThrDegHighConfigVal})
+    opticsInfo.EntityData.Leafs.Append("osri-config-val", types.YLeaf{"OsriConfigVal", opticsInfo.OsriConfigVal})
+    opticsInfo.EntityData.Leafs.Append("tx-config-val", types.YLeaf{"TxConfigVal", opticsInfo.TxConfigVal})
+    opticsInfo.EntityData.Leafs.Append("rx-config-val", types.YLeaf{"RxConfigVal", opticsInfo.RxConfigVal})
+    opticsInfo.EntityData.Leafs.Append("safety-control-mode-config-val", types.YLeaf{"SafetyControlModeConfigVal", opticsInfo.SafetyControlModeConfigVal})
+    opticsInfo.EntityData.Leafs.Append("total-rx-power", types.YLeaf{"TotalRxPower", opticsInfo.TotalRxPower})
+    opticsInfo.EntityData.Leafs.Append("total-tx-power", types.YLeaf{"TotalTxPower", opticsInfo.TotalTxPower})
+    opticsInfo.EntityData.Leafs.Append("is-bo-configured", types.YLeaf{"IsBoConfigured", opticsInfo.IsBoConfigured})
+    opticsInfo.EntityData.Leafs.Append("is-ext-param-valid", types.YLeaf{"IsExtParamValid", opticsInfo.IsExtParamValid})
+    opticsInfo.EntityData.Leafs.Append("alarm-detected", types.YLeaf{"AlarmDetected", opticsInfo.AlarmDetected})
+    opticsInfo.EntityData.Leafs.Append("rx-low-warning-threshold", types.YLeaf{"RxLowWarningThreshold", opticsInfo.RxLowWarningThreshold})
+    opticsInfo.EntityData.Leafs.Append("rx-high-warning-threshold", types.YLeaf{"RxHighWarningThreshold", opticsInfo.RxHighWarningThreshold})
+    opticsInfo.EntityData.Leafs.Append("tx-low-warning-threshold", types.YLeaf{"TxLowWarningThreshold", opticsInfo.TxLowWarningThreshold})
+    opticsInfo.EntityData.Leafs.Append("tx-high-warning-threshold", types.YLeaf{"TxHighWarningThreshold", opticsInfo.TxHighWarningThreshold})
+    opticsInfo.EntityData.Leafs.Append("lbc-th-high-warning-default", types.YLeaf{"LbcThHighWarningDefault", opticsInfo.LbcThHighWarningDefault})
+    opticsInfo.EntityData.Leafs.Append("lbc-th-low-warning-default", types.YLeaf{"LbcThLowWarningDefault", opticsInfo.LbcThLowWarningDefault})
+    opticsInfo.EntityData.Leafs.Append("temp-low-warning-threshold", types.YLeaf{"TempLowWarningThreshold", opticsInfo.TempLowWarningThreshold})
+    opticsInfo.EntityData.Leafs.Append("temp-high-warning-threshold", types.YLeaf{"TempHighWarningThreshold", opticsInfo.TempHighWarningThreshold})
+    opticsInfo.EntityData.Leafs.Append("volt-low-warning-threshold", types.YLeaf{"VoltLowWarningThreshold", opticsInfo.VoltLowWarningThreshold})
+    opticsInfo.EntityData.Leafs.Append("volt-high-warning-threshold", types.YLeaf{"VoltHighWarningThreshold", opticsInfo.VoltHighWarningThreshold})
+    opticsInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", opticsInfo.Description})
+    opticsInfo.EntityData.Leafs.Append("ampli-gain-range", types.YLeaf{"AmpliGainRange", opticsInfo.AmpliGainRange})
+    opticsInfo.EntityData.Leafs.Append("safety-control-mode", types.YLeaf{"SafetyControlMode", opticsInfo.SafetyControlMode})
+    opticsInfo.EntityData.Leafs.Append("osri", types.YLeaf{"Osri", opticsInfo.Osri})
+    opticsInfo.EntityData.Leafs.Append("tx-enable", types.YLeaf{"TxEnable", opticsInfo.TxEnable})
+    opticsInfo.EntityData.Leafs.Append("rx-enable", types.YLeaf{"RxEnable", opticsInfo.RxEnable})
+    opticsInfo.EntityData.Leafs.Append("is-optics-type-string-valid", types.YLeaf{"IsOpticsTypeStringValid", opticsInfo.IsOpticsTypeStringValid})
+    opticsInfo.EntityData.Leafs.Append("optics-type-str", types.YLeaf{"OpticsTypeStr", opticsInfo.OpticsTypeStr})
+    opticsInfo.EntityData.Leafs.Append("rx-low-threshold-current", types.YLeaf{"RxLowThresholdCurrent", opticsInfo.RxLowThresholdCurrent})
+
+    opticsInfo.EntityData.YListKeys = []string {}
+
     return &(opticsInfo.EntityData)
 }
 
@@ -1511,7 +1480,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo struct {
 
     // Network Srlg Array. The type is slice of
     // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray.
-    NetworkSrlgArray []OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray
+    NetworkSrlgArray []*OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray
 }
 
 func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetEntityData() *types.CommonEntityData {
@@ -1524,12 +1493,15 @@ func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgI
     networkSrlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networkSrlgInfo.EntityData.Children = make(map[string]types.YChild)
-    networkSrlgInfo.EntityData.Children["network-srlg-array"] = types.YChild{"NetworkSrlgArray", nil}
+    networkSrlgInfo.EntityData.Children = types.NewOrderedMap()
+    networkSrlgInfo.EntityData.Children.Append("network-srlg-array", types.YChild{"NetworkSrlgArray", nil})
     for i := range networkSrlgInfo.NetworkSrlgArray {
-        networkSrlgInfo.EntityData.Children[types.GetSegmentPath(&networkSrlgInfo.NetworkSrlgArray[i])] = types.YChild{"NetworkSrlgArray", &networkSrlgInfo.NetworkSrlgArray[i]}
+        networkSrlgInfo.EntityData.Children.Append(types.GetSegmentPath(networkSrlgInfo.NetworkSrlgArray[i]), types.YChild{"NetworkSrlgArray", networkSrlgInfo.NetworkSrlgArray[i]})
     }
-    networkSrlgInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    networkSrlgInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    networkSrlgInfo.EntityData.YListKeys = []string {}
+
     return &(networkSrlgInfo.EntityData)
 }
 
@@ -1557,10 +1529,13 @@ func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlg
     networkSrlgArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networkSrlgArray.EntityData.Children = make(map[string]types.YChild)
-    networkSrlgArray.EntityData.Leafs = make(map[string]types.YLeaf)
-    networkSrlgArray.EntityData.Leafs["set-number"] = types.YLeaf{"SetNumber", networkSrlgArray.SetNumber}
-    networkSrlgArray.EntityData.Leafs["network-srlg"] = types.YLeaf{"NetworkSrlg", networkSrlgArray.NetworkSrlg}
+    networkSrlgArray.EntityData.Children = types.NewOrderedMap()
+    networkSrlgArray.EntityData.Leafs = types.NewOrderedMap()
+    networkSrlgArray.EntityData.Leafs.Append("set-number", types.YLeaf{"SetNumber", networkSrlgArray.SetNumber})
+    networkSrlgArray.EntityData.Leafs.Append("network-srlg", types.YLeaf{"NetworkSrlg", networkSrlgArray.NetworkSrlg})
+
+    networkSrlgArray.EntityData.YListKeys = []string {}
+
     return &(networkSrlgArray.EntityData)
 }
 
@@ -1646,28 +1621,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo struct {
     LowTx4Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power
 
     // High Tx1 laser bias current in units of percentage.
-    HighTx1Lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc
+    HighTx1lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1lbc
 
     // High Tx2 laser bias current in units of percentage.
-    HighTx2Lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc
+    HighTx2lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2lbc
 
     // High Tx3 laser bias current in units of percentage.
-    HighTx3Lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc
+    HighTx3lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3lbc
 
     // High Tx4 laser bias current in units of percentage.
-    HighTx4Lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc
+    HighTx4lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4lbc
 
     // Low Tx1 laser bias current in units of percentage.
-    LowTx1Lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc
+    LowTx1lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1lbc
 
     // Low Tx2 laser bias current in units of percentage.
-    LowTx2Lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc
+    LowTx2lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2lbc
 
     // Low Tx3 laser bias current in units of percentage.
-    LowTx3Lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc
+    LowTx3lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3lbc
 
     // Low Tx4 laser bias current in units of percentage.
-    LowTx4Lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc
+    LowTx4lbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4lbc
 
     // RX LOS.
     RxLos OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos
@@ -1725,56 +1700,59 @@ func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmI
     opticsAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsAlarmInfo.EntityData.Children = make(map[string]types.YChild)
-    opticsAlarmInfo.EntityData.Children["high-rx-power"] = types.YChild{"HighRxPower", &opticsAlarmInfo.HighRxPower}
-    opticsAlarmInfo.EntityData.Children["low-rx-power"] = types.YChild{"LowRxPower", &opticsAlarmInfo.LowRxPower}
-    opticsAlarmInfo.EntityData.Children["high-tx-power"] = types.YChild{"HighTxPower", &opticsAlarmInfo.HighTxPower}
-    opticsAlarmInfo.EntityData.Children["low-tx-power"] = types.YChild{"LowTxPower", &opticsAlarmInfo.LowTxPower}
-    opticsAlarmInfo.EntityData.Children["high-lbc"] = types.YChild{"HighLbc", &opticsAlarmInfo.HighLbc}
-    opticsAlarmInfo.EntityData.Children["low-temperature"] = types.YChild{"LowTemperature", &opticsAlarmInfo.LowTemperature}
-    opticsAlarmInfo.EntityData.Children["high-temperature"] = types.YChild{"HighTemperature", &opticsAlarmInfo.HighTemperature}
-    opticsAlarmInfo.EntityData.Children["low-voltage"] = types.YChild{"LowVoltage", &opticsAlarmInfo.LowVoltage}
-    opticsAlarmInfo.EntityData.Children["high-voltage"] = types.YChild{"HighVoltage", &opticsAlarmInfo.HighVoltage}
-    opticsAlarmInfo.EntityData.Children["high-rx1-power"] = types.YChild{"HighRx1Power", &opticsAlarmInfo.HighRx1Power}
-    opticsAlarmInfo.EntityData.Children["high-rx2-power"] = types.YChild{"HighRx2Power", &opticsAlarmInfo.HighRx2Power}
-    opticsAlarmInfo.EntityData.Children["high-rx3-power"] = types.YChild{"HighRx3Power", &opticsAlarmInfo.HighRx3Power}
-    opticsAlarmInfo.EntityData.Children["high-rx4-power"] = types.YChild{"HighRx4Power", &opticsAlarmInfo.HighRx4Power}
-    opticsAlarmInfo.EntityData.Children["low-rx1-power"] = types.YChild{"LowRx1Power", &opticsAlarmInfo.LowRx1Power}
-    opticsAlarmInfo.EntityData.Children["low-rx2-power"] = types.YChild{"LowRx2Power", &opticsAlarmInfo.LowRx2Power}
-    opticsAlarmInfo.EntityData.Children["low-rx3-power"] = types.YChild{"LowRx3Power", &opticsAlarmInfo.LowRx3Power}
-    opticsAlarmInfo.EntityData.Children["low-rx4-power"] = types.YChild{"LowRx4Power", &opticsAlarmInfo.LowRx4Power}
-    opticsAlarmInfo.EntityData.Children["high-tx1-power"] = types.YChild{"HighTx1Power", &opticsAlarmInfo.HighTx1Power}
-    opticsAlarmInfo.EntityData.Children["high-tx2-power"] = types.YChild{"HighTx2Power", &opticsAlarmInfo.HighTx2Power}
-    opticsAlarmInfo.EntityData.Children["high-tx3-power"] = types.YChild{"HighTx3Power", &opticsAlarmInfo.HighTx3Power}
-    opticsAlarmInfo.EntityData.Children["high-tx4-power"] = types.YChild{"HighTx4Power", &opticsAlarmInfo.HighTx4Power}
-    opticsAlarmInfo.EntityData.Children["low-tx1-power"] = types.YChild{"LowTx1Power", &opticsAlarmInfo.LowTx1Power}
-    opticsAlarmInfo.EntityData.Children["low-tx2-power"] = types.YChild{"LowTx2Power", &opticsAlarmInfo.LowTx2Power}
-    opticsAlarmInfo.EntityData.Children["low-tx3-power"] = types.YChild{"LowTx3Power", &opticsAlarmInfo.LowTx3Power}
-    opticsAlarmInfo.EntityData.Children["low-tx4-power"] = types.YChild{"LowTx4Power", &opticsAlarmInfo.LowTx4Power}
-    opticsAlarmInfo.EntityData.Children["high-tx1lbc"] = types.YChild{"HighTx1Lbc", &opticsAlarmInfo.HighTx1Lbc}
-    opticsAlarmInfo.EntityData.Children["high-tx2lbc"] = types.YChild{"HighTx2Lbc", &opticsAlarmInfo.HighTx2Lbc}
-    opticsAlarmInfo.EntityData.Children["high-tx3lbc"] = types.YChild{"HighTx3Lbc", &opticsAlarmInfo.HighTx3Lbc}
-    opticsAlarmInfo.EntityData.Children["high-tx4lbc"] = types.YChild{"HighTx4Lbc", &opticsAlarmInfo.HighTx4Lbc}
-    opticsAlarmInfo.EntityData.Children["low-tx1lbc"] = types.YChild{"LowTx1Lbc", &opticsAlarmInfo.LowTx1Lbc}
-    opticsAlarmInfo.EntityData.Children["low-tx2lbc"] = types.YChild{"LowTx2Lbc", &opticsAlarmInfo.LowTx2Lbc}
-    opticsAlarmInfo.EntityData.Children["low-tx3lbc"] = types.YChild{"LowTx3Lbc", &opticsAlarmInfo.LowTx3Lbc}
-    opticsAlarmInfo.EntityData.Children["low-tx4lbc"] = types.YChild{"LowTx4Lbc", &opticsAlarmInfo.LowTx4Lbc}
-    opticsAlarmInfo.EntityData.Children["rx-los"] = types.YChild{"RxLos", &opticsAlarmInfo.RxLos}
-    opticsAlarmInfo.EntityData.Children["tx-los"] = types.YChild{"TxLos", &opticsAlarmInfo.TxLos}
-    opticsAlarmInfo.EntityData.Children["rx-lol"] = types.YChild{"RxLol", &opticsAlarmInfo.RxLol}
-    opticsAlarmInfo.EntityData.Children["tx-lol"] = types.YChild{"TxLol", &opticsAlarmInfo.TxLol}
-    opticsAlarmInfo.EntityData.Children["tx-fault"] = types.YChild{"TxFault", &opticsAlarmInfo.TxFault}
-    opticsAlarmInfo.EntityData.Children["hidgd"] = types.YChild{"Hidgd", &opticsAlarmInfo.Hidgd}
-    opticsAlarmInfo.EntityData.Children["oorcd"] = types.YChild{"Oorcd", &opticsAlarmInfo.Oorcd}
-    opticsAlarmInfo.EntityData.Children["osnr"] = types.YChild{"Osnr", &opticsAlarmInfo.Osnr}
-    opticsAlarmInfo.EntityData.Children["wvlool"] = types.YChild{"Wvlool", &opticsAlarmInfo.Wvlool}
-    opticsAlarmInfo.EntityData.Children["mea"] = types.YChild{"Mea", &opticsAlarmInfo.Mea}
-    opticsAlarmInfo.EntityData.Children["imp-removal"] = types.YChild{"ImpRemoval", &opticsAlarmInfo.ImpRemoval}
-    opticsAlarmInfo.EntityData.Children["rx-loc"] = types.YChild{"RxLoc", &opticsAlarmInfo.RxLoc}
-    opticsAlarmInfo.EntityData.Children["amp-gain-deg-low"] = types.YChild{"AmpGainDegLow", &opticsAlarmInfo.AmpGainDegLow}
-    opticsAlarmInfo.EntityData.Children["amp-gain-deg-high"] = types.YChild{"AmpGainDegHigh", &opticsAlarmInfo.AmpGainDegHigh}
-    opticsAlarmInfo.EntityData.Children["txpwr-mismatch"] = types.YChild{"TxpwrMismatch", &opticsAlarmInfo.TxpwrMismatch}
-    opticsAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsAlarmInfo.EntityData.Children = types.NewOrderedMap()
+    opticsAlarmInfo.EntityData.Children.Append("high-rx-power", types.YChild{"HighRxPower", &opticsAlarmInfo.HighRxPower})
+    opticsAlarmInfo.EntityData.Children.Append("low-rx-power", types.YChild{"LowRxPower", &opticsAlarmInfo.LowRxPower})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx-power", types.YChild{"HighTxPower", &opticsAlarmInfo.HighTxPower})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx-power", types.YChild{"LowTxPower", &opticsAlarmInfo.LowTxPower})
+    opticsAlarmInfo.EntityData.Children.Append("high-lbc", types.YChild{"HighLbc", &opticsAlarmInfo.HighLbc})
+    opticsAlarmInfo.EntityData.Children.Append("low-temperature", types.YChild{"LowTemperature", &opticsAlarmInfo.LowTemperature})
+    opticsAlarmInfo.EntityData.Children.Append("high-temperature", types.YChild{"HighTemperature", &opticsAlarmInfo.HighTemperature})
+    opticsAlarmInfo.EntityData.Children.Append("low-voltage", types.YChild{"LowVoltage", &opticsAlarmInfo.LowVoltage})
+    opticsAlarmInfo.EntityData.Children.Append("high-voltage", types.YChild{"HighVoltage", &opticsAlarmInfo.HighVoltage})
+    opticsAlarmInfo.EntityData.Children.Append("high-rx1-power", types.YChild{"HighRx1Power", &opticsAlarmInfo.HighRx1Power})
+    opticsAlarmInfo.EntityData.Children.Append("high-rx2-power", types.YChild{"HighRx2Power", &opticsAlarmInfo.HighRx2Power})
+    opticsAlarmInfo.EntityData.Children.Append("high-rx3-power", types.YChild{"HighRx3Power", &opticsAlarmInfo.HighRx3Power})
+    opticsAlarmInfo.EntityData.Children.Append("high-rx4-power", types.YChild{"HighRx4Power", &opticsAlarmInfo.HighRx4Power})
+    opticsAlarmInfo.EntityData.Children.Append("low-rx1-power", types.YChild{"LowRx1Power", &opticsAlarmInfo.LowRx1Power})
+    opticsAlarmInfo.EntityData.Children.Append("low-rx2-power", types.YChild{"LowRx2Power", &opticsAlarmInfo.LowRx2Power})
+    opticsAlarmInfo.EntityData.Children.Append("low-rx3-power", types.YChild{"LowRx3Power", &opticsAlarmInfo.LowRx3Power})
+    opticsAlarmInfo.EntityData.Children.Append("low-rx4-power", types.YChild{"LowRx4Power", &opticsAlarmInfo.LowRx4Power})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx1-power", types.YChild{"HighTx1Power", &opticsAlarmInfo.HighTx1Power})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx2-power", types.YChild{"HighTx2Power", &opticsAlarmInfo.HighTx2Power})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx3-power", types.YChild{"HighTx3Power", &opticsAlarmInfo.HighTx3Power})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx4-power", types.YChild{"HighTx4Power", &opticsAlarmInfo.HighTx4Power})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx1-power", types.YChild{"LowTx1Power", &opticsAlarmInfo.LowTx1Power})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx2-power", types.YChild{"LowTx2Power", &opticsAlarmInfo.LowTx2Power})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx3-power", types.YChild{"LowTx3Power", &opticsAlarmInfo.LowTx3Power})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx4-power", types.YChild{"LowTx4Power", &opticsAlarmInfo.LowTx4Power})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx1lbc", types.YChild{"HighTx1lbc", &opticsAlarmInfo.HighTx1lbc})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx2lbc", types.YChild{"HighTx2lbc", &opticsAlarmInfo.HighTx2lbc})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx3lbc", types.YChild{"HighTx3lbc", &opticsAlarmInfo.HighTx3lbc})
+    opticsAlarmInfo.EntityData.Children.Append("high-tx4lbc", types.YChild{"HighTx4lbc", &opticsAlarmInfo.HighTx4lbc})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx1lbc", types.YChild{"LowTx1lbc", &opticsAlarmInfo.LowTx1lbc})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx2lbc", types.YChild{"LowTx2lbc", &opticsAlarmInfo.LowTx2lbc})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx3lbc", types.YChild{"LowTx3lbc", &opticsAlarmInfo.LowTx3lbc})
+    opticsAlarmInfo.EntityData.Children.Append("low-tx4lbc", types.YChild{"LowTx4lbc", &opticsAlarmInfo.LowTx4lbc})
+    opticsAlarmInfo.EntityData.Children.Append("rx-los", types.YChild{"RxLos", &opticsAlarmInfo.RxLos})
+    opticsAlarmInfo.EntityData.Children.Append("tx-los", types.YChild{"TxLos", &opticsAlarmInfo.TxLos})
+    opticsAlarmInfo.EntityData.Children.Append("rx-lol", types.YChild{"RxLol", &opticsAlarmInfo.RxLol})
+    opticsAlarmInfo.EntityData.Children.Append("tx-lol", types.YChild{"TxLol", &opticsAlarmInfo.TxLol})
+    opticsAlarmInfo.EntityData.Children.Append("tx-fault", types.YChild{"TxFault", &opticsAlarmInfo.TxFault})
+    opticsAlarmInfo.EntityData.Children.Append("hidgd", types.YChild{"Hidgd", &opticsAlarmInfo.Hidgd})
+    opticsAlarmInfo.EntityData.Children.Append("oorcd", types.YChild{"Oorcd", &opticsAlarmInfo.Oorcd})
+    opticsAlarmInfo.EntityData.Children.Append("osnr", types.YChild{"Osnr", &opticsAlarmInfo.Osnr})
+    opticsAlarmInfo.EntityData.Children.Append("wvlool", types.YChild{"Wvlool", &opticsAlarmInfo.Wvlool})
+    opticsAlarmInfo.EntityData.Children.Append("mea", types.YChild{"Mea", &opticsAlarmInfo.Mea})
+    opticsAlarmInfo.EntityData.Children.Append("imp-removal", types.YChild{"ImpRemoval", &opticsAlarmInfo.ImpRemoval})
+    opticsAlarmInfo.EntityData.Children.Append("rx-loc", types.YChild{"RxLoc", &opticsAlarmInfo.RxLoc})
+    opticsAlarmInfo.EntityData.Children.Append("amp-gain-deg-low", types.YChild{"AmpGainDegLow", &opticsAlarmInfo.AmpGainDegLow})
+    opticsAlarmInfo.EntityData.Children.Append("amp-gain-deg-high", types.YChild{"AmpGainDegHigh", &opticsAlarmInfo.AmpGainDegHigh})
+    opticsAlarmInfo.EntityData.Children.Append("txpwr-mismatch", types.YChild{"TxpwrMismatch", &opticsAlarmInfo.TxpwrMismatch})
+    opticsAlarmInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    opticsAlarmInfo.EntityData.YListKeys = []string {}
+
     return &(opticsAlarmInfo.EntityData)
 }
 
@@ -1801,10 +1779,13 @@ func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highRxPower.EntityData.Children = make(map[string]types.YChild)
-    highRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    highRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRxPower.IsDetected}
-    highRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRxPower.Counter}
+    highRxPower.EntityData.Children = types.NewOrderedMap()
+    highRxPower.EntityData.Leafs = types.NewOrderedMap()
+    highRxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highRxPower.IsDetected})
+    highRxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highRxPower.Counter})
+
+    highRxPower.EntityData.YListKeys = []string {}
+
     return &(highRxPower.EntityData)
 }
 
@@ -1831,10 +1812,13 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_L
     lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowRxPower.EntityData.Children = make(map[string]types.YChild)
-    lowRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRxPower.IsDetected}
-    lowRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRxPower.Counter}
+    lowRxPower.EntityData.Children = types.NewOrderedMap()
+    lowRxPower.EntityData.Leafs = types.NewOrderedMap()
+    lowRxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowRxPower.IsDetected})
+    lowRxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowRxPower.Counter})
+
+    lowRxPower.EntityData.YListKeys = []string {}
+
     return &(lowRxPower.EntityData)
 }
 
@@ -1861,10 +1845,13 @@ func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTxPower.EntityData.Children = make(map[string]types.YChild)
-    highTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTxPower.IsDetected}
-    highTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTxPower.Counter}
+    highTxPower.EntityData.Children = types.NewOrderedMap()
+    highTxPower.EntityData.Leafs = types.NewOrderedMap()
+    highTxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTxPower.IsDetected})
+    highTxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTxPower.Counter})
+
+    highTxPower.EntityData.YListKeys = []string {}
+
     return &(highTxPower.EntityData)
 }
 
@@ -1891,10 +1878,13 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_L
     lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTxPower.EntityData.Children = make(map[string]types.YChild)
-    lowTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTxPower.IsDetected}
-    lowTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTxPower.Counter}
+    lowTxPower.EntityData.Children = types.NewOrderedMap()
+    lowTxPower.EntityData.Leafs = types.NewOrderedMap()
+    lowTxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTxPower.IsDetected})
+    lowTxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTxPower.Counter})
+
+    lowTxPower.EntityData.YListKeys = []string {}
+
     return &(lowTxPower.EntityData)
 }
 
@@ -1921,10 +1911,13 @@ func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_High
     highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highLbc.EntityData.Children = make(map[string]types.YChild)
-    highLbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    highLbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highLbc.IsDetected}
-    highLbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highLbc.Counter}
+    highLbc.EntityData.Children = types.NewOrderedMap()
+    highLbc.EntityData.Leafs = types.NewOrderedMap()
+    highLbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highLbc.IsDetected})
+    highLbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highLbc.Counter})
+
+    highLbc.EntityData.YListKeys = []string {}
+
     return &(highLbc.EntityData)
 }
 
@@ -1951,10 +1944,13 @@ func (lowTemperature *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmIn
     lowTemperature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTemperature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTemperature.EntityData.Children = make(map[string]types.YChild)
-    lowTemperature.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTemperature.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTemperature.IsDetected}
-    lowTemperature.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTemperature.Counter}
+    lowTemperature.EntityData.Children = types.NewOrderedMap()
+    lowTemperature.EntityData.Leafs = types.NewOrderedMap()
+    lowTemperature.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTemperature.IsDetected})
+    lowTemperature.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTemperature.Counter})
+
+    lowTemperature.EntityData.YListKeys = []string {}
+
     return &(lowTemperature.EntityData)
 }
 
@@ -1981,10 +1977,13 @@ func (highTemperature *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmI
     highTemperature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTemperature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTemperature.EntityData.Children = make(map[string]types.YChild)
-    highTemperature.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTemperature.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTemperature.IsDetected}
-    highTemperature.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTemperature.Counter}
+    highTemperature.EntityData.Children = types.NewOrderedMap()
+    highTemperature.EntityData.Leafs = types.NewOrderedMap()
+    highTemperature.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTemperature.IsDetected})
+    highTemperature.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTemperature.Counter})
+
+    highTemperature.EntityData.YListKeys = []string {}
+
     return &(highTemperature.EntityData)
 }
 
@@ -2011,10 +2010,13 @@ func (lowVoltage *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_L
     lowVoltage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowVoltage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowVoltage.EntityData.Children = make(map[string]types.YChild)
-    lowVoltage.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowVoltage.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowVoltage.IsDetected}
-    lowVoltage.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowVoltage.Counter}
+    lowVoltage.EntityData.Children = types.NewOrderedMap()
+    lowVoltage.EntityData.Leafs = types.NewOrderedMap()
+    lowVoltage.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowVoltage.IsDetected})
+    lowVoltage.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowVoltage.Counter})
+
+    lowVoltage.EntityData.YListKeys = []string {}
+
     return &(lowVoltage.EntityData)
 }
 
@@ -2041,10 +2043,13 @@ func (highVoltage *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     highVoltage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highVoltage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highVoltage.EntityData.Children = make(map[string]types.YChild)
-    highVoltage.EntityData.Leafs = make(map[string]types.YLeaf)
-    highVoltage.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highVoltage.IsDetected}
-    highVoltage.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highVoltage.Counter}
+    highVoltage.EntityData.Children = types.NewOrderedMap()
+    highVoltage.EntityData.Leafs = types.NewOrderedMap()
+    highVoltage.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highVoltage.IsDetected})
+    highVoltage.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highVoltage.Counter})
+
+    highVoltage.EntityData.YListKeys = []string {}
+
     return &(highVoltage.EntityData)
 }
 
@@ -2071,10 +2076,13 @@ func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highRx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highRx1Power.EntityData.Children = make(map[string]types.YChild)
-    highRx1Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    highRx1Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRx1Power.IsDetected}
-    highRx1Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRx1Power.Counter}
+    highRx1Power.EntityData.Children = types.NewOrderedMap()
+    highRx1Power.EntityData.Leafs = types.NewOrderedMap()
+    highRx1Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highRx1Power.IsDetected})
+    highRx1Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highRx1Power.Counter})
+
+    highRx1Power.EntityData.YListKeys = []string {}
+
     return &(highRx1Power.EntityData)
 }
 
@@ -2101,10 +2109,13 @@ func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highRx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highRx2Power.EntityData.Children = make(map[string]types.YChild)
-    highRx2Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    highRx2Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRx2Power.IsDetected}
-    highRx2Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRx2Power.Counter}
+    highRx2Power.EntityData.Children = types.NewOrderedMap()
+    highRx2Power.EntityData.Leafs = types.NewOrderedMap()
+    highRx2Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highRx2Power.IsDetected})
+    highRx2Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highRx2Power.Counter})
+
+    highRx2Power.EntityData.YListKeys = []string {}
+
     return &(highRx2Power.EntityData)
 }
 
@@ -2131,10 +2142,13 @@ func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highRx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highRx3Power.EntityData.Children = make(map[string]types.YChild)
-    highRx3Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    highRx3Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRx3Power.IsDetected}
-    highRx3Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRx3Power.Counter}
+    highRx3Power.EntityData.Children = types.NewOrderedMap()
+    highRx3Power.EntityData.Leafs = types.NewOrderedMap()
+    highRx3Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highRx3Power.IsDetected})
+    highRx3Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highRx3Power.Counter})
+
+    highRx3Power.EntityData.YListKeys = []string {}
+
     return &(highRx3Power.EntityData)
 }
 
@@ -2161,10 +2175,13 @@ func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highRx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highRx4Power.EntityData.Children = make(map[string]types.YChild)
-    highRx4Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    highRx4Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRx4Power.IsDetected}
-    highRx4Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRx4Power.Counter}
+    highRx4Power.EntityData.Children = types.NewOrderedMap()
+    highRx4Power.EntityData.Leafs = types.NewOrderedMap()
+    highRx4Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highRx4Power.IsDetected})
+    highRx4Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highRx4Power.Counter})
+
+    highRx4Power.EntityData.YListKeys = []string {}
+
     return &(highRx4Power.EntityData)
 }
 
@@ -2191,10 +2208,13 @@ func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowRx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowRx1Power.EntityData.Children = make(map[string]types.YChild)
-    lowRx1Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowRx1Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRx1Power.IsDetected}
-    lowRx1Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRx1Power.Counter}
+    lowRx1Power.EntityData.Children = types.NewOrderedMap()
+    lowRx1Power.EntityData.Leafs = types.NewOrderedMap()
+    lowRx1Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowRx1Power.IsDetected})
+    lowRx1Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowRx1Power.Counter})
+
+    lowRx1Power.EntityData.YListKeys = []string {}
+
     return &(lowRx1Power.EntityData)
 }
 
@@ -2221,10 +2241,13 @@ func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowRx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowRx2Power.EntityData.Children = make(map[string]types.YChild)
-    lowRx2Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowRx2Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRx2Power.IsDetected}
-    lowRx2Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRx2Power.Counter}
+    lowRx2Power.EntityData.Children = types.NewOrderedMap()
+    lowRx2Power.EntityData.Leafs = types.NewOrderedMap()
+    lowRx2Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowRx2Power.IsDetected})
+    lowRx2Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowRx2Power.Counter})
+
+    lowRx2Power.EntityData.YListKeys = []string {}
+
     return &(lowRx2Power.EntityData)
 }
 
@@ -2251,10 +2274,13 @@ func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowRx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowRx3Power.EntityData.Children = make(map[string]types.YChild)
-    lowRx3Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowRx3Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRx3Power.IsDetected}
-    lowRx3Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRx3Power.Counter}
+    lowRx3Power.EntityData.Children = types.NewOrderedMap()
+    lowRx3Power.EntityData.Leafs = types.NewOrderedMap()
+    lowRx3Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowRx3Power.IsDetected})
+    lowRx3Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowRx3Power.Counter})
+
+    lowRx3Power.EntityData.YListKeys = []string {}
+
     return &(lowRx3Power.EntityData)
 }
 
@@ -2281,10 +2307,13 @@ func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowRx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowRx4Power.EntityData.Children = make(map[string]types.YChild)
-    lowRx4Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowRx4Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRx4Power.IsDetected}
-    lowRx4Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRx4Power.Counter}
+    lowRx4Power.EntityData.Children = types.NewOrderedMap()
+    lowRx4Power.EntityData.Leafs = types.NewOrderedMap()
+    lowRx4Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowRx4Power.IsDetected})
+    lowRx4Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowRx4Power.Counter})
+
+    lowRx4Power.EntityData.YListKeys = []string {}
+
     return &(lowRx4Power.EntityData)
 }
 
@@ -2311,10 +2340,13 @@ func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highTx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTx1Power.EntityData.Children = make(map[string]types.YChild)
-    highTx1Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTx1Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx1Power.IsDetected}
-    highTx1Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx1Power.Counter}
+    highTx1Power.EntityData.Children = types.NewOrderedMap()
+    highTx1Power.EntityData.Leafs = types.NewOrderedMap()
+    highTx1Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTx1Power.IsDetected})
+    highTx1Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTx1Power.Counter})
+
+    highTx1Power.EntityData.YListKeys = []string {}
+
     return &(highTx1Power.EntityData)
 }
 
@@ -2341,10 +2373,13 @@ func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highTx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTx2Power.EntityData.Children = make(map[string]types.YChild)
-    highTx2Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTx2Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx2Power.IsDetected}
-    highTx2Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx2Power.Counter}
+    highTx2Power.EntityData.Children = types.NewOrderedMap()
+    highTx2Power.EntityData.Leafs = types.NewOrderedMap()
+    highTx2Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTx2Power.IsDetected})
+    highTx2Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTx2Power.Counter})
+
+    highTx2Power.EntityData.YListKeys = []string {}
+
     return &(highTx2Power.EntityData)
 }
 
@@ -2371,10 +2406,13 @@ func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highTx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTx3Power.EntityData.Children = make(map[string]types.YChild)
-    highTx3Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTx3Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx3Power.IsDetected}
-    highTx3Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx3Power.Counter}
+    highTx3Power.EntityData.Children = types.NewOrderedMap()
+    highTx3Power.EntityData.Leafs = types.NewOrderedMap()
+    highTx3Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTx3Power.IsDetected})
+    highTx3Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTx3Power.Counter})
+
+    highTx3Power.EntityData.YListKeys = []string {}
+
     return &(highTx3Power.EntityData)
 }
 
@@ -2401,10 +2439,13 @@ func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highTx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTx4Power.EntityData.Children = make(map[string]types.YChild)
-    highTx4Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTx4Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx4Power.IsDetected}
-    highTx4Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx4Power.Counter}
+    highTx4Power.EntityData.Children = types.NewOrderedMap()
+    highTx4Power.EntityData.Leafs = types.NewOrderedMap()
+    highTx4Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTx4Power.IsDetected})
+    highTx4Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTx4Power.Counter})
+
+    highTx4Power.EntityData.YListKeys = []string {}
+
     return &(highTx4Power.EntityData)
 }
 
@@ -2431,10 +2472,13 @@ func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowTx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTx1Power.EntityData.Children = make(map[string]types.YChild)
-    lowTx1Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTx1Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx1Power.IsDetected}
-    lowTx1Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx1Power.Counter}
+    lowTx1Power.EntityData.Children = types.NewOrderedMap()
+    lowTx1Power.EntityData.Leafs = types.NewOrderedMap()
+    lowTx1Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTx1Power.IsDetected})
+    lowTx1Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTx1Power.Counter})
+
+    lowTx1Power.EntityData.YListKeys = []string {}
+
     return &(lowTx1Power.EntityData)
 }
 
@@ -2461,10 +2505,13 @@ func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowTx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTx2Power.EntityData.Children = make(map[string]types.YChild)
-    lowTx2Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTx2Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx2Power.IsDetected}
-    lowTx2Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx2Power.Counter}
+    lowTx2Power.EntityData.Children = types.NewOrderedMap()
+    lowTx2Power.EntityData.Leafs = types.NewOrderedMap()
+    lowTx2Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTx2Power.IsDetected})
+    lowTx2Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTx2Power.Counter})
+
+    lowTx2Power.EntityData.YListKeys = []string {}
+
     return &(lowTx2Power.EntityData)
 }
 
@@ -2491,10 +2538,13 @@ func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowTx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTx3Power.EntityData.Children = make(map[string]types.YChild)
-    lowTx3Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTx3Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx3Power.IsDetected}
-    lowTx3Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx3Power.Counter}
+    lowTx3Power.EntityData.Children = types.NewOrderedMap()
+    lowTx3Power.EntityData.Leafs = types.NewOrderedMap()
+    lowTx3Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTx3Power.IsDetected})
+    lowTx3Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTx3Power.Counter})
+
+    lowTx3Power.EntityData.YListKeys = []string {}
+
     return &(lowTx3Power.EntityData)
 }
 
@@ -2521,17 +2571,20 @@ func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowTx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTx4Power.EntityData.Children = make(map[string]types.YChild)
-    lowTx4Power.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTx4Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx4Power.IsDetected}
-    lowTx4Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx4Power.Counter}
+    lowTx4Power.EntityData.Children = types.NewOrderedMap()
+    lowTx4Power.EntityData.Leafs = types.NewOrderedMap()
+    lowTx4Power.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTx4Power.IsDetected})
+    lowTx4Power.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTx4Power.Counter})
+
+    lowTx4Power.EntityData.YListKeys = []string {}
+
     return &(lowTx4Power.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1lbc
 // High Tx1 laser bias current in units of
 // percentage
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1lbc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2542,27 +2595,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc str
     Counter interface{}
 }
 
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetEntityData() *types.CommonEntityData {
-    highTx1Lbc.EntityData.YFilter = highTx1Lbc.YFilter
-    highTx1Lbc.EntityData.YangName = "high-tx1lbc"
-    highTx1Lbc.EntityData.BundleName = "cisco_ios_xr"
-    highTx1Lbc.EntityData.ParentYangName = "optics-alarm-info"
-    highTx1Lbc.EntityData.SegmentPath = "high-tx1lbc"
-    highTx1Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    highTx1Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    highTx1Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (highTx1lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1lbc) GetEntityData() *types.CommonEntityData {
+    highTx1lbc.EntityData.YFilter = highTx1lbc.YFilter
+    highTx1lbc.EntityData.YangName = "high-tx1lbc"
+    highTx1lbc.EntityData.BundleName = "cisco_ios_xr"
+    highTx1lbc.EntityData.ParentYangName = "optics-alarm-info"
+    highTx1lbc.EntityData.SegmentPath = "high-tx1lbc"
+    highTx1lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx1lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx1lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTx1Lbc.EntityData.Children = make(map[string]types.YChild)
-    highTx1Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTx1Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx1Lbc.IsDetected}
-    highTx1Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx1Lbc.Counter}
-    return &(highTx1Lbc.EntityData)
+    highTx1lbc.EntityData.Children = types.NewOrderedMap()
+    highTx1lbc.EntityData.Leafs = types.NewOrderedMap()
+    highTx1lbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTx1lbc.IsDetected})
+    highTx1lbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTx1lbc.Counter})
+
+    highTx1lbc.EntityData.YListKeys = []string {}
+
+    return &(highTx1lbc.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2lbc
 // High Tx2 laser bias current in units of
 // percentage
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2lbc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2573,27 +2629,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc str
     Counter interface{}
 }
 
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetEntityData() *types.CommonEntityData {
-    highTx2Lbc.EntityData.YFilter = highTx2Lbc.YFilter
-    highTx2Lbc.EntityData.YangName = "high-tx2lbc"
-    highTx2Lbc.EntityData.BundleName = "cisco_ios_xr"
-    highTx2Lbc.EntityData.ParentYangName = "optics-alarm-info"
-    highTx2Lbc.EntityData.SegmentPath = "high-tx2lbc"
-    highTx2Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    highTx2Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    highTx2Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (highTx2lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2lbc) GetEntityData() *types.CommonEntityData {
+    highTx2lbc.EntityData.YFilter = highTx2lbc.YFilter
+    highTx2lbc.EntityData.YangName = "high-tx2lbc"
+    highTx2lbc.EntityData.BundleName = "cisco_ios_xr"
+    highTx2lbc.EntityData.ParentYangName = "optics-alarm-info"
+    highTx2lbc.EntityData.SegmentPath = "high-tx2lbc"
+    highTx2lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx2lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx2lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTx2Lbc.EntityData.Children = make(map[string]types.YChild)
-    highTx2Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTx2Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx2Lbc.IsDetected}
-    highTx2Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx2Lbc.Counter}
-    return &(highTx2Lbc.EntityData)
+    highTx2lbc.EntityData.Children = types.NewOrderedMap()
+    highTx2lbc.EntityData.Leafs = types.NewOrderedMap()
+    highTx2lbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTx2lbc.IsDetected})
+    highTx2lbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTx2lbc.Counter})
+
+    highTx2lbc.EntityData.YListKeys = []string {}
+
+    return &(highTx2lbc.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3lbc
 // High Tx3 laser bias current in units of
 // percentage
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3lbc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2604,27 +2663,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc str
     Counter interface{}
 }
 
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetEntityData() *types.CommonEntityData {
-    highTx3Lbc.EntityData.YFilter = highTx3Lbc.YFilter
-    highTx3Lbc.EntityData.YangName = "high-tx3lbc"
-    highTx3Lbc.EntityData.BundleName = "cisco_ios_xr"
-    highTx3Lbc.EntityData.ParentYangName = "optics-alarm-info"
-    highTx3Lbc.EntityData.SegmentPath = "high-tx3lbc"
-    highTx3Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    highTx3Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    highTx3Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (highTx3lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3lbc) GetEntityData() *types.CommonEntityData {
+    highTx3lbc.EntityData.YFilter = highTx3lbc.YFilter
+    highTx3lbc.EntityData.YangName = "high-tx3lbc"
+    highTx3lbc.EntityData.BundleName = "cisco_ios_xr"
+    highTx3lbc.EntityData.ParentYangName = "optics-alarm-info"
+    highTx3lbc.EntityData.SegmentPath = "high-tx3lbc"
+    highTx3lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx3lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx3lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTx3Lbc.EntityData.Children = make(map[string]types.YChild)
-    highTx3Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTx3Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx3Lbc.IsDetected}
-    highTx3Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx3Lbc.Counter}
-    return &(highTx3Lbc.EntityData)
+    highTx3lbc.EntityData.Children = types.NewOrderedMap()
+    highTx3lbc.EntityData.Leafs = types.NewOrderedMap()
+    highTx3lbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTx3lbc.IsDetected})
+    highTx3lbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTx3lbc.Counter})
+
+    highTx3lbc.EntityData.YListKeys = []string {}
+
+    return &(highTx3lbc.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4lbc
 // High Tx4 laser bias current in units of
 // percentage
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4lbc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2635,27 +2697,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc str
     Counter interface{}
 }
 
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetEntityData() *types.CommonEntityData {
-    highTx4Lbc.EntityData.YFilter = highTx4Lbc.YFilter
-    highTx4Lbc.EntityData.YangName = "high-tx4lbc"
-    highTx4Lbc.EntityData.BundleName = "cisco_ios_xr"
-    highTx4Lbc.EntityData.ParentYangName = "optics-alarm-info"
-    highTx4Lbc.EntityData.SegmentPath = "high-tx4lbc"
-    highTx4Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    highTx4Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    highTx4Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (highTx4lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4lbc) GetEntityData() *types.CommonEntityData {
+    highTx4lbc.EntityData.YFilter = highTx4lbc.YFilter
+    highTx4lbc.EntityData.YangName = "high-tx4lbc"
+    highTx4lbc.EntityData.BundleName = "cisco_ios_xr"
+    highTx4lbc.EntityData.ParentYangName = "optics-alarm-info"
+    highTx4lbc.EntityData.SegmentPath = "high-tx4lbc"
+    highTx4lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx4lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx4lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTx4Lbc.EntityData.Children = make(map[string]types.YChild)
-    highTx4Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTx4Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx4Lbc.IsDetected}
-    highTx4Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx4Lbc.Counter}
-    return &(highTx4Lbc.EntityData)
+    highTx4lbc.EntityData.Children = types.NewOrderedMap()
+    highTx4lbc.EntityData.Leafs = types.NewOrderedMap()
+    highTx4lbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTx4lbc.IsDetected})
+    highTx4lbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTx4lbc.Counter})
+
+    highTx4lbc.EntityData.YListKeys = []string {}
+
+    return &(highTx4lbc.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1lbc
 // Low Tx1 laser bias current in units of
 // percentage
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1lbc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2666,27 +2731,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc stru
     Counter interface{}
 }
 
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetEntityData() *types.CommonEntityData {
-    lowTx1Lbc.EntityData.YFilter = lowTx1Lbc.YFilter
-    lowTx1Lbc.EntityData.YangName = "low-tx1lbc"
-    lowTx1Lbc.EntityData.BundleName = "cisco_ios_xr"
-    lowTx1Lbc.EntityData.ParentYangName = "optics-alarm-info"
-    lowTx1Lbc.EntityData.SegmentPath = "low-tx1lbc"
-    lowTx1Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lowTx1Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lowTx1Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (lowTx1lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1lbc) GetEntityData() *types.CommonEntityData {
+    lowTx1lbc.EntityData.YFilter = lowTx1lbc.YFilter
+    lowTx1lbc.EntityData.YangName = "low-tx1lbc"
+    lowTx1lbc.EntityData.BundleName = "cisco_ios_xr"
+    lowTx1lbc.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx1lbc.EntityData.SegmentPath = "low-tx1lbc"
+    lowTx1lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx1lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx1lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTx1Lbc.EntityData.Children = make(map[string]types.YChild)
-    lowTx1Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTx1Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx1Lbc.IsDetected}
-    lowTx1Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx1Lbc.Counter}
-    return &(lowTx1Lbc.EntityData)
+    lowTx1lbc.EntityData.Children = types.NewOrderedMap()
+    lowTx1lbc.EntityData.Leafs = types.NewOrderedMap()
+    lowTx1lbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTx1lbc.IsDetected})
+    lowTx1lbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTx1lbc.Counter})
+
+    lowTx1lbc.EntityData.YListKeys = []string {}
+
+    return &(lowTx1lbc.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2lbc
 // Low Tx2 laser bias current in units of
 // percentage
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2lbc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2697,27 +2765,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc stru
     Counter interface{}
 }
 
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetEntityData() *types.CommonEntityData {
-    lowTx2Lbc.EntityData.YFilter = lowTx2Lbc.YFilter
-    lowTx2Lbc.EntityData.YangName = "low-tx2lbc"
-    lowTx2Lbc.EntityData.BundleName = "cisco_ios_xr"
-    lowTx2Lbc.EntityData.ParentYangName = "optics-alarm-info"
-    lowTx2Lbc.EntityData.SegmentPath = "low-tx2lbc"
-    lowTx2Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lowTx2Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lowTx2Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (lowTx2lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2lbc) GetEntityData() *types.CommonEntityData {
+    lowTx2lbc.EntityData.YFilter = lowTx2lbc.YFilter
+    lowTx2lbc.EntityData.YangName = "low-tx2lbc"
+    lowTx2lbc.EntityData.BundleName = "cisco_ios_xr"
+    lowTx2lbc.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx2lbc.EntityData.SegmentPath = "low-tx2lbc"
+    lowTx2lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx2lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx2lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTx2Lbc.EntityData.Children = make(map[string]types.YChild)
-    lowTx2Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTx2Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx2Lbc.IsDetected}
-    lowTx2Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx2Lbc.Counter}
-    return &(lowTx2Lbc.EntityData)
+    lowTx2lbc.EntityData.Children = types.NewOrderedMap()
+    lowTx2lbc.EntityData.Leafs = types.NewOrderedMap()
+    lowTx2lbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTx2lbc.IsDetected})
+    lowTx2lbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTx2lbc.Counter})
+
+    lowTx2lbc.EntityData.YListKeys = []string {}
+
+    return &(lowTx2lbc.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3lbc
 // Low Tx3 laser bias current in units of
 // percentage
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3lbc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2728,27 +2799,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc stru
     Counter interface{}
 }
 
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetEntityData() *types.CommonEntityData {
-    lowTx3Lbc.EntityData.YFilter = lowTx3Lbc.YFilter
-    lowTx3Lbc.EntityData.YangName = "low-tx3lbc"
-    lowTx3Lbc.EntityData.BundleName = "cisco_ios_xr"
-    lowTx3Lbc.EntityData.ParentYangName = "optics-alarm-info"
-    lowTx3Lbc.EntityData.SegmentPath = "low-tx3lbc"
-    lowTx3Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lowTx3Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lowTx3Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (lowTx3lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3lbc) GetEntityData() *types.CommonEntityData {
+    lowTx3lbc.EntityData.YFilter = lowTx3lbc.YFilter
+    lowTx3lbc.EntityData.YangName = "low-tx3lbc"
+    lowTx3lbc.EntityData.BundleName = "cisco_ios_xr"
+    lowTx3lbc.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx3lbc.EntityData.SegmentPath = "low-tx3lbc"
+    lowTx3lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx3lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx3lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTx3Lbc.EntityData.Children = make(map[string]types.YChild)
-    lowTx3Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTx3Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx3Lbc.IsDetected}
-    lowTx3Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx3Lbc.Counter}
-    return &(lowTx3Lbc.EntityData)
+    lowTx3lbc.EntityData.Children = types.NewOrderedMap()
+    lowTx3lbc.EntityData.Leafs = types.NewOrderedMap()
+    lowTx3lbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTx3lbc.IsDetected})
+    lowTx3lbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTx3lbc.Counter})
+
+    lowTx3lbc.EntityData.YListKeys = []string {}
+
+    return &(lowTx3lbc.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4lbc
 // Low Tx4 laser bias current in units of
 // percentage
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4lbc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2759,21 +2833,24 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc stru
     Counter interface{}
 }
 
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetEntityData() *types.CommonEntityData {
-    lowTx4Lbc.EntityData.YFilter = lowTx4Lbc.YFilter
-    lowTx4Lbc.EntityData.YangName = "low-tx4lbc"
-    lowTx4Lbc.EntityData.BundleName = "cisco_ios_xr"
-    lowTx4Lbc.EntityData.ParentYangName = "optics-alarm-info"
-    lowTx4Lbc.EntityData.SegmentPath = "low-tx4lbc"
-    lowTx4Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lowTx4Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lowTx4Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (lowTx4lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4lbc) GetEntityData() *types.CommonEntityData {
+    lowTx4lbc.EntityData.YFilter = lowTx4lbc.YFilter
+    lowTx4lbc.EntityData.YangName = "low-tx4lbc"
+    lowTx4lbc.EntityData.BundleName = "cisco_ios_xr"
+    lowTx4lbc.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx4lbc.EntityData.SegmentPath = "low-tx4lbc"
+    lowTx4lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx4lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx4lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTx4Lbc.EntityData.Children = make(map[string]types.YChild)
-    lowTx4Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTx4Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx4Lbc.IsDetected}
-    lowTx4Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx4Lbc.Counter}
-    return &(lowTx4Lbc.EntityData)
+    lowTx4lbc.EntityData.Children = types.NewOrderedMap()
+    lowTx4lbc.EntityData.Leafs = types.NewOrderedMap()
+    lowTx4lbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTx4lbc.IsDetected})
+    lowTx4lbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTx4lbc.Counter})
+
+    lowTx4lbc.EntityData.YListKeys = []string {}
+
+    return &(lowTx4lbc.EntityData)
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos
@@ -2799,10 +2876,13 @@ func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos)
     rxLos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLos.EntityData.Children = make(map[string]types.YChild)
-    rxLos.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxLos.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLos.IsDetected}
-    rxLos.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLos.Counter}
+    rxLos.EntityData.Children = types.NewOrderedMap()
+    rxLos.EntityData.Leafs = types.NewOrderedMap()
+    rxLos.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", rxLos.IsDetected})
+    rxLos.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", rxLos.Counter})
+
+    rxLos.EntityData.YListKeys = []string {}
+
     return &(rxLos.EntityData)
 }
 
@@ -2829,10 +2909,13 @@ func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos)
     txLos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txLos.EntityData.Children = make(map[string]types.YChild)
-    txLos.EntityData.Leafs = make(map[string]types.YLeaf)
-    txLos.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", txLos.IsDetected}
-    txLos.EntityData.Leafs["counter"] = types.YLeaf{"Counter", txLos.Counter}
+    txLos.EntityData.Children = types.NewOrderedMap()
+    txLos.EntityData.Leafs = types.NewOrderedMap()
+    txLos.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", txLos.IsDetected})
+    txLos.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", txLos.Counter})
+
+    txLos.EntityData.YListKeys = []string {}
+
     return &(txLos.EntityData)
 }
 
@@ -2859,10 +2942,13 @@ func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol)
     rxLol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLol.EntityData.Children = make(map[string]types.YChild)
-    rxLol.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxLol.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLol.IsDetected}
-    rxLol.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLol.Counter}
+    rxLol.EntityData.Children = types.NewOrderedMap()
+    rxLol.EntityData.Leafs = types.NewOrderedMap()
+    rxLol.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", rxLol.IsDetected})
+    rxLol.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", rxLol.Counter})
+
+    rxLol.EntityData.YListKeys = []string {}
+
     return &(rxLol.EntityData)
 }
 
@@ -2889,10 +2975,13 @@ func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol)
     txLol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txLol.EntityData.Children = make(map[string]types.YChild)
-    txLol.EntityData.Leafs = make(map[string]types.YLeaf)
-    txLol.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", txLol.IsDetected}
-    txLol.EntityData.Leafs["counter"] = types.YLeaf{"Counter", txLol.Counter}
+    txLol.EntityData.Children = types.NewOrderedMap()
+    txLol.EntityData.Leafs = types.NewOrderedMap()
+    txLol.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", txLol.IsDetected})
+    txLol.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", txLol.Counter})
+
+    txLol.EntityData.YListKeys = []string {}
+
     return &(txLol.EntityData)
 }
 
@@ -2919,10 +3008,13 @@ func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFa
     txFault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txFault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txFault.EntityData.Children = make(map[string]types.YChild)
-    txFault.EntityData.Leafs = make(map[string]types.YLeaf)
-    txFault.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", txFault.IsDetected}
-    txFault.EntityData.Leafs["counter"] = types.YLeaf{"Counter", txFault.Counter}
+    txFault.EntityData.Children = types.NewOrderedMap()
+    txFault.EntityData.Leafs = types.NewOrderedMap()
+    txFault.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", txFault.IsDetected})
+    txFault.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", txFault.Counter})
+
+    txFault.EntityData.YListKeys = []string {}
+
     return &(txFault.EntityData)
 }
 
@@ -2949,10 +3041,13 @@ func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd)
     hidgd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hidgd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hidgd.EntityData.Children = make(map[string]types.YChild)
-    hidgd.EntityData.Leafs = make(map[string]types.YLeaf)
-    hidgd.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hidgd.IsDetected}
-    hidgd.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hidgd.Counter}
+    hidgd.EntityData.Children = types.NewOrderedMap()
+    hidgd.EntityData.Leafs = types.NewOrderedMap()
+    hidgd.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hidgd.IsDetected})
+    hidgd.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hidgd.Counter})
+
+    hidgd.EntityData.YListKeys = []string {}
+
     return &(hidgd.EntityData)
 }
 
@@ -2979,10 +3074,13 @@ func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd)
     oorcd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorcd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oorcd.EntityData.Children = make(map[string]types.YChild)
-    oorcd.EntityData.Leafs = make(map[string]types.YLeaf)
-    oorcd.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", oorcd.IsDetected}
-    oorcd.EntityData.Leafs["counter"] = types.YLeaf{"Counter", oorcd.Counter}
+    oorcd.EntityData.Children = types.NewOrderedMap()
+    oorcd.EntityData.Leafs = types.NewOrderedMap()
+    oorcd.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", oorcd.IsDetected})
+    oorcd.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", oorcd.Counter})
+
+    oorcd.EntityData.YListKeys = []string {}
+
     return &(oorcd.EntityData)
 }
 
@@ -3009,10 +3107,13 @@ func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) G
     osnr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     osnr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    osnr.EntityData.Children = make(map[string]types.YChild)
-    osnr.EntityData.Leafs = make(map[string]types.YLeaf)
-    osnr.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", osnr.IsDetected}
-    osnr.EntityData.Leafs["counter"] = types.YLeaf{"Counter", osnr.Counter}
+    osnr.EntityData.Children = types.NewOrderedMap()
+    osnr.EntityData.Leafs = types.NewOrderedMap()
+    osnr.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", osnr.IsDetected})
+    osnr.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", osnr.Counter})
+
+    osnr.EntityData.YListKeys = []string {}
+
     return &(osnr.EntityData)
 }
 
@@ -3039,10 +3140,13 @@ func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvloo
     wvlool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wvlool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wvlool.EntityData.Children = make(map[string]types.YChild)
-    wvlool.EntityData.Leafs = make(map[string]types.YLeaf)
-    wvlool.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", wvlool.IsDetected}
-    wvlool.EntityData.Leafs["counter"] = types.YLeaf{"Counter", wvlool.Counter}
+    wvlool.EntityData.Children = types.NewOrderedMap()
+    wvlool.EntityData.Leafs = types.NewOrderedMap()
+    wvlool.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", wvlool.IsDetected})
+    wvlool.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", wvlool.Counter})
+
+    wvlool.EntityData.YListKeys = []string {}
+
     return &(wvlool.EntityData)
 }
 
@@ -3069,10 +3173,13 @@ func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) Get
     mea.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mea.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mea.EntityData.Children = make(map[string]types.YChild)
-    mea.EntityData.Leafs = make(map[string]types.YLeaf)
-    mea.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", mea.IsDetected}
-    mea.EntityData.Leafs["counter"] = types.YLeaf{"Counter", mea.Counter}
+    mea.EntityData.Children = types.NewOrderedMap()
+    mea.EntityData.Leafs = types.NewOrderedMap()
+    mea.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", mea.IsDetected})
+    mea.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", mea.Counter})
+
+    mea.EntityData.YListKeys = []string {}
+
     return &(mea.EntityData)
 }
 
@@ -3099,10 +3206,13 @@ func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_I
     impRemoval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     impRemoval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    impRemoval.EntityData.Children = make(map[string]types.YChild)
-    impRemoval.EntityData.Leafs = make(map[string]types.YLeaf)
-    impRemoval.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", impRemoval.IsDetected}
-    impRemoval.EntityData.Leafs["counter"] = types.YLeaf{"Counter", impRemoval.Counter}
+    impRemoval.EntityData.Children = types.NewOrderedMap()
+    impRemoval.EntityData.Leafs = types.NewOrderedMap()
+    impRemoval.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", impRemoval.IsDetected})
+    impRemoval.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", impRemoval.Counter})
+
+    impRemoval.EntityData.YListKeys = []string {}
+
     return &(impRemoval.EntityData)
 }
 
@@ -3129,10 +3239,13 @@ func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc)
     rxLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLoc.EntityData.Children = make(map[string]types.YChild)
-    rxLoc.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxLoc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLoc.IsDetected}
-    rxLoc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLoc.Counter}
+    rxLoc.EntityData.Children = types.NewOrderedMap()
+    rxLoc.EntityData.Leafs = types.NewOrderedMap()
+    rxLoc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", rxLoc.IsDetected})
+    rxLoc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", rxLoc.Counter})
+
+    rxLoc.EntityData.YListKeys = []string {}
+
     return &(rxLoc.EntityData)
 }
 
@@ -3159,10 +3272,13 @@ func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInf
     ampGainDegLow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampGainDegLow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ampGainDegLow.EntityData.Children = make(map[string]types.YChild)
-    ampGainDegLow.EntityData.Leafs = make(map[string]types.YLeaf)
-    ampGainDegLow.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ampGainDegLow.IsDetected}
-    ampGainDegLow.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ampGainDegLow.Counter}
+    ampGainDegLow.EntityData.Children = types.NewOrderedMap()
+    ampGainDegLow.EntityData.Leafs = types.NewOrderedMap()
+    ampGainDegLow.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ampGainDegLow.IsDetected})
+    ampGainDegLow.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ampGainDegLow.Counter})
+
+    ampGainDegLow.EntityData.YListKeys = []string {}
+
     return &(ampGainDegLow.EntityData)
 }
 
@@ -3189,10 +3305,13 @@ func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmIn
     ampGainDegHigh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampGainDegHigh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ampGainDegHigh.EntityData.Children = make(map[string]types.YChild)
-    ampGainDegHigh.EntityData.Leafs = make(map[string]types.YLeaf)
-    ampGainDegHigh.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ampGainDegHigh.IsDetected}
-    ampGainDegHigh.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ampGainDegHigh.Counter}
+    ampGainDegHigh.EntityData.Children = types.NewOrderedMap()
+    ampGainDegHigh.EntityData.Leafs = types.NewOrderedMap()
+    ampGainDegHigh.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ampGainDegHigh.IsDetected})
+    ampGainDegHigh.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ampGainDegHigh.Counter})
+
+    ampGainDegHigh.EntityData.YListKeys = []string {}
+
     return &(ampGainDegHigh.EntityData)
 }
 
@@ -3219,10 +3338,13 @@ func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInf
     txpwrMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txpwrMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    txpwrMismatch.EntityData.Children = make(map[string]types.YChild)
-    txpwrMismatch.EntityData.Leafs = make(map[string]types.YLeaf)
-    txpwrMismatch.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", txpwrMismatch.IsDetected}
-    txpwrMismatch.EntityData.Leafs["counter"] = types.YLeaf{"Counter", txpwrMismatch.Counter}
+    txpwrMismatch.EntityData.Children = types.NewOrderedMap()
+    txpwrMismatch.EntityData.Leafs = types.NewOrderedMap()
+    txpwrMismatch.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", txpwrMismatch.IsDetected})
+    txpwrMismatch.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", txpwrMismatch.Counter})
+
+    txpwrMismatch.EntityData.YListKeys = []string {}
+
     return &(txpwrMismatch.EntityData)
 }
 
@@ -3279,20 +3401,23 @@ func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) G
     otsAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otsAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otsAlarmInfo.EntityData.Children = make(map[string]types.YChild)
-    otsAlarmInfo.EntityData.Children["low-tx-power"] = types.YChild{"LowTxPower", &otsAlarmInfo.LowTxPower}
-    otsAlarmInfo.EntityData.Children["low-rx-power"] = types.YChild{"LowRxPower", &otsAlarmInfo.LowRxPower}
-    otsAlarmInfo.EntityData.Children["rx-los-p"] = types.YChild{"RxLosP", &otsAlarmInfo.RxLosP}
-    otsAlarmInfo.EntityData.Children["rx-loc"] = types.YChild{"RxLoc", &otsAlarmInfo.RxLoc}
-    otsAlarmInfo.EntityData.Children["amp-gain-deg-low"] = types.YChild{"AmpGainDegLow", &otsAlarmInfo.AmpGainDegLow}
-    otsAlarmInfo.EntityData.Children["amp-gain-deg-high"] = types.YChild{"AmpGainDegHigh", &otsAlarmInfo.AmpGainDegHigh}
-    otsAlarmInfo.EntityData.Children["auto-laser-shut"] = types.YChild{"AutoLaserShut", &otsAlarmInfo.AutoLaserShut}
-    otsAlarmInfo.EntityData.Children["auto-power-red"] = types.YChild{"AutoPowerRed", &otsAlarmInfo.AutoPowerRed}
-    otsAlarmInfo.EntityData.Children["auto-ampli-ctrl-disabled"] = types.YChild{"AutoAmpliCtrlDisabled", &otsAlarmInfo.AutoAmpliCtrlDisabled}
-    otsAlarmInfo.EntityData.Children["auto-ampli-ctrl-config-mismatch"] = types.YChild{"AutoAmpliCtrlConfigMismatch", &otsAlarmInfo.AutoAmpliCtrlConfigMismatch}
-    otsAlarmInfo.EntityData.Children["switch-to-protect"] = types.YChild{"SwitchToProtect", &otsAlarmInfo.SwitchToProtect}
-    otsAlarmInfo.EntityData.Children["auto-ampli-ctrl-running"] = types.YChild{"AutoAmpliCtrlRunning", &otsAlarmInfo.AutoAmpliCtrlRunning}
-    otsAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    otsAlarmInfo.EntityData.Children = types.NewOrderedMap()
+    otsAlarmInfo.EntityData.Children.Append("low-tx-power", types.YChild{"LowTxPower", &otsAlarmInfo.LowTxPower})
+    otsAlarmInfo.EntityData.Children.Append("low-rx-power", types.YChild{"LowRxPower", &otsAlarmInfo.LowRxPower})
+    otsAlarmInfo.EntityData.Children.Append("rx-los-p", types.YChild{"RxLosP", &otsAlarmInfo.RxLosP})
+    otsAlarmInfo.EntityData.Children.Append("rx-loc", types.YChild{"RxLoc", &otsAlarmInfo.RxLoc})
+    otsAlarmInfo.EntityData.Children.Append("amp-gain-deg-low", types.YChild{"AmpGainDegLow", &otsAlarmInfo.AmpGainDegLow})
+    otsAlarmInfo.EntityData.Children.Append("amp-gain-deg-high", types.YChild{"AmpGainDegHigh", &otsAlarmInfo.AmpGainDegHigh})
+    otsAlarmInfo.EntityData.Children.Append("auto-laser-shut", types.YChild{"AutoLaserShut", &otsAlarmInfo.AutoLaserShut})
+    otsAlarmInfo.EntityData.Children.Append("auto-power-red", types.YChild{"AutoPowerRed", &otsAlarmInfo.AutoPowerRed})
+    otsAlarmInfo.EntityData.Children.Append("auto-ampli-ctrl-disabled", types.YChild{"AutoAmpliCtrlDisabled", &otsAlarmInfo.AutoAmpliCtrlDisabled})
+    otsAlarmInfo.EntityData.Children.Append("auto-ampli-ctrl-config-mismatch", types.YChild{"AutoAmpliCtrlConfigMismatch", &otsAlarmInfo.AutoAmpliCtrlConfigMismatch})
+    otsAlarmInfo.EntityData.Children.Append("switch-to-protect", types.YChild{"SwitchToProtect", &otsAlarmInfo.SwitchToProtect})
+    otsAlarmInfo.EntityData.Children.Append("auto-ampli-ctrl-running", types.YChild{"AutoAmpliCtrlRunning", &otsAlarmInfo.AutoAmpliCtrlRunning})
+    otsAlarmInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    otsAlarmInfo.EntityData.YListKeys = []string {}
+
     return &(otsAlarmInfo.EntityData)
 }
 
@@ -3319,10 +3444,13 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowT
     lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTxPower.EntityData.Children = make(map[string]types.YChild)
-    lowTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTxPower.IsDetected}
-    lowTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTxPower.Counter}
+    lowTxPower.EntityData.Children = types.NewOrderedMap()
+    lowTxPower.EntityData.Leafs = types.NewOrderedMap()
+    lowTxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTxPower.IsDetected})
+    lowTxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTxPower.Counter})
+
+    lowTxPower.EntityData.YListKeys = []string {}
+
     return &(lowTxPower.EntityData)
 }
 
@@ -3349,10 +3477,13 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowR
     lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowRxPower.EntityData.Children = make(map[string]types.YChild)
-    lowRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRxPower.IsDetected}
-    lowRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRxPower.Counter}
+    lowRxPower.EntityData.Children = types.NewOrderedMap()
+    lowRxPower.EntityData.Leafs = types.NewOrderedMap()
+    lowRxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowRxPower.IsDetected})
+    lowRxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowRxPower.Counter})
+
+    lowRxPower.EntityData.YListKeys = []string {}
+
     return &(lowRxPower.EntityData)
 }
 
@@ -3379,10 +3510,13 @@ func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) 
     rxLosP.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLosP.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLosP.EntityData.Children = make(map[string]types.YChild)
-    rxLosP.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxLosP.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLosP.IsDetected}
-    rxLosP.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLosP.Counter}
+    rxLosP.EntityData.Children = types.NewOrderedMap()
+    rxLosP.EntityData.Leafs = types.NewOrderedMap()
+    rxLosP.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", rxLosP.IsDetected})
+    rxLosP.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", rxLosP.Counter})
+
+    rxLosP.EntityData.YListKeys = []string {}
+
     return &(rxLosP.EntityData)
 }
 
@@ -3409,10 +3543,13 @@ func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) Ge
     rxLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rxLoc.EntityData.Children = make(map[string]types.YChild)
-    rxLoc.EntityData.Leafs = make(map[string]types.YLeaf)
-    rxLoc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLoc.IsDetected}
-    rxLoc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLoc.Counter}
+    rxLoc.EntityData.Children = types.NewOrderedMap()
+    rxLoc.EntityData.Leafs = types.NewOrderedMap()
+    rxLoc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", rxLoc.IsDetected})
+    rxLoc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", rxLoc.Counter})
+
+    rxLoc.EntityData.YListKeys = []string {}
+
     return &(rxLoc.EntityData)
 }
 
@@ -3439,10 +3576,13 @@ func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_A
     ampGainDegLow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampGainDegLow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ampGainDegLow.EntityData.Children = make(map[string]types.YChild)
-    ampGainDegLow.EntityData.Leafs = make(map[string]types.YLeaf)
-    ampGainDegLow.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ampGainDegLow.IsDetected}
-    ampGainDegLow.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ampGainDegLow.Counter}
+    ampGainDegLow.EntityData.Children = types.NewOrderedMap()
+    ampGainDegLow.EntityData.Leafs = types.NewOrderedMap()
+    ampGainDegLow.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ampGainDegLow.IsDetected})
+    ampGainDegLow.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ampGainDegLow.Counter})
+
+    ampGainDegLow.EntityData.YListKeys = []string {}
+
     return &(ampGainDegLow.EntityData)
 }
 
@@ -3469,10 +3609,13 @@ func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_
     ampGainDegHigh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampGainDegHigh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ampGainDegHigh.EntityData.Children = make(map[string]types.YChild)
-    ampGainDegHigh.EntityData.Leafs = make(map[string]types.YLeaf)
-    ampGainDegHigh.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ampGainDegHigh.IsDetected}
-    ampGainDegHigh.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ampGainDegHigh.Counter}
+    ampGainDegHigh.EntityData.Children = types.NewOrderedMap()
+    ampGainDegHigh.EntityData.Leafs = types.NewOrderedMap()
+    ampGainDegHigh.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", ampGainDegHigh.IsDetected})
+    ampGainDegHigh.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", ampGainDegHigh.Counter})
+
+    ampGainDegHigh.EntityData.YListKeys = []string {}
+
     return &(ampGainDegHigh.EntityData)
 }
 
@@ -3499,10 +3642,13 @@ func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_A
     autoLaserShut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoLaserShut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoLaserShut.EntityData.Children = make(map[string]types.YChild)
-    autoLaserShut.EntityData.Leafs = make(map[string]types.YLeaf)
-    autoLaserShut.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoLaserShut.IsDetected}
-    autoLaserShut.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoLaserShut.Counter}
+    autoLaserShut.EntityData.Children = types.NewOrderedMap()
+    autoLaserShut.EntityData.Leafs = types.NewOrderedMap()
+    autoLaserShut.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", autoLaserShut.IsDetected})
+    autoLaserShut.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", autoLaserShut.Counter})
+
+    autoLaserShut.EntityData.YListKeys = []string {}
+
     return &(autoLaserShut.EntityData)
 }
 
@@ -3529,10 +3675,13 @@ func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_Au
     autoPowerRed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoPowerRed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoPowerRed.EntityData.Children = make(map[string]types.YChild)
-    autoPowerRed.EntityData.Leafs = make(map[string]types.YLeaf)
-    autoPowerRed.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoPowerRed.IsDetected}
-    autoPowerRed.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoPowerRed.Counter}
+    autoPowerRed.EntityData.Children = types.NewOrderedMap()
+    autoPowerRed.EntityData.Leafs = types.NewOrderedMap()
+    autoPowerRed.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", autoPowerRed.IsDetected})
+    autoPowerRed.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", autoPowerRed.Counter})
+
+    autoPowerRed.EntityData.YListKeys = []string {}
+
     return &(autoPowerRed.EntityData)
 }
 
@@ -3559,10 +3708,13 @@ func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAla
     autoAmpliCtrlDisabled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoAmpliCtrlDisabled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoAmpliCtrlDisabled.EntityData.Children = make(map[string]types.YChild)
-    autoAmpliCtrlDisabled.EntityData.Leafs = make(map[string]types.YLeaf)
-    autoAmpliCtrlDisabled.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoAmpliCtrlDisabled.IsDetected}
-    autoAmpliCtrlDisabled.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoAmpliCtrlDisabled.Counter}
+    autoAmpliCtrlDisabled.EntityData.Children = types.NewOrderedMap()
+    autoAmpliCtrlDisabled.EntityData.Leafs = types.NewOrderedMap()
+    autoAmpliCtrlDisabled.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", autoAmpliCtrlDisabled.IsDetected})
+    autoAmpliCtrlDisabled.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", autoAmpliCtrlDisabled.Counter})
+
+    autoAmpliCtrlDisabled.EntityData.YListKeys = []string {}
+
     return &(autoAmpliCtrlDisabled.EntityData)
 }
 
@@ -3589,10 +3741,13 @@ func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_
     autoAmpliCtrlConfigMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoAmpliCtrlConfigMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoAmpliCtrlConfigMismatch.EntityData.Children = make(map[string]types.YChild)
-    autoAmpliCtrlConfigMismatch.EntityData.Leafs = make(map[string]types.YLeaf)
-    autoAmpliCtrlConfigMismatch.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoAmpliCtrlConfigMismatch.IsDetected}
-    autoAmpliCtrlConfigMismatch.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoAmpliCtrlConfigMismatch.Counter}
+    autoAmpliCtrlConfigMismatch.EntityData.Children = types.NewOrderedMap()
+    autoAmpliCtrlConfigMismatch.EntityData.Leafs = types.NewOrderedMap()
+    autoAmpliCtrlConfigMismatch.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", autoAmpliCtrlConfigMismatch.IsDetected})
+    autoAmpliCtrlConfigMismatch.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", autoAmpliCtrlConfigMismatch.Counter})
+
+    autoAmpliCtrlConfigMismatch.EntityData.YListKeys = []string {}
+
     return &(autoAmpliCtrlConfigMismatch.EntityData)
 }
 
@@ -3619,10 +3774,13 @@ func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo
     switchToProtect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     switchToProtect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    switchToProtect.EntityData.Children = make(map[string]types.YChild)
-    switchToProtect.EntityData.Leafs = make(map[string]types.YLeaf)
-    switchToProtect.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", switchToProtect.IsDetected}
-    switchToProtect.EntityData.Leafs["counter"] = types.YLeaf{"Counter", switchToProtect.Counter}
+    switchToProtect.EntityData.Children = types.NewOrderedMap()
+    switchToProtect.EntityData.Leafs = types.NewOrderedMap()
+    switchToProtect.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", switchToProtect.IsDetected})
+    switchToProtect.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", switchToProtect.Counter})
+
+    switchToProtect.EntityData.YListKeys = []string {}
+
     return &(switchToProtect.EntityData)
 }
 
@@ -3649,10 +3807,13 @@ func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlar
     autoAmpliCtrlRunning.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoAmpliCtrlRunning.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    autoAmpliCtrlRunning.EntityData.Children = make(map[string]types.YChild)
-    autoAmpliCtrlRunning.EntityData.Leafs = make(map[string]types.YLeaf)
-    autoAmpliCtrlRunning.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoAmpliCtrlRunning.IsDetected}
-    autoAmpliCtrlRunning.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoAmpliCtrlRunning.Counter}
+    autoAmpliCtrlRunning.EntityData.Children = types.NewOrderedMap()
+    autoAmpliCtrlRunning.EntityData.Leafs = types.NewOrderedMap()
+    autoAmpliCtrlRunning.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", autoAmpliCtrlRunning.IsDetected})
+    autoAmpliCtrlRunning.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", autoAmpliCtrlRunning.Counter})
+
+    autoAmpliCtrlRunning.EntityData.YListKeys = []string {}
+
     return &(autoAmpliCtrlRunning.EntityData)
 }
 
@@ -3722,24 +3883,27 @@ func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverI
     transceiverInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transceiverInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transceiverInfo.EntityData.Children = make(map[string]types.YChild)
-    transceiverInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    transceiverInfo.EntityData.Leafs["vendor-info"] = types.YLeaf{"VendorInfo", transceiverInfo.VendorInfo}
-    transceiverInfo.EntityData.Leafs["adapter-vendor-info"] = types.YLeaf{"AdapterVendorInfo", transceiverInfo.AdapterVendorInfo}
-    transceiverInfo.EntityData.Leafs["date"] = types.YLeaf{"Date", transceiverInfo.Date}
-    transceiverInfo.EntityData.Leafs["optics-vendor-rev"] = types.YLeaf{"OpticsVendorRev", transceiverInfo.OpticsVendorRev}
-    transceiverInfo.EntityData.Leafs["optics-serial-no"] = types.YLeaf{"OpticsSerialNo", transceiverInfo.OpticsSerialNo}
-    transceiverInfo.EntityData.Leafs["optics-vendor-part"] = types.YLeaf{"OpticsVendorPart", transceiverInfo.OpticsVendorPart}
-    transceiverInfo.EntityData.Leafs["optics-type"] = types.YLeaf{"OpticsType", transceiverInfo.OpticsType}
-    transceiverInfo.EntityData.Leafs["vendor-name"] = types.YLeaf{"VendorName", transceiverInfo.VendorName}
-    transceiverInfo.EntityData.Leafs["oui-no"] = types.YLeaf{"OuiNo", transceiverInfo.OuiNo}
-    transceiverInfo.EntityData.Leafs["optics-pid"] = types.YLeaf{"OpticsPid", transceiverInfo.OpticsPid}
-    transceiverInfo.EntityData.Leafs["optics-vid"] = types.YLeaf{"OpticsVid", transceiverInfo.OpticsVid}
-    transceiverInfo.EntityData.Leafs["connector-type"] = types.YLeaf{"ConnectorType", transceiverInfo.ConnectorType}
-    transceiverInfo.EntityData.Leafs["otn-application-code"] = types.YLeaf{"OtnApplicationCode", transceiverInfo.OtnApplicationCode}
-    transceiverInfo.EntityData.Leafs["sonet-application-code"] = types.YLeaf{"SonetApplicationCode", transceiverInfo.SonetApplicationCode}
-    transceiverInfo.EntityData.Leafs["ethernet-compliance-code"] = types.YLeaf{"EthernetComplianceCode", transceiverInfo.EthernetComplianceCode}
-    transceiverInfo.EntityData.Leafs["internal-temperature"] = types.YLeaf{"InternalTemperature", transceiverInfo.InternalTemperature}
+    transceiverInfo.EntityData.Children = types.NewOrderedMap()
+    transceiverInfo.EntityData.Leafs = types.NewOrderedMap()
+    transceiverInfo.EntityData.Leafs.Append("vendor-info", types.YLeaf{"VendorInfo", transceiverInfo.VendorInfo})
+    transceiverInfo.EntityData.Leafs.Append("adapter-vendor-info", types.YLeaf{"AdapterVendorInfo", transceiverInfo.AdapterVendorInfo})
+    transceiverInfo.EntityData.Leafs.Append("date", types.YLeaf{"Date", transceiverInfo.Date})
+    transceiverInfo.EntityData.Leafs.Append("optics-vendor-rev", types.YLeaf{"OpticsVendorRev", transceiverInfo.OpticsVendorRev})
+    transceiverInfo.EntityData.Leafs.Append("optics-serial-no", types.YLeaf{"OpticsSerialNo", transceiverInfo.OpticsSerialNo})
+    transceiverInfo.EntityData.Leafs.Append("optics-vendor-part", types.YLeaf{"OpticsVendorPart", transceiverInfo.OpticsVendorPart})
+    transceiverInfo.EntityData.Leafs.Append("optics-type", types.YLeaf{"OpticsType", transceiverInfo.OpticsType})
+    transceiverInfo.EntityData.Leafs.Append("vendor-name", types.YLeaf{"VendorName", transceiverInfo.VendorName})
+    transceiverInfo.EntityData.Leafs.Append("oui-no", types.YLeaf{"OuiNo", transceiverInfo.OuiNo})
+    transceiverInfo.EntityData.Leafs.Append("optics-pid", types.YLeaf{"OpticsPid", transceiverInfo.OpticsPid})
+    transceiverInfo.EntityData.Leafs.Append("optics-vid", types.YLeaf{"OpticsVid", transceiverInfo.OpticsVid})
+    transceiverInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", transceiverInfo.ConnectorType})
+    transceiverInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", transceiverInfo.OtnApplicationCode})
+    transceiverInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", transceiverInfo.SonetApplicationCode})
+    transceiverInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", transceiverInfo.EthernetComplianceCode})
+    transceiverInfo.EntityData.Leafs.Append("internal-temperature", types.YLeaf{"InternalTemperature", transceiverInfo.InternalTemperature})
+
+    transceiverInfo.EntityData.YListKeys = []string {}
+
     return &(transceiverInfo.EntityData)
 }
 
@@ -3848,30 +4012,33 @@ func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) Get
     extParamVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extParamVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extParamVal.EntityData.Children = make(map[string]types.YChild)
-    extParamVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    extParamVal.EntityData.Leafs["snr-lane1"] = types.YLeaf{"SnrLane1", extParamVal.SnrLane1}
-    extParamVal.EntityData.Leafs["snr-lane2"] = types.YLeaf{"SnrLane2", extParamVal.SnrLane2}
-    extParamVal.EntityData.Leafs["isi-correction-lane1"] = types.YLeaf{"IsiCorrectionLane1", extParamVal.IsiCorrectionLane1}
-    extParamVal.EntityData.Leafs["isi-correction-lane2"] = types.YLeaf{"IsiCorrectionLane2", extParamVal.IsiCorrectionLane2}
-    extParamVal.EntityData.Leafs["pam-rate-lane1"] = types.YLeaf{"PamRateLane1", extParamVal.PamRateLane1}
-    extParamVal.EntityData.Leafs["pam-rate-lane2"] = types.YLeaf{"PamRateLane2", extParamVal.PamRateLane2}
-    extParamVal.EntityData.Leafs["pre-fec-ber"] = types.YLeaf{"PreFecBer", extParamVal.PreFecBer}
-    extParamVal.EntityData.Leafs["uncorrected-ber"] = types.YLeaf{"UncorrectedBer", extParamVal.UncorrectedBer}
-    extParamVal.EntityData.Leafs["tec-current-lane1"] = types.YLeaf{"TecCurrentLane1", extParamVal.TecCurrentLane1}
-    extParamVal.EntityData.Leafs["tec-current-lane2"] = types.YLeaf{"TecCurrentLane2", extParamVal.TecCurrentLane2}
-    extParamVal.EntityData.Leafs["laser-diff-frequency-lane1"] = types.YLeaf{"LaserDiffFrequencyLane1", extParamVal.LaserDiffFrequencyLane1}
-    extParamVal.EntityData.Leafs["laser-diff-frequency-lane2"] = types.YLeaf{"LaserDiffFrequencyLane2", extParamVal.LaserDiffFrequencyLane2}
-    extParamVal.EntityData.Leafs["laser-diff-temperature-lane1"] = types.YLeaf{"LaserDiffTemperatureLane1", extParamVal.LaserDiffTemperatureLane1}
-    extParamVal.EntityData.Leafs["laser-diff-temperature-lane2"] = types.YLeaf{"LaserDiffTemperatureLane2", extParamVal.LaserDiffTemperatureLane2}
-    extParamVal.EntityData.Leafs["pre-fec-ber-latched-min"] = types.YLeaf{"PreFecBerLatchedMin", extParamVal.PreFecBerLatchedMin}
-    extParamVal.EntityData.Leafs["pre-fec-ber-latched-max"] = types.YLeaf{"PreFecBerLatchedMax", extParamVal.PreFecBerLatchedMax}
-    extParamVal.EntityData.Leafs["pre-fec-ber-accumulated"] = types.YLeaf{"PreFecBerAccumulated", extParamVal.PreFecBerAccumulated}
-    extParamVal.EntityData.Leafs["pre-fec-ber-instantaneous"] = types.YLeaf{"PreFecBerInstantaneous", extParamVal.PreFecBerInstantaneous}
-    extParamVal.EntityData.Leafs["uncorrected-ber-latched-min"] = types.YLeaf{"UncorrectedBerLatchedMin", extParamVal.UncorrectedBerLatchedMin}
-    extParamVal.EntityData.Leafs["uncorrected-ber-latched-max"] = types.YLeaf{"UncorrectedBerLatchedMax", extParamVal.UncorrectedBerLatchedMax}
-    extParamVal.EntityData.Leafs["uncorrected-ber-accumulated"] = types.YLeaf{"UncorrectedBerAccumulated", extParamVal.UncorrectedBerAccumulated}
-    extParamVal.EntityData.Leafs["uncorrected-ber-instantaneous"] = types.YLeaf{"UncorrectedBerInstantaneous", extParamVal.UncorrectedBerInstantaneous}
+    extParamVal.EntityData.Children = types.NewOrderedMap()
+    extParamVal.EntityData.Leafs = types.NewOrderedMap()
+    extParamVal.EntityData.Leafs.Append("snr-lane1", types.YLeaf{"SnrLane1", extParamVal.SnrLane1})
+    extParamVal.EntityData.Leafs.Append("snr-lane2", types.YLeaf{"SnrLane2", extParamVal.SnrLane2})
+    extParamVal.EntityData.Leafs.Append("isi-correction-lane1", types.YLeaf{"IsiCorrectionLane1", extParamVal.IsiCorrectionLane1})
+    extParamVal.EntityData.Leafs.Append("isi-correction-lane2", types.YLeaf{"IsiCorrectionLane2", extParamVal.IsiCorrectionLane2})
+    extParamVal.EntityData.Leafs.Append("pam-rate-lane1", types.YLeaf{"PamRateLane1", extParamVal.PamRateLane1})
+    extParamVal.EntityData.Leafs.Append("pam-rate-lane2", types.YLeaf{"PamRateLane2", extParamVal.PamRateLane2})
+    extParamVal.EntityData.Leafs.Append("pre-fec-ber", types.YLeaf{"PreFecBer", extParamVal.PreFecBer})
+    extParamVal.EntityData.Leafs.Append("uncorrected-ber", types.YLeaf{"UncorrectedBer", extParamVal.UncorrectedBer})
+    extParamVal.EntityData.Leafs.Append("tec-current-lane1", types.YLeaf{"TecCurrentLane1", extParamVal.TecCurrentLane1})
+    extParamVal.EntityData.Leafs.Append("tec-current-lane2", types.YLeaf{"TecCurrentLane2", extParamVal.TecCurrentLane2})
+    extParamVal.EntityData.Leafs.Append("laser-diff-frequency-lane1", types.YLeaf{"LaserDiffFrequencyLane1", extParamVal.LaserDiffFrequencyLane1})
+    extParamVal.EntityData.Leafs.Append("laser-diff-frequency-lane2", types.YLeaf{"LaserDiffFrequencyLane2", extParamVal.LaserDiffFrequencyLane2})
+    extParamVal.EntityData.Leafs.Append("laser-diff-temperature-lane1", types.YLeaf{"LaserDiffTemperatureLane1", extParamVal.LaserDiffTemperatureLane1})
+    extParamVal.EntityData.Leafs.Append("laser-diff-temperature-lane2", types.YLeaf{"LaserDiffTemperatureLane2", extParamVal.LaserDiffTemperatureLane2})
+    extParamVal.EntityData.Leafs.Append("pre-fec-ber-latched-min", types.YLeaf{"PreFecBerLatchedMin", extParamVal.PreFecBerLatchedMin})
+    extParamVal.EntityData.Leafs.Append("pre-fec-ber-latched-max", types.YLeaf{"PreFecBerLatchedMax", extParamVal.PreFecBerLatchedMax})
+    extParamVal.EntityData.Leafs.Append("pre-fec-ber-accumulated", types.YLeaf{"PreFecBerAccumulated", extParamVal.PreFecBerAccumulated})
+    extParamVal.EntityData.Leafs.Append("pre-fec-ber-instantaneous", types.YLeaf{"PreFecBerInstantaneous", extParamVal.PreFecBerInstantaneous})
+    extParamVal.EntityData.Leafs.Append("uncorrected-ber-latched-min", types.YLeaf{"UncorrectedBerLatchedMin", extParamVal.UncorrectedBerLatchedMin})
+    extParamVal.EntityData.Leafs.Append("uncorrected-ber-latched-max", types.YLeaf{"UncorrectedBerLatchedMax", extParamVal.UncorrectedBerLatchedMax})
+    extParamVal.EntityData.Leafs.Append("uncorrected-ber-accumulated", types.YLeaf{"UncorrectedBerAccumulated", extParamVal.UncorrectedBerAccumulated})
+    extParamVal.EntityData.Leafs.Append("uncorrected-ber-instantaneous", types.YLeaf{"UncorrectedBerInstantaneous", extParamVal.UncorrectedBerInstantaneous})
+
+    extParamVal.EntityData.YListKeys = []string {}
+
     return &(extParamVal.EntityData)
 }
 
@@ -4148,72 +4315,75 @@ func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtPara
     extParamThresholdVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extParamThresholdVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extParamThresholdVal.EntityData.Children = make(map[string]types.YChild)
-    extParamThresholdVal.EntityData.Leafs = make(map[string]types.YLeaf)
-    extParamThresholdVal.EntityData.Leafs["snr-alarm-high-threshold"] = types.YLeaf{"SnrAlarmHighThreshold", extParamThresholdVal.SnrAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["snr-alarm-low-threshold"] = types.YLeaf{"SnrAlarmLowThreshold", extParamThresholdVal.SnrAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["snr-warn-high-threshold"] = types.YLeaf{"SnrWarnHighThreshold", extParamThresholdVal.SnrWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["snr-warn-low-threshold"] = types.YLeaf{"SnrWarnLowThreshold", extParamThresholdVal.SnrWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["isi-correction-alarm-high-threshold"] = types.YLeaf{"IsiCorrectionAlarmHighThreshold", extParamThresholdVal.IsiCorrectionAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["isi-correction-alarm-low-threshold"] = types.YLeaf{"IsiCorrectionAlarmLowThreshold", extParamThresholdVal.IsiCorrectionAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["isi-correction-warn-high-threshold"] = types.YLeaf{"IsiCorrectionWarnHighThreshold", extParamThresholdVal.IsiCorrectionWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["isi-correction-warn-low-threshold"] = types.YLeaf{"IsiCorrectionWarnLowThreshold", extParamThresholdVal.IsiCorrectionWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pam-rate-alarm-high-threshold"] = types.YLeaf{"PamRateAlarmHighThreshold", extParamThresholdVal.PamRateAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pam-rate-alarm-low-threshold"] = types.YLeaf{"PamRateAlarmLowThreshold", extParamThresholdVal.PamRateAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pam-rate-warn-high-threshold"] = types.YLeaf{"PamRateWarnHighThreshold", extParamThresholdVal.PamRateWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pam-rate-warn-low-threshold"] = types.YLeaf{"PamRateWarnLowThreshold", extParamThresholdVal.PamRateWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-alarm-high-threshold"] = types.YLeaf{"PreFecBerAlarmHighThreshold", extParamThresholdVal.PreFecBerAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-alarm-low-threshold"] = types.YLeaf{"PreFecBerAlarmLowThreshold", extParamThresholdVal.PreFecBerAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-warn-high-threshold"] = types.YLeaf{"PreFecBerWarnHighThreshold", extParamThresholdVal.PreFecBerWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-warn-low-threshold"] = types.YLeaf{"PreFecBerWarnLowThreshold", extParamThresholdVal.PreFecBerWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerAlarmHighThreshold", extParamThresholdVal.UncorrectedBerAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerAlarmLowThreshold", extParamThresholdVal.UncorrectedBerAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-warn-high-threshold"] = types.YLeaf{"UncorrectedBerWarnHighThreshold", extParamThresholdVal.UncorrectedBerWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-warn-low-threshold"] = types.YLeaf{"UncorrectedBerWarnLowThreshold", extParamThresholdVal.UncorrectedBerWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["tec-current-alarm-high-threshold"] = types.YLeaf{"TecCurrentAlarmHighThreshold", extParamThresholdVal.TecCurrentAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["tec-current-alarm-low-threshold"] = types.YLeaf{"TecCurrentAlarmLowThreshold", extParamThresholdVal.TecCurrentAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["tec-current-warn-high-threshold"] = types.YLeaf{"TecCurrentWarnHighThreshold", extParamThresholdVal.TecCurrentWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["tec-current-warn-low-threshold"] = types.YLeaf{"TecCurrentWarnLowThreshold", extParamThresholdVal.TecCurrentWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["laser-diff-frequency-alarm-high-threshold"] = types.YLeaf{"LaserDiffFrequencyAlarmHighThreshold", extParamThresholdVal.LaserDiffFrequencyAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["laser-diff-frequency-alarm-low-threshold"] = types.YLeaf{"LaserDiffFrequencyAlarmLowThreshold", extParamThresholdVal.LaserDiffFrequencyAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["laser-diff-frequency-warn-high-threshold"] = types.YLeaf{"LaserDiffFrequencyWarnHighThreshold", extParamThresholdVal.LaserDiffFrequencyWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["laser-diff-frequency-warn-low-threshold"] = types.YLeaf{"LaserDiffFrequencyWarnLowThreshold", extParamThresholdVal.LaserDiffFrequencyWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["laser-diff-temperature-alarm-high-threshold"] = types.YLeaf{"LaserDiffTemperatureAlarmHighThreshold", extParamThresholdVal.LaserDiffTemperatureAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["laser-diff-temperature-alarm-low-threshold"] = types.YLeaf{"LaserDiffTemperatureAlarmLowThreshold", extParamThresholdVal.LaserDiffTemperatureAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["laser-diff-temperature-warn-high-threshold"] = types.YLeaf{"LaserDiffTemperatureWarnHighThreshold", extParamThresholdVal.LaserDiffTemperatureWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["laser-diff-temperature-warn-low-threshold"] = types.YLeaf{"LaserDiffTemperatureWarnLowThreshold", extParamThresholdVal.LaserDiffTemperatureWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-min-alarm-high-threshold"] = types.YLeaf{"PreFecBerLatchedMinAlarmHighThreshold", extParamThresholdVal.PreFecBerLatchedMinAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-min-alarm-low-threshold"] = types.YLeaf{"PreFecBerLatchedMinAlarmLowThreshold", extParamThresholdVal.PreFecBerLatchedMinAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-min-warn-high-threshold"] = types.YLeaf{"PreFecBerLatchedMinWarnHighThreshold", extParamThresholdVal.PreFecBerLatchedMinWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-min-warn-low-threshold"] = types.YLeaf{"PreFecBerLatchedMinWarnLowThreshold", extParamThresholdVal.PreFecBerLatchedMinWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-max-alarm-high-threshold"] = types.YLeaf{"PreFecBerLatchedMaxAlarmHighThreshold", extParamThresholdVal.PreFecBerLatchedMaxAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-max-alarm-low-threshold"] = types.YLeaf{"PreFecBerLatchedMaxAlarmLowThreshold", extParamThresholdVal.PreFecBerLatchedMaxAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-max-warn-high-threshold"] = types.YLeaf{"PreFecBerLatchedMaxWarnHighThreshold", extParamThresholdVal.PreFecBerLatchedMaxWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-max-warn-low-threshold"] = types.YLeaf{"PreFecBerLatchedMaxWarnLowThreshold", extParamThresholdVal.PreFecBerLatchedMaxWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-accumulated-alarm-high-threshold"] = types.YLeaf{"PreFecBerAccumulatedAlarmHighThreshold", extParamThresholdVal.PreFecBerAccumulatedAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-accumulated-alarm-low-threshold"] = types.YLeaf{"PreFecBerAccumulatedAlarmLowThreshold", extParamThresholdVal.PreFecBerAccumulatedAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-accumulated-warn-high-threshold"] = types.YLeaf{"PreFecBerAccumulatedWarnHighThreshold", extParamThresholdVal.PreFecBerAccumulatedWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-accumulated-warn-low-threshold"] = types.YLeaf{"PreFecBerAccumulatedWarnLowThreshold", extParamThresholdVal.PreFecBerAccumulatedWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-instantaneous-alarm-high-threshold"] = types.YLeaf{"PreFecBerInstantaneousAlarmHighThreshold", extParamThresholdVal.PreFecBerInstantaneousAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-instantaneous-alarm-low-threshold"] = types.YLeaf{"PreFecBerInstantaneousAlarmLowThreshold", extParamThresholdVal.PreFecBerInstantaneousAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-instantaneous-warn-high-threshold"] = types.YLeaf{"PreFecBerInstantaneousWarnHighThreshold", extParamThresholdVal.PreFecBerInstantaneousWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-instantaneous-warn-low-threshold"] = types.YLeaf{"PreFecBerInstantaneousWarnLowThreshold", extParamThresholdVal.PreFecBerInstantaneousWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-min-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerLatchedMinAlarmHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMinAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-min-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerLatchedMinAlarmLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMinAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-min-warn-high-threshold"] = types.YLeaf{"UncorrectedBerLatchedMinWarnHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMinWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-min-warn-low-threshold"] = types.YLeaf{"UncorrectedBerLatchedMinWarnLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMinWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-max-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerLatchedMaxAlarmHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-max-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerLatchedMaxAlarmLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-max-warn-high-threshold"] = types.YLeaf{"UncorrectedBerLatchedMaxWarnHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-max-warn-low-threshold"] = types.YLeaf{"UncorrectedBerLatchedMaxWarnLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-accumulated-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerAccumulatedAlarmHighThreshold", extParamThresholdVal.UncorrectedBerAccumulatedAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-accumulated-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerAccumulatedAlarmLowThreshold", extParamThresholdVal.UncorrectedBerAccumulatedAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-accumulated-warn-high-threshold"] = types.YLeaf{"UncorrectedBerAccumulatedWarnHighThreshold", extParamThresholdVal.UncorrectedBerAccumulatedWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-accumulated-warn-low-threshold"] = types.YLeaf{"UncorrectedBerAccumulatedWarnLowThreshold", extParamThresholdVal.UncorrectedBerAccumulatedWarnLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-instantaneous-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerInstantaneousAlarmHighThreshold", extParamThresholdVal.UncorrectedBerInstantaneousAlarmHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-instantaneous-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerInstantaneousAlarmLowThreshold", extParamThresholdVal.UncorrectedBerInstantaneousAlarmLowThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-instantaneous-warn-high-threshold"] = types.YLeaf{"UncorrectedBerInstantaneousWarnHighThreshold", extParamThresholdVal.UncorrectedBerInstantaneousWarnHighThreshold}
-    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-instantaneous-warn-low-threshold"] = types.YLeaf{"UncorrectedBerInstantaneousWarnLowThreshold", extParamThresholdVal.UncorrectedBerInstantaneousWarnLowThreshold}
+    extParamThresholdVal.EntityData.Children = types.NewOrderedMap()
+    extParamThresholdVal.EntityData.Leafs = types.NewOrderedMap()
+    extParamThresholdVal.EntityData.Leafs.Append("snr-alarm-high-threshold", types.YLeaf{"SnrAlarmHighThreshold", extParamThresholdVal.SnrAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("snr-alarm-low-threshold", types.YLeaf{"SnrAlarmLowThreshold", extParamThresholdVal.SnrAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("snr-warn-high-threshold", types.YLeaf{"SnrWarnHighThreshold", extParamThresholdVal.SnrWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("snr-warn-low-threshold", types.YLeaf{"SnrWarnLowThreshold", extParamThresholdVal.SnrWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("isi-correction-alarm-high-threshold", types.YLeaf{"IsiCorrectionAlarmHighThreshold", extParamThresholdVal.IsiCorrectionAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("isi-correction-alarm-low-threshold", types.YLeaf{"IsiCorrectionAlarmLowThreshold", extParamThresholdVal.IsiCorrectionAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("isi-correction-warn-high-threshold", types.YLeaf{"IsiCorrectionWarnHighThreshold", extParamThresholdVal.IsiCorrectionWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("isi-correction-warn-low-threshold", types.YLeaf{"IsiCorrectionWarnLowThreshold", extParamThresholdVal.IsiCorrectionWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pam-rate-alarm-high-threshold", types.YLeaf{"PamRateAlarmHighThreshold", extParamThresholdVal.PamRateAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pam-rate-alarm-low-threshold", types.YLeaf{"PamRateAlarmLowThreshold", extParamThresholdVal.PamRateAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pam-rate-warn-high-threshold", types.YLeaf{"PamRateWarnHighThreshold", extParamThresholdVal.PamRateWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pam-rate-warn-low-threshold", types.YLeaf{"PamRateWarnLowThreshold", extParamThresholdVal.PamRateWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-alarm-high-threshold", types.YLeaf{"PreFecBerAlarmHighThreshold", extParamThresholdVal.PreFecBerAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-alarm-low-threshold", types.YLeaf{"PreFecBerAlarmLowThreshold", extParamThresholdVal.PreFecBerAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-warn-high-threshold", types.YLeaf{"PreFecBerWarnHighThreshold", extParamThresholdVal.PreFecBerWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-warn-low-threshold", types.YLeaf{"PreFecBerWarnLowThreshold", extParamThresholdVal.PreFecBerWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-alarm-high-threshold", types.YLeaf{"UncorrectedBerAlarmHighThreshold", extParamThresholdVal.UncorrectedBerAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-alarm-low-threshold", types.YLeaf{"UncorrectedBerAlarmLowThreshold", extParamThresholdVal.UncorrectedBerAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-warn-high-threshold", types.YLeaf{"UncorrectedBerWarnHighThreshold", extParamThresholdVal.UncorrectedBerWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-warn-low-threshold", types.YLeaf{"UncorrectedBerWarnLowThreshold", extParamThresholdVal.UncorrectedBerWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("tec-current-alarm-high-threshold", types.YLeaf{"TecCurrentAlarmHighThreshold", extParamThresholdVal.TecCurrentAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("tec-current-alarm-low-threshold", types.YLeaf{"TecCurrentAlarmLowThreshold", extParamThresholdVal.TecCurrentAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("tec-current-warn-high-threshold", types.YLeaf{"TecCurrentWarnHighThreshold", extParamThresholdVal.TecCurrentWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("tec-current-warn-low-threshold", types.YLeaf{"TecCurrentWarnLowThreshold", extParamThresholdVal.TecCurrentWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("laser-diff-frequency-alarm-high-threshold", types.YLeaf{"LaserDiffFrequencyAlarmHighThreshold", extParamThresholdVal.LaserDiffFrequencyAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("laser-diff-frequency-alarm-low-threshold", types.YLeaf{"LaserDiffFrequencyAlarmLowThreshold", extParamThresholdVal.LaserDiffFrequencyAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("laser-diff-frequency-warn-high-threshold", types.YLeaf{"LaserDiffFrequencyWarnHighThreshold", extParamThresholdVal.LaserDiffFrequencyWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("laser-diff-frequency-warn-low-threshold", types.YLeaf{"LaserDiffFrequencyWarnLowThreshold", extParamThresholdVal.LaserDiffFrequencyWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("laser-diff-temperature-alarm-high-threshold", types.YLeaf{"LaserDiffTemperatureAlarmHighThreshold", extParamThresholdVal.LaserDiffTemperatureAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("laser-diff-temperature-alarm-low-threshold", types.YLeaf{"LaserDiffTemperatureAlarmLowThreshold", extParamThresholdVal.LaserDiffTemperatureAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("laser-diff-temperature-warn-high-threshold", types.YLeaf{"LaserDiffTemperatureWarnHighThreshold", extParamThresholdVal.LaserDiffTemperatureWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("laser-diff-temperature-warn-low-threshold", types.YLeaf{"LaserDiffTemperatureWarnLowThreshold", extParamThresholdVal.LaserDiffTemperatureWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-latched-min-alarm-high-threshold", types.YLeaf{"PreFecBerLatchedMinAlarmHighThreshold", extParamThresholdVal.PreFecBerLatchedMinAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-latched-min-alarm-low-threshold", types.YLeaf{"PreFecBerLatchedMinAlarmLowThreshold", extParamThresholdVal.PreFecBerLatchedMinAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-latched-min-warn-high-threshold", types.YLeaf{"PreFecBerLatchedMinWarnHighThreshold", extParamThresholdVal.PreFecBerLatchedMinWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-latched-min-warn-low-threshold", types.YLeaf{"PreFecBerLatchedMinWarnLowThreshold", extParamThresholdVal.PreFecBerLatchedMinWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-latched-max-alarm-high-threshold", types.YLeaf{"PreFecBerLatchedMaxAlarmHighThreshold", extParamThresholdVal.PreFecBerLatchedMaxAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-latched-max-alarm-low-threshold", types.YLeaf{"PreFecBerLatchedMaxAlarmLowThreshold", extParamThresholdVal.PreFecBerLatchedMaxAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-latched-max-warn-high-threshold", types.YLeaf{"PreFecBerLatchedMaxWarnHighThreshold", extParamThresholdVal.PreFecBerLatchedMaxWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-latched-max-warn-low-threshold", types.YLeaf{"PreFecBerLatchedMaxWarnLowThreshold", extParamThresholdVal.PreFecBerLatchedMaxWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-accumulated-alarm-high-threshold", types.YLeaf{"PreFecBerAccumulatedAlarmHighThreshold", extParamThresholdVal.PreFecBerAccumulatedAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-accumulated-alarm-low-threshold", types.YLeaf{"PreFecBerAccumulatedAlarmLowThreshold", extParamThresholdVal.PreFecBerAccumulatedAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-accumulated-warn-high-threshold", types.YLeaf{"PreFecBerAccumulatedWarnHighThreshold", extParamThresholdVal.PreFecBerAccumulatedWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-accumulated-warn-low-threshold", types.YLeaf{"PreFecBerAccumulatedWarnLowThreshold", extParamThresholdVal.PreFecBerAccumulatedWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-instantaneous-alarm-high-threshold", types.YLeaf{"PreFecBerInstantaneousAlarmHighThreshold", extParamThresholdVal.PreFecBerInstantaneousAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-instantaneous-alarm-low-threshold", types.YLeaf{"PreFecBerInstantaneousAlarmLowThreshold", extParamThresholdVal.PreFecBerInstantaneousAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-instantaneous-warn-high-threshold", types.YLeaf{"PreFecBerInstantaneousWarnHighThreshold", extParamThresholdVal.PreFecBerInstantaneousWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("pre-fec-ber-instantaneous-warn-low-threshold", types.YLeaf{"PreFecBerInstantaneousWarnLowThreshold", extParamThresholdVal.PreFecBerInstantaneousWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-latched-min-alarm-high-threshold", types.YLeaf{"UncorrectedBerLatchedMinAlarmHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMinAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-latched-min-alarm-low-threshold", types.YLeaf{"UncorrectedBerLatchedMinAlarmLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMinAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-latched-min-warn-high-threshold", types.YLeaf{"UncorrectedBerLatchedMinWarnHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMinWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-latched-min-warn-low-threshold", types.YLeaf{"UncorrectedBerLatchedMinWarnLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMinWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-latched-max-alarm-high-threshold", types.YLeaf{"UncorrectedBerLatchedMaxAlarmHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-latched-max-alarm-low-threshold", types.YLeaf{"UncorrectedBerLatchedMaxAlarmLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-latched-max-warn-high-threshold", types.YLeaf{"UncorrectedBerLatchedMaxWarnHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-latched-max-warn-low-threshold", types.YLeaf{"UncorrectedBerLatchedMaxWarnLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-accumulated-alarm-high-threshold", types.YLeaf{"UncorrectedBerAccumulatedAlarmHighThreshold", extParamThresholdVal.UncorrectedBerAccumulatedAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-accumulated-alarm-low-threshold", types.YLeaf{"UncorrectedBerAccumulatedAlarmLowThreshold", extParamThresholdVal.UncorrectedBerAccumulatedAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-accumulated-warn-high-threshold", types.YLeaf{"UncorrectedBerAccumulatedWarnHighThreshold", extParamThresholdVal.UncorrectedBerAccumulatedWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-accumulated-warn-low-threshold", types.YLeaf{"UncorrectedBerAccumulatedWarnLowThreshold", extParamThresholdVal.UncorrectedBerAccumulatedWarnLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-instantaneous-alarm-high-threshold", types.YLeaf{"UncorrectedBerInstantaneousAlarmHighThreshold", extParamThresholdVal.UncorrectedBerInstantaneousAlarmHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-instantaneous-alarm-low-threshold", types.YLeaf{"UncorrectedBerInstantaneousAlarmLowThreshold", extParamThresholdVal.UncorrectedBerInstantaneousAlarmLowThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-instantaneous-warn-high-threshold", types.YLeaf{"UncorrectedBerInstantaneousWarnHighThreshold", extParamThresholdVal.UncorrectedBerInstantaneousWarnHighThreshold})
+    extParamThresholdVal.EntityData.Leafs.Append("uncorrected-ber-instantaneous-warn-low-threshold", types.YLeaf{"UncorrectedBerInstantaneousWarnLowThreshold", extParamThresholdVal.UncorrectedBerInstantaneousWarnLowThreshold})
+
+    extParamThresholdVal.EntityData.YListKeys = []string {}
+
     return &(extParamThresholdVal.EntityData)
 }
 
@@ -4324,38 +4494,41 @@ func (extendedAlarmAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Exten
     extendedAlarmAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedAlarmAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedAlarmAlarmInfo.EntityData.Children = make(map[string]types.YChild)
-    extendedAlarmAlarmInfo.EntityData.Children["lo-snr"] = types.YChild{"LoSnr", &extendedAlarmAlarmInfo.LoSnr}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-snr1"] = types.YChild{"HiSnr1", &extendedAlarmAlarmInfo.HiSnr1}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-snr1"] = types.YChild{"LoSnr1", &extendedAlarmAlarmInfo.LoSnr1}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-snr2"] = types.YChild{"HiSnr2", &extendedAlarmAlarmInfo.HiSnr2}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-isi1"] = types.YChild{"LoIsi1", &extendedAlarmAlarmInfo.LoIsi1}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-isi1"] = types.YChild{"HiIsi1", &extendedAlarmAlarmInfo.HiIsi1}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-isi2"] = types.YChild{"LoIsi2", &extendedAlarmAlarmInfo.LoIsi2}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-isi2"] = types.YChild{"HiIsi2", &extendedAlarmAlarmInfo.HiIsi2}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-pam1"] = types.YChild{"LoPam1", &extendedAlarmAlarmInfo.LoPam1}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-pam1"] = types.YChild{"HiPam1", &extendedAlarmAlarmInfo.HiPam1}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-pam2"] = types.YChild{"LoPam2", &extendedAlarmAlarmInfo.LoPam2}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-pam2"] = types.YChild{"HiPam2", &extendedAlarmAlarmInfo.HiPam2}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-tec1"] = types.YChild{"LoTec1", &extendedAlarmAlarmInfo.LoTec1}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-tec1"] = types.YChild{"HiTec1", &extendedAlarmAlarmInfo.HiTec1}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-tec2"] = types.YChild{"LoTec2", &extendedAlarmAlarmInfo.LoTec2}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-tec2"] = types.YChild{"HiTec2", &extendedAlarmAlarmInfo.HiTec2}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-laser-freq1"] = types.YChild{"LoLaserFreq1", &extendedAlarmAlarmInfo.LoLaserFreq1}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-laser-freq1"] = types.YChild{"HiLaserFreq1", &extendedAlarmAlarmInfo.HiLaserFreq1}
-    extendedAlarmAlarmInfo.EntityData.Children["lo-laser-freq2"] = types.YChild{"LoLaserFreq2", &extendedAlarmAlarmInfo.LoLaserFreq2}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-laser-freq2"] = types.YChild{"HiLaserFreq2", &extendedAlarmAlarmInfo.HiLaserFreq2}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-cur-acc"] = types.YChild{"HiPreFecberCurAcc", &extendedAlarmAlarmInfo.HiPreFecberCurAcc}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-min"] = types.YChild{"HiPreFecberMin", &extendedAlarmAlarmInfo.HiPreFecberMin}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-max"] = types.YChild{"HiPreFecberMax", &extendedAlarmAlarmInfo.HiPreFecberMax}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-prior-acc"] = types.YChild{"HiPreFecberPriorAcc", &extendedAlarmAlarmInfo.HiPreFecberPriorAcc}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-cur"] = types.YChild{"HiPreFecberCur", &extendedAlarmAlarmInfo.HiPreFecberCur}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-cur-acc"] = types.YChild{"HiUncorrectedBerCurAcc", &extendedAlarmAlarmInfo.HiUncorrectedBerCurAcc}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-min"] = types.YChild{"HiUncorrectedBerMin", &extendedAlarmAlarmInfo.HiUncorrectedBerMin}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-max"] = types.YChild{"HiUncorrectedBerMax", &extendedAlarmAlarmInfo.HiUncorrectedBerMax}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-prior-acc"] = types.YChild{"HiUncorrectedBerPriorAcc", &extendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc}
-    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-cur"] = types.YChild{"HiUncorrectedBerCur", &extendedAlarmAlarmInfo.HiUncorrectedBerCur}
-    extendedAlarmAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    extendedAlarmAlarmInfo.EntityData.Children = types.NewOrderedMap()
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-snr", types.YChild{"LoSnr", &extendedAlarmAlarmInfo.LoSnr})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-snr1", types.YChild{"HiSnr1", &extendedAlarmAlarmInfo.HiSnr1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-snr1", types.YChild{"LoSnr1", &extendedAlarmAlarmInfo.LoSnr1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-snr2", types.YChild{"HiSnr2", &extendedAlarmAlarmInfo.HiSnr2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-isi1", types.YChild{"LoIsi1", &extendedAlarmAlarmInfo.LoIsi1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-isi1", types.YChild{"HiIsi1", &extendedAlarmAlarmInfo.HiIsi1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-isi2", types.YChild{"LoIsi2", &extendedAlarmAlarmInfo.LoIsi2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-isi2", types.YChild{"HiIsi2", &extendedAlarmAlarmInfo.HiIsi2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-pam1", types.YChild{"LoPam1", &extendedAlarmAlarmInfo.LoPam1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-pam1", types.YChild{"HiPam1", &extendedAlarmAlarmInfo.HiPam1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-pam2", types.YChild{"LoPam2", &extendedAlarmAlarmInfo.LoPam2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-pam2", types.YChild{"HiPam2", &extendedAlarmAlarmInfo.HiPam2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-tec1", types.YChild{"LoTec1", &extendedAlarmAlarmInfo.LoTec1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-tec1", types.YChild{"HiTec1", &extendedAlarmAlarmInfo.HiTec1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-tec2", types.YChild{"LoTec2", &extendedAlarmAlarmInfo.LoTec2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-tec2", types.YChild{"HiTec2", &extendedAlarmAlarmInfo.HiTec2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-laser-freq1", types.YChild{"LoLaserFreq1", &extendedAlarmAlarmInfo.LoLaserFreq1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-laser-freq1", types.YChild{"HiLaserFreq1", &extendedAlarmAlarmInfo.HiLaserFreq1})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("lo-laser-freq2", types.YChild{"LoLaserFreq2", &extendedAlarmAlarmInfo.LoLaserFreq2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-laser-freq2", types.YChild{"HiLaserFreq2", &extendedAlarmAlarmInfo.HiLaserFreq2})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-pre-fecber-cur-acc", types.YChild{"HiPreFecberCurAcc", &extendedAlarmAlarmInfo.HiPreFecberCurAcc})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-pre-fecber-min", types.YChild{"HiPreFecberMin", &extendedAlarmAlarmInfo.HiPreFecberMin})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-pre-fecber-max", types.YChild{"HiPreFecberMax", &extendedAlarmAlarmInfo.HiPreFecberMax})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-pre-fecber-prior-acc", types.YChild{"HiPreFecberPriorAcc", &extendedAlarmAlarmInfo.HiPreFecberPriorAcc})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-pre-fecber-cur", types.YChild{"HiPreFecberCur", &extendedAlarmAlarmInfo.HiPreFecberCur})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-uncorrected-ber-cur-acc", types.YChild{"HiUncorrectedBerCurAcc", &extendedAlarmAlarmInfo.HiUncorrectedBerCurAcc})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-uncorrected-ber-min", types.YChild{"HiUncorrectedBerMin", &extendedAlarmAlarmInfo.HiUncorrectedBerMin})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-uncorrected-ber-max", types.YChild{"HiUncorrectedBerMax", &extendedAlarmAlarmInfo.HiUncorrectedBerMax})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-uncorrected-ber-prior-acc", types.YChild{"HiUncorrectedBerPriorAcc", &extendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc})
+    extendedAlarmAlarmInfo.EntityData.Children.Append("hi-uncorrected-ber-cur", types.YChild{"HiUncorrectedBerCur", &extendedAlarmAlarmInfo.HiUncorrectedBerCur})
+    extendedAlarmAlarmInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    extendedAlarmAlarmInfo.EntityData.YListKeys = []string {}
+
     return &(extendedAlarmAlarmInfo.EntityData)
 }
 
@@ -4382,10 +4555,13 @@ func (loSnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo
     loSnr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loSnr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loSnr.EntityData.Children = make(map[string]types.YChild)
-    loSnr.EntityData.Leafs = make(map[string]types.YLeaf)
-    loSnr.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loSnr.IsDetected}
-    loSnr.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loSnr.Counter}
+    loSnr.EntityData.Children = types.NewOrderedMap()
+    loSnr.EntityData.Leafs = types.NewOrderedMap()
+    loSnr.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loSnr.IsDetected})
+    loSnr.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loSnr.Counter})
+
+    loSnr.EntityData.YListKeys = []string {}
+
     return &(loSnr.EntityData)
 }
 
@@ -4412,10 +4588,13 @@ func (hiSnr1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiSnr1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiSnr1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiSnr1.EntityData.Children = make(map[string]types.YChild)
-    hiSnr1.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiSnr1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiSnr1.IsDetected}
-    hiSnr1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiSnr1.Counter}
+    hiSnr1.EntityData.Children = types.NewOrderedMap()
+    hiSnr1.EntityData.Leafs = types.NewOrderedMap()
+    hiSnr1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiSnr1.IsDetected})
+    hiSnr1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiSnr1.Counter})
+
+    hiSnr1.EntityData.YListKeys = []string {}
+
     return &(hiSnr1.EntityData)
 }
 
@@ -4442,10 +4621,13 @@ func (loSnr1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loSnr1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loSnr1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loSnr1.EntityData.Children = make(map[string]types.YChild)
-    loSnr1.EntityData.Leafs = make(map[string]types.YLeaf)
-    loSnr1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loSnr1.IsDetected}
-    loSnr1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loSnr1.Counter}
+    loSnr1.EntityData.Children = types.NewOrderedMap()
+    loSnr1.EntityData.Leafs = types.NewOrderedMap()
+    loSnr1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loSnr1.IsDetected})
+    loSnr1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loSnr1.Counter})
+
+    loSnr1.EntityData.YListKeys = []string {}
+
     return &(loSnr1.EntityData)
 }
 
@@ -4472,10 +4654,13 @@ func (hiSnr2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiSnr2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiSnr2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiSnr2.EntityData.Children = make(map[string]types.YChild)
-    hiSnr2.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiSnr2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiSnr2.IsDetected}
-    hiSnr2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiSnr2.Counter}
+    hiSnr2.EntityData.Children = types.NewOrderedMap()
+    hiSnr2.EntityData.Leafs = types.NewOrderedMap()
+    hiSnr2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiSnr2.IsDetected})
+    hiSnr2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiSnr2.Counter})
+
+    hiSnr2.EntityData.YListKeys = []string {}
+
     return &(hiSnr2.EntityData)
 }
 
@@ -4502,10 +4687,13 @@ func (loIsi1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loIsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loIsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loIsi1.EntityData.Children = make(map[string]types.YChild)
-    loIsi1.EntityData.Leafs = make(map[string]types.YLeaf)
-    loIsi1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loIsi1.IsDetected}
-    loIsi1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loIsi1.Counter}
+    loIsi1.EntityData.Children = types.NewOrderedMap()
+    loIsi1.EntityData.Leafs = types.NewOrderedMap()
+    loIsi1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loIsi1.IsDetected})
+    loIsi1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loIsi1.Counter})
+
+    loIsi1.EntityData.YListKeys = []string {}
+
     return &(loIsi1.EntityData)
 }
 
@@ -4532,10 +4720,13 @@ func (hiIsi1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiIsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiIsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiIsi1.EntityData.Children = make(map[string]types.YChild)
-    hiIsi1.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiIsi1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiIsi1.IsDetected}
-    hiIsi1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiIsi1.Counter}
+    hiIsi1.EntityData.Children = types.NewOrderedMap()
+    hiIsi1.EntityData.Leafs = types.NewOrderedMap()
+    hiIsi1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiIsi1.IsDetected})
+    hiIsi1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiIsi1.Counter})
+
+    hiIsi1.EntityData.YListKeys = []string {}
+
     return &(hiIsi1.EntityData)
 }
 
@@ -4562,10 +4753,13 @@ func (loIsi2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loIsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loIsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loIsi2.EntityData.Children = make(map[string]types.YChild)
-    loIsi2.EntityData.Leafs = make(map[string]types.YLeaf)
-    loIsi2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loIsi2.IsDetected}
-    loIsi2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loIsi2.Counter}
+    loIsi2.EntityData.Children = types.NewOrderedMap()
+    loIsi2.EntityData.Leafs = types.NewOrderedMap()
+    loIsi2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loIsi2.IsDetected})
+    loIsi2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loIsi2.Counter})
+
+    loIsi2.EntityData.YListKeys = []string {}
+
     return &(loIsi2.EntityData)
 }
 
@@ -4592,10 +4786,13 @@ func (hiIsi2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiIsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiIsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiIsi2.EntityData.Children = make(map[string]types.YChild)
-    hiIsi2.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiIsi2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiIsi2.IsDetected}
-    hiIsi2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiIsi2.Counter}
+    hiIsi2.EntityData.Children = types.NewOrderedMap()
+    hiIsi2.EntityData.Leafs = types.NewOrderedMap()
+    hiIsi2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiIsi2.IsDetected})
+    hiIsi2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiIsi2.Counter})
+
+    hiIsi2.EntityData.YListKeys = []string {}
+
     return &(hiIsi2.EntityData)
 }
 
@@ -4622,10 +4819,13 @@ func (loPam1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loPam1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loPam1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loPam1.EntityData.Children = make(map[string]types.YChild)
-    loPam1.EntityData.Leafs = make(map[string]types.YLeaf)
-    loPam1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loPam1.IsDetected}
-    loPam1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loPam1.Counter}
+    loPam1.EntityData.Children = types.NewOrderedMap()
+    loPam1.EntityData.Leafs = types.NewOrderedMap()
+    loPam1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loPam1.IsDetected})
+    loPam1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loPam1.Counter})
+
+    loPam1.EntityData.YListKeys = []string {}
+
     return &(loPam1.EntityData)
 }
 
@@ -4652,10 +4852,13 @@ func (hiPam1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiPam1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPam1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiPam1.EntityData.Children = make(map[string]types.YChild)
-    hiPam1.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiPam1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPam1.IsDetected}
-    hiPam1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPam1.Counter}
+    hiPam1.EntityData.Children = types.NewOrderedMap()
+    hiPam1.EntityData.Leafs = types.NewOrderedMap()
+    hiPam1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiPam1.IsDetected})
+    hiPam1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiPam1.Counter})
+
+    hiPam1.EntityData.YListKeys = []string {}
+
     return &(hiPam1.EntityData)
 }
 
@@ -4682,10 +4885,13 @@ func (loPam2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loPam2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loPam2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loPam2.EntityData.Children = make(map[string]types.YChild)
-    loPam2.EntityData.Leafs = make(map[string]types.YLeaf)
-    loPam2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loPam2.IsDetected}
-    loPam2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loPam2.Counter}
+    loPam2.EntityData.Children = types.NewOrderedMap()
+    loPam2.EntityData.Leafs = types.NewOrderedMap()
+    loPam2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loPam2.IsDetected})
+    loPam2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loPam2.Counter})
+
+    loPam2.EntityData.YListKeys = []string {}
+
     return &(loPam2.EntityData)
 }
 
@@ -4712,10 +4918,13 @@ func (hiPam2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiPam2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPam2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiPam2.EntityData.Children = make(map[string]types.YChild)
-    hiPam2.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiPam2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPam2.IsDetected}
-    hiPam2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPam2.Counter}
+    hiPam2.EntityData.Children = types.NewOrderedMap()
+    hiPam2.EntityData.Leafs = types.NewOrderedMap()
+    hiPam2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiPam2.IsDetected})
+    hiPam2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiPam2.Counter})
+
+    hiPam2.EntityData.YListKeys = []string {}
+
     return &(hiPam2.EntityData)
 }
 
@@ -4742,10 +4951,13 @@ func (loTec1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loTec1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loTec1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loTec1.EntityData.Children = make(map[string]types.YChild)
-    loTec1.EntityData.Leafs = make(map[string]types.YLeaf)
-    loTec1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loTec1.IsDetected}
-    loTec1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loTec1.Counter}
+    loTec1.EntityData.Children = types.NewOrderedMap()
+    loTec1.EntityData.Leafs = types.NewOrderedMap()
+    loTec1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loTec1.IsDetected})
+    loTec1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loTec1.Counter})
+
+    loTec1.EntityData.YListKeys = []string {}
+
     return &(loTec1.EntityData)
 }
 
@@ -4772,10 +4984,13 @@ func (hiTec1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiTec1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiTec1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiTec1.EntityData.Children = make(map[string]types.YChild)
-    hiTec1.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiTec1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiTec1.IsDetected}
-    hiTec1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiTec1.Counter}
+    hiTec1.EntityData.Children = types.NewOrderedMap()
+    hiTec1.EntityData.Leafs = types.NewOrderedMap()
+    hiTec1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiTec1.IsDetected})
+    hiTec1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiTec1.Counter})
+
+    hiTec1.EntityData.YListKeys = []string {}
+
     return &(hiTec1.EntityData)
 }
 
@@ -4802,10 +5017,13 @@ func (loTec2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loTec2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loTec2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loTec2.EntityData.Children = make(map[string]types.YChild)
-    loTec2.EntityData.Leafs = make(map[string]types.YLeaf)
-    loTec2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loTec2.IsDetected}
-    loTec2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loTec2.Counter}
+    loTec2.EntityData.Children = types.NewOrderedMap()
+    loTec2.EntityData.Leafs = types.NewOrderedMap()
+    loTec2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loTec2.IsDetected})
+    loTec2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loTec2.Counter})
+
+    loTec2.EntityData.YListKeys = []string {}
+
     return &(loTec2.EntityData)
 }
 
@@ -4832,10 +5050,13 @@ func (hiTec2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiTec2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiTec2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiTec2.EntityData.Children = make(map[string]types.YChild)
-    hiTec2.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiTec2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiTec2.IsDetected}
-    hiTec2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiTec2.Counter}
+    hiTec2.EntityData.Children = types.NewOrderedMap()
+    hiTec2.EntityData.Leafs = types.NewOrderedMap()
+    hiTec2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiTec2.IsDetected})
+    hiTec2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiTec2.Counter})
+
+    hiTec2.EntityData.YListKeys = []string {}
+
     return &(hiTec2.EntityData)
 }
 
@@ -4862,10 +5083,13 @@ func (loLaserFreq1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAl
     loLaserFreq1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loLaserFreq1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loLaserFreq1.EntityData.Children = make(map[string]types.YChild)
-    loLaserFreq1.EntityData.Leafs = make(map[string]types.YLeaf)
-    loLaserFreq1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loLaserFreq1.IsDetected}
-    loLaserFreq1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loLaserFreq1.Counter}
+    loLaserFreq1.EntityData.Children = types.NewOrderedMap()
+    loLaserFreq1.EntityData.Leafs = types.NewOrderedMap()
+    loLaserFreq1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loLaserFreq1.IsDetected})
+    loLaserFreq1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loLaserFreq1.Counter})
+
+    loLaserFreq1.EntityData.YListKeys = []string {}
+
     return &(loLaserFreq1.EntityData)
 }
 
@@ -4893,10 +5117,13 @@ func (hiLaserFreq1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAl
     hiLaserFreq1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiLaserFreq1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiLaserFreq1.EntityData.Children = make(map[string]types.YChild)
-    hiLaserFreq1.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiLaserFreq1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiLaserFreq1.IsDetected}
-    hiLaserFreq1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiLaserFreq1.Counter}
+    hiLaserFreq1.EntityData.Children = types.NewOrderedMap()
+    hiLaserFreq1.EntityData.Leafs = types.NewOrderedMap()
+    hiLaserFreq1.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiLaserFreq1.IsDetected})
+    hiLaserFreq1.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiLaserFreq1.Counter})
+
+    hiLaserFreq1.EntityData.YListKeys = []string {}
+
     return &(hiLaserFreq1.EntityData)
 }
 
@@ -4923,10 +5150,13 @@ func (loLaserFreq2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAl
     loLaserFreq2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loLaserFreq2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loLaserFreq2.EntityData.Children = make(map[string]types.YChild)
-    loLaserFreq2.EntityData.Leafs = make(map[string]types.YLeaf)
-    loLaserFreq2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loLaserFreq2.IsDetected}
-    loLaserFreq2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loLaserFreq2.Counter}
+    loLaserFreq2.EntityData.Children = types.NewOrderedMap()
+    loLaserFreq2.EntityData.Leafs = types.NewOrderedMap()
+    loLaserFreq2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", loLaserFreq2.IsDetected})
+    loLaserFreq2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", loLaserFreq2.Counter})
+
+    loLaserFreq2.EntityData.YListKeys = []string {}
+
     return &(loLaserFreq2.EntityData)
 }
 
@@ -4954,10 +5184,13 @@ func (hiLaserFreq2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAl
     hiLaserFreq2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiLaserFreq2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiLaserFreq2.EntityData.Children = make(map[string]types.YChild)
-    hiLaserFreq2.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiLaserFreq2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiLaserFreq2.IsDetected}
-    hiLaserFreq2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiLaserFreq2.Counter}
+    hiLaserFreq2.EntityData.Children = types.NewOrderedMap()
+    hiLaserFreq2.EntityData.Leafs = types.NewOrderedMap()
+    hiLaserFreq2.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiLaserFreq2.IsDetected})
+    hiLaserFreq2.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiLaserFreq2.Counter})
+
+    hiLaserFreq2.EntityData.YListKeys = []string {}
+
     return &(hiLaserFreq2.EntityData)
 }
 
@@ -4984,10 +5217,13 @@ func (hiPreFecberCurAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAl
     hiPreFecberCurAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberCurAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiPreFecberCurAcc.EntityData.Children = make(map[string]types.YChild)
-    hiPreFecberCurAcc.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiPreFecberCurAcc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberCurAcc.IsDetected}
-    hiPreFecberCurAcc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberCurAcc.Counter}
+    hiPreFecberCurAcc.EntityData.Children = types.NewOrderedMap()
+    hiPreFecberCurAcc.EntityData.Leafs = types.NewOrderedMap()
+    hiPreFecberCurAcc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiPreFecberCurAcc.IsDetected})
+    hiPreFecberCurAcc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiPreFecberCurAcc.Counter})
+
+    hiPreFecberCurAcc.EntityData.YListKeys = []string {}
+
     return &(hiPreFecberCurAcc.EntityData)
 }
 
@@ -5014,10 +5250,13 @@ func (hiPreFecberMin *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarm
     hiPreFecberMin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberMin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiPreFecberMin.EntityData.Children = make(map[string]types.YChild)
-    hiPreFecberMin.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiPreFecberMin.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberMin.IsDetected}
-    hiPreFecberMin.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberMin.Counter}
+    hiPreFecberMin.EntityData.Children = types.NewOrderedMap()
+    hiPreFecberMin.EntityData.Leafs = types.NewOrderedMap()
+    hiPreFecberMin.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiPreFecberMin.IsDetected})
+    hiPreFecberMin.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiPreFecberMin.Counter})
+
+    hiPreFecberMin.EntityData.YListKeys = []string {}
+
     return &(hiPreFecberMin.EntityData)
 }
 
@@ -5044,10 +5283,13 @@ func (hiPreFecberMax *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarm
     hiPreFecberMax.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberMax.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiPreFecberMax.EntityData.Children = make(map[string]types.YChild)
-    hiPreFecberMax.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiPreFecberMax.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberMax.IsDetected}
-    hiPreFecberMax.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberMax.Counter}
+    hiPreFecberMax.EntityData.Children = types.NewOrderedMap()
+    hiPreFecberMax.EntityData.Leafs = types.NewOrderedMap()
+    hiPreFecberMax.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiPreFecberMax.IsDetected})
+    hiPreFecberMax.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiPreFecberMax.Counter})
+
+    hiPreFecberMax.EntityData.YListKeys = []string {}
+
     return &(hiPreFecberMax.EntityData)
 }
 
@@ -5074,10 +5316,13 @@ func (hiPreFecberPriorAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     hiPreFecberPriorAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberPriorAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiPreFecberPriorAcc.EntityData.Children = make(map[string]types.YChild)
-    hiPreFecberPriorAcc.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiPreFecberPriorAcc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberPriorAcc.IsDetected}
-    hiPreFecberPriorAcc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberPriorAcc.Counter}
+    hiPreFecberPriorAcc.EntityData.Children = types.NewOrderedMap()
+    hiPreFecberPriorAcc.EntityData.Leafs = types.NewOrderedMap()
+    hiPreFecberPriorAcc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiPreFecberPriorAcc.IsDetected})
+    hiPreFecberPriorAcc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiPreFecberPriorAcc.Counter})
+
+    hiPreFecberPriorAcc.EntityData.YListKeys = []string {}
+
     return &(hiPreFecberPriorAcc.EntityData)
 }
 
@@ -5104,10 +5349,13 @@ func (hiPreFecberCur *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarm
     hiPreFecberCur.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberCur.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiPreFecberCur.EntityData.Children = make(map[string]types.YChild)
-    hiPreFecberCur.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiPreFecberCur.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberCur.IsDetected}
-    hiPreFecberCur.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberCur.Counter}
+    hiPreFecberCur.EntityData.Children = types.NewOrderedMap()
+    hiPreFecberCur.EntityData.Leafs = types.NewOrderedMap()
+    hiPreFecberCur.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiPreFecberCur.IsDetected})
+    hiPreFecberCur.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiPreFecberCur.Counter})
+
+    hiPreFecberCur.EntityData.YListKeys = []string {}
+
     return &(hiPreFecberCur.EntityData)
 }
 
@@ -5134,10 +5382,13 @@ func (hiUncorrectedBerCurAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Exten
     hiUncorrectedBerCurAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerCurAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiUncorrectedBerCurAcc.EntityData.Children = make(map[string]types.YChild)
-    hiUncorrectedBerCurAcc.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiUncorrectedBerCurAcc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerCurAcc.IsDetected}
-    hiUncorrectedBerCurAcc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerCurAcc.Counter}
+    hiUncorrectedBerCurAcc.EntityData.Children = types.NewOrderedMap()
+    hiUncorrectedBerCurAcc.EntityData.Leafs = types.NewOrderedMap()
+    hiUncorrectedBerCurAcc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiUncorrectedBerCurAcc.IsDetected})
+    hiUncorrectedBerCurAcc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiUncorrectedBerCurAcc.Counter})
+
+    hiUncorrectedBerCurAcc.EntityData.YListKeys = []string {}
+
     return &(hiUncorrectedBerCurAcc.EntityData)
 }
 
@@ -5164,10 +5415,13 @@ func (hiUncorrectedBerMin *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     hiUncorrectedBerMin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerMin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiUncorrectedBerMin.EntityData.Children = make(map[string]types.YChild)
-    hiUncorrectedBerMin.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiUncorrectedBerMin.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerMin.IsDetected}
-    hiUncorrectedBerMin.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerMin.Counter}
+    hiUncorrectedBerMin.EntityData.Children = types.NewOrderedMap()
+    hiUncorrectedBerMin.EntityData.Leafs = types.NewOrderedMap()
+    hiUncorrectedBerMin.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiUncorrectedBerMin.IsDetected})
+    hiUncorrectedBerMin.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiUncorrectedBerMin.Counter})
+
+    hiUncorrectedBerMin.EntityData.YListKeys = []string {}
+
     return &(hiUncorrectedBerMin.EntityData)
 }
 
@@ -5194,10 +5448,13 @@ func (hiUncorrectedBerMax *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     hiUncorrectedBerMax.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerMax.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiUncorrectedBerMax.EntityData.Children = make(map[string]types.YChild)
-    hiUncorrectedBerMax.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiUncorrectedBerMax.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerMax.IsDetected}
-    hiUncorrectedBerMax.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerMax.Counter}
+    hiUncorrectedBerMax.EntityData.Children = types.NewOrderedMap()
+    hiUncorrectedBerMax.EntityData.Leafs = types.NewOrderedMap()
+    hiUncorrectedBerMax.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiUncorrectedBerMax.IsDetected})
+    hiUncorrectedBerMax.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiUncorrectedBerMax.Counter})
+
+    hiUncorrectedBerMax.EntityData.YListKeys = []string {}
+
     return &(hiUncorrectedBerMax.EntityData)
 }
 
@@ -5224,10 +5481,13 @@ func (hiUncorrectedBerPriorAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Ext
     hiUncorrectedBerPriorAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerPriorAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiUncorrectedBerPriorAcc.EntityData.Children = make(map[string]types.YChild)
-    hiUncorrectedBerPriorAcc.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiUncorrectedBerPriorAcc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerPriorAcc.IsDetected}
-    hiUncorrectedBerPriorAcc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerPriorAcc.Counter}
+    hiUncorrectedBerPriorAcc.EntityData.Children = types.NewOrderedMap()
+    hiUncorrectedBerPriorAcc.EntityData.Leafs = types.NewOrderedMap()
+    hiUncorrectedBerPriorAcc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiUncorrectedBerPriorAcc.IsDetected})
+    hiUncorrectedBerPriorAcc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiUncorrectedBerPriorAcc.Counter})
+
+    hiUncorrectedBerPriorAcc.EntityData.YListKeys = []string {}
+
     return &(hiUncorrectedBerPriorAcc.EntityData)
 }
 
@@ -5254,10 +5514,13 @@ func (hiUncorrectedBerCur *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     hiUncorrectedBerCur.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerCur.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hiUncorrectedBerCur.EntityData.Children = make(map[string]types.YChild)
-    hiUncorrectedBerCur.EntityData.Leafs = make(map[string]types.YLeaf)
-    hiUncorrectedBerCur.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerCur.IsDetected}
-    hiUncorrectedBerCur.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerCur.Counter}
+    hiUncorrectedBerCur.EntityData.Children = types.NewOrderedMap()
+    hiUncorrectedBerCur.EntityData.Leafs = types.NewOrderedMap()
+    hiUncorrectedBerCur.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", hiUncorrectedBerCur.IsDetected})
+    hiUncorrectedBerCur.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", hiUncorrectedBerCur.Counter})
+
+    hiUncorrectedBerCur.EntityData.YListKeys = []string {}
+
     return &(hiUncorrectedBerCur.EntityData)
 }
 
@@ -5317,18 +5580,21 @@ func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetEntity
     laneData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     laneData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    laneData.EntityData.Children = make(map[string]types.YChild)
-    laneData.EntityData.Children["lane-alarm-info"] = types.YChild{"LaneAlarmInfo", &laneData.LaneAlarmInfo}
-    laneData.EntityData.Leafs = make(map[string]types.YLeaf)
-    laneData.EntityData.Leafs["lane-index"] = types.YLeaf{"LaneIndex", laneData.LaneIndex}
-    laneData.EntityData.Leafs["laser-bias-current-percent"] = types.YLeaf{"LaserBiasCurrentPercent", laneData.LaserBiasCurrentPercent}
-    laneData.EntityData.Leafs["laser-bias-current-milli-amps"] = types.YLeaf{"LaserBiasCurrentMilliAmps", laneData.LaserBiasCurrentMilliAmps}
-    laneData.EntityData.Leafs["transmit-power"] = types.YLeaf{"TransmitPower", laneData.TransmitPower}
-    laneData.EntityData.Leafs["receive-power"] = types.YLeaf{"ReceivePower", laneData.ReceivePower}
-    laneData.EntityData.Leafs["receive-signal-power"] = types.YLeaf{"ReceiveSignalPower", laneData.ReceiveSignalPower}
-    laneData.EntityData.Leafs["transmit-signal-power"] = types.YLeaf{"TransmitSignalPower", laneData.TransmitSignalPower}
-    laneData.EntityData.Leafs["output-frequency"] = types.YLeaf{"OutputFrequency", laneData.OutputFrequency}
-    laneData.EntityData.Leafs["frequency-offset"] = types.YLeaf{"FrequencyOffset", laneData.FrequencyOffset}
+    laneData.EntityData.Children = types.NewOrderedMap()
+    laneData.EntityData.Children.Append("lane-alarm-info", types.YChild{"LaneAlarmInfo", &laneData.LaneAlarmInfo})
+    laneData.EntityData.Leafs = types.NewOrderedMap()
+    laneData.EntityData.Leafs.Append("lane-index", types.YLeaf{"LaneIndex", laneData.LaneIndex})
+    laneData.EntityData.Leafs.Append("laser-bias-current-percent", types.YLeaf{"LaserBiasCurrentPercent", laneData.LaserBiasCurrentPercent})
+    laneData.EntityData.Leafs.Append("laser-bias-current-milli-amps", types.YLeaf{"LaserBiasCurrentMilliAmps", laneData.LaserBiasCurrentMilliAmps})
+    laneData.EntityData.Leafs.Append("transmit-power", types.YLeaf{"TransmitPower", laneData.TransmitPower})
+    laneData.EntityData.Leafs.Append("receive-power", types.YLeaf{"ReceivePower", laneData.ReceivePower})
+    laneData.EntityData.Leafs.Append("receive-signal-power", types.YLeaf{"ReceiveSignalPower", laneData.ReceiveSignalPower})
+    laneData.EntityData.Leafs.Append("transmit-signal-power", types.YLeaf{"TransmitSignalPower", laneData.TransmitSignalPower})
+    laneData.EntityData.Leafs.Append("output-frequency", types.YLeaf{"OutputFrequency", laneData.OutputFrequency})
+    laneData.EntityData.Leafs.Append("frequency-offset", types.YLeaf{"FrequencyOffset", laneData.FrequencyOffset})
+
+    laneData.EntityData.YListKeys = []string {}
+
     return &(laneData.EntityData)
 }
 
@@ -5364,13 +5630,16 @@ func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneA
     laneAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     laneAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    laneAlarmInfo.EntityData.Children = make(map[string]types.YChild)
-    laneAlarmInfo.EntityData.Children["high-rx-power"] = types.YChild{"HighRxPower", &laneAlarmInfo.HighRxPower}
-    laneAlarmInfo.EntityData.Children["low-rx-power"] = types.YChild{"LowRxPower", &laneAlarmInfo.LowRxPower}
-    laneAlarmInfo.EntityData.Children["high-tx-power"] = types.YChild{"HighTxPower", &laneAlarmInfo.HighTxPower}
-    laneAlarmInfo.EntityData.Children["low-tx-power"] = types.YChild{"LowTxPower", &laneAlarmInfo.LowTxPower}
-    laneAlarmInfo.EntityData.Children["high-lbc"] = types.YChild{"HighLbc", &laneAlarmInfo.HighLbc}
-    laneAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    laneAlarmInfo.EntityData.Children = types.NewOrderedMap()
+    laneAlarmInfo.EntityData.Children.Append("high-rx-power", types.YChild{"HighRxPower", &laneAlarmInfo.HighRxPower})
+    laneAlarmInfo.EntityData.Children.Append("low-rx-power", types.YChild{"LowRxPower", &laneAlarmInfo.LowRxPower})
+    laneAlarmInfo.EntityData.Children.Append("high-tx-power", types.YChild{"HighTxPower", &laneAlarmInfo.HighTxPower})
+    laneAlarmInfo.EntityData.Children.Append("low-tx-power", types.YChild{"LowTxPower", &laneAlarmInfo.LowTxPower})
+    laneAlarmInfo.EntityData.Children.Append("high-lbc", types.YChild{"HighLbc", &laneAlarmInfo.HighLbc})
+    laneAlarmInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    laneAlarmInfo.EntityData.YListKeys = []string {}
+
     return &(laneAlarmInfo.EntityData)
 }
 
@@ -5397,10 +5666,13 @@ func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAla
     highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highRxPower.EntityData.Children = make(map[string]types.YChild)
-    highRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    highRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRxPower.IsDetected}
-    highRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRxPower.Counter}
+    highRxPower.EntityData.Children = types.NewOrderedMap()
+    highRxPower.EntityData.Leafs = types.NewOrderedMap()
+    highRxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highRxPower.IsDetected})
+    highRxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highRxPower.Counter})
+
+    highRxPower.EntityData.YListKeys = []string {}
+
     return &(highRxPower.EntityData)
 }
 
@@ -5427,10 +5699,13 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlar
     lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowRxPower.EntityData.Children = make(map[string]types.YChild)
-    lowRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRxPower.IsDetected}
-    lowRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRxPower.Counter}
+    lowRxPower.EntityData.Children = types.NewOrderedMap()
+    lowRxPower.EntityData.Leafs = types.NewOrderedMap()
+    lowRxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowRxPower.IsDetected})
+    lowRxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowRxPower.Counter})
+
+    lowRxPower.EntityData.YListKeys = []string {}
+
     return &(lowRxPower.EntityData)
 }
 
@@ -5457,10 +5732,13 @@ func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAla
     highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTxPower.EntityData.Children = make(map[string]types.YChild)
-    highTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTxPower.IsDetected}
-    highTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTxPower.Counter}
+    highTxPower.EntityData.Children = types.NewOrderedMap()
+    highTxPower.EntityData.Leafs = types.NewOrderedMap()
+    highTxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTxPower.IsDetected})
+    highTxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTxPower.Counter})
+
+    highTxPower.EntityData.YListKeys = []string {}
+
     return &(highTxPower.EntityData)
 }
 
@@ -5487,10 +5765,13 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlar
     lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTxPower.EntityData.Children = make(map[string]types.YChild)
-    lowTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTxPower.IsDetected}
-    lowTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTxPower.Counter}
+    lowTxPower.EntityData.Children = types.NewOrderedMap()
+    lowTxPower.EntityData.Leafs = types.NewOrderedMap()
+    lowTxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTxPower.IsDetected})
+    lowTxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTxPower.Counter})
+
+    lowTxPower.EntityData.YListKeys = []string {}
+
     return &(lowTxPower.EntityData)
 }
 
@@ -5517,10 +5798,13 @@ func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmIn
     highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highLbc.EntityData.Children = make(map[string]types.YChild)
-    highLbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    highLbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highLbc.IsDetected}
-    highLbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highLbc.Counter}
+    highLbc.EntityData.Children = types.NewOrderedMap()
+    highLbc.EntityData.Leafs = types.NewOrderedMap()
+    highLbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highLbc.IsDetected})
+    highLbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highLbc.Counter})
+
+    highLbc.EntityData.YListKeys = []string {}
+
     return &(highLbc.EntityData)
 }
 
@@ -5532,7 +5816,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes struct {
 
     // Lane Information. The type is slice of
     // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane.
-    OpticsLane []OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane
+    OpticsLane []*OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane
 }
 
 func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetEntityData() *types.CommonEntityData {
@@ -5545,12 +5829,15 @@ func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetEntityData(
     opticsLanes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsLanes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsLanes.EntityData.Children = make(map[string]types.YChild)
-    opticsLanes.EntityData.Children["optics-lane"] = types.YChild{"OpticsLane", nil}
+    opticsLanes.EntityData.Children = types.NewOrderedMap()
+    opticsLanes.EntityData.Children.Append("optics-lane", types.YChild{"OpticsLane", nil})
     for i := range opticsLanes.OpticsLane {
-        opticsLanes.EntityData.Children[types.GetSegmentPath(&opticsLanes.OpticsLane[i])] = types.YChild{"OpticsLane", &opticsLanes.OpticsLane[i]}
+        opticsLanes.EntityData.Children.Append(types.GetSegmentPath(opticsLanes.OpticsLane[i]), types.YChild{"OpticsLane", opticsLanes.OpticsLane[i]})
     }
-    opticsLanes.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsLanes.EntityData.Leafs = types.NewOrderedMap()
+
+    opticsLanes.EntityData.YListKeys = []string {}
+
     return &(opticsLanes.EntityData)
 }
 
@@ -5561,7 +5848,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Lane Index. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Number interface{}
 
     // The index number of the lane. The type is interface{} with range:
@@ -5609,24 +5896,27 @@ func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetE
     opticsLane.EntityData.YangName = "optics-lane"
     opticsLane.EntityData.BundleName = "cisco_ios_xr"
     opticsLane.EntityData.ParentYangName = "optics-lanes"
-    opticsLane.EntityData.SegmentPath = "optics-lane" + "[number='" + fmt.Sprintf("%v", opticsLane.Number) + "']"
+    opticsLane.EntityData.SegmentPath = "optics-lane" + types.AddKeyToken(opticsLane.Number, "number")
     opticsLane.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsLane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsLane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsLane.EntityData.Children = make(map[string]types.YChild)
-    opticsLane.EntityData.Children["lane-alarm-info"] = types.YChild{"LaneAlarmInfo", &opticsLane.LaneAlarmInfo}
-    opticsLane.EntityData.Leafs = make(map[string]types.YLeaf)
-    opticsLane.EntityData.Leafs["number"] = types.YLeaf{"Number", opticsLane.Number}
-    opticsLane.EntityData.Leafs["lane-index"] = types.YLeaf{"LaneIndex", opticsLane.LaneIndex}
-    opticsLane.EntityData.Leafs["laser-bias-current-percent"] = types.YLeaf{"LaserBiasCurrentPercent", opticsLane.LaserBiasCurrentPercent}
-    opticsLane.EntityData.Leafs["laser-bias-current-milli-amps"] = types.YLeaf{"LaserBiasCurrentMilliAmps", opticsLane.LaserBiasCurrentMilliAmps}
-    opticsLane.EntityData.Leafs["transmit-power"] = types.YLeaf{"TransmitPower", opticsLane.TransmitPower}
-    opticsLane.EntityData.Leafs["receive-power"] = types.YLeaf{"ReceivePower", opticsLane.ReceivePower}
-    opticsLane.EntityData.Leafs["receive-signal-power"] = types.YLeaf{"ReceiveSignalPower", opticsLane.ReceiveSignalPower}
-    opticsLane.EntityData.Leafs["transmit-signal-power"] = types.YLeaf{"TransmitSignalPower", opticsLane.TransmitSignalPower}
-    opticsLane.EntityData.Leafs["output-frequency"] = types.YLeaf{"OutputFrequency", opticsLane.OutputFrequency}
-    opticsLane.EntityData.Leafs["frequency-offset"] = types.YLeaf{"FrequencyOffset", opticsLane.FrequencyOffset}
+    opticsLane.EntityData.Children = types.NewOrderedMap()
+    opticsLane.EntityData.Children.Append("lane-alarm-info", types.YChild{"LaneAlarmInfo", &opticsLane.LaneAlarmInfo})
+    opticsLane.EntityData.Leafs = types.NewOrderedMap()
+    opticsLane.EntityData.Leafs.Append("number", types.YLeaf{"Number", opticsLane.Number})
+    opticsLane.EntityData.Leafs.Append("lane-index", types.YLeaf{"LaneIndex", opticsLane.LaneIndex})
+    opticsLane.EntityData.Leafs.Append("laser-bias-current-percent", types.YLeaf{"LaserBiasCurrentPercent", opticsLane.LaserBiasCurrentPercent})
+    opticsLane.EntityData.Leafs.Append("laser-bias-current-milli-amps", types.YLeaf{"LaserBiasCurrentMilliAmps", opticsLane.LaserBiasCurrentMilliAmps})
+    opticsLane.EntityData.Leafs.Append("transmit-power", types.YLeaf{"TransmitPower", opticsLane.TransmitPower})
+    opticsLane.EntityData.Leafs.Append("receive-power", types.YLeaf{"ReceivePower", opticsLane.ReceivePower})
+    opticsLane.EntityData.Leafs.Append("receive-signal-power", types.YLeaf{"ReceiveSignalPower", opticsLane.ReceiveSignalPower})
+    opticsLane.EntityData.Leafs.Append("transmit-signal-power", types.YLeaf{"TransmitSignalPower", opticsLane.TransmitSignalPower})
+    opticsLane.EntityData.Leafs.Append("output-frequency", types.YLeaf{"OutputFrequency", opticsLane.OutputFrequency})
+    opticsLane.EntityData.Leafs.Append("frequency-offset", types.YLeaf{"FrequencyOffset", opticsLane.FrequencyOffset})
+
+    opticsLane.EntityData.YListKeys = []string {"Number"}
+
     return &(opticsLane.EntityData)
 }
 
@@ -5662,13 +5952,16 @@ func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_La
     laneAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     laneAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    laneAlarmInfo.EntityData.Children = make(map[string]types.YChild)
-    laneAlarmInfo.EntityData.Children["high-rx-power"] = types.YChild{"HighRxPower", &laneAlarmInfo.HighRxPower}
-    laneAlarmInfo.EntityData.Children["low-rx-power"] = types.YChild{"LowRxPower", &laneAlarmInfo.LowRxPower}
-    laneAlarmInfo.EntityData.Children["high-tx-power"] = types.YChild{"HighTxPower", &laneAlarmInfo.HighTxPower}
-    laneAlarmInfo.EntityData.Children["low-tx-power"] = types.YChild{"LowTxPower", &laneAlarmInfo.LowTxPower}
-    laneAlarmInfo.EntityData.Children["high-lbc"] = types.YChild{"HighLbc", &laneAlarmInfo.HighLbc}
-    laneAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    laneAlarmInfo.EntityData.Children = types.NewOrderedMap()
+    laneAlarmInfo.EntityData.Children.Append("high-rx-power", types.YChild{"HighRxPower", &laneAlarmInfo.HighRxPower})
+    laneAlarmInfo.EntityData.Children.Append("low-rx-power", types.YChild{"LowRxPower", &laneAlarmInfo.LowRxPower})
+    laneAlarmInfo.EntityData.Children.Append("high-tx-power", types.YChild{"HighTxPower", &laneAlarmInfo.HighTxPower})
+    laneAlarmInfo.EntityData.Children.Append("low-tx-power", types.YChild{"LowTxPower", &laneAlarmInfo.LowTxPower})
+    laneAlarmInfo.EntityData.Children.Append("high-lbc", types.YChild{"HighLbc", &laneAlarmInfo.HighLbc})
+    laneAlarmInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    laneAlarmInfo.EntityData.YListKeys = []string {}
+
     return &(laneAlarmInfo.EntityData)
 }
 
@@ -5695,10 +5988,13 @@ func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_Lane
     highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highRxPower.EntityData.Children = make(map[string]types.YChild)
-    highRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    highRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRxPower.IsDetected}
-    highRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRxPower.Counter}
+    highRxPower.EntityData.Children = types.NewOrderedMap()
+    highRxPower.EntityData.Leafs = types.NewOrderedMap()
+    highRxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highRxPower.IsDetected})
+    highRxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highRxPower.Counter})
+
+    highRxPower.EntityData.YListKeys = []string {}
+
     return &(highRxPower.EntityData)
 }
 
@@ -5725,10 +6021,13 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneA
     lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowRxPower.EntityData.Children = make(map[string]types.YChild)
-    lowRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRxPower.IsDetected}
-    lowRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRxPower.Counter}
+    lowRxPower.EntityData.Children = types.NewOrderedMap()
+    lowRxPower.EntityData.Leafs = types.NewOrderedMap()
+    lowRxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowRxPower.IsDetected})
+    lowRxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowRxPower.Counter})
+
+    lowRxPower.EntityData.YListKeys = []string {}
+
     return &(lowRxPower.EntityData)
 }
 
@@ -5755,10 +6054,13 @@ func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_Lane
     highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highTxPower.EntityData.Children = make(map[string]types.YChild)
-    highTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    highTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTxPower.IsDetected}
-    highTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTxPower.Counter}
+    highTxPower.EntityData.Children = types.NewOrderedMap()
+    highTxPower.EntityData.Leafs = types.NewOrderedMap()
+    highTxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highTxPower.IsDetected})
+    highTxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highTxPower.Counter})
+
+    highTxPower.EntityData.YListKeys = []string {}
+
     return &(highTxPower.EntityData)
 }
 
@@ -5785,10 +6087,13 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneA
     lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowTxPower.EntityData.Children = make(map[string]types.YChild)
-    lowTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTxPower.IsDetected}
-    lowTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTxPower.Counter}
+    lowTxPower.EntityData.Children = types.NewOrderedMap()
+    lowTxPower.EntityData.Leafs = types.NewOrderedMap()
+    lowTxPower.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", lowTxPower.IsDetected})
+    lowTxPower.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", lowTxPower.Counter})
+
+    lowTxPower.EntityData.YListKeys = []string {}
+
     return &(lowTxPower.EntityData)
 }
 
@@ -5815,11 +6120,103 @@ func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlar
     highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highLbc.EntityData.Children = make(map[string]types.YChild)
-    highLbc.EntityData.Leafs = make(map[string]types.YLeaf)
-    highLbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highLbc.IsDetected}
-    highLbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highLbc.Counter}
+    highLbc.EntityData.Children = types.NewOrderedMap()
+    highLbc.EntityData.Leafs = types.NewOrderedMap()
+    highLbc.EntityData.Leafs.Append("is-detected", types.YLeaf{"IsDetected", highLbc.IsDetected})
+    highLbc.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", highLbc.Counter})
+
+    highLbc.EntityData.YListKeys = []string {}
+
     return &(highLbc.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi
+// Optics operational data
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DWDM carrier band. The type is OpticsWaveBand.
+    DwdmCarrierBand interface{}
+
+    // Lowest DWDM carrier supported. The type is interface{} with range:
+    // 0..4294967295.
+    DwdmCarrierMin interface{}
+
+    // Highest DWDM carrier supported. The type is interface{} with range:
+    // 0..4294967295.
+    DwdmCarrierMax interface{}
+
+    // DWDM carrier mapping info. The type is slice of
+    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo.
+    DwdmCarrierMapInfo []*OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo
+}
+
+func (opticsDwdmCarrrierChannelMapFlexi *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi) GetEntityData() *types.CommonEntityData {
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.YFilter = opticsDwdmCarrrierChannelMapFlexi.YFilter
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.YangName = "optics-dwdm-carrrier-channel-map-flexi"
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.BundleName = "cisco_ios_xr"
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.ParentYangName = "optics-port"
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.SegmentPath = "optics-dwdm-carrrier-channel-map-flexi"
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.Children = types.NewOrderedMap()
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.Children.Append("dwdm-carrier-map-info", types.YChild{"DwdmCarrierMapInfo", nil})
+    for i := range opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo {
+        opticsDwdmCarrrierChannelMapFlexi.EntityData.Children.Append(types.GetSegmentPath(opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo[i]), types.YChild{"DwdmCarrierMapInfo", opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo[i]})
+    }
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.Leafs = types.NewOrderedMap()
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-band", types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierBand})
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-min", types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMin})
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-max", types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMax})
+
+    opticsDwdmCarrrierChannelMapFlexi.EntityData.YListKeys = []string {}
+
+    return &(opticsDwdmCarrrierChannelMapFlexi.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo
+// DWDM carrier mapping info
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ITU channel number. The type is interface{} with range: 0..4294967295.
+    ItuChanNum interface{}
+
+    // G694 channel number. The type is interface{} with range:
+    // -2147483648..2147483647.
+    G694ChanNum interface{}
+
+    // Frequency. The type is string with length: 0..32.
+    Frequency interface{}
+
+    // Wavelength. The type is string with length: 0..32.
+    Wavelength interface{}
+}
+
+func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
+    dwdmCarrierMapInfo.EntityData.YFilter = dwdmCarrierMapInfo.YFilter
+    dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
+    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrrier-channel-map-flexi"
+    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dwdmCarrierMapInfo.EntityData.Children = types.NewOrderedMap()
+    dwdmCarrierMapInfo.EntityData.Leafs = types.NewOrderedMap()
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("itu-chan-num", types.YLeaf{"ItuChanNum", dwdmCarrierMapInfo.ItuChanNum})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("g694-chan-num", types.YLeaf{"G694ChanNum", dwdmCarrierMapInfo.G694ChanNum})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", dwdmCarrierMapInfo.Frequency})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("wavelength", types.YLeaf{"Wavelength", dwdmCarrierMapInfo.Wavelength})
+
+    dwdmCarrierMapInfo.EntityData.YListKeys = []string {}
+
+    return &(dwdmCarrierMapInfo.EntityData)
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo
@@ -5849,11 +6246,14 @@ func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetEntityDat
     opticsDbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsDbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsDbInfo.EntityData.Children = make(map[string]types.YChild)
-    opticsDbInfo.EntityData.Children["network-srlg-info"] = types.YChild{"NetworkSrlgInfo", &opticsDbInfo.NetworkSrlgInfo}
-    opticsDbInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    opticsDbInfo.EntityData.Leafs["transport-admin-state"] = types.YLeaf{"TransportAdminState", opticsDbInfo.TransportAdminState}
-    opticsDbInfo.EntityData.Leafs["controller-state"] = types.YLeaf{"ControllerState", opticsDbInfo.ControllerState}
+    opticsDbInfo.EntityData.Children = types.NewOrderedMap()
+    opticsDbInfo.EntityData.Children.Append("network-srlg-info", types.YChild{"NetworkSrlgInfo", &opticsDbInfo.NetworkSrlgInfo})
+    opticsDbInfo.EntityData.Leafs = types.NewOrderedMap()
+    opticsDbInfo.EntityData.Leafs.Append("transport-admin-state", types.YLeaf{"TransportAdminState", opticsDbInfo.TransportAdminState})
+    opticsDbInfo.EntityData.Leafs.Append("controller-state", types.YLeaf{"ControllerState", opticsDbInfo.ControllerState})
+
+    opticsDbInfo.EntityData.YListKeys = []string {}
+
     return &(opticsDbInfo.EntityData)
 }
 
@@ -5865,7 +6265,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo struct {
 
     // Network Srlg Array. The type is slice of
     // OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray.
-    NetworkSrlgArray []OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray
+    NetworkSrlgArray []*OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray
 }
 
 func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetEntityData() *types.CommonEntityData {
@@ -5878,12 +6278,15 @@ func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrl
     networkSrlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networkSrlgInfo.EntityData.Children = make(map[string]types.YChild)
-    networkSrlgInfo.EntityData.Children["network-srlg-array"] = types.YChild{"NetworkSrlgArray", nil}
+    networkSrlgInfo.EntityData.Children = types.NewOrderedMap()
+    networkSrlgInfo.EntityData.Children.Append("network-srlg-array", types.YChild{"NetworkSrlgArray", nil})
     for i := range networkSrlgInfo.NetworkSrlgArray {
-        networkSrlgInfo.EntityData.Children[types.GetSegmentPath(&networkSrlgInfo.NetworkSrlgArray[i])] = types.YChild{"NetworkSrlgArray", &networkSrlgInfo.NetworkSrlgArray[i]}
+        networkSrlgInfo.EntityData.Children.Append(types.GetSegmentPath(networkSrlgInfo.NetworkSrlgArray[i]), types.YChild{"NetworkSrlgArray", networkSrlgInfo.NetworkSrlgArray[i]})
     }
-    networkSrlgInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    networkSrlgInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    networkSrlgInfo.EntityData.YListKeys = []string {}
+
     return &(networkSrlgInfo.EntityData)
 }
 
@@ -5911,10 +6314,13 @@ func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSr
     networkSrlgArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networkSrlgArray.EntityData.Children = make(map[string]types.YChild)
-    networkSrlgArray.EntityData.Leafs = make(map[string]types.YLeaf)
-    networkSrlgArray.EntityData.Leafs["set-number"] = types.YLeaf{"SetNumber", networkSrlgArray.SetNumber}
-    networkSrlgArray.EntityData.Leafs["network-srlg"] = types.YLeaf{"NetworkSrlg", networkSrlgArray.NetworkSrlg}
+    networkSrlgArray.EntityData.Children = types.NewOrderedMap()
+    networkSrlgArray.EntityData.Leafs = types.NewOrderedMap()
+    networkSrlgArray.EntityData.Leafs.Append("set-number", types.YLeaf{"SetNumber", networkSrlgArray.SetNumber})
+    networkSrlgArray.EntityData.Leafs.Append("network-srlg", types.YLeaf{"NetworkSrlg", networkSrlgArray.NetworkSrlg})
+
+    networkSrlgArray.EntityData.YListKeys = []string {}
+
     return &(networkSrlgArray.EntityData)
 }
 

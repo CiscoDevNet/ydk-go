@@ -35,10 +35,10 @@ type MPLSTESTDMIB struct {
     YFilter yfilter.YFilter
 
     
-    Mplstescalars MPLSTESTDMIB_Mplstescalars
+    MplsTeScalars MPLSTESTDMIB_MplsTeScalars
 
     
-    Mplsteobjects MPLSTESTDMIB_Mplsteobjects
+    MplsTeObjects MPLSTESTDMIB_MplsTeObjects
 
     // The mplsTunnelTable allows new MPLS tunnels to be created between an LSR
     // and a remote endpoint, and existing tunnels to be reconfigured or removed.
@@ -47,7 +47,7 @@ type MPLSTESTDMIB struct {
     // an LSR acting as a cross-connect.  Each MPLS tunnel can thus have one
     // out-segment originating at this LSR and/or one in-segment terminating at
     // this LSR.
-    Mplstunneltable MPLSTESTDMIB_Mplstunneltable
+    MplsTunnelTable MPLSTESTDMIB_MplsTunnelTable
 
     // The mplsTunnelHopTable is used to indicate the hops, strict or loose, for
     // an instance of an MPLS tunnel defined in mplsTunnelTable, when it is
@@ -62,13 +62,13 @@ type MPLSTESTDMIB struct {
     // originating LSR of an outgoing tunnel by which we want packets to exit the
     // LSR, we specify this as the first hop for this tunnel in
     // mplsTunnelHopTable.
-    Mplstunnelhoptable MPLSTESTDMIB_Mplstunnelhoptable
+    MplsTunnelHopTable MPLSTESTDMIB_MplsTunnelHopTable
 
     // The mplsTunnelResourceTable allows a manager to specify which resources are
     // desired for an MPLS tunnel.  This table also allows several tunnels to
     // point to a single entry in this table, implying that these tunnels should
     // share resources.
-    Mplstunnelresourcetable MPLSTESTDMIB_Mplstunnelresourcetable
+    MplsTunnelResourceTable MPLSTESTDMIB_MplsTunnelResourceTable
 
     // The mplsTunnelARHopTable is used to indicate the hops for an MPLS tunnel
     // defined in mplsTunnelTable, as reported by the MPLS signalling protocol.
@@ -89,7 +89,7 @@ type MPLSTESTDMIB struct {
     // table may change while it is being read because of re-routing activities. A
     // network administrator may verify that the actual route read is consistent
     // by reference to the mplsTunnelLastPathChange object.
-    Mplstunnelarhoptable MPLSTESTDMIB_Mplstunnelarhoptable
+    MplsTunnelARHopTable MPLSTESTDMIB_MplsTunnelARHopTable
 
     // The mplsTunnelCHopTable is used to indicate the hops, strict or loose, for
     // an MPLS tunnel defined in mplsTunnelTable, as computed by a constraint-
@@ -107,7 +107,7 @@ type MPLSTESTDMIB struct {
     // implementation of this table is optional. Furthermore, since the
     // information in this table describes the path computed by the CSPF engine
     // the entries in this table are read-only.
-    Mplstunnelchoptable MPLSTESTDMIB_Mplstunnelchoptable
+    MplsTunnelCHopTable MPLSTESTDMIB_MplsTunnelCHopTable
 
     // The mplsTunnelCRLDPResTable allows a manager to specify which
     // CR-LDP-specific resources are desired for an MPLS tunnel if that tunnel is
@@ -115,7 +115,7 @@ type MPLSTESTDMIB struct {
     // specified in mplsTunnelResourceTable. This table also allows several
     // tunnels to point to a single entry in this table, implying that these
     // tunnels should share resources.
-    Mplstunnelcrldprestable MPLSTESTDMIB_Mplstunnelcrldprestable
+    MplsTunnelCRLDPResTable MPLSTESTDMIB_MplsTunnelCRLDPResTable
 }
 
 func (mPLSTESTDMIB *MPLSTESTDMIB) GetEntityData() *types.CommonEntityData {
@@ -128,42 +128,45 @@ func (mPLSTESTDMIB *MPLSTESTDMIB) GetEntityData() *types.CommonEntityData {
     mPLSTESTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mPLSTESTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mPLSTESTDMIB.EntityData.Children = make(map[string]types.YChild)
-    mPLSTESTDMIB.EntityData.Children["mplsTeScalars"] = types.YChild{"Mplstescalars", &mPLSTESTDMIB.Mplstescalars}
-    mPLSTESTDMIB.EntityData.Children["mplsTeObjects"] = types.YChild{"Mplsteobjects", &mPLSTESTDMIB.Mplsteobjects}
-    mPLSTESTDMIB.EntityData.Children["mplsTunnelTable"] = types.YChild{"Mplstunneltable", &mPLSTESTDMIB.Mplstunneltable}
-    mPLSTESTDMIB.EntityData.Children["mplsTunnelHopTable"] = types.YChild{"Mplstunnelhoptable", &mPLSTESTDMIB.Mplstunnelhoptable}
-    mPLSTESTDMIB.EntityData.Children["mplsTunnelResourceTable"] = types.YChild{"Mplstunnelresourcetable", &mPLSTESTDMIB.Mplstunnelresourcetable}
-    mPLSTESTDMIB.EntityData.Children["mplsTunnelARHopTable"] = types.YChild{"Mplstunnelarhoptable", &mPLSTESTDMIB.Mplstunnelarhoptable}
-    mPLSTESTDMIB.EntityData.Children["mplsTunnelCHopTable"] = types.YChild{"Mplstunnelchoptable", &mPLSTESTDMIB.Mplstunnelchoptable}
-    mPLSTESTDMIB.EntityData.Children["mplsTunnelCRLDPResTable"] = types.YChild{"Mplstunnelcrldprestable", &mPLSTESTDMIB.Mplstunnelcrldprestable}
-    mPLSTESTDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    mPLSTESTDMIB.EntityData.Children = types.NewOrderedMap()
+    mPLSTESTDMIB.EntityData.Children.Append("mplsTeScalars", types.YChild{"MplsTeScalars", &mPLSTESTDMIB.MplsTeScalars})
+    mPLSTESTDMIB.EntityData.Children.Append("mplsTeObjects", types.YChild{"MplsTeObjects", &mPLSTESTDMIB.MplsTeObjects})
+    mPLSTESTDMIB.EntityData.Children.Append("mplsTunnelTable", types.YChild{"MplsTunnelTable", &mPLSTESTDMIB.MplsTunnelTable})
+    mPLSTESTDMIB.EntityData.Children.Append("mplsTunnelHopTable", types.YChild{"MplsTunnelHopTable", &mPLSTESTDMIB.MplsTunnelHopTable})
+    mPLSTESTDMIB.EntityData.Children.Append("mplsTunnelResourceTable", types.YChild{"MplsTunnelResourceTable", &mPLSTESTDMIB.MplsTunnelResourceTable})
+    mPLSTESTDMIB.EntityData.Children.Append("mplsTunnelARHopTable", types.YChild{"MplsTunnelARHopTable", &mPLSTESTDMIB.MplsTunnelARHopTable})
+    mPLSTESTDMIB.EntityData.Children.Append("mplsTunnelCHopTable", types.YChild{"MplsTunnelCHopTable", &mPLSTESTDMIB.MplsTunnelCHopTable})
+    mPLSTESTDMIB.EntityData.Children.Append("mplsTunnelCRLDPResTable", types.YChild{"MplsTunnelCRLDPResTable", &mPLSTESTDMIB.MplsTunnelCRLDPResTable})
+    mPLSTESTDMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    mPLSTESTDMIB.EntityData.YListKeys = []string {}
+
     return &(mPLSTESTDMIB.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstescalars
-type MPLSTESTDMIB_Mplstescalars struct {
+// MPLSTESTDMIB_MplsTeScalars
+type MPLSTESTDMIB_MplsTeScalars struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of tunnels configured on this device. A tunnel is considered
     // configured if the mplsTunnelRowStatus is active(1). The type is interface{}
     // with range: 0..4294967295.
-    Mplstunnelconfigured interface{}
+    MplsTunnelConfigured interface{}
 
     // The number of tunnels active on this device. A tunnel is considered active
     // if the mplsTunnelOperStatus is up(1). The type is interface{} with range:
     // 0..4294967295.
-    Mplstunnelactive interface{}
+    MplsTunnelActive interface{}
 
     // The traffic engineering distribution protocol(s) used by this LSR. Note
     // that an LSR may support more than one distribution protocol simultaneously.
     // The type is map[string]bool.
-    Mplstunneltedistproto interface{}
+    MplsTunnelTEDistProto interface{}
 
     // The maximum number of hops that can be specified for a tunnel on this
     // device. The type is interface{} with range: 0..4294967295.
-    Mplstunnelmaxhops interface{}
+    MplsTunnelMaxHops interface{}
 
     // This variable indicates the maximum number of notifications issued per
     // second. If events occur more rapidly, the implementation may simply fail to
@@ -171,31 +174,34 @@ type MPLSTESTDMIB_Mplstescalars struct {
     // appropriate time. A value of 0 means no throttling is applied and events
     // may be notified at the rate at which they occur. The type is interface{}
     // with range: 0..4294967295.
-    Mplstunnelnotificationmaxrate interface{}
+    MplsTunnelNotificationMaxRate interface{}
 }
 
-func (mplstescalars *MPLSTESTDMIB_Mplstescalars) GetEntityData() *types.CommonEntityData {
-    mplstescalars.EntityData.YFilter = mplstescalars.YFilter
-    mplstescalars.EntityData.YangName = "mplsTeScalars"
-    mplstescalars.EntityData.BundleName = "cisco_ios_xe"
-    mplstescalars.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
-    mplstescalars.EntityData.SegmentPath = "mplsTeScalars"
-    mplstescalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstescalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstescalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTeScalars *MPLSTESTDMIB_MplsTeScalars) GetEntityData() *types.CommonEntityData {
+    mplsTeScalars.EntityData.YFilter = mplsTeScalars.YFilter
+    mplsTeScalars.EntityData.YangName = "mplsTeScalars"
+    mplsTeScalars.EntityData.BundleName = "cisco_ios_xe"
+    mplsTeScalars.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
+    mplsTeScalars.EntityData.SegmentPath = "mplsTeScalars"
+    mplsTeScalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTeScalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTeScalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstescalars.EntityData.Children = make(map[string]types.YChild)
-    mplstescalars.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplstescalars.EntityData.Leafs["mplsTunnelConfigured"] = types.YLeaf{"Mplstunnelconfigured", mplstescalars.Mplstunnelconfigured}
-    mplstescalars.EntityData.Leafs["mplsTunnelActive"] = types.YLeaf{"Mplstunnelactive", mplstescalars.Mplstunnelactive}
-    mplstescalars.EntityData.Leafs["mplsTunnelTEDistProto"] = types.YLeaf{"Mplstunneltedistproto", mplstescalars.Mplstunneltedistproto}
-    mplstescalars.EntityData.Leafs["mplsTunnelMaxHops"] = types.YLeaf{"Mplstunnelmaxhops", mplstescalars.Mplstunnelmaxhops}
-    mplstescalars.EntityData.Leafs["mplsTunnelNotificationMaxRate"] = types.YLeaf{"Mplstunnelnotificationmaxrate", mplstescalars.Mplstunnelnotificationmaxrate}
-    return &(mplstescalars.EntityData)
+    mplsTeScalars.EntityData.Children = types.NewOrderedMap()
+    mplsTeScalars.EntityData.Leafs = types.NewOrderedMap()
+    mplsTeScalars.EntityData.Leafs.Append("mplsTunnelConfigured", types.YLeaf{"MplsTunnelConfigured", mplsTeScalars.MplsTunnelConfigured})
+    mplsTeScalars.EntityData.Leafs.Append("mplsTunnelActive", types.YLeaf{"MplsTunnelActive", mplsTeScalars.MplsTunnelActive})
+    mplsTeScalars.EntityData.Leafs.Append("mplsTunnelTEDistProto", types.YLeaf{"MplsTunnelTEDistProto", mplsTeScalars.MplsTunnelTEDistProto})
+    mplsTeScalars.EntityData.Leafs.Append("mplsTunnelMaxHops", types.YLeaf{"MplsTunnelMaxHops", mplsTeScalars.MplsTunnelMaxHops})
+    mplsTeScalars.EntityData.Leafs.Append("mplsTunnelNotificationMaxRate", types.YLeaf{"MplsTunnelNotificationMaxRate", mplsTeScalars.MplsTunnelNotificationMaxRate})
+
+    mplsTeScalars.EntityData.YListKeys = []string {}
+
+    return &(mplsTeScalars.EntityData)
 }
 
-// MPLSTESTDMIB_Mplsteobjects
-type MPLSTESTDMIB_Mplsteobjects struct {
+// MPLSTESTDMIB_MplsTeObjects
+type MPLSTESTDMIB_MplsTeObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -206,7 +212,7 @@ type MPLSTESTDMIB_Mplsteobjects struct {
     // a tunnel. At other LSRs the value of mplsTunnelIndex SHOULD be taken from
     // the value signaled by the MPLS signaling protocol. The type is interface{}
     // with range: 0..65535.
-    Mplstunnelindexnext interface{}
+    MplsTunnelIndexNext interface{}
 
     // This object contains an appropriate value to be used for
     // mplsTunnelHopListIndex when creating entries in the mplsTunnelHopTable.  If
@@ -226,7 +232,7 @@ type MPLSTESTDMIB_Mplsteobjects struct {
     // in use, however, the SET fails.  The Network Management Application must
     // then re-read this variable to obtain a new usable value. The type is
     // interface{} with range: 0..4294967295.
-    Mplstunnelhoplistindexnext interface{}
+    MplsTunnelHopListIndexNext interface{}
 
     // This object contains the next appropriate value to be used for
     // mplsTunnelResourceIndex when creating entries in the
@@ -246,34 +252,37 @@ type MPLSTESTDMIB_Mplsteobjects struct {
     // in use, however, the SET fails.  The Network Management Application must
     // then re-read this variable to obtain a new usable value. The type is
     // interface{} with range: 0..2147483647.
-    Mplstunnelresourceindexnext interface{}
+    MplsTunnelResourceIndexNext interface{}
 
     // If this object is true, then it enables the generation of mplsTunnelUp and
     // mplsTunnelDown traps, otherwise these traps are not emitted. The type is
     // bool.
-    Mplstunnelnotificationenable interface{}
+    MplsTunnelNotificationEnable interface{}
 }
 
-func (mplsteobjects *MPLSTESTDMIB_Mplsteobjects) GetEntityData() *types.CommonEntityData {
-    mplsteobjects.EntityData.YFilter = mplsteobjects.YFilter
-    mplsteobjects.EntityData.YangName = "mplsTeObjects"
-    mplsteobjects.EntityData.BundleName = "cisco_ios_xe"
-    mplsteobjects.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
-    mplsteobjects.EntityData.SegmentPath = "mplsTeObjects"
-    mplsteobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsteobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsteobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTeObjects *MPLSTESTDMIB_MplsTeObjects) GetEntityData() *types.CommonEntityData {
+    mplsTeObjects.EntityData.YFilter = mplsTeObjects.YFilter
+    mplsTeObjects.EntityData.YangName = "mplsTeObjects"
+    mplsTeObjects.EntityData.BundleName = "cisco_ios_xe"
+    mplsTeObjects.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
+    mplsTeObjects.EntityData.SegmentPath = "mplsTeObjects"
+    mplsTeObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTeObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTeObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsteobjects.EntityData.Children = make(map[string]types.YChild)
-    mplsteobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsteobjects.EntityData.Leafs["mplsTunnelIndexNext"] = types.YLeaf{"Mplstunnelindexnext", mplsteobjects.Mplstunnelindexnext}
-    mplsteobjects.EntityData.Leafs["mplsTunnelHopListIndexNext"] = types.YLeaf{"Mplstunnelhoplistindexnext", mplsteobjects.Mplstunnelhoplistindexnext}
-    mplsteobjects.EntityData.Leafs["mplsTunnelResourceIndexNext"] = types.YLeaf{"Mplstunnelresourceindexnext", mplsteobjects.Mplstunnelresourceindexnext}
-    mplsteobjects.EntityData.Leafs["mplsTunnelNotificationEnable"] = types.YLeaf{"Mplstunnelnotificationenable", mplsteobjects.Mplstunnelnotificationenable}
-    return &(mplsteobjects.EntityData)
+    mplsTeObjects.EntityData.Children = types.NewOrderedMap()
+    mplsTeObjects.EntityData.Leafs = types.NewOrderedMap()
+    mplsTeObjects.EntityData.Leafs.Append("mplsTunnelIndexNext", types.YLeaf{"MplsTunnelIndexNext", mplsTeObjects.MplsTunnelIndexNext})
+    mplsTeObjects.EntityData.Leafs.Append("mplsTunnelHopListIndexNext", types.YLeaf{"MplsTunnelHopListIndexNext", mplsTeObjects.MplsTunnelHopListIndexNext})
+    mplsTeObjects.EntityData.Leafs.Append("mplsTunnelResourceIndexNext", types.YLeaf{"MplsTunnelResourceIndexNext", mplsTeObjects.MplsTunnelResourceIndexNext})
+    mplsTeObjects.EntityData.Leafs.Append("mplsTunnelNotificationEnable", types.YLeaf{"MplsTunnelNotificationEnable", mplsTeObjects.MplsTunnelNotificationEnable})
+
+    mplsTeObjects.EntityData.YListKeys = []string {}
+
+    return &(mplsTeObjects.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunneltable
+// MPLSTESTDMIB_MplsTunnelTable
 // The mplsTunnelTable allows new MPLS tunnels to be
 // created between an LSR and a remote endpoint, and
 // existing tunnels to be reconfigured or removed.
@@ -283,7 +292,7 @@ func (mplsteobjects *MPLSTESTDMIB_Mplsteobjects) GetEntityData() *types.CommonEn
 // acting as a cross-connect.  Each MPLS tunnel can
 // thus have one out-segment originating at this LSR
 // and/or one in-segment terminating at this LSR.
-type MPLSTESTDMIB_Mplstunneltable struct {
+type MPLSTESTDMIB_MplsTunnelTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -298,30 +307,33 @@ type MPLSTESTDMIB_Mplstunneltable struct {
     // network requires index mplsTunnelIngressLSRId.  The last index
     // mplsTunnelEgressLSRId is useful in identifying all instances of a tunnel
     // that terminate on the same egress LSR. The type is slice of
-    // MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry.
-    Mplstunnelentry []MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry
+    // MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry.
+    MplsTunnelEntry []*MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry
 }
 
-func (mplstunneltable *MPLSTESTDMIB_Mplstunneltable) GetEntityData() *types.CommonEntityData {
-    mplstunneltable.EntityData.YFilter = mplstunneltable.YFilter
-    mplstunneltable.EntityData.YangName = "mplsTunnelTable"
-    mplstunneltable.EntityData.BundleName = "cisco_ios_xe"
-    mplstunneltable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
-    mplstunneltable.EntityData.SegmentPath = "mplsTunnelTable"
-    mplstunneltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunneltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunneltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelTable *MPLSTESTDMIB_MplsTunnelTable) GetEntityData() *types.CommonEntityData {
+    mplsTunnelTable.EntityData.YFilter = mplsTunnelTable.YFilter
+    mplsTunnelTable.EntityData.YangName = "mplsTunnelTable"
+    mplsTunnelTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
+    mplsTunnelTable.EntityData.SegmentPath = "mplsTunnelTable"
+    mplsTunnelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunneltable.EntityData.Children = make(map[string]types.YChild)
-    mplstunneltable.EntityData.Children["mplsTunnelEntry"] = types.YChild{"Mplstunnelentry", nil}
-    for i := range mplstunneltable.Mplstunnelentry {
-        mplstunneltable.EntityData.Children[types.GetSegmentPath(&mplstunneltable.Mplstunnelentry[i])] = types.YChild{"Mplstunnelentry", &mplstunneltable.Mplstunnelentry[i]}
+    mplsTunnelTable.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelTable.EntityData.Children.Append("mplsTunnelEntry", types.YChild{"MplsTunnelEntry", nil})
+    for i := range mplsTunnelTable.MplsTunnelEntry {
+        mplsTunnelTable.EntityData.Children.Append(types.GetSegmentPath(mplsTunnelTable.MplsTunnelEntry[i]), types.YChild{"MplsTunnelEntry", mplsTunnelTable.MplsTunnelEntry[i]})
     }
-    mplstunneltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplstunneltable.EntityData)
+    mplsTunnelTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsTunnelTable.EntityData.YListKeys = []string {}
+
+    return &(mplsTunnelTable.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry
+// MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry
 // An entry in this table represents an MPLS tunnel.
 // An entry can be created by a network administrator
 // or by an SNMP agent as instructed by an MPLS
@@ -340,7 +352,7 @@ func (mplstunneltable *MPLSTESTDMIB_Mplstunneltable) GetEntityData() *types.Comm
 // mplsTunnelEgressLSRId is useful in identifying all
 // instances of a tunnel that terminate on the same
 // egress LSR.
-type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
+type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -351,7 +363,7 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // value signaled in the Tunnel Id of the Session object. When the MPLS
     // signalling protocol is crldp(3) this value SHOULD be equal to the value
     // signaled in the LSP ID. The type is interface{} with range: 0..65535.
-    Mplstunnelindex interface{}
+    MplsTunnelIndex interface{}
 
     // This attribute is a key. Uniquely identifies a particular instance of a
     // tunnel between a pair of ingress and egress LSRs. It is useful to identify
@@ -360,7 +372,7 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // equal to the LSP Id of the Sender Template object. When the signaling
     // protocol is crldp(3) there is no equivalent signaling object. The type is
     // interface{} with range: 0..4294967295.
-    Mplstunnelinstance interface{}
+    MplsTunnelInstance interface{}
 
     // This attribute is a key. Identity of the ingress LSR associated with this
     // tunnel instance. When the MPLS signalling protocol is rsvp(2) this value
@@ -369,25 +381,25 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // When the MPLS signalling protocol is crldp(3) this value SHOULD be equal to
     // the Ingress LSR Router ID field in the LSPID TLV object. The type is
     // interface{} with range: 0..4294967295.
-    Mplstunnelingresslsrid interface{}
+    MplsTunnelIngressLSRId interface{}
 
     // This attribute is a key. Identity of the egress LSR associated with this
     // tunnel instance. The type is interface{} with range: 0..4294967295.
-    Mplstunnelegresslsrid interface{}
+    MplsTunnelEgressLSRId interface{}
 
     // The canonical name assigned to the tunnel. This name can be used to refer
     // to the tunnel on the LSR's console port.  If mplsTunnelIsIf is set to true
     // then the ifName of the interface corresponding to this tunnel should have a
     // value equal to mplsTunnelName.  Also see the description of ifName in RFC
     // 2863. The type is string.
-    Mplstunnelname interface{}
+    MplsTunnelName interface{}
 
     // A textual string containing information about the tunnel.  If there is no
     // description this object contains a zero length string. This object is may
     // not be signaled by MPLS signaling protocols, consequentally the value of
     // this object at transit and egress LSRs MAY be automatically generated or
     // absent. The type is string.
-    Mplstunneldescr interface{}
+    MplsTunnelDescr interface{}
 
     // Denotes whether or not this tunnel corresponds to an interface represented
     // in the interfaces group table. Note that if this variable is set to true
@@ -395,19 +407,19 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // value equal to mplsTunnelName.  Also see the description of ifName in RFC
     // 2863.  This object is meaningful only at the ingress and egress LSRs. The
     // type is bool.
-    Mplstunnelisif interface{}
+    MplsTunnelIsIf interface{}
 
     // If mplsTunnelIsIf is set to true, then this value contains the LSR-assigned
     // ifIndex which corresponds to an entry in the interfaces table.  Otherwise
     // this variable should contain the value of zero indicating that a valid
     // ifIndex was not assigned to this tunnel interface. The type is interface{}
     // with range: 0..2147483647.
-    Mplstunnelifindex interface{}
+    MplsTunnelIfIndex interface{}
 
     // Denotes the entity that created and is responsible for managing this
     // tunnel. This column is automatically filled by the agent on creation of a
     // row. The type is MplsOwner.
-    Mplstunnelowner interface{}
+    MplsTunnelOwner interface{}
 
     // This value signifies the role that this tunnel entry/instance represents.
     // This value MUST be set to head(1) at the originating point of the tunnel.
@@ -415,27 +427,27 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // transit points are supported. This value MUST be set to tail(3) at the
     // terminating point of the tunnel if tunnel tails are supported.  The value
     // headTail(4) is provided for tunnels that begin and end on the same LSR. The
-    // type is Mplstunnelrole.
-    Mplstunnelrole interface{}
+    // type is MplsTunnelRole.
+    MplsTunnelRole interface{}
 
     // This variable points to a row in the mplsXCTable. This table identifies the
     // segments that compose this tunnel, their characteristics, and relationships
     // to each other. A value of zeroDotZero indicates that no LSP has been
     // associated with this tunnel yet. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Mplstunnelxcpointer interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    MplsTunnelXCPointer interface{}
 
     // The signalling protocol, if any, used to setup this tunnel. The type is
-    // Mplstunnelsignallingproto.
-    Mplstunnelsignallingproto interface{}
+    // MplsTunnelSignallingProto.
+    MplsTunnelSignallingProto interface{}
 
     // Indicates the setup priority of this tunnel. The type is interface{} with
     // range: 0..7.
-    Mplstunnelsetupprio interface{}
+    MplsTunnelSetupPrio interface{}
 
     // Indicates the holding priority for this tunnel. The type is interface{}
     // with range: 0..7.
-    Mplstunnelholdingprio interface{}
+    MplsTunnelHoldingPrio interface{}
 
     // This bit mask indicates optional session values for this tunnel. The
     // following describes these bit fields:  fastRerouteThis flag indicates that
@@ -452,12 +464,12 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // hops of this tunnel are to be pinned.  recordRouteThis flag indicates
     // whether or not the signalling protocol should remember the tunnel path
     // after it has been signaled. The type is map[string]bool.
-    Mplstunnelsessionattributes interface{}
+    MplsTunnelSessionAttributes interface{}
 
     // Indicates that the local repair mechanism is in use to maintain this tunnel
     // (usually in the face of an outage of the link it was previously routed
     // over). The type is bool.
-    Mplstunnellocalprotectinuse interface{}
+    MplsTunnelLocalProtectInUse interface{}
 
     // This variable represents a pointer to the traffic parameter specification
     // for this tunnel.  This value may point at an entry in the
@@ -467,14 +479,14 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // zeroDotZero indicates best-effort treatment.  By having the same value of
     // this object, two or more LSPs can indicate resource sharing. The type is
     // string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Mplstunnelresourcepointer interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    MplsTunnelResourcePointer interface{}
 
     // Specifies the instance index of the primary instance of this tunnel. More
     // details of the definition of tunnel instances and the primary tunnel
     // instance can be found in the description of the TEXTUAL-CONVENTION
     // MplsTunnelInstanceIndex. The type is interface{} with range: 0..4294967295.
-    Mplstunnelprimaryinstance interface{}
+    MplsTunnelPrimaryInstance interface{}
 
     // This value indicates which priority, in descending order, with 0 indicating
     // the lowest priority, within a group of tunnel instances. A group of tunnel
@@ -484,12 +496,12 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // supercede another. Instances of tunnels containing the same
     // mplsTunnelInstancePriority will be used for load sharing. The type is
     // interface{} with range: 0..4294967295.
-    Mplstunnelinstancepriority interface{}
+    MplsTunnelInstancePriority interface{}
 
     // Index into the mplsTunnelHopTable entry that specifies the explicit route
     // hops for this tunnel. This object is meaningful only at the head-end of the
     // tunnel. The type is interface{} with range: 0..4294967295.
-    Mplstunnelhoptableindex interface{}
+    MplsTunnelHopTableIndex interface{}
 
     // This value denotes the configured path that was chosen for this tunnel.
     // This value reflects the secondary index into mplsTunnelHopTable. This path
@@ -498,227 +510,230 @@ type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry struct {
     // the actual path being taken by the tunnel. A value of zero denotes that no
     // path is currently in use or available. The type is interface{} with range:
     // 0..4294967295.
-    Mplstunnelpathinuse interface{}
+    MplsTunnelPathInUse interface{}
 
     // Index into the mplsTunnelARHopTable entry that specifies the actual hops
     // traversed by the tunnel. This is automatically updated by the agent when
     // the actual hops becomes available. The type is interface{} with range:
     // 0..4294967295.
-    Mplstunnelarhoptableindex interface{}
+    MplsTunnelARHopTableIndex interface{}
 
     // Index into the mplsTunnelCHopTable entry that specifies the computed hops
     // traversed by the tunnel. This is automatically updated by the agent when
     // computed hops become available or when computed hops get modified. The type
     // is interface{} with range: 0..4294967295.
-    Mplstunnelchoptableindex interface{}
+    MplsTunnelCHopTableIndex interface{}
 
     // A link satisfies the include-any constraint if and only if the constraint
     // is zero, or the link and the constraint have a resource class in common.
     // The type is interface{} with range: 0..4294967295.
-    Mplstunnelincludeanyaffinity interface{}
+    MplsTunnelIncludeAnyAffinity interface{}
 
     // A link satisfies the include-all constraint if and only if the link
     // contains all of the administrative groups specified in the constraint. The
     // type is interface{} with range: 0..4294967295.
-    Mplstunnelincludeallaffinity interface{}
+    MplsTunnelIncludeAllAffinity interface{}
 
     // A link satisfies the exclude-any constraint if and only if the link
     // contains none of the administrative groups specified in the constraint. The
     // type is interface{} with range: 0..4294967295.
-    Mplstunnelexcludeanyaffinity interface{}
+    MplsTunnelExcludeAnyAffinity interface{}
 
     // This value represents the aggregate up time for all instances of this
     // tunnel, if available. If this value is unavailable, it MUST return a value
     // of 0. The type is interface{} with range: 0..4294967295.
-    Mplstunneltotaluptime interface{}
+    MplsTunnelTotalUpTime interface{}
 
     // This value identifies the total time that this tunnel instance's operStatus
     // has been Up(1). The type is interface{} with range: 0..4294967295.
-    Mplstunnelinstanceuptime interface{}
+    MplsTunnelInstanceUpTime interface{}
 
     // Specifies the total time the primary instance of this tunnel has been
     // active. The primary instance of this tunnel is defined in
     // mplsTunnelPrimaryInstance. The type is interface{} with range:
     // 0..4294967295.
-    Mplstunnelprimaryuptime interface{}
+    MplsTunnelPrimaryUpTime interface{}
 
     // Specifies the number of times the actual path for this tunnel instance has
     // changed. The type is interface{} with range: 0..4294967295.
-    Mplstunnelpathchanges interface{}
+    MplsTunnelPathChanges interface{}
 
     // Specifies the time since the last change to the actual path for this tunnel
     // instance. The type is interface{} with range: 0..4294967295.
-    Mplstunnellastpathchange interface{}
+    MplsTunnelLastPathChange interface{}
 
     // Specifies the value of SysUpTime when the first instance of this tunnel
     // came into existence. That is, when the value of mplsTunnelOperStatus was
     // first set to up(1). The type is interface{} with range: 0..4294967295.
-    Mplstunnelcreationtime interface{}
+    MplsTunnelCreationTime interface{}
 
     // Specifies the number of times the state (mplsTunnelOperStatus) of this
     // tunnel instance has changed. The type is interface{} with range:
     // 0..4294967295.
-    Mplstunnelstatetransitions interface{}
+    MplsTunnelStateTransitions interface{}
 
     // Indicates the desired operational status of this tunnel. The type is
-    // Mplstunneladminstatus.
-    Mplstunneladminstatus interface{}
+    // MplsTunnelAdminStatus.
+    MplsTunnelAdminStatus interface{}
 
     // Indicates the actual operational status of this tunnel, which is typically
     // but not limited to, a function of the state of individual segments of this
-    // tunnel. The type is Mplstunneloperstatus.
-    Mplstunneloperstatus interface{}
+    // tunnel. The type is MplsTunnelOperStatus.
+    MplsTunnelOperStatus interface{}
 
     // This variable is used to create, modify, and/or delete a row in this table.
     // When a row in this table is in active(1) state, no objects in that row can
     // be modified by the agent except mplsTunnelAdminStatus, mplsTunnelRowStatus
     // and mplsTunnelStorageType. The type is RowStatus.
-    Mplstunnelrowstatus interface{}
+    MplsTunnelRowStatus interface{}
 
     // The storage type for this tunnel entry. Conceptual rows having the value
     // 'permanent' need not allow write-access to any columnar objects in the row.
     // The type is StorageType.
-    Mplstunnelstoragetype interface{}
+    MplsTunnelStorageType interface{}
 
     // Number of packets forwarded by the tunnel. This object should represents
     // the 32-bit value of the least significant part of the 64-bit value if both
     // mplsTunnelPerfHCPackets is returned. The type is interface{} with range:
     // 0..4294967295.
-    Mplstunnelperfpackets interface{}
+    MplsTunnelPerfPackets interface{}
 
     // High capacity counter for number of packets forwarded by the tunnel. . The
     // type is interface{} with range: 0..18446744073709551615.
-    Mplstunnelperfhcpackets interface{}
+    MplsTunnelPerfHCPackets interface{}
 
     // Number of packets dropped because of errors or for other reasons. The type
     // is interface{} with range: 0..4294967295.
-    Mplstunnelperferrors interface{}
+    MplsTunnelPerfErrors interface{}
 
     // Number of bytes forwarded by the tunnel. This object should represents the
     // 32-bit value of the least significant part of the 64-bit value if both
     // mplsTunnelPerfHCBytes is returned. The type is interface{} with range:
     // 0..4294967295.
-    Mplstunnelperfbytes interface{}
+    MplsTunnelPerfBytes interface{}
 
     // High capacity counter for number of bytes forwarded by the tunnel. The type
     // is interface{} with range: 0..18446744073709551615.
-    Mplstunnelperfhcbytes interface{}
+    MplsTunnelPerfHCBytes interface{}
 }
 
-func (mplstunnelentry *MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry) GetEntityData() *types.CommonEntityData {
-    mplstunnelentry.EntityData.YFilter = mplstunnelentry.YFilter
-    mplstunnelentry.EntityData.YangName = "mplsTunnelEntry"
-    mplstunnelentry.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelentry.EntityData.ParentYangName = "mplsTunnelTable"
-    mplstunnelentry.EntityData.SegmentPath = "mplsTunnelEntry" + "[mplsTunnelIndex='" + fmt.Sprintf("%v", mplstunnelentry.Mplstunnelindex) + "']" + "[mplsTunnelInstance='" + fmt.Sprintf("%v", mplstunnelentry.Mplstunnelinstance) + "']" + "[mplsTunnelIngressLSRId='" + fmt.Sprintf("%v", mplstunnelentry.Mplstunnelingresslsrid) + "']" + "[mplsTunnelEgressLSRId='" + fmt.Sprintf("%v", mplstunnelentry.Mplstunnelegresslsrid) + "']"
-    mplstunnelentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelEntry *MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry) GetEntityData() *types.CommonEntityData {
+    mplsTunnelEntry.EntityData.YFilter = mplsTunnelEntry.YFilter
+    mplsTunnelEntry.EntityData.YangName = "mplsTunnelEntry"
+    mplsTunnelEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelEntry.EntityData.ParentYangName = "mplsTunnelTable"
+    mplsTunnelEntry.EntityData.SegmentPath = "mplsTunnelEntry" + types.AddKeyToken(mplsTunnelEntry.MplsTunnelIndex, "mplsTunnelIndex") + types.AddKeyToken(mplsTunnelEntry.MplsTunnelInstance, "mplsTunnelInstance") + types.AddKeyToken(mplsTunnelEntry.MplsTunnelIngressLSRId, "mplsTunnelIngressLSRId") + types.AddKeyToken(mplsTunnelEntry.MplsTunnelEgressLSRId, "mplsTunnelEgressLSRId")
+    mplsTunnelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelentry.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplstunnelentry.EntityData.Leafs["mplsTunnelIndex"] = types.YLeaf{"Mplstunnelindex", mplstunnelentry.Mplstunnelindex}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelInstance"] = types.YLeaf{"Mplstunnelinstance", mplstunnelentry.Mplstunnelinstance}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelIngressLSRId"] = types.YLeaf{"Mplstunnelingresslsrid", mplstunnelentry.Mplstunnelingresslsrid}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelEgressLSRId"] = types.YLeaf{"Mplstunnelegresslsrid", mplstunnelentry.Mplstunnelegresslsrid}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelName"] = types.YLeaf{"Mplstunnelname", mplstunnelentry.Mplstunnelname}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelDescr"] = types.YLeaf{"Mplstunneldescr", mplstunnelentry.Mplstunneldescr}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelIsIf"] = types.YLeaf{"Mplstunnelisif", mplstunnelentry.Mplstunnelisif}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelIfIndex"] = types.YLeaf{"Mplstunnelifindex", mplstunnelentry.Mplstunnelifindex}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelOwner"] = types.YLeaf{"Mplstunnelowner", mplstunnelentry.Mplstunnelowner}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelRole"] = types.YLeaf{"Mplstunnelrole", mplstunnelentry.Mplstunnelrole}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelXCPointer"] = types.YLeaf{"Mplstunnelxcpointer", mplstunnelentry.Mplstunnelxcpointer}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelSignallingProto"] = types.YLeaf{"Mplstunnelsignallingproto", mplstunnelentry.Mplstunnelsignallingproto}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelSetupPrio"] = types.YLeaf{"Mplstunnelsetupprio", mplstunnelentry.Mplstunnelsetupprio}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelHoldingPrio"] = types.YLeaf{"Mplstunnelholdingprio", mplstunnelentry.Mplstunnelholdingprio}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelSessionAttributes"] = types.YLeaf{"Mplstunnelsessionattributes", mplstunnelentry.Mplstunnelsessionattributes}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelLocalProtectInUse"] = types.YLeaf{"Mplstunnellocalprotectinuse", mplstunnelentry.Mplstunnellocalprotectinuse}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelResourcePointer"] = types.YLeaf{"Mplstunnelresourcepointer", mplstunnelentry.Mplstunnelresourcepointer}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPrimaryInstance"] = types.YLeaf{"Mplstunnelprimaryinstance", mplstunnelentry.Mplstunnelprimaryinstance}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelInstancePriority"] = types.YLeaf{"Mplstunnelinstancepriority", mplstunnelentry.Mplstunnelinstancepriority}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelHopTableIndex"] = types.YLeaf{"Mplstunnelhoptableindex", mplstunnelentry.Mplstunnelhoptableindex}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPathInUse"] = types.YLeaf{"Mplstunnelpathinuse", mplstunnelentry.Mplstunnelpathinuse}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelARHopTableIndex"] = types.YLeaf{"Mplstunnelarhoptableindex", mplstunnelentry.Mplstunnelarhoptableindex}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelCHopTableIndex"] = types.YLeaf{"Mplstunnelchoptableindex", mplstunnelentry.Mplstunnelchoptableindex}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelIncludeAnyAffinity"] = types.YLeaf{"Mplstunnelincludeanyaffinity", mplstunnelentry.Mplstunnelincludeanyaffinity}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelIncludeAllAffinity"] = types.YLeaf{"Mplstunnelincludeallaffinity", mplstunnelentry.Mplstunnelincludeallaffinity}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelExcludeAnyAffinity"] = types.YLeaf{"Mplstunnelexcludeanyaffinity", mplstunnelentry.Mplstunnelexcludeanyaffinity}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelTotalUpTime"] = types.YLeaf{"Mplstunneltotaluptime", mplstunnelentry.Mplstunneltotaluptime}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelInstanceUpTime"] = types.YLeaf{"Mplstunnelinstanceuptime", mplstunnelentry.Mplstunnelinstanceuptime}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPrimaryUpTime"] = types.YLeaf{"Mplstunnelprimaryuptime", mplstunnelentry.Mplstunnelprimaryuptime}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPathChanges"] = types.YLeaf{"Mplstunnelpathchanges", mplstunnelentry.Mplstunnelpathchanges}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelLastPathChange"] = types.YLeaf{"Mplstunnellastpathchange", mplstunnelentry.Mplstunnellastpathchange}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelCreationTime"] = types.YLeaf{"Mplstunnelcreationtime", mplstunnelentry.Mplstunnelcreationtime}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelStateTransitions"] = types.YLeaf{"Mplstunnelstatetransitions", mplstunnelentry.Mplstunnelstatetransitions}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelAdminStatus"] = types.YLeaf{"Mplstunneladminstatus", mplstunnelentry.Mplstunneladminstatus}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelOperStatus"] = types.YLeaf{"Mplstunneloperstatus", mplstunnelentry.Mplstunneloperstatus}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelRowStatus"] = types.YLeaf{"Mplstunnelrowstatus", mplstunnelentry.Mplstunnelrowstatus}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelStorageType"] = types.YLeaf{"Mplstunnelstoragetype", mplstunnelentry.Mplstunnelstoragetype}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPerfPackets"] = types.YLeaf{"Mplstunnelperfpackets", mplstunnelentry.Mplstunnelperfpackets}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPerfHCPackets"] = types.YLeaf{"Mplstunnelperfhcpackets", mplstunnelentry.Mplstunnelperfhcpackets}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPerfErrors"] = types.YLeaf{"Mplstunnelperferrors", mplstunnelentry.Mplstunnelperferrors}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPerfBytes"] = types.YLeaf{"Mplstunnelperfbytes", mplstunnelentry.Mplstunnelperfbytes}
-    mplstunnelentry.EntityData.Leafs["mplsTunnelPerfHCBytes"] = types.YLeaf{"Mplstunnelperfhcbytes", mplstunnelentry.Mplstunnelperfhcbytes}
-    return &(mplstunnelentry.EntityData)
+    mplsTunnelEntry.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelIndex", types.YLeaf{"MplsTunnelIndex", mplsTunnelEntry.MplsTunnelIndex})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelInstance", types.YLeaf{"MplsTunnelInstance", mplsTunnelEntry.MplsTunnelInstance})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelIngressLSRId", types.YLeaf{"MplsTunnelIngressLSRId", mplsTunnelEntry.MplsTunnelIngressLSRId})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelEgressLSRId", types.YLeaf{"MplsTunnelEgressLSRId", mplsTunnelEntry.MplsTunnelEgressLSRId})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelName", types.YLeaf{"MplsTunnelName", mplsTunnelEntry.MplsTunnelName})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelDescr", types.YLeaf{"MplsTunnelDescr", mplsTunnelEntry.MplsTunnelDescr})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelIsIf", types.YLeaf{"MplsTunnelIsIf", mplsTunnelEntry.MplsTunnelIsIf})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelIfIndex", types.YLeaf{"MplsTunnelIfIndex", mplsTunnelEntry.MplsTunnelIfIndex})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelOwner", types.YLeaf{"MplsTunnelOwner", mplsTunnelEntry.MplsTunnelOwner})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelRole", types.YLeaf{"MplsTunnelRole", mplsTunnelEntry.MplsTunnelRole})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelXCPointer", types.YLeaf{"MplsTunnelXCPointer", mplsTunnelEntry.MplsTunnelXCPointer})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelSignallingProto", types.YLeaf{"MplsTunnelSignallingProto", mplsTunnelEntry.MplsTunnelSignallingProto})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelSetupPrio", types.YLeaf{"MplsTunnelSetupPrio", mplsTunnelEntry.MplsTunnelSetupPrio})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelHoldingPrio", types.YLeaf{"MplsTunnelHoldingPrio", mplsTunnelEntry.MplsTunnelHoldingPrio})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelSessionAttributes", types.YLeaf{"MplsTunnelSessionAttributes", mplsTunnelEntry.MplsTunnelSessionAttributes})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelLocalProtectInUse", types.YLeaf{"MplsTunnelLocalProtectInUse", mplsTunnelEntry.MplsTunnelLocalProtectInUse})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelResourcePointer", types.YLeaf{"MplsTunnelResourcePointer", mplsTunnelEntry.MplsTunnelResourcePointer})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPrimaryInstance", types.YLeaf{"MplsTunnelPrimaryInstance", mplsTunnelEntry.MplsTunnelPrimaryInstance})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelInstancePriority", types.YLeaf{"MplsTunnelInstancePriority", mplsTunnelEntry.MplsTunnelInstancePriority})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelHopTableIndex", types.YLeaf{"MplsTunnelHopTableIndex", mplsTunnelEntry.MplsTunnelHopTableIndex})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPathInUse", types.YLeaf{"MplsTunnelPathInUse", mplsTunnelEntry.MplsTunnelPathInUse})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelARHopTableIndex", types.YLeaf{"MplsTunnelARHopTableIndex", mplsTunnelEntry.MplsTunnelARHopTableIndex})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelCHopTableIndex", types.YLeaf{"MplsTunnelCHopTableIndex", mplsTunnelEntry.MplsTunnelCHopTableIndex})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelIncludeAnyAffinity", types.YLeaf{"MplsTunnelIncludeAnyAffinity", mplsTunnelEntry.MplsTunnelIncludeAnyAffinity})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelIncludeAllAffinity", types.YLeaf{"MplsTunnelIncludeAllAffinity", mplsTunnelEntry.MplsTunnelIncludeAllAffinity})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelExcludeAnyAffinity", types.YLeaf{"MplsTunnelExcludeAnyAffinity", mplsTunnelEntry.MplsTunnelExcludeAnyAffinity})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelTotalUpTime", types.YLeaf{"MplsTunnelTotalUpTime", mplsTunnelEntry.MplsTunnelTotalUpTime})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelInstanceUpTime", types.YLeaf{"MplsTunnelInstanceUpTime", mplsTunnelEntry.MplsTunnelInstanceUpTime})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPrimaryUpTime", types.YLeaf{"MplsTunnelPrimaryUpTime", mplsTunnelEntry.MplsTunnelPrimaryUpTime})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPathChanges", types.YLeaf{"MplsTunnelPathChanges", mplsTunnelEntry.MplsTunnelPathChanges})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelLastPathChange", types.YLeaf{"MplsTunnelLastPathChange", mplsTunnelEntry.MplsTunnelLastPathChange})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelCreationTime", types.YLeaf{"MplsTunnelCreationTime", mplsTunnelEntry.MplsTunnelCreationTime})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelStateTransitions", types.YLeaf{"MplsTunnelStateTransitions", mplsTunnelEntry.MplsTunnelStateTransitions})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelAdminStatus", types.YLeaf{"MplsTunnelAdminStatus", mplsTunnelEntry.MplsTunnelAdminStatus})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelOperStatus", types.YLeaf{"MplsTunnelOperStatus", mplsTunnelEntry.MplsTunnelOperStatus})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelRowStatus", types.YLeaf{"MplsTunnelRowStatus", mplsTunnelEntry.MplsTunnelRowStatus})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelStorageType", types.YLeaf{"MplsTunnelStorageType", mplsTunnelEntry.MplsTunnelStorageType})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPerfPackets", types.YLeaf{"MplsTunnelPerfPackets", mplsTunnelEntry.MplsTunnelPerfPackets})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPerfHCPackets", types.YLeaf{"MplsTunnelPerfHCPackets", mplsTunnelEntry.MplsTunnelPerfHCPackets})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPerfErrors", types.YLeaf{"MplsTunnelPerfErrors", mplsTunnelEntry.MplsTunnelPerfErrors})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPerfBytes", types.YLeaf{"MplsTunnelPerfBytes", mplsTunnelEntry.MplsTunnelPerfBytes})
+    mplsTunnelEntry.EntityData.Leafs.Append("mplsTunnelPerfHCBytes", types.YLeaf{"MplsTunnelPerfHCBytes", mplsTunnelEntry.MplsTunnelPerfHCBytes})
+
+    mplsTunnelEntry.EntityData.YListKeys = []string {"MplsTunnelIndex", "MplsTunnelInstance", "MplsTunnelIngressLSRId", "MplsTunnelEgressLSRId"}
+
+    return &(mplsTunnelEntry.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneladminstatus represents tunnel.
-type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneladminstatus string
+// MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelAdminStatus represents tunnel.
+type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelAdminStatus string
 
 const (
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneladminstatus_up MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneladminstatus = "up"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelAdminStatus_up MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelAdminStatus = "up"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneladminstatus_down MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneladminstatus = "down"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelAdminStatus_down MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelAdminStatus = "down"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneladminstatus_testing MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneladminstatus = "testing"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelAdminStatus_testing MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelAdminStatus = "testing"
 )
 
-// MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus represents this tunnel.
-type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus string
+// MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus represents this tunnel.
+type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus string
 
 const (
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus_up MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus = "up"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus_up MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus = "up"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus_down MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus = "down"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus_down MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus = "down"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus_testing MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus = "testing"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus_testing MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus = "testing"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus_unknown MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus = "unknown"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus_unknown MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus = "unknown"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus_dormant MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus = "dormant"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus_dormant MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus = "dormant"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus_notPresent MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus = "notPresent"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus_notPresent MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus = "notPresent"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus_lowerLayerDown MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunneloperstatus = "lowerLayerDown"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus_lowerLayerDown MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelOperStatus = "lowerLayerDown"
 )
 
-// MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole represents begin and end on the same LSR.
-type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole string
+// MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole represents begin and end on the same LSR.
+type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole string
 
 const (
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole_head MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole = "head"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole_head MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole = "head"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole_transit MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole = "transit"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole_transit MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole = "transit"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole_tail MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole = "tail"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole_tail MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole = "tail"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole_headTail MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelrole = "headTail"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole_headTail MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelRole = "headTail"
 )
 
-// MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto represents tunnel.
-type MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto string
+// MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto represents tunnel.
+type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto string
 
 const (
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto_none MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto = "none"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto_none MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto = "none"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto_rsvp MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto = "rsvp"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto_rsvp MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto = "rsvp"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto_crldp MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto = "crldp"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto_crldp MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto = "crldp"
 
-    MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto_other MPLSTESTDMIB_Mplstunneltable_Mplstunnelentry_Mplstunnelsignallingproto = "other"
+    MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto_other MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelSignallingProto = "other"
 )
 
-// MPLSTESTDMIB_Mplstunnelhoptable
+// MPLSTESTDMIB_MplsTunnelHopTable
 // The mplsTunnelHopTable is used to indicate the hops,
 // strict or loose, for an instance of an MPLS tunnel
 // defined in mplsTunnelTable, when it is established
@@ -737,84 +752,87 @@ const (
 // tunnel by which we want packets to exit the LSR,
 // we specify this as the first hop for this tunnel in
 // mplsTunnelHopTable.
-type MPLSTESTDMIB_Mplstunnelhoptable struct {
+type MPLSTESTDMIB_MplsTunnelHopTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents a tunnel hop.  An entry is created by a
     // network administrator for signaled ERLSP set up by an MPLS signalling
     // protocol. The type is slice of
-    // MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry.
-    Mplstunnelhopentry []MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry
+    // MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry.
+    MplsTunnelHopEntry []*MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry
 }
 
-func (mplstunnelhoptable *MPLSTESTDMIB_Mplstunnelhoptable) GetEntityData() *types.CommonEntityData {
-    mplstunnelhoptable.EntityData.YFilter = mplstunnelhoptable.YFilter
-    mplstunnelhoptable.EntityData.YangName = "mplsTunnelHopTable"
-    mplstunnelhoptable.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelhoptable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
-    mplstunnelhoptable.EntityData.SegmentPath = "mplsTunnelHopTable"
-    mplstunnelhoptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelhoptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelhoptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelHopTable *MPLSTESTDMIB_MplsTunnelHopTable) GetEntityData() *types.CommonEntityData {
+    mplsTunnelHopTable.EntityData.YFilter = mplsTunnelHopTable.YFilter
+    mplsTunnelHopTable.EntityData.YangName = "mplsTunnelHopTable"
+    mplsTunnelHopTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelHopTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
+    mplsTunnelHopTable.EntityData.SegmentPath = "mplsTunnelHopTable"
+    mplsTunnelHopTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelHopTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelhoptable.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelhoptable.EntityData.Children["mplsTunnelHopEntry"] = types.YChild{"Mplstunnelhopentry", nil}
-    for i := range mplstunnelhoptable.Mplstunnelhopentry {
-        mplstunnelhoptable.EntityData.Children[types.GetSegmentPath(&mplstunnelhoptable.Mplstunnelhopentry[i])] = types.YChild{"Mplstunnelhopentry", &mplstunnelhoptable.Mplstunnelhopentry[i]}
+    mplsTunnelHopTable.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelHopTable.EntityData.Children.Append("mplsTunnelHopEntry", types.YChild{"MplsTunnelHopEntry", nil})
+    for i := range mplsTunnelHopTable.MplsTunnelHopEntry {
+        mplsTunnelHopTable.EntityData.Children.Append(types.GetSegmentPath(mplsTunnelHopTable.MplsTunnelHopEntry[i]), types.YChild{"MplsTunnelHopEntry", mplsTunnelHopTable.MplsTunnelHopEntry[i]})
     }
-    mplstunnelhoptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplstunnelhoptable.EntityData)
+    mplsTunnelHopTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsTunnelHopTable.EntityData.YListKeys = []string {}
+
+    return &(mplsTunnelHopTable.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry
+// MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry
 // An entry in this table represents a tunnel hop.  An
 // entry is created by a network administrator for
 // signaled ERLSP set up by an MPLS signalling
 // protocol.
-type MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry struct {
+type MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Primary index into this table identifying a
     // particular explicit route object. The type is interface{} with range:
     // 1..4294967295.
-    Mplstunnelhoplistindex interface{}
+    MplsTunnelHopListIndex interface{}
 
     // This attribute is a key. Secondary index into this table identifying a
     // particular group of hops representing a particular configured path. This is
     // otherwise known as a path option. The type is interface{} with range:
     // 1..4294967295.
-    Mplstunnelhoppathoptionindex interface{}
+    MplsTunnelHopPathOptionIndex interface{}
 
     // This attribute is a key. Tertiary index into this table identifying a
     // particular hop. The type is interface{} with range: 1..4294967295.
-    Mplstunnelhopindex interface{}
+    MplsTunnelHopIndex interface{}
 
     // The Hop Address Type of this tunnel hop.  The value of this object cannot
     // be changed if the value of the corresponding mplsTunnelHopRowStatus object
     // is 'active'.  Note that lspid(5) is a valid option only for tunnels
     // signaled via CRLDP. The type is TeHopAddressType.
-    Mplstunnelhopaddrtype interface{}
+    MplsTunnelHopAddrType interface{}
 
     // The Tunnel Hop Address for this tunnel hop.  The type of this address is
     // determined by the value of the corresponding mplsTunnelHopAddrType.  The
     // value of this object cannot be changed if the value of the corresponding
     // mplsTunnelHopRowStatus object is 'active'. The type is string with length:
     // 0..32.
-    Mplstunnelhopipaddr interface{}
+    MplsTunnelHopIpAddr interface{}
 
     // If mplsTunnelHopAddrType is set to ipv4(1) or ipv6(2), then this value will
     // contain an appropriate prefix length for the IP address in object
     // mplsTunnelHopIpAddr. Otherwise this value is irrelevant and should be
     // ignored. The type is interface{} with range: 0..2040.
-    Mplstunnelhopipprefixlen interface{}
+    MplsTunnelHopIpPrefixLen interface{}
 
     // If mplsTunnelHopAddrType is set to asnumber(3), then this value will
     // contain the AS number of this hop. Otherwise the agent should set this
     // object to zero- length string and the manager should ignore this. The type
     // is string with length: 4.
-    Mplstunnelhopasnumber interface{}
+    MplsTunnelHopAsNumber interface{}
 
     // If mplsTunnelHopAddrType is set to unnum(4), then this value will contain
     // the interface identifier of the unnumbered interface for this hop. This
@@ -822,19 +840,19 @@ type MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry struct {
     // would contain the LSR Router ID in this case. Otherwise the agent should
     // set this object to zero-length string and the manager should ignore this.
     // The type is string with length: 4.
-    Mplstunnelhopaddrunnum interface{}
+    MplsTunnelHopAddrUnnum interface{}
 
     // If mplsTunnelHopAddrType is set to lspid(5), then this value will contain
     // the LSPID of a tunnel of this hop. The present tunnel being configured is
     // tunneled through this hop (using label stacking). This object is otherwise
     // insignificant and should contain a value of 0 to indicate this fact. The
     // type is string with length: 2 | 6.
-    Mplstunnelhoplspid interface{}
+    MplsTunnelHopLspId interface{}
 
     // Denotes whether this tunnel hop is routed in a strict or loose fashion. The
     // value of this object has no meaning if the mplsTunnelHopInclude object is
-    // set to 'false'. The type is Mplstunnelhoptype.
-    Mplstunnelhoptype interface{}
+    // set to 'false'. The type is MplsTunnelHopType.
+    MplsTunnelHopType interface{}
 
     // If this value is set to true, then this indicates that this hop must be
     // included in the tunnel's path. If this value is set to 'false', then this
@@ -842,88 +860,91 @@ type MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry struct {
     // value of this object is 'true', so that by default all indicated hops are
     // included in the CSPF path computation. If this object is set to 'false' the
     // value of mplsTunnelHopType should be ignored. The type is bool.
-    Mplstunnelhopinclude interface{}
+    MplsTunnelHopInclude interface{}
 
     // The description of this series of hops as they relate to the specified path
     // option. The value of this object SHOULD be the same for each hop in the
     // series that comprises a path option. The type is string.
-    Mplstunnelhoppathoptionname interface{}
+    MplsTunnelHopPathOptionName interface{}
 
     // If this value is set to dynamic, then the user should only specify the
     // source and destination of the path and expect that the CSPF will calculate
     // the remainder of the path.  If this value is set to explicit, the user
     // should specify the entire path for the tunnel to take.  This path may
     // contain strict or loose hops.  Each hop along a specific path SHOULD have
-    // this object set to the same value. The type is Mplstunnelhopentrypathcomp.
-    Mplstunnelhopentrypathcomp interface{}
+    // this object set to the same value. The type is MplsTunnelHopEntryPathComp.
+    MplsTunnelHopEntryPathComp interface{}
 
     // This variable is used to create, modify, and/or delete a row in this table.
     // When a row in this table is in active(1) state, no objects in that row can
     // be modified by the agent except mplsTunnelHopRowStatus and
     // mplsTunnelHopStorageType. The type is RowStatus.
-    Mplstunnelhoprowstatus interface{}
+    MplsTunnelHopRowStatus interface{}
 
     // The storage type for this Hop entry. Conceptual rows having the value
     // 'permanent' need not allow write-access to any columnar objects in the row.
     // The type is StorageType.
-    Mplstunnelhopstoragetype interface{}
+    MplsTunnelHopStorageType interface{}
 }
 
-func (mplstunnelhopentry *MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry) GetEntityData() *types.CommonEntityData {
-    mplstunnelhopentry.EntityData.YFilter = mplstunnelhopentry.YFilter
-    mplstunnelhopentry.EntityData.YangName = "mplsTunnelHopEntry"
-    mplstunnelhopentry.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelhopentry.EntityData.ParentYangName = "mplsTunnelHopTable"
-    mplstunnelhopentry.EntityData.SegmentPath = "mplsTunnelHopEntry" + "[mplsTunnelHopListIndex='" + fmt.Sprintf("%v", mplstunnelhopentry.Mplstunnelhoplistindex) + "']" + "[mplsTunnelHopPathOptionIndex='" + fmt.Sprintf("%v", mplstunnelhopentry.Mplstunnelhoppathoptionindex) + "']" + "[mplsTunnelHopIndex='" + fmt.Sprintf("%v", mplstunnelhopentry.Mplstunnelhopindex) + "']"
-    mplstunnelhopentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelhopentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelhopentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelHopEntry *MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry) GetEntityData() *types.CommonEntityData {
+    mplsTunnelHopEntry.EntityData.YFilter = mplsTunnelHopEntry.YFilter
+    mplsTunnelHopEntry.EntityData.YangName = "mplsTunnelHopEntry"
+    mplsTunnelHopEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelHopEntry.EntityData.ParentYangName = "mplsTunnelHopTable"
+    mplsTunnelHopEntry.EntityData.SegmentPath = "mplsTunnelHopEntry" + types.AddKeyToken(mplsTunnelHopEntry.MplsTunnelHopListIndex, "mplsTunnelHopListIndex") + types.AddKeyToken(mplsTunnelHopEntry.MplsTunnelHopPathOptionIndex, "mplsTunnelHopPathOptionIndex") + types.AddKeyToken(mplsTunnelHopEntry.MplsTunnelHopIndex, "mplsTunnelHopIndex")
+    mplsTunnelHopEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelHopEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelHopEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelhopentry.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelhopentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopListIndex"] = types.YLeaf{"Mplstunnelhoplistindex", mplstunnelhopentry.Mplstunnelhoplistindex}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopPathOptionIndex"] = types.YLeaf{"Mplstunnelhoppathoptionindex", mplstunnelhopentry.Mplstunnelhoppathoptionindex}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopIndex"] = types.YLeaf{"Mplstunnelhopindex", mplstunnelhopentry.Mplstunnelhopindex}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopAddrType"] = types.YLeaf{"Mplstunnelhopaddrtype", mplstunnelhopentry.Mplstunnelhopaddrtype}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopIpAddr"] = types.YLeaf{"Mplstunnelhopipaddr", mplstunnelhopentry.Mplstunnelhopipaddr}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopIpPrefixLen"] = types.YLeaf{"Mplstunnelhopipprefixlen", mplstunnelhopentry.Mplstunnelhopipprefixlen}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopAsNumber"] = types.YLeaf{"Mplstunnelhopasnumber", mplstunnelhopentry.Mplstunnelhopasnumber}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopAddrUnnum"] = types.YLeaf{"Mplstunnelhopaddrunnum", mplstunnelhopentry.Mplstunnelhopaddrunnum}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopLspId"] = types.YLeaf{"Mplstunnelhoplspid", mplstunnelhopentry.Mplstunnelhoplspid}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopType"] = types.YLeaf{"Mplstunnelhoptype", mplstunnelhopentry.Mplstunnelhoptype}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopInclude"] = types.YLeaf{"Mplstunnelhopinclude", mplstunnelhopentry.Mplstunnelhopinclude}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopPathOptionName"] = types.YLeaf{"Mplstunnelhoppathoptionname", mplstunnelhopentry.Mplstunnelhoppathoptionname}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopEntryPathComp"] = types.YLeaf{"Mplstunnelhopentrypathcomp", mplstunnelhopentry.Mplstunnelhopentrypathcomp}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopRowStatus"] = types.YLeaf{"Mplstunnelhoprowstatus", mplstunnelhopentry.Mplstunnelhoprowstatus}
-    mplstunnelhopentry.EntityData.Leafs["mplsTunnelHopStorageType"] = types.YLeaf{"Mplstunnelhopstoragetype", mplstunnelhopentry.Mplstunnelhopstoragetype}
-    return &(mplstunnelhopentry.EntityData)
+    mplsTunnelHopEntry.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelHopEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopListIndex", types.YLeaf{"MplsTunnelHopListIndex", mplsTunnelHopEntry.MplsTunnelHopListIndex})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopPathOptionIndex", types.YLeaf{"MplsTunnelHopPathOptionIndex", mplsTunnelHopEntry.MplsTunnelHopPathOptionIndex})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopIndex", types.YLeaf{"MplsTunnelHopIndex", mplsTunnelHopEntry.MplsTunnelHopIndex})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopAddrType", types.YLeaf{"MplsTunnelHopAddrType", mplsTunnelHopEntry.MplsTunnelHopAddrType})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopIpAddr", types.YLeaf{"MplsTunnelHopIpAddr", mplsTunnelHopEntry.MplsTunnelHopIpAddr})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopIpPrefixLen", types.YLeaf{"MplsTunnelHopIpPrefixLen", mplsTunnelHopEntry.MplsTunnelHopIpPrefixLen})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopAsNumber", types.YLeaf{"MplsTunnelHopAsNumber", mplsTunnelHopEntry.MplsTunnelHopAsNumber})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopAddrUnnum", types.YLeaf{"MplsTunnelHopAddrUnnum", mplsTunnelHopEntry.MplsTunnelHopAddrUnnum})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopLspId", types.YLeaf{"MplsTunnelHopLspId", mplsTunnelHopEntry.MplsTunnelHopLspId})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopType", types.YLeaf{"MplsTunnelHopType", mplsTunnelHopEntry.MplsTunnelHopType})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopInclude", types.YLeaf{"MplsTunnelHopInclude", mplsTunnelHopEntry.MplsTunnelHopInclude})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopPathOptionName", types.YLeaf{"MplsTunnelHopPathOptionName", mplsTunnelHopEntry.MplsTunnelHopPathOptionName})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopEntryPathComp", types.YLeaf{"MplsTunnelHopEntryPathComp", mplsTunnelHopEntry.MplsTunnelHopEntryPathComp})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopRowStatus", types.YLeaf{"MplsTunnelHopRowStatus", mplsTunnelHopEntry.MplsTunnelHopRowStatus})
+    mplsTunnelHopEntry.EntityData.Leafs.Append("mplsTunnelHopStorageType", types.YLeaf{"MplsTunnelHopStorageType", mplsTunnelHopEntry.MplsTunnelHopStorageType})
+
+    mplsTunnelHopEntry.EntityData.YListKeys = []string {"MplsTunnelHopListIndex", "MplsTunnelHopPathOptionIndex", "MplsTunnelHopIndex"}
+
+    return &(mplsTunnelHopEntry.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhopentrypathcomp represents path SHOULD have this object set to the same value
-type MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhopentrypathcomp string
+// MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopEntryPathComp represents path SHOULD have this object set to the same value
+type MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopEntryPathComp string
 
 const (
-    MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhopentrypathcomp_dynamic MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhopentrypathcomp = "dynamic"
+    MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopEntryPathComp_dynamic MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopEntryPathComp = "dynamic"
 
-    MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhopentrypathcomp_explicit MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhopentrypathcomp = "explicit"
+    MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopEntryPathComp_explicit MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopEntryPathComp = "explicit"
 )
 
-// MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhoptype represents is set to 'false'.
-type MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhoptype string
+// MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopType represents is set to 'false'.
+type MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopType string
 
 const (
-    MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhoptype_strict MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhoptype = "strict"
+    MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopType_strict MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopType = "strict"
 
-    MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhoptype_loose MPLSTESTDMIB_Mplstunnelhoptable_Mplstunnelhopentry_Mplstunnelhoptype = "loose"
+    MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopType_loose MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry_MplsTunnelHopType = "loose"
 )
 
-// MPLSTESTDMIB_Mplstunnelresourcetable
+// MPLSTESTDMIB_MplsTunnelResourceTable
 // The mplsTunnelResourceTable allows a manager to
 // specify which resources are desired for an MPLS
 // tunnel.  This table also allows several tunnels to
 // point to a single entry in this table, implying
 // that these tunnels should share resources.
-type MPLSTESTDMIB_Mplstunnelresourcetable struct {
+type MPLSTESTDMIB_MplsTunnelResourceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -935,30 +956,33 @@ type MPLSTESTDMIB_Mplstunnelresourcetable struct {
     // tunnel instance with a non-zero mplsTunnelInstance reflects the in-use
     // resource parameters for the tunnel instance which may have been negotiated
     // or modified by the MPLS signaling protocols. The type is slice of
-    // MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry.
-    Mplstunnelresourceentry []MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry
+    // MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry.
+    MplsTunnelResourceEntry []*MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry
 }
 
-func (mplstunnelresourcetable *MPLSTESTDMIB_Mplstunnelresourcetable) GetEntityData() *types.CommonEntityData {
-    mplstunnelresourcetable.EntityData.YFilter = mplstunnelresourcetable.YFilter
-    mplstunnelresourcetable.EntityData.YangName = "mplsTunnelResourceTable"
-    mplstunnelresourcetable.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelresourcetable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
-    mplstunnelresourcetable.EntityData.SegmentPath = "mplsTunnelResourceTable"
-    mplstunnelresourcetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelresourcetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelresourcetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelResourceTable *MPLSTESTDMIB_MplsTunnelResourceTable) GetEntityData() *types.CommonEntityData {
+    mplsTunnelResourceTable.EntityData.YFilter = mplsTunnelResourceTable.YFilter
+    mplsTunnelResourceTable.EntityData.YangName = "mplsTunnelResourceTable"
+    mplsTunnelResourceTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelResourceTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
+    mplsTunnelResourceTable.EntityData.SegmentPath = "mplsTunnelResourceTable"
+    mplsTunnelResourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelResourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelResourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelresourcetable.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelresourcetable.EntityData.Children["mplsTunnelResourceEntry"] = types.YChild{"Mplstunnelresourceentry", nil}
-    for i := range mplstunnelresourcetable.Mplstunnelresourceentry {
-        mplstunnelresourcetable.EntityData.Children[types.GetSegmentPath(&mplstunnelresourcetable.Mplstunnelresourceentry[i])] = types.YChild{"Mplstunnelresourceentry", &mplstunnelresourcetable.Mplstunnelresourceentry[i]}
+    mplsTunnelResourceTable.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelResourceTable.EntityData.Children.Append("mplsTunnelResourceEntry", types.YChild{"MplsTunnelResourceEntry", nil})
+    for i := range mplsTunnelResourceTable.MplsTunnelResourceEntry {
+        mplsTunnelResourceTable.EntityData.Children.Append(types.GetSegmentPath(mplsTunnelResourceTable.MplsTunnelResourceEntry[i]), types.YChild{"MplsTunnelResourceEntry", mplsTunnelResourceTable.MplsTunnelResourceEntry[i]})
     }
-    mplstunnelresourcetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplstunnelresourcetable.EntityData)
+    mplsTunnelResourceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsTunnelResourceTable.EntityData.YListKeys = []string {}
+
+    return &(mplsTunnelResourceTable.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry
+// MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry
 // An entry in this table represents a set of resources
 // for an MPLS tunnel.  An entry can be created by a
 // network administrator or by an SNMP agent as
@@ -971,103 +995,106 @@ func (mplstunnelresourcetable *MPLSTESTDMIB_Mplstunnelresourcetable) GetEntityDa
 // parameters for the tunnel instance which may have
 // been negotiated or modified by the MPLS signaling
 // protocols.
-type MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry struct {
+type MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies this row. The type is
     // interface{} with range: 1..2147483647.
-    Mplstunnelresourceindex interface{}
+    MplsTunnelResourceIndex interface{}
 
     // The maximum rate in bits/second.  Note that setting
     // mplsTunnelResourceMaxRate, mplsTunnelResourceMeanRate, and
     // mplsTunnelResourceMaxBurstSize to 0 indicates best- effort treatment. The
     // type is interface{} with range: 0..4294967295. Units are kilobits per
     // second.
-    Mplstunnelresourcemaxrate interface{}
+    MplsTunnelResourceMaxRate interface{}
 
     // This object is copied into an instance of mplsTrafficParamMeanRate in the
     // mplsTrafficParamTable. The OID of this table entry is then copied into the
     // corresponding mplsInSegmentTrafficParamPtr. The type is interface{} with
     // range: 0..4294967295. Units are kilobits per second.
-    Mplstunnelresourcemeanrate interface{}
+    MplsTunnelResourceMeanRate interface{}
 
     // The maximum burst size in bytes. The type is interface{} with range:
     // 0..4294967295. Units are bytes.
-    Mplstunnelresourcemaxburstsize interface{}
+    MplsTunnelResourceMaxBurstSize interface{}
 
     // The mean burst size in bytes.  The implementations which do not implement
     // this variable must return a noSuchObject exception for this object and must
     // not allow a user to set this object. The type is interface{} with range:
     // 0..4294967295. Units are bytes.
-    Mplstunnelresourcemeanburstsize interface{}
+    MplsTunnelResourceMeanBurstSize interface{}
 
     // The Excess burst size in bytes.  The implementations which do not implement
     // this variable must return noSuchObject exception for this object and must
     // not allow a user to set this value. The type is interface{} with range:
     // 0..4294967295. Units are bytes.
-    Mplstunnelresourceexburstsize interface{}
+    MplsTunnelResourceExBurstSize interface{}
 
     // The granularity of the availability of committed rate.  The implementations
     // which do not implement this variable must return unspecified(1) for this
     // value and must not allow a user to set this value. The type is
-    // Mplstunnelresourcefrequency.
-    Mplstunnelresourcefrequency interface{}
+    // MplsTunnelResourceFrequency.
+    MplsTunnelResourceFrequency interface{}
 
     // The relative weight for using excess bandwidth above its committed rate. 
     // The value of 0 means that weight is not applicable for the CR-LSP. The type
     // is interface{} with range: 0..255.
-    Mplstunnelresourceweight interface{}
+    MplsTunnelResourceWeight interface{}
 
     // This variable is used to create, modify, and/or delete a row in this table.
     // When a row in this table is in active(1) state, no objects in that row can
     // be modified by the agent except mplsTunnelResourceRowStatus and
     // mplsTunnelResourceStorageType. The type is RowStatus.
-    Mplstunnelresourcerowstatus interface{}
+    MplsTunnelResourceRowStatus interface{}
 
     // The storage type for this Hop entry. Conceptual rows having the value
     // 'permanent' need not allow write-access to any columnar objects in the row.
     // The type is StorageType.
-    Mplstunnelresourcestoragetype interface{}
+    MplsTunnelResourceStorageType interface{}
 }
 
-func (mplstunnelresourceentry *MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry) GetEntityData() *types.CommonEntityData {
-    mplstunnelresourceentry.EntityData.YFilter = mplstunnelresourceentry.YFilter
-    mplstunnelresourceentry.EntityData.YangName = "mplsTunnelResourceEntry"
-    mplstunnelresourceentry.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelresourceentry.EntityData.ParentYangName = "mplsTunnelResourceTable"
-    mplstunnelresourceentry.EntityData.SegmentPath = "mplsTunnelResourceEntry" + "[mplsTunnelResourceIndex='" + fmt.Sprintf("%v", mplstunnelresourceentry.Mplstunnelresourceindex) + "']"
-    mplstunnelresourceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelresourceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelresourceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelResourceEntry *MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry) GetEntityData() *types.CommonEntityData {
+    mplsTunnelResourceEntry.EntityData.YFilter = mplsTunnelResourceEntry.YFilter
+    mplsTunnelResourceEntry.EntityData.YangName = "mplsTunnelResourceEntry"
+    mplsTunnelResourceEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelResourceEntry.EntityData.ParentYangName = "mplsTunnelResourceTable"
+    mplsTunnelResourceEntry.EntityData.SegmentPath = "mplsTunnelResourceEntry" + types.AddKeyToken(mplsTunnelResourceEntry.MplsTunnelResourceIndex, "mplsTunnelResourceIndex")
+    mplsTunnelResourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelResourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelResourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelresourceentry.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelresourceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceIndex"] = types.YLeaf{"Mplstunnelresourceindex", mplstunnelresourceentry.Mplstunnelresourceindex}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceMaxRate"] = types.YLeaf{"Mplstunnelresourcemaxrate", mplstunnelresourceentry.Mplstunnelresourcemaxrate}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceMeanRate"] = types.YLeaf{"Mplstunnelresourcemeanrate", mplstunnelresourceentry.Mplstunnelresourcemeanrate}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceMaxBurstSize"] = types.YLeaf{"Mplstunnelresourcemaxburstsize", mplstunnelresourceentry.Mplstunnelresourcemaxburstsize}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceMeanBurstSize"] = types.YLeaf{"Mplstunnelresourcemeanburstsize", mplstunnelresourceentry.Mplstunnelresourcemeanburstsize}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceExBurstSize"] = types.YLeaf{"Mplstunnelresourceexburstsize", mplstunnelresourceentry.Mplstunnelresourceexburstsize}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceFrequency"] = types.YLeaf{"Mplstunnelresourcefrequency", mplstunnelresourceentry.Mplstunnelresourcefrequency}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceWeight"] = types.YLeaf{"Mplstunnelresourceweight", mplstunnelresourceentry.Mplstunnelresourceweight}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceRowStatus"] = types.YLeaf{"Mplstunnelresourcerowstatus", mplstunnelresourceentry.Mplstunnelresourcerowstatus}
-    mplstunnelresourceentry.EntityData.Leafs["mplsTunnelResourceStorageType"] = types.YLeaf{"Mplstunnelresourcestoragetype", mplstunnelresourceentry.Mplstunnelresourcestoragetype}
-    return &(mplstunnelresourceentry.EntityData)
+    mplsTunnelResourceEntry.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelResourceEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceIndex", types.YLeaf{"MplsTunnelResourceIndex", mplsTunnelResourceEntry.MplsTunnelResourceIndex})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceMaxRate", types.YLeaf{"MplsTunnelResourceMaxRate", mplsTunnelResourceEntry.MplsTunnelResourceMaxRate})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceMeanRate", types.YLeaf{"MplsTunnelResourceMeanRate", mplsTunnelResourceEntry.MplsTunnelResourceMeanRate})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceMaxBurstSize", types.YLeaf{"MplsTunnelResourceMaxBurstSize", mplsTunnelResourceEntry.MplsTunnelResourceMaxBurstSize})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceMeanBurstSize", types.YLeaf{"MplsTunnelResourceMeanBurstSize", mplsTunnelResourceEntry.MplsTunnelResourceMeanBurstSize})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceExBurstSize", types.YLeaf{"MplsTunnelResourceExBurstSize", mplsTunnelResourceEntry.MplsTunnelResourceExBurstSize})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceFrequency", types.YLeaf{"MplsTunnelResourceFrequency", mplsTunnelResourceEntry.MplsTunnelResourceFrequency})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceWeight", types.YLeaf{"MplsTunnelResourceWeight", mplsTunnelResourceEntry.MplsTunnelResourceWeight})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceRowStatus", types.YLeaf{"MplsTunnelResourceRowStatus", mplsTunnelResourceEntry.MplsTunnelResourceRowStatus})
+    mplsTunnelResourceEntry.EntityData.Leafs.Append("mplsTunnelResourceStorageType", types.YLeaf{"MplsTunnelResourceStorageType", mplsTunnelResourceEntry.MplsTunnelResourceStorageType})
+
+    mplsTunnelResourceEntry.EntityData.YListKeys = []string {"MplsTunnelResourceIndex"}
+
+    return &(mplsTunnelResourceEntry.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourcefrequency represents value and must not allow a user to set this value.
-type MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourcefrequency string
+// MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceFrequency represents value and must not allow a user to set this value.
+type MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceFrequency string
 
 const (
-    MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourcefrequency_unspecified MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourcefrequency = "unspecified"
+    MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceFrequency_unspecified MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceFrequency = "unspecified"
 
-    MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourcefrequency_frequent MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourcefrequency = "frequent"
+    MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceFrequency_frequent MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceFrequency = "frequent"
 
-    MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourcefrequency_veryFrequent MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourcefrequency = "veryFrequent"
+    MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceFrequency_veryFrequent MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceFrequency = "veryFrequent"
 )
 
-// MPLSTESTDMIB_Mplstunnelarhoptable
+// MPLSTESTDMIB_MplsTunnelARHopTable
 // The mplsTunnelARHopTable is used to indicate the
 // hops for an MPLS tunnel defined in mplsTunnelTable,
 // as reported by the MPLS signalling protocol. Thus at
@@ -1100,55 +1127,58 @@ const (
 // activities. A network administrator may verify that
 // the actual route read is consistent by reference to
 // the mplsTunnelLastPathChange object.
-type MPLSTESTDMIB_Mplstunnelarhoptable struct {
+type MPLSTESTDMIB_MplsTunnelARHopTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents a tunnel hop.  An entry is created by the
     // agent for signaled ERLSP set up by an MPLS signalling protocol. The type is
-    // slice of MPLSTESTDMIB_Mplstunnelarhoptable_Mplstunnelarhopentry.
-    Mplstunnelarhopentry []MPLSTESTDMIB_Mplstunnelarhoptable_Mplstunnelarhopentry
+    // slice of MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEntry.
+    MplsTunnelARHopEntry []*MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEntry
 }
 
-func (mplstunnelarhoptable *MPLSTESTDMIB_Mplstunnelarhoptable) GetEntityData() *types.CommonEntityData {
-    mplstunnelarhoptable.EntityData.YFilter = mplstunnelarhoptable.YFilter
-    mplstunnelarhoptable.EntityData.YangName = "mplsTunnelARHopTable"
-    mplstunnelarhoptable.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelarhoptable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
-    mplstunnelarhoptable.EntityData.SegmentPath = "mplsTunnelARHopTable"
-    mplstunnelarhoptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelarhoptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelarhoptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelARHopTable *MPLSTESTDMIB_MplsTunnelARHopTable) GetEntityData() *types.CommonEntityData {
+    mplsTunnelARHopTable.EntityData.YFilter = mplsTunnelARHopTable.YFilter
+    mplsTunnelARHopTable.EntityData.YangName = "mplsTunnelARHopTable"
+    mplsTunnelARHopTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelARHopTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
+    mplsTunnelARHopTable.EntityData.SegmentPath = "mplsTunnelARHopTable"
+    mplsTunnelARHopTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelARHopTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelARHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelarhoptable.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelarhoptable.EntityData.Children["mplsTunnelARHopEntry"] = types.YChild{"Mplstunnelarhopentry", nil}
-    for i := range mplstunnelarhoptable.Mplstunnelarhopentry {
-        mplstunnelarhoptable.EntityData.Children[types.GetSegmentPath(&mplstunnelarhoptable.Mplstunnelarhopentry[i])] = types.YChild{"Mplstunnelarhopentry", &mplstunnelarhoptable.Mplstunnelarhopentry[i]}
+    mplsTunnelARHopTable.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelARHopTable.EntityData.Children.Append("mplsTunnelARHopEntry", types.YChild{"MplsTunnelARHopEntry", nil})
+    for i := range mplsTunnelARHopTable.MplsTunnelARHopEntry {
+        mplsTunnelARHopTable.EntityData.Children.Append(types.GetSegmentPath(mplsTunnelARHopTable.MplsTunnelARHopEntry[i]), types.YChild{"MplsTunnelARHopEntry", mplsTunnelARHopTable.MplsTunnelARHopEntry[i]})
     }
-    mplstunnelarhoptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplstunnelarhoptable.EntityData)
+    mplsTunnelARHopTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsTunnelARHopTable.EntityData.YListKeys = []string {}
+
+    return &(mplsTunnelARHopTable.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelarhoptable_Mplstunnelarhopentry
+// MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEntry
 // An entry in this table represents a tunnel hop.  An
 // entry is created by the agent for signaled ERLSP
 // set up by an MPLS signalling protocol.
-type MPLSTESTDMIB_Mplstunnelarhoptable_Mplstunnelarhopentry struct {
+type MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Primary index into this table identifying a
     // particular recorded hop list. The type is interface{} with range:
     // 1..4294967295.
-    Mplstunnelarhoplistindex interface{}
+    MplsTunnelARHopListIndex interface{}
 
     // This attribute is a key. Secondary index into this table identifying the
     // particular hop. The type is interface{} with range: 1..4294967295.
-    Mplstunnelarhopindex interface{}
+    MplsTunnelARHopIndex interface{}
 
     // The Hop Address Type of this tunnel hop.  Note that lspid(5) is a valid
     // option only for tunnels signaled via CRLDP. The type is TeHopAddressType.
-    Mplstunnelarhopaddrtype interface{}
+    MplsTunnelARHopAddrType interface{}
 
     // The Tunnel Hop Address for this tunnel hop.  The type of this address is
     // determined by the value of the corresponding mplsTunnelARHopAddrType. If
@@ -1156,7 +1186,7 @@ type MPLSTESTDMIB_Mplstunnelarhoptable_Mplstunnelarhopentry struct {
     // LSR Router ID of the  unnumbered interface. Otherwise the agent SHOULD  set
     // this object to the zero-length string and the  manager should ignore this
     // object. The type is string with length: 0..32.
-    Mplstunnelarhopipaddr interface{}
+    MplsTunnelARHopIpAddr interface{}
 
     // If mplsTunnelARHopAddrType is set to unnum(4), then this value will contain
     // the interface identifier of the unnumbered interface for this hop. This
@@ -1164,37 +1194,40 @@ type MPLSTESTDMIB_Mplstunnelarhoptable_Mplstunnelarhopentry struct {
     // contain the LSR Router ID in this case. Otherwise the agent should set this
     // object to zero-length string and the manager should ignore this. The type
     // is string with length: 4.
-    Mplstunnelarhopaddrunnum interface{}
+    MplsTunnelARHopAddrUnnum interface{}
 
     // If mplsTunnelARHopAddrType is set to lspid(5), then this value will contain
     // the LSP ID of this hop. This object is otherwise insignificant and should
     // contain a value of 0 to indicate this fact. The type is string with length:
     // 2 | 6.
-    Mplstunnelarhoplspid interface{}
+    MplsTunnelARHopLspId interface{}
 }
 
-func (mplstunnelarhopentry *MPLSTESTDMIB_Mplstunnelarhoptable_Mplstunnelarhopentry) GetEntityData() *types.CommonEntityData {
-    mplstunnelarhopentry.EntityData.YFilter = mplstunnelarhopentry.YFilter
-    mplstunnelarhopentry.EntityData.YangName = "mplsTunnelARHopEntry"
-    mplstunnelarhopentry.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelarhopentry.EntityData.ParentYangName = "mplsTunnelARHopTable"
-    mplstunnelarhopentry.EntityData.SegmentPath = "mplsTunnelARHopEntry" + "[mplsTunnelARHopListIndex='" + fmt.Sprintf("%v", mplstunnelarhopentry.Mplstunnelarhoplistindex) + "']" + "[mplsTunnelARHopIndex='" + fmt.Sprintf("%v", mplstunnelarhopentry.Mplstunnelarhopindex) + "']"
-    mplstunnelarhopentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelarhopentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelarhopentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelARHopEntry *MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEntry) GetEntityData() *types.CommonEntityData {
+    mplsTunnelARHopEntry.EntityData.YFilter = mplsTunnelARHopEntry.YFilter
+    mplsTunnelARHopEntry.EntityData.YangName = "mplsTunnelARHopEntry"
+    mplsTunnelARHopEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelARHopEntry.EntityData.ParentYangName = "mplsTunnelARHopTable"
+    mplsTunnelARHopEntry.EntityData.SegmentPath = "mplsTunnelARHopEntry" + types.AddKeyToken(mplsTunnelARHopEntry.MplsTunnelARHopListIndex, "mplsTunnelARHopListIndex") + types.AddKeyToken(mplsTunnelARHopEntry.MplsTunnelARHopIndex, "mplsTunnelARHopIndex")
+    mplsTunnelARHopEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelARHopEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelARHopEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelarhopentry.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelarhopentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplstunnelarhopentry.EntityData.Leafs["mplsTunnelARHopListIndex"] = types.YLeaf{"Mplstunnelarhoplistindex", mplstunnelarhopentry.Mplstunnelarhoplistindex}
-    mplstunnelarhopentry.EntityData.Leafs["mplsTunnelARHopIndex"] = types.YLeaf{"Mplstunnelarhopindex", mplstunnelarhopentry.Mplstunnelarhopindex}
-    mplstunnelarhopentry.EntityData.Leafs["mplsTunnelARHopAddrType"] = types.YLeaf{"Mplstunnelarhopaddrtype", mplstunnelarhopentry.Mplstunnelarhopaddrtype}
-    mplstunnelarhopentry.EntityData.Leafs["mplsTunnelARHopIpAddr"] = types.YLeaf{"Mplstunnelarhopipaddr", mplstunnelarhopentry.Mplstunnelarhopipaddr}
-    mplstunnelarhopentry.EntityData.Leafs["mplsTunnelARHopAddrUnnum"] = types.YLeaf{"Mplstunnelarhopaddrunnum", mplstunnelarhopentry.Mplstunnelarhopaddrunnum}
-    mplstunnelarhopentry.EntityData.Leafs["mplsTunnelARHopLspId"] = types.YLeaf{"Mplstunnelarhoplspid", mplstunnelarhopentry.Mplstunnelarhoplspid}
-    return &(mplstunnelarhopentry.EntityData)
+    mplsTunnelARHopEntry.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelARHopEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsTunnelARHopEntry.EntityData.Leafs.Append("mplsTunnelARHopListIndex", types.YLeaf{"MplsTunnelARHopListIndex", mplsTunnelARHopEntry.MplsTunnelARHopListIndex})
+    mplsTunnelARHopEntry.EntityData.Leafs.Append("mplsTunnelARHopIndex", types.YLeaf{"MplsTunnelARHopIndex", mplsTunnelARHopEntry.MplsTunnelARHopIndex})
+    mplsTunnelARHopEntry.EntityData.Leafs.Append("mplsTunnelARHopAddrType", types.YLeaf{"MplsTunnelARHopAddrType", mplsTunnelARHopEntry.MplsTunnelARHopAddrType})
+    mplsTunnelARHopEntry.EntityData.Leafs.Append("mplsTunnelARHopIpAddr", types.YLeaf{"MplsTunnelARHopIpAddr", mplsTunnelARHopEntry.MplsTunnelARHopIpAddr})
+    mplsTunnelARHopEntry.EntityData.Leafs.Append("mplsTunnelARHopAddrUnnum", types.YLeaf{"MplsTunnelARHopAddrUnnum", mplsTunnelARHopEntry.MplsTunnelARHopAddrUnnum})
+    mplsTunnelARHopEntry.EntityData.Leafs.Append("mplsTunnelARHopLspId", types.YLeaf{"MplsTunnelARHopLspId", mplsTunnelARHopEntry.MplsTunnelARHopLspId})
+
+    mplsTunnelARHopEntry.EntityData.YListKeys = []string {"MplsTunnelARHopListIndex", "MplsTunnelARHopIndex"}
+
+    return &(mplsTunnelARHopEntry.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelchoptable
+// MPLSTESTDMIB_MplsTunnelCHopTable
 // The mplsTunnelCHopTable is used to indicate the
 // hops, strict or loose, for an MPLS tunnel defined
 // in mplsTunnelTable, as computed by a constraint-
@@ -1220,7 +1253,7 @@ func (mplstunnelarhopentry *MPLSTESTDMIB_Mplstunnelarhoptable_Mplstunnelarhopent
 // information in this table describes the path
 // computed by the CSPF engine the entries in this
 // table are read-only.
-type MPLSTESTDMIB_Mplstunnelchoptable struct {
+type MPLSTESTDMIB_MplsTunnelCHopTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1228,52 +1261,55 @@ type MPLSTESTDMIB_Mplstunnelchoptable struct {
     // created by a path computation engine using CSPF techniques applied to the
     // information collected by routing protocols and the hops specified in the
     // corresponding mplsTunnelHopTable. The type is slice of
-    // MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry.
-    Mplstunnelchopentry []MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry
+    // MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry.
+    MplsTunnelCHopEntry []*MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry
 }
 
-func (mplstunnelchoptable *MPLSTESTDMIB_Mplstunnelchoptable) GetEntityData() *types.CommonEntityData {
-    mplstunnelchoptable.EntityData.YFilter = mplstunnelchoptable.YFilter
-    mplstunnelchoptable.EntityData.YangName = "mplsTunnelCHopTable"
-    mplstunnelchoptable.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelchoptable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
-    mplstunnelchoptable.EntityData.SegmentPath = "mplsTunnelCHopTable"
-    mplstunnelchoptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelchoptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelchoptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelCHopTable *MPLSTESTDMIB_MplsTunnelCHopTable) GetEntityData() *types.CommonEntityData {
+    mplsTunnelCHopTable.EntityData.YFilter = mplsTunnelCHopTable.YFilter
+    mplsTunnelCHopTable.EntityData.YangName = "mplsTunnelCHopTable"
+    mplsTunnelCHopTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelCHopTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
+    mplsTunnelCHopTable.EntityData.SegmentPath = "mplsTunnelCHopTable"
+    mplsTunnelCHopTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelCHopTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelCHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelchoptable.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelchoptable.EntityData.Children["mplsTunnelCHopEntry"] = types.YChild{"Mplstunnelchopentry", nil}
-    for i := range mplstunnelchoptable.Mplstunnelchopentry {
-        mplstunnelchoptable.EntityData.Children[types.GetSegmentPath(&mplstunnelchoptable.Mplstunnelchopentry[i])] = types.YChild{"Mplstunnelchopentry", &mplstunnelchoptable.Mplstunnelchopentry[i]}
+    mplsTunnelCHopTable.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelCHopTable.EntityData.Children.Append("mplsTunnelCHopEntry", types.YChild{"MplsTunnelCHopEntry", nil})
+    for i := range mplsTunnelCHopTable.MplsTunnelCHopEntry {
+        mplsTunnelCHopTable.EntityData.Children.Append(types.GetSegmentPath(mplsTunnelCHopTable.MplsTunnelCHopEntry[i]), types.YChild{"MplsTunnelCHopEntry", mplsTunnelCHopTable.MplsTunnelCHopEntry[i]})
     }
-    mplstunnelchoptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplstunnelchoptable.EntityData)
+    mplsTunnelCHopTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsTunnelCHopTable.EntityData.YListKeys = []string {}
+
+    return &(mplsTunnelCHopTable.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry
+// MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry
 // An entry in this table represents a tunnel hop.  An
 // entry in this table is created by a path
 // computation engine using CSPF techniques applied to
 // the information collected by routing protocols and
 // the hops specified in the corresponding
 // mplsTunnelHopTable.
-type MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry struct {
+type MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Primary index into this table identifying a
     // particular computed hop list. The type is interface{} with range:
     // 1..4294967295.
-    Mplstunnelchoplistindex interface{}
+    MplsTunnelCHopListIndex interface{}
 
     // This attribute is a key. Secondary index into this table identifying the
     // particular hop. The type is interface{} with range: 1..4294967295.
-    Mplstunnelchopindex interface{}
+    MplsTunnelCHopIndex interface{}
 
     // The Hop Address Type of this tunnel hop.  Note that lspid(5) is a valid
     // option only for tunnels signaled via CRLDP. The type is TeHopAddressType.
-    Mplstunnelchopaddrtype interface{}
+    MplsTunnelCHopAddrType interface{}
 
     // The Tunnel Hop Address for this tunnel hop. The type of this address is
     // determined by the  value of the corresponding mplsTunnelCHopAddrType.  If
@@ -1281,19 +1317,19 @@ type MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry struct {
     // the LSR Router ID of the  unnumbered interface. Otherwise the agent should 
     // set this object to the zero-length string and the  manager SHOULD ignore
     // this object. The type is string with length: 0..32.
-    Mplstunnelchopipaddr interface{}
+    MplsTunnelCHopIpAddr interface{}
 
     // If mplsTunnelCHopAddrType is set to ipv4(1) or ipv6(2), then this value
     // will contain an appropriate prefix length for the IP address in object
     // mplsTunnelCHopIpAddr. Otherwise this value is irrelevant and should be
     // ignored. The type is interface{} with range: 0..2040.
-    Mplstunnelchopipprefixlen interface{}
+    MplsTunnelCHopIpPrefixLen interface{}
 
     // If mplsTunnelCHopAddrType is set to asnumber(3), then this value will
     // contain the AS number of this hop. Otherwise the agent should set this
     // object to zero-length string and the manager should ignore this. The type
     // is string with length: 4.
-    Mplstunnelchopasnumber interface{}
+    MplsTunnelCHopAsNumber interface{}
 
     // If mplsTunnelCHopAddrType is set to unnum(4), then this value will contain
     // the unnumbered interface identifier of this hop. This object should be used
@@ -1301,53 +1337,56 @@ type MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry struct {
     // ID in this case. Otherwise the agent should set this object to zero- length
     // string and the manager should ignore this. The type is string with length:
     // 4.
-    Mplstunnelchopaddrunnum interface{}
+    MplsTunnelCHopAddrUnnum interface{}
 
     // If mplsTunnelCHopAddrType is set to lspid(5), then this value will contain
     // the LSP ID of this hop. This object is otherwise insignificant and should
     // contain a value of 0 to indicate this fact. The type is string with length:
     // 2 | 6.
-    Mplstunnelchoplspid interface{}
+    MplsTunnelCHopLspId interface{}
 
     // Denotes whether this is tunnel hop is routed in a strict or loose fashion.
-    // The type is Mplstunnelchoptype.
-    Mplstunnelchoptype interface{}
+    // The type is MplsTunnelCHopType.
+    MplsTunnelCHopType interface{}
 }
 
-func (mplstunnelchopentry *MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry) GetEntityData() *types.CommonEntityData {
-    mplstunnelchopentry.EntityData.YFilter = mplstunnelchopentry.YFilter
-    mplstunnelchopentry.EntityData.YangName = "mplsTunnelCHopEntry"
-    mplstunnelchopentry.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelchopentry.EntityData.ParentYangName = "mplsTunnelCHopTable"
-    mplstunnelchopentry.EntityData.SegmentPath = "mplsTunnelCHopEntry" + "[mplsTunnelCHopListIndex='" + fmt.Sprintf("%v", mplstunnelchopentry.Mplstunnelchoplistindex) + "']" + "[mplsTunnelCHopIndex='" + fmt.Sprintf("%v", mplstunnelchopentry.Mplstunnelchopindex) + "']"
-    mplstunnelchopentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelchopentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelchopentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelCHopEntry *MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry) GetEntityData() *types.CommonEntityData {
+    mplsTunnelCHopEntry.EntityData.YFilter = mplsTunnelCHopEntry.YFilter
+    mplsTunnelCHopEntry.EntityData.YangName = "mplsTunnelCHopEntry"
+    mplsTunnelCHopEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelCHopEntry.EntityData.ParentYangName = "mplsTunnelCHopTable"
+    mplsTunnelCHopEntry.EntityData.SegmentPath = "mplsTunnelCHopEntry" + types.AddKeyToken(mplsTunnelCHopEntry.MplsTunnelCHopListIndex, "mplsTunnelCHopListIndex") + types.AddKeyToken(mplsTunnelCHopEntry.MplsTunnelCHopIndex, "mplsTunnelCHopIndex")
+    mplsTunnelCHopEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelCHopEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelCHopEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelchopentry.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelchopentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopListIndex"] = types.YLeaf{"Mplstunnelchoplistindex", mplstunnelchopentry.Mplstunnelchoplistindex}
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopIndex"] = types.YLeaf{"Mplstunnelchopindex", mplstunnelchopentry.Mplstunnelchopindex}
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopAddrType"] = types.YLeaf{"Mplstunnelchopaddrtype", mplstunnelchopentry.Mplstunnelchopaddrtype}
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopIpAddr"] = types.YLeaf{"Mplstunnelchopipaddr", mplstunnelchopentry.Mplstunnelchopipaddr}
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopIpPrefixLen"] = types.YLeaf{"Mplstunnelchopipprefixlen", mplstunnelchopentry.Mplstunnelchopipprefixlen}
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopAsNumber"] = types.YLeaf{"Mplstunnelchopasnumber", mplstunnelchopentry.Mplstunnelchopasnumber}
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopAddrUnnum"] = types.YLeaf{"Mplstunnelchopaddrunnum", mplstunnelchopentry.Mplstunnelchopaddrunnum}
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopLspId"] = types.YLeaf{"Mplstunnelchoplspid", mplstunnelchopentry.Mplstunnelchoplspid}
-    mplstunnelchopentry.EntityData.Leafs["mplsTunnelCHopType"] = types.YLeaf{"Mplstunnelchoptype", mplstunnelchopentry.Mplstunnelchoptype}
-    return &(mplstunnelchopentry.EntityData)
+    mplsTunnelCHopEntry.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelCHopEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopListIndex", types.YLeaf{"MplsTunnelCHopListIndex", mplsTunnelCHopEntry.MplsTunnelCHopListIndex})
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopIndex", types.YLeaf{"MplsTunnelCHopIndex", mplsTunnelCHopEntry.MplsTunnelCHopIndex})
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopAddrType", types.YLeaf{"MplsTunnelCHopAddrType", mplsTunnelCHopEntry.MplsTunnelCHopAddrType})
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopIpAddr", types.YLeaf{"MplsTunnelCHopIpAddr", mplsTunnelCHopEntry.MplsTunnelCHopIpAddr})
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopIpPrefixLen", types.YLeaf{"MplsTunnelCHopIpPrefixLen", mplsTunnelCHopEntry.MplsTunnelCHopIpPrefixLen})
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopAsNumber", types.YLeaf{"MplsTunnelCHopAsNumber", mplsTunnelCHopEntry.MplsTunnelCHopAsNumber})
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopAddrUnnum", types.YLeaf{"MplsTunnelCHopAddrUnnum", mplsTunnelCHopEntry.MplsTunnelCHopAddrUnnum})
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopLspId", types.YLeaf{"MplsTunnelCHopLspId", mplsTunnelCHopEntry.MplsTunnelCHopLspId})
+    mplsTunnelCHopEntry.EntityData.Leafs.Append("mplsTunnelCHopType", types.YLeaf{"MplsTunnelCHopType", mplsTunnelCHopEntry.MplsTunnelCHopType})
+
+    mplsTunnelCHopEntry.EntityData.YListKeys = []string {"MplsTunnelCHopListIndex", "MplsTunnelCHopIndex"}
+
+    return &(mplsTunnelCHopEntry.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry_Mplstunnelchoptype represents strict or loose fashion.
-type MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry_Mplstunnelchoptype string
+// MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry_MplsTunnelCHopType represents strict or loose fashion.
+type MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry_MplsTunnelCHopType string
 
 const (
-    MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry_Mplstunnelchoptype_strict MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry_Mplstunnelchoptype = "strict"
+    MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry_MplsTunnelCHopType_strict MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry_MplsTunnelCHopType = "strict"
 
-    MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry_Mplstunnelchoptype_loose MPLSTESTDMIB_Mplstunnelchoptable_Mplstunnelchopentry_Mplstunnelchoptype = "loose"
+    MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry_MplsTunnelCHopType_loose MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry_MplsTunnelCHopType = "loose"
 )
 
-// MPLSTESTDMIB_Mplstunnelcrldprestable
+// MPLSTESTDMIB_MplsTunnelCRLDPResTable
 // The mplsTunnelCRLDPResTable allows a manager to
 // specify which CR-LDP-specific resources are desired
 // for an MPLS tunnel if that tunnel is signaled using
@@ -1356,7 +1395,7 @@ const (
 // table also allows several tunnels to point to a
 // single entry in this table, implying that these
 // tunnels should share resources.
-type MPLSTESTDMIB_Mplstunnelcrldprestable struct {
+type MPLSTESTDMIB_MplsTunnelCRLDPResTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1364,61 +1403,64 @@ type MPLSTESTDMIB_Mplstunnelcrldprestable struct {
     // established using CRLDP (mplsTunnelSignallingProto equal to crldp (3)). An
     // entry can be created by a network administrator or by an SNMP agent as
     // instructed by any MPLS signalling protocol. The type is slice of
-    // MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry.
-    Mplstunnelcrldpresentry []MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry
+    // MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry.
+    MplsTunnelCRLDPResEntry []*MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry
 }
 
-func (mplstunnelcrldprestable *MPLSTESTDMIB_Mplstunnelcrldprestable) GetEntityData() *types.CommonEntityData {
-    mplstunnelcrldprestable.EntityData.YFilter = mplstunnelcrldprestable.YFilter
-    mplstunnelcrldprestable.EntityData.YangName = "mplsTunnelCRLDPResTable"
-    mplstunnelcrldprestable.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelcrldprestable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
-    mplstunnelcrldprestable.EntityData.SegmentPath = "mplsTunnelCRLDPResTable"
-    mplstunnelcrldprestable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelcrldprestable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelcrldprestable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelCRLDPResTable *MPLSTESTDMIB_MplsTunnelCRLDPResTable) GetEntityData() *types.CommonEntityData {
+    mplsTunnelCRLDPResTable.EntityData.YFilter = mplsTunnelCRLDPResTable.YFilter
+    mplsTunnelCRLDPResTable.EntityData.YangName = "mplsTunnelCRLDPResTable"
+    mplsTunnelCRLDPResTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelCRLDPResTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
+    mplsTunnelCRLDPResTable.EntityData.SegmentPath = "mplsTunnelCRLDPResTable"
+    mplsTunnelCRLDPResTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelCRLDPResTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelCRLDPResTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelcrldprestable.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelcrldprestable.EntityData.Children["mplsTunnelCRLDPResEntry"] = types.YChild{"Mplstunnelcrldpresentry", nil}
-    for i := range mplstunnelcrldprestable.Mplstunnelcrldpresentry {
-        mplstunnelcrldprestable.EntityData.Children[types.GetSegmentPath(&mplstunnelcrldprestable.Mplstunnelcrldpresentry[i])] = types.YChild{"Mplstunnelcrldpresentry", &mplstunnelcrldprestable.Mplstunnelcrldpresentry[i]}
+    mplsTunnelCRLDPResTable.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelCRLDPResTable.EntityData.Children.Append("mplsTunnelCRLDPResEntry", types.YChild{"MplsTunnelCRLDPResEntry", nil})
+    for i := range mplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry {
+        mplsTunnelCRLDPResTable.EntityData.Children.Append(types.GetSegmentPath(mplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry[i]), types.YChild{"MplsTunnelCRLDPResEntry", mplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry[i]})
     }
-    mplstunnelcrldprestable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplstunnelcrldprestable.EntityData)
+    mplsTunnelCRLDPResTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsTunnelCRLDPResTable.EntityData.YListKeys = []string {}
+
+    return &(mplsTunnelCRLDPResTable.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry
+// MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry
 // An entry in this table represents a set of resources
 // for an MPLS tunnel established using CRLDP
 // (mplsTunnelSignallingProto equal to crldp (3)). An
 // entry can be created by a network administrator or
 // by an SNMP agent as instructed by any MPLS
 // signalling protocol.
-type MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry struct {
+type MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // mpls_te_std_mib.MPLSTESTDMIB_Mplstunnelresourcetable_Mplstunnelresourceentry_Mplstunnelresourceindex
-    Mplstunnelresourceindex interface{}
+    // mpls_te_std_mib.MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry_MplsTunnelResourceIndex
+    MplsTunnelResourceIndex interface{}
 
     // The mean burst size in bytes. The type is interface{} with range:
     // 0..4294967295. Units are bytes.
-    Mplstunnelcrldpresmeanburstsize interface{}
+    MplsTunnelCRLDPResMeanBurstSize interface{}
 
     // The Excess burst size in bytes. The type is interface{} with range:
     // 0..4294967295. Units are bytes.
-    Mplstunnelcrldpresexburstsize interface{}
+    MplsTunnelCRLDPResExBurstSize interface{}
 
     // The granularity of the availability of committed rate. The type is
-    // Mplstunnelcrldpresfrequency.
-    Mplstunnelcrldpresfrequency interface{}
+    // MplsTunnelCRLDPResFrequency.
+    MplsTunnelCRLDPResFrequency interface{}
 
     // The relative weight for using excess bandwidth above its committed rate. 
     // The value of 0 means that weight is not applicable for the CR-LSP. The type
     // is interface{} with range: 0..255.
-    Mplstunnelcrldpresweight interface{}
+    MplsTunnelCRLDPResWeight interface{}
 
     // The value of the 1 byte Flags conveyed as part of the traffic parameters
     // during the establishment of the CRLSP. The bits in this object are to be
@@ -1430,51 +1472,54 @@ type MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry struct {
     // the Weight.  Each flag if is a Negotiable Flag corresponding to a Traffic
     // Parameter. The Negotiable Flag value zero denotes Not Negotiable and value
     // one denotes Negotiable. The type is interface{} with range: 0..63.
-    Mplstunnelcrldpresflags interface{}
+    MplsTunnelCRLDPResFlags interface{}
 
     // This variable is used to create, modify, and/or delete a row in this table.
     // When a row in this table is in active(1) state, no objects in that row can
     // be modified by the agent except mplsTunnelCRLDPResRowStatus and
     // mplsTunnelCRLDPResStorageType. The type is RowStatus.
-    Mplstunnelcrldpresrowstatus interface{}
+    MplsTunnelCRLDPResRowStatus interface{}
 
     // The storage type for this CR-LDP Resource entry. Conceptual rows having the
     // value 'permanent' need not allow write-access to any columnar objects in
     // the row. The type is StorageType.
-    Mplstunnelcrldpresstoragetype interface{}
+    MplsTunnelCRLDPResStorageType interface{}
 }
 
-func (mplstunnelcrldpresentry *MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry) GetEntityData() *types.CommonEntityData {
-    mplstunnelcrldpresentry.EntityData.YFilter = mplstunnelcrldpresentry.YFilter
-    mplstunnelcrldpresentry.EntityData.YangName = "mplsTunnelCRLDPResEntry"
-    mplstunnelcrldpresentry.EntityData.BundleName = "cisco_ios_xe"
-    mplstunnelcrldpresentry.EntityData.ParentYangName = "mplsTunnelCRLDPResTable"
-    mplstunnelcrldpresentry.EntityData.SegmentPath = "mplsTunnelCRLDPResEntry" + "[mplsTunnelResourceIndex='" + fmt.Sprintf("%v", mplstunnelcrldpresentry.Mplstunnelresourceindex) + "']"
-    mplstunnelcrldpresentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplstunnelcrldpresentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplstunnelcrldpresentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsTunnelCRLDPResEntry *MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry) GetEntityData() *types.CommonEntityData {
+    mplsTunnelCRLDPResEntry.EntityData.YFilter = mplsTunnelCRLDPResEntry.YFilter
+    mplsTunnelCRLDPResEntry.EntityData.YangName = "mplsTunnelCRLDPResEntry"
+    mplsTunnelCRLDPResEntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsTunnelCRLDPResEntry.EntityData.ParentYangName = "mplsTunnelCRLDPResTable"
+    mplsTunnelCRLDPResEntry.EntityData.SegmentPath = "mplsTunnelCRLDPResEntry" + types.AddKeyToken(mplsTunnelCRLDPResEntry.MplsTunnelResourceIndex, "mplsTunnelResourceIndex")
+    mplsTunnelCRLDPResEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsTunnelCRLDPResEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsTunnelCRLDPResEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplstunnelcrldpresentry.EntityData.Children = make(map[string]types.YChild)
-    mplstunnelcrldpresentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplstunnelcrldpresentry.EntityData.Leafs["mplsTunnelResourceIndex"] = types.YLeaf{"Mplstunnelresourceindex", mplstunnelcrldpresentry.Mplstunnelresourceindex}
-    mplstunnelcrldpresentry.EntityData.Leafs["mplsTunnelCRLDPResMeanBurstSize"] = types.YLeaf{"Mplstunnelcrldpresmeanburstsize", mplstunnelcrldpresentry.Mplstunnelcrldpresmeanburstsize}
-    mplstunnelcrldpresentry.EntityData.Leafs["mplsTunnelCRLDPResExBurstSize"] = types.YLeaf{"Mplstunnelcrldpresexburstsize", mplstunnelcrldpresentry.Mplstunnelcrldpresexburstsize}
-    mplstunnelcrldpresentry.EntityData.Leafs["mplsTunnelCRLDPResFrequency"] = types.YLeaf{"Mplstunnelcrldpresfrequency", mplstunnelcrldpresentry.Mplstunnelcrldpresfrequency}
-    mplstunnelcrldpresentry.EntityData.Leafs["mplsTunnelCRLDPResWeight"] = types.YLeaf{"Mplstunnelcrldpresweight", mplstunnelcrldpresentry.Mplstunnelcrldpresweight}
-    mplstunnelcrldpresentry.EntityData.Leafs["mplsTunnelCRLDPResFlags"] = types.YLeaf{"Mplstunnelcrldpresflags", mplstunnelcrldpresentry.Mplstunnelcrldpresflags}
-    mplstunnelcrldpresentry.EntityData.Leafs["mplsTunnelCRLDPResRowStatus"] = types.YLeaf{"Mplstunnelcrldpresrowstatus", mplstunnelcrldpresentry.Mplstunnelcrldpresrowstatus}
-    mplstunnelcrldpresentry.EntityData.Leafs["mplsTunnelCRLDPResStorageType"] = types.YLeaf{"Mplstunnelcrldpresstoragetype", mplstunnelcrldpresentry.Mplstunnelcrldpresstoragetype}
-    return &(mplstunnelcrldpresentry.EntityData)
+    mplsTunnelCRLDPResEntry.EntityData.Children = types.NewOrderedMap()
+    mplsTunnelCRLDPResEntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsTunnelCRLDPResEntry.EntityData.Leafs.Append("mplsTunnelResourceIndex", types.YLeaf{"MplsTunnelResourceIndex", mplsTunnelCRLDPResEntry.MplsTunnelResourceIndex})
+    mplsTunnelCRLDPResEntry.EntityData.Leafs.Append("mplsTunnelCRLDPResMeanBurstSize", types.YLeaf{"MplsTunnelCRLDPResMeanBurstSize", mplsTunnelCRLDPResEntry.MplsTunnelCRLDPResMeanBurstSize})
+    mplsTunnelCRLDPResEntry.EntityData.Leafs.Append("mplsTunnelCRLDPResExBurstSize", types.YLeaf{"MplsTunnelCRLDPResExBurstSize", mplsTunnelCRLDPResEntry.MplsTunnelCRLDPResExBurstSize})
+    mplsTunnelCRLDPResEntry.EntityData.Leafs.Append("mplsTunnelCRLDPResFrequency", types.YLeaf{"MplsTunnelCRLDPResFrequency", mplsTunnelCRLDPResEntry.MplsTunnelCRLDPResFrequency})
+    mplsTunnelCRLDPResEntry.EntityData.Leafs.Append("mplsTunnelCRLDPResWeight", types.YLeaf{"MplsTunnelCRLDPResWeight", mplsTunnelCRLDPResEntry.MplsTunnelCRLDPResWeight})
+    mplsTunnelCRLDPResEntry.EntityData.Leafs.Append("mplsTunnelCRLDPResFlags", types.YLeaf{"MplsTunnelCRLDPResFlags", mplsTunnelCRLDPResEntry.MplsTunnelCRLDPResFlags})
+    mplsTunnelCRLDPResEntry.EntityData.Leafs.Append("mplsTunnelCRLDPResRowStatus", types.YLeaf{"MplsTunnelCRLDPResRowStatus", mplsTunnelCRLDPResEntry.MplsTunnelCRLDPResRowStatus})
+    mplsTunnelCRLDPResEntry.EntityData.Leafs.Append("mplsTunnelCRLDPResStorageType", types.YLeaf{"MplsTunnelCRLDPResStorageType", mplsTunnelCRLDPResEntry.MplsTunnelCRLDPResStorageType})
+
+    mplsTunnelCRLDPResEntry.EntityData.YListKeys = []string {"MplsTunnelResourceIndex"}
+
+    return &(mplsTunnelCRLDPResEntry.EntityData)
 }
 
-// MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry_Mplstunnelcrldpresfrequency represents rate.
-type MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry_Mplstunnelcrldpresfrequency string
+// MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry_MplsTunnelCRLDPResFrequency represents rate.
+type MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry_MplsTunnelCRLDPResFrequency string
 
 const (
-    MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry_Mplstunnelcrldpresfrequency_unspecified MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry_Mplstunnelcrldpresfrequency = "unspecified"
+    MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry_MplsTunnelCRLDPResFrequency_unspecified MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry_MplsTunnelCRLDPResFrequency = "unspecified"
 
-    MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry_Mplstunnelcrldpresfrequency_frequent MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry_Mplstunnelcrldpresfrequency = "frequent"
+    MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry_MplsTunnelCRLDPResFrequency_frequent MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry_MplsTunnelCRLDPResFrequency = "frequent"
 
-    MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry_Mplstunnelcrldpresfrequency_veryFrequent MPLSTESTDMIB_Mplstunnelcrldprestable_Mplstunnelcrldpresentry_Mplstunnelcrldpresfrequency = "veryFrequent"
+    MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry_MplsTunnelCRLDPResFrequency_veryFrequent MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry_MplsTunnelCRLDPResFrequency = "veryFrequent"
 )
 
